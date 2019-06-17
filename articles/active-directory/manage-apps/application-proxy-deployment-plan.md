@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108474"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>規劃 Azure AD 應用程式 Proxy 部署
 
@@ -62,9 +62,9 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 
 必須符合下列的核心需求，才能設定及實作 Azure AD 應用程式 Proxy。
 
-*  **Azure 上架**:在部署應用程式 proxy 時，必須從內部部署目錄同步處理或直接在您的 Azure AD 租用戶內建立使用者身分識別。 身分識別同步處理可讓 Azure AD 預先驗證使用者，才能授與他們存取應用程式 Proxy 發佈應用程式，並在有必要的使用者的識別項資訊，來執行單一登入 (SSO)。
+*  **Azure 上架**:在部署應用程式 proxy 時，必須從內部部署目錄同步處理或直接在您的 Azure AD 租用戶內建立使用者身分識別。 身分識別同步處理可讓 Azure AD 在允許使用者存取 App Proxy 發佈的應用程式之前，先預先驗證使用者，以及具有執行單一登入 (SSO) 所需的使用者識別碼資訊。
 
-* **條件式存取需求**:不建議使用內部網路存取的應用程式 Proxy，因為這樣會影響使用者的延遲。 我們建議使用預先驗證和條件式存取原則中的應用程式 Proxy，來自網際網路的遠端存取。  使用 AAD 進行驗證的方式，使用於內部網路的條件式存取是現代化的應用程式，因此他們可以 diretly。 請參閱[資源移轉至 AAD 的應用程式](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources)如需詳細資訊。 
+* **條件式存取需求**:不建議使用內部網路存取的應用程式 Proxy，因為這樣會影響使用者的延遲。 我們建議使用預先驗證和條件式存取原則的應用程式 Proxy，來自網際網路的遠端存取。  使用 AAD 進行驗證的方式，使用於內部網路的條件式存取是現代化的應用程式，因此他們可以 diretly。 請參閱[資源移轉至 AAD 的應用程式](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources)如需詳細資訊。 
 
 * **服務限制**:若要防止使用量過高的個別租用戶的資源是設定每個應用程式和租用戶的節流限制。 若要查看這些限制，請參閱[Azure AD 服務限制](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)。 這些節流限制會根據遠超出一般使用磁碟區的基準，並提供大多數部署很大的緩衝區。
 
@@ -266,7 +266,7 @@ Azure AD Application Proxy 也可以支援為了使用我們的 Azure AD Authent
 
 * 裝置型條件式存取：確保只有已註冊、 已核准，且符合規範的裝置可以存取公司資料[裝置型條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)。
 
-* 應用程式型條件式存取：工作不需要使用者不在公司網路上時停止。 [安全存取公司的雲端和內部部署應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)並維護使用條件式存取控制。
+* 應用程式型條件式存取：工作不需要使用者不在公司網路上時停止。 [安全存取公司的雲端和內部部署應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)和維護使用條件式存取的控制項。
 
 * 風險型條件式存取：保護資料免於惡意駭客[風險型條件式存取原則](https://www.microsoft.com/cloud-platform/conditional-access)，可以套用至所有的應用程式和所有使用者，是否在內部部署或雲端中。
 

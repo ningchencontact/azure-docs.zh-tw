@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799525"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>管理連線到 Azure 的影片索引器帳戶
@@ -36,11 +36,11 @@ ms.locfileid: "65799525"
 
 若要檢視設定：
 
-1. 按一下右上角的使用者圖示，然後選取 [設定]。
+1. 按一下右上角的使用者圖示，然後選取 [設定]  。
 
     ![設定](./media/manage-account-connected-to-azure/select-settings.png)
 
-2. 在 [設定] 頁面上，選取 [帳戶] 索引標籤。
+2. 在 [設定]  頁面上，選取 [帳戶]  索引標籤。
 
 如果您的影片索引器帳戶已連線到 Azure，您會看到下列內容：
 
@@ -48,11 +48,11 @@ ms.locfileid: "65799525"
 * 執行中和排入佇列的編製索引作業數目。
 * 已配置的保留單元類型與數量。
 
-如果您的帳戶需要做一些調整，您會在 [設定] 頁面上看到與帳戶設定相關的錯誤和警告。 這些訊息包含 Azure 入口網站中確切位置的連結，也就是您必須進行變更的位置。 如需詳細資訊，請參閱之後的[錯誤和警告](#errors-and-warnings)一節。
+如果您的帳戶需要做一些調整，您會在 [設定]  頁面上看到與帳戶設定相關的錯誤和警告。 這些訊息包含 Azure 入口網站中確切位置的連結，也就是您必須進行變更的位置。 如需詳細資訊，請參閱之後的[錯誤和警告](#errors-and-warnings)一節。
 
 ## <a name="auto-scale-reserved-units"></a>自動調整保留單元
 
-[設定] 頁面可讓您設定媒體保留單元 (RU) 的自動調整。 如果選項為 [開啟]，您可以配置 RU 的數目上限，並確定該影片索引器可自動停止/啟動 RU。 使用此選項時，您不需要為閒置時間支付額外費用，也不會在索引編製負載很高時等候很長的索引編製時間。
+[設定]  頁面可讓您設定媒體保留單元 (RU) 的自動調整。 如果選項為 [開啟]  ，您可以配置 RU 的數目上限，並確定該影片索引器可自動停止/啟動 RU。 使用此選項時，您不需要為閒置時間支付額外費用，也不會在索引編製負載很高時等候很長的索引編製時間。
 
 自動調整不會低於 1 RU 或超過媒體服務帳戶的預設限制。 若要增加限制，請建立服務要求。 如需配額和限制以及如何開啟支援票證的相關資訊，請參閱 [配額和限制](../../media-services/previous/media-services-quotas-and-limitations.md)。
 
@@ -60,11 +60,11 @@ ms.locfileid: "65799525"
 
 ## <a name="errors-and-warnings"></a>錯誤和警告
 
-如果您的帳戶需要做一些調整，您會在 [設定] 頁面上看到與帳戶設定相關的錯誤和警告。 這些訊息包含 Azure 入口網站中確切位置的連結，也就是您必須進行變更的位置。 本節提供有關錯誤和警告訊息的詳細資料。
+如果您的帳戶需要做一些調整，您會在 [設定]  頁面上看到與帳戶設定相關的錯誤和警告。 這些訊息包含 Azure 入口網站中確切位置的連結，也就是您必須進行變更的位置。 本節提供有關錯誤和警告訊息的詳細資料。
 
 * Event Grid
 
-    您必須使用 Azure 入口網站註冊 EventGrid 資源提供者。 在 [Azure 入口網站](https://portal.azure.com/) 中，前往 [訂用帳戶] > [訂用帳戶] > [資源提供者] > [Microsoft.EventGrid]。 如果不是處於「已註冊」狀態，請按一下 [註冊]。 這需要幾分鐘來完成註冊。 
+    您必須使用 Azure 入口網站註冊 EventGrid 資源提供者。 在 [Azure 入口網站](https://portal.azure.com/) 中，前往 [訂用帳戶]  > [訂用帳戶] > [資源提供者]   > [Microsoft.EventGrid]  。 如果不是處於「已註冊」  狀態，請按一下 [註冊]  。 這需要幾分鐘來完成註冊。 
 
 * 串流端點
 

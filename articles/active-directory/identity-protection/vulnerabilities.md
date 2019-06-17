@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b481030c5d2d8e7d5e7061cdf256a202e08d6cbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113115"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108795"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 偵測到的弱點
 
@@ -34,14 +34,14 @@ Azure Multi-factor Authentication 提供第二個使用者驗證的安全性層�
 
 * 撥打電話
 * 簡訊
-* 行動裝置應用程式通知
+* 行動應用程式通知
 * OTP 驗證碼
 
-建議您要求對使用者登入進行 Multi-Factor Authentication。在 Identity Protection 提供的以風險為基礎的條件式存取原則中，Multi-Factor Authentication 扮演關鍵角色。
+建議您要求對使用者登入進行 Multi-Factor Authentication。多重要素驗證會透過 Identity Protection 的 風險型條件式存取原則中扮演重要的角色。
 
 如需詳細資訊，請參閱[什麼是 Azure Multi-Factor Authentication？](../authentication/multi-factor-authentication.md)。
 
-## <a name="unmanaged-cloud-apps"></a>非受控的雲端應用程式
+## <a name="unmanaged-cloud-apps"></a>非受控雲端應用程式
 
 此弱點可協助您識別組織中非受控雲端應用程式。
 
@@ -51,7 +51,7 @@ IT 人員多半不知道其組織中的所有雲端應用程式。 您應該不�
 
 如需詳細資訊，請參閱 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)。
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management 的安全性警示
+## <a name="security-alerts-from-privileged-identity-management"></a>來自 Privileged Identity Management 的安全性警示
 
 此弱點可協助您找出並解決有關您組織中特殊權限身分識別的警示。  
 

@@ -1,0 +1,132 @@
+---
+title: 適用於 MySQL 的 Azure 資料庫稽核記錄檔
+description: 描述可用的 Azure 資料庫中的稽核記錄 for MySQL，並啟用記錄層級的可用參數。
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 06/11/2019
+ms.openlocfilehash: 35cbe04380e2113f986d1e7adf3f7fdf89cb9326
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078868"
+---
+# <a name="audit-logs-in-azure-database-for-mysql"></a>稽核適用於 MySQL 的 Azure 資料庫中的記錄檔
+
+在適用於 MySQL 的 Azure 資料庫，稽核記錄檔是提供給使用者。 稽核記錄檔可用來追蹤資料庫層級的活動，並常用於合規性。
+
+> [!IMPORTANT]
+> 稽核記錄功能目前為預覽狀態。
+
+## <a name="configure-audit-logging"></a>設定稽核記錄
+
+預設會停用稽核記錄檔。 若要啟用它，請設定`audit_log_enabled`設為 ON。
+
+您可以調整的其他參數包含：
+
+- `audit_log_events`： 控制要記錄的事件。 請參閱下表針對特定的稽核事件。
+- `audit_log_exclude_users`:若要從記錄中排除的 MySQL 使用者。 允許最多有四個使用者。 參數的最大長度為 256 個字元。
+
+| **Event** | **說明** |
+|---|---|
+| `CONNECTION` | -連線初始化 （成功或失敗） <br> 使用不同的使用者/密碼的工作階段的使用者重新驗證 <br> -連接終止 |
+| `DML_SELECT`| SELECT 查詢 |
+| `DML_NONSELECT` | 插入/刪除/更新查詢 |
+| `DML` | DML = DML_SELECT + DML_NONSELECT |
+| `DDL` | 例如 「 卸除資料庫 」 的查詢 |
+| `DCL` | 「 授與權限 」 類似的查詢 |
+| `ADMIN` | 「 顯示狀態 」 類似的查詢 |
+| `GENERAL` | 全都放在 DML_SELECT、 DML_NONSELECT、 DML、 DDL、 DCL 和系統管理員 |
+| `TABLE_ACCESS` | -僅適用於 MySQL 5.7 <br> 資料表讀取陳述式，例如 SELECT 或 INSERT INTO...SELECT <br> 資料表刪除陳述式，例如 DELETE 或 TRUNCATE TABLE <br> 資料表插入陳述式，例如插入或取代 <br> 資料表更新陳述式，例如更新 |
+
+## <a name="access-audit-logs"></a>存取稽核記錄
+
+稽核記錄檔會與 Azure 監視器的診斷記錄檔整合。 一旦您已將 MySQL 伺服器上啟用稽核記錄檔，您可以發出這些 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用 Azure 入口網站中的診斷記錄檔，請參閱[稽核記錄檔入口網站的文章](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)。
+
+## <a name="schemas"></a>結構描述
+
+下列各節會描述什麼是由 MySQL 稽核記錄，根據事件類型的輸出。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
+
+### <a name="connection"></a>連線
+
+| **屬性** | **說明** |
+|---|---|
+| `TenantId` | 您的租用戶識別碼 |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
+| `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
+| `ResourceGroup` | 伺服器所屬資源群組的名稱 |
+| `ResourceProvider` | 資源提供者名稱。 一律為 `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | 資源 URI |
+| `Resource` | 伺服器的名稱 |
+| `Category` | `MySqlAuditLogs` |
+| `OperationName` | `LogEvent` |
+| `event_class` | `connection_log` |
+| `event_subclass` | `CONNECT``DISCONNECT`， `CHANGE USER` （僅適用於 MySQL 5.7） |
+| `connection_id` | MySQL 所產生的唯一連接識別碼 |
+| `host` | 空白 |
+| `ip` | 連接至 MySQL 用戶端 IP 位址 |
+| `user` | 執行查詢的使用者名稱 |
+| `db` | 若要連接的資料庫名稱 |
+| `\_ResourceId` | 資源 URI |
+
+### <a name="general"></a>一般
+
+下列的結構描述適用於一般、 DML_SELECT、 DML_NONSELECT、 DML、 DDL、 DCL 和系統管理員的事件類型。
+
+| **屬性** | **說明** |
+|---|---|
+| `TenantId` | 您的租用戶識別碼 |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
+| `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
+| `ResourceGroup` | 伺服器所屬資源群組的名稱 |
+| `ResourceProvider` | 資源提供者名稱。 一律為 `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | 資源 URI |
+| `Resource` | 伺服器的名稱 |
+| `Category` | `MySqlAuditLogs` |
+| `OperationName` | `LogEvent` |
+| `event_class` | `general_log` |
+| `event_subclass` | `LOG``ERROR`， `RESULT` （僅適用於 MySQL 5.6） |
+| `event_time` | 查詢中的 UNIX 時間戳記開始秒 |
+| `error_code` | 如果查詢失敗，出現錯誤代碼。 `0` 表示沒有任何錯誤 |
+| `thread_id` | 執行查詢的執行緒識別碼 |
+| `host` | 空白 |
+| `ip` | 連接至 MySQL 用戶端 IP 位址 |
+| `user` | 執行查詢的使用者名稱 |
+| `sql_text` | 完整的查詢文字 |
+| `\_ResourceId` | 資源 URI |
+
+### <a name="table-access"></a>資料表存取權
+
+| **屬性** | **說明** |
+|---|---|
+| `TenantId` | 您的租用戶識別碼 |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
+| `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
+| `ResourceGroup` | 伺服器所屬資源群組的名稱 |
+| `ResourceProvider` | 資源提供者名稱。 一律為 `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | 資源 URI |
+| `Resource` | 伺服器的名稱 |
+| `Category` | `MySqlAuditLogs` |
+| `OperationName` | `LogEvent` |
+| `event_class` | `table_access_log` |
+| `event_subclass` | `READ``INSERT`， `UPDATE`，或 `DELETE` |
+| `connection_id` | MySQL 所產生的唯一連接識別碼 |
+| `db` | 存取資料庫的名稱 |
+| `table` | 存取的資料表名稱 |
+| `sql_text` | 完整的查詢文字 |
+| `\_ResourceId` | 資源 URI |
+
+## <a name="next-steps"></a>後續步驟
+
+- [如何在 Azure 入口網站中設定稽核記錄檔](howto-configure-audit-logs-portal.md)

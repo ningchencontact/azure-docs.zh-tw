@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da934709274d90668d94dfea3a9c223e191d032
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ab2701a82da0b8f7bc4e23a3d947be905593e85
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057226"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>傳統型應用程式呼叫 web Api-應用程式註冊
 
@@ -46,12 +46,13 @@ ms.locfileid: "65076056"
 
 再次重新導向 Uri 以用於桌面應用程式將取決於您想要使用的流程。
 
-- 如果您使用互動式驗證，您會想要使用`https://login.microsoftonline.com/common/oauth2/nativeclient`。 您會在對應的 URL，即可達成這項組態**驗證**一節以取得您的應用程式
+- 如果您使用**互動式驗證**或是**裝置程式碼流程**，您會想要使用`https://login.microsoftonline.com/common/oauth2/nativeclient`。 您會在對應的 URL，即可達成這項組態**驗證**一節以取得您的應用程式
   
   > [!IMPORTANT]
   > MSAL.NET 現在預設會在 Windows 上執行的桌面應用程式使用另一個重新導向 URI (`urn:ietf:wg:oauth:2.0:oob`)。 未來我們會想要變更此預設值，並因此我們建議您改用 `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- 如果您的應用程式只使用整合式 Windows 驗證，使用者名稱/密碼] 或 [程式碼流程的裝置，您不需要註冊您的應用程式的重新導向 URI。 事實上，這些流程 Microsoft 身分識別平台 v2.0 端點之間往返進行您的應用程式將不會傳回呼叫任何特定的 uri。 若要區別機密用戶端應用程式流程，它沒有從重新導向 Uri 可能是 （用戶端認證流程精靈應用程式中使用），您需要以表達您的應用程式是公用的用戶端應用程式。 這項設定之後，即可移至**驗證**您的應用程式，然後在  區段**進階設定**子區段中，選擇 **是**，問題**視為公開用戶端應用程式**(在**預設用戶端類型**段落)
+- 如果您的應用程式只使用整合式 Windows 驗證，使用者名稱/密碼，您不需要註冊您的應用程式的重新導向 URI。 事實上，這些流程 Microsoft 身分識別平台 v2.0 端點之間往返進行您的應用程式將不會傳回呼叫任何特定的 uri。 
+- 為了區分裝置程式碼流程，整合式 Windows 驗證和使用者名稱/密碼從機密用戶端應用程式流程，它沒有重新導向 Uri 可能是 （用戶端認證流程精靈應用程式中使用），您需要 express您的應用程式是公用的用戶端應用程式。 這項設定之後，即可移至**驗證**您的應用程式，然後在  區段**進階設定**子區段中，選擇 **是**，問題**視為公開用戶端應用程式**(在**預設用戶端類型**段落)
 
   ![允許公開用戶端](media/scenarios/default-client-type.png)
 

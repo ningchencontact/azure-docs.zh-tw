@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 421f255353a3cf0b6cc000677c91d0f8c84cbc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c90e466bb7798fae3008dd72a4a4a0e2a0e7a0b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125773"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,7 +25,8 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| 2019 年更新彙總套件- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 5 月 7日日 | 支援 (建議的版本) |
+| 2019 年 6 月更新彙總套件- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 年 6 月 13日日 | 支援 (建議的版本) |
+| 2019 年更新彙總套件- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 5 月 7日日 | 支援 |
 | V6 發行- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 年 4 月 21日日 | 支援 |
 | 2019 年 4 月更新彙總套件- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 年 4 月 4日日 | 支援 |
 | 2019 年 3 月更新彙總套件- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 年 3 月 7日日 | 支援 |
@@ -41,6 +42,14 @@ Azure 檔案同步代理程式支援下列版本：
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-6200"></a>代理程式版本 6.2.0.0
+下列版本資訊適用於 6.2.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 6 月 13 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。
+
+此版本修正的問題清單：  
+- 建立伺服器端點之後, 背景重新叫用會將檔案下載到伺服器時，可能發生高 CPU 使用量
+- 同步處理和雲端階層處理作業可能會失敗，錯誤 ECS_E_SERVER_CREDENTIAL_NEEDED 由於權杖的到期
+- 若要下載檔案的 URL 包含保留的字元恢復檔案可能會失敗 
 
 ## <a name="agent-version-6100"></a>代理程式版本 6.1.0.0
 下列版本資訊適用於 6.1.0.0 Azure 檔案同步代理程式的發行版本於 2019 5 月 6 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。

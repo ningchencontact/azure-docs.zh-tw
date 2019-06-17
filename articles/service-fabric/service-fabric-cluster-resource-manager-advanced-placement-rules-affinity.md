@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118410"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中設定並使用服務同質性
@@ -56,11 +56,11 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 
 ## <a name="different-affinity-options"></a>各種同質性選項
-同質性是透過數種相互關聯的結構描述之一來表示，而且有兩種不同的模式。 同質性的最常見模式是我們稱為 NonAlignedAffinity 的模式。 在 NonAlignedAffinity 中，不同服務的複本或執行個體會放在同一個節點上。 另一种模式是 AlignedAffinity。 對齊的同質性只有在與具狀態服務搭配使用時才有用。 設定兩個具狀態服務來具備對齊的同質性，可以確保那些服務的主要複本都位於和彼此相同的節點上。 它也會讓那些服務的每一對次要複本位於相同的節點上。 它也可能 (但較不常見) 針對具狀態服務設定 NonAlignedAffinity。 對於 NonAlignedAffinity，兩個具狀態服務的不同複本會在相同節點上執行，但它們的主要複本可以在不同節點上結束。
+同質性是透過數種相互關聯的結構描述之一來表示，而且有兩種不同的模式。 同質性的最常見模式是我們稱為 NonAlignedAffinity 的模式。 在 NonAlignedAffinity 中，不同服務的複本或執行個體會放在同一個節點上。 另一個模式是 AlignedAffinity。 對齊的同質性只有在與具狀態服務搭配使用時才有用。 設定兩個具狀態服務來具備對齊的同質性，可以確保那些服務的主要複本都位於和彼此相同的節點上。 它也會讓那些服務的每一對次要複本位於相同的節點上。 它也可能 (但較不常見) 針對具狀態服務設定 NonAlignedAffinity。 對於 NonAlignedAffinity，兩個具狀態服務的不同複本會在相同節點上執行，但它們的主要複本可以在不同節點上結束。
 
 <center>
 
-![相关性模式及其影响][Image1]
+![同質性模式和其效果][Image1]
 </center>
 
 ### <a name="best-effort-desired-state"></a>盡力而為的期望狀態
@@ -71,7 +71,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 <center>
 
-![相关性关系上下文中的链形与星形的比較][Image2]
+![鏈結與星形的比較][Image2]
 </center>
 
 目前關於同質關聯性的另一個注意事項是它們預設是雙向的。 這表示同質性規則只會強制讓子系跟隨父系來放置。 它無法確保父系會與子系位於相同位置。 因此，如果有同質性違規發生，且基於某種原因要修正違規，將子系移至父系節點是不可行的，即使將父系移至子系節點會修正違規，父系節點也不會移至子系節點。 將 [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) 設為 True 會移除方向。 也請務必注意，同質關聯性不可能完美無缺或立即強制執行，因為不同的服務會有不同的生命週期，因此可以單獨地失敗和移動。 例如，假設父系因為當機而突然容錯移轉至另一個節點。 叢集資源管理員和容錯移轉管理員會先處理容錯移轉，因為其首要任務就是讓服務保持運作、一致性和可用性。 在容錯移轉完成之後，同質關聯性已中斷，但叢集資源管理員會認為一切正常，直到它發現子系並未與父系放在一起。 系統會定期執行這類檢查。 您可以在[這篇文章](service-fabric-cluster-resource-manager-management-integration.md#constraint-types)中找到更多關於叢集資源管理員如何評估條件約束的資訊，[這篇文章](service-fabric-cluster-resource-manager-balancing.md)則會深入說明如何設定這些條件約束的評估頻率。   

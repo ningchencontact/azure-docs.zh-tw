@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ba015a1d5183fcf27cfcc05ef1d0cd838201e91e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169646"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077125"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
-您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 補救指示 Azure 原則來執行，即可**deployIfNotExists**對您現有的資源所指派之原則的影響。 本文說明以了解，並完成修復與 Azure 原則所需的步驟。
+您可以透過「補救」  讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 補救指示 Azure 原則來執行，即可**deployIfNotExists**對您現有的資源所指派之原則的影響。 本文說明以了解，並完成修復與 Azure 原則所需的步驟。
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -51,10 +51,6 @@ Azure 原則建立受管理的身分識別，每個指派，但必須有關於�
 az role definition list --name 'Contributor'
 ```
 
-```azurepowershell-interactive
-Get-AzRoleDefinition -Name 'Contributor'
-```
-
 ## <a name="manually-configure-the-managed-identity"></a>手動設定受控識別
 
 在建立時指派使用入口網站，Azure 原則產生受管理的身分識別並授與該中定義的角色**roleDefinitionIds**。 在下列情況下，必須手動執行建立受控識別並為它指派權限的步驟：
@@ -68,7 +64,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ### <a name="create-managed-identity-with-powershell"></a>使用 PowerShell 來建立受控識別
 
-若要在指派原則的期間建立受控識別，必須定義 **Location** 並使用 **AssignIdentity**。 下列範例會取得 [部署 SQL DB 透明資料加密] 內建原則的定義、設定目標資源群組，然後建立指派。
+若要在指派原則的期間建立受控識別，必須定義 **Location** 並使用 **AssignIdentity**。 下列範例會取得 [部署 SQL DB 透明資料加密]  內建原則的定義、設定目標資源群組，然後建立指派。
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -104,17 +100,17 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>透過入口網站授與已定義的角色
 
-使用入口網站將已定義的角色授與指派項目的受控識別時，有兩種方法：使用**存取控制 (IAM)**，或是編輯原則或方案指派，然後按一下 [儲存]。
+使用入口網站將已定義的角色授與指派項目的受控識別時，有兩種方法：使用**存取控制 (IAM)** ，或是編輯原則或方案指派，然後按一下 [儲存]  。
 
 若要將角色新增至指派項目的受控識別，請依照下列步驟進行操作：
 
-1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務]  然後搜尋並選取 [原則]  ，在 Azure 入口網站中啟動 Azure 原則服務。
 
-1. 選取 Azure 原則分頁左側的 [指派]。
+1. 選取 Azure 原則分頁左側的 [指派]  。
 
 1. 找出具有受控識別的指派項目，然後按一下其名稱。
 
-1. 在編輯頁面上尋找 [指派識別碼] 屬性。 指派識別碼會類似於：
+1. 在編輯頁面上尋找 [指派識別碼]  屬性。 指派識別碼會類似於：
 
    ```output
    /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
@@ -124,47 +120,47 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 瀏覽至需要手動新增角色定義的資源或資源父容器 (資源群組、訂用帳戶、管理群組)。
 
-1. 按一下資源頁面中的 [存取控制 (IAM)] 連結，然後按一下存取控制頁面頂端的 [+ 新增角色指派]。
+1. 按一下資源頁面中的 [存取控制 (IAM)]  連結，然後按一下存取控制頁面頂端的 [+ 新增角色指派]  。
 
 1. 從原則定義中選取符合 **roleDefinitionIds** 的適當角色。
-   將 [存取權指派對象為] 保留設定為預設的 [Azure AD 使用者、群組或應用程式]。 在 [選取] 方塊中，貼上或輸入稍早找到的指派資源識別碼部分。 在搜尋完成之後，按一下具有相同名稱的物件以選取識別碼，然後按一下 [儲存]。
+   將 [存取權指派對象為]  保留設定為預設的 [Azure AD 使用者、群組或應用程式]。 在 [選取]  方塊中，貼上或輸入稍早找到的指派資源識別碼部分。 在搜尋完成之後，按一下具有相同名稱的物件以選取識別碼，然後按一下 [儲存]  。
 
 ## <a name="create-a-remediation-task"></a>建立補救工作
 
 ### <a name="create-a-remediation-task-through-portal"></a>建立補救工作透過入口網站
 
-在評估期間，具有 **deployIfNotExists** 效果的原則指派會判斷是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救] 頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此選項會從 **deployIfNotExists** 範本建立部署。
+在評估期間，具有 **deployIfNotExists** 效果的原則指派會判斷是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救]  頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此選項會從 **deployIfNotExists** 範本建立部署。
 
 若要建立**補救工作**，請依照下列步驟進行操作：
 
-1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務]  然後搜尋並選取 [原則]  ，在 Azure 入口網站中啟動 Azure 原則服務。
 
    ![搜尋所有服務中的原則](../media/remediate-resources/search-policy.png)
 
-1. 選取「Azure 原則」頁面左側的 [補救]。
+1. 選取「Azure 原則」頁面左側的 [補救]  。
 
    ![在 原則 頁面上選取 補救](../media/remediate-resources/select-remediation.png)
 
-1. [用以補救的原則] 索引標籤和資料表格上會包含所有具有不符合規範之資源的 **deployIfNotExists** 原則指派。 按一下具有不符合規範之資源的原則。 [新的補救工作] 頁面隨即開啟。
+1. [用以補救的原則]  索引標籤和資料表格上會包含所有具有不符合規範之資源的 **deployIfNotExists** 原則指派。 按一下具有不符合規範之資源的原則。 [新的補救工作]  頁面隨即開啟。
 
    > [!NOTE]
-   > 有一個開啟 [補救工作] 頁面的替代方式，就是從 [合規性] 頁面尋找並按一下原則，然後按一下 [建立補救工作] 按鈕。
+   > 有一個開啟 [補救工作]  頁面的替代方式，就是從 [合規性]  頁面尋找並按一下原則，然後按一下 [建立補救工作]  按鈕。
 
-1. 在 [新的補救工作] 頁面上，使用 [範圍] 的省略符號，從已被指派該原則的資源中挑選子資源 (包括一直到個別資源物件)，以篩選要補救的資源。 此外，請使用 [位置] 下拉式清單來進一步篩選資源。 將只會補救表格中所列出的資源。
+1. 在 [新的補救工作]  頁面上，使用 [範圍]  的省略符號，從已被指派該原則的資源中挑選子資源 (包括一直到個別資源物件)，以篩選要補救的資源。 此外，請使用 [位置]  下拉式清單來進一步篩選資源。 將只會補救表格中所列出的資源。
 
    ![補救-選取要修復哪些資源](../media/remediate-resources/select-resources.png)
 
-1. 篩選資源之後，按一下 [補救] 來開始補救工作。 原則合規性頁面將會開啟至 [補救工作] 索引標籤，以顯示工作進度的狀態。
+1. 篩選資源之後，按一下 [補救]  來開始補救工作。 原則合規性頁面將會開啟至 [補救工作]  索引標籤，以顯示工作進度的狀態。
 
    ![補救-補救工作進度](../media/remediate-resources/task-progress.png)
 
-1. 從原則合規性頁面按一下 [補救工作] 以取得進度的相關詳細資料。 這會顯示針對該工作所使用的篩選，以及所要補救的資源清單。
+1. 從原則合規性頁面按一下 [補救工作]  以取得進度的相關詳細資料。 這會顯示針對該工作所使用的篩選，以及所要補救的資源清單。
 
-1. 從 [補救工作] 頁面中，在資源上按一下滑鼠右鍵，以檢視補救工作的部署或資源。 在資料列結尾，按一下 [相關事件] 以查看詳細資料，例如錯誤訊息。
+1. 從 [補救工作]  頁面中，在資源上按一下滑鼠右鍵，以檢視補救工作的部署或資源。 在資料列結尾，按一下 [相關事件]  以查看詳細資料，例如錯誤訊息。
 
    ![補救 - 資源工作操作功能表](../media/remediate-resources/resource-task-context-menu.png)
 
-透過**補救工作**部署的資源會新增至原則合規性頁面上的 [已部署資源] 索引標籤中。
+透過**補救工作**部署的資源會新增至原則合規性頁面上的 [已部署資源]  索引標籤中。
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>建立 Azure CLI 透過補救工作
 
@@ -199,4 +195,4 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 了解如何[以程式設計方式建立原則](programmatically-create.md)。
 - 了解如何[取得合規性資料](getting-compliance-data.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

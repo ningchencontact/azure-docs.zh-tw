@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110918"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>遠端連線到虛擬機器擴展集執行個體或叢集節點
@@ -28,9 +28,9 @@ ms.locfileid: "62110918"
 
 1. 取得遠端桌面通訊協定 (RDP) 的輸入 NAT 規則。
 
-    在叢集中定義的每個節點類型通常都有它自己的虛擬 IP 位址和專用負載平衡器。 根據預設，節點類型的負載平衡器的以下列格式命名：*LB-{叢集-名稱}-{節點型別}*; 例如， *mycluster-Lb-frontend*。 
+    在叢集中定義的每個節點類型通常都有它自己的虛擬 IP 位址和專用負載平衡器。 根據預設，節點類型的負載平衡器的以下列格式命名：*LB-{叢集-名稱}-{節點型別}* ; 例如， *mycluster-Lb-frontend*。 
     
-    在 Azure 入口網站中您負載平衡器的頁面上，選取 [設定] > [輸入 NAT 規則]： 
+    在 Azure 入口網站中您負載平衡器的頁面上，選取 [設定]   > [輸入 NAT 規則]  ： 
 
     ![負載平衡器輸入 NAT 規則](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
@@ -38,11 +38,11 @@ ms.locfileid: "62110918"
 
     ![負載平衡器輸入 NAT 規則](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
-    針對每個節點，IP 位址會出現在 [目的地]資料行中，[目標] 資料行會提供擴展集執行個體，而 [服務] 資料行會提供連接埠號碼。 針對遠端連線，連接埠會以遞增順序配置給每個節點 (開頭為連接埠 3389)。
+    針對每個節點，IP 位址會出現在 [目的地]  資料行中，[目標]  資料行會提供擴展集執行個體，而 [服務]  資料行會提供連接埠號碼。 針對遠端連線，連接埠會以遞增順序配置給每個節點 (開頭為連接埠 3389)。
 
     您也可以針對叢集，在 Resource Manager 範本的 `Microsoft.Network/loadBalancers` 區段中找到輸入 NAT 規則。
     
-2. 若要確認節點的輸入連接埠與目標連接埠對應，您可以按一下其規則並查看 [目標連接埠] 值。 下列螢幕擷取畫面顯示前一個步驟中 **FrontEnd (執行個體 1)** 節點的輸入 NAT 規則。 請注意，雖然 (輸入) 連接埠號碼是 3390，但目標連接埠會對應至連接埠 3389 (目標上 RDP 服務的連接埠)。  
+2. 若要確認節點的輸入連接埠與目標連接埠對應，您可以按一下其規則並查看 [目標連接埠]  值。 下列螢幕擷取畫面顯示前一個步驟中 **FrontEnd (執行個體 1)** 節點的輸入 NAT 規則。 請注意，雖然 (輸入) 連接埠號碼是 3390，但目標連接埠會對應至連接埠 3389 (目標上 RDP 服務的連接埠)。  
 
     ![目標連接埠對應](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "62110918"
 
 3. 遠端連線到特定節點 (擴展集執行個體)。 您可以使用當您建立叢集時所設定的使用者名稱和密碼，或您已設定的任何其他認證。 
 
-    下列螢幕擷取畫面顯示如何使用「遠端桌面連線」來連線到 Windows 叢集中的 **FrontEnd (執行個體 1)**：
+    下列螢幕擷取畫面顯示如何使用「遠端桌面連線」來連線到 Windows 叢集中的 **FrontEnd (執行個體 1)** ：
     
     ![遠端桌面連線](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
 

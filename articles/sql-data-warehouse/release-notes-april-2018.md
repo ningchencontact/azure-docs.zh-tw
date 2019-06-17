@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5fd2d5e2022cc1cf552ee7b525dcc484cc718f1f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912251"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 4 月
@@ -39,7 +39,7 @@ SQL 資料倉儲導入了一組變更，以改進分散式查詢的查詢編譯�
 SQL 資料倉儲支援 T-SQL [DBCC 命令](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql)的子集，例如 [DBCC DROPCLEANBUFFERS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-dropcleanbuffers-transact-sql)。 之前，這些命令會耗用[並行位置](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#concurrency-slots)，減少可執行的使用者載入/查詢數量。 `DBCC` 命令現在會在本機佇列中運行，不會耗用資源位置，從而改善整體的查詢執行效能。
 
 ## <a name="updated-error-message-for-excessive-literals-behavior-change"></a>更新過多常值的錯誤訊息 (行為變更)
-之前，當查詢包含太多的常值時，SQL 資料倉儲會包含「近似」計數。
+之前，當查詢包含太多的常值時，SQL 資料倉儲會包含「近似」  計數。
 ```
 Msg 100086
 Cannot have more than 20,000 literals in the query. The query contains [n] literals.

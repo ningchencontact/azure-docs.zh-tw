@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075807"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
@@ -34,11 +34,11 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 > 如果您使用區域備援進階或業務關鍵資料庫或集區，系統就會自動執行復原程序，但這份資料的其餘部分不適用。
 
 > [!NOTE]
-> 主要和次要資料庫必須有相同的服務層級。 另外，强烈建议创建与主数据库具有相同计算大小（DTU 或 vCore）的辅助数据库。 有关详细信息，请参阅[作为主数据库进行升级或降级](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database)。
+> 主要和次要資料庫必須有相同的服務層級。 也強烈建議使用的相同計算大小 （Dtu 或 Vcore） 做為主要建立次要資料庫。 如需詳細資訊，請參閱 <<c0> [ 升級或降級為主要資料庫](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database)。
 
 > [!NOTE]
-> 使用一个或多个故障转移组来管理多个数据库的故障转移。
-> 如果您在容錯移轉群組中新增現有的異地複寫關聯性，請確定異地次要資料庫所設定的服務層級與計算大小和主要資料庫相同。 有关详细信息，请参阅[使用自动故障转移组可以实现多个数据库的透明、协调式故障转移](sql-database-auto-failover-group.md)。
+> 您可以使用一或多個容錯移轉群組來管理多個資料庫的容錯移轉。
+> 如果您在容錯移轉群組中新增現有的異地複寫關聯性，請確定異地次要資料庫所設定的服務層級與計算大小和主要資料庫相同。 如需詳細資訊，請參閱 <<c0> [ 使用自動容錯移轉群組來啟用多個資料庫的透明且協調容錯移轉](sql-database-auto-failover-group.md)。
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>準備中斷事件
 
@@ -80,7 +80,7 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 - [使用 Azure 入口網站容錯移轉至異地複寫的次要伺服器](sql-database-geo-replication-portal.md)
 - [使用 PowerShell 容錯移轉至次要資料庫](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [使用 Transact-SQL (T-SQL) 故障转移到辅助服务器](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [容錯移轉至次要伺服器，使用 TRANSACT-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>使用異地還原進行復原
 
@@ -119,6 +119,6 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解 Azure SQL 数据库自动备份的信息，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
+- 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)
 - 若要了解商務持續性設計及復原案例，請參閱 [持續性案例](sql-database-business-continuity.md)
 - 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)

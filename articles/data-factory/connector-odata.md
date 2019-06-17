@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400109"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-odata-connector.md)
 > * [目前的版本](connector-odata.md)
 
@@ -228,7 +228,7 @@ ms.locfileid: "61400109"
 
 ### <a name="odata-as-source"></a>OData 作為來源
 
-若要從 OData 複製資料，請將複製活動中的**來源**類型設定為 **RelationalSource**。 複製活動的 [來源] 區段支援下列屬性：
+若要從 OData 複製資料，請將複製活動中的**來源**類型設定為 **RelationalSource**。 複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |

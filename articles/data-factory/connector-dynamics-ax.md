@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61347774"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Dynamics AX 複製資料 (預覽)
@@ -56,7 +56,7 @@ ms.locfileid: "61347774"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | [type] 屬性必須設定為 [DynamicsAX]。 |是 |
+| type | [type]  屬性必須設定為 [DynamicsAX]  。 |是 |
 | url | Dynamics AX (或 Dynamics 365 Finance and Operations) 執行個體 OData 端點。 |是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
@@ -96,11 +96,11 @@ ms.locfileid: "61347774"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 
 
-若要從 Dynamics AX 複製資料，請將資料集的 [type] 屬性設定為 [DynamicsAXResource]。 以下是支援的屬性：
+若要從 Dynamics AX 複製資料，請將資料集的 [type]  屬性設定為 [DynamicsAXResource]  。 以下是支援的屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 [type] 屬性必須設定為 [DynamicsAXResource]。 | 是 |
+| type | 資料集的 [type]  屬性必須設定為 [DynamicsAXResource]  。 | 是 |
 | path | Dynamics AX OData 實體的路徑。 | 是 |
 
 **範例**
@@ -129,11 +129,11 @@ ms.locfileid: "61347774"
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX 作為來源
 
-若要從 Dynamics AX 複製資料，請將複製活動中的 [source] 類型設定為 [DynamicsAXSource]。 複製活動的 [來源] 區段支援下列屬性：
+若要從 Dynamics AX 複製資料，請將複製活動中的 [source]  類型設定為 [DynamicsAXSource]  。 複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 [type] 屬性必須設定為 [DynamicsAXSource]。 | 是 |
+| type | 複製活動來源的 [type]  屬性必須設定為 [DynamicsAXSource]  。 | 是 |
 | query | 用來篩選資料的 OData 查詢選項。 範例： `"?$select=Name,Description&$top=5"`.<br/><br/>**注意**：連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **範例**

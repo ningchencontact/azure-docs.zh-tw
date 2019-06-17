@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64936013"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用開放原始碼工具將往返於 VM 的網路流量模式視覺化
@@ -37,7 +37,7 @@ Azure 的網路監看員可讓您在網路上執行封包擷取，以便擷取�
 
 ### <a name="install-capanalysis"></a>安裝 CapAnalysis
 
-若要在虛擬機器上安裝 CapAnalysis，您可以參考此處的官方指示： https://www.capanalysis.net/ca/how-to-install-capanalysis。
+若要在虛擬機器上安裝 CapAnalysis，您可以參考此處的官方指示： https://www.capanalysis.net/ca/how-to-install-capanalysis 。
 若要從遠端存取 CapAnalysis，您必須在 VM 上新增輸入安全性規則，以開啟連接埠 9877。 如需有關在網路安全性群組中建立規則的詳細資訊，請參閱[在現有 NSG 中建立規則](../virtual-network/manage-network-security-group.md#create-a-security-rule)。 成功新增規則之後，您應該能夠從 `http://<PublicIP>:9877` 存取CapAnalysis
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>使用 Azure 網路監看員啟動封包擷取工作階段

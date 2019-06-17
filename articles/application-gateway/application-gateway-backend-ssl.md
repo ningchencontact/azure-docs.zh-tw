@@ -13,19 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-origin.date: 07/19/2017
-ms.date: 04/15/2019
-ms.author: v-junlch
+ms.date: 07/19/2017
+ms.author: amsriva
 ms.openlocfilehash: 856f23de8a8772255f570a923ecf1708dc819bb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831858"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>應用程式閘道端對端 SSL 的概觀
 
-應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 但对于某些客户而言，与后端服务器的未加密通信不是可以接受的选项。 此未加密的通訊可能是有安全性需要、合規性需求，或應用程式可能只接受安全連線。 對於這類應用程式，應用程式閘道可支援端對端 SSL 加密。
+應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 但對某些客戶來說，對後端伺服器進行未加密的通訊並非可接受的選項。 此未加密的通訊可能是有安全性需要、合規性需求，或應用程式可能只接受安全連線。 對於這類應用程式，應用程式閘道可支援端對端 SSL 加密。
 
 ## <a name="overview"></a>概觀
 
@@ -48,5 +47,3 @@ ms.locfileid: "60831858"
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-
-<!-- Update_Description: update metedata properties -->

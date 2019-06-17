@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 58ac15c1aba715c9a5b67e723401b531e76608b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153604"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 儲存體計量移轉
@@ -98,7 +98,7 @@ Azure 儲存體會收集舊計量值、加以彙總並儲存在相同儲存體�
 | **SASThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 且維度 **Authentication** 等於 **SAS** 的交易 |
 | **ServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 的交易 |
 | **ServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 的交易 |
-| 「成功」 | 維度 **ResponseType** 等於 **Success** 的交易 |
+| 「成功」  | 維度 **ResponseType** 等於 **Success** 的交易 |
 | **ThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 的**交易**|
 | **TotalBillableRequests** | **交易** |
 | **TotalEgress** | **輸出** |

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515558"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059285"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -62,6 +62,19 @@ ms.locfileid: "66515558"
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>時間序列預測
+建置預測是所有企業不可或缺的一部分，不論是平均營收、 庫存、 銷售或客戶的需求。 自動化 ml 使用結合的技術和方法，建議您高品質時間序列預測的數目。 自動化 ml 中的時間序列實驗會被視為多變量迴歸問題。 過去的時間序列值 「 樞紐 」 成為其他預測值與迴歸輸入變數的更多的維度。 
+
+這個方法時，不同於傳統的時間序列方法，好處是自然併入多個內容變數和其在訓練期間之間的關聯性。 在真實世界預測應用程式中，多個因素會影響預測。 例如，當預測銷售，互動的歷史趨勢、 貨幣匯率和價格所有共同磁碟機的銷售結果。 進一步的優點是迴歸模型中的所有最新創新立即套用至預測。
+
+如何遙遠的未來預測應該擴充 （預測時間範圍） 是基本的預測規格的一部分。 設定的必要的參數`max_horizon`在實驗中會定義幾個單位期間，（根據定型資料，例如每月、 每週 forecaster microsoft frx 應該預測出的時間間隔。 
+
+自動化的 ML 學習單一的但通常在內部分支模型的資料集和預測的視野中的所有項目。 詳細資料可因此估計模型參數，並看不見的系列的一般化可能實現。 
+
+從定型資料中擷取功能扮演重要角色。 自動化的 ML 執行標準處理前的步驟，並產生時間序列的其他功能 （例如年、 月、 日一週等等） 來擷取季節性效果，並最大化的預測精確度。 
+
+如果適用於您的案例，您可以直接使用自動化來建立延隔的 ML (`target_lags`) 或輪流視窗彙總的資料 (`target_rolling_window_size`) 從您的目標 (`y_value`) 過去的值。 
 
 ## <a name="preprocessing"></a>前置處理
 
@@ -160,6 +173,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|自動的模型選擇和定型 ML.NET 中使用 Visual Studio 和 Visual Studio Code 的.NET 應用程式中自動化 ML （預覽）。|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|相應放大您在 HDInsight 叢集中，以平行方式在 Spark 上自動化 ML 訓練作業。|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|叫用直接在 Power BI （預覽） 中的機器學習服務模型。|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|建立新的機器學習服務模型，對您在 SQL Server 2019 巨量資料叢集中的資料。|
 
 ## <a name="next-steps"></a>後續步驟
 

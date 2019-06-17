@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111623"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 
@@ -59,7 +59,7 @@ ms.locfileid: "66688745"
 * 本機使用者和群組應用程式角色指派的記錄
 * 針對已授與應用程式的本機使用者和系統管理員權限所做的記錄
   * 例如：應用程式用來存取特定使用者電子郵件的權限
-* 本機原則的記錄，包括條件式存取原則
+* 本機原則，包括條件式存取原則的記錄
 * 應用程式替代本機設定的記錄
   * 宣告轉換規則
   * 屬性對應 (使用者佈建)

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077633"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
-虛擬網路對等互連可讓您順暢地連接 Azure[虛擬網路](virtual-networks-overview.md)。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 在對等互連之虛擬網路中的虛擬機器之間的流量，會透過 Microsoft 骨幹基礎結構路由傳送，其原理就像在相同虛擬網路中的虛擬機器之間，流量只會透過「私人」IP 位址來路由傳送。 Azure 支援：
+虛擬網路對等互連可讓您順暢地連接 Azure[虛擬網路](virtual-networks-overview.md)。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 在對等互連之虛擬網路中的虛擬機器之間的流量，會透過 Microsoft 骨幹基礎結構路由傳送，其原理就像在相同虛擬網路中的虛擬機器之間，流量只會透過「私人」  IP 位址來路由傳送。 Azure 支援：
 * VNet 對等互連 - 連接相同 Azure 區域內的 VNet
 * 全球 VNet 對等互連 - 連接各 Azure 區域內的 VNet
 
@@ -47,7 +47,7 @@ ms.locfileid: "64919316"
 
 ## <a name="service-chaining"></a>服務鏈結
 
-您可以設定使用者定義的路由，指向對等互連虛擬網路中當作「下一個躍點」IP 位址的虛擬機器，或指向虛擬網路閘道，以啟用服務鏈結。 服務鏈結可讓您透過使用者定義的路由，將流量從一個虛擬網路導向對等互連虛擬網路中的虛擬設備或虛擬網路閘道。
+您可以設定使用者定義的路由，指向對等互連虛擬網路中當作「下一個躍點」  IP 位址的虛擬機器，或指向虛擬網路閘道，以啟用服務鏈結。 服務鏈結可讓您透過使用者定義的路由，將流量從一個虛擬網路導向對等互連虛擬網路中的虛擬設備或虛擬網路閘道。
 
 您可以部署中樞和輪輻網路，其中的中樞虛擬網路可以裝載基礎結構元件，例如網路虛擬設備或 VPN 閘道。 所有輪輻虛擬網路可以接著與中樞虛擬網路對等互連。 流量可以通過在中樞虛擬網路中的網路虛擬設備或 VPN 閘道。 
 
@@ -59,7 +59,7 @@ ms.locfileid: "64919316"
 
 當針對虛擬網路內部連線的兩個選項已設定時，虛擬網路之間的流量將會透過對等互連設定流動 (也就是透過 Azure 骨幹)。
 
-當虛擬網路已對等互連時，您也可以將對等互連虛擬網路中的閘道設定為內部部署網路的傳輸點。 在这种情况下，使用远程网关的虚拟网络没有自己的网关。 虛擬網路只能擁有一個閘道。 閘道可以是本機或遠端閘道 (在對等互連的虛擬網路中)，如下圖所示：
+當虛擬網路已對等互連時，您也可以將對等互連虛擬網路中的閘道設定為內部部署網路的傳輸點。 在此情況下，使用遠端閘道的虛擬網路不能擁有專屬閘道。 虛擬網路只能擁有一個閘道。 閘道可以是本機或遠端閘道 (在對等互連的虛擬網路中)，如下圖所示：
 
 ![虛擬網路對等互連傳輸](./media/virtual-networks-peering-overview/figure04.png)
 
@@ -69,7 +69,7 @@ VNet 對等互連和全域 VNet 對等互連支援閘道傳輸。 只有當閘�
 
 ## <a name="troubleshoot"></a>疑難排解
 
-若要確認虛擬網路對等互連，您可以針對虛擬網路的任何子網路中的網路介面[檢查有效的路由](diagnose-network-routing-problem.md)。 如果虛擬網路對等互連存在，則虛擬網路內的所有子網路都具有下一個躍點類型為「VNet 對等互連」的路由 (對每個對等互連的虛擬網路中的每個位址空間而言)。
+若要確認虛擬網路對等互連，您可以針對虛擬網路的任何子網路中的網路介面[檢查有效的路由](diagnose-network-routing-problem.md)。 如果虛擬網路對等互連存在，則虛擬網路內的所有子網路都具有下一個躍點類型為「VNet 對等互連」  的路由 (對每個對等互連的虛擬網路中的每個位址空間而言)。
 
 您也可以使用網路監看員的[連線能力檢查](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，針對對等互連虛擬網路中的虛擬機器連線能力進行疑難排解。 連線能力檢查可讓您查看流量是以何種方式從來源虛擬機器的網路介面傳送至目的地虛擬機器的網路介面。
 
@@ -90,7 +90,7 @@ VNet 對等互連和全域 VNet 對等互連支援閘道傳輸。 只有當閘�
 
 我們會針對使用虛擬網路對等互連連線的輸入和輸出流量收取少許費用。 如需有關 VNet 對等互連和全域 VNet 對等互連定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/virtual-network)。
 
-閘道傳輸是一個對等互連的屬性，可讓虛擬網路利用對等虛擬網路中的 VPN 閘道，來進行跨部署或 VNet 對 VNet 連線。 在此案例中，通過遠端閘道的流量需收取 [VPN 閘道費用](https://azure.microsoft.com/pricing/details/vpn-gateway/)，且不會產生 [VNet 對等互連費用](https://azure.microsoft.com/pricing/details/virtual-network)。 比方說，如果 VNetA 具有內部部署連線的 VPN 閘道之 VNetB 對等互連至 VNetA 適當設定的屬性，在內部部署環境中之 VNetB 流量是只需付費輸出每個 VPN 閘道定價。 VNet 對等互連費用將不適用。 了解如何[為虛擬網路對等互連設定 VPN 閘道傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+閘道傳輸是可利用跨內部部署或 VNet 對 VNet 連線能力的對等互連虛擬網路中的 VPN/ExpressRoute 閘道的虛擬網路對等互連屬性。 透過在此案例中的遠端閘道的輸送量受限於[VPN 閘道費用](https://azure.microsoft.com/pricing/details/vpn-gateway/)或 ExpressRoute 閘道的費用，並不會產生[VNet 對等互連費用。](https://azure.microsoft.com/pricing/details/virtual-network) 比方說，如果 VNetA 具有內部部署連線的 VPN 閘道之 VNetB 對等互連至 VNetA 適當設定的屬性，在內部部署環境中之 VNetB 流量是只需付費輸出每個 VPN 閘道定價或 ExpressRoute 定價。 VNet 對等互連費用將不適用。 了解如何[為虛擬網路對等互連設定 VPN 閘道傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="next-steps"></a>後續步驟
 

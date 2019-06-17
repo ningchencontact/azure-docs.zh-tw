@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125740"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754828"
 
     SMB 3.0 加密支援是在 Linux 核心版本 4.11 導入，並且針對熱門的 Linux 發行版本反向導入到舊版核心版本。 在本文件發行時，Azure 資源庫的下列發行版本支援掛接此資料表標頭中指定的選項。 
 
-* **具有對應掛接功能的最低建議版本 (SMB 2.1 版與 SMB 3.0 版)。**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>最小的建議版本對應的掛接功能 （SMB 版本 2.1 與 SMB 3.0 版）
 
-    |   | SMB 2.1 <br>(掛接在相同 Azure 區域內的 VM 上) | SMB 3.0 <br>(從內部部署環境和跨區域掛接) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(掛接在相同 Azure 區域內的 VM 上) | SMB 3.0 <br>(從內部部署環境和跨區域掛接) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    如果此處未列出您的 Linux 發行版本，您可以使用下列命令查看 Linux 核心版本：
+如果此處未列出您的 Linux 發行版本，您可以使用下列命令查看 Linux 核心版本：
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**已安裝 cifs-utils 套件。**  
     可使用套件管理員將 cifs-utils 套件安裝在所選擇的 Linux 發行版本上。 
@@ -75,7 +75,7 @@ ms.locfileid: "66754828"
 
     在其他發行版本上，請使用適當的封裝管理員或[從來源編譯](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **決定裝載共用的目錄/檔案使用權限**：下列範例使用權限 `0777` 提供所有使用者的讀取、寫入和執行權限。 您可以將該值與其他[chmod 權限](https://en.wikipedia.org/wiki/Chmod)所需，但這表示可能會限制存取。 如果您使用其他權限，您應該考慮也使用 uid 與 gid，以保留您所選擇的本機群組的存取權。
+* **決定裝載共用的目錄/檔案使用權限**：下列範例使用權限 `0777` 提供所有使用者的讀取、寫入和執行權限。 您可以將該值與其他[chmod 權限](https://en.wikipedia.org/wiki/Chmod)所需，但這表示可能會限制存取。 如果您使用其他權限，您應該考慮也使用 uid 與 gid，如此才能繼續存取本機使用者和您選擇的群組。
 
 > [!NOTE]
 > 如果未明確指派 dir_mode=0777,file_mode=0777,sec=ntlmssp 和 file_mode 目錄和檔案權限，它們會預設為 0755年。

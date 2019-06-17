@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712231"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -28,7 +28,7 @@ ms.locfileid: "60563331"
 
 ## <a name="domain-names"></a>網域名稱
 
-網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 '**.**'。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  再往下是第二層網域，例如 'org.uk' 或 'co.jp'。 DNS 階層中的網域散佈在全球，裝載在世界各地的 DNS 名稱伺服器上。
+網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 ' **.** '。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  再往下是第二層網域，例如 'org.uk' 或 'co.jp'。 DNS 階層中的網域散佈在全球，裝載在世界各地的 DNS 名稱伺服器上。
 
 網域名稱註冊機構是種組織，可讓您購買網域名稱，例如 'contoso.com'。  購買網域名稱可讓您控制該名稱底下的 DNS 階層，例如將網域名稱 'www.contoso.com' 導向貴公司的網站。 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
 
@@ -59,7 +59,7 @@ Azure DNS 支援 [萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS
 ### <a name="caa-records"></a>CAA 記錄
 
 CAA 記錄可讓網域擁有者指定哪些憑證授權單位 (CA) 有權為其網域發行憑證。 這可讓 CA 避免在某些情況下誤發憑證。 CAA 記錄都有三個屬性：
-* **Flags**：这是一个介于 0 和 255 之间的整数，用于根据 [RFC](https://tools.ietf.org/html/rfc6844#section-3) 表示具有特殊含义的关键标志
+* **旗標**:這是介於 0 到 255，用以代表具有每個的特殊意義的重要旗標的整數[RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **標記**：ASCII 字串，可以是下列其中一項：
     * **issue**：當您想要指定有權發行憑證 (所有類型) 的 CA 時，使用此選項
     * **issuewild**：當您想要指定有權發行憑證 (僅限 Wildcard 憑證) 的 CA 時，使用此屬性
@@ -96,8 +96,8 @@ CNAME 記錄集不能與其他具有相同名稱的記錄集共存。 例如，�
 
 各種服務都會使用 [SRV 記錄](https://en.wikipedia.org/wiki/SRV_record)來指定伺服器位置。 在 Azure DNS 中指定 SRV 記錄時︰
 
-* 必須在記錄集名稱中包括 [服務] 和 [通訊協定]，並在其前方加上底線。  例如，'\_sip.\_tcp.name'。  在區域頂點的記錄，則不需要在記錄名稱中指定 '\@'，只要使用服務與通訊協定即可，例如 '\_sip.\_tcp'。
-* 系統已將 [優先順序]、[權數]、[連接埠] 和 [目標]，指定為記錄集內每筆記錄的參數。
+* 必須在記錄集名稱中包括 [服務]  和 [通訊協定]  ，並在其前方加上底線。  例如，'\_sip.\_tcp.name'。  在區域頂點的記錄，則不需要在記錄名稱中指定 '\@'，只要使用服務與通訊協定即可，例如 '\_sip.\_tcp'。
+* 系統已將 [優先順序]  、[權數]  、[連接埠]  和 [目標]  ，指定為記錄集內每筆記錄的參數。
 
 ### <a name="txt-records"></a>TXT 記錄
 
@@ -107,7 +107,7 @@ DNS 標準允許單一 TXT 記錄包含多個字串，每個長度最多可達 2
 
 在呼叫 Azure DNS REST API 時，您必須分別指定每個 TXT 字串。  當使用 Azure 入口網站、PowerShell 或 CLI 介面時，您應該為每筆記錄指定單一字串，如有需要，字串將自動分段成 254 個字元的區段。
 
-DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相混淆。  TXT 記錄集可以包含多個記錄，「每一個」記錄可以包含多個字串。  Azure DNS 支援每個 TXT 記錄集中的 字串總長度上限為 1024 個字元 (所有記錄的總和)。
+DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相混淆。  TXT 記錄集可以包含多個記錄，「每一個」  記錄可以包含多個字串。  Azure DNS 支援每個 TXT 記錄集中的 字串總長度上限為 1024 個字元 (所有記錄的總和)。
 
 ## <a name="tags-and-metadata"></a>標記和中繼資料
 
@@ -134,7 +134,7 @@ Azure DNS 使用 Etag 以安全地處理相同資源的並行變更。 Etag 和 
 | 頁首 | 行為 |
 | --- | --- |
 | None |PUT 一定成功 (沒有 Etag 檢查) |
-| If-match <etag> |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
+| If-match \<etag> |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
 | If-match * |唯有當資源存在時，PUT 才會成功 |
 | If-none-match * |唯有當資源不存在時，PUT 才會成功 |
 

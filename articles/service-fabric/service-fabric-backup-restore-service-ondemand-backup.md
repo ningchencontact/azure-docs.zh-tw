@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413944"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric 中的隨選備份
 
 您可備份可靠具狀態服務和 Reliable Actors 的資料，以處理災害或資料遺失情況。
 
-Azure Service Fabric 具有用來[定期備份資料](service-fabric-backuprestoreservice-quickstart-azurecluster.md)及依照需求備份資料的功能。 隨選備份很實用，因為可防範由於基礎服務或其環境中的計劃性變更所造成的資料遺失/資料損毀。
+Azure Service Fabric 具有用來[定期備份資料](service-fabric-backuprestoreservice-quickstart-azurecluster.md)及依照需求備份資料的功能。 隨選備份很實用，因為可防範由於基礎服務或其環境中的計劃性變更所造成的資料遺失  /資料損毀  。
 
 在您手動觸發服務或服務環境作業之前，隨選備份功能對於擷取服務狀態很有幫助。 例如，如果您在升級或降級服務時變更了服務二進位檔。 在此情況下，隨選備份可協助防範由應用程式程式碼錯誤 (bug) 造成的資料損毀。
 ## <a name="prerequisites"></a>必要條件
@@ -148,7 +148,7 @@ $backupResponse
   FailureError            :
   ```
 - **Success**、**Failure** 或 **Timeout**：要求的隨選備份可以下列任何狀態完成：
-  - **成功**：Success (成功) 備份狀態表示已成功備份分割區狀態。 回應會提供分割區的 _BackupEpoch_ 和 _BackupLSN_ 以及 UTC 時間。
+  - **成功**：Success (成功)  備份狀態表示已成功備份分割區狀態。 回應會提供分割區的 _BackupEpoch_ 和 _BackupLSN_ 以及 UTC 時間。
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z
@@ -158,7 +158,7 @@ $backupResponse
     LsnOfLastBackupRecord   : 36
     FailureError            :
     ```
-  - **失敗**：Failure (失敗) 備份狀態表示在分割區狀態的備份期間發生失敗。 回應中會陳述失敗的原因。
+  - **失敗**：Failure (失敗)  備份狀態表示在分割區狀態的備份期間發生失敗。 回應中會陳述失敗的原因。
     ```
     BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -168,7 +168,7 @@ $backupResponse
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout**：Timeout (逾時) 備份狀態表示無法在指定時間內建立分割區狀態的備份。 預設的逾時值為 10 分鐘。 在此案例中，請以提高的 [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) 值起始新的隨選備份要求。
+  - **Timeout**：Timeout (逾時)  備份狀態表示無法在指定時間內建立分割區狀態的備份。 預設的逾時值為 10 分鐘。 在此案例中，請以提高的 [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) 值起始新的隨選備份要求。
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z

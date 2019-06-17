@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522215"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>適用於 VM 的 Azure 監視器 (預覽) 常見問題集
@@ -70,7 +70,7 @@ ms.locfileid: "65522215"
 否，Windows 不包含個別處理器和邏輯處理器層級健全準則，依預設僅會監視 CPU 總使用率，以根據 Azure VM 可用的邏輯 CPU 總數有效評估 CPU 壓力。 
 
 ## <a name="are-all-health-criteria-thresholds-configurable"></a>所有健全準則臨界值都是可設定的嗎？  
-以 Windows VM 為目標的健全準則閾值均為不可修改的，因為其健全準則會設定為「執行中」或「可用」。 當您從[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 查詢健全狀態時，在下列情況中，會針對服務或實體顯示 **LessThan** 或 **GreaterThan** 的 *comparisonOperator* 值且「閾值」為 **4**：
+以 Windows VM 為目標的健全準則閾值均為不可修改的，因為其健全準則會設定為「執行中」  或「可用」  。 當您從[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 查詢健全狀態時，在下列情況中，會針對服務或實體顯示 **LessThan** 或 **GreaterThan** 的 *comparisonOperator* 值且「閾值」  為 **4**：
    - DNS 用戶端服務健康情況：服務未執行。 
    - DHCP 用戶端服務健康情況：服務未執行。 
    - RPC 用戶端服務健康情況：服務未執行。 
@@ -80,13 +80,13 @@ ms.locfileid: "65522215"
    - Windows 遠端管理服務健康情況：服務未執行。 
    - 檔案系統錯誤或損毀：邏輯磁碟無法使用。
 
-下列 Linux 健全準則的閾值不可修改，因為其健全狀態已設定為 *true*。 從工作負載監視 API 進行查詢時，實體的健全狀態會根據其內容顯示值為 **LessThan** 的 *comparisonOperator* 且「閾值」為 **1**：
+下列 Linux 健全準則的閾值不可修改，因為其健全狀態已設定為 *true*。 從工作負載監視 API 進行查詢時，實體的健全狀態會根據其內容顯示值為 **LessThan** 的 *comparisonOperator* 且「閾值」  為 **1**：
    - 邏輯磁碟狀態：邏輯磁碟未連線/無法使用
    - 磁碟狀態：磁碟未連線/無法使用
    - 網路介面卡狀態 - 網路介面卡已停用
 
 ## <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>如何修改 [健康情況] 功能中隨附的警示？
-為每個健全準則所定義的警示規則不會顯示於 Azure 入口網站中。 您只能在[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 中啟用或停用健康情況警示規則。 此外，您無法從 Azure 入口網站指派健康情況警示的 [Azure 監視器動作群組](../../azure-monitor/platform/action-groups.md)。 您只可以使用通知設定 API，設定在健康情況警示引發時所要觸發的動作群組。 目前，您可以針對 VM 指派動作群組，因此，對 VM 引發的所有「健康情況警示」會觸發相同的動作群組。 不同於傳統的 Azure 警示，每個健康情況警示規則均不具個別動作群組的概念。 此外，在觸發健康情況警示時，僅支援設定來提供電子郵件或簡訊通知的動作群組。 
+為每個健全準則所定義的警示規則不會顯示於 Azure 入口網站中。 您只能在[工作負載監視 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components) \(英文\) 中啟用或停用健康情況警示規則。 此外，您無法從 Azure 入口網站指派健康情況警示的 [Azure 監視器動作群組](../../azure-monitor/platform/action-groups.md)。 您只可以使用通知設定 API，設定在健康情況警示引發時所要觸發的動作群組。 目前，您可以針對 VM 指派動作群組，因此，對 VM 引發的所有「健康情況警示」  會觸發相同的動作群組。 不同於傳統的 Azure 警示，每個健康情況警示規則均不具個別動作群組的概念。 此外，在觸發健康情況警示時，僅支援設定來提供電子郵件或簡訊通知的動作群組。 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>我在適用於 VM 的效能圖表中看不到部分或任何資料
 如果您在磁碟表格中或在某些效能圖表中看不到效能資料，則您可能未在工作區中設定效能計數器。 若要解決此問題，請執行下列 [PowerShell 指令碼](vminsights-enable-at-scale-powershell.md#enable-with-powershell)。
@@ -111,7 +111,7 @@ ms.locfileid: "65522215"
 是，在您安裝相依性代理程式後，我們就會從 VM 收集資訊，以根據訂用帳戶、資源群組、虛擬機器擴展集和雲端服務顯示群組。  如果您先前使用服務對應，並已建立電腦群組，這些群組將會一併顯示。  如果您為您所檢視的工作區建立了電腦群組，這些群組也會出現在群組篩選條件中。 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>如何查看彙總效能圖表中衍生第 95 條百分位數線之項目的詳細資料？
-根據預設，此清單會排序以顯示針對所選計量的第 95 個百分位數具有最高值的 VM，但可用記憶體圖表除外，因為它會顯示具有第 5 個百分位數之最小值的機器。  按一下圖表，將利用已選取的適當計量來開啟 [N 大排行榜] 檢視。
+根據預設，此清單會排序以顯示針對所選計量的第 95 個百分位數具有最高值的 VM，但可用記憶體圖表除外，因為它會顯示具有第 5 個百分位數之最小值的機器。  按一下圖表，將利用已選取的適當計量來開啟 [N 大排行榜]  檢視。
 
 ## <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>對應功能如何跨不同的 VNet 和子網路處理重複的 IP？
 如果您跨子網路和 VNet 使用 VM 或 Azure 虛擬機器擴展集來複製 IP 範圍，它可能會造成適用於 VM 的 Azure 監視器對應功能顯示不正確的資訊。 這是個已知的問題，而我們正在研究改善此體驗的選項。
@@ -133,9 +133,9 @@ ms.locfileid: "65522215"
 這項估計值非常適合基礎要求/回應通訊協定： 單一要求送出連線，並以單一回應到達時。 這是 HTTP (S) （不含管線），但不是符合其他通訊協定。
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>如果我採用 Log Analytics 免費定價方案，有何限制？
-如果您使用「免費」定價層設定了具有 Log Analytics 工作區的 Azure 監視器，則適用於 VM 的 Azure 監視器的對應功能僅支援五部已連線到工作區的電腦。 如果您有五部連線至免費工作區的 VM，您可中斷其中一部 VM 的連線，然後連線新的 VM，則新的 VM 不受監視，而且不會反映於 [對應] 頁面。  
+如果您使用「免費」  定價層設定了具有 Log Analytics 工作區的 Azure 監視器，則適用於 VM 的 Azure 監視器的對應功能僅支援五部已連線到工作區的電腦。 如果您有五部連線至免費工作區的 VM，您可中斷其中一部 VM 的連線，然後連線新的 VM，則新的 VM 不受監視，而且不會反映於 [對應] 頁面。  
 
-在此情況下，當您開啟 VM 並從左側窗格選取 [Insights (預覽)] 時 (即使它已安裝在 VM 上)，系統會以 [立即試用] 選項提示您。  不過，如果此 VM 並未在適用於 VM 的 Azure 監視器上線，就不會以通常會出現的選項提示您。 
+在此情況下，當您開啟 VM 並從左側窗格選取 [Insights (預覽)]  時 (即使它已安裝在 VM 上)，系統會以 [立即試用]  選項提示您。  不過，如果此 VM 並未在適用於 VM 的 Azure 監視器上線，就不會以通常會出現的選項提示您。 
 
 ## <a name="next-steps"></a>後續步驟
 檢閱[啟用 Vm 的 Azure 監視器](vminsights-enable-overview.md)了解需求和方法，以監視您的虛擬機器。

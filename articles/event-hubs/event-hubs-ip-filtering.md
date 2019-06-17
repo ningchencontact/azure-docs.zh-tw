@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821668"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
@@ -24,7 +24,7 @@ ms.locfileid: "60821668"
 
 ## <a name="when-to-use"></a>使用時機
 
-如果想要設定「事件中樞」命名空間，讓其應該只接收來自某個指定 IP 位址範圍的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的事件中樞端點。 例如，如果您搭配 [Azure Express Route][express-route] 使用事件中樞，您可以建立*防火牆規則*限制來自您內部部署基礎結構 IP 位址的流量。
+如果想要設定「事件中樞」命名空間，讓其應該只接收來自某個指定 IP 位址範圍的流量，並拒絕所有其他流量，您可以利用「防火牆規則」  封鎖來自其他其他 IP 位址的事件中樞端點。 例如，如果您搭配 [Azure Express Route][express-route] 使用事件中樞，您可以建立*防火牆規則*限制來自您內部部署基礎結構 IP 位址的流量。
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
@@ -54,7 +54,7 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 > - Azure 資料總管
 >
 > 虛擬網路上必須有下列 Microsoft 服務
-> - Azure Web Apps 
+> - Azure Web Apps
 > - Azure Functions
 
 ### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立防火牆規則
@@ -69,7 +69,7 @@ IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會�
 - **ipMask** 是單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 標記法中，70.37.104.0/24 表示從 70.37.104.0 開始，到 70.37.104.255 為止，總共 256 個 IPv4 位址，而 24 則表示該範圍內的顯著前置詞位元。
 
 > [!NOTE]
-> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"**。
+> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
 > from

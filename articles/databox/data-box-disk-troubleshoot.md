@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/2/2019
 ms.author: alkohli
 ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939628"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>對 Azure 資料箱磁碟中的問題進行疑難排解
@@ -36,14 +36,14 @@ ms.locfileid: "64939628"
 
 若要瀏覽至複製記錄的路徑，請移至與資料箱訂單相關聯的儲存體帳戶。 
 
-1.  移至 [一般 > 訂單詳細資料]，並記下與訂單相關聯的儲存體帳戶。
+1.  移至 [一般 > 訂單詳細資料]  ，並記下與訂單相關聯的儲存體帳戶。
  
 
-2.  移至 [所有資源] 並搜尋在上一個步驟中所識別出的儲存體帳戶。 選取並按一下儲存體帳戶。
+2.  移至 [所有資源]  並搜尋在上一個步驟中所識別出的儲存體帳戶。 選取並按一下儲存體帳戶。
 
     ![複製記錄 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
 
-3.  移至 [Blob 服務 > 瀏覽 Blob] 並尋找對應到儲存體帳戶的 Blob。 移至 [diagnosticslogcontainer > waies]。 
+3.  移至 [Blob 服務 > 瀏覽 Blob]  並尋找對應到儲存體帳戶的 Blob。 移至 [diagnosticslogcontainer > waies]  。 
 
     ![複製記錄 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
 
@@ -73,7 +73,7 @@ ms.locfileid: "64939628"
 | 無法解除鎖定或驗證任何磁碟區。 連絡 Microsoft 支援服務。  <br><br>此工具無法解除鎖定或驗證任何已鎖定的磁碟機。 | 此工具無法使用提供的通行金鑰，解除鎖定任何已鎖定的磁碟機。 連絡 Microsoft 支援服務以進行後續步驟。                                                |
 | 下列磁碟區已解除鎖定並經過驗證。 <br>磁碟區磁碟機代號：E:<br>無法使用下列通行金鑰解除鎖定任何磁碟區：werwerqomnf、qwerwerqwdfda <br><br>此工具會解除鎖定部分磁碟機，並列出成功和失敗的磁碟機代號。| 部分成功。 無法使用提供的通行金鑰解除鎖定部分磁碟機。 連絡 Microsoft 支援服務以進行後續步驟。 |
 | 找不到鎖定的磁碟區。 請確認從 Microsoft 處接收的磁碟已正確連線且處於鎖定狀態。          | 此工具找不到任何鎖定的磁碟機。 可能磁碟機已解除鎖定，或未偵測到磁碟機。 請確定磁碟機已連線且已鎖定。                                                           |
-| 嚴重錯誤:參數不正確<br>參數名稱：invalid_arg<br>使用方式：<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>範例：DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>範例：DataBoxDiskUnlock /SystemCheck<br>範例：DataBoxDiskUnlock /Help<br><br>/PassKeys：     從 Azure 資料箱磁碟訂單取得此通行金鑰。 通行金鑰會將您的磁碟解除鎖定。<br>/Help：         這個選項提供 Cmdlet 使用方式和範例的說明。<br>/SystemCheck：  這個選項會檢查您的系統是否符合執行工具的需求。<br><br>按任意鍵以結束。 | 輸入的參數無效。 只允许参数 /SystemCheck、/PassKey 和 /Help。                                                                            |
+| 嚴重錯誤:參數不正確<br>參數名稱：invalid_arg<br>使用方式：<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>範例：DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>範例：DataBoxDiskUnlock /SystemCheck<br>範例：DataBoxDiskUnlock /Help<br><br>/PassKeys：     從 Azure 資料箱磁碟訂單取得此通行金鑰。 通行金鑰會將您的磁碟解除鎖定。<br>/Help：         這個選項提供 Cmdlet 使用方式和範例的說明。<br>/SystemCheck：  這個選項會檢查您的系統是否符合執行工具的需求。<br><br>按任意鍵以結束。 | 輸入的參數無效。 唯一允許的參數是 /SystemCheck、 /PassKey 和 /Help。                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>資料箱磁碟分割複製工具錯誤
 

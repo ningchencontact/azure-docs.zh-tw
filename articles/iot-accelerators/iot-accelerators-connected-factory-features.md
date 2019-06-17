@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 25812e10b4c2b90aa4f40c38610c30a26ab11d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a11640959a8c7fdd0d238aba92698eb47934969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449987"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080457"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>連線處理站 IoT 解決方案加速器是什麼？
 
@@ -65,7 +65,4 @@ ms.locfileid: "61449987"
 
 ## <a name="next-steps"></a>後續步驟
 
-閱讀下列文章，深入了解連線處理站預先設定的解決方案：
-
-* [連線處理站預先設定的解決方案逐步解說](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [為連線的處理站部署閘道]( iot-accelerators-connected-factory-gateway-deployment.md)
+若要深入了解連線處理站解決方案加速器，請參閱快速入門[試用雲端式解決方案來管理我的工業 IoT 裝置](quickstart-connected-factory-deploy.md)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: b190db401b8ae31582ea31cf59d30f20baccf8c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561370"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060357"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系統健康狀態報告進行疑難排解
 Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系統健康情況報告。 [健康狀態資料存放區](service-fabric-health-introduction.md#health-store) 會根據系統報告來建立和刪除實體。 它也會將這些實體組織為階層以擷取實體的互動。
@@ -72,17 +72,37 @@ Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系�
 * **屬性**:重建。
 * **後續步驟**:調查網路之間的連線節點，以及健康情況報告的描述中列出的任何特定節點的狀態。
 
-## <a name="node-system-health-reports"></a>節點系統健康狀態報告
-System.FM(代表容錯移轉管理員服務) 是管理叢集節點相關資訊的授權單位。 每個節點都應該有一份來自 System.FM 的報告，以顯示其狀態。 移除節點狀態時會移除節點實體。 如需詳細資訊，請參閱 [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)。
+### <a name="seed-node-status"></a>種子節點狀態
+**System.FM**一些種子節點狀況不良時回報叢集層級警告。 種子節點是維護基礎叢集的可用性節點。 這些節點有助於藉由建立與其他節點的租用，並在某些類型的網路故障期間擔任仲裁者，來確保叢集保持正常運作。 如果大多數種子節點已關機，在叢集中，而且它們不會後，叢集會自動關閉。 
 
-### <a name="node-updown"></a>節點運作中/關閉
-當節點加入通道時，System.FM 會回報為 OK (節點已啟動且正在運作中)。 當節點離開通道時，則會回報錯誤 (節點已關閉進行升級，或只是發生故障)。 由健康狀態資料存放區建置的健康情況階層會根據 System.FM 節點報告，對部署的實體採取行動。 它會將節點視為所有已部署實體的虛擬父系。 如果 System.FM 回報指出該節點已啟動，且其執行個體與實體相關聯的執行個體相同，則該節點上已部署的實體將會透過查詢公開。 當 System.FM 回報節點已當作新執行個體關閉或重新啟動時，健康狀態資料存放區會自動清除僅能存在於已關閉節點或先前的節點執行個體上的已部署實體。
+種子節點是狀況不良，如果其節點狀態是關閉、 已移除或未知。
+種子節點狀態的警告報表會列出所有處於不健全狀況的種子節點的詳細資訊。
 
-* **SourceId**:System.FM
-* **屬性**:狀態。
-* **後續步驟**:如果節點已關閉進行升級，它應該恢復運作後已升級。 在這種情況下，健康情況應切換回 OK。 如果節點沒有重新啟動或故障，就需要進一步調查問題。
+* **SourceID**:System.FM
+* **屬性**:SeedNodeStatus
+* **後續步驟**:如果叢集中，顯示此警告，請遵循下列指示來修正此問題：6.5 或更高版本執行 Service Fabric 版本的叢集：在 Azure 上的 Service Fabric 叢集之後種子節點故障時，, Service Fabric 會嘗試自動將它變更為非種子節點。 若要將此發生，請確定主要節點類型中的非種子節點數目是大於或等於下種子節點的數目。 如有必要，請在主要節點類型，以達到此目的新增更多節點。
+根據叢集狀態，它可能需要一些時間來修正此問題。 完成之後，就會自動清除警告報告。
 
-以下範例說明帶有 OK (代表節點已啟動) 健全狀況狀態的 System.FM 事件：
+針對 Service Fabric 獨立叢集，若要清除警告報表，所有種子節點都必須變成狀況良好。 根據原因種子節點是狀況不良，不同的動作必須採取： 如果種子節點清單中，使用者必須啟動該種子節點;種子節點是否已移除或不明，這個種子節點[必須從叢集移除](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes)。
+當所有的種子節點變成狀況良好時，會自動清除警告報告。
+
+執行超過 6.5 的 Service Fabric 版本的叢集：在此情況下，必須以手動方式清除警告報告。 **使用者應該確定清除報表之前，所有的識別值種子節點變成狀況良好**： 如果種子節點已關閉，使用者必須顯示該識別值種子節點; 如果已移除或未知的識別值種子節點，該識別值種子節點必須從叢集移除。
+所有的識別值種子節點變成狀況良好之後，使用下列 Powershell 命令[清除警告報告](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+
+```powershell
+PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
+
+## Node system health reports
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+
+### Node up/down
+System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
+
+* **SourceId**: System.FM
+* **Property**: State.
+* **Next steps**: If the node is down for an upgrade, it should come back up after it's been upgraded. In this case, the health state should switch back to OK. If the node doesn't come back or it fails, the problem needs more investigation.
+
+The following example shows the System.FM event with a health state of OK for node up:
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
@@ -133,7 +153,7 @@ System.CM(代表叢集管理員服務) 是管理應用程式相關資訊的授�
 
 * **SourceId**:System.CM
 * **屬性**:狀態。
-* **後續步驟**:如果已建立或更新應用程式，它應該包含叢集管理員健康情況報告。 否則，請藉由發出查詢來檢查應用程式的狀態。 例如，使用 PowerShell Cmdlet **Get-ServiceFabricApplication -ApplicationName** applicationName。
+* **後續步驟**:如果已建立或更新應用程式，它應該包含叢集管理員健康情況報告。 否則，請藉由發出查詢來檢查應用程式的狀態。 例如，使用 PowerShell Cmdlet **Get-ServiceFabricApplication -ApplicationName** applicationName  。
 
 以下範例說明 **fabric:/WordCount** 應用程式上的狀態事件：
 
@@ -632,25 +652,25 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.Close**並**IStatefulServiceReplica.Abort**:最常見的案例是服務不接受取消語彙基元傳遞至`RunAsync`。 也可能是那個 `ICommunicationListener.CloseAsync`，或者覆寫的 `OnCloseAsync` 是否已停滯。
 
-- **IStatefulServiceReplica.ChangeRole (S)** 並**istatefulservicereplica.changerole （n)**:最常見的案例是服務不接受取消語彙基元傳遞至`RunAsync`。 在此案例中，最好的解決方案是重新啟動複本。
+- **IStatefulServiceReplica.ChangeRole (S)** 並**istatefulservicereplica.changerole （n)** :最常見的案例是服務不接受取消語彙基元傳遞至`RunAsync`。 在此案例中，最好的解決方案是重新啟動複本。
 
-- **IStatefulServiceReplica.ChangeRole(P)**:最常見的案例是服務尚未從工作傳回`RunAsync`。
+- **IStatefulServiceReplica.ChangeRole(P)** :最常見的案例是服務尚未從工作傳回`RunAsync`。
 
-其他可能停滯的 API 呼叫均位於 **IReplicator** 介面上。 例如：
+其他可能停滯的 API 呼叫均位於 **IReplicator** 介面上。 例如:
 
 - **IReplicator.CatchupReplicaSet**:這個警告表示下列其中一種。 啟動的複本數不足。 若要了解是否為這種情況，請查看分割區中複本的複本狀態或 System.FM 健康情況報告，以進行停滯重新設定。 或者複本未認可作業。 PowerShell Cmdlet `Get-ServiceFabricDeployedReplicaDetail` 可用來判斷所有複本的進度。 問題出在其 `LastAppliedReplicationSequenceNumber` 值位於主要複本之 `CommittedSequenceNumber` 值後面的複本。
 
-- **IReplicator.BuildReplica(\<Remote ReplicaId>)**:這則警告表示建置程序發生問題。 如需詳細資訊，請參閱[複本生命週期](service-fabric-concepts-replica-lifecycle.md)。 可能是因為複寫器位址的設定不正確而造成。 如需詳細資訊，請參閱[設定具狀態可靠服務](service-fabric-reliable-services-configuration.md)和[在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)。 也可能是遠端節點上的問題。
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)** :這則警告表示建置程序發生問題。 如需詳細資訊，請參閱[複本生命週期](service-fabric-concepts-replica-lifecycle.md)。 可能是因為複寫器位址的設定不正確而造成。 如需詳細資訊，請參閱[設定具狀態可靠服務](service-fabric-reliable-services-configuration.md)和[在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)。 也可能是遠端節點上的問題。
 
 ### <a name="replicator-system-health-reports"></a>複寫器系統健康情況報告
-**複寫佇列已滿：**
+**複寫佇列已滿：** 
 **System.Replicator** 會在複寫佇列已滿時回報警告。 在主要資料庫上，複寫佇列通常會因為一或多個次要複本太慢認可作業而排滿。 在次要複本上，這通常是因為服務緩慢而無法套用作業所造成。 當佇列有空間時，警告就會被清除。
 
 * **SourceId**:System.Replicator
 * **屬性**:**PrimaryReplicationQueueStatus**或是**SecondaryReplicationQueueStatus**，端視複本角色。
 * **後續步驟**:如果報表是在主要伺服器上，檢查叢集中節點之間的連線。 如果所有連線狀況良好，可能是至少一個具有高磁碟延遲時間的緩慢次要複本要套用作業。 如果報表是在次要複本上，請先檢查節點上的磁碟使用量和效能。 然後檢查從緩慢節點到主要複本的傳出連線。
 
-**RemoteReplicatorConnectionStatus:**
+**RemoteReplicatorConnectionStatus:** 
 **System.Replicator** 在主要複本上與次要 (遠端) 複寫器連線狀況不良時回報警告。 遠端複寫器的位址會顯示在報表的訊息中，讓您更方便地偵測是否有錯誤組態傳入或者複寫器之間是否有網路問題。
 
 * **SourceId**:System.Replicator
@@ -674,7 +694,7 @@ HealthEvents          :
 命名作業所花費的時間超出預期時，在負責處理該作業的命名服務分割區的主要複本上，該作業會標幟警告報告。 如果作業順利完成，就會清除警告。 如果作業完成但發生錯誤，健全狀況報告會包含錯誤的詳細資訊。
 
 * **SourceId**:System.NamingService
-* **屬性**:開頭為前置詞"**Duration_**」 並可識別緩慢作業和套用該作業的 Service Fabric 名稱。 例如，如果在名稱 **fabric:/MyApp/MyService** 建立服務花太多時間，其屬性就是 **Duration_AOCreateService.fabric:/MyApp/MyService**。 "AO" 會針對這個名稱和作業，指向命名分割區的角色。
+* **屬性**:開頭為前置詞"**Duration_** 」 並可識別緩慢作業和套用該作業的 Service Fabric 名稱。 例如，如果在名稱 **fabric:/MyApp/MyService** 建立服務花太多時間，其屬性就是 **Duration_AOCreateService.fabric:/MyApp/MyService**。 "AO" 會針對這個名稱和作業，指向命名分割區的角色。
 * **後續步驟**:請檢查命名作業失敗的原因。 每個作業都可能有不同的根本原因。 例如，刪除服務可能已停滯。 由於服務程式碼中的使用者錯誤 (Bug) 造成節點上的應用程式主機持續當機，而使得服務停滯。
 
 以下範例顯示一個建立服務作業。 作業所花費的時間超過設定的期間。 "AO" 重試，並將工作傳送到 "NO"。 "NO" 完成最後一個作業但逾時。 在此情況下，"AO" 和 "NO" 角色有相同的主要複本。
@@ -864,7 +884,7 @@ HealthEvents               :
 ## <a name="next-steps"></a>後續步驟
 * [檢視 Service Fabric 健康狀態報告](service-fabric-view-entities-aggregated-health.md)
 
-* [如何报告和检查服务运行状况](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+* [如何回報和檢查服務健全狀況](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 * [在本機上監視及診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

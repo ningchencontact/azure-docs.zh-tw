@@ -1,6 +1,6 @@
 ---
 title: 基準原則使用者保護 （預覽）-Azure Active Directory
-description: 若要要求 multi-factor authentication 使用者的條件式存取原則
+description: 條件式存取原則，以要求多重要素驗證的使用者
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e5b72be0dbe35cf95eed404c7c1407c53f5f2ecb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235511"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112355"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>基準原則：終端使用者 protection （預覽）
 

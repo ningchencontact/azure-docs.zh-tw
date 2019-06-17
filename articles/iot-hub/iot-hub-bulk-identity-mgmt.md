@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
 ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796352"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>匯入和匯出大量的 IoT 中樞裝置身分識別
@@ -21,9 +21,9 @@ ms.locfileid: "65796352"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-匯入和匯出操作會在「作業」的內容中進行，其可讓您對 IoT 中樞執行大量服務操作。
+匯入和匯出操作會在「作業」  的內容中進行，其可讓您對 IoT 中樞執行大量服務操作。
 
-**RegistryManager** 类包括使用**作业**框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 這些方法可讓您匯出、匯入和同步處理整個 IoT 中樞身分識別登錄。
+**RegistryManager** 類別包含使用**作業**架構的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 這些方法可讓您匯出、匯入和同步處理整個 IoT 中樞身分識別登錄。
 
 本主題討論使用 **RegistryManager** 類別和**作業**的系統來執行將裝置大量匯入和匯出 IoT 中樞的身分識別登錄。 您也可以使用 Azure IoT 中樞裝置佈建服務，以無須人為介入的方式對一或多個 IoT 中樞進行 Just-In-Time 自動佈建。 若要深入了解，請參閱[佈建服務文件](/azure/iot-dps)。
 
@@ -36,7 +36,7 @@ ms.locfileid: "65796352"
 
 * 會傳回大量資料給使用者。
 
-與其讓單一 API 呼叫等候或封鎖操作的結果，操作會以非同步方式建立該 IoT 中樞的**作業**。 然后，操作立即返回 **JobProperties** 对象。
+與其讓單一 API 呼叫等候或封鎖操作的結果，操作會以非同步方式建立該 IoT 中樞的**作業**。 然後操作會立即傳回 **JobProperties** 物件。
 
 下列 C# 程式碼片段示範如何建立匯出作業：
 
@@ -60,7 +60,7 @@ RegistryManager registryManager =
 
 - 瀏覽至您的 IoT 中樞。
 
-- 選取 [共用存取原則]。
+- 選取 [共用存取原則]  。
 
 - 選取原則，並將您需要的權限列入考量。
 
@@ -93,18 +93,18 @@ while(true)
 
 使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/common/storage-security-guide.md#data-plane-security)的 [Azure 儲存體](../storage/index.yml) Blob 容器。
 
-使用此方法可在所控制的 Blob 容器中创建可靠的设备信息备份。
+這個方法可讓您在所控制的 Blob 容器中建立可靠的裝置資訊備份。
 
 **ExportDevicesAsync** 方法需要兩個參數：
 
-* 包含 Blob 容器 URI 的「字串」 。 此 URI 必须包含可授予容器写入权限的 SAS 令牌。 作業會在這個容器中建立用來儲存序列化匯出裝置資料的區塊 Blob。 SAS 權杖必須包含這些權限：
+* 包含 Blob 容器 URI 的「字串」  。 此 URI 必須包含可授與容器寫入權限的 SAS 權杖。 作業會在這個容器中建立用來儲存序列化匯出裝置資料的區塊 Blob。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
      | SharedAccessBlobPermissions.Delete
    ```
 
-* 指示你是否要在导出数据中排除身份验证密钥的 *布尔值*。 若為 **false**，驗證金鑰就會包含在匯出輸出中。 否則，會將金鑰匯出為 **null**。
+* 指出是否要在匯出資料中排除驗證金鑰的 *布林值* 。 若為 **false**，驗證金鑰就會包含在匯出輸出中。 否則，會將金鑰匯出為 **null**。
 
 下列 C# 程式碼片段示範如何啟動在匯出資料中包含裝置驗證金鑰的匯出作業，然後執行輪詢以完成作業：
 
@@ -129,7 +129,7 @@ while(true)
 }
 ```
 
-作業會在所提供的 Blob 容器中將其輸出儲存為名稱是 **devices.txt**的區塊 Blob。 输出数据包含 JSON 序列化设备数据，每行代表一个设备。
+作業會在所提供的 Blob 容器中將其輸出儲存為名稱是 **devices.txt**的區塊 Blob。 輸出資料包含 JSON 序列化裝置資料，每行代表一個裝置。
 
 下列範例顯示輸出資料：
 
@@ -211,17 +211,17 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 請謹慎使用 **ImportDevicesAsync** 方法，因為除了在身分識別登錄中佈建新裝置外，此方法也會更新和刪除現有裝置。
 
 > [!WARNING]
-> 导入操作不可撤消。 請一律先使用 **ExportDevicesAsync** 方法將現有資料備份到另一個 Blob 容器，再對身分識別登錄進行大量變更。
+> 匯入操作是無法復原的。 請一律先使用 **ExportDevicesAsync** 方法將現有資料備份到另一個 Blob 容器，再對身分識別登錄進行大量變更。
 
 **ImportDevicesAsync** 方法會採用兩個參數：
 
-* 包含 [Azure 儲存體](../storage/index.yml) Blob 容器 URI 以作為作業之「輸入」的「字串」。 此 URI 必須包含可授與容器讀取權限的 SAS 權杖。 此容器必須包含名稱為 **devices.txt** 的 Blob，而此 Blob 包含要匯入到身分識別登錄的序列化裝置資料。 匯入資料必須包含 **ExportImportDevice** 作業建立 **devices.txt** Blob 時所使用之相同 JSON 格式的裝置資訊。 SAS 權杖必須包含這些權限：
+* 包含 [Azure 儲存體](../storage/index.yml) Blob 容器 URI 以作為作業之「輸入」  的「字串」  。 此 URI 必須包含可授與容器讀取權限的 SAS 權杖。 此容器必須包含名稱為 **devices.txt** 的 Blob，而此 Blob 包含要匯入到身分識別登錄的序列化裝置資料。 匯入資料必須包含 **ExportImportDevice** 作業建立 **devices.txt** Blob 時所使用之相同 JSON 格式的裝置資訊。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* 包含 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/) Blob 容器 URI 以作為作業之「輸出」的「字串」。 作業會在此容器中建立區塊 Blob，以儲存來自已完成之匯入 **作業**的任何錯誤資訊。 SAS 權杖必須包含這些權限：
+* 包含 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/) Blob 容器 URI 以作為作業之「輸出」  的「字串」  。 作業會在此容器中建立區塊 Blob，以儲存來自已完成之匯入 **作業**的任何錯誤資訊。 SAS 權杖必須包含這些權限：
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -251,15 +251,15 @@ JobProperties importJob =
 * 大量自動重新產生裝置驗證金鑰
 * 大量更新對應項資料
 
-您可以在單一 **ImportDevicesAsync** 呼叫中執行上述作業的任意組合。 比方說，您可以同時間註冊新裝置並刪除或更新現有裝置。 与 **ExportDevicesAsync** 方法一起使用时，可以将一个 IoT 中心内的所有设备全部迁移到另一个 IoT 中心。
+您可以在單一 **ImportDevicesAsync** 呼叫中執行上述作業的任意組合。 比方說，您可以同時間註冊新裝置並刪除或更新現有裝置。 搭配 **ExportDevicesAsync** 方法一起使用時，您可以將某個 IoT 中樞內的所有裝置移轉到另一個 IoT 中樞。
 
 如果匯入檔案包含對應項中繼資料，則此中繼資料會覆寫現有的對應項中繼資料。 如果匯入檔案不包含對應項中繼資料，則只有 `lastUpdateTime` 中繼資料會使用目前的時間來更新。
 
 在每個裝置的匯入序列化資料中使用選擇性的 **importMode** 屬性控制每個裝置的匯入程序。 **ImportMode** 屬性具有下列選項：
 
-| importMode | 說明 |
+| importMode | 描述 |
 | --- | --- |
-| **createOrUpdate** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 用户可以选择在指定设备数据的同时指定孪生数据。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
+| **createOrUpdate** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **create** |如果裝置不存在具有指定之**識別碼**，它新註冊。 <br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 <br> 使用者可以選擇性地指定對應項資料以及裝置資料。 對應項的 etag (若已指定) 會與裝置的 etag 分開處理。 如果現有對應項的 etag 有不相符之處，系統會在記錄檔中寫入錯誤。 |
 | **update** |如果裝置已存在具有指定**識別碼**，以所提供的輸入資料，而不需要方面來覆寫現有資訊**ETag**值。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
 | **pdateIfMatchETagu** |如果裝置已存在具有指定**識別碼**，會覆寫現有資訊以所提供的輸入資料才**ETag**比對。 <br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 <br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
@@ -275,7 +275,7 @@ JobProperties importJob =
 下列 C# 程式碼範例說明如何產生多個裝置身分識別，以便：
 
 * 包含驗證金鑰。
-* 将该设备信息写入块 blob。
+* 將該裝置資訊寫入至區塊 Blob。
 * 將裝置匯入至身分識別登錄。
 
 ```csharp
@@ -342,9 +342,9 @@ while(true)
 }
 ```
 
-## <a name="import-devices-example--bulk-deletion"></a>导入设备示例 – 批量删除
+## <a name="import-devices-example--bulk-deletion"></a>匯入裝置範例 - 大量刪除
 
-以下代码示例演示如何删除使用前面代码示例添加的设备：
+下列程式碼範例示範如何刪除使用前一個程式碼範例所新增的裝置：
 
 ```csharp
 // Step 1: Update each device's ImportMode to be Delete

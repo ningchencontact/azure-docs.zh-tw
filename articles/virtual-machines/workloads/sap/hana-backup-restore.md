@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 21232e5a678d6deed920e57cd0433a3b85ca4fdc
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987905"
 ---
 # <a name="backup-and-restore"></a>備份與還原
@@ -118,7 +118,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 1. 在所有 SAP HANA (大型執行個體) 伺服器上安裝 SAP HANA HDB 用戶端。
 1. 在每個區域的第一部 SAP HANA (大型執行個體) 伺服器上，建立一個公開金鑰，以便存取其底下控制快照集建立的儲存體基礎結構。
 1. 將指令碼和組態檔從 [ GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0) 複製到 SAP HANA 安裝中的 **hdbsql** 位置。
-1. 視需要修改 HANABackupDetails.txt 檔案以符合適當的客戶規格。
+1. 視需要修改 HANABackupDetails.txt  檔案以符合適當的客戶規格。
 
 從 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.0) 取得最新快照集指令碼和文件。 如先前所列的步驟，請參閱 < [Microsoft Azure 上的 SAP HANA 快照工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)。
 
@@ -179,7 +179,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 
 #### <a name="test-connectivity-with-sap-hana"></a>測試與 SAP HANA 的連線
 
-將所有組態資料放入 HANABackupCustomerDetails.txt 檔案後，請檢查 HANA 執行個體資料的組態是否正確。 使用指令碼 `testHANAConnection`，其與 SAP HANA 相應增加或相應放大組態無關。
+將所有組態資料放入 HANABackupCustomerDetails.txt  檔案後，請檢查 HANA 執行個體資料的組態是否正確。 使用指令碼 `testHANAConnection`，其與 SAP HANA 相應增加或相應放大組態無關。
 
 如需詳細資訊，請參閱 「 使用 SAP HANA-testHANAConnection 檢查連線 」 中[Microsoft Azure 上的 SAP HANA 快照工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)。
 
@@ -214,7 +214,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 ## <a name="snapshot-strategies"></a>快照集策略
 針對不同類型的快照集，其頻率取決於您是否使用 HANA 大型執行個體災害復原功能。 此功能依賴儲存快照集，其可能需要有關儲存體快照集執行頻率和期間的特殊建議。 
 
-在下面的考量和建議中，假設您「不」使用 HANA 大型執行個體所提供的災害復原功能。 相反地，您會使用儲存體快照集來建立備份，且您能夠提供過去 30 天的時間點復原。 指定數目的快照集和空間限制，請考慮下列需求：
+在下面的考量和建議中，假設您「不」  使用 HANA 大型執行個體所提供的災害復原功能。 相反地，您會使用儲存體快照集來建立備份，且您能夠提供過去 30 天的時間點復原。 指定數目的快照集和空間限制，請考慮下列需求：
 
 - 時間點復原的復原時間。
 - 使用的空間。

@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: c3bf695527db19513125d9190796c9b5df312aaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153493"
 ---
 # <a name="azure-storage-samples"></a>Azure 儲存體範例
@@ -35,8 +35,8 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 * [使用 .NET 的 Azure 儲存體範例](storage-samples-dotnet.md)
 
-## <a name="java-samples"></a>Java 示例
-要浏览 Java 示例，请下载 [Java 存储客户端库](https://github.com/azure/azure-storage-java)。
+## <a name="java-samples"></a>Java 範例
+若要瀏覽 Java 範例，請下載 [Java 儲存體用戶端程式庫](https://github.com/azure/azure-storage-java)。
 
 * [使用 Java 的 Azure 儲存體範例](storage-samples-java.md)
 
@@ -56,16 +56,16 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 * [開始使用 Blob](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
 * [開始使用資料表](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [队列使用入门](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [開始使用佇列](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
 ## <a name="api-reference-and-source-code"></a>API 參考和原始程式碼
 
 | 語言 | API 參考資料 | 原始程式碼 |
 |----------|---------------|-------------|
-| .NET | [.NET 用戶端程式庫參考](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET 存储客户端库的源代码](https://github.com/Azure/azure-storage-net) |
+| .NET | [.NET 用戶端程式庫參考](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-net) |
 | Java | [Java 用戶端程式庫參考](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java 儲存體用戶端程式庫的原始程式碼](https://github.com/azure/azure-storage-java) |
-| Node.js | [Node.js 用戶端程式庫參考](https://azure.github.io/azure-storage-node) | [Node.js 存储客户端库的源代码](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++ 客户端库参考](https://azure.github.io/azure-storage-cpp/) | [C++ 存储客户端库的源代码](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Node.js 用戶端程式庫參考](https://azure.github.io/azure-storage-node) | [Node.js 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-node) |
+| C++ | [C++ 用戶端程式庫參考](https://azure.github.io/azure-storage-cpp/) | [C++ 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>後續步驟
 

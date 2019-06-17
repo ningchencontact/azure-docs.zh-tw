@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 376df206d75780a4b814873d72d9c56554f6b0b8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956607"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>啟用 Windows IaaS VM 適用的 Azure 磁碟加密
@@ -122,18 +122,18 @@ ms.locfileid: "65956607"
 您可以使用 [Resource Manager 範本來加密執行中的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)，以在 Azure 中現有或執行中的 IaaS Windows VM 上啟用磁碟加密。
 
 
-1. 在 Azure 快速入門範本中，按一下 [部署至 Azure]。
+1. 在 Azure 快速入門範本中，按一下 [部署至 Azure]  。
 
-2. 選取訂用帳戶、資源群組、位置、設定、法律條款及合約。 按一下 [購買]，以在現有或執行中的 IaaS VM 上啟用加密。
+2. 選取訂用帳戶、資源群組、位置、設定、法律條款及合約。 按一下 [購買]  ，以在現有或執行中的 IaaS VM 上啟用加密。
 
 下表列出現有或執行中 VM 的 Resource Manager 範本參數︰
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | vmName | 要執行加密作業的 VM 名稱。 |
 | keyVaultName | 應上傳 BitLocker 金鑰的金鑰保存庫名稱。 您可以使用 Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MyKeyVaultResourceGroup"` 來取得|
 | keyVaultResourceGroup | 包含金鑰保存庫的資源群組名稱|
-|  keyEncryptionKeyURL | 用來加密所產生 BitLocker 金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]，您必須輸入 _keyEncryptionKeyURL_ 值。 |
+|  keyEncryptionKeyURL | 用來加密所產生 BitLocker 金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]  ，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]  ，您必須輸入 _keyEncryptionKeyURL_ 值。 |
 | volumeType | 執行加密作業所在磁碟區的類型。 有效值為 _OS_、_Data_ 和 _All_。 
 | forceUpdateTag | 每次需要強制執行作業時傳入唯一的值，例如 GUID。 |
 | resizeOSDisk | 是否應該先將 OS 分割區調整大小以佔用完整的 OS VHD，然後才分割系統磁碟區。 |
@@ -227,7 +227,7 @@ ms.locfileid: "65956607"
 
      1. 按一下 [ **部署至 Azure**]。
      2. 填寫必要欄位，然後同意條款及條件。
-     3. 按一下 [購買] 以部署範本。
+     3. 按一下 [購買]  以部署範本。
 
 ## <a name="bkmk_VHDpre"> </a>透過客戶加密的 VHD 和加密金鑰建立的新 IaaS VM
 
@@ -326,9 +326,9 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
      ```
 - **透過 Resource Manager 範本停用加密：** 
 
-    1. 從[在執行中的 Windows VM 上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)範本，按一下 [部署至 Azure]。
+    1. 從[在執行中的 Windows VM 上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)範本，按一下 [部署至 Azure]  。
     2. 選取訂用帳戶、資源群組、位置、VM、磁碟區類型、法律條款及合約。
-    3.  按一下 [購買] 以在執行中的 Windows VM 上停用磁碟加密。 
+    3.  按一下 [購買]  以在執行中的 Windows VM 上停用磁碟加密。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165956"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062122"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-use-custom-activities.md)
 > * [目前的版本](transform-data-using-dotnet-custom-activity.md)
 
@@ -102,16 +102,16 @@ ms.locfileid: "66165956"
 
 | 屬性              | 描述                              | 必要項 |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | 管線中的活動名稱     | 有      |
-| description           | 說明活動用途的文字。  | 無       |
-| 類型                  | 針對自訂活動，活動類型是**自訂**。 | 有      |
-| 預設容器     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 有      |
-| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 有      |
+| name                  | 管線中的活動名稱     | 是      |
+| description           | 說明活動用途的文字。  | 否       |
+| type                  | 針對自訂活動，活動類型是**自訂**。 | 是      |
+| linkedServiceName     | Azure Batch 的已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  | 是      |
+| 命令               | 要執行的自訂應用程式命令。 如果應用程式已經可以在 Azure Batch 集區節點上使用，則可以略過 resourceLinkedService 和 folderPath。 例如，您可以將命令指定為 `cmd /c dir`，該命令原生受 Windows Batch 集區節點支援。 | 是      |
 | resourceLinkedService | 對儲存體帳戶 (自訂應用程式儲存所在) 的 Azure 儲存體已連結的服務 | 否 &#42;       |
-| folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑<br/><br/>如果您將相依性儲存在子資料夾中 (也就是 folderPath 下的階層式資料夾結構)，當您將檔案複製到 Azure Batch 時，目前的資料夾結構會遭到壓平合併。 也就是所有檔案會複製到沒有子資料夾的單一資料夾中。 若要解決這個問題行為，請考慮壓縮檔案並複製壓縮的檔案，然後在所需位置中以自訂程式碼來將其解壓縮。 | 否 &#42;       |
-| referenceObjects      | 現有已連結的服務和資料集的陣列。 參考的已連結的服務和資料集會傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考 Data Factory 的資源 | 無       |
-| extendedProperties    | 使用者定義的屬性，可以傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考其他屬性 | 無       |
-| retentionTimeInDays | 針對自訂活動送出的檔案保留時間。 預設值為 30 天。 | 無 |
+| folderPath            | 自訂應用程式及其所有相依項目的資料夾路徑<br/><br/>如果您將相依性儲存在子資料夾中 (也就是 folderPath  下的階層式資料夾結構)，當您將檔案複製到 Azure Batch 時，目前的資料夾結構會遭到壓平合併。 也就是所有檔案會複製到沒有子資料夾的單一資料夾中。 若要解決這個問題行為，請考慮壓縮檔案並複製壓縮的檔案，然後在所需位置中以自訂程式碼來將其解壓縮。 | 否 &#42;       |
+| referenceObjects      | 現有已連結的服務和資料集的陣列。 參考的已連結的服務和資料集會傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考 Data Factory 的資源 | 否       |
+| extendedProperties    | 使用者定義的屬性，可以傳遞至 JSON 格式的自訂應用程式，讓您的自訂程式碼可以參考其他屬性 | 否       |
+| retentionTimeInDays | 針對自訂活動送出的檔案保留時間。 預設值為 30 天。 | 否 |
 
 &#42; 必須同時指定或同時省略 `resourceLinkedService` 和 `folderPath` 屬性。
 
@@ -301,7 +301,7 @@ Activity Error section:
 如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "\@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。
 
 > [!IMPORTANT]
-> - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 及 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" 路徑中。 您必須視需要個別加以清除。
+> - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、 linkedServices.json 和 datasets.json 會儲存在`"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"`路徑。 您必須視需要個別加以清除。
 > - 如果已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段進行加密，以確保認證會保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。
 
 ## <a name="pass-outputs-to-another-activity"></a>將輸出傳遞到其他活動
@@ -310,7 +310,7 @@ Activity Error section:
 
 ## <a name="retrieve-securestring-outputs"></a>擷取 SecureString 輸出
 
-在 Data Factory 使用者介面上的 [監視] 索引標籤中，指定為 SecureString 類型的敏感屬性值 (如本文部分範例中所示) 都會加上遮罩。  但是，在實際的管線執行中，SecureString 屬性會在 `activity.json` 檔案中序列化為純文字形式的 JSON。 例如：
+在 Data Factory 使用者介面上的 [監視] 索引標籤中，指定為 SecureString  類型的敏感屬性值 (如本文部分範例中所示) 都會加上遮罩。  但是，在實際的管線執行中，SecureString  屬性會在 `activity.json` 檔案中序列化為純文字形式的 JSON。 例如:
 
 ```json
 "extendedProperties": {
@@ -323,7 +323,7 @@ Activity Error section:
 
 此序列化不是真正的安全，而且也不是以安全為目的。 其目的是要提示 Data Factory 對 [監視] 索引標籤中的值加上遮罩。
 
-若要從自訂活動中存取 SecureString 類別的屬性，請讀取您 .EXE 所在資料夾中的 `activity.json` 檔案、將 JSON 還原序列化，然後存取 JSON 屬性 (extendedProperties => [propertyName] => value)。
+若要從自訂活動中存取 SecureString  類別的屬性，請讀取您 .EXE 所在資料夾中的 `activity.json` 檔案、將 JSON 還原序列化，然後存取 JSON 屬性 (extendedProperties => [propertyName] => value)。
 
 ## <a name="compare-v2-v1"></a> 比較 v2 自訂活動和第 1 版 (自訂) DotNet 活動
 
