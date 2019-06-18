@@ -4,6 +4,8 @@
   items:
     - name: 什麼是 Azure DNS？
       href: dns-overview.md
+    - name: 什麼是 Azure Private DNS？
+      href: private-dns-overview.md
 - name: 快速入門
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: 建立 Web 應用程式的自訂 DNS 記錄
       href: dns-web-sites-custom-domain.md
     - name: 建立私人 DNS 區域和記錄
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: 流量管理員的別名記錄
       href: tutorial-alias-tm.md
     - name: 公用 IP 位址的別名記錄
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: 概念
   items:
+    - name: 私人 DNS
+      items:
+        - name: 常見問題集 - 私人 DNS
+          href: dns-faq-private.md
+        - name: 私人 DNS 案例
+          href: private-dns-scenarios.md
     - name: 區域和記錄
       href: dns-zones-records.md
     - name: 別名記錄
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: 常見問題集
       href: dns-faq.md
-    - name: 使用私人 DNS 區域
-      href: private-dns-overview.md
-    - name: 私人 DNS 案例
-      href: private-dns-scenarios.md
     - name: DNS 計量與警示
       href: dns-alerts-metrics.md
     - name: 反向 DNS
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 作法
   items:
-    - name: 建立私人 DNS 區域和記錄 - Azure CLI
-      href: private-dns-getstarted-cli.md
+    - name: 私人 DNS
+      items:
+        - name: 建立私人區域 - CLI
+          href: private-dns-getstarted-cli.md
+        - name: 建立私人區域 - PowerShell
+          href: private-dns-getstarted-powershell.md
     - name: 負載平衡的 Web 應用程式別名記錄
       href: dns-alias-appservice.md
     - name: 管理 DNS 區域
