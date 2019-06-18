@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513312"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734599"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -65,7 +65,7 @@ ms.locfileid: "66513312"
 - `https://device.login.microsoftonline.com`
 - [https://autologon.microsoftazuread-sso.com](`https://autologon.microsoftazuread-sso.com`)(如果您正在使用或預計要使用無縫 SSO)
 
-如果組織需要透過輸出 Proxy 存取網際網路，Microsoft 建議[實作 Web Proxy 自動探索 (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))，讓 Windows 10 電腦能向 Azure AD 進行裝置註冊。 如果您遇到設定和管理 WPAD 的問題，請移至 [自動偵測疑難排解] (https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)。 
+如果組織需要透過輸出 Proxy 存取網際網路，Microsoft 建議[實作 Web Proxy 自動探索 (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))，讓 Windows 10 電腦能向 Azure AD 進行裝置註冊。 如果您遇到設定和管理 WPAD 的問題，請移至[自動偵測疑難排解](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10))。 
 
 如果您未使用 WPAD 且需要在電腦上設定 Proxy 設定，自 Windows 10 1709 起，您可以[使用群組原則物件 (GPO) 設定 WinHTTP 設定](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)。
 

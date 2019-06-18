@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/06/2019
+ms.openlocfilehash: e39440a46228d82b0722f7d9d349d11fb2417b42
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954551"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754639"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>快速入門：在 Azure Cosmos DB 中使用 SQL API 帳戶建置 .NET Web 應用程式
 
@@ -52,33 +52,32 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
 
 您可以在 Azure 入口網站中使用資料總管，建立資料庫和集合。 
 
-1.  在 Azure Cosmos DB 帳戶頁面上的左側導覽中選取 [資料總管]  ，然後選取 [新增集合]  。 
+1.  在 Azure Cosmos DB 帳戶頁面上的左側導覽中選取 [資料總管]  ，然後選取 [新增容器]  。 
     
-    您可能需要向右捲動才能看到 [新增集合]  區域。
+    您可能需要向右捲動才能看到 [新增集合]  視窗。
     
     ![Azure 入口網站資料總管，[新增集合] 窗格](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  在 [新增集合]  頁面上，輸入新集合的設定。
+1.  在 [新增容器]  窗格中，輸入新集合的設定。
     
     |設定|建議的值|說明
     |---|---|---|
-    |**資料庫識別碼**|ToDoList|輸入 *ToDoList* 作為新資料庫的名稱。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 `/, \\, #, ?` 或尾端空格。|
-    |**集合識別碼**|項目|輸入 *Items* 作為新集合的名稱。 集合識別碼與資料庫名稱具有相同的字元需求。|
-    |**分割區索引鍵**| /類別| 本文中所述的範例使用 */category* 作為分割區索引鍵。|
+    |**資料庫識別碼**|ToDoList|輸入 *ToDoList* 作為新資料庫的名稱。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 `/, \\, #, ?` 或尾端空格。 核取 [佈建資料庫輸送量]  選項，它可讓您在資料庫中的所有容器內共用佈建到資料庫的輸送量。 此選項也有助於節省成本。 |
     |**輸送量**|400|讓輸送量保持在每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。| 
+    |**容器識別碼**|項目|輸入 *Items* 作為新集合的名稱。 集合識別碼與資料庫名稱具有相同的字元需求。|
+    |**分割區索引鍵**| /類別| 本文中所述的範例使用 */category* 作為分割區索引鍵。|
+
     
     在此範例中，請勿新增**唯一索引鍵**。 唯一索引鍵可讓您藉由確保每個分割索引鍵有一或多個唯一值，來對資料庫新增一層資料完整性。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的唯一索引鍵](unique-keys.md)。
     
-1.  選取 [確定]  。 
-    [資料總管] 會顯示新的資料庫和集合。
+1.  選取 [確定]  。 [資料總管] 會顯示您建立的新資料庫和容器。
     
-    ![Azure 入口網站 [資料總管]，顯示新的資料庫和集合](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## <a name="add-data-to-your-database"></a>將資料新增至資料庫
 
 使用資料總管將資料新增至新的資料庫。
 
-1. 在 [資料總管]  中，新的資料庫會出現在 [集合]  窗格中。 依序展開 [ToDoList]  資料庫和 [項目]  集合，然後依序選取 [文件]  和 [新增文件]  。 
+1. 在 [資料總管]  中，展開 **ToDoList** 資料庫，然後展開 **Items** 容器。 接下來，選取 [Items]  ，然後選取 [新增項目]  。 
    
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -108,7 +107,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
 
 若要了解以程式設計方式處理 Azure Cosmos DB 資料有多麼簡單，請從 GitHub 複製 SQL API .NET Web 應用程式範例、更新連接字串，然後執行應用程式以更新資料。 
 
-您也可以使用 .NET 程式碼範例來建立資料庫和集合。 若要深入了解，請檢閱[檢閱 .NET 程式碼](#review-the-net-code)。
+您也可以使用 .NET 範例程式碼來建立資料庫和容器。 若要深入了解，請檢閱[檢閱 .NET 程式碼](#review-the-net-code)。
 
 ### <a name="clone-the-sample-app"></a>複製範例應用程式
 
@@ -148,7 +147,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. 確定「web.config」  中的資料庫和集合值符合您稍早建立的名稱。 
+1. 確定「web.config」  中的資料庫和集合 (也稱為容器) 值符合您稍早建立的名稱。 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -163,7 +162,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
 
 1. 在 NuGet [瀏覽]  方塊中，輸入 *DocumentDB*。
 
-1. 從結果中，安裝 **Microsoft.Azure.DocumentDB** 程式庫 (若尚未安裝)。 這會安裝 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 套件以及所有相依性。
+1. 從結果中，安裝 **Microsoft.Azure.DocumentDB** 程式庫的 **2.2.3 版本** (若尚未安裝)。 這會安裝 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 套件以及所有相依性。
    
    如果 NuGet 套件管理員顯示訊息指出方案中遺漏某些套件，則請選取 [還原]  以從內部來源進行安裝。 
 
@@ -177,7 +176,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
 
 ## <a name="review-the-net-code"></a>檢閱 .NET 程式碼
 
-此為選用步驟。 在本快速入門中，您已在 Azure 入口網站中建立資料庫和集合，並使用 .NET 範例新增資料範例。 不過，您也可以使用的.NET 範例建立資料庫和集合。 如果您想要了解程式碼會如何建立資料庫資源，請檢閱下列程式碼片段。 程式碼片段全部取自 **todo** 專案中的「DocumentDBRepository.cs」  檔案。
+此為選用步驟。 在本快速入門中，您已在 Azure 入口網站中建立資料庫和容器，並使用 .NET 範例新增資料範例。 不過，您也可以使用 .NET 範例建立資料庫和容器。 如果您想要了解程式碼會如何建立資料庫資源，請檢閱下列程式碼片段。 程式碼片段全部取自 **todo** 專案中的「DocumentDBRepository.cs」  檔案。
 
 * 此程式碼會初始化 `DocumentClient`： 
 
@@ -230,7 +229,7 @@ Azure 訂用帳戶或免費的 Azure Cosmos DB 試用帳戶
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶、如何使用 [資料總管] 建立資料庫和集合，以及如何執行 .NET Web 應用程式來更新資料。 您現在可以將其他資料匯入 Azure Cosmos DB 帳戶中。 
+在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶、如何使用 [資料總管] 建立資料庫和容器，以及如何執行 .NET Web 應用程式來更新資料。 您現在可以將其他資料匯入 Azure Cosmos DB 帳戶中。 
 
 > [!div class="nextstepaction"]
 > [將資料匯入到 Azure Cosmos DB](import-data.md)

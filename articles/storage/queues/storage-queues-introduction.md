@@ -5,20 +5,20 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: overview
-ms.date: 02/06/2019
+ms.date: 06/07/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 544ff9d2c624ef62bf8041afd818153c1c4bfcc8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bc3045e3d3b6977555818fcdb3dcaf3246ebd200
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142505"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754803"
 ---
 # <a name="what-are-azure-queues"></a>什麼是 Azure 佇列？
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。
+Azure 佇列儲存體是用來儲存大量訊息的服務。 使用 HTTP 或 HTTPS 透過境過驗證的呼叫，存取來自世界各地的訊息。 一則佇列訊息的大小可能高達 64 KB。 佇列可以包含數百萬則訊息，最高可達儲存體帳戶的總容量限制。
 
 ## <a name="common-uses"></a>常見用途
 
@@ -33,8 +33,9 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 ![佇列概念](./media/storage-queues-introduction/queue1.png)
 
-* **URL 格式：** 可利用下列 URL 格式來定址佇列：   
-    https://`<storage account>`.queue.core.windows.net/`<queue>` 
+* **URL 格式：** 可利用下列 URL 格式來定址佇列：
+
+    `https://<storage account>.queue.core.windows.net/<queue>`
   
     下列 URL 可定址圖中的佇列：  
   
@@ -42,9 +43,9 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 * **儲存體帳戶：** 所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。 如需關於儲存體帳戶容量的詳細資訊，請參閱＜ [Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) ＞(英文)。
 
-* **佇列：** 佇列包含一組訊息。 所有訊息都必須放在佇列中。 請注意，佇列名稱必須是小寫。 如需為佇列命名的詳細資訊，請參閱 [為佇列和中繼資料命名](https://msdn.microsoft.com/library/azure/dd179349.aspx)。
+* **佇列：** 佇列包含一組訊息。 佇列名稱**必須**是小寫。 如需為佇列命名的詳細資訊，請參閱 [為佇列和中繼資料命名](https://msdn.microsoft.com/library/azure/dd179349.aspx)。
 
-* **訊息：** 大小上限為 64 KB 的訊息 (任何格式)。 訊息可保留在佇列中的時間上限為 7 天。
+* **訊息：** 大小上限為 64 KB 的訊息 (任何格式)。 在版本 2017-07-29 之前，允許的存留時間上限是七天。 如需版本 2017-07-29 或更新版本，最大存留時間可以是任何正數，或是表示訊息未過期的 -1。 如果省略此參數，則預設存留時間為 7 天。
 
 ## <a name="next-steps"></a>後續步驟
 

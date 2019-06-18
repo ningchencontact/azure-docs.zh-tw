@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 891b64b8e31266360d718255dcd8e8a1f9fb597c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 81d660857eff63e0dfeeda400b168ea424152081
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306613"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808613"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 
@@ -173,53 +173,54 @@ IoT Edge 執行階段需要登錄認證才能將容器映像提取到 IoT Edge �
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. 儲存 deployment.template.json 檔案。 
 
-### Review the sample code
+### <a name="review-the-sample-code"></a>檢閱範例程式碼
 
-The solution template that you created includes sample code for an IoT Edge module. This sample module simply receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+您所建立的解決方案範本包含 IoT Edge 模組的程式碼範例。 此模組範例只會接收訊息，再加以傳遞。 管線功能會示範 IoT Edge 中的重要概念，也就是模組彼此之間要如何通訊。
 
-Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific language for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
+每個模組都可以在其程式碼中宣告多個「輸入」  和「輸出」  佇列。 在裝置上執行的 IoT Edge 中樞會將訊息從某個模組的輸出路由傳送至一或多個模組的輸入。 用於宣告輸入和輸出的特定語言會隨語言而異，但概念在所有模組則都相同。 如需模組之間路由方式的詳細資訊，請參閱[宣告路由](module-composition.md#declare-routes)。
 
-1. In the **main.c** file, find the **SetupCallbacksForModule** function.
+1. 在 **main.c** 檔案中，尋找 **SetupCallbacksForModule** 函式。
 
-2. This function sets up an input queue to receive incoming messages. It calls the C SDK module client function [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback). Review this function and see that it initializes an input queue called **input1**. 
+2. 此函式會設定要接收內送訊息的輸入佇列。 它會呼叫 C SDK 模組用戶端函式 [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback)。 檢閱此函式，並查看它初始化名為 **input1** 的輸入佇列。 
 
-   ![Find the input name in the SetInputMessageCallback constructor](./media/tutorial-develop-for-windows/declare-input-queue.png)
+   ![在 SetInputMessageCallback 建構函式中尋找輸入名稱](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
-3. Next, find the **InputQueue1Callback** function.
+3. 接下來，尋找 **InputQueue1Callback** 函式。
 
-4. This function processes received messages and sets up an output queue to pass them along. It calls the C SDK module client function [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync). Review this function and see that it initializes an output queue called **output1**. 
+4. 此函式會處理接收的訊息並設定輸出佇列來傳遞它們。 它會呼叫 C SDK 模組用戶端函式 [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync)。 檢閱此函式，並查看它初始化名為 **output1** 的輸出佇列。 
 
-   ![Find the output name in the SendEventToOutputAsync constructor](./media/tutorial-develop-for-windows/declare-output-queue.png)
+   ![在 SendEventToOutputAsync 建構函式中尋找輸出名稱](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
-5. Open the **deployment.template.json** file.
+5. 開啟 **deployment.template.json** 檔案。
 
-6. Find the **modules** property of the $edgeAgent desired properties. 
+6. 尋找 $edgeAgent 所需屬性的 **modules** 屬性。 
 
-   There should be two modules listed here. The first is **tempSensor**, which is included in all the templates by default to provide simulated temperature data that you can use to test your modules. The second is the **IotEdgeModule1** module that you created as part of this project.
+   這裡應該會列出兩個模組。 第一個是 **tempSensor**，所有範本預設都會隨附此模組，以提供可讓您用來測試模組的模擬溫度資料。 第二個是您在此專案內建立的 **IotEdgeModule1** 模組。
 
-   This modules property declares which modules should be included in the deployment to your device or devices. 
+   此 modules 屬性會宣告哪些模組應該包含在您的裝置部署中。 
 
-7. Find the **routes** property of the $edgeHub desired properties. 
+7. 尋找 $edgeHub 所需屬性的 **routes** 屬性。 
 
-   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IoTEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the tempSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   IoT Edge 中樞模組的其中一個功能是在部署中的所有模組之間傳送訊息。 檢閱 routes 屬性中的值。 第一個路由 **IotEdgeModule1ToIoTHub** 會使用萬用字元 ( **\*** ) 來包含任何來自 IoTEdgeModule1 模組中任何輸出佇列的訊息。 這些訊息會進入 $upstream  ，這是會指出 IoT 中樞的保留名稱。 第二個路由 **sensorToIotEdgeModule1** 會取得來自 tempSensor 模組的訊息，並將其路由傳送至 IotEdgeModule1 模組的 input1  輸入佇列。 
 
-   ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
+   ![檢閱 deployment.template.json 中的路由](./media/tutorial-develop-for-windows/deployment-routes.png)
 
 
-## Build and push your solution
+## <a name="build-and-push-your-solution"></a>建置並推送解決方案
 
-You've reviewed the module code and the deployment template to understand some key deployment concepts. Now, you're ready to build the IotEdgeModule1 container image and push it to your container registry. With the IoT tools extension for Visual Studio, this step also generates the deployment manifest based on the information in the template file and the module information from the solution files. 
+您已檢閱過模組程式碼和部署範本來了解一些重要的部署概念。 現在，您已準備好建置 IotEdgeModule1 容器映像，並將其推送至容器登錄。 在使用適用於 Visual Studio 的 IoT Tools 擴充功能時，此步驟還會根據範本檔案中的資訊以及來自解決方案檔案的模組資訊，產生部署資訊清單。 
 
-### Sign in to Docker
+### <a name="sign-in-to-docker"></a>登入 Docker
 
-Provide your container registry credentials to Docker on your development machine so that it can push your container image to be stored in the registry. 
+對您部署機器上的 Docker 提供容器登錄認證，使其可以推送要儲存在登錄中的容器映像。 
 
-1. Open PowerShell or a command prompt.
+1. 開啟 PowerShell 或命令提示字元。
 
-2. Sign in to Docker with the Azure container registry credentials that you saved after creating the registry. 
+2. 使用您在建立登錄之後所儲存的 Azure Container Registry 認證來登入 Docker。 
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
