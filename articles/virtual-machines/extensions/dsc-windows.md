@@ -113,11 +113,11 @@ Windows 的 DSC 擴充功能會要求目標虛擬機器都必須能夠使用 Azu
 | settings.configuration.url | string | 指定要從中下載 DSC 組態 zip 檔的 URL 位置。 如果提供的 URL 需要 SAS 權杖才能存取，您必須將 protectedSettings.configurationUrlSasToken 屬性設定為 SAS 權杖的值。 如果已定義 settings.configuration.script 和/或 settings.configuration.function，則需要這個屬性。
 | settings.configuration.script | string | 指定指令碼的檔案名稱，其中包含 DSC 組態的定義。 此指令碼必須位於從 configuration.url 屬性所指定的 URL 下載之 zip 檔案的根資料夾中。 如果已定義 settings.configuration.url 和/或 settings.configuration.script，則需要這個屬性。
 | settings.configuration.function | string | 指定 DSC 組態的名稱。 命名的組態必須包含在 configuration.script 所定義的指令碼中。 如果已定義 settings.configuration.url 和/或 settings.configuration.function，則需要這個屬性。
-| settings.configurationArguments | Collection | 定義任何您想要傳遞至 DSC 組態的參數。 此屬性將不會經過加密。
+| settings.configurationArguments | 集合 | 定義任何您想要傳遞至 DSC 組態的參數。 此屬性將不會經過加密。
 | settings.configurationData.url | string | 指定 URL，從中下載您的組態資料 (.pds1) 檔案以做為 DSC 組態的輸入。 如果提供的 URL 需要 SAS 權杖才能存取，您必須將 protectedSettings.configurationDataUrlSasToken 屬性設定為 SAS 權杖的值。
 | settings.privacy.dataEnabled | string | 啟用或停用遙測收集。 此屬性只有下列可能值：‘Enable’、‘Disable’ 或 $null。 將此屬性保留空白或 null 將會啟用遙測
 | settings.advancedOptions.forcePullAndApply | Bool | 此設定可加強節點向 Azure 自動化 DSC 延伸模組所使用的體驗。  如果值為`$true`，擴充功能將會等到傳回成功/失敗之前，從服務提取組態的第一次執行。  如果值設定為 $false，延伸模組所傳回的狀態只會參考是否節點與 Azure 自動化狀態設定已成功註冊，並將不會在註冊期間執行的節點組態。
-| settings.advancedOptions.downloadMappings | Collection | 定義下載相依性 (例如 WMF 和 .NET) 的替代位置
+| settings.advancedOptions.downloadMappings | 集合 | 定義下載相依性 (例如 WMF 和 .NET) 的替代位置
 
 ### <a name="protected-settings-property-values"></a>受保護的設定屬性值
 
