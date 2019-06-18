@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074016"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -225,7 +225,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 | 角色可指派給單一訂用帳戶 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | 角色可指派給兩個訂用帳戶 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | 角色只能指派給網路資源群組 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| 角色可指派給所有範圍 | `"/"` |
+| 角色是供所有範圍中的指派 （適用於僅為內建角色） | `"/"` |
 
 如需適用於自訂角色之 `AssignableScopes` 的相關資訊，請參閱[適用於 Azure 資源的自訂角色](custom-roles.md)。
 

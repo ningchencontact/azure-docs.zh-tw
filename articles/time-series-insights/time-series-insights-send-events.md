@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237701"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>使用事件中樞將事件傳送至時間序列深入解析環境
@@ -46,11 +46,11 @@ ms.locfileid: "66237701"
 
 1. 在功能表中，在**設定**，選取**共用存取原則**，然後選取**新增**。
 
-    [![選取 共用存取原則，，然後選取 [新增] 按鈕](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
+    [![選取 [共用存取原則，，然後選取 [新增] 按鈕](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
 1. 在 [新增共用存取原則]  窗格中，建立名為 **MySendPolicy** 的共用存取。 您可以使用此共用的存取原則中傳送事件C#本文稍後的範例。
 
-    [![在 [原則名稱] 方塊中，輸入 MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
+    [![在 [原則名稱] 方塊中，輸入 [MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
 1. 底下**宣告**，選取**傳送**核取方塊。
 
@@ -74,7 +74,7 @@ ms.locfileid: "66237701"
 
     [![複製主索引鍵連接字串的值](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
-1. 移至 https://tsiclientsample.azurewebsites.net/windFarmGen.html。 此 URL 會執行模擬風車裝置。
+1. 移至 https://tsiclientsample.azurewebsites.net/windFarmGen.html 。 此 URL 會執行模擬風車裝置。
 1. 在網頁的 [事件中樞連接字串]  方塊中，貼上您在[推送事件](#push-events)中複製的連接字串。
   
     [![在 [事件中樞連接字串] 方塊中貼上的主索引鍵連接字串](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)

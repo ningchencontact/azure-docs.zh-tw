@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190073"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
@@ -23,7 +23,7 @@ ms.locfileid: "65190073"
 1. 本文的留言區。
 2. [Azure 儲存體論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)。
 3. [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)。 
-4. Microsoft 支援服務。 若要建立新的支援要求，在 Azure 入口網站的 [說明] 索引標籤上，選取 [說明 + 支援] 按鈕，然後選取 [新增支援要求]。
+4. Microsoft 支援服務。 若要建立新的支援要求，在 Azure 入口網站的 [說明]  索引標籤上，選取 [說明 + 支援]  按鈕，然後選取 [新增支援要求]  。
 
 ## <a name="general"></a>一般
 * <a id="why-files-useful"></a>
@@ -108,7 +108,7 @@ ms.locfileid: "65190073"
     是，Azure 檔案服務同時支援本機備援儲存體 (LRS) 和異地備援儲存體 (GRS)。 如果您從針對 GRS 設定的帳戶起始配對區域之間的儲存體帳戶容錯移轉，Microsoft 會建議您將新的區域視為僅只資料的備份。 Azure 檔案同步不會自動開始同步處理新的主要區域。 
 
 * <a id="sizeondisk-versus-size"></a>
-  **使用 Azure 檔案同步之後，為什麼檔案的「磁碟大小」屬性不符合「大小」屬性？**  
+  **使用 Azure 檔案同步之後，為什麼檔案的「磁碟大小」  屬性不符合「大小」  屬性？**  
   請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md#sizeondisk-versus-size)。
 
 * <a id="is-my-file-tiered"></a>
@@ -123,7 +123,7 @@ ms.locfileid: "65190073"
   請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md#afs-force-tiering)。
 
 * <a id="afs-effective-vfs"></a>
-  **如果磁碟區上有多個伺服器端點，如何解譯「磁碟區可用空間」？**  
+  **如果磁碟區上有多個伺服器端點，如何解譯「磁碟區可用空間」  ？**  
   請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md#afs-effective-vfs)。
 
 * <a id="afs-files-excluded"></a>
@@ -247,21 +247,21 @@ ms.locfileid: "65190073"
 ## <a name="on-premises-access"></a>內部部署存取
 
 * <a id="port-445-blocked"></a>
-**我的 ISP 或 IT 部门阻止了端口 445，导致 Azure 文件装载失败。我該怎麼辦？**
+**我的 ISP 或 IT 封鎖連接埠 445 失敗的 Azure 檔案掛接。我該怎麼辦？**
 
-    可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。 Azure 文件存储只允许使用 SMB 3.0（带加密支持）从区域或数据中心外部进行连接。 SMB 3.0 协议引入了许多安全功能，其中包括通道加密，可以通过 Internet 很安全地使用。 不过，有可能端口 445 因为历史原因（在较低的 SMB 版本中发现了漏洞）已被阻止。 理想情况下，只应阻止端口传输 SMB 1.0 流量，在所有客户端上都应关闭 SMB 1.0。
+    您可以了解[各種因應措施，封鎖連接埠 445 這裡](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。 Azure 檔案只允許從使用 SMB 3.0 （含加密支援） 的連線之外的地區或資料中心。 SMB 3.0 通訊協定引進了許多安全性功能，包括這是要透過網際網路使用非常安全通道加密。 不過，它有可能的連接埠 445 已被封鎖在較低的 SMB 版本中發現的安全性弱點的歷史原因。 在理想的情況下，應該只針對 SMB 1.0 流量的封鎖連接埠，而且 SMB 1.0 應該關閉所有用戶端上。
 
 * <a id="expressroute-not-required"></a>
 **我必須使用 Azure ExpressRoute 來連線到 Azure 檔案服務，還是必須在內部部署中使用 Azure 檔案同步？**  
 
-    沒有。 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
+    沒有。 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以  將 ExpressRoute 與這些其中一個選項搭配使用。
 
 * <a id="mount-locally"></a>
 **如何在本機電腦上掛接 Azure 檔案共用？**  
 
     如果已開啟連接埠 445 (TCP 輸出) 且您的用戶端支援 SMB 3.0 通訊協定 (例如，若您使用的是 Windows 10 或 Windows Server 2016)，即可使用 SMB 通訊協定掛接檔案共用。 如果組織的原則或您的 ISP 會封鎖連接埠 445，您可以使用 Azure 檔案同步來存取 Azure 檔案共用。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **如何備份我的 Azure 檔案共用？**  
     您可以使用定期[共用快照集](storage-snapshots-files.md)來防範意外刪除的情況。 您也可以使用 AzCopy、RoboCopy，或是可備份已掛接檔案共用的協力廠商備份工具。 Azure 備份會提供 Azure 檔案的備份。 深入了解如何[使用 Azure 備份來備份 Azure 檔案共用](https://docs.microsoft.com/azure/backup/backup-azure-files)。
@@ -300,7 +300,7 @@ ms.locfileid: "65190073"
 ### <a name="create-share-snapshots"></a>建立共用快照集
 * <a id="file-snaphsots"></a>
 **我可以建立個別檔案的共用快照集嗎？**  
-    共用快照集是在檔案共用層級建立的。 您可以從檔案共用快照集還原個別檔案，但您無法建立檔案層級的共用快照集。 不過，如果您已擷取共用層級的共用快照集，而且想要列出已變更特定檔案的共用快照集，就可以在 Windows 所掛接之共用上的 [舊版] 下方執行此動作。 
+    共用快照集是在檔案共用層級建立的。 您可以從檔案共用快照集還原個別檔案，但您無法建立檔案層級的共用快照集。 不過，如果您已擷取共用層級的共用快照集，而且想要列出已變更特定檔案的共用快照集，就可以在 Windows 所掛接之共用上的 [舊版]  下方執行此動作。 
     
     如果您需要檔案快照集功能，請前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，讓我們知道。
 
@@ -360,7 +360,7 @@ ms.locfileid: "65190073"
     沒有。 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
 
 * <a id="open-handles-quota"></a>
-**多少個用戶端可以同時存取相同的檔案？**   
+**多少個用戶端可以同時存取相同的檔案？**    
     單一檔案的開啟控制代碼配額為 2,000 個。 當您擁有 2,000 個開啟控制代碼時，會顯示一則錯誤訊息以指出已達到配額。
 
 * <a id="zip-slow-performance"></a>
@@ -373,7 +373,7 @@ ms.locfileid: "65190073"
 
 ## <a name="features-and-interoperability-with-other-services"></a>功能及與其他服務的互通性
 * <a id="cluster-witness"></a>
-**我可以使用 Azure 檔案共用作為 Windows Server 容錯移轉叢集的「檔案共用見證」嗎？**  
+**我可以使用 Azure 檔案共用作為 Windows Server 容錯移轉叢集的「檔案共用見證」  嗎？**  
     Azure 檔案共用目前不支援此設定。 如需如何為 Azure Blob 儲存體設定此項的詳細資訊，請參閱[為容錯移轉叢集部署雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) \(機器翻譯\)。
 
 * <a id="containers"></a>
@@ -386,7 +386,7 @@ ms.locfileid: "65190073"
 
 * <a id="nested-shares"></a>
 **我可以設定巢狀共用嗎？也就是說，共用下的共用？**  
-    沒有。 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
+    沒有。 檔案共用是  您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
 
 * <a id="ibm-mq"></a>
 **如何將 Azure 檔案服務與 IBM MQ 搭配使用？**  

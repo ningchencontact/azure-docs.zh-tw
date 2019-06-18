@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: cab5d067387fcffe4f62b94e06960afe47d5f00c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702678"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>為 Power BI 工作區集合中的報告切換檢視和編輯模式
@@ -121,4 +121,4 @@ report.switchMode("edit");
 [PowerBI-CSharp Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git存放庫](https://github.com/Microsoft/PowerBI-Node)  
 
-有更多问题？ [試用 Power BI 社群](https://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)

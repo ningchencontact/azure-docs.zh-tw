@@ -10,10 +10,10 @@ ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61081573"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自動化中的子 Runbook
@@ -124,5 +124,5 @@ Start-AzureRmAutomationRunbook `
 ## <a name="next-steps"></a>後續步驟
 
 * [在 Azure 自動化中啟動 Runbook](start-runbooks.md)
-* [Azure 自动化中的 Runbook 输出和消息](automation-runbook-output-and-messages.md)
+* [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 

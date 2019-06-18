@@ -11,27 +11,27 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475026"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>驗證 Azure SQL 資料倉儲
 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
 
-若要連線到 SQL 資料倉儲，您必須傳入安全性認證進行驗證用途。 建立连接时，特定的连接设置已配置为建立查询会话的一部分。  
+若要連線到 SQL 資料倉儲，您必須傳入安全性認證進行驗證用途。 建立連線時，會設定特定的連線設定，以做為建立查詢工作階段的一部分。  
 
 如需安全性以及如何啟用您資料倉儲連線的詳細資訊，請參閱[保護 SQL 資料倉儲中的資料庫][Secure a database in SQL Data Warehouse]。
 
 ## <a name="sql-authentication"></a>SQL 驗證
 若要連線到 SQL 資料倉儲，您必須提供下列資訊：
 
-* 完全限定的服务器名称
+* 完整伺服器名稱
 * 指定 SQL 驗證
 * 使用者名稱
 * 密碼
-* 默认数据库（可选）
+* 預設資料庫 (選擇性)
 
 根據預設，您的連線會連線至「主要」  資料庫，而非您的使用者資料庫。 若要連線到您的使用者資料庫，您可以選擇執行下列兩個動作之一：
 
@@ -46,7 +46,7 @@ ms.locfileid: "61475026"
 ## <a name="azure-active-directory-aad-authentication"></a>Azure Active Directory (AAD) 驗證
 [Azure Active Directory][What is Azure Active Directory] 驗證是 Azure Active Directory (Azure AD) 中使用身分識別連接到 Microsoft Azure SQL 資料倉儲的機制。 您可以使用 Azure Active Directory 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理 SQL 資料倉儲使用者並簡化權限管理。 
 
-### <a name="benefits"></a>优点
+### <a name="benefits"></a>優點
 Azure Active Directory 的優點包括：
 
 * 提供 SQL Server 驗證的替代方案。
@@ -54,7 +54,7 @@ Azure Active Directory 的優點包括：
 * 允許在單一位置的密碼替換
 * 使用外部 (AAD) 群組管理資料庫權限。
 * 藉由啟用整合式 Windows 驗證和 Azure Active Directory 支援的其他形式驗證來避免儲存密碼。
-* 使用包含的数据库用户在数据库级别对标识进行身份验证。
+* 使用自主資料庫使用者，在資料庫層級驗證身分。
 * 針對連線到 SQL 資料倉儲的應用程式支援權杖型驗證。
 * 透過 Active Directory 通用驗證 」 的各種工具，包括中的支援多重要素驗證[SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md)並[SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)。
 
@@ -73,10 +73,10 @@ Azure Active Directory 的優點包括：
 5. 在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者
 6. 使用 Azure AD 身分識別連接到您的資料倉儲。
 
-目前，Azure Active Directory 用户不会显示在 SSDT 对象资源管理器中。 解決方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中檢視使用者。
+Azure Active Directory 使用者目前不會顯示在 SSDT 物件總管中。 解決方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中檢視使用者。
 
 ### <a name="find-the-details"></a>尋找詳細資料
-* 針對 Azure SQL Database 及針對 Azure SQL 資料倉儲設定並使用 Azure Active Directory 驗證的步驟幾乎完全相同。 请遵循主题 [使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](../sql-database/sql-database-aad-authentication.md)中的详细步骤。
+* 針對 Azure SQL Database 及針對 Azure SQL 資料倉儲設定並使用 Azure Active Directory 驗證的步驟幾乎完全相同。 請依照 [使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](../sql-database/sql-database-aad-authentication.md)主題中的詳細步驟操作。
 * 建立自訂資料庫角色，並加入使用者至角色。 然後授與角色細微的權限。 如需詳細資訊，請參閱 [資料庫引擎權限使用者入門](https://msdn.microsoft.com/library/mt667986.aspx)。
 
 ## <a name="next-steps"></a>後續步驟

@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936149"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -206,7 +206,7 @@ ms.locfileid: "60936149"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>在 Azure 中使用檔案共用於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Windows Server 容錯移轉叢集是 Windows 中高可用性 SAP ASCS/SCS 安裝和 DBMS 的基礎。
@@ -231,7 +231,7 @@ Windows Server 容錯移轉叢集是 Windows 中高可用性 SAP ASCS/SCS 安裝
 
 Azure 雲端平台不提供設定虛擬 IP 位址的選項，例如浮動 IP 位址。 您需要一個替代解決方案來設定虛擬 IP，以便連線到雲端的叢集資源。 
 
-Azure Load Balancer 服務可為 Azure 提供「內部負載平衡器」。 使用內部負載平衡器，用戶端可透過叢集虛擬 IP 位址連線叢集。 
+Azure Load Balancer 服務可為 Azure 提供「內部負載平衡器」  。 使用內部負載平衡器，用戶端可透過叢集虛擬 IP 位址連線叢集。 
 
 在包含叢集節點的資源群組中部署內部負載平衡器。 接著，使用內部負載平衡器的探查連接埠來設定所有必要的連接埠轉送規則。 用戶端可以透過虛擬主機名稱來進行連線。 DNS 伺服器會解析叢集 IP 位址。 內部負載平衡器則會處理對作用中叢集節點的連接埠轉送。
 
@@ -293,7 +293,7 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 儲存空間直接存取會當作向外延展檔案共用的共用磁碟使用。 您可以使用儲存空間直接存取搭配使用伺服器與本機儲存體來建立高度可用且可調整的儲存體。 用於向外延展檔案共用 (例如用於 SAP 全域主機檔案) 的共用儲存體不是單一失敗點。
 
 > [!IMPORTANT]
->如果您不打算設定災害復原，建議在 Azure 中使用向外延展檔案共用作為高可用性檔案共用的解決方案。
+>如果您不  打算設定災害復原，建議在 Azure 中使用向外延展檔案共用作為高可用性檔案共用的解決方案。
 >
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Azure 中向外延展檔案共用的 SAP 必要條件
@@ -302,7 +302,7 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 
 * 至少有兩個叢集節點用於向外延展檔案共用。
 * 每個節點至少必須有兩個本機磁碟。
-* 基於效能考量，您必須使用「鏡像復原」：
+* 基於效能考量，您必須使用「鏡像復原」  ：
     * 雙向鏡像適用於包含兩個叢集節點的向外延展檔案共用。
     * 三向鏡像適用於包含三個 (或多個) 叢集節點的向外延展檔案共用。
 * 建議搭配三向鏡像使用包含三個 (或多個) 叢集節點的向外延展檔案共用。

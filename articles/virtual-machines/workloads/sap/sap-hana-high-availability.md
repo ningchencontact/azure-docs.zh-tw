@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922278"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
@@ -26,17 +26,17 @@ ms.locfileid: "64922278"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]:https://launchpad.support.sap.com/#/notes/401162
+[401162]: https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -112,8 +112,8 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
     - **SAP 系統大小**：輸入新系統要提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
     - **系統可用性**：選取 **HA**。
     - **管理員使用者名稱和管理員密碼**：會建立新的使用者，可以用來登入電腦。
-    - **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-    - **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。
+    - **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]  。
+    - **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示： **/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>** 。
 
 ### <a name="manual-deployment"></a>手動部署
 
@@ -136,59 +136,59 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 1. 新增資料磁碟。
 1. 設定負載平衡器。 首先，建立前端 IP 集區：
 
-   1. 開啟負載平衡器，選取 [前端 IP 集區]，然後選取 [新增]。
+   1. 開啟負載平衡器，選取 [前端 IP 集區]  ，然後選取 [新增]  。
    1. 輸入新前端 IP 集區的名稱 (例如 **hana-frontend**)。
-   1. 將 [指派] 設定為 [靜態]，然後輸入 IP 位址 (例如 **10.0.0.13**)。
-   1. 選取 [確定] 。
+   1. 將 [指派]  設定為 [靜態]  ，然後輸入 IP 位址 (例如 **10.0.0.13**)。
+   1. 選取 [確定]  。
    1. 建立新的前端 IP 集區之後，請記下集區 IP 位址。
 
 1. 接下來，建立後端集區：
 
-   1. 開啟負載平衡器，選取 [後端集區]，然後選取 [新增]。
+   1. 開啟負載平衡器，選取 [後端集區]  ，然後選取 [新增]  。
    1. 輸入新後端集區的名稱 (例如 **hana-backend**)。
-   1. 選取 [新增虛擬機器]。
+   1. 選取 [新增虛擬機器]  。
    1. 選取步驟 3 所建立的可用性設定組。
    1. 選取 SAP HANA 叢集的虛擬機器。
-   1. 選取 [確定] 。
+   1. 選取 [確定]  。
 
 1. 接下來，建立健康情況探查：
 
-   1. 開啟負載平衡器，選取 [健康情況探查]，然後選取 [新增]。
+   1. 開啟負載平衡器，選取 [健康情況探查]  ，然後選取 [新增]  。
    1. 輸入新健康情況探查的名稱 (例如 **hana-hp**)。
-   1. 選取 [TCP] 通訊協定和連接埠 **62503**。 讓 [間隔] 值保持設定為 5，而讓 [狀況不良閾值] 值保持設定為 2。
-   1. 選取 [確定] 。
+   1. 選取 [TCP]  通訊協定和連接埠 **62503**。 讓 [間隔]  值保持設定為 5，而讓 [狀況不良閾值]  值保持設定為 2。
+   1. 選取 [確定]  。
 
 1. 針對 SAP HANA 1.0，建立負載平衡規則：
 
-   1. 開啟負載平衡器，選取 [負載平衡規則]，然後選取 [新增]。
+   1. 開啟負載平衡器，選取 [負載平衡規則]  ，然後選取 [新增]  。
    1. 輸入新負載平衡器規則的名稱 (例如 hana-lb-3**03**15)。
    1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 **hana-frontend**)。
-   1. 讓 [通訊協定] 保持設定為 [TCP]，然後輸入連接埠 3**03**15。
-   1. 將 [閒置逾時] 增加為 30 分鐘。
+   1. 讓 [通訊協定]  保持設定為 [TCP]  ，然後輸入連接埠 3**03**15。
+   1. 將 [閒置逾時]  增加為 30 分鐘。
    1. 務必**啟用浮動 IP**。
-   1. 選取 [確定] 。
+   1. 選取 [確定]  。
    1. 對連接埠 3**03**17 重複執行這些步驟。
 
 1. 若為 SAP Hana 2.0，請針對系統資料庫建立負載平衡規則：
 
-   1. 開啟負載平衡器，選取 [負載平衡規則]，然後選取 [新增]。
+   1. 開啟負載平衡器，選取 [負載平衡規則]  ，然後選取 [新增]  。
    1. 輸入新負載平衡器規則的名稱 (例如 hana-lb-3**03**13)。
    1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 **hana-frontend**)。
-   1. 讓 [通訊協定] 保持設定為 [TCP]，然後輸入連接埠 3**03**13。
-   1. 將 [閒置逾時] 增加為 30 分鐘。
+   1. 讓 [通訊協定]  保持設定為 [TCP]  ，然後輸入連接埠 3**03**13。
+   1. 將 [閒置逾時]  增加為 30 分鐘。
    1. 務必**啟用浮動 IP**。
-   1. 選取 [確定] 。
+   1. 選取 [確定]  。
    1. 針對連接埠 3**03**14 重複這些步驟。
 
 1. 若為 SAP Hana 2.0，請先針對租用戶資料庫建立負載平衡規則：
 
-   1. 開啟負載平衡器，選取 [負載平衡規則]，然後選取 [新增]。
+   1. 開啟負載平衡器，選取 [負載平衡規則]  ，然後選取 [新增]  。
    1. 輸入新負載平衡器規則的名稱 (例如 hana-lb-3**03**40)。
    1. 選取您稍早建立的前端 IP 位址、後端集區及健康情況探查 (例如 **hana-frontend**)。
-   1. 讓 [通訊協定] 保持設定為 [TCP]，然後輸入連接埠 3**03**40。
-   1. 將 [閒置逾時] 增加為 30 分鐘。
+   1. 讓 [通訊協定]  保持設定為 [TCP]  ，然後輸入連接埠 3**03**40。
+   1. 將 [閒置逾時]  增加為 30 分鐘。
    1. 務必**啟用浮動 IP**。
-   1. 選取 [確定] 。
+   1. 選取 [確定]  。
    1. 針對連接埠 3**03**41 和 3**03**42 重複這些步驟。
 
 如需 SAP Hana 必要連接埠的詳細資訊，請參閱 [SAP Hana 租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6)指南的[連線到租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)章節或 [SAP Note 2388694][2388694]。
@@ -204,11 +204,11 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 ## <a name="install-sap-hana"></a>安裝 SAP HANA
 
 本節中的步驟會使用下列首碼：
-- **[A]**：此步驟適用於所有節點。
-- **[1]**：此步驟僅適用於節點 1。
-- **[2]**：此步驟僅適用於 Pacemaker 叢集的節點 2。
+- **[A]** ：此步驟適用於所有節點。
+- **[1]** ：此步驟僅適用於節點 1。
+- **[2]** ：此步驟僅適用於 Pacemaker 叢集的節點 2。
 
-1. **[A]** 設定磁碟配置：**邏輯磁碟區管理 (LVM)**。
+1. **[A]** 設定磁碟配置：**邏輯磁碟區管理 (LVM)** 。
 
    建議您針對儲存資料和記錄檔的磁碟區使用 LVM。 下列範例假設虛擬機器已連接四個資料磁碟，這些資料磁碟會用來建立兩個磁碟區。
 
@@ -356,9 +356,9 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 本節中的步驟會使用下列首碼：
 
-* **[A]**：此步驟適用於所有節點。
-* **[1]**：此步驟僅適用於節點 1。
-* **[2]**：此步驟僅適用於 Pacemaker 叢集的節點 2。
+* **[A]** ：此步驟適用於所有節點。
+* **[1]** ：此步驟僅適用於節點 1。
+* **[2]** ：此步驟僅適用於 Pacemaker 叢集的節點 2。
 
 1. **[1]** 建立租用戶資料庫。
 
@@ -401,9 +401,9 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 本節中的步驟會使用下列首碼：
 
-* **[A]**：此步驟適用於所有節點。
-* **[1]**：此步驟僅適用於節點 1。
-* **[2]**：此步驟僅適用於 Pacemaker 叢集的節點 2。
+* **[A]** ：此步驟適用於所有節點。
+* **[1]** ：此步驟僅適用於節點 1。
+* **[2]** ：此步驟僅適用於 Pacemaker 叢集的節點 2。
 
 1. **[1]** 建立必要的使用者。
 

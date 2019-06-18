@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689703"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[1612105]: https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -144,7 +144,7 @@ HADR 是只複寫功能。 它有任何失敗偵測和自動接管或容錯移�
 
 IBM Db2 LUW 的資源代理程式一併併入 SUSE Linux Enterprise Server for SAP 應用程式。 這份文件中所述的安裝程式，您必須使用 SUSE Linux Server for SAP 應用程式。 Azure Marketplace 包含 SUSE Enterprise Server for SAP Applications 12 可供您部署新的 Azure 虛擬機器映像。 請注意，當您選擇在 Azure VM 市集中的 VM 映像，透過 Azure Marketplace 的 suse 提供各種支援或服務模型。 
 
-### <a name="hosts-dns-updates"></a>主控件:DNS 更新
+### <a name="hosts-dns-updates"></a>主機：DNS 更新
 所有的主機名稱，包括虛擬的主機名稱的清單，並更新您的 DNS 伺服器，以啟用適當的 IP 位址的主機名稱解析。 如果 DNS 伺服器不存在或您不能更新，並建立 DNS 項目，您需要使用在此案例中參與的個別 vm 的本機主機檔案。 如果您使用主機檔案項目，請確定項目會套用至 SAP 系統環境中的所有 Vm。 不過，我們建議您先使用您的 DNS，在理想情況下，擴充至 Azure
 
 
@@ -337,9 +337,9 @@ Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
 
 下列項目會使用前置詞：
 
-- **[A]**：適用於所有節點
-- **[1]**：只適用於節點 1 
-- **[2]**：只適用於節點 2
+- **[A]** ：適用於所有節點
+- **[1]** ：只適用於節點 1 
+- **[2]** ：只適用於節點 2
 
 **[A]** Pacemaker 組態的必要條件：
 1. 關閉這兩部資料庫伺服器，使用者 db2\<sid > db2stop 使用。
@@ -427,7 +427,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
    c. 設定**指派**要**靜態**，並輸入 IP 位址**虛擬 IP**開頭定義。
 
-   d. 選取 [確定] 。
+   d. 選取 [確定]  。
 
    e. 建立新的前端 IP 集區之後，請記下集區 IP 位址。
 
@@ -437,13 +437,13 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
    b. 輸入新的後端集區的名稱 (例如**Db2 後端**)。
 
-   c. 選取 [新增虛擬機器]。
+   c. 選取 [新增虛擬機器]  。
 
    d. 選取可用性設定組或虛擬機器裝載在上一個步驟中建立的 IBM Db2 資料庫。
 
    e. 選取的 IBM Db2 叢集中的虛擬機器。
 
-   f. 選取 [確定] 。
+   f. 選取 [確定]  。
 
 1. 建立健康狀態探查：
 
@@ -453,7 +453,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
    c. 選取  **TCP**做為通訊協定和連接埠**62500**。 保持**間隔**值設定為**5**，並保留**狀況不良閾值**值設定為**2**。
 
-   d. 選取 [確定] 。
+   d. 選取 [確定]  。
 
 1. 建立負載平衡規則：
 
@@ -465,11 +465,11 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
    d. 保持**通訊協定**設為**TCP**，並輸入連接埠*資料庫通訊的連接埠*。
 
-   e. 將 [閒置逾時] 增加為 30 分鐘。
+   e. 將 [閒置逾時]  增加為 30 分鐘。
 
    f. 務必**啟用浮動 IP**。
 
-   g. 選取 [確定] 。
+   g. 選取 [確定]  。
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>變更用於連線的虛擬 IP 的 SAP 設定檔
@@ -595,8 +595,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **crm 資源遷移\<res_name > <host>:** 建立位置條件約束，並可能會造成問題，以接管
-- **crm 資源清除\<res_name >**:清除位置條件約束
-- **crm 資源清除\<res_name >**:清除資源的所有錯誤
+- **crm 資源清除\<res_name >** :清除位置條件約束
+- **crm 資源清除\<res_name >** :清除資源的所有錯誤
 
 ### <a name="test-the-fencing-agent"></a>測試隔離代理程式
 

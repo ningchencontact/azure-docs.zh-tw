@@ -12,10 +12,10 @@ ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606523"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
@@ -47,7 +47,7 @@ ms.locfileid: "65606523"
 我們將根據 *tip\_amount* 編寫三個預測問題的公式，公式如下：
 
 1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tipp\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
-2. 多元分類：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
+2. 多元分類：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount  分成五個分類收納組或類別：
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -75,7 +75,7 @@ ms.locfileid: "65606523"
    > 
    > * 指令碼範例：`C:\Users\<user_name>\Documents\Data Science Scripts`  
    > * IPython Notebook 範例：`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-   >   where `<user_name>` 是 VM 的 Windows 登入名稱。 我們會將範例資料夾稱為「指令碼範例」和「IPython Notebook 範例」。
+   >   where `<user_name>` 是 VM 的 Windows 登入名稱。 我們會將範例資料夾稱為「指令碼範例」  和「IPython Notebook 範例」  。
    > 
    > 
 
@@ -96,13 +96,13 @@ ms.locfileid: "65606523"
 4. 將下載的檔案解壓縮。 請注意未壓縮檔案所在的資料夾。 此資料夾將稱為 <path\_to\_data\_files\>。
 
 ## <a name="dbload"></a>將資料大量匯入到 SQL Server 資料庫
-使用「資料分割資料表和檢視」，就可以改善載入/傳輸大量資料至 SQL 資料庫和後續查詢的效能。 在本節中，我們將遵循「 [使用 SQL 資料分割資料表平行大量資料匯入](parallel-load-sql-partitioned-tables.md) 」中所述的指示建立新的資料庫，並將資料平行載入資料分割資料表。
+使用「資料分割資料表和檢視」  ，就可以改善載入/傳輸大量資料至 SQL 資料庫和後續查詢的效能。 在本節中，我們將遵循「 [使用 SQL 資料分割資料表平行大量資料匯入](parallel-load-sql-partitioned-tables.md) 」中所述的指示建立新的資料庫，並將資料平行載入資料分割資料表。
 
 1. 登入 VM 之後，請啟動 **SQL Server Management Studio**。
 2. 使用 Windows 驗證進行連接。
    
     ![SSMS 連線][12]
-3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [指令碼範例] 資料夾中名為 **change\_auth.sql** 的指令碼檔案。 變更預設的使用者名稱和密碼。 按一下工具列中的 [ **!執行** ] 執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式，且尚未建立新的 SQL 登入使用者，請開啟 [指令碼範例]  資料夾中名為 **change\_auth.sql** 的指令碼檔案。 變更預設的使用者名稱和密碼。 按一下工具列中的 [ **!執行** ] 執行指令碼。
    
     ![執行指令碼][13]
 4. 驗證和 (或) 變更 SQL Server 預設資料庫和記錄檔資料夾，以確保新建立的資料庫會儲存於資料磁碟中。 系統會使用資料和記錄磁碟，預先設定已針對資料倉儲載入進行最佳化的 SQL Server VM 映像。 如果您的 VM 不含資料磁碟，而您在 VM 安裝過程中加入新的虛擬硬碟，則需變更預設資料夾，如下所示：
@@ -110,7 +110,7 @@ ms.locfileid: "65606523"
    * 以滑鼠右鍵按一下左面板中的 SQL Server 名稱，然後按一下 [ **屬性**]。
      
        ![SQL Server 屬性][14]
-   * 在左邊的 [選取頁面] 清單中，選取 [資料庫設定]。
+   * 在左邊的 [選取頁面]  清單中，選取 [資料庫設定]  。
    * 確認**資料庫預設位置**，和 (或) 將其變更為您選擇的**資料磁碟**位置。 如果新資料庫是使用預設位置設定所建立，則此為新資料庫所在位置。
      
        ![SQL Database 的預設值][15]  
@@ -126,7 +126,7 @@ ms.locfileid: "65606523"
    
    * **bcp\_parallel\_generic.ps1** 是將資料平行大量匯入資料表的泛型指令碼。 修改此指令碼來設定輸入與目標變數，如指令碼的註解行中所示。
    * **bcp\_parallel\_nyctaxi.ps1** 是預先設定的泛型指令碼版本，可用來同時載入適用於「NYC 計程車車程」資料的兩種資料表。  
-8. 以滑鼠右鍵按一下 **bcp\_parallel\_nyctaxi.ps1** 指令碼名稱，然後按一下 [編輯] 利用 PowerShell 開啟。 檢閱預設的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi\_fare.xml** (位於 [指令碼範例] 資料夾) 的路徑進行修改。
+8. 以滑鼠右鍵按一下 **bcp\_parallel\_nyctaxi.ps1** 指令碼名稱，然後按一下 [編輯]  利用 PowerShell 開啟。 檢閱預設的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi\_fare.xml** (位於 [指令碼範例]  資料夾) 的路徑進行修改。
    
     ![大量匯入資料][16]
    
@@ -137,7 +137,7 @@ ms.locfileid: "65606523"
 12. 「NYC 計程車車程」資料會載入兩個不同的資料表。 若要改善聯結作業，強烈建議您為資料表編製索引。 指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
 ## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
-在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱 **TaxiNYC** 不同，請修改指令碼以變更該名稱。
+在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例]  資料夾中。 若資料庫名稱與預設名稱 TaxiNYC 不同，請修改指令碼以變更該名稱。
 
 在這個練習中，我們將：
 
@@ -252,7 +252,7 @@ ms.locfileid: "65606523"
 
 
 ## <a name="ipnb"></a>IPython Notebook 中的資料探索和功能工程
-在本節中，我們將在先前建立的 SQL Server 資料庫中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **machine-Learning-data-science-process-sql-story.ipynb** 的 IPython Notebook 範例位於 [Sample IPython Notebook 範例] 資料夾。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)也提供此 Notebook。
+在本節中，我們將在先前建立的 SQL Server 資料庫中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **machine-Learning-data-science-process-sql-story.ipynb** 的 IPython Notebook 範例位於 [Sample IPython Notebook 範例]  資料夾。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)也提供此 Notebook。
 
 使用巨量資料時的建議順序如下：
 
@@ -376,7 +376,7 @@ ms.locfileid: "65606523"
 ![圖 #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>針對 SQL 中的資料進行次取樣
-準備在 [Azure Machine Learning Studio](https://studio.azureml.net) 中建置模型所需的資料時，您可以決定**要直接在「匯入資料」模組中使用的 SQL 查詢**，或將工程設計和取樣資料保存在新的資料表中，您只要利用簡單的 **SELECT * FROM <your\_new\_table\_name>**，即可在[匯入資料][import-data]模組中使用此資料表。
+準備在 [Azure Machine Learning Studio](https://studio.azureml.net) 中建置模型所需的資料時，您可以決定**要直接在「匯入資料」模組中使用的 SQL 查詢**，或將工程設計和取樣資料保存在新的資料表中，您只要利用簡單的 **SELECT * FROM <your\_new\_table\_name>** ，即可在[匯入資料][import-data]模組中使用此資料表。
 
 在本節中，我們將建立新的資料表來保留取樣與工程資料。 ＜ [SQL Server 中的資料探索和功能工程](#dbexplore) ＞一節中提供了可用來建置模型的直接 SQL 查詢範例。
 
@@ -575,10 +575,10 @@ ms.locfileid: "65606523"
 1. 使用[匯入資料][import-data]模組 (可從**資料輸入和輸出**一節取得)，將資料匯入 Azure Machine Learning。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
    
     ![Azure Machine Learning 匯入資料][17]
-2. 在 [屬性] 面板中，選取 [Azure SQL Database] 做為 [資料來源]。
+2. 在 [屬性]  面板中，選取 [Azure SQL Database]  做為 [資料來源]  。
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
-5. 在 [伺服器使用者帳戶名稱] 中輸入「SQL 使用者名稱」，並在 [伺服器使用者帳戶密碼] 中輸入「密碼」。
+5. 在 [伺服器使用者帳戶名稱]  中輸入「SQL 使用者名稱」  ，並在 [伺服器使用者帳戶密碼]  中輸入「密碼」  。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
 下圖顯示從 SQL Server 資料庫中直接讀取資料的二進位分類實驗範例。 您可以針對多類別分類和迴歸問題建構類似的實驗。
@@ -600,7 +600,7 @@ ms.locfileid: "65606523"
 1. 建立計分實驗。
 2. 部署 Web 服務。
 
-若要從「已完成」的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]。
+若要從「已完成」  的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]  。
 
 ![Azure 評分][18]
 

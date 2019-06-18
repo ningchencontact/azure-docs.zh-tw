@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991905"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
@@ -32,7 +32,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前的已知問題
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
-| 問題 | 說明 |
+| 問題 | 描述 |
 | --- | --- |
 | 有幾個常用的 HTTP 標題未提供於 REST API 中。 |如果您使用 REST API 來開發媒體服務應用程式，您會發現有些常用的 HTTP 標題欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
 | 不允許 percent-encoding。 |媒體服務會在建置串流內容的 URL 時，使用 IAssetFile.Name 屬性的值 (例如 `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`)。 基於此原因，不允許使用 percent-encoding。 Name 屬性的值不可有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，副檔名只能有一個 "."。 |
@@ -399,22 +399,22 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ## <a id="jan_feb_changes_14"></a>2014 年 1/2 月版本
 ### <a name="jan_fab_14_donnet_changes"></a>媒體服務 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
-3.0.0.1 和 3.0.0.2 中的變更包括：
+3\.0.0.1 和 3.0.0.2 中的變更包括：
 
 * 修正了使用 OrderBy 陳述式進行 LINQ 查詢的用法相關問題。
 * [GitHub] 中的測試方案已分成單元測試和案例測試。
 
 如需變更的詳細資訊，請參閱[媒體服務 .NET SDK 3.0.0.1 和 3.0.0.2 版本](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html)。
 
-3.0.0.3 版做了下列變更：
+3\.0.0.3 版做了下列變更：
 
 * Azure 儲存體相依性已升級，而使用 3.0.3.0 版。
-* 已修正 3.0.*.*  版的回溯相容性問題。
+* 已修正 3.0. *.* 版的回溯相容性問題。
 
 ## <a id="december_changes_13"></a>2013 年 12 月版本
 ### <a name="dec_13_donnet_changes"></a>媒體服務 .NET SDK 3.0.0.0
 > [!NOTE]
-> 3.0.x.x 版本沒有與 2.4.x.x 版本之間的回溯相容性。
+> 3\.0.x.x 版本沒有與 2.4.x.x 版本之間的回溯相容性。
 > 
 > 
 
@@ -504,7 +504,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 ## <a id="november_changes_12"></a>2012 年 11 月版本
 本節說明的變更是 2012 年 11 月 (2.0.0.0 版) SDK 所包含的更新。 進行這些變更時，可能必須修改或重寫為 2012 年 6 月預覽 SDK 版本撰寫的程式碼。
 
-* 資產
+* Assets
   
     * IAsset.Create(assetName) 是*唯一的*資產建立函式。 IAsset.Create 已不會在方法呼叫期間上傳檔案。 請使用 IAssetFile 進行上傳。
     * IAsset.Publish 方法和 AssetState.Publish 列舉值已從服務 SDK 中移除。 任何依存於此值的程式碼都必須重寫。

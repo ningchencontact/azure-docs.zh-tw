@@ -10,9 +10,9 @@
       href: 'https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html'
     - name: 虛擬機器
       items:
-        - name: ' Linux'
+        - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal'
     - name: 無伺服器
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function'
@@ -36,9 +36,9 @@
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql'
     - name: 部署複雜的 VM 範本
       items:
-        - name: ' Linux'
+        - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
     - name: 建立連接 Azure 的函式
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function'
@@ -83,7 +83,7 @@
     - name: 規劃
       items:
         - name: Web 應用程式架構
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: VM 架構
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
         - name: 連線到內部部署網路
@@ -136,7 +136,7 @@
       items:
         - name: Web 和行動裝置應用程式
           href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl'
-    - name: 'Backup '
+    - name: Backup
       items:
         - name: Web 和行動裝置應用程式
           href: 'https://docs.microsoft.com/azure/app-service/manage-backup'

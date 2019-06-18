@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388489"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
@@ -512,7 +512,7 @@ FROM 子句可以減少至較小的子集的來源。 若要列舉每個項目�
 |位元    | \|, &, ^, <<, >>, >>> (zero-fill right shift) |
 |邏輯    | AND、OR、NOT      |
 |比較 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (串連) |
+|字串     |  \|\| (串連) |
 
 下列查詢會使用二元運算子：
 
@@ -1986,7 +1986,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 - 常數值，包括評估查詢時的基本資料類型的常數值。
   
-- 參考的物件或陣列元素屬性的屬性/陣列索引運算式。 例如: 
+- 參考的物件或陣列元素屬性的屬性/陣列索引運算式。 例如:
   
   ```
     family.Id;

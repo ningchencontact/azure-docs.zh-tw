@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e10717b0fe14d2ed6ee720a2414e753bdd2474f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 77bbb333157f5c8cec9fa87e5f76fa4ae2678058
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070605"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Apache Hive 與 Apache Hadoop 分析 Twitter 資料
 
@@ -21,8 +21,6 @@ ms.locfileid: "64708903"
 
 > [!IMPORTANT]  
 > 本文件中的步驟已在 HDInsight 3.6 上進行過測試。
->
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="get-the-data"></a>取得資料
 
@@ -30,25 +28,25 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
 ### <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
-1. 從網頁瀏覽器登入 [https://apps.twitter.com/](https://apps.twitter.com/)。 如果您沒有 Twitter 帳戶，請按一下 [立即註冊] 連結。
+1. 從網頁瀏覽器登入 [https://apps.twitter.com/](https://apps.twitter.com/)。 如果您沒有 Twitter 帳戶，請按一下 [立即註冊]  連結。
 
-2. 按一下 [建立新的應用程式] 。
+2. 按一下 [建立新的應用程式]  。
 
-3. 輸入 [名稱]、[說明]、[網站]。 您可以在 [網站] 欄位中自行設定 URL。 下表列出部分要使用的範例值：
+3. 輸入 [名稱]  、[說明]  、[網站]  。 您可以在 [網站]  欄位中自行設定 URL。 下表列出部分要使用的範例值：
 
-   | 欄位 | Value |
+   | 欄位 | 值 |
    |:--- |:--- |
    | 名稱 |MyHDInsightApp |
    | 描述 |MyHDInsightApp |
    | 網站 |https:\//www.myhdinsightapp.com |
 
-4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
+4. 核取 [是，我同意]  然後按一下 [建立 Twitter 應用程式]  。
 
-5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。
+5. 按一下 [權限]  索引標籤。預設權限為 [唯讀]  。
 
 6. 按一下 **[金鑰和存取權杖** ] 索引標籤。
 
-7. 按一下 [Create my access token] 。
+7. 按一下 [Create my access token]  。
 
 8. 按一下位於頁面右上角的 [測試 OAuth]  。
 
@@ -59,7 +57,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 下列 Python 程式碼會從 Twitter 下載 10,000 則推文，並儲存到名為 **tweets.txt**的檔案。
 
 > [!NOTE]  
-> 由于已安装了 Python，请在 HDInsight 群集上执行以下步骤。
+> 由於已安裝 Python，下列步驟會在 HDInsight 叢集上執行。
 
 1. 使用 SSH 連線到 HDInsight 叢集
 
@@ -168,7 +166,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
    > [!NOTE]  
    > 如果需要花費很長的時間來讓進度列往前移動，則您應該變更篩選來追蹤趨勢主題。 當您的篩選中有許多關於該主題的推文時，您就能快速取得所需的 10000 則推文。
 
-### <a name="upload-the-data"></a>上传数据
+### <a name="upload-the-data"></a>上傳資料
 
 若要將資料下載到 HDInsight 儲存體，請使用下列命令：
 
@@ -323,7 +321,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
 您已經學會如何將非結構化的 JSON 資料集轉換成結構化的 [Apache Hive](https://hive.apache.org/) 資料表。 若要深入了解 HDInsight 上的 Hive，請參閱下列文件：
 
-* [开始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [開始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [使用 HDInsight 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: https://curl.haxx.se

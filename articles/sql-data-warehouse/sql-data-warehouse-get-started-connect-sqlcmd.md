@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873328"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>使用 sqlcmd 連接到 SQL 資料倉儲
@@ -29,7 +29,7 @@ ms.locfileid: "65873328"
 
 使用 [sqlcmd][sqlcmd] 命令列公用程式來連線及查詢 Azure SQL 資料倉儲。  
 
-## <a name="1-connect"></a>1.連接
+## <a name="1-connect"></a>1.連線
 若要開始使用 [sqlcmd][sqlcmd]，請開啟命令提示字元，然後輸入 **sqlcmd** 並在後面加上 SQL 資料倉儲資料庫的連接字串。 連接字串需要下列參數：
 
 * **伺服器 (-S)：** 採用 `<`Server Name`>`.database.windows.net 格式的伺服器
@@ -38,7 +38,7 @@ ms.locfileid: "65873328"
 
 若要使用 SQL Server 驗證，您需要新增使用者名稱/密碼參數︰
 
-* **使用者 (-U)：**`<`使用者`>`表單中的伺服器使用者
+* **使用者 (-U)：** `<`使用者`>`表單中的伺服器使用者
 * **密碼 (-P)：** 與使用者相關聯的密碼。
 
 例如，您的連接字串看起來可能如下所示︰

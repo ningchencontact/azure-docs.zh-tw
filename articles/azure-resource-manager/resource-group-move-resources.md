@@ -4,14 +4,14 @@ description: 使用 Azure Resource Manager 將資源移到新的資源群組或�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083531"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -88,7 +88,6 @@ ms.locfileid: "66477261"
 * Logic Apps
 * Machine Learning：Machine Learning Studio Web 服務可以移至相同訂用帳戶 (而非不同的訂用帳戶) 中的資源群組。 其他 Machine Learning 資源可以在訂用帳戶之間移動。
 * 受控磁碟-受控磁碟，在可用性區域中的無法移到不同的訂用帳戶
-* 受控識別 - 使用者指派
 * 媒體服務
 * 監視 - 確定移至新的訂用帳戶不會超過[訂用帳戶配額](../azure-subscription-service-limits.md#monitor-limits)
 * 通知中樞
@@ -141,6 +140,7 @@ ms.locfileid: "66477261"
 * ExpressRoute
 * 實驗室服務-教室實驗室無法移到新的資源群組或訂用帳戶。 DevTest Labs 可以移至新的資源群組相同的訂用帳戶，但不是會跨訂用帳戶中。
 * 受控應用程式
+* 受控識別 - 使用者指派
 * Microsoft Genomics
 * 安全性
 * Site Recovery

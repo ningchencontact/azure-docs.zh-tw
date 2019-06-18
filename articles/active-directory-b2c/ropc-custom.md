@@ -11,10 +11,10 @@ ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66733652"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
@@ -267,7 +267,7 @@ ms.locfileid: "66733652"
 - 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。
 - 以您資源擁有者密碼認證原則的完整名稱取代 `B2C_1A_ROPC_Auth`。
 
-| Key | Value |
+| Key | 值 |
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
@@ -312,7 +312,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 - 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。
 - 以您資源擁有者密碼認證原則的完整名稱取代 `B2C_1A_ROPC_Auth`。
 
-| Key | Value |
+| Key | 值 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

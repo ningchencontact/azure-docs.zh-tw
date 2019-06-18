@@ -17,28 +17,28 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836108"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [deployment-guide]:deployment-guide.md
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
 [planning-guide]:planning-guide.md
@@ -151,11 +151,11 @@ IOPS、 延遲和輸送量需求所定義的資料庫檔案和記錄檔和取消
 
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > 我們建議您跨多個 Azure Vhd 建立等量磁碟區，使用 Windows 儲存空間。 至少使用 Windows Server 2012 R2 或 Windows Server 2016。
 >
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 >
 > 若要建置軟體 RAID，在 Linux 上支援只有 MDADM 和邏輯磁碟區管理員 (LVM)。 如需詳細資訊，請參閱
 >
@@ -207,7 +207,7 @@ Azure 儲存體帳戶是系統管理的建構，也限制的緣由。 限制是�
 標準儲存體，可能的快取類型包括：
 
 * None
-* 讀取
+* 閱讀
 * 讀取/寫入
 
 若要取得一致且具決定性的效能，將快取設定標準儲存體上的所有磁碟包含 DBMS 相關資料檔、 記錄和取消復原檔案和資料表空間**NONE**。 基底 VHD 的快取可以保留預設值。
@@ -215,7 +215,7 @@ Azure 儲存體帳戶是系統管理的建構，也限制的緣由。 限制是�
 針對進階儲存體中，有下列的快取選項：
 
 * None
-* 讀取
+* 閱讀
 * 讀取/寫入
 * 無 + 寫入加速器只適用於 Azure M 系列 Vm
 * 讀取 + 寫入加速器只適用於 Azure M 系列 Vm
@@ -231,11 +231,11 @@ M 系列部署中，我們建議您為您的 DBMS 部署使用 Azure 寫入加�
 如需詳細資訊，請參閱 <<c0> [ 了解 Azure 中 Windows Vm 上的暫存磁碟機](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)。
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > 在 Azure VM 中的磁碟機 D 是非保存的磁碟機，而由 Azure 計算節點上的一些本機磁碟。 因為它是保存在 D 磁碟機上的內容所做的任何變更都會遺失，當 VM 重新開機。 變更包含已儲存的檔案、 已建立的目錄和已安裝的應用程式。
 >
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 >
 > Linux Azure Vm 自動掛接磁碟機，在非保存是由 Azure 計算節點上的本機磁碟的磁碟機的 /mnt/resource。 因為它是非保存的重新啟動 VM 時，對 /mnt /mnt/resource 的內容做任何變更都會遺失。 變更包含已儲存的檔案、 已建立的目錄和已安裝的應用程式。
 >
@@ -340,11 +340,11 @@ Azure 提供兩個不同[負載平衡器 Sku](https://docs.microsoft.com/azure/l
 >
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 > 若要了解如何部署具有加速網路的 Windows Vm，請參閱[建立使用加速網路的 Windows 虛擬機器](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell)。
 >
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 >
 > 如需有關 Linux 散發套件的詳細資訊，請參閱[建立有加速網路的 Linux 虛擬機器](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)。
 >

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: b046ce5a8647abe601a6327667241d98445ce1e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61130537"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>設定內容金鑰授權原則
@@ -55,7 +55,7 @@ Open 限制表示系統會傳送金鑰給提出金鑰要求的任何人。 這�
 ![OpenPolicy][open_policy]
 
 ### <a name="token-restriction"></a>權杖限制
-若要選擇權杖限制原則，請選取 [權杖] 按鈕。
+若要選擇權杖限制原則，請選取 [權杖]  按鈕。
 
 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援使用簡單 Web 權杖 ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 和 JSON Web 權杖 (JWT) 格式的權杖。 如需詳細資訊，請參閱 [JWT 驗證](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
 
@@ -78,7 +78,7 @@ Open 限制表示系統會傳送金鑰給提出金鑰要求的任何人。 這�
           </LicenseTemplates>
         </PlayReadyLicenseResponseTemplate>
 
-您可以選取 [匯入原則 xml] 按鈕，並提供與[媒體服務 PlayReady 授權範本概觀](media-services-playready-license-template-overview.md)中定義之 XML 結構描述符合的不同 XML。
+您可以選取 [匯入原則 xml]  按鈕，並提供與[媒體服務 PlayReady 授權範本概觀](media-services-playready-license-template-overview.md)中定義之 XML 結構描述符合的不同 XML。
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074885"
 ---
 # <a name="live-event-states-and-billing"></a>實況活動狀態和計費
 
-在「Azure 媒體服務」中，「實況活動」只要狀態轉換為 [正在執行]，就會立即開始計費。 若要停止「實況活動」計費，您必須停止「實況活動」。
+在「Azure 媒體服務」中，「實況活動」只要狀態轉換為 [正在執行]  ，就會立即開始計費。 若要停止「實況活動」計費，您必須停止「實況活動」。
 
-當[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)上的 **LiveEventEncodingType** 設定為 Standard 時，「媒體服務」會在遺失輸入摘要且沒有任何執行中**實況輸出**的 12 小時後，自動關閉任何仍處於 [正在執行] 狀態的「實況活動」。 不過，您仍將需要支付「實況活動」處於 [正在執行] 狀態時間的費用。
+當**LiveEventEncodingType**在您[即時事件](https://docs.microsoft.com/rest/api/media/liveevents)設定為 [標準] 或 [Premium1080p，自動關閉仍在任何即時事件的媒體服務**執行**狀態 12時數之後輸入的摘要的遺失，且沒有任何**Live 輸出**執行。 不過，您仍將需要支付「實況活動」處於 [正在執行]  狀態時間的費用。
 
 ## <a name="states"></a>狀態
 

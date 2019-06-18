@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137866"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
@@ -37,7 +37,7 @@ Search-AzGraph -Query "project name | order by name asc" -First 200
 
 在 [REST API](/rest/api/azureresourcegraph/resources/resources) 中，此控制項為 **$top** 且屬於 **QueryRequestOptions**。
 
-「限制最嚴格」的控制項將會勝出。 例如，如果您的查詢會使用 **top** 或 **limit** 運算子並產生比 **First** 還多的記錄，則傳回的記錄數目上限會等於 **First**。 同樣地，如果 **top** 或 **limit** 小於 **First**，傳回的記錄集會是小於 **top** 或 **limit** 所設定的值。
+「限制最嚴格」  的控制項將會勝出。 例如，如果您的查詢會使用 **top** 或 **limit** 運算子並產生比 **First** 還多的記錄，則傳回的記錄數目上限會等於 **First**。 同樣地，如果 **top** 或 **limit** 小於 **First**，傳回的記錄集會是小於 **top** 或 **limit** 所設定的值。
 
 **First** 目前具有最大允許值 _5000_。
 
@@ -78,7 +78,7 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 ```
 
 > [!IMPORTANT]
-> 查詢必須**投影****識別碼**欄位，才能使分頁運作。 如果遺漏查詢，不會包含回應 **$skipToken**。
+> 查詢必須**投影** **識別碼**欄位，才能使分頁運作。 如果遺漏查詢，不會包含回應 **$skipToken**。
 
 如需範例，請參閱 REST API 文件中的[下一頁查詢](/rest/api/azureresourcegraph/resources/resources#next_page_query)。
 

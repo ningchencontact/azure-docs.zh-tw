@@ -16,10 +16,10 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4744858869e10094389be58ddd3960cb8cc2773a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60720018"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式
@@ -40,8 +40,8 @@ ms.locfileid: "60720018"
 Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual Studio 要如何處理應用程式部署作為偵錯的一部分。
 
 #### <a name="to-set-the-application-debug-mode-property"></a>設定應用程式偵錯模式屬性
-1. 在 Service Fabric 應用程式專案 (*.sfproj) 的捷徑功能表上，選擇 [屬性]\(或按 **F4** 按鍵)。
-2. 在 [屬性] 視窗中，設定 [應用程式偵錯模式] 屬性。
+1. 在 Service Fabric 應用程式專案 (*.sfproj) 的捷徑功能表上，選擇 [屬性]  \(或按 **F4** 按鍵)。
+2. 在 [屬性]  視窗中，設定 [應用程式偵錯模式]  屬性。
 
 ![設定應用程式偵錯模式屬性][debugmodeproperty]
 
@@ -52,7 +52,7 @@ Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual 
 3. **自動升級** 偵錯工作階段結束時，應用程式繼續執行。 下一個偵錯工作階段會將部署視為升級。 此升級程序會保留您在前一個偵錯工作階段中輸入的所有資料。
 4. **保留應用程式** 偵錯工作階段結束時，應用程式會在叢集中繼續執行。 在下一個偵錯工作階段開始時，會移除應用程式。
 
-如果使用 [自動升級]，資料會藉由套用 Service Fabric 的應用程式升級功能得以保留。 如需有關升級應用程式和如何在實際環境中執行升級的詳細資訊，請參閱 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)。
+如果使用 [自動升級]  ，資料會藉由套用 Service Fabric 的應用程式升級功能得以保留。 如需有關升級應用程式和如何在實際環境中執行升級的詳細資訊，請參閱 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)。
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>將服務加入 Service Fabric 應用程式
 您可以將新的服務新增至應用程式以擴充其功能。 若要確保應用程式封裝中包含該服務，請透過 [新增 Fabric 服務]  功能表項目新增服務。
@@ -67,8 +67,8 @@ Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual 
 
 ![新服務會新增到應用程式資訊清單][newserviceapplicationmanifest]
 
-## <a name="package-your-service-fabric-application"></a>打包 Service Fabric 应用程序
-若要將應用程式及其服務部署到叢集，您需要建立應用程式封裝。  套件會以特定的配置來組織應用程式資訊清單、服務資訊清單和其他必要的檔案。  Visual Studio 會在 'pkg' 目錄的應用程式專案資料夾中設定與管理封裝。  從 [應用程式] 操作功能表中按一下 [封裝] 會建立或更新應用程式封裝。
+## <a name="package-your-service-fabric-application"></a>封裝 Service Fabric 應用程式
+若要將應用程式及其服務部署到叢集，您需要建立應用程式封裝。  套件會以特定的配置來組織應用程式資訊清單、服務資訊清單和其他必要的檔案。  Visual Studio 會在 'pkg' 目錄的應用程式專案資料夾中設定與管理封裝。  從 [應用程式]  操作功能表中按一下 [封裝]  會建立或更新應用程式封裝。
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>使用 Cloud Explorer 移除應用程式和應用程式類型
 您可以從 Visual Studio 使用 Cloud Explorer (可從 [檢視]  功能表啟動) 執行基本的叢集管理作業。 例如，您可以在本機或遠端叢集上刪除應用程式和解除佈建應用程式類型。

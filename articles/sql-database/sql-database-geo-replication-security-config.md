@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a2a2fffa9ed3a4dae3c0768291b7585be4bfc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64690841"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>建立和管理 Azure SQL Database 安全性以供異地還原或容錯移轉使用
 
@@ -76,7 +76,7 @@ ms.locfileid: "60341942"
     WHERE [type_desc] = 'SQL_USER'
 
 > [!NOTE]
-> **INFORMATION_SCHEMA** 和 **sys** 使用者有「NULL」SID，而**來賓**的 SID 是 **0x00**。 如果資料庫建立者是伺服器系統管理員，而不是 **DbManager** 的成員，**dbo** SID 可能會以 *0x01060000000001648000000000048454* 開頭。
+> **INFORMATION_SCHEMA** 和 **sys** 使用者有「NULL」  SID，而**來賓**的 SID 是 **0x00**。 如果資料庫建立者是伺服器系統管理員，而不是 **DbManager** 的成員，**dbo** SID 可能會以 *0x01060000000001648000000000048454* 開頭。
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3.在目標伺服器上建立登入
 
@@ -89,7 +89,9 @@ ms.locfileid: "60341942"
 > [!NOTE]
 > 如果您想要授與使用者次要資料庫的存取權，而不是主要資料庫的，您可以藉由使用下列語法在主要伺服器上改變使用者登入，即可完成。
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE 不會變更密碼，因此必要時可以永遠啟用。
 

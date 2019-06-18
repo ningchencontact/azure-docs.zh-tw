@@ -10,10 +10,10 @@ ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61074235"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
@@ -46,11 +46,11 @@ Azure 自動化中有三種可用的內建連線：
 |[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|移除現有的連接。|
 |[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|設定現有連接的特定欄位的值。|
 
-## <a name="activities"></a>活動
+## <a name="activities"></a>activities
 
 下表中的活動是用來存取 Runbook 或 DSC 設定中的連接。
 
-|活動|描述|
+|activities|描述|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|取得要使用的連接。 傳回具有連線屬性的雜湊表。|
 
@@ -72,8 +72,8 @@ Azure 自動化中有三種可用的內建連線：
 
 ### <a name="to-create-a-new-connection-with-the-azure-portal"></a>使用 Azure 入口網站建立新的連接
 
-1. 從您的自動化帳戶，按一下 [資產] 部分，以開啟 [資產] 刀鋒視窗。
-2. 按一下 [連接] 部分，以開啟 [連接] 刀鋒視窗。
+1. 從您的自動化帳戶，按一下 [資產]  部分，以開啟 [資產]  刀鋒視窗。
+2. 按一下 [連接]  部分，以開啟 [連接]  刀鋒視窗。
 3. 在分頁的頂端按一下 [ **加入連接** ]。
 4. 在 [ **類型** ] 下拉式清單中，選取您想要建立的連接類型。 表單會顯示該特定類型的屬性。
 5. 完成表單，然後按一下 [ **建立** ] 以儲存新連接。
@@ -110,7 +110,7 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 ### <a name="graphical-runbook-samples"></a>圖形化 Runbook 範例
 
-透過在圖形化編輯器 [文件庫] 窗格的連接上按一下滑鼠右鍵，然後選取 [加入至畫布]，即可將 **Get-AutomationConnection** 活動加入至圖形化 Runbook。
+透過在圖形化編輯器 [文件庫] 窗格的連接上按一下滑鼠右鍵，然後選取 [加入至畫布]  ，即可將 **Get-AutomationConnection** 活動加入至圖形化 Runbook。
 
 ![加入至畫布](media/automation-connections/connection-add-canvas.png)
 

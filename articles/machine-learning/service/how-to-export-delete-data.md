@@ -12,10 +12,10 @@ ms.author: pahusban
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023982"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>匯出或刪除您的 Machine Learning services 工作區資料 

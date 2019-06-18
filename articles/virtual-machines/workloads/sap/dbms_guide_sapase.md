@@ -17,56 +17,56 @@ ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3f50f013020c704ddc294a59f8c6c5dac24bbd5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835272"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 SAP ASE Azure 虛擬機器 DBMS 部署
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
-[773830]:https://launchpad.support.sap.com/#/notes/773830
+[773830]: https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
-[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1245200]: https://launchpad.support.sap.com/#/notes/1245200
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1558958]:https://launchpad.support.sap.com/#/notes/1558958
-[1585981]:https://launchpad.support.sap.com/#/notes/1585981
-[1588316]:https://launchpad.support.sap.com/#/notes/1588316
-[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1558958]: https://launchpad.support.sap.com/#/notes/1558958
+[1585981]: https://launchpad.support.sap.com/#/notes/1585981
+[1588316]: https://launchpad.support.sap.com/#/notes/1588316
+[1590719]: https://launchpad.support.sap.com/#/notes/1590719
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1605680]: https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
-[1619967]:https://launchpad.support.sap.com/#/notes/1619967
-[1750510]:https://launchpad.support.sap.com/#/notes/1750510
-[1752266]:https://launchpad.support.sap.com/#/notes/1752266
-[1757924]:https://launchpad.support.sap.com/#/notes/1757924
-[1757928]:https://launchpad.support.sap.com/#/notes/1757928
-[1758182]:https://launchpad.support.sap.com/#/notes/1758182
-[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1619967]: https://launchpad.support.sap.com/#/notes/1619967
+[1750510]: https://launchpad.support.sap.com/#/notes/1750510
+[1752266]: https://launchpad.support.sap.com/#/notes/1752266
+[1757924]: https://launchpad.support.sap.com/#/notes/1757924
+[1757928]: https://launchpad.support.sap.com/#/notes/1757928
+[1758182]: https://launchpad.support.sap.com/#/notes/1758182
+[1758496]: https://launchpad.support.sap.com/#/notes/1758496
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
-[1814258]:https://launchpad.support.sap.com/#/notes/1814258
-[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1814258]: https://launchpad.support.sap.com/#/notes/1814258
+[1882376]: https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
-[1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1941500]:https://launchpad.support.sap.com/#/notes/1941500
-[1956005]:https://launchpad.support.sap.com/#/notes/1956005
-[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1922555]: https://launchpad.support.sap.com/#/notes/1922555
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1941500]: https://launchpad.support.sap.com/#/notes/1941500
+[1956005]: https://launchpad.support.sap.com/#/notes/1956005
+[1973241]: https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
 [2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2121797]:https://launchpad.support.sap.com/#/notes/2121797
-[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2121797]: https://launchpad.support.sap.com/#/notes/2121797
+[2134316]: https://launchpad.support.sap.com/#/notes/2134316
 [2171857]:https://launchpad.support.sap.com/#/notes/2171857
 [2178632]:https://launchpad.support.sap.com/#/notes/2178632
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
@@ -473,7 +473,7 @@ SAP 附註 [1928533] 會提供 SAP 大小調整資訊和 SAP 認證的 VM SKU �
 * [2134316]
 * [1941500]
 
-### <a name="sap-ase-version-support"></a>SAP ASE 版本支持
+### <a name="sap-ase-version-support"></a>SAP ASE 版本支援
 SAP 目前支援 SAP ASE 版本 16.0，可與 SAP 商務套件產品搭配使用。 不論是適用於 SAP ASE 伺服器的所有更新，還是要與「SAP 商務套件」產品搭配使用的 JDBC 和 ODBC 驅動程式，都只會透過 SAP Service Marketplace 來提供，網址是：<https://support.sap.com/swdc>。
 
 如同內部部署安裝，不要直接從 Sybase 網站下載適用於 SAP ASE 伺服器或適用於 JDBC 和 ODBC 驅動程式的更新。 如需在內部部署和 Azure 虛擬機器中支援與 SAP 商務套件產品搭配使用之修補程式的詳細資訊，請參閱下列 SAP 附註：
@@ -590,7 +590,7 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 
 不要使用 Azure VM 暫存空間 /mnt 或 /mnt/resource 做為資料庫或記錄傾印目的地。
 
-#### <a name="performance-considerations-for-backupsrestores"></a>备份/还原的性能注意事项
+#### <a name="performance-considerations-for-backupsrestores"></a>備份/還原的效能考量
 如同裸機部署，備份/還原效能取決於可以平行讀取的磁碟區數目，以及這些磁碟區可能的輸送量。 請記住，備份壓縮會取用 CPU 資源。 備份壓縮的 CPU 耗用量在具有少量 CPU 執行緒的 VM 上扮演重要的角色。  因此，您可以假設︰
 
 * 用來儲存資料庫裝置的磁碟數目越少，讀取的整體輸送量就越小

@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.date: 07/08/2016
 ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995902"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中驗證適用於 B2B 企業整合的 XML
@@ -29,13 +29,13 @@ ms.locfileid: "60995902"
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
-3. 若要新增 [XML 驗證] 動作，選擇 [新增動作]。
+3. 若要新增 [XML 驗證]  動作，選擇 [新增動作]  。
 
-4. 若要篩選所有動作直到找到您想要的，請在搜尋方塊中輸入 *xml*。 選擇 [XML 驗證]。
+4. 若要篩選所有動作直到找到您想要的，請在搜尋方塊中輸入 *xml*。 選擇 [XML 驗證]  。
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
-5. 若要指定您想要驗證的 XML 內容，請選取 [內容]。
+5. 若要指定您想要驗證的 XML 內容，請選取 [內容]  。
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
@@ -43,11 +43,11 @@ ms.locfileid: "60995902"
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
-7. 若要指定用來驗證前面 *content* 輸入的結構描述，請選擇 [結構描述名稱]。
+7. 若要指定用來驗證前面 *content* 輸入的結構描述，請選擇 [結構描述名稱]  。
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
-8. 儲存您的工作   
+8. 儲存您的工作  
 
     ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 

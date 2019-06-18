@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740544"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
@@ -34,7 +34,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 下列各節說明圖形化編輯器中的控制項。
 
-### <a name="canvas"></a>画布
+### <a name="canvas"></a>畫布
 
 畫布是您設計 Runbook 的位置。 您會從程式庫控制項中的節點將活動加入至 Runbook，並以連結將它們連接來定義 Runbook 的邏輯。
 
@@ -63,9 +63,9 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 ### <a name="exporting-and-importing-a-graphical-runbook"></a>匯出和匯入圖形化 Runbook
 
-您可以只匯出圖形化 Runbook 的已發行版本。 如果尚未發佈 Runbook，則 [匯出] 按鈕會停用。 當您按一下 [匯出] 按鈕，Runbook 就會下載到本機電腦。 檔案名稱須符合帶有 *graphrunbook* 副檔名的 Runbook 名稱。
+您可以只匯出圖形化 Runbook 的已發行版本。 如果尚未發佈 Runbook，則 [匯出]  按鈕會停用。 當您按一下 [匯出]  按鈕，Runbook 就會下載到本機電腦。 檔案名稱須符合帶有 *graphrunbook* 副檔名的 Runbook 名稱。
 
-您可以在加入 Runbook 時選取 [匯入] 選項，藉以匯入圖形化或圖形化 PowerShell 工作流程 Runbook 檔案。 當您選取要匯入的檔案時，您可以保留同一個**名稱**，或提供新名稱。 [Runbook 類型] 欄位將會在評估所選取的檔案類型之後顯示 Runbook 的類型，而且如果您嘗試選取其他不正確的類型，即會顯示訊息，表示可能發生衝突，而且在轉換期間，可能會發生語法錯誤。
+您可以在加入 Runbook 時選取 [匯入]  選項，藉以匯入圖形化或圖形化 PowerShell 工作流程 Runbook 檔案。 當您選取要匯入的檔案時，您可以保留同一個**名稱**，或提供新名稱。 [Runbook 類型] 欄位將會在評估所選取的檔案類型之後顯示 Runbook 的類型，而且如果您嘗試選取其他不正確的類型，即會顯示訊息，表示可能發生衝突，而且在轉換期間，可能會發生語法錯誤。
 
 ![匯入 Runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
@@ -75,11 +75,11 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 [ **測試窗格** ] 按鈕。
 
-測試控制項會提示您輸入任何輸入參數，而您可以按一下 [開始] 按鈕來啟動 Runbook。
+測試控制項會提示您輸入任何輸入參數，而您可以按一下 [開始]  按鈕來啟動 Runbook。
 
 ### <a name="publishing-a-graphical-runbook"></a>發行圖形化 Runbook
 
-Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只有已发布版才能用来运行，只有草稿版才能用来编辑。 已發行版本不會受到草稿版本的任何變更影響。 草稿版本就緒可供使用時，您將它發行，則草稿版本會覆寫已發行版本。
+Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執行已發行版本，而且只可編輯草稿版本。 已發行版本不會受到草稿版本的任何變更影響。 草稿版本就緒可供使用時，您將它發行，則草稿版本會覆寫已發行版本。
 
 您可以開啟 Runbook 進行編輯，然後按一下 [ **發行** ] 按鈕來發行圖形化 Runbook。
 
@@ -89,9 +89,9 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只有已�
 
 您也可以選擇還原成 Runbook 的已發行版本。 這樣會棄置上次發行 Runbook 後所進行的任何變更，並以已發行版本取代 Runbook 的草稿版本。
 
-## <a name="activities"></a>活動
+## <a name="activities"></a>activities
 
-活動是 Runbook 的建置區塊。 活動可以是 PowerShell Cmdlet、子 Runbook 或工作流程活動。 以滑鼠右鍵按一下程式庫控制項的活動，然後選取 [加入至畫布]，即可將活動加入 Runbook。 然後可以按一下並拖曳活動，將它放置在畫布上的任何位置。 活動在畫布上的位置不會以任何方式影響 Runbook 的作業。 您可以配置您的 Runbook，不過您會發現以視覺化方式檢視其作業最適合。
+活動是 Runbook 的建置區塊。 活動可以是 PowerShell Cmdlet、子 Runbook 或工作流程活動。 以滑鼠右鍵按一下程式庫控制項的活動，然後選取 [加入至畫布]  ，即可將活動加入 Runbook。 然後可以按一下並拖曳活動，將它放置在畫布上的任何位置。 活動在畫布上的位置不會以任何方式影響 Runbook 的作業。 您可以配置您的 Runbook，不過您會發現以視覺化方式檢視其作業最適合。
 
 ![加入至畫布](media/automation-graphical-authoring-intro/add-to-canvas-revised20165.png)
 
@@ -119,11 +119,11 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只有已�
 | 憑證資產 |選取「自動化憑證」做為輸入。 |
 | 連線資產 |選取「自動化連線」做為輸入。 |
 | PowerShell 運算式 |指定簡單 [PowerShell 運算式](#powershell-expressions)。 在活動和用於參數值的結果之前，會評估運算式。 您可以使用變數來參照活動或 Runbook 的輸入參數的輸出。 |
-| 未配置 |清除先前設定的任何值。 |
+| 未設定 |清除先前設定的任何值。 |
 
 #### <a name="optional-additional-parameters"></a>選擇性的其他參數
 
-所有 Cmdlet 可選擇提供額外的參數。 這些是 PowerShell 一般參數或其他自訂參數。 您會看到一個文字方塊，您可以在其中使用 PowerShell 語法提供參數。 例如，若要使用 **Verbose** 一般參數，您會指定 **"-Verbose:$True"**。
+所有 Cmdlet 可選擇提供額外的參數。 這些是 PowerShell 一般參數或其他自訂參數。 您會看到一個文字方塊，您可以在其中使用 PowerShell 語法提供參數。 例如，若要使用 **Verbose** 一般參數，您會指定 **"-Verbose:$True"** 。
 
 ### <a name="retry-activity"></a>重試活動
 
@@ -183,7 +183,7 @@ $DateTimeStart
 
 圖形化 Runbook 中的 **連結** 在連接兩個活動。 就會在畫布上顯示為箭號，從來源活動指向目的地活動。 活動會以箭頭的方向執行，在來源活動完成之後，目的地活動就會啟動。
 
-### <a name="create-a-link"></a>创建链接
+### <a name="create-a-link"></a>建立連結
 
 在兩個活動之間建立連結，方法是選取來源活動，然後按一下圖形底部的圓形。 將箭頭拖曳到目的地活動和版本。
 
@@ -193,7 +193,7 @@ $DateTimeStart
 
 | 連結類型 | 描述 |
 |:--- |:--- |
-| 管道 |目的地活動會對從來源活動輸出的每一個物件執行一次。 如果來源活動不會產生任何輸出，則不會執行目的地活動。 從來源活動輸出以物件形式提供。 |
+| 管線 |目的地活動會對從來源活動輸出的每一個物件執行一次。 如果來源活動不會產生任何輸出，則不會執行目的地活動。 從來源活動輸出以物件形式提供。 |
 | 順序 |目的地活動只會執行一次。 它會從來源活動接收物件的陣列。 從來源活動輸出以物件陣列形式提供。 |
 
 ### <a name="starting-activity"></a>啟動活動
@@ -257,7 +257,7 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 資料如何寫入至資料匯流排取決於活動上的連結類型。 針對 **管線**，資料會輸出為多個物件。 針對 **順序** 連結，資料會輸出為陣列。 如果只有一個值，則會輸出為單一元素陣列。
 
-您可以使用兩種方法之一來存取資料匯流排上的資料。 第一個是使用 **活動輸出** 資料來源來填入另一個活動的參數。 如果输出是一个对象，可以指定单个属性。
+您可以使用兩種方法之一來存取資料匯流排上的資料。 第一個是使用 **活動輸出** 資料來源來填入另一個活動的參數。 如果輸出是物件，您可以指定單一屬性。
 
 ![活動輸出](media/automation-graphical-authoring-intro/activity-output-datasource-revised20165.png)
 
@@ -268,9 +268,9 @@ $ActivityOutput['Activity Label']
 $ActivityOutput['Activity Label'].PropertyName
 ```
 
-### <a name="checkpoints"></a>检查点
+### <a name="checkpoints"></a>檢查點
 
-您可以在圖形化 PowerShell 工作流程 Runbook 中設定[檢查點](automation-powershell-workflow.md#checkpoints)，方法是在任何活動上選取「檢查點 Runbook」。 這會導致在執行活動之後設定檢查點。
+您可以在圖形化 PowerShell 工作流程 Runbook 中設定[檢查點](automation-powershell-workflow.md#checkpoints)，方法是在任何活動上選取「檢查點 Runbook」  。 這會導致在執行活動之後設定檢查點。
 
 ![檢查點](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -316,7 +316,7 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 您可以按一下 Runbook 工具列上的 [ **輸入和輸出** ] 按鈕來存取 Runbook 的輸入參數。
 
-這會開啟 [輸入和輸出] 控制項，您可以在其中編輯現有的輸入參數，或按一下 [加入輸入] 來建立一個新的。
+這會開啟 [輸入和輸出]  控制項，您可以在其中編輯現有的輸入參數，或按一下 [加入輸入]  來建立一個新的。
 
 ![加入輸入](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -324,11 +324,11 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 名称 |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
+| 名稱 |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
 | 描述 |輸入參數的選擇性描述。 |
 | 類型 |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
 | 強制 |指定是否必須提供參數的值。 如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |
-| 默认值 |如果未提供其中一個的值，要對參數指定什麼值。 這可以是 Null 或特定值。 |
+| 預設值 |如果未提供其中一個的值，要對參數指定什麼值。 這可以是 Null 或特定值。 |
 
 ### <a name="runbook-output"></a>Runbook 輸出
 
@@ -394,19 +394,19 @@ $ActivityOutput['Get-AzureVm']
 
 使用 [比較運算子](https://technet.microsoft.com/library/hh847759.aspx) 來比較值或判斷值是否符合指定的模式。 比較會傳回 $true 或 $false 的值。
 
-例如，下列條件會判斷來自 *Get-AzureVM* 活動的虛擬機器目前是否「已停止」。
+例如，下列條件會判斷來自 *Get-AzureVM* 活動的虛擬機器目前是否「已停止」  。
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 ```
 
-下列條件會檢查相同的虛擬機器是否處於「已停止」 以外的任何狀態。
+下列條件會檢查相同的虛擬機器是否處於「已停止」  以外的任何狀態。
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-您可以使用[邏輯運算子](https://technet.microsoft.com/library/hh847789.aspx) (例如 **-and** 或 **-or**) 加入多個條件。 例如，下列條件會檢查上述範例中相同虛擬機器的狀態是否為「已停止」或「正在停止」。
+您可以使用[邏輯運算子](https://technet.microsoft.com/library/hh847789.aspx) (例如 **-and** 或 **-or**) 加入多個條件。 例如，下列條件會檢查上述範例中相同虛擬機器的狀態是否為「已停止」  或「正在停止」  。
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")

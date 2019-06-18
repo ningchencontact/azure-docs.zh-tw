@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d10c3edcf64ccc66b0599d064e91270a4ad8202
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814848"
 ---
 當您使用[虛擬機器擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure 監視器的自動調整功能](../articles/azure-monitor/platform/autoscale-overview.md)時，可以輕鬆地[自動縮放](../articles/azure-monitor/platform/autoscale-best-practices.md)您的[虛擬機器 (VM)](../articles/virtual-machines/windows/overview.md)。 您的 VM 必須是擴展集的成員才能自動縮放。 本文提供的資訊可讓您深入了解如何使用自動和手動方法，以垂直和水平方式調整 VM。
 
@@ -31,9 +31,9 @@ Azure 監視器的自動調整功能只會水平調整，亦即增加 (相應放
 
 當您使用 [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings) 建立擴展集時，可以啟用自動調整。 您也可以在建立擴展集之後加以啟用。 您可以使用 [Azure Resource Manager 範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)來建立擴展集、安裝擴充功能，並設定自動調整。 在 Azure 入口網站中，從 Azure 監視器啟用自動調整，或從擴展集設定啟用自動調整。
 
-![啟用自動調整規模](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![啟用自動調整](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>指标
+### <a name="metrics"></a>度量
 
 Azure 監視器的自動調整功能可讓您以[計量](../articles/azure-monitor/platform/autoscale-common-metrics.md)作為基礎，將執行中的 VM 數目相應增加或相應減少。 根據預設，VM 會提供磁碟、網路和 CPU 使用量的基本主機層級計量。 當您使用診斷擴充功能設定診斷資料的集合時，其他的客體 OS 效能計數器就可供磁碟、CPU 和記憶體使用。
 

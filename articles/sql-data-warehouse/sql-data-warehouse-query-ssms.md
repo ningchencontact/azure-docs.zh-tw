@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873712"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>連接 SQL 資料倉儲與 SQL Server Management Studio (SSMS)
@@ -38,7 +38,7 @@ ms.locfileid: "65873712"
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
 1. 開啟 SSMS。
-2. 開啟物件總管。 若要這樣做，請選取 [檔案]  >  [連接物件總管]。
+2. 開啟物件總管。 若要這樣做，請選取 [檔案]   >  [連接物件總管]  。
    
     ![SQL Server 物件總管][1]
 3. 填寫 [連線到伺服器] 視窗中的欄位。
@@ -46,8 +46,8 @@ ms.locfileid: "65873712"
     ![連線到伺服器][2]
    
    * **伺服器名稱**。 輸入先前找到的 **伺服器名稱** 。
-   * **驗證**。 選取 [SQL Server 驗證] 或 [Active Directory 整合式驗證]。
-   * [使用者名稱] 和 [密碼]。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
+   * **驗證**。 選取 [SQL Server 驗證]  或 [Active Directory 整合式驗證]  。
+   * [使用者名稱]  和 [密碼]  。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
    * 按一下 [ **連接**]。
 4. 若要瀏覽，請展開您的 Azure SQL 伺服器。 您可以檢視與伺服器相關聯的資料庫。 展開 AdventureWorksDW 以查看範例資料庫中的資料表。
    
@@ -57,7 +57,7 @@ ms.locfileid: "65873712"
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
-2. 選取 [新增查詢] 。 新的查詢視窗隨即開啟。
+2. 選取 [新增查詢]  。 新的查詢視窗隨即開啟。
    
     ![新增查詢][4]
 3. 將此 TSQL 查詢複製到查詢視窗中：

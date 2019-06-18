@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.openlocfilehash: ba04ed7c95cbf00d5996ef237d3ac65053da0662
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727383"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
@@ -34,7 +34,7 @@ ms.locfileid: "64727383"
 
 ![鏡像程序圖表](./media/apache-kafka-mirroring/kafka-mirroring.png)
 
-Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務。 Kafka 產生者和取用者必須與 Kafka 叢集中之節點位於相同的 Azure 虛擬網路。 例如，Kafka 來源和目的地叢集均位於 Azure 虛擬網路中。 下图显示了这两个群集之间的通信流：
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務。 Kafka 產生者和取用者必須與 Kafka 叢集中之節點位於相同的 Azure 虛擬網路。 例如，Kafka 來源和目的地叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
 
 ![Azure 虛擬網路中的來源和目的地 Kafka 叢集圖表](./media/apache-kafka-mirroring/spark-kafka-vnet.png)
 
@@ -101,7 +101,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
     ```
 
-    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 将 **BASENAME** 替换为创建群集时使用的基名称。
+    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 將 **BASENAME** 替換為建立叢集時使用的基底名稱。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -142,7 +142,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     請儲存此資訊。 此資訊使用於下一節。
 
-## <a name="configure-mirroring"></a>配置镜像
+## <a name="configure-mirroring"></a>設定鏡像功能
 
 1. 使用不同的 SSH 工作階段連接到**目的地**叢集：
 
@@ -150,7 +150,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
     ```
 
-    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 将 **BASENAME** 替换为创建群集时使用的基名称。
+    將 **sshuser** 替換為建立叢集時所使用的 SSH 使用者名稱。 將 **BASENAME** 替換為建立叢集時使用的基底名稱。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -200,7 +200,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     compression.type=none
     ```
 
-    将 **DEST_BROKERS** 替换为在上一步骤中获取的中转站信息。
+    以上一個步驟中的訊息代理程式資訊取代 **DEST_BROKERS**。
 
     如需產生者組態詳細資訊，請參閱 kafka.apache.org 上的[者組態](https://kafka.apache.org/documentation#producerconfigs)。
 
