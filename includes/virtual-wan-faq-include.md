@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077471"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 虛擬網路閘道 (VPN 閘道) 與 Azure 虛擬 WAN vpngateway 之間有什麼差異？
 
 虛擬 WAN 提供大規模站對站連線，而且是針對輸送量、延展性和易用性而建置的。 ExpressRoute 與點對站連線功能目前為預覽狀態。 CPE 分支裝置會自動佈建，並且連線到 Azure 虛擬 WAN。 這些裝置都可以從 SD-WAN 和 VPN 合作夥伴日益成長的生態系統中取用。 請參閱[慣用的夥伴清單](https://go.microsoft.com/fwlink/p/?linkid=2019615)。
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>什麼是 Azure 虛擬 WAN 的分支連線？
+
+從分支裝置連結到 Azure 虛擬 WAN (由兩個主動/主動 IPsec 通道所組成) 的連線。
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>啟動時支援哪些裝置提供者 (虛擬 WAN 合作夥伴)？
 
@@ -45,7 +49,7 @@ ms.locfileid: "66150779"
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>有多少部 VPN 裝置可以連線到單一中樞？
 
-每個虛擬中樞支援多達 1000 個連線。 每個連線是由兩個通道所組成，其組態為主動-主動。 通道會在 Azure 虛擬中樞 vpngateway 內終止。
+每個虛擬中樞支援多達 1,000 個連線。 每個連線是由兩個通道所組成，其組態為主動-主動。 通道會在 Azure 虛擬中樞 vpngateway 內終止。
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>內部部署 VPN 裝置是否可以連線到多個中樞？
 
@@ -105,7 +109,7 @@ ms.locfileid: "66150779"
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>虛擬 WAN 與現有的 Azure 虛擬網路閘道有何不同？
 
-虛擬網路閘道 VPN 限定為 30 個通道。 對於連線，您應將虛擬 WAN 用於大規模的 VPN。 您可以在所有區域 (中西部區域除外) 的中樞內以 2 Gbps 連線到最多 1000 個分支連線。 中西部區域可使用 20 Gbps。 未來我們會將 20 Gbps 推展到其他區域。 連線是從內部部署 VPN 裝置到虛擬中樞的主動-主動通道。 您可以在每個區域都有一個中樞，這表示您可以跨中樞連線到超過 1000 個分支。
+虛擬網路閘道 VPN 限定為 30 個通道。 對於連線，您應將虛擬 WAN 用於大規模的 VPN。 您可以在所有區域 (中西部區域除外) 的中樞內以 2 Gbps 連線到最多 1,000 個分支連線。 中西部區域可使用 20 Gbps。 未來我們會將 20 Gbps 推展到其他區域。 連線是從內部部署 VPN 裝置到虛擬中樞的主動-主動通道。 您可以在每個區域都有一個中樞，這表示您可以跨中樞連線到超過 1,000 個分支。
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>虛擬 WAN 如何支援 SD-WAN 裝置？
 
@@ -118,6 +122,14 @@ ms.locfileid: "66150779"
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>使用 Azure 虛擬 WAN 時是否有網路輸送量限制？
 
 每個中樞/區域的分支數目限制為 1000 個連線，且中樞內的合併連線速度限制為 2 G。 美國中西部例外，其總計為 20 Gbps。 未來我們會將 20 Gbps 推展到其他區域。
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>虛擬 WAN 中樞支援多少個 VPN 連線？
+
+Azure 虛擬 WAN 中樞可同時支援最多 1,000 個 S2S 連線和 10,000 個 P2S 連線。
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>一個 VPN 通道和一個連線的 VPN 輸送量總計是多少？
+
+根據所選的縮放單位，一個中樞的 VPN 輸送量總計最多可達 20 Gbps。 輸送量會由所有現有的連線共用。
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>虛擬 WAN 是否允許內部部署裝置以平行方式使用多個 ISP，還是一律為單一 VPN 通道？
 

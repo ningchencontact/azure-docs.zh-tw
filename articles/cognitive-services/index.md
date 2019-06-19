@@ -7,18 +7,108 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 05/02/2019
+ms.date: 06/17/2019
 ms.topic: hub-page
-ms.openlocfilehash: 027d6c862deb9efeaa8d30dd6acbc814ac230c80
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d7234ca2441310867aa2f60936de0e3f44342ee8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464478"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204010"
 ---
 <div id="main" class="v2">
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
+
+
+<h2>認知服務 API</h2>
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>視覺 API</h3>
+                        <p><a href="/azure/cognitive-services/computer-vision/">電腦視覺</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">自訂視覺服務</a></p>
+                        <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>表單辨識器&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>筆墨辨識器&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Speech API</h3>
+                        <p><a href="/azure/cognitive-services/speech-service">語音服務</a></p>
+                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>說話者辨識&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing 語音 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>翻譯工具語音&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>語言 API</h3>
+                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
+                        <p><a href="/azure/cognitive-services/text-analytics/">文字分析</a></p>
+                        <p><a href="/azure/cognitive-services/translator/">翻譯工具文字</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>搜尋 API</h3>
+                        <p><a href="/azure/cognitive-services/bing-news-search/">Bing 新聞搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing 影片搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web 搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Bing 自動鍵</a></p>
+                        <p><a href="/azure/cognitive-services/bing-custom-search">Bing 自訂搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-entities-search/">Bing 實體搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search">Bing 圖片搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search">Bing 圖像式搜尋</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing 拼字檢查</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing 當地商家搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>決策 API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/">異常偵測器<span>&nbsp;預覽<sup style="font-size:70%"></sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">內容仲裁</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
+<h2>開始使用</h2>
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
@@ -286,89 +376,4 @@ ms.locfileid: "65464478"
     </li>
 </ul>
 
-<h2>認知服務 API</h2>
-<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>視覺 API</h3>
-                        <p><a href="/azure/cognitive-services/computer-vision/">電腦視覺</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">自訂視覺服務</a></p>
-                        <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>表單辨識器&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>筆墨辨識器&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Speech API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">語音服務</a></p>
-                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>說話者辨識&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing 語音 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/"><span>翻譯工具語音&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>語言 API</h3>
-                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
-                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
-                        <p><a href="/azure/cognitive-services/text-analytics/">文字分析</a></p>
-                        <p><a href="/azure/cognitive-services/translator/">翻譯工具文字</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>搜尋 API</h3>
-                        <p><a href="/azure/cognitive-services/bing-news-search/">Bing 新聞搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing 影片搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web 搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Bing 自動鍵</a></p>
-                        <p><a href="/azure/cognitive-services/bing-custom-search">Bing 自訂搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/bing-entities-search/">Bing 實體搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search">Bing 圖片搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/bing-visual-search">Bing 圖像式搜尋</a></p>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing 拼字檢查</a></p>
-                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing 當地商家搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>決策 API</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/">異常偵測器<span>&nbsp;預覽<sup style="font-size:70%"></sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">內容仲裁</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-</div>
+

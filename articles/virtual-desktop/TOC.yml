@@ -44,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: 自動調整工作階段主機
       href: set-up-scaling-script.md
+    - name: 適用於 Windows 虛擬桌面使用者的自訂摘要
+      href: customize-feed-for-virtual-desktop-users.md
     - name: 自訂 RDP 屬性
       href: customize-rdp-properties.md
 - name: 概念

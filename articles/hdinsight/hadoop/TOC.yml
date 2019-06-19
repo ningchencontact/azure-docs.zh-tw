@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: 概觀
   items:
-    - name: 關於 HDInsight 上的 Apache Hadoop
+    - name: 什麼是 HDInsight 中的 Apache Hadoop？
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: HDInsight 上的 Apache Hadoop 架構
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: HDInsight 上的 Apache Hadoop 元件
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: 快速入門
   items:
     - name: 建立 Apache Hadoop 叢集 - 入口網站
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: 建立 Apache Hadoop 叢集 - Resource Manager 範本
+    - name: 建立 Apache Hadoop 叢集 - 範本
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: 教學課程
@@ -45,6 +36,15 @@
       maintainContext: true
 - name: 概念
   items:
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: HDInsight 上的 Apache Hadoop 架構
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: HDInsight 中的 Apache Hadoop 元件
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: 叢集容量規劃
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -471,9 +471,6 @@
   items:
     - name: Windows 叢集
       items:
-        - name: 將 Windows 叢集移轉到 Linux 叢集
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
         - name: 將 .NET 解決方案移轉至 Linux 叢集
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
           maintainContext: true

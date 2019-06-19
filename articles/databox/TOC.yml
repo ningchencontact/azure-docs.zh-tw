@@ -111,8 +111,16 @@
           items:
             - name: 透過 Azure 入口網站管理
               href: data-box-portal-ui-admin.md
-            - name: 資料箱磁碟問題疑難排解
-              href: data-box-disk-troubleshoot.md
+            - name: 疑難排解
+              items:
+                - name: 解除鎖定問題
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: 資料複製問題
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: 驗證問題
+                  href: data-box-disk-troubleshoot.md
+                - name: 上傳問題
+                  href: data-box-disk-troubleshoot-upload.md
             - name: 請連絡支援人員
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy

@@ -85,12 +85,24 @@
           displayName: roles
         - name: 擷取自由格式的資料
           href: luis-tutorial-pattern-any.md
-    - name: 使用 V4 Bot Framework
+    - name: 與 Bot 搭配使用
       items:
         - name: '搭配 C#'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. 建立基本 Bot
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. 將遙測新增到 Application Insights
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: 搭配 Node.js
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. 建立基本 Bot
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. 將遙測新增到 Application Insights
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -200,14 +212,6 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: 具有語音服務
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-        - name: Bot 搭配 Application Insights
-          items:
-            - name: Node.js
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
-            - name: 'C#'
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-csharp-appinsights.md
     - name: 改善預測精確度
       items:
         - name: 使用儀表板

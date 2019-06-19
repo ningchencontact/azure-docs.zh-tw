@@ -11,7 +11,7 @@
       href: apache-kafka-get-started.md
     - name: 建立 Apache Kafka 叢集 - PowerShell
       href: apache-kafka-quickstart-powershell.md
-    - name: 建立 Apache Kafka 叢集 - Resource Manager 範本
+    - name: 建立 Apache Kafka 叢集 - 範本
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: 教學課程
