@@ -35,7 +35,7 @@ Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視功能�
 Windows 的 Log Analytics 代理程式擴充功能支援下列版本的 Windows 作業系統：
 
 - Windows Server 2019
-- Windows Server 2008 R2、 2012、 2012 R2，2016 年 1709年和 1803年版
+- Windows Server 2008 R2、 2012、 2012 R2、 2016、 1709版、 1803版
 
 ### <a name="agent-and-vm-extension-version"></a>代理程式和 VM 擴充功能版本
 下表提供 Windows Azure 監視 VM 擴充功能和每個版本的 Log Analytics 代理程式套件組合的版本的對應。 
