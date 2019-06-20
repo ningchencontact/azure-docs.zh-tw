@@ -20,8 +20,6 @@
   items:
     - name: 在 Apache Spark 叢集上執行查詢
       href: apache-spark-load-data-run-query.md
-    - name: 使用 VSCode 執行 Apache Spark 查詢
-      href: ../hdinsight-for-vscode.md
     - name: 使用 IntelliJ 執行 Apache Spark 查詢
       href: apache-spark-intellij-tool-plugin.md
     - name: 使用 BI 工具分析資料
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: 在 IntelliJ 中建立 Apache Spark 應用程式
       href: apache-spark-create-standalone-application.md
+    - name: 使用 VSCode 執行 Apache Spark 查詢
+      href: ../hdinsight-for-vscode.md
     - name: 使用 Ambari 和 Azure 監視器記錄監視叢集可用性
       href: ../hdinsight-cluster-availability.md
 - name: 範例

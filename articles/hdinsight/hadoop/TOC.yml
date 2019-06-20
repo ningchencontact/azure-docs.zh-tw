@@ -20,9 +20,6 @@
     - name: 建立隨選叢集
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: 使用 Ambari 和 Azure 監視器記錄監視叢集可用性
-      href: ../hdinsight-cluster-availability.md
-      maintainContext: true
 - name: 範例
   items:
     - name: .NET 範例
@@ -36,6 +33,9 @@
       maintainContext: true
 - name: 概念
   items:
+    - name: 使用 Ambari 和 Azure 監視器記錄監視叢集可用性
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
       maintainContext: true

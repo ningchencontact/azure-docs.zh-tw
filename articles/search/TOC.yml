@@ -45,10 +45,12 @@
       href: search-semi-structured-data.md
     - name: 透過 AI 擴充 (認知搜尋)
       items:
-        - name: REST
-          href: cognitive-search-tutorial-blob.md
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: Python
+          href: cognitive-search-tutorial-blob-python.md
 - name: 範例
   items:
     - name: Azure 程式碼範例
