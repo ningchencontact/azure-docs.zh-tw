@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: dfdfb9e38f16d0077175587933b0800b87cc1931
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727049"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144121"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Azure 函式活動
 
@@ -64,6 +64,10 @@ Azure 函式逾時之後 230 秒，不論`functionTimeout`設定中，您已設�
 
 深入了解 Durable Functions 中[這篇文章](../azure-functions/durable/durable-functions-overview.md)。 您可以設定 Azure 函式活動來呼叫永久性函式，會將回應傳回具有不同的 URI，例如[本例](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery)。 因為`statusQueryGetUri`傳回 HTTP 狀態 202，而函式正在執行時，您可以使用 Web 活動輪詢函式的狀態。 只要設定 Web 活動，具有`url`欄位設定為`@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`。 長期函式完成時，函式的輸出會是 Web 活動的輸出。
 
+
+## <a name="sample"></a>範例
+
+您可以找到要解壓縮 tar 檔案解壓縮檔案的內容中使用 Azure Function 的 Data Factory 的範例[此處](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)。
 
 ## <a name="next-steps"></a>後續步驟
 

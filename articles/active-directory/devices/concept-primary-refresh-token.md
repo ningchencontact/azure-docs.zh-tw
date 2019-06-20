@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563ec5969a77dd01506270c3e864e00639a56eb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6515f60fb67e52a7924afec2effd0c2001935e5d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110709"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190249"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>主要重新整理權杖是什麼？
 
@@ -63,6 +63,9 @@ PRT 是從任何用戶端元件不知道其內容的 Azure AD 傳送的不透明
    * 新增的帳戶**設定** > **帳戶** > **存取公司或學校** > **Connect**
 
 在這些情況下，Azure AD WAM 外掛程式都是 PRT 主要授權單位，因為 Windows 登入不發生在與此 Azure AD 帳戶。
+
+> [!NOTE]
+> 第 3 方識別提供者必須支援 Ws-trust 通訊協定，若要啟用 Windows 10 裝置上的 PRT 發行。 沒有 1.1、WS-Trust、 PRT 無法發行給使用者混合式 Azure AD 已加入或 Azure AD 已加入裝置
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>什麼是 PRT 的存留期？
 

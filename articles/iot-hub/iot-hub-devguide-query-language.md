@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442081"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137717"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
-IoT 中樞提供功能強大、類似 SQL 的語言，以擷取有關[裝置對應項](iot-hub-devguide-device-twins.md)、[作業](iot-hub-devguide-jobs.md)和[訊息路由](iot-hub-devguide-messages-d2c.md)的資訊。 本文提供︰
+IoT 中樞提供功能強大的類似 SQL 的語言，來擷取資訊的相關[攣生裝置](iot-hub-devguide-device-twins.md)，[模組對應項](iot-hub-devguide-module-twins.md)，[工作](iot-hub-devguide-jobs.md)，和[訊息路由](iot-hub-devguide-messages-d2c.md). 本文提供︰
 
 * IoT 中樞查詢語言主要功能的簡介，以及
 * 語言的詳細說明。 如需訊息路由查詢語言的詳細資訊，請參閱[訊息路由中的查詢](../iot-hub/iot-hub-devguide-routing-query-syntax.md)。
@@ -25,7 +25,7 @@ IoT 中樞提供功能強大、類似 SQL 的語言，以擷取有關[裝置對�
 
 ## <a name="device-and-module-twin-queries"></a>裝置與模組對應項查詢
 
-[裝置對應項](iot-hub-devguide-device-twins.md)與模組對應項可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有對應項資訊的單一 JSON 文件形式查詢裝置對應項與模組對應項。
+[裝置對應項](iot-hub-devguide-device-twins.md)並[模組對應項](iot-hub-devguide-module-twins.md)可以包含標籤和屬性形式的任意 JSON 物件。 IoT 中樞可讓您以包含所有對應項資訊的單一 JSON 文件形式查詢裝置對應項與模組對應項。
 
 例如，假設 IoT 中樞裝置對應項有下列結構 (模組對應項很類似，只是具有額外的 moduleId)：
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>模組對應項查詢
 
-查詢模組對應項和查詢裝置對應項很類似，但使用不同的集合/命名空間，也就是不用您可以查詢 device.modules 的 “from devices”：
+在模組對應項查詢會類似於查詢裝置對應項，但使用不同集合/命名空間;而不是從**裝置**，您從查詢**devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ SELECT * FROM devices.jobs
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT 中樞查詢的基本概念
 
-每個「IoT 中樞」查詢都包含 SELECT 和 FROM 子句，以及選擇性的 WHERE 和 GROUP BY 子句。 每個查詢都會在 JSON 文件的集合上執行，例如裝置對應項。 FROM 子句會指出要在其上反覆運算的文件集合 (**devices** 或 **devices.jobs**)。 然後，會套用 WHERE 子句中的篩選。 使用彙總時，此步驟的結果會依照 GROUP BY 子句中所指定的方式進行分組。 針對每個群組，會依照 SELECT 子句中所指定的方式產生一個資料列。
+每個「IoT 中樞」查詢都包含 SELECT 和 FROM 子句，以及選擇性的 WHERE 和 GROUP BY 子句。 每個查詢都會在 JSON 文件的集合上執行，例如裝置對應項。 FROM 子句會指出其上反覆運算的文件集合 (**裝置**， **devices.modules**，或**devices.jobs**)。 然後，會套用 WHERE 子句中的篩選。 使用彙總時，此步驟的結果會依照 GROUP BY 子句中所指定的方式進行分組。 針對每個群組，會依照 SELECT 子句中所指定的方式產生一個資料列。
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM 子句
 
-**FROM <from_specification>** 只能採用兩個值：**FROM devices** 可查詢裝置對應項，或 **FROM devices.jobs** 可查詢每部裝置的作業詳細資料。
+**< From_specification > 從**子句可以假設只有三個值：**從裝置**來查詢裝置對應項，**從 devices.modules**來查詢模組對應項，或**從 devices.jobs**查詢作業的每一裝置詳細資料。
 
 
 ## <a name="where-clause"></a>WHERE 子句

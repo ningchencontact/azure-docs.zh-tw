@@ -5,11 +5,11 @@ ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
 ms.openlocfilehash: 7578cf914030dfb9a116d26c1006791ef3a1401f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111834"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173705"
 ---
 >[!NOTE]
 > 本文最近有所更新，改為使用「Azure 監視器記錄」一詞，而非 Log Analytics。 記錄資料仍儲存在 Log Analytics 工作區中，並仍由相同的 Log Analytics 服務收集和分析。 我們會持續更新術語，以更精確地反映 [Azure 監視器記錄](../articles/azure-monitor/platform/data-platform-logs.md)的角色。 如需詳細資料，請參閱 [Azure 監視器遙測變更](../articles/azure-monitor/azure-monitor-rebrand.md)。

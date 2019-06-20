@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508966"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154032"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>單一頁面登入 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程
 
-許多現代化應用程式有單一頁面應用程式前端，主要以 JavaScript 撰寫。 通常會使用 AngularJS、Ember.js、Durandal 等架構來撰寫應用程式。 主要在瀏覽器上執行的單一頁面應用程式和其他 JavaScript 應用程式，在驗證時會面臨一些額外的挑戰：
+許多現代化應用程式有單一頁面應用程式前端，主要以 JavaScript 撰寫。 通常，撰寫應用程式的使用 React、 Angular 或 Vue.js 這類的架構。 主要在瀏覽器上執行的單一頁面應用程式和其他 JavaScript 應用程式，在驗證時會面臨一些額外的挑戰：
 
 - 這些應用程式的安全性特性是不同於傳統以伺服器為基礎的 web 應用程式。
 - 許多授權伺服器與識別提供者不支援跨原始來源資源共用 (CORS) 要求。

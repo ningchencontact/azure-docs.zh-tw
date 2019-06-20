@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057928"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203302"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料
 
@@ -60,6 +60,9 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
 - [服務主體驗證](#service-principal-authentication)
 - [Azure 資源的受控識別驗證](#managed-identity)
 
+>[!NOTE]
+>當使用 PolyBase 將資料載入 SQL 資料倉儲中，如果您的來源資料湖儲存體 Gen2 已與虛擬網路端點，您必須使用受控身分識別驗證所需的 PolyBase。 請參閱[受管理的身分識別驗證](#managed-identity)詳細的設定必要條件一節。
+
 ### <a name="account-key-authentication"></a>帳戶金鑰驗證
 
 若要使用儲存體帳戶金鑰驗證，以下是支援的屬性：
@@ -103,10 +106,10 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. 授與服務主體適當權限。
+2. 授與服務主體適當權限。 深入了解權限如何運作，從 Data Lake 儲存體 Gen2[上檔案和目錄存取控制清單](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **作為來源**：在 Azure 儲存體總管中，至少授與**讀取 + 執行**列出和複製資料夾和子資料夾中的檔案權限。 或者也可以授與複製單一檔案時所需的**讀取**權限。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料讀者**角色。
-    - **作為接收**：在儲存體總管中，至少授與**寫入 + 執行**權限建立子資料夾中的項目。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料參與者**角色。
+    - **作為來源**：在儲存體總管中，至少授與**Execute**權限從來源檔案系統中，連同**讀取**要複製的檔案的權限。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料讀者**角色。
+    - **作為接收**：在儲存體總管中，至少授與**Execute**權限從接收的檔案系統中，連同**撰寫**接收資料夾的權限。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料參與者**角色。
 
 >[!NOTE]
 >清單資料夾啟動從帳戶層級，或若要測試連線，您需要設定服務主體授與的權限**儲存體帳戶中 IAM 的 「 儲存體 Blob 資料讀者 」 權限**。 您使用下列項目時，這種情況即會成立：
@@ -157,10 +160,10 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
 
 1. [擷取的 Data Factory 受控身分識別資訊](data-factory-service-identity.md#retrieve-managed-identity)藉由複製的值**服務識別應用程式識別碼**站一起產生。
 
-2. 授與受管理的身分識別適當的權限。
+2. 授與受管理的身分識別適當的權限。 深入了解權限如何運作，從 Data Lake 儲存體 Gen2[上的檔案和目錄存取控制清單](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)。
 
-    - **作為來源**：在儲存體總管中，至少授與**讀取 + 執行**列出和複製資料夾和子資料夾中的檔案權限。 或者也可以授與複製單一檔案時所需的**讀取**權限。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料讀者**角色。
-    - **作為接收**：在儲存體總管中，至少授與**寫入 + 執行**權限建立子資料夾中的項目。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料參與者**角色。
+    - **作為來源**：在儲存體總管中，至少授與**Execute**權限從來源檔案系統中，連同**讀取**要複製的檔案的權限。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料讀者**角色。
+    - **作為接收**：在儲存體總管中，至少授與**Execute**權限從接收的檔案系統中，連同**撰寫**接收資料夾的權限。 或者，在存取控制 (IAM)，授與至少**儲存體 Blob 資料參與者**角色。
 
 >[!NOTE]
 >清單資料夾啟動從帳戶層級，或若要測試連線，您必須設定受管理的身分識別授與的權限**儲存體帳戶中 IAM 的 「 儲存體 Blob 資料讀者 」 權限**。 您使用下列項目時，這種情況即會成立：
@@ -169,7 +172,7 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
 >如果您有關於在帳戶層級的權限授與的考量，您可以略過測試連接，並輸入的路徑以手動方式在撰寫期間。 複製活動仍能運作，只要受控身分識別時授與適當的權限在檔案複製。
 
 >[!IMPORTANT]
->如果您使用 PolyBase 將資料從 Data Lake 儲存體 Gen2 載入 SQL 資料倉儲中，當您使用 Data Lake 儲存體 Gen2 受控身分識別驗證時，請確定您也可以遵循步驟 1 和 2 中的[本指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 遵循與 Azure Active Directory (Azure AD) 中註冊您的 SQL Database 伺服器的指示。 您也會指派給您的 SQL Database 伺服器的角色型存取控制的儲存體 Blob 資料參與者角色。 Data Factory 會處理其餘部分。 如果您的 Data Lake 儲存體 Gen2 設定使用 Azure 虛擬網路端點，以使用 PolyBase 將資料從它載入時，您必須使用受控身分識別驗證。
+>如果您使用 PolyBase 將資料從 Data Lake 儲存體 Gen2 載入 SQL 資料倉儲中，使用 Data Lake 儲存體 Gen2 受控身分識別驗證時，請確定您也可以遵循步驟 1 和 2 中的[本指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)為 1) 註冊您的 SQL資料庫伺服器與 Azure Active Directory (Azure AD) 和 2），將儲存體 Blob 資料參與者角色指派給您的 SQL Database 伺服器;Data Factory 會處理其餘部分。 如果您的 Data Lake 儲存體 Gen2 已與 Azure 虛擬網路端點，若要使用 PolyBase 載入資料，您必須使用受控身分識別驗證所需的 PolyBase。
 
 針對已連結服務支援這些屬性：
 
@@ -511,7 +514,7 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
 
 本章節描述不同的遞迴和 copyBehavior 值組合的複製作業所產生的行為。
 
-| 遞迴 | copyBehavior | 來源資料夾結構 | 產生的目標 |
+| recursive | copyBehavior | 來源資料夾結構 | 產生的目標 |
 |:--- |:--- |:--- |:--- |
 | true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 會以與來源相同的結構，建立目標 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | 會以下列結構建立目標資料夾 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File1 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File2 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File3 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File4 自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;針對 File5 自動產生的名稱 |

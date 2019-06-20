@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.openlocfilehash: 1d639a8b1d5c7a5dd2b7bac7c5e020be7c8b1c50
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002217"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190952"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>疑難排解常見的 Azure 資料庫移轉服務的問題和錯誤
 
@@ -59,6 +59,16 @@ ms.locfileid: "66002217"
 | 原因         | 解決方案 |
 | ------------- | ------------- |
 | 當您嘗試停止的服務執行個體包含在移轉專案中的活動，仍在執行，或出現時，則會顯示此錯誤。 <br><br><br><br><br><br> | 請確定沒有任何您想要停止的 Azure 資料庫移轉服務的執行個體中執行的活動。 您也可能會嘗試停止服務之前，刪除活動或專案。 下列步驟說明如何移除專案，以清除 刪除所有執行中工作的 移轉服務執行個體：<br>1.Install-Module -Name AzureRM.DataMigration <br>2.Login-AzureRmAccount <br>3.Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4.Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+
+## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>嘗試啟動 Azure 資料庫移轉服務時發生錯誤
+
+您會收到下列錯誤開始的 Azure 資料庫移轉服務執行個體時：
+
+* **錯誤**：服務無法啟動。 錯誤: {'errorDetail': '無法啟動，請連絡 Microsoft 支援服務'}
+
+| 原因         | 解決方案 |
+| ------------- | ------------- |
+| 當先前的執行個體無法在內部，則會顯示此錯誤。 很少會發生這個錯誤，工程小組會知道它。 <br> | 刪除服務無法啟動，，然後佈建新項目來取代它的執行個體。 |
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>還原資料庫時移轉 SQL 到 Azure SQL DB 受控執行個體時發生錯誤
 

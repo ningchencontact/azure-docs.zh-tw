@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e2af7a7118eaa95e43049b3594ffd584aad4cc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733078"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203085"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>在 Azure Logic Apps 和 Microsoft Flow 中的工作流程定義語言的函式參考
 
@@ -820,7 +820,7 @@ array('<value>')
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*value*>] | 陣列 | 包含單一指定輸入的陣列 |
+| [<*value*>] | Array | 包含單一指定輸入的陣列 |
 ||||
 
 *範例*
@@ -1298,7 +1298,7 @@ createArray('<object1>', '<object2>', ...)
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>, ...] | 陣列 | 從所有輸入項目建立的陣列 |
+| [<*object1*>, <*object2*>, ...] | Array | 從所有輸入項目建立的陣列 |
 ||||
 
 *範例*
@@ -1891,7 +1891,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | 陣列 | 此陣列具有符合指定索引鍵的所有值 |
+| [<*array-with-key-values*>] | Array | 此陣列具有符合指定索引鍵的所有值 |
 ||||
 
 *範例*
@@ -2485,7 +2485,7 @@ join([<collection>], '<delimiter>')
 
 | 參數 | 必要項 | 類型 | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | 是 | 陣列 | 要將其項目聯結的陣列 |
+| <*collection*> | 是 | Array | 要將其項目聯結的陣列 |
 | <*delimiter*> | 是 | 字串 | 在結果字串中，要出現在每個字元之間的分隔符號 |
 |||||
 
@@ -3038,7 +3038,7 @@ range(<startIndex>, <count>)
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*range-result*>] | 陣列 | 從指定索引開始的整數陣列 |
+| [<*range-result*>] | Array | 從指定索引開始的整數陣列 |
 ||||
 
 *範例*
@@ -3156,13 +3156,13 @@ skip([<collection>], <count>)
 
 | 參數 | 必要項 | 類型 | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | 是 | 陣列 | 您想要從中移除項目的集合 |
+| <*collection*> | 是 | Array | 您想要從中移除項目的集合 |
 | <*count*> | 是 | Integer | 正整數，表示要移除的前端項目數量 |
 |||||
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*updated-collection*>] | 陣列 | 移除指定項目之後的更新集合 |
+| [<*updated-collection*>] | Array | 移除指定項目之後的更新集合 |
 ||||
 
 *範例*
@@ -3193,7 +3193,7 @@ split('<text>', '<delimiter>')
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | 陣列 | 包含來自原始字串並以逗號分隔之子字串的陣列 |
+| [<*substring1*>,<*substring2*>,...] | Array | 包含來自原始字串並以逗號分隔之子字串的陣列 |
 ||||
 
 *範例*
@@ -3663,7 +3663,7 @@ triggerFormDataMultiValues('<key>')
 
 | 傳回值 | 類型 | 描述 |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | 陣列 | 此陣列具有符合指定索引鍵的所有值 |
+| [<*array-with-key-values*>] | Array | 此陣列具有符合指定索引鍵的所有值 |
 ||||
 
 *範例*
@@ -4260,7 +4260,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | 只有單一節點符合指定的 XPath 運算式時會傳回 XML 節點 |
 | <*value*> | 任意 | 只有單一值符合指定的 XPath 運算式時，會傳回 XML 節點的值 |
-| [<*xml-node1*>, <*xml-node2*>, ...] </br>-或- </br>[<*value1*>, <*value2*>, ...] | 陣列 | 陣列，其中有符合指定 XPath 運算式的 XML 節點或值 |
+| [<*xml-node1*>, <*xml-node2*>, ...] </br>-或- </br>[<*value1*>, <*value2*>, ...] | Array | 陣列，其中有符合指定 XPath 運算式的 XML 節點或值 |
 ||||
 
 *範例 1*
@@ -4303,7 +4303,7 @@ xpath('<xml>', '<xpath>')
 
 * 運算式2 
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 以下是引數：
 
@@ -4317,9 +4317,9 @@ xpath('<xml>', '<xpath>')
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-以下是符合 `<location></location` 節點的結果節點：
+以下是符合 `<location></location>` 節點的結果節點：
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

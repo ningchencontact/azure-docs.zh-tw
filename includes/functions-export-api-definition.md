@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131739"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173750"
 ---
 ## <a name="export-an-api-definition"></a>匯出 API 定義
 您從[為函式建立 OpenAPI 定義](../articles/azure-functions/functions-openapi-definition.md)取得函式的 OpenAPI 定義。 此程序的下一個步驟是匯出 API 定義，以便 PowerApps 和 Microsoft Flow 可以在自訂 API 中使用。

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399841"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154560"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -210,7 +210,7 @@ azds up
 1. 建置您的應用程式的容器。
 1. 部署您的應用程式的開發人員的空間。
 1. 如果設定，請建立可公開存取的 DNS 名稱，為您的應用程式端點。
-1. 會使用*連接埠轉送*以存取您的應用程式端點使用 http://locahost 。
+1. 會使用*連接埠轉送*以存取您的應用程式端點使用 http://localhost 。
 1. 將轉送 stdout 和 stderr，用戶端工具。
 
 

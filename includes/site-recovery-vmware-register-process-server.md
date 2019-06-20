@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170000"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174506"
 ---
 1. 建立遠端桌面連線到執行處理序伺服器的機器。 
 2. 執行 cspsconfigtool.exe 以啟動 Azure Site Recovery Process Server 組態工具。

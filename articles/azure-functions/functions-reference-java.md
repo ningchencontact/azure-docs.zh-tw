@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: d88fda62c59d01a3703fdb583e0881aa8478a6cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acd873cd19cafb785f968fd3d8671640bcfafed8
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050759"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163711"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -136,7 +136,7 @@ az functionapp config appsettings set --name <APP_NAME> \
 --resource-group <RESOURCE_GROUP> \
 --settings "JAVA_OPTS=-Djava.awt.headless=true"
 ```
-這個範例會啟用遠端控制模式。 取代`<APP_NAME>`函式應用程式的名稱和`<RESOURCE_GROUP> `與資源群組。
+這個範例會啟用遠端控制模式。 取代`<APP_NAME>`函式應用程式的名稱和`<RESOURCE_GROUP>`與資源群組。
 
 > [!WARNING]  
 > 在[耗用量計劃](functions-scale.md#consumption-plan)，您必須新增`WEBSITE_USE_PLACEHOLDER`的值設定`0`。  

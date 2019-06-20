@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427890"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206079"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務的版本："]
@@ -426,7 +426,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 帳戶金鑰的驗證、 受控身分識別驗證 |
 
     >[!IMPORTANT]
-    >如果您的 Azure 儲存體設定為使用 VNet 服務端點，您必須使用受控身分識別驗證。 請參閱[使用 VNet 服務端點搭配 Azure 儲存體的影響](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >如果您的 Azure 儲存體設定為使用 VNet 服務端點，您必須使用受控身分識別驗證-是指[使用 VNet 服務端點搭配 Azure 儲存體的影響](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 了解從 Data Factory 中所需的組態[Azure Blob-受控身分識別驗證](connector-azure-blob-storage.md#managed-identity)並[Azure Data Lake 儲存體 Gen2 受控身分識別驗證](connector-azure-data-lake-storage.md#managed-identity)分別區段。
 
 2. **來源資料格式**屬於**Parquet**， **ORC**，或**分隔文字**，具備下列組態：
 
@@ -537,12 +537,12 @@ PolyBase 負載的限制為小於 1 MB 的資料列。 它不能載入至 VARCHR
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-解決方法是取消選取 「**使用類型預設值**「 複製活動接收器中的選項 （做為 false)]-> [PolyBase 設定。 「[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+解決方法是取消選取 「**使用類型預設值**「 複製活動接收器中的選項 （做為 false)-> PolyBase 設定。 「[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )」 是 PolyBase 的原生組態指定如何處理分隔符號的文字檔中的遺漏值，當 PolyBase 從文字檔擷取資料時。 
 
 **其他**
 
-如需更多 knonw PolyBase 的問題，請參閱[疑難排解 Azure SQL 資料倉儲 PolyBase 載入](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)。
+如需更多已知 PolyBase 的問題，請參閱[疑難排解 Azure SQL 資料倉儲 PolyBase 載入](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)。
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL 資料倉儲資源類別
 

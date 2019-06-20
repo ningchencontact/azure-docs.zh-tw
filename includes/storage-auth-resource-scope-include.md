@@ -9,11 +9,11 @@ ms.date: 03/28/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 518c57bc3327511b70deef143826f2a1b9df8639
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115577"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173649"
 ---
 您將 RBAC 角色指派給安全性主體之前，決定安全性主體應該有的存取的範圍。 最佳做法應規定，最好是一律將只有最少的可能範圍授與。
 
