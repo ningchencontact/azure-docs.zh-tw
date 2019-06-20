@@ -10,7 +10,7 @@
       href: tenant-setup-azure-active-directory.md
     - name: 2. 使用 PowerShell 建立服務主體和角色指派
       href: create-service-principal-role-powershell.md
-    - name: 3. 透過 Azure Marketplace 建立主機集區
+    - name: 3. 使用 Azure Marketplace 建立主機集區
       href: create-host-pools-azure-marketplace.md
     - name: 4. 管理應用程式群組
       href: manage-app-groups.md

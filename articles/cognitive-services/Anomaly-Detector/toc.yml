@@ -58,6 +58,8 @@
       href: 'https://aka.ms/adpricing'
     - name: 區域可用性
       href: 'https://aka.ms/adregion'
+    - name: 加入 Microsoft Teams 中 Anomaly Detector Advisor 群組
+      href: 'https://aka.ms/adadvisorsjoin'
     - name: 參考解決方案架構
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: 法規遵循
@@ -66,8 +68,6 @@
   items:
     - name: 取得支援
       href: 'https://aka.ms/adsupport'
-    - name: 加入公開社群
-      href: 'https://aka.ms/adadvisorsjoin'
     - name: 堆疊溢位
       href: 'https://aka.ms/adso'
     - name: MSDN

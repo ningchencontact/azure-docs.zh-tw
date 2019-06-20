@@ -124,9 +124,10 @@
               href: resource-manager-powershell-sas-token.md
         - name: 部署至多個資源群組或訂用帳戶
           href: resource-manager-cross-resource-group-deployment.md
-        - name: 使用 Azure DevOps Services 持續整合
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: 具有管線的 VS 專案
+          href: vs-resource-groups-project-devops-pipelines.md
     - name: 匯出範本
       href: export-template-portal.md
     - name: 管理

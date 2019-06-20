@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8dff2a54e5ac6626314a7b3faaedc8214a27680b
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 4605fd0296af6ac3c0d37c52c93d8a4a0903232b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866394"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165208"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>由 CloudSimple 提供的 Azure VMware 解決方案
 
@@ -22,4 +22,4 @@ ms.locfileid: "64866394"
 - 檢視[概觀](cloudsimple-vmware-solutions-overview.md)以深入了解由 CloudSimple 提供的 Azure VMware 解決方案。
 - 選取 [CloudSimple 私人雲端概觀](cloudsimple-private-cloud.md)以深入了解 CloudSimple 私用雲端解決方案。
 - 選取[節點](cloudsimple-node.md)以深入了解 CloudSimple 節點。
-- 選取[初始化和購買容量](quickstart-create-cloudsimple-service.md)以開始使用由 CloudSimple 提供的 Azure VMware 解決方案。
+- 選取[初始化和佈建容量](quickstart-create-cloudsimple-service.md)以開始使用由 CloudSimple 提供的 Azure VMware 解決方案。

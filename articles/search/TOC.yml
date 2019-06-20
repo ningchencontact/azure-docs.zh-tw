@@ -31,6 +31,14 @@
       href: search-get-started-python.md
 - name: 教學課程
   items:
+    - name: 建立您的第一個應用程式
+      items:
+        - name: 1 - 基本搜尋分頁
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 - 新增結果分頁
+          href: tutorial-csharp-paging.md
+        - name: 3 - 新增預先輸入
+          href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: 為 Azure SQL Database 編製索引
       href: search-indexer-tutorial.md
     - name: 為 Azure JSON Blob 編製索引
