@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: ad543ca2cd92895b9042ba795591523f00feb70a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129948"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202710"
 ---
 ### <a name="prerequisites"></a>必要條件
 * Wunderlist 帳戶  
@@ -13,7 +18,7 @@ ms.locfileid: "62129948"
 
 若要授與邏輯應用程式連接到 Wunderlist 帳戶的權限，其步驟如下：
 
-1. 若要建立 Wunderlist 連線，請在邏輯應用程式設計工具中，選取下拉式清單的 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「Wunderlist」。 選取您要使用的觸發程序或動作：  
+1. 若要建立 Wunderlist 連線，請在邏輯應用程式設計工具中，選取下拉式清單的 [顯示 Microsoft 受控 API]  ，然後在搜尋方塊中輸入「Wunderlist」  。 選取您要使用的觸發程序或動作：  
    ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
 2. 如果您之前尚未建立任何 Wunderlist 連線，系統會提示您提供 Wunderlist 認證。 這些認證會用來授與邏輯應用程式連接並存取 Wunderlist 帳戶資料的權限：   
    ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
@@ -21,6 +26,6 @@ ms.locfileid: "62129948"
    ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
 4. 隨即顯示邏輯應用程式將具有哪些 Wunderlist 帳戶的權限。 如果您同意，請選取 [同意] 按鈕。 
    ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
-5. 最後，選取 [授權] 按鈕  
+5. 最後，選取 [授權]  按鈕  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 

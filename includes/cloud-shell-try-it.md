@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: 53810e8d3cad73b35514beab75d8f65d0ca3b3d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a52041f773529c2a72c8019da27d56f98b6b53d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051116"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147473"
 ---
 ## <a name="open-azure-cloud-shell"></a>開啟 Azure Cloud Shell
 
@@ -22,5 +22,5 @@ Azure Cloud Shell 是裝載於 Azure 中的互動式殼層環境，並且會透�
 | 選項 | 範例/連結 |
 |-----------------------------------------------|---|
 | 選取程式碼區塊右上角的 [試試看]  。 這__不會__自動將文字複製到 Cloud Shell。 | ![Azure Cloud Shell 的試試看範例](./media/cloud-shell-try-it/cli-try-it.png) |
-| 在瀏覽器中開啟 [Azure Cloud Shell](https://shell.azure.com)。 | <a href="https://shell.azure.com" title="啟動 Azure Cloud Shell"><img src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
+| 在瀏覽器中開啟 [Azure Cloud Shell](https://shell.azure.com)。 | <a href="https://shell.azure.com" title="啟動 Azure Cloud Shell"><img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
 | 選取 [Azure 入口網站](https://portal.azure.com)右上角功能表上的 [Cloud Shell]  按鈕。 | ![Azure 入口網站中的 [Cloud Shell] 按鈕](./media/cloud-shell-try-it/cloud-shell-menu.png) |

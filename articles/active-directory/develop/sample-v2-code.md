@@ -1,6 +1,6 @@
 ---
 title: Microsoft 身分識別平台程式碼範例 |Microsoft Docs
-description: 依案例的平台 （V2 端點） 程式碼範例提供可用的 Microsoft 身分識別的索引。
+description: 依案例的平台 （v2.0 端點） 程式碼範例提供可用的 Microsoft 身分識別的索引。
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 326b69bffa0cd5728b939a91cce4fab3f3a329f7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055903"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272659"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平台程式碼範例 （v2.0 端點）
 
@@ -34,18 +34,18 @@ ms.locfileid: "67055903"
 - 將驗證和授權新增至您的 Web 應用程式與 Web API。
 - 要求存取權杖以存取受保護的 Web API。
 
-本文簡要說明，並提供您的 Microsoft 身分識別平台端點範例的連結。 這些範例將告訴您如何進行，並顯示可在應用程式中使用的程式碼片段。 在程式碼範例頁面上，您可以找到詳細的讀我主題，協助您了解需求並進行安裝及設定。 程式碼內有註解可幫助您了解重要區段。
+本文簡要說明，並提供您的 Microsoft 身分識別平台端點範例的連結。 這些範例會示範如何完成，且也會提供您可以使用您的應用程式中的程式碼片段。 在程式碼範例頁面上，您可以找到詳細的讀我檔案主題可協助您的需求、 安裝和設定。 在程式碼的註解可協助您了解重要區段。
 
 > [!NOTE]
-> 如果您對 v1.0 範例感興趣，請參閱 [Azure AD 程式碼範例 (v1.0 端點)](sample-v1-code.md)。
+> 如果您有興趣 v1.0 範例，請參閱[Azure AD 程式碼範例 （v1.0 端點）](sample-v1-code.md)。
 
 若要了解基本的案例中每個範例類型，請參閱[Microsoft 身分識別平台端點的應用程式類型](v2-app-types.md)。
 
 您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory)。
 
-## <a name="single-page-applications-spa"></a>單頁應用程式 (SPA)
+## <a name="single-page-applications"></a>單頁應用程式
 
-這些範例示範如何撰寫使用 Microsoft 身分識別平台來保護單一頁面應用程式。 這些範例會使用其中一種 MSAL.js 種：
+這些範例示範如何撰寫使用 Microsoft 身分識別平台來保護單一頁面應用程式。 這些範例會使用其中一個 MSAL.js 種。
 
 | 平台 | 描述 | 連結 |
 | -------- | --------------------- | -------- |
@@ -68,9 +68,9 @@ ms.locfileid: "67055903"
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>桌上型與行動裝置公開用戶端應用程式
 
-下列範例的公開用戶端應用程式 (桌上型/行動裝置應用程式) 會以使用者名稱存取 Microsoft Graph API 或您自己的 Web API。 這些用戶端應用程式全都會使用 Microsoft 驗證程式庫 (MSAL)。
+下列範例會示範公開用戶端存取 Microsoft Graph API 或您自己的使用者名稱的 web API 的應用程式 （桌面或行動應用程式）。 所有這些用戶端應用程式使用 Microsoft Authentication Library (MSAL)。
 
-| 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET Core 2.0 Web API |
+| 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET Core 2.0 的 web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | 桌上型 (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [互動](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) (英文) |
 | 桌上型 (主控台)   | ![.NET/C# (桌上型)](media/sample-v2-code/logo_NET.png) | [整合式 Windows 驗證](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -90,7 +90,7 @@ ms.locfileid: "67055903"
 
 ## <a name="headless-applications"></a>無周邊應用程式
 
-下列範例示範在裝置 (沒有網頁瀏覽器) 上執行的公開用戶端應用程式。 此應用程式可以是命令列工具，或是在 Linux/Mac 上執行的應用程式，或者是 IOT 應用程式。 範例應用程式會以使用者 (可以互動式方式登入另一部裝置，例如行動電話) 的名稱存取 Microsoft Graph API。 此用戶端應用程式會使用 MicroSoft 驗證程式庫 (MSAL)。
+下列範例示範在裝置 (沒有網頁瀏覽器) 上執行的公開用戶端應用程式。 應用程式可以是命令列工具，在 Linux 或 Mac 或 IoT 應用程式上執行的應用程式。 此範例功能存取 Microsoft Graph API，名稱的使用者登入以互動方式 （例如行動電話） 的另一個裝置上的應用程式。 此用戶端應用程式會使用 Microsoft Authentication Library (MSAL)。
 
 | 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -98,11 +98,11 @@ ms.locfileid: "67055903"
 
 ## <a name="web-apis"></a>Web API
 
-下列範例示範如何保護 web API 與 Microsoft 身分識別平台的端點，以及如何從 Web API 呼叫下游 API。
+下列範例會示範如何保護 web API 與 Microsoft 身分識別平台的端點，以及如何從 web API 呼叫下游 API。
 
 | 平台 | 範例 |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API （服務） 的[dotnet 原生 aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API （服務） 的[dotnet 原生 aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API （服務） 的[ms-身分識別-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例

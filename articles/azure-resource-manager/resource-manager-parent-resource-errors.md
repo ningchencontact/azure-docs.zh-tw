@@ -1,22 +1,17 @@
 ---
 title: Azure 父代資源錯誤 | Microsoft Docs
 description: 描述當使用父代資源時如何解決錯誤。
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 19642138105f3de0e2bda3f0f80e12cf74a35709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6111f9128c56fed97414734275a21612544cccb8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61059985"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205396"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>解決父代資源的錯誤
 

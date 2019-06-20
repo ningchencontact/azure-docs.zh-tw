@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445680"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64706286"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft 信任中心
 Azure.com 上的 Azure 安全性資訊網站可提供所需資訊，以供您規劃、設計、部署、設定及安全地管理您的雲端解決方案。 透過 Microsoft 信任中心，您也可以獲得所需資訊，以確信您的服務執行所在之 Azure 平台是安全的。

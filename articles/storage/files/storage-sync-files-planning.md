@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc9f8e29a744a3a40d17b3814c7124eb37c1543b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597084"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269430"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -174,6 +174,15 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 
 **Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
+
+**注意事項**
+- 如果在安裝 Azure 檔案同步代理程式之前安裝重複資料刪除，則重新啟動，才支援重複資料刪除和雲端階層處理相同的磁碟區上。
+- 如果重複資料刪除磁碟區上啟用後雲端階層是否啟用，初始的重複資料刪除最佳化工作將會最佳化磁碟區上，不已分層，並會在雲端上有下列影響的檔案分層：
+    - 使用熱度圖，可用空間原則將會繼續根據可用空間的磁碟區上的層檔案。
+    - 日期原則會略過的可能已否則適合因為重複資料刪除最佳化工作存取的檔案分層的檔案階層處理。
+- 進行中的重複資料刪除最佳化工作，針對雲端階層處理日期原則將取得延遲，重複資料刪除[MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定，如果檔案已經不會分層。 
+    - 範例：如果將 MinimumFileAgeDays 設定為 7 天雲端階層處理日期原則是 30 天，原則將 37 天後層檔案的日期。
+    - 注意：一旦檔案已分層的 Azure 檔案同步，重複資料刪除最佳化工作會略過檔案。
 
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
 Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。

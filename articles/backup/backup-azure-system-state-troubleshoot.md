@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059799"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165122"
 ---
 # <a name="troubleshoot-system-state-backup"></a>系統狀態備份的疑難排解
 
@@ -118,7 +118,7 @@ Microsoft 軟體陰影複製 Provider(SWPRV) | 手動
 
   * 確保 WSB 備份是否正常運作，執行下列命令，從提升權限的命令提示字元：
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >取代的 X，您要儲存系統狀態的磁碟區的磁碟機代號與備份映像。

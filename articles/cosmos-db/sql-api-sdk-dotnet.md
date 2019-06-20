@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510727"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272363"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -47,6 +47,12 @@ ms.locfileid: "65510727"
 * 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。 
 * 支援資料流。 
 * 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。 
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* 如果其中一個失敗的原始，允許回復至不同區域的寫入要求
+* 新增工作階段寫入要求的重試原則
+* 追蹤查詢導致空頁面的競爭情形的修正
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -375,6 +381,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |2019 年 6 月 18日日 |--- |
 | [2.4.0](#2.4.0) |2019 年 05， |--- |
 | [2.3.0](#2.3.0) |2019 年 4 月 4日日 |--- |
 | [2.2.3](#2.2.3) |2019 年 2 月 11日日 |--- |
