@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d206ea1afe43a91707a4bcd981a4158ff08fdc3a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471595"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206155"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -116,7 +116,7 @@ VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，�
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 
-不幸的是，自助式訂閱移轉不適用於您的供應項目。 檢視中的支援供應項目清單[支援供應項目](#supported-offers)一節。 此外，我們不會封鎖任何國家/地區的訂用帳戶轉移。 不過，跨國家/地區不支援傳輸。 您的訂用帳戶移轉跨國家/地區[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 
+不幸的是，自助式訂用帳戶傳輸不適用於您的供應項目。 檢視中的支援供應項目清單[支援供應項目](#supported-offers)一節。 此外，我們不會封鎖任何國家/地區的訂用帳戶轉移。 請參閱[國家/地區的完整清單](https://azure.microsoft.com/pricing/faq/)販售 Azure 的。 不過，自助式訂用帳戶傳輸不支援跨國家/地區的傳輸。 您的訂用帳戶移轉跨國家/地區[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 
 
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>可以移轉擁有權至另一個國家/地區中的帳戶嗎？

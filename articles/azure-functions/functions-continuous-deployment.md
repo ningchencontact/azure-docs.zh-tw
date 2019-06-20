@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068481"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190485"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions 的持續部署
 
@@ -32,7 +32,7 @@ Azure functions 單位是部署的函式應用程式。 這表示函式應用程
 
 ## <a name="requirements-for-continuous-deployment"></a>連續部署的需求
 
-連續部署才能成功，您的目錄結構必須是相容的 Azure 函式必須要有下列基本資料夾結構：
+成功的持續部署，您的目錄結構必須相容於 Azure 函式必須要有下列基本的資料夾結構：
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,13 +44,15 @@ Azure functions 單位是部署的函式應用程式。 這表示函式應用程
 
     ![開啟 部署中心](./media/functions-continuous-deployment/platform-features.png)
 
-2. 在 **部署中心**，選取**GitHub** for**原始檔控制** > **授權**。
+2. 在 **部署中心**，選取**GitHub**，然後選取**授權**。 或者，如果您已經已獲授權 GitHub 中，選取**繼續**。 
 
     ![部署中心](./media/functions-continuous-deployment/github.png)
 
-3. 選取 **授權 AzureAppService** > **繼續**。
+3. 在 GitHub 中，選取**授權 AzureAppService**。 
 
     ![授權](./media/functions-continuous-deployment/authorize.png)
+    
+    在 Azure 入口網站**部署中心**，選取**繼續**。
 
 4. 選取其中一個下列的組建提供者：
 

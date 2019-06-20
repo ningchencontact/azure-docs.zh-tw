@@ -12,18 +12,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
+ms.date: 06/19/2019
 ms.author: jowargo
-ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6a6bc9b1d4826796299d073e0edfbfcede948e7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460646"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274915"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>透過百度開始使用通知中樞
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> 本教學課程中已被取代。 
 
 百度雲端推播是中文的雲端服務，可用於將推播通知傳送至行動裝置。
 

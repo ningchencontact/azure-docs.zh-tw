@@ -9,11 +9,11 @@ ms.date: 02/01/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119399"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173712"
 ---
  如果您使用 Azure Cloud Shell 中，您登入您的 Azure 帳戶會自動按一下 'Try' 之後。 若要在本機登入，以提高的權限開啟 PowerShell 主控台並執行 cmdlet 來連線。
 

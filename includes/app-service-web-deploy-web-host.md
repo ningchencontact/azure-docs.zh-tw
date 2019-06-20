@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 87fd6b626efb60c7fc7ec8896f2c3758ae5cc33c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132882"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173786"
 ---
 ### <a name="app-service-plan"></a>App Service 方案
 建立主控 Web 應用程式的服務方案。 您可以透過 **hostingPlanName** 參數提供方案名稱。 方案的位置與用於資源群組的位置相同。 定價層和背景工作大小指定於 **sku** 和 **workerSize** 參數

@@ -9,11 +9,11 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1a8c90a7ae2e89122db0823da7cb0b084df3dbae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121294"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173714"
 ---
 > [!IMPORTANT]
 > 從 2017 年 3 月 1 日起，您便無法在傳統部署模型中建立新的 ExpressRoute 線路。

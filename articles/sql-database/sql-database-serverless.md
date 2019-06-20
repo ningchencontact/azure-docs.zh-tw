@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116194"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275477"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 （預覽）
 
@@ -253,6 +253,8 @@ Set-AzSqlDatabase
 
 ### <a name="metrics"></a>度量
 
+下表列出用於監視無伺服器資料庫的應用程式封裝和使用者集區的資源使用量的計量：
+
 |實體|計量|描述|Units|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
@@ -263,10 +265,6 @@ Set-AzSqlDatabase
 |使用者集區|log_IO_percent|使用者工作負載所使用的記錄 MB/s 百分比，相對於使用者工作負載所允許的最大記錄 MB/s。|百分比|
 |使用者集區|workers_percent|使用者工作負載所使用的背景工作角色百分比，相對於使用者工作負載所允許的最大背景工作角色數。|百分比|
 |使用者集區|sessions_percent|使用者工作負載所使用的工作階段百分比，相對於使用者工作負載所允許的最大工作階段數。|百分比|
-____
-
-> [!NOTE]
-> Azure 入口網站中的計量可在單一資料庫的資料庫窗格中的 [監視]  之下取得。
 
 ### <a name="pause-and-resume-status"></a>暫停與繼續狀態
 

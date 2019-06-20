@@ -1,23 +1,35 @@
 ---
-title: 如何設定 Azure Active Directory 原則，Azure 資料目錄
-description: 您可以登入 Azure 資料目錄入口網站中，但當您嘗試登入資料來源註冊工具時，您可能會遇到的情況下，您會遇到的錯誤訊息。
+title: 如何疑難排解 Azure 資料目錄
+description: 本文說明 Azure 資料目錄資源的常見疑難排解問題。
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
-ms.date: 04/06/2019
-ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: troubleshooting
+ms.date: 06/13/2019
+ms.openlocfilehash: ed74e90e5e8ed55b75968f51cb50e6a1b4cdd75d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116596"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203495"
 ---
-# <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory 原則組態
+# <a name="troubleshooting-azure-data-catalog"></a>疑難排解 Azure 資料目錄
+
+本文說明 Azure 資料目錄資源的常見疑難排解問題。 
+
+## <a name="functionality-limitations"></a>功能限制
+
+使用 Azure 資料目錄，下列功能時，限制：
+
+- 帳戶類型**來賓角色**不支援。 您無法將來賓帳戶新增為 Azure 資料目錄的使用者和來賓使用者無法在 www.azuredatacatalog.com 使用入口網站。
+
+- 不支援建立使用 Azure Resource Manager 範本或 Azure PowerShell 命令的 Azure 資料目錄資源。
+
+- Azure 租用戶之間無法移動的 Azure 資料目錄資源。
+
+## <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory 原則組態
 
 您可能會遇到一種情況，您可以登入 Azure 資料目錄入口網站，但在您嘗試登入資料來源註冊工具時，您會遇到錯誤訊息，導致您無法登入。 當您在公司網路，或要從公司網路外部連接時，可能會發生這個錯誤。
-
-## <a name="registration-tool"></a>註冊工具
 
 註冊工具會使用「表單驗證」  ，根據 Azure Active Directory 驗證使用者登入。 Azure Active Directory 系統管理員必須在「全域驗證原則」  中啟用表單驗證，才會成功登入。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: fed991193e8d4a1f8e4e2fcf75ef8e2bf0d0a8d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074301"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144399"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -150,7 +150,7 @@ ms.locfileid: "67074301"
 |PartitionPrefix|字串，預設值為 "--"|Static|控制分割服務 DNS 查詢中的分割前置詞字串值。 值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>不能是空字串。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。|
 |PartitionSuffix|字串，預設值為 ""|Static|控制分割服務 DNS 查詢中的分割後置詞字串值。值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。 |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 073b50011e640bc65cf4887635dd620d9b009df4
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164503"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148399"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>每個區域的容錯網域數目
 
@@ -43,6 +43,8 @@ ms.locfileid: "66164503"
 |                     |                         |
 | 澳洲東部      | 2                       |
 | 澳大利亞東南部 | 2                       |
+| 澳大利亞中部   | 2                       |
+| 澳大利亞中部 2 | 2                       |
 |                     |                         |
 | 巴西南部        | 2                       |
 |                     |                         |

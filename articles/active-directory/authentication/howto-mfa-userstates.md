@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd26f7bdf928dcbd2cf841526857dc44623f133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a2c036265049bf4b87435e96f779482da404caa
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057416"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164806"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
 您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了 _已記住裝置_ 功能)。 若要設定條件式存取原則，要求雙步驟驗證，在某些情況下的是第二個選項。
 
 > [!TIP]
-> 請選擇其中一種方法來要求使用雙步驟驗證，但不要兩種方法都使用。 為使用者啟用 Azure Multi-factor Authentication，將會覆寫任何條件式存取原則。
+> 啟用 Azure Multi-factor Authentication 使用條件式存取原則是建議的方法。 不建議變更使用者狀態，除非您的授權不會包含條件式存取，它會要求使用者每次登入時執行 MFA。
 
 ## <a name="choose-how-to-enable"></a>選擇啟用方式
 

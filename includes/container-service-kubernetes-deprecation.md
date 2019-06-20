@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: 56b13a0ba6a93f1acd8edf1ce6c95561f63758c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148773"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174530"
 ---
 > [!WARNING]
 >  **Azure Container Service (ACS) 即將淘汰。ACS 不會再新增任何新的特性或功能。所有 API、入口網站體驗、CLI 命令和文件都會標示為已被取代。**

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67120570"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174620"
 ---
 - **訂單詳細資料**。 建立訂單時，寄送地址、 電子郵件地址和使用者的連絡資訊儲存在 Azure 入口網站中。 儲存的資訊包括︰
   - 連絡人姓名
