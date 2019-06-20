@@ -195,10 +195,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | 字串 | 預設值 |
+| stringOutput | String | 預設值 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | 陣列 | [1] |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
