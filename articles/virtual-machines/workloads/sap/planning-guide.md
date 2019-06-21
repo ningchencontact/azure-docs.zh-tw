@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e983a3f8e29108bd642fd23d5afcb564065d9fc1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409777"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203905"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 
@@ -524,7 +524,7 @@ Microsoft Azure 虛擬機器使用不同的儲存體類型。 在 Azure 虛擬�
 
 Azure VM 會在部署 VM 之後提供非永續性磁碟。 如果 VM 重新開機，將會抹除這些磁碟機上的所有內容。因此，假設在任何情況下，資料庫的資料檔案和記錄/重做檔案都不得位於這些非持續性磁碟機上。 有些資料庫可能會有一些例外狀況，在這類狀況下這些非持續性磁碟機可能適合用於 tempdb 和暫存資料表空間。 不過，請避免將這些磁碟機使用於 A 系列 VM，因為這些非持續性磁碟機對於該 VM 系列的輸送量受限。 如需進一步的詳細資料，請參閱[了解 Azure 中 Windows VM 上的暫存磁碟機](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) \(英文\)
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 > 
 > Azure VM 中的磁碟機 D:\ 不是永續性磁碟機，而是由 Azure 計算節點上的一些本機磁碟所組成。 由於它不是永續性的，這表示當 VM 重新開機時，即會遺失對 D:\ 磁碟機的內容所做的任何變更。 「任何變更」就如同已儲存的檔案、已建立的目錄、已安裝的應用程式等。
@@ -535,7 +535,7 @@ Azure VM 會在部署 VM 之後提供非永續性磁碟。 如果 VM 重新開�
 > 
 > 
 
-- - -
+---
 
 Microsoft Azure 儲存體提供永續性儲存體，以及 SAN 儲存體上看得到的一般保護和備援層級。 以 Azure 儲存體為基礎的磁碟是位於 Azure 儲存體服務中的虛擬硬碟 (VHD)。 本機 OS 磁碟 (Windows C:\,Linux /dev/sda1) 會儲存在 Azure 儲存體上，而掛接到 VM 的其他磁碟區/磁碟也會儲存在這裡。
 
@@ -835,7 +835,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 
 基於您的 OS 或 DBMS 版本的特定修補程式需求，Azure Marketplace 所提供的映像可能不符合您的需求。 因此，您可能必須使用自己私人的 OS/DBMS VM 映像來建立 VM，之後可多次部署此映像。 為了準備這類私人映像以重複使用，必須考慮下列事項︰
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 如需詳細資訊，請參閱：<https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>Windows 設定 (例如 Windows SID 和主機名稱) 必須透過 sysprep 命令在內部部署 VM 抽象化/一般化。
@@ -847,7 +847,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 >
 >
 
-- - -
+---
 如果您已在內部部署 VM (特別是針對 2 層系統) 中安裝 SAP 內容，您可以在部署 Azure VM 之後，透過 SAP Software Provisioning Manager 支援的執行個體重新命名程序來調整 SAP 系統設定 (SAP 附註 [1619720])。 如需了解內部部署準備步驟，以及如何將一般化 VM 上傳至 Azure，請參閱本文件的[準備使用客戶特定的映像為 SAP 部署 VM][planning-guide-5.2.2] 和[將 VHD 從內部部署環境上傳至 Azure][planning-guide-5.3.2] 章節。 請參閱[案例 2：使用自訂映像為 SAP 部署 VM][deployment-guide-3.3] 章節 (位於[部署指南][deployment-guide]中)，以了解在 Azure 中部署這類映像的詳細步驟。
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>從 Azure Marketplace 部署 VM
@@ -870,7 +870,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 * 使用系統管理員權限新增另一個本機帳戶，此帳戶可供 Microsoft 支援服務使用，或指派為服務和應用程式執行所在的內容，直到部署 VM 並可使用更適當的使用者為止。
 * 新增其他本機帳戶，因為特定部署案例可能需要這些帳戶。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 在此案例中，需要一般化 (sysprep) VM 才能上傳並在 Azure 上部署 VM。
@@ -884,7 +884,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 >
 >
 
-- - -
+---
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>準備使用客戶特定的映像為 SAP 部署 VM
 
 含有一般化 OS 的 VHD 檔案會儲存在 Azure 儲存體帳戶的容器中或作為受控磁碟映像。 您可以從這類映像部署新的 VM，方法是在部署範本檔案中將這類 VHD 或受控磁碟應項作為來源來參考，如[案例 2：使用自訂映像為 SAP 部署 VM][deployment-guide-3.3] 章節所述 (位於[部署指南][deployment-guide]中)。
@@ -897,7 +897,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 * 新增其他本機帳戶，因為特定部署案例可能需要這些帳戶。
 * 如果映像包含 SAP NetWeaver 的安裝，而且可能在部署 Azure 時重新命名主機名稱的原始名稱，則建議將最新版 SAP Software Provisioning Manager DVD 複製到範本。 這可讓您輕鬆地使用 SAP 提供的重新命名功能，來調整已變更的主機名稱，及 (或) 在啟動新複本之後，變更已部署 VM 映像中 SAP 系統的 SID。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 請確定並未使用磁碟機 D:\，並如本文件中的[為連接的磁碟設定自動掛接][planning-guide-5.5.3]一章所述，為連接的磁碟設定磁碟自動掛接。
@@ -908,14 +908,14 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 >
 >
 
-- - -
+---
 * SAP GUI (用於管理和安裝) 可預先安裝在這類範本中。
 * 只要此軟體可使用 VM 的重新命名功能，就能安裝在跨單位案例中成功執行 VM 所需的其他軟體。
 
 如果已準備好 VM 進行一般化，而且最終與目標 Azure 部署案例中未提供的的帳戶/使用者無關，則可以進行一般化這類映像的最後一個準備步驟。
 
 ##### <a name="generalizing-a-vm"></a>一般化 VM
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 最後一個步驟是使用系統管理員帳戶登入 VM。 以「系統管理員身分」  開啟 Windows 命令視窗。 移至 %windir%\windows\system32\sysprep and execute sysprep.exe。
@@ -928,7 +928,7 @@ Microsoft Azure 提供多種方法來部署 VM 和相關聯的磁碟。 因此�
 >
 >
 
-- - -
+---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>在內部部署與 Azure 之間傳輸 VM 和 VHD
 因為無法透過 Azure 入口網站將 VM 映像和磁碟上傳至 Azure，所以您必須使用 Azure PowerShell Cmdlet 或 CLI。 您也可以使用 ’AzCopy’ 工具。 此工具可在內部部署與 Azure 之間 (雙向) 複製 VHD。 它也可以在 Azure 區域之間複製 VHD。 如需了解如何下載及使用 AzCopy，請參閱[這份文件][storage-use-azcopy]。
 
@@ -1188,7 +1188,7 @@ az storage blob show --name <target blob name> --container <target container nam
 ![適用於 SAP 之 Azure IaaS VM 的參考組態][planning-guide-figure-1300]
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 我們發現在許多客戶的組態中，SAP 和 DBMS 二進位檔並未安裝在 OS 安裝所在的 c:\ 磁碟機中。 有各種原因會造成此情況，但回溯至根本原因時，通常是因為 10-15 年前的磁碟機很小，而且 OS 升級需要額外的空間。 最近則不太常發生這兩種情況。 今日，c:\ 磁碟機可對應至大量磁碟或 VM。 為了讓部署的結構保持簡單，建議遵循 Azure 中 SAP NetWeaver 系統的下列部署模式
@@ -1214,14 +1214,14 @@ sudo service waagent restart
 
 如需有關所建議分頁檔大小的更多詳細資料，請參閱 SAP 附註 [1597355]
 
-- - -
+---
 用於 DBMS 資料檔案的磁碟數目，以及裝載這些磁碟的 Azure 儲存體類型，應該取決 IOPS 需求和所需的延遲。 如需確切配額的說明，請參閱[這篇文章 (Linux)][virtual-machines-sizes-linux] 和[這篇文章 (Windows)][virtual-machines-sizes-windows]。
 
 過去兩年的 SAP 部署體驗提供一些教訓，摘要如下：
 
 * 不同資料檔案的 IOPS 流量不一定相同，因為現有的客戶系統可能會有代表其 SAP 資料庫之不同大小的資料檔案。 因此，最好在多個磁碟上使用 RAID 組態，以放置從中切割出的資料檔案 LUN。 有時 (特別是針對 Azure 標準儲存體) IOPS 速率會達到單一磁碟對 DBMS 交易記錄的配額。 在此情況下，建議使用進階儲存體，或是使用軟體帶狀線彙總多個標準儲存體磁碟。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > * [Azure 虛擬機器中的 SQL Server 效能最佳做法][virtual-machines-sql-server-performance-best-practices]
@@ -1234,7 +1234,7 @@ sudo service waagent restart
 >
 >
 
-- - -
+---
 * 進階儲存體顯示效能大幅提升，特別是針對重要的交易記錄寫入。 在必須提供產能的 SAP 案例中 (例如效能)，強烈建議使用可利用 Azure 進階儲存體的 VM 系列。
 
 請記住，含有 OS 以及建議之 SAP 和資料庫 (基底 VM) 二進位檔的磁碟，已不再限制為 127GB。 它現在可以擁有高達 1TB 的大小。 這對於保留所有必要檔案 (包含 SAP 批次工作記錄) 便已足夠。
@@ -1255,7 +1255,7 @@ sudo service waagent restart
 
 **重要事項**：建議您**不要**搭配「Azure 標準儲存體」使用「主機快取」。 您應該保留 [主機快取] 喜好設定的預設值 [無]。 使用 Azure 進階儲存體時，如果 I/O 特性大部分會讀取為類似對資料庫資料檔案的一般 I/O 流量，則應該啟用 [讀取快取]。 在資料庫交易記錄檔中，不建議使用快取。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [如何在 Azure 入口網站中連接資料磁碟][virtual-machines-linux-attach-disk-portal]
@@ -1268,7 +1268,7 @@ sudo service waagent restart
 >
 >
 
-- - -
+---
 如果新磁碟是空的磁碟，您也必須格式化磁碟。 格式化時，特別是針對 DBMS 資料和記錄檔，也適用對 DBMS 裸機部署的相同建議。
 
 如 [Microsoft Azure 虛擬機器概念][planning-guide-3.2]一節中所提到，Azure 儲存體帳戶就 I/O 量、IOPS 及資料量而言，不會提供無限的資源。 這點對 DBMS VM 的影響通常最大。 如果您要部署之高 I/O 磁碟區的 VM 很少，最好針對每個 VM 使用個別的儲存體帳戶，以便維持在 Azure 儲存體帳戶磁碟區的限制內。 否則，您必須了解如何在不達到每個儲存體帳戶限制的情況下，於不同的儲存體帳戶之間平衡這些 VM。 如需更多詳細的討論，請參閱 [DBMS 部署指南][dbms-guide]。 針對完全使用 SAP 應用程式伺服器 VM，或最後可能需要更多 VHD 的其他 VM，您也應該記住這些限制。 如果您使用受控磁碟，並不適用這些限制。 如果您打算使用進階儲存體，建議使用受控磁碟。
@@ -1278,7 +1278,7 @@ sudo service waagent restart
 Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依時間先後順序在 VM 中的多個 VHD 之間複寫 IO。 因此，代表基底 VM 的 VHD 和連接到 VM 的任何其他 VHD 會彼此獨立複寫。 這表示不會同步處理不同 VHD 的變更。 由於複寫 IO 的順序與寫入的順序無關，這表示異地複寫的值不是針對其資料庫已分散至多個 VHD 的資料庫伺服器。 除了 DBMS 之外，也可能會有其他應用程式，其中的處理序會在不同的 VHD 中寫入或處理資料，而且必須保持變更順序。 如果這是必要條件，則不應該在 Azure 中啟用 [異地複寫]。 根據您是否需要或想要對一組 VM 進行異地複寫，但不對另一組進行異地複寫，您可能已將 VM 及其相關的 VHD 分類到已啟用或停用 [異地複寫] 的不同儲存體帳戶。
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>為連接的磁碟設定自動掛接
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 針對從自己的映像或磁碟建立的 VM，您必須檢查並可能設定自動掛接參數。 設定此參數可讓 VM 在 Azure 中重新啟動或重新部署之後，自動重新掛接已連接/掛接的磁碟機。
@@ -1300,7 +1300,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 >
 >
 
-- - -
+---
 ### <a name="final-deployment"></a>最終部署
 
 如需最終部署和確切步驟 (特別是與部署「SAP 延伸監視」相關的步驟)，請參閱[部署指南][deployment-guide]。
@@ -1328,7 +1328,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 
 您可能必須在虛擬機器上設定防火牆，以允許 SAP 系統的輸入流量。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 預設會開啟 Azure 所部署之 VM 中的 Windows 防火牆。 您現在必須允許開啟 SAP 連接埠，否則 SAP GUI 將無法連線。
@@ -1352,7 +1352,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 >
 >
 
-- - -
+---
 #### <a name="security-recommendations"></a>安全性建議
 
 SAP GUI 不會立即連線到執行中的任何 SAP 執行個體 (連接埠 32xx)，而是先透過已開啟的連接埠連線到 SAP 訊息伺服器處理序 (連接埠 36xx)。 在過去，訊息伺服器會使用相同的連接埠，來對應用程式執行個體進行內部通訊。 為了防止內部部署應用程式伺服器不慎與 Azure 中的訊息伺服器通訊，您可以變更內部通訊連接埠。 強烈建議在已從內部部署系統複製的系統上 (例如專案測試等部署的複製)，將 SAP 訊息伺服器與其應用程式執行個體之間的內部通訊，變更為不同的連接埠號碼。您可以使用預設設定檔參數來完成此動作：
@@ -1655,7 +1655,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 
 在 Azure VM 中設定內部部署 TCP/IP 網路印表機就像是在公司網路中設定一樣，都會假設您已確實建立 VPN 站對站通道或 ExpressRoute 連線。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 作法：
@@ -1674,7 +1674,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 >
 >
 
-- - -
+---
 ![網路列印][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>在跨單位案例中透過 SMB 的主機型印表機 (共用印表機)
@@ -1690,7 +1690,7 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 
 作法：
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 共用您的本機印表機。
@@ -1706,19 +1706,19 @@ Microsoft 已新增更多 VM 類型，這些類型在 vCPU 數目、記憶體，
 >
 >
 
-- - -
+---
 ##### <a name="usb-printer-printer-forwarding"></a>USB 印表機 (印表機轉送)
 
 在 Azure 中，可讓使用者在遠端工作階段中存取本機印表機裝置的遠端桌面服務功能無法使用。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 如需使用 Windows 進行列印的更多詳細資料，請參閱：<https://technet.microsoft.com/library/jj590748.aspx> \(英文\)。
 >
 >
 
-- - -
+---
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>在跨單位中將 SAP Azure 系統整合到 Correction and Transport System (TMS)
 
 您必須設定 SAP Change and Transport System (TMS)，才能在環境中的不同系統之間匯出及匯入傳輸要求。 假設 SAP 系統 (DEV) 的開發執行個體位於 Azure 中，而品質保證 (QA) 和生產系統 (PRD) 在內部部署。 此外，假設有一個中央傳輸目錄。

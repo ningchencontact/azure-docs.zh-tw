@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82ab400c89cb57f3cf72cfb9196ea7c6402808fe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153924"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203922"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 Azure 虛擬機器部署
 
@@ -534,7 +534,7 @@ ms.locfileid: "66153924"
 因為不同版本的作業系統或 DBMS 有不同的修補需求，所以您在 Azure Marketplace 中找到的映像可能無法滿足您的需求。 您可以改為使用自己的 OS/DBMS VM 映像來建立 VM，稍後再加以部署。
 您可以使用不同的步驟來建立適用於 Linux 的私人映像，而不是建立適用於 Windows 的映像。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 若要準備可用來部署多部虛擬機器的 Windows 映像，必須在內部部署 VM 上將 Windows 設定 (如 Windows SID 和主機名稱) 抽象化或一般化。 您可以使用 [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) 來執行此作業。
@@ -545,7 +545,7 @@ ms.locfileid: "66153924"
 >
 >
 
-- - -
+---
 您可以準備和建立自訂映像，然後使用它來建立多個新 VM。 如需詳細資訊，請參閱 [Azure 虛擬機器 (VM) 上的 SAP NetWeaver - 規劃和實作指南][planning-guide]。 藉由使用 SAP Software Provision Manager 來安裝新的 SAP 系統、從附加至虛擬機器的磁碟還原資料庫備份，或直接從 Azure 儲存體還原資料庫備份 (如果 DBMS 支援的話)，來設定您的資料庫內容。 如需詳細資訊，請參閱[適用於 SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署][dbms-guide]。 如果您已在內部部署 VM (特別針對二層系統) 中安裝 SAP 系統，您可以在部署 Azure VM 之後，使用 SAP Software Provisioning Manager 支援的「系統重新命名」程序來調整 SAP 系統設定 (SAP Note [1619720])。 否則，您可以在部署 Azure VM 之後安裝 SAP 軟體。
 
 下列流程圖顯示從自訂映像部署 VM 的 SAP 特定步驟順序：
@@ -674,7 +674,7 @@ ms.locfileid: "66153924"
 
 如需 Azure VM 代理程式的詳細資訊，請參閱下列資源。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > [Azure 虛擬機器代理程式概觀][virtual-machines-windows-agent-user-guide]
@@ -685,7 +685,7 @@ ms.locfileid: "66153924"
 >
 >
 
-- - -
+---
 
 下列流程圖說明使用非一般化 Azure VHD 移動內部部署 VM 的步驟順序︰
 
