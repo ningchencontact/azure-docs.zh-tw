@@ -27,7 +27,7 @@ ms.locfileid: "67206460"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>deployment
 `deployment()`
 
 傳回目前部署作業的相關資訊。
@@ -161,7 +161,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |字串 |要傳回的參數名稱。 |
+| parameterName |是 |string |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -248,11 +248,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | 字串 | 選項 1 |
+| stringOutput | string | 選項 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | 字串 | 選項 1 |
+| crossOutput | string | 選項 1 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -277,7 +277,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| variableName |是 |字串 |要傳回的變數名稱。 |
+| variableName |是 |string |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -351,9 +351,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| exampleOutput1 | 字串 | myVariable |
+| exampleOutput1 | string | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | 字串 | myVariable |
+| exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
