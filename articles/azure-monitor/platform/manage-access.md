@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782745"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295509"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理記錄檔資料與 Azure 監視器中的工作區
 Azure 監視器會將記錄資料儲存在 Log Analytics 工作區中，這基本上是一個包含資料和設定資訊的容器。 若要管理對記錄資料的存取，您需執行與工作區相關的各種系統管理工作。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
@@ -278,7 +278,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 ## <a name="table-level-rbac"></a>資料表層級 RBAC
 **資料表 層級 RBAC**可讓您提供更細微的控制，除了其他的權限的 Log Analytics 工作區中的資料。 這個控制項可讓您定義只有一組特定的使用者能夠存取的特定資料類型。
 
-實作使用的資料表存取控制[Azure 的自訂角色](../../role-based-access-control/custom-roles.md)授與或拒絕存取特定[資料表](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized)工作區中。 這些角色會套用至工作區為主或以資源為中心的工作區[存取控制模式](#access-control-mode)使用者不論[存取模式](#access-modes)。
+實作使用的資料表存取控制[Azure 的自訂角色](../../role-based-access-control/custom-roles.md)授與或拒絕存取特定[資料表](../log-query/logs-structure.md)工作區中。 這些角色會套用至工作區為主或以資源為中心的工作區[存取控制模式](#access-control-mode)使用者不論[存取模式](#access-modes)。
 
 建立[自訂角色](../../role-based-access-control/custom-roles.md)執行下列動作，以定義資料表的存取控制的存取權。
 
