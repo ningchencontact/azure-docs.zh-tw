@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075507"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205030"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -39,7 +39,7 @@ ms.locfileid: "67075507"
 
 您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。
 
-發行 CVE 之後，對 Linux 機器而言，需要 2-3 小時的時間，才會顯示修補程式以供評量。  如果是 Windows 機器，則在發行後需要 12-15 小時的時間，才會顯示修補程式以供評量。
+一旦解除封裝，需要 2-3 小時才會出現評定的 Linux 機器的修補程式。 如果是 Windows 機器，則在發行後需要 12-15 小時的時間，才會顯示修補程式以供評量。
 
 在電腦完成更新合規性掃描之後，代理程式會將轉送至 Azure 監視器記錄的大量資訊。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
 
@@ -225,9 +225,9 @@ Heartbeat
 
 | 屬性 | 描述 |
 | --- | --- |
-| Name |用以識別更新部署的唯一名稱。 |
+| 名稱 |用以識別更新部署的唯一名稱。 |
 |作業系統| Linux 或 Windows|
-| 若要更新的群組 |適用於 Azure 的機器，定義查詢的訂用帳戶、 資源群組、 位置和標記，來建立要包含在您的部署中的 Azure Vm 的動態群組結合。 </br></br>對於非 Azure 機器，選取現有的已儲存的搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
+| 要更新的群組 |對於 Azure 機器，根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 </br></br>對於非 Azure 機器，選取現有的已儲存搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
 | 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]  ，機器的整備程度會顯示於 [更新代理程式整備程度]  欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
 |更新分類|選取您需要的所有更新分類|
 |包含/排除更新|這會開啟 [包含]/[排除]  頁面。 要包含或排除的更新會在個別的索引標籤上。 如需有關如何處理包含的詳細資訊，請參閱[包含行為](automation-update-management.md#inclusion-behavior) |

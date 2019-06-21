@@ -118,8 +118,8 @@
           href: ephemeral-os-disks.md
     - name: 網路功能
       href: network-overview.md
-    - name: 自動調整應用程式
-      href: autoscale.md
+    - name: 擴展集
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 基礎結構自動化
       href: infrastructure-automation.md
     - name: 安全性與原則

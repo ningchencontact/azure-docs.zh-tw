@@ -4,18 +4,18 @@ description: 支援 Azure 資源和 Azure AD 驗證受控識別的服務清單
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c67f1dad55d5d8710a997394e247793943cd21
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518695"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293509"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -147,6 +147,17 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 - [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
 - [Azure Resource Manager 範本](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
+
+### <a name="azure-container-registry-tasks"></a>Azure Container Registry 工作
+
+受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
+
+請參閱下列清單來設定受管理的身分識別的 Azure 容器登錄工作 (在區域中有提供):
+
+- [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>支援 Azure AD 驗證的 Azure 服務
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247285"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144144"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 全域網路
 
@@ -33,8 +33,10 @@ Microsoft 擁有及運作的最大的骨幹網路世界中的其中一個。 此
  
 選擇[最佳的體驗](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)很簡單，當您使用 Microsoft 雲端。 目前，當客戶流量進入我們策略性放置的邊緣節點透過我們全球網路，從您的資料會行經在附近光線速度的最佳化路由。 這可確保最佳的延遲，為了達到最佳效能。 這些邊緣節點、 所有相互連接到多個 3500 唯一網際網路夥伴 （對等） 透過上千個連線在多個 145 的位置，提供我們互連策略的基礎。 
  
-是否連接從倫敦東京，或以 Los Angeles 華盛頓特區，網路效能將量化中，並受到延遲、 抖動、 封包遺失和輸送量等項目。  在 Microsoft，我們比較喜歡使用直接互連，而不是傳輸連結，這會保留回應的流量對稱和可以幫助讓躍點，對等互連的合作對象和盡可能簡單明瞭的路徑。 此進階方法時，通常是指[冷 potato 路由](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)，可確保客戶網路盡可能在 Microsoft 網路的流量會維持之前我們遞交。  
- 
+是否連接從倫敦東京，或以 Los Angeles 華盛頓特區，網路效能將量化中，並受到延遲、 抖動、 封包遺失和輸送量等項目。  在 Microsoft，我們比較喜歡使用直接互連，而不是傳輸連結，這會保留回應的流量對稱和可以幫助讓躍點，對等互連的合作對象和盡可能簡單明瞭的路徑。 
+
+比方說，如果倫敦中的使用者嘗試存取東京之後，服務則的網際網路流量進入我們的邊緣的其中一個在倫敦，就會透過法國，Microsoft wan 我們 Trans Arabia 路徑之間歐洲和印度、 然後日本託管服務的。 回應的流量是對稱的。 這有時會被視為[冷 potato 路由](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)表示流量停留在 Microsoft 網路盡可能長時間之前我們遞交。  
+  
 因此，這表示所有流量時使用 Microsoft 服務嗎？ 是，資料之間的任何流量中心，Microsoft Azure 內或之間 Microsoft 服務，例如虛擬機器、 Office 365、 XBox、 SQL Db、 儲存體，並在我們的全球網路，並永遠不會透過公用網際網路，以確保最佳路由傳送虛擬網路效能和完整性。  
  
 大量投資光纖容量和在 metro，糔礜惎纕，和海底路徑之間的多樣性是重要的是要確保一致且高服務層級時激發極端成長的雲端與線上服務。 我們的全球網路的新增功能是我們[馬](https://www.submarinecablemap.com/#/submarine-cable/marea)海底電纜線，領先業界的第一個開啟行系統 (OLS) 透過 subsea，Bilbao，西班牙與州政府 Beach 美國維吉尼亞州，並將[AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)美國紐約州紐約和愛爾蘭的都柏林之間及[新增跨太平洋 (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system)東京，日本，與美國州波特蘭奧勒岡州，之間。 
