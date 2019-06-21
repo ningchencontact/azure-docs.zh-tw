@@ -6,16 +6,16 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: divswa, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66f1d726dcfa1a077abbff0d9f028036db43cc25
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60408495"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293081"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來建立、監視及管理 FTP 檔案
 
@@ -30,13 +30,31 @@ ms.locfileid: "60408495"
 
 ## <a name="limits"></a>限制
 
-* FTP 動作支援的唯一檔案*50 MB 或更小*除非您使用[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)，這可讓您超過此限制。 目前，FTP 觸發程序不支援區塊處理。
-
 * FTP 連接器支援只明確 FTP over SSL (FTPS)，且不與隱含 FTPS 相容。
+
+* 根據預設，FTP 動作才能讀取或寫入的檔案*50 MB 或更小*。 若要處理超過 50 MB 的檔案，FTP 動作支援[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。 **取得檔案內容**動作會隱含地使用區塊處理。
+
+* FTP 觸發程序不支援區塊處理。 當要求檔案的內容時，觸發程序選取 是 50 MB 的檔案或更小。 若要取得大於 50 MB 的檔案，請依照下列模式：
+
+  * 傳回檔案內容，例如以 FTP 觸發程序**檔案新增或修改 （僅限屬性） 的時**。
+
+  * 請遵循使用 FTP 觸發程序**取得檔案內容**讀取完整的檔案，並會隱含地使用區塊處理的動作。
+
+## <a name="how-ftp-triggers-work"></a>FTP 觸發工作的方式
+
+FTP 觸發程序工作輪詢 FTP 檔案系統，並尋找任何自上次輪詢後已變更的檔案。 某些工具可讓您在檔案變更時保留時間戳記。 在這些情況下，您必須停用此功能，以便讓您的觸發程序可以運作。 以下是一些常見的設定：
+
+| SFTP 用戶端 | 動作 |
+|-------------|--------|
+| Winscp | 移至 [選項]   > [喜好設定]   > [傳輸]   > [編輯]   > [保留時間戳記]   > [停用]  |
+| FileZilla | 移至 [傳輸]   > [保留傳輸檔案的時間戳記]   > [停用]  |
+|||
+
+當觸發程序找到新檔案時，觸發程序會確認該新檔案是完整檔案，而不是部分寫入的檔案。 例如，當觸發程序檢查檔案伺服器時，檔案可能正在進行變更。 為避免傳回部分寫入的檔案，觸發程序會備註最近發生變更之檔案的時間戳記，但不會立即傳回該檔案。 觸發程序只有在再次輪詢伺服器時，才會傳回該檔案。 有時，此行為可能會導致最長可達觸發程序輪詢間隔兩倍的延遲。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * FTP 主機伺服器位址和帳戶認證
 
@@ -56,22 +74,13 @@ ms.locfileid: "60408495"
 
    -或-
 
-   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]  ，然後選取 [新增動作]  。 
-   在搜尋方塊中，輸入 "ftp" 作為篩選條件。 
-   在動作清單底下，選取您想要的動作。
+   若是現有的邏輯應用程式，請在想要新增動作的最後一個步驟底下，選擇 [新增步驟]  ，然後選取 [新增動作]  。 在搜尋方塊中，輸入 "ftp" 作為篩選條件。 在動作清單底下，選取您想要的動作。
 
-   若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
-   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
+   若要在步驟之間新增動作，將指標移至步驟之間的箭號。 選擇加號 ( **+** )，隨即出現，並選取**新增動作**。
 
 1. 為您的連線提供必要的詳細資料，然後選擇 [建立]  。
 
 1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
-
-在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式：
-
-* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]  。
-
-* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]  ) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
 
 ## <a name="examples"></a>範例
 
@@ -79,17 +88,9 @@ ms.locfileid: "60408495"
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP 觸發程序：當新增或修改檔案時
 
-此觸發程序會在偵測到 FTP 伺服器上有檔案新增或變更時，啟動邏輯應用程式工作流程。 因此舉例來說，您可以新增條件，檢查檔案的內容，並且根據該內容是否符合指定條件，來決定是否取得該內容。 最後，您可以新增會取得檔案內容的動作，並將該內容放置於 SFTP 伺服器上的資料夾中。 
+此觸發程序會在偵測到 FTP 伺服器上有檔案新增或變更時，啟動邏輯應用程式工作流程。 因此舉例來說，您可以新增條件，檢查檔案的內容，並且根據該內容是否符合指定條件，來決定是否取得該內容。 最後，您可以新增會取得檔案內容的動作，並將該內容放置於 SFTP 伺服器上的資料夾中。
 
 **企業範例**：您可以使用此觸發程序，來監視說明客戶訂單的新檔案 FTP 資料夾。 然後，您可以使用 FTP 動作 (例如**取得檔案內容**)，取得訂單的內容以進一步處理，並儲存在訂單資料庫中。
-
-當要求檔案的內容時，觸發程序無法取得檔案超過 50 MB。 若要取得大於 50 MB 的檔案，請依照下列模式： 
-
-* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]  。
-
-* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]  ) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
-
-有效且正常運作的邏輯應用程式需要有一個觸發程序和至少一個動作。 因此，請務必在新增觸發程序之後新增動作。
 
 以下是顯示此觸發程序的範例：**當新增或修改檔案時**
 
@@ -101,8 +102,7 @@ ms.locfileid: "60408495"
 
 1. 為您的連線提供必要的詳細資料，然後選擇 [建立]  。
 
-   根據預設，此連接器會以文字格式傳送檔案。 
-   若要以二進位格式傳送檔案，例如，在使用編碼的位置和時間，選取**二進位傳輸**。
+   根據預設，此連接器會以文字格式傳送檔案。 要傳送二進位檔中的檔案格式，例如，where，並選取 使用編碼方式時，**二進位傳輸**。
 
    ![建立 FTP 伺服器連線](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -120,23 +120,17 @@ ms.locfileid: "60408495"
 
 ### <a name="ftp-action-get-content"></a>FTP 動作：取得文字
 
-此動作會在 FTP 伺服器上有檔案新增或更新時，從該檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及會在有檔案新增或編輯後取得該檔案內容的動作。 
-
-當要求檔案的內容時，觸發程序無法取得檔案超過 50 MB。 若要取得大於 50 MB 的檔案，請依照下列模式： 
-
-* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]  。
-
-* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]  ) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
+此動作會在 FTP 伺服器上有檔案新增或更新時，從該檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及會在有檔案新增或編輯後取得該檔案內容的動作。
 
 以下是顯示此動作的範例：**取得內容**
 
-1. 在該觸發程序或其他任何動作底下，選擇 [新增步驟]  。 
+1. 在該觸發程序或其他任何動作底下，選擇 [新增步驟]  。
 
 1. 在搜尋方塊中，輸入 "ftp" 作為篩選條件。 在動作清單下方，選取此動作：**取得檔案內容 - FTP**
 
    ![選取 FTP 動作](./media/connectors-create-api-ftp/select-ftp-action.png)  
 
-1. 如果您已經連線至 FTP 伺服器和帳戶，請移至下一個步驟。 否則，請提供該連線的必要詳細資料，然後選擇 [建立]  。 
+1. 如果您已經連線至 FTP 伺服器和帳戶，請移至下一個步驟。 否則，請提供該連線的必要詳細資料，然後選擇 [建立]  。
 
    ![建立 FTP 伺服器連線](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
@@ -153,11 +147,6 @@ ms.locfileid: "60408495"
 ## <a name="connector-reference"></a>連接器參考
 
 如需觸發程序、 動作和限制的技術詳細資訊，其中會描述連接器的 OpenAPI (以前稱為 Swagger) 描述，檢閱[連接器的參考頁面](/connectors/ftpconnector/)。
-
-## <a name="get-support"></a>取得支援
-
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

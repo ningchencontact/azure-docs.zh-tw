@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870501"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272825"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>在 Windows 虛擬桌面預覽中的委派的存取
 
@@ -42,11 +42,11 @@ Windows 虛擬桌面委派存取支援每個項目的角色指派下列值：
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>角色指派的 PowerShell cmdlet
 
-您可以執行下列 cmdlet 來建立、 檢視和編輯角色指派：
+您可以執行下列 cmdlet 來建立、 檢視和移除角色指派：
 
 * **取得 RdsRoleAssignment**會顯示一份角色指派。
 * **新 RdsRoleAssignment**會建立新的角色指派。
-* **設定 RdsRoleAssignment**編輯角色指派。
+* **移除 RdsRoleAssignment**刪除角色指派。
 
 ### <a name="accepted-parameters"></a>接受的參數
 

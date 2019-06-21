@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165355"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173932"
 ---
 請務必了解有兩種方式可以在 Azure 中設定可用性群組接聽程式。 這些方法的差異在於您建立接聽程式時使用的 Azure Load Balancer 類型。 下表描述其差異：
 

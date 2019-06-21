@@ -33,6 +33,9 @@
     - name: 使用大型資料集
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: 節流要求指引
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
 - name: 使用說明指南
   items:
     - name: 取得資源變更

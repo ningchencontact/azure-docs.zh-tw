@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f935b1b2815501710444e3f921a157ba02e3215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544076"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154428"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>使用的組態選項使用 MSAL.NET，機密用戶端應用程式具現化
 
@@ -62,12 +62,12 @@ ASP.NET Core 應用程式組態所述*appsettings.json*檔案：
 }
 ```
 
-您可以從 MSAL.NET v3.x，來設定您的機密用戶端應用程式，從組態檔。 應用程式組態相關的類別位於`Microsoft.Identity.Client.AppConfig`命名空間。
+您可以從 MSAL.NET v3.x，來設定您的機密用戶端應用程式，從組態檔。
 
-在類別中，您要設定並具現化您的應用程式，您需要宣告`ConfidentialClientApplicationOptions`物件。  應用程式選項的執行個體，繫結來源 （包括 appconfig.json 檔案） 中讀取的組態：
+在類別中，您要設定並具現化您的應用程式，您需要宣告`ConfidentialClientApplicationOptions`物件。  將從來源 （包括 appconfig.json 檔案） 讀取的組態執行個體的應用程式的選項，請使用繫結`IConfigurationRoot.Bind()`方法，從[Microsoft.Extensions.Configuration.Binder nuget 套件](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
-using Microsoft.Identity.Client.AppConfig;
+using Microsoft.Identity.Client;
 
 private ConfidentialClientApplicationOptions _applicationOptions;
 _applicationOptions = new ConfidentialClientApplicationOptions();
