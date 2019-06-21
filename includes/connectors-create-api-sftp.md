@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: d249a205c64f4e067f2d81c7e1068c8ad9756958
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130055"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202769"
 ---
 ### <a name="prerequisites"></a>必要條件
 * [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) 帳戶  
@@ -13,7 +18,7 @@ ms.locfileid: "62130055"
 
 若要授權邏輯應用程式連線到您的 SFTP 帳戶，其步驟如下：  
 
-1. 若要建立與 SFTP 的連線，請在邏輯應用程式設計工具中，從下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「SFTP」。 選取 [SFTP - 當新增或修改檔案時] 觸發程序：  
+1. 若要建立與 SFTP 的連線，請在邏輯應用程式設計工具中，從下拉式清單中選取 [顯示 Microsoft 受控 API]  ，然後在搜尋方塊中輸入「SFTP」  。 選取 [SFTP - 當新增或修改檔案時]  觸發程序：  
    ![SFTP 線上連線圖像 1](./media/connectors-create-api-sftp/sftp-1.png)  
 2. 如果您之前尚未建立任何 SFTP 連接，系統會提示您提供 SFTP 認證。 這些認證將用來授權邏輯應用程式連線及存取您 SFTP 帳戶的資料：  
    ![SFTP 線上連線圖像 2](./media/connectors-create-api-sftp/sftp-2.png)  

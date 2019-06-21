@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237663"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150332"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -76,8 +76,23 @@ Azure 檔案服務具有數個內建的選項，可用於確保資料安全性�
 
 Azure 檔案服務提供兩個效能層級： 標準和進階。
 
-* **標準檔案共用**是由轉動式硬碟機 (HDD) 支援，針對較不容易受效能變異影響的 IO 工作負載提供可靠的效能 (例如一般用途的檔案共用和開發/測試環境)。 標準檔案共用僅適用於隨用隨付計費模型。
-* **進階檔案共用 (預覽)** 是由固態硬碟 (SSD) 支援，可提供持續高效能和低延遲，能在毫秒內處理多數的 IO 作業，適用於大部分 IO 密集型工作負載。 這讓它們適合各種不同的工作負載，例如資料庫、網站託管、開發環境等等。進階檔案共用僅適用於佈建計費模型。 進階檔案共用使用不同於標準檔案共用的部署模型。
+### <a name="standard-file-shares"></a>標準檔案共用
+
+標準檔案共用被支援的硬碟機 (Hdd)。 標準檔案共用提供可靠的效能會較不容易受效能變異影響的一般用途的檔案共用等開發/測試環境的 IO 工作負載。 標準檔案共用僅適用於隨用隨付計費模型。
+
+標準檔案共用最多 5 TiB 的大小都有的 GA 供應項目。 雖然較大的檔案共用，也就是任何大於 5 TiB，上限為 100 的 TiB 的共用是目前可供預覽供應項目。
+
+> [!IMPORTANT]
+> - 必須要建立新的一般用途儲存體帳戶 （不能擴充現有的儲存體帳戶）。
+> - 僅適用於 LRS。
+> - 提供三個區域：美國西部 2、 西歐及東南亞區域。
+> - GRS 帳戶轉換成 LRS 不可能在訂用帳戶已接受較大的檔案共用預覽之後建立任何新儲存體帳戶。
+
+如果您想要上架到較大的檔案共用大小的預覽，提交這[表單](https://aka.ms/azurefilesatscalesurvey)。 
+
+### <a name="premium-file-shares-preview"></a>進階檔案共用 (預覽)
+
+進階檔案共用 （預覽） 是由固態硬碟 (Ssd) 支援。 進階檔案共用提供一致的高效能、 低的延遲，對於大部分的 IO 作業，適用於 IO 密集型工作負載的個位數毫秒之內。 這讓它們適合各種不同的工作負載，例如資料庫、網站託管、開發環境等等。進階檔案共用僅適用於佈建計費模型。 進階檔案共用使用不同於標準檔案共用的部署模型。
 
 Azure 備份可供進階檔案共用和 Azure Kubernetes 服務和更新版本 1.13，支援進階檔案共用。
 
@@ -180,7 +195,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 ## <a name="data-growth-pattern"></a>資料成長模式
 
-現在，Azure 檔案共用的大小上限是 5 TiB (100 TiB 進階檔案共用，為公開預覽狀態)。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。
+現在，Azure 檔案共用的大小上限是 5 TiB (100 TiB 預覽中的)。 由於目前的此一限制，當您在部署 Azure 檔案共用時，必須考量預期的資料成長。
 
 使用 Azure 檔案同步可以將多個 Azure 檔案共用同步處理到單一 Windows 檔案伺服器。這可確保內部部署上較舊的大型檔案共用可以帶入 Azure 檔案同步。如需詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-files-planning.md)。
 

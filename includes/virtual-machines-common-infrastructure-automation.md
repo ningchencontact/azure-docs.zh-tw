@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111361"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173960"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中使用基礎結構自動化工具搭配虛擬機器
 若要以一致的方式大規模建立並管理 Azure 虛擬機器 (VM)，通常需要某種形式的自動化。 有許多工具和解決方案可讓您將完整的 Azure 基礎結構部署及管理生命週期自動化。 本文介紹的一些基礎結構自動化工具可供您在 Azure 中使用。 這些工具通常符合下列其中一種方法：

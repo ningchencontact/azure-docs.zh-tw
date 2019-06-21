@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497101"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154503"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -382,13 +382,17 @@ Azure 服務帳戶的刪除是獨立的作業，即使已在網路端啟用服�
 為了與 Azure 服務建立連線，NSG 需要允許輸出連線。 如果您的 NSG 對所有網際網路輸出流量都是開放的，服務端點流量應該就能運作。 您也可以使用「服務」標籤，限制輸出流量只有流向服務 IP 的流量。  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>設定服務端點需要哪些權限？
-擁有虛擬網路寫入權的使用者，可以在虛擬網路上個別設定服務端點。 若要將 Azure 服務資源放到 VNet 保護，使用者必須擁有所要新增之子網路的 **Microsoft.Network/JoinServicetoaSubnet** 權限。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。 深入了解內建角色以及如何將特定權限指派給[自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+擁有虛擬網路寫入權的使用者，可以在虛擬網路上個別設定服務端點。 若要保護 Azure 服務資源放到 VNet，使用者必須具有權限**Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action**所加入的子網路。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。 深入了解內建角色以及如何將特定權限指派給[自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json)。
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>是否能篩選流向 Azure 服務的虛擬網路流量，僅允許特定 Azure 服務資源的流量經過 VNet 服務端點？ 
 
 虛擬網路 (VNet) 服務端點原則可讓您篩選 Azure 服務的虛擬網路流量，僅允許特定 Azure 服務資源經過服務端點。 服務端點原則可針對流向 Azure 服務的虛擬網路流量提供細部的存取控制。 您可以[在此](virtual-network-service-endpoint-policies-overview.md)深入了解服務端點原則。
- 
+
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD) 是否支援 VNet 服務端點？
+
+Azure Active Directory (Azure AD) 不以原生方式支援服務端點。 您可看到支援 VNet 服務端點的 Azure 服務的完整清單[此處](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)。 請注意，在支援服務端點的服務之下所列的"Microsoft.AzureActiveDirectory 」 標記用於支援 ADLS Gen 1 的服務端點。 ADLS gen 1 的 Azure Data Lake 儲存體 Gen1 虛擬網路整合會利用您的虛擬網路與 Azure Active Directory (Azure AD) 之間的虛擬網路服務端點安全性來產生額外的安全性宣告存取權杖中。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。 深入了解 [Azure 資料湖存放區 Gen 1 的 VNet 整合] (../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>從我的 VNet 能設定的 VNet 服務端點數量是否有限制？
 虛擬網路中的 VNet 服務端點總數沒有限制。 對於 Azure 服務資源 (例如，Azure 儲存體帳戶)，服務可能會強制執行用來保護資源的子網路數目限制。 下表顯示一些範例限制： 
 

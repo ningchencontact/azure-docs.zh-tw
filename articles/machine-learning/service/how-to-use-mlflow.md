@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 934e9b705ab5f399d29f24c915b4c60a3b06138b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082569"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144016"
 ---
 # <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>如何使用 Azure Machine Learning 服務 （預覽） 中的 MLflow
 
@@ -145,7 +145,7 @@ run = exp.submit(src)
 
 ## <a name="example-notebooks"></a>Notebook 範例
 
-[MLflow 搭配 Azure ML notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/mlflow)示範這篇文章中的概念。
+[MLflow 搭配 Azure ML notebook](https://aka.ms/azureml-mlflow-examples)示範這篇文章中的概念。
 
 ## <a name="next-steps"></a>後續步驟
 

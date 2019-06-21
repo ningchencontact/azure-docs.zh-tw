@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824632"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204477"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -40,7 +40,7 @@ ms.locfileid: "65824632"
 ## <a name="list-of-functions"></a>函式的清單
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Append
 **函式：**<br> Append(source, suffix)
 
@@ -53,7 +53,7 @@ ms.locfileid: "65824632"
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱。 |
 | **suffix** |必要項 |字串 |您想要附加至 source 值結尾的字串。 |
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **函式：**<br> FormatDateTime(source, inputFormat, outputFormat)
 
@@ -61,13 +61,13 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱。 |
 | **inputFormat** |必要項 |字串 |source 值的預期格式。 如需支援的格式，請參閱[https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
 | **outputFormat** |必要項 |字串 |輸出日期的格式。 |
 
-- - -
+---
 ### <a name="join"></a>加入
 **函式：**<br> Join(separator, source1, source2, …)
 
@@ -77,12 +77,12 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **separator** |必要項 |字串 |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
 | **source1  … sourceN** |必要，變動次數 |字串 |要聯結在一起的字串值。 |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **函式：**<br> Mid(source, start, length)
 
@@ -96,7 +96,7 @@ ms.locfileid: "65824632"
 | **start** |必要項 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
 | **length** |必要項 |integer |子字串的長度。 如果長度超出 **source** 字串結尾，函式會傳回從 **start** 索引一直到 **source** 字串結尾的子字串。 |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **函式：**<br> NormalizeDiacritics(source)
 
@@ -104,11 +104,11 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 | 通常是名字或姓氏屬性。 |
 
-- - -
+---
 ### <a name="not"></a>否
 **函式：**<br> Not(source)
 
@@ -116,11 +116,11 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **函式：**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
@@ -143,7 +143,7 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱。 |
 | **oldValue** |選用 |字串 |在 **source** 或 **template** 中要被取代的值。 |
@@ -153,7 +153,7 @@ ms.locfileid: "65824632"
 | **replacementAttributeName** |選用 |字串 |當 source 沒有任何值時，要用於取代值的屬性名稱。 |
 | **template** |選用 |字串 |提供 **template** 值時，我們會尋找 template 內的 **oldValue** 並以 source 值取代。 |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **函式：**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
@@ -171,7 +171,7 @@ ms.locfileid: "65824632"
 | **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單。 |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **函式：**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -183,7 +183,7 @@ ms.locfileid: "65824632"
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |必要項 |字串 |**[appRoleAssignments]** 物件。 |
 
-- - -
+---
 ### <a name="split"></a>Split
 **函式：**<br> Split(source, delimiter)
 
@@ -196,7 +196,7 @@ ms.locfileid: "65824632"
 | **source** |必要項 |字串 |**source** 值。 |
 | **delimiter** |必要項 |字串 |指定將用來分割字串的字元 (範例：",") |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **函式：**<br> StripSpaces(source)
 
@@ -204,11 +204,11 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |**source** 值。 |
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **函式：**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
@@ -223,7 +223,7 @@ ms.locfileid: "65824632"
 | **key** |必要項 |字串 |要與 **source** 值比較的 **key**。 |
 | **value** |必要項 |字串 |符合 key 的 **source** 的取代值。 |
 
-- - -
+---
 ### <a name="tolower"></a>ToLower
 **函式：**<br> ToLower(source, culture)
 
@@ -231,12 +231,12 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| Name | 必要 / 重複 | 型別 | 注意 |
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱 |
 | **culture** |選用 |字串 |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **函式：**<br> ToUpper(source, culture)
 

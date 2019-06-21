@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067717"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147294"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及如何設定中的應用程式[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。  
@@ -102,6 +102,10 @@ VNet 整合不支援的事項包括：
 若要中斷您應用程式與 VNet 的連線，請選取 [中斷連線]  。 這會重新啟動 Web 應用程式。 
 
 新的 VNet 整合功能可讓您使用服務端點。  若要在應用程式中使用服務端點，請使用新的 VNet 整合連線到選取的 VNet，然後在您用於整合的子網路上設定服務端點。 
+
+#### <a name="web-app-for-containers"></a>適用於容器的 Web 應用程式
+
+如果您使用 Linux 上的 App Service 與內建映像，區域的 VNet 整合功能的運作而不需要額外的變更。 如果您使用適用於容器的 Web 應用程式，您需要修改您的 docker 映像，才能使用 VNet 整合。 在您的 docker 映像，使用連接埠環境變數作為主要的 web 伺服器的接聽連接埠，而不是使用硬式編碼的連接埠號碼。 在容器啟動時，會自動連接埠環境變數設定 App Service 平台。
 
 ### <a name="how-vnet-integration-works"></a>VNet 整合的運作方式
 

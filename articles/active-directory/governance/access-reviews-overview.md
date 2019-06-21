@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/18/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204597"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 存取權檢閱嗎？
 
@@ -46,7 +46,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 - **無法自動化時：** 您可以在安全性群組或 Office 365 群組上建立動態成員資格的規則，但如果 HR 資料未放在 Azure AD 中，或如果使用者在離開群組之後依然需要存取權以便訓練其接替者呢？ 這時，您就可以在該群組上建立檢閱，以確保仍需要存取權的人員應該會具有持續存取權。
 - **當群組用於新的用途時：** 如果您有要同步處理至 Azure AD 的群組，或如果您計劃讓銷售小組群組中的每個人都能使用 Salesforce 應用程式，則要求群組擁有者先檢閱群組成員資格，再將群組用於不同風險內容中的做法會很有用。
 - **資料存取權：** 對於某些資源來說，您可能必須要求 IT 以外的人定期登出，並請他們提出需要存取權的理由，以便進行稽核。
-- **為了維護原則的例外狀況清單：** 在理想的世界中，所有使用者都會遵循存取原則來安全地存取您組織的資源。 不過，有時候會有需要您視為例外狀況的商務案例。 身為 IT 系統管理員，您可以管理這項工作、免於監督原則例外狀況，並向稽核人員證明您有定期檢閱這些例外狀況。
+- **為了維護原則的例外狀況清單：** 在理想的世界中，所有的使用者會遵循的存取原則來保護您的組織資源的存取權。 不過，有時候會有需要您視為例外狀況的商務案例。 身為 IT 系統管理員，您可以管理這項工作、免於監督原則例外狀況，並向稽核人員證明您有定期檢閱這些例外狀況。
 - **要求群組擁有者確認他們的群組中仍然需要來賓：** 使用部分在內部部署環境 IAM，但不是受邀的來賓，可能會自動化員工存取。 如果有群組賦予來賓存取商務機密內容的權限，該群組的擁有者就有責任確認其來賓仍有合理獲得存取權的商務需求。
 - **反覆定期檢閱：** 您可以設定以一定的頻率 (例如，每週、每月、每季或每年) 週期性地檢閱使用者的存取權，每次檢閱開始時，檢閱者都會收到通知。 檢閱者可以透過容易使用的介面與智慧建議的協助，來核准或拒絕存取權。
 
@@ -58,19 +58,32 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 | --- | --- | --- | --- |
 | 安全性群組成員</br>Office 群組成員 | 指定的檢閱者</br>群組擁有者</br>自我檢閱 | Azure AD 存取權檢閱</br>Azure AD 群組 | 存取面板 |
 | 指派給已連線的應用程式 | 指定的檢閱者</br>自我檢閱 | Azure AD 存取權檢閱</br>Azure AD 企業應用程式 (預覽版) | 存取面板 |
-| Azure AD 角色 | 指定的檢閱者</br>自我檢閱 | Azure AD PIM | Azure 入口網站 |
-| Azure 資源角色 | 指定的檢閱者</br>自我檢閱 | Azure AD PIM | Azure 入口網站 |
+| Azure AD 角色 | 指定的檢閱者</br>自我檢閱 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
+| Azure 資源角色 | 指定的檢閱者</br>自我檢閱 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
 
-若要使用存取權檢閱，您必須具有下列其中一個授權：
+每位使用者存取權檢閱與互動都必須有付費的 Azure AD Premium P2 授權。 範例包括：
 
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 授權
+- 系統管理員建立的存取權檢閱
+- 群組擁有者執行的存取權檢閱
+- 使用者指派為檢閱者
+- 執行自我檢閱的使用者
 
-如需詳細資訊，請參閱[操作說明：註冊 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 或 [Enterprise Mobility + Security E5 試用版](https://aka.ms/emse5trial)。
+您也可以要求來賓使用者檢閱自己的存取權。 針對每個付費 Azure AD Premium P2 授權指派給其中一個您自己組織的使用者，您可以使用 Azure AD 企業對企業 (B2B) 受邀者在外部的使用者允許的最多五位來賓使用者。 這些來賓使用者也可以使用 Azure AD Premium P2 功能。 如需詳細資訊，請參閱 < [Azure AD B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
 
-## <a name="get-started-with-access-reviews"></a>開始使用存取權檢閱
+以下是一些範例案例可協助您判斷您必須擁有的授權數目。
+
+| 案例 | 計算 | 所需的授權數目 |
+| --- | --- | --- |
+| 系統管理員有 500 個使用者建立群組 A 的存取權檢閱。<br/>會指派為檢閱者的 3 個群組擁有者。 | 1 的系統管理員 + 3 的群組擁有者 | 4 |
+| 系統管理員有 500 個使用者建立群組 A 的存取權檢閱。<br/>可讓自我檢閱。 | 1 的系統管理員 + 500 位使用者做為自我檢閱者 | 501 |
+| 系統管理員會建立群組 A 的存取權檢閱，5 位使用者，以及 25 位來賓使用者。<br/>可讓自我檢閱。 | 1 的系統管理員 + 5 位使用者做為自我檢閱者<br/>（涵蓋在所需的 1:5 比例來賓使用者） | 6 |
+| 系統管理員會建立群組 A 的存取權檢閱，5 位使用者以及 28 位來賓使用者。<br/>可讓自我檢閱。 | 1 的系統管理員 + 5 位使用者自我檢閱者為 + 1 位使用者，以涵蓋來賓使用者所需的 1:5 比例 | 7 |
+
+如需如何指派授權給使用者的相關資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
+
+## <a name="learn-about-access-reviews"></a>深入了解存取權檢閱
 
 若要深入了解如何建立和執行存取權檢閱，請觀看這個簡短示範：
 
@@ -80,29 +93,9 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
-## <a name="enable-access-reviews"></a>啟用存取權檢閱
+## <a name="license-requirements"></a>授權需求
 
-若要啟用存取權檢閱，請遵循下列步驟。
-
-1. 身為全域管理員或使用者系統管理員，登入[Azure 入口網站](https://portal.azure.com)您要使用的存取權檢閱。
-
-1. 按一下 [所有服務] 並尋找存取權檢閱服務。
-
-1. 按一下 **存取權檢閱**。
-
-    ![所有服務的存取權檢閱](./media/access-reviews-overview/all-services-access-reviews.png)
-
-1. 在導覽清單中，按一下 [上架] 來開啟 [上架存取權檢閱] 頁面。
-
-    ![上架存取權檢閱](./media/access-reviews-overview/onboard-button.png)
-
-1. 按一下 [建立] 以在目前的目錄中啟用存取權檢閱。
-
-    ![上架存取權檢閱](./media/access-reviews-overview/onboard-access-reviews.png)
-
-    下次您啟動存取權檢閱，將啟用的存取權檢閱的選項。
-
-    ![已啟用的存取權檢閱](./media/access-reviews-overview/access-reviews-enabled.png)
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

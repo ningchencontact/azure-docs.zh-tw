@@ -2,37 +2,27 @@
 title: 如何封鎖舊版驗證至 Azure Active Directory (Azure AD)，使用條件式存取 |Microsoft Docs
 description: 了解如何藉由封鎖舊有的驗證使用 Azure AD 條件式存取來改善安全性狀態。
 services: active-directory
-keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112710"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164793"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>作法：區塊的舊版驗證至 Azure AD 條件式存取   
 
 為了讓您的使用者能夠輕鬆存取雲端應用程式，Azure Active Directory (Azure AD) 支援多種驗證通訊協定，包括舊式驗證。 不過，舊式通訊協定並不支援多重要素驗證 (MFA)。 在許多環境中，MFA 都是防止身分識別遭竊的常用工具。 
 
-
 如果您的環境是否準備好區塊來改善您的租用戶保護的舊式驗證，您可以使用條件式存取來達成此目標。 這篇文章說明如何設定條件式存取原則來封鎖舊版驗證您的租用戶。
-
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,8 +30,6 @@ ms.locfileid: "67112710"
 
 - [基本概念](overview.md)的 Azure AD 條件式存取 
 - [最佳做法](best-practices.md)在 Azure 入口網站中設定條件式存取原則
-
-
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -57,12 +45,21 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 第一個雙因素驗證完成之後，會強制執行條件式存取原則。 因此，條件式存取不是作為第一個的列防禦阻絕服務 (DoS) 攻擊，例如的情況下，但是可以利用從這些事件 （例如登入風險層級，位置的要求，依此類推） 的訊號，來決定存取權限。
 
-
-
-
 ## <a name="implementation"></a>實作
 
 本節說明如何設定條件式存取原則來封鎖舊版驗證。 
+
+### <a name="identify-legacy-authentication-use"></a>識別舊有的驗證，請使用
+
+您可以封鎖您目錄中的舊有的驗證之前，您需要先了解您的使用者是否具有使用舊有的驗證以及分割如何影響您整體的目錄的應用程式。 Azure AD 登入記錄檔可用來了解是否您使用舊有的驗證。
+
+1. 瀏覽至**Azure 入口網站** > **Azure Active Directory** > **登入**。
+1. 如果它不會顯示上的 新增用戶端應用程式的資料行**資料行** > **用戶端應用程式**。
+1. 篩選依據**用戶端應用程式** > **其他用戶端**，按一下 **套用**。
+
+篩選只顯示您登入嘗試，所進行的舊版驗證通訊協定。 按一下每個個別的登入嘗試，將會顯示其他詳細資料。 **用戶端應用程式**欄位下**基本資訊** 索引標籤會指出已使用的舊版驗證通訊協定。
+
+這些記錄檔會指出哪些使用者仍然需要用到舊有的驗證，以及哪些應用程式使用舊版的通訊協定來進行驗證要求。 使用者不會出現在這些記錄檔，並確認不會使用舊有的驗證，實作條件式存取原則僅適用於這些使用者。
 
 ### <a name="block-legacy-authentication"></a>封鎖舊式驗證 
 

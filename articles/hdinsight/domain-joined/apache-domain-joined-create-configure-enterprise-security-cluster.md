@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66253761"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166221"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>建立並在 Azure HDInsight 中設定企業安全性套件的叢集
 
@@ -311,7 +311,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | Protocol | 任意 |
         | 動作 | 允許 |
         | 優先順序 | <Desired Number> |
-        | 名稱 | Port_LDAP_636 |
+        | Name | Port_LDAP_636 |
 
     ![輸入的安全性規則](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
@@ -332,7 +332,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. 建立對等之間的關聯性裝載 AADDS 虛擬網路 (`HDIFabrikam-AADDSVNET`)，而且將裝載 ESP 虛擬網路啟用 HDInsight 叢集 (`HDIFabrikam-HDIVNet `)。 您可以使用下列 powershell 程式碼，這些兩個虛擬網路對等互連。
+1. 建立對等之間的關聯性裝載 AADDS 虛擬網路 (`HDIFabrikam-AADDSVNET`)，而且將裝載 ESP 虛擬網路啟用 HDInsight 叢集 (`HDIFabrikam-HDIVNet`)。 您可以使用下列 powershell 程式碼，這些兩個虛擬網路對等互連。
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

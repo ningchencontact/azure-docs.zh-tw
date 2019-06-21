@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122584"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273371"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用 Azure 監視器的 Vm （預覽） 概觀
 
@@ -42,10 +42,10 @@ ms.locfileid: "67122584"
 - 美國中西部
 - 美國西部 2<sup>1</sup>
 - 美國東部
-- 加拿大中部<sup>1</sup>
-- 英國南部<sup>1</sup>
+- 加拿大中部
+- 英國南部
 - 西歐
-- 東南亞<sup>1</sup>
+- 東南亞
 
 <sup>1</sup> 此區域目前不支援適用於 VM 的 Azure 監視器的健康情況功能。
 
@@ -90,6 +90,10 @@ ms.locfileid: "67122584"
 |Debian 8、 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> 適用於 VM 的 Azure 監視器的效能功能僅能從 Azure 監視器使用。 不可以直接從 Azure VM 的左窗格。
+
+>[!NOTE]
+>適用於 Vm 的 Azure 監視器的健全狀況擴充功能不支援[巢狀虛擬化](../../virtual-machines/windows/nested-virtualization.md)Azure VM 中。
+>
 
 >[!NOTE]
 >在 Linux 作業系統中：

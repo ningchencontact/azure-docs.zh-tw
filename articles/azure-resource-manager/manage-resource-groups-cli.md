@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c50a96b2598b89d5072a9441162d198163156c8d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550541"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296278"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure Resource Manager 資源群組
 
@@ -142,7 +139,7 @@ az group export --name $resourceGroupName
 
 指令碼會在主控台上顯示範本。  複製 JSON，並儲存為檔案。
 
-如需詳細資訊，請參閱 <<c0> [ 匯出資源群組](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+如需詳細資訊，請參閱 <<c0> [ 單一和多重資源匯出至 Azure 入口網站中的範本](./export-template-portal.md)。
 
 ## <a name="manage-access-to-resource-groups"></a>管理資源群組的存取權
 

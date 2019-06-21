@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/23/2019
-ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64691942"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
@@ -27,7 +27,7 @@ ms.locfileid: "64691942"
 - 僅支援相同版本之間的移轉。 例如，不支援將 PostgreSQL 9.5.11 移轉至適用於 PostgreSQL 9.6.7 的 Azure 資料庫。
 
     > [!NOTE]
-    > 適用於 PostgreSQL 第 10 版中，目前 DMS 僅支援適用於 PostgreSQL 的 Azure 資料庫的第 10.3 移轉。 我們打算在近期內支援較新版本的 PostgreSQL。
+    > 對於 PostgreSQL 第 10 版，目前 DMS 僅支援將 10.3 版移轉到 PostgreSQL 的 Azure 資料庫。 我們打算在近期內支援較新版本的 PostgreSQL。
 
 - 若要在**來源 PostgreSQL postgresql.conf** 檔案中啟用邏輯複寫，請設定下列參數：
     - **wal_level** = logical
