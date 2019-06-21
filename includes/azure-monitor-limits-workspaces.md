@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: dfcf47a95d1dbff34ff322768fc4ac6c9674cff4
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: HT
+ms.openlocfilehash: 21e2d3f75028d239175effa7a3608cc18ccfc95c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295979"
+ms.locfileid: "67305260"
 ---
 **資料收集量與保留期** 
 
 | 層 | 每日限制 | 資料保留 | 註解 |
 |:---|:---|:---|:---|
 | 目前的每 GB 定價層<br>（引進 2018 年 4 月） | 沒有限制 | 30-730 天 | 超過 31 天的資料保留期可供其他費用。 深入了解 Azure 監視器定價。 |
-| 舊版免費層<br>（引進 2016 年 4 月） | 500 MB | 7 天 | 當您的工作區達到每日資料傳輸限制 500 MB，資料分析會停止，並在隔天開頭繼續。 一天是以 UTC 為基礎。 |
+| 舊版免費層<br>（引進 2016 年 4 月） | 500 MB | 7 天 | 當您的工作區達到每日限制 500 MB 時，資料擷取會停止，並在隔天開頭繼續。 一天是以 UTC 為基礎。 請注意，Azure 資訊安全中心所收集的資料不包含在每一天的限制此 500 MB，而且將會繼續收集超過此限制。  |
 | 舊版的 「 獨立每 GB 」 層<br>（引進 2016 年 4 月） | 沒有限制 | 30 至 730 天 | 超過 31 天的資料保留期可供其他費用。 深入了解 Azure 監視器定價。 |
 | 每個節點 (OMS) 的舊版<br>（引進 2016 年 4 月） | 沒有限制 | 30 至 730 天 | 超過 31 天的資料保留期可供其他費用。 深入了解 Azure 監視器定價。 |
 | 舊版的標準層 | 沒有限制 | 30 天  | 無法調整保留期 |

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60430780"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295138"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>刪除 Azure Container Registry 中的容器映像
 
@@ -60,7 +60,7 @@ product-returns/legacy-integrator:20180715
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-如需有關映像標記最佳做法的討論，請參閱 MSDN 上 [Docker 標記：Docker 映像標記和版本設定的最佳做法][tagging-best-practices]部落格文章。
+如需有關映像標記最佳做法的討論，請參閱 MSDN 上 [Docker 標記：標記和版本設定的 docker 映像的最佳做法][tagging-best-practices]MSDN 上的部落格文章。
 
 ### <a name="layer"></a>層次
 
@@ -70,7 +70,7 @@ myregistry.azurecr.io/marketing/campaign10-18/web:v2
 
 ### <a name="manifest"></a>資訊清單
 
-每個推送至容器登錄的容器映像都會於「資訊清單」  相關聯。 在推送映像時，由登錄所產生的資訊清單，可唯一識別該映像並指定其層次。 您可以使用 Azure CLI 命令 [az acr repository show-manifests][az-acr-repository-show-manifests] 列出存放庫的資訊清單：
+每個推送至容器登錄的容器映像都會於「資訊清單」  相關聯。 在推送映像時，由登錄所產生的資訊清單，可唯一識別該映像並指定其層次。 您可以列出使用 Azure CLI 命令的存放庫的資訊清單[az acr 存放庫顯示為資訊清單][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
@@ -106,10 +106,6 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-這裡所討論的資訊清單，與您可以在 Azure 入口網站中或利用 [docker manifest inspect][docker-manifest-inspect] 檢視的映像資訊清單不同。 在下一節中，「資訊清單摘要」是指由推送作業所產生的摘要，而非映像資訊清單中的 config.digest  。 您可以依照**資訊清單摘要** (而非 config.digest) 提取和刪除映像。 下圖說明兩種摘要類型。
-
-![Azure 入口網站中的資訊清單摘要和 config.digest][manifest-digest]
-
 ### <a name="manifest-digest"></a>資訊清單摘要
 
 資訊清單是由唯一的 SHA-256 雜湊或「資訊清單摘要」  識別。 每個映像--不論標記與否--都是由其摘要識別。 即使映像的層次資料與另一個映像的層次資料相同完全，摘要值也會是唯一的。 這個機制可讓您重複將標記相同的映像推送至登錄。 例如，您可以將 `myimage:latest` 重複推送至您的登錄，而不會發生錯誤，因為每個映像都是由其唯一摘要識別。
@@ -135,9 +131,9 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 ## <a name="delete-repository"></a>刪除存放庫
 
-刪除存放庫即可刪除存放庫中的所有映像，包括所有標籤、唯一層次及資訊清單。 當您刪除存放庫時，會復原該存放庫中的映像所使用的儲存空間。
+刪除存放庫即可刪除存放庫中的所有映像，包括所有標籤、唯一層次及資訊清單。 當您刪除儲存機制時，您就會復原由參考唯一的圖層，該存放庫中的映像的儲存空間。
 
-下列 Azure CLI 命令可刪除 "acr-helloworld" 存放庫以及該存放庫內的所有標記和資訊清單。 如果已刪除資訊清單所參考的層次並未由登錄中任何其他映像所參考，則也會刪除其層次資料。
+下列 Azure CLI 命令可刪除 "acr-helloworld" 存放庫以及該存放庫內的所有標記和資訊清單。 如果在登錄中的任何其他映像不會參考已刪除的資訊清單所參考的圖層，其圖層資料會一併刪除，復原儲存空間。
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -147,7 +143,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 您可以在刪除作業中指定存放庫名稱和標記，以從存放庫中刪除個別映像。 當您依標記刪除時，會復原映像中任何唯一層次 (並未由登錄中任何其他映像共用的層次) 所使用的儲存空間。
 
-若要依標記刪除，請使用 [az acr repository delete][az-acr-repository-delete] 並在 `--image` 參數中指定映像名稱。 映像獨有的所有層次，與該映像相關聯的任何其他標記都會遭到刪除。
+若要刪除標記，請使用[az acr 存放庫刪除][az-acr-repository-delete]映像名稱，在指定`--image`參數。 映像獨有的所有層次，與該映像相關聯的任何其他標記都會遭到刪除。
 
 例如，從 "myregistry" 登錄中刪除 "acr-helloworld:latest" 映像：
 
@@ -158,7 +154,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> 「依標記」  刪除不應該與刪除標記 (取消標記) 混淆。 您可以使用 Azure CLI 命令 [az acr repository untag][az-acr-repository-untag] 來刪除標記。 不含空格會釋放，當您解除標記的映像，因為其[資訊清單](#manifest)和圖層資料保持在登錄中。 只有標記參考本身會被刪除。
+> 「依標記」  刪除不應該與刪除標記 (取消標記) 混淆。 您可以刪除標記，以使用 Azure CLI 命令[az acr 存放庫解除][az-acr-repository-untag]。 不含空格會釋放，當您解除標記的映像，因為其[資訊清單](#manifest)和圖層資料保持在登錄中。 只有標記參考本身會被刪除。
 
 ## <a name="delete-by-manifest-digest"></a>依資訊清單摘要刪除
 
@@ -187,7 +183,7 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-接下來，在 [az acr repository delete][az-acr-repository-delete] 命令中指定您要刪除的摘要。 此命令的格式為：
+接下來，指定您想要在刪除摘要式[az acr 存放庫刪除][az-acr-repository-delete]命令。 此命令的格式為：
 
 ```azurecli
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>
@@ -203,7 +199,7 @@ Are you sure you want to continue? (y/n): y
 
 `acr-helloworld:v2`從登錄中，會刪除映像，因為是任何唯一至該映像的圖層資料。 如果資訊清單與多個標記相關聯，也會一併刪除所有相關聯的標記。
 
-### <a name="list-digests-by-timestamp"></a>依時間戳記清單摘要
+## <a name="delete-digests-by-timestamp"></a>刪除摘要依時間戳記
 
 若要維持存放庫或登錄的大小，您可能需要定期刪除早於在特定日期的資訊清單摘要。
 
@@ -214,12 +210,10 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-### <a name="delete-digests-by-timestamp"></a>刪除摘要依時間戳記
-
 找出過時資訊清單的摘要之後, 您可以執行下列 Bash 指令碼，刪除早於指定的時間戳記資訊清單的摘要。 它需要 Azure CLI 和 **xargs**。 根據預設，此指令碼不會執行任何刪除。 將 `ENABLE_DELETE` 值變更為 `true`，以啟用映像刪除。
 
 > [!WARNING]
-> 使用下列的範例指令碼，請謹慎-已刪除的映像資料是 UNRECOVERABLE。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除資訊清單的摘要，會造成這些系統無法從登錄提取映像。 請考慮採用「唯一標記」  配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。 
+> 使用下列的範例指令碼，請謹慎-已刪除的映像資料是 UNRECOVERABLE。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除資訊清單的摘要，會造成這些系統無法從登錄提取映像。 而不是提取資訊清單，請考慮採用*唯一標記*配置[建議的最佳做法][tagging-best-practices]。 
 
 ```bash
 #!/bin/bash
@@ -296,7 +290,7 @@ fi
 
 如您所見的輸出序列中的最後一個步驟中，現在會被遺棄資訊清單的`"tags"`屬性是空的清單。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
 
-### <a name="list-untagged-images"></a>列出已取消標記的映像
+## <a name="delete-all-untagged-images"></a>刪除所有已取消標記的映像
 
 您可以使用下列 Azure CLI 命令，列出存放庫中所有已取消標記的映像。 以適合您環境的值取代 `<acrName>` 和 `<repositoryName>`。
 
@@ -304,10 +298,10 @@ fi
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-### <a name="delete-all-untagged-images"></a>刪除所有已取消標記的映像
+您可以使用這個命令的指令碼中，刪除存放庫中所有未標記的映像。
 
 > [!WARNING]
-> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用「唯一標記」  配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。
+> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 而不是提取資訊清單，請考慮採用*唯一標記*配置[建議的最佳做法][tagging-best-practices]。
 
 **Bash 中的 Azure CLI**
 
@@ -333,7 +327,10 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
+    else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
 fi
 ```
 
@@ -357,7 +354,9 @@ if ($enableDelete) {
     az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
-    Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
+    Write-Host "No data deleted."
+    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
 }
 ```
 
@@ -371,7 +370,7 @@ if ($enableDelete) {
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
+[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
