@@ -624,10 +624,12 @@
         - name: 使用 Logic Apps 進行應用程式記錄
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: 監視
+    - name: 透過計量監視
       items:
-        - name: 透過計量監視
+        - name: 從 Cosmos DB 帳戶檢視計量
           href: use-metrics.md
+        - name: 從 Azure 監視器檢視計量
+          href: cosmos-db-azure-monitor-metrics.md
         - name: 監視 SLA
           href: monitor-accounts.md
     - name: 本機開發
