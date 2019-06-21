@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953864"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203518"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中模型化的資料
 
@@ -176,9 +176,9 @@ ms.locfileid: "65953864"
 
 ## <a name="referencing-data"></a>參考資料
 
-因此，內嵌資料於許多情況下可適用，但很明顯有時反正規化資料將會造成更多問題，使得適得其反。 那我們現在該怎麼辦？
+內嵌的資料可適用許多情況下，但有案例時將資料反正規化，則會導致更多的問題，並不值得投資。 那我們現在該怎麼辦？
 
-關聯式資料庫不是您可以建立實體之間的關聯性的唯一位置。 在文件資料庫中，文件中可以存在實際上與其他文件中的資料相關的資訊。 我並不是要提倡在 Azure Cosmos DB (或任何其他文件資料庫) 中建置比較適合關聯式資料庫的系統，但簡單的關聯性並沒有什麼不好的，而且可能很有用。
+關聯式資料庫不是您可以建立實體之間的關聯性的唯一位置。 在文件資料庫中，您可以有一個與其他文件中的資料相關的文件中的資訊。 我們不建議建置系統會更適合在 Azure Cosmos DB 中，關聯式資料庫或任何其他文件資料庫，但是簡單的關聯性很好，而且可以是很有用。
 
 在以下的 JSON 中，我們選擇使用先前的股票組合範例，但這次我們參考組合上的股票項目而不是加以內嵌。 如此一來，經常全天變更的股票項目，需要更新的唯一文件是單一股票文件。
 

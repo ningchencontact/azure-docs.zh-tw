@@ -1,6 +1,6 @@
 ---
-title: 將 Windows 電腦連接到 Azure Log Analytics | Microsoft Docs
-description: 本文說明如何使用 Microsoft Monitoring Agent (MMA) 將其他雲端中託管的 Windows 電腦或內部部署電腦連線至 Log Analytics。
+title: 將 Windows 電腦連線到 Azure 監視器 |Microsoft Docs
+description: 本文說明如何將與 Windows 的 Log Analytics 代理程式裝載其他雲端或內部部署至 Azure 監視器中的 Windows 電腦連接。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952481"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146358"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線到 Azure 監視器
 
@@ -110,14 +110,16 @@ ms.locfileid: "65952481"
 2. 若要以無訊息方式安裝代理程式，並設定它向 Azure 商業雲端中的工作區報告，在您解壓縮安裝檔案的資料夾中輸入： 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    或者，若要設定代理程式向 Azure 美國政府雲端報告，請輸入： 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >參數的字串值*OPINSIGHTS_WORKSPACE_ID*並*OPINSIGHTS_WORKSPACE_KEY*需要雙引號來做為有效的選項，指示要 interprit 的 Windows 安裝程式中封裝封裝。 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>使用 Azure 自動化中的 DSC 安裝代理程式
 
@@ -202,4 +204,6 @@ ms.locfileid: "65952481"
 
 ## <a name="next-steps"></a>後續步驟
 
-檢閱[管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式](agent-manage.md)，了解如何在電腦上代理程式的部署生命週期內管理代理程式。  
+- 檢閱[管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式](agent-manage.md)，了解如何在電腦上代理程式的部署生命週期內管理代理程式。  
+
+- 檢閱[疑難排解 Windows 代理程式](agent-windows-troubleshoot.md)如果您在安裝或管理代理程式時遇到問題。

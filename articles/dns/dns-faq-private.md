@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082842"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274045"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 私人 DNS 常見問題集
 
@@ -88,6 +88,13 @@ ms.locfileid: "67082842"
 ## <a name="is-there-portal-support-for-private-zones"></a>私人區域是否有入口網站支援？
 
 [是]，並透過 Api、 PowerShell、 CLI 和 Sdk 已建立的私人區域會顯示在 Azure 入口網站。
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>為什麼不我現有的私人 DNS 區域會顯示在新的入口網站體驗？
+
+重新整理預覽版本的一部分，我們出貨私人 DNS 區域的新資源模型的內容。 這些就會出現在新的入口網站體驗先移轉至新的資源模型需要您現有的私人 DNS 區域。 如需如何移轉至新的資源模型的指示，請參閱下方內容。
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>如何將我現有的私人 DNS 區域移轉至新的模型？
+我們強烈建議您儘速移轉至新的資源模型。 將支援舊版的資源模型，不過，進一步功能不會開發這個模型之上。 在未來，我們想要取代它採用新的資源模型。 如需指引如何移轉您現有的私人 DNS 區域 」，以新的資源模型請參閱[移轉指南適用於 Azure DNS 私人區域](private-dns-migration-guide.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118266"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165991"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>了解 Azure 資源的拒絕指派
 
@@ -34,7 +34,7 @@ ms.locfileid: "67118266"
 
 ## <a name="compare-role-assignments-and-deny-assignments"></a>比較角色指派，並拒絕指派
 
-拒絕指派遵循類似的模式拒絕指派，但也有一些差異。
+拒絕指派角色指派，以遵循類似的模式，但也有一些差異。
 
 | 功能 | 角色指派 | 拒絕指派 |
 | --- | --- | --- |

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075070"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190689"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -53,7 +53,7 @@ ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，�
 
 ## <a name="connectors"></a>連接器
 
-Azure Logic Apps 連接器提供協助您的邏輯應用程式存取應用程式、 服務和系統在雲端或內部部署[觸發程序](#triggers)，[動作](#actions)，或兩者。 連接器會歸類為 Standard 或 Enterprise。 如需有關這些連接器的概觀，請參閱 <<c0> [ 適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)。 下列各節提供如何計費觸發程序的詳細資訊，並執行工作。
+Azure Logic Apps 連接器提供協助您的邏輯應用程式存取應用程式、 服務和系統在雲端或內部部署[觸發程序](#triggers)，[動作](#actions)，或兩者。 連接器會歸類為 Standard 或 Enterprise。 如需有關這些連接器的概觀，請參閱 <<c0> [ 適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)。 如果沒有預先建置的連接器可供您要在您的 logic apps 中使用 REST Api，您可以建立[自訂連接器](https://docs.microsoft.com/connectors/custom-connectors)，它是只包裝函式的 REST Api。 自訂連接器會以標準連接器計費。 下列各節提供如何計費觸發程序的詳細資訊，並執行工作。
 
 <a name="triggers"></a>
 

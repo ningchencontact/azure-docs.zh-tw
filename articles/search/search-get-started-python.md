@@ -1,7 +1,7 @@
 ---
 title: 快速入門：Python 和 REST Api-Azure 搜尋服務
 description: 建立、 載入和使用 Python、 Jupyter Notebook 和 Azure 搜尋服務 REST API 查詢索引。
-ms.date: 06/11/2019
+ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056602"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302283"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>快速入門：建立使用 Jupyter Python notebook 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67056602"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-建置建立、 載入和查詢使用 Python 的 Azure 搜尋服務索引的 Jupyter notebook 並[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何建置 notebook 逐步解說，從頭開始。 或者，您可以執行已完成的 notebook。 若要下載複本，請前往[Azure 搜尋服務-python 範例存放庫](https://github.com/Azure-Samples/azure-search-python-samples)。
+建置建立、 載入和查詢使用 Python 的 Azure 搜尋服務索引的 Jupyter notebook 並[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何建置 notebook 逐步解說，從頭開始。 或者，您可以執行已完成的 notebook。 若要下載複本，請前往[azure aearch-python 範例存放庫](https://github.com/Azure-Samples/azure-search-python-samples)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

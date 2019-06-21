@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117250"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173993"
 ---
 Azure CLI 可讓您建立及管理 macOS、Linux 與 Windows 上的 Azure 資源。 本文會詳細說明一些最常用來建立和管理虛擬機器 (VM) 的命令。
 

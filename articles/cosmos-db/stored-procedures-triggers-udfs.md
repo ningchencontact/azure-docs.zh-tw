@@ -4,15 +4,15 @@ description: 本文說明 Azure Cosmos DB 中的預存程序、觸發程序及�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965713"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165584"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>預存程序、觸發程序和使用者定義函式
 
@@ -75,7 +75,7 @@ JavaScript 函數也受限於[佈建的輸送量容量](request-units.md)。 Jav
 
 ## <a name="triggers"></a>觸發程序
 
-本節說明兩種觸發程序：
+Azure Cosmos DB 支援兩種類型的觸發程序：
 
 ### <a name="pre-triggers"></a>預先觸發程序
 
@@ -84,6 +84,9 @@ Azure Cosmos DB 提供的觸發程序可透過在 Azure Cosmos DB 項目上執�
 ### <a name="post-triggers"></a>後續觸發程序
 
 後續觸發程序與預先觸發程序類似，都與 Azure Cosmos DB 項目上的作業相關聯，而且不需要任何輸入參數。 它們是在作業完成*之後*執行的，而且可以存取傳送給用戶端的回應訊息。 如需範例，請參閱[如何撰寫觸發程序](how-to-write-stored-procedures-triggers-udfs.md#triggers)文章。
+
+> [!NOTE]
+> 註冊觸發程序不時自動執行其相對應的作業 （建立 / 刪除 / 取代 / 更新） 會發生。 他們不必明確地執行這些作業時呼叫。 若要進一步了解，請參閱[如何執行觸發程序](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)文章。
 
 ## <a id="udfs"></a>使用者定義函數
 

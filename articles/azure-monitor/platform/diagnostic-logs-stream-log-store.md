@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238032"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303696"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄
 
@@ -60,7 +60,7 @@ Log Analytics 工作區並不一定要與發出記錄的資源位於相同的訂
 
 4. 按一下 [檔案]  。
 
-過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該工作區。 請注意，從發出事件到事件出現在 Log Analytics 中，之間最多會有 15 分鐘的間隔。
+過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該工作區。 可能會有 15 分鐘的時間之間時就會發出事件，以及當它出現在 Log Analytics 中的位置。
 
 ### <a name="via-powershell-cmdlets"></a>透過 PowerShell Cmdlet
 
@@ -99,37 +99,81 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢診斷記錄檔記錄管理解決方案，在 [AzureDiagnostics] 資料表的一部分。 另外還有[數個適用於 Azure 資源的監視解決方案](../../azure-monitor/insights/solutions.md)取得即時深入解析記錄資料傳送至 「 Azure 監視器，您可以安裝。
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Azure 診斷與特定資源  
+一旦 Log Analytics 目的地啟用 Azure 診斷組態中，有兩個不同的方式，資料會顯示在您的工作區：  
+- **Azure 診斷**-這是由大多數 Azure 服務目前使用的舊方法。 在此模式中，所有指向指定的工作區的任何診斷設定中的資料將會得到_AzureDiagnostics_資料表。 
+<br><br>因為許多資源將資料傳送至相同的資料表 (_AzureDiagnostics_)，此資料表的結構描述是超級組所收集的所有不同的資料類型的結構描述。 例如，如果您已經建立下列資料類型的集合的診斷設定，所有傳送至相同的工作區：
+    - 稽核記錄檔的資源 1 （具有 A、 B 和 C 資料行所組成的結構描述）  
+    - （具有資料行 D、 E 和 F 所組成的結構描述） 的資源 2 的錯誤記錄檔  
+    - 為資源 3 （具有資料行 G，H，和我所組成的結構描述） 的資料流量記錄  
+
+    [AzureDiagnostics] 資料表會以特定範例資料，如下所示，看起來：  
+
+    | ResourceProvider | 類別 | 具有使用 | b | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+    | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+    | ... |
+
+- **資源特定**-在此模式中，選取工作區中的個別資料表會建立每個選取的診斷設定組態中每個類別。 這個較新的方法可更容易尋找完全是您想要尋找透過明確的關注點分離： 每個類別目錄的資料表。 此外，還會提供其支援的優點為動態型別。 您已看出此模式中的選取 Azure 資源類型，例如[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)或是[Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor)記錄檔。 最後，我們會預期每個資料類型，來移轉至特定資源的模式。 
+
+    在上述範例中，這會導致所建立的三個資料表： 
+    - 表格_AuditLogs_ ，如下所示：
+
+        | ResourceProvider | 類別 | 具有使用 | b | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+        | ... |
+
+    - 表格_ErrorLogs_ ，如下所示：  
+
+        | ResourceProvider | Category | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
+        | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
+        | ... |
+
+    - 表格_DataFlowLogs_ ，如下所示：  
+
+        | ResourceProvider | Category | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    使用的資源特定模式的其他優點包括更佳的效能在擷取延遲和查詢時間，探索起來更加方便，結構描述和其結構、 能夠授與特定資料表，以及更多的 RBAC 權限。
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>選取 Azure 診斷與特定資源的模式
+針對大部分的 Azure 資源，您將不可以選擇是否要使用的 Azure 診斷或特定資源的模式;資料會自動將會流經此資源已選取要使用的方法。 請參閱您已將資料傳送至 Log Analytics，如需詳細資訊，運用模式啟用的資源所提供的文件。 
+
+上一節所述，最終目標是 Azure 監視器將所有服務在使用 Azure 資源特定模式。 若要簡化這項轉換，並確保沒有資料遺失，在某些 Azure 服務上的架至 Log Analytics 會提供您選取的模式時，它的：  
+   ![診斷設定模式選取器](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+我們**強**建議，以避免潛在困難的移轉之後，任何新建立的診斷設定使用的資源中心的模式。  
+
+現有的診斷設定，一次啟用特定的 Azure 資源，您將能夠追溯切換至特定資源模式的 從 Azure 診斷。 您先前擷取的資料仍可用於_AzureDiagnostics_資料表直到它如您在工作區中的保留設定中設定過期，但是任何新的資料會傳送至專用的資料表。 會針對任何查詢，這表示有跨這兩種舊的資料和新 （直到過了舊資料完全過期），則[聯集](https://docs.microsoft.com/azure/kusto/query/unionoperator)將需要在您的查詢運算子結合兩個資料集。
+
+請尋找新的 Azure 相關新聞上的服務中的資源特定模式的支援記錄檔[Azure 更新](https://azure.microsoft.com/updates/)部落格 ！
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>已知限制： AzureDiagnostics 中的資料行限制
-因為許多資源可讓您傳送的資料型別會傳送至相同的資料表 (_AzureDiagnostics_)，此資料表的結構描述是超級組所收集的所有不同的資料類型的結構描述。 例如，如果您已建立下列資料類型之集合的診斷設定，所有傳送至相同的工作區：
-- 稽核記錄檔的資源 1 （具有 A、 B 和 C 資料行所組成的結構描述）  
-- （具有資料行 D、 E 和 F 所組成的結構描述） 的資源 2 的錯誤記錄檔  
-- 為資源 3 （具有資料行 G，H，和我所組成的結構描述） 的資料流量記錄  
- 
-[AzureDiagnostics] 資料表會以特定範例資料，如下所示，看起來：  
- 
-| ResourceProvider | 類別 | 具有使用 | b | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
-| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
-| ... |
- 
-沒有任何指定的 Azure 記錄檔資料表，不需要超過 500 個資料行的明確限制。 一旦達到，任何包含資料的前 500 個以外的任何資料行的資料列皆會予以捨棄在擷取階段。 [AzureDiagnostics] 資料表是特別容易受到要影響這項限制。 這通常是因為各種資料來源傳送到相同的工作區，或多個傳送至相同的工作區的非常詳細的資料來源。 
- 
+沒有任何指定的 Azure 記錄檔資料表，不需要超過 500 個資料行的明確限制。 一旦達到，任何包含資料的前 500 個以外的任何資料行的資料列皆會予以捨棄在擷取階段。 [AzureDiagnostics] 資料表是特別容易受到要影響這項限制。 這通常是因為各種資料來源傳送到相同的工作區，或多個傳送至相同的工作區的詳細資訊的資料來源。 
+
 #### <a name="azure-data-factory"></a>Azure Data Factory  
-Azure Data Factory 中，由於一組非常詳細的記錄檔，是特別會受到這項限制已知的資源。 特別是：  
+Azure Data Factory，因為一組非常詳細的記錄檔，而是特別會受到這項限制已知的資源。 特別的是，任何特定資源之前，設定的診斷設定的模式已啟用或明確地選擇要用於反向相容性的原因的特定資源的模式：  
 - *針對您的管線中的任何活動所定義的使用者參數*： 會為每個唯一命名的使用者參數，針對任何活動建立新的資料行。 
 - *活動的輸入和輸出*： 這些而有所不同，活動間產生大量的資料行，因為其詳細資訊的性質。 
  
-為更廣泛的因應措施提案，建議將 ADF 記錄檔隔離至其自己的工作區，以影響您工作區中收集其他記錄類型的這些記錄檔的機會降到最低。 我們希望能彙總了記錄檔可用的 Azure Data Factory 的推出。
+做為更廣泛的因應措施提案，建議將您的記錄檔，以儘速使用特定資源的模式。 如果您無法立即執行，過渡期的替代方式是將 ADF 記錄檔隔離至其自己的工作區，以影響您工作區中收集其他記錄類型的這些記錄檔的機會降到最低。 
  
 #### <a name="workarounds"></a>因應措施
-短期內，直到重新定義 500 資料行限制，建議分成不同的工作區，以減少可能會達到限制的詳細資訊的資料類型。
+就短期來說，直到不啟用任何服務的特定資源的模式，在所有 Azure 服務，但支援的特定資源的模式，建議您區隔的詳細資料型別由這些服務發佈至不同的工作區，以減少可能會達到的限制。  
  
-就長期來說，Azure 診斷將會移開統一、 疏鬆的結構描述至每個資料類型; 每個個別的資料表搭配動態類型的支援，如此可大幅改善資料傳入 Azure 記錄檔，透過 Azure 診斷機制的可用性。 您已看出這選取 Azure 資源類型，例如[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)或是[Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor)記錄檔。 請尋找新的資源類型，在 Azure 上支援這些策劃的記錄檔中新消息[Azure 更新](https://azure.microsoft.com/updates/)部落格 ！
+就長期來說，Azure 診斷會採用支援的資源特定模式的所有 Azure 服務。 我們建議儘速以減少可能會受到此 500 的資料行的限制此模式移動。  
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429675"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202749"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
@@ -239,7 +239,7 @@ ms.locfileid: "61429675"
 1. 從上傳的資料集開始的簡單 Azure Machine Learning 實驗流程。
 
 ## <a name="decisiontree"></a>用於案例選擇的決策樹
-- - -
+---
 下圖摘要說明上述案例，以及讓您連結到每個分項案例的「進階分析程序和技術」選擇。 請注意，資料處理、資料探索、功能工程和取樣可能會出現在一或多個方法/環境中 (在來源、中繼和/或目標環境中)，且可以視需要反覆處理。 圖表的目的只是說明一些可能的流程，並不提供詳盡的列舉。
 
 ![範例 DS 程序逐步解說案例][8]

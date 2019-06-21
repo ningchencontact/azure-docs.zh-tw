@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417934"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303581"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題集
 
@@ -440,6 +440,85 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub 動作](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
+## <a name="error-references-for-az-acr-check-health"></a>錯誤參考 `az acr check-health`
+
+### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
+
+此錯誤表示該 docker 用戶端，如 CLI 找不到，無法讓尋找 docker 版本、 評估 docker daemon 狀態以及確保可以執行 docker pull 命令。
+
+*可能的解決方案*： 安裝 docker 用戶端，將 docker 路徑，與系統變數。
+
+### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
+
+此錯誤表示 docker daemon 狀態無法使用，或，它無法使用 CLI。 這表示，例如登入 （提取） 的 docker 作業將無法透過 CLI。
+
+*可能的解決方案*:重新啟動 docker 精靈，或驗證正確安裝。
+
+### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
+
+此錯誤表示 CLI 程式無法執行命令`docker --version`。
+
+*可能的解決方案*： 嘗試以手動方式執行命令，請確定您擁有最新的 CLI 版本，並調查的錯誤訊息。
+
+### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
+
+此錯誤表示 CLI 無法範例映像提取至您的環境。
+
+*可能的解決方案*： 驗證提取映像所需的所有元件皆正常都執行。
+
+### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
+
+此錯誤表示找不到該 helm 用戶端，cli，防止其他 helm 作業。
+
+*可能的解決方案*： 確認該 helm 安裝用戶端，且其路徑會新增至系統環境變數。
+
+### <a name="helmversionerror"></a>HELM_VERSION_ERROR
+
+此錯誤表示 CLI 程式無法判斷安裝的 Helm 版本。 就可能發生此 Azure CLI 版本 (或如果 helm 版本) 正在使用已過時。
+
+*可能的解決方案*： 更新為最新的 Azure CLI 版本，或以建議的 helm 版本，以手動方式執行命令，並調查的錯誤訊息。
+
+### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
+
+此錯誤表示指定的登錄登入伺服器的 DNS 的 ping，但沒有回應，這表示無法使用。 這表示某些連線問題。 這也可能表示，登錄不存在，該使用者沒有權限在登錄中 （若要正確地擷取其登入伺服器），或確認目標登錄在不同的雲端，比使用 Azure CLI 中。
+
+*可能的解決方案*： 驗證連線; 請檢查拼字的登錄，和該登錄存在; 驗證，使用者有適當的權限，且登錄的雲端是 Azure CLI 上使用的相同。
+
+### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
+
+這表示指定的登錄的挑戰端點回應 403 禁止 HTTP 狀態。 這表示，使用者不必存取登錄中，最可能的原因 VNET 組態。
+
+*可能的解決方案*： 移除 VNET 規則或加入目前的用戶端 IP 允許清單。
+
+### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
+
+此錯誤表示目標登錄的挑戰端點未發出一項挑戰。
+
+*可能的解決方案*： 一段時間後再試。 如果錯誤持續發生，請開啟上午問題 https://aka.ms/acr/issues 。
+
+### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
+
+此錯誤表示目標登錄的挑戰端點發出一項挑戰，但是登錄不支援 AAD 登入。
+
+*可能的解決方案*： 嘗試登入，例如，系統管理員認證的其他方式。 如果使用者想要登入 AAD 的支援，請開啟上午問題 https://aka.ms/acr/issues 。
+
+### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
+
+這表示登錄登入伺服器未回應以重新整理權杖，這表示目標登錄的存取權遭到拒絕。 如果使用者沒有登錄的適當權限，或 Azure CLI 的使用者認證已過時，也可能會發生。
+
+*可能的解決方案*： 請確認使用者是否有正確的權限，在登錄上，執行`az login`重新整理權限、 權杖和認證。
+
+### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
+
+這表示登錄登入伺服器未使用存取權杖，這表示目標登錄的存取權遭到拒絕回應。 如果使用者沒有登錄的適當權限，或 Azure CLI 的使用者認證已過時，也可能會發生。
+
+*可能的解決方案*： 請確認使用者是否有正確的權限，在登錄上，執行`az login`重新整理權限、 權杖和認證。
+
+### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
+
+這表示 CLI 找不到指定的登錄中的登入伺服器，而且沒有預設值後置詞找不到目前的雲端。 這可能是登錄不存在，如果使用者沒有正確的權限在登錄中，如果登錄的雲端和目前的 Azure CLI 雲端不相符，則 Azure CLI 版本已過時。
+
+*可能的解決方案*： 確認拼字正確無誤並登錄存在，驗證使用者是否已在登錄中，正確的權限，而且登錄和 CLI 環境的雲端符合; 更新為最新版本的 Azure CLI。
 
 ## <a name="next-steps"></a>後續步驟
 

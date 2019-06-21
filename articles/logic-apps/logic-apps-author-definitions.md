@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427035"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296126"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
 
@@ -50,6 +50,9 @@ ms.locfileid: "60427035"
 3. 開啟邏輯應用程式定義和範本的捷徑功能表。 選取 [以邏輯應用程式設計工具開啟]  。
 
    ![開啟 Visual Studio 解決方案中的邏輯應用程式](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您有最新的更新，適用於 Visual Studio。
 
 4. 在設計工具底部，選擇 [程式碼檢視]  。 
 

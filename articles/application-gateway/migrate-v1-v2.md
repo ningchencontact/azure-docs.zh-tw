@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/12/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f55beca65a19ee9e47708000976dd42a6f252e2e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053339"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154166"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>移轉 Azure 應用程式閘道和 Web 應用程式防火牆從 v1 為 v2
 
@@ -133,7 +133,7 @@ Azure PowerShell 指令碼，會進行下列作業：
       -sslCertificates $Certs `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceName "MyPublicIP" `
+      -publicIpResourceId "MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

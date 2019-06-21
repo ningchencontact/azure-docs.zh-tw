@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 56ba2dfebeb47f7e12a2693eae443e3c31e2a4dd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203093"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304292"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -20,7 +20,7 @@ ms.locfileid: "67203093"
 
 ## <a name="what-is-changing"></a>變更內容為何？
 
-以前，密碼無法透過 HDInsight API 來取得具有擁有者、 參與者或讀取器的叢集使用者[RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)，因為它們是可供任何使用`*/read`所需的權限。
+以前，密碼無法透過 HDInsight API 來取得具有擁有者、 參與者或讀取器的叢集使用者[RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)，因為它們是可供任何使用`*/read`權限。
 接下來，存取這些機密資料將會需要`Microsoft.HDInsight/clusters/configurations/*`權限，這表示它們無法再存取讀取者角色的使用者。 可用來取得更高的存取於使用者的角色權限的值應該允許被定義祕密。 這些包含值，例如叢集閘道 HTTP 認證、 儲存體帳戶金鑰和資料庫認證。
 
 我們也引進新[HDInsight 叢集操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)能夠擷取祕密，但不授與 「 參與者 」 或 「 擁有者的系統管理權限的角色。 總結：

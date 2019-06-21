@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826469"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205672"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
 
@@ -42,7 +42,7 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 下列的網路限制適用於 Azure NetApp 檔案：
 
-* 可以連接到磁碟區 （與 VNet 或對等互連的 Vnet 間） 的 Vm 數目不得超過 1000年。
+* 在具有 Azure NetApp 檔案 （包括對等互連的 Vnet） 的 VNet 中使用的 Ip 數目不能超過 1000年。
 * 在每個 Azure 虛擬網路 (VNet) 中，都只有一個子網路可委派給 Azure NetApp Files。
 
 
@@ -103,13 +103,13 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 此外，請考慮 VNet 2 中，對等互連 VNet 1 和 2 的 VNet 對等互連 VNet 相同的區域中的 3 的案例。 將資源從 VNet 1 可以連線至 VNet 2 中的資源，但它無法連線到 VNet 3 中的資源除非 VNet 1 和 3 的 VNet 對等互連。 
 
-在上圖中，雖然 VM 3 可連接到磁碟區 1 VM 4 無法連線到磁碟區 2。  原因是，輪輻 Vnet 沒有對等互連，並_透過 VNet 對等互連不支援傳輸路由_。
+在上圖中，雖然 VM 3 可連接到磁碟區 1 VM 4 無法連線到磁碟區 2。  這是因為，輪輻 Vnet 沒有對等互連，並_透過 VNet 對等互連不支援傳輸路由_。
 
 ## <a name="hybrid-environments"></a>混合式環境
 
 下圖說明混合式環境： 
 
-![混合式網路功能環境](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![混合式網路功能環境](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 在混合式案例中，從內部部署資料中心的應用程式會需要在 Azure 中資源的存取權。  這是您想要將您的資料中心延伸至 Azure，還是您想要使用 Azure 的原生服務或災害復原。 請參閱[VPN 閘道規劃選項](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)有關如何連接到透過站對站 VPN 或 ExpressRoute 在 Azure 中部署資源的多個內部資源。
 
@@ -117,10 +117,10 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 根據組態。 中樞和支點中的資源，您可以從內部部署連線資源。
 
-在拓撲中，如上所示，在內部部署網路連線至中樞 VNet，在 Azure 中，而且有 2 個支點與中樞 VNet 的 Vnet 對等互連。  在此案例中，支援 Azure NetApp 檔案磁碟區的連線能力選項如下所示：
+在如上所示的拓撲，在內部部署網路連線至中樞 VNet，在 Azure 中，並有 2 個輪輻 Vnet 位於相同的區域與中樞 VNet 進行對等互連。  在此案例中，支援 Azure NetApp 檔案磁碟區的連線能力選項如下所示：
 
-* VM 1 和 VM 2 的內部部署資源可以連線到磁碟區 1 在中樞內透過站對站 VPN 或 ExpressRoute。 
-* VM 1 和 VM 2 的內部部署資源可以連線到磁碟區 2 或磁碟區 3。
+* VM 1 和 VM 2 的內部部署資源可以透過連線到磁碟區 1 在中樞站台對站 VPN 或 Expressroute。 
+* VM 1 和 VM 2 的內部部署資源可以透過站對站 VPN 和區域 Vnet 對等互連連線到磁碟區 2 或磁碟區 3。
 * VM 3，在中樞 VNet 可以連接到輪輻 VNet 1 中的 2 的磁碟區和磁碟區 3 輪輻 VNet 2 中。
 * 從輪輻 VNet 1 VM 4 和 5 輪輻 VNet 2 VM 可以中樞 VNet 中連接到磁碟區 1。
 

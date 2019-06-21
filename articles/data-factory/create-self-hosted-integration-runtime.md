@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967955"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190827"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -44,7 +44,7 @@ ms.locfileid: "65967955"
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>使用 Azure Resource Manager 範本 (自動化) 在 Azure VM 上設定自我裝載 IR
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來設定 Azure VM 上的自我裝載 IR 
 您可以使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime)在 Azure 虛擬機器上自動進行自我裝載 IR 設定。 此範本可讓您在 Azure 虛擬網路內，輕鬆擁有具高可用性和延展性功能的全功能自我裝載 IR (只要您設定的節點計數等於或高於 2)。
 
 ## <a name="command-flow-and-data-flow"></a>命令流程和資料流程
@@ -86,6 +86,7 @@ ms.locfileid: "65967955"
 
 - 為自我裝載整合執行階段設定主機電腦上的電源計劃，使電腦不休眠。 如果主機電腦休眠，自我裝載整合執行階段就會離線。
 - 請定期備份與自我裝載整合執行階段相關聯的認證。
+- 自動化自我裝載的 IR 的安裝程式作業，請參閱[區段下方](#automation-support-for-self-hosted-ir-function)。  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>從下載中心安裝和註冊自我裝載 IR
 
@@ -109,6 +110,45 @@ ms.locfileid: "65967955"
     b. (選擇性) 選取 [顯示驗證金鑰]  以查看金鑰文字。
 
     c. 選取 [註冊]  。
+
+## <a name="automation-support-for-self-hosted-ir-function"></a>自動化支援自我裝載 IR 函式
+
+
+> [!NOTE]
+> 如果您打算安裝自我裝載整合執行階段在 Azure 虛擬機器上並想要自動執行安裝程式，使用 Azure Resource Manager 範本，請參閱[一節](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template)。
+
+您可以使用命令列設定或管理現有的自我裝載 ir。 這可以使用特別為自動化安裝，註冊自我裝載 IR 的節點。 
+
+**Dmgcmd.exe**包含在自我裝載的安裝中，通常位於：C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ 資料夾。 這支援各種不同的參數，而且可以透過使用批次指令碼進行自動化的命令提示字元中叫用。 
+
+*使用方式：* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *詳細資料 (參數 / 屬性):* 
+
+| 屬性                                                    | 描述                                                  | 必要項 |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | 使用指定的驗證金鑰註冊 Integration Runtime （自我裝載） 節點 | 否       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 啟用目前的節點上設定高可用性叢集及/或啟用的直接對自我裝載的 IR （而不需要經過 ADF 服務） 使用的認證設定的遠端存取**新 AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet 從遠端電腦的相同網路中。 | 否       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 節點正在執行容器中時，啟用目前節點的遠端存取 | 否       |
+| DisableRemoteAccess                                         | 停用目前節點的遠端存取。 遠端存取所需的多節點安裝程式。 [新增]-**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet 仍能運作甚至當遠端存取已停用，只要它自我裝載 IR 節點相同的電腦上執行。 | 否       |
+| 索引鍵"`<AuthenticationKey>`」                                 | 覆寫/更新先前的驗證金鑰。 請小心，這可能會導致您先前自我裝載 IR 的節點離線，如果索引鍵的一個新的 integration runtime。 | 否       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | 產生目前節點的備份檔案，備份檔案會包含節點的索引鍵和資料存放區認證 | 否       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | 從備份檔案還原節點                          | 否       |
+| 重新啟動                                                     | 重新啟動 Integration Runtime （自我裝載） 主機服務   | 否       |
+| Start                                                       | 啟動 Integration Runtime （自我裝載） 主機服務     | 否       |
+| Stop                                                        | 停止 Integration Runtime （自我裝載） 更新服務        | 否       |
+| StartUpgradeService                                         | 啟動 Integration Runtime （自我裝載） 更新服務       | 否       |
+| StopUpgradeService                                          | 停止 Integration Runtime （自我裝載） 更新服務        | 否       |
+| TurnOnAutoUpdate                                            | 開啟 Integration Runtime （自我裝載） 自動更新        | 否       |
+| TurnOffAutoUpdate                                           | 關閉 Integration Runtime （自我裝載） 自動更新       | 否       |
+| SwitchServiceAccount "<domain\user>" ["password"]           | 將 DIAHostService 以新的帳戶身分執行的設定。 使用空白密碼 ("") 的系統帳戶或虛擬帳戶 | 否       |
+| Loglevel `<logLevel>`                                       | 設定 ETW 記錄層級 (Off、 錯誤、 Verbose 或 All）。 通常供偵錯時的 Microsoft 支援服務。 | 否       |
+
+   
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
@@ -341,7 +381,7 @@ download.microsoft.com | 443 | 用於下載更新
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用設定認證應用程式以外的機制來設定資料存放區認證。 例如，您可以使用**新增 AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet。
 

@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142516"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273291"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>教學課程：使用 AES-128 動態加密和金鑰傳遞服務
+
+> [!NOTE]
+> 雖然本教學課程會使用[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet)範例中，一般的步驟也適用於[REST API](https://docs.microsoft.com/rest/api/media/liveevents)， [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)，或其他支援[Sdk](media-services-apis-overview.md#sdks).
 
 您可以利用 128 位元加密金鑰，使用媒體服務提供 HTTP 即時串流 (HLS)、MPEG-DASH，和透過 AES 加密的 Smooth Streaming。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 如果您想要媒體服務動態加密您的影片，您會串流定位器相關聯的加密金鑰，並也設定內容的索引鍵原則。 當播放程式要求串流時，Media Services 會使用指定的索引鍵來將您的內容，使用 AES-128 動態加密。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了判斷使用者是否有權取得金鑰，服務會評估您為金鑰指定的內容金鑰原則。
 

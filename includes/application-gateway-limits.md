@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9a8d925e5d72500817028b913a80255a4339255c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689113"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148403"
 ---
 | 資源 | 預設值/最大限制 | 附註 |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "66689113"
 | 後端 HTTP 設定 |100<sup>1</sup> | |
 | 每個閘道的執行個體 |32 | |
 | SSL 憑證 |100<sup>1</sup> |每個 HTTP 接聽程式 1 |
-| SSL 憑證大小上限 |V1 SKU-10 KB<br>V2 SKU-25 KB| |
+| SSL 憑證大小上限 |V1 SKU-10 KB<br>V2 SKU-16 KB| |
 | 驗證憑證 |100 | |
 | 受信任的根憑證 |100 | |
 | 最小的要求逾時 |1 秒 | |

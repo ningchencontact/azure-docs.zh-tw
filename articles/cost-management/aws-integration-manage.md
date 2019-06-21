@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64870308"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275703"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>管理 AWS 成本和在 Azure 中的使用方式
 
@@ -129,6 +129,8 @@ _開始之前_:如果您不熟悉成本分析，請參閱[探索及分析成本�
 
 ### <a name="no-permission-to-aws-linked-accounts"></a>AWS 連結的帳戶沒有權限
 
+**錯誤碼：** _未經授權_
+
 有兩種方式，以取得權限來存取連結的 AWS 帳戶費用：
 
 - 取得管理群組，其包含 AWS 連結的帳戶。
@@ -136,7 +138,11 @@ _開始之前_:如果您不熟悉成本分析，請參閱[探索及分析成本�
 
 根據預設，AWS 連接器建立者會是此連接器建立的所有物件的擁有者。 其中包括 AWS 合併的帳戶和 AWS 連結帳戶。
 
+為了能夠確認連接器設定中，您需要至少一個參與者角色，讀取器無法驗證連接器設定
+
 ### <a name="collection-failed-with-assumerole"></a>集合與 AssumeRole 失敗
+
+**錯誤碼：** _FailedToAssumeRole_
 
 此錯誤表示 Cost Management 是無法呼叫 AWS AssumeRole API。 這個問題可能是因為角色定義的問題。 請確認下列條件成立：
 
@@ -147,11 +153,23 @@ _開始之前_:如果您不熟悉成本分析，請參閱[探索及分析成本�
 
 ### <a name="collection-failed-with-access-denied"></a>失敗，發生拒絕存取的集合
 
+- **錯誤碼：** _AccessDeniedReportDefinitions_ 
+- **錯誤碼：** _AccessDeniedListReports_ 
+- **錯誤碼：** _AccessDeniedDownloadReport_ 
+
 此錯誤訊息表示 Cost Management 是無法存取所儲存的 Amazon S3 貯體的 CUR 檔案。 請確定連接至角色的 AWS JSON 原則類似於在底部顯示的範例[在 AWS 中建立的角色和原則](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws)一節。
 
-### <a name="connector-error-with-failedtofindreport"></a>FailedToFindReport 連接器錯誤
+### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>集合失敗，因為我們找不到的成本和使用方式報表
+
+**錯誤碼：** _FailedToFindReport_
 
 此錯誤表示成本管理找不到成本和使用方式報表中的連接器所定義。 請確定它不會刪除並附加至角色的 AWS JSON 原則類似於在底部顯示的範例[在 AWS 中建立的角色和原則](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws)一節。
+
+### <a name="unable-to-create-or-verify-connector-due-to-cost-and-usage-report-definitions-mismatch"></a>無法建立或確認因為成本和使用方式報表定義不相符的連接器
+
+**錯誤碼：** _ReportIsNotValid_
+
+此錯誤與 AWS 成本和使用量 報表中，定義相關我們對此報表需要特定的設定，請參閱中的需求[在 AWS 中建立成本和使用方式報表](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## <a name="next-steps"></a>後續步驟
 

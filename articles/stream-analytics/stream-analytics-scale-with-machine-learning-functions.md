@@ -7,19 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: db14f8240dea95eb073a0a653c2798f02fbb7c35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479103"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67162579"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>使用 Azure Machine Learning 函式調整串流分析作業
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>調整 Stream Analytics 作業使用 Azure Machine Learning Studio 函式
 設定串流分析作業並透過它執行一些範例資料很簡單。 當我們需要以較高的資料量來執行相同的作業時，我們該怎麼辦？ 我們必須了解如何設定串流分析作業，以便進行調整。 本文件的重點在於使用 Machine Learning 函數調整串流分析作業的特殊層面。 如需有關如何調整串流分析作業的一般資訊，請參閱 [調整作業](stream-analytics-scale-jobs.md)文章。
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>什麼是串流分析中的 Azure Machine Learning 函式？
-串流分析中的 Machine Learning 函式可如同一般函式呼叫使用於串流分析查詢語言中。 不過，在幕後，函式呼叫實際上是 Azure Machine Learning Web 服務要求。 Machine Learning Web 服務在相同的 Web 服務 API 呼叫中支援「批次處理」多個資料列 (稱之為迷你批次)，以改善整體輸送量。 如需詳細資訊，請參閱 < [Azure Machine Learning Web 服務](../machine-learning/studio/consume-web-services.md)。
+串流分析中的 Machine Learning 函式可如同一般函式呼叫使用於串流分析查詢語言中。 不過，如果幕後，函式呼叫就是實際上是 Azure Machine Learning Studio Web 服務要求。 Machine Learning Web 服務在相同的 Web 服務 API 呼叫中支援「批次處理」多個資料列 (稱之為迷你批次)，以改善整體輸送量。 如需詳細資訊，請參閱 < [Azure Machine Learning Studio Web 服務](../machine-learning/studio/consume-web-services.md)。 Stream Analytics 中的 Azure Machine Learning Studio 支援處於預覽狀態。
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>使用 Machine Learning 函式設定串流分析作業
 設定串流分析作業的 Machine Learning 函式時，需要考量兩個參數：Machine Learning 函式呼叫的批次大小，以及針對串流分析作業所佈建的串流單元 (SU)。 若要決定 SU 的適當值，必須先決定延遲與輸送量，也就是串流分析作業的延遲，以及每個 SU 的輸送量。 雖然額外的 SU 會增加執行作業的成本，但 SU 一律會新增至作業，以提高妥善分割之串流分析查詢的輸送量。

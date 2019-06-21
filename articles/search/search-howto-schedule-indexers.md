@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755376"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302253"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>如何排程 Azure 搜尋服務索引子
 索引子正常執行一次，只有在建立後立即。 您可以視需要執行一次使用入口網站、 REST API 或.NET SDK。 您也可以設定索引子以依排程定期執行。
@@ -43,6 +43,9 @@ ms.locfileid: "66755376"
 * 第一次索引子執行開始時間約於 2019 年 6 月 1 日的上午 8:00 UTC。 假設此執行需要 20 分鐘 (或任何小於 1 小時的時間)。
 * 第二次執行開始時間約於 2019 年 6 月 1 日上午 9:00 UTC。 假設此執行需要 70 分鐘的時間-超過一小時，而它將不會完成直到上午 10:10 UTC。
 * 第三次執行排定在上午 10:00 UTC 開始，但在該時間前一次的執行仍在執行中。 此排程然後略過執行。 11:00 AM UTC 直到將不會啟動執行下的一個索引子。
+
+> [!NOTE]
+> 如果索引子設為特定的排程，但重複相同的失敗的文件不斷地每次它執行、 索引子就會開始在較不頻繁的間隔內 （最多一次至少每隔 24 小時的最大值） 直到成功執行可讓您進行 aga在中。  如果您認為您修正任何相關的問題造成要會卡在某個時點的索引子，您可以執行上的需求執行索引子，而如果已成功進行索引子將會回到其設定的排程間隔一次。
 
 <a name="portal"></a>
 

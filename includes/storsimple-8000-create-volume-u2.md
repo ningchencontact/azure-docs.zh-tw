@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118254"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174032"
 ---
 #### <a name="to-create-a-volume"></a>建立磁碟區
 1. 從 [裝置]  刀鋒視窗的表格式裝置清單中，選取您的裝置。 按一下 [+ 新增磁碟區]  。

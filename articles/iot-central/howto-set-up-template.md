@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中設定裝置範本 | Microsoft Docs
 description: 了解如何使用量測、設定、屬性、規則和儀表板來設定裝置範本。
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466486"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275956"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
 
@@ -211,7 +211,7 @@ ms.locfileid: "65466486"
 
 3. 設定顯示名稱和欄位名稱，然後選取 [位置]  作為資料類型：
 
-    | 顯示名稱  | 欄位名稱 | 数据类型 |
+    | 顯示名稱  | 欄位名稱 | 資料類型 |
     | --------------| -----------|-----------|
     | 裝置位置 | deviceLocation | location  |
 
@@ -234,7 +234,7 @@ ms.locfileid: "65466486"
 
 比方說，您可以加入新**Echo**藉由選取命令**命令** 索引標籤，然後選取 **+ 新增 命令**，並輸入新的命令詳細資料：
 
-| 顯示名稱  | 欄位名稱 | 預設逾時 | 数据类型 |
+| 顯示名稱  | 欄位名稱 | 預設逾時 | 資料類型 |
 | --------------| -----------|---------------- | --------- |
 | 回應命令  | 回應       |  30             | text      |
 

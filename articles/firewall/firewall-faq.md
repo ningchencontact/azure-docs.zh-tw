@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384681"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304587"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -76,7 +76,6 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 
 Azure 防火牆是受管理的服務具有多個保護層，包括具有 NIC 層級的 Nsg （不可見） 的平台保護。  子網路層級的 Nsg 不需要 Azure 防火牆子網路上，以確保無服務中斷情況已停用。
 
-
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>如何使用我的服務端點設定 Azure 防火牆？
 
 若要安全存取 PaaS 服務，建議使用服務端點。 您可以選擇在「Azure 防火牆」子網路中啟用服務端點，並在已連線的支點虛擬網路上停用它們。 如此一來，您便可以享有這兩項功能的好處 -- 服務端點安全性和所有流量的集中記錄。
@@ -123,6 +122,10 @@ Set-AzFirewall -AzureFirewall $azfw
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure 防火牆可以在同一個虛擬網路或對等虛擬網路的子網路之間轉寄和篩選網路流量嗎？
 
 是。 不過，設定相同的 VNET 中的子網路之間的流量重新導向至 Udr 需要多加注意。 雖然對 UDR 而言，使用 VNET 位址範圍作為目標前置詞已足夠，但這也會使得所有流量透過 Azure 防火牆執行個體從一部機器路由至相同子網路中的另一部機器。 若要避免此狀況，需在下一個躍點類型為 **VNET** 的 UDR 中包括子網路的路由。 管理這些路由可能會很麻煩，而且容易出錯。 對於內部網路區隔的建議方法是使用網路安全性群組，而這不需要 UDR。
+
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>私人網路之間的 Azure 防火牆輸出 SNAT 嗎？
+
+每個私人 IP 範圍的目的地 IP 位址時，azure 的防火牆不 SNAT [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)。 如果您的組織使用的私人網路的公用 IP 位址範圍，Azure 防火牆 SNATs AzureFirewallSubnet 中位址的流量，防火牆的私人 ip 位址的其中一個。
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>強制通道/鏈結至支援網路虛擬設備嗎？
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114525"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150448"
 ---
 下表說明 Azure 的一般用途 v1，v2 和 Blob 儲存體帳戶的預設限制。 *輸入*限制是指所有資料傳送至儲存體帳戶的要求。 *輸出*限制是指所有資料從儲存體帳戶中所收到的回應。
 
@@ -32,15 +32,15 @@ ms.locfileid: "66114525"
 <sup>1</sup>azure 標準儲存體帳戶支援的輸入要求，以較高的限制。 若要要求提高帳戶的輸入限制，請連絡 [Azure 支援](https://azure.microsoft.com/support/faq/)。
 
 <sup>2</sup> [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/common/storage-redundancy)選項包括：
-* **RA-GRS**：讀取權限異地備援儲存體。 如果已啟用 RA-GRS，次要位置的輸出目標會與主要位置的輸出目標完全相同。
-* **GRS**：異地備援儲存體。 
-* **ZRS**：區域備援儲存體。
-* **LRS**：本地備援儲存體。 
+- **RA-GRS**：讀取權限異地備援儲存體。 如果已啟用 RA-GRS，次要位置的輸出目標會與主要位置的輸出目標完全相同。
+- **GRS**：異地備援儲存體。
+- **ZRS**：區域備援儲存體。
+- **LRS**：本地備援儲存體。
 
 > [!NOTE]
 > 我們建議您在大部分情況下，使用一般用途 v2 儲存體帳戶。 一般用途 v2 帳戶產生任何停機時間，而且不需要複製資料，您可以輕鬆地升級一般用途 v1 或 Azure Blob 儲存體帳戶。
 >
-> 如需有關 Azure 儲存體帳戶的詳細資訊，請參閱 <<c0> [ 儲存體帳戶概觀](../articles/storage/common/storage-account-overview.md)。 
+> 如需有關 Azure 儲存體帳戶的詳細資訊，請參閱 <<c0> [ 儲存體帳戶概觀](../articles/storage/common/storage-account-overview.md)。
 
 如果您應用程式的需求超過單一儲存體帳戶的延展性目標，您可以將應用程式建置為使用多個儲存體帳戶。 接著您可以在這些儲存體帳戶之間分割資料物件。 如需批量價格的詳細資訊，請參閱[Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 563849d3875ed0156d81770f58340633d90d515b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174432"
 ---
 以下是可寫入的 Azure 物件大小。 請確定所有上傳的檔案均符合這些限制。
 

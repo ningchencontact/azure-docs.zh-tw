@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7121bfceb177a7dc06d1c2a65b7c3edfca1d8c31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64252f42f5b3690e8ba6d929e27f7f41b649922e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063641"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302297"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell"></a>快速入門：建立使用 PowerShell 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67063641"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-本文將逐步引導您完成建立、 載入和查詢 Azure 搜尋服務的程序[index](search-what-is-an-index.md)使用 PowerShell 和[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 語式正確的 JSON 內容形式，會將索引定義和可搜尋的內容提供要求主體中。
+本文將逐步引導您完成建立、 載入和查詢使用 PowerShell 的 Azure 搜尋服務索引的程序和[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何 interatively 執行 PowerShell 命令。 或者，您可以執行已完成的指令碼。 若要下載複本，請前往[azure 搜尋服務-powershell 範例](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)存放庫。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
 
@@ -374,23 +374,23 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ```powershell
 # Query example 1
-# Search the entire index for the terms 'hotels' and 'wifi'
-# Return only the HotelName and HotelId fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=hotels wifi&$count=true&$select=HotelName,HotelId'
+# Search the entire index for the terms 'restaurant' and 'wifi'
+# Return only the HotelName, Description, and Tags fields
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
-# Returns the HotelId and Description. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+# Returns the HotelName and Rating. Two documents match.
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
-# Take the top two results, and show only HotelId,HotelName,Description in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+# Take the top two results, and show only HotelName and Category in the results
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
-# Sort by a specific field (`lastRenovationDate`) in descending order
+# Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up"></a>清除 
 
@@ -406,21 +406,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
 
 ## <a name="next-steps"></a>後續步驟
 
-請嘗試加入索引中的法文的描述。 下列範例包含法文字串，並示範其他搜尋動作。 若要建立或新增至現有的欄位使用 mergeOrUpload。 下列字串必須是 utf-8 編碼。
+在本快速入門中，您可以使用 PowerShell 逐步執行建立和存取在 Azure 搜尋服務內容的基本工作流程。 記住的概念，建議您移到更進階的案例，例如 Azure 資料來源; 編製索引
 
-```json
-{
-    "value": [
-        {
-            "@search.action": "mergeOrUpload",
-            "hotelId": "1",
-            "description_fr": "Meilleur hôtel en ville"
-        },
-        {
-            "@search.action": "merge",
-            "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville"
-        }
-    ]
-}
-```
+> [!div class="nextstepaction"]
+> [REST 教學課程：編製索引和搜尋 Azure 搜尋服務中的半結構化的資料 (JSON blob)](search-semi-structured-data.md)

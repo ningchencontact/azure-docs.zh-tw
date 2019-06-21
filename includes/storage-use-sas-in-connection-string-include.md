@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115515"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174197"
 ---
 如果您具有授與您存取儲存體帳戶中資源的共用存取簽章 (SAS) URL，您可以在連接字串中使用 SAS。 因為 SAS 包含驗證要求所需的資訊，所以含有 SAS 的連接字串會提供通訊協定、服務端點，以及存取資源所需的認證。
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015631"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295551"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>使用自願性移轉工具來移轉傳統警示規則
 
@@ -38,7 +38,7 @@ ms.locfileid: "66015631"
 
 - 通知承載格式和使用 Api 來建立和管理新的警示規則是不同於傳統的警示規則，因為它們支援更多的功能。 [了解如何準備移轉](alerts-prepare-migration.md)。
 
-- 某些傳統的警示規則不能移轉使用的工具。 [了解哪些規則無法移轉，以及要如何處理它們](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated)。
+- 某些傳統的警示規則不能移轉使用的工具。 [了解哪些規則無法移轉，以及要如何處理它們](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)。
 
     > [!NOTE]
     > 移轉程序不會影響您的傳統警示規則的評估。 它們會繼續執行並傳送警示，直到他們在移轉和新的警示規則才會生效。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478412"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154774"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric 已在 .NET SDK 中淘汰。 您應該一律預先彙總一段時間的計量，再加以傳送。 使用其中一個 GetMetric(..) 多載來取得可供存取 SDK 預先彙總功能的計量物件。 如果您要實作自己的預先彙總邏輯，則可使用追蹤 (ITelemetry metricTelemetry) 方法來傳送所產生的彙總。 如果您的應用程式需要每次傳送個別遙測項目 (未隨時間彙總)，則可能有事件遙測的使用案例；請參閱 TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry)。
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric 不傳送計量的慣用的方法。 您應該一律預先彙總一段時間的計量，再加以傳送。 使用其中一個 GetMetric(..) 多載來取得可供存取 SDK 預先彙總功能的計量物件。 如果您要實作您自己預先彙總的邏輯，您可以使用 trackmetric （） 方法來傳送產生的彙總。 如果您的應用程式需要每次傳送個別遙測項目 (未隨時間彙總)，則可能有事件遙測的使用案例；請參閱 TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry)。
 
 Application Insights 可以將未附加至特定事件的計量繪製成圖表。 例如，您可以定期監視佇列長度。 當您使用計量時，個別測量的重要性就不如變化和趨勢，因此統計圖表很有用。
 
