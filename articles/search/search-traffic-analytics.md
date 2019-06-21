@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749553"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295429"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>在 Azure 搜尋服務中實作搜尋流量分析
 搜尋流量分析是一種模式，可用來實作搜尋服務的意見反應管道。 這個模式描述必要的資料，以及如何使用監視多平台服務中的業界領導者 Application Insights 來加以收集。
@@ -79,7 +79,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 每當使用者發出搜尋要求時，您應該將其記錄為搜尋事件，並包含下列關於 Application Insights 自訂事件的結構描述︰
 
-**ServiceName**：(字串) 搜尋服務名稱 **SearchId**：(GUID) 搜尋查詢的唯一識別碼 (包含在搜尋回應中) **IndexName**︰(字串) 要查詢的搜尋服務索引 **QueryTerms**：(字串) 使用者所輸入的搜尋詞彙 **ResultCount**︰(int) 所傳回的文件數目 (包含在搜尋回應中) **ScoringProfile**︰(字串) 所使用的評分設定檔名稱 (如果有)
+**SearchServiceName**: （字串） 搜尋服務名稱**SearchId**: (guid) 的搜尋查詢的唯一識別碼 （出現在搜尋回應中） **IndexName**: （字串） 搜尋服務索引查詢**QueryTerms**: （字串） 使用者輸入的搜尋字詞**ResultCount**: (int) 所傳回的文件數目 （出現在搜尋回應中） **ScoringProfile**： 如果有任何使用評分設定檔名稱 （字串）
 
 > [!NOTE]
 > 將 $count=true 新增至搜尋查詢，要求使用者所產生查詢的計數。 請在[這裡](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)參閱詳細資訊

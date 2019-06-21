@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054739"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205004"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自動調整和區域備援應用程式閘道的 v2 
 
@@ -24,7 +24,7 @@ ms.locfileid: "67054739"
 - **區域備援**：部署 WAF 的應用程式閘道可以跨越多個可用性區域，而不需要佈建每個區域使用流量管理員中的個別應用程式閘道執行個體。 您可以選擇單一區域或多個區域部署的應用程式閘道執行個體的位置，讓區域失敗更有彈性。 應用程式的後端集區可以均等分散在可用性區域間。
 
   區域備援可只所在 Azure 區域可用。 在其他區域，支援所有其他功能。 如需詳細資訊，請參閱[什麼是 Azure 中可用性區域？](../availability-zones/az-overview.md#services-support-by-region)
-- **靜態 VIP**：應用程式閘道 v2 SKU 支援靜態 VIP 以獨佔方式輸入。 這可確保應用程式閘道相關聯的 VIP 不會變更生命週期的部署，即使重新啟動。
+- **靜態 VIP**：應用程式閘道 v2 SKU 僅支援靜態 VIP 類型。 這可確保應用程式閘道相關聯的 VIP 不會變更生命週期的部署，即使重新啟動。  沒有靜態 VIP 在 v1 中，因此您必須使用應用程式閘道 URL 而非 IP 位址的網域名稱路由至 App Service 透過應用程式閘道。
 - **標頭重寫**:應用程式閘道可讓您新增、 移除或更新 HTTP 要求和回應標頭與 v2 SKU。 如需詳細資訊，請參閱[重寫的 HTTP 標頭，與應用程式閘道](rewrite-http-headers.md)
 - **金鑰保存庫整合 （預覽）** :應用程式閘道 v2 支援與整合 Key Vault （公開預覽） 中的之伺服器憑證附加到啟用 HTTPS 接聽程式。 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。
 - **Azure Kubernetes 服務輸入控制器 （預覽）** :應用程式閘道 v2 輸入控制器可讓 Azure 應用程式閘道，來作為輸入的 Azure Kubernetes Service (AKS) 稱為 AKS 叢集。 如需詳細資訊，請參閱 <<c0> [ 文件頁面](https://azure.github.io/application-gateway-kubernetes-ingress/)。
@@ -42,7 +42,7 @@ Standard_v2 和 WAF_v2 SKU 會在以下區域上市：美國中北部、美國�
 V2 SKU 的定價模型驅動耗用量與不再附加至執行個體計數或大小。 V2 SKU 價格有兩個元件：
 
 - **固定的價格**-這是每小時 （或一小時部分） 來佈建 Standard_v2 或 WAF_v2 閘道的價格。
-- **容量單位價格**-這是除了固定成本的計費取用量為基礎的費用。 容量單位費用也計算每小時或部分每小時。 有三個容量單位的維度-計算單位、 持續的連線和輸送量。 計算單位所耗用的處理器容量的量值。 因素會影響計算單位是 TLS 連線數/秒 」、 「 URL 重寫的計算和 「 WAF 規則處理。 持續連線是在給定的計費時間間隔中的應用程式閘道建立 TCP 連線量值。 輸送量會平均 Mb/秒在給定的計費時間間隔處理系統。
+- **容量單位價格**-這是除了固定成本的計費取用量為基礎的費用。 容量單位收費也以小時或部分小時計。 容量單位分為三個面向 - 計算單位、持續連線與產量。 計算單位會計算耗用的處理器容量。 因素會影響計算單位是 TLS 連線數/秒 」、 「 URL 重寫的計算和 「 WAF 規則處理。 持續連線是在給定的計費時間間隔中的應用程式閘道建立 TCP 連線量值。 輸送量會平均 Mb/秒在給定的計費時間間隔處理系統。
 
 每個容量單位最多組成：1 個計算單位或 2500年持續連線或 2.22 Mbps 輸送量。
 

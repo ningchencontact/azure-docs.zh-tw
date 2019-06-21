@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155873"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174019"
 ---
 > [!NOTE]
 > 變更 StorSimple Adapter for SharePoint 的 RBS 組態時，您必須利用屬於 Domain Admins 群組的使用者帳戶登入。 此外，您必須從瀏覽器 (在和管理中心相同的主機上執行) 存取組態頁面。

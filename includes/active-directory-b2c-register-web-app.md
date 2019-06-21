@@ -2,15 +2,14 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-origin.date: 11/03/2016
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 11/03/2016
+ms.author: patricka
 ms.openlocfilehash: 4d5c8373f2a8f02ccfbe51cb970ab08744950e7e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128210"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203834"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -20,10 +19,10 @@ ms.locfileid: "62128210"
 
 | 設定      | 範例值  | 描述                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **名稱** | Contoso B2C 應用程式 | 輸入應用程式的 [名稱]，此名稱可為取用者說明您的應用程式。 | 
-| **包含 Web 應用程式 / Web API** | 是 | 針對 Web 應用程式選取 [是]。 |
-| **允許隱含流程** | 是 | 如果您的應用程式使用 [OpenID Connect 登入](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)，請選取 [是] |
-| **回覆 URL** | `https://localhost:44316` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 輸入[適當的](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) [回覆 URL]。 在此範例中，您的應用程式位於本機並在通訊埠 44316 上進行接聽。 |
+| **名稱** | Contoso B2C 應用程式 | 輸入應用程式的 [名稱]  ，此名稱可為取用者說明您的應用程式。 | 
+| **包含 web 應用程式/web API** | 是 | 針對 Web 應用程式選取 [是]  。 |
+| **允許隱含流程** | 是 | 如果您的應用程式使用 [OpenID Connect 登入](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)，請選取 [是]  |
+| **回覆 URL** | `https://localhost:44316` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 輸入[適當的](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) [回覆 URL]  。 在此範例中，您的應用程式位於本機並在通訊埠 44316 上進行接聽。 |
 
 按一下 [建立]  以註冊您的應用程式。
 
@@ -31,5 +30,4 @@ ms.locfileid: "62128210"
 
 ![Web 應用程式屬性](./media/active-directory-b2c-register-web-app/b2c-web-app-properties.png)
 
-請記下全域唯一的 [應用程式用戶端識別碼]。 您可在您的應用程式程式碼中使用此識別碼。
-
+請記下全域唯一的 [應用程式用戶端識別碼]  。 您可在您的應用程式程式碼中使用此識別碼。

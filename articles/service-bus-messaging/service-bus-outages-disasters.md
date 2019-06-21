@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589731"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274838"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>將應用程式與服務匯流排中斷和災難隔絕的最佳做法
 
@@ -54,9 +54,9 @@ ms.locfileid: "60589731"
 ### <a name="active-replication"></a>主動複寫
 主動複寫會針對每個作業使用兩個命名空間中的實體。 傳送訊息的任何用戶端會傳送相同訊息的兩個複本。 第一個複本傳送至主要實體 (例如 **contosoPrimary.servicebus.windows.net/sales**)，而訊息的第二個複本傳送至次要實體 (例如 **contosoSecondary.servicebus.windows.net/sales**)。
 
-用戶端會從這兩個佇列接收訊息。 接收者會處理訊息的第一個複本，並隱藏第二個複本。 若要隱藏重複的訊息，傳送者必須利用唯一的識別碼標記每個訊息。 訊息的兩個複本必須以相同的識別碼標記。 您可以使用 [BrokeredMessage.MessageId][BrokeredMessage.MessageId]、[BrokeredMessage.Label][BrokeredMessage.Label] 屬性或自訂屬性來標記訊息。 接收者必須維護其已收到的訊息清單。
+用戶端會從這兩個佇列接收訊息。 接收者會處理訊息的第一個複本，並隱藏第二個複本。 若要隱藏重複的訊息，傳送者必須利用唯一的識別碼標記每個訊息。 訊息的兩個複本必須以相同的識別碼標記。 您可以使用[BrokeredMessage.MessageId][BrokeredMessage.MessageId]或是[BrokeredMessage.Label][BrokeredMessage.Label]屬性或自訂屬性來標記訊息。 接收者必須維護其已收到的訊息清單。
 
-[搭配服務匯流排標準層的異地複寫][Geo-replication with Service Bus Standard Tier] \(英文\) 範例示範傳訊實體的主動複寫。
+[搭配服務匯流排標準層次的異地複寫][Geo-replication with Service Bus Standard Tier]範例示範訊息實體的主動複寫。
 
 > [!NOTE]
 > 主動複寫方法會讓作業數目加倍，因此這個方法會導致更高的成本。
@@ -75,10 +75,10 @@ ms.locfileid: "60589731"
 * **訊息延遲或遺失**：假設傳送者成功傳送訊息 m1 至主要佇列，佇列在接收者收到 m1 之前無法使用。 傳送者會將後續的訊息 m2 傳送至次要佇列。 如果主要佇列暫時無法使用，接收者會在佇列可再次使用之後收到 m1。 若發生災害，接收者可能永遠無法收到 m1。
 * **重複接收**：假設傳送者傳送訊息 m 到主要佇列。 服務匯流排已成功處理 m 但無法傳送回應。 傳送作業逾時之後，傳送者會將 m 的相同複本傳送至次要佇列。 如果接收者可以在主要佇列無法使用之前收到 m 的第一個複本，接收者會幾乎同時接收 m 的兩個複本。 如果接收者無法在主要佇列無法使用之前收到 m 的第一個複本，接收者一開始只會收到 m 的第二個複本，但會接著在主要佇列可以使用時會收到 m 的第二個複本。
 
-[搭配服務匯流排標準層的異地複寫][Geo-replication with Service Bus Standard Tier] \(英文\) 範例示範傳訊實體的被動複寫。
+[搭配服務匯流排標準層次的異地複寫][Geo-replication with Service Bus Standard Tier]範例示範訊息實體的被動複寫。
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>保護轉送端點免於發生資料中心中斷或災害
-轉送端點的異地複寫會讓公開轉送端點的服務可在服務匯流排中斷時使用。 若要達到異地複寫，服務必須在不同的命名空間中建立兩個轉送端點。 命名空間必須位於不同的資料中心而兩個端點必須具有不同的名稱。 比方說，主要端點在 **contosoPrimary.servicebus.windows.net/myPrimaryService** 之下達到，而其次要的對應項目可以在 **contosoSecondary.servicebus.windows.net/mySecondaryService** 之下達到。
+異地複寫[Azure 轉送](../service-bus-relay/relay-what-is-it.md)端點可讓公開轉送端點可連線到服務匯流排中斷的服務。 若要達到異地複寫，服務必須在不同的命名空間中建立兩個轉送端點。 命名空間必須位於不同的資料中心而兩個端點必須具有不同的名稱。 比方說，主要端點在 **contosoPrimary.servicebus.windows.net/myPrimaryService** 之下達到，而其次要的對應項目可以在 **contosoSecondary.servicebus.windows.net/mySecondaryService** 之下達到。
 
 然後服務會接聽這兩個端點，且用戶端可以透過任一端點叫用服務。 用戶端應用程式會隨機挑選其中一個轉送做為主要端點，並將其要求傳送至作用中的端點。 如果作業失敗並出現錯誤代碼，此失敗代表轉送端點無法使用。 應用程式會開啟備份端點的通道並重新發出要求。 作用中和備份端點會在這一點交換角色：用戶端應用程式會將舊的使用中端點視為新的備份端點，而將舊的備份端點視為新的作用中端點。 如果這兩個傳送作業都失敗，兩個實體的角色會保持不變並傳回錯誤。
 

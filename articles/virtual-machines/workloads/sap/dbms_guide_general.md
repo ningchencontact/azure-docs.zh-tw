@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836108"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202950"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -150,7 +150,7 @@ IOPS、 延遲和輸送量需求所定義的資料庫檔案和記錄檔和取消
 已經陳述的是，如果您的 IOPS 需求超過單一 VHD 可以提供，平衡所需的資料庫檔案，跨多個 Vhd 的 IOPS 數目。 將 IOPS 負載分散到磁碟的最簡單方式是透過不同的磁碟建置軟體等量磁碟區。 然後放置從中切割出軟體等量 Lun 上的 SAP DBMS 的資料檔案的數目。 在等量磁碟區的磁碟數目取決 IOPs 需求、 磁碟輸送量需求，以及磁碟區需求。
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 我們建議您跨多個 Azure Vhd 建立等量磁碟區，使用 Windows 儲存空間。 至少使用 Windows Server 2012 R2 或 Windows Server 2016。
@@ -164,7 +164,7 @@ IOPS、 延遲和輸送量需求所定義的資料庫檔案和記錄檔和取消
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Azure 儲存體會保留三個 Vhd 映像，因為它沒有意義時您等量磁碟區設定備援。 您只需要設定等量，以便將 I/o 分散到不同的 Vhd。
@@ -230,7 +230,7 @@ M 系列部署中，我們建議您為您的 DBMS 部署使用 Azure 寫入加�
 
 如需詳細資訊，請參閱 <<c0> [ 了解 Azure 中 Windows Vm 上的暫存磁碟機](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)。
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 在 Azure VM 中的磁碟機 D 是非保存的磁碟機，而由 Azure 計算節點上的一些本機磁碟。 因為它是保存在 D 磁碟機上的內容所做的任何變更都會遺失，當 VM 重新開機。 變更包含已儲存的檔案、 已建立的目錄和已安裝的應用程式。
@@ -241,7 +241,7 @@ M 系列部署中，我們建議您為您的 DBMS 部署使用 Azure 寫入加�
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Azure 提供兩個不同[負載平衡器 Sku](https://docs.microsoft.com/azure/l
 > 並非所有的 VM 類型都支援加速網路。 前一篇文章會列出支援加速網路的 VM 類型。
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > 若要了解如何部署具有加速網路的 Windows Vm，請參閱[建立使用加速網路的 Windows 虛擬機器](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell)。
@@ -350,7 +350,7 @@ Azure 提供兩個不同[負載平衡器 Sku](https://docs.microsoft.com/azure/l
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > 如果是 SUSE、Red Hat 和 Oracle Linux，最近版本都支援加速網路。 SLES 12 SP2 或 RHEL 7.2 等較舊的版本不支援 Azure 加速網路。

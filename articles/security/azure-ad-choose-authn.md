@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: cc41581232b331368b44fc7190eadb94516824c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119317"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274272"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -101,7 +101,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 * **考量**。 目前密碼雜湊同步處理不會立即強制執行內部部署帳戶狀態中的變更。 在此情況下，使用者可以存取雲端應用程式，直到使用者帳戶狀態同步到 Azure AD 為止。 組織可能想要克服這項限制，可以在系統管理員對內部部署使用者帳戶狀態執行大量更新之後，執行新的同步處理循環。 例如停用帳戶。
 
 > [!NOTE]
-> 目前系統不會使用 Azure AD Connect，將密碼過期和帳戶鎖定狀態同步到 Azure AD。 
+> 目前系統不會使用 Azure AD Connect，將密碼過期和帳戶鎖定狀態同步到 Azure AD。 當您變更使用者的密碼，並設定*使用者必須變更密碼在下次登入時*旗標，密碼雜湊將不會同步至 Azure AD 與 Azure AD Connect，直到使用者變更其密碼。
 
 如需部署步驟，請參閱[實作密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)。
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165437"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173924"
 ---
 在此步驟中，您會使用在相同網路上執行的用戶端應用程式來測試可用性群組接聽程式。
 

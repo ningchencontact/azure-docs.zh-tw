@@ -33,26 +33,33 @@
           href: learn/quick-collect-windows-computer.md
 - name: 教學課程
   items:
-    - name: 在記錄分析中分析資料
-      href: learn/tutorial-viewdata.md
-    - name: 在記錄分析中將資料視覺化
-      href: learn/tutorial-logs-dashboards.md
+    - name: 記錄
+      items:
+        - name: Log Analytics
+          href: log-query/get-started-portal.md
+        - name: 記錄查詢
+          href: log-query/get-started-queries.md
+        - name: 將記錄資料視覺化
+          href: learn/tutorial-logs-dashboards.md
+        - name: 記錄資料警示
+          href: learn/tutorial-response.md
+    - name: Application Insights
+      items:
+        - name: 尋找應用程式執行階段例外狀況
+          href: learn/tutorial-runtime-exceptions.md
+        - name: 尋找應用程式效能問題
+          href: learn/tutorial-performance.md
+        - name: 針對應用程式健康情況發出警示
+          href: learn/tutorial-alert.md
+        - name: 了解應用程式使用者
+          href: learn/tutorial-users.md
+        - name: 建立自訂儀表板
+          href: learn/tutorial-app-dashboards.md
+        - name: Application Insights
     - name: 封存平台計量和記錄資料
       href: learn/tutorial-archive-data.md
-    - name: 記錄資料警示
-      href: learn/tutorial-response.md
     - name: 針對效能和排程自動調整規模
       href: learn/tutorial-autoscale-performance-schedule.md
-    - name: 尋找應用程式執行階段例外狀況
-      href: learn/tutorial-runtime-exceptions.md
-    - name: 尋找應用程式效能問題
-      href: learn/tutorial-performance.md
-    - name: 針對應用程式健康情況發出警示
-      href: learn/tutorial-alert.md
-    - name: 了解應用程式使用者
-      href: learn/tutorial-users.md
-    - name: 建立自訂儀表板
-      href: learn/tutorial-app-dashboards.md
 - name: 範例
   items:
     - name: Azure PowerShell
@@ -199,6 +206,8 @@
               href: platform/stream-monitoring-data-event-hubs.md
             - name: 將自訂資料來源相互關聯
               href: app/custom-data-correlation.md
+            - name: 檢視服務通知
+              href: platform/service-notifications.md
         - name: 安裝及設定代理程式
           items:
             - name: 監視代理程式概觀
@@ -665,6 +674,99 @@
               href: insights/solutions.md
             - name: 目標解決方案
               href: insights/solution-targeting.md
+    - name: 分析資料
+      items:
+        - name: 度量
+          items:
+            - name: 開始使用計量瀏覽器
+              href: platform/metrics-getting-started.md
+            - name: 計量瀏覽器進階功能
+              href: platform/metrics-charts.md
+            - name: 計量圖表範例
+              href: platform/metric-chart-samples.md
+            - name: 針對計量圖表進行疑難排解
+              href: platform/metrics-troubleshoot.md
+        - name: 記錄
+          items:
+            - name: 記錄查詢概觀
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: 教學課程
+              items:
+                - name: Log Analytics 教學課程
+                  href: log-query/get-started-portal.md
+                - name: 記錄查詢教學課程
+                  href: log-query/get-started-queries.md
+            - name: 記錄資料
+              items:
+                - name: 記錄資料結構
+                  href: log-query/logs-structure.md
+                - name: 查詢範圍
+                  href: log-query/scope.md
+                - name: 標準屬性
+                  href: platform/log-standard-properties.md
+            - name: 查詢語言
+              items:
+                - name: 查詢語言文件
+                  href: log-query/query-language.md
+                - name: 語言差異
+                  href: log-query/data-explorer-difference.md
+                - name: 實用運算子
+                  href: log-query/functions.md
+                - name: Functions
+                  href: log-query/useful-operators.md
+                - name: 從記錄搜尋轉換
+                  href: log-query/log-search-transition.md
+                - name: 課程
+                  items:
+                    - name: 字串作業
+                      href: log-query/string-operations.md
+                    - name: 日期與時間作業
+                      href: log-query/datetime-operations.md
+                    - name: 彙總函式
+                      href: log-query/aggregations.md
+                    - name: 進階彙總
+                      href: log-query/advanced-aggregations.md
+                    - name: 聯結
+                      href: log-query/joins.md
+                    - name: JSON 與資料結構
+                      href: log-query/json-data-structures.md
+                    - name: 進階查詢撰寫
+                      href: log-query/advanced-query-writing.md
+                    - name: 圖表和資料圖表
+                      href: log-query/charts.md
+                    - name: 搜尋查詢
+                      href: log-query/search-queries.md
+                - name: 速查表
+                  items:
+                    - name: SQL
+                      href: log-query/sql-cheatsheet.md
+                    - name: Splunk
+                      href: log-query/splunk-cheatsheet.md
+            - name: 跨資源
+              items:
+                - name: 跨資源查詢
+                  href: log-query/cross-workspace-query.md
+                - name: 應用程式運算式
+                  href: log-query/app-expression.md
+                - name: 工作區運算式
+                  href: log-query/workspace-expression.md
+                - name: 統一應用程式資料資源
+                  href: log-query/unify-app-resource-data.md
+            - name: 範例和指引
+              items:
+                - name: 記錄查詢範例
+                  href: log-query/examples.md
+                - name: 智慧分析範例
+                  href: log-query/smart-analytics.md
+                - name: 寫入有效率的查詢
+                  href: log-query/log-query-performance.md
+                - name: 剖析文字資料
+                  href: log-query/parse-text.md
+            - name: 電腦群組
+              href: platform/computer-groups.md
+            - name: 流程連接器
+              href: platform/flow-tutorial.md
     - name: 顯現資料
       items:
         - name: Views
@@ -683,104 +785,10 @@
               href: platform/powerbi.md
             - name: 匯出應用程式資料
               href: app/export-power-bi.md
+        - name: 儀表板
+          href: app/app-insights-dashboards.md
         - name: 將資料傳送到 Grafana
           href: platform/grafana-plugin.md
-    - name: 分析資料
-      items:
-        - name: 度量
-          items:
-            - name: 開始使用計量瀏覽器
-              href: platform/metrics-getting-started.md
-            - name: 計量瀏覽器進階功能
-              href: platform/metrics-charts.md
-            - name: 計量圖表範例
-              href: platform/metric-chart-samples.md
-            - name: 針對計量圖表進行疑難排解
-              href: platform/metrics-troubleshoot.md
-        - name: 記錄
-          items:
-            - name: 記錄查詢
-              href: log-query/log-query-overview.md
-            - name: 記錄檔查詢入口網站
-              href: log-query/portals.md
-            - name: 查詢語言文件
-              href: log-query/query-language.md
-            - name: 語言差異
-              href: log-query/data-explorer-difference.md
-            - name: 從記錄搜尋轉換
-              href: log-query/log-search-transition.md
-            - name: 開始使用
-              items:
-                - name: 開始使用 Analytics 入口網站
-                  href: log-query/get-started-portal.md
-                - name: 開始使用查詢
-                  href: log-query/get-started-queries.md
-                - name: 搜尋查詢
-                  href: log-query/search-queries.md
-                - name: 實用運算子
-                  href: log-query/useful-operators.md
-            - name: 課程
-              items:
-                - name: 字串作業
-                  href: log-query/string-operations.md
-                - name: 日期與時間作業
-                  href: log-query/datetime-operations.md
-                - name: 彙總函式
-                  href: log-query/aggregations.md
-                - name: 進階彙總
-                  href: log-query/advanced-aggregations.md
-                - name: 聯結
-                  href: log-query/joins.md
-                - name: JSON 與資料結構
-                  href: log-query/json-data-structures.md
-                - name: 進階查詢撰寫
-                  href: log-query/advanced-query-writing.md
-                - name: 圖表和資料圖表
-                  href: log-query/charts.md
-                - name: Functions
-                  href: log-query/functions.md
-            - name: 速查表
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-            - name: 查詢語言
-              items:
-                - name: 範例
-                  href: log-query/examples.md
-                - name: 寫入有效率的查詢
-                  href: log-query/log-query-performance.md
-                - name: 智慧分析
-                  href: log-query/smart-analytics.md
-                - name: 跨資源搜尋
-                  href: log-query/cross-workspace-query.md
-                - name: 應用程式運算式
-                  href: log-query/app-expression.md
-                - name: 工作區運算式
-                  href: log-query/workspace-expression.md
-            - name: 記錄資料
-              items:
-                - name: 應用程式資料
-                  href: app/analytics.md
-                - name: 統一應用程式資料資源
-                  href: log-query/unify-app-resource-data.md
-                - name: 標準屬性
-                  href: platform/log-standard-properties.md
-                - name: 剖析文字資料
-                  href: log-query/parse-text.md
-            - name: 從搜尋結果採取行動
-              href: log-query/take-action.md
-            - name: 電腦群組
-              href: platform/computer-groups.md
-            - name: 流程連接器
-              href: platform/flow-tutorial.md
-            - name: 記錄檔搜尋 API
-              href: 'https://dev.loganalytics.io/'
-        - name: 檢視活動記錄中的事件
-          href: ../azure-resource-manager/resource-group-audit.md
-        - name: 檢視服務通知
-          href: platform/service-notifications.md
     - name: 回應事件
       items:
         - name: 警示
@@ -931,6 +939,8 @@
           items:
             - name: 逐步解說如何使用 REST API
               href: platform/rest-api-walkthrough.md
+            - name: 記錄檔搜尋 API
+              href: 'https://dev.loganalytics.io/'
             - name: 警示 API
               href: platform/api-alerts.md
         - name: '[應用程式]'
@@ -973,6 +983,8 @@
               href: platform/runbook-datacollect.md
 - name: 參考
   items:
+    - name: 服務限制
+      href: service-limits.md
     - name: Application Insights
       items:
         - name: 相依性自動收集

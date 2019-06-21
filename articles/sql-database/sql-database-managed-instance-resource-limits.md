@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070364"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272236"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>概觀 Azure SQL Database 受控執行個體的資源限制
 
@@ -105,7 +105,7 @@ Azure SQL Database 受控執行個體可以在兩個世代的硬體上部署：G
 
 \* 當您計劃您的部署時，請考慮業務關鍵 (BC) vCore （因為已新增備援） 會耗用 4 倍比一般用途 (GP) 虛擬核心的更多容量。 因此，您的計算，GP 1 個 vCore = 1 個虛擬核心單元測試和 1 BC vCore = 4 個 vCore 的單位。 若要簡化您耗用量的分析超越預設限制，摘要說明跨所有受管理的執行個體已部署並比較其結果與您的訂用帳戶類型的執行個體單位限制的所在區域中的子網路的虛擬核心單位。 **虛擬核心單位的最大數目**限制會套用至區域中的每個訂用帳戶。 沒有任何限制每個個別的子網路不同之處在於部署跨多個子網路的所有虛擬核心的總和必須是較低或等於**虛擬核心單位的數目上限**。
 
-\* * 較大子網路和虛擬核心的限制會在以下區域上市：澳大利亞東部、 美國東部、 美國東部 2、 北歐、 美國中南部、 東南亞、 英國南部、 西歐、 美國西部 2。
+\*\* 較大子網路和虛擬核心的限制會在以下區域上市：澳大利亞東部、 美國東部、 美國東部 2、 北歐、 美國中南部、 東南亞、 英國南部、 西歐、 美國西部 2。
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>取得較大的配額為 SQL 受控執行個體
 

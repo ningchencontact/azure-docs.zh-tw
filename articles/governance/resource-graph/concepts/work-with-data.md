@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137866"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274408"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
 
 Azure Resource Graph 是設計來使用和取得 Azure 環境中資源的相關資訊。 即使在查詢數千筆記錄時，Resource Graph 還是能夠快速取得此資料。 Resource Graph 有數個選項可用來使用這些大型資料集。
+
+如需有關使用高頻率查詢的指引，請參閱 <<c0> [ 已節流處理要求的指引](./guidance-for-throttled-requests.md)。
 
 ## <a name="data-set-result-size"></a>資料集結果大小
 
@@ -84,6 +86,6 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[入門查詢](../samples/starter.md)中使用的語言
-- 請參閱[進階查詢](../samples/advanced.md)中的進階使用方式
-- 了解[探索資源](explore-resources.md)
+- 請參閱中的使用中的語言[入門查詢](../samples/starter.md)。
+- 在中使用進階，請參閱[進階查詢](../samples/advanced.md)。
+- 了解如何[探索資源](explore-resources.md)。

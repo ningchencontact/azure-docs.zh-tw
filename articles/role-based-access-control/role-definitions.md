@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074016"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275052"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -52,7 +52,8 @@ AssignableScopes []
 | ------------------- | ------------------- |
 | `*` | 此萬用字元會授與所有符合字串之作業的存取權。 |
 | `read` | 啟用讀取作業 (GET)。 |
-| `write` | 啟用寫入作業 (PUT、POST 和 PATCH)。 |
+| `write` | 啟用寫入作業 （PUT 或 PATCH）。 |
+| `action` | 可讓您自訂的操作，例如重新啟動虛擬機器 (POST)。 |
 | `delete` | 啟用刪除作業 (DELETE)。 |
 
 以下是 JSON 格式的[參與者](built-in-roles.md#contributor)角色定義。 `Actions` 下的萬用字元 (`*`) 作業表示指派給這個角色的主體可以執行所有動作；換句話說，它可以管理所有項目。 這包括未來 Azure 新增資源類型時所定義的動作。 `NotActions` 下的作業會從 `Actions` 扣除。 如果是[參與者](built-in-roles.md#contributor)角色，`NotActions` 會移除此角色管理資源存取權及指派資源存取權的功能。
@@ -79,7 +80,7 @@ AssignableScopes []
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>管理和資料作業 (預覽)
+## <a name="management-and-data-operations"></a>管理和資料的作業
 
 管理作業的角色型存取控制是在角色定義的 `Actions` 和 `NotActions` 屬性中指定。 以下是 Azure 中的一些管理作業範例：
 
@@ -89,7 +90,7 @@ AssignableScopes []
 
 您的資料不會繼承管理存取權。 此隔離可防止具有萬用字元 (`*`) 的角色不受限地存取您的資料。 例如，如果使用者具有訂用帳戶的[讀取者](built-in-roles.md#reader)角色，則可以檢視儲存體帳戶，但預設為無法檢視基礎資料。
 
-在此之前，資料作業不可使用角色型存取控制。 資料作業的授權會因為資源提供者不同而有差異。 但管理作業所使用的相同角色型存取控制授權模型已延伸到資料作業 (目前處於預覽狀態)。
+在此之前，資料作業不可使用角色型存取控制。 資料作業的授權會因為資源提供者不同而有差異。 管理作業所使用的相同角色型存取控制授權模型已擴充到資料作業。
 
 為支援資料作業，已新增資料屬性到角色定義結構中。 資料作業會在 `DataActions` 和 `NotDataActions` 屬性中指定。 藉由新增這些資料屬性，可繼續維持管理和資料之間的分隔。 這可避免目前具有萬用字元 (`*`) 的角色指派突然存取資料。 以下是可在 `DataActions` 和 `NotDataActions`中指定的一些資料作業：
 
@@ -169,11 +170,7 @@ Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob �
 
 若要在 REST API 中檢視及使用資料作業，您必須將 **api-version** 參數設為下列版本或更新版本：
 
-- 2018-01-01-preview
-
-Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管理佇列與 Blob 容器的內容。 若要查看及管理佇列或 Blob 容器的內容，請按一下儲存體帳戶概觀上的 [使用 Azure AD 預覽版探索資料]  。
-
-![使用 Azure AD 預覽版探索佇列和 Blob 容器](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>動作
 
@@ -195,7 +192,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 > 如果為使用者指派會排除 `NotActions` 中作業的角色，並指派授與相同作業存取權的第二個角色，即會允許使用者執行該作業。 `NotActions` 不是拒絕規則 - 它只是一個便利的方式，可以在需要排除特定作業時建立允許的作業集合。
 >
 
-## <a name="dataactions-preview"></a>DataActions (預覽)
+## <a name="dataactions"></a>DataActions
 
 `DataActions` 權限會指定角色允許對物件內資料執行的管理作業。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `DataActions` 中的一些資料作業範例。
 
@@ -206,7 +203,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | 傳回訊息。 |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | 傳回訊息或寫入或刪除訊息的結果。 |
 
-## <a name="notdataactions-preview"></a>NotDataActions (預覽)
+## <a name="notdataactions"></a>NotDataActions
 
 `NotDataActions` 權限可指定從所允許 `DataActions` 中排除的資料作業。 角色 (有效權限) 所授與之存取權的計算方式是將 `DataActions` 作業扣除 `NotDataActions` 作業。 每個資源提供者會提供個別的一組 API 來完成資料作業。
 

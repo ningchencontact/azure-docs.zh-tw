@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62845557f33fd9c4f3c2ec4e239213c75101955d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074034"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275973"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
@@ -37,7 +37,8 @@ ms.locfileid: "67074034"
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收器時，使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
 
-目前不支援 SQL Server [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)。
+>[!NOTE]
+>SQL Server **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)** 目前不支援此連接器。 若要解決，您可以使用[一般的 ODBC 連接器](connector-odbc.md)和 SQL Server ODBC 驅動程式。 請遵循[本指南](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017)具有 ODBC 驅動程式下載及連接字串組態。
 
 ## <a name="prerequisites"></a>必要條件
 

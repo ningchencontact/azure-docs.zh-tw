@@ -1,25 +1,17 @@
 ---
 title: Azure Resource Manager 範本函式 - 陣列和物件 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來使用陣列和物件的函式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128705"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206381"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式
 
@@ -107,7 +99,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
@@ -400,7 +392,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -707,7 +699,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -845,7 +837,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -1056,7 +1048,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1201,7 +1193,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1282,7 +1274,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |

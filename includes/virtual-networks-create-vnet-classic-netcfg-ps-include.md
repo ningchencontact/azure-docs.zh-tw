@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116874"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173896"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>如何使用 PowerShell 的網路組態檔建立虛擬網路
 Azure 會使用 xml 檔案定義訂用帳戶可用的所有虛擬網路。 您可以下載這個檔案，加以編輯以進行修改或刪除現有的虛擬網路，以及建立新的虛擬網路。 在本教學課程中，您將了解如何下載這個檔案 (稱為網路組態或 netcfg 檔案)，以及如何編輯該檔案以建立新的虛擬網路。 若要深入了解網路組態檔，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。

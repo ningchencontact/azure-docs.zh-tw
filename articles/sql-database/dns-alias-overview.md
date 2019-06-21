@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160794"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275191"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database 的 DNS 別名
 
@@ -49,7 +49,7 @@ Azure SQL Database 的 DNS 別名功能適用於下列案例：
 
 ### <a name="cross-region-support"></a>跨區域支援
 
-災害復原可能會將 SQL Database 伺服器轉移至不同的地理區域。 若為使用 DNS 別名的系統，就不需要尋找及更新所有用戶端的所有連接字串。 而是可以將別名更新為參照目前裝載資料庫的新 SQL Database 伺服器。
+災害復原可能會將 SQL Database 伺服器轉移至不同的地理區域。 使用 DNS 別名的系統，您可以避免需要尋找並更新所有用戶端的所有連接字串。 而是可以將別名更新為參照目前裝載資料庫的新 SQL Database 伺服器。
 
 ## <a name="properties-of-a-dns-alias"></a>DNS 別名的屬性
 
@@ -67,13 +67,6 @@ Azure SQL Database 的 DNS 別名功能適用於下列案例：
 REST API 和 PowerShell Cmdlet 可讓您以程式設計方式管理 DNS 別名。
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>用於管理 DNS 別名的 REST API
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 下列 Web 位置附近可取得 REST API 的文件：
 
@@ -111,7 +104,7 @@ PowerShell Cmdlet 可用於呼叫 REST API。
 - *最多 2 分鐘的延遲：* 更新或移除 DNS 別名最多需要 2 分鐘的時間。
   - 不論是否有任何短暫的延遲，別名都會立即停止讓用戶端連線參照舊版伺服器。
 - *DNS 查閱：* 若要檢查指定的 DNS 別名是參照哪部伺服器，目前唯一的官方方式是執行 [DNS 查閱](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
-- [不支援資料表稽核](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)：  您無法在資料庫已啟用「資料表稽核」  的 Azure SQL Database 伺服器上使用 DNS 別名。
+- _不支援資料表稽核：_ 您無法在資料庫已啟用「資料表稽核」  的 Azure SQL Database 伺服器上使用 DNS 別名。
   - 資料表稽核功能已淘汰。
   - 建議您改用 [Blob 稽核](sql-database-auditing.md)。
 

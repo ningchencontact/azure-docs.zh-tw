@@ -1,22 +1,17 @@
 ---
 title: Azure Resource Manager 部署模式 | Microsoft Docs
 description: 說明如何指定是否要透過 Azure Resource Manager 使用完整或累加部署模式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789260"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206556"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 

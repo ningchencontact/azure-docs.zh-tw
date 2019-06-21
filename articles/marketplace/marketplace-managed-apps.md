@@ -2,18 +2,18 @@
 title: Azure 應用程式受控應用程式供應項目發佈指南
 description: 本文說明在 Marketplace 中發佈受控應用程式的需求
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2018
+ms.author: v-qiwe
+ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937808"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154941"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 應用程式：受控應用程式供應項目發佈指南
 
@@ -32,9 +32,8 @@ ms.locfileid: "64937808"
 
 |需求 |詳細資料  |
 |---------|---------|
-|已部署至客戶的 Azure 訂用帳戶 | 受控應用程式必須部署在客戶的訂用帳戶中，且可受第三方管理 | 
-|計費和計量    |  資源會在客戶的 Azure 訂用帳戶中加以佈建。 隨用隨付 (PAYGO) 虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶 (PAYGO) 計費 
-在自備授權的案例中，雖然 Microsoft 會向客戶訂用帳戶中產生的基礎結構成本收費，但您將直接向客戶收取軟體授權費用        |
+|部署至客戶的 Azure 訂用帳戶 | 受管理的應用程式必須部署在客戶的訂用帳戶，而且可以由協力廠商管理。 | 
+|計費和計量    |  資源會在客戶的 Azure 訂用帳戶中加以佈建。 隨用隨付 (PAYGO) 虛擬機器將透過 Microsoft 與客戶交易，並透過客戶的 Azure 訂用帳戶 (PAYGO) 計費。 <br> 在將為您擁有的授權，而 Microsoft 會向客戶的訂用帳戶，產生的基礎結構成本將 transact 您直接授權費用，以客戶的軟體。        |
 |Azure 相容的虛擬硬碟 (VHD)    |   VM 必須建置在 Windows 或 Linux 上。<ul> <ul> <li>如需建立 Linux VHD 的詳細資訊，請參閱 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。</li> <li>如需建立 Windows VHD 的詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。</li> </ul> |
 
 >[!NOTE]
@@ -50,4 +49,4 @@ ms.locfileid: "64937808"
 
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
-- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目。
+- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)來建立或完成您的供應項目。

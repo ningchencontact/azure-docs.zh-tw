@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540935"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203427"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服務更新
 作為一個組織，您必須了解如何維持資料安全，以及發生計劃性和非計劃性中斷時，如何讓應用程式/工作負載持續執行。 Azure Site Recovery 可在網站關閉時，讓您的應用程式持續在可用的 VM 和實體伺服器上執行，藉此參與您的 BCDR 策略。 Site Recovery 會複寫在 VM 和實體伺服器上執行的工作負載，因此如果主要網站無法使用，仍可在次要位置中使用工作負載。 當主要網站再次開始運作及執行時，它會將工作負載復原至其中。
@@ -33,6 +33,17 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
 
 > [!IMPORTANT]
 > 正式的升級支援是從 > N-4 版本升級至 N 版本 (N 是最新版本)。 如果您位於 N-6，則必須先升級至 N-4，再升級至 N。
+
+## <a name="expiry-of-components"></a>元件的到期日
+Site Recovery 通知客戶即將到期的元件，或已過期透過電子郵件通知 （如果您已訂閱它們） 或在入口網站中的保存庫儀表板上。 保存庫儀表板通知將無法使用，如果您要保護的消息 rV VM 截至目前為止。 此外，如果您瀏覽至對應的基礎結構檢視您的案例，會有可將您重新導向連結來下載最新版本的元件旁的 [可用的更新] 按鈕。
+
+當元件即將到期時，以下是電子郵件通知的頻率。
+- 元件即將到期前的 60 天： 一次雙週
+- 接下來的 53 天： 每週一次
+- 過去 7 天：每日一次
+- 在其過期後： 一次雙週
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>當目前版本與最新發行的版本之間的差異大於 4 時升級
 
@@ -118,15 +129,16 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
 
 |更新彙總套件  |提供者  |統一安裝| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[更新彙總套件 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[更新彙總套件 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[更新彙總套件 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[更新彙總套件 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) \(機器翻譯\) - Hot Fix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[更新彙總套件 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[更新彙總套件 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[更新彙總套件 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>先前的更新彙總套件
 
+- [更新彙總套件 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [更新彙總套件 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [更新彙總套件 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [更新彙總套件 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

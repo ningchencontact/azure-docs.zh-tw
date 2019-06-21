@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059622"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272412"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -241,13 +241,13 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 若要收集記錄檔，請下載 PerfView 並執行此命令：
 ```cmd
-PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
-您可以視需要修改這些參數。
-
+您可以視需要修改這些參數：
 - **MaxCollectSec**。 設定此參數，以防止 PerfView 從無限期地執行，並會影響您伺服器的效能。
-- **OnlyProviders**。 設定此參數以只從 SDK 收集記錄檔。 您可以自訂此清單根據您特定的調查。 
+- **OnlyProviders**。 設定此參數以只收集 SDK 中的 記錄檔。 您可以自訂此清單根據您特定的調查。 
+- **NoGui**。 設定此參數，以收集記錄檔，而不需要 Gui。
 
 
 如需詳細資訊，

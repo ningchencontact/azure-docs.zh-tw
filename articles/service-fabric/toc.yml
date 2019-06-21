@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5- 刪除叢集
           href: service-fabric-tutorial-delete-cluster.md
-    - name: 在 AWS 上建立獨立叢集
+    - name: 建立獨立叢集
       items:
-        - name: 1- 在 AWS 上建立基礎結構
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1 - 建立基礎結構
+          items:
+            - name: 使用 AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: 使用 Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2- 設定 Service Fabric
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3- 將應用程式部署到叢集
@@ -695,6 +699,8 @@
       items:
         - name: 診斷常見案例
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: 診斷程式碼封裝錯誤
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: 監視應用程式
           items:
             - name: 將記錄新增至您的應用程式

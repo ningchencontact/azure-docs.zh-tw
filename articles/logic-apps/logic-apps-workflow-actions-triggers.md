@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596937"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274186"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>在 Azure Logic Apps 的工作流程定義語言觸發程序和動作類型的參考
 
@@ -63,7 +63,7 @@ ms.locfileid: "65596937"
 
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | 陣列 | 包含一或多個[條件](#trigger-conditions)的陣列，這類條件會決定是否要執行工作流程。 僅適用於觸發程序。 | 
+| <*array-with-conditions*> | Array | 包含一或多個[條件](#trigger-conditions)的陣列，這類條件會決定是否要執行工作流程。 僅適用於觸發程序。 | 
 | <*runtime-config-options*> | JSON 物件 | 您可以藉由設定 `runtimeConfiguration` 屬性來變更觸發程序執行階段行為。 如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。 | 
 | <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，您可以指定運算式，將陣列項目[分割或解除批次  ](#split-on-debatch)為多個工作流程執行個體，以進行處理。 | 
 | <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
@@ -615,7 +615,7 @@ ms.locfileid: "65596937"
 |-------|------|-------------| 
 | <*method-type*> | 字串 | 傳入要求要呼叫您邏輯應用程式必須使用的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
 | <*relative-path-for-accepted-parameter*> | 字串 | 端點 URL 可接受的參數相對路徑 | 
-| <*required-properties*> | 陣列 | 需要值的一或多個屬性 | 
+| <*required-properties*> | Array | 需要值的一或多個屬性 | 
 | <*max-runs*> | Integer | 根據預設，所有的工作流程執行個體執行一次，或以平行方式最多[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | Integer | 當您的工作流程已在執行的執行個體數目上限時，您可以變更根據`runtimeConfiguration.concurrency.runs`屬性，任何新的執行會放入此佇列[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
@@ -1274,7 +1274,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
-| <*array*> | 陣列 | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 | 
+| <*array*> | Array | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 | 
 | <*delimiter*> | 單一字元字串 | 分隔字串中各個項目的字元 | 
 |||| 
 
@@ -1420,7 +1420,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
-| <*array*> | 陣列 | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 |
+| <*array*> | Array | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 |
 | <*condition-or-filter*> | 字串 | 用來對來源陣列中的項目進行篩選的條件 <p>**注意**：如果沒有符合條件的值，則動作會建立空陣列。 |
 |||| 
 
@@ -1536,7 +1536,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
-| <*array*> | 陣列 | 提供來源項目的陣列或運算式。 請確實以雙引號括住運算式。 <p>**注意**：如果來源陣列是空的，動作將會建立空陣列。 | 
+| <*array*> | Array | 提供來源項目的陣列或運算式。 請確實以雙引號括住運算式。 <p>**注意**：如果來源陣列是空的，動作將會建立空陣列。 | 
 | <*key-name*> | 字串 | 為 <*expression*>  的結果指派的屬性名稱<p>若要為輸出陣列中的所有物件新增屬性，請為該屬性提供 <*key-name*>，並提供 <*expression*> 作為屬性值。 <p>若要移除陣列中所有物件的屬性，請省略該屬性的 <*key-name*>。 | 
 | <*expression*> | 字串 | 轉換來源陣列中的項目，並將結果指派給 <*key-name*> 的運算式 | 
 |||| 
@@ -1635,7 +1635,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <CSV *或* HTML>| 字串 | 您想要建立的資料表格式 | 
-| <*array*> | 陣列 | 提供資料表來源項目的陣列或運算式 <p>**注意**：如果來源陣列是空的，動作將會建立空資料表。 | 
+| <*array*> | Array | 提供資料表來源項目的陣列或運算式 <p>**注意**：如果來源陣列是空的，動作將會建立空資料表。 | 
 |||| 
 
 *選擇性*
@@ -2624,7 +2624,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="run-in-high-throughput-mode"></a>在高輸送量模式中執行
 
-在單一邏輯應用程式的執行中，每 5 分鐘執行一次的動作數目有其[預設限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要[盡可能提高](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)此限制，請將 `operationOptions` 屬性設定為 `OptimizedForHighThroughput`。 此設定會讓邏輯應用程式處於「高輸送量」模式。 
+如需單一邏輯應用程式定義中，有每 5 分鐘執行的動作數目[預設限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要[盡可能提高](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)此限制，請將 `operationOptions` 屬性設定為 `OptimizedForHighThroughput`。 此設定會讓邏輯應用程式處於「高輸送量」模式。 
 
 > [!NOTE]
 > 高輸送量模式為預覽狀態。 您也可以視需要將工作負載分散到多個邏輯應用程式。

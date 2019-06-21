@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238966"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165309"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
 若要共用自訂檢視時間序列深入解析總管中的，您可以以程式設計方式建立自訂檢視的參數化的 URL。
 
-時間序列深入解析總管支援 URL 查詢參數，直接從 URL 中指定的檢視。 例如，僅使用 URL，您就可以指定目標環境、搜尋述詞，以及所需的時間範圍。 當使用者按一下自訂的 URL 時，介面會在時間序列深入解析入口網站中提供該資產的直接連結。 適用資料存取原則。
+時間序列深入解析總管支援 URL 查詢參數，直接從 URL 中指定的檢視。 例如，僅使用 URL，您就可以指定目標環境、搜尋述詞，以及所需的時間範圍。 當使用者選取自訂的 URL 時，介面會直接與該資產在 Time Series Insights 入口網站中提供的連結。 適用資料存取原則。
 
 > [!TIP]
 > * 檢視免費[時間序列深入解析示範](https://insights.timeseries.azure.com/samples)。

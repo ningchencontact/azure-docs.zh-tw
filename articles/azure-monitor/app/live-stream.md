@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721085"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303820"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
 
-使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 即時計量資料流可搭配[分析工具](../../azure-monitor/app/profiler.md)、[快照集偵錯工具](../../azure-monitor/app/snapshot-debugger.md)和[效能測試](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)，為您的即時網站提供強大且非侵入性的診斷工具。
+使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 搭配[Profiler](../../azure-monitor/app/profiler.md)，[快照集偵錯工具](../../azure-monitor/app/snapshot-debugger.md)。 即時計量 Stream 即時網站提供功能強大且非侵入式的診斷工具。
 
 您可以使用即時計量資料流：
 
@@ -192,15 +192,6 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 >[!NOTE]
 >我們強烈建議您在篩選條件準則中輸入潛在的機密資訊 (例如 CustomerID) 之前，先設定驗證的頻道。
 >
-
-## <a name="generating-a-performance-test-load"></a>產生效能測試負載
-
-如果您想要監看負載增加的影響，請使用 [效能測試] 刀鋒視窗。 它會模擬來自許多同時使用者的要求。 它可以執行單一 URL 的「手動測試」(Ping 測試)，或執行您上傳的[多重步驟 Web 效能測試](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) (上傳方式與可用性測試相同)。
-
-> [!TIP]
-> 建立效能測試之後，在不同的視窗中開啟測試和 [即時資料流] 刀鋒視窗。 您可以查看已排入佇列之效能測試的開始時間，並同時監看即時資料流。
->
-
 
 ## <a name="troubleshooting"></a>疑難排解
 

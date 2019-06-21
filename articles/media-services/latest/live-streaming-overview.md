@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556214"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295666"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -31,7 +31,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 - 媒體服務中的元件可讓您內嵌、預覽、封裝、記錄、加密實況活動，並向客戶廣播這些活動，或是向 CDN 廣播以進一步發佈。
 
 這篇文章提供概觀和即時資料流，與媒體服務和其他相關文章連結的指引。
-
+ 
 > [!NOTE]
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
@@ -49,27 +49,27 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ## <a name="live-event-types"></a>實況活動類型
 
-即時的事件可以是下列其中一種： 傳遞和即時編碼。 如需媒體服務 v3 中的即時資料流的詳細資訊，請參閱[即時事件和 Live 輸出](live-events-outputs-concept.md)。
+[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 即時的事件可以是下列其中一種： 傳遞和即時編碼。 如需媒體服務 v3 中的即時資料流的詳細資訊，請參閱[即時事件和 Live 輸出](live-events-outputs-concept.md)。
 
 ### <a name="pass-through"></a>傳遞
 
 ![即時通行](./media/live-streaming/pass-through.svg)
 
-使用傳遞**實況活動**時，您會依賴內部部署即時編碼器來產生多重位元速率視訊資料流，然後將其當作發佈摘要傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會接著完成傳入的視訊資料流，而不會再進一步處理。 這類傳遞即時事件最適合用於長時間執行的即時事件，或 24 x 365 線性即時資料流。 
+使用傳遞時**即時事件**，您會依賴您的內部部署即時編碼器，以產生多重位元速率視訊資料流，並傳送為貢獻 （使用 RTMP 或 fragmented MP4 輸入通訊協定） 的即時事件摘要。 即時事件會持續進行，透過動態封裝程式 （串流端點） 而不需要任何進一步的轉碼連入的視訊資料流。 這類傳遞即時事件最適合用於長時間執行的即時事件，或 24 x 365 線性即時資料流。 
 
 ### <a name="live-encoding"></a>即時編碼  
 
 ![即時編碼](./media/live-streaming/live-encoding.svg)
 
-搭配「媒體服務」使用即時編碼時，您會設定讓內部部署即時編碼器將單一位元速率視訊當作發佈摘要，傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會將該項傳入的單一位元速率資料流編碼成[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，使其可供透過 MPEG-DASH、HLS 及 Smooth Streaming 等通訊協定，傳遞給播放裝置。 
+當使用雲端使用媒體服務編碼，您會設定您的內部部署即時編碼器來傳送單一位元速率視訊所佔比重摘要 （最多 32Mbps 彙總) （使用 RTMP 或 fragmented MP4 輸入通訊協定） 的即時事件。 即時事件轉碼的內送單一位元速率串流至[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)在不同的解析度，以改善傳遞，並可傳遞至透過業界標準通訊協定的播放裝置例如，MPEG DASH、 Apple HTTP Live Streaming (HLS)、 與 Microsoft Smooth Streaming。 
 
 ## <a name="live-streaming-workflow"></a>即時串流工作流程
 
 若要了解媒體服務 v3 中的即時串流工作流程，您必須先檢閱，並了解下列概念： 
 
-- [串流端點 API](streaming-endpoint-concept.md)
-- [即時事件和即時輸出 API](live-events-outputs-concept.md)
-- [串流定位器 API](streaming-locators-concept.md)
+- [串流端點](streaming-endpoint-concept.md)
+- [實況活動與實況輸出](live-events-outputs-concept.md)
+- [串流定位器](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>一般步驟
 
@@ -79,7 +79,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 5. 建立新的 [資產]  物件。
 6. 建立 [即時輸出]  並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
-7. 使用內建的**串流原則**類型來建立**串流定位器**。<br/>若您想要將內容加密，請檢閱[內容保護概觀](content-protection-overview.md)。
+7. 建立**串流定位器**使用[內建的串流處理的原則類型](streaming-policy-concept.md)
 8. 列出 [串流定位器]  上的路徑，以取得要使用的 URL (這些具有決定性)。
 9. 取得的主機名稱**串流端點**您想要從資料流 （來源）。
 10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。

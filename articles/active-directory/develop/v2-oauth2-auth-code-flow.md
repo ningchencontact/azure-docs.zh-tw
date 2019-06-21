@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c45071406c420546a90a71751045fea926804f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 235fe1fbe7febc193826cf09202365ee4a788194
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66513529"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164770"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 授權碼流程
 
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id`   | 必要    | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。  |
 | `response_type` | 必要    | 授權碼流程必須包含 `code`。       |
 | `redirect_uri`  | 必要 | 應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 對於原生和行動應用程式，請使用 `https://login.microsoftonline.com/common/oauth2/nativeclient` 的預設值。   |
-| `scope`  | 必要    | 您要使用者同意的 [範圍](v2-permissions-and-consent.md) 空格分隔清單。 |
+| `scope`  | 必要    | 您要使用者同意的 [範圍](v2-permissions-and-consent.md) 空格分隔清單。  針對`/authorize`階段的要求中，這可以涵蓋多個資源，可讓您的應用程式，以取得多個 web Api 您想要呼叫的同意。 |
 | `response_mode`   | 建議使用 | 指定將產生的權杖送回到應用程式所應該使用的方法。 可以是下列其中一項：<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` 會提供程式碼，以作為重新導向 URI 的查詢字串參數。 如果您要求使用隱含流程的識別碼權杖時，就無法使用`query`中所指定[OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 會執行 POST，其中包含您重新導向 URI 的程式碼。 如需詳細資訊，請參閱 [OpenID Connect 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)。  |
 | `state`                 | 建議使用 | 同樣會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此值也可以將驗證要求發生前使用者在應用程式中的狀態相關資訊 (例如他們所在的網頁或檢視) 編碼。 |
 | `prompt`  | 選用    | 表示需要的使用者互動類型。 此時唯有 `login`、`none` 及 `consent` 是有效值。<br/><br/>- `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。<br/>- `prompt=none` 則相反-它會確保使用者不顯示任何互動式提示。 如果要求不能透過單一登入以無訊息方式完成，Microsoft 身分識別平台端點會傳回`interaction_required`時發生錯誤。<br/>- `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | 必要   | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。  |
 | `client_id` | 必要  | （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的頁面。 |
 | `grant_type` | 必要   | 必須是授權碼流程的 `authorization_code` 。   |
-| `scope`      | 必要   | 範圍的空格分隔清單。 在此階段中要求的範圍必須相當於或為第一個階段中所要求的範圍子集。 如果這個要求中指定的範圍遍及多個資源伺服器，Microsoft 身分識別平台端點會傳回第一個範圍中指定資源的權杖。 如需範圍的詳盡說明，請參閱 [權限、同意和範圍](v2-permissions-and-consent.md)。 |
+| `scope`      | 必要   | 範圍的空格分隔清單。 在此階段中要求的範圍必須相當於或為第一個階段中所要求的範圍子集。 範圍必須是從單一資源，以及 OIDC 範圍 (`profile`， `openid`， `email`)。 如需範圍的詳盡說明，請參閱 [權限、同意和範圍](v2-permissions-and-consent.md)。 |
 | `code`          | 必要  | 您在流程的第一個階段中取得的 authorization_code。 |
 | `redirect_uri`  | 必要  | 用來取得 authorization_code 的相同 redirect_uri 值。 |
 | `client_secret` | Web Apps 所需 | 您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。 您不應該在原生應用程式中使用應用程式祕密，因為 client_secret 無法可靠地儲存在裝置上。 您需要 web 應用程式和 web Api，能夠將 client_secret 安全地儲存在伺服器端。  用戶端密碼必須在傳送之前先進行 URL 編碼。  |

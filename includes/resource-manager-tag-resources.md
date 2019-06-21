@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128989"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174365"
 ---
 1. 若要檢視資源或資源群組的標記，請在概觀中尋找現有的標記。 如果您先前尚未套用標記，清單就會是空的。
    

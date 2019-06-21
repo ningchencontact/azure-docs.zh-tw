@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/17/2019
+ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055402"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163649"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -211,13 +211,13 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 ## <a id="networktraffic"></a> 控制網路流量
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>控制輸入的流量至 HDInsight 叢集
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>技術來控制輸入和輸出流量至 HDInsight 叢集
 
 Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 * **網路安全性群組** (NSG) 可讓您篩選輸入和輸出網路流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
 
-* **網路虛擬設備**會複寫裝置的功能，例如防火牆和路由器。 如需詳細資訊，請參閱[網路設備](https://azure.microsoft.com/solutions/network-appliances)文件。
+* **網路虛擬設備**(NVA) 可與輸出資料傳輸。 Nva 會複寫裝置，例如防火牆和路由器的功能。  如需詳細資訊，請參閱[網路設備](https://azure.microsoft.com/solutions/network-appliances)文件。
 
 做為受管理的服務，HDInsight 需要無限制地的存取 HDInsight 健康狀態和管理服務的傳入和傳出流量從 VNET。 當使用 Nsg，您必須確定這些服務仍然可以與 HDInsight 叢集進行通訊。
 

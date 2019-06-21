@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822386"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273681"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中樞的可用性和一致性
 
 ## <a name="overview"></a>概觀
-「Azure 事件中樞」會使用[資料分割模型](event-hubs-features.md#partitions)，來提升單一事件中樞內的可用性與平行處理。 例如，如果事件中樞有四個分割區，而其中一個分割區在負載平衡作業中從一部伺服器移到另一部伺服器，則您仍可從其他三個分割區進行傳送及接收。 此外，擁有更多分割區可讓您使用更多並行讀取器來處理資料，進而改善您的彙總輸送量。 了解分散式系統中分割和排序的含意是解決方案設計的重要層面。
+「Azure 事件中樞」會使用[資料分割模型](event-hubs-scalability.md#partitions)，來提升單一事件中樞內的可用性與平行處理。 例如，如果事件中樞有四個分割區，而其中一個分割區在負載平衡作業中從一部伺服器移到另一部伺服器，則您仍可從其他三個分割區進行傳送及接收。 此外，擁有更多分割區可讓您使用更多並行讀取器來處理資料，進而改善您的彙總輸送量。 了解分散式系統中分割和排序的含意是解決方案設計的重要層面。
 
 為了協助說明排序和可用性之間的權衡取捨，請參閱 [CAP 理論](https://en.wikipedia.org/wiki/CAP_theorem) (英文)，也稱為 Brewer 的理論。 這個理論討論一致性、可用性及分割區容錯之間的選擇。 它指出對於由網路分割的系統，一定會在一致性和可用性之間有所取捨。
 

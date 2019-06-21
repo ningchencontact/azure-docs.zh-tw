@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 7e006b8bc05d00de3e5fba20985e30fd5e96c1df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4df3d6a55021cafa04bb6bcba643be41dc0e612
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708669"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273766"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中設定虛擬機器的 WinRM 存取
 
@@ -93,7 +93,7 @@ Microsoft.Compute 資源提供者在佈建 VM 時，需要金鑰保存庫內密�
 #### <a name="powershell"></a>PowerShell
 您可以使用下列 PowerShell 命令取得此 URL
 
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>步驟 5：在建立 VM 時參考您的自我簽署憑證的 URL
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 範本
@@ -138,7 +138,7 @@ Microsoft.Compute 資源提供者在佈建 VM 時，需要金鑰保存庫內密�
 #### <a name="powershell"></a>PowerShell
     $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
     $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
     $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"

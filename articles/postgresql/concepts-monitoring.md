@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063744"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274297"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>監視和調整「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 「適用於 PostgreSQL 的 Azure 資料庫」提供各種監視選項，可讓您深入了解伺服器的行為。
@@ -38,6 +38,8 @@ ms.locfileid: "67063744"
 |network_bytes_egress|Network Out|位元組|跨作用中連線的網路輸出。|
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
+|pg_replica_log_delay_in_bytes|複本之間的最大延隔時間|位元組|以位元組為單位的主機與大部分延遲複本延隔時間。 此計量僅適用於主要伺服器。|
+|pg_replica_log_delay_in_seconds|複本延隔時間|秒|因為最後一個重新執行交易的時間。 此計量為適用於只在複本伺服器。|
 
 ## <a name="server-logs"></a>伺服器記錄
 您可以在伺服器上啟用記錄功能。 這些記錄檔也都可透過 Azure 中的診斷記錄[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞和儲存體帳戶。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bc9f8e29a744a3a40d17b3814c7124eb37c1543b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269430"
+ms.locfileid: "67303920"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -170,7 +170,7 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 
 ### <a name="data-deduplication"></a>重複資料刪除
 **代理程式版本 5.0.2.0**   
-重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。
+重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。 請注意這些磁碟區節約只適用於內部部署;您在 Azure 檔案服務的資料將不會重複資料刪除。 
 
 **Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
@@ -209,9 +209,12 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 如果在伺服器端點上啟用雲端階層處理，則系統會略過階層式檔案，且 Windows 搜尋不會將這些檔案編製索引。 非階層式檔案則會正確編製索引。
 
 ### <a name="antivirus-solutions"></a>防毒解決方案
-因為防毒程式的運作方式是掃描檔案中的已知惡意程式碼，所以防毒產品可能會導致階層式檔案的重新叫用。 在 4.0 版和更新版本的 Azure 檔案同步代理程式中，階層式檔案已設定安全的 Windows 屬性 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS。 建議您洽詢您的軟體廠商，以了解如何設定其解決方案來略過讀取已設定此屬性的檔案 (很多軟體會自動這麼做)。
+因為防毒程式的運作方式是掃描檔案中的已知惡意程式碼，所以防毒產品可能會導致階層式檔案的重新叫用。 在 4.0 版和更新版本的 Azure 檔案同步代理程式中，階層式檔案已設定安全的 Windows 屬性 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS。 建議您洽詢您的軟體廠商，以了解如何設定其解決方案來略過讀取已設定此屬性的檔案 (很多軟體會自動這麼做)。 
 
 作為 Microsoft 內部防毒解決方案的 Windows Defender 和 System Center Endpoint Protection (SCEP)，皆會自動略過讀取已設定此屬性的檔案。 我們已經測試這兩個解決方案並找到一個小問題：當您將伺服器新增至現有同步群組時，會在新的伺服器上重新叫用 (下載) 小於 800 個位元組的檔案。 這些檔案會保留在新的伺服器上，而且不會分層，因為這些檔案不符合階層處理大小需求 (> 64 kb)。
+
+> [!Note]  
+> 防毒軟體廠商可以檢查其產品和 Azure 檔案同步使用 [Azure 檔案同步防毒軟體相容性測試套件] 之間的相容性 (https://www.microsoft.com/download/details.aspx?id=58322) ，適用於 Microsoft Download Center 下載。
 
 ### <a name="backup-solutions"></a>備份解決方案
 備份解決方案類似防毒解決方案，可能會導致階層式檔案的重新叫用。 建議使用雲端備份解決方案來備份 Azure 檔案共用，而不要使用內部部署備份產品。
@@ -265,18 +268,15 @@ Azure 檔案同步僅於下列區域提供：
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
 | 英國西部 | 卡地夫 |
-| 美國亞歷桑那 （預覽） | 亞利桑那州 |
-| 美國德克薩斯州政府 （預覽） | Texas |
-| 美國維吉尼亞州政府 （預覽） | 維吉尼亞州 |
+| 美國政府亞利桑那州 | 亞利桑那州 |
+| 美國政府德克薩斯州 | Texas |
+| 美國政府維吉尼亞州 | 維吉尼亞州 |
 | 西歐 | 荷蘭 |
 | 美國中西部 | 懷俄明州 |
 | 美國西部 | California |
 | 美國西部 2 | Washington |
 
 Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
-
-> [!Note]  
-> Azure 檔案同步目前僅提供給政府區域的私人預覽。 請參閱我們[版本資訊](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020)如需註冊預覽計劃中的指示。
 
 ### <a name="azure-disaster-recovery"></a>Azure 災害復原
 為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 發生導致 Azure 區域暫時或永久離線的災害時，Microsoft 會將儲存體容錯移轉到配對的區域。 
@@ -311,7 +311,7 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 英國西部             | 英國南部           |
 | 美國政府亞利桑那州      | 美國政府德克薩斯州       |
 | US Gov 愛荷華州         | 美國政府維吉尼亞州    |
-| US Gov Virgini      | 美國政府德克薩斯州       |
+| 美國政府維吉尼亞州      | 美國政府德克薩斯州       |
 | 西歐         | 北歐       |
 | 美國中西部     | 美國西部 2          |
 | 美國西部             | 美國東部            |

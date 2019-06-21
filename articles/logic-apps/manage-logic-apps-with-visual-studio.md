@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecf7f11074b447e9f093e4fd6677a3d09d213b1d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467409"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295842"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -36,7 +36,8 @@ ms.locfileid: "65467409"
   本快速入門使用免費的 Visual Studio Community 2017。
 
     > [!IMPORTANT]
-    > 當您安裝 Visual Studio 2019 或 2017 時，請務必選取 **Azure 開發**工作負載。 對於 Visual Studio 2019，Cloud Explorer 可以在 Azure 入口網站中開啟邏輯應用程式設計工具，但尚無法開啟內嵌的邏輯應用程式設計工具。 如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio Cloud Explorer 中的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
+    > 當您安裝 Visual Studio 2019 或 2017 時，請務必選取 **Azure 開發**工作負載。
+    > 如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio Cloud Explorer 中的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
 
     若要安裝適用於 Visual Studio 2015 雲端總管[從 Visual Studio Marketplace 下載 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
     如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio 雲端總管 (2015) 的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
@@ -90,6 +91,9 @@ ms.locfileid: "65467409"
 
 1. 在邏輯應用程式的捷徑功能表上，選取 [使用邏輯應用程式編輯器開啟]  。
 
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您有最新的更新，適用於 Visual Studio。
+
    這個範例會顯示依資源類型所搜尋到的邏輯應用程式，因此您的邏輯應用程式會出現在 [邏輯應用程式]  區段下。
 
    ![從 Azure 入口網站開啟已部署的邏輯應用程式](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
@@ -105,10 +109,10 @@ ms.locfileid: "65467409"
 
 1. 在 Visual Studio 中，開啟 Cloud Explorer，然後尋找並選取您想要從 Azure 下載的邏輯應用程式。
 
-   > [!NOTE]
-   > Visual Studio 2019，Cloud Explorer 可以在 Azure 入口網站中開啟邏輯應用程式設計工具中，但尚無法開啟內嵌的邏輯應用程式設計工具，下載您的邏輯應用程式。
-
 2. 在該應用程式的捷徑功能表上，選取 [使用邏輯應用程式編輯器開啟]  。
+
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您有最新的更新，適用於 Visual Studio。
 
    邏輯應用程式設計工具隨即開啟，並顯示邏輯應用程式。 
    若要檢閱邏輯應用程式的基礎定義和結構，請在設計工具的底部選擇 [程式碼檢視]  。 

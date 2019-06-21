@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160181"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165161"
 ---
 # <a name="private-cloud-vmware-components"></a>私人雲端之 VMware 元件
 
@@ -37,7 +37,7 @@ ms.locfileid: "65160181"
 
 ## <a name="esxi"></a>ESXi
 
-當您建立私用雲端時，會購買 CloudSimple 節點上安裝 VMware ESXi。  ESXi 提供 hypervisor 的部署工作負載的虛擬機器 (Vm)。  節點對您的私用雲端提供超交集基礎結構 （計算和儲存體）。  節點是於私人雲端在 vSphere 叢集的一部分。  每個節點有四個實體網路介面連接到為網路。  用來建立兩個實體網路介面**vSphere 分散式切換 (VDS)** vCenter 和兩個用來建立**NSX 管理分散式的交換器 (N-VDS)** 。  網路介面設定為高可用性的主動-主動模式。
+當您建立私用雲端佈建 CloudSimple 節點上安裝 VMware ESXi。  ESXi 提供 hypervisor 的部署工作負載的虛擬機器 (Vm)。  節點對您的私用雲端提供超交集基礎結構 （計算和儲存體）。  節點是於私人雲端在 vSphere 叢集的一部分。  每個節點有四個實體網路介面連接到為網路。  用來建立兩個實體網路介面**vSphere 分散式切換 (VDS)** vCenter 和兩個用來建立**NSX 管理分散式的交換器 (N-VDS)** 。  網路介面設定為高可用性的主動-主動模式。
 
 深入了解 VMware ESXi
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171923"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174011"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>透過 Windows PowerShell for StorSimple 安裝一般 Hotfix
 1. 連接到裝置序列主控台。 如需詳細資訊，請參閱[步驟 1：連線到序列主控台](../articles/storsimple/storsimple-update-device.md#step1)。

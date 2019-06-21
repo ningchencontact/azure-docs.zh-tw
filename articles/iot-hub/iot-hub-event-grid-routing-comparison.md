@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252684"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274936"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>比較 IoT 中樞的訊息路由和事件格線
 
@@ -64,7 +64,7 @@ Azure IoT 中樞提供串流處理來自連接裝置資料及將該資料整合�
 
    IoT 中樞訊息路由支援有限的數目的唯一端點與端點類型，但您可以建置連接器，以重新路由傳送的資料和其他端點的事件。 如需支援的端點完整清單，請參閱上一節中的表格。 
 
-   IoT 中樞與 Event Grid 的整合支援 500 的端點，每個 IoT 中樞和較大的各種端點類型。 它與 Azure Functions、 Logic Apps、 儲存體和服務匯流排佇列，這個整合，並也適用於擴充傳送的資料以外的 Azure 服務生態系統和協力廠商商務應用程式的 webhook。
+   IoT 中樞與 Event Grid 的整合支援 500 的端點，每個 IoT 中樞和較大的各種端點類型。 它以原生方式整合了 Azure Functions、 Logic Apps、 儲存體和服務匯流排佇列，也適用於擴充傳送的資料以外的 Azure 服務生態系統和協力廠商商務應用程式的 webhook。
 
 * **如果資料有抵達順序，是否有影響？**
 

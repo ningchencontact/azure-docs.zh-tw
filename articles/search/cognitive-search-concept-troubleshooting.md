@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696604"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303460"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -94,7 +94,10 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 執行時間上限會依層而有所不同：在免費層上只有幾分鐘，而在計費層則有 24 小時的索引編製時間。 如果隨需處理無法在 24 小時的期間內完成，請切換至排程，讓索引子從中斷之處繼續處理。 
 
-對於排程的索引子，索引編製將會依排程從最後一份已知的正常文件繼續進行。 藉由使用週期性的排程，索引子將可持續處理影像待辦項目達數小時或數天，直到所有未處理的影像皆處理完成為止。 如需排程語法的詳細資訊，請參閱[步驟 3：建立索引子](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)。
+對於排程的索引子，索引編製將會依排程從最後一份已知的正常文件繼續進行。 藉由使用週期性的排程，索引子將可持續處理影像待辦項目達數小時或數天，直到所有未處理的影像皆處理完成為止。 如需排程語法的詳細資訊，請參閱[步驟 3：建立一個-索引子](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)，或參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
+
+> [!NOTE]
+> 如果索引子設為特定的排程，但重複相同的失敗的文件不斷地每次它執行、 索引子就會開始在較不頻繁的間隔內 （最多一次至少每隔 24 小時的最大值） 直到成功執行可讓您進行 aga在中。  如果您認為您修正任何相關的問題造成要會卡在某個時點的索引子，您可以執行上的需求執行索引子，而如果已成功進行索引子將會回到其設定的排程間隔一次。
 
 對於以入口網站為基礎的索引編製 (如快速入門所說明)，選擇 [執行一次] 索引子選項，會將處理時間限制為 1 小時 (`"maxRunTime": "PT1H"`)。 您可以延長處理時間範圍。
 

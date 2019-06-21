@@ -8,34 +8,14 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133327"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277167"
 ---
-<a name="virtual-networking-limits-classic"></a>下列限制僅適用於網路資源，透過管理**傳統**每訂用帳戶的部署模型。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
-
-| 資源 | 預設限制 | 上限 |
-| --- | --- | --- |
-| 虛擬網路 |50 |100 |
-| 區域網路網站 |20 |請連絡支援人員。 |
-| 每個虛擬網路的 DNS 伺服器 |20 |20 |
-| 每個虛擬網路的私人 IP 位址 |4,096 |4,096 |
-| 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500000，最多兩個或多個 Nic 的 1,000,000。 |500000，最多兩個或多個 Nic 的 1,000,000。 |
-| 網路安全性群組 (NSG) |200 |200 |
-| 每一 NSG 的 NSG 規則 |1,000 |1,000 |
-| 使用者定義的路由表 |200 |200 |
-| 使用者定義的路由，每個路由表 |400 |400 |
-| 公用 IP 位址 (動態) |5 |請連絡支援人員 |
-| 保留的公用 IP 位址 |20 |請連絡支援人員 |
-| 每個部署的公用 VIP |5 |請連絡支援人員 |
-| 每個部署私人 VIP （內部負載平衡） |1 |1 |
-| 端點存取控制清單 (Acl) |50 |50 |
-
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager
-下列限制僅適用於網路資源，透過管理**Azure Resource Manager**每個訂用帳戶每區域。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
+<a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 的下列限制僅適用於網路資源，透過管理**Azure Resource Manager**每個訂用帳戶每區域。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
 > [!NOTE]
 > 我們最近已將所有預設限制提升至其最大限制。 如果没有最大限制列，则资源没有可调整的限制。 如果您在過去支援增加這些限制，看不到更新的限制，在下列資料表中，[開啟線上客戶支援要求，不另外加收費用](../articles/azure-resource-manager/resource-manager-quota-errors.md)
@@ -70,7 +50,7 @@ ms.locfileid: "67133327"
 | 公用 IP 位址 - 動態 | 適用於 Basic 1,000。 |請連絡支援人員。 |
 | 公用 IP 位址 - 靜態 | 適用於 Basic 1,000。 |請連絡支援人員。 |
 | 公用 IP 位址 - 靜態 | 標準的 200。|請連絡支援人員。 |
-| 公用 IP 前置詞大小 | /28 | 請連絡支援人員。 |
+| 公用 IP 首碼長度 | /28 | 請連絡支援人員。 |
 
 #### <a name="load-balancer"></a>負載平衡器限制
 下列限制僅適用於透過每個訂用帳戶每一區域的 Azure Resource Manager 所管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
@@ -91,3 +71,21 @@ ms.locfileid: "67133327"
 
 <sup>1</sup>的限制是中獨立虛擬機器資源的任何組合的 150 部資源、 資源和虛擬機器擴展集資源的可用性設定組。
 
+#### <a name="virtual-networking-limits-classic"></a>下列限制僅適用於網路資源，透過管理**傳統**每訂用帳戶的部署模型。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
+
+| 資源 | 預設限制 | 上限 |
+| --- | --- | --- |
+| 虛擬網路 |50 |100 |
+| 區域網路網站 |20 |請連絡支援人員。 |
+| 每個虛擬網路的 DNS 伺服器 |20 |20 |
+| 每個虛擬網路的私人 IP 位址 |4,096 |4,096 |
+| 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500000，最多兩個或多個 Nic 的 1,000,000。 |500000，最多兩個或多個 Nic 的 1,000,000。 |
+| 網路安全性群組 (NSG) |200 |200 |
+| 每一 NSG 的 NSG 規則 |1,000 |1,000 |
+| 使用者定義的路由表 |200 |200 |
+| 使用者定義的路由，每個路由表 |400 |400 |
+| 公用 IP 位址 (動態) |5 |請連絡支援人員 |
+| 保留的公用 IP 位址 |20 |請連絡支援人員 |
+| 每個部署的公用 VIP |5 |請連絡支援人員 |
+| 每個部署私人 VIP （內部負載平衡） |1 |1 |
+| 端點存取控制清單 (Acl) |50 |50 |

@@ -1,25 +1,17 @@
 ---
 title: Azure Resource Manager 範本函式 - 比較 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來比較值的函式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0eafadd4049baea58aa882b3421eaa6a684a3a38
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128681"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205487"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的比較函式
 
@@ -324,7 +316,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -476,7 +468,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |

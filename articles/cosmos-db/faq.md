@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 47b1d9720a23c1dbfdee8c2e4cba95ff998a4cc0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954141"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137747"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -744,11 +744,11 @@ Azure Cosmos DB 是一種平台服務，可協助您提高產能，而不必擔�
 
 ### <a name="can-i-use-stable-loader-for-data-loading"></a>是否可以使用穩定載入器來載入資料？
 
-否，預覽期間不支援使用穩定載入器。
+否，不支援穩定的載入器。
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>可以與 Azure Cosmos DB 的 Cassandra API 配對的內部部署的 Apache Cassandra 叢集嗎？
 
-目前，Azure Cosmos DB 具有最佳化的雲端環境體驗，而不會產生作業負荷。 如果您需要配對，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)，並說明您的案例。
+目前，Azure Cosmos DB 具有最佳化的雲端環境體驗，而不會產生作業負荷。 如果您需要配對，請傳送電子郵件到 [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com)，並說明您的案例。 我們正努力上為內部部署/不同的雲端 Cassandra 叢集 Cosomos DB 的 Cassandra API 說明對的供應項目。
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API 是否會提供完整備份？
 
@@ -763,15 +763,12 @@ Azure Cosmos DB Cassandra API 會藉助 Azure Cosmos DB 的全域分散式平台
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API 預設會為實體的所有屬性編製索引嗎？
 
-是，Azure Cosmos DB 預設會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB中的編製索引原則](index-policy.md)。 您可以透過一致的索引編製和一律永久認可仲裁的寫入，獲得保證具有效能的優勢。
+Cassandra API 計劃，以支援次要索引，以便在特定的屬性上建立選擇性的索引。 
 
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>這表示我不需要建立多個索引來滿足查詢嗎？
-
-是，Azure Cosmos DB 會為所有屬性提供自動編製索引，而不需任何結構描述定義。 這項資訊能讓開發人員專注於應用程式，而不需擔心索引的建立和管理。 如需詳細資訊，請參閱 [Azure Cosmos DB中的編製索引原則](index-policy.md)。
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>我可以在本機搭配使用新的 Cassandra API SDK 與模擬器嗎？
 
-我們計劃在未來支援這項功能。
+被支援此功能。
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Azure Cosmos DB 做為平台時似乎還有很多功能，例如變更摘要和其他功能。 是否會將這些功能新增到 Cassandra API？
 

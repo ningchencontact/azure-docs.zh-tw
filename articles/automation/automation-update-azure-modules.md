@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427478"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146723"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何更新 Azure 自動化中的 Azure PowerShell 模組
 
@@ -35,9 +35,7 @@ ms.locfileid: "66427478"
 
 下列為在使用此程序來更新 Azure 模組時應納入考量的項目：
 
-* 此 runbook 支援僅更新**Azure**並**AzureRm**目前模組。 [Azure PowerShell Az 模組](/powershell/azure/new-azureps-module-az)支援在自動化帳戶中，但不能更新此 runbook。 您需要使用時，需要考量的重要因素`Az`模組的自動化帳戶中，若要了解的詳細資訊，請參閱[您的自動化帳戶中的使用 Az 模組](az-modules.md)。
-
-* 請避免在包含 Az 模組的自動化帳戶上啟動此 Runbook。
+* 此 runbook 支援更新**Azure**並**AzureRm**預設模組。 此 runbook 支援更新**Az**的模組。 檢閱[更新 Azure 模組 runbook 讀我檔案](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md)如需有關更新`Az`模組中的使用此 runbook。 還有其他您需要使用時，需要考量的重要因素`Az`模組的自動化帳戶中，若要了解的詳細資訊，請參閱[您的自動化帳戶中的使用 Az 模組](az-modules.md)。
 
 * 在啟動此 Runbook 之前，請確定您的自動化帳戶已建立 [Azure 執行身分帳戶認證](manage-runas-account.md)。
 

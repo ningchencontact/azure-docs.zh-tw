@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735248"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137215"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure 適用於 Linux 的序列主控台
 
-在 Azure 入口網站中的序列主控台提供主控台的存取權以文字為基礎的 Linux 虛擬機器 (Vm) 和虛擬機器擴展集執行個體。 這個序列連線連線到 VM 或虛擬機器擴展集執行個體，提供存取權的網路或作業系統狀態無關的 COM1 序列埠。 序列主控台只可以使用 Azure 入口網站存取，只允許擁有的參與者存取權角色的使用者或更高版本以 VM 或虛擬機器擴展集。
+在 Azure 入口網站中的序列主控台提供主控台的存取權以文字為基礎的 Linux 虛擬機器 (Vm) 和虛擬機器擴展集執行個體。 這個序列連線連線到 ttys0 進行序列埠的 VM 或虛擬機器擴展集執行個體，提供存取權的網路或作業系統狀態無關。 序列主控台只可以使用 Azure 入口網站存取，只允許擁有的參與者存取權角色的使用者或更高版本以 VM 或虛擬機器擴展集。
 
 序列主控台以相同方式運作的 Vm 和虛擬機器擴展集執行個體。 在此文件中，所有提及的 vm 會以隱含方式都包含虛擬機器擴展集執行個體除非另有指明，否則。
 

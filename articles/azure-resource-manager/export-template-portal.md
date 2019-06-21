@@ -4,20 +4,22 @@ description: 您可以使用 Azure 入口網站，從您的訂用帳戶中的資
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515380"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296313"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>單一和多重資源匯出至 Azure 入口網站中的範本
 
 若要協助您建立 Azure Resource Manager 範本，您可以從現有資源匯出範本。 匯出的範本可協助您了解的 JSON 語法和部署資源的屬性。 若要自動化未來的部署，開始匯出的範本並修改您的案例。
 
 Resource Manager 可讓您選擇匯出至範本的一或多個資源。 您可以專注於完全在範本中所需的資源。
+
+這篇文章會示範如何匯出範本，透過入口網站。 您也可以使用[Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates)， [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)，或[REST API](/rest/api/resources/resourcegroups/exporttemplate)。
 
 ## <a name="choose-the-right-export-option"></a>選擇正確的匯出選項
 
@@ -114,7 +116,7 @@ Resource Manager 可讓您選擇匯出至範本的一或多個資源。 您可�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Azure Resource Manager，請參閱[Azure Resource Manager 概觀](./resource-group-overview.md)。
+- 了解如何使用匯出範本[Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates)， [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)，或[REST API](/rest/api/resources/resourcegroups/exporttemplate)。
 - 若要深入了解 Resource Manager 範本語法，請參閱[了解的結構和 Azure Resource Manager 範本的語法](./resource-group-authoring-templates.md)。
 - 若要了解如何開發的範本，請參閱[逐步教學課程](/azure/azure-resource-manager/)。
 - 若要檢視 Azure Resource Manager 範本結構描述，請參閱[範本參考](/azure/templates/)。

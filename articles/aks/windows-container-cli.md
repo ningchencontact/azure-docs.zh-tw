@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752386"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303561"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>預覽-使用 Azure CLI 在 Azure Kubernetes Service (AKS) 叢集上建立 Windows Server 容器
 
@@ -22,7 +22,7 @@ Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部�
 
 ![瀏覽至 ASP.NET 範例應用程式的映像](media/windows-container/asp-net-sample-app.png)
 
-本文假設基本了解 Kubernetes 概念。 如需詳細資訊，請參閱 [Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
+本文假設基本了解 Kubernetes 概念。 如需詳細資訊，請參閱 < [Kubernetes 核心概念的 Azure Kubernetes Service (AKS)][kubernetes-concepts]。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -42,7 +42,7 @@ Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部�
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
     
-CLI 命令來建立和管理多個節點的集區共有*aks 預覽*CLI 擴充功能。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][ az-extension-add]命令，如下列範例所示：
+CLI 命令來建立和管理多個節點的集區共有*aks 預覽*CLI 擴充功能。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組新增][az-extension-add]命令，如下列範例所示：
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -53,7 +53,7 @@ az extension add --name aks-preview
 
 ### <a name="register-windows-preview-feature"></a>註冊 Windows 預覽功能
 
-若要建立 AKS 叢集，可以使用多個節點的集區，並執行 Windows Server 容器，請先啟用*WindowsPreview*功能在您的訂用帳戶上的旗標。 *WindowsPreview*多節點的集區的叢集和虛擬機器擴展集來管理部署和設定的 Kubernetes 節點，也會使用功能。 註冊*WindowsPreview*功能旗標使用[az 功能註冊][ az-feature-register]命令，在下列範例所示：
+若要建立 AKS 叢集，可以使用多個節點的集區，並執行 Windows Server 容器，請先啟用*WindowsPreview*功能在您的訂用帳戶上的旗標。 *WindowsPreview*多節點的集區的叢集和虛擬機器擴展集來管理部署和設定的 Kubernetes 節點，也會使用功能。 註冊*WindowsPreview*功能旗標使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
 
 ```azurecli-interactive
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
@@ -62,13 +62,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > 任何您已成功註冊之後，您建立的 AKS 叢集*WindowsPreview*功能旗標會使用此預覽叢集體驗。 若要繼續建立一般、 完全支援的叢集，請勿啟用生產訂用帳戶上的預覽功能。 使用個別的測試或開發 Azure 訂用帳戶進行測試預覽功能。
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+花幾分鐘的時間才能完成註冊。 檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-準備就緒時，使用 [az provider register][az-provider-register] 命令重新整理 *Microsoft.ContainerService* 資源提供者的註冊：
+註冊狀態時`Registered`，按下 Ctrl + C 可停止監視的狀態。  然後重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -93,6 +93,10 @@ Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 建
 
 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
+> [!NOTE]
+> 在本教學課程，本文章會使用 Bash 語法命令。
+> 如果您使用 Azure Cloud Shell，請確定在 Cloud Shell 視窗左上方的下拉式清單設為**Bash**。
+
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
@@ -113,12 +117,13 @@ az group create --name myResourceGroup --location eastus
 }
 ```
 
-## <a name="create-aks-cluster"></a>建立 AKS 叢集
-若要執行的 AKS 叢集，適用於 Windows Server 容器支援節點集區，您的叢集需要使用的網路原則，會使用[Azure CNI] [ azure-cni-about] （進階） 的網路外掛程式。 如需詳細資訊，協助您規劃出必要的子網路範圍和網路考量，請參閱[設定 Azure CNI 網路][use-advanced-networking]。 使用[az aks 建立][ az-aks-create]命令來建立名為 AKS 叢集中*myAKSCluster*。 如果不存在，此命令會建立必要的網路資源。
+## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
+
+若要執行的 AKS 叢集，適用於 Windows Server 容器支援節點集區，您的叢集需要使用的網路原則，會使用[Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]。 使用[az aks 建立][az aks 建立]命令來建立名為 AKS 叢集中*myAKSCluster*。 如果不存在，此命令會建立必要的網路資源。
   * 設定具有一個節點的叢集
   * *Windows-admin-password*並*windows 管理員使用者名稱*參數會設定要在叢集上建立任何 Windows Server 容器的系統管理員認證。
 
-提供您自己的安全*PASSWORD_WIN*。
+提供您自己的安全*PASSWORD_WIN* （請記住這篇文章中的命令會輸入到 BASH 殼層）：
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -135,6 +140,10 @@ az aks create \
     --enable-vmss \
     --network-plugin azure
 ```
+
+> [!Note]
+> 如果您收到的密碼驗證錯誤，請嘗試另一個區域中建立您的資源群組。
+> 然後再次嘗試使用新的資源群組建立叢集。
 
 在幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
 
@@ -156,13 +165,13 @@ az aks nodepool add \
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
-若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl][kubectl]。 如果您使用 Azure Cloud Shell，則 `kubectl` 已安裝。 若要在本機安裝 `kubectl`，請使用 [az aks install-cli][az-aks-install-cli] 命令：
+若要管理 Kubernetes 叢集，您使用[kubectl][kubectl]，Kubernetes 命令列用戶端。 如果您使用 Azure Cloud Shell，則 `kubectl` 已安裝。 若要安裝`kubectl`在本機，使用[az aks 安裝 cli][az-aks-install-cli]命令：
 
 ```azurecli
 az aks install-cli
 ```
 
-若要設定 `kubectl` 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用。
+若要設定 `kubectl` 以連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用。
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -184,9 +193,9 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>執行應用程式
 
-Kubernetes 資訊清單檔會定義所需的叢集狀態，例如要執行哪些容器映像。 在本文中，資訊清單用來建立 Windows Server 容器中執行 ASP.NET 範例應用程式所需的所有物件。 此資訊清單包含[Kubernetes 部署][ kubernetes-deployment] ASP.NET 範例應用程式和外部[Kubernetes 服務][ kubernetes-service]至從網際網路存取應用程式。
+Kubernetes 資訊清單檔會定義所需的叢集狀態，例如要執行哪些容器映像。 在本文中，資訊清單用來建立 Windows Server 容器中執行 ASP.NET 範例應用程式所需的所有物件。 此資訊清單包含[Kubernetes 部署][kubernetes-deployment]for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service]從網際網路存取應用程式。
 
-ASP.NET 範例應用程式提供做為一部分[.NET Framework 範例][ dotnet-samples]並在 Windows Server 容器中執行。 AKS 需要 Windows Server 容器為基礎的映像*Windows Server 2019*或更新版本。 也必須定義資訊清單檔案的 Kubernetes[節點選取器][ node-selector]告訴您的 AKS 叢集，可以執行 Windows Server 容器的節點上執行 ASP.NET 範例應用程式的 pod。
+ASP.NET 範例應用程式提供做為一部分[.NET Framework 範例][dotnet-samples]並在 Windows Server 容器中執行。 AKS 需要 Windows Server 容器為基礎的映像*Windows Server 2019*或更新版本。 也必須定義資訊清單檔案的 Kubernetes[節點選取器][node-selector]告訴您的 AKS 叢集，可以執行 Windows Server 容器的節點上執行 ASP.NET 範例應用程式的 pod。
 
 建立名為 `sample.yaml` 的檔案，然後將下列 YAML 定義複製進來。 如果您使用 Azure Cloud Shell，可以使用 `vi` 或 `nano` 建立這個檔案，猶如使用虛擬或實體系統：
 
@@ -236,7 +245,7 @@ spec:
     app: sample
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令來部署應用程式並指定 YAML 資訊清單的名稱：
+部署應用程式使用[kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```azurecli-interactive
 kubectl apply -f sample.yaml
@@ -278,7 +287,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ## <a name="delete-cluster"></a>刪除叢集
 
-若不再需要叢集，可使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
+當不再需要叢集時，使用[az 群組刪除][az-group-delete]命令來移除資源群組、 容器服務和所有相關資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -289,7 +298,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您部署了 Kubernetes 叢集，並部署 Windows Server 容器中的 ASP.NET 範例應用程式。 [存取 Kubernetes Web 儀表板][kubernetes-dashboard]，以使用您剛才建立的叢集。
+在本文中，您部署了 Kubernetes 叢集，並部署 Windows Server 容器中的 ASP.NET 範例應用程式。 [存取 Kubernetes web 儀表板][kubernetes-dashboard]您剛才建立的叢集。
 
 若要深入了解 AKS，並逐步完成部署範例的完整程式碼，請繼續 Kubernetes 叢集教學課程。
 

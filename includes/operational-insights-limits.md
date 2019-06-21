@@ -9,11 +9,11 @@ ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133782"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293455"
 ---
 每個 Log Analytics 工作區，在目前耗用量為基礎的定價層在 2018 年 4 月引進，適用下列限制：
 

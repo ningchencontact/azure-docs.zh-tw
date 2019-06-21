@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: d59a26184cac8df31fd16637d538c1eb45d947df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64716144"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路的對等互連
 
-本文將協助您使用 PowerShell，在 Resource Manager 部署模型中建立和管理 ExpressRoute 線路的路由設定。 还可以检查 ExpressRoute 线路的状态，更新、删除和取消预配其对等互连。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
+本文將協助您使用 PowerShell，在 Resource Manager 部署模型中建立和管理 ExpressRoute 線路的路由設定。 您還可以檢查狀態、更新，或是刪除與取消佈建 ExpressRoute 線路的對等互連。 如果您想要對線路使用不同的方法，可選取下列清單中的文章：
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [視訊 - 私用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -41,7 +41,7 @@ ms.locfileid: "64716144"
 
 ## <a name="configuration-prerequisites"></a>組態必要條件
 
-* 在开始配置之前，请务必查看[先决条件](expressroute-prerequisites.md)页、[路由要求](expressroute-routing.md)页和[工作流](expressroute-workflows.md)页。
+* 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
 * 您必須擁有作用中的 ExpressRoute 線路。 繼續之前，請遵循指示來 [建立 ExpressRoute 線路](expressroute-howto-circuit-arm.md) ，並由您的連線提供者來啟用該線路。 ExpressRoute 線路必須處於已佈建和已啟用狀態，您才能執行本文中的 Cmdlet。
 
 ### <a name="working-with-azure-powershell"></a>使用 Azure PowerShell
@@ -177,7 +177,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    Install-Module Az
    ```
 
-   导入已知语义版本范围内的所有 Az.\* 模块。
+   匯入所有 Az.\*已知語意版本範圍內的模組。
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -316,7 +316,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    Install-Module Az
    ```
 
-   导入已知语义版本范围内的所有 Az.\* 模块。
+   匯入所有 Az.\*已知語意版本範圍內的模組。
 
    ```azurepowershell-interactive
    Import-Module Az

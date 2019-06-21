@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1453f5282d9e3a48e5ca5d734258d70e44424a5a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198461"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296217"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -46,6 +46,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 
 開始部署混合式 Runbook 背景工作角色之前，請先檢閱[規劃網路的相關資訊](#network-planning)。 在您成功部署背景工作角色之後，請檢閱[在混合式 Runbook 背景工作角色上執行 Runbook](automation-hrw-run-runbooks.md)，以了解如何設定 Runbook 將內部部署資料中心或其他雲端環境中的程序自動化。
 
+您可以將電腦新增至您自動化帳戶中的混合式 Runbook 背景工作角色群組來支援自動化 Runbook，只要解決方案和混合式 Runbook 背景工作角色群組成員資格兩者使用相同的帳戶即可。 此功能已新增至 Hybrid Runbook Worker 7.2.12024.0 版。
 ## <a name="remove-a-hybrid-runbook-worker"></a>移除混合式 Runbook 背景工作角色
 
 您可以移除群組中的一或多個混合式 Runbook 背景工作角色，或移除該群組，視您的需求而定。 若要從內部部署電腦中移除混合式 Runbook 背景工作角色，請使用下列步驟：

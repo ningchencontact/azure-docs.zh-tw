@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2019
+ms.date: 06/14/2019
 ms.author: jingwang
-ms.openlocfilehash: 6ae1094a6e47d19af97fbbb1ce988d0756f33731
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90126a607065bdb10e2ff81ce6ab52809ecc3f36
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048535"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273755"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="選取您所使用的 Data Factory 服務的版本："]
@@ -41,7 +41,8 @@ ms.locfileid: "67048535"
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收時，請使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
 
-目前不支援 Azure SQL Database [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)。 
+>[!NOTE]
+>Azure SQL Database **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)** 目前不支援此連接器。 若要解決，您可以使用[一般的 ODBC 連接器](connector-odbc.md)和 SQL Server ODBC 驅動程式，透過自我裝載整合執行階段。 請遵循[本指南](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current)具有 ODBC 驅動程式下載及連接字串組態。
 
 > [!IMPORTANT]
 > 如果您使用 Azure Data Factory Integration Runtime 複製資料，請設定 [Azure SQL 伺服器防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)，讓 Azure 服務可存取伺服器。

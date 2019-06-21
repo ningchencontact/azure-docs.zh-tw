@@ -1,26 +1,26 @@
 ---
-title: 設定 Web 應用程式防火牆的自訂規則使用 Azure PowerShell
-description: 了解如何設定使用 Azure PowerShell 的 WAF 自訂規則
+title: 設定使用 Azure PowerShell 的 Web 應用程式防火牆 v2 自訂規則
+description: 了解如何設定使用 Azure PowerShell 的 WAF v2 自訂規則
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743066"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164741"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>使用自訂規則，以使用 Azure PowerShell 設定 Web 應用程式防火牆
+# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>使用自訂規則，以使用 Azure PowerShell 設定 Web 應用程式防火牆 v2
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-自訂規則可讓您建立自己的規則評估每個要求傳遞到 Web 應用程式防火牆 (WAF)。 這些規則會保留在受管理的規則集的優先順序高於其他規則。 自訂的規則有的動作 （允許或封鎖）、 比對條件和運算子以允許完全自訂。
+自訂規則可讓您建立自己的規則評估為通過 Web 應用程式防火牆 (WAF) v2 每個要求。 這些規則會保留在受管理的規則集的優先順序高於其他規則。 自訂的規則有的動作 （允許或封鎖）、 比對條件和運算子以允許完全自訂。
 
-本文會建立使用自訂規則的應用程式閘道 WAF。 自訂規則封鎖流量，如果要求標頭中包含使用者代理程式*evilbot*。
+本文會建立使用自訂規則的應用程式閘道 WAF v2。 如果要求標頭包含使用者代理程式 *evilbot*，則自訂規則會封鎖流量。
 
 若要查看更多的自訂規則範例，請參閱[建立和使用自訂的 web 應用程式防火牆規則](create-custom-waf-rules.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "66743066"
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 模組
 
-如果您選擇要安裝在本機使用 Azure PowerShell，此指令碼必須使用 Azure PowerShell 模組版本 2.1.0 或更新版本。
+如果您選擇在本機安裝和使用 Azure PowerShell，此指令碼需要 Azure PowerShell 模組 2.1.0 版或更新版本。
 
 1. 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 2. 若要建立與 Azure 的連線，請執行 `Connect-AzAccount`。

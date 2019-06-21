@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3c2ed7f2914374ac94783511f2992ae5755967
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65907239"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302316"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共用存取簽章 (SAS)
 
@@ -23,7 +23,10 @@ ms.locfileid: "65907239"
 除了本文所提供的範例外，如果您還需要其他使用 SAS 的程式碼範例，請參閱[在 .NET 中開始使用 Azure Blob 儲存體](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)和 [Azure 程式碼範例](https://azure.microsoft.com/documentation/samples/?service=storage)程式庫提供的其他範例。 您可以下載範例應用程式並加以執行，或瀏覽 GitHub 上的程式碼。
 
 ## <a name="what-is-a-shared-access-signature"></a>共用存取簽章為何？
+
 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 透過 SAS，您可以對用戶端授與儲存體帳戶中資源的存取權，而不必共用帳戶金鑰。 這是在您應用程式中使用共用存取簽章的重點 - SAS 是共用儲存體資源的安全方式，而不會危害您的帳戶金鑰。
+
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -35,6 +38,7 @@ SAS 可讓您更細微地控制要對擁有 SAS 的用戶端授與何種類型�
 * Azure 儲存體接受的 SAS 所透過的通訊協定。 您可以使用這個選擇性參數來限制使用 HTTPS 之用戶端的存取權。
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>使用共用存取簽章的時機？
+
 當您想要將儲存體帳戶中的資源存取權提供給未具有您儲存體帳戶存取金鑰的用戶端時，即可使用 SAS。 您的儲存體帳戶包含主要與次要存取金鑰，兩者皆可授與帳戶及帳戶內所有資源的系統管理存取權。 提供以上任一金鑰，皆有可能讓您的帳戶遭到惡意或粗心使用。 共用存取簽章提供了安全的替代方式，無需帳戶金鑰便可讓用戶端根據獲明確授與的權限，來讀取、寫入及刪除您儲存體帳戶中的資料。
 
 證明 SAS 非常有用的一個常見案例，就是使用者在您的儲存體帳戶中讀取和寫入自己的資料。 在儲存體帳戶儲存使用者資料的案例中，典型的設計模式有兩種：
@@ -56,12 +60,14 @@ SAS 可讓您更細微地控制要對擁有 SAS 的用戶端授與何種類型�
 * 當您將 Blob 複製到檔案，或將檔案複製到 Blob 時，必須使用 SAS 來授權存取來源物件，即使來源和目的地物件位於相同的儲存體帳戶內也一樣。
 
 ## <a name="types-of-shared-access-signatures"></a>共用存取簽章的類型
+
 您可建立兩種類型的共用存取簽章：
 
 * **服務 SAS。** 服務 SAS 只會將存取權限委派給一種儲存體服務資源：Blob、佇列、資料表或檔案服務。 如需有關建構服務 SAS 權杖的深入資訊，請參閱[建構服務 SAS](https://msdn.microsoft.com/library/dn140255.aspx) 和[服務 SAS 範例](https://msdn.microsoft.com/library/dn140256.aspx)。
 * **帳戶 SAS。** 帳戶 SAS 則將存取權限委派給一或多個儲存體服務的資源。 可透過服務 SAS 取得的所有作業也可透過帳戶 SAS 取得。 此外，利用帳戶 SAS，您可以委派適用指定的服務作業 (例如：**取得/設定服務屬性**和**取得服務統計資料**) 的存取。您也可以將 Blob 容器、資料表、佇列和檔案共用的讀取、寫入和刪除作業的存取權限，委派給本無權限的服務 SAS。 如需有關建構帳戶 SAS 權杖的深入資訊，請參閱[建構帳戶 SAS](https://msdn.microsoft.com/library/mt584140.aspx)。
 
 ## <a name="how-a-shared-access-signature-works"></a>共用存取簽章的運作方式
+
 共用存取簽章是指向一或多個儲存體資源，並包括含有一組特殊的查詢參數權杖的已簽署 URI。 權杖指出用戶端可以如何存取資源。 簽章是查詢參數的其中一個，根據 SAS 參數所建構並使用帳戶金鑰進行簽署。 Azure 儲存體會使用此簽章來授權存取儲存體資源。
 
 以下是 SAS URI 範例，其顯示資源 URI 和 SAS 權杖︰
@@ -73,9 +79,11 @@ SAS 權杖是*用戶端*所產生的字串 (如需程式碼範例，請參閱〈
 當用戶端在要求中提供 SAS URI 給 Azure 儲存體時，服務會檢查 SAS 參數和簽章，以確認它是有效的，可用於驗證要求。 如果服務確認簽章有效，則要求會獲得授權。 否則要求會遭到拒絕，並產生錯誤碼 403 (禁止)。
 
 ## <a name="shared-access-signature-parameters"></a>共用存取簽章參數
+
 帳戶 SAS 和服務 SAS 權杖包含一些常見的參數，並且採取幾個不同參數。
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>帳戶 SAS 和服務 SAS 權杖的通用參數
+
 * **API 版本** 選擇性參數，指定要用來執行要求的儲存體服務版本。
 * **服務版本** 必要參數，指定要用來授權要求的儲存體服務版本。
 * **開始時間。** 這是指 SAS 生效的時間。 共用存取簽章的開始時間為選擇性。 若省略開始時間，SAS 便會立即生效。 開始時間必須以 UTC (國際標準時間) 表示，並包含特殊的 UTC 指示項 ("Z")，例如 `1994-11-05T13:15:30Z`。
@@ -86,6 +94,7 @@ SAS 權杖是*用戶端*所產生的字串 (如需程式碼範例，請參閱〈
 * **簽章。** 簽章是從其他參數建構，指定為權杖的一部分，然後加密。 此簽章會用來授權存取指定的儲存體資源。
 
 ### <a name="parameters-for-a-service-sas-token"></a>服務 SAS 權杖的參數
+
 * **儲存體資源。** 可以委派對服務 SAS 存取的儲存體資源包括：
   * 容器和 Blob
   * 檔案共用及檔案
@@ -93,6 +102,7 @@ SAS 權杖是*用戶端*所產生的字串 (如需程式碼範例，請參閱〈
   * 資料表和資料表實體範圍。
 
 ### <a name="parameters-for-an-account-sas-token"></a>帳戶 SAS 權杖的參數
+
 * **一或多個服務。** 帳戶 SAS 可以委派存取給一或多個儲存體服務。 例如，您可以建立委派存取 Blob 和檔案服務的帳戶 SAS。 或者您可以建立委派存取給全部四個服務 (Blob、佇列、表格和檔案) 的 SAS。
 * **儲存體資源類型。** 帳戶 SAS 適用於一或多個類別的儲存體資源，而不是特定資源。 您可以建立帳戶 SAS 來委派存取給：
   * 對儲存體帳戶資源呼叫的服務層級 API。 範例包括**取得/設定服務屬性**、**取得服務統計資料**和**列出容器/佇列/資料表/共用**。
@@ -109,7 +119,7 @@ SAS 權杖是*用戶端*所產生的字串 (如需程式碼範例，請參閱〈
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Name | SAS 部分 | 描述 |
+| 名稱 | SAS 部分 | 描述 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob 的位址。 請注意，我們強烈建議您使用 HTTPS。 |
 | 儲存體服務版本 |`sv=2015-04-05` |若是儲存體服務版本 2012-02-12 和更新版本，此參數表示要使用的版本。 |
@@ -139,6 +149,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 假設權限僅限於服務層級，此 SAS 可存取的作業是**取得 Blob 服務屬性** (讀取) 和**設定 Blob 服務屬性** (寫入)。 不過，利用不同的資源 URI，相同的 SAS 權杖也可以用來委派存取給 **取得 Blob 服務統計資料** (讀取)。
 
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>使用預存存取原則控制 SAS
+
 共用存取簽章可以接受以下兩種格式其中之一：
 
 * **臨機操作 SAS：** 建立臨機操作 SAS 時，SAS 的開始時間、過期時間和權限都會在 SAS URI 上進行指定 (或暗示，在此情況下則會略過開始時間)。 這種類型的 SAS 可能會建立為帳戶 SAS 或服務 SAS。
@@ -158,12 +169,15 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 > 共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。 如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>使用 SAS 從用戶端應用程式進行驗證
+
 擁有 SAS 的用戶端可以使用 SAS 來對他們未擁有帳戶金鑰的儲存體帳戶授權要求。 SAS 可以包含在連接字串，或直接從適當的建構函式或方法來使用。
 
 ### <a name="using-a-sas-in-a-connection-string"></a>在連接字串中使用 SAS
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>在建構函式或方法中使用 SAS
+
 數個 Azure 儲存體用戶端程式庫的建構函式和方法多載會提供 SAS 參數，以便您使用 SAS 來授權對服務的要求。
 
 例如，這裡便使用 SAS URI 來建立區塊 Blob 的參考。 SAS 提供要求所需的唯一認證。 區塊 Blob 參考接著會用來進行寫入作業︰
@@ -208,6 +222,7 @@ catch (StorageException e)
 ```
 
 ## <a name="best-practices-when-using-sas"></a>使用 SAS 時的最佳做法
+
 當您在應用程式中使用共用存取簽章時，您必須留意兩個潛在風險：
 
 * 如果 SAS 洩漏出去，則取得該 SAS 的任何人都可以使用它，這有可能會洩露您的儲存體帳戶。
@@ -227,6 +242,7 @@ catch (StorageException e)
 10. **使用儲存體分析來監視您的應用程式。** 您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。 如需額外資訊，請參閱 [Azure 儲存體團隊部落格](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (英文)。
 
 ## <a name="sas-examples"></a>SAS 範例
+
 下面是兩種類型共用存取簽章 (帳戶 SAS 和服務 SAS) 的一些範例。
 
 若要執行這些 C# 範例，您必須參考專案中的下列 NuGet 封裝︰
@@ -237,6 +253,7 @@ catch (StorageException e)
 如需其他範例，示範如何建立及測試 SAS，請參閱 [Azure 儲存體的程式碼範例](https://azure.microsoft.com/documentation/samples/?service=storage)。
 
 ### <a name="example-create-and-use-an-account-sas"></a>範例：建立和使用帳戶 SAS
+
 下列程式碼範例會建立適用於 Blob 和檔案服務的帳戶 SAS，並提供用戶端權限讀取、寫入和列出權限來存取服務層級 API。 帳戶 SAS 會將通訊協定限制為 HTTPS，因此必須使用 HTTPS 提出要求。
 
 ```csharp
@@ -304,6 +321,7 @@ static void UseAccountSAS(string sasToken)
 ```
 
 ### <a name="example-create-a-stored-access-policy"></a>範例：建立預存的存取原則
+
 下列程式碼會在容器上建立預存的存取原則。 您可以使用存取原則，對於容器上的服務 SAS 或其 Blob 指定條件約束。
 
 ```csharp
@@ -330,6 +348,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>範例：在容器上建立服務 SAS
+
 下列程式碼會在容器上建立 SAS。 如果提供現有預存存取原則的名稱，該原則將與 SAS 相關聯。 如果未不提供任何預存的存取原則，則程式碼會建立臨機操作 SAS 的容器上。
 
 ```csharp
@@ -373,6 +392,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>範例：在 Blob 上建立服務 SAS
+
 下列程式碼會在 Blob 上建立 SAS。 如果提供現有預存存取原則的名稱，該原則將與 SAS 相關聯。 如果未不提供任何預存的存取原則，則程式碼會建立臨機操作 SAS 上的 blob。
 
 ```csharp
@@ -419,9 +439,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>結論
+
 若要提供您儲存體帳戶的有限權限給沒有帳戶金鑰的用戶端，則共用存取簽章是非常有用的方式。 因此，對於任何使用 Azure 儲存體的應用程式而言，共用存取簽章是安全性模型不可或缺的一部分。 如果您依照此處所列的最佳做法進行，則您可以使用 SAS 來提供更大的彈性以存取儲存體帳戶中的資源，且不會影響應用程式的安全性。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [管理對容器與 Blob 的匿名讀取權限。](../blobs/storage-manage-access-to-resources.md)
 * [使用共用存取簽章來委派存取權](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [資料表與佇列 SAS 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

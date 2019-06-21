@@ -3,17 +3,17 @@ title: 使用 Azure IoT Central Explorer 監視裝置連線
 description: 透過 IoT Central Explorer CLI 監視裝置訊息，並觀察裝置對應項變更。
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d17f0e5273c7397bd9c6a71d14b7992d8652768
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60517070"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165871"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>使用 Azure IoT Central Explorer 監視裝置連線
 

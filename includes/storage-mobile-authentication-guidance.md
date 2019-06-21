@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158584"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173658"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>設定您的應用程式以存取 Azure 儲存體
 有兩種方式可驗證您的應用程式對儲存體服務的存取權：

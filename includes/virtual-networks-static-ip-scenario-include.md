@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: d40f8fb263c5838d523108a1df7be99aba587354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150880"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173888"
 ---
 ## <a name="scenario"></a>案例
 為了更清楚說明如何設定 VM 的靜態 IP 位址，本文件會使用下列案例。

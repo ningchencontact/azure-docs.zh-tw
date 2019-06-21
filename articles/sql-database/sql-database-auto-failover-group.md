@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522862"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190719"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -42,7 +42,10 @@ ms.locfileid: "65522862"
 
 - **容錯移轉群組 （霧）**
 
-  容錯移轉群組是由單一 SQL Database 伺服器，或單一受控執行個體所管理的一組資料庫，如果由於主要區域中斷而導致所有或某些主要資料庫無法使用，則可以將這些資料庫作為容錯移轉到另一個區域的一個單位。 為受管理的執行個體建立時，容錯移轉群組包含執行個體中的所有使用者資料庫，因此只有一個容錯移轉群組可以執行個體上設定。
+  容錯移轉群組是由單一 SQL Database 伺服器，或可以當做容錯移轉到另一個區域的單位以防所有或部分的主要資料庫變成無法使用，因為主要區域中斷的單一受控執行個體中的資料庫的具名的群組。 為受管理的執行個體建立時，容錯移轉群組包含執行個體中的所有使用者資料庫，因此只有一個容錯移轉群組可以執行個體上設定。
+  
+  > [!IMPORTANT]
+  > 容錯移轉群組的名稱必須是全域唯一內`.database.windows.net`網域。
 
 - **SQL Database 伺服器**
 

@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/29/2019
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: 6bbd2a421122a05399d35be1b61e65f505253ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2319a7620b70547d186a4ef5cb96f5ca6684c62c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66420795"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67305263"
 ---
 | 資源 | 目標 |
 |----------|---------------|
@@ -17,6 +17,7 @@ ms.locfileid: "66420795"
 | 資料表實體的大小上限 | 1 MiB |
 | 資料表實體中屬性的最大數目 | 255，其中包含三個系統屬性：PartitionKey、 RowKey 和 Timestamp |
 | 中實體的屬性值的總大小上限 | 1 MiB |
+| 實體中的個別屬性的總大小上限 | 屬性類型而異。 如需詳細資訊，請參閱 <<c0>  **屬性的型別**中[了解表格服務資料模型](/rest/api/storageservices/understanding-the-table-service-data-model)。 |
 | 每個資料表的預存的存取原則的最大數目 | 5 |
 | 每一儲存體帳戶的要求率上限 | 20,000 每秒交易數，其中假設 1 KiB 實體大小 |
 | 單一資料表分割區 （1 KiB 實體） 的目標輸送量 | 每秒最多 2,000 個實體 |

@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60958555"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296631"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Azure Blob 儲存體中建立和管理 Blob
 
@@ -30,12 +30,21 @@ ms.locfileid: "60958555"
 >
 > * 如果您已經使用「API 管理」，則可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](https://aka.ms/aisarch)。
 
-如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
-如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob 儲存體連接器參考</a>。
+如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 [Azure Blob 儲存體連接器參考](/connectors/azureblobconnector/)。
+
+## <a name="limits"></a>限制
+
+* 根據預設，Azure Blob 儲存體動作才能讀取或寫入的檔案*50 MB 或更小*。 若要處理超過 50 MB，但上限為 1024 MB 的檔案，支援 Azure Blob 儲存體動作[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。 **取得 blob 內容**動作會隱含地使用區塊處理。
+
+* Azure Blob 儲存體觸發程序不支援區塊處理。 當要求檔案的內容時，觸發程序選取 是 50 MB 的檔案或更小。 若要取得大於 50 MB 的檔案，請依照下列模式：
+
+  * 使用 Azure Blob 儲存體觸發程序會傳回檔案內容，例如**blob 新增或修改 （僅限屬性） 的時**。
+
+  * 請遵循使用 Azure Blob 儲存體觸發程序**取得 blob 內容**讀取完整的檔案，並會隱含地使用區塊處理的動作。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * [Azure 儲存體帳戶和儲存體容器](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -47,13 +56,13 @@ ms.locfileid: "60958555"
 
 在 Azure Logic Apps 中，每個邏輯應用程式都必須使用[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)啟動，而該觸發程序會在特定事件發生或符合特定條件時引發。 每次引發觸發程序時，Logic Apps 引擎都會建立邏輯應用程式執行個體，並開始執行應用程式的工作流程。
 
-此範例說明如何在儲存體容器中有新增或更新的 Blob 屬性時，使用 **Azure Blob 儲存體 - 新增或修改 Blob 時 (僅限屬性)** 觸發程序來啟動邏輯應用程式工作流程。 
+此範例示範如何開始使用邏輯應用程式工作流程**blob 新增或修改 （僅限屬性） 的時**觸發程序時新增或更新您的儲存體容器中 blob 的屬性。
 
-1. 在 Azure 入口網站或 Visual Studio 中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。 這個範例會使用 Azure 入口網站。
+1. 在  [Azure 入口網站](https://portal.azure.com)或 Visual Studio，建立空白邏輯應用程式，這會開啟邏輯應用程式設計工具。 這個範例會使用 Azure 入口網站。
 
 2. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。
 
-   此範例會使用此觸發程序：**Azure Blob 儲存體-當 blob 新增或修改 （僅限屬性）**
+   此範例會使用此觸發程序：**當 blob 新增或修改 （僅限屬性）**
 
    ![選取觸發程序](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -79,22 +88,22 @@ ms.locfileid: "60958555"
 
 在 Azure Logic Apps 中，[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)是工作流程中跟隨在觸發程序或另一個動作之後的步驟。 在此範例中，邏輯應用程式會使用[循環觸發程序](../connectors/connectors-native-recurrence.md)來啟動。
 
-1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
+1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在邏輯應用程式設計工具的觸發程序或動作下，選擇 [新增步驟]   > [新增動作]  。
+2. 在邏輯應用程式設計工具中，在觸發程序或動作中，選擇**新增步驟**。
 
    ![新增動作](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 ( **+** )，然後選擇 [新增動作]  。
+   若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 選擇加號 ( **+** )，隨即出現，並選取**新增動作**。
 
 3. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從 [動作] 清單中，選取您想要的動作。
 
-   此範例會使用這項動作：**Azure Blob 儲存體-取得 blob 內容**
+   此範例會使用這項動作：**取得 blob 內容**
 
-   ![選取動作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
+   ![選取動作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
-4. 如果系統提示您輸入連線詳細資料，請[立即建立 Azure Blob 儲存體連線](#create-connection)。 或者，如果連線已存在，請提供動作的必要資訊。
+4. 如果系統提示您輸入連線詳細資料，請[立即建立 Azure Blob 儲存體連線](#create-connection)。
+或者，如果連線已存在，請提供動作的必要資訊。
 
    針對此範例，請選取您想要的檔案。
 
@@ -120,11 +129,6 @@ ms.locfileid: "60958555"
 ## <a name="connector-reference"></a>連接器參考
 
 取得技術詳細資料，例如觸發程序、 動作和連接器的 Open API 所述的限制 (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/azureblobconnector/)。
-
-## <a name="get-support"></a>取得支援
-
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

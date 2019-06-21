@@ -5,15 +5,15 @@ services: application-insights
 author: mrbullwinkle
 ms.service: application-insights
 ms.topic: include
-ms.date: 06/21/2018
+ms.date: 06/20/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 31ff6ae66b13eb5e5abcde94e8d3df7f6e32f63c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 708421feca879ade26a1488541fa7fbf8a601358
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173738"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303847"
 ---
 有一些限制數目的度量和事件，每個應用程式，也就是每個檢測金鑰。 限制取決於您選擇的[定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -22,7 +22,7 @@ ms.locfileid: "67173738"
 | 每日資料總量 | 100 GB | 您可以設定上限來減少資料。 如果您需要更多資料，可以從入口網站將限制增加到最多 1,000 GB。 容量大於 1,000 GB，傳送電子郵件至AIDataCap@microsoft.com。
 | 節流 | 32,000 個事件/秒 | 此限制會測量超過一分鐘。
 | 資料保留 | 90 天 | 此資源適用於[搜尋](../articles/azure-monitor/app/diagnostic-search.md)、[分析](../articles/azure-monitor/app/analytics.md)和[計量瀏覽器](../articles/azure-monitor/app/metrics-explorer.md)。
-| [可用性多步驟測試](../articles/azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)詳述的結果保留期 | 90 天 | 此資源會提供每個步驟的詳細結果。
+| [可用性多步驟測試](../articles/azure-monitor/app/availability-multistep.md)詳述的結果保留期 | 90 天 | 此資源會提供每個步驟的詳細結果。
 | 事件大小上限 | 64,000 |
 | 屬性和度量名稱長度 | 150 | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)。
 | 屬性值字串長度 | 8,192 | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)。

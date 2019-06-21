@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 04/22/2019
+ms.date: 06/13/2019
 ms.author: dacoulte
-ms.openlocfilehash: 03813bb440e90dd7a1d2caec543756f7fffc221b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0345ba564ea244011a83f69e6c152d236b95a920
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685573"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272183"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -24,6 +24,7 @@ ms.locfileid: "64685573"
 |---------|---------|
 | [ISO 27001 共用服務](./iso27001-shared/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 |
 | [ISO 27001 App Service 環境/SQL Database 工作負載](./iso27001-ase-sql-workload/index.md) | 提供 [ISO 27001 共用服務](./iso27001-shared/index.md)藍圖範例的其他基礎結構。 |
+| [英國官方治理](./ukofficial/control-mapping.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得英國官方證明。 |
 
 ## <a name="next-steps"></a>後續步驟
 

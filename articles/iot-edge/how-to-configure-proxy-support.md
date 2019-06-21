@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1c0da1a768b894f543b9089643622c31d6a8758d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 34a94a1b9c38070f5c9de22d9a9e4f24183a876c
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730153"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151013"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -52,7 +52,7 @@ IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝�
 
 Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
 
-* **protocol**是 HTTP 或 HTTPS。 Docker 精靈可以使用任一種通訊協定，端視您的容器登錄設定而定，但 IoT Edge 精靈和執行階段容器應該一律使用 HTTPS。
+* **protocol**是 HTTP 或 HTTPS。 Docker 精靈可以使用任一通訊協定，根據您的容器登錄設定，但 「 IoT Edge 服務精靈 」 和 「 執行階段容器應該一律使用 HTTP 來連線到 proxy。
 
 * **proxy_host**是 Proxy 伺服器的位址。 如果您的 proxy 伺服器需要驗證，您可以使用下列格式的 proxy 主機一部分提供您的認證：**使用者**:**密碼**\@**proxy_host**.
 
@@ -250,7 +250,7 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
     },
     "env": {
         "https_proxy": {
-            "value": "https://proxy.example.com:3128"
+            "value": "http://proxy.example.com:3128"
         }
     },
     "status": "running",

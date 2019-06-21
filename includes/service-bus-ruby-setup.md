@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 16ce537a54fc77fc0f72b859d6d193501d86c1fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111193"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174212"
 ---
 ## <a name="create-a-ruby-application"></a>建立 Ruby 應用程式
 如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)。

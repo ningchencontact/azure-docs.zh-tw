@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158519"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173994"
 ---
 您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與 Resource Manager 命令和範本，使用資源群組來部署 Azure 資源和工作負載。 如果您沒有帳戶，可以取得 [此處免費試用的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136211"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174556"
 ---
 傳播網域名稱的記錄後，您應該要能夠使用瀏覽器來確認您自訂的網域名稱可用來存取 Azure App Service 中的 Web 應用程式。
 

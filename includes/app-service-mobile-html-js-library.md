@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140897"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174489"
 ---
 ## <a name="create-client"></a>建立用戶端連接
 建立 `WindowsAzure.MobileServiceClient` 物件來建立用戶端連接。  以您行動應用程式的 URL 取代 `appUrl` 。

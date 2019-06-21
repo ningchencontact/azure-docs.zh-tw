@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113080"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293078"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
@@ -42,7 +42,7 @@ ms.locfileid: "67113080"
 邀請方組織執行多重要素驗證。 邀請方組織必須確定組織有足夠的授權給使用多重要素驗證的 B2B 使用者。
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>如果夥伴組織已設定多重要素驗證呢？ 我們可以信任其多重要素驗證，而不要使用我們自己的多重要素驗證嗎？
-此功能是為未來的版本預備，屆時您將能夠選取特定協力廠商，從您的 (邀請方組織的) 多重要素驗證中排除。
+目前不支援這項功能。 如果您的組織資源的存取權需要多重要素驗證，需要夥伴組織中的多重要素驗證註冊程式 （邀請） 的組織。
 
 ### <a name="how-can-i-use-delayed-invitations"></a>我如何使用延遲的邀請？
 組織可能想要新增 B2B 共同作業使用者，依需要將他們佈建至應用程式，然後送出邀請。 您可以使用 B2B 共同作業邀請 API 自訂登入工作流程。

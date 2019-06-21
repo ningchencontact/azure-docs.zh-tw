@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147916"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173964"
 ---
 *準備快取*  
 設有「唯讀」主機快取的磁碟能夠提供高於磁碟限制的 IOPS。 若要從主機快取獲得這種最高的讀取效能，您必須先準備此磁碟的快取。 如此可確保效能評定工具在 CacheReads 磁碟區上推動的讀取 IO 實際上是命中快取，而非直接觸及磁碟。 快取命中會讓已啟用快取的單一磁碟產生更多 IOPS。
@@ -73,13 +73,13 @@ ms.locfileid: "66147916"
    | 初始化快取磁碟 |CacheReads |RandomWrites\_1MB |2 小時 |
 1. 執行 Iometer 測試，使用下列參數來準備快取。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的 [執行階段] 期間設為 2 小時。
 
-   | 案例 | 目標磁碟區 | 名稱 | 持續時間 |
+   | 案例 | 目標磁碟區 | Name | 持續時間 |
    | --- | --- | --- | --- |
    | 準備快取磁碟 |CacheReads |RandomReads\_1MB |2 小時 |
 
 準備快取磁碟之後，繼續執行下列的測試案例。 若要執行 Iometer 測試，請對 **每個** 目標磁碟區使用至少三個背景工作角色執行緒。 針對每個背景工作執行緒，請選取目標磁碟區，設定佇列深度，然後選取其中一個已儲存的測試規格，如下表所示，以執行對應的測試案例。 表格也顯示執行這些測試時，預期的 IOPS 和輸送量結果。 在所有案例中，都使用較小的 IO 大小 8 KB 和較高的佇列深度 128。
 
-| 測試案例 | 目標磁碟區 | Name | 結果 |
+| 測試案例 | 目標磁碟區 | 名稱 | 結果 |
 | --- | --- | --- | --- |
 | 最大 讀取 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
 | 最大 寫入 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
