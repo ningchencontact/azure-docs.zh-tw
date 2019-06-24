@@ -52,10 +52,10 @@ ms.locfileid: "67274186"
 
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
-| <*trigger-name*> | 字串 | 觸發程序的名稱 | 
-| <*trigger-type*> | 字串 | 觸發程序類型，例如 "Http" 或 "ApiConnection" | 
+| <*trigger-name*> | String | 觸發程序的名稱 | 
+| <*trigger-type*> | String | 觸發程序類型，例如 "Http" 或 "ApiConnection" | 
 | <*trigger-inputs*> | JSON 物件 | 定義觸發程序行為的輸入 | 
-| <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
+| <*time-unit*> | String | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
 | <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
@@ -65,8 +65,8 @@ ms.locfileid: "67274186"
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | 包含一或多個[條件](#trigger-conditions)的陣列，這類條件會決定是否要執行工作流程。 僅適用於觸發程序。 | 
 | <*runtime-config-options*> | JSON 物件 | 您可以藉由設定 `runtimeConfiguration` 屬性來變更觸發程序執行階段行為。 如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。 | 
-| <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，您可以指定運算式，將陣列項目[分割或解除批次  ](#split-on-debatch)為多個工作流程執行個體，以進行處理。 | 
-| <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
+| <*splitOn-expression*> | String | 針對會傳回陣列的觸發程序，您可以指定運算式，將陣列項目[分割或解除批次  ](#split-on-debatch)為多個工作流程執行個體，以進行處理。 | 
+| <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
 ## <a name="trigger-types-list"></a>觸發程序類型清單
@@ -132,11 +132,11 @@ ms.locfileid: "67274186"
 
 | 值 | 類型 | 描述 | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name*> | 字串 | 觸發程序的名稱 | 
-| <*connection-name*> | 字串 | 工作流程所使用的受控 API 連線名稱 | 
-| <*method-type*> | 字串 | 與管理 API 通訊的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
-| <*api-operation*> | 字串 | 要呼叫的 API 作業 | 
-| <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
+| <*APIConnection_trigger_name*> | String | 觸發程序的名稱 | 
+| <*connection-name*> | String | 工作流程所使用的受控 API 連線名稱 | 
+| <*method-type*> | String | 與管理 API 通訊的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
+| <*api-operation*> | String | 要呼叫的 API 作業 | 
+| <*time-unit*> | String | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
 | <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
@@ -148,8 +148,8 @@ ms.locfileid: "67274186"
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數。 例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
 | <*max-runs*> | Integer | 根據預設，工作流程執行個體執行一次，或以平行方式最多[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | Integer | 當您的工作流程已在執行的執行個體數目上限時，您可以變更根據`runtimeConfiguration.concurrency.runs`屬性，任何新的執行會放入此佇列[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
-| <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
-| <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 |
+| <*splitOn-expression*> | String | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
+| <*operation-option*> | String | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 |
 ||||
 
 *輸出*
@@ -158,7 +158,7 @@ ms.locfileid: "67274186"
 |---------|------|-------------|
 | headers | JSON 物件 | 回應中的標頭 |
 | body | JSON 物件 | 回應中的本文 |
-| 狀態碼 | Integer | 回應的狀態碼 |
+| status code | Integer | 回應的狀態碼 |
 |||| 
 
 *範例*
