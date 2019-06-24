@@ -212,7 +212,7 @@
 - name: 參考
   items:
     - name: 範本參考
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: 範本函式
       items:
         - name: 所有函式
