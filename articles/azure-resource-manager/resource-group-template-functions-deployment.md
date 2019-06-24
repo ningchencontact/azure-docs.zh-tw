@@ -248,11 +248,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | string | 選項 1 |
+| stringOutput | string | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | string | 選項 1 |
+| crossOutput | string | option 1 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 

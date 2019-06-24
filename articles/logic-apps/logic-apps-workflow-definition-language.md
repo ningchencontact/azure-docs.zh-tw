@@ -80,7 +80,7 @@ ms.locfileid: "65596755"
 |-----------|----------|------|-------------|
 | <*key-name*> | 是 | String | 輸出傳回值的索引鍵名稱 |
 | <*key-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
-| <*key-value*> | 是 | 與相同 <*key-type*> | 輸出傳回值 |
+| <*key-value*> | 是 | 與相同 <*金鑰類型*> | 輸出傳回值 |
 |||||
 
 若要從執行工作流程取得輸出，請檢閱邏輯應用程式的執行歷程記錄和在 Azure 入口網站中的詳細資料，或使用[工作流程 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。
