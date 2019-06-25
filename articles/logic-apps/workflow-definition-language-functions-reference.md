@@ -88,12 +88,12 @@ ms.locfileid: "67203085"
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 傳回子字串的起始位置。 |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 傳回子字串最後一次出現的起始位置。 |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 使用指定字串取代子字串，並傳回已更新的字串。 |
-| [分割](../logic-apps/workflow-definition-language-functions-reference.md#split) | 根據原始字串中指定的分隔符號字元，從較大型字串傳回包含以逗號分隔之子字串的陣列。 |
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | 根據原始字串中指定的分隔符號字元，從較大型字串傳回包含以逗號分隔之子字串的陣列。 |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 檢查字串是否以特定的子字串開始。 |
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 傳回字串中的字元 (從指定的位置起始)。 |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 傳回小寫格式的字串。 |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | 傳回大寫格式的字串。 |
-| [修剪](../logic-apps/workflow-definition-language-functions-reference.md#trim) | 移除字串的開頭和尾端空白字元，並傳回更新後的字串。 |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | 移除字串的開頭和尾端空白字元，並傳回更新後的字串。 |
 |||
 
 <a name="collection-functions"></a>
@@ -165,7 +165,7 @@ ms.locfileid: "67203085"
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | 傳回輸入值的浮點數。 |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | 傳回字串的整數版本。 |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | 傳回字串或 XML 的 JavaScript 物件標記法 (JSON) 類型值或物件。 |
-| [字串](../logic-apps/workflow-definition-language-functions-reference.md#string) | 傳回輸入值的字串版本。 |
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | 傳回輸入值的字串版本。 |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | 藉由以逸出字元取代 URL 中的 Unsafe 字元，傳回輸入值的 URI 編碼版本。 |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | 傳回 URI 編碼字串的二進位版本。 |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | 傳回 URI 編碼字串的字串版本。 |
