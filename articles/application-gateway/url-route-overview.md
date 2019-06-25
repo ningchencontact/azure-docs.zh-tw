@@ -10,14 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/23/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 4/23/2018
+ms.author: victorh
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61361940"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Azure 應用程式閘道 URL 路徑型路由概觀
@@ -30,7 +29,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-对 <http://contoso.com/video/*> 的请求会路由到 VideoServerPool，而对 <http://contoso.com/images/*> 的请求则会路由到 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
+要求<http://contoso.com/video/*>路由傳送至 VideoServerPool，和<http://contoso.com/images/*>路由傳送至 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
 
 > [!IMPORTANT]
 > 規則會依照其列在入口網站中的順序進行處理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。
@@ -69,7 +68,7 @@ urlPathMap 元素是用來指定與後端伺服器集區對應的路徑模式。
 ```
 
 > [!NOTE]
-> PathPattern：此设置是要匹配的路径模式列表。 每個字串都必須以 / 開始，而且唯一允許出現 "*" 的地方是緊接在 "/" 之後的結尾處。 傳送給路徑比對器的字串未在第一個 ? 或 # 之後包含任何文字，而這些字元在此處是不允許的。
+> PathPattern:這項設定是要比對的路徑模式清單。 每個字串都必須以 / 開始，而且唯一允許出現 "*" 的地方是緊接在 "/" 之後的結尾處。 傳送給路徑比對器的字串未在第一個 ? 或 # 之後包含任何文字，而這些字元在此處是不允許的。
 
 如需詳細資訊，您可以查看 [使用 URL 型路由的 Resource Manager 範本](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) 。
 
@@ -101,5 +100,3 @@ PathBasedRouting 規則的程式碼片段：
 ## <a name="next-steps"></a>後續步驟
 
 了解 URL 型內容路由之後，請移至 [使用 URL 型路由建立應用程式閘道](tutorial-url-route-powershell.md) ，利用 URL 路由規則來建立應用程式閘道。
-
-<!-- Update_Description: update metedata properties -->

@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353120"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110656"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -49,7 +49,7 @@ ms.locfileid: "60353120"
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄。 並且看到該裝置上的狀態為已註冊。 要設定正確使用條件式存取？
 
-**答：** **deviceID** 所顯示的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足條件式存取的所有評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
+**答：** 裝置的聯結狀態，以顯示**deviceID**必須符合 Azure AD 上的狀態並滿足條件式存取的所有評估準則。 如需詳細資訊，請參閱 <<c0> [ 需要受管理的裝置存取雲端應用程式使用條件式存取](../conditional-access/require-managed-devices.md)。
 
 ---
 
@@ -119,7 +119,7 @@ ms.locfileid: "60353120"
 
 **答：** 是。 Windows 具有快取使用者名稱和密碼的功能，可讓先前曾登入的使用者即使沒有網路連線，也能快速存取桌面。 
 
-當裝置在 Azure AD 中被刪除或停用時，Windows 裝置並不知道此狀況。 所以先前曾登入的使用者能夠繼續以快取的使用者名稱和密碼存取桌面。 但是，由於裝置已被刪除或停用，因此使用者無法存取任何受到裝置型條件式存取保護的資源。 
+當裝置在 Azure AD 中被刪除或停用時，Windows 裝置並不知道此狀況。 所以先前曾登入的使用者能夠繼續以快取的使用者名稱和密碼存取桌面。 但是，刪除或停用裝置時，使用者無法存取受裝置型條件式存取的任何資源。 
 
 先前未曾登入的使用者無法存取裝置。 沒有任何已為他們啟用的快取使用者名稱和密碼。 
 
@@ -155,7 +155,7 @@ ms.locfileid: "60353120"
 
 ### <a name="q-why-do-my-users-see-you-cant-get-there-from-here"></a>問：為什麼我的使用者會看到*您無法從這裡前往該處*？
 
-**答：** 您是否設定了某些條件式存取規則來要求特定裝置狀態？ 如果裝置不符合準則，使用者就會被封鎖而看到該訊息。 請評估條件式存取原則規則。 確定裝置符合準則，以避免收到該訊息。
+**答：** 您是否有設定特定的條件式存取規則，來要求特定的裝置狀態？ 如果裝置不符合準則，使用者就會被封鎖而看到該訊息。 評估條件式存取原則規則。 確定裝置符合準則，以避免收到該訊息。
 
 ---
 
@@ -224,7 +224,7 @@ ms.locfileid: "60353120"
 
 **答：** 當使用者在已加入網域的裝置上將其帳戶新增至應用程式時，系統可能會對他們顯示「將帳戶新增至 Windows？」  提示。 如果他們在出現提示時輸入**是**，裝置就會向 Azure AD 註冊。 信任類型會標示為 [Azure AD 已註冊]。 在您於組織中啟用混合式 Azure AD Join 之後，裝置也會加入混合式 Azure AD。 如此一來，針對同一個裝置就會顯示兩個裝置狀態。 
 
-混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 所以就任何驗證和條件式存取評估而言，都會將您的裝置視為已加入混合式 Azure AD。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)。 
+混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 因此您的裝置會被視為加入混合式 Azure AD 進行任何驗證和條件式存取評估。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)。 
 
 
 ---
@@ -263,7 +263,7 @@ ms.locfileid: "60353120"
 
 **備註：**
 
-- 您條件式存取原則中所包含的使用者需要[支援的 macOS 版 Office](../conditional-access/technical-reference.md#client-apps-condition) 才能存取資源。 
+- 包含在您的條件式存取原則需求的使用者[支援適用於 macOS 的 Office 版本](../conditional-access/technical-reference.md#client-apps-condition)來存取資源。 
 
 - 在第一次嘗試存取時，系統會提示使用者使用公司入口網站來註冊裝置。
 

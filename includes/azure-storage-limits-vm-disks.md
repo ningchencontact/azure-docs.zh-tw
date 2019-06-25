@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148201"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173969"
 ---
 您可以將多個資料磁碟附加至 Azure 虛擬機器。 根據 VM 的資料磁碟的延展性和效能目標，您可以判斷您需要以符合您的效能和容量需求的磁碟類型與數量。
 

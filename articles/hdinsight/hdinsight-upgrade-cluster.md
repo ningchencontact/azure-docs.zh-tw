@@ -7,12 +7,12 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: b5048266fe17bc16fba8228f7cc17d0ee9f3bc0b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4d391c095495a3d0e34a2111d7b4564e6f4f2b8d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072002"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>將 HDInsight 叢集升級為更新的版本
 若要充分利用最新的 HDInsight 功能，建議您將 HDInsight 叢集升級到最新的版本。 依照下面的指導方針升級您的 HDInsight 叢集版本。
@@ -27,9 +27,8 @@ ms.locfileid: "64714775"
 
 1. 閱讀此文件的每一節，以了解在升級 HDInsight 叢集時，可能需要進行的變更。
 2. 將叢集建立為測試/品質保證環境。 如需建立叢集的詳細資訊，請參閱[了解如何建立 Linux 型 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
-3. 將現有的作業、資料來源與接收複製到新的環境。 請參閱[將資料複製到測試環境](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment)以取得詳細資料。
+3. 將現有的作業、資料來源與接收複製到新的環境。
 4. 執行驗證測試以確保您的工作在新叢集上會如預期般運作。
-
 
 當您已驗證一切都會如預期般運作之後，請為移轉排定停機時間。 在此停機期間，請執行下列動作：
 

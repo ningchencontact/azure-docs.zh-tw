@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d01e8ce894bfb1ece3555eddc714d2d3a80e44b5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733652"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164842"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
 
@@ -255,7 +255,7 @@ ms.locfileid: "66733652"
     ```
 
 5. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
-6. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+6. 啟用**覆寫的原則，如果存在的話**，然後瀏覽至並選取*ROPC_Auth.xml*檔案。
 7. 按一下 [上傳]  。
 
 ## <a name="test-the-policy"></a>測試原則
@@ -267,7 +267,7 @@ ms.locfileid: "66733652"
 - 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。
 - 以您資源擁有者密碼認證原則的完整名稱取代 `B2C_1A_ROPC_Auth`。
 
-| Key | Value |
+| Key | 值 |
 | --- | ----- |
 | username | `user-account` |
 | password | `password1` |
@@ -312,7 +312,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 - 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。
 - 以您資源擁有者密碼認證原則的完整名稱取代 `B2C_1A_ROPC_Auth`。
 
-| Key | Value |
+| Key | 值 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

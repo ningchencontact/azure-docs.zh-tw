@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150794"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173882"
 ---
 1. 瀏覽至 [虛擬 WAN] 頁面。 瀏覽至該頁面的其中一種方法是移至 [所有服務]  ，然後搜尋「虛擬 WAN」。
 1. 按一下 [+新增]  來開啟 [建立 WAN]  頁面。

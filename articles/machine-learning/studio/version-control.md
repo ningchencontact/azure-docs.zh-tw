@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
 ms.openlocfilehash: 046afaa0e83fa572d6cd43a3717707892b25af69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171116"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio 中的應用程式生命週期管理
@@ -25,7 +25,7 @@ Azure Machine Learning Studio 是用於開發機器學習實驗的工具，可�
 有兩個建議方法可控制您的實驗版本。 您可以仰賴內建的執行歷程記錄或以 JSON 格式匯出實驗，以便在外部進行管理。 每種方法都有其優缺點。
 
 ### <a name="experiment-snapshots-using-run-history"></a>使用執行歷程記錄的實驗快照
-在 Azure Machine Learning Studio 學習實驗的執行模式中，只要在實驗編輯器中按一下 [執行]，不可變的實驗快照就會提交至工作排程器。 若要檢視這份快照清單，請在實驗編輯器的畫面中，按一下命令列上的 [執行歷程記錄] 按鈕。
+在 Azure Machine Learning Studio 學習實驗的執行模式中，只要在實驗編輯器中按一下 [執行]  ，不可變的實驗快照就會提交至工作排程器。 若要檢視這份快照清單，請在實驗編輯器的畫面中，按一下命令列上的 [執行歷程記錄]  按鈕。
 
 ![執行歷程記錄按鈕](./media/version-control/runhistory.png)
 

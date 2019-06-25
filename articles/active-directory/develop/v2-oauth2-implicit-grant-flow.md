@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f73756373a145375aa2b3d0bcb1c8fa0ede5cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 160799917fb2802689f23d57d6daa9ad0a92c37a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823505"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273086"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft 身分識別平台和隱含授與流程
 
@@ -243,4 +243,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## <a name="next-steps"></a>後續步驟
 
-* 瀏覽所有 [MSAL JS 範例](sample-v2-code.md#single-page-applications-spa)以開始撰寫程式碼。
+* 瀏覽所有 [MSAL JS 範例](sample-v2-code.md)以開始撰寫程式碼。

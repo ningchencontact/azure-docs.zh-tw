@@ -17,13 +17,13 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506340"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64693091"
 ---
-# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
+# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 之遠端桌面連線問題的詳細疑難排解步驟
 本文章提供診斷和修正複雜的以 Windows 為基礎的 Azure 虛擬機器的遠端桌面錯誤的詳細疑難排解步驟。
 
 > [!IMPORTANT]
@@ -33,16 +33,16 @@ ms.locfileid: "60506340"
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。 如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]  。 如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 ## <a name="components-of-a-remote-desktop-connection"></a>遠端桌面連線的元件
 以下是 RDP 連線相關的元件：
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-继续前，可能会有助于回想自上次远程桌面成功连接到 VM 后发生的变化。 例如︰
+在繼續之前，在心裡檢閱最後一個成功的遠端桌面連線至 VM 以來的變更可能有幫助。 例如:
 
-* VM 或包含 VM 之雲端服務的公用 IP 位址 (也稱為虛擬 IP 位址 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) 已變更。 RDP 失敗的原因可能是 DNS 用戶端快取仍然有針對該 DNS 名稱註冊的「舊 IP 位址」  。 请刷新 DNS 客户端缓存，并尝试重新连接 VM。 或者，尝试直接使用新 VIP 进行连接。
+* VM 或包含 VM 之雲端服務的公用 IP 位址 (也稱為虛擬 IP 位址 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) 已變更。 RDP 失敗的原因可能是 DNS 用戶端快取仍然有針對該 DNS 名稱註冊的「舊 IP 位址」  。 請清除 DNS 用戶端快取並嘗試再次連接 VM。 或嘗試直接與新的 VIP 連接。
 * 您使用協力廠商應用程式來管理「遠端桌面」連線，而不是使用 Azure 入口網站所產生的連線。 請確認應用程式組態包含正確的「遠端桌面」流量 TCP 連接埠。 您可以在 [Azure 入口網站](https://portal.azure.com)中查看傳統虛擬機器的這個連接埠，方法是按一下該 VM 的 [設定] > [端點]。
 
 ## <a name="preliminary-steps"></a>預備步驟
@@ -56,12 +56,12 @@ ms.locfileid: "60506340"
 嘗試在完成這些步驟之後透過遠端桌面重新連接至 VM。
 
 ## <a name="detailed-troubleshooting-steps"></a>詳細的疑難排解步驟
-由于以下源出现问题，远程桌面客户端可能无法访问 Azure VM 上的远程桌面服务：
+由於下列來源的問題，可能會造成遠端桌面用戶端無法連線到 Azure VM 上的遠端桌面服務：
 
 * [遠端桌面用戶端電腦](#source-1-remote-desktop-client-computer)
 * [組織內部網路的邊緣裝置](#source-2-organization-intranet-edge-device)
-* [云服务终结点和访问控制列表 (ACL)](#source-3-cloud-service-endpoint-and-acl)
-* [网络安全组](#source-4-network-security-groups)
+* [雲端服務端點和存取控制清單 (ACL)](#source-3-cloud-service-endpoint-and-acl)
+* [網路安全性群組](#source-4-network-security-groups)
 * [以 Windows 為基礎的 Azure VM](#source-5-windows-based-azure-vm)
 
 ## <a name="source-1-remote-desktop-client-computer"></a>來源 1:遠端桌面用戶端電腦
@@ -85,7 +85,7 @@ ms.locfileid: "60506340"
 
 如果您沒有直接連線到網際網路的電腦，則在資源群組或雲端服務中建立和測試新的 Azure 虛擬機器。 如需詳細資訊，請參閱 [在 Azure 中建立執行 Windows 的虛擬機器](../virtual-machines-windows-hero-tutorial.md)。 測試完成之後，您可以刪除虛擬機器和資源群組或雲端服務。
 
-如果可以与直接连接到 Internet 的计算机建立远程桌面连接，检查组织的 Intranet 边缘设备中是否有以下问题：
+如果您可以對直接連線到網際網路的電腦建立遠端桌面連線，請檢查組織內部網路的邊緣裝置之下列項目：
 
 * 目前封鎖對網際網路之 HTTPS 連線的內部防火牆。
 * 目前阻止「遠端桌面」連線的 Proxy 伺服器。
@@ -120,7 +120,7 @@ ms.locfileid: "60506340"
 
 請依照[本文](../windows/reset-rdp.md)的指示。 這篇文章會重設虛擬機器上的「遠端桌面」服務：
 
-* 启用“远程桌面”Windows 防火墙默认规则（TCP 端口 3389）。
+* 啟用「遠端桌面」 Windows 防火牆預設規則 (TCP 連接埠 3389)。
 * 藉由將 HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections 登錄值設為 0 ，啟用遠端桌面連線。
 
 再次嘗試來自您電腦的連線。 如果您還是無法透過遠端桌面連線，請檢查下列可能的問題：
@@ -132,7 +132,7 @@ ms.locfileid: "60506340"
 
 對於使用傳統部署模型所建立的 VM，您可以使用關於 Azure 虛擬機器的遠端 Azure PowerShell 工作階段。 首先，您需要為虛擬機器的代管雲端服務安裝憑證。 移至 [設定對 Azure 虛擬機器的安全遠端 PowerShell 存取](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) ，然後將 **InstallWinRMCertAzureVM.ps1** 指令檔下載到您的本機電腦。
 
-接下來，如果尚未安裝 Azure PowerShell，則請先安裝。 请参阅 [如何安装和配置 Azure PowerShell](/powershell/azure/overview)。
+接下來，如果尚未安裝 Azure PowerShell，則請先安裝。 請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
 接下來，開啟 Azure PowerShell 命令提示字元，並將目前資料夾變更為 **InstallWinRMCertAzureVM.ps1** 指令碼檔案的位置。 若要執行 Azure PowerShell 指令碼，您必須設定正確的執行原則。 請執行 **Get-ExecutionPolicy** 命令來判斷您目前的原則層級。 如需設定適當層級的相關資訊，請參閱 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)。
 
@@ -147,7 +147,7 @@ $vmName="<Name of the target virtual machine>"
 
 您可以從 **Get-AzureSubscription** 命令顯示畫面中的 *SubscriptionName* 屬性，取得正確的訂用帳戶名稱。 您可以從 **Get-AzureVM** 命令顯示畫面中的 *ServiceName* 欄，取得虛擬機器的雲端服務名稱。
 
-請檢查您是否擁有新憑證。 開啟目前使用者的 [憑證] 嵌入式管理單元，然後查看 [受信任的根憑證授權單位\憑證] 資料夾。 您應該在 Issued To 資料行中查看具有您的雲端服務之 DNS 名稱的憑證 (範例：cloudservice4testing.cloudapp.net)。
+請檢查您是否擁有新憑證。 開啟目前使用者的 [憑證] 嵌入式管理單元，然後查看 [受信任的根憑證授權單位\憑證]  資料夾。 您應該在 Issued To 資料行中查看具有您的雲端服務之 DNS 名稱的憑證 (範例：cloudservice4testing.cloudapp.net)。
 
 接下來，使用這些命令起始遠端 Azure PowerShell 工作階段。
 
@@ -172,7 +172,7 @@ Enter-PSSession -ConnectionUri $uri -Credential $creds
 Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
-PortNumber 属性显示当前端口号。 如有需要，請使用此命令，將遠端桌面連接埠號碼變更回預設值 (3389)。
+PortNumber 屬性會顯示目前的連接埠號碼。 如有需要，請使用此命令，將遠端桌面連接埠號碼變更回預設值 (3389)。
 
 ```powershell
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
@@ -195,7 +195,7 @@ Exit-PSSession
 ## <a name="additional-resources"></a>其他資源
 [如何重設 Windows 虛擬機器的密碼或遠端桌面服務](../windows/reset-rdp.md)
 
-[如何安装和配置 Azure PowerShell](/powershell/azure/overview)
+[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

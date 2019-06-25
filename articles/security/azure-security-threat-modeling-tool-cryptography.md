@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121201"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構：密碼編譯 | 風險降低 
@@ -174,7 +174,7 @@ ms.locfileid: "62121201"
 | **適用的技術** | 泛型 |
 | **屬性**              | 裝置作業系統 - Windows IoT 核心版、裝置連線能力 - Azure IoT 裝置 SDK |
 | **參考**              | [Windows IoT 核心版上的 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)、[設定 Windows IoT 核心版上的 TPM](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm)、[Azure IoT 裝置 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **步驟** | 在硬體保護的儲存體 (如 TPM 或智慧卡晶片) 中安全地對稱或憑證私密金鑰。 Windows 10 IoT Core 支援使用 TPM，而且有數個相容 TPM 可供使用︰ https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm。 建議您使用韌體或離散 TPM。 軟體 TPM 只應用於開發和測試用途。 一旦 TPM 可供使用而且在其中佈建了金鑰，應該就能撰寫權杖產生程式碼而不必在其中硬式編碼任何敏感性資訊。 | 
+| **步驟** | 在硬體保護的儲存體 (如 TPM 或智慧卡晶片) 中安全地對稱或憑證私密金鑰。 Windows 10 IoT Core 支援使用 TPM，而且有數個相容 TPM 可供使用︰ https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 。 建議您使用韌體或離散 TPM。 軟體 TPM 只應用於開發和測試用途。 一旦 TPM 可供使用而且在其中佈建了金鑰，應該就能撰寫權杖產生程式碼而不必在其中硬式編碼任何敏感性資訊。 | 
 
 ### <a name="example"></a>範例
 ```

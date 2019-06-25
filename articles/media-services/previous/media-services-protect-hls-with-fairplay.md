@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c30a32466cbac795ef037a3295816e87995ad749
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8d5683cb060b63aebad7c68672c78f5b350a25d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073590"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保護 HLS 內容
 
 > [!NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 任何新的特色或功能會被新增至媒體服務 v2。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 任何新的特色或功能會被新增至媒體服務 v2。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 >
 
 Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時串流 (HLS) 內容︰  
@@ -59,7 +59,7 @@ Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時�
 
 必須在媒體服務金鑰傳遞端設定下列各項︰
 
-  * **應用程式憑證 (AC)**：這是包含私密金鑰的 .pfx 檔案。 您可建立這個檔案並以密碼加密。
+  * **應用程式憑證 (AC)** ：這是包含私密金鑰的 .pfx 檔案。 您可建立這個檔案並以密碼加密。
 
        當您設定金鑰傳遞原則時，您必須提供該密碼和 base64 格式的 .pfx 檔案。
 
@@ -82,7 +82,7 @@ Azure 媒體服務可讓您使用下列格式，動態加密您的 HTTP 即時�
 
 FPS 用戶端必須設定下列各項︰
 
-  * **應用程式憑證 (AC)**：這是 .cer/.der 檔案，其中包含作業系統用來加密某些承載的公開金鑰。 媒體服務必須了解它，因為播放程式需要它。 金鑰傳遞服務會使用對應的私密金鑰來解密。
+  * **應用程式憑證 (AC)** ：這是 .cer/.der 檔案，其中包含作業系統用來加密某些承載的公開金鑰。 媒體服務必須了解它，因為播放程式需要它。 金鑰傳遞服務會使用對應的私密金鑰來解密。
 
 若要播放 FairPlay 加密的資料流，請先取得真正的 ASK，然後產生真正的憑證。 該處理程序會建立所有 3 個部分︰
 
@@ -513,7 +513,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

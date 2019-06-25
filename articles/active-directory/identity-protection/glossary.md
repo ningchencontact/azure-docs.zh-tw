@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109010"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection 詞彙
 ### <a name="at-risk-user"></a>有風險 (使用者)
@@ -35,7 +35,7 @@ ms.locfileid: "60452818"
 Azure Active Directory 的安全性模組，可供整合檢視會影響組織身分識別的風險事件和潛在弱點。
 
 ### <a name="conditional-access"></a>條件式存取
-用來保護資源存取的原則。 條件式存取規則會儲存在 Azure Active Directory 中，並在授與資源的存取權之前由 Azure AD 評估。  範例規則包括根據使用者位置、裝置健康狀態或使用者驗證方法來限制存取。
+用來保護資源存取的原則。 條件式存取規則儲存在 Azure Active Directory，並授與資源的存取權之前的 Azure AD 會評估。  範例規則包括根據使用者位置、裝置健康狀態或使用者驗證方法來限制存取。
 
 ### <a name="credentials"></a>認證
 包含識別碼以及用來取得存取本機和網路資源之識別證明的資訊。 認證範例包括使用者名稱和密碼、智慧卡和憑證。
@@ -146,7 +146,7 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 請參閱風險層級 (登入)
 
 ### <a name="sign-in-risk-policy"></a>登入風險原則
-一個條件式存取原則，可評估特定登入的風險，並根據預先定義的條件和規則來套用緩和動作。
+條件式存取原則可評估特定登入的風險，並套用緩和動作，根據預先定義的條件和規則。
 
 ### <a name="user-compromise-risk"></a>使用者入侵風險
 請參閱風險層級 (使用者入侵)
@@ -155,7 +155,7 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 請參閱風險層級 (使用者入侵)。
 
 ### <a name="user-risk-policy"></a>使用者風險原則
-一個條件式存取原則，可根據預先定義的條件和規則來考量及套用緩和動作。
+條件式存取原則，將視為登入，並套用緩和動作，根據預先定義的條件和規則。
 
 ### <a name="users-flagged-for-risk"></a>標示有風險的使用者
 具有作用中或已補救風險事件的使用者

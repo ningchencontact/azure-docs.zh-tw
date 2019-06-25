@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler
 ms.openlocfilehash: d674cc154dd46704051c3c75ca2589dfd7a9ca4c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942107"
 ---
 # <a name="all-offers-page"></a>所有供應項目頁面
@@ -21,7 +21,7 @@ ms.locfileid: "64942107"
 
 ## <a name="example-page"></a>範例頁面
 
-下圖顯示針對字串 `Contoso` 篩選的 [所有供應項目] 頁面。
+下圖顯示針對字串 `Contoso` 篩選的 [所有供應項目]  頁面。
 
 ![所有供應項目頁面](./media/all-offers-page1.png)
 

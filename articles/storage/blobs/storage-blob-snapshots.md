@@ -9,10 +9,10 @@ ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794241"
 ---
 # <a name="create-a-blob-snapshot"></a>建立 Blob 快照集
@@ -69,7 +69,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 }
 ```
 
-## <a name="copy-snapshots"></a>复制快照
+## <a name="copy-snapshots"></a>複製快照集
 涉及 Blob 和快照集的複製作業會遵循下列規則：
 
 * 您可以將快照集複製到其基底 Blob 之上。 藉由將快照集升級到基底 Blob 的位置，您可以還原舊版的 Blob。 快照集會被保留，但基底 Blob 會遭到快照集的可寫入複本覆寫。
@@ -94,7 +94,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 * 進階儲存體帳戶中每個分頁 Blob 的快照集數目上限為 100 個。 如果超出該限制，快照集 Blob 作業就會傳回錯誤碼 409 (`SnapshotCountExceeded`)。
 * 您可以每 10 分鐘擷取一次進階儲存體帳戶中分頁 Blob 的快照集。 如果超出該比率，快照集 Blob 作業就會傳回錯誤碼 409 (`SnapshotOperationRateExceeded`)。
-* 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。 复制操作的目标 Blob 不能包含任何现有快照。 如果目的地 Blob 具有快照集，則 Copy Blob 作業會傳回錯誤碼 409 (`SnapshotsPresent`).
+* 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。 複製作業的目的地 Blob 不可以包含任何現有的快照集。 如果目的地 Blob 具有快照集，則 Copy Blob 作業會傳回錯誤碼 409 (`SnapshotsPresent`).
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>傳回快照集的絕對 URI
 這個 C# 程式碼範例會建立快照集，並寫出主要位置的絕對 URI。
@@ -122,7 +122,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ## <a name="understand-how-snapshots-accrue-charges"></a>了解快照集產生費用的方式
 建立快照集 (即 Blob 的唯讀複本) 可能會為您的帳戶產生額外的資料儲存體費用。 設計您的應用程式時，請務必留意產生這些費用的可能方式，以便將成本降至最低。
 
-### <a name="important-billing-considerations"></a>重要计费注意事项
+### <a name="important-billing-considerations"></a>重要的計費考量
 下列清單包含建立快照集時要考量的重點。
 
 * 無論唯一的區塊或分頁是在 Blob 或快照集中，您的儲存體帳戶都會產生費用。 在您更新快照集所依據的 Blob 之前，您的帳戶不會針對與該 Blob 相關聯的快照集產生額外費用。 在您更新基底 blob 之後，它會與其快照集分離。 發生這種情況時，您需支付每個 blob 或快照集中唯一的區塊或頁面。
@@ -154,7 +154,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 **案例 3**
 
-在案例 3 中，基底 Blob 已更新，但快照集並未更新。 區塊 3 已使用基底 Blob 中的區塊 4 來取代，但快照集仍然反映區塊 3。 因此，帐户需要为四个块支付费用。
+在案例 3 中，基底 Blob 已更新，但快照集並未更新。 區塊 3 已使用基底 Blob 中的區塊 4 來取代，但快照集仍然反映區塊 3。 因此，此帳戶必須支付四個區塊的費用。
 
 ![Azure 儲存體資源](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 

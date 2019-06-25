@@ -9,17 +9,17 @@ ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 2b61cc8c5c448c28e96b06afa3556688a82567ed
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866816"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202690"
 ---
 ### <a name="delete-local-resources"></a>刪除本機資源
 
 如果您想要從裝置中移除 IoT Edge 執行階段和相關資源，請使用您的裝置作業系統所適用的命令。 
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 解除安裝 IoT Edge 執行階段。
 
@@ -43,7 +43,7 @@ IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會�
 
 藉由參照容器名稱，刪除在 `docker ps` 輸出中列出的任何其他容器。 
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 移除 IoT Edge 執行階段。
 

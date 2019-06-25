@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: a24aa6aa1695a3d1166816b7960bdd7b551e1a37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882192"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>在 Azure Service Fabric 中重新設定
 對於具狀態服務的分割區而言，*設定*定義為複本及其角色。
 
-「重新設定」是指將某個設定移至另一個設定的流程。 這會變更具狀態服務其分割區的複本集。 舊設定稱做「先前設定」(簡稱 PC)，新設定稱做「目前設定」(簡稱 CC)。 Azure Service Fabric 中的重新設定通訊協定在複本集進行任何變更期間，會保持一致性並維持可用性。
+「重新設定」  是指將某個設定移至另一個設定的流程。 這會變更具狀態服務其分割區的複本集。 舊設定稱做「先前設定」(簡稱 PC)  ，新設定稱做「目前設定」(簡稱 CC)  。 Azure Service Fabric 中的重新設定通訊協定在複本集進行任何變更期間，會保持一致性並維持可用性。
 
 容錯移轉管理員會起始重新設定，以回應系統中不同的事件。 例如，如果主要複本失敗，便會起始重新設定，將使用中的次要複本升階為主要複本。 另一個範例是在必須將主要複本移至另一個節點，以升級該節點時，以重新設定回應應用程式升級。
 
@@ -49,7 +49,7 @@ ms.locfileid: "60882192"
 還有其他數個階段僅供內部使用。
 
 ## <a name="stuck-reconfigurations"></a>重新設定停滯
-重新設定可能會因各種原因而「停滯」。 一些常見原因包括：
+重新設定可能會因各種原因而「停滯」  。 一些常見原因包括：
 
 - **向下複本**:某些重新設定階段需要大部分組態中的複本為啟動的狀態。
 - **網路或通訊問題**:重新設定需要不同節點之間的網路連線。

@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150818"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173881"
 ---
 包含閘道的中樞。 中樞建立好時，您就需要支付中樞費用，即使您未連結任何網站也是如此。 大約需要 30 分鐘的時間以建立中樞與閘道。
 

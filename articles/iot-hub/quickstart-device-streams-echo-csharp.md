@@ -1,6 +1,6 @@
 ---
 title: 透過 Azure IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊 (預覽) | Microsoft Docs
-description: 在本快速入門中，您將會執行兩個範例 C# 應用程式，並透過以 IoT 中樞建立的裝置串流進行通訊。
+description: 在本快速入門中，您會執行兩個範例 C# 應用程式，並透過以 IoT 中樞建立的裝置串流進行通訊。
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -10,20 +10,20 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 8df57d3d36dcae851c9c0e23ea609e200a429605
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 74a8fc40cff12070f7cea99981eb4e8321d7c1ef
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832871"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735142"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊 (預覽)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-[IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 本快速入門會用到兩個利用裝置串流來回傳送資料 (回應) 的 C# 程式。
+[IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 本快速入門會用到 C# 應用程式，該應用程式會利用裝置串流來回傳送資料 (回應)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,29 +31,25 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 ## <a name="prerequisites"></a>必要條件
 
-*  裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+* 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+  * 美國中部
+  * 美國中部 EUAP
 
-   *  **美國中部**
+* 您在此快速入門中執行的兩個範例應用程式是使用 C# 所撰寫的。 您的開發電腦上需要有 .NET Core SDK 2.1.0 或更新版本。
+  * 您可以[從 .NET 下載適用於多種平台的 .NET Core SDK](https://www.microsoft.com/net/download/all) \(英文\)。
+  * 使用下列命令，確認開發電腦上目前的 C# 版本：
 
-   *  **美國中部 EUAP**
+   ```
+   dotnet --version
+   ```
 
-您在此快速入門中執行的兩個範例應用程式是使用 C# 所撰寫的。 您的開發電腦上需要有 .NET Core SDK 2.1.0 或更高版本。
-
-*  您可以[從 .NET 下載適用於多種平台的 .NET Core SDK](https://www.microsoft.com/net/download/all) \(英文\)。
-
-您可以使用下列命令，以確認開發電腦上目前的 C# 版本：
-
-```
-dotnet --version
-```
-
-*  執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
+* 執行下列命令，將適用於 Azure CLI 的 Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
 
-* 從 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 下載範例 C# 專案並將 ZIP 封存檔解壓縮。 您在裝置端和服務端都會用到它。
+* [下載範例 C# 專案](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)並將 ZIP 封存檔解壓縮。 您在裝置端和服務端都會用到它。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -61,56 +57,56 @@ dotnet --version
 
 ## <a name="register-a-device"></a>註冊裝置
 
-裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
+裝置必須向的 IoT 中樞註冊，才能進行連線。 在這一節中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
+1. 若要建立裝置身分識別，請在 Cloud Shell 中執行下列命令：
 
-   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
-
-   **MyDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
+   > [!NOTE]
+   > * 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
+   > * 使用所示的 MyCDevice  。 這是為已註冊裝置指定的名稱。 如果您為裝置選擇不同的名稱，請在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得_裝置連接字串_：
+1. 若要針對您剛註冊的裝置取得「裝置連接字串」  ，請在 Azure Cloud Shell 中執行下列命令：
 
-   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
+   > [!NOTE]
+   > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    記下裝置連接字串，如下列範例所示：
+    請記下儲存連接字串，以供稍後在本快速入門中使用。 看起來會像下列範例：
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    您稍後會在快速入門中使用此值。
-
 3. 您也需要 IoT 中樞的*服務連接字串*，讓服務端應用程式能夠連線到您的 IoT 中樞並建立裝置串流。 下列命令會擷取您 IoT 中樞的這個值：
 
-   **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
+   > [!NOTE]
+   > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
-    記下顯示如下的傳回值：
+    記下傳回的值，以便稍後在本快速入門中使用。 看起來會像下列範例：
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-## <a name="communicate-between-device-and-service-via-device-streams"></a>透過裝置串流在裝置與服務之間進行通訊
+## <a name="communicate-between-the-device-and-the-service-via-device-streams"></a>透過裝置串流在裝置與服務之間進行通訊
 
 在本節中，您會執行裝置端應用程式和服務端應用程式，並在兩者之間進行通訊。
 
 ### <a name="run-the-service-side-application"></a>執行服務端應用程式
 
-在解壓縮的專案資料夾中，瀏覽至 `iot-hub/Quickstarts/device-streams-echo/service`。 您必須備妥下列資訊：
+在解壓縮的專案資料夾中，移至 *iot-hub/Quickstarts/device-streams-echo/service* 目錄。 將下列資訊保存在隨手可及的位置：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
 | `ServiceConnectionString` | 提供 IoT 中樞的服務連接字串。 |
-| `DeviceId` | 提供您先前建立之裝置的識別碼，例如 MyDevice。 |
+| `DeviceId` | 提供您先前所建立裝置的識別碼 (例如 MyDevice  )。 |
 
 編譯並執行程式碼，如下所示：
 
@@ -121,7 +117,7 @@ cd ./iot-hub/Quickstarts/device-streams-echo/service/
 dotnet build
 
 # Run the application
-# In Linux/MacOS
+# In Linux or macOS
 dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
@@ -133,7 +129,7 @@ dotnet run <ServiceConnectionString> <MyDevice>
 
 ### <a name="run-the-device-side-application"></a>執行裝置端應用程式
 
-在解壓縮的專案資料夾中，瀏覽至 `iot-hub/Quickstarts/device-streams-echo/device` 目錄。 您必須備妥下列資訊：
+在解壓縮的專案資料夾中，移至 *iot-hub/Quickstarts/device-streams-echo/device* 目錄。 將下列資訊保存在隨手可及的位置：
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
@@ -148,22 +144,24 @@ cd ./iot-hub/Quickstarts/device-streams-echo/device/
 dotnet build
 
 # Run the application
-# In Linux/MacOS
+# In Linux or macOS
 dotnet run "<DeviceConnectionString>"
 
 # In Windows
 dotnet run <DeviceConnectionString>
 ```
 
-在最後一個步驟結束時，服務端程式將會對您的裝置起始串流，且在建立之後，會透過串流將字串緩衝區傳送至服務。 在此範例中，服務端程式會直接將相同的資料傳回給裝置，而示範兩個應用程式之間成功的雙向通訊。 請參閱下圖。
+在最後一個步驟結束時，服務端應用程式會起始您裝置的資料流。 建立資料流之後，應用程式會透過資料流將字串緩衝區傳送到服務。 在此範例中，服務端應用程式會直接將相同的資料傳回給裝置，以示範兩個應用程式之間成功的雙向通訊。
 
 裝置端上的主控台輸出：
 
-![裝置端主控台輸出](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
+![裝置端上的主控台輸出](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
-服務端上的主控台輸出：![服務端上的主控台輸出](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
+服務端上的主控台輸出：
 
-透過串流傳送的流量將經由 IoT 中樞輸送，而不是直接傳送。 [裝置串流處理優點](./iot-hub-device-streams-overview.md#benefits)中詳述提供的權益。
+![服務端上的主控台輸出](./media/quickstart-device-streams-echo-csharp/service-console-output.png)
+
+透過串流傳送的流量會經由 IoT 中樞輸送，而不是直接傳送。 [裝置串流處理優點](./iot-hub-device-streams-overview.md#benefits)中詳述提供的權益。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -173,7 +171,7 @@ dotnet run <DeviceConnectionString>
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置、在裝置和服務端建立 C# 應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
 
-使用下列連結深入了解裝置串流：
+若要深入了解裝置串流，請參閱：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

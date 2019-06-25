@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
 ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803588"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>針對使用虛擬機器擴展集的自動調整進行疑難排解
@@ -52,7 +52,7 @@ ms.locfileid: "60803588"
     Azure 資源總管是向您顯示 Azure Resource Manager 資源的狀態不可或缺的疑難排解工具。 按一下您的訂用帳戶，查看您正在進行疑難排解的資源群組。 在「計算」資源提供者下查看您建立的虛擬機器擴展集，並且檢查執行個體檢視，它會顯示部署的狀態。 也請檢查虛擬機器擴展集中的 VM 執行個體檢視。 然後進入 Microsoft.Insights 資源提供者，並且檢查自動調整規則看起來是否沒有問題。
 * 診斷擴充是否正常運作，而且發出效能資料？
   
-    **更新：** 已增强 Azure 自动缩放，以使用基于主机的指标管道，这将不再需要安装诊断扩展。 如果您使用新的管線建立自動調整應用程式，則不再適用於後續幾個段落。 已經轉換為使用主機管線的 Azure 範本範例位於： https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale。 
+    **更新：** 若要使用的主機型度量管線，不再需要安裝診斷擴充功能已增強 azure 自動調整規模。 如果您使用新的管線建立自動調整應用程式，則不再適用於後續幾個段落。 已經轉換為使用主機管線的 Azure 範本範例位於： https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale 。 
   
     使用主機型度量進行自動調整較佳，原因如下︰
   

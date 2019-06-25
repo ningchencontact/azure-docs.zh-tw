@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64920246"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164732"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>整合 Azure Active Directory 中的 LinkedIn 帳戶連線
 
@@ -44,7 +44,7 @@ ms.locfileid: "64920246"
 1. 底下**LinkedIn 帳戶連線**，允許使用者連線其帳戶來存取其某些 Microsoft 應用程式內的 LinkedIn 連線。 直到連接他們的帳戶的使用者同意不共用任何資料。
 
     * 選取 **是**來啟用您的組織中的所有使用者的服務
-    * 選取  **Selected**可讓您組織中的所選使用者的群組
+    * 選取 **選取的群組**啟用服務的組織中的所選使用者群組
     * 選取  **No**来撤銷您的組織中的所有使用者的同意
 
     ![整合組織中的 LinkedIn 帳戶連線](./media/linkedin-integration/linkedin-integration.png)

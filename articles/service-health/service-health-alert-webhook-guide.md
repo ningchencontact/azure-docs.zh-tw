@@ -1,5 +1,5 @@
 ---
-title: 使用 Webhook 設定現有問題管理系統的健康情況通知 | Microsoft Docs
+title: 設定現有問題管理系統使用 webhook 的 Azure 服務健康情況通知
 description: 針對現有問題管理系統的相關服務健康情況事件取得個人化通知。
 author: stephbaron
 ms.author: stbaron
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 3e9a564310d750e63c9cf81d19f698e75712d09a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442431"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067183"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 設定現有問題管理系統的健康情況通知
 

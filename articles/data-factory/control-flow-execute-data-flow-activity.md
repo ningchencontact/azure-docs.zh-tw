@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235868"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077315"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
 用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。
@@ -72,7 +72,7 @@ Data Flow 執行的預設值是 8 核心的一般計算，當 TTL 為 60 分鐘�
 
 ### <a name="staging-area"></a>臨時區域
 
-如果您在快要融化資料到 Azure 資料倉儲，您必須選擇預備環境位置，針對 Polybase 批次負載。
+如果您在快要融化資料到 Azure 資料倉儲，您必須選擇預備環境位置，針對 Polybase 批次負載。 暫存設定僅適用於 Azure 資料倉儲工作負載。
 
 ## <a name="parameterized-datasets"></a>參數化資料集
 

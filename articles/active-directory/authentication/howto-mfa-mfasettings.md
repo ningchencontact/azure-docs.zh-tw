@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496755"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113449"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -191,7 +191,7 @@ Azure Multi-Factor Authentication 的應用程式密碼、受信任的 IP、驗�
 Microsoft Office 2013 用戶端和更新版本支援新式驗證。 Office 2013 用戶端 (包括 Outlook) 支援新式驗證通訊協定，而且可搭配雙步驟驗證運作。 啟用用戶端之後，用戶端並不需要應用程式密碼。
 
 >[!NOTE]
->應用程式密碼無法在基於條件式存取的多重要素驗證原則和新式驗證中運作。
+>應用程式密碼功能不適用於條件式存取的多重要素驗證原則和新式驗證。
 
 ### <a name="considerations-about-app-passwords"></a>關於應用程式密碼的考量
 
@@ -259,7 +259,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 受控或同盟租用戶的系統管理員會使用 Azure Multi-Factor Authentication 的_信任 IP_ 功能。 此功能會略過從公司內部網路登入之使用者的雙步驟驗證。 完整版 Azure Multi-Factor Authentication 提供此功能給管理員使用，免費版則不提供。 如需有關如何取得完整版 Azure Multi-Factor Authentication 的詳細資訊，請參閱[ Azure Multi-Factor Authentication](multi-factor-authentication.md)。
 
 > [!NOTE]
-> MFA 信任的 IP 和條件式存取具名位置僅適用於 IPV4 位址。
+> MFA 信任的 Ip 和具名位置的條件式存取只適用於 IPV4 位址。
 
 如果您的組織部署 NPS 延伸模組以提供 MFA 給內部部署應用程式，請注意來源 IP 位址一律會顯示為驗證嘗試流經的 NPS 伺服器。
 
@@ -280,20 +280,20 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 不論是否啟用「信任的 IP」，瀏覽器流程都需要雙步驟驗證。 較舊的豐富型用戶端應用程式需要應用程式密碼。
 
-### <a name="enable-named-locations-by-using-conditional-access"></a>使用條件式存取以啟用具名位置
+### <a name="enable-named-locations-by-using-conditional-access"></a>使用條件式存取啟用具名的位置
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory]   > [條件式存取]   > [具名位置]  。
+2. 在左側，選取**Azure Active Directory** > **條件式存取** > **具名位置**。
 3. 選取 [新增位置]  。
 4. 輸入位置的名稱。
 5. 選取 [標記為受信任的位置]  。
 6. 輸入 CIDR 表示法中的 IP 範圍，例如 **192.168.1.1/24**。
 7. 選取 [建立]  。
 
-### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>使用條件式存取啟用信任的 IP 功能
+### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>使用條件式存取啟用信任的 Ip 功能
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory]   > [條件式存取]   > [具名位置]  。
+2. 在左側，選取**Azure Active Directory** > **條件式存取** > **具名位置**。
 3. 選取 [設定 MFA 信任的 IP]  。
 4. 在 [服務設定]  頁面的 [信任的 IP]  下方，選擇下列兩個選項中的任一項：
 
@@ -367,7 +367,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 非瀏覽器應用程式上不會顯示 [X 天內不要再問我]  選項，不論應用程式是否支援新式驗證。 這些應用程式使用每隔一小時會提供新存取權杖的_重新整理權杖_。 當已驗證重新整理權杖時，Azure AD 會檢查在指定天數內發生的最後一次雙步驟驗證。
 
-此功能會減少 web 應用程式上的驗證次數，一般每次皆會提示。 此功能會增加新式驗證用戶端的驗證次數 (一般會每隔 90 天提示一次)。 若與條件式存取原則結合，也可以增加驗證次數。
+此功能會減少 web 應用程式上的驗證次數，一般每次皆會提示。 此功能會增加新式驗證用戶端的驗證次數 (一般會每隔 90 天提示一次)。 也可以增加時結合條件式存取原則的次數。
 
 >[!IMPORTANT]
 >當使用者透過 Azure Multi-Factor Authentication Server 或第三方多因素驗證解決方案執行雙步驟驗證時，[記住 Multi-Factor Authentication]  功能與 AD FS 的 [讓我保持登入]  功能並不相容。

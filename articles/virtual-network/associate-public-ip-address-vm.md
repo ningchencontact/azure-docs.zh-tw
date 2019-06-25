@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64691998"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>關聯至虛擬機器的公用 IP 位址
@@ -43,7 +43,7 @@ ms.locfileid: "64691998"
    > [!NOTE]
    > 公用 IP 位址是網路介面的 IP 組態產生關聯。 在上圖中，網路介面會有一個 IP 組態。 如果網路介面有多個 IP 組態，它們全都會顯示在清單中，您會選取您想要關聯的公用 IP 位址的 IP 組態。
 
-5. 選取  **Enabled**，然後選取**IP 位址 (*設定必要設定*)**。 選擇現有的公用 IP 位址，它會自動關閉**選擇公用 IP 位址** 方塊中。 如果您沒有列出任何可用公用 IP 位址，您需要建立一個。 若要深入了解，請參閱[建立公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)。 選取 **儲存**、 之後，然後關閉 IP 組態的方塊的圖片所示。
+5. 選取  **Enabled**，然後選取**IP 位址 (*設定必要設定*)** 。 選擇現有的公用 IP 位址，它會自動關閉**選擇公用 IP 位址** 方塊中。 如果您沒有列出任何可用公用 IP 位址，您需要建立一個。 若要深入了解，請參閱[建立公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)。 選取 **儲存**、 之後，然後關閉 IP 組態的方塊的圖片所示。
 
    ![啟用公用 IP 位址](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 

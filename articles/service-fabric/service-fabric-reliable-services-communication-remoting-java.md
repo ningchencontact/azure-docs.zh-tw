@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 51c8c689bd3fe3e8967bab77e776ad02f9cb59f1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123630"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>使用 Reliable Services 在 Java 中進行服務遠端處理
@@ -35,7 +35,7 @@ ms.locfileid: "62123630"
 1. 建立服務實作的介面。 這個介面會定義可在您的服務上用於遠端程序呼叫的方法。 方法也必須是傳回工作的非同步方法。 此介面必須實作 `microsoft.serviceFabric.services.remoting.Service` ，表示服務具有遠端處理介面。
 2. 在您的服務中使用遠端接聽程式。 這是提供遠端功能的 `CommunicationListener` 實作。 `FabricTransportServiceRemotingListener` 可以用來使用預設遠端傳輸通訊協定建立遠端接聽程式。
 
-例如，以下无状态服务公开了一个方法，此方法通过远程过程调用获取“Hello World”。
+例如，下列無狀態服務服務會公開單一方法，透過遠端程序呼叫取得 "Hello World"。
 
 ```java
 import java.util.ArrayList;

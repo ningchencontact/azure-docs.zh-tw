@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204486"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190445"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>從 Azure Active Directory 連線資料
 
@@ -34,6 +34,8 @@ Azure 的 Sentinel 可讓您要從中收集資料[Azure Active Directory](../act
 - 如果您想要匯出從 Active Directory 的登入資料，您必須將 Azure AD P1 或 P2 授權。
 
 - 具有全域管理員或安全性系統管理員權限在您想要從記錄檔串流的租用戶上的使用者。
+
+- 若要能夠看見連線狀態，您必須存取 Azure AD 的診斷記錄檔的權限。 
 
 
 ## <a name="connect-to-azure-ad"></a>連接至 Azure AD

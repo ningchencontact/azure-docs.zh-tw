@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507234"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296296"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 入口網站來管理 Azure Resource Manager 資源群組
 
@@ -109,14 +106,6 @@ ms.locfileid: "65507234"
 ## <a name="export-resource-groups-to-templates"></a>將資源群組匯出範本
 
 匯出範本的相關資訊，請參閱[單一和多重資源匯出至範本-入口網站](export-template-portal.md)。
-
-### <a name="fix-export-issues"></a>修正匯出問題
-
-並非所有的資源類型都支援匯出範本功能。 從資源群組 (而非部署歷程記錄) 匯出時，您只會看到匯出問題。 如果上一次部署精確地表示資源群組的目前狀態，您應該從部署歷程記錄 (而非資源群組) 匯出範本。 只有在變更未定義於單一範本中的資源群組時，才能從資源群組匯出。
-
-若要解決匯出問題，請手動將遺漏的資源新增回您的範本。 此錯誤訊息包含無法匯出的資源類型。 在[範本參考](/azure/templates/)中尋找該資源類型。 例如，若要手動新增虛擬網路閘道，請參閱 [Microsoft.Network/virtualNetworkGateways 範本參考](/azure/templates/microsoft.network/virtualnetworkgateways)。 範本參考會提供用來將資源新增至範本的 JSON 給您。
-
-取得 JSON 格式的資源後，您必須取得資源值。 在資源類型的 REST API 中使用 GET 作業，即可看到資源的值。 例如，若要取得虛擬網路閘道的值，請參閱[虛擬網路閘道 - Get](/rest/api/network-gateway/virtualnetworkgateways/get)。
 
 ## <a name="manage-access-to-resource-groups"></a>管理資源群組的存取權
 

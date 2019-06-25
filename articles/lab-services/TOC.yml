@@ -50,6 +50,10 @@
       items:
         - name: 研發/測試實驗室概念
           href: devtest-lab-concepts.md
+        - name: 適用於分散式且易於合作的開發最佳做法
+          href: best-practices-distributive-collaborative-development-environment.md
+        - name: 與 Azure DevOps 整合
+          href: devtest-lab-dev-ops.md
         - name: 案例
           items:
             - name: 使用 DevTest 實驗室的常見案例
@@ -92,6 +96,8 @@
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: 啟用 Linux 遠端桌面連線檔案
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
+            - name: 設定或重設適用於虛擬機器的密碼
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: DevTest Labs
       items:
         - name: 為實驗室虛擬機器指定資源群組
@@ -106,6 +112,8 @@
           href: personal-data-delete-export.md
         - name: 從另一個實驗室匯入虛擬機器
           href: import-virtual-machines-from-another-lab.md
+        - name: 設定實驗室以使用遠端桌面閘道
+          href: configure-lab-remote-desktop-gateway.md
         - name: 建立映像處理站
           href: image-factory-create.md
           items:

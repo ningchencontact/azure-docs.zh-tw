@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9208ceeb760bba97c12b23a1b6e5bdff7efc9020
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048585"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274829"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 
@@ -33,7 +33,11 @@ ms.locfileid: "67048585"
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收器時，使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
 
-目前不支援 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)。 
+>[!NOTE]
+>Azure SQL Database 受控執行個體 **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** 目前不支援此連接器。 若要解決，您可以使用[一般的 ODBC 連接器](connector-odbc.md)和 SQL Server ODBC 驅動程式，透過自我裝載整合執行階段。 請遵循[本指南](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current)具有 ODBC 驅動程式下載及連接字串組態。
+
+>[!NOTE]
+>服務主體和受管理的身分識別驗證目前不支援此連接器和計畫，以啟用不久之後。 現在，若要解決，您可以選擇 Azure SQL Database 連接器，用手動方式指定您的受控執行個體的伺服器。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -57,7 +61,7 @@ ms.locfileid: "67048585"
 | connectionString |此屬性會指定使用 SQL 驗證連線到受管理的執行個體所需的 connectionString 資訊。 如需詳細資訊，請參閱下列範例。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 |是。 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用自我裝載 Integration Runtime 或 Azure Integration Runtime （如果您的受控執行個體具有公用端點，而且允許存取的 ADF）。 如果未指定，就會使用預設的 Azure Integration Runtime。 |是。 |
 
-**範例 1：使用 SQL 驗證**
+**範例 1：使用 SQL 驗證**預設連接埠為 1433年。 如果您使用 SQL 受控執行個體具有公用端點，明確指定連接埠 3342。
 
 ```json
 {
@@ -67,7 +71,7 @@ ms.locfileid: "67048585"
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -78,7 +82,7 @@ ms.locfileid: "67048585"
 }
 ```
 
-**範例 2：使用 SQL 驗證搭配 Azure Key Vault 中的密碼**
+**範例 2：使用 SQL 驗證，以在 Azure Key Vault 的密碼**預設連接埠為 1433年。 如果您使用 SQL 受控執行個體具有公用端點，明確指定連接埠 3342。
 
 ```json
 {
@@ -88,7 +92,7 @@ ms.locfileid: "67048585"
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 

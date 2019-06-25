@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399841"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154560"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -210,7 +210,7 @@ azds up
 1. 建置您的應用程式的容器。
 1. 部署您的應用程式的開發人員的空間。
 1. 如果設定，請建立可公開存取的 DNS 名稱，為您的應用程式端點。
-1. 會使用*連接埠轉送*以存取您的應用程式端點使用 http://locahost。
+1. 會使用*連接埠轉送*以存取您的應用程式端點使用 http://localhost 。
 1. 將轉送 stdout 和 stderr，用戶端工具。
 
 
@@ -225,7 +225,7 @@ azds up
 1. 控制器會取代 *$(tag)* Helm 圖表的唯一工作階段識別碼 」 及 「 安裝 Helm 圖表為您的服務中的預留位置。 新增至 Helm 圖表的唯一工作階段識別碼的參考，可讓容器部署至 AKS 叢集，此繫結至工作階段要求的特定工作階段和相關聯的資訊。
 1. 在 Helm 圖表安裝時，Kubernetes webhook 許可伺服器會將其他容器加入至您的應用程式 pod 的檢測和存取您的專案原始程式碼。 Devspaces proxy 和 devspaces proxy init 容器會提供 HTTP 追蹤和空間路由加入。 Devspaces 組建容器會加入至提供存取來建置您的應用程式容器的 Docker 執行個體和專案原始程式碼的 pod。
 1. 啟動應用程式的 pod 時，devspaces 組建容器和 devspaces proxy init 容器來建置應用程式容器。 然後啟動應用程式容器和 devspaces proxy 容器。
-1. 用戶端功能的應用程式容器啟動後，會使用 Kubernetes*連接埠轉送*功能，以提供透過 HTTP 存取您的應用程式 http://localhost。 此連接埠轉送至您的開發人員分享空間中的服務連接您的開發電腦。
+1. 用戶端功能的應用程式容器啟動後，會使用 Kubernetes*連接埠轉送*功能，以提供透過 HTTP 存取您的應用程式 http://localhost 。 此連接埠轉送至您的開發人員分享空間中的服務連接您的開發電腦。
 1. 當所有容器的 pod 中都啟動時，服務正在執行。 此時，用戶端功能開始串流處理的 HTTP 追蹤、 stdout 和 stderr。 這項資訊會顯示開發人員適用的用戶端功能。
 
 ### <a name="updating-a-running-service"></a>更新執行中的服務
@@ -272,7 +272,7 @@ azds up
 
 ### <a name="how-routing-works"></a>路由的運作方式
 
-開發空間建置在 AKS 之上，並使用相同[網路功能概念](../aks/concepts-network.md)。 Azure 開發人員的空格也有一種集中式*ingressmanager*服務，並將它自己的輸入控制器部署至 AKS 叢集。 *Ingressmanager*服務的監視 AKS 叢集與開發人員的空格，然後再行 Azure 開發人員空間輸入控制器，在叢集中使用的路由傳送至應用程式 pod 的輸入物件。 Devspaces proxy 容器，每個 pod 中的新增`azds-route-as`根據 URL 的 HTTP 流量的開發空間的 HTTP 標頭。 例如，要求至 URL *http://azureuser.s.default.serviceA.fedcba09...azds.io* 會取得與 HTTP 標頭`azds-route-as: azureuser`。 不會加入 devspaces proxy 容器`azds-route-as`如果已有的標頭。
+開發空間建置在 AKS 之上，並使用相同[網路功能概念](../aks/concepts-network.md)。 Azure 開發人員的空格也有一種集中式*ingressmanager*服務，並將它自己的輸入控制器部署至 AKS 叢集。 *Ingressmanager*服務的監視 AKS 叢集與開發人員的空格，然後再行 Azure 開發人員空間輸入控制器，在叢集中使用的路由傳送至應用程式 pod 的輸入物件。 Devspaces proxy 容器，每個 pod 中的新增`azds-route-as`根據 URL 的 HTTP 流量的開發空間的 HTTP 標頭。 例如，要求至 URL *http://azureuser.s.default.serviceA.fedcba09...azds.io* 會取得與 HTTP 標頭`azds-route-as: azureuser` 。 不會加入 devspaces proxy 容器`azds-route-as`如果已有的標頭。
 
 從叢集外部的服務對 HTTP 要求，要求會以輸入控制器。 輸入控制器的要求會直接路由至適當的 pod，依據其輸入物件和規則。 Devspaces proxy 容器 pod 中的收到要求時，將`azds-route-as`標頭根據 URL，並再將要求路由傳送至應用程式容器。
 
@@ -420,7 +420,7 @@ ingress:
 
 衍生的開發空間也以智慧方式會將它自己的應用程式和從其父代共用的應用程式之間的要求路由傳送。 嘗試衍生的開發空間中的應用程式的路由要求，並回到共用的應用程式從父代的開發人員空間路由的運作。 路由會回復為祖系空間中共用的應用程式如果應用程式不在父空間中。
 
-例如: 
+例如:
 * 開發空間*預設*的應用程式*serviceA*並*serviceB* 。
 * 開發空間*azureuser*衍生自*預設*。
 * 更新的版本*serviceA*部署到*azureuser*。

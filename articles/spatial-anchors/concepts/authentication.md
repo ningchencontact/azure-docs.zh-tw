@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073947"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>驗證和授權 Azure 空間的錨點
 
@@ -56,7 +56,7 @@ this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 
 ## <a name="azure-ad-user-authentication"></a>Azure AD 使用者驗證
 
-針對以 Azure Active Directory 使用者為目標的應用程式，建議的方法是使用 Azure AD 權杖的使用者，您可以使用下列文件中所述的 ADAL 程式庫取得： https://docs.microsoft.com/azure/active-directory/develop/v1-overview; 您應該遵循所列的步驟在 「 快速啟動 」，其中包括：
+針對以 Azure Active Directory 使用者為目標的應用程式，建議的方法是使用 Azure AD 權杖的使用者，您可以使用下列文件中所述的 ADAL 程式庫取得： [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); 您應該遵循的步驟列在 「 快速啟動 」，其中包括：
 
 1. 在 Azure 入口網站中的組態
     1.  Azure AD 中註冊您的應用程式**原生應用程式**。 在註冊時，您必須判斷您的應用程式應該是多租用戶，並提供您的應用程式允許的 Url 重新導向。  
@@ -89,7 +89,7 @@ this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 
 在這裡，它會假設您的應用程式會使用其本身的機制 (例如：Microsoft 帳戶、 PlayFab、 Facebook、 Google ID，自訂的使用者名稱/密碼等。）若要向其後端服務。 一旦您的使用者會向您的後端服務，服務可以擷取驗證 Azure AD 權杖，Azure 空間的錨點，將它交換存取權杖，並將它傳回用戶端應用程式。
 
-下列文件中所述，使用 ADAL 程式庫來擷取 Azure AD 存取權杖： https://docs.microsoft.com/azure/active-directory/develop/v1-overview; 您應該遵循的步驟列在 「 快速啟動 」，其中包括：
+Azure AD 存取權杖擷取使用 ADAL 程式庫，如下列文件中所述： [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); 您應該遵循的步驟列在 「 快速啟動 」，其中包括：
 
 1.  在 Azure 入口網站中的組態：
     1.  在 Azure AD 中註冊您的應用程式：

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716897"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>使用 Azure 網路監看員進行封包檢查
@@ -79,7 +79,7 @@ ms.locfileid: "64716897"
 
 ### <a name="step-1"></a>步驟 1
 
-使用先前案例中相同的擷取按一下 [統計資料] > [通訊協定階層]
+使用先前案例中相同的擷取按一下 [統計資料]   > [通訊協定階層] 
 
 ![通訊協定階層功能表][2]
 
@@ -95,7 +95,7 @@ ms.locfileid: "64716897"
 
 ### <a name="step-1"></a>步驟 1
 
-使用先前案例中相同的擷取按一下 [統計資料] > [IPv4 統計資料] > [目的地和連接埠]
+使用先前案例中相同的擷取按一下 [統計資料]   > [IPv4 統計資料]   > [目的地和連接埠] 
 
 ![封包擷取視窗][4]
 

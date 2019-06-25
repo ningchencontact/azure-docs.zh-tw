@@ -7,16 +7,18 @@ ms.service: vpn-gateway
 ms.topic: conceptional
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 48725ed8cdf3df30f8df31966aa632bfb2a4ef1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066898"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202883"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>從 VPN 閘道設定診斷記錄事件的警示
 
-這篇文章可協助您設定以從 Azure VPN 閘道的診斷記錄事件為基礎的警示。 使用下列記錄檔。
+這篇文章可協助您設定以從 Azure VPN 閘道，使用 Azure Log Analytics 的診斷記錄事件為基礎的警示。 
+
+下列記錄檔可在 Azure 中：
 
 |***名稱*** | ***說明*** |
 |---        | ---               |

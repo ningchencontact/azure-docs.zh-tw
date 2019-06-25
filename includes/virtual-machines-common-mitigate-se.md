@@ -9,10 +9,10 @@ ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735236"
 ---
 **上次文件更新**:4 年 6 月 2019 下午 3:00，太平洋標準時間。

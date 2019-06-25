@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112433"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204625"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>基準原則：管理員需要進行 MFA
 
@@ -71,6 +71,9 @@ ms.locfileid: "67112433"
 1. 設定**啟用原則**要**立即使用原則**。
 1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取** 再**完成**。
 1. 按一下  **儲存**。
+
+> [!WARNING]
+> 沒有選項**自動在未來啟用原則**此原則處於預覽狀態。 我們已移除此選項以突然使用者的影響降到最低。 如果您選取此選項時，**不使用原則**會自動現在已選取。 如果他們想要使用這個基準原則，請參閱上述步驟來啟用它。
 
 ## <a name="next-steps"></a>後續步驟
 

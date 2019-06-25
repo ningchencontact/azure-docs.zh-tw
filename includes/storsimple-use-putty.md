@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118201"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174017"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>透過序列主控台連接
 1. 將序列纜線連接到裝置 (直接連接或透過 USB 序列介面卡)。

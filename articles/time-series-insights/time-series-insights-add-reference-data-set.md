@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62c3b35f80300a38213b089567c3f63a8a2ce8db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab80279fae9dacdf7462b6c9d8208e0a56ca0877
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235061"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164990"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -36,7 +36,7 @@ ms.locfileid: "66235061"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 找出您的現有時間序列深入解析環境。 按一下 Azure 入口網站左側功能表中的 [所有資源]  。 選取 Time Series Insights 環境。
+1. 找出您的現有時間序列深入解析環境。 在 Azure 入口網站左側的功能表中選取 [所有資源]  。 選取 Time Series Insights 環境。
 
 1. 選取 [概觀]  頁面。 找出 [時間序列深入解析總管 URL]  並開啟連結。  
 
@@ -76,7 +76,7 @@ ms.locfileid: "66235061"
 
 1. 視需要將資料行標題重新命名。 索引鍵資料行名稱必須加入至事件來源中的對應屬性。 請確定參考資料索引鍵資料行名稱與您傳入資料的名稱完全符合，包括區分大小寫。 非索引鍵資料行名稱會使用對應的參考資料值來擴充傳入資料。
 
-1. 按一下 [新增資料列]  或 [新增資料行]  ，視需要新增更多參考資料值。
+1. 選取**加入資料列**或是**加入資料行**來視需要新增更多的參考資料值。
 
 1. 在 [篩選資料列...]  欄位中輸入值，以視需要檢閱特定資料列。 篩選對於檢視資料非常有用，但在上傳資料時不會套用。
 

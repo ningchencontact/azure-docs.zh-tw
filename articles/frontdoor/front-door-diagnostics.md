@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736769"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>監視計量與 Azure 前端服務中的記錄
@@ -38,7 +38,7 @@ ms.locfileid: "60736769"
 | BackendRequestCount | 後端要求計數 | 計數 | HttpStatus</br>HttpStatusGroup</br>後端 | 從 Front Door 傳送至後端的要求數。 |
 | BackendRequestLatency | 後端要求延遲 | 毫秒 | 後端 | 從 Front Door 傳送要求到後端一直到 Front Door 從後端接收最後回應位元組所經歷的時間。 |
 | BackendHealthPercentage | 後端健康情況百分比 | 百分比 | 後端</br>BackendPool | 從 Front Door 到後端的健康情況探查成功百分比。 |
-| WebApplicationFirewallRequestCount | Web 應用程式防火牆要求計數 | 計數 | PolicyName</br>RuleName</br> 動作 | Front Door 應用程式層安全性處理的用戶端要求數。 |
+| WebApplicationFirewallRequestCount | Web 應用程式防火牆要求計數 | 計數 | PolicyName</br>RuleName</br>動作 | Front Door 應用程式層安全性處理的用戶端要求數。 |
 
 ## <a name="activity-log"></a>活動記錄
 
@@ -69,7 +69,7 @@ ms.locfileid: "60736769"
 
 2. 選擇**診斷設定**。
 
-3. 選取 [開啟診斷]。 封存診斷記錄連同計量的儲存體帳戶、 串流至事件中樞，或將它們傳送至 Azure 監視器記錄檔。
+3. 選取 [開啟診斷]  。 封存診斷記錄連同計量的儲存體帳戶、 串流至事件中樞，或將它們傳送至 Azure 監視器記錄檔。
 
 前端服務目前會提供診斷記錄檔 （每小時批次處理）。 診斷記錄會提供每個項目都有下列結構描述中的個別 API 要求：
 

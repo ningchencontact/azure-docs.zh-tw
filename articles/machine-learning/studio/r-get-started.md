@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726557"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>開始使用 R 程式語言，在 Azure Machine Learning Studio
@@ -153,7 +153,7 @@ RStudio 的教學課程介紹位於[使用 RStudio IDE](https://support.rstudio.
 
 1. 啟動 Azure Machine Learning Studio 環境。
 1. 選取  **+ 新增**在左下方的您的畫面，然後選取**Dataset**。
-1. 選取 [從本機檔案]，然後按一下 [瀏覽] 以選取檔案。
+1. 選取 [從本機檔案]  ，然後按一下 [瀏覽]  以選取檔案。
 1. 請確定您已選取 **含標頭的一般 CSV 檔案 (.csv)** 做為資料集類型。
 1. 選取核取記號。
 1. 已上傳資料集之後，您應該看到新的資料集選取**資料集** 索引標籤。  
@@ -163,12 +163,12 @@ RStudio 的教學課程介紹位於[使用 RStudio IDE](https://support.rstudio.
 既然我們在 Machine Learning Studio 中已經有一些資料，我們需要建立一個實驗來執行分析。  
 
 1. 選取 **+ 新增**下方的左邊，然後選取**實驗**，然後**空白實驗**。
-1. 您可以選取和修改頁面頂端的 **實驗建立目的** 標題，為您的實驗命名。 例如，將它變更為「加州乳製品分析」 。
-1. 在實驗頁面左側展開 [儲存的資料集]，然後選取 [我的資料集]。 您應該會看到先前上傳的 **cadairydata.csv** 檔案。
+1. 您可以選取和修改頁面頂端的 **實驗建立目的** 標題，為您的實驗命名。 例如，將它變更為「加州乳製品分析」  。
+1. 在實驗頁面左側展開 [儲存的資料集]  ，然後選取 [我的資料集]  。 您應該會看到先前上傳的 **cadairydata.csv** 檔案。
 1. 將 [ **csdairydata.csv 資料集** ] 拖放到實驗上。
-1. 在左窗格頂端的 [搜尋實驗項目] 方塊中，輸入[執行 R 指令碼][execute-r-script]。 您會看到該模組出現在搜尋清單中。
+1. 在左窗格頂端的 [搜尋實驗項目]  方塊中，輸入[執行 R 指令碼][execute-r-script]。 您會看到該模組出現在搜尋清單中。
 1. 將[執行 R 指令碼][execute-r-script]模組拖放到您的選盤上。  
-1. 將 [csdairydata.csv 資料集] 的輸出連接到[執行 R 指令碼][execute-r-script]最左邊的輸入 (**資料集1**)。
+1. 將 [csdairydata.csv 資料集]  的輸出連接到[執行 R 指令碼][execute-r-script]最左邊的輸入 (**資料集1**)。
 1. **別忘了以選取 [儲存] ！**  
 
 此時，您的實驗應該會看起來像圖 3。
@@ -245,15 +245,15 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 1. 建立一個 Zip 檔案，然後將您的指令碼複製到此 Zip 檔案。 您可以在 Windows 中，以滑鼠右鍵按一下檔案，並選取**傳送給**，然後**壓縮資料夾**。 這會建立包含 "simpleplot.R" 檔案的新 Zip 檔案。
 
-1. 將您的檔案新增到 Machine Learning Studio 中的 [資料集]，並將類型指定為 **zip**。 您現在應該會在您的資料集內看到的此 Zip 檔案。
+1. 將您的檔案新增到 Machine Learning Studio 中的 [資料集]  ，並將類型指定為 **zip**。 您現在應該會在您的資料集內看到的此 Zip 檔案。
 
-1. 將此 Zip 檔案從 [資料集] 拖放到 **ML Studio 畫布**上。
+1. 將此 Zip 檔案從 [資料集]  拖放到 **ML Studio 畫布**上。
 
-1. 將 [Zip 資料] 圖示的輸出連接到[執行 R 指令碼][execute-r-script]模組的 [指令碼組合] 輸入。
+1. 將 [Zip 資料]  圖示的輸出連接到[執行 R 指令碼][execute-r-script]模組的 [指令碼組合]  輸入。
 
 1. 在[執行 R 指令碼][execute-r-script]模組的程式碼視窗中，輸入含有您 Zip 檔案名稱的 `source()` 函式。 在我的案例中，我鍵入了 `source("src/simpleplot.R")`。  
 
-1. 请务必选择“保存”。
+1. 請確定您選取**儲存**。
 
 完成這些步驟之後，[執行 R 指令碼][execute-r-script]模組就會在實驗執行時，執行 Zip 檔案中的 R 指令碼。 此時，您的實驗應該會看起來像圖 5。
 
@@ -420,7 +420,7 @@ maml.mapOutputPort('cadairydata')
 
 *圖 9.含有因素變數之資料框架的摘要。*
 
-Month 的類型現在應該會表示為  '**Factor w/ 14 levels**'。 這會發生問題，因為一年只有 12 個月。 您也可以在 [結果資料集] 連接埠的 [視覺化] 中，檢查類型是否為 '**Categorical**'。
+Month 的類型現在應該會表示為  '**Factor w/ 14 levels**'。 這會發生問題，因為一年只有 12 個月。 您也可以在 [結果資料集] 連接埠的 [視覺化]  中，檢查類型是否為 '**Categorical**'。
 
 問題在於 'Month' 資料行的程式碼並非以有系統的方式撰寫。 在某些情況下，某個月份稱為 April ，在其他情況下則會縮寫成 Apr。我們可以將字串修剪成 3 個字元來解決這個問題。 這行程式碼現在看起來如下：
 
@@ -930,7 +930,7 @@ outframe
 
 第一行程式碼是需要一點技巧，一些說明可以幫助您了解它。 由內而外可分為下列項目：
 
-1. 含有引數 '**1**' 的 '**[[**' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
+1. 含有引數 '**1**' 的 ' **[[** ' 運算子會從 ccf 物件清單的第一個元素選取各段延隔時間的相互關聯向量。
 2. `do.call()` 函式會在 `lapply()` 所傳回之清單的項目上套用 `rbind()` 函式。
 3. `data.frame()` 函式會強制將 `do.call()` 產生的結果轉換成資料框架。
 
@@ -952,7 +952,7 @@ outframe
 
 ### <a name="creating-the-dataframe-for-analysis"></a>建立用於分析的資料框架
 
-首先，請將**新的**[執行 R 指令碼][execute-r-script]模組新增到您的實驗中。 將現有[執行 R 指令碼][execute-r-script]模組的 [結果資料集] 輸出連接到新模組的 [資料集1] 輸入。 結果應該會看起來像圖 20。
+首先，請將**新的**[執行 R 指令碼][execute-r-script]模組新增到您的實驗中。 將現有[執行 R 指令碼][execute-r-script]模組的 [結果資料集]  輸出連接到新模組的 [資料集1]  輸入。 結果應該會看起來像圖 20。
 
 ![新增了 [執行 R 指令碼] 模組的實驗](./media/r-quickstart/fig21.png)
 
@@ -1313,7 +1313,7 @@ RStudio 是相當有完善的記載。 以下是一些 RStudio 文件，讓您�
 此 R 程式設計教學課程涵蓋您搭配 Azure Machine Learning Studio 使用 R 語言時所需的基本知識。 如果您不熟悉 R，CRAN 有提供兩本簡介：
 
 * [R for Beginners 》](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) Emmanuel Paradis 所會是不錯的起點。  
-* [R 的介紹](https://cran.r-project.org/doc/manuals/R-intro.html)W.n. Venables et.  所著的《An Introduction to R》 進入深入的探討。
+* [R 的介紹](https://cran.r-project.org/doc/manuals/R-intro.html)W.n. Venables et. 所著的《An Introduction to R》 進入深入的探討。
 
 有許多 R 的相關書籍可以協助您輕鬆上手。 以下是一些我認為實用的書籍：
 

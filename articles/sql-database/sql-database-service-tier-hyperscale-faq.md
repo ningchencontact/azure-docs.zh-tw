@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791437"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275596"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -79,7 +79,7 @@ Azure SQL Database 的超大規模層目前已在推出下所列的地區[Azure 
 
 是。 如需每個邏輯伺服器的超大規模資料庫數目限制的詳細資訊，請參閱[適用於邏輯伺服器上之單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-logical-server.md)。
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>超大規模資料庫有哪些效能特性
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>超大規模資料庫的效能特性有哪些？
 
 SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也可提供高效能和高輸送量。 
 
@@ -94,7 +94,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
   使用超大規模資料庫時，您也將能夠佈建一或多個額外的計算節點，用來支應您的讀取要求。 這表示，您可以將這些額外的計算節點作為唯讀節點，用以卸除主要計算節點的讀取工作負載。 除了作為唯讀節點，這些節點也可在主要節點進行容錯移轉時作為熱待命節點。
 
-  佈建每個這些額外計算節點的作業也可在常數時間內完成，而且這是線上作業。 您可以將連接字串的 `ApplicationIntent` 引數設為 `read_only`，藉以連線至這些額外的唯讀計算節點。 任何標示為 `read-only` 的連線都會自動路由至其中一個額外的唯讀計算節點。
+  佈建每個這些額外計算節點的作業也可在常數時間內完成，而且這是線上作業。 您可以將連接字串的 `ApplicationIntent` 引數設為 `readonly`，藉以連線至這些額外的唯讀計算節點。 任何標示為 `readonly` 的連線都會自動路由至其中一個額外的唯讀計算節點。
 
 ## <a name="deep-dive-questions"></a>深入問題
 
@@ -140,7 +140,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>可支援多少個讀取規模複本
 
-超大規模資料庫預設會建立具有一個讀取級別複本 （總共的兩個複本）。 您可以調整介於 0 到 4 使用唯讀複本的數目[Azure 入口網站](https://portal.azure.com)， [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)， [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)或是[CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
+超大規模資料庫預設會建立具有一個讀取級別複本 （總共的兩個複本）。 您可以調整介於 0 到 4 使用唯讀複本的數目[Azure 入口網站](https://portal.azure.com)， [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)， [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)或是[CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)。
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>是否需要佈建額外的計算節點才能取得高可用性
 
@@ -361,7 +361,7 @@ IOPS 和 IO 延遲會因工作負載模式。  如果需要存取的資料是本
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>如何連線至這些次要計算節點
 
-您可以將連接字串的 `ApplicationIntent` 引數設為 `read_only`，藉以連線至這些額外的唯讀計算節點。 任何標示為 `read-only` 的連線都會自動路由至其中一個額外的唯讀計算節點。  
+您可以將連接字串的 `ApplicationIntent` 引數設為 `readonly`，藉以連線至這些額外的唯讀計算節點。 任何標示為 `readonly` 的連線都會自動路由至其中一個額外的唯讀計算節點。  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>是否可以建立讀取規模複本的專用端點
 

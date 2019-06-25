@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 数据资源管理器中管理数据库权限
+title: 管理 Azure 資料總管 中的資料庫權限
 description: 本文會說明 Azure 資料總管中適用於資料庫和資料表的角色型存取控制。
 author: orspod
 ms.author: orspodek
@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758730"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>管理 Azure 資料總管資料庫權限
 
-Azure 資料總管可讓您使用角色型存取控制模型，來控制對資料庫和資料表的存取權。 在此模型中，*主體* (使用者、群組和應用程式) 會對應至*角色*。 主體可以根據其指派的角色存取資源。
+Azure 資料總管可讓您使用角色型存取控制  模型，來控制對資料庫和資料表的存取權。 在此模型中，*主體* (使用者、群組和應用程式) 會對應至*角色*。 主體可以根據其指派的角色存取資源。
 
 本文說明可用的角色，以及如何使用 Azure 入口網站和 Azure 資料總管管理命令將主體指派給這些角色。
 
@@ -40,19 +40,19 @@ Azure 資料總管會有下列角色：
 
 1. 瀏覽至您的 Azure 資料總管叢集。
 
-1. 在 [概觀] 區段中，選取您要管理權限的資料庫。
+1. 在 [概觀]  區段中，選取您要管理權限的資料庫。
 
     ![選取資料庫](media/manage-database-permissions/select-database.png)
 
-1. 選取 [權限]，然後 [新增]。
+1. 選取 [權限]  ，然後 [新增]  。
 
     ![資料庫權限](media/manage-database-permissions/database-permissions.png)
 
-1. 在 [新增資料庫權限] 下，選擇要指派給主體的角色，然後選擇 [選取主體]。
+1. 在 [新增資料庫權限]  下，選擇要指派給主體的角色，然後選擇 [選取主體]  。
 
     ![新增資料庫權限](media/manage-database-permissions/add-permission.png)
 
-1. 查詢主體、選取它，然後 [選取]。
+1. 查詢主體、選取它，然後 [選取]  。
 
     ![在 Azure 入口網站中管理權限](media/manage-database-permissions/new-principals.png)
 

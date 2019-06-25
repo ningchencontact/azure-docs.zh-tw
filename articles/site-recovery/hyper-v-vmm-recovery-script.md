@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362266"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700451"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>將 VMM 指令碼新增至復原方案
 
@@ -45,7 +45,7 @@ ms.locfileid: "60362266"
   
   1. 開啟登錄編輯程式，並移至 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**。
 
-  1. 將值 **ScriptLibraryPath** 變更為 **\\\libserver2.contoso.com\share\\**。 指定完整的 FQDN。 提供共用位置的權限。 這是共用的根節點。 若要檢查根節點，在 VMM 中，請移至文件庫中的根節點。 所開啟的路徑是路徑的根目錄。 這是您必須在變數中使用的路徑。
+  1. 將值 **ScriptLibraryPath** 變更為 **\\\libserver2.contoso.com\share\\** 。 指定完整的 FQDN。 提供共用位置的權限。 這是共用的根節點。 若要檢查根節點，在 VMM 中，請移至文件庫中的根節點。 所開啟的路徑是路徑的根目錄。 這是您必須在變數中使用的路徑。
 
   1. 測試指令碼，方法是使用具有與 VMM 服務帳戶相同層級的使用者權限之使用者帳戶來執行。 使用這些使用者權限來驗證獨立的測試指令碼是以其在復原方案中相同的執行方式來執行。 在 VMM 伺服器上，設定要略過的執行原則，如下所示：
 
@@ -69,9 +69,9 @@ ms.locfileid: "60362266"
 在將 VM 或複寫群組新增至復原方案並建立方案之後，您可以將指令碼新增至該群組。
 
 1. 開啟復原計畫。
-1. 在 [步驟] 清單中，選取一個項目。 然後，選取 [指令碼] 或 [手動動作]。
-1. 指定要在已選取項目之前或之後新增指令碼或動作。 若要將指令碼的位置向上或向下移動，請選取 [上移] 和 [下移] 按鈕。
-1. 如果您新增 VMM 指令碼，請選取 [容錯移轉至 VMM 指令碼]。 在 [指令碼路徑] 中，輸入要共用的相對路徑。 例如，輸入 **\RPScripts\RPScript.PS1**。
+1. 在 [步驟]  清單中，選取一個項目。 然後，選取 [指令碼]  或 [手動動作]  。
+1. 指定要在已選取項目之前或之後新增指令碼或動作。 若要將指令碼的位置向上或向下移動，請選取 [上移]  和 [下移]  按鈕。
+1. 如果您新增 VMM 指令碼，請選取 [容錯移轉至 VMM 指令碼]  。 在 [指令碼路徑]  中，輸入要共用的相對路徑。 例如，輸入 **\RPScripts\RPScript.PS1**。
 1. 如果新增 Azure 自動化 Runbook，請指定 Runbook 所在的 Azure 自動化帳戶。 然後，選取您需要使用的 Azure Runbook 指令碼。
 1. 若要確保指令碼會如預期般運作，請執行復原方案的測試容錯移轉。
 

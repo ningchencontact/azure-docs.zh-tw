@@ -1,6 +1,6 @@
 ---
 title: 基準原則區塊舊有的驗證 （預覽）-Azure Active Directory
-description: 條件式存取原則來封鎖舊版驗證通訊協定
+description: 條件式存取原則，來封鎖舊版驗證通訊協定
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112307"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>基準原則：區塊舊有的驗證 （預覽）
 

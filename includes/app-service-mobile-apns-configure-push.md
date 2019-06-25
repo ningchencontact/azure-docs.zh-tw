@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 852a3b00e8513f9ce68c5aae54c974505d0c9af6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140105"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174477"
 ---
 1. 在您的 Mac 上啟動 **Keychain Access**。 在左側導覽列的 [類別]  下，開啟 [我的憑證]  。 尋找您在上一節中下載的 SSL 憑證，然後公開其內容。 僅選取憑證 (不選取私密金鑰)。 然後[將它匯出](https://support.apple.com/kb/PH20122?locale=en_US)。
 2. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [瀏覽全部]   > [應用程式服務]  。 然後選取您的 Mobile Apps 後端。 

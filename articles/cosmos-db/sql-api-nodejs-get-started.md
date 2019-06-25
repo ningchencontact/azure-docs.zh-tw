@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 06/05/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: fe925ed408f64424de8da98f6e182a06a41bf015
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61569159d83493bb5338f8eda5b9201ef9164143
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075044"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734589"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -96,93 +96,13 @@ ms.locfileid: "58075044"
    config.primaryKey = "~your primary key here~";
    ``` 
 
-1. 在您設定 ```config.endpoint``` 和 ```config.primaryKey``` 屬性的位置下面，複製 ```database```、```container``` 和 ```items``` 資料並貼到您的 ```config``` 物件。 如果您已有想要儲存於資料庫中的資料，您可以使用 Azure Cosmos DB 中的資料移轉工具，而無須在此處定義資料。
+1. 在您設定 ```config.endpoint``` 和 ```config.primaryKey``` 屬性的位置下面，複製 ```database```、```container``` 和 ```items``` 資料並貼到您的 ```config``` 物件。 如果您已有想要儲存於資料庫中的資料，您可以使用 Azure Cosmos DB 中的資料移轉工具，而無須在此處定義資料。 您的 config.js 檔案應該有下列程式碼：
 
-   ```javascript
-   var config = {}
-
-   config.endpoint = "~your Azure Cosmos DB account endpoint uri here~";
-   config.primaryKey = "~your primary key here~";
-
-   config.database = {
-      "id": "FamilyDatabase"
-   };
-
-   config.container = {
-     "id": "FamilyContainer"
-   };
-
-   config.items = {
-      "Andersen": {
-          "id": "Anderson.1",
-          "lastName": "Andersen",
-          "parents": [{
-            "firstName": "Thomas"
-        }, {
-                "firstName": "Mary Kay"
-            }],
-        "children": [{
-            "firstName": "Henriette Thaulow",
-            "gender": "female",
-            "grade": 5,
-            "pets": [{
-                "givenName": "Fluffy"
-            }]
-        }],
-        "address": {
-            "state": "WA",
-            "county": "King",
-            "city": "Seattle"
-        }
-    },
-    "Wakefield": {
-        "id": "Wakefield.7",
-        "parents": [{
-            "familyName": "Wakefield",
-            "firstName": "Robin"
-        }, {
-                "familyName": "Miller",
-                "firstName": "Ben"
-            }],
-        "children": [{
-            "familyName": "Merriam",
-            "firstName": "Jesse",
-            "gender": "female",
-            "grade": 8,
-            "pets": [{
-                "givenName": "Goofy"
-            }, {
-                    "givenName": "Shadow"
-                }]
-        }, {
-                "familyName": "Miller",
-                "firstName": "Lisa",
-                "gender": "female",
-                "grade": 1
-            }],
-        "address": {
-            "state": "NY",
-            "county": "Manhattan",
-            "city": "NY"
-        },
-        "isRegistered": false
-      }
-   };
-   ```
+   [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
 
    JavaScript SDK 會使用通用詞彙*容器*和*項目*。 容器可以是集合、圖形或資料表。 項目可以是文件、邊緣/頂點或資料列，並且是容器內的內容。 
-
-1. 最後，匯出您的 ```config``` 物件，如此就可以在 ```app.js``` 檔案中參考它。
-
-   ```javascript
-        },
-        "isRegistered": false
-       }
-   };
-
-   // ADD THIS PART TO YOUR CODE
-   module.exports = config;
-   ```
+   
+   發出的 `module.exports = config;` 程式碼用於匯出您的 ```config``` 物件，如此就可以在 ```app.js``` 檔案中參考它。
 
 ## <a id="Connect"></a>連線至 Azure Cosmos DB 帳戶
 
@@ -208,7 +128,7 @@ ms.locfileid: "58075044"
    ```
    
 > [!Note]
-> 如果連線到 [Cosmos DB 模擬器]，請藉由建立自訂連線原則來停用 SSL 驗證。
+> 如果連線到 [Cosmos DB 模擬器]  ，請藉由建立自訂連線原則來停用 SSL 驗證。
 >   ```
 >   const connectionPolicy = new cosmos.ConnectionPolicy ()
 >   connectionPolicy.DisableSSLVerification = true
@@ -230,6 +150,7 @@ ms.locfileid: "58075044"
 
    const databaseId = config.database.id;
    const containerId = config.container.id;
+   const partitionKey = { kind: "Hash", paths: ["/Country"] };
    ```
 
    資料庫可使用 **Databases** 類別的 `createIfNotExists` 或 create 函式來建立。 資料庫是分割於多個容器之項目的邏輯容器。 
@@ -292,6 +213,7 @@ ms.locfileid: "58075044"
 
    const databaseId = config.database.id;
    const containerId = config.container.id;
+   const partitionKey = { kind: "Hash", paths: ["/Country"] };
 
     /**
     * Create the database if it does not exist
@@ -348,17 +270,19 @@ ms.locfileid: "58075044"
    /**
    * Create the container if it does not exist
    */
+
    async function createContainer() {
-    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
+
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId, partitionKey }, { offerThroughput: 400 });
     console.log(`Created container:\n${config.container.id}\n`);
    }
 
    /**
-   * Read the container definition
+    * Read the container definition
    */
    async function readContainer() {
-     const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-     console.log(`Reading container:\n${containerDefinition.id}\n`);
+      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+    console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
    ```
 
@@ -393,6 +317,7 @@ ms.locfileid: "58075044"
 
    const databaseId = config.database.id;
    const containerId = config.container.id;
+   const partitionKey = { kind: "Hash", paths: ["/Country"] };
 
    /**
    * Create the database if it does not exist
@@ -413,17 +338,19 @@ ms.locfileid: "58075044"
    /**
    * Create the container if it does not exist
    */
+
    async function createContainer() {
-     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
-     console.log(`Created container:\n${config.container.id}\n`);
+
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId, partitionKey }, { offerThroughput: 400 });
+    console.log(`Created container:\n${config.container.id}\n`);
    }
 
    /**
-   * Read the container definition
+    * Read the container definition
    */
    async function readContainer() {
-     const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-     console.log(`Reading container:\n${containerDefinition.id}\n`);
+      const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+    console.log(`Reading container:\n${containerDefinition.id}\n`);
    }
 
    /**
@@ -460,23 +387,11 @@ ms.locfileid: "58075044"
 
    ```javascript
    /**
-   * Create family item if it does not exist
+   * Create family item
    */
    async function createFamilyItem(itemBody) {
-     try {
-         // read the item to see if it exists
-         const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
-         console.log(`Item with family id ${itemBody.id} already exists\n`);
-     }
-     catch (error) {
-        // create the family item if it does not exist
-        if (error.code === HttpStatusCodes.NOTFOUND) {
-            const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
-            console.log(`Created family item with id:\n${itemBody.id}\n`);
-        } else {
-            throw error;
-        }
-     }
+      const { item } = await client.database(databaseId).container(containerId).items.upsert(itemBody);
+      console.log(`Created family item with id:\n${itemBody.id}\n`);
    };
    ```
 
@@ -505,6 +420,7 @@ ms.locfileid: "58075044"
 
 
 ## <a id="Query"></a>查詢 Azure Cosmos DB 資源
+
 Azure Cosmos DB 支援對儲存於每個容器中的 JSON 文件進行豐富查詢。 下列範例程式碼說明您可以對容器中的文件執行的查詢。
 
 1. 將 **queryContainer** 函式複製並貼到 app.js 檔案中的 **createFamilyItem** 函式下方。 Azure Cosmos DB 支援類 SQL 查詢，如下所示。
@@ -527,7 +443,7 @@ Azure Cosmos DB 支援對儲存於每個容器中的 JSON 文件進行豐富查�
         ]
     };
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
+    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).toArray();
     for (var queryResult of results) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
@@ -574,7 +490,7 @@ Azure Cosmos DB 支援取代項目的內容。
       console.log(`Replacing item:\n${itemBody.id}\n`);
       // Change property 'grade'
       itemBody.children[0].grade = 6;
-      const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).replace(itemBody);
+     const { item } = await client.database(databaseId).container(containerId).item(itemBody.id, itemBody.Country).replace(itemBody);
    };
    ```
 
@@ -616,7 +532,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
    * Delete the item by ID.
    */
    async function deleteFamilyItem(itemBody) {
-      await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
+     await client.database(databaseId).container(containerId).item(itemBody.id, itemBody.Country).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);
    };
    ```
@@ -691,148 +607,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 
 整體來看，您的程式碼應會顯示如下：
 
-```javascript
-const CosmosClient = require('@azure/cosmos').CosmosClient;
-
-const config = require('./config');
-
-const endpoint = config.endpoint;
-const masterKey = config.primaryKey;
-
-const HttpStatusCodes = { NOTFOUND: 404 };
-
-const databaseId = config.database.id;
-const containerId = config.container.id;
-
-const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
-
-/**
- * Create the database if it does not exist
- */
-async function createDatabase() {
-    const { database } = await client.databases.createIfNotExists({ id: databaseId });
-    console.log(`Created database:\n${database.id}\n`);
-}
-
-/**
- * Read the database definition
- */
-async function readDatabase() {
-    const { body: databaseDefinition } = await client.database(databaseId).read();
-    console.log(`Reading database:\n${databaseDefinition.id}\n`);
-}
-
-/**
- * Create the container if it does not exist
- */
-async function createContainer() {
-    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
-    console.log(`Created container:\n${config.container.id}\n`);
-}
-
-/**
- * Read the container definition
- */
-async function readContainer() {
-    const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-    console.log(`Reading container:\n${containerDefinition.id}\n`);
-}
-
-/**
- * Create family item if it does not exist
- */
-async function createFamilyItem(itemBody) {
-    try {
-        // read the item to see if it exists
-        const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
-        console.log(`Item with family id ${itemBody.id} already exists\n`);
-    }
-    catch (error) {
-        // create the family item if it does not exist
-        if (error.code === HttpStatusCodes.NOTFOUND) {
-            const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
-            console.log(`Created family item with id:\n${itemBody.id}\n`);
-        } else {
-            throw error;
-        }
-    }
-};
-
-/**
- * Query the container using SQL
- */
-async function queryContainer() {
-    console.log(`Querying container:\n${config.container.id}`);
-
-    // query to return all children in a family
-    const querySpec = {
-        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
-        parameters: [
-            {
-                name: "@lastName",
-                value: "Andersen"
-            }
-        ]
-    };
-
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
-    for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult);
-        console.log(`\tQuery returned ${resultString}\n`);
-    }
-};
-
-/**
- * Replace the item by ID.
- */
-async function replaceFamilyItem(itemBody) {
-    console.log(`Replacing item:\n${itemBody.id}\n`);
-    // Change property 'grade'
-    itemBody.children[0].grade = 6;
-    const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).replace(itemBody);
-};
-
-/**
- * Delete the item by ID.
- */
-async function deleteFamilyItem(itemBody) {
-    await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
-    console.log(`Deleted item:\n${itemBody.id}\n`);
-};
-
-/**
- * Cleanup the database and container on completion
- */
-async function cleanup() {
-    await client.database(databaseId).delete();
-}
-
-/**
- * Exit the app with a prompt
- * @param {message} message - The message to display
- */
-function exit(message) {
-    console.log(message);
-    console.log('Press any key to exit');
-    process.stdin.setRawMode(true);
-    process.stdin.resume();
-    process.stdin.on('data', process.exit.bind(process, 0));
-}
-
-createDatabase()
-    .then(() => readDatabase())
-    .then(() => createContainer())
-    .then(() => readContainer())
-    .then(() => createFamilyItem(config.items.Andersen))
-    .then(() => createFamilyItem(config.items.Wakefield))
-    .then(() => queryContainer())
-    .then(() => replaceFamilyItem(config.items.Andersen))
-    .then(() => queryContainer())
-    .then(() => deleteFamilyItem(config.items.Andersen))
-    .then(() => cleanup())
-    .then(() => { exit(`Completed successfully`); })
-    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
-```
+[!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/app.js)]
 
 在終端機中，找出您的 ```app.js``` 檔案並執行命令： 
 
@@ -902,7 +677,7 @@ node app.js
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要這些資源，您可以刪除資源群組、Azure Cosmos DB 帳戶和所有相關資源。 請選取用於 Azure Cosmos DB 帳戶的資源群組，選取 [刪除]，然後確認要刪除的資源群組名稱，即可刪除資源。
+若不再需要這些資源，您可以刪除資源群組、Azure Cosmos DB 帳戶和所有相關資源。 請選取用於 Azure Cosmos DB 帳戶的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱，即可刪除資源。
 
 ## <a name="next-steps"></a>後續步驟
 

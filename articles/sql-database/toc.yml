@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: 使用 .NET 設計資料庫
           href: sql-database-design-first-database-csharp.md
-    - name: 移轉至 SQL Database
+    - name: 單一資料庫
       items:
         - name: 使用 DMS 遷移至單一/集區資料庫
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: 使用 DMS 遷移至受控執行個體
+        - name: 實作異地分散資料庫
+          href: sql-database-implement-geo-distributed-database.md
+        - name: 設定 Azure SQL 資料同步
+          href: sql-database-get-started-sql-data-sync.md
+    - name: 受控執行個體
+      items:
+        - name: 使用 DMS 進行線上遷移
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: 設定異動複寫
+          href: replication-with-sql-database-managed-instance.md
     - name: SQL Database 中的安全性
       items:
         - name: 單一和集區資料庫安全性
           href: sql-database-security-tutorial.md
         - name: 受控執行個體安全性
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: 實作異地分散資料庫
-      href: sql-database-implement-geo-distributed-database.md
-    - name: 設定 Azure SQL 資料同步
-      href: sql-database-get-started-sql-data-sync.md
     - name: 機器學習服務
       items:
         - name: 使用 R 建置預測模型
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: 確認具備內建防火牆保護
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: 異動複寫
-          href: replication-with-sql-database-managed-instance.md
         - name: 設定威脅偵測
           href: sql-database-managed-instance-threat-detection.md
         - name: 連線應用程式

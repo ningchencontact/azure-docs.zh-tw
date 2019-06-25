@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055626"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
@@ -157,11 +157,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 設定的 *IgnoredDuringExecution* 部分指出如果節點標籤發生變更，則不應從節點中刪除該 pod。 Kubernetes 排程器僅對正在排程的新 pod，而不是已在節點上排程的 pod 使用更新的節點標籤。
@@ -170,9 +170,9 @@ spec:
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Inter-pod 親和性和反親和性
 
-Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是使用 inter-pod 親和性或反親和性。 這些設定定義「不應該」在具有現有相符 pod 的節點上排程 pod，或者「應該」排程。 根據預設，Kubernetes 排程器會嘗試跨節點在複本集中排程多個 pod。 您可以圍繞此行為定義更特定的規則。
+Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是使用 inter-pod 親和性或反親和性。 這些設定定義「不應該」  在具有現有相符 pod 的節點上排程 pod，或者「應該」  排程。 根據預設，Kubernetes 排程器會嘗試跨節點在複本集中排程多個 pod。 您可以圍繞此行為定義更特定的規則。
 
-也會使用 Azure Cache for Redis 的 Web 應用程式是一個很好的例子。 您可以使用 pod 反親和性的規則來要求 Kubernetes 排程器跨節點散發複本。 然后，可以使用关联规则来确保在相应缓存所在的同一主机上计划每个 Web 应用组件。 跨節點的 pod 散發如下例所示：
+也會使用 Azure Cache for Redis 的 Web 應用程式是一個很好的例子。 您可以使用 pod 反親和性的規則來要求 Kubernetes 排程器跨節點散發複本。 親和性規則接著可用來確定每個 web 應用程式元件排定在與對應的快取相同的主機上。 跨節點的 pod 散發如下例所示：
 
 | **節點 1** | **節點 2** | **節點 3** |
 |------------|------------|------------|

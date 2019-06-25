@@ -11,35 +11,38 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
-ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/12/2019
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734765"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275477"
 ---
-# <a name="sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 (預覽)
+# <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 （預覽）
+
+每秒，使用無伺服器 （預覽） 是單一資料庫的自動調整工作負載需求，以及帳單運算量為基礎的計算的計算層的 azure SQL Database。 無伺服器計算層也會自動暫停資料庫，在唯一的儲存體時的計費和活動傳回時，會自動繼續資料庫的非作用中期間。
 
 ## <a name="serverless-compute-tier"></a>無伺服器計算層級
 
-SQL Database 無伺服器 （預覽） 是單一資料庫計算層自動調整計算，並對每秒使用的計算時數計費。 
-
-無伺服器計算層級中的資料庫會依照其可使用的計算範圍和自動暫停延遲參數化。
+單一資料庫的無伺服器計算層是由計算自動調整範圍和 autopause 延遲參數化。  這些參數的組態圖形資料庫的效能經驗，並計算成本。
 
 ![無伺服器計費](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance"></a>效能
+### <a name="performance-configuration"></a>效能設定
 
-- 最小虛擬核心和最大的虛擬核心數目所定義的計算容量可供資料庫範圍的可設定參數。 記憶體和 IO 限制會與指定的虛擬核心範圍成比例。  
-- 自動暫停延遲是可設定的參數，其定義資料庫在自動暫停前必須處於非使用中的時間期間。 資料庫會在下次登入發生時自動繼續。
+- **最小虛擬核心**並**虛擬核心上限**所定義的計算容量可供資料庫範圍的可設定參數。 記憶體和 IO 限制會與指定的虛擬核心範圍成比例。  
+- **Autopause 延遲**是可設定的參數定義的時間週期資料庫必須閒置多久以後才會自動暫停。 下一步 的登入或其他活動發生時，資料庫會自動繼續。  或者，可以停用 autopausing。
 
-### <a name="pricing"></a>價格
+### <a name="cost"></a>成本
 
-- 無伺服器資料庫的帳單總計為計算帳單和與儲存體帳單的加總。
-計算的計費是以每秒使用的虛擬核心數量和每秒使用的記憶體數量為基礎。
-- 最小計算的計費是以最小虛擬核心數和最小記憶體為基礎。
-- 當資料庫暫停時，只有儲存體會計費。
+- 無伺服器資料庫的成本是計算成本和儲存體成本的總和。
+- 計算使用量是介於最小和最大限制設定，計算成本根據虛擬核心和使用的記憶體。
+- 計算使用量低於設定的最小限制，計算成本根據最小虛擬核心和最小記憶體設定。
+- 資料庫暫停時，計算成本為零，而只有儲存體成本。
+- 佈建的計算層的相同方式決定的儲存體成本。
+
+如需成本的詳細資訊，請參閱 <<c0> [ 計費](sql-database-serverless.md#billing)。
 
 ## <a name="scenarios"></a>案例
 
@@ -73,7 +76,7 @@ SQL Database 無伺服器 （預覽） 是單一資料庫計算層自動調整�
 
 目前只有虛擬核心購買模型中第 5 代硬體的一般用途層級支援 SQL Database 無伺服器。
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscaling"></a>自動調整
 
 ### <a name="scaling-responsiveness"></a>調整回應性
 
@@ -98,9 +101,9 @@ SQL Database 無伺服器 （預覽） 是單一資料庫計算層自動調整�
 
 資料從磁碟中擷取及與佈建資料庫的相同速度的相同方式，就會隨著 SQL 快取。 當資料庫忙碌時，快取允許成長無限制的最大記憶體上限限制。
 
-## <a name="autopause-and-autoresume"></a>自動暫停和自動繼續
+## <a name="autopausing-and-autoresuming"></a>Autopausing 和 autoresuming
 
-### <a name="autopause"></a>自動暫停
+### <a name="autopausing"></a>Autopausing
 
 如果下列條件全部成立 autopause 延遲的持續時間，就會觸發 Autopausing:
 
@@ -117,7 +120,7 @@ SQL Database 無伺服器 （預覽） 是單一資料庫計算層自動調整�
 
 需要資料庫在線上的部分服務更新在部署期間暫時防止 Autopausing。  在這種情況下，，服務更新完成之後，會變成一次允許 autopausing。
 
-### <a name="autoresume"></a>自動繼續
+### <a name="autoresuming"></a>Autoresuming
 
 如果下列任一條件會在任何時間，則為 true，就會觸發 Autoresuming:
 
@@ -148,7 +151,7 @@ Autoresume 和 autopause 無伺服器資料庫的延遲通常是為了 autopause
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>上架到無伺服器計算層
 
-建立新資料庫或將現有資料庫移到無伺服器計算層級，遵循與在佈建計算層級中建立新資料庫相同的模式，其中包含下列兩個步驟：
+建立新的資料庫，或移動到無伺服器計算層中選擇現有的資料庫遵循相同的模式，以建立新的資料庫中佈建計算層級，並包含下列兩個步驟。
 
 1. 指定服務目標名稱。 服務目標描述服務層、 硬體世代和最大的虛擬核心。 下表顯示服務目標選項：
 
@@ -163,18 +166,20 @@ Autoresume 和 autopause 無伺服器資料庫的延遲通常是為了 autopause
    |參數|值選擇|預設值|
    |---|---|---|---|
    |虛擬核心下限|{0.5, 1, 2, 4} 中未超過最大虛擬核心數的任一項|0.5 個虛擬核心|
-   |自動暫停延遲|最小值：360 分鐘 (6 小時)<br>最大值：10080 分鐘 (7 天)<br>增量：60 Minuten<br>停用自動暫停：-1|360 分鐘|
+   |自動暫停延遲|最低：360 分鐘 (6 小時)<br>最大值：10080 分鐘 (7 天)<br>增量：60 Minuten<br>停用自動暫停：-1|360 分鐘|
 
 > [!NOTE]
 > 目前不支援使用 T-SQL 將現有資料庫移到無伺服器中或變更其計算大小，但可以透過 Azure 入口網站或 PowerShell 進行。
 
-### <a name="create-new-serverless-database-using-azure-portal"></a>建立新的無伺服器資料庫，使用 Azure 入口網站
+### <a name="create-new-database-in-serverless-compute-tier"></a>無伺服器計算層中建立新的資料庫 
+
+#### <a name="use-azure-portal"></a>使用 Azure 入口網站
 
 請參閱[快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫](sql-database-single-database-get-started.md)。
 
-### <a name="create-new-serverless-database-using-powershell"></a>建立新的無伺服器資料庫，使用 PowerShell
+#### <a name="use-powershell"></a>使用 PowerShell
 
-下列範例會在具有最小虛擬核心數和自動暫停延遲預設值的服務目標 (名為 GP_S_Gen5_4) 所定義的無伺服器計算層級中建立新資料庫。
+下列範例會建立新的資料庫，無伺服器計算層中。  此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
 
 ```powershell
 New-AzSqlDatabase `
@@ -189,9 +194,11 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>將佈建的計算資料庫移入無伺服器計算層
+### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>將資料庫從佈建的計算層移到無伺服器計算層
 
-下列範例會將現有單一資料庫從佈建計算層級移到無伺服器計算層級。 此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
+#### <a name="use-powershell"></a>使用 PowerShell
+
+下列範例會將資料庫從佈建的計算層移至 無伺服器計算層。 此範例明確指定最小虛擬核心數、最大虛擬核心數和自動暫停延遲。
 
 ```powershell
 Set-AzSqlDatabase
@@ -206,7 +213,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### <a name="move-serverless-database-into-provisioned-compute-tier"></a>將無伺服器資料庫移至佈建的計算層
+### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>將資料庫從無伺服器計算層移到佈建的計算層
 
 無伺服器資料庫可以移到佈建計算層級中，方法如同將佈建計算資料庫移到無伺服器計算層級中。
 
@@ -214,13 +221,19 @@ Set-AzSqlDatabase
 
 ### <a name="maximum-vcores"></a>最大虛擬核心數
 
+#### <a name="use-powershell"></a>使用 PowerShell
+
 修改最大的虛擬核心透過執行[組 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令在 PowerShell 中使用`MaxVcore`引數。
 
 ### <a name="minimum-vcores"></a>最小虛擬核心數
 
+#### <a name="use-powershell"></a>使用 PowerShell
+
 使用會修改核心下限[組 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令在 PowerShell 中使用`MinVcore`引數。
 
 ### <a name="autopause-delay"></a>自動暫停延遲
+
+#### <a name="use-powershell"></a>使用 PowerShell
 
 修改 autopause 延遲透過執行[組 AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)命令在 PowerShell 中使用`AutoPauseDelayInMinutes`引數。
 
@@ -228,7 +241,7 @@ Set-AzSqlDatabase
 
 ### <a name="resources-used-and-billed"></a>使用和計費的資源
 
-無伺服器資料庫的資源是由下列實體所封裝：
+無伺服器資料庫的資源所封裝的應用程式套件、 SQL 執行個體和使用者資源集區的實體。
 
 #### <a name="app-package"></a>應用程式套件
 
@@ -240,6 +253,8 @@ Set-AzSqlDatabase
 
 ### <a name="metrics"></a>度量
 
+下表列出用於監視無伺服器資料庫的應用程式封裝和使用者集區的資源使用量的計量：
+
 |實體|計量|描述|Units|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
@@ -250,10 +265,6 @@ Set-AzSqlDatabase
 |使用者集區|log_IO_percent|使用者工作負載所使用的記錄 MB/s 百分比，相對於使用者工作負載所允許的最大記錄 MB/s。|百分比|
 |使用者集區|workers_percent|使用者工作負載所使用的背景工作角色百分比，相對於使用者工作負載所允許的最大背景工作角色數。|百分比|
 |使用者集區|sessions_percent|使用者工作負載所使用的工作階段百分比，相對於使用者工作負載所允許的最大工作階段數。|百分比|
-____
-
-> [!NOTE]
-> Azure 入口網站中的計量可在單一資料庫的資料庫窗格中的 [監視]  之下取得。
 
 ### <a name="pause-and-resume-status"></a>暫停與繼續狀態
 

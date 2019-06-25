@@ -22,10 +22,10 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 - [artifacts](#artifacts)
 - [concat](#concat)
-- [參數](#parameters)
+- [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [訂用帳戶](#subscription)
+- [subscription](#subscription)
 
 ## <a name="artifacts"></a>成品
 
@@ -37,7 +37,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| artifactName |是 |字串 |藍圖成品的名稱。 |
+| artifactName |是 |string |藍圖成品的名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -110,10 +110,10 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 | 運算是 | 類型 | 值 |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | 陣列 | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | 字串 | "first" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | 字串 | 「 我的字串值" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | 「 我的字串值" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | 字串 | 「 我的值 」 |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | 「 我的值 」 |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -126,8 +126,8 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| string1 |是 |字串 |串連的第一個值。 |
-| 其他引數 |否 |字串 |額外的值串連的循序順序 |
+| string1 |是 |string |串連的第一個值。 |
+| 其他引數 |否 |string |額外的值串連的循序順序 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -151,7 +151,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |字串 |要傳回的參數名稱。 |
+| parameterName |是 |string |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -272,7 +272,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| placeholderName |是 |字串 |要傳回之資源群組成品的預留位置名稱。 |
+| placeholderName |是 |string |要傳回之資源群組成品的預留位置名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -324,7 +324,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 }
 ```
 
-## <a name="subscription"></a>訂用帳戶
+## <a name="subscription"></a>subscription
 
 `subscription()`
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 05/29/2019
 ms.author: dalek
-ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357270"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303823"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -30,7 +30,7 @@ ms.locfileid: "66357270"
 
 ## <a name="pricing-model"></a>定價模式
 
-[Azure Application Insights][start] 的價格是根據內嵌的資料量而定。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
+定價[Azure Application Insights][start]根據擷取的資料量。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
 
 ### <a name="data-volume-details"></a>資料量詳細資料
 
@@ -38,11 +38,12 @@ ms.locfileid: "66357270"
 * 從 2018 年 4 月之後，您的應用程式資料磁碟區費用現在會在名為**資料擷取**的新計費計量上報告。 這個新的計量監視技術，例如 Application Insights 和 Log Analytics 共用，而且目前正在進行的服務名稱**Log Analytics**。 
 * [即時計量串流](../../azure-monitor/app/live-stream.md)資料不會計入價格用途。
 
-如需您幣別與區域的目前價格，請參閱 [Application Insights 價格][pricing]。
+> [!NOTE]
+> 所有顯示的價格在這篇文章中的螢幕擷取畫面是例如之用。 如需屬於您貨幣與區域的目前定價，請參閱 [Application Insights 定價][pricing]。
 
 ### <a name="multi-step-web-tests"></a>多重步驟 Web 測試
 
-[多重步驟 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)會產生額外費用。 多重步驟 Web 測試係指執行一系列動作的 Web 測試。
+[多重步驟 Web 測試](../../azure-monitor/app/availability-multistep.md)會產生額外費用。 多重步驟 Web 測試係指執行一系列動作的 Web 測試。
 
 單一頁面的「Ping 測試」  不另外收費。 針對來自 Ping 測試和多重步驟測試的遙測，收費方式與來自您應用程式的其他遙測一樣。
 
@@ -53,7 +54,7 @@ Application Insights 可讓您根據最近的使用模式，輕鬆了解可能�
 ![選擇價格](./media/pricing/pricing-001.png)
 
 A. 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../azure-monitor/app/sampling.md)之後)。  
-B. 進行[多步驟 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)需另外收費。 (這不包括簡單的可用性測試，其已包含在資料量費用中。)  
+B. 進行[多步驟 Web 測試](../../azure-monitor/app/availability-multistep.md)需另外收費。 (這不包括簡單的可用性測試，其已包含在資料量費用中。)  
 C. 檢視上個月的資料量趨勢。  
 D. 啟用資料擷取[取樣](../../azure-monitor/app/sampling.md)。   
 E. 設定每日資料量上限。  

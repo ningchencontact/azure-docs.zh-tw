@@ -11,10 +11,10 @@ ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995687"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps 的結構描述更新 - 2016 年 6 月 1 日
@@ -105,25 +105,25 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 1. 在 Azure 入口網站中，開啟邏輯應用程式。
 
-2. 移至**概觀**。 在邏輯應用程式工具列上，選擇 [更新結構描述]。
+2. 移至**概觀**。 在邏輯應用程式工具列上，選擇 [更新結構描述]  。
    
    ![選擇 [更新結構描述]][1]
    
    會傳回升級的定義，您可以將其複製並貼到資源定義 (如有必要)。 
 
    > [!IMPORTANT]
-   > 「請確定」您會選擇 [另存新檔]，如此一來，所有連線參考都會在已升級的邏輯應用程式中保持有效狀態。
+   > 「請確定」  您會選擇 [另存新檔]  ，如此一來，所有連線參考都會在已升級的邏輯應用程式中保持有效狀態。
 
-3. 在升級的刀鋒視窗工具列中，選擇 [另存新檔]。
+3. 在升級的刀鋒視窗工具列中，選擇 [另存新檔]  。
 
-4. 輸入邏輯名稱和狀態。 若要部署已升級的邏輯應用程式，選擇 [建立]。
+4. 輸入邏輯名稱和狀態。 若要部署已升級的邏輯應用程式，選擇 [建立]  。
 
 5. 確認升級的邏輯應用程式如預期般運作。
    
    > [!NOTE]
    > 如果您要使用手動或要求觸發程序，新的邏輯應用程式中的回呼 URL 將會變更。 測試新的 URL 以確定端對端經驗運作。 若要保留先前的 URL，您可以在現有邏輯應用程式上複製。
 
-6. 選擇性 若要使用新的結構描述版本覆寫先前的邏輯應用程式，請在工具列上選擇 [更新結構描述] 旁的 [複製]。 如果您想要保留邏輯應用程式的相同資源識別碼，或要求觸發程序 URL，此步驟才有必要。
+6. 選擇性  若要使用新的結構描述版本覆寫先前的邏輯應用程式，請在工具列上選擇 [更新結構描述]  旁的 [複製]  。 如果您想要保留邏輯應用程式的相同資源識別碼，或要求觸發程序 URL，此步驟才有必要。
 
 ## <a name="upgrade-tool-notes"></a>升級工具注意事項
 
@@ -155,7 +155,7 @@ Azure Logic Apps 之 API 版本的[已更新結構描述](https://schema.managem
 
 ### <a name="new-trackedproperties-for-actions"></a>動作的新 'trackedProperties'
 
-動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如︰
+動作現在可以有一個額外的屬性，稱為 `trackedProperties`，這是 `runAfter` 和 `type` 屬性的同層級。 此物件會指定要包含在工作流程期間所發出的 Azure 診斷遙測之特定動作的輸入或輸出。 例如:
 
 ``` json
 {

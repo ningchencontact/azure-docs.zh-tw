@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190104"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>如何建立進階 Azure 檔案共用
@@ -40,26 +40,26 @@ ms.locfileid: "65190104"
 
     ![Azure 入口網站的主頁面上，選取儲存體帳戶](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-1. 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
+1. 在出現的 [儲存體帳戶]  視窗上，選擇 [新增]  。
 1. 選取要在其中建立儲存體帳戶的訂用帳戶。
-1. 在 [資源群組] 欄位下方，選取 [新建]。 輸入新資源群組的名稱，如下圖所示。
+1. 在 [資源群組]  欄位下方，選取 [新建]  。 輸入新資源群組的名稱，如下圖所示。
 
 1. 接下來，輸入儲存體帳戶的名稱。 您所選擇的名稱在整個 Azure 中必須是唯一的。 名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。
 1. 選取儲存體帳戶的位置，或使用預設位置。
 1. 針對**效能**選取**Premium**。
-1. 選取 **帳戶種類**，然後選擇**FileStorage （預覽）**。
-1. 離開**複寫**設為其預設值是**本地備援儲存體 (LRS)**。
+1. 選取 **帳戶種類**，然後選擇**FileStorage （預覽）** 。
+1. 離開**複寫**設為其預設值是**本地備援儲存體 (LRS)** 。
 
     ![如何建立進階檔案共用的儲存體帳戶](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
-1. 選取 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。
-1. 選取 [建立] 。
+1. 選取 [檢閱 + 建立]  ，以檢閱您的儲存體帳戶設定並建立帳戶。
+1. 選取 [建立]  。
 
 一旦建立您的儲存體帳戶資源之後，瀏覽至它。
 
 ### <a name="create-a-premium-file-share"></a>建立進階檔案共用
 
-1. 在儲存體帳戶的左側功能表中，捲動到**檔案服務**區段，然後選取**檔案 （預覽）**。
+1. 在儲存體帳戶的左側功能表中，捲動到**檔案服務**區段，然後選取**檔案 （預覽）** 。
 1. 選取  **+ 檔案共用**來建立進階檔案共用。
 1. 輸入的名稱和所需的配額為檔案共用，然後選取**建立**。
 

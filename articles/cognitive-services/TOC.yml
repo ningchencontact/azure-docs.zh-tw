@@ -7,14 +7,36 @@
       href: Welcome.md
     - name: 語言支援
       href: language-support.md
+- name: 容器支援
+  items:
     - name: 容器支援
       href: cognitive-services-container-support.md
+    - name: 容器配方
+      items:
+        - name: 容器重複使用
+          href: ./containers/container-reuse-recipe.md
+        - name: 部署到 Azure 容器執行個體
+          href: ./containers/azure-container-instance-recipe.md
+        - name: 部署到 Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: 透過 Docker Compose 部署
+          href: ./containers/docker-compose-recipe.md
+    - name: 其他 Azure 容器服務
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: 快速入門
   items:
     - name: 建立帳戶
       href: cognitive-services-apis-create-account.md
     - name: Authentication
       href: authentication.md
+    - name: 診斷記錄
+      href: diagnostic-logging.md
 - name: 資源
   items:
     - name: Azure 藍圖

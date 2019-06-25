@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: 236ba117fd324a75ecc20ea7f94e110d75e3ee63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113064"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173795"
 ---
 >[!Note]
 >如果您想要檢視或刪除個人資料，請檢閱[針對 GDPR 的 Windows 資料主體要求](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows)網站中的 Microsoft 指引。 如果您要尋找有關 GDPR 的一般資訊，請參閱[服務信任入口網站的 GDPR 區段](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)。

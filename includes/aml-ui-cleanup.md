@@ -9,11 +9,11 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123175"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174396"
 ---
 >[!IMPORTANT]
 >您可以使用您所建立的資源來作為其他 Azure Machine Learning 服務教學課程和操作說明文章的先決條件。

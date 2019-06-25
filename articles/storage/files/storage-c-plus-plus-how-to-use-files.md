@@ -9,10 +9,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 424db4435c569475f9463894b5364fc22190689a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717915"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
@@ -37,12 +37,12 @@ ms.locfileid: "64717915"
 
 ## <a name="create-a-c-application"></a>建立 C++ 應用程式
 
-若要建置範例，您必須安裝適用於 C++ 的 Azure 儲存體用戶端程式庫 2.4.0。 此外，应该已经创建了一个 Azure 存储帐户。
+若要建置範例，您必須安裝適用於 C++ 的 Azure 儲存體用戶端程式庫 2.4.0。 您也應該建立 Azure 儲存體帳戶。
 
 若要安裝適用於 C++ 的 Azure 儲存體用戶端 2.4.0，您可以使用下列其中一個方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。
-* **Windows：** 在 Visual Studio 中，按一下 [工具]&gt;[NuGet 套件管理員]&gt;[套件管理員主控台]。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
+* **Windows：** 在 Visual Studio 中，按一下 [工具]&gt;[NuGet 套件管理員]&gt;[套件管理員主控台]  。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
   
 
 ```powershell
@@ -108,7 +108,7 @@ if (share.create_if_not_exists()) {
 
 ## <a name="delete-an-azure-file-share"></a>刪除 Azure 檔案共用
 
-刪除共用可以藉由在 cloud_file_share 物件上呼叫 **delete_if_exists** 方法來完成。 以下是具有此类功能的示例代码。
+刪除共用可以藉由在 cloud_file_share 物件上呼叫 **delete_if_exists** 方法來完成。 以下是執行該作業的範例程式碼。
 
 ```cpp
 // Get a reference to the share.
@@ -219,7 +219,7 @@ azure::storage::cloud_file file4 =
 file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
-## <a name="download-a-file"></a>下载文件
+## <a name="download-a-file"></a>下載檔案
 
 若要下載檔案，請先擷取檔案參考，然後呼叫 **download_to_stream** 方法將檔案內容傳輸到您可接著保留在本機檔案的串流物件。 或者，您可以使用 **download_to_file** 方法，將檔案內容下載到本機檔案。 您可以使用 **download_text** 方法，將檔案內容當成文字字串下載。
 
@@ -295,7 +295,7 @@ if (share.exists())
 }
 ```
 
-## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>为文件或文件共享生成共享访问签名
+## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>產生檔案或檔案共用的共用存取簽章
 
 您可以為檔案共用或個別檔案產生共用存取簽章 (SAS)。 您也可以在檔案共用上建立共用存取原則，以管理共用存取簽章。 建議您建立共用存取原則，因為如果必須洩漏 SAS，它提供了一種撤銷 SAS 的方式。
 
@@ -371,4 +371,4 @@ if (share.exists())
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [C++ 中的 Azure 儲存體檔案服務範例](https://github.com/Azure-Samples/storage-file-cpp-getting-started) \(英文\)
 * [Azure 儲存體總管](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure 存储文档](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)

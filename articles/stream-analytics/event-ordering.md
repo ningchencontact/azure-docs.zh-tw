@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47a8ee2c03e67d4fd9b34888430ed0cc702205f6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789470"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273171"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>設定事件順序原則的 Azure Stream analytics
 
@@ -73,7 +73,7 @@ ms.locfileid: "60789470"
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-此訊息，通知您您的輸入中的至少一個資料分割是空的延遲抵達臨界值將會延遲您的輸出。 若要解決此問題，建議您其中一個： 
+此訊息，通知您您的輸入中的至少一個資料分割是空的延遲抵達臨界值將會延遲您的輸出。 若要解決此問題，建議您其中一個：  
 1. 請確定所有資料分割的事件中樞/IoT 中樞接收的輸入。 
 2. PartitionID 子句，在您的查詢中使用資料分割。 
 

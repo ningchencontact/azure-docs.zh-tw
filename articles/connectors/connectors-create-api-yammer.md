@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104726"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理您的 Yammer 帳戶
@@ -38,7 +38,7 @@ ms.locfileid: "62104726"
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 您要在其中存取 Yammer 帳戶的邏輯應用程式。 若要開始使用 Yammer 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Yammer 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」觸發程序。
+* 您要在其中存取 Yammer 帳戶的邏輯應用程式。 若要開始使用 Yammer 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Yammer 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」  觸發程序。
 
 ## <a name="connect-to-yammer"></a>連線至 Yammer
 
@@ -55,12 +55,12 @@ ms.locfileid: "62104726"
 
    * 針對現有的邏輯應用程式： 
    
-     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
+     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]  。 
 
        -或-
 
      * 請在想要新增動作的步驟之間，將指標移至步驟之間的箭號。 
-     選擇顯示的加號 (**+**)，然後選取 [新增動作]。
+     選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
      
        在搜尋方塊中，輸入 "yammer" 作為篩選條件。 
        請在動作清單底下，選取您想要的動作。

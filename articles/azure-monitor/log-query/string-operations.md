@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424698"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用字串
@@ -49,7 +49,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>字串比較
 
- 運算子       |描述                         |區分大小寫|範例 (結果為 `true`)
+運算子       |描述                         |區分大小寫|範例 (結果為 `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Equals                              |是           |`"aBc" == "aBc"`
 `!=`           |Not Equals                          |是           |`"abc" != "ABC"`
@@ -98,7 +98,7 @@ countof(text, search [, kind])
 - `search` - 要比對內部文字的純文字或規則運算式。
 - `kind` - _normal_ | _regex_ (預設值：normal)。
 
-### <a name="returns"></a>傳回
+### <a name="returns"></a>傳回值
 
 搜尋字串可在容器中相符的次數。 純文字字串比對可能會重疊，而規則運算式比對則不會。
 
@@ -140,7 +140,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` - 要搜尋的字串。
 - `typeLiteral` - 選擇性的型別常值 (例如 typeof(long))。 如果提供，所擷取的子字串會轉換為此類型。
 
-### <a name="returns"></a>傳回
+### <a name="returns"></a>傳回值
 針對指定擷取群組 captureGroup 比對的子字串，選擇性地轉換為 typeLiteral。
 如果沒有相符項目或型別轉換失敗，則傳回 Null。
 
@@ -260,7 +260,7 @@ SecurityEvent
 
 可以具有下列結果：
 
-活動                                        |取代後
+activities                                        |取代後
 ------------------------------------------------|----------------------------------------------------------
 4663 - 已嘗試存取物件  |活動識別碼 4663：已嘗試存取物件。
 

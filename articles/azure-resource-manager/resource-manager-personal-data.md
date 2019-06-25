@@ -1,24 +1,17 @@
 ---
 title: Azure Resource Manager 個人資料 | Microsoft Docs
 description: 了解如何管理與 Azure 資源管理員作業相關聯的個人資料。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: db4e1b8705b879fd5716763869462bafdf1f905c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc8400a3b6d51bacd55d3c711700a1d07266f528
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128461"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206284"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>管理與 Azure 資源管理員相關聯的個人資料
 

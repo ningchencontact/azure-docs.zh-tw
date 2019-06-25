@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 3/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60897109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061171"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 應用程式中篩選遙測
 
@@ -270,7 +270,7 @@ public TelemetryProcessor successFilter() {
 
 ## <a name="troubleshooting"></a>疑難排解
 
-我的篩選器無法運作。
+我的篩選器無法運作。 
 
 * 請檢查您已提供有效的參數值。 例如，持續時間應該是整數。 無效的值會導致篩選器被忽略。 如果您的自訂篩選器從建構函式或 set 方法擲回例外狀況，該篩選器將被忽略。
 

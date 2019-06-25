@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943149"
 ---
 <a name="web-analytics"></a>Web 分析
@@ -54,7 +54,7 @@ ms.locfileid: "64943149"
 
 您可以選擇結合多個這些行銷活動識別碼，以進一步指出為行銷活動帶來流量的多個來源，例如客戶來自何處 (電子郵件、部落格、社交媒體來源等)。
 
-例如︰
+例如:
 
 1. 電子報推薦者：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. LinkedIn 推薦者：<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -71,7 +71,7 @@ ms.locfileid: "64943149"
     2.  登陸頁面 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. 使用者按一「嘗試我的產品」連結並連到 AppSource。
     1. 轉介 URL =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. 登陸頁面 URL (**確定此 URL 已將 utm\_campaign and  utm\_source 新增到此 URL**) =  [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. 登陸頁面 URL (**確定此 URL 已將 utm\_campaign and  utm\_source 新增到此 URL**) =  [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>如何評估行銷活動是否成功
 -----------------------------------------

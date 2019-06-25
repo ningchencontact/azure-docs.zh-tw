@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bcab20c654657483fd37322de7ec0827fb171c01
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239061"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165718"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 入口網站中建立新的 Time Series Insights 環境
 
@@ -51,7 +51,7 @@ ms.locfileid: "66239061"
    定價層 | S1 | 選擇所需的輸送量。 如需最低成本和入門容量，選取 S1。
    容量 | 1 | 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。  您可以在環境建立後變更其容量。 如需最低成本，選取 1 作為容量。 
   
-1. 請勾選 [釘選到儀表板]  以便在未來最輕鬆地存取時間序列環境。
+1. 請檢查**釘選到儀表板**來輕鬆地存取未來時間序列環境。
 
    ![建立 Time Series Insights [釘選到儀表板]](media/time-series-insights-get-started/3-pin-create.png)
 

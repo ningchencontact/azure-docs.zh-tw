@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f3cbdfa590583da59a5083f52595d54cc7f4f86
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b4e3f64cb6aefb35c3f85bafc2bb408f998626d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767206"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112823"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>動態群組與 Azure Active Directory B2B 共同作業
 
@@ -26,8 +26,8 @@ ms.locfileid: "65767206"
 需要有適當的 [Azure AD Premium P1 或 P2 授權](https://azure.microsoft.com/pricing/details/active-directory/)，才能建立和使用動態群組。 請參閱[在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則](../users-groups-roles/groups-dynamic-membership.md)一文，以深入了解。
 
 ## <a name="what-are-the-built-in-dynamic-groups"></a>什麼是內建動態群組？
-「所有使用者」動態群組讓租用戶系統管理員按一下滑鼠即可建立包含租用戶中所有使用者的群組。 根據預設值，「所有使用者」群組包括目錄中的所有使用者 (包括「成員」與「來賓」)。
-在新的 Azure Active Directory 系統管理員入口網站中，您可以選擇在 [群組設定] 檢視中啟用「所有使用者」群組。
+「所有使用者」  動態群組讓租用戶系統管理員按一下滑鼠即可建立包含租用戶中所有使用者的群組。 根據預設值，「所有使用者」  群組包括目錄中的所有使用者 (包括「成員」與「來賓」)。
+在新的 Azure Active Directory 系統管理員入口網站中，您可以選擇在 [群組設定] 檢視中啟用「所有使用者」  群組。
 
 ![顯示設定為 [是] 的 [啟用所有使用者群組]](media/use-dynamic-groups/enable-all-users-group.png)
 

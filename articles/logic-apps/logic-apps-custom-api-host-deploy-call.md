@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
 ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740372"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>在 Azure Logic Apps 中從工作流程部署和呼叫自訂 API
@@ -29,13 +29,13 @@ ms.locfileid: "60740372"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取您的 Web 應用程式或 API 應用程式。
 
-2. 在開啟的應用程式功能表之 [API] 下方，選擇 [API 定義]。 將 [API 定義位置] 設定為 OpenAPI swagger.json 檔案的 URL。
+2. 在開啟的應用程式功能表之 [API]  下方，選擇 [API 定義]  。 將 [API 定義位置]  設定為 OpenAPI swagger.json 檔案的 URL。
 
    通常，URL 會以這種格式出現：`https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![您自訂 API 的 OpenAPI 檔案連結](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. 在 [API] 下，選擇 [CORS]。 將 [允許的來源] 的 CORS 原則設定為 **'*'** (全部允許)。
+3. 在 [API]  下，選擇 [CORS]  。 將 [允許的來源]  的 CORS 原則設定為 **'*'** (全部允許)。
 
    此設定允許來自 Logic App Designer 的要求。
 

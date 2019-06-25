@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116051"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174390"
 ---
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]  。
 2. 按一下 [建立群組]   > [監視和管理]   > [備份和 Site Recovery]  。

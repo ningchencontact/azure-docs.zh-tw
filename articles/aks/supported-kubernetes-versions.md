@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069666"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205280"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
@@ -52,9 +52,9 @@ AKS 支援 Kubernetes 的四個次要版本：
 
 例如，如果導入了 AKS *1.13.x*今日，為提供的支援下列版本：
 
-新的次要版本支援版本清單
------------------        ----------------------
-1.13.x 1.12.a、 1.12.b、 1.11.a、 1.11.b、 1.10.a、 1.10.b
+新的次要版本    |    支援的版本清單
+-----------------    |    ----------------------
+1.13.x               |    1.12.a、 1.12.b、 1.11.a、 1.11.b、 1.10.a、 1.10.b
 
 其中"x"和".a"和"1).b 」 是具代表性的修補程式版本。
 
@@ -84,11 +84,15 @@ AKS 釋放 1.13.x，這表示將會移除 1.9.x 版本 （所有 1.9 版） 和�
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
 
+> [!NOTE]
+> 建立叢集、 CI 或其他自動化的工作特定的修補程式版本，客戶應該不會將釘選。 
+
 ### <a name="communications"></a>通訊
 
 * 對新**次要**的 Kubernetes 版本
-  * 所有使用者會收到都通知的新版本，而且將會移除哪一個版本。
-  * 執行版本的客戶**遭到**將會通知他們有**60 天**升級至支援的版本 （例如次要版本）。
+  * 所有使用者會收到都通知公開的新版本，而且將會移除哪一個版本。
+  * 新的修補程式版本發行時，會移除最舊的修補程式版本，在相同的時間。
+  * 客戶有**60 天**從公用通知日期，若要升級至支援的次要版本發行。
 * 對新**修補程式**的 Kubernetes 版本
   * 正在發行的新修補程式版本和升級至最新的修補程式版本，則所有使用者會收到都通知。
   * 使用者擁有**30 天**升級至較新且支援的修補程式版本。 使用者擁有**30 天**之前移除最舊，升級至支援的修補程式版本。

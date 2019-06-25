@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
 ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106295"
 ---
 # <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Azure Logic Apps 中的 Azure 監視器記錄檔監視 B2B 訊息
@@ -39,12 +39,12 @@ ms.locfileid: "62106295"
 
 ### <a name="turn-on-logging-from-integration-account"></a>從整合帳戶開啟記錄
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 在 [監視] 下方，選取 [診斷設定]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 在 [監視]  下方，選取 [診斷設定]  。
 
    ![尋找並選取整合帳戶，然後選取 [診斷設定]](media/logic-apps-monitor-b2b-message/find-integration-account.png)
 
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
-當您完成時，請選擇 [新增診斷設定]。
+當您完成時，請選擇 [新增診斷設定]  。
 
    | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
@@ -54,24 +54,24 @@ ms.locfileid: "62106295"
    | **Resource** | <*integration-account-name*> | 您想要開啟記錄的 Azure 資源名稱 | 
    ||||  
 
-   例如︰
+   例如:
 
    ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
 1. 為新的診斷設定提供名稱，然後選取您的 Log Analytics 工作區和想要記錄的資料。
 
-   1. 選取 [傳送至 Log Analytics]。 
+   1. 選取 [傳送至 Log Analytics]  。 
 
-   1. 在 [Log Analytics] 下，選取 [設定]。 
+   1. 在 [Log Analytics]  下，選取 [設定]  。 
 
-   1. 在 [OMS 工作區] 下，選取您想要用於記錄的 Log Analytics 工作區。 
+   1. 在 [OMS 工作區]  下，選取您想要用於記錄的 Log Analytics 工作區。 
 
       > [!NOTE]
       > OMS 工作區已由 Log Analytics 工作區所取代。 
 
-   1. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類，然後選擇 [儲存]。
+   1. 在 [記錄]  下，選取 [IntegrationAccountTrackingEvents]  分類，然後選擇 [儲存]  。
 
-   例如︰ 
+   例如: 
 
    ![設定 Azure 監視器記錄檔，讓您可以將診斷資料傳送到記錄檔](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -81,12 +81,12 @@ ms.locfileid: "62106295"
 
 ### <a name="turn-on-logging-through-azure-monitor"></a>透過 Azure 監視器開啟記錄
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，於主要 Azure 功能表上選取 [監視]。 在 [設定] 下，選取 [診斷設定]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，於主要 Azure 功能表上選取 [監視]  。 在 [設定]  下，選取 [診斷設定]  。 
 
    ![選取 [監視] > [診斷設定] > 您的整合帳戶](media/logic-apps-monitor-b2b-message/monitor-diagnostics-settings.png)
 
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
-當您完成時，請選擇 [新增診斷設定]。
+當您完成時，請選擇 [新增診斷設定]  。
 
    | 屬性 | Value | 描述 | 
    |----------|-------|-------------|
@@ -96,24 +96,24 @@ ms.locfileid: "62106295"
    | **Resource** | <*integration-account-name*> | 您想要開啟記錄的 Azure 資源名稱 | 
    ||||  
 
-   例如︰
+   例如:
 
    ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
 1. 為新的診斷設定提供名稱，然後選取您的 Log Analytics 工作區和想要記錄的資料。
 
-   1. 選取 [傳送至 Log Analytics]。 
+   1. 選取 [傳送至 Log Analytics]  。 
 
-   1. 在 [Log Analytics] 下，選取 [設定]。 
+   1. 在 [Log Analytics]  下，選取 [設定]  。 
 
-   1. 在 [OMS 工作區] 下，選取您想要用於記錄的 Log Analytics 工作區。 
+   1. 在 [OMS 工作區]  下，選取您想要用於記錄的 Log Analytics 工作區。 
 
       > [!NOTE]
       > OMS 工作區已由 Log Analytics 工作區所取代。 
 
-   1. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類，然後選擇 [儲存]。
+   1. 在 [記錄]  下，選取 [IntegrationAccountTrackingEvents]  分類，然後選擇 [儲存]  。
 
-   例如︰ 
+   例如: 
 
    ![設定 Azure 監視器記錄檔，讓您可以將診斷資料傳送到記錄檔](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -121,7 +121,7 @@ ms.locfileid: "62106295"
 
 ## <a name="use-diagnostic-data-with-other-services"></a>將診斷資料與其他服務搭配使用
 
-结合使用 Azure Monitor 日志后，可以扩展将逻辑应用的诊断数据用于其他 Azure 服务的方式，例如： 
+Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 

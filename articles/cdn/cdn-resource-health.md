@@ -15,11 +15,11 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696180"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>監視 Azure CDN 資源的健康狀態
   
@@ -38,12 +38,12 @@ Azure CDN 資源健康狀態是 [Azure 資源健康狀態](../resource-health/re
 
     ![設定按鈕](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. 在 [支援與疑難排解] 下方，按一下 [資源健康狀態]。
+3. 在 [支援與疑難排解]  下方，按一下 [資源健康狀態]  。
 
     ![CDN 資源健康狀態](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->您也可以尋找 [說明 + 支援] 刀鋒視窗的 [資源健康狀態] 圖格中所列出的 CDN 資源。  您可以在入口網站的右上角，按一下圓框 **？** 快速取得 [說明 + 支援] 。
+>您也可以尋找 [說明 + 支援]  刀鋒視窗的 [資源健康狀態]  圖格中所列出的 CDN 資源。  您可以在入口網站的右上角，按一下圓框 **？** 快速取得 [說明 + 支援]  。
 >
 > ![說明 + 支援](./media/cdn-resource-health/cdn-help-support.png)
 
@@ -51,7 +51,7 @@ Azure CDN 資源健康狀態是 [Azure 資源健康狀態](../resource-health/re
 
 以下提供與 Azure CDN 資源健康狀態相關的狀態。
 
-|訊息 | 建議的動作 |
+|Message | 建議的動作 |
 |---|---|
 |您可能已停止、移除或錯誤設定一或多個 CDN 端點 | 您可能已停止、移除或錯誤設定一或多個 CDN 端點。|
 |很抱歉，目前無法使用 CDN 管理服務 | 請返回這裡以查看狀態更新。如果您的問題在預期解決時間之後持續發生，請連絡支援人員。|

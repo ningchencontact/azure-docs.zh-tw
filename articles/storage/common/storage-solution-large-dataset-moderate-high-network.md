@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729220"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>在有中速至高速的網路頻寬之情況下進行大型資料集的資料轉送
@@ -65,7 +65,7 @@ ms.locfileid: "60729220"
 |                                     |    資料箱磁碟      |    資料箱                                      |    Data Box Heavy            |    匯入/匯出                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    資料大小                        |    最多 35 TB                 |    每個裝置最多 80 TB                       |    每個裝置最多 800 TB               |    變數                            |
-|    資料類型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
+|    数据类型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
 |    板型規格                      |    每筆訂單 5 個 SSD             |    每筆訂單 1 X 50 磅 桌上型電腦大小裝置    |    每筆訂單 1 X ~500 磅 大型裝置    |    每筆訂單最多 10 個 HDD/SSD        |
 |    初始設定時間               |    低 <br>(15 分鐘)            |    低至中度 <br> (<30 分鐘)               |    中度<br>(1-2 小時)               |    中度到困難<br>(變動) |
 |    將資料傳送到 Azure               |    是                          |    是                                           |    是                                   |    是                                 |
@@ -85,7 +85,7 @@ ms.locfileid: "60729220"
 
 |                                     |    工具 AzCopy、 <br>Azure PowerShell、 <br>Azure CLI             |    Azure 儲存體 REST API、SDK                   |    方塊的 data Gateway 或資料方塊邊緣          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
-|    資料類型                  |    Azure Blob、Azure 檔案、Azure 資料表    |    Azure Blob、Azure 檔案、Azure 資料表    |    Azure Blob、Azure 檔案                           |   支援 70 種以上的資料存放區和格式化資料連接器    |
+|    数据类型                  |    Azure Blob、Azure 檔案、Azure 資料表    |    Azure Blob、Azure 檔案、Azure 資料表    |    Azure Blob、Azure 檔案                           |   支援 70 種以上的資料存放區和格式化資料連接器    |
 |    板型規格                |    命令列工具                        |    程式設計介面                    |    Microsoft 提供的虛擬 <br>或實體裝置     |    Azure 入口網站中的服務                                            |
 |    初始的單次設定     |    簡單               |    中度                       |    簡單 (<30 分鐘) 至中度 (1-2 小時)            |    大規模                                                          |
 |    資料預先處理              |    否                                        |    否                                        |    是 (使用 Edge 計算)                               |    是                                                                |

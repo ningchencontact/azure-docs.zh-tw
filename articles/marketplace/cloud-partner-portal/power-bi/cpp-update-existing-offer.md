@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
 ms.openlocfilehash: aaeb347c5b8ba6cd992054cd6ab5464f44b3a08c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942035"
 ---
 # <a name="update-a-power-bi-app-offer"></a>更新 Power BI 應用程式供應項目
@@ -32,7 +32,7 @@ ms.locfileid: "64942035"
 Power BI 應用程式通常會定期更新新的內容、 安全性修補程式、 功能等等。 變更應用程式時，請依照下列步驟更新其安裝 URL:
 
 1.  登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2.  在 [所有供應項目] 之下，尋找您要更新的供應項目。
+2.  在 [所有供應項目]  之下，尋找您要更新的供應項目。
 3.  在 **技術的資訊**索引標籤上，輸入新的安裝 URL。
 4.  選取 **發佈**啟動工作流程，以將新的應用程式發佈至 AppSource。
 
@@ -42,9 +42,9 @@ Power BI 應用程式通常會定期更新新的內容、 安全性修補程式�
 您的供應項目 Marketplace 中繼資料包括您的公司名稱、 標誌和其他資訊。 若要更新的中繼資料，請遵循下列步驟：
 
 1.  登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2.  在 [所有供應項目] 之下，尋找您要更新的供應項目。
+2.  在 [所有供應項目]  之下，尋找您要更新的供應項目。
 3.  在 [**店面詳細資料**索引標籤上，變更中繼資料文件中的指示[Power BI 應用程式店面詳細資料] 索引標籤](./cpp-storefront-details-tab.md)。
-4.  選取 [發佈] 啟動工作流程，以發佈變更。
+4.  選取 [發佈]  啟動工作流程，以發佈變更。
 
 
 ## <a name="the-compare-feature"></a>比較功能

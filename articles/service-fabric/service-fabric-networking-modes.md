@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926138"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
@@ -35,7 +35,7 @@ ms.locfileid: "64926138"
 
 ## <a name="set-up-open-networking-mode"></a>設定 Open 網路模式
 
-1. 設定 Azure Resource Manager 範本。 在叢集資源的 [fabricSettings] 區段中，啟用 DNS 服務及 IP 提供者： 
+1. 設定 Azure Resource Manager 範本。 在叢集資源的 [fabricSettings]  區段中，啟用 DNS 服務及 IP 提供者： 
 
     ```json
     "fabricSettings": [
@@ -200,14 +200,14 @@ ms.locfileid: "64926138"
  
 3. 僅針對 Windows 叢集，使用下列值來設定能針對虛擬網路開啟連接埠 UDP/53 的 Azure 網路安全性群組 (NSG) 規則：
 
-   |設定 |Value | |
+   |設定 |值 | |
    | --- | --- | --- |
    |優先順序 |2000 | |
-   |名稱 |Custom_Dns  | |
-   |來源 |VirtualNetwork | |
+   |Name |Custom_Dns  | |
+   |source |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |
-   | 動作 | 允許  | |
+   |動作 | 允許  | |
    | | |
 
 4. 在每個服務的應用程式資訊清單中指定網路模式：`<NetworkConfig NetworkType="Open">`。 **Open** 網路模式會使服務取得專用 IP 位址。 如果未指定模式，服務會預設為 **nat** 模式。 在下列資訊清單範例中，`NodeContainerServicePackage1` 和 `NodeContainerServicePackage2` 服務可以分別在相同的連接埠上接聽 (這兩個服務都會在 `Endpoint1` 上接聽)。 指定 Open 網路模式之後，就無法指定 `PortBinding` 設定。
@@ -245,7 +245,7 @@ ms.locfileid: "64926138"
     >在 Linux 叢集上，不支援針對不同服務混合網路模式。 
     >
 
-5. 選取 [開啟] 模式時，服務資訊清單中的 [端點] 定義應該明確地指向對應至端點的程式碼套件，即使服務套件中只有一個程式碼套件也是一樣。 
+5. 選取 [開啟]  模式時，服務資訊清單中的 [端點]  定義應該明確地指向對應至端點的程式碼套件，即使服務套件中只有一個程式碼套件也是一樣。 
    
    ```xml
    <Resources>

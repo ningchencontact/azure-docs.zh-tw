@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539810"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147351"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 診斷概觀
 
@@ -103,12 +103,12 @@ App Service 診斷不僅適用於 Windows 上您的應用程式，也適用於 [
 
 ![主動式自動修復](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>變更分析
+## <a name="change-analysis-only-for-windows-app"></a>變更分析 （僅適用於 Windows 應用程式）
 
-在步調快速的開發環境中，有時可能難以追蹤對您的應用程式的所有變更，並讓單獨 pinpoint 導致狀況不良的行為變更。 變更分析可協助您縮小對您的應用程式，以協助疑難排解體驗的變更。 這類變更分析內嵌在診斷報告**應用程式當機**讓您可以使用它與其他度量。
+在步調快速的開發環境中，有時可能難以追蹤對您的應用程式的所有變更，並讓單獨 pinpoint 導致狀況不良的行為變更。 變更分析可協助您縮小對您的應用程式，以協助疑難排解體驗的變更。 變更分析位於**應用程式變更**而也這類內嵌的診斷報告中**應用程式當機**讓您可以使用它與其他度量。
+
+變更分析必須先啟用，才能使用此功能。 如需有關變更分析的詳細資訊，請瀏覽[宣布新的變更分析體驗，在 App Service 診斷](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)。
 
 ![變更分析預設頁面](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![差異檢視](./media/app-service-diagnostics/diff-view-12.png)
-
-變更分析必須先啟用，才能使用此功能。 如需有關變更分析的詳細資訊，請瀏覽[宣布新的變更分析體驗，在 App Service 診斷](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)。

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: cb0c350df3056636701b5ff5d3962e2a0e96f40d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696359"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>適用於 Azure HDInsight 上 ML 服務的 Azure 儲存體解決方案
@@ -66,7 +66,7 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
         #Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-所有目錄和檔案的參考會指向儲存體帳戶 `wasb://container1@storage1.blob.core.windows.net`。 這是與 HDInsight 叢集關聯的「預設儲存體帳戶」。
+所有目錄和檔案的參考會指向儲存體帳戶 `wasb://container1@storage1.blob.core.windows.net`。 這是與 HDInsight 叢集關聯的「預設儲存體帳戶」  。
 
 ### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>搭配 HDInsight 上的 ML 服務使用其他儲存體
 
@@ -92,7 +92,7 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
     #Specify the input file to analyze in HDFS:
     inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 
-現在，所有目錄和檔案的參考會指向儲存體帳戶 `wasb://container2@storage2.blob.core.windows.net`。 這是您已指定的「名稱節點」。
+現在，所有目錄和檔案的參考會指向儲存體帳戶 `wasb://container2@storage2.blob.core.windows.net`。 這是您已指定的「名稱節點」  。
 
 您必須設定`/user/RevoShare/<SSH username>`目錄**storage2** ，如下所示：
 
@@ -110,17 +110,17 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
 ### <a name="add-cluster-access-to-your-azure-data-lake-storage"></a>為 Azure Data Lake Storage 新增叢集存取權
 您可以使用與 HDInsight 叢集相關聯的 Azure Active Directory (Azure AD) 服務主體來存取 Data Lake Storage。
 
-1. 在建立 HDInsight 叢集時，從 [資料來源] 索引標籤中選取 [叢集 AAD 身分識別]。
+1. 在建立 HDInsight 叢集時，從 [資料來源]  索引標籤中選取 [叢集 AAD 身分識別]  。
 
-2. 在 [叢集 AAD 身分識別] 對話方塊的 [選取 AD 服務主體] 底下，選取 [新建]。
+2. 在 [叢集 AAD 身分識別]  對話方塊的 [選取 AD 服務主體]  底下，選取 [新建]  。
 
-在為服務主體命名並建立密碼後，請按一下 [管理 ADLS 存取]，以將該服務主體與您的 Data Lake Storage 產生關聯。
+在為服務主體命名並建立密碼後，請按一下 [管理 ADLS 存取]  ，以將該服務主體與您的 Data Lake Storage 產生關聯。
 
-建立叢集之後，您也可以新增叢集存取權到一或多個 Data Lake Storage 帳戶。 為 Data Lake Storage 開啟 Azure 入口網站入口，並移至 [資料總管] > [存取] > [新增]。 
+建立叢集之後，您也可以新增叢集存取權到一或多個 Data Lake Storage 帳戶。 為 Data Lake Storage 開啟 Azure 入口網站入口，並移至 [資料總管] > [存取] > [新增]  。 
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>如何從 HDInsight 上的 ML 服務存取 Data Lake Storage Gen1
 
-一旦您獲得 Data Lake Storage Gen1 的存取權後，就可以在 HDInsight 上的 ML 服務叢集中使用該存放區，其方式就和使用次要 Azure 儲存體帳戶一樣。 唯一的差別在於前置詞 **wasb://** 會變更為 **adl://**，如下所示：
+一旦您獲得 Data Lake Storage Gen1 的存取權後，就可以在 HDInsight 上的 ML 服務叢集中使用該存放區，其方式就和使用次要 Azure 儲存體帳戶一樣。 唯一的差別在於前置詞 **wasb://** 會變更為 **adl://** ，如下所示：
 
 
     # Point to the ADL Storage (e.g. ADLtest)

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: yizhon
 ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65910320"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
 
-**Azure IoT 裝置 SDK** 是一組程式庫，其設計目的是要簡化從 **Azure IoT 中樞**服務傳送訊息和接收訊息的程序。 有各種不同的 SDK，每個 SDK 都以特定的平台為目標，而本文將說明的是「Azure IoT 裝置 SDK (適用於 C)」 。
+**Azure IoT 裝置 SDK** 是一組程式庫，其設計目的是要簡化從 **Azure IoT 中樞**服務傳送訊息和接收訊息的程序。 有各種不同的 SDK，每個 SDK 都以特定的平台為目標，而本文將說明的是「Azure IoT 裝置 SDK (適用於 C)」  。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -79,7 +79,7 @@ Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大�
 
 * 名為 [Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)的跨平台 Python CLI。
 
-本教學課程使用圖形化「裝置總管」工具。 若您在 VS Code 中開發，您可以使用「適用於 VS Code 的 Azure IoT」。 如果您偏好使用 CLI 工具，也可以使用 Azure CLI 2.0 的 IoT 擴充功能工具。
+本教學課程使用圖形化「裝置總管」  工具。 若您在 VS Code 中開發，您可以使用「適用於 VS Code 的 Azure IoT」  。 如果您偏好使用 CLI 工具，也可以使用 Azure CLI 2.0 的 IoT 擴充功能  工具。
 
 裝置總管工具會使用 Azure IoT 服務程式庫在 IoT 中樞上執行各種功能，包括新增裝置。 如果您使用裝置總管工具來新增裝置，您會得到裝置的連接字串。 您需要此連接字串才能執行應用程式範例。
 
@@ -91,17 +91,17 @@ Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大�
 
    ![Device Explorer 對應項的螢幕擷取畫面](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
-1. 請在第一個欄位中輸入您的 [IoT 中樞連接字串]，然後按一下 [更新]。 此步驟可設定此工具，以便與 IoT 中樞通訊。 
+1. 請在第一個欄位中輸入您的 [IoT 中樞連接字串]  ，然後按一下 [更新]  。 此步驟可設定此工具，以便與 IoT 中樞通訊。 
 
-您可以在 [IoT 中樞服務] > [設定] > **[共用存取權責]** > **iothubowner** 下找到 [連接字串]。
+您可以在 [IoT 中樞服務]   > [設定]   >  **[共用存取權責]**  > **iothubowner** 下找到 [連接字串]  。
 
-1. 設定 IoT 中樞連接字串後，請按一下 [管理] 索引標籤：
+1. 設定 IoT 中樞連接字串後，請按一下 [管理]  索引標籤：
 
    ![Device Explorer 對應項/管理螢幕擷取畫面](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 此索引標籤可讓您管理在 IoT 中樞註冊的裝置。
 
-1. 按一下 [建立] 按鈕即可建立裝置。 將會顯示一個已預先填入一組金鑰 (主要和次要) 的對話方塊。 輸入 [裝置識別碼]，然後按一下 [建立]。
+1. 按一下 [建立]  按鈕即可建立裝置。 將會顯示一個已預先填入一組金鑰 (主要和次要) 的對話方塊。 輸入 [裝置識別碼]  ，然後按一下 [建立]  。
 
    ![建立裝置螢幕擷取畫面](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
@@ -109,7 +109,7 @@ Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大�
 
    ![Device Explorer 對應項按一下滑鼠右鍵螢幕擷取畫面](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-1. 如果您選擇 [複製所選裝置的連接字串]，裝置連接字串就會複製到剪貼簿。 請保留一份裝置連接字串。 在執行後續各節中所述的範例應用程式時，您會需要它。
+1. 如果您選擇 [複製所選裝置的連接字串]  ，裝置連接字串就會複製到剪貼簿。 請保留一份裝置連接字串。 在執行後續各節中所述的範例應用程式時，您會需要它。
 
 完成上述步驟後，您就可以開始執行一些程式碼。 大部分範例在主要原始程式檔頂端都有一個常數，此常數可讓您輸入連接字串。 例如，對應的行從**iothub_client\_樣本\_iothub_convenience_sample**應用程式會出現，如下所示。
 
@@ -119,7 +119,7 @@ static const char* connectionString = "[device connection string]";
 
 ## <a name="use-the-iothubclient-library"></a>使用 IoTHubClient 程式庫
 
-在 [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) 儲存機制的 **iothub\_client** 資料夾中，有一個 [samples] 資料夾，當中包含名為 **iothub\_client\_sample\_mqtt** 的應用程式。
+在 [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) 儲存機制的 **iothub\_client** 資料夾中，有一個 [samples]  資料夾，當中包含名為 **iothub\_client\_sample\_mqtt** 的應用程式。
 
 Windows 版本**iothub_client\_樣本\_iothub_convenience_sample**應用程式包含下列 Visual Studio 方案：
 
@@ -332,9 +332,9 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 ## <a name="use-the-serializer-library"></a>使用序列化程式程式庫
 
-在概念上，「序列化程式」程式庫位於 SDK 中的 **IoTHubClient** 程式庫之上。 它會使用 **IoTHubClient** 程式庫與 IoT 中樞進行基礎通訊，但是會新增模型化功能，以減輕開發人員處理訊息序列化的負擔。 此程式庫的運作方式最好是由範例示範。
+在概念上，「序列化程式」  程式庫位於 SDK 中的 **IoTHubClient** 程式庫之上。 它會使用 **IoTHubClient** 程式庫與 IoT 中樞進行基礎通訊，但是會新增模型化功能，以減輕開發人員處理訊息序列化的負擔。 此程式庫的運作方式最好是由範例示範。
 
-在 [azure-iot-sdk-c 儲存機制](https://github.com/Azure/azure-iot-sdk-c)的 [serializer] 資料夾中，有一個 [samples] 資料夾，當中包含名為 **simplesample\_mqtt** 的應用程式。 Windows 版本的這個範例包含下列 Visual Studio 解決方案：
+在 [azure-iot-sdk-c 儲存機制](https://github.com/Azure/azure-iot-sdk-c)的 [serializer]  資料夾中，有一個 [samples]  資料夾，當中包含名為 **simplesample\_mqtt** 的應用程式。 Windows 版本的這個範例包含下列 Visual Studio 解決方案：
 
   ![mqtt 範例的 Visual Studio 解決方案](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
@@ -576,7 +576,7 @@ serializer_deinit();
 
 ## <a name="next-steps"></a>後續步驟
 
-本文涵蓋使用「適用於 Azure IoT 裝置 SDK」中程式庫的基本概念。這提供您足夠的資訊來了解 SDK 中包含什麼、其架構，以及如何開始使用 Windows 範例。 下一篇文章藉由說明 [IoTHubClient 程式庫的相關資訊](iot-hub-device-sdk-c-iothubclient.md)來繼續說明 SDK。
+本文涵蓋使用「適用於 Azure IoT 裝置 SDK」  中程式庫的基本概念。這提供您足夠的資訊來了解 SDK 中包含什麼、其架構，以及如何開始使用 Windows 範例。 下一篇文章藉由說明 [IoTHubClient 程式庫的相關資訊](iot-hub-device-sdk-c-iothubclient.md)來繼續說明 SDK。
 
 若要深入了解如何開發 IoT 中樞，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f571342b02084ceb8d67fbb889e030194663489
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493815"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734677"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>建立及使用內部負載平衡器 App Service 環境 
 
@@ -109,7 +109,7 @@ ILB ASE 支援函式和 Web 工作，但若要讓入口網站可以使用，您�
 
 - 為 *&lt;ASE 名稱&gt;.appserviceenvironment.net* 建立一個區域
 - 在該區域中建立一個指向 ILB IP 位址的 A 記錄 
-- 在名為 scm 的 *&lt;ASE 名稱&gt;.appserviceenvironment.net* 中建立一個區域
+- 在名為 scm 的 *&lt;ASE 名稱&gt;.scm.appserviceenvironment.net* 中建立一個區域
 - 在 scm 區域中建立一個指向 ILB IP 位址的 A 記錄
 
 ## <a name="publish-with-an-ilb-ase"></a>使用 ILB ASE 發佈

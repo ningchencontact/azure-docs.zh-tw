@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418393"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272862"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
 [Azure Site Recovery](site-recovery-overview.md) 服務會持續更新並改進。 為了協助您掌握最新訊息，本文提供最新版本、新功能和新內容的相關資訊。 此頁面會定期更新。
 
 如果您有 Site Recovery 功能的相關建議，歡迎您[提供任何意見反應](https://feedback.azure.com/forums/256299-site-recovery)。
+
+
+## <a name="updates-june-2019"></a>更新 (第 2019 年 6 月)
+
+### <a name="update-rollup-37"></a>更新彙總套件 37
+
+[更新彙總套件 37](https://support.microsoft.com/help/4508614/)提供下列更新。
+
+**更新** | **詳細資料**
+--- | ---
+**提供者和代理程式** | 更新 Site Recovery 代理程式和提供者 （中所述的彙總套件）
+**問題修正/改進** | 許多修正和增強功能 （如下所述的彙總套件）
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器災害復原
+
+這個月彙總資料表中加入功能。
+
+**功能** | **詳細資料**
+--- | ---
+**GPT 磁碟分割** | 從更新彙總套件 37 及更新版本 （行動服務版本 9.25.5241.1），最多五個 GPT 磁碟分割支援 UEFI。 此更新之前，四個所支援。
+
+
+
+## <a name="updates-may-2019"></a>更新 (2019 年)
+
+### <a name="update-rollup-36"></a>更新彙總套件 36
+
+[更新彙總套件 36](https://support.microsoft.com/help/4503156)提供下列更新。
+
+**更新** | **詳細資料**
+--- | ---
+**提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新
+**問題修正/改進** | 許多修正和增強功能 （如下所述的彙總套件）
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
+
+這個月彙總資料表中加入功能。
+
+**功能** | **詳細資料**
+--- | ---
+**複寫已新增的磁碟** | 啟用資料磁碟新增至已啟用針對災害復原 Azure VM 的複寫。 [深入了解](azure-to-azure-enable-replication-added-disk.md)。
+**自動更新** | 設定行動服務擴充功能啟用針對災害復原的 Azure Vm 上執行的自動更新，就表示您現在可以選取現有的自動化帳戶使用，而不是使用 Site Recovery 建立的預設帳戶。 [深入了解](azure-to-azure-autoupdate.md)。
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器災害復原
+
+這個月彙總資料表中加入功能。
+
+**功能** | **詳細資料**
+--- | ---
+**處理伺服器監視** | 針對內部部署 VMware Vm 和實體伺服器災害復原，監視和疑難排解程序伺服器與改良的伺服器健康狀態報告和警示。 [深入了解](vmware-physical-azure-monitor-process-server.md)。 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>更新 (第 2019 年 3 月)
@@ -32,8 +87,9 @@ ms.locfileid: "66418393"
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新
 **問題修正/改進** | 許多修正和增強功能 （如下所述的彙總套件）
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器災害復原
-在更新中加入的新功能。
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器災害復原
+
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -63,8 +119,8 @@ ms.locfileid: "66418393"
 **問題修正/改進** | 修正和增強功能 （如下所述的彙總套件） 數目。
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原 
-在更新中加入的新功能。
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原 
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -73,8 +129,8 @@ ms.locfileid: "66418393"
 **儲存空間直接存取** | 您可以設定使用的 Azure VM 的應用程式上執行的應用程式的災害復原[儲存空間直接存取](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)以獲得高可用性。  使用儲存空間直接存取 (S2D)，以及 Site Recovery 提供全方位的保護，Azure VM 工作負載。 S2D 會讓您託管在 Azure 中的客體叢集。 VM 裝載重要的應用程式，例如 SAP ASCS 層、 SQL Server 或向外延展檔案伺服器時，這是特別有用。
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器災害復原
-在更新中加入的新功能。
+### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/實體伺服器災害復原
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -83,6 +139,7 @@ ms.locfileid: "66418393"
 
 
 ## <a name="updates-january-2019"></a>更新 (第 2019 年 1 月)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>加速的網路 (Azure Vm)
 
@@ -99,16 +156,19 @@ ms.locfileid: "66418393"
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新。
 **問題修正/改進** | 修正和增強功能 （如下所述的彙總套件） 數目。
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
 
-在更新中加入的新功能。
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
 **Linux 支援** | RedHat 工作站 6/7，與新的核心版本已新增支援，如 Ubuntu、 Debian 和 SUSE。
 **儲存空間直接存取** | Site Recovery 支援使用儲存空間直接存取 (S2D) 的 Azure Vm。
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>VMware Vm/實體伺服器複寫 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>VMware Vm/實體伺服器災害復原
+
+這個月彙總資料表中加入功能。
+ 
 **功能** | **詳細資料**
 --- | ---
 **Linux 支援** | Redhat Enterprise Linux 7.6、 RedHat 工作站 6/7、 Oracle Linux 6.10/7.6，和新的核心版本已新增支援，如 Ubuntu、 Debian 和 SUSE。
@@ -123,9 +183,8 @@ ms.locfileid: "66418393"
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新。
 **問題修正/改進** | 修正和增強功能 （如下所述的彙總套件） 數目。
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>VMware Vm/實體伺服器複寫 
-在更新中加入的新功能。
-
+### <a name="vmware-vmsphysical-servers-replication"></a>VMware Vm/實體伺服器複寫 
+這個月彙總資料表中加入功能。
 **功能** | **詳細資料**
 --- | ---
 **Linux 支援** | Oracle Linux 6.8 和 6.9/7.0，以及 UEK5 核心，已新增支援。
@@ -135,8 +194,8 @@ ms.locfileid: "66418393"
 **容錯移轉** | 改善 storvsc 和 vsbus 不是開機驅動程式的 VMware Vm 容錯移轉時間。
 **UEFI 支援** | Azure Vm 不支援 UEFI 的開機類型。 您現在可以移轉具有 UEFI 的內部部署實體伺服器至 Azure Site Recovery。 Site Recovery 將 bios 開機類型轉換成移轉之前，先移轉伺服器。 Site Recovery 之前這項轉換 Vm 僅支援。 適用於實體伺服器執行 Windows Server 2012 或更新版本支援。
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
-在更新中加入的新功能。
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -176,8 +235,8 @@ VM 授權成本，以及網路和儲存體的成本，會產生的 Azure Vm 災�
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新。
 **問題修正/改進** | 修正和增強功能 （如下所述的彙總套件） 數目。
 
-#### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
-在更新中加入的新功能。
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 災害復原
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -208,8 +267,8 @@ VM 授權成本，以及網路和儲存體的成本，會產生的 Azure Vm 災�
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新。
 **問題修正/改進** | 修正和增強功能 （如下所述的彙總套件） 數目。
 
-#### <a name="azure-vms-disaster-recovery"></a>Azure Vm 災害復原 
-在更新中加入的新功能。
+### <a name="azure-vms-disaster-recovery"></a>Azure Vm 災害復原 
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -217,8 +276,8 @@ VM 授權成本，以及網路和儲存體的成本，會產生的 Azure Vm 災�
 **雲端支援** | 支援在德國雲端的 Azure Vm 的災害復原。
 **跨訂用帳戶的災害復原** | 將某一個區域中的 Azure Vm 複寫至不同的訂用帳戶，在相同的 Azure Active Directory 租用戶內的另一個區域的支援。 [深入了解](https://aka.ms/cross-sub-blog)。
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/實體伺服器災害復原 
-在更新中加入的新功能。
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/實體伺服器災害復原 
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
@@ -237,17 +296,17 @@ VM 授權成本，以及網路和儲存體的成本，會產生的 Azure Vm 災�
 **提供者和代理程式** | Site Recovery 代理程式和提供者 （如彙總套件中所述） 的更新。
 **問題修正/改進** | 修正和增強功能 （如下所述的彙總套件） 數目。
 
-#### <a name="azure-vms-disaster-recovery"></a>Azure Vm 災害復原 
+### <a name="azure-vms-disaster-recovery"></a>Azure Vm 災害復原 
 
-在更新中加入的新功能。
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---
 **Linux 支援** | Red Hat Enterprise Linux 7.5 新增支援。
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/實體伺服器災害復原 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/實體伺服器災害復原 
 
-在更新中加入的新功能。
+這個月彙總資料表中加入功能。
 
 **功能** | **詳細資料**
 --- | ---

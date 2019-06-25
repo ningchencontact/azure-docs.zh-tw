@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965976"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>全域傳輸網路架構與虛擬 WAN
@@ -38,7 +38,7 @@ ms.locfileid: "65965976"
 * 虛擬網路 (Vnet)
 * 實體的新分支站台
 * 遠端使用者
-* 網際網路
+* Internet
 
 ![中樞和支點全域傳輸圖表](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 

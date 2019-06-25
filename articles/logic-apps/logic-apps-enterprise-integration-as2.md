@@ -1,5 +1,5 @@
 ---
-title: 用于 B2B 企业集成的 AS2 消息 - Azure 逻辑应用
+title: 適用於 B2B 企業整合-Azure Logic Apps 的 AS2 訊息
 description: 交換 AS2 訊息儲存在 Azure Logic Apps 與企業整合套件
 services: logic-apps
 ms.service: logic-apps
@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729390"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中交換適用於 B2B 企業整合的 AS2 訊息
@@ -73,7 +73,7 @@ ms.locfileid: "64729390"
 
 1. 在設計師中，請在邏輯應用程式中加入新的動作。 
 
-1. 底下**選擇動作**和搜尋 方塊中，選擇**所有**。 在 [搜尋] 方塊中，輸入 [程式碼 as2]，然後選取此動作：**編碼為 AS2 訊息**。
+1. 在 [選擇動作]  和搜尋方塊中，選擇 [全部]  。 在 [搜尋] 方塊中，輸入 [程式碼 as2]，然後選取此動作：**編碼為 AS2 訊息**。
 
    ![選取"編碼為 AS2 訊息 」](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "64729390"
    | **body** | 訊息內容 |
    |||
 
-   例如︰
+   例如:
 
    ![訊息編碼的屬性](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "64729390"
 
 1. 在設計師中，請在邏輯應用程式中加入新的動作。 
 
-1. 底下**選擇動作**和搜尋 方塊中，選擇**所有**。 在 [搜尋] 方塊中，輸入 「 解碼 as2 」，然後選取此動作：**解碼 AS2 訊息**
+1. 在 [選擇動作]  和搜尋方塊中，選擇 [全部]  。 在 [搜尋] 方塊中，輸入 「 解碼 as2 」，然後選取此動作：**解碼 AS2 訊息**
 
    ![選取 「 解碼 AS2 訊息 」](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 

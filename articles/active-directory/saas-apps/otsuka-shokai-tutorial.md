@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481934"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752458"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>教學課程：整合 Otsuka Shokai 與 Azure Active Directory
 
@@ -79,14 +79,7 @@ ms.locfileid: "66481934"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [以 SAML 設定單一登入]  頁面上，執行下列步驟：
-
-    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Otsuka Shokai 用戶端支援小組](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+1. 在 [以 SAML 設定單一登入]  頁面上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
 1. Otsuka Shokai 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Otsuka Shokai 應用程式要求 **nameidentifier** 需與 **user.objectid** 相對應，因此您必須按一下 [編輯] ****  圖示以編輯屬性對應，並變更屬性對應。
 
@@ -139,7 +132,7 @@ ms.locfileid: "66481934"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `B. Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com`。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 
@@ -163,7 +156,7 @@ ms.locfileid: "66481934"
 
 ### <a name="create-otsuka-shokai-test-user"></a>建立 Otsuka Shokai 測試使用者
 
-在本節中，您要在 Otsuka Shokai 中建立名為 Britta Simon 的使用者。 請與 [Otsuka Shokai 支援小組](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)合作，在 Otsuka Shokai 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Otsuka Shokai 中建立名為 B.Simon 的使用者。 請與 [Otsuka Shokai 支援小組](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)合作，在 Otsuka Shokai 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-sso"></a>測試 SSO
 

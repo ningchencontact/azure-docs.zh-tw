@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pabutler
 ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942810"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>更新現有的 Azure 應用程式供應項目
@@ -24,7 +24,7 @@ ms.locfileid: "64942810"
 - 新增 SKU。
 - 更新供應項目或個別 SKU 的市集中繼資料。
 
-為了協助您修改這些項目，入口網站提供了 [比較] 與 [歷程記錄] 功能。
+為了協助您修改這些項目，入口網站提供了 [比較]  與 [歷程記錄]  功能。
 
 ## <a name="unpermitted-changes-to-an-azure-application-offer-or-sku"></a>不允許對 Azure 應用程式供應項目或 SKU 進行的變更
 
@@ -44,30 +44,30 @@ ms.locfileid: "64942810"
 常見於要使用安全性修補程式、額外功能等項目定期更新的映像。 在此案例中，您想要使用以下步驟來更新 SKU 所參考的映像：
 
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2. 在 [所有供應項目] 之下，尋找您要更新的供應項目。
-3. 在 [SKU] 索引標籤中，選取與映像相關聯的 SKU 以進行更新。
-4. 選取 [+ 新增映像版本] 來新增映像。
+2. 在 [所有供應項目]  之下，尋找您要更新的供應項目。
+3. 在 [SKU]  索引標籤中，選取與映像相關聯的 SKU 以進行更新。
+4. 選取 [+ 新增映像版本]  來新增映像。
 5. 提供新的映像版本。 映像版本須遵循與舊版相同的標記指導方針。 版本格式應該是 X.Y.Z，其中 X、Y 和 Z 是整數。 請確認您提供的新版本大於所有先前的版本。
-6. 按一下 [發佈] 啟動工作流程，將新的容器映像版本發佈至 Azure Marketplace。
+6. 按一下 [發佈]  啟動工作流程，將新的容器映像版本發佈至 Azure Marketplace。
 
 ### <a name="add-a-new-sku"></a>新增 SKU
 
 依照下列步驟，讓您的供應項目可使用新的 SKU：
 
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2. 在 [所有供應項目] 之下，尋找您要更新的供應項目。
-3. 在 [SKU] 索引標籤下方，按一下 [新增 SKU]，並在快顯視窗中提供 [SKU 識別碼]。
+2. 在 [所有供應項目]  之下，尋找您要更新的供應項目。
+3. 在 [SKU]  索引標籤下方，按一下 [新增 SKU]  ，並在快顯視窗中提供 [SKU 識別碼]  。
 4. 使用[發佈 Azure 應用程式供應項目](./cpp-publish-offer.md)中所述的步驟，重新發佈供應項目。
-5. 選取 [發佈] 啟動工作流程，以發佈新 SKU。
+5. 選取 [發佈]  啟動工作流程，以發佈新 SKU。
 
 ### <a name="update-offer-marketplace-metadata"></a>更新供應項目市集中繼資料
 
 使用下列步驟來更新與供應項目關聯的市集中繼資料。 (例如：公司名稱、標誌等等)
 
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2. 在 [所有供應項目] 下，尋找您要更新的供應項目。
-3. 移至 [Marketplace ] 索引標籤。使用[發佈 Azure 應用程式供應項目](./cpp-publish-offer.md)中的指示來變更中繼資料。
-4. 選取 [發佈] 啟動工作流程，以發佈變更。
+2. 在 [所有供應項目]  下，尋找您要更新的供應項目。
+3. 移至 [Marketplace ]  索引標籤。使用[發佈 Azure 應用程式供應項目](./cpp-publish-offer.md)中的指示來變更中繼資料。
+4. 選取 [發佈]  啟動工作流程，以發佈變更。
  
 >[!Note]
 >雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
@@ -92,7 +92,7 @@ ms.locfileid: "64942810"
 
 ## <a name="history-of-publishing-actions"></a>發佈動作的歷程記錄
 
-若要查看發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，選擇 [記錄] 索引標籤。 您可以檢視在您的 Microsoft Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。
+若要查看發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，選擇 [記錄]  索引標籤。 您可以檢視在您的 Microsoft Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。
 
 ## <a name="next-steps"></a>後續步驟
 

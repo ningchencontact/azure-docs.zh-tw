@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61320943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055362"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
@@ -44,7 +44,7 @@ ms.locfileid: "61320943"
 
 裝置對應項會儲存裝置相關資訊，以供︰
 
-* 设备和后端可以使用这些信息来同步设备状态和配置。
+* 裝置和後端用來同步處理裝置的狀況和組態。
 
 * 解決方案後端用來查詢和鎖定長時間執行的作業。
 
@@ -54,7 +54,7 @@ ms.locfileid: "61320943"
 
 * **標籤**。 解決方案後端可以讀取及寫入的 JSON 文件區段。 裝置應用程式看不到標籤。
 
-* **所需的属性**。 搭配報告屬性使用，以便同步處理裝置的組態或狀況。 解決方案後端可以設定所需的屬性，以及裝置應用程式可以讀取它們。 裝置應用程式也可以接收所需屬性中的變更通知。
+* **所需屬性**。 搭配報告屬性使用，以便同步處理裝置的組態或狀況。 解決方案後端可以設定所需的屬性，以及裝置應用程式可以讀取它們。 裝置應用程式也可以接收所需屬性中的變更通知。
 
 * **報告屬性**。 搭配所需屬性使用，以便同步處理裝置的組態或狀況。 裝置應用程式可以設定報告的屬性，以及解決方案後端可以讀取並查詢它們。
 
@@ -119,9 +119,9 @@ ms.locfileid: "61320943"
 
 ### <a name="desired-property-example"></a>所需屬性範例
 
-在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如︰
+在上述範例中，解決方案後端和裝置應用程式會使用 `telemetryConfig` 裝置對應項的所需屬性和報告屬性，以同步處理此裝置的遙測組態。 例如:
 
-1. 解决方案后端使用所需配置值设置所需属性。 以下是含有所需屬性集的文件部分︰
+1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
 
    ```json
    "desired": {
@@ -147,7 +147,7 @@ ms.locfileid: "61320943"
 3. 解決方案後端可以[查詢](iot-hub-devguide-query-language.md)裝置對應項，以追蹤組態作業在許多裝置上的結果。
 
 > [!NOTE]
-> 上述程式碼片段舉例說明了用來編碼裝置組態和其狀態的方式，為了方便閱讀，其內容已經過最佳化。 IoT 中心不会对设备孪生中的所需属性和报告属性施加特定的架构。
+> 上述程式碼片段舉例說明了用來編碼裝置組態和其狀態的方式，為了方便閱讀，其內容已經過最佳化。 IoT 中樞不會對裝置對應項中的裝置對應項所需屬性和報告屬性強制實行特定結構描述。
 > 
 
 您可以使用裝置對應項來同步處理長時間執行的作業，例如韌體更新。 如需如何使用屬性來跨裝置同步處理及追蹤長時間執行的作業，請參閱[使用所需屬性來設定裝置](tutorial-device-twins.md)。
@@ -174,7 +174,7 @@ ms.locfileid: "61320943"
    }
    ```
 
-* **替换所需属性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
+* **取代所需屬性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
 
 * **取代標籤**。 此作業可讓解決方案後端完全覆寫所有現有的標籤，並以新的 JSON 文件取代 `tags`。
 
@@ -182,7 +182,7 @@ ms.locfileid: "61320943"
 
   - properties
 
-    | 名稱 | Value |
+    | Name | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -281,11 +281,11 @@ ms.locfileid: "61320943"
 
 IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超過限制的所有作業。
 
-## <a name="device-twin-metadata"></a>设备孪生的元数据
+## <a name="device-twin-metadata"></a>裝置對應項中繼資料
 
-IoT 中樞會為裝置對應項所需屬性和報告屬性的每個 JSON 物件保有上次更新的時間戳記。 时间戳采用 UTC，以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式编码`YYYY-MM-DDTHH:MM:SS.mmmZ`。
+IoT 中樞會為裝置對應項所需屬性和報告屬性的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
 
-例如︰
+例如:
 
 ```json
 {
@@ -351,7 +351,7 @@ IoT 中樞不會保留已中斷連線之裝置的所需屬性更新通知。 因
 2. 裝置應用程式訂閱所需屬性更新通知。
 3. 裝置應用程式擷取所需屬性的完整文件。
 
-设备应用可以忽略 `$version` 小于或等于完全检索文档的版本的所有通知。 IoT 中樞保證版本一定會遞增，因此這是可行的方法。
+裝置應用程式可以忽略 `$version` 小於或等於完整擷取文件版本的所有通知。 IoT 中樞保證版本一定會遞增，因此這是可行的方法。
 
 > [!NOTE]
 > [Azure IoT 裝置 SDK](iot-hub-devguide-sdks.md) 中已實作此邏輯。 只有當裝置應用程式無法使用任何 Azure IoT 裝置 SDK，因而必須直接為 MQTT 介面編寫程式時，此說明才有用。

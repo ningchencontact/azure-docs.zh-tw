@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 條件式存取的開發人員指引
-description: Azure Active Directory 條件式存取的開發人員指引和案例
+description: 開發人員指引和 Azure AD 條件式存取案例
 services: active-directory
 keywords: ''
 author: rwike77
@@ -15,24 +15,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0674934f7105df3874048308e98fd582d32e72bc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9e4e0eb830d5ede910e72ec3193cfd613561811b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111529"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
-您可以使用 Azure Active Directory (Azure AD) 中條件式存取功能提供的其中一種方式，來保護您的應用程式及保護服務。 條件式存取可讓開發人員和企業客戶以多種方式保護服務，包括：
+Azure Active Directory (Azure AD) 中的條件式存取功能提供您可用來保護您的應用程式，並保護服務的數種方式之一。 條件式存取可讓開發人員和企業客戶，來保護服務中多種方式包括：
 
 * Multi-Factor Authentication
 * 只允許已註冊 Intune 的裝置存取特定服務
 * 限制使用者位置及 IP 範圍
 
-如需有關條件式存取的完整功能詳細資訊，請參閱 [Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
+如需詳細的完整功能的條件式存取的詳細資訊，請參閱[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 
-針對建置 Azure AD 適用應用程式的開發人員，本文會說明如何使用條件式存取，而您也會了解存取已套用條件式存取原則的資源有何影響。 本文也會探討在代理者流程、web 應用程式、存取 Microsoft Graph 以及呼叫 API 中進行條件式存取的含意。
+適用於建置應用程式的 Azure AD 開發人員，本文章會示範如何您可以使用條件式存取，以及您將學習如何存取您不需要的資源的影響，控制可能套用的條件式存取原則。 文章也會探討影響的條件式存取上的代理者流程，在 web 應用程式，存取 Microsoft Graph 以及呼叫 Api。
 
 它假設對於[單一](quickstart-v1-integrate-apps-with-azure-ad.md)和[多租用戶](howto-convert-app-to-be-multi-tenant.md)應用程式以及[常見驗證模式](authentication-scenarios.md)的認知。
 
@@ -40,25 +40,25 @@ ms.locfileid: "65962833"
 
 ### <a name="app-types-impacted"></a>受影響的應用程式類型
 
-在最常見的案例中，條件式存取不會變更應用程式的行為，或是需要從開發人員進行任何變更。 只有當應用程式以間接或無訊息方式要求權杖提供服務的特定案例中，應用程式才會要求程式碼變更，以處理條件式存取「挑戰」。 這有如執行互動式登入要求一樣簡單。
+在最常見的情況下，條件式存取不會變更應用程式的行為，或需要來自開發人員進行任何變更。 只有在某些情況下當應用程式間接或無訊息方式要求權杖，以提供服務，應用程式會需要程式碼變更，以處理條件式存取 「 挑戰 」。 這有如執行互動式登入要求一樣簡單。
 
-具體而言，下列情節需要程式碼來處理條件式存取「挑戰」：
+具體而言，下列案例需要程式碼來處理條件式存取 「 挑戰 」:
 
 * 執行代理者流程的應用程式
 * 存取多個服務/資源的應用程式
 * 使用 ADAL.js 的單頁應用程式
 * 呼叫資源的 Web Apps
 
-條件式存取原則可以套用至應用程式，也可套用至您應用程式存取的 web API。 若要深入了解如何設定條件式存取原則的相關詳細資訊，請參閱[快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA](../conditional-access/app-based-mfa.md)。
+條件式存取原則可以套用至應用程式，但也可以套用至 web API 存取您的應用程式。 若要深入了解如何設定條件式存取原則，請參閱[快速入門：使用 Azure Active Directory 條件式存取所需的特定應用程式 MFA](../conditional-access/app-based-mfa.md)。
 
-企業客戶可以根據這種情節，隨時套用及移除條件式存取原則。 若要在套用新原則時讓您的應用程式繼續運作，您必須實作「挑戰」處理。 下列範例說明挑戰處理。
+根據案例中，企業客戶可以套用，並隨時移除條件式存取原則。 若要在套用新原則時讓您的應用程式繼續運作，您必須實作「挑戰」處理。 下列範例說明挑戰處理。
 
 ### <a name="conditional-access-examples"></a>條件式存取範例
 
-某些情節需要程式碼變更才能處理條件式存取，而其他情節則是以原狀運作。 以下幾個情節使用條件式存取來執行多重要素驗證，能深入解析一些差異。
+某些案例需要程式碼變更以處理條件式存取，而其他人可以如常運作。 以下是一些案例中使用條件式存取來執行多重要素驗證，提供一些深入了解差異。
 
 * 您要建置單一租用戶 iOS 應用程式，並套用條件式存取原則。 應用程式會將使用者登入，且不會要求存取 API。 當使用者登入時，會自動叫用原則，而使用者必須執行多重要素驗證 (MFA)。 
-* 您正在建置一個會使用中介層服務來存取下游 API 的原生應用程式。 公司中使用此應用程式的企業客戶會將原則套用至下游 API。 當使用者登入時，原生應用程式會要求存取中介層並傳送權杖。 中介層會執行代理者流程來要求存取下游 API。 此時，宣告「挑戰」會呈現至中介層。 中介層會將挑戰傳送回原生應用程式，其必須遵守條件式存取原則。
+* 您正在建置一個會使用中介層服務來存取下游 API 的原生應用程式。 公司中使用此應用程式的企業客戶會將原則套用至下游 API。 當使用者登入時，原生應用程式會要求存取中介層並傳送權杖。 中介層會執行代理者流程來要求存取下游 API。 此時，宣告「挑戰」會呈現至中介層。 中介層會將挑戰傳送回原生應用程式，必須遵守條件式存取原則。
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -76,7 +76,7 @@ scopes="Bookings.Read.All Mail.Read"
 
 ### <a name="complying-with-a-conditional-access-policy"></a>遵守條件式存取原則
 
-針對幾個不同的應用程式拓樸，當工作階段建立時，會評估條件式存取原則。 由於條件式存取原則是運作於應用程式和服務的資料粒度，其叫用的點會大幅度取決於您嘗試完成的情節。
+數個不同的應用程式拓撲中，建立工作階段時，會評估條件式存取原則。 與條件式存取原則的應用程式和服務的資料粒度上，會叫用的點仰賴您嘗試完成的案例。
 
 當您的應用程式嘗試存取具有條件式存取原則的服務時，它可能會遇到條件式存取的挑戰。 這項挑戰編碼`claims`從 Azure AD 之回應的參數。 以下是這項挑戰參數的範例： 
 
@@ -84,17 +84,17 @@ scopes="Bookings.Read.All Mail.Read"
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-開發人員可以使用這項挑戰，並將其附加到 Azure AD 的新要求。 傳遞此狀態會提示使用者執行遵守條件式存取原則所需的任何動作。 在下列情節中，會說明錯誤的詳細規格和擷取參數的方式。
+開發人員可以使用這項挑戰，並將其附加到 Azure AD 的新要求。 傳遞此狀態時，會提示使用者執行遵守條件式存取原則所需的任何動作。 在下列情節中，會說明錯誤的詳細規格和擷取參數的方式。
 
 ## <a name="scenarios"></a>案例
 
 ### <a name="prerequisites"></a>必要條件
 
-Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 中包含的一項功能。 您可以在[未經授權的使用報告](../active-directory-conditional-access-unlicensed-usage-report.md)中深入了解授權需求。 開發人員可以加入 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)，其中包含的 Enterprise Mobility Suite 免費訂用帳戶會包含 Azure AD Premium。
+Azure AD 條件式存取是包含在功能[Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)。 您可以在[未經授權的使用報告](../active-directory-conditional-access-unlicensed-usage-report.md)中深入了解授權需求。 開發人員可以加入 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)，其中包含的 Enterprise Mobility Suite 免費訂用帳戶會包含 Azure AD Premium。
 
 ### <a name="considerations-for-specific-scenarios"></a>特定情節的考量
 
-下列資訊僅適用於這些條件式存取情節：
+下列資訊僅適用於這些條件式存取案例：
 
 * 執行代理者流程的應用程式
 * 存取多個服務/資源的應用程式
@@ -104,7 +104,7 @@ Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>案例：執行代理者流程的應用程式
 
-在此情節中，我們會逐步解說原生應用程式呼叫 web 服務/API 的案例。 接著，此服務會執行"上的代理者 」 流程來呼叫下游服務。 在我們的案例中，已將我們的條件式存取原則套用至下游服務 (Web API 2)，且是使用原生應用程式，而不是伺服器/精靈應用程式。 
+在此情節中，我們會逐步解說原生應用程式呼叫 web 服務/API 的案例。 接著，此服務會執行"上的代理者 」 流程來呼叫下游服務。 在我們的案例中，我們已將我們的條件式存取原則套用至下游服務 (Web API 2)，並使用原生應用程式，而不是伺服器/精靈應用程式。 
 
 ![執行代理者流程圖的應用程式](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -113,7 +113,7 @@ Web API 1 的初始權杖要求不會提示使用者進行多重要素驗證，�
 Azure AD 會傳回 HTTP 回應，包含一些有趣的資料：
 
 > [!NOTE]
-> 這個執行個體中，有多重要素驗證錯誤的描述，但有各種不同的 `interaction_required` 可能屬於條件式存取。
+> 這個執行個體中多重要素驗證錯誤的描述，但有各種不同的`interaction_required`可能屬於條件式存取。
 
 ```
 HTTP 400; Bad Request
@@ -128,13 +128,13 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenario-app-accessing-multiple-services"></a>案例：存取多個服務的應用程式
 
-在此情節中，我們會逐步解說 web 應用程式存取兩個服務的案例，其中之一已指派條件式存取原則。 根據您的應用程式邏輯而定，可能有一個路徑是您的應用程式在其中不需要存取這兩個 web 服務。 在此案例中，您要求權杖的順序在使用者體驗中扮演重要的角色。
+在此案例中，我們逐步解說中的 web 應用程式存取兩個服務的案例，其中之一已指派條件式存取原則。 根據您的應用程式邏輯而定，可能有一個路徑是您的應用程式在其中不需要存取這兩個 web 服務。 在此案例中，您要求權杖的順序在使用者體驗中扮演重要的角色。
 
-假設我們有 A 和 B 的 web 服務，而 web 服務 B 已套用我們的條件式存取原則。 初始互動式驗證要求需要兩個服務的同意，但條件式存取原則在所有情況下都不需要。 如果應用程式要求 web 服務 B 的權杖，就會叫用原則，且 web 服務 A 的後續要求也會成功，如下所示。
+讓我們假設我們有 A 和 B 的 web 服務和 web 服務 B 已套用我們的條件式存取原則。 初始互動式驗證要求需要兩個服務的同意，而在所有情況下不需要條件式存取原則。 如果應用程式要求 web 服務 B 的權杖，就會叫用原則，且 web 服務 A 的後續要求也會成功，如下所示。
 
 ![存取多個服務的應用程式流程圖](./media/conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
-或者，如果應用程式一開始要求 web 服務 A 的權杖，使用者就不會叫用條件式存取原則。 這可讓應用程式開發人員控制使用者體驗，並在所有情況下皆不會強制叫用條件式存取原則。 如果應用程式後續要求 Web 服務 B 的權杖，會是難以處理的案例。此時，使用者就必須遵守條件式存取原則。 當應用程式嘗試 `acquireToken` 時，可能會產生下列錯誤 (如下列圖表所示)：
+或者，如果應用程式一開始要求 web 服務的權杖，使用者不會叫用條件式存取原則。 這可讓終端使用者體驗，而不會強制在所有情況下叫用的條件式存取原則控制應用程式開發人員。 棘手的案例中是如果應用程式接著會要求 web 服務 b 的權杖此時，使用者必須遵守條件式存取原則。 當應用程式嘗試 `acquireToken` 時，可能會產生下列錯誤 (如下列圖表所示)：
 
 ```
 HTTP 400; Bad Request
@@ -145,23 +145,23 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![存取多個要求新權杖之服務的應用程式](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-如果應用程式是使用 ADAL 程式庫，就一律會以互動方式重試取得權杖失敗。 當此互動式要求出現時，使用者就有機會遵守條件式存取。 這是，則為 true，除非`AcquireTokenSilentAsync`或`PromptBehavior.Never`應用程式在此情況下需要執行互動式```AcquireToken```要求，讓使用者有機會遵守原則。
+如果應用程式是使用 ADAL 程式庫，就一律會以互動方式重試取得權杖失敗。 當此互動式要求出現時，使用者將有機會遵守條件式存取。 這是，則為 true，除非`AcquireTokenSilentAsync`或`PromptBehavior.Never`應用程式在此情況下需要執行互動式```AcquireToken```要求，讓使用者有機會遵守原則。
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>案例：使用 ADAL.js 的單頁應用程式 (SPA)
 
-在此案例中，我們會逐步解說具有單頁應用程式 (SPA) 時的案例，使用 ADAL.js 來呼叫受條件式存取保護的 Web API。 這是簡單的架構，但在對條件式存取進行開發時，有一些需要加以考量的細微差別。
+在此案例中，我們會逐步案例當我們有一個單一頁面應用程式 (SPA)，使用 ADAL.js 來呼叫受保護的條件式存取的 web API。 這是簡單的架構，但有一些需要開發對條件式存取時，會納入考量的細微差異。
 
 在 ADAL.js 中，有幾個函式可取得權杖：`login()`、`acquireToken(...)`、`acquireTokenPopup(…)` 和 `acquireTokenRedirect(…)`。
 
-* `login()` 會透過互動式登入要求取得 ID 權杖，但不會取得任何服務的存取權杖 (包括受條件式存取保護的 web API)。
+* `login()` 取得 ID 權杖透過互動式登入要求，但不會取得任何服務 （包括條件式存取保護 web API） 的存取權杖。
 * 接著可以使用 `acquireToken(…)`，以無訊息方式取得存取權杖，這表示它在任何情況下都不會顯示 UI。
 * `acquireTokenPopup(…)` 和 `acquireTokenRedirect(…)` 都是用來以互動方式要求資源的權杖，這表示它們一律會顯示登入 UI。
 
-當應用程式需要存取權杖來呼叫 Web API 時，它會嘗試 `acquireToken(…)`。 如果權杖工作階段已過期，或是我們必須遵守條件式存取原則，acquireToken 函式就會失敗，且應用程式會使用 `acquireTokenPopup()` 或 `acquireTokenRedirect()`。
+當應用程式需要存取權杖來呼叫 Web API 時，它會嘗試 `acquireToken(…)`。 如果語彙基元的工作階段已過期，或是我們必須遵守條件式存取原則，則*acquireToken*函式會失敗，且應用程式會使用`acquireTokenPopup()`或`acquireTokenRedirect()`。
 
 ![使用 ADAL 的單頁應用程式流程圖](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-我們會使用條件式存取情節來步解說範例。 使用者只需登陸網站，且沒有工作階段。 我們執行 `login()` 呼叫時，無需進行多重要素驗證即可取得 ID 權杖。 然後使用者會叫用按鈕，要求應用程式向 web API 要求資料。 應用程式嘗試執行 `acquireToken()` 呼叫但失敗，因為使用者尚未執行多重要素驗證，且必須遵守條件式存取原則。
+讓我們逐步解說使用我們的條件式存取案例的範例。 使用者只需登陸網站，且沒有工作階段。 我們執行 `login()` 呼叫時，無需進行多重要素驗證即可取得 ID 權杖。 然後使用者會叫用按鈕，要求應用程式向 web API 要求資料。 應用程式嘗試執行`acquireToken()`但會呼叫失敗，因為使用者沒有執行多重要素驗證，且必須遵守條件式存取原則。
 
 Azure AD 會傳回下列 HTTP 回應：
 
@@ -173,7 +173,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 我們的應用程式必須攔截 `error=interaction_required`。 應用程式就可以在相同的資源上使用 `acquireTokenPopup()` 或 `acquireTokenRedirect()`。 系統會強制使用者執行多重要素驗證。 使用者完成多重要素驗證之後，就會發出新的存取權杖給應用程式，以取得要求的資源。
 
-若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。 此程式碼範例會使用條件式存取原則，以及您稍早向 JS SPA 註冊來示範此情節的 web API。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
+若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。 此程式碼範例會使用條件式存取原則和 web API 註冊，讓您稍早向 JS SPA 來示範此案例。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
 
 ## <a name="see-also"></a>請參閱
 

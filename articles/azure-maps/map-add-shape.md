@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769510"
 ---
 # <a name="add-a-shape-to-a-map"></a>在地圖中新增圖形
@@ -126,7 +126,7 @@ ms.locfileid: "60769510"
 
 ## <a name="add-a-circle-to-the-map"></a>將圓形加入至對應
 
-Azure 地圖服務會使用提供的定義，如所述的圓形 GeoJSON 結構描述的擴充的版本[此處](extend-geojson.md#circle)。 圓形可以呈現在地圖上，藉由建立`Point`的功能，具有`subType`屬性值是`"Circle"`和`radius`具有數字，代表以公尺為單位的半徑屬性。 例如︰
+Azure 地圖服務會使用提供的定義，如所述的圓形 GeoJSON 結構描述的擴充的版本[此處](extend-geojson.md#circle)。 圓形可以呈現在地圖上，藉由建立`Point`的功能，具有`subType`屬性值是`"Circle"`和`radius`具有數字，代表以公尺為單位的半徑屬性。 例如:
 
 ```javascript
 {

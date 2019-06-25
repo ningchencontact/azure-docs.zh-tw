@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: fbf10e992843d9297363398ca5ea13b8e0aa10a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/06/2019
+ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715619"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076320"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
@@ -39,16 +39,16 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 | **使用此方法**，如果您想要... | ...**互動式**查詢 | ...**批次** 處理 | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
 | [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ | Linux、Unix、Mac OS X 或 Windows |
-| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ | Windows |
+| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |任何 (以瀏覽器為基礎) |
 | [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ | Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 
 ## <a name="hiveql-language-reference"></a>HiveQL 語言參考
 
-HiveQL 語言參考可在[語言手冊 (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 中找到。
+HiveQL 語言參考位於[語言手冊](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
 
 ## <a name="hive-and-data-structure"></a>Hive 和資料結構
 
@@ -67,7 +67,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列化程式 (SerDe)** 。 如需詳細資訊，請參閱[如何搭配 HDInsight 使用自訂 JSON SerDe](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) 文件 (英文)。
+Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列化程式 (SerDe)** 。 如需詳細資訊，請參閱[如何搭配 HDInsight 使用自訂 JSON SerDe](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) 文件 (英文)。
 
 如需 Hive 所支援檔案格式的詳細資訊，請參閱[語言手冊 (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)。
 
@@ -91,7 +91,7 @@ Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列�
     * 您需要自訂位置，例如非預設儲存體帳戶。
     * Hive 以外的程式管理資料格式、位置等等。
 
-如需詳細資訊，請參閱 [Hive 內部和外部資料表簡介][cindygross-hive-tables]部落格文章。
+如需詳細資訊，請參閱 < [Hive 內部和外部資料表簡介](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/)部落格文章。
 
 ## <a name="user-defined-functions-udf"></a>使用者定義函數 (UDF)
 
@@ -109,7 +109,7 @@ Hive 也可透過 **使用者定義函數 (UDF)** 延伸。 UDF 可讓您在 Hiv
 
 ## <a id="data"></a>範例資料
 
-HDInsight 上的 Hive 已預先載入名為 `hivesampletable` 的內部資料表。 HDInsight 也提供可搭配 Hive 使用的範例資料集。 這些資料集會儲存在 `/example/data` 和 `/HdiSamples` 目錄中。 这些目录存在于群集的默认存储中。
+HDInsight 上的 Hive 已預先載入名為 `hivesampletable` 的內部資料表。 HDInsight 也提供可搭配 Hive 使用的範例資料集。 這些資料集會儲存在 `/example/data` 和 `/HdiSamples` 目錄中。 這些目錄存在於您叢集的預設儲存體中。
 
 ## <a id="job"></a>範例 Hive 查詢
 
@@ -150,7 +150,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 > [!NOTE]  
 > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或 MapReduce 作業。
 >
-> 删除外部表**不会**删除数据，只会删除表定义。
+> 捨棄外部資料表並「不會」  刪除資料，只會刪除資料表定義。
 
 若要建立**內部**資料表，而不是外部資料表，請使用下列 HiveQL：
 
@@ -204,50 +204,20 @@ Azure Data Factory 可讓您使用 HDInsight 作為 Data Factory 管線的一部
 
 您可以使用 SQL Server Integration Services (SSIS) 來執行 Hive 作業。 適用於 SSIS 的 Azure Feature Pack 中提供下列元件可搭配 HDInsight 上的 Hive 工作使用。
 
-* [Azure HDInsight Hive 工作][hivetask]
+* [Azure HDInsight Hive 工作](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Azure 訂用帳戶連接管理員][connectionmanager]
+* [Azure 訂用帳戶連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-如需詳細資訊，請參閱 [Azure Feature Pack][ssispack] 文件。
+如需詳細資訊，請參閱 < [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis)文件。
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 如需搭配使用 Oozie 與 Hive 的詳細資訊，請參閱[使用 Apache Oozie 來定義並執行工作流程](../hdinsight-use-oozie-linux-mac.md)文件。
 
-## <a id="nextsteps"></a>接續步驟
+## <a name="next-steps"></a>後續步驟
 
 現在您已了解什麼是 Hive 以及如何搭配 HDInsight 中的 Hadoop 使用它，接著請使用下列連結探索 Azure HDInsight 的其他使用方式。
 
-* [將資料上傳至 HDInsight][hdinsight-upload-data]
-* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
-* [搭配 HDInsight 使用 MapReduce 作業][hdinsight-use-mapreduce]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+* [將資料上傳至 HDInsight](../hdinsight-upload-data.md)
+* [在 HDInsight 上搭配 Apache Hive 和 Apache Pig 使用 Python 使用者定義函數 (UDF)](./python-udf-hdinsight.md)
+* [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)

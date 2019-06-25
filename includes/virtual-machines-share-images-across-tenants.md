@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66145893"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173943"
 ---
 共用映像組件庫可讓您使用 RBAC 共用映像。 您可以使用 RBAC 外部租用戶內您的租用戶，或甚至個人共用影像。 但是，如果您想要共用您的 Azure 租用戶，大規模的情況下，外部的映像，您就應該建立以促進共用應用程式註冊。  使用應用程式註冊，可以啟用更複雜的共享案例，例如： 
 

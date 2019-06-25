@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 37fe192e83c946089e2374f24ae10a756134e45a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807864"
 ---
 # <a name="social-accounts-claims-transformations"></a>社交帳戶宣告轉換
 
@@ -38,7 +38,7 @@ ms.locfileid: "66512495"
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-建立使用者 alternativeSecurityId 屬性的 JSON 表示法，該屬性可用於對 Azure Active Directory 進行呼叫。 如需詳細資訊，請參閱 [AlternativeSecurityId's schema](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType)。
+建立使用者 alternativeSecurityId 屬性的 JSON 表示法，該屬性可用於對 Azure Active Directory 進行呼叫。 如需詳細資訊，請參閱 [AlternativeSecurityId's schema](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type)。
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
@@ -138,7 +138,7 @@ ms.locfileid: "66512495"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | string | 包含要從集合中移除之識別提供者名稱的 ClaimType。 |
+| InputClaim | identityProvider | 字串 | 包含要從集合中移除之識別提供者名稱的 ClaimType。 |
 | InputClaim | collection | alternativeSecurityIdCollection | 宣告轉換所使用的 ClaimType。 宣告轉換會將 identityProvider 從集合中移除。 |
 | OutputClaim | collection | alternativeSecurityIdCollection | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 從集合中移除 identityProvider 之後的新集合。 |
 

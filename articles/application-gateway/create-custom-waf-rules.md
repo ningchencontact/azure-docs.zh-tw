@@ -1,24 +1,24 @@
 ---
-title: 建立和使用 Azure Web 應用程式防火牆 (WAF) 的自訂規則
-description: 本文章提供有關如何在 Azure 應用程式閘道中建立 Web 應用程式防火牆 (WAF) 的自訂規則的資訊。
+title: 建立和使用 Azure Web 應用程式防火牆 (WAF) v2 的自訂規則
+description: 本文章提供有關如何在 Azure 應用程式閘道中建立 Web 應用程式防火牆 (WAF) v2 的自訂規則的資訊。
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689027"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164681"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>建立和使用 Web 應用程式防火牆的自訂規則
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>建立和使用 Web 應用程式防火牆 v2 的自訂規則
 
-Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式的保護。 這項保護會提供由 Open Web Application Security Project (OWASP) 核心規則集 (CRS)。 在某些情況下，您可能需要建立您自己自訂的規則，以符合您特定需求。 如需 WAF 自訂規則的詳細資訊，請參閱[自訂 web 應用程式防火牆規則概觀](custom-waf-rules-overview.md)。
+Azure 應用程式閘道 Web 應用程式防火牆 (WAF) v2 提供保護的 web 應用程式。 這項保護會提供由 Open Web Application Security Project (OWASP) 核心規則集 (CRS)。 在某些情況下，您可能需要建立您自己自訂的規則，以符合您特定需求。 如需 WAF 自訂規則的詳細資訊，請參閱[自訂 web 應用程式防火牆規則概觀](custom-waf-rules-overview.md)。
 
-本文將說明某些範例自訂規則，您可以建立及使用 WAF。 若要了解如何使用自訂規則，以使用 Azure PowerShell 部署 WAF，請參閱[設定 Web 應用程式防火牆的自訂規則使用 Azure PowerShell](configure-waf-custom-rules.md)。
+本文將說明某些範例自訂規則，您可以建立並使用 v2 WAF。 若要了解如何使用自訂規則，以使用 Azure PowerShell 部署 WAF，請參閱[設定 Web 應用程式防火牆的自訂規則使用 Azure PowerShell](configure-waf-custom-rules.md)。
 
 >[!NOTE]
 > 如果您的應用程式閘道並未使用 WAF 層，右窗格中會出現將應用程式閘道升級至 WAF 層的選項。

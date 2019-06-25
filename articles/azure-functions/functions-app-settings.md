@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967583"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204946"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -32,6 +32,10 @@ ms.locfileid: "65967583"
 |Key|範例值|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+在版本 2.x 的 Functions 執行階段中，會設定執行階段環境為基礎的應用程式行為。 這個值是[在初始化期間讀取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)。 您可以設定`AZURE_FUNCTIONS_ENVIRONMENT`為任何值，但[三個值](/dotnet/api/microsoft.aspnetcore.hosting.environmentname)支援：[開發](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)，[預備](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)，以及[生產](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 當`AZURE_FUNCTIONS_ENVIRONMENT`未設定，則會預設為`Production`。 應該使用這項設定，而不是`ASPNETCORE_ENVIRONMENT`設定執行階段環境。 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -71,14 +75,6 @@ ms.locfileid: "65967583"
 |Key|範例值|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
-
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-*host.json* 檔案和函式資料夾所在根目錄的路徑。 在函式應用程式中，預設值是 `%HOME%\site\wwwroot`。
-
-|Key|範例值|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 

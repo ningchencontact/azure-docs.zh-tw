@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/11/2019
+ms.date: 06/18/2019
 ms.author: jaredr80
-ms.openlocfilehash: 2ed6c5ced96337892c7fc837eb6a12f94b051c5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 017c11e98077d867d2fca68aaa036b2a2655582e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115438"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203189"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -46,9 +46,9 @@ ms.locfileid: "67115438"
 | **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、 Amsterdam2、 都柏林、 法蘭克福、 倫敦、 London2、 馬賽、 紐波特 （威爾斯）、 巴黎、 蘇黎士 |
 | **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、 芝加哥、 達拉斯、 丹佛、 內華達州拉斯維加斯、 洛杉磯、 邁阿密、 紐約、 聖安東尼奧、 西雅圖、 矽谷、 矽 Valley2、 Washington DC，華盛頓州 DC2、 蒙特婁、 魁北克市、 多倫多 |
 | **亞洲** | 2 |東亞、東南亞 |香港特別行政區，吉隆坡，新加坡、 新加坡 2、 台北 |
-| **澳大利亞** | 2 |澳洲東南部、澳洲東部 |墨爾本、伯斯、雪梨 | 
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
+| **大洋洲** | 2 |澳洲東南部、澳洲東部 |奧克蘭，墨爾本，伯斯省雪梨 |
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
 | **UAE** | 3 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | 杜拜 Dubai2 |
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
@@ -82,10 +82,10 @@ ms.locfileid: "67115438"
 | **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |支援 |支援 |聖保羅 |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、倫敦、矽谷、新加坡、雪梨、東京、多倫多、華盛頓特區 |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |支援 |支援 |蒙特婁、多倫多、魁北克市 |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |支援 |支援 |阿姆斯特丹、 香港特別行政區、 倫敦、 紐波特 （威爾斯）、 聖保羅、 矽谷、 新加坡、 雪梨、 東京、 華盛頓特區 |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |支援 |支援 |阿姆斯特丹、 香港特別行政區、 約翰尼斯堡、 倫敦、 紐波特 （威爾斯）、 聖保羅、 矽谷、 新加坡、 雪梨、 東京、 華盛頓特區 |
 | **C3ntro** |敬請期待 |敬請期待 |邁阿密 |
 | **CDC** | 支援 | 支援 | 坎培拉、坎培拉 2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |支援 |支援 |拉斯維加斯、紐約、聖安東尼奧、矽谷、東京、多倫多 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |支援 |支援 |芝加哥、 香港、 拉斯維加斯、 紐約、 聖安東尼奧、 矽谷、 東京、 多倫多、 華盛頓特區 |
 | **Chief Telecom** |支援 |支援 |香港特別行政區、 台北 |
 | **China Telecom Global** |支援 |不支援 |香港特別行政區 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |支援 |支援 |芝加哥、達拉斯、蒙特婁、多倫多、華盛頓特區 |
@@ -93,7 +93,7 @@ ms.locfileid: "67115438"
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |支援 |支援 |芝加哥、 丹佛、 洛杉磯、 紐約、 矽谷、 矽 Valley2 華盛頓 DC，華盛頓州 DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | 支援 |支援 |Amsterdam2、 法蘭克福|
-| **[Devoli](https://devoli.com/expressroute)** | 支援 |支援 | 墨爾本、雪梨 |
+| **[Devoli](https://devoli.com/expressroute)** | 支援 |支援 | 奧克蘭，墨爾本雪梨 |
 | **du datamena** |支援 |支援 | Dubai2 |
 | **eir** |支援 |支援 |都柏林|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |支援 |支援 |新加坡、新加坡 2 |
@@ -149,7 +149,7 @@ ms.locfileid: "67115438"
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |支援 |支援 |達拉斯、 + 洛杉磯|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |支援 |支援 |聖保羅 |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |支援 |支援 |阿姆斯特丹、 芝加哥、 達拉斯、 香港特別行政區、 倫敦、 孟買、 矽谷、 新加坡、 雪梨、 東京、 多倫多、 華盛頓特區 |
-| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |支援 |支援 |倫敦、新加坡 |
+| **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |支援 |支援 |Amsterdam2、 倫敦、 新加坡 |
 | **Vodafone Idea** | 支援 | 支援 | 孟買、孟買 2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |支援 |支援 |阿姆斯特丹、 芝加哥、 達拉斯、 丹佛、 倫敦、 洛杉磯、 蒙特婁、 紐約、 巴黎、 西雅圖、 矽谷、 多倫多、 華盛頓特區 |
 
@@ -226,7 +226,8 @@ ms.locfileid: "67115438"
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | 阿姆斯特丹 | 
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | 蒙特婁、多倫多 |
 | **[CoreAzure](http://coreazure.com/expressroute)**| Equinix | 倫敦 |
-| **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | 達拉斯、矽谷、華盛頓特區 | **[皇冠 Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)** | Equinix | 亞特蘭大、 芝加哥、 達拉斯、 洛杉磯、 紐約、 華盛頓特區 
+| **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | 達拉斯、矽谷、華盛頓特區 |
+| **[皇冠 Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | 亞特蘭大、 芝加哥、 達拉斯、 洛杉磯、 紐約、 華盛頓特區 |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | 達拉斯 |
 | **[Epsilon Telecommunications Limited](https://www.epsilontel.com/data-connectivity/cloud-access/)** | Equinix | 倫敦、新加坡、華盛頓特區 |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | 阿姆斯特丹 |

@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127135"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
@@ -131,8 +131,8 @@ ms.locfileid: "62127135"
 #### <a name="to-get-the-virtual-array-image"></a>若要取得虛擬陣列映像
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。 
-2. 在 Azure 入口網站中，按一下 [瀏覽] > [StorSimple 裝置管理員]。
-3. 選取現有的 StorSimple 裝置管理員服務。 在 [StorSimple 裝置管理員] 刀鋒視窗中，按一下 [快速啟動]。 
+2. 在 Azure 入口網站中，按一下 [瀏覽] > [StorSimple 裝置管理員]  。
+3. 選取現有的 StorSimple 裝置管理員服務。 在 [StorSimple 裝置管理員]  刀鋒視窗中，按一下 [快速啟動]  。 
 4. 按一下與您想要從「Microsoft 下載中心」下載的映像對應的連結。 映像檔大約是 4.8 GB。
    
    * VHDX (適用於 Windows Server 2012 及更新版本上的 Hyper-V)
@@ -150,18 +150,18 @@ ms.locfileid: "62127135"
 
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>若要新增儲存體帳戶認證，而且其 Azure 訂用帳戶與裝置管理員服務相同
 
-1. 瀏覽至您的裝置管理員服務，選取它並按兩下。 這會開啟 [概觀] 刀鋒視窗。
-2. 在 [設定] 區段內選取 [儲存體帳戶認證]。
-3. 按一下 [新增] 。
-4. 在 [加入儲存體帳戶] 刀鋒視窗中，執行下列動作︰
+1. 瀏覽至您的裝置管理員服務，選取它並按兩下。 這會開啟 [概觀]  刀鋒視窗。
+2. 在 [設定]  區段內選取 [儲存體帳戶認證]  。
+3. 按一下 [新增]  。
+4. 在 [加入儲存體帳戶]  刀鋒視窗中，執行下列動作︰
    
-   1. 在 [訂用帳戶] 中，選取 [目前]。
+   1. 在 [訂用帳戶]  中，選取 [目前]  。
    
    2. 提供您 Azure 儲存體帳戶的名稱。
    
-   3. 選取 [啟用]，為 StorSimple 裝置與雲端之間的網路通訊建立安全通道。 只有當您在私人雲端內操作時，才選取 [停用]。
+   3. 選取 [啟用]  ，為 StorSimple 裝置與雲端之間的網路通訊建立安全通道。 只有當您在私人雲端內操作時，才選取 [停用]  。
    
-   4. 按一下 [新增]。 成功建立儲存體帳戶之後會通知您。<br></br>
+   4. 按一下 [新增]  。 成功建立儲存體帳戶之後會通知您。<br></br>
    
       ![新增現有儲存體帳戶認證](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

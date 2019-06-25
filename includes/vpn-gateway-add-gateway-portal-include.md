@@ -9,11 +9,11 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 35f987f26ce47c19e3d5eb1ca5d2bb32d0c7ad1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170115"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173836"
 ---
 1. 在入口網站頁面的左側，按一下 **+** 並且在搜尋中輸入「虛擬網路閘道」。 在 [結果]  中，找出並按一下 [虛擬網路閘道]  。
 2. 在 [虛擬網路閘道] 頁面的底部，按一下 [建立]  。 這會開啟 [建立虛擬網路閘道]  頁面。

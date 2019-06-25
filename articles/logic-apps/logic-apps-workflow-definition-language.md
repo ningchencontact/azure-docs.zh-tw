@@ -78,7 +78,7 @@ ms.locfileid: "65596755"
 
 | 屬性 | 必要項 | 類型 | 描述 |
 |-----------|----------|------|-------------|
-| <*key-name*> | 是 | 字串 | 輸出傳回值的索引鍵名稱 |
+| <*key-name*> | 是 | String | 輸出傳回值的索引鍵名稱 |
 | <*key-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
 | <*key-value*> | 是 | 與相同 <*金鑰類型*> | 輸出傳回值 |
 |||||
@@ -112,7 +112,7 @@ ms.locfileid: "65596755"
 |-----------|----------|------|-------------|
 | <*parameter-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
 | <*default-parameter-values*> | 是 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
-| <*array-with-permitted-parameter-values*> | 否 | 陣列 | 具有參數可接受值的陣列 |
+| <*array-with-permitted-parameter-values*> | 否 | Array | 具有參數可接受值的陣列 |
 | `metadata` | 否 | JSON 物件 | 任何其他參數詳細資料，例如 「 名稱 」 或 「 您的邏輯應用程式或流程或使用 Visual Studio 或其他工具的設計階段資料的可讀取描述 |
 ||||
 
@@ -145,11 +145,11 @@ ms.locfileid: "65596755"
 
 | 屬性 | 必要項 | 類型 | 描述 |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | 是 | 字串 | 動作定義中可以透過參考靜態的結果定義的名稱`runtimeConfiguration.staticResult`物件。 如需詳細資訊，請參閱[執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)。 <p>您可以使用任何您想要的唯一名稱。 根據預設，這個唯一名稱會附加數字，就會遞增為必要。 |
+| <*static-result-definition-name*> | 是 | String | 動作定義中可以透過參考靜態的結果定義的名稱`runtimeConfiguration.staticResult`物件。 如需詳細資訊，請參閱[執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)。 <p>您可以使用任何您想要的唯一名稱。 根據預設，這個唯一名稱會附加數字，就會遞增為必要。 |
 | <*output-attributes-and-values-returned*> | 是 | 視情況而異 | 這些屬性的需求根據不同的條件而有所不同。 例如，當`status`已`Succeeded`，則`outputs`屬性包含屬性和值的動作所傳回，模擬 （mock） 的輸出。 如果`status`已`Failed`，則`outputs`屬性包含`errors`屬性，也就是具有一或多個錯誤的陣列`message`錯誤資訊的物件。 |
 | <*header-values*> | 否 | JSON | 動作傳回的任何標頭值 |
-| <*status-code-returned*> | 是 | 字串 | 動作所傳回的狀態碼 |
-| <*action-status*> | 是 | 字串 | 動作的狀態，例如`Succeeded`或 `Failed` |
+| <*status-code-returned*> | 是 | String | 動作所傳回的狀態碼 |
+| <*action-status*> | 是 | String | 動作的狀態，例如`Succeeded`或 `Failed` |
 |||||
 
 例如，在此 HTTP 動作定義中，`runtimeConfiguration.staticResult.name`屬性參考`HTTP0`內`staticResults`其中已定義動作的模擬 （mock） 輸出的屬性。 `runtimeConfiguration.staticResult.staticResultOptions`屬性可讓您指定靜態的結果設定為`Enabled`HTTP 動作。

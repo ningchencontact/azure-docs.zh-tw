@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113780"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174055"
 ---
 本地備援儲存體 (LRS) 可提供在指定一年中至少 99.999999999% (11 個九) 的物件耐久性。 LRS 是透過將資料複寫至儲存體縮放單位來提供此物件耐久性。 位於您建立儲存體帳戶所在區域的資料中心會裝載該儲存體縮放單位。 只有在將資料寫入所有複本之後，才會成功傳回 LRS 儲存體帳戶的寫入要求。 每個複本均位於儲存體縮放單位內不同的容錯網域和升級網域中。
 

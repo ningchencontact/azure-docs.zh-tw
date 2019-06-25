@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27d54d51a16f4ed94f24f9afa005c63b22778cf9
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473229"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190357"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Azure AD 權限管理 （預覽） 中的常見案例
 
@@ -58,7 +58,7 @@ ms.locfileid: "66473229"
 > | **1.** [在目錄中建立新的存取封裝](entitlement-management-access-package-create.md#start-new-access-package) | ![建立存取套件](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [加入資源的角色，以存取套件](entitlement-management-access-package-edit.md#add-resource-roles) | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
 > | **3.** [新增外部使用者的原則](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>不在您的目錄中的使用者</li><li>需要核准</li><li>到期設定</li></ul> | ![新增外部使用者的原則](./media/entitlement-management-scenarios/policy-external.png) |
-> | **4.** [傳送要求給您的商務夥伴存取封裝我存取入口網站] 連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>商務夥伴可以與使用者共用連結</li></ul> |  |
+> | **4.** [傳送要求給您的商務夥伴存取封裝我存取入口網站 連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>商務夥伴可以與使用者共用連結</li></ul> |  |
 
 ### <a name="i-want-to-change-the-groups-applications-or-sharepoint-sites-in-an-access-package"></a>我想要變更群組、 應用程式或存取封裝中的 SharePoint 網站
 
@@ -124,4 +124,4 @@ ms.locfileid: "66473229"
 ## <a name="next-steps"></a>後續步驟
 
 - [教學課程：建立您第一次存取封裝](entitlement-management-access-package-first.md)
-- [編輯和管理現有的存取套件](entitlement-management-access-package-edit.md)
+- [委派工作](entitlement-management-delegate.md)

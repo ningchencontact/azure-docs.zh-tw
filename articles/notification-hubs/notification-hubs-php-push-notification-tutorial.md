@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872170"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>如何從 PHP 使用通知中樞
@@ -228,7 +228,7 @@ ms.locfileid: "60872170"
 
 然後根據您的目標行動平台新增傳送程式碼。
 
-### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows 应用商店和 Windows Phone 8.1（非 Silverlight）
+### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows 市集和 Windows Phone 8.1 (非 Silverlight)
 
     ```php
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
@@ -286,7 +286,7 @@ ms.locfileid: "60872170"
 * 繼續了解 [即時新聞教學課程] 中的通知中心標記功能
 * 了解 [通知使用者教學課程] 中的推播通知給個人使用者
 
-有关详细信息，另请参阅 [PHP 开发人员中心](https://azure.microsoft.com/develop/php/)。
+如需詳細資訊，另請參閱 [PHP 開發人員中心](https://azure.microsoft.com/develop/php/)。
 
 [PHP REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [開始使用教學課程]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

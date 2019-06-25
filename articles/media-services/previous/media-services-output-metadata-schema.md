@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61129741"
 ---
 # <a name="output-metadata"></a>輸出中繼資料
 ## <a name="overview"></a>概觀
-编码作业与要执行部分编码任务的输入资产相关联。 例如，將 MP4 檔案編碼為 H.264 MP4 自動調整位元速率集、建立縮圖、建立疊加層。 完成工作時，就會產生輸出資產。  輸出資產包含視訊、音訊、縮圖等等。輸出資產也包含隨附關於輸出資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰&lt;source_file_name&gt;_manifest.xml (例如：BigBuckBunny_manifest.xml)。  
+編碼作業會與您要在其上執行一些編碼工作的輸入資產相關聯。 例如，將 MP4 檔案編碼為 H.264 MP4 自動調整位元速率集、建立縮圖、建立疊加層。 完成工作時，就會產生輸出資產。  輸出資產包含視訊、音訊、縮圖等等。輸出資產也包含隨附關於輸出資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰&lt;source_file_name&gt;_manifest.xml (例如：BigBuckBunny_manifest.xml)。  
 
 媒體服務不會事先掃描輸入資產以產生中繼資料。 當輸入資產在作業中處理時，只會以成品的方式產生輸入中繼資料。 因此，此成品會寫入至輸出資產。 產生輸入資產和輸出資產的中繼資料使用不同的工具。 因此，輸入中繼資料與輸出中繼資料會有稍微不同的結構描述。
 
@@ -37,22 +37,22 @@ ms.locfileid: "61129741"
 編碼作業的 AssetFile 項目集合。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 描述 |
 | --- | --- |
-| AssetFile<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 AssetFile 元素。 |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |屬於 AssetFiles 集合的 AssetFile 元素。 |
 
 ## <a name="AssetFile"></a> AssetFile 元素
 您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 描述 |
 | --- | --- | --- |
-| **名称**<br/><br/> 必要項 |**xs:string** |媒體資產檔案名稱。 |
+| **名稱**<br/><br/> 必要項 |**xs:string** |媒體資產檔案名稱。 |
 | **大小**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:long** |資產檔案大小 (以位元組為單位)。 |
 | **Duration**<br/><br/> 必要項 |**xs:duration** |內容播放持續時間。 |
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 描述 |
 | --- | --- |
 | **來源** |為了產生此 AssetFile 所處理之輸入/來源媒體檔案的集合。 如需詳細資訊，請參閱來源元素。 |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 如需詳細資訊，請參閱 VideoTracks 元素。 |
@@ -64,9 +64,9 @@ ms.locfileid: "61129741"
 您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 描述 |
 | --- | --- |
-| Source<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱來源元素。 |
+| **來源**<br/><br/> minOccurs="1" maxOccurs="unbounded" |產生此資產時所使用的輸入/來源檔案。 如需詳細資訊，請參閱來源元素。 |
 
 ## <a name="Source"></a> 來源元素
 產生此資產時所使用的輸入/來源檔案。  
@@ -76,7 +76,7 @@ ms.locfileid: "61129741"
 ### <a name="attributes"></a>屬性
 | 名稱 | 類型 | 描述 |
 | --- | --- | --- |
-| **名称**<br/><br/> 必要項 |**xs:string** |輸入的來源檔案名稱。 |
+| **名稱**<br/><br/> 必要項 |**xs:string** |輸入的來源檔案名稱。 |
 
 ## <a name="VideoTracks"></a> VideoTracks 元素
 每個實體 AssetFile 都可以內含零或多個交錯形成適當容器格式的視訊播放軌。 **VideoTracks** 元素代表所有視訊播放軌集合。  
@@ -94,15 +94,15 @@ ms.locfileid: "61129741"
 您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 描述 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |此視訊播放軌之以零為起始的索引。**附註：** 此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |此視訊播放軌之以零為起始的索引。**附註：** 此**識別碼**不一定是用於 MP4 檔案中的 TrackID。 |
 | **FourCC**<br/><br/> 必要項 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
 | **設定檔** |**xs:string** |H264 設定檔 (僅適用於 H264 轉碼器)。 |
 | **Level** |**xs:string** |H264 層級 (僅適用於 H264 轉碼器)。 |
 | **Width**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |編碼的視訊寬度 (以像素為單位)。 |
 | **Height**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |編碼的視訊高度 (以像素為單位)。 |
-| DisplayAspectRatioNumerator<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:double** |視訊顯示長寬比的分子。 |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:double** |視訊顯示長寬比的分子。 |
 | **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:double** |視訊顯示長寬比的分母。 |
 | **Framerate**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:decimal** |測量的視訊畫面格速率 (採用 .3f 格式)。 |
 | **TargetFramerate**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:decimal** |預設的目標視訊畫面格速率 (採用 .3f 格式)。 |
@@ -121,14 +121,14 @@ ms.locfileid: "61129741"
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |父系 AssetFile 中的特定音訊播放軌。 如需詳細資訊，請參閱 AudioTrack 元素。 |
 
 ## <a name="AudioTrack"></a> AudioTrack 元素
-父 AssetFile 中的特定音频轨道。  
+父系 AssetFile 中的特定音訊播放軌。  
 
-可以找到 XML 示例，请参阅 [XML 示例](#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 描述 |
+| Name | 類型 | 描述 |
 | --- | --- | --- |
-| Id<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |此音訊播放軌之以零為起始的索引。**附註：** 這不一定是用於 MP4 檔案中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |此音訊播放軌之以零為起始的索引。**附註：** 這不一定是用於 MP4 檔案中的 TrackID。 |
 | **Codec** |**xs:string** |音訊播放軌轉碼器字串。 |
 | **EncoderVersion** |**xs:string** |選用的編碼器版本字串，為 EAC3 所需。 |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |音訊聲道數目。 |
@@ -137,14 +137,14 @@ ms.locfileid: "61129741"
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 必要項 |**xs:int** |wFormatTag 格式類型的每樣本位元數。 |
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 描述 |
+| Name | 描述 |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |音量計量結果參數。 如需詳細資訊，請參閱 LoudnessMeteringResultParameters 元素。 |
 
 ## <a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters 元素
 音量計量結果參數。  
 
-可以找到 XML 示例 [XML 示例](#xml)。  
+您可以找到 XML 範例 [XML 範例](#xml)。  
 
 ### <a name="attributes"></a>屬性
 | 名稱 | 類型 | 描述 |

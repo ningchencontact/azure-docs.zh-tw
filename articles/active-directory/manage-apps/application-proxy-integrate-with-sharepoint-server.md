@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473769"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164101"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
@@ -129,7 +129,7 @@ setspn -S HTTP/SharePoint demo\spAppPoolAccount
    1. 在入口網站的應用程式頁面上，選取 [單一登入]  。
    2. 對於單一登入模式，選取 [整合式 Windows 驗證]  。
    3. 將內部應用程式 SPN 設定為您先前設定的值。 在此範例中是 **HTTP/SharePoint**。
-   4. 在「委派的登入身分識別」中，選取**內部部署 SAM 帳戶名稱**。
+   4. 在 「 委派的登入身分識別 」，選取最適合您的 Active Directory 樹系組態的選項。 例如，如果您有單一的 AD 網域中您樹系中，選取**內部部署 SAM 帳戶名稱**（，如下所示），但是，如果使用者不是在與 SharePoint 相同的網域，而且應用程式 Proxy 連接器伺服器，然後選取**在內部部署使用者主體名稱**（未顯示）。
 
    ![設定 SSO 的整合式 Windows 驗證](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

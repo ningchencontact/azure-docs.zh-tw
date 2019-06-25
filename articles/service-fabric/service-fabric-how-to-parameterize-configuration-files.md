@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ed626dddddb8f2b434d6a7acebc5381607b7d3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482432"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304244"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>如何參數化 Service Fabric 中的設定檔
 
@@ -44,8 +44,8 @@ ms.locfileid: "60482432"
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
-   ```
-1. 在 ApplicationManifest.xml 檔案的 `ServiceManifestImport` 區段中新增 `ConfigOverride` 元素，並參考設定套件、區段和參數。
+  ```
+1. 在 `ServiceManifestImport`一節的 ApplicationManifest.xml 檔案中，新增`ConfigOverrides`和`ConfigOverride`元素，並參考設定套件、 區段和參數。
 
    ```xml
     <ConfigOverrides>

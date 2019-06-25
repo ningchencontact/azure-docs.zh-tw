@@ -9,11 +9,11 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156763"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174224"
 ---
 在本節中，您會從 .NET 主控台應用程式將即時新聞以加註標記的範本通知形式傳送。 
 

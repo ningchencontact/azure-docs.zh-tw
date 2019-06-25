@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
 ms.openlocfilehash: a5ca41f1d9b1fb5b2dd8b9066af85543f1fddd23
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786775"
 ---
-# <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
+# <a name="service-bus-messaging-samples"></a>服務匯流排傳訊範例
 服務匯流排傳訊範例在[服務匯流排傳訊](https://azure.microsoft.com/services/service-bus/)中示範主要功能。 目前，您也可以在下列位置找到範例：
 
 | 程式設計語言 | SDK 或範例的位置 |

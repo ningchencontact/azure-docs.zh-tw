@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581027"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743212"
 ---
 # <a name="swagger-documentation"></a>Swagger 文件
 
@@ -30,10 +30,10 @@ ms.locfileid: "59581027"
 
 您需要將 Swagger 設定為與語音服務訂用帳戶相同的區域。 您可以在 [語音服務] 資源下的 Azure 入口網站中確認您的區域。 如需支援的區域的完整清單，請參閱[區域](regions.md)。
 
-1. 移至 https://editor.swagger.io。
-2. 按一下 [檔案]，然後按一下 [匯入]
+1. 移至 https://editor.swagger.io 。
+2. 按一下 [檔案]  ，然後按一下 [匯入] 
 3. 輸入 swagger URL，包括語音服務訂用帳戶的區域 `https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. 按一下 [產生用戶端]，然後選取 [Python]
+4. 按一下 [產生用戶端]  ，然後選取 [Python]
 5. 儲存用戶端程式庫
 
 您可以使用[在 GitHub 上使用語音服務範例](https://aka.ms/csspeech/samples)產生的 Python 程式庫。

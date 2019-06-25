@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058549"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -36,24 +36,26 @@ ms.locfileid: "66234012"
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>錯誤「無法建立 Azure Dev Spaces 控制器」
 
+### <a name="reason"></a>`Reason`
 當發生錯誤而無法建立控制器時，您會看到此錯誤。 如果錯誤是暫時性的，刪除並重新建立控制器即可加以修正。
 
-### <a name="try"></a>請嘗試︰
+### <a name="try"></a>嘗試
 
-若要刪除控制器，請使用 Azure Dev Spaces CLI。 您無法在 Visual Studio 或 Cloud Shell 中這麼做。 若要安裝 AZDS CLI，請先安裝 Azure CLI，然後執行此命令：
+刪除控制站：
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+若要刪除一個控制站，您必須使用 Azure 開發人員空格 CLI。 您不能從 Visual Studio 中刪除一個控制站。 您也無法安裝 Azure 開發人員空格 CLI 在 Azure Cloud Shell 中您無法從 Azure Cloud Shell 中刪除一個控制站。
+
+如果您沒有安裝 Azure 開發人員的空間 CLI，您就可以先使用下列命令安裝它，然後刪除您的控制器：
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-接著，執行此命令來刪除控制器：
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-重新建立控制器的程序可透過 CLI 或 Visual Studio 來完成。 如同第一次啟動一般，請遵循教學課程中的指示。
-
+重新建立控制器的程序可透過 CLI 或 Visual Studio 來完成。 請參閱[小組開發](quickstart-team-development.md)或是[使用.NET Core 開發](quickstart-netcore-visualstudio.md)快速入門範例。
 
 ## <a name="error-service-cannot-be-started"></a>錯誤：「服務無法啟動。」
 
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>啟用 Windows 節點的集區新增至 AKS 叢集時，開發人員空間失敗
 
 ### <a name="reason"></a>`Reason`
-目前，Azure 開發人員的空格被要在 Linux 上的 pod 和僅限節點上執行。 在這個階段中，您無法在 AKS 叢集與 Windows 節點集區上啟用 Azure 開發人員的空格。
+目前，Azure 開發人員的空格被要在 Linux 上的 pod 和僅限節點上執行。 當您有與 Windows 節點集區的 AKS 叢集時，您必須確定 Azure 開發人員空格 pod 只會排程在 Linux 節點上。 如果 Azure 開發人員空格 pod 排程為在 Windows 節點上執行，將不會啟動該 pod，並讓開發人員空間將會失敗。
+
+### <a name="try"></a>嘗試
+[新增誤導](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations)到您的 AKS 叢集，以確保 Linux pod 未排定在 Windows 節點上執行。

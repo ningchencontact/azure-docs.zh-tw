@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: 2627554647c6c20cbdedfec53c1028b3edfa9c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132993"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173791"
 ---
 若要建立進階快取，請登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [建立資源]   > [資料庫]   > [Azure Cache for Redis]  。
 

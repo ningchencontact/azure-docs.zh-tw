@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412821"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 針對 Azure App Service 中的應用程式進行疑難排解
@@ -49,9 +49,9 @@ ms.locfileid: "65412821"
 ## <a name="sitemanagement"></a>應用程式組態與管理
 Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwlink/?LinkId=529715)中可用的應用程式管理功能與組態設定的子集。 本節將說明使用**伺服器總管**可用的項目。 若要查看最新的 Azure 整合功能，也請試試 **雲端總管** 。 您可以同時從 [檢視]  功能表開啟這兩個視窗。
 
-1. 如果您尚未在 Visual Studio 中登入 Azure，請在 [伺服器總管] 中以滑鼠右鍵按一下 [Azure]，然後選取 [連接到 Microsoft Azure 訂用帳戶]。
+1. 如果您尚未在 Visual Studio 中登入 Azure，請在 [伺服器總管]  中以滑鼠右鍵按一下 [Azure]  ，然後選取 [連接到 Microsoft Azure 訂用帳戶]  。
 
-    替代方式為安裝可讓您存取帳戶的管理憑證。 如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管] 中的 [Azure] 節點，然後選取內容功能表中的 [管理與篩選訂用帳戶]。 在 [管理 Microsoft Azure 訂用帳戶] 對話方塊中，按一下 [憑證] 索引標籤，再按一下 [匯入]。 請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
+    替代方式為安裝可讓您存取帳戶的管理憑證。 如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管]  中的 [Azure]  節點，然後選取內容功能表中的 [管理與篩選訂用帳戶]  。 在 [管理 Microsoft Azure 訂用帳戶]  對話方塊中，按一下 [憑證]  索引標籤，再按一下 [匯入]  。 請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
 
    > [!NOTE]
    > 如果您下載了訂用帳戶檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。 惡意使用者一旦能夠存取此訂閱檔案，就能夠編輯、建立和刪除您的 Azure 服務。
@@ -59,12 +59,12 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
    >
 
     如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱 [管理帳戶、訂閱和系統管理角色](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
-2. 在 [伺服器總管] 中，展開 [Azure]，然後展開 [App Service]。
-3. 展開包含應用程式的資源群組 (該應用程式是您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中建立的)，然後使用滑鼠右鍵按一下應用程式節點，然後按一下 [檢視設定]。
+2. 在 [伺服器總管]  中，展開 [Azure]  ，然後展開 [App Service]  。
+3. 展開包含應用程式的資源群組 (該應用程式是您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中建立的)，然後使用滑鼠右鍵按一下應用程式節點，然後按一下 [檢視設定]  。
 
     ![在伺服器總管中檢視設定](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-    [Azure Web App] 索引標籤隨即顯示，而您會看到 Visual Studio 中所提供的應用程式管理與組態工作。
+    [Azure Web App]  索引標籤隨即顯示，而您會看到 Visual Studio 中所提供的應用程式管理與組態工作。
 
     ![Azure Web 應用程式視窗](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
@@ -72,14 +72,14 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 
     如需此視窗中 [應用程式設定] 與 [連接字串] 方塊的詳細資訊，請參閱 [Azure App Service：應用程式字串與連接字串的運作方式](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。
 
-    若您想要執行無法在此視窗中完成的應用程式管理工作，請按一下 [在管理入口網站中開啟]，以開啟 Azure 入口網站的瀏覽器視窗。
+    若您想要執行無法在此視窗中完成的應用程式管理工作，請按一下 [在管理入口網站中開啟]  ，以開啟 Azure 入口網站的瀏覽器視窗。
 
 ## <a name="remoteview"></a>在伺服器總管中存取應用程式檔案
 部署 Web 專案時，通常會將 Web.config 檔案中的 `customErrors` 旗標設為 `On` 或 `RemoteOnly`，這表示出現問題時，您將不會收到有用的錯誤訊息。 對許多錯誤而言，您只會看到如下列之一的頁面：
 
 **'/' 應用程式中有伺服器錯誤：**
 
-![无用的错误页](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
 **發生錯誤：**
 
@@ -89,9 +89,9 @@ Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwli
 
 ![Unhelpful error page](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。 該做法需要在部署的 Web.config 檔案中進行變更。 您可以編輯專案中的 *Web.config* 檔案並重新部署專案，或建立 [Web.config 轉換](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)並部署偵錯組建，但還有更快的方法：在 [方案總管] 中使用 [遠端檢視] 功能，直接檢視及編輯遠端應用程式中的檔案。
+要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。 該做法需要在部署的 Web.config 檔案中進行變更。 您可以編輯專案中的 *Web.config* 檔案並重新部署專案，或建立 [Web.config 轉換](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)並部署偵錯組建，但還有更快的方法：在 [方案總管]  中使用 [遠端檢視]  功能，直接檢視及編輯遠端應用程式中的檔案。
 
-1. 在 [伺服器總管] 中，依序展開 [Azure]、[App Service] 和應用程式所在的資源群組，然後展開應用程式的節點。
+1. 在 [伺服器總管]  中，依序展開 [Azure]  、[App Service]  和應用程式所在的資源群組，然後展開應用程式的節點。
 
     您會看到可供您存取應用程式內容檔案與記錄檔的節點。
 2. 展開 [檔案]  節點，然後按兩下 *Web.config* 檔案。
@@ -136,17 +136,17 @@ public ActionResult About()
 
 1. [在 `ViewBag.Message`這行設定中斷點](https://docs.microsoft.com/visualstudio/debugger/)。
 
-1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
+1. 在 [方案總管]  中，於專案上按一下滑鼠右鍵，再按一下 [發行]  。
 
-1. 在 [設定檔] 下拉式清單中，選取您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中所使用的同一設定檔。 然後，按一下 [設定]。
+1. 在 [設定檔]  下拉式清單中，選取您在[在 Azure App Service 中建立 ASP.NET 應用程式](app-service-web-get-started-dotnet-framework.md)中所使用的同一設定檔。 然後，按一下 [設定]。
 
-1. 在 [發佈] 對話方塊中，按一下 [設定] 索引標籤，然後將 [設定] 變更為 [偵錯]，接著按一下 [儲存]。
+1. 在 [發佈]  對話方塊中，按一下 [設定]  索引標籤，然後將 [設定]  變更為 [偵錯]  ，接著按一下 [儲存]  。
 
     ![於偵錯模式中發行](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-1. 按一下 [發佈] 。 當部署完成且您的瀏覽器開啟至應用程式的 Azure URL 之後，請關閉瀏覽器。
+1. 按一下 [發佈]  。 當部署完成且您的瀏覽器開啟至應用程式的 Azure URL 之後，請關閉瀏覽器。
 
-1. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的應用程式，接著按一下 [連結偵錯工具]。
+1. 在 [伺服器總管]  中，以滑鼠右鍵按一下您的應用程式，接著按一下 [連結偵錯工具]  。
 
     ![連結偵錯工具](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -189,17 +189,17 @@ public ActionResult About()
 
     ![设置断点](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-4. 在 [方案總管] 中，以滑鼠右鍵按一下 Web 專案 (不是 WebJob 專案)，然後按一下 [發佈]。
+4. 在 [方案總管]  中，以滑鼠右鍵按一下 Web 專案 (不是 WebJob 專案)，然後按一下 [發佈]  。
 
 5. 在 [設定檔]  下拉式清單中，選取您在 [開始使用 Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)中所使用的相同設定檔。
 
-6. 按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
+6. 按一下 [設定]  索引標籤，然後將 [組態]  變更為 [偵錯]  ，然後按一下 [發行]  。
 
     Visual Studio 會部署 Web 和 WebJob 專案，且在瀏覽器中開啟您應用程式的 Azure URL。
 
-7. 在 [伺服器總管] 中，依序展開 [Azure] > [App Service] > 您的資源群組 > 您的應用程式 > [WebJobs] > [連續]，然後以滑鼠右鍵按一下 [ContosoAdsWebJob]。
+7. 在 [伺服器總管]  中，依序展開 [Azure] > [App Service] > 您的資源群組 > 您的應用程式 > [WebJobs] > [連續]  ，然後以滑鼠右鍵按一下 [ContosoAdsWebJob]  。
 
-8. 按一下 [連結偵錯工具] 。
+8. 按一下 [連結偵錯工具]  。
 
     ![連結偵錯工具](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
@@ -221,7 +221,7 @@ public ActionResult About()
 
 13. 在 Visual Studio 中，按 SHIFT+F5 停止偵錯。
 
-14. 在 [伺服器總管] 中，以滑鼠右鍵在 [伺服器總管] 中，以滑鼠右鍵按一下 ContosoAdsWebJob 節點，然後按一下 [檢視儀表板]。
+14. 在 [伺服器總管]  中，以滑鼠右鍵在 [伺服器總管] 中，以滑鼠右鍵按一下 ContosoAdsWebJob 節點，然後按一下 [檢視儀表板]  。
 
 15. 使用您的 Azure 認證登入，然後按一下 WebJob 名稱，可前往 WebJob 的頁面。
 
@@ -229,13 +229,13 @@ public ActionResult About()
 
      儀表板會顯示最近執行的 `GenerateThumbnail` 函式。
 
-     (下次按一下 [檢視儀表板] 時，您無需登入，瀏覽器便會直接進入您的 WebJob 頁面。)
+     (下次按一下 [檢視儀表板]  時，您無需登入，瀏覽器便會直接進入您的 WebJob 頁面。)
 
 16. 按一下函數名稱可查看執行函數的詳細資料。
 
      ![函数详细信息](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
-如果函數會[撰寫記錄](https://github.com/Azure/azure-webjobs-sdk/wiki)，您可以按一下 [ToggleOutput] 查看這些記錄。
+如果函數會[撰寫記錄](https://github.com/Azure/azure-webjobs-sdk/wiki)，您可以按一下 [ToggleOutput]  查看這些記錄。
 
 ## <a name="notes-about-remote-debugging"></a>遠端偵錯注意事項
 
@@ -347,11 +347,11 @@ public ActionResult Contact()
 
 1. 按 CTRL+F5 執行應用程式。
 1. 在瀏覽器視窗的網址列中加入*trace.axd*至 URL，然後按 Enter (URL 會類似於`http://localhost:53370/trace.axd`)。
-1. 在 [應用程式追蹤] 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]。
+1. 在 [應用程式追蹤]  頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]  。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
-    [要求詳細資訊] 頁面隨即顯示，而且在 [追蹤資訊] 區段中，您會看到先前加入 `Index` 方法的追蹤陳述式輸出。
+    [要求詳細資訊]  頁面隨即顯示，而且在 [追蹤資訊]  區段中，您會看到先前加入 `Index` 方法的追蹤陳述式輸出。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
@@ -362,20 +362,20 @@ public ActionResult Contact()
     不過基於安全性考量，建議您不要在生產應用程式中啟用 `trace.axd`。 在以下各節中，您會看到讀取 App Service 應用程式中追蹤記錄的更輕鬆方式。
 
 ### <a name="view-the-tracing-output-in-azure"></a>在 Azure 中檢視追蹤輸出
-1. 在 [方案總管] 中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發行]。
-2. 在 [發佈 Web] 對話方塊中，按一下 [發佈]。
+1. 在 [方案總管]  中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發行]  。
+2. 在 [發佈 Web]  對話方塊中，按一下 [發佈]  。
 
-    當 Visual Studio 成功發行您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線] 索引標籤上的 [目的地 URL])。
-3. 在 [伺服器總管] 中，以滑鼠右鍵按一下您的應用程式，然後選取 [檢視串流記錄]。
+    當 Visual Studio 成功發行您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線]  索引標籤上的 [目的地 URL]  )。
+3. 在 [伺服器總管]  中，以滑鼠右鍵按一下您的應用程式，然後選取 [檢視串流記錄]  。
 
     ![在內容功能表中檢視串流記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
     [輸出]  視窗會顯示您已連線至記錄串流服務，並每一分鐘將沒有要顯示的記錄新增一行通知文字。
 
     ![在內容功能表中檢視串流記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
-4. 在顯示您的應用程式首頁的瀏覽器視窗中，按一下 [連絡人] 。
+4. 在顯示您的應用程式首頁的瀏覽器視窗中，按一下 [連絡人]  。
 
-    幾秒鐘後，您加入 `Contact` 方法的錯誤層級追蹤輸出便會顯示在 [輸出] 視窗。
+    幾秒鐘後，您加入 `Contact` 方法的錯誤層級追蹤輸出便會顯示在 [輸出]  視窗。
 
     ![輸出視窗中的錯誤追蹤](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -383,13 +383,13 @@ public ActionResult Contact()
 
     ![應用程式記錄功能關閉](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
-    不過，當您選取 [檢視串流記錄] 時，Visual Studio 會自動將 [Application Logging (File System)] 變更為 [錯誤]，代表回報的會是錯誤層級記錄。 為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊] 。 當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。 因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。  
+    不過，當您選取 [檢視串流記錄]  時，Visual Studio 會自動將 [Application Logging (File System)]  變更為 [錯誤]  ，代表回報的會是錯誤層級記錄。 為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊]  。 當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。 因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。  
 
-5. 在 [伺服器總管] 中，以滑鼠右鍵按一下應用程式，然後按一下 [檢視設定] \(如同您稍早所做的動作)。
-6. 將 [Application Logging (File System)] 變更為 [詳細資訊]，然後按一下 [儲存]。
+5. 在 [伺服器總管]  中，以滑鼠右鍵按一下應用程式，然後按一下 [檢視設定]  \(如同您稍早所做的動作)。
+6. 將 [Application Logging (File System)]  變更為 [詳細資訊]  ，然後按一下 [儲存]  。
 
     ![將追蹤層級設定為詳細資訊](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
-7. 在顯示您的 [連絡人] 頁面的瀏覽器視窗中，依序按一下 [首頁]、[關於]、[連絡人]。
+7. 在顯示您的 [連絡人]  頁面的瀏覽器視窗中，依序按一下 [首頁]  、[關於]  、[連絡人]  。
 
     在幾秒鐘內，[輸出]  視窗就會顯示您的所有追蹤輸出。
 
@@ -398,7 +398,7 @@ public ActionResult Contact()
     在本節中，您已使用應用程式設定來啟用及停用記錄功能。 您也可以修改 Web.config 檔案，來啟用與停用追蹤接聽程式。 不過，修改 Web.config 檔案會導致應用程式網域回收，而透過應用程式設定來啟用記錄功能則不會有這種現象。 如果此問題需要經過長時間才會重現或是間歇性出現，則回收應用程式網域可能「修正」此問題，並強迫您等候問題再次發生。 在 Azure 中啟用診斷功能可讓您立即開始擷取錯誤資訊，而不需回收應用程式定義域。
 
 ### <a name="output-window-features"></a>輸出視窗功能
-[輸出] 視窗的 [Microsoft Azure 記錄] 索引標籤具有多個按鈕與一個文字方塊：
+[輸出]  視窗的 [Microsoft Azure 記錄]  索引標籤具有多個按鈕與一個文字方塊：
 
 ![記錄索引標籤按鈕](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
 
@@ -415,18 +415,18 @@ public ActionResult Contact()
 如果您輸入搜尋字串或是規則運算式，則 Visual Studio 會篩選用戶端的記錄資訊。 亦即，您可以等到 [輸出]  視窗顯示記錄後輸入條件，這樣您不需重新產生記錄便能直接變更篩選條件。
 
 ## <a name="webserverlogs"></a>檢視 Web 伺服器記錄
-Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸出] 視窗中看見這些記錄，您必須針對應用程式啟用它們，然後告訴 Visual Studio 您想要監視它們。
+Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸出]  視窗中看見這些記錄，您必須針對應用程式啟用它們，然後告訴 Visual Studio 您想要監視它們。
 
-1. 在您從 [伺服器總管] 開啟的 [Azure Web 應用程式設定] 索引標籤中，將 [Web 伺服器記錄] 變更為 [開啟]，然後按一下 [儲存]。
+1. 在您從 [伺服器總管]  開啟的 [Azure Web 應用程式設定]  索引標籤中，將 [Web 伺服器記錄]  變更為 [開啟]  ，然後按一下 [儲存]。
 
     ![啟用 Web 伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
-2. 在 [輸出] 視窗中，按一下 [指定要監視的 Microsoft Azure 記錄] 按鈕。
+2. 在 [輸出]  視窗中，按一下 [指定要監視的 Microsoft Azure 記錄]  按鈕。
 
     ![指定要監視的 Azure 記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
-3. 在 [Microsoft Azure 記錄選項] 對話方塊中，選取 [Web 伺服器記錄]，然後按一下 [確定]。
+3. 在 [Microsoft Azure 記錄選項]  對話方塊中，選取 [Web 伺服器記錄]  ，然後按一下 [確定]  。
 
     ![監視 Web 伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
-4. 在顯示應用程式的瀏覽器視窗中，依序按一下 [首頁]、[關於] 和 [連絡人]。
+4. 在顯示應用程式的瀏覽器視窗中，依序按一下 [首頁]  、[關於]  和 [連絡人]  。
 
     通常會先產生應用程式記錄，然後才是 Web 伺服器記錄。 您可能需要等候一小段時間，記錄才會顯示。
 
@@ -437,21 +437,21 @@ Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸�
 如果您使用入口網站對 Azure 儲存體帳戶啟用 Web 伺服器記錄功能，然後在 Visual Studio 中停用記錄功能，當您在 Visual Studio 中重新啟用記錄功能時，將會還原您的儲存體帳戶設定。
 
 ## <a name="detailederrorlogs"></a>檢視詳細的錯誤訊息記錄
-針對導致錯誤回應代碼 (400 或以上) 之 HTTP 要求，詳細的錯誤訊息記錄可提供部分額外資訊。 為了在 [輸出] 視窗中看見這些記錄，您必須針對應用程式啟用它們，然後告訴 Visual Studio 您想要監視它們。
+針對導致錯誤回應代碼 (400 或以上) 之 HTTP 要求，詳細的錯誤訊息記錄可提供部分額外資訊。 為了在 [輸出]  視窗中看見這些記錄，您必須針對應用程式啟用它們，然後告訴 Visual Studio 您想要監視它們。
 
-1. 在您從 [伺服器總管] 開啟的 [Azure Web 應用程式組態] 索引標籤中，將 [詳細錯誤訊息] 變更為 [開啟]，然後按一下 [儲存]。
+1. 在您從 [伺服器總管]  開啟的 [Azure Web 應用程式組態]  索引標籤中，將 [詳細錯誤訊息]  變更為 [開啟]  ，然後按一下 [儲存]  。
 
     ![啟用詳細的錯誤訊息](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 
-2. 在 [輸出] 視窗中，按一下 [指定要監視的 Microsoft Azure 記錄] 按鈕。
+2. 在 [輸出]  視窗中，按一下 [指定要監視的 Microsoft Azure 記錄]  按鈕。
 
-3. 在 [Microsoft Azure 記錄選項] 對話方塊中，按一下 [所有記錄]，然後按一下 [確定]。
+3. 在 [Microsoft Azure 記錄選項]  對話方塊中，按一下 [所有記錄]  ，然後按一下 [確定]  。
 
     ![監視所有記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
 
 4. 在瀏覽器視窗的網址列中，為 URL 加入額外的字元以引發 404 錯誤 (例如， `http://localhost:53370/Home/Contactx`)，然後按 Enter 鍵。
 
-    幾秒鐘之後，詳細的錯誤記錄就會顯示在 Visual Studio 的 [輸出] 視窗。
+    幾秒鐘之後，詳細的錯誤記錄就會顯示在 Visual Studio 的 [輸出]  視窗。
 
     ![輸出視窗：詳細的錯誤記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
 
@@ -462,7 +462,7 @@ Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸�
 ## <a name="downloadlogs"></a>下載檔案系統記錄
 任何您可在 [輸出]  視窗中監視的記錄，也能下載為 *.zip* 檔案。
 
-1. 在 [輸出] 視窗中，按一下 [Download Streaming Logs]。
+1. 在 [輸出]  視窗中，按一下 [Download Streaming Logs]  。
 
     ![記錄索引標籤按鈕](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
 
@@ -473,11 +473,11 @@ Web 伺服器記錄會記下應用程式的所有 HTTP 活動。 為了在 [輸�
 
     ![下載的檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-   * 應用程式追蹤記錄位於 LogFiles\Application 資料夾的 .txt 檔案中。
-   * Web 伺服器記錄位於 LogFiles\http\RawLogs 資料夾的 .log 檔案中。 您可以使用 [記錄檔剖析器](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
-   * 詳細的錯誤訊息記錄位於 LogFiles\DetailedErrors 資料夾的 .html 檔案中。
+   * 應用程式追蹤記錄位於 LogFiles\Application  資料夾的 .txt  檔案中。
+   * Web 伺服器記錄位於 LogFiles\http\RawLogs  資料夾的 .log  檔案中。 您可以使用 [記錄檔剖析器](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
+   * 詳細的錯誤訊息記錄位於 LogFiles\DetailedErrors  資料夾的 .html  檔案中。
 
-     (deployments 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。 Git 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)  
+     (deployments  資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。 Git  資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -563,20 +563,20 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗要求追蹤功能。 但您無法存取用來設定哪些錯誤會被記錄下來的 IIS 設定。 當您啟用失敗要求追蹤時，將擷取所有錯誤。
 
-您可以使用 Visual Studio 來啟用失敗要求追蹤，但是您無法在 Visual Studio 中加以檢視。 這些記錄是 XML 檔案。 串流記錄服務只會監視被當作可在純文字模式中讀取的檔案：.txt、.html 與 .log 檔案。
+您可以使用 Visual Studio 來啟用失敗要求追蹤，但是您無法在 Visual Studio 中加以檢視。 這些記錄是 XML 檔案。 串流記錄服務只會監視被當作可在純文字模式中讀取的檔案：.txt  、.html  與 .log  檔案。
 
 您可以直接在瀏覽器中透過 FTP，或是在本機使用 FTP 工具將記錄下載到本機電腦中之後檢視失敗要求追蹤記錄。 在本節中，您將在瀏覽器中直接檢視它們。
 
-1. 在您從 [伺服器總管] 開啟的 [Azure Web 應用程式] 視窗之 [組態] 索引標籤中，將 [失敗要求追蹤] 變更為 [開啟]，然後按一下 [儲存]。
+1. 在您從 [伺服器總管]  開啟的 [Azure Web 應用程式]  視窗之 [組態]  索引標籤中，將 [失敗要求追蹤]  變更為 [開啟]  ，然後按一下 [儲存]  。
 
     ![啟用失敗要求追蹤](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
 2. 在顯示應用程式的瀏覽器視窗網址列中，將額外字元新增至 URL 並按 Enter 鍵以引發 404 錯誤。
 
     這麼做會讓系統建立失敗要求追蹤記錄，以下步驟將說明如何檢視或下載記錄。
 
-3. 在 Visual Studio 中，於 [Azure Web 應用程式] 視窗的 [組態] 索引標籤中按一下 [在管理入口網站中開啟]。
+3. 在 Visual Studio 中，於 [Azure Web 應用程式]  視窗的 [組態]  索引標籤中按一下 [在管理入口網站中開啟]  。
 
-4. 在 [Azure 入口網站](https://portal.azure.com)適用於您應用程式的 [設定] 頁面中，按一下 [部署認證]，然後輸入新的使用者名稱和密碼。
+4. 在 [Azure 入口網站](https://portal.azure.com)適用於您應用程式的 [設定]  頁面中，按一下 [部署認證]  ，然後輸入新的使用者名稱和密碼。
 
     ![新的 FTP 使用者名稱與密碼](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -584,7 +584,7 @@ App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失�
     > 當您登入時，必須使用此完整使用者名稱並在前面加上應用程式名稱。 例如，若您輸入使用者名稱 "myid"，而網站為 "myexample"，則會登入為 "myexample\myid"。
     >
 
-5. 在新的瀏覽器視窗中，前往您應用程式之 [概觀] 頁面的 [FTP 主機名稱] 或 [FTPS 主機名稱] 下方所示的 URL。
+5. 在新的瀏覽器視窗中，前往您應用程式之 [概觀]  頁面的 [FTP 主機名稱]  或 [FTPS 主機名稱]  下方所示的 URL。
 
 6. 使用您先前建立的 FTP 認證登入 (包括該使用者名稱的應用程式名稱前置詞)。
 
@@ -651,7 +651,7 @@ App Service 應用程式會使用 IIS 7.0 及更新版本所提供的相同失�
 * [監視與遙測 (運用 Azure 建構真實的雲端應用程式) (英文)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)。<br>
   針對追蹤 Azure 雲端應用程式所建議的電子書章節。
 * [ASP.NET 追蹤](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-   舊有但仍是該主題的基本簡介的良好資源。
+  舊有但仍是該主題的基本簡介的良好資源。
 * [追蹤接聽程式](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener)。
 * [逐步解說︰整合 ASP.NET 追蹤與 System.Diagnostics 追蹤](/previous-versions/b0ectfxd(v=vs.140))<br/>
@@ -672,21 +672,21 @@ catch (Exception ex)
 ```
 
 * [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。 [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
+  如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。 [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
 * [使用 Azure Web Apps 記錄和診斷功能 - 與 David Ebbo 合作](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/)以及[來自 Web Apps 的串流記錄 - 與 David Ebbo 合作](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-   (英文) 影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
+  (英文) 影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
 
 針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH](https://nuget.org/packages/elmah/)。 如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)(英文)。
 
-此外，您不需要使用 ASP.NET 或 `System.Diagnostics` 追蹤從 Azure 取得串流記錄。 App Service 應用程式串流記錄服務會串流它在 [LogFiles] 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。 因此，您可以建立自己的記錄系統以寫入應用程式的檔案系統，而您的檔案會自動進行串流與下載。 您只需撰寫會在 d:\home\logfiles 資料夾中建立相關檔案的應用程式碼。
+此外，您不需要使用 ASP.NET 或 `System.Diagnostics` 追蹤從 Azure 取得串流記錄。 App Service 應用程式串流記錄服務會串流它在 [LogFiles]  資料夾所找到的任何 *.txt*、 *.html* 或 *.log* 檔案。 因此，您可以建立自己的記錄系統以寫入應用程式的檔案系統，而您的檔案會自動進行串流與下載。 您只需撰寫會在 d:\home\logfiles  資料夾中建立相關檔案的應用程式碼。
 
 ### <a name="analyzing-web-server-logs"></a>分析 Web 伺服器記錄
-有关分析 Web 服务器日志的详细信息，请参阅以下资源：
+如需分析 Web 伺服器記錄的詳細資訊，請參閱下列資源：
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  用於檢視 Web 伺服器記錄 (*.log* 檔案) 中資料的工具。
+  用於檢視 Web 伺服器記錄 ( *.log* 檔案) 中資料的工具。
 * [疑難排解 IIS 效能問題或使用 LogParser 的應用程式錯誤](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   此篇介紹可以用來分析 Web 伺服器記錄的 Log Parser 工具。
+  此篇介紹可以用來分析 Web 伺服器記錄的 Log Parser 工具。
 * [Robert McMurray 關於使用 LogParser 的部落格文章](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼](https://support.microsoft.com/kb/943891)
 

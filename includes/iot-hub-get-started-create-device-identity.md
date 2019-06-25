@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 40a5416f15b0e2d66d6ce4b4787573560ee4af00
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: b2bce9788006a564def9bd8c1375a85dc4184b67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156394"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814782"
 ---
 ## <a name="create-a-device-identity"></a>建立裝置識別
 
-在本節中，您可以針對本教學課程使用 Azure CLI 建立裝置身分識別。 Azure CLI 會預先安裝在 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)中，或是您可以將其[安裝在本機上](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 裝置識別碼會區分大小寫。
+在本節中，您可以針對本教學課程使用 Azure CLI 建立裝置身分識別。 Azure CLI 已預先安裝在[Azure Cloud Shell](~/articles/cloud-shell/overview.md)，或者您也可以[安裝 Azure CLI 在本機](/cli/azure/install-azure-cli)。 裝置識別碼會區分大小寫。
 
 1. 在您使用 Azure CLI 安裝 IoT 擴充功能的命令列環境中，執行下列命令：
 

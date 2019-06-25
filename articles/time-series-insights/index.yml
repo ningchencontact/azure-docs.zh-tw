@@ -5,14 +5,14 @@ metadata:
   title: Azure 時間序列深入解析文件 - 快速入門、教學課程和 API 參考 | Microsoft Docs
   description: 了解如何透過完全受控事件處理，在雲端執行 Azure IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。
   services: time-series-insights
-  author: anshan
+  author: deepakpalled
   manager: cshankar
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/03/2019
-  ms.author: anshan
+  ms.author: dpalled
 abstract:
   description: 歡迎使用 Azure 時間序列深入解析。 Azure 時間序列深入解析提供強大的資料探索和各種遙測工具，協助您改進操作上的分析。 本文件會說明服務的各項功能、如何開始使用、用戶端 SDK、並介紹各種強大的時間序列深入解析 API。 文件中提供兩種版本的資訊，分別是與已推出的時間序列深入解析 GA 相關的資訊，以及時間序列深入解析預覽版本的重大服務更新資訊。
   aside:

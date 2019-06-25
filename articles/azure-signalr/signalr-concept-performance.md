@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: zhshang
 ms.openlocfilehash: f7cc05c8c2a299d809c4386d119fef58fa2548d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269396"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Azure SignalR 服務的效能指南
@@ -434,5 +434,5 @@ Azure SignalR 服務提供相同的效能處理能力，為 ASP.NET SignalR。
 
 若要取得詳細資料的服務，並調整其內部項目上，閱讀下列指南：
 
-* [Azure SignalR 服務內部項目](signalr-concept-internals.md)
+* [Azure SignalR Service 內部項目](signalr-concept-internals.md)
 * [Azure SignalR 服務調整](signalr-howto-scale-multi-instances.md)

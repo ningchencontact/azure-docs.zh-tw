@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000094"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自動調整 Azure HDInsight 叢集 （預覽）
@@ -26,12 +26,12 @@ Azure HDInsight 叢集中自動調整功能會自動調整背景工作節點數�
 
 下表說明叢集類型和版本相容的自動調整功能。
 
-| 版本 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 沒有 ESP | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
-| 沒有 ESP HDInsight 4.0 | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
-| 使用 ESP HDInsight 3.6 | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
-| 使用 ESP HDInsight 3.6 | 有 | 是 | 否 | 無 | 無 | 無 | 無 |
+| HDInsight 3.6 沒有 ESP | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 沒有 ESP HDInsight 4.0 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 使用 ESP HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
+| 使用 ESP HDInsight 3.6 | 是 | 是 | 否 | 否 | 否 | 否 | 否 |
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -76,7 +76,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 若要啟用以負載為基礎的 scaler 的自動調整功能，請在一般叢集建立程序的一部分完成下列步驟：
 
-1. 選取 [自訂 (大小、設定、應用程式)]，而非 [快速建立]。
+1. 選取 [自訂 (大小、設定、應用程式)]  ，而非 [快速建立]  。
 1. 在 **自訂**步驟 5 (**叢集大小**)，檢查**背景工作節點自動調整規模**核取方塊。
 1. 選取的選項**負載為基礎**下方**自動調整類型**。
 1. 下列屬性輸入所需的值：  
@@ -93,7 +93,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 若要啟用以排程為基礎的 scaler 的自動調整功能，請在一般叢集建立程序的一部分完成下列步驟：
 
-1. 選取 [自訂 (大小、設定、應用程式)]，而非 [快速建立]。
+1. 選取 [自訂 (大小、設定、應用程式)]  ，而非 [快速建立]  。
 1. 在 **自訂**步驟 5 (**叢集大小**)，檢查**背景工作節點自動調整規模**核取方塊。
 1. 請輸入**數字的背景工作角色節點**，這會控制相應增加叢集的限制。
 1. 選取的選項**排程為基礎**下方**自動調整類型**。
@@ -190,7 +190,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 ![啟用背景工作節點排程為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>選擇負載或排程調整規模
 
@@ -221,7 +221,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 | 叢集狀態 | 說明 |
 |---|---|
-| Running | 叢集運作正常。 所有先前的自動調整活動已順利完成。 |
+| 執行中 | 叢集運作正常。 所有先前的自動調整活動已順利完成。 |
 | 正在更新  | 正在更新叢集中自動調整規模設定。  |
 | HDInsight 設定  | 叢集相應增加或相應減少作業正在進行中。  |
 | 更新錯誤  | HDInsight 會自動調整設定更新期間發生問題。 客戶可以選擇重試更新，或停用自動調整。  |

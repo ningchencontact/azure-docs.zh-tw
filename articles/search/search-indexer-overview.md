@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6871c75f0af662762ffac6e7346d4999e55eb937
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024887"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303431"
 ---
 # <a name="indexers-in-azure-search"></a>Azure 搜尋服務中的索引子
 
@@ -25,7 +25,7 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部 Azu
 
 您可以使用索引子做為擷取資料的唯一手段，或結合使用多項技術 (包含使用索引子) 來僅載入索引中的某些欄位。
 
-您可以依需要執行索引子，也可以依週期性的資料重新整理排程，最多每十五分鐘執行一次。 若想更頻繁地進行更新，則 Azure 搜尋服務和外部資料來源中都必須要有可同時更新資料的發送模型。
+您可以視需要執行索引子，或依週期性的資料重新整理排程，最多每隔五分鐘執行。 若想更頻繁地進行更新，則 Azure 搜尋服務和外部資料來源中都必須要有可同時更新資料的發送模型。
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>建立與管理索引子的方法
 

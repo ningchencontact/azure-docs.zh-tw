@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133225"
 ---
 ## <a name="premium-ssd"></a>進階 SSD
 
@@ -45,7 +45,7 @@ Azure 標準 SSD 是符合成本效益的儲存體選項，已針對在較低 IO
 
 ## <a name="standard-hdd"></a>標準 HDD
 
-如果 VM 執行的工作負載不在乎延遲，Azure 標準 HDD 可以提供可靠、低成本的磁碟支援。 使用標準儲存體時，資料會儲存在硬碟 (HDD)。 延遲、 IOPS 和標準 HDD 輸送量的磁碟可能會有所不同更廣泛地相較於以 SSD 為基礎的磁碟。 當使用 Vm，您可以使用標準的 HDD 磁碟，較重要的工作負載和開發/測試案例。 標準的 Hdd 可用於所有 Azure 區域，和適用於所有 Azure Vm。
+如果 VM 執行的工作負載不在乎延遲，Azure 標準 HDD 可以提供可靠、低成本的磁碟支援。 使用標準儲存體時，資料會儲存在硬碟 (HDD)。 延遲、 IOPS 和標準 HDD 輸送量的磁碟可能會有所不同更廣泛地相較於以 SSD 為基礎的磁碟。 不過的實際效能可能會有所不同的 IO 大小和工作負載模式時，標準的 HDD 磁碟專為提供下 10 毫秒的寫入延遲，並讀取在大部分的 IO 作業的 20 毫秒的延遲。 當使用 Vm，您可以使用標準的 HDD 磁碟，較重要的工作負載和開發/測試案例。 標準的 Hdd 可用於所有 Azure 區域，和適用於所有 Azure Vm。
 
 ### <a name="disk-size"></a>磁碟大小
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

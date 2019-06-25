@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 85c8cc81b3c61e2faf65bf8a06c69ca7f2b906c9
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497333"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 建立 Azure 資料總管叢集與資料庫
@@ -67,7 +67,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
-   | 名稱 | *mykustocluster* | 所需的叢集名稱。|
+   | Name | *mykustocluster* | 所需的叢集名稱。|
    | SKU | *D13_v2* | 將用於叢集的 SKU。 |
    | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
@@ -92,7 +92,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
    | ClusterName | *mykustocluster* | 將在其中建立資料庫的叢集名稱。|
-   | Name | *mykustodatabase* | 您的資料庫名稱。|
+   | 名稱 | *mykustodatabase* | 您的資料庫名稱。|
    | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
    | SoftDeletePeriod | *3650:00:00:00* | 將保留資料以供查詢的時間長度。 |
    | HotCachePeriod | *3650:00:00:00* | 資料將保留在快取中的時間長度。 |

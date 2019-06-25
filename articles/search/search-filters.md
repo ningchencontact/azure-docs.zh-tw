@@ -6,23 +6,23 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1871fee2734d347ff54d6aa70d90d1c28bd1f6f1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062380"
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜尋服務中的篩選條件 
 
-「篩選條件」提供準則來選取 Azure 搜尋服務查詢中所使用的文件。 未篩選的搜尋會包含索引中的所有文件。 篩選條件會將搜尋查詢的範圍設定為文件子集。 例如，篩選條件可以限制只對具有特定品牌或色彩且超過特定閾值之價格點的產品進行全文檢索搜尋。
+「篩選條件」  提供準則來選取 Azure 搜尋服務查詢中所使用的文件。 未篩選的搜尋會包含索引中的所有文件。 篩選條件會將搜尋查詢的範圍設定為文件子集。 例如，篩選條件可以限制只對具有特定品牌或色彩且超過特定閾值之價格點的產品進行全文檢索搜尋。
 
-某些搜尋體驗會強制實行篩選條件需求以作為實作的一部分，但是，當您想要使用「以值為基礎」的準則 (針對 "Simon & Schuster" 所發行的類別 "non-fiction"，將搜尋範圍設定為產品類型 "books") 來限制搜尋時，隨時都可使用篩選條件。
+某些搜尋體驗會強制實行篩選條件需求以作為實作的一部分，但是，當您想要使用「以值為基礎」  的準則 (針對 "Simon & Schuster" 所發行的類別 "non-fiction"，將搜尋範圍設定為產品類型 "books") 來限制搜尋時，隨時都可使用篩選條件。
 
-反之，如果您的目標是在特定資料「結構」上進行搜尋 (將搜尋範圍設定為客戶評論欄位)，則有替代方法，如下所述。
+反之，如果您的目標是在特定資料「結構」  上進行搜尋 (將搜尋範圍設定為客戶評論欄位)，則有替代方法，如下所述。
 
 ## <a name="when-to-use-a-filter"></a>使用篩選條件的時機
 
@@ -158,11 +158,11 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ### <a name="approaches-for-filtering-on-text"></a>篩選文字的方法
 
-| 方法 | 說明 | 使用時機 | 
+| 方法 | 描述 | 使用時機 |
 |----------|-------------|-------------|
-| [search.in](query-odata-filter-orderby-syntax.md) | 符合函式，針對以分隔的字串清單的欄位。 | 建議[安全性篩選](search-security-trimming-for-azure-search.md)以及許多的未經處理的文字值要比對字串欄位的任何篩選。 **Search.in**函式專為速度，速度比明確比較針對每個字串使用欄位`eq`和`or`。 | 
-| [search.ismatch](query-odata-filter-orderby-syntax.md) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 | 使用**search.ismatch** (或同等評分**search.ismatchscoring**) 當您想要在單一要求中的多個搜尋篩選器組合。 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |
-| [$filter=field operator string](query-odata-filter-orderby-syntax.md) | 使用者定義的運算式，由欄位、運算子和值所組成。 | 當您想要尋找的字串欄位和字串值之間完全相符項目時，請使用此選項。 |
+| [`search.in`](search-query-odata-search-in-function.md) | 符合函式，針對以分隔的字串清單的欄位。 | 建議[安全性篩選](search-security-trimming-for-azure-search.md)以及許多的未經處理的文字值要比對字串欄位的任何篩選。 **Search.in**函式專為速度，速度比明確比較針對每個字串使用欄位`eq`和`or`。 | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 此函式可讓您在相同的篩選條件運算式中，混用全文檢索搜尋作業以及純布林值篩選作業。 | 使用**search.ismatch** (或同等評分**search.ismatchscoring**) 當您想要在單一要求中的多個搜尋篩選器組合。 您也可以將它用於 *contains* 篩選條件，以篩選較大字串內的部分字串。 |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 使用者定義的運算式，由欄位、運算子和值所組成。 | 當您想要尋找的字串欄位和字串值之間完全相符項目時，請使用此選項。 |
 
 ## <a name="numeric-filter-fundamentals"></a>數值篩選條件基本概念
 
@@ -172,7 +172,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="next-steps"></a>後續步驟
 
-首先，嘗試使用入口網站中的 [搜尋總管]，提交含有 **$filter** 參數的查詢。 [不動產範例索引](search-get-started-portal.md)會在您將下列篩選查詢貼至搜尋列時提供它們的有趣結果：
+首先，嘗試使用入口網站中的 [搜尋總管]  ，提交含有 **$filter** 參數的查詢。 [不動產範例索引](search-get-started-portal.md)會在您將下列篩選查詢貼至搜尋列時提供它們的有趣結果：
 
 ```
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state

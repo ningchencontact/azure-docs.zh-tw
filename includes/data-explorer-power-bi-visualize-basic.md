@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66120590"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173720"
 ---
 您現在已有 Power BI Desktop 中的資料，即可根據該資料建立報告。 您將建立包含直條圖的簡單報告，其中顯示各州的農損。
 

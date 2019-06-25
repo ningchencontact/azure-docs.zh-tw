@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
 ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61426726"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>剖析 Azure 監視器記錄中的文字資料
@@ -150,7 +150,7 @@ MyCustomCSVLog_CL
 - [使用者代理程式](/azure/kusto/query/parse-useragentfunction)
 - [版本字串](/azure/kusto/query/parse-versionfunction)
 
-下列範例查詢會剖析 _AzureActivity_ 資料表 (JSON 結構) 的 [屬性] 欄位。 它會將結果儲存到稱為 _parsedProp_ 的動態屬性，其中包括 JSON 中的個別命名值。 這些值用來篩選和彙總查詢結果。
+下列範例查詢會剖析 _AzureActivity_ 資料表 (JSON 結構) 的 [屬性]  欄位。 它會將結果儲存到稱為 _parsedProp_ 的動態屬性，其中包括 JSON 中的個別命名值。 這些值用來篩選和彙總查詢結果。
 
 ```Kusto
 AzureActivity

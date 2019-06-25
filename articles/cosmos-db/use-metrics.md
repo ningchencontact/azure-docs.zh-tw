@@ -5,24 +5,48 @@ ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 06/18/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b7633b75bbb6d37c68a562560a6459e35d03b810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef457fe8c21bc7e62f910a78913069df32bea1a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242545"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275667"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的計量進行監視及偵錯
 
-Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供計量。 [Azure 入口網站](https://portal.azure.com)會提供這些計量的彙總檢視。 如需更細微的計量，則可使用用戶端 SDK 和[診斷記錄](./logging.md)。
+Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供計量。 Azure 入口網站會提供這些計量的彙總的檢視。 您也可以檢視來自 Azure 監視器 API 的 Azure Cosmos DB 計量。 若要深入了解如何檢視來自 Azure 監視器計量，請參閱[收到 Azure 監視器計量](cosmos-db-azure-monitor-metrics.md)文章。 
 
 本文將逐步解說常見的使用案例，以及如何使用 Azure Cosmos DB 計量來分析和偵錯這些問題。 系統每隔五分鐘就會收集計量一次並保留七天。
 
+## <a name="view-metrics-from-azure-portal"></a>從 Azure 入口網站檢視計量
+
+1. 登入 [Azure 入口網站](https://portal.azure.com/)
+
+1. 開啟**計量**窗格。 根據預設，[計量] 窗格中顯示的儲存體，編製索引，您的 Azure Cosmos 帳戶中的所有資料庫的要求單位計量。 您可以篩選每個資料庫、 容器或區域的這些計量。 您也可以篩選特定時間的資料粒度的度量。 更多有關輸送量、 儲存體、 可用性、 延遲和一致性度量會提供個別索引標籤上。 
+
+   ![在 Azure 入口網站中的 cosmos DB 效能計量](./media/use-metrics/performance-metrics.png)
+
+下列度量都是從**計量**窗格： 
+
+* **輸送量計量**-此計量會顯示要求或失敗 （429 回應碼） 的數目，因為已超過容器佈建的輸送量或儲存體容量。
+
+* **儲存體度量**-此度量會顯示資料和索引使用情況的大小。
+
+* **可用性度量**-此度量顯示每小時的要求總數的成功的要求百分比。 由 Azure Cosmos DB Sla 所定義的成功率。
+
+* **延遲計量**-此度量會顯示正在您的帳戶的區域中的 Azure Cosmos DB 所觀察到讀取和寫入延遲。 您可以視覺化延遲跨區域異地複寫的帳戶。 此標準並不代表端對端要求延遲。
+
+* **一致性度量**-此度量會顯示如何最終是您所選擇的一致性模型的一致性。 對於多重區域帳戶，此度量也會顯示複寫延遲之間所選取的區域。
+
+* **系統計量**-此度量會顯示幾個中繼資料要求會由主要磁碟分割。 它也有助於識別節流的要求。
+
+下列各節說明常見的案例，您可以使用 Azure Cosmos DB 計量。 
+
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>了解有多少要求成功或導致錯誤
 
-若要開始，請前往 [Azure 入口網站](https://portal.azure.com)，並瀏覽至 [計量]  刀鋒視窗。 在刀鋒視窗中，尋找**每分鐘超過容量的要求數目**圖表。 此圖表依狀態碼分段顯示每分鐘的要求總數。 如需 HTTP 狀態碼的詳細資訊，請參閱 [Azure Cosmos DB 的 HTTP 狀態碼](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) \(英文\)。
+若要開始，請前往 [Azure 入口網站](https://portal.azure.com)，並瀏覽至 [計量]  刀鋒視窗。 在刀鋒視窗中，尋找 * * 的要求數目超過每個圖表 1 分鐘的容量。 此圖表依狀態碼分段顯示每分鐘的要求總數。 如需 HTTP 狀態碼的詳細資訊，請參閱 [Azure Cosmos DB 的 HTTP 狀態碼](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) \(英文\)。
 
 最常見的錯誤狀態碼是 429 (速率限制/節流)。 此錯誤表示對 Azure Cosmos DB 的要求數目多於佈建的輸送量。 此問題最常見的解決方案是為指定的集合[相應增加 RU](./set-throughput.md)。
 
@@ -87,5 +111,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 您現在已了解如何使用 Azure 入口網站中提供的計量來監視和偵錯問題。 若要深入了解如何提升資料庫效能，請閱讀下列文章：
 
+* 若要深入了解如何檢視來自 Azure 監視器計量，請參閱[收到 Azure 監視器計量](cosmos-db-azure-monitor-metrics.md)文章。 
 * [Azure Cosmos DB 的效能和規模測試](performance-testing.md)
 * [Azure Cosmos DB 的效能秘訣](performance-tips.md)

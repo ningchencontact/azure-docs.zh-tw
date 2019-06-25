@@ -10,10 +10,10 @@ ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738854"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合式 Runbook 背景工作角色
@@ -36,7 +36,7 @@ ms.locfileid: "60738854"
 
 ## <a name="installing-a-linux-hybrid-runbook-worker"></a>安裝 Linux 混合式 Runbook 背景工作角色
 
-若要在 Linux 電腦上安裝和設定混合式 Runbook 背景工作角色，您可遵循直觀的程序手動安裝和設定此角色。 您必須在 Azure Log Analytics 工作區中啟用 [自動化混合式背景工作角色] 解決方案，然後執行一組命令將電腦註冊為背景工作角色，再將它新增至群組。
+若要在 Linux 電腦上安裝和設定混合式 Runbook 背景工作角色，您可遵循直觀的程序手動安裝和設定此角色。 您必須在 Azure Log Analytics 工作區中啟用 [自動化混合式背景工作角色]  解決方案，然後執行一組命令將電腦註冊為背景工作角色，再將它新增至群組。
 
 Linux 混合式 Runbook 背景工作角色的最低需求如下：
 
@@ -58,9 +58,9 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 
 ### <a name="installation"></a>安裝
 
-繼續之前，請記住您的自動化帳戶連結到的 Log Analytics 工作區。 也請記住自動化帳戶的主要金鑰。 您只要選取您的自動化帳戶，再針對工作區識別碼選取 [工作區]，然後針對主索引鍵選取 [索引鍵]，即可在 Azure 入口網站中找到這兩項資訊。 如需混合式 Runbook 背景工作角色所需的連接埠和位址資訊，請參閱[設定網路](automation-hybrid-runbook-worker.md#network-planning)。
+繼續之前，請記住您的自動化帳戶連結到的 Log Analytics 工作區。 也請記住自動化帳戶的主要金鑰。 您只要選取您的自動化帳戶，再針對工作區識別碼選取 [工作區]  ，然後針對主索引鍵選取 [索引鍵]  ，即可在 Azure 入口網站中找到這兩項資訊。 如需混合式 Runbook 背景工作角色所需的連接埠和位址資訊，請參閱[設定網路](automation-hybrid-runbook-worker.md#network-planning)。
 
-1. 使用下列其中一個方法，在 Azure 中啟用 [自動化混合式背景工作角色] 解決方案：
+1. 使用下列其中一個方法，在 Azure 中啟用 [自動化混合式背景工作角色]  解決方案：
 
    * 新增**自動化混合式背景工作角色**使用的程序，在您訂用帳戶的方案[新增 Azure 監視器記錄到您的工作區的解決方案](../log-analytics/log-analytics-add-solutions.md)。
    * 运行以下 cmdlet：
@@ -77,13 +77,13 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
    ```
 
-1. 執行下列命令，變更 -w、-k、-g 和 -e 參數的值。 對於 -g 參數，請將其值取代為新的 Linux 混合式 Runbook 背景工作角色應加入之混合式 Runbook 背景工作角色群組的名稱。 如果您的自動化帳戶中沒有該名稱，則會以該名稱建立新的混合式 Runbook 背景工作角色群組。
+1. 執行下列命令，變更 -w  、-k  、-g  和 -e  參數的值。 對於 -g  參數，請將其值取代為新的 Linux 混合式 Runbook 背景工作角色應加入之混合式 Runbook 背景工作角色群組的名稱。 如果您的自動化帳戶中沒有該名稱，則會以該名稱建立新的混合式 Runbook 背景工作角色群組。
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
    ```
 
-1. 命令完成之後，Azure 入口網站中的 [混合式背景工作角色群組] 頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。
+1. 命令完成之後，Azure 入口網站中的 [混合式背景工作角色群組]  頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組]  頁面上的清單中選取群組，然後選取 [Hybrid Worker]  圖格。 在 [Hybrid Worker]  頁面上，您會看到列出群組的每個成員。
 
 > [!NOTE]
 > 如果您使用 Azure 監視器的虛擬機器擴充功能適用於 Linux Azure VM 的建議設定`autoUpgradeMinorVersion`設為 false，以自動升級版本可能會造成問題的混合式 Runbook 背景工作角色。 若要了解如何以手動方式升級該延伸模組，請參閱[Azure CLI 部署](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)。

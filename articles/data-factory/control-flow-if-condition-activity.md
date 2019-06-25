@@ -66,11 +66,11 @@ If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中
 
 屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-name | If-Condition 活動的名稱。 | 字串 | 是
-type | 必須設為 [IfCondition]  | 字串 | 是
+name | If-Condition 活動的名稱。 | String | 是
+type | 必須設為 [IfCondition]  | String | 是
 expression | 必須評估為 true 或 false 的運算式 | 結果類型為布林的運算式 | 是
-ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | 陣列 | 是
-ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | 陣列 | 是
+ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | Array | 是
+ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | Array | 是
 
 ## <a name="example"></a>範例
 此範例中的管線會將資料從輸入資料夾複製到輸出資料夾。 輸出資料夾是由下列管線參數的值所決定：routeSelection。 如果 routeSelection 的值為 true，資料將會被複製到 outputPath1。 而如果 routeSelection 的值為 false，資料將會被複製到 outputPath2。 

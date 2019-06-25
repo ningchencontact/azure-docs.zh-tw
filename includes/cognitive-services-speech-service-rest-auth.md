@@ -18,7 +18,7 @@ ms.locfileid: "66145393"
 | 支援的授權標頭 | 語音轉換文字 | 文字轉換語音 |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | 有 | 無 |
-| 授權：Bearer | 有 | 有 |
+| Authorization: Bearer | 有 | 有 |
 
 當使用 `Ocp-Apim-Subscription-Key` 標頭，只需要提供您的訂用帳戶金鑰。 例如：
 

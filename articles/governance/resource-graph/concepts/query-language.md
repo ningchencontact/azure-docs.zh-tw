@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800500"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查詢語言
@@ -69,7 +69,7 @@ Azure Resource Graph 查詢語言支援多個運算子與函式。 每個工作�
 
   - **bash** - `\`
 
-    逸出屬性的範例查詢_\$型別_在 bash 中：
+    逸出屬性的範例查詢 _\$型別_在 bash 中：
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
@@ -79,7 +79,7 @@ Azure Resource Graph 查詢語言支援多個運算子與函式。 每個工作�
 
   - **PowerShell** - ``` ` ```
 
-    逸出屬性的範例查詢_\$型別_在 PowerShell 中：
+    逸出屬性的範例查詢 _\$型別_在 PowerShell 中：
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

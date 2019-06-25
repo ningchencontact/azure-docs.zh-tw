@@ -4,6 +4,11 @@
   items:
     - name: 什麼是 Azure HDInsight 中的 Apache Storm？
       href: apache-storm-overview.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 在 HDInsight 中建立 Apache Storm 拓撲
+      href: ./apache-storm-quickstart.md
 - name: 開始使用
   items:
     - name: 建立 Apache Storm 叢集

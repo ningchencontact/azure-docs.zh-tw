@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052342"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 具社交識別的使用者登入
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
 取代為
 
 - `policy` 正在其中一個先前的字串 (例如`PolicySignUpSignIn`)。
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 是一種方法，以尋找特定原則的帳戶。 例如：
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 是一種方法，以尋找特定原則的帳戶。 例如:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -168,7 +168,7 @@ AcquireTokenByUsernamePassword(
 
 客戶的影響是，以顯示 [使用者名稱] 欄位時，您收到 「 權杖回應中的遺漏 」 的值？ 如果是的話，這是因為 Azure AD B2C 不會傳回值中的 preferred_username IdToken 由於社交帳戶與外部識別提供者 (Idp) 的限制。 Azure AD 傳回 preferred_username 的值，因為它知道誰是使用者，但 Azure AD b2c 中，因為使用者可以登入的本機帳戶、 Facebook、 Google、 GitHub 等有不一致的值，用於 preferred_username 的 Azure AD b2c。 若要解鎖 MSAL 從快取與 ADAL 的相容性所推出，我們決定 IdToken 不傳回任何東西的 preferred_username 時處理的 Azure AD B2C 帳戶時，我們這一端使用 「 遺漏權杖回應中的 」。 MSAL 必須傳回 preferred_username 來維護快取的相容性在程式庫之間的值。
 
-### <a name="workarounds"></a>解决方法
+### <a name="workarounds"></a>因應措施
 
 #### <a name="mitigation-for-the-missing-tenant-id"></a>如何避免遺失的租用戶識別碼
 
@@ -177,12 +177,12 @@ AcquireTokenByUsernamePassword(
 或者，您可以使用`tid`宣告，如果您使用[B2C 自訂原則](https://aka.ms/ief)，因為它能夠讓您傳回至應用程式的其他宣告。 若要深入了解[宣告轉型](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>「 權杖回應中遺漏 」 的風險降低
-其中一個選項是使用"name"宣告做為慣用的使用者名稱。 程序在此所述[B2C 文件](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions)-> 在傳回的宣告中，選擇您想要在傳送回到您的應用程式，成功設定檔編輯體驗後的授權權杖中傳回的宣告。 比方說，選取 顯示名稱、 郵遞區號。 」
+其中一個選項是使用"name"宣告做為慣用的使用者名稱。 程序在此所述[B2C 文件](../../active-directory-b2c/active-directory-b2c-reference-policies.md)-> 在傳回的宣告中，選擇您想要在傳送回到您的應用程式，成功設定檔編輯體驗後的授權權杖中傳回的宣告。 比方說，選取 顯示名稱、 郵遞區號。 」
 
 ## <a name="next-steps"></a>後續步驟 
 
 下列範例提供取得權杖以互動方式使用 MSAL.NET 的 Azure AD B2C 應用程式的更多詳細的。
 
-| 範例 | 平台 | 說明|
+| 範例 | 平台 | 描述|
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS、 Xamarin Android、 UWP | 展示如何透過 Azure AD B2C 中，驗證使用者，並存取 Web API 使用產生的權杖使用 MSAL.NET 的簡單 Xamarin Forms 應用程式。|

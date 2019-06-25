@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60949136"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
@@ -42,7 +42,7 @@ Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 �
 健康狀態實體和階層可讓您有效率地報告、偵錯和監視叢集和應用程式。 健康狀態模型可針對叢集中許多移動的項目提供精確且「細微」  的健康狀態呈現方式。
 
 ![健康狀態實體][1]。
- 階層中的健康狀態實體將依照父系-子系關聯性組合管理。
+階層中的健康狀態實體將依照父系-子系關聯性組合管理。
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -113,7 +113,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 [應用程式健康狀態原則](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) 會針對應用程式及其子系，說明完成事件和子系狀態彙總評估的方式。 在應用程式封裝中，它可以定義於應用程式資訊清單 (即 **ApplicationManifest.xml**) 中。 若未指定任何原則，則當健康狀態報告或子系處於「Warning」或「Error」健康狀態時，Service Fabric 會假設實體狀況不良。
 可設定的原則包含：
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror)。 指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。 默认值：false。
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror)。 指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。 預設：false。
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications)。 指定在系統將應用程式視為「Error」之前，對狀況不良之已部署應用程式的最大容許百分比。 此百分比的計算方式是將狀況不良的已部署應用程式數目，除以叢集中目前部署應用程式的節點數目。 針對較少的節點數目，計算會四捨五入以容許一個失敗。 預設百分比：零。
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy)。 指定預設服務類型健康狀態原則，這會取代應用程式中所有服務類型的預設健康狀態原則。
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap)。 針對每個服務類型提供服務健康狀態原則的對應。 這些原則會取代每個指定服務類型的預設服務類型健康狀態原則。 例如，如果應用程式具有無狀態閘道服務類型和具狀態引擎服務類型，您可以設定不同的健康狀態原則來評估它們。 當您針對每個服務類型指定原則時，可以對服務的健康狀態取得更細微的控制。
@@ -123,7 +123,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 * [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice)。 指定在系統將服務視為狀況不良之前，狀況不良之分割區的最大容許百分比。 預設百分比：零。
 * [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition)。 指定在系統將分割區視為狀況不良之前，狀況不良之複本的最大容許百分比。 預設百分比：零。
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices)。 指定在系統將應用程式視為狀況不良之前，狀況不良之服務的最大容許百分比。 默认百分比：零。
+* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices)。 指定在系統將應用程式視為狀況不良之前，狀況不良之服務的最大容許百分比。 預設百分比：零。
 
 下列範例是來自應用程式資訊清單的摘要：
 
@@ -161,7 +161,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
-如果没有任何“错误”报告但有一个或多个“警告”，则聚合的健康状况为“警告”或“错误”，具体取决于 ConsiderWarningAsError 策略标志。
+如果沒有任何「Error」報告以及一或多個「Warning」，則根據 ConsiderWarningAsError 原則旗標而定，已彙總的健康狀態可能會是「Warning」或「Error」。
 
 ![健康狀態報告彙總，包含「Warning」報告和已設為 false 的 ConsiderWarningAsError。][3]
 
@@ -174,7 +174,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 ![子系實體健康狀態彙總。][4]
 
-基于运行状况策略的子项聚合。
+以健康狀態原則為基礎的子系彙總。
 
 [4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
@@ -197,7 +197,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 * **實體識別碼**。 識別報告所套用的實體。 其會依照 [實體類型](service-fabric-health-introduction.md#health-entities-and-hierarchy)而有所不同：
   
   * 叢集。 無。
-  * 节点。 節點名稱 (字串)。
+  * 節點。 節點名稱 (字串)。
   * 應用程式。 應用程式名稱 (URI)。 表示叢集中已部署應用程式執行個體的名稱。
   * 服務。 服務名稱 (URI)。 表示叢集中已部署服務執行個體的名稱。
   * 分割區。 分割識別碼 (GUID)。 表示資料分割的唯一識別碼。
@@ -205,13 +205,13 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
   * DeployedApplication。 應用程式名稱 (URI) 和節點名稱 (字串)。
   * DeployedServicePackage。 應用程式名稱 (URI)、節點名稱 (字串) 和服務資訊清單名稱 (字串)。
 * **Property**。 可讓回報者針對實體的特定屬性來分類健康狀態事件的 *字串* (非固定列舉)。 例如，報告程式 A 可以針對 Node01 的「儲存體」屬性報告健康情況，而報告程式 B 可以針對 Node01 的「連線」屬性報告健康情況。 在健康狀態資料存放區中，這兩個報告會將 Node01 實體視為個別的健康狀態事件。
-* **Description**。 可讓報告程式提供健康狀態事件相關詳細資訊的字串。 **SourceId**、**Property** 和 **HealthState** 應在報告中完整說明。 说明中添加了用户可读的报告相关信息。 文字可讓系統管理員和使用者更容易了解健全狀況報告。
+* **Description**。 可讓報告程式提供健康狀態事件相關詳細資訊的字串。 **SourceId**、**Property** 和 **HealthState** 應在報告中完整說明。 說明可增加人們可讀取的報告相關資訊。 文字可讓系統管理員和使用者更容易了解健全狀況報告。
 * **HealthState**。 描述報告健康狀態的 [列舉](service-fabric-health-introduction.md#health-states) 。 接受的值是「OK」、「Warning」和「Error」。
 * **TimeToLive**。 指出健康狀態報告持續有效的時間範圍。 可以搭配 **RemoveWhenExpired**，讓健康狀態資料存放區知道如何評估過期的事件。 根據預設，該值為「Infinite」，代表報告將永遠有效。
 * **RemoveWhenExpired**。 布林值。 若設為 True，則過期的健康狀態報告會自動從健康狀態資料存放區移除，且報告不會影響實體健康狀態評估。 只有當報告在一段指定時間內有效時才會使用此值，且報告程式不需明確地將其清除。它也會用來從健康狀態資料存放區刪除報告 (例如，變更看門狗，並停止傳送含有先前來源和屬性的報告)。 其傳送的報告可以使用短暫的 TimeToLive 和 RemoveWhenExpired，以便從健康狀態資料存放區清除任何先前的狀態。 若將此值設為 False，則會將過期的報告視為健康狀態評估的錯誤。 False 值示意健康狀態資料存放區，來源應定期報告此屬性。 如果沒有，則一定是看門狗發生了某些錯誤。 看門狗的健康狀態是藉由將事件視為錯誤來擷取。
 * **SequenceNumber**。 這個值是必須持續增加的正整數，其表示報告的順序。 健康狀態資料存放區會使用其來偵測因網路延遲或其他問題而較晚收到的陳舊報告。 針對相同的實體、來源和屬性，若序號小於或等於最新套用的數字，則報告會遭到拒絕。 如果未指定，即會自動產生序號。 只有在報告狀態轉換時，才需放入序號。 在此情況下，來源必須記住它所傳送的報告，並保留在容錯移轉復原的資訊。
 
-每個健康狀態報告都需要四種資訊 (SourceId、實體識別碼、Property 和 HealthState)。 不允許 SourceId 字串以前置詞 "**System.**" 開頭，因為這是保留給系統報告。 針對相同的實體，相同的來源和屬性僅能有一個報告。 無論在健康狀態用戶端 (若是批次處理) 或健康狀態資料存放區端，相同來源和屬性的多個報告會互相覆寫。 取代是以序號為根據；較新的報告 (具有較大的序號) 會取代較舊的報告。
+每個健康狀態報告都需要四種資訊 (SourceId、實體識別碼、Property 和 HealthState)。 不允許 SourceId 字串以前置詞 "**System.** " 開頭，因為這是保留給系統報告。 針對相同的實體，相同的來源和屬性僅能有一個報告。 無論在健康狀態用戶端 (若是批次處理) 或健康狀態資料存放區端，相同來源和屬性的多個報告會互相覆寫。 取代是以序號為根據；較新的報告 (具有較大的序號) 會取代較舊的報告。
 
 ### <a name="health-events"></a>健康狀態事件
 就內部而言，健康狀態資料存放區會保留 [健康狀態事件](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent)，其中包含報告的所有資訊以及其他中繼資料。 中繼資料包括報告送至健康狀態用戶端的時間，以及在伺服器端修改該報告的時間。 健康狀態事件將透過 [健康狀態查詢](service-fabric-view-entities-aggregated-health.md#health-queries)來傳回。
@@ -221,7 +221,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 * **SourceUtcTimestamp**。 報告送至健康狀態用戶端的時間 (國際標準時間)
 * **LastModifiedUtcTimestamp**。 報告上一次在伺服器端修改的時間 (國際標準時間)
 * **IsExpired**。 指出報告於健康狀態資料存放區執行查詢時是否已到期的旗標。 只有當 RemoveWhenExpired 為 False，事件才會過期。 否則，事件不會由查詢傳回，並從存放區中移除。
-* **LastOkTransitionAt**、**LastWarningTransitionAt**、**LastErrorTransitionAt**。 上一次“正常”/“警告”/“错误”转换的时间。 這些欄位會針對事件的健康狀態轉換提供歷程記錄。
+* **LastOkTransitionAt**、**LastWarningTransitionAt**、**LastErrorTransitionAt**。 上一次轉換 OK/Warning/Error 的時間。 這些欄位會針對事件的健康狀態轉換提供歷程記錄。
 
 狀態轉換欄位可用於更聰明的警示或「歷程記錄」的健康狀態事件資訊。 所適用的案例如下：
 
@@ -230,7 +230,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 * 若屬性交叉出現警告和錯誤，請判斷狀況不良 (亦即不是 OK) 已持續多久。 例如，若屬性狀況良好的狀態不超過 5 分鐘時發出警示，可以轉譯為 (HealthState != Ok 且 Now - LastOkTransitionTime > 5 分鐘)。
 
 ## <a name="example-report-and-evaluate-application-health"></a>範例：報告和評估應用程式健康狀態
-下列範例會從來源 **MyWatchdog**，透過應用程式 **fabric:/WordCount** 上的 PowerShell 來傳送健康狀態報告。 运行状况报告包含有关“错误”运行状况状态下的运行状况属性可用性的信息，含无限 TimeToLive。 然後它會查詢應用程式健康狀態，並在健康狀態事件清單中傳回已彙總的健康狀態錯誤和已報告的健康狀態事件。
+下列範例會從來源 **MyWatchdog**，透過應用程式 **fabric:/WordCount** 上的 PowerShell 來傳送健康狀態報告。 健康狀態報告會在 Error 健康狀態中包含健康狀態屬性「可用性」的相關資訊，並包含「Infinite」的 TimeToLive。 然後它會查詢應用程式健康狀態，並在健康狀態事件清單中傳回已彙總的健康狀態錯誤和已報告的健康狀態事件。
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
@@ -312,7 +312,7 @@ HealthEvents                    :
 
 [新增自訂 Service Fabric 健康狀態報告](service-fabric-report-health.md)
 
-[在本地监视和诊断服务](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[在本機上監視及診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 

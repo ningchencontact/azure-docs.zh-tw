@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833511"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065486"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 開發人員指南
 
@@ -60,7 +60,7 @@ PSFunctionApp
 
 特定繫結需要`extensions.csproj`檔案。 繫結延伸模組，需要[版本 2.x](functions-versions.md) Functions 執行階段中定義`extensions.csproj`檔案，與實際的程式庫檔案中`bin`資料夾。 在本機開發時，您必須[註冊繫結擴充功能](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
-在 PowerShell 函式應用程式，您可能會選擇`profile.ps1`函式應用程式開始執行時執行 (否則知道*[冷啟動](#cold-start)*。 如需詳細資訊，請參閱 < [PowerShell 設定檔](#powershell-profile)。
+在 PowerShell 函式應用程式，您可能會選擇`profile.ps1`函式應用程式開始執行時執行 (否則知道 *[冷啟動](#cold-start)* 。 如需詳細資訊，請參閱 < [PowerShell 設定檔](#powershell-profile)。
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>函式中定義的 PowerShell 指令碼
 
@@ -81,11 +81,11 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 屬性   | 描述                                     | Type     |
+| 屬性   | 描述                                     | 類型     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | 時，以 utc 格式，此函式已觸發        | DateTime |
-| MethodName | 已觸發的函式名稱     | string   |
-| RandGuid   | 此執行函式的唯一 guid | string   |
+| UtcNow     | 時，以 utc 格式，此函式已觸發        | Datetime |
+| MethodName | 已觸發的函式名稱     | 字串   |
+| RandGuid   | 此執行函式的唯一 guid | 字串   |
 
 每個觸發程序型別具有一組不同的中繼資料。 例如， `$TriggerMetadata` for`QueueTrigger`包含`InsertionTime`， `Id`， `DequeueCount`，以及其他項目。 如需有關佇列觸發程序的中繼資料的詳細資訊，請移至[佇列觸發程序的正式文件](functions-bindings-storage-queue.md#trigger---message-metadata)。 檢查文件上[觸發程序](functions-triggers-bindings.md)您正在使用以查看功能隨附於觸發程序中繼資料。
 
@@ -133,9 +133,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 以下是有效的參數呼叫`Push-OutputBinding`:
 
-| 名稱 | Type | 位置 | 說明 |
+| Name | 類型 | 位置 | 描述 |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | 您要設定輸出繫結的名稱。 |
+| **`-Name`** | 字串 | 1 | 您要設定輸出繫結的名稱。 |
 | **`-Value`** | Object | 2 | 輸出繫結的值要設定，其可接受來自管線 ByValue。 |
 | **`-Clobber`** | SwitchParameter | 已命名 | （選擇性）指定時，會強制設為指定的輸出繫結的值。 | 
 
@@ -253,7 +253,7 @@ MyQueue                        myData
 
 ### <a name="configure-the-function-app-log-level"></a>設定函式應用程式記錄層級
 
-Functions 可讓您定義的臨界值層級，讓您輕鬆地控制方式函式會寫入記錄檔。 若要設定寫入至主控台的所有追蹤的閾值，請使用`logging.logLevel.default`中的屬性[`host.json`檔案][host.json 參考]。 這個設定會套用到函式應用程式中的所有函式。
+Azure Functions 可讓您定義的臨界值層級，讓您輕鬆地控制方式函式會寫入記錄檔。 若要設定寫入至主控台的所有追蹤的閾值，請使用`logging.logLevel.default`中的屬性[`host.json`檔案][host.json 參考]。 這個設定會套用到函式應用程式中的所有函式。
 
 下列範例設定的臨界值，以啟用所有的函式的詳細資訊記錄，但設定的臨界值，若要啟用名為函式的偵錯記錄`MyFunction`:
 
@@ -283,7 +283,7 @@ Functions 可讓您定義的臨界值層級，讓您輕鬆地控制方式函式�
 以幾個實際的資料類型，會將所有的觸發程序和繫結表示程式碼中：
 
 * 雜湊表
-* string
+* 字串
 * byte[]
 * int
 * double
@@ -302,14 +302,14 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 傳遞至指令碼的要求物件是型別的`HttpRequestContext`，其具有下列屬性：
 
-| 屬性  | 描述                                                    | Type                      |
+| 屬性  | 描述                                                    | 類型                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 包含要求本文的物件。 `Body` 會序列化為以資料為依據的最佳類型。 比方說，如果資料是 JSON，它會傳入做為雜湊表。 如果資料是字串，它傳入做為字串。 | 物件 |
 | **`Headers`** | 字典，包含要求標頭。                | Dictionary<string,string><sup>*</sup> |
-| **`Method`** | 要求的 HTTP 方法。                                | string                    |
+| **`Method`** | 要求的 HTTP 方法。                                | 字串                    |
 | **`Params`**  | 包含要求之路由傳送參數的物件。 | Dictionary<string,string><sup>*</sup> |
 | **`Query`** | 包含查詢參數的物件。                  | Dictionary<string,string><sup>*</sup> |
-| **`Url`** | 要求的 URL。                                        | string                    |
+| **`Url`** | 要求的 URL。                                        | 字串                    |
 
 <sup>*</sup> 所有`Dictionary<string,string>`索引鍵不區分大小寫。
 
@@ -317,10 +317,10 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 您應該傳回的回應物件是型別的`HttpResponseContext`，其具有下列屬性：
 
-| 屬性      | 描述                                                 | Type                      |
+| 屬性      | 描述                                                 | 類型                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 包含回應本文的物件。           | 物件                    |
-| **`ContentType`** | 簡短的指針的回應內容類型設定。 | string                    |
+| **`ContentType`** | 簡短的指針的回應內容類型設定。 | 字串                    |
 | **`Headers`** | 包含回應標頭的物件。               | 字典或雜湊表   |
 | **`StatusCode`**  | 回應的 HTTP 狀態碼。                       | 字串或整數             |
 
@@ -598,7 +598,7 @@ Export-ModuleMember -Function "Invoke-PSTestFunc"
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>套件組合模組，而不是使用 `Install-Module`
 
-您的指令碼會執行每次叫用。 請避免使用`Install-Module`指令碼中。 改為使用`Save-Module`之前發行，讓您的函式不需要浪費時間下載模組。 如果冷啟動會影響您的函式，請考慮部署您的函式應用程式[App Service 方案](functions-scale.md#app-service-plan)設為*alwayson*上，或者[Premium 方案](functions-scale.md#premium-plan-public-preview)。
+您的指令碼會執行每次叫用。 請避免使用`Install-Module`指令碼中。 改為使用`Save-Module`之前發行，讓您的函式不需要浪費時間下載模組。 如果冷啟動會影響您的函式，請考慮部署您的函式應用程式[App Service 方案](functions-scale.md#app-service-plan)設為*alwayson*上，或者[Premium 方案](functions-scale.md#premium-plan)。
 
 ## <a name="next-steps"></a>後續步驟
 

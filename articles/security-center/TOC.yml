@@ -45,7 +45,7 @@
       href: security-center-onboarding.md
     - name: 使用 Windows Defender ATP 進行伺服器保護
       href: security-center-wdatp.md
-    - name: IaaS 進階資料安全性
+    - name: 適用於 Azure VM 上 SQL 的進階資料安全性 (公開預覽)
       href: security-center-iaas-advanced-data.md
     - name: 保護 App Service
       href: security-center-app-services.md
@@ -74,15 +74,16 @@
     - name: 跨租用戶可見性
       href: security-center-management-groups.md
     - name: 實作安全性建議
-      href: security-center-recommendations.md
       items:
+        - name: 有哪些安全性建議
+          href: security-center-recommendations.md
         - name: 鞏固安全性現況
           href: security-center-monitoring.md
         - name: 保護您的機器和應用程式
           href: security-center-virtual-machine-protection.md
         - name: 保護網路資源
           href: security-center-network-recommendations.md
-        - name: 保護 SQL 服務和資料
+        - name: 保護資料資料與儲存體服務
           href: security-center-sql-service-recommendations.md
         - name: 管理身分識別和存取
           href: security-center-identity-access.md
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: 管理使用者資料
       href: security-center-privacy.md
+    - name: 管理 IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: 常見問題集
       href: security-center-faq.md
     - name: Azure 安全性

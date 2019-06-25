@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 06/14/2019
 ms.author: shvija
-ms.openlocfilehash: c020a7673fe018565a6f1aeb9f7cb2124024a2c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 007e016672f8548956b37b961805183a504d6bf0
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118871"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154072"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立事件中樞
 
@@ -83,7 +83,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已建立事件中樞命名空間，並使用範例應用程式來傳送事件到事件中樞，或從事件中樞接收事件。 如需將事件傳送至事件中樞或從事件中樞接收事件的逐步指示，請參閱**傳送及接收事件**教學課程：
+在本文中，您可以建立事件中樞命名空間和事件中樞命名空間中。 如需將事件傳送至事件中樞或從事件中樞接收事件的逐步指示，請參閱**傳送及接收事件**教學課程：
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

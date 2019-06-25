@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509644"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205356"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -23,6 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 > [!IMPORTANT]
 > 稽核記錄只會保留七天。 如果您需要更長的保留期，請使用以下所示的其中一個方法來規劃下載與儲存您的記錄。
+
+> [!NOTE]
+> 看不到使用者登入個別的 Azure AD B2C 應用程式底下**使用者**一節**Azure Active Directory**或是**Azure AD B2C**刀鋒視窗。 登入那里將顯示使用者活動，但是無法相互關聯回 B2C 應用程式，在使用者登入。 為進一步說明，在本文中，您必須為此，請使用稽核記錄檔。
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>稽核記錄 B2C 類別中可取得活動的概觀
 稽核記錄中的 **B2C** 類別包含以下類型的活動：
@@ -41,6 +45,18 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 ## <a name="example-activity"></a>範例活動
 以下範例顯示當使用者以外部識別提供者登入時所擷取的資料：![稽核記錄 - 範例](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+活動詳細資料面板包含下列相關資訊：
+
+|Section|欄位|描述|
+|-------|-----|-----------|
+| activities | Name | 發生了哪些活動。 比方說，「 將 id_token 發給應用程式 」 （其中包含實際的使用者登入）。 |
+| 啟動者 (執行者) | ObjectId | **物件識別碼**的 B2C 應用程式的使用者登入 （在 Azure 入口網站中看不到 此識別項，但可透過圖形 API 存取，例如）。 |
+| 啟動者 (執行者) | Spn | **應用程式識別碼**的 B2C 應用程式的使用者登入。 |
+| 目標 | ObjectId | **物件識別碼**之使用者的登入。 |
+| 其他詳細資料 | TenantId | **租用戶識別碼**Azure AD B2C 租用戶。 |
+| 其他詳細資料 | `PolicyId` | **原則識別碼**用來將使用者登入的使用者流程 （原則）。 |
+| 其他詳細資料 | ApplicationId | **應用程式識別碼**的 B2C 應用程式的使用者登入。 |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>透過 Azure 入口網站來存取稽核記錄
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 確定您位於 B2C 目錄中。
@@ -62,6 +78,9 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 - 使用 [日期範圍]  下拉式清單，以篩選所要顯示活動的日期範圍
 - 如果您按一下清單中的特定列，右邊的關聯式方塊會顯示與該活動相關的額外屬性
 - 按一下 [下載]  ，將活動下載為 csv 檔案
+
+> [!NOTE]
+> 您也可以查看稽核記錄檔，瀏覽至**Azure AD B2C**而非**Azure Active Directory**左側的 [我的最愛] 列中。 底下**活動**，按一下**稽核記錄檔**，您會在此找到類似的篩選功能使用相同的記錄檔。
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>透過 Azure AD 報告 API 來存取稽核記錄
 稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。

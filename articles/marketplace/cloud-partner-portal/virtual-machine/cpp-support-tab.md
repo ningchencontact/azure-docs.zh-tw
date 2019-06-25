@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: 9763c8d520b8736d8f7d7bc5db81b75762cb98f9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938215"
 ---
 # <a name="virtual-machine-support-tab"></a>虛擬機器支援索引標籤
 
-[新增供應項目] 頁面中的 [支援] 索引標籤可協助提供供應項目所需的技術及使用者支援資源。  它分為三個區域：**工程**，**客戶支援部門**，以及**支援 Url**。
+[新增供應項目]  頁面中的 [支援]  索引標籤可協助提供供應項目所需的技術及使用者支援資源。  它分為三個區域：**工程**，**客戶支援部門**，以及**支援 Url**。
 
 ![虛擬機器新增供應項目表單上的支援索引標籤](./media/publishvm_012.png)
 

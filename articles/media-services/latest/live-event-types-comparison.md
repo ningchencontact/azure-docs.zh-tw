@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務 LiveEvent 類型 | Microsoft Docs
-description: 本文內有 LiveEvent 類型的詳細比較表。
+description: 本文會說明詳細的表格會比較 LiveEvent 類型。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: bd4899374c06246ddd4d5fa81d0f6e3a6a1e7017
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 93f01513841d1174fea796f1615ab05df0a41af4
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075012"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150372"
 ---
 # <a name="live-event-types-comparison"></a>實況活動類型比較
 
@@ -26,7 +26,11 @@ ms.locfileid: "67075012"
 
 ## <a name="types-comparison"></a>類型比較 
 
-下表比較功能的即時事件類型。
+下表比較功能的即時事件類型。 型別會設定期間建立使用[LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -在內部部署即時編碼器會傳送多個的位元速率資料流。 內嵌的串流會通過而不需任何進一步處理的即時事件。 
+* **LiveEventEncodingType.Standard** -的內部部署即時編碼器會傳送單一位元速率串流的即時事件和媒體服務會建立多重位元速率資料流。 如果發佈摘要是 720p 或更高的解析度**Default720p**預設會將編碼的 6 位元速率解析/組 （遵循本文稍後的詳細資料）。
+* **LiveEventEncodingType.Premium1080p** -的內部部署即時編碼器會傳送單一位元速率串流的即時事件和媒體服務會建立多重位元速率資料流。 Default1080p 預設指定輸出組的位元速率解析/組 （遵循本文稍後的詳細資料）。 
 
 | 功能 | 傳遞實況活動 | 標準或 Premium1080p 即時事件 |
 | --- | --- | --- |
@@ -58,43 +62,70 @@ ms.locfileid: "67075012"
 
 ## <a name="system-presets"></a>系統預設值
 
-從即時編碼器輸出中所包含的位元速率與解析度取決[presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding)。 如果使用**標準**即時編碼器 (LiveEventEncodingType.Standard)，則*Default720p*預設都會指定一組 6 個的解析/位元速率組，如下所述。 否則，如果使用**Premium1080p**即時編碼器 (LiveEventEncodingType.Premium1080p)，則*Default1080p*預設的比較輸出解析度/位元速率組。 
+解析度和位元速率的即時編碼器的輸出中包含取決於[presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding)。 如果使用**標準**即時編碼器 (LiveEventEncodingType.Standard)，則*Default720p*預設都會指定一組 6 位元速率解析/組，如下所述。 否則，如果使用**Premium1080p**即時編碼器 (LiveEventEncodingType.Premium1080p)，則*Default1080p*預設所指定的位元速率解析/組輸出集。
+
+> [!NOTE]
+> 您無法套用 Default1080p 預設為即時的事件，如果已設定為標準的即時編碼-您會收到錯誤。 如果您嘗試套用預設為 Premium1080p 即時編碼器 Default720p，也會收到錯誤。
 
 ### <a name="output-video-streams-for-default720p"></a>Default720p 輸出視訊資料流
 
-**Default720p**會將輸入的視訊編碼成下列 6 個圖層。
+如果發佈摘要是 720p 或更高的解析度**Default720p**預設會將編碼成下列 6 個層級的摘要。 下表中位元速率是以 kbps 為單位，MaxFPS 代表該的最大允許的畫面播放速率 （在框架/秒），設定檔代表使用的 H.264 設定檔。
 
-| 位元速率 | 寬度 | 高度 | MaxFPS | 設定檔 | 輸出串流名稱 |
-| --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |高 |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |高 |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |高 |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |高 |Video_512x288_850kbps |
-| 550 |384 |216 |30 |高 |Video_384x216_550kbps |
-| 200 |340 |192 |30 |高 |Video_340x192_200kbps |
+| Bitrate | 寬度 | 高度 | MaxFPS | 設定檔 |
+| --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |高 |
+| 2200 |960 |540 |30 |高 |
+| 1350 |704 |396 |30 |高 |
+| 850 |512 |288 |30 |高 |
+| 550 |384 |216 |30 |高 |
+| 200 |340 |192 |30 |高 |
 
 > [!NOTE]
 > 如果您需要自訂即時編碼的預設值，請開啟支援票證，透過 Azure 入口網站。 您應指定解析度和位元速率的所需資料表。 請確認只有一個圖層為 720p，且最多只有 6 個圖層。 也就能指定要求的預設值為標準的即時編碼器。
+> 可調整的特定值的位元速率與解析度，經過一段時間
 
 ### <a name="output-video-streams-for-default1080p"></a>輸出視訊資料流的 Default1080p
 
-**Default1080p**會將輸入的視訊編碼成下列 6 個圖層。
+如果所佔比重摘要的 1080p 解析度**Default1080p**預設會將編碼成下列 6 個層級的摘要。
 
-| 位元速率 | 寬度 | 高度 | MaxFPS | 設定檔 | 輸出串流名稱 |
-| --- | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |高 |Video_1920x1080_5500kbps |
-| 3000 |1280 |720 |30 |高 |Video_1280x720_3000kbps |
-| 1600 |960 |540 |30 |高 |Video_960x540_1600kbps |
-| 800 |640 |360 |30 |高 |Video_640x360_800kbps |
-| 400 |480 |270 |30 |高 |Video_480x270_400kbps |
-| 200 |320 |180 |30 |高 |Video_320x180_200kbps |
+| Bitrate | 寬度 | 高度 | MaxFPS | 設定檔 |
+| --- | --- | --- | --- | --- |
+| 5500 |1920 |1080 |30 |高 |
+| 3000 |1280 |720 |30 |高 |
+| 1600 |960 |540 |30 |高 |
+| 800 |640 |360 |30 |高 |
+| 400 |480 |270 |30 |高 |
+| 200 |320 |180 |30 |高 |
 
 > [!NOTE]
 > 如果您需要自訂即時編碼的預設值，請開啟支援票證，透過 Azure 入口網站。 您應指定解析度和位元速率的所需資料表。 ，請確認只有一個圖層中的 1080p，和最多 6 個圖層。 也就能指定要求的預設值為 Premium1080p 即時編碼器。
+> 經過一段時間，您可以調整的位元速率和解析度的特定值。
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>輸出音訊 Stream Default720p 和 Default1080p
 
-兩個*Default720p*並*Default1080p*預設音訊編碼為立體聲 AAC-LC 128 kbps，取樣率的 48 kHz。
+兩個*Default720p*並*Default1080p*預設音訊編碼為 128 kbps 的立體聲 AAC LC。 取樣率會遵循的音訊資料軌在比重摘要。
+
+## <a name="implicit-properties-of-the-live-encoder"></a>隱含的屬性的即時編碼器
+
+上一節描述的即時編碼器，透過預設-例如圖層、 解析度及位元速率的數目可以明確地控制的屬性。 本章節將釐清隱含的屬性。
+
+### <a name="group-of-pictures-gop-duration"></a>群組的圖片 (GOP) 持續時間
+
+即時編碼器會遵循[GOP](https://en.wikipedia.org/wiki/Group_of_pictures)比重摘要-這表示輸出層會有相同的 GOP 持續期間的結構。 因此，建議您設定內部部署編碼器來產生有固定的 GOP 持續期間 （通常是 2 秒） 發佈摘要。 這可確保，從服務傳出 HLS 和 MPEG DASH 資料流也有固定的 GOP 持續時間。 可能大部分裝置所能容許時，會在 GOP 持續時間的小變化形式。
+
+### <a name="frame-rate"></a>畫面播放速率
+
+即時編碼器也會遵循個別的視訊畫面中所佔比重摘要-這表示輸出層會有相同的持續時間的畫面格的持續的時間。 因此，建議您設定內部部署編碼器來產生摘要具有固定畫面播放速率 （最多 30 框架/秒）。 這可確保，從服務傳出 HLS 和 MPEG DASH 資料流也有固定的畫面格速率持續時間。 畫面播放速率的小變化可能容許大部分的裝置，但不保證即時編碼器會產生正確地播放的輸出。 您的內部部署即時編碼器應該不會捨棄畫面 （例如。 電力偏低狀況） 或不同的畫面播放速率，以任何方式。
+
+### <a name="resolution-of-contribution-feed-and-output-layers"></a>解析所佔比重的摘要和輸出層
+
+即時編碼器會設定以避免 upconverting 比重摘要。 因此最大解析度的輸出層不會超過的比重摘要。
+
+比方說，如果您傳送摘要以 720p 即時的事件設定為 Default1080p 即時編碼，輸出只會有 5 個圖層，從 720p 3mbps，則移到 200 kbps 1080p。 或如果您要傳送在 360p 摘要成即時的事件，設定標準的即時編碼，則輸出會包含 3 個層級 （解析度 288 p、 216 p，和 192 p）。 在變質的情況下，如果您將說 160 x 90 像素的比重摘要傳送至標準的即時編碼器，輸出會包含一個圖層中 160 x 90 解析比重摘要的位元速率相同。
+
+### <a name="bitrate-of-contribution-feed-and-output-layers"></a>位元速率的比重摘要和輸出層
+
+即時編碼器會設定為接受預設值，不論的位元速率發佈摘要中的位元速率設定。 如此一來可能會超過所佔比重摘要的輸出層的位元速率。 例如，如果您傳送摘要 720p 1 Mbps 的解析度，輸出層將維持相同[資料表](live-event-types-comparison.md#output-video-streams-for-default720p)上方。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,10 +9,10 @@ ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64947156"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>重新撰寫 HTTP 要求和回應標頭與 Azure 應用程式閘道-Azure 入口網站
@@ -67,7 +67,7 @@ ms.locfileid: "64947156"
 
    - 輸入重寫中設定的名稱**名稱** 方塊中。
    - 選取一或多個所列的規則**相關聯的路由規則**清單。 您可以選取從未到過其他重寫集相關聯的規則。 已經被其他重寫集相關聯的規則會以灰色顯示。
-   - 選取 [下一步] 。
+   - 選取 [下一步]  。
    
      ![新增名稱和關聯](media/rewrite-http-headers-portal/name-and-association.png)
 
@@ -97,11 +97,11 @@ ms.locfileid: "64947156"
 
    - 底下**區分大小寫**，選取**No**。
 
-   - 在 **運算子**清單中，選取**等號 （=）**。
+   - 在 **運算子**清單中，選取**等號 （=）** 。
 
    - 輸入規則運算式模式。 在此範例中，我們將使用此模式`(https?):\/\/.*azurewebsites\.net(.*)$`。
 
-   - 選取 [確定] 。
+   - 選取 [確定]  。
 
      ![設定 If 條件](media/rewrite-http-headers-portal/condition.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "64947156"
 
    - 輸入的標頭值。 在此範例中，我們將使用`{http_resp_Location_1}://contoso.com{http_resp_Location_2}`做為標頭值。 此值將會取代*azurewebsites.net*具有*contoso.com* location 標頭中。
 
-   - 選取 [確定] 。
+   - 選取 [確定]  。
 
      ![新增動作](media/rewrite-http-headers-portal/action.png)
 

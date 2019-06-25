@@ -15,10 +15,10 @@ ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408896"
 ---
 # <a name="configure-php-in-azure-app-service"></a>在 Azure App Service 中設定 PHP
@@ -148,7 +148,7 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟�
 8. 從**組態**刀鋒視窗中，選取**路徑對應**。 
 9. 按一下  **+ 新的處理常式**並加入`*.php`延伸模組欄位，然後將路徑加入至`php-cgi.exe`中的可執行檔**指令碼處理器**。 如果您將 PHP 執行階段放入應用程式根目錄內的 `bin` 目錄中，該路徑將是 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
 10. 在底部，按一下**更新**以完成新增處理常式對應。
-11. 按一下 [儲存] 來儲存變更。
+11. 按一下 [儲存]  來儲存變更。
 
 <a name="composer" />
 
@@ -160,15 +160,15 @@ App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執
 > 您可以 [在這裡投票選擇 App Service 中的頂級編輯器支援](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)！
 >
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的 PHP 應用程式刀鋒視窗中，按一下 [工具] > [延伸模組]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的 PHP 應用程式刀鋒視窗中，按一下 [工具]   > [延伸模組]  。
 
     ![可在 Azure 中啟用「編輯器」自動化的「Azure 入口網站」設定刀鋒視窗](./media/web-sites-php-configure/composer-extension-settings.png)
-2. 按一下 [新增]，然後按一下 [編輯器]。
+2. 按一下 [新增]  ，然後按一下 [編輯器]  。
 
     ![新增「編輯器」擴充功能以在 Azure 中啟用「編輯器」自動化](./media/web-sites-php-configure/composer-extension-add.png)
 3. 按一下 [確定]  以接受法律條款。 再按一次 [確定]  以新增擴充功能。
 
-    [已安裝的延伸模組] 刀鋒視窗將顯示編輯器延伸模組。
+    [已安裝的延伸模組]  刀鋒視窗將顯示編輯器延伸模組。
     ![接受法律條款以在 Azure 中啟用「編輯器」自動化](./media/web-sites-php-configure/composer-extension-view.png)
 4. 現在，在本機電腦的終端機視窗中執行 `git add`、`git commit` 和 `git push` 到您的應用程式。 注意編輯器正在安裝 composer.json 中定義的相依性。
 

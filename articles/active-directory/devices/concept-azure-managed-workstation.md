@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 05d21910d1b3601346fbd038cbc25f8f2be61f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357056"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110707"
 ---
 # <a name="building-secure-workstations"></a>建置安全的工作站
 
 受保護的隔離的工作站是至關重要的機密的角色，例如系統管理員、 開發人員和操作員關鍵服務的安全性。 許多其他的安全性管控和保證將會失敗，或不有任何作用，如果基礎的用戶端工作站安全性已遭入侵。
 
 本文件說明如何建置安全的用戶端工作站與詳細的逐步指示，包括如何設定啟動安全性控制。 這種類型的工作站有時稱為 「 特殊權限的存取工作站 (PAW)，此參考，並建置 」。 不過指引以雲端為基礎的技術，來管理服務，看起來，並引進了安全性功能引進了從 Windows 10RS5、 Microsoft Defender ATP、 Azure Active Directory 和 Intune。
+
+> [!NOTE]
+> 這篇文章說明安全的工作站和其重要性的概念。 如果您已熟悉的概念，並想要跳至部署，請閱讀[如何部署安全的工作站](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation)。
 
 ## <a name="why-securing-workstation-access-is-important"></a>保護工作站存取為何如此重要
 

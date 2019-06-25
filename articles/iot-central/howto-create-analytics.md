@@ -3,29 +3,29 @@ title: 在 Azure IoT Central 應用程式中分析裝置資料 | Microsoft Docs
 description: 在 Azure IoT Central 應用程式中分析裝置資料。
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 05915e2059e45c002a9dfa71a538ed6391caa157
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffe8b350c1b5cea23aeb65092c7912c6d6c1ed89
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886447"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052965"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>如何使用分析來分析您的裝置資料
 
 *本文適用於操作員、建置員及系統管理員。*
 
-Azure IoT 中心提供豐富的分析功能，讓來自您裝置的大量資料變得更有意義。 若要開始，請瀏覽左側導覽功能表上的 [分析]。
+Azure IoT 中心提供豐富的分析功能，讓來自您裝置的大量資料變得更有意義。 若要開始，請瀏覽左側導覽功能表上的 [分析]  。
 
 ## <a name="querying-your-data"></a>查詢您的資料
 
-您必須選擇 [裝置集合]、新增 [篩選] (選擇性)，然後選取 [時段] 來開始作業。 一旦您完成時，選取**顯示結果**開始將資料視覺化。
+您必須選擇 [裝置集合]  、新增 [篩選]  (選擇性)，然後選取 [時段]  來開始作業。 一旦您完成時，選取**顯示結果**開始將資料視覺化。
 
-* **裝置集合：**[裝置集合](howto-use-device-sets.md)是使用者定義的裝置群組。 例如，位在奧克蘭 (Oakland) 的所有冰箱或所有 2.0 版風力渦輪機。
+* **裝置集合：** [裝置集合](howto-use-device-sets.md)是使用者定義的裝置群組。 例如，位在奧克蘭 (Oakland) 的所有冰箱或所有 2.0 版風力渦輪機。
 
 * **篩選：** 您可以選擇性地在搜尋中加入篩選條件，以鎖定您要找的資料。 您一次最多可新增 10 個篩選條件。 比方說，針對位在奧克蘭的所有冰箱，您可以尋找溫度超過 60 度的冰箱。
 * **時間週期：** 依預設，我們會擷取過去 10 分鐘的資料。 您可以將此值變更為其中一個預先定義的時間範圍，或選取自訂時段。

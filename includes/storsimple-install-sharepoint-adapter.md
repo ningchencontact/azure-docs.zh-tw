@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155852"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174020"
 ---
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>安裝 StorSimple Adapter for SharePoint
 1. 將安裝程式複製到也設定成執行 SharePoint 管理中心 Web 應用程式的 Web 前端 (WFE) 伺服器。 

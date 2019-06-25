@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511856"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -162,7 +162,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | Text | 是 | 針對此選項，要在使用者介面中顯示給使用者的顯示字串。 |
-|Value | 是 | 與選取此選項相關聯的宣告值。 |
+|值 | 是 | 與選取此選項相關聯的宣告值。 |
 | SelectByDefault | 否 | 指出預設是否應該在 UI 中選取此選項。 可能的值：True 或 False。 |
 
 下列範例會設定**城市**下拉式清單宣告，並將預設值設定為 `New York`：

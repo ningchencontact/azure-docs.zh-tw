@@ -7,23 +7,23 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: 0c74c0f85ea1851bc50ee20dbde9336f4f7b757a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65416069"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164395"
 ---
-# <a name="machine-learning-integration-in-stream-analytics-preview"></a>Machine Learning 整合，在 Stream Analytics （預覽）
-串流分析支援對外呼叫 Azure Machine Learning 端點的使用者定義函式。 [串流分析 REST API 程式庫](https://msdn.microsoft.com/library/azure/dn835031.aspx)中會詳細說明此功能的 REST API 支援。 本文提供要在串流分析中成功實作這項功能所需的補充資訊。 您也可以在 [這裡](stream-analytics-machine-learning-integration-tutorial.md)取得已發佈的教學課程。
+# <a name="azure-machine-learning-studio-integration-in-stream-analytics-preview"></a>Stream Analytics （預覽） 中的 azure Machine Learning Studio 整合
+Stream Analytics 支援對外呼叫 Azure Machine Learning Studio 端點的使用者定義函式。 [串流分析 REST API 程式庫](https://msdn.microsoft.com/library/azure/dn835031.aspx)中會詳細說明此功能的 REST API 支援。 本文提供要在串流分析中成功實作這項功能所需的補充資訊。 您也可以在 [這裡](stream-analytics-machine-learning-integration-tutorial.md)取得已發佈的教學課程。
 
-## <a name="overview-azure-machine-learning-terminology"></a>概觀：Azure Machine Learning 術語
-Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您依據資料來建置、測試及部署預測性分析解決方案。 此工具稱為 *Azure Machine Learning Studio*。 您可以利用此 Studio 來與機器學習服務資源互動，並輕鬆地建置、測試和反覆調整設計。 這些資源和其定義如下。
+## <a name="overview-azure-machine-learning-studio-terminology"></a>概觀：Azure Machine Learning Studio 術語
+Microsoft Azure Machine Learning Studio 提供共同作業式的拖放工具，可用來建置、 測試及部署預測性分析解決方案，在您的資料。 此工具稱為 *Azure Machine Learning Studio*。 您可以利用此 Studio 來與機器學習服務資源互動，並輕鬆地建置、測試和反覆調整設計。 這些資源和其定義如下。
 
 * **工作區**：「工作區」  這個容器中會保有其他所有機器學習服務資源，以便集中管理和控制。
 * **實驗**：資料科學家會建立「實驗」  來利用資料集和訓練機器學習服務模型。
-* **端點**：「端點」  是 Azure Machine Learning 物件，可供用來將功能作為輸入、套用指定的機器學習服務模型，並傳回經過評分的輸出。
+* **端點**：*端點*是 Azure Machine Learning Studio 物件用來將功能做為輸入、 套用指定的機器學習模型並傳回經過評分的輸出。
 * **評分 Web 服務**：「評分 Web 服務」  是上述端點的集合。
 
 每個端點都有適用於批次執行和同步執行的 API。 串流分析使用同步執行。 該特定服務在 Azure Machine Learning Studio 中的名稱為 [要求/回應服務](../machine-learning/studio/consume-web-services.md)。
@@ -42,7 +42,7 @@ Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您�
 6. 啟動工作
 
 ## <a name="creating-a-udf-with-basic-properties"></a>使用基本屬性建立 UDF
-下列範例程式碼會建立名為 *newudf* 且繫結至 Azure Machine Learning 端點的純量 UDF，來做為示範。 請注意，您可以在 API 說明頁面中找到所選服務的*端點* (服務 URI)，以及在 [服務] 主頁面中找到 *apiKey*。
+例如，下列範例程式碼會建立名為純量 UDF *newudf*繫結至 Azure Machine Learning Studio 端點。 請注意，您可以在 API 說明頁面中找到所選服務的*端點* (服務 URI)，以及在 [服務] 主頁面中找到 *apiKey*。
 
 ```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
@@ -69,7 +69,7 @@ Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您�
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>呼叫預設 UDF 的 RetrieveDefaultDefinition 端點
-一旦建立好基本架構 UDF，就需要 UDF 的完整定義。 RetrieveDefaultDefinition 端點可協助您取得繫結至 Azure Machine Learning 端點之純量函式的預設定義。 下列內容會要求您取得繫結至 Azure Machine Learning 端點之純量函式的預設 UDF 定義。 因為已在 PUT 要求期間提供，因此它不會指定實際的端點。 串流分析會呼叫要求中提供的端點 (如果已明確提供)。 否則，它會使用原本參考的端點。 UDF 在這邊會採用單一字串參數 (一個句子)，並傳回指出該句子的「情緒」標籤的單一類型字串輸出。
+一旦建立好基本架構 UDF，就需要 UDF 的完整定義。 RetrieveDefaultDefinition 端點可協助您取得繫結至 Azure Machine Learning Studio 端點之純量函式的預設定義。 下列內容會要求您取得繫結至 Azure Machine Learning 端點之純量函式的預設 UDF 定義。 因為已在 PUT 要求期間提供，因此它不會指定實際的端點。 串流分析會呼叫要求中提供的端點 (如果已明確提供)。 否則，它會使用原本參考的端點。 UDF 在這邊會採用單一字串參數 (一個句子)，並傳回指出該句子的「情緒」標籤的單一類型字串輸出。
 
 ```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

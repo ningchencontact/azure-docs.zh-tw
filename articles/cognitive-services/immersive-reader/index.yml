@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 沈浸式閱讀程式文件
+metadata:
+  title: 沈浸式閱讀程式文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
+  description: 了解如何使用應用程式中的沈浸式閱讀程式。
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: 沈浸式閱讀程式是一種工具，可實作經實證的技術並針對沈浸式讀者、語言學習者及存在學習差異的人士改善其閱讀理解程度。 您可以使用沈浸式閱讀程式 SDK，在 Web 應用程式中使用沈浸式閱讀程式。
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>了解沈浸式閱讀程式及如何將其整合到您的應用程式</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什麼是沈浸式閱讀程式？
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>了解沈浸式閱讀程式 Javascript SDK</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 使用沈浸式閱讀程式 SDK
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 開始使用沈浸式閱讀程式：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'C# 標誌'
+            href: quickstart
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何使用沈浸式閱讀程式開發應用程式：
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">使用 Node.js 啟動沈浸式閱讀程式</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SDK
+            html: <p><a href="reference.md">Javascript</a></p>

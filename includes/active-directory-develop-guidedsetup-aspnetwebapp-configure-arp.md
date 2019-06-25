@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 5940195207f85d8011f61336c0318e456c2a8a4c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947385"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203825"
 ---
 ## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>使用應用程式的註冊資訊設定您的 ASP.NET Web 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "64947385"
 
 1. 在「方案總管」中，選取專案並查看 `Properties` 視窗 (如果您沒有看到 [屬性] 視窗，請按 F4)
 2. 將 `SSL Enabled` 變更為 `True`
-3. 從上面的 `SSL URL` 複製值並貼到此頁面頂端的 `Redirect URL` 欄位中，然後按一下 [更新]：<br/><br/>![專案屬性](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+3. 從上面的 `SSL URL` 複製值並貼到此頁面頂端的 `Redirect URL` 欄位中，然後按一下 [更新]  ：<br/><br/>![專案屬性](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 4. 在位於根資料夾之 `web.config` 檔案中的 `configuration\appSettings` 區段底下新增以下內容：
 
 ```xml

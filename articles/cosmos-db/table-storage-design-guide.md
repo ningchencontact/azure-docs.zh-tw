@@ -9,10 +9,10 @@ author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
 ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966089"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可擴充且效能良好的資料表
@@ -47,10 +47,10 @@ ms.locfileid: "65966089"
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -67,10 +67,10 @@ ms.locfileid: "65966089"
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Jun</td>
@@ -104,10 +104,10 @@ ms.locfileid: "65966089"
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -148,8 +148,8 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 | 資料表中的資料分割數目 |僅受限於儲存體帳戶的容量 |
 | 資料分割中的實體數目 |僅受限於儲存體帳戶的容量 |
 | 個別實體的大小 |最多 1 MB 和 255 個屬性 (包括 **PartitionKey**、**RowKey** 和 **Timestamp**) |
-|  **PartitionKey** |大小最多 1 KB 的字串 |
-|  **RowKey** |大小最多 1 KB 的字串 |
+| **PartitionKey** |大小最多 1 KB 的字串 |
+| **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
 如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
@@ -162,19 +162,19 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 將表格服務解決方案設計為易於 *讀取* ：
 
-* ***設計大量讀取應用程式中的查詢。***  當您在設計資料表時，請先思考您將執行的查詢 (尤其是較無法容續延遲的查詢)，然後再思考更新實體的方法。 透過這樣的方式，通常可造就一個有效率且高效能的解決方案。  
+* ***設計大量讀取應用程式中的查詢。*** 當您在設計資料表時，請先思考您將執行的查詢 (尤其是較無法容續延遲的查詢)，然後再思考更新實體的方法。 透過這樣的方式，通常可造就一個有效率且高效能的解決方案。  
 * ***在查詢中同時指定 PartitionKey 和 RowKey。*** *點查詢* 都是最有效率的表格服務查詢。  
-* ***考慮儲存重複的實體副本。***  資料表儲存體的成本較低，因此請考慮多次儲存相同的實體 (使用不同索引鍵)，以啟用更有效率的查詢。  
-* ***考慮將資料反正規化。***  資料表儲存體十分便宜，所以建議您考慮將資料反正規化。 例如儲存摘要實體，可讓彙總資料的查詢只需存取單一實體。  
+* ***考慮儲存重複的實體副本。*** 資料表儲存體的成本較低，因此請考慮多次儲存相同的實體 (使用不同索引鍵)，以啟用更有效率的查詢。  
+* ***考慮將資料反正規化。*** 資料表儲存體十分便宜，所以建議您考慮將資料反正規化。 例如儲存摘要實體，可讓彙總資料的查詢只需存取單一實體。  
 * ***使用複合索引鍵值。*** 您只有 **PartitionKey** 和 **RowKey** 這兩個索引鍵。 例如，使用複合索引鍵值啟用替代的實體索引鍵式存取路徑。  
-* ***使用查詢預測。***  使用僅選取您所需欄位的查詢，即可減少透過網路傳輸的資料量。  
+* ***使用查詢預測。*** 使用僅選取您所需欄位的查詢，即可減少透過網路傳輸的資料量。  
 
 將表格服務解決方案設計為易於 *寫入* ：  
 
-* ***不要建立熱分割。***  選擇可讓您在任何時間點，將要求分散到多個分割上的索引鍵。  
-* ***避免流量尖峰。***  將流量平均分散到合理的時段，以避免產生流量尖峰。
-* ***不一定要為每個實體的類型建立個別的資料表。***  需要跨實體類型執行不可部分完成的交易時，您可以在相同資料表的相同分割中儲存多個實體類型。
-* ***考慮必須達到的最大輸送量。***  您必須留意資料表服務的延展性目標，並確保您的設計不會超過目標。  
+* ***不要建立熱分割。*** 選擇可讓您在任何時間點，將要求分散到多個分割上的索引鍵。  
+* ***避免流量尖峰。*** 將流量平均分散到合理的時段，以避免產生流量尖峰。
+* ***不一定要為每個實體的類型建立個別的資料表。*** 需要跨實體類型執行不可部分完成的交易時，您可以在相同資料表的相同分割中儲存多個實體類型。
+* ***考慮必須達到的最大輸送量。*** 您必須留意資料表服務的延展性目標，並確保您的設計不會超過目標。  
 
 當您閱讀本指南時，您會看到將這些原則全都納入實作的範例。  
 
@@ -200,12 +200,12 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 | *資料行名稱* | *資料類型* |
 | --- | --- |
-| **PartitionKey** (部門名稱) |String |
-| **RowKey** (員工識別碼) |String |
-| **名字** |String |
-| **姓氏** |String |
-| **年齡** |整數  |
-| **EmailAddress** |String |
+| **PartitionKey** (部門名稱) |字串 |
+| **RowKey** (員工識別碼) |字串 |
+| **名字** |字串 |
+| **姓氏** |字串 |
+| **年齡** |Integer |
+| **EmailAddress** |字串 |
 
 稍早的「Azure 資料表服務概觀」一節說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
@@ -544,7 +544,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 此範例的步驟 4 會將員工插入 **封存** 資料表。 這可以將員工新增至 Blob 服務中的 Blob 或檔案系統中的檔案。  
 
 #### <a name="recovering-from-failures"></a>從失敗復原
-步驟 **4** 和 **5** 中的作業務必等冪，免得背景工作角色必須重新啟動封存作業。 使用表格服務時，在步驟 **4** 中，您應使用「插入或取代」作業；在步驟 **5** 中，則應在您使用的用戶端程式庫中使用「如果存在即刪除」作業。 如果您使用其他儲存體系統，您必須使用適當的冪等作業。  
+步驟 **4** 和 **5** 中的作業務必等冪  ，免得背景工作角色必須重新啟動封存作業。 使用表格服務時，在步驟 **4** 中，您應使用「插入或取代」作業；在步驟 **5** 中，則應在您使用的用戶端程式庫中使用「如果存在即刪除」作業。 如果您使用其他儲存體系統，您必須使用適當的冪等作業。  
 
 如果背景工作角色一直未完成步驟 **6**，則在逾時後，訊息會重新出現在佇列上，可讓背景工作角色嘗試重新加以處理。 背景工作角色可以檢查訊息在佇列上的已讀取次數，如有必要可將其傳送至不同的佇列，以標示為「有害」訊息接受調查。 如需讀取佇列訊息及檢查清除佇列計數的詳細資訊，請參閱 [取得訊息](https://msdn.microsoft.com/library/azure/dd179474.aspx)。  
 
@@ -653,7 +653,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 ![部門實體與員工實體][16]
 
 #### <a name="solution"></a>解決方法
-不要將資料儲存在兩個不同的實體中，而是將資料反正規化，並將管理員詳細資料的複本保存在部門實體中。 例如：  
+不要將資料儲存在兩個不同的實體中，而是將資料反正規化，並將管理員詳細資料的複本保存在部門實體中。 例如:  
 
 ![反正規化且合併的部門實體][17]
 
@@ -1122,10 +1122,10 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1142,10 +1142,10 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1162,7 +1162,7 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>部門名稱</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1179,10 +1179,10 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1215,10 +1215,10 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1237,10 +1237,10 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1259,11 +1259,11 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>部門名稱</th>
+<th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>部門</td>
+<td>department</td>
 <td></td>
 <td></td>
 </tr>
@@ -1278,10 +1278,10 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>FirstName</th>
-<th>LastName</th>
-<th>天數</th>
-<th>電子郵件</th>
+<th>名字</th>
+<th>姓氏</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1515,7 +1515,7 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 
 用戶端應用程式可以呼叫多個此類的非同步方法，每個方法叫用會在個別的執行緒上執行。  
 
-### <a name="credits"></a>參與名單
+### <a name="credits"></a>學分
 我們要感謝下列 Azure 團隊成員所做的貢獻：Dominic Betts、Jason Hogg、Jean Ghanem、Jai Haridas、Jeff Irwin、Vamshidhar Kommineni、Vinay Shah 和 Serdar Ozler，以及來自 Microsoft DX 的 Tom Hollander。 
 
 我們也要感謝下列 Microsoft MVP 在審閱期間提供了寶貴意見：Igor Papirov 和 Edward Bakker。

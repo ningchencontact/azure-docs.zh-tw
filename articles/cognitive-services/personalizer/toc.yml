@@ -43,6 +43,8 @@
         - name: 離線評估
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: 延展性和效能
+      href: concepts-scalability-performance.md
 - name: 使用說明指南
   items:
     - name: 建立和設定個人化工具

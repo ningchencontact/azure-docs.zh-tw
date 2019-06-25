@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606428"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
@@ -82,12 +82,12 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ### <a name="accepted-parameter-metadata-types"></a>接受的參數中繼資料類型
 
-| 中繼資料類型   | 參數類型  | 說明     | 範例值    |
+| 中繼資料類型   | 參數類型  | 描述     | 範例值    |
 |---|---|---|---|
-| **baseuri**     | string          | 您部署套件的基底 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **username**    | string          | 新的隨機使用者名稱。| admin68876      |
+| **baseuri**     | 字串          | 您部署套件的基底 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **username**    | 字串          | 新的隨機使用者名稱。| admin68876      |
 | **password**    | 安全字串    | 新的隨機使用者密碼 | Lp!ACS\^2kh     |
-| **session id**   | string          | 唯一試用產品工作階段識別碼 (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **session id**   | 字串          | 唯一試用產品工作階段識別碼 (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>username
 
@@ -317,7 +317,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 ![在使用者介面中啟用試用產品](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-第一個且最重要的欄位是切換是否要為您的供應項目啟用試用產品。 當您選取 [是] 時，會呈現具有其餘所有必要欄位的表單供您填寫。當您選取 [否] 時，表單會被停用，而且若您在已停用試用產品的情況下重新發佈，您的試用產品將從生產環境移除。
+第一個且最重要的欄位是切換是否要為您的供應項目啟用試用產品。 當您選取 [是]  時，會呈現具有其餘所有必要欄位的表單供您填寫。當您選取 [否]  時，表單會被停用，而且若您在已停用試用產品的情況下重新發佈，您的試用產品將從生產環境移除。
 
 注意：若任何試用產品仍由使用者使用中，那些試用產品將會繼續執行，直到其工作階段過期。
 
@@ -362,7 +362,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 **試用產品 Resource Manager 範本 -** *必要* 在這裡上傳您的 Resource Manager 範本。 這是您在上一節中建立的檔案。 主範本檔案名稱："main-template.json" 並確認您的 Resource Manager 範本包含所需的主要變數輸出參數。 (必須是 .zip 檔案)
 
-**存取資訊 -** *必要* 客戶取得其試用產品之後，會呈現存取資訊給他們。 這些指示旨在共用來自您試用產品 Resource Manager 範本的實用輸出參數。 若要包括輸出參數，請使用雙大括弧 (例如 **{{outputname}}**)，而且它們將會被正確插入該位置。 (這裡建議 HTML 字串格式，以便在前端轉譯)。
+**存取資訊 -** *必要* 客戶取得其試用產品之後，會呈現存取資訊給他們。 這些指示旨在共用來自您試用產品 Resource Manager 範本的實用輸出參數。 若要包括輸出參數，請使用雙大括弧 (例如 **{{outputname}}** )，而且它們將會被正確插入該位置。 (這裡建議 HTML 字串格式，以便在前端轉譯)。
 
 ### <a name="test-drive-deployment-subscription-details"></a>試用產品部署訂用帳戶詳細資料
 
@@ -403,13 +403,13 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 我們使用應用程式來部署到訂用帳戶，我們必須在訂用帳戶上將應用程式新增為參與者。 有關這些動作的指示如下：
 
 1. 瀏覽到 [訂用帳戶] 刀鋒視窗，並選取您僅用於試用產品的適當訂用帳戶。
-1. 按一下 [存取控制 (IAM)]。
-1. 按一下 [角色指派] 索引標籤。![新增新的存取控制原則](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-1. 按一下 [新增角色指派]。
-1. 將角色設定為 [參與者]。
+1. 按一下 [存取控制 (IAM)]  。
+1. 按一下 [角色指派]  索引標籤。![新增新的存取控制原則](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. 按一下 [新增角色指派]  。
+1. 將角色設定為 [參與者]  。
 1. 輸入 Azure AD 應用程式的名稱，並選取 應用程式以指派角色。
     ![新增權限](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. 按一下 [檔案] 。
+1. 按一下 [檔案]  。
 
 **Azure AD App 金鑰 -** *必要* 最後一個欄位是要產生驗證金鑰。 在 [金鑰] 下，新增 [金鑰描述] 並將期間設定為永不到期，然後選取 [儲存]。 **務必**避免擁有已到期的金鑰，這將會使得生產環境中的試用產品中斷。 複製此值並將它貼到您的必要 [試用產品] 欄位中。
 

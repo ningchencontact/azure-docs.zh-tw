@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799113"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148007"
 ---
 # <a name="public-ip-address-prefix"></a>公用 IP 位址首碼
 
@@ -32,7 +32,7 @@ ms.locfileid: "65799113"
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>為什麼要建立公用 IP 位址首碼？
 
-當您建立公用 IP 位址資源時，Azure 會從區域中使用的任何範圍指派可用的公用 IP 位址。 Azure 指派位址後，您就會知道是哪個位址，但在 Azure 指派位址之前，您不知道可能指派的地址。 例如，當您或您的業務合作夥伴設定允許特定 IP 位址的防火牆規則時，這可能會造成問題。 每次為資源指派新的公用 IP 位址時，都必須將該位址加入至防火牆規則中。 當您從公用 IP 位址首碼將位址指派給您的資源時，不需要每次指派其中一個位址時就更新防火牆規則，因為整個範圍可以新增至規則中。
+當您建立公用 IP 位址資源時，Azure 會指派可用的公用 IP 位址，從任何區域中使用的範圍。 Azure 指派位址後，您就會知道是哪個位址，但在 Azure 指派位址之前，您不知道可能指派的地址。 例如，當您或您的業務合作夥伴設定允許特定 IP 位址的防火牆規則時，這可能會造成問題。 每次為資源指派新的公用 IP 位址時，都必須將該位址加入至防火牆規則中。 當您從公用 IP 位址首碼將位址指派給您的資源時，不需要每次指派其中一個位址時就更新防火牆規則，因為整個範圍可以新增至規則中。
 
 ## <a name="benefits"></a>優點
 

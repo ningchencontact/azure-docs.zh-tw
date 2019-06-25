@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475526"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742862"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure App Service
 
@@ -119,7 +119,7 @@ ms.locfileid: "66475526"
 
 #### <a name="create-the-cname-record"></a>建立 CNAME 記錄
 
-新增 CNAME 記錄以將子網域對應到應用程式的預設主機名稱 (`<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的應用程式的名稱)。
+新增 CNAME 記錄以將子網域對應到應用程式的預設網域名稱 (`<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的應用程式的名稱)。
 
 對於 `www.contoso.com` 網域範例，新增將名稱 `www` 對應至 `<app_name>.azurewebsites.net` 的 CNAME 記錄。
 
@@ -129,13 +129,13 @@ ms.locfileid: "66475526"
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中啟用 CNAME 記錄對應
 
-在 Azure 入口網站之應用程式分頁的左側導覽中，選取 [自訂網域]  。 
+在 Azure 入口網站之應用程式分頁的左側導覽中，選取 [自訂網域]  。
 
 ![[自訂網域] 功能表](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 在應用程式的 [自訂網域]  分頁中，在清單中新增自訂的完整 DNS 名稱 (`www.contoso.com`)。
 
-選取 [新增主機名稱]  旁的 **+** 圖示。
+選取 [新增自訂網域]  旁的 **+** 圖示。
 
 ![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,15 +143,15 @@ ms.locfileid: "66475526"
 
 選取 [驗證]  。
 
-[新增主機名稱]  頁面隨即顯示。 
+[新增自訂網域]  頁面隨即顯示。
 
 確定 [主機名稱記錄類型]  已設定為 [CNAME (www\.example.com 或任何子網域)]  。
 
-選取 [新增主機名稱]  。
+選取 [新增自訂網域]  。
 
 ![將 DNS 名稱新增至應用程式](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域]  分頁中。 嘗試重新整理瀏覽器以更新資料。
+可能需要一些時間，新的自訂網域才會反映在應用程式的 [自訂網域]  頁面中。 嘗試重新整理瀏覽器以更新資料。
 
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -191,7 +191,7 @@ ms.locfileid: "66475526"
 若要將 A 記錄對應至應用程式，App Service 需要**兩筆** DNS 記錄︰
 
 - **A** 記錄對應至應用程式的 IP 位址。
-- **TXT** 記錄對應至應用程式的預設主機名稱 `<app_name>.azurewebsites.net`。 App Service 只會在設定時使用此記錄，以確認您擁有自訂網域。 驗證您的自訂網域並且在 App Service 中設定之後，您就可以刪除此 TXT 記錄。
+- **TXT** 記錄對應至應用程式的預設網域名稱 `<app_name>.azurewebsites.net`。 App Service 只會在設定時使用此記錄，以確認您擁有自訂網域。 驗證您的自訂網域並且在 App Service 中設定之後，您就可以刪除此 TXT 記錄。
 
 對於 `contoso.com` 網域範例，請根據下表建立 A 和 TXT 記錄 (`@` 通常代表根網域)。
 
@@ -219,23 +219,23 @@ ms.locfileid: "66475526"
 
 回到 Azure 入口網站中的應用程式 [自訂網域]  分頁，在清單中新增自訂的完整 DNS 名稱 (例如，`contoso.com`)。
 
-選取 [新增主機名稱]  旁的 **+** 圖示。
+選取 [新增自訂網域]  旁的 **+** 圖示。
 
-![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 輸入您設定 A 記錄的完整網域名稱，例如 `contoso.com`。
 
 選取 [驗證]  。
 
-[新增主機名稱]  頁面隨即顯示。 
+[新增自訂網域]  頁面隨即顯示。
 
 請確定 [主機名稱記錄類型]  設為 [A 記錄 (example.com)]  。
 
-選取 [新增主機名稱]  。
+選取 [新增自訂網域]  。
 
 ![將 DNS 名稱新增至應用程式](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域]  分頁中。 嘗試重新整理瀏覽器以更新資料。
+可能需要一些時間，新的自訂網域才會反映在應用程式的 [自訂網域]  頁面中。 嘗試重新整理瀏覽器以更新資料。
 
 ![A 記錄已新增](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -258,7 +258,7 @@ ms.locfileid: "66475526"
 
 #### <a name="create-the-cname-record"></a>建立 CNAME 記錄
 
-新增 CNAME 記錄以將萬用字元名稱對應至應用程式的預設主機名稱 (`<app_name>.azurewebsites.net`)。
+新增 CNAME 記錄以將萬用字元名稱對應至應用程式的預設網域名稱 (`<app_name>.azurewebsites.net`)。
 
 針對 `*.contoso.com` 網域範例，CNAME 記錄會將名稱 `*` 對應至 `<app_name>.azurewebsites.net`。
 
@@ -274,23 +274,23 @@ ms.locfileid: "66475526"
 
 ![[自訂網域] 功能表](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-選取 [新增主機名稱]  旁的 **+** 圖示。
+選取 [新增自訂網域]  旁的 **+** 圖示。
 
 ![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 輸入符合萬用字元網域的完整網域名稱 (例如，`sub1.contoso.com`)，然後選取 [驗證]  。
 
-[新增主機名稱]  按鈕會啟用。 
+[新增自訂網域]  按鈕會啟用。
 
 確定 [主機名稱記錄類型]  已設定為 [CNAME 記錄 (www\.example.com 或任何子網域)]  。
 
-選取 [新增主機名稱]  。
+選取 [新增自訂網域]  。
 
 ![將 DNS 名稱新增至應用程式](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域]  分頁中。 嘗試重新整理瀏覽器以更新資料。
+可能需要一些時間，新的自訂網域才會反映在應用程式的 [自訂網域]  頁面中。 嘗試重新整理瀏覽器以更新資料。
 
-再次選取 **+** 圖示，以新增另一個與萬用字元網域相符的主機名稱。 例如，新增 `sub2.contoso.com`。
+再次選取 **+** 圖示，以新增另一個與萬用字元網域相符的自訂網域。 例如，新增 `sub2.contoso.com`。
 
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
@@ -326,7 +326,7 @@ ms.locfileid: "66475526"
 
 ![自訂虛擬目錄](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-當作業完成時，應用程式應該會傳回位於根路徑 (如 http://contoso.com)) 的正確頁面。
+當作業完成時，應用程式應該會傳回位於根路徑 (如 http://contoso.com) ) 的正確頁面。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 

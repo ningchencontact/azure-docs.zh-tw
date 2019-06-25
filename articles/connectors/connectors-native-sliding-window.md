@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299498"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>建立、 排程及執行週期性工作和工作流程與 Azure Logic Apps 中的滑動視窗觸發程序
@@ -54,7 +54,7 @@ ms.locfileid: "66299498"
    | 屬性 | 必要項 | JSON 名稱 | 類型 | 描述 |
    |----------|----------|-----------|------|-------------|
    | **間隔** | 是 | interval | Integer | 描述工作流程根據 frequency 多久執行一次的正整數。 以下是最小和最大間隔： <p>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>比方說，如果 interval 是 6，而 frequency 是"Hour"，則週期為每隔 6 小時。 |
-   | **頻率** | 是 | frequency | String | 用於週期的時間單位：**第二個**，**分鐘**，或**小時** |
+   | **頻率** | 是 | frequency | 字串 | 用於週期的時間單位：**第二個**，**分鐘**，或**小時** |
    ||||||
 
    ![進階的週期選項](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)

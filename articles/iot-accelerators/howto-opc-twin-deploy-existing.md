@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080510"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>部署至現有的專案的 OPC 對應項
 
-OPC 對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服務的 OPC 對應項和登錄服務。 
+OPC 對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服務的 OPC 對應項和登錄服務。
 
 OPC 對應項微服務有助於 factory 運算子與透過 OPC 對應項 IoT Edge 模組在工廠的 OPC UA 伺服器裝置之間的通訊。 微服務會公開透過其 REST API （瀏覽、 讀取、 寫入及執行） 的 OPC UA 服務。 
 
 OPC UA 裝置登錄微服務會提供已註冊的 OPC UA 應用程式和其端點的存取。 操作員和系統管理員可以註冊和取消註冊新的 OPC UA 應用程式及瀏覽現有的項目，包括其端點。 除了應用程式和管理端點，「 登錄 」 服務也會分類已註冊的 OPC 對應項 IoT Edge 模組。 服務 API 可讓您控制 edge 模組的功能，例如啟動或停止伺服器探索 （掃描服務），或啟動新的 「 端點 」 對應項，可以使用 OPC 對應項微服務來存取。
 
-模組的核心是監督員身分識別。 監督員管理端點對應項，其對應至使用對應的 OPC UA 登錄 API 啟動的 OPC UA 伺服器端點。 此端點的對應項會轉譯從 OPC 對應項微服務在雲端中執行 OPC UA 二進位訊息，會透過可設定狀態的安全通道傳送至受管理的端點收到的 OPC UA JSON。 監督員也會提供探索服務，傳送給 OPC UA 裝置上架服務以進行處理，其中這些事件會導致更新至 OPC UA 登錄的裝置探索事件。  這篇文章會示範如何將 OPC 對應項模組部署到現有的專案。 
+模組的核心是監督員身分識別。 監督員管理端點對應項，其對應至使用對應的 OPC UA 登錄 API 啟動的 OPC UA 伺服器端點。 此端點的對應項會轉譯從 OPC 對應項微服務在雲端中執行 OPC UA 二進位訊息，會透過可設定狀態的安全通道傳送至受管理的端點收到的 OPC UA JSON。 監督員也會提供探索服務，傳送給 OPC UA 裝置上架服務以進行處理，其中這些事件會導致更新至 OPC UA 登錄的裝置探索事件。  這篇文章會示範如何將 OPC 對應項模組部署到現有的專案。
 
 > [!NOTE]
 > 如需有關部署詳細資料和指示的詳細資訊，請參閱 GitHub[存放庫](https://github.com/Azure/azure-iiot-opc-twin-module)。
 
 ## <a name="prerequisites"></a>必要條件
 
-請確定您具有 PowerShell 及[Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝擴充功能。   如果您不這麼做還，複製這個 GitHub 存放庫。  開啟命令提示字元或終端機並執行：
+請確定您具有 PowerShell 及[Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝擴充功能。 如果您已不這麼做，請複製這個 GitHub 存放庫。 在 PowerShell 中執行下列命令：
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
 ## <a name="deploy-industrial-iot-services-to-azure"></a>將工業 IoT 服務部署至 Azure
 
-1. 開啟命令提示字元或終端機中執行：
+1. 在您的 PowerShell 工作階段，請執行：
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
 2. 遵循提示來指派至網站的部署的資源群組的名稱和名稱。   指令碼會部署微服務和您的 Azure 訂用帳戶中的資源群組及其 Azure 平台相依性。  指令碼也會支援 OAUTH 型驗證 Azure Active Directory (AAD) 租用戶中註冊應用程式。  部署需要幾分鐘的時間。  您會看到成功部署解決方案後範例：
 
@@ -75,13 +76,14 @@ cd azure-iiot-components
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>部署-全方位工業 IoT 服務示範
 
-您也可以部署-全方位示範而不是服務和相依性。  在一個示範所有包含三個的 OPC UA 伺服器、 OPC 對應項模組、 所有微服務和 Web 應用程式的範例。  它被供示範之用。
+您也可以部署-全方位示範而不是服務和相依性。  一個示範中的所有包含三個的 OPC UA 伺服器、 OPC 對應項模組、 所有微服務，以及範例 Web 應用程式。  它被供示範之用。
 
-1. 請確定您已複製的存放庫 （如上所示）。 開啟命令提示字元或終端機根目錄中的存放庫並執行：
+1. 請確定您已複製的存放庫 （如上所示）。 開啟 PowerShell 提示中的存放庫和執行根目錄：
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
 2. 遵循提示以將新的名稱指派給資源群組和網站的名稱。  一旦成功部署指令碼會顯示 web 應用程式端點的 URL。
 
@@ -89,49 +91,49 @@ cd azure-iiot-components
 
 指令碼會使用下列參數：
 
-```bash
+```powershell
 -type
 ```
 
 部署 （虛擬機器本機，示範） 類型
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
 可以是現有或新的資源群組的名稱。
 
-```bash
+```powershell
 -subscriptionId
 ```
 
 選擇性，將部署資源的訂用帳戶識別碼。
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 或訂用帳戶名稱。
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
 選擇性，資源群組的位置。 如果指定，會嘗試在這個位置建立新的資源群組。
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-向下的 AAD 應用程式名稱。 
+向下的 AAD 應用程式名稱。
 
-```bash
+```powershell
 -tenantId
 ```
 
 若要使用的 AAD 租用戶。
 
-```bash
+```powershell
 -credentials
 ```
 

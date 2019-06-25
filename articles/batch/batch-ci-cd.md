@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541754"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>使用 Azure 管線來建置和部署的 HPC 解決方案
@@ -418,13 +418,13 @@ Azure 的管線也會用來部署您的應用程式和基礎結構。 [發行管
     * **動作**：建立或更新資源群組
     * **資源群組**: resourcegroupname
     * **位置**: $(location)
-    * **範本**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **範本**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **覆寫範本參數**:-accountName $(storageAccountName)
 
 1. 將從原始檔控制成品上傳到儲存體帳戶。 沒有執行此作業的 Azure 管線工作。 這項工作的一部分，儲存體帳戶容器 URL 和 SAS 權杖可以被輸出到 Azure 管線中的變數。 這表示可以在此代理程式階段重複使用。
 
     新增**Azure 檔案複製**工作，並設定下列屬性：
-    * **來源：** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates /
+    * **來源：** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates /
     * **Azure 的連線類型**:Azure Resource Manager
     * **Azure 訂用帳戶：** 選取適當的 Azure 訂用帳戶
     * **目的型別**:Azure Blob
@@ -441,7 +441,7 @@ Azure 的管線也會用來部署您的應用程式和基礎結構。 [發行管
     * **動作**：建立或更新資源群組
     * **資源群組**: resourcegroupname
     * **位置**: $(location)
-    * **範本**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **範本**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **覆寫範本參數**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 常見的做法是使用 Azure 金鑰保存庫的工作。 如果服務主體 （連線到您 Azure 訂用帳戶） 已設定適當的存取原則，它可以從 Azure Key Vault 祕密，並作為您的管線中的變數。 密碼的名稱將與相關聯的值。 比方說，sshPassword 的祕密無法參考 $(sshPassword) 發行定義中使用。

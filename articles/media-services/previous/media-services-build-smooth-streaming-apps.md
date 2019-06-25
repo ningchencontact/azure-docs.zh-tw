@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949619"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式  
@@ -63,31 +63,31 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 ### <a name="to-create-a-windows-store-project"></a>若要建立 Windows 市集專案
 
 1. 執行 Visual Studio；支援 2012 到 2015 版。
-1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
+1. 從 [檔案]  功能表中，按一下 [新增]  ，再按 [專案]  。
 1. 從 [新增專案] 對話方塊中，輸入或選取下列值：
 
-    | 名稱 | Value |
+    | 名稱 | 值 |
     | --- | --- |
     | 範本群組 |已安裝/範本/Visual C#/Windows 市集 |
     | 範本 |空白應用程式 (XAML) |
-    | 名稱 |SSPlayer |
+    | Name |SSPlayer |
     | 位置 |C:\SSTutorials |
     | 方案名稱 |SSPlayer |
     | 為方案建立目錄 |(已選取) |
 
-1. 按一下 [確定]。
+1. 按一下 [確定]  。
 
 ### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>將 Smooth Streaming Client SDK 的參考
 
-1. 從 [方案總管] 中，在 [SSPlayer] 上按一下滑鼠右鍵，然後按一下 [加入參考]。
+1. 從 [方案總管] 中，在 [SSPlayer]  上按一下滑鼠右鍵，然後按一下 [加入參考]  。
 1. 輸入或選取下列值：
 
-    | 名稱 | Value |
+    | 名稱 | 值 |
     | --- | --- |
     | 參考群組 |Windows/延伸 |
     | 參考 |選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package |
 
-1. 按一下 [確定]。 
+1. 按一下 [確定]  。 
 
 加入參考之後，您必須選取目標平台 (x64 或 x86)，而加入參考在「任何 CPU 平台」組態中將沒有作用。  在方案總管中，您會看到這些加入的參考具有黃色警告標記。
 
@@ -149,7 +149,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-modify-the-code-behind-file"></a>若要修改的程式碼後置檔案
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在檔案的頂端，新增下列 using 陳述式：
    
         using Windows.Media;
@@ -213,12 +213,12 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-compile-and-test-the-application"></a>若要編譯和測試應用程式
 
-1. 從 [建置] 功能表中，按一下 [組態管理員]。
+1. 從 [建置]  功能表中，按一下 [組態管理員]  。
 2. 變更 [使用中的方案平台]  ，以符合您的開發平台。
 3. 按 **F6** 鍵編譯專案。 
 4. 按 **F5** 鍵執行應用程式。
 5. 在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
-6. 按一下 [設定來源] 。 因為預設會啟用 [自動播放]  ，所以應該會自動播放媒體。  您可以使用 [播放]、[暫停] 和 [停止] 按鈕來控制媒體。  您可以使用垂直滑動軸來控制媒體音量。  不過，尚未完整實作用於控制媒體進度的水平滑動軸。 
+6. 按一下 [設定來源]  。 因為預設會啟用 [自動播放]  ，所以應該會自動播放媒體。  您可以使用 [播放]  、[暫停]  和 [停止]  按鈕來控制媒體。  您可以使用垂直滑動軸來控制媒體音量。  不過，尚未完整實作用於控制媒體進度的水平滑動軸。 
 
 您已完成課程 1。  在本課程中，您使用 MediaElement 控制項來播放 Smooth Streaming 內容。  在下一個課程中，您將新增滑動軸來控制 Smooth Streaming 內容的進度。
 
@@ -241,7 +241,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>註冊 Smooth Streaming 位元組資料流處理常式，並傳遞屬性集
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在檔案的開頭，新增下列 using 陳述式：
 
    ```csharp
@@ -286,7 +286,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>新增調適性來源管理員層級事件處理常式
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在 [MainPage]  類別內，新增下列資料成員：
 
    ```csharp
@@ -314,7 +314,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>新增調適性來源層級的事件處理常式
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在 [MainPage]  類別內，新增下列資料成員：
 
    ```csharp
@@ -365,7 +365,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-add-media-element-event-handlers"></a>若要新增媒體元素事件處理常式
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
    ```csharp
@@ -401,7 +401,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 ### <a name="to-add-slider-bar-related-code"></a>若要新增滑動軸相關程式碼
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在檔案的開頭，新增下列 using 陳述式：
 
    ```csharp
@@ -507,7 +507,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
    ```
 
    > [!NOTE]
-   > CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。 如果發送器執行緒上的瓶頸，開發人員可以選擇使用 UI 項目他們想要更新所提供的發送器。  例如：
+   > CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。 如果發送器執行緒上的瓶頸，開發人員可以選擇使用 UI 項目他們想要更新所提供的發送器。  例如:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -537,7 +537,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 1. 按 **F6** 鍵編譯專案。 
 2. 按 **F5** 鍵執行應用程式。
 3. 在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
-4. 按一下 [設定來源] 。 
+4. 按一下 [設定來源]  。 
 5. 測試滑動軸。
 
 您已完成課程 2。  在本課程中，您將在應用程式中新增滑動軸。 
@@ -551,7 +551,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
 
 ### <a name="to-modify-the-xaml-file"></a>若要修改 XAML 檔案
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視設計工具]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視設計工具]  。
 2. 找到 &lt;Grid.RowDefinitions&gt;，並修改 RowDefinitions，讓它們看起來如下：
 
    ```xml
@@ -594,7 +594,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
 
 ### <a name="to-modify-the-code-behind-file"></a>若要修改的程式碼後置檔案
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在 SSPlayer 命名空間內，新增類別：
 
    ```csharp
@@ -814,7 +814,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
 1. 按 **F6** 鍵編譯專案。 
 2. 按 **F5** 鍵執行應用程式。
 3. 在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
-4. 按一下 [設定來源] 。 
+4. 按一下 [設定來源]  。 
 5. 預設語言為 audio_eng。 嘗試在 audio_eng 與 audio_es 之間切換。 每次您選取新的資料流時，都必須按一下 [提交] 按鈕。
 
 您已完成課程 3。  在本課程中，您新增了選擇資料流的功能。
@@ -829,7 +829,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 ### <a name="to-modify-the-xaml-file"></a>若要修改 XAML 檔案
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視設計工具]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視設計工具]  。
 2. 找到名稱為 **gridStreamAndBitrateSelection** 的 &lt;Grid&gt; 標籤，並在標籤的結尾附加下列程式碼：
    ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
@@ -851,7 +851,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 ### <a name="to-modify-the-code-behind-file"></a>若要修改的程式碼後置檔案
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 [方案總管] 中，在 [MainPage.xaml]  上按一下滑鼠右鍵，然後按一下 [檢視程式碼]  。
 2. 在 SSPlayer 命名空間內，新增類別：
    ```csharp
         #region class Track
@@ -1018,7 +1018,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 1. 按 **F6** 鍵編譯專案。 
 2. 按 **F5** 鍵執行應用程式。
 3. 在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
-4. 按一下 [設定來源] 。 
+4. 按一下 [設定來源]  。 
 5. 預設會選取視訊資料流的所有曲目。 若要試驗位元速率變更，您可以選取可用的最低位元速率，然後選取可用的最高位元速率。 您必須在每次變更之後按一下 [提交]。  您可以看到視訊品質變更。
 
 您已完成課程 4。  在本課程中，您新增了選擇追蹤的功能。

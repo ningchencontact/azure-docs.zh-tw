@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870888"
 ---
 # <a name="service-state"></a>服務狀態
-「服務狀態」係指服務正常運作所需的記憶體或磁碟資料。 例如，其包括可以讓服務讀取及寫入，以執行工作的資料結構及成員變數。 根據服務的架構方式而定，它可能還包括儲存在磁碟上的檔案或其他資源。 例如，資料庫要用於儲存資料和交易記錄的檔案。
+「服務狀態」  係指服務正常運作所需的記憶體或磁碟資料。 例如，其包括可以讓服務讀取及寫入，以執行工作的資料結構及成員變數。 根據服務的架構方式而定，它可能還包括儲存在磁碟上的檔案或其他資源。 例如，資料庫要用於儲存資料和交易記錄的檔案。
 
 作為範例服務，讓我們考慮計算機。 基本計算機服務會採用兩個數字並傳回其總和。 執行這項計算不會牽涉任何成員變數或其他資訊。
 
@@ -38,7 +38,7 @@ ms.locfileid: "60870888"
 ## <a name="next-steps"></a>後續步驟
 如需有關 Service Fabric 概念的詳細資訊，請參閱下列文章：
 
-* [Service Fabric 服务的可用性](service-fabric-availability-services.md)
+* [Service Fabric 服務的可用性](service-fabric-availability-services.md)
 * [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
-* [Service Fabric 服务分区](service-fabric-concepts-partitioning.md)
+* [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
 * [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)

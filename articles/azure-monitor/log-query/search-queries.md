@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560833"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295565"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure 監視器記錄中的搜尋查詢
-
-> [!NOTE]
-> 請先完成[開始使用 Azure 監視器記錄查詢](get-started-queries.md)，再完成此課程。
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure 監視器記錄查詢可以透過資料表名稱或 search 命令來開始。 本教學課程涵蓋以搜尋為基礎的查詢。 每種方法各有其優點。
 
 以資料表為基礎的查詢一開始會界定查詢範圍，因此，通常會比搜尋查詢更有效率。 搜尋查詢的結構較為鬆散，因此更適合用於搜尋資料行或資料表中的特定值。 **search** 可以掃描指定資料表或所有資料表中的所有資料行，查看其中是否有指定值。 所要處理的資料量可能會很大，因此這些查詢可能需要較長的時間才能完成，而且可能會傳回非常大型的結果集。
@@ -107,7 +101,7 @@ search in (Event) "corp*.com"
 > [!TIP]
 > 雖然您可以使用 `search *` 來取得每個資料表中的每個資料行，但建議您一律將查詢範圍界定在特定資料表。 未界定範圍的查詢可能需要一段時間才能完成，而且可能會傳回太多結果。
 
-## <a name="add-and--or-to-search-queries"></a>對搜尋查詢新增 and / or
+## <a name="add-and--or-to-search-queries"></a>對搜尋查詢新增 and  / or 
 使用 **and** 可搜尋包含多個字詞的記錄：
 
 ```Kusto
@@ -132,7 +126,7 @@ search in (Event) "error" and ("register" or "marshal*")
 此範例的結果中所含有的記錄，會包含「error」字詞且同時包含「register」或以「marshal」開頭的字詞。
 
 ## <a name="pipe-search-queries"></a>垂直線搜尋查詢
-和任何其他命令一樣，**search** 也可以使用垂直線，以便對搜尋結果進行篩選、排序和彙總。 例如，若要取得包含「win」的 Event 記錄數目：
+和任何其他命令一樣，**search** 也可以使用垂直線，以便對搜尋結果進行篩選、排序和彙總。 例如，若要取得包含「win」的 Event  記錄數目：
 
 ```Kusto
 search in (Event) "win"

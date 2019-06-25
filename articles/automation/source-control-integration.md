@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce41ae73a0c55a2b5c27cbdce4d4c16853acf59e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574116"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273199"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
-原始檔控制可讓您保留您的 runbook 在您的自動化帳戶是最新的 GitHub 或 Azure 儲存機制來源控制存放庫中指令碼。 原始檔控制可讓您輕鬆地與小組共同作業、追蹤變更，以及回復至舊版的 Runbook。 例如，原始檔控制可讓您將原始檔控制中的不同分支同步至您的開發、測試或生產環境「自動化」帳戶。 這可讓您輕鬆地將已在開發環境中測試過的程式碼提升至生產環境「自動化」帳戶。 使用自動化的原始檔控制整合支援單向同步處理從您的原始檔控制儲存機制。
+原始檔控制，可讓您掌握您的 runbook 自動化帳戶中您在 GitHub 或 Azure 儲存機制來源控制存放庫中的指令碼。 原始檔控制可讓您輕鬆地與小組共同作業、追蹤變更，以及回復至舊版的 Runbook。 例如，原始檔控制可讓您將原始檔控制中的不同分支同步至您的開發、測試或生產環境「自動化」帳戶。 這可讓您輕鬆地將已在開發環境中測試過的程式碼提升至生產環境「自動化」帳戶。 使用自動化的原始檔控制整合支援單向同步處理從您的原始檔控制儲存機制。
 
 Azure 自動化支援三種類型的原始檔控制：
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9198bd4f88533a8eb5817dcb6edb75931c40ec80
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: b8c649ad9bdc80f64b9c3a8ca33a544830d88d52
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66510042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116211"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -27,7 +27,7 @@ Azure AD 擴充功能無法運作有兩個常見原因。  Azure AD B2C 要求�
 Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一個租用戶。  一個 Azure AD 租用戶代表一個組織。  一個 Azure AD B2C 租用戶代表一組要用於信賴憑證者應用程式的身分識別。  透過自訂原則 (處於公開預覽狀態)，Azure AD B2C 可以與 Azure AD 結成同盟，所以能夠驗證組織中的員工。
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>我可以使用 Azure AD B2C 來提供 Office 365 的社交登入 (Facebook 和 Google+) 嗎？
-Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。  Azure AD 是 Microsoft 為了管理員工存取 SaaS 應用程式而提出的解決方案，具有專為此用途而設計的功能，例如授權和條件式存取。  Azure AD B2C 提供身分識別和存取管理平台來建置 web 和行動應用程式。  當 Azure AD B2C 設定為與 Azure AD 租用戶結成同盟時，Azure AD 租用戶會管理員工如何存取依賴 Azure AD B2C 的應用程式。
+Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。  Azure AD 是 Microsoft 的解決方案，管理員工存取 SaaS 應用程式，而且具有用於此用途，例如授權和條件式存取所設計的功能。  Azure AD B2C 提供身分識別和存取管理平台來建置 web 和行動應用程式。  當 Azure AD B2C 設定為與 Azure AD 租用戶結成同盟時，Azure AD 租用戶會管理員工如何存取依賴 Azure AD B2C 的應用程式。
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C 中的本機帳戶是什麼？ 與 Azure AD 中的工作或學校帳戶有何不同？
 在 Azure AD 租用戶中，屬於租用戶的使用者是以 `<xyz>@<tenant domain>` 格式的電子郵件地址登入。  `<tenant domain>` 是租用戶中已驗證的其中一個網域，或初始的 `<...>.onmicrosoft.com` 網域。 這種類型的帳戶就是工作或學校帳戶。

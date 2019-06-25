@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605634"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734714"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>快速入門：Azure Active Directory 中的群組命名原則
 
@@ -31,12 +31,12 @@ ms.locfileid: "65605634"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>使用 Azure 入口網站設定租用戶的群組命名原則 (預覽)
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>使用 Azure 入口網站設定租用戶的群組命名原則
 
 1. 使用使用者管理員帳戶登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 1. 選取 [群組]  ，然後選取 [命名原則]  以開啟 [命名原則] 頁面。
 
-    ![在管理中心開啟 [命名原則] 頁面](./media/groups-naming-policy/policy-preview.png)
+    ![在管理中心開啟 [命名原則] 頁面](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>檢視或編輯前置詞後置詞命名原則
 
@@ -49,7 +49,7 @@ ms.locfileid: "65605634"
 
 1. 在 [命名原則]  頁面上，選取 [封鎖的字組]  。
 
-    ![編輯和上傳命名原則的封鎖字組清單](./media/groups-naming-policy/blockedwords-preview.png)
+    ![編輯和上傳命名原則的封鎖字組清單](./media/groups-naming-policy/blockedwords.png)
 
 1. 選取 [下載]  可檢視或編輯目前的自訂封鎖字組清單。
 1. 選取 [檔案] 圖示可上傳新的自訂封鎖字組清單。
@@ -59,7 +59,7 @@ ms.locfileid: "65605634"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>使用 Azure 入口網站移除命名原則 (預覽)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>使用 Azure 入口網站移除命名原則
 
 1. 在 [命名原則]  頁面上，選取 [刪除原則]  。
 1. 確認刪除之後，命名原則就會遭到移除，包括所有前置詞後置詞命名原則以及任何自訂封鎖字組。

@@ -16,18 +16,18 @@ ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f397401581cc1bc947f1b19ce248c17fba26f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245642"
+ms.locfileid: "67109532"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect：裝置選項
 
 下列文件提供與 Azure AD Connect 中的各種可用裝置選項有關的資訊。 您可以使用 Azure AD Connect 來設定下列兩項作業： 
 * **混合式 Azure AD Join**：如果您的環境具有內部部署 AD 使用量，而且您想要獲得 Azure AD 的好處，您可以實作已加入混合式 Azure AD 的裝置。 這些裝置會加入您的內部部署 Active Directory 和您的 Azure Active Directory。
-* **裝置回寫**：裝置回寫用於對 AD FS (2012 R2 或更高版本) 保護的裝置啟用裝置型條件式存取
+* **裝置回寫**：裝置回寫用來啟用 AD fs 的裝置為基礎的條件式存取 (2012 R2 或更高版本) 保護裝置
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>設定 Azure AD Connect 中的裝置選項
 

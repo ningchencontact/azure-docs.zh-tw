@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
 ms.openlocfilehash: 64fc576885bb9d9c3c46aafd808db65d2f8ff77f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200594"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>針對 IoT 部署 Azure 資訊安全中心C#為基礎的 Windows 安全性代理程式
@@ -31,7 +31,7 @@ ms.locfileid: "65200594"
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]
-> * Install
+> * 安裝
 > * 驗證部署
 > * 解除安裝代理程式
 > * 疑難排解 
@@ -61,7 +61,7 @@ ms.locfileid: "65200594"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
     
-    例如︰
+    例如:
     
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -100,7 +100,7 @@ ms.locfileid: "65200594"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果代理程式無法啟動，請開啟記錄 (預設會「關閉」記錄) 以取得詳細資訊。
+如果代理程式無法啟動，請開啟記錄 (預設會「關閉」  記錄) 以取得詳細資訊。
 
 若要開啟記錄：
 

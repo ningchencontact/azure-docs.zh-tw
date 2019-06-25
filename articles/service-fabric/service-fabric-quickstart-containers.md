@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 03f2f6bb572c46a1683d73ba42f435eca59829e5
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428095"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734506"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入門：將 Windows 容器部署至 Service Fabric
 
@@ -57,7 +57,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 
 從 [裝載的容器和應用程式]  範本選取 [容器]  。
 
-在 [映像名稱]  中，輸入 "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016"、[Windows Server Core Server 和 IIS 基底映像](https://hub.docker.com/r/microsoft-windows-servercore-iis)。
+在 [映像名稱]  中，輸入 "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016"、[Windows Server Core Server 和 IIS 基底映像](https://hub.docker.com/_/microsoft-windows-servercore-iis)。
 
 設定容器連接埠對主機的連接埠對應，以便讓通訊埠 80 上服務的連入要求對應到容器上的連接埠 80。  將 [容器連接埠]  設定為 "80"，並將 [主機連接埠]  設定為 "80"。  
 
@@ -77,14 +77,14 @@ Microsoft 針對建置於不同 Windows Server 版本的 IIS 版本，發行了�
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-服務資訊清單會繼續只為 nanoserver `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016` 指定一個映像。
+服務資訊清單會繼續只為 nanoserver `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016` 指定一個映像。
 
 此外，在 *ApplicationManifest.xml* 檔案中，將 **PasswordEncrypted** 變更為 **false**。 對於 Docker Hub 上的公用容器映像，帳戶和密碼都是空白的，所以我們會關閉加密功能，因為加密空白密碼將會產生建置錯誤。
 

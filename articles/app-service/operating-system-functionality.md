@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808402"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
 本文說明在 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
@@ -32,11 +32,11 @@ ms.locfileid: "60835493"
 <a id="tiers"></a>
 
 ## <a name="app-service-plan-tiers"></a>App Service 計劃層
-App Service 會在多租用戶裝載環境中執行客戶應用程式。 部署在「免費」和「共用」層的應用程式，會在共用虛擬機器的背景工作角色處理序中執行，而部署在「標準」和「Premium」層的應用程式，則會在與單一客戶應用程式相關聯的專用虛擬機器上執行。
+App Service 會在多租用戶裝載環境中執行客戶應用程式。 部署在「免費」  和「共用」  層的應用程式，會在共用虛擬機器的背景工作角色處理序中執行，而部署在「標準」  和「Premium」  層的應用程式，則會在與單一客戶應用程式相關聯的專用虛擬機器上執行。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-由于应用服务支持不同层之间的无缝缩放体验，因此，为应用服务应用实施的安全配置保持不变。 這可確保當 App Service 在不同層之間切換時，應用程式不會突然出現不同的行為，發生非預期的失敗。
+因為 App Service 支援不同層之間的完美縮放體驗，所以強制 App Service 應用程式採用的安全性設定維持不變。 這可確保當 App Service 在不同層之間切換時，應用程式不會突然出現不同的行為，發生非預期的失敗。
 
 <a id="developmentframeworks"></a>
 
@@ -61,11 +61,11 @@ App Service 中的各種磁碟機，包含本機磁碟機和網路磁碟機。
 - 應用程式磁碟機，包含 App Service 專用的 Azure 封裝 cspkg 檔案 (客戶無法存取)
 - 「使用者」磁碟機 (C:\ 磁碟機)，它的大小會隨著虛擬機器大小而異。 
 
-請務必在您應用程式增加之際監視磁碟使用狀況。 如果達到磁碟配額時，可能會對您的應用程式造成不良影響。 例如︰ 
+請務必在您應用程式增加之際監視磁碟使用狀況。 如果達到磁碟配額時，可能會對您的應用程式造成不良影響。 例如: 
 
 - 應用程序可能會擲回錯誤，指出磁碟上沒有足夠的空間。
 - 瀏覽至 Kudu 主控台時，您可能會看到磁碟錯誤。
-- 從 VSTS 或 Visual Studio 部署可能會因 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)` 而失敗。
+- 從 Azure DevOps 或 Visual Studio 的部署可能會失敗並`ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`。
 - 您的應用程式可能會效能變慢。
 
 <a id="NetworkDrives"></a>

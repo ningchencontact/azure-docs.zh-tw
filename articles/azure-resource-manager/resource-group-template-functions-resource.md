@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 05/21/2019
 ms.author: tomfitz
 ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990766"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
@@ -37,11 +37,11 @@ ms.locfileid: "65990766"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |有 |string |資源的唯一識別碼。 |
-| apiVersion |有 |string |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
-| functionValues |無 |物件 | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
+| resourceName 或 resourceIdentifier |是 |字串 |資源的唯一識別碼。 |
+| apiVersion |是 |字串 |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
+| functionValues |否 |物件 | 具有函式值的物件。 只針對以下函式提供此物件：可支援在儲存體帳戶上接收具有參數值的物件，例如 **listAccountSas**。 本文會顯示傳遞函式值的範例。 | 
 
 ### <a name="implementations"></a>實作
 
@@ -248,10 +248,10 @@ ms.locfileid: "65990766"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |有 |string |提供者的命名空間 |
-| resourceType |無 |string |所指定命名空間內的資源類型。 |
+| providerNamespace |是 |字串 |提供者的命名空間 |
+| resourceType |否 |字串 |所指定命名空間內的資源類型。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -323,11 +323,11 @@ ms.locfileid: "65990766"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |有 |string |資源的名稱或唯一識別碼。 |
-| apiVersion |無 |string |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 |
-| 'Full' |無 |string |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
+| resourceName 或 resourceIdentifier |是 |字串 |資源的名稱或唯一識別碼。 |
+| apiVersion |否 |字串 |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 |
+| 'Full' |否 |字串 |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -578,7 +578,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 }
 ```
 
-## <a name="resourceid"></a>resourceId
+## <a name="resourceid"></a>ResourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
@@ -586,13 +586,13 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |無 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceGroupName |無 |string |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
-| resourceType |有 |string |資源的類型 (包括資源提供者命名空間)。 |
-| resourceName1 |有 |string |資源的名稱。 |
-| resourceName2 |無 |string |如果是巢狀資源，則為下一個資源名稱區段。 |
+| subscriptionId |否 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
+| resourceGroupName |否 |字串 |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
+| resourceType |是 |字串 |資源的類型 (包括資源提供者命名空間)。 |
+| resourceName1 |是 |字串 |資源的名稱。 |
+| resourceName2 |否 |字串 |如果是巢狀資源，則為下一個資源名稱區段。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -712,12 +712,12 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | 字串 | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | 字串 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>訂用帳戶
 

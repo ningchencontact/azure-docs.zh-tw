@@ -1,6 +1,6 @@
 ---
-title: 將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
-description: 了解如何將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體。
+title: 將資料庫從 SQL Server 執行個體移轉到 Azure SQL Database 受控執行個體 |Microsoft Docs
+description: 了解如何將資料庫從 SQL Server 執行個體移轉到 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61315533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070417"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -42,18 +42,41 @@ ms.locfileid: "61315533"
 
 使用[資料移轉小幫手 (DMA)](https://docs.microsoft.com/sql/dma/dma-overview)，可偵測影響 Azure SQL Database 資料庫功能的潛在相容性問題。 DMA 尚不支援將受控執行個體做為移轉目的地，但建議您針對 Azure SQL Database 執行評估，並針對產品文件，仔細檢閱提報的功能同位和相容性問題清單。 請參閱 [Azure SQL Database 功能](sql-database-features.md)，以檢查是否有一些回報的執行問題不是受控執行個體中造成作業無法繼續執行個問題，因為造成無法無移轉到 Azure SQL Database 的大部分問題在受控執行個體中都已移除。 例如跨資料庫查詢、相同執行個體內的跨資料庫交易、其他 SQL 來源的連結伺服器、CLR、全域暫存資料表、執行個體層級檢視、Service Broker 等功能皆可在受控執行個體中使用。
 
-若受控制執行個體部署選項並未移除一些回報的執行問題，您可能需要考慮替代選項，例如 [Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)。 這裡有一些範例：
+若受控制執行個體部署選項並未移除一些回報的執行問題，您可能需要考慮替代選項，例如 [Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)。 以下是一些範例：
 
 - 如果您需要直接存取作業系統或檔案系統，例如在具有 SQL Server 的相同虛擬機器上安裝第三方或自訂代理程式。
 - 如果您的執行個體與尚不支援的功能有緊密相依性，例如 FileStream / FileTable、PolyBase 及跨執行個體交易等功能。
-- 如果您極必須維持在特定版本的 SQL Server (例如 2012 版)。
+- 如果一定要將它保持在特定版本的 SQL Server (2012年執行個體)。
 - 如果您的計算需求遠低於受控執行個體提供的功能 (例如，只需要一個虛擬核心)，而且資料庫彙總不是可接受的選項。
+
+如果您已經解決所有識別移轉封鎖程式，並繼續移轉至受控執行個體，請注意，某些變更可能會影響工作負載的效能：
+- 強制性的完整復原模式並定期自動備份排程可能會影響您的工作負載或維護/ETL 動作的效能，如果您定期使用簡單/大量記錄模式或停止隨選的備份。
+- 不同的伺服器或資料庫層級設定，例如追蹤旗標或相容性層級
+- 您使用例如透明資料庫加密 (TDE) 」 或 「 自動容錯移轉群組的新功能可能會影響 CPU 和 IO 使用量。
+
+管理的執行個體保證 99.99%可用性，即使在重要的案例中，因此無法停用這些功能所造成的額外負荷。 如需詳細資訊，請參閱 <<c0> [ 可能會導致不同的效能，在 SQL Server 和受控執行個體的根本原因](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)。
+
+### <a name="create-performance-baseline"></a>建立效能基準
+
+如果您需要比較您的受控執行個體與原始工作負載的 SQL Server 上執行的工作負載的效能，您必須建立要用於比較效能基準線。 您必須在您的 SQL Server 執行個體量值的參數包括： 
+- [監視 SQL Server 執行個體上的 CPU 使用量](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131)並記錄平均值，並達到 CPU 使用率的尖峰。
+- [監視您的 SQL Server 執行個體上的記憶體使用量](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage)，並判斷不同的元件，例如緩衝集區所使用的記憶體數量計劃快取中，資料行存放區集區[記憶體內部 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)，依此類推。此外，您應該會發現 Page Life Expectancy memory 效能計數器的平均值和尖峰的值。
+- 監視來源 SQL Server 執行個體使用的磁碟 IO 使用量[sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)檢視或[效能計數器](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)。
+- 藉由檢查動態管理檢視或查詢存放區，如果您從 SQL Server 2016 + 版本移轉，監視工作負載和查詢效能或您的 SQL Server 執行個體。 找出平均持續時間和 CPU 使用量，您要與受控執行個體執行的查詢比較它們的工作負載中最重要的查詢。
+
+> [!Note]
+> 如果您發現任何問題，SQL Server 上您工作負載，例如高 CPU 使用量、 固定的記憶體不足的壓力、 tempdb 或幾的問題，您應該嘗試解決您的來源 SQL Server 執行個體上進行的基準和移轉前。 移轉知道任何新的系統 migh 問題會造成非預期的結果，並使其失效的任何效能比較。
+
+此活動的結果為您應具有詳實記載和 CPU、 記憶體和 IO 使用量，在您的來源系統上的尖峰值，以及平均值和最大持續時間和平均 CPU 使用量，以及主控項的最重要的查詢工作負載中。 您應該稍後使用這些值，來比較您的受控執行個體的工作負載的來源 SQL Server 上的工作負載的基準效能的效能。
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>部署到最佳大小的受控執行個體
 
-受控執行個體專為打算移至雲端的內部工作負載量身訂做。 它引進[新的購買模型](sql-database-service-tiers-vcore.md)，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目與 IO 頻寬來調整這些工作負載大小。 受控執行個體的購買模型是以虛擬核心 (vCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。
+受控執行個體專為打算移至雲端的內部工作負載量身訂做。 它引進[新的購買模型](sql-database-service-tiers-vcore.md)，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目與 IO 頻寬來調整這些工作負載大小。 受控執行個體的購買模型是以虛擬核心 (vCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。 一些一般指導方針，以幫助您選擇的正確服務層和特性如下所示：
+- [監視 SQL Server 執行個體上的 CPU 使用量](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131)和核取多少計算您目前使用 （使用動態管理檢視、 SQL Server Management Studio 或其他監視工具） 的能力。 您可以佈建受控執行個體符合您使用 SQL Server，注意，CPU 特性可能需要進行調整以符合需要的核心數目[受控執行個體安裝所在的 VM 特性](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics)。
+- 請檢查您的 SQL Server 執行個體上的可用記憶體數量，然後選擇[服務層有相符的記憶體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics)。 它會有用來測量來判斷 SQL Server 執行個體上的頁面存留時間期望值[您需要額外的記憶體](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)。
+- 量值一般用途和業務關鍵服務層之間進行選擇的檔案子系統的 IO 的延遲。
 
-您可以在部署期間選取計算和儲存體資源，並在之後使用 [Azure 入口網站](sql-database-scale-resources.md)進行變更，而這不會導致應用程式產生停機時間。
+您可以選擇計算和儲存體資源，在部署時間以及之後進行變更，且不會造成您的應用程式使用的停機時間[Azure 入口網站](sql-database-scale-resources.md):
 
 ![受控執行個體大小](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
@@ -111,18 +134,52 @@ ms.locfileid: "61315533"
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
+
 ## <a name="monitor-applications"></a>監視應用程式
 
-追蹤移轉之後的應用程式行為和效能。 在受控執行個體中，某些變更只會在[變更資料庫相容性層級](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)時啟用。 在大部分的情況中，資料庫移轉到 Azure SQL Database 時會留其原始的相容性層級。 如果使用者資料庫在移轉之前的相容性層級為 100 或以上，則移轉後相容性層級維持不變。 如果使用者資料庫在移轉之前的相容性層級為 90，那在升級後的資料庫中，相容性層級會設定為 100，這是受控執行個體中能支援的最低相容性層級。 系統資料庫的相容性層級是 140。
+當您完成移轉至受控執行個體時，您應該追蹤應用程式行為和工作負載的效能。 此程序包含下列活動：
+- [比較受控執行個體上執行的工作負載的效能](#compare-performance-with-the-baseline)具有[您在來源 SQL Server 上建立效能基準線](#create-performance-baseline)。
+- 持續[監視您的工作負載的效能](#monitor-performance)來識別潛在的問題和改進。
 
-若要減少移轉的風險，請只在進行效能監視後變更資料庫相容性層級。 在資料庫相容性層級變更之前和之後，請使用查詢資料存放區作為取得工作負載效能相關資訊的最佳工具，如[在升級到較新 SQL Server 版本期間保持效能穩定性](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade)中所述。
+### <a name="compare-performance-with-the-baseline"></a>比較效能基準線
 
-如果您已在完全受控的平台上，請充分運用屬於 SQL Database 服務的功能。 比方說，您不需要在受控執行個體上建立備份 (服務會自動為您執行備份)。 您無法再擔心如何排程、使用及管理備份。 受控執行個體使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原到此保留期限內的任何時間點。 此外，您不需要擔心如何設定為高可用性，因為[高可用性](sql-database-high-availability.md)已內建。
+您需要採取立即成功移轉後的第一個活動是比較的基準工作負載效能的工作負載的效能。 此活動的目標是要確認您受控執行個體上的工作負載效能符合您的需求。 
 
-若要加強安全性，請考量使用一些可用功能：
+大部分的情況下將資料庫移轉至受控執行個體保留資料庫設定和其原始的相容性層級。 盡可能以降低的一些相較於您的來源 SQL Server 的效能降低的風險，就會保留原始的設定。 如果使用者資料庫在移轉之前的相容性層級為 100 或以上，則移轉後相容性層級維持不變。 如果使用者資料庫在移轉之前的相容性層級為 90，那在升級後的資料庫中，相容性層級會設定為 100，這是受控執行個體中能支援的最低相容性層級。 系統資料庫的相容性層級是 140。 因為移轉至受控執行個體實際上會移轉至 SQL Server Database Engine 的最新版本中，您應該注意，您需要重新測試您的工作負載，以避免一些令人驚訝的效能問題的效能。
 
-- 資料庫層級的 Azure Active Directory 驗證
-- 使用[進階安全性功能](sql-database-security-overview.md) (例如[稽核](sql-database-managed-instance-auditing.md)、[威脅偵測](sql-database-advanced-data-security.md)、[資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)與[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) 來保護您的執行個體。
+做為必要條件，請確定您已完成下列活動：
+- 對齊的受控執行個體的設定，以從來源 SQL Server 執行個體設定，請調查各種執行個體、 資料庫、 temdb 設定和組態。 請確定您已變更相容性層級或加密等的設定，然後再執行第一次的效能比較，或接受您所啟用的新功能的一些可能會影響某些查詢的風險。 若要減少移轉的風險，請只在進行效能監視後變更資料庫相容性層級。
+- 實作[儲存體最佳作法指導方針一般用途](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525)例如預先配置大小的檔案，以便取得更佳的效能。
+- 深入了解[主要環境差異可能會導致受控執行個體和 SQL Server 的效能差異]( https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)並找出可能會影響效能的風險。
+- 請確定您保留已啟用的查詢存放區，並在您受控執行個體上的自動調整。 這些功能可讓您測量工作負載效能，並自動修正潛在的效能問題。 了解如何使用查詢存放區做為最佳的工具，可用來取得有關資料庫相容性層級變更之前和之後的工作負載效能的資訊中所述[較新的 SQL Server 版本，在升級期間保持效能穩定性](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+一旦您已備妥環境類似盡量使用您的內部部署環境，您可以開始執行您的工作負載並測量效能。 測量程序應該包含相同的參數，您測量[當您建立基準效能，您的工作負載量值的來源 SQL Server 上](#create-performance-baseline)。
+如此一來，您應該比較的基準線的效能參數，並識別重要的差異。
+
+> [!NOTE]
+> 在許多情況下，您就無法取得受控執行個體和 SQL Server 上完全相符的效能。 受控執行個體是 SQL Server 資料庫引擎，但基礎結構和受控執行個體上的高可用性組態可能會造成一些差異。 您可能預期某些查詢要快得多，而其他可能會變慢。 比較的目標是要驗證的受控執行個體中的工作負載效能是否符合 SQL Server 上的效能 （在平均值中），並找出是否有任何重大效能的查詢不符合您的原始效能。
+
+可能的效能比較結果：
+- 受控執行個體上的工作負載效能對齊或更高的 SQL Server 上的工作負載效能。 在此情況下您已經成功確認移轉能順利。
+- 大部分的效能參數和中工作負載會正常執行，但有些例外狀況與效能降低的查詢。 在此情況下，您必須找出差異和它們的重要性。 如果有一些重要的查詢，以降低效能，您應該調查為基礎的 SQL 計劃變更或查詢只達到某些資源限制。 風險降低在此情況下可以套用一些提示上的重要查詢 （例如已變更的相容性層級，舊版基數估計工具） 是直接或使用計畫指南 rebuild 或 create statistics 和可能會影響計劃的索引。 
+- 大多數的查詢會變慢的相較於您的來源 SQL Server 受控執行個體。 在此情況下嘗試識別根本原因的差異，例如[達到某些資源限制]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)喜歡 IO 限制、 記憶體限制、 執行個體記錄的速率限制等等。如果不有任何可能會導致不同的資源限制，請嘗試變更資料庫相容性層級，或變更資料庫設定喜歡舊版基數估計，然後重新啟動測試。 檢閱受管理的執行個體或查詢存放區檢視所提供的建議，以找出迴歸效能的查詢。
+
+> [!IMPORTANT]
+> 受控執行個體已預設啟用的內建的自動計畫更正功能。 這項功能可確保運作正常中貼上作業的查詢就不會在未來的降低。 請確定已啟用這項功能，而且您有夠長的工作負載執行與舊的設定之前您若要讓受控執行個體若要了解的基準效能和計劃變更新的設定。
+
+進行變更的參數，或升級服務層，直到您取得符合您需求的工作負載效能，同時回歸到最適合的設定。
+
+### <a name="monitor-performance"></a>監視效能
+
+一旦您是在完全受控的平台上，而且您已驗證的工作負載效能會比 SQL Server 工作負載效能，需要 SQL Database 服務的一部分自動提供的優點。 
+
+即使您不在受管理的執行個體中進行一些變更，在移轉期間，可能會有高，您會將一些新功能時操作您的執行個體，以利用最新的資料庫引擎增強功能開啟。 某些變更才會啟用一次[已變更資料庫相容性層級](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database)。
+
+
+比方說，您不需要在受控執行個體上建立備份 (服務會自動為您執行備份)。 您無法再擔心如何排程、使用及管理備份。 受控執行個體使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原到此保留期限內的任何時間點。 此外，您不需要擔心如何設定為高可用性，因為[高可用性](sql-database-high-availability.md)已內建。
+
+若要加強安全性，請考慮使用[Azure Active Directory 驗證](sql-database-security-overview.md)，[稽核](sql-database-managed-instance-auditing.md)，[威脅偵測](sql-database-advanced-data-security.md)，[資料列層級安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)，並[動態資料遮罩](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking))。
+
+除了進階的管理和安全性功能，受控執行個體提供進階的工具，可協助您將一組[監視和調整您的工作負載](sql-database-monitor-tune-overview.md)。 [Azure SQL 分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql)可讓您監視大量的受管理的執行個體，並集中管理大量的執行個體與資料庫的監視。 [自動調整](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction)受控執行個體中持續監視您的 SQL 計劃執行統計資料的效能，並自動修正所識別之的效能問題。
 
 ## <a name="next-steps"></a>後續步驟
 

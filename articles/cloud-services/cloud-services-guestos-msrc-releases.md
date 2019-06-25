@@ -11,24 +11,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 6/14/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743044"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150990"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+## <a name="june-2019-guest-os"></a>2019 年 6 月客體 OS
+
+>[!NOTE]
+>6 月客體 OS 是目前正在發行到設定為自動更新的雲端服務 Vm。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列項目會包含在 6 月客體 OS。 此清單會隨時變動。
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Windows 10 安全性   |  6.8  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4503267]  |  Windows 10 安全性   |  5.32  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4503290]  |  Windows 安全性   |  4.67  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4503263]  |  Windows 安全性   |  3.74  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4503269]  |  Windows 安全性   |  2.87  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4494174]  |  微碼更新   |  6.8  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4494175]  |  微碼更新   |  5.32  |  2019 年 6 月 3日日  |
+|  Rel 19-06   |  [4503308]  |  閃爍   |  3.74, 4.67, 5.32, 6.8  |  2019 年 6 月 11日日  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  2019 年 6 月 13日日  |
+|  N/A  |  [4499164]  |  5 月 19 ' 的非安全性  |  2.87  |  2019 5 月 14日日  |
+|  N/A  |  [4495606]  |  5 月 ' 19.NET 3.5-安全性  |  2.87  |  2019 5 月 14日日  |
+|  N/A  |  [4495596]  |  5 月 ' 19.NET 4.5 非安全性  |  2.87  |  2019 5 月 20日日  |
+|  N/A  |  [4499171]  |  5 月 19 ' 的非安全性  |  3.74  |  2019 5 月 14日日  |
+|  N/A  |  [4495602]  |  5 月 ' 19.NET 3.5-安全性  |  3.74  |  2019 5 月 14日日  |
+|  N/A  |  [4495594]  |  5 月 19 '.NET 4.x 非安全性  |  4.67  |  2019 5 月 14日日  |
+|  N/A  |  [4499151]  |  5 月 19 ' 的非安全性  |  4.67  |  2019 5 月 14日日  |
+|  N/A  |  [4495608]  |  5 月 ' 19.NET 3.5-安全性  |  4.67  |  2019 5 月 14日日  |
+|  N/A  |  [4495592]  |  5 月 ' 19.NET 4.5.2 非安全性  |  4.67  |  2019 5 月 14日日  |
+|  N/A  |  [4495610]  |  5 月 ' 19.NET 4.8 累計  |  6.8  |  2019 5 月 14日日  |
+|  N/A  |  [4495618]  |  5 月 ' 19.NET 4.8 累計  |  6.8  |  2019 5 月 14日日  |
+|  N/A  |  [4501226]  |  摩洛哥和巴勒斯坦民族權力機構的 DST 時區更新  |  2.87, 3.74, 4.67  |  2019 5 月 23日日  |
+|  N/A  |  [4490128]  |  聖多美普林西比以及 Qyzylorda DST 時區更新  |  2.87, 3.74, 4.67  |  2019 年 4 月 17日日  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>2019 年客體 OS
 
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  五月份 IE 彙總套件   |  2,86, 3.73, 4.66  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4505050]  |  五月份 IE 彙總套件   |  2,86, 3.73, 4.66  |  2019 5 月 18日日  |
+|  Rel 19-05   |  [4498206]  |  五月份 IE 彙總套件   |  2.86, 3.73, 4.66  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4505050]  |  五月份 IE 彙總套件   |  2.86, 3.73, 4.66  |  2019 5 月 18日日  |
 |  Rel 19-05   |  [4497932]  |  可能會閃爍更新   |  3.73, 4.66, 5.31  |  2019 5 月 14日日  |
 |  Rel 19-05   |  [4499175]  |  五月份的安全性彙總套件   |  2.86  |  2019 5 月 14日日  |
 |  Rel 19-05   |  [4495612]  |  五月份的安全性彙總套件.NET 3.5   |  2.86  |  2019 5 月 14日日  |
@@ -1715,36 +1768,36 @@ ms.locfileid: "66743044"
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
-[3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
-[3055642]:https://support.microsoft.com/kb/3055642
-[3057191]:https://support.microsoft.com/kb/3057191
-[3050514]:https://support.microsoft.com/kb/3050514
-[3057263]:https://support.microsoft.com/kb/3057263
-[3051768]:https://support.microsoft.com/kb/3051768
-[3061518]:https://support.microsoft.com/kb/3061518
+[3049563]: https://support.microsoft.com/kb/3049563
+[3057110]: https://support.microsoft.com/kb/3057110
+[3046002]: https://support.microsoft.com/kb/3046002
+[3057134]: https://support.microsoft.com/kb/3057134
+[3055642]: https://support.microsoft.com/kb/3055642
+[3057191]: https://support.microsoft.com/kb/3057191
+[3050514]: https://support.microsoft.com/kb/3050514
+[3057263]: https://support.microsoft.com/kb/3057263
+[3051768]: https://support.microsoft.com/kb/3051768
+[3061518]: https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
-[3042553]:https://support.microsoft.com/kb/3042553
-[3046306]:https://support.microsoft.com/kb/3046306
-[3046269]:https://support.microsoft.com/kb/3046269
-[3049576]:https://support.microsoft.com/kb/3049576
-[3046482]:https://support.microsoft.com/kb/3046482
-[3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
-[3047234]:https://support.microsoft.com/kb/3047234
-[3045755]:https://support.microsoft.com/kb/3045755
-[3030377]:https://support.microsoft.com/kb/3030377
-[3039976]:https://support.microsoft.com/kb/3039976
+[3038314]: https://support.microsoft.com/kb/3038314
+[3042553]: https://support.microsoft.com/kb/3042553
+[3046306]: https://support.microsoft.com/kb/3046306
+[3046269]: https://support.microsoft.com/kb/3046269
+[3049576]: https://support.microsoft.com/kb/3049576
+[3046482]: https://support.microsoft.com/kb/3046482
+[3045711]: https://support.microsoft.com/kb/3045711
+[3048010]: https://support.microsoft.com/kb/3048010
+[3047234]: https://support.microsoft.com/kb/3047234
+[3045755]: https://support.microsoft.com/kb/3045755
+[3030377]: https://support.microsoft.com/kb/3030377
+[3039976]: https://support.microsoft.com/kb/3039976
 
-[3058515]:https://support.microsoft.com/kb/3058515
-[3033890]:https://support.microsoft.com/kb/3033890
-[3059317]:https://support.microsoft.com/kb/3059317
-[3057839]:https://support.microsoft.com/kb/3057839
-[3062577]:https://support.microsoft.com/kb/3062577
-[3063858]:https://support.microsoft.com/kb/3063858
+[3058515]: https://support.microsoft.com/kb/3058515
+[3033890]: https://support.microsoft.com/kb/3033890
+[3059317]: https://support.microsoft.com/kb/3059317
+[3057839]: https://support.microsoft.com/kb/3057839
+[3062577]: https://support.microsoft.com/kb/3062577
+[3063858]: https://support.microsoft.com/kb/3063858
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

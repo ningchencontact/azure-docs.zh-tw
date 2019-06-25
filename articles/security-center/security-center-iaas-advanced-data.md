@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400143"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154832"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS 上的 SQL server 的進階的資料安全性
-Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階安全性功能的整合的套件。 目前包含呈現及緩解潛在的資料庫弱點和偵測可能表示您的資料庫威脅的異常活動的功能。 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>SQL server Azure 虛擬機器上 （公開預覽） 的進階的資料安全性
+Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階安全性功能的整合的套件。 它目前 （公開預覽） 中包含呈現及緩解潛在的資料庫弱點和偵測可能表示您的資料庫威脅的異常活動的功能。 
 
 此供應項目針對 Azure Vm 的 SQL server 的安全性根據所使用的相同基本技術[Azure SQL Database 進階資料安全性封裝](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)。
 
@@ -36,7 +36,7 @@ Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階
 
 ## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Sql Azure Vm 上開始使用進階的資料安全性
 
-下列步驟可協助您開始具有進階資料安全性，在 Azure Vm 上的 sql。
+下列步驟可協助您開始具有進階資料安全性，在 Azure Vm 的公用預覽上的 sql。
 
 ### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>設定 Azure Vm 上的 sql 的進階資料安全性
 
@@ -145,7 +145,7 @@ Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>進階威脅防護，SQL server Azure Vm 警示
 不尋常且有危害意圖存取或惡意探索 SQL Server 會產生警示。 這些事件會觸發下列警示：
 
-### <a name="anomalous-access-pattern-alerts"></a>異常存取模式的警示
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>異常存取模式的警示 （公開預覽支援）
 
 * **從不尋常的位置的存取權：** 有人從不尋常的地理位置登入 SQL Server，而使 SQL Server 的存取模式有所變更時，會觸發此警示。 可能的原因：
      * 攻擊者或先前的惡意採用存取您的 SQL Server。

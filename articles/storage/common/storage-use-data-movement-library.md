@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 8e09e2c33359c94275d9819b335544d15d4c7d78
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790082"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
@@ -22,7 +22,7 @@ ms.locfileid: "65790082"
 ## <a name="overview"></a>概觀
 Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程式庫，設計用來提供 Azure 儲存體 Blob 和檔案的高效能上傳、下載及複製。 這個程式庫是支援 [AzCopy](../storage-use-azcopy.md) 的核心資料移動架構。 資料移動程式庫可提供傳統的 [.NET Azure 儲存體用戶端程式庫](../blobs/storage-dotnet-how-to-use-blobs.md)中並未提供的簡便方法。 這包括設定平行作業數目、追蹤傳輸進度、輕鬆繼續已取消的傳輸等等。
 
-此程式庫也會使用 .NET Core，這表示您在建置適用於 Windows、Linux 和 macOS 的 .NET 應用程式時可以使用它。 若要了解有关 .NET Core 的详细信息，请参阅 [.NET Core 文档](https://dotnet.github.io/)。 這個程式庫也適用於 Windows 的傳統 .NET 架構應用程式。
+此程式庫也會使用 .NET Core，這表示您在建置適用於 Windows、Linux 和 macOS 的 .NET 應用程式時可以使用它。 若要深入了解 .NET Core，請參閱 [.NET Core 文件 (英文)](https://dotnet.github.io/)。 這個程式庫也適用於 Windows 的傳統 .NET 架構應用程式。
 
 本文件將示範如何建立可在 Windows、Linux 和 macOS 上執行的 .NET Core 主控台應用程式，並執行下列案例：
 
@@ -36,7 +36,7 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 **您需要的項目：**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 一个 [Azure 存储帐户](storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](storage-quickstart-create-account.md)
 
 > [!NOTE]
 > 本指南假設您已熟悉 [Azure 儲存體](https://azure.microsoft.com/services/storage/)。 如果不熟悉，閱讀 [Azure 儲存體簡介](storage-introduction.md)說明文件會很有幫助。 最重要的是，您需要[建立儲存體帳戶](storage-quickstart-create-account.md)才能開始使用資料移動程式庫。
@@ -56,7 +56,7 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 ## <a name="add-data-movement-library-to-your-project"></a>將資料移動程式庫加入至專案
 
 1. 將最新版本的資料移動程式庫加入到 `<project-name>.csproj` 檔案的 `dependencies` 區段。 撰寫本文時，此版本為 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
-2. 此时应会显示一条提示，指出要还原项目。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
+2. 您應該會看到提示顯示以還原專案。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
 
 修改 `<project-name>.csproj`：
 
@@ -260,7 +260,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 ```
 
 ## <a name="track-transfer-progress"></a>追蹤傳輸進度
-能知道資料完成傳輸需要多少時間，是一件很不錯的事。 不過，能夠在傳輸作業期間看到傳輸的進度會更好。 為了達成此案例，我們需要建立 `TransferContext` 物件。 `TransferContext` 物件有兩種形式：`SingleTransferContext` 和 `DirectoryTransferContext`。 前者用於傳輸單一檔案 (也就是我們現在要做的)，而後者用於傳輸檔案的目錄 (我們將在稍後進行)。
+能知道資料完成傳輸需要多少時間，是一件很不錯的事。 不過，能夠在傳輸作業期間  看到傳輸的進度會更好。 為了達成此案例，我們需要建立 `TransferContext` 物件。 `TransferContext` 物件有兩種形式：`SingleTransferContext` 和 `DirectoryTransferContext`。 前者用於傳輸單一檔案 (也就是我們現在要做的)，而後者用於傳輸檔案的目錄 (我們將在稍後進行)。
 
 將方法 `GetSingleTransferContext` 和 `GetDirectoryTransferContext` 加入到 `Program.cs`：
 

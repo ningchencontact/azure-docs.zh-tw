@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539255"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147536"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>針對 Azure 搜尋服務中的常見索引子問題進行疑難排解
 
@@ -35,14 +35,11 @@ Azure 儲存體提供可設定的防火牆。 根據預設，防火牆會停用�
 
 防火牆啟用時，不會有特定錯誤訊息。 一般而言，防火牆錯誤看起來會像 `The remote server returned an error: (403) Forbidden`。
 
-您可以在[入口網站](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)驗證防火牆是否已啟用。 若防火牆已啟用，您有兩個可以因應此問題的選項：
+您可以在[入口網站](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)驗證防火牆是否已啟用。 唯一支援的因應措施是停用防火牆，藉由選擇允許存取權[「 所有網路 」](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)。
 
-1. 透過選擇允許來自[「所有網路」](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)的存取來停用防火牆
-1. 為您搜尋服務的 IP 位址[新增例外狀況](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules)。 若要尋找此 IP 位址，請使用下列命令：
+如果您的索引子，並沒有附加的技能組合，您_可能_嘗試[加入例外狀況](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules)搜尋服務的 IP 位址。 不過，這種情況下不支援，而且不保證可以運作。
 
-`nslookup <service name>.search.windows.net`
-
-例外狀況不適用於[認知搜尋](cognitive-search-concept-intro.md)。 唯一的因應措施是停用防火牆。
+您可以找出您的搜尋服務的 IP 位址 ping 其 FQDN (`<your-search-service-name>.search.windows.net`)。
 
 ### <a name="cosmos-db"></a>Cosmos DB
 

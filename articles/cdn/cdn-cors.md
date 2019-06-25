@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077433"
 ---
 # <a name="using-azure-cdn-with-cors"></a>搭配 CORS 使用 Azure CDN
 ## <a name="what-is-cors"></a>CORS 是什麼？
@@ -36,7 +36,7 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 
 2. 該伺服器的回應可能是下列其中一項：
 
-   * 回應中的 **Access-Control-Allow-Origin** 標頭指出所允許的來源網站。 例如︰
+   * 回應中的 **Access-Control-Allow-Origin** 標頭指出所允許的來源網站。 例如:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -64,7 +64,7 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 如果您要針對 CORS 允許使用特定清單中的來源，則會稍微複雜一點。 問題會在 CDN 快取第一個 CORS 來源的 **Access-Control-Allow-Origin** 標頭時發生。  當其他 CORS 來源發出後續要求時，CDN 會提供已快取的 **Access-Control-Allow-Origin** 標頭，而此標頭會不相符。  有幾個方法可以修正此問題。
 
 ### <a name="azure-cdn-premium-from-verizon"></a>來自 Verizon 的 Azure CDN 進階
-完成此作業的最佳方法是使用「來自 Verizon 的 Azure CDN 進階」 ，它會公開一些進階功能。 
+完成此作業的最佳方法是使用「來自 Verizon 的 Azure CDN 進階」  ，它會公開一些進階功能。 
 
 您必須 [建立規則](cdn-rules-engine.md) 來檢查要求的 **Origin** 標頭。  如果是有效的來源，您的規則將使用要求中提供的來源設定 **Access-Control-Allow-Origin** 標頭。  如果 **Origin** 中指定的來源是不允許的，您的規則應會忽略 **Access-Control-Allow-Origin** 標頭，這將導致瀏覽器拒絕要求。 
 
@@ -85,7 +85,7 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 ![包含規則運算式的規則範例](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>針對每個來源要求標頭規則
-除了規則運算式之外，您也可以使用**要求標頭萬用字元**[比對條件](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1)，針對每個要允許的來源建立個別規則。 如同規則運算式方法一樣，也是僅由規則引擎設定 CORS 標頭。 
+除了規則運算式之外，您也可以使用**要求標頭萬用字元**[比對條件](/previous-versions/azure/mt757336(v=azure.100)#match-conditions)，針對每個要允許的來源建立個別規則。 如同規則運算式方法一樣，也是僅由規則引擎設定 CORS 標頭。 
 
 ![不含規則運算式的規則範例](./media/cdn-cors/cdn-cors-no-regex.png)
 

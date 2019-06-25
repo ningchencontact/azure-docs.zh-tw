@@ -6,24 +6,24 @@ author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 06/17/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 5e20d65160e66937668d9f504245a8c042d58fee
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 39a0ea2ec173c8e3a2f79fd19dfa35ce2806d442
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751661"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274898"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Azure Marketplace 和 AppSource 藍圖
 
-本文件可讓您了解 Azure Marketplace、AppSource 和相關合作夥伴計劃未來的規劃。 它會擷取一些重要功能，我們承諾，約略的時間範圍，如當您預期會看見它們，並將會重新整理每個月。 它不是所有的新功能的完整清單，只用來讓您全盤掌握我們努力的重點。 這些功能集，並傳遞時間範圍是目前的而且可能隨時變更。
+本文件提供 Microsoft 的商業 marketplace 的發行者、 銷售人員，與客戶的後續步驟的檢視。 它會擷取一些重要功能，我們承諾，約略的時間範圍，如當您預期會看見它們，並將會重新整理每個月。 它不是所有的新功能的完整清單，只用來讓您全盤掌握我們努力的重點。 這些功能集和提供時程是暫定的，可能隨時變更。
 
 歡迎您提供建議！ 請到 [Microsoft 合作夥伴社群](https://www.microsoftpartnercommunity.com/)來聊聊，了解新功能、計劃和活動的最新訊息。
 
 
 ## <a name="roadmap"></a>藍圖
-![](./media/marketplace-publishers-guide/roadmap.png)
+![6 月的 marketplace 藍圖](./media/marketplace-publishers-guide/roadmap-june19.png)
 
 
 ## <a name="recent-releases"></a>最新版本
@@ -41,6 +41,14 @@ ms.locfileid: "66751661"
 * [Marketplace 地區與貨幣](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
 
+### <a name="for-may-2019"></a>2019 年的
+
+* [Microsoft Build Marketplace 部落格](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
+* [Marketplace 5 月更新的部落格](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
+* 合作夥伴中心：[建立帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [管理帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [CPP 從移轉](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
+* 合作夥伴中心：[建立 SaaS 供應項目](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [發佈狀態](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
+) / [更新現有的供應項目](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [提供分析](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
+* [取得在合作夥伴中心內的服務商場中的支援](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 20f0d6a88fead155225cff69ab89635de587a46d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66455140"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056470"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 
@@ -40,11 +40,11 @@ ms.locfileid: "66455140"
 
 Azure 支援三種類型的點對站 VPN 選項：
 
-* 安全通訊端通道通訊協定 (SSTP)。 SSTP 是 Microsoft 專屬的 SSL 型解決方案，因為大部分的防火牆都會開啟 443 SSL 所使用的 TCP 連接埠，所以 SSTP 可以穿透防火牆。
+* 安全通訊端通道通訊協定 (SSTP)。 SSTP 是 Microsoft 專屬 SSL 型解決方案，可以穿透防火牆，因為大部分防火牆都會開啟 443 SSL 所使用的輸出 TCP 連接埠。
 
-* OpenVPN。 OpenVPN 是以 SSL 為基礎的解決方案，可以穿透防火牆，因為大部分防火牆都會開啟 443 SSL 所使用的 TCP 連接埠。
+* OpenVPN。 OpenVPN 是以 SSL 為基礎的解決方案，可以穿透防火牆，因為大部分防火牆都會開啟 443 SSL 所使用的輸出 TCP 連接埠。
 
-* IKEv2 VPN。 IKEv2 VPN 是標準型 IPsec VPN 解決方案，會使用 UDP 連接埠 500 和 4500 以及 50. 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
+* IKEv2 VPN。 IKEv2 VPN 是標準型的 IPsec VPN 解決方案，不會使用輸出的 UDP 連接埠 500 和 4500 以及 IP 通訊協定。 50. 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>如果我重新啟動針對點對站台設定的用戶端電腦，VPN 將自動重新連線嗎？
 

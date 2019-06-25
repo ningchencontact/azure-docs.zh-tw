@@ -11,10 +11,10 @@ author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016516"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
@@ -84,7 +84,7 @@ ms.locfileid: "66016516"
    [![建立工作區](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
 
 
-1. 以滑鼠右鍵按一下您的 Azure 訂用帳戶，然後選取 [建立工作區]。 清單隨即出現。 在範例動畫影像中，訂用帳戶名稱是**免費試用**，工作區，而且**TeamWorkspace**。 
+1. 以滑鼠右鍵按一下您的 Azure 訂用帳戶，然後選取 [建立工作區]  。 清單隨即出現。 在範例動畫影像中，訂用帳戶名稱是**免費試用**，工作區，而且**TeamWorkspace**。 
 
 1. 從清單中選取資源群組，或建立一個新的使用命令選擇區中的精靈。
 
@@ -119,7 +119,7 @@ ms.locfileid: "66016516"
 
 2. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning services 工作區。 在下列的範例圖中，訂用帳戶名稱是**免費試用**，工作區，而且**TeamWorkspace**。 
 
-3. 在工作區節點下方，以滑鼠右鍵按一下 [計算] 節點，然後選擇 [建立計算]。
+3. 在工作區節點下方，以滑鼠右鍵按一下 [計算]  節點，然後選擇 [建立計算]  。
 
 4. 從清單中選擇計算目標類型。 
 
@@ -151,7 +151,7 @@ Visual Studio Code 延伸模組會自動建立本機的計算目標和您的本�
 
 1. 在 [工作區] 節點中，依序展開**計算**節點，然後以滑鼠右鍵按一下**執行組態**您想要使用的計算。 
 
-1. 選取 [執行實驗]。
+1. 選取 [執行實驗]  。
 
 1. 從 [檔案總管] 中，選取您想要執行的指令碼。 
 
@@ -226,7 +226,7 @@ dependencies:
 
 1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和 Azure Machine Learning services 工作區。
 
-1. 在工作區節點下方，以滑鼠右鍵按一下 [模型]，然後選擇 [註冊模型]。
+1. 在工作區節點下方，以滑鼠右鍵按一下 [模型]  ，然後選擇 [註冊模型]  。
 
 1. 在命令選擇區中，在欄位中，輸入模型名稱。 
 
@@ -255,7 +255,7 @@ dependencies:
 
 1. 在樹狀檢視中，展開您的 Azure 訂用帳戶和您的 Azure Machine Learning services 工作區。
 
-1. 在工作區節點下方，展開 [模型] 節點。
+1. 在工作區節點下方，展開 [模型]  節點。
 
 1. 以滑鼠右鍵按一下您想要部署，然後選擇的模型**部署的服務，從已註冊的模型**從內容功能表。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ef273b65bb3a8b8536d27c70e8ba05e74faa39b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702477"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書的發行版本相關資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "60327961"
 本文將著重於在 Azure 上執行 Linux 發行版本時的一般指導。
 
 ## <a name="general-linux-installation-notes"></a>一般 Linux 安裝注意事項
-* Azure 中不支援 Hyper-V 虛擬硬碟 (VHDX) 格式，只支援「固定 VHD」。  您可以使用 Hyper-V 管理員或 [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) \(英文\) Cmdlet，將磁碟轉換為 VHD 格式。 如果您使用的是 VirtualBox，即會在建立磁碟時選取 [固定大小] 而不是預設值 (動態配置的)。
+* Azure 中不支援 Hyper-V 虛擬硬碟 (VHDX) 格式，只支援「固定 VHD」  。  您可以使用 Hyper-V 管理員或 [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) \(英文\) Cmdlet，將磁碟轉換為 VHD 格式。 如果您使用的是 VirtualBox，即會在建立磁碟時選取 [固定大小]  而不是預設值 (動態配置的)。
 * Azure 僅支援第 1 代虛擬機器。 您可以將第 1 代虛擬機器從 VHDX 轉換為 VHD 檔案格式，並從動態擴充轉換為固定大小的磁碟。 您無法變更虛擬機器的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的虛擬機器？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * 允許的 VHD 大小上限為 1023 GB。
 * 安裝 Linux 系統時，建議您使用標準磁碟分割而不是邏輯磁碟區管理員 (LVM)，此為許多安裝的預設值。 使用標準磁碟分割將可避免 LVM 名稱與複製的 VM 發生衝突，特別是為了疑難排解而一律要將 OS 磁碟連接至另一個相同的 VM 時。 如果願意，您可以在資料磁碟上使用 [LVM](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -74,7 +74,7 @@ Azure 會在 Hyper-V Hypervisor 上執行，因此 Linux 要求在 Azure 中執�
 ### <a name="resizing-vhds"></a>調整 VHD 的大小
 Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而言，使用 Hyper-V 建立的 VHD 均會正確地對應儲存。  如果 VHD 並未正確地對應儲存，則當您嘗試從 VHD 建立映像時，可能會收到類似下面的錯誤訊息。
 
-* VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd 具有不支援的虛擬大小 21475270656 個位元組。 大小必須是整數 (以 MB 為單位)。
+* VHD http:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd 具有不支援的虛擬大小的 21475270656 位元組。 大小必須是整數 (以 MB 為單位)。
 
 在此案例中，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) \(英文\) PowerShell Cmdlet 來調整 VM 的大小。  如果您不是在 Windows 環境中執行，建議使用 `qemu-img` 來轉換 VHD (如果需要) 並調整其大小。
 
@@ -144,10 +144,10 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
 下列修補程式必須隨附於核心中。 對於所有發行版本而言，此清單並不完整。
 
 * [ata_piix：依預設將磁碟委託給 Hyper-V 驅動程式](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc：考虑 RESET 路径中正在传输的数据包](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc:負責 RESET 路徑中的在途封包](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc：避免使用 WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc：对 RAID 和虚拟主机适配器驱动程序禁用 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc：NULL 指针取消引用修补程序](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc:針對 RAID 和虛擬主機介面卡驅動程式停用 WRITE SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc:NULL 指標取值修正](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc：信號緩衝區失敗可能導致 I/O 凍結](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs︰防範 __scsi_remove_device 雙重執行](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
@@ -166,7 +166,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
     ```  
     console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
     ```
-    我們也建議「移除」下列參數 (如果有的話)。
+    我們也建議「移除」  下列參數 (如果有的話)。
     ```  
     rhgb quiet crashkernel=auto
     ```
@@ -180,7 +180,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
 
 1. 請不要在 OS 磁碟上建立交換空間。
   
-    Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。 本機資源磁碟是「暫存」磁碟，可能會在 VM 取消佈建時清空。 安裝 Azure Linux 代理程式 (上述步驟 2) 之後，視需要在 /etc/waagent.conf 中修改下列參數。
+    Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。 本機資源磁碟是「暫存」  磁碟，可能會在 VM 取消佈建時清空。 安裝 Azure Linux 代理程式 (上述步驟 2) 之後，視需要在 /etc/waagent.conf 中修改下列參數。
     ```  
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

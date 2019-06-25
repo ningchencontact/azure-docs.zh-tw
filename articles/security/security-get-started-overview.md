@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
 ms.openlocfilehash: cd29ec2f2d27a01abeb001cb49cb2c3cd372497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444379"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64716734"
 ---
 # <a name="azure-security-overview"></a>Azure 安全性概觀
 
 Azure.com 上的 Microsoft Azure 安全性資訊網站是您 Azure 安全性問題的技術答案的位置。 如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://microsoft.com/en-us/trustcenter/default.aspx)。
 
-我們知道安全性是雲端中的首要工作和其重要性，因為您可在其中找到精確且及時的 Azure 安全性資訊。 針對您的應用程式和服務使用 Azure 的其中一個最佳原因是可以利用各種可用的安全性工具和功能。 这些工具和功能可帮助在安全的 Azure 平台上创建安全的解决方案。
+我們知道安全性是雲端中的首要工作和其重要性，因為您可在其中找到精確且及時的 Azure 安全性資訊。 針對您的應用程式和服務使用 Azure 的其中一個最佳原因是可以利用各種可用的安全性工具和功能。 這些工具和功能可協助您在安全的 Azure 平台上建立安全的解決方案。
 
 此頁面與此網站會隨著新的 Azure 服務上線以及現有服務更新而演化。 我們的安全性供應項目會不斷地改善，並在這裡分享這些增強功能的技術詳細資料。 建議您定期回到這個網站，並查看最新消息！
 

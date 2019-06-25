@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322833"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>從 Azure DevTest Labs 中的另一個實驗匯入虛擬機器
@@ -62,7 +62,7 @@ ms.locfileid: "61322833"
 ```
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>使用 PowerShell 匯入所有來源實驗室 Vm
-如果未指定來源虛擬機器，則指令碼會自動匯入在 DevTest Labs 中的所有 Vm。  例如︰
+如果未指定來源虛擬機器，則指令碼會自動匯入在 DevTest Labs 中的所有 Vm。  例如:
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 279660d903b3b0e893c3ccddb89da7c6dc42fa09
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003086"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205082"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux PHP 應用程式
 
@@ -167,7 +167,7 @@ php_value upload_max_filesize 10M
 
 若要使用替代 *.htaccess*，您可以使用[ini_set （)](https://www.php.net/manual/function.ini-set.php)在您的應用程式來自訂這些非 PHP_INI_SYSTEM 指示詞。
 
-### <a name="customize-phpinisystem-directives"></a>自訂 PHP_INI_SYSTEM 指示詞
+### <a name="customize-php_ini_system-directives"></a>自訂 PHP_INI_SYSTEM 指示詞
 
 若要自訂 PHP_INI_SYSTEM 指示詞 (請參閱[php.ini 指示詞](https://www.php.net/manual/ini.list.php))，您無法使用 *.htaccess*方法。 App Service 可讓您提供不同的機制，使用`PHP_INI_SCAN_DIR`應用程式設定。
 

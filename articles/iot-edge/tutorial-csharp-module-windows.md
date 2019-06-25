@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303943"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808783"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -104,16 +104,17 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. 儲存 deployment.template.json 檔案。 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+預設模組程式碼會透過輸入佇列接收訊息，並透過輸出佇列傳遞這些訊息。 讓我們新增一些額外的程式碼，讓模組在邊緣處理訊息，然後再將它們轉送到 IoT 中樞。 更新模組，以分析每則訊息中的溫度資料，而且只有在溫度超過特定閾值時，才會將訊息傳送到 IoT 中樞。 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. 在 Visual Studio 中，開啟 **CSharpModule** > **Program.cs**。
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. 在 **CSharpModule** 命名空間頂端，為稍後會用到的類型新增三個 **using** 陳述式：
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

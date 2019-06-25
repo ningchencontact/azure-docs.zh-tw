@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297098"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274010"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
 
@@ -45,7 +45,7 @@ ms.locfileid: "66297098"
 對等互連選項是偏好選項，因為對等互連使用 Microsoft 骨幹網路，所以從連線的觀點來看，對等互連 VNet 與相同 VNet 中虛擬機器之間的延遲沒有明顯差異。 VNet 對等互連受限於相同區域中的網路。  
 
 > [!IMPORTANT]
-> 由於[全域虛擬網路對等互連的條件約束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，受控執行個體的 VNet 對等互連案例會受限於相同區域中的網路。
+> 由於[全域虛擬網路對等互連的條件約束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，受控執行個體的 VNet 對等互連案例會受限於相同區域中的網路。 另請參閱相關的小節[Azure 虛擬網路常見問題集](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)文章以取得詳細資料。 
 
 ## <a name="connect-an-on-premises-application"></a>連線內部部署應用程式
 

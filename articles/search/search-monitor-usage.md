@@ -12,10 +12,10 @@ ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755069"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
@@ -111,7 +111,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>記錄檔結構描述
 包含您搜尋服務流量記錄的 Blob 會結構化，如本節所述。 每個 Blob 都有一個名為**記錄**的根物件，其中包含記錄物件的陣列。 每個 Blob 都包含在同一小時內發生之所有作業的記錄。
 
-| 名稱 | 類型 | 範例 | 注意 |
+| Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
@@ -125,9 +125,9 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 **屬性結構描述**
 
-| 名稱 | 類型 | 範例 | 注意 |
+| Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 描述 |string |"GET /indexes('content')/docs" |作業的端點 |
+| 描述 |字串 |"GET /indexes('content')/docs" |作業的端點 |
 | 查詢 |字串 |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
 | 文件 |int |42 |處理的文件數目 |
 | IndexName |字串 |"testindex" |與作業相關聯的索引名稱 |
@@ -146,7 +146,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | maximum |int |78 |度量時間間隔中原始範例的最大值 |
 | total |int |258 |度量時間間隔中原始範例的總和值 |
 | count |int |4 |用來產生度量的原始樣本數 |
-| timegrain |string |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
+| timegrain |字串 |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
 
 每隔一分鐘就會回報所有計量。 每個度量會顯示每分鐘的最小值、最大值和平均值。
 

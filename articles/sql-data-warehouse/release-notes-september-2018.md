@@ -11,17 +11,17 @@ ms.date: 10/08/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912169"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 9 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 9 月導入的新功能和變更。
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>SQL 資料倉儲 Gen2 有新的較低進入點
-2018 年 4 月，[Microsoft 發表了](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL 資料倉儲 Gen2，其可提供 5 倍的效能、5 倍的計算規模、4 倍的並行存取和無限制的儲存體。 如 Gigaom 在[雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)中所述，SQL 資料倉儲 Gen2 **的效能比 Amazon Redshift 高 42%**。
+2018 年 4 月，[Microsoft 發表了](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL 資料倉儲 Gen2，其可提供 5 倍的效能、5 倍的計算規模、4 倍的並行存取和無限制的儲存體。 如 Gigaom 在[雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)中所述，SQL 資料倉儲 Gen2 **的效能比 Amazon Redshift 高 42%** 。
 
 現在，較低進入點的 DWU500c 已正式推出 Gen2，讓您可以執行規模較小的資料倉儲或開發/測試環境，卻擁有所有最新的服務改進。 新的進入點保留了 Gen2 的所有功能，包括[調適性快取](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/)、[超快速資料輪換](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/)以及支援[即時資料倉儲](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/)。
 
@@ -99,11 +99,11 @@ Commands completed successfully.
 
 ## <a name="bug-fixes"></a>錯誤修正
 
-| 標題 | 說明 |
+| 標題 | 描述 |
 |:---|:---|
 | **針對唯一條件約束的發行版本建立統計資料時的修正** | 此修正可解決使用者遇到的錯誤，若在只有指定資料表時執行 UPDATE STATISTICS，且資料表定義了唯一條件約束，使用者就會遇到此錯誤。 |
 | **針對外部資料表編譯查詢時的修正** | 此修正可解決會對涉及外部資料表的查詢影響其編譯時間的缺失。|
-| **執行具有大型類型陳述式的修正** | 針對以宣告為其中一個「大型」類型 (nvarchar(max)、varchar(max) 和 varbinary(max)) 的參數所備妥的陳述式編譯，解決其缺失。 |
+| **執行具有大型類型陳述式的修正** | 針對以宣告為其中一個「大型」  類型 (nvarchar(max)、varchar(max) 和 varbinary(max)) 的參數所備妥的陳述式編譯，解決其缺失。 |
 | **當深度巢狀查詢發生錯誤時的修正** | 在深度巢狀查詢超過系統限制時，提供明確的錯誤訊息。|
 | **當陳述式包含相互關聯的子查詢和執行時間常數時的編譯時間錯誤修正** |針對以特定方式組合了相互關聯的子查詢和執行時間常數 (例如 GETDATE()) 的查詢，解決其編譯時間錯誤。|
 | **解決在取得 PDW 物件鎖定和 autostats 並行存取插槽時的逾時** |此修正會新增鎖定逾時，以防止 autostats 要求長時間封鎖原始要求。|

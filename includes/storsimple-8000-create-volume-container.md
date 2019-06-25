@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118240"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174024"
 ---
 #### <a name="to-create-a-volume-container"></a>建立磁碟區容器
 1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]  。 從表格式的裝置清單中，選取並按一下裝置。 

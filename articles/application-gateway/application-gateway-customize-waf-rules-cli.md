@@ -1,17 +1,16 @@
 ---
-title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - Azure CLI
+title: 自訂 Azure 應用程式閘道-Azure CLI 中的 web 應用程式防火牆規則
 description: 此文章提供如何透過 Azure CLI，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 02/22/2019
-ms.date: 02/26/2019
-ms.author: v-junlch
+ms.date: 2/22/2019
+ms.author: victorh
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832892"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>透過 Azure CLI 自訂 Web 應用程式防火牆規則
@@ -26,7 +25,7 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 
 下列範例顯示如何檢視規則群組：
 
-```azurecli
+```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -79,7 +78,7 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 下列範例顯示如何檢視指定規則群組中的規則：
 
-```azurecli
+```azurecli-interactive
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -118,22 +117,22 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 下列範例會停用應用程式閘道上的規則 `910018` 和 `910017`：
 
-```azurecli
+```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
-## <a name="mandatory-rules"></a>强制性规则
+## <a name="mandatory-rules"></a>必要的規則
 
-以下列表包含导致 WAF 在防护模式下阻止请求的条件（在检测模式下，它们作为异常记录）。 无法配置或禁用这些规则：
+下列清單包含會造成封鎖的要求在防止模式 （在它們記錄為例外狀況的偵測模式） 中 WAF 的條件。 無法設定或停用這些：
 
-- 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
-- 请求正文（不带文件）数据长度大于配置的限制
-- 请求正文（包括文件）大于限制
-- WAF 引擎发生内部错误
+* 無法剖析要求主體導致要求遭到封鎖，除非主體檢查已關閉 （XML、 JSON、 表單資料）
+* 要求本文中 （的任何檔案） 的資料長度大於設定的限制
+* （包括檔案） 的內文大於限制的要求
+* WAF 引擎中發生內部錯誤
 
 CRS 3.x 特定：
 
-- 入站异常分数超出阈值
+* 輸入異常分數超過閾值
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -143,5 +142,3 @@ CRS 3.x 特定：
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-
-<!-- Update_Description: wording update -->

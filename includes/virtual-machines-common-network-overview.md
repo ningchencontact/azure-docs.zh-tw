@@ -9,10 +9,10 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: cd3b7d6cc75afc5d83ff02a15b920d9f8b05f608
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391456"
 ---
 當您建立 Azure 虛擬機器 (VM) 時，您必須建立[虛擬網路](../articles/virtual-network/virtual-networks-overview.md) (VNet)，或使用現有的 VNet。 您也需要決定如何在 VNet 上存取您的 VM。 請務必[在建立資源前進行規劃](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，並確定您已了解[網路資源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
@@ -102,7 +102,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 所有 NSG 都包含一組預設規則。 預設規則無法刪除，但因為其會指派為最低優先權，因此可以由您所建立的規則覆寫預設規則。 
 
- 當您將 NSG 與 NIC 建立關聯時，NSG 中的網路存取規則只會套用到該 NIC。 如果 NSG 已套用到多重 NIC VM 上的單一 NIC，則不會影響其他 NIC 的流量。 您可以將不同的 NSG 與 NIC (或 VM，根據部署模型而定) 和 NIC 或 VM 所繫結的子網路建立關聯。 優先順序是根據流量的方向來提供。
+當您將 NSG 與 NIC 建立關聯時，NSG 中的網路存取規則只會套用到該 NIC。 如果 NSG 已套用到多重 NIC VM 上的單一 NIC，則不會影響其他 NIC 的流量。 您可以將不同的 NSG 與 NIC (或 VM，根據部署模型而定) 和 NIC 或 VM 所繫結的子網路建立關聯。 優先順序是根據流量的方向來提供。
 
 請務必在規劃 VM 和 VNet 時[規劃](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) NSG。
 

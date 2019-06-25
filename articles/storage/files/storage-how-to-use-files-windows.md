@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926266"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
@@ -48,7 +48,7 @@ ms.locfileid: "64926266"
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您將需要主要 (或次要) 儲存體金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
+* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 您可以了解[各種因應措施，封鎖連接埠 445 這裡](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
 
     下列 PowerShell 程式碼會假設您有 Azure PowerShell 模組安裝，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)如需詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
@@ -185,11 +185,11 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. 開啟檔案總管。 做法是從 [開始] 功能表中開啟，或按 Win + E 捷徑。
 
-2. 瀏覽至視窗左側的 [本機] 項目。 這會變更功能區中所提供的功能表。 在 [電腦] 功能表之下，選取 [連線網路磁碟機]。
+2. 瀏覽至視窗左側的 [本機]  項目。 這會變更功能區中所提供的功能表。 在 [電腦] 功能表之下，選取 [連線網路磁碟機]  。
     
     ![「連線網路磁碟機」下拉式功能表的螢幕擷取畫面](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. 從 Azure 入口網站的 [連線] 窗格中複製 UNC 路徑。 
+3. 從 Azure 入口網站的 [連線]  窗格中複製 UNC 路徑。 
 
     ![[Azure 檔案服務連線] 窗格中的 UNC 路徑](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
@@ -205,26 +205,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![現在已掛接 Azure 檔案共用](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. 當您準備好要卸載 Azure 檔案共用時，您可以滑鼠右鍵按一下 [檔案總管] 中 [網路位置] 下的共用項目，然後選取 [中斷連線]。
+7. 當您準備好要卸載 Azure 檔案共用時，您可以滑鼠右鍵按一下 [檔案總管] 中 [網路位置]  下的共用項目，然後選取 [中斷連線]  。
 
 ### <a name="accessing-share-snapshots-from-windows"></a>從 Windows 存取共用快照集
 如果您已建立共用快照集 (透過指令碼或 Azure 備份之類的服務手動或自動建立)，您即可從 Windows 上的檔案共用檢視舊版的共用、目錄或特定檔案。 您可以從 [Azure 入口網站](storage-how-to-use-files-portal.md)、[Azure PowerShell](storage-how-to-use-files-powershell.md) 和 [Azure CLI](storage-how-to-use-files-cli.md) 建立共用快照集。
 
 #### <a name="list-previous-versions"></a>列出舊版
-瀏覽至需要還原的項目或父項目。 按兩下以移至所需的目錄。 按一下滑鼠右鍵，然後從功能表中選取 [屬性]。
+瀏覽至需要還原的項目或父項目。 按兩下以移至所需的目錄。 按一下滑鼠右鍵，然後從功能表中選取 [屬性]  。
 
 ![以滑鼠右鍵按一下功能表以取得選取的目錄](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
 
-選取 [舊版]，以查看此目錄之共用快照集的清單。 視網路速度和目錄中的共用快照集數目而定，清單可能需要幾秒鐘的時間才能載入。
+選取 [舊版]  ，以查看此目錄之共用快照集的清單。 視網路速度和目錄中的共用快照集數目而定，清單可能需要幾秒鐘的時間才能載入。
 
 ![[舊版] 索引標籤](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
 
-您可以選取 [開啟]，開啟特定的快照集。 
+您可以選取 [開啟]  ，開啟特定的快照集。 
 
 ![已開啟快照集](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
 
 #### <a name="restore-from-a-previous-version"></a>從舊版還原
-選取 [還原] 可在共用快照集建立時，將整個目錄的內容以遞迴方式複製到原始位置。
+選取 [還原]  可在共用快照集建立時，將整個目錄的內容以遞迴方式複製到原始位置。
  ![警告訊息中的 [還原] 按鈕](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>保護 Windows/Windows Server

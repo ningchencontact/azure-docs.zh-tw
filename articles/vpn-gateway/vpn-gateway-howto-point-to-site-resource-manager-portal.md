@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157245"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203068"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>請使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
@@ -98,7 +98,7 @@ ms.locfileid: "66157245"
 2. 按一下 [立即設定]  以開啟 [組態] 頁面。
 
    ![立即設定](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. 在 [點對站]  組態頁面上的 [位址集區]  方塊中，新增您要使用的私人 IP 位址範圍。 VPN 用戶端會動態收到您指定範圍內的 IP 位址。 按一下 [儲存]  來驗證和儲存設定。
+3. 在 [點對站]  組態頁面上的 [位址集區]  方塊中，新增您要使用的私人 IP 位址範圍。 VPN 用戶端會動態收到您指定範圍內的 IP 位址。 最小的子網路遮罩為 29 的位元的主動/被動和主動/主動組態 28 位元。 按一下 [儲存]  來驗證和儲存設定。
 
    ![用戶端位址集區](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

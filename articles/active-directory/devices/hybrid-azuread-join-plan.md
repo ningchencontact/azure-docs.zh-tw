@@ -17,22 +17,22 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64dd8067654246f7c9a077d027c068df820f439d
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110602"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
-若要以類似的方式，在裝置會是您想要保護，並使用它來保護您的資源，在任何時間，以及從任何位置的另一個核心身分識別。 您可以攜帶，使用下列方法之一的 Azure AD 中管理裝置身分識別，以達成此目標：
+以類似的使用方式，裝置是您想要保護的另一個核心身分識別，可用來隨時隨地保護您的資源。 您可以使用下列其中一種方法，將裝置身分識別導入 Azure AD 中進行管理，以達到此目標：
 
 - Azure AD Join
 - 混合式 Azure AD Join
 - Azure AD 註冊
 
-將您的裝置導入 Azure AD 中，您將可透過跨雲端和內部部署資源的單一登入 (SSO)，將使用者的生產力最大化。 在此同時，您可以利用[條件式存取](../active-directory-conditional-access-azure-portal.md)來保護對雲端和內部部署資源的存取。
+將您的裝置導入 Azure AD 中，您將可透過跨雲端和內部部署資源的單一登入 (SSO)，將使用者的生產力最大化。 在此同時，您可以安全存取您雲端和內部部署資源[條件式存取](../active-directory-conditional-access-azure-portal.md)。
 
 如果您有內部部署 Active Directory (AD) 環境，而且您想要將您的 AD 網域的電腦加入 Azure AD，您可以藉由混合式 Azure AD join 完成。 本文提供在您的環境中實作混合式 Azure AD Join 的相關步驟。 
 
@@ -113,7 +113,7 @@ ms.locfileid: "66688709"
 
 ### <a name="managed-environment"></a>受控環境
 
-受管理的環境可以是部署透過[密碼雜湊同步處理 (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs)或是[傳遞透過驗證 (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta)具有[順暢單一登入](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)。
+受控環境可使用[無縫單一登入](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)透過[密碼雜湊同步 (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) 或[傳遞驗證 (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) 進行部署。
 
 在這些案例中，您不需要設定同盟伺服器以進行驗證。
 

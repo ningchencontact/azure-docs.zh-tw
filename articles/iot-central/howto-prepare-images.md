@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236475"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>準備及上傳影像至您的 Azure IoT Central 應用程式
@@ -88,7 +88,7 @@ ms.locfileid: "65236475"
 
 ### <a name="device-template"></a>裝置範本
 
-若要將影像上傳至裝置範本，請瀏覽至 [裝置範本]，然後選擇裝置範本。 您必須具有建置者的身分以完成此工作：
+若要將影像上傳至裝置範本，請瀏覽至 [裝置範本]  ，然後選擇裝置範本。 您必須具有建置者的身分以完成此工作：
 
 ![上傳裝置範本影像](media/howto-prepare-images/uploaddevicetemplate.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "65236475"
 
 ### <a name="device-dashboard"></a>裝置儀表板
 
-若要將影像上傳至裝置儀表板，請瀏覽至 [裝置範本]，然後選擇裝置範本。 然後，選擇 [儀表板] 索引標籤。您必須具有建置者的身分以完成此工作：
+若要將影像上傳至裝置儀表板，請瀏覽至 [裝置範本]  ，然後選擇裝置範本。 然後，選擇 [儀表板]  索引標籤。您必須具有建置者的身分以完成此工作：
 
 ![上傳裝置儀表板影像](media/howto-prepare-images/uploaddevicedashboard.png)
 
@@ -106,7 +106,7 @@ ms.locfileid: "65236475"
 
 ### <a name="device-set-dashboard"></a>裝置集合儀表板
 
-若要在裝置集合儀表板上上傳影像，請瀏覽至 [裝置集合]，選擇裝置集合，然後選擇裝置。 然後選擇**儀表板**頁面，然後選取**編輯**:
+若要在裝置集合儀表板上上傳影像，請瀏覽至 [裝置集合]  ，選擇裝置集合，然後選擇裝置。 然後選擇**儀表板**頁面，然後選取**編輯**:
 
 ![上傳裝置集合儀表板影像](media/howto-prepare-images/uploaddevicesetdashboard.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113286"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>結合的啟用安全性資訊註冊 （預覽）
 
@@ -53,7 +53,7 @@ ms.locfileid: "66119373"
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>合併的註冊的條件式存取原則
 
-保護時，以及如何針對 Azure Multi-factor Authentication 與自助式密碼重設的使用者註冊，就可以使用條件式存取原則中的使用者動作。 這項預覽功能可供已啟用的組織[結合註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)。 可能會在組織中，他們想讓 HR 上架期間註冊 Azure Multi-factor Authentication 和從中央位置，例如受信任的網路位置的 SSPR 的使用者啟用這項功能。 如需有關條件式存取中建立受信任的位置的詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md#named-locations)
+保護時，以及如何針對 Azure Multi-factor Authentication 與自助式密碼重設的使用者註冊，就可以使用條件式存取原則中的使用者動作。 這項預覽功能可供已啟用的組織[結合註冊預覽](../authentication/concept-registration-mfa-sspr-combined.md)。 可能會在組織中，他們想讓 HR 上架期間註冊 Azure Multi-factor Authentication 和從中央位置，例如受信任的網路位置的 SSPR 的使用者啟用這項功能。 如需有關條件式存取中建立受信任的位置的詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取的位置條件？](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>建立原則，需要註冊從受信任的位置
 
@@ -62,7 +62,7 @@ ms.locfileid: "66119373"
 ![建立 CA 原則來控制安全性資訊註冊](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
 
 1. 在  **Azure 入口網站**，瀏覽至**Azure Active Directory** > **條件式存取**
-1. 選取 [新增原則]
+1. 選取 [新增原則] 
 1. 在 [名稱] 中，輸入此原則的名稱。 比方說，**結合安全性資訊註冊受信任網路上**
 1. 底下**指派**，按一下**使用者和群組**，並選取 使用者和您想要套用此原則的群組
 
@@ -92,4 +92,4 @@ ms.locfileid: "66119373"
 
 [疑難排解合併安全性資訊註冊](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[什麼是 Azure Active Directory 條件式存取中的位置條件？](../conditional-access/location-condition.md)
+[什麼是 Azure Active Directory 條件式存取的位置條件？](../conditional-access/location-condition.md)

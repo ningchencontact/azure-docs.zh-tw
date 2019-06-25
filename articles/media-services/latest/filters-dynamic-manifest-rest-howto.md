@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 447116267e53f8c4df1e882ca30c6a2e906d314c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114300"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>使用媒體服務 REST API 建立篩選器
 
@@ -116,6 +116,24 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 資產篩選器已建立。
 
 如需有關如何建立或更新資產篩選器的詳細資訊，請參閱[建立或更新](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate) \(英文\)。 此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter)。 
+
+## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
+
+您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式 （串流端點）](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+
+若要建立及使用 REST 串流定位器相關聯的篩選器，使用[建立串流定位器-](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API，並指定`properties.filters`中[要求本文](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)。
+                                
+## <a name="stream-using-filters"></a>使用篩選器的 Stream
+
+定義篩選條件後，您的用戶端就可以在串流 URL 中使用它們。 篩選器可以套用至自適性串流通訊協定：Apple HTTP 即時串流 (HLS)、MPEG-DASH 和 Smooth Streaming。
+
+下表顯示包含篩選器之 URL 的一些範例：
+
+|Protocol|範例|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>後續步驟
 

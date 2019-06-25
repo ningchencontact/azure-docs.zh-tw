@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
 ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148804"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支援的語言
@@ -37,15 +37,15 @@ ms.locfileid: "65148804"
 
 ### <a name="experimental-languages"></a>實驗性語言
 
-1.x 版的實驗性語言並未妥善調整，因此不支援所有繫結。
+1\.x 版的實驗性語言並未妥善調整，因此不支援所有繫結。
 
 請勿針對您所依賴的任何項目使用實驗性功能，因為那些功能並未受到正式支援。 請勿針對實驗性語言相關的問題建立支援案例。 
 
-2.x 版執行階段不支援實驗性語言。 只有在生產環境可支援新語言時，才會新增該語言的支援。 
+2\.x 版執行階段不支援實驗性語言。 只有在生產環境可支援新語言時，才會新增該語言的支援。 
 
 ### <a name="language-extensibility"></a>語言擴充性
 
-2.x 執行階段是針對提供[語言擴充性](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility) \(英文\) 所設計。 2.x 執行階段中的 JavaScript 和 Java 語言是使用此擴充性來建置。
+2\.x 執行階段是針對提供[語言擴充性](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility) \(英文\) 所設計。 2\.x 執行階段中的 JavaScript 和 Java 語言是使用此擴充性來建置。
 
 ## <a name="next-steps"></a>後續步驟
 

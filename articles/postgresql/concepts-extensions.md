@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410262"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293197"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器中的 PostgreSQL 擴充功能
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 擴充功能可在單一封裝中一併統合多個相關的 SQL 物件，其可使用單一命令從您的資料庫加以載入或移除。 載入資料庫之後，擴充功能就可如內建功能般運作。 如需有關 PostgreSQL 擴充功能的詳細資訊，請參閱 [將相關物件封裝成擴充功能](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)。
@@ -73,6 +73,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > | **擴充功能** | **說明** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可載入的程序性語言。 |
+> | [plv8](https://plv8.github.io/) | 可用於預存程序、觸發程序等的 PostgreSQL Javascript 語言擴充功能。 |
 
 ### <a name="miscellaneous-extensions"></a>其他擴充功能
 
@@ -124,7 +125,7 @@ TimescaleDB 是會封裝成擴充功能，適用於 PostgreSQL 的時間序列�
 [深入了解 TimescaleDB](https://docs.timescale.com/latest)的註冊的商標[時幅，inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>安裝 TimescaleDB
-若要安裝 TimescaleDB，您需要將它包含在伺服器的共用預先載入程式庫。 Postgres 的共用預先載入程式庫的變更都需要**重新啟動伺服器**才會生效。
+若要安裝 TimescaleDB，您需要將它包含在伺服器的共用預先載入程式庫。 Postgres 的變更`shared_preload_libraries`參數需要**重新啟動伺服器**才會生效。 您可以變更使用的參數[Azure 入口網站](howto-configure-server-parameters-using-portal.md)或[Azure CLI](howto-configure-server-parameters-using-cli.md)。
 
 > [!NOTE]
 > TimescaleDB 上可以啟用 Azure Database for PostgreSQL 9.6 和 10
@@ -137,10 +138,7 @@ TimescaleDB 是會封裝成擴充功能，適用於 PostgreSQL 的時間序列�
 
 3. 搜尋 `shared_preload_libraries` 參數。
 
-4. 複製並貼上下列的值 `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. 選取  **TimescaleDB**。
 
 5. 選取 **儲存**以保留您的變更。 儲存變更之後，您會收到通知。 
 
@@ -158,4 +156,4 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 
 
 ## <a name="next-steps"></a>後續步驟
-如果您未看見想要使用的擴充功能，請讓我們知道。 在我們的[客戶意見反應論壇](https://feedback.azure.com/forums/597976-azure-database-for-postgresql) \(英文\) 中投票給現有要求，或建立新的意見反應和要求。
+如果您未看見想要使用的擴充功能，請讓我們知道。 投票給現有的要求，或建立新的意見反應要求，在我們[意見反應論壇](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)。

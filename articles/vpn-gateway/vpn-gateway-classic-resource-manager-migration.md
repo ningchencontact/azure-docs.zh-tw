@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
 ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761563"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>從傳統 VPN 閘道到 Resource Manager 移轉
@@ -38,7 +38,7 @@ Resource Manager 中的模型不同於傳統模型，是由虛擬網路閘道、
 * 多站台連線能力
 * 強制通道已啟用 VNets
 
-不支持的方案包括：  
+不支援的案例包括 -  
 
 * 目前不支援 VNet 隨附 ExpressRoute 閘道與 VPN 閘道。
 * 傳輸 VM 擴充功能連線到內部部署伺服器的案例。 傳輸 VPN 連線能力限制如下所述。

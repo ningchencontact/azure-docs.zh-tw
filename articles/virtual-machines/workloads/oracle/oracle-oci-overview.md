@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 711fce9627537e68171c3b170121900d6b14ca1e
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743646"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808629"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle 應用程式解決方案，整合 Microsoft Azure 與 Oracle 雲端基礎結構 （預覽）
 
@@ -45,7 +45,7 @@ Microsoft 和 Oracle 已建立合作關係提供低延遲、 高輸送量跨雲�
 * Oracle 零售應用程式
 * Oracle Hyperion 財務管理
 
-下圖是解決方案的已連線的高階概觀。 為了簡單起見，此圖表會顯示只有應用程式層和資料層。 根據應用程式 architecutre 中，您的解決方案可能包括在 Azure 中的其他層，例如 web 層。 如需詳細資訊，請參閱下列幾節。
+下圖是解決方案的已連線的高階概觀。 為了簡單起見，此圖表會顯示只有應用程式層和資料層。 根據應用程式架構中，您的解決方案可能包括在 Azure 中的其他層，例如 web 層。 如需詳細資訊，請參閱下列幾節。
 
 ![Azure OCI 解決方案概觀](media/oracle-oci-overview/crosscloud.png)
 

@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/18/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 28577bfc755d80cd479a40b9e2b653af6ddec319
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236889"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204440"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -34,9 +34,9 @@ SQL Server 資料庫是重要的工作負載所需的低復原點目標 (RPO) �
 您將 SQL Server 資料庫備份之前，請檢查下列條件：
 
 1. 識別或建立[復原服務保存庫](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)在相同的區域或地區設定為裝載 SQL Server 執行個體的 VM。
-2. 請檢查[VM 所需的權限](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)來備份 SQL 資料庫。
-3. 請確認 VM 已[網路連線](backup-sql-server-database-azure-vms.md#establish-network-connectivity)。
-4. 請確定 SQL Server 資料庫遵循[之 Azure 備份的資料庫命名方針](#database-naming-guidelines-for-azure-backup)。
+2. 請確認 VM 已[網路連線](backup-sql-server-database-azure-vms.md#establish-network-connectivity)。
+3. 請確定 SQL Server 資料庫遵循[之 Azure 備份的資料庫命名方針](#database-naming-guidelines-for-azure-backup)。
+4. 專為 SQL 2008 和 2008 R2[新增登錄機碼](#add-registry-key-to-enable-registration)啟用伺服器註冊。 此步驟中將會無法必要當功能正式推出。
 5. 確認沒有其他啟用資料庫的備份解決方案。 您的資料庫備份之前，請停用所有其他 SQL Server 備份。
 
 > [!NOTE]
@@ -79,16 +79,6 @@ SQL Server 資料庫是重要的工作負載所需的低復原點目標 (RPO) �
 使用 Azure 防火牆 FQDN 標記 | 容易管理，自動管理所需的 Fqdn | 可以只使用與 Azure 防火牆
 使用 HTTP Proxy | 更精確地控制在 proxy 中的儲存體允許 Url <br/><br/> 單一點的網際網路存取 Vm <br/><br/> 不受 Azure IP 位址變更 | 使用 proxy 軟體執行 VM 的額外成本
 
-### <a name="set-vm-permissions"></a>設定 VM 權限
-
-當您設定 SQL Server 資料庫的備份時，Azure 備份會執行下列動作：
-
-- 新增 AzureBackupWindowsWorkload 延伸模組。
-- 建立 NT SERVICE\AzureWLBackupPluginSvc 帳戶來探索虛擬機器上的資料庫。 此帳戶用於備份和還原需要 SQL 系統管理員權限。
-- 探索資料庫為虛擬機器上執行的 Azure 備份會使用 NT AUTHORITY\SYSTEM 帳戶。 此帳戶必須是公用登入 SQL。
-
-如果您未在 Azure Marketplace 中建立 SQL Server VM，您可能會收到 UserErrorSQLNoSysadminMembership 時發生錯誤。 如需詳細資訊，請參閱功能項考量與限制一節中找到[有關在 Azure Vm 中 SQL Server 備份](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
-
 ### <a name="database-naming-guidelines-for-azure-backup"></a>命名指導方針適用於 Azure 備份的資料庫
 
 避免在資料庫名稱中使用下列項目：
@@ -101,6 +91,22 @@ SQL Server 資料庫是重要的工作負載所需的低復原點目標 (RPO) �
 
 別名功能適用於不支援的字元，但我們建議您避免它們。 如需詳細資訊，請參閱 [了解表格服務資料模型](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)。
 
+### <a name="add-registry-key-to-enable-registration"></a>新增登錄機碼啟用註冊
+
+1. 開啟 Regedit
+2. 建立登錄機目錄路徑：HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook （您必須建立下 WorkloadBackup 接著需要在 Microsoft 底下建立 'Key' TestHook）。
+3. 登錄路徑下的目錄，請使用字串名稱中建立新 '字串值' **AzureBackupEnableWin2K8R2SP1**和值：**True**
+
+    ![RegEdit 啟用註冊](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+或者，您可以使用下列命令，執行.reg 檔案來自動執行此步驟：
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -141,7 +147,7 @@ SQL Server 資料庫是重要的工作負載所需的低復原點目標 (RPO) �
     - Azure 備份會在 VM 上建立的服務帳戶 NT Service\AzureWLBackupPluginSvc。
       - 所有備份和還原作業都會使用此服務帳戶。
       - NT Service\AzureWLBackupPluginSvc 需要 SQL 系統管理員權限。 在 Marketplace 中建立的所有 SQL Server Vm 都隨附安裝 SqlIaaSExtension。 AzureBackupWindowsWorkload 延伸模組會使用 SQLIaaSExtension，自動取得必要的權限。
-    - 如果您未從 Marketplace 建立 VM，VM 將不會有 SqlIaaSExtension 安裝，並探索作業會失敗並出現錯誤訊息 UserErrorSQLNoSysAdminMembership。 若要修正此問題，請遵循[指示](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
+    - 如果您尚未從 Marketplace 建立 VM，或如果您是在 SQL 2008 和 2008 R2 上，VM 可能沒有安裝，SqlIaaSExtension，探索作業會失敗並出現錯誤訊息 UserErrorSQLNoSysAdminMembership。 若要修正此問題，請依照下列指示[設定 VM 的權限](backup-azure-sql-database.md#set-vm-permissions)。
 
         ![選取 VM 和資料庫](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/17/2019
+ms.openlocfilehash: b0d963e212e66bf96ec42ec2a5c0fd5005f7a889
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479153"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165882"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
@@ -34,7 +34,7 @@ ms.locfileid: "66479153"
 |Azure 儲存體| Blob 儲存體 * * | Object | 區塊 Blob | 標準 | 經常性存取、 非經常性存取、 封存 | 全部 | 全部 |
 |Azure Data Lake Storage Gen1| N/A | 階層 （檔案系統） | N/A | N/A | N/A | 只有 3.6 | HBase 的全部項目 |
 
-* * 對於 HDInsight 叢集，只有在次要儲存體帳戶可以是類型 BlobStorage。
+\* * 對於 HDInsight 叢集，只有在次要儲存體帳戶可以是類型 BlobStorage。
 
 如需有關 Azure 儲存體帳戶類型的詳細資訊，請參閱[Azure 儲存體帳戶概觀](../storage/common/storage-account-overview.md)
 
@@ -55,7 +55,7 @@ ms.locfileid: "66479153"
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 否 |
 | 4.0 | Data Lake Storage Gen1 | 任意 | 否 |
 
-* =，只要它們是相同的受管理身分識別用於叢集存取權的所有安裝程式，這可能是一或多個 Data Lake 儲存體 Gen2 帳戶。
+\* =，只要它們是相同的受管理身分識別用於叢集存取權的所有安裝程式，這可能是一或多個 Data Lake 儲存體 Gen2 帳戶。
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>搭配 Azure HDInsight 中的 Apache Hadoop 使用 Azure Data Lake Storage Gen2
 
@@ -217,7 +217,7 @@ Data Lake Storage Gen1 會使用 Azure Active Directory 進行驗證，並使用
 
 | **功能** | **說明** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 整合了 Azure Active Directory (Azure AD)，可對 Data Lake Storage Gen1 中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Data Lake Storage Gen1 受惠於所有的 Azure AD 功能。 這些功能包括多重要素驗證、條件式存取、角色型存取控制、應用程式使用情況監視、安全性監視和警示等。 Data Lake Storage Gen1 支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱[使用 Azure Active Directory 在 Azure Data Lake Storage Gen1 內驗證](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Authentication |Data Lake Storage Gen1 整合了 Azure Active Directory (Azure AD)，可對 Data Lake Storage Gen1 中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Data Lake Storage Gen1 受惠於所有的 Azure AD 功能。 這些功能包括多重要素驗證、 條件式存取、 角色型存取控制、 應用程式使用量監視、 安全性監視和警示等等。 Data Lake Storage Gen1 支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱[使用 Azure Active Directory 在 Azure Data Lake Storage Gen1 內驗證](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | 存取控制 |Data Lake Storage Gen1 透過支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 ACL 可在根資料夾、子資料夾和個別檔案上啟用。 如需 ACL 如何在 Data Lake Storage Gen1 的環境中運作的詳細資訊，請參閱 [Data Lake Storage Gen1 中的存取控制](../data-lake-store/data-lake-store-access-control.md)。 |
 | 加密 |Data Lake Storage Gen1 也會為帳戶中儲存的資料提供加密功能。 您會在建立 Data Lake Storage Gen1 帳戶時指定加密設定。 您可以選擇將資料加密，或選擇不使用加密。 如需詳細資訊，請參閱 [Data Lake Storage Gen1 的加密](../data-lake-store/data-lake-store-encryption.md)。 如需如何提供加密相關設定的指示，請參閱[使用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md)。 |
 

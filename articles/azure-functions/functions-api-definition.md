@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341622"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions 中的 OpenAPI 2.0 中繼資料支援 (預覽)
@@ -36,7 +36,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 > [!NOTE]
 > 搶鮮版 (Beta) 執行階段目前不支援函式 API 定義功能。
 
-若要允許產生託管的 OpenAPI 定義和快速入門定義，請將 **API 定義來源** 設定為**函式 (預覽)**。 **外部 URL** 可讓您的函式使用裝載在其他位置的 OpenAPI 定義。
+若要允許產生託管的 OpenAPI 定義和快速入門定義，請將 **API 定義來源** 設定為**函式 (預覽)** 。 **外部 URL** 可讓您的函式使用裝載在其他位置的 OpenAPI 定義。
 
 ## <a name="generate-definition"></a> 從您的函式中繼資料產生 Swagger 基本架構
 範本可協助您開始撰寫第一個 OpenAPI 定義。 定義範本功能會針對每個 HTTP 觸發程序函式，使用 function.json 中所有的中繼資料來建立鬆散的 OpenAPI 定義。 您會需要從 [OpenAPI 規格](https://swagger.io/specification/)填入 API 的更多相關資訊，例如要求和回應範本。
@@ -45,7 +45,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 ### <a name="templates"></a>可用範本
 
-|名稱| 描述 |
+|Name| 描述 |
 |:-----|:-----|
 |已產生的定義|具有可從函式現有中繼資料推斷之最大數量資訊的 OpenAPI 定義。|
 
@@ -55,10 +55,10 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 |Swagger.json|入口網站 UI|Function.json|
 |:----|:-----|:-----|
-|[Host](https://swagger.io/specification/#fixed-fields-15)|**函式應用程式設定** > **App Service 設定** > **概觀** > **URL**|不存在
-|[Paths](https://swagger.io/specification/#paths-object-29)|[整合] > [選取的 HTTP 方法]|繫結：路由
-|[Path Item](https://swagger.io/specification/#path-item-object-32)|[整合] > [路由範本]|繫結：方法
-|[安全性](https://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在|
+|[Host](https://swagger.io/specification/#fixed-fields-15)|**函式應用程式設定** > **App Service 設定** > **概觀** > **URL**|不存在 
+|[Paths](https://swagger.io/specification/#paths-object-29)|[整合]   > [選取的 HTTP 方法] |繫結：路由
+|[Path Item](https://swagger.io/specification/#path-item-object-32)|[整合]   > [路由範本] |繫結：方法
+|[安全性](https://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在 |
 |operationID*|**路由 + 允許的動詞**|路由 + 允許的動詞|
 
 \*只有與 PowerApps 和 Flow 整合才需要作業識別碼。
@@ -71,9 +71,9 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
  從原始檔控制啟用讓原始檔控制修改 API 定義之前，您必須先啟用裝載在入口網站中的 API 定義。 遵循下列指示：
 
-1. 瀏覽至函式應用程式設定中的 **API 定義 (預覽)**。
+1. 瀏覽至函式應用程式設定中的 **API 定義 (預覽)** 。
    1. 將 **API 定義來源**設定為 **Function**。
-   1. 依序按一下 [產生 API 定義範本]、[儲存] 可建立範本定義以供稍後修改。
+   1. 依序按一下 [產生 API 定義範本]  、[儲存]  可建立範本定義以供稍後修改。
    1. 請注意您的 API 定義 URL 和金鑰。
 1. [設定持續整合/持續部署 (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements)。
 2. 在原始檔控制中的 \site\wwwroot\.azurefunctions\swagger\swagger.json 修改 swagger.json。

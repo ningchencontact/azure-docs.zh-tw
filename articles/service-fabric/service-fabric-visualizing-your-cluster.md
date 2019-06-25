@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: cbeb0a8944b35af2a68080a2b2f1bb4436c6e58d
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060430"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric 總管視覺化叢集
 
@@ -29,10 +29,10 @@ Service Fabric Explorer (SFX) 是開放原始碼工具，可檢查及管理 Azur
 
 您可以使用下列連結將 Service Fabric Explorer 下載為桌面應用程式：
 
--  Windows
+- Windows
   - https://aka.ms/sfx-windows
 
--  Linux
+- Linux
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
@@ -48,7 +48,7 @@ Service Fabric Explorer (SFX) 是開放原始碼工具，可檢查及管理 Azur
 
 Service Fabric Explorer 也裝載於 Service Fabric 叢集的 HTTP 管理端點。 若要在 web 瀏覽器中啟動 SFX，瀏覽至叢集的 HTTP 管理端點從任何瀏覽器-例如 https:\//clusterFQDN:19080。
 
-針對開發人員工作站設定，您可以瀏覽至 https://localhost:19080/Explorer，在本機叢集上啟動 Service Fabric Explorer。 請參閱此文章以[準備您的開發環境](service-fabric-get-started.md)。
+針對開發人員工作站設定，您可以瀏覽至 https://localhost:19080/Explorer ，在本機叢集上啟動 Service Fabric Explorer。 請參閱此文章以[準備您的開發環境](service-fabric-get-started.md)。
 
 > [!NOTE]
 > 如果您的叢集受到自我簽署憑證保護，您就會從網頁瀏覽器收到「此網站不安全」的錯誤訊息。 在大多數新式網頁瀏覽器中，您可以藉由覆寫警告來直接繼續進行操作。 在生產環境中，應該使用通用名稱和憑證授權單位簽發的憑證來保護您的叢集。 
@@ -123,16 +123,22 @@ EventStore 是平台所提供的功能，可提供可在 Service Fabric Explorer
 >[!NOTE]
 >截至 Service Fabric 6.4 版為止， EventStore API 僅適用於在 Azure 上執行的 Windows 叢集。 我們正在將這個功能和我們的獨立叢集移植到 Linux。
 
+## <a name="image-store-viewer"></a>映像存放區檢視
+映像存放區檢視是一項功能提供，如果使用原生映像存放區，以便檢視目前映像的內容儲存和取得檔案和資料夾的資訊，以及移除檔案/資料夾。
+
+![Service Fabric 總管叢集對應][sfx-imagestore]
+
 
 ## <a name="next-steps"></a>後續步驟
 * [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 * [使用 PowerShell 部署 Service Fabric 應用程式](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png

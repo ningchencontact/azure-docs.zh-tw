@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: ecc63cac56c9aeb3d1dd3875134d53cb481e6a5c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 55bcce3c5a4b0dd00d9217d6cb3cc2cfbe6d5828
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708201"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753814"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
 Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務與容器。 Service Fabric 也解決了開發及管理雲端原生應用程式時所面臨的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。 Service Fabric 代表新一代的平台，可用於建置及管理這些在容器中執行的企業級、第一層雲端級別應用程式。
@@ -29,7 +29,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、�
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>法規遵循
-Azure Service Fabric 資源提供者可在所有 Azure 區域中使用，並且會符合 Azure 所具有的所有合規性憑證，這包括下列項目：SOC、ISO、PCI DSS、HIPAA 及 GDRP。 請檢閱下列內容以取得合規性憑證的完整清單：[合規性供應項目](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric 資源提供者可在所有 Azure 區域中使用，並且會符合 Azure 所具有的所有合規性憑證，這包括下列項目：SOC、ISO、PCI DSS、HIPAA 及 GDPR。 請檢閱下列內容以取得合規性憑證的完整清單：[合規性供應項目](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>由微服務組成的應用程式 
 Service Fabric 可讓您建置及管理由微服務組成的應用程式，這類應用程式可調整且可靠，並以高密度方式在共用的機器集區 (稱為叢集) 上執行。 它提供精密、輕量的執行階段，可建置在容器中執行之分散式、可調整的無狀態和具狀態微服務。 此外，還提供完整的應用程式管理功能，可佈建、部署、監視、升級/修補及刪除已部署的應用程式，包括容器化服務。
@@ -48,7 +48,7 @@ Service Fabric 為由微服務組成的應用程式，提供完整的執行階�
 Service Fabric 是將微服務部署至整個機器叢集的 Microsoft [容器協調者](service-fabric-cluster-resource-manager-introduction.md)。 微服務的開發方式有許多種，從使用 [Service Fabric 程式設計模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)，到部署[您選擇的任何程式碼](service-fabric-guest-executables-introduction.md)，應有盡有。 重要的是，您可以在相同應用程式中同時混合容器中的服務和處理序中的服務。 如果您只是想要[部署和管理容器](service-fabric-containers-overview.md)，則 Service Fabric 作為容器協調者是一個最佳選擇。
 
 ## <a name="any-os-any-cloud"></a>任何 OS、任何雲端
-Service Fabric 可在任何環境執行。 您可以在許多環境 (包括 Azure 或內部部署、Windows Server 上或 Linux 上) 建立 Service Fabric 的叢集。 您甚至可以在其他公用雲端上建立叢集。 此外，SDK 中的開發環境與生產環境「完全相同」，不涉及任何模擬器。 換句話說，在本機開發叢集上執行的項目，也會部署到其他環境中的叢集。
+Service Fabric 可在任何環境執行。 您可以在許多環境 (包括 Azure 或內部部署、Windows Server 上或 Linux 上) 建立 Service Fabric 的叢集。 您甚至可以在其他公用雲端上建立叢集。 此外，SDK 中的開發環境與生產環境「完全相同」  ，不涉及任何模擬器。 換句話說，在本機開發叢集上執行的項目，也會部署到其他環境中的叢集。
 
 ![Service Fabric 平台][Image1]
 

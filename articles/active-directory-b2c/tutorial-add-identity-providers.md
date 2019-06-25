@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055090"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中將識別提供者新增至您的應用程式
 
@@ -46,7 +46,7 @@ ms.locfileid: "66512203"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]  ，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [應用程式註冊]  。
+3. 選擇**所有的服務**左上角的 Azure 入口網站，然後搜尋並選取**應用程式註冊 （舊版）** 。
 4. 選取 [新增應用程式註冊]  。
 5. 輸入應用程式的名稱。 例如： `Azure AD B2C App`。
 6. 針對 [應用程式類型]  ，選取 `Web app / API`。
@@ -106,7 +106,7 @@ ms.locfileid: "66512203"
     例如： `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`。
 
 8. 針對 [用戶端識別碼]  輸入您先前記錄的應用程式識別碼，並輸入您先前記錄的金鑰值作為 [用戶端祕密]  。
-9. 您也可以選擇輸入 **Domain_hint** 的值。 例如： `ContosoAD`。 
+9. 您也可以選擇輸入 **Domain_hint** 的值。 例如： `ContosoAD`。 網域提示 (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) 是應用程式的驗證要求中包含的指示詞。 它們可用來加快使用者進入其同盟 IdP 登入頁面的速度。 或者，多租用戶應用程式也可使用網域提示來加速使用者直接前往其租用戶的品牌化 Azure AD 登入頁面。
 10. 按一下 [確定]  。
 11. 選取 [對應此識別提供者的宣告]  ，然後設定下列宣告：
     

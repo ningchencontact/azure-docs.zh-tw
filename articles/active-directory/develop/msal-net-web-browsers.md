@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f91e6ab1fb12132068b839e66fafd3ab1bc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 061b8a9f16396841c3f0d650ccc2f2c4a907aab3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65543949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111316"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>使用網頁瀏覽器中 MSAL.NET
 網頁瀏覽器不需要互動式驗證。 根據預設，支援 MSAL.NET[系統的網頁瀏覽器](#system-web-browser-on-xamarinios-and-xamarinandroid)在 Xamarin.iOS 上並[Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)。 但是[您也可以啟用內嵌的網頁瀏覽器](#enable-embedded-webviews)依據您的需求 (UX，讓單一登入 (SSO) 安全性的需求) 中[Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios)並[Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)應用程式。 您甚至可以與[動態選擇](#detecting-the-presence-of-custom-tabs-on-xamarinandroid)的網頁瀏覽器使用根據 Chrome 或瀏覽器支援 Chrome 自訂索引標籤，在 Android 中的目前狀態。
@@ -33,7 +33,7 @@ ms.locfileid: "65543949"
 
 - （如果有一個輸入） 的密碼永遠不會儲存應用程式或驗證程式庫。
 - 可讓其他身分識別中的提供者 （例如登入-公司學校帳戶，或使用 MSAL，或與 Azure AD B2C 的社交帳戶的個人帳戶） 的重新導向。
-- 可讓 STS 來控制條件式存取，讓使用者執行多重要素驗證 (MFA) 的驗證階段 （輸入 Windows Hello pin，或其在電話上，或在電話上的驗證應用程式上呼叫）。 在其中需要的多重要素驗證未設定它尚未的情況下，使用者可以設定它只是在相同的對話方塊中的時間。  使用者輸入行動電話號碼，並引導至安裝驗證應用程式並掃描 QR 標籤上，新增其帳戶。 此伺服器驅動型互動是絕佳的體驗 ！
+- 可讓 STS 控制條件式存取，比方說，讓使用者執行多重要素驗證 (MFA) 的驗證階段 （輸入 Windows Hello pin，或其在電話上，或在電話上的驗證應用程式上呼叫）。 在其中需要的多重要素驗證未設定它尚未的情況下，使用者可以設定它只是在相同的對話方塊中的時間。  使用者輸入行動電話號碼，並引導至安裝驗證應用程式並掃描 QR 標籤上，新增其帳戶。 此伺服器驅動型互動是絕佳的體驗 ！
 - 可讓使用者變更其密碼，在此相同的對話方塊中的密碼已過期 （提供的舊和新密碼的其他欄位）。
 - 可讓您的租用戶或應用程式 （映像） 商標受 Azure AD 租用戶系統管理員 / 應用程式擁有者。
 - 可讓使用者同意讓應用程式存取的資源/範圍在其名稱中只會在驗證之後。
@@ -122,7 +122,7 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 根據這種方法，以及您所傳回的值，您可以決定：
 
-- 您可以將自訂錯誤訊息傳回給使用者。 例如：[請安裝 Chrome 中，才能繼續進行驗證]-或-
+- 您可以將自訂錯誤訊息傳回給使用者。 例如: [請安裝 Chrome 中，才能繼續進行驗證]-或-
 - 您可以改為使用內嵌 web 檢視選項，並啟動 UI 中的以內嵌 web 檢視。
 
 下列程式碼顯示內嵌 web 檢視選項：

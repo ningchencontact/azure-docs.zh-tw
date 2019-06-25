@@ -4,6 +4,8 @@
   items:
     - name: 什麼是 Azure DNS？
       href: dns-overview.md
+    - name: 什麼是 Azure Private DNS？
+      href: private-dns-overview.md
 - name: 快速入門
   expanded: true
   items:
@@ -15,110 +17,136 @@
       href: dns-getstarted-cli.md
 - name: 教學課程
   items:
-    - name: 在 Azure DNS 上裝載您的網域
-      href: dns-delegate-domain-azure-dns.md
-    - name: 建立 Web 應用程式的自訂 DNS 記錄
-      href: dns-web-sites-custom-domain.md
-    - name: 建立私人 DNS 區域和記錄
-      href: private-dns-getstarted-powershell.md
-    - name: 流量管理員的別名記錄
-      href: tutorial-alias-tm.md
-    - name: 公用 IP 位址的別名記錄
-      href: tutorial-alias-pip.md
-    - name: 區域記錄的別名記錄
-      href: tutorial-alias-rr.md
+    - name: 公用 DNS
+      items:
+        - name: 在 Azure DNS 上裝載您的網域
+          href: dns-delegate-domain-azure-dns.md
+        - name: 建立 Web 應用程式的自訂 DNS 記錄
+          href: dns-web-sites-custom-domain.md
+        - name: 流量管理員的別名記錄
+          href: tutorial-alias-tm.md
+        - name: 公用 IP 位址的別名記錄
+          href: tutorial-alias-pip.md
+        - name: 區域記錄的別名記錄
+          href: tutorial-alias-rr.md
+    - name: 私人 DNS
+      items:
+        - name: 建立私人 DNS 區域和記錄
+          href: private-dns-portal.md
 - name: 範例
   items:
     - name: Azure CLI
       href: cli-samples.md
 - name: 概念
   items:
-    - name: 區域和記錄
-      href: dns-zones-records.md
-    - name: 別名記錄
-      href: dns-alias.md
-    - name: 使用 Azure DNS 委派
-      href: dns-domain-delegation.md
-    - name: 常見問題集
-      href: dns-faq.md
-    - name: 使用私人 DNS 區域
-      href: private-dns-overview.md
-    - name: 私人 DNS 案例
-      href: private-dns-scenarios.md
-    - name: DNS 計量與警示
-      href: dns-alerts-metrics.md
-    - name: 反向 DNS
-      href: dns-reverse-dns-overview.md
-    - name: 使用 Azure DNS 和流量管理員進行災害復原
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: 公用 DNS
+      items:
+        - name: 區域和記錄
+          href: dns-zones-records.md
+        - name: 別名記錄
+          href: dns-alias.md
+        - name: 使用 Azure DNS 委派
+          href: dns-domain-delegation.md
+        - name: 常見問題集
+          href: dns-faq.md
+        - name: DNS 計量與警示
+          href: dns-alerts-metrics.md
+        - name: 反向 DNS
+          href: dns-reverse-dns-overview.md
+        - name: 使用 Azure DNS 和流量管理員進行災害復原
+          href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: 私人 DNS
+      items:
+        - name: 常見問題集 - 私人 DNS
+          href: dns-faq-private.md
+        - name: 私人 DNS 案例
+          href: private-dns-scenarios.md
 - name: 作法
   items:
-    - name: 建立私人 DNS 區域和記錄 - Azure CLI
-      href: private-dns-getstarted-cli.md
-    - name: 負載平衡的 Web 應用程式別名記錄
-      href: dns-alias-appservice.md
-    - name: 管理 DNS 區域
+    - name: 私人 DNS
       items:
-        - name: Azure 入口網站
-          href: dns-operations-dnszones-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-dnszones.md
-        - name: Azure CLI
-          href: dns-operations-dnszones-cli.md
-    - name: 管理 DNS 記錄
+        - name: 建立私人區域 - CLI
+          href: private-dns-getstarted-cli.md
+        - name: 建立私人區域 - PowerShell
+          href: private-dns-getstarted-powershell.md
+    - name: 公用 DNS
       items:
-        - name: Azure 入口網站
-          href: dns-operations-recordsets-portal.md
-        - name: Azure PowerShell
-          href: dns-operations-recordsets.md
-        - name: Azure CLI
-          href: dns-operations-recordsets-cli.md
-    - name: 管理反向 DNS
-      items:
-        - name: Azure DNS 中的主機反向對應區域
-          href: dns-reverse-dns-hosting.md
-        - name: 管理 Azure 服務的反向 DNS 記錄
-          href: dns-reverse-dns-for-azure-services.md
-    - name: 匯入和匯出 DNS 區域檔案
-      href: dns-import-export.md
-    - name: 委派子網域
-      href: delegate-subdomain.md
-    - name: 使用 PowerShell 委派子網域
-      href: delegate-subdomain-ps.md
-    - name: 與其他 Azure 服務整合
-      href: dns-for-azure-services.md
-    - name: 保護 DNS 區域和記錄
-      href: dns-protect-zones-recordsets.md
-    - name: 使用 .NET SDK 自動執行 DNS 作業
-      href: dns-sdk.md
-    - name: Azure 資源自訂網域
-      href: dns-custom-domain.md
+        - name: 負載平衡的 Web 應用程式別名記錄
+          href: dns-alias-appservice.md
+        - name: 管理 DNS 區域
+          items:
+            - name: Azure 入口網站
+              href: dns-operations-dnszones-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-dnszones.md
+            - name: Azure CLI
+              href: dns-operations-dnszones-cli.md
+        - name: 管理 DNS 記錄
+          items:
+            - name: Azure 入口網站
+              href: dns-operations-recordsets-portal.md
+            - name: Azure PowerShell
+              href: dns-operations-recordsets.md
+            - name: Azure CLI
+              href: dns-operations-recordsets-cli.md
+        - name: 管理反向 DNS
+          items:
+            - name: Azure DNS 中的主機反向對應區域
+              href: dns-reverse-dns-hosting.md
+            - name: 管理 Azure 服務的反向 DNS 記錄
+              href: dns-reverse-dns-for-azure-services.md
+        - name: 匯入和匯出 DNS 區域檔案
+          href: dns-import-export.md
+        - name: 委派子網域
+          href: delegate-subdomain.md
+        - name: 使用 PowerShell 委派子網域
+          href: delegate-subdomain-ps.md
+        - name: 與其他 Azure 服務整合
+          href: dns-for-azure-services.md
+        - name: 保護 DNS 區域和記錄
+          href: dns-protect-zones-recordsets.md
+        - name: 使用 .NET SDK 自動執行 DNS 作業
+          href: dns-sdk.md
+        - name: Azure 資源自訂網域
+          href: dns-custom-domain.md
     - name: 疑難排解
       items:
         - name: 疑難排解指南
           href: dns-troubleshoot.md
 - name: 參考
   items:
-    - name: 程式碼範例
-      href: 'https://azure.microsoft.com/resources/samples/?service=dns'
-    - name: Azure PowerShell
-      href: /powershell/module/az.dns
-    - name: Azure CLI
-      href: /cli/azure/network/dns
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.dns.models
-    - name: Java
-      href: /java/api/com.microsoft.azure.management.dns
-    - name: Node.js
-      href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
-    - name: Ruby
-      href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
-    - name: Python
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
-    - name: REST
-      href: /rest/api/dns/
-    - name: Resource Manager 範本
-      href: /azure/templates/microsoft.network/dns-allversions
+    - name: 公用 DNS
+      items:
+        - name: 程式碼範例
+          href: 'https://azure.microsoft.com/resources/samples/?service=dns'
+        - name: Azure PowerShell
+          href: /powershell/module/az.dns
+        - name: Azure CLI
+          href: /cli/azure/network/dns
+        - name: .NET
+          href: /dotnet/api/microsoft.azure.management.dns.models
+        - name: Java
+          href: /java/api/com.microsoft.azure.management.dns
+        - name: Node.js
+          href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
+        - name: Ruby
+          href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
+        - name: Python
+          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
+        - name: REST
+          href: /rest/api/dns/
+        - name: Resource Manager 範本
+          href: /azure/templates/microsoft.network/dns-allversions
+    - name: 私人 DNS
+      items:
+        - name: Azure CLI
+          href: /cli/azure/network/private-dns
+        - name: Azure PowerShell
+          href: /powershell/module/az.PrivateDns
+        - name: .NET
+          href: /dotnet/api/overview/azure/privatedns/management
+        - name: REST
+          href: /rest/api/dns/privatedns/privatezones
 - name: 相關參考
   items:
     - name: 應用程式閘道
@@ -149,3 +177,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates/?product=dns'
+    - name: 私人 DNS 區域移轉指南
+      href: private-dns-migration-guide.md

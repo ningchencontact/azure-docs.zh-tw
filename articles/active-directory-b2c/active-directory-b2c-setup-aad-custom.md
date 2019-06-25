@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508651"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203700"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Azure Active Directory 帳戶進行登入 
 
@@ -132,7 +132,7 @@ ms.locfileid: "66508651"
 5. 將 **METADATA** 的值設定為 `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`，其中 `your-AD-tenant-name` 是您的 Azure AD 租用戶名稱。 例如： `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. 開啟您的瀏覽器並移至您剛才更新的 **METADATA** URL，查看**簽發者**物件，並將其值複製並貼到 XML 檔案的 **ProviderName** 值中。
 8. 將 **client_id** 和 **IdTokenAudience** 設定為來自應用程式註冊的應用程式識別碼。
-9. 在 **CryptograhicKeys** 下方，將 **StorageReferenceId** 的值更新為您所定義的原則金鑰。 例如： `ContosoAppSecret`。
+9. 底下**CryptographicKeys**，更新的值**StorageReferenceId**您定義的原則索引鍵。 例如： `ContosoAppSecret`。
 
 ### <a name="upload-the-extension-file-for-verification"></a>上傳擴充檔案準備驗證
 

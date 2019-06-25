@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824445"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293434"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
 
@@ -44,6 +44,7 @@ ms.locfileid: "65824445"
 | 每個媒體服務帳戶的轉換 | 100 (固定)|
 | 一次與資產相關聯的唯一串流定位器 | 100<sup>(6)</sup> （固定） |
 | 每個內容金鑰的原則選項 |30 | 
+| 每個月的每個媒體服務 DRM 類型的授權金鑰傳遞服務，每個帳戶|1,000,000|
 
 <sup>1</sup> 單一 blob 支援的大小上限目前在 Azure Blob 儲存體是最多 5 TB。 其他的限制適用於服務所使用的 VM 大小所根據的媒體服務中。 大小限制適用於您上傳的檔案，也因為媒體服務處理 （編碼或分析） 而產生的檔案。 如果原始程式檔超過 260 GB，您的工作可能會失敗。 
 

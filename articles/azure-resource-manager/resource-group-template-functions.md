@@ -1,23 +1,17 @@
 ---
 title: Resource Manager 範本函數 | Microsoft Docs
 description: 描述要在 Azure 資源管理員範本中用來擷取值、搭配字串和數字使用，並擷取部署資訊的函數。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80f5c59f5a113bbe29d18bae41ba44adc338a4b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 201fea91aba2a14720a7c28df5128f94e9e327fd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069286"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205419"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
 本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在範本中使用函式的資訊，請參閱[範本語法](resource-group-authoring-templates.md#syntax)。

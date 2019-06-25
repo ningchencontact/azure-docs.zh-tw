@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575741"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807506"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 
-Azure 地圖服務是地理空間服務的集合，以最新的可用地圖資料作為後盾，進而為 Web 和行動裝置應用程式提供準確的地理內容。 Azure 地圖服務是由 REST API 組成，可用於呈現多種樣式的**地圖**和衛星影像、**搜尋**地址、地點及全球景點；點對點和多點**路線規劃**、多點最佳化、等時線、營業用車、受影響的交通，以及矩陣路線規劃；領先業界的交通流量和事故檢視；透過 [地理位置]  建立使用者位置，以及將位置轉換為 [時區]  ，也可擷取某個位置的時間。 此外，Azure 地圖服務可為 [地理柵欄]  、地圖**資料** 儲存體 (在 Azure 中裝載位置資訊) 及 [空間作業]  提供服務，進而透過地理空間分析提供位置智慧。 Azure 地圖服務可直接作為 REST API 使用，或透過我們強固的 **Web SDK** 或 **Android SDK** 提供。 這些工具可讓開發人員快速開發和調整解決方案，以將位置資訊整合到 Azure 雲端的 Azure 解決方案中。 立即註冊免費的 [Azure 地圖服務帳戶](https://azure.microsoft.com/services/azure-maps/)，開始進行開發！
+Azure 地圖服務是地理空間服務的集合，以最新的可用地圖資料作為後盾，進而為 Web 和行動裝置應用程式提供準確的地理內容。 Azure 地圖服務是由 REST API 組成，可用於呈現多種樣式的**地圖**和衛星影像、**搜尋**地址、地點及全球景點；點對點和多點**路線規劃**、多點最佳化、等時線、營業用車、受影響的交通，以及矩陣路線規劃；領先業界的交通流量和事故檢視；要求公共運輸、自行車共享、機車共享和汽車共享資訊的**行動**服務，以運用替代交通模式和即時資料來規劃路線；透過 [地理位置]  建立使用者位置，以及將位置轉換為 [時區]  ，也可擷取某個位置的時間。 此外，Azure 地圖服務可為 [地理柵欄]  、[地圖資料]  儲存體 (在 Azure 中裝載位置資訊) 及 [空間作業]  提供服務，進而透過地理空間分析提供定位智慧。 Azure 地圖服務可直接作為 REST API 使用，或透過我們強固的 **Web SDK** 或 **Android SDK** 提供。 這些工具可讓開發人員快速開發和調整解決方案，以將位置資訊整合到 Azure 雲端的 Azure 解決方案中。 立即註冊免費的 [Azure 地圖服務帳戶](https://azure.microsoft.com/services/azure-maps/)，開始進行開發！
 
 以下影片會深入說明 Azure 地圖服務：
 
@@ -42,7 +42,18 @@ Azure 地圖服務 Android SDK 可讓您建立功能強大的行動地圖應用�
 
 ## <a name="services-in-azure-maps"></a>Azure 地圖服務中的服務
 
-Azure 地圖服務是由下列六個服務組成，可以為 Azure 應用程式提供地理內容。
+Azure 地圖服務是由下列九個服務組成，可以為 Azure 應用程式提供地理內容。
+
+### <a name="data-service"></a>資料服務
+
+地圖中的資料極為重要，而讓客戶資料更貼近 Azure 地圖服務可減少延遲、增加生產力及建立強大、全新的案例，以在您的應用程式中突顯出來。 資料服務可讓您上傳並儲存用於空間作業或影像編譯的地理空間資料，以在應用程式中縮短延遲、提升生產力，及實踐新的案例。 如需這項服務的詳細資訊，請瀏覽[資料服務 API](https://docs.microsoft.com/rest/api/maps/data) 頁面。
+
+### <a name="mobility-service"></a>行動服務
+
+Azure 地圖行動服務提供附近公共運輸服務的即時定位智慧，包括停靠站、路線資訊及預估旅程時間。 此服務允許搜尋特定物件類型，例如指定地點附近的公共運輸站牌、共享自行車/機車/騎車，並傳回一組運輸物件與物件詳細資料。 此服務讓開發人員也可要求運輸路線詳細資料，其中涵蓋基本資訊和其他詳細資料，例如路線幾何、站牌清單、排定和即時的運輸到達和服務警示。 使用者也可以藉由要求租借站資訊，了解最近的租借站目前有多少輛可用的共享自行車。 行動服務也能夠搜尋可用的汽車共享車輛，並傳回未來可用性和目前燃料存量等詳細資料。
+Azure 地圖行動服務允許即時路線規劃、傳回可能最佳的路線選項，以及提供各種行進模式，包括步行、騎自行車和捷運區域 (市區) 內可用的公共運輸。 此外，開發人員可以要求運輸行程詳細資料，以及路線幾何和詳細行程排程等額外資訊。
+
+若要深入了解服務以及各種功能，請參閱我們的 [API 文件](https://docs.microsoft.com/rest/api/maps/mobility)。
 
 ### <a name="render-service"></a>轉譯服務
 
@@ -67,6 +78,10 @@ Azure 地圖服務是由下列六個服務組成，可以為 Azure 應用程式�
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
 搜尋服務也提供進階功能，例如沿路線搜尋、在較廣泛的區域內搜尋、批次處理一組搜尋要求，以及搜尋較大的區域而不是位置點。 批次處理和區域搜尋的 API 目前處於預覽狀態。 如需搜尋功能的詳細資訊，請參閱 [Azure 地圖服務搜尋 API](https://docs.microsoft.com/rest/api/maps/search) 頁面。
+
+### <a name="spatial-operations"></a>空間作業
+
+Azure 地圖服務空間作業會取得位置資訊並進行即時分析，協助通知客戶有關某個時間和空間發生的進行中事件、進行事件幾近即時的分析和預測性模型化。 服務能夠讓 Azure 地圖服務的客戶以原生方式透過內含常見地理空間數學計算 (包括最接近點、大圓距離及環域等服務) 的程式庫，增強其定位智慧。 若要深入了解服務以及各種功能，請參閱我們的 [API 文件](https://docs.microsoft.com/rest/api/maps/spatial)。
 
 ### <a name="time-zone-service"></a>時區服務
 

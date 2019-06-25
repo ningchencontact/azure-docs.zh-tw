@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821680"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>傳送事件至或使用 Go 從事件中樞接收事件
@@ -38,7 +38,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 ### <a name="install-go-package"></a>安裝 Go 套件
 
-使用 `go get` 或 `dep` 取得適用於事件中樞的 Go 套件。 例如︰
+使用 `go get` 或 `dep` 取得適用於事件中樞的 Go 套件。 例如:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go

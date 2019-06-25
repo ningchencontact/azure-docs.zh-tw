@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 05/17/2019
-ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.date: 06/20/2019
+ms.openlocfilehash: bc038c863e1afb9313964a6b11365d766e0e8691
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "65966438"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310628"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -123,8 +123,6 @@ ms.locfileid: "65966438"
 
     * 輸入叢集的名稱。
 
-    * 在本文中，請使用 **5.1** 執行階段建立叢集。
-
     * 確定您已選取 [在停止活動\_\_分鐘後終止]  核取方塊。 若未使用叢集，請提供據以終止叢集的持續時間 (以分鐘為單位)。
 
     * 選取 [建立叢集]  。 叢集執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
@@ -150,6 +148,11 @@ ms.locfileid: "65966438"
    **工作階段組態**
 
    ```scala
+   val appID = "<appID>"
+   val password = "<password>"
+   val fileSystemName = "<file-system-name>"
+   val tenantID = "<tenant-id>"
+
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
@@ -163,23 +166,29 @@ ms.locfileid: "65966438"
    **帳戶組態**
 
    ```scala
-   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
-   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
-   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   val storageAccountName = "<storage-account-name>"
+   val appID = "<app-id>"
+   val password = "<password>"
+   val fileSystemName = "<file-system-name>"
+   val tenantID = "<tenant-id>"
+
+   spark.conf.set("fs.azure.account.auth.type." + storageAccountName + ".dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type." + storageAccountName + ".dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id." + storageAccountName + ".dfs.core.windows.net", "" + appID + "")
+   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + password + "")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint." + storageAccountName + ".dfs.core.windows.net", "https://login.microsoftonline.com/" + tenantID + "/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://" + fileSystemName  + "@" + storageAccountName + ".dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. 在此程式碼區塊中，請將此程式碼區塊中的 `appID`、`password`、`tenant-id` 和 `storage-account-name` 預留位置值取代為您在執行本教學課程的必要條件時所收集到的值。 請將 `file-system-name` 預留位置值取代為您要為檔案系統指定的任何名稱。
+6. 在此程式碼區塊中，請將此程式碼區塊中的 `<app-id>`、`<password>`、`<tenant-id>` 和 `<storage-account-name>` 預留位置值取代為您在執行本教學課程的必要條件時所收集到的值。 請將 `<file-system-name>` 預留位置值取代為您要為檔案系統指定的任何名稱。
 
-   * `appID` 和 `password` 來自於您在建立服務主體時向 Active Directory 註冊的應用程式。
+   * `<app-id>` 和 `<password>` 來自於您在建立服務主體時向 Active Directory 註冊的應用程式。
 
-   * `tenant-id` 來自於您的訂用帳戶。
+   * `<tenant-id>` 來自於您的訂用帳戶。
 
-   * `storage-account-name` 是您 Azure Data Lake Storage Gen2 儲存體帳戶的名稱。
+   * `<storage-account-name>` 是您 Azure Data Lake Storage Gen2 儲存體帳戶的名稱。
 
 7. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
@@ -195,7 +204,7 @@ ms.locfileid: "65966438"
 
 現在，在此資料格下方的新資料格中輸入下列程式碼，並將括號中的值取代為您稍早使用的相同值：
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://" + fileSystemName + "@" + storageAccount + ".dfs.core.windows.net/")
 
 在資料格中按 **SHIFT + ENTER** 執行程式碼。
 
@@ -206,11 +215,6 @@ ms.locfileid: "65966438"
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
    ```
-
-   * 使用您在 [儲存體總管] 中為檔案系統提供的名稱取代 `file-system-name` 預留位置值。
-
-   * 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置。
-
 2. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
 3. 執行下列程式碼，以查看資料框架的內容：
@@ -357,14 +361,7 @@ ms.locfileid: "65966438"
        "spark.sql.parquet.writeLegacyFormat",
        "true")
 
-   renamedColumnsDF.write
-       .format("com.databricks.spark.sqldw")
-       .option("url", sqlDwUrlSmall) 
-       .option("dbtable", "SampleTable")
-       .option( "forward_spark_azure_storage_credentials","True")
-       .option("tempdir", tempDir)
-       .mode("overwrite")
-       .save()
+   renamedColumnsDF.write.format("com.databricks.spark.sqldw").option("url", sqlDwUrlSmall).option("dbtable", "SampleTable")       .option( "forward_spark_azure_storage_credentials","True").option("tempdir", tempDir).mode("overwrite").save()
    ```
 
    > [!NOTE]

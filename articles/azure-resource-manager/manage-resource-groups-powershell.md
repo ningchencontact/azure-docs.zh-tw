@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6a102b794ca9c43e1dd18f923f6ce224596499
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550490"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296252"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Resource Manager 資源群組
 
@@ -122,10 +119,12 @@ Get-AzResourceLock -ResourceGroupName $resourceGroupName
 
 ## <a name="export-resource-groups-to-templates"></a>將資源群組匯出範本
 
-已成功設定您的資源群組之後, 您可能想要檢視資源群組的 Resource Manager 範本。 匯出此範本有兩個優點︰
+設定好您的資源群組之後，您可以檢視資源群組的 Resource Manager 範本。 匯出此範本有兩個優點︰
 
-- 因為範本包含所有完整的基礎結構，請將自動化解決方案的未來部署。
+- 因為範本包含完整的基礎結構，請將自動化解決方案的未來部署。
 - 藉由尋找在 JavaScript Object Notation (JSON) 表示您的解決方案，了解範本語法。
+
+若要匯出的資源群組中的所有資源，請使用[都匯出 AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet 和提供的資源群組名稱。
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -133,7 +132,87 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-如需詳細資訊，請參閱 <<c0> [ 匯出資源群組](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+它會將範本儲存為本機檔案中。
+
+而不要匯出資源群組中的所有資源，您可以選取要匯出哪一個資源。
+
+若要匯出一個資源，將該資源識別碼。
+
+```azurepowershell-interactive
+$resource = Get-AzResource `
+  -ResourceGroupName <resource-group-name> `
+  -ResourceName <resource-name> `
+  -ResourceType <resource-type>
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource $resource.ResourceId
+```
+
+若要匯出多個資源，請傳遞陣列中的資源識別碼。
+
+```azurepowershell-interactive
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource @($resource1.ResourceId, $resource2.ResourceId)
+```
+
+當匯出範本，您可以指定是否在範本中使用參數。 根據預設，資源名稱的參數會包含，但沒有預設值。 您必須在部署期間傳遞該參數值。
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": null,
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": null,
+    "type": "String"
+  }
+}
+```
+
+在資源中，參數用於的名稱。
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+如果您使用`-IncludeParameterDefaultValue`參數匯出範本時，範本參數包含預設值設為目前的值，這個值。 您可以使用該預設值，或藉由傳入不同的值來覆寫預設值。
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+如果您使用`-SkipResourceNameParameterization`時匯出的範本參數的資源名稱不包含在範本中的參數。 相反地，直接在其目前值的資源上設定的資源名稱。 您無法在部署期間自訂名稱。
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
+
+如需詳細資訊，請參閱 <<c0> [ 單一和多重資源匯出至 Azure 入口網站中的範本](./export-template-portal.md)。
 
 ## <a name="manage-access-to-resource-groups"></a>管理資源群組的存取權
 

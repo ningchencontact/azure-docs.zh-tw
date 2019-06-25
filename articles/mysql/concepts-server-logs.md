@@ -1,27 +1,27 @@
 ---
 title: 適用於 MySQL 的 Azure 資料庫中的伺服器記錄
-description: 描述適用於 MySQL 的 Azure 資料庫中的可用記錄，以及啟用不同記錄層級的可用參數。
+description: 描述 for MySQL，並啟用不同的記錄層級的可用參數的 Azure 資料庫中可用的慢速查詢記錄。
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062411"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的伺服器記錄
-在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>適用於 MySQL 慢速查詢記錄中的 Azure 資料庫
+在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
 
 如需 MySQL 慢速查詢記錄的詳細資訊，請參閱 MySQL 參考手冊的[慢速查詢記錄章節](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
-## <a name="access-server-logs"></a>存取伺服器記錄
-您可以使用 Azure 入口網站和 Azure CLI，來列出和下載適用於 MySQL 的 Azure 資料庫伺服器記錄。
+## <a name="access-slow-query-logs"></a>存取慢速查詢記錄
+您可以列出和下載 Azure Database for MySQL 慢速查詢記錄，使用 Azure 入口網站和 Azure CLI。
 
-在 Azure 入口網站中，選取適用於 MySQL 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
+在 Azure 入口網站中，選取適用於 MySQL 的 Azure 資料庫伺服器。 在 [監視]  標題下方，選取 [伺服器記錄]  頁面。
 
 如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-in-cli.md)。
 
@@ -30,8 +30,7 @@ ms.locfileid: "60525832"
 
 記錄會每隔 24 小時或 7 GB 旋轉一次，先到者先用。
 
-
-## <a name="configure-logging"></a>設定記錄 
+## <a name="configure-slow-query-logging"></a>設定慢速查詢記錄 
 預設會停用慢速查詢記錄。 若要啟用它，請將 slow_query_log 設為 ON。
 
 您可以調整的其他參數包含：

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071674"
 ---
 # <a name="overview-of-azure-activity-log"></a>Azure 活動記錄檔概觀
 
@@ -30,10 +30,10 @@ ms.locfileid: "66245031"
 
 
 > [!NOTE]
-> Azure 活動記錄主要是針對 Azure Resource Manager 中發生的活動。 它不會追蹤使用傳統 /RDFE 模型的 ugresources。 某些傳統資源類型在 Azure Resource Manager 中有 Proxy 資源提供者 (例如，Microsoft.ClassicCompute)。 如果您透過使用這些 Proxy 資源提供者的 Azure Resource Manager 來與傳統資源類型互動，則作業會顯示在活動記錄。 如果您在 Azure Resource Manager Proxy 之外與傳統資源類型互動，您的動作將只會記錄於「作業記錄」。 可在入口網站的個別區段中，瀏覽作業記錄。
+> Azure 活動記錄主要是針對 Azure Resource Manager 中發生的活動。 此記錄不會追蹤使用傳統/RDFE 模型的資源。 某些傳統資源類型在 Azure Resource Manager 中有 Proxy 資源提供者 (例如，Microsoft.ClassicCompute)。 如果您透過使用這些 Proxy 資源提供者的 Azure Resource Manager 來與傳統資源類型互動，則作業會顯示在活動記錄。 如果您在 Azure Resource Manager Proxy 之外與傳統資源類型互動，您的動作將只會記錄於「作業記錄」。 可在入口網站的個別區段中，瀏覽作業記錄。
 
 ## <a name="activity-log-retention"></a>活動記錄保留
-活動記錄檔事件會儲存 90 天。 較長的時間，儲存此資料[收集在 Azure 監視器](activity-log-collect.md)或是[將它匯出至儲存體或事件中樞](activity-log-export.md)。
+一旦建立，都不會修改或刪除由系統活動記錄項目。 此外，您無法變更它們在介面或以程式設計的方式。 活動記錄檔事件會儲存 90 天。 較長的時間，儲存此資料[收集在 Azure 監視器](activity-log-collect.md)或是[將它匯出至儲存體或事件中樞](activity-log-export.md)。
 
 ## <a name="view-the-activity-log"></a>檢視活動記錄檔
 檢視活動記錄檔，所有的資源**監視器**在 Azure 入口網站中的功能表。 檢視特定資源中的活動記錄檔**活動記錄檔**該資源的功能表中的選項。 您也可以擷取活動記錄檔記錄，使用 PowerShell、 CLI 或 REST API。  請參閱[檢視，並擷取 Azure 活動記錄事件](activity-log-view.md)。
@@ -54,7 +54,7 @@ ms.locfileid: "66245031"
 ## <a name="categories-in-the-activity-log"></a>活動記錄中的類別
 活動記錄中的每個事件都有特定分類下表中所述。 如需這些類別結構描述的完整詳細資料，請參閱 [Azure 活動記錄事件結構描述](activity-log-schema.md)。 
 
-| 類別 | 描述 |
+| Category | 描述 |
 |:---|:---|
 | 管理 | 包含的所有記錄，建立、 更新、 刪除和動作作業執行透過 Resource Manager。 系統管理事件的範例包括_建立虛擬機器_並_刪除網路安全性群組_。<br><br>每個使用者或應用程式使用 Resource Manager 所採取的動作會模型化為特定資源類型上的作業。 如果作業類型是_撰寫_，_刪除_，或_動作_，同時代表起點與成功的記錄 」 或 「 失敗的作業會記錄在系統管理類別。 系統管理事件也會包含訂用帳戶中的角色型存取控制的任何變更。 |
 | 服務健康情況 | 包含在 Azure 中發生的任何服務健康情況事件的記錄。 服務健康狀態事件的範例_美國東部的 SQL Azure 發生停機_。 <br><br>服務健康情況事件有五個種類：_所需的動作_，_協助復原_，_事件_，_維護_，_資訊_，或_安全性_。 如果您擁有的資源會受到事件訂用帳戶中，只會建立這些事件。

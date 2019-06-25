@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2019
+ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5fdbd3f15b11e4c3975ca29627d5984382bcf049
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231377"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206794"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 應用程式與叢集最佳做法
 
-若要成功地管理 Azure Service Fabric 應用程式和叢集，有作業，我們強烈建議您執行的實際執行環境; 可靠性最佳化請執行此文件中定義的作業，然後選取其中一個我們[Azure 範例 Service Fabric 叢集範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)開始設計您的生產環境方案，或修改您現有的範本，以納入這些做法。
+這篇文章提供 Azure Service Fabric 應用程式和叢集管理的最佳作法的連結。 我們強烈建議您實作這些做法來最佳化您的生產環境的可靠性。 使用其中一種[Service Fabric 叢集範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)開始設計您的生產環境方案，或更新您現有的範本，以納入這些做法。
 
-## <a name="security"></a>安全性 
+## <a name="security"></a>安全性
 
 * [安全性的最佳做法](service-fabric-best-practices-security.md)
 
@@ -52,11 +52,11 @@ ms.locfileid: "65231377"
 
 ## <a name="checklist"></a>檢查清單
 
-完成上述各節之後，請確定您已在生產整備度檢查清單中整合所有最佳做法：
-* [Azure Service Fabric 生產整備度檢查清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+實作前面幾節中建議的作法之後，請確定您已整合在生產環境的整備檢查清單中的所有最佳作法：
+* [Azure Service Fabric 生產環境的整備檢查清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
 
 ## <a name="next-steps"></a>後續步驟
 
 * 在 VM 或執行 Windows Server 的電腦上建立叢集：[適用於 Windows Server 的 Service Fabric 叢集建立](service-fabric-cluster-creation-for-windows-server.md)
 * 在 VM 或執行 Linux 的電腦上建立叢集：[建立 Linux 叢集](service-fabric-cluster-creation-via-portal.md)
-* 疑難排解：[Service Fabric 疑難排解指南](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* 疑難排解 Service Fabric:[疑難排解指南](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

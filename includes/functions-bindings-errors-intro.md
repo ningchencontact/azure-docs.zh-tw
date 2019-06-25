@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132475"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173774"
 ---
 Azure Functions [觸發程序和繫結](../articles/azure-functions/functions-triggers-bindings.md)會與各種 Azure 服務通訊。 在與這些服務整合時，您可能會引發錯誤，而這些錯誤是源自基礎 Azure 服務的 API。 當您嘗試使用 REST 或用戶端程式庫，透過您的函式程式碼與其他服務通訊時，也可能會發生錯誤。 若要避免遺失資料並確保函式有正常行為，請務必要處理來自上述任一來源的錯誤。
 
