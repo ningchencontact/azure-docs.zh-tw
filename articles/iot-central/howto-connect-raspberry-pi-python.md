@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: eccc4100c89c971e264b9b915cd17b9f5ce4477b
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64405882"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (Python)
 
@@ -66,7 +66,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**Raspberry Pi**裝�
 1. 設定裝置時，您的裝置就會開始將遙測度量傳送至 Azure IoT Central。
 1. 在 Azure IoT Central 應用程式中，您會看到在 Raspberry Pi 上執行的程式碼如何與應用程式互動：
 
-    * 在真實裝置的 [量測] 頁面上，您會看到從 Raspberry Pi 傳送過來的遙測。
+    * 在真實裝置的 [量測]  頁面上，您會看到從 Raspberry Pi 傳送過來的遙測。
     * 在 [**設定**] 頁面上，您可以變更例如電壓和風扇速度在 Raspberry Pi 上的設定。 當 Raspberry Pi 認可變更時，此設定會以**同步處理**。
 
 ## <a name="raspberry-pi-device-template-details"></a>在 raspberry Pi 裝置範本詳細資料
@@ -94,7 +94,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**Raspberry Pi**裝�
 
 數值設定
 
-| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
+| Display name | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
@@ -102,16 +102,16 @@ Azure IoT Central 應用程式中加入實際的裝置，從**Raspberry Pi**裝�
 
 切換設定
 
-| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
+| Display name | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | 開啟      | 關      | 關閉     |
 
 ### <a name="properties"></a>properties
 
-| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
+| 類型            | Display name | 欄位名稱 | 数据类型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
-| 文字            | 位置     | location   | N/A       |
+| Text            | 位置     | location   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 

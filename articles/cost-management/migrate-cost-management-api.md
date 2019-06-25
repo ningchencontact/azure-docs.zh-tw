@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967231"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Enterprise 合約從遷移到 Microsoft 的客戶合約 Api
@@ -88,7 +88,7 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 [取得平衡摘要](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)API 可讓您的每月摘要：
 
 - 餘額
-- 新增購買商品
+- 新的購買項目
 - Azure Marketplace 服務費用
 - 調整
 - 服務超額費用
@@ -126,9 +126,9 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 
 使用方式詳細資料 API 中，如同所有的成本管理 Api，可在多個範圍。 開立發票的成本，因為您通常會收到註冊層級，用於計費的設定檔範圍。  如需成本管理範圍的詳細資訊，請參閱[了解及使用範圍](understand-work-scopes.md)。
 
-| Type | 識別碼格式 |
+| 類型 | 識別碼格式 |
 | --- | --- |
-| 帳單帳戶 | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
+| 計費帳戶 | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | 帳單設定檔 | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
 | 訂用帳戶 | `/subscriptions/{subscriptionId}` |
 | 資源群組 | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
@@ -172,21 +172,21 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 
 | 舊的屬性 | 新的屬性 | 注意 |
 | --- | --- | --- |
-| 帳戶識別碼 | N/A | 未追蹤的訂用帳戶建立者。 使用 invoiceSectionId （如同 departmentId）。 |
+| AccountId | N/A | 未追蹤的訂用帳戶建立者。 使用 invoiceSectionId （如同 departmentId）。 |
 | AccountNameAccountOwnerId 和 AccountOwnerEmail | N/A | 未追蹤的訂用帳戶建立者。 使用 invoiceSectionName （如同 departmentName）。 |
 | 其他資訊 | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | 請注意，這些屬性相反。 如果 isAzureCreditEnabled 為 true，ChargesBilledSeparately 會是 false。 |
-| 已取用的數量 | quantity | &nbsp; |
+| ConsumedQuantity | quantity | &nbsp; |
 | 已使用的服務 | consumedService | 確切的字串值可能會不同。 |
-| 已使用的服務識別碼 | None | &nbsp; |
-| 成本中心 | costCenter | &nbsp; |
+| ConsumedServiceId | None | &nbsp; |
+| CostCenter | costCenter | &nbsp; |
 | 日期和 usageStartDate | date | &nbsp;  |
 | 天 | None | 剖析日期的日期。 |
-| 部門識別碼 | invoiceSectionId | 確切的值不同。 |
-| 部門名稱 | invoiceSectionName | 確切的字串值可能會不同。 如有需要請設定發票區段，以符合部門。 |
+| DepartmentId | invoiceSectionId | 確切的值不同。 |
+| DepartmentName | invoiceSectionName | 確切的字串值可能會不同。 如有需要請設定發票區段，以符合部門。 |
 | ExtendedCost 和成本 | costInBillingCurrency | &nbsp;  |
-| InstanceId | resourceId | &nbsp;  |
-| 是定期計費 | None | &nbsp;  |
+| InstanceId | ResourceId | &nbsp;  |
+| 週期性費用 | None | &nbsp;  |
 | 位置 | location | &nbsp;  |
 | 計量類別目錄 | meterCategory | 確切的字串值可能會不同。 |
 | 計量識別碼 | meterId | 確切的字串值不同。 |
@@ -196,39 +196,39 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 | 月 | None | 剖析日期的月份。 |
 | 供應項目名稱 | None | 使用 publisherName 和 productOrderName。 |
 | OfferId | None | &nbsp;  |
-| 訂單編號 | None | &nbsp;  |
+| 訂單號碼 | None | &nbsp;  |
 | PartNumber | None | 使用 meterId 和 productOrderName 來唯一識別價格。 |
-| 方案名稱 | productOrderName | &nbsp;  |
-| 產品 | 產品 |   |
-| 產品識別碼 | productId | 確切的字串值不同。 |
+| 計劃名稱 | productOrderName | &nbsp;  |
+| Products | Products |   |
+| ProductId | productId | 確切的字串值不同。 |
 | 發行者名稱 | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | 確切的字串值不同。 |
 | 資源位置 | resourceLocation | &nbsp;  |
-| 資源位置識別碼 | None | &nbsp;  |
-| 資源費率 | effectivePrice | &nbsp;  |
-| 服務管理員識別碼 | N/A | &nbsp;  |
+| ResourceLocationId | None | &nbsp;  |
+| ResourceRate | effectivePrice | &nbsp;  |
+| ServiceAdministratorId | N/A | &nbsp;  |
 | 服務資訊 1 | serviceInfo1 | &nbsp;  |
 | 服務資訊 2 | serviceInfo2 | &nbsp;  |
 | ServiceName | meterCategory | 確切的字串值可能會不同。 |
 | ServiceTier | meterSubCategory | 確切的字串值可能會不同。 |
-| 儲存體服務識別碼 | N/A | &nbsp;  |
-| 訂閱帳戶 GuID | subscriptionId | &nbsp;  |
+| StoreServiceIdentifier | N/A | &nbsp;  |
+| SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| 訂用帳戶名稱 | subscriptionName | &nbsp;  |
-| Tags | tags | Tags 屬性適用於根物件，而不要巢狀的屬性的屬性。 |
+| SubscriptionName | subscriptionName | &nbsp;  |
+| 標記 | 标记 | Tags 屬性適用於根物件，而不要巢狀的屬性的屬性。 |
 | 測量單位 | unitOfMeasure | 確切的字串值不同。 |
 | usageEndDate | date | &nbsp;  |
 | Year | None | 剖析日期的年份。 |
-| (新) | billingCurrency | 使用費用的貨幣。 |
-| (新) | billingProfileId | 帳單的設定檔 （與註冊相同） 的唯一識別碼。 |
-| (新) | billingProfileName | 計費的設定檔 （與註冊相同） 的名稱。 |
-| (新) | chargeType | 使用此選項，來區分 Azure 服務使用量、 Marketplace 使用量以及各種購買項目。 |
-| (新) | invoiceId | 發票的唯一識別碼。 目前，請開啟本月的空白。 |
-| (新) | publisherType | 購買的 「 發行者 」 的型別。 空的使用方式。 |
-| (新) | serviceFamily | 購買的型別。 空的使用方式。 |
-| (新) | servicePeriodEndDate | 購買的服務結束日期。 |
-| (新) | servicePeriodStartDate | 開始日期購買的服務。 |
+| （新） | billingCurrency | 使用費用的貨幣。 |
+| （新） | billingProfileId | 帳單的設定檔 （與註冊相同） 的唯一識別碼。 |
+| （新） | billingProfileName | 計費的設定檔 （與註冊相同） 的名稱。 |
+| （新） | chargeType | 使用此選項，來區分 Azure 服務使用量、 Marketplace 使用量以及各種購買項目。 |
+| （新） | invoiceId | 發票的唯一識別碼。 目前，請開啟本月的空白。 |
+| （新） | publisherType | 購買的 「 發行者 」 的型別。 空的使用方式。 |
+| （新） | serviceFamily | 購買的型別。 空的使用方式。 |
+| （新） | servicePeriodEndDate | 購買的服務結束日期。 |
+| （新） | servicePeriodStartDate | 開始日期購買的服務。 |
 
 ## <a name="billing-periods-api-replaced-by-invoices-api"></a>計費週期 API 取代發票 API
 
@@ -428,11 +428,11 @@ Microsoft 客戶合約，請在下一節中使用的資訊。 它提供用於 Mi
 
 針對較舊的屬性[Azure 資源管理員價位表 Api](/rest/api/consumption/pricesheet)和相同的新屬性會在下表。
 
-| 舊 Azure 資源管理員價位表 API 屬性  | 新的 Microsoft 客戶合約價位表 API 屬性   | 說明 |
+| 舊 Azure 資源管理員價位表 API 屬性  | 新的 Microsoft 客戶合約價位表 API 屬性   | 描述 |
 | --- | --- | --- |
 | 計量識別碼 | _meterId_ | 計量的唯一識別碼。 MeterId 相同。 |
 | 計量名稱 | meterName | 計量的名稱。 計量代表的 Azure 服務部署的資源。 |
-| 計量類別  | 服務 | 計量的分類類別目錄的名稱。 與 Microsoft 客戶合約價位表中的服務相同。 確切的字串值不同。 |
+| 計量類別  | service | 計量的分類類別目錄的名稱。 與 Microsoft 客戶合約價位表中的服務相同。 確切的字串值不同。 |
 | 計量子類別 | meterSubCategory | 計量 subclassification 類別的名稱。 根據服務中的高層級的功能集差異的分類。 例如，基本的 SQL DB vs 標準的 SQL DB。 |
 | 計量區域 | meterRegion | &nbsp;  |
 | 單位 | _不適用_ | 可以從 unitOfMeasure 剖析。 |
@@ -440,8 +440,8 @@ Microsoft 客戶合約，請在下一節中使用的資訊。 它提供用於 Mi
 | 組件編號 | _不適用_ | 而不是 partNumber，使用 productOrderName 和 MeterId 來唯一識別的價格計費的設定檔。 會列出欄位，而不是在 MCA 發票 partNumber MCA 發票上。 |
 | 單價 | unitPrice | Microsoft 客戶合約單價。 |
 | 貨幣代碼 | pricingCurrency | Microsoft 客戶合約代表貨幣的價格和計費貨幣的價格。 貨幣代碼是在 Microsoft 客戶合約 pricingCurrency 相同。 |
-| 內含的數量 | includedQuantity | 不適用於在 Microsoft 客戶合約的服務。 顯示值為零。 |
-|  服務 ID  | productOrderName | 而不是 OfferId，使用 productOrderName。 不同 OfferId，不過 productOrderName 以及計量器判斷 Microsoft 客戶合約中的定價。 在舊版的註冊相關 meterId 和 Offerid。 |
+| 內含數量 | includedQuantity | 不適用於在 Microsoft 客戶合約的服務。 顯示值為零。 |
+|  供應項目識別碼  | productOrderName | 而不是 OfferId，使用 productOrderName。 不同 OfferId，不過 productOrderName 以及計量器判斷 Microsoft 客戶合約中的定價。 在舊版的註冊相關 meterId 和 Offerid。 |
 
 適用於 Microsoft 客戶合約的價格不同於 Enterprise 合約定義。 中的企業註冊服務的價格是唯一的產品、 PartNumber、 計量、 和供應項目。 PartNumber 不會用於 Microsoft 客戶合約中。
 
@@ -457,12 +457,12 @@ Microsoft 客戶合約，請在下一節中使用的資訊。 它提供用於 Mi
 
 下列欄位不提供 Microsoft 客戶合約價位表 Api 或有相同的欄位。
 
-|已停用的欄位| 說明|
+|已停用的欄位| 描述|
 |---|---|
 | billingPeriodId | 不適用。 對應於 InvoiceId MCA。 |
 | offerId | 不適用。 對應至在 MCA productOrderName。 |
 | meterCategory  | 不適用。 對應至在 MCA 中的服務。 |
-| 單位 | 不適用。 可以從 unitOfMeasure 剖析。 |
+| unit | 不適用。 可以從 unitOfMeasure 剖析。 |
 | currencyCode | 在 MCA pricingCurrency 相同。 |
 | meterLocation | 在 MCA meterRegion 相同。 |
 | partNumber partnumber | 不適用，因為組件編號未列在 MCA 發票。 而不是 partnumber，使用的 meterId productOrderName 組合來唯一識別價格。 |

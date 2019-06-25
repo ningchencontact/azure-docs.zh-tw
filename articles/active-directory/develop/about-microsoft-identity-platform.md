@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ead81dfec5c98e810abfe4b88accb9aa9092fc90
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472712"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751908"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft 身分識別平台的演化
 
@@ -58,7 +58,7 @@ Azure 入口網站 **[應用程式註冊](https://go.microsoft.com/fwlink/?linki
 
 ### <a name="msal-libraries"></a>MSAL 程式庫
 
-您可以使用 MSAL 程式庫建置可驗證所有 Microsoft 身分識別的應用程式。 .NET 中的 MSAL 程式庫已正式運作。 適用於 JavaScript、iOS 和 Android 的 MSAL 程式庫是預覽版本，適合在生產環境中使用。 我們對預覽階段的 MSAL 程式庫提供的生產層級支援，相當於我們對正式運作的 MSAL 和 ADAL 版本所提供的支援。
+您可以使用 MSAL 程式庫建置可驗證所有 Microsoft 身分識別的應用程式。 .NET 和 JavaScript 中的 MSAL 程式庫已正式運作。 適用於 iOS 和 Android 的 MSAL 程式庫是預覽版本，適合在生產環境中使用。 我們對預覽階段的 MSAL 程式庫提供的生產層級支援，相當於我們對正式運作的 MSAL 和 ADAL 版本所提供的支援。
 
 您也可以使用 MSAL 程式庫將您的應用程式與 Azure AD B2C 整合。
 

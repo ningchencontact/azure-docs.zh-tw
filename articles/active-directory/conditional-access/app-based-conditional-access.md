@@ -1,8 +1,8 @@
 ---
-title: 如何在 Azure Active Directory 中透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式 | Microsoft Docs
-description: 如何在 Azure Active Directory 中透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式。
+title: 如何使用 Azure Active Directory 中的條件式存取的雲端應用程式存取要求核准的用戶端應用程式 |Microsoft Docs
+description: 了解如何使用 Azure Active Directory 中的條件式存取的雲端應用程式存取要求核准的用戶端應用程式。
 services: active-directory
-keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,26 +18,26 @@ ms.date: 06/13/2018
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdd3b49dfbba29da084aec777ce022d003a8de86
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356447"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112730"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從已核准的用戶端應用程式存取雲端應用程式 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>如何：需要核准的用戶端應用程式存取使用條件式存取的雲端應用程式 
 
-您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 有了 Azure Active Directory (Azure AD) 條件式存取，您可以將雲端應用程式的存取限制為能保護公司資料的已核准用戶端應用程式。  
+您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 使用 Azure Active Directory (Azure AD) 條件式存取，您可以限制存取您的雲端應用程式，可以保護公司資料的已核准的用戶端應用程式。  
 
 本主題說明如何設定需要已核准用戶端應用程式的條件式存取原則。
 
 ## <a name="overview"></a>概觀
 
-透過 [Azure AD 應用程式型條件式存取](overview.md)，您可以微調授權使用者如何存取您的資源。 例如，您可以將雲端應用程式的存取限制為受信任的裝置。
+具有[Azure AD 條件式存取](overview.md)，您可以微調授權的使用者如何存取您的資源。 例如，您可以將雲端應用程式的存取限制為受信任的裝置。
 
 您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來協助保護公司資料。 Intune 應用程式保護原則不需要行動裝置管理 (MDM) 解決方案，因此不論您是否在裝置管理解決方案中註冊裝置，都可以保護公司的資料。
 
-Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取限制為支援 Intune 應用程式保護原則的用戶端應用程式。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。
+Azure Active Directory 條件式存取可讓您限制雲端應用程式支援 Intune 應用程式保護原則的用戶端應用程式的存取。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。
 
 在條件式存取術語中，這些用戶端應用程式稱為**核准的用戶端應用程式**。  
 
@@ -48,7 +48,7 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 如需核准的用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)。
 
 
-您可以將應用程式型條件式存取與其他原則 (如[裝置型條件式存取原則](require-managed-devices.md)) 結合，讓保護個人和公司裝置資料的方式更具彈性。
+您可以結合其他原則的應用程式型條件式存取原則，例如[裝置型條件式存取原則](require-managed-devices.md)來保護個人和公司裝置資料的方式更具彈性。
 
  
 
@@ -60,16 +60,16 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 - [核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)技術參考。
 
 
-- [Azure Active Directory 中的條件式存取](overview.md)的基本概念。
+- 基本概念[Azure Active Directory 中的條件式存取](overview.md)。
 
 - 如何[設定條件式存取原則](app-based-mfa.md)。
 
-- [條件式存取原則的移轉](best-practices.md#policy-migration)。
+- [條件式存取原則移轉](best-practices.md#policy-migration)。
  
 
 ## <a name="prerequisites"></a>必要條件
 
-若要建立應用程式型條件式存取原則，您必須擁有 Enterprise Mobility + Security 或 Azure Active Directory Premium 訂用帳戶，而且使用者必須獲得 EMS 或 Azure AD 的授權。 
+若要建立的應用程式型條件式存取原則，您必須具有 Enterprise Mobility + Security 或 Azure Active Directory premium 訂用帳戶，使用者必須獲得 EMS 或 Azure AD。 
 
 
 ## <a name="exchange-online-policy"></a>Exchange Online 原則 
@@ -101,57 +101,57 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ### <a name="configuration"></a>組態 
 
-**步驟 1 - 設定 Exchange Online 的 Azure AD 條件式存取原則**
+**步驟 1-設定 Exchange Online 的 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/01.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  作為雲端應用程式。
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]：
+4. **條件：** 您必須設定 [裝置平台]  和 [用戶端應用程式]  作為 [條件]  ：
 
-    a. [裝置平台] 請選取 [Android] 和 [iOS]。
+    a. [裝置平台]  請選取 [Android]  和 [iOS]  。
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式與傳統型應用程式] 和 [新式驗證用戶端]。
+    b. [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式與傳統型應用程式]  和 [新式驗證用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/91.png)
 
-5. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
+5. [存取控制項]  必須選取 [需要核准的用戶端應用程式 \(預覽\)\]  。
 
     ![條件式存取](./media/app-based-conditional-access/05.png)
  
 
-**步驟 2 - 使用 Active Sync (EAS) 設定 Exchange Online 的 Azure AD 條件式存取原則**
+**步驟 2-設定 Exchange Online Active Sync (EAS) 與 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/06.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  作為雲端應用程式。
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：** 您必須設定 [用戶端應用程式 (預覽)] 作為 [條件]。 
+4. **條件：** 您必須設定 [用戶端應用程式 (預覽)]  作為 [條件]  。 
 
-    a. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
+    a. [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式和桌面用戶端]  和 [Exchange ActiveSync 用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/92.png)
 
-    b. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
+    b. [存取控制項]  必須選取 [需要核准的用戶端應用程式 \(預覽\)\]  。
 
     ![條件式存取](./media/app-based-conditional-access/05.png)
 
@@ -166,7 +166,7 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ## <a name="exchange-online-and-sharepoint-online-policy"></a>Exchange Online 和 SharePoint Online 原則
 
-以下情節為使用受核准的應用程式以採取行動裝置應用程式管理原則的條件式存取來存取 Exchange Online 和 SharePoint Online。
+此案例中是由行動裝置應用程式管理原則條件式存取來存取 Exchange Online 和 SharePoint Online 與核准的應用程式所組成。
 
 ### <a name="scenario-playbook"></a>情節腳本
 
@@ -181,59 +181,59 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ### <a name="configuration"></a>組態
 
-**步驟 1 - 設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
+**步驟 1-設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/71.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 作為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  和 [Office 365 SharePoint Online]  作為雲端應用程式。 
 
     ![條件式存取](./media/app-based-conditional-access/02.png)
 
-4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]：
+4. **條件：** 您必須設定 [裝置平台]  和 [用戶端應用程式]  作為 [條件]  ：
 
-    a. [裝置平台] 請選取 [Android] 和 [iOS]。
+    a. [裝置平台]  請選取 [Android]  和 [iOS]  。
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [新式驗證用戶端]。
+    b. [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式和桌面用戶端]  和 [新式驗證用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/91.png)
 
-5. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
+5. [存取控制項]  必須選取 [需要核准的用戶端應用程式 \(預覽\)\]  。
 
     ![條件式存取](./media/app-based-conditional-access/05.png)
 
 
 
 
-**步驟 2 - 使用 Active Sync (EAS) 設定 Exchange Online 的 Azure AD 條件式存取原則**
+**步驟 2-設定 Exchange Online Active Sync (EAS) 與 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/06.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。 線上 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  作為雲端應用程式。 線上 
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：** 您必須設定 [用戶端應用程式] 作為 [條件]：
+4. **條件：** 您必須設定 [用戶端應用程式]  作為 [條件]  ：
 
-    a. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
+    a. [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式和桌面用戶端]  和 [Exchange ActiveSync 用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/92.png)
 
-    b. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
+    b. [存取控制項]  必須選取 [需要核准的用戶端應用程式 \(預覽\)\]  。
 
     ![條件式存取](./media/app-based-conditional-access/05.png)
 
@@ -250,7 +250,7 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>適用於 Exchange Online 和 SharePoint Online 的應用程式型或相容裝置原則
 
-本案例包含存取 Exchange Online 的應用程式型或相容裝置條件式存取原則。
+本案例包含的應用程式型或相容裝置條件式存取原則來存取 Exchange Online。
 
 
 ### <a name="scenario-playbook"></a>情節腳本
@@ -266,63 +266,63 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ### <a name="configuration"></a>組態
 
-**步驟 1 - 設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
+**步驟 1-設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/62.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 作為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  和 [Office 365 SharePoint Online]  作為雲端應用程式。 
 
      ![條件式存取](./media/app-based-conditional-access/02.png)
 
-4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]。 
+4. **條件：** 您必須設定 [裝置平台]  和 [用戶端應用程式]  作為 [條件]  。 
  
-    a. [裝置平台] 請選取 [Android] 和 [iOS]。
+    a. [裝置平台]  請選取 [Android]  和 [iOS]  。
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [新式驗證用戶端]。
+    b. [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式和桌面用戶端]  和 [新式驗證用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/91.png)
 
-5. [存取控制項] 需要選取下列項目：
+5. [存取控制項]  需要選取下列項目：
 
-   - [裝置需要標記為合規]
+   - [裝置需要標記為合規] 
 
-   - [需要經過核准的用戶端應用程式 \(預覽\)\]
+   - [需要經過核准的用戶端應用程式 \(預覽\)\] 
 
-   - [需要其中一個選取的控制項]   
+   - [需要其中一個選取的控制項]    
  
      ![條件式存取](./media/app-based-conditional-access/11.png)
 
 
 
-**步驟 2 - 使用 Active Sync (EAS) 設定 Exchange Online 的 Azure AD 條件式存取原則**
+**步驟 2-設定 Exchange Online Active Sync (EAS) 與 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/61.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  作為雲端應用程式。 
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：** 您必須設定 [用戶端應用程式] 作為 [條件]。 
+4. **條件：** 您必須設定 [用戶端應用程式]  作為 [條件]  。 
 
-    [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
+    [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式和桌面用戶端]  和 [Exchange ActiveSync 用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/91.png)
 
-5. [存取控制項] 必須選取 [需要核准的用戶端應用程式 \(預覽\)\]。
+5. [存取控制項]  必須選取 [需要核准的用戶端應用程式 \(預覽\)\]  。
  
     ![條件式存取](./media/app-based-conditional-access/11.png)
 
@@ -342,7 +342,7 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>適用於 Exchange Online 和 SharePoint Online 的應用程式型和相容裝置原則
 
-本案例包含存取 Exchange Online 的應用程式型和相容裝置條件式存取原則。
+本案例包含的應用程式型和相容裝置條件式存取原則來存取 Exchange Online。
 
 
 ### <a name="scenario-playbook"></a>情節腳本
@@ -362,69 +362,69 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ### <a name="configuration"></a>組態
 
-**步驟 1 - 設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
+**步驟 1-設定 Exchange Online 和 SharePoint Online 的 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/62.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 作為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  和 [Office 365 SharePoint Online]  作為雲端應用程式。 
 
      ![條件式存取](./media/app-based-conditional-access/02.png)
 
-4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]。 
+4. **條件：** 您必須設定 [裝置平台]  和 [用戶端應用程式]  作為 [條件]  。 
  
-    a. [裝置平台] 請選取 [Android] 和 [iOS]。
+    a. [裝置平台]  請選取 [Android]  和 [iOS]  。
 
     ![條件式存取](./media/app-based-conditional-access/03.png)
 
-    b. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式與傳統型應用程式] 和 [新式驗證用戶端]。
+    b. [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式與傳統型應用程式]  和 [新式驗證用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/91.png)
 
-5. [存取控制項] 需要選取下列項目：
+5. [存取控制項]  需要選取下列項目：
 
-   - [裝置需要標記為合規]
+   - [裝置需要標記為合規] 
 
-   - [需要經過核准的用戶端應用程式 \(預覽\)\]
+   - [需要經過核准的用戶端應用程式 \(預覽\)\] 
 
-   - [需要所有選取的控制項]   
+   - [需要所有選取的控制項]    
  
      ![條件式存取](./media/app-based-conditional-access/13.png)
 
 
 
-**步驟 2 - 使用 Active Sync (EAS) 設定 Exchange Online 的 Azure AD 條件式存取原則**
+**步驟 2-設定 Exchange Online Active Sync (EAS) 與 Azure AD 條件式存取原則**
 
-對於此步驟中的條件式存取原則，您需要設定下列元件：
+條件式存取原則，在此步驟中，您需要設定下列元件：
 
 ![條件式存取](./media/app-based-conditional-access/61.png)
 
-1. 條件式存取原則的**名稱**。
+1. **名稱**的條件式存取原則。
 
-2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
+2. **使用者和群組**：每個條件式存取原則必須至少一個選取使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online]  作為雲端應用程式。 
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：** 您必須設定 [用戶端應用程式 (預覽)] 作為 [條件]。 
+4. **條件：** 您必須設定 [用戶端應用程式 (預覽)]  作為 [條件]  。 
 
-    [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
+    [用戶端應用程式 (預覽)]  需選取 [行動裝置應用程式和桌面用戶端]  和 [Exchange ActiveSync 用戶端]  。
 
     ![條件式存取](./media/app-based-conditional-access/92.png)
 
-5. [存取控制項] 需要選取下列項目：
+5. [存取控制項]  需要選取下列項目：
 
-   - [裝置需要標記為合規]
+   - [裝置需要標記為合規] 
 
-   - [需要經過核准的用戶端應用程式 \(預覽\)\]
+   - [需要經過核准的用戶端應用程式 \(預覽\)\] 
 
-   - [需要所有選取的控制項]   
+   - [需要所有選取的控制項]    
  
      ![條件式存取](./media/app-based-conditional-access/64.png)
 
@@ -445,6 +445,6 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
+如果您想要了解如何設定條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
 
-如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 
+如果您已準備好設定您的環境的條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。 

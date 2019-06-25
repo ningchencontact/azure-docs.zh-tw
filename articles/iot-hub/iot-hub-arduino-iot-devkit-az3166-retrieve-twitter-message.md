@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60779743"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>搖一搖以獲取推文 -- 使用 Azure Functions 擷取 Twitter 訊息
@@ -49,10 +49,10 @@ ms.locfileid: "60779743"
 
 ### <a name="open-the-arduino-examples-folder"></a>開啟 Arduino 範例資料夾
 
-展開左側的 [ARDUINO 範例] 區段，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]，然後選取 [ShakeShake]。 新的 VS Code 視窗隨即開啟，其中顯示專案資料夾。 如果您看不到 MXCHIP AZ3166 區段，請確定裝置已正確連接並重新啟動 Visual Studio Code。  
+展開左側的 [ARDUINO 範例]  區段，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]  ，然後選取 [ShakeShake]  。 新的 VS Code 視窗隨即開啟，其中顯示專案資料夾。 如果您看不到 MXCHIP AZ3166 區段，請確定裝置已正確連接並重新啟動 Visual Studio Code。  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-您也可以從命令選擇區開啟範例專案。 按一下  `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) 來開啟命令選擇區中，輸入**Arduino**，然後尋找並選取**Arduino:**。
+您也可以從命令選擇區開啟範例專案。 按一下  `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) 來開啟命令選擇區中，輸入**Arduino**，然後尋找並選取**Arduino:** 。
 
 ## <a name="provision-azure-services"></a>佈建 Azure 服務
 
@@ -88,11 +88,11 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 接著，組建並上傳裝置程式碼。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 1. 使用 `Ctrl+P` 來執行 `task device-upload`。
 
-2. 終端機會提示您進入設定模式。 若要這樣做：
+2. 終端機會提示您進入設定模式。 方法如下：
 
    * 按住 A 按鈕
 
@@ -171,7 +171,7 @@ Arduino 草圖會將事件傳送至 Azure IoT 中樞。 此事件會觸發 Azure
 
    ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
-5. 使用您自己的權杖在 [Functions > shakeshake-cs] 內更新 `run.csx` 的程式碼：
+5. 使用您自己的權杖在 [Functions > shakeshake-cs]  內更新 `run.csx` 的程式碼：
 
    ```csharp
    string authHeader = "Bearer " + "[your own token]";
@@ -179,7 +179,7 @@ Arduino 草圖會將事件傳送至 Azure IoT 中樞。 此事件會觸發 Azure
   
    ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
-6. 儲存檔案，然後按一下 [執行]。
+6. 儲存檔案，然後按一下 [執行]  。
 
 ## <a name="problems-and-feedback"></a>問題與意見反應
 

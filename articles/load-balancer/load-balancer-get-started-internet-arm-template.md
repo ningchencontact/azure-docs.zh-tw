@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 7d8997b6c4ee68ae6857d2a1605277fc7d5f7a0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122216"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>使用範本建立公用負載平衡器
@@ -36,7 +36,7 @@ ms.locfileid: "66122216"
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>使用按一下即部署來部署範本
 
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://go.microsoft.com/fwlink/?LinkId=544801)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
+公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。 若要使用「按一下即部署」來部署此範本，請依循[此連結](https://go.microsoft.com/fwlink/?LinkId=544801)，按一下 [部署至 Azure]  ，視情況取代預設參數值，再依循入口網站中的指示。
 
 ## <a name="deploy-the-template-by-using-powershell"></a>使用 PowerShell 部署範本
 

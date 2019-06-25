@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: alkohli
 ms.openlocfilehash: f84655ecb31eed4cca1e3960e7e426a4eb653032
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66161084"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174421"
 ---
 以下是用戶端存取您裝置所支援的通訊協定。
 

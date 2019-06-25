@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107670"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure 監視器的活頁簿，針對 Azure Active Directory 報告
 
@@ -76,7 +76,7 @@ ms.locfileid: "65406602"
 
 - 成功
 
-- 等候使用者動作
+- 擱置的使用者動作
 
 - 失敗
 
@@ -84,7 +84,7 @@ ms.locfileid: "65406602"
 
 - 時間範圍
 
-- App
+- 應用程式
 
 - 使用者
 
@@ -118,7 +118,7 @@ ms.locfileid: "65406602"
 
 - 時間範圍
 
-- App
+- 應用程式
 
 - 使用者
 
@@ -142,11 +142,11 @@ ms.locfileid: "65406602"
 
 - 時間範圍
 
-- App
+- 應用程式
 
 - 使用者
 
-![登入使用條件式存取](./media/howto-use-azure-monitor-workbooks/49.png)
+![使用條件式存取登入](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 對已停用登入，您可以取得細目依條件式存取狀態。
@@ -179,7 +179,7 @@ ms.locfileid: "65406602"
 
 - 時間範圍
 
-- App
+- 應用程式
 
 - 使用者
 
@@ -219,7 +219,7 @@ ms.locfileid: "65406602"
 
 - 時間範圍
 
-- App
+- 應用程式
 
 - 使用者
 

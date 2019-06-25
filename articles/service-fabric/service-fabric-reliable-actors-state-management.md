@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 65dd47ab21ca4b1c50e0f17b73e7bc4eae8a96e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725732"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 狀態管理
@@ -33,7 +33,7 @@ Reliable Actors 是可封裝邏輯和狀態的單一執行緒物件。 由於動
 * **變動性狀態**:狀態會複寫到三個或多個複本，而且只會保存在記憶體中。 變動性狀態可針對節點失敗和動作項目失敗，以及在升級和資源平衡期間提供恢復能力。 不過，狀態不會保存到磁碟。 因此，如果同時遺失所有複本，狀態也會遺失。
 * **沒有保存的狀態**:狀態並未複寫或寫入至磁碟，只用於不需要以可靠方式維護狀態的動作項目。
 
-每個層級的持續性只是您服務的不同「狀態供應器」和「複寫」組態。 是否要將狀態寫入磁碟取決於「狀態供應器」(Reliable Service 中儲存狀態的元件)。 複寫取決於要使用多少個複本來部署服務。 就如同 Reliable Services，您可以輕鬆地手動設定狀態供應器和複本計數。 動作項目架構提供屬性，在動作項目上使用時，會自動選取預設的狀態供應器，並自動產生複本計數的設定，以達到這三個持續性設定的其中一個。 衍生的類別不會繼承 StatePersistence 屬性，每個 Actor 類型必須提供其 StatePersistence 層級。
+每個層級的持續性只是您服務的不同「狀態供應器」  和「複寫」  組態。 是否要將狀態寫入磁碟取決於「狀態供應器」(Reliable Service 中儲存狀態的元件)。 複寫取決於要使用多少個複本來部署服務。 就如同 Reliable Services，您可以輕鬆地手動設定狀態供應器和複本計數。 動作項目架構提供屬性，在動作項目上使用時，會自動選取預設的狀態供應器，並自動產生複本計數的設定，以達到這三個持續性設定的其中一個。 衍生的類別不會繼承 StatePersistence 屬性，每個 Actor 類型必須提供其 StatePersistence 層級。
 
 ### <a name="persisted-state"></a>保存的狀態
 ```csharp
@@ -81,7 +81,7 @@ class MyActorImpl extends FabricActor implements MyActor
 此設定會使用僅在記憶體中的狀態供應器，並將複本計數設定為 1。
 
 ### <a name="defaults-and-generated-settings"></a>預設值和產生的設定
-您使用 `StatePersistence` 屬性時，在動作項目服務啟動時，會在執行階段自動為您選取狀態供應器。 不過，複本計數是在編譯時期由 Visual Studio 動作項目建置工具所設定。 建置工具會在 ApplicationManifest.xml 中自動為動作項目服務產生「預設服務」。 参数是针对**副本集大小下限**和**目标副本集大小**创建的。
+您使用 `StatePersistence` 屬性時，在動作項目服務啟動時，會在執行階段自動為您選取狀態供應器。 不過，複本計數是在編譯時期由 Visual Studio 動作項目建置工具所設定。 建置工具會在 ApplicationManifest.xml 中自動為動作項目服務產生「預設服務」  。 參數是針對「複本集大小下限」  和「目標複本集大小」  建立。
 
 您可以手動變更這些參數。 不過，每當 `StatePersistence` 屬性變更時，參數會設定為所選 `StatePersistence` 屬性的預設複本集大小值，並覆寫所有舊值。 換句話說，您在 ServiceManifest.xml 中設定的值將*只*會在您變更 `StatePersistence` 屬性值時，於建置階段覆寫。
 

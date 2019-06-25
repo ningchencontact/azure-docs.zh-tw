@@ -10,10 +10,10 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738497"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
@@ -26,7 +26,7 @@ ms.locfileid: "60738497"
 
 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 描述啟動 Runbook 的不同方法。 混合式 Runbook 背景工作加入了 **RunOn** 選項，您可以在其中指定混合式 Runbook 背景工作群組的名稱。 若已指定群組，則會擷取 Runbook，且由該群組中的其中一個背景工作角色執行。 如果未指定此選項，則會在 Azure 自動化中正常執行。
 
-在 Azure 入口網站中啟動 Runbook 時，您會看到 [執行於] 選項，您可以在此選取 [Azure] 或 [Hybrid Worker]。 如果選取 [Hybrid 背景工作角色]，則您可以從下拉式清單中選取群組。
+在 Azure 入口網站中啟動 Runbook 時，您會看到 [執行於]  選項，您可以在此選取 [Azure]  或 [Hybrid Worker]  。 如果選取 [Hybrid 背景工作角色]  ，則您可以從下拉式清單中選取群組。
 
 使用 **RunOn** 參數。 您可以使用 Windows PowerShell 以下列命令在 Hybrid Runbook Worker 群組上啟動名為 Test-Runbook 的 Runbook。
 
@@ -35,7 +35,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 ```
 
 > [!NOTE]
-> 0.9.1 版 Microsoft Azure PowerShell 的 **Start-AzureAutomationRunbook** Cmdlet 已新增 **RunOn** 參數。 如果您安裝較早的版本，您應該 [下載最新版本](https://azure.microsoft.com/downloads/) 。 您只需要在從 PowerShell 啟動 Runbook 的工作站上安裝此版本。 您不需要將它安裝在背景工作電腦上，除非您想要從該電腦啟動 Runbook。
+> 0\.9.1 版 Microsoft Azure PowerShell 的 **Start-AzureAutomationRunbook** Cmdlet 已新增 **RunOn** 參數。 如果您安裝較早的版本，您應該 [下載最新版本](https://azure.microsoft.com/downloads/) 。 您只需要在從 PowerShell 啟動 Runbook 的工作站上安裝此版本。 您不需要將它安裝在背景工作電腦上，除非您想要從該電腦啟動 Runbook。
 
 ## <a name="runbook-permissions"></a>Runbook 權限
 
@@ -72,9 +72,9 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 1. 建立具有本機資源存取權的 [認證資產](automation-credentials.md) 。
 2. 在 Azure 入口網站中，開啟自動化帳戶。
 3. 選取 [Hybrid Worker 群組]  圖格，然後選取群組。
-4. 選取 [所有設定]，然後選取 [Hybrid 背景工作角色群組設定]。
-5. 將 [執行身分] 從 [預設] 變更為 [自訂]。
-6. 選取認證，然後按一下 [儲存] 。
+4. 選取 [所有設定]  ，然後選取 [Hybrid 背景工作角色群組設定]  。
+5. 將 [執行身分]  從 [預設]  變更為 [自訂]  。
+6. 選取認證，然後按一下 [儲存]  。
 
 ### <a name="managed-identities-for-azure-resources"></a>適用於 Azure 資源的受控識別
 

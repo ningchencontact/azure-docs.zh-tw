@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743113"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147700"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
@@ -41,7 +41,7 @@ Azure SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service
 您可以透過基本、標準或一般用途服務層級，以較低的每月成本在小型的單一資料庫上建置您的第一個應用程式，並在日後隨時以手動或程式設計方式將服務層級變更為進階或業務關鍵服務層級，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
 > [!NOTE]
-> 動態延展性與自動調整規模不同。 自動調整規模是指服務根據準則來自動調整規模，而動態延展性則允許在不停機的狀況下手動調整規模。
+> 動態延展性與自動調整規模不同。 自動調整時，服務將自動根據的準則，而動態延展性可手動調整最短的停機時間。
 
 單一 Azure SQL Database 支援手動的動態延展性，但不支援自動調整規模。 如需「自動」  體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。
 不過，有一些指令碼可協助您對單一 Azure SQL Database 自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一 SQL 資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。

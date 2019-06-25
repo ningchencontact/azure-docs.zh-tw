@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e621eeeca7a4f325efcfb242c204b2f727e55fc4
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61032564"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147753"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -61,7 +61,7 @@ ms.locfileid: "61032564"
 - 這項功能僅適用於透過 Azure Resource Manager 部署模型所部署的虛擬網路。
 - 端點會在 Azure 虛擬網路中設定的子網路上啟用。 無法將端點使用於從內部部署環境到 Azure 服務的流量。 如需詳細資訊，請參閱[保護來自內部部署環境的 Azure 服務存取](#securing-azure-services-to-virtual-networks)。
 - 針對 Azure SQL，服務端點只適用於虛擬網路區域內的 Azure 服務流量。 針對 Azure 儲存體，為了支援 RA-GRS 和 GRS 流量，端點也會擴充為包含虛擬網路部署所在的配對區域。 深入了解 [Azure 配對區域](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)。
-- 對於 ADLS Gen 1，VNet 整合功能只適用於相同區域內的虛擬網路。
+- 對於 ADLS Gen 1，VNet 整合功能只適用於相同區域內的虛擬網路。 也請注意，Azure Data Lake 儲存體 Gen1 的虛擬網路整合，讓使用您的虛擬網路與 Azure Active Directory (Azure AD) 來產生額外的安全性宣告存取權杖之間的虛擬網路服務端點安全性。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。 支援服務端點的服務底下所列的 「 Microsoft.AzureActiveDirectory"標記僅用於支援 ADLS Gen 1 的服務端點。 Azure Active Directory (Azure AD) 不以原生方式支援服務端點。 深入了解[Azure 資料湖存放區 Gen 1 的 VNet 整合](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>將 Azure 服務放到虛擬網路保護
 
@@ -120,7 +120,7 @@ ms.locfileid: "61032564"
 
 ## <a name="provisioning"></a>佈建
 
-擁有虛擬網路寫入權的使用者可以任意地在虛擬網路上設定服務端點。 若要將 Azure 服務資源放到 VNet 保護，使用者必須擁有所要新增之子網路的 *Microsoft.Network/JoinServicetoaSubnet* 權限。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。
+擁有虛擬網路寫入權的使用者可以任意地在虛擬網路上設定服務端點。 Azure 服務資源放到 VNet 保護，使用者必須擁有權限*Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action*所加入的子網路。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。
 
 深入了解[內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)以及如何將特定權限指派給[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 

@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019828"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144040"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>處理 SQL Database 連線問題和暫時性錯誤
 
@@ -93,7 +93,7 @@ ms.locfileid: "66019828"
 - **SqlException.Number** = 11001
 - 訊息：“此主机不存在”
 
-第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連線。
+第一次重試嘗試的一部分，您可以重新連線到網路的用戶端電腦，並嘗試連線。
 
 若要使這項測試可行，請先中斷電腦的網路連線，再啟動您的程式。 然後，您的程式會辨識一個執行階段參數，以便程式：
 

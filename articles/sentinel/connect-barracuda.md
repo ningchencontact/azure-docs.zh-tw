@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921979"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190782"
 ---
 # <a name="connect-your-barracuda-appliance"></a>連接您的 Barracuda 應用裝置 
 
@@ -41,7 +41,7 @@ Barracuda Web 應用程式防火牆整合和記錄檔將直接匯出至 Azure Se
 2. 在 Azure Sentinel 入口網站中，移至您部署 Azure Sentinel 的工作區，然後選取省略符號 （...），結尾的資料列，然後選取**進階設定**。 
 1. 選取 **資料**，然後**Syslog**。
 1. 請確定您在 Barracuda 中設定的功能存在，並設定的嚴重性，然後按一下**儲存**。
-6. 若要使用 Log Analytics 中的 Barracuda 事件相關的結構描述，搜尋**CommonSecurityLog**。
+6. 若要使用 Log Analytics 中的 Barracuda 事件相關的結構描述，搜尋**CommonSecurityLog**並**barracuda_CL**。
 
 
 ## <a name="validate-connectivity"></a>驗證連線能力

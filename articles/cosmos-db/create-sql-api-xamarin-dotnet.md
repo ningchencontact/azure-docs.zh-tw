@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860875"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754718"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶透過 Xamarin 建置待辦事項應用程式
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>新增集合
+## <a name="add-a-container"></a>新增容器
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -245,7 +245,7 @@ ToDoItems 解決方案中的程式碼包含：
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶、如何使用 [資料總管] 建立集合，以及如何建置和部署 Xamarin 應用程式。 您現在可以將其他資料匯入 Azure Cosmos DB 帳戶中。
+在本快速入門中，您已了解如何建立 Azure Cosmos 帳戶、如何使用 [資料總管] 建立容器，以及如何建置和部署 Xamarin 應用程式。 您現在可以將其他資料匯入 Azure Cosmos 帳戶中。
 
 > [!div class="nextstepaction"]
 > [將資料匯入到 Azure Cosmos DB](import-data.md)

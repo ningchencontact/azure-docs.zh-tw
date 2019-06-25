@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730685"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>在低速或無網路頻寬之情況下進行大型資料集的資料轉送
@@ -48,7 +48,7 @@ ms.locfileid: "60730685"
 |                                     |    資料箱磁碟      |    資料箱                                      |    Data Box Heavy              |    匯入/匯出                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    資料大小                        |    最多 35 TB                 |    每個裝置最多 80 TB                       |    每個裝置最多 800 TB               |    變數                            |
-|    資料類型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
+|    数据类型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
 |    板型規格                      |    每筆訂單 5 個 SSD             |    每筆訂單 1 X 50 磅 桌上型電腦大小裝置    |    每筆訂單 1 X ~500 磅 大型裝置    |    每筆訂單最多 10 個 HDD/SSD        |
 |    初始設定時間               |    低 <br>(15 分鐘)            |    低至中度 <br> (<30 分鐘)               |    中度<br>(1-2 小時)               |    中度到困難<br>(變動) |
 |    將資料傳送到 Azure               |    是                          |    是                                           |    是                                   |    是                                 |

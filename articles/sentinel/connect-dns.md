@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204414"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190774"
 ---
 # <a name="connect-your-domain-name-server"></a>連接您的網域名稱伺服器
 
@@ -36,21 +36,33 @@ ms.locfileid: "65204414"
 - 檢視 DNS 伺服器上的要求負載
 - 檢視動態 DNS 註冊失敗
 
-## <a name="how-it-works"></a>運作方式
+## <a name="connected-sources"></a>連接的來源
 
-DNS 連線被透過 DNS 電腦上安裝代理程式。 代理程式會從 DNS 中提取事件，並將它們傳送至 Log Analytics。
+下表描述此方案支援的連線來源：
+
+| **連線的來源** | **支援** | **說明** |
+| --- | --- | --- |
+| [Windows 代理程式](../azure-monitor/platform/agent-windows.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
+| [Linux 代理程式](../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
+| [System Center Operations Manager 管理群組](../azure-monitor/platform/om-agents.md) | 是 | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Azure 監視器。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| [Azure 儲存體帳戶](../azure-monitor/platform/collect-azure-metrics-logs.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
+
+### <a name="data-collection-details"></a>資料收集詳細資料
+
+此解決方案會從已安裝 Log Analytics 代理程式的 DNS 伺服器收集 DNS 清查和 DNS 事件相關資料。 清查相關資料 (例如 DNS 伺服器數目、區域和資源記錄) 的收集方式是執行 DNS PowerShell Cmdlet。 此資料每兩天會更新一次。 事件相關資料是以接近即時的方式，從 Windows Server 2012 R2 增強的 DNS 記錄與診斷功能所提供的[分析和稽核記錄](https://technet.microsoft.com/library/dn800669.aspx#enhanc)進行收集。
+
 
 ## <a name="connect-your-dns-appliance"></a>連接您的 DNS 設備
 
 1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後選擇**DNS**圖格。
 1. 如果您的 DNS 機器是在 Azure 中：
-    1. 按一下 **下載並安裝代理程式的 Windows 虛擬機器**。
+    1. 按一下 **在 Azure Windows 虛擬機器上的安裝代理程式**。
     1. 在 **虛擬機器**清單中，選取您想要串流處理至 Azure 的 Sentinel DNS 機器。 請確定這是 Windows VM。
     1. 在視窗中開啟該 vm，按一下**Connect**。  
     1. 按一下 **啟用**中**DNS 連接器**視窗。 
 
 2. 如果您的 DNS 電腦不是 Azure VM:
-    1. 按一下 **下載並安裝代理程式，適用於 Windows 非 Azure 機器**。
+    1. 按一下 **非 Azure 電腦上的安裝代理程式**。
     1. 在 [**直接代理程式**] 視窗中，選取**下載 Windows 代理程式 （64 位元）** 或是**下載 Windows 代理程式 （32 位元）** 。
     1. 在您 DNS 的電腦上安裝代理程式。 複製**工作區識別碼**，**主索引鍵**，並**次要金鑰**和使用它們在安裝期間出現提示時。
 

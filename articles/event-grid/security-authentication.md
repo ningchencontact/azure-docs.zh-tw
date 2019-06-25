@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117014"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
@@ -35,9 +35,9 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
 如果您使用任何其他類型的端點 (例如以 HTTP 觸發程序為基礎的 Azure 函式)，則您的端點程式碼必須參與和「事件方格」的驗證交握。 「事件方格」支援兩種驗證訂用帳戶的方式。
 
-1. **ValidationCode 交握 (程式設計)**：如果您控制端點的原始程式碼，建議使用此方法。 建立事件訂閱時，「事件方格」會傳送一個訂閱驗證事件給您的端點。 此事件的結構描述類似於任何其他「事件方格」事件。 此事件的資料部分包含 `validationCode` 屬性。 您的應用程式會確認該驗證要求是針對預期的事件訂閱，然後將驗證碼傳回給「事件方格」。 所有「事件方格」版本都支援此交握機制。
+1. **ValidationCode 交握 (程式設計)** ：如果您控制端點的原始程式碼，建議使用此方法。 建立事件訂閱時，「事件方格」會傳送一個訂閱驗證事件給您的端點。 此事件的結構描述類似於任何其他「事件方格」事件。 此事件的資料部分包含 `validationCode` 屬性。 您的應用程式會確認該驗證要求是針對預期的事件訂閱，然後將驗證碼傳回給「事件方格」。 所有「事件方格」版本都支援此交握機制。
 
-2. **ValidationURL 交握 (手動)**：在某些情況下，您無法存取端點的原始程式碼以實作 ValidationCode 交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就無法透過程式設計方式以驗證碼回應。
+2. **ValidationURL 交握 (手動)** ：在某些情況下，您無法存取端點的原始程式碼以實作 ValidationCode 交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就無法透過程式設計方式以驗證碼回應。
 
    從 2018-05-01-preview 版開始，「事件方格」支援手動驗證交握。 如果您是以採用 API 2018-05-01-preview 版或更新版本的 SDK 或工具來建立事件訂閱，「事件方格」就會在訂閱驗證事件的資料部分中一併傳送 `validationUrl` 屬性。 若要完成交握，請在事件資料中找出該 URL，然後手動將 GET 要求傳送給它。 您可以使用 REST 用戶端或您的網頁瀏覽器。
 
@@ -204,7 +204,7 @@ Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的
 
 您可以[將這些角色指派給使用者或群組](../role-based-access-control/quickstart-assign-role-user-portal.md)。
 
-**EventGrid EventSubscription 參與者 (預覽)**：管理事件方格訂用帳戶作業
+**EventGrid EventSubscription 參與者 (預覽)** ：管理事件方格訂用帳戶作業
 
 ```json
 [
@@ -240,7 +240,7 @@ Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的
 ]
 ```
 
-**EventGrid EventSubscription 讀者 (預覽)**：讀取事件方格訂用帳戶
+**EventGrid EventSubscription 讀者 (預覽)** ：讀取事件方格訂用帳戶
 
 ```json
 [

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66161032"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174427"
 ---
 裝置是設計為在您的網際網路連線變慢或中斷時繼續執行。 在正常作業情況中，我們建議您使用： 
 

@@ -12,10 +12,10 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 05fc742bba535ea3968e60cd0f40c80b812c09fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61043013"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 角色和工作
@@ -88,7 +88,7 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 - 若已選取 Azure DevOps 作為版本控制和共同作業的程式碼託管平台，請在團隊的 Azure DevOps Services 上建立**專案**。 否則，可以略過此工作。
 - 請在專案底下建立**專案範本存放庫**，並從群組管理員或管理員代表設定的群組專案範本存放庫植入此存放庫。
 - 建立**小組公用程式存放庫**，並將小組專用公用程式新增至存放庫。
-- (選擇性)建立 **[Azure 檔案儲存體](https://azure.microsoft.com/services/storage/files/)**，用來儲存對整個小組而言很實用的資料資產。 其他小組成員可以在其分析桌面上掛接此共用雲端檔案存放區。
+- (選擇性)建立 **[Azure 檔案儲存體](https://azure.microsoft.com/services/storage/files/)** ，用來儲存對整個小組而言很實用的資料資產。 其他小組成員可以在其分析桌面上掛接此共用雲端檔案存放區。
 - (選擇性) 將 Azure 檔案儲存體掛接至小組負責人的**資料科學虛擬機器** (DSVM) 並在其上新增資料資產。
 - 藉由新增小組成員和設定其權限來設定**安全性控制**。
 

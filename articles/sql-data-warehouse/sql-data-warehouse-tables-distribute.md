@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b101a4e19d00d44805c7eb5f44d449a18d756804
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851625"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
@@ -113,8 +113,8 @@ WITH
 若要將資料移動降至最低，請選取具有下列條件的散發資料行：
 
 - 在 `JOIN`、`GROUP BY`、`DISTINCT`、`OVER` 和 `HAVING` 子句中使用。 當兩個大型事實資料表有頻繁的聯結時，如果您在其中一個聯結資料行上散發這兩個資料表，即可改善查詢效能。  當資料表未使用於聯結時，請考慮在經常出現於 `GROUP BY` 子句中的資料行上散發資料表。
-- 「不」在 `WHERE` 子句中使用。 這可能會縮小查詢範圍，使其無法在所有散發上執行。 
-- 「不」是日期資料行。 WHERE 子句通常會依日期篩選。  在這種情況下，所有處理都只能在少數散發上執行。
+- 「不」  在 `WHERE` 子句中使用。 這可能會縮小查詢範圍，使其無法在所有散發上執行。 
+- 「不」  是日期資料行。 WHERE 子句通常會依日期篩選。  在這種情況下，所有處理都只能在少數散發上執行。
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>沒有資料行是理想的散發資料行時該怎麼辦
 

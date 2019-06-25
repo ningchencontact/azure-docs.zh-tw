@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070346"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -47,7 +47,7 @@ ms.locfileid: "66258600"
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr)子句[ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)陳述式
 
-### <a name="backup"></a>Backup 
+### <a name="backup"></a>Backup
 
 受管理的執行個體都有自動備份，因此使用者可以建立完整資料庫`COPY_ONLY`備份。 不支援差異、 記錄和檔案快照集備份。
 
@@ -276,6 +276,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="sql-server-agent"></a>SQL Server 代理程式
 
+- 啟用和停用 SQL Server Agent 目前不支援受管理的執行個體中。 SQL Agent 一直在執行中。
 - SQL Server Agent 設定為唯讀的。 此程序`sp_set_agent_properties`受控執行個體中不支援。 
 - 工作
   - 支援 T-SQL 作業步驟。
@@ -456,13 +457,13 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 - `Extended stored procedures` 不支援，其中包含`sp_addextendedproc` 和`sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
 - 不支援 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 請參閱 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
 
-## <a name="Environment"></a>Environmet 條件約束
+## <a name="Environment"></a>環境的條件約束
 
 ### <a name="subnet"></a>子網路
 - 在 保留供您受控執行個體的子網路中，您不能放置任何其他資源 （例如虛擬機器）。 將這些資源放在其他子網路。
 - 子網路必須有足夠數目的可用[IP 位址](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 最小值會是 16，而建議是將在至少 32 個 IP 位址子網路中。
 - [服務端點不能與受管理的執行個體子網路相關聯](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 請確定當您建立虛擬網路服務端點選項已停用。
-- 您可以將它放在子網路中的執行個體的類型與數量有一些[條件約束和限制](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- 虛擬核心數目和類型的執行個體，您可以部署在區域中有一些[條件約束和限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)。
 - 有一些[子網路必須套用的安全性規則](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
 
 ### <a name="vnet"></a>VNET

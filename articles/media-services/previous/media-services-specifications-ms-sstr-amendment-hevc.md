@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963247"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 
@@ -126,7 +126,7 @@ ms.locfileid: "65963247"
 
 >   **MinorVersion (變數)：** 資訊清單回應訊息的次要版本。 「必須」設為 2。 (無變更)
 > 
->   **TimeScale (變數)：**「持續時間」屬性的時間間隔，指定為一秒內的增量數目。 預設值為
+>   **TimeScale (變數)：** 「持續時間」屬性的時間間隔，指定為一秒內的增量數目。 預設值為
 > 1. (無變更)
 > 
 >    建議的值為 90000 來表示的視訊畫面格和片段包含 framerate 視訊 (例如，30/1.001 Hz) 的確切持續時間。
@@ -151,7 +151,7 @@ ms.locfileid: "65963247"
 > 
 >   **CodecPrivateData (變數)：** 這項資料會指定媒體格式的特定參數和音軌中所有樣本通用的參數，以十六進位編碼位元組的字串表示。 位元組序列的格式和語意會隨著 **FourCC** 欄位的值而不同，如下所示：
 > 
->   * 當 TrackElement 說明 HEVC 視訊時，**FourCC** 欄位「應該」等於 **"hev1"**。
+>   * 當 TrackElement 說明 HEVC 視訊時，**FourCC** 欄位「應該」等於 **"hev1"** 。
 > 
 >   **CodecPrivateData**欄位應該包含下列位元組序列，指定於 ABNF 的十六進位編碼的字串表示法[[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) （與 MS-SSTR 無變更）
 > 

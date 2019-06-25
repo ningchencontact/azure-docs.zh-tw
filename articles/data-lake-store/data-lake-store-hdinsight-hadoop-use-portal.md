@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 6f9064c6027499fff3a8551ee60722cd66c54dc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877549"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>使用 Azure 入口網站建立搭配 Azure Data Lake Storage Gen1 的 HDInsight 叢集
@@ -51,16 +51,16 @@ ms.locfileid: "60877549"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 請遵循[建立叢集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)，以取得建立 HDInsight 叢集的一般資訊。
-3. 在 [儲存體] 刀鋒視窗的 [主要儲存體類型] 下，選取 [Azure Data Lake Storage Gen1]，然後輸入下列資訊：
+3. 在 [儲存體]  刀鋒視窗的 [主要儲存體類型]  下，選取 [Azure Data Lake Storage Gen1]  ，然後輸入下列資訊：
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "將服務主體新增至 HDInsight 叢集")
 
     - **選取 Data Lake Store 帳戶**：選取現有的 Data Lake Storage Gen1 帳戶。 需要現有的 Data Lake Storage Gen1 帳戶。  請參閱[必要條件](#prerequisites)。
-    - **根路徑**：輸入要儲存叢集特定檔案的路徑。 在螢幕擷取畫面上，它是 __/clusters/myhdiadlcluster/__，其中 __/clusters__ 資料夾必須已存在，而入口網站會建立 *myhdicluster* 資料夾。  *myhdicluster* 是叢集名稱。
+    - **根路徑**：輸入要儲存叢集特定檔案的路徑。 在螢幕擷取畫面上，它是 __/clusters/myhdiadlcluster/__ ，其中 __/clusters__ 資料夾必須已存在，而入口網站會建立 *myhdicluster* 資料夾。  *myhdicluster* 是叢集名稱。
     - **Data Lake Store 存取**：設定 Data Lake Storage Gen1 帳戶與 HDInsight 叢集之間的存取。 如需指示，請參閱「設定 Data Lake Storage Gen1 存取」。
     - **其他儲存體帳戶**：新增 Azure 儲存體帳戶作為叢集的其他儲存體帳戶。 若要新增其他 Data Lake Storage Gen1 帳戶，做法是設定某個 Data Lake Storage Gen1 帳戶作為主要儲存體類型，同時授與叢集存取其他 Data Lake Storage Gen1 帳戶資料的權限。 請參閱「設定 Data Lake Storage Gen1 存取」。
 
-4. 在 [Data Lake Store 存取權] 上按一下 [選取]，然後繼續進行叢集建立作業，如[在 HDInsight 中建立 Hadoop 叢集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)所述。
+4. 在 [Data Lake Store 存取權]  上按一下 [選取]  ，然後繼續進行叢集建立作業，如[在 HDInsight 中建立 Hadoop 叢集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)所述。
 
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>建立以 Data Lake Storage Gen1 做為額外儲存體的叢集
@@ -71,14 +71,14 @@ ms.locfileid: "60877549"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 請遵循[建立叢集](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)，以取得建立 HDInsight 叢集的一般資訊。
-3. 在 [儲存體] 刀鋒視窗的 [主要儲存體類型] 下，選取 [Azure 儲存體]，然後輸入下列資訊：
+3. 在 [儲存體]  刀鋒視窗的 [主要儲存體類型]  下，選取 [Azure 儲存體]  ，然後輸入下列資訊：
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "將服務主體新增至 HDInsight 叢集")
 
     - **選取方法**：使用下列其中一個選項：
 
-        * 若要指定屬於 Azure 訂用帳戶的儲存體帳戶，請選取 [我的訂用帳戶]，然後選取儲存體帳戶。
-        * 若要指定 Azure 訂用帳戶外部的儲存體帳戶，請選取 [存取金鑰]，然後提供外部儲存體帳戶資訊。
+        * 若要指定屬於 Azure 訂用帳戶的儲存體帳戶，請選取 [我的訂用帳戶]  ，然後選取儲存體帳戶。
+        * 若要指定 Azure 訂用帳戶外部的儲存體帳戶，請選取 [存取金鑰]  ，然後提供外部儲存體帳戶資訊。
 
     - **預設容器**：使用預設值或指定您自己的名稱。
 
@@ -95,26 +95,26 @@ ms.locfileid: "60877549"
 
 **從 Azure 入口網站中建立服務主體**
 
-1. 從 [儲存體] 刀鋒視窗中，按一下 [Data Lake Store 存取]。
-2. 在 [Data Lake Storage Gen1 存取] 刀鋒視窗中，按一下 [新建]。
-3. 按一下 [服務主體]，然後遵循指示建立服務主體。
+1. 從 [儲存體] 刀鋒視窗中，按一下 [Data Lake Store 存取]  。
+2. 在 [Data Lake Storage Gen1 存取]  刀鋒視窗中，按一下 [新建]  。
+3. 按一下 [服務主體]  ，然後遵循指示建立服務主體。
 4. 如果您決定要在未來再次使用它，請下載憑證。 如果您想要在建立其他 HDInsight 叢集時使用相同的服務主體，下載憑證非常實用。
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "將服務主體新增至 HDInsight 叢集")
 
-4. 按一下 [存取] 來設定資料夾存取。  請參閱[設定檔案權限](#configure-file-permissions)。
+4. 按一下 [存取]  來設定資料夾存取。  請參閱[設定檔案權限](#configure-file-permissions)。
 
 
 **使用 Azure 入口網站中現有的服務主體**
 
-1. 按一下 [Data Lake Store 存取]。
-1. 在 [Data Lake Storage Gen1 存取] 刀鋒視窗中，按一下 [使用現有項目]。
-2. 按一下 [服務主體]，然後選取一個服務主體。 
+1. 按一下 [Data Lake Store 存取]  。
+1. 在 [Data Lake Storage Gen1 存取]  刀鋒視窗中，按一下 [使用現有項目]  。
+2. 按一下 [服務主體]  ，然後選取一個服務主體。 
 3. 上傳與您所選取服務主體建立關聯的憑證 (.pfx 檔案)，然後輸入憑證密碼。
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "將服務主體新增至 HDInsight 叢集")
 
-4. 按一下 [存取] 來設定資料夾存取。  請參閱[設定檔案權限](#configure-file-permissions)。
+4. 按一下 [存取]  來設定資料夾存取。  請參閱[設定檔案權限](#configure-file-permissions)。
 
 
 ### <a name="configure-file-permissions"></a>設定檔案權限
@@ -131,26 +131,26 @@ ms.locfileid: "60877549"
 
 **指派 Data Lake Storage Gen1 帳戶根層級的權限**
 
-1. 在 [Data Lake Storage Gen1 存取權] 刀鋒視窗中，按一下 [存取]。 隨即會開啟 [選取檔案權限] 刀鋒視窗。 其中列出您訂用帳戶中的所有 Data Lake Storage Gen1 帳戶。
+1. 在 [Data Lake Storage Gen1 存取權]  刀鋒視窗中，按一下 [存取]  。 隨即會開啟 [選取檔案權限]  刀鋒視窗。 其中列出您訂用帳戶中的所有 Data Lake Storage Gen1 帳戶。
 2. 請將滑鼠游標暫留 (請勿按一下) 在 Data Lake Storage Gen1 帳戶的名稱上，以顯示核取方塊，然後選取此核取方塊。
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "將服務主體新增至 HDInsight 叢集")
 
    根據預設，__READ__、__WRITE__ 和 __EXECUTE__ 會全部選取。
 
-3. 按一下頁面底部的 [選取]。
-4. 按一下 [執行] 來指派權限。
-5. 按一下 [完成] 。
+3. 按一下頁面底部的 [選取]  。
+4. 按一下 [執行]  來指派權限。
+5. 按一下 [完成]  。
 
 **指派 HDInsight 叢集根層級的權限**
 
-1. 在 [Data Lake Storage Gen1 存取權] 刀鋒視窗中，按一下 [存取]。 隨即會開啟 [選取檔案權限] 刀鋒視窗。 其中列出您訂用帳戶中的所有 Data Lake Storage Gen1 帳戶。
-1. 從 [選取檔案權限] 刀鋒視窗中，按一下要顯示其內容的 Data Lake Storage Gen1 名稱。
+1. 在 [Data Lake Storage Gen1 存取權]  刀鋒視窗中，按一下 [存取]  。 隨即會開啟 [選取檔案權限]  刀鋒視窗。 其中列出您訂用帳戶中的所有 Data Lake Storage Gen1 帳戶。
+1. 從 [選取檔案權限]  刀鋒視窗中，按一下要顯示其內容的 Data Lake Storage Gen1 名稱。
 2. 選取 HDInsight 叢集儲存體根目錄左邊的核取方塊，即可選取該資料夾。 根據先前的螢幕擷取畫面，叢集儲存體根目錄為您在選取 Data Lake Storage Gen1 作為預設儲存體時所指定的 __/clusters__ 資料夾。
 3. 設定資料夾的權限。  根據預設，讀取、寫入和執行會全部選取。
-4. 按一下頁面底部的 [選取]。
-5. 按一下 **[執行]**。
-6. 按一下 [完成] 。
+4. 按一下頁面底部的 [選取]  。
+5. 按一下 **[執行]** 。
+6. 按一下 [完成]  。
 
 如果您使用 Data Lake Storage Gen1 作為額外儲存體，則必須僅針對您想要從 HDInsight 叢集存取的資料夾指派權限。 例如，在下方的螢幕擷取畫面中，您僅會將存取提供給 Data Lake Storage Gen1 帳戶中的 **mynewfolder** 資料夾。
 
@@ -161,11 +161,11 @@ ms.locfileid: "60877549"
 
 叢集設定完成之後，在叢集刀鋒視窗上執行下列任一或這兩個步驟來驗證結果：
 
-* 若要驗證叢集的相關儲存體是否為您指定的 Data Lake Storage Gen1 帳戶，請按一下左窗格中的 [儲存體帳戶]。
+* 若要驗證叢集的相關儲存體是否為您指定的 Data Lake Storage Gen1 帳戶，請按一下左窗格中的 [儲存體帳戶]  。
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "將服務主體新增至 HDInsight 叢集")
 
-* 若要驗證服務主體是否正確地與 HDInsight 叢集相關聯，請按一下左窗格中的 [Data Lake Storage Gen1 存取權]。
+* 若要驗證服務主體是否正確地與 HDInsight 叢集相關聯，請按一下左窗格中的 [Data Lake Storage Gen1 存取權]  。
 
     ![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "將服務主體新增至 HDInsight 叢集")
 
@@ -180,7 +180,7 @@ ms.locfileid: "60877549"
 
 當您使用 Data Lake Storage Gen1 帳戶中的資料時，有幾個字串需要變更。
 
-如果您使用以 Data Lake Storage Gen1 做為主要儲存體而建立的叢集，則資料路徑為︰adl://<data_lake_storage_gen1_account_name>/azuredatalakestore.net/path/to/file。 從 Data Lake Storage Gen1 帳戶中儲存的範例資料建立資料表的 Hive 查詢，類似於下列陳述式：
+如果您使用以 Data Lake Storage Gen1 做為主要儲存體而建立的叢集，則資料路徑為︰adl://<data_lake_storage_gen1_account_name>/azuredatalakestore.net/path/to/file  。 從 Data Lake Storage Gen1 帳戶中儲存的範例資料建立資料表的 Hive 查詢，類似於下列陳述式：
 
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 

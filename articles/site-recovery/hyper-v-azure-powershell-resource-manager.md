@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690561"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203477"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>針對 Hyper-V VM，使用 PowerShell 和 Azure Resource Manager 設定至 Azure 的災害復原
 
@@ -49,7 +49,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
 1. 開啟 PowerShell 主控台並執行這個命令，登入您的 Azure 帳戶。 此 Cmdlet 會開啟網頁，提示您輸入帳戶認證：**連接 AzAccount**。
     - 或者，您可以使用 **-Credential** 參數，以參數形式將您的帳戶認證加入 **Connect-AzAccount** Cmdlet。
-    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如︰**Connect-AzAccount -Tenant "fabrikam.com"**
+    - 如果您是代表租用戶工作的 CSP 合作夥伴，請使用客戶的 tenantID 或租用戶主要網域名稱將客戶指定為租用戶。 例如: **Connect-AzAccount -Tenant "fabrikam.com"**
 2. 由於一個帳戶可以有多個訂用帳戶，因此您必須將要使用的訂用帳戶與帳戶建立關聯：
 
     `Select-AzSubscription -SubscriptionName $SubscriptionName`
@@ -58,7 +58,7 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-4. 確認 **RegistrationState** 在命令輸出中設為 [已註冊]，您可以繼續執行步驟 2。 如果未設定，請執行下列命令來註冊訂用帳戶中遺漏的提供者：
+4. 確認 **RegistrationState** 在命令輸出中設為 [已註冊]  ，您可以繼續執行步驟 2。 如果未設定，請執行下列命令來註冊訂用帳戶中遺漏的提供者：
 
     `Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
@@ -107,12 +107,21 @@ Azure PowerShell 提供 Cmdlet，讓您使用 Windows PowerShell 管理 Azure。
 ## <a name="step-5-install-the-provider-and-agent"></a>步驟 5：安裝 Provider 和代理程式
 
 1. 從 [Microsoft](https://aka.ms/downloaddra)下載最新版提供者的安裝程式。
-2. 在 Hyper-V 主机上运行安装程序。
+2. 在 HYPER-V 主機上執行安裝程式。
 3. 在安裝結尾繼續註冊步驟。
 4. 當系統提示時，請提供下載金鑰，並完成 Hyper-V 主機註冊。
 5. 確認 Hyper-V 主機向網站註冊，如下所示：
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+如果您執行的是 Hyper-V 核心伺服器，請下載安裝檔案並執行下列步驟：
+1. 解壓縮的檔案從 AzureSiteRecoveryProvider.exe 至本機目錄執行下列命令： ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 執行```.\setupdr.exe /i```結果都會記錄到 %programdata%\asrlogs\drasetupwizard.log。
+
+3. 執行下列命令以註冊伺服器：
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## <a name="step-6-create-a-replication-policy"></a>步驟 6：建立複寫原則
 

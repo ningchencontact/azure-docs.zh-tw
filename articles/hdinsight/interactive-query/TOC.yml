@@ -2,11 +2,8 @@
   href: /azure/hdinsight
 - name: 概觀
   items:
-    - name: HDInsight 上的 Apache Hadoop 元件
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+    - name: HDInsight 中的互動式查詢是什麼？
+      href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: 快速入門
   items:
@@ -14,8 +11,6 @@
       href: ./hdinsight-connect-hive-zeppelin.md
 - name: 開始使用
   items:
-    - name: 開始使用互動式查詢
-      href: ./apache-interactive-query-get-started.md
     - name: 安裝 HDInsight 應用程式
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

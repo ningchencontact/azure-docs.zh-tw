@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467438"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>使用 Azure Logic Apps 和 Azure Functions 建置您的第一個無伺服器應用程式 - Visual Studio
@@ -65,37 +65,37 @@ ms.locfileid: "65467438"
 
 1. 啟動 Visual Studio，並以您的 Azure 帳戶登入。
 
-1. 在 [檔案] 功能表上，選取 [新增] > [專案]。
+1. 在 [檔案]  功能表上，選取 [新增]   > [專案]  。
 
    ![在 Visual Studio 中建立新專案](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. 在 [已安裝] 之下，選取 **Visual C#** 或 **Visual Basic**。 選取 [雲端] > [Azure 資源群組]。
+1. 在 [已安裝]  之下，選取 **Visual C#** 或 **Visual Basic**。 選取 [雲端]   > [Azure 資源群組]  。
 
    > [!NOTE]
-   > 如果 [雲端] 類別或 [Azure 資源群組] 不存在，請確定已安裝 Azure SDK for Visual Studio。
+   > 如果 [雲端]  類別或 [Azure 資源群組]  不存在，請確定已安裝 Azure SDK for Visual Studio。
 
    如果您使用 Visual Studio 2019，請遵循下列步驟：
 
-   1. 在 [建立新專案] 方塊中，選取適用於 Visual C# 或 Visual Basic 的 [Azure 資源群組] 專案範本，然後選擇 [下一步]。
+   1. 在 [建立新專案]  方塊中，選取適用於 Visual C# 或 Visual Basic 的 [Azure 資源群組]  專案範本，然後選擇 [下一步]  。
 
-   1. 提供您想要使用的 Azure 資源群組名稱和其他專案資訊。 完成之後，請選擇 [建立]。
+   1. 提供您想要使用的 Azure 資源群組名稱和其他專案資訊。 完成之後，請選擇 [建立]  。
 
-1. 為您的專案提供名稱和位置，然後選擇 [確定]。
+1. 為您的專案提供名稱和位置，然後選擇 [確定]  。
 
-   Visual Studio 会提示从模板列表中选择一个模板。 
-   本示例使用 Azure 快速入门模板，因此你可以生成包含逻辑应用和 Azure 函数调用的无服务器应用。
+   Visual Studio 會提示您從 [範本] 清單中選取範本。 
+   此範例會使用 Azure 快速入門範本，因此您可以建置無伺服器的應用程式，其中包含邏輯應用程式和 Azure 函式的呼叫。
 
    > [!TIP]
-   > 如果你不想要将解决方案预先部署到 Azure 资源组，可以使用空白的“逻辑应用”模板，该模板只会创建一个空的逻辑应用。
+   > 在您不想預先方案部署到 Azure 資源群組的情況下，您可以使用空白**邏輯應用程式**範本，只會建立空白邏輯應用程式。
 
-1. 在“显示此位置的模板”列表中，选择“Azure 快速入门(github.com/Azure/azure-quickstart-templates)”。
+1. 從**顯示從這個位置的範本**清單中，選取**Azure 快速入門 (github.com/Azure/azure-quickstart-templates)** 。
 
-1. 在搜索框中，输入“logic-app”作为筛选器。 在“结果”中选择以下模板：**101-logic-app-and-function-app**
+1. 在 [搜尋] 方塊中，輸入 「 邏輯應用程式 」 作為篩選條件。 從結果中，選取此範本：**101-logic-app-and-function-app**
 
    ![選取 Azure 快速入門範本](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio 會為您的資源群組專案建立並開啟解決方案。 
-   选择的 Azure 快速入门模板会在资源组项目中创建名为 `azuredeploy.json` 的部署模板。 此部署範本包含簡單邏輯應用程式的定義，該邏輯應用程式會在 HTTP 要求上觸發、呼叫 Azure 函式，以及傳回結果作為 HTTP 回應。
+   您選取的 Azure 快速入門範本會建立名為的部署範本`azuredeploy.json`內您的資源群組專案。 此部署範本包含簡單邏輯應用程式的定義，該邏輯應用程式會在 HTTP 要求上觸發、呼叫 Azure 函式，以及傳回結果作為 HTTP 回應。
 
    ![新增無伺服器解決方案](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
@@ -105,30 +105,30 @@ ms.locfileid: "65467438"
 
 您必須先具備已在 Azure 中部署的 Azure 資源群組，才可以在 Visual Studio 中使用 Logic Apps 設計工具開啟邏輯應用程式。 設計工具可接著在您的邏輯應用程式中建立資源和服務的連線。 針對此工作，從 Visual Studio 將您的解決方案部署至 Azure 入口網站。
 
-1. 在解决方案资源管理器中，从资源项目的快捷菜单中选择“部署” > “新建”。
+1. 在 [方案總管] 中，從您的資源專案的捷徑功能表，選取**Deploy** > **新增**。
 
    ![建立資源群組的新部署](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
-1. 如果尚未選取，請選取您的 Azure 訂用帳戶以及您要在其中部署的資源群組。 選擇 [部署]。
+1. 如果尚未選取，請選取您的 Azure 訂用帳戶以及您要在其中部署的資源群組。 選擇 [部署]  。
 
    ![部署設定](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
-1. 如果 [編輯參數] 方塊出現，請提供在部署時要用於邏輯應用程式和 Azure 函式應用程式的資源名稱，然後儲存您的設定。 確定您的函式應用程式使用全域唯一的名稱。
+1. 如果 [編輯參數]  方塊出現，請提供在部署時要用於邏輯應用程式和 Azure 函式應用程式的資源名稱，然後儲存您的設定。 確定您的函式應用程式使用全域唯一的名稱。
 
    ![提供邏輯應用程式和函式應用程式的名稱](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
 
-   當 Visual Studio 開始部署至您指定的資源群組時，您的解決方案部署狀態就會出現在 Visual Studio 的 [輸出] 視窗。 
+   當 Visual Studio 開始部署至您指定的資源群組時，您的解決方案部署狀態就會出現在 Visual Studio 的 [輸出]  視窗。 
    部署完成之後，您的邏輯應用程式會在 Azure 入口網站中上線。
 
 ## <a name="edit-logic-app-in-visual-studio"></a>在 Visual Studio 中編輯邏輯應用程式
 
-将解决方案部署到资源组之后，请使用逻辑应用设计器打开逻辑应用，以便能够编辑和更改逻辑应用。
+現在，您的解決方案部署至您的資源群組，開啟邏輯應用程式與邏輯應用程式設計工具，以便您可以編輯並變更您的邏輯應用程式。
 
-1. 在解决方案资源管理器中，从 `azuredeploy.json` 文件的快捷菜单中选择“使用逻辑应用设计器打开”。
+1. 在 [方案總管] 中，從`azuredeploy.json`檔案的捷徑功能表上，選取**開啟與邏輯應用程式設計工具**。
 
    ![在 Logic Apps 設計工具中開啟 "azuredeploy.json"](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
-1. 在 [邏輯應用程式屬性] 方塊出現之後，如果尚未選取，請在 [訂用帳戶] 之下選取您的 Azure 訂用帳戶。 在 [資源群組] 之下，選取您部署解決方案的資源群組和所在位置，然後選擇 [確定]。
+1. 在 [邏輯應用程式屬性]  方塊出現之後，如果尚未選取，請在 [訂用帳戶]  之下選取您的 Azure 訂用帳戶。 在 [資源群組]  之下，選取您部署解決方案的資源群組和所在位置，然後選擇 [確定]  。
 
    ![邏輯應用程式屬性](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
 
@@ -148,11 +148,11 @@ ms.locfileid: "65467438"
 
 對於已部署在 Azure 中的邏輯應用程式，您仍然可從 Visual Studio 編輯、管理、檢視執行歷程記錄，以及停用這些應用程式。
 
-1. 從 Visual Studio 中的 [檢視] 功能表，開啟 [Cloud Explorer]。
+1. 從 Visual Studio 中的 [檢視]  功能表，開啟 [Cloud Explorer]  。
 
-1. 在 [所有訂用帳戶] 之下，選取與您要管理的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選擇 [套用]。
+1. 在 [所有訂用帳戶]  之下，選取與您要管理的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選擇 [套用]  。
 
-1. 在 [Logic Apps] 下，選取您的邏輯應用程式。 從該應用程式的捷徑功能表，選取 [使用邏輯應用程式編輯器開啟]。
+1. 在 [Logic Apps]  下，選取您的邏輯應用程式。 從該應用程式的捷徑功能表，選取 [使用邏輯應用程式編輯器開啟]  。
 
 您現在可以將已經發佈的邏輯應用程式下載到您的資源群組專案中。 所以即便您可能已在 Azure 入口網站中啟動邏輯應用程式，您仍然可在 Visual Studio 中匯入和管理該應用程式。 如需詳細資訊，請參閱[使用 Visual Studio 管理邏輯應用程式](../logic-apps/manage-logic-apps-with-visual-studio.md)。
 

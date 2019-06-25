@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171923"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174011"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>透過 Windows PowerShell for StorSimple 安裝一般 Hotfix
 1. 連接到裝置序列主控台。 如需詳細資訊，請參閱[步驟 1：連線到序列主控台](../articles/storsimple/storsimple-update-device.md#step1)。
-2. 在序列主控台功能表中，選取選項 1 [使用完整存取權登入] 。 輸入密碼。 預設密碼為 **Password1**。
+2. 在序列主控台功能表中，選取選項 1 [使用完整存取權登入]  。 輸入密碼。 預設密碼為 **Password1**。
 3. 在命令提示字元中，輸入：
    
     ```

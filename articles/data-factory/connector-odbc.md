@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711453"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-odbc-connector.md)
 > * [目前的版本](connector-odbc.md)
 
@@ -349,12 +349,12 @@ ms.locfileid: "60711453"
 
 ## <a name="troubleshoot-connectivity-issues"></a>疑難排解連線問題
 
-若要針對連線問題進行疑難排解，請使用 [整合執行階段組態管理員] 的 [診斷] 索引標籤。
+若要針對連線問題進行疑難排解，請使用 [整合執行階段組態管理員]  的 [診斷]  索引標籤。
 
-1. 啟動 [整合執行階段組態管理員]。
+1. 啟動 [整合執行階段組態管理員]  。
 2. 切換至 [診斷]  索引標籤。
-3. 在 [測試連線] 區段底下，選取資料存放區的 [類型] (已連結的服務)。
-4. 指定用來連線到資料存放區的 [連接字串]，選擇 [驗證]，然後輸入 [使用者名稱]、[密碼] 和/或 [認證]。
+3. 在 [測試連線] 區段底下，選取資料存放區的 [類型]  (已連結的服務)。
+4. 指定用來連線到資料存放區的 [連接字串]  ，選擇 [驗證]  ，然後輸入 [使用者名稱]  、[密碼]  和/或 [認證]  。
 5. 按一下 [測試連線]  以測試資料存放區連線。
 
 ## <a name="next-steps"></a>後續步驟

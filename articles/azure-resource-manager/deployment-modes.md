@@ -1,22 +1,17 @@
 ---
 title: Azure Resource Manager 部署模式 | Microsoft Docs
 description: 說明如何指定是否要透過 Azure Resource Manager 使用完整或累加部署模式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789260"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206556"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -28,20 +23,20 @@ ms.locfileid: "65789260"
 
 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 資源如果是範本中已指定的資源，但因為某個[條件](resource-group-authoring-templates.md#condition)評估為 false 而未部署，則不會被刪除。
 
-资源类型处理完整模式删除的方式有所不同。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 但是，如果删除父资源，则会删除这些子资源。 
+有一些差異，在 資源類型如何處理完整模式刪除。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，會刪除這些子資源。 
 
-例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果在模板中包含 DNS 区域但不包含 CNAME 记录，则不会删除 CNAME。 
+例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果您在範本中包含的 DNS 區域，但不包括 CNAME 記錄，CNAME 不會刪除。 
 
 如需資源類型如何處理刪除的清單，請參閱[刪除完整模式部署的 Azure 資源](complete-mode-deletion.md)。
 
-如果资源组被[锁定](resource-group-lock-resources.md)，则完整模式不会删除资源。
+如果資源群組[鎖定](resource-group-lock-resources.md)，完整模式並不會刪除資源。
 
 > [!NOTE]
 > 只有根層級範本支援完整部署模式。 針對[連結或巢狀的範本](resource-group-linked-templates.md)，您必須使用累加模式。 
 >
-> [订阅级别部署](deploy-to-subscription.md)不支持完整模式。
+> [訂用帳戶層級部署](deploy-to-subscription.md)不支援完整的模式。
 >
-> 目前，门户不支持完整模式。
+> 目前，入口網站不支援完整模式。
 >
 
 ## <a name="incremental-mode"></a>累加模式
@@ -63,7 +58,7 @@ ms.locfileid: "65789260"
 **範本**包含：
 
 * 資源 A
-* 资源 B
+* 資源 B
 * 資源 D
 
 部署於**累加**模式時，資源群組具有：
@@ -76,7 +71,7 @@ ms.locfileid: "65789260"
 若部署在**完整**模式中，資源 C 會遭到刪除。 資源群組具有：
 
 * 資源 A
-* 资源 B
+* 資源 B
 * 資源 D
 
 ## <a name="set-deployment-mode"></a>設定部署模式

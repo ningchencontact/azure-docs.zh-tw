@@ -17,10 +17,10 @@ ms.date: 12/14/2017
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939867"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>檢視特定位置中 Azure 區域的相對延遲
@@ -105,7 +105,7 @@ ReachabilityReport : [
                      ]
 ```
 
-在傳回的輸出中，[分數] 的值是跨區域和提供者時的相對延遲。 1 分是最差 (最高) 的延遲，而 100 分是最低的延遲。 相對延遲是以一日平均計算。 在上述範例中，兩天的延遲顯然都相同，且兩個提供者的延遲之間差異很小，此外，兩個提供者的延遲在 1-100 級別中顯然也都很低。 儘管這是預期行為，因為美國華盛頓州實際上是接近美國西部 2 Azure 區域，而有時結果並未如預期。 您指定的日期範圍越大，在一段時間可平均的延遲就更多。
+在傳回的輸出中，[分數]  的值是跨區域和提供者時的相對延遲。 1 分是最差 (最高) 的延遲，而 100 分是最低的延遲。 相對延遲是以一日平均計算。 在上述範例中，兩天的延遲顯然都相同，且兩個提供者的延遲之間差異很小，此外，兩個提供者的延遲在 1-100 級別中顯然也都很低。 儘管這是預期行為，因為美國華盛頓州實際上是接近美國西部 2 Azure 區域，而有時結果並未如預期。 您指定的日期範圍越大，在一段時間可平均的延遲就更多。
 
 ## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>比較跨 Azure 區域與特定位置中的相對網路延遲
 
@@ -133,9 +133,9 @@ Get-AzNetworkWatcherReachabilityReport `
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-只有使用的國家/地區、 州和城市先前命令所傳回的資料。 前一個命令會要求您指定現有的網路監看員。 範例已在名為 *NetworkWatcherRG*的資源群組中指定 NetworkWatcher_eastus 網路監看員，但是您可以指定任何現有的網路監看員。 如果您沒有現有的網路監看員，請建立一個網路監看員，方法是完成[建立網路監看員](#create-a-network-watcher)中的工作。 
+只有使用的國家/地區、 州和城市先前命令所傳回的資料。 前一個命令會要求您指定現有的網路監看員。 範例已在名為 *NetworkWatcherRG*的資源群組中指定 NetworkWatcher_eastus  網路監看員，但是您可以指定任何現有的網路監看員。 如果您沒有現有的網路監看員，請建立一個網路監看員，方法是完成[建立網路監看員](#create-a-network-watcher)中的工作。 
 
-在執行前一個命令後，您可以篩選傳回的輸出，方法是指定 [國家/地區]、[州] 和 [城市] 的有效值。  例如，若要檢視美國境內華盛頓州的西雅圖中可用的網際網路服務提供者清單，請輸入下列命令：
+在執行前一個命令後，您可以篩選傳回的輸出，方法是指定 [國家/地區]  、[州]  和 [城市]  的有效值。  例如，若要檢視美國境內華盛頓州的西雅圖中可用的網際網路服務提供者清單，請輸入下列命令：
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList `
@@ -147,4 +147,4 @@ Get-AzNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> 針對 [國家/地區] 指定的值必須是大寫和小寫。 針對 [州] 和 [城市] 指定的值必須是小寫。 值必須列在執行不包含 [國家/地區]、[州] 和 [城市] 值的命令之後所傳回的輸出中。 如果您指定了不正確的大小寫，或所指定的 [國家/地區]、[州] 或 [城市] 值不在執行不包含這些屬性的值之命令之後傳回的輸出中，傳回的輸出就是空白的。
+> 針對 [國家/地區]  指定的值必須是大寫和小寫。 針對 [州]  和 [城市]  指定的值必須是小寫。 值必須列在執行不包含 [國家/地區]  、[州]  和 [城市]  值的命令之後所傳回的輸出中。 如果您指定了不正確的大小寫，或所指定的 [國家/地區]  、[州]  或 [城市]  值不在執行不包含這些屬性的值之命令之後傳回的輸出中，傳回的輸出就是空白的。

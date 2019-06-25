@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951968"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
@@ -72,7 +72,7 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
 銀級耐久性層中的 Azure 叢集依預設會啟用修復管理器。 金級耐久性層中的 Azure 叢集可能會或也可能不會啟用修復管理器，取決於這些叢集的建立時間。 銅級耐久性層中的 Azure 叢集依預設不會啟用修復管理器服務。 如果已啟用服務，可以在 Service Fabric Explorer 的系統服務區段中看到它正在執行。
 
 ##### <a name="azure-portal"></a>Azure 入口網站
-您可以在設定叢集時從 Azure 入口網站啟用修復管理員。 設定叢集時，選取 [附加元件功能] 底下的 [包含修復管理員] 選項。
+您可以在設定叢集時從 Azure 入口網站啟用修復管理員。 設定叢集時，選取 [附加元件功能]  底下的 [包含修復管理員]  選項。
 ![從 Azure 入口網站啟用修復管理員的映像](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 部署模型
@@ -234,8 +234,8 @@ ResultCode | 與 OperationResult 相同 | 此欄位指出個別更新安裝作�
 OperationType | 1 - 安裝<br> 0 - 搜尋和下載。| 「安裝」是依預設會顯示在結果中的唯一一個 OperationType。
 WindowsUpdateQuery | 預設值為 "IsInstalled=0" |用來搜尋更新的 Windows Update 查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
 RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | 指出完成更新的安裝是否需要重新開機。
-OperationStartTime | DateTime | 指出在哪些 operation(Download/Installation) 啟動的時間。
-OperationTime | DateTime | 指出在哪些 operation(Download/Installation) 完成的時間。
+OperationStartTime | Datetime | 指出在哪些 operation(Download/Installation) 啟動的時間。
+OperationTime | Datetime | 指出在哪些 operation(Download/Installation) 完成的時間。
 HResult | 0-成功<br> 其他-失敗| 表示與 updateID"7392acaf-6a85-427c-8a8d-058c25beb0d6 」 的 windows 更新失敗的原因。
 
 如果尚未排程更新，JSON 結果會是空的。
@@ -276,7 +276,7 @@ HResult | 0-成功<br> 其他-失敗| 表示與 updateID"7392acaf-6a85-427c-8a8d
 4. 一旦停用節點之後，修復工作會移至 Executing 」 狀態中。 請注意，卡在準備之後的狀態，因為節點會卡在停用狀態的修復工作可能會導致封鎖新的修復工作，並因此暫止的叢集中修補。
 5. 一旦修復工作處於執行狀態時，便會開始在該節點上的安裝修補程式。 此處，修補程式安裝之後，節點可能會或可能不會根據修補程式重新啟動。 修復工作會移至還原狀態，可讓上一步 [] 節點一次然後的貼文標示為已完成。
 
-   1.4.0 和更新版本的應用程式，可以找到更新的狀態，藉由查看健康情況事件上 NodeAgentService 屬性"WUOperationStatus-[NodeName]"。 在下列影像中醒目提示的區段會顯示在節點 'poanode_0' 和 'poanode_2' 上的 windows 更新的狀態：
+   1\.4.0 和更新版本的應用程式，可以找到更新的狀態，藉由查看健康情況事件上 NodeAgentService 屬性"WUOperationStatus-[NodeName]"。 在下列影像中醒目提示的區段會顯示在節點 'poanode_0' 和 'poanode_2' 上的 windows 更新的狀態：
 
    [![映像的 Windows 更新作業狀態](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
@@ -339,7 +339,7 @@ HResult | 0-成功<br> 其他-失敗| 表示與 updateID"7392acaf-6a85-427c-8a8d
 
 A. 在安裝程序期間，修補程式協調流程應用程式會停用或重新啟動節點，而這可能會導致叢集暫時關閉的健康情況。
 
-根據應用程式的原則，可能是一個節點在修補作業期間關閉，「或是」整個升級網域同時關閉。
+根據應用程式的原則，可能是一個節點在修補作業期間關閉，「或是」  整個升級網域同時關閉。
 
 Windows Update 安裝結束時，在重新啟動前會重新啟用節點。
 
@@ -447,10 +447,10 @@ A. 修補程式協調流程應用程式會停用 「 重新啟動 」 的意圖�
 >[!NOTE]
 > 從 1.4.0 版開始，版本資訊和版本可在 GitHub 版本[網頁](https://github.com/microsoft/Service-Fabric-POA/releases/)。
 
-### <a name="version-110"></a>1.1.0 版
+### <a name="version-110"></a>1\.1.0 版
 - 公開版本
 
-### <a name="version-111"></a>1.1.1 版
+### <a name="version-111"></a>1\.1.1 版
 - 修正 SetupEntryPoint of NodeAgentService 中的錯誤，該錯誤導致無法安裝 NodeAgentNTService。
 
 ### <a name="version-120"></a>版本 1.2.0
@@ -459,11 +459,11 @@ A. 修補程式協調流程應用程式會停用 「 重新啟動 」 的意圖�
 - 由於準備修復工作期間健康情況檢查未如預期般發生，而在 RM 工作建立時進行的錯誤修正。
 - 將 Windows 服務 POANodeSvc 的啟動模式從自動變更為延遲自動。
 
-### <a name="version-121"></a>1.2.1 版
+### <a name="version-121"></a>1\.2.1 版
 
 - 縮小叢集範圍工作流程中的錯誤修正。 針對屬於不存在節點的 POA 修復工作，導入了記憶體回收邏輯。
 
-### <a name="version-122"></a>1.2.2 版
+### <a name="version-122"></a>1\.2.2 版
 
 - 其他錯誤修正。
 - 現在已簽署二進位檔。
@@ -475,10 +475,10 @@ A. 修補程式協調流程應用程式會停用 「 重新啟動 」 的意圖�
 - 已變更停用自動更新的邏輯。 這會修正 Server 2016 和以上版本未停用自動更新的錯誤。
 - 參數化的 POA 進階的使用案例的兩個微服務的放置條件約束。
 
-### <a name="version-131"></a>1.3.1 版
+### <a name="version-131"></a>1\.3.1 版
 - 修正 POA 1.3.0 在 Windows Server 2012 R2 或較低版本上因為停用自動更新失敗而無法運作的迴歸。 
 - 修正 InstallWindowsOSOnlyUpdates 組態一律挑選為 True 的錯誤 (bug)。
 - 將 InstallWindowsOSOnlyUpdates 的預設值變更為 False。
 
-### <a name="version-132"></a>1.3.2 版
+### <a name="version-132"></a>1\.3.2 版
 - 修正會影響修補的生命週期，在節點上，如果有 節點名稱，也就是目前的節點名稱的一部分的問題。 對於這類節點，很可能會遺漏修補或者會擱置重新開機。 

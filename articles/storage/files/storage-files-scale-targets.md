@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078154"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150467"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -45,7 +45,13 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 進階檔案共用會呼叫特殊的儲存體帳戶中佈建**filestorage （預覽）** 。 這個帳戶具有比標準檔案共用所使用的儲存體帳戶的稍有不同的擴展目標。 儲存體帳戶擴展目標，請參閱中的資料表[Azure 儲存體帳戶擴展目標](#azure-storage-account-scale-targets)一節。
 
 > [!IMPORTANT]
-> 儲存體帳戶限制套用到所有的共用。 最多調整儲存體帳戶的最大值才可達成，如果沒有每個儲存體帳戶只能有一個共用。
+> 儲存體帳戶限制套用到所有的共用。 最多調整 FileStorage 帳戶的最大值，才可達成的每個 FileStorage 帳戶只能有一個共用時。
+
+### <a name="file-share-and-file-scale-targets"></a>檔案共用和檔案擴展目標
+
+> [!NOTE]
+> 大於 5 TiB 的標準檔案共用會處於預覽階段，有一些限制。
+> 如需清單，限制，並上架到較大的檔案共用大小的預覽版本，請參閱[標準檔案共用](storage-files-planning.md#standard-file-shares)規劃指南的區段。
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

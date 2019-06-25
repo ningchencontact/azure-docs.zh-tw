@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149297"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174241"
 ---
 ### <a name="prerequisites"></a>必要條件
 * [GoogleDrive](https://www.google.com/drive/) 帳戶  
@@ -18,7 +18,7 @@ ms.locfileid: "66149297"
 
 若要授與邏輯應用程式連接到 GoogleDrive 帳戶的權限，其步驟如下：  
 
-1. 若要建立 GoogleDrive 連接，請在邏輯應用程式設計工具的下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「GoogleDrive」。 選取您要使用的觸發程序或動作：  
+1. 若要建立 GoogleDrive 連接，請在邏輯應用程式設計工具的下拉式清單中選取 [顯示 Microsoft 受控 API]  ，然後在搜尋方塊中輸入「GoogleDrive」  。 選取您要使用的觸發程序或動作：  
    ![GoogleDrive 連接的建立步驟](./media/connectors-create-api-googledrive/googledrive-1.png)  
 2. 如果您之前尚未建立任何 GoogleDrive 連接，系統會提示您提供 GoogleDrive 認證。 這些認證會用來授與邏輯應用程式連接並存取 GoogleDrive 帳戶資料的權限：  
    ![GoogleDrive 連接的建立步驟](./media/connectors-create-api-googledrive/googledrive-2.png)  

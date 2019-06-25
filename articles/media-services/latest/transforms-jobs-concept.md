@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: juliako
 ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550936"
 ---
 # <a name="transforms-and-jobs"></a>轉換與工作
@@ -91,7 +91,7 @@ ms.locfileid: "65550936"
 
 ### <a name="updating-jobs"></a>更新作業
 
-[作業](https://docs.microsoft.com/rest/api/media/jobs)實體上的更新作業可用於修改「描述」，以及修改作業提交後的「優先順序」屬性。 只有在作業仍處於排入佇列的狀態時，才能有效變更「優先順序」屬性。 如果作業已開始處理，或已經處理完成，則變更優先順序不會有任何作用。
+[作業](https://docs.microsoft.com/rest/api/media/jobs)實體上的更新作業可用於修改「描述」  ，以及修改作業提交後的「優先順序」  屬性。 只有在作業仍處於排入佇列的狀態時，才能有效變更「優先順序」  屬性。 如果作業已開始處理，或已經處理完成，則變更優先順序不會有任何作用。
 
 ### <a name="job-object-diagram"></a>作業物件圖表
 

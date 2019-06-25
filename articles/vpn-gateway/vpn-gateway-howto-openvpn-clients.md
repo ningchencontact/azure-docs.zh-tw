@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989093"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147248"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端
 
@@ -26,7 +26,7 @@ ms.locfileid: "65989093"
 
 ## <a name="windows"></a>Windows 用戶端
 
-1. 從官方 [OpenVPN 網站](https://openvpn.net/index.php/open-source/downloads.html)下載並安裝 OpenVPN 用戶端。
+1. 下載並安裝 OpenVPN 用戶端 （版本 2.4 或更高版本） 從官方[OpenVPN 網站](https://openvpn.net/index.php/open-source/downloads.html)。
 2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
 3. 將設定檔解壓縮。 接下來，使用記事本開啟 OpenVPN 資料夾中的 vpnconfig.ovpn  設定檔。
 4. [匯出](vpn-gateway-certificates-point-to-site.md#clientexport)您所建立並上傳至閘道上 P2S 組態的 P2S 用戶端憑證。
@@ -61,7 +61,7 @@ ms.locfileid: "65989093"
 
 ## <a name="mac"></a>Mac 用戶端
 
-1. 下載並安裝 OpenVPN 用戶端，例如 [TunnelBlik](https://tunnelblick.net/downloads.html) \(英文\)。 
+1. 下載並安裝 OpenVPN 用戶端，例如[TunnelBlick](https://tunnelblick.net/downloads.html)。 
 2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是使用 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
 3. 將設定檔解壓縮。 在記事本中開啟 OpenVPN 資料夾中的 vpnconfig.ovpn 設定檔。
 4. 以 Base64 的 P2S 用戶端憑證公開金鑰填入 P2S 用戶端憑證區段。 在 PEM 格式的憑證中，您只需開啟 .cer 檔案並在憑證標題之間複製 Base64 金鑰。 如需如何匯出憑證以取得編碼的公開金鑰的詳細資訊，請參閱[匯出公開金鑰](vpn-gateway-certificates-point-to-site.md#cer)。

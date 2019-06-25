@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831824"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273227"
 ---
 # <a name="application-gateway-components"></a>應用程式閘道的元件
 
@@ -26,7 +26,9 @@ ms.locfileid: "60831824"
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>靜態與動態公用 IP 位址
 
-Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP 位址，雖然 v1 SKU 支援的只有靜態內部 IP 位址。 如果停止並啟動應用程式閘道，可以變更虛擬 IP (VIP) 位址。
+若要支援同時靜態內部 IP 位址和靜態公用 IP 位址或只有靜態公用 IP 位址，可以設定 Azure 應用程式閘道 V2 SKU。 它不能設定為支援只有靜態內部 IP 位址。
+
+V1 SKU 可以設定為支援靜態內部 IP 位址和動態公用 IP 位址，只有靜態內部 IP 位址或只有動態公用 IP 位址。 動態 IP 位址的應用程式閘道上執行的閘道不會變更。 只有當您停止或啟動閘道時，才可以變更。 它不會變更在系統失敗、 更新、 Azure 主機更新等。 
 
 應用程式閘道相關聯的 DNS 名稱不會變更的生命週期內的閘道。 如此一來，您應該使用 CNAME 別名，並指向應用程式閘道的 DNS 位址。
 

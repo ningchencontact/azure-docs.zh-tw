@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113508"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
@@ -49,10 +49,10 @@ Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 
 | Microsoft 驗證器 | 是 （最多 5 個） | 否 | 是 |
 | 其他驗證器應用程式 | 是 （最多 5 個） | 否 | 是 |
 | 硬體權杖 | 否 | 否 | 是 |
-| 電話 | 是 | 是 | 是 |
+| Phone | 是 | 是 | 是 |
 | 備用手機 | 是 | 是 | 是 |
 | 辦公室電話 | 否 | 否 | 否 |
-| 電子郵件 | 是 | 是 | 是 |
+| Email | 是 | 是 | 是 |
 | 安全性問題 | 是 | 否 | 是 |
 | 應用程式密碼 | 是 | 否 | 是 |
 
@@ -92,7 +92,7 @@ Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 
 
 強制使用註冊時，使用者就會顯示必須符合 Multi-factor Authentication 和 SSPR 的原則，從最多到最不安全的方法數目下限。
 
-例如: 
+例如:
 
 - 使用者已啟用 sspr。 SSPR 原則需要兩個方法來重設，且已啟用行動裝置應用程式程式碼、 電子郵件和電話。
    - 這位使用者，才能註冊兩個方法。

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66496397"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
@@ -312,7 +312,7 @@ module.exports = {
 ```
 此模組實作 `IsPastDue` 屬性，以作為假計時器執行個體。
 
-接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
+接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](https://code.visualstudio.com/tutorials/functions-extension/getting-started)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
 
 ```javascript
 const httpFunction = require('./index');

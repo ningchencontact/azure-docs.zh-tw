@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702710"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 資源提供者和類型
@@ -30,7 +30,7 @@ ms.locfileid: "64702710"
 * 檢視資源類型的有效位置
 * 檢視資源類型的有效 API 版本
 
-可以通过 Azure 门户、Azure PowerShell 或 Azure CLI 执行这些步骤。
+您可以執行下列步驟，透過 Azure 入口網站、 Azure PowerShell 或 Azure CLI。
 
 如需對應到 Azure 服務的資源提供者的清單，請參閱[Azure 服務的資源提供者](azure-services-resource-providers.md)。
 
@@ -39,28 +39,28 @@ ms.locfileid: "64702710"
 若要查看所有資源提供者，以及您訂用帳戶的登錄狀態：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [所有服務]。
+2. 選取 [所有服務]  。
 
     ![選取 [訂用帳戶]](./media/resource-manager-supported-services/select-subscriptions.png)
-3. 在 [所有服務] 方塊中，輸入 [訂用帳戶]，然後選取 [訂用帳戶]。
+3. 在 [所有服務]  方塊中，輸入 [訂用帳戶]  ，然後選取 [訂用帳戶]  。
 4. 從訂用帳戶清單中選取要檢視的訂用帳戶。
 5. 選取**資源提供者**並檢視可用資源提供者的清單。
 
     ![顯示資源提供者](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
+6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]  。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊]  連結。
 
-    当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
+    當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
 
 若要查看特定資源提供者的資訊：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [所有服務]。
+2. 選取 [所有服務]  。
 
     ![選取所有服務](./media/resource-manager-supported-services/more-services.png)
 
-3. 在 [所有服務] 方塊中，輸入 [資源總管]，然後選取 [資源總管]。
-4. 選取向右箭號可展開 [提供者]。
+3. 在 [所有服務]  方塊中，輸入 [資源總管]  ，然後選取 [資源總管]  。
+4. 選取向右箭號可展開 [提供者]  。
 
     ![選取 [提供者]](./media/resource-manager-supported-services/select-providers.png)
 
@@ -98,7 +98,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -113,7 +113,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
+當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -165,7 +165,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 2015-07-01
 ```
 
-所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。
+所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。
 
 若要取得資源類型支援的位置，請使用：
 
@@ -185,7 +185,7 @@ West US
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
+若要查看 Azure 中的所有資源提供者，以及您訂用帳戶的登錄狀態，請使用：
 
 ```azurecli
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
@@ -203,7 +203,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -211,7 +211,7 @@ az provider register --namespace Microsoft.Batch
 
 它會傳回一則訊息說明註冊持續進行中。
 
-当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
+當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -269,7 +269,7 @@ Result
 2015-07-01
 ```
 
-所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。
+所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。
 
 若要取得資源類型支援的位置，請使用：
 

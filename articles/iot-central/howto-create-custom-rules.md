@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742420"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>使用自訂規則傳送通知，來擴充 Azure IoT Central
@@ -38,7 +38,7 @@ ms.locfileid: "66742420"
 
 建立 IoT Central 應用程式來自[Azure IoT Central-我的應用程式](https://aka.ms/iotcentral)頁面使用下列設定：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 付款計劃 | Pay-As-You-Go |
 | 應用程式範本 | Contoso 範例 |
@@ -60,7 +60,7 @@ ms.locfileid: "66742420"
 
 | 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的命名空間名稱 |
+| 名稱    | 選擇您的命名空間名稱 |
 | 定價層 | 基本 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | DetectStoppedDevices |
@@ -101,7 +101,7 @@ ms.locfileid: "66742420"
 
 | 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的 SendGrid 帳戶名稱 |
+| 名稱    | 選擇您的 SendGrid 帳戶名稱 |
 | 密碼 | 建立密碼 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | DetectStoppedDevices |
@@ -240,7 +240,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. 在 Azure 入口網站中，瀏覽至您的 Stream analytics 作業，底下**作業拓樸**選取**輸入**，選擇 **+ 新增串流輸入**，然後選擇 **事件中樞**。
 1. 使用下表中的資訊，來設定使用您先前建立的事件中樞的輸入，然後選擇**儲存**:
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 輸入別名 | centraltelemetry |
     | 訂用帳戶 | 您的訂用帳戶 |
@@ -250,7 +250,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. 底下**作業拓樸**，選取**輸出**，選擇 **+ 新增**，然後選擇**Azure 函式**。
 1. 使用下表中的資訊，來設定輸出，然後選擇**儲存**:
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 輸出別名 | emailnotification |
     | 訂用帳戶 | 您的訂用帳戶 |
@@ -310,7 +310,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. 瀏覽至**連續資料匯出**頁面上，選取 **+ 新增**，然後**Azure 事件中樞**。
 1. 使用下列設定來設定匯出，然後選取**儲存**:
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
     | Enabled | 另一 |

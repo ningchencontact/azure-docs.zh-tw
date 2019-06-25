@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073745"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151253"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure 儲存體延展性和效能目標儲存體帳戶
 
@@ -45,6 +45,9 @@ ms.locfileid: "67073745"
 
 > [!IMPORTANT]
 > 儲存體帳戶限制套用到所有的共用。 最多調整儲存體帳戶的最大值才可達成，如果沒有每個儲存體帳戶只能有一個共用。
+>
+> 大於 5 TiB 的標準檔案共用會處於預覽階段，有一些限制。
+> 如需清單，限制，並上架到較大的檔案共用大小的預覽版本，請參閱[標準檔案共用](../files/storage-files-planning.md#standard-file-shares)規劃 Azure 檔案的一節引導。
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

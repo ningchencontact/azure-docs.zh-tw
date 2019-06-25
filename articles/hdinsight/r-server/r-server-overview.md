@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67130626"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 ML 服務
 
 在 Azure 中建立 HDInsight 叢集時，可選擇 Microsoft Machine Learning Server 作為部署選項。 提供此選項的叢集類型稱為 **ML 服務**。 這項功能可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 HDInsight 上的 ML 服務所提供的最新功能，適用於幾乎任何大小的資料集上所進行的 R 型分析，且不論資料集是載入 Azure Blob 或 Data Lake 儲存體。 ML 服務叢集是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以運用 8000 多個開放原始碼 R 套件中的任何一個。 ScaleR 中的常式與 Microsoft 的巨量資料分析套件亦可供使用。
 
@@ -57,7 +55,7 @@ HDInsight 中的 ML 服務提供下列優點︰
 
 HDInsight 上的 ML 服務包含下列功能。
 
-| 功能分類 | 描述 |
+| 功能分類 | 說明 |
 |------------------|-------------|
 | 已啟用 R | [R 套件](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)適用於以 R 撰寫的解決方案、具有 R 的開放原始碼散佈，以及用於執行指令碼的執行階段基礎結構。 |
 | 已啟用 Python | [Python 套件](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference)適用於以 Python 撰寫的解決方案、具有 Python 的開放原始碼散佈，以及用於執行指令碼的執行階段基礎結構。

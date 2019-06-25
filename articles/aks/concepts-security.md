@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65074026"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式和叢集的安全性概念
@@ -67,7 +67,7 @@ Azure 平台會自動套用至 Linux 節點上每晚執行的 OS 安全性修補
 
 ### <a name="azure-network-security-groups"></a>Azure 網路安全性群組
 
-為了篩選虛擬網路中的流量，Azure 會使用網路安全性群組規則。 這些規則可定義允許或拒絕存取資源的來源和目的地 IP 範圍、連接埠和通訊協定。 会创建默认规则以允许 TLS 流量流向 Kubernetes API 服务器。 當您建立具有負載平衡器、連接埠對應或輸入路由的服務時，AKS 將會自動修改網路安全性群組，讓流量以適當方式傳輸。
+為了篩選虛擬網路中的流量，Azure 會使用網路安全性群組規則。 這些規則可定義允許或拒絕存取資源的來源和目的地 IP 範圍、連接埠和通訊協定。 若要允許 TLS Kubernetes API 伺服器的流量，會建立預設規則。 當您建立具有負載平衡器、連接埠對應或輸入路由的服務時，AKS 將會自動修改網路安全性群組，讓流量以適當方式傳輸。
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 秘密
 
@@ -79,7 +79,7 @@ Kubernetes *祕密*可用來將敏感性資料插入 Pod 中，例如存取認�
 
 若要開始保護您的 AKS 叢集，請參閱[升級 AKS 叢集][aks-upgrade-cluster]。
 
-如需相关的最佳做法，请参阅 [AKS 中群集安全性和升级的最佳做法][operator-best-practices-cluster-security]。
+如需相關聯的最佳作法，請參閱[的叢集安全性與 AKS 中的升級最佳做法][operator-best-practices-cluster-security]。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 

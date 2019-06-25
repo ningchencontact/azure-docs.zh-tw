@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108892"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>什麼是 Azure Active Directory Identity Protection (已改版)？
 
@@ -56,7 +56,7 @@ Identity Protection 體驗已經過改版，可以更完善地保護組織的身
 
  
 
-Azure AD Identity Protection 是 Azure Active Directory Premium P2 功能之一，可讓您設定適當原則，以在使用者的身分識別遭到入侵時，或是帳戶擁有者以外的其他人嘗試使用其身分識別登入時，自動予以回應。 除了 Azure AD 所提供的其他條件式存取控制以外，這些原則還可以自動封鎖存取或起始緩解動作，例如重設密碼或強制執行多重要素驗證。 此外，Identity Protection 也提供監視和報告功能，讓您更深入了解組織中的風險和可能遭受的危害。 
+Azure AD Identity Protection 是 Azure Active Directory Premium P2 功能之一，可讓您設定適當原則，以在使用者的身分識別遭到入侵時，或是帳戶擁有者以外的其他人嘗試使用其身分識別登入時，自動予以回應。 這些原則，除了其他條件式存取控制，Azure AD 中，提供可以自動封鎖存取或起始補救動作，例如密碼重設或強制 multi-factor authentication。 此外，Identity Protection 也提供監視和報告功能，讓您更深入了解組織中的風險和可能遭受的危害。 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -67,7 +67,7 @@ Azure AD Identity Protection 可偵測下列風險事件：
 
  
 
-| 風險事件類型 | 說明 | 偵測類型 |
+| 風險事件類型 | 描述 | 偵測類型 |
 | ---             | ---         | ---            |
 | 非慣用登入位置 | 以使用者最近的登入為準，從非慣用的位置登入。 | 離線 |
 | 匿名 IP 位址 | 從匿名 IP 位址登入 (例如：Tor 瀏覽器、Anonymizer VPN)。 | 即時 |
@@ -153,7 +153,7 @@ Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的�
 
 2. Azure AD 偵測到，員工的登入從匿名 IP 位址，觸發中的登入風險層級。 
 
-3. 員工受到挑戰的 MFA 提示字元，因為 Contoso 的 IT 系統管理員設定的身分識別保護登入風險條件式存取原則。 該原則要求中級或更高的登入風險必須進行 MFA。 
+3. 員工受到挑戰的 MFA 提示字元，因為 Contoso 的 IT 系統管理員設定 Identity Protection 登入風險條件式存取原則。 該原則要求中級或更高的登入風險必須進行 MFA。 
 
 4. 員工會傳遞 MFA 提示字元，並存取 Exchange Online，並不會變更其使用者風險層級。 
 
@@ -212,11 +212,11 @@ Identity Protection 支援 Azure AD 中的 3 種角色，以平衡與您的部�
 
 | 功能 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| 使用者風險原則 | 有 | 否 | 無 |
-| 登入風險原則 | 有 | 否 | 無 |
+| 使用者風險原則 | 是 | 否 | 否 |
+| 登入風險原則 | 是 | 否 | 否 |
 | 具風險使用者報告 | 完整存取 | 有限資訊 | 有限資訊 |
 | 有風險的登入報告 | 完整存取 | 有限資訊 | 有限資訊 |
-| MFA 註冊原則 | 有 | 否 | 無 |
+| MFA 註冊原則 | 是 | 否 | 否 |
 
 
 

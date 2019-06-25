@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141290"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274984"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱 
 
@@ -49,7 +49,7 @@ ms.locfileid: "66141290"
    + **SCM** (預設值為：`<apim-service-name>.scm.azure-api.net`)。
 
      >[!NOTE]
-     > 您可以更新所有端點或一部分端點。 客戶通常會更新 **Proxy** (此 URL 用來呼叫透過 API 管理公開的 API) 和**入口網站** (開發人員入口網站 URL)。 **管理**和 **SCM** 端點供 APIM 客戶在內部使用，因此很少會指派自訂網域名稱。
+     > 您可以更新所有端點或一部分端點。 客戶通常會更新 **Proxy** (此 URL 用來呼叫透過 API 管理公開的 API) 和**入口網站** (開發人員入口網站 URL)。 **管理**和 **SCM** 端點供 APIM 客戶在內部使用，因此很少會指派自訂網域名稱。 在大部分情況下，可以指定端點設定只能在單一的自訂網域名稱。 不過， **Premium**層支援設定多個主機名稱**Proxy**端點。  
 
 1. 選取您想要更新的端點。 
 1. 在右側視窗中，按一下 [自訂]  。

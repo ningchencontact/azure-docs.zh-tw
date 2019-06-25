@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 83a65be50a3cec9cea47682ab5e207bd4ad9e984
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072564"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144200"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>將伺服器設定為預期狀態並管理漂移
 
@@ -154,7 +154,7 @@ $reports[0]
 > [!NOTE]
 > 取消註冊節點從僅限服務設定本機設定管理員設定，讓節點不再連接至服務。
 > 這不會影響目前套用至節點的組態。
-> 若要移除目前的組態，請使用[PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)或刪除本機組態檔 （這是 Linux 節點的唯一選項）。
+> 若要移除目前的組態，請使用[PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)或刪除本機組態檔 （這是 Linux 節點的唯一選項）。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -165,7 +165,7 @@ $reports[0]
 
 ### <a name="powershell"></a>PowerShell
 
-若要取消註冊節點，以從 Azure 自動化狀態設定服務使用 PowerShell，請遵循 cmdlet 的文件[取消註冊 AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)。
+若要取消註冊節點，以從 Azure 自動化狀態設定服務使用 PowerShell，請遵循 cmdlet 的文件[取消註冊 AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)。
 
 ## <a name="next-steps"></a>後續步驟
 

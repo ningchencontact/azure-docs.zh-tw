@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695814"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078336"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>搭配 HDInsight 中的 Apache Hadoop 使用 REST 來執行 Apache Hive 查詢
 
@@ -24,9 +24,6 @@ ms.locfileid: "64695814"
 ## <a name="prerequisites"></a>必要條件
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
-
-  > [!IMPORTANT]  
-  > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * REST 用戶端。 本文會使用 Windows PowerShell 和 [Curl](https://curl.haxx.se/) 範例。
 
@@ -99,7 +96,7 @@ ms.locfileid: "64695814"
     $resp.Content
     ```
 
-    此请求返回的响应类似于以下文本：
+    此要求會傳回類似以下文字的回應：
 
     ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
@@ -168,7 +165,7 @@ ms.locfileid: "64695814"
 
     如果作業已完成，則狀態會是 **SUCCEEDED**。
 
-6. 工作狀態變更為 [成功] 之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `/example/rest`。 此位址會將輸出儲存在叢集預設儲存體的 `example/curl` 目錄中。
+6. 工作狀態變更為 [成功]  之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `/example/rest`。 此位址會將輸出儲存在叢集預設儲存體的 `example/curl` 目錄中。
 
     您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需搭配 Azure 儲存體使用 Azure CLI 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 文件。
 

@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248140"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>將 Azure 活動記錄檔匯出至儲存體或 Azure 事件中樞
@@ -116,7 +116,7 @@ Stream 活動記錄到事件中樞所[建立記錄設定檔](#create-a-log-profi
     | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 這是以格式字串： `{service bus resource ID}/authorizationrules/{key name}`。 |
     | 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
     | RetentionInDays |是 |事件應保留在儲存體帳戶中，介於 1 到 2147483647 之間的天數。 值為 0 會無限期地儲存記錄。 |
-    | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值為_撰寫_，_刪除_，並_動作_。 |
+    | Category |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值為_撰寫_，_刪除_，並_動作_。 |
 
 ### <a name="example-script"></a>範例指令碼
 以下是建立活動記錄寫入儲存體帳戶 」 和 「 事件中樞的記錄檔設定檔的範例 PowerShell 指令碼。

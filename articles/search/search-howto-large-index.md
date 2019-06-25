@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949821"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302235"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜尋服務中為大型資料集編製索引
 
@@ -54,7 +54,7 @@ ms.locfileid: "65949821"
 
 根據設計，排程的索引編製會在特定間隔啟動，且作業通常會在繼續執行下一個排程的間隔之前完成。 不過，如果處理未在間隔內完成，索引子就會停止 (因為其時間已用盡)。 在下一個間隔中，將會從上次中斷之處繼續進行處理，而系統會追蹤該發生點。 
 
-實際上，對於跨數天的索引負載，您可以將索引子安排在 24 小時的排程上。 繼續在下一個 24 小時的週期內進行索引編製時，作業會從最後一個已知的正常文件重新開始。 如此，索引子將可順利在數天內處理待處理項目，直到所有未處理的文件都完成處理為止。 如需此方法的詳細資訊，請參閱[在 Azure Blob 儲存體中為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。 如需一般排程設定方式的詳細資訊，請參閱[建立索引子 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax)。
+實際上，對於跨數天的索引負載，您可以將索引子安排在 24 小時的排程上。 繼續在下一個 24 小時的週期內進行索引編製時，作業會從最後一個已知的正常文件重新開始。 如此，索引子將可順利在數天內處理待處理項目，直到所有未處理的文件都完成處理為止。 如需此方法的詳細資訊，請參閱[在 Azure Blob 儲存體中為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。 如需一般情況下設定排程的詳細資訊，請參閱[建立索引子 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) ，或參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
 
 <a name="parallel-indexing"></a>
 

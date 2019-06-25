@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455705"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164456"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -247,8 +247,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 帳戶識別碼 | Azure Cosmos DB 帳戶的名稱或端點 URI。 |
 | 帳戶金鑰 | Azure Cosmos DB 帳戶的共用存取金鑰。 |
 | 資料庫 | Azure Cosmos DB 資料庫名稱。 |
-| 集合名稱模式 | 集合名稱或要使用集合的模式。 <br />您可以使用選擇性 {partition} 語彙基元中，資料分割會從 0 開始建構集合名稱的格式。 兩個範例：  <br /><ul><li> _MyCollection_:一個名為"MyCollection"集合必須存在。</li>  <li> _MyCollection {partition}_ :根據資料分割的資料行。</li></ul> 資料分割的資料行集合必須存在：「 MyCollection0，""MyCollection1，""MyCollection2，"，依此類推。 |
-| 資料分割索引鍵 | 選用。 您需要這只有當您在您的集合名稱模式中使用 {partition} 權杖。<br /> 資料分割索引鍵是欄位的輸出事件中，用來指定跨集合分割輸出的索引鍵名稱。<br /> 為單一集合輸出，您可以使用任何任意的輸出資料行。 例如，PartitionId。 |
+| 集合名稱 | 在 Azure Cosmos DB 集合的名稱。 Azure Cosmos DB 與 Azure Cosmos DB 中自動分割您的資料，調整您的工作負載為基礎的分割區無限制的容器是建議的方法。 |
 | 文件識別碼 |選用。 輸出事件中，用來指定主索引鍵的 insert 或 update 作業所依據的欄位名稱。
 
 ## <a name="azure-functions"></a>Azure Functions

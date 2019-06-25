@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476537"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Azure Logic Apps 中使用分頁來取得更多的資料、 項目或記錄
@@ -51,7 +51,7 @@ ms.locfileid: "64476537"
 
 若要判斷邏輯應用程式設計工具中支援分頁的動作，檢查動作的設定**分頁**設定。 此範例示範如何開啟 SQL Server 中的分頁**取得資料列**動作。
 
-1. 在動作的右上角，選擇省略符號 (**...**) 按鈕，然後選取**設定**。
+1. 在動作的右上角，選擇省略符號 ( **...** ) 按鈕，然後選取**設定**。
 
    ![開啟動作的設定](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "64476537"
 
    ![指定要傳回結果的最小數目](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
-1. 準備就緒時，請選擇 [完成]。
+1. 準備就緒時，請選擇 [完成]  。
 
 ## <a name="workflow-definition---pagination"></a>工作流程定義-分頁
 

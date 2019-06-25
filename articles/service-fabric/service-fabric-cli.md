@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d5b6f183a59e3f47aa5867b5e09e06541a6a67db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803236"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
@@ -54,7 +54,7 @@ pip install -I sfctl==1.1.0
 
 有許多方法可在您的平台上安裝 pip 和 Python。 以下這些步驟可以使用 Python 3 與 pip 快速設定主要作業系統。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 針對 Windows 10、Windows Server 2016 和 Windows Server 2012 R2，請使用標準官方安裝指示。 Python 安裝程式預設也會安裝 pip。
 
@@ -62,9 +62,9 @@ pip install -I sfctl==1.1.0
 
 2. 開始安裝程式。
 
-3. 在提示字元的底部，選取 [將 Python 3.7 新增至路徑]。
+3. 在提示字元的底部，選取 [將 Python 3.7 新增至路徑]  。
 
-4. 選取 [立即安裝]，並完成安裝。
+4. 選取 [立即安裝]  ，並完成安裝。
 
 現在您可以開啟新的命令視窗，並取得 Python 和 pip 的版本。
 

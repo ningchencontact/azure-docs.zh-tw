@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837831"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>安全服務與反向 Proxy 的連線
@@ -43,7 +43,7 @@ ms.locfileid: "60837831"
 ### <a name="service-certificate-validation-options"></a>服務憑證驗證選項 
 
 - **無**：反向 proxy 會略過 proxy 的服務憑證驗證，並建立安全連線。 此為預設行為。
-在 [ApplicationGateway/Http](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **None** 值。
+在 [ApplicationGateway/Http  ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 區段中，為 **ApplicationCertificateValidationPolicy** 指定 **None** 值。
 
    ```json
    {
@@ -151,7 +151,7 @@ ms.locfileid: "60837831"
    }
    ```
 
-   如果這個設定項目中有列入伺服器憑證的指紋，反向 Proxy 的 SSL 連線即可成功。 否則，它會終止連線而無法完成用戶端的要求，並顯示 502 (閘道錯誤)。 HTTP 状态行也会包含短语“Invalid SSL Certificate”。
+   如果這個設定項目中有列入伺服器憑證的指紋，反向 Proxy 的 SSL 連線即可成功。 否則，它會終止連線而無法完成用戶端的要求，並顯示 502 (閘道錯誤)。 HTTP 狀態行也會出現「SSL 憑證無效」的句子。
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>當服務公開安全與不安全端點時的端點選取邏輯
 Service Fabric 支援設定多個服務端點。 如需詳細資訊，請參閱[在服務資訊清單中指定資源](service-fabric-service-manifest-resources.md)。

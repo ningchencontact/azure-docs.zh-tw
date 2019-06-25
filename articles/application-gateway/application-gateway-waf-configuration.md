@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620285"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275189"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 應用程式防火牆要求大小限制與排除清單
 
@@ -35,16 +35,16 @@ WAF 也可提供可設定的旋鈕，以便開啟或關閉要求本文檢查。 
 
 WAF 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。 這類屬性較可能包含特殊字元，而會觸發 WAF 規則的誤判。 一旦屬性新增至 WAF 排除清單，任何已設定和作用中 WAF 規則就不會考慮該屬性。 排除清單的範圍是全域的。
 
-下列屬性可以新增至排除清單：
+下列屬性可以新增至排除清單中。 您所選欄位的值不是依 WAF 規則評估。 排除清單移除該欄位的值檢查。
 
 * 要求標頭
 * 要求 Cookie
-* 要求的屬性名稱 (argumenty)
+* 要求的屬性名稱 (args) 可以新增為排除項目，例如：
 
-   * 表單多部分資料
-   * XML
-   * JSON
-   * URL 查詢引數
+   * 表單欄位名稱
+   * XML 實體
+   * JSON 實體
+   * URL 查詢字串引數
 
 您可以指定要精確比對要求標頭、本文、Cookie 或查詢字串屬性。  或者，您也可以選擇指定部分相符即可。 排除規則只會用於標頭欄位，一律不會在其值上使用。 排除規則屬於全域範圍，可套用至所有頁面和所有規則。
 

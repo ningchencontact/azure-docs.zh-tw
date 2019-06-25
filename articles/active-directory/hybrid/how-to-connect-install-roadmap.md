@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243704"
+ms.locfileid: "67109457"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 和 Azure AD Connect Health 安裝藍圖
 
@@ -68,7 +68,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 
 [密碼回寫](../authentication/quickstart-sspr.md) 將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
 
-[裝置回寫](how-to-connect-device-writeback.md) 將可讓 Azure AD 中註冊的裝置寫回至內部部署 Active Directory，以便可以使用該裝置進行條件式存取。
+[裝置回寫](how-to-connect-device-writeback.md)將允許裝置寫回至內部部署 Active Directory 以便用於條件式存取的 Azure AD 中註冊。
 
 [防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md) 功能預設為開啟，它會保護您的雲端目錄，避免同時進行多次刪除。 根據預設，它每回允許 500 次刪除。 您可以根據您組織的大小來變更此設定。
 

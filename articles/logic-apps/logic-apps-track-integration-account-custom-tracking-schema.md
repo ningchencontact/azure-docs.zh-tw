@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 1e75e0be5404ca7107d3f3201d248088b48da12c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067905"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203049"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>建立自訂追蹤結構描述，以監視 Azure Logic Apps 中的端對端工作流程
 
@@ -56,22 +56,22 @@ ms.locfileid: "67067905"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
-| --- | --- | --- |
-| sourceType |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 (必要) |
-| source |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 (必要) |
-| systemId | 字串 | 邏輯應用程式系統識別碼。 (必要) |
-| runId | 字串 | 邏輯應用程式執行識別碼。 (必要) |
-| operationName | 字串 | 作業 (例如動作或觸發程序) 的名稱。 (必要) |
-| repeatItemScopeName | 字串 | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 (必要) |
-| repeatItemIndex | 整數 | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 (必要) |
-| trackingId | 字串 | 追蹤識別碼，使訊息相互關聯。 (選用) |
-| correlationId | 字串 | 相互關連識別碼，使訊息相互關聯。 (選用) |
-| clientRequestId | 字串 | 用戶端可以填入此值，使訊息相互關聯。 (選用) |
-| eventLevel |   | 事件的層級。 (必要) |
-| eventTime |   | 事件的時間，以 UTC 格式 YYYY-MM-DDTHH:MM:SS.00000Z。 (必要) |
-| recordType |   | 追蹤記錄的類型。 允許的值為 **custom**。 (必要) |
-| record |   | 自訂記錄類型。 允許的格式為 JToken。 (必要) |
+| 屬性 | 必要項 | 類型 | 描述 |
+| --- | --- | --- | --- |
+| sourceType | 是 |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 |
+| source | 是 |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 |
+| systemId | 是 | 字串 | 邏輯應用程式系統識別碼。 |
+| runId | 是 | 字串 | 邏輯應用程式執行識別碼。 |
+| operationName | 是 | 字串 | 作業 (例如動作或觸發程序) 的名稱。 |
+| repeatItemScopeName | 是 | 字串 | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 |
+| repeatItemIndex | 是 | Integer | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 |
+| trackingId | 否 | 字串 | 追蹤識別碼，使訊息相互關聯。 |
+| correlationId | 否 | 字串 | 相互關連識別碼，使訊息相互關聯。 |
+| clientRequestId | 否 | 字串 | 用戶端可以填入此值，使訊息相互關聯。 |
+| eventLevel | 是 |   | 事件的層級。 |
+| eventTime | 是 |   | 事件的時間，以 UTC 格式 YYYY-MM-DDTHH:MM:SS.00000Z。 |
+| recordType | 是 |   | 追蹤記錄的類型。 允許的值為 **custom**。 |
+| record | 是 |   | 自訂記錄類型。 允許的格式為 JToken。 |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B 通訊協定追蹤結構描述

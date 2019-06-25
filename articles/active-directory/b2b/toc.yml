@@ -51,6 +51,8 @@
     - name: 使用說明指南
       expanded: true
       items:
+        - name: 管理 B2B 共用
+          href: delegate-invitations.md
         - name: 管理邀請
           items:
             - name: 管理員新增 B2B 使用者
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: 單次密碼驗證
               href: one-time-passcode.md
-            - name: B2B 共用原則
-              href: delegate-invitations.md
             - name: 允許或封鎖邀請
               href: allow-deny-list.md
             - name: 在沒有邀請的情況下新增 B2B 使用者

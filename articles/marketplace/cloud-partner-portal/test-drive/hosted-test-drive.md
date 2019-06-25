@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939988"
 ---
 # <a name="hosted-test-drive"></a>裝載的試用產品
@@ -41,7 +41,7 @@ ms.locfileid: "64939988"
 
 - **測試磁碟機類型**:選擇\'Microsoft 託管 （例如 Dynamics 365 for Customer Engagement） ' 選項。 這表示 Microsoft 將會裝載並維護執行試用產品使用者佈建及取消佈建的服務。
 - **最大並行測試磁碟機**:此欄位設為在指定的任何時間點都有作用中的測試磁碟機的並行使用者數目。 當使用者的試用產品為作用中時，每個使用者都會取用 Dynamics 授權，因此您必須確定您至少有這麼多的 Dynamics 授權可供試用產品使用者使用。 建議值為 3-5 個。
-- **測試磁碟機的持續時間 （小時）**:將此欄位設數測試磁碟機將會有作用中的使用者。 在經過設定的小時之後，使用者將從您的租用戶取消佈建。 建議值為 2-24 小時，視您應用程式的複雜度而定。 若使用者用完其時間而且想要再次存取試用產品，一律可以要求進行另一次試用產品。
+- **測試磁碟機的持續時間 （小時）** :將此欄位設數測試磁碟機將會有作用中的使用者。 在經過設定的小時之後，使用者將從您的租用戶取消佈建。 建議值為 2-24 小時，視您應用程式的複雜度而定。 若使用者用完其時間而且想要再次存取試用產品，一律可以要求進行另一次試用產品。
 - **執行個體 URL**:提供試用產品使用者一開始會巡覽至啟動試用產品時的 URL。 這通常是您的應用程式與範例資料安裝所在之 Dynamics 365 執行個體的 URL。 值範例： https:\//testdrive.crm.dynamics.com
 - **Azure AD 租用戶識別碼**:提供您的 Dynamics 365 執行個體的 Azure 租用戶的識別碼。 若要擷取此值，請登入 Azure 入口網站並瀏覽到 \'Azure Active Directory\' -\> 從功能表刀鋒視窗選取 [屬性]-\> 複製目錄識別碼。 範例值：72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD 應用程式識別碼**:您在步驟 7 中建立之 Azure AD 應用程式的識別碼。 \ 範例值：53852862-a2ae-4e43-9461-faa49650a096

@@ -44,7 +44,7 @@ ms.locfileid: "60926292"
    |**名稱**|contoso.com|DNS 區域的名稱|
    |**訂用帳戶**|[您的訂用帳戶]|選取要建立 DNS 區域的訂用帳戶。|
    |**資源群組**|**建立新的︰** contosoDNSRG|建立資源群組。 資源群組名稱在您選取的訂用帳戶中必須是唯一的。 若要深入了解資源群組，請閱讀 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概觀。|
-   |**位置**|美國西部||
+   |**Location**|美國西部||
 
 > [!NOTE]
 > 資源群組是指資源群組的位置，不會對 DNS 區域有任何影響。 DNS 區域一定是「全域」位置，並不會顯示出來。

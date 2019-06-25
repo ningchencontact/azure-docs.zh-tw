@@ -14,16 +14,16 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc6e31afbb7ced4699afef38b67b637914198e4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f95c0596d7a2b55867cdb7ed9355006500e89242
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192421"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065505"
 ---
-# <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 群組型授權的 PowerShell 範例
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>群組型授權在 Azure AD 中的 PowerShell 和 Graph 範例
 
-透過 [Azure 入口網站](https://portal.azure.com)即可使用群組型授權的完整功能，在這方面 PowerShell 和 Microsoft Graph 目前只能提供有限的支援。 不過，還是有一些工作可以使用現有的 [MSOnline PowerShell Cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 和 Microsoft Graph 來執行。 本文件會提供可行功能的範例。
+群組型授權的完整功能是透過[Azure 入口網站](https://portal.azure.com)，以及 PowerShell 和 Microsoft Graph 支援目前限制為唯讀作業。 不過，還是有一些工作可以使用現有的 [MSOnline PowerShell Cmdlet](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) 和 Microsoft Graph 來執行。 本文件會提供可行功能的範例。
 
 > [!NOTE]
 > 在開始執行這些 cmdlet 之前，請確定您連接到您的組織第一次，執行`Connect-MsolService`  cmdlet。
@@ -33,7 +33,7 @@ ms.locfileid: "65192421"
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>檢視指派給群組的產品授權
 
-[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」屬性︰它會列出目前指派給群組的所有產品授權。
+[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」  屬性︰它會列出目前指派給群組的所有產品授權。
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -364,7 +364,7 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-此指令碼會對租用戶中的每位使用者執行這些函式，使用 SKU 識別碼作為輸入 - 在此範例中我們感興趣的是 Enterprise Mobility + Security 的授權，它在我們的租用戶中是以識別碼 contoso:EMS 表示：
+此指令碼會對租用戶中的每位使用者執行這些函式，使用 SKU 識別碼作為輸入 - 在此範例中我們感興趣的是 Enterprise Mobility + Security  的授權，它在我們的租用戶中是以識別碼 contoso:EMS  表示：
 
 ```powershell
 #the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant

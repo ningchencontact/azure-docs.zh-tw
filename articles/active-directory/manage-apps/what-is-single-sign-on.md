@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824157"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190277"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 
@@ -95,7 +95,7 @@ ms.locfileid: "65824157"
 - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上的 Chrome
 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上的 Firefox 26.0 或更新版本
 
-若要為雲端應用程式設定密碼式單一登入的，請參閱[為應用程式設定密碼單一登入](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on)。
+若要為雲端應用程式設定密碼式單一登入的，請參閱[為應用程式設定密碼單一登入](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso)。
 
 若要為內部部署應用程式設定透過應用程式 Proxy 的單一登入，請參閱[使用應用程式 Proxy 之單一登入的密碼保存庫](application-proxy-configure-single-sign-on-password-vaulting.md)
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 14abae6f6f72d724fffb1ccaa12f56fb6976f7a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160224"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173979"
 ---
 下表列出 Linux 一般化 (gen.) 和特殊化 (spec.) 作業系統映像可能的上傳和擷取組合。 將正確處理沒有任何錯誤的組合以 Y 表示，而將擲回錯誤的組合會以 N 表示。下表說明遇到不同錯誤的原因和解決辦法。
 

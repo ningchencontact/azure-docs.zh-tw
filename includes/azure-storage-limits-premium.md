@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114824"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174187"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium 效能區塊 blob 儲存體
 
@@ -21,7 +21,7 @@ ms.locfileid: "66114824"
 
 ### <a name="premium-performance-filestorage-preview"></a>進階效能 FileStorage （預覽）
 
-進階檔案會使用名為唯一的儲存體帳戶**FileStorage （預覽）**。 此帳戶類型被設計用於具有高 IOPS 工作負載，以一致的低延遲高輸送量。 進階檔案儲存體的延展性與佈建的共用大小。
+進階檔案會使用名為唯一的儲存體帳戶**FileStorage （預覽）** 。 此帳戶類型被設計用於具有高 IOPS 工作負載，以一致的低延遲高輸送量。 進階檔案儲存體的延展性與佈建的共用大小。
 
 |領域  |目標  |
 |---------|---------|

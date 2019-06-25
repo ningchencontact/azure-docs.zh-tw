@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480210"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET Standard API：下載和版本資訊
@@ -58,7 +58,7 @@ ms.locfileid: "66480210"
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-預覽
 * Azure Cosmos DB 資料表 .NET Standard SDK 是一個跨平台 .NET 程式庫，可提供有效率地存取 Cosmos DB 上資料表資料模型的權限。 這個初始版本支援一組完整的資料表和實體 CRUD + 查詢功能，其中具有類似[適用於 .NET Framework 的 Cosmos DB 資料表 SDK](table-sdk-dotnet.md) 的 API。 
    > [!NOTE]
-   >  0.9.1-預覽版本中尚未支援 Azure 儲存體資料表端點。
+   >  0\.9.1-預覽版本中尚未支援 Azure 儲存體資料表端點。
 
 ## <a name="release-and-retirement-dates"></a>發行和停用日期
 Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供順利轉換至較新/支援的版本。

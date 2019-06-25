@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 00393395745ca96ae14269ae80e4f3d25673fbfa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64723017"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的網路虛擬設備問題
 
@@ -74,21 +74,28 @@ ms.locfileid: "59526651"
 3. 檢查 **EnableIPForwarding** 屬性。
 4. 如果未啟用 IP 轉送，請執行下列命令加以啟用：
 
-   $nic2 = Get AzNetworkInterface-ResourceGroupName <ResourceGroupName> -名稱<NicName>$nic2。EnableIPForwarding = 1 組 AzNetworkInterface NetworkInterface $nic2 執行: $nic2 #and 檢查預期的輸出：EnableIPForwarding:True NetworkSecurityGroup: null
+   ```powershell
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   $nic2.EnableIPForwarding = 1
+   Set-AzNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
 
 **使用標準 SKU Pubilc IP 時，檢查 NSG**使用標準 SKU 和公用 Ip 時，必須有建立 NSG 和明確的規則來允許流量的 NVA。
 
 **檢查流量是否可路由至 NVA**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)上開啟 [網路監看員]，然後選取 [下一個躍點]。
+1. 在 [Azure 入口網站](https://portal.azure.com)上開啟 [網路監看員]  ，然後選取 [下一個躍點]  。
 2. 指定設定為要將流量重新導向 NVA 的 VM，以及用來檢視下一個躍點的目的地 IP 位址。 
 3. 如果 NVA 未列為**下一個躍點**，請檢查和更新 Azure 路由表。
 
 **檢查流量是否可到達 NVA**
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中開啟 [網路監看員]，然後選取 [IP 流量驗證]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中開啟 [網路監看員]  ，然後選取 [IP 流量驗證]  。 
 2. 指定 VM 和 NVA 的 IP 位址，然後檢查是否有任何網路安全性群組 (NSG) 會封鎖流量。
-3. 如果有 NSG 規則會封鎖流量，請在**有效的安全性**規則中找出 NSG，然後將其更新為允許流量通過。 接著，再次執行 [IP 流量驗證]，並使用 [連線疑難排解] 測試從 VM 到您內部或外部 IP 位址的 TCP 通訊。
+3. 如果有 NSG 規則會封鎖流量，請在**有效的安全性**規則中找出 NSG，然後將其更新為允許流量通過。 接著，再次執行 [IP 流量驗證]  ，並使用 [連線疑難排解]  測試從 VM 到您內部或外部 IP 位址的 TCP 通訊。
 
 **檢查 NVA 和 VM 是否接聽預期的流量**
 

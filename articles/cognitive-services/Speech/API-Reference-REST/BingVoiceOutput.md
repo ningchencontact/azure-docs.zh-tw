@@ -62,12 +62,12 @@ Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰
 
 頁首 |Value |註解
 ----|----|----
-內容類型 | application/ssml+xml | 輸入內容類型。
+Content-Type | application/ssml+xml | 輸入內容類型。
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 輸出音訊格式。
 X-Search-AppId | GUID (僅限十六進位，無破折號) | 可唯一識別用戶端應用程式的識別碼。 這可以是應用程式的存放區識別碼。 如果沒有可用的 GUID，使用者可以針對應用程式產生識別碼。
 X-Search-ClientID | GUID (僅限十六進位，無破折號) | 可唯一識別每個安裝之應用程式執行個體的識別碼。
 User-Agent | 應用程式名稱 | 應用程式名稱是必要項目，而且必須少於 255 個字元。
-授權 | 授權權杖 |  請參閱<a href="#Subscription">授權權杖</a>一節。
+Authorization | 授權權杖 |  請參閱<a href="#Subscription">授權權杖</a>一節。
 
 ### <a name="InputParam"></a>輸入參數
 

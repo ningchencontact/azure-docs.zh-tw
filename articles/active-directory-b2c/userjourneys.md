@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512037"
 ---
 # <a name="userjourneys"></a>UserJourneys
@@ -99,7 +99,7 @@ ms.locfileid: "66512037"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| Value | 1:n | 要查詢的 ClaimTypeReferenceId。 另一個值元素包含要檢查的值。</li></ul>|
+| 值 | 1:n | 要查詢的 ClaimTypeReferenceId。 另一個值元素包含要檢查的值。</li></ul>|
 | 動作 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應執行的動作。 如果將 `Action` 的值設定為 `SkipThisOrchestrationStep`，就不應執行相關聯的 `OrchestrationStep`。 | 
 
 #### <a name="preconditions-examples"></a>先決條件範例

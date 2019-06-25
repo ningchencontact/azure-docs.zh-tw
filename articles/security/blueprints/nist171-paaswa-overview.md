@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127322"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 安全性與合規性藍圖：適用於 NIST 特刊 800-171 的 PaaS Web 應用程式
@@ -66,7 +66,7 @@ Application Insights 提供即時的應用程式效能管理和透過 Azure 監�
 - Azure SQL Database
 - Azure 儲存體
 - Azure 自動化
-- Azure Web Apps 
+- Azure Web Apps
 
 ## <a name="deployment-architecture"></a>部署架構
 下一節會詳細說明部署和實作元素。

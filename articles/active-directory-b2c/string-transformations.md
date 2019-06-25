@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512593"
 ---
 # <a name="string-claims-transformations"></a>字串宣告轉換
@@ -90,7 +90,7 @@ ms.locfileid: "66512593"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | 要變更的 ClaimType。 |
+| InputClaim | inputClaim1 | 字串 | 要變更的 ClaimType。 |
 | InputParameter | toCase | 字串 | 下列其中一個值：`LOWER` 或 `UPPER`。 |
 | OutputClaim | outputClaim | 字串 | 叫用此宣告轉換之後所產生的 ClaimType。 |
 
@@ -125,8 +125,8 @@ ms.locfileid: "66512593"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | 要設定的字串 |
-| OutputClaim | createdClaim | string | 叫用此宣告轉換之後所產生的 ClaimType，並含有輸入參數中指定的值。 |
+| InputParameter | value | 字串 | 要設定的字串 |
+| OutputClaim | createdClaim | 字串 | 叫用此宣告轉換之後所產生的 ClaimType，並含有輸入參數中指定的值。 |
 
 使用此宣告轉換來設定字串 ClaimType 值。
 
@@ -155,7 +155,7 @@ ms.locfileid: "66512593"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | 字串 | 要比較的第一個宣告類型。 |
-| inputClaim | inputClaim2 | string | 要比較的第二個宣告類型。 |
+| inputClaim | inputClaim2 | 字串 | 要比較的第二個宣告類型。 |
 | InputParameter | operator | 字串 | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
 | InputParameter | ignoreCase | boolean | 指定這個比較是否應忽略要比較之字串的大小寫。 |
 | OutputClaim | outputClaim | boolean | 叫用此宣告轉換之後所產生的 ClaimType。 |
@@ -196,8 +196,8 @@ ms.locfileid: "66512593"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | 字串 | 要比較的宣告類型。 |
-| InputParameter | operator | string | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
-| InputParameter | compareTo | string | 字串比較，其中一個值：Ordinal、OrdinalIgnoreCase。 |
+| InputParameter | operator | 字串 | 可能的值：`EQUAL` 或 `NOT EQUAL`。 |
+| InputParameter | compareTo | 字串 | 字串比較，其中一個值：Ordinal、OrdinalIgnoreCase。 |
 | InputParameter | ignoreCase | boolean | 指定這個比較是否應忽略要比較之字串的大小寫。 |
 | OutputClaim | outputClaim | boolean | 叫用此宣告轉換之後所產生的 ClaimType。 |
 
@@ -236,7 +236,7 @@ ms.locfileid: "66512593"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | 字串 | 指定要產生的隨機值：`GUID` (全域唯一識別碼) 或 `INTEGER` (數字)。 |
-| InputParameter | stringFormat | string | [選擇性] 將隨機值格式化。 |
+| InputParameter | stringFormat | 字串 | [選擇性] 將隨機值格式化。 |
 | InputParameter | base64 | boolean | [選擇性] 將隨機值轉換為 base64。 如果套用字串格式，則會將字串格式之後的值編碼為 base64。 |
 | InputParameter | maximumNumber | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定最大數字。 |
 | InputParameter | seed  | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定隨機值的種子。 注意：相同的種子會產生相同的隨機數字序列。 |
@@ -329,10 +329,10 @@ ms.locfileid: "66512593"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string | 做為字串格式 {0} 參數的 ClaimType。 |
+| InputClaim | inputClaim |字串 | 做為字串格式 {0} 參數的 ClaimType。 |
 | InputClaim | inputClaim | 字串 | 做為字串格式 {1} 參數的 ClaimType。 |
 | InputParameter | stringFormat | 字串 | 字串格式，包括 {0} 和 {1} 參數。 |
-| OutputClaim | outputClaim | string | 叫用此宣告轉換之後所產生的 ClaimType。 |
+| OutputClaim | outputClaim | 字串 | 叫用此宣告轉換之後所產生的 ClaimType。 |
 
 使用此宣告轉換，利用兩個參數 ({0} 和 {1}) 來將任何字串格式化。 下列範例會使用指定的格式來建立 **displayName**：
 
@@ -505,12 +505,12 @@ ms.locfileid: "66512593"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim | 字串 | 要比較的宣告類型。 |
-| InputParameter | matchTo | string | 要與 `inputClaim` 比較的字串。 |
+| InputParameter | matchTo | 字串 | 要與 `inputClaim` 比較的字串。 |
 | InputParameter | stringComparison | 字串 | 可能的值：`Ordinal` 或 `OrdinalIgnoreCase`。 |
 | InputParameter | stringMatchMsg | 字串 | 字串相等時要設定的第一個值。 |
-| InputParameter | stringMatchMsgCode | string | 字串相等時要設定的第二個值。 |
+| InputParameter | stringMatchMsgCode | 字串 | 字串相等時要設定的第二個值。 |
 | OutputClaim | outputClaim1 | 字串 | 如果字串相等，此輸出宣告會包含 `stringMatchMsg` 輸入參數的值。 |
-| OutputClaim | outputClaim2 | string | 如果字串相等，此輸出宣告會包含 `stringMatchMsgCode` 輸入參數的值。 |
+| OutputClaim | outputClaim2 | 字串 | 如果字串相等，此輸出宣告會包含 `stringMatchMsgCode` 輸入參數的值。 |
 | OutputClaim | stringCompareResultClaim | boolean | 比較結果輸出宣告類型，其會根據比較的結果設定為 `true` 或 `false`。 |
 
 您可以使用此宣告轉換來檢查某個宣告是否等於您指定的值。 例如，下列宣告轉換會檢查 **termsOfUseConsentVersion** 宣告的值是否等於 `v1`。 如果是，將值變更為 `v2`。 
@@ -553,8 +553,8 @@ ms.locfileid: "66512593"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | 要比較的宣告類型。 |
-| InputParameter | matchTo | string | 要與 inputClaim 比較的字串。 |
+| inputClaim | claimToMatch | 字串 | 要比較的宣告類型。 |
+| InputParameter | matchTo | 字串 | 要與 inputClaim 比較的字串。 |
 | InputParameter | stringComparison | 字串 | 可能的值：`Ordinal` 或 `OrdinalIgnoreCase`。 |
 | InputParameter | outputClaimIfMatched | 字串 | 字串相等時要設定的值。 |
 | OutputClaim | outputClaim | 字串 | 如果字串相等，此輸出宣告會包含 `outputClaimIfMatched` 輸入參數的值。 或者，如果字串不符，則為 Null。 |

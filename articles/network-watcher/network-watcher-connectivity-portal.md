@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: kumud
 ms.openlocfilehash: 783bcd0cdc97328f16c4a0defa18daa46a065842
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702009"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 入口網站利用 Azure 網路監看員進行連線疑難排解
@@ -44,15 +44,15 @@ ms.locfileid: "64702009"
 
 這個範例會檢查透過連接埠 80 的目的地虛擬機器連線。
 
-瀏覽至您的網路監看員，然後按一下 [連線疑難排解]。 選取要作為連線能力檢查起點的虛擬機器。 在 [目的地] 區段中選擇 [選取虛擬機器]，然後選擇要測試的正確虛擬機器和連接埠。
+瀏覽至您的網路監看員，然後按一下 [連線疑難排解]  。 選取要作為連線能力檢查起點的虛擬機器。 在 [目的地]  區段中選擇 [選取虛擬機器]  ，然後選擇要測試的正確虛擬機器和連接埠。
 
-按一下 [檢查] 之後，系統就會檢查指定連接埠上虛擬機器之間的連線能力。 在範例中，目的地 VM 無法連線，因此會顯示躍點清單。
+按一下 [檢查]  之後，系統就會檢查指定連接埠上虛擬機器之間的連線能力。 在範例中，目的地 VM 無法連線，因此會顯示躍點清單。
 
 ![查看虛擬機器的連線能力結果][1]
 
 ## <a name="check-remote-endpoint-connectivity"></a>檢查遠端端點的連線能力
 
-若要檢查遠端端點的連線能力和延遲，請在 [目的地] 區段中選擇 [手動指定] 選項按鈕，輸入 URL 和連接埠，然後按一下 [檢查]。  這會用於網站與儲存體端點之類的遠端端點。
+若要檢查遠端端點的連線能力和延遲，請在 [目的地]  區段中選擇 [手動指定]  選項按鈕，輸入 URL 和連接埠，然後按一下 [檢查]  。  這會用於網站與儲存體端點之類的遠端端點。
 
 ![查看網站的連線能力結果][2]
 

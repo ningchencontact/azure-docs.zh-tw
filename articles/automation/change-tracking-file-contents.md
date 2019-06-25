@@ -10,10 +10,10 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304195"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>檢視正在使用 [變更追蹤] 追蹤的檔案內容
@@ -30,17 +30,17 @@ ms.locfileid: "61304195"
 
 ## <a name="enable-file-content-tracking"></a>啓用檔案內容追蹤
 
-1. 在 Azure 入口網站中，開啟您的自動化帳戶，然後選取 [變更追蹤]。
-2. 在最上層功能表中，選取 [編輯設定]。
-3. 選取 [檔案內容]，然後按一下 [連結]。 這會開啟 [新增變更追蹤的內容位置] 窗格。
+1. 在 Azure 入口網站中，開啟您的自動化帳戶，然後選取 [變更追蹤]  。
+2. 在最上層功能表中，選取 [編輯設定]  。
+3. 選取 [檔案內容]  ，然後按一下 [連結]  。 這會開啟 [新增變更追蹤的內容位置]  窗格。
 
    ![enable](./media/change-tracking-file-contents/enable.png)
 
-4. 選取儲存檔案內容所用的訂用帳戶和儲存體帳戶。 如果您想要啟用所有現有已追蹤檔案的檔案內容追蹤，請針對 [上傳所有設定的檔案內容] 選取 [開啓]。 以後可以變更各檔案路徑的這個選項。
+4. 選取儲存檔案內容所用的訂用帳戶和儲存體帳戶。 如果您想要啟用所有現有已追蹤檔案的檔案內容追蹤，請針對 [上傳所有設定的檔案內容]  選取 [開啓]  。 以後可以變更各檔案路徑的這個選項。
 
    ![設定儲存體帳戶](./media/change-tracking-file-contents/storage-account.png)
 
-5. 一旦啟用，就會顯示儲存體帳戶和 SAS Uri。 SAS URI 會在 365 天之後過期，按一下 [重新產生] 按鈕即可重新建立。
+5. 一旦啟用，就會顯示儲存體帳戶和 SAS Uri。 SAS URI 會在 365 天之後過期，按一下 [重新產生]  按鈕即可重新建立。
 
    ![列出帳戶金鑰](./media/change-tracking-file-contents/account-keys.png)
 
@@ -48,23 +48,23 @@ ms.locfileid: "61304195"
 
 下列步驟會引導您完成開啟檔案的 [變更追蹤]：
 
-1. 在 [變更追蹤] 的 [編輯設定] 頁面中，選取 [Windows 檔案] 或 [Linux 檔案] 索引標籤，然後按一下 [新增]
+1. 在 [變更追蹤]  的 [編輯設定]  頁面中，選取 [Windows 檔案]  或 [Linux 檔案]  索引標籤，然後按一下 [新增] 
 
-1. 填寫檔案路徑的資訊，然後選取 [上傳所有設定的檔案內容] 下的 [True]。 此設定只會啓用該檔案路徑的檔案內容追蹤。
+1. 填寫檔案路徑的資訊，然後選取 [上傳所有設定的檔案內容]  下的 [True]  。 此設定只會啓用該檔案路徑的檔案內容追蹤。
 
    ![新增 Linux 檔案](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>檢視追蹤的檔案內容
 
-1. 一旦偵測到檔案或路徑中檔案的變更，就會顯示在入口網站中。 從變更清單中選取檔案變更。 [變更詳細資料] 窗格隨即顯示。
+1. 一旦偵測到檔案或路徑中檔案的變更，就會顯示在入口網站中。 從變更清單中選取檔案變更。 [變更詳細資料]  窗格隨即顯示。
 
    ![列出變更](./media/change-tracking-file-contents/change-list.png)
 
-1. 在 [變更詳細資料] 頁面上，您會看到檔案資訊前後的標準，按一下左上方的 [View File Content Changes] \(檢視檔案內容變更\) 可查看檔案的內容。
+1. 在 [變更詳細資料]  頁面上，您會看到檔案資訊前後的標準，按一下左上方的 [View File Content Changes] \(檢視檔案內容變更\)  可查看檔案的內容。
 
    ![變更詳細資料](./media/change-tracking-file-contents/change-details.png)
 
-1. 新的頁面會以並排顯示檢視向您顯示檔案內容。 您也可以選取 [內嵌] 查看變更的內嵌檢視。
+1. 新的頁面會以並排顯示檢視向您顯示檔案內容。 您也可以選取 [內嵌]  查看變更的內嵌檢視。
 
    ![檢視檔案變更](./media/change-tracking-file-contents/view-file-changes.png)
 

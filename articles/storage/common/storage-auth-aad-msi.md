@@ -1,6 +1,6 @@
 ---
-title: 驗證適用於 Azure 資源-Azure 儲存體 blob 和佇列管理的身分識別與存取 |Microsoft Docs
-description: Azure Blob 和佇列儲存體支援 Azure 資源管理的身分識別與 Azure Active Directory 驗證。 您可以使用 Azure 資源的受控識別，從執行於 Azure 虛擬機器、函式應用程式和虛擬機器擴展集等項目中的應用程式，驗證 Blob 和佇列的存取權。
+title: 授與 Azure 資源-Azure 儲存體 blob 和佇列與 Azure Active Directory 與受管理的身分識別的存取權
+description: Azure Blob 和佇列儲存體支援授與 Azure Active Directory 與受管理的身分識別的資源與適用於 Azure 資源的存取權。 您可以使用適用於 Azure 資源管理的身分識別授與對 blob 和佇列的存取權，從在 Azure 虛擬機器、 函式應用程式、 虛擬機器擴展集，和其他項目中執行的應用程式。
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787968"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303423"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>授權適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別
 
 Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)來進行 Azure Active Directory (Azure AD) 驗證。 管理身分識別，用於 Azure 資源可以授權存取 blob 和佇列資料，使用從 Azure 虛擬機器 (Vm)、 函式應用程式、 虛擬機器擴展集和其他服務中執行的應用程式的 Azure AD 認證。 藉由使用 Azure AD 驗證搭配 Azure 資源管理的身分識別，您可以避免儲存認證與您在雲端中執行的應用程式。  
 

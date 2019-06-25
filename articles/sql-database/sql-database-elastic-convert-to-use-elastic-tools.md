@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075160"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>將現有的資料庫移轉到相應放大的資料庫
@@ -73,7 +73,7 @@ ms.locfileid: "61075160"
 
 ![範圍對應][2]
 
-或者，您可以使用「清單對應」來實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。 
+或者，您可以使用「清單對應」  來實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。 
 
 ![單一資料庫上的多個租用戶][3] 
 

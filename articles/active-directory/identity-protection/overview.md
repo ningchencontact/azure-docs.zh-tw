@@ -17,12 +17,12 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015204"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204508"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 是什麼？
 
@@ -42,7 +42,7 @@ Microsoft 保護雲端身分識別已經超過十多年。 在您的環境中使
 
 探索遭入侵的身分識別並不容易。 Azure Active Directory 使用調適性機器學習運算法和啟發學習法來偵測表示可能遭入侵身份識別的異常與可疑事件。 Identity Protection 會使用此資料來產生報告和警示，讓您評估偵測到的問題並採取適當的緩和或補救動作。
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 與 [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS) 所提供的其他條件式存取控制以外，這些的原則可以自動封鎖或起始調適性補救動作，包括重設密碼以及強制 Multi-Factor Authentication。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 這些原則，除了 Azure Active Directory 所提供的其他條件式存取控制並[Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS)，可以自動封鎖或起始包括的調適性補救動作重設密碼以及強制 multi-factor authentication。
 
 ### <a name="identity-protection-capabilities"></a>Identity Protection 功能
 
@@ -59,7 +59,7 @@ Azure Active Directory Identity Protection 不只是監視和報告工具而已�
 - 提供基本工作流程來追蹤調查
 - 讓您輕鬆存取補救動作，例如重設密碼
 
-**以風險為基礎的條件式存取原則：**
+**風險型條件式存取原則：**
 
 - 此原則可藉由封鎖登入或要求多重要素驗證挑戰，以儘量阻止高風險登入
 - 此原則會封鎖或保護有風險的使用者帳戶
@@ -96,8 +96,8 @@ Azure Active Directory 使用調適性機器學習運算法和啟發學習法來
 
 儀表板可讓您存取：
 
-- 報告，例如 [標示有風險的使用者]、[風險事件] 和 [弱點]
-- 設定，例如 [安全性原則]、[通知] 和 [Multi-Factor Authentication 註冊] 的組態
+- 報告，例如 [標示有風險的使用者]  、[風險事件]  和 [弱點] 
+- 設定，例如 [安全性原則]  、[通知]  和 [Multi-Factor Authentication 註冊]  的組態
 
 這通常是調查的起點，而在調查過程中會檢閱風險事件相關活動、記錄和其他相關資訊，以決定是否需要採取補救或緩和步驟，了解身分識別如何遭到入侵，以及了解遭到入侵的身分識別如何被利用。
 

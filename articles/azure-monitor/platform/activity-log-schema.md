@@ -9,10 +9,10 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244944"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
@@ -112,7 +112,7 @@ ms.locfileid: "66244944"
 ### <a name="property-descriptions"></a>屬性描述
 | 元素名稱 | 描述 |
 | --- | --- |
-| 授權 |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
+| authorization |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
 | 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
 | 通道 |下列其中一個值：“Admin”、“Operation” |
 | claims |Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
@@ -743,7 +743,7 @@ ms.locfileid: "66244944"
 
 | 元素名稱 | 描述 |
 | --- | --- |
-| 授權 | 事件的 RBAC 屬性陣列。 針對新資源，這是觸發評估的要求其動作和範圍。 針對現有的資源，此動作為「Microsoft.Resources/checkPolicyCompliance/read」。 |
+| authorization | 事件的 RBAC 屬性陣列。 針對新資源，這是觸發評估的要求其動作和範圍。 針對現有的資源，此動作為「Microsoft.Resources/checkPolicyCompliance/read」。 |
 | 呼叫者 | 針對新資源，則為啟動部署的身分識別。 針對現有的資源，則為 Microsoft Azure Policy Insights RP 的 GUID。 |
 | 通道 | 原則事件僅使用「作業」通道。 |
 | claims | Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
@@ -777,7 +777,7 @@ ms.locfileid: "66244944"
 
 | 診斷記錄結構描述屬性 | 活動記錄 REST API 結構描述屬性 | 注意 |
 | --- | --- | --- |
-| 分析 | eventTimestamp |  |
+| time | eventTimestamp |  |
 | ResourceId | ResourceId | subscriptionId、resourceType、resourceGroupName 全都推斷自 resourceId。 |
 | operationName | operationName.value |  |
 | category | 作業名稱部分 | 作業類型分類："Write"/"Delete"/"Action" |

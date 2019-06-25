@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484008"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>匯出包含 VM 擴充功能的資源群組
@@ -42,7 +42,7 @@ Azure 資源群組可以匯出到之後會重新部署的新 Resource Manager �
 | BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
 | BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef Client | HPE Security Application Defender | Trend Micro DSA |
-| 自定义脚本 | IaaS Antimalware | Trend Micro DSA Linux |
+| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
 | 自訂指令碼延伸模組 | IaaS Diagnostics | VM Access For Linux |
 | Custom Script for Linux | Linux Chef Client | VM Access For Linux |
 | Datadog Linux Agent | Linux Diagnostic | VM Snapshot |

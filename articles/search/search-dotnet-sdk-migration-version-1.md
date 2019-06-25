@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f47656bb13d08ea56cf25a2a29897722abb1cdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65024157"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>升級至 Azure 搜尋服務 .NET SDK 版本 1.1
-
-> [!Important]
-> 此內容是仍在建構。 使用在 NuGet 上的 Azure 搜尋服務.NET SDK 的 9.0 版。 我們正努力這篇文章說明如何升級至 9.0。 
-> 
 
 如果您使用 1.0.2 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文會協助您將應用程式升級為使用 1.1 版。
 
@@ -178,7 +174,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
         };
 
 ### <a name="model-class-changes"></a>模型類別變更
-由於[作業方法變更](#OperationMethodChanges)中所述的簽章變更，`Microsoft.Azure.Search.Models` 命名空間中的許多類別都已重新命名或移除。 例如︰
+由於[作業方法變更](#OperationMethodChanges)中所述的簽章變更，`Microsoft.Azure.Search.Models` 命名空間中的許多類別都已重新命名或移除。 例如:
 
 * `IndexDefinitionResponse` 已由 `AzureOperationResponse<Index>` 取代
 * `DocumentSearchResponse` 已重新命名為 `DocumentSearchResult`

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996160"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273073"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
 Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。 收集之後，您可以在查詢中，將資料剖析成個別的欄位，或將收集期間的資料擷取至個別的欄位。
@@ -35,11 +35,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 - 記錄檔必須使用 ASCII 或 UTF-8 編碼。  不支援其他格式，例如 UTF-16。
 
 >[!NOTE]
->如果記錄檔中有重複的項目，Azure 監視器會收集這些項目。  不過，查詢結果會不一致，篩選結果所顯示的事件會比結果計數更多。  您必須驗證記錄，以判定建立該記錄的應用程式是否導致此行為，若可以的話，請先處理此問題，再建立自訂記錄集合定義。  
->
-  
->[!NOTE]
-> 如果您的應用程式每天建立新記錄檔，或記錄檔已到達特定大小，則適用於 Linux 的 Log Analytics 代理程式在重新啟動之前，並不會探索記錄檔。 這是因為代理程式只會在啟動時，針對有指定記錄的模式進行列舉及開始監視，因此，您必須藉由讓代理程式自動重新啟動來因應此狀況。  適用於 Windows 的 Log Analytics 代理程式沒有此限制。  
+> 如果記錄檔中有重複的項目，Azure 監視器會收集這些項目。 不過，查詢結果會不一致，篩選結果所顯示的事件會比結果計數更多。 您必須驗證記錄，以判定建立該記錄的應用程式是否導致此行為，若可以的話，請先處理此問題，再建立自訂記錄集合定義。  
 >
 
 >[!NOTE]

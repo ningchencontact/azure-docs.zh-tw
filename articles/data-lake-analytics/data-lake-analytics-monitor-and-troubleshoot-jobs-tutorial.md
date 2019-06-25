@@ -10,10 +10,10 @@ ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 40864bab068659be016161f7dc40243ebbd45174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812628"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 入口網站監視 Azure Data Lake Analytics 中的作業
@@ -26,7 +26,7 @@ ms.locfileid: "60812628"
     ![Azure 資料湖分析作業管理](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
     [工作管理可] 讓您對工作的狀態一目瞭然。 請注意失敗的工作。
-3. 按一下 [ **工作管理** ] 磚以檢視工作。 工作分類成 [執行中]、[已排入序列] 和 [結束]。 您應該會在 [ **結束** ] 區段中看到失敗的工作。 該工作應該列在清單中的首位。 如果有很多工作，您可以按一下 [ **篩選** ] 來協助您找出工作。
+3. 按一下 [ **工作管理** ] 磚以檢視工作。 工作分類成 [執行中]  、[已排入序列]  和 [結束]  。 您應該會在 [ **結束** ] 區段中看到失敗的工作。 該工作應該列在清單中的首位。 如果有很多工作，您可以按一下 [ **篩選** ] 來協助您找出工作。
 
     ![Azure 資料湖分析篩選作業](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
 4. 按一下清單中的失敗工作，以開啟工作詳細資料：

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 67a6eec938a4a18455e4063925e21e26fe362f76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0a5c9fc5cac441a6680f9f72e3223ace95399f3
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243476"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296552"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -54,7 +54,7 @@ ms.locfileid: "66243476"
 
 ### <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
-Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐富、經常性資料。 這些記錄的內容會依資源類型而有所不同。 資源層級診斷記錄也與客體 OS 層級診斷記錄不同。 客體 OS 診斷記錄是由虛擬機器內執行的代理程式或其他支援的資源類型所收集的記錄。 資源層級的診斷記錄不需要代理程式，而會從 Azure 平台本身擷取特定資源資料。 客體 OS 層級的診斷記錄會從虛擬機器所執行的作業系統和應用程式擷取資料。
+Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐富、經常性資料。 這些記錄會擷取每個要求。 這些記錄的內容會依資源類型而有所不同。 資源層級診斷記錄也與客體 OS 層級診斷記錄不同。 客體 OS 診斷記錄是由虛擬機器內執行的代理程式或其他支援的資源類型所收集的記錄。 資源層級的診斷記錄不需要代理程式，而會從 Azure 平台本身擷取特定資源資料。 客體 OS 層級的診斷記錄會從虛擬機器所執行的作業系統和應用程式擷取資料。
 
 ![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -68,26 +68,47 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>在 Azure 入口網站中開啟記錄
 
-若要啟用診斷記錄，您必須擁有下列資源：
+若要啟用診斷記錄，在 Azure 入口網站中使用下列步驟：
 
-* 現有的 Azure Cosmos DB 帳戶、資料庫和容器。 如需建立這些資源的指示，請參閱[使用 Azure 入口網站建立資料庫帳戶](create-sql-api-dotnet.md#create-account)、[Azure CLI 範例](cli-samples.md)或 [PowerShell 範例](powershell-samples.md)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-若要在 Azure 入口網站中啟用診斷記錄，請執行下列步驟：
-
-1. 進入 [Azure 入口網站](https://portal.azure.com)，在您 Azure Cosmos DB 帳戶的左側導覽區中選取 [診斷記錄]  ，然後選取 [開啟診斷]  。
+1. 瀏覽至 Azure Cosmos 帳戶。 開啟**diagnostic-settings**窗格，，然後選取**新增診斷設定**選項。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/logging/turn-on-portal-logging.png)
 
-2. 在 [診斷設定]  頁面中，執行下列步驟： 
+1. 在 **診斷設定**頁面上，表單中填寫下列詳細資料： 
 
     * **名稱**：輸入要建立之記錄的名稱。
 
-    * **封存至儲存體帳戶**：若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)，依指示建立一個 Azure Resource Manager (一般用途帳戶)。 然後，返回入口網站的此頁面選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現於下拉式功能表中。
-    * **串流至事件中樞**：若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後，返回入口網站的此頁面，選取事件中樞命名空間和原則名稱。
-    * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需有關如何在 Azure 監視器記錄檔中檢視記錄的詳細資訊，請參閱檢視 Azure 監視器記錄檔中的記錄。
-    * **記錄 DataPlaneRequests**：選取此選項，可從適用於 SQL、Graph、MongoDB、Cassandra 和資料表 API 帳戶的基礎 Azure Cosmos DB 分散式平台記錄後端要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
-    * **記錄 MongoRequests**：選取此選項，可記錄為了處理 Cosmos 帳戶 (已設定適用於 MongoDB 的 Azure Cosmos DB API) 事宜而從 Azure Cosmos DB 前端提出的使用者起始要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
-    * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * 您可以儲存記錄檔，以下列服務：
+
+      * **封存至儲存體帳戶**：若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)文章。 然後，返回入口網站選取儲存體帳戶中的 [Azure Cosmos Db 診斷設定] 窗格。 新建立的儲存體帳戶可能在數分鐘後才會出現於下拉式功能表中。
+
+      * **串流至事件中樞**：若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後，返回此頁面，在入口網站中選取事件中樞命名空間和原則名稱。
+
+      * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 
+
+   * 您可以記錄下列資料：
+
+      * **DataPlaneRequests**:選取此選項來記錄所有 api 的後端要求 Azure Cosmos DB 中包括 SQL、 Graph、 MongoDB、 Cassandra 和資料表 API 帳戶。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 下列 JSON 資料是使用 DataPlaneRequests 記錄的詳細資料的範例輸出。 要注意的重要屬性如下：Requestcharge、 statusCode、 clientIPaddress 和 partitionID:
+
+       ```
+       { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+       ```
+
+      * **MongoRequests**:選取此選項可從 Azure Cosmos DB 的 API 來處理要求，適用於 MongoDB 的前端記錄使用者起始的要求。 MongoDB 要求將會出現在 MongoRequests 以及 DataPlaneRequests。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 下列 JSON 資料是使用 MongoRequests 記錄的詳細資料的範例輸出。 要注意的重要屬性如下：Requestcharge opCode:
+
+       ```
+       { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
+       ```
+
+      * **QueryRuntimeStatistics**:選取此選項可記錄所執行的查詢文字。  下列 JSON 資料是使用 QueryRuntimeStatistics 記錄的詳細資料的範例輸出：
+
+       ```
+       { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+       ```
+
+      * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
 3. 選取 [ **儲存**]。
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122531"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174649"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>指定矩形資料集的結構定義
 在資料集 JSON 中的結構區段 (“structure”) 是矩形資料表 (有資料列和資料行) 的**選擇性**區段，並包含該資料表的資料行集合。 結構區段將用於提供類型轉換的類型資訊或執行資料行對應。 下列各節更詳細說明這些功能。 

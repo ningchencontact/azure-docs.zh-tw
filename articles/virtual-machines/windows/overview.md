@@ -17,15 +17,15 @@ ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506833"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
-Azure 虛擬機器 (VM) 是由 Azure 所提供的[隨選且可調整的數種運算資源](/azure/architecture/guide/technology-choices/compute-decision-tree)類型之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
+Azure 虛擬機器 (VM) 是由 Azure 所提供的[隨選且可調整的數種運算資源](/azure/architecture/guide/technology-choices/compute-decision-tree)類型之一。 一般而言，當您對於運算環境所需的控制權比其他選擇可提供的還要多時，則您會選擇 VM。 本文提供您在建立 VM 之前應該的事項、建立方式及管理方式的相關資訊。
 
 Azure VM 讓您能夠有彈性地進行虛擬化，而不需購買並維護執行它的實體硬體。 不過，您仍然需要執行工作來維護 VM，例如設定、修補和安裝在 VM 上執行的軟體。
 
@@ -58,7 +58,7 @@ Azure 中所建立的所有資源分散在世界各地的多個[地理區域](ht
 
 下表顯示一些您可以取得可用位置清單的方式。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 | --- | --- |
 | Azure 入口網站 |當您建立 VM 時，請從清單中選取位置。 |
 | Azure PowerShell |使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) 命令。 |
@@ -80,7 +80,7 @@ Azure 提供許多 [Marketplace 映像](https://azure.microsoft.com/marketplace/
 
 下表顯示您可找到映像資訊的一些方法。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 | --- | --- |
 | Azure 入口網站 |當您選取要使用的影像時，會自動為您指定值。 |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
@@ -101,14 +101,14 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="related-resources"></a>相關資源
 此資料表中的資源可供 VM 使用，且建立 VM 時必須存在或建立。
 
-| 資源 | 必要項 | 說明 |
+| 資源 | 必要項 | 描述 |
 | --- | --- | --- |
-| [資源群組](../../azure-resource-manager/resource-group-overview.md) |有 |VM 必須包含在資源群組中。 |
-| [存储帐户](../../storage/common/storage-create-storage-account.md) |有 |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
-| [虛擬網路](../../virtual-network/virtual-networks-overview.md) |有 |VM 必須是虛擬網路的成員。 |
-| [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |無 |可以有公用 IP 位址指派給 VM，以從遠端存取它。 |
-| [網路介面](../../virtual-network/virtual-network-network-interface.md) |有 |VM 需要網路介面以在網路中進行通訊。 |
-| [数据磁盘](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |無 |VM 可以包含資料磁碟來擴充儲存體功能。 |
+| [資源群組](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必須包含在資源群組中。 |
+| [儲存體帳戶](../../storage/common/storage-create-storage-account.md) |是 |VM 需要儲存體帳戶儲存其虛擬硬碟。 |
+| [虛擬網路](../../virtual-network/virtual-networks-overview.md) |是 |VM 必須是虛擬網路的成員。 |
+| [公用 IP 位址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以有公用 IP 位址指派給 VM，以從遠端存取它。 |
+| [網路介面](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要網路介面以在網路中進行通訊。 |
+| [資料磁碟](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含資料磁碟來擴充儲存體功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何建立第一個 VM？
 有幾個選擇可供您建立 VM。 您所做的選擇取決於您所在的環境。 
@@ -118,7 +118,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 | 方法 | 文章 |
 | --- | --- |
 | Azure 入口網站 |[使用入口網站建立執行 Windows 的虛擬機器](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| 範本 |[使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| 範本 |[利用 Resource Manager 範本建立 Windows 虛擬機器](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[使用 PowerShell 建立 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 用戶端 SDK |[使用 C# 部署 Azure 資源](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST API |[建立或更新 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
@@ -132,9 +132,9 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="get-information-about-a-vm"></a>取得 VM 的相關資訊
 下表顯示您可以取得 VM 相關資訊的一些方式。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 | --- | --- |
-| Azure 入口網站 |在 [中樞] 功能表中，按一下 [虛擬機器]，然後從清單中選取 VM。 在 VM 的刀鋒視窗上，您可存取概觀資訊、設定值，並監視度量。 |
+| Azure 入口網站 |在 [中樞] 功能表中，按一下 [虛擬機器]  ，然後從清單中選取 VM。 在 VM 的刀鋒視窗上，您可存取概觀資訊、設定值，並監視度量。 |
 | Azure PowerShell |如需使用 PowerShell 來管理 VM 的相關資訊，請參閱[使用 Azure PowerShell 模組來建立和管理 Windows VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |
 | REST API |使用[取得 VM 資訊](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)作業來取得 VM 的相關資訊。 |
 | 用戶端 SDK |如需使用 C# 來管理 VM 的相關資訊，請參閱[使用 Azure Resource Manager 和 C# 來管理 Azure 虛擬機器](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |
@@ -146,7 +146,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 ### <a name="manage-availability"></a>管理可用性
 請務必了解如何[確保應用程式的高可用性](manage-availability.md)。 此組態需要建立多個 VM 以確保至少有一個 VM 正在執行。
 
-為了讓您的部署符合 99.95 的 VM 服務等級協定資格，您必須部署兩個或更多在[可用性設定組](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)內執行工作負載的 VM。 此組態可確保您的 VM 會分散多個容錯網域，且部署至具有不同維護期間的主機。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
+為了讓您的部署符合 99.95 的 VM 服務等級協定資格，您必須部署兩個或更多在[可用性設定組](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)內執行工作負載的 VM。 此組態可確保您的 VM 會分散多個容錯網域，且部署至具有不同維護期間的主機。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
 
 ### <a name="back-up-the-vm"></a>備份 VM
 [復原服務保存庫](../../backup/backup-introduction-to-azure-backup.md)可用來保護 Azure 備份和 Azure Site Recovery 服務中的資料和資產。 您可以使用復原服務保存庫，[使用 PowerShell 部署和管理 Resource Manager 部署之 VM 的備份](../../backup/backup-azure-vms-automation.md)。 

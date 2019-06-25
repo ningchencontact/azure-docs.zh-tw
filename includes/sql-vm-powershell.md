@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: mikeray
 ms.openlocfilehash: c6666f4417cde9e0f77cc965ded1d6bdb5dced34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165783"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173937"
 ---
 ## <a name="start-your-powershell-session"></a>啟動 PowerShell 工作階段
  

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239035"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269295"
 ---
 # <a name="access-data-from-your-datastores"></a>從您的資料存放區存取資料
 
@@ -59,7 +59,19 @@ ds = ws.get_default_datastore()
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>註冊您自己的資料存放區與工作區
 
-如果您有現有的 Azure 儲存體，可以在工作區中將它註冊為資料存放區。   上的所有註冊的方法都都[ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)類別，並有表單 register_azure_ *。 
+如果您有現有的 Azure 儲存體，可以在工作區中將它註冊為資料存放區。 
+
+<a name="store"></a>
+
+####  <a name="storage-guidance"></a>儲存體指引
+
+我們建議您 blob 儲存體和 blob 資料存放區。 標準和進階儲存體可供使用 blob。 雖然昂貴，我們建議在進階儲存體輸送量速度可能會改善您的訓練的速度，因為執行 particlularly 是否您針對大型資料集進行訓練。 請參閱[Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service)成本資訊的儲存體帳戶。
+
+>[!NOTE]
+> Azure Machine Learning 服務支援其他類型的資料存放區，這可能是適用於特定案例。 例如，如果您必須定型使用儲存在資料庫中的資料，您可能會使用 AzureSQLDatabaseDatastore 或 AzurePostgreSqlDatastore。 請參閱[本表](#matrix)可用的資料存放區類型。
+
+#### <a name="register-your-datastore"></a>註冊您的資料存放區
+上的所有註冊的方法都都[ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)類別，並有表單 register_azure_ *。
 
 下列範例將示範以 Azure Blob 容器或 Azure 檔案共用註冊為資料存放區。
 
@@ -178,6 +190,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > 任何`ds`或是`ds.path`環境變數名稱的格式物件會解析`"$AZUREML_DATAREFERENCE_XXXX"`其值代表的目標計算上的掛接/下載路徑。 在目標電腦上的資料存放區路徑可能不會當做定型指令碼的執行路徑相同。
 
+<a name="matrix"></a>
 ### <a name="training-compute-and-datastore-matrix"></a>定型的計算和資料存放區的矩陣
 
 下列的矩陣會顯示可用的資料存取功能，針對不同的訓練計算目標和資料存放區的案例。 深入了解[訓練 Azure Machine Learning 的計算目標](how-to-set-up-training-targets.md#compute-targets-for-training)。
@@ -194,7 +207,7 @@ ds.path('./bar').as_download()
 | Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;管線](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
-> 可能在其中重複性很高，大型的資料處理程序會執行更快的使用的案例 [`as_download()`] 而不是 [`as_mount()`]; 這可以根據驗證。
+> 可能在其中重複性很高，大型的資料處理程序會執行更快的使用的案例`as_download()`而不是`as_mount()`; 這可以根據驗證。
 
 ### <a name="examples"></a>範例 
 

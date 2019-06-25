@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954409"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
@@ -35,10 +35,10 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 | **用戶端驅動程式** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API**|**資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | 有 | 否 | 否 | 有 | 無 |
-|Java|NA|有|否|否|有|無|
-|Python|NA|有|否|否|有|無|
-|節點/JS|NA|有|否|否|有|無|
+| .NET | NA | 是 | 否 | 否 | 是 | 否 |
+|Java|NA|是|否|否|是|否|
+|Python|NA|是|否|否|是|否|
+|節點/JS|NA|是|否|否|是|否|
 
 ## <a name="change-feed-and-different-operations"></a>變更摘要和不同的作業
 

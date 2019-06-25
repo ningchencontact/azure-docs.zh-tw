@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66134561"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>設定應用程式閘道與內部負載平衡器 (ILB) 端點
@@ -36,24 +36,24 @@ ms.locfileid: "66134561"
 
 Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，我們會建立新的虛擬網路。 您建立應用程式閘道時，可以同時建立虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
-1. 按一下 Azure 入口網站左上角的 [新增]。
-2. 在「精選」清單中選取 [網路]，然後選取 [應用程式閘道]。
-3. 輸入 myAppGateway 作為應用程式閘道的名稱，輸入 myResourceGroupAG 作為新的資源群組。
-4. 接受其他設定的預設值，然後按一下 [確定]。
-5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
+1. 按一下 Azure 入口網站左上角的 [新增]  。
+2. 在「精選」清單中選取 [網路]  ，然後選取 [應用程式閘道]  。
+3. 輸入 myAppGateway  作為應用程式閘道的名稱，輸入 myResourceGroupAG  作為新的資源群組。
+4. 接受其他設定的預設值，然後按一下 [確定]  。
+5. 按一下 [選擇虛擬網路]  ，按一下 [新建]  ，然後針對虛擬網路輸入這些值：
    - myVNet *-虛擬網路的名稱。
    - 10.0.0.0/16*-虛擬網路的位址空間。
-   - myAGSubnet - 作為子網路名稱。
-   - 10.0.0.0/24 - 作為子網路位址空間。  
+   - myAGSubnet  - 作為子網路名稱。
+   - 10\.0.0.0/24  - 作為子網路位址空間。  
      ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
-6. 按一下 [確定] 以建立虛擬網路和子網路。
+6. 按一下 [確定]  以建立虛擬網路和子網路。
 7. 選擇為 私人前端 IP 組態，根據預設，它是動態的 IP 位址指派。 所選的第一個可用位址將指派子網路，做為前端 IP 位址。
 8. 如果您想要選擇的私人 IP 子網路位址範圍 （靜態配置），按一下 方塊**選擇特定的私人 IP 位址**和指定的 IP 位址。
    > [!NOTE]
    > 配置之後，IP 位址類型 （靜態或動態） 稍後無法變更。
 9. 選擇您的接聽程式設定的通訊協定和連接埠，WAF 設定 （如有需要），然後按一下 [確定]。
     ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
-10. 檢閱 [摘要] 頁面上的設定，然後按一下 [確定] 以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
+10. 檢閱 [摘要] 頁面上的設定，然後按一下 [確定]  以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
 
 ## <a name="add-backend-pool"></a>新增後端集區
 
@@ -65,18 +65,18 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
 
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-1. 按一下 [新增] 。
-2. 按一下 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。
+1. 按一下 [新增]  。
+2. 按一下 [計算]  ，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]  。
 3. 針對虛擬機器，請輸入這些值：
-   - myVM - 作為虛擬機器的名稱。
-   - azureuser - 作為系統管理員使用者名稱。
+   - myVM  - 作為虛擬機器的名稱。
+   - azureuser  - 作為系統管理員使用者名稱。
    - *Azure123456!* 作為密碼。
-   - 選取 [使用現有的]，然後選取 [myResourceGroupAG]。
-4. 按一下 [確定]。
+   - 選取 [使用現有的]  ，然後選取 [myResourceGroupAG]  。
+4. 按一下 [確定]  。
 5. 選取  **DS1_V2**大小的虛擬機器，然後按一下**選取**。
-6. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。
-7. 按一下 [停用] 來停用開機診斷。
-8. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
+6. 確定您已選取 [myVNet]  作為虛擬網路，而且子網路是 [myBackendSubnet]  。
+7. 按一下 [停用]  來停用開機診斷。
+8. 按一下 [確定]  ，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]  。
 
 ### <a name="install-iis"></a>安裝 IIS
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058569"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 動機和優點
 
@@ -21,7 +21,7 @@ ms.locfileid: "64685658"
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>為什麼要遷移到 Azure HDInsight
 
-Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) \(英文\) 中 Hadoop 元件的雲端散發版本。 Azure HDInsight 可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 包含最熱門的開放原始碼架構，例如：
+Azure HDInsight 是 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 包含最熱門的開放原始碼架構，例如：
 
 - Apache Hadoop
 - Apache Spark
@@ -90,12 +90,11 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 | **問題** | **範例** | **回答** |
 |---|---|---|
 |**主題**：**環境**|||
-|叢集散發類型|Hortonworks、Cloudera、MapR| |
 |叢集散發版本|HDP 2.6.5、CDH 5.7|
 |巨量資料生態系統元件|HDFS、Yarn、Hive、LLAP、Impala、Kudu、HBase、Spark、MapReduce、Kafka、Zookeeper、Solr、Sqoop、Oozie、Ranger、Atlas、Falcon、Zeppelin、R|
 |叢集類型|Hadoop、Spark、Confluent Kafka、Storm、Solr|
 |叢集數目|4|
-|主節點數目|2|
+|主要節點數目|2|
 |背景工作節點數目|100|
 |邊緣節點的數目| 5|
 |磁碟空間總計|100 TB|
@@ -164,7 +163,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 需求問卷
 
-|**主題**：基礎結構 |||
+|**主題**：基礎結構  |||
 |---|---|---|
 |**問題**|**範例**|**回答**|
 | 慣用區域|美國東部||
@@ -199,7 +198,6 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 |是否在不同叢集之間共用中繼存放區？|是||
 |是否將工作負載解構？|使用 Spark 作業取代 Hive 作業||
 |是否使用 ADF 資料協調流程？|否||
-|在 IaaS 上是 HDInsight 或 Hortonworks Data Platform？|HDInsight||
 
 ## <a name="next-steps"></a>後續步驟
 

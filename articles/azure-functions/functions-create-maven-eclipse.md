@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341410"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154577"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>使用 Java 和 Eclipse 中建立您的第一個函式 
 
@@ -43,15 +43,15 @@ ms.locfileid: "61341410"
 
 ## <a name="create-a-functions-project"></a>建立 Functions 專案
 
-1. 在 Eclipse 中，選取 [檔案]  功能表，然後選取 [專案]  。 
-1. 在 [新增專案]  視窗中開啟 [Java 專案]  資料夾，選取 [Maven 專案]  ，然後選取 [下一步]  。
+1. 在 Eclipse 中，選取**檔案**功能表，然後選取**新增-&gt; Maven 專案**。 
 1. 接受 [新增 Maven 專案]  對話方塊中的預設值，然後選取 [下一步]  。
 1. 選取 [新增原型]  並新增 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 的項目。
     - 原型群組識別碼：com.microsoft.azure
     - 原型構件識別碼：azure-functions-archetype
-    - 版本：使用最新版本，從[中央儲存機制](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - 版本：使用最新版本**1.22**從[中央儲存機制](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven 建立](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. 按一下 [確定]  、輸入目前專案的詳細資料，最終按一下 [完成]  。
+1. 按一下  **確定** ，然後按一下 **下一步**輸入類似下列的快照集的值 (請使用不同的應用程式名稱以外的其他**fabrikam-函式-20170920120101928**)，以及最後**完成**。
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案中產生的程式碼是 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)的簡單函式，此函式會回應觸發 HTTP 要求的本文。
 
@@ -68,7 +68,7 @@ Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案�
 
 ### <a name="debug-the-function-in-eclipse"></a>在 Eclipse 中進行函式偵錯
 
-在上一個步驟的 [執行身分]  組態設定中，將 `azure-functions:run` 變更為 `mvn azure-functions:run -DenableDebug` 並執行更新後的組態，以在偵錯模式中啟動函數應用程式。
+在上一個步驟的 [執行身分]  組態設定中，將 `azure-functions:run` 變更為 `azure-functions:run -DenableDebug` 並執行更新後的組態，以在偵錯模式中啟動函數應用程式。
 
 選取 [執行]  功能表，然後開啟 [偵錯組態]  。 選擇 [遠端 Java 應用程式]  並建立新的應用程式。 為您的組態提供名稱，然後填入設定中。 連接埠應該與函式主機所開啟的偵錯連接埠一致，其預設值為 `5005`。 安裝之後，按一下 `Debug` 開始偵錯。
 

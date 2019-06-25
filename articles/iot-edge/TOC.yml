@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: 使用 SQL 在本機儲存資料
           href: tutorial-store-data-sql-server.md
+    - name: 4. 邊緣計算機器學習的端對端範例
+      items:
+        - name: 簡介
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: 設定開發電腦和 Azure 服務
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: 產生模擬裝置資料
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: 定型和部署 Azure Machine Learning 模型
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: 設定透明閘道
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: 建立和部署 IoT Edge 模組
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: 透過透明閘道將資料傳送到 IoT 中樞
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: 概念
   items:
     - name: IoT Edge 執行階段
@@ -149,6 +165,8 @@
       items:
         - name: 設定透明閘道
           href: how-to-create-transparent-gateway.md
+        - name: 驗證下游裝置
+          href: how-to-authenticate-downstream-device.md
         - name: 連線下游裝置
           href: how-to-connect-downstream-device.md
         - name: Modbus 通訊協定閘道

@@ -10,10 +10,10 @@ ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411392"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>啟用容器群組中的 SSL 端點
@@ -44,7 +44,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 遵循提示來加入的識別資訊。 一般名稱，請輸入與憑證相關聯的主機名稱。 出現提示時輸入密碼，請按 Enter 鍵而不需要輸入，以略過新增密碼。
 
-執行下列命令來建立憑證要求中的自我簽署的憑證 （.crt 檔案）。 例如：
+執行下列命令來建立憑證要求中的自我簽署的憑證 （.crt 檔案）。 例如:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt

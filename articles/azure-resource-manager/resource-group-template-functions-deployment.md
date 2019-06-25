@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager 範本函式 - 部署 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來擷取部署資訊的函式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cf81058d79d474a4d61195850636e428a1dbd0d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128660"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206460"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
 
@@ -33,7 +27,7 @@ ms.locfileid: "66128660"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>部署
+## <a name="deployment"></a>deployment
 `deployment()`
 
 傳回目前部署作業的相關資訊。
@@ -165,9 +159,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| parameterName |有 |string |要傳回的參數名稱。 |
+| parameterName |是 |string |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -252,13 +246,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | String | 選項 1 |
+| stringOutput | String | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
-| arrayOutput | 陣列 | [1, 2, 3] |
-| crossOutput | String | 選項 1 |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | option 1 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -281,9 +275,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| variableName |有 |String |要傳回的變數名稱。 |
+| variableName |是 |String |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -355,10 +349,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
-| exampleOutput2 | 陣列 | [1, 2, 3, 4] |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 

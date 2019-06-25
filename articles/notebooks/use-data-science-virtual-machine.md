@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234341"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137762"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>使用 Azure 資料科學虛擬機器
 
@@ -56,6 +56,17 @@ ms.locfileid: "66234341"
 ![Azure Notebook 中的 [關機] 按鈕](media/shutdown.png)
 
 在 VM 上執行專案時，檔案都會掛接在根目錄中的 Jupyter 伺服器 （在 JupyterHub 中顯示的目錄），取代預設 Azure Notebooks 檔案。 當您關閉 VM 使用的位置**關機**notebook UI 中，Azure Notebooks 按鈕會還原預設檔案。
+
+![Azure Notebook 中的 [關機] 按鈕](media/shutdown.png)
+
+## <a name="create-new-dsvm-users"></a>建立新的 DSVM 使用者
+
+如果有多位使用者共用的 DSVM，您可以避免封鎖彼此建立並使用 DSVM 使用者針對每個 notebook 使用者：
+
+1. 在  [Azure 入口網站](https://portal.azure.com)，瀏覽至您的虛擬機器。
+1. 底下**支援與疑難排解**在左邊界中，選取**重設密碼**。
+1. 輸入新的使用者名稱和密碼，然後選取**更新**。 （不影響現有的使用者名稱。）
+1. 重複上一個步驟的任何其他使用者。
 
 ## <a name="next-steps"></a>後續步驟
 

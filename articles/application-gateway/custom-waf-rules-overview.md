@@ -1,22 +1,22 @@
 ---
-title: Azure Web 應用程式防火牆 (WAF) 的自訂規則
-description: 這篇文章概述的 web 應用程式防火牆 (WAF) Azure 應用程式閘道的自訂規則。
+title: Azure Web 應用程式防火牆 (WAF) v2 自訂規則
+description: 這篇文章提供 Azure 應用程式閘道 Web 應用程式防火牆 (WAF) v2 自訂規則的概觀。
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752039"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164652"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Web 應用程式防火牆的自訂規則
+# <a name="custom-rules-for-web-application-firewall-v2"></a>適用於 Web 應用程式防火牆 v2 的自訂規則
 
-Azure 應用程式閘道 web 應用程式防火牆 (WAF) 會隨附預先設定的平台管理的規則集，可從許多不同類型的攻擊的防護。 這些攻擊，包括跨網站指令碼、 SQL 插入式攻擊，與其他人。 如果您是 WAF 的系統管理員，您可能想要撰寫您自己的規則，以加強核心規則集 (CRS) 規則。 您的規則可以封鎖或允許根據比對準則的要求的流量。
+Azure 應用程式閘道 Web 應用程式防火牆 (WAF) v2 隨附預先設定的平台管理的規則集，可從許多不同類型的攻擊的防護。 這些攻擊，包括跨網站指令碼、 SQL 插入式攻擊，與其他人。 如果您是 WAF 的系統管理員，您可能想要撰寫您自己的規則，以加強核心規則集 (CRS) 規則。 您的規則可以封鎖或允許根據比對準則的要求的流量。
 
 自訂規則可讓您建立您自己會評估每個要求通過 WAF 的規則。 這些規則會保留在受管理的規則集的優先順序高於其他規則。 自訂規則包含規則的名稱、 規則優先順序和比對條件的陣列。 如果符合這些條件，會執行動作 （若要允許或封鎖）。
 

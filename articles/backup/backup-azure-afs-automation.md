@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
 ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204189"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>備份及還原 Azure 檔案和 PowerShell
@@ -31,18 +31,18 @@ ms.locfileid: "65204189"
 
 ## <a name="before-you-start"></a>開始之前
 
-- [详细了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。
+- [了解更多](backup-azure-recovery-services-vault-overview.md)有關復原服務保存庫。
 - 閱讀 預覽功能，如[備份 Azure 檔案共用](backup-azure-files.md)。
-- 查看恢复服务的 PowerShell 对象层次结构。
+- 檢閱復原服務的 PowerShell 物件階層。
 
 
 ## <a name="recovery-services-object-hierarchy"></a>復原服務物件階層
 
-下图汇总了对象层次结构。
+下圖摘要說明物件階層架構。
 
 ![復原服務物件階層](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-查看 Azure 库中的 **Az.RecoveryServices** [cmdlet 参考](/powershell/module/az.recoveryservices)。
+檢閱**Az.RecoveryServices** [指令程式參考](/powershell/module/az.recoveryservices)Azure 文件庫中的參考。
 
 
 ## <a name="set-up-and-install"></a>設定和安裝
@@ -288,7 +288,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 - 變數 **$rp**是選取備份的項目，從過去七天的復原點的陣列。
 - 陣列是以相反時間順序排序，最新復原點位於索引 **0**。
 - 使用標準 PowerShell 陣列索引來挑選復原點。
-- 在範例中，**$rp[0]** 會選取最新的復原點。
+- 在範例中， **$rp[0]** 會選取最新的復原點。
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)

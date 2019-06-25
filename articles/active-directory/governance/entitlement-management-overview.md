@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474060"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204543"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權限管理？ (預覽)
 
@@ -129,41 +129,6 @@ Azure AD 權限管理可以協助解決這些挑戰。
 | 資源目錄 | 有一或多個共用的資源目錄。 |
 | 指派的使用者 | 存取封裝的使用者或群組的指派。 |
 | enable | 讓使用者要求存取封裝程序。 |
-
-## <a name="roles-and-permissions"></a>角色和權限
-
-權利管理具有不同的角色，根據工作功能。
-
-| 角色 | 描述 |
-| --- | --- |
-| [使用者管理員](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | 管理權限管理的所有的層面。<br/>建立使用者和群組。 |
-| 類別目錄的建立者 | 建立及管理目錄。 通常是 IT 系統管理員或資源擁有者。 會自動建立目錄的人會成為類別目錄的第一個類別目錄的擁有者。 |
-| 目錄擁有者 | 編輯及管理現有的目錄。 通常是 IT 系統管理員或資源擁有者。 |
-| 存取封裝管理員 | 編輯和管理目錄內的所有現有存取套件。 |
-| 核准者 | 核准要求，以存取套件。 |
-| 要求者 | 要求存取套件。 |
-
-下表列出每個角色的權限。
-
-| Task | 使用者管理員 | 類別目錄的建立者 | 目錄擁有者 | 存取封裝管理員 | 核准者 |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [在一般的目錄中建立新的存取封裝](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [在目錄中建立新的存取封裝](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [新增/移除從存取套件的資源角色](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [指定誰可以要求存取套件](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [直接將使用者指派給存取套件](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [檢視指派給存取套件的人員](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [檢視存取套件的要求](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [檢視要求的傳遞錯誤](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [取消暫止的要求](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [隱藏存取套件](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [刪除存取封裝](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [核准存取要求](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [建立目錄](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [新增/移除從一般的目錄資源](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [新增/移除從目錄資源](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [新增目錄擁有者或存取套件管理員](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [編輯/刪除目錄](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 
 ## <a name="license-requirements"></a>授權需求
 

@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159262"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173869"
 ---
 下表依照閘道 SKU 顯示閘道類型和預估的彙總輸送量。 此表適用於 Resource Manager 與傳統部署模型。 
 

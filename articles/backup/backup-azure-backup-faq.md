@@ -2,18 +2,18 @@
 title: Azure 備份常見問題集
 description: '有關以下常見問題的解答：包括復原服務保存庫、可以備份的項目、其運作方式、加密和限制等 Azure 備份功能。 '
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.author: raynew
-ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.author: dacurwin
+ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688738"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275559"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 69122ffe9cefa3e1b9c6c8fbadfa80492ebebbde
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64928058"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>啟用磁碟新增至 Azure VM 的複寫
@@ -36,7 +36,7 @@ ms.locfileid: "64928058"
 
 本文假設您已已經設定災害復原，您要新增磁碟的 vm。 如果您還沒，請遵循[Azure 至 Azure 災害復原教學課程](azure-to-azure-tutorial-enable-replication.md)。 
 
-## <a name="enable-replication-for-an-added-disk"></a>針對新增的磁碟啟用複寫 
+## <a name="enable-replication-for-an-added-disk"></a>為新增的磁碟啟用複寫 
 
 若要啟用新增的磁碟的複寫，執行下列作業：
 

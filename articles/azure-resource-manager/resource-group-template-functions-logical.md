@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager 範本函式 - 邏輯 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來決定邏輯值的函式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405659"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205467"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
 
@@ -37,11 +31,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |有 |boolean |要檢查是否為 ture 的第一個值。 |
-| arg2 |有 |boolean |要檢查是否為 true 的第二個值。 |
-| 其他引數 |無 |boolean |要檢查是否為 true 的其他引數。 |
+| arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
+| arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
+| 其他引數 |否 |boolean |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -75,7 +69,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | Value |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -89,9 +83,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |有 |字串或整數 |要轉換為布林值的值。 |
+| arg1 |是 |字串或整數 |要轉換為布林值的值。 |
 
 ### <a name="return-value"></a>傳回值
 轉換值的布林值。
@@ -128,7 +122,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -143,11 +137,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| 條件 |有 |boolean |要檢查是否為 true 或 false 的值。 |
-| trueValue |有 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
-| falseValue |有 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
+| condition (條件) |是 |boolean |要檢查是否為 true 或 false 的值。 |
+| trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
+| falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -186,17 +180,17 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | yesOutput | 字串 | 是 |
-| noOutput | 字串 | 否 |
+| noOutput | 字串 | no |
 | objectOutput | Object | { "test": "value1" } |
 
 下列[範例範本](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json)示範如何使用此函式的有效期僅有條件的運算式。
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -248,9 +242,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |有 |boolean |要轉換的值。 |
+| arg1 |是 |boolean |要轉換的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -284,7 +278,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | Value |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -308,7 +302,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -320,11 +314,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |有 |boolean |要檢查是否為 ture 的第一個值。 |
-| arg2 |有 |boolean |要檢查是否為 true 的第二個值。 |
-| 其他引數 |無 |boolean |要檢查是否為 true 的其他引數。 |
+| arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
+| arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
+| 其他引數 |否 |boolean |要檢查是否為 true 的其他引數。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -358,7 +352,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | Value |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

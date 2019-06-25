@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107239"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>針對 Azure Windows VM 擴充功能的失敗進行疑難排解
@@ -67,5 +67,5 @@ Azure PowerShell：
 #### <a name="remove-the-extension-from-azure-powershell"></a>從 Azure PowerShell 移除擴充功能
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
-删除该扩展后，可以重新执行模板以在 VM 上运行脚本。
+一旦移除了延伸模組，範本就可以重新執行並在 VM 上執行指令碼。
 

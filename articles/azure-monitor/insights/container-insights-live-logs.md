@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075321"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274235"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何檢視記錄檔和事件，即時 （預覽）
 適用於容器的 azure 監視器包含的功能，目前為預覽狀態，而不需執行 kubectl 命令提供您的 Azure Kubernetes Service (AKS) 容器記錄檔 (stdout/stderr) 和事件的即時檢視。 當您選取其中一個選項時，新的窗格會出現下方的效能資料的資料表上**節點**，**控制站**，並**容器**檢視。 它會顯示即時記錄和容器引擎，進一步協助疑難排解問題所產生的事件。
@@ -77,6 +77,9 @@ AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如�
 
 >[!NOTE]
 >只能在新的 AKS 叢集的初始部署期間完成設定驗證與 Azure Active Directory 單一登入。 您無法針對已經部署的 AKS 叢集設定單一登入。
+  
+>[!IMPORTANT]
+>如果您重新設定 Azure AD 進行使用者驗證使用更新的 URI，請清除您的瀏覽器快取，以確保更新的驗證權杖會下載並套用。   
 
 ## <a name="view-live-logs-and-events"></a>檢視即時記錄檔和事件
 

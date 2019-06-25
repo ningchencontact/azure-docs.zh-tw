@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736661"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure 前端服務常見問題的解答
@@ -24,7 +24,7 @@ ms.locfileid: "60736661"
 
 1. 本文的留言區。
 2. [Azure 的前端服務 UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025)。
-3. **Microsoft 支援服務：** 若要建立新的支援要求，在 Azure 入口網站的 [說明] 索引標籤上，選取 [說明 + 支援] 按鈕，然後選取 [新增支援要求]。
+3. **Microsoft 支援服務：** 若要建立新的支援要求，在 Azure 入口網站的 [說明]  索引標籤上，選取 [說明 + 支援]  按鈕，然後選取 [新增支援要求]  。
 
 ## <a name="general"></a>一般
 

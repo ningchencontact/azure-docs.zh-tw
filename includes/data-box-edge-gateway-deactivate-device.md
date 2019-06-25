@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: aebb82690a7a49aba071ed64349d37d516208cca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67125620"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174440"
 ---
 若要重設您的裝置，您需要安全地清除的資料磁碟和您的裝置的開機磁碟上的所有資料。 
 

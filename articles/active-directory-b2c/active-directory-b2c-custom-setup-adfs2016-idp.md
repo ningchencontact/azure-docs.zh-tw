@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c469b333c6896d33b440bfadf0ebbdbeece71a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510439"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272142"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
@@ -101,6 +101,10 @@ ms.locfileid: "66510439"
 1. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
 2. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
 3. 按一下 [上傳]  。
+
+> [!NOTE]
+> Visual Studio code B2C 延伸模組會使用 「 socialIdpUserId。 」 也需要 ADFS 社交的原則。
+>
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f78ad8d58bb1bc760a31b792b44a4a39ed25e1f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161403"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>使用 Azure PowerShell 建立搭配 Azure Data Lake Storage Gen1 (作為附加儲存體) 的 HDInsight 叢集
@@ -155,7 +155,7 @@ ms.locfileid: "66161403"
 
 在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供憑證驗證為服務主體。 執行下列命令以在 Azure Active Directory 中建立應用程式。
 
-1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。 請確定您針對 **-DisplayName** 屬性指定的值是唯一的。 此外，**-HomePage** 和 **-IdentiferUris** 的值是預留位置值而不會受到驗證。
+1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。 請確定您針對 **-DisplayName** 屬性指定的值是唯一的。 此外， **-HomePage** 和 **-IdentiferUris** 的值是預留位置值而不會受到驗證。
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 

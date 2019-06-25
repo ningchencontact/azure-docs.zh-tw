@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: 適用於 MongoDB 的 Azure Cosmos DB API
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>如果您要將資料從 Azure 資料表儲存體移轉到 Azure Cosmos DB 的進階資料表供應項目，請使用表格 API。</p>
-            image:
-              src: media/index/table-api.svg
-            title: 資料表 API
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>如果您要將資料從 Cassandra 移轉到 Azure Cosmos DB 的完全受控服務，請使用 Cassandra API。</p>
             image:
               src: media/index/cassandra-api.png
             title: Cassandra API
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>如果您要將資料從 Azure 資料表儲存體移轉到 Azure Cosmos DB 的進階資料表供應項目，請使用表格 API。</p>
+            image:
+              src: media/index/table-api.svg
+            title: 資料表 API
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>使用適用於 Apache Spark 的內建支援，分析 Azure Cosmos 帳戶中儲存的資料。 </p>
+            image:
+              src: media/index/spark-logo.png
+            title: 內建分析搭配 Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: <p>讀取 Azure Cosmos DB 容器中儲存的文件清單，並以文件的修改順序做出排序，執行變更摘要的即時分析序。 </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: 變更摘要
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> Etcd API 可讓您使用 Azure Cosmos DB 作為 Azure Kubernetes 的後端儲存。</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: Etcd API
   - title: 5 分鐘快速入門
     items:
       - type: paragraph

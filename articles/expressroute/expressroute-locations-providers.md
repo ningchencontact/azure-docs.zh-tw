@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/11/2019
+ms.date: 06/18/2019
 ms.author: jaredr80
-ms.openlocfilehash: f7006a8162aab87bc36f3dae034f10daa3f37ac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3a29940c4ef904d813fa7400928448a5c48334a4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115445"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205959"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -46,9 +46,9 @@ ms.locfileid: "67115445"
 | **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、 Amsterdam2、 都柏林、 法蘭克福、 倫敦、 London2、 馬賽、 紐波特 （威爾斯）、 巴黎、 蘇黎士 |
 | **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、 芝加哥、 達拉斯、 丹佛、 內華達州拉斯維加斯、 洛杉磯、 邁阿密、 紐約、 聖安東尼奧、 西雅圖、 矽谷、 矽 Valley2、 Washington DC，華盛頓州 DC2、 蒙特婁、 魁北克市、 多倫多 |
 | **亞洲** | 2 |東亞、東南亞 |香港特別行政區，吉隆坡，新加坡、 新加坡 2、 台北 |
-| **澳大利亞** | 2 |澳洲東南部、澳洲東部 |墨爾本、伯斯、雪梨 | 
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
+| **大洋洲** | 2 |澳洲東南部、澳洲東部 |奧克蘭，墨爾本，伯斯省雪梨 | 
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
 | **UAE** | 3 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | 杜拜 Dubai2 |
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
@@ -77,23 +77,24 @@ ms.locfileid: "67115445"
 | **Location** | **對等互連位置擁有者** | **本機的 Azure 區域** | **服務提供者** |
 | --- | --- | --- | --- |
 | **阿姆斯特丹** | Equinix | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
-| **阿姆斯特丹2** | Interxion | 西歐 | DE-CIX、 Interxion |
+| **阿姆斯特丹2** | Interxion | 西歐 | DE-CIX、 Interxion、 Vodafone |
 | **亞特蘭大** | Equinix | n/a | Equinix、Megaport |
+| **奧克蘭** | Vocus | n/a | Devoli |
 | **斧山** |LG CNS | 南韓南部 | LG CNS |
 | **坎培拉** | CDC | 澳大利亞中部 | CDC |
 | **坎培拉2** | CDC | 澳大利亞中部 2| CDC |
 | **開普敦** | Teraco | 南非西部 | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **辰內** | Tata Communications | 印度南部 | Global CloudXchange (GCX)、SIFY、Tata Communications |
 | **辰內2** | Airtel | 印度南部 | Airtel |
-| **芝加哥** | Equinix | 美國中北部 | Aryaka Networks、 AT At&t NetBond、 Cologix、 Comcast、 Coresite、 Equinix、 InterCloud、 Internet2、 Level 3 Communications、 Megaport、 PacketFabric、 PCCW Global Limited、 衝刺 （sprint)、 Telia 電信業者、 Verizon、 Zayo |
+| **芝加哥** | Equinix | 美國中北部 | Aryaka Networks、 At&t NetBond AT、 CenturyLink Cloud Connect、 Cologix、 Comcast、 Coresite、 Equinix、 InterCloud、 Internet2、 Level 3 Communications、 Megaport、 PacketFabric、 PCCW Global Limited、 衝刺 （sprint)、 Telia 電信業者、 Verizon、 Zayo |
 | **達拉斯** | Equinix | n/a | Aryaka Networks、 AT At&t NetBond、 Cologix、 Equinix、 Internet2、 Level 3 Communications、 Megaport、 Neutrona Networks、 Telmex Uninet Telia 貨運公司，Transtelco、 Verizon、 Zayo|
 | **丹佛** | CoreSite | 美國中西部 | CoreSite、 Megaport、 Zayo |
 | **Dubai** | Etisalat 阿拉伯聯合大公國 | 阿拉伯聯合大公國北部 | Etisalat 阿拉伯聯合大公國 |
 | **Dubai2** | du datamena | 阿拉伯聯合大公國北部 | du datamena Orixcom |
 | **都柏林** | Equinix | 北歐 | Colt、eir、Equinix、Interxion、Megaport |
 | **法蘭克福** | Interxion | n/a | DE-CIX、 Interxion |
-| **中國香港特別行政區** | Equinix | 東亞 | Aryaka Networks、 British Telecom、 首席 Telecom、 China Telecom Global、 Equinix、 Megaport、 NTT Communications、 Orange、 PCCW Global Limited、 Tata Communications、 Verizon |
-| **約翰尼斯堡** | Teraco | 南非北部 | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
+| **中國香港特別行政區** | Equinix | 東亞 | Aryaka Networks、 British Telecom、 CenturyLink Cloud Connect、 首席 Telecom、 China Telecom Global、 Equinix、 Megaport、 NTT Communications、 Orange、 PCCW Global Limited、 Tata Communications、 Verizon |
+| **約翰尼斯堡** | Teraco | 南非北部 | British Telecom、 Internet Solutions-Cloud Connect、 Liquid Telecom、 Teraco |
 | **吉隆坡** | TIME dotCom | n/a | TIME dotCom |
 | **拉斯維加斯** | 參數 | n/a | CenturyLink Cloud Connect、Megaport |
 | **倫敦** | Equinix | 英國南部 | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
@@ -123,7 +124,7 @@ ms.locfileid: "67115445"
 | **台北** | Chief Telecom | n/a | 首席 Telecom、 FarEasTone |
 | **東京** | Equinix | 日本東部 | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Orange、Softbank、Verizon |
 | **多倫多** | Cologix | 加拿大中部 | At&t netbond、 Bell Canada、 CenturyLink Cloud Connect、 Cologix、 Equinix、 IX 觸達 Megaport、 Telus、 Verizon、 Zayo |
-| **華盛頓** | Equinix | 美國東部、 美國東部 2 | Aryaka Networks、 AT & At&t NetBond、 British Telecom、 Cologix、 Comcast、 Coresite、 Equinix、 Internet2、 InterCloud、 Level 3 Communications、 Megaport、 Neutrona Networks、 NTT Communications、 Orange、 PacketFabric、 衝刺 （sprint）、 Tata Communications、 Telia 貨運公司，Verizon、 Zayo |
+| **華盛頓** | Equinix | 美國東部、 美國東部 2 | Aryaka Networks、 AT At&t NetBond、 British Telecom、 CenturyLink Cloud Connect、 Cologix、 Comcast、 Coresite、 Equinix、 Internet2、 InterCloud、 Level 3 Communications、 Megaport、 Neutrona Networks、 NTT Communications、 Orange、 PacketFabric、 衝刺 （sprint）、 Tata通訊、 Telia 電信業者、 Verizon、 Zayo |
 | **華盛頓特區2** | Coresite | 美國東部、 美國東部 2 |Coresite | 
 | **Zurich** | Interxion | n/a | Interxion |
 

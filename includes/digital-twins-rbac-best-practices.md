@@ -9,11 +9,11 @@ ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119017"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174613"
 ---
 角色型存取控制是以繼承為導向、用來管理存取、權限和角色的安全性策略。 子系角色會繼承父角色的權限。 權限也可以另行指派，而不繼承自父角色。 此外也可以視需要指派權限以自訂角色。
 

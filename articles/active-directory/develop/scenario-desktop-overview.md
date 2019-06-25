@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d31011ca70bbebaf994b5fb80a45eee8dbde40
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076941"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204655"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>案例：傳統型應用程式呼叫 web Api
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>案例：呼叫 Web API 的傳統型應用程式
 
 了解您只需要建置傳統型應用程式呼叫 web Api
 
@@ -53,7 +53,7 @@ ms.locfileid: "65076941"
 
   ![桌面應用程式](media/scenarios/desktop-app.svg)
 
-- 如果您正在撰寫可攜式的命令列工具-可能在執行 Linux 或 Mac 上的.NET Core 應用程式-您將無法使用沒有互動式的驗證 (如.NET Core 不會提供[網頁瀏覽器](https://aka.ms/msal-net-uses-web-browser))，或整合式驗證Windows 驗證。 在此情況下最好的選擇是使用裝置程式碼流程。 此流程也可用於沒有瀏覽器中，例如 iOT 應用程式的應用程式
+- 如果您正在撰寫可攜式的命令列工具-可能在執行 Linux 或 Mac 上的.NET Core 應用程式-您將無法使用互動式驗證 (如.NET Core 不會提供[網頁瀏覽器](https://aka.ms/msal-net-uses-web-browser))，或整合式驗證Windows 驗證。 在此情況下最好的選擇是使用裝置程式碼流程。 此流程也可用於沒有瀏覽器中，例如 IoT 應用程式的應用程式
 
   ![Browserless 應用程式](media/scenarios/device-code-flow-app.svg)
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726803"
 ---
 # <a name="actor-timers-and-reminders"></a>動作項目計時器和提醒
@@ -129,7 +129,7 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 
 當回呼完成執行後，就會啟動下一期間的計時器。 這表示回呼執行時計時器將會停止，並在回呼完成時重新啟動。
 
-動作項目執行階段會儲存在回呼完成時，對動作項目的狀態管理員所做的變更。 如果保存状态时发生错误，则会停用该执行组件对象并激活一个新实例。
+動作項目執行階段會儲存在回呼完成時，對動作項目的狀態管理員所做的變更。 如果儲存狀態時發生錯誤，將會停用該動作項目物件並啟動新的執行個體。
 
 當動作項目在記憶體回收期間停用時，將會停止所有的計時器。 而在此之後不會叫用任何計時器回呼。 此外，動作項目執行階段並不保留任何停用前執行中的計時器資訊。 由動作項目來決定任何未來重新啟動時所需計時器的註冊。 如需詳細資訊，請參閱 [動作項目記憶體回收](service-fabric-reliable-actors-lifecycle.md)一節。
 
@@ -167,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-在此範例中， `"Pay cell phone bill"` 為該提醒名稱。 這是動作項目用來唯一識別提醒的一個字串。 `BitConverter.GetBytes(amountInDollars)`(C#) 為與提醒相關聯的內容。 它会作为提醒回调的参数传递回执行组件，即`IRemindable.ReceiveReminderAsync`(C#) 或 `Remindable.receiveReminderAsync`(Java)。
+在此範例中， `"Pay cell phone bill"` 為該提醒名稱。 這是動作項目用來唯一識別提醒的一個字串。 `BitConverter.GetBytes(amountInDollars)`(C#) 為與提醒相關聯的內容。 它會傳回給動作項目提醒回撥的引數為也就是`IRemindable.ReceiveReminderAsync`(C#) 或`Remindable.receiveReminderAsync`(Java)。
 
 使用提醒的動作項目必須實作 `IRemindable` 介面，如下列範例所示。
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723439"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>新增自訂 Service Fabric 健康狀態報告
@@ -151,7 +151,7 @@ GatewayInformation   : {
 一旦確定監視程式詳細資料，您應決定可識別它的唯一來源 ID。 如果叢集中有多個相同類型的看門狗在運作，它們必須報告不同的實體，如果它們報告相同的實體，請使用不同的來源 ID 或屬性。 如此一來，其報告才可並存。 健康狀態報告的屬性應該能擷取受監視的條件。 (針對上述範例，該屬性可能是 **ShareSize**)。如果多份報告套用至相同的條件，該屬性應該包含一些動態資訊，才可讓報告共存。 例如，如果需要監視多個共用，該屬性名稱可以是 **ShareSize-sharename**。
 
 > [!NOTE]
-> 請「勿」使用健康情況存放區來保留狀態資訊。 只有與健康狀態相關的資訊才該回報健康狀態，因為此資訊會影響實體的健康狀態評估資訊。 健康狀態存放區並非設計做為一般用途存放區。 它會使用健康狀態評估邏輯來彙總健康狀態的所有資料。 傳送與健康情況不相關的資訊 (例如在健康情況良好下報告狀態) 不會影響到彙總的健康情況，但可能對健康情況態存放區的效能造成負面影響。
+> 請「勿」  使用健康情況存放區來保留狀態資訊。 只有與健康狀態相關的資訊才該回報健康狀態，因為此資訊會影響實體的健康狀態評估資訊。 健康狀態存放區並非設計做為一般用途存放區。 它會使用健康狀態評估邏輯來彙總健康狀態的所有資料。 傳送與健康情況不相關的資訊 (例如在健康情況良好下報告狀態) 不會影響到彙總的健康情況，但可能對健康情況態存放區的效能造成負面影響。
 > 
 > 
 
@@ -176,7 +176,7 @@ GatewayInformation   : {
 
 轉換時的回報需要注意狀態處理。 監視程式會監視某些條件，只會在條件改變時才回報。 此方法的優點是需要較少的報告。 缺點是監視程式的邏輯很複雜。 看門狗必須維護條件或報告，如此才可進行檢查以判斷狀態變更。 在容錯移轉時，必須小心新增報告，但尚未傳送到健康情況存放區。 序號必須持續增加。 若非如此，報告會因為過時而被拒絕。 在造成資料遺失的少數情況下，可能需要同步處理報告程式的狀態與健康狀態存放區的狀態。
 
-透過 `Partition` 或 `CodePackageActivationContext` 進行轉換報告，對服務自行報告而言較為合理。 删除本地对象（副本或已部署的服务包/已部署的应用程序）时，也会删除它的所有报告。 此自動清除動作會放寬在報告程式和健康狀態資料存放區之間同步處理的需求。 如果報告是針對父分割區或父應用程式所製作，在容錯移轉時就必須小心謹慎，以避免在健康狀態資料存放區中產生過時的報告。 您必須新增邏輯來維護正確的狀態，並從存放區中清除不再需要的報告。
+透過 `Partition` 或 `CodePackageActivationContext` 進行轉換報告，對服務自行報告而言較為合理。 移除本機物件 (複本或已部署的服務封裝 / 已部署的應用程式) 時，也會移除它的所有報告。 此自動清除動作會放寬在報告程式和健康狀態資料存放區之間同步處理的需求。 如果報告是針對父分割區或父應用程式所製作，在容錯移轉時就必須小心謹慎，以避免在健康狀態資料存放區中產生過時的報告。 您必須新增邏輯來維護正確的狀態，並從存放區中清除不再需要的報告。
 
 ## <a name="implement-health-reporting"></a>實作健康狀態報告
 一旦清除了實體和報告的詳細資訊，即可透過 API、PowerShell 或 REST 完成傳送健康狀態報告。
@@ -184,7 +184,7 @@ GatewayInformation   : {
 ### <a name="api"></a>API
 若要透過 API 回報，您必須建立其想要回報的實體類型特有的健康狀態報告。 將此報告提供給健康狀態用戶端。 或者，建立健康狀態資訊，並將它傳遞至 `Partition` 或 `CodePackageActivationContext` 上正確的報告方法，以報告目前實體的健康狀態。
 
-以下示例演示如何从群集内的监视器定期发送报告。 監控程式會檢查是否能在節點內存取外部資源。 應用程式內服務資訊清單的所需資源。 如果無法使用該資源，應用程式內的其他服務仍然可以正常運作。 因此，會每隔 30 秒在已部署的服務封裝實體上傳送報告。
+下列範例示範如何從叢集內的監視程式中定期回報。 監控程式會檢查是否能在節點內存取外部資源。 應用程式內服務資訊清單的所需資源。 如果無法使用該資源，應用程式內的其他服務仍然可以正常運作。 因此，會每隔 30 秒在已部署的服務封裝實體上傳送報告。
 
 ```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");
@@ -254,7 +254,7 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:01:21 PM
 ```
 
-下列範例會回報在複本上的暫時性警告。 它先获取分区 ID，再获取所需服务的副本 ID。 然後從 **ResourceDependency** 屬性上的 **PowershellWatcher** 傳送報告。 此報告只需要存在 2 分鐘，就會從存放區中自動移除。
+下列範例會回報在複本上的暫時性警告。 它會先取得資料分割識別碼，再取得感興趣之服務的複本識別碼。 然後從 **ResourceDependency** 屬性上的 **PowershellWatcher** 傳送報告。 此報告只需要存在 2 分鐘，就會從存放區中自動移除。
 
 ```powershell
 PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
@@ -312,7 +312,7 @@ HealthEvents          :
 
 [使用系統健康狀態報告進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[在本地监视和诊断服务](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[在本機上監視及診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 

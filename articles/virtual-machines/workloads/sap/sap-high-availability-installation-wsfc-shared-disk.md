@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714351"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>在 Azure 中的 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上安裝 SAP NetWeaver HA
@@ -196,7 +196,7 @@ ms.locfileid: "60714351"
 
    _**圖 1：** 定義 SAP ASCS/SCS 叢集虛擬名稱和 TCP/IP 位址的 DNS 項目_
 
-2. 若要定義指派給虛擬主機名稱的 IP 位址，選取 [DNS 管理員] > [網域]。
+2. 若要定義指派給虛擬主機名稱的 IP 位址，選取 [DNS 管理員]   > [網域]  。
 
    ![圖 2：SAP ASCS/SCS 叢集設定的新虛擬名稱和 TCP/IP 位址][sap-ha-guide-figure-3047]
 
@@ -216,7 +216,7 @@ ms.locfileid: "60714351"
 接下來幾個步驟並未在標準 SAP 安裝文件中說明。
 
 > [!NOTE]
-> SAP 安装文档介绍了如何安装第一个 ASCS/SCS 群集节点。
+> SAP 安裝文件說明如何安裝第一個 ASCS/SCS 叢集節點。
 >
 >
 
@@ -231,7 +231,7 @@ ms.locfileid: "60714351"
    ```
    enque/encni/set_so_keepalive = true
    ```
-   在本例中，路径为：
+   在我們的範例中，路徑為：
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
 
@@ -243,7 +243,7 @@ ms.locfileid: "60714351"
 
 ### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> 新增探查連接埠
 
-使用內部負載平衡器探查功能，讓整個叢集組態使用 Azure Load Balancer。 Azure 内部负载均衡器通常在参与的虚拟机之间平均分配传入的工作负荷。
+使用內部負載平衡器探查功能，讓整個叢集組態使用 Azure Load Balancer。 Azure 內部負載平衡器通常會在參與的虛擬機器之間，平均分配內送的工作負載。
 
  不過，這對某些叢集組態不會產生作用，因為只有一個執行個體是主動的。 另一個執行個體是被動的，而且不接受任何工作負載。 Azure 內部負載平衡器僅將工作指派給主動的執行個體時，探查功能才可提供協助。 使用探查功能，內部負載平衡器便能夠偵測哪些執行個體是主動的，然後只以該執行個體作為工作負載的目標。
 
@@ -363,7 +363,7 @@ ms.locfileid: "60714351"
 
 ## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> 變更 SAP ERS Windows 服務執行個體的啟動類型
 
-將兩個叢集節點上 SAP ERS Windows 服務的啟動類型都變更為 [自動 (延遲啟動)]。
+將兩個叢集節點上 SAP ERS Windows 服務的啟動類型都變更為 [自動 (延遲啟動)]  。
 
 ![圖 5：將 SAP ERS 執行個體的服務類型變更為延遲的自動類型][sap-ha-guide-figure-3050]
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082621"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272775"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>部署模型使用自訂的 Docker 映像
 
@@ -43,6 +43,7 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
 * Azure 機器學習服務工作群組中。 如需詳細資訊，請參閱 <<c0> [ 建立工作區](setup-create-workspace.md)文章。
 * Azure Machine Learning SDK。 如需詳細資訊，請參閱 > 一節 Python SDK[建立工作區](setup-create-workspace.md#sdk)文章。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+* [適用於 Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)。
 * [Azure Container Registry](/azure/container-registry)或可在網際網路存取其他 Docker 登錄。
 * 這份文件中的步驟假設您熟悉建立和使用__推斷組態__物件做為模型部署的一部分。 如需詳細資訊，請參閱 「 準備部署 」 一節[部署位置和方式](how-to-deploy-and-where.md#prepare-to-deploy)。
 

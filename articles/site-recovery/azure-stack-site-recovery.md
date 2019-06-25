@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399603"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>將 Azure Stack VM 複寫至 Azure
@@ -43,7 +43,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 ![架構](./media/azure-stack-site-recovery/architecture.png)
 
-**位置** | **元件** |**詳細資料**
+**Location** | **元件** |**詳細資料**
 --- | --- | ---
 **組態伺服器** | 在單一 Azure Stack VM 上執行。 | 在每個訂用帳戶中，設定組態伺服器 VM。 此 VM 會執行下列 Site Recovery 元件：<br/><br/> - 組態伺服器：負責協調內部部署與 Azure 之間的通訊，以及管理資料複寫。 - 處理序伺服器：會做為複寫閘道器。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 如果您要複寫的 VM 超過以下所述的限制，您可以設定個別的獨立處理序伺服器。 [深入了解](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale)。
 **行動服務** | 安裝在您要複寫的每部 VM 上。 | 在本文的步驟中，我們準備了一個帳戶，讓行動服務會在複寫啟用時自動安裝在 VM 上。 如果您不想要自動安裝服務，還有一些其他方法可以使用。 [深入了解](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service)。
@@ -68,7 +68,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 **需求** | **詳細資料**
 --- | ---
 **Azure 訂用帳戶** | 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-**Azure 帳戶權限** | 您使用的 Azure 帳戶需要以下權限：<br/><br/> - 建立復原服務保存庫<br/><br/> - 在您用於此情節的資源群組與虛擬網路中建立虛擬機器<br/><br/> - 寫入您指定的儲存體帳戶<br/><br/> 請注意：<br/><br/> - 如果您建立帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> - 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。<br/><br/> - 如果您需要更細微的權限，請檢閱[此文章](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)。 
+**Azure 帳戶權限** | 您使用的 Azure 帳戶需要以下權限：<br/><br/> - 建立復原服務保存庫<br/><br/> - 在您用於此情節的資源群組與虛擬網路中建立虛擬機器<br/><br/> - 寫入您指定的儲存體帳戶<br/><br/> 請注意：<br/><br/> \- 如果您建立帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> - 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。<br/><br/> - 如果您需要更細微的權限，請檢閱[此文章](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control)。 
 **Azure Stack VM** | 您的租用戶月租方案中需要有 Azure Stack VM，它將部署成 Site Recovery 組態伺服器。 
 
 

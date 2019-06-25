@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075321"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055761"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>精靈應用程式呼叫 web Api-程式碼組態
 
@@ -39,9 +39,11 @@ ms.locfileid: "65075321"
 
 ## <a name="configuration-of-the-authority"></a>授權單位設定
 
-假設精靈應用程式不使用委派的權限，但應用程式的權限，其*支援的帳戶類型*不能是*任何組織的目錄中的帳戶及個人 Microsoft 帳戶 （比方說，Skype、 Xbox、 Outlook.com)*。 事實上，沒有任何租用戶系統管理員將 Microsoft 個人帳戶的精靈應用程式的同意授與。 您必須選擇*我的組織中的帳戶*或是*任何組織中的帳戶*。
+假設精靈應用程式不使用委派的權限，但應用程式的權限，其*支援的帳戶類型*不能是*任何組織的目錄中的帳戶及個人 Microsoft 帳戶 （比方說，Skype、 Xbox、 Outlook.com)* 。 事實上，沒有任何租用戶系統管理員將 Microsoft 個人帳戶的精靈應用程式的同意授與。 您必須選擇*我的組織中的帳戶*或是*任何組織中的帳戶*。
 
-因此在應用程式組態中指定的授權單位應該是租用戶 ed （指定租用戶識別碼或與您組織相關聯的網域名稱）。 如果您是 ISV，若要提供多租用戶的工具，您可以使用`organizations`。 但請記住，您也需要為您的客戶，說明如何授與系統管理員同意。 請參閱[要求對整個租用戶的同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)如需詳細資訊
+因此在應用程式組態中指定的授權單位應該是租用戶 ed （指定租用戶識別碼或與您組織相關聯的網域名稱）。
+
+如果您是 ISV，若要提供多租用戶的工具，您可以使用`organizations`。 但請記住，您也需要為您的客戶，說明如何授與系統管理員同意。 請參閱[要求對整個租用戶的同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)如需詳細資訊。 也沒有目前限制在 MSAL，`organizations`用戶端認證是應用程式祕密 （而非憑證） 時，才允許。 請參閱[MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>應用程式組態和具現化
 

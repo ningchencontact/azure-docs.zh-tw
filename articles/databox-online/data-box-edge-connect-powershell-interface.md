@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717494"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>管理透過 Windows PowerShell 的 Azure 資料方塊的邊緣裝置
@@ -43,7 +43,7 @@ Azure 資料方塊邊緣解決方案可讓您處理資料，並透過網路傳�
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-您也可以上傳 IoT Edge 的憑證，以啟用您的 IoT Edge 裝置，可能會連線到它的下游裝置之間的安全連線。 有三個 IoT Edge 憑證 (*.pem*格式)，您需要安裝：
+您也可以上傳 IoT Edge 的憑證，以啟用您的 IoT Edge 裝置，可能會連線到它的下游裝置之間的安全連線。 有三個 IoT Edge 憑證 ( *.pem*格式)，您需要安裝：
 
 - 根 CA 憑證或擁有者 CA
 - 裝置 CA 憑證

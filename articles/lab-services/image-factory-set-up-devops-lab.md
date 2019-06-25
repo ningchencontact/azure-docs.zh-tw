@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61320310"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>從 Azure DevOps 執行映像處理站
@@ -44,7 +44,7 @@ Azure 的 DevOps 可讓您儲存的原始碼、 執行 Azure PowerShell 在一�
 
 如果您有現有的 DevOps 帳戶或您想要改為使用的專案，請略過此步驟。
 
-若要開始，建立 Azure DevOps 中的免費帳戶。 請瀏覽 https://www.visualstudio.com/，然後選取**免費開始**正下方**Azure DevOps** (先前稱為 VSTS)。 您必須選擇唯一的帳戶名稱，然後請務必選擇管理使用 Git 的程式碼。 這建立之後，儲存到您的 team 專案的 URL。 以下是範例 URL: `https://<accountname>.visualstudio.com/MyFirstProject`。
+若要開始，建立 Azure DevOps 中的免費帳戶。 請瀏覽 https://www.visualstudio.com/ ，然後選取**免費開始**正下方**Azure DevOps** (先前稱為 VSTS)。 您必須選擇唯一的帳戶名稱，然後請務必選擇管理使用 Git 的程式碼。 這建立之後，儲存到您的 team 專案的 URL。 以下是範例 URL: `https://<accountname>.visualstudio.com/MyFirstProject`。
 
 ## <a name="check-in-the-image-factory-to-git"></a>簽入至 Git 的映像處理站
 所有的 PowerShell、 範本和映像處理站的設定位於[公用 DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)。 取得程式碼到新的 team 專案的最快方式是匯入存放庫。 （如此您才能取得額外的文件和範例），這會在整個研發/測試實驗室的儲存機制中提取。
@@ -52,7 +52,7 @@ Azure 的 DevOps 可讓您儲存的原始碼、 執行 Azure PowerShell 在一�
 1. 請瀏覽您在上一個步驟中建立 Azure DevOps 專案 (URL 看起來**https:\//\<accountname >.visualstudio.com/MyFirstProject**)。
 2. 選取 **匯入存放庫**。
 3. 請輸入**複製 URL** DevTest Labs 存放庫： `https://github.com/Azure/azure-devtestlab`。
-4. 選取 [匯入]。
+4. 選取 [匯入]  。
 
     ![匯入 Git 存放庫](./media/set-up-devops-lab/import-git-repo.png)
 
@@ -78,7 +78,7 @@ Azure 的 DevOps 可讓您儲存的原始碼、 執行 Azure PowerShell 在一�
 若要簡化的命令列參數，會封裝一組組建變數到磁碟機映像處理站的索引鍵值。 選取 **變數**索引標籤，您會看到數個預設變數的清單。 以下是 Azure devops 中輸入變數的清單：
 
 
-| 變數名稱 | Value | 注意 |
+| 變數名稱 | 值 | 注意 |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | 這是儲存機制中的完整路徑**組態**資料夾。 如果您匯入上述整個存放庫，左邊的值是正確的。 否則請更新指向設定位置。 |
 | DevTestLabName | MyImageFactory | Azure DevTest Labs 實驗室中用做為 factory 來產生映像的名稱。 如果您沒有帳戶，建立一個。 請確定實驗室服務端點可存取的相同訂用帳戶。 |

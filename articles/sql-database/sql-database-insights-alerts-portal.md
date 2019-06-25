@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035924"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
@@ -47,19 +47,19 @@ ms.locfileid: "61035924"
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 入口網站建立計量的警示規則
 1. 在 [入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取。
-2. 選取 [監視] 區段底下的 [警示 (傳統)]。 不同資源的文字和圖示會有些許不同。  
+2. 選取 [監視] 區段底下的 [警示 (傳統)]  。 不同資源的文字和圖示會有些許不同。  
    
      ![監視](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **僅限 SQL DW**：按一下 [DWU 使用量] 圖表。 選取 [檢視傳統警示]
+   - **僅限 SQL DW**：按一下 [DWU 使用量]  圖表。 選取 [檢視傳統警示] 
 
-3. 選取 [新增計量警示 (傳統)] 按鈕，並填寫各欄位。
+3. 選取 [新增計量警示 (傳統)]  按鈕，並填寫各欄位。
    
     ![新增警示](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. 為您的警示規則命名 ([名稱])，選擇將會顯示在電子郵件通知中的 [描述]。
-5. 選取您要監視的 [計量]，然後為計量選擇 [條件] 和 [臨界值]。 同時選擇警示觸發程序之前，計量規則必須滿足的 [期間]。 例如，如果您使用「PT5M」期間，且您的警示會尋找高於 80% 的 CPU，當**平均** CPU 已高於 80% 5 分鐘，就會觸發警示。 一旦發生第一次觸發，它會在平均 CPU 低於 80 % 5 分鐘時再次觸發。 CPU 度量每隔 1 分鐘發生一次。 支援的時間範圍，請參閱下方的資料表，並彙總輸入每個警示會使用 not 所有警示都使用的平均值。   
+4. 為您的警示規則命名 ([名稱]  )，選擇將會顯示在電子郵件通知中的 [描述]  。
+5. 選取您要監視的 [計量]  ，然後為計量選擇 [條件]  和 [臨界值]  。 同時選擇警示觸發程序之前，計量規則必須滿足的 [期間]  。 例如，如果您使用「PT5M」期間，且您的警示會尋找高於 80% 的 CPU，當**平均** CPU 已高於 80% 5 分鐘，就會觸發警示。 一旦發生第一次觸發，它會在平均 CPU 低於 80 % 5 分鐘時再次觸發。 CPU 度量每隔 1 分鐘發生一次。 支援的時間範圍，請參閱下方的資料表，並彙總輸入每個警示會使用 not 所有警示都使用的平均值。   
 6. 如果您想要在警示引發時傳送電子郵件給系統管理員和共同管理員，請勾選 [電子郵件的擁有者...]  。
-7. 如果您想要讓其他電子郵件信箱在警示引發時收到通知，在 [其他系統管理員電子郵件]  欄位新增它們。 用分号隔开多个电子邮件 - *email\@contoso.com;email2\@contoso.com*
+7. 如果您想要讓其他電子郵件信箱在警示引發時收到通知，在 [其他系統管理員電子郵件]  欄位新增它們。 以分號區隔-分隔多個電子郵件*電子郵件\@contoso.com;email2\@contoso.com*
 8. 如果您想在警示引發時呼叫webhook，在[webhook]  欄位中放入有效的 URI。
 9. 完成後選取 [確定]  建立警示。   
 

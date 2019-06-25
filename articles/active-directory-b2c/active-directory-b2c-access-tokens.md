@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 1a545f1e0fd1360d9147280454fb8b75bf216152
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507381"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>要求存取權杖中 Azure Active Directory B2C
@@ -111,7 +111,7 @@ grant_type=authorization_code
 }
 ```
 
-當使用 https://jwt.ms若要檢查傳回的存取權杖，您應該會看到類似下列的範例：
+當使用 https://jwt.ms 若要檢查傳回的存取權杖，您應該會看到類似下列的範例：
 
 ```
 {

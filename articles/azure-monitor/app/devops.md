@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899606"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 深入診斷 Web 應用程式
@@ -133,7 +133,7 @@ Web 系統中的失敗通常是由組態問題或其許多元件之間的互動�
 * 針對特定使用者追蹤工作階段與回應時間，讓支援和營運團隊能夠提供即時客戶支援。
 * 判斷常用的應用程式功能來回答應優先考慮的功能問題。
 
-客戶 DNN 說：「Application Insights 為我們提供了方程式中遺漏的部分，以便我們能夠視需要結合、排序、查詢及篩選資料。 讓我們的團隊可以使用他們自己的創意和體驗，利用功能強大的查詢語言來尋找資料，讓我們能夠得到相關見解，並解決我們甚至不曾知道我們發生的問題。 許多有趣的答案都是來自開頭為『我想知道如果...』的問題。」
+客戶 DNN 說：「Application Insights 為我們提供了方程式中遺漏的部分，以便我們能夠視需要結合、排序、查詢及篩選資料。 讓我們的團隊可以使用他們自己的創意和體驗，利用功能強大的查詢語言來尋找資料，讓我們能夠得到相關見解，並解決我們甚至不曾知道我們發生的問題。 許多有趣的答案都是來自開頭為『我想知道如果...』  的問題。」
 
 ## <a name="development-tools-integration"></a>開發工具整合
 ### <a name="configuring-application-insights"></a>設定 Application Insights

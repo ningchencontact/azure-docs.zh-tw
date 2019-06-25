@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: aed332f32fa9fdc154c72e45914e642a9dad4993
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055707"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什麼是 Azure Active Directory 架構？
 Azure Active Directory (Azure AD) 可讓您安全地管理您使用者的 Azure 服務和資源存取權。 Azure AD 隨附一套完整的身分識別管理功能。 如需 Azure AD 功能的詳細資訊，請參閱[什麼是 Azure Active Directory？](active-directory-whatis.md)
@@ -95,7 +95,7 @@ Azure AD 的運作方式跨資料中心具有下列特性：
 
 Azure AD 會對以次要複本為目標的應用程式提供讀寫一致性，其做法是將其寫入路由傳送至主要複本，並以同步方式將寫入提取回到次要複本。
 
-使用 Azure AD 圖形 API 的應用程式寫入會為了讀寫一致性，而從維護目錄複本同質性中抽取出來。 Azure AD 圖形服務會維護邏輯工作階段，其具有用於讀取之次要複本的同質性；在圖形服務使用分散式快取所快取的「複本權杖」中可擷取同質性。 此權杖則會接著用於相同邏輯工作階段中的後續作業。 
+使用 Azure AD 圖形 API 的應用程式寫入會為了讀寫一致性，而從維護目錄複本同質性中抽取出來。 Azure AD Graph 服務會維護邏輯工作階段親和性可用於讀取; 的次要複本親和性會擷取 「 複本權杖 」 中的 graph 服務快取使用分散式快取在次要複本的資料中心。 此權杖則會接著用於相同邏輯工作階段中的後續作業。 若要繼續使用相同的邏輯工作階段，後續的要求必須路由傳送至相同的 Azure AD 資料中心。 就無法繼續邏輯工作階段目錄用戶端要求會路由傳送到多個 Azure AD 的資料中心;如果發生這種情況的用戶端就會有多個邏輯工作階段具有獨立的讀寫一致性。
 
  >[!NOTE]
  >寫入會立即複寫到邏輯工作階段的讀取所發行至的次要複本。

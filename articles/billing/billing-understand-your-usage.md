@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683993"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275064"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>了解您的 Azure 使用量和費用檔案中的詞彙
 
@@ -72,6 +72,7 @@ InvoiceSection | MCA | 請參閱 InvoiceSectionName。
 InvoiceSectionId | EA, MCA | EA 部門或 MCA 發票區段的唯一識別碼。
 InvoiceSectionName | EA, MCA | EA 部門或 MCA 發票區段的名稱。
 IsAzureCreditEligible | EA, MCA | 指出是否能夠使用 Azure 信用額度支付的費用 (值：True、 False)。
+IsEstimated | 全部 | 指出是否在計費週期關閉/完成。 使用方式資料可以變更在計費期間內，直到產生發票。 這些記錄會標示為 「 預估 」。
 位置 | EA, MCA | 正在執行資源的資料中心位置。
 計量類別目錄 | 全部 | 計量的分類類別目錄的名稱。 例如，*雲端服務*並*網路*。
 計量識別碼 | 全部 | 計量的唯一識別碼。

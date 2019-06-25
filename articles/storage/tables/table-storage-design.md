@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848277"
 ---
 # <a name="design-scalable-and-performant-tables"></a>設計可擴充且具效能的資料表
@@ -49,8 +49,8 @@ ms.locfileid: "60848277"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>年齡</th>
-<th>電子郵件</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Don</td>
@@ -61,7 +61,7 @@ ms.locfileid: "60848277"
 </table>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>行銷</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
@@ -69,8 +69,8 @@ ms.locfileid: "60848277"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>年齡</th>
-<th>電子郵件</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Jun</td>
@@ -106,8 +106,8 @@ ms.locfileid: "60848277"
 <tr>
 <th>名字</th>
 <th>姓氏</th>
-<th>年齡</th>
-<th>電子郵件</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -135,7 +135,7 @@ ms.locfileid: "60848277"
 如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)。  
 
 ## <a name="entity-group-transactions"></a>實體群組交易
-在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 EGT 有時也稱為「批次交易」。 EGT 僅能對相同分割 (亦即，共用指定表格中的相同分割索引鍵) 中儲存的實體進行作業。 因此每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確定這些實體位於相同的分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
+在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 EGT 有時也稱為「批次交易」  。 EGT 僅能對相同分割 (亦即，共用指定表格中的相同分割索引鍵) 中儲存的實體進行作業。 因此每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確定這些實體位於相同的分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
 
 EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較多分割會增加應用程式的延展性，因為 Azure 有更多機會可在多個節點間執行負載平衡要求。 但是，使用多個分割可能會在應用程式執行不可部分完成的交易時，及維護資料的嚴格一致性時造成限制。 此外，還有些在分割層級上的特定延展性目標，可能會限制單一節點的預期交易輸送量。 如需深入了解 Azure 儲存體帳戶和表格服務的延展性目標，請參閱 [Azure 儲存體延展性和效能目標](../../storage/common/storage-scalability-targets.md)。   
 
@@ -145,14 +145,14 @@ EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較
 | Azure 儲存體帳戶的容量總計 | 500 TB |
 | --- | --- |
 | Azure 儲存體帳戶中的資料表數目 |僅受限於儲存體帳戶的容量 |
-| 資料表中的資料分割數目 |仅受存储帐户的容量限制 |
+| 資料表中的資料分割數目 |僅受限於儲存體帳戶的容量 |
 | 資料分割中的實體數目 |僅受限於儲存體帳戶的容量 |
 | 個別實體的大小 |最多 1 MB 和 255 個屬性 (包括 **PartitionKey**、**RowKey** 和 **Timestamp**) |
-|  **PartitionKey** |大小最大为 1 KB 的字符串 |
-|  **RowKey** |大小最多 1 KB 的字串 |
+| **PartitionKey** |大小最多 1 KB 的字串 |
+| **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
-有关详细信息，请参阅 [了解表服务数据模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
+如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
 
 ## <a name="cost-considerations"></a>成本考量
 表格儲存體比較便宜，但您在評估任何表格服務方案時，均應將容量使用量和交易數目的成本預估同時納入考量。 不過，在許多情況下，儲存反正規化或重複的資料以改善方案的效能或延展性，也是有效措施。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。  

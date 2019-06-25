@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61386024"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure 監視器中的 VMware 監視 （已過時） 解決方案
@@ -47,10 +47,10 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
    ![syslog 流程](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>設定 syslog 收集
-1. 設定 VSphere 的 syslog 轉送。 如需協助設定 syslog 轉送的詳細資訊，請參閱[設定 ESXi 5.0 和更新版本上的 syslog (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322)。 移至 [ESXi 主機組態]  >  [軟體]  >  [進階設定]  >  [Syslog]。
+1. 設定 VSphere 的 syslog 轉送。 如需協助設定 syslog 轉送的詳細資訊，請參閱[設定 ESXi 5.0 和更新版本上的 syslog (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322)。 移至 [ESXi 主機組態]   >  [軟體]   >  [進階設定]   >  [Syslog]  。
    ![vsphereconfig](./media/vmware/vsphere1.png)  
-1. 在 [Syslog.global.logHost] 欄位中，新增您的 Linux 伺服器和連接埠號碼 1514。 例如，`tcp://hostname:1514` 或 `tcp://123.456.789.101:1514`。
-1. 為 syslog 開啟 ESXi 主機防火牆。 [ESXi 主機組態]  >  [軟體]  >  [安全性設定檔]  >  [防火牆]，然後開啟 [屬性]。  
+1. 在 [Syslog.global.logHost]  欄位中，新增您的 Linux 伺服器和連接埠號碼 1514  。 例如，`tcp://hostname:1514` 或 `tcp://123.456.789.101:1514`。
+1. 為 syslog 開啟 ESXi 主機防火牆。 [ESXi 主機組態]   >  [軟體]   >  [安全性設定檔]   >  [防火牆]  ，然後開啟 [屬性]  。  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
@@ -71,7 +71,7 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. 在 Azure 入口網站中執行的記錄查詢`VMware_CL`。 當 Azure 監視器會收集 syslog 資料時，它會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
+1. 在 Azure 入口網站中執行的記錄查詢`VMware_CL`。 當 Azure 監視器會收集 syslog 資料時，它會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname  和 ProcessName  。  
 
     ![type](./media/vmware/type.png)  
 
@@ -84,7 +84,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 | 平台 | Log Analytics Linux 代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |&#8226; |  |  |  |  |每隔 3 分鐘 |
+| Linux |&#8226; |  |  |  |  |每隔 3 分鐘 |
 
 下表顯示由 VMware 監控解決方案收集的資料欄位範例︰
 
@@ -115,7 +115,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 ![圖格](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>瀏覽儀表板檢視
-在 VMware 儀表板檢視中，各刀鋒視窗組織如下︰
+在 VMware  儀表板檢視中，各刀鋒視窗組織如下︰
 
 * 失敗狀態計數
 * 依事件計數的主機前幾名
@@ -158,7 +158,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 
 #### <a name="save-queries"></a>儲存查詢
-正在儲存記錄檔查詢是在 Azure 監視器中的標準功能，並可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](../learn/tutorial-logs-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
+正在儲存記錄檔查詢是在 Azure 監視器中的標準功能，並可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛]  儲存它。 儲存的查詢讓您之後可從 [我的儀表板](../learn/tutorial-logs-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 

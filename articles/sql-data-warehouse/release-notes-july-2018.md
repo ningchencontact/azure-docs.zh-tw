@@ -11,22 +11,22 @@ ms.date: 08/06/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4ec90bef9228eccb9556d07bb5680deb00e2550e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912181"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 7 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 7 月導入的新功能和變更。
 
 ## <a name="lightning-fast-query-performance"></a>快速查詢效能
-[Azure SQL 資料倉儲](https://aka.ms/sqldw)引進可改善壓縮作業的「即時資料存取」工具，確立新的效能基準。 透過使用直接 SQL Server 對 SQL Server 原生資料作業，「即時資料存取」可減少資料移動作業的額外負荷。 與 SQL Server 引擎直接整合進行資料移動，表示使用衍生自公認的業界標準 [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/) 的工作負載時，SQL 資料倉儲現在的**速度比 Amazon Redshift 快 67%**。
+[Azure SQL 資料倉儲](https://aka.ms/sqldw)引進可改善壓縮作業的「即時資料存取」工具，確立新的效能基準。 透過使用直接 SQL Server 對 SQL Server 原生資料作業，「即時資料存取」可減少資料移動作業的額外負荷。 與 SQL Server 引擎直接整合進行資料移動，表示使用衍生自公認的業界標準 [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/) 的工作負載時，SQL 資料倉儲現在的**速度比 Amazon Redshift 快 67%** 。
 
 ![和 Amazon Redshift 相比，Azure SQL 資料倉儲是更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
 <sub>的來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
 
-除了執行階段效能，[Gigaom 研究](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)報告也測量性價比，以量化特定工作負載的美金成本。 和 Redshift 相比，同樣處理 30 TB 的工作負載，SQL 資料倉儲**至少便宜 23%**。 透過 SQL 資料倉儲可彈性調整計算並能暫停和繼續工作負載的能力，客戶只須支付服務使用期間的費用，進而降低其成本。
+除了執行階段效能，[Gigaom 研究](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)報告也測量性價比，以量化特定工作負載的美金成本。 和 Redshift 相比，同樣處理 30 TB 的工作負載，SQL 資料倉儲**至少便宜 23%** 。 透過 SQL 資料倉儲可彈性調整計算並能暫停和繼續工作負載的能力，客戶只須支付服務使用期間的費用，進而降低其成本。
 ![和 Amazon Redshift 相比，Azure SQL 資料倉儲是更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>的來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
 
@@ -44,7 +44,7 @@ SQL 資料倉儲可提升這些查詢效能與查詢並行存取，而價格不�
 如需詳細資訊，請參閱部落格文章：[加速且具彈性的還原點](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/)。
 
 ## <a name="20-minute-restorations"></a>20 分鐘還原
-SQL 資料倉儲現在可讓您在 **20 分鐘內**還原相同區域內的任何資料倉儲 (不論任何資料庫大小)。 還原時間會與還原到相同區域內的相同或不同邏輯伺服器有關。 此外，快照集處理程序已經過改良，可減少建立還原點的時間。 在較低效能層級 (較低的 DWU 設定) 中，改善的幅度是將建立快照集的時間「減少 2 倍」。
+SQL 資料倉儲現在可讓您在 **20 分鐘內**還原相同區域內的任何資料倉儲 (不論任何資料庫大小)。 還原時間會與還原到相同區域內的相同或不同邏輯伺服器有關。 此外，快照集處理程序已經過改良，可減少建立還原點的時間。 在較低效能層級 (較低的 DWU 設定) 中，改善的幅度是將建立快照集的時間「減少 2 倍」  。
 
 如需詳細資訊，請參閱部落格文章：[加速且具彈性的還原點](https://azure.microsoft.com/blog/accelerated-and-flexible-restore-points-with-sql-data-warehouse/)。
 

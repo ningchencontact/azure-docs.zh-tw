@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135793"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
@@ -41,13 +41,13 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 您可以下載現有 Azure 資源管理員範本，以透過 Github 建立虛擬網路和兩個子網路，然後進行任何需要的變更，並重複使用該範本。 若要這樣做，請使用下列步驟：
 
 1. 瀏覽至[建立已啟用 Web 應用程式防火牆的應用程式閘道](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf)
-1. 依序按一下 [azuredeploy.json] 和 [RAW]。
+1. 依序按一下 [azuredeploy.json]  和 [RAW]  。
 1. 將檔案儲存至您電腦上的本機資料夾。
 1. 如果您熟悉 Azure 資源管理員範本的使用方式，請跳至步驟 7。
 1. 開啟您儲存的檔案，查看 **parameters** 這行下方的內容。
 1. Azure 資源管理員範本的參數提供值的預留位置，可以在部署期間填寫。
 
-   | 參數 | 說明 |
+   | 參數 | 描述 |
    | --- | --- |
    | **subnetPrefix** |應用程式閘道子網路的 CIDR 區塊。 |
    | **applicationGatewaySize** | 應用程式閘道的大小。  WAF 只允許中型和大型。 |
@@ -65,7 +65,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
    * **屬性**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
 1. 巡覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
-1. 按一下 [azuredeploy-parameters.json]，然後按一下 [RAW]。
+1. 按一下 [azuredeploy-parameters.json]  ，然後按一下 [RAW]  。
 1. 將檔案儲存至您電腦上的本機資料夾。
 1. 開啟您儲存的檔案，以編輯參數的值。 使用下列值來部署本文案例所述的應用程式閘道。
 
@@ -161,9 +161,9 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (or --name)**。 新資源群組的名稱。 在本文案例中為「appgatewayRG」 。
+    **-n (or --name)** 。 新資源群組的名稱。 在本文案例中為「appgatewayRG」  。
     
-    **-l (或 --location)**。 建立新資源群組的 Azure 區域。 在我們的案例中為 *westus*。
+    **-l (或 --location)** 。 建立新資源群組的 Azure 區域。 在我們的案例中為 *westus*。
 
 1. 執行 `az group deployment create` Cmdlet，使用在上一個步驟中下載並修改的範本和參數檔案來部署新的虛擬網路。 輸出後顯示的清單可說明所使用的參數。
 
@@ -181,13 +181,13 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
     ![部署至 Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
-1. 在入口網站上填寫適用於部署範本的參數，然後按一下 [確定] 。
+1. 在入口網站上填寫適用於部署範本的參數，然後按一下 [確定]  。
 
     ![參數](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
-1. 選取 [我同意上方所述的條款及條件]，按一下 [購買]。
+1. 選取 [我同意上方所述的條款及條件]  ，按一下 [購買]  。
 
-1. 在 [自訂部署] 刀鋒視窗上，按一下 [建立] 。
+1. 在 [自訂部署] 刀鋒視窗上，按一下 [建立]  。
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>提供 Resource Manager 範本的憑證資料
 
@@ -199,7 +199,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

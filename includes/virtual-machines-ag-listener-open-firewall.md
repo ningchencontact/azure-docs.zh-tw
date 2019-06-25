@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165403"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173925"
 ---
 在此步驟中，您會建立防火牆規則來開啟負載平衡端點用的探查連接埠 (59999，如先前所指定)，以及建立另一個規則來開啟可用性群組接聽程式連接埠。 因為您在包含可用性群組複本的 VM 上建立了負載平衡的端點，您必須在個別 VM 上開啟探查連接埠和接聽程式連接埠。
 

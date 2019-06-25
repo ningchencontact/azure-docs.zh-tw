@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.openlocfilehash: 55257d441916971b505432247f28033d6222c3be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861197"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>使用 Python 從 Azure Databricks 連線至 Azure 資料總管
@@ -21,7 +21,7 @@ ms.locfileid: "60861197"
 ## <a name="prerequisites"></a>必要條件
 
 - [建立 Azure 資料總管叢集與資料庫](/azure/data-explorer/create-cluster-database-portal)。
-- [建立 Azure Databricks 工作區](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)。 在 [Azure Databricks 服務] 下方的 [定價層] 下拉式清單中，選取 [Premium]。 此選取項目可讓您使用 Azure Databricks 祕密儲存您的認證，並在 Notebook 和作業中加以參考。
+- [建立 Azure Databricks 工作區](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)。 在 [Azure Databricks 服務]  下方的 [定價層]  下拉式清單中，選取 [Premium]  。 此選取項目可讓您使用 Azure Databricks 祕密儲存您的認證，並在 Notebook 和作業中加以參考。
 
 - 在 Azure Databricks 中使用下列規格 (執行範例 Notebook 所需的最低設定) [建立叢集](https://docs.azuredatabricks.net/user-guide/clusters/create.html)：
 

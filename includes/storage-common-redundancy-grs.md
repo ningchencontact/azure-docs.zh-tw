@@ -9,11 +9,11 @@ ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
 ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114873"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174590"
 ---
 異地備援儲存體 (GRS) 設計為將您的資料複寫到與主要區域相隔數百英哩遠的次要區域，以在指定年份為物件提供至少 99.99999999999999% (16 9's) 的持久性。 如果您的儲存體帳戶已啟用 GRS，即使主要區域發生全區中斷或災害而無法復原的情況，您的資料仍會是永久性。
 

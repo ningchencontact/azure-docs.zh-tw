@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468600"
 ---
 # <a name="return-your-azure-data-box-edge-device"></a>傳回您的 Azure 資料方塊的邊緣裝置
@@ -66,12 +66,12 @@ ms.locfileid: "65468600"
 
 ## <a name="schedule-a-pickup"></a>排定取貨時間
 
-1. 關閉裝置。 在本機 Web UI 中，移至 [維護] > [電源設定]。
+1. 關閉裝置。 在本機 Web UI 中，移至 [維護] > [電源設定]  。
 2. 選取 **關閉**。 當提示確認，請按一下**是**以繼續。 如需詳細資訊，請參閱 <<c0> [ 管理能力](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power)。
 3. 拔下電源纜線，並從裝置移除所有的網路纜線。
 4. 使用您自己或您從 Azure 收到空白的方塊，以準備出貨的套件。 放置在裝置和電源線所隨附的方塊中的裝置。
 5. 詞綴封裝從 Azure 收到出貨標籤。
-6. 使用您區域的貨運公司排定取貨時間。 傳回位於美國的裝置，您的電訊廠商 UPS。 若要排定取貨時間：
+6. 與區域性貨運公司排定取貨時間。 傳回位於美國的裝置，您的電訊廠商 UPS。 若要排定取貨時間：
 
     1. 致電給當地的 UPS (國家/地區特定的免付費電話號碼)。
     2. 在您呼叫中，加上引號反向運送追蹤號碼列印標籤所示。
@@ -102,7 +102,7 @@ ms.locfileid: "65468600"
 
 2. 在 **刪除裝置**刀鋒視窗中，輸入您想要刪除選取的裝置名稱**刪除**。
 
-    ![確認刪除](media/data-box-edge-return-device/delete-resource-2.png)
+    ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
 
 您會收到通知的裝置之後，已成功刪除相關聯的資源。
 

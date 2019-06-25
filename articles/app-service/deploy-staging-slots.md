@@ -13,21 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 06/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf287aef2c1792033a198070da605014a7b6281
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955824"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272848"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
-
-> [!NOTE]
-> 本操作指南說明如何使用新的預覽管理頁面來管理位置。 習慣使用現有管理頁面的客戶，可以像以前一樣繼續使用現有的位置管理頁面。 
->
 
 當您將 Web 應用程式、Linux 上的 Web 應用程式、行動後端及 API 應用程式部署到 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 時，如果是在 [標準]  、[進階]  或 [隔離]  App Service 方案層中執行，就可以部署到個別的部署位置，而不是預設的生產位置。 部署位置實際上是含有自己主機名稱的作用中應用程式。 兩個部署位置 (包括生產位置) 之間的應用程式內容與設定項目可以互相交換。 將應用程式部署至非生產位置具有下列優點：
 
@@ -35,7 +31,7 @@ ms.locfileid: "65955824"
 * 先將應用程式部署至某個位置，然後再將它交換到生產位置，可確保該位置的所有執行個體在交換到生產位置之前都已準備就緒。 這麼做可以排除部署應用程式時的停機情況。 流量能夠順暢地重新導向，且不會因為交換作業而捨棄任何要求。 不需要預先交換驗證時，這整個工作流程可藉由設定[自動交換](#Auto-Swap)來自動化。
 * 交換之後，先前具有預備應用程式的位置，現在已經有之前的生產應用程式。 若交換到生產位置的變更不是您需要的變更，您可以立即執行相同的交換，以恢復「上一個已知的良好網站」。
 
-每個 App Service 方案層所支援的部署位置個數都不一樣。 若要找出應用程式層所支援的位置個數，請參閱 [App Service 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)。 若要將您的應用程式調整到不同層，目標層必須支援您應用程式已經使用的位置數。 例如，如果您的應用程式有五個以上的位置，您無法將期相應減少為**標準**層，因為**標準**層只支援五部署位置。
+每個 App Service 方案層所支援不同數目的部署位置，而且沒有使用部署位置不需額外付費。 若要找出應用程式層所支援的位置個數，請參閱 [App Service 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)。 若要將您的應用程式調整到不同層，目標層必須支援您應用程式已經使用的位置數。 例如，如果您的應用程式有五個以上的位置，您無法將期相應減少為**標準**層，因為**標準**層只支援五部署位置。 
 
 <a name="Add"></a>
 
@@ -44,7 +40,7 @@ ms.locfileid: "65955824"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
 
-2. 在左側導覽中選擇 [部署位置 (預覽)]  選項，然後按一下 [新增位置]  。
+2. 在左側導覽中，選擇**部署位置**選項，然後按一下**加入位置**。
    
     ![新增部署位置](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
@@ -58,7 +54,7 @@ ms.locfileid: "65955824"
    
     您可以從任何現有位置複製組態。 可複製的設定包括應用程式設定、連接字串、語言架構版本、Web 通訊端、HTTP 版本和平台位元。
 
-4. 新增位置之後，請按一下 [關閉]  以關閉對話方塊。 新的位置此時會顯示在 [部署位置 (預覽)]  頁面中。 根據預設，新位置的 [流量百分比]  會設為 0，且所有客戶流量都會路由至生產位置。
+4. 新增位置之後，請按一下 [關閉]  以關閉對話方塊。 現在會顯示新的位置**部署位置**頁面。 根據預設，新位置的 [流量百分比]  會設為 0，且所有客戶流量都會路由至生產位置。
 
 5. 按一下新的部署位置，以開啟該位置的資源頁面。
    
@@ -72,7 +68,36 @@ ms.locfileid: "65955824"
 
 <a name="AboutConfiguration"></a>
 
-## <a name="which-settings-are-swapped"></a>哪些設定已交換？
+## <a name="what-happens-during-swap"></a>交換期間發生什麼事
+
+[交換作業步驟](#swap-operation-steps)
+[會交換哪些設定？](#which-settings-are-swapped)
+
+### <a name="swap-operation-steps"></a>交換作業步驟
+
+當您交換兩個位置 （通常是從預備位置到生產位置） 時，App Service 會執行下列命令以確保目標位置不會產生停機時間：
+
+1. 目標位置 （例如生產位置） 的下列設定套用至來源位置的所有執行個體中： 
+    - [位置特定](#which-settings-are-swapped)應用程式設定和連接字串，如果適用的話。
+    - [持續部署](deploy-continuous-deployment.md)設定時，如果已啟用。
+    - [App Service 驗證](overview-authentication-authorization.md)設定時，如果已啟用。
+    任何上述所有情況下就會觸發重新啟動來源位置中的所有執行個體。 期間[使用預覽交換](#Multi-Phase)，這會將標示位置交換作業已暫停，您可以驗證來源位置與目標位置的設定正確運作的第一個階段的結尾。
+
+1. 等候完成其重新啟動來源位置中的每個執行個體。 如果任何執行個體，就無法重新啟動，交換作業就會還原至來源位置的所有變更，並中止作業。
+
+1. 如果[本機快取](overview-local-cache.md)已啟用，觸發程序提出 HTTP 要求應用程式根目錄 （"/"） 上的來源位置的每個執行個體，並等待，直到每個執行個體傳回任何 HTTP 回應的本機快取初始化。 本機快取初始化會導致每個執行個體上的另一個重新啟動。
+
+1. 如果[自動交換](#Auto-Swap)已啟用[自訂準備](#custom-warm-up)，觸發程序[應用程式起始](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)提出 HTTP 要求，應用程式根目錄 （"/"） 上之來源的每個執行個體插槽。 如果執行個體傳回任何 HTTP 回應，其認為已準備就緒。
+
+    如果沒有`applicationInitialization`已指定，會觸發 HTTP 要求，以在每個執行個體上的來源位置的應用程式根目錄。 如果執行個體傳回任何 HTTP 回應，其認為已準備就緒。
+
+1. 如果來源位置上的所有執行個體都已準備就緒成功交換兩個位置，藉由切換兩個位置的路由規則。 這個步驟之後，目標位置 （例如生產位置） 會有先前的來源位置中準備就緒的應用程式。
+
+1. 既然來源位置中的目標位置，請以先前已預先交換應用程式，請套用所有設定，然後重新啟動執行個體中執行相同的作業。
+
+在交換作業的任何時間點，初始化已交換的應用程式的所有工作會都對來源位置。 目標位置會保持在線上時，來源位置就緒，並已準備的向上，無論交換成功或失敗的位置。 若要交換預備位置與生產位置，請確定生產位置一律是目標位置。 如此一來，您的生產應用程式不會受到交換作業。
+
+### <a name="which-settings-are-swapped"></a>哪些設定已交換？
 當您複製其他部署位置的組態時，可以編輯複製的組態。 此外，某些組態元素在交換時會保有內容 (非位置特定)，而其他組態元素則會在交換之後保留於同一個位置中 (位置特定)。 以下清單顯示當您交換位置時會變更的設定。
 
 **交換的設定**：
@@ -106,25 +131,23 @@ ms.locfileid: "65955824"
 
 <!-- VNET and hybrid connections not yet sticky to slot -->
 
-若要將應用程式設定或連接字串設定為停留在特定位置 (未交換)，請瀏覽至該位置的 [應用程式設定]  頁面，然後針對應停留在該位置的設定元素，選取 [位置設定]  方塊。 將組態元素標記為「位置特定」，可向 App Service 指出那是無法交換的元素。 
+若要設定應用程式設定或連接字串為停在某特定位置 （未交換），瀏覽至**組態**該位置的頁面上，新增或編輯設定，然後選取 **部署位置設定**方塊。 選取此核取方塊，會告訴 App Service 未抽換的設定。 
 
 ![位置設定](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
 ## <a name="swap-two-slots"></a>交換兩個位置 
-您可以在應用程式的 [部署位置 (預覽)]  中交換部署位置。 
-
-您也可以在 [概觀]  和 [部署位置]  頁面中交換位置，但目前提供的是舊有的使用體驗。 本指南說明如何在 [部署位置 (預覽)]  頁面中使用新的使用者介面。
+您可以在您的應用程式中交換部署位置**部署位置**頁面並**概觀**頁面。 如需位置交換的技術詳細資訊，請參閱[交換期間發生什麼事](#what-happens-during-swap)
 
 > [!IMPORTANT]
-> 在您將應用程式從部署位置交換到生產位置之前，請確定所有設定均依照您在交換目標中想要的方式明確地設定。
+> 您的應用程式，從部署位置交換到生產環境之前，請確定生產環境是您的目標位置和來源位置中的所有設定已完全依照您想要讓它在生產環境中時，才都設定。
 > 
 > 
 
 若要交換部署位置，請遵循下列步驟：
 
-1. 瀏覽至應用程式的 [部署位置 (預覽)]  頁面，然後按一下 [交換]  。
+1. 瀏覽至您的應用程式**部署位置**頁面，然後按一下**交換**。
    
     ![Swap Button](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
@@ -138,6 +161,8 @@ ms.locfileid: "65955824"
 
 3. 完成之後，請按一下 [關閉]  以關閉對話方塊。
 
+如果您遇到任何問題，請參閱[疑難排解交換](#troubleshoot-swaps)。
+
 <a name="Multi-Phase"></a>
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>使用預覽交換 (多階段交換)
@@ -147,13 +172,9 @@ ms.locfileid: "65955824"
 
 交換到生產環境中作為目標位置之前，請驗證應用程式會先以交換後的設定執行，再進行交換。 來源位置也會先進行準備工作再完成交換，這也正是任務關鍵性應用程式所需要的。
 
-當您執行「使用預覽交換」時，App Service 會在您開始交換時進行下列作業︰
+當您執行使用預覽交換時，應用程式服務會執行相同[交換作業](#what-happens-during-swap)但暫停之後的第一個步驟。 接著，您就可以確認預備位置上的結果之前完成交換。 
 
-- 將目標位置保留不變，使該位置上的現有工作負載 (例如生產) 不受影響。
-- 將目標位置的組態元素套用至來源位置，包括位置特定的連接字串和應用程式設定。
-- 使用這些組態元素重新啟動來源位置上的背景工作處理序。 您可以瀏覽來源位置，並查看以組態變更執行的應用程式。
-
-如果您在個別步驟中完成交換，則 App Service 會將準備好的來源位置移至目標位置中，並將目標位置移至來源位置。 如果您取消交換，App Service 會將來源位置的組態元素重新套用至來源位置。
+如果您取消交換，App Service 會將來源位置的組態元素重新套用至來源位置。
 
 若要使用預覽交換，請遵循下列步驟。
 
@@ -173,6 +194,8 @@ ms.locfileid: "65955824"
 
 4. 完成之後，請按一下 [關閉]  以關閉對話方塊。
 
+如果您遇到任何問題，請參閱[疑難排解交換](#troubleshoot-swaps)。
+
 若要自動執行多階段交換，請參閱＜使用 PowerShell 自動執行＞。
 
 <a name="Rollback"></a>
@@ -185,28 +208,30 @@ ms.locfileid: "65955824"
 ## <a name="configure-auto-swap"></a>設定自動交換
 
 > [!NOTE]
-> Linux 上的 Web 應用程式不支援自動交換。
+> 在 Linux 上的 web 應用程式不支援自動交換。
 
-如果您希望為應用程式的客戶持續部署您的應用程式，而不需冷啟動和不需關機，「自動交換」將可簡化此類 DevOps 案例。 在部署位置自動交換至生產位置後，每當您將程式碼變更推送至該位置時，App Service 就會在已於來源位置做好準備後，自動將該應用程式交換至生產位置。
+自動交換會簡化 DevOps 案例中，您將持續與冷啟動和零停機時間的應用程式部署的應用程式的客戶。 自動交換啟用時從一個位置到實際執行環境，每次您的程式碼變更推送至該位置時，App Service 自動[交換到生產環境的應用程式](#swap-operation-steps)它的來源位置中準備就緒之後。
 
    > [!NOTE]
-   > 在設定生產位置的「自動交換」之前，請考慮先在非生產的目標位置上測試「自動交換」。
+   > 然後再設定自動交換為生產位置，請考慮先測試對非生產的目標位置的自動交換。
    > 
 
-若要設定「自動交換」，請遵循下列步驟：
+若要設定自動交換，請遵循下列步驟：
 
-1. 瀏覽至應用程式的資源頁面。 選取 [部署位置 (預覽)]   > \<所需的來源位置>   > [應用程式設定]  。
+1. 瀏覽至應用程式的資源頁面。 選取 **部署位置** >  *\<所需的來源位置 >*  > **組態** >  **一般設定**。
    
-2. 在 [自動交換]  中選取 [開啟]  ，然後在 [自動交換位置]  中選取所需的目標位置，再按一下命令列中的 [儲存]  。 
+2. 在**啟用自動交換**，選取**上**，然後選取所要的目標插槽**自動交換部署位置**，然後按一下**儲存**中命令列。 
    
     ![](./media/web-sites-staged-publishing/AutoSwap02.png)
 
-3. 執行推送至來源位置的程式碼。 自動交換不久之後就會發生，而更新會反映於目標位置的 URL。
+3. 執行推送至來源位置的程式碼。 自動交換會在一小段時間後，更新會反映在目標位置的 URL。
+
+如果您遇到任何問題，請參閱[疑難排解交換](#troubleshoot-swaps)。
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up"></a>自訂準備
-使用[自動交換](#Auto-Swap)時，某些應用程式在交換之前可能需執行自訂的準備動作。 web.config 中的 `applicationInitialization` 組態元素可讓您指定要執行的自訂初始化動作。 交換作業會等到此自訂準備完成後，才與目標位置進行交換。 以下是範例 web.config 片段。
+使用[自動交換](#Auto-Swap)時，某些應用程式在交換之前可能需執行自訂的準備動作。 web.config 中的 `applicationInitialization` 組態元素可讓您指定要執行的自訂初始化動作。 [交換作業](#what-happens-during-swap)等候此自訂準備完成，然後再將與目標位置進行交換。 以下是範例 web.config 片段。
 
     <system.webServer>
         <applicationInitialization>
@@ -222,9 +247,11 @@ ms.locfileid: "65955824"
 - `WEBSITE_SWAP_WARMUP_PING_PATH`:用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`:準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。
 
+如果您遇到任何問題，請參閱[疑難排解交換](#troubleshoot-swaps)。
+
 ## <a name="monitor-swap"></a>監視交換
 
-如果交換作業耗時很久才完成，您可以在[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中取得交換作業的相關資訊。
+如果[交換作業](#what-happens-during-swap)需要長時間才能完成，您可以取得詳細資訊中的交換作業[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
 
 在入口網站的應用程式資源頁面中，選取左側導覽中的 [活動記錄]  。
 
@@ -238,7 +265,7 @@ ms.locfileid: "65955824"
 
 若要自動路由生產流量，請遵循下列步驟：
 
-1. 瀏覽至應用程式的資源頁面，然後選取 [部署位置 (預覽)]  。
+1. 瀏覽至您的應用程式資源網頁，然後選取**部署位置**。
 
 2. 針對您要路由到的位置，在其 [流量百分比]  資料行中指定百分比 (介於 0 到 100 之間)，以代表您要路由的總流量。 按一下 [檔案]  。
 
@@ -272,7 +299,7 @@ ms.locfileid: "65955824"
 
 ## <a name="delete-slot"></a>刪除位置
 
-瀏覽至應用程式的資源頁面。 選取 [部署位置 (預覽)]   > \<要刪除的位置>   > [概觀]  。 在命令列中按一下 [刪除]  。  
+瀏覽至應用程式的資源頁面。 選取 **部署位置** >  *\<若要刪除的位置 >*  > **概觀**。 在命令列中按一下 [刪除]  。  
 
 ![刪除部署位置](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -288,32 +315,32 @@ Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdle
 
 如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱 [如何安裝和設定 Microsoft Azure PowerShell](/powershell/azure/overview)(英文)。  
 
-- - -
+---
 ### <a name="create-web-app"></a>建立 Web 應用程式
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
-- - -
+---
 ### <a name="create-slot"></a>建立位置
 ```powershell
 New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
-- - -
+---
 ### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>起始使用預覽交換 (多階段交換)，並將目的地位置組態套用至來源位置
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-- - -
+---
 ### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>取消擱置中的交換 (使用預覽交換)，並還原來源位置組態
 ```powershell
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
-- - -
+---
 ### <a name="swap-deployment-slots"></a>交換部署位置
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
@@ -325,13 +352,13 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
-- - -
+---
 ### <a name="delete-slot"></a>刪除位置
 ```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-- - -
+---
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
@@ -339,6 +366,35 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 ## <a name="automate-with-cli"></a>使用 CLI 自動化
 
 如需適用於部署位置的 [Azure CLI](https://github.com/Azure/azure-cli) 命令，請參閱 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)。
+
+## <a name="troubleshoot-swaps"></a>疑難排解交換
+
+如果發生任何錯誤[位置交換](#what-happens-during-swap)，它會記錄在*D:\home\LogFiles\eventlog.xml*，以及應用程式特有的錯誤記錄檔。
+
+以下是一些常見的分頁錯誤：
+
+- 應用程式根目錄的 HTTP 要求已逾時。 交換作業會等候 90 秒內針對每個 HTTP 要求和重試最多 5 次。 如果所有重試會逾時，交換作業就會中止。
+
+- 當應用程式內容超過指定的本機快取的本機磁碟配額時，本機快取初始化可能會失敗。 如需詳細資訊，請參閱 <<c0> [ 本機快取概觀](overview-local-cache.md)。
+
+- 期間[自訂熱身](#custom-warm-up)、 HTTP 要求都是在內部 （而不會通過的外部 URL），以及可以失敗與特定 URL 重寫中的規則*Web.config*。例如，重新導向網域名稱，或者強制使用 HTTPS 的規則可以防止暖機要求完全達到應用程式程式碼。 若要解決此問題，請新增下列兩項條件修改重寫規則：
+
+    ```xml
+    <conditions>
+      <add input="{WARMUP_REQUEST}" pattern="1" negate="true" />
+      <add input="{REMOTE_ADDR}" pattern="^100?\." negate="true" />
+      ...
+    </conditions>
+    ```
+- 而不需要自訂的準備，HTTP 要求仍可保有 URL 重寫規則。 若要解決此問題，請修改重寫規則; 藉由新增下列條件：
+
+    ```xml
+    <conditions>
+      <add input="{REMOTE_ADDR}" pattern="^100?\." negate="true" />
+      ...
+    </conditions>
+    ```
+- 有些[IP 限制規則](app-service-ip-restrictions.md)可能會導致無法將 HTTP 要求傳送至您的應用程式交換作業。 IPv4 位址範圍開頭`10.`和`100.`內部部署，並應該允許連接到您的應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 [封鎖對非生產位置的存取](app-service-ip-restrictions.md)

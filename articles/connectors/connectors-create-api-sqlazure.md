@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696409"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SQL Server 或 Azure SQL Database
@@ -65,7 +65,7 @@ ms.locfileid: "64696409"
 
    ![選取資料表](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
 
-4. 設定 [間隔] 和 [頻率] 屬性，以指定邏輯應用程式檢查資料表的頻率。
+4. 設定 [間隔]  和 [頻率]  屬性，以指定邏輯應用程式檢查資料表的頻率。
 
    這個範例只會檢查選取的資料表而已。 
    若要進行更有趣的作業，請新增動作來執行您想要的工作。 
@@ -73,7 +73,7 @@ ms.locfileid: "64696409"
    例如，若要檢視資料表中的新項目，則可新增其他動作，例如，建立具有資料表欄位的檔案，然後傳送電子郵件警示。 
    若要了解此連接器或其他連接器的其他動作，請參閱 [Logic Apps 連接器](../connectors/apis-list.md)。
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。 
+5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。 
 
    此步驟會自動在 Azure 中即時啟用並發佈邏輯應用程式。 
 
@@ -85,12 +85,12 @@ ms.locfileid: "64696409"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在邏輯應用程式設計工具的觸發程序或動作下，選擇 [新增步驟] > [新增動作]。
+2. 在邏輯應用程式設計工具的觸發程序或動作下，選擇 [新增步驟]   > [新增動作]  。
 
    ![選擇 [新增步驟] > [新增動作]](./media/connectors-create-api-sqlazure/add-action.png)
    
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 (**+**)，然後選擇 [新增動作]。
+   選擇顯示的加號 ( **+** )，然後選擇 [新增動作]  。
 
 2. 在搜尋方塊中，輸入「sql 伺服器」作為篩選條件。 從動作清單中，選取您想要的任何 SQL 動作。 
 
@@ -99,14 +99,14 @@ ms.locfileid: "64696409"
    ![輸入「sql 伺服器」，選取 [SQL Server - 取得資料列]](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
 3. 如果系統提示您輸入連線詳細資料，請[立即建立 SQL 連線](#create-connection)。 
-   或者，如果連線已存在，請選取 [資料表名稱]，並輸入您所要記錄的 [資料列識別碼]。
+   或者，如果連線已存在，請選取 [資料表名稱]  ，並輸入您所要記錄的 [資料列識別碼]  。
 
    ![輸入資料表名稱和資料列識別碼](./media/connectors-create-api-sqlazure/table-row-id.png)
    
    這個範例只會傳回所選資料表的一個資料列而已。 
    若要檢視此資料列中的資料，請新增其他動作，以使用資料列欄位建立檔案以供之後檢閱，並將該檔案儲存在雲端儲存體帳戶中。 若要了解此連接器或其他連接器的其他動作，請參閱 [Logic Apps 連接器](../connectors/apis-list.md)。
 
-4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。 
+4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。 
 
 <a name="create-connection"></a>
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754225"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275750"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 別名記錄概觀
 
@@ -29,7 +29,7 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ## <a name="capabilities"></a>功能
 
-- **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。 如果公用 IP 位址變更或已刪除，DNS 記錄集會是自動的。 系統會避免使用指向不正確 IP 位址的懸空 DNS 記錄。
+- **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。 DNS 記錄集變更自動如果公用 IP 位址會變更或刪除。 系統會避免使用指向不正確 IP 位址的懸空 DNS 記錄。
 
 - **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔。** 您可以建立 A/AAAA 或 CNAME 記錄設定，並使用別名記錄將其指向流量管理員設定檔。 當您要在區域頂點，流量路由傳送，因為區域頂點不支援傳統的 CNAME 記錄時，它是特別有用。 例如，假設您的流量管理員設定檔為 myprofile.trafficmanager.net，而您公司的 DNS 區域為 contoso.com。 您可以針對 contoso.com (區域頂點) 建立 A/AAAA 類型的別名記錄集，並指向 myprofile.trafficmanager.net。
 - **指向 Azure 內容傳遞網路 (CDN) 端點**。 當您建立使用 Azure 儲存體和 Azure CDN 的靜態網站時，這非常有用。
@@ -53,7 +53,7 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>位於區域頂點的主機負載平衡應用程式
 
-DNS 通訊協定可防止在區域頂點指派 CNAME 記錄。 例如，如果您的網域為 contoso.com；您可以建立 somelable.contoso.com 的 CNAME 記錄；但您無法為 contoso.com 本身建立 CNAME。
+DNS 通訊協定可防止在區域頂點指派 CNAME 記錄。 例如，如果您的網域為 contoso.com;您可以建立 somelabel.contoso.com; 的 CNAME 記錄但您無法建立 CNAME contoso.com 本身。
 此限制會為在 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)後面有負載平衡應用程式的應用程式擁有者帶來問題。 使用流量管理員設定檔需要建立的 CNAME 記錄，因為您無法從區域頂點指向流量管理員設定檔。
 
 使用別名記錄來解決此問題。 不同於 CNAME 記錄，在區域頂點建立別名記錄，以及應用程式擁有者可以使用它以指向流量管理員設定檔具有外部端點的其區域頂點的記錄。 應用程式擁有者指向相同的流量管理員設定檔用於其 DNS 區域內的任何其他網域。

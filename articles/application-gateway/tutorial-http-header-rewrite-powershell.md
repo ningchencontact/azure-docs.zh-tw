@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/30/2019
 ms.author: absha
 ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64947098"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>建立應用程式閘道及重寫 HTTP 標題
@@ -68,7 +68,7 @@ $vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## <a name="create-a-reserved-public-ip"></a>建立保留公用 IP
 
-將 PublicIPAddress 的配置方法指定為 [靜態]。 自動調整應用程式閘道 VIP 只能是靜態。 不支援動態 IP。 只支援標準 PublicIpAddress SKU。
+將 PublicIPAddress 的配置方法指定為 [靜態]  。 自動調整應用程式閘道 VIP 只能是靜態。 不支援動態 IP。 只支援標準 PublicIpAddress SKU。
 
 ```azurepowershell
 #Create static public IP

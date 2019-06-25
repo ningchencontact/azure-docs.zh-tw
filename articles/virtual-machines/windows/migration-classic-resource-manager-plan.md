@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689498"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。
@@ -114,9 +114,9 @@ ms.locfileid: "58112512"
 
 - **可用性設定組** - 若要將虛擬網路 (vNet) 移轉到 Azure Resource Manager，傳統部署 (也就是雲端服務) 所包含的 VM 必須全部位在一個可用性設定組中，或是所有 VM 均不能在任何可用性設定組中。 雲端服務中有一個以上的可用性設定組與 Azure Resource Manager 不相容，將會中止移轉。  此外，不能有一些 VM 在可用性設定組中，而一些 VM 則不在可用性設定組中。 若要解決此問題，您必須修復或重新改組雲端服務。  因為這可能會耗費大量時間，請詳細規劃。
 
-- **Web/背景工作角色部署** - 無法將包含 Web 和背景工作角色的雲端服務移轉至 Azure Resource Manager。 開始移轉之前，必須先從虛擬網路移除 Web/背景工作角色。  典型的解決方案是只將 Web/背景工作角色執行個體移至也與 ExpressRoute 線路連結的不同傳統虛擬網路，或是將程式碼移轉至較新的 PaaS 應用程式服務 (此討論已超出本文件的範圍)。 在先前的重新部署案例中，建立新的傳統虛擬網路、將 Web/背景工作角色移動/重新部署至該新虛擬網路，然後從要移動的虛擬網路中刪除部署。 无需更改代码。 新的[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)功能可用來將包含 Web/背景工作角色的傳統虛擬網路與在相同 Azure 區域中的其他虛擬網路 (例如要移轉的虛擬網路) 形成對等互連 (**在虛擬網路移轉完成之後，因為不能移轉已形成對等互連的虛擬網路**)，因此可提供相同功能，而不會損失效能且沒有延遲/頻寬罰則。 由於新增了[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)，現在可輕鬆地移轉Web/背景工作角色部署，而不會封鎖對 Azure Resource Manager 的移轉。
+- **Web/背景工作角色部署** - 無法將包含 Web 和背景工作角色的雲端服務移轉至 Azure Resource Manager。 開始移轉之前，必須先從虛擬網路移除 Web/背景工作角色。  典型的解決方案是只將 Web/背景工作角色執行個體移至也與 ExpressRoute 線路連結的不同傳統虛擬網路，或是將程式碼移轉至較新的 PaaS 應用程式服務 (此討論已超出本文件的範圍)。 在先前的重新部署案例中，建立新的傳統虛擬網路、將 Web/背景工作角色移動/重新部署至該新虛擬網路，然後從要移動的虛擬網路中刪除部署。 不需要變更程式碼。 新的[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)功能可用來將包含 Web/背景工作角色的傳統虛擬網路與在相同 Azure 區域中的其他虛擬網路 (例如要移轉的虛擬網路) 形成對等互連 (**在虛擬網路移轉完成之後，因為不能移轉已形成對等互連的虛擬網路**)，因此可提供相同功能，而不會損失效能且沒有延遲/頻寬罰則。 由於新增了[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)，現在可輕鬆地移轉Web/背景工作角色部署，而不會封鎖對 Azure Resource Manager 的移轉。
 
-- **Azure Resource Manager 配額** - Azure 區域對於傳統和 Azure Resource Manager 有個別的配額/限制。 即使在未取用新硬體的移轉案例中 *(我們正在將現有的 VM 從傳統交換至 Azure Resource Manager)*，Azure Resource Manager 配額仍必須具有足夠的容量，才可開始進行移轉。 下列是我們發現會造成問題的主要限制。  開啟配額支援票證來提高限制。
+- **Azure Resource Manager 配額** - Azure 區域對於傳統和 Azure Resource Manager 有個別的配額/限制。 即使在未取用新硬體的移轉案例中 *(我們正在將現有的 VM 從傳統交換至 Azure Resource Manager)* ，Azure Resource Manager 配額仍必須具有足夠的容量，才可開始進行移轉。 下列是我們發現會造成問題的主要限制。  開啟配額支援票證來提高限制。
 
     > [!NOTE]
     > 必須在與您要移轉的目前環境相同的區域中提高這些限制。
@@ -132,7 +132,7 @@ ms.locfileid: "58112512"
 
     您可以透過最新版本的 Azure PowerShell，使用下列命令來檢查您目前的 Azure Resource Manager 配額。
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **計算** *(核心，可用性設定組)*
 
@@ -146,7 +146,7 @@ ms.locfileid: "58112512"
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **存储***（存储帐户）*
+    **儲存體** *(儲存體帳戶)*
 
     ```powershell
     Get-AzStorageUsage
@@ -161,7 +161,7 @@ ms.locfileid: "58112512"
 
 - **Fabric 叢集不存在** - 在某些情況下，某些 VM 由於各種奇怪的原因而無法移轉。 其中一種已知的情況為，如果是最近才建立 VM (在過去一個星期內左右)，然後在尚無法因應 Azure Resource Manager 工作負載的 Azure 叢集登陸時會發生此情況。  您會收到錯誤，指出 `fabric cluster does not exist` 而無法移轉 VM。 通常等候幾天就可解決此特定問題，因為叢集很快就會啟用 Azure Resource Manager。 不過，有一個立即的解決方法是對 VM `stop-deallocate`，然後再繼續進行移轉，並且在移轉之後，於 Azure Resource Manager 中啟動 VM 備份。
 
-### <a name="pitfalls-to-avoid"></a>需避免的错误
+### <a name="pitfalls-to-avoid"></a>要避免的陷阱
 
 - 請勿採取捷徑而略過驗證/準備/中止試執行移轉。
 - 在驗證/準備/中止步驟期間，您可能發生的問題，幾乎全都會浮現。
@@ -189,7 +189,7 @@ ms.locfileid: "58112512"
 
 ## <a name="beyond-migration"></a>移轉之外
 
-### <a name="technical-considerations-and-tradeoffs"></a>技术注意事项和权衡
+### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 
 既然您已採用 Azure Resource Manager，請善加利用平台。  閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)，找出相關的其他優點。
 

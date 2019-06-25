@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 75781f09f4ca1eb2c3dbd176508fb233036e6776
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942262"
 ---
 # <a name="iot-edge-module-offer-settings-tab"></a>IoT Edge 模組供應項目索引標籤
 
-[IoT Edge 模組] > [新增供應項目]頁面開啟後，會出現 [供應項目設定] 索引標籤。 
+[IoT Edge 模組] > [新增供應項目]  頁面開啟後，會出現 [供應項目設定]  索引標籤。 
 
 ![IoT Edge 模組的新增供應項目頁面](./media/iot-edge-module-offer-settings-tab.png)
 
 
 ## <a name="offer-identity-settings"></a>供應項目識別設定
 
-在 [供應項目識別]中，您需要提供下表列出的欄位資訊。 欄位名稱上附加的星號 (*) 表示此為必填欄位。 
+在 [供應項目識別]  中，您需要提供下表列出的欄位資訊。 欄位名稱上附加的星號 (*) 表示此為必填欄位。 
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
@@ -33,7 +33,7 @@ ms.locfileid: "64942262"
 |  |  |
 
 
-選取 [儲存] 以儲存供應項目設定。
+選取 [儲存]  以儲存供應項目設定。
 
 
 ## <a name="next-steps"></a>後續步驟

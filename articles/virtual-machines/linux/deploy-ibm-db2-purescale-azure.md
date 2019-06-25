@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
 ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716042"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>在 Azure 上部署 IBM DB2 pureScale
@@ -78,7 +78,7 @@ GitHub 存放庫包括 DB2server.rsp 回應檔 (.rsp)，此檔案可讓您產生
 > [!NOTE]
 > GitHub 上的 [DB2onAzure](https://aka.ms/db2onazure) 存放庫中包含一個範例回應檔 DB2server.rsp。 若您使用此檔案，您必須先編輯它，才能在您的環境中使用。
 
-| 畫面名稱               | 欄位                                        | Value                                                                                                 |
+| 畫面名稱               | 欄位                                        | 值                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | 歡迎使用                   |                                              | 新安裝                                                                                           |
 | 選擇產品          |                                              | DB2 版本 11.1.3.3。 具有 DB2 pureScale 的伺服器版本                                              |
@@ -118,7 +118,7 @@ GitHub 存放庫包括 DB2server.rsp 回應檔 (.rsp)，此檔案可讓您產生
 
 - 安裝程式指令碼會為 iSCSI 磁碟使用別名，因此您可以輕鬆找到實際名稱。
 
-- 當安裝程式指令碼在 d0 上執行時，**/dev/dm-\*** 值在 d1、cf0 與 cf1 上可能會不同。 值的差異並不會影響 DB2 pureScale 設定。
+- 當安裝程式指令碼在 d0 上執行時， **/dev/dm-\*** 值在 d1、cf0 與 cf1 上可能會不同。 值的差異並不會影響 DB2 pureScale 設定。
 
 ## <a name="troubleshooting-and-known-issues"></a>疑難排解與已知問題
 

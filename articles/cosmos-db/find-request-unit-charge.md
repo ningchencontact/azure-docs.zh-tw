@@ -15,15 +15,15 @@ ms.locfileid: "66416048"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位費用
 
-本文將介紹不同的方法，供您尋找對 Azure Cosmos DB 中的容器執行的任何作業所產生的[要求單位](request-units.md) (RU) 耗用量。 目前，您僅可使用 Azure 入口網站來測量，也可查看 Azure Cosmos DB 透過其中一個 SDK 傳回的回應來測量。
+本文將介紹不同的方法，供您尋找對 Azure Cosmos DB 中的容器執行的任何作業所產生的[要求單位](request-units.md) (RU) 耗用量。 目前，該耗用量只能藉由使用 Azure 入口網站，或藉由查看 Azure Cosmos DB 經任一 SDK 所傳回的回應來測量。
 
 ## <a name="sql-core-api"></a>SQL (Core) API
 
-如果您使用 SQL API，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。
+如果您使用的是 SQL API，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
-目前，您只能對於 SQL 查詢在 Azure 入口網站中找到要求費用。
+目前，在 Azure 入口網站中，您只能找到 SQL 查詢的要求費用。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -161,7 +161,7 @@ RU 費用可用名為 `getLastRequestStatistics` 的自訂[資料庫命令](http
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
-目前，您只能對於查詢在 Azure 入口網站中找到要求費用。
+目前，在 Azure 入口網站中，您只能找到查詢的要求費用。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -249,7 +249,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ## <a name="gremlin-api"></a>Gremlin API
 
-您使用 Gremlin API 時，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。 
+如果您使用的是 Gremlin API 時，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。 
 
 ### <a name="use-drivers-and-sdk"></a>使用驅動程式和 SDK
 

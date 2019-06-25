@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979072"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754245"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>新增集合
+## <a name="add-a-container"></a>新增容器
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 Azure Cosmos DB 帳戶中，按一下左側導覽列中的 [金鑰]  。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 **URI** 和**主要金鑰**複製到 `CosmosGetStarted.py` 檔案。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 Azure Cosmos 帳戶中，按一下左側導覽列中的 [金鑰]  。 在下一個步驟中，您將使用畫面右側的複製按鈕，將 **URI** 和**主要金鑰**複製到 `CosmosGetStarted.py` 檔案。
 
     ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-sql-api-dotnet/keys.png)
 
@@ -216,7 +216,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶、如何使用 [資料總管] 建立集合，以及如何執行應用程式。 您現在可以將其他資料匯入到 Cosmos DB 帳戶。 
+在本快速入門中，您已了解如何建立 Azure Cosmos 帳戶、如何使用 [資料總管] 建立容器，以及如何執行應用程式。 您現在可以將其他資料匯入到 Cosmos DB 帳戶。 
 
 > [!div class="nextstepaction"]
 > [將資料匯入 SQL API 的 Azure Cosmos DB](import-data.md)

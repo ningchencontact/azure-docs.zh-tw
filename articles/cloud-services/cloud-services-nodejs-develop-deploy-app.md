@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506945"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>建立 Node.js 應用程式並部署到 Azure 雲端服務
 
-本教程演示如何创建在 Azure 云服务中运行的简单 Node.js 应用程序。 雲端服務是 Azure 中可擴充雲端應用程式的建置組塊。 可以個別獨立管理和向外延展應用程式的前端和後端元件。  雲端服務提供穩定代管各個角色的強固專用虛擬機器。
+本教學課程示範如何建立在 Azure 雲端服務中執行的簡單 Node.js 應用程式。 雲端服務是 Azure 中可擴充雲端應用程式的建置組塊。 可以個別獨立管理和向外延展應用程式的前端和後端元件。  雲端服務提供穩定代管各個角色的強固專用虛擬機器。
 
 如需雲端服務及其相較於 Azure 網站和虛擬機器的詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器的比較]。
 
 > [!TIP]
-> 想要构建简单网站？ 如果您只需要簡單的網站前端，請考慮[使用輕量型 Web 應用程式]。 隨著 Web 應用程式擴大以及需求改變，您可以輕易地升級到雲端服務。
+> 尋求建置簡單的網站？ 如果您只需要簡單的網站前端，請考慮[使用輕量型 Web 應用程式]。 隨著 Web 應用程式擴大以及需求改變，您可以輕易地升級到雲端服務。
 
 按照本教學課程進行，您將建立在 Web 角色內代管的簡單 Web 應用程式。 您將使用計算模擬器在本機測試您的應用程式，然後使用 PowerShell 命令列工具部署應用程式。
 
@@ -48,7 +48,7 @@ ms.locfileid: "65506945"
 ## <a name="create-an-azure-cloud-service-project"></a>建立 Azure 雲端服務專案
 執行下列工作，建立新的 Azure 雲端服務專案以及基本的 Node.js 樣板：
 
-1. 以系統管理員身分執行 **Windows PowerShell**；從 [開始功能表] 或 [開始畫面] 中，搜尋 [Windows PowerShell]。
+1. 以系統管理員身分執行 **Windows PowerShell**；從 [開始功能表]  或 [開始畫面]  中，搜尋 [Windows PowerShell]  。
 2. [連線 PowerShell] 至您的訂用帳戶。
 3. 輸入下列 PowerShell Cmdlet 來建立專案：
 
@@ -87,7 +87,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
 
 > [!NOTE]
-> 若要完成本教程，需要一个 Azure 帐户。 可以[激活 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)。
+> 若要完成此教學課程，您需要 Azure 帳戶。 您可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是[註冊免費帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)。
 
 ### <a name="download-the-azure-publishing-settings"></a>下載 Azure 發佈設定
 若要將應用程式部署到 Azure，您必須先下載您 Azure 訂閱的發佈設定。
@@ -157,10 +157,10 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
    ![Remove-AzureService 命令的狀態][The status of the Remove-AzureService command]
 
    > [!NOTE]
-   > 删除服务不会删除最初发布服务时创建的存储帐户，用户仍需为使用的存储付费。 如果沒有其他項目正在使用儲存體，您可以將它刪除。
+   > 刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。 如果沒有其他項目正在使用儲存體，您可以將它刪除。
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱 [Node.js 开发人员中心]。
+如需詳細資訊，請參閱 [Node.js 開發人員中心]。
 
 <!-- URL List -->
 
@@ -171,7 +171,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [連線 PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/
 [雲端服務]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Node.js 开发人员中心]: https://azure.microsoft.com/develop/nodejs/
+[Node.js 開發人員中心]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 

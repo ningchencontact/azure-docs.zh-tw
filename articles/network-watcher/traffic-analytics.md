@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939883"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051659"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -42,7 +42,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ## <a name="key-components"></a>重要元件
 
-- **網路安全性群組 (NSG)**：包含安全性規則清單，可允許或拒絕連線至 Azure 虛擬網路之資源的網路流量。 NSG 可以與子網路、個別 VM (傳統) 或已連結至 VM (Resource Manager) 的個別網路介面 (NIC) 建立關聯。 如需詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- **網路安全性群組 (NSG)** ：包含安全性規則清單，可允許或拒絕連線至 Azure 虛擬網路之資源的網路流量。 NSG 可以與子網路、個別 VM (傳統) 或已連結至 VM (Resource Manager) 的個別網路介面 (NIC) 建立關聯。 如需詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - **網路安全性群組 (NSG) 流程記錄**：可讓您檢視透過網路安全性群組輸入和輸出 IP 流量的相關資訊。 NSG 流量記錄是以 json 格式撰寫，會顯示每一規則的輸出和輸入流量、套用流量的 NIC、關於流量的 5 個 Tuple 資訊 (來源/目的地 IP 位址、來源/目的地連接埠、通訊協定)，以及流量是被允許或拒絕。 如須 NSG 流量記錄的詳細資訊，請參閱 [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)。
 - **Log Analytics**：一項 Azure 服務，會收集監視資料並將其儲存在中央存放庫中。 此資料可能包含事件、效能資料，或透過 Azure API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。 監視應用程式，例如網路效能監視器 」 和 「 流量分析會使用 Azure 監視器記錄檔做為基礎所建置。 如需詳細資訊，請參閱 < [Azure 監視器記錄](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - **Log Analytics 工作區**：Azure 監視器記錄檔，儲存 Azure 帳戶的相關資料的執行個體。 如需 Log Analytics 工作區的詳細資訊，請參閱[建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
@@ -87,12 +87,19 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
 * 美國中西部
-* 美國西部 2
 * 美國東部
+* 美國東部 2
+* 美國中南部
+* 美國西部
+* 美國西部 2
+* 美國中部
 * 法國中部
+* 北歐
 * 西歐
 * 英國南部
+* 澳洲東部
 * 澳大利亞東南部
+* 東亞
 * 東南亞
 * 南韓中部
 * 印度中部
@@ -135,7 +142,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 啟用 NSG 流量記錄之前，您必須具有要記錄流量的網路安全性群組。 如果您沒有網路安全性群組，請參閱[建立網路安全性群組](../virtual-network/manage-network-security-group.md#create-a-network-security-group)，以建立此群組。
 
-在 Azure 入口網站左半部，依序選取 [監視器]、[網路監看員] 和 [NSG 流量記錄]。 選取要啟用 NSG 流量記錄的網路安全性群組，如下圖所示：
+在 Azure 入口網站左半部，依序選取 [監視器]  、[網路監看員]  和 [NSG 流量記錄]  。 選取要啟用 NSG 流量記錄的網路安全性群組，如下圖所示：
 
 ![選取需要啟用 NSG 流量記錄的 NSG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -164,12 +171,12 @@ New-AzStorageAccount `
 
 選取下列選項，如下圖所示：
 
-1. 針對 [狀態] 選取 [開啟]。
+1. 針對 [狀態]  選取 [開啟]  。
 2. 選取 *第 2 版*for**流量記錄版本**。 第 2 版包含流量工作階段統計資料 (位元組和封包)
 3. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
-4. 將 [保留] 設為您要儲存資料的天數。
-5. 針對 [流量分析狀態]，選取 [開啟]。
-6. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+4. 將 [保留]  設為您要儲存資料的天數。
+5. 針對 [流量分析狀態]  ，選取 [開啟]  。
+6. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區]  以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
     裝載流量分析解決方案和 NSG 的記錄分析工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
 7. 選取 [ **儲存**]。
@@ -182,7 +189,7 @@ New-AzStorageAccount `
 
 ## <a name="view-traffic-analytics"></a>檢視流量分析
 
-在入口網站左側選取 [所有服務]，然後在 [篩選] 方塊中輸入 [監視器]。 當 [監視器] 出現在搜尋結果中時，請加以選取。 若要開始瀏覽流量分析及其功能，請選取 [網路監看員]，然後選取 [流量分析]。
+在入口網站左側選取 [所有服務]  ，然後在 [篩選]  方塊中輸入 [監視器]  。 當 [監視器]  出現在搜尋結果中時，請加以選取。 若要開始瀏覽流量分析及其功能，請選取 [網路監看員]  ，然後選取 [流量分析]  。
 
 ![存取流量分析儀表板](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -206,7 +213,7 @@ New-AzStorageAccount `
 - 允許/封鎖的惡意流量統計資料
   - 為什麼主機收到惡意流量，且為什麼允許惡意來源？ 這種行為需要進一步調查與可能的組態最佳化。
 
-    選取 [主機] 底下的 [檢視全部]，如下圖所示：
+    選取 [主機]  底下的 [檢視全部]  ，如下圖所示：
 
     ![詳盡顯示流量最大之主機的儀表板](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
@@ -222,7 +229,7 @@ New-AzStorageAccount `
     - 主機允許或封鎖大量流量的原因為何？
 - 最常交談的主機配對之間最常用的應用程式通訊協定：
     - 此網路上是否允許這些應用程式？
-    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 選取 [經常交談] 底下的 [檢視全部]，如下圖所示：
+    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 選取 [經常交談]  底下的 [檢視全部]  ，如下圖所示：
 
         ![顯示最常交談的儀表板](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
@@ -234,7 +241,7 @@ New-AzStorageAccount `
 
 - 您的環境中最常使用哪個應用程式通訊協定？哪些交談主機配對最常使用該應用程式通訊協定？
     - 此網路上是否允許這些應用程式？
-    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 預期的行為是通用連接埠，例如 80 和 443。 就標準通訊而言，如果顯示了任何不尋常的連接埠，則可能需要為其變更設定。 選取 [應用程式連接埠] 底下的 [檢視全部]，如下圖所示：
+    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 預期的行為是通用連接埠，例如 80 和 443。 就標準通訊而言，如果顯示了任何不尋常的連接埠，則可能需要為其變更設定。 選取 [應用程式連接埠]  底下的 [檢視全部]  ，如下圖所示：
 
         ![顯示最高排名應用程式通訊協定的儀表板](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
@@ -250,7 +257,7 @@ New-AzStorageAccount `
     - 每個 VPN SKU 都允許特定數量的頻寬。 VPN 閘道是否使用率過低？
     - 您的閘道是否達到容量？ 您應升級至下一個較高的 SKU 嗎？
 - 哪些是最常交談的主機？經由哪個 VPN 閘道？透過哪個連接埠？
-    - 此模式是否正常？ 選取 [VPN 閘道] 底下的 [檢視全部]，如下圖所示：
+    - 此模式是否正常？ 選取 [VPN 閘道]  底下的 [檢視全部]  ，如下圖所示：
 
         ![顯示最高排名使用中 VPN 連線的儀表板](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
@@ -266,7 +273,7 @@ New-AzStorageAccount `
   - 如果您發現資料中心的負載較高，您可以規劃有效率的流量分配。
   - 如果有 Rogue 網路在資料中心內交談，請更正 NSG 規則以封鎖這些網路。
 
-    選取 [您的環境] 底下的 [檢視對應]，如下圖所示：
+    選取 [您的環境]  底下的 [檢視對應]  ，如下圖所示：
 
     ![顯示流量分布的儀表板](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
@@ -288,7 +295,7 @@ New-AzStorageAccount `
   - 了解哪些虛擬網路正在互相交談。 如果交談不符預期，可加以更正。
   - 如果有 Rogue 網路與虛擬網路交談，您可以更正 NSG 規則以封鎖 Rogue 網路。
  
-    選取 [您的環境] 底下的 [檢視 Vnet]，如下圖所示：
+    選取 [您的環境]  底下的 [檢視 Vnet]  ，如下圖所示：
 
     ![顯示虛擬網路分布的儀表板](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 

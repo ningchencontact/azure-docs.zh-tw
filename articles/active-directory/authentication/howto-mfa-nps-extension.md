@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113411"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204663"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -225,7 +225,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 所產生的自我簽署的憑證*AzureMfaNpsExtnConfigSetup.ps1*指令碼也會有兩年的有效存留期。 當正在驗證已安裝的憑證，您也應該檢查憑證尚未過期。
 
--------------------------------------------------------------
+---
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>如何確認用戶端憑證是否已和 Azure Active Directory 中的租用戶相關聯？
 
@@ -251,13 +251,13 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 如果命令傳回多個憑證，則可以使用採人類看得懂之格式的 Valid-From 和 Valid-Until 時間戳記來篩選出明顯不符者。
 
--------------------------------------------------------------
+---
 
 ### <a name="why-cant-i-sign-in"></a>我為何無法登入？
 
 檢查您的密碼尚未到期。 NPS 延伸模組不支援在登入工作流程期間變更密碼。 如需進一步協助，請連絡貴組織的 IT 人員。
 
--------------------------------------------------------------
+---
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>為何要求會失敗並出現 ADAL 權杖錯誤？
 
@@ -268,19 +268,19 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 3. 確認憑證已與 Azure AD 上的租用戶相關聯。
 4. 確認可以從執行延伸模組的伺服器存取 https://login.microsoftonline.com/ 。
 
--------------------------------------------------------------
+---
 
 ### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>驗證為何失敗，並且 HTTP 記錄中有指出找不到使用者的錯誤？
 
 確認 AD Connect 正在執行，且使用者已存在於 Windows Active Directory 與 Azure Active Directory。
 
--------------------------------------------------------------
+---
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>為何我會在記錄中看到 HTTP 連線錯誤，且我的所有驗證都失敗？
 
 確認可以從執行 NPS 延伸模組的伺服器存取 https://adnotifications.windowsazure.com 。
 
--------------------------------------------------------------
+---
 
 ### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>為什麼驗證無法運作，儘管出現有效的憑證？
 

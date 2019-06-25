@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
 ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860701"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 將網路安全性群組流程記錄視覺化
@@ -61,7 +61,7 @@ ms.locfileid: "60860701"
 
       ![power BI 主畫面][2]
 
-1. 輸入儲存體帳戶的存取金鑰。 您可以在 Azure 入口網站瀏覽至您的儲存體帳戶，然後從 [設定] 功能表選取 [存取金鑰]，即可找到有效的存取金鑰。 按一下 [連線]，然後套用變更。
+1. 輸入儲存體帳戶的存取金鑰。 您可以在 Azure 入口網站瀏覽至您的儲存體帳戶，然後從 [設定] 功能表選取 [存取金鑰]  ，即可找到有效的存取金鑰。 按一下 [連線]  ，然後套用變更。
 
     ![access keys][3]
 

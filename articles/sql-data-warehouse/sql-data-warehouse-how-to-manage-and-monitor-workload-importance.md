@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a39d71e0f8b8072cab6a3af9a2f0913973f303ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbdab724e737b9bc223672c41ee9dde51e6cd99c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235931"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165515"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>管理和監視 Azure SQL 資料倉儲中的工作負載重要性
 
@@ -72,4 +72,4 @@ GO
 - 如需有關重要性的詳細資訊，請參閱[工作負載的重要性](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [移至 設定工作負載的重要性 ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [移至 設定工作負載的重要性](sql-data-warehouse-how-to-configure-workload-importance.md)

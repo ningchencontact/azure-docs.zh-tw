@@ -9,19 +9,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3b808a12c7a669a272bf6a1bbb253ed6b4625288
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078204"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 開發 Apache Storm 拓撲
 
 了解如何建立使用 Python 元件的 [Apache Storm](https://storm.apache.org/) \(英文\) 拓撲。 Apache Storm 支援多種語言，甚至可讓您將數種語言的元件結合成一個拓撲。 [Flux](https://storm.apache.org/releases/current/flux.html) \(英文\) 架構 (隨 Storm 0.10.0 一起引進) 可讓您輕鬆建立使用 Python 元件的解決方案。
 
 > [!IMPORTANT]  
-> 本文件中的資訊已使用 Storm on HDInsight 3.6 進行測試。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文件中的資訊已使用 Storm on HDInsight 3.6 進行測試。 
 
 此專案的程式碼位於 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)。
 
@@ -71,7 +71,7 @@ Flux 要求 Python 指令碼位於拓撲所在之 jar 檔案內的 `/resources` 
 </resource>
 ```
 
-如前所述，存在实现 Storm 的 Thrift 定义的 `storm.py` 文件。 建置專案時，Flux 架構會自動包含 `storm.py`，因此您不必擔心要包含它。
+如先前所述，有一個 `storm.py` 檔案實作 Storm 的 Thrift 定義。 建置專案時，Flux 架構會自動包含 `storm.py`，因此您不必擔心要包含它。
 
 ## <a name="build-the-project"></a>建置專案
 
@@ -94,7 +94,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 > [!NOTE]  
 > 此命令需要本機 Storm 開發環境。 如需詳細資訊，請參閱[設定開發環境](https://storm.apache.org/releases/current/Setting-up-development-environment.html)。
 
-拓扑启动后，它会向本地控制台发出类似如下文本的信息：
+拓撲啟動之後，就會將類似下列文字的資訊發出至本機主控台︰
 
 
     24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
@@ -134,13 +134,13 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. 您可以使用 Storm UI 來檢視叢集上的拓撲。 Storm UI 位於 https://mycluster.azurehdinsight.net/stormui。 將 `mycluster` 取代為您的叢集名稱。
+3. 您可以使用 Storm UI 來檢視叢集上的拓撲。 Storm UI 位於 https://mycluster.azurehdinsight.net/stormui 。 將 `mycluster` 取代為您的叢集名稱。
 
 > [!NOTE]  
 > Storm 拓撲啟動之後會一直執行到停止為止。 若要停止拓撲，請使用下列其中一種方法：
 >
 > * 從命令列執行 `storm kill TOPOLOGYNAME` 命令
-> * Storm UI 中的 [終止] 按鈕。
+> * Storm UI 中的 [終止]  按鈕。
 
 
 ## <a name="next-steps"></a>後續步驟

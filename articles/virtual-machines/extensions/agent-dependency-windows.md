@@ -1,6 +1,6 @@
 ---
 title: 針對 Windows 的 azure 監視相依性的虛擬機器擴充功能 |Microsoft Docs
-description: 部署使用虛擬機器擴充功能的 Windows 虛擬機器上的 Azure 監視相依性代理程式。
+description: 使用虛擬機器擴充功能，以部署 Windows 虛擬機器上的 Azure 監視相依性代理程式。
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgoedtel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 2cdde2f9dbba9676ba8a4d35ed6b79940668d684
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 34dd872db199a4c10e9f321457188b7f7642944d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120231"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>針對 Windows 的 azure 監視相依性的虛擬機器擴充功能
 
@@ -36,7 +36,7 @@ ms.locfileid: "65521782"
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示 Azure Windows VM 上的 Azure VM 的相依性代理程式擴充功能的結構描述。 
+下列 JSON 顯示 Azure Windows VM 上的 Azure VM 的相依性代理程式擴充功能的結構描述。
 
 ```json
 {
@@ -76,7 +76,7 @@ ms.locfileid: "65521782"
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| 名稱 | 值/範例 |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
@@ -85,11 +85,11 @@ ms.locfileid: "65521782"
 
 ## <a name="template-deployment"></a>範本部署
 
-也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節中詳述的 JSON 結構描述可以用於 Azure Resource Manager 範本，在 Azure Resource Manager 範本部署期間執行 Azure VM 的相依性代理程式擴充功能。 
+您可以部署使用 Azure Resource Manager 範本的 Azure VM 擴充功能。 若要在 Azure Resource Manager 範本部署期間執行 Azure VM 的相依性代理程式擴充功能，您可以使用 Azure Resource Manager 範本中的上一節中詳述的 JSON 結構描述。
 
-虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
+虛擬機器擴充功能 JSON 可以是巢狀置於虛擬機器資源內部。 或者，您可以將它放在根目錄或最上層的 Resource Manager JSON 範本。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。
 
-下列範例假設虛擬機器資源內部巢狀相依性代理程式擴充功能。 在巢狀處理擴充資源時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
+下列範例假設虛擬機器資源內部巢狀相依性代理程式擴充功能。 當您使用巢狀延伸模組資源時，JSON 會放在`"resources": []`的虛擬機器的物件。
 
 
 ```json
@@ -110,7 +110,7 @@ ms.locfileid: "65521782"
 }
 ```
 
-將擴充 JSON 置於範本的根目錄時，資源名稱包含父系虛擬機器的參考，而類型可反映巢狀的組態。 
+當您將擴充 JSON 置於範本的根目錄時，資源名稱包含父系虛擬機器的參考。 類型可反映巢狀的組態。
 
 ```json
 {
@@ -132,7 +132,7 @@ ms.locfileid: "65521782"
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-`Set-AzVMExtension`命令可用來將相依性代理程式虛擬機器擴充功能部署到現有的虛擬機器。 執行命令之前，必須將公用和私人組態儲存在 PowerShell 雜湊表中。 
+您可以使用`Set-AzVMExtension`命令，將相依性代理程式虛擬機器擴充功能部署到現有的虛擬機器。 執行命令之前，將公用和私人組態必須儲存在 PowerShell 雜湊表。
 
 ```powershell
 
@@ -145,11 +145,11 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>故障排除和支持
+## <a name="troubleshoot-and-support"></a>疑難排解與支援
 
 ### <a name="troubleshoot"></a>疑難排解
 
-使用 Azure PowerShell 模組，就可以從 Azure 入口網站擷取有關擴充功能部署狀態的資料。 若要查看所指定 VM 的擴充功能部署狀態，請使用 Azure PowerShell 模組來執行下列命令。
+從 Azure 入口網站，並使用 Azure PowerShell 模組，則可以擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請使用 Azure PowerShell 模組來執行下列命令：
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -163,4 +163,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 
 ### <a name="support"></a>支援
 
-如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。 如需使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
+如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。 如需如何使用 Azure 支援的詳細資訊，請閱讀[Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。

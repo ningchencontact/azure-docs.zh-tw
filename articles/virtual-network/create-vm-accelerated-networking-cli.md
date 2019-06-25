@@ -17,10 +17,10 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873425"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
@@ -62,7 +62,7 @@ ms.locfileid: "65873425"
 
 如需 VM 執行個體的詳細資訊，請參閱 [Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-### <a name="regions"></a>區域
+### <a name="regions"></a>Regions
 適用於所有公用 Azure 區域和 Azure 政府雲端。
 
 <!-- ### Network interface creation 
@@ -106,7 +106,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
-使用 [az network nsg create](/cli/azure/network/nsg) 建立網路安全性群組。 下列範例建立名為 myNetworkSecurityGroup 的網路安全性群組：
+使用 [az network nsg create](/cli/azure/network/nsg) 建立網路安全性群組。 下列範例建立名為 myNetworkSecurityGroup  的網路安全性群組：
 
 ```azurecli
 az network nsg create \

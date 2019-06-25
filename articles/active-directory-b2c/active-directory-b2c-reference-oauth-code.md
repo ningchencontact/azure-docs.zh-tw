@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509234"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272068"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授權碼流程
 
@@ -116,7 +117,9 @@ error=access_denied
 | state |如需完整說明，請參閱前一個表格。 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
 
 ## <a name="2-get-a-token"></a>2.取得權杖
-既然已取得授權碼，您可以將 POST 要求傳送至 `/token` 端點，針對所需的資源來兌換權杖的 `code`。 在 Azure AD B2C 中，您唯一可以要求權杖的資源，就是應用程式本身的後端 Web API。 為您自己要求權杖時，依慣例會使用應用程式的用戶端識別碼作為範圍：
+既然已取得授權碼，您可以將 POST 要求傳送至 `/token` 端點，針對所需的資源來兌換權杖的 `code`。 在 Azure AD B2C 中，您可以[其他 API 要求存取權杖](active-directory-b2c-access-tokens.md#request-a-token)像往常一樣是藉由在要求中指定其範圍。
+
+您也可以要求存取權杖為您的應用程式本身的後端 Web API 的使用做為要求的範圍 （這將會導致 「 對象 」 作為該用戶端識別碼的存取權杖） 的應用程式的用戶端識別碼的慣例：
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057295"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293022"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -145,7 +145,7 @@ ms.locfileid: "67057295"
    > 可能有明顯的延遲，完成第一次針對特定的 Azure 租用戶執行這個指令程式之前。 除非在報告失敗時，不必擔心這種延遲。
 
 1. 註冊樹系。
-   * 您必須初始化使用與 Azure 進行通訊所需的認證與內部部署 Active Directory 樹系`Register-AzureADPasswordProtectionForest`PowerShell cmdlet。 Cmdlet 需要您的 Azure 租用戶全域管理員認證。 您也必須在內部部署 Active Directory 網域系統管理員權限的樹系根網域中。 此步驟會針對每一樹系執行一次。
+   * 您必須初始化使用與 Azure 進行通訊所需的認證與內部部署 Active Directory 樹系`Register-AzureADPasswordProtectionForest`PowerShell cmdlet。 Cmdlet 需要您的 Azure 租用戶全域管理員認證。 您也必須在內部部署 Active Directory 企業系統管理員權限。 此步驟會針對每一樹系執行一次。
 
       `Register-AzureADPasswordProtectionForest` Cmdlet 支援下列三種驗證模式。
 
@@ -219,7 +219,7 @@ ms.locfileid: "67057295"
 
    在這兩種情況下，取代`http://yourhttpproxy.com:8080`地址與您特定的 HTTP proxy 伺服器的連接埠。
 
-   如果您的 HTTP proxy 設定給我們授權原則，您必須授與存取權的密碼保護的 proxy 服務的主機電腦的 Active Directory 電腦帳戶。
+   如果您的 HTTP proxy 已設定為使用授權原則，您必須授與存取權的密碼保護的 proxy 服務的主機電腦的 Active Directory 電腦帳戶。
 
    我們建議您停止並重新啟動的 proxy 服務，在您建立或更新後*AzureADPasswordProtectionProxy.exe.config*檔案。
 

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171225"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235266"
 ---
 下表列出特定 Azure 服務匯流排傳訊的配額資訊。 如需定價資訊及其他配額的服務匯流排，請參閱[服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)。
 
 | 配額名稱 | `Scope` | 注意 | 值 |
 | --- | --- | --- | --- |
 | 每個 Azure 訂用帳戶的基本或標準命名空間的最大數目 |命名空間 |Azure 入口網站會拒絕後續對於其他基本或標準的命名空間的要求。 |100|
-| 每個 Azure 訂用帳戶的進階命名空間的最大數目 |命名空間 |入口網站會拒絕後續對於更多進階命名空間的要求。 |25 |
+| 每個 Azure 訂用帳戶的進階命名空間的最大數目 |命名空間 |入口網站會拒絕後續對於更多進階命名空間的要求。 |50 |
 | 佇列或主題大小 |實體 |在建立佇列或主題時定義。 <br/><br/> 後續內送訊息會遭到拒絕，並呼叫程式碼會收到例外狀況。 |1、2、3、4 GB 或 5 GB。<br /><br />在 Premium SKU 和標準 SKU[分割](/azure/service-bus-messaging/service-bus-partitioning)啟用，佇列或主題大小上限是 80 GB。 |
 | 命名空間上的並行連線數目 |命名空間 |其他連接的後續要求都會遭到拒絕，並呼叫程式碼會收到例外狀況。 REST 作業都不會計入並行 TCP 連線。 |NetMessaging：1,000.<br /><br />AMQP：5,000. |
 | 接收要求在佇列、 主題或訂用帳戶實體上的並行數目。 |實體 |後續接收要求會遭到拒絕，並呼叫程式碼會收到例外狀況。 這個配額套用至一個主題的所有訂用帳戶的並行接收作業數目合計。 |5,000 |

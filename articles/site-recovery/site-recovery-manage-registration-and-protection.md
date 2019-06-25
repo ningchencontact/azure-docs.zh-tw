@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415494"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203403"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -151,6 +151,8 @@ ms.locfileid: "65415494"
 > [!NOTE]
 > 在這兩個選項中，行動服務將無法從受保護的伺服器解除安裝，您必須手動解除安裝。 如果您打算再次使用相同的組態伺服器保護伺服器，可以略過解除安裝行動服務。
 
+> [!NOTE]
+> 如果您已容錯移轉 VM，而且它在 Azure 中執行，請注意，停用保護並不會移除/會影響容錯移轉的 VM。
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>停用保護 Azure VM (Azure 至 Azure)
 
 -  在 [受保護的項目]   > [已複寫的項目]  中，以滑鼠右鍵按一下機器 > [停用複寫]  。
@@ -167,8 +169,12 @@ ms.locfileid: "65415494"
    - **停用複寫並移除 (建議)** - 此選項會將複寫的項目從 Azure Site Recovery 移除，且機器的複寫會遭到停止。 系統將會清除內部部署虛擬機器上的複寫設定，並停止此受保護伺服器的 Site Recovery 計費。
    - **移除** - 只有在來源環境遭到刪除或無法存取 (未連線) 時，才使用此選項。 這會將複寫的項目從 Azure Site Recovery 移除 (停止計費)。 內部部署虛擬機器上的複寫設定**將不會**遭到清除。 
 
-     > [!NOTE]
+ > [!NOTE]
      > 如果您選擇 [移除]  選項，則執行下列一組指令碼來清除內部部署 Hyper-V 伺服器上的複寫設定。
+
+> [!NOTE]
+> 如果您已容錯移轉 VM，而且它在 Azure 中執行，請注意，停用保護並不會移除/會影響容錯移轉的 VM。
+
 1. 在來源 Hyper-V 主機伺服器上，移除虛擬機器的複寫。 將 SQLVM1 取代為您虛擬機器的名稱，並從系統管理 PowerShell 執行指令碼
 
 ```powershell

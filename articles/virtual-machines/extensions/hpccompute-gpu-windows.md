@@ -37,9 +37,9 @@ ms.locfileid: "60388670"
 
 | 配送映像 | Version |
 |---|---|
-| Windows 10 (最高 1803 版)| 核心 |
-| Windows Server 2016 | 核心 |
-| Windows Server 2012R2 | 核心 |
+| Windows 10 (最高 1803 版)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
@@ -74,8 +74,8 @@ ms.locfileid: "60388670"
 | Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | 字串 |
-| type | NvidiaGpuDriverWindows | 字串 |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 

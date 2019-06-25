@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597084"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303920"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -113,7 +113,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 ### <a name="system-requirements"></a>系統需求
 - 執行 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 的伺服器：
 
-    | 版本 | 支援的 SKU | 支援的部署選項 |
+    | Version | 支援的 SKU | 支援的部署選項 |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
     | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
@@ -150,7 +150,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="files-skipped"></a>跳過的檔案
 
-| 檔案/資料夾 | 注意 |
+| 檔案/資料夾 | 附註 |
 |-|-|
 | Desktop.ini | 系統專用檔案 |
 | ethumbs.db$ | 暫存檔案的縮圖 |
@@ -170,17 +170,26 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 
 ### <a name="data-deduplication"></a>重複資料刪除
 **代理程式版本 5.0.2.0**   
-重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。
+重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。 請注意這些磁碟區節約只適用於內部部署;您在 Azure 檔案服務的資料將不會重複資料刪除。 
 
 **Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
 
+**注意事項**
+- 如果在安裝 Azure 檔案同步代理程式之前安裝重複資料刪除，則重新啟動，才支援重複資料刪除和雲端階層處理相同的磁碟區上。
+- 如果重複資料刪除磁碟區上啟用後雲端階層是否啟用，初始的重複資料刪除最佳化工作將會最佳化磁碟區上，不已分層，並會在雲端上有下列影響的檔案分層：
+    - 使用熱度圖，可用空間原則將會繼續根據可用空間的磁碟區上的層檔案。
+    - 日期原則會略過的可能已否則適合因為重複資料刪除最佳化工作存取的檔案分層的檔案階層處理。
+- 進行中的重複資料刪除最佳化工作，針對雲端階層處理日期原則將取得延遲，重複資料刪除[MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定，如果檔案已經不會分層。 
+    - 範例：如果將 MinimumFileAgeDays 設定為 7 天雲端階層處理日期原則是 30 天，原則將 37 天後層檔案的日期。
+    - 注意：一旦檔案已分層的 Azure 檔案同步，重複資料刪除最佳化工作會略過檔案。
+
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
 Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。
 
-**DFS 命名空間 (DFS-N)**：DFS-N 伺服器上完全支援 Azure 檔案同步。 您可以將 Azure 檔案同步代理程式安裝在一或多個 DFS-N 成員上，同步伺服器端點與雲端端點之間的資料。 如需詳細資訊，請參閱 [DFS 命名空間概觀](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)。
+**DFS 命名空間 (DFS-N)** ：DFS-N 伺服器上完全支援 Azure 檔案同步。 您可以將 Azure 檔案同步代理程式安裝在一或多個 DFS-N 成員上，同步伺服器端點與雲端端點之間的資料。 如需詳細資訊，請參閱 [DFS 命名空間概觀](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)。
  
-**DFS 複寫 (DFS-R)**：因為 DFS-R 與 Azure 檔案同步都是複寫解決方案，所以建議您在大部分情況下，以 Azure 檔案同步取代 DFS-R。不過有幾個案例，您會想要一起使用 DFS-R 和 Azure 檔案同步：
+**DFS 複寫 (DFS-R)** ：因為 DFS-R 與 Azure 檔案同步都是複寫解決方案，所以建議您在大部分情況下，以 Azure 檔案同步取代 DFS-R。不過有幾個案例，您會想要一起使用 DFS-R 和 Azure 檔案同步：
 
 - 您正要從 DFS-R 部署移轉至 Azure 檔案同步部署。 如需詳細資訊，請參閱[將 DFS 複寫 (DFS-R) 部署移轉至 Azure 檔案同步](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)。
 - 並非需要檔案資料複本的每個內部部署伺服器都能直接連線到網際網路。
@@ -200,9 +209,12 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 如果在伺服器端點上啟用雲端階層處理，則系統會略過階層式檔案，且 Windows 搜尋不會將這些檔案編製索引。 非階層式檔案則會正確編製索引。
 
 ### <a name="antivirus-solutions"></a>防毒解決方案
-因為防毒程式的運作方式是掃描檔案中的已知惡意程式碼，所以防毒產品可能會導致階層式檔案的重新叫用。 在 4.0 版和更新版本的 Azure 檔案同步代理程式中，階層式檔案已設定安全的 Windows 屬性 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS。 建議您洽詢您的軟體廠商，以了解如何設定其解決方案來略過讀取已設定此屬性的檔案 (很多軟體會自動這麼做)。
+因為防毒程式的運作方式是掃描檔案中的已知惡意程式碼，所以防毒產品可能會導致階層式檔案的重新叫用。 在 4.0 版和更新版本的 Azure 檔案同步代理程式中，階層式檔案已設定安全的 Windows 屬性 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS。 建議您洽詢您的軟體廠商，以了解如何設定其解決方案來略過讀取已設定此屬性的檔案 (很多軟體會自動這麼做)。 
 
 作為 Microsoft 內部防毒解決方案的 Windows Defender 和 System Center Endpoint Protection (SCEP)，皆會自動略過讀取已設定此屬性的檔案。 我們已經測試這兩個解決方案並找到一個小問題：當您將伺服器新增至現有同步群組時，會在新的伺服器上重新叫用 (下載) 小於 800 個位元組的檔案。 這些檔案會保留在新的伺服器上，而且不會分層，因為這些檔案不符合階層處理大小需求 (> 64 kb)。
+
+> [!Note]  
+> 防毒軟體廠商可以檢查其產品和 Azure 檔案同步使用 [Azure 檔案同步防毒軟體相容性測試套件] 之間的相容性 (https://www.microsoft.com/download/details.aspx?id=58322) ，適用於 Microsoft Download Center 下載。
 
 ### <a name="backup-solutions"></a>備份解決方案
 備份解決方案類似防毒解決方案，可能會導致階層式檔案的重新叫用。 建議使用雲端備份解決方案來備份 Azure 檔案共用，而不要使用內部部署備份產品。
@@ -235,39 +247,36 @@ Azure 檔案同步僅於下列區域提供：
 
 | 區域 | 資料中心位置 |
 |--------|---------------------|
-| 澳洲東部 | New South Wales |
-| 澳大利亞東南部 | Victoria |
+| 澳洲東部 | 新南威爾斯 |
+| 澳大利亞東南部 | 維多利亞 |
 | 巴西南部 | 聖保羅 Paolo 狀態 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
 | 印度中部 | 浦那 |
-| 美國中部 | Iowa |
+| 美國中部 | 愛荷華州 |
 | 東亞 | 香港特別行政區 |
-| 美國東部 | Virginia |
-| 美國東部 2 | Virginia |
-| 南韓中部| Seoul |
-| 南韓南部| Busan |
+| 美國東部 | 維吉尼亞州 |
+| 美國東部 2 | 維吉尼亞州 |
+| 南韓中部| 首爾 |
+| 南韓南部| 斧山 |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
-| 美國中北部 | Illinois |
+| 美國中北部 | 伊利諾州 |
 | 北歐 | 愛爾蘭 |
 | 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
 | 英國西部 | 卡地夫 |
-| 美國亞歷桑那 （預覽） | 美國亞歷桑那時間 |
-| 美國德克薩斯州政府 （預覽） | Texas |
-| 美國維吉尼亞州政府 （預覽） | Virginia |
+| 美國政府亞利桑那州 | 亞利桑那州 |
+| 美國政府德克薩斯州 | Texas |
+| 美國政府維吉尼亞州 | 維吉尼亞州 |
 | 西歐 | 荷蘭 |
-| 美國中西部 | Wyoming |
+| 美國中西部 | 懷俄明州 |
 | 美國西部 | California |
 | 美國西部 2 | Washington |
 
 Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
-
-> [!Note]  
-> Azure 檔案同步目前僅提供給政府區域的私人預覽。 請參閱我們[版本資訊](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020)如需註冊預覽計劃中的指示。
 
 ### <a name="azure-disaster-recovery"></a>Azure 災害復原
 為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 發生導致 Azure 區域暫時或永久離線的災害時，Microsoft 會將儲存體容錯移轉到配對的區域。 
@@ -300,9 +309,9 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 東南亞      | 東亞          |
 | 英國南部            | 英國西部            |
 | 英國西部             | 英國南部           |
-| US Gov 亞利桑那州      | US Gov 德克薩斯州       |
+| 美國政府亞利桑那州      | 美國政府德克薩斯州       |
 | US Gov 愛荷華州         | 美國政府維吉尼亞州    |
-| US Gov Virgini      | US Gov 德克薩斯州       |
+| 美國政府維吉尼亞州      | 美國政府德克薩斯州       |
 | 西歐         | 北歐       |
 | 美國中西部     | 美國西部 2          |
 | 美國西部             | 美國東部            |

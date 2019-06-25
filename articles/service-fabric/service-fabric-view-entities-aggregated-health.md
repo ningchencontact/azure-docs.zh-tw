@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: e4edcc0aecfbf03aff7cf9bee764522bb1c489f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716368"
 ---
 # <a name="view-service-fabric-health-reports"></a>檢視 Service Fabric 健康狀態報告
@@ -53,7 +53,7 @@ Service Fabric 總管提供叢集的視覺化檢視。 在下圖中，您可以�
 
 使用 Service Fabric 總管檢視叢集：
 
-![使用 Service Fabric Explorer 查看群集。][1]
+![使用 Service Fabric 總管檢視叢集。][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
@@ -237,7 +237,7 @@ HealthEvents            : None
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得叢集健全狀況。
 
 ## <a name="get-node-health"></a>取得節點的健康情況
-傳回節點實體的健全狀況，並且包含節點上報告的健康狀態事件。 输入：
+傳回節點實體的健全狀況，並且包含節點上報告的健康狀態事件。 輸入：
 
 * [必要] 可識別節點的節點名稱。
 * [選擇性] 用來評估健康情況的叢集健康情況原則設定。
@@ -305,7 +305,7 @@ _Node_0                     Ok
 ### <a name="rest"></a>REST
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得節點健全狀況。
 
-## <a name="get-application-health"></a>获取应用程序运行状况
+## <a name="get-application-health"></a>取得應用程式健康情況
 傳回應用程式實體的健康情況。 包含已部署應用程式和服務子系的健康情況狀態。 輸入：
 
 * [必要] 可識別應用程式的應用程式名稱 (URI)。
@@ -481,7 +481,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-取得服務健全狀況的 Cmdlet 是 [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth)。 首先，使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 连接到群集。
+取得服務健全狀況的 Cmdlet 是 [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth)。 首先會使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Cmdlet 連接到叢集。
 
 以下 Cmdlet 會使用預設的健康情況原則，取得服務健康情況：
 
@@ -527,7 +527,7 @@ HealthStatistics      :
 傳回分割區實體的健康情況。 包含複本的健康情況狀態。 輸入：
 
 * [必要] 可識別分割區的分割識別碼 (GUID)。
-* [可选] 用于取代应用程序清单策略的应用程序运行状况策略。
+* [選擇性] 用來覆寫應用程式資訊清單原則的應用程式健康情況原則。
 * [選擇性] 事件和複本的篩選，指定對那些項目感到興趣，並且應該在結果中傳回 (例如，僅限錯誤、或警告和錯誤)。 所有事件和複本都會用來評估實體彙總健全狀況，不論篩選器為何。
 * [選用] 用於排除健康情況統計資料的篩選條件。 如果未指定，健康情況統計資料會顯示處於 OK、警告和錯誤狀態的複本數目。
 
@@ -658,7 +658,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得複本健全狀況。
 
-## <a name="get-deployed-application-health"></a>获取已部署应用程序的运行状况
+## <a name="get-deployed-application-health"></a>取得已部署應用程式的健康情況
 傳回部署在節點實體上的應用程式健康情況。 包含已部署的服務封裝健康情況狀態。 輸入：
 
 * [必要] 可識別已部署應用程式的應用程式名稱 (URI) 和節點名稱 (字串)。
@@ -675,7 +675,7 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-取得已部署應用程式健全狀況的 Cmdlet 是 [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)。 首先使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet 连接到群集。 若要找出應用程式的部署位置，請執行 [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) ，並查看部署的應用程式子系。
+取得已部署應用程式健全狀況的 Cmdlet 是 [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)。 首先會使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Cmdlet 連接到叢集。 若要找出應用程式的部署位置，請執行 [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) ，並查看部署的應用程式子系。
 
 以下 Cmdlet 會取得部署在 **_Node_2** 節點上的 **fabric:/WordCount** 應用程式健康情況。
 
@@ -717,7 +717,7 @@ HealthStatistics                   :
 ### <a name="rest"></a>REST
 您可以使用 [GET 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application)或 [POST 要求](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) (含有其本文中所述的健康狀態原則) 取得已部署應用程式健全狀況。
 
-## <a name="get-deployed-service-package-health"></a>获取已部署服务包的运行状况
+## <a name="get-deployed-service-package-health"></a>取得已部署服務封裝的健康情況
 傳回已部署服務封裝實體的健康情況。 輸入：
 
 * [必要] 可識別已部署服務封裝的應用程式名稱 (URI)、節點名稱 (字串) 及服務資訊清單名稱 (字串)。
@@ -811,9 +811,9 @@ HealthEvents               :
 傳回叢集實體的健全狀況，並包含必要子系的階層健康狀態區塊。 輸入：
 
 * [選擇性] 用來評估節點和叢集事件的叢集健康狀態原則。
-* [可选] 应用程序运行状况策略与用于取代应用程序清单策略的运行状况策略进行映射。
+* [選擇性] 應用程式健康情況原則對應，加上用來覆寫應用程式資訊清單原則的健康情況原則。
 * [選擇性] 節點和應用程式的篩選器，指定對那些項目感到興趣，並且應該在結果中傳回。 篩選器專屬於實體的實體/群組，或適用於該層級的所有實體。 篩選器清單可包含一個一般篩選器及/或由查詢傳回之細微實體的特定識別碼篩選器。 如果子系是空的，依預設不會傳回子系。
-  如需深入了解篩選器，請參閱 [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) 和 [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter)。 应用程序筛选器可采用递归方式为子项指定高级筛选器。
+  如需深入了解篩選器，請參閱 [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) 和 [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter)。 應用程式篩選器可以遞迴方式指定進階的篩選器給子系。
 
 區塊結果包含採用篩選器的子系。
 

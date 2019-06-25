@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916035"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206716"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -59,7 +59,7 @@ SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的�
 
 請注意，具有複雜查詢邏輯的作業即使在非連續接收輸入事件時，也可能具有較高的 SU% 使用率。 此情況可能發生在輸入和輸出事件突然激增之後。 如果查詢很複雜，作業可能會繼續維持在記憶體中的狀態。
 
-SU% 使用率可能會突然降到 0，但不久後便回到預期的層級。 這是因為暫時性錯誤或系統啟動的升級造成的。
+SU% 使用率可能會突然降到 0，但不久後便回到預期的層級。 這是因為暫時性錯誤或系統啟動的升級造成的。 針對作業不可能會降低 SU %使用率，如果您的查詢不是增加串流單位數目[完全平行](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)。
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>時態性元素中的具狀態查詢邏輯
 Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理工作，如視窗型彙總、時態性聯結及時態性分析函式。 每個運算子都會保留狀態資訊。 這些查詢元素的時間範圍上限是七天。 

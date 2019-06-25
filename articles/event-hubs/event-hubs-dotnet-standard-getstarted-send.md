@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 001abd15c88ae717fa0fb91605b2f0822a38973d
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603553"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>傳送事件，或從使用.NET Core 的 Azure 事件中樞接收事件
@@ -41,16 +41,16 @@ ms.locfileid: "65603553"
 
 ### <a name="create-a-console-application"></a>建立主控台應用程式
 
-啟動 Visual Studio。 在“文件”菜单中，单击“新建”，并单击“项目”。 建立 .NET Core 主控台應用程式。
+啟動 Visual Studio。 從 [檔案]  功能表中，按一下 [新增]  ，再按 [專案]  。 建立 .NET Core 主控台應用程式。
 
-![新建项目](./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png)
+![新增專案](./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
 遵循下列幾個步驟，將 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Core 程式庫 NuGet 套件新增至您的專案： 
 
-1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，然後搜尋「Microsoft.Azure.EventHubs」並選取 [Microsoft.Azure.EventHubs] 套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]  。
+2. 按一下 [瀏覽]  索引標籤，然後搜尋「Microsoft.Azure.EventHubs」並選取 [Microsoft.Azure.EventHubs]  套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>撰寫程式碼以將訊息傳送到事件中樞
 
@@ -203,21 +203,21 @@ ms.locfileid: "65603553"
 
 ### <a name="create-a-console-application"></a>建立主控台應用程式
 
-啟動 Visual Studio。 在“文件”菜单中，单击“新建”，并单击“项目”。 建立 .NET Core 主控台應用程式。
+啟動 Visual Studio。 從 [檔案]  功能表中，按一下 [新增]  ，再按 [專案]  。 建立 .NET Core 主控台應用程式。
 
-![新建项目](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
+![新增專案](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
 遵循下列步驟，在您的專案中新增 [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 和 [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET Standard 程式庫 NuGet 套件： 
 
-1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，然後搜尋 **Microsoft.Azure.EventHubs** 並選取 [Microsoft.Azure.EventHubs] 套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]  。
+2. 按一下 [瀏覽]  索引標籤，然後搜尋 **Microsoft.Azure.EventHubs** 並選取 [Microsoft.Azure.EventHubs]  套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
 3. 重複步驟 1 和 2，並安裝 **Microsoft.Azure.EventHubs.Processor** 套件。
 
 ### <a name="implement-the-ieventprocessor-interface"></a>實作 IEventProcessor 介面
 
-1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **SimpleEventProcessor**。
+1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，按一下 [新增]  ，然後按一下 [類別]  。 將新類別命名為 **SimpleEventProcessor**。
 
 2. 開啟 SimpleEventProcessor.cs 檔案，然後在檔案開頭新增下列 `using` 陳述式。
 
@@ -316,7 +316,7 @@ ms.locfileid: "65603553"
     MainAsync(args).GetAwaiter().GetResult();
     ```
 
-    Program.cs 文件的内容如下所示：
+    Program.cs 檔案看起來應該會像下面這樣：
 
     ```csharp
     namespace SampleEphReceiver

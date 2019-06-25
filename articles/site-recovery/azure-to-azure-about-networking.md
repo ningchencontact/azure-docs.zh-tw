@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
 ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789731"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
@@ -128,7 +128,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 3. 針對那些對應至目標位置的站台復原 IP，建立輸出 HTTPS (443) 規則：
 
-   **位置** | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
+   **Location** | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
     --- | --- | ---
    美國中部 | 40.69.144.231 | 52.165.34.144
 
@@ -142,7 +142,7 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 
 3. 針對那些對應至來源位置的站台復原 IP 建立輸出 HTTPS (443) 規則：
 
-   **位置** | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
+   **Location** | **Site Recovery 位址** |  **Site Recovery 監視 IP 位址**
     --- | --- | ---
    美國中部 | 13.82.88.226 | 104.45.147.24
 

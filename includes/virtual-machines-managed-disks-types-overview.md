@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133645"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>在 Azure 中可使用哪些磁碟類型？
 
@@ -29,11 +29,11 @@ Azure 受控的磁碟目前提供四種磁碟類型，其中三個已正式運�
 |案例   |IO 密集的工作負載 (例如 SAP HANA)、最上層資料庫 (例如 SQL、Oracle)，以及其他高交易量的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
 |磁碟大小   |65,536 GiB (預覽)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |最大輸送量   |2,000 MiB/秒 (預覽)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|IOPS 上限   |160,000 (預覽)   |20,000   |6,000   |2,000   |
+|最大 IOPS   |160,000 (預覽)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (預覽)
 
-Azure Ultra SSD (預覽) 可為 Azure IaaS VM 提供高輸送量、高 IOPS 以及一致的低延遲磁碟儲存體。 Ultra SSD 的其他一些優點包括能夠以動態方式變更磁碟的效能和您的工作負載，而不需要重新啟動虛擬機器。 Ultra SSD 適用於資料密集的工作負載 (例如 SAP HANA)、最上層資料庫，以及高交易量的工作負載。 Ultra SSD 只可用來作為資料磁碟。 建議您使用進階 SSD 作為作業系統磁碟。
+Azure 的強力 SSD （預覽） 提供高輸送量、 高 IOPS，以及一致的低延遲磁碟儲存體為 Azure IaaS Vm。 Ultra SSD 的其他一些優點包括能夠以動態方式變更磁碟的效能和您的工作負載，而不需要重新啟動虛擬機器。 強力的 Ssd 適用於資料密集的工作負載，例如 SAP HANA、 最上層資料庫和交易為主的工作負載。 Ultra SSD 只可用來作為資料磁碟。 建議您使用進階 SSD 作為作業系統磁碟。
 
 ### <a name="performance"></a>效能
 
@@ -73,7 +73,8 @@ Ultra SSD 的主要功能包括：
 - 僅在 ES/DS v3 VM 上受到支援
 - 只能作為資料磁碟，且僅支援 4k 實體磁區大小  
 - 只能建立為空磁碟  
-- 目前只能使用 Azure Resource Manager 範本、CLI 和 Python SDK 進行部署。
+- 目前只能部署使用 Azure Resource Manager 範本、 CLI、 PowerShell 和 Python SDK。
+- 無法部署使用 Azure 入口網站 （還）。
 - 尚不支援磁碟快照集、VM 映像、可用性設定組、虛擬機器擴展集和 Azure 磁碟加密。
 - 尚不支援與 Azure 備份或 Azure Site Recovery 整合。
 - 如同 [大部分的預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)，這項功能在正式運作 (GA) 之前不應該用於生產工作負載。

@@ -116,7 +116,7 @@
           href: licensing-groups-change-licenses.md
         - name: 其他案例
           href: licensing-group-advanced.md
-        - name: 搭配 PowerShell 的群組授權
+        - name: 搭配 PowerShell 和 Graph 的群組授權
           href: licensing-ps-examples.md
         - name: 授權的服務方案識別碼
           href: licensing-service-plan-reference.md

@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462960"
 ---
 # <a name="sap-lama-connector-for-azure"></a>適用於 Azure 的 SAP LaMa 連接器
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -60,7 +60,7 @@ ms.locfileid: "61462960"
 
 ## <a name="general-remarks"></a>一般備註
 
-* 務必在 [安裝程式]-> [設定]-> [引擎] 中啟用 [自動掛接點建立]  
+* 務必在 [安裝程式]-> [設定]-> [引擎] 中啟用 [自動掛接點建立]   
   如果 SAP LaMa 在虛擬機器上使用 SAP Adaptive Extensions 掛接磁碟區，若未啟用此設定，則掛接點必須存在。
 
 * 在部署新 VM 和取消準備 SAP 執行個體時，使用個別的子網路，請勿使用動態 IP 位址來防止 IP 位址「竊取」  
@@ -73,7 +73,7 @@ ms.locfileid: "61462960"
 
 從 SAP LaMa 3.0 SP05 起隨附 Azure 連接器。 我們建議一律針安裝 SAP LaMa 3.0 的最新支援套件和修補程式。 Azure 連接器會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立適用於 SAP Landscape Management (LaMa) 的服務主體。
 
-1. 移至 https://portal.azure.com。
+1. 移至 https://portal.azure.com 。
 1. 開啟 [Azure Active Directory] 刀鋒視窗
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
@@ -86,7 +86,7 @@ ms.locfileid: "61462960"
 
 服務主體預設沒有存取您 Azure 資源的權限。 您必須為服務主體提供其存取權限。
 
-1. 移至 https://portal.azure.com。
+1. 移至 https://portal.azure.com 。
 1. 開啟資源群組刀鋒視窗
 1. 選取您要使用的資源群組
 1. 選取 [存取控制 (IAM)]
@@ -230,21 +230,21 @@ SAP LaMa 本身無法重新放置 SQL Server，因此您想要用於重新放置
 
 啟動 SAP Software Provisioning Manager (SWPM) 之前，您必須掛接 ASCS 的虛擬主機名稱 IP 位址。 建議的方式是使用 sapacext。 如果您使用 sapacext 掛接 IP 位址，請務必在重新開機後重新掛接 IP 位址。
 
-![ Linux][Logo_Linux] Linux
+![Linux][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-執行 SWPM 並使用 *ah1-ascs* 作為 [ASCS 執行個體主機名稱]。
+執行 SWPM 並使用 *ah1-ascs* 作為 [ASCS 執行個體主機名稱]  。
 
 ![Linux][Logo_Linux] Linux  
 將下列設定檔參數新增至 SAP Host Agent 設定檔 (位於 /usr/sap/hostctrl/exe/host_profile)。 如需詳細資訊，請參閱 SAP 附註 [2628497]。
@@ -264,20 +264,20 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-在應用程式伺服器虛擬機器 (而不是在 HANA 虛擬機器) 上執行 SWPM 的資料庫執行個體安裝。 在 [適用於 SAP 系統的資料庫] 對話方塊中，使用 *ah1-db* 作為 [資料庫主機]。
+在應用程式伺服器虛擬機器 (而不是在 HANA 虛擬機器) 上執行 SWPM 的資料庫執行個體安裝。 在 [適用於 SAP 系統的資料庫]  對話方塊中，使用 *ah1-db* 作為 [資料庫主機]  。
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>安裝適用於 SAP HANA 的 SAP NetWeaver 應用程式伺服器
 
 啟動 SAP Software Provisioning Manager (SWPM) 之前，您必須掛接應用程式伺服器的虛擬主機名稱 IP 位址。 建議的方式是使用 sapacext。 如果您使用 sapacext 掛接 IP 位址，請務必在重新開機後重新掛接 IP 位址。
 
-![ Linux][Logo_Linux] Linux
+![Linux][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -300,7 +300,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-在 [主要應用程式伺服器執行個體] 對話方塊中，使用 *ah1-di-0* 作為 [PAS 執行個體主機名稱]。
+在 [主要應用程式伺服器執行個體]  對話方塊中，使用 *ah1-di-0* 作為 [PAS 執行個體主機名稱]  。
 
 #### <a name="post-installation-steps-for-sap-hana"></a>SAP HANA 的後續安裝步驟
 
@@ -319,7 +319,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-執行 SWPM 並使用 *as1-ascs* 作為 [ASCS 執行個體主機名稱]。
+執行 SWPM 並使用 *as1-ascs* 作為 [ASCS 執行個體主機名稱]  。
 
 #### <a name="install-sql-server"></a>安裝 SQL Server
 
@@ -343,7 +343,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-在 [主要應用程式伺服器執行個體] 對話方塊中，使用 *as1-di-0* 作為 [PAS 執行個體主機名稱]。
+在 [主要應用程式伺服器執行個體]  對話方塊中，使用 *as1-di-0* 作為 [PAS 執行個體主機名稱]  。
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -372,19 +372,19 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 解決方法  
     備份來源 HANA 系統中的所有資料庫
 
-* 資料庫執行個體的系統複製(copy) 步驟「啟動」
+* 資料庫執行個體的系統複製(copy) 步驟「啟動」 
   * 主機代理程式作業 '000D3A282BC91EE8A1D76CF1F92E2944' 失敗 (OperationException。 FaultCode：'127'，訊息：「命令執行失敗。 ：[Microsoft][ODBC SQL Server Driver][SQL Server]使用者沒有更改資料庫 'AS2' 的全線，此資料庫不存在，或此資料庫不是處於允許存取檢查的狀態。」)
   * 解決方法  
     確定 *NT AUTHORITY\SYSTEM* 可以存取 SQL Server。 請參閱 SAP 附註 [2562184]
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>系統複製 (clone) 期間的錯誤和警告
 
-* 嘗試在應用程式伺服器或 ASCS 的「強制註冊和啟動執行個體代理程式」步驟中註冊執行個體代理程式時發生錯誤
+* 嘗試在應用程式伺服器或 ASCS 的「強制註冊和啟動執行個體代理程式」  步驟中註冊執行個體代理程式時發生錯誤
   * 嘗試註冊執行個體代理程式時發生錯誤。 (RemoteException：「無法從設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 載入執行個體資料：無法存取設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'：沒有這類檔案或目錄。」)
   * 解決方法  
    確定在 ASCS/SCS 上的 sapmnt 共用具有 SAP_AS1_GlobalAdmin 的完整存取權
 
-* 「啟用複製 (clone) 的啟動保護」步驟發生錯誤
+* 「啟用複製 (clone) 的啟動保護」  步驟發生錯誤
   * 無法開啟檔案 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 原因：沒有這類檔案或目錄
   * 解決方法  
     應用程式伺服器的電腦帳戶需要設定檔的寫入權限

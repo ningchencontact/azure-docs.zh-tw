@@ -1,5 +1,5 @@
 ---
-title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - Azure 门户
+title: 自訂 Azure 應用程式閘道-Azure 入口網站中的 web 應用程式防火牆規則
 description: 本文提供如何透過 Azure 入口網站，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。
 services: application-gateway
 author: vhorne
@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720391"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>透過 Azure 入口網站自訂 Web 應用程式防火牆規則
@@ -25,8 +25,8 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 ## <a name="view-rule-groups-and-rules"></a>檢視規則群組與規則
 
 **檢視規則群組與規則**
-   1. 瀏覽至應用程式閘道，然後選取 [Web 應用程式防火牆]。  
-   2. 選取 [進階規則設定]。  
+   1. 瀏覽至應用程式閘道，然後選取 [Web 應用程式防火牆]  。  
+   2. 選取 [進階規則設定]  。  
    這個檢視會在透過所選擇規則集提供之所有規則群組的頁面上顯示一個表格， 並選取所有的規則核取方塊。
 
 ![設定已停用的規則][1]
@@ -42,7 +42,7 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 > [!IMPORTANT]
 > 停用任何規則群組] 或 [規則時，請務必小心。 這可能會您暴露於更高的安全性風險。
 
-禁用规则时可以禁用整个规则组，也可以禁用一个或多个规则组下的特定规则。 
+當您停用規則時，您可以停用整個規則群組] 或 [一或多個規則群組下的特定規則。 
 
 **停用規則群組或特定規則**
 
@@ -52,20 +52,20 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 
 ![儲存變更][3]
 
-## <a name="mandatory-rules"></a>强制性规则
+## <a name="mandatory-rules"></a>必要的規則
 
 下列清單包含會造成封鎖的要求在防止模式中 WAF 的條件。 在偵測模式中，它們會記錄為例外狀況。
 
-无法配置或禁用这些规则：
+無法設定或停用這些：
 
-* 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
-* 请求正文（不带文件）数据长度大于配置的限制
-* 请求正文（包括文件）大于限制
-* WAF 引擎发生内部错误
+* 無法剖析要求主體導致要求遭到封鎖，除非主體檢查已關閉 （XML、 JSON、 表單資料）
+* 要求本文中 （的任何檔案） 的資料長度大於設定的限制
+* （包括檔案） 的內文大於限制的要求
+* WAF 引擎中發生內部錯誤
 
 CRS 3.x 特定：
 
-* 入站异常分数超出阈值
+* 輸入異常分數超過閾值
 
 ## <a name="next-steps"></a>後續步驟
 

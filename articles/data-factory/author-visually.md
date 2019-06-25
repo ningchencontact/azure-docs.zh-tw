@@ -13,10 +13,10 @@ ms.author: shlo
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507803"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
@@ -33,7 +33,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 ![設定 Data Factory 服務](media/author-visually/configure-data-factory.png)
 
-當您使用 UX **撰寫畫布**來使用 Data Factory 服務來直接撰寫時，只能使用 [全部發行] 模式。 您所做的任何變更都會直接發佈至 Data Factory 服務。
+當您使用 UX **撰寫畫布**來使用 Data Factory 服務來直接撰寫時，只能使用 [全部發行]  模式。 您所做的任何變更都會直接發佈至 Data Factory 服務。
 
 ![發佈模式](media/author-visually/data-factory-publish.png)
 
@@ -48,17 +48,17 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 
 #### <a name="method1"></a> 設定方法 1 (Azure Repos Git 存放庫)：現在就開始吧頁面
 
-在 Azure Data Factory 中，移至 [現在就開始吧] 頁面。 選取 [設定程式碼存放庫]：
+在 Azure Data Factory 中，移至 [現在就開始吧]  頁面。 選取 [設定程式碼存放庫]  ：
 
 ![設定 Azure Repos 程式碼存放庫](media/author-visually/configure-repo.png)
 
-[存放庫設定] 設定窗格會隨即出現：
+[存放庫設定]  設定窗格會隨即出現：
 
 ![設定程式碼存放庫設定](media/author-visually/repo-settings.png)
 
 此窗格會顯示下列 Azure Repos 程式碼存放庫設定：
 
-| 設定 | 說明 | Value |
+| 設定 | 描述 | 值 |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。<br/> | Azure Repos Git |
 | **Azure Active Directory** | 您的 Azure AD 租用戶名稱。 | `<your tenant name>` |
@@ -70,7 +70,7 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 | **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布**將現有的資料處理站資源匯入到 Azure Repos Git 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 
 #### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>設定方法 2 (Azure Repos Git 存放庫)：UX 撰寫畫布
-在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] 下拉式功能表，然後選取 [設定程式碼存放庫]。
+在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory]  下拉式功能表，然後選取 [設定程式碼存放庫]  。
 
 隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱<a href="#method1">設定方法 1</a> 中的說明。
 
@@ -105,17 +105,17 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 ### <a name="use-version-control"></a>使用版本控制
 版本控制系統 (也稱為_原始檔控制_) 可讓開發人員在程式碼上共同作業，並追蹤對程式碼基底所進行的變更。 來源控制是多開發人員專案的必要工具。
 
-與資料處理站相關聯的每個 Azure Repos Git 存放庫都有共同作業分支。 (`master` 是預設的共同作業分支)。 使用者也可以按一下 [+ 新增分支] 來建立功能分支，並在功能分支中進行開發。
+與資料處理站相關聯的每個 Azure Repos Git 存放庫都有共同作業分支。 (`master` 是預設的共同作業分支)。 使用者也可以按一下 [+ 新增分支]  來建立功能分支，並在功能分支中進行開發。
 
 ![藉由同步或發佈來變更程式碼](media/author-visually/sync-publish.png)
 
-當在您的功能分支中的功能開發已經備妥時，您可以按一下 [建立提取要求]。 此動作會將您帶往 Azure Repos Git，您可以在其中發出提取要求、執行程式碼檢閱，以及將變更合併到您的共同作業分支。 (`master` 是預設值)。 您只被允許從您的共同作業分支發佈到 Data Factory 服務。 
+當在您的功能分支中的功能開發已經備妥時，您可以按一下 [建立提取要求]  。 此動作會將您帶往 Azure Repos Git，您可以在其中發出提取要求、執行程式碼檢閱，以及將變更合併到您的共同作業分支。 (`master` 是預設值)。 您只被允許從您的共同作業分支發佈到 Data Factory 服務。 
 
 ![建立新的提取要求](media/author-visually/create-pull-request.png)
 
 ### <a name="configure-publishing-settings"></a>設定發佈設定
 
-若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如：
+若要設定發佈分支 (亦即儲存 Resource Manager 範本的分支)，請將 `publish_config.json` 檔案新增至共同作業分支中的根資料夾。 Data Factory 會讀取此檔案、尋找 `publishBranch` 欄位，然後使用所提供的值來建立新分支 (如果尚未存在)。 接著，它會將所有 Resource Manager 範本都儲存到指定的位置。 例如:
 
 ```json
 {
@@ -132,12 +132,12 @@ Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰�
 Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔案。 如果您已經在入口網站中載入處理站，請重新整理瀏覽器以讓變更生效。
 
 ### <a name="publish-code-changes"></a>發佈程式碼變更
-將變更合併到共同作業分支之後 (`master` 是預設值)，請選取 [發佈] 來手動將主要分支中的程式碼變更發佈到 Data Factory 服務。
+將變更合併到共同作業分支之後 (`master` 是預設值)，請選取 [發佈]  來手動將主要分支中的程式碼變更發佈到 Data Factory 服務。
 
 ![將變更發佈到 Data Factory 服務](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
-> 主要分支不代表在 Data Factory 服務中部署的內容。 「必須」以手動方式將主要分支主發佈至 Data Factory 服務。
+> 主要分支不代表在 Data Factory 服務中部署的內容。 「必須」  以手動方式將主要分支主發佈至 Data Factory 服務。
 
 ### <a name="advantages-of-git-integration"></a>Git 整合的優點
 
@@ -191,11 +191,11 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 **設定方法 1 (公用存放庫)：現在就開始吧頁面**
 
-在 Azure Data Factory 中，移至 [現在就開始吧] **** 頁面。 選取 [設定程式碼存放庫] ****：
+在 Azure Data Factory 中，移至 [現在就開始吧] ****  頁面。 選取 [設定程式碼存放庫] **** ：
 
 ![Data Factory 開始使用網頁](media/author-visually/github-integration-image1.png)
 
-[存放庫設定] **** 設定窗格隨即出現：
+[存放庫設定] ****  設定窗格隨即出現：
 
 ![GitHub 存放庫設定](media/author-visually/github-integration-image2.png)
 
@@ -213,7 +213,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>設定方法 2 (公用存放庫)：UX 撰寫畫布
 
-在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] **** 下拉式功能表，然後選取 [設定程式碼存放庫] ****。
+在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] ****  下拉式功能表，然後選取 [設定程式碼存放庫] **** 。
 
 隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」 ** 中的說明。
 
@@ -223,11 +223,11 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>設定方法 1 (企業存放庫)：現在就開始吧頁面
 
-在 Azure Data Factory 中，移至 [現在就開始吧] **** 頁面。 選取 [設定程式碼存放庫] ****：
+在 Azure Data Factory 中，移至 [現在就開始吧] ****  頁面。 選取 [設定程式碼存放庫] **** ：
 
 ![Data Factory 開始使用網頁](media/author-visually/github-integration-image1.png)
 
-[存放庫設定] **** 設定窗格隨即出現：
+[存放庫設定] ****  設定窗格隨即出現：
 
 ![GitHub 存放庫設定](media/author-visually/github-integration-image3.png)
 
@@ -247,14 +247,14 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>設定方法 2 (企業存放庫)：UX 撰寫畫布
 
-在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] **** 下拉式功能表，然後選取 [設定程式碼存放庫] ****。
+在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] ****  下拉式功能表，然後選取 [設定程式碼存放庫] **** 。
 
 隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」 ** 中的說明。
 
 ## <a name="use-the-expression-language"></a>使用運算式語言
 您可以藉由使用 Azure Data Factory 所支援的運算式語言，來指定屬性值的運算式。
 
-選取 [新增動態內容] 來指定屬性值的運算式：
+選取 [新增動態內容]  來指定屬性值的運算式：
 
 ![使用運算式語言](media/author-visually/dynamic-content-1.png)
 
@@ -267,7 +267,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 ![新增動態內容](media/author-visually/dynamic-content-2.png)
 
 ## <a name="provide-feedback"></a>提供意見反應
-選取 [意見反應] 可為功能加上註解，也可以向 Microsoft 通報工具問題：
+選取 [意見反應]  可為功能加上註解，也可以向 Microsoft 通報工具問題：
 
 ![意見反應](media/author-visually/provide-feedback.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c180d869801cd9cd91a3e2a3659644f4e263d9
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657780"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273335"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 範本
 
@@ -44,7 +44,7 @@ ms.locfileid: "60657780"
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="APIList"></a>API 清單  
+## <a name="APIList"></a>API 清單  
  **API 清單**範本可讓您自訂開發人員入口網站中 API 清單頁面的主體。  
   
  ![開發人員入口網站 API 清單](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM 開發人員入口網站範本 API 清單")  
@@ -112,7 +112,7 @@ ms.locfileid: "60657780"
 }  
 ```  
   
-##  <a name="Product"></a>作業  
+## <a name="Product"></a>作業  
  **作業**範本可讓您自訂開發人員入口網站中作業頁面的主體。  
   
  ![開發人員入口網站作業頁面](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM 開發人員入口網站範本作業頁面")  
@@ -642,7 +642,7 @@ ms.locfileid: "60657780"
 }  
 ```  
   
-##  <a name="CodeSamples"></a> 程式碼範例  
+## <a name="CodeSamples"></a> 程式碼範例  
  下列範本可讓您自訂作業頁面上個別程式碼範例的主體。  
   
  ![開發人員入口網站範本程式碼範例](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM 開發人員入口網站範本程式碼範例")  
@@ -663,7 +663,7 @@ ms.locfileid: "60657780"
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a>Curl  
+### <a name="Curl"></a>Curl  
  **DocumentationSamplesCurl** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -716,12 +716,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+### <a name="CSharp"></a> C#  
  **DocumentationSamplesCsharp** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```csharp  
 using System;  
 using System.Net.Http.Headers;  
 using System.Text;  
@@ -895,12 +895,12 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a>Java  
+### <a name="Stub"></a>Java  
  **DocumentationSamplesJava** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -991,12 +991,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a>JavaScript  
+### <a name="JavaScript"></a>JavaScript  
  **DocumentationSamplesJs** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -1080,12 +1080,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a>Objective C  
+### <a name="ObjectiveC"></a>Objective C  
  **DocumentationSamplesObjc** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1192,12 +1192,12 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a>PHP  
+### <a name="PHP"></a>PHP  
  **DocumentationSamplesPhp** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1282,12 +1282,12 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a>Python  
+### <a name="Python"></a>Python  
  **DocumentationSamplesPython** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1400,12 +1400,12 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a>Ruby  
+### <a name="Ruby"></a>Ruby  
  **DocumentationSamplesRuby** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

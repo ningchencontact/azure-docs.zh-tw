@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808855"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -77,7 +77,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 2. 以系統管理員身分執行 PowerShell。
 
    >[!NOTE]
-   >您可以使用 PowerShell AMD64 工作階段來安裝 IoT Edge，PowerShell (x86)。 如果您不確定您使用哪一個工作階段類型，請執行下列命令：
+   >使用 PowerShell 的 AMD64 工作階段來安裝 IoT Edge，而不是使用 PowerShell (x86)。 如果您不確定正在使用的工作階段類型，請執行下列命令：
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
@@ -86,7 +86,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 3. **部署 IoTEdge**命令會檢查您的 Windows 電腦上支援的版本、 開啟 「 容器 」 功能，以及然後下載 白鯨執行階段和 IoT Edge 執行階段。 此命令預設會使用 Windows 容器。 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -95,7 +95,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 5. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
@@ -126,7 +126,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 2. 以系統管理員身分執行 PowerShell。
 
    >[!NOTE]
-   >您可以使用 PowerShell AMD64 工作階段來安裝 IoT Edge，PowerShell (x86)。 如果您不確定您使用哪一個工作階段類型，請執行下列命令：
+   >使用 PowerShell 的 AMD64 工作階段來安裝 IoT Edge，而不是使用 PowerShell (x86)。 如果您不確定正在使用的工作階段類型，請執行下列命令：
    >
    >```powershell
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
@@ -135,7 +135,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 3. **部署 IoTEdge**命令會檢查您的 Windows 電腦上支援的版本、 開啟 「 容器 」 功能，以及然後下載 白鯨執行階段和 IoT Edge 執行階段。 此命令預設會使用 Windows 容器。 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -144,7 +144,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 6. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 使用`-Dps`旗標，以使用裝置佈建服務，而不是手動佈建。
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -172,7 +172,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 若要安裝與離線的元件，請使用`-OfflineInstallationPath`參數部署 IoTEdge 命令，並提供檔案目錄的絕對路徑。 例如，
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -189,7 +189,7 @@ Get-Service iotedge
 檢查最後 5 分鐘的服務記錄。 如果您剛完成安裝 IoT Edge 執行階段，您可能會看到一份執行之間的時間中的錯誤**部署 IoTEdge**並**初始化 IoTEdge**。 必須是這些錯誤，因為服務正在嘗試啟動之前設定。 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 列出執行中的模組。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
@@ -233,7 +233,7 @@ docker -H npipe:////./pipe/iotedge_moby_engine images
 此範例顯示指向現有組態檔的安裝，並使用 Windows 容器： 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 

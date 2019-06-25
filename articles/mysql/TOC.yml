@@ -89,12 +89,20 @@
           href: concepts-business-continuity.md
         - name: 備份與還原
           href: concepts-backup.md
-    - name: 監視
+    - name: 監視與微調
       items:
-        - name: 監視
+        - name: 監視與微調
           href: concepts-monitoring.md
-        - name: 伺服器記錄
+        - name: 慢速查詢記錄
           href: concepts-server-logs.md
+        - name: 稽核記錄
+          href: concepts-audit-logs.md
+        - name: 查詢存放區
+          href: concepts-query-store.md
+        - name: 查詢效能深入解析
+          href: concepts-query-performance-insight.md
+        - name: 效能建議
+          href: concepts-performance-recommendations.md
     - name: 開發
       items:
         - name: 驅動程式和工具相容性
@@ -165,10 +173,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: 存取伺服器記錄
       items:
-        - name: Azure 入口網站
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-in-cli.md
+        - name: 慢速查詢記錄
+          items:
+            - name: Azure 入口網站
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: 稽核記錄
+          items:
+            - name: Azure 入口網站
+              href: howto-configure-audit-logs-portal.md
     - name: 監視
       items:
         - name: 建立計量警示

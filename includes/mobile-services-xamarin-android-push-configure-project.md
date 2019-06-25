@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 69dc0e1c14bc88cdbf0aa48700f95058ba759cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140312"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174485"
 ---
 1. 在 [方案] 檢視 (或 Visual Studio 中的 [方案總管]  ) 中，以滑鼠右鍵按一下 [元件]  資料夾，按一下 [取得更多元件]  ，搜尋 **Google 雲端通訊用戶端**並將其加入至專案。
 2. 開啟 ToDoActivity.cs 專案檔案，然後將下列 using 陳述式加入至類別：

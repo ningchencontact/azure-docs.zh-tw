@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107630"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -66,7 +66,7 @@ ms.locfileid: "66513657"
 |50001|此租用戶中找不到服務主體名稱。 如果租用戶的管理員尚未安裝此應用程式，或如果在目錄中找不到資源主體或為無效，也可能會發生此錯誤。|
 |50002|登入失敗，因為租用戶上的 Proxy 存取受限。 如果該租用戶原則是您自有的，您可以變更受限租用戶的設定以修正此問題。|
 |50003|登入失敗，因為遺漏簽署金鑰或憑證。 這可能是因為應用程式中未設定任何簽署金鑰。 請參閱下列文件所述的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)。 如果問題持續發生，請連絡應用程式擁有者或應用程式管理員。|
-|50005|使用者嘗試透過條件式存取原則從目前不受支援的平台登入裝置。|
+|50005|使用者嘗試登入至裝置，從目前不支援透過條件式存取原則的平台。|
 |50006| 簽章驗證失敗，因為簽章無效。 請參閱下列文件所述的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)。 如果問題持續發生，請連絡應用程式擁有者或應用程式管理員。|
 |50007|找不到此應用程式的夥伴加密憑證。 請向 Microsoft [開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)以修正此問題。|
 |50008|權杖中的 SAML 判斷提示遺漏或設定不正確。 請連絡同盟提供者。|
@@ -107,7 +107,7 @@ ms.locfileid: "66513657"
 |50128|網域名稱無效 - 在要求中找不到租用戶識別資訊，或任何提供的認證均未隱含租用戶識別資訊。|
 |50129|裝置為加入工作場所網路 - 註冊裝置需**加入工作場所網路**。|
 |50130|宣告值無法解譯為已知驗證方法。|
-|50131|使用於各種條件式存取錯誤。 例如 不正確的 Windows 裝置狀態，要求因為可疑的活動、存取原則和安全性原則決策而遭到封鎖。|
+|50131|用於多個條件式存取錯誤。 例如 不正確的 Windows 裝置狀態，要求因為可疑的活動、存取原則和安全性原則決策而遭到封鎖。|
 |50132|認證已遭撤銷，原因如下：<ul><li>SSO 成品無效或過期</li><li>工作階段對應用程式來說不夠新</li><li>已傳送無訊息登入要求，但使用者的 Azure AD 工作階段無效或過期。</li></ul>|
 |50133|工作階段因為到期或近期密碼變更而無效。|
 |50135|帳戶有風險，因此必須變更密碼。|
@@ -133,8 +133,8 @@ ms.locfileid: "66513657"
 |52004|使用者尚未同意存取 LinkedIn 資源。 |
 |53000|條件式存取原則需要相容的裝置，但裝置不相容。 讓使用者向 Intune 等獲得核准的 MDM 提供者註冊其裝置。|
 |53001|條件式存取原則需要已加入網域的裝置，但該裝置尚未加入網域。 請使用者使用已加入網域的裝置。|
-|53002|所使用的應用程式不是已核准進行條件式存取的應用程式。 使用者所使用的應用程式，必須是已核准使用的應用程式清單其中一個，才能取得存取權。|
-|53003|因為條件式存取原則，存取遭到封鎖。|
+|53002|使用應用程式不是核准的應用程式的條件式存取。 使用者所使用的應用程式，必須是已核准使用的應用程式清單其中一個，才能取得存取權。|
+|53003|存取已被封鎖，因為條件式存取原則。|
 |53004|使用者必須先完成多重要素驗證註冊程序，才能存取此內容。 使用者應該註冊多重要素驗證。|
 |65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。請將授權要求傳送給租用戶管理員，以代表應用程式Y 針對資源Z 採取行動。|
 |65004|使用者不同意存取應用程式。 讓使用者重試登入，並同意應用程式|

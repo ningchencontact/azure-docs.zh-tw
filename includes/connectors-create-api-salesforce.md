@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: 70ca28fbcd6feea75788cd58677ca44080e47ae5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130040"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202781"
 ---
 ### <a name="prerequisites"></a>必要條件
 * [Salesforce](https://salesforce.com) 帳戶  
@@ -13,7 +18,7 @@ ms.locfileid: "62130040"
 
 若要授權邏輯應用程式連線到您的 Salesforce 帳戶，其步驟如下：  
 
-1. 若要建立與 Salesforce 的連線，請在邏輯應用程式設計工具中，從下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「Salesforce」。 選取您要使用的觸發程序或動作：  
+1. 若要建立與 Salesforce 的連線，請在邏輯應用程式設計工具中，從下拉式清單中選取 [顯示 Microsoft 受控 API]  ，然後在搜尋方塊中輸入「Salesforce」  。 選取您要使用的觸發程序或動作：  
    ![Salesforce 連線圖像 1](./media/connectors-create-api-salesforce/salesforce-1.png)  
 2. 如果您之前尚未建立任何 Salesforce 連接，系統會提示您提供 Salesforce 認證。 這些認證將用來授權邏輯應用程式連線及存取您 Salesforce 帳戶的資料：  
    ![Salesforce 連線圖像 2](./media/connectors-create-api-salesforce/salesforce-2.png)  

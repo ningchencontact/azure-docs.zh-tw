@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111464"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 身分識別平台整合檢查清單
 
@@ -45,14 +45,14 @@ Microsoft 身分識別平台整合檢查清單的目的是引導您以高品質�
 |---|---|
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請確定您用來註冊和管理應用程式的帳戶相關聯的資訊是最新狀態。 |
 
-### <a name="branding"></a>品牌
+### <a name="branding"></a>商標
 
 |   |   |
 |---|---|
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 遵守[商標指導方針的應用程式](howto-add-branding-in-azure-ad-apps.md)。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 您的應用程式，請提供有意義的名稱和標誌。 這項資訊會出現在您的應用程式的同意提示。 請確定您的名稱和標誌是代表您的公司/產品，因此使用者可以做出明智的決策。 請確定您在不違反任何的商標。 |
 
-### <a name="privacy"></a>隱私權聲明
+### <a name="privacy"></a>隱私權
 
 |   |   |
 |---|---|
@@ -62,7 +62,7 @@ Microsoft 身分識別平台整合檢查清單的目的是引導您以高品質�
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 維護所有重新導向 Uri 的擁有權，並保持它們的 DNS 記錄。 請勿在您的 Uri 中使用萬用字元 （*）。 針對 web 應用程式，請確定所有 Uri 都是安全且加密 （例如，使用 https 配置）。 公用用戶端，請使用平台特定重新導向 Uri，如果適用的話 （主要是針對 iOS 和 Android）。 否則，請使用重新導向 Uri，具有高容量的隨機性，若要避免發生衝突時回呼您的應用程式。 如果從獨立的 web 代理程式正在使用您的應用程式，您可以使用 https://login.microsoftonline.com/nativeclient。 檢閱並修剪所有未使用或不需要重新導向 Uri 以規則為基礎。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 維護所有重新導向 Uri 的擁有權，並保持它們的 DNS 記錄。 請勿在您的 Uri 中使用萬用字元 （*）。 針對 web 應用程式，請確定所有 Uri 都是安全且加密 （例如，使用 https 配置）。 公用用戶端，請使用平台特定重新導向 Uri，如果適用的話 （主要是針對 iOS 和 Android）。 否則，請使用重新導向 Uri，具有高容量的隨機性，若要避免發生衝突時回呼您的應用程式。 如果從獨立的 web 代理程式正在使用您的應用程式，您可以使用 https://login.microsoftonline.com/nativeclient 。 檢閱並修剪所有未使用或不需要重新導向 Uri 以規則為基礎。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式註冊在目錄中，最小化，並手動監視應用程式註冊擁有者的清單。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 未啟用支援[OAuth2 隱含授與流程](v2-oauth2-implicit-grant-flow.md)除非有明確的需求。 深入了解有效的案例[此處](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)。 |
 | ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 不用[資源擁有者密碼認證流程 (ROPC)](v2-oauth-ropc.md)，直接處理使用者的密碼。 此流程需要較高程度的信任和使用者的風險，而且應該只用於其他、 更安全的流程無法使用時。 |

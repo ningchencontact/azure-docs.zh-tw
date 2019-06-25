@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735021"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147968"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -49,7 +49,8 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ![內嵌說明](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-您可以執行使用 AzCopy 有意義的任何項目之前，您必須決定如何將提供的儲存體服務的授權認證。
+> [!NOTE] 
+> 為您的 Azure 儲存體帳戶的擁有者，您不會自動指派資料存取權限。 您可以執行使用 AzCopy 有意義的任何項目之前，您必須決定如何將提供的儲存體服務的授權認證。 
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>選擇您要如何提供授權認證
 
@@ -67,9 +68,9 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 您需要的授權層級取決於您是否計劃將檔案上傳或下載它們。
 
-#### <a name="authorization-to-upload-files"></a>若要將檔案上傳的授權
+如果您只想下載檔案，然後確認[儲存體 Blob 資料讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)已指派給您的身分識別。
 
-確認，以您的身分識別將其中一個角色指派：
+如果您想要上傳檔案，然後確認，以您的身分識別將其中一個角色指派：
 
 - [儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [儲存體 Blob 資料擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -87,27 +88,6 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 若要進一步了解，請參閱[存取控制，在 Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
 
-#### <a name="authorization-to-download-files"></a>若要下載檔案的授權
-
-確認，以您的身分識別將其中一個角色指派：
-
-- [儲存體 Blob 資料讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
-- [儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [儲存體 Blob 資料擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
-
-這些角色可以指派給您在任何這些領域中的身分識別：
-
-- 容器 （檔案系統）
-- 儲存體帳戶
-- 資源群組
-- 訂用帳戶
-
-若要了解如何驗證和指派角色，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
-
-您不需要有其中一個角色指派給您的身分識別，如果您的身分識別新增至目標容器或目錄的存取控制清單 (ACL)。 在 ACL 中，您的身分識別會需要目標目錄中，讀取權限，以及執行容器和每個父目錄的權限。
-
-若要進一步了解，請參閱[存取控制，在 Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
-
 #### <a name="authenticate-your-identity"></a>驗證您的身分識別
 
 確認您的身分識別具有已指定必要的授權層級之後，開啟命令提示字元，輸入下列命令，，然後按 ENTER 鍵。
@@ -115,6 +95,14 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 ```azcopy
 azcopy login
 ```
+
+如果您隸屬於多個組織，包括儲存體帳戶所屬的組織的租用戶識別碼。
+
+```azcopy
+azcopy login --tenant-id=<tenant-id>
+```
+
+取代`<tenant-id>`預留位置取代為儲存體帳戶所屬的組織的租用戶識別碼。 若要尋找的租用戶識別碼，請選取**Azure Active Directory > 屬性 > 目錄識別碼**在 Azure 入口網站中。
 
 此命令傳回驗證碼和網站的 URL。 開啟網站，提供程式碼，然後選擇 [下一步]  按鈕。
 
@@ -146,13 +134,32 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 
 - [使用 AzCopy 和 Amazon S3 貯體轉送資料](storage-use-azcopy-s3.md)
 
-## <a name="configure-optimize-and-troubleshoot-azcopy"></a>設定、 最佳化和疑難排解 AzCopy
+## <a name="use-azcopy-in-a-script"></a>在 指令碼中使用 AzCopy
 
-請參閱[設定，最佳化和疑難排解 AzCopy](storage-use-azcopy-configure.md)
+經過一段時間，AzCopy[下載連結](#download-and-install-azcopy)會指向新版本的 AzCopy。 如果您的指令碼下載 AzCopy、 指令碼可能會停止運作如果新版的 AzCopy 修改取決於您的指令碼的功能。 
+
+若要避免這些問題，取得靜態的 （未變更） 連結至目前版本的 AzCopy。 如此一來，您的指令碼會下載相同的確切版本的 AzCopy 執行每一次。
+
+若要取得連結，請執行此命令：
+
+| 作業系統  | 命令 |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+
+> [!NOTE]
+> 針對 Linux，`--strip-components=1`上`tar`命令會移除最上層的資料夾，其中包含版本名稱，並改為直接在目前的資料夾中擷取二進位檔。 這可讓新的版本更新的指令碼`azcopy`藉由只更新`wget`URL。
+
+URL 會出現在這個命令的輸出。 您的指令碼可以使用該 URL，然後下載 AzCopy。
+
+| 作業系統  | 命令 |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ## <a name="use-azcopy-in-storage-explorer"></a>使用 AzCopy 在儲存體總管
 
-如果您想要利用 AzCopy 的效能優勢，但您想要使用儲存體總管，而不是命令列與檔案互動，然後讓 AzCopy 在儲存體總管。
+如果您想要利用 AzCopy 的效能優勢，但您想要使用儲存體總管，而不是命令列與檔案互動，然後讓 AzCopy 在儲存體總管。 
 
 在儲存體總管 中，選擇**Preview**->**改善 Blob 上傳和下載使用 AzCopy**。
 
@@ -161,6 +168,8 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 > [!NOTE]
 > 您不需要啟用此設定，如果您已在您的儲存體帳戶上啟用階層式命名空間。 這是因為儲存體總管會自動使用 AzCopy 上有階層式命名空間的儲存體帳戶。  
 
+儲存體總管會使用您的帳戶金鑰來執行作業，因此您登入儲存體總管之後，您不需要提供額外的授權認證。
+
 <a id="previous-version" />
 
 ## <a name="use-the-previous-version-of-azcopy"></a>使用舊版的 AzCopy
@@ -168,7 +177,12 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 如果您需要使用舊版的 AzCopy (AzCopy v8.1)，請參閱下列連結：
 
 - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
 - [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## <a name="configure-optimize-and-troubleshoot-azcopy"></a>設定、 最佳化和疑難排解 AzCopy
+
+請參閱[設定，最佳化和疑難排解 AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="next-steps"></a>後續步驟
 

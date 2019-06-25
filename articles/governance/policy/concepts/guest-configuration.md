@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c79a4907e277c337509bd362653cfb100c4bd39c
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979520"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137431"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -114,7 +114,8 @@ Windows Server Nano Server 不支援任何版本。
 「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性]  節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
 
 > [!NOTE]
-> 每個「來賓設定」定義都必須有 **DeployIfNotExists** 和 **Audit** 原則定義。
+> **DeployIfNotExists**原則是為了**稽核**原則，以傳回結果。
+> 不含**DeployIfNotExists**，則**稽核**原則會顯示 「 0 / 0 」 與狀態的資源。
 
 「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **Audit**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
 

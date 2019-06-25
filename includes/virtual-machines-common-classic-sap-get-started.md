@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1983e7560c986df241e9c592aaaa6b646a99840f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143261"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173912"
 ---
 ## <a name="planning-and-implementation"></a>規劃和實作
 標題：SAP NetWeaver on Azure 的虛擬機器 – 規劃和實作指南

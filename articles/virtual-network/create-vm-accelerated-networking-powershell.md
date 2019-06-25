@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190279"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>建立使用加速網路的 Windows 虛擬機器
@@ -52,7 +52,7 @@ ms.locfileid: "65190279"
 
 如需 VM 執行個體的詳細資訊，請參閱 [Windows VM 大小](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-### <a name="regions"></a>區域
+### <a name="regions"></a>Regions
 適用於所有公用 Azure 區域和 Azure 政府雲端。
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>在執行中的 VM 上啟用加速網路
@@ -83,7 +83,7 @@ ms.locfileid: "65190279"
 New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-首先，建立的子網路設定[新增 AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig)。 下列範例會建立名為 mySubnet 的子網路：
+首先，建立的子網路設定[新增 AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig)。 下列範例會建立名為 mySubnet  的子網路：
 
 ```powershell
 $subnet = New-AzVirtualNetworkSubnetConfig `
@@ -211,9 +211,9 @@ New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus
 一旦您在 Azure 中建立 VM，請與 VM 連線，然後確認驅動程式已安裝在 Windows 中。
 
 1. 從網際網路瀏覽器開啟 Azure [入口網站](https://portal.azure.com)，並以您的 Azure 帳戶登入。
-2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入 myVm。 當搜尋結果中出現 **myVm** 時，按一下它。 如果在 [連線] 按鈕底下看到 [建立中]，則表示 Azure 還未建立好 VM。 請在 [連線] 按鈕底下已沒有 [建立中] 字樣時，才按下概觀左上角的 [連線]。
+2. 在 Azure 入口網站頂端包含「搜尋資源」  文字的方塊中，輸入 myVm  。 當搜尋結果中出現 **myVm** 時，按一下它。 如果在 [連線]  按鈕底下看到 [建立中]  ，則表示 Azure 還未建立好 VM。 請在 [連線]  按鈕底下已沒有 [建立中]  字樣時，才按下概觀左上角的 [連線]  。
 3. 輸入您在[建立虛擬機器](#create-the-virtual-machine)中所輸入的使用者名稱和密碼。 如果您從未連線到 Azure 中的 Windows VM，請參閱[連線至虛擬機器](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)。
-4. 以滑鼠右鍵按一下 Windows 的 [開始] 按鈕，然後按一下 [裝置管理員]。 展開 [網路介面卡] 節點。 確認 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** 有出現，如下圖所示︰
+4. 以滑鼠右鍵按一下 Windows 的 [開始] 按鈕，然後按一下 [裝置管理員]  。 展開 [網路介面卡]  節點。 確認 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** 有出現，如下圖所示︰
 
     ![裝置管理員](./media/create-vm-accelerated-networking/device-manager.png)
 

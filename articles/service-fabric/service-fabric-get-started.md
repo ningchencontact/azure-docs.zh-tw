@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: aljo
-ms.openlocfilehash: 68a91bfba07b31117f553e4d689adc51bf51824c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067209"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -69,8 +69,8 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具 3.3.664
-* Service Fabric 執行階段 6.4.664
+* Service Fabric SDK 和工具 3.4.639
+* Service Fabric 執行階段 6.5.639
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 
@@ -99,7 +99,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 連結"
-[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 連結"
-[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 連結"
+[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 連結"
+[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 連結"
+[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 連結"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395

@@ -9,11 +9,11 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65408228"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
@@ -45,14 +45,14 @@ ms.locfileid: "65408228"
 > 不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 Urlcompression> 的組合。 如需詳細資訊，請參閱中的說明[疑難排解 區段](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)。
 
 
-1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
+1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]  。
 
     ![在 [設定] 之下，選擇 Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
    * 除非您已經為此應用程式設定 Application Insights 資源，否則請選擇建立新的資源。 
 
      > [!NOTE]
-     > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
+     > 當您按一下 [確定]  來建立新資源時，系統會提示您 [套用監視設定]  。 選取 [繼續]  會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
 
      ![檢測 Web 應用程式](./media/azure-web-apps/create-resource-01.png)
 
@@ -81,14 +81,14 @@ ms.locfileid: "65408228"
 
 目標為.NET Core、 自封式的部署，和 ASP.NET Core 3.0 完整 framework 正在**不支援**使用監視代理程式/延伸模組為基礎。 ([手動檢測](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)透過程式碼可在所有先前的案例。)
 
-1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
+1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]  。
 
     ![在 [設定] 之下，選擇 Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
    * 除非您已經為此應用程式設定 Application Insights 資源，否則請選擇建立新的資源。 
 
      > [!NOTE]
-     > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
+     > 當您按一下 [確定]  來建立新資源時，系統會提示您 [套用監視設定]  。 選取 [繼續]  會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
 
      ![檢測 Web 應用程式](./media/azure-web-apps/create-resource-01.png)
 
@@ -138,7 +138,7 @@ ms.locfileid: "65408228"
 
 ### <a name="application-settings-definitions"></a>應用程式設定定義
 
-|應用程式設定名稱 |  定義 | Value |
+|應用程式設定名稱 |  定義 | 值 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要擴充功能，控制執行階段監視。 | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或 `recommended`。 |
@@ -274,7 +274,7 @@ App service 的應用程式設定 JSON 的基本結構如下：
             "type": "string"
         }
     },
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -332,7 +332,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 2. 請確定應用程式符合要監視的需求。
     * 瀏覽至 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-    ![螢幕擷取畫面的 https://yoursitename.scm.azurewebsites/applicationinsights結果頁面](./media/azure-web-apps/app-insights-sdk-status.png)
+    ![螢幕擷取畫面的 https://yoursitename.scm.azurewebsites/applicationinsights 結果頁面](./media/azure-web-apps/app-insights-sdk-status.png)
 
     * 確認`Application Insights Extension Status`是 `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
         * 如果未執行，請遵循[啟用 Application Insights 監視的指示](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)

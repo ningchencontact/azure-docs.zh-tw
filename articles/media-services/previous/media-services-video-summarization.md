@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: 0fcacf68f4b41ed8945a6a40d7da125aef499947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825520"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒體視訊縮圖建立視訊摘要  
@@ -63,7 +63,7 @@ ms.locfileid: "60825520"
 
 |  |  |  |
 | --- | --- | --- |
-| 視訊持續時間 |d < 3 分鐘 |3 分钟 < d < 15 分钟 |
+| 視訊持續時間 |d < 3 分鐘 |3 分鐘 < d < 15 分鐘 |
 | 縮圖持續時間 |15 秒 (2-3 個場景) |30 秒 (3-5 個場景) |
 
 下列 JSON 會設定可用的參數。
@@ -285,7 +285,7 @@ ms.locfileid: "60825520"
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒体服务分析概述](media-services-analytics-overview.md)
+[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
 [Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

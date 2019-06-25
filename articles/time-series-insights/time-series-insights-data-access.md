@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69180e17714b7d7004e63dce0de82a50e1f0b3af
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237041"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164631"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
@@ -36,7 +36,7 @@ ms.locfileid: "66237041"
 
     [![資料存取一](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. 選擇 [選取使用者]  。 搜尋使用者名稱或電子郵件地址，以找出您想要新增的使用者。 按一下 [選取]  以確認選取項目。
+1. 選擇 [選取使用者]  。 搜尋使用者名稱或電子郵件地址，以找出您想要新增的使用者。 選取 **選取**確認選取項目。
 
     [![資料存取兩](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -76,7 +76,7 @@ ms.locfileid: "66237041"
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. 選擇 [選取使用者]  。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 按一下 [選取]  以確認選取項目。
+1. 選擇 [選取使用者]  。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 然後，**選取**確認選取項目。
 
     [![資料存取-九個](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 

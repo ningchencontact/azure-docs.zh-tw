@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478584"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147940"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
 
@@ -41,7 +41,7 @@ ms.locfileid: "61478584"
 
 Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 
-- 一般用途 v2 儲存體帳戶 (建議用於大部分的案例)
+- 標準一般用途 v2 儲存體帳戶 （建議用於大部分的情況下）
 - Blob 儲存體帳戶
 - 一般用途 v1 儲存體帳戶 (傳統或 Azure Resource Manager 部署)、 
 

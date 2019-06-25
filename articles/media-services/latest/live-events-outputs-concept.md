@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114675"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296202"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -27,20 +27,23 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 > [!TIP]
 > 媒體服務 v2 Api，從移轉的客戶**即時事件**實體取代**通道**v2 中並**Live 輸出**取代**程式**.
 
-
 ## <a name="live-events"></a>即時活動
 
-[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 當您建立「實況活動」時，系統會建立輸入端點，供您用來從遠端編碼器傳送即時訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 針對 Smooth Streaming 內嵌通訊協定，支援的 URL 配置為 `http://` 或 `https://`。 RTMP 內嵌通訊協定支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 
+[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 當您建立即時的事件時，會建立主要和次要的輸入的端點，可用來從遠端的編碼器傳送有效的訊號。 遠端的即時編碼器會傳送輸入端點使用的比重摘要[RTMP](https://www.adobe.com/devnet/rtmp.html)或是[Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散 MP4) 輸入通訊協定。 將內容 RTMP 內嵌通訊協定，可以傳送純文字 (`rtmp://`) 或在網路上安全地加密 (`rtmps://`)。 針對 Smooth Streaming 內嵌通訊協定，支援的 URL 配置為 `http://` 或 `https://`。  
 
 ## <a name="live-event-types"></a>實況活動類型
 
-[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)可以是下列兩種類型之一：傳遞和即時編碼。 
+[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)可以是下列兩種類型之一：傳遞和即時編碼。 型別會設定期間建立使用[LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -在內部部署即時編碼器會傳送多個的位元速率資料流。 內嵌的串流會通過而不需任何進一步處理的即時事件。 
+* **LiveEventEncodingType.Standard** -的內部部署即時編碼器會傳送單一位元速率串流的即時事件和媒體服務會建立多重位元速率資料流。 如果發佈摘要是 720p 或更高的解析度**Default720p**預設會將編碼的 6 位元速率解析/組。
+* **LiveEventEncodingType.Premium1080p** -的內部部署即時編碼器會傳送單一位元速率串流的即時事件和媒體服務會建立多重位元速率資料流。 Default1080p 預設指定位元速率解析/組輸出的集。 
 
 ### <a name="pass-through"></a>傳遞
 
 ![即時通行](./media/live-streaming/pass-through.svg)
 
-使用傳遞**實況活動**時，您會依賴內部部署即時編碼器來產生多重位元速率視訊資料流，然後將其當作發佈摘要傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會接著完成傳入的視訊資料流，而不會再進一步處理。 這類即時通行 LiveEvent 最適合長時間執行的實況活動，或是 24x365 的線性即時串流。 建立這類型的「實況活動」時，請指定 [無] (LiveEventEncodingType.None)。
+使用傳遞**實況活動**時，您會依賴內部部署即時編碼器來產生多重位元速率視訊資料流，然後將其當作發佈摘要傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會接著完成傳入的視訊資料流，而不會再進一步處理。 這類傳遞即時事件最適合用於長時間執行的即時事件，或 24 x 365 線性即時資料流。 建立這類型的「實況活動」時，請指定 [無] (LiveEventEncodingType.None)。
 
 您可以使用 H.264/AVC 或 H.265/HEVC 視訊轉碼器以及 AAC (AAC-LC、HE-AACv1 或 HE-AACv2) 音訊轉碼器，以高達 4K 的解析度和每秒 60 個畫面的畫面播放速率傳送發佈摘要。  如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
 
@@ -84,7 +87,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 * 非虛名 URL
 
-    非虛名 URL 是 AMS v3 中的預設模式。 您可能會快速取得「實況活動」，但只有在實況活動開始時，才會知道內嵌 URL。 如果您停止/開始「實況活動」，URL 將會變更。 <br/>在使用者想要使用應用程式來進行串流處理，而該應用程式想要儘快取得實況活動且取得動態內嵌 URL 不是問題的情況下，「非虛名」會相當有用。
+    非虛名 URL 是媒體服務 v3 中的預設模式。 您可能會快速取得「實況活動」，但只有在實況活動開始時，才會知道內嵌 URL。 如果您停止/開始「實況活動」，URL 將會變更。 <br/>在使用者想要使用應用程式來進行串流處理，而該應用程式想要儘快取得實況活動且取得動態內嵌 URL 不是問題的情況下，「非虛名」會相當有用。
+    
+    如果用戶端應用程式不需要建立預先產生的內嵌 URL 在即時事件之前，只讓自動產生存取權杖的即時活動的媒體服務。
 * 虛名 URL
 
     大型媒體廣播者如果使用硬體廣播編碼器，而不想要在開始「實況活動」時重新設定其編碼器，就會偏好使用「虛名」模式。 他們會想要有不會隨著時間改變的預測性內嵌 URL。
@@ -93,7 +98,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
     存取權杖必須是唯一的資料中心內。 如果您的應用程式需要使用虛名 URL，建議一律建立您的存取權杖 （而不是重複使用任何現有的 GUID） 的新 GUID 執行個體。 
 
-    使用下列 Api 啟用虛名 URL，並將存取權杖設定為有效的 GUID (例如`"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    使用下列 Api 啟用虛名 URL，並將存取權杖設定為有效的 GUID (例如`"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`)。  
     
     |語言|啟用虛名 URL|設定存取權杖|
     |---|---|---|
@@ -103,41 +108,41 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
     
 ### <a name="live-ingest-url-naming-rules"></a>即時內嵌 URL 命名規則
 
-下方的 *random* \(隨機\) 字串是 128 位元的十六進位數字 (由 32 個字元的 0-9 a-f 所組成)。<br/>
-*存取權杖*是您需要指定固定的 url。 您必須設定存取語彙基元字串是有效的長度為 GUID 字串。 <br/>
-*資料流名稱*指出特定連線的資料流名稱。 資料流名稱值是通常由新增即時編碼器，您使用。
+* 下方的 *random* \(隨機\) 字串是 128 位元的十六進位數字 (由 32 個字元的 0-9 a-f 所組成)。
+* *您的存取權杖*-使用虛名模式時，您會設定有效的 GUID 字串。 例如： `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`。
+* *資料流名稱*-指出特定連線的資料流名稱。 資料流名稱值通常會加入您所使用的即時編碼器。 您可以設定即時編碼器使用任何名稱來描述連接，例如:"video1_audio1"，"video2_audio1"，"stream"。
 
 #### <a name="non-vanity-url"></a>非虛名 URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>虛名 URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>實況活動預覽 URL
 
-在**實況活動**開始接收發佈摘要之後，您便可以使用其預覽端點來預覽及驗證是否有在接收即時資料流，然後才進行進一步的發佈。 確認預覽資料流狀況良好之後，您就可以使用 LiveEvent 讓即時資料流可供透過一或多個 (預先建立的) **串流端點**進行傳遞。 若要達到此目的，您需在**實況活動**上建立新的[實況輸出](https://docs.microsoft.com/rest/api/media/liveoutputs)。 
+在**實況活動**開始接收發佈摘要之後，您便可以使用其預覽端點來預覽及驗證是否有在接收即時資料流，然後才進行進一步的發佈。 您已核取預覽資料流是很好之後，您還可以使用即時事件，若要提供給透過一或多個 （預先建立的） 傳遞即時資料流**串流端點**。 若要達到此目的，您需在**實況活動**上建立新的[實況輸出](https://docs.microsoft.com/rest/api/media/liveoutputs)。 
 
 > [!IMPORTANT]
 > 請先確定視訊流向預覽 URL，再繼續操作！

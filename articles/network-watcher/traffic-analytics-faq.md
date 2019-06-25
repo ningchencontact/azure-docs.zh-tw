@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051632"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -95,12 +95,19 @@ ms.locfileid: "64939915"
 Log Analytics 工作區必須存在於下列區域：
 - 加拿大中部
 - 美國中西部
+- 美國西部
 - 美國西部 2
+- 美國中南部
+- 美國中部
 - 美國東部
+- 美國東部 2
 - 法國中部
 - 西歐
+- 北歐
 - 英國南部
+- 澳洲東部
 - 澳大利亞東南部
+- 東亞
 - 東南亞 
 - 南韓中部
 - 印度中部
@@ -274,10 +281,10 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 選取橫幅上的任何篩選條件並按下 `Ctrl+F6` 後，焦點就會移至地圖檢視中的其中一個醒目提示節點 (**Azure 資料中心**或**國家/區域**)。
 - 若要移至地圖上其他醒目提示節點，請使用 `Tab` 或 `Right arrow` 鍵順向移動。 若要反向移動，請使用 `Shift+Tab` 或 `Left arrow` 鍵。
 - 若要選取地圖中的任何醒目提示節點，請使用 `Enter` 或 `Down arrow` 鍵。
-- 一選取任何這類節點後，焦點就會移至節點的 [資訊工具方塊]。 根據預設，焦點會移至 [資訊工具方塊] 上已關閉的按鈕。 若要進一步地在 [方塊] 檢視內移動，請分別使用 `Right arrow` 和 `Left arrow` 鍵來順向和反向移動。 按 `Enter` 的效果等同於在 [資訊工具方塊] 內選取焦點按鈕的效果。
-- 若您在焦點於 [資訊工具方塊] 時按 `Tab`，焦點就會移至與所選節點位於相同大陸的端點。 使用 `Right arrow` 和 `Left arrow` 鍵可在這些端點之間移動。
+- 一選取任何這類節點後，焦點就會移至節點的 [資訊工具方塊]  。 根據預設，焦點會移至 [資訊工具方塊]  上已關閉的按鈕。 若要進一步地在 [方塊]  檢視內移動，請分別使用 `Right arrow` 和 `Left arrow` 鍵來順向和反向移動。 按 `Enter` 的效果等同於在 [資訊工具方塊]  內選取焦點按鈕的效果。
+- 若您在焦點於 [資訊工具方塊]  時按 `Tab`，焦點就會移至與所選節點位於相同大陸的端點。 使用 `Right arrow` 和 `Left arrow` 鍵可在這些端點之間移動。
 - 若要移動至其他流量端點或大陸叢集，請使用 `Tab` 進行順向移動，使用 `Shift+Tab` 進行反向移動。
-- 一旦焦點位於 [大陸叢集] 時，請使用 `Enter` 或 `Down` 方向鍵來醒目提示大陸叢集內的端點。 若要在端點和大陸叢集資訊方塊上的關閉按鈕之間移動，請分別使用 `Right arrow` 或 `Left arrow` 鍵來進行順向和反向移動。 在任何端點上，您都可以使用 `Shift+L` 來切換到從選取節點到端點的連接線。 您可以再按一次 `Shift+L`，即可移至所選的端點。
+- 一旦焦點位於 [大陸叢集]  時，請使用 `Enter` 或 `Down` 方向鍵來醒目提示大陸叢集內的端點。 若要在端點和大陸叢集資訊方塊上的關閉按鈕之間移動，請分別使用 `Right arrow` 或 `Left arrow` 鍵來進行順向和反向移動。 在任何端點上，您都可以使用 `Shift+L` 來切換到從選取節點到端點的連接線。 您可以再按一次 `Shift+L`，即可移至所選的端點。
         
 ### <a name="keyboard-navigation-at-any-stage"></a>各階段的鍵盤瀏覽
     
@@ -303,8 +310,8 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
     
 - 選取橫幅上的任何篩選條件並按下 `Ctrl+F6` 後，焦點就會移至拓撲檢視中的其中一個醒目提示節點 (**VNet**)。
 - 若要移至拓撲檢視上其他醒目提示節點，請使用 `Shift+Right arrow` 鍵順向移動。 
-- 在醒目提示的節點上，焦點就會移至節點的 [資訊工具方塊]。 根據預設，焦點會移至 [資訊工具方塊] 上的 [更多詳細資料] 按鈕。 若要進一步地在 [方塊] 檢視內移動，請分別使用 `Right arrow` 和 `Left arrow` 鍵來順向和反向移動。 按 `Enter` 的效果等同於在 [資訊工具方塊] 內選取焦點按鈕的效果。
-- 選取任何這類節點時，可以按 `Shift+Left arrow` 鍵逐一前往其所有連線。 焦點會移至該連線的 [資訊工具方塊]。 任何時候只要再按一次 `Shift+Right arrow`，都可以將焦點轉移回該節點。
+- 在醒目提示的節點上，焦點就會移至節點的 [資訊工具方塊]  。 根據預設，焦點會移至 [資訊工具方塊]  上的 [更多詳細資料]  按鈕。 若要進一步地在 [方塊]  檢視內移動，請分別使用 `Right arrow` 和 `Left arrow` 鍵來順向和反向移動。 按 `Enter` 的效果等同於在 [資訊工具方塊]  內選取焦點按鈕的效果。
+- 選取任何這類節點時，可以按 `Shift+Left arrow` 鍵逐一前往其所有連線。 焦點會移至該連線的 [資訊工具方塊]  。 任何時候只要再按一次 `Shift+Right arrow`，都可以將焦點轉移回該節點。
     
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>如何在子網路拓撲檢視中使用鍵盤來瀏覽？
@@ -325,6 +332,6 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
     
 - 選取橫幅上的任何篩選條件並按下 `Ctrl+F6` 後，焦點就會移至拓撲檢視中的其中一個醒目提示節點 (**子網路**)。
 - 若要移至拓撲檢視上其他醒目提示節點，請使用 `Shift+Right arrow` 鍵順向移動。 
-- 在醒目提示的節點上，焦點就會移至節點的 [資訊工具方塊]。 根據預設，焦點會移至 [資訊工具方塊] 上的 [更多詳細資料] 按鈕。 若要進一步地在 [方塊] 檢視內移動，請分別使用 `Right arrow` 和 `Left arrow` 鍵來順向和反向移動。 按 `Enter` 的效果等同於在 [資訊工具方塊] 內選取焦點按鈕的效果。
-- 選取任何這類節點時，可以按 `Shift+Left arrow` 鍵逐一前往其所有連線。 焦點會移至該連線的 [資訊工具方塊]。 任何時候只要再按一次 `Shift+Right arrow`，都可以將焦點轉移回該節點。    
+- 在醒目提示的節點上，焦點就會移至節點的 [資訊工具方塊]  。 根據預設，焦點會移至 [資訊工具方塊]  上的 [更多詳細資料]  按鈕。 若要進一步地在 [方塊]  檢視內移動，請分別使用 `Right arrow` 和 `Left arrow` 鍵來順向和反向移動。 按 `Enter` 的效果等同於在 [資訊工具方塊]  內選取焦點按鈕的效果。
+- 選取任何這類節點時，可以按 `Shift+Left arrow` 鍵逐一前往其所有連線。 焦點會移至該連線的 [資訊工具方塊]  。 任何時候只要再按一次 `Shift+Right arrow`，都可以將焦點轉移回該節點。    
 

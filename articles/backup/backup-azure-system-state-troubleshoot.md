@@ -9,16 +9,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481590"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165122"
 ---
 # <a name="troubleshoot-system-state-backup"></a>系統狀態備份的疑難排解
 
 此文章說明您使用系統狀態備份時可能遇到之問題的解決方案。
+
+## <a name="basic-troubleshooting"></a>基本疑難排解
+我們建議您執行下列驗證，開始之前疑難排解系統狀態備份：
+
+- [確保 Microsoft Azure 復原服務 (MARS) 代理程式是最新狀態](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [確保 MARS 代理程式和 Azure 之間具有網路連線能力](https://aka.ms/AB-A4dp50)
+- 確保 Microsoft Azure 復原服務正在執行中 (在服務主控台中)。 視需要重新開機並重試作業
+- [確保草稿資料夾位置具有 5-10% 的磁碟區空間可供使用](https://aka.ms/AB-AA4dwtt)
+- [檢查是否有其他程序或防毒軟體在干擾 Azure 備份](https://aka.ms/AB-AA4dwtk)
+- [已排程的備份失敗，但可以手動備份](https://aka.ms/ScheduledBackupFailManualWorks)
+- 確保您的作業系統已更新到最新版本
+- [請確定不支援的磁碟機和具有不支援屬性的檔案會從備份中排除](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- 確保受保護系統上的**系統時鐘**已設定為正確的時區 <br>
+- [確定伺服器至少具有 .Net Framework 4.5.2 版和更新版本](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- 如果您嘗試在保存庫中**重新登錄伺服器**，則： <br>
+  - 請確保已將伺服器上的代理程式解除安裝，並已從入口網站中刪除 <br>
+  - 使用與一開始登錄伺服器時所用的相同複雜密碼 <br>
+- 如果是離線備份，確保 離線備份作業開始之前，在來源和複製電腦上安裝 Azure PowerShell 3.7.0 版
+- [Azure 虛擬機器上執行備份代理程式時的考量](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>限制
+- Microsoft 不建議使用系統狀態復原來復原到不同的硬體
+- 系統狀態備份目前支援 「 內部 」 的 Windows 伺服器，這項功能不適用於 Azure Vm。
 
 ## <a name="pre-requisite"></a>必要條件
 
@@ -95,7 +118,7 @@ Microsoft 軟體陰影複製 Provider(SWPRV) | 手動
 
   * 確保 WSB 備份是否正常運作，執行下列命令，從提升權限的命令提示字元：
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >取代的 X，您要儲存系統狀態的磁碟區的磁碟機代號與備份映像。

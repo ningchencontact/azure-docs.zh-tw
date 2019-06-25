@@ -1,25 +1,25 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: tamram
-ms.openlocfilehash: 213ecee34df46c0a408e7034a07ab864c96b340b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.author: rogarana
+ms.openlocfilehash: 241e43a9cd851bf550c3eef8cad1fc3e0cc3e5a9
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114486"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150479"
 ---
-| Resource | 標準檔案共用 | 進階檔案共用 (預覽) |
+| 資源 | 標準檔案共用 | 進階檔案共用 (預覽) |
 |----------|---------------|------------------------------------------|
 | 檔案共用大小上限 | 沒有最小值;預付 | 100 giB;佈建 |
-| 檔案共用的大小上限 | 5 TiB | 100 TiB |
+| 檔案共用的大小上限 | 5 TiB (GA)、 100 TiB （預覽） | 100 TiB |
 | 檔案共用中的檔案大小上限 | 1 TiB | 1 TiB |
-| 檔案共用中檔案的最大數目 | 無限制 | 無限制 |
-| 每個共用最大 IOPS | 1,000 IOPS | 100,000 IOPS |
+| 檔案共用中檔案的最大數目 | 沒有限制 | 沒有限制 |
+| 每個共用最大 IOPS | 1000 IOPS (GA)，10,000 IOPS （預覽） | 100,000 IOPS |
 | 每個檔案的預存的存取原則的最大數目的共用 | 5 | 5 |
-| 單一檔案共用的目標輸送量 | 最高 60 MiB/秒 | 請參閱進階檔案共用的輸入和輸出值|
+| 單一檔案共用的目標輸送量 | 最多 60 MiB/秒 (GA)，最多 300 MiB/秒 （預覽） | 請參閱進階檔案共用的輸入和輸出值|
 | 單一檔案共用的最大輸出 | 請參閱標準檔案共用的目標輸送量 | 最多 6,204 MiB/秒 |
 | 單一檔案共用的最大輸入 | 請參閱標準檔案共用的目標輸送量 | 最多 4,136 MiB/秒 |
 | 每個檔案的開啟控制代碼數目上限 | 2,000 個開啟控制代碼 | 2,000 個開啟控制代碼 |

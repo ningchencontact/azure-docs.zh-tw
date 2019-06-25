@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: de857498aeb51c9b3711c90338d983e85b61cb70
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065425"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定共用映像庫
-DevTest Labs 現已支援[共用映像庫](/virtual-machines/windows/shared-image-galleries.md)功能。 其能讓實驗室使用者在建立實驗室資源期間，可以存取共用位置中的映像。 也可協助您圍繞著自訂的受控 VM 映像，來建置結構和組織。 共用映像庫功能支援：
+DevTest Labs 現已支援[共用映像庫](../virtual-machines/windows/shared-image-galleries.md)功能。 其能讓實驗室使用者在建立實驗室資源期間，可以存取共用位置中的映像。 也可協助您圍繞著自訂的受控 VM 映像，來建置結構和組織。 共用映像庫功能支援：
 
 - 映像的受控全域複製
 - 映像的版本設定及分組，讓管理更加容易

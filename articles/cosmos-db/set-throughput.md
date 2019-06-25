@@ -4,14 +4,14 @@ description: 了解如何設定 Azure Cosmos 容器和資料庫的佈建輸送�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067508"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165014"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和資料庫中佈建輸送量
 
@@ -72,6 +72,9 @@ Azure Cosmos 資料庫上的設定輸送量保證，您會收到佈建的輸送�
 
 * 您可以建立名為 Azure Cosmos 資料庫*Z*的佈建輸送量 *"K"* Ru。 
 * 接下來，建立名為的五個容器*A*， *B*， *C*， *D*，以及*E*資料庫內。 建立容器 B 時，請務必啟用**的這個容器的佈建專用的輸送量**選項，並明確地設定 *"P"* Ru 的佈建的輸送量，此容器上。 請注意，只有在建立資料庫和容器時，您可以設定共用和專用的輸送量。 
+
+   ![在容器層級設定輸送量](./media/set-throughput/coll-level-throughput.png)
+
 * *"K"* Ru 的輸送量會在四個容器之間共用*A*， *C*， *D*，以及*E*。可用的輸送量的確切量*A*， *C*， *D*，或*E*而有所不同。 而且沒有適用於每個個別容器輸送量的 SLA。
 * 命名的容器*B*保證能夠取得 *"P"* Ru 的輸送量所有時間。 並受到 SLA 支援。
 

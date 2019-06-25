@@ -16,12 +16,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d16efbd8ea2fa37ac9572e9dc1ba3ef67deaeaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784403"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272754"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>指派的應用程式未出現在存取面板上
 
@@ -399,7 +399,7 @@ Azure AD 不提供取得中繼資料的 URL。 中繼資料只能擷取為 XML �
 
 稍候片刻，您便能看見應用程式的設定窗格。
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>設定應用程式使用密碼單一登入
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a> 設定密碼單一登入的應用程式
 
 若要設定應用程式使用單一登入，請依照下列步驟執行：
 

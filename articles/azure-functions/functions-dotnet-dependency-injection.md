@@ -10,19 +10,21 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, glenga, cshoe
-ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.author: jehollan, cshoe
+ms.openlocfilehash: 9f932bf92cb3871af7f0eb294ac15dec82cdc8ba
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693258"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274239"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在.NET Azure Functions 中使用相依性插入
 
 Azure Functions 支援相依性插入 (DI) 軟體設計模式，也就是一種技術來達成[控制反轉 (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion)之間類別和其相依性。
 
 Azure Functions 建置在 ASP.NET Core 相依性插入功能之上。 要了解服務、 存留期，與設計模式[ASP.NET Core 的相依性插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)之前先在 Azure Functions 中使用 DI 功能建議應用程式。
+
+支援的相依性插入開始使用 Azure Functions 2.x。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,13 +34,22 @@ Azure Functions 建置在 ASP.NET Core 相依性插入功能之上。 要了解�
 
 - [Microsoft.NET.Sdk.Functions 套件](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)1.0.28 版或更新版本
 
+- 選用：[Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/)才需要在啟動時註冊 HttpClient
+
 ## <a name="register-services"></a>註冊伺服器
 
 若要註冊的服務，您可以建立方法以設定，並將元件加入`IFunctionsHostBuilder`執行個體。  Azure Functions 主機建立的執行個體`IFunctionsHostBuilder`並將它直接傳入您的方法。
 
-若要註冊的方法，新增`FunctionsStartup`在啟動期間，使用指定的型別名稱的組件屬性。
+若要註冊的方法，新增`FunctionsStartup`在啟動期間，使用指定的型別名稱的組件屬性。 程式碼所參考的發行前版本的而且[Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) Nuget 上。
 
 ```csharp
+using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos;
+
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
@@ -62,6 +73,16 @@ namespace MyNamespace
 ASP.NET Core 會使用建構函式插入，將您的相依性提供給您的函式。 下列範例會示範如何`IMyService`和`HttpClient`HTTP 觸發的函式中插入相依性。
 
 ```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
 namespace MyNamespace
 {
     public class HttpTrigger

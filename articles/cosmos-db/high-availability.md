@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063556"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -76,7 +76,7 @@ Azure Cosmos DB 是全域散發的多重主機資料庫服務在區域中斷期�
 
 下表摘要說明各種帳戶組態的高可用性功能： 
 
-|KPI  |不具可用性區域 (非 AZ) 的單一區域  |可用性區域 (AZ) 具有單一區域  |多個區域使用可用性區域 (AZ 2 個區域) – 最建議的設定 |
+|KPI  |不具可用性區域 (非 AZ) 的單一區域  |單一區域與可用性區域 (AZ)  |多區域寫入具有可用性區域 （2 個區域中的 AZ） – 最建議的設定 |
 |---------|---------|---------|---------|
 |寫入的可用性 SLA     |   99.99%      |    99.99%     |  99.999%  |
 |讀取可用性 SLA   |   99.99%      |   99.99%      |  99.999%       |

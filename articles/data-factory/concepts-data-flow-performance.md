@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057974"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190608"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料的流程效能及微調指南
 
@@ -59,6 +59,12 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 * 設定批次大小，會指示 ADF 將資料儲存在記憶體中而不是由資料列的資料列集。 它是選擇性的設定，您可能執行資源不足的計算節點上若不正確大小。
 * 設定查詢，可以讓您篩選來源端的資料列右側，即使到達適用於資料流程進行處理，可以進行更快速的初始資料擷取之前。
 * 如果您使用查詢時，您就可以為您的 Azure SQL DB，也就是 READ UNCOMMITTED 新增選擇性的查詢提示
+
+### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>來源轉換設定為 SQL 資料集上設定隔離等級
+
+* 讀取未認可將來源轉換提供更快的查詢結果
+
+![隔離等級](media/data-flow/isolationlevel.png "隔離等級")
 
 ### <a name="set-sink-batch-size"></a>設定接收批次大小
 

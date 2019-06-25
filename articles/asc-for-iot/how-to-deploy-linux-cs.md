@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 5623b9870788edfb3b96ef248154e8b9f60b4593
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198420"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>針對 IoT 部署 Azure 資訊安全中心C#-適用於 Linux 的安全性代理程式
@@ -31,7 +31,7 @@ ms.locfileid: "65198420"
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]
-> * Install
+> * 安裝
 > * 驗證部署
 > * 解除安裝代理程式
 > * 疑難排解 
@@ -50,7 +50,7 @@ ms.locfileid: "65198420"
 
 1. 從 [GitHub](https://aka.ms/iot-security-github-cs) 下載最新版本到您的電腦。
 
-1. 解壓縮套件的內容，然後瀏覽至 /Install 資料夾。
+1. 解壓縮套件的內容，然後瀏覽至 /Install  資料夾。
 
 1. 執行 `chmod +x InstallSecurityAgent.sh` 將執行權限新增至 **InstallSecurityAgent** 指令碼 
 

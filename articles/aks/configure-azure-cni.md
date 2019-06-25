@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061078"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
@@ -26,7 +26,7 @@ ms.locfileid: "66497208"
 
 * 適用於 AKS 叢集的虛擬網路必須允許輸出網際網路連線.
 * 請勿在相同子網路中建立多個 AKS 叢集。
-* AKS 叢集可能不會針對 Kubernetes 服務位址範圍使用 `169.254.0.0/16`、`172.30.0.0/16` 或 `172.31.0.0/16`。
+* 不得使用 AKS 叢集中`169.254.0.0/16`， `172.30.0.0/16`， `172.31.0.0/16`，或`192.0.2.0/24`Kubernetes service 位址範圍。
 * AKS 叢集所使用的服務主體在您虛擬網路內的子網路上必須至少具有[網路參與者](../role-based-access-control/built-in-roles.md#network-contributor)權限。 如果您想要定義[自訂角色](../role-based-access-control/custom-roles.md)，而不使用內建的網路參與者角色，則需要下列權限：
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -100,7 +100,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 * 不得在叢集的虛擬網路 IP 位址範圍內
 * 不得與叢集虛擬網路對等的任何其他虛擬網路重疊
 * 不得與任何內部部署 IP 重疊
-* 不得在 `169.254.0.0/16``172.30.0.0/16` 或 `172.31.0.0/16` 範圍內
+* 不得在範圍內`169.254.0.0/16`， `172.30.0.0/16`， `172.31.0.0/16`，或 `192.0.2.0/24`
 
 雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][services]。
 

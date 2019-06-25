@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140302"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174486"
 ---
 1. 在名為 `ToDoBroadcastReceiver`的專案中建立新類別。
 2. 在 **ToDoBroadcastReceiver** 類別中新增下列 using 陳述式：

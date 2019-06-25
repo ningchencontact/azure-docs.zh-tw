@@ -15,22 +15,22 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: atsenthi
 ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711842"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>分割 Service Fabric 可靠服務
 這篇文章介紹分割 Azure Service Fabric 可靠服務的基本概念。 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上也提供本文中使用的原始碼。
 
 ## <a name="partitioning"></a>分割
-分割不是 Service Fabric 所獨有。 事實上，它是建置可調整服務的核心模式。 从更广泛的意义来说，可将分区视为将状态（数据）和计算划分为更小的可访问单元，以提高可伸缩性和性能的一种概念。 [資料分割][wikipartition]是一種知名的分割形式，也稱為分區化。
+分割不是 Service Fabric 所獨有。 事實上，它是建置可調整服務的核心模式。 廣義上，我們可以將分割視為將狀態 (資料) 和計算分成較小的可存取單位來改善延展性和效能。 [資料分割][wikipartition]是一種知名的分割形式，也稱為分區化。
 
-### <a name="partition-service-fabric-stateless-services"></a>Service Fabric 无状态服务分区
+### <a name="partition-service-fabric-stateless-services"></a>分割 Service Fabric 無狀態服務
 對於無狀態服務，您可以將資料分割視為邏輯單元，其中包含服務的一個或多個執行個體。 圖 1 顯示無狀態服務有 5 個執行個體分散到使用一個資料分割的叢集。
 
-![无状态服务](./media/service-fabric-concepts-partitioning/statelessinstances.png)
+![無狀態服務](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
 實際上有兩種無狀態服務解決方案。 第一種是將狀態保存在外部的服務，例如 Azure SQL 資料庫 (例如儲存工作階段資訊和資料的網站)。 第二種是僅限計算的服務 (例如計算機或影像縮圖)，不管理任何持續性狀態。
 
@@ -43,9 +43,9 @@ ms.locfileid: "60711842"
 ### <a name="partition-service-fabric-stateful-services"></a>分割 Service Fabric 具狀態服務
 Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開發可調整的具狀態服務。 在概念上，您可以將具狀態服務視為一種縮放單位，透過叢集中節點之間分散和平衡的 [複本](service-fabric-availability-services.md) ，此縮放單位非常可靠。
 
-在提及 Service Fabric 具狀態服務時，分割過程是指決定特定的服務資料分割負責服務完整狀態的一部分  (如前所述，資料分割是一組[複本](service-fabric-availability-services.md))。 Service Fabric 最棒的一點是將資料分割放在不同節點上。 這可讓它們在節點的資源限制內成長。 資料需求成長時，資料分割也會成長，Service Fabric 會重新平衡節點之間的資料分割。 這可確保持續有效率地使用硬體資源。
+在提及 Service Fabric 具狀態服務時，分割過程是指決定特定的服務資料分割負責服務完整狀態的一部分 (如前所述，資料分割是一組[複本](service-fabric-availability-services.md))。 Service Fabric 最棒的一點是將資料分割放在不同節點上。 這可讓它們在節點的資源限制內成長。 資料需求成長時，資料分割也會成長，Service Fabric 會重新平衡節點之間的資料分割。 這可確保持續有效率地使用硬體資源。
 
-例如，假设开始时拥有一个 5 节点群集，以及一个配置为具有 10 个分区并且目标为 3 个副本的服务。 在此情況下，Service Fabric 會將複本平衡並分散到叢集，最後每個節點會有 2 個主要 [複本](service-fabric-availability-services.md) 。
+舉例來說，假設您一開始叢集有 5 個節點、服務設定為有 10 個資料分割，以及目標為三個複本。 在此情況下，Service Fabric 會將複本平衡並分散到叢集，最後每個節點會有 2 個主要 [複本](service-fabric-availability-services.md) 。
 如果您現在需要將我們的叢集相應放大到 10 個節點，Service Fabric 會在所有 10 個節點之間重新平衡主要 [複本](service-fabric-availability-services.md) 。 同樣地，如果調降為 5 個節點，Service Fabric 會在 5 個節點之間重新平衡所有複本。  
 
 圖 2 顯示調整叢集之前和之後 10 個資料分割的分佈。
@@ -126,17 +126,17 @@ Service Fabric 有三個資料分割配置可選擇：
 > 
 > 
 
-1. 開啟 [Visual Studio] > [檔案] > [新增] > [專案]。
+1. 開啟 [Visual Studio]   > [檔案]   > [新增]   > [專案]  。
 2. 在 [新增專案]  對話方塊中，選擇 Service Fabric 應用程式
 3. 將專案命名為 "AlphabetPartitions"。
-4. 在 [建立服務] 對話方塊中，選擇 [具狀態] 服務並且命名為 "Alphabet.Processing"。
+4. 在 [建立服務]  對話方塊中，選擇 [具狀態]  服務並且命名為 "Alphabet.Processing"。
 5. 設定資料分割數目。 開啟位於 AlphabetPartitions 專案的 ApplicationPackageRoot 資料夾中的 ApplicationManifest.xml 檔案，將參數 Processing_PartitionCount 更新為 26，如下所示。
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    还需要更新 ApplicationManifest.xml 中 StatefulService 元素的 LowKey 和 HighKey 属性，如下所示。
+    您也需要在 ApplicationManifest.xml 中更新 StatefulService 元素的 LowKey 和 HighKey 屬性，如下所示。
    
     ```xml
     <Service Name="Processing">
@@ -161,7 +161,7 @@ Service Fabric 有三個資料分割配置可選擇：
 8. 關於複本接聽的 URL，建議的模式是下列格式： `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`。
     所以您可以設定通訊接聽程式接聽正確的端點並使用此模式。
    
-    可以在同一台计算机上托管此服务的多个副本，因此此地址需要是副本独有的。 這就是為什麼我們在 URL 中有資料分割識別碼 + 複本識別碼。 只要 URL 首碼是唯一的，HttpListener 就可以在相同連接埠上的多個位址接聽。
+    相同電腦上可能裝載此服務的多個複本，因此複本的此位址必須是唯一的。 這就是為什麼我們在 URL 中有資料分割識別碼 + 複本識別碼。 只要 URL 首碼是唯一的，HttpListener 就可以在相同連接埠上的多個位址接聽。
    
     在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。 在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。 '+' 在此做為位址，因此複本會接聽所有可用的主機 (IP、FQDN、localhost 等等)。下列程式碼顯示範例。
    
@@ -236,10 +236,10 @@ Service Fabric 有三個資料分割配置可選擇：
     ```
    
     `ProcessInternalRequest` 讀取用來呼叫資料分割的查詢字串參數的值，並呼叫 `AddUserAsync` 將 lastname 加入可靠的字典 `dictionary`。
-10. 让我们将一个无状态服务添加到项目，以查看如何调用特定分区。
+10. 讓我們將無狀態服務加入至專案，瞭解如何呼叫特定的資料分割。
     
     這項服務做為簡單的 Web 介面，將接受 lastname 做為查詢字串參數、決定資料分割索引鍵，然後將它傳送給 Alphabet.Processing 服務來處理。
-11. 在 [建立服務] 對話方塊中，選擇 [無狀態] 服務，命名為 "Alphabet.Web"，如下圖所示。
+11. 在 [建立服務]  對話方塊中，選擇 [無狀態]  服務，命名為 "Alphabet.Web"，如下圖所示。
     
     ![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/createnewstateless.png)上也提供本文中使用的原始碼。
 12. 更新 Alphabet.WebApi 服務的 ServiceManifest.xml 中的端點資訊，以開啟連接埠，如下所示。
@@ -367,7 +367,7 @@ Service Fabric 不支援 Reliable Services 和後續 Reliable Actors 分叉處�
 如需 Service Fabric 概念的資訊，請參閱下列項目：
 
 * [Service Fabric 服務的可用性](service-fabric-availability-services.md)
-* [Service Fabric 服务的可伸缩性](service-fabric-concepts-scalability.md)
+* [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
 * [Service Fabric 應用程式的容量規劃](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)

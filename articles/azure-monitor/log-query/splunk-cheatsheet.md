@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425129"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>從 Splunk 到 Azure 監視器記錄查詢
@@ -32,15 +32,15 @@ ms.locfileid: "61425129"
  | --- | --- | --- | ---
  | 部署單位  | 叢集 |  叢集 |  Azure 監視器可允許任意跨叢集的查詢。 Splunk 則無法。 |
  | 資料快取 |  貯體  |  快取與保留原則 |  控制資料的期間和快取層級。 此設定會直接影響查詢效能和部署成本。 |
- | 資料的邏輯分割區  |  index  |  資料庫  |  可允許資料的邏輯分隔。 兩種實作皆允許分割區的集合聯集和聯結。 |
- | 結構化的事件中繼資料 | N/A | 資料表 |  Splunk 沒有事件中繼資料的搜尋語言概念。 Azure 監視器記錄有資料表的概念，且資料表具有資料行。 每個事件執行個體會對應至一個資料列。 |
+ | 資料的邏輯分割區  |  index  |  database  |  可允許資料的邏輯分隔。 兩種實作皆允許分割區的集合聯集和聯結。 |
+ | 結構化的事件中繼資料 | N/A | table |  Splunk 沒有事件中繼資料的搜尋語言概念。 Azure 監視器記錄有資料表的概念，且資料表具有資料行。 每個事件執行個體會對應至一個資料列。 |
  | 資料記錄 | 事件 | 資料列 |  僅限詞彙變更。 |
- | 資料記錄屬性 | field |  資料行 |  在 Azure 監視器中，這已預先定義為資料表結構的一部分。 在 Splunk 中，每個事件都有自己的欄位集。 |
+ | 資料記錄屬性 | field |  column |  在 Azure 監視器中，這已預先定義為資料表結構的一部分。 在 Splunk 中，每個事件都有自己的欄位集。 |
  | 類型 | datatype |  datatype |  Azure 監視器資料類型在資料行上設定時更明確。 兩者都能夠以動態方式使用資料類型，且擁有大致相當的資料類型集，包括 JSON 支援。 |
  | 查詢和搜尋  | 搜尋 | query |  Azure 監視器與 Splunk 兩者的概念基本上相同。 |
  | 事件擷取時間 | 系統時間 | ingestion_time() |  在 Splunk 中，每個事件都會取得事件編製索引時間的系統時間戳記。 在 Azure 監視器中，您可以定義稱為 ingestion_time 的原則，其會公開可透過 ingestion_time() 函式參考的系統資料行。 |
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 下表指出 Azure 監視器中與 Splunk 函式相等的函式。
 
@@ -55,7 +55,7 @@ ms.locfileid: "61425129"
 | substr | substring() | (1)<br>也請注意，Splunk 使用以一為基底的索引。 Azure 監視器則是以零為起始的索引。 |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| match | 符合 RegEx |   (2)  |
+| match | 符合 RegEx |  (2)  |
 | RegEx | 符合 RegEx | 在 Splunk 中，`regex` 是運算子。 在 Azure 監視器中則是關係運算子。 |
 | searchmatch | == | 在 Splunk 中，`searchmatch` 可允許搜尋完全相符的字串。
 | 隨機 | rand()<br>rand(n) | Splunk 的函式會傳回 0 到 2<sup>31</sup>-1 的數字。 Azure 監視器的函式會傳回介於 0.0 和 1.0 之間的數字，或如果提供參數，則介於 0 到 n-1 之間。
@@ -141,7 +141,7 @@ Splunk 似乎沒有類似 `project-away` 的運算子。 您可以使用 UI 篩�
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **資料表** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | Azure 監視器 | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
@@ -158,7 +158,7 @@ Splunk 似乎沒有類似 `project-away` 的運算子。 您可以使用 UI 篩�
 
 
 
-### <a name="join"></a>Join
+### <a name="join"></a>加入
 Splunk 中的聯結具有重大限制。 子查詢的限制為 10000 筆結果 (設定在部署組態檔中)，且聯結類別的數目有限。
 
 | |  | |

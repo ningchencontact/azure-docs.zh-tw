@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 06/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0a71e8b3ffff822521a23aafd6764bcce9bd4d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761899"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303924"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 
@@ -25,7 +25,7 @@ ms.locfileid: "65761899"
 
 視訊通常會傳遞至裝置與應用程式[漸進式下載](https://en.wikipedia.org/wiki/Progressive_download)或透過[調適性位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)。 
 
-* 若要依漸進式下載進行傳遞，您可以使用 Azure 媒體服務將數位媒體檔案 （夾層） 到[MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)檔案，其中包含與已編碼的視訊[H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC)轉碼器，及使用已編碼的音訊[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)轉碼器。 這個的 MP4 檔案會寫入儲存體帳戶中的資產。 您可以使用 Azure 儲存體 Api 或 Sdk (例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)， [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md)，或[.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) 直接下載檔案。 如果您已建立輸出資產使用特定的容器名稱，在儲存體，使用該位置。 否則，您可以使用媒體服務[列出資產容器 Url](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。 
+* 若要依漸進式下載進行傳遞，您可以使用 Azure 媒體服務將數位媒體檔案 （夾層） 轉換成[MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14)檔案，其中包含與已編碼的視訊[H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC)轉碼器，及使用已編碼的音訊[AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)轉碼器。 這個的 MP4 檔案會寫入儲存體帳戶中的資產。 您可以使用 Azure 儲存體 Api 或 Sdk (例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)， [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md)，或[.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) 直接下載檔案。 如果您已建立輸出資產使用特定的容器名稱，在儲存體，使用該位置。 否則，您可以使用媒體服務[列出資產容器 Url](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。 
 * 若要準備的調適性位元速率串流傳遞內容，將夾層檔必須編碼多個位元速率 （高到低）。 若要確保、 非失誤性轉換，如為位元速率降低，因此是品質的影片的解析度。 這會導致所謂的編碼階梯 – 解析度和位元速率的資料表 (請參閱[自動產生的調適性位元速率階梯](autogen-bitrate-ladder.md))。 您可以使用媒體服務編碼夾層檔在多個位元速率 – 在此情況下，您會收到一組 MP4 檔案和相關聯資料流的組態檔，寫入至儲存體帳戶中的資產。 然後您可以使用[動態封裝](dynamic-packaging-overview.md)媒體服務功能的視訊透過串流處理通訊協定，例如傳遞[MPEG DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)並[HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)。 這需要您建立[串流定位器](streaming-locators-concept.md)並建置串流 Url 對應至支援的通訊協定，可以稍後可遞交給其功能為基礎的裝置/應用程式。
 
 下圖顯示隨編碼使用動態封裝的工作流程。
@@ -47,11 +47,46 @@ ms.locfileid: "65761899"
 > [!NOTE]
 > 您不應該修改或移除該 MPI 檔案，也不應該在您的服務中相依於此類檔案的存在與否。
 
+### <a name="creating-job-input-from-an-https-url"></a>從 HTTPS URL 建立作業輸入
+
+當您提交工作，以便處理您的影片時，您必須告知媒體服務來尋找輸入的視訊的位置。 其中一個選項是指定為作業輸入的 HTTPS URL。 目前，媒體服務 v3 不支援區塊的傳輸編碼透過 HTTPS Url。 
+
+#### <a name="examples"></a>範例
+
+* [從.NET 使用 HTTPS URL 編碼](stream-files-dotnet-quickstart.md)
+* [使用 REST 的 HTTPS URL 編碼](stream-files-tutorial-with-rest.md)
+* [從使用 CLI 的 HTTPS URL 編碼](stream-files-cli-quickstart.md)
+* [從 Node.js 使用 HTTPS URL 編碼](stream-files-nodejs-quickstart.md)
+
+### <a name="creating-job-input-from-a-local-file"></a>從本機檔案建立作業輸入
+
+輸入視訊可以儲存為媒體服務資產，在這種情況下，您會建立一個以檔案為基礎的輸入資產 (儲存在本機或 Azure Blob 儲存體)。 
+
+#### <a name="examples"></a>範例
+
+[將本機檔案，使用內建的預設編碼](job-input-from-local-file-how-to.md)
+
+### <a name="creating-job-input-with-subclipping"></a>建立子剪輯作業輸入
+
+進行視訊編碼時，您可以指定也修剪或裁剪的原始程式檔，並產生具有所需的一小部分的輸入視訊的輸出。 這項功能適用於任何[轉換](https://docs.microsoft.com/rest/api/media/transforms)所建置使用[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)預設值，或有[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)預設值。 
+
+您可以指定要建立[作業](https://docs.microsoft.com/rest/api/media/jobs/create)與單一剪輯的視訊點播或即時封存 （記錄的事件）。 工作輸入可能是資產或 HTTPS URL。
+
+> [!TIP]
+> 如果您想要串流您的影片 sublip 沒有 reencoding 影片，請考慮使用[預先篩選與動態封裝程式資訊清單](filters-dynamic-manifest-overview.md)。
+
+#### <a name="examples"></a>範例
+
+請參閱範例：
+
+* [子剪輯影片，以使用.NET](subclip-video-dotnet-howto.md)
+* [子剪輯影片，以使用 REST](subclip-video-rest-howto.md)
+
 ## <a name="built-in-presets"></a>內建預設
 
 媒體服務目前支援下列內建編碼預設：  
 
-### <a name="builtinstandardencoderpreset-preset"></a>BuiltInStandardEncoderPreset 預設
+### <a name="builtinstandardencoderpreset"></a>BuiltInStandardEncoderPreset
 
 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) \(英文\) 是用來設定內建預設，以供使用標準編碼器為輸入視訊編碼時使用。 
 
@@ -71,7 +106,7 @@ ms.locfileid: "65761899"
 
 若要查看如何使用預設值，請參閱[正在上傳、 編碼及串流檔案](stream-files-tutorial-with-api.md)。
 
-### <a name="standardencoderpreset-preset"></a>StandardEncoderPreset 預設
+### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) \(英文\) 能描述在使用標準編碼器為輸入視訊編碼時所要使用的設定。 在自訂轉換預設時，請使用此預設。 
 
@@ -82,9 +117,11 @@ ms.locfileid: "65761899"
 - 高度和寬度 AVC 內容上的所有值必須都是 4 的倍數。
 - Azure 媒體服務 v3 中所有的編碼位元速率是每秒位元。 這是我們使用千位元/秒為單位的 v2 Api 與預設值不同。 比方說，如果 （kb/秒） 指定在 v2 中的位元速率為 128，v3 中它會設 128000 （位元/秒）。
 
-#### <a name="examples"></a>範例
+### <a name="customizing-presets"></a>自訂預設值
 
 「媒體服務」可完整支援自訂預設中的所有值，以滿足您的特定編碼需要和需求。 如需示範如何自訂編碼器預設值的範例，請參閱：
+
+#### <a name="examples"></a>範例
 
 - [自訂預設使用.NET](customize-encoder-presets-how-to.md)
 - [自訂預設使用 CLI](custom-preset-cli-howto.md)
@@ -104,7 +141,7 @@ ms.locfileid: "65761899"
 
 ## <a name="next-steps"></a>後續步驟
 
+* [使用媒體服務上傳、編碼和串流](stream-files-tutorial-with-api.md)
 * [從使用內建的預先設定的 HTTPS URL 編碼](job-input-from-http-how-to.md)
 * [將本機檔案，使用內建的預設編碼](job-input-from-local-file-how-to.md)
 * [建置自訂預設值為目標的特定案例或裝置需求](customize-encoder-presets-how-to.md)
-* [使用媒體服務上傳、編碼和串流](stream-files-tutorial-with-api.md)

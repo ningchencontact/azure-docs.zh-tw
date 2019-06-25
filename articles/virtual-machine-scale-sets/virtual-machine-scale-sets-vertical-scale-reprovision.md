@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: 3846815dabdc9e351f3d8449feb88affb9c6efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803508"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>使用虛擬機器擴展集垂直自動調整
 
 這篇文章描述如何使用或不使用重新佈建以垂直調整 Azure [虛擬機器擴充集](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 。 若為垂直調整不在擴展集中的虛擬機器，請參閱[使用 Azure 自動化垂直調整 Azure 虛擬機器](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-垂直調整也稱為向相應增加和相應減少，意味增加或減少虛擬機器 (VM) 大小以回應工作負載。 將此行為與[水平調整](virtual-machine-scale-sets-autoscale-overview.md) (也稱為相應放大和相應縮小) 做比較，後者會根據工作負載改變虛擬機器數目。
+垂直調整也稱為向相應增加  和相應減少  ，意味增加或減少虛擬機器 (VM) 大小以回應工作負載。 將此行為與[水平調整](virtual-machine-scale-sets-autoscale-overview.md) (也稱為相應放大  和相應縮小  ) 做比較，後者會根據工作負載改變虛擬機器數目。
 
 重新佈建表示移除現有的 VM，並以新的 VM 取代它。 當您增加或減少虛擬機器擴展集中的虛擬機器大小時，在某些情況下您想要調整現有虛擬機器的大小並保留資料，而在其他情況下您需要部署具有新大小的新虛擬機器。 本文件涵蓋這兩種情況。
 
@@ -164,7 +164,7 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 ## <a name="summary"></a>總結
 
-這篇文章示範簡單的垂直調整範例。 借助这些构建基块 - 自动化帐户、Runbook、Webhook、警报，可以使用一组自定义操作连接各种事件。
+這篇文章示範簡單的垂直調整範例。 藉助這些建置組塊 (自動化帳戶、Runbook、Webhook、警示)，您可以連接各式各樣的事件與一組自訂的動作。
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05d20e75cf8f0c84936ff4e5dfa42d60678f6ffc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051725"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295339"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>適用於 Linux 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -34,7 +34,7 @@ Azure 磁碟加密會使用 Linux 中的 dm-crypt 子系統在[選取的 Azure L
 
 ### <a name="operating-system"></a>作業系統
 
-Azure 磁碟加密目前在特定的發行版本和版本上受到支援。  如需支援的 Linux 發行版本清單，請參閱 [Azure 磁碟加密常見問題集](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。
+Azure 磁碟加密目前在特定的發行版本和版本上受到支援。  請參閱[Azure 磁碟加密支援的作業系統：Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux)如需支援的 Linux 散發套件的清單。
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
@@ -152,7 +152,7 @@ V1.1 結構描述建議，並不需要 Azure Active Directory 屬性。
 | KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | 字串 |
 | KeyEncryptionKeyURL | url | 字串 |
 | （選擇性）KeyVaultURL | url | 字串 |
-| 複雜密碼 | password | 字串 | 
+| Passphrase | password | 字串 | 
 | SequenceVersion | uniqueidentifier | 字串 |
 | VolumeType | 作業系統、資料、全部 | 字串 |
 

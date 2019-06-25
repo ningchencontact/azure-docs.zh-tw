@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056042"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Server 的使用者入口網站
 
@@ -28,6 +28,9 @@ ms.locfileid: "60358572"
 
 視您的環境而定，建議您在與 Azure Multi-factor Authentication Server 相同的伺服器，或在另一個網際網路對向的伺服器上部署使用者入口網站。
 
+> [!IMPORTANT]
+> 截至 2019 年 7 月 1 日，Microsoft 將不再提供任何 MFA Server 的新部署。 想要從使用者的 multi-factor authentication 的新客戶應該使用雲端式 Azure Multi-factor Authentication。 已啟用在 7 月 1 之前的 MFA Server 的現有客戶將能夠下載最新版本，也就是未來的更新，並如往常般產生啟用認證。
+
 ![MFA Server 使用者入口網站登入頁面](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
@@ -38,7 +41,7 @@ ms.locfileid: "60358572"
 在任一案例中，如果 Azure Multi-Factor Authentication (MFA) Server 上尚**未**安裝 Azure Multi-Factor Authentication Web 服務 SDK，請完成後續步驟。
 
 1. 開啟 Multi-Factor Authentication Server 主控台。
-2. 移至 [Web 服務 SDK] 並選取 [安裝 Web 服務 SDK]。
+2. 移至 [Web 服務 SDK]  並選取 [安裝 Web 服務 SDK]  。
 3. 除非基於某種原因而需要變更預設值，否則使用預設值來完成安裝。
 4. 將 SSL 憑證繫結至 IIS 中的網站。
 
@@ -59,14 +62,14 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 若要部署使用者入口網站，請依照下列步驟執行︰
 
-1. 開啟 Azure Multi-Factor Authentication Server 主控台，按一下左側功能表中的 [使用者入口網站] 圖示，然後按一下 [安裝使用者入口網站]。
+1. 開啟 Azure Multi-Factor Authentication Server 主控台，按一下左側功能表中的 [使用者入口網站]  圖示，然後按一下 [安裝使用者入口網站]  。
 2. 除非基於某種原因而需要變更預設值，否則使用預設值來完成安裝。
 3. 將 SSL 憑證繫結至 IIS 中的網站
 
    > [!NOTE]
    > 此 SSL 憑證通常是公開簽署的 SSL 憑證。
 
-4. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (例如： https://mfa.contoso.com/MultiFactorAuth))。 確定未出現任何憑證警告或錯誤。
+4. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (例如： https://mfa.contoso.com/MultiFactorAuth) )。 確定未出現任何憑證警告或錯誤。
 
 ![MFA Server 使用者入口網站安裝](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -80,7 +83,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 * 使用 Azure Multi-Factor Authentication Server v6.0 或更高版本。
 * 在執行 Microsoft Internet Information Services (IIS) 6.x 或更高版本的網際網路對向網頁伺服器上安裝使用者入口網站。
-* 在使用 IIS 6.x 時，請確定 ASP.NET v2.0.50727 已安裝、註冊並設定為 [已允許]。
+* 在使用 IIS 6.x 時，請確定 ASP.NET v2.0.50727 已安裝、註冊並設定為 [已允許]  。
 * 使用 IIS 7.x 或更高版本時，包括基本驗證、ASP.NET 和 IIS 6 Metabase 相容性。
 * 使用 SSL 憑證保護使用者入口網站。
 * 使用 SSL 憑證保護 Azure Multi-Factor Authentication Web 服務 SDK。
@@ -100,12 +103,12 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 5. 在 [記事本] 中編輯 Web.Config 檔案
 
     * 找出 **"USE_WEB_SERVICE_SDK"** 機碼並將 **value="false"** 變更為 **value="true"**
-    * 找出 **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 機碼並將 **value=""** 變更為 **value="DOMAIN\User"**，其中的 DOMAIN\User 是屬於 "PhoneFactor Admins" 群組的服務帳戶。
-    * 找出 **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 機碼並將 **value=""** 變更為 **value="Password"**，其中的 Password 是在前一行中輸入之服務帳戶的密碼。
+    * 找出 **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** 機碼並將 **value=""** 變更為 **value="DOMAIN\User"** ，其中的 DOMAIN\User 是屬於 "PhoneFactor Admins" 群組的服務帳戶。
+    * 找出 **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** 機碼並將 **value=""** 變更為 **value="Password"** ，其中的 Password 是在前一行中輸入之服務帳戶的密碼。
     * 找出 **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** 值並將此預留位置 URL 變更為我們在步驟 2 中安裝的 Web 服務 SDK URL。
     * 儲存 Web.Config 檔案並關閉 [記事本]。
 
-6. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (例如： https://mfa.contoso.com/MultiFactorAuth))。 確定未出現任何憑證警告或錯誤。
+6. 從任何電腦開啟網頁瀏覽器，並瀏覽至安裝使用者入口網站的 URL (例如： https://mfa.contoso.com/MultiFactorAuth) )。 確定未出現任何憑證警告或錯誤。
 
 如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
 
@@ -113,9 +116,9 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 既然使用者入口網站已安裝完成，您需要設定 Azure Multi-Factor Authentication Server，使其與入口網站搭配運作。
 
-1. 在 Azure Multi-Factor Authentication Server 主控台中，按一下 [使用者入口網站] 圖示。 在 [設定] 索引標籤上，於 [使用者入口網站 URL] 文字方塊中輸入使用者入口網站的 URL。 如果電子郵件功能已啟用，將使用者匯入 Azure Multi-Factor Authentication Server 時，系統會將此 URL 包含在傳送給使用者的電子郵件中。
-2. 選擇要在使用者入口網站中使用的設定。 例如，如果您允許使用者選擇其驗證方法，請確認 [允許使用者選取方法] 連同他們可以選擇的方法已核取。
-3. 在 [系統管理員] 索引標籤上定義誰應該是系統管理員。您可以使用 [新增]/[編輯] 方塊中的核取方塊和下拉式清單，建立細微的系統管理權限。
+1. 在 Azure Multi-Factor Authentication Server 主控台中，按一下 [使用者入口網站]  圖示。 在 [設定] 索引標籤上，於 [使用者入口網站 URL]  文字方塊中輸入使用者入口網站的 URL。 如果電子郵件功能已啟用，將使用者匯入 Azure Multi-Factor Authentication Server 時，系統會將此 URL 包含在傳送給使用者的電子郵件中。
+2. 選擇要在使用者入口網站中使用的設定。 例如，如果您允許使用者選擇其驗證方法，請確認 [允許使用者選取方法]  連同他們可以選擇的方法已核取。
+3. 在 [系統管理員]  索引標籤上定義誰應該是系統管理員。您可以使用 [新增]/[編輯] 方塊中的核取方塊和下拉式清單，建立細微的系統管理權限。
 
 選用組態：
 
@@ -151,7 +154,7 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
 ### <a name="self-service-user-enrollment"></a>自助式使用者註冊
 
-如果要讓使用者登入並註冊，您必須選取 [設定] 索引標籤底下的 [允許使用者登入] 和 [允許使用者註冊] 選項。請記住，您選取的設定會影響使用者的登入體驗。
+如果要讓使用者登入並註冊，您必須選取 [設定] 索引標籤底下的 [允許使用者登入]  和 [允許使用者註冊]  選項。請記住，您選取的設定會影響使用者的登入體驗。
 
 例如，當使用者首次登入使用者入口網站時，便會進入 [Azure Multi-Factor Authentication 使用者設定] 頁面。 根據您如何設定 Azure Multi-Factor Authentication，使用者也許能夠選取驗證方法。
 
@@ -159,9 +162,9 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
 ![註冊主要和備份電話號碼](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-如果使用者驗證時需要使用 PIN，此頁面會提示他們建立 PIN。 使用者輸入電話號碼和 PIN (如果需要的話) 之後，接著按一下 [立即撥打電話給我以進行驗證] 按鈕。 Azure Multi-Factor Authentication 會撥打到使用者的主要電話號碼執行通話驗證。 使用者必須接聽電話並輸入 PIN (如果需要的話)，然後按下 #，以進入自助式註冊程序的下一個步驟。
+如果使用者驗證時需要使用 PIN，此頁面會提示他們建立 PIN。 使用者輸入電話號碼和 PIN (如果需要的話) 之後，接著按一下 [立即撥打電話給我以進行驗證]  按鈕。 Azure Multi-Factor Authentication 會撥打到使用者的主要電話號碼執行通話驗證。 使用者必須接聽電話並輸入 PIN (如果需要的話)，然後按下 #，以進入自助式註冊程序的下一個步驟。
 
-如果使用者選取 [簡訊] 驗證方法，或已預先設定為使用該方法，此頁面會提示使用者輸入行動電話號碼。 如果使用者驗證時需要使用 PIN，此頁面也會提示他們輸入 PIN。  使用者輸入電話號碼和 PIN (如果需要的話) 之後，接著按一下 [立即傳簡訊給我以進行驗證] 按鈕。 Azure Multi-Factor Authentication 會向使用者的行動電話發送簡訊驗證。 使用者會收到附有一次性密碼 (OTP) 的簡訊，然後以該 OTP 和其 PIN (如果適用) 回覆訊息。
+如果使用者選取 [簡訊] 驗證方法，或已預先設定為使用該方法，此頁面會提示使用者輸入行動電話號碼。 如果使用者驗證時需要使用 PIN，此頁面也會提示他們輸入 PIN。  使用者輸入電話號碼和 PIN (如果需要的話) 之後，接著按一下 [立即傳簡訊給我以進行驗證]  按鈕。 Azure Multi-Factor Authentication 會向使用者的行動電話發送簡訊驗證。 使用者會收到附有一次性密碼 (OTP) 的簡訊，然後以該 OTP 和其 PIN (如果適用) 回覆訊息。
 
 ![使用 SMS 的使用者入口網站驗證](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -172,7 +175,7 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
 此頁面接著會顯示啟用代碼和 URL，以及條碼圖片。 如果使用者驗證時需要使用 PIN，此頁面也會提示他們輸入 PIN。 使用者在 Microsoft 驗證器應用程式中輸入啟用代碼和 URL，或使用條碼掃描器來掃描條碼圖片，並按一下 [啟用] 按鈕。
 
-啟用完成之後，使用者按一下 [立即驗證我的身分] 按鈕。 Azure Multi-Factor Authentication 會對使用者的行動裝置應用程式執行驗證。 使用者必須輸入 PIN (如果需要的話)，並在其行動應用程式中按下 [驗證] 按鈕，以進入自助式註冊程序的下一個步驟。
+啟用完成之後，使用者按一下 [立即驗證我的身分]  按鈕。 Azure Multi-Factor Authentication 會對使用者的行動裝置應用程式執行驗證。 使用者必須輸入 PIN (如果需要的話)，並在其行動應用程式中按下 [驗證] 按鈕，以進入自助式註冊程序的下一個步驟。
 
 如果系統管理員已設定 Azure Multi-Factor Authentication Server 來收集安全性問題和答案，則使用者會進入 [安全性問題] 頁面。 使用者必須選取四個安全性問題，並回答所選取的問題。
 

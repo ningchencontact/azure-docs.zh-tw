@@ -1,25 +1,17 @@
 ---
 title: Azure Resource Manager 範本函式 - 陣列和物件 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來使用陣列和物件的函式。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128705"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206381"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式
 
@@ -107,11 +99,11 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| intOutput | 陣列 | [1] |
-| stringOutput | 陣列 | ["efgh"] |
-| objectOutput | 陣列 | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -195,10 +187,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringOutput | 字串 | 預設值 |
+| stringOutput | String | 預設值 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | 陣列 | [1] |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -273,7 +265,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -313,7 +305,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| concatOutput | 字串 | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -400,7 +392,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -484,10 +476,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| stringArray | 陣列 | ["a", "b", "c"] |
-| intArray | 陣列 | [1, 2, 3] |
-| objectArray | 陣列 | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | 陣列 | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -630,8 +622,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | 字串 | one |
-| stringOutput | 字串 | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -707,10 +699,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
-| arrayOutput | 陣列 | ["two", "three"] |
+| arrayOutput | Array | ["two", "three"] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -733,7 +725,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串 |要轉換成 JSON 的值。 |
+| arg1 |是 |String |要轉換成 JSON 的值。 |
 
 
 ### <a name="return-value"></a>傳回值
@@ -845,10 +837,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | 字串 | three |
-| stringOutput | 字串 | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1056,7 +1048,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1123,7 +1115,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| rangeOutput | 陣列 | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1201,10 +1193,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | 陣列 | ["three"] |
-| stringOutput | 字串 | two three |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | two three |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1282,10 +1274,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | 陣列 | ["one", "two"] |
-| stringOutput | 字串 | on |
+| arrayOutput | Array | ["one", "two"] |
+| stringOutput | String | on |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1364,7 +1356,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | 陣列 | ["one", "two", "three", "four"] |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 

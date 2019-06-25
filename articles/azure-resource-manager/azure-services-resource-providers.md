@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
 ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235566"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 服務的資源提供者
@@ -35,7 +35,7 @@ ms.locfileid: "65235566"
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | [Azure Stack](/azure-stack/user/) |
 | Microsoft.Batch | [批次](../batch/index.yml) |
-| Microsoft.Billing | [計費](/azure/billing/) |
+| Microsoft.Billing | [Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing 地圖](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.BizTalkServices | [BizTalk 服務](../logic-apps/logic-apps-move-from-mabs.md) |
 | Microsoft.Blockchain | [Azure 區塊鏈服務](/azure/blockchain/workbench/) |
@@ -113,7 +113,7 @@ ms.locfileid: "65235566"
 | Microsoft.MarketplaceOrdering | core |
 | Microsoft.Media | [媒體服務](../media-services/index.yml) |
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
-| Microsoft.MixedReality | [Azure 空間的錨點](/azure/spatial-anchors/) |
+| Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
 | Microsoft.Network | [虛擬網路](../virtual-network/index.yml)<br />[負載平衡器](../load-balancer/index.yml)<br />[應用程式閘道](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN 閘道](../vpn-gateway/index.yml)<br />[流量管理員](../traffic-manager/index.yml)<br />[網路監看員](../network-watcher/index.yml)<br />[Azure 防火牆](../firewall/index.yml)<br />[Azure 的前端服務](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [通知中樞](../notification-hubs/index.yml) |

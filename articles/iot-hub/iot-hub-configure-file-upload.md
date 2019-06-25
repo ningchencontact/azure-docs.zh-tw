@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60735004"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞檔案上傳
@@ -21,11 +21,11 @@ ms.locfileid: "60735004"
 
 ## <a name="file-upload"></a>檔案上傳
 
-若要使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)，您必須先將 Azure 儲存體帳戶與您的中樞建立關聯。 選取 [檔案上傳] ，可顯示正在修改之 IoT 中樞的檔案上傳屬性清單。
+若要使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)，您必須先將 Azure 儲存體帳戶與您的中樞建立關聯。 選取 [檔案上傳]  ，可顯示正在修改之 IoT 中樞的檔案上傳屬性清單。
 
 ![在入口網站中檢視 IoT 中樞檔案上傳設定](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **儲存體容器**︰使用 Azure 入口網站中您目前 Azure 訂用帳戶與 IoT 中樞建立關聯的 Azure 儲存體帳戶選取 blob 容器。 如果有需要，您可以在 [儲存體帳戶] 刀鋒視窗上建立 Azure 儲存體帳戶，並在 [容器] 刀鋒視窗上建立 Blob 容器。 IoT 中樞會自動產生具有此 Blob 容器寫入權限的 SAS URI，以供裝置上傳檔案時使用。
+* **儲存體容器**︰使用 Azure 入口網站中您目前 Azure 訂用帳戶與 IoT 中樞建立關聯的 Azure 儲存體帳戶選取 blob 容器。 如果有需要，您可以在 [儲存體帳戶]  刀鋒視窗上建立 Azure 儲存體帳戶，並在 [容器]  刀鋒視窗上建立 Blob 容器。 IoT 中樞會自動產生具有此 Blob 容器寫入權限的 SAS URI，以供裝置上傳檔案時使用。
 
    ![在入口網站中檢視檔案上傳的儲存體容器](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 

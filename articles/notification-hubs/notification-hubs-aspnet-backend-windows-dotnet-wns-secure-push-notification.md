@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中心安全推送
+title: Azure 通知中心安全推播
 description: 了解如何在 Azure 中傳送安全的推播通知。 程式碼範例是以 C# 撰寫並使用 .NET API。
 documentationcenter: windows
 author: jwargo
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459155"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>從 Azure 通知中樞安全地推播通知
@@ -34,7 +34,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 基於法規或安全性限制，應用程式有時會想要在通知中加入無法透過標準推播通知基礎結構傳送的內容。 本教學課程說明如何透過用戶端裝置和應用程式後端之間的安全、已驗證連線來傳送敏感資訊，以達到相同體驗。
 
-在高级别中，此流程如下所示：
+概括而言，流程如下所示：
 
 1. 應用程式後端：
    * 在後端資料庫中儲存安全裝載。
@@ -83,17 +83,17 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
-4. 从 Visual Studio 的“文件”菜单中，单击“全部保存”。
+4. 從 Visual Studio 的 [檔案]  功能表中，按一下 [全部儲存]  。
 
 ## <a name="create-the-push-background-component"></a>建立推播背景元件
 
 下一個步驟說明如何建立推播背景元件。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下解決方案的最上層節點 (在此案例中為 **Solution SecurePush**)，並按一下 [新增]，然後按一下 [新增專案]。
-2. 展開 [市集應用程式]，並按一下 [Windows Phone 應用程式]，然後按一下 [Windows 執行階段元件 (Windows Phone)]。 將專案命名為 **PushBackgroundComponent**，然後按一下 [確定] 以建立專案。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下解決方案的最上層節點 (在此案例中為 **Solution SecurePush**)，並按一下 [新增]  ，然後按一下 [新增專案]  。
+2. 展開 [市集應用程式]  ，並按一下 [Windows Phone 應用程式]  ，然後按一下 [Windows 執行階段元件 (Windows Phone)]  。 將專案命名為 **PushBackgroundComponent**，然後按一下 [確定]  以建立專案。
 
     ![][12]
-3. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，並按一下 [新增]，然後按一下 [類別]。 將新類別命名為 `PushBackgroundTask.cs`。 按一下 [新增] 以產生類別。
+3. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，並按一下 [新增]  ，然後按一下 [類別]  。 將新類別命名為 `PushBackgroundTask.cs`。 按一下 [新增]  以產生類別。
 4. 使用下列程式碼來取代 `PushBackgroundComponent` 命名空間定義的整個內容，並將預留位置 `{back-end endpoint}` 替換成部署後端時所取得的後端端點：
 
     ```csharp
@@ -140,11 +140,11 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
             }
         }
     ```
-5. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [管理 NuGet 套件]。
-6. 在左側，按一下 [線上] 。
-7. 在 [搜尋] 方塊中，輸入 **Http Client**。
-8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]。 完成安装。
-9. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
+5. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [管理 NuGet 套件]  。
+6. 在左側，按一下 [線上]  。
+7. 在 [搜尋]  方塊中，輸入 **Http Client**。
+8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]  。 完成安裝。
+9. 回到 NuGet [搜尋]  方塊，輸入 **Json.net**。 安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
 10. 在 `PushBackgroundTask.cs` 檔案頂端新增下列 `using` 陳述式：
 
     ```c#
@@ -157,16 +157,16 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. 在 [方案總管] 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，以滑鼠右鍵按一下 [參考]，然後按一下 [新增參考...]。在 [參考管理員] 對話方塊中，核取 **PushBackgroundComponent** 旁邊的方塊，然後按一下 [確定]。
-12. 在 [方案總管] 中，連按兩下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中的 **Package.appxmanifest**。 在 [通知] 下，將 [支援快顯通知] 設定為 [是]。
+11. 在 [方案總管] 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，以滑鼠右鍵按一下 [參考]  ，然後按一下 [新增參考...]  。在 [參考管理員] 對話方塊中，核取 **PushBackgroundComponent** 旁邊的方塊，然後按一下 [確定]  。
+12. 在 [方案總管] 中，連按兩下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中的 **Package.appxmanifest**。 在 [通知]  下，將 [支援快顯通知]  設定為 [是]  。
 
     ![][3]
-13. 仍在 **Package.appxmanifest** 中，按一下頂端附近的 [宣告] 功能表。 在 [可用宣告] 下拉式清單中，按一下 [背景工作]，然後按一下 [新增]。
-14. 在 **Package.appxmanifest** 中，核取 [屬性] 下的 [推播通知]。
-15. 在 **Package.appxmanifest** 中，於 [應用程式設定] 的 [輸入點] 欄位中輸入 **PushBackgroundComponent.PushBackgroundTask**。
+13. 仍在 **Package.appxmanifest** 中，按一下頂端附近的 [宣告]  功能表。 在 [可用宣告]  下拉式清單中，按一下 [背景工作]  ，然後按一下 [新增]  。
+14. 在 **Package.appxmanifest** 中，核取 [屬性]  下的 [推播通知]  。
+15. 在 **Package.appxmanifest** 中，於 [應用程式設定]  的 [輸入點]  欄位中輸入 **PushBackgroundComponent.PushBackgroundTask**。
 
     ![][13]
-16. 從 [檔案] 功能表中，按一下 [全部儲存]。
+16. 從 [檔案]  功能表中，按一下 [全部儲存]  。
 
 ## <a name="run-the-application"></a>執行應用程式
 
@@ -175,7 +175,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 1. 在 Visual Studio 中，執行 **AppBackend** Web API 應用程式。 [ASP.NET Web] 頁面便會隨即顯示。
 2. 在 Visual Studio 中，執行 **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone 應用程式。 Windows Phone 模擬器便會執行，並自動載入此應用程式。
 3. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，輸入使用者名稱和密碼。 這些可以是任何字串，但必須是相同值。
-4. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [登入並註冊]。 然後按一下 [傳送推播] 。
+4. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [登入並註冊]  。 然後按一下 [傳送推播]  。
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png

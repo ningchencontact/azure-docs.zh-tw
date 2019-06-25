@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928274"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
@@ -39,16 +39,16 @@ S1、S2 和 S3 效能層級不提供標準 Azure Cosmos DB 所提供的彈性。
 
 <a name="compare"></a>
 
-## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>单区集合和分区集合与 S1、S2、S3 性能级别有哪些区别？
+## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>單一分割區集合和資料分割的集合與 S1、S2、S3 效能層級之比較為何？
 
 下表比較單一資料分割集合、資料分割集合和 S1、S2、S3 效能層級中可用的輸送量和儲存體選項。 美國東部 2 區域的範例如下︰
 
 |   |資料分割的集合|單一資料分割集合|S1|S2|S3|
 |---|---|---|---|---|---|
 |最大輸送量|無限|10K RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
-|輸送量下限|2.5 K RU/秒|400 RU/秒|250 RU/s|1 K RU/秒|2.5 K RU/秒|
+|輸送量下限|2.5 K RU/秒|400 RU/秒|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
 |儲存體上限|無限|10 GB|10 GB|10 GB|10 GB|
-|價格 (每月)|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|吞吐量：6 美元/100 RU/s<br><br>儲存體：$0.25/GB|$25 美元|$50 美元|$100 美元|
+|價格 (每月)|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|輸送量：$6 / 100 RU/秒<br><br>儲存體：$0.25/GB|$25 美元|$50 美元|$100 美元|
 
 您是 EA 客戶嗎？ 如果是，請參閱[如果我是 EA 客戶會受到什麼影響？](#ea-customer)
 

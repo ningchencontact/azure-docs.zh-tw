@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648258"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155323"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。
@@ -76,7 +76,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
    輸入的說明如下：
 
     * **暫存位置**：寫入初始備份副本的暫時儲存位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
-    * **Azure Resource Manager 儲存體帳戶**：任何 Azure 訂用帳戶中 Resource Manager 類型儲存體帳戶的名稱。
+    * **Azure Resource Manager 儲存體帳戶**：Resource Manager 型儲存體帳戶 （一般用途 v1 或一般用途 v2） 在任何 Azure 訂用帳戶的名稱。
     * **Azure 儲存體容器**：在複製到復原服務保存庫之前，Azure 儲存體帳戶中備份資料的匯入目的地儲存體 Blob 名稱。
     * **Azure 訂用帳戶識別碼**：Azure 儲存體帳戶建立所在的 Azure 訂用帳戶識別碼。
     * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65441631"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204584"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>將商標新增至組織的 Azure Active Directory 登入頁面
 使用您組織的標誌和自訂色彩配置，在 Azure Active Directory (Azure AD) 登入頁面上展現一致的外觀與風格。 當使用者登入貴組織的 Web 應用程式 (如 Office 365)，且該應用程式使用 Azure AD 做為識別提供者時，即會顯示您的登入頁面。
@@ -58,7 +58,7 @@ ms.locfileid: "65441631"
 
         - **橫幅標誌。** 請選取 .png 或 .jpg 格式的標誌，標誌會在使用輸入使用者名稱後出現在登入頁面上，也會出現在 **My Apps** 入口網站頁面上。
             
-            影像高度不能超過 36 像素，寬度不可超過 245 像素。 建議使用透明影像，因為背景可能會不符合您標誌的背景。 也建議不要在影像周圍加入邊框間距，否則會讓標誌看起來變小。
+            影像不能超過 60 像素的高度或寬度超過 280 像素為單位。 建議使用透明影像，因為背景可能會不符合您標誌的背景。 也建議不要在影像周圍加入邊框間距，否則會讓標誌看起來變小。
 
         - **使用者名稱提示。** 輸入使用者忘記使用者名稱時，就會向使用者顯示的提示文字。 此文字必須是 Unicode，不可含有任何連結或程式碼，而且不可超過 64 個字元。 如果來賓是登入您的應用程式，建議不要加入此提示。
 

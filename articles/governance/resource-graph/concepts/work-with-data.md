@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137866"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274408"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
 
 Azure Resource Graph 是設計來使用和取得 Azure 環境中資源的相關資訊。 即使在查詢數千筆記錄時，Resource Graph 還是能夠快速取得此資料。 Resource Graph 有數個選項可用來使用這些大型資料集。
+
+如需有關使用高頻率查詢的指引，請參閱 <<c0> [ 已節流處理要求的指引](./guidance-for-throttled-requests.md)。
 
 ## <a name="data-set-result-size"></a>資料集結果大小
 
@@ -37,7 +39,7 @@ Search-AzGraph -Query "project name | order by name asc" -First 200
 
 在 [REST API](/rest/api/azureresourcegraph/resources/resources) 中，此控制項為 **$top** 且屬於 **QueryRequestOptions**。
 
-「限制最嚴格」的控制項將會勝出。 例如，如果您的查詢會使用 **top** 或 **limit** 運算子並產生比 **First** 還多的記錄，則傳回的記錄數目上限會等於 **First**。 同樣地，如果 **top** 或 **limit** 小於 **First**，傳回的記錄集會是小於 **top** 或 **limit** 所設定的值。
+「限制最嚴格」  的控制項將會勝出。 例如，如果您的查詢會使用 **top** 或 **limit** 運算子並產生比 **First** 還多的記錄，則傳回的記錄數目上限會等於 **First**。 同樣地，如果 **top** 或 **limit** 小於 **First**，傳回的記錄集會是小於 **top** 或 **limit** 所設定的值。
 
 **First** 目前具有最大允許值 _5000_。
 
@@ -78,12 +80,12 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 ```
 
 > [!IMPORTANT]
-> 查詢必須**投影****識別碼**欄位，才能使分頁運作。 如果遺漏查詢，不會包含回應 **$skipToken**。
+> 查詢必須**投影** **識別碼**欄位，才能使分頁運作。 如果遺漏查詢，不會包含回應 **$skipToken**。
 
 如需範例，請參閱 REST API 文件中的[下一頁查詢](/rest/api/azureresourcegraph/resources/resources#next_page_query)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱[入門查詢](../samples/starter.md)中使用的語言
-- 請參閱[進階查詢](../samples/advanced.md)中的進階使用方式
-- 了解[探索資源](explore-resources.md)
+- 請參閱中的使用中的語言[入門查詢](../samples/starter.md)。
+- 在中使用進階，請參閱[進階查詢](../samples/advanced.md)。
+- 了解如何[探索資源](explore-resources.md)。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9adf8dd4a5a3c469ed130b29308a0d828aee40bf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873986"
 ---
 # <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>管理 Azure DevTest Labs 中實驗室自動關閉原則
@@ -27,8 +27,8 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 ## <a name="set-auto-shutdown-policy-for-a-lab"></a>設定實驗室自動關閉原則
 身為實驗室擁有者，您可以在實驗室中設定所有 VM 的關機排程。 如此一來，您可經由執行未使用 (閒置) 的機器來節省成本。 您可以在所有的實驗室 VM 上集中強制執行關機原則，但也可讓實驗室使用者免於為其個別機器設定排程。 這項功能可讓您設定實驗室排程的原則，從完全無法控制，以至完全控制實驗室使用者。 身為實驗室擁有者，您可以採取下列步驟來設定此原則：
 
-1. 在實驗室首頁上，選取 [設定與原則]。
-2. 左側功能表的 [排程] 區段中選取 [自動關機原則]。
+1. 在實驗室首頁上，選取 [設定與原則]  。
+2. 左側功能表的 [排程]  區段中選取 [自動關機原則]  。
 3. 選取其中一個選項。 下列各節提供有關這些選項的詳細資料：設定原則只適用於實驗室中建立新的 Vm 和不到現有的 Vm。 
 
     ![自動關閉原則選項](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
@@ -39,17 +39,17 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 若要檢視 (及變更) 實驗室的原則，請依照下列步驟操作：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 3. 從實驗室清單中，選取所需的實驗室。   
-4. 選取 [組態和原則]。
+4. 選取 [組態和原則]  。
 
     ![原則設定窗格](./media/devtest-lab-set-lab-policy/policies-menu.png)
 5. 在實驗室的**組態和原則**窗格中，選取**自動關機**之下**排程**。
    
     ![自動關閉](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
-6. 選取 [開啟] 來啟用此原則，以及選取 [關閉] 來停用它。
+6. 選取 [開啟]  來啟用此原則，以及選取 [關閉]  來停用它。
 7. 如果您啟用這個原則，請指定時間 (和時區) 以關閉目前實驗室中的所有 VM。
-8. 指定 **[是]** 或是**否**選項來指定自動關閉時間之前 15 分鐘傳送通知。 如果您選擇 [是]，請輸入 Webhook URL 端點或電子郵件地址，指定您要在哪裡張貼或傳送通知。 使用者會收到通知，並且給予延遲關機的選項。 如需詳細資訊，請參閱 <<c0> [ 通知](#notifications)一節。 
+8. 指定 **[是]** 或是**否**選項來指定自動關閉時間之前 15 分鐘傳送通知。 如果您選擇 [是]  ，請輸入 Webhook URL 端點或電子郵件地址，指定您要在哪裡張貼或傳送通知。 使用者會收到通知，並且給予延遲關機的選項。 如需詳細資訊，請參閱 <<c0> [ 通知](#notifications)一節。 
 9. 選取 [ **儲存**]。
 
     根據預設，這個原則一經啟用，就會套用到目前實驗室的所有 VM。 若要從特定的 VM 中移除此設定，請開啟 VM 的 [管理] 窗格並變更其**自動關閉**設定。
@@ -174,11 +174,11 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
         ![傳送電子郵件選項](./media/devtest-lab-auto-shutdown/select-send-email.png)
     3. 選取 **登入**登入您的電子郵件帳戶。 
     4. 選取  **TO**欄位，然後選擇 擁有者。
-    5. 選取 **主旨**，並輸入電子郵件通知的主旨。 例如："關機的實驗室機器 vmName: labName。 」
+    5. 選取 **主旨**，並輸入電子郵件通知的主旨。 例如: "關機的實驗室機器 vmName: labName。 」
     6. 選取 **主體**，並定義電子郵件通知的內文內容。 例如:"vmName 排定在 15 分鐘內關機。 按一下以略過此關機：URL。 一小時的延遲關機： delayUrl60。 2 小時的延遲關機： delayUrl120。 」
 
         ![要求本文 JSON 結構描述](./media/devtest-lab-auto-shutdown/email-options.png)
-1. 在工具列上選取 [儲存]。 現在，您可以複製**HTTP POST URL**。 選取 [複製] 按鈕，將 URL 複製到剪貼簿。 
+1. 在工具列上選取 [儲存]  。 現在，您可以複製**HTTP POST URL**。 選取 [複製] 按鈕，將 URL 複製到剪貼簿。 
 
     ![WebHook URL](./media/devtest-lab-auto-shutdown/webhook-url.png)
 

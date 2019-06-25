@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110405"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>使用 Azure AD 存取權檢閱管理使用者排除條件式存取原則
 
@@ -32,70 +32,70 @@ ms.locfileid: "64571372"
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>您為何要從原則中排除使用者？
 
-身為 IT 管理員的您可以使用 [Azure AD 條件式存取](../conditional-access/overview.md)，要求使用者使用多重要素驗證 (MFA) 進行驗證或從信任的網路或裝置登入。 在部署規劃期間，您發現這些需求無法由所有使用者滿足。 例如，從不屬於您內部網路的遠端辦公室工作的使用者，或使用不受支援舊式手機的主管。 企業要求這些使用者能夠登入並從事其工作，因此，他們會從條件式存取原則中排除。
+身為 IT 管理員，您可以使用[Azure AD 條件式存取](../conditional-access/overview.md)要求使用 multi-factor authentication (MFA) 或從受信任的網路或裝置登入進行驗證的使用者。 在部署規劃期間，您發現這些需求無法由所有使用者滿足。 例如，從不屬於您內部網路的遠端辦公室工作的使用者，或使用不受支援舊式手機的主管。 商務需要，這些使用者可登入，並執行工作，因此，將它們排除的條件式存取原則。
 
-另舉一例，您可以在條件式存取中使用[具名位置](../conditional-access/location-condition.md)來設定一組您不想允許使用者存取其租用戶的國家和區域。
+另舉一例，您可以使用[具名位置](../conditional-access/location-condition.md)條件式存取來設定一組各郡及從中您不想要允許使用者存取其租用戶的區域中。
 
 ![具名位置](./media/conditional-access-exclusion/named-locations.png)
 
 不過，在某些情況下，使用者可能會有合理的原因，若要從這些已封鎖的國家/地區登入。 例如，使用者可能因為工作或個人原因而旅行。 在此範例中，條件式存取原則，來封鎖這些國家/地區可能會有專用的雲端安全性群組會從原則中排除的使用者。 在旅行時需要存取的使用者，可以使用 [Azure AD 自助式群組管理](../users-groups-roles/groups-self-service-management.md)將本身新增到群組。
 
-另一個範例可能是您有條件式存取原則，可[封鎖絕大多數使用者的舊版驗證](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/)。 Microsoft 強烈建議您在租用戶中封鎖使用舊版通訊協定，以改善安全性狀態。 不過，如果有些使用者一定需要使用舊版驗證方法才能透過 Office 2010 或 IMAP/SMTP/POP 型用戶端存取您的資源，您則可從封鎖舊版驗證方法的原則中排除這些使用者。
+另一個範例可能是您所部署的條件式存取原則，[絕大多數的使用者的封鎖舊版驗證](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/)。 Microsoft 強烈建議您在租用戶中封鎖使用舊版通訊協定，以改善安全性狀態。 不過，如果有些使用者一定需要使用舊版驗證方法才能透過 Office 2010 或 IMAP/SMTP/POP 型用戶端存取您的資源，您則可從封鎖舊版驗證方法的原則中排除這些使用者。
 
 ## <a name="why-are-exclusions-challenging"></a>為何排除項目具有挑戰性？
 
-在 Azure AD 中，您可以將條件式存取原則的範圍設為一組使用者。 您也可以排除這些使用者的一些方法是選取 Azure AD 角色、 個別使用者或來賓的使用者。 請務必記住，設定這些排除項目時，不能對這些使用者強制執行原則意圖。 如果將這些排除項目設定為一份個別使用者清單或一個傳統內部部署安全性群組，則會限制此排除清單的可見性 (使用者可能不知道它的存在)，以及 IT 系統管理員對於它的控制能力 (使用者可以加入安全性群組以略過原則）。 此外，一度有資格排除的使用者可能不再需要它，或者符合其資格。
+在 Azure AD 中，您可以將範圍的條件式存取原則，以一組使用者。 您也可以排除這些使用者的一些方法是選取 Azure AD 角色、 個別使用者或來賓的使用者。 請務必記住，設定這些排除項目時，不能對這些使用者強制執行原則意圖。 如果將這些排除項目設定為一份個別使用者清單或一個傳統內部部署安全性群組，則會限制此排除清單的可見性 (使用者可能不知道它的存在)，以及 IT 系統管理員對於它的控制能力 (使用者可以加入安全性群組以略過原則）。 此外，一度有資格排除的使用者可能不再需要它，或者符合其資格。
 
 在排除開頭，有一份略過原則的簡短使用者清單。 經過一段時間，越來越多使用者遭到排除，且清單隨之成長。 在某些時候，需要檢閱此清單，並確認仍然應該排除每個使用者。 從技術觀點來管理清單相當容易，但是由誰進行商務決策，以及如何確定全都可稽核？
 
-不過，如果您使用 Azure AD 群組來設定條件式存取原則的排除，則可使用存取權檢閱作為補償控制項，以提高可見度，並減少具有例外狀況的使用者數目。
+不過，如果您設定要使用 Azure AD 群組的條件式存取原則排除，然後您可以使用存取權檢閱做為補償的控制項，以提高可見度，並且減少具有例外狀況的使用者數目。
 
-## <a name="how-to-create-an-exclusion-group-in-a-conditional-access-policy"></a>如何在條件式存取原則中建立排除群組
+## <a name="how-to-create-an-exclusion-group-in-a-conditional-access-policy"></a>如何在 條件式存取原則中建立的排除群組
 
-請遵循下列步驟來建立新的 Azure AD 群組，以及不會套用至該群組的條件式存取原則。
+請遵循下列步驟來建立新的 Azure AD 群組並不會套用至該群組的條件式存取原則。
 
 ### <a name="create-an-exclusion-group"></a>建立排除群組
 
 1. 登入 Azure 入口網站。
 
-1. 在左側導覽列中，按一下 [Azure Active Directory]，然後按一下 [群組]。
+1. 在左側導覽列中，按一下 [Azure Active Directory]  ，然後按一下 [群組]  。
 
-1. 在上方功能表中，按一下 [新增群組] 以開啟群組窗格。
+1. 在上方功能表中，按一下 [新增群組]  以開啟群組窗格。
 
-1. 在 [群組類型] 清單中，選取 [安全性]。 指定名稱和描述。
+1. 在 [群組類型]  清單中，選取 [安全性]  。 指定名稱和描述。
 
-1. 務必將 [成員資格] 類型設定為 [已指派]。
+1. 務必將 [成員資格]  類型設定為 [已指派]  。
 
-1. 選取應成為此排除群組成員的使用者，然後按一下 [建立]。
+1. 選取應成為此排除群組成員的使用者，然後按一下 [建立]  。
 
     ![新增群組窗格](./media/conditional-access-exclusion/new-group.png)
 
-### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>建立可排除群組的條件式存取原則
+### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>建立條件式存取原則，排除群組
 
-您現在可以建立使用此排除群組的條件式存取原則。
+現在您可以建立會使用此排除群組的條件式存取原則。
 
-1. 在左側導覽列中，按一下 [Azure Active Directory]，然後按一下 [條件式存取] 以開啟 [原則] 刀鋒視窗。
+1. 在左側導覽中，按一下**Azure Active Directory** ，然後按一下**條件式存取**以開啟**原則**刀鋒視窗。
 
-1. 按一下 [新增原則] 以開啟 [新增] 窗格。
+1. 按一下 [新增原則]  以開啟 [新增]  窗格。
 
 1. 指定名稱。
 
-1. 在 [指派] 底下按一下 [使用者和群組]。
+1. 在 [指派] 底下按一下 [使用者和群組]  。
 
-1. 在 [包含] 索引標籤上，選取 [所有使用者]。
+1. 在 [包含]  索引標籤上，選取 [所有使用者]  。
 
-1. 在 [排除] 索引標籤上，將核取記號新增至 [使用者和群組]，然後按一下 [選取排除的使用者]。
+1. 在 [排除]  索引標籤上，將核取記號新增至 [使用者和群組]  ，然後按一下 [選取排除的使用者]  。
 
 1. 選取您所建立的排除群組。
 
     > [!NOTE]
     > 最佳做法：建議在測試時從原則中排除至少一個系統管理員帳戶，以確保您不會被鎖定在您的租用戶外。
 
-1. 繼續根據貴組織的需求來設定條件式存取原則。
+1. 繼續設定您組織的需求為基礎的條件式存取原則。
 
     ![選取排除的使用者](./media/conditional-access-exclusion/select-excluded-users.png)
 
-我們會討論您可以使用存取權檢閱來管理條件式存取原則中排除項目的兩個範例。
+我們會先討論兩個範例，其中您可以使用存取權檢閱來管理條件式存取原則的排除項目。
 
 ## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>範例 1：從已封鎖的國家/地區存取的使用者的存取權檢閱
 
@@ -120,7 +120,7 @@ ms.locfileid: "64571372"
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>範例 2：可供使用者透過舊版驗證存取的存取權檢閱
 
-假設您有一個條件式存取原則，可封鎖使用舊版驗證和較舊用戶端版本的使用者進行存取。 其中包含從原則中排除的群組。 以下是會檢閱群組成員的建議存取權檢閱。
+例如，假設您有一個條件式存取原則封鎖存取使用舊有的驗證和用戶端上的舊版的使用者。 其中包含從原則中排除的群組。 以下是會檢閱群組成員的建議存取權檢閱。
 
 1. 此檢閱必須是週期性檢閱。
 
@@ -140,17 +140,17 @@ ms.locfileid: "64571372"
 
 ## <a name="access-review-results-and-audit-logs"></a>存取權檢閱結果和稽核記錄
 
-既然您已備妥一切 (群組、條件式存取原則和存取權檢閱)，就可以開始監視和追蹤這些檢閱的結果。
+既然您已讓所有項目中的位置、 群組、 條件式存取原則和存取權檢閱，就可以監視和追蹤這些檢閱的結果。
 
-1. 在 Azure 入口網站中，開啟 [存取權檢閱] 刀鋒視窗。
+1. 在 Azure 入口網站中，開啟 [存取權檢閱]  刀鋒視窗。
 
 1. 開啟您為了管理排除群組所建立的控制項和程式。
 
-1. 按一下 [結果]，查看有誰獲准留在清單上，以及誰已遭到移除。
+1. 按一下 [結果]  ，查看有誰獲准留在清單上，以及誰已遭到移除。
 
     ![存取權檢閱結果](./media/conditional-access-exclusion/access-reviews-results.png)
 
-1. 然後按一下 [稽核記錄] 以查看在此檢閱期間採取的動作。
+1. 然後按一下 [稽核記錄]  以查看在此檢閱期間採取的動作。
 
     ![存取權檢閱稽核記錄](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 

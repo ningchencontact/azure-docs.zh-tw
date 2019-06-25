@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696650"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190551"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 
@@ -59,8 +59,8 @@ W=12 週 (84 天)、M=12 個月 (365 天)、Y=10 年 (3650 天)、WeekOfYear=15 
 
 如果您修改上述原則，並設定 W = 0 （沒有每週備份），頻率的備份複本時，將會變更顯示在上表中的反白顯示的日期。 用來保留這些備份所需的儲存體數量會跟著減少。 
 
-> [!NOTE]
-> 個別的 LTR 備份的時間會受到 Azure SQL Database。 您無法以手動方式建立 LTR 備份，或控制建立備份的時機。
+> [!IMPORTANT]
+> 個別的 LTR 備份的時間會受到 Azure SQL Database。 您無法以手動方式建立 LTR 備份，或控制建立備份的時機。 設定之後的 LTR 原則，可能需要最多 7 天前第一次的 LTR 備份會顯示在清單中的可用備份。  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>異地複寫和長期備份保留

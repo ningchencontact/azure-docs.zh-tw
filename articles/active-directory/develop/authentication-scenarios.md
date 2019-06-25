@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540168"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734475"
 ---
 # <a name="what-is-authentication"></a>什麼是驗證？
 
@@ -50,10 +50,10 @@ Microsoft 身分識別平台可透過以服務的形式提供身分識別來簡�
 * 想要將驗證外包給 Microsoft 身分識別平台的應用程式，必須先在 Azure Active Directory (Azure AD) 中註冊。 Azure AD 會在目錄中註冊並唯一識別該應用程式。
 * 開發人員可以使用開放原始碼 Microsoft 身分識別平台驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。 如需詳細資訊，請參閱 Microsoft 身分識別平台的 [v2.0 驗證程式庫](reference-v2-libraries.md)和 [v1.0 驗證程式庫](active-directory-authentication-libraries.md)。
 * 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定驗證成功。 您可以找到以各種不同語言和架構提供的快速入門、教學課程和程式碼範例，它們會說明應用程式必須執行哪些作業。
-  * 若要快速建置應用程式並新增諸如取得權杖、重新整理權杖、將使用者登入、顯示部分使用者資訊等功能，請參閱文件的＜快速入門＞一節。
-  * 若要取得適用於最常見驗證開發人員工作 (例如，取得存取權杖並使用它們呼叫 Microsoft Graph API 與其他 API、使用 OpenID Connect 搭配傳統網頁瀏覽器型應用程式實作「使用 Microsoft 登入」，以及其他工作) 的深入且以案例為基礎的程序，請參閱文件的＜教學課程＞一節。
+  * 若要快速建置應用程式並新增諸如取得權杖、重新整理權杖、將使用者登入、顯示部分使用者資訊等功能，請參閱文件的＜快速入門＞  一節。
+  * 若要取得適用於最常見驗證開發人員工作 (例如，取得存取權杖並使用它們呼叫 Microsoft Graph API 與其他 API、使用 OpenID Connect 搭配傳統網頁瀏覽器型應用程式實作「使用 Microsoft 登入」，以及其他工作) 的深入且以案例為基礎的程序，請參閱文件的＜教學課程＞  一節。
   * 若要下載程式碼範例，請前往 [GitHub](https://github.com/Azure-Samples?q=active-directory) \(英文\)。
-* 驗證程序的要求和回應流程是由您所使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect、WS-同盟或 SAML 2.0。 如需通訊協定的詳細資訊，請參閱文件＜概念＞底下的＜通訊協定＞一節。
+* 驗證程序的要求和回應流程是由您所使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect、WS-同盟或 SAML 2.0。 如需通訊協定的詳細資訊，請參閱文件＜概念＞底下的＜通訊協定＞  一節。
 
 在上述範例案例中，您可以依據這兩個角色區別應用程式：
 
@@ -85,14 +85,11 @@ Microsoft 身分識別平台會代表遵循特定模型的應用程式，此模�
 
 在這個佈建流程中：
 
-|   |   |
-|---|---|
-| 1 | 來自租用戶 B 的使用者嘗試登入應用程式 |
-| 2 | 系統會取得並驗證使用者認證 |
-| 3 | 系統會提示使用者同意讓應用程式存取租用戶 B |
-| 4 | Microsoft 身分識別平台會使用 A 中的應用程式物件作為藍圖，在租用戶 B 中建立服務主體 |
-| 5 | 使用者會收到要求的權杖 |
-|   |   |
+1. 租用戶 B 的使用者嘗試透過應用程式登入，授權端點會要求應用程式提供權杖。
+1. 系統會取得並驗證使用者認證
+1. 系統會提示使用者同意讓應用程式存取租用戶 B
+1. Microsoft 身分識別平台會使用租用戶 A 中的應用程式物件作為藍圖，在租用戶 B 中建立服務主體
+1. 使用者會收到要求的權杖
 
 您可以視需要針對其他租用戶 (C、D 等) 無數次地重複此程序。 租用戶 A 會保留應用程式的藍圖 (應用程式物件)。 應用程式已取得同意之所有其他租用戶的使用者和系統管理員，都可以透過每個租用戶中相對應的服務主體物件，保留控制應用程式可執行哪些作業的能力。 如需詳細資訊，請參閱 [Microsoft 身分識別平台中的應用程式和服務主體物件](app-objects-and-service-principals.md)。
 

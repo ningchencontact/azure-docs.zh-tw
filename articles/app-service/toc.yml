@@ -70,14 +70,17 @@
     - name: 作業系統功能
       href: operating-system-functionality.md
     - name: 安全性
-      href: overview-security.md
       items:
+        - name: 建議
+          href: security-recommendations.md
         - name: 驗證和授權
           href: overview-authentication-authorization.md
         - name: 作業系統和執行階段修補
           href: overview-patch-os-runtime.md
         - name: 安全性屬性
           href: app-service-security-attributes.md
+        - name: 安全性概觀
+          href: overview-security.md
     - name: 網路功能
       href: networking-features.md
     - name: 輸入和輸出 IP

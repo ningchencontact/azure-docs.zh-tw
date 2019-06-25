@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295843"
+ms.locfileid: "67108955"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>如何：調查有風險的使用者和登入記錄 
 
@@ -46,7 +46,7 @@ ms.locfileid: "60295843"
 
 具風險的使用者報告有預設檢視，顯示：
 
-- Name
+- 名稱
 
 - 風險狀態
 
@@ -298,7 +298,7 @@ ms.locfileid: "60295843"
 - 低
 
 
-[條件式存取]  篩選條件可讓您選取：
+**條件式存取**篩選條件可讓您選取：
 
 - 全部
 - 不適用

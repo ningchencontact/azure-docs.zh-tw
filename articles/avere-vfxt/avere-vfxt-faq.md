@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595419"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure 常見問題集
@@ -25,7 +25,7 @@ Avere vFXT for Azure 是高效能的檔案系統，可快取 Azure 計算中的�
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT 是儲存體解決方案嗎？
 
-沒有。 Avere vFXT 是連接至儲存體環境的檔案系統「快取」，例如 EMC 或 NetApp NAS 或 Azure Blob 容器。 Avere vFXT 可簡化用戶端的資料要求，並快取提供的資料，長時間大規模地改善效能。 Avere vFXT 本身不會儲存資料。 它沒有背後所儲存資料量的相關資訊。
+沒有。 Avere vFXT 是連接至儲存體環境的檔案系統「快取」  ，例如 EMC 或 NetApp NAS 或 Azure Blob 容器。 Avere vFXT 可簡化用戶端的資料要求，並快取提供的資料，長時間大規模地改善效能。 Avere vFXT 本身不會儲存資料。 它沒有背後所儲存資料量的相關資訊。
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT 是階層處理解決方案嗎？
 

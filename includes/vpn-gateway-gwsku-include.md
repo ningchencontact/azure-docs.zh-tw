@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159392"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173864"
 ---
 建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 虛擬網路閘道 Sku，在 Azure 可用性區域中，請參閱[Azure 可用性區域閘道 Sku](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)。
 

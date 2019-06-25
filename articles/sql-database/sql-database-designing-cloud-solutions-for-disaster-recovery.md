@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61488108"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>使用 Azure SQL Database 設計全域可用的服務
@@ -155,8 +155,8 @@ ms.locfileid: "61488108"
 
 | 模式 | RPO | ERT |
 |:--- |:--- |:--- |
-| 災害復原的主動-被動部署，使用共置資料庫存取 |讀寫存取 < 5 秒 |故障检测时间 + DNS TTL |
-| 應用程式負載平衡的主動-主動部署 |读写访问 < 5 秒 |失敗偵測時間 + DNS TTL |
+| 災害復原的主動-被動部署，使用共置資料庫存取 |讀寫存取 < 5 秒 |失敗偵測時間 + DNS TTL |
+| 應用程式負載平衡的主動-主動部署 |讀寫存取 < 5 秒 |失敗偵測時間 + DNS TTL |
 | 資料保留的主動-被動部署 |唯讀存取 < 5 秒 | 唯讀存取 = 0 |
 ||讀寫存取 = 0 | 讀寫存取 = 失敗偵測時間 + 遺失資料的寬限期 |
 |||

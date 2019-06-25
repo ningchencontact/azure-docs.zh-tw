@@ -13,10 +13,10 @@ ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471841"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
@@ -46,7 +46,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|案例編號|date|封鎖|IUCR|主要類型|說明|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
+||ID|案例編號|Date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|案例編號|案例類別|date|封鎖|IUCR|主要類型|說明|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
+||ID|案例編號|案例類別|Date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|位置|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
@@ -270,7 +270,7 @@ dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>正在篩選
+## <a name="filtering"></a>Filtering
 
 SDK 包含方法[ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)並[ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py)可讓您篩選出資料行或資料列。
 
@@ -413,8 +413,8 @@ dflow.head(2)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|阿拉巴馬州|1|101710|Hale County|10171002158| |
-|1|阿拉巴馬州|1|101710|Hale County|10171002162| |
+|0|ALABAMA|1|101710|Hale County|10171002158| |
+|1|ALABAMA|1|101710|Hale County|10171002162| |
 
 精簡資料集，並執行一些基本的轉換，包括移除資料行、 取代值，以及轉換類型。
 
@@ -427,8 +427,8 @@ dflow.head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|阿拉巴馬州|Hale County|1.017100e+10|None|
-|1|阿拉巴馬州|Hale County|1.017100e+10|None|
+|0|ALABAMA|Hale County|1.017100e+10|None|
+|1|ALABAMA|Hale County|1.017100e+10|None|
 
 使用下列篩選條件尋找 null 值。
 
@@ -438,8 +438,8 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|阿拉巴馬州|Hale County|1.017100e+10|None|
-|1|阿拉巴馬州|Hale County|1.017100e+10|None|
+|0|ALABAMA|Hale County|1.017100e+10|None|
+|1|ALABAMA|Hale County|1.017100e+10|None|
 
 ### <a name="transform-partition"></a>轉換分割區
 
@@ -458,8 +458,8 @@ df.head(2)
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|阿拉巴馬州|Hale County|1.017100e+10|0.0|
-|1|阿拉巴馬州|Hale County|1.017100e+10|0.0|
+|0|ALABAMA|Hale County|1.017100e+10|0.0|
+|1|ALABAMA|Hale County|1.017100e+10|0.0|
 
 ### <a name="new-script-column"></a>新的指令碼資料行
 
@@ -477,8 +477,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|阿拉巴馬州|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|1|阿拉巴馬州|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 
 ### <a name="new-script-filter"></a>新的指令碼篩選條件
 
@@ -495,8 +495,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|阿拉巴馬州|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
-|1|阿拉巴馬州|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
+|0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
+|1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
 
 ## <a name="next-steps"></a>後續步驟
 

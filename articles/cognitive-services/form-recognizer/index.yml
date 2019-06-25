@@ -17,6 +17,15 @@ metadata:
 ms.custom: seodec18
 abstract:
   description: Azure 表單辨識器是一項認知服務，其使用機器學習技術來識別和擷取表單文件中的索引鍵值組和資料表資料。 然後，它會輸出在原始檔中包含關聯性的結構化資料。 非監督式學習可讓模型了解欄位與項目之間的配置和關聯性，而不需要手動資料標記或密集編碼和維護。
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: ../media/index/form-recognizer-landing-page-video.png
+      width: 250
+    title: 'AI 驅動的流程自動化與表單辨識器 (2:15)'
+    href: 'https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer'
+    width: 250
 sections:
   - items:
       - type: list

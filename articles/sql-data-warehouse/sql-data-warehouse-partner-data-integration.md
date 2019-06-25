@@ -11,20 +11,20 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873789"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 這篇文章特別介紹 Microsoft 夥伴公司支援 Azure SQL 資料倉儲的正式資料整合解決方案。
 
 ## <a name="data-integration-partners"></a>資料整合合作夥伴
-| 合作夥伴 | 說明 | 網站/產品連結 |
+| 合作夥伴 | 描述 | 網站/產品連結 |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma 是 ETL 解決方案，可讓整合、 擴充，以及串流處理將資料從各種資料定址接收器到 SQL 資料倉儲所有的即時資料小組。 |[產品頁面][alooma_website] |
-| ![Alteryx][1] |**Alteryx**<br>  Alteryx Designer 提供可重複用來進行自助式資料分析的工作流程，以小時為單位進行更深入的見解，而不是傳統處理方式通常使用的以週為單位！ Alteryx Designer 藉由使用相同的直覺式使用者介面來結合資料準備、資料混合及分析 (預測、統計和空間)，來協助資料分析人員。 |[產品頁面][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
+| ![Alteryx][1] |**Alteryx**<br> Alteryx Designer 提供可重複用來進行自助式資料分析的工作流程，以小時為單位進行更深入的見解，而不是傳統處理方式通常使用的以週為單位！ Alteryx Designer 藉由使用相同的直覺式使用者介面來結合資料準備、資料混合及分析 (預測、統計和空間)，來協助資料分析人員。 |[產品頁面][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
 | ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam 提供自動化的解決方案將資料載入至 SQL 資料倉儲。 它可簡化載入的批次和累加式資料複寫從許多來源-SQL Server、 Oracle、 DB2、 Sybase、 MySQL 和更多功能。 |[產品頁面][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
 | ![Denodo][3] |**Denodo**<br>Denodo 會提供跨組織的不同資料來源的即時資料的存取權。 它會橋接資料的資料虛擬化使用跨多個來源，而不需要複寫。 它提供廣泛的存取，位於企業、 巨量資料和即時和批次中的雲端來源的結構化和非結構化資料。|[產品頁面][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
 | ![Fivetran][8] |**Fivetran**<br>Fivetran 可協助您集中管理不同來源的資料。 它的特色不需要維護，零的設定資料管線產品成長到所有熱門資料來源的內建連接器的清單。 安裝程式需要的資料來源和目標資料倉儲進行驗證之後的五分鐘。|[產品頁面][fivetran_website]<br> |

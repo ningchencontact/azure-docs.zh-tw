@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069443"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 的存取限制 #
 
@@ -48,27 +48,27 @@ ms.locfileid: "66494286"
 
 清單會顯示所有目前位於您的應用程式的限制。 如果您有 VNet 限制在您的應用程式時，資料表將會顯示為 Microsoft.Web 是否已啟用服務端點。 您的應用程式上沒有定義的限制時，您的應用程式將可從任何地方。  
 
+## <a name="adding-ip-address-rules"></a>新增 IP 位址規則
+
 您可以按一下 **[+] 新增**來新增新的存取限制規則。 當您新增規則之後，該規則會立即生效。 規則會依據優先順序強制執行，從最小數字開始往上增加。 當您新增規則時 (即使只新增一個規則)，隱含的「拒絕所有」語句就會發生作用。
-
-### <a name="adding-ip-address-rules"></a>新增 IP 位址規則
-
-![新增 IP 存取限制規則](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 建立規則時，您必須選取允許/拒絕以及規則的類型。 您也必須提供優先順序值，而且您必須限制存取權。  規則，您可以選擇性地加入名稱和描述。  
 
+![新增 IP 存取限制規則](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+
 若要設定的 IP 位址型規則中，選取 IPv4 或 IPv6 的類型。 針對 IPv4 和 IPv6 位址，CIDR 標記法中必須指定 IP 位址標記法。 若要指定正確的位址，您可以使用類似 1.2.3.4/32 的位址，其中前四個八位元代表您的 IP 位址，而 /32 是遮罩。 適用於所有位址的 IPv4 CIDR 標記法是 0.0.0.0/0。 若要深入了解 CIDR 標記法，您可以參閱[無類別網域間路由](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)。 
 
-### <a name="service-endpoints"></a>服務端點
+## <a name="service-endpoints"></a>服務端點
+
+服務端點可讓您限制對選取的 Azure 虛擬網路子網路的存取。 若要限制存取特定的子網路，請使用一種虛擬網路中建立限制規則。 您可以挑選訂用帳戶、 VNet 和您想要允許或拒絕存取的子網路。 如果服務端點未已經啟用 Microsoft.Web 與您所選取的子網路，它會自動啟用，除非您核取方塊詢問您不要。 如果您有權限，以啟用子網路上的服務端點，或不，您想要在應用程式，但不是在子網路上啟用這種的情況多半會與相關。 如果您需要取得其他人，即可啟用子網路上的服務端點，您可以核取方塊，並讓您設定之服務端點的預期它在稍後啟用子網路上的應用程式。 
 
 ![新增 VNet 存取限制規則](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
-
-若要限制存取所選子網路，請選取一種虛擬網路。 下方，您可以挑選訂用帳戶、 VNet 和您想要允許或拒絕存取的子網路。 如果服務端點未已經啟用 Microsoft.Web 與您所選取的子網路，它會自動啟用，除非您核取方塊詢問您不要。 如果您有權限，以啟用子網路上的服務端點，或不，您想要在應用程式，但不是在子網路上啟用這種的情況多半會與相關。 如果您需要取得其他人，即可啟用子網路上的服務端點，您可以核取方塊，並讓您設定之服務端點的預期它在稍後啟用子網路上的應用程式。 
 
 無法使用服務端點，來限制存取權的應用程式服務環境中執行的應用程式。 在 App Service Environment 中應用程式時，您可以在您的應用程式，使用 IP 存取規則控制存取。 
 
 透過服務端點，您可以設定您的應用程式與應用程式閘道或其他 WAF 裝置。 您也可以設定多層式應用程式使用安全的後端。 如需一些可能性的更多詳細資訊，請參閱[網路功能和 App Service](networking-features.md)。
 
-### <a name="managing-access-restriction-rules"></a>管理存取限制規則
+## <a name="managing-access-restriction-rules"></a>管理存取限制規則
 
 您可以按一下要編輯現有的存取限制規則的任何資料列。 編輯內容與優先順序的變更都會立即生效。
 
@@ -82,7 +82,7 @@ ms.locfileid: "66494286"
 
 ![刪除存取權限制規則](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="blocking-a-single-ip-address"></a>封鎖單一 IP 位址 ##
+## <a name="blocking-a-single-ip-address"></a>封鎖單一 IP 位址 ##
 
 當加入第一個 IP 限制規則，服務會將加入明確**全部拒絕**規則，優先順序為 2147483647。 在實務上，明確**全部拒絕**規則將會執行的最後一個規則，並會封鎖存取明確不允許使用任何 IP 位址**允許**規則。
 
@@ -90,7 +90,7 @@ ms.locfileid: "66494286"
 
 ![區塊的單一 ip 位址](media/app-service-ip-restrictions/block-single-address.png)
 
-### <a name="scm-site"></a>SCM 網站 
+## <a name="scm-site"></a>SCM 網站 
 
 除了能夠控制應用程式存取權，您也可以限制存取您的應用程式所使用的 scm 網站。 Scm 網站是 web 部署端點以及 Kudu 主控台。 另外，您可以從應用程式，指派給 scm 網站的存取限制，或使用相同的應用程式和 scm 網站集合。 當您核取方塊，讓您的應用程式相同的限制時，所有項目會變成空白。如果您取消核取方塊，則會套用您稍早於 scm 網站有任何設定。 
 

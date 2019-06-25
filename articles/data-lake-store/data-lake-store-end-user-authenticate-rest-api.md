@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877817"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>使用 REST API 向 Azure Data Lake Storage Gen1 驗證終端使用者
@@ -35,7 +35,7 @@ ms.locfileid: "60877817"
 
 * **建立 Active Directory 「原生」應用程式**。 您必須先完成[使用 Azure Active Directory 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)中的步驟。
 
-* **[cURL](https://curl.haxx.se/)**。 此文章使用 cURL 示範如何對 Data Lake Storage Gen1 進行 REST API 呼叫。
+* **[cURL](https://curl.haxx.se/)** 。 此文章使用 cURL 示範如何對 Data Lake Storage Gen1 進行 REST API 呼叫。
 
 ## <a name="end-user-authentication"></a>使用者驗證
 如果您需要讓使用者利用 Azure AD 登入您的應用程式，建議使用終端使用者驗證。 您的應用程式能夠以與登入的使用者相同的存取層級，來存取 Azure 資源。 使用者必須定期提供其認證，您的應用程式才能繼續存取。
@@ -49,7 +49,7 @@ ms.locfileid: "60877817"
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI> 需要編碼才能在 URL 中使用。 所以，針對 https://localhost 使用 `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> 需要編碼才能在 URL 中使用。 所以，針對 https://localhost 使用 `https%3A%2F%2Flocalhost` )
 
     本教學課程的目的是讓您取代以上 URL 中的預留位置值，並將此值貼在網路瀏覽器網址列中。 系統會將您重新導向，以使用 Azure 登入資料來進行驗證。 一旦成功登入，回應會顯示在瀏覽器網址列中。 回應格式如下：
 

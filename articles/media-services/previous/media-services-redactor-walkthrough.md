@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: rli; juliako;
 ms.openlocfilehash: 3e4844c3174e41ca7f6f5667a2777aba11f70f11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60874871"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒體分析修訂臉部逐步解說
@@ -35,7 +35,7 @@ ms.locfileid: "60874871"
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure 媒體服務總管工作流程
 
-開始使用修訂器最簡單的方法，是使用 GitHub 上的開放原始碼 AMSE 工具。 如果您不需要註解 json 或臉部 jpg 影像的存取權，您可以透過 [Combined] \(合併) 模式執行簡單的工作流程。
+開始使用修訂器最簡單的方法，是使用 GitHub 上的開放原始碼 AMSE 工具。 如果您不需要註解 json 或臉部 jpg 影像的存取權，您可以透過 [Combined] \(合併)  模式執行簡單的工作流程。
 
 ### <a name="download-and-setup"></a>下載及安裝
 
@@ -68,16 +68,16 @@ ms.locfileid: "60874871"
 
 2. (選擇性) 上傳包含您想修訂之識別碼清單 (以新行分隔) 的 'Dance_idlist.txt' 檔案。 
 
-    ![面部修订](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (選擇性) 編輯 annotations.json 檔案，例如增加周框方塊界限。 
-4. 以滑鼠右鍵按一下第一階段中的輸出資產，選取修訂器，並以 [Redact] \(修訂) 模式執行。 
+4. 以滑鼠右鍵按一下第一階段中的輸出資產，選取修訂器，並以 [Redact] \(修訂)  模式執行。 
 
     ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. 下載或分享最終修訂的輸出資產。 
 
-    ![面部修正](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure 媒體修訂器視覺化檢視開放原始碼工具
 
@@ -128,8 +128,8 @@ ms.locfileid: "60874871"
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒体服务分析概述](media-services-analytics-overview.md)
+[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
-[Azure 媒体分析演示](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 [宣布推出適用於 Azure 媒體分析的臉部修訂功能](https://azure.microsoft.com/blog/azure-media-redactor/)

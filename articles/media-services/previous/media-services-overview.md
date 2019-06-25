@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 7f0a071012685ee192d4f866396a5953d0a4508c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937260"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒體服務概觀 
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="選取您要使用媒體服務版本："]
 > * [第 3 版](../latest/media-services-overview.md)
 > * [第 2 版](media-services-overview.md)
 
@@ -42,13 +42,13 @@ Microsoft Azure 媒體服務 (AMS) 是一個可延伸的雲端式平台，供開
 * (選擇性) 設定開發環境。 針對開發環境選擇 .NET 或 REST API。 如需詳細資訊，請參閱 [設定環境](media-services-dotnet-how-to-use.md)。
 
     此外，請了解如何[以程式設計方式連線至 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
-* 处于已启动状态的标准或高级流式处理终结点。  有关详细信息，请参阅[管理流式处理终结点](media-services-portal-manage-streaming-endpoints.md)
+* 已啟動狀態的標準或進階串流端點。  如需詳細資訊，請參閱[管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 
 ## <a name="sdks-and-tools"></a>SDK 及工具
 
 若要建置媒體服務解決方案，您可以使用：
 
-* [媒体服务 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
+* [媒體服務 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 其中一個可用的用戶端 SDK：
     * Azure Media Services SDK for.NET
     
@@ -58,7 +58,7 @@ Microsoft Azure 媒體服務 (AMS) 是一個可延伸的雲端式平台，供開
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)、
     * [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (這是非 Microsoft 版本的 Node.js SDK。 它是由社群維護，且目前並沒有 AMS API 的 100% 涵蓋範圍)。
 * 現有的工具：
-    * [Azure 门户](https://portal.azure.com/)
+    * [Azure 入口網站](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure 媒體服務總管 (AMSE) 是適用於 Windows 的 Winforms/C# 應用程式)
 
 > [!NOTE]

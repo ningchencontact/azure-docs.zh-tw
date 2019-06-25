@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160976"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174419"
 ---
 | 連接埠號碼| 內或外 | 連接埠範圍| 必要項|   注意 |   |
 |--------|-----|-----|-----------|----------|-----------|

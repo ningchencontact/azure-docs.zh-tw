@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 678e370977cadae642207f91a02136404fb6c34e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60710521"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
@@ -307,7 +307,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>用戶端範例 (不是 Visual Studio)
 
-如果您不是使用 Visual Studio 進行開發，您可以建立下列 function.json 檔案。 此範例示範如何設定佇列觸發函式，它使用長期協調流程用戶端繫結：
+如果您不是使用 Visual Studio 進行開發，您可以建立下列 function.json  檔案。 此範例示範如何設定佇列觸發函式，它使用長期協調流程用戶端繫結：
 
 ```json
 {

@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 7b9b30f1598f7e50d25b15aaf2fda896ee9e5012
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248916"
 ---
 # <a name="enable-write-accelerator"></a>啟用寫入加速器
@@ -70,7 +70,7 @@ IOPS 限制是針對每部虛擬機器而「不是」  每個磁碟。 所有寫
 
 ## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>使用 Azure PowerShell 啟用 Azure 寫入加速器
 
-5.5.0 版之後的 Azure PowerShell 模組皆已引進相關 Cmdlet 的變更，可以為特定 Azure 進階儲存體磁碟啟用或停用寫入加速器。
+5\.5.0 版之後的 Azure PowerShell 模組皆已引進相關 Cmdlet 的變更，可以為特定 Azure 進階儲存體磁碟啟用或停用寫入加速器。
 為了要啟用或部署寫入加速器所支援的磁碟，下列 PowerShell 命令已經過變更，並擴大為接受寫入加速器的參數。
 
 下列 Cmdlet 中已加入了新的開關參數 **-WriteAccelerator**：

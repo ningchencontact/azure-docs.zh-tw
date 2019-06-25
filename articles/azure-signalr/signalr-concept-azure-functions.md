@@ -6,16 +6,19 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c06203cfd7537dd4c9bc35c75a3f21d12bf64d26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2b012086f61aad3143c8fe6b0bd25ec333e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401866"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275090"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>建置使用 Azure Functions 和 Azure SignalR 服務的即時應用程式
 
 因為 Azure SignalR 服務與 Azure Functions 都是完全受控且可調整幅度高的服務，可讓您專注於建置應用程式而不是管理基礎結構，在[無伺服器的](https://azure.microsoft.com/solutions/serverless/)環境中，通常會搭配使用這兩個服務來提供即時通訊。
+
+> [!NOTE]
+> 了解如何在互動式教學課程中同時使用 SignalR 和 Azure Functions[啟用使用 Azure Functions 與 SignalR 服務的 web 應用程式中的自動更新](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)。
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>將即時通訊與 Azure 服務服務整合
 
@@ -63,9 +66,10 @@ SignalR 服務可讓您將訊息廣播到所有用戶端，或只廣播到用戶
 
 在此文章中，您已了解如何搭配 SignalR 服務使用 Azure Functions，以支援各種無伺服器即時傳訊案例的概觀。
 
-如需如何搭配使用 Azure Functions 與 SignalR 服務的完整詳細資訊，閱讀下列指南。
+如需如何搭配使用 Azure Functions 與 SignalR 服務的完整詳細資訊，請造訪下列資源：
 
 * [Azure Functions 開發並與 SignalR 服務的組態](signalr-concept-serverless-development-config.md)
+* [啟用使用 Azure Functions 與 SignalR 服務的 web 應用程式中的自動更新](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 若要深入了解，請按照下列其中一個快速入門來操作。
 

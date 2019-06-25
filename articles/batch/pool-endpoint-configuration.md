@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071523"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>設定或停用 Azure Batch 集區內計算節點的遠端存取權
 
@@ -27,7 +27,7 @@ ms.locfileid: "60616852"
 每個 NAT 集區設定都包含一或多個[網路安全性群組 (NSG) 規則](/rest/api/batchservice/pool/add#networksecuritygrouprule)。 每個 NSG 規則皆會允許或拒絕通往端點的特定網路流量。 您可選擇要允許或拒絕所有流量、以[服務標籤](../virtual-network/security-overview.md#service-tags) (例如「網際網路」) 識別的網路流量，或來自特定 IP 位址或子網路的流量。
 
 ### <a name="considerations"></a>考量
-* 集區端點設定是屬於集區[網路設定](/rest/api/batchservice/pool/add#NetworkConfiguration)的一部分。 網路設定可選擇性地包含將集區加入 [Azure 虛擬網路](batch-virtual-network.md)的設定。 如果您在虛擬網路中設定集區，您可以建立使用虛擬網路中位址設定的 NSG 規則。
+* 集區端點設定是屬於集區[網路設定](/rest/api/batchservice/pool/add#networkconfiguration)的一部分。 網路設定可選擇性地包含將集區加入 [Azure 虛擬網路](batch-virtual-network.md)的設定。 如果您在虛擬網路中設定集區，您可以建立使用虛擬網路中位址設定的 NSG 規則。
 * 當您設定 NAT 集區時，可以設定多個 NSG 規則。 系統會依照規則優先順序檢查規則。 一旦套用規則，就不會再測試規則是否符合。
 
 

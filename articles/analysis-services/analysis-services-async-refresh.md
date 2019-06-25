@@ -104,7 +104,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 | `CommitMode`     | Enum  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
 | `MaxParallelism` | Int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
 | `RetryCount`     | Int   | 表示作業失敗之前重試的次數。      |     0    |
-| `Objects`        | 陣列 | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
+| `Objects`        | Array | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
 
 CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要數小時時，會使用它。 如果在成功認可一或多個批次之後，重新整理作業失敗，已成功認可的批次會保留認可 (不會回復已成功認可的批次)。
 

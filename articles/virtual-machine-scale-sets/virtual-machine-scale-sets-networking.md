@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
 ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803056"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
@@ -29,7 +29,7 @@ ms.locfileid: "60803056"
 本文所討論的所有概念都可以使用 Azure Resource Manager 範本來設定。 選取的功能也會包含 Azure CLI 和 PowerShell 範例。
 
 ## <a name="accelerated-networking"></a>加速網路
-Azure 加速網路可以對虛擬機器啟用 Single Root I/O Virtualization (SR-IOV)，大幅提升網路效能。 若要深入了解如何使用加速網路，請參閱 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虛擬機器的加速網路。 若要搭配擴展集使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將 enableAcceleratedNetworking 設為 **true**。 例如︰
+Azure 加速網路可以對虛擬機器啟用 Single Root I/O Virtualization (SR-IOV)，大幅提升網路效能。 若要深入了解如何使用加速網路，請參閱 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虛擬機器的加速網路。 若要搭配擴展集使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將 enableAcceleratedNetworking 設為 **true**。 例如:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -95,11 +95,11 @@ az vmss create \
 根據預設，擴展集會採取 VNET 和它們建立於該子網路的特定 DNS 設定。 不過，您可以直接設定擴展集的 DNS 設定。
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>使用可設定的 DNS 伺服器建立擴展集
-若要使用 Azure CLI 搭配自訂的 DNS 設定建立擴展集，將 **--dns-servers** 引數新增至 **vmss create** 命令，後面接以空格分隔的伺服器 IP 位址。 例如︰
+若要使用 Azure CLI 搭配自訂的 DNS 設定建立擴展集，將 **--dns-servers** 引數新增至 **vmss create** 命令，後面接以空格分隔的伺服器 IP 位址。 例如:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-若要在 Azure 範本中設定自訂的 DNS 伺服器，請將 dnsSettings 屬性新增至擴展集 networkInterfaceConfigurations 區段。 例如︰
+若要在 Azure 範本中設定自訂的 DNS 伺服器，請將 dnsSettings 屬性新增至擴展集 networkInterfaceConfigurations 區段。 例如:
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -109,7 +109,7 @@ az vmss create \
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>使用可設定的虛擬機器網域名稱建立擴展集
 若要使用 CLI 搭配自訂的虛擬機器 DNS 名稱建立擴展集，將 **--vm-domain-name** 引數新增至 **virtual machine scale set create** 命令，後面接著代表網域名稱的字串。
 
-若要在 Azure 範本中設定網域名稱，請將 **dnsSettings** 屬性新增至擴展集 **networkInterfaceConfigurations** 區段。 例如︰
+若要在 Azure 範本中設定網域名稱，請將 **dnsSettings** 屬性新增至擴展集 **networkInterfaceConfigurations** 區段。 例如:
 
 ```json
 "networkProfile": {
@@ -141,7 +141,7 @@ az vmss create \
 }
 ```
 
-单个虚拟机 DNS 名称的输出将采用以下形式： 
+個別虛擬機器 DNS 名稱的輸出格式如下： 
 ```
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
@@ -154,7 +154,7 @@ az vmss create \
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>使用公用 IP 每虛擬機器建立擴展集
 若要使用 CLI 建立將公用 IP 位址指派給每個虛擬機器的擴展集，請將 **--public-ip-per-vm** 參數新增至 **vmss create** 命令。 
 
-若要使用 Azure 範本建立擴展集，請確定 Microsoft.Compute/virtualMachineScaleSets 資源的 API 版本至少為 **2017-03-30**，並將 **publicIpAddressConfiguration** JSON 屬性新增至擴展集 ipConfigurations 區段。 例如︰
+若要使用 Azure 範本建立擴展集，請確定 Microsoft.Compute/virtualMachineScaleSets 資源的 API 版本至少為 **2017-03-30**，並將 **publicIpAddressConfiguration** JSON 屬性新增至擴展集 ipConfigurations 區段。 例如:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -169,12 +169,12 @@ az vmss create \
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>查詢擴展集中虛擬機器的公用 IP 位址
 若要列出使用 CLI 指派給擴展集虛擬機器的公用 IP 位址，請使用 **az vmss list-instance-public-ips** 命令。
 
-若要使用 PowerShell 列出擴展集公用 IP 位址，請使用 _Get-AzPublicIpAddress_ 命令。 例如︰
+若要使用 PowerShell 列出擴展集公用 IP 位址，請使用 _Get-AzPublicIpAddress_ 命令。 例如:
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-您也可以直接參考公用 IP 位址組態的資源識別碼，以查詢公用 IP 位址。 例如︰
+您也可以直接參考公用 IP 位址組態的資源識別碼，以查詢公用 IP 位址。 例如:
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -184,14 +184,14 @@ Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 若要查詢 [Azure 資源總管](https://resources.azure.com)：
 
 1. 在 Web 瀏覽器中開啟 [Azure 資源總管](https://resources.azure.com)。
-1. 從左側按一下 [訂用帳戶] 旁的 [+]，即可展開訂用帳戶。 如果 [訂用帳戶] 底下只有一個項目，則可能已經展開。
+1. 從左側按一下 [訂用帳戶]  旁的 [+]  ，即可展開訂用帳戶。 如果 [訂用帳戶]  底下只有一個項目，則可能已經展開。
 1. 展開您的訂用帳戶。
 1. 展開您的資源群組。
-1. 展開 [提供者]。
-1. 展開 [Microsoft.Compute]。
-1. 展開 [virtualMachineScaleSets]。
+1. 展開 [提供者]  。
+1. 展開 [Microsoft.Compute]  。
+1. 展開 [virtualMachineScaleSets]  。
 1. 展開您的擴展集。
-1. 按一下 [publicipaddresses]。
+1. 按一下 [publicipaddresses]  。
 
 若要查詢 Azure REST API：
 
@@ -323,7 +323,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 
 「應用程式安全性群組」也可以直接指定至擴展集，方法是將參考新增至擴展集虛擬機器屬性的網路介面 IP 組態區段。
 
-例如︰ 
+例如: 
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

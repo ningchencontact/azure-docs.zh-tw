@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711644"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190520"
 ---
 # <a name="monitor-azure-file-sync"></a>監視 Azure 檔案同步
 
@@ -69,7 +69,10 @@ ms.locfileid: "64711644"
 | 度量名稱 | 描述 |
 |-|-|
 | 同步的位元組 | 傳輸的資料大小 (上傳和下載)。<br><br>單位：位元組<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
-| 雲端階層處理重新叫用 | 重新叫用的資料大小。<br><br>單位：位元組<br>彙總類型：總和<br>適用的維度：伺服器名稱 |
+| 雲端階層處理重新叫用 | 重新叫用的資料大小。<br><br>注意：此標準會在未來移除。 您可以使用雲端階層處理重新叫用大小度量來監視重新叫用的資料大小。<br><br>單位：位元組<br>彙總類型：總和<br>適用的維度：伺服器名稱 |
+| 雲端階層處理的重新叫用大小 | 重新叫用的資料大小。<br><br>單位：位元組<br>彙總類型：總和<br>適用的維度：伺服器名稱、 同步處理群組名稱 |
+| 雲端階層處理的重新叫用大小由應用程式 | 回收應用程式的資料大小。<br><br>單位：位元組<br>彙總類型：總和<br>適用的維度：應用程式名稱、 伺服器名稱，同步處理群組名稱 |
+| 雲端階層處理的重新叫用輸送量 | 重新叫用的資料輸送量的大小。<br><br>單位：位元組<br>彙總類型：總和<br>適用的維度：伺服器名稱、 同步處理群組名稱 |
 | 檔案無法同步 | 無法同步的檔案計數。<br><br>單位：計數<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
 | 同步的檔案 | 傳輸的檔案計數 (上傳和下載)。<br><br>單位：計數<br>彙總類型：總和<br>適用維度：伺服器端點名稱、同步方向、同步群組名稱 |
 | 伺服器線上狀態 | 從伺服器接收到的活動訊號計數。<br><br>單位：計數<br>彙總類型：最大值<br>適用的維度：伺服器名稱 |

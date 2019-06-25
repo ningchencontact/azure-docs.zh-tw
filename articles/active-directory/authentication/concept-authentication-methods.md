@@ -1,22 +1,22 @@
 ---
 title: 驗證方法-Azure Active Directory
-description: 在 Azure AD 中有哪些驗證方法可供 MFA 和 SSPR 使用
+description: SSPR MFA 的 Azure AD 中可用的驗證方法
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119356"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164835"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -180,7 +180,9 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式，例如設定要在任何時候使用的 Microsoft Authenticator 應用程式的組合。
 
-## <a name="mobile-phone"></a>行動電話
+## <a name="phone-options"></a>電話選項
+
+### <a name="mobile-phone"></a>行動電話
 
 有兩個選項可供使用行動電話的使用者使用。
 
@@ -193,18 +195,18 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 >
 > 密碼重設不支援電話分機。 即使是 +1 4255551234X12345 格式，撥號之前都會移除分機號碼。
 
-### <a name="text-message"></a>簡訊
+#### <a name="text-message"></a>簡訊
 
 包含驗證碼的簡訊會傳送到行動電話號碼。 輸入登入介面中提供的驗證碼以繼續。
 
-### <a name="phone-call"></a>撥打電話
+#### <a name="phone-call"></a>撥打電話
 
 撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證
 
 > [!IMPORTANT]
 > 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。
 
-## <a name="office-phone"></a>辦公室電話
+### <a name="office-phone"></a>辦公室電話
 
 撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。
 
@@ -219,6 +221,25 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 > 國碼 (地區碼) 和電話號碼之間需要空格。
 >
 > 密碼重設不支援電話分機。 即使是 +1 4255551234X12345 格式，撥號之前都會移除分機號碼。
+
+### <a name="troubleshooting-phone-options"></a>疑難排解電話選項
+
+使用電話號碼的驗證方法的相關常見的問題：
+
+* 單一裝置上的已封鎖的呼叫者識別碼
+   * 裝置進行疑難排解
+* 錯誤的電話號碼不正確的國家/地區代碼、 與公司電話號碼的住家電話號碼
+   * 使用者物件進行疑難排解，並設定驗證方法。 請確定正確的電話號碼註冊。
+* 輸入的 PIN 錯誤
+   * 確認使用者已使用正確的 pin 碼，在 Azure MFA Server 中註冊。
+* 呼叫轉接到語音信箱
+   * 確保使用者具有開啟的電話，而且服務已可在其區域，或使用替代方法。
+* 使用者遭到封鎖
+   * 已解除封鎖使用者在 Azure 入口網站中的系統管理員。
+* 在裝置上未訂閱 SMS
+   * 讓使用者變更方法，或在裝置上啟動 SMS。
+* 錯誤的電信提供者 （無電話輸入會偵測到遺漏的 DTMF 撥號音的問題，在多個裝置，封鎖的呼叫者識別碼，或跨多個裝置封鎖 SMS）
+   * Microsoft 會使用多個電信提供者來路由電話及簡訊進行驗證。 如果您看到任何上述的問題有使用者嘗試使用在 5 分鐘內至少 5 次的方法，並連絡 Microsoft 支援服務時，有可用的該使用者的資訊。
 
 ## <a name="app-passwords"></a>應用程式密碼
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
 ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992156"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>在 Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker
@@ -28,14 +28,14 @@ ms.locfileid: "65992156"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
@@ -73,7 +73,7 @@ ms.locfileid: "65992156"
 
 ![RHEL 的 Pacemaker 概觀](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
-下列項目會加上下列其中一個前置詞：**[A]** - 適用於所有節點、**[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
+下列項目會加上下列其中一個前置詞： **[A]** - 適用於所有節點、 **[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
 
 1. **[A]** 註冊
 
@@ -181,7 +181,7 @@ ms.locfileid: "65992156"
 STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立服務主體。
 
 1. 移至 <https://portal.azure.com>。
-1. 開啟 [Azure Active Directory] 刀鋒視窗移至內容並記下目錄識別碼。 這是「租用戶識別碼」。
+1. 開啟 [Azure Active Directory] 刀鋒視窗移至內容並記下目錄識別碼。 這是「租用戶識別碼」  。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
 1. 輸入名稱、 選取應用程式類型 [Web 應用程式/API]、 輸入登入 URL (例如 http:\//localhost)，然後按一下建立
@@ -189,7 +189,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
+1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」  )
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
@@ -221,7 +221,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不要再使用「擁有者」角色！
 
-1. 移至 https://portal.azure.com。
+1. 移至 https://portal.azure.com 。
 1. 開啟 [所有資源] 刀鋒視窗
 1. 選取第一個叢集節點的虛擬機器
 1. 選取 [存取控制 (IAM)]

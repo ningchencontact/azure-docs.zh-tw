@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
 ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686124"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 網路監看員來針對虛擬網路閘道和連線進行疑難排解
@@ -33,8 +33,8 @@ ms.locfileid: "64686124"
 
 本文會帶領您逐步完成資源疑難排解目前可用的不同管理工作。
 
-- [針對虛擬網路閘道進行疑難排解](#troubleshoot-a-virtual-network-gateway)
-- [針對連線進行疑難排解](#troubleshoot-connections)
+- [針對虛擬網路閘道進行疑難排解  ](#troubleshoot-a-virtual-network-gateway)
+- [針對連線進行疑難排解  ](#troubleshoot-connections)
 
 ## <a name="before-you-begin"></a>開始之前
 

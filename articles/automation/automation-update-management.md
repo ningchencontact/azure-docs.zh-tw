@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729491"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205030"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -39,13 +39,13 @@ ms.locfileid: "66729491"
 
 您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。
 
-發行 CVE 之後，對 Linux 機器而言，需要 2-3 小時的時間，才會顯示修補程式以供評量。  如果是 Windows 機器，則在發行後需要 12-15 小時的時間，才會顯示修補程式以供評量。
+一旦解除封裝，需要 2-3 小時才會出現評定的 Linux 機器的修補程式。 如果是 Windows 機器，則在發行後需要 12-15 小時的時間，才會顯示修補程式以供評量。
 
 在電腦完成更新合規性掃描之後，代理程式會將轉送至 Azure 監視器記錄的大量資訊。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
 
 除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。
 
-針對 Linux 電腦，合規性掃描預設每 3 小時執行一次。 若 MMA 代理程式重新啟動，則會在 15 分鐘內起始合規性掃描。
+針對 Linux 電腦上，合規性掃描預設會執行每隔一小時。 若 MMA 代理程式重新啟動，則會在 15 分鐘內起始合規性掃描。
 
 解決方案會根據您設定要同步處理的來源，回報電腦的最新狀態。 如果 Windows 電腦設定為向 WSUS 回報，則視 WSUS 上次與 Microsoft Update 同步處理的時間而定，結果可能與 Microsoft Update 所顯示的結果不同。 針對設定為向本機存放庫 (而非公用存放庫) 回報的 Linux 電腦，此行為也相同。
 
@@ -227,7 +227,7 @@ Heartbeat
 | --- | --- |
 | 名稱 |用以識別更新部署的唯一名稱。 |
 |作業系統| Linux 或 Windows|
-| 若要更新的群組 |適用於 Azure 的機器，定義查詢的訂用帳戶、 資源群組、 位置和標記，來建立要包含在您的部署中的 Azure Vm 的動態群組結合。 </br></br>對於非 Azure 機器，選取現有的已儲存的搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
+| 要更新的群組 |對於 Azure 機器，根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 </br></br>對於非 Azure 機器，選取現有的已儲存搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
 | 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]  ，機器的整備程度會顯示於 [更新代理程式整備程度]  欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
 |更新分類|選取您需要的所有更新分類|
 |包含/排除更新|這會開啟 [包含]/[排除]  頁面。 要包含或排除的更新會在個別的索引標籤上。 如需有關如何處理包含的詳細資訊，請參閱[包含行為](automation-update-management.md#inclusion-behavior) |
@@ -303,7 +303,7 @@ sudo yum -q --security check-update
 
 ### <a name="pre-download-updates"></a>預先下載更新
 
-若要在「群組原則」中設定自動下載更新，您可以將[設定自動更新](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5)設定設為 **3**。 這會在背景中下載所需的更新，但不會進行安裝。 這會讓「更新管理」保有排程的控制權，但允許在「更新管理」維護時段外下載更新。 這可防止發生「更新管理」中的「已超過維護時段」  錯誤。
+若要在「群組原則」中設定自動下載更新，您可以將[設定自動更新](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates)設定設為 **3**。 這會在背景中下載所需的更新，但不會進行安裝。 這會讓「更新管理」保有排程的控制權，但允許在「更新管理」維護時段外下載更新。 這可防止發生「更新管理」中的「已超過維護時段」  錯誤。
 
 您也可以使用 PowerShell 來進行這項設定，只要在您想要自動下載更新的系統上執行下列 PowerShell 即可。
 

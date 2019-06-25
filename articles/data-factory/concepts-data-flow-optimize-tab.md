@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075092"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190650"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>將資料對應資料流程轉換最佳化 索引標籤
 
@@ -45,7 +45,7 @@ Azure Data Factory 會產生資料行雜湊以產生統一的分割區，使具�
 
 ### <a name="fixed-range"></a>固定範圍
 
-您必須建置能針對已分割之資料行內的值提供固定範圍的運算式。 在使用此選項之前，您應該先充分了解自己的資料，以避免分割扭曲。 針對運算式所輸入的值將會被用來作為資料分割函數的一部分。 您可以設定實體分割區的數目。
+您必須建置能針對已分割之資料行內的值提供固定範圍的運算式。 在使用此選項之前，您應該先充分了解自己的資料，以避免分割扭曲。 您輸入運算式的值將用於做為資料分割函數的一部分。 您可以設定實體分割區的數目。
 
 ### <a name="key"></a>Key
 

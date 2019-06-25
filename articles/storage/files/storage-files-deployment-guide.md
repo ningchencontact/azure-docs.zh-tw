@@ -9,10 +9,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237723"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 檔案服務
@@ -129,7 +129,7 @@ AzCopy 是一種命令列公用程式，專為使用簡單命令高效率地在 
 > [!Note]  
 > 裝載 Azure 檔案共用時，需要使用儲存體帳戶金鑰作為密碼，因此只建議您在受信任的環境中進行裝載。 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 您可以使用 PowerShell，在多部電腦上執行 mount 命令。 在下列範例中，`$computers` 是手動填入的，但您可以產生電腦清單以自動掛接。 例如，您可以填入此變數與 Active Directory 產生的結果。
 
 ```powershell
@@ -137,7 +137,7 @@ $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 在下列範例中，結合 SSH 的簡單 Bash 指令碼可能會產生相同的結果。 `$computer` 變數同樣是由使用者填入：
 
 ```

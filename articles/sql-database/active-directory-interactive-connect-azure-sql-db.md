@@ -13,10 +13,10 @@ ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160900"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>連接到 Azure SQL Database 與 Azure Multi-factor Authentication
@@ -54,13 +54,13 @@ ms.locfileid: "66160900"
 
 ### <a name="register-your-app-and-set-permissions"></a>註冊應用程式並設定權限
 
-若要使用 Azure AD 驗證，您的 C# 程式必須註冊為 Azure AD 應用程式。 若要註冊應用程式，您必須是 Azure AD 管理員或受指派為 Azure AD「應用程式開發人員」角色的使用者。 如需有關如何將角色指派的詳細資訊，請參閱 <<c0> [ 將系統管理員和非系統管理員角色指派給使用者與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
+若要使用 Azure AD 驗證，您的 C# 程式必須註冊為 Azure AD 應用程式。 若要註冊應用程式，您必須是 Azure AD 管理員或受指派為 Azure AD「應用程式開發人員」  角色的使用者。 如需有關如何將角色指派的詳細資訊，請參閱 <<c0> [ 將系統管理員和非系統管理員角色指派給使用者與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
 
 完成應用程式註冊會產生並顯示**應用程式識別碼**。 您的程式必須包含此識別碼才能連線。
 
 若要為應用程式註冊與設定必要權限，請遵循下列步驟：
 
-1. 在 Azure 入口網站中，選取 [Azure Active Directory] > [應用程式註冊] > [新應用程式註冊]。
+1. 在 Azure 入口網站中，選取 [Azure Active Directory]   > [應用程式註冊]   > [新應用程式註冊]  。
 
     ![應用程式註冊](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -106,7 +106,7 @@ C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/
 
 - `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  針對「同盟」帳戶使用此值。 針對同盟帳戶，Windows 網域已知使用者名稱。 這種驗證方法不支援多重要素驗證。
+  針對「同盟」  帳戶使用此值。 針對同盟帳戶，Windows 網域已知使用者名稱。 這種驗證方法不支援多重要素驗證。
 
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
@@ -118,11 +118,11 @@ C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/
 
 | 靜態欄位名稱 | 範例值 | 在 Azure 入口網站中的位置 |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | [SQL Server] > [依名稱篩選] |
-| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | [Azure Active Directory] > [使用者] > [新增來賓使用者] |
-| Initial_DatabaseName | "myDatabase" | [SQL Server] > [SQL 資料庫] |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | [Azure Active Directory] > [應用程式註冊] > [依名稱搜尋] > [應用程式識別碼] |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **應用程式註冊** > **依名稱搜尋** > *[您的應用程式-註冊]*  > **設定** > **RedirectURIs**<br /><br />在本文中，因為它不會使用以下，是適合 RedirectUri，任何有效的值。 |
+| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | [SQL Server]   > [依名稱篩選]  |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | [Azure Active Directory]   > [使用者]   > [新增來賓使用者]  |
+| Initial_DatabaseName | "myDatabase" | [SQL Server]   > [SQL 資料庫]  |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | [Azure Active Directory]   > [應用程式註冊]   > [依名稱搜尋]   > [應用程式識別碼]  |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **應用程式註冊** > **依名稱搜尋** >  *[您的應用程式-註冊]*  > **設定** > **RedirectURIs**<br /><br />在本文中，因為它不會使用以下，是適合 RedirectUri，任何有效的值。 |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>使用 SQL Server Management Studio 來驗證
@@ -135,18 +135,18 @@ C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/
 
 ### <a name="verify-azure-active-directory-multi-factor-authentication"></a>驗證 Azure Active Directory 多重要素驗證
 
-再次執行 SSMS，但是這次將**驗證**設為 **Active Directory - 通用 (具有 MFA 支援)**。 此選項需要 SSMS 17.5 或更新版本。
+再次執行 SSMS，但是這次將**驗證**設為 **Active Directory - 通用 (具有 MFA 支援)** 。 此選項需要 SSMS 17.5 或更新版本。
 
 如需詳細資訊，請參閱 < [SSMS 和 Azure AD 設定 Multi-factor Authentication](sql-database-ssms-mfa-authentication-configure.md)。
 
 > [!NOTE]
-> 如果您是在資料庫中的來賓使用者，您也必須提供資料庫的 Azure AD 網域名稱：選取 **選項** > **AD 網域名稱或租用戶識別碼**。 若要在 Azure 入口網站中尋找網域名稱，請選取 [Azure Active Directory] > [自訂網域名稱]。 在 C# 範例程式中，提供網域名稱並非必要。
+> 如果您是在資料庫中的來賓使用者，您也必須提供資料庫的 Azure AD 網域名稱：選取 **選項** > **AD 網域名稱或租用戶識別碼**。 若要在 Azure 入口網站中尋找網域名稱，請選取 [Azure Active Directory]   > [自訂網域名稱]  。 在 C# 範例程式中，提供網域名稱並非必要。
 
 ## <a name="c-code-example"></a>C# 程式碼範例
 
 C# 程式範例依賴 [*Microsoft.IdentityModel.Clients.ActiveDirectory*](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL 組件。
 
-若要安裝此封裝，請在 Visual Studio 中選取 [專案] > [管理 NuGet 封裝]。 搜尋並安裝 **Microsoft.IdentityModel.Clients.ActiveDirectory**。
+若要安裝此封裝，請在 Visual Studio 中選取 [專案]   > [管理 NuGet 封裝]  。 搜尋並安裝 **Microsoft.IdentityModel.Clients.ActiveDirectory**。
 
 這是範例C#原始程式碼。
 

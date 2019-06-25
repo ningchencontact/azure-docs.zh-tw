@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: bf749cde85be10bae5f7acf3f1f995be1b81c30f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860898"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754354"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶建置 ASP.NET Web 應用程式
 
@@ -43,12 +43,12 @@ Azure Cosmos DB 是 Microsoft 的全域分散式、具有高可用性的多模�
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>建立資料庫帳戶
+## <a name="create-an-azure-cosmos-account"></a>建立 Azure Cosmos 帳戶
 
 [!INCLUDE [cosmos-db-create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 <a id="create-collection"></a>
-## <a name="add-a-collection"></a>新增集合
+## <a name="add-a-container"></a>新增容器
 
 [!INCLUDE [cosmos-db-create-collection-preview](../../includes/cosmos-db-create-collection-preview.md)]
 

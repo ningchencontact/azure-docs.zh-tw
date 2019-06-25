@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65913870"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063488"
 ---
 # <a name="manage-pre-and-post-scripts"></a>管理前置和後置指令碼
 
@@ -26,21 +26,21 @@ ms.locfileid: "65913870"
 
 ## <a name="using-a-prepost-script"></a>使用前置/後置指令碼
 
-若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 **前置指令碼 + 後置指令碼**。 此動作會開啟 [選取更新前 + 更新後指令碼] 頁面。  
+若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 **前置指令碼 + 後置指令碼**。 此動作會開啟 [選取更新前 + 更新後指令碼]  頁面。  
 
 ![選取指令碼](./media/pre-post-scripts/select-scripts.png)
 
-選取您想要使用的指令碼，在此範例中，您已使用 **UpdateManagement-TurnOnVms** Runbook。 當您選取 runbook**設定指令碼**頁面隨即開啟，選擇**前置指令碼**。 完成時按一下 [確定]。
+選取您想要使用的指令碼，在此範例中，您已使用 **UpdateManagement-TurnOnVms** Runbook。 當您選取 runbook**設定指令碼**頁面隨即開啟，選擇**前置指令碼**。 完成時按一下 [確定]  。
 
-對 **UpdateManagement-TurnOffVms** 指令碼重複此程序。 但是當您選擇 [指令碼類型] 時，請選擇 [後置指令碼]。
+對 **UpdateManagement-TurnOffVms** 指令碼重複此程序。 但是當您選擇 [指令碼類型]  時，請選擇 [後置指令碼]  。
 
-[選取的項目] 區段現在會顯示您選取的兩個指令碼，一個是前置指令碼，另一個是後置指令碼。
+[選取的項目]  區段現在會顯示您選取的兩個指令碼，一個是前置指令碼，另一個是後置指令碼。
 
 ![選取的項目](./media/pre-post-scripts/selected-items.png)
 
 完成更新部署的設定。
 
-更新部署完成後，您可以移至 [更新部署] 來檢視結果。 您可以看到系統已提供更新前指令碼和更新後指令碼的狀態。
+更新部署完成後，您可以移至 [更新部署]  來檢視結果。 您可以看到系統已提供更新前指令碼和更新後指令碼的狀態。
 
 ![更新結果](./media/pre-post-scripts/update-results.png)
 
@@ -64,11 +64,11 @@ ms.locfileid: "65913870"
 
 如果您需要另一種物件類型，您可以在 Runbook 中使用您自己的邏輯將其轉換成另一種類型。
 
-除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，如果您在前置或後置指令碼中定義該參數，更新部署就會自動傳遞該參數。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
+除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，而如果您在前置或後置指令碼中定義參數，它會自動傳遞中的更新部署。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
 
 ## <a name="stopping-a-deployment"></a>正在停止部署
 
-如果您想要停止前指令碼，您必須為基礎的部署[擲回](automation-runbook-execution.md#throw)例外狀況。 如果您未擲回例外狀況，部署和後置指令碼仍會執行。 [範例 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0)資源庫中的顯示方式可以這麼做。 以下是從該 runbook 的程式碼片段。
+如果您想要停止前指令碼為基礎的部署，您必須[擲回](automation-runbook-execution.md#throw)例外狀況。 如果您不會擲回例外狀況，部署和後置指令碼仍會執行。 [範例 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0)資源庫中的顯示方式可以這麼做。 以下是從該 runbook 的程式碼片段。
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -85,7 +85,7 @@ foreach($summary in $finalStatus)
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
-|屬性  |說明  |
+|屬性  |描述  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | 軟體更新設定的名稱        |
 |SoftwareUpdateConfigurationRunId     | 執行的唯一識別碼。        |
@@ -136,7 +136,7 @@ foreach($summary in $finalStatus)
 
 ## <a name="samples"></a>範例
 
-您可以在[指令碼中心資源庫](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell)中找到前置和後置指令碼範例，或透過 Azure 入口網站來匯入這些範例。 若要透過入口網站匯入這些範例，請在您自動化帳戶的 [程序自動化] 下方，選取 [Runbook 資源庫]。 使用 [更新管理] 作為篩選條件。
+您可以在[指令碼中心資源庫](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell)中找到前置和後置指令碼範例，或透過 Azure 入口網站來匯入這些範例。 若要透過入口網站匯入這些範例，請在您自動化帳戶的 [程序自動化]  下方，選取 [Runbook 資源庫]  。 使用 [更新管理]  作為篩選條件。
 
 ![資源庫清單](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -149,7 +149,7 @@ foreach($summary in $finalStatus)
 * 更新管理 - 以執行命令來執行指令碼
 
 > [!IMPORTANT]
-> 匯入 Runbook 之後，您必須先將其**發佈**，方能使用。 若要這麼做，請在自動化帳戶中尋找 Runbook，選取 [編輯]，然後按一下 [發佈]。
+> 匯入 Runbook 之後，您必須先將其**發佈**，方能使用。 若要這麼做，請在自動化帳戶中尋找 Runbook，選取 [編輯]  ，然後按一下 [發佈]  。
 
 這些範例都會以下列範例中定義的基底範本為基礎。 此範本可用來建立您自己的 Runbook，以便搭配前置和後置指令碼使用。 其中包含向 Azure 進行驗證及處理 `SoftwareUpdateConfigurationRunContext` 參數的必要邏輯。
 
@@ -206,11 +206,11 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-machines"></a>與電腦互動
 
-做為 runbook 在自動化帳戶，並不直接在您的部署中的機器上執行前置和後置的工作。 前置和後置工作也會在 Azure 的內容中執行，而且沒有非 Azure 機器的存取權。 下列各節顯示如何互動，機器直接它們是 Azure VM 還是非 Azure 電腦：
+做為 runbook 在自動化帳戶，並不直接在您的部署中的機器上執行前置和後置的工作。 前置和後置工作也會在 Azure 的內容中執行，而且沒有非 Azure 機器的存取權。 下列各節顯示如何互動，機器直接它們是 Azure VM 或非 Azure 電腦：
 
 ### <a name="interacting-with-azure-machines"></a>使用 Azure 機器互動
 
-前置和後置工作做為 runbook 執行且原本就不會在您的部署中的 Azure Vm 上執行。 若要互動的 Azure Vm，您必須具備下列項目：
+前置和後置工作做為 runbook 執行和原生不在您的部署中的 Azure Vm 上執行。 若要互動的 Azure Vm，您必須具備下列項目：
 
 * 執行身分帳戶
 * 您想要執行 runbook
@@ -239,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>已知問題
 
-* 使用更新前和更新後指令碼時，您無法將物件或陣列傳遞給參數。 Runbook 將會失敗。
+* 您無法將傳遞布林值、 物件或陣列參數時使用前置和後置指令碼。 Runbook 將會失敗。 如需支援的類型的完整清單，請參閱 <<c0> [ 參數](#passing-parameters)。
 
 ## <a name="next-steps"></a>後續步驟
 

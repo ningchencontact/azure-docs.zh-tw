@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;
 ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61247323"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部 
@@ -38,12 +38,12 @@ ms.locfileid: "61247323"
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MOV 或 MP4 格式的視訊 |
 | 輸入組態 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'combined'}} |
-| 輸出資產 |foo_redacted.mp4 |进行了模糊处理的视频 |
+| 輸出資產 |foo_redacted.mp4 |已套用模糊處理的視訊 |
 
 #### <a name="input-example"></a>輸入範例︰
-[观看此视频](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[請觀看這個影片](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
-#### <a name="output-example"></a>输出示例：
+#### <a name="output-example"></a>輸出範例：
 [請觀看這個影片](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>分析模式
@@ -117,10 +117,10 @@ ms.locfileid: "61247323"
 | 階段 | 檔案名稱 | 注意 |
 | --- | --- | --- |
 | 輸入資產 |foo.bar |WMV、MPV 或 MP4 格式的視訊。 和步驟 1 相同的視訊。 |
-| 輸入資產 |foo_annotations.json |第一阶段中的批注元数据文件，包含可选的修改。 |
-| 输入资产 |foo_IDList.txt (選擇性) |要修訂之臉部 ID 的選擇性換行分隔清單。 如果保持空白，則會模糊所有臉部。 |
-| 输入配置 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'redact'}} |
-| 输出资产 |foo_redacted.mp4 |已根據註解套用模糊處理的視訊 |
+| 輸入資產 |foo_annotations.json |來自第一個階段的註解中繼資料檔案，並帶有選擇性的修改。 |
+| 輸入資產 |foo_IDList.txt (選擇性) |要修訂之臉部 ID 的選擇性換行分隔清單。 如果保持空白，則會模糊所有臉部。 |
+| 輸入組態 |作業組態預設值 |{'version':'1.0', 'options': {'mode':'redact'}} |
+| 輸出資產 |foo_redacted.mp4 |已根據註解套用模糊處理的視訊 |
 
 #### <a name="example-output"></a>範例輸出
 這是選取了一個識別碼的 IDList 輸出。
@@ -135,7 +135,7 @@ Example foo_IDList.txt
 
 ## <a name="blur-types"></a>模糊類型
 
-在 [結合] 或 [修訂] 模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]、[中]、[高]、[Box] 和 [黑色]。 預設會使用 [中]。
+在 [結合]  或 [修訂]  模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]  、[中]  、[高]  、[Box]  和 [黑色]  。 預設會使用 [中]  。
 
 您可以在下面找到模糊類型的範例。
 
@@ -371,7 +371,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒体服务分析概述](media-services-analytics-overview.md)
+[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
 [Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

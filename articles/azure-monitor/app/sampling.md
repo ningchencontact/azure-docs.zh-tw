@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7a657f175307e019155e37538021c5aecf5bb068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388378"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136888"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -53,7 +53,7 @@ ms.locfileid: "66388378"
 
 調適型取樣是適用於 Application Insights SDK for ASP.NET v 2.0.0-beta3 和更新版本，Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 和更新版本，而且預設會啟用。
 
-調適性取樣會影響從您的 Web 伺服器應用程式傳送給 Application Insights 服務端點的遙測量。 磁碟區中指定的最大速率的流量，讓自動調整，並透過設定控制`MaxTelemetryItemsPerSecond`。 如果應用程式產生的遙測，很少，例如，只要磁碟區是下面項目進行偵錯時或由於低使用量，將不會取得取樣`MaxTelemetryItemsPerSecond`。 遙測資料增加而增加的磁碟區，以便達成目標磁碟區藉由調整取樣率。
+調適性取樣會影響從您的 Web 伺服器應用程式傳送給 Application Insights 服務端點的遙測量。 磁碟區中指定的最大速率的流量，讓自動調整，並透過設定控制`MaxTelemetryItemsPerSecond`。 如果應用程式產生的遙測，很少，例如偵錯時因為低使用率，項目不會卸除或取樣處理器，只要磁碟區低於`MaxTelemetryItemsPerSecond`。 遙測資料增加而增加的磁碟區，以便達成目標磁碟區藉由調整取樣率。
 
 為了要讓遙測量達到目標，系統會捨棄部分已產生的遙測。 但就跟其他取樣類型一樣，演算法會保留相關的遙測項目。 舉例來說，當您在 [搜尋] 中檢查遙測時，將能夠尋找與特定例外狀況相關的要求。
 

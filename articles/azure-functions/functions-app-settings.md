@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967583"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204946"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -33,9 +33,13 @@ ms.locfileid: "65967583"
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
 
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+在版本 2.x 的 Functions 執行階段中，會設定執行階段環境為基礎的應用程式行為。 這個值是[在初始化期間讀取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)。 您可以設定`AZURE_FUNCTIONS_ENVIRONMENT`為任何值，但[三個值](/dotnet/api/microsoft.aspnetcore.hosting.environmentname)支援：[開發](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)，[預備](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)，以及[生產](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 當`AZURE_FUNCTIONS_ENVIRONMENT`未設定，則會預設為`Production`。 應該使用這項設定，而不是`ASPNETCORE_ENVIRONMENT`設定執行階段環境。 
+
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-選擇性儲存體帳戶連接字串，用於儲存記錄並將它們顯示在入口網站的 [監視器] 索引標籤中。 儲存體帳戶必須是一般用途的帳戶，支援 Blob、佇列和資料表。 請參閱[儲存體帳戶](functions-infrastructure-as-code.md#storage-account)和[儲存體帳戶需求](functions-create-function-app-portal.md#storage-account-requirements)。
+選擇性儲存體帳戶連接字串，用於儲存記錄並將它們顯示在入口網站的 [監視器]  索引標籤中。 儲存體帳戶必須是一般用途的帳戶，支援 Blob、佇列和資料表。 請參閱[儲存體帳戶](functions-infrastructure-as-code.md#storage-account)和[儲存體帳戶需求](functions-create-function-app-portal.md#storage-account-requirements)。
 
 |Key|範例值|
 |---|------------|
@@ -71,14 +75,6 @@ ms.locfileid: "65967583"
 |Key|範例值|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
-
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-*host.json* 檔案和函式資料夾所在根目錄的路徑。 在函式應用程式中，預設值是 `%HOME%\site\wwwroot`。
-
-|Key|範例值|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
@@ -177,7 +173,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 根據預設，Functions Proxy 將利用捷徑來將 API 呼叫從 Proxy 直接傳送到同一個函數應用程式中的函式，而不是建立新的 HTTP 要求。 此設定可讓您停用該行為。
 
-|Key|Value|說明|
+|Key|值|描述|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
@@ -187,7 +183,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 此設定控制在將路由參數插入到後端 URL 時，是否要將其中的 %2F 解碼為斜線。 
 
-|Key|Value|說明|
+|Key|值|描述|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|此為預設行為。 所有路由參數都將依原樣傳遞|

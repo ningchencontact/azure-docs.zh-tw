@@ -74,8 +74,8 @@ ms.locfileid: "64683163"
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | 字串 |
-| type | NvidiaGpuDriverLinux | 字串 |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>設定
@@ -85,7 +85,7 @@ ms.locfileid: "64683163"
 | Name | 描述 | 預設值 | 有效值 | 数据类型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 即使驅動程式安裝不需要，也會更新核心 | false | true、false | boolean |
-| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | 字串 |
+| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | string |
 | installCUDA | 安裝 CUDA 工具組。 只與 NC/ND 系列 VM 相關。 | true | true、false | boolean |
 
 

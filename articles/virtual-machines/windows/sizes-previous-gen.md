@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2019
 ms.author: jonbeck
 ms.openlocfilehash: 8ae5cbac61a35d3be712c34b6bbde6caffba265b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64506932"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前幾代的虛擬機器大小
 
@@ -35,7 +35,7 @@ ms.locfileid: "61034456"
 ## <a name="other-sizes"></a>其他大小
 
 - [一般用途](sizes-general.md)
-- [计算优化](sizes-compute.md)
+- [計算最佳化](sizes-compute.md)
 - [記憶體最佳化](sizes-memory.md)
 - [儲存體最佳化](sizes-storage.md)
 - [GPU](sizes-gpu.md)

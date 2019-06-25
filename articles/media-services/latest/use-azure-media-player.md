@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
 ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926519"
 ---
 # <a name="azure-media-player-overview"></a>Azure 媒體播放器概觀
@@ -32,9 +32,9 @@ Azure 媒體播放器是一款網頁視訊播放器，可以在各種瀏覽器�
 
 您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/amp)來播放 Azure 媒體服務範例或您自己的資料流。  
 
-若要播放新的影片，請貼上不同 URL，並按 [更新]。
+若要播放新的影片，請貼上不同 URL，並按 [更新]  。
 
-若要設定各種播放選項 (例如技術、語言或加密)，請按 [進階選項]。
+若要設定各種播放選項 (例如技術、語言或加密)，請按 [進階選項]  。
 
 ![Azure 媒體播放器](./media/azure-media-player/home-page.png)
 

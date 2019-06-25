@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 63abeaca5a9c87945671e79a9c8d7a2512d0d777
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60774228"
 ---
 # <a name="pool-resize-start-event"></a>集區調整大小開始事件
@@ -39,8 +39,8 @@ ms.locfileid: "60774228"
 |元素|類型|注意|
 |-------------|----------|-----------|
 |poolId|字串|集區識別碼。|
-|nodeDeallocationOption|字串|指定當集區大小一直減少時，會自集區中移除節點。<br /><br /> 可能的值包括：<br /><br /> **requeue** – 終止執行中工作並重新排入佇列。 當作業啟用時，工作將再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **terminate** – 終止執行中工作。 工作將不會再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **taskcompletion** – 允許目前執行中工作完成。 等待時不排程任何新的工作。 所有工作完成時，即移除節點。<br /><br /> **Retaineddata** - 允許目前執行中工作完成，然後等待所有工作資料保留期到期。 等待時不排程任何新的工作。 當所有工作保留期到期時即移除節點。<br /><br /> 預設值為 requeue。<br /><br /> 如果集區大小增加，則值會設定為 [無效]。|
+|nodeDeallocationOption|字串|指定當集區大小一直減少時，會自集區中移除節點。<br /><br /> 可能的值包括：<br /><br /> **requeue** – 終止執行中工作並重新排入佇列。 當作業啟用時，工作將再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **terminate** – 終止執行中工作。 工作將不會再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **taskcompletion** – 允許目前執行中工作完成。 等待時不排程任何新的工作。 所有工作完成時，即移除節點。<br /><br /> **Retaineddata** - 允許目前執行中工作完成，然後等待所有工作資料保留期到期。 等待時不排程任何新的工作。 當所有工作保留期到期時即移除節點。<br /><br /> 預設值為 requeue。<br /><br /> 如果集區大小增加，則值會設定為 [無效]  。|
 |currentDedicated|Int32|目前指派至集區的計算節點數目。|
 |targetDedicated|Int32|向集區要求的計算節點數目。|
-|enableAutoScale|Bool|指定池大小是否随时间自动调整。|
+|enableAutoScale|Bool|指定集區大小是否隨著時間自動調整。|
 |isAutoPool|Bool|指定是否已透過作業的 AutoPool 機制建立集區。|

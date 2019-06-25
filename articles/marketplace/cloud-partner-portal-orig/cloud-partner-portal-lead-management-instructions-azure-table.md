@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240652"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147890"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure 資料表的潛在客戶管理指示
 
@@ -97,7 +97,7 @@ DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey
 
      ![為 Azure 資料表名稱挑選一個自訂值](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **篩選查詢**– 按一下此欄位與**取得過去時間**圖示會顯示在快顯視窗。 選取 [過去時間]  以使用這個作為時間戳記來篩選查詢。 或者，您可以將下列函式貼到欄位：CreatedTime `gt datetime'@{body('Get_past_time')}'` 
+   - **篩選查詢**– 按一下此欄位與**取得過去時間**圖示會顯示在快顯視窗。 選取 [過去時間]  以使用這個作為時間戳記來篩選查詢。 或者，您可以將下列函式貼到欄位：CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![設定篩選查詢函式](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

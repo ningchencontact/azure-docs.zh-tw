@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: 5ac2b6972c224f5e987bbd2b0e667a26d2edea1c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129978"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205761"
 ---
 ### <a name="prerequisites"></a>必要條件
 * [Trello](http://trello.com) 帳戶 
@@ -13,7 +18,7 @@ ms.locfileid: "62129978"
 
 若要授與邏輯應用程式連接到 Trello 帳戶的權限，其步驟如下：
 
-1. 若要建立 Trello 連線，請在邏輯應用程式設計工具中，選取下拉式清單的 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「Trello」。 選取您要使用的觸發程序或動作：  
+1. 若要建立 Trello 連線，請在邏輯應用程式設計工具中，選取下拉式清單的 [顯示 Microsoft 受控 API]  ，然後在搜尋方塊中輸入「Trello」  。 選取您要使用的觸發程序或動作：  
    ![](./media/connectors-create-api-trello/trello-1.png)
 2. 如果您之前尚未建立任何 Trello 連線，系統會提示您提供 Trello 認證。 這些認證會用來授與邏輯應用程式連接並存取 Trello 帳戶資料的權限：  
    ![](./media/connectors-create-api-trello/trello-2.png) 

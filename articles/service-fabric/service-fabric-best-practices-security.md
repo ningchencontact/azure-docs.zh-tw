@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074350"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全性 
 
@@ -205,7 +205,13 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [我們建議您實作廣泛是已知且通過完善測試，例如 Microsoft 安全性基準，而不是自行建立基準的業界標準組態](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); 一個用於佈建這些虛擬機器上的選項擴展集為使用 Azure Desired State Configuration (DSC) 延伸模組處理常式，因為它們上線，讓它們執行生產環境的軟體設定的 Vm。
 
 ## <a name="azure-firewall"></a>Azure 防火牆
-[Azure 防火牆是保護您的 Azure 虛擬網路資源的受管理的雲端架構的網路安全性服務。它可以是完全可設定狀態的防火牆即內建的高可用性和延展性不受限制的雲端服務。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您限制輸出的 HTTP/S 流量，包括萬用字元的完整的網域名稱 (FQDN) 指定清單。 這項功能不需要 SSL 終止。 其建議您利用[Azure 防火牆 FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)端點的 Windows 更新，並啟用 Microsoft Windows update 的網路流量可以流經防火牆。 [部署使用範本的 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)Microsoft.Network/azureFirewalls 資源範本定義中提供的範例。 Service Fabric 應用程式常見的兩個防火牆規則可讓您的叢集網路通訊 * download.microsoft.com，和 * servicefabric.azure.com;若要提取 Windows 更新和 Service Fabric 計算虛擬機器延伸模組程式碼。
+[Azure 防火牆是保護您的 Azure 虛擬網路資源的受管理的雲端架構的網路安全性服務。它可以是完全可設定狀態的防火牆即內建的高可用性和延展性不受限制的雲端服務。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您限制輸出的 HTTP/S 流量，包括萬用字元的完整的網域名稱 (FQDN) 指定清單。 這項功能不需要 SSL 終止。 其建議您利用[Azure 防火牆 FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)端點的 Windows 更新，並啟用 Microsoft Windows update 的網路流量可以流經防火牆。 [部署使用範本的 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)Microsoft.Network/azureFirewalls 資源範本定義中提供的範例。 通用的 Service Fabric 應用程式的防火牆規則可讓您的叢集虛擬網路的下列：
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+這些防火牆規則可補充您允許輸出網路安全性群組，會包含 ServiceFabric 和儲存體，以允許從虛擬網路的目的地。
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -243,6 +249,18 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 
 > [!NOTE]
 > 如果您沒有使用 Windows Defender，請參閱您的反惡意程式碼文件，以了解設定規則。 Linux 不支援 Windows Defender。
+
+## <a name="platform-isolation"></a>平台隔離
+根據預設，Service Fabric 應用程式就能存取 Service Fabric 執行階段本身，其表現不同形式：[環境變數](service-fabric-environment-variables-reference.md)指向對應至應用程式在主機上的檔案路徑和Fabric 檔案，它會接受特定應用程式的要求，以及用戶端處理序間通訊端點的憑證網狀架構必須用來進行自我驗證的應用程式。 在偶發中，此服務會裝載本身未受信任的程式碼，建議您停用此存取權的 SF 執行階段-除非明確需要。 存取的執行階段會移除應用程式資訊清單的 [原則] 區段中使用下列宣告： 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>後續步驟
 

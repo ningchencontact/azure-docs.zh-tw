@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962907"
 ---
 # <a name="caching-with-azure-front-door-service"></a>使用 Azure Front Door Service 進行快取
@@ -82,7 +82,7 @@ Front Door 可在邊緣動態壓縮內容，因而對用戶端產生較小且更
 當資產的要求指定壓縮且快取中的要求結果遺失時，Front Door 會在 POP 伺服器上直接對資產執行壓縮。 之後會從快取提供壓縮的檔案。 產生的項目會使用 transfer-encoding: chunked 來傳回。
 
 ## <a name="query-string-behavior"></a>查詢字串行為
-使用 Front Door，可以控制 Web 要求內含查詢字串時的檔案快取方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如： http://www.contoso.com/content.mov?field1=value1&field2=value2。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。
+使用 Front Door，可以控制 Web 要求內含查詢字串時的檔案快取方式。 在包含查詢字串的 Web 要求中，查詢字串是要求中問號 (?) 之後的部分。 查詢字串可以包含一或多個索引鍵/值組，其中的欄位名稱與其值是以等號 (=) 分隔。 每個索引鍵/值組是以 & 符號分隔。 例如： http://www.contoso.com/content.mov?field1=value1&field2=value2 。 如果要求的查詢字串中有不止一個索引鍵/值組，其順序無關緊要。
 - **忽略查詢字串**：預設模式。 在此模式中，Front Door 會將要求者發出的查詢字串，傳遞至第一個要求的後端並快取資產。 所有後續對該資產提出並由 Front Door 環境提供服務的要求都會忽略查詢字串，直到所快取的資產到期為止。
 
 - **快取所有不重複的 URL**：在此模式下，每個具有唯一 URL (包含查詢字串) 的要求都會被視為具有專屬快取的唯一資產。 例如，系統會將後端對 `www.example.ashx?q=test1` 要求做出的回應快取於 Front Door 環境中，然後針對後續具有相同查詢字串的快取傳回此回應。 系統快取針對 `www.example.ashx?q=test2` 的要求，會將其視為具有專屬存留時間設定的個別資產。

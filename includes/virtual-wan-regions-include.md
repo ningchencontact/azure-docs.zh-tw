@@ -9,11 +9,11 @@ ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119230"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173885"
 ---
 下表針對 GA 的功能，列出可用的支援區域。
 

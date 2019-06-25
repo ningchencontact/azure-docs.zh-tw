@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 91f15f9c19b480d950b2c715e6d9290e01184cf7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510628"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272368"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -49,6 +49,12 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 * 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。
 * 支援資料流。
 * 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* 如果其中一個失敗的原始，允許回復至不同區域的寫入要求
+* 新增工作階段寫入要求的重試原則
+* 追蹤查詢導致空頁面的競爭情形的修正
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -221,7 +227,7 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
-* 添加了对聚合查询（COUNT、MIN、MAX、SUM 和 AVG）的 LINQ 支持。
+* 新增彙總查詢的 LINQ 支援 (COUNT、MIN、MAX、SUM 和 AVG)。
 * 針對使用事件處理常式所造成的 ConnectionPolicy 物件，修正記憶體流失問題。
 * 修正使用 ETag 時 UpsertAttachmentAsync 無法運作的問題。
 * 修正根據字串欄位排序時交叉資料分割排序依據查詢接續無法運作的問題。
@@ -249,8 +255,9 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 ## <a name="release--retirement-dates"></a>發行和停用日期
 
-| 版本 | 發行日期 | 停用日期 |
+| Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |2019 年 6 月 18日日 |--- |
 | [2.4.0](#2.4.0) |2019 年 05， |--- |
 | [2.3.0](#2.3.0) |2019 年 4 月 4日日 |--- |
 | [2.2.3](#2.2.3) |2019 年 3 月 11日日 |--- |

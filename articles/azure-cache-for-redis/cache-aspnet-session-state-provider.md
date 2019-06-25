@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
 ms.openlocfilehash: 7333fa51da1cd5bbd9175d56571ec1d17cbbe33f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203934"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>適用於 Azure Cache for Redis 的 ASP.NET 工作階段狀態提供者
@@ -29,7 +29,7 @@ Azure Cache for Redis 提供工作階段狀態提供者，可讓您用來將記�
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>將 ASP.NET 工作階段狀態儲存在快取中
 
-若要在 Visual Studio 中使用「Azure Cache for Redis 工作階段狀態」NuGet 套件來設定用戶端應用程式，請從 [工具] 功能表中，依序按一下 [NuGet 套件管理員] 和 [套件管理員主控台]。
+若要在 Visual Studio 中使用「Azure Cache for Redis 工作階段狀態」NuGet 套件來設定用戶端應用程式，請從 [工具]  功能表中，依序按一下 [NuGet 套件管理員]  和 [套件管理員主控台]  。
 
 從 `Package Manager Console` 視窗執行下列命令。
     
@@ -43,10 +43,10 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 > 
 > 
 
-Redis 会话状态提供程序 NuGet 包依赖于 StackExchange.Redis.StrongName 包。 如果 StackExchange.Redis.StrongName 封裝不在專案中，代表已經安裝。
+「Redis 工作階段狀態提供者 NuGet 封裝」對「StackExchange.Redis.StrongName 封裝」有相依性。 如果 StackExchange.Redis.StrongName 封裝不在專案中，代表已經安裝。
 
 >[!NOTE]
->除了強式名稱的 StackExchange.Redis.StrongName 封裝外，另外還有非強式名稱版本的 StackExchange.Redis。 如果您的專案使用非強式名稱的 StackExchange.Redis 版本，您必須將它解除安裝，否則專案中會發生命名衝突。 有关这些包的详细信息，请参阅[配置 .NET 缓存客户端](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)。
+>除了強式名稱的 StackExchange.Redis.StrongName 封裝外，另外還有非強式名稱版本的 StackExchange.Redis。 如果您的專案使用非強式名稱的 StackExchange.Redis 版本，您必須將它解除安裝，否則專案中會發生命名衝突。 如需這些封裝的相關詳細資訊，請參閱 [設定 .NET 快取用戶端](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)。
 >
 >
 

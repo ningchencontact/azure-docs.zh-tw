@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988e8982b6f06fb1210330c5cafdb696892794fe
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235519"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113387"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
 Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透過 Azure 入口網站使用。 下表列出可用的報告：
 
-| 報表 | 位置 | 描述 |
+| 報告 | 位置 | 描述 |
 |:--- |:--- |:--- |
 | 已封鎖的使用者歷程記錄 | Azure AD > MFA Server > 封鎖/解除封鎖使用者 | 顯示使用者封鎖或解除封鎖要求的歷程記錄。 |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
@@ -59,7 +59,7 @@ Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透�
 
 MFA 的登入活動報告可讓您存取下列資訊：
 
-**需要 MFA：** 登入是否需要 MFA。 依據每個使用者的 MFA、條件式存取或其他原因，可能需要 MFA。 可能的值為 [是]  或 [否]  。
+**需要 MFA：** 登入是否需要 MFA。 可能因為每個使用者的 MFA、 條件式存取或因為其他原因而需要 MFA。 可能的值為 [是]  或 [否]  。
 
 **MFA 結果：** MFA 是否已滿足或拒絕的詳細資訊：
 
@@ -115,7 +115,7 @@ MFA 的登入活動報告可讓您存取下列資訊：
 
 **MFA 驗證詳細資料：** 電話號碼的清除版本，例如：+X XXXXXXXX64。
 
-**條件式存取**：尋找會影響到登入嘗試的條件式存取原則相關資訊，包括：
+**條件式存取**尋找受影響的登入嘗試包括條件式存取原則的相關資訊：
 
 - 原則名稱
 - 授與控制

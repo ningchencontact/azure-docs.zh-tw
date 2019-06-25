@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153931"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165727"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 儲存體分析計量 （傳統）
 
@@ -90,18 +90,27 @@ ms.locfileid: "65153931"
 * **服務**：會收集計量，例如入口流量/出口流量、 可用性、 延遲和成功百分比，針對 blob、 佇列、 資料表和檔案服務彙總。
 * **ServiceAndApi**:除了服務計量收集相同的 Azure 儲存體服務 API 中的每個儲存體作業的度量集合。
 
-例如，下列命令會在您的預設儲存體帳戶中，為 Blob 服務開啟每分鐘度量，並將保留期限設為五天：  
+比方說，下列命令會開啟您儲存體帳戶中的 blob 服務的每分鐘度量使用期限設為五天保留期： 
+
+> [!NOTE]
+> 此命令假設您已登入您的 Azure 訂用帳戶使用`Connect-AzAccount`命令。
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* 取代`<resource-group-name>`預留位置的值，您的資源群組的名稱。
+
+* 使用您的儲存體帳戶名稱取代 `<storage-account-name>` 預留位置值。
+
+
 
 下列命令會擷取您預設儲存體帳戶中 Blob 服務的目前每小時度量層級和保留天數：  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 如需如何設定 Azure PowerShell Cmdlet 以使用您的 Azure 訂用帳戶，以及如何選取要使用的預設儲存體帳戶的相關資訊，請參閱：[如何安裝和設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)。  

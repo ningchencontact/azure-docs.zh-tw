@@ -9,11 +9,11 @@ ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
 ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156253"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173946"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的區域和可用性
 Azure 在世界各地多個資料中心運作。 這些資料中心會依據地理區域分組，提供您彈性來選擇要建置應用程式的位置。 請務必了解虛擬機器 (VM) 在 Azure 中的運作方式和位置，以及可充分發揮效能、可用性和備援功能的選項。 本文提供 Azure 可用性和備援功能的概觀。
@@ -72,8 +72,8 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 
 | 複寫策略 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 可跨多個設備複寫資料。 |無 |yes |是 |有 |
-| 可從次要位置及主要位置讀取資料。 |無 |無 |否 |有 |
+| 可跨多個設備複寫資料。 |否 |yes |是 |是 |
+| 可從次要位置及主要位置讀取資料。 |否 |否 |否 |是 |
 | 可在不同的節點上維護的資料副本數量。 |3 |3 |6 |6 |
 
 您可以 [在這裡深入了解 Azure 儲存體複寫選項](../articles/storage/common/storage-redundancy.md)。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../articles/virtual-machines/windows/managed-disks-overview.md)。

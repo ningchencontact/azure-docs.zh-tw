@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719733"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
@@ -80,7 +80,7 @@ ms.locfileid: "64719733"
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>在 Apache Spark 上取用 Web 服務時長時間延遲
 
-如果您在 Apache Spark 計算內容中嘗試取用使用 mrsdeploy 函式建立的 Web 服務時，遇到長時間延遲，您可能需要新增一些遺漏的資料夾。 每當使用 mrsdeploy 函式從 Web 服務叫用 Spark 應用程式時，該應用程式會屬於名為 'rserve2' 的使用者。 若要解決此問題：
+如果您在 Apache Spark 計算內容中嘗試取用使用 mrsdeploy 函式建立的 Web 服務時，遇到長時間延遲，您可能需要新增一些遺漏的資料夾。 每當使用 mrsdeploy 函式從 Web 服務叫用 Spark 應用程式時，該應用程式會屬於名為 'rserve2'  的使用者。 若要解決此問題：
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -142,21 +142,21 @@ ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/
 
 請遵循下列步驟來將背景工作節點解除委任：
 
-1. 登入叢集的 Ambari 主控台，然後按一下 [Hosts] \(主機\) 索引標籤。
+1. 登入叢集的 Ambari 主控台，然後按一下 [Hosts]  \(主機\) 索引標籤。
 
 1. 選取背景工作節點 (以解除委任)。
 
-1. 按一下 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > [Turn ON Maintenance Mode] \(開啟維護模式\)。 例如，在以下映像中，我們選取了要解除委任 wn3 和 wn4。  
+1. 按一下 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [Hosts]  \(主機\) > [Turn ON Maintenance Mode]  \(開啟維護模式\)。 例如，在以下映像中，我們選取了要解除委任 wn3 和 wn4。  
 
    ![解除委任背景工作節點](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [DataNode] > 按一下 [Decommission] \(解除委任\)。
-* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [NodeManagers] > 按一下 [Decommission] \(解除委任\)。
-* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [DataNode] > 按一下 [Stop] \(停止\)。
-* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [NodeManagers] > 按一下 [Stop] \(停止\)。
-* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > 按一下 [Stop All Components] \(停止所有元件\)。
+* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [DataNode]  > 按一下 [Decommission]  \(解除委任\)。
+* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [NodeManagers]  > 按一下 [Decommission]  \(解除委任\)。
+* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [DataNode]  > 按一下 [Stop]  \(停止\)。
+* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [NodeManagers]  > 按一下 [Stop]  \(停止\)。
+* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [Hosts]  \(主機\) > 按一下 [Stop All Components]  \(停止所有元件\)。
 * 將背景工作節點取消選取，並選取前端節點。
-* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > [Restart All Components] \(重新啟動所有元件\)。
+* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [Hosts]  \(主機\) > [Restart All Components]  \(重新啟動所有元件\)。
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>步驟 2：在每個已解除委任的背景工作節點上設定計算節點
 
@@ -166,7 +166,7 @@ ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-1. 輸入 **1** 以選取 [設定要運作的 ML Server] 選項。
+1. 輸入 **1** 以選取 [設定要運作的 ML Server]  選項。
 
 1. 輸入 **C** 以選取選項 `C. Compute node`。 這會設定背景工作角色節點上的計算節點。
 

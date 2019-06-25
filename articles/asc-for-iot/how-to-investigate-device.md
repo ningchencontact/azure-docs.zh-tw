@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
 ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192663"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>調查可疑的 IoT 裝置
@@ -45,13 +45,13 @@ ms.locfileid: "65192663"
 1. 開啟 IoT 中樞， 
 1. 底下**安全性**，按一下**概觀**，然後選取**設定**。
 1. 變更 Log Analytics 工作區的組態詳細資料。 
-1. 按一下 [檔案] 。 
+1. 按一下 [檔案]  。 
 
 下列組態，執行下列步驟來存取儲存在 Log Analytics 工作區中的資料：
 
 1. 在 IoT 中樞內選取並按一下適用於 IoT 的 ASC 警示。 
-1. 按一下 [進一步調查]。 
-1. 選取 [若要查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 資料行]。
+1. 按一下 [進一步調查]  。 
+1. 選取 [若要查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 資料行]  。
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>可疑 IoT 裝置的調查步驟
 

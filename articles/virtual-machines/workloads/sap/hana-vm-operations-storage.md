@@ -17,13 +17,13 @@ ms.date: 06/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d062b6fff9693d5bda75edd65b8fe88d834eff57
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735507"
 ---
-# <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 虛擬機器存放裝置設定
+# <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 虛擬機器儲存體設定
 
 Azure 提供不同類型的儲存體，適用於執行 SAP HANA 的 Azure Vm。 可以考慮 SAP HANA 部署清單，例如 Azure 儲存體類型： 
 

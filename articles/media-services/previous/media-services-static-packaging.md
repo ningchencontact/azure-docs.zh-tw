@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: a2ffc344f51c45007eb982a02b14cb2d481d752e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074510"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure Media Packager 完成靜態封裝工作  
 
@@ -247,7 +247,7 @@ ms.locfileid: "60867749"
             static void SetISMFileAsPrimary(IAsset asset)
             {
                 var ismAssetFiles = asset.AssetFiles.ToList().
-                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
+                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
                 // The following code assigns the first .ism file as the primary file in the asset.
                 // An asset should have one .ism file.  
@@ -721,7 +721,7 @@ ms.locfileid: "60867749"
 > 
 > 
 
-本部分的示例将夹层文件（在本例中为 MP4）编码为多比特率 MP4 文件，然后将 MP4 打包为平滑流式处理。 接著，該範例會將 Smooth Streaming 封裝為 HTTP Live Streaming (HLS)，該格式使用進階加密標準 (AES) 128 位元串流加密進行加密。 确保更新以下代码，以便指向输入 MP4 文件所在的文件夹， 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 檔案位置的程式碼。 您可以在 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中找到這些檔案的定義。
+本節中的範例會將夾層檔案 (本例中為 MP4) 編碼為多位元速率 MP4 檔案，然後將 MP4 封裝為 Smooth Streaming。 接著，該範例會將 Smooth Streaming 封裝為 HTTP Live Streaming (HLS)，該格式使用進階加密標準 (AES) 128 位元串流加密進行加密。 請務必更新下列指向資料夾 (您可在其中找到輸入的 MP4 檔案) 的程式碼。 此外，也請更新指向 MediaPackager_MP4ToSmooth.xml 和 MediaPackager_SmoothToHLS.xml 檔案位置的程式碼。 您可以在 [Azure Media Packager 的工作預設](https://msdn.microsoft.com/library/azure/hh973635.aspx) \(英文\) 一文中找到這些檔案的定義。
 
 ```csharp
     using System;

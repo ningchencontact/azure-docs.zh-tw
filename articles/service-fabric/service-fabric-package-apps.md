@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718358"
 ---
-# <a name="package-an-application"></a>打包应用程序
+# <a name="package-an-application"></a>封裝應用程式
 
 本文說明如何對 Service Fabric 應用程式進行封裝，並使其準備好進行部署。
 
-## <a name="package-layout"></a>包布局
+## <a name="package-layout"></a>封裝版面配置
 
 應用程式資訊清單、一或多個服務資訊清單及其他必要的封裝檔案必須以特定的配置組織後，才能部署到 Service Fabric 叢集。 在本文中的範例資訊清單必須組織成下列目錄結構：
 
@@ -54,9 +54,9 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ## <a name="use-setupentrypoint"></a>使用 SetupEntryPoint
 
-使用 **SetupEntryPoint** 的一般案例，是當您必須在服務啟動之前執行可執行檔，或必須使用提高的權限來執行作業時。 例如︰
+使用 **SetupEntryPoint** 的一般案例，是當您必須在服務啟動之前執行可執行檔，或必須使用提高的權限來執行作業時。 例如:
 
-* 设置和初始化服务可执行文件所需的环境变量。 這不僅限於透過 Service Fabric 程式設計模型撰寫的可執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
+* 設定及初始化服務可執行檔需要的環境變數。 這不僅限於透過 Service Fabric 程式設計模型撰寫的可執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
 * 透過安裝安全性憑證設定存取控制。
 
 如需有關如何設定 **SetupEntryPoint** 的詳細資訊，請參閱[設定服務設定進入點的原則](service-fabric-application-runas-security.md)
@@ -86,7 +86,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ## <a name="test-the-package"></a>測試封裝
 
 您可以使用 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) 命令，透過 PowerShell 在本機上驗證封裝結構。
-此命令會檢查有無資訊清單剖析問題，並驗證所有參考。 此命令只验证包中目录与文件结构的正确性。
+此命令會檢查有無資訊清單剖析問題，並驗證所有參考。 這個命令只會驗證封裝中目錄與檔案的結構正確性。
 除了檢查所有必要檔案是否都在之外，它不會驗證任何程式碼或資料封裝內容。
 
 ```powershell
@@ -142,7 +142,7 @@ True
 當封裝很大或有許多檔案時，您可以壓縮它以加快部署速度。 壓縮會減少檔案數目並降低封裝大小。
 如果是壓縮的應用程式封裝，[上傳應用程式封裝](service-fabric-deploy-remove-applications.md#upload-the-application-package)可能會比上傳未壓縮的封裝花費更長的時間，尤其當壓縮作業是在複製過程中進行時，更是如此。 使用壓縮，[註冊應用程式類型](service-fabric-deploy-remove-applications.md#register-the-application-package)和[取消註冊應用程式類型](service-fabric-deploy-remove-applications.md#unregister-an-application-type)會比較快。
 
-已壓縮及未壓縮套件的部署機制皆相同。 如果为压缩包，则存储在群集映像存储等位置，并且在应用程序运行前在节点上解压缩。
+已壓縮及未壓縮套件的部署機制皆相同。 如果封裝已壓縮，它會以壓縮的形式儲存在叢集映像存放區中，並在應用程式執行之前於節點上解壓縮。
 壓縮會將有效的 Service Fabric 封裝以壓縮的版本取代。 該資料夾必須允許寫入權限。 在已經壓縮的封裝上執行壓縮將不會產生任何變化。
 
 您可以執行 PowerShell 命令 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，並搭配 `CompressPackage` 參數來壓縮封裝。 您可以使用相同的命令，並搭配 `UncompressPackage` 參數來將封裝解壓縮。

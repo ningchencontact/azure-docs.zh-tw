@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696917"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight 中的大規模串流
@@ -19,7 +19,7 @@ ms.locfileid: "64696917"
 即時巨量資料解決方案可用來處理移動中的資料。 通常此資料是在抵達時最具價值。 如果傳入資料流變大到無法在該時間處理的程度，您可能就需要為資源進行節流。 或者，HDInsight 叢集也可以視需要新增節點來擴大規模，以配合您的串流解決方案。
 
 
-在串流應用程式中，一或多個資料來源會產生事件 (有時每秒會有數百萬個事件)，系統必須在不捨棄任何有用資訊的情況下快速消化這些事件。 處理連入事件時，會由服務 (例如 [Apache Kafka](kafka/apache-kafka-introduction.md) 或[事件中樞](https://azure.microsoft.com/services/event-hubs/)) 使用「串流緩衝處理」 (也稱為「事件佇列」) 來處理。 在您收集事件之後，可以接著使用「串流處理」層 內的即時分析系統 (例如 [Apache Storm](storm/apache-storm-overview.md) 或 [Apache Spark 串流](spark/apache-spark-streaming-overview.md)) 來分析資料。 處理過的資料可以儲存在長期的儲存體系統中 (例如 [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))，並即時顯示在商業智慧儀表板上 (例如 [Power BI](https://powerbi.microsoft.com)、Tableau 或自訂網頁)。
+在串流應用程式中，一或多個資料來源會產生事件 (有時每秒會有數百萬個事件)，系統必須在不捨棄任何有用資訊的情況下快速消化這些事件。 處理連入事件時，會由服務 (例如 [Apache Kafka](kafka/apache-kafka-introduction.md) 或[事件中樞](https://azure.microsoft.com/services/event-hubs/)) 使用「串流緩衝處理」  (也稱為「事件佇列」  ) 來處理。 在您收集事件之後，可以接著使用「串流處理」  層 內的即時分析系統 (例如 [Apache Storm](storm/apache-storm-overview.md) 或 [Apache Spark 串流](spark/apache-spark-streaming-overview.md)) 來分析資料。 處理過的資料可以儲存在長期的儲存體系統中 (例如 [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))，並即時顯示在商業智慧儀表板上 (例如 [Power BI](https://powerbi.microsoft.com)、Tableau 或自訂網頁)。
 
 
 ![HDInsight 串流模式](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)

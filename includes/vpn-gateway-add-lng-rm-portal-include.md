@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150276"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173851"
 ---
 1. 在入口網站中，從 [所有資源]  ，按一下 [+新增]  。
 2. 在 [一切]  頁面搜尋方塊中，輸入**區域網路閘道**，然後按一下以傳回資源清單。 按一下 [區域網路閘道]  以開啟頁面，然後按一下 [建立]  開啟 [建立區域網路閘道]  頁面。

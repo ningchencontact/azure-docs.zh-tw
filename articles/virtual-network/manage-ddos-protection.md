@@ -17,17 +17,17 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911256"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure DDoS Protection Standard
 
 了解如何啟用和停用分散式阻斷服務 (DDoS) 保護，並使用遙測技術透過 Azure DDoS Protection Standard 來降低 DDoS 攻擊。 DDoS Protection Standard 會保護任何與 Azure [公用 IP 位址](virtual-network-public-ip-address.md)相關聯的 Azure 資源，例如虛擬機器、負載平衡器和應用程式閘道。 若要了解有關 DDoS Protection Standard 和其功能的詳細資訊，請參閱 [DDoS Protection Standard 概觀](ddos-protection-overview.md)。
 
-在完成本教學課程中的任何步驟之前，請先使用指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派[權限](#permissions)中所列適當動作之[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的帳戶，登入 Azure 入口網站 (網址為 https://portal.azure.com)。
+在完成本教學課程中的任何步驟之前，請先使用指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派[權限](#permissions)中所列適當動作之[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的帳戶，登入 Azure 入口網站 (網址為 https://portal.azure.com )。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -37,52 +37,52 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
 對大多數組織來說，並沒有必要建立多個計劃。 計劃無法在訂用帳戶之間移動。 如果您想要變更計劃所在的訂用帳戶，就必須[刪除現有的計劃](#work-with-ddos-protection-plans)，再建立一個新計劃。
 
-1. 選取 Azure 入口網站中左上角的 [建立資源]。
+1. 選取 Azure 入口網站中左上角的 [建立資源]  。
 2. 搜尋 *DDoS*。 當 **DDoS 保護計劃**出現在搜尋結果中時，請選取它。
-3. 選取 [建立] 。
-4. 輸入或選取您自己的值，或者輸入或選取下列範例值，然後選取 [建立]：
+3. 選取 [建立]  。
+4. 輸入或選取您自己的值，或者輸入或選取下列範例值，然後選取 [建立]  ：
 
     |設定        |值                                              |
     |---------      |---------                                          |
-    |名稱           | myDdosProtectionPlan                              |
+    |Name           | myDdosProtectionPlan                              |
     |訂用帳戶   | 選取您的訂用帳戶。                         |
-    |資源群組 | 選取 [新建]，然後輸入 *myResourceGroup* |
+    |資源群組 | 選取 [新建]  ，然後輸入 *myResourceGroup* |
     |位置       | 美國東部                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>為新虛擬網路啟用 DDoS
 
-1. 選取 Azure 入口網站中左上角的 [建立資源]。
-2. 選取 [網絡]，然後選取 [虛擬網路]。
-3. 輸入或選取您自己的值，或是輸入或選取下列範例值，接受其餘預設值，然後選取 [建立]：
+1. 選取 Azure 入口網站中左上角的 [建立資源]  。
+2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
+3. 輸入或選取您自己的值，或是輸入或選取下列範例值，接受其餘預設值，然後選取 [建立]  ：
 
     | 設定         | 值                                                        |
     | ---------       | ---------                                                    |
     | 名稱            | myVirtualNetwork                                             |
     | 訂用帳戶    | 選取您的訂用帳戶。                                    |
-    | 資源群組  | 選取 [使用現有的]，然後選取 [myResourceGroup] |
+    | 資源群組  | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
     | 位置        | 美國東部                                                      |
-    | DDoS 保護 | 選取 [標準]，然後在 [DDoS 保護] 底下，選取 [myDdosProtectionPlan]。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。|
+    | DDoS 保護 | 選取 [標準]  ，然後在 [DDoS 保護]  底下，選取 [myDdosProtectionPlan]  。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。|
 
 已為虛擬網路啟用「標準 DDoS」時，您無法將虛擬網路移到另一個資源群組或訂用帳戶。 如果您需要移動已啟用「標準 DDoS」的虛擬網路，請先將「標準 DDoS」停用，移動虛擬網路，然後再啟用「標準 DDoS」。 移動之後，就會重設虛擬網路中所有受保護公用 IP 位址的自動調整原則閾值。
 
 ## <a name="enable-ddos-for-an-existing-virtual-network"></a>為現有的虛擬網路啟用 DDoS 保護
 
 1. 如果您沒有現有的 DDoS 保護計劃，請完成[建立 DDoS 保護計劃](#create-a-ddos-protection-plan)中的步驟來建立 DDoS 保護計劃。
-2. 選取 Azure 入口網站中左上角的 [建立資源]。
-3. 在入口網站頂端的 [搜尋資源、服務及文件] 方塊中，輸入您要為其啟用「標準 DDoS 保護」的虛擬網路名稱。 當虛擬網路的名稱出現在搜尋結果中時，請選取它。
-4. 選取 [設定] 底下的 [DDoS 保護]。
-5. 選取 [標準]。 在 [DDoS 保護計劃] 底下，選取現有的 DDoS 保護計劃或是您在步驟 1 中建立的計劃，然後選取 [儲存]。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。
+2. 選取 Azure 入口網站中左上角的 [建立資源]  。
+3. 在入口網站頂端的 [搜尋資源、服務及文件]  方塊中，輸入您要為其啟用「標準 DDoS 保護」的虛擬網路名稱。 當虛擬網路的名稱出現在搜尋結果中時，請選取它。
+4. 選取 [設定]  底下的 [DDoS 保護]  。
+5. 選取 [標準]  。 在 [DDoS 保護計劃]  底下，選取現有的 DDoS 保護計劃或是您在步驟 1 中建立的計劃，然後選取 [儲存]  。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。
 
 ## <a name="disable-ddos-for-a-virtual-network"></a>停用虛擬網路的 DDoS
 
-1. 在入口網站頂端的 [搜尋資源、服務及文件] 方塊中，輸入您要停用其「標準 DDoS 保護」的虛擬網路名稱。 當虛擬網路的名稱出現在搜尋結果中時，請選取它。
-2. 選取 [設定] 底下的 [DDoS 保護]。
-3. 選取 [DDoS 保護計劃] 底下的 [基本]，然後選取 [儲存]。
+1. 在入口網站頂端的 [搜尋資源、服務及文件]  方塊中，輸入您要停用其「標準 DDoS 保護」的虛擬網路名稱。 當虛擬網路的名稱出現在搜尋結果中時，請選取它。
+2. 選取 [設定]  底下的 [DDoS 保護]  。
+3. 選取 [DDoS 保護計劃]  底下的 [基本]  ，然後選取 [儲存]  。
 
 ## <a name="work-with-ddos-protection-plans"></a>使用 DDoS 保護計劃
 
-1. 選取入口網站左上角的 [所有服務]。
-2. 在 [篩選] 方塊中，輸入 *DDoS*。 當 **DDoS 保護計劃**出現在結果中時，請選取它。
+1. 選取入口網站左上角的 [所有服務]  。
+2. 在 [篩選]  方塊中，輸入 *DDoS*。 當 **DDoS 保護計劃**出現在結果中時，請選取它。
 3. 從清單中選取您想要檢視的保護計劃。
 4. 與該計劃關聯的所有虛擬網路都會列出。
 5. 如果您想要刪除某個計劃，必須先將與其關聯的所有虛擬網路都取消關聯。 若要將計劃與虛擬網路取消關聯，請參閱[停用虛擬網路的 DDoS](#disable-ddos-for-a-virtual-network)。
@@ -91,17 +91,17 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
 透過使用「Azure 監視器」警示設定，您可以選取任何可用的 DDoS 保護計量，以在攻擊期間有作用中的風險降低措施時向您發出警示。 當條件符合時，指定的地址會收到警示電子郵件：
 
-1. 選取入口網站左上角的 [所有服務]。
-2. 在 [篩選] 方塊中，輸入「監視器」。 當**監視器**出現在搜尋結果中時，請選取它。
-3. 選取 [共用服務] 底下的 [計量]。
-4. 輸入或選取您自己的值，或是輸入下列範例值，接受其餘預設值，然後選取 [確定]：
+1. 選取入口網站左上角的 [所有服務]  。
+2. 在 [篩選]  方塊中，輸入「監視器」  。 當**監視器**出現在搜尋結果中時，請選取它。
+3. 選取 [共用服務]  底下的 [計量]  。
+4. 輸入或選取您自己的值，或是輸入下列範例值，接受其餘預設值，然後選取 [確定]  ：
 
     |設定                  |值                                                                                               |
     |---------                |---------                                                                                           |
-    |名稱                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |訂用帳戶             | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
     |資源群組           | 選取包含您想要接收警示之公用 IP 位址的資源群組。      |
-    |Resource                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
+    |資源                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
     |計量                   | 是否正遭受 DDoS 攻擊                                                                            |
     |閾值                | 1 - **1** 表示您正遭受攻擊。 **0** 表示您並未遭受攻擊。                         |
     |期間                   | 選取您選擇的任何值。                                                                   |
@@ -121,11 +121,11 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
 攻擊的遙測可透過 Azure 監視器即時提供。 遙測只適用於公用 IP 位址在安全防護之下的期間。 在攻擊風險降低之前或之後，您都不會看到遙測。
 
-1. 選取入口網站左上角的 [所有服務]。
-2. 在 [篩選] 方塊中，輸入「監視器」。 當**監視器**出現在搜尋結果中時，請選取它。
-3. 選取 [共用服務] 底下的 [計量]。
-4. 選取包含您想要其遙測資料之公用 IP 位址的 [訂用帳戶] 和 [資源群組]。
-5. 針對 [資源類型] 選取 [公用 IP 位址]，然後選取您想要其遙測資料的特定公用 IP 位址。
+1. 選取入口網站左上角的 [所有服務]  。
+2. 在 [篩選]  方塊中，輸入「監視器」  。 當**監視器**出現在搜尋結果中時，請選取它。
+3. 選取 [共用服務]  底下的 [計量]  。
+4. 選取包含您想要其遙測資料之公用 IP 位址的 [訂用帳戶]  和 [資源群組]  。
+5. 針對 [資源類型]  選取 [公用 IP 位址]  ，然後選取您想要其遙測資料的特定公用 IP 位址。
 6. 畫面的左側會出現一系列**可用的計量**。 若選取這些計量，這些度量會在概觀畫面上的 **Azure 監視器計量圖**中繪製成圖形。
 7. 選取 **彙總**做為輸入**最大值**
 
@@ -151,12 +151,12 @@ Azure DDoS 保護標準透過 DDoS 攻擊分析，提供詳細的攻擊見解和
 ## <a name="configure-ddos-attack-mitigation-reports"></a>設定 DDoS 攻擊風險降低報告
 攻擊風險降低報告使用 Netflow 通訊協定資料進行彙總，以提供有關資源攻擊的詳細資訊。 每當公用 IP 資源遭受攻擊時，將在啟動風險降低措施後，立即產生風險降低報告。 每隔 5 分鐘就會產生一份增量報告，以及針對整個風險降低期間，產生一份風險降低後續報告。 這是為了確保在 DDoS 攻擊持續進行較長時間的情況下，您將能夠每 5 分鐘檢視最新的風險降低報告快照集，並在攻擊風險降低結束後，檢視完整摘要。 
 
-1. 選取入口網站左上角的 [所有服務]。
-2. 在 [篩選] 方塊中，輸入「監視器」。 當**監視器**出現在搜尋結果中時，請選取它。
-3. 在 [設定] 底下，選取 [診斷設定]。
-4. 選取包含您所要記錄公用 IP 位址的 [訂用帳戶] 和 [資源群組]。
-5. 針對 [資源類型] 選取 [公用 IP 位址]，然後選取您想要為其記錄計量的特定公用 IP 位址。
-6. 選取 [開啟診斷以收集 DDoSMitigationReports 記錄]，然後視需要選取下列眾多選項：
+1. 選取入口網站左上角的 [所有服務]  。
+2. 在 [篩選]  方塊中，輸入「監視器」  。 當**監視器**出現在搜尋結果中時，請選取它。
+3. 在 [設定]  底下，選取 [診斷設定]  。
+4. 選取包含您所要記錄公用 IP 位址的 [訂用帳戶]  和 [資源群組]  。
+5. 針對 [資源類型]  選取 [公用 IP 位址]  ，然後選取您想要為其記錄計量的特定公用 IP 位址。
+6. 選取 [開啟診斷以收集 DDoSMitigationReports 記錄]  ，然後視需要選取下列眾多選項：
 
     - **封存至儲存體帳戶**：資料會寫入至 Azure 儲存體帳戶。 若要深入了解這個選項，請參閱[封存診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
     - **串流至事件中樞**：可讓記錄接收者使用「Azure 事件中樞」來挑選記錄。 事件中樞可允許與 Splunk 或其他 SIEM 系統進行整合。 若要深入了解這個選項，請參閱[將診斷記錄串流至事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -173,12 +173,12 @@ Azure DDoS 保護標準透過 DDoS 攻擊分析，提供詳細的攻擊見解和
 ## <a name="configure-ddos-attack-mitigation-flow-logs"></a>設定 DDoS 攻擊風險降低流程記錄
 攻擊風險降低流程記錄可讓您在近乎即時的作用中 DDoS 攻擊期間，查看丟棄的流量、轉寄的流量及其他相關資料點。 您可以透過事件中樞，將將此資料的常數串流內嵌到 SIEM 系統中，以進行近乎即時的監視，採取可能的措施，並滿足您的防禦作業需求。 
 
-1. 選取入口網站左上角的 [所有服務]。
-2. 在 [篩選] 方塊中，輸入「監視器」。 當**監視器**出現在搜尋結果中時，請選取它。
-3. 在 [設定] 底下，選取 [診斷設定]。
-4. 選取包含您所要記錄公用 IP 位址的 [訂用帳戶] 和 [資源群組]。
-5. 針對 [資源類型] 選取 [公用 IP 位址]，然後選取您想要為其記錄計量的特定公用 IP 位址。
-6. 選取 [開啟診斷以收集 DDoSMitigationFlowLogs 記錄]，然後視需要選取下列眾多選項：
+1. 選取入口網站左上角的 [所有服務]  。
+2. 在 [篩選]  方塊中，輸入「監視器」  。 當**監視器**出現在搜尋結果中時，請選取它。
+3. 在 [設定]  底下，選取 [診斷設定]  。
+4. 選取包含您所要記錄公用 IP 位址的 [訂用帳戶]  和 [資源群組]  。
+5. 針對 [資源類型]  選取 [公用 IP 位址]  ，然後選取您想要為其記錄計量的特定公用 IP 位址。
+6. 選取 [開啟診斷以收集 DDoSMitigationFlowLogs 記錄]  ，然後視需要選取下列眾多選項：
 
     - **封存至儲存體帳戶**：資料會寫入至 Azure 儲存體帳戶。 若要深入了解這個選項，請參閱[封存診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
     - **串流至事件中樞**：可讓記錄接收者使用「Azure 事件中樞」來挑選記錄。 事件中樞可允許與 Splunk 或其他 SIEM 系統進行整合。 若要深入了解這個選項，請參閱[將診斷記錄串流至事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -221,7 +221,7 @@ Azure 資訊安全中心提供一份[安全性警示](/azure/security-center/sec
 
 若要使用 DDoS 保護計劃，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|  動作                                            | 名稱                                     |
+| 動作                                            | 名稱                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | 讀取 DDoS 保護計劃              |
 | Microsoft.Network/ddosProtectionPlans/write       | 建立或更新 DDoS 保護計劃  |

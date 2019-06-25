@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c761cad49ad42bd592b1fd8105052b39ef1177
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110461"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302378"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署方案
 在尋找有關如何部署某些 Azure Active Directory (Azure AD) 功能的端對端指引嗎？ 下列部署方案會逐步帶您了解商業價值、規劃考量、設計，以及要成功推出數個較常見的 Azure AD 功能所需進行的操作程序。 
@@ -60,7 +60,7 @@ ms.locfileid: "67110461"
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決方案。 Azure MFA 可使用系統管理員核准的驗證方法，以利保護對資料與應用程式的存取，同時達到對簡單登入程序的需求。|
 |[條件式存取](https://aka.ms/deploymentplans/ca)|使用條件式存取，您可以實作自動化的存取控制決定誰可以存取您雲端應用程式，以條件為基礎。|
 |[自助式密碼重設](https://aka.ms/SSPRDPDownload)|自助式密碼重設可協助使用者在必要時重設其密碼，而不需要系統管理員介入。|
-|[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|Azure AD Privileged Identity Management (PIM) 可協助您管理遍及 Azure AD、Azure 資源及其他 Microsoft Online Services 的特殊權限系統管理角色。 PIM 提供 Just-In-Time 存取、要求核准工作流程，以及完全整合的存取權檢閱等解決方案，讓您能夠即時識別、發現和防止特殊權限角色的惡意活動。|
+|[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD Privileged Identity Management (PIM) 可協助您管理遍及 Azure AD、Azure 資源及其他 Microsoft Online Services 的特殊權限系統管理角色。 PIM 提供 Just-In-Time 存取、要求核准工作流程，以及完全整合的存取權檢閱等解決方案，讓您能夠即時識別、發現和防止特殊權限角色的惡意活動。|
 |[單一登入](https://aka.ms/SSODPDownload)|單一登入可協助您只使用單一使用者帳戶登入一次，然後就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您就可以從 Microsoft Office 前往 SalesForce、Box，而不需要再驗證一次 (例如，輸入密碼)。|
 |[無縫 SSO](https://aka.ms/SeamlessSSODPDownload)|使用者位於連線到公司網路的公司裝置時，Azure Active Directory 無縫單一登入 (Azure AD 無縫 SSO) 就會自動將他們登入。 開啟此功能後，使用者不需要輸入密碼就能登入 Azure AD，而且在大部分情況下，甚至也不用輸入其使用者名稱。 這項功能可讓使用者輕鬆存取雲端式應用程式，而不需要任何額外的內部部署元件。|
 |[存取面板](https://aka.ms/AccessPanelDPDownload)|為使用者提供可探索及存取其所有應用程式的簡單中樞。 讓他們能藉由自助服務功能來提升生產力，例如能夠要求存取新的應用程式和群組，或代表其他人管理這些資源的存取權。|

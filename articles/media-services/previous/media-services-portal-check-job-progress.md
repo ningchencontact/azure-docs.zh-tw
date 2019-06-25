@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867228"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>透過 Azure 入口網站監視編碼作業進度
@@ -30,13 +30,13 @@ ms.locfileid: "64867228"
 
 執行作業時，您通常需要設法追蹤作業進度。 
 
-若要監視編碼作業的進度，請按一下 [設定]\(位於頁面頂端)，然後選取 [作業]。
+若要監視編碼作業的進度，請按一下 [設定]  \(位於頁面頂端)，然後選取 [作業]  。
 
 ![工作](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 您可以按一下作業以查看更多詳細資料。
 
-![作业](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+![工作](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
 ## <a name="next-steps"></a>後續步驟
 編碼作業完成之後，您可以發佈並播放您的資產，如 [這裡](media-services-portal-publish.md)所述。

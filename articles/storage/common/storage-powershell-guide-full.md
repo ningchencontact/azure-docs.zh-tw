@@ -9,15 +9,15 @@ ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 082033cebc68fc97f7cff9ce80eb02acbbf5f4b0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145886"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
-Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 針對 Azure 儲存體，這些 Cmdlet 分為兩個類別：控制層和資料層。 控制項層 Cmdlet 是用來管理儲存體帳戶：建立儲存體帳戶、設定屬性、刪除儲存體帳戶、旋轉存取金鑰等等。 資料層 Cmdlet 是用來管理儲存體帳戶「中」所儲存的資料。 例如，上傳 Blob、建立檔案共用，以及將訊息新增至佇列。
+Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 針對 Azure 儲存體，這些 Cmdlet 分為兩個類別：控制層和資料層。 控制項層 Cmdlet 是用來管理儲存體帳戶：建立儲存體帳戶、設定屬性、刪除儲存體帳戶、旋轉存取金鑰等等。 資料層 Cmdlet 是用來管理儲存體帳戶「中」  所儲存的資料。 例如，上傳 Blob、建立檔案共用，以及將訊息新增至佇列。
 
 本做法文章涵蓋使用管理層 Cmdlet 管理儲存體帳戶的一般作業。 您會了解如何：
 
@@ -199,7 +199,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 > 您可以使用 PowerShell 啟用分鐘分析。 這項功能無法使用於入口網站。
 >
 
-* 若要了解如何使用 PowerShell 启用和查看存储指标数据，请参阅[存储分析指标](storage-analytics-metrics.md)。
+* 若要了解如何啟用和檢視儲存體度量資料，使用 PowerShell，請參閱[儲存體分析度量](storage-analytics-metrics.md)。
 
 * 若要了解如何使用 PowerShell 啟用和擷取儲存體記錄的資料，請參閱[如何使用 PowerShell 啟用儲存體記錄](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)和[尋找儲存體記錄的記錄資料](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)。
 

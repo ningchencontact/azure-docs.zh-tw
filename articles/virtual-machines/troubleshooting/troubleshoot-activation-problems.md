@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921266"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155150"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -51,11 +51,9 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 >
 >如果您使用 ExpressRoute 並有已發佈的預設路由，請參閱 [Azure VM 可能無法透過 ExpressRoute 進行啟用](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (英文)。
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>步驟 1：設定適當的 KMS 用戶端安裝識別碼 (適用於 Windows Server 2016 和 Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>步驟 1 設定適當的 KMS 用戶端安裝識別碼
 
-針對從 Windows Server 2016 或 Windows Server 2012 R2 的自訂映像建立的 VM，您必須為 VM 設定適當的 KMS 用戶端安裝識別碼。
-
-此步驟不適用於 Windows 2012 或 Windows 2008 R2。 它使用只有 Windows Server 2016 和 Windows Server 2012 R2 才支援的「自動化虛擬機器啟用」(AVMA) 功能。
+從自訂映像建立 vm，您必須設定適當的 KMS 用戶端安裝識別碼的 vm。
 
 1. 在提升權限的命令提示字元執行 **slmgr.vbs /dlv**。 檢查輸出中的描述值，然後判斷它是建立自零售 (RETAIL通路) 還是大量 (VOLUME_KMSCLIENT) 授權媒體：
   

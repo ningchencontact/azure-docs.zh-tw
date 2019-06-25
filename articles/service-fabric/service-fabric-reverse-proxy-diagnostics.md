@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726837"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>在反向 proxy 監視和診斷要求處理
@@ -37,12 +37,12 @@ ms.locfileid: "60726837"
 
     承載包括︰
 
-   * **traceId**：可将此 GUID 用于关联与单个请求对应的所有事件。 在以下兩個事件中，traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**，意味著它們屬於相同的要求。
-   * **requestUrl**：请求已发送到的 URL（反向代理 URL）。
-   * **verb**：HTTP 谓词。
-   * **remoteAddress**：发送请求的客户端地址。
-   * **resolvedServiceUrl**：向其解析传入请求的服务终结点 URL。 
-   * **errorDetails**：关于失败的详细信息。
+   * **traceId**:此 GUID 可用來對應至單一要求的所有事件相互都關聯。 在以下兩個事件中，traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**，意味著它們屬於相同的要求。
+   * **requestUrl**:此要求傳送 URL (反向 proxy URL)。
+   * **動詞**:HTTP 指令動詞。
+   * **remoteAddress**:傳送要求的用戶端的位址。
+   * **resolvedServiceUrl**:連入要求已解析的服務端點 URL。 
+   * **errorDetails**:其他失敗的詳細資訊。
 
      ```
      {
@@ -85,8 +85,8 @@ ms.locfileid: "60726837"
     
     在以下範例事件中，反向 proxy 傳回 404，因為它找不到相符的服務端點。
     重要承載項目如下：
-   * **processRequestPhase**：指示发生故障时请求处理的阶段，TryGetEndpoint， 嘗試提取要轉送至的服務端點時。 
-   * **errorDetails**：列出终结点搜索条件。 您可以查看指定的 listenerName = **FrontEndListener**，然而複本端點清單只包含名稱為 **OldListener** 的接聽程式。
+   * **processRequestPhase**:指出發生失敗的要求處理期間階段***TryGetEndpoint***也就是 嘗試提取要轉送至的服務端點時。 
+   * **errorDetails**:列出端點搜尋準則。 您可以查看指定的 listenerName = **FrontEndListener**，然而複本端點清單只包含名稱為 **OldListener** 的接聽程式。
     
      ```
      {
@@ -104,7 +104,7 @@ ms.locfileid: "60726837"
      }
      }
      ```
-     反向代理返回“404 未找到”的另一个示例为：ApplicationGateway\Http 配置参数 SecureOnlyMode 已设为 true，同时反向代理正在侦听 HTTPS，但所有副本终结点都不安全（侦听 HTTP）。
+     另一個範例中，反向 proxy 可能傳回 404 找不到為：ApplicationGateway\Http 組態參數**SecureOnlyMode**設為 true，且反向 proxy 會接聽**HTTPS**，不過所有複本端點都是不安全的 （在 HTTP 上接聽）。
      反向 proxy 傳回 404，因為它找不到在 HTTPS 上接聽的端點以轉送要求。 在事件承載中分析參數有助於縮小問題範圍：
     
      ```

@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851533"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表統計資料
@@ -77,12 +77,12 @@ Table_name 是資料表的包含要顯示的統計資料名稱。 不能是外�
 
 |||
 |-|-|
-| **統計資料更新的頻率**  | 保守：每天 </br> 載入或轉換資料之後 |
+| **統計資料更新的頻率**  | 保守：每日 </br> 載入或轉換資料之後 |
 | **取樣** |  小於 1 億個資料列，使用預設取樣 （20%)。 </br> 超過 1 億個資料列，使用兩個 %的取樣。 |
 
-為查詢疑難排解時，首先要詢問的問題之一就是「統計資料是最新的嗎？」
+為查詢疑難排解時，首先要詢問的問題之一就是「統計資料是最新的嗎？」 
 
-這個問題不是可依資料年齡回答的問題。 如果基礎資料並沒有任何實質變更，最新的統計資料物件可能會是舊的。 當資料列數目已顯著變更，或資料行的值散發有實質變更時，就應該更新統計資料。
+這個問題不是可依資料年齡回答的問題。 如果基礎資料並沒有任何實質變更，最新的統計資料物件可能會是舊的。 當資料列數目已顯著變更，或資料行的值散發有實質變更時，就  應該更新統計資料。
 
 沒有動態管理檢視來判斷資料表內的資料是否已變更，因為最後一個時間統計資料已更新。 了解您統計資料的年齡，可以協助您圖片的部分。 您可以使用下列查詢來判斷每份資料表上次更新了哪些統計資料。
 
@@ -148,7 +148,7 @@ WHERE
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-例如：
+例如:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-例如：
+例如:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -216,7 +216,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-因為 product\_category 和 product\_sub\_category 之間有關聯性，所以多重資料行統計資料物件在同時存取這些資料行時相當實用。
+因為 product\_category  和 product\_sub\_category  之間有關聯性，所以多重資料行統計資料物件在同時存取這些資料行時相當實用。
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>對資料表中的所有資料行建立統計資料
 
@@ -367,7 +367,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-例如：
+例如:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,13 +383,13 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-例如：
+例如:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表上的所有統計資料，因此可能會執行超出所需的更多工作。 如果效能不成問題，這是保證的統計資料是最新狀態的最簡單且最完整的方式。
+UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表上的所有  統計資料，因此可能會執行超出所需的更多工作。 如果效能不成問題，這是保證的統計資料是最新狀態的最簡單且最完整的方式。
 
 > [!NOTE]
 > 更新資料表上的所有統計資料時，SQL 資料倉儲會進行掃描，以針對每個統計資料物件進行資料表取樣。 如果資料表很大，而且有許多資料行以及許多統計資料，則根據需求來更新個別統計資料可能比較有效率。
@@ -406,7 +406,7 @@ UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表�
 
 這些系統檢視提供統計資料的相關資訊：
 
-| 目錄檢視 | 說明 |
+| 目錄檢視 | 描述 |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |每個資料行有一個資料列。 |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |資料庫中每個物件有一個資料列。 |
@@ -420,7 +420,7 @@ UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表�
 
 這些系統函式很適合用於處理統計資料：
 
-| 系統函式 | 說明 |
+| 系統函式 | 描述 |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |上次更新統計資料物件的日期。 |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |有關統計資料物件所理解之值散發的摘要層級和詳細資訊。 |
@@ -483,7 +483,7 @@ DBCC SHOW_STATISTICS() 顯示統計資料物件中保存的資料。 此資料�
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-例如：
+例如:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-例如：
+例如:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937837"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202687"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 列名指導方針
 
@@ -39,14 +39,14 @@ ms.locfileid: "64937837"
 | 11 | 解決方案支援與說明 | 提供至少下列一個的連結： <br>o   電話號碼 <br>o 電子郵件支援 <br>o 聊天代理程式 <br>o   社群論壇 |<br>• 列出所有支援方法：電話與電子郵件支援。 <br>• 在試用版或試用產品期間提供免費的付費支援 | 
 | 12 | 法律 | 透過公開 URL 提供原則或條款 |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>試用版供應項目需求
 
 |  | 列名項目 | 基本需求 | 最佳需求 | 
 |:--- |:--- |:--- |:--- |
 |  | 列名狀態 | 連結必須移至以客戶為導向的試用體驗 | 另外提供其他 CTA (例如立即購買) | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>SaaS 應用程式需求
 
 |  | 列名項目 | 基本需求 | 最佳需求 | 
@@ -63,7 +63,7 @@ ms.locfileid: "64937837"
 | 10 | 連絡人：解決方案支援與說明 | <br>• 工程連絡人姓名：輸入您應用程式工程連絡人的姓名。 這名連絡人將收到來自 Microsoft 的技術通訊。<br>• 工程連絡人電子郵件：輸入您應用程式工程連絡人的電子郵件地址。<br>• 工程連絡人電話：輸入工程連絡人的電話號碼。 支援 ISO 電話號碼標記法，如需詳細資料，請參閱 https://en.wikipedia.org/wiki/E.123 。<br>• 支援連絡人姓名：輸入您應用程式支援連絡人的姓名。 這名連絡人將收到來自 Microsoft 的支援相關通訊。<br>• 支援連絡人電子郵件：輸入您應用程式支援連絡人的電子郵件地址。 <br>• 支援連絡人電話：輸入支援連絡人的電話號碼。 支援 ISO 電話號碼標記法，如需詳細資料，請參閱 https://en.wikipedia.org/wiki/E.123 。 <br>• 支援 URL：輸入支援頁面的 URL。 | <br>• 列出所有支援方法：電話與電子郵件支援。 <br>• 在試用版或試用產品期間提供免費的付費支援 |
 | 11 | 法律 |<br>• 隱私權原則 URL：輸入應用程式的隱私權原則 URL ( CPP 中隱私權原則 URL 欄位的內容)。 <br>• 使用規定：輸入您應用程式的使用條款。 客戶必須先接受這些條款，才能試用您的應用程式。 |  透過公開 URL 網站提供原則或條款 |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>容器供應項目需求
 
@@ -74,7 +74,7 @@ ms.locfileid: "64937837"
 | 3 | Marketplace 成品 | 正確地顯示標誌 |<br>• 標誌包含「主圖影像」，其為 Azure 入口網站中的大型格式影像 <br>• 標誌：必須有小型 (48x48) 和大型 (216x216) <br>• 主圖影像需求： https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• 螢幕擷取畫面 (最多 5 個)：CPP 要求 .png 影像，解析度 1280 x 720。|
 | 4 | 潛在客戶管理 |<br>• 潛在客戶管理：選取將儲存您潛在客戶的系統。 <br>• 在[這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)了解如何連線 CRM 系統 | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>諮詢供應項目需求
 
@@ -97,6 +97,3 @@ ms.locfileid: "64937837"
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 Marketplace 中的不同供應項目類型。 <br>[SaaS 應用程式](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[容器](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。
-
- 
----

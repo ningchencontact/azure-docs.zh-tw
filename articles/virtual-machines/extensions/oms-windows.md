@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064434"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>針對 Windows 的 azure 監視虛擬機器擴充功能
 
@@ -35,20 +35,21 @@ Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視功能�
 Windows 的 Log Analytics 代理程式擴充功能支援下列版本的 Windows 作業系統：
 
 - Windows Server 2019
-- Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
+- Windows Server 2008 R2、 2012、 2012 R2、 2016、 1709版、 1803版
 
 ### <a name="agent-and-vm-extension-version"></a>代理程式和 VM 擴充功能版本
-下表提供 Azure 監視 VM 擴充功能和每個版本的 Log Analytics 代理程式套件組合的版本的對應。 
+下表提供 Windows Azure 監視 VM 擴充功能和每個版本的 Log Analytics 代理程式套件組合的版本的對應。 
 
-| Azure 監視 Linux VM 擴充功能版本 | Log Analytics 代理程式套件組合版本 | 發行日期 | 版本資訊 |
+| Log Analytics Windows 代理程式套件組合版本 | Azure 監視 Windows VM 擴充功能版本 | 發行日期 | 版本資訊 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | 2017 年 2 月 | |
-| 8.0.11072.0 | 1.0.11072.1 | 2017 年 9 月 | |
-| 8.0.11081.0 | 1.0.11081.5 | 2017 年 11 月 | | 
-| 8.0.11103.0 | n/a |  2018 年 4 月 | |
-| 8.0.11136.0 | n/a | 2018 年 9 月 |  <ul><li> 已新增的支援，來偵測 VM 移動的資源識別碼變更 </li><li> 已加入的支援報告的資源識別碼時使用非延伸模組安裝 </li></ul>| 
-| 10.19.10006.0 | n/a | 2018 年 12 月 | <ul><li> 次要穩定化修正 </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | 2019 年 3 月 | <ul><li>次要穩定化修正 </li></ul> |
+| 10.20.18001 | 1.0.18001 | 2019 年 6 月 | <ul><li> 小幅度 bug 修正和穩定性增強功能 </li><li> 若要停用預設的認證，進行 proxy 連線 （WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 支援） 的新增的功能 </li></ul>|
+| 10.19.13515 | 1.0.13515 | 2019 年 3 月 | <ul><li>次要穩定化修正 </li></ul> |
+| 10.19.10006 | n/a | 2018 年 12 月 | <ul><li> 次要穩定化修正 </li></ul> | 
+| 8.0.11136 | n/a | 2018 年 9 月 |  <ul><li> 已新增的支援，來偵測 VM 移動的資源識別碼變更 </li><li> 已加入的支援報告的資源識別碼時使用非延伸模組安裝 </li></ul>| 
+| 8.0.11103 | n/a |  2018 年 4 月 | |
+| 8.0.11081 | 1.0.11081 | 2017 年 11 月 | | 
+| 8.0.11072 | 1.0.11072 | 2017 年 9 月 | |
+| 8.0.11049 | 1.0.11049 | 2017 年 2 月 | |
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
 
@@ -90,7 +91,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並將它�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| 類型 | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (例如)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -178,7 +179,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>故障排除和支持
+## <a name="troubleshoot-and-support"></a>疑難排解與支援
 
 ### <a name="troubleshoot"></a>疑難排解
 

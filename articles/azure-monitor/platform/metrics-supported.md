@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 490b96698268fb8717bc1169c2cceb932aad913c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957147"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273780"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 
@@ -676,14 +676,14 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |d2c.endpoints.latency.serviceBusQueues|路由：服務匯流排佇列的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與遙測訊息輸入到服務匯流排佇列端點之間的平均延遲 (毫秒)。|無維度|
 |d2c.endpoints.egress.serviceBusTopics|路由：傳遞至服務匯流排主題的訊息|計數|總計|IoT 中樞路由成功將訊息傳遞至服務匯流排主題端點的次數。|無維度|
 |d2c.endpoints.latency.serviceBusTopics|路由：服務匯流排主題的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與遙測訊息輸入到服務匯流排佇列端點之間的平均延遲 (毫秒)。|無維度|
-|d2c.endpoints.egress.builtIn.events|路由：傳遞至訊息/事件的訊息|計數|總計|IoT 中樞路由成功將訊息傳遞至內建端點 (訊息/事件) 的次數。|無維度|
-|d2c.endpoints.latency.builtIn.events|路由：訊息/事件的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與遙測訊息輸入到內建端點 (訊息/事件) 之間的平均延遲 (毫秒)。|無維度|
+|d2c.endpoints.egress.builtIn.events|路由：傳遞至訊息/事件的訊息|計數|總計|IoT 中樞路由成功將訊息傳遞至內建端點 (訊息/事件) 的次數。 此計量，才會啟動工作啟用路由時 (https://aka.ms/iotrouting) 為 IoT 中樞。|無維度|
+|d2c.endpoints.latency.builtIn.events|路由：訊息/事件的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與遙測訊息輸入到內建端點 (訊息/事件) 之間的平均延遲 (毫秒)。 此計量，才會啟動工作啟用路由時 (https://aka.ms/iotrouting) 為 IoT 中樞。|無維度|
 |d2c.endpoints.egress.storage|路由：傳遞至儲存體的訊息|計數|總計|IoT 中樞路由成功將訊息傳遞至儲存體端點的次數。|無維度|
 |d2c.endpoints.latency.storage|路由：儲存體的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與遙測訊息輸入到儲存體端點之間的平均延遲 (毫秒)。|無維度|
 |d2c.endpoints.egress.storage.bytes|路由：傳遞至儲存體的資料|位元組|總計|IoT 中樞路由傳遞至儲存體端點的資料量 (位元組)。|無維度|
 |d2c.endpoints.egress.storage.blobs|路由：傳遞至儲存體的 BLOB|計數|總計|IoT 中樞路由將 BLOB 傳遞至儲存體端點的次數。|無維度|
-|EventGridDeliveries|事件格線傳遞 （預覽）|計數|總計|若要將事件發出至 Event Grid 的 IoT 中樞的要求數目。 這個數目包括成功和失敗的要求。 使用結果維度的不同類型的回應數目。 若要查看 where 要求來自，請使用 [EventType] 維度。|EventType 的結果|
-|EventGridLatency|事件格線延遲 （預覽）|毫秒|平均值|之間的平均延遲 （毫秒） 事件輸入到 IoT 中樞與事件輸入到事件方格。 這個數字是所有的事件型別之間平均。 您可以使用 EventType 維度來查看特定類型的事件的延遲。|EventType|
+|EventGridDeliveries|事件格線傳遞 （預覽）|計數|總計|IoT 中樞的事件數目會發佈至 Event Grid。 使用 [結果] 維度的成功和失敗要求數。 EventType 維度會顯示事件的型別 (https://aka.ms/ioteventgrid) 。|EventType 的結果|
+|EventGridLatency|平均延遲 （毫秒） 從 Iot 中樞的事件產生時以 Event Grid 來發佈事件時。 這個數字是所有的事件型別之間平均。 您可以使用 EventType 維度來查看特定類型的事件的延遲。|EventType|
 |d2c.twin.read.success|裝置的成功對應項讀取|計數|總計|裝置起始的所有成功對應項讀取的計數。|無維度|
 |d2c.twin.read.failure|裝置的失敗對應項讀取|計數|總計|裝置起始的所有失敗對應項讀取的計數。|無維度|
 |d2c.twin.read.size|裝置的對應項讀取回應大小|位元組|平均值|裝置起始的所有成功對應項讀取的平均值、最小值和最大值。|無維度|

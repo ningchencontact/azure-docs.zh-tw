@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577041"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165753"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple 私人雲端概觀
 
@@ -63,7 +63,7 @@ CloudSimple 轉換，並擴充到公用雲端的 VMware 工作負載，以分鐘
 
 您可以部署在 Azure 位置的專用的節點。 然後您可以使用 Azure 和 CloudSimple 管理它們。 私用雲端是由一或多個 vSphere 叢集所組成，每個叢集包含 3 到 16 個節點。
 
-您可以建立私用雲端，使用購買節點：
+您可以建立私人雲端使用佈建的節點：
 
 * 隨用隨付節點
 * 保留的專用節點

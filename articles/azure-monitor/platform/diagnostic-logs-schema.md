@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789312"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155304"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -55,7 +55,7 @@ ms.locfileid: "65789312"
 | Azure Batch |[Azure Batch 診斷記錄](../../batch/batch-diagnostics.md) |
 | 適用於 MySQL 的 Azure 資料庫 | [適用於 MySQL 的 Azure 資料庫診斷記錄](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | 適用於 PostgreSQL 的 Azure 資料庫 | [適用於 PostgreSQL 的 Azure 資料庫診斷記錄](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| 認知服務 | 無法使用結構描述。 |
+| 認知服務 | [Azure 認知服務的診斷記錄](../../cognitive-services/diagnostic-logging.md) |
 | 內容傳遞網路 | [CDN 的 Azure 診斷記錄](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 記錄](../../cosmos-db/logging.md) |
 | Data Factory | [使用 Azure 監視器來監視 Data Factory](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ ms.locfileid: "65789312"
 * [將資源診斷記錄串流至**事件中樞**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

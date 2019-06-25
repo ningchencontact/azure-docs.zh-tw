@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719986"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 與 Windows 上的 Service Fabric 差異
@@ -91,7 +91,7 @@ Windows 上支援的一些功能，在 Linux 上尚未提供支援。 最終，�
 
 ## <a name="next-steps"></a>後續步驟
 * [在 Linux 上準備您的開發環境](service-fabric-get-started-linux.md)
-* [在 OSX 上准备开发环境](service-fabric-get-started-mac.md)
+* [在 OSX 上準備您的開發環境](service-fabric-get-started-mac.md)
 * [使用 Yeoman 在 Linux 上建立和部署第一個 Service Fabric Java 應用程式](service-fabric-create-your-first-linux-application-with-java.md)
 * [在 Linux 上使用適用於 Eclipse 的 Service Fabric 外掛程式建立和部署第一個 Service Fabric Java 應用程式](service-fabric-get-started-eclipse.md)
 * [在 Linux 上建立第一個 CSharp 應用程式](service-fabric-create-your-first-linux-application-with-csharp.md)

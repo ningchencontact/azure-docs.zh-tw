@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070135"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>最多 100 TB 的超大規模服務層
 
@@ -111,7 +111,7 @@ Azure 儲存體節點是來自頁面伺服器之資料的最終目的地。 此�
 
 可以使用 [Azure 入口網站](https://portal.azure.com)、[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)、[Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 或是 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) 來建立超大規模資料庫。 超大規模資料庫僅在使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)時才提供。
 
-下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。
+下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。 請參閱[資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier)取得一份有效的服務目標。
 
 ```sql
 -- Create a HyperScale Database
@@ -146,8 +146,8 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 1. 如果您還沒有適當的伺服器那里，請在目標區域中建立 SQL Database 伺服器。  此伺服器應該由原始 （來源） 伺服器位於相同訂用帳戶所擁有。
 2. 請依照下列中的指示[異地還原](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore)從自動備份還原 Azure SQL Database 頁面的主題。
 
-#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>附註的超大規模資料庫的異地還原
-因為來源和目標是在不同的區域中，資料庫就無法與來源資料庫的異地還原，非常快速完成與共用快照集儲存體。  異地還原的超大規模資料庫，在中，它會是資料大小的作業，即使目標是在配對的區域的異地複寫儲存體。  這表示，進行異地還原會花費時間要還原的資料庫大小成正比。  如果目標是在配對的區域，則複本會明顯的速度會遠距離複製比透過網際網路，在資料中心內，但它仍然會複製所有的位元。
+> [!NOTE]
+> 因為來源和目標是在不同的區域中，資料庫就無法與來源資料庫的異地還原，非常快速完成與共用快照集儲存體。  異地還原的超大規模資料庫，在中，它會是資料大小的作業，即使目標是在配對的區域的異地複寫儲存體。  這表示，進行異地還原會花費時間要還原的資料庫大小成正比。  如果目標是在配對的區域，則複本會明顯的速度會遠距離複製比透過網際網路，在資料中心內，但它仍然會複製所有的位元。
 
 ## <a name=regions></a>可用的區域
 
@@ -205,7 +205,7 @@ Azure SQL Database 的超大規模層有目前在下列區域：
 
 9. 填寫下列範本：
 
-    ![配額詳細資料](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![配額的詳細資料](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
     在範本中，提供下列資訊
 
@@ -214,7 +214,7 @@ Azure SQL Database 的超大規模層有目前在下列區域：
     > 估計的 TB 的數目 
     >
 
-10. 選擇 [嚴重性 C]
+10. 選擇 [嚴重性 C] 
 
 11. 選擇適當的連絡方法，並填寫詳細資料。
 
@@ -223,10 +223,10 @@ Azure SQL Database 的超大規模層有目前在下列區域：
 ## <a name="known-limitations"></a>已知限制
 這些是超大規模的服務層，自 ga。 目前的限制  我們正積極努力移除這些限制可能的。
 
-| 問題 | 說明 |
+| 問題 | 描述 |
 | :---- | :--------- |
-| 邏輯伺服器的 [管理備份] 窗格不會顯示 [將會從 SQL 伺服器篩選超大規模資料庫 ->]  | 超大規模資料庫有不同的管理備份方法，且這類的長期保留和時間點備份保留設定不會套用 / 都會失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
-| 還原時間點 | 一旦資料庫遷移至超大規模資料庫服務層級後，不支援在移轉之前還原至時間點。|
+| 邏輯伺服器的 [管理備份] 窗格不會顯示超大規模資料庫將會篩選從 SQL server  | 超大規模資料庫有不同的管理備份方法，且這類的長期保留和時間點備份保留設定不會套用 / 都會失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
+| 還原時間點 | 一旦資料庫移轉成超大規模的服務層級，不支援還原點時間在移轉之前。|
 | 還原的非超大規模 DB 到 Hypserscale，反之亦然 | 您無法將超大規模將資料庫還原到非超大規模資料庫，也可以到超大規模資料庫還原的非超大規模資料庫。|
 | 如果資料庫檔案在移轉期間因為作用中的工作負載而成長，且超過每個檔案 1 TB 的界限，則移轉會失敗 | 緩和措施： <br> - 可能的話，請在不執行更新工作負載時遷移資料庫。<br> - 重試移轉，只要在移轉期間不超過 1 TB 的界限就會成功。|
 | 受控執行個體 | Azure SQL Database 受控執行個體目前不支援使用超大規模資料庫。 |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416085"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164482"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>教學課程：透過建議最佳化成本
 
@@ -54,7 +54,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 高影響建議包括：
 - [購買保留的虛擬機器執行個體以省下較隨用隨付成本](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
 - [最佳化虛擬機器調整大小，或正在關閉使用量過低的執行個體的費用](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [使用標準儲存體來儲存受控磁碟快照集 ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+- [使用標準儲存體來儲存受控磁碟快照集](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
 中度影響建議如下：
 - [刪除失敗的 Azure Data Factory 管線](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)

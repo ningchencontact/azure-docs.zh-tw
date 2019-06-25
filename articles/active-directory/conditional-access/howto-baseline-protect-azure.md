@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003172"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112376"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>基準原則：需要 MFA 才能進行服務管理 （預覽）
 
@@ -40,7 +40,7 @@ ms.locfileid: "66003172"
 Connect-AzAccount
 ```
 
-執行時，此 Cmdlet 會出示權杖字串。 若要登入，請複製這個字串並將它貼至 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) 瀏覽器中。 PowerShell 工作階段會進行驗證以便連線至 Azure。
+執行時，此 Cmdlet 會出示權杖字串。 若要登入，請複製這個字串並將它貼至 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  瀏覽器中。 PowerShell 工作階段會進行驗證以便連線至 Azure。
 
 若要執行互動式登入使用[Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)，請執行 [az 登入](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) 命令。
 
@@ -75,7 +75,7 @@ az login
 1. 瀏覽至**Azure Active Directory** > **條件式存取**。
 1. 在原則清單中，選取 **基準原則：服務管理 （預覽） 要求 MFA**。
 1. 設定**啟用原則**要**立即使用原則**。
-1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取 **再**完成**。
+1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取** 再**完成**。
 1. 按一下  **儲存**。
 
 ## <a name="next-steps"></a>後續步驟

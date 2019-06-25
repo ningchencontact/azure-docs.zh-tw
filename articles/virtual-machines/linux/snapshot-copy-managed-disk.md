@@ -15,10 +15,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 9f2f3ac3668f0e48716fc30fb69cd1782dbd4e56
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706965"
 ---
 # <a name="create-a-snapshot"></a>建立快照集 
@@ -29,7 +29,7 @@ ms.locfileid: "64706965"
 
 下列範例會要求您使用 [Cloud Shell](https://shell.azure.com/bash) 或已安裝 Azure CLI。
 
-下列步驟說明如何使用 **az snapshot create** 命令搭配 **--source-disk** 參數製作快照集。 下列範例假設 myResourceGroup 資源群組中有一個名為 myVM 的 VM。
+下列步驟說明如何使用 **az snapshot create** 命令搭配 **--source-disk** 參數製作快照集。 下列範例假設 myResourceGroup  資源群組中有一個名為 myVM  的 VM。
 
 使用 [az vm show](/cli/azure/vm#az-vm-show) 取得磁碟識別碼。
 
@@ -41,7 +41,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-使用 [az snapshot create](/cli/azure/snapshot#az-snapshot-create) 建立名為 osDisk-backup 的快照集。
+使用 [az snapshot create](/cli/azure/snapshot#az-snapshot-create) 建立名為 osDisk-backup  的快照集。
 
 ```azurecli-interactive
 az snapshot create \
@@ -64,13 +64,13 @@ az snapshot list \
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左上方開始，按一下 [建立資源] 並搜尋**快照集**。 從搜尋結果中選取 [快照集]。
-3. 在 [快照集] 刀鋒視窗中，按一下 [建立]。
-4. 輸入快照集的 [名稱]。
+2. 從左上方開始，按一下 [建立資源]  並搜尋**快照集**。 從搜尋結果中選取 [快照集]  。
+3. 在 [快照集]  刀鋒視窗中，按一下 [建立]  。
+4. 輸入快照集的 [名稱]  。
 5. 選取現有的資源群組，或輸入新群組的名稱。 
-7. 在 [來源磁碟] 中，選取要建立快照集的受控磁碟。
-8. 選取用來儲存快照集的 [帳戶類型]。 除非需要存放在高效能的 SSD 上，否則請使用 [標準 HDD]。
-9. 按一下頁面底部的 [新增] 。
+7. 在 [來源磁碟]  中，選取要建立快照集的受控磁碟。
+8. 選取用來儲存快照集的 [帳戶類型]  。 除非需要存放在高效能的 SSD 上，否則請使用 [標準 HDD]  。
+9. 按一下頁面底部的 [新增]  。
 
 
 ## <a name="next-steps"></a>後續步驟

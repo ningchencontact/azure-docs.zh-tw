@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61323915"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
@@ -27,13 +27,13 @@ ms.locfileid: "61323915"
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>檢視邏輯應用程式的執行和觸發程序歷程記錄
 
-1. 若要在 [Azure 入口網站](https://portal.azure.com)中尋找邏輯應用程式，請在主要 Azure 功能表上選擇 [所有服務]。 在搜尋方塊中，輸入「邏輯應用程式」，然後選擇 [邏輯應用程式]。
+1. 若要在 [Azure 入口網站](https://portal.azure.com)中尋找邏輯應用程式，請在主要 Azure 功能表上選擇 [所有服務]  。 在搜尋方塊中，輸入「邏輯應用程式」，然後選擇 [邏輯應用程式]  。
 
    ![尋找邏輯應用程式](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
    Azure 入口網站會顯示與 Azure 訂用帳戶相關聯的所有邏輯應用程式。 
 
-2. 選取邏輯應用程式，然後選擇 [概觀]。
+2. 選取邏輯應用程式，然後選擇 [概觀]  。
 
    Azure 入口網站會顯示邏輯應用程式的執行歷程記錄和觸發程序歷程記錄。 例如︰
 
@@ -45,15 +45,15 @@ ms.locfileid: "61323915"
    如需狀態描述，請參閱[針對邏輯應用程式進行疑難排解](../logic-apps/logic-apps-diagnosing-failures.md)。
 
    > [!TIP]
-   > 如果找不到您預期的資料，請在工具列上選擇 [重新整理]。
+   > 如果找不到您預期的資料，請在工具列上選擇 [重新整理]  。
 
-3. 若要檢視特定執行的步驟，請在 [執行歷程記錄] 下選取該執行。 
+3. 若要檢視特定執行的步驟，請在 [執行歷程記錄]  下選取該執行。 
 
    監視檢視會顯示該執行中的每個步驟。 例如︰
 
    ![特定執行的動作](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-4. 若要取得執行的其他詳細資訊，請選擇 [執行詳細資料]。 這項資訊摘要說明執行的步驟、狀態、輸入和輸出。 
+4. 若要取得執行的其他詳細資訊，請選擇 [執行詳細資料]  。 這項資訊摘要說明執行的步驟、狀態、輸入和輸出。 
 
    ![選擇 [執行詳細資料]](media/logic-apps-monitor-your-logic-apps/run-details.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "61323915"
    > [!NOTE]
    > 在 Logic Apps 服務內，會加密所有執行階段詳細資料和事件。 只有在使用者要求檢視該資料時，才對其進行解密。 您也可以使用 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 來控制對這些事件的存取權。
 
-6. 若要取得特定觸發程序事件的詳細資料，請回到 [概觀] 窗格。 在 [觸發程序歷程記錄] 下，選取觸發程序事件。 您現在可以檢閱輸入和輸出這類詳細資料，例如：
+6. 若要取得特定觸發程序事件的詳細資料，請回到 [概觀]  窗格。 在 [觸發程序歷程記錄]  下，選取觸發程序事件。 您現在可以檢閱輸入和輸出這類詳細資料，例如：
 
    ![觸發程序事件輸出詳細資料](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "61323915"
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>開啟邏輯應用程式的診斷記錄
 
-進行更豐富偵錯與執行階段詳細資料和事件，您可以設定診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure Monitor 是 Azure 中的一个服务，用于监视云和本地环境，帮助使其保持较高的可用性和性能。 
+進行更豐富偵錯與執行階段詳細資料和事件，您可以設定診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure 監視器是監視您的雲端和內部部署環境，協助您維護其可用性和效能的 Azure 中的服務。 
 
 開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
@@ -84,20 +84,20 @@ ms.locfileid: "61323915"
 
    ![移至 [監視]、[診斷]、[診斷設定]](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
-3. 在 [診斷設定] 下，選擇 [開啟]。
+3. 在 [診斷設定]  下，選擇 [開啟]  。
 
    ![開啟診斷記錄](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
 4. 現在選取用於記錄的 Log Analytics 工作區和事件類別目錄，如下所示：
 
-   1. 選取 [傳送至 Log Analytics]。 
-   2. 在 [Log Analytics] 下，選擇 [設定]。 
-   3. 在 [OMS 工作區] 下，選取要用於記錄的工作區。
+   1. 選取 [傳送至 Log Analytics]  。 
+   2. 在 [Log Analytics]  下，選擇 [設定]  。 
+   3. 在 [OMS 工作區]  下，選取要用於記錄的工作區。
       > [!NOTE]
       > OMS 工作區現在稱為 Log Analytics 工作區。
-   4. 在 [記錄] 下，選取 [WorkflowRuntime] 分類。
+   4. 在 [記錄]  下，選取 [WorkflowRuntime]  分類。
    5. 選擇計量間隔。
-   6. 完成之後，請選擇 [儲存]。
+   6. 完成之後，請選擇 [儲存]  。
 
    ![選取用於記錄的 Log Analytics 工作區和資料](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -109,15 +109,15 @@ ms.locfileid: "61323915"
 
 若要在邏輯應用程式中尋找並檢視觸發程序事件、執行事件和動作事件這類事件，請遵循下列步驟。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋「記錄分析」，然後選擇 [Log Analytics]，如下所示：
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]  。 搜尋「記錄分析」，然後選擇 [Log Analytics]  ，如下所示：
 
    ![選擇 [Log Analytics]](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
+2. 在 [Log Analytics]  下，尋找並選取 Log Analytics 工作區。 
 
    ![選取 Log Analytics 工作區](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. 在 [管理] 下，選擇 [記錄搜尋]。
+3. 在 [管理]  下，選擇 [記錄搜尋]  。
 
    ![選擇 [記錄搜尋]](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
@@ -130,18 +130,18 @@ ms.locfileid: "61323915"
    深入了解[如何在 Azure 監視器記錄檔中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
 5. 在結果頁面上，於左列中選擇您想要檢視的時間範圍。
-若要新增篩選來調整您的查詢，請選擇 [+新增]。
+若要新增篩選來調整您的查詢，請選擇 [+新增]  。
 
    ![選擇查詢結果的時間範圍](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-6. 在 [新增篩選] 下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]。
+6. 在 [新增篩選]  下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]  。
 
    此範例使用 "status" 這個字，在 **AzureDiagnostics** 下尋找失敗事件。
    在這裡，已選取 **status_s** 的篩選。
 
    ![選取篩選](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-7. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]。
+7. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]  。
 
    ![選取篩選值，然後選擇 [套用]](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
@@ -149,13 +149,13 @@ ms.locfileid: "61323915"
 
    ![回到具有已篩選結果的查詢](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-9. 若要儲存查詢供日後使用，請選擇 [儲存]。 了解[如何儲存查詢](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
+9. 若要儲存查詢供日後使用，請選擇 [儲存]  。 了解[如何儲存查詢](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
 
 <a name="extend-diagnostic-data"></a>
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>延伸搭配使用診斷資料與其他服務的方式和位置
 
-结合使用 Azure Monitor 日志后，可以扩展将逻辑应用的诊断数据用于其他 Azure 服务的方式，例如： 
+Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -178,18 +178,18 @@ ms.locfileid: "61323915"
 
 若要監視邏輯應用程式的特定計量或已超過閾值，請設定 [Azure 中的警示](../azure-monitor/platform/alerts-overview.md)。 了解 [Azure 中的計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
 
-若要設定警示，而不需要[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，請遵循下列步驟。 有关更高级的警报条件和操作，也可以[设置 Azure Monitor 日志](#azure-diagnostics)。
+若要設定警示，而不需要[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，請遵循下列步驟。 針對更進階的警示準則和動作[設定 Azure 監視器記錄](#azure-diagnostics)太。
 
-1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視] 下選擇 [診斷] > [警示規則] > [新增警示]，如下所示：
+1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視]  下選擇 [診斷]   > [警示規則]   > [新增警示]  ，如下所示：
 
    ![新增邏輯應用程式的警示](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
-2. 在 [新增警示規則] 刀鋒視窗上，建立您的警示，如下所示：
+2. 在 [新增警示規則]  刀鋒視窗上，建立您的警示，如下所示：
 
-   1. 在 [資源] 下，選取尚未選取的邏輯應用程式。 
+   1. 在 [資源]  下，選取尚未選取的邏輯應用程式。 
    2. 提供警示的名稱和描述。
-   3. 選取您想要追蹤的 [計量] 或事件。
-   4. 選取 [條件]，並指定計量的 [閾值]，然後選取用於監視此計量的 [期間]。
+   3. 選取您想要追蹤的 [計量]  或事件。
+   4. 選取 [條件]  ，並指定計量的 [閾值]  ，然後選取用於監視此計量的 [期間]  。
    5. 選取是否傳送警示的郵件。 
    6. 指定用於傳送警示的任何其他電子郵件地址。 
    您也可以指定要傳送警示的 Webhook URL。

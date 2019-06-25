@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
 ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787552"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>從套件檔案執行 Azure Functions
 
 > [!NOTE]
-> 本文所述的功能不适用于[应用服务计划](functions-scale.md#app-service-plan)中在 Linux 上运行的函数应用。
+> 這篇文章中所述的功能不適用於在 Linux 上執行的函式應用程式[App Service 方案](functions-scale.md#app-service-plan)。
 
 在 Azure 中，您可以直接從函式應用程式中的部署套件檔案執行函式。 另一個選項是將您的檔案部署在函式應用程式的 `d:\home\site\wwwroot` 目錄中。
 
@@ -42,13 +42,13 @@ ms.locfileid: "65787552"
 
 若要讓函式應用程式能夠從套件執行，您只需要將 `WEBSITE_RUN_FROM_PACKAGE` 設定新增至函式應用程式的設定。 `WEBSITE_RUN_FROM_PACKAGE` 設定可具有下列其中一個值：
 
-| Value  | 說明  |
+| 值  | 描述  |
 |---------|---------|
-| **`1`**  | 建议用于在 Windows 上运行的函数应用。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果不[使用 zip deploy 进行部署](#integration-with-zip-deployment)，则此选项要求该文件夹同时包含名为 `packagename.txt` 的文件。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
+| **`1`**  | 建議在 Windows 上執行的函式應用程式。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果沒有[部署與 zip 部署](#integration-with-zip-deployment)，這個選項要求也具有一個名為檔案的資料夾`packagename.txt`。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
 |**`<url>`**  | 所要執行的特定套件檔案所在的位置。 使用 Blob 儲存體時，請搭配使用私用容器與[共用存取簽章 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) 來讓 Functions 執行階段能夠存取套件。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)將套件檔案上傳至 Blob 儲存體帳戶。         |
 
 > [!CAUTION]
-> 在 Windows 上运行函数应用时，外部 URL 选项会导致糟糕的冷启动性能。 将函数应用部署到 Windows 时，应将 `WEBSITE_RUN_FROM_PACKAGE` 设置为 `1` 并通过 zip 部署进行发布。
+> 當在 Windows 上執行的函式應用程式，外部 URL 選項會產生更糟的是冷啟動效能。 當您的函式應用程式部署至 Windows 中，您應該設定`WEBSITE_RUN_FROM_PACKAGE`至`1`及 zip 部署發行。
 
 下圖顯示的函式應用程式已設定為要從裝載於 Azure Blob 儲存體的 .zip 檔案來執行：
 

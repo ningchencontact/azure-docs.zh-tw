@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34f2d11cf4e1fb8e03d037be221e7b18ed4c5ad0
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242040"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303336"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 連線到 Azure Kubernetes Service (AKS) 叢集節點以進行維護或疑難排解
 
@@ -22,13 +22,13 @@ ms.locfileid: "66242040"
 
 ## <a name="before-you-begin"></a>開始之前
 
-此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 AKS 快速入門[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
 
 您也需要 Azure CLI 2.0.64 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="add-your-public-ssh-key"></a>新增公開 SSH 金鑰
 
-根據預設，SSH 金鑰是取得，或產生，則當您建立 AKS 叢集加入節點。 如果您需要指定不同於建立 AKS 叢集時所使用的 SSH 金鑰，請將 SSH 公開金鑰加入 Linux AKS 節點。 如有需要您可以建立 SSH 金鑰使用[macOS 或 Linux] [ ssh-nix]或是[Windows][ssh-windows]。 如果您使用 PuTTY Gen 來建立金鑰組，OpenSSH 中的金鑰組儲存格式而不是預設的 PuTTy 私密金鑰格式 （.ppk 檔案）。
+根據預設，SSH 金鑰是取得，或產生，則當您建立 AKS 叢集加入節點。 如果您需要指定不同於建立 AKS 叢集時所使用的 SSH 金鑰，請將 SSH 公開金鑰加入 Linux AKS 節點。 如有需要您可以建立 SSH 金鑰使用[macOS 或 Linux][ssh-nix] or [Windows][ssh-windows]。 如果您使用 PuTTY Gen 來建立金鑰組，OpenSSH 中的金鑰組儲存格式而不是預設的 PuTTy 私密金鑰格式 （.ppk 檔案）。
 
 > [!NOTE]
 > SSH 金鑰可以目前只能加入至使用 Azure CLI 的 Linux 節點。 如果您使用 Windows Server 的節點時，使用建立 AKS 叢集時所提供的 SSH 金鑰，並跳至步驟上[如何取得 AKS 節點位址](#get-the-aks-node-address)。 或者，[連接到使用遠端桌面通訊協定 (RDP) 連線的 Windows Server 節點][aks-windows-rdp]。
@@ -42,13 +42,13 @@ ms.locfileid: "66242040"
 
 若要將您的 SSH 金鑰新增至 Linux AKS 節點中，完成下列步驟：
 
-1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱。 叢集名稱指派給名為的變數*CLUSTER_RESOURCE_GROUP*:
+1. 取得使用您 AKS 叢集資源的資源群組名稱[az aks 顯示][az-aks-show]。 叢集名稱指派給名為的變數*CLUSTER_RESOURCE_GROUP*。 取代*myResourceGroup*您您 AKS 叢集所在的資源群組的名稱：
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. 使用 [az vm list][az-vm-list] 命令列出 AKS 叢集資源群組中的虛擬機器。 這些虛擬機器是您的 AKS 節點：
+1. 列出在 AKS 叢集資源群組使用的 Vm [az vm 清單][az-vm-list]命令。 這些虛擬機器是您的 AKS 節點：
 
     ```azurecli-interactive
     az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -62,7 +62,7 @@ ms.locfileid: "66242040"
     aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
     ```
 
-1. 若要將 SSH 金鑰新增至節點，請使用 [az vm user update][az-vm-user-update] 命令。 提供資源群組名稱，以及上一個步驟中取得的其中一個 AKS 節點。 根據預設，AKS 節點的使用者名稱是 *azureuser*。 提供您自己的 SSH 公開金鑰位置，例如 *~/.ssh/id_rsa.pub*，或貼上 SSH 公開金鑰的內容：
+1. 若要新增至節點的 SSH 金鑰，請使用[az vm 的使用者更新][az-vm-user-update]命令。 提供資源群組名稱，以及上一個步驟中取得的其中一個 AKS 節點。 根據預設，AKS 節點的使用者名稱是 *azureuser*。 提供您自己的 SSH 公開金鑰位置，例如 *~/.ssh/id_rsa.pub*，或貼上 SSH 公開金鑰的內容：
 
     ```azurecli-interactive
     az vm user update \
@@ -76,19 +76,19 @@ ms.locfileid: "66242040"
 
 若要將您的 SSH 金鑰新增至 Linux AKS 節點虛擬機器擴展集的一部分，完成下列步驟：
 
-1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱。 叢集名稱指派給名為的變數*CLUSTER_RESOURCE_GROUP*:
+1. 取得使用您 AKS 叢集資源的資源群組名稱[az aks 顯示][az-aks-show]。 叢集名稱指派給名為的變數*CLUSTER_RESOURCE_GROUP*。 取代*myResourceGroup*您您 AKS 叢集所在的資源群組的名稱：
 
     ```azurecli-interactive
     CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
-1. 接下來，取得虛擬機器擴展集使用 AKS 叢集[az vmss 清單][ az-vmss-list]命令。 虛擬機器擴展集名稱指派給名為的變數*SCALE_SET_NAME*:
+1. 接下來，取得虛擬機器擴展集使用 AKS 叢集[az vmss 清單][az-vmss-list]命令。 虛擬機器擴展集名稱指派給名為的變數*SCALE_SET_NAME*:
 
     ```azurecli-interactive
     SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
     ```
 
-1. 若要將您的 SSH 金鑰新增至虛擬機器擴展集中的節點中，使用[az vmss 擴充功能組][ az-vmss-extension-set]命令。 從先前的命令提供的叢集資源群組和虛擬機器擴展集名稱。 根據預設，AKS 節點的使用者名稱是 *azureuser*。 視需要更新的您自己 SSH 公用金鑰位置，例如 *~/.ssh/id_rsa.pub*:
+1. 若要將您的 SSH 金鑰新增至虛擬機器擴展集中的節點中，使用[az vmss 擴充功能組][az-vmss-extension-set]命令。 從先前的命令提供的叢集資源群組和虛擬機器擴展集名稱。 根據預設，AKS 節點的使用者名稱是 *azureuser*。 視需要更新的您自己 SSH 公用金鑰位置，例如 *~/.ssh/id_rsa.pub*:
 
     ```azurecli-interactive
     az vmss extension set  \
@@ -100,7 +100,7 @@ ms.locfileid: "66242040"
         --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
     ```
 
-1. 套用到使用節點的 SSH 金鑰[az vmss update-執行個體][ az-vmss-update-instances]命令：
+1. 套用到使用節點的 SSH 金鑰[az vmss update-執行個體][az-vmss-update-instances]命令：
 
     ```azurecli-interactive
     az vmss update-instances --instance-ids '*' \
@@ -117,7 +117,7 @@ AKS 節點不會公開至網際網路。 對於 SSH 至 AKS 節點，您可以�
 
 ### <a name="ssh-to-regular-aks-clusters"></a>透過 ssh 連線到一般的 AKS 叢集
 
-使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令檢視 AKS 叢集節點的私人 IP 位址。 提供您自己的 AKS 叢集資源群組名稱，此名稱會在前一個 [az-aks-show][az-aks-show] 步驟中取得：
+檢視的 AKS 叢集節點使用的私人 IP 位址[az vm 列出 ip 位址][az-vm-list-ip-addresses]command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show]步驟：
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -172,7 +172,7 @@ aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. 在未連線到容器的新終端機視窗中，，請使用 [kubectl get pods][kubectl-get] 命令列出 AKS 叢集上的 Pod。 在前一個步驟中建立的 Pod 名稱開頭為 *aks-ssh*，如下列範例所示：
+1. 在新的終端機視窗中，未連線到您的容器，列出您 AKS 叢集使用 pod [kubectl get pods][kubectl-get]命令。 在前一個步驟中建立的 Pod 名稱開頭為 *aks-ssh*，如下列範例所示：
 
     ```
     $ kubectl get pods
@@ -224,7 +224,7 @@ aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67
 
 ## <a name="next-steps"></a>後續步驟
 
-如需其他疑難排解資料，您可以[檢視 kubelet 記錄][view-kubelet-logs]或[檢視 Kubernetes 主要節點記錄][view-master-logs]。
+如果您需要其他的疑難排解資料，您可以[檢視 kubelet 記錄][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs]。
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

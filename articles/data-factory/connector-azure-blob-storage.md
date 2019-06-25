@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233193"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206041"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
@@ -60,7 +60,10 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 - [Azure 資源的受控識別驗證](#managed-identity)
 
 >[!NOTE]
->HDInsights、Azure Machine Learning 和 Azure SQL 資料倉儲 PolyBase 負載僅支援 Azure Blob 儲存體帳戶金鑰驗證。
+>當使用 PolyBase 將資料載入 SQL 資料倉儲中，如果您的來源或暫存 Blob 儲存體設定與虛擬網路端點，必須使用受控身分識別驗證所需的 PolyBase，並使用自我裝載整合執行階段版本3.18 或更新版本。 請參閱[受管理的身分識別驗證](#managed-identity)詳細的設定必要條件一節。
+
+>[!NOTE]
+>HDInsights 和 Azure Machine Learning 活動僅支援 Azure Blob 儲存體帳戶金鑰驗證。
 
 ### <a name="account-key-authentication"></a>帳戶金鑰驗證
 
@@ -272,6 +275,9 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 
     - **作為來源**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料讀取者]  角色。
     - **作為接收**，在存取控制 (IAM) 中，至少授與 [儲存體 Blob 資料參與者]  角色。
+
+>[!IMPORTANT]
+>如果您使用 PolyBase 將資料從 Blob （做為來源或預備），載入 SQL 資料倉儲，blob 使用受控身分識別驗證時，請確定您也可以遵循步驟 1 和 2 中的[本指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)為 1) 註冊您的 SQL Database伺服器與 Azure Active Directory (Azure AD) 和 2），將儲存體 Blob 資料參與者角色指派給您的 SQL Database 伺服器;Data Factory 會處理其餘部分。 如果您的 Blob 儲存體已與 Azure 虛擬網路端點，若要使用 PolyBase 載入資料，您必須使用受控身分識別驗證所需的 PolyBase。
 
 以下是支援 Azure Blob 儲存體連結服務的屬性：
 

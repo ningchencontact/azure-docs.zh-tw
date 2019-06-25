@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800297"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
@@ -117,7 +117,7 @@ Linux 自訂指令碼擴充功能有兩個：
 }
 ```
 
-### <a name="property-values"></a>属性值
+### <a name="property-values"></a>屬性值
 
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
@@ -149,7 +149,7 @@ Linux 自訂指令碼擴充功能有兩個：
 
 ## <a name="template-deployment"></a>範本部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 上一節詳述的 JSON 結構描述可以用於 Azure Resource Manager 範本，以在 Azure Resource Manager 範本部署期間執行自訂指令碼擴充功能。
+也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節詳述的 JSON 結構描述可以用於 Azure Resource Manager 範本，以在 Azure Resource Manager 範本部署期間執行自訂指令碼擴充功能。
 
 ```json
 {
@@ -304,7 +304,7 @@ az vm extension set
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-应该查找如下所示的个别执行：
+您應該尋找個別的執行，它看起來像：
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

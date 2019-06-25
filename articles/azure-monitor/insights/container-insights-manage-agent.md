@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
 ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65071790"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>如何管理適用於容器的 Azure 監視器代理程式
@@ -61,7 +61,7 @@ ms.locfileid: "65071790"
     docker-cimprov 1.0.0.31
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>如何在容器上停用收集環境變數
-適用於容器的 Azure 監視器會從在 Pod 中執行的容器收集環境變數，並在 [容器] 檢視內所選取容器的屬性窗格中顯示它們。 您可以藉由在 AKS 叢集部署期間，或在設定環境變數 *AZMON_COLLECT_ENV* 之後，停用對特定容器進行收集。 此功能可從代理程式版本 (ciprod11292018 和更新版本) 中取得。  
+適用於容器的 Azure 監視器會從在 Pod 中執行的容器收集環境變數，並在 [容器]  檢視內所選取容器的屬性窗格中顯示它們。 您可以藉由在 AKS 叢集部署期間，或在設定環境變數 *AZMON_COLLECT_ENV* 之後，停用對特定容器進行收集。 此功能可從代理程式版本 (ciprod11292018 和更新版本) 中取得。  
 
 若要在新的或現有容器上停用收集環境變數，請在您的 Kubernetes 部署 yaml 設定檔中，將變數 **AZMON_COLLECT_ENV** 的值設定為 **False**。   
 
@@ -72,7 +72,7 @@ ms.locfileid: "65071790"
 
 執行下列命令，以將變更套用至您的 AKS 容器：`kubectl apply -f  <path to yaml file>`。
 
-若要確認設定變更已生效，在適用於容器的 Azure 監視器中選取 [容器] 檢視中的容器，並在 [屬性] 面板中展開 [環境變數]。  此區段應該只會顯示稍早建立的變數 **AZMON_COLLECT_ENV=FALSE**。 對於所有其他容器，[環境變數] 區段應該會列出探索到的所有環境變數。   
+若要確認設定變更已生效，在適用於容器的 Azure 監視器中選取 [容器]  檢視中的容器，並在 [屬性] 面板中展開 [環境變數]  。  此區段應該只會顯示稍早建立的變數 **AZMON_COLLECT_ENV=FALSE**。 對於所有其他容器，[環境變數] 區段應該會列出探索到的所有環境變數。   
 
 若要重新啟用環境變數的探索，請套用稍早的相同程序，並將值從 **False** 變更為 **True**，然後重新執行 `kubectl` 命令來更新容器。  
 

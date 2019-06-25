@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509211"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271960"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -152,7 +153,9 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點，可讓應用程式以取
 
 如果您需要您的 web 應用程式只能執行 使用者流程，您可以略過接下來的章節。 下列各節是僅適用於 web 應用程式，需要進行已驗證的 web API 的呼叫，並同時受 Azure AD B2C。
 
-您可以藉由將 `POST` 要求傳送至 `/token` 端點，將取得 (使用 `response_type=code+id_token`) 的權杖授權碼兌換成所需的資源。 目前，您可以要求權杖的唯一資源是您的應用程式本身的後端 web API。 來為您自己要求權杖的慣例是使用您的應用程式用戶端識別碼作為範圍：
+您可以藉由將 `POST` 要求傳送至 `/token` 端點，將取得 (使用 `response_type=code+id_token`) 的權杖授權碼兌換成所需的資源。 在 Azure AD B2C 中，您可以[其他 API 要求存取權杖](active-directory-b2c-access-tokens.md#request-a-token)像往常一樣是藉由在要求中指定其範圍。
+
+您也可以要求存取權杖為您的應用程式本身的後端 Web API 的使用做為要求的範圍 （這將會導致 「 對象 」 作為該用戶端識別碼的存取權杖） 的應用程式的用戶端識別碼的慣例：
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2b0c01ee4b1d1bc5ce83fc0afc309abfcf25f33e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6841caf94ec9712ff85e420e4378f8c9572e586b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419385"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202958"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -99,7 +99,7 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
         # logout
 16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]  。 您現在可以將 Linux VHD 上傳至 Azure。
 
-- - -
+---
 ## <a name="prepare-opensuse-131"></a>準備執行 openSUSE 13.1+
 1. 在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 2. 按一下 **[連接]** ，以開啟虛擬機器的視窗。

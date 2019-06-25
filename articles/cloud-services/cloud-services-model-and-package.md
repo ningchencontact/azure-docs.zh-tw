@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080766"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什麼是雲端服務模型？如何封裝？
-雲端服務是從三個元件建立的，也就是服務定義 (.csdef)、服務組態 (.cscfg) 和服務封裝 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 這兩個檔案是以 XML 為基礎，描述雲端服務的結構及其設定方式，統稱為模型。 **ServicePackage.cspkg** 是從 **ServiceDefinition.csdef** 產生的 zip 檔案，此外，包含所有必要的二進位型相依性。 Azure 會從 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 建立雲端服務。
+雲端服務是從三個元件建立的，也就是服務定義 (.csdef)  、服務組態 (.cscfg)  和服務封裝 (.cspkg)  。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 這兩個檔案是以 XML 為基礎，描述雲端服務的結構及其設定方式，統稱為模型。 **ServicePackage.cspkg** 是從 **ServiceDefinition.csdef** 產生的 zip 檔案，此外，包含所有必要的二進位型相依性。 Azure 會從 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 建立雲端服務。
 
 一旦雲端服務在 Azure 中執行之後，您就可以透過 **ServiceConfig.cscfg** 檔案重新設定它，但您無法改變定義。
 
@@ -32,7 +32,7 @@ ms.locfileid: "61432631"
 * 我想要建立 [ServicePackage.cspkg](#cspkg)。
 * 我打算使用 Visual Studio，而我想要...
   * [建立雲端服務][vs_create]
-  * [重新配置现有云服务][vs_reconfigure]
+  * [重新設定現有的雲端服務][vs_reconfigure]
   * [部署雲端服務專案][vs_deploy]
   * [從遠端桌面進入雲端服務執行個體][remotedesktop]
 
@@ -93,28 +93,28 @@ ms.locfileid: "61432631"
 您可以參考[服務定義結構描述](/previous-versions/azure/reference/ee758711(v=azure.100))，進一步了解此處所使用的 XML 結構描述，不過，以下是某些元素的簡短說明：
 
 **Sites**  
- 包含 IIS7 中所裝載的網站或 Web 應用程式的定義。
+包含 IIS7 中所裝載的網站或 Web 應用程式的定義。
 
 **InputEndpoints**  
- 包含用來連絡雲端服務的端點的定義。
+包含用來連絡雲端服務的端點的定義。
 
 **InternalEndpoints**  
- 包含角色執行個體用來彼此通訊的端點的定義。
+包含角色執行個體用來彼此通訊的端點的定義。
 
 **ConfigurationSettings**  
- 包含特定角色功能的設定定義。
+包含特定角色功能的設定定義。
 
 **Certificates**  
- 包含角色所需的憑證的定義。 上述程式碼範例顯示用於設定 Azure Connect 的憑證。
+包含角色所需的憑證的定義。 上述程式碼範例顯示用於設定 Azure Connect 的憑證。
 
 **LocalResources**  
- 包含本機儲存資源的定義。 本機儲存資源是執行中角色執行個體所在之虛擬機器的檔案系統上的保留目錄。
+包含本機儲存資源的定義。 本機儲存資源是執行中角色執行個體所在之虛擬機器的檔案系統上的保留目錄。
 
 **Imports**  
- 包含匯入的模組的定義。 上述程式碼範例顯示遠端桌面連線與 Azure Connect 的模組。
+包含匯入的模組的定義。 上述程式碼範例顯示遠端桌面連線與 Azure Connect 的模組。
 
 **Startup**  
- 包含角色啟動時執行的工作。 這些工作是在 .cmd 或可執行檔中定義。
+包含角色啟動時執行的工作。 這些工作是在 .cmd 或可執行檔中定義。
 
 <a name="cscfg"></a>
 
@@ -144,23 +144,23 @@ ms.locfileid: "61432631"
 您可以參考 [服務組態結構描述](/previous-versions/azure/reference/ee758710(v=azure.100)) ，進一步了解此處所使用的 XML 結構描述，不過，以下是元素的簡短說明：
 
 **Instances**  
-为角色配置运行角色实例数。 為防止您的雲端服務在升級期間可能變成無法使用，建議您部署多個 Web 對向角色執行個體。 部署多個執行個體的做法符合 [Azure 計算服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/)中的指導方針，當您為服務部署兩個或更多個角色執行個體時，此等級協定可保證網際網路對向角色有 99.95% 的外部連線能力。
+設定執行中角色執行個體的數目。 為防止您的雲端服務在升級期間可能變成無法使用，建議您部署多個 Web 對向角色執行個體。 部署多個執行個體的做法符合 [Azure 計算服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/)中的指導方針，當您為服務部署兩個或更多個角色執行個體時，此等級協定可保證網際網路對向角色有 99.95% 的外部連線能力。
 
 **ConfigurationSettings**  
- 設定執行中角色執行個體的設定。 `<Setting>` 元素的名稱必須符合服務定義檔中的設定定義。
+設定執行中角色執行個體的設定。 `<Setting>` 元素的名稱必須符合服務定義檔中的設定定義。
 
 **Certificates**  
- 設定服務所使用的憑證。 上述程式碼範例顯示如何定義 RemoteAccess 模組的憑證。 *thumbprint* 屬性的值必須設定為要使用的憑證的指紋。
+設定服務所使用的憑證。 上述程式碼範例顯示如何定義 RemoteAccess 模組的憑證。 *thumbprint* 屬性的值必須設定為要使用的憑證的指紋。
 
 <p/>
 
 > [!NOTE]
-> 您可以使用文字編輯器，將憑證指紋新增至組態檔。 或者，在 Visual Studio 中，也可以在角色 [屬性] 頁面的 [憑證] 索引標籤上新增值。
+> 您可以使用文字編輯器，將憑證指紋新增至組態檔。 或者，在 Visual Studio 中，也可以在角色 [屬性]  頁面的 [憑證]  索引標籤上新增值。
 > 
 > 
 
 ## <a name="defining-ports-for-role-instances"></a>定義角色執行個體的連接埠
-Azure 仅允许 Web 角色有一个入口点。 這表示所有流量都是透過一個 IP 位址發生。 可以通过配置主机头使请求指向正确的位置来配置网站共享一个端口。 您也可以設定您的應用程式接聽 IP 位址的公認連接埠。
+Azure 對於 Web 角色，僅允許一個進入點。 這表示所有流量都是透過一個 IP 位址發生。 您可以設定您的網站共用連接埠，方法是設定主機標頭，將要求導向到正確的位置。 您也可以設定您的應用程式接聽 IP 位址的公認連接埠。
 
 以下範例顯示具有網站及 Web 應用程式的 Web 角色的組態。 網站會設定為連接埠 80 上的預設進入位置，而 Web 應用程式則會設定為從稱為 "mail.mysite.cloudapp.net" 的替代主機標頭接收要求。
 
@@ -186,7 +186,7 @@ Azure 仅允许 Web 角色有一个入口点。 這表示所有流量都是透�
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -213,7 +213,7 @@ Azure 仅允许 Web 角色有一个入口点。 這表示所有流量都是透�
 * **[Changing](/previous-versions/azure/reference/ee758134(v=azure.100)) 事件**  
   這會在組態變更套用至指定的角色執行個體之前發生，讓您有機會記下角色執行個體 (如有需要)。
 * **[Changed](/previous-versions/azure/reference/ee758129(v=azure.100)) 事件**  
-  发生在配置更改已应用于某个角色的指定实例之后。
+  ：在組態變更套用至指定的角色執行個體之後發生。
 
 > [!NOTE]
 > 由於憑證變更時，一律會讓角色執行個體離線，因此不會引發 RoleEnvironment.Changing 或 RoleEnvironment.Changed 事件。
@@ -266,28 +266,28 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 其中的變數定義如下：
 
-| 變數 | Value |
+| 變數 | 值 |
 | --- | --- |
 | \[DirectoryName\] |專案根目錄底下的子目錄，其中包含 Azure 專案的 .csdef 檔案。 |
-| \[ServiceDefinition\] |服務定義檔的名稱。 默认情况下，此文件名为 ServiceDefinition.csdef。 |
-| \[OutputFileName\] |生成的包文件的名称。 一般而言，這是設定為應用程式的名稱。 如果沒有指定檔案名稱，就會將應用程式封裝建立為 \[ApplicationName\].cspkg。 |
+| \[ServiceDefinition\] |服務定義檔的名稱。 根據預設，此檔案的名稱為 ServiceDefinition.csdef。 |
+| \[OutputFileName\] |所產生的封裝檔案的名稱。 一般而言，這是設定為應用程式的名稱。 如果沒有指定檔案名稱，就會將應用程式封裝建立為 \[ApplicationName\].cspkg。 |
 | \[RoleName\] |服務定義檔中所定義的角色名稱。 |
 | \[RoleBinariesDirectory] |角色的二進位檔案的位置。 |
 | \[VirtualPath\] |在服務定義的 Sites 區段中定義的每個虛擬路徑的實體目錄。 |
 | \[PhysicalPath\] |在服務定義的 site 節點中定義的每個虛擬路徑內容的實體目錄。 |
-| \[RoleAssemblyName\] |角色的二进制文件的名称。 |
+| \[RoleAssemblyName\] |角色的二進位檔案的名稱。 |
 
 ## <a name="next-steps"></a>後續步驟
-我正在创建云服务包，并且我想要...
+我打算建立雲端服務封裝，而且我想要...
 
-* [为云服务实例设置远程桌面][remotedesktop]
+* [設定雲端服務執行個體的遠端桌面][remotedesktop]
 * [部署雲端服務專案][deploy]
 
-我正在使用 Visual Studio，我想要...
+我打算使用 Visual Studio，而我想要...
 
 * [建立新的雲端服務][vs_create]
 * [重新設定現有的雲端服務][vs_reconfigure]
-* [部署云服务项目][vs_deploy]
+* [部署雲端服務專案][vs_deploy]
 * [設定雲端服務執行個體的遠端桌面][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md

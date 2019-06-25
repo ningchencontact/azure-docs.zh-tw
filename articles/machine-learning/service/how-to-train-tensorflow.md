@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9961129805d133c4512e40e4c8be80185316a1ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074912"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165548"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>定型，並向 Azure Machine Learning 服務的規模 TensorFlow 模型
 
@@ -27,12 +27,20 @@ TensorFlow 是開放原始碼運算架構，通常用來建立深度類神經網
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
-- [安裝 Azure Machine Learning 適用於 Python 的 SDK](setup-create-workspace.md#sdk)
-- [建立工作區的設定檔](setup-create-workspace.md#write-a-configuration-file)
-- [下載範例指令碼檔](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)`mnist-tf.py`和 `utils.py`
+在這兩個環境上執行此程式碼：
 
-您也可以找到已完成[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb)GitHub 範例頁面本指南。 此 notebook 還包含擴充的各節涵蓋智慧型的超參數微調、 模型部署和 notebook widget。
+ - Azure Machine Learning Notebook VM-不需要下載或必要的安裝
+
+     - 完成[雲端為基礎的 notebook 快速入門](quickstart-run-cloud-notebook.md)建立專用的 notebook 伺服器 SDK 與範例存放庫中預先載入。
+    - 在 notebook 伺服器上的 [samples] 資料夾，請瀏覽至這個目錄中找到已完成，並展開 notebook:**作法-要-使用-azureml > 訓練與深度學習 > train-hyperparameter-tune-deploy-with-tensorflow**資料夾。 
+ 
+ - 您自己的 Jupyter Notebook 伺服器
+
+     - [安裝 Azure Machine Learning 適用於 Python 的 SDK](setup-create-workspace.md#sdk)
+    - [建立工作區的設定檔](setup-create-workspace.md#write-a-configuration-file)
+    - [下載範例指令碼檔](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)`mnist-tf.py`和 `utils.py`
+     
+    您也可以找到已完成[Jupyter Notebook 版本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb)本指南的 GitHub 範例頁面。 此 notebook 還包含擴充的各節涵蓋智慧型的超參數微調、 模型部署和 notebook widget。
 
 ## <a name="set-up-the-experiment"></a>設定實驗
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 98b316f8a9c1c8ceba91870af4ff67b1aa854a9b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/20/2019
+ms.openlocfilehash: 0b92fb9c9bf022adce4cc0dd3e58ce8e476ed5b7
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785327"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303499"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 
@@ -30,12 +30,15 @@ ms.locfileid: "65785327"
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>在 Azure 入口網站中從 BACPAC 檔案匯入
 
-[Azure 入口網站](https://portal.azure.com)「僅」支援在 Azure SQL Database 中建立單一資料庫，且「僅能」從儲存在 Azure Blob 儲存體中的 BACPAC 檔案建立。
+[Azure 入口網站](https://portal.azure.com)「僅」  支援在 Azure SQL Database 中建立單一資料庫，且「僅能」  從儲存在 Azure Blob 儲存體中的 BACPAC 檔案建立。
 
 > [!NOTE]
 > [受控執行個體](sql-database-managed-instance.md)目前不支援使用 Azure 入口網站從 BACPAC 檔案將資料庫移轉到執行個體資料庫中。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
 
-1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]。  
+> [!NOTE]
+> 處理匯入/匯出要求透過入口網站或 Powershell 提交的機器需要儲存 bacpac 檔案，以及資料層應用程式架構 (DacFX) 所產生的暫存檔案。 所需的磁碟空間而異大幅資料庫使用相同的大小，並可能需要最多 3 次的資料庫大小。 執行僅限匯入/匯出要求機器有 450 GB 本機的磁碟空間。 因此，某些要求可能會失敗，「 沒有足夠的空間磁碟上 「 錯誤。 在此情況下，因應措施是在本機的磁碟空間不足的電腦上執行 sqlpackage.exe。 匯入/匯出時大於 150 GB 的資料庫，請使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)若要避免這個問題。
+ 
+1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]  。  
 
    ![資料庫匯入1](./media/sql-database-import/import1.png)
 
@@ -44,13 +47,13 @@ ms.locfileid: "65785327"
 
    ![資料庫匯入2](./media/sql-database-import/import2.png)
 
-4. 按一下 [確定]。
+4. 按一下 [確定]  。
 
-5. 若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
+5. 若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定]  下選取 [匯入/匯出記錄]  。 匯入成功時，會處於 [已完成]  狀態。
 
    ![資料庫匯入狀態](./media/sql-database-import/import-status.png)
 
-6. 若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
+6. 若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]  ，並確認新的資料庫為 [線上]  狀態。
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>使用 SqlPackage 從 BACPAC 檔案匯入
 
@@ -81,6 +84,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > [受管理的執行個體](sql-database-managed-instance.md)目前不支援將資料庫移轉到執行個體資料庫從 BACPAC 檔案，使用 Azure PowerShell。 若要匯入至受控執行個體，請使用 SQL Server Management Studio 或 SQLPackage。
 
+> [!NOTE]
+> 處理匯入/匯出要求透過入口網站或 Powershell 提交的機器需要儲存 bacpac 檔案，以及資料層應用程式架構 (DacFX) 所產生的暫存檔案。 所需的磁碟空間而異大幅資料庫使用相同的大小，並可能需要最多 3 次的資料庫大小。 執行僅限匯入/匯出要求機器有 450 GB 本機的磁碟空間。 因此，某些要求可能會失敗，「 沒有足夠的空間磁碟上 「 錯誤。 在此情況下，因應措施是在本機的磁碟空間不足的電腦上執行 sqlpackage.exe。 匯入/匯出時大於 150 GB 的資料庫，請使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)若要避免這個問題。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
