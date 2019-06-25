@@ -80,8 +80,8 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 | 名稱 | 值 / 範例 | 数据类型 | 必要項？
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | 字串 | Y |
-| settings/runlist | `recipe[mycookbook::default]` | 字串 | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>受保護的設定
 
