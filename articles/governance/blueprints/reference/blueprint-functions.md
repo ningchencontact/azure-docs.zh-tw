@@ -109,11 +109,11 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 | 運算是 | 類型 | 值 |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | 「 "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | 陣列 | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | 「 我的字串值" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | 「 我的值 」 |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
