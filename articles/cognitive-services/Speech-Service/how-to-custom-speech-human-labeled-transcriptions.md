@@ -31,8 +31,8 @@ ms.locfileid: "65026728"
 
 | 要避免的字元 | 替代字元 | 注意 |
 |---------------------|--------------|-------|
-| "Hello world" | "Hello world" | 已有適當的 ASCII 字元取代開頭和結尾的引號。 |
-| John 所作出的一天 | John 所作出的一天 | 單引號已取代為適當的 ASCII 字元。 |
+| “Hello world” | "Hello world" | 已有適當的 ASCII 字元取代開頭和結尾的引號。 |
+| John’s day | John's day | 單引號已取代為適當的 ASCII 字元。 |
 | it was good—no, it was great! | it was good--no, it was great! | Em dash 已取代兩個連字號。 |
 
 ### <a name="text-normalization-for-us-english"></a>適用於美國英文文字正規化
@@ -54,9 +54,9 @@ ms.locfileid: "65026728"
 | Ke$ha | Kesha |
 | How long is the 2x4 | How long is the two by four |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
-| 我的血液類型是 O + | My blood type is O positive |
-| water 是 amp;h20 | water 是 H 2 O |
-| 播放 Van Halen 的 OU812 | 播放 O U Van Halen 8 1 2 |
+| My blood type is O+ | My blood type is O positive |
+| Water is H20 | Water is H 2 O |
+| Play OU812 by Van Halen | Play O U 8 1 2 by Van Halen |
 | UTF-8 with BOM | U T F 8 with BOM |
 
 下列的正規化規則會自動套用至轉譯：
