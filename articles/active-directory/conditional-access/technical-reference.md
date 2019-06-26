@@ -119,8 +119,8 @@ ms.locfileid: "67112116"
 | Windows 10             | Internet Explorer、Microsoft Edge、Chrome     |
 | Windows 8 / 8.1        | Internet Explorer、Chrome                     |
 | Windows 7              | Internet Explorer、Chrome                     |
-| iOS                    | Microsoft Edge 的 safari Intune Managed 的 Browser |
-| Android                | Chrome、 Microsoft Edge Intune Managed 的 Browser |
+| iOS                    | Safari、 Microsoft Edge、 Intune Managed Browser |
+| Android                | Chrome、 Microsoft Edge、 Intune Managed Browser |
 | Windows Phone          | Internet Explorer、Microsoft Edge             |
 | Windows Server 2016    | Internet Explorer、Microsoft Edge             |
 | Windows Server 2016    | Chrome                                        |
@@ -141,9 +141,9 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| 名稱 | 1 |
-| 類型 | REG_SZ (字串) |
-| 資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Name | 1 |
+| Type | REG_SZ (字串) |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
 
@@ -151,8 +151,8 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
-| 類型 | REG_SZ (字串) |
-| 資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Type | REG_SZ (字串) |
+| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。
 
