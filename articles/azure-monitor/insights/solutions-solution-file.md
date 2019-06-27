@@ -85,12 +85,12 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 | 參數 | 類型 | 描述 |
 |:--- |:--- |:--- |
-| accountName |字串 |Azure 自動化帳戶名稱。 |
-| pricingTier |字串 |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
-| regionId |字串 |Azure 自動化帳戶的區域。 |
-| solutionName |字串 |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
-| workspaceName |字串 |Log Analytics 工作區名稱。 |
-| workspaceRegionId |字串 |Log Analytics 工作區的區域。 |
+| accountName |string |Azure 自動化帳戶名稱。 |
+| pricingTier |string |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
+| regionId |string |Azure 自動化帳戶的區域。 |
+| solutionName |string |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
+| workspaceName |string |Log Analytics 工作區名稱。 |
+| workspaceRegionId |string |Log Analytics 工作區的區域。 |
 
 
 以下是您可以複製並貼到您的方案檔案中的標準參數結構。  
