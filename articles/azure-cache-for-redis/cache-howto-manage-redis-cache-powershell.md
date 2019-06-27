@@ -127,17 +127,17 @@ ms.locfileid: "62097924"
 
 | 參數 | 描述 | 預設值 |
 | --- | --- | --- |
-| 名稱 |快取的名稱 | |
-| 位置 |快取的位置 | |
-| resourceGroupName |資源群組名稱，將在其中建立快取 | |
-| 大小 |快取的大小。 有效值為：P1、P2、P3、P4、C0、C1、C2、C3、C4、C5、C6、250MB、1GB、2.5GB、6GB、13GB、26GB、53GB |1GB |
+| Name |快取的名稱 | |
+| Location |快取的位置 | |
+| ResourceGroupName |資源群組名稱，將在其中建立快取 | |
+| Size |快取的大小。 有效值為：P1、P2、P3、P4、C0、C1、C2、C3、C4、C5、C6、250MB、1GB、2.5GB、6GB、13GB、26GB、53GB |1GB |
 | ShardCount |在啟用叢集的情況下建立進階快取時要建立的分區數目。 有效值為：1、2、3、4、5、6、7、8、9、10 | |
 | SKU |指定快取的 SKU。 有效值為：基本、標準、進階 |標準 |
 | RedisConfiguration |指定 Redis 組態設定。 如需每個設定的詳細資訊，請參閱以下的 [RedisConfiguration 屬性](#redisconfiguration-properties) 表格。 | |
 | EnableNonSslPort |指出是否已啟用非 SSL 連接埠。 |False |
 | MaxMemoryPolicy |這個參數已被取代，請改用 RedisConfiguration。 | |
 | StaticIP |當快取是裝載在 VNET 中，為快取在子網路中指定唯一 IP 位址。 如果未提供，則會從子網路中為您選擇一個。 | |
-| 子網路 |當快取是裝載在 VNET 中，指定要在其中部署快取的子網路。 | |
+| Subnet |當快取是裝載在 VNET 中，指定要在其中部署快取的子網路。 | |
 | VirtualNetwork |當快取是裝載在 VNET 中，指定要在其中部署快取的 VNET 之資源識別碼。 | |
 | KeyType |指定更新存取金鑰時要重新產生哪一個存取金鑰。 有效值為：主要、次要 | |
 
