@@ -101,10 +101,10 @@ Azure 串流分析 JavaScript 使用者定義函式支援標準的內建 JavaScr
 --- | ---
 bigint | Number (JavaScript 只能準確地表示最高到 2^53 的整數)
 DateTime | Date (JavaScript 只支援毫秒)
-double | 數字
-nvarchar(MAX) | 字串
+double | Number
+nvarchar(MAX) | String
 Record | Object
-陣列 | 陣列
+Array | Array
 NULL | Null
 
 
@@ -113,11 +113,11 @@ NULL | Null
 
 JavaScript | 串流分析
 --- | ---
-數字 | Bigint (若數字為整數且介於 long.MinValue 和 long.MaxValue 之間，否則為 double)
-日期 | DateTime
-字串 | nvarchar(MAX)
+Number | Bigint (若數字為整數且介於 long.MinValue 和 long.MaxValue 之間，否則為 double)
+Date | DateTime
+String | nvarchar(MAX)
 Object | Record
-陣列 | 陣列
+Array | Array
 Null、Undefined | NULL
 任何其他類型 (例如，函式或錯誤) | 不支援 (產生執行階段錯誤)
 
