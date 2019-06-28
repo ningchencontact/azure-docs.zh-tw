@@ -6,7 +6,7 @@ ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
 ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/23/2019
 ms.locfileid: "66145393"
@@ -18,7 +18,7 @@ ms.locfileid: "66145393"
 | 支援的授權標頭 | 語音轉換文字 | 文字轉換語音 |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | 有 | 無 |
-| Authorization: Bearer | 有 | 有 |
+| Authorization:Bearer | 有 | 有 |
 
 當使用 `Ocp-Apim-Subscription-Key` 標頭，只需要提供您的訂用帳戶金鑰。 例如：
 
