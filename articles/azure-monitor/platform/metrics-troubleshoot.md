@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939561"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341969"
 ---
 # <a name="troubleshooting-metrics-charts"></a>疑難排解的計量圖表
 
@@ -73,7 +73,7 @@ ms.locfileid: "64939561"
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>在 儀表板上的 「 擷取資料時發生錯誤 」 訊息
 
-儀表板建立與更新版本已被取代並從 Azure 中移除的度量時，常會使用此問題。 若要確認它是大小寫，請開啟**計量** 索引標籤，您的資源，並檢查計量選擇器中的可用計量。 如果計量未顯示，已從 Azure 移除度量。 通常，當計量即將淘汰，是更好新的計量，可提供類似的觀點來看，資源健康狀態。
+儀表板建立與更新版本已被取代並從 Azure 中移除的度量時，可能會發生這個問題。 若要確認它是大小寫，請開啟**計量** 索引標籤，您的資源，並檢查計量選擇器中的可用計量。 如果計量未顯示，已從 Azure 移除度量。 通常，當計量即將淘汰，是更好新的計量，可提供類似的觀點來看，資源健康狀態。
 
 **解決方案：** 挑選的替代度量圖表在儀表板上，以更新 [失敗] 圖格。 您可以[檢閱的 Azure 服務的可用計量清單](metrics-supported.md)。
 

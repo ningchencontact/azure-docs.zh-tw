@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952147"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341566"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>停用的資訊安全中心功能 (第 2019 年 7 月)
 
@@ -114,16 +114,18 @@ Log Analytics 儀表板上的單一工作區顯示深入解析。 不過，原�
 
 ## 自訂警示規則 （預覽）<a name="menu_customalerts"></a>
 
-我們[淘汰自訂警示體驗](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)於 2019 年 6 月 30 日淘汰與其基礎結構，因為。 在那之前，您可以編輯現有的自訂警示規則，但您無法新增新的。 我們建議您啟用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)自動移轉您現有的警示，並建立新的。 或者，您可以建立您的警示與 Azure 監視器記錄檔會發出警示。
+我們[淘汰自訂警示體驗](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)於 2019 年 6 月 30 日淘汰與其基礎結構，因為。 在那之前，您可以編輯現有的自訂警示規則，但您無法新增新的。 停用日期，下列任何定義的自訂警示不會生效，並不會產生這些規則為基礎的安全性警示。
+我們建議您啟用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)並重新建立您那里自訂的警示。 或者，您可以建立您的警示與 Azure 監視器記錄檔會發出警示。
 
-若要保留您現有的警示，並將它們移轉到 Azure Sentinel:
+若要保留您現有的警示，並建立它們 Azure Sentinel:
 
-1. 開啟 Azure Sentinel，然後選取 儲存您自訂的警示 工作區。
-1. 選取 [ **Analytics**自動移轉您的警示] 功能表中。
+1. [開啟 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) ，然後選取 [儲存您自訂的警示] 工作區
+1. 選取  **Analytics**從功能表
+1. 請遵循下列指示[教學課程](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)有關如何在 Azure Sentinel 建立自訂警示
+
+如果您不想要使用 Azure 的 Sentinel，您可以使用 Azure 監視器記錄警示來建立您的警示。 如需相關指示，請參閱 <<c0>  [ 建立、 檢視及管理使用 Azure 監視器的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)並[Azure 監視器中的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)。
 
 ![自訂警示][13]
-
-如果您不感興趣轉換到 Azure 的 Sentinel，我們鼓勵您使用 Azure 監視器記錄警示建立您的警示。 如需相關指示，請參閱 <<c0>  [ 建立、 檢視及管理使用 Azure 監視器的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)並[Azure 監視器中的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)。
 
 如需有關自訂警示停用的詳細資訊，請參閱[Azure 資訊安全中心 （預覽） 中的自訂警示規則](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)。
 

@@ -3,17 +3,17 @@ title: 設定 Azure 串流分析作業的監視警示
 description: 本文說明如何使用 Azure 入口網站設定 Azure 串流分析作業的監視和警示。
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077672"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329865"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>設定 Azure 串流分析工作的警示
 
@@ -22,6 +22,7 @@ ms.locfileid: "67077672"
 您可以從入口網站中，透過作業記錄檔資料的度量定義規則，以及[以程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)。
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>在 Azure 入口網站中設定警示
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>作業意外停止時收到警示
 
 下列範例示範如何設定當您的作業進入失敗狀態時的警示。 建議將此警示用於所有的作業。
 

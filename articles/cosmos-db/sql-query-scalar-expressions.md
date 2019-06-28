@@ -1,0 +1,146 @@
+---
+title: Azure Cosmos DB SQL 查詢中的純量運算式
+description: 深入了解適用於 Azure Cosmos DB 的純量運算式的 SQL 語法。
+author: markjbrown
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 05/17/2019
+ms.author: mjbrown
+ms.openlocfilehash: 4464c39a45c47c680a13f3ebc34841b47ee0d7c6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342775"
+---
+# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 查詢中的純量運算式
+
+[SELECT 子句](sql-query-select.md)支援純量運算式。 純量運算式結合了符號及運算子，可以加以評估以取得單一值。 純量運算式的範例包括： 常數、 屬性參考、 陣列元素參考、 別名參考或函式呼叫。 純量運算式可以結合使用運算子的複雜運算式。
+
+## <a name="syntax"></a>語法
+  
+```sql  
+<scalar_expression> ::=  
+       <constant>
+     | input_alias
+     | parameter_name  
+     | <scalar_expression>.property_name  
+     | <scalar_expression>'['"property_name"|array_index']'  
+     | unary_operator <scalar_expression>  
+     | <scalar_expression> binary_operator <scalar_expression>    
+     | <scalar_expression> ? <scalar_expression> : <scalar_expression>  
+     | <scalar_function_expression>  
+     | <create_object_expression>
+     | <create_array_expression>  
+     | (<scalar_expression>)
+  
+<scalar_function_expression> ::=  
+        'udf.' Udf_scalar_function([<scalar_expression>][,…n])  
+        | builtin_scalar_function([<scalar_expression>][,…n])  
+  
+<create_object_expression> ::=  
+   '{' [{property_name | "property_name"} : <scalar_expression>][,…n] '}'  
+  
+<create_array_expression> ::=  
+   '[' [<scalar_expression>][,…n] ']'  
+  
+```
+
+## <a name="arguments"></a>引數
+  
+- `<constant>`  
+  
+   代表常數值。 如需詳細資料，請參閱[常數](sql-query-constants.md)一節。  
+  
+- `input_alias`  
+  
+   代表在 `FROM` 子句中導入，且由 `input_alias` 定義的值。  
+  此值不保證為**未定義** – 輸入中的**未定義值**會略過。  
+  
+- `<scalar_expression>.property_name`  
+  
+   代表物件屬性值。 如果屬性不存在或屬性參考的值不是物件，則運算式評估為**未定義**值。  
+  
+- `<scalar_expression>'['"property_name"|array_index']'`  
+  
+   代表具有名稱的屬性值`property_name`或具有索引的陣列元素`array_index`的陣列。 若屬性不存在或屬性/陣列索引已在非物件/陣列的值中參考，則運算式會評估為未定義的值。  
+  
+- `unary_operator <scalar_expression>`  
+  
+   代表已套用至單一值的運算子。 如需詳細資料，請參閱[運算子](sql-query-operators.md)一節。  
+  
+- `<scalar_expression> binary_operator <scalar_expression>`  
+  
+   代表已套用至兩個值的運算子。 如需詳細資料，請參閱[運算子](sql-query-operators.md)一節。  
+  
+- `<scalar_function_expression>`  
+  
+   代表由函式呼叫結果定義的值。  
+  
+- `udf_scalar_function`  
+  
+   使用者定義純量值函式的名稱。  
+  
+- `builtin_scalar_function`  
+  
+   內建純量值函式的名稱。  
+  
+- `<create_object_expression>`  
+  
+   代表搭配指定屬性及其值所建立之新物件取得的值。  
+  
+- `<create_array_expression>`  
+  
+   代表搭配指定值作為元素所建立之新物件取得的值  
+  
+- `parameter_name`  
+  
+   代表指定參數名字的值。 參數名稱必須帶有單一 \@ 作為第一個字元。  
+  
+## <a name="remarks"></a>備註
+  
+  呼叫內建或使用者定義的純量函數時，就必須定義所有引數。 若有任何未定義的引數，則不會呼叫函式，同時會產生未定義的結果。  
+  
+  建立物件時，會略過任何指派未定義值的屬性，且不會納入已建立的物件中。  
+  
+  建立陣列時，會略過任何指派**未定義**值的元素值，且不會納入已建立的物件中。 這會讓下一個定義的元素以相同方式取代其位置，而建立的陣列將不會具備已略過的索引。  
+
+## <a name="examples"></a>範例
+
+```sql
+    SELECT ((2 + 11 % 7)-2)/3
+```
+
+結果為：
+
+```json
+    [{
+      "$1": 1.33333
+    }]
+```
+
+在下列查詢中，純量運算式的結果會是布林值：
+
+```sql
+    SELECT f.address.city = f.address.state AS AreFromSameCityState
+    FROM Families f
+```
+
+結果為：
+
+```json
+    [
+      {
+        "AreFromSameCityState": false
+      },
+      {
+        "AreFromSameCityState": true
+      }
+    ]
+```
+
+## <a name="next-steps"></a>後續步驟
+
+- [Azure Cosmos DB 簡介](introduction.md)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [子查詢](sql-query-subquery.md)

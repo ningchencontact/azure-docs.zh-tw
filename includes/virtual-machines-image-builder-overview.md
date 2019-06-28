@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173961"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67347108"
 ---
 標準化的虛擬機器 (VM) 映像可讓組織移轉至雲端，並確保在部署中的一致性。 映像通常包含預先定義的安全性和組態設定和必要的軟體。 設定您自己的映像處理管線需要的時間、 基礎結構和安裝程式，但使用 Azure VM 映像產生器，只是提供描述您的映像的簡單設定、 提交至服務，和建置，並散發映像。
  
@@ -65,9 +65,9 @@ Azure 映像產生器是完全受控的 Azure 服務均可存取 Azure 資源提
 ![Azure 映像產生器程序的概念圖](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. 建立映像做為範本的.json 檔案。 此.json 檔案包含影像來源、 自訂和發佈的相關資訊。 有多個範例中的， [Azure 映像產生器的 GitHub 存放庫](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)。
-1. 送出至服務，這會在您指定的資源群組中建立的映像範本的成品。 在背景中，來源映像或 ISO，並視需要的指令碼，會下載映像產生器。 這些儲存在個別的資源群組，會自動建立訂用帳戶，格式為:IT_<DestinationResourceGroup>_<TemplateName>。 
-1. 一旦建立映像範本時，您可以建立映像。 在背景中映像產生器會使用範本和原始程式檔來建立 VM、 網路和儲存體中 IT_<DestinationResourceGroup>_<TemplateName>資源群組。
-1. 在建立映像，映像產生器會將映像會根據的範本，然後刪除 IT_ 中的其他資源<DestinationResourceGroup>_<TemplateName>程序中所建立的資源群組。
+1. 送出至服務，這會在您指定的資源群組中建立的映像範本的成品。 在背景中，來源映像或 ISO，並視需要的指令碼，會下載映像產生器。 這些儲存在個別的資源群組，會自動建立訂用帳戶，格式為:IT_\<DestinationResourceGroup > _\<TemplateName >。 
+1. 一旦建立映像範本時，您可以建立映像。 在背景中映像產生器會使用範本和原始程式檔來建立 VM、 網路和儲存體中 IT_\<DestinationResourceGroup > _\<TemplateName > 資源群組。
+1. 在建立映像，映像產生器會將映像會根據的範本，然後刪除 IT_ 中的其他資源\<DestinationResourceGroup > _\<TemplateName > 針對建立的資源群組程序。
 
 
 ## <a name="permissions"></a>權限

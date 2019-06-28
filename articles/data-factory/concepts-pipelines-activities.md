@@ -98,7 +98,7 @@ Tag | 描述 | 類型 | 必要項
 --- | ----------- | ---- | --------
 name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | String | 是
 description | 指定說明管線用途的文字。 | String | 否
-activities | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | Array | 是
+活動 | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | Array | 是
 parameters | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | List | 否
 
 ## <a name="activity-json"></a>活動 JSON
@@ -172,7 +172,7 @@ JSON 名稱 | 描述 | 允許的值 | 必要項
 --------- | ----------- | -------------- | --------
 timeout | 指定活動執行的逾時。 | Timespan | 沒有。 預設逾時為 7 天。
 retry | 重試次數上限 | 整數 | 沒有。 預設值為 0
-retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 沒有。 預設值為 30 秒
+retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 沒有。 預設值為 20 秒
 secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | Boolean | 沒有。 預設值為 false。
 
 ### <a name="control-activity"></a>控制活動

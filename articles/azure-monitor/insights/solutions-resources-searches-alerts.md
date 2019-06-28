@@ -1,6 +1,6 @@
 ---
-title: 管理解決方案中儲存的搜尋 |Microsoft Docs
-description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何定義儲存在 Resource Manager 範本中的搜尋，讓它們可以包含於管理解決方案的 Log Analytics。
+title: 管理解決方案中儲存的搜尋和警示 | Microsoft Docs
+description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋和警示，讓它們能夠包含於管理解決方案中。
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -76,7 +76,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表說明儲存的搜尋的每個屬性。
 
-| 屬性 | 描述 |
+| 屬性 | description |
 |:--- |:--- |
 | category | 儲存的搜尋的類別。  同一個解決方案中所有儲存的搜尋通常都會共用單一類別，因此它們會在主控台中群組在一起。 |
 | displayName | 要在入口網站中顯示之儲存的搜尋名稱。 |
@@ -121,7 +121,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
     }
 下表會說明排程資源的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | enabled       | 是 | 指定在建立警示時是否要加以啟用。 |
 | interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
@@ -174,21 +174,21 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表會說明警示動作資源的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | type | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| name | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | description | 否 | 警示的選擇性描述。 |
-| severity | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
+| 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>閾值
 此為必要區段。 它會定義警示臨界值的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 要比較結果的值。 |
+| Value | 是 | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
@@ -196,17 +196,17 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 > [!NOTE]
 > 計量測量警示目前是處於公開預覽狀態。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
 | 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 必須符合準則以觸發警示的次數。 |
+| Value | 是 | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
 此為選擇性區段。 如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | DurationInMinutes | 如果包含 Throttling 元素，即為 Yes | 從同一個警示規則中建立一個警示之後隱藏警示的分鐘數。 |
 
@@ -215,7 +215,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 針對將警示延伸至 Azure 的使用者 - 排程的「動作群組」詳細資料現在應該與閾值一起傳遞，才能建立警示。 必須先在動作群組內定義電子郵件詳細資料、Webhook URL、Runbook 自動化詳細資料及其他動作，才能建立警示；使用者可以在入口網站中[從 Azure 監視器建立動作群組](../../azure-monitor/platform/action-groups.md)，或使用[動作群組 - 資源範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來建立動作群組。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | AzNsNotification | 是 | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
@@ -231,7 +231,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 ##### <a name="emailnotification"></a>EmailNotification
  此為選擇性區段。如果您想要警示將郵件傳送給一或多位收件者，請包含此區段。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | Recipients | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | 是 | 郵件的主旨列。 |
@@ -240,7 +240,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 ##### <a name="remediation"></a>補救
 此為選擇性區段。如果您想要讓 Runbook 啟動以回應警示，請包含此區段。 
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | RunbookName | 是 | 要啟動的 Runbook 名稱。 |
 | WebhookUri | 是 | Runbook 的 Webhook 的 Uri。 |

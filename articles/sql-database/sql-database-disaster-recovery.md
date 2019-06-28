@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075807"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341084"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 
@@ -34,7 +34,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 > 如果您使用區域備援進階或業務關鍵資料庫或集區，系統就會自動執行復原程序，但這份資料的其餘部分不適用。
 
 > [!NOTE]
-> 主要和次要資料庫必須有相同的服務層級。 也強烈建議使用的相同計算大小 （Dtu 或 Vcore） 做為主要建立次要資料庫。 如需詳細資訊，請參閱 <<c0> [ 升級或降級為主要資料庫](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database)。
+> 主要和次要資料庫必須有相同的服務層級。 也強烈建議使用的相同計算大小 （Dtu 或 Vcore） 做為主要建立次要資料庫。 如需詳細資訊，請參閱 <<c0> [ 升級或降級為主要資料庫](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)。
 
 > [!NOTE]
 > 您可以使用一或多個容錯移轉群組來管理多個資料庫的容錯移轉。

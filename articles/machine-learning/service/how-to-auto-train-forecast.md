@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800819"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331690"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測的模型
 
@@ -26,6 +26,14 @@ ms.locfileid: "65800819"
 * 以時間序列資料執行預測
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+您可以使用自動化的 ML 結合技術和方法，並取得建議的高品質時間序列預測。 自動化的時間序列實驗會被視為多變量迴歸問題。 過去的時間序列值 「 樞紐 」 以及其他預測值的迴歸輸入變數成為更多的維度。 
+
+這個方法時，不同於傳統的時間序列方法，好處是自然併入多個內容變數和其在訓練期間之間的關聯性。 在真實世界預測應用程式中，多個因素會影響預測。 例如，當預測銷售，互動的歷史趨勢、 貨幣匯率和價格所有共同磁碟機的銷售結果。 進一步的優點是迴歸模型中的所有最新創新立即套用至預測。
+
+您可以[設定](#config)如何遙遠的未來預測應該以及延遲和更多擴充 （預測時間範圍）。 自動化的 ML 學習單一的但通常在內部分支模型的資料集和預測的視野中的所有項目。 詳細資料可因此估計模型參數，並看不見的系列的一般化可能實現。 
+
+從定型資料中擷取功能扮演重要角色。 而自動化的 ML 執行標準處理前的步驟，並會產生額外的時間序列功能，以擷取季節性效果，並最大化的預測精確度。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > 在訓練模型，以預測未來值時，請確定所有執行您預期的作業範圍的預測時，就可以使用定型中所使用的功能。 比方說，在建立時的需求預測，包括目前股價的功能可能可大幅增加訓練精確度。 不過，如果您想要預測使用長的時間範圍，您可能無法精確地預測未來的內建值，對應到未來的時間序列點，以及模型的精確度可能會受到影響。
 
+<a name="config"></a>
 ## <a name="configure-and-run-experiment"></a>設定及執行實驗
 
 預測工作自動化的機器學習服務會使用前置處理和估計特有時間序列資料的步驟。 將執行下列處理前的步驟：
@@ -85,7 +94,7 @@ y_test = X_test.pop("sales_quantity").values
 |-------|-------|-------|
 |`time_column_name`|用來指定用來建立時間序列和推斷其頻率的輸入資料中的日期時間資料行。|✓|
 |`grain_column_names`|輸入資料中定義個別的數列群組的名稱。 如果未定義資料粒度，資料集被假設一個時間序列。||
-|`max_horizon`|所需的時間序列的頻率單位的預測時間範圍的上限。|✓|
+|`max_horizon`|定義最大的所需預測時間範圍的時間序列的頻率單位。 單位根據定型資料，例如每月、 每週的時間間隔 forecaster microsoft frx 應該預測出。|✓|
 |`target_lags`|*n*轉寄延隔時間週期的目標在模型定型之前的值。||
 |`target_rolling_window_size`|*n*歷程記錄的期間，用來產生預測的值，< = 定型集大小。 如果省略， *n*完整的定型集大小。||
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35193380cc890a93d93c68bf5fc405572b5aa409
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766262"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339887"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>憑證和 App Service Environment 
 
@@ -85,7 +85,9 @@ ASE 是單一租用戶系統。 因為它是單一租用戶，所以有一些功
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-憑證將可由所有應用程式使用，而這些應用程式與設定該設定的應用程式具有相同 App Service 方案。 如果您需要它可用於不同 App Service 方案中的應用程式，必須在該 App Service 方案的應用程式中，重複應用程式設定作業。 若要確定已設定憑證，請移至 Kudu 主控台，並在 PowerShell 偵錯主控台發出此命令 dir cert:\localmachine\root。 
+憑證將可由所有應用程式使用，而這些應用程式與設定該設定的應用程式具有相同 App Service 方案。 如果您需要它可用於不同 App Service 方案中的應用程式，必須在該 App Service 方案的應用程式中，重複應用程式設定作業。 若要檢查憑證設定，請移至 Kudu 主控台，並發出下列命令，PowerShell 偵錯主控台：
+
+    dir cert:\localmachine\root
 
 若要執行測試，您可以建立自我簽署的憑證，並使用下列 PowerShell 產生 *.cer* 檔案： 
 

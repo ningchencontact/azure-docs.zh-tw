@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937229"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341023"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流
 
@@ -38,6 +38,9 @@ ms.locfileid: "64937229"
 > * 使用 Chrome 行動瀏覽器 v62 或更新版本中的加密媒體延伸模組 (EME) 與媒體來源延伸模組 (MSE) 來建置播放程式
 
 本文也會回答一些和離線串流受 Widevine 保護的內容相關的常見問題。
+
+> [!NOTE]
+> 離線 DRM 是只需支付進行授權的單一要求，當您下載的內容。 任何錯誤都不會計費。
 
 ## <a name="prerequisites"></a>必要條件 
 

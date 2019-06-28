@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256886"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342114"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 
@@ -96,7 +96,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-您可以擁有依建立日期排序的「最新」貼文串流。 您也可以擁有過去 24 小時內獲得較多讚的「最熱門」貼文串流。 您甚至可以依據邏輯 (例如關注者與興趣) 為每位使用者實作自訂串流。 而這仍屬於文章清單。 關鍵在於如何建立這些清單，而且讀取效能不會受到影響。 在取得這其中一份清單之後，您便可以使用 [IN 運算子](how-to-sql-query.md#WhereClause)向 Cosmos DB 發出單一查詢，一次取得貼文的頁面。
+您可以擁有依建立日期排序的「最新」貼文串流。 您也可以擁有過去 24 小時內獲得較多讚的「最熱門」貼文串流。 您甚至可以依據邏輯 (例如關注者與興趣) 為每位使用者實作自訂串流。 而這仍屬於文章清單。 關鍵在於如何建立這些清單，而且讀取效能不會受到影響。 一旦您取得其中一份清單，您會發出單一查詢使用 Cosmos DB [IN 關鍵字](sql-query-keywords.md#in)一次取得貼文的頁面。
 
 您可以使用 [Azure App Service](https://azure.microsoft.com/services/app-service/) 的背景程序來建置摘要串流：[Webjobs](../app-service/webjobs-create.md)。 建立貼文之後，即可使用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)[佇列](../storage/queues/storage-dotnet-how-to-use-queues.md)來觸發背景處理，以及使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 來觸發 WebJobs，其中會根據您自己的自訂邏輯，在串流內實作貼文傳播。
 

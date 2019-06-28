@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d26dffa005ac4bf8df0ecc0cee2c570960a38d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240054"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358145"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>整合 SaaS 應用程式與 Azure Active Directory 的教學課程
 
@@ -46,7 +46,7 @@ ms.locfileid: "66240054"
 
 | 標誌 | 單一登入的應用程式教學課程 | 使用者佈建的應用程式教學課程 |
 | :--- | :--- | :--- |
-| ![標誌](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) 主控台](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) 主控台-角色佈建](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
+| ![標誌](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) 主控台](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) 主控台-角色佈建](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![標誌](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba 雲端服務 （角色的基底 SSO）](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![標誌](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google 雲端平台](google-apps-tutorial.md)| [Google 雲端平台-使用者佈建](google-apps-provisioning-tutorial.md) |
 | ![標誌](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - 使用者佈建](salesforce-provisioning-tutorial.md) |

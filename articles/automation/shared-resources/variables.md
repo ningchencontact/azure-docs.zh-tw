@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786197"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342151"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
 
@@ -28,7 +28,7 @@ ms.locfileid: "65786197"
 
 自動化變數會保存，因為它們會出現即使 runbook 或 DSC 設定失敗。 此行為可讓一個 runbook，然後由另一個，或使用相同的 runbook 或 DSC 設定下一次執行時所要設定的值。
 
-建立變數時，您可以指定將其加密儲存。 加密的變數會安全地儲存在 Azure 自動化中，且其值無法擷取從[Get-azurermautomationvariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)隨附於 Azure PowerShell 模組的 cmdlet。 可以擷取加密值的唯一方法是從 Runbook 或 DSC 設定中的 **Get-AutomationVariable** 活動。
+建立變數時，您可以指定將其加密儲存。 加密的變數會安全地儲存在 Azure 自動化中，且其值無法擷取從[Get-azurermautomationvariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)隨附於 Azure PowerShell 模組的 cmdlet。 可以擷取加密值的唯一方法是從 Runbook 或 DSC 設定中的 **Get-AutomationVariable** 活動。 如果您想要將加密的變數變更為 未加密，您可以必須刪除並重新建立未加密的變數。
 
 >[!NOTE]
 >Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序是由 Azure 自動化所管理。
@@ -41,7 +41,7 @@ ms.locfileid: "65786197"
 
 以下是可在自動化中使用的變數類型清單：
 
-* 字串
+* String
 * Integer
 * Datetime
 * Boolean

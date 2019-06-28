@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236769"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310578"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB 做為金鑰值存放區 – 成本概觀
 
 Azure Cosmos DB 是全域散發的多模型資料庫服務，可用來輕鬆建置具高可用性的大規模應用程式。 根據預設，Azure Cosmos DB 會自動有效率地編製它內嵌之所有資料的索引。 這樣可在任何種類的資料上進行快速且一致的 [SQL](how-to-sql-query.md) (和 [JavaScript](stored-procedures-triggers-udfs.md)) 查詢。 
 
-本文說明 Azure Cosmos DB 做為金鑰值存放區時，進行簡單寫入與讀取作業的成本。 寫入作業包括文件的插入、取代、刪除和更新插入。 除了保證所有單一區域帳戶和所有多重區域帳戶達到 99.99% 的可用性 SLA 並具備鬆散的一致性，以及在所有多重區域資料庫帳戶上有 99.999% 的讀取可用性，Azure Cosmos DB 在第 99 個百分位數分別保證讀取的延遲性小於 10 毫秒，而 (索引) 寫入的延遲性小於 15 毫秒。 
+本文說明 Azure Cosmos DB 做為金鑰值存放區時，進行簡單寫入與讀取作業的成本。 寫入作業包括文件的插入、取代、刪除和更新插入。 除了保證 99.99%可用性 SLA 適用於所有單一區域帳戶和所有多重區域帳戶寬鬆的一致性，並可享有達 99.999%的讀取可用性所有多重區域資料庫帳戶，Azure Cosmos DB 提供保證 < 10 毫秒延遲讀取和 （索引） 寫入分別 99 百分位數。 
 
 ## <a name="why-we-use-request-units-rus"></a>為什麼我們要使用「要求單位」(RU)
 

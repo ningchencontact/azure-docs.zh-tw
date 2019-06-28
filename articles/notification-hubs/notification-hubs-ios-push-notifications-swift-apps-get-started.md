@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
-ms.openlocfilehash: a4773ddd8114659118e89cfee57e73ddb39ff6b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c35044918876b2c7710e26f6b868bc1096c2f538
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116685"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340394"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>教學課程：使用通知中樞 REST API 的 Swift 的 iOS 應用程式的推播通知
 
@@ -87,12 +87,12 @@ ms.locfileid: "67116685"
 
 1. 更新**devsettings.plist**以使用您自己的值，從您佈建通知中樞包含下列的組態項目：
 
-   | Key                            | 類型                     | 值                     |
+   | Key                            | 類型                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | 字串                   | <hubKey>                  |
-   | notificationHubKeyName         | 字串                   | <hubKeyName>              |
-   | notificationHubName            | 字串                   | <hubName>                 |
-   | notificationHubNamespace       | 字串                   | <hubNamespace>            |
+   | notificationHubKey             | 字串                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | 字串                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    您可以瀏覽至通知中樞資源在 Azure 入口網站中找到所需的值。 特別是， **notificationHubName**並**notificationHubNamespace**的值為在右上角的**Essentials**摘要內**概觀**頁面。
 
@@ -408,10 +408,10 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. 設定要求標頭如下所示：
 
-   | Key           | 值            |
+   | Key           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | 授權 | <sasToken>       |
+   | Authorization | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. 選取 [**程式碼**會出現在右上角下的按鈕**儲存**] 按鈕。 要求看起來應該類似下列的範例：
@@ -656,10 +656,10 @@ class NotificationRegistrationService {
 
 1. 設定要求標頭如下所示：
 
-   | Key                            | 值                          |
+   | Key                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | 授權                  | <sasToken>                     |
+   | Authorization                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | template                       |
    | 標記                           | "12345"                        |
 

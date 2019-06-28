@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae5fdd51d9bc1a3e7e2521c6ca1ff64d884c96f8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937476"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341770"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>適用於 Windows 10 的離線 PlayReady 串流
 
@@ -27,6 +27,9 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 
 - [適用於 iOS 的離線 FairPlay 串流](offline-fairplay-for-ios.md)
 - [適用於 Android 的離線 Widevine 串流](offline-widevine-for-android.md)
+
+> [!NOTE]
+> 離線 DRM 是只需支付進行授權的單一要求，當您下載的內容。 任何錯誤都不會計費。
 
 ## <a name="overview"></a>概觀
 

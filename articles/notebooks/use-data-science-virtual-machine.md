@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137762"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357575"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>使用 Azure 資料科學虛擬機器
 
@@ -51,9 +51,9 @@ ms.locfileid: "67137762"
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>從 DSVM 存取 Azure Notebooks 檔案
 
-若要保留的檔案路徑的同位檢查**免費計算**層，您就能夠只在 DSVM 上一次開啟一個專案。 若要開啟新的專案，您必須關閉開啟的專案第一次。
+檔案系統存取權是支援的 DSVM 版本 19.06.15 或更新版本。 若要檢查版本，請先連接到您的 DSVM，透過 SSH （IP 位址可在 Azure 入口網站中）。 然後執行下列命令使用您`<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`。 版本號碼會顯示的輸出中的 「 版本 」。
 
-![Azure Notebook 中的 [關機] 按鈕](media/shutdown.png)
+若要保留的檔案路徑的同位檢查**免費計算**層，您就能夠只在 DSVM 上一次開啟一個專案。 若要開啟新的專案，您必須關閉開啟的專案第一次。
 
 在 VM 上執行專案時，檔案都會掛接在根目錄中的 Jupyter 伺服器 （在 JupyterHub 中顯示的目錄），取代預設 Azure Notebooks 檔案。 當您關閉 VM 使用的位置**關機**notebook UI 中，Azure Notebooks 按鈕會還原預設檔案。
 

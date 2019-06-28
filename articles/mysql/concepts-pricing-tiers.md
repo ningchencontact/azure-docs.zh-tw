@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062422"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339934"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -67,7 +67,7 @@ ms.locfileid: "67062422"
 | IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大| 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大 |
 
 > [!IMPORTANT]
-> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 美國西部 2、 北歐、 西歐、 東南亞、 日本東部、 韓國中部、 澳大利亞東部。
+> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 北歐、 西歐、 東南亞、 日本東部、 韓國中部、 澳大利亞東部。
 >
 > 目前不支援大型儲存體預覽：
 >

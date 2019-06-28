@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 35cbe04380e2113f986d1e7adf3f7fdf89cb9326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078868"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357633"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>稽核適用於 MySQL 的 Azure 資料庫中的記錄檔
 
@@ -45,7 +45,7 @@ ms.locfileid: "67078868"
 
 稽核記錄檔會與 Azure 監視器的診斷記錄檔整合。 一旦您已將 MySQL 伺服器上啟用稽核記錄檔，您可以發出這些 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用 Azure 入口網站中的診斷記錄檔，請參閱[稽核記錄檔入口網站的文章](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)。
 
-## <a name="schemas"></a>結構描述
+## <a name="diagnostic-logs-schemas"></a>診斷記錄結構描述
 
 下列各節會描述什麼是由 MySQL 稽核記錄，根據事件類型的輸出。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 

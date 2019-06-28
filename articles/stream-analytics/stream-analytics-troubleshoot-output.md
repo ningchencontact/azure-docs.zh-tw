@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761738"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340781"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>對 Azure 串流分析輸出進行疑難排解
 
@@ -90,6 +90,10 @@ ms.locfileid: "60761738"
 * 您無法在主索引鍵或者使用 ALTER INDEX 的唯一限制式上設定 IGNORE_DUP_KEY，您必須卸除而後重新建立索引。  
 * 您可以使用 ALTER INDEX 對唯一索引設定 IGNORE_DUP_KEY 選項，這與使用 CREATE INDEX 或 INDEX 定義建立的主索引鍵/唯一限制式不同。  
 * 因為您無法在這類索引上強制執行唯一性，所以 IGNORE_DUP_KEY 不適用於資料行存放區索引。  
+
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>資料行名稱是小寫 Azure Stream analytics
+當使用原始的相容性層級 (1.0)，Azure Stream Analytics 用來將資料行名稱變更為小寫。 更新版本的相容性層級中，已修正此行為。 為了保留大小寫，我們會建議客戶移至 1.1 和更新版本的相容性層級。 您可以在找到更多資訊[針對 Azure Stream Analytics 作業的相容性層級](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)。
+
 
 ## <a name="get-help"></a>取得說明
 

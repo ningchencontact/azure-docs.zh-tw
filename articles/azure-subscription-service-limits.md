@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 88c40021ff2e974ba16b3b3506ee54b45de90fda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1043f254d2a2cc2804ab8a4d68770b6d57cbed4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427580"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295987"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間，會展開並更新以涵蓋更多服務 清單。
@@ -45,7 +45,6 @@ ms.locfileid: "66427580"
 * [API 管理](#api-management-limits)
 * [App Service](#app-service-limits)
 * [應用程式閘道](#application-gateway-limits)
-* [Application Insights](#application-insights-limits)
 * [自動化](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure 雲端服務](#azure-cloud-services-limits)
@@ -58,7 +57,7 @@ ms.locfileid: "66427580"
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure 地圖服務](#azure-maps-limits)
-* [Azure 監視器](#monitor-limits)
+* [Azure 監視器](#azure-monitor-limits)
 * [Azure 原則](#azure-policy-limits)
 * [Azure 搜尋服務](#azure-search-limits)
 * [Azure SignalR 服務](#azure-signalr-service-limits)
@@ -79,7 +78,6 @@ ms.locfileid: "66427580"
 * [IoT 中心](#iot-hub-limits)
 * [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
 * [金鑰保存庫](#key-vault-limits)
-* [Log Analytics](#log-analytics-limits)
 * [媒體服務](#media-services-limits)
 * [行動服務](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
@@ -282,8 +280,26 @@ Azure Machine Learning 計算配額的最新的值可在[Azure Machine Learning 
 ### <a name="mobile-services-limits"></a>行動服務限制
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitor-limits"></a>監視限制
-[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+### <a name="azure-monitor-limits"></a>Azure 監視限制
+
+#### <a name="alerts"></a>警示
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
+
+#### <a name="action-groups"></a>動作群組
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### <a name="log-analytics-workspaces"></a>Log Analytics 工作區
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
+
+#### <a name="application-insights"></a>Application Insights
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### <a name="notification-hubs-limits"></a>通知中樞限制
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -330,9 +346,6 @@ Azure Machine Learning 計算配額的最新的值可在[Azure Machine Learning 
 ### <a name="storsimple-system-limits"></a>StorSimple 系統限制
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="log-analytics-limits"></a>Log Analytics 限制
-[!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
-
 ### <a name="backup-limits"></a>備份限制
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -341,9 +354,6 @@ Azure Machine Learning 計算配額的最新的值可在[Azure Machine Learning 
 
 ### <a name="site-recovery-limits"></a>Site Recovery 限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### <a name="application-insights-limits"></a>Application Insights 限制
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>API 管理限制
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468239"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332064"
 ---
 # <a name="get-started-with-azure-advisor"></a>開始使用 Advisor
 
@@ -94,9 +94,9 @@ ms.locfileid: "60468239"
 
 此程序針對低使用量虛擬機器建議設定平均 CPU 使用率規則。
 
-Advisor 可監視過去 14 天的虛擬機器使用量，並找出低使用率的虛擬機器。 虛擬機器若是平均 CPU 使用率小於(含) 5% 且網路使用量小於(含) 7 MB 長達 4 天 (含) 以上，就會視為低使用率虛擬機器。
+Advisor 監視 7 天的虛擬機器使用量，然後找出低使用率虛擬機器。 虛擬機器會被視為低使用率的 CPU 使用率為 5%或更少且其網路使用率低於 2%或目前的工作負載是否可以容納由較小的虛擬機器大小。
 
-如果您想要更積極地識別低使用量虛擬機器，您可以依據個別訂用帳戶調整平均 CPU 使用率規則。  平均 CPU 使用率規則可以設定為 5%、10%、15% 或 20%。
+如果您想要更積極地識別低使用量虛擬機器，您可以依據個別訂用帳戶調整平均 CPU 使用率規則。  CPU 使用率規則可以設定為 5%、 10%、 15%或 20%。
 
 > [!NOTE]
 > 若要調整平均 CPU 使用率規則以識別低使用量虛擬機器，您必須是訂用帳戶「擁有者」  。  如果您沒有訂用帳戶或資源群組的必要權限，將其包含或排除的選項在使用者介面中就會停用。 

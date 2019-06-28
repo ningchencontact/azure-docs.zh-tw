@@ -1,5 +1,5 @@
 ---
-title: 安全存取 Azure Logic Apps | Microsoft Docs
+title: Azure Logic Apps 的安全存取
 description: 為 Azure Logic Apps (包括觸發程序、輸入與輸出、參數和其他服務) 新增安全性
 services: logic-apps
 ms.service: logic-apps
@@ -7,15 +7,14 @@ ms.suite: integration
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65369e5747f17c0e420d5775f1c5704cac9ca21b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995647"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341096"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
@@ -156,9 +155,9 @@ POST
 
 若要只讓特定使用者或群組在邏輯應用程式上執行作業，您可以限制工作 (例如管理、編輯和檢視) 的存取權。 Logic Apps 支援 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，其可讓您自訂或指派內建角色給訂用帳戶中的成員，例如：
 
-* [邏輯應用程式參與者](../role-based-access-control/built-in-roles.md#logic-app-contributor)：使用者可以檢視、編輯和更新邏輯應用程式。 
+* [邏輯應用程式參與者](../role-based-access-control/built-in-roles.md#logic-app-contributor)：可讓您管理邏輯應用程式，但您無法變更存取權給他們。
 
-* [邏輯應用程式操作員](../role-based-access-control/built-in-roles.md#logic-app-operator)：使用者可以檢視邏輯應用程式和執行歷程記錄，並啟用或停用邏輯應用程式。 此角色無法編輯或更新邏輯應用程式。
+* [邏輯應用程式操作員](../role-based-access-control/built-in-roles.md#logic-app-operator)：可讓您讀取、 啟用和停用邏輯應用程式，但您無法編輯或更新它們。
 
 若要防止變更或刪除邏輯應用程式，您可以使用 [Azure 資源鎖定](../azure-resource-manager/resource-group-lock-resources.md)。 這項功能可協助您防止其他人變更或刪除生產資源。
 

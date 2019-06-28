@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808567"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358037"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 kubenet 網路與您自己的 IP 位址範圍
 
-根據預設，AKS 叢集會使用 [kubenet][kubenet]，並為您建立 Azure 虛擬網路和子網路。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址是 NAT 到節點的主要 IP 位址。 這種方法可大幅減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
+根據預設，AKS 叢集會使用[kubenet][kubenet]，並為您建立 Azure 虛擬網路和子網路。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址是 NAT 到節點的主要 IP 位址。 這種方法可大幅減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
-使用 [Azure 容器網路介面 (CNI)][cni-networking]，每個 Pod 都從子網路取得 IP 位址，並且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
+具有[Azure 容器網路介面 (CNI)][cni-networking]，每個 pod 從子網路取得 IP 位址，而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
 
-本文將說明如何使用 *kubenet* 網路來建立虛擬網路子網路，並將其與 AKS 叢集搭配使用。 如需網路選項與考量的詳細資訊，請參閱 [Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
+本文將說明如何使用 *kubenet* 網路來建立虛擬網路子網路，並將其與 AKS 叢集搭配使用。 如需有關網路選項和考量的詳細資訊，請參閱 < [Kubernetes 和 AKS 網路概念][aks-network-concepts]。
 
 > [!WARNING]
 > 若要使用 Windows Server （目前在 AKS 中的預覽） 的節點集區，您必須使用 Azure CNI。 無法使用適用於 Windows Server 容器 kubenet 作為網路模式。
@@ -38,9 +38,9 @@ ms.locfileid: "66808567"
 
 ![Kubenet 網路模型與 AKS 叢集](media/use-kubenet/kubenet-overview.png)
 
-Azure 在 UDR 中最多支援 400 條路由，因此您不能擁有超過 400 個節點的 AKS 叢集。 *kubenet* 不支援 AKS 功能，例如[虛擬節點][virtual-nodes]或網路原則。
+Azure 在 UDR 中最多支援 400 條路由，因此您不能擁有超過 400 個節點的 AKS 叢集。 這類 AKS 功能[虛擬節點][virtual-nodes]或網路原則不支援使用*kubenet*。
 
-使用 *Azure CNI*，每個 Pod 都會接收 IP 子網路中的 IP 位址，並可以直接與其他 Pod 和服務進行通訊。 您的叢集可以與您指定的 IP 位址範圍一樣大。 不過，必須事先規劃 IP 位址範圍，並且 AKS 節點根據它們可以支援的最大 Pod 數目來使用所有 IP 位址。 *Azure CNI* 支援進階網路功能和案例，例如[虛擬節點][virtual-nodes]或網路原則。
+使用 *Azure CNI*，每個 Pod 都會接收 IP 子網路中的 IP 位址，並可以直接與其他 Pod 和服務進行通訊。 您的叢集可以與您指定的 IP 位址範圍一樣大。 不過，必須事先規劃 IP 位址範圍，並且 AKS 節點根據它們可以支援的最大 Pod 數目來使用所有 IP 位址。 這類進階網路功能和案例[虛擬節點][virtual-nodes]或網路原則支援*Azure CNI*。
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP 位址可用性與耗盡
 
@@ -62,7 +62,7 @@ Azure 在 UDR 中最多支援 400 條路由，因此您不能擁有超過 400 �
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>虛擬網路對等互連和 ExpressRoute 連線
 
-若要提供內部部署連線能力，*kubenet* 和 *Azure-CNI* 網路方法都可以使用 [Azure 虛擬網路對等互連][vnet-peering]或是 [ExpressRoute 連線][express-route]。 仔細規劃您的 IP 位址範圍，以避免重疊和不正確的流量路由。 例如，許多內部部署網路使用透過 ExpressRoute 連線通告的 *10.0.0.0/8* 位址範圍。 建議您建立您的 AKS 叢集中，此位址範圍之外的 Azure 虛擬網路子網路，例如*172.16.0.0/16*。
+若要提供內部部署連線能力，同時*kubenet*並*Azure CNI*網路方法可以使用[Azure 虛擬網路對等互連][vnet-peering] or [ExpressRoute connections][express-route]。 仔細規劃您的 IP 位址範圍，以避免重疊和不正確的流量路由。 例如，許多內部部署網路使用透過 ExpressRoute 連線通告的 *10.0.0.0/8* 位址範圍。 建議您建立您的 AKS 叢集中，此位址範圍之外的 Azure 虛擬網路子網路，例如*172.16.0.0/16*。
 
 ### <a name="choose-a-network-model-to-use"></a>選擇要使用的網路模型
 
@@ -81,18 +81,20 @@ Azure 在 UDR 中最多支援 400 條路由，因此您不能擁有超過 400 �
 - 您不想管理 UDR。
 - 您需要進階功能，例如虛擬節點或網路原則。
 
+如需可協助您決定要使用哪一個網路模型的詳細資訊，請參閱[比較網路模型和其支援範圍][network-comparisons]。
+
 > [!NOTE]
 > Kuberouter 會讓您能夠使用 kubenet 時啟用網路原則，並可安裝在 AKS 叢集中以 daemonset 的形式。 請留意 kube 路由器還在 beta 版中，而不支援 Microsoft 所提供的專案。
 
 ## <a name="create-a-virtual-network-and-subnet"></a>建立虛擬網路和子網路
 
-若要開始使用 *kubenet* 和您自己的虛擬網路子網路，請首先使用 [az group create][az-group-create] 命令建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
+若要開始使用*kubenet*和 第一次建立 資源群組，使用您自己的虛擬網路子網路[az 群組建立][az-group-create]命令。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-如果您沒有要使用的現有虛擬網路和子網路，請使用 [az network vnet create][az-network-vnet-create] 命令建立這些網路資源。 在下列範例中，名為虛擬網路*myVnet*且具有位址首碼*192.168.0.0/16*。 子網路會建立名為*myAKSSubnet*位址首碼*192.168.1.0/24*。
+如果您沒有現有的虛擬網路和子網路，以使用，建立使用這些網路資源[az 網路 vnet 建立][az-network-vnet-create]命令。 在下列範例中，名為虛擬網路*myVnet*且具有位址首碼*192.168.0.0/16*。 子網路會建立名為*myAKSSubnet*位址首碼*192.168.1.0/24*。
 
 ```azurecli-interactive
 az network vnet create \
@@ -105,7 +107,7 @@ az network vnet create \
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>建立服務主體並指派權限
 
-為了允許 AKS 叢集與其他 Azure 資源互動，則會使用 Azure Active Directory 服務主體。 服務主體必須具有管理 AKS 節點使用的虛擬網路和子網路的權限。 若要建立服務主體，請使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令：
+為了允許 AKS 叢集與其他 Azure 資源互動，則會使用 Azure Active Directory 服務主體。 服務主體必須具有管理 AKS 節點使用的虛擬網路和子網路的權限。 若要建立服務主體，請使用[az ad sp 建立-針對-rbac][az-ad-sp-create-for-rbac]命令：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -125,14 +127,14 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-若要在其餘步驟中指派正確的委派，請使用 [az network vnet show][az-network-vnet-show] 和 [az network vnet subnet show][az-network-vnet-subnet-show] 命令取得所需的資源識別碼。 這些資源識別碼會儲存為變數，並在其餘的步驟中參考：
+若要將指派正確的委派中的其餘步驟，請使用[az 網路 vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show]命令來取得所需的資源識別碼。 這些資源識別碼會儲存為變數，並在其餘的步驟中參考：
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-現在，使用 [az role assignment create][az-role-assignment-create] 命令為虛擬網路上的 AKS 叢集「參與者」  權限指派服務主體。 提供您自己 *\<appId >* 從前一個命令來建立服務主體輸出所示：
+立即指派您的 AKS 叢集的服務主體*參與者*虛擬網路使用的權限[az 角色指派建立][az-role-assignment-create]命令。 提供您自己 *\<appId >* 從前一個命令來建立服務主體輸出所示：
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -140,7 +142,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>在虛擬網路中建立 AKS 叢集
 
-您現在已經建立虛擬網路和子網路，並為服務主體建立並指派使用這些網路資源的權限。 現在，使用 [az aks create][az-aks-create] 命令在虛擬網路和子網路中建立 AKS 叢集。 定義您自己的服務主體 *\<appId >* 並 *\<密碼 >* 從前一個命令來建立服務主體輸出所示。
+您現在已經建立虛擬網路和子網路，並為服務主體建立並指派使用這些網路資源的權限。 現在在您的虛擬網路和子網路使用建立 AKS 叢集[az aks 建立][az-aks-create]命令。 定義您自己的服務主體 *\<appId >* 並 *\<密碼 >* 從前一個命令來建立服務主體輸出所示。
 
 下列 IP 位址範圍也定義為叢集建立程序的一部分：
 
@@ -174,7 +176,7 @@ az aks create \
 
 ## <a name="next-steps"></a>後續步驟
 
-透過將 AKS 叢集部署到您現有的虛擬網路子網路中，您現在可以如往常一樣使用叢集。 從[使用 Azure Dev Spaces 建置應用程式][dev-spaces]或[使用草稿][use-draft]，或[使用 Helm 部署應用程式][use-helm]開始。
+透過將 AKS 叢集部署到您現有的虛擬網路子網路中，您現在可以如往常一樣使用叢集。 快速入門[建置應用程式使用 Azure 開發人員空格][dev-spaces] or [using Draft][use-draft]，或[部署應用程式使用 Helm][使用 helm]。
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -196,3 +198,4 @@ az aks create \
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models

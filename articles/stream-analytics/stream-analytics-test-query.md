@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761866"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340871"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
 
-您可以使用 Azure 串流分析，在 Azure 入口網站中上傳樣本資料並測試查詢，而無須啟動或停止作業。
+藉由使用 Azure Stream Analytics，您可以從輸入資料取樣，或上傳至 Azure 入口網站中測試查詢，而不需要啟動或停止工作的範例資料。
 
 ## <a name="upload-sample-data-and-test-the-query"></a>上傳範例資料和測試查詢
 
@@ -28,11 +28,15 @@ ms.locfileid: "60761866"
 
 3. 在 [串流分析作業] 頁面上，[工作拓撲]  標題下方，選取 [查詢]  開啟 [查詢] 編輯器視窗。 
 
-4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]  。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
+4. 若要測試您的查詢您可以接著是取樣的即時輸入或從檔案上的傳的資料。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
+
+    1. 使用即時輸入： 以滑鼠右鍵按一下任何輸入。 然後選取**範例資料從輸入**。 在下一個畫面中，您可以設定此範例的持續時間。
+
+    1. 使用檔案： 以滑鼠右鍵按一下任何輸入。 然後選取 [從檔案上傳樣本資料]  。 
 
     ![串流分析查詢編輯器的測試查詢](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. 上傳完成後，選取 [測試]  以根據您提供的樣本資料測試此查詢。
+5. 取樣或上傳完成後，請選取**測試**來根據您所提供的範例資料測試此查詢。
 
     ![串流分析查詢編輯器的樣本資料](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 

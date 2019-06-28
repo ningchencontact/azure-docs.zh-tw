@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056877"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339851"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。 資料行均標示**支援標記**指出資源類型是否有標記的屬性。 資料行均標示**成本報表中的標記**指出該資源類型是否通過 「 成本 」 報告來標記。
@@ -864,8 +864,8 @@ ms.locfileid: "67056877"
 | dnszones/TXT | 否 |  否 |
 | expressRouteCircuits | 是  | 否 |
 | expressRouteServiceProviders | 否 |  否 |
-| frontdoors | 是 | 是 |
-| frontdoorWebApplicationFirewallPolicies | 是 | 是 |
+| frontdoors | 是的但限制 (請參閱[下列附註](#frontdoor)) | 是 |
+| frontdoorWebApplicationFirewallPolicies | 是的但限制 (請參閱[下列附註](#frontdoor)) | 是 |
 | getDnsResourceReference | 否 |  否 |
 | interfaceEndpoints | 是 | 是 |
 | internalNotify | 否 |  否 |
@@ -898,6 +898,10 @@ ms.locfileid: "67056877"
 | vpnGateways | 是 | 否 |
 | vpnSites | 是 | 是 |
 | webApplicationFirewallPolicies | 是 | 是 |
+
+<a id="frontdoor" />
+
+Azure 前端服務，建立資源時，您可以套用標記，但更新或新增標記目前不支援。
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 資源類型 | 支援標記 | 在成本報表中標記 |

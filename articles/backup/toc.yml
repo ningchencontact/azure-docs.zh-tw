@@ -144,8 +144,6 @@
           items:
             - name: 管理 Azure VM 備份
               href: backup-azure-manage-vms.md
-            - name: 監視 Azure 虛擬機器備份的警示
-              href: backup-azure-monitor-vms.md
         - name: 還原 Azure VM
           items:
             - name: 在 入口網站中還原 Azure VM

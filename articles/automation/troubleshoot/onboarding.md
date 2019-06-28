@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012cf227bea7dc24eb85fcd9179a7b1025327dcf
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399764"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342140"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
@@ -55,7 +55,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>原因
 
-如果定價層的訂用帳戶的計費模型不符，就可能造成此錯誤。 如需詳細資訊，請參閱 <<c0> [ 監視使用量和估計的成本，Azure 監視器中](http://aka.ms/PricingTierWarning)。
+如果定價層的訂用帳戶的計費模型不符，就可能造成此錯誤。 如需詳細資訊，請參閱 <<c0> [ 監視使用量和估計的成本，Azure 監視器中](https://aka.ms/PricingTierWarning)。
 
 #### <a name="resolution"></a>解決方案
 

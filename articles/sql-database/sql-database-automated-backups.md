@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951689"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357339"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -32,7 +32,7 @@ SQL Database 使用 SQL Server 技術來建立[完整備份](https://docs.micros
 您可以使用這些備份︰
 
 - **在時間點還原現有的資料庫，在過去**使用 Azure 入口網站、 Azure PowerShell、 Azure CLI 或 REST API 在保留期限內。 在單一資料庫和彈性集區中，此作業會建立與原始資料庫相同的伺服器中的新資料庫。 在受控執行個體，這項作業可以建立一份相同或不同受控執行個體相同的訂用帳戶下的資料庫。
-  - **[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)** 之間 35 天前，若要設定備份原則。
+  - **[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)** 7 至 35 天內，若要設定備份原則。
   - **將長期保留原則變更為 10 年**單一資料庫和彈性集區使用[Azure 入口網站](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)或是[Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)。
 - **將已刪除的資料庫還原至其被刪除的時間**或保留期限內的任何時間。 已刪除的資料庫只能還原在同一部邏輯伺服器或原始的資料庫建立所在的受控執行個體。
 - **將資料庫還原到另一個地理區域**。 異地還原可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。

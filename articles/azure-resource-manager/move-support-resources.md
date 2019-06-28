@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab8fbd8fa0453ca6c89f3e7ad91bea95b0b9096
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752346"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331995"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 此文章列出 Azure 資源類型是否支援移動作業。 雖然資源類型支援作業，但可能會有導致無法移動資源的情況。 如需有關影響移動作業之情況的詳細資料，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
@@ -564,8 +564,8 @@ ms.locfileid: "66752346"
 | expressroutecrossconnections | 否 | 否 |
 | expressroutegateways | 否 | 否 |
 | expressrouteports | 否 | 否 |
-| frontdoors | 是 | 是 |
-| frontdoorwebapplicationfirewallpolicies | 是 | 是 |
+| frontdoors | 否 | 否 |
+| frontdoorwebapplicationfirewallpolicies | 否 | 否 |
 | loadbalancers | 是 | 是 |
 | localnetworkgateways | 是 | 是 |
 | natgateways | 是 | 是 |

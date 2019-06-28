@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: d8012fb75282d64f7d1858e02b842b1c770200f9
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191768"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339443"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>建立 Azure 防禦主機 （預覽）
 
@@ -41,7 +41,7 @@ ms.locfileid: "67191768"
 
 本節可協助您從 Azure 入口網站中建立新的防禦 Azure 資源。
 
-1. 從首頁[Azure 入口網站-preview](http://aka.ms/BastionHost)，按一下 **+ 建立資源**。 請確定您使用提供的連結，存取此預覽中，不是一般的 Azure 入口網站的網站。
+1. 從首頁[Azure 入口網站-preview](https://aka.ms/BastionHost)，按一下 **+ 建立資源**。 請確定您使用提供的連結，存取此預覽中，不是一般的 Azure 入口網站的網站。
 
 1. 在上**新增**頁面上，於*在 Marketplace 內搜尋*欄位中，輸入**防禦**，然後按一下**Enter**回到搜尋結果。
 

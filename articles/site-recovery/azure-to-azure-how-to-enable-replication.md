@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0dec8179cc9b69eeea679f517693e4debb9fb56e
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926635"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340694"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>將 Azure Vm 複寫至另一個 Azure 區域
 
@@ -66,7 +66,7 @@ ms.locfileid: "64926635"
      >啟用複寫之後，便無法變更可用性類型 - 單一執行個體、可用性設定組或可用性區域。 您需要停用後再啟用複寫，以變更可用性類型。
      >
     
-   - **複寫原則**：這會定義復原點保留期歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會對於復原點保留期使用「24 小時」的預設設定來建立新的複寫原則，並對於應用程式一致快照集頻率使用「60 分鐘」。
+   - **複寫原則**：這會定義復原點保留期歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會使用 「 24 小時 」 的復原點保留期的預設設定來建立新的複寫原則，而 '4 小時' 的應用程式一致快照的頻率。
 
      ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 

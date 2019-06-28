@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073466"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341623"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>向 Azure Active Directory 從應用程式存取 blob 和佇列
 
@@ -121,7 +121,7 @@ ms.locfileid: "67073466"
 
 當您的應用程式存取 Azure 儲存體時，它沒有等等代表使用者，這表示 blob 或佇列資源會使用登入之使用者的權限存取。 若要試用此程式碼範例，您必須提示使用者使用 Azure AD 身分識別登入的 web 應用程式。 您可以建立您自己，或使用 Microsoft 所提供的範例應用程式。
 
-完整的範例 web 應用程式取得權杖，並使用它來建立 Azure 儲存體中的 blob，位於[GitHub](http://aka.ms/aadstorage)。 檢閱及執行完整的範例可能有助您了解的程式碼範例。 如需有關如何執行完整的範例，指示，請參閱一節[檢視] 和 [執行完整的範例](#view-and-run-the-completed-sample)。
+完整的範例 web 應用程式取得權杖，並使用它來建立 Azure 儲存體中的 blob，位於[GitHub](https://aka.ms/aadstorage)。 檢閱及執行完整的範例可能有助您了解的程式碼範例。 如需有關如何執行完整的範例，指示，請參閱一節[檢視] 和 [執行完整的範例](#view-and-run-the-completed-sample)。
 
 #### <a name="add-references-and-using-statements"></a>新增參考並使用陳述式  
 
@@ -235,7 +235,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>檢視及執行完整的範例
 
-若要執行範例應用程式，請先複製或從[GitHub](http://aka.ms/aadstorage)。 下列各節中所述，然後更新應用程式。
+若要執行範例應用程式，請先複製或從[GitHub](https://aka.ms/aadstorage)。 下列各節中所述，然後更新應用程式。
 
 ### <a name="provide-values-in-the-settings-file"></a>在 設定檔中提供值
 
