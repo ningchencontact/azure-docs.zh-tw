@@ -109,11 +109,11 @@ applicationsScoping //this brings data from Application Insights resources
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
-| [瀏覽器] | client_browser |
+| Browser | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| 国家/地区 | client_CountryOrRegion | 
+| Country | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -125,7 +125,7 @@ applicationsScoping //this brings data from Application Insights resources
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| 作業系統 | client_OS | 
+| OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
@@ -134,9 +134,9 @@ applicationsScoping //this brings data from Application Insights resources
 | RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | 成功 | 
-| ResponseCode | ResultCode | 
-| 角色 | cloud_RoleName |
+| RequestSuccess | success | 
+| ResponseCode | resultCode | 
+| Role | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
