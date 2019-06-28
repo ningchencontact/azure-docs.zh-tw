@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476161"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312842"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>管理 Azure 金鑰保存庫和 Azure CLI 與儲存體帳戶金鑰 
 
@@ -94,7 +94,7 @@ Key Vault 是 Microsoft 應用程式在所有 Azure AD 租用戶中預先註冊�
 1. 儲存體帳戶金鑰操作員服務角色 」 將 RBAC 角色指派至金鑰保存庫。 此角色會限制您的儲存體帳戶的存取範圍。 對於傳統儲存體帳戶，使用 傳統儲存體帳戶金鑰操作員服務角色 」 角色。
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` 為 Azure 公用雲端中的金鑰保存庫中的物件識別碼。 若要在 Azure Government 雲端中取得金鑰保存庫的物件識別碼，請參閱[服務主體應用程式識別碼](#service-principal-application-id)。

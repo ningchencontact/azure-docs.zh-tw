@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: db289e5b5be23176e8589f408a86734181129ebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffdda51c4739dfad6c326a5c90f4a93ebfb321cd
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978498"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294905"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>啟用 Linux IaaS VM 適用的 Azure 磁碟加密 
 
-您可以啟用許多磁碟加密案例，步驟可能會因案例而有所不同。 下列各節涵蓋更詳細的 Linux IaaS VM 案例。 您必須先完成 [Azure 磁碟加密必要條件](azure-security-disk-encryption-prerequisites.md)，而且應該檢閱 [Linux IaaS VM 的其他必要條件](azure-security-disk-encryption-prerequisites.md#bkmk_LinuxPrereq)一節，才能您使用磁碟加密。
+您可以啟用許多磁碟加密案例，步驟可能會因案例而有所不同。 下列各節涵蓋更詳細的 Linux IaaS VM 案例。 您可以使用磁碟加密之前[Azure 磁碟加密的必要條件](azure-security-disk-encryption-prerequisites.md)必須先完成，而[Linux IaaS Vm 適用的其他必要條件](azure-security-disk-encryption-prerequisites.md#additional-prerequisites-for-linux-iaas-vms)應該檢閱 區段。
 
 在磁碟加密前製作[快照集](../virtual-machines/windows/snapshot-copy-managed-disk.md)及/或進行備份。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 具有受控磁碟的 VM 需要有備份，才能進行加密。 建立備份之後，您可以使用組 AzVMDiskEncryptionExtension cmdlet 來加密受控的磁碟，藉由指定-skipVmBackup 參數。 如需如何備份和還原已加密 VM 的詳細資訊，請參閱 [Azure 備份](../backup/backup-azure-vms-encryption.md)一文。 
 

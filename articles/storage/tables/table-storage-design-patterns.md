@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101418"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295123"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 請注意，此範例預期會擷取的實體屬於 **EmployeeEntity**類型。  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>使用 LINQ 擷取多個實體
-您可以搭配使用 LINQ 與儲存體用戶端程式庫，並指定具有 **where** 子句的查詢，以擷取多個實體。 若要避免資料表掃描，您應一律在 where 子句中加入 **PartitionKey** 值，並盡可能加入 **RowKey** 值，以防止資料表和資料分割掃描。 資料表服務支援在 where 子句中使用一組有限的比較運算子 (大於、大於或等於、小於、小於或等於、等於和不等於)。 下列 C# 程式碼片段會在業務部門 (假設 **PartitionKey** 儲存部門名稱) 中，尋找姓氏以 "B" 開頭的所有員工 (假設 **RowKey** 儲存姓氏)：  
+您可以使用 LINQ，若要使用 Microsoft Azure Cosmos 資料表標準程式庫時，從資料表服務中擷取多個實體。 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+若要讓範例工作，您必須包含命名空間如下：
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+EmployeeTable 是 CloudTable 物件實作 CreateQuery<ITableEntity>（） 方法，以傳回 TableQuery<ITableEntity>。 此類型的物件會實作 IQueryable，並允許使用 LINQ 查詢運算式和點標記法語法。
+
+擷取多個實體，並藉由指定的查詢來達成**其中**子句。 若要避免資料表掃描，您應一律在 where 子句中加入 **PartitionKey** 值，並盡可能加入 **RowKey** 值，以防止資料表和資料分割掃描。 資料表服務支援在 where 子句中使用一組有限的比較運算子 (大於、大於或等於、小於、小於或等於、等於和不等於)。 
+
+下列 C# 程式碼片段會在業務部門 (假設 **PartitionKey** 儲存部門名稱) 中，尋找姓氏以 "B" 開頭的所有員工 (假設 **RowKey** 儲存姓氏)：  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();

@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/07/2019
-ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0ee2dde5a941d069f5b745eafb35df780f657a47
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65079266"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312628"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>客戶 Lockbox 適用於 Microsoft Azure
 
@@ -97,7 +97,7 @@ ms.locfileid: "65079266"
 ### <a name="remote-desktop-access-to-virtual-machines"></a>虛擬機器的遠端桌面存取
 
 客戶 Lockbox 目前已啟用虛擬機器的遠端桌面存取要求。 支援下列工作負載：
-- 平台即服務 (PaaS)-第 1 版
+- 平台即服務 (PaaS)-Azure 雲端服務 （web 角色和背景工作角色）
 - 基礎結構即服務 (IaaS)-Windows 和 Linux (僅限 Azure Resource Manager)
 - 虛擬機器擴展集-Windows 和 Linux
 

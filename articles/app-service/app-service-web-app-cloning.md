@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139710"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329639"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 複製 Azure App Service App
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139710"
 
 隨著 Microsoft Azure PowerShell 1.1.0 版的發行，`New-AzWebApp` 中新增了一個新選項，可讓您將現有的 App Service 應用程式複製到不同區域或相同區域中新建立的應用程式。 此選項可讓客戶輕鬆且快速地跨不同區域部署許多應用程式。
 
-應用程式複製目前僅支援 Premium 層 App Service 方案。 新功能會使用與 App Service 備份功能相同的限制，請參閱[在 Azure App Service 中備份應用程式](manage-backup.md)。
+應用程式複製支援 Standard、 Premium、 進階 V2 和隔離的 app service 方案。 新功能會使用與 App Service 備份功能相同的限制，請參閱[在 Azure App Service 中備份應用程式](manage-backup.md)。
 
 ## <a name="cloning-an-existing-app"></a>複製現有的應用程式
 案例：您想要將位於美國中南部區域的現有應用程式內容，複製到位於美國中北部區域的新應用程式。 使用 Azure Resource Manager 版本的 PowerShell Cmdlet 並搭配 `-SourceWebApp` 選項來建立新的應用程式，即可實現此目的。

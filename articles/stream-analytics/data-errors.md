@@ -6,17 +6,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65607224"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329589"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 資料錯誤
 
-當處理由 Azure Stream Analytics 作業的資料沒有不一致的情形時，Stream Analytics 會傳送資料的錯誤事件至診斷記錄。 Stream Analytics 會寫入其資料錯誤發生時的診斷記錄的詳細的資訊和範例事件。 透過入口網站的通知，對於某些錯誤也提供這項資訊摘要。
+資料錯誤是在處理資料時所發生的錯誤。  這些錯誤通常發生在資料還原序列化，序列化期間，和寫入作業。  發生資料錯誤時，Stream Analytics 就會寫入至診斷記錄的詳細的資訊和範例的事件。  在某些情況下，這項資訊的摘要也提供透過入口網站的通知。
 
 本文章概述各種錯誤類型、 原因和診斷記錄的輸入和輸出資料錯誤的詳細資料。
 
@@ -45,6 +45,7 @@ ms.locfileid: "65607224"
 * 原因：選取的輸入的壓縮類型不符合的資料。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：從輸入會捨棄任何包含無效的壓縮類型的還原序列化錯誤的訊息。
 * 記錄詳細資料
    * 輸入訊息識別項。 事件中樞的識別項是 PartitionId、 位移和序號。
 
@@ -59,6 +60,7 @@ ms.locfileid: "65607224"
 * 原因：輸入資料的標頭無效。 例如，CSV 都有名稱重複的資料行。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：包含無效的標頭的任何還原序列化錯誤的訊息會從輸入卸除。
 * 記錄詳細資料
    * 輸入訊息識別項。 
    * 實際最多幾 kb 的承載。
@@ -74,6 +76,7 @@ ms.locfileid: "65607224"
 * 原因：搭配 CREATE TABLE 或透過時間戳記所定義的輸入資料行不存在。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：從輸入會捨棄具有遺失的資料行的事件。
 * 記錄詳細資料
    * 輸入訊息識別項。 
    * 遺漏的資料行名稱。 
@@ -94,6 +97,7 @@ ms.locfileid: "65607224"
 * 原因：無法將輸入轉換成 CREATE TABLE 陳述式中指定的類型。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：從輸入會捨棄具有類型轉換錯誤的事件。
 * 記錄詳細資料
    * 輸入訊息識別項。 
    * 預期的類型與資料行的名稱。
@@ -113,6 +117,7 @@ ms.locfileid: "65607224"
 * 原因：輸入的資料不正確的格式。 例如，輸入不是有效的 JSON。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：從輸入，會卸除無效的資料錯誤發生後的訊息中的所有事件。
 * 記錄詳細資料
    * 輸入訊息識別項。 
    * 實際最多幾 kb 的承載。
@@ -132,6 +137,7 @@ ms.locfileid: "65607224"
 * 原因：TIMESTAMP BY 運算式的值無法轉換成日期時間。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：從輸入會捨棄無效的輸入時間戳記的事件。
 * 記錄詳細資料
    * 輸入訊息識別項。 
    * 錯誤訊息。 
@@ -148,6 +154,7 @@ ms.locfileid: "65607224"
 * 原因：TIMESTAMP BY OVER timestampColumn 的值是 NULL。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：從輸入會捨棄具有無效的輸入時間戳記索引鍵的事件。
 * 記錄詳細資料
    * 最多幾 kb 實際的承載。
 
@@ -162,6 +169,7 @@ ms.locfileid: "65607224"
 * 原因：應用程式的時間與抵達時間之間的差異大於延遲傳入容錯時間。
 * 提供的入口網站通知：否
 * 診斷記錄層級：資訊
+* 影響：延遲輸入的事件會根據 「 處理其他事件 」 來處理設定在事件排序作業的組態區段。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 記錄詳細資料
    * 應用時間與抵達時間。 
    * 實際最多幾 kb 的承載。
@@ -177,6 +185,7 @@ ms.locfileid: "65607224"
 * 原因：應用程式的時間與抵達時間之間的差異是 5 分鐘以上。
 * 提供的入口網站通知：否
 * 診斷記錄層級：資訊
+* 影響：早期輸入的事件會根據 「 處理其他事件 」 來處理設定在事件排序作業的組態區段。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 記錄詳細資料
    * 應用時間與抵達時間。 
    * 實際最多幾 kb 的承載。
@@ -192,6 +201,7 @@ ms.locfileid: "65607224"
 * 原因：事件會被視為根據所定義的順序錯亂容許視窗按順序。
 * 提供的入口網站通知：否
 * 診斷記錄層級：資訊
+* 影響：根據 「 處理其他事件 」 會處理事件的順序設定在事件工作組態的 [訂購] 區段。 如需詳細資訊，請參閱[時間處理原則](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
 * 記錄詳細資料
    * 實際最多幾 kb 的承載。
 
@@ -208,6 +218,7 @@ ms.locfileid: "65607224"
 * 原因：所需的輸出資料行不存在。 比方說，資料行定義為 Azure 資料表 PartitionKey 不存在。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：根據處理的所有輸出資料轉換錯誤包括遺漏必要的資料行[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
 * 記錄詳細資料
    * 名稱資料行和資料錄的識別項或記錄的一部分。
 
@@ -222,6 +233,7 @@ ms.locfileid: "65607224"
 * 原因：資料行的值不符合的輸出。 例如，資料行名稱不是有效的 Azure 資料表資料行。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：包含無效的資料行名稱所有的輸出資料轉換錯誤的處理根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
 * 記錄詳細資料
    * 名稱資料行和記錄識別碼或記錄的一部分。
 
@@ -236,6 +248,7 @@ ms.locfileid: "65607224"
 * 原因：資料行無法轉換成有效的型別，在輸出中。 例如，資料行的值是與條件約束或 SQL 資料表中定義的類型不相容。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：根據處理的所有輸出資料轉換錯誤包括型別轉換錯誤[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
 * 記錄詳細資料
    * 資料行的名稱。
    * 記錄識別碼或記錄的一部分。
@@ -251,6 +264,7 @@ ms.locfileid: "65607224"
 * 原因：訊息的值大於支援的輸出大小。 例如，記錄是大於 1 MB，做為事件中樞輸出。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：處理包括記錄超過的大小限制所有的輸出資料轉換錯誤的根據[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
 * 記錄詳細資料
    * 記錄識別碼或記錄的一部分。
 
@@ -265,6 +279,7 @@ ms.locfileid: "65607224"
 * 原因：記錄已經包含具有相同名稱的系統資料行的資料行。 比方說，CosmosDB 輸出資料行識別碼資料行是以不同的資料行名為 ID。
 * 提供的入口網站通知：是
 * 診斷記錄層級：警告
+* 影響：根據處理的所有輸出資料轉換錯誤包括重複的索引鍵[輸出資料原則](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)設定。
 * 記錄詳細資料
    * 資料行的名稱。
    * 記錄識別碼或記錄的一部分。

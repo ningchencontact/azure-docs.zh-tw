@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515733"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296138"
 ---
 # <a name="streaming-endpoints"></a>串流端點 
 
@@ -27,7 +27,7 @@ ms.locfileid: "66515733"
 > [!NOTE]
 > 若要開始串流處理視訊，您必須啟動要作為視訊串流處理來源的**串流端點**。 
 >  
-> 只有當串流端點處於執行中狀態時，才會向您收取費用。
+> 您只會收到帳單時 「 串流端點是在執行中狀態。
 
 ## <a name="naming-convention"></a>命名慣例
 
@@ -143,7 +143,7 @@ IP 篩選/G20/自訂主機<sup>2</sup>|是|是
 
 串流端點會使用佈建之後 CDN 有啟用 DNS 更新為了將串流端點對應至 CDN 端點之前，就會是媒體服務上定義的等待時間。
 
-如果您稍後想要停用/啟用 CDN，串流端點必須處於**已停止**狀態。 可能需要將近 2 小時，Azure CDN 整合才會啟用，變更也才會遍及所有 CDN POP。 不過，您可以啟動串流端點，並從串流端點不停地串流，等到整合完成後，則會從 CDN 傳送資料流。 在佈建期間，您的串流端點會處於**啟動中**狀態，而且您可能會發現效能下降。
+如果您稍後想要停用/啟用 CDN，串流端點必須處於**已停止**狀態。 可能需要將近 2 小時，Azure CDN 整合才會啟用，變更也才會遍及所有 CDN POP。 不過，您可以啟動串流端點，並從串流端點不停地串流，等到整合完成後，則會從 CDN 傳送資料流。 在佈建期間內您的串流端點會處於**啟動**狀態且您可能會發現效能降低。
 
 建立標準串流端點時，它會使用標準 Verizon 的預設設定。 您可以設定進階 Verizon 或 Akamai 標準提供者，使用 REST Api。 
 

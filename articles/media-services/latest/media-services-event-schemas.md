@@ -320,7 +320,7 @@ ms.locfileid: "60322228"
 | ingestUrl | string | 即時事件所提供的內嵌 URL。 |  
 | encoderIp | string | 編碼器的 IP。 |
 | encoderPort | string | 此資料流來源編碼器的連接埠。 |
-| resultCode | string | 連線遭到拒絕的原因。 結果碼列於下表。 |
+| ResultCode | string | 連線遭到拒絕的原因。 結果碼列於下表。 |
 
 結果碼如下：
 
@@ -401,7 +401,7 @@ ms.locfileid: "60322228"
 | ingestUrl | string | 即時事件所提供的內嵌 URL。 |  
 | encoderIp | string | 編碼器的 IP。 |
 | encoderPort | string | 此資料流來源編碼器的連接埠。 |
-| resultCode | string | 編碼器中斷連線的原因。 可能是正常中斷連線或錯誤所致。 結果碼列於下表。 |
+| ResultCode | string | 編碼器中斷連線的原因。 可能是正常中斷連線或錯誤所致。 結果碼列於下表。 |
 
 錯誤結果碼如下：
 
@@ -459,7 +459,7 @@ ms.locfileid: "60322228"
 | bitrate | integer | 資料軌的位元速率。 |
 | timestamp | string | 資料區塊的卸除時間戳記。 |
 | timescale | string | 時間戳記的時幅。 |
-| resultCode | string | 資料區塊卸除的原因。 **FragmentDrop_OverlapTimestamp** 或 **FragmentDrop_NonIncreasingTimestamp**。 |
+| ResultCode | string | 資料區塊卸除的原因。 **FragmentDrop_OverlapTimestamp** 或 **FragmentDrop_NonIncreasingTimestamp**。 |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -571,7 +571,7 @@ ms.locfileid: "60322228"
 | -------- | ---- | ----------- |
 | firstTimestamp | string | 其中一個視訊類型資料軌/品質層級所收到的時間戳記。 |
 | firstDuration | string | 具有第一個時間戳記的資料區塊持續時間。 |
-| secondTimestamp | 字串  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
+| secondTimestamp | string  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
 | secondDuration | string | 具有第二個時間戳記的資料區塊持續時間。 |
 | timescale | string | 時間戳記和持續時間的時幅。|
 
@@ -670,7 +670,7 @@ ms.locfileid: "60322228"
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | EventGrid 主題。 此屬性有媒體服務帳戶的資源識別碼。 |
-| subject | string | 媒體服務帳戶底下媒體服務通道的資源路徑。 串連主題和主旨即可獲得作業的資源識別碼。 |
+| 主旨 | string | 媒體服務帳戶底下媒體服務通道的資源路徑。 串連主題和主旨即可獲得作業的資源識別碼。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 例如，"Microsoft.Media.JobStateChange"。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |

@@ -7,18 +7,27 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: f921b4a95c1b0cfb29d84c0bacc17d268af6e6c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79879cd7f5ea5af1b794735f32e6e1367458e124
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082816"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310716"
 ---
-# <a name="vm-series-vcpu-limit-increase"></a>增加 VM 系列 vCPU 限制
+# <a name="vm-series-vcpu-limit-increase"></a>增加的 VM 系列 vCPU 限制
+
+每個訂用帳戶，每個區域中的兩個層級強制執行的虛擬機器和虛擬機器擴展集的 resource Manager vCPU 配額。 
+
+第一層是**總區域 Vcpu 限制**（跨所有 VM 系列），第二個層，而且**每個 VM 系列 Vcpu 限制**（例如 D 系列 Vcpu)。 每當新的 VM 時要部署新的和現有的 Vcpu 的 VM 系列的使用方式的總和不得超過核准該特定的 VM 系列的 vCPU 配額。 此外，跨所有 VM 系列部署的總新的和現有的 vCPU 計數不應該超過核准訂用帳戶的總區域 Vcpu 配額。 如果超過這些配額，將不允許 VM 部署。
+您可以從 Azure 入口網站要求增加 VM 系列的 Vcpu 配額限制。 VM 系列配額增加會自動增加總區域 Vcpu 限制，以相同數量。 
+
+建立新的訂用帳戶時，可能不等於所有個別的 VM 系列的預設 vCPU 配額總和預設區域 Vcpu 總計。 這會導致訂用帳戶具有足夠的配額為每個個別的 VM 系列，您想要部署，但所有部署的總區域 vcpu 的配額不足。 在此情況下，您必須提交要求，以明確地增加總區域 Vcpu 限制。 區域 Vcpu 總計限制不能已核准的配額的總和超過跨區域的所有 VM 系列。
+
+深入了解配額上[虛擬機器 vCPU 配額頁面](https://docs.microsoft.com/azure/virtual-machines/windows/quotas)並[Azure 訂用帳戶和服務限制](https://aka.ms/quotalimits)頁面。 
 
 您現在可以要求透過增加**說明 + 支援**刀鋒視窗或**使用量 + 配額**入口網站刀鋒視窗。 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>每在訂用帳戶層級使用的 VM vCPU 配額增加要求**說明 + 支援**刀鋒視窗
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>每在訂用帳戶層級使用的 VM 系列 vCPU 配額增加要求**說明 + 支援**刀鋒視窗
 
 請遵循下列指示來建立支援要求，透過 Azure 的 [說明 + 支援] 刀鋒視窗中使用 Azure 入口網站中。 
 
@@ -59,7 +68,7 @@ ms.locfileid: "67082816"
 ![新的限制](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>依據在訂用帳戶層級使用的 VM vCPU 配額增加要求**使用方式 + 配額**刀鋒視窗
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>依據在訂用帳戶層級使用的 VM 系列 vCPU 配額增加要求**使用方式 + 配額**刀鋒視窗
 
 請依照下列指示來建立支援要求，透過 Azure 的 [使用量 + 配額] 使用 Azure 入口網站中可用的刀鋒視窗。 
 

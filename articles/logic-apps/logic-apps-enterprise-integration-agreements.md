@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
-ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720684"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330312"
 ---
-# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>建立和使用 Azure Logic Apps 與企業整合套件來管理交易夥伴協議
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>建立和管理 Azure Logic Apps 中的交易夥伴協議
 
 A[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *協議*可協助組織和企業，順暢地彼此通訊所定義的交換時所要使用特定的業界標準通訊協定企業對企業 (B2B) 訊息。 合約會提供常見的優點，例如：
@@ -27,6 +26,8 @@ A[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * 可輕鬆地建立、 管理及使用來建置企業整合解決方案。
 
 這篇文章示範如何建立 AS2、 EDIFACT 或 X12 建置使用企業整合解決方案，適用於 B2B 案例時，您可以使用的協議[企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md)和[Azure Logic Apps](../logic-apps/logic-apps-overview.md). 建立協議之後，您可以接著使用 AS2、 EDIFACT 或 X12 交換 B2B 訊息的連接器。
+
+若要建立交換 RosettaNet 訊息的協議，請參閱[交換的 RosettaNet 訊息](../logic-apps/logic-apps-enterprise-integration-rosettanet.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -65,8 +66,8 @@ A[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)
    | **主機識別** | 是 | <*host-partner-identifier*> | 主控夥伴的識別項 |
    | **來賓合作夥伴** | 是 | <*guest-partner-name*> | 來賓合作夥伴代表與主機合作夥伴有生意往來的組織 |
    | **來賓身分識別** | 是 | <*guest-partner-identifier*> | 來賓夥伴的識別項 |
-   | **接收設定** | 視情況而異 | 視情況而異 | 這些屬性會指定如何處理收到的協議的所有內送訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
-   | **傳送設定** | 視情況而異 | 視情況而異 | 這些屬性會指定如何處理 「 合約 」 所傳送的所有外寄訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
+   | **接收設定** | 視情況而異 | 視情況而異 | 這些屬性指定的主機合作夥伴來自來賓夥伴協議中所收到的所有內送訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
+   | **傳送設定** | 視情況而異 | 視情況而異 | 這些屬性會指定如何主控夥伴傳送至來賓夥伴協議中的所有外寄訊息。 如需詳細資訊，請參閱個別的合約類型： <p>- [AS2 訊息設定](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 訊息設定](logic-apps-enterprise-integration-edifact.md) <br>- [X12 訊息設定](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. 當您完成上建立您的合約**新增**頁面上，選擇**確定**，並回到整合帳戶。

@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: b5979f8523aad95152378a2e7fabbe9fd8571e09
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 87e260c97a748807929a0e7021e3efb2ae8f8e7b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154095"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329291"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>了解 Azure 串流分析的輸入
 
 Azure 串流分析作業能連接一或多個資料輸入。 每個輸入都定義一個與現有資料來源的連線。 串流分析接受來自數種事件來源的資料，包括事件中樞、IoT 中樞及 Blob 儲存體。 輸入的參考依據，是您為每項作業撰寫之串流 SQL 查詢中的名稱。 在查詢中，您可以聯結多個輸入來混合資料，或是比較串流資料與參考資料的查閱，然後將結果傳遞給輸出。 
 
-串流分析與三種資源完美整合，並將其作為輸入：
+Stream Analytics 整合性極佳使用三種類型的資源做為輸入：
 - [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/) 
 
-這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，或來自不同的訂用帳戶。
+這些輸入的資源可以存在於相同 Azure 訂用帳戶與您的 Stream Analytics 工作，或從不同的訂用帳戶。
 
 您可以使用[Azure 入口網站](stream-analytics-quick-create-portal.md#configure-job-input)， [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput)， [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions)， [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)，和[Visual Studio](stream-analytics-tools-for-visual-studio-install.md)來建立、 編輯和測試 Stream Analytics 作業輸入。
 
@@ -37,7 +37,7 @@ Azure 串流分析作業能連接一或多個資料輸入。 每個輸入都定�
 如需串流資料輸入的詳細資訊，請參閱[將資料作為輸入串流處理至串流分析中](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>參考資料輸入
-串流分析也支援稱為「參考資料」  的輸入。 參考資料是完全靜態或緩慢變更的資料。 這些資料通常用來執行相互關聯和查閱。 比方說，您可能會將資料流輸入中的資料聯結至參考資料中的資料，很像是執行 SQL 聯結來查詢靜態值。 Azure Blob 儲存體和 Azure SQL Database 目前支援當成參考資料輸入來源。 根據查詢複雜度和配置的資料流單位而定，參考資料來源 Blob 的大小有最多 300 MB 的限制。
+串流分析也支援稱為「參考資料」  的輸入。 參考資料是完全靜態或緩慢變更的資料。 這些資料通常用來執行相互關聯和查閱。 比方說，您可能會將資料流輸入中的資料聯結至參考資料中的資料，很像是執行 SQL 聯結來查詢靜態值。 Azure Blob 儲存體和 Azure SQL Database 目前支援當成參考資料輸入來源。 參考資料來源 blob 的大小，視查詢複雜度而定有 300 MB 的限制和配置的串流處理單位 (請參閱[大小限制](stream-analytics-use-reference-data.md#size-limitation)參考資料文件，如需詳細資訊一節)。
 
 如需參考資料輸入的詳細資訊，請參閱[使用參考資料在串流分析中進行查閱](stream-analytics-use-reference-data.md)
 

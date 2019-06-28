@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692830"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331695"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps:使用 Azure Machine Learning Service 來管理、部署及監視模型
 
@@ -54,11 +54,14 @@ ms.locfileid: "66692830"
 模型註冊可讓您在 Azure 雲端自己的工作區中儲存模型和控制模型版本。 模型註冊可讓您更輕鬆地組織和追蹤已定型模型。
 
 > [!TIP]
-> 您也可以註冊外部 Azure 機器學習服務訓練的模型。
+> 已註冊的模型是組成模型的一或多個檔案的邏輯容器。 例如，如果您有多個檔案中儲存的模型，您可以它們註冊為單一模型中您的 Azure Machine Learning 工作區。 註冊之後，您可以下載或部署已註冊的模型然後接收已註冊的所有檔案。
  
 已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 服務支援可以載入使用 Python 3.5.2 或更高版本的任何模型。
 
-您無法刪除作用中的部署中所使用的模型。
+> [!TIP]
+> 您也可以註冊外部 Azure 機器學習服務訓練的模型。
+
+您無法刪除已註冊的模型正在使用中的部署中使用。
 
 如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#registermodel)的註冊模型一節。
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295450"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332021"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -79,7 +79,6 @@ ms.locfileid: "67295450"
 * DNS
 * Event Grid
 * 事件中樞
-* Front Door
 * HDInsight 叢集 - 請參閱 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
 * IoT 中樞
@@ -138,6 +137,7 @@ ms.locfileid: "67295450"
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
+* Front Door
 * 實驗室服務-教室實驗室無法移到新的資源群組或訂用帳戶。 DevTest Labs 可以移至新的資源群組相同的訂用帳戶，但不是會跨訂用帳戶中。
 * 受控應用程式
 * 受控識別 - 使用者指派

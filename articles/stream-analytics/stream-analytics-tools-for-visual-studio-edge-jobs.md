@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics tools for Visual Studio 中的 Stream Analytics 資料方塊 Edge 作業
-description: 本文說明如何撰寫、 偵錯，以及建立使用 Stream Analytics tools for Visual Studio Stream Analytics 資料方塊 Edge 作業。
+title: Azure Stream Analytics tools for Visual Studio 中的 Stream Analytics Edge 作業
+description: 本文說明如何撰寫、 偵錯，以及建立您的 Stream Analytics IoT Edge 上使用 Stream Analytics tools for Visual Studio 的作業。
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 242fb2daebfe9eb6e5a0c73c2c4c0e91a3131032
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1601bf6c73d9f3450959773c85385bc8ef907a66
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304166"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329967"
 ---
-# <a name="develop-stream-analytics-data-box-edge-jobs-using-visual-studio-tools"></a>開發使用 Visual Studio 工具的 Stream Analytics 資料方塊 Edge 作業
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具來開發串流分析 Edge 作業
 
-在本教學課程中，您將了解如何使用 Stream Analytics tools for Visual Studio。 您了解如何撰寫、 偵錯，以及建立 Stream Analytics 資料方塊 Edge 作業。 建立和測試作業之後，您可以前往 Azure 入口網站將其部署到您的裝置。 
+在本教學課程中，您將了解如何使用 Stream Analytics tools for Visual Studio。 您了解如何撰寫、 偵錯，以及建立 Stream Analytics Edge 作業。 建立和測試作業之後，您可以前往 Azure 入口網站將其部署到您的裝置。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,15 +28,15 @@ ms.locfileid: "66304166"
 
 * 依照[安裝指示](stream-analytics-tools-for-visual-studio-edge-jobs.md)，安裝 Visual Studio 適用的串流分析工具。
  
-## <a name="create-a-stream-analytics-data-box-edge-project"></a>建立 Stream Analytics 資料方塊邊緣的專案 
+## <a name="create-a-stream-analytics-edge-project"></a>建立串流分析 Edge 專案 
 
 在 Visual Studio 中，選取 [檔案]   > [新增]   > [專案]  。 巡覽至左側 [範本]  清單 > 展開 [Azure 串流分析]   > [串流分析 Edge]   > [Azure 串流分析 Edge 應用程式]  。 為您的專案提供名稱、位置及解決方案名稱，然後選取 [確定]  。
 
-![Visual Studio 中的新 Stream Analytics 資料方塊 Edge 專案](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
+![在 Visual Studio 中的新 Stream Analytics Edge 專案](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 建立專案之後，請巡覽至 [方案總管]  以檢視資料夾階層。
 
-![方案總管檢視的 Stream Analytics 資料方塊 Edge 作業](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![串流分析 Edge 作業的解決方案總管檢視](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
  
 ## <a name="choose-the-correct-subscription"></a>選擇正確的訂用帳戶
@@ -63,15 +63,14 @@ ms.locfileid: "66304166"
  
 ## <a name="define-the-transformation-query"></a>定義轉換查詢
 
-Stream Analytics 作業，在 Stream Analytics 資料方塊邊緣的環境中部署支援的大部分[Stream Analytics 查詢語言參考](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396)。 不過，Stream Analytics 資料方塊 Edge 作業尚不支援下列作業： 
+Stream Analytics 作業，在 Stream Analytics IoT Edge 環境中部署支援的大部分[Stream Analytics 查詢語言參考](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396)。 不過，Stream Analytics Edge 作業尚不支援下列作業： 
 
 
 |**分類**  | **命令**  |
 |---------|---------|
-|地理空間運算子 |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|其他運算子 | <ul><li>PARTITION BY</li><li>TIMESTAMP BY OVER</li><li>DISTINCT</li><li>COUNT 運算子中的運算式參數</li><li>DATE 和 TIME 函式中的微秒</li><li>JavaScript UDA (對於在雲端上部署的作業而言，這項功能仍處於預覽狀態)</li></ul>   |
+|其他運算子 | <ul><li>PARTITION BY</li><li>TIMESTAMP BY OVER</li><li>JavaScript UDF</li><li>使用者定義彙總 (UDA)</li><li>GetMetadataPropertyValue</li><li>在單一步驟中使用超過 14 個彙總</li></ul>   |
 
-當您在入口網站中建立的 Stream Analytics 資料方塊 Edge 作業時，編譯器會自動警告您如果您未使用支援的運算子。
+當您在入口網站中建立的 Stream Analytics Edge 作業時，編譯器會自動警告您如果您未使用支援的運算子。
 
 在您的 Visual Studio 中，請在查詢編輯器中定義下列轉換查詢 (**script.asaql 檔案**)
 
@@ -105,15 +104,15 @@ FROM EdgeInput
 
 2. 若要將作業提交至 Azure，請巡覽至查詢編輯器 > 選取 [提交至 Azure]  。  
 
-3. 快顯視窗隨即開啟。 若要更新現有的 Stream Analytics 資料方塊邊緣作業，或建立一個新的選擇。 當您更新現有的工作時，它會取代所有的作業組態，在此案例中，您將發佈新的作業。 選取 [建立新的 Azure 串流分析作業]  > 為您的作業輸入名稱 (例如，MyASAEdgeJob)  > 選擇所需的 [訂用帳戶]  、[資源群組]  和 [位置]  > 選取 [提交]  。
+3. 快顯視窗隨即開啟。 更新現有的 Stream 分析 Edge 作業，或建立一個新的選擇。 當您更新現有的工作時，它會取代所有的作業組態，在此案例中，您將發佈新的作業。 選取 [建立新的 Azure 串流分析作業]  > 為您的作業輸入名稱 (例如，MyASAEdgeJob)  > 選擇所需的 [訂用帳戶]  、[資源群組]  和 [位置]  > 選取 [提交]  。
 
    ![從 Visual Studio 將串流分析作業提交至 Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
-   現在已建立您的 Stream Analytics 資料方塊 Edge 作業。 您可以參考[IoT Edge 教學課程中執行工作](stream-analytics-edge.md)以了解如何將它部署到您的裝置。 
+   現在已建立您的 Stream Analytics Edge 作業。 您可以參考[IoT Edge 教學課程中執行工作](stream-analytics-edge.md)以了解如何將它部署到您的裝置。 
 
 ## <a name="manage-the-job"></a>管理作業 
 
-您可以在 [伺服器總管] 中檢視作業的狀態和作業圖表。 從**Stream Analytics**中**伺服器總管**，展開 訂用帳戶和資源群組部署的 Stream Analytics 資料方塊 Edge 作業的位置。 您可以檢視 [已建立]  狀態的 MyASAEdgejob。 展開作業節點並按兩下來開啟作業檢視。
+您可以在 [伺服器總管] 中檢視作業的狀態和作業圖表。 從**Stream Analytics**中**伺服器總管**，展開 訂用帳戶和資源群組部署的 Stream Analytics Edge 作業的位置。 您可以檢視 [已建立]  狀態的 MyASAEdgejob。 展開作業節點並按兩下來開啟作業檢視。
 
 ![伺服器總管作業管理選項](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  

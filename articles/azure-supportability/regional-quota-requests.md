@@ -7,14 +7,23 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 4c5524cf450959db7055ca5d032c81f79ebac077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ac6dce9aec1c363fa9772caabad9ce542d43888
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083076"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310655"
 ---
-# <a name="total-regional-vcpu-limit-increase"></a>增加區域 vCPU 總計限制 
+# <a name="total-regional-vcpu-limit-increase"></a>增加的區域總 vCPU 限制 
+
+每個訂用帳戶，每個區域中的兩個層級強制執行的虛擬機器和虛擬機器擴展集的 resource Manager vCPU 配額。 
+
+第一層是**總區域 Vcpu 限制**（跨所有 VM 系列），第二個層，而且**每個 VM 系列 Vcpu 限制**（例如 D 系列 Vcpu)。 每當新的 VM 時要部署新的和現有的 Vcpu 的 VM 系列的使用方式的總和不得超過核准該特定的 VM 系列的 vCPU 配額。 此外，跨所有 VM 系列部署的總新的和現有的 vCPU 計數不應該超過核准訂用帳戶的總區域 Vcpu 配額。 如果超過這些配額，將不允許 VM 部署。
+您可以從 Azure 入口網站要求增加 VM 系列的 Vcpu 配額限制。 VM 系列配額增加會自動增加總區域 Vcpu 限制，以相同數量。 
+
+建立新的訂用帳戶時，可能不等於所有個別的 VM 系列的預設 vCPU 配額總和預設區域 Vcpu 總計。 這會導致訂用帳戶具有足夠的配額為每個個別的 VM 系列，您想要部署，但所有部署的總區域 vcpu 的配額不足。 在此情況下，您必須提交要求，以明確地增加總區域 Vcpu 限制。 區域 Vcpu 總計限制不能已核准的配額的總和超過跨區域的所有 VM 系列。
+
+深入了解配額上[虛擬機器 vCPU 配額頁面](https://docs.microsoft.com/azure/virtual-machines/windows/quotas)並[Azure 訂用帳戶和服務限制](https://aka.ms/quotalimits)頁面。 
 
 您現在可以要求透過增加**說明 + 支援**刀鋒視窗或**使用量 + 配額**入口網站刀鋒視窗。 
 

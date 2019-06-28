@@ -1,24 +1,27 @@
 ---
 title: 將 Azure Blob 儲存體模組部署到裝置-Azure IoT Edge |Microsoft Docs
 description: 將 Azure Blob 儲存體模組部署到您的 IoT Edge 裝置，即可在邊緣儲存資料。
-author: kgremban
-ms.author: kgremban
-ms.date: 05/21/2019
+author: arduppal
+ms.author: arduppal
+ms.date: 06/19/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
-manager: philmea
-ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: mchad
+ms.openlocfilehash: 468e4fca5e67850949e7d5826e4bc88fa504b9d6
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990475"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295217"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>將 Azure Blob 儲存體，在 IoT Edge 模組部署到您的裝置
 
 有數種方式可將模組部署到 IoT Edge 裝置和所有人都適用於 Azure Blob 儲存體，在 IoT Edge 模組。 兩個最簡單的方法是使用 Azure 入口網站或 Visual Studio Code 範本。
+
+> [!NOTE]
+> IoT Edge 上的 Azure Blob 儲存體屬於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -86,37 +89,37 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
      - 格式是適用於 Windows 容器 *\<儲存體路徑 >: C: / BlobRoot*。 例如， **c: / ContainerData:C: / BlobRoot**或是**我-磁碟區： C: / blobroot**。
 
      > [!IMPORTANT]
-     > 請勿變更儲存體目錄繫結的後半段 (指向模組中的特定位置)。 此儲存體目錄繫結的結尾對於 Linux 容器應一律為 **:/blobroot**，對於 Windows 容器應一律為 **:C:/BlobRoot**。
+     > 請勿變更儲存體目錄繫結的後半段 (指向模組中的特定位置)。 儲存體目錄繫結的結尾對於 Linux 容器應一律為 **:/blobroot**，對於 Windows 容器應一律為 **:C:/BlobRoot**。
 
-    ![更新模組容器建立選項 - 入口網站](./media/how-to-store-data-blob/edit-module.png)
-
-1. 設定[分層](how-to-store-data-blob.md#tiering-properties)並[存留時間](how-to-store-data-blob.md#time-to-live-properties)複製下列 JSON 並貼上到您模組屬性**組模組對應項的所需屬性** 方塊中。 使用適當的值設定每個屬性，並儲存它，繼續進行部署。
+1. 設定[deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties)並[deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)複製下列 JSON 並貼上到您模組屬性**組模組對應項的所需屬性** 方塊中。 使用適當的值設定每個屬性，並儲存它，繼續進行部署。
 
    ```json
    {
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading":<true,false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload":<true,false>
        }
      }
    }
 
       ```
 
-   ![設定分層和存留時間屬性](./media/how-to-store-data-blob/iotedge_custom_module.png)
+   ![設定容器建立選項、 deviceAutoDeleteProperties 與 deviceToCloudUploadProperties 屬性](./media/how-to-deploy-blob/iotedge-custom-module.png)
 
-   如需設定分層和 TTL 部署模組之後，請參閱[編輯模組對應項](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)。 如需有關所需屬性的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
+   如需設定 deviceToCloudUploadProperties 和 deviceAutoDeleteProperties 部署模組之後，請參閱[編輯模組對應項](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)。 如需有關所需屬性的詳細資訊，請參閱[定義或更新所需屬性](module-composition.md#define-or-update-desired-properties)。
 
 1. 選取 [ **儲存**]。
 
@@ -158,7 +161,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
    | 選取資料夾 | 選擇您的 Visual Studio 程式碼，以建立方案檔的開發電腦上的位置。 |
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
    | 選取模組範本 | 選擇 [現有模組 (輸入完整映像 URL)]  。 |
-   | 提供模組名稱 | 為您的模組輸入全部小寫名稱，例如 **azureblobstorage**。<br /><br />針對 IoT Edge 模組上的 Azure Blob 儲存體，請務必使用小寫名稱。 IoT Edge 在參考模組時會區分大小寫，且儲存體 SDK 預設為小寫。 |
+   | 提供模組名稱 | 輸入您的模組的全部小寫名稱，例如**azureblobstorageoniotedge**。<br /><br />針對 IoT Edge 模組上的 Azure Blob 儲存體，請務必使用小寫名稱。 IoT Edge 在參考模組時會區分大小寫，且儲存體 SDK 預設為小寫。 |
    | 提供模組的 Docker 映像 | 提供映像 URI：**mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將其載入至新的視窗。 解決方案範本會建立部署資訊清單範本，其中包含 Blob 儲存體模組映像，但是您需要設定模組的建立選項。
@@ -182,7 +185,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
       }
       ```
 
-      ![更新模組 createOptions-Visual Studio Code](./media/how-to-store-data-blob/create-options.png)
+      ![更新模組 createOptions-Visual Studio Code](./media/how-to-deploy-blob/create-options.png)
 
 1. 將 `<your storage account name>` 取代為您可以記住的名稱。 帳戶名稱應該是 3 到 24 個字元，包含小寫字母和數字。 不能是空格。
 
@@ -196,32 +199,34 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
       > [!IMPORTANT]
       > 請勿變更儲存體目錄繫結的後半段 (指向模組中的特定位置)。 儲存體目錄繫結的結尾對於 Linux 容器應一律為 **:/blobroot**，對於 Windows 容器應一律為 **:C:/BlobRoot**。
 
-1. 設定[分層](how-to-store-data-blob.md#tiering-properties)並[存留時間](how-to-store-data-blob.md#time-to-live-properties)您的模組，新增以下 JSON 屬性*deployment.template.json*檔案。 設定每個屬性，使用適當的值，然後儲存檔案。
+1. 設定[deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties)並[deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)為您的模組，新增以下 JSON *deployment.template.json*檔案。 設定每個屬性，使用適當的值，然後儲存檔案。
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
      "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>,
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       "deviceAutoDeleteProperties": {
+         "deleteOn": <true, false>,
+         "deleteAfterMinutes": <timeToLiveInMinutes>,
+         "retainWhileUploading": <true, false>
        },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
+       "deviceToCloudUploadProperties": {
+         "uploadOn": <true, false>,
+         "uploadOrder": "<NewestFirst, OldestFirst>",
+         "cloudStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "storageContainersForUpload": {
            "<source container name1>": {
              "target": "<target container name1>"
            }
-         }
+         },
+         "deleteAfterUpload": <true, false>
        }
      }
    }
    ```
 
-   ![設定所需的屬性，如 azureblobstorageoniotedge-Visual Studio Code](./media/how-to-store-data-blob/tiering_ttl.png)
+   ![設定所需的屬性，如 azureblobstorageoniotedge-Visual Studio Code](./media/how-to-deploy-blob/devicetocloud-deviceautodelete.png)
 
-   如需設定分層和 TTL 部署模組之後，請參閱[編輯模組對應項](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)。 如需有關容器建立選項、 重新啟動原則，以及所需的狀態，請參閱[EdgeAgent 的所需屬性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。
+   如需設定 deviceToCloudUploadProperties 和 deviceAutoDeleteProperties 部署模組之後，請參閱[編輯模組對應項](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin)。 如需有關容器建立選項、 重新啟動原則，以及所需的狀態，請參閱[EdgeAgent 的所需屬性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。
 
 1. 儲存 *deployment.template.json* 檔案。
 

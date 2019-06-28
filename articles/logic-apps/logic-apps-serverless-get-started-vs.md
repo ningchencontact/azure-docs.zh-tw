@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/25/2019
-ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: e51a3f9971006a0b50cec1abdc5e955d06c23466
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467438"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295858"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>使用 Azure Logic Apps 和 Azure Functions 建置您的第一個無伺服器應用程式 - Visual Studio
 
@@ -34,7 +34,6 @@ ms.locfileid: "65467438"
 
     > [!IMPORTANT]
     > 當您安裝 Visual Studio 2019 或 2017 時，請務必選取 **Azure 開發**工作負載。
-    > 對於 Visual Studio 2019，Cloud Explorer 可以在 Azure 入口網站中開啟邏輯應用程式設計工具，但尚無法開啟內嵌的邏輯應用程式設計工具。
 
   * [Microsoft Azure SDK for .NET (2.9.1 或更新版本)](https://azure.microsoft.com/downloads/)。 
   深入了解 [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet)。
@@ -128,6 +127,9 @@ ms.locfileid: "65467438"
 
    ![在 Logic Apps 設計工具中開啟 "azuredeploy.json"](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您有最新的更新，適用於 Visual Studio。
+
 1. 在 [邏輯應用程式屬性]  方塊出現之後，如果尚未選取，請在 [訂用帳戶]  之下選取您的 Azure 訂用帳戶。 在 [資源群組]  之下，選取您部署解決方案的資源群組和所在位置，然後選擇 [確定]  。
 
    ![邏輯應用程式屬性](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
@@ -153,6 +155,9 @@ ms.locfileid: "65467438"
 1. 在 [所有訂用帳戶]  之下，選取與您要管理的邏輯應用程式相關聯的 Azure 訂用帳戶，然後選擇 [套用]  。
 
 1. 在 [Logic Apps]  下，選取您的邏輯應用程式。 從該應用程式的捷徑功能表，選取 [使用邏輯應用程式編輯器開啟]  。
+
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您有最新的更新，適用於 Visual Studio。
 
 您現在可以將已經發佈的邏輯應用程式下載到您的資源群組專案中。 所以即便您可能已在 Azure 入口網站中啟動邏輯應用程式，您仍然可在 Visual Studio 中匯入和管理該應用程式。 如需詳細資訊，請參閱[使用 Visual Studio 管理邏輯應用程式](../logic-apps/manage-logic-apps-with-visual-studio.md)。
 

@@ -7,17 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515926"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329991"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
 有時候，Azure 串流分析作業會非預期地停止處理。 請務必要設法解決這類事件的問題。 錯誤發生的原因可能是非預期的查詢結果、裝置的連線狀況，或未預期的服務中斷。 串流分析中的診斷記錄可協助您在事件發生當下找出問題原因，並減少復原時間。
+
+它是強烈建議啟用所有的實際執行作業的診斷記錄檔。
 
 ## <a name="log-types"></a>記錄類型
 
@@ -62,7 +64,7 @@ ms.locfileid: "66515926"
 
     ![瀏覽到診斷記錄的刀鋒視窗](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  在 [診斷設定]  中建立 [名稱]  ，然後核取 [傳送至 Log Analytics]  旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄]  下的 [執行]  和 [編寫]  ，以及 [計量]  下的 [AllMetrics]  核取方塊。 按一下 [檔案]  。
+2.  在 [診斷設定]  中建立 [名稱]  ，然後核取 [傳送至 Log Analytics]  旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄]  下的 [執行]  和 [編寫]  ，以及 [計量]  下的 [AllMetrics]  核取方塊。 按一下 [檔案]  。 建議您在相同的 Azure 區域與您的 Stream Analytics 工作中使用 Log Analytics 工作區，以避免額外的成本。
 
     ![診斷記錄的設定](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -97,7 +99,7 @@ Azure Stream Analytics 會擷取診斷記錄的兩個的類別：
 
 所有記錄會儲存為 JSON 格式。 每個項目皆包含下列常見的字串欄位︰
 
-Name | 描述
+名稱 | 描述
 ------- | -------
 time | 記錄的時間戳記 (UTC 時間)。
 ResourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如， **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
@@ -113,9 +115,9 @@ properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需
 
 ### <a name="data-errors"></a>資料錯誤
 
-作業處理資料時發生的任何錯誤皆包含於此類記錄中。 這些記錄最常於資料讀取、序列化和寫入作業時建立。 這些記錄不包含連線錯誤。 連線錯誤視為一般事件。
+作業處理資料時發生的任何錯誤皆包含於此類記錄中。 這些記錄最常於資料讀取、序列化和寫入作業時建立。 這些記錄不包含連線錯誤。 連線錯誤視為一般事件。 您可以深入了解各種不同的原因[輸入和輸出資料錯誤](https://docs.microsoft.com/azure/stream-analytics/data-errors)。
 
-Name | 描述
+名稱 | 描述
 ------- | -------
 source | 發生錯誤的作業輸入或輸出名稱。
 Message | 與錯誤相關的訊息。
@@ -149,4 +151,4 @@ Message| 記錄訊息。
 * [開始使用串流分析](stream-analytics-real-time-fraud-detection.md)
 * [調整串流分析作業](stream-analytics-scale-jobs.md)
 * [串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics 資料錯誤](https://docs.microsoft.com/azure/stream-analytics/data-errors)

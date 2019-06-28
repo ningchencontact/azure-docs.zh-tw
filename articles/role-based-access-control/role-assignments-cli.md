@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc5deb614e2ac6e47ff3bf241943df92d97699b2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344558"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295165"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 與 Azure CLI 管理對 Azure 資源的存取
 
@@ -192,7 +192,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 az role assignment list --assignee <assignee>
 ```
 
-預設只會顯示訂用帳戶範圍內的指派。 若要檢視資源或群組範圍內的指派，請使用 `--all`。
+根據預設，會顯示只有直接指派到訂用帳戶範圍。 若要檢視範圍內的資源或群組指派，請使用`--all`若要檢視繼承的 asisgnments，請使用`--include-inherited`。
 
 下列範例會列出直接指派給角色指派*patlong\@contoso.com*使用者：
 

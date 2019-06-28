@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a018a383de855a05b14aa6e1f1c465f8868f672d
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190112"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312159"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>在 SSIS 整合執行階段疑難排解封裝執行
 
@@ -110,6 +110,11 @@ ms.locfileid: "67190112"
   * 其中一個可能的原因是該使用者名稱/密碼與啟用的 MFA 設定為使用 Azure Analysis Services 驗證，尚不支援 SSIS 整合執行階段中。 嘗試使用服務主體來驗證 Azure 分析服務：
     1. 準備以服務主體 [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
     2. 在 [連接管理員] 中，設定 [使用特定的使用者名稱和密碼]: 將"AppID"設定為使用者名稱和"clientSecret 」 做為密碼
+
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-managed-identity"></a>錯誤訊息：「 ADONET 來源無法取得連接 {GUID} 並出現下列錯誤訊息：使用者 ' NT AUTHORITY\ANONYMOUS LOGON' 登入失敗 」 時使用受控身分識別
+
+* 可能的原因和建議的動作：
+  * 請確定您未設定連接管理員的驗證方法為 「 Active Directory 密碼驗證 」，「 ConnectUsingManagedIdentity"的參數為 True 時。 您可以將它設定為 「 SQL 驗證 」 改為如果在設定 「 ConnectUsingManagedIdentity 」 會忽略其中
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>套件就會發生未預期的長時間執行
 

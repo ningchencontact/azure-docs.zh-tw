@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: fdf98a0c0c40010bb55955b54dc7b04db8e199f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493269"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329905"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 串流分析中的異常偵測
 
@@ -21,7 +21,7 @@ Azure 串流分析 (在雲端和 Azure IoT Edge 中都可取得) 提供內建的
 
 機器學習模型假設有一個均勻取樣的時間序列。 如果此時間序列不均勻，您可以在呼叫異常偵測之前，透過輪轉視窗插入彙總步驟。
 
-機器學習作業不支援季節性趨勢或多變量的相互關聯。
+機器學習服務作業不支援季節性趨勢或多重變量相互關聯這一次。
 
 ## <a name="model-accuracy-and-performance"></a>模型精確度和效能
 
@@ -29,9 +29,9 @@ Azure 串流分析 (在雲端和 Azure IoT Edge 中都可取得) 提供內建的
 
 函式的運作方式為根據其目前為止所看到的內容建立某種標準。 與所建立的標準進行比較 (在信賴等級內)，藉此識別極端值。 視窗大小應該以針對正常行為定型模型所需的事件數目下限為基礎，如此在發生異常狀況時，才能夠加以辨識。
 
-請記住，模型的回應時間會隨著歷程記錄大小而增加，因為它需要與較高的過去事件數目進行比較。 建議只包含所需的事件數目，以獲得較佳效能。
+模型的回應時間會隨著歷程記錄的大小，因為它需要用來比較過去的事件數目。 建議只包含所需的事件數目，以獲得較佳效能。
 
-時間序列中的間距可能是未能在特定時間點及時收到事件的模型結果。 串流分析會使用插補來處理這種情況。 相同滑動視窗的歷程記錄大小，以及持續時間用來計算事件預計抵達的的平均速率。
+時間序列中的間距可能是未能在特定時間點及時收到事件的模型結果。 Stream Analytics 中使用插補邏輯會處理這種情況。 相同滑動視窗的歷程記錄大小，以及持續時間用來計算事件預計抵達的的平均速率。
 
 ## <a name="spike-and-dip"></a>峰值和谷值
 
@@ -40,7 +40,7 @@ Azure 串流分析 (在雲端和 Azure IoT Edge 中都可取得) 提供內建的
 
 ![峰值和谷值異常的範例](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-在相同的滑動視窗中，如果第二個峰值小於第一個峰值，則較小峰值的計算分數可能不足以與指定的信賴等級內第一個峰值的分數比較。 您可以嘗試降低模型的信賴等級設定，以攔截這類異常狀況。 不過，如果您開始取得太多警示，則可使用較高的信賴區間。
+在相同的滑動視窗中，如果第二個峰值小於第一個峰值，則較小峰值的計算分數可能不足以與指定的信賴等級內第一個峰值的分數比較。 您可以嘗試降低模型的信心層級，來偵測這類異常狀況。 不過，如果您開始取得太多警示，則可使用較高的信賴區間。
 
 下列範例查詢假設在歷程記錄有 120 個事件的 2 分鐘滑動視窗中，每秒一個事件的均勻輸入速率。 最終的 SELECT 陳述式會擷取並輸出 95% 信賴等級的分數和異常狀態。
 

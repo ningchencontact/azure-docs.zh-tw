@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498945"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338503"
 ---
 # <a name="app-service-networking-features"></a>App Service 網路功能
 
@@ -136,7 +136,7 @@ App Service 混合式連線功能為基礎的 Azure 轉送混合式連線功能�
 
 功能可讓您存取內部資源，而不需要輸入的防火牆洞，因為它是常用的開發人員。 其他輸出 App Service 網路功能是非常 Azure 虛擬網路相關項目。 混合式連線並沒有在透過 VNet 的相依性，而且可用於更廣泛的網路需求。 請務必請注意，App Service 混合式連線功能不會不小心或知道您會在其上執行的動作。 這是說，您可以使用它來存取資料庫、 web 服務或任意的 TCP 通訊端，大型主機上。 此功能基本上是透過通道傳送 TCP 封包。 
 
-最受歡迎的開發混合式連線時，它也會在許多實際執行應用程式以及。 它適合用來存取 web 服務或資料庫，但不是適當的情況下建立多很棒的連線。 
+最受歡迎的開發混合式連線時，它也會在許多實際執行應用程式以及。 它適合用來存取 web 服務或資料庫，但不是適當的情況下建立許多連接。 
 
 ### <a name="gateway-required-vnet-integration"></a>需要閘道的 VNet 整合 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6a6db30bfe6e4dc1eed04d11b53113c90210a5cf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275214"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312152"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>將 Azure VM 從一個區域複寫至另一個區域的支援矩陣
 
@@ -168,7 +168,7 @@ RBAC 原則 | 不支援 | 角色型的存取控制 (RBAC) 原則，在 Vm 上的
 **Action** | **詳細資料**
 -- | ---
 在複寫的 VM 上調整磁碟大小 | 支援
-在複寫的 VM 上新增磁碟 | 不支援。<br/><br/> 您需要停用 VM 的複寫、新增磁碟，然後重新啟用複寫。
+在複寫的 VM 上新增磁碟 | 支援
 
 ## <a name="replicated-machines---storage"></a>複寫的機器 - 儲存體
 

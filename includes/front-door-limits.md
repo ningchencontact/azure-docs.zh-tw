@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174352"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333368"
 ---
 | 資源 | 預設值/最大限制 |
 | --- | --- |
@@ -25,6 +25,15 @@ ms.locfileid: "67174352"
 | 要符合路由規則的路徑模式 | 25 |
 | 每個原則的自訂 Web 應用程式防火牆規則 | 10 |
 | 每個資源的 Web 應用程式防火牆原則 | 100 |
+| Web 應用程式防火牆每個自訂規則的比對條件 | 10 |
+| Web 應用程式防火牆的 IP 位址範圍每個比對條件 | 600 |
+| Web 應用程式防火牆的字串比對每個值比對條件 | 10 |
+| Web 應用程式防火牆的字串相符項目值的長度 | 256 |
+| Web 應用程式防火牆 POST 主體參數名稱長度 | 256 |
+| Web 應用程式防火牆 HTTP 標頭名稱長度 | 256 |
+| Web 應用程式防火牆的 cookie 名稱長度 | 256 |
+| Web 應用程式防火牆 HTTP 要求主體大小檢查 | 128 KB |
+| Web 應用程式防火牆的自訂回應內文長度 | 2 KB |
 
 ### <a name="timeout-values"></a>逾時值
 #### <a name="client-to-front-door"></a>用戶端至 Front Door
@@ -42,3 +51,6 @@ ms.locfileid: "67174352"
 | ---- | ------- | ------- |
 | **下載** | 下載大小沒有任何限制。 | 下載大小沒有任何限制。 |
 | **上傳** |  只要每個 CTE 上傳小於 2 GB，沒有任何限制。 | 大小不得大於 2 GB。 |
+
+### <a name="other-limits"></a>其他限制
+- URL 大小上限為 8192 位元組-指定的原始 URL 的最大長度 (配置 + 主機名稱 + 連接埠 + 路徑 + 查詢 URL 字串)-最大的查詢字串大小為 4,096 個位元組-指定查詢字串，最大長度，以位元組為單位。

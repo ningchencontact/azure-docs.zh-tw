@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475235"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310151"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -147,7 +147,7 @@ App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> 自訂網域的**不安全**標籤表示其尚未繫結到 SSL 憑證，任何從瀏覽器傳送至您自訂網域的 HTTPS 要求將會收到錯誤或警告 (視瀏覽器而定)。 若要設定 SSL 繫結，請參閱[購買並設定 Azure App Service 的 SSL 憑證](web-sites-purchase-ssl-web-site.md)。
+> A**無法保護**標籤為您的自訂網域表示它尚未繫結到 SSL 憑證，而且任何瀏覽器從您的自訂網域的 HTTPS 要求將會收到錯誤或警告，視瀏覽器。 若要設定 SSL 繫結，請參閱[購買並設定 Azure App Service 的 SSL 憑證](web-sites-purchase-ssl-web-site.md)。
 >
 
 若要測試主機名稱，請在瀏覽器中瀏覽至列出的主機名稱。 在上述螢幕擷取畫面的範例，請嘗試瀏覽至_kontoso.net_並_www\.kontoso.net_。

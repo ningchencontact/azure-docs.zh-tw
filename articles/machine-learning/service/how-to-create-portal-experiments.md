@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989954"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312809"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>建立並探索自動化的機器學習服務實驗，在 Azure 入口網站 （預覽）
 
@@ -96,16 +96,16 @@ ms.locfileid: "65989954"
 
 1. 預測：
     1. 選取時間資料行：此資料行包含要使用的時間資料。
-    1. 選取 預測時間範圍：指出多少時間單位 （分鐘/小時/天/週/月/年） 將模型能夠預測未來。 進一步說明模型需要預測未來，它會變成不準確。 [進一步了解預測和預測水平分割](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment)。
+    1. 選取 預測時間範圍：指出多少時間單位 （分鐘/小時/天/週/月/年） 將模型能夠預測未來。 進一步說明模型需要預測未來，它會變成不準確。 [進一步了解預測和預測水平分割](how-to-auto-train-forecast.md)。
 
 1. （選擇性）進階設定： 您可以用來進一步控制訓練作業的其他設定。
 
     進階設定|描述
     ------|------
-    主要的計量| 用來評分模型的主要度量。 [深入了解模型計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics)。
+    主要的計量| 用來評分模型的主要度量。 [深入了解模型計量](how-to-configure-auto-train.md#explore-model-metrics)。
     允出準則| 當下列任何準則符合時，則會在完整完成之前結束訓練作業。 <br> *定型作業時間 （分鐘）* :允許執行定型作業的時間長度。  <br> *最大數目的反覆項目*:若要測試訓練作業中的管線 （反覆項目） 的最大數目。 作業不會執行多個指定的反覆運算次數。 <br> *計量分數臨界值*:所有管線的最小度量分數。 這可確保如果您有您想要達到定義的目標度量時，您執行不超過必要訓練作業花更多時間。
     前置處理| 選取此選項，以啟用或停用由自動化的機器學習服務在前置處理。 前置處理包含自動資料清理、 準備，以及轉換來產生綜合的功能。 [深入了解前置處理](#preprocess)。
-    驗證| 選取其中一個用於訓練作業的交叉驗證選項。 [深入了解交叉驗證](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options)。
+    驗證| 選取其中一個用於訓練作業的交叉驗證選項。 [深入了解交叉驗證](how-to-configure-auto-train.md)。
     並行| 選取您想要使用多核心的計算時，使用多核心限制。
     已封鎖的演算法| 選取您想要排除訓練作業的演算法。
 
@@ -180,7 +180,7 @@ ms.locfileid: "65989954"
 
 ### <a name="view-training-run-details"></a>檢視訓練執行詳細資料
 
-向下切入任何的輸出模型，以查看 定型執行的詳細資訊，例如效能計量和發佈的圖表。 [深入了解圖表](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts)。
+向下切入任何的輸出模型，以查看 定型執行的詳細資訊，例如效能計量和發佈的圖表。 [深入了解圖表](how-to-track-experiments.md#understanding-automated-ml-charts)。
 
 ![反覆項目詳細資料](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -220,7 +220,7 @@ ms.locfileid: "65989954"
 
 1. 選取 **瀏覽**上傳您先前下載的環境檔案 (condaEnv.yml) Conda 檔案 方塊旁的按鈕。
 
-    您可以使用您自己的計分指令碼和 conda 檔案，以及上傳其他檔案。 [深入了解計分指令碼](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script)。
+    您可以使用您自己的計分指令碼和 conda 檔案，以及上傳其他檔案。 [深入了解計分指令碼](how-to-deploy-and-where.md#script)。
 
       >[!Important]
       > 檔案名稱必須是在 32 個字元與開頭與結尾必須使用英數字元。 可能包含連字號、 底線、 點和之間的英數字元。 不允許有空格。
@@ -228,7 +228,7 @@ ms.locfileid: "65989954"
     ![建立映像](media/how-to-create-portal-experiments/create-image.png)
 
 1. 選取 建立 按鈕以啟動 建立映像。 這需要幾分鐘才能完成，完成後，您會看到一則訊息，在頂端列中。
-1. 移至 「 映像 」 索引標籤，檢查您想要部署的映像旁邊的核取方塊，選取 [建立部署]。 [深入了解部署](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)。
+1. 移至 「 映像 」 索引標籤，檢查您想要部署的映像旁邊的核取方塊，選取 [建立部署]。 [深入了解部署](how-to-deploy-and-where.md)。
 
     有 2 個選項進行部署。
      + Azure 容器執行個體 (ACI)-這使用更多用於測試用途，而不是大規模運作的部署。 請確定至少一個核心的值填滿_CPU 保留容量_，和至少 1 gb (GB) 為_記憶體保留容量_

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70cb7f53032dca2b0fedbf4581b88aea07960515
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234293"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294875"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -28,26 +28,61 @@ ms.locfileid: "66234293"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> 受支援的作業系統
-下列作業系統支援 Azure 磁碟加密：
+## <a name="supported-operating-systems"></a>受支援的作業系統
 
-- Windows Server 版本：Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 及 Windows Server 2016。
-  - 針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 請從 Windows Update 使用選用的更新「Windows Server 2008 R2 x64 型系統的 Microsoft .NET Framework 4.5.2 ([KB2901983](https://support.microsoft.com/kb/2901983))」來加以安裝。    
+### <a name="windows"></a>Windows
+
+- Windows Server 版本：Windows Server 2008 R2、 Windows Server 2012、 Windows Server 2012 R2、 Windows Server 2016、 Windows Server 2012 R2 Server Core 和 Windows Server 2016 Server core。
+針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 從 Windows Update 以選用更新適用於 Windows Server 2008 R2 x64 型系統 (KB2901983) 的 Microsoft.NET Framework 4.5.2 中安裝它。
+- Windows Server 2012 R2 Core 和 Windows Server 2016 Core 支援 Azure 磁碟加密一旦 bdehdcfg 元件安裝在 VM 上。
 - Windows 用戶端版本：Windows 8 用戶端和 Windows 10 用戶端。
-- 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。 如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。
+
+### <a name="linux"></a>Linux 
+
+子集上支援 azure 磁碟加密[經 Azure 背書的 Linux 散發套件](../virtual-machines/linux/endorsed-distros.md)、 哪些是本身的所有 Linux 伺服器可能散發套件子集。
+
+![支援 Azure 磁碟加密的文氏圖的 Linux 伺服器散發套件](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+不由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列散發套件和版本支援 Azure 磁碟加密：
+
+| Linux 散發套件 | Version | 支援加密的磁碟區類型|
+| --- | --- |--- |
+| Ubuntu | 18.04| 作業系統和資料磁碟 |
+| Ubuntu | 16.04| 作業系統和資料磁碟 |
+| Ubuntu | 14.04.5</br>[搭配更新至 4.15 或更新版本的 Azure 調整核心](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | 作業系統和資料磁碟 |
+| RHEL | 7.6 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.5 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.4 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.3 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.2 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 6.8 | 資料磁碟 （請參閱下列附註） |
+| RHEL | 6.7 | 資料磁碟 （請參閱下列附註） |
+| CentOS | 7.6 | 作業系統和資料磁碟 |
+| CentOS | 7.5 | 作業系統和資料磁碟 |
+| CentOS | 7.4 | 作業系統和資料磁碟 |
+| CentOS | 7.3 | 作業系統和資料磁碟 |
+| CentOS | 7.2n | 作業系統和資料磁碟 |
+| CentOS | 6.8 | 資料磁碟 |
+| openSUSE | 42.3 | 資料磁碟 |
+| SLES | 12-SP4 | 資料磁碟 |
+| SLES | 12-SP3 | 資料磁碟 |
+
+> [!NOTE]
+> 新的 ADE 實作適用於 RHEL OS 和資料磁碟 RHEL7 隨用隨付映像的支援。 ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。 請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)如需詳細資訊。
+
 - Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。 若在不同的區域設定資源，會導致 Azure 磁碟加密功能啟用失敗。
 
-## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM 的其他先決條件 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Linux IaaS Vm 適用的其他必要條件 
 
-- Linux 的 Azure 磁碟加密要求 VM 上要有 7 GB 的 RAM，才能在[受支援的映像](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)上啟用 OS 磁碟加密。 OS 磁碟加密程序完成之後，就可以將 VM 設定為使用較少的記憶體來執行。
+- Azure 磁碟加密需要 dm crypt 和 vfat 模組是在系統上。 移除或停用的預設映像的 vfat 會造成系統無法讀取金鑰的磁碟區和取得解除鎖定上後續的重新開機的磁碟所需的金鑰。 從系統移除 vfat 模組的系統強化步驟不使用 Azure 磁碟加密相容。 
 - 在啟用加密之前，所要加密的資料磁碟必須在 /etc/fstab 中正確列出。 請為此項目使用永續性區塊裝置名稱，原因是採用「/dev/sdX」格式的裝置名稱不一定會在重新開機時與相同的磁碟相關聯，在套用加密後尤其如此。 如需此行為的詳細資訊，請參閱：[針對 Linux VM 裝置名稱變更進行疑難排解](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - 確定 /etc/fstab 設定已正確設定而能夠掛接。 若要設定這些設定，請執行 mount -a 命令，或重新啟動 VM 再以該方式觸發重新掛接。 完成之後，檢查 lsblk 命令的輸出以確認所需的磁碟機仍有掛接。 
   - 如果 /etc/fstab 檔案還未正確掛接磁碟機就啟用加密，Azure 磁碟加密將無法正確地掛接磁碟機。
   - Azure 磁碟加密程序會在加密程序進行期間，將掛接資訊從 /etc/fstab 移出，並移入自己的設定檔中。 在資料磁碟機加密完成之後，若發現 /etc/fstab 中有項目遺失，請不要擔心。
-  -  重新開機後，Azure 磁碟加密程序需要一點時間才能掛接新加密的磁碟。 這些磁碟無法在重新開機後立即可供使用。 此程序需要時間來將加密的磁碟機啟動、解除鎖定再加以掛接，然後這些磁碟機才可供其他程序來存取。 視系統特性而定，在重新開機後，此程序可能需要進行超過一分鐘。
+  - 開始加密，請務必停止之前所有的服務和程序，可能會寫入掛接資料磁碟，並停用它們，以便他們不要自動重新啟動之後重新開機。 這些可以讓檔案保持為開啟這些分割區，導致重新掛接它們，造成失敗之加密的加密程序上。 
+  - 重新開機後，Azure 磁碟加密程序需要一點時間才能掛接新加密的磁碟。 這些磁碟無法在重新開機後立即可供使用。 此程序需要時間來將加密的磁碟機啟動、解除鎖定再加以掛接，然後這些磁碟機才可供其他程序來存取。 視系統特性而定，在重新開機後，此程序可能需要進行超過一分鐘。
 
-如需可用來掛接資料磁碟並建立所需 /etc/fstab 項目的命令範例，請見[此指令檔的第 197 至 205 行](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205)。 
-
+如需可用來掛接資料磁碟並建立所需 /etc/fstab 項目的命令範例，請見[此指令檔的第 244 至 248 行](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248)。 
 
 ## <a name="bkmk_GPO"></a> 網路和群組原則
 

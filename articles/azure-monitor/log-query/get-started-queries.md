@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519007"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296096"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>開始使用 Azure 監視器記錄查詢
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>開始使用 Azure 監視器中的記錄檔查詢
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519007"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程，您將了解如何撰寫 Azure 監視器記錄的查詢。 它會告訴您如何：
+在本教學課程中，您將學習在 Azure 監視器中寫入記錄檔查詢。 它會告訴您如何：
 
-- 了解查詢的結構
+- 了解查詢結構
 - 排序查詢結果
 - 篩選查詢結果
 - 指定時間範圍
@@ -38,6 +38,8 @@ ms.locfileid: "65519007"
 - 定義和使用自訂欄位
 - 彙總和群組結果
 
+如需使用 Azure 入口網站中的 Log Analytics 的教學課程，請參閱 <<c0> [ 開始使用 Azure 監視器 Log Analytics](get-started-portal.md)。<br>
+如需 Azure 監視器中的記錄檔查詢的詳細資訊，請參閱 <<c0> [ 查詢 Azure 監視器中的記錄檔概觀](log-query-overview.md)。
 
 ## <a name="writing-a-new-query"></a>撰寫新的查詢
 查詢可以透過資料表名稱或 *search* 命令來開始。 請從資料表名稱開始，原因是它會定義清楚的查詢範圍，並改善查詢效能和結果的相關性。
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 此查詢會搜尋「SecurityEvent」  資料表，看看其中是否有記錄包含「Cryptographic」片語。 系統會傳回並顯示這些記錄的其中 10 筆。 如果我們省略了 `in (SecurityEvent)` 部分，只執行 `search "Cryptographic"`，則搜尋會找遍「所有」  資料表，因此需要較長時間，且較沒效率。
 
-> [!NOTE]
-> 預設的設定為「過去 24 小時」  的時間範圍。 若要使用不同範圍，請使用時間選擇器 (位於 [執行]  按鈕旁)，或在查詢中新增明確的時間範圍篩選條件。
+> [!WARNING]
+> 搜尋查詢是通常低於資料表為基礎的查詢，因為他們需要處理更多資料。 
 
 ## <a name="sort-and-top"></a>Sort 和 top
 雖然 **take** 適合用來取得一些記錄，但所選取和顯示的結果並沒有依特定順序來排列。 若要取得已排序的檢視，您可以依所慣用的資料行來**排序**：

@@ -7,15 +7,15 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: b395b7bccbf93b56e84d5e7b5a4ed7355eaca335
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296351"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310347"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure 監視器中的記錄檔查詢的概觀
-記錄檔查詢會協助您充分利用的值中的資料收集[Azure 監視器記錄檔](../platform/data-platform-logs.md)。 強大的查詢語言可讓您將資料從多個資料表聯結、 彙總大量的資料，並執行複雜的作業，以最少的程式碼。 可以回答任何問題，只要已收集支援的資料，而且您了解如何建構正確的查詢執行分析。
+記錄檔查詢可協助您徹底運用所收集的資料值[Azure 監視器記錄檔](../platform/data-platform-logs.md)。 強大的查詢語言可讓您將資料從多個資料表聯結、 彙總大量的資料，並執行複雜的作業，以最少的程式碼。 可以回答任何問題，只要已收集支援的資料，而且您了解如何建構正確的查詢執行分析。
 
 部分功能，例如 Azure 監視器[insights](../insights/insights-overview.md)並[解決方案](../insights/solutions-inventory.md)處理記錄資料，而不會公開您的基礎的查詢。 若要完全利用 Azure 監視器的其他功能，您應該了解如何建構查詢，以及如何使用它們來以互動方式分析 Azure 監視器記錄檔中的資料。
 
