@@ -91,24 +91,24 @@ ms.locfileid: "60787490"
 
 | Section | 元素名稱 | 描述 |
 | --- | --- | --- |
-| 設定 | ID | 自動調整規模設定的資源識別碼。 自動調整規模設定是 Azure Resource Manager 資源。 |
+| 設定 | id | 自動調整規模設定的資源識別碼。 自動調整規模設定是 Azure Resource Manager 資源。 |
 | 設定 | name | 自動調整規模設定名稱。 |
 | 設定 | location | 自動調整規模設定的位置。 此位置可以與要調整規模的資源位置不同。 |
 | properties | targetResourceUri | 要調整規模之資源的資源識別碼。 每個資源都只能有一個自動調整規模設定。 |
-| properties | 設定檔 | 自動調整規模設定是由一或多個設定檔所組成。 每次自動調整規模引擎執行時，都會執行一個設定檔。 |
-| 設定檔 | name | 設定檔的名稱。 您可以選擇任何有助於識別設定檔的名稱。 |
-| 設定檔 | Capacity.maximum | 允許的最大容量。 執行此設定檔時，可確保自動調整不會將資源的規模調整到大於此數字。 |
-| 設定檔 | Capacity.minimum | 允許的最小容量。 執行此設定檔時，可確保自動調整規模不會將資源的規模調整到小於此數字。 |
-| 設定檔 | Capacity.default | 如果在讀取資源計量 (在此案例中為 “vmss1” 的 CPU) 時發生問題，而目前的容量低於預設值，則自動調整會相應放大為預設值。 這是為了確保資源的可用性。 如果目前的容量已超過預設容量，自動調整不會進行相應縮小。 |
-| 設定檔 | 規則 | 自動調整會使用設定檔中的規則，在最大容量與最小容量之間進行調整。 一個設定檔中可以有多個規則。 通常有兩個規則：一個用於決定何時要相應放大，另一個用於決定何時要相應縮小。 |
-| 規則 | metricTrigger | 定義規則的計量條件。 |
+| properties | profiles | 自動調整規模設定是由一或多個設定檔所組成。 每次自動調整規模引擎執行時，都會執行一個設定檔。 |
+| profile | name | 設定檔的名稱。 您可以選擇任何有助於識別設定檔的名稱。 |
+| profile | capacity.maximum | 允許的最大容量。 執行此設定檔時，可確保自動調整不會將資源的規模調整到大於此數字。 |
+| profile | capacity.minimum | 允許的最小容量。 執行此設定檔時，可確保自動調整規模不會將資源的規模調整到小於此數字。 |
+| profile | capacity.default | 如果在讀取資源計量 (在此案例中為 “vmss1” 的 CPU) 時發生問題，而目前的容量低於預設值，則自動調整會相應放大為預設值。 這是為了確保資源的可用性。 如果目前的容量已超過預設容量，自動調整不會進行相應縮小。 |
+| profile | rules | 自動調整會使用設定檔中的規則，在最大容量與最小容量之間進行調整。 一個設定檔中可以有多個規則。 通常有兩個規則：一個用於決定何時要相應放大，另一個用於決定何時要相應縮小。 |
+| rule | metricTrigger | 定義規則的計量條件。 |
 | metricTrigger | metricName | 計量的名稱。 |
-| metricTrigger |  metricResourceUri | 發出計量之資源的資源識別碼。 在大多數情況下，會與要調整規模的資源相同。 在某些情況下，則可能不同。 例如，您可以根據儲存體佇列中的訊息數目來調整虛擬機器擴展集的規模。 |
+| metricTrigger | metricResourceUri | 發出計量之資源的資源識別碼。 在大多數情況下，會與要調整規模的資源相同。 在某些情況下，則可能不同。 例如，您可以根據儲存體佇列中的訊息數目來調整虛擬機器擴展集的規模。 |
 | metricTrigger | timeGrain | 計量取樣持續時間。 例如 **TimeGrain = “PT1M”** 表示應該使用 statistic 元素中所指定的彙總方法，每分鐘彙總一次計量。 |
 | metricTrigger | statistic | timeGrain 期間內的彙總方法。 例如 **statistic = “Average”** 和 **timeGrain = “PT1M”** 表示應該每分鐘計算一次計量平均值來彙總計量。 此屬性會指定進行計量取樣的方式。 |
 | metricTrigger | timeWindow | 回顧計量的時間長度。 例如 **timeWindow = “PT10M”** 表示每次執行自動調整時，都會查詢過去 10 分鐘的計量。 時間範圍可讓您的計量正規化，而避免對暫時性尖峰做出反應。 |
 | metricTrigger | timeAggregation | 用來彙總所取樣計量的彙總方法。 例如 **TimeAggregation = “Average”** 應該會透過計算平均值來彙總所取樣的計量。 在前述案例中會採用 10 個 1 分鐘樣本，然後計算其平均值。 |
-| 規則 | scaleAction | 觸發 metricTrigger 時要採取的動作。 |
+| rule | scaleAction | 觸發 metricTrigger 時要採取的動作。 |
 | scaleAction | direction | "Increase" 用於相應放大，或 "Decrease" 用於相應縮小。|
 | scaleAction | value | 要增加或減少多少資源容量。 |
 | scaleAction | cooldown | 在進行調整作業之後、再次調整之前，所要等待的時間長度。 例如，如果 **cooldown = “PT10M”** ，則自動調整在接下來 10 分鐘內不會再次嘗試進行調整。 cooldown 是用來在新增或移除執行個體之後，讓計量穩定。 |
