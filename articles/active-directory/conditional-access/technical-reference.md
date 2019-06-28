@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 條件式存取設定參考 |Microsoft Docs
-description: 在 Azure Active Directory 條件式存取原則中取得所支援設定的概觀。
+title: Azure Active Directory 條件式存取設定參考 | Microsoft Docs
+description: 取得 Azure Active Directory 條件式存取原則中所支援設定的概觀。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -20,9 +20,9 @@ ms.locfileid: "67112116"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
-您可以使用[Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)來控制如何授權的使用者可以存取您的資源。
+您可以使用 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)來控制已獲授權使用者存取您資源的方式。
 
-這篇文章為您提供下列設定選項中的條件式存取原則的支援資訊：
+本文會針對條件式存取原則中的下列設定選項，為您提供支援資訊：
 
 - 雲端應用程式指派
 - 裝置平台條件
@@ -33,20 +33,20 @@ ms.locfileid: "67112116"
 
 ## <a name="cloud-apps-assignments"></a>雲端應用程式指派
 
-使用條件式存取原則，您控制使用者如何存取您[雲端應用程式](conditions.md#cloud-apps-and-actions)。 當您設定條件式存取原則時，您必須選取至少一個雲端應用程式。 
+使用條件式存取原則，您就能控制使用者存取您[雲端應用程式](conditions.md#cloud-apps-and-actions)的方式。 當您設定條件式存取原則時，必須選取至少一個雲端應用程式。 
 
 ![選取您原則適用的雲端應用程式](./media/technical-reference/09.png)
 
 ### <a name="microsoft-cloud-applications"></a>Microsoft 雲端應用程式
 
-您可以指派給下列雲端應用程式的條件式存取原則，從 Microsoft:
+您可以將條件式存取原則指派給下列 Microsoft 的雲端應用程式：
 
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database 和資料倉儲-[深入](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 - Dynamics CRM Online
-- Microsoft Application Insights 分析
-- Microsoft Azure 資訊保護-[深入](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Application Insights 分析
+- Azure 資訊保護 - [進一步了解](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure 管理-[深入](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 - Microsoft Azure 訂用帳戶管理
 - Microsoft Cloud App Security
@@ -71,13 +71,13 @@ ms.locfileid: "67112116"
 - Outlook Groups
 - Project Online
 - 商務用 Skype Online
-- 虛擬私人網路 (VPN)
+- 虛擬私人網路 (VPN)：
 - Visual Studio App Center
-- Windows Defender ATP
+- Windows Defender
 
 ### <a name="other-applications"></a>其他應用程式
 
-除了 Microsoft 雲端應用程式中，您可以將條件式存取原則指派給下列類型的雲端應用程式：
+除了 Microsoft 雲端應用程式之外，您還可以將條件式存取原則指派給下列類型的雲端應用程式：
 
 - Azure AD 連線的應用程式
 - 預先整合的同盟軟體即服務 (SaaS) 應用程式
@@ -87,7 +87,7 @@ ms.locfileid: "67112116"
 
 ## <a name="device-platform-condition"></a>裝置平台條件
 
-在條件式存取原則中，您可以設定裝置平台條件，以將作業系統原則的用戶端上繫結。 Azure AD 條件式存取支援下列裝置平台：
+在條件式存取原則中，您可以設定裝置平台條件，將原則繫結到用戶端上的作業系統。 Azure AD 條件式存取支援下列裝置平台：
 
 - Android
 - iOS
@@ -99,7 +99,7 @@ ms.locfileid: "67112116"
 
 ## <a name="client-apps-condition"></a>用戶端應用程式條件
 
-在條件式存取原則中，您可以設定[用戶端應用程式](conditions.md#client-apps)將繫結至已啟動存取嘗試的用戶端應用程式原則的條件。 當有人從下列類型的用戶端應用程式嘗試存取時，將用戶端應用程式條件設定為授與或封鎖存取：
+在條件式存取原則中，您可以設定[用戶端應用程式](conditions.md#client-apps)條件，將原則繫結至已啟動存取嘗試的用戶端應用程式。 當有人從下列類型的用戶端應用程式嘗試存取時，將用戶端應用程式條件設定為授與或封鎖存取：
 
 - [瀏覽器]
 - 行動裝置應用程式和桌面應用程式
@@ -108,7 +108,7 @@ ms.locfileid: "67112116"
 
 ### <a name="supported-browsers"></a>支援的瀏覽器
 
-在條件式存取原則中，您可以選取**瀏覽器**為用戶端應用程式。
+在您的條件式存取原則中，您可以選取 [瀏覽器]  作為用戶端應用程式。
 
 ![控制對支援之瀏覽器的存取](./media/technical-reference/05.png)
 
@@ -158,7 +158,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>支援的行動裝置應用程式和桌面用戶端
 
-在條件式存取原則中，您可以選取**行動裝置應用程式和桌面用戶端**為用戶端應用程式。
+在您的條件式存取原則中，您可以選取 [行動裝置應用程式和桌面用戶端]  作為用戶端應用程式。
 
 ![控制對支援之行動裝置應用程式或桌面用戶端的存取](./media/technical-reference/06.png)
 
@@ -180,7 +180,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 | Outlook 2016 (macOS 版 Office) | Office 365 Exchange Online | macOS |
 | Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證) | Office 365 Exchange Online | Windows 8.1、Windows 7 |
 | Outlook 行動應用程式 | Office 365 Exchange Online | Android、iOS |
-| Power BI 應用程式 | Power BI 服務 | Windows 10、 Windows 8.1、 Windows 7、 Android 和 iOS |
+| Power BI 應用程式 | Power BI 服務 | Windows 10、Windows 8.1、Windows 7、Android 和 iOS |
 | 商務用 Skype | Office 365 Exchange Online| Android、iOS |
 | Visual Studio Team Services 應用程式 | Visual Studio Team Services | Windows 10、Windows 8.1、Windows 7、iOS 和 Android |
 
@@ -194,7 +194,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 
 ## <a name="approved-client-app-requirement"></a>核准的用戶端應用程式需求
 
-在條件式存取原則中，您可以要求的存取嘗試的所選的雲端應用程式必須從已核准的用戶端應用程式。 
+在條件式存取原則中，您可以要求從已核准用戶端應用程式對所選取雲端應用程式進行存取嘗試。 
 
 ![控制對經過核准之用戶端應用程式的存取](./media/technical-reference/21.png)
 
@@ -252,7 +252,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需條件式存取的概觀，請參閱[什麼是 Azure Active Directory 中的條件式存取？](../active-directory-conditional-access-azure-portal.md)
-- 如果您已準備好在您的環境中設定條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的建議作法](best-practices.md)。
+- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的建議做法](best-practices.md)。
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

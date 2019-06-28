@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 294b376665ba6b62f79f826520bc933543b38bda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059279"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331712"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -97,7 +97,10 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時，您可�
 
 註冊模型時，您可以提供額外的中繼資料標記，然後在搜尋模型時使用這些標記。
 
-您無法刪除正在使用的作用中部署的模型。
+> [!TIP]
+> 已註冊的模型是組成模型的一或多個檔案的邏輯容器。 例如，如果您有多個檔案中儲存的模型，您可以它們註冊為單一模型中您的 Azure Machine Learning 工作區。 註冊之後，您可以下載或部署已註冊的模型然後接收已註冊的所有檔案。
+
+您無法刪除已註冊的模型，以供作用中的部署。
 
 如需模型註冊的範例，請參閱[使用 Azure Machine Learning 將映像分類模型定型](tutorial-train-models-with-aml.md)。
 

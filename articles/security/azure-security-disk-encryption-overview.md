@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068797"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294872"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure 磁碟加密概觀
 
@@ -45,7 +45,7 @@ Azure 磁碟加密支援下列客戶案例：
 它也支援下列案例的 Vm 時已啟用 Microsoft Azure 中：
 
 * 與 Azure Key Vault 整合。
-* [標準層 Vm](https://azure.microsoft.com/pricing/details/virtual-machines/)。 這些層內的 [Linux VM](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 必須符合 7GB 的最小記憶體需求。 
+* [標準層 Vm](https://azure.microsoft.com/pricing/details/virtual-machines/)符合[最小記憶體需求](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes)。 
 * 啟用加密 Windows 和 Linux Vm、 受控的磁碟，擴展集 Vm 從支援的 Azure 資源庫映像。
 * 停用加密的 OS 和資料磁碟機，適用於 Windows Vm，擴展集 Vm，，並受控磁碟 Vm。
 * 資料磁碟機上的停用加密，針對 Linux Vm，擴展集 Vm，和受控磁碟 Vm。
@@ -56,7 +56,7 @@ Azure 磁碟加密支援下列客戶案例：
 * Linux VM 的 OS 和資料磁碟上啟用加密。
 
    > [!NOTE]
-   > 不支援某些 Linux 發行版本的 OS 磁碟機加密。 如需詳細資訊，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)一文。
+   > 不支援某些 Linux 發行版本的 OS 磁碟機加密。 如需詳細資訊，請參閱[Azure 磁碟加密支援的作業系統：Linux](azure-security-disk-encryption-prerequisites.md#linux)。
    
 * 使用 Windows Server 2016 中的 Windows 儲存空間開頭設定的 Vm 上啟用加密。
 * 備份及還原加密金鑰加密金鑰 (KEK) 和非 KEK 案例的 Vm。
@@ -93,8 +93,6 @@ Azure 磁碟加密不適用於下列案例、 功能和技術：
 * [磁碟加密 powershell](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0)。
 * [Azure CLI 的磁碟加密 cmdlet](/cli/azure/vm/encryption?view=azure-cli-latest)。
 * [Azure Resource Manager 的磁碟加密範本](azure-security-disk-encryption-appendix.md#resource-manager-templates)。
-
-在執行 Windows 或 Linux 作業系統的 Vm 上支援 azure 磁碟加密。 如需有關支援之作業系統的詳細資訊，請參閱 <<c0> [ 常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。
 
 > [!NOTE]
 > 使用「Azure 磁碟加密」來加密 VM 磁碟完全免費。 標準 [Key Vault 價格](https://azure.microsoft.com/pricing/details/key-vault/)適用於用來儲存加密金鑰的金鑰保存庫。 

@@ -7,17 +7,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066773"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329314"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用參考資料在串流分析中進行查閱
 
-參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集，可用來執行查閱或與資料流相互關聯。 比方說，在 IoT 案例中，您可以在參考資料中儲存有關感應器 (不常變更) 的中繼資料，並將其與即時 IoT 資料流聯結。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 
+參考資料 （也稱為查詢資料表） 是有限的資料集是靜態或緩時變的本質，用來執行查閱或加強您的資料流。 比方說，在 IoT 案例中，您可以在參考資料中儲存有關感應器 (不常變更) 的中繼資料，並將其與即時 IoT 資料流聯結。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 
 
 串流分析支援 Azure Blob 儲存體和 Azure SQL Database 作為參考資料的儲存層。 您還可以從 Azure Data Factory 將參考資料轉換和/或複製到 Blob 儲存體中，以使用[任意數目的雲端和內部部署資料存放區](../data-factory/copy-activity-overview.md)。
 

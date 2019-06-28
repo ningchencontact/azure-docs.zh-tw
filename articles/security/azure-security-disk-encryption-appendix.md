@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118343"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295048"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure 磁碟加密的附錄 
 
@@ -133,15 +133,15 @@ ms.locfileid: "66118343"
   - [在執行中 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - 只能在 Linux VM 的資料磁碟區上停用加密。  
 
-### <a name="encrypt-or-decrypt-vm-scale-sets"></a>加密或解密 VM 擴展集
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>加密或解密虛擬機器擴展集
 
 - [在執行中的 Linux 虛擬機器擴展集上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [在執行中的 Windows 虛擬機器擴展集上啟用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [使用 Jumpbox 部署 Linux VM 的 VM 擴展集並在 Linux VMSS 上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [部署 Linux VMSS jumpbox，並啟用加密的 Linux Vm 的虛擬機器擴展集](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [使用 Jumpbox 部署 Windows VM 的 VM 擴展集並在 Windows VMSS 上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [部署 Windows VMSS jumpbox，並啟用加密的 Windows Vm 的虛擬機器擴展集](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [在執行中的 Linux 虛擬機器擴展集上停用磁碟加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ ms.locfileid: "66118343"
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>OS 磁碟加密的必要條件
 
-* VM 必須使用與 OS 磁碟加密相容的散發套件，如 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)中所列示。 
+* VM 必須使用與 OS 磁碟加密相容的散發套件中所列[Azure 磁碟加密支援的作業系統：Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * 必須從 Azure Resource Manager 的Marketplace 映像建立 VM。
 * Azure VM，至少具有 4 GB RAM（建议大小为 7 GB）。
 * (適用於 RHEL 和 CentOS) 停用 SELinux。 若要停用 SELinux，請參閱「4.4.2. 停用 SELinux」，其位於 VM 上的 [SELinux 使用者和系統管理員指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux)。

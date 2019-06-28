@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2019
+ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a58d2b235757faf760539f514ea349e33e12b41
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963976"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310010"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -190,46 +190,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>佈建使用者需要多久時間？
 
-效能取決於您的佈建作業是否正在執行初始同步處理 」 或 「 增量同步處理。
-
-針對**初始同步處理**，作業時間取決於許多因素，包括佈建，範圍中的使用者和群組的數目和執行的使用者和來源系統中的群組總數。 本節稍後將完整列出會影響初始同步處理效能的因素摘要。
-
-**增量同步處理**的作業時間取決於在該同步處理週期偵測到的變更數量。 如果少於 5,000 個使用者或群組成員發生變更，則作業可以在單一增量同步處理週期內完成。 
-
-下表摘要說明常見佈建案例的同步處理時間。 在這些案例中，來源系統是 Azure AD，而目標系統是 SaaS 應用程式。 同步處理時間被衍生自 ServiceNow、 工作場所、 Salesforce 和 G Suite 的 SaaS 應用程式的同步處理作業的統計分析。
-
-
-| 範圍設定 | 範圍中的使用者、群組和成員 | 初始同步處理時間 | 增量同步處理時間 |
-| -------- | -------- | -------- | -------- |
-| 僅同步已指派的使用者與群組 |  < 1,000 |  < 30 分鐘 | < 30 分鐘 |
-| 僅同步已指派的使用者與群組 |  1,000 - 10,000 | 142 - 708 分鐘 | < 30 分鐘 |
-| 僅同步已指派的使用者與群組 |   10,000 - 100,000 | 1,170 - 2,340 分鐘 | < 30 分鐘 |
-| 同步 Azure AD 中的所有使用者和群組 |  < 1,000 | < 30 分鐘  | < 30 分鐘 |
-| 同步 Azure AD 中的所有使用者和群組 |  1,000 - 10,000 | < 30 - 120 分鐘 | < 30 分鐘 |
-| 同步 Azure AD 中的所有使用者和群組 |  10,000 - 100,000  | 713 - 1,425 分鐘 | < 30 分鐘 |
-| 同步 Azure AD 中的所有使用者|  < 1,000  | < 30 分鐘 | < 30 分鐘 |
-| 同步 Azure AD 中的所有使用者 | 1,000 - 10,000  | 43 - 86 分鐘 | < 30 分鐘 |
-
-
-針對 [僅同步已指派的使用者與群組]  設定，您可以使用下列公式來判斷**初始同步處理**時間的預估最小值和最大值：
-
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
-影響**初始同步處理**完成時間的因素摘要：
-
-- 佈建範圍中的使用者和群組總數。
-
-- 來源系統 (Azure AD) 中存在的使用者、群組和群組成員總數。
-
-- 無論使用者佈建範圍中的就會對應到目標應用程式中的現有使用者，或必須建立第一次。 為其第一次建立所有使用者的同步處理作業需要約*兩次只要*做為同步處理的作業的所有使用者都會都對應到現有的使用者。
-
-- [稽核記錄](check-status-user-account-provisioning.md)中的錯誤數目。 如果有許多錯誤且佈建服務已進入隔離狀態，效能就會變差。    
-
-- 目標系統實作的要求速率限制和節流設定。 有些目標系統會實作要求率限制和節流，這可能會影響在大型的同步處理作業期間的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行這項調整。 
-
-- 指派群組的數目和大小。 同步指派群組所花的時間可能比同步使用者的時間長。 指派群組的數目和大小會影響效能。 如果應用程式[啟用群組物件同步處理的對應](customize-application-attributes.md#editing-group-attribute-mappings)，則除了使用者外，群組屬性 (例如群組名稱和成員資格) 也會一起同步。 比起只同步使用者物件，這些額外的同步處理將會花費更長時間。
-
+效能取決於您的佈建作業是否正在執行初始的佈建循環或累加式的循環。 佈建時間會採用的詳細資料及如何監視佈建服務的狀態，請參閱[檢查的使用者佈建狀態](application-provisioning-when-will-provisioning-finish-specific-user.md)。 
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>如何判斷是否已正確佈建使用者？
 
@@ -255,7 +216,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 
 是的就可以使用 Azure AD 使用者佈建服務，以佈建 B2B （或來賓） 使用者在 SaaS 應用程式的 Azure AD 中。
 
-不過，針對 B2B 使用者來登入使用 Azure AD 的 SaaS 應用程式，SaaS 應用程式必須具有其 SAML 型單一登入功能，以特定方式設定。 如需如何設定支援的 SaaS 應用程式的詳細資訊，請從 B2B 使用者登入，請參閱 < [B2B 共同作業設定 SaaS 應用程式]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)。
+不過，針對 B2B 使用者來登入使用 Azure AD 的 SaaS 應用程式，SaaS 應用程式必須具有其 SAML 型單一登入功能，以特定方式設定。 若想進一步了解如何設定 SaaS 應用程式以支援 B2B 使用者的登入，請參閱[設定適用於 B2B 共同作業的 SaaS 應用程式]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)。
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的動態群組？
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761960"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329616"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -437,7 +437,12 @@ GROUP BY
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+    feature,
+    DATEDIFF(
+        second,
+        LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+        Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -655,7 +660,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸入**：  
 
-| deviceId | Time | 屬性 | 值 |
+| deviceId | Time | 屬性 | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
@@ -695,6 +700,15 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **說明**：[COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) 會傳回時間範圍內 Time 資料行中的相異值數目。 您可以接著使用此步驟的輸出，透過捨棄重複項目來計算每個裝置的平均值。
+
+## <a name="geofencing-and-geospatial-queries"></a>地理圍欄和地理空間查詢
+Azure Stream Analytics 提供內建的地理空間函式，可用來實作案例，例如車隊管理，寫共用、 連網汽車及資產追蹤。 地理空間資料可以內嵌 GeoJSON 或 well-known text，WKT 格式，為事件資料流的一部分，或參考資料。 如需詳細資訊，請參閱[地理柵欄和地理空間彙總案例中的使用 Azure Stream Analytics](geospatial-scenarios.md)文章。
+
+## <a name="language-extensibility-through-javascript-and-c"></a>透過 JavaScript 語言擴充性和C#
+Azure Stream Ananlytics 查詢 langugae 可以擴充以 JavaScript 撰寫的自訂函式或C#語言。 如需詳細資訊，請參閱一併發行項：
+* [Azure Stream Analytics JavaScript 使用者定義函式](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics JavaScript 使用者定義彙總](stream-analytics-javascript-user-defined-aggregates.md)
+* [開發.NET Standard 的使用者定義函式，如 Azure Stream Analytics Edge 作業](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>取得說明
 

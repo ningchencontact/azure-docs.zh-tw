@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206716"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329347"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
-串流單位 (SU) 代表配置用來執行作業的計算資源。 SU 的數目愈大，為您的作業配置的 CPU 和記憶體資源就愈多。 這個容量可讓您專注於查詢邏輯，並以及時的方式摘要出管理硬體以執行串流分析作業的需求。
+串流單位 (Su) 代表配置給執行 Stream Analytics 作業的計算資源。 SU 的數目愈大，為您的作業配置的 CPU 和記憶體資源就愈多。 這個容量可讓您專注於查詢邏輯，並以及時的方式摘要出管理硬體以執行串流分析作業的需求。
 
 為了達到低延遲的串流處理，Azure 串流分析作業會在記憶體中執行所有處理。 當記憶體用完時，串流工作將會失敗。 因此，對於生產作業來說，請務必監視串流作業的資源使用狀況，並配置足夠的資源讓作業保持全天候運作。
 
@@ -85,7 +85,7 @@ Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理�
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-為了改善前一個查詢中由高基數所造成的問題，您可以將事件傳送到依據 `clusterid` 分割的事件中樞，透過使用 **PARTITION BY** 允許系統個別處理每個輸入分割區來向外延展查詢，如下所示︰
+為了減少在上述查詢中的高基數所造成的任何問題，您可以將事件傳送到分割的事件中樞`clusterid`，並向外延展查詢可讓系統在處理個別使用每個輸入分割區**資料分割藉由**如下列範例所示：
 
    ```sql
    SELECT count(*) 

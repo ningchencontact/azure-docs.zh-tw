@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164456"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329986"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -30,7 +30,7 @@ ms.locfileid: "67164456"
 
 Stream Analytics 支援[Azure Data Lake 儲存體 Gen 1](../data-lake-store/data-lake-store-overview.md)。 Azure Data Lake 儲存體是巨量資料分析工作負載的企業級超大規模存放庫。 您可以使用 Data Lake 儲存體來儲存資料的任何大小、 類型和擷取速度的運作和探究分析。 Stream Analytics 必須授權，才能存取 Data Lake 儲存體。
 
-從 Stream Analytics 的 azure Data Lake 儲存體輸出目前不是適用於 Azure China (21Vianet) 和 Azure 德國 (T-systems International) 區域。
+從 Stream Analytics 的 azure Data Lake 儲存體輸出目前不是適用於 Azure 中國 21Vianet 和 Azure 德國 (T-systems International) 區域。
 
 下表列出屬性名稱和其描述若要設定您 Data Lake 儲存體 Gen 1 的輸出。   
 
@@ -50,7 +50,7 @@ Stream Analytics 支援[Azure Data Lake 儲存體 Gen 1](../data-lake-store/data
 
 ## <a name="sql-database"></a>SQL Database
 
-您可以使用[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)做為輸出的本質是關聯式的資料或應用程式是依賴主控關聯式資料庫中的內容。 Stream Analytics 作業寫入至 SQL Database 中現有的資料表。 資料表結構描述必須完全符合的欄位和其作業的輸出中的型別。 您也可以指定[Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)做為輸出，透過 SQL Database 輸出選項而定。 若要深入了解如何改善寫入輸送量，請參閱[使用 Azure SQL Database 做為輸出的 Stream Analytics](stream-analytics-sql-output-perf.md)文章。 
+您可以使用[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)做為輸出的本質是關聯式的資料或應用程式是依賴主控關聯式資料庫中的內容。 Stream Analytics 作業寫入至 SQL Database 中現有的資料表。 資料表結構描述必須完全符合的欄位和其作業的輸出中的型別。 您也可以指定[Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)做為輸出，透過 SQL Database 輸出選項而定。 若要深入了解如何改善寫入輸送量，請參閱[使用 Azure SQL Database 做為輸出的 Stream Analytics](stream-analytics-sql-output-perf.md)文章。
 
 下表列出的是屬性名稱及其描述以建立 SQL Database 輸出。
 
@@ -63,10 +63,10 @@ Stream Analytics 支援[Azure Data Lake 儲存體 Gen 1](../data-lake-store/data
 | 密碼 | 連線到資料庫的密碼。 |
 | 資料表 | 要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫。 此資料表的結構描述應該完全符合的欄位和其類型會產生您的工作輸出的數目。 |
 |繼承資料分割配置| 繼承您先前的查詢步驟中，若要啟用完全平行的拓撲，具有多個資料表的寫入器的資料分割配置選項。 如需詳細資訊，請參閱 [Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。|
-|符合批次計數| 每個大量傳送的記錄數目的建議的限制插入的交易。|
+|批次計數上限| 每個大量傳送的記錄數目建議的上限插入異動。|
 
 > [!NOTE]
-> 供應項目 支援的作業，輸出 Stream Analytics 在內，但不是支援執行 SQL Server 資料庫，附加與 Azure 虛擬機器在 Azure SQL Database。
+> 供應項目 Stream Analytics 在內，但尚不支援執行 SQL Server 與附加資料庫或 SQL Azure 受控執行個體中的 Azure 虛擬機器中的工作輸出支援 Azure SQL Database。 這在未來的版本中有可能變更。
 
 ## <a name="blob-storage"></a>Blob 儲存體
 
@@ -108,7 +108,7 @@ Azure Blob 儲存體提供符合成本效益且可擴充的解決方案，用於
 | 屬性名稱 | 描述 |
 | --- | --- |
 | 輸出別名 | 易記名稱，用於在查詢中直接將查詢輸出指向這個事件中樞。 |
-| 事件中樞命名空間 |一組傳訊實體的容器。 當您建立新的事件中樞時，也會建立事件中樞命名空間。 |
+| 事件中樞命名空間 | 一組傳訊實體的容器。 當您建立新的事件中樞時，也會建立事件中樞命名空間。 |
 | 事件中樞名稱 | 您的事件中樞輸出的名稱。 |
 | 事件中樞原則名稱 | 共用的存取原則，您可以建立事件中樞**設定** 索引標籤。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 |
 | 事件中樞原則金鑰 | 用來驗證的存取權的事件中樞命名空間共用的存取金鑰。 |
@@ -123,7 +123,7 @@ Azure Blob 儲存體提供符合成本效益且可擴充的解決方案，用於
 
 您可以使用[Power BI](https://powerbi.microsoft.com/)做為輸出的 Stream Analytics 作業，以提供豐富的視覺效果體驗的分析結果。 您可以使用這項功能的操作儀表板、 報告產生及度量驅動的報告。
 
-Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Power BI 輸出。
+Power BI 輸出 Stream Analytics 目前不是適用於 Azure 中國 21Vianet 和 Azure 德國 (T-systems International) 區域。
 
 下表列出屬性名稱和其描述若要設定您的 Power BI 輸出。
 
@@ -212,14 +212,14 @@ datetime | 字串 | 字串 |  datetime | 字串
 ## <a name="service-bus-topics"></a>服務匯流排主題
 服務匯流排佇列會提供從傳送者到接收者的一對一通訊方法。 [服務匯流排主題](https://msdn.microsoft.com/library/azure/hh367516.aspx)提供-一對多的通訊形式。
 
-下表列出屬性名稱及描述建立主題的輸出。
+下表列出的屬性名稱及其描述以建立服務匯流排主題輸出。
 
 | 屬性名稱 | 描述 |
 | --- | --- |
 | 輸出別名 |易記名稱，用於在查詢中直接將查詢輸出指向這個服務匯流排主題。 |
 | 服務匯流排命名空間 |一組傳訊實體的容器。 建立新的事件中樞時，也會建立服務匯流排命名空間。 |
 | 主題名稱 |主題為訊息實體，類似於事件中樞和佇列。 專門用來從裝置和服務收集事件資料流。 建立主題時，它也有提供特定名稱。 傳送至主題的訊息無法使用，除非已建立訂用帳戶，因此請確定沒有該主題內的一或多個訂用帳戶。 |
-| 主題原則名稱 |當您建立主題時，則您也可以在主題上建立共用的存取原則**設定** 索引標籤。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 |
+| 主題原則名稱 |當您建立服務匯流排主題時，則您也可以在主題上建立共用的存取原則**設定** 索引標籤。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 |
 | 主題原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰。 |
 | 事件序列化格式 |輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 |如果您使用 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。 |
@@ -231,7 +231,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)是一種全域分散式的資料庫服務，提供無限的彈性調整全球、 豐富的查詢，並透過無從驗證結構描述資料模型自動編製索引。 若要深入了解 Stream Analytics 的 Azure Cosmos DB 集合選項，請參閱[使用 Azure Cosmos DB 做為輸出的 Stream Analytics](stream-analytics-documentdb-output.md)文章。
 
-Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Azure Cosmos DB 輸出。
+從 Stream Analytics 的 azure Cosmos DB 輸出目前不是適用於 Azure 中國 21Vianet 和 Azure 德國 (T-systems International) 區域。
 
 > [!Note]
 > 此時，Azure Stream Analytics 僅支援連接到 Azure Cosmos DB 使用 SQL API。
@@ -253,7 +253,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions 是無伺服器計算服務可供您視需要執行程式碼而不需要明確佈建或管理基礎結構。 它可讓您實作在 Azure 或協力廠商服務中發生的事件所觸發的程式碼。 Azure functions 回應觸發程序的這個功能使其自然輸出 Azure Stream analytics。 此輸出配接器可讓使用者將 Stream Analytics 連線至 Azure Functions，並執行指令碼或程式碼片段，以回應各種事件。
 
-Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Azure Functions 輸出。
+從 Stream Analytics 的 azure Functions 輸出目前不是適用於 Azure 中國 21Vianet 和 Azure 德國 (T-systems International) 區域。
 
 Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Functions 輸出配接器會提供下列可設定的屬性：
 
@@ -295,7 +295,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | 輸出類型 | 支援分割 | 資料分割索引鍵  | 輸出寫入器數目 |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | 是 | 使用 {date} 和 {time} 權杖路徑前置詞模式中。 選擇日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| Azure SQL Database | 是 | 根據查詢中的 PARTITION BY 子句。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 若要深入了解達成更好寫入輸送量效能，您要將資料載入 Azure SQL Database 時，請參閱[到 Azure SQL Database 的 Azure Stream Analytics 輸出](stream-analytics-sql-output-perf.md)。 |
+| Azure SQL Database | 是，需要啟用。 | 根據查詢中的 PARTITION BY 子句。 | 啟用繼承的資料分割 選項時，會遵循的輸入資料分割[完全可平行查詢](stream-analytics-scale-jobs.md)。 若要深入了解達成更好寫入輸送量效能，您要將資料載入 Azure SQL Database 時，請參閱[到 Azure SQL Database 的 Azure Stream Analytics 輸出](stream-analytics-sql-output-perf.md)。 |
 | Azure Blob 儲存體 | 是 | 使用 {date} 和 {time} 權杖，從您的事件欄位中的路徑模式。 選擇日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用於時間格式。 您可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure 事件中心 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 事件中樞輸出分割區索引鍵平均配合上游 （舊版） 的查詢步驟中，寫入器數目時，在 事件中樞輸出分割區數目相同。 每個寫入器會使用[EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)將事件傳送至特定的磁碟分割。 <br /> 事件中樞輸出分割區索引鍵與上游 （舊版） 的查詢步驟不一致，寫入器數目時，該先前步驟中的資料分割數目相同。 每個寫入器會使用[SendBatchAsync 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)中**EventHubClient**將事件傳送至所有輸出資料分割。 |
 | Power BI | 否 | None | 不適用。 |
@@ -315,14 +315,14 @@ Azure Stream Analytics 會使用可變大小的批次來處理事件，並寫入
 | 輸出類型 | 訊息大小上限 | 批次大小最佳化 |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | 請參閱[Data Lake 儲存體限制](../azure-subscription-service-limits.md#data-lake-store-limits)。 | 使用最多為 4 MB，每個寫入作業。 |
-| Azure SQL Database | 單一大量插入每 10,000 個最大資料列。<br />單一大量插入每 100 個最小資料列。 <br />請參閱[Azure SQL 限制](../sql-database/sql-database-resource-limits.md)。 |  每個批次一開始是大量插入批次大小上限。 您可以分割一半 （直到您到達最小的批次大小） 批次可重試的錯誤，從 SQL 為基礎。 |
+| Azure SQL Database | 使用 最大批次計數時，可設定。 10,000 個最大和 100 個最小資料列每個單一大量插入預設值。<br />請參閱[Azure SQL 限制](../sql-database/sql-database-resource-limits.md)。 |  每個批次一開始是大量插入最大批次計數。 批次會分割成兩半 （直到最小的批次計數） 可重試的錯誤，從 SQL 為基礎。 |
 | Azure Blob 儲存體 | 請參閱[Azure 儲存體限制](../azure-subscription-service-limits.md#storage-limits)。 | 最大 blob 的區塊大小為 4 MB。<br />最大 blob bock 計數為 50,000。 |
-| Azure 事件中心  | 每個訊息的 256 KB。 <br />請參閱[事件中樞限制](../event-hubs/event-hubs-quotas.md)。 |  輸入/輸出資料分割不對齊時，每個事件封裝在個別**EventData**和傳送批次，但不超過最大訊息大小 (適用於進階 SKU 的 1 MB)。 <br /><br />  輸入/輸出資料分割若是 aligned，多個事件會封裝到單一**EventData**執行個體，但不超過最大訊息大小，並傳送。  |
+| Azure 事件中心  | 256 KB 或 1 MB，每個訊息。 <br />請參閱[事件中樞限制](../event-hubs/event-hubs-quotas.md)。 |  輸入/輸出資料分割不對齊時，每個事件封裝在個別`EventData`，但不超過最大訊息大小的批次中傳送。 這也情況[自訂中繼資料屬性](#custom-metadata-properties-for-output)習慣。 <br /><br />  輸入/輸出資料分割若是 aligned，多個事件會封裝成單一`EventData`執行個體，但不超過最大訊息大小，並傳送。 |
 | Power BI | 請參閱[Power BI Rest API 限制](https://msdn.microsoft.com/library/dn950053.aspx)。 |
 | Azure 資料表儲存體 | 請參閱[Azure 儲存體限制](../azure-subscription-service-limits.md#storage-limits)。 | 預設為每個單一交易的 100 個實體。 您可以設定它以視需要較小的值。 |
-| Azure 服務匯流排佇列   | 每個訊息的 256 KB。<br /> 請參閱[服務匯流排限制](../service-bus-messaging/service-bus-quotas.md)。 | 使用每個訊息的單一事件。 |
-| Azure 服務匯流排主題 | 每個訊息的 256 KB。<br /> 請參閱[服務匯流排限制](../service-bus-messaging/service-bus-quotas.md)。 | 使用每個訊息的單一事件。 |
-| Azure Cosmos DB   | 請參閱[Azure Cosmos DB 會限制](../azure-subscription-service-limits.md#azure-cosmos-db-limits)。 | 批次大小，並將寫入頻率會動態調整基礎 Azure Cosmos DB 的回應。 <br /> 沒有從 Stream Analytics 預先決定的限制。 |
+| Azure 服務匯流排佇列   | 每個標準層，Premium 層次的 1 MB 的訊息的 256 KB。<br /> 請參閱[服務匯流排限制](../service-bus-messaging/service-bus-quotas.md)。 | 使用每個訊息的單一事件。 |
+| Azure 服務匯流排主題 | 每個標準層，Premium 層次的 1 MB 的訊息的 256 KB。<br /> 請參閱[服務匯流排限制](../service-bus-messaging/service-bus-quotas.md)。 | 使用每個訊息的單一事件。 |
+| Azure Cosmos DB   | 請參閱[Azure Cosmos DB 會限制](../azure-subscription-service-limits.md#azure-cosmos-db-limits)。 | 批次大小，並寫入頻率會進行調整，以動態方式根據 Azure Cosmos DB 的回應。 <br /> 沒有從 Stream Analytics 預先決定的限制。 |
 | Azure Functions   | | 預設批次大小為 262,144 個位元組 (256 KB)。 <br /> 每個批次的預設事件計數為 100。 <br /> 批次大小可以設定，並可以在串流分析的[輸出選項](#azure-functions)中增加或減少。
 
 ## <a name="next-steps"></a>後續步驟

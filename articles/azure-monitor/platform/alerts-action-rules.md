@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734946"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310371"
 ---
 # <a name="action-rules-preview"></a>動作規則 （預覽）
 
@@ -30,6 +30,8 @@ ms.locfileid: "66734946"
 
 警示規則可讓您定義的觸發程序時，會產生警示的動作群組，雖然客戶通常通常會在其作業的範圍都具有一般的動作群組。 例如，小組負責的資源群組 'ContosoRG' 將可能會定義相同的動作群組 'ContosoRG' 中定義的所有警示規則。 動作規則可讓您簡化這個程序可讓您定義動作大規模的情況下，如此可針對已設定的領域上產生任何警示觸發的動作群組。 回到前一個範例，小組現在可以定義 'ContosoRG' 將會觸發相同的動作群組，其內所產生的所有警示的上一個動作規則。
 
+> [!NOTE]
+> 動作規則目前不適用於服務健康情況警示。
 
 ## <a name="configuring-an-action-rule"></a>設定動作規則
 
@@ -98,7 +100,7 @@ ms.locfileid: "66734946"
 ### <a name="action-rule-details"></a>動作規則詳細資料
 
 最後，設定執行規則的下列詳細資料
-* Name
+* 名稱
 * 它會儲存所在的資源群組
 * 描述 
 

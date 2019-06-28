@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d56e64f118fe36fb4905dca20d9fba2f210665
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464423"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295917"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立串流的客戶深入解析儀表板
 
@@ -99,8 +99,8 @@ Azure Logic Apps 在雲端中提供無伺服器工作流程引擎，讓您可以
 
 * 開啟 Visual Studio Cloud Explorer。 尋找邏輯應用程式，開啟應用程式的捷徑功能表。 選取 [開啟執行歷程記錄]  。
 
-  > [!NOTE]
-  > 針對 Visual Studio 2019，Cloud Explorer 可以在 Azure 入口網站中，開啟邏輯應用程式設計工具，但無法尚未開啟內嵌的邏輯應用程式設計工具或執行歷程記錄。
+  > [!TIP]
+  > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您有最新的更新，適用於 Visual Studio。
 
 * 在 Azure 入口網站中，尋找您的邏輯應用程式。 在邏輯應用程式功能表上，選擇 [概觀]  。 
 

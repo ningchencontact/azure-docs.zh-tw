@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736661"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330873"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure 前端服務常見問題的解答
 
@@ -75,11 +75,11 @@ Azure 的前端服務都來自 Microsoft 的 Azure CDN 的 POP （存在點） �
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>是 Azure 前端服務專用的部署我的應用程式，或為所有客戶共用嗎？
 
-Azure 的前端服務是分散在世界各地的多租用戶服務。 因此，大門的基礎結構的所有客戶共用。 不過，藉由建立大門您定義您的應用程式所需的特定設定和 
+Azure 的前端服務是分散在世界各地的多租用戶服務。 因此，大門的基礎結構的所有客戶共用。 不過，藉由建立前端設定檔，定義您的應用程式所需的特定設定，而且沒有您的前端所做的變更會影響其他前端組態。
 
 ### <a name="is-http-https-redirection-supported"></a>是否支援 HTTP->HTTPS 重新導向？
 
-前門目前不支援 URL 重新導向。
+是。 事實上，Azure 前端服務支援的主機、 路徑和查詢字串重新導向，以及組件的 URL 重新導向。 深入了解[URL 重新導向](front-door-url-redirect.md)。 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>路由規則處理順序為何？
 
@@ -141,6 +141,11 @@ Azure 的前端服務是容量的分散在世界各地的多租用戶平台有�
 
 若要啟用 HTTPS 通訊協定來安全地傳遞大門的自訂網域上的內容，您可以選擇使用受 Azure 前端服務的憑證，或使用您自己的憑證。
 前門 Digicert 透過標準的 SSL 憑證管理選項佈建，並儲存在 Front 門的金鑰保存庫。 如果您選擇使用您自己的憑證，則您可以上架支援之 CA 的憑證，可以是標準的 SSL、 延伸的驗證憑證或甚至是萬用字元憑證。 不支援自我簽署的憑證。 了解[如何啟用自訂網域 HTTPS](https://aka.ms/FrontDoorCustomDomainHTTPS)。
+
+### <a name="does-front-door-support-auto-rotation-of-certificates"></a>前門是否支援自動輪替的憑證？
+
+您自己自訂的 SSL 憑證，不支援自動輪替。 類似於如何安裝第一次時指定的自訂網域，您需要以點大門至正確的憑證版本您金鑰保存庫中及確保前端的服務主體仍有 Key Vault 存取權。 此更新的憑證首度發行作業的大門完全不可部分完成，且不會造成任何提供主體名稱的影響實際或不會變更憑證的 SAN。
+</br>受管理的大門憑證選項時，憑證會自動旋轉的大門。
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>目前 Azure 大門 Service 所支援的加密套件有哪些？
 
