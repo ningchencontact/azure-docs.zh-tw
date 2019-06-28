@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063861"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341376"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Linux Java 應用程式
 
@@ -60,6 +60,43 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 ### <a name="troubleshooting-tools"></a>疑難排解工具
 
 內建的 Java 映像為基礎[Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html)作業系統。 使用`apk`套件管理員安裝的疑難排解工具或命令。
+
+### <a name="flight-recorder"></a>飛行記錄器
+
+App Service 上的所有 Linux Java 映像都已安裝，因此您可以輕鬆地連接至 JVM 並開始錄製程式碼剖析工具或產生的堆積傾印的 Zulu 飛行記錄器。
+
+#### <a name="timed-recording"></a>逾時的記錄
+
+若要取得啟動，透過 ssh 連線到您的 App Service，並執行`jcmd`命令，以查看執行的所有 Java 處理序的清單。 除了 jcmd 本身，您應該會看到與處理程序識別碼 (pid) 所執行的 Java 應用程式。
+
+```shell
+078990bbcd11:/home# jcmd
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+147 sun.tools.jcmd.JCmd
+116 /home/site/wwwroot/app.jar
+```
+
+執行下列命令來啟動 JVM 的 30 秒錄製。 這將會在 JVM 程式碼剖析，並建立名為 JFR 檔案`jfr_example.jfr`主目錄中。 （請以您的 Java 應用程式的 pid 來取代 116。）
+
+```shell
+jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
+```
+
+在 30 秒的間隔內，您可以驗證記錄正在進行執行`jcmd 116 JFR.check`。 這會顯示針對給定的 Java 程序的所有記錄。
+
+#### <a name="continuous-recording"></a>連續的記錄
+
+您可以使用 Zulu 飛行記錄器持續分析您的 Java 應用程式，執行階段效能的影響降到最低 ([來源](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf))。 若要這樣做，請執行下列 Azure CLI 命令建立名為必要的設定 JAVA_OPTS 應用程式設定。 JAVA_OPTS 應用程式設定的內容會傳遞至`java`命令啟動您的應用程式時。
+
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+如需詳細資訊，請參閱[Jcmd 命令參考](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190)。
+
+### <a name="analyzing-recordings"></a>分析記錄
+
+使用[FTPS](../deploy-ftp.md) JFR 檔案下載到本機電腦。 若要分析 JFR 檔案，下載並安裝[Zulu 的任務控制](https://www.azul.com/products/zulu-mission-control/)。 Zulu 任務控制項上的指示，請參閱[Azul 文件](https://docs.azul.com/zmc/)並[安裝指示](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control)。
 
 ## <a name="customization-and-tuning"></a>自訂和調整
 

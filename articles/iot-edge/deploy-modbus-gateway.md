@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 06/20/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1c9855f982b888e8e1d68bfe5233983db8c826ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25be0629b2ef877d8757f515cb6ccd5942e58d5f
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247991"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312788"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>透過 IoT Edge 裝置閘道連線 Modbus TCP 裝置
 
@@ -35,7 +35,7 @@ ms.locfileid: "61247991"
 
 如果您想要測試 Modbus 閘道功能，Microsoft 有可供您使用的範例模組。 您可以存取的模組從 Azure Marketplace [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)，或使用映像 URI **mcr.microsoft.com/azureiotedge/modbus:1.0**。
 
-如果您想要建立自己的模組並針對您的環境進行自訂，GitHub 上有提供開放原始碼 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。 請遵循該專案中的方針，建立您自己的容器映像。 如果您建立自己的容器映像時，請參閱[開發C#Visual Studio 中的模組](how-to-visual-studio-develop-csharp-module.md)或是[開發在 Visual Studio Code 中的模組](how-to-vs-code-develop-module.md)。 這些文章提供的指示建立新的模組，並將容器映像發行至登錄。
+如果您想要建立自己的模組並針對您的環境進行自訂，GitHub 上有提供開放原始碼 [Azure IoT Edge Modbus 模組](https://github.com/Azure/iot-edge-modbus)專案。 請遵循該專案中的方針，建立您自己的容器映像。 若要建立容器映像，請參閱[開發C#Visual Studio 中的模組](how-to-visual-studio-develop-csharp-module.md)或是[開發在 Visual Studio Code 中的模組](how-to-vs-code-develop-module.md)。 這些文章提供的指示建立新的模組，並將容器映像發行至登錄。
 
 ## <a name="try-the-solution"></a>試用解決方案
 
@@ -85,12 +85,13 @@ ms.locfileid: "61247991"
 
 5. 回到 [新增模組]  步驟中，選取 [下一步]  。
 
-7. 在 [指定路由]  步驟中，將下列 JSON 複製到文字方塊中。 此路由會將 Modbus 模組收集的所有訊息傳送到 IoT 中樞。 在此路由中，' modbusOutput '是 Modbus 模組用來輸出資料的端點，而' upstream ' 是告知 IoT Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。
+7. 在 [指定路由]  步驟中，將下列 JSON 複製到文字方塊中。 此路由會將 Modbus 模組收集的所有訊息傳送到 IoT 中樞。 在此路由中， **modbusOutput**是該 Modbus 模組會使用輸出資料的端點並 **$upstream**是告知 IoT Edge 中樞將訊息傳送至 IoT 中樞的特殊目的地。
+
    ```JSON
    {
-    "routes": {
-      "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-    }
+     "routes": {
+       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
+     }
    }
    ```
 

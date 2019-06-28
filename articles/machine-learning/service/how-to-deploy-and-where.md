@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c4ab5fe4625bce1ed66258a5b9aab597dae17a1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304006"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331668"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -39,7 +39,9 @@ ms.locfileid: "67304006"
 
 ## <a id="registermodel"></a> 註冊您的模型
 
-註冊您的機器學習模型，在您的 Azure Machine Learning 工作區中。 模型可以來自 Azure 機器學習服務，或可以來自其他地方。 下列範例示範如何註冊模型，以從檔案：
+組成模型的一或多個檔案已註冊的模型邏輯容器。 比方說，如果您有多個檔案中儲存的模型，您可以為工作區中的單一模型加以註冊。 註冊之後，您可以下載或部署已註冊的模型然後接收已註冊的所有檔案。
+
+機器學習服務模型會在您的 Azure Machine Learning 工作區中註冊。 模型可以來自 Azure 機器學習服務，或可以來自其他地方。 下列範例示範如何註冊模型，以從檔案：
 
 ### <a name="register-a-model-from-an-experiment-run"></a>註冊模型的實驗執行
 
@@ -48,11 +50,18 @@ ms.locfileid: "67304006"
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > 若要註冊模型中包含多個檔案，設定`model_path`包含檔案的目錄。
+
 + **使用 CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > 若要註冊模型中包含多個檔案，設定`--asset-path`包含檔案的目錄。
 
 + **使用 VS Code**
 
@@ -77,10 +86,16 @@ ms.locfileid: "67304006"
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > 若要註冊模型中包含多個檔案，設定`model_path`包含檔案的目錄。
+
 + **使用 CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > 若要註冊模型中包含多個檔案，設定`-p`包含檔案的目錄。
 
 **估計時間**：大約 10 秒。
 
@@ -110,12 +125,14 @@ ms.locfileid: "67304006"
 * `run(input_data)`:此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
 
 #### <a name="what-is-getmodelpath"></a>什麼是 get_model_path？
-當您註冊模型時，您會提供用來管理在登錄中的模型的模型名稱。 您可以使用此名稱在 get_model_path API 會傳回本機檔案系統上的模型檔案的路徑。 如果您註冊資料夾或檔案的集合，此 API 會傳回路徑來包含這些檔案的目錄。
 
-當您註冊模型時，提供對應的名稱給模型放置的位置，在本機或在服務部署期間。
+當您註冊模型時，您會提供用來管理在登錄中的模型的模型名稱。 您使用這個名稱與[Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)以擷取本機檔案系統上的模型檔案的路徑。 如果您註冊資料夾或檔案的集合，此 API 會傳回路徑來包含這些檔案的目錄。
 
-下列範例會傳回路徑單一檔案稱為 'sklearn_mnist_model.pkl' （其已註冊名稱為 'sklearn_mnist'）
-```
+當您註冊模型時，您指定的名稱，對應至模型放置的位置，在本機或在服務部署期間。
+
+下列範例會以單一檔案呼叫傳回路徑`sklearn_mnist_model.pkl`(其已註冊名稱為`sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -293,7 +310,8 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 ### <a name="optional-profile-your-model"></a>選用：分析您的模型
 在部署之前即服務模型，您可以分析以判斷最佳的 CPU 和記憶體需求。
-您可以透過 SDK 或 CLI 來這麼做。
+
+您可以執行您的模型使用 SDK 或 CLI 設定檔。
 
 如需詳細資訊，您可以查看我們 SDK 文件： https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -386,7 +404,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 進一步了解 AKS 部署和自動調整[AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice)參考。
 
 #### 建立新的 AKS 叢集<a id="create-attach-aks"></a>
-**估計時間：** 大約需要 5 分鐘。
+**估計時間**：約 20 分鐘。
 
 建立或附加的 AKS 叢集一次處理您的工作區。 您可以重複使用此叢集進行多個部署。 如果您刪除叢集或包含它的資源群組，您必須在的下次您需要部署時建立新的叢集。 您可以有多個附加至您的工作區的 AKS 叢集。
 
@@ -425,10 +443,11 @@ aks_target.wait_for_completion(show_output = True)
 
 > [!IMPORTANT]
 > 針對 [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您要為 agent_count 和 vm_size 挑選自訂值，則必須先確定 agent_count 乘以 vm_size 會大於或等於 12 個虛擬 CPU。 例如，如果您使用的 vm_size 為 "Standard_D3_v2" (其具有 4 個虛擬 CPU)，則您應該挑選等於或大於 3 的 agent_count。
-
-**估計時間**：約 20 分鐘。
+>
+> Azure 機器學習服務 SDK 不提供調整 AKS 叢集的支援。 若要調整叢集中的節點，用於您的 AKS 叢集，在 Azure 入口網站中的 UI。 您只能變更節點計數，而不是叢集中的 VM 大小。
 
 #### <a name="attach-an-existing-aks-cluster"></a>附加現有的 AKS 叢集
+**估計時間：** 大約需要 5 分鐘。
 
 如果您已經有 Azure 訂用帳戶，AKS 叢集，而且它是 1.12 版。 # #，您可以使用它來部署您的映像。
 

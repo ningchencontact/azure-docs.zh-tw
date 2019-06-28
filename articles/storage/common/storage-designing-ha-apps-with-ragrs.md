@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951308"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357061"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -212,6 +212,33 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 在此範例中，假設用戶端會在 T5 從次要區域切換到讀取。 它可以在此時順利讀取**系統管理員角色**實體，但實體包含的系統管理員計數值與**員工**實體數目不一致，後者在此時標示為次要區域中的系統管理員。 您的用戶端可能只會顯示此值，存有資訊不一致的風險。 或者，用戶端可能嘗試判斷**系統管理員角色**處於可能不一致的狀態，因為更新並未按順序進行，然後通知使用者此一事實。
 
 若要辨識其中可能含有不一致的資料，用戶端可以使用「上次同步處理時間」  的值，你可以隨時查詢儲存體服務來取得此值。 這會告訴您次要區域中的資料上次保持一致的時間，以及在此時間點之前服務套用所有交易的時間。 在上述範例中，當服務在次要區域中插入**員工**實體之後，就會將上次同步處理時間設為 *T1*。 它會保持在 *T1*，直到將其設為 *T6* 之後，服務更新次要區域中的**員工**實體為止。 如果用戶端會在其讀取 *T5* 上的實體時擷取上次同步處理時間，就能與實體上的時間戳記進行比較。 如果實體上的時間戳記晚於上次同步處理時間，則該實體可能會處於不一致狀態，而您就能針對應用程式採取適當的動作。 您必須知道上次對主要區域完成更新的時間，才能使用此欄位。
+
+## <a name="getting-the-last-sync-time"></a>取得上次同步處理時間
+
+您可以使用 PowerShell 或 Azure CLI 來擷取上次的同步處理時間，以判斷當次要複本上次被寫入的資料。
+
+### <a name="powershell"></a>PowerShell
+
+若要使用 PowerShell 取得儲存體帳戶的最後一個同步處理時間，請檢查儲存體帳戶**GeoReplicationStats.LastSyncTime**屬性。 請務必以您自己的值取代預留位置值：
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+若要使用 Azure CLI 取得儲存體帳戶的最後一個同步處理時間，請檢查儲存體帳戶**geoReplicationStats.lastSyncTime**屬性。 使用`--expand`參數來傳回屬性的值，則在之下巢狀**geoReplicationStats**。 請務必以您自己的值取代預留位置值：
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>測試
 

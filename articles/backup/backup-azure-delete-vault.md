@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275617"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310753"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
@@ -114,7 +114,7 @@ ms.locfileid: "67275617"
 1. 在 [保存庫儀表板] 功能表中，按一下**備份基礎結構**。
 2. 按一下 **備份管理伺服器**來檢視伺服器。
 
-    ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+    ![選取保存庫以開啟其儀表板](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. 以滑鼠右鍵按一下項目 >**刪除**。
 4. 在 [**刪除**] 功能表中，輸入伺服器的名稱，然後按一下**刪除**。
@@ -124,7 +124,7 @@ ms.locfileid: "67275617"
 
 > [!NOTE]
 > 若要移除項目，在 [管理伺服器] 主控台中，或在 MARS 主控台中受保護的伺服器上，停止保護並刪除備份。 如果保留備份的項目，則當您嘗試刪除並取消註冊伺服器時，將會出現下列錯誤：
-> 
+>
 >![刪除失敗](./media/backup-azure-delete-vault/deletion-failed.png)
 
 6. 若要確認刪除作業完成，請檢查 Azure 訊息 ![刪除備份資料](./media/backup-azure-delete-vault/messages.png)上也提供本文中使用的原始碼。
@@ -159,8 +159,8 @@ ms.locfileid: "67275617"
 
 > [!NOTE]
 > 刪除這些伺服器的註冊之前，必須刪除與備份管理伺服器或 Azure 備份代理程式伺服器相關聯的備份項目。 若要移除備份項目，請瀏覽至 SC DPM，MABS 或適用的情況下，在伺服器上的 [MARS 管理] 主控台並選取相關的選項，以停止保護並且刪除備份。 如果仍然有關聯任何備份項目，您會看到下列錯誤：
-> 
-> 
+>
+>
 >![刪除失敗](./media/backup-azure-delete-vault/deletion-failed.png)
 
 8. 若要確認刪除作業完成，請檢查 Azure 訊息 ![刪除備份資料](./media/backup-azure-delete-vault/messages.png)上也提供本文中使用的原始碼。

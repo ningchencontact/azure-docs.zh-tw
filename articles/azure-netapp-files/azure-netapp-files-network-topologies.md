@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205672"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331967"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
 
@@ -81,7 +81,7 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 ### <a name="udrs-and-nsgs"></a>Udr 和 Nsg
 
-網路安全性群組 (Nsg) 與下一個躍點不能作為 Azure NetApp 檔案的委派的子網路。 同樣地，使用者定義路由 (Udr) 也不支援。 
+使用者定義路由 (Udr) 」 和 「 網路安全性群組 (Nsg) 不支援委派的子網路上 Azure NetApp 檔案。
 
 因應措施，您可以將 Nsg 套用至其他子網路，允許或拒絕委派 Azure NetApp 檔案的子網路的流量。  
 

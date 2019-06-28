@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 674d055c40ff594f0e4e05ec512b9124b1d7ab77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113091"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341324"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -34,7 +34,7 @@ ms.locfileid: "66113091"
 ### <a name="windows-server"></a>Windows 伺服器
 您需要執行 Windows Server 2012 R2 或更新版本的伺服器，您可以在該伺服器上安裝「應用程式 Proxy」連接器。 伺服器需要連線至 Azure 中的「應用程式 Proxy」服務，以及您所發佈的內部部署應用程式。
 
-您安裝「應用程式 Proxy」連接器之前，Windows 伺服器需要先啟用 TLS 1.2。 版本低於 1.5.612.0 的現有連接器可以繼續在先前的 TLS 版本上運作，直到進一步通知。 啟用 TLS 1.2：
+您安裝「應用程式 Proxy」連接器之前，Windows 伺服器需要先啟用 TLS 1.2。 若要在伺服器上啟用 TLS 1.2:
 
 1. 設定下列登錄機碼：
     

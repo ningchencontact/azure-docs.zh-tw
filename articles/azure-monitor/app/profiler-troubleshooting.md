@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731011"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341663"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -69,7 +69,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 * 您的 Web 應用程式必須已啟用 Application Insights。
 * 您的 web 應用程式必須具有下列應用程式設定：
 
-    |應用程式設定    | 值    |
+    |應用程式設定    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -88,7 +88,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 
       ![profiler-webjob-log]
 
-如果您無法釐清 Profiler 無法運作的原因，您可以下載記錄並傳送給我們的小組，以尋求協助。 
+如果您無法找出為什麼 Profiler 不適合您，您可以下載記錄檔，並將它傳送給我們的團隊的協助，請serviceprofilerhelp@microsoft.com。 
     
 ### <a name="manual-installation"></a>手動安裝
 
@@ -101,7 +101,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 1. 將 [一律開啟]  設定為 [開啟]  。
 1. 建立這些應用程式設定：
 
-    |應用程式設定    | 值    |
+    |應用程式設定    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

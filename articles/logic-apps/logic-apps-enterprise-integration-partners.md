@@ -1,6 +1,6 @@
 ---
-title: 新增 B2B 整合帳戶的交易夥伴 - Azure Logic Apps | Microsoft Docs
-description: 在採用 Enterprise Integration Pack 的 Logic Apps 中為您的整合帳戶建立交易夥伴
+title: 加入交易夥伴進行 B2B 整合-Azure Logic Apps
+description: 建立交易夥伴整合帳戶中的，以搭配 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,88 +8,105 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
-ms.date: 07/08/2016
-ms.openlocfilehash: 137ed89c276338b534cad8fdf81ec31b5e5610b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 681f16132c1de2ec5f3b27f80633d32879b0746c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845913"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330183"
 ---
-# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中為整合帳戶新增交易夥伴
+# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>加入整合帳戶中的交易夥伴，適用於 Azure Logic Apps
 
-合作夥伴是參與企業對企業 (B2B) 交易及在彼此之間交換訊息的實體。 在您可以建立這些交易中代表您與其他組織的合作夥伴之前，你們雙方必須先共用可識別及驗證彼此所傳送訊息的資訊。 在您討論這些詳細資料並準備開始您的商業關係之後，您可以在您的整合帳戶中建立代表你們雙方的合作夥伴。
+在  [Azure Logic Apps](../logic-apps/logic-apps-overview.md)，您可以使用來建立自動化的企業對企業 (B2B) 整合工作流程[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)邏輯應用程式。 若要代表您的組織和其他項目，您會建立，並將交易夥伴為成品新增到整合帳戶。 合作夥伴是參與 B2B 交易，並與彼此交換訊息的實體。
 
-## <a name="what-roles-do-partners-play-in-your-integration-account"></a>合作夥伴在您的整合帳戶中扮演什麼角色？
+之前建立這些合作夥伴，請確定來討論及分享資訊與夥伴如何識別及驗證另所傳送的訊息。 您同意這些詳細資料之後，您即可建立整合帳戶中的夥伴。
 
-為定義在合作夥伴之間交換之訊息的相關詳細資料，您必須在那些合作夥伴之間建立合約。 然而，在您可以建立合約之前，至少需要在整合帳戶中新增兩個以上的合作夥伴。 您的組織必須是與**主機合作夥伴**相關之合約的一部分。 另一個合作夥伴 (或稱為**來賓合作夥伴**) 代表與您的組織交換訊息的組織。 來賓合作夥伴可以是另一家公司，或甚至是您自己組織中的部門。
+## <a name="partner-roles-in-integration-accounts"></a>整合帳戶中的夥伴角色
 
-在您新增這些合作夥伴之後，您可以建立合約。
+若要定義與夥伴交換之訊息的相關詳細資料，建立並新增[協議](../logic-apps/logic-apps-enterprise-integration-agreements.md)為整合帳戶成品。 合約需要整合帳戶中的至少兩個夥伴。 您的組織不一定*主控夥伴*協議中。 與您的組織交換訊息的組織*來賓夥伴*。 來賓夥伴可以是另一家公司或甚至是您組織中的部門。 在您新增這些合作夥伴之後，您可以建立合約。
 
-接收和傳送設定是主控夥伴觀點導向的。 例如，合約中的接收設定會決定主控夥伴如何接收來賓夥伴所傳送的訊息。 同樣地，合約中的傳送設定會指出主控夥伴如何將訊息傳送給來賓夥伴。
+在協議中，您可以指定處理內送和外寄訊息從主控夥伴觀點來看的詳細資料。 內送訊息，如**接收設定**指定主控夥伴如何接收訊息來自來賓夥伴協議中。 外寄訊息，如**傳送設定**指定主控夥伴如何將訊息傳送至來賓夥伴。
+
+## <a name="prerequisites"></a>必要條件
+
+* Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
+
+* [整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)來儲存您的夥伴、 合約及其他 B2B 成品。 此整合帳戶必須與您 Azure 訂用帳戶相關聯。
 
 ## <a name="create-partner"></a>建立合作夥伴
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在主要 Azure 功能表上，選取 [所有服務]  。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]  。
+1. 在主要 Azure 功能表上，選取 [所有服務]  。 在 [搜尋] 方塊中，輸入 「 整合 」，然後選取**整合帳戶**。
 
-   ![尋找整合帳戶](./media/logic-apps-enterprise-integration-partners/account-1.png)
+   ![選取 [整合帳戶]](./media/logic-apps-enterprise-integration-partners/find-integration-accounts.png)
 
-3. 在 [整合帳戶]  底下，選取要將合作夥伴新增到其中的整合帳戶。
+1. 在 [整合帳戶]  底下，選取要將合作夥伴新增到其中的整合帳戶。
 
-   ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-partners/account-2.png)
+   ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-partners/select-integration-account.png)
 
-4. 選擇 [合作夥伴]  圖格。
+1. 選擇 [合作夥伴]  圖格。
 
-   ![選擇「合作夥伴」](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+   ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
-5. 在 [合作夥伴]  底下，選擇 [新增]  。
+1. 在 [合作夥伴]  底下，選擇 [新增]  。 底下**新增協力廠商**，提供交易夥伴的詳細資料，如下表所述。
 
-   ![選擇 [新增]](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+   ![選擇 [新增]，並提供合作夥伴詳細資料](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
-6. 輸入合作夥伴的名稱，然後選取 [辨識符號]  。 輸入用來識別應用程式所接收之文件的**值**。 完成時，選擇 [確定]  。
+   | 屬性 | 必要項 | 描述 |
+   |----------|----------|-------------|
+   | **名稱** | 是 | 夥伴的名稱 |
+   | **Qualifier** | 是 | 提供唯一的商務識別的組織，例如，驗證內文**D-U-N-S (Dun & Bradstreet)** 。 <p>夥伴可以選擇使用者相互定義的商務識別。 針對這些案例中，選取**使用者相互定義**edifact 或**使用者相互定義 (X12)** 適用於 X12。 <p>RosettaNet 中，選取只**DUNS**，這是標準。 |
+   | **值** | 是 | 值，這個值會識別您的 logic apps 接收的文件。 <p>RosettaNet，這個值必須對應至的 DUNS 編號九位數的鄧白氏編號。 |
+   ||||
 
-   ![新增合作夥伴詳細資料](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+   > [!NOTE]
+   > 適用於使用 RosettaNet 的合作夥伴，您可以指定額外的資訊，藉由先建立這些合作夥伴，然後[進行編輯之後](#edit-partner)。
 
-7. 再次選擇 [合作夥伴]  圖格。
+1. 完成時，選擇 [確定]  。
 
-   ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+   您的新合作夥伴現在會出現在**合作夥伴**清單。 此外，**合作夥伴**磚會更新目前的夥伴數目。
 
-   您的新合作夥伴隨即顯示。 
+   ![新的夥伴](./media/logic-apps-enterprise-integration-partners/new-partner.png)
 
-   ![檢視新的合作夥伴](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+<a name="edit-partner"></a>
 
 ## <a name="edit-partner"></a>編輯合作夥伴
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 選擇 [合作夥伴]  圖格。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。
+選擇 [合作夥伴]  圖格。
 
    ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-2. 在 [合作夥伴]  底下，選取您要編輯的合作夥伴。
+1. 底下**合作夥伴**，選取您想要編輯，然後選擇的合作夥伴**編輯**。 底下**編輯**，進行變更。
 
-   ![選取要刪除的合作夥伴](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+   ![進行變更並儲存](./media/logic-apps-enterprise-integration-partners/edit-partner.png)
 
-3. 在 [更新合作夥伴]  底下，進行您所需的變更。
-完成之後，選擇 [儲存]  。 
+   For RosettaNet 下**RosettaNet 交易夥伴屬性**，您可以指定這項額外資訊：
 
-   ![進行變更並儲存](./media/logic-apps-enterprise-integration-partners/edit-2.png)
+   | 屬性 | 必要項 | 描述 |
+   |----------|----------|-------------|
+   | **夥伴分類** | 否 | 合作夥伴的組織類型 |
+   | **供應鏈代碼** | 否 | 合作夥伴的供應鏈代碼，例如，"Information Technology"或"Electronic Components" |
+   | **連絡人名稱** | 否 | 交易夥伴的連絡人名稱 |
+   | **電子郵件** | 否 | 合作夥伴的電子郵件地址 |
+   | **Fax** | 否 | 交易夥伴的傳真號碼 |
+   | **電話** | 否 | 交易夥伴的電話號碼 |
+   ||||
 
-   若要取消您的變更，請選取 [捨棄]  。
+1. 當您完成時，選擇**確定**以儲存變更。
 
 ## <a name="delete-partner"></a>刪除合作夥伴
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 選擇 [合作夥伴]  圖格。
 
-   ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/delete.png)
+   ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
-2. 在 [合作夥伴]  底下，選取您要刪除的合作夥伴。
-選擇 [刪除]  。
+1. 在 [合作夥伴]  底下，選取您要刪除的合作夥伴。 選擇 [刪除]  。
 
-   ![刪除合作夥伴](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+   ![刪除合作夥伴](./media/logic-apps-enterprise-integration-partners/delete-partner.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解合約](../logic-apps/logic-apps-enterprise-integration-agreements.md "了解企業整合合約")  
-
+* 深入了解[協議](../logic-apps/logic-apps-enterprise-integration-agreements.md)

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257533"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338899"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 for Customer Engagement 必要條件
 
@@ -40,7 +40,7 @@ ms.locfileid: "66257533"
 
 商業需求包含下列程序、契約，和法律責任：
 
-* 您必須在 [Microsoft 合作夥伴網路 (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) 上註冊，或成為已註冊的雲端 Marketplace 發行者。 如果您未註冊，請依照[成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)中的步驟操作。  (執行第三個步驟時，請改用 [AppSource 合作夥伴提名表單](https://appsource.microsoft.com/partners/signup))。 
+* 您必須在 [Microsoft 合作夥伴網路 (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) 上註冊，或成為已註冊的雲端 Marketplace 發行者。 如果您未註冊，請依照[成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)中的步驟操作。  (您也可能會與連接[Dynamics 365 Customer Engagement 上架小組](https://experience.dynamics.com/isvengage/))。
 
     >[!NOTE]
     >您需要使用與註冊 Microsoft 開發人員中心相同的帳戶來登入 Cloud Partner 入口網站。 您所有的 Azure Marketplace 供應項目應該只會共有一個 Microsoft 帳戶。 此帳戶不應該限定於特定個別服務或供應項目。

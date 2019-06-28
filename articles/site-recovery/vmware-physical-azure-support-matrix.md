@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8fd9f56c262ce3a7110aa71bf72d01fe875212c0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275757"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341443"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -69,9 +69,9 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 機器設定 | 複寫到 Azure 的電腦必須符合 [Azure 需求](#azure-vm-requirements)。
 機器工作負載 | Site Recovery 支援複寫任何執行於所支援機器上的工作負載。 [深入了解](https://aka.ms/asr_workload)。
 Windows | Windows Server 2019 (支援從[更新彙總套件 34](https://support.microsoft.com/help/4490016) （行動服務版本 9.22） 及更新版本。<br/> Windows Server 2016 （64 位元伺服器核心、 含有桌面體驗的伺服器）<br/> - Windows Server 2012 R2, Windows Server 2012<br/> Windows Server 2008 R2 含在至少為 SP1。<br/> -Windows Server 2008，64 與 32 位元與在至少含 SP2]。 支援只移轉。 [深入了解](migrate-tutorial-windows-server-2008.md)。<br/> Windows 10，Windows 8.1，Windows 8，Windows 7 64 位元 (支援從[更新彙總套件 36](https://support.microsoft.com/help/4503156) （9.22 行動服務版本及更新版本）。 不支援 Windows 7 RTM。 
-Linux | 只有 64 位元系統則支援。 不支援 32 位元系統。<br/><br/> Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> 在 Linux 散發套件上，僅支援屬於散發套件次要版本/更新的庫存核心。<br/><br/> 不支援升級各主要 Linux 散發套件版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> [了解更多](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)有關適用於 Linux 和開放原始碼技術，在 Azure 中的支援。
-Linux Red Hat Enterprise | centos:5.2 至 5.11</b><br/> 若要 6.10 6.1</b><br/> 若要 7.6 7.0<br/> <br/> 伺服器執行 Red Hat Enterprise Linux 5.2-5.11 應有[Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)安裝要在 Azure 中開機之電腦。
-Linux：CentOS | centos:5.2 至 5.11</b><br/> 若要 6.10 6.1</b><br/> 若要 7.6 7.0<br/> <br/> 伺服器執行 CentOS 5.2-5.11 應有[Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)安裝要在 Azure 中開機之電腦。
+Linux | 只有 64 位元系統則支援。 不支援 32 位元系統。<br/><br/>每一部 Linux 伺服器應有[Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)安裝。 需要在測試容錯移轉/容錯移轉之後，在 Azure 中開機伺服器。 如果 LIS 元件遺失，請務必安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)之前啟用要在 Azure 中開機之電腦的複寫。 <br/><br/> Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> 在 Linux 散發套件上，僅支援屬於散發套件次要版本/更新的庫存核心。<br/><br/> 不支援升級各主要 Linux 散發套件版本的受保護機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> [了解更多](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)有關適用於 Linux 和開放原始碼技術，在 Azure 中的支援。
+Linux Red Hat Enterprise | centos:5.2 至 5.11</b><br/> 若要 6.10 6.1</b><br/> 若要 7.6 7.0<br/> <br/> 不需要伺服器執行 Red Hat Enterprise Linux 5.2-5.11 6.1 6.10 [Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)預先安裝。 請務必安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)之前啟用要在 Azure 中開機之電腦的複寫。
+Linux：CentOS | centos:5.2 至 5.11</b><br/> 若要 6.10 6.1</b><br/> 若要 7.6 7.0<br/> <br/> 不需要伺服器執行 CentOS 5.2-5.11 6.1 6.10 [Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)預先安裝。 請務必安裝[元件](https://www.microsoft.com/download/details.aspx?id=55106)之前啟用要在 Azure 中開機之電腦的複寫。
 Ubuntu | Ubuntu 14.04 LTS 伺服器[（檢閱支援的核心版本）](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器[（檢閱支援的核心版本）](#ubuntu-kernel-versions)
 Debian | Debian 7/debian 8 [（檢閱支援的核心版本）](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3、 SP4 [（檢閱支援的核心版本）](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3、SUSE Linux Enterprise Server 11 SP4<br/> 不支援從 SUSE Linux Enterprise Server 11 SP3 的複寫的機器升級到 SP4。 若要升級，停用複寫，並在升級之後重新啟用。
@@ -194,7 +194,7 @@ Docker 磁碟設定 | 否
 客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
 客體/伺服器 GPT 磁碟分割 | 從支援五個資料分割[更新彙總套件 37](https://support.microsoft.com/help/4508614/) （行動服務版本 9.25） 及更新版本。 四個支援先前。
-客體/伺服器 EFI/UEFI 開機 | -當您執行行動服務版本 9.13 或更新版本支援。<br/> -移轉 VMware Vm 或實體伺服器執行 Windows Server 2012 或更新版本支援至 Azure。<br/> -您只可以將 Vm 複寫進行移轉。 不支援容錯回復至內部部署。<br/> -只支援 NTFS。 <br/> 磁碟磁區大小應該是 512 個位元組，每個實體磁區。
+客體/伺服器 EFI/UEFI 開機 | -當您執行行動服務版本 9.13 或更新版本支援。<br/> -移轉 VMware Vm 或實體伺服器執行 Windows Server 2012 或更新版本支援至 Azure。<br/> -您只可以將 Vm 複寫進行移轉。 不支援容錯回復至內部部署。<br/> -只支援 NTFS 與不支援安全的 UEFI 開機類型。 <br/> 磁碟磁區大小應該是 512 個位元組，每個實體磁區。
 
 ## <a name="replication-channels"></a>複寫通道
 

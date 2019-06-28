@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147700"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357141"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
-Azure SQL Database 可讓您在最短停機時間的情況下，動態將更多資源新增至資料庫。
+Azure SQL Database 可讓您以動態方式加入更多資源，資料庫的最小[停機](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); 不過，沒有交換器期間內，會失去連線能力對資料庫短的時間，它可以是使用重試邏輯的降低。
 
 ## <a name="overview"></a>概觀
 

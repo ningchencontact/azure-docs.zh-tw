@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058549"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331315"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -414,3 +414,12 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 
 ### <a name="try"></a>嘗試
 [新增誤導](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations)到您的 AKS 叢集，以確保 Linux pod 未排定在 Windows 節點上執行。
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>找不到 」 沒有無瑕疵的 Linux 節點處於就緒狀態在叢集上。 需要至少一個部署 'azds' 命名空間中的 pod 的就緒狀態無瑕疵的 Linux 節點。 」
+
+### <a name="reason"></a>`Reason`
+
+Azure 開發人員的空間無法控制站上建立 AKS 叢集中因為它找不到無瑕疵的節點，在*準備*排程上的 pod 的狀態。 Azure 開發人員空間需要至少一個 Linux 節點*準備*允許但不指定 tolerations 排程 pod 的狀態。
+
+### <a name="try"></a>嘗試
+[更新您誤導組態](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations)上您的 AKS 叢集，以確保至少一個 Linux 節點，可讓排程而不指定 tolerations 的 pod。 此外，請確定至少一個 Linux 節點，可讓排程 pod 而不指定 tolerations 處於*準備*狀態。 如果您的節點正在很長的時間觸達*準備*狀態時，您可以嘗試重新啟動您的節點。

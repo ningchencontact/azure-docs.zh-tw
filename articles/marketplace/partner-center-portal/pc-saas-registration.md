@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: abe499c081c73d42e712d5872e121262a1a50197
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f644dca7a057667fb37f5a79a4683c592059e7a
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66259160"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331606"
 ---
 # <a name="register-a-saas-application"></a>註冊 SaaS 應用程式
 
@@ -68,7 +68,7 @@ Azure 不會對 SaaS 服務向終端使用者顯示的驗證施加任何限制�
 
 HTTP 方法
 
-`GET`
+`POST`
 
 *Request URL (要求 URL)*
 

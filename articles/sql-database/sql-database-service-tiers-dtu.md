@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546460"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357232"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
-以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模式的所有服務層皆可彈性變更計算大小而不需停機。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
+以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模型中的所有服務層皆都可彈性變更計算大小搭配最低限度[停機](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); 不過，沒有交換器期間內，會失去連線能力對資料庫短的時間，其中您可以降低使用重試邏輯。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
 
 > [!IMPORTANT]
 > SQL Database 受控執行個體不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
