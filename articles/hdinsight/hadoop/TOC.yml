@@ -14,9 +14,6 @@
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: 教學課程
   items:
-    - name: 執行 ETL 作業
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
     - name: 建立隨選叢集
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
@@ -141,6 +138,10 @@
         - name: VSCode 適用的工具
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: IntelliJ 適用的工具
+          href: ../spark/apache-spark-intellij-tool-plugin.md
+        - name: Eclipse 適用的工具
+          href: ../spark/apache-spark-eclipse-tool-plugin.md
         - name: Data Lake 工具與 Hortonworks 沙箱
           href: ../hdinsight-hadoop-emulator-visual-studio.md
           maintainContext: true
@@ -186,9 +187,6 @@
           maintainContext: true
         - name: 開發指令碼動作
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: 安裝並使用 Presto
-          href: ../hdinsight-hadoop-install-presto.md
           maintainContext: true
         - name: 新增 Apache Hive 程式庫
           href: ../hdinsight-hadoop-add-hive-libraries.md
@@ -467,15 +465,11 @@
     - name: Resource Manager 範本
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: 相關參考
-  items:
-    - name: Windows 叢集
-      items:
-        - name: 將 .NET 解決方案移轉至 Linux 叢集
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: 資源
   items:
+    - name: 將 .NET 解決方案移轉至 Linux 叢集
+      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+      maintainContext: true
     - name: 版本資訊
       items:
         - name: 目前的版本資訊

@@ -5,8 +5,8 @@ metadata:
   title: Azure AD Domain Services 文件
   description: 了解如何使用 Active Directory Domain Services 將 Azure 虛擬機器加入網域中，而不需使用網域控制站。 教學課程和其他文件會示範如何使用群組原則來管理虛擬機器。
   keywords: 'Azure AD, Azure, 網域加入, 群組原則, LDAP, Kerberos, 網域控制器, DC, 工作負載平移'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page

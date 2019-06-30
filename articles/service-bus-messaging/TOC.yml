@@ -19,6 +19,8 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure CLI
               href: service-bus-quickstart-cli.md
+            - name: Azure Resource Manager 範本
+              href: service-bus-resource-manager-namespace-queue.md
         - name: 傳送及接收訊息
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: 服務匯流排主題和訂用帳戶
       items:
         - name: 建立主題和訂用帳戶
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Azure 入口網站
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure Resource Manager 範本
+              href: service-bus-resource-manager-namespace-topic.md
         - name: 發佈和訂閱訊息
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: 建立命名空間
               href: service-bus-resource-manager-namespace.md
-            - name: 建立命名空間和佇列
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: 建立命名空間與主題和訂用帳戶
-              href: service-bus-resource-manager-namespace-topic.md
             - name: 建立命名空間和佇列的授權規則
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 建立命名空間與主題、訂用帳戶和規則
