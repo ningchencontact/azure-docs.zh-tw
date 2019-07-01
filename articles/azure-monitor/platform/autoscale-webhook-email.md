@@ -66,7 +66,7 @@ Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或�
 | sendToSubscriptionAdministrator |是 |值必須是 "true" 或 "false" |
 | sendToSubscriptionCoAdministrators |是 |值必須是 "true" 或 "false" |
 | customEmails |是 |值可以是 null 或電子郵件的字串陣列 |
-| Webhook |是 |值可以是 null 或有效的 Uri |
+| webhooks |是 |值可以是 null 或有效的 Uri |
 | serviceUri |是 |有效的 https Uri |
 | properties |是 |值必須是空的 {}，也可以包含索引鍵-值組 |
 
@@ -111,12 +111,12 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 | timestamp |是 |自動調整動作觸發時的時間戳記 |
 | id |是 |自動調整設定的 Resource Manager 識別碼 |
 | name |是 |自動調整設定的名稱 |
-| 詳細資料 |是 |說明自動調整服務所採取的動作和執行個體計數的變更 |
+| details |是 |說明自動調整服務所採取的動作和執行個體計數的變更 |
 | subscriptionId |是 |正在調整的目標資源的訂用帳戶識別碼 |
 | resourceGroupName |是 |正在調整的目標資源的資源群組 |
 | resourceName |是 |正在調整的目標資源的名稱 |
 | resourceType |是 |支援三個值：microsoft.classiccompute/domainnames/slots/roles" (雲端服務角色)、"microsoft.compute/virtualmachinescalesets" (虛擬機器擴展集) 以及 "Microsoft.Web/serverfarms" - (Web 應用程式) |
-| ResourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
+| resourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
 | portalLink |是 |連到目標資源摘要頁面的 Azure 入口網站連結 |
 | oldCapacity |是 |自動調整進行調整動作時的當前 (舊) 執行個體計數 |
 | newCapacity |是 |自動調整要將資源調整為此數目的新執行個體計數 |
