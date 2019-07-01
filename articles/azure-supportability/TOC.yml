@@ -5,14 +5,17 @@
 - name: 建立及管理支援要求的存取權限
   href: create-manage-support-requests-using-access-control.md
 - name: 增加配額要求
-  href: resource-manager-core-quotas-request.md
   items:
-    - name: 增加的 VM 系列 vCPU 限制
-      href: per-vm-quota-requests.md
-    - name: 增加的區域總 vCPU 限制
-      href: regional-quota-requests.md
-    - name: 增加網路限制
-      href: networking-quota-requests.md
+    - name: Resource Manager 部署模型配額增加要求
+      items:
+        - name: 增加的 VM 系列 vCPU 限制
+          href: per-vm-quota-requests.md
+        - name: 增加的區域總 vCPU 限制
+          href: regional-quota-requests.md
+        - name: 增加網路限制
+          href: networking-quota-requests.md
+    - name: 傳統部署模型配額增加要求
+      href: classic-deployment-model-quota-increase-requests.md
 - name: 針對區域或 SKU 訂用帳戶問題進行疑難排解
   href: sku-series-unavailable.md
 - name: 參考

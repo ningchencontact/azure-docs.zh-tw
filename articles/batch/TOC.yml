@@ -27,6 +27,8 @@
       href: tutorial-rendering-batchexplorer-blender.md
     - name: 平行 R 模擬
       href: tutorial-r-doazureparallel.md
+    - name: OCR with Batch 和 Azure Functions
+      href: tutorial-batch-functions.md
 - name: 範例
   items:
     - name: 程式碼範例

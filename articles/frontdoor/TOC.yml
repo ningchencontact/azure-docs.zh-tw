@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: URL 重寫
       href: front-door-url-rewrite.md
+    - name: URL 重新導向
+      href: front-door-url-redirect.md
     - name: WAF
       items:
         - name: 概觀
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: 使用說明指南
   items:
+    - name: 重新導向流量
+      items:
+        - name: 使用 HTTP 至 HTTPS 重新導向設定 Front Door
+          href: front-door-how-to-redirect-https.md
+    - name: 自訂網域上線
+      items:
+        - name: 根或 apex 網域上線
+          href: front-door-how-to-onboard-apex-domain.md
     - name: 疑難排解
       items:
         - name: 針對路由問題進行疑難排解

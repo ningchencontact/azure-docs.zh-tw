@@ -447,6 +447,18 @@
                   href: app/proactive-arm-config.md
                 - name: 電子郵件通知
                   href: app/proactive-email-notification.md
+            - name: 可用性
+              items:
+                - name: URL 測試
+                  href: app/monitor-web-app-availability.md
+                - name: 多步驟測試
+                  href: app/availability-multistep.md
+                - name: 可用性警示
+                  href: app/availability-alerts.md
+                - name: 疑難排解
+                  href: app/troubleshoot-availability.md
+            - name: 效能測試
+              href: app/performance-testing.md
             - name: 建立資源
               href: app/create-new-resource.md
             - name: 應用程式資料到 Log Analytics
@@ -554,6 +566,8 @@
                       href: insights/container-insights-enable-existing-clusters.md
                 - name: 分析
                   href: insights/container-insights-analyze.md
+                - name: 設定代理程式集合設定
+                  href: insights/container-insights-agent-config.md
                 - name: 停用監視
                   href: insights/container-insights-optout.md
                 - name: 檢視即時記錄
@@ -795,8 +809,6 @@
           items:
             - name: 應用程式警示規則
               items:
-                - name: 可用性
-                  href: app/monitor-web-app-availability.md
                 - name: 度量警示
                   href: app/alerts.md
             - name: 平台計量警示規則

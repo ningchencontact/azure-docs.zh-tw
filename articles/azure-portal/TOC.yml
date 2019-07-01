@@ -30,6 +30,8 @@
   items:
     - name: 鍵盤快速鍵
       href: azure-portal-keyboard-shortcuts.md
+    - name: Azure 入口網站 URL 安全清單
+      href: azure-portal-safelist-urls.md
     - name: Azure 儀表板結構
       href: azure-portal-dashboards-structure.md
 - name: 資源

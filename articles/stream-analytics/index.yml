@@ -9,17 +9,17 @@ metadata:
   ms.author: mamccrea
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 05/08/2019
+  ms.date: 06/21/2019
 abstract:
-  description: 串流分析是一個完全受控、無伺服器的事件處理引擎，可讓您即時分析來自應用程式和 IoT 裝置的資料流。 了解如何透過我們的快速入門、教學課程和範例使用 Azure 串流分析。
+  description: 串流分析是完全受控的 PaaS 服務，可協助您即時分析和處理 IoT 裝置、應用程式、點擊流等快速移動的資料串流，並在必要時觸發警示和動作。 了解如何透過我們的快速入門、教學課程和範例使用 Azure 串流分析。
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: '使用 Azure 串流分析進行即時分析和機器學習。 (1:15:05)'
-    href: 'https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor'
+    title: '從雲端到智慧邊緣 - 透過 Azure 串流分析驅動即時決策。 (1:02:11)'
+    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
     width: 250
 sections:
   - title: 5 分鐘快速入門
