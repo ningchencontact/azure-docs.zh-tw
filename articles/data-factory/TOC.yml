@@ -548,8 +548,6 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: 使用彈性資料庫作業清除 SSISDB 記錄
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
-          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: 建立觸發程序
       items:
         - name: 建立事件型觸發程序
@@ -572,6 +570,12 @@
           href: solution-template-delta-copy-with-control-table.md
         - name: 使用 Databricks 轉換資料
           href: solution-template-databricks-notebook.md
+    - name: 疑難排解指南
+      items:
+        - name: 活動疑難排解
+          href: data-factory-troubleshoot-guide.md
+        - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: 參考
   items:
     - name: .NET

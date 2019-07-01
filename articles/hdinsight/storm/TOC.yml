@@ -9,20 +9,20 @@
   items:
     - name: 在 HDInsight 中建立 Apache Storm 拓撲
       href: ./apache-storm-quickstart.md
-- name: 開始使用
+- name: 教學課程
   items:
-    - name: 建立 Apache Storm 叢集
-      href: apache-storm-tutorial-get-started-linux.md
-    - name: 安裝 HDInsight 應用程式
-      href: ../hdinsight-apps-install-applications.md
-    - name: 容量規劃
-      href: ../hdinsight-capacity-planning.md
+    - name: 使用 Apache Storm 寫入儲存體
+      href: apache-storm-write-data-lake-store.md
 - name: 概念
   items:
     - name: HDInsight 上的 Apache Hadoop 元件
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: 安裝 HDInsight 應用程式
+      href: ../hdinsight-apps-install-applications.md
+    - name: 容量規劃
+      href: ../hdinsight-capacity-planning.md
 - name: 作法
   items:
     - name: 開發 Apache Storm 拓撲
@@ -47,10 +47,6 @@
           href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
         - name: '事件中樞與 Apache Storm (C# 和 Java)'
           href: apache-storm-develop-csharp-event-hub-topology.md
-        - name: Azure 儲存體/Data Lake Storage (Java)
-          href: apache-storm-write-data-lake-store.md
-        - name: 事件中樞和 Apache HBase (Java)
-          href: apache-storm-sensor-data-analysis.md
     - name: 擴充叢集
       items:
         - name: 使用啟動程序自訂叢集

@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: 常見查詢模式
           href: how-to-query-common-apis.md
+    - name: 使用舊版 AAD 註冊應用程式
+      href: how-to-use-legacy-aad.md
 - name: 參考
   items:
     - name: 使用者定義函式用戶端程式庫

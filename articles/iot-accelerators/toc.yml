@@ -137,6 +137,8 @@
           href: overview-opc-twin.md
         - name: 什麼是 OPC 保存庫
           href: overview-opc-vault.md
+        - name: 什麼是 OPC 發行者
+          href: overview-opc-publisher.md
         - name: 什麼是連線的處理站
           href: iot-accelerators-connected-factory-features.md
     - name: 快速入門
@@ -153,8 +155,6 @@
           items:
             - name: 使用儀表板
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: 使用 OPC 發行者
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: 設定解決方案加速器
               href: iot-accelerators-connected-factory-configure.md
             - name: 自訂解決方案加速器
@@ -177,6 +177,12 @@
                   href: howto-opc-vault-deploy-existing-client-server-communication.md
             - name: 從頭開始部署 OPC 保存庫
               href: howto-opc-vault-deploy-scratch.md
+        - name: OPC 發行者
+          items:
+            - name: 設定 OPC 發行者
+              href: howto-opc-publisher-configure.md
+            - name: 執行 OPC 發行者
+              href: howto-opc-publisher-run.md
     - name: 資源
       items:
         - name: GitHub 存放庫

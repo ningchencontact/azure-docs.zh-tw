@@ -22,6 +22,8 @@
       items:
         - name: 內部部署工作負載的雲端治理管理
           href: cloud-governed-management-for-on-premises.md
+        - name: 強式身分識別基礎的四大步驟
+          href: four-steps.md
     - name: Azure AD Connect 和 Connect Health
       items:
         - name: 什麼是 Azure AD Connect 和 Connect Health？
@@ -68,6 +70,8 @@
       items:
         - name: 什麼是 Azure AD Connect 同步處理？
           href: how-to-connect-sync-whatis.md
+        - name: Azure ADSync 服務帳戶
+          href: concept-adsync-service-account.md
         - name: Azure AD Connect 同步處理功能
           href: how-to-connect-syncservice-features.md
         - name: 什麼是 Azure AD Connect 同步處理服務管理員？

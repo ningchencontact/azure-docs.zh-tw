@@ -58,6 +58,8 @@
       href: 'https://aka.ms/adpricing'
     - name: 區域可用性
       href: 'https://aka.ms/adregion'
+    - name: 使用者產生的內容
+      href: user-generated-content.md
     - name: 加入 Microsoft Teams 中 Anomaly Detector Advisor 群組
       href: 'https://aka.ms/adadvisorsjoin'
     - name: 參考解決方案架構

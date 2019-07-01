@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: 安裝及執行容器
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>建置適用於訓練自訂模型的資料集。</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 建置訓練資料集
   - title: 5 分鐘快速入門
     items:
       - type: paragraph

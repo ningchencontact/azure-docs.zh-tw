@@ -19,6 +19,8 @@
 - name: 概念
   expanded: false
   items:
+    - name: 採用條件式存取
+      href: howto-conditional-access-adoption-kit.md
     - name: 基準保護原則
       href: concept-baseline-protection.md
     - name: 條件

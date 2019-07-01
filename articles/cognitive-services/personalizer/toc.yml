@@ -62,12 +62,20 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: SDK
       items:
-        - name: .Net SDK 參考
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: Nuget 套件
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: .NET SDK 參考
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
+            - name: Nuget 套件
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Python
+          items:
+            - name: Pypi 封裝
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: 資源
   items:
+    - name: 疑難排解
+      href: troubleshooting.md
     - name: 區域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 法規遵循

@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: 使用說明指南
   items:
+    - name: 建置訓練資料集
+      href: build-training-data-set.md
     - name: 使用容器
       items:
         - name: 安裝及執行容器

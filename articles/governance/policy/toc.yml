@@ -52,7 +52,7 @@
             - name: 需要標籤比對模式
               displayName: 'deny, all'
               href: samples/enforce-tag-match-pattern.md
-        - name: 標記
+        - name: Tags
           items:
             - name: 套用標籤及其預設值
               displayName: 'append, builtin, concat'
@@ -260,6 +260,9 @@
     - name: 了解原則效果
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: 適用於 Kubernetes 的 Azure 原則
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: 使用來賓設定稽核 VM
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

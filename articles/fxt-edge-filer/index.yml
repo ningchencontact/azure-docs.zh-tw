@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure FXT Edge Filer 文件
+metadata:
+  title: Azure FXT Edge Filer 文件
+  description: 將 Azure FXT Edge Filer 當做讀取密集高效能運算 (HPC) 工作的快取層
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: v-erkell
+abstract:
+  description: Azure FXT Edge Filer 混合式儲存體快取是一個硬體/軟體混合式系統，可加速檔案式、讀取密集高效能運算 (HPC) 工作流程的資料存取速度。 三個以上的 Azure FXT Edge Filer 裝置叢集可加速內部部署 NAS 系統 (NetApp 或 Dell EMC Isilon)、雲端儲存體或解決方案組合的儲存體效能。
+sections:
+  - title: 逐步教學課程
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">安裝 Azure FXT Edge Filer 硬體</a>
+          - html: <a href="fxt-network-power">讓 Azure FXT Edge Filer 可連網</a>
+          - html: <a href="fxt-node-password">在硬體節點上設定根密碼</a>
+          - html: <a href="fxt-cluster-create">建立混合式儲存體快取叢集</a>
+          - html: <a href="fxt-add-nodes">新增叢集節點</a>
+          - html: <a href="fxt-add-storage">新增後端儲存體並設定虛擬命名空間</a>
+          - html: <a href="fxt-configure-network"> 設定叢集的網路設定</a>
+  - title: 使用說明指南
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">將用戶端與 Azure FXT Edge Filer 叢集連線</a>
+          - html: <a href="fxt-monitor">監視 Azure FXT Edge Filer</a>
+          - html: <a href="fxt-power-off">安全地關閉硬體節點的電源</a>
+  - title: 資源
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">硬體規格</a>
+          - html: <a href="fxt-additional-doc">其他文件</a>

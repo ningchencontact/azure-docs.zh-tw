@@ -11,16 +11,16 @@
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: 查詢 Apache HBase - HBase Shell
       href: ./query-hbase-with-hbase-shell.md
-- name: 開始使用
+- name: 教學課程
   items:
-    - name: 開始使用 Apache HBase 與 NoSQL
+    - name: 使用 HDInsight 中的 Apache HBase
       href: apache-hbase-tutorial-get-started-linux.md
+- name: 概念
+  items:
     - name: 安裝 HDInsight 應用程式
       href: ../hdinsight-apps-install-applications.md
     - name: 叢集容量規劃
       href: ../hdinsight-capacity-planning.md
-- name: 概念
-  items:
     - name: HDInsight 上的 Apache Hadoop 元件
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0

@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>教學課程會上傳本機影片檔案、將檔案編碼並串流已編碼的內容。<p/>
+          - html: <p>教學課程會上傳本機影片檔案、將檔案編碼並串流已編碼的內容。<p/>
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: 將已上傳檔案編碼和串流影片
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>教學課程會說明如何設定即時事件。 接著會說明如何使用 .NET 建立即時事件的傳遞類型。</p>
+          - html: <p>教學課程會說明如何設定即時事件。 接著會示範如何建立即時事件的傳遞類型。</p>
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: 即時廣播
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>本教學課程會示範如何使用 Azure 媒體服務 API 分析影片。</p>
+          - html: <p>本教學課程會示範如何使用 Azure 媒體服務 API 分析影片。</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: 分析您的影片
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>了解如何設定並使用媒體服務 API，透過 AES-128 將內容動態加密。</p>
+          - html: <p>了解如何設定並使用媒體服務 API，透過 AES-128 將內容動態加密。</p>
             href: /azure/media-services/latest/protect-with-aes128
             title: 透過 AES-128 進行動態加密
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>了解如何設定並使用媒體服務 API，透過多重 DRM (PlayReady、Widevine 和 FairPlay) 將內容動態加密。</p>
+          - html: <p>了解如何設定並使用媒體服務 API，透過多重 DRM (PlayReady、Widevine 和 FairPlay) 將內容動態加密。</p>
             href: /azure/media-services/latest/protect-with-drm
             title: 透過多重 DRM 進行動態加密
-          - image:
-              src: media/index/rest.svg
-            html: <p>教學課程會顯示如何將 URL 為基礎的遠端檔案編碼及串流影片。</p>
+          - html: <p>教學課程會顯示如何將 URL 為基礎的遠端檔案編碼及串流影片。</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: 編碼遠端檔案和串流影片
   - title: 範例

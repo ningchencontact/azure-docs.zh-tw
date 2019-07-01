@@ -144,6 +144,13 @@
 - name: 參考
   items:
     - name: REST API 參考
+      items:
+        - name: 編寫 API
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
+        - name: GenerateAnswer API
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
+        - name: 將 API 定型
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
     - name: 常見問題集
       href: faqs.md

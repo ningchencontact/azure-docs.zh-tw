@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: 概念
   items:
-    - name: 自訂提供者
+    - name: Azure 自訂資源提供者
       href: custom-providers-overview.md
+    - name: 檢視定義成品
+      href: concepts-view-definition.md
 - name: 使用說明指南
   items:
+    - name: 自訂資源提供者
+      items:
+        - name: 將自訂動作新增至 Azure
+          href: custom-providers-action-endpoint-how-to.md
+        - name: 將自訂資源新增至 Azure
+          href: custom-providers-resources-endpoint-how-to.md
     - name: 發行者
       items:
         - name: 建立入口網站介面
@@ -57,6 +65,12 @@
           href: approve-just-in-time-access.md
 - name: 參考
   items:
+    - name: 自訂資源提供者
+      items:
+        - name: 自訂資源 Proxy 參考
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: 自訂資源快取參考
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell
