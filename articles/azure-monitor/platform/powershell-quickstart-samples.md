@@ -101,7 +101,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` 支援其他許多參數。 如需詳細資訊，請參閱 `Get-AzLog` 參考。
 
 > [!NOTE]
-> `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxRecords**參數可讓您查詢的前 n 個事件，超過 15 天。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。
+> `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxEvents** 參數可讓您查詢超過 15 天的前 N 個事件。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。
 > 
 > 
 
@@ -156,7 +156,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | 此警示規則的位置 |East US |
 | resourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。請參閱 `Get-MetricDefinitions` Cmdlet 以了解如何擷取確切的計量名稱 |
 | operator |GreaterThan |
 | 臨界值 (此計量的計數/秒） |1 |
 | WindowSize (hh:mm:ss 格式) |00:05:00 |
