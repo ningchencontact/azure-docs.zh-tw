@@ -301,6 +301,8 @@
               href: app-objects-and-service-principals.md
             - name: 如何以及為何將應用程式新增到 Azure AD
               href: active-directory-how-applications-are-added.md
+            - name: 重新導向 URI/回覆 URL 限制
+              href: reply-url.md
             - name: 單一租用戶與多租用戶應用程式
               href: single-and-multi-tenant-apps.md
         - name: 權限及同意

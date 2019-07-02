@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概觀
   items:
-    - name: 什麼是資料總管？
+    - name: 什麼是 Azure 資料總管？
       href: data-explorer-overview.md
 - name: 快速入門
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: Web UI
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: 教學課程
   items:
     - name: 無需使用程式碼也能內嵌資料
@@ -68,12 +66,18 @@
       items:
         - name: 撰寫查詢
           href: write-queries.md
-        - name: 時間序列分析
-          href: time-series-analysis.md
-        - name: 異常偵測和預測
-          href: anomaly-detection.md
-        - name: 機器學習服務
-          href: machine-learning-clustering.md
+        - name: Azure Data Lake 中的查詢資料
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: 時間序列分析及機器學習
+          items:
+            - name: 時間序列分析
+              href: time-series-analysis.md
+            - name: 異常偵測和預測
+              href: anomaly-detection.md
+            - name: 機器學習服務
+              href: machine-learning-clustering.md
     - name: 顯現資料
       items:
         - name: Power BI

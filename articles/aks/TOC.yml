@@ -19,6 +19,8 @@
     - name: 開發應用程式
       expanded: true
       items:
+        - name: 使用草稿
+          href: kubernetes-draft.md
         - name: 使用 Java (VS Code 與 CLI)
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: 建立內部負載平衡器
           href: internal-lb.md
+        - name: 使用 Standard Load Balancer (預覽)
+          href: load-balancer-standard.md
         - name: 使用靜態 IP 位址
           href: static-ip.md
         - name: 輸入
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: 定義 API 伺服器授權的 IP 範圍 (預覽)
           href: api-server-authorized-ip-ranges.md
+        - name: 透過 Azure 原則控制部署 (預覽)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: 更新叢集服務主體認證
           href: update-credentials.md
         - name: 限制和控制叢集輸出流量 (預覽)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: 以 Helm 執行應用程式
           href: kubernetes-helm.md
-        - name: 以 Draft 開發應用程式
-          href: kubernetes-draft.md
         - name: 使用 Open Service Broker for Azure
           href: integrate-azure.md
         - name: 使用 Cosmos DB API for MongoDB with OSBA

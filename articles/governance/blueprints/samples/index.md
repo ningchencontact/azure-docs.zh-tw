@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/13/2019
+ms.date: 06/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0345ba564ea244011a83f69e6c152d236b95a920
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2cb5f08cfc6e6bbf0f2df4cef44e4ecd1aa3aadf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272183"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428722"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -24,7 +24,9 @@ ms.locfileid: "67272183"
 |---------|---------|
 | [ISO 27001 共用服務](./iso27001-shared/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 |
 | [ISO 27001 App Service 環境/SQL Database 工作負載](./iso27001-ase-sql-workload/index.md) | 提供 [ISO 27001 共用服務](./iso27001-shared/index.md)藍圖範例的其他基礎結構。 |
-| [英國官方治理](./ukofficial/control-mapping.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得英國官方證明。 |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | 提供成立條件以符合 NIST SP 800-53 R4。 |
+| [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | 提供一組原則以協助符合 PCI-DSS v3.2.1 規範。 |
+| [UK OFFICIAL 與 UK NHS Governance](./ukofficial/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 UK OFFICIAL 與 UK NHS 證明。 |
 
 ## <a name="next-steps"></a>後續步驟
 

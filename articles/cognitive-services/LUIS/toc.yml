@@ -300,8 +300,10 @@
           href: luis-reference-prebuilt-keyphrase.md
         - name: Number 實體
           href: luis-reference-prebuilt-number.md
-        - name: 序數實體
+        - name: Ordinal 實體
           href: luis-reference-prebuilt-ordinal.md
+        - name: Ordinal V2 實體
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: 百分比實體
           href: luis-reference-prebuilt-percentage.md
         - name: PersonName 實體

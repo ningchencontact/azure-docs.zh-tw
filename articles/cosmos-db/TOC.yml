@@ -121,6 +121,69 @@
         - name: 在容器和資料庫中佈建輸送量
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+    - name: SQL 查詢參考
+      items:
+        - name: 開始使用
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: 子句
+          items:
+            - name: SELECT
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: 排序依據
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: 位移限制
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: 子查詢
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: 聯結
+          displayName: join
+          href: sql-query-join.md
+        - name: 別名
+          displayName: 'alias, aliasing'
+          href: sql-query-aliasing.md
+        - name: 陣列和物件
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: 關鍵字
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: 運算子
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: 純量運算式
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: Functions
+          items:
+            - name: 使用者定義函式
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: 彙總
+              displayName: 'functions, aggregate'
+              href: sql-query-aggregates.md
+            - name: 系統函式
+              displayName: 'functions, system functions, built-in functions'
+              href: sql-query-system-functions.md
+        - name: 參數化查詢
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: SQL 查詢執行
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: 使用 Azure Cosmos 帳戶
       href: account-overview.md
     - name: 容器和項目
@@ -128,12 +191,6 @@
         - name: 使用資料庫、容器和項目
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: SQL 語言參考
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: SQL 查詢範例
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: 模型文件資料
           displayName: document
           href: modeling-data.md
@@ -351,6 +408,8 @@
               href: connect-mongodb-account.md
             - name: 使用 Studio 3T 連線
               href: mongodb-mongochef.md
+            - name: 使用 Compass 連線
+              href: mongodb-compass.md
             - name: 使用 Robomongo 來連接
               href: mongodb-robomongo.md
             - name: 使用 Mongoose 連線
@@ -548,9 +607,6 @@
           href: how-to-manage-indexing-policy.md
         - name: 定義唯一索引鍵
           href: how-to-define-unique-keys.md
-        - name: SQL 子查詢範例
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
     - name: 最佳作法
       items:
         - name: 效能秘訣
@@ -712,7 +768,9 @@
     - name: REST 資源提供者
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager 範本
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+    - name: 模擬器版本資訊
+      href: local-emulator-release-notes.md
 - name: 資源
   items:
     - name: 透過 Microsoft Learn 增進您的技巧

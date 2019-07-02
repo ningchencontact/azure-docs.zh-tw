@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: 儲存體 - 入口網站
           href: functions-integrate-storage-queue-output-binding.md
+        - name: 儲存體 - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: 教學課程
   items:
     - name: 搭配使用 Functions 與 Logic Apps
@@ -136,6 +138,8 @@
           href: functions-test-a-function.md
         - name: 在本機開發及偵錯
           href: functions-develop-local.md
+        - name: Visual Studio Code 開發
+          href: functions-develop-vs-code.md
         - name: Visual Studio 開發
           href: functions-develop-vs.md
         - name: 核心工具開發
@@ -282,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: host.json 參考
+    - name: host.json 2.x 參考
       href: functions-host-json.md
-      items:
-        - name: Functions 2.x
-          href: functions-host-json.md
-        - name: Functions 1.x
-          href: functions-host-json-v1.md
+    - name: host.json 1.x 參考
+      href: functions-host-json-v1.md
     - name: 網路常見問題集
       href: functions-networking-faq.md
     - name: OpenAPI 參考
