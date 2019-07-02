@@ -195,6 +195,8 @@
           href: search-indexer-field-mappings.md
         - name: 連線到 SQL Server VM
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: 監視索引器
+          href: search-howto-monitor-indexers.md
         - name: 針對常見問題進行疑難排解
           href: search-indexer-troubleshooting.md
     - name: 透過 AI 擴充
