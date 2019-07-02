@@ -564,6 +564,8 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: 針對現有叢集啟用
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: 區域對應
+                      href: insights/container-insights-region-mapping.md
                 - name: 分析
                   href: insights/container-insights-analyze.md
                 - name: 設定代理程式集合設定

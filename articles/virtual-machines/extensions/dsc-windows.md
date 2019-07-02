@@ -33,7 +33,7 @@ Microsoft 已發佈並支援適用於 Windows 的 PowerShell DSC 擴充功能。
 
 DSC 擴充功能支援下列作業系統
 
-Windows Server 2019、 Windows Server 2016、 Windows Server 2012 r2，Windows Server 2012、 Windows Server 2008 R2 SP1、 Windows 用戶端 7/8.1/10
+Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 SP1、Windows Client 7/8.1
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
@@ -113,11 +113,11 @@ Windows 的 DSC 擴充功能會要求目標虛擬機器都必須能夠使用 Azu
 | settings.configuration.url | string | 指定要從中下載 DSC 組態 zip 檔的 URL 位置。 如果提供的 URL 需要 SAS 權杖才能存取，您必須將 protectedSettings.configurationUrlSasToken 屬性設定為 SAS 權杖的值。 如果已定義 settings.configuration.script 和/或 settings.configuration.function，則需要這個屬性。
 | settings.configuration.script | string | 指定指令碼的檔案名稱，其中包含 DSC 組態的定義。 此指令碼必須位於從 configuration.url 屬性所指定的 URL 下載之 zip 檔案的根資料夾中。 如果已定義 settings.configuration.url 和/或 settings.configuration.script，則需要這個屬性。
 | settings.configuration.function | string | 指定 DSC 組態的名稱。 命名的組態必須包含在 configuration.script 所定義的指令碼中。 如果已定義 settings.configuration.url 和/或 settings.configuration.function，則需要這個屬性。
-| settings.configurationArguments | 集合 | 定義任何您想要傳遞至 DSC 組態的參數。 此屬性將不會經過加密。
+| settings.configurationArguments | Collection | 定義任何您想要傳遞至 DSC 組態的參數。 此屬性將不會經過加密。
 | settings.configurationData.url | string | 指定 URL，從中下載您的組態資料 (.pds1) 檔案以做為 DSC 組態的輸入。 如果提供的 URL 需要 SAS 權杖才能存取，您必須將 protectedSettings.configurationDataUrlSasToken 屬性設定為 SAS 權杖的值。
 | settings.privacy.dataEnabled | string | 啟用或停用遙測收集。 此屬性只有下列可能值：‘Enable’、‘Disable’ 或 $null。 將此屬性保留空白或 null 將會啟用遙測
 | settings.advancedOptions.forcePullAndApply | Bool | 此設定可加強節點向 Azure 自動化 DSC 延伸模組所使用的體驗。  如果值為`$true`，擴充功能將會等到傳回成功/失敗之前，從服務提取組態的第一次執行。  如果值設定為 $false，延伸模組所傳回的狀態只會參考是否節點與 Azure 自動化狀態設定已成功註冊，並將不會在註冊期間執行的節點組態。
-| settings.advancedOptions.downloadMappings | 集合 | 定義下載相依性 (例如 WMF 和 .NET) 的替代位置
+| settings.advancedOptions.downloadMappings | Collection | 定義下載相依性 (例如 WMF 和 .NET) 的替代位置
 
 ### <a name="protected-settings-property-values"></a>受保護的設定屬性值
 
@@ -132,7 +132,7 @@ Windows 的 DSC 擴充功能會要求目標虛擬機器都必須能夠使用 Azu
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。
 部署一或多部需要部署後設定的虛擬機器時，很適合使用範本。
-包含 Windows 的 DSC 延伸模組的範例 Resource Manager 範本可於[Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)。
+在 [Azure 快速啟動資源庫](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91)上可找到包含 Chef VM Extension 的 Resource Manager 範本範例。
 
 ## <a name="troubleshoot-and-support"></a>疑難排解與支援
 
@@ -149,7 +149,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-延伸模組狀態檔案包含的子狀態和狀態成功/錯誤代碼，以及詳細的錯誤和執行每個擴充功能的描述。
+擴充功能狀態檔案包含子狀態和狀態成功/錯誤代碼，以及每次擴充功能執行的詳細錯誤和描述。
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

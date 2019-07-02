@@ -31,8 +31,8 @@ ms.locfileid: "65026728"
 
 | 要避免的字元 | 替代字元 | 注意 |
 |---------------------|--------------|-------|
-| "Hello world" | "Hello world" | 已有適當的 ASCII 字元取代開頭和結尾的引號。 |
-| John 所作出的一天 | John 所作出的一天 | 單引號已取代為適當的 ASCII 字元。 |
+| “Hello world” | "Hello world" | 已有適當的 ASCII 字元取代開頭和結尾的引號。 |
+| John’s day | John's day | 單引號已取代為適當的 ASCII 字元。 |
 | it was good—no, it was great! | it was good--no, it was great! | Em dash 已取代兩個連字號。 |
 
 ### <a name="text-normalization-for-us-english"></a>適用於美國英文文字正規化
