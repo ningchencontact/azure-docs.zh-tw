@@ -221,8 +221,8 @@ ms.locfileid: "66417479"
 
     | 值 | 說明
     |-------|-------------
-    | \<alpha 節點公開金鑰\> | alpha 節點的公開金鑰
-    | \<Ethereum 帳戶位址\> | 在預設交易節點中建立的 Ethereum 帳戶位址
+    | \<alpha node public key\> | alpha 節點的公開金鑰
+    | \<Ethereum account address\> | 在預設交易節點中建立的 Ethereum 帳戶位址
 
     在此範例中，**storeData** 值的初始值會設為 42。
 
@@ -392,8 +392,8 @@ Summary
 
     | 值 | 說明
     |-------|-------------
-    | \<alpha 節點公開金鑰\> | alpha 節點的公開金鑰
-    | \<Ethereum 帳戶位址\> | 在預設交易節點中建立的 Ethereum 帳戶位址。
+    | \<alpha node public key\> | alpha 節點的公開金鑰
+    | \<Ethereum account address\> | 在預設交易節點中建立的 Ethereum 帳戶位址。
 
     **privateFor** 會定義可使用交易的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您需要新增所有私人交易參與者的公開金鑰。
 
