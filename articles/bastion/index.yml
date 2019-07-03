@@ -8,7 +8,7 @@ metadata:
   author: cherylmc
   ms.service: Bastion
   ms.topic: landing-page
-  ms.date: 06/13/2019
+  ms.date: 07/02/2019
   ms.author: cherylmc
 abstract:
   description: 了解如何使用 Azure Bastion 與虛擬機器連線。 直接在 Azure 入口網站中，透過 SSL 設定與虛擬機器之間安全且順暢的 RDP/SSH 連線。 透過 Azure Bastion 連線時，虛擬機器不需要公用 IP 位址。
@@ -33,11 +33,3 @@ sections:
           - html: <a href="/azure/bastion/bastion-connect-vm-ssh">連線至 Windows 虛擬機器</a>
           - html: <a href="/azure/bastion/bastion-connect-vm-rdp">連線至 Linux 虛擬機器</a>
           - html: <a href="/azure/bastion/bastion-faq">閱讀Azure Bastion 常見問題集</a>
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API 參考</a></p>'

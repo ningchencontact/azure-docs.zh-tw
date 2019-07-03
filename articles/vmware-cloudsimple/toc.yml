@@ -72,6 +72,8 @@
               href: manage-private-cloud.md
             - name: 擴充私人雲端
               href: expand-private-cloud.md
+            - name: 壓縮私人雲端
+              href: shrink-private-cloud.md
             - name: 對應您的 Azure 訂用帳戶
               href: azure-subscription-mapping.md
             - name: 提升權限

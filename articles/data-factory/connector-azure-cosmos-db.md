@@ -57,7 +57,7 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | **type** 屬性必須設定為 **CosmosDb**.。 | 是 |
+| type | **type** 屬性必須設定為 **CosmosDb**。 | 是 |
 | connectionString |指定連線到 Azure Cosmos DB 資料庫所需的資訊。<br />**注意**：您必須在連接字串中指定資料庫資訊，如接下來的範例所示。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定此屬性，則會使用預設的 Azure Integration Runtime。 |否 |
 
