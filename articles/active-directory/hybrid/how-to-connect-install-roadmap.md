@@ -46,7 +46,7 @@ ms.locfileid: "67109457"
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](./how-to-connect-install-express.md)|
 |使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
 |從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](./how-to-dirsync-upgrade-get-started.md)|
-|安裝後 | [驗證安裝和指派授權](how-to-connect-post-installation.md)|
+|安裝後 | [驗證安裝和指派授權 ](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>深入了解安裝 Azure AD Connect
 您也想要準備 [操作](how-to-connect-sync-operations.md) 考量。 您可以準備一個待命伺服器，以便在[災害](how-to-connect-sync-staging-server.md#disaster-recovery)發生時輕鬆地進行容錯移轉。 如果您打算進行頻繁的組態變更，則應該規劃 [預備模式](how-to-connect-sync-staging-server.md) 伺服器。
@@ -68,7 +68,7 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 
 [密碼回寫](../authentication/quickstart-sspr.md) 將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
 
-[裝置回寫](how-to-connect-device-writeback.md)將允許裝置寫回至內部部署 Active Directory 以便用於條件式存取的 Azure AD 中註冊。
+[裝置回寫](how-to-connect-device-writeback.md) 將可讓 Azure AD 中註冊的裝置寫回至內部部署 Active Directory，以便可以使用該裝置進行條件式存取。
 
 [防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md) 功能預設為開啟，它會保護您的雲端目錄，避免同時進行多次刪除。 根據預設，它每回允許 500 次刪除。 您可以根據您組織的大小來變更此設定。
 
@@ -152,7 +152,7 @@ ADFS 可以設定為支援 [多個網域](how-to-connect-install-multiple-domain
 
 
 ## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health 入口網站
-Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情況分析。 https://aka.ms/aadconnecthealth URL 會帶您前往 Azure AD Connect Health 的主要刀鋒視窗。 您可以將刀鋒視窗視為視窗。 在主要刀鋒視窗上，您會看到 [快速啟動]  、Azure AD Connect Health 中的服務以及其他設定選項。 請參閱下列螢幕擷取畫面，以及螢幕擷取畫面後面的簡短說明。 部署代理程式之後，健康狀態服務會自動識別 Azure AD Connect Health 所監視的服務。
+Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情況分析。 [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth ) URL 會帶您前往 Azure AD Connect Health 的主要刀鋒視窗。 您可以將刀鋒視窗視為視窗。 在主要刀鋒視窗上，您會看到 [快速啟動]  、Azure AD Connect Health 中的服務以及其他設定選項。 請參閱下列螢幕擷取畫面，以及螢幕擷取畫面後面的簡短說明。 部署代理程式之後，健康狀態服務會自動識別 Azure AD Connect Health 所監視的服務。
 
 > [!NOTE]
 > 如需授權資訊，請參閱 [Azure AD Connect Health 常見問題集](reference-connect-health-faq.md)或 [Azure AD 定價頁面](https://aka.ms/aadpricing)。
