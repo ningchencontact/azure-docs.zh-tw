@@ -62,7 +62,7 @@
         - name: 使用裝置設定
           href: howto-use-device-sets.md
         - name: 版本裝置範本
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: 監視和分析
       items:
         - name: 建立遙測規則
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: 設定應用程式儀表板
           href: howto-configure-homepage.md
+        - name: 使用儀表板圖格
+          href: howto-use-tiles.md
         - name: 自訂應用程式 UI
           href: howto-customize-ui.md
         - name: 使用應用程式範本

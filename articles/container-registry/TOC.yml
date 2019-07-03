@@ -93,6 +93,8 @@
       items:
         - name: ACR 工作概觀
           href: container-registry-tasks-overview.md
+        - name: 已排程的工作
+          href: container-registry-tasks-scheduled.md
         - name: 多步驟工作
           href: container-registry-tasks-multi-step.md
         - name: 使用受控識別

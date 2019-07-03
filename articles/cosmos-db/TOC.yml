@@ -460,10 +460,12 @@
               href: tutorial-query-graph.md
         - name: 使用說明指南
           items:
-            - name: 匯出圖形資料
-              href: bulk-executor-graph-dotnet.md
+            - name: 圖表資料模型
+              href: graph-modeling.md
             - name: 圖表資料分割
               href: graph-partitioning.md
+            - name: 匯出圖形資料
+              href: bulk-executor-graph-dotnet.md
             - name: 最佳化 Gremlin 查詢
               href: graph-execution-profile.md
             - name: 儲存和管理 Spring 資料
