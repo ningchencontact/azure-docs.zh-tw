@@ -43,9 +43,9 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 |-------|-------------|:--------:|
 | ApplicationName | 唯一的應用程式名稱。 對應的智慧合約必須針對適用的合約類別使用相同的 **ApplicationName**。  | 是 |
 | DisplayName | 應用程式的易記顯示名稱。 | 是 |
-| 描述 | 應用程式的說明。 | 否 |
+| Description | 應用程式的說明。 | 否 |
 | ApplicationRoles | [ApplicationRoles](#application-roles) 的集合。 可在應用程式中採取行動或參與的使用者角色。  | 是 |
-| 工作流程 | [工作流程](#workflows)的集合。 每個工作流程都可作為狀態機器以控制商務邏輯的流程。 | 是 |
+| Workflows | [工作流程](#workflows)的集合。 每個工作流程都可作為狀態機器以控制商務邏輯的流程。 | 是 |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
