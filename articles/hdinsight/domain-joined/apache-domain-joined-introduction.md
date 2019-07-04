@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: b7228fdf1bb67ff8029412174a883a3a0b123cfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126194"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441433"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的企業安全性套件
 
@@ -49,7 +49,7 @@ ESP 叢集上現已啟用 Apache Oozie。 若要存取 Oozie Web UI，使用者�
 
 系統管理員可以檢視和報告所有對於 HDInsight 叢集資源和資料的存取。 針對在 Apache Ranger 支援的端點中所建立的存取控制原則，系統管理員也可以檢視和報告存取控制原則的所有變更。 
 
-具有 ESP 的 HDInsight 叢集會使用熟悉的 Apache Ranger UI 來搜尋稽核記錄。 Ranger 會在後端使用 [Apache Solr](http://lucene.apache.org/solr/) 來儲存及搜尋記錄。
+具有 ESP 的 HDInsight 叢集會使用熟悉的 Apache Ranger UI 來搜尋稽核記錄。 Ranger 會在後端使用 [Apache Solr](https://lucene.apache.org/solr/) 來儲存及搜尋記錄。
 
 ## <a name="encryption"></a>加密
 若要符合組織安全性和合規性需求，保護資料就非常重要。 除了限制未經授權的員工存取資料之外，您還應該將資料加密。 

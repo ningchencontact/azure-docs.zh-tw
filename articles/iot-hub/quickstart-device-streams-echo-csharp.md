@@ -1,21 +1,20 @@
 ---
 title: 透過 Azure IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊 (預覽) | Microsoft Docs
 description: 在本快速入門中，您會執行兩個範例 C# 應用程式，並透過以 IoT 中樞建立的裝置串流進行通訊。
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 74a8fc40cff12070f7cea99981eb4e8321d7c1ef
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: de581362371e28523c99f961dfdb5c2009901343
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735142"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446115"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊 (預覽)
 

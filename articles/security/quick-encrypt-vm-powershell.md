@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: mbaldwin
 ms.custom: seodec18
-ms.openlocfilehash: 4af2db5af49e1fc70ee46f4fc4c953731daedf0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c36f9506665f573a2e7990102af81a9de088e95b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862364"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501636"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 為 Windows IaaS VM 加密
 
@@ -42,27 +42,27 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-1. 以滑鼠右鍵按一下 [Windows PowerShell ISE]，然後按一下 [以系統管理員身分執行]。
-1. 在**系統管理員：Windows PowerShell ISE** 視窗中，依序按一下 [檢視] 和 [顯示指令碼窗格]。
+1. 以滑鼠右鍵按一下 [Windows PowerShell ISE]  ，然後按一下 [以系統管理員身分執行]  。
+1. 在**系統管理員：Windows PowerShell ISE** 視窗中，依序按一下 [檢視]  和 [顯示指令碼窗格]  。
 1. 在指令碼窗格中，輸入下列 Cmdlet： 
 
      ```azurepowershell
       Connect-AzAccount
      ```
 
-1. 按一下 [執行指令碼] 的綠色箭號，或使用 F5。 
+1. 按一下 [執行指令碼]  的綠色箭號，或使用 F5。 
 2. 使用互動式登入，完成連線至 Azure 帳戶的作業。
 3. 複製傳回的**訂用帳戶識別碼**，以在執行下一個 PowerShell 指令碼時使用。 
 
 ## <a name="bkmk_PrereqScript"></a>執行 Azure 磁碟加密先決條件指令碼
  **ADEPrereqScript.ps1** 將會建立資源群組、金鑰保存庫，並設定金鑰保存庫的存取原則。 此指令碼也會建立金鑰保存庫的資源鎖定，以防止保存庫意外遭到刪除。  
 
-1. 在**系統管理員：Windows PowerShell ISE** 視窗中，按一下 [檔案]，然後按一下 [開啟]。 瀏覽至 **ADEPrereqScript.ps1** 檔案並按兩下。 此指令碼會在指令碼窗格中開啟。
-2. 按一下 [執行指令碼] 的綠色箭號，或使用 F5 執行指令碼。 
+1. 在**系統管理員：Windows PowerShell ISE** 視窗中，按一下 [檔案]  ，然後按一下 [開啟]  。 瀏覽至 **ADEPrereqScript.ps1** 檔案並按兩下。 此指令碼會在指令碼窗格中開啟。
+2. 按一下 [執行指令碼]  的綠色箭號，或使用 F5 執行指令碼。 
 3. 輸入新的**資源群組**和新**金鑰保存庫**的名稱。 在本快速入門請勿使用現有的資源群組或金鑰保存庫，因為我們稍後將會刪除資源群組。 
 4. 輸入要建立資源的位置，例如 **EastUS**。 使用 `Get-AzLocation` 取得位置清單。
 5. 在其中複製您的**訂用帳戶識別碼**。 您可以使用 `Get-AzSubscription` 取得您的訂用帳戶識別碼。  
-6. 按一下 [執行指令碼] 的綠色箭號。 
+6. 按一下 [執行指令碼]  的綠色箭號。 
 7. 複製傳回的 **DiskEncryptionKeyVaultUrl** 和 **DiskEncryptionKeyVaultId**，以供後續使用。
 
 ![在 PowerShell ISE 中執行的 Azure 磁碟加密先決條件指令碼](media/azure-security-disk-encryption/ade-prereq-script.PNG)
@@ -83,7 +83,7 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
     $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
     
     # Create a resource group
-    #New-AzResourceGroup -Name $resourceGroup -Location $location
+    New-AzResourceGroup -Name $resourceGroup -Location $location
     
     # Create a subnet configuration
     $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
@@ -119,7 +119,7 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
     New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
    ```
 
-2. 按一下 [執行指令碼] 的綠色箭號，以建置 VM。  
+2. 按一下 [執行指令碼]  的綠色箭號，以建置 VM。  
 
 
 ## <a name="encrypt-the-disk-of-the-vm"></a>為 VM 的磁碟加密

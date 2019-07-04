@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9f911f70360c645f8077928a66978bd631e37160
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 65d956b9939144a5a73f224fb90f8bc959e726c6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006398"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341912"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Python 擷取印刷文字 (OCR)
 
@@ -42,14 +42,14 @@ ms.locfileid: "60006398"
     1. 將 `subscription_key` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域中，將 `vision_base_url` 的值取代為電腦視覺資源的端點 URL。
     1. (選擇性) 將 `image_url` 的值取代為您要從中擷取印刷文字之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `get-printed-text.py`。
+1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `get-printed-text.py` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `python` 命令執行範例。 例如： `python get-printed-text.py`。
+1. 出現提示時，使用 `python` 命令執行範例。 例如： `python get-printed-text.py` 。
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from PIL import Image
@@ -75,8 +75,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
     "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'language': 'unk', 'detectOrientation': 'true'}
-data    = {'url': image_url}
+params = {'language': 'unk', 'detectOrientation': 'true'}
+data = {'url': image_url}
 response = requests.post(ocr_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
@@ -99,7 +99,8 @@ for word in word_infos:
     bbox = [int(num) for num in word["boundingBox"].split(",")]
     text = word["text"]
     origin = (bbox[0], bbox[1])
-    patch  = Rectangle(origin, bbox[2], bbox[3], fill=False, linewidth=2, color='y')
+    patch = Rectangle(origin, bbox[2], bbox[3],
+                      fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")

@@ -3,24 +3,24 @@ title: 安裝及執行容器
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於文字分析的容器。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 06/21/2019
+ms.author: dapine
+ms.openlocfilehash: c4ef58f35b3d038f360ff962c70e92711bc205ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306518"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446514"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
-文字分析容器針對原始的文字提供進階的自然語言處理，同時包含三種主要功能：情緒分析、關鍵片語擷取以及語言偵測。 容器目前不支援實體連結。 
+文字分析容器針對原始的文字提供進階的自然語言處理，同時包含三種主要功能：情緒分析、關鍵片語擷取以及語言偵測。 容器目前不支援實體連結。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -110,7 +110,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，並可在 Azure 入口網站上取得`Cognitive Services`金鑰 頁面。  |
 |{BILLING_ENDPOINT_URI} | 計費的端點 URI 值是可在 Azure`Cognitive Services`概觀 頁面。 <br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
