@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 873145cf9d418433ba241ce06d7d594fb3e6322b
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466436"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465727"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>快速入門：使用適用於 .NET Core 的語音 SDK 來辨識語音
 
-另備有[語音翻譯](quickstart-translate-speech-dotnetcore-windows.md)的快速入門。
+另備有[文字轉換語音](quickstart-text-to-speech-dotnetcore.md)和[語音翻譯](quickstart-translate-speech-dotnetcore-windows.md)的快速入門。
 
 如有需要，請選擇不同的程式設計語言和/或環境：<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -57,11 +57,11 @@ ms.locfileid: "65466436"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-1. 建置應用程式。 從功能表列中，選擇 [建置] > [建置解決方案]。 這應該會編譯程式碼，而且不會出現任何錯誤。
+1. 建置應用程式。 從功能表列中，選擇 [建置]   > [建置解決方案]  。 這應該會編譯程式碼，而且不會出現任何錯誤。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "成功建置")
 
-1. 啟動應用程式。 從功能表列中，選擇 [偵錯] > [開始偵錯]，或按 **F5**。
+1. 啟動應用程式。 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "啟動應用程式並進行偵錯")
 

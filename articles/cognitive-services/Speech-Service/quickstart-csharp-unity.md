@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: dd8e760e658715b89bf45718ac571ccaeb5ade96
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020945"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465585"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來辨識語音
+
+另備有[文字轉換語音](quickstart-text-to-speech-csharp-unity.md)的快速入門。
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -41,9 +43,9 @@ ms.locfileid: "65020945"
 
 ## <a name="create-a-unity-project"></a>建立 Unity 專案
 
-* 啟動 Unity，然後在 [專案] 索引標籤下方選取 [新增]。
-* 指定 **csharp-unity** 作為 [專案名稱]，並指定 **3D** 作為 [範本]，然後選擇位置。
-  接著，選取 [建立專案]。
+* 啟動 Unity，然後在 [專案]  索引標籤下方選取 [新增]  。
+* 指定 **csharp-unity** 作為 [專案名稱]  ，並指定 **3D** 作為 [範本]  ，然後選擇位置。
+  接著，選取 [建立專案]  。
 * 不久後應該就會跳出 [Unity 編輯器] 視窗。
 
 ## <a name="install-the-speech-sdk"></a>安裝語音 SDK
@@ -52,10 +54,10 @@ ms.locfileid: "65020945"
 
 * 適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 會封裝為 Unity 資產套件 (.unitypackage)。
   請從[這裡](https://aka.ms/csspeech/unitypackage)下載。
-* 選取 [資產] > [匯入套件] > [自訂套件]，以匯入語音 SDK。
+* 選取 [資產]   > [匯入套件]   > [自訂套件]  ，以匯入語音 SDK。
   如需詳細資訊，請查看 [Unity 文件](https://docs.unity3d.com/Manual/AssetPackages.html)。
 * 在檔案選擇器中，選取您先前下載的語音 SDK .unitypackage 檔案。
-* 確定所有檔案皆已選取，然後按一下 [匯入]：
+* 確定所有檔案皆已選取，然後按一下 [匯入]  ：
 
   ![匯入語音 SDK Unity 資產套件時的 Unity 編輯器螢幕擷取畫面](media/sdk/qs-csharp-unity-01-import.png)
 
@@ -64,14 +66,14 @@ ms.locfileid: "65020945"
 我們僅在場景中新增最低限度的 UI，其中包含觸發語音辨識的按鈕，和顯示結果的文字欄位。
 
 * 在[階層視窗](https://docs.unity3d.com/Manual/Hierarchy.html) (依預設位於左側) 中，會顯示 Unity 建立的範例場景，內含新專案。
-* 按一下 [階層視窗] 頂端的 [建立] 按鈕，然後選取 [UI] > [按鈕]。
+* 按一下 [階層視窗] 頂端的 [建立]  按鈕，然後選取 [UI]   > [按鈕]  。
 * 這會建立三個可在 [階層視窗] 中檢視的遊戲物件：內嵌在**畫布**物件中的**按鈕**物件，和**事件系統**物件。
 * [瀏覽場景檢視](https://docs.unity3d.com/Manual/SceneViewNavigation.html)，以清楚檢視畫布和[場景檢視](https://docs.unity3d.com/Manual/UsingTheSceneView.html)中的按鈕。
-* 按一下 [階層視窗] 中的 [按鈕] 物件，以在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中顯示其設定。
-* 將 [位置 X] 和 [位置 Y] 屬性設為 **0**，使按鈕置於畫布中央。
-* 再按一下 [階層視窗] 頂端的 [建立] 按鈕，然後選取 [UI] > [文字] 以建立文字欄位。
-* 按一下 [階層視窗] 中的 [文字] 物件，以在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中顯示其設定。
-* 將 [位置 X] 和 [位置 Y] 屬性分別設為 **0** 和 **120**，並將 [寬度] 和 [高度] 屬性分別設為 **240** 和 **120**，以確保文字欄位和按鈕不會重疊。
+* 按一下 [階層視窗] 中的 [按鈕]  物件，以在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中顯示其設定。
+* 將 [位置 X]  和 [位置 Y]  屬性設為 **0**，使按鈕置於畫布中央。
+* 再按一下 [階層視窗] 頂端的 [建立]  按鈕，然後選取 [UI]   > [文字]  以建立文字欄位。
+* 按一下 [階層視窗] 中的 [文字]  物件，以在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中顯示其設定。
+* 將 [位置 X]  和 [位置 Y]  屬性分別設為 **0** 和 **120**，並將 [寬度]  和 [高度]  屬性分別設為 **240** 和 **120**，以確保文字欄位和按鈕不會重疊。
 
 完成之後，UI 應該會如下列螢幕擷取畫面所示：
 
@@ -79,12 +81,12 @@ ms.locfileid: "65020945"
 
 ## <a name="add-the-sample-code"></a>新增範例程式碼
 
-1. 在[專案視窗](https://docs.unity3d.com/Manual/ProjectView.html) (依預設位於左下方) 中按一下 [建立] 按鈕，然後選取 [C# 指令碼]。 將指令碼命名為 `HelloWorld`。
+1. 在[專案視窗](https://docs.unity3d.com/Manual/ProjectView.html) (依預設位於左下方) 中按一下 [建立]  按鈕，然後選取 [C# 指令碼]  。 將指令碼命名為 `HelloWorld`。
 
 1. 按兩下該指令碼加以編輯。
 
    > [!NOTE]
-   > 您可以在 [編輯] > [喜好設定] 下方設定所將啟動的程式碼編輯器，詳情請參閱 [Unity 使用者手冊](https://docs.unity3d.com/Manual/Preferences.html)。
+   > 您可以在 [編輯]   > [喜好設定]  下方設定所將啟動的程式碼編輯器，詳情請參閱 [Unity 使用者手冊](https://docs.unity3d.com/Manual/Preferences.html)。
 
 1. 將所有程式碼取代為下列內容：
 
@@ -98,9 +100,9 @@ ms.locfileid: "65020945"
 
 1. 回到 Unity 編輯器，您必須將指令碼新增為其中一個遊戲物件的元件。
 
-   * 在階層視窗中按一下 [畫布] 物件。 這會在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中開啟設定。
-   * 在偵測器視窗中按一下 [新增元件] 按鈕，然後搜尋我們先前建立的 HelloWorld 指令碼，並加以新增。
-   * 請注意，Hello World 元件具有 [輸出文字] 和 [開始辨識按鈕] 這兩個未初始化的屬性，與 `HelloWorld` 類別的公用屬性相符。
+   * 在階層視窗中按一下 [畫布]  物件。 這會在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中開啟設定。
+   * 在偵測器視窗中按一下 [新增元件]  按鈕，然後搜尋我們先前建立的 HelloWorld 指令碼，並加以新增。
+   * 請注意，Hello World 元件具有 [輸出文字]  和 [開始辨識按鈕]  這兩個未初始化的屬性，與 `HelloWorld` 類別的公用屬性相符。
      若要加以連接，請按一下 [物件選擇器] (屬性右側的小圓圈圖示)，然後選擇您先前建立的文字和按鈕物件。
 
      > [!NOTE]
@@ -108,7 +110,7 @@ ms.locfileid: "65020945"
 
 ## <a name="run-the-application-in-the-unity-editor"></a>在 Unity 編輯器中執行應用程式
 
-* 在 [Unity 編輯器] 工具列 (在功能表列下方) 按下 [播放] 按鈕。
+* 在 [Unity 編輯器] 工具列 (在功能表列下方) 按下 [播放]  按鈕。
 
 * 在應用程式啟動後按一下按鈕，然後對電腦的麥克風說出英文片語或句子。 您的語音會傳送到語音服務，並且轉譯為文字，出現在視窗中。
 
@@ -116,7 +118,7 @@ ms.locfileid: "65020945"
 
 * 查看[主控台視窗](https://docs.unity3d.com/Manual/Console.html)中偵錯訊息。
 
-* 完成語音辨識後，請按一下 [Unity 編輯器] 工具列中的 [播放] 按鈕以停止應用程式。
+* 完成語音辨識後，請按一下 [Unity 編輯器] 工具列中的 [播放]  按鈕以停止應用程式。
 
 ## <a name="additional-options-to-run-this-application"></a>執行此應用程式的其他選項
 

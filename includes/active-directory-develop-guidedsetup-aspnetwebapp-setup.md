@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121744"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174586"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
@@ -31,13 +31,13 @@ ms.locfileid: "66121744"
 
 1. 在 Visual Studio 中：`File` > `New` > `Project`
 2. 在 *Visual C#\Web* 底下，選取 `ASP.NET Web Application (.NET Framework)`。
-3. 為您的應用程式命名並按一下 [確定]
+3. 為您的應用程式命名並按一下 [確定] 
 4. 選取 `Empty` 並選取核取方塊以新增 `MVC` 參考
 
 ## <a name="add-authentication-components"></a>新增驗證元件
 
 1. 在 Visual Studio 中：`Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. 在 [套件管理器主控台] 視窗中輸入下列內容以新增「OWIN 中介軟體 NuGet 套件」：
+2. 在 [套件管理器主控台] 視窗中輸入下列內容以新增「OWIN 中介軟體 NuGet 套件」  ：
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect

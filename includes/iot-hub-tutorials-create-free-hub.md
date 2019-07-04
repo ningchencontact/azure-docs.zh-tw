@@ -9,17 +9,17 @@ ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66163577"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174604"
 ---
 若要使用 Azure 入口網站建立 IoT 中樞：
 
 1. 登入 [Azure 入口網站](http://portal.azure.com)。
 
-1. 選取 [建立資源] > [物聯網] > [IoT 中樞]。
+1. 選取 [建立資源]   > [物聯網]   > [IoT 中樞]  。
 
     ![選擇安裝 IoT 中樞](media/iot-hub-tutorials-create-free-hub/selectiothub.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "66163577"
 
     ![中樞設定 2](media/iot-hub-tutorials-create-free-hub/hubdefinition-2.png)
 
-1. 按一下頁面底部的 [新增] 。 建立中樞可能需要數分鐘的時間。
+1. 按一下頁面底部的 [新增]  。 建立中樞可能需要數分鐘的時間。
 
     ![中樞設定 3](media/iot-hub-tutorials-create-free-hub/hubdefinition-3.png)
 

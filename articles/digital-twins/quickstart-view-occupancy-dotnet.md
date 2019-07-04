@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: alinast
-ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089689"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459101"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
@@ -96,7 +96,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 1. 開啟新的命令提示字元。 移至您下載到 digital-twins-samples-csharp-master 資料夾中的專案。
 1. 執行 `cd device-connectivity`。
 1. 執行 `dotnet restore`。
-1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString。
+1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString  。
 1. 執行 `dotnet run` 來開始傳送感應器資料。 您會看到資料傳送到 Digital Twins，如下圖所示。
 
      ![裝置連線能力][2]
@@ -149,7 +149,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 若要繼續進行教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請刪除本快速入門建立的所有資源。
 
 1. 刪除下載存放庫範例時所建立的資料夾。
-1. 從 [Azure 入口網站](https://portal.azure.com)左側的功能表中，選取 [所有資源]。 然後，選取 Digital Twins 資源。 在 [所有資源] 窗格的頂端，選取 [刪除]。
+1. 從 [Azure 入口網站](https://portal.azure.com)左側的功能表中，選取 [所有資源]  。 然後，選取 Digital Twins 資源。 在 [所有資源]  窗格的頂端，選取 [刪除]  。
 
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。

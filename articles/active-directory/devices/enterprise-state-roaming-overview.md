@@ -1,28 +1,22 @@
 ---
 title: 什麼是 Azure Active Directory 中的企業狀態漫遊？ | Microsoft Docs
-description: 提供 Windows 裝置中企業狀態漫遊設定的相關資訊。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。
+description: 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。
 services: active-directory
-keywords: 什麼是企業狀態漫遊, 企業同步處理, windows 雲端
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: overview
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3a2a81bd8aa3fc99d033564e8a8782c79261305
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353137"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481916"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>企業狀態漫遊是什麼？
 
@@ -34,7 +28,7 @@ ms.locfileid: "60353137"
 
 企業狀態漫遊也可以在多個 Azure 區域中使用。 您可以在 Azure Active Directory 下方的 [依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services) 上找到可用區域的更新清單。
 
-| 文章 | 描述 |
+| 文章 | 說明 |
 | --- | --- |
 | [在 Azure Active Directory 中啟用企業狀態漫遊](enterprise-state-roaming-enable.md) |企業狀態漫遊適用於具有 Premium Azure Active Directory (Azure AD) 訂用帳戶的任何組織。 如需如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品](https://azure.microsoft.com/services/active-directory) 頁面。 |
 | [設定和資料漫遊常見問題集](enterprise-state-roaming-faqs.md) |本主題將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。 |

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415691"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461543"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教學課程：在線上使用 DMS 將 PostgreSQL 移轉至適用於 PostgreSQL 的 Azure 資料庫
 
@@ -24,6 +24,7 @@ ms.locfileid: "65415691"
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
+>
 > * 使用 pg_dump 公用程式移轉範例結構描述。
 > * 建立 Azure 資料庫移轉服務的執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
@@ -65,11 +66,11 @@ ms.locfileid: "65415691"
 * 為適用於 PostgreSQL 的 Azure 資料庫建立伺服器層級的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNet 的子網路範圍。
 * 叫用 CLI 有兩種方法：
 
-    * 在 Azure 入口網站右上角，選取 [Cloud Shell] 按鈕：
+  * 在 Azure 入口網站右上角，選取 [Cloud Shell] 按鈕：
 
        ![Azure 入口網站中的 [Cloud Shell] 按鈕](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * 在本機安裝並執行 CLI。 CLI 2.0 是可用於管理 Azure 資源的命令列工具。
+  * 在本機安裝並執行 CLI。 CLI 2.0 是可用於管理 Azure 資源的命令列工具。
 
        若要下載 CLI，請依照[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 一文中的指示進行。 該文章也列出支援 CLI 2.0 的平台。
 
@@ -77,9 +78,9 @@ ms.locfileid: "65415691"
 
 * 在 postgresql.config 檔案中啟用邏輯複寫，並設定下列參數：
 
-    * wal_level = **logical**
-    * max_replication_slots = [插槽數目]，建議設定為 **5 個插槽**
-    * max_wal_senders =[並行工作數目] - max_wal_senders 參數設定可執行的並行工作數目，建議設定為 **10 個工作**
+  * wal_level = **logical**
+  * max_replication_slots = [插槽數目]，建議設定為 **5 個插槽**
+  * max_wal_senders =[並行工作數目] - max_wal_senders 參數設定可執行的並行工作數目，建議設定為 **10 個工作**
 
 ## <a name="migrate-the-sample-schema"></a>移轉範例結構描述
 
@@ -115,8 +116,7 @@ ms.locfileid: "65415691"
     ```
 
 4. 如果您的結構描述中有外部索引鍵，則移轉的初始載入和持續同步將會失敗。 在 PgAdmin 或 psql 中執行下列指令碼，以擷取 drop 外部索引鍵指令碼，並在目的地 (適用於 PostgreSQL 的 Azure 資料庫) 新增外部索引鍵。
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ ms.locfileid: "65415691"
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     在查詢結果中執行卸除外部索引鍵 (這是第二個資料行)。
 

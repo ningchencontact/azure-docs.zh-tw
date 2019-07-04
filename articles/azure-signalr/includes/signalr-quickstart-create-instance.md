@@ -8,11 +8,11 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66128184"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174347"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>建立 Azure SignalR 服務執行個體
 
@@ -22,7 +22,7 @@ ms.locfileid: "66128184"
 
     ![搜尋 SignalR 服務](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
 
-1. 從搜尋結果中選取 [SignalR 服務]，然後選取 [建立]。
+1. 從搜尋結果中選取 [SignalR 服務]  ，然後選取 [建立]  。
 
 1. 輸入下列設定。
 
@@ -37,6 +37,6 @@ ms.locfileid: "66128184"
 
     ![建立 SignalR 服務](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
-1. 選取 [建立] 以開始部署 SignalR 服務執行個體。
+1. 選取 [建立]  以開始部署 SignalR 服務執行個體。
 
-1. 在部署執行個體之後，請在入口網站中開啟它，然後找出其 [設定] 頁面。 只有透過 Azure Functions 繫結或 REST API 使用 Azure SignalR 服務時，才要將 [服務模式] 設定變更為 [無伺服器]。 否則，將它保留為 [傳統] 或 [預設]。
+1. 在部署執行個體之後，請在入口網站中開啟它，然後找出其 [設定] 頁面。 只有透過 Azure Functions 繫結或 REST API 使用 Azure SignalR 服務時，才要將 [服務模式] 設定變更為 [無伺服器]  。 否則，將它保留為 [傳統]  或 [預設]  。

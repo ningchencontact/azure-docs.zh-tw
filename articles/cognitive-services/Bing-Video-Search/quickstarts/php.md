@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 50c39594aeb014860d25b2f2cc791ebfec14b572
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e5d05c32c9c3271cfc49e7abd0609ec7b090778
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535190"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435301"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>快速入門：使用 Bing 影片搜尋 REST API 和 PHP 來搜尋影片
 
 使用本快速入門來進行您對 Bing 影片搜尋 API 的第一次呼叫，並從 JSON 回應檢視搜尋結果。 這個簡單的 JavaScript 應用程式會將 HTTP 影片搜尋查詢傳送給 API，並顯示回應。 雖然此應用程式是以 JavaScript 撰寫，並且使用 Node.js，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 程式碼範例已撰寫為可在 PHP 5.6 下運作。
 
-請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)了解 API 的技術詳細資料。
+請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)了解 API 的技術詳細資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,7 +32,7 @@ ms.locfileid: "57535190"
 
 ## <a name="running-the-application"></a>執行應用程式
 
-[Bing 影片搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回影片結果。
+[Bing 影片搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回影片結果。
 
 1. 請確定 `php.ini` 中已啟用安全 HTTP 支援，如程式碼註解中所述。
 2. 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。

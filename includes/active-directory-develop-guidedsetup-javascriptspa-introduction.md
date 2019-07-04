@@ -15,11 +15,11 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 8c2dc41fde9387da291b6e4a6c8a6220ae62b514
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121676"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174584"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>登入使用者並從 JavaScript 單頁應用程式 (SPA) 呼叫 Microsoft 圖形 API
 
@@ -46,7 +46,7 @@ ms.locfileid: "66121676"
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript 預覽|
 
 > [!NOTE]
-> *msal.js* 的目標是「Microsoft 身分識別平台」端點 - 它能讓個人、學校及公司帳戶以登入和取得權杖。 「Microsoft 身分識別平台」有[一些限制](../articles/active-directory/develop/active-directory-v2-limitations.md)。
+> *msal.js* 的目標是「Microsoft 身分識別平台」  端點 - 它能讓個人、學校及公司帳戶以登入和取得權杖。 「Microsoft 身分識別平台」  有[一些限制](../articles/active-directory/develop/active-directory-v2-limitations.md)。
 > 若要了解 v1.0 與 v2.0 端點之間的差異，請參閱[端點比較指南](../articles/active-directory/develop/azure-ad-endpoint-comparison.md)。
 
 <!--end-collapse-->

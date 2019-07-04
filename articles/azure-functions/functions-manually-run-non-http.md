@@ -4,17 +4,17 @@ description: 使用 HTTP 要求執行非 HTTP 觸發的 Azure 函式
 services: functions
 keywords: ''
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cfebe5c783018cfab51f384cce578e43383c3905
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466876"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479816"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>手動執行非 HTTP 觸發的函式
 
@@ -41,11 +41,11 @@ ms.locfileid: "55466876"
 
 ## <a name="get-the-functions-master-key"></a>取得函式的主要金鑰
 
-瀏覽至您在 Azure 入口網站中的函式，然後按一下**管理**並尋找**主機金鑰**區段。 按一下 *_master* 資料列中的 [複製] 按鈕，將主要金鑰複製到您的剪貼簿。
+瀏覽至您在 Azure 入口網站中的函式，然後按一下**管理**並尋找**主機金鑰**區段。 按一下 *_master* 資料列中的 [複製]  按鈕，將主要金鑰複製到您的剪貼簿。
 
 ![從 [函式管理] 畫面複製主要金鑰](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-複製主要金鑰之後，請按一下函式名稱以返回程式碼檔案視窗。 接著，請按一下 [記錄] 索引標籤。您會看到您從 Postman 手動執行函式時所傳回的函式訊息記錄在此處。
+複製主要金鑰之後，請按一下函式名稱以返回程式碼檔案視窗。 接著，請按一下 [記錄]  索引標籤。您會看到您從 Postman 手動執行函式時所傳回的函式訊息記錄在此處。
 
 > [!CAUTION]  
 > 由於主要金鑰會在您的函數應用程式中授與提高的權限，因此您不應與第三方共用此金鑰，或是在應用程式中加以散發。
@@ -55,14 +55,14 @@ ms.locfileid: "55466876"
 開啟 Postman 並遵循下列步驟：
 
 1. **在 URL 文字方塊中輸入要求位置**。
-2. 確定 HTTP 方法設定為 [POST]。
-3. **按一下** [標頭] 索引標籤。
-4. 輸入 **x-functions-key** 作為第一個**金鑰**，並將主要金鑰 (從剪貼簿) 貼到 [值] 方塊中。
+2. 確定 HTTP 方法設定為 [POST]  。
+3. **按一下** [標頭]  索引標籤。
+4. 輸入 **x-functions-key** 作為第一個**金鑰**，並將主要金鑰 (從剪貼簿) 貼到 [值]  方塊中。
 5. 輸入**Content-type** 作為第二個**金鑰**，並輸入 **application/json** 作為**值**。
 
     ![Postman 標頭設定](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-6. **按一下** [本文] 索引標籤。
+6. **按一下** [本文]  索引標籤。
 7. 輸入 **{ "input": "test" }** 作為要求的本文。
 
     ![Postman 本文設定](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
@@ -73,7 +73,7 @@ ms.locfileid: "55466876"
 
 然後，Postman 會報告狀態 **202 已接受**。
 
-接著請返回您在 Azure 入口網站中的函式。 找出 [記錄] 視窗，您將會看到手動呼叫的函式所傳回的訊息。
+接著請返回您在 Azure 入口網站中的函式。 找出 [記錄]  視窗，您將會看到手動呼叫的函式所傳回的訊息。
 
 ![手動呼叫的函式記錄結果](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 

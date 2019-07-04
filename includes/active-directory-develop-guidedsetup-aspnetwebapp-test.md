@@ -15,15 +15,15 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121673"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174588"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
-若要在 Visual Studio 中測試您的應用程式，請按 **F5** 來執行專案。 瀏覽器會開啟至 http://<span></span>localhost:{port} 位置，且您會看到 [使用 Microsoft 帳戶登入] 按鈕。 選取按鈕以啟動登入程序。
+若要在 Visual Studio 中測試您的應用程式，請按 **F5** 來執行專案。 瀏覽器會開啟至 http://<span></span>localhost:{port} 位置，且您會看到 [使用 Microsoft 帳戶登入]  按鈕。 選取按鈕以啟動登入程序。
 
 當您準備好執行測試時，請使用 Microsoft Azure Active Directory (Azure AD) 帳戶 (公司或學校帳戶) 或個人 Microsoft 帳戶 (<span>live.</span>com 或 <span>outlook.</span>com) 帳戶登入。
 
@@ -33,7 +33,7 @@ ms.locfileid: "66121673"
 
 #### <a name="view-application-results"></a>檢視應用程式結果
 
-登入之後，系統會將使用者重新導向至您網站的首頁。 首頁就是您在 Microsoft 應用程式註冊入口網站的應用程式註冊資訊中指定的 HTTPS URL。 首頁包含歡迎訊息「\<使用者>，您好」、登出連結，以及用來檢視使用者宣告的連結。 使用者宣告的連結會瀏覽至您稍早建立的「宣告」控制器。
+登入之後，系統會將使用者重新導向至您網站的首頁。 首頁就是您在 Microsoft 應用程式註冊入口網站的應用程式註冊資訊中指定的 HTTPS URL。 首頁包含歡迎訊息「\<使用者>，您好」  、登出連結，以及用來檢視使用者宣告的連結。 使用者宣告的連結會瀏覽至您稍早建立的「宣告」  控制器。
 
 ### <a name="browse-to-see-the-users-claims"></a>瀏覽以查看使用者的宣告
 
@@ -82,7 +82,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>選項 1：註冊只來自一個組織之 Active Directory 執行個體的使用者以登入您的應用程式 (單一租用戶)
 
-此選項為「企業營運應用程式」的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶進行登入 (包括該執行個體的「來賓帳戶」)，請執行下列作業：
+此選項為「企業營運應用程式」  的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶進行登入 (包括該執行個體的「來賓帳戶」  )，請執行下列作業：
 
 1. 在 **web.config** 檔案中，將 `Tenant` 參數的值從 `Common` 變更為組織的租用戶名稱 (如 `contoso.onmicrosoft.com`)。
 2. 在您的 [OWIN Startup 類別](#configure-the-authentication-pipeline) 中，將 `ValidateIssuer` 引數設為 `true`。

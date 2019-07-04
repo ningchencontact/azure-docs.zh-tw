@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 03589745e6e9b40b937c49162e99035ce6c81423
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9046af82388f99cfdd82c8cb816d4cda1e5f8237
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800055"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206872"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Android 應用程式
 
@@ -51,13 +51,13 @@ ms.locfileid: "65800055"
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-選取 [開啟現有的 Android Studio 專案]，並選取位於 `Android/Java/` 上的專案。
+選取 [開啟現有的 Android Studio 專案]  ，並選取位於 `Android/Java/` 上的專案。
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-選取 [開啟現有的 Android Studio 專案]，並選取位於 `Android/NDK/` 上的專案。
+選取 [開啟現有的 Android Studio 專案]  ，並選取位於 `Android/NDK/` 上的專案。
 
-***
+---
 
 ## <a name="configure-account-identifier-and-key"></a>設定帳戶識別碼和金鑰
 
@@ -65,7 +65,7 @@ ms.locfileid: "65800055"
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-開啟 `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`。
+開啟 `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`。
 
 找出 `SpatialAnchorsAccountKey` 欄位，並將 `Set me` 取代為帳戶金鑰。
 
@@ -79,21 +79,21 @@ ms.locfileid: "65800055"
 
 找出 `SpatialAnchorsAccountId` 欄位，並將 `Set me` 取代為帳戶識別碼。
 
-***
+---
 
 ## <a name="deploy-the-app-to-your-android-device"></a>將應用程式部署到您的 Android 裝置
 
 將 Android 裝置開機並登入，然後使用 USB 纜線將其連接到電腦。
 
-在 Android Studio 工具列中選取 [執行]。
+在 Android Studio 工具列中選取 [執行]  。
 
 ![Android Studio 的部署和執行](./media/get-started-android/android-studio-deploy-run.png)
 
-在 [選取部署目標] 對話方塊中選取 Android 裝置，然後選取 [確定] 以在 Android 裝置上執行應用程式。
+在 [選取部署目標]  對話方塊中選取 Android 裝置，然後選取 [確定]  以在 Android 裝置上執行應用程式。
 
 依照應用程式中的指示放置及回收錨點。
 
-在 Android Studio 工具列中選取 [停止]，以停止應用程式。
+在 Android Studio 工具列中選取 [停止]  ，以停止應用程式。
 
 ![Android Studio 的停止](./media/get-started-android/android-studio-stop.png)
 

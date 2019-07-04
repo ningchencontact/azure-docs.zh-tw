@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 64290aad2d9f98006a715b480be8cb96965abbaf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66161721"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173987"
 ---
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -25,7 +25,7 @@ az group create --name myResourceGroup --location eastus
 
 使用 [az vm create](/cli/azure/vm) 命令來建立 VM。 
 
-下列範例會建立名為 myVM 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 此命令也會將 azureuser 設定為管理員使用者名稱。 稍後您會使用此名稱來連線到 VM。 
+下列範例會建立名為 myVM  的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 此命令也會將 azureuser  設定為管理員使用者名稱。 稍後您會使用此名稱來連線到 VM。 
 
 ```azurecli-interactive 
 az vm create \
@@ -70,7 +70,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-使用下列命令，建立與虛擬機器的 SSH 工作階段。 替換為您虛擬機器的正確公用 IP 位址。 在此範例中，IP 位址是 *40.68.254.142*。 azureuser 是您在建立 VM 時所設定的管理員使用者名稱。
+使用下列命令，建立與虛擬機器的 SSH 工作階段。 替換為您虛擬機器的正確公用 IP 位址。 在此範例中，IP 位址是 *40.68.254.142*。 azureuser  是您在建立 VM 時所設定的管理員使用者名稱。
 
 ```bash
 ssh azureuser@40.68.254.142

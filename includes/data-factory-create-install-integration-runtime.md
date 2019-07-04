@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66168201"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174448"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>建立自我裝載整合執行階段
 
@@ -80,25 +80,25 @@ ms.locfileid: "66168201"
 5. 複製其中一個金鑰 (不含雙引號)，該金鑰用來註冊您在下列步驟中安裝於電腦上的自我裝載整合執行階段。  
 
 ## <a name="install-the-integration-runtime"></a>安裝整合執行階段
-1. 如果您的機器上已經有整合執行階段，請使用 [新增或移除程式] 將其解除安裝。 
+1. 如果您的機器上已經有整合執行階段，請使用 [新增或移除程式]  將其解除安裝。 
 
 2. 在本機 Windows 電腦上[下載](https://www.microsoft.com/download/details.aspx?id=39717)自我裝載的整合執行階段。 執行安裝。
 
-3. 在 [歡迎使用 Microsoft Integration Runtime 設定] 頁面上，選取 [下一步]。
+3. 在 [歡迎使用 Microsoft Integration Runtime 設定]  頁面上，選取 [下一步]  。
 
-4. 在 [使用者授權合約] 頁面上，接受條款和授權合約，然後選取 [下一步]。
+4. 在 [使用者授權合約]  頁面上，接受條款和授權合約，然後選取 [下一步]  。
 
-5. 在 [目的地資料夾] 頁面上，選取 [下一步]。
+5. 在 [目的地資料夾]  頁面上，選取 [下一步]  。
 
-6. 在 [準備好要安裝 Microsoft Integration Runtime] 頁面上，選取 [安裝]。
+6. 在 [準備好要安裝 Microsoft Integration Runtime]  頁面上，選取 [安裝]  。
 
-7. 如果您看到一則有關將電腦設定為不使用時進入睡眠或休眠模式的警告訊息，請選取 [確定]。
+7. 如果您看到一則有關將電腦設定為不使用時進入睡眠或休眠模式的警告訊息，請選取 [確定]  。
 
-8. 如果您看到 [電源選項] 頁面，請將它關閉，然後移至設定頁面。
+8. 如果您看到 [電源選項]  頁面，請將它關閉，然後移至設定頁面。
 
-9. 在 [完成 Microsoft Integration Runtime 設定] 頁面上，選取 [完成]。
+9. 在 [完成 Microsoft Integration Runtime 設定]  頁面上，選取 [完成]  。
 
-10. 在 [註冊 Integration Runtime (自我裝載)] 頁面上，貼上您在上一節中儲存的金鑰，然後選取 [註冊]。 
+10. 在 [註冊 Integration Runtime (自我裝載)]  頁面上，貼上您在上一節中儲存的金鑰，然後選取 [註冊]  。 
 
     ![註冊整合執行階段](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
@@ -106,15 +106,15 @@ ms.locfileid: "66168201"
 
     ![已成功註冊](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-12. 在 [新增整合執行階段 (自我裝載) 節點] 頁面上，選取 [下一步]。 
+12. 在 [新增整合執行階段 (自我裝載) 節點]  頁面上，選取 [下一步]  。 
 
     ![新增 Integration Runtime 節點頁面](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
 
-13. 在 [內部網路通訊通道] 頁面上，選取 [略過]。 選取 TLS/SSL 憑證，以保護在多節點整合執行階段環境中的內部節點通訊。 
+13. 在 [內部網路通訊通道]  頁面上，選取 [略過]  。 選取 TLS/SSL 憑證，以保護在多節點整合執行階段環境中的內部節點通訊。 
 
     ![內部網路通訊通道頁面](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
-14. 在 [註冊整合執行階段 (自我裝載)] 頁面上，選取 [啟動組態管理員]。
+14. 在 [註冊整合執行階段 (自我裝載)]  頁面上，選取 [啟動組態管理員]  。
 
 15. 當節點已連線至雲端服務時，您會看到下列頁面：
 
@@ -124,9 +124,9 @@ ms.locfileid: "66168201"
 
     ![[診斷] 索引標籤](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
 
-    a. 在 [組態管理員] 頁面上，移至 [診斷] 索引標籤。
+    a. 在 [組態管理員]  頁面上，移至 [診斷]  索引標籤。
 
-    b. 選取 [SqlServer] 作為資料來源類型。
+    b. 選取 [SqlServer]  作為資料來源類型。
 
     c. 輸入伺服器名稱。
 
@@ -138,7 +138,7 @@ ms.locfileid: "66168201"
 
     g. 輸入使用者名稱的密碼。
 
-    h. 請選取 [測試]，以確認整合執行階段可以連線到 SQL Server。 如果連線成功，您會看到綠色的核取記號。 如果連線不成功，您會看到一則錯誤訊息。 修正所有問題，並確定整合執行階段可連線到 SQL Server。    
+    h. 請選取 [測試]  ，以確認整合執行階段可以連線到 SQL Server。 如果連線成功，您會看到綠色的核取記號。 如果連線不成功，您會看到一則錯誤訊息。 修正所有問題，並確定整合執行階段可連線到 SQL Server。    
 
     > [!NOTE]
     > 請記下驗證類型、伺服器、資料庫、使用者和密碼的值。 您稍後會在本教學課程中用到。 

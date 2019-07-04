@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff0d3508f1d418a189fab0dfe5803280a20f9a00
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237059"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190131"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>快速入門：使用 Ansible 在 Azure 中設定 Linux 虛擬機器
 
@@ -105,7 +105,7 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 範例 Ansible 劇本的下列區段會建立名為 `myNIC` 的虛擬網路介面卡，並連線至您所建立的虛擬網路資源：
 
 ```yaml
-- name: Create virtual network inteface card
+- name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: myResourceGroup
     name: myNIC
@@ -184,7 +184,7 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
+  - name: Create virtual network interface card
     azure_rm_networkinterface:
       resource_group: myResourceGroup
       name: myNIC
@@ -270,7 +270,7 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
    TASK [Create Network Security Group that allows SSH] **********************
    changed: [localhost]
 
-   TASK [Create virtual network inteface card] *******************************
+   TASK [Create virtual network interface card] *******************************
    changed: [localhost]
 
    TASK [Create VM] **********************************************************

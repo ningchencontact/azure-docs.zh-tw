@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fdc29d39979bcddc75c3c51d39c9efee9eb5819e
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487255"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144298"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>快速入門：使用自訂視覺 Node.js SDK 建立物件偵測專案
 
@@ -31,8 +31,8 @@ ms.locfileid: "58487255"
 若要安裝適用於 Node.js 的自訂視覺服務 SDK，請使用下列命令：
 
 ```command
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 您可以隨著 [Node.js 範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)下載影像。
@@ -43,7 +43,7 @@ npm install azure-cognitiveservices-customvision-prediction
 
 ## <a name="add-the-code"></a>新增程式碼
 
-在您偏好的專案目錄中建立名為 sample.js 的新檔案。
+在您偏好的專案目錄中建立名為 sample.js  的新檔案。
 
 ### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
 
@@ -76,7 +76,7 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 ### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-若要在專案中建立分類標記，請在 sample.js 結尾新增以下程式碼：
+若要在專案中建立分類標記，請在 sample.js  結尾新增以下程式碼：
 
 ```javascript
     const forkTag = await trainer.createTag(sampleProject.id, "Fork");
@@ -225,7 +225,7 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 ## <a name="run-the-application"></a>執行應用程式
 
-執行 sample.js。
+執行 sample.js  。
 
 ```powershell
 node sample.js

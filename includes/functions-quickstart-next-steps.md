@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: 17e298d88f83716063472ce7947ba95f24dba1d1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132054"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173762"
 ---
 既然您已建立第一個函式，讓我們將輸出繫結新增至函式，以將訊息寫入儲存體佇列。
 

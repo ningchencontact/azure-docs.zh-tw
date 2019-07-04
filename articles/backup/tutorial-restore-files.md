@@ -2,20 +2,19 @@
 title: 使用 Azure 備份將檔案還原到 VM
 description: 了解如何使用備份與復原服務，在 Azure VM 上執行檔案層級還原。
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 905fce2be5de2fff371272efa79bdec5b3bef112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 801d812f44eacb4953ca3df942d65bd77f210478
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127611"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273920"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>在 Azure 中將檔案還原到虛擬機器
 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文詳細說明如何還原個別檔案。 在本教學課程中，您將了解如何：
@@ -61,7 +60,7 @@ Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當�
     ssh publicIpAddress
     ```
 
-4. 從網頁伺服器刪除預設頁面 (*/var/www/html/index.nginx-debian.html*)，如下所示：
+4. 從網頁伺服器刪除預設頁面 ( */var/www/html/index.nginx-debian.html*)，如下所示：
 
     ```bash
     sudo rm /var/www/html/index.nginx-debian.html

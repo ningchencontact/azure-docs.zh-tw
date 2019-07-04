@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4ba3ee0b2138cb83796be50efe129a993d07a8a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19e87769bf4e49e5665d5f4887da9fd08e3cd6af
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996487"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340666"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中利用 REST API 和 Python 來使用領域模型
 
@@ -42,14 +42,14 @@ ms.locfileid: "59996487"
     1. 將 `subscription_key` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域中，將 `vision_base_url` 的值取代為電腦視覺資源的端點 URL。
     1. (選擇性) 將 `image_url` 的值取代為您要在其中偵測地標之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `get-landmarks.py`。
+1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `get-landmarks.py` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `python` 命令執行範例。 例如： `python get-landmarks.py`。
+1. 出現提示時，使用 `python` 命令執行範例。 例如： `python get-landmarks.py` 。
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -74,8 +74,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'landmarks'}
-data    = {'url': image_url}
+params = {'model': 'landmarks'}
+data = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -126,14 +126,14 @@ _ = plt.title(landmark_name, size="x-large", y=-0.1)
     1. 將 `subscription_key` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域中，將 `vision_base_url` 的值取代為電腦視覺資源的端點 URL。
     1. (選擇性) 將 `image_url` 的值取代為您要在其中偵測名人之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `get-celebrities.py`。
+1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `get-celebrities.py` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `python` 命令執行範例。 例如： `python get-celebrities.py`。
+1. 出現提示時，使用 `python` 命令執行範例。 例如： `python get-celebrities.py` 。
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -151,8 +151,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'celebrities'}
-data    = {'url': image_url}
+params = {'model': 'celebrities'}
+data = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/01/2018
+ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 6f697c91851e7ddc95f84239987bb4378bafd094
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798630"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203411"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>教學課程：使用以 Visual Studio 和 C# 撰寫的連線服務來連線到 Bing 新聞搜尋 API
 
@@ -26,7 +26,7 @@ ms.locfileid: "65798630"
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- 已安裝 Web 開發工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- 已安裝網頁程式開發工作負載的 Visual Studio 2019。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

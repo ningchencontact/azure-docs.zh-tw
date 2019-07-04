@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237945"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137247"
 ---
 # <a name="prepare-data-for-custom-speech"></a>準備資料以自訂語音
 
@@ -27,9 +27,9 @@ ms.locfileid: "66237945"
 
 | 数据类型 | 使用的測試 | 數量 | 用於定型 | 數量 |
 |-----------|-----------------|----------|-------------------|----------|
-| [音訊](#audio-data-for-testing) | 有<br>使用進行視覺檢查 | 5 + 音訊檔案 | 無 | N/a |
-| [音訊 + 人類看得標示的文字記錄](#audio--human-labeled-transcript-data-for-testingtraining) | 有<br>用來評估精確度 | 0.5-5 小時的音訊 | 有 | 1-1,000 小時音訊 |
-| [相關的文字方塊](##related-text-data-for-training) | 無 | N/a | 有 | 1-200 MB 的相關的文字 |
+| [音訊](#audio-data-for-testing) | 是<br>使用進行視覺檢查 | 5 + 音訊檔案 | 否 | N/a |
+| [音訊 + 人類看得標示的文字記錄](#audio--human-labeled-transcript-data-for-testingtraining) | 是<br>用來評估精確度 | 0.5-5 小時的音訊 | 是 | 1-1,000 小時音訊 |
+| [相關的文字方塊](##related-text-data-for-training) | 否 | N/a | 是 | 1-200 MB 的相關的文字 |
 
 檔案應該依類型至資料集，和上傳為 zip 檔案。 每個資料集只能包含單一資料類型。
 
@@ -44,7 +44,7 @@ ms.locfileid: "66237945"
 上傳您的資料集之後，您會有幾個選項：
 
 * 您可以瀏覽**測試**索引標籤，並以視覺化方式檢查 僅限音訊 + 人類看得標示為轉譯資料。
-* 您可以瀏覽**訓練** 索引標籤和音訊 + 人力的轉譯資料或相關的文字資料訓練自訂模型。
+* 您可以瀏覽**訓練**索引標籤，然後使用音訊 + 人力的轉譯資料或相關的文字資料訓練自訂模型。
 
 ## <a name="audio-data-for-testing"></a>音訊資料來進行測試
 
@@ -52,10 +52,10 @@ ms.locfileid: "66237945"
 
 您可以使用此表格來確保您的音訊檔案的格式是否正確搭配自訂語音：
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |----------|-------|
 | 檔案格式 | RIFF (WAV) |
-| 採樣速率 | 8,000 Hz 或 16,000 Hz |
+| 取樣率 | 8,000 Hz 或 16,000 Hz |
 | 聲道 | 1 (mono) |
 | 每個音訊的最大長度 | 2 小時 |
 | 樣本格式 | PCM，16 位元 |
@@ -64,7 +64,7 @@ ms.locfileid: "66237945"
 
 如果您音訊不滿足這些屬性，或您想要檢查 如果沒有，我們建議您下載[sox](http://sox.sourceforge.net)檢查或轉換音訊。 以下是如何完成這些活動的每個透過命令列的一些範例：
 
-| activities | 說明 | Sox 命令 |
+| activities | 描述 | Sox 命令 |
 |----------|-------------|-------------|
 | 核取音訊格式 | 您可以使用此命令來檢查音訊檔案格式。 | `sox --i <filename>` |
 | 將音訊格式轉換 | 使用此命令將音訊檔案轉換成單一通道，16 位元，16 KHz。 | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -73,10 +73,10 @@ ms.locfileid: "66237945"
 
 若要測量精確度的 Microsoft 的語音轉換文字精確度處理音訊檔案時，您必須提供人類看得標記轉譯 （--逐字） 進行比較。 雖然人類看得標示的文字記錄通常很耗費時間，就必須評估精確度，並針對您的使用案例訓練模型。 請記住，才適合所提供的資料中辨識的改善。 基於這個理由，很重要上, 傳高品質文字記錄。  
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |----------|-------|
 | 檔案格式 | RIFF (WAV) |
-| 採樣速率 | 8,000 Hz 或 16,000 Hz |
+| 取樣率 | 8,000 Hz 或 16,000 Hz |
 | 聲道 | 1 (mono) |
 | 每個音訊的最大長度 | 60 s |
 | 樣本格式 | PCM，16 位元 |
@@ -85,7 +85,7 @@ ms.locfileid: "66237945"
 
 像是 word 刪除或替換、 大量資料，才能改善辨識，就會解決問題。 一般而言，建議您提供大約 10 到 1,000 小時的音訊 word 的 word 轉譯。 所有 WAV 檔案的文字記錄應包含在單一純文字檔案中。 文字記錄檔案的每一行都應包含其中一個音訊檔案的名稱，然後後面接著相對應的文字記錄。 檔案名稱和文字記錄應該以定位字元 (\t) 分隔。
 
-  例如：
+  例如:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -117,7 +117,7 @@ ms.locfileid: "66237945"
 
 您可以使用此表格來確保您的表達方式的相關的資料檔案的格式正確：
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |----------|-------|
 | 文字編碼 | UTF-8 BOM |
 | 每一行的語句數目 | 1 |
@@ -138,24 +138,24 @@ ms.locfileid: "66237945"
 
 這是每個包括口語的 utterance 和自訂發音的範例：
 
-| 口語形式 | 辨識/顯示表單 |
+| 辨識/顯示表單 | 口語形式 |
 |--------------|--------------------------|
-| three c p o | 3CPO |  
-| c n t k | CNTK |
-| i triple e | IEEE |
+| 3CPO | 三個 c p o |  
+| CNTK | n 個產品 k |
+| IEEE | i 三倍 e |
 
 出口語的形式會是語音拼出的順序。它可以包含字母、 字組、 音節或所有的三種組合。
 
 英文 (EN-US) 和德文 (DE-DE) 使用自訂的發音。 下表顯示依語言的支援的字元：
 
-| 語言 | 地區設定 | 人物 |
+| 語言 | 地區設定 | 字元 |
 |----------|--------|------------|
-| 英文 | zh-TW | a、 b、 c、 d、 e、 f、 g、 h、 i、 j、 k、 l、 m、 n、 o、 p、 q、 r、 s、 t、 u、 v、 w、 x、 y、 z |
+| 英文 | en-US | a、 b、 c、 d、 e、 f、 g、 h、 i、 j、 k、 l、 m、 n、 o、 p、 q、 r、 s、 t、 u、 v、 w、 x、 y、 z |
 | 德文 | de-DE | ä、 ö，ü，a、 b、 c、 d、 e、 f、 g、 h、 i、 j、 k、 l、 m、 n、 o、 p、 q、 r、 s、 t、 u、 v、 w、 x、 y、 z |
 
 您可以使用此表格來確保您的發音的相關的資料檔案的格式正確。 發音檔案很小，且不應超過幾 Kb。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |----------|-------|
 | 文字編碼 | Utf-8 BOM （ANSI 也支援適用於英文） |
 | # 個每一行的發音 | 1 |

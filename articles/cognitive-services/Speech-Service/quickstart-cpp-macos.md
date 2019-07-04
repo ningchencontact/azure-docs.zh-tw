@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
-ms.openlocfilehash: 498246292b3cf591433a709139621b039ac3af33
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 7f8822a34b0f87beaf522656a91e8d40c724a7a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002176"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485005"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 C++ 辨識語音
 
@@ -31,7 +31,7 @@ ms.locfileid: "66002176"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.5.1`。
+認知服務語音 SDK 目前的版本為 `1.6.0`。
 
 適用於 macOS 的語音 SDK 可從 https://aka.ms/csspeech/macosbinary 以壓縮的架構組合形式下載。
 
@@ -77,7 +77,7 @@ ms.locfileid: "66002176"
 ## <a name="build-the-app"></a>建置應用程式
 
 > [!NOTE]
-> 請務必以「單一命令行」的形式輸入下面的命令。 若要這麼做，最簡單的方式就是使用每個命令旁邊的 [複製] 按鈕來複製命令，然後將它貼在殼層提示字元。
+> 請務必以「單一命令行」  的形式輸入下面的命令。 若要這麼做，最簡單的方式就是使用每個命令旁邊的 [複製]  按鈕來複製命令，然後將它貼在殼層提示字元。
 
 * 執行下列命令以建置應用程式。
 

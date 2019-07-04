@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
 ms.openlocfilehash: d3d33c87dc1adf65a53b71cc4c833e7f4a191670
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171292"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174219"
 ---
 ## <a name="what-are-service-bus-queues"></a>什麼是服務匯流排佇列？
 服務匯流排佇列支援 **代理傳訊** 通訊模型。 使用佇列時，分散式應用程式的元件彼此不直接通訊，相反的，他們會透過扮演中繼角色 (代理人) 的佇列來交換訊息。 訊息產生者 (傳送者) 會將訊息遞交給佇列，然後繼續其處理工作。 訊息取用者 (接收者) 非同步地從佇列中提取訊息並處理。 產生者不必等待取用者的回覆，即可繼續處理及傳送其他訊息。 如果有一或多個競爭取用者，佇列會採取 **先進先出 (FIFO)** 訊息傳遞機制。 亦即，通常由接收者依訊息加入佇列的順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。

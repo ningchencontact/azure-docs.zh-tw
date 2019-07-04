@@ -15,17 +15,17 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 3f72f6a5097221c904faff633b5a4ee5a6e023c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121618"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174156"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 MSAL 取得 Microsoft Graph API 的權杖
 
 在本節中，使用 MSAL 取得 Microsoft Graph API 的權杖。
 
-1. 在 MainWindow.xaml.cs 檔案中，將 MSAL 的參考新增至類別：
+1. 在 MainWindow.xaml.cs  檔案中，將 MSAL 的參考新增至類別：
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -197,7 +197,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 ## <a name="display-basic-token-information"></a>顯示基本權杖資訊
 
-若要顯示和權杖有關的基本資訊，將下列方法新增到您的 MainWindow.xaml.cs 檔案：
+若要顯示和權杖有關的基本資訊，將下列方法新增到您的 MainWindow.xaml.cs  檔案：
 
 ```csharp
 /// <summary>
@@ -217,5 +217,5 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>詳細資訊
 
-除了用來呼叫 Microsoft Graph API 的存取權杖之外，使用者登入之後，MSAL 也會取得 ID 權杖。 此權杖包含與使用者相關的一小部分資訊。 `DisplayBasicTokenInfo` 方法會顯示權杖中包含的基本資訊。 例如，它會顯示使用者的顯示名稱和 ID，以及權杖到期日期和代表存取權杖本身的字串。 您可以選取 [呼叫 Microsoft Graph API] 按鈕多次，以了解相同的權杖如何重複用於多個後續要求。 您也可以在 MSAL 決定應該要更新權杖時，看到延長的到期日期。
+除了用來呼叫 Microsoft Graph API 的存取權杖之外，使用者登入之後，MSAL 也會取得 ID 權杖。 此權杖包含與使用者相關的一小部分資訊。 `DisplayBasicTokenInfo` 方法會顯示權杖中包含的基本資訊。 例如，它會顯示使用者的顯示名稱和 ID，以及權杖到期日期和代表存取權杖本身的字串。 您可以選取 [呼叫 Microsoft Graph API]  按鈕多次，以了解相同的權杖如何重複用於多個後續要求。 您也可以在 MSAL 決定應該要更新權杖時，看到延長的到期日期。
 <!--end-collapse-->
