@@ -156,7 +156,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | 此警示規則的位置 |East US |
 | resourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。請參閱 `Get-MetricDefinitions` Cmdlet 以了解如何擷取確切的計量名稱 |
+| 所建立警示的 MetricName |所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | 臨界值 (此計量的計數/秒） |1 |
 | WindowSize (hh:mm:ss 格式) |00:05:00 |
