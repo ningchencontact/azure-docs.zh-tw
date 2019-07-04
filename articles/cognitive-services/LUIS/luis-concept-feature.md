@@ -1,5 +1,5 @@
 ---
-title: 特性
+title: 功能
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: 將特性新增至語言模型，以針對如何辨識您想要標示或分類的輸入，提供相關提示。
 services: cognitive-services
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522848"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60812932"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 應用程式中的片語清單功能
 

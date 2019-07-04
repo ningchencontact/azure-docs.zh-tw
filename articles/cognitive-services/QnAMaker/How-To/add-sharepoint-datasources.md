@@ -3,19 +3,19 @@ title: Sharepoint 檔案-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 加入您的知識庫來擴充 Active Directory 可能會受到保護，問題和解答知識庫中的受保護的 Sharepoint 資料來源。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
-ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 3e5aa1cc78efeb6e8158155b5e0676c8a63cf6e6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954964"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447557"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>將受保護的 Sharepoint 資料來源新增至您的知識庫
 
@@ -35,6 +35,20 @@ ms.locfileid: "65954964"
     ![選取檔案的省略符號功能表，然後複製 URL，以取得 Sharepoint 檔案的 URL。](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. QnA Maker 入口網站中，在上**設定**頁面上， [URL 新增到](edit-knowledge-base.md#add-datasource)至知識庫。 
+
+### <a name="images-with-sharepoint-files"></a>使用 Sharepoint 檔案的映像
+
+如果檔案包含映像，這些也不被擷取。 檔案會擷取至 QnA 組之後，您可以新增映像，QnA Maker 入口網站中，從。
+
+新增具有下列的 markdown 語法的映像： 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+方括號中的文字`[]`，說明映像。 括號中的 URL `()`，是直接連結至映像。 
+
+當您在互動式測試面板中，QnA Maker 入口網站中測試的 QnA 組影像隨即顯示，而不是 markdown 文字。 這會驗證映像可以公開從用戶端應用程式中擷取。
 
 ## <a name="permissions"></a>權限
 
@@ -99,7 +113,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 -->
 ### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>從 Azure Active Directory 系統管理中心授與存取權
 
-1. Active Directory 管理員登入 Azure 入口網站，並開啟**[企業應用程式](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**。 
+1. Active Directory 管理員登入 Azure 入口網站，並開啟 **[企業應用程式](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** 。 
 
 1. 搜尋`QnAMakerPortalSharepoint`選取 QnA Maker 應用程式。 
 

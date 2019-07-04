@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60199023"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
 <a name="train-your-app"></a>
@@ -29,13 +29,13 @@ ms.locfileid: "58893617"
 
 ## <a name="test-an-utterance"></a>測試語句
 
-1. 在 [我的應用程式] 頁面上選取應用程式名稱，來存取應用程式。 
+1. 在 [我的應用程式]  頁面上選取應用程式名稱，來存取應用程式。 
 
-2. 若要存取 [測試] 滑出面板，請選取應用程式上方面板中的 [測試]。
+2. 若要存取 [測試]  滑出面板，請選取應用程式上方面板中的 [測試]  。
 
     ![定型和測試應用程式頁面](./media/luis-how-to-interactive-test/test.png)
 
-3. 在文字方塊中輸入語句，並選取 Enter。 您可以針對 [測試] 輸入任意數目的測試語句，但一次只能輸入一個語句。
+3. 在文字方塊中輸入語句，並選取 Enter。 您可以針對 [測試]  輸入任意數目的測試語句，但一次只能輸入一個語句。
 
 4. 該語句，連同評分最高的意圖及其分數，會被新增至文字方塊底下的語句清單中。
 
@@ -43,19 +43,19 @@ ms.locfileid: "58893617"
 
 ## <a name="inspect-score"></a>檢查分數
 
-您可在 [檢查] 面板中檢查測試結果的詳細資料。 
+您可在 [檢查]  面板中檢查測試結果的詳細資料。 
  
-1. [測試] 滑出面板開啟時，請針對您想要比較的語句選取 [檢查]。 
+1. [測試]  滑出面板開啟時，請針對您想要比較的語句選取 [檢查]  。 
 
     ![選取 [檢查] 按鈕以查看測試結果的相關詳細資料](./media/luis-how-to-interactive-test/inspect.png)
 
-2. [檢查] 面板隨即出現。 該面板包含評分最高的意圖，以及任何已識別的實體。 該面板會顯示所選語句的結果。
+2. [檢查]  面板隨即出現。 該面板包含評分最高的意圖，以及任何已識別的實體。 該面板會顯示所選語句的結果。
 
     ![該面板包含評分最高的意圖，以及任何已識別的實體。 該面板會顯示所選語句的結果。](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>修正評分最高的意圖
 
-1. 若評分最高的意圖是錯誤的，請選取 [編輯] 按鈕。
+1. 若評分最高的意圖是錯誤的，請選取 [編輯]  按鈕。
 
 2.  在下拉式清單中，為該語句選取正確的意圖。
 
@@ -63,22 +63,22 @@ ms.locfileid: "58893617"
 
 ## <a name="view-sentiment-results"></a>檢視情感結果
 
-若已在 [[發行](luis-how-to-publish-app.md#enable-sentiment-analysis)] 頁面上設定 [情感分析]，測試結果將會包含在語句中找到的情感。 
+若已在 [[發行](luis-how-to-publish-app.md#enable-sentiment-analysis)]  頁面上設定 [情感分析]  ，測試結果將會包含在語句中找到的情感。 
 
 ![具有情感分析之 [測試] 窗格的影像](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>修正相符模式的意圖
 
-若您有使用[模式](luis-concept-patterns.md)且語句有符合某個模式，但系統所預測的意圖是錯誤的，請選取模式旁邊的 [編輯] 連結，然後選取正確的意圖。
+若您有使用[模式](luis-concept-patterns.md)且語句有符合某個模式，但系統所預測的意圖是錯誤的，請選取模式旁邊的 [編輯]  連結，然後選取正確的意圖。
 
 ## <a name="compare-with-published-version"></a>與已發行的版本比較
 
-您可以搭配已發行的[端點](luis-glossary.md#endpoint)版本來測試應用程式的作用中版本。 在 [檢查] 面板中，選取 [與已發行比較]。 針對已發行模型所做的任何測試，將會從您的 Azure 訂用帳戶配額餘額中扣除。 
+您可以搭配已發行的[端點](luis-glossary.md#endpoint)版本來測試應用程式的作用中版本。 在 [檢查]  面板中，選取 [與已發行比較]  。 針對已發行模型所做的任何測試，將會從您的 Azure 訂用帳戶配額餘額中扣除。 
 
 ![[與已發行比較]](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>在 [測試] 面板中檢視端點 JSON
-您可以選取 [顯示 JSON 檢視] 來檢視針對比較傳回的端點 JSON。
+您可以選取 [顯示 JSON 檢視]  來檢視針對比較傳回的端點 JSON。
 
 ![已發行的 JSON 回應](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "58893617"
 
 ### <a name="luis-endpoint"></a>LUIS 端點
 
-若您有數個 LUIS 端點，請使用 [測試] 面板 [發行] 窗格上的 [其他設定] 連結，以變更用於測試的端點。 若您不確定該使用哪一個端點，請選取預設的 [Starter_Key]。 
+若您有數個 LUIS 端點，請使用 [測試] 面板 [發行] 窗格上的 [其他設定]  連結，以變更用於測試的端點。 若您不確定該使用哪一個端點，請選取預設的 [Starter_Key]  。 
 
 ![已醒目提示 [其他選項] 的 [測試] 面板](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
@@ -101,11 +101,11 @@ ms.locfileid: "58893617"
 
 使用下列程序以在 [測試] 窗格結果中包含 [Bing 拼字檢查 v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 服務。 
 
-1. 在 [測試] 窗格中輸入語句。 當系統預測出該語句時，請選取位於您所輸入語句下方的 [[檢查](#inspect-score)]。 
+1. 在 [測試]  窗格中輸入語句。 當系統預測出該語句時，請選取位於您所輸入語句下方的 [[檢查](#inspect-score)]  。 
 
-2. 當 [檢查] 面板開啟時，選取 [[與已發行比較](#compare-with-published-version)]。 
+2. 當 [檢查]  面板開啟時，選取 [[與已發行比較](#compare-with-published-version)]  。 
 
-3. 當 [已發行] 面板開啟時，選取 [[其他設定](#additional-settings-in-test-panel)]。
+3. 當 [已發行]  面板開啟時，選取 [[其他設定](#additional-settings-in-test-panel)]  。
 
 4. 在快顯對話方塊中，輸入您的 **Bing 拼字檢查**服務金鑰。 
     ![輸入 Bing 拼字檢查服務金鑰](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)

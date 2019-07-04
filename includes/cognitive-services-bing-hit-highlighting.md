@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124762"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174307"
 ---
 Bing 支援搜尋結果醒目提示，可在某些回答的顯示字串中標示查詢詞彙 (或 Bing 找到的其他相關詞彙)。 例如，網頁的 `name`、`displayUrl` 和 `snippet` 欄位可標示查詢詞彙。
 
@@ -23,7 +23,7 @@ Bing 提供以 Unicode 字元或 HTML 標籤作為標記的選項。 若要指�
   
 如果 `textDecorations` 為 **true**，Bing 可能會在回答的顯示字串中包含下列標記。 如果沒有 HTML 對等項目，HTML 資料表儲存格會是空的。
 
-|Unicode|HTML|說明
+|Unicode|HTML|描述
 |-|-|-
 |U+E000|\<b>|標示查詢詞彙的開頭 (搜尋結果醒目提示)
 |U+E001|\</b>|標示查詢詞彙的結尾

@@ -3,20 +3,20 @@ title: API HTTP 回應碼 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 了解 QnA Maker API 會傳回哪些 HTTP 回應碼。 這將協助您解決任何錯誤。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: cdfa5212f321cc6ec976ea9df301243acc54a23f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0416b282a869536b0cea591ba39d7a3804697bac
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794849"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446528"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>QnA Maker API HTTP 回應碼
 [管理](https://go.microsoft.com/fwlink/?linkid=2092179)和預測 API 傳回 HTTP 回應碼。 當回應訊息包含專屬於要求的資訊時，HTTP 回應狀態碼為一般。 

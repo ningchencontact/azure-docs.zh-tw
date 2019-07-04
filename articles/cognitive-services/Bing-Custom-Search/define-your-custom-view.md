@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390427"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>設定 Bing 自訂搜尋體驗
@@ -27,7 +27,7 @@ ms.locfileid: "66390427"
 
 | 配量名稱 | 描述                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | 網域配量包括在某個網際網路網域內找到的所有內容。 例如： `www.microsoft.com`。 省略 `www.` 會使得 Bing 也搜尋該網域的子網域。 例如，如果您指定`microsoft.com`，Bing 也會傳回的結果`support.microsoft.com`或`technet.microsoft.com`。 |
+| Domain     | 網域配量包括在某個網際網路網域內找到的所有內容。 例如： `www.microsoft.com` 。 省略 `www.` 會使得 Bing 也搜尋該網域的子網域。 例如，如果您指定`microsoft.com`，Bing 也會傳回的結果`support.microsoft.com`或`technet.microsoft.com`。 |
 | 子頁面    | 子頁面配量包括在子頁面及其下的路徑中找到的所有內容。 您在路徑中最多可以指定兩個子頁面。 例如： `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | 網頁    | 網頁配量在自訂搜尋中只能包括該網頁。 您可以選擇性地指定是否要包括子頁面。                                                                                                                                                                                  |
 
@@ -129,7 +129,7 @@ ms.locfileid: "66390427"
 > [!NOTE]
 > 使用者的搜尋查詢與釘選的搜尋查詢之間的所有比較都不區分大小寫。
 
-| Value | 描述                                                                          |
+| 值 | 描述                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Starts with | 如果使用者的查詢字串開頭為釘選查詢字串，該釘選即為相符項目。 |
 | Ends with   | 如果使用者的查詢字串結尾為釘選查詢字串，該釘選即為相符項目。  |

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62113863"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>定義和使用仲裁作業 (.NET)
 
@@ -47,7 +47,7 @@ ms.locfileid: "58757034"
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
 
    在範例程式碼中，將專案命名為 **CreateReviews**。
 
@@ -133,9 +133,9 @@ public static class Clients
 
 > [!NOTE]
 > 您可以將 TeamName 常數設定為建立 Content Moderator 訂用帳戶時所使用的名稱。 您可以從 [Content Moderator 網站](https://westus.contentmoderator.cognitive.microsoft.com/)擷取 TeamName。
-> 登入後，請從 [設定] (齒輪) 功能表選取 [認證]。
+> 登入後，請從 [設定]  (齒輪) 功能表選取 [認證]  。
 >
-> 小組名稱會是 [API] 區段中 [Id] 欄位的值。
+> 小組名稱會是 [API]  區段中 [Id]  欄位的值。
 
 ```csharp
 /// <summary>
@@ -256,7 +256,7 @@ Then, press any key to continue.
 
 請登入 Content Moderator 檢閱工具，以查看擱置中的影像檢閱。
 
-使用 [下一步] 按鈕以提交影像。
+使用 [下一步]  按鈕以提交影像。
 
 ![給人工審核者的影像檢閱](images/ocr-sample-image.PNG)
 

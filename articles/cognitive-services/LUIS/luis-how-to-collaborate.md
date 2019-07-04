@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: diberry
 ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60198693"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>如何管理建立者及共同作業者 
 
@@ -28,9 +28,9 @@ ms.locfileid: "56167557"
 
 一個應用程式只有單一建立者 (擁有者)，但可以有許多共同作業者。 若要允許共同作業者編輯您的 LUIS 應用程式，您必須將他們用來存取 LUIS 入口網站的電子郵件新增至共同作業者清單。 新增之後，應用程式就會顯示在其 LUIS 入口網站中。
 
-1. 從右上方功能表中選取 [管理]，然後選取左側功能表中的 [共同作業者]。
+1. 從右上方功能表中選取 [管理]  ，然後選取左側功能表中的 [共同作業者]  。
 
-2. 從工具列中選取 [新增共同作業者]。
+2. 從工具列中選取 [新增共同作業者]  。
 
     [![新增共同作業者](./media/luis-how-to-collaborate/add-collaborator.png "新增共同作業者")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 

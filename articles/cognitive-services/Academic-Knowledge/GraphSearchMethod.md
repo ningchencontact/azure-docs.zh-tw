@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57977406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61339111"
 ---
 # <a name="graph-search-method"></a>圖表搜尋方法
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 
 ## <a name="request-parameters"></a>要求參數  
 
-名稱     | 值 | 必要？  | 描述
+名稱     | 值 | 必要項？  | 描述
 -----------|-----------|---------|--------
 **mode**       | 文字字串 | 是 | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
 
@@ -38,12 +38,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 
 ##### <a name="json-search"></a>JSON 搜尋 
 
-對於 json 搜尋，POST 本文是 JSON 物件。 JSON 物件描述具有使用者所指定條件約束的路徑模式 (請參閱適用於 json 搜尋的 [JSON 物件規格](JSONSearchSyntax.md))。
+對於 json  搜尋，POST 本文是 JSON 物件。 JSON 物件描述具有使用者所指定條件約束的路徑模式 (請參閱適用於 json  搜尋的 [JSON 物件規格](JSONSearchSyntax.md))。
 
 
 ##### <a name="lambda-search"></a>Lambda 搜尋
 
-對於 lambda 搜尋，POST 本文是純文字字串。 POST 本文是 LIKQ lambda 查詢字串，這是單一的 C# 陳述式 (請參閱適用於 lambda 搜尋的[查詢字串規格](LambdaSearchSyntax.md))。 
+對於 lambda  搜尋，POST 本文是純文字字串。 POST 本文是 LIKQ lambda 查詢字串，這是單一的 C# 陳述式 (請參閱適用於 lambda  搜尋的[查詢字串規格](LambdaSearchSyntax.md))。 
 
 <br>
 
@@ -66,7 +66,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 ```
 <br>
-對於 json 搜尋，如果我們想要取得標題包含 "graph engine" 並由 "bin shao" 撰寫的論文，我們可以指定查詢，如下所示。
+對於 json  搜尋，如果我們想要取得標題包含 "graph engine" 並由 "bin shao" 撰寫的論文，我們可以指定查詢，如下所示。
 
 ```JSON
 {
@@ -87,7 +87,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 }
 ```
 
-查詢的輸出是圖表路徑陣列。 圖表路徑是節點物件的陣列，而這些物件會對應至查詢路徑中指定的節點。 這些節點物件有至少一個 CellID 屬性，表示實體識別碼。 透過[*周遊動作物件*](JSONSearchSyntax.md)的 select 運算子來指定屬性名稱，即可擷取其他屬性。
+查詢的輸出是圖表路徑陣列。 圖表路徑是節點物件的陣列，而這些物件會對應至查詢路徑中指定的節點。 這些節點物件有至少一個 CellID  屬性，表示實體識別碼。 透過[*周遊動作物件*](JSONSearchSyntax.md)的 select 運算子來指定屬性名稱，即可擷取其他屬性。
 
 ```JSON
 {
@@ -138,7 +138,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=lambda
 ```
 <br>
-對於 lambda 搜尋，如果我們想要取得指定論文的作者識別碼，我們可以撰寫如下所示的查詢。
+對於 lambda  搜尋，如果我們想要取得指定論文的作者識別碼，我們可以撰寫如下所示的查詢。
 
 ```
 MAG.StartFrom(@"{
@@ -149,7 +149,7 @@ MAG.StartFrom(@"{
 }").FollowEdge("AuthorIDs").VisitNode(Action.Return)
 ```
 
-lambda 搜尋查詢的輸出也是圖表路徑陣列：
+lambda  搜尋查詢的輸出也是圖表路徑陣列：
 
 ```JSON
 {

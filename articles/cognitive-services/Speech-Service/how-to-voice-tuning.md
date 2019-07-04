@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65593881"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>微調文字轉換語音輸出
@@ -41,7 +41,7 @@ Azure 的語音服務可讓您調整速度、 發音、 磁碟區、 音調、 �
 5. 選取 **新的微調**。 接著，遵循下列步驟：
 
    * 找出並選取**所有訂用帳戶**。  
-   * 選取 [連線到現有的訂用帳戶]。  
+   * 選取 [連線到現有的訂用帳戶]  。  
      ![連接現有的訂用帳戶](./media/custom-voice/custom-voice-connect-subscription.png)。
    * 輸入您 Azure 語音服務的訂用帳戶金鑰，然後選取**新增**。 您的訂用帳戶金鑰可用於語音自訂入口網站中，從[訂用帳戶頁面](https://go.microsoft.com/fwlink/?linkid=2090458)。 您也可以從 [資源管理] 窗格中來取得索引鍵[Azure 入口網站](https://portal.azure.com/)。
    * 如果您有多個語音服務訂用帳戶，您打算使用時，請為每個訂用帳戶重複這些步驟。

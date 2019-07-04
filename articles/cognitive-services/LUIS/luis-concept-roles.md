@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073017"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>實體內容的子類型的角色
@@ -35,10 +35,10 @@ buy a ticket from New York to London
 
 角色會賦予這些差異一個名稱：
 
-|實體類型|實體名稱|角色|目的|
+|實體類型|實體名稱|Role|目的|
 |--|--|--|--|
-|簡單|位置|來源|飛機起飛的位置|
-|簡單|位置|目的地|飛機降落的位置|
+|簡單|Location|來源|飛機起飛的位置|
+|簡單|Location|destination|飛機降落的位置|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>非機器學習的實體範例中的角色
 
@@ -48,7 +48,7 @@ buy a ticket from New York to London
 Schedule the meeting from 8 to 9
 ```
 
-|實體類型|角色名稱|Value|
+|實體類型|角色名稱|值|
 |--|--|--|
 |預先建置的 datetimeV2|starttime|8|
 |預先建置的 datetimeV2|結束時間|9|

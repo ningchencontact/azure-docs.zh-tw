@@ -2,19 +2,19 @@
 title: 如何管理設定？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 如何在自訂翻譯工具中管理設定、建立工作區、共用工作區，以及管理訂用帳戶金鑰。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb766a8cc6ae0de2407f44982a58fcc448e4b00c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: d141b5dea8b0b12889559e6c80770379a6afac63
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448347"
 ---
 # <a name="how-to-manage-settings"></a>如何管理設定
 

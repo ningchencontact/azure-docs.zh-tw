@@ -2,19 +2,19 @@
 title: 檢視系統測試結果和部署 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 在定型成功後，請檢閱系統測試以分析您的定型結果。 如果您滿意定型結果，請為定型的模型提出部署要求。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389307"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442489"
 ---
 # <a name="view-system-test-results"></a>檢視系統測試結果
 

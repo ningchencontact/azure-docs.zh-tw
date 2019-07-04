@@ -3,20 +3,20 @@ title: 詞彙 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 服務有許多來自機器學習和自然語言處理的新詞彙，以及服務特定的詞彙。 這份清單將協助您了解這些詞彙。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c6b7e4ca2acc1416e19fc8b70f57aed82afa4e1e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649436"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446539"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 知識庫和服務的字彙
 

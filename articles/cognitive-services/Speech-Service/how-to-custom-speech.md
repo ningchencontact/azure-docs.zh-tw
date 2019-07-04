@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511129"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060875"
 ---
 # <a name="what-is-custom-speech"></a>自訂語音是什麼？
 
@@ -52,7 +52,7 @@ ms.locfileid: "65511129"
 
 1. 從 Azure 入口網站中取得您的語音服務訂用帳戶金鑰。
 2. 登入[自訂語音入口網站](https://aka.ms/custom-speech)。
-3. 選取的訂用帳戶，您需要處理和建立語音專案。
+3. 選取您要處理，並建立語音專案的訂用帳戶。
 4. 如果您想要修改您的訂用帳戶，使用**齒輪**圖示位在頂端導覽列中。
 
 ## <a name="how-to-create-a-project"></a>如何建立專案

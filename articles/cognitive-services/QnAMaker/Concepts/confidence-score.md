@@ -3,20 +3,20 @@ title: 信賴分數 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 信賴分數表示解答對給定的使用者查詢而言的切合程度。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792737"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165129"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -46,7 +46,7 @@ ms.locfileid: "65792737"
 |0|沒有相符項目，所以不會傳回答案。|「服務的成本是多少」|
 
 ## <a name="choose-a-score-threshold"></a>選擇分數閾值
-上表顯示大部分 KB 預期的分數。 不過，因為每個 KB 都不相同，且具有不同類型的字組、意圖和目標，建議您測試並選擇最適合您的閾值。 預設的閾值設定為 0，以便傳回所有可能的答案。 應可適用於大部分的 Kb 以及建議的臨界值是**50**。
+上表顯示大部分 KB 預期的分數。 不過，因為每個 KB 不同，而且有不同類型的文字，對應方式，和目標-我們建議您測試並選擇臨界值最適合您。 預設的閾值設定為 0，以便傳回所有可能的答案。 應可適用於大部分的 Kb 以及建議的臨界值是**50**。
 
 選擇您自己的閾值時，請記住在精確度和涵蓋範圍之間取得平衡，並根據您的需求調整閾值。
 
@@ -56,6 +56,12 @@ ms.locfileid: "65792737"
 
 > [!NOTE]
 > 較新的 QnA Maker 版本包括改善評分邏輯，並可能影響您的閾值。 每當您更新服務時，請務必視需要測試和調整閾值。 您可以[在此](https://www.qnamaker.ai/UserSettings)檢查您的 QnA 服務版本，並[在此](../How-To/troubleshooting-runtime.md)了解如何取得最新的更新。
+
+## <a name="set-threshold"></a>設定的閾值 
+
+做為屬性的設定臨界值分數[GenerateAnswer API JSON 主體](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)。 這表示您將它設定 GenerateAnswer 每次呼叫。 
+
+來自 bot framework 設定分數的選項物件的一部分[ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c)或是[Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)。
 
 ## <a name="improve-confidence-scores"></a>改善信賴分數
 若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。 您也可以使用不區分大小寫的[文字變異形式](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) \(英文\)，來將同義字新增至 KB 中的關鍵字。
@@ -82,7 +88,7 @@ ms.locfileid: "65792737"
 
     ![在 Azure 入口網站中，存取 QnA Maker 的 App Service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. 按一下 [應用程式設定]，並編輯 [DefaultAnswer] 欄位成為所需的預設回應。 按一下 [檔案] 。
+3. 按一下 [應用程式設定]  ，並編輯 [DefaultAnswer]  欄位成為所需的預設回應。 按一下 [檔案]  。
 
     ![選取 [應用程式設定]，然後編輯 QnA Maker 的 DefaultAnswer](../media/qnamaker-concepts-confidencescore/change-response.png)
 

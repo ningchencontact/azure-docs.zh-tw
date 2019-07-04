@@ -3,20 +3,20 @@ title: 在 QnA Maker 知識庫中新增閒聊
 titleSuffix: Azure Cognitive Services
 description: 當您建立 KB 時，將個人閒聊新增至您的 Bot，讓它變得更健談且吸引人。 QnA Maker 可讓您輕鬆地將預先填入的一組最常見閒聊，新增至您的 KB。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 60a17859fd74b1972e0905a830ba984838a94ffd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540991"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447503"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>在知識庫中新增閒聊
 
@@ -42,12 +42,12 @@ ms.locfileid: "65540991"
 > 閒聊支援目前僅以英文提供。 
 
 ## <a name="add-chit-chat-during-kb-creation"></a>在知識庫建立期間新增閒聊
-在知識庫建立期間，新增來源 URL 和檔案之後，有可供新增閒聊的選項。 選擇您想要作為聊天基底的特質。 如果您不想新增閒聊，或如果您的資料來源中已經有閒聊支援，請選擇 [無]。 
+在知識庫建立期間，新增來源 URL 和檔案之後，有可供新增閒聊的選項。 選擇您想要作為聊天基底的特質。 如果您不想新增閒聊，或如果您的資料來源中已經有閒聊支援，請選擇 [無]  。 
    
 ![在建立期間新增閒聊](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>在現有知識庫中新增閒聊
-選取您的知識庫，並瀏覽至 [設定] 頁面。 有一個連結可連到適當 **.tsv** 格式的所有閒聊資料集。 下載您想要的特質，然後將它上傳為檔案來源。 當您下載並上傳檔案時，務必不要編輯格式或中繼資料。 
+選取您的知識庫，並瀏覽至 [設定]  頁面。 有一個連結可連到適當 **.tsv** 格式的所有閒聊資料集。 下載您想要的特質，然後將它上傳為檔案來源。 當您下載並上傳檔案時，務必不要編輯格式或中繼資料。 
   
 ![在現有知識庫中新增閒聊](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "65540991"
 ![![新增 chit 聊天不](../ media/qnamaker-how-to-chit-chat/add-new-chit-chat.png）](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>從現有知識庫中刪除閒聊
-選取您的知識庫，並瀏覽至 [設定] 頁面。 您的特定閒聊來源會以檔案列示，內含選取的特質名稱。 您可以將此當作原始程式檔刪除。
+選取您的知識庫，並瀏覽至 [設定]  頁面。 您的特定閒聊來源會以檔案列示，內含選取的特質名稱。 您可以將此當作原始程式檔刪除。
 
 ![從知識庫中刪除閒聊](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
 

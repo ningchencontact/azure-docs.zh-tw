@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 06/18/2019
 ms.author: rosh
-ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 78584c2c0419bb27fb58c07eb97b1aa38501951f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909390"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204071"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>使用 ImageInsightsToken 尋找先前搜尋中的類似影像
 
 圖像式搜尋 SDK 可讓您從先前傳回 `ImageInsightsToken` 的搜尋中，線上尋找影像。 此應用程式可取得 `ImageInsightsToken`，並在後續搜尋中使用權杖。 然後，將傳送`ImageInsightsToken`Bing 和傳回的結果，包括 Bing 搜尋 Url 和在線上找到的類似影像的 Url。
 
-本教學課程的完整原始程式碼都位於與其他錯誤處理和附註[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs)。
+本教學課程的完整原始程式碼都位於與其他錯誤處理和附註[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何版本的[Visual Studio 2019](https://www.visualstudio.com/downloads/)。
+* 任何版本的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 * 如果您使用 Linux/MacOS，您可以執行此應用程式使用[Mono](https://www.mono-project.com/)。
 * NuGet 圖像式搜尋和 Bing 影像搜尋套件。
     - 在 Visual Studio 中方案總管 中以滑鼠右鍵按一下專案，然後選取**管理 NuGet 套件**從功能表。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件和 `Microsoft.Azure.CognitiveServices.Search.ImageSearch` 套件。 安裝 NuGet 套件也會安裝：
@@ -38,10 +38,10 @@ ms.locfileid: "65909390"
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>從 Bing 影像搜尋 SDK 取得 ImageInsightsToken
 
-此應用程式會使用透過 [Bing 影像搜尋 SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) 所取得的 `ImageInsightsToken`。 在新的 C# 主控台應用程式中，建立會使用 `ImageSearchAPI()` 來呼叫 API 的用戶端。 然後使用`SearchAsync()`與您的查詢：
+此應用程式會使用透過 [Bing 影像搜尋 SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) 所取得的 `ImageInsightsToken`。 在新的 C# 主控台應用程式中，建立會使用 `ImageSearchClient()` 來呼叫 API 的用戶端。 然後使用`SearchAsync()`與您的查詢：
 
 ```csharp
-var client = new ImageSearchAPI(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
+var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
 var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```

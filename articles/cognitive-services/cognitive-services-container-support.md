@@ -3,19 +3,19 @@ title: 容器支援
 titleSuffix: Azure Cognitive Services
 description: 了解 Docker 容器如何使認知服務更接近您的資料。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 8ebc3d9f3339e2f703a1f374363b72b86f63d903
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304274"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204045"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -53,7 +53,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包含 Azure 認知服務中服務之功能的子集：
 
-| 服務 | 支援的定價層 | 容器 | 說明 |
+| 服務 | 支援的定價層 | 容器 | 描述 |
 |---------|----------|----------|-------------|
 |[異常偵測器](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Anomaly-Detector** |異常偵測器 API 可讓您監視和偵測時間序列資料使用 machine learning 中的異常。<br>[要求存取](https://aka.ms/adcontainer)|
 |[電腦視覺](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**辨識文字** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。<br/><br/>**重要事項：** 辨識文字容器目前只適用於英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
@@ -82,7 +82,7 @@ Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包
 Azure 認知服務容器可透過您的 Azure 訂用帳戶公開取得，而 Docker 容器映像則可以從 Microsoft Container Registry 或 Docker Hub 提取。 您可以使用 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) \(英文\) 命令來從適當的登錄下載容器映像。
 
 > [!IMPORTANT]
-> 目前，您必須完成註冊程序來存取下列容器，讓您填寫並提交問卷，以您、 您的公司和您要實作容器的使用案例相關問題。 在您被授與存取權並取得認證之後，接著便可以從由 Azure Container Registry 所裝載的私人容器登錄，提取適用於臉部和辨識文字容器的容器映像。
+> 目前，您必須完成註冊程序來存取下列容器，讓您填寫並提交問卷，以您、 您的公司和您要實作容器的使用案例相關問題。 一旦您要授與存取權，並提供認證，所以您可以再從私人容器登錄，由 Azure Container Registry 提取容器映像。
 > * [異常 dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [臉部](Face/face-how-to-install-containers.md)
 > * [表單的辨識器](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
@@ -106,6 +106,8 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>後續步驟
+
+深入了解[容器的配方](/containers/container-reuse-recipe.md)使用認知服務，您可以使用。
 
 安裝並探索由 Azure 認知服務中的容器所提供的功能：
 

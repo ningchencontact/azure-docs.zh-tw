@@ -2,19 +2,19 @@
 title: 什麼是定型和模型？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 模型是一種系統，提供特定語言組的翻譯。 成功定型的輸出就是模型。 當定型模型時，需要三種互斥的資料集：定型資料集、微調資料集和測試資料集。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-pawal
-ms.openlocfilehash: 530e87a84899b9659acd19f90c7c30ad3da3e7ba
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 5d82baf3e7458a42429df9dafc9c8d5e16744716
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382317"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436124"
 ---
 # <a name="what-are-trainings-and-models"></a>什麼是定型和模型？
 

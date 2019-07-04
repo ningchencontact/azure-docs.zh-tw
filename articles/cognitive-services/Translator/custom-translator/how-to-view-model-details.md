@@ -2,19 +2,19 @@
 title: 檢視模型詳細資料 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 任何專案底下的 [模型] 索引標籤都會顯示每個模型的詳細資料，例如模型名稱、模型狀態、BLEU 分數、定型、微調、測試句子計數。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 33b1d7e0e44ecae4bc8a7a6bf9c7e6dfd6b0eb66
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386876"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442459"
 ---
 # <a name="view-model-details"></a>檢視模型詳細資料
 

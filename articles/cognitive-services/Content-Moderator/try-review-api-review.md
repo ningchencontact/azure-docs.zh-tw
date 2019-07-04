@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607516"
 ---
 # <a name="create-human-reviews-rest"></a>建立人工審核 (REST)
 
@@ -27,7 +27,7 @@ ms.locfileid: "58882002"
 
 ## <a name="create-a-review"></a>建立檢閱
 
-若要建立的檢閱，請前往**[檢閱-建立](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面[審核工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
+若要建立的檢閱，請前往 **[檢閱-建立](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面[審核工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
 
 ![檢閱-Get 地區選取項目](images/test-drive-region.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "58882002"
 
 ### <a name="submit-your-request"></a>提交您的要求
   
-選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示此檢閱的識別碼。 複製此識別碼以在下列步驟中使用。
+選取 [傳送]  。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示此檢閱的識別碼。 複製此識別碼以在下列步驟中使用。
 
 ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-review-2.PNG)
 
@@ -149,7 +149,7 @@ ms.locfileid: "58882002"
 
 ![審查 - 建立主控台的取得結果](images/test-drive-review-3.PNG)
   
-選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容** 方塊中檢閱詳細資料以 JSON 格式顯示，如下所示：
+選取 [傳送]  。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容** 方塊中檢閱詳細資料以 JSON 格式顯示，如下所示：
 
 ```json
 {  

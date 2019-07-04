@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 04b331f3b63ad6400b4bb8efcd053d04ac88989b
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 2a02b56c2fa0f99166cfde0f0089273ed2af4cb9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595835"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073201"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>快速入門：偵測異常的時間序列資料使用異常偵測器 REST API 和C# 
 
@@ -33,9 +33,9 @@ ms.locfileid: "65595835"
 
 - [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。 若要在 Visual Studio 中的 NuGet 套件形式安裝 Newtonsoft.Json:
     
-    1. 以滑鼠右鍵按一下您的專案中**方案總管 中**。
-    2. 選取 **管理 NuGet 封裝**。
-    3. 搜尋*Newtonsoft.Json*並安裝套件。
+    1. 在 [方案總管]  中，以滑鼠右鍵按一下您的專案。
+    2. 選取 [管理 NuGet 套件]  。
+    3. 搜尋 Newtonsoft.Json  並安裝套件
 
 - 如果您使用 Linux/MacOS，可以使用在執行此應用程式[Mono](https://www.mono-project.com/)。
 

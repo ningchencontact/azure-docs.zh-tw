@@ -3,19 +3,19 @@ title: 翻譯工具文字 API V3.0 參考
 titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V3.0 參考文件。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387505"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357674"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -31,20 +31,20 @@ ms.locfileid: "66387505"
 
 ## <a name="base-urls"></a>基底 URL
 
-Microsoft Translator 透過多個資料中心位置來提供服務。 它們目前位於 6 個 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions)：
+Microsoft Translator 透過多個資料中心位置來提供服務。 它們會在目前位於 6 [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **美洲：** 美國西部 2 和美國西部 
 * **亞太地區：** 東南亞和南韓南部
 * **歐洲︰** 北歐和西歐
 
-對於 Microsoft Translator Text API 的要求大多會由最接近要求發起來源的資料中心負責處理。 如果資料中心故障，則可能會將要求路由傳送至該區域之外。
+對於 Microsoft Translator Text API 的要求大多會由最接近要求發起來源的資料中心負責處理。 資料中心故障，可能會要求路由傳送 Azure 地理位置以外。
 
-若要強制讓特定資料中心來處理要求，請將 API 要求中的全域端點變更為所需的區域端點：
+若要強制執行由特定的 Azure 地理位置來處理要求，請變更中的 API 要求的全域端點所需區域的端點：
 
-|描述|區域|基底 URL|
+|描述|Azure 地理位置|基底 URL|
 |:--|:--|:--|
-|Azure|全域|  api.cognitive.microsofttranslator.com|
-|Azure|北美洲|   api-nam.cognitive.microsofttranslator.com|
+|Azure|全域 （非區域）|   api.cognitive.microsofttranslator.com|
+|Azure|美國|   api-nam.cognitive.microsofttranslator.com|
 |Azure|歐洲|  api-eur.cognitive.microsofttranslator.com|
 |Azure|亞太地區|    api-apc.cognitive.microsofttranslator.com|
 
@@ -58,7 +58,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 |headers|描述|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶  。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
-|授權|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶  。<br/>此值是持有人權杖：`Bearer <token>`。|
+|Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶  。<br/>此值是持有人權杖：`Bearer <token>`。|
 |Ocp-Apim-Subscription-Region|*如果您要傳遞多服務的祕密金鑰，請使用與認知服務多服務訂用帳戶。*<br/>值為多服務的訂用帳戶的區域。 不使用多服務的訂用帳戶時，這個值是選擇性的。|
 
 ###  <a name="secret-key"></a>祕密金鑰
@@ -154,6 +154,7 @@ Authorization: Bearer <Base64-access_token>
 | 400075| 語言組與類別組合無效。|
 | 400077| 已超過要求大小上限。 檢視[要求限制](../request-limits.md)。|
 | 400079| 所要求用來在來源與目標語言之間進行翻譯的自訂系統不存在。|
+| 400080| 轉換不被支援的語言或指令碼。|
 | 401000| 要求未獲授權，因為認證遺漏或無效。|
 | 401015| 「提供的認證是 Speech API 的認證。 此要求需要的是「文字 API」的認證。 請使用「翻譯工具文字 API」的訂用帳戶。」|
 | 403000| 不允許此作業。|

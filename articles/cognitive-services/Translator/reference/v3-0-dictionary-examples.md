@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 字典範例方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典範例方法。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 526fc3e51691773e27530a0fa775f4f07ee94acd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: e4665157803409b884c3333d9a3514403e5630bd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435113"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>翻譯工具文字 API 3.0：字典範例
 

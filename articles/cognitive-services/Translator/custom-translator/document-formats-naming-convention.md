@@ -2,19 +2,19 @@
 title: 文件的格式和命名慣例 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 本文說明自訂翻譯工具中的文件格式和命名慣例。 此概念可協助您妥善管理文件名稱並避免發生命名衝突。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f7a83be510e608bb3f630a2fb1860502d8e4475
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443417"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>文件格式和命名慣例指引
 
@@ -37,7 +37,7 @@ ms.locfileid: "66386921"
 
 ## <a name="dictionary-formats"></a>字典格式
 
-針對字典，自訂翻譯工具可支援所有可用於定型集的檔案格式。 如果您使用 Excel 字典，請確定試算表的第一行/列應為語言代碼。
+若是字典，自訂轉譯器會支援所有的檔案格式支援的定型集。 如果您使用 Excel 字典中，第一行的試算表的資料列應該是語言代碼。
 
 ## <a name="zip-file-formats"></a>ZIP 檔案格式
 

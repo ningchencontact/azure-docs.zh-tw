@@ -3,26 +3,27 @@ title: 疑難排解 - QnAMaker
 titlesuffix: Azure Cognitive Services
 description: QnAMaker 由使用者 Azure 帳戶中裝載的元件所組成。 在進行偵錯時，使用者可能需要操作其 QnAMaker Azure 資源，或將關於其設定的其他資訊提供給 QnAMaker 支援小組。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5b65a121e895b4855c7c69d2b67e7055c88ddd08
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882081"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466051"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>支援 QnA Maker 服務和執行階段的疑難排解秘訣
 QnAMaker 由使用者 Azure 帳戶中裝載的元件所組成。 在進行偵錯時，使用者可能需要操作其 QnAMaker Azure 資源，或將關於其設定的其他資訊提供給 QnAMaker 支援小組。
 
 ## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>如何取得最新的 QnAMaker 執行階段更新
-QnAMaker 執行階段是您在 Azure 入口網站中[建立 QnAMaker 服務](./set-up-qnamaker-service-azure.md)時所部署的 Azure App Service 組件之一。 執行階段會定期進行更新。 若要將最新的更新套用至您的 QnAMaker 設定，您必須重新啟動 App Service。
+QnAMaker 執行階段是您在 Azure 入口網站中[建立 QnAMaker 服務](./set-up-qnamaker-service-azure.md)時所部署的 Azure App Service 組件之一。 執行階段會定期進行更新。 QnA Maker App Service 會在自動更新模式 post 我們 2019 年 4 月網站延伸模組版本 （版本 5）。 這已經被設計來處理在升級期間不需要停機。 您可以檢查您目前的版本，在 https://www.qnamaker.ai/UserSettings 。 如果您的版本是以前的舊版 5.x，您必須重新啟動應用程式服務，才能套用要套用至您的 QnAMaker 安裝最新的更新。
+
 1. 在 [Azure 入口網站](https://portal.azure.com)中移至 QnAMaker 服務 (資源群組)
 
     ![QnAMaker Azure 資源群組](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
@@ -36,7 +37,7 @@ QnAMaker 執行階段是您在 Azure 入口網站中[建立 QnAMaker 服務](./s
     ![QnAMaker AppService 重新啟動](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
 ## <a name="how-to-get-the-qnamaker-service-hostname"></a>如何取得 QnAMaker 服務主機名稱
-當您連絡 QnAMaker 支援人員或 UserVoice 時，QnAMaker 服務主機名稱將有助於偵錯的用途。 主機名稱是下列格式的 URL： https://*{hostname}*.azurewebsites.net.
+當您連絡 QnAMaker 支援人員或 UserVoice 時，QnAMaker 服務主機名稱將有助於偵錯的用途。 主機名稱是下列格式的 URL： https:// *{hostname}* .azurewebsites.net.
     
 1. 在 [Azure 入口網站](https://portal.azure.com)中移至 QnAMaker 服務 (資源群組)
 

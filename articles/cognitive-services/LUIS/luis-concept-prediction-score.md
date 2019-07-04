@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121752"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814006"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>預測分數表示意圖和實體的預測準確性
 
@@ -24,14 +24,14 @@ ms.locfileid: "58121752"
 
 預測分數介於零 (0) 到一 (1) 之間。 高信賴度 LUIS 分數的範例是 0.99。 低信賴度的範例是 0.01。 
 
-|分數值|信賴度|
+|分數值|Confidence|
 |--|--|
 |1|明確相符|
 |0.99|高信賴度|
 |0.01|低信賴度|
 |0|明確不相符|
 
-當語句產生低信賴度分數時，LUIS 會在 [LUIS](luis-reference-regions.md) 網站的 [意圖] 頁面上，將所識別的**已標示的意圖**以紅色框線標示來醒目提示。
+當語句產生低信賴度分數時，LUIS 會在 [LUIS](luis-reference-regions.md) 網站的 [意圖]  頁面上，將所識別的**已標示的意圖**以紅色框線標示來醒目提示。
 
 ![分數差異](./media/luis-concept-score/score-discrepancy.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "58121752"
 
 ## <a name="e-exponent-notation"></a>E (指數) 標記法
 
-預測分數可以使用指數標記法，「顯示成」高於 0-1 的範圍，例如 `9.910309E-07`。 此分數表示一個非常**小**的數字。
+預測分數可以使用指數標記法，「顯示成」  高於 0-1 的範圍，例如 `9.910309E-07`。 此分數表示一個非常**小**的數字。
 
 |E 標記法分數 |實際分數|
 |--|--|

@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61339580"
 ---
 # <a name="field-of-study-entity"></a>研究領域實體
 
 <sub> *下列屬性專屬於研究領域實體。(Ty = '6') </sub>
 
-Name    |說明                            |類型       | 作業
+名稱    |描述                            |類型       | 作業
 ------- | ------------------------------------- | --------- | ----------------------------
-id      |實體識別碼                              |Int64      |Equals
-FN      |研究領域標準化名稱         |字串     |Equals
-DFN     |研究領域顯示名稱            |字串     |None
+Id      |實體識別碼                              |Int64      |Equals
+FN      |研究領域標準化名稱         |String     |Equals
+DFN     |研究領域顯示名稱            |String     |None
 CC      |研究領域引用總數    |Int32      |None  
 ECC     |領域引用預估總數|Int32      |None
 FL      |研究領域階層中的層級     |Int32      |Equals, <br/>IsBetween
-FP.FN   |父代研究領域名稱             |字串     |Equals
+FP.FN   |父代研究領域名稱             |String     |Equals
 FP.FId  |父代研究領域識別碼               |Int64      |Equals
-FC.FN   |子系研究領域名稱              |字串     |Equals
+FC.FN   |子系研究領域名稱              |String     |Equals
 FC.FId  |子系研究領域識別碼                |Int64      |Equals

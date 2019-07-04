@@ -3,20 +3,20 @@ title: 安裝及執行容器
 titlesuffix: Face - Azure Cognitive Services
 description: 下載、 安裝及執行容器的臉部在本逐步解說教學課程。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306645"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272797"
 ---
 # <a name="install-and-run-face-containers"></a>安裝並執行臉部的容器
 
@@ -83,7 +83,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數。
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器，並且可在 Azure 上`Cognitive Services`**金鑰**頁面。 |
 |{BILLING_ENDPOINT_URI} | 計費的端點 URI 值是可在 Azure 上取得`Cognitive Services`**概觀**頁面。 例如 `https://westus.api.cognitive.microsoft.com/face/v1.0`。|

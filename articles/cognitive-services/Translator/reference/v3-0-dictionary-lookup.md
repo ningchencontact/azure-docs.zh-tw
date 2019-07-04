@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 字典查閱方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典查閱方法。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389798"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357705"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0：字典查閱
 

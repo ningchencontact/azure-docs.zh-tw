@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 語言方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 語言方法。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389721"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435087"
 ---
 # <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：Languages
 

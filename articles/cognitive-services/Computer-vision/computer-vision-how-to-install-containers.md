@@ -3,20 +3,20 @@ title: 如何安裝及執行容器 - 電腦視覺
 titlesuffix: Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於電腦視覺的容器。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 10e5060c06e1ebc591c7245ae588b5352a3328ca
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 8a5a66c720c0a591fe9d6c9864286d80f68ba599
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302836"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449357"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
 
@@ -89,7 +89,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 此命令會使用下列參數：
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，且可在 Azure`Cognitive Services`金鑰 頁面。  |
 |{BILLING_ENDPOINT_URI} | 計費端點 URI 值。 以下是範例： `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
@@ -125,7 +125,7 @@ ApiKey={BILLING_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 `https://localhost:5000`。
+針對容器 API 請使用主機 `http://localhost:5000`。
 
 ### <a name="asynchronous-text-recognition"></a>非同步文字辨識
 

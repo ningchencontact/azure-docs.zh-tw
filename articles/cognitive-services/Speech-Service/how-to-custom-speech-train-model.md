@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 194ae477bb3cba4ac7e3350da6b793c6fea6ecdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063925"
 ---
 # <a name="train-a-model-for-custom-speech"></a>自訂語音的定型模型
 
@@ -25,9 +25,9 @@ ms.locfileid: "65026718"
 
 如果您遇到辨識問題與您的模型，使用人類看得標籤文字記錄和其他訓練的相關的資料可協助以改善精確度。 您可以使用此表格來判斷要用來解決您問題的資料集：
 
-| 使用案例 | 資料類型 | 資料品質 |
+| 使用案例 | 数据类型 | 資料品質 |
 |----------|-----------|---------------|
-| 會將適當的名稱 | 與文字 （句子/談話） | 為 500 MB 的 10 MB |
+| 會將適當的名稱 | 相關的文字方塊 （句子/談話） | 為 500 MB 的 10 MB |
 | 文字會將因為輔色 | 相關的文字方塊 （發音） | 提供 misrecognized 的單字 |
 | 刪除或將常見的字詞 | 音訊 + 人類看得標示的文字記錄 | 10 到 1,000 轉譯時數 |
 

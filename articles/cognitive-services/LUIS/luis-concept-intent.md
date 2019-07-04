@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813451"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>在您 LUIS 應用程式中關於意圖的概念
 
@@ -42,7 +42,7 @@ ms.locfileid: "58371106"
 ## <a name="intent-compared-to-entity"></a>意圖與實體的比較
 意圖代表 Chatbot 應該為使用者執行的動作，且所根據的是整個語句。 實體代表語句內所包含的單字或片語。 一個語句只能有一個最高分的意圖，但可以有許多個實體。 
 
-<a name="how-do-intents-relate-to-entities"></a> 當使用者的「意圖」會觸發用戶端應用程式中的動作 (例如對 checkweather() 函式的呼叫) 時，請建立意圖。 然後建立實體來代表執行該動作所需的參數。 
+<a name="how-do-intents-relate-to-entities"></a> 當使用者的「意圖」  會觸發用戶端應用程式中的動作 (例如對 checkweather() 函式的呼叫) 時，請建立意圖。 然後建立實體來代表執行該動作所需的參數。 
 
 |範例意圖   | 實體 | 範例語句中的實體   | 
 |------------------|------------------------------|------------------------------|

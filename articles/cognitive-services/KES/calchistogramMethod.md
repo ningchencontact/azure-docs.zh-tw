@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814165"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 方法
-calcHistogram 方法會計算與結構化查詢運算式相符的物件，並計算其屬性值的分佈。
+calcHistogram  方法會計算與結構化查詢運算式相符的物件，並計算其屬性值的分佈。
 
 ## <a name="request"></a>要求
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Name|值|說明
+名稱|值|描述
 ----|-----|-----------
 expr | 文字字串 | 結構化查詢運算式，用來指定用於計算長條圖的索引實體。
 屬性 | 文字字串 (預設值 = "") | 回應中所要包含屬性的逗號分隔清單。
@@ -31,9 +31,9 @@ count   | 數字 (預設值 = 10) | 要傳回的結果數目。
 Offset  | 數字 (預設值 = 0) | 要傳回的第一個結果索引。
 
 ## <a name="response-json"></a>回應 (JSON)
-JSONPath | 說明
+JSONPath | 描述
 ----|----
-$.expr | 要求中的 expr 參數。
+$.expr | 要求中的 expr  參數。
 $.num_entities | 相符實體的總數。
 $.histograms |  長條圖的陣列，每個所要求的屬性各有一個長條圖。
 $.histograms[\*].attribute | 用於計算長條圖的屬性名稱。
@@ -50,9 +50,9 @@ $.aborted | 如果要求逾時，則為 true。
 
 `http://<host>/calchistogram?expr=And(Composite(Author.Name=='jaime teevan'),Year>=2013)&attributes=Year,Keyword&count=4`
 
-回應中會指出有 37 篇符合查詢運算式的論文。  Year 屬性有 3 個相異值，自 2013 年後的每一年各一個值。  3 個相異值的總計論文計數為 37。  對於每個 Year，長條圖會顯示值、總計自然對數可能性及相符實體計數。     
+回應中會指出有 37 篇符合查詢運算式的論文。  Year  屬性有 3 個相異值，自 2013 年後的每一年各一個值。  3 個相異值的總計論文計數為 37。  對於每個 Year  ，長條圖會顯示值、總計自然對數可能性及相符實體計數。     
 
-「關鍵字」的長條圖顯示有 34 個不同的關鍵字。 因為一篇論文可能與多個關鍵字相關聯，所以總計數 (53) 可以大於相符的實體數目。  雖然有 34 個相異值，但回應只包含前 4 個值，因為 "count=4" 參數。
+「關鍵字」  的長條圖顯示有 34 個不同的關鍵字。 因為一篇論文可能與多個關鍵字相關聯，所以總計數 (53) 可以大於相符的實體數目。  雖然有 34 個相異值，但回應只包含前 4 個值，因為 "count=4" 參數。
 
 ```json
 {

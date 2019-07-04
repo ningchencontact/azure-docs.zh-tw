@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072363"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
 您剛開始探索語音服務的功能嗎？ 您的應用程式是否要實作新功能？ 開發人員可遵循以下建議來取得協助。
 
 > [!div class="checklist"]
-> * 掌握「Azure 認知服務」的最新發展，或尋找與「語音服務」相關的最新消息。
+> * 掌握「Azure 認知服務」  的最新發展，或尋找與「語音服務」  相關的最新消息。
 > * 版本資訊包含所有版本的資訊。
 > * 搜尋以查看社群是否已經在討論您的問題，或者您想要實作的功能是否已有現有文件。
-> * 如果您找不到滿意的答案，請在 Stack Overflow 上發問。
-> * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub 問題。
-> * 在「使用者心聲論壇」中搜尋解決方案。
+> * 如果您找不到滿意的答案，請在 Stack Overflow  上發問。
+> * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub  問題。
+> * 在「使用者心聲論壇」  中搜尋解決方案。
 
 ## <a name="stay-informed"></a>掌握最新資訊
 
@@ -49,7 +49,7 @@ ms.locfileid: "65138147"
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples)
 ```
 
-其中，*{Your Search Terms}* 是您的搜尋關鍵字。
+其中， *{Your Search Terms}* 是您的搜尋關鍵字。
 
 ## <a name="create-an-azure-support-request"></a>建立 Azure 支援要求
 
@@ -64,7 +64,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 制訂問題時，請使用下列其中一個標記：
 
-|元件/區域  |Tags  |
+|元件/區域  |標記  |
 |---------|---------|
 |語音辨識 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |語音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
@@ -80,12 +80,12 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 
-範例通常會發佈為開放原始碼。 如有問題，請在各自的 GitHub 存放庫中建立「問題」。 您也可以提交提取要求。 下列清單包含範例存放庫的連結：
+範例通常會發佈為開放原始碼。 如有問題，請在各自的 GitHub 存放庫中建立「問題」  。 您也可以提交提取要求。 下列清單包含範例存放庫的連結：
 
 * [語音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [裝置 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [語音裝置 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-您可以建立 Bug 報告、功能要求，或詢問一般問題及分享最佳做法。 針對 Bug 報告，請依照所提供的範本進行操作：
+您可以建立 bug 報告，功能要求或要求的一般問題和分享最佳作法。 針對 Bug 報告，請依照所提供的範本進行操作：
 
 **描述 Bug**
 

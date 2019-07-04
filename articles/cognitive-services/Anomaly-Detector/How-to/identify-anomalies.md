@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61432300"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>作法：使用您的時間序列資料的異常偵測器 API  
 

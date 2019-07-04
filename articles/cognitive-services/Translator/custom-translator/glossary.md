@@ -2,19 +2,19 @@
 title: 詞彙 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 自訂翻譯工具詞彙
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: ae9b17dde20913c5d8d1201e66fcc924ce26a2b1
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 3781969f74b8314ebb4633697b922f47c12196ae
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389339"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443385"
 ---
 # <a name="glossary"></a>詞彙
 

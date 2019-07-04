@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60196636"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式，以提高預測準確度
 LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept-patterns.md)以提高預測準確度的顯示模式，以文字順序和 word 選擇的發音。 模式使用特定[語法](luis-concept-patterns.md#pattern-syntax)若要指出的位置：[實體](luis-concept-entity-types.md)，實體[角色](luis-concept-roles.md)，及選擇性的文字。
 
 ## <a name="add-template-utterance-to-create-pattern"></a>將範本語句新增至建立模式
-1. 在 [我的應用程式]頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能] 之下，選取左面板中的 [模式]。
+1. 在 [我的應用程式]  頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能]  之下，選取左面板中的 [模式]  。
 
     ![模式清單的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 

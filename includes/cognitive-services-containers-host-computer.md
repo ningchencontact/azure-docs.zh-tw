@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/22/2019
 ms.openlocfilehash: eda4395b46abdfdccb76c0960984b3f6d7614a48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124300"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174257"
 ---
 主機是可執行 Docker 容器的 x64 型電腦。 它可以是您內部部署的電腦，或是在 Azure 中裝載服務的 Docker，例如：
 

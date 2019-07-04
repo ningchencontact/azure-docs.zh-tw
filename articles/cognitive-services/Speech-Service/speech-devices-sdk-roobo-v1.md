@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409068"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>裝置:Roobo 智慧音訊的開發人員套件
+# <a name="device-roobo-smart-audio-dev-kit"></a>裝置：Roobo 智慧音訊的開發人員套件
 
 本文章提供 Roobo 智慧音訊開發套件的裝置特定資訊。
 

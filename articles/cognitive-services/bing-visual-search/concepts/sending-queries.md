@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: bd5118b42f32a521df8e3acfffb68391d4021791
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011685"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541539"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>將搜尋查詢傳送至 Bing 圖像式搜尋 API
 
-本文說明傳送給 Bing 圖像式搜尋 API 的要求所具有的參數和屬性，以及回應物件。
+本文說明傳送給 Bing 圖像式搜尋 API 的要求所具有的參數和屬性，以及回應物件。 
 
 您可以透過三種方式來取得關於影像的深入解析：
 
@@ -73,11 +73,11 @@ ms.locfileid: "60011685"
 
 以下是您的要求所應指定的查詢參數。 您應該至少包含`mkt`查詢參數：
 
-| Name | 值 | 類型 | 必要項 |
+| 名稱 | 值 | 類型 | 必要項 |
 | --- | --- | --- | --- |
-| <a name="cc" />cc  | 兩個字元的國家/地區代碼，表示結果來自何處。<br /><br /> 若您設定此參數，則您也必須指定 [Accept-Language](#acceptlanguage) 標頭。 Bing 會使用它從語言清單中找到的第一個支援的語言，然後將其與您所指定的國碼 (地區碼) 結合，以決定要傳回結果的市場。 如果語言清單中未包含支援的語言，Bing 會就近尋找支援要求的語言和市場。 或者，它可能會將彙總或預設的市場用於結果，而不指定市場。<br /><br /> 只有在指定了多個語言時，才需要使用此查詢參數和 `Accept-Language` 查詢參數，否則，您應使用 `mkt` 和 `setLang` 查詢參數。<br /><br /> 此參數和 [mkt](#mkt) 查詢參數彼此互斥 &mdash; 請勿同時指定。 | 字串 | 否       |
-| <a name="mkt" />mkt   | 產生結果的市場。 <br /><br /> **注意：** 如果知道的話，您應該一律指定的市場。 指定市場可協助 Bing 路由傳送要求，並傳回適當的最佳回應。<br /><br /> 此參數和 [cc](#cc) 查詢參數彼此互斥 &mdash; 請勿同時指定。 | 字串 | 是      |
-| <a name="safesearch" />safeSearch | 成人內容篩選器。 以下是可能的篩選值 (不區分大小寫)。<br /><ul><li>關閉 &mdash; 傳回含有成人文字或影像的網頁。<br /><br/></li><li>中度 &mdash; 傳回含有成人文字、但不含成人影像的網頁。<br /><br/></li><li>嚴格 &mdash; 不傳回含有成人文字或影像的網頁。</li></ul><br /> 預設值為「中度」。<br /><br /> **注意：** 如果要求來自於 Bing 的成人內容原則必須將 `safeSearch` 設為「嚴格」的市場，Bing 將會忽略 `safeSearch` 值並使用「嚴格」。<br/><br/>**注意：** 如果您使用`site:`查詢運算子沒有機會，回應可能會包含成人內容，不論什麼`safeSearch`查詢參數設為。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才可使用 `site:`。  | 字串 | 否       |
+| <a name="cc" />cc  | 兩個字元的國家/地區代碼，表示結果來自何處。<br /><br /> 若您設定此參數，則您也必須指定 [Accept-Language](#acceptlanguage) 標頭。 Bing 會使用它從語言清單中找到的第一個支援的語言，然後將其與您所指定的國碼 (地區碼) 結合，以決定要傳回結果的市場。 如果語言清單中未包含支援的語言，Bing 會就近尋找支援要求的語言和市場。 或者，它可能會將彙總或預設的市場用於結果，而不指定市場。<br /><br /> 只有在指定了多個語言時，才需要使用此查詢參數和 `Accept-Language` 查詢參數，否則，您應使用 `mkt` 和 `setLang` 查詢參數。<br /><br /> 此參數和 [mkt](#mkt) 查詢參數彼此互斥 &mdash; 請勿同時指定。 | String | 否       |
+| <a name="mkt" />mkt   | 產生結果的市場。 <br /><br /> **注意：** 如果知道的話，您應該一律指定的市場。 指定市場可協助 Bing 路由傳送要求，並傳回適當的最佳回應。<br /><br /> 此參數和 [cc](#cc) 查詢參數彼此互斥 &mdash; 請勿同時指定。 | String | 是      |
+| <a name="safesearch" />safeSearch | 成人內容篩選器。 以下是可能的篩選值 (不區分大小寫)。<br /><ul><li>關閉 &mdash; 傳回含有成人文字或影像的網頁。<br /><br/></li><li>中度 &mdash; 傳回含有成人文字、但不含成人影像的網頁。<br /><br/></li><li>嚴格 &mdash; 不傳回含有成人文字或影像的網頁。</li></ul><br /> 預設值為「中度」。<br /><br /> **注意：** 如果要求來自於 Bing 的成人內容原則必須將 `safeSearch` 設為「嚴格」的市場，Bing 將會忽略 `safeSearch` 值並使用「嚴格」。<br/><br/>**注意：** 如果您使用`site:`查詢運算子沒有機會，回應可能會包含成人內容，不論什麼`safeSearch`查詢參數設為。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才可使用 `site:`。  | String | 否       |
 | <a name="setlang" />setLang  | 用於使用者介面字串的語言。 指定使用的 ISO 639-1 兩個字母的語言程式碼的語言。 例如，英文的語言代碼是 EN。 預設值為 EN (英文)。<br /><br /> 語言雖然是選擇性的，但您應一律加以指定。 一般而言，除非使用者想要以不同的語言顯示使用者介面字串，否則您都會將 `setLang` 設定為 `mkt` 所指定的相同語言。<br /><br /> 此參數和 [Accept-Language](#acceptlanguage) 標頭彼此互斥 &mdash; 請勿同時指定。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 同樣地，回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。 | 字串 | 否   |
 
 ## <a name="headers"></a>headers
@@ -104,7 +104,7 @@ ms.locfileid: "60011685"
 
 ### <a name="content-form-types"></a>內容表單類型
 
-每個要求必須包含`Content-Type`標頭。 標頭必須設為： `multipart/form-data; boundary=\<boundary string\>`，其中\<界限字串\>唯一、 不透明的字串，用以識別表單資料的界限。 例如： `boundary=boundary_1234-abcd`。
+每個要求必須包含`Content-Type`標頭。 標頭必須設為： `multipart/form-data; boundary=\<boundary string\>`，其中\<界限字串\>唯一、 不透明的字串，用以識別表單資料的界限。 例如： `boundary=boundary_1234-abcd` 。
 
 如果映像的語彙基元或 URL，您就會傳送圖像式搜尋，下列程式碼片段會顯示您必須在 post 要求主體包含表單資料。 將表單資料必須包含`Content-Disposition`標頭，而且您必須將其`name`"knowledgeRequest"的參數。 如需詳細資訊`imageInfo`物件，請參閱要求。
 
@@ -192,6 +192,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## <a name="bing-visual-search-responses"></a>Bing 圖像式搜尋回應
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 如果影像有可用的深入解析，則回應會有一或多個包含深入解析的 `tags`。 `image`欄位包含輸入影像的深入解析語彙基元：
 

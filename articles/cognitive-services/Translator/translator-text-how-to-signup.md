@@ -3,20 +3,20 @@ title: 開始使用 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 了解如何註冊「翻譯工具文字 API」及取得訂用帳戶金鑰。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 2befe553cc19fc2a20f506fa8e505623c3f3f452
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: e51e6875681618b5f558d5c52ed5a2b14095b079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514608"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434959"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>如何註冊翻譯工具文字 API
 

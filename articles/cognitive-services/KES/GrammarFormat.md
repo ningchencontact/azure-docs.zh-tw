@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814870"
 ---
 # <a name="grammar-format"></a>文法格式
 
@@ -61,13 +61,13 @@ ms.locfileid: "57544319"
 
 `item` 元素會群組文法建構的序列。  這可以用來表示擴充序列的重複次數，或指定與 `one-of` 元素搭配的替代項目。
 
-當 `item` 元素不是 `one-of` 元素的子系時，其可藉由將 `repeat` 屬性指派給計數值來為括住的序列指定重複次數。  計數值 "n" (其中 n 是一個整數) 表示序列必須出現剛好 n 次。  計數值 "m-n" 表示可允許序列出現 m 到 n 次 (含)。  計數值 "m-" 會指定序列必須至少出現 m 次。  針對每個超過最小值的額外重複，選用屬性 `repeat-logprob` 可用來改變其解譯機率。
+當 `item` 元素不是 `one-of` 元素的子系時，其可藉由將 `repeat` 屬性指派給計數值來為括住的序列指定重複次數。  計數值 "n"  (其中 n  是一個整數) 表示序列必須出現剛好 n  次。  計數值 "m  -n  " 表示可允許序列出現 m  到 n  次 (含)。  計數值 "m  -" 會指定序列必須至少出現 m  次。  針對每個超過最小值的額外重複，選用屬性 `repeat-logprob` 可用來改變其解譯機率。
 
 ```xml
 <item repeat="1-" repeat-logprob="-10">...</item>
 ```
 
-當 `item` 元素顯示為 `one-of` 元素的子系時，這些元素會定義一組擴充的替代項目。  在此用法中，選用屬性 `logprob` 會指定不同選擇間的相對對數概率。  假設 0 和 1 之間的概率為 p，相對應的對數概率可計算為 log(p)，其中 log() 是自然對數函式。  如果未指定，`logprob` 的預設值為 0，並且不會改變解譯機率。  請注意，對數概率永遠為負數的浮點值或 0。
+當 `item` 元素顯示為 `one-of` 元素的子系時，這些元素會定義一組擴充的替代項目。  在此用法中，選用屬性 `logprob` 會指定不同選擇間的相對對數概率。  假設 0 和 1 之間的概率為 p  ，相對應的對數概率可計算為 log(p  )，其中 log() 是自然對數函式。  如果未指定，`logprob` 的預設值為 0，並且不會改變解譯機率。  請注意，對數概率永遠為負數的浮點值或 0。
 
 ```xml
 <one-of>
@@ -99,7 +99,7 @@ ms.locfileid: "57544319"
 
 ### <a name="attrref-element"></a>attrref 元素
 
-`attrref` 元素會參考索引屬性，以便從索引中查看針對屬性值進行的比對。  必要屬性 `uri` 會使用 "schemaName#attrName" 語法來指定索引結構描述名稱和屬性名稱。  前面必須有 `import` 元素來匯入名為 schemaName 的結構描述。  屬性名稱是相對應結構描述中定義的屬性名稱。
+`attrref` 元素會參考索引屬性，以便從索引中查看針對屬性值進行的比對。  必要屬性 `uri` 會使用 "schemaName  #attrName  " 語法來指定索引結構描述名稱和屬性名稱。  前面必須有 `import` 元素來匯入名為 schemaName  的結構描述。  屬性名稱是相對應結構描述中定義的屬性名稱。
 
 除了比對使用者輸入，`attrref` 元素也會傳回結構化的查詢物件作為輸出，此輸出會選取索引中對比輸入值的物件子集。  使用選用屬性 `name` 來指定儲存查詢物件輸出的變數名稱。  撰寫查詢物件時可搭配其他查詢物件，以形成更多複雜的運算式。  請參閱[語意解譯](SemanticInterpretation.md)來了解詳細資訊。  
 
@@ -128,8 +128,8 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 | 屬性類型 | Op 值 | 描述 | 索引作業
 |----|----|----|----|
-| 字串 | eq | 字串完全相符的比對 | equals |
-| 字串 | starts_with | 字串前置詞的比對 | starts_with |
+| String | eq | 字串完全相符的比對 | equals |
+| String | starts_with | 字串前置詞的比對 | starts_with |
 | Int32、Int64、Double | eq |  數字相等的比對 | equals |
 | Int32、Int64、Double | lt、le、gt、ge | 數字不相等的比對 (<、<=、>、>=) | is_between |
 | Int32、Int64、Double | starts_with | 對十進位表示法中的值進行前置詞比對 | starts_with |
@@ -160,7 +160,7 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 通過文法的解譯路徑機率是，所有 `<item>` 元素及在過程中所遇到語意函數的累積對數概率。  其說明比對特定輸入序列時的相對可能性。
 
-假設 0 和 1 之間的概率為 p，相對應的對數概率可計算為 log(p)，其中 log() 是自然對數函式。  使用對數概率可讓系統透過簡單的加法，來累積解譯路徑的聯合機率。  也可避免此類聯合機率計算常見的浮點反向溢位。  請注意，根據設計，對數概率永遠是負數的浮點值或 0，其中較大的值表示較高的可能性。
+假設 0 和 1 之間的概率為 p  ，相對應的對數概率可計算為 log(p  )，其中 log() 是自然對數函式。  使用對數概率可讓系統透過簡單的加法，來累積解譯路徑的聯合機率。  也可避免此類聯合機率計算常見的浮點反向溢位。  請注意，根據設計，對數概率永遠是負數的浮點值或 0，其中較大的值表示較高的可能性。
 
 ## <a name="example"></a>範例
 

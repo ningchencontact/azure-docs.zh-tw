@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607614"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>定義和使用仲裁作業 (REST)
 
@@ -51,7 +51,7 @@ ms.locfileid: "58756086"
 
 ### <a name="submit-your-request"></a>提交您的要求
 
-選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示作業的識別碼。 複製此識別碼以在下列步驟中使用。
+選取 [傳送]  。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示作業的識別碼。 複製此識別碼以在下列步驟中使用。
 
 ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ ms.locfileid: "58756086"
 
 ![作業-Get 地區選取項目](images/test-drive-region.png)
 
-輸入上述節所述的 REST 呼叫參數。 此步驟中，如**JobId**是建立工作時所收到的唯一 ID 字串。 選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示作業，以 JSON 格式，如下所示：
+輸入上述節所述的 REST 呼叫參數。 此步驟中，如**JobId**是建立工作時所收到的唯一 ID 字串。 選取 [傳送]  。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示作業，以 JSON 格式，如下所示：
 
 ```json
 {  

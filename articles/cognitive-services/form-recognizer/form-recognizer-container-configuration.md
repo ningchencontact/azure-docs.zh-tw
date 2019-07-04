@@ -2,40 +2,38 @@
 title: 設定容器 - 表單辨識器
 titleSuffix: Azure Cognitive Services
 description: 了解如何設定表單辨識器容器來剖析表單和資料表資料。
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
-ms.topic: overview
-ms.date: 05/31/2019
-ms.author: pafarley
-ms.openlocfilehash: 28acc2d1eafacb9e53fac3e3cce092738401f838
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 7e8e7a13cd02a6f3b109a84829dba2a81fd36aaa
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475395"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296240"
 ---
 # <a name="configure-form-recognizer-containers"></a>設定表單辨識器容器
 
-表單辨識器容器可讓客戶建置最能同時利用健全雲端功能和邊緣位置的應用程式架構。
+藉由使用 Azure 形式辨識器的容器，您可以建置已最佳化，可善用強大的雲端功能及邊緣位置的應用程式架構。
 
-**表單辨識器**容器執行階段環境可使用 `docker run` 命令引數來設定。 此容器有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括計費設定。
+您可以使用設定表單的辨識器的容器執行階段環境`docker run`命令引數。 此容器有數個必要設定和一些選擇性的設定。 幾個範例，請參閱["範例 docker run 命令"](#example-docker-run-commands)一節。 容器專屬設定包括計費設定。
 
 ## <a name="configuration-settings"></a>組態設定
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-setting) 設定，因此您必須同時為這三個設定提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](form-recognizer-container-howto.md#billing)。
+> [ `ApiKey` ](#apikey-configuration-setting)， [ `Billing` ](#billing-configuration-setting)，以及[ `Eula` ](#eula-setting)設定一起使用。 您必須提供有效的值，所有的三個設定;否則，不會啟動您的容器。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](form-recognizer-container-howto.md#billing)。
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，該值必須是有效金鑰，且適用於為 [`Billing`](#billing-configuration-setting) 組態設定而指定的「表單辨識器」  資源。
+`ApiKey`設定會指定用來追蹤容器的帳單資訊的 Azure 資源金鑰。 ApiKey 的值必須是有效的金鑰，如_形式辨識器_指定的資源， `Billing` 「 帳務組態設定 」 一節。
 
-此設定可在下列位置找到：
-
-* Azure 入口網站：**表單辨識器**資源管理，位於 [金鑰]  下方
+您可以找到此設定在 Azure 入口網站中，在**形式辨識器資源管理**下方**金鑰**。
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 設定
 
@@ -43,15 +41,13 @@ ms.locfileid: "66475395"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的「表單辨識器」  資源端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上「表單辨識器」  資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+`Billing`設定會指定端點 URI 的_形式辨識器_上用來測量之容器的帳單資訊的 Azure 資源。 此組態設定的值必須是有效的端點 URI 的_形式辨識器_在 Azure 上的資源。 容器會每隔 10 到 15 分鐘回報使用量。
 
-此設定可在下列位置找到：
+您可以找到此設定在 Azure 入口網站中，在**形式辨識器概觀**下方**端點**。
 
-* Azure 入口網站：**表單辨識器**的概觀，標示為 `Endpoint`
-
-|必要| Name | 資料類型 | 說明 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
-|yes| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -61,7 +57,7 @@ ms.locfileid: "66475395"
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>HTTP Proxy 認證設定
+## <a name="http-proxy-credentials-settings"></a>HTTP proxy 的認證設定
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -72,35 +68,37 @@ ms.locfileid: "66475395"
 
 ## <a name="mount-settings"></a>裝載設定
 
-使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
+使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以藉由指定指定的輸入的掛接或輸出掛接`--mount`選項[`docker run`命令](https://docs.docker.com/engine/reference/commandline/run/)。
 
-表單辨識器容器需要輸入和輸出裝載。 輸入掛接可以是唯讀模式，且必須有此掛接才能存取將會用於定型和計分的資料。 輸出掛接必須可供寫入，且會用來儲存模型和暫存資料。
+表單辨識器容器需要的輸入的掛接，以及輸出掛接。 輸入的裝載可以是唯讀的並使用於訓練和評分的資料存取的。 輸出掛接可寫入，而且您會使用它來儲存暫存資料與模型。
 
-主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](form-recognizer-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。
+主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，掛接的位置[主機電腦](form-recognizer-container-howto.md#the-host-computer)可能因為而無法存取 Docker 服務帳戶權限與主應用程式掛接位置的權限之間的衝突。
 
-|選用| Name | 資料類型 | 說明 |
+|選用| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
-|必要| `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。    <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
-|必要| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。  <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|必要項| `Input` | String | 輸入裝載的目標。 預設值為 `/input`。    <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
+|必要項| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。  <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令
 
-下列範例會使用組態設定來說明如何撰寫和使用 `docker run` 命令。  開始執行後，容器就會持續執行，直到您加以[停止](form-recognizer-container-howto.md#stop-the-container)。
+下列範例會使用組態設定來說明如何撰寫和使用 `docker run` 命令。 當它執行時，容器會繼續執行，直到您[將它停止](form-recognizer-container-howto.md#stop-the-container)。
 
-* **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為行接續字元。 請根據您主機作業系統的需求加以替換或移除。
-* **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
+* **行接續字元**：下列各節中的，Docker 命令會使用反斜線 (\\) 做為行接續字元。 取代或移除此字元，根據主機作業系統的需求。
+* **引數順序**：請勿變更引數的順序，除非您已熟悉 Docker 容器。
 
-請將 {_argument_name_} 取代為您自己的值：
+取代 {_數名稱_} 下表以您自己的值：
 
 | Placeholder | 值 |
 |-------------|-------|
-|{BILLING_KEY} | 此金鑰用來啟動容器，您可以在 Azure 入口網站的 [表單辨識器金鑰] 頁面上取得。  |
-|{BILLING_ENDPOINT_URI} | 在 Azure 入口網站的 [表單辨識器概觀] 頁面上可以取得計費端點 URI 值。|
-|{COMPUTER_VISION_API_KEY}| 在 Azure 入口網站的 [電腦視覺 API 金鑰] 頁面上可取得此金鑰。|
-|{COMPUTER_VISION_ENDPOINT_URI}|計費端點。 如果您使用雲端式電腦視覺資源，則可在 Azure 入口網站的 [電腦視覺 API 概觀] 頁面上取得 URI 值。 如果您使用 `cognitive-services-recognize-text` 容器，請在 `docker run` 命令中使用已傳遞至容器的計費端點 URL。|
+|{BILLING_KEY} | 用來啟動容器的索引鍵。 使用 Azure 入口網站表單辨識器金鑰 頁面上。  |
+|{BILLING_ENDPOINT_URI} | 使用 Azure 入口網站表單辨識器概觀頁面上的計費的端點 URI 值。|
+|{COMPUTER_VISION_API_KEY}| 使用 Azure 入口網站的電腦視覺 API 金鑰 頁面上的索引鍵。|
+|{COMPUTER_VISION_ENDPOINT_URI}|計費端點。 如果您使用雲端架構的電腦視覺資源，就有一個 URI 值可在 Azure 入口網站的電腦視覺 API 概觀 頁面。 如果您使用*認知服務-辨識-檢索*容器，使用計費會傳遞至容器中的端點 URL`docker run`命令。|
 
 > [!IMPORTANT]
-> 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing-configuration-setting)。
+> 若要執行的容器，請指定`Eula`， `Billing`，和`ApiKey`選項; 容器不啟動，否則為。 如需詳細資訊，請參閱[帳單](#billing-configuration-setting)。
+
+> [!NOTE] 
 > ApiKey 值是 [Azure 表單辨識器資源金鑰] 頁面中的**金鑰**。
 
 ## <a name="form-recognizer-container-docker-examples"></a>表單辨識器容器 Docker 範例
@@ -139,4 +137,4 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="next-steps"></a>後續步驟
 
-* 檢閱[如何安裝及執行容器](form-recognizer-container-howto.md)
+* 檢閱[安裝和執行的容器](form-recognizer-container-howto.md)。

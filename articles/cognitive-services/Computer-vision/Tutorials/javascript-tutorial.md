@@ -12,10 +12,10 @@ ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231655"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>使用 REST API 和 JavaScript 中使用電腦視覺功能
@@ -152,7 +152,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 #### <a name="run-the-analyze-function"></a>執行分析函式
 
-儲存 **analyze.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
+儲存 **analyze.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像]  按鈕來分析影像並查看結果。
 
 ### <a name="recognize-a-landmark"></a>辨識地標
 
@@ -257,7 +257,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 #### <a name="run-the-landmark-function"></a>執行地標函式
 
-儲存 **landmark.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
+儲存 **landmark.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像]  按鈕來分析影像並查看結果。
 
 ### <a name="recognize-celebrities"></a>辨識名人
 
@@ -358,11 +358,11 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 
 #### <a name="run-the-celebrities-function"></a>執行名人函式
 
-儲存 **celebrities.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像] 按鈕來分析影像並查看結果。
+儲存 **celebrities.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [分析影像]  按鈕來分析影像並查看結果。
 
 ### <a name="intelligently-generate-a-thumbnail"></a>以智慧方式產生縮圖
 
-「電腦視覺」的「縮圖」功能可從影像產生縮圖。 藉由使用「智慧型裁剪」功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
+「電腦視覺」的「縮圖」功能可從影像產生縮圖。 藉由使用「智慧型裁剪」  功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
 
 若要完成應用程式的縮圖功能，執行下列步驟：
 
@@ -477,7 +477,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 
 #### <a name="run-the-thumbnail-function"></a>執行縮圖的函式
 
-儲存 **thumbnail.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [產生縮圖] 按鈕來分析影像並查看結果。
+儲存 **thumbnail.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [產生縮圖]  按鈕來分析影像並查看結果。
 
 ### <a name="read-printed-text-ocr"></a>讀取列印文字 (OCR)
 
@@ -570,7 +570,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 
 #### <a name="run-the-ocr-function"></a>執行 OCR 函式
 
-儲存 **ocr.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像] 按鈕來分析影像並查看結果。
+儲存 **ocr.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像]  按鈕來分析影像並查看結果。
 
 ### <a name="read-handwritten-text-handwriting-recognition"></a>讀取手寫文字 (手寫辨識)
 
@@ -729,7 +729,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 
 #### <a name="run-the-handwriting-function"></a>執行手寫函式
 
-儲存 **handwriting.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰] 欄位中，然後確認在 [訂用帳戶區域] 中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像] 按鈕來分析影像並查看結果。
+儲存 **handwriting.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像]  按鈕來分析影像並查看結果。
 
 ## <a name="next-steps"></a>後續步驟
 

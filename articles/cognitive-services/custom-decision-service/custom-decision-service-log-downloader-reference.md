@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
 ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829985"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -43,12 +43,12 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 | 輸入 | 描述 | 預設值 |
 | --- | --- | --- |
-| `-h`、`--help` | 顯示說明訊息並結束。 | |
-| `-a APP_ID`、`--app_id APP_ID` | 應用程式識別碼 (也就是 Azure 儲存體 Blob 容器名稱)。 | 必要項 |
-| `-l LOG_DIR`、`--log_dir LOG_DIR` | 下載資料的基礎目錄 (已建立子資料夾)。  | 必要項 |
-| `-s START_DATE`、`--start_date START_DATE` | 下載開始日期 (包含)，格式為 *YYYY-MM-DD*。 | `None` |
-| `-e END_DATE`、`--end_date END_DATE` | 下載結束日期 (包含)，格式為 *YYYY-MM-DD*。 | `None` |
-| `-o OVERWRITE_MODE`、`--overwrite_mode OVERWRITE_MODE` | 可使用的覆寫模式。 | |
+| `-h`、 `--help` | 顯示說明訊息並結束。 | |
+| `-a APP_ID`、 `--app_id APP_ID` | 應用程式識別碼 (也就是 Azure 儲存體 Blob 容器名稱)。 | 必要項 |
+| `-l LOG_DIR`、 `--log_dir LOG_DIR` | 下載資料的基礎目錄 (已建立子資料夾)。  | 必要項 |
+| `-s START_DATE`、 `--start_date START_DATE` | 下載開始日期 (包含)，格式為 *YYYY-MM-DD*。 | `None` |
+| `-e END_DATE`、 `--end_date END_DATE` | 下載結束日期 (包含)，格式為 *YYYY-MM-DD*。 | `None` |
+| `-o OVERWRITE_MODE`、 `--overwrite_mode OVERWRITE_MODE` | 可使用的覆寫模式。 | |
 | | `0`:永不覆寫；詢問使用者目前是否使用 Blob。 | 預設值 |
 | | `1`:當檔案具有不同大小或目前正在使用 Blob 時，詢問使用者如何繼續。 | |
 | | `2`:一律覆寫；下載目前使用的 Blob。 | |
@@ -58,7 +58,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `--create_gzip` | 為 Vowpal Wabbit 建立 *gzip* 檔案。 | `False` |
 | `--delta_mod_t DELTA_MOD_T` | 時間範圍，以秒為單位，用於偵測檔案是否正在使用中。 | `3600` 秒 (`1` 小時) |
 | `--verbose` | 列印更多詳細資料。 | `False` |
-| `-v VERSION`、`--version VERSION` | 要使用的記錄程式下載程式版本。 | |
+| `-v VERSION`、 `--version VERSION` | 要使用的記錄程式下載程式版本。 | |
 | | `1`:用於未經處理的記錄 (僅適用於回溯相容性)。 | 取代 |
 | | `2`:適用於未處理過的記錄。 | 預設值 |
 

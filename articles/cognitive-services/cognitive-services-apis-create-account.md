@@ -3,106 +3,82 @@ title: 在 Azure 入口網站中建立認知服務帳戶
 titlesuffix: Azure Cognitive Services
 description: 如何在 Azure 入口網站中建立的 Azure 認知服務 Api 帳戶。
 services: cognitive-services
-author: garyericson
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: garye
-ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 06/11/2019
+ms.author: aahi
+ms.openlocfilehash: b857ee0395c447c8699b8f6a812853528812a7bd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145950"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445862"
 ---
-# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立認知服務帳戶
+# <a name="create-a-cognitive-services-account-using-the-azure-portal"></a>建立認知服務帳戶使用 Azure 入口網站
 
-在本快速入門中，您將了解如何註冊 Azure 認知服務，並建立單一服務或多服務訂用帳戶。 這些服務都是由 Azure [資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)的形式呈現，可讓您連線到 Azure 認知服務 API 中的一個或多個 API。
+在本快速入門中，您將了解如何註冊 Azure 認知服務，並建立具有單一服務 」 或 「 多服務的訂用帳戶的帳戶。 這些服務都是由 Azure [資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)的形式呈現，可讓您連線到 Azure 認知服務 API 中的一個或多個 API。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 有效的 Azure 訂用帳戶。 免費[建立帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="create-and-subscribe-to-an-azure-cognitive-services-resource"></a>建立並訂閱 Azure 認知服務資源
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-開始之前，請務必注意有兩種類型的 Azure 認知服務訂用帳戶。 第一個是單一服務訂用帳戶，例如電腦視覺或語音服務。 單一服務訂用帳戶僅限於該資源。 第二個是 Azure 認知服務的多服務訂用帳戶。 此訂用帳戶可讓您使用適用於大部分 Azure 認知服務的單一訂用帳戶。 此選項也會合併計費。 如需其他資訊，請參閱[認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/)。
+## <a name="create-a-new-azure-cognitive-services-resource"></a>建立新的 Azure 認知服務資源
 
->[!WARNING]
-> 目前，以下服務**不**支援多服務金鑰：QnA Maker、 語音服務、 自訂的視覺和異常偵測器。
+之前建立的資源，您必須使用 Azure 資源群組。 每個認知服務帳戶 （和其相關聯的 Azure 資源） 必須屬於 Azure 資源群組。 當您建立帳戶時，您可以選擇建立新的資源群組，或使用現有的帳戶。 這篇文章會示範如何建立新的資源群組。
 
-下一節會引導您建立單一或多服務訂用帳戶。
-
-
-### <a name="multi-service-subscription"></a>多服務訂用帳戶
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]  。
 
     ![選取認知服務 API](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
-2. 找到搜尋列，然後輸入：**認知服務**。
+2. 您可以找到可用的認知服務，使用下列方式：
+    * 使用 [搜尋] 列，並輸入您想要訂閱的服務名稱。
+        * 若要建立多重服務的訂用帳戶的資源，請輸入**認知服務**在搜尋 列，然後選取**認知服務**資源。
 
-    ![搜尋認知服務](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
+        ![搜尋認知服務](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
-3. 選取 [認知服務]。
+    * 若要查看所有可用的認知服務，請選取**AI + 機器學習服務**下方**Azure Marketplace**。 如果您沒有看到您感興趣的服務，按一下**查看所有**，然後捲動至**認知服務**。 按一下 **更多**檢視整個目錄的認知服務 Api。
+    
+        ![選取認知服務 API](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
-    ![選取 [認知服務]](media/cognitive-services-apis-create-account/azureMarketplaceMulti.png)
+3. 在 [建立]  頁面上，提供下列資訊：
 
-3. 在 [建立] 頁面上，提供下列資訊：
-
-    |    |    |
-    |--|--|
-    | **名稱** | 認知服務資源的描述性名稱。 我們建議使用描述性的名稱，例如 MyCognitiveServicesAccount。 |
-    | **訂用帳戶** | 選取您其中一個可用的 Azure 訂用帳戶。 |
-    | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
-    | **定價層** | 認知服務帳戶的費用取決於您選擇的選項和使用方式。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
-    | **資源群組** | [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)，將包含您的認知服務資源。 您可以建立新的群組，或將群組新增到既有的群組。 |
-
-    ![資源建立畫面](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
-
-### <a name="single-service-subscription"></a>單一服務訂用帳戶
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]。
-
-    ![選取認知服務 API](media/cognitive-services-apis-create-account/azurePortalScreen.png)
-
-2. 在 [Azure Marketplace] 底下，選取 [AI + 機器學習服務]。 如果您沒看到感興趣的服務，請按一下 [查看全部]，即可檢視認知服務 API 的完整目錄。
-
-    ![選取認知服務 API](media/cognitive-services-apis-create-account/azureMarketplace.png)
-
-3. 在 [建立] 頁面上，提供下列資訊：
+    > [!IMPORTANT]
+    > 因為您可能需要呼叫 Azure 認知服務時，請記住您的 Azure 位置。
 
     |    |    |
     |--|--|
-    | **名稱** | 認知服務資源的描述性名稱。 我們建議使用描述性的名稱，例如 *MyNameFaceAPIAccount*。 |
+    | **名稱** | 認知服務資源的描述性名稱。 我們建議使用描述性的名稱，例如 MyCognitiveServicesAccount  。 |
     | **訂用帳戶** | 選取您其中一個可用的 Azure 訂用帳戶。 |
-    | **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
+    | **Location** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
     | **定價層** | 認知服務帳戶的費用取決於您選擇的選項和使用方式。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
     | **資源群組** | [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)，將包含您的認知服務資源。 您可以建立新的群組，或將群組新增到既有的群組。 |
 
     ![資源建立畫面](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-## <a name="access-your-resource"></a>存取您的資源
 
-> [!NOTE]
-> 訂用帳戶擁有者可以藉由套用 [Azure 原則](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition)、指派「不允許的資源類型」原則定義，以及指定 **Microsoft.CognitiveServices/accounts** 作為目標資源類型，針對資源群組或訂用帳戶停用認知服務帳戶的建立。
+## <a name="get-the-keys-for-your-subscription"></a>取得訂用帳戶金鑰
 
-建立資源後，如果有釘選該資源，就可以在 Azure 儀表板上直接存取。 若未釘選，可以在 [資源群組]中找到。
+建立資源後，如果有釘選該資源，就可以在 Azure 儀表板上直接存取。 若未釘選，可以在 [資源群組]  中找到。 選取您的資源之後, 您可以取得的金鑰，方法是選取**金鑰**下方**資源管理**。
 
-在認知服務資源中，您可以使用 [概觀] 區段中的端點 URL 和金鑰，開始在應用程式中進行 API 呼叫。
+[!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-![資源畫面](media/cognitive-services-apis-create-account/resourceScreen.png)
+## <a name="clean-up-resources"></a>清除資源
 
-請記下的位置和索引鍵。 您可以選取來取得索引鍵**按鍵**下方**資源管理**。
+如果您想要清除和移除的認知服務訂用帳戶，您可以刪除資源或資源群組。 刪除資源群組時，也會刪除資源群組相關聯的任何其他資源。
 
-## <a name="next-steps"></a>後續步驟
+若要使用 Azure 入口網站刪除資源群組：
 
-> [!div class="nextstepaction"]
-> [驗證 Azure 認知服務要求](authentication.md)
+1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [資源群組]  以顯示資源群組的清單。
+2. 找出要刪除資源群組，並以滑鼠右鍵按一下 [更多資訊] 按鈕 （...） 右邊的清單。
+3. 選取 [刪除資源群組]  並且確認。
 
 ## <a name="see-also"></a>請參閱
 
-* [快速入門：從影像擷取手寫文字](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
-* [教學課程：建立應用程式來偵測並框出影像中的臉部](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
-* [建置自訂搜尋網頁](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [使用 Bot Framework 整合 Language Understanding (LUIS) 和 Bot](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+* [驗證 Azure 認知服務要求](authentication.md)
+* [Azure 認知服務有哪些？](Welcome.md)
+* [自然語言支援](language-support.md)
+* [Docker 容器支援](cognitive-services-container-support.md)

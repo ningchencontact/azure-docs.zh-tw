@@ -2,19 +2,19 @@
 title: 如何搜尋、編輯和刪除專案 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 自訂翻譯工具可讓您以不同方式有效率地管理專案。 您可以建立多個專案、依條件搜尋，以及編輯專案。 在自訂翻譯工具中也可刪除專案。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0e3397151d2f88e0e55b9526b3c41de19c019a6b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 3a19feb76b5f5e65f891dc9f4e9dbfbd642d15b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382552"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447948"
 ---
 # <a name="search-edit-and-delete-projects"></a>搜尋、編輯和刪除專案
 

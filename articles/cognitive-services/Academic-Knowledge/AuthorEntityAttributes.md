@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60609750"
 ---
 # <a name="author-entity"></a>作者實體
 <sub> *下列屬性專屬於作者實體。(Ty = '1') </sub>
 
-Name    |說明                            |類型       | 作業
+名稱    |描述                            |類型       | 作業
 ------- | ------------------------------------- | --------- | ----------------------------
-id      |實體識別碼                              |Int64      |Equals
-AuN     |作者標準化名稱                 |字串     |Equals
-DAuN    |作者顯示名稱                    |字串     |None
+Id      |實體識別碼                              |Int64      |Equals
+AuN     |作者標準化名稱                 |String     |Equals
+DAuN    |作者顯示名稱                    |String     |None
 CC      |作者引用總數            |Int32      |None  
 ECC     |作者引用預估總數  |Int32      |None
-E       |擴充中繼資料 (請參閱「擴充中繼屬性」表格)  |字串     |None  
+E       |擴充中繼資料 (請參閱「擴充中繼屬性」表格)  |String     |None  
 
 
 ## <a name="extended-metadata-attributes"></a>擴充中繼資料屬性 ##
 
-Name    | 說明               
+名稱    | 描述               
 --------|---------------------------    
 LKA.Afn     | 與作者相關聯的服務機關顯示名稱  
 LKA.AfId        | 與作者相關聯的服務機關實體識別碼

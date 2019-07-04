@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072382"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>快速入門：在 Android 上執行語音裝置 SDK 範例應用程式
 
@@ -37,7 +37,7 @@ ms.locfileid: "66425681"
 
 * 若要取得[語音服務的 Azure 訂用帳戶金鑰](get-started.md)
 
-* 如果您打算使用交談文字記錄必須使用[循環的麥克風裝置](get-speech-devices-sdk.md)，服務目前僅適用於 「 EN-US 」 和 「 ZH-CN 」 區域中，"centralus"和"eastasia 」 中。 您必須在其中一個區域，以使用交談文字記錄語音索引鍵。
+* 如果您打算使用交談文字記錄必須使用[循環的麥克風裝置](get-speech-devices-sdk.md)，這項功能目前僅適用於 「 EN-US 」 和 「 ZH-CN 」 區域中，"centralus"和"eastasia 」 中。 您必須在其中一個區域，以使用交談文字記錄語音索引鍵。
 
 * 如果您打算使用語音服務，以從使用者談話中識別出意圖 （或動作） 時，您將需要[Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)訂用帳戶。 若要深入了解 LUIS 和意圖辨識，請參閱[辨識語音意圖，有了 LUIS， C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)。
 

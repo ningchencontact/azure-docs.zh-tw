@@ -3,19 +3,19 @@ title: 要求限制 - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: 本文列出 Translator Text API 的要求限制。 費用是根據字元計數來產生，而不是根據受限於每個要求 5,000 個字元的要求頻率。 字元限制是以訂用帳戶為基礎，而 F0 受限於每小時 2 百萬個字元。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514645"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435039"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text 的要求限制
 
@@ -38,7 +38,11 @@ ms.locfileid: "66514645"
 
 ## <a name="character-limits-per-hour"></a>每小時的字元限制
 
-每小時的字元限制是以 Translator Text 訂用帳戶層為基礎。 每小時配額應該取用整個小時的平均。 如果您觸達或超過這些限制，或在短時間內傳送過大的配額中某個部分，您可能會收到超出配額的回應。
+每小時的字元限制是以 Translator Text 訂用帳戶層為基礎。 
+
+每小時配額應該取用整個小時的平均。 比方說，F0 層每小時的 2 百萬個字元的限制，在字元應該取用比每分鐘的滑動視窗 （2 百萬個字元除以 60 分鐘） 的大約 33,300 字元不更快。
+
+如果您觸達或超過這些限制，或在短時間內傳送過大的配額中某個部分，您可能會收到超出配額的回應。 在並行要求上沒有任何限制。
 
 | 層 | 字元限制 |
 |------|-----------------|

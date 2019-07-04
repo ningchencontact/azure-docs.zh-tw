@@ -11,18 +11,18 @@ ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kylestorck
 ms.openlocfilehash: 50de4d983ed24440d655cf5b9ba3fb5e33d8d7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61335342"
 ---
 # <a name="project-acoustics-known-issues"></a>專案樂器的已知問題
 使用 Project Acoustics 的「設計人員預覽」時，您可能會遇到下列已知問題。
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>將場景重新命名時遺失聲場參數
 
-如果您重新命名為場景，所有屬於該場景的原音參數將不會自動轉移至新的場景。 它們將仍存在於舊的資產檔案不過。 請在 [Editor] 目錄內您場景檔案的旁邊尋找 **SceneName_AcousticParameters.asset** 檔案。 請將您的檔案重新命名以反映新的場景名稱。
+如果您重新命名為場景，所有屬於該場景的原音參數將不會自動轉移至新的場景。 它們將仍存在於舊的資產檔案不過。 請在 [Editor]  目錄內您場景檔案的旁邊尋找 **SceneName_AcousticParameters.asset** 檔案。 請將您的檔案重新命名以反映新的場景名稱。
 
 ## <a name="unity-crashes-when-closing-project"></a>關閉專案時 Unity 當機
 
@@ -34,7 +34,7 @@ ms.locfileid: "58309940"
 
 ## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>我收到 'could not find metadata file System.Security.dll' (找不到中繼資料檔案 System.Security.dll) 的錯誤
 
-請確定播放器設定中的 [Scripting Runtime Version] \(指令碼處理執行階段版本\) 已設定為 [.NET 4.x Equivalent] \(.NET 4.x 對等\)，然後重新啟動 Unity。
+請確定播放器設定中的 [Scripting Runtime Version] \(指令碼處理執行階段版本\) 已設定為 [.NET 4.x Equivalent] \(.NET 4.x 對等\)  ，然後重新啟動 Unity。
 
 ## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>我在連線至 Azure 時發生驗證問題
 

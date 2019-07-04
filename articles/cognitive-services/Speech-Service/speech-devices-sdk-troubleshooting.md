@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wellsi
 ms.openlocfilehash: 87fb35f06dcb1d1e3fb8c3ae3be64c7448162f14
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65026764"
 ---
-# <a name="troubleshoot-the-speech-devices-sdk"></a>疑難排解語音裝置 SDK
+# <a name="troubleshoot-the-speech-devices-sdk"></a>針對語音裝置 SDK 進行疑難排解
 
 本文章提供當您使用語音裝置 SDK 時，可能會遇到的資訊可協助您解決問題。
 
@@ -25,11 +25,11 @@ ms.locfileid: "65026764"
 
 如果使用語音服務時，您會收到憑證失敗，，請確定您的裝置有正確的日期和時間：
 
-1. 移至 [設定] 。 在 [System] \(系統\) 底下，選取 [Date & time] \(日期與時間\)。
+1. 移至 [設定]  。 在 [System] \(系統\)  底下，選取 [Date & time] \(日期與時間\)  。
 
     ![在 [Settings] \(設定\) 底下，選取 [Date & time] \(日期與時間\)](media/speech-devices-sdk/qsg-12.png)
 
-1. 將 [Automatic date & time] \(自動設定日期與時間\) 選項保持選取。 在 [Select time zone] \(選取時區\) 底下，選取您目前的時區。
+1. 將 [Automatic date & time] \(自動設定日期與時間\)  選項保持選取。 在 [Select time zone] \(選取時區\)  底下，選取您目前的時區。
 
     ![選取日期與時區選項](media/speech-devices-sdk/qsg-13.png)
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072368"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
@@ -99,7 +99,7 @@ LUIS 可理解下列語言的語句：
 
 下列的文化特性具有自訂權杖化工具版本：
 
-|文化特性|版本|目的|
+|文化特性|Version|目的|
 |--|--|--|
 |德文<br>`de-de`|1.0.0|會將它們使用機器學習式 tokenizer 嘗試分解成其單一元件的複合字分割，token 化文字。<br>如果使用者輸入`Ich fahre einen krankenwagen`作為 [utterance] 中，它會變成`Ich fahre einen kranken wagen`。 允許的標記`kranken`和`wagen`分開為不同的實體。|
 |德文<br>`de-de`|1.0.2|會將它們分割的空間，token 化文字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`utterance 中，它維持單一語彙基元。 因此`krankenwagen`標示為單一實體。 |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020653"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466981"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -36,7 +36,7 @@ ms.locfileid: "65020653"
  ------|-------|--------
  美國西部 | `westus` | https://westus.cris.ai
  美國西部 2 | `westus2` | https://westus2.cris.ai
- 美國東部 | `eastus` | https://eastus.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
  美國東部 2 | `eastus2` | https://eastus2.cris.ai
  美國中部 | `centralus` | https://centralus.cris.ai
  美國中北部 | `northcentralus` | https://northcentralus.cris.ai
@@ -64,7 +64,7 @@ ms.locfileid: "65020653"
  澳大利亞 | 澳洲東部 | `australiaeast`
  歐洲 | 北歐 | `northeurope`
  歐洲 | 西歐 | `westeurope`
- 北美洲 | 美國東部 | `eastus`
+ 北美洲 | East US | `eastus`
  北美洲 | 美國東部 2 | `eastus2`
  北美洲 | 美國中南部 | `southcentralus`
  北美洲 | 美國中西部 | `westcentralus`
@@ -74,18 +74,32 @@ ms.locfileid: "65020653"
 
 這是 [Language Understanding 服務 (LUIS)](/azure/cognitive-services/luis/luis-reference-regions)所支援的發行區域子集。
 
+### <a name="voice-first-virtual-assistants"></a>語音優先虛擬助理
+
+[語音 SDK](speech-sdk.md)支援**語音第一個虛擬助理**在這些區域中的功能：
+
+區域 | 語音 SDK 參數
+-------|---------------------
+美國西部 | `westus`
+美國西部 2 | `westus2`
+East US | `eastus`
+美國東部 2 | `eastus2`
+西歐 | `westeurope`
+北歐 | `northeurope`
+東南亞 | `southeastasia`
+
 ## <a name="rest-apis"></a>REST API
 
 語音服務也會針對語音轉換文字與文字轉換語音要求公開 REST 端點。
 
 ### <a name="speech-to-text"></a>語音轉文字
 
-如需語音轉換文字參考文件，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
+語音轉換文字的參考文件，請參閱[語音轉換文字 API](rest-speech-to-text.md)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>文字轉換語音
 
-如需文字轉換語音參考文件，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
+如需文字轉換語音的參考文件，請參閱[文字轉換語音 API](rest-text-to-speech.md)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

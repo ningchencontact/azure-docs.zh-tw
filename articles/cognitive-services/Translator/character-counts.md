@@ -3,19 +3,19 @@ title: 字元計數 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API 如何計算字元。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cfd5823009b66b6b525c7add1fb56953d3c1a507
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514298"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445254"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>翻譯工具文字 API 如何計算字元
 

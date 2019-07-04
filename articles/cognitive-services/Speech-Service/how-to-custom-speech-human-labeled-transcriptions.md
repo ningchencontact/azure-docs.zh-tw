@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f0b467284872f3d936984741c6d092705008a5a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060864"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>如何建立可標示為轉譯
 
@@ -78,7 +78,7 @@ ms.locfileid: "65026728"
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## <a name="mandarin-chinese-zh-cn"></a>國語中文 (zh-cn)
+## <a name="mandarin-chinese-zh-cn"></a>國語簡體中文 (ZH-CN)
 
 人類看得標示為轉譯普通話中文音訊必須是 utf-8 編碼的位元組順序標記。 請避免使用半形標點符號字元。 這些字元可以包含不小心準備文書處理程式中的資料，或擷取來自網頁的資料時。 如果這些字元存在，請務必使用適當的全形替代來更新這些項目。
 

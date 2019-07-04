@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528147"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813321"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>在 LUIS 入口網站使用 1000 個語句進行批次測試
 

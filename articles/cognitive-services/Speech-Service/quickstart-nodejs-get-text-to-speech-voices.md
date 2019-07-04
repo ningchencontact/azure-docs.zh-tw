@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58887115"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067567"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>快速入門：取得文字轉換語音的語音使用 Node.js 的清單
 
@@ -39,7 +39,7 @@ ms.locfileid: "58887115"
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 
@@ -104,9 +104,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>組合在一起
 
-就快要完成了。 最后一步是创建异步函数。 此函式會讀取環境變數中的訂用帳戶金鑰，取得權杖，等候要求完成，然後寫入至檔案的 JSON 回應。
+就快要完成了。 最後一個步驟是建立非同步函式。 此函式會讀取環境變數中的訂用帳戶金鑰，取得權杖，等候要求完成，然後寫入至檔案的 JSON 回應。
 
-如果不熟悉环境变量，或者首选在测试时将订阅密钥硬编码为字符串，请将 `process.env.SPEECH_SERVICE_KEY` 替换为字符串形式的订阅密钥。
+如果您不熟悉的環境變數，或想要測試與您的訂用帳戶金鑰硬式編碼為字串，取代`process.env.SPEECH_SERVICE_KEY`使用您的訂用帳戶金鑰，做為字串。
 
 ```javascript
 // Use async and await to get the token before attempting

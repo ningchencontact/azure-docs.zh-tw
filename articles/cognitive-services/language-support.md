@@ -1,21 +1,21 @@
 ---
 title: 語言支援
-titleSuffix: Cognitive Services - Azure
+titleSuffix: Azure Cognitive Services
 description: Azure 認知服務可讓您建置用來觀察、聆聽、了解使用者以及與其交談的應用程式。 這些服務共支援三十餘種語言，讓使用者能夠自然地與您的應用程式溝通。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 06/16/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0883b8e5ae2eab39fca6434141d6591432ad341e
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 55127ee1226d7345f825c9571c16f12eaa956d94
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "65595726"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163867"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Microsoft 認知服務的自然語言支援
 

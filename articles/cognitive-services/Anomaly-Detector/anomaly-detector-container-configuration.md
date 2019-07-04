@@ -3,18 +3,18 @@ title: 設定容器-異常偵測器
 titleSuffix: Azure Cognitive Services
 description: 異常偵測器的容器執行階段環境的設定使用`docker run`命令引數。 此容器有數個必要的設定，和一些選擇性的設定。
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
-ms.topic: article
-ms.date: 05/07/2019
-ms.author: aahi
-ms.openlocfilehash: 0d09ce29aa5431de3eb82e5d9fe7440d4e3352e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: e6b5bcefb2a8df136d37dad062fbca651c312dc4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026800"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275508"
 ---
 # <a name="configure-anomaly-detector-containers"></a>設定異常偵測器的容器
 
@@ -28,12 +28,12 @@ ms.locfileid: "65026800"
 |--|--|--|
 |是|[ApiKey](#apikey-configuration-setting)|用來追蹤帳單資訊。|
 |否|[ApplicationInsights](#applicationinsights-setting)|可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援新增至容器。|
-|是|[計費](#billing-configuration-setting)|指定 Azure 上服務資源的端點 URI。|
+|是|[Billing](#billing-configuration-setting)|指定 Azure 上服務資源的端點 URI。|
 |是|[Eula](#eula-setting)| 表示您已接受容器的授權。|
 |否|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
 |否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP Proxy 以進行輸出要求。|
-|否|[記錄](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
-|否|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
+|否|[Logging](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
+|否|[Mounts](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
 
 > [!IMPORTANT]
 > 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-setting) 設定，因此您必須同時為這三個設定提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](anomaly-detector-container-howto.md#billing)。
@@ -58,7 +58,7 @@ ms.locfileid: "65026800"
 
 * Azure 入口網站：**異常偵測器**概觀，標示為 `Endpoint`
 
-|必要項| 名稱 | 資料類型 | 描述 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
 |是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
@@ -87,7 +87,7 @@ ms.locfileid: "65026800"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](anomaly-detector-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 資料類型 | 描述 |
+|選用| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 異常偵測器容器不要使用這個動作。|
 |選用| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -96,12 +96,12 @@ ms.locfileid: "65026800"
 
 下列範例會使用組態設定來說明如何撰寫和使用 `docker run` 命令。  開始執行後，容器就會持續執行，直到您加以[停止](anomaly-detector-container-howto.md#stop-the-container)。
 
-* **行接續字元**：下列各節中的，Docker 命令會使用反斜線， `\`，做為 bash shell 的行接續字元。 請根據您主機作業系統的需求加以替換或移除。 例如，適用於 windows 的行接續字元是插入號， `^`。 插入號取代反斜線。 
+* **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為 bash shell 的行接續字元。 請根據您主機作業系統的需求加以替換或移除。 例如，適用於 Windows 的行接續字元是插入號 `^`。 以插入號取代反斜線。 
 * **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
 
 在方括號中的值取代`{}`，以您自己的值：
 
-| Placeholder | Value | 格式或範例 |
+| Placeholder | 值 | 格式或範例 |
 |-------------|-------|---|
 |{BILLING_KEY} | 異常偵測器資源端點索引鍵。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 包括區域的計費端點值。|`https://westus2.api.cognitive.microsoft.com`|

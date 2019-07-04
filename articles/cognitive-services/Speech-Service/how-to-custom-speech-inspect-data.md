@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064048"
 ---
 # <a name="inspect-custom-speech-data"></a>檢查自訂語音資料
 
@@ -34,9 +34,9 @@ ms.locfileid: "65026712"
 
 1. 瀏覽至**語音轉換文字 > 客製化語音 > 測試**。
 2. 按一下 **加入測試**。
-3. 選取 **檢查品質 （僅限音訊的資料）**。 為測試的名稱、 描述，然後選取 音訊資料集。
+3. 選取 **檢查品質 （僅限音訊的資料）** 。 為測試的名稱、 描述，然後選取 音訊資料集。
 4. 選取您想要測試的最多兩個模型。
-5. 按一下頁面底部的 [新增] 。
+5. 按一下頁面底部的 [新增]  。
 
 已成功建立測試之後，您可以比較模型並排顯示。
 
@@ -46,7 +46,7 @@ ms.locfileid: "65026712"
 
 為了檢查並排顯示比較，您可以切換包括插入、 刪除和替代的各種錯誤類型。 藉由接聽音訊，並比較每個資料行 （顯示人類看得標示為轉譯及兩個語音轉換文字模型的結果） 中的辨識結果，您可以決定哪一個模型符合您的需求，以及需要改進的地方。
 
-檢查品質測試適合驗證的語音辨識端點品質是否足夠的應用程式。  目標量值的精確度，需要轉譯的音訊，請依照下列測試中的指示：評估精確度。
+檢查品質測試適合驗證的語音辨識端點品質是否足夠的應用程式。  針對精確度目標量值，需要轉譯的音訊，請依照下列中的指示[評估精確度](how-to-custom-speech-evaluate-data.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

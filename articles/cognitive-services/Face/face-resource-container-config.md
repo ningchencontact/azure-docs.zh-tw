@@ -3,20 +3,20 @@ title: 設定容器
 titlesuffix: Face - Azure Cognitive Services
 description: 適用於容器的組態設定。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: d30c2218fe20d6b760f379caf52ca0bf97e1c750
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677777"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071484"
 ---
 # <a name="configure-face-docker-containers"></a>設定臉部 Docker 容器
 
@@ -51,9 +51,9 @@ ms.locfileid: "59677777"
 
 請記得新增_臉部_路由至端點 URI，如範例所示。 
 
-|必要項| Name | 資料類型 | 描述 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -61,7 +61,7 @@ ms.locfileid: "59677777"
 
 `CloudAI` 區段中的組態設定能提供對您容器而言是唯一的容器特定選項。 下列是 `CloudAI` 區段中支援臉部容器的設定和物件
 
-| Name | 資料類型 | 描述 |
+| 名稱 | 数据类型 | 描述 |
 |------|-----------|-------------|
 | `Storage` | Object | 臉部容器所使用的儲存體案例。 如需適用於 `Storage` 物件之儲存體案例和相關設定的詳細資訊，請參閱[儲存體案例設定](#storage-scenario-settings) |
 
@@ -80,11 +80,11 @@ ms.locfileid: "59677777"
 
 儲存體案例和相關的組態設定是由 `CloudAI` 組態區段底下的 `Storage` 物件所管理。 `Storage` 物件提供下列組態設定：
 
-| Name | 資料類型 | 描述 |
+| 名稱 | 数据类型 | 描述 |
 |------|-----------|-------------|
-| `StorageScenario` | 字串 | 容器所支援的儲存體案例。 可以使用下列值<br/>`Memory`：預設值。 容器會針對單一節點的暫時性使用方式，使用非永續性、非分散式且記憶體內部的儲存體。 如果停止或移除容器，系統便會終結該容器的儲存體。<br/>`Azure`：容器使用 Azure 資源作為儲存體。 如果停止或移除容器，該容器的儲存體仍會保存。|
-| `ConnectionStringOfAzureStorage` | 字串 | 容器所使用之 Azure 儲存體資源的連接字串。<br/>此設定只有在已針對 `StorageScenario` 組態設定指定 `Azure` 的情況下才會套用。 |
-| `ConnectionStringOfCosmosMongo` | 字串 | 容器所使用之 Azure Cosmos DB 資源的 MongoDB 連接字串。<br/>此設定只有在已針對 `StorageScenario` 組態設定指定 `Azure` 的情況下才會套用。 |
+| `StorageScenario` | String | 容器所支援的儲存體案例。 可以使用下列值<br/>`Memory`：預設值。 容器會針對單一節點的暫時性使用方式，使用非永續性、非分散式且記憶體內部的儲存體。 如果停止或移除容器，系統便會終結該容器的儲存體。<br/>`Azure`：容器使用 Azure 資源作為儲存體。 如果停止或移除容器，該容器的儲存體仍會保存。|
+| `ConnectionStringOfAzureStorage` | String | 容器所使用之 Azure 儲存體資源的連接字串。<br/>此設定只有在已針對 `StorageScenario` 組態設定指定 `Azure` 的情況下才會套用。 |
+| `ConnectionStringOfCosmosMongo` | String | 容器所使用之 Azure Cosmos DB 資源的 MongoDB 連接字串。<br/>此設定只有在已針對 `StorageScenario` 組態設定指定 `Azure` 的情況下才會套用。 |
 
 例如，下列命令會指定 Azure 儲存體案例，並針對用來儲存臉部容器資料的 Azure 儲存體和 Cosmos DB 資源提供範例連接字串。
 
@@ -122,10 +122,10 @@ ms.locfileid: "59677777"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](face-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| Name | 資料類型 | 描述 |
+|選用| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | 字串 | 臉部容器不會使用此項目。|
-|選用| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|選用| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 

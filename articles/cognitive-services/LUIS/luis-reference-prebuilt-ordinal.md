@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 752a26b21854ec9030fc1945024ae461445815a9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 16529c8334ae9f2eed5715abb22dcbcdbebec7c4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146723"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485119"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的序數預先建置實體
 序號是一組物件內的數值表示法：`first`、`second`、`third`。 因為此實體已經定型，所以您不需要將包含序數的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 ordinal 實體。 
@@ -130,4 +130,4 @@ ms.locfileid: "65146723"
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[百分比](luis-reference-prebuilt-percentage.md)，[電話號碼](luis-reference-prebuilt-phonenumber.md)，並[溫度](luis-reference-prebuilt-temperature.md)實體。 
+深入了解[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)，[電話號碼](luis-reference-prebuilt-phonenumber.md)，並[溫度](luis-reference-prebuilt-temperature.md)實體。 

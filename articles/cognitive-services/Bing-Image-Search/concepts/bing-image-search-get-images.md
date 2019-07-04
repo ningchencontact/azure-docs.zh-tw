@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389421"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542771"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 從 Web 取得影像
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+使用[q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query)查詢參數，您的 url 編碼的搜尋字詞。 例如，如果您輸入 *sailing dinghies*，請將 `q` 設定為 `sailing+dinghies` 或 `sailing%20dinghies`。
+
 > [!IMPORTANT]
 > * 所有要求都必須是從伺服器進行，不能從用戶端進行。
 > * 如果這是您第一次呼叫任何 Bing 搜尋 API，請勿包含用戶端識別碼標頭。 如果您先前已呼叫 Bing API，並且傳回了使用者和裝置組合的用戶端識別碼，才需包含用戶端識別碼。
-> * 影像必須以回應中提供的順序來顯示。
 
 ## <a name="get-images-from-a-specific-web-domain"></a>從特定 Web 網域中取得影像
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。
-
-下列範例示範如何從 Bing 在過去一週中探索的 ContosoSailing.com 取得小型影像。  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>篩選影像
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 若要從特定網域取得影像，請使用 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
 
- > [!NOTE]
- > 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。
-
 下列範例示範如何從 Bing 在過去一週中探索的 ContosoSailing.com 取得小型影像。  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Bing 影像搜尋的回應格式
 
 從 Bing 傳回的回應訊息包含[影像](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images)答案，其中包含認知服務判斷為與查詢相關的影像清單。 清單中的每個[影像](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image)物件包含下列影像相關資訊：URL、影像大小、影像維度、影像編碼格式、影像縮圖的 URL 及縮圖的維度。
+
+> [!NOTE]
+> * 影像必須以回應中提供的順序來顯示。
+> * 因為 URL 格式和參數有變更恕不另行通知，請使用所有的 Url，做為是。 您不應該相依於 URL 格式或除了註明的參數。
 
 ```json
 {

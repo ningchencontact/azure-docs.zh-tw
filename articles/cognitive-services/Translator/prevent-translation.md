@@ -3,19 +3,19 @@ title: 防止翻譯內容 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: 使用 Translator Text API 防止翻譯內容。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: 32e5ddecc336175443fc5e8743b19b480de71c6b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 02c4e90879b81e29f3972d262f36d5c6b6d8e841
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515265"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448276"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>如何使用 Translator Text API 防止翻譯內容
 

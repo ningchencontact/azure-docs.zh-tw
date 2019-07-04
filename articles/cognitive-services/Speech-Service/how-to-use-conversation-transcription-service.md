@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jhakulin
-ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073092"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>轉譯多名參與者交談與 Speech SDK
 
@@ -43,7 +43,7 @@ ms.locfileid: "65604405"
 * 建立語音簽章的輸入音訊 wave 檔應該放在 16 位元範例、 16 kHz 範例速率，與單一通道 (Mono) 格式。
 * 每個音訊範例建議的長度為 30 秒到兩分鐘之間。
 
-下列範例示範兩種不同的方式，來建立語音簽章 [使用 REST API]。(https://aka.ms/cts/signaturegenservice)從C#:
+下列範例示範兩種不同的方式建立的語音簽章[使用 REST API](https://aka.ms/cts/signaturegenservice)從C#:
 
 ```csharp
 class Program

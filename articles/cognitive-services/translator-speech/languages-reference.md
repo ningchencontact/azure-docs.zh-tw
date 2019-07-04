@@ -3,20 +3,20 @@ title: 翻譯工具語音 API 語言方法
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具語音 API 語言方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4abe6330d0359f7d7c922facecaaf1a8b1fc7174
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446961"
 ---
 # <a name="translator-speech-api-languages"></a>翻譯工具語音 API：Languages
 
@@ -38,7 +38,7 @@ ms.locfileid: "57435757"
 * **文字翻譯：** 使用查詢參數 `scope=text` 來擷取可供翻譯繕寫之文字的語言集合。
 * **文字轉換語音：** 使用查詢參數 `scope=tts` 來擷取可供將翻譯的文字合成回語音的語言和語音集合。
 
-用戶端可以透過指定所選的逗號分隔清單，同時擷取多個集合。 例如： `scope=speech,text,tts`。
+用戶端可以透過指定所選的逗號分隔清單，同時擷取多個集合。 例如： `scope=speech,text,tts` 。
 
 成功的回應是 JSON 物件，其中的屬性包含每個所要求集合。
 
@@ -134,20 +134,20 @@ Langagues { speech (object, optional), text (object, optional), tts (object, opt
 
 |頁首|描述|類型|
 :--|:--|:--|
-X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之用。|字串|
+X-RequestId|伺服器產生用來識別要求的值，並作為疑難排解之用。|string|
 
 ### <a name="parameters"></a>參數
 
 |參數|描述|參數類型|資料類型|
 |:--|:--|:--|:--|
-|api-version    |用戶端要求的 API 版本。 允許的值包括：`1.0`。|query|字串|
-|scope  |要傳回至用戶端的支援語言或語音集合。 此參數是以關鍵字的逗號分隔清單來指定。 可使用以下關鍵字：<ul><li>`speech`:提供支援繕寫語音的語言集合。</li><li>`tts`:提供支援文字語音轉換的語音集合。</li><li>`text`:提供支援翻譯文字的語言集合。</li></ul>如果沒有指定值，則 `scope` 的值預設為 `text`。|query|字串|
-|X-ClientTraceId    |用來追蹤要求的用戶端產生 GUID。 為了協助對問題進行疑難排解，用戶端應該隨著每個要求提供新的值並予以記錄。|頁首|字串|
-|Accept-Language    |回應中的某些欄位是語言或區域名稱。 使用此參數來定義傳回這些名稱的語言。 語言是透過提供語式正確的 BCP 47 語言標記來指定的。 從使用 `text` 範圍傳回的語言識別碼清單選取標籤。 對於不支援的語言，會以英文提供其名稱。<br/>舉例而言，值 `fr` 可要求傳回法文名稱，使用值 `zh-Hant` 則可要求繁體中文的名稱。|頁首|字串|
+|api-version    |用戶端要求的 API 版本。 允許的值包括：`1.0`。|query|string|
+|scope  |要傳回至用戶端的支援語言或語音集合。 此參數是以關鍵字的逗號分隔清單來指定。 可使用以下關鍵字：<ul><li>`speech`:提供支援繕寫語音的語言集合。</li><li>`tts`:提供支援文字語音轉換的語音集合。</li><li>`text`:提供支援翻譯文字的語言集合。</li></ul>如果沒有指定值，則 `scope` 的值預設為 `text`。|query|string|
+|X-ClientTraceId    |用來追蹤要求的用戶端產生 GUID。 為了協助對問題進行疑難排解，用戶端應該隨著每個要求提供新的值並予以記錄。|頁首|string|
+|Accept-Language    |回應中的某些欄位是語言或區域名稱。 使用此參數來定義傳回這些名稱的語言。 語言是透過提供語式正確的 BCP 47 語言標記來指定的。 從使用 `text` 範圍傳回的語言識別碼清單選取標籤。 對於不支援的語言，會以英文提供其名稱。<br/>舉例而言，值 `fr` 可要求傳回法文名稱，使用值 `zh-Hant` 則可要求繁體中文的名稱。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400|不正確的要求。 請檢查輸入參數，以確保參數有效。 回應物件包括錯誤的更詳細描述。|
 |429|太多要求。|

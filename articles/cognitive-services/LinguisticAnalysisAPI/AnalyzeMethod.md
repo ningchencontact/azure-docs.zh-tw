@@ -12,11 +12,11 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61401180"
 ---
 # <a name="analyze-method"></a>分析方法
 
@@ -26,7 +26,7 @@ ms.locfileid: "57431133"
 **分析** REST API 可用來分析指定的自然語言輸入。
 可能會牽涉到只尋找[句子和語彙基元](Sentences-and-Tokens.md)中，輸入，尋找[一部分的語音標記](POS-tagging.md)，或尋找[顧客群樹狀](Constituency-Parsing.md)。
 您可以挑選相關分析器來指定您想要的結果。
-若要列出所有可用的分析器，請參閱**[分析器](AnalyzersMethod.md)**。
+若要列出所有可用的分析器，請參閱 **[分析器](AnalyzersMethod.md)** 。
 
 請注意，您需要指定輸入字串的語言。
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 名稱 | 類型 | 必要項 | 描述
 -----|-------|----------|------------
-**language**    | 字串 | 是 | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
+**language**    | string | 是 | 要用於分析的雙字母 ISO 語言代碼。 例如，英文是 "en"。
 **analyzerIds** | 字串的清單 | 是 | 要套用的分析器 GUID 清單。 如需詳細資訊，請參閱分析器文件。
-**text**        | 字串 | 是 | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
+**text**        | string | 是 | 要分析的原始輸入。 這可能是簡短字串 (例如，字組或片語)、完整句子，或完整的段落或語篇。
 
 ## <a name="response-json"></a>回應 (JSON)
 
@@ -52,8 +52,8 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 名稱 | 類型 | 描述
 -----|------|--------------
-analyzerId | 字串 | 所指定分析器的 GUID
-結果 | 物件 | 分析器結果
+analyzerId | string | 所指定分析器的 GUID
+結果 | object | 分析器結果
 
 請注意，結果的類型取決於輸入分析器類型。
 
@@ -67,8 +67,8 @@ result[x].Len | int | 每個句子的長度 (以字元為單位) |
 result[x].Tokens | Token 物件的清單 | 在句子中識別的 Token 界限 |
 result[x].Tokens[y].Offset | int | Token 的起始字元位移 |
 result[x].Tokens[y].Len | int | Token 的長度 (以字元為單位) |
-result[x].Tokens[y].RawToken | 字串 | 在標準化之前，該 Token 內的字元 |
-result[x].Tokens[y].NormalizedToken | 字串 | 字元的標準化形式，可於[剖析樹狀結構](Constituency-Parsing.md)中安全使用；例如，左括號字元 '(' 會變成 '-LRB-' |
+result[x].Tokens[y].RawToken | string | 在標準化之前，該 Token 內的字元 |
+result[x].Tokens[y].NormalizedToken | string | 字元的標準化形式，可於[剖析樹狀結構](Constituency-Parsing.md)中安全使用；例如，左括號字元 '(' 會變成 '-LRB-' |
 
 輸入範例：`This is a test. Hello.'
 範例 JSON 回應：

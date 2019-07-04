@@ -3,20 +3,20 @@ title: 支援的語言 - Translator Speech API
 titlesuffix: Azure Cognitive Services
 description: 檢視翻譯工具語音 API 支援的語言。
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 513fd93f148a8a133901a5dbb60722fbc4a7d9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: ed8f693e4dc0344a0117ae9d6992b925992ef0c4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866259"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446919"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>翻譯工具語音 API 支援的語言
 
@@ -29,7 +29,7 @@ ms.locfileid: "64866259"
 | 阿拉伯文 (現代標準)      |
 | 巴西葡萄牙文     |
 | 中文 (普通話)      |
-| English      |
+| 英文      |
 | 法文      |
 | 德文      |
 | 義大利文      |
@@ -54,7 +54,7 @@ ms.locfileid: "64866259"
 | 捷克文      | `cs`          |
 | 丹麥文      | `da`          |
 | 荷蘭文      | `nl`          |
-| English      | `en`          |
+| 英文      | `en`          |
 | 愛沙尼亞文      | `et`          |
 | 斐濟文      | `fj`          |
 | 菲律賓文      | `fil`          |
@@ -63,8 +63,8 @@ ms.locfileid: "64866259"
 | 德文      | `de`          |
 | 希臘文      | `el`          |
 | 海地克裏奧爾文      | `ht`          |
-| 希伯來文      | `he`          |
-| 北印度文      | `hi`          |
+| Hebrew      | `he`          |
+| Hindi      | `hi`          |
 | 白苗文      | `mww`          |
 | 匈牙利文      | `hu`          |
 |冰島文|`is`          |

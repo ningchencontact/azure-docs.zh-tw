@@ -2,19 +2,19 @@
 title: 如何建立專案？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 如何在自訂翻譯工具中建立專案？
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383000"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448337"
 ---
 # <a name="create-a-project"></a>建立專案
 

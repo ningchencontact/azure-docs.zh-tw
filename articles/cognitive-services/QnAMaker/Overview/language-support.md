@@ -3,20 +3,20 @@ title: 語言支援 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 知識庫的語言會影響 QnA Maker 從來源自動擷取問題和答案的能力，以及 QnA Maker 為回應使用者查詢所提供之結果的相關性。 QnA Maker 針對您的知識庫支援的文化特性、自然語言清單。 請勿在相同知識庫中混用語言。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a543b17633b99bea63d72f46ba856a8b4593d16a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922401"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439560"
 ---
 # <a name="language-support-for-qna-maker"></a>QnA Maker 的語言支援
 
@@ -27,7 +27,7 @@ QnA Maker 支援在任何語言頁面中擷取問題/答案，但下列語言的
 
 |支援的語言| 地區設定|
 |-----|----|
-|English|en-*|
+|英文|en-*|
 |法文|fr-*|
 |義大利文|it-*|
 |德文|de-*|
@@ -70,7 +70,7 @@ QnA Maker[自動偵測語言的知識庫](#primary-language-detection)在建立�
 |捷克文|
 |丹麥文|
 |荷蘭文|
-|English|
+|英文|
 |愛沙尼亞文|
 |芬蘭文|
 |法文|
@@ -78,8 +78,8 @@ QnA Maker[自動偵測語言的知識庫](#primary-language-detection)在建立�
 |德文|
 |希臘文|
 |古吉拉特文|
-|希伯來文|
-|北印度文|
+|Hebrew|
+|Hindi|
 |匈牙利文|
 |冰島文|
 |印尼文|
@@ -105,7 +105,7 @@ QnA Maker[自動偵測語言的知識庫](#primary-language-detection)在建立�
 |西班牙文|
 |瑞典文|
 |坦米爾文|
-|泰盧固文|
+|特拉古文|
 |泰文|
 |土耳其文|
 |烏克蘭文|

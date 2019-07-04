@@ -3,19 +3,19 @@ title: 動態字典 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 如何使用翻譯工具文字 API 的動態字典功能。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: d3a77ee9273e9f587b6157bb6ed2294865b1fca5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 2ef1e474dd5d36f1967501ea7bdedc4736954a2b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514248"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436015"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>如何使用動態字典
 

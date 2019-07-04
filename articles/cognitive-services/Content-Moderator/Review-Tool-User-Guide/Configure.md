@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61285344"
 ---
 # <a name="configure-the-review-tool"></a>設定檢閱工具
 
@@ -66,7 +66,7 @@ ms.locfileid: "58756512"
 
 ## <a name="tags"></a>標記
 
-**標記**索引標籤可讓您定義自訂的仲裁標記，除了兩個預設仲裁標記&mdash;**isadult** () 和**isracy** (**r**)。 當您建立自訂的標記時，可用在預設標記與檢閱中。 您可以變更哪些標籤出現在檢閱中藉由切換其可見性設定。
+**標記**索引標籤可讓您定義自訂的仲裁標記，除了兩個預設仲裁標記&mdash;**isadult** (  ) 和**isracy** (**r**)。 當您建立自訂的標記時，可用在預設標記與檢閱中。 您可以變更哪些標籤出現在檢閱中藉由切換其可見性設定。
 
 ![標記檢視，包括 「 」 顯示的核取方塊](images/tags-4-disable.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "58756512"
 
 ![Content Moderator 連接器設定](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>工作流程
+## <a name="workflows"></a>Workflows
 
 **工作流程**索引標籤可讓您管理您[工作流程](../review-api.md#workflows)。 工作流程是雲端為基礎的篩選，如需內容，以及它們使用連接器，以不同的方式排序的內容，並採取適當動作。 在這裡，您可以定義、 編輯及測試您的工作流程。 請參閱[定義和使用工作流程](Workflows.md)如需如何執行這項操作的指引。
 

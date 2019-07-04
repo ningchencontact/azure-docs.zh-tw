@@ -3,20 +3,20 @@ title: 知識庫的分析
 titleSuffix: Azure Cognitive Services
 description: 如果您在 QnA Maker 服務建立期間啟用 App Insights，QnA Maker 會儲存所有交談記錄和其他遙測。 執行範例查詢，從 App Insights 取得您的交談記錄。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/04/2019
-ms.author: tulasim
-ms.openlocfilehash: 09369e760c654e7e56067e6da02bb772bffa7400
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.author: diberry
+ms.openlocfilehash: 07ee6c27006d8444881d9d3b94cb623f0b0d0b1f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960831"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447470"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>取得知識庫的分析
 
@@ -26,7 +26,7 @@ ms.locfileid: "56960831"
 
     ![選取您的 Application Insights 資源](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. 選取 [分析]。 您可以查詢 QnA Maker 遙測的新視窗隨即開啟。
+2. 選取 [分析]  。 您可以查詢 QnA Maker 遙測的新視窗隨即開啟。
 
     ![選取 [分析]](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "56960831"
         | project KbId, timestamp, resultCode, duration, question, answer
     ```
 
-    選取 [執行] 執行查詢。
+    選取 [執行]  執行查詢。
 
     ![執行查詢](../media/qnamaker-how-to-analytics-kb/run-query.png)
 

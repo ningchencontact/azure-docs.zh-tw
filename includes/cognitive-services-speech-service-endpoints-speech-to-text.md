@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 6b64d8ea32e0c99c6f9468b84ea02c377c7441f5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174270"
 ---
 | 區域 | 端點 |
 |--------|----------|
@@ -17,7 +17,7 @@ ms.locfileid: "66146014"
 | 加拿大中部 | `https://canadacentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 美國中部 | `https://centralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 東亞 | `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| 美國東部 | `https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| East US | `https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 美國東部 2 | `https://eastus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 法國中部 | `https://francecentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | 印度中部 | `https://centralindia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
@@ -33,4 +33,4 @@ ms.locfileid: "66146014"
 | 美國西部 2 | `https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 
 > [!NOTE]
-> 必須將語言參數附加到 URL 後方，以避免收到 4xx HTTP 錯誤。 例如，使用美國西部端點設定為美式英文的語言是： https://westus.stt.speech.microsoft.com/speech/recognition/conversation/speech/recognition/conversation/cognitiveservices/v1?language=en-US。
+> 必須將語言參數附加到 URL 後方，以避免收到 4xx HTTP 錯誤。 例如，使用美國西部端點設定為美式英文的語言是： https://westus.stt.speech.microsoft.com/speech/recognition/conversation/speech/recognition/conversation/cognitiveservices/v1?language=en-US 。

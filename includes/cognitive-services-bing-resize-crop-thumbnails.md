@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124711"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174260"
 ---
 某些 Bing 回應會包含 Bing 所提供的縮圖影像 URL。 您可能會調整縮圖影像的大小並加以裁剪。 
 
@@ -17,7 +17,7 @@ ms.locfileid: "66124711"
 > 請確定縮圖的大小和裁剪可提供搜尋案例並採用第三方權利，如「Bing 搜尋 API 使用和顯示需求」中所要求。
 
 
-若要調整影像大小，包含 w （寬度） 查詢參數，h （高度） 查詢參數，或兩者的縮圖 URL 中。 指定寬度和高度 (以像素為單位)。 例如：  
+若要調整影像大小，包含 w （寬度） 查詢參數，h （高度） 查詢參數，或兩者的縮圖 URL 中。 指定寬度和高度 (以像素為單位)。 例如:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

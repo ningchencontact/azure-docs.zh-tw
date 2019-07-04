@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781692"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204150"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>使用您的訂用帳戶金鑰搭配 LUIS 應用程式
 
-您不需要建立訂用帳戶金鑰，即可免費使用您的前 1000 個端點查詢。 開始使用這些端點查詢後，請在 [Azure 入口網站](https://portal.azure.com)中建立 Azure 資源，然後將該資源指派給在 [LUIS 入口網站](https://www.luis.ai)中的 LUIS 應用程式。
-
-如果您收到 HTTP 403 或 429 格式的_超出配額_錯誤，則需要建立金鑰，並將其指派給您的應用程式。 
+當您第一次使用 Language Understanding (LUIS) 時，則您不需要建立訂用帳戶金鑰。 您可以 1000年端點查詢開始。 
 
 僅針對測試和原型，使用免費 (F0) 層。 針對生產系統，使用[付費](https://aka.ms/luis-price-tier)層。 請勿在生產環境中對端點查詢使用[撰寫金鑰](luis-concept-keys.md#authoring-key)。
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>在 Azure 入口網站中建立預測端點執行階段資源
 
-深入了解[建置的應用程式](get-started-portal-build-app.md)快速入門。
+您建立[預測端點資源](get-started-portal-deploy-app.md#create-the-endpoint-resource)在 Azure 入口網站中。 此資源僅適用於端點預測查詢。 請勿使用此資源撰寫應用程式的變更。
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ ms.locfileid: "57781692"
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>將資源金鑰指派給 LUIS 入口網站中的 LUIS 應用程式
 
-深入了解[部署](get-started-portal-deploy-app.md)快速入門。
+每次您建立新的資源 LUIS，您需要[LUIS 應用程式指派資源](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。 指派之後，除非您建立新的資源，否則不需要再次執行此步驟。 您可以建立新的資源，以擴充您的應用程式區域，或支援更多預測查詢數目。
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -62,7 +61,7 @@ ms.locfileid: "57781692"
 若未指定端點金鑰，或未指派給應用程式，任何對端點 URL 的要求都會傳回錯誤：`401 This application cannot be accessed with the current subscription`。 
 
 ### <a name="include-all-predicted-intent-scores"></a>Include all predicted intent scores \(包括所有預測意圖分數\)
-[Include all predicted intent scores] \(包括所有預測意圖分數\) 核取方塊允許端點查詢回應包括每個意圖的預測分數。 
+[Include all predicted intent scores] \(包括所有預測意圖分數\)  核取方塊允許端點查詢回應包括每個意圖的預測分數。 
 
 此設定可讓您的聊天機器人或 LUIS 通話應用程式根據所傳回意圖的分數進行程式設計決策。 一般而言，前兩個意圖最為有趣。 若最高分數為 None 意圖，則您的聊天機器人可以選擇詢問待處理問題，明確選擇 None 意圖與其他高計分意圖。 
 
@@ -90,9 +89,9 @@ ms.locfileid: "57781692"
 ```
 
 ### <a name="enable-bing-spell-checker"></a>啟用 Bing 拼字檢查工具 
-在 [端點 URL 設定] 中，[Bing 拼字檢查工具] 切換開關會允許 LUIS 在預測之前更正錯字。 建立 **[Bing 拼字檢查金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**。 
+在 [端點 URL 設定]  中，[Bing 拼字檢查工具]  切換開關會允許 LUIS 在預測之前更正錯字。 建立 **[Bing 拼字檢查金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 。 
 
-新增 **spellCheck=true** 查詢字串參數和 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**。 將 `{YOUR_BING_KEY_HERE}` 取代為 Bing 拼字檢查金鑰。
+新增 **spellCheck=true** 查詢字串參數和 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 。 將 `{YOUR_BING_KEY_HERE}` 取代為 Bing 拼字檢查金鑰。
 
 ```JSON
 {
@@ -147,21 +146,41 @@ ms.locfileid: "57781692"
 
 1.  在 [Azure](https://portal.azure.com) 中，尋找您的 LUIS 訂用帳戶。 選取 LUIS 訂用帳戶。
     ![尋找 LUIS 訂用帳戶](./media/luis-usage-tiers/find.png)
-1.  選取 [定價層] 以查看可用的定價層。 
+1.  選取 [定價層]  以查看可用的定價層。 
     ![檢視定價層](./media/luis-usage-tiers/subscription.png)
-1.  選取定價層，然後選取 [選取] 以儲存變更。 
+1.  選取定價層，然後選取 [選取]  以儲存變更。 
     ![變更 LUIS 付款層](./media/luis-usage-tiers/plans.png)
 1.  定價變更完成時，快顯視窗會確認新的定價層。 
     ![驗證 LUIS 付款層](./media/luis-usage-tiers/updated.png)
-1. 請記得在 [發佈] 頁面上[指派此端點金鑰](#assign-endpoint-key)，然後將它使用於所有端點查詢。 
+1. 請記得在 [發佈]  頁面上[指派此端點金鑰](#assign-endpoint-key)，然後將它使用於所有端點查詢。 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>如何修正金鑰超出定價層使用量時所產生的超出配額錯誤
-每一層都允許端點以特定比率向您的 LUIS 帳戶提出要求。 如果要求的比率高於您的計量帳戶每分鐘或每個月允許的比率，則要求會收到 HTTP 錯誤「429：太多要求」。
+## <a name="fix-http-status-code-403-and-429"></a>修正 HTTP 狀態碼 403 和 429
 
-每一層都允許每個月累積要求。 如果要求總數高於允許的比率，則要求會收到 HTTP 錯誤「403： 禁止」。  
+您收到 403 和 429 錯誤狀態碼時您超過每秒交易數或每月的定價層的交易。
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>當您收到 HTTP 403 錯誤狀態碼
+
+當您使用所有這些免費 1000年端點查詢或超過您的定價層每月交易配額時，您會收到 HTTP 403 錯誤狀態碼。 
+
+若要修正這個錯誤，您必須[變更定價層](luis-how-to-azure-subscription.md#change-pricing-tier)更高的層次或[建立新的資源](get-started-portal-deploy-app.md#create-the-endpoint-resource)並[將它指派給您的應用程式](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
+
+此錯誤的解決方案包括：
+
+* 在  [Azure 入口網站](https://portal.azure.com)，在您了解資源的語言**資源管理]-> [定價層**，將您的定價層變更為較高的 TPS 層。 您不需要執行 Language Understanding 入口網站中的任何項目，如果您的資源已指派給您的 Language Understanding 應用程式。
+*  如果您的使用量超過最高的定價層，新增更多的 Language Understanding 資源前面是負載平衡器。 [Language Understanding 容器](luis-container-howto.md)Kubernetes 或 Docker Compose 可以幫助以此方式。
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>當您收到 HTTP 429 錯誤狀態碼
+
+此狀態碼時，會傳回您每秒交易數超過您的定價層。  
+
+解決方案包括：
+
+* 您可以[增加您的定價層](#change-pricing-tier)，如果您不是在最高層級。
+* 如果您的使用量超過最高的定價層，新增更多的 Language Understanding 資源前面是負載平衡器。 [Language Understanding 容器](luis-container-howto.md)Kubernetes 或 Docker Compose 可以幫助以此方式。
+* 您可以閘道與您用戶端應用程式要求[重試原則](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)您自行實作時取得此狀態碼。 
 
 ## <a name="viewing-summary-usage"></a>檢視摘要使用量
-您可以在 Azure 中檢視 LUIS 使用量資訊。 [概觀] 頁面會顯示近期摘要資訊，包括呼叫和錯誤。 如果您提出 LUIS 端點要求，然後立即觀看 [概觀] 頁面，允許使用量最多在五分鐘內出現。
+您可以在 Azure 中檢視 LUIS 使用量資訊。 [概觀]  頁面會顯示近期摘要資訊，包括呼叫和錯誤。 如果您提出 LUIS 端點要求，然後立即觀看 [概觀] 頁面  ，允許使用量最多在五分鐘內出現。
 
 ![檢視摘要使用量](./media/luis-usage-tiers/overview.png)
 

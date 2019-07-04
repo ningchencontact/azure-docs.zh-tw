@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 32dc928147af8fbb3c84bdb76e50cee4fdabe17d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66386638"
 ---
 # <a name="video-search-api-upgrade-guide"></a>影片搜尋 API 升級指南
@@ -25,7 +25,7 @@ ms.locfileid: "66386638"
 
 ### <a name="endpoints"></a>端點
 
-- 從 v5 變更為 v7 的端點版本號碼。 例如： `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`。
+- 從 v5 變更為 v7 的端點版本號碼。 例如： `https://api.cognitive.microsoft.com/bing/v7.0/videos/search` 。
 
 ### <a name="error-response-objects-and-error-codes"></a>錯誤回應物件和錯誤碼
 

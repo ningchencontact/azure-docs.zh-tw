@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890876"
 ---
 # <a name="face-recognition-concepts"></a>臉部辨識概念
@@ -25,7 +25,7 @@ ms.locfileid: "65890876"
 
 辨識作業使用主要的下列的資料結構。 這些物件會儲存在雲端，而且可以參考其識別碼字串。 識別碼字串都是唯一的訂用帳戶內。 可以重複名稱欄位。
 
-|名稱|說明|
+|名稱|描述|
 |:--|:--|
 |DetectedFace| 擷取此單一字體表示法[臉部偵測](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)作業。 建立後的 24 小時到期其識別碼。|
 |PersistedFace| 當 DetectedFace 物件加入至群組，例如 FaceList 或人員，它們會變成 PersistedFace 物件。 也很[擷取](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)在任何時間，並不會過期。|

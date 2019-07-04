@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072843"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442568"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
 範例語句是使用者問題或命令的文字範例。 若要教導 Language Understanding (LUIS)，您需要將[範例語句](luis-concept-utterance.md)新增至[意圖](luis-concept-intent.md)。
 
-通常，我們會先將範例語句新增至意圖，然後在意圖頁面上建立實體和標籤語句。 若您要先建立實體，請參閱[新增實體](luis-how-to-add-entities.md)。
+通常，您意圖的第一筆、 加入範例 [utterance]，然後建立實體和標籤上的談話**意圖**頁面。 若您要先建立實體，請參閱[新增實體](luis-how-to-add-entities.md)。
 
 ## <a name="marking-entities-in-example-utterances"></a>在範例語句中標記實體
 
@@ -32,7 +32,7 @@ ms.locfileid: "65072843"
 
 ## <a name="add-a-simple-entity"></a>新增簡單實體
 
-在下列程序中，您會在意圖頁面上建立並標記下列語句內的自訂實體：
+在下列程序中，您要建立並標記下的 [utterance] 內的自訂實體**意圖**頁面：
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Are there any SQL server jobs?
 
     您可以透過標示其他語句，或從左導覽的 [Entities]  \(實體\) 中編輯實體，來新增更多清單項目或項目同義字。 [編輯](luis-how-to-add-entities.md#add-list-entities)實體可讓您選擇輸入具有對應同義字的其他項目，或匯入清單。 
 
-## <a name="add-composite-entity"></a>新增複合實體
+## <a name="add-a-composite-entity"></a>加入複合實體
 
-複合實體是將現有**實體**建立為父實體。 
+從現有建立複合的實體**實體**形成父實體。 
 
 假設 utterance 中， `Does John Smith work in Seattle?`，複合 utterance 可傳回的員工名稱的實體資訊`John Smith`，以及位置`Seattle`複合實體中。 子實體必須存在於應用程式，並標示在範例 utterance，然後再建立複合的實體。
 
@@ -131,15 +131,15 @@ Are there any SQL server jobs?
 
 ### <a name="remove-entity-labels-from-utterances"></a>從語句中移除實體標籤
 
-您可以在 [意圖] 頁面上從語句移除機器學習實體標籤。 若實體不是機器學習實體，則無法從語句中予以移除。 若您需要從語句中移除非機器學習實體，則需要刪除整個應用程式中的實體。 
+您可以將機器學習的實體標籤移除意圖頁面上的 [utterance]。 若實體不是機器學習實體，則無法從語句中予以移除。 若您需要從語句中移除非機器學習實體，則需要刪除整個應用程式中的實體。 
 
 若要從語句中移除機器學習實體標籤，請選取語句中的實體。 然後選取所出現實體下拉式方塊中的 [移除標籤]  。
 
-### <a name="add-prebuilt-entity-label"></a>新增預先建置的實體標籤
+### <a name="add-a-prebuilt-entity-label"></a>新增預先建置的實體標籤
 
 當您您將預先建置的實體新增至 LUIS 應用程式時，您並不需要標記具有這些實體的語句。 若要深入了解預先建置的實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)。
 
-### <a name="add-regular-expression-entity-label"></a>新增規則運算式實體標籤
+### <a name="add-a-regular-expression-entity-label"></a>新增規則運算式的實體標籤
 
 若您將規則運算式實體新增至 LUIS 應用程式，則不需要標記具有這些實體的語句。 若要深入了解規則運算式實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts)。
 
@@ -149,7 +149,7 @@ Are there any SQL server jobs?
 請參閱[在意圖或實體頁面上從現有的語句新增模式](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page)。
 
 
-### <a name="add-patternany-entity"></a>新增 pattern.any 實體
+### <a name="add-a-patternany-entity"></a>加入 pattern.any 實體
 
 若您將 pattern.any 實體新增至 LUIS 應用程式，則無法標示具有這些實體的語句。 它們只有在模式中有效。 若要深入了解 pattern.any 實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities)。
 
@@ -159,4 +159,4 @@ Are there any SQL server jobs?
 
 ## <a name="next-steps"></a>後續步驟
 
-在意圖中標示語句之後，您現在可以建立[複合實體](luis-how-to-add-entities.md)。
+標記中的談話之後, 您**意圖**，您現在可以建立[複合實體](luis-how-to-add-entities.md)。

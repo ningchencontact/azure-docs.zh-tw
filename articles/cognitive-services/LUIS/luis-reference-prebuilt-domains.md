@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233887"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>您 LUIS 應用程式預先建置的網域參考
@@ -56,7 +56,7 @@ The table below summarizes the currently supported domains. Support for English 
 |--|--|
 |行事曆|行事曆是任何項目有關個人會議和約會_不_公用事件 (例如世界杯排程、 西雅圖活動行事曆或泛型的行事曆 (例如哪一天，其目前項目並 fall 開始，時人力天)。|
 |通訊|進行呼叫，要求會傳送簡訊或立即訊息，找出，並新增連絡人和各種其他通訊相關的要求 （通常連出）。 連絡人的名稱唯一查詢不屬於網域通訊。|
-|電子郵件|電子郵件是通訊網域的子網域。 它主要是包含傳送和接收電子郵件訊息的要求。|
+|Email|電子郵件是通訊網域的子網域。 它主要是包含傳送和接收電子郵件訊息的要求。|
 |HomeAutomation|HomeAutomation 網域提供意圖和控管智慧家用裝置相關的實體。 它主要是支援的號誌和空調相關的 [控制] 命令，但有一些其他 electric 所研發的設備的一般化功能。|
 |注意|請注意網域提供意圖和實體來建立備忘稿和寫下使用者的項目。|
 |地點|位置包括企業 」、 「 機構 」、 「 餐廳 」、 「 公共空間和 「 地址。 網域支援尋找和詢問有關的公開位置，例如地點、 作業系統小時和距離資訊的位置。|

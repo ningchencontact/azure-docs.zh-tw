@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 18e1bb486c47baf7648a74e31451e2db73f72250
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063185"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>準備資料以建立自訂的語音
 
@@ -49,7 +49,7 @@ ms.locfileid: "65156942"
 若要產生良好的語音字型，建立無訊息室中具有高品質的麥克風錄製。 一致的磁碟區、 讀出速率，語音音調、 以及語音的表達能力 mannerisms 是不可或缺的。
 
 > [!TIP]
-> 若要建立語音以供生產環境使用，建議您使用專業錄音室和配音人員。 如需詳細資訊，請參閱[如何為客製化語音錄製語音範例](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples)。
+> 若要建立語音以供生產環境使用，建議您使用專業錄音室和配音人員。 如需詳細資訊，請參閱[如何為客製化語音錄製語音範例](record-custom-voice-samples.md)。
 
 ### <a name="audio-files"></a>音訊檔案
 
@@ -57,7 +57,7 @@ ms.locfileid: "65156942"
 
 準備音訊時，請遵循下列指導方針。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | RIFF (.wav)，分組到.zip 檔案 |
 | 取樣率 | 至少 16,000 Hz |
@@ -74,7 +74,7 @@ ms.locfileid: "65156942"
 
 轉譯檔案是純文字檔案。 您可以使用這些指導方針來準備您的轉譯。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | 純文字 (.txt) |
 | 編碼格式 | ANSI/ASCII、 utf-8、 UTF-8-BOM、 UTF-16-LE、 或 UTF-16-BE。 ZH-CN，不支援 ANSI/ASCII 和 utf-8 編碼。 |
@@ -104,7 +104,7 @@ ms.locfileid: "65156942"
 
 準備分割音訊時，請遵循下列指導方針。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | 至少包含 16 khz-16 位元在 PCM 或.mp3 至少 256 KBps，分組到.zip 檔案的位元速率的取樣速率 RIFF (.wav) |
 | 檔案名稱 | 僅限使用 ASCII 字元。 在名稱中的 Unicode 字元將會失敗 (例如，中文字元或這類符號"-")。 不允許重複的名稱。 |
@@ -118,7 +118,7 @@ ms.locfileid: "65156942"
 
 下表所列的規格，必須準備文字記錄。 文字記錄必須符合每個音訊檔案。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | 分組為.zip 的純文字 (.txt) |
 | 檔案名稱 | 使用相同的名稱相符的音訊檔案 |
@@ -139,7 +139,7 @@ ms.locfileid: "65156942"
 > [!NOTE]
 > 長時間音訊分割服務將會利用語音轉換文字，只支援標準訂用帳戶 (S0) 使用者的批次轉譯功能。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | 至少包含 16 khz-16 位元在 PCM 或.mp3 至少 256 KBps，分組到.zip 檔案的位元速率的取樣速率 RIFF (.wav) |
 | 檔案名稱 | 僅限使用 ASCII 字元。 在名稱中的 Unicode 字元將會失敗 (例如，中文字元或這類符號"-")。 不允許重複的名稱。 |

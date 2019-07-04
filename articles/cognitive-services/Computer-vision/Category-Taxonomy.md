@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995940"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498842"
 ---
 # <a name="computer-vision-86-category-taxonomy"></a>電腦視覺 86 類別分類法
 

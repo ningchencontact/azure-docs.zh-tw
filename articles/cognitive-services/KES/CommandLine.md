@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60815133"
 ---
 # <a name="command-line-interface"></a>命令列介面
 
@@ -36,7 +36,7 @@ ms.locfileid: "55860111"
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
 
-| 參數      | 說明               |
+| 參數      | 描述               |
 |----------------|---------------------------|
 | `<schemaFile>` | 輸入結構描述路徑 |
 | `<dataFile>`   | 輸入資料路徑   |
@@ -61,7 +61,7 @@ ms.locfileid: "55860111"
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
 
-| 參數       | 說明               |
+| 參數       | 描述               |
 |-----------------|---------------------------|
 | `<xmlFile>`     | 輸入 XML 文法規格的路經 |
 | `<grammarFile>` | 輸出已編譯的文法路徑         |
@@ -76,13 +76,13 @@ ms.locfileid: "55860111"
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
 
-| 參數       | 說明                |
+| 參數       | 描述                |
 |-----------------|----------------------------|
 | `<grammarFile>` | 輸入二進位文法路徑         |
 | `<indexFile>`   | 輸入二進位索引路徑           |
 | `--port <port>` | 本機連接埠號碼。  預設值：8000 |
 
-您可以使用本機檔案路徑或 Azure blob 的 URL 路徑來指定這些檔案。  Web 服務會裝載於 http://localhost:&lt;port&gt;/。  請參閱 [Web API](WebAPI.md) 以取得支援的作業清單。
+您可以使用本機檔案路徑或 Azure blob 的 URL 路徑來指定這些檔案。  Web 服務會裝載於 http://localhost:&lt ;port&gt; /。  請參閱 [Web API](WebAPI.md) 以取得支援的作業清單。
 
 在 Azure 環境之外，本機裝載的服務會有以下限制：索引檔案大小上限為 1 MB、每秒 10 個要求，以及總計 1000 個呼叫。  若要克服這些限制，請在 Azure VM 內執行 **host_service**，或使用 **deploy_service** 部署到 Azure 雲端服務。
 
@@ -94,7 +94,7 @@ ms.locfileid: "55860111"
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
 
-| 參數       | 說明                  |
+| 參數       | 描述                  |
 |-----------------|------------------------------|
 | `<grammarFile>` | 輸入二進位文法路徑           |
 | `<indexFile>`   | 輸入二進位索引路徑             |
@@ -114,7 +114,7 @@ ms.locfileid: "55860111"
 
 `kes.exe describe_index <indexFile>`
 
-| 參數     | 說明      |
+| 參數     | 描述      |
 |---------------|------------------|
 | `<indexFile>` | 輸入索引路徑 |
 
@@ -128,7 +128,7 @@ ms.locfileid: "55860111"
 
 `kes.exe describe_grammar <grammarFile>`
 
-| 參數       | 說明      |
+| 參數       | 描述      |
 |-----------------|------------------|
 | `<grammarFile>` | 輸入文法路徑 |
 

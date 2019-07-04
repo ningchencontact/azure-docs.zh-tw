@@ -1,30 +1,34 @@
 ---
-title: 使用 HeadPose 調整的臉部方框
+title: 使用 HeadPose 屬性
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用 HeadPose 屬性會自動旋轉臉部方框。
+description: 了解如何使用 HeadPose 屬性會自動旋轉臉部方框，或在摘要影片中偵測前端的筆勢。
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
-ms.date: 04/26/2019
+ms.topic: sample
+ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: ddc5bc522c0d3ac258581f2a48a5c3b755302f01
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576523"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058587"
 ---
-# <a name="use-the-headpose-attribute-to-adjust-the-face-rectangle"></a>若要調整的臉部方框使用 HeadPose 屬性
+# <a name="use-the-headpose-attribute"></a>使用 HeadPose 屬性
 
-本指南中，您將使用偵測到的臉部屬性，HeadPose，若要旋轉的臉部物件的矩形。 程式碼範例在此指南中，從[認知服務臉部 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)範例應用程式，使用.NET SDK。
+本指南中，您會看到如何使用偵測到的臉部的 HeadPose 屬性來啟用一些重要的案例。
 
-臉部方框，隨著每個偵測到的臉部，傳回標記的位置和大小的映像中的面貌。 根據預設，矩形永遠與對齊 （其兩邊都是完全垂直和水平） 的影像。這可以是效率不佳的框架有角度的表面。 在您要以程式設計方式裁剪影像中的臉部的情況下，很有幫助，若要能夠旋轉裁剪矩形。
+## <a name="rotate-the-face-rectangle"></a>旋轉的臉部方框
 
-## <a name="explore-the-sample-code"></a>探討範例程式碼
+臉部方框，隨著每個偵測到的臉部，傳回標記的位置和大小的映像中的面貌。 根據預設，矩形永遠與對齊 （其兩邊都是垂直和水平） 的影像。這可以是效率不佳的框架有角度的表面。 在您要以程式設計方式裁剪影像中的臉部的情況下，最好能夠旋轉裁剪矩形。
 
-以程式設計的方式，您就可以使用 HeadPose 屬性來旋轉臉部方框。 如果您指定這個屬性，偵測臉時 (請參閱[如何偵測臉部](HowtoDetectFacesinImage.md))，您可以稍後再進行查詢。 下列方法從[認知服務臉部 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)應用程式會採用一份**DetectedFace**物件，並傳回一份**[臉部](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 物件。 **臉部**如下存放區臉部資料，包括更新的矩形座標的自訂類別。 新的值會計算**頂端**，**左**，**寬度**，並**高度**，並以新欄位**FaceAngle**指定的旋轉。
+[認知服務臉部 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)範例應用程式使用 HeadPose 屬性來旋轉其偵測到的臉部方框。
+
+### <a name="explore-the-sample-code"></a>探討範例程式碼
+
+以程式設計的方式，您就可以使用 HeadPose 屬性來旋轉臉部方框。 如果您指定這個屬性，偵測臉時 (請參閱[如何偵測臉部](HowtoDetectFacesinImage.md))，您可以稍後再進行查詢。 下列方法從[認知服務臉部 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)應用程式會採用一份**DetectedFace**物件，並傳回一份 **[臉部](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 物件。 **臉部**如下存放區臉部資料，包括更新的矩形座標的自訂類別。 新的值會計算**頂端**，**左**，**寬度**，並**高度**，並以新欄位**FaceAngle**指定的旋轉。
 
 ```csharp
 /// <summary>
@@ -102,7 +106,7 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-## <a name="display-the-updated-rectangle"></a>顯示更新的矩形
+### <a name="display-the-updated-rectangle"></a>顯示更新的矩形
 
 從這裡開始，您可以使用傳回**臉部**顯示器中的物件。 中的下列程式行會[FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml)顯示新的矩形從這項資料的呈現方式：
 
@@ -116,6 +120,17 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 </DataTemplate>
 ```
 
+## <a name="detect-head-gestures"></a>偵測到前端的筆勢
+
+您可以偵測等 nodding 前端來追蹤即時的 HeadPose 變更搖晃前端的筆勢。 您可以使用這項功能，為自訂的作用偵測器。
+
+作用偵測是決定主體真人和不影像或視訊表示的工作。 前端的動作偵測器可做為一種方式可確認作用中，特別是而不是個人的映像表示法。
+
+> [!CAUTION]
+> 若要即時偵測前端的筆勢，您必須呼叫臉部 API，以較高的速率 （超過每秒一次）。 如果您有免費層 (f0) 的訂用帳戶，這將不可能。 如果您有付費層訂用帳戶，請確定您已計算的成本進行快速的 API 呼叫的標頭軌跡偵測。
+
+請參閱[臉部 API HeadPose 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample)標頭的操作範例的 GitHub 上軌跡偵測。
+
 ## <a name="next-steps"></a>後續步驟
 
-請參閱[認知服務臉部 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)旋轉的臉部方框的實用範例的 GitHub 上的應用程式。 或者，請參閱[臉部 API HeadPose 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples)追蹤 HeadPose 屬性，以偵測各種前端移動 nodding （搖晃） 的即時應用程式。
+請參閱[認知服務臉部 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF)旋轉的臉部方框的實用範例的 GitHub 上的應用程式。 或者，請參閱[臉部 API HeadPose 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples)應用程式，這會追蹤即時偵測前端移動 HeadPose 屬性。

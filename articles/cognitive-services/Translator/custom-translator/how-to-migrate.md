@@ -2,19 +2,19 @@
 title: 要移轉 Microsoft Translator Hub 工作區和專案嗎？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 將您的中樞工作區和專案移轉至自訂翻譯工具。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 901b5312d216c241331b90a6b61d263437ab5c70
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce81c23a42895f72545a8241d2e002d9798fec05
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389296"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447996"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>將中樞工作區和專案移轉至自訂翻譯工具
 

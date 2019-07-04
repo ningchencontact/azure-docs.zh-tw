@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5ae63b1738824095073ac6b9e1071f6b4a3e5ae1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 5db2a1eebd5b2184ceff8793cb51f4e95b9dea38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518842"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067595"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入門：使用 .NET Core 將文字轉換為語音
 
@@ -48,7 +48,7 @@ cd tts-sample
 
 開啟您的專案，然後開啟 `tts-sample.csproj`。 確定 `LangVersion` 已設為 7.1 或更新版本。 如果沒有語言版本的屬性群組，請加入這些程式行：
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>

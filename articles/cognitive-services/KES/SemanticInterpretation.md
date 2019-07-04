@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860808"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814482"
 ---
 # <a name="semantic-interpretation"></a>語意解譯
 
@@ -33,7 +33,7 @@ ms.locfileid: "55860808"
 
 以下是目前所支援的資料類型清單：
 
-|類型|說明|範例|
+|類型|描述|範例|
 |----|----|----|
 |字串|0 或更多字元的序列|"Hello World!"<br/>""|
 |Bool|布林值|true<br/>false|
@@ -98,7 +98,7 @@ query = Query(attrName, value)
 query = Query(attrName, value, op)
 ```
 
-傳回的查詢中僅包含根據指定 op 作業 (預設為 "eq")，其 attrName 屬性符合 value 值的資料物件。  一般會使用 `attrref` 元素根據相符的輸入查詢字串來建立查詢。  如果值已指定，或透過其他方式取得，Query() 函式可用來建立符合此值的查詢。
+傳回的查詢中僅包含根據指定 op  作業 (預設為 "eq")，其 attrName  屬性符合 value  值的資料物件。  一般會使用 `attrref` 元素根據相符的輸入查詢字串來建立查詢。  如果值已指定，或透過其他方式取得，Query() 函式可用來建立符合此值的查詢。
 
 在下列範例中，我們會使用 Query() 函式來實作從某十年間指定學術刊物的支援。
 
@@ -115,7 +115,7 @@ written in the 90s
 
 `query = Composite(innerQuery);`
 
-其所傳回的查詢會封裝 innerQuery，而構成此 innerQuery 的值是與常見複合屬性 attr 的子屬性作比對後，所得到的相符值。  任何相符資料物件的複合屬性 attr 至少要有一個個別滿足 innerQuery 的值，才會封裝。  請注意，針對複合屬性子屬性所建立的查詢必須先使用 Composite() 函式加以封裝，才能與其他查詢結合。
+其所傳回的查詢會封裝 innerQuery  ，而構成此 innerQuery 的值是與常見複合屬性 attr  的子屬性作比對後，所得到的相符值。  任何相符資料物件的複合屬性 attr  至少要有一個個別滿足 innerQuery  的值，才會封裝。  請注意，針對複合屬性子屬性所建立的查詢必須先使用 Composite() 函式加以封裝，才能與其他查詢結合。
 
 例如，下列查詢會傳回 "harry shum" 任職於 "microsoft" 時所撰寫的學術刊物：
 ```
@@ -133,13 +133,13 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 
 `value = GetVariable(name, scope);`
 
-傳回 name 變數的值，其定義於指定的「範圍」下方。  name 識別碼必須以字母開頭，並且只能包含字母 (A-Z)、數字 (0-9) 和底線 (_)。  「範圍」可以設定為 "request" 或 "system"。  請注意，不同範圍下定義的變數彼此相異，其中包括透過語意函式輸出定義的變數。
+傳回 name  變數的值，其定義於指定的「範圍」  下方。  name  識別碼必須以字母開頭，並且只能包含字母 (A-Z)、數字 (0-9) 和底線 (_)。  「範圍」  可以設定為 "request" 或 "system"。  請注意，不同範圍下定義的變數彼此相異，其中包括透過語意函式輸出定義的變數。
 
 目前解譯要求中的所有解譯會共用要求範圍變數。  這些變數可以用來控制透過文法的解譯搜尋。
 
 系統變數會由服務預先定義，並可用來擷取系統目前狀態的各種相關統計資料。  以下是目前支援的系統變數集合：
 
-|Name|類型|說明|
+|名稱|類型|描述|
 |----|----|----|
 |IsAtEndOfQuery|Bool|如果目前的解譯符合所有輸入查詢文字，則成立|
 |IsBeyondEndOfQuery|Bool|如果目前的解譯有超出輸入查詢文字的完成建議，則成立|
@@ -148,7 +148,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 
 `SetVariable(name, value, scope);`
 
-將 value 指派給指定「範圍」下的 name 變數。  name 識別碼必須以字母開頭，並且只能包含字母 (A-Z)、數字 (0-9) 和底線 (_)。  目前，「範圍」的唯一有效值為 "request"。  沒有任何可設定的系統變數。
+將 value  指派給指定「範圍」  下的 name  變數。  name  識別碼必須以字母開頭，並且只能包含字母 (A-Z)、數字 (0-9) 和底線 (_)。  目前，「範圍」  的唯一有效值為 "request"。  沒有任何可設定的系統變數。
 
 目前解譯要求中的所有解譯會共用要求範圍變數。  這些變數可以用來控制透過文法的解譯搜尋。
 
@@ -156,12 +156,12 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 
 `AssertEquals(value1, value2);`
 
-如果 value1 和 value2 是相等的，則此函式會成功，而且沒有副作用。  否則，函式會失敗並拒絕解譯。
+如果 value1  和 value2  是相等的，則此函式會成功，而且沒有副作用。  否則，函式會失敗並拒絕解譯。
 
 ### <a name="assertnotequals-function"></a>AssertNotEquals 函式
 
 `AssertNotEquals(value1, value2);`
 
-如果 value1 和 value2 不相等，則此函式會成功，而且沒有副作用。  否則，函式會失敗並拒絕解譯。
+如果 value1  和 value2  不相等，則此函式會成功，而且沒有副作用。  否則，函式會失敗並拒絕解譯。
 
 

@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692206"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477818"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>使用異常偵測器 API 的最佳做法
 
@@ -51,7 +51,7 @@ ms.locfileid: "64692206"
 
 ## <a name="data-preparation"></a>資料準備
 
-異常偵測器 API 可接受的時間序列資料格式化為 JSON 的要求物件。 時間序列可以是任何一段時間循序記錄的數值資料。 您可以傳送的時間序列資料的 windows，異常偵測器 API 端點來提升 API 效能。 您可以傳送的資料點的數目下限為 12，和最大值是 8640 點。 
+異常偵測器 API 可接受的時間序列資料格式化為 JSON 的要求物件。 時間序列可以是任何一段時間循序記錄的數值資料。 您可以傳送的時間序列資料的 windows，異常偵測器 API 端點來提升 API 效能。 您可以傳送的資料點的數目下限為 12，和最大值是 8640 點。 [資料粒度](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview)定義為您的資料取樣的速率。 
 
 傳送到的異常偵測器 API 的資料點必須要有有效的 Coordinated Universal Time (UTC) 時間戳記和數值。 
 
@@ -68,6 +68,15 @@ ms.locfileid: "64692206"
         "value": 29615278
       },
     ]
+}
+```
+
+如果您的資料進行取樣的非標準的時間間隔中，您可以指定它藉由新增`customInterval`在要求中的屬性。 例如，如果數列進行取樣每隔 5 分鐘，您可以新增下列 JSON 要求：
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

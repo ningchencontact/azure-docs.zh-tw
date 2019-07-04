@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515328"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing 語音 WebSocket 通訊協定
 
@@ -69,7 +69,7 @@ Date: Wed, 17 Aug 2016 15:03:52 GMT
 
 如需有關如何訂閱並取得擷取有效 JWT 存取權杖所使用之 API 金鑰的資訊，請參閱[認知服務訂閱](https://azure.microsoft.com/try/cognitive-services/)頁面。
 
-API 金鑰會傳遞至權杖服務。 例如︰
+API 金鑰會傳遞至權杖服務。 例如:
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -82,7 +82,7 @@ Content-Length: 0
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰 |
 
-權杖服務會以 `text/plain` 形式傳回 JWT 存取權杖。 接著，JWT 會當作 `Base64 access_token` 傳遞至信號交換，作為字首字串為 `Bearer` 的*授權*標頭。 例如︰
+權杖服務會以 `text/plain` 形式傳回 JWT 存取權杖。 接著，JWT 會當作 `Base64 access_token` 傳遞至信號交換，作為字首字串為 `Bearer` 的*授權*標頭。 例如:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -98,7 +98,7 @@ Content-Length: 0
 
 用戶端*必須*使用適當的語音服務端點。 此端點是以辨識模式和語言為基礎。 下表顯示一些範例。
 
-| Mode | Path | 服務 URI |
+| 模式 | Path | 服務 URI |
 | -----|-----|-----|
 | 互動式 | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | 交談 | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -174,7 +174,7 @@ WebSocket 簡訊和二進位 WebSocket 訊息均用於語音服務通訊協定�
 
 | 欄位 | 描述 |
 |----|----|
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | body | JSON 結構的承載 |
 
 #### <a name="required-message-headers"></a>所需的訊息標頭
@@ -307,7 +307,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `telemetry` |
 | X-Timestamp | ISO 8601 格式的用戶端 UTC 時鐘時間戳記 |
 | Content-Type | `application/json` |
@@ -329,10 +329,10 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
-| body | JSON 結構，包含偵測到語音起點時，有關條件的資訊。 在音訊串流中偵測到語音時，此結構中的 [位移] 欄位會指定相對於串流起點的位移 (以 100 奈秒為單位)。 |
+| body | JSON 結構，包含偵測到語音起點時，有關條件的資訊。 在音訊串流中偵測到語音時，此結構中的 [位移]  欄位會指定相對於串流起點的位移 (以 100 奈秒為單位)。 |
 
 #### <a name="sample-message"></a>範例訊息
 
@@ -354,7 +354,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `speech.hypothesis` |
 | X-RequestId | 「無破折號」格式的 UUID |
 | Content-Type | application/json |
@@ -374,9 +374,9 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-[位移] 元素會指定辨識片語後，相對於音訊串流起點的位移 (以 100 奈秒為單位)。
+[位移]  元素會指定辨識片語後，相對於音訊串流起點的位移 (以 100 奈秒為單位)。
 
-[持續時間] 元素會指定此語音片語的持續時間 (以 100 奈秒為單位)。
+[持續時間]  元素會指定此語音片語的持續時間 (以 100 奈秒為單位)。
 
 用戶端不得針對包含在語音假設中的頻率、時間或文字，或者任何兩個語音假設中文字的一致性，進行任何假設。 假設只是服務中，轉譯程序的快照集。 它們不代表穩定的轉譯累積。 例如，第一個語音假設可能包含 "fine fun" 字眼，而第二個假設可能包含 "find funny" 字眼。 語音服務不會對語音假設中的文字執行任何後續處理 (例如，大小寫、標點符號)。
 
@@ -386,7 +386,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `speech.phrase` |
 | Content-Type | application/json |
 | body | 語音片語 JSON 結構 |
@@ -414,7 +414,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `speech.endDetected` |
 | body | 偵測到語音結尾時，包含位移的 JSON 結構。 位移會以 100 奈秒為單位的位移表示 (從用於辨識的音訊起點)。 |
 | Content-Type | application/json; charset=utf-8 |
@@ -431,7 +431,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-[位移] 元素會指定辨識片語後，相對於音訊串流起點的位移 (以 100 奈秒為單位)。
+[位移]  元素會指定辨識片語後，相對於音訊串流起點的位移 (以 100 奈秒為單位)。
 
 ### <a name="message-turnstart"></a>訊息 `turn.start`
 
@@ -439,7 +439,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | body | JSON 結構 |
@@ -458,7 +458,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-`turn.start` 訊息的主體是 JSON 結構，其中包含回合開始的內容。 [內容] 元素包含 *serviceTag* 屬性。 此屬性會指定服務與回合相關聯的標記值。 如果您對疑難排解應用程式中的失敗需要協助，Microsoft 可以使用這個值。
+`turn.start` 訊息的主體是 JSON 結構，其中包含回合開始的內容。 [內容]  元素包含 *serviceTag* 屬性。 此屬性會指定服務與回合相關聯的標記值。 如果您對疑難排解應用程式中的失敗需要協助，Microsoft 可以使用這個值。
 
 ### <a name="message-turnend"></a>訊息 `turn.end`
 
@@ -466,7 +466,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 描述 |
 | ------------- | ---------------- |
-| WebSocket 訊息編碼 | 文字 |
+| WebSocket 訊息編碼 | Text |
 | Path | `turn.end` |
 | body | None |
 
@@ -509,7 +509,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | 欄位 | 描述 | 使用量 |
 | ----- | ----------- | ----- |
 | 名稱 | `Connection` | 必要項 |
-| id | 此連線要求的 *X-ConnectionId* 標頭中所使用的連線識別碼值 | 必要項 |
+| Id | 此連線要求的 *X-ConnectionId* 標頭中所使用的連線識別碼值 | 必要項 |
 | Start | 用戶端傳送連線要求的時間 | 必要項 |
 | End | 用戶端收到成功建立連線通知的時間，如果發生錯誤，則是收到拒絕連線或連線失敗通知的時間 | 必要項 |
 | Error | 發生之錯誤的描述 (如果有的話)。 如果連線成功，用戶端應該省略此欄位。 此欄位的長度上限為 50 個字元。 | 如果發生錯誤，則必填，否則省略 |
@@ -527,24 +527,24 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | BadRequest | 用戶端無法連線至服務，因為服務在 WebSocket 升級要求上傳回 HTTP `400 Bad Request` 狀態碼。 |
 | ServerUnavailable | 用戶端無法連線至服務，因為服務在 WebSocket 升級要求上傳回 HTTP `503 Server Unavailable` 狀態碼。 |
 | ServerError | 用戶端無法連線至服務，因為服務在 WebSocket 升級要求上傳回 `HTTP 500` 內部錯誤狀態碼。 |
-| 逾時 | 用戶端的連線要求逾時，未收到來自服務的回應。 [結束] 欄位包含用戶端逾時並停止等待連線的時間。 |
+| 逾時 | 用戶端的連線要求逾時，未收到來自服務的回應。 [結束]  欄位包含用戶端逾時並停止等待連線的時間。 |
 | ClientError | 用戶端因為特定的用戶端內部錯誤而終止連線。 |
 
 ### <a name="metric-microphone"></a>計量 `Microphone`
 
 所有語音回合都需要有 `Microphone` 計量。 此計量會測量用戶端正在對語音要求使用音訊輸入的持續時間。
 
-使用下列範例作為在用戶端應用程式中記錄 `Microphone` 計量之 [開始] 時間值的指導方針：
+使用下列範例作為在用戶端應用程式中記錄 `Microphone` 計量之 [開始]  時間值的指導方針：
 
-* 用戶端應用程式要求使用者必須按下實體按鈕，才能啟動麥克風。 按下按鈕之後，用戶端應用程式會從麥克風讀取輸入，並將其傳送至語音服務。 `Microphone` 計量的 [開始] 值會記錄按下按鈕之後，麥克風初始化並準備好提供輸入的時間。 `Microphone` 計量的 [結束] 值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
+* 用戶端應用程式要求使用者必須按下實體按鈕，才能啟動麥克風。 按下按鈕之後，用戶端應用程式會從麥克風讀取輸入，並將其傳送至語音服務。 `Microphone` 計量的 [開始]  值會記錄按下按鈕之後，麥克風初始化並準備好提供輸入的時間。 `Microphone` 計量的 [結束]  值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
 
-* 用戶端應用程式會使用「一律」接聽的關鍵字偵查器。 只有在關鍵字偵查器偵測到說出觸發片語之後，用戶端應用程式才會從麥克風收集輸入，並將其傳送至語音服務。 `Microphone` 計量的 [開始] 值會記錄關鍵字偵察器通知用戶端開始使用麥克風中輸入的時間。 `Microphone` 計量的 [結束] 值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
+* 用戶端應用程式會使用「一律」接聽的關鍵字偵查器。 只有在關鍵字偵查器偵測到說出觸發片語之後，用戶端應用程式才會從麥克風收集輸入，並將其傳送至語音服務。 `Microphone` 計量的 [開始]  值會記錄關鍵字偵察器通知用戶端開始使用麥克風中輸入的時間。 `Microphone` 計量的 [結束]  值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
 
-* 用戶端應用程式可以存取持續的音訊串流，並在*語音偵測模組*中，針對該音訊串流執行無回應/語音偵測。 `Microphone` 計量的 [開始] 值會記錄*語音偵測模組*通知用戶端開始使用音訊串流中輸入的時間。 `Microphone` 計量的 [結束] 值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
+* 用戶端應用程式可以存取持續的音訊串流，並在*語音偵測模組*中，針對該音訊串流執行無回應/語音偵測。 `Microphone` 計量的 [開始]  值會記錄*語音偵測模組*通知用戶端開始使用音訊串流中輸入的時間。 `Microphone` 計量的 [結束]  值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
 
-* 用戶端應用程式正在處理多回合要求的第二個回合，而且正在透過服務回應訊息通知開啟麥克風，以收集第二個回合的輸入。 `Microphone` 計量的 [開始] 值會記錄用戶端應用程式啟用麥克風，並開始使用該音訊來源中輸入的時間。 `Microphone` 計量的 [結束] 值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
+* 用戶端應用程式正在處理多回合要求的第二個回合，而且正在透過服務回應訊息通知開啟麥克風，以收集第二個回合的輸入。 `Microphone` 計量的 [開始]  值會記錄用戶端應用程式啟用麥克風，並開始使用該音訊來源中輸入的時間。 `Microphone` 計量的 [結束]  值會記錄用戶端應用程式從服務收到 `speech.endDetected` 訊息之後，停止將音訊串流處理至服務的時間。
 
-`Microphone` 計量的 [結束] 時間值會記錄用戶端應用程式停止串流處理音訊輸入的時間。 在大部分的情況下，此事件會在用戶端收到來自服務的 `speech.endDetected` 訊息後立即發生。 用戶端應用程式可以確認 `Microphone` 計量的 [結束] 時間值發生在收到 `speech.endDetected` 訊息的時間值之後，藉此驗證它們正確地符合通訊協定。 此外，通常在一個回合結束與另一個回合開始之間會有延遲，因此用戶端可以確認任何後續回合之 `Microphone` 計量的 [開始] 時間會正確地記錄用戶端*開始*使用麥克風將音訊輸入串流處理至服務，藉此驗證是否符合通訊協定。
+`Microphone` 計量的 [結束]  時間值會記錄用戶端應用程式停止串流處理音訊輸入的時間。 在大部分的情況下，此事件會在用戶端收到來自服務的 `speech.endDetected` 訊息後立即發生。 用戶端應用程式可以確認 `Microphone` 計量的 [結束]  時間值發生在收到 `speech.endDetected` 訊息的時間值之後，藉此驗證它們正確地符合通訊協定。 此外，通常在一個回合結束與另一個回合開始之間會有延遲，因此用戶端可以確認任何後續回合之 `Microphone` 計量的 [開始]  時間會正確地記錄用戶端*開始*使用麥克風將音訊輸入串流處理至服務，藉此驗證是否符合通訊協定。
 
 | 欄位 | 描述 | 使用量 |
 | ----- | ----------- | ----- |
@@ -556,13 +556,13 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 ### <a name="metric-listeningtrigger"></a>計量 `ListeningTrigger`
 `ListeningTrigger` 計量會測量使用者執行起始語音輸入動作的時間。 `ListeningTrigger` 計量是選用的，建議可以提供此計量的用戶端選用。
 
-使用下列範例作為在用戶端應用程式中記錄 `ListeningTrigger` 計量之 [開始] 和 [結束] 時間值的指導方針。
+使用下列範例作為在用戶端應用程式中記錄 `ListeningTrigger` 計量之 [開始]  和 [結束]  時間值的指導方針。
 
-* 用戶端應用程式要求使用者必須按下實體按鈕，才能啟動麥克風。 此計量的 [開始] 值會記錄按鈕按下的時間。 [結束] 值會記錄按鈕按下完成的時間。
+* 用戶端應用程式要求使用者必須按下實體按鈕，才能啟動麥克風。 此計量的 [開始]  值會記錄按鈕按下的時間。 [結束]  值會記錄按鈕按下完成的時間。
 
-* 用戶端應用程式會使用「一律」接聽的關鍵字偵查器。 在關鍵字偵查器偵測到說出觸發片語之後，用戶端應用程式會從麥克風讀取輸入，並將其傳送至語音服務。 此計量的 [開始] 值會記錄關鍵字偵察器收到音訊之後，再偵測為觸發片語的時間。 [結束] 值會記錄使用者說出觸發片語最後一個字的時間。
+* 用戶端應用程式會使用「一律」接聽的關鍵字偵查器。 在關鍵字偵查器偵測到說出觸發片語之後，用戶端應用程式會從麥克風讀取輸入，並將其傳送至語音服務。 此計量的 [開始]  值會記錄關鍵字偵察器收到音訊之後，再偵測為觸發片語的時間。 [結束]  值會記錄使用者說出觸發片語最後一個字的時間。
 
-* 用戶端應用程式可以存取持續的音訊串流，並在*語音偵測模組*中，針對該音訊串流執行無回應/語音偵測。 此計量的 [開始] 值會記錄*語音偵測模組*收到音訊之後，再偵測為語音的時間。 [結束] 值會記錄*語音偵測模組*偵測到語音的時間。
+* 用戶端應用程式可以存取持續的音訊串流，並在*語音偵測模組*中，針對該音訊串流執行無回應/語音偵測。 此計量的 [開始]  值會記錄*語音偵測模組*收到音訊之後，再偵測為語音的時間。 [結束]  值會記錄*語音偵測模組*偵測到語音的時間。
 
 * 用戶端應用程式正在處理多回合要求的第二個回合，而且正在透過服務回應訊息通知開啟麥克風，以收集第二個回合的輸入。 用戶端應用程式*不應*包含此回合的 `ListeningTrigger` 計量。
 
@@ -611,7 +611,7 @@ X-Timestamp: 2016-08-16T15:03:54.183Z
 }
 ```
 
-## <a name="error-handling"></a>錯誤處理
+## <a name="error-handling"></a>错误处理。
 
 本節描述錯誤訊息的種類，以及您應用程式必須處理的情況。
 
@@ -673,7 +673,7 @@ WebSocket 升級要求期間，語音服務可能會傳回任何標準 HTTP 狀�
 
 為確保最佳的使用者經驗，用戶端必須使用*遙測*訊息，通知語音服務連線內重要檢查點的時間戳記。 用戶端通知服務已嘗試連線但失敗同樣很重要。
 
-對於每個失敗的連線嘗試，用戶端都會以唯一的 *X-RequestId* 標頭值，建立一個*遙測*訊息。 用戶端無法建立連線，因此可以省略 JSON 主體中的 *ReceivedMessages* 欄位。 只有 [計量] 欄位中的 `Connection` 項目包含在內。 此項目包含開始和結束時間戳記，以及遇到的錯誤情況。
+對於每個失敗的連線嘗試，用戶端都會以唯一的 *X-RequestId* 標頭值，建立一個*遙測*訊息。 用戶端無法建立連線，因此可以省略 JSON 主體中的 *ReceivedMessages* 欄位。 只有 [計量]  欄位中的 `Connection` 項目包含在內。 此項目包含開始和結束時間戳記，以及遇到的錯誤情況。
 
 ### <a name="connection-retries-in-telemetry"></a>遙測中的連接重試
 
@@ -687,7 +687,7 @@ WebSocket 升級要求期間，語音服務可能會傳回任何標準 HTTP 狀�
 
 ### <a name="http-status-codes"></a>HTTP 狀態碼
 
-| HTTP 狀態碼 | 描述 | 疑難排解 |
+| HTTP 状态代码 | 描述 | 疑難排解 |
 | - | - | - |
 | 400 不正確的要求 | 用戶端傳送不正確的 WebSocket 連線要求。 | 請確認您提供所有必要的參數和 HTTP 標頭，而且這些值正確無誤。 |
 | 401 未經授權 | 用戶端不包含所需的授權資訊。 | 請確認您將在 WebSocket 連線中傳送 *Authorization* 標頭。 |

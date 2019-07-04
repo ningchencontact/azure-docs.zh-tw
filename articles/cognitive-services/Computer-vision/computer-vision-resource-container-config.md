@@ -3,20 +3,20 @@ title: 設定容器 - 電腦視覺
 titlesuffix: Azure Cognitive Services
 description: 在電腦視覺中設定辨識文字容器的各種設定。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4613b576b444059d448cf1094284f2a68e6c31a8
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678678"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275147"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>設定辨識文字 Docker 容器
 
@@ -51,9 +51,9 @@ ms.locfileid: "59678678"
 
 請記得新增`vision/v1.0`下表所示，路由傳送至端點 URI。 
 
-|必要項| Name | 資料類型 | 描述 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -79,7 +79,7 @@ ms.locfileid: "59678678"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](computer-vision-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| Name | 資料類型 | 描述 |
+|選用| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | 字串 | 電腦視覺容器不會使用此項目。|
 |選用| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|

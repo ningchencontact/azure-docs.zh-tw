@@ -3,20 +3,20 @@ title: 設定 QnA Maker 服務 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 您必須先在 Azure 中設定 QnA Maker 服務，才能建立任何 QnA Maker 知識庫。 任何具備授權而可在訂用帳戶中建立新資源的人，皆可建立 QnA Maker 服務。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 4bc40c0d4d44ea4dd809f59965ec5d1107be8541
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605647"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439776"
 ---
 # <a name="create-a-qna-maker-service"></a>建立 QnA Maker 服務
 
@@ -36,14 +36,14 @@ ms.locfileid: "65605647"
 
     ![建立新的 QnA Maker 服務 - 定價層和區域](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
-    * 在 [名稱] 中填入識別此 QnA Maker 服務的唯一名稱。 此名稱也會識別將與知識庫產生關聯的 QnA Maker 端點。
+    * 在 [名稱]  中填入識別此 QnA Maker 服務的唯一名稱。 此名稱也會識別將與知識庫產生關聯的 QnA Maker 端點。
     * 選擇將部署 QnA Maker 資源的**訂用帳戶**。
     * 選取 **定價層**QnA Maker 管理服務 （入口網站和管理 Api）。 關於 SKU 價格的詳細資料，請參閱[這裡](https://aka.ms/qnamaker-pricing)。
     * 建立新的**資源群組** (建議選項)，或使用部署此 QnA Maker 資源的現有資源群組。 QnA Maker 會建立數個 Azure 資源;當您建立資源群組來保存這些資源，您可以輕鬆地尋找、 管理和刪除這些資源的資源群組名稱。
     * 選取 **資源群組位置**。
-    * 選擇 Azure 搜尋服務的 [定價層搜尋]。 如果您看到免費層選項呈現灰色，表示您已經有免費的 Azure 搜尋層部署於您的訂用帳戶中。 在此情況下，您必須先開始使用基本 Azure 搜尋服務層。 關於 Azure 搜尋服務定價的詳細資料，請參閱[這裡](https://azure.microsoft.com/pricing/details/search/)。
+    * 選擇 Azure 搜尋服務的 [定價層搜尋]  。 如果您看到免費層選項呈現灰色，表示您已經有免費的 Azure 搜尋層部署於您的訂用帳戶中。 在此情況下，您必須先開始使用基本 Azure 搜尋服務層。 關於 Azure 搜尋服務定價的詳細資料，請參閱[這裡](https://azure.microsoft.com/pricing/details/search/)。
     * 選擇您要部署 Azure 搜尋服務資料的**搜尋位置**。 必須儲存客戶資料的限制會通知您對於 Azure 搜尋服務選擇的位置。
-    * 在 [應用程式名稱] 中，設定應用程式服務的名稱。
+    * 在 [應用程式名稱]  中，設定應用程式服務的名稱。
     * 應用程式服務預設為標準 (S1) 層。 您可以在建立之後變更方案。 如需應用程式服務定價的詳細資訊，請參閱[這裡](https://azure.microsoft.com/pricing/details/app-service/)。
     * 選擇將部署應用程式服務的**網站位置**。
 

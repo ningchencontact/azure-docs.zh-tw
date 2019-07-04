@@ -4,14 +4,14 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052021"
 ---
-對於容器的查詢，會以針對 `<ApiKey>` 使用的 Azure 資源定價層來計費。
+至容器的查詢會使用於 Azure 資源的定價層計費`<ApiKey>`。
 
 Azure 認知服務容器在未連線至計費端點以進行計量的情況下，將無法被授權以執行。 您必須讓容器隨時都能與計量端點進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。 
 
@@ -21,12 +21,12 @@ Azure 認知服務容器在未連線至計費端點以進行計量的情況下�
 
 ### <a name="billing-arguments"></a>計費引數
 
-您必須針對 `docker run` 命令，依序使用有效值來指定下列這三個選項，以啟動容器。
+針對`docker run`命令來啟動容器時，必須指定下列選項中的所有三個有效的值：
 
-| 選項 | 說明 |
+| 選項 | 描述 |
 |--------|-------------|
-| `ApiKey` | 用來追蹤帳單資訊之認知服務資源的 API 金鑰。<br/>此選項的值必須設定為已佈建 `Billing` 指定資源的 API 金鑰。 |
-| `Billing` | 用來追蹤帳單資訊之認知服務資源的端點。<br/>此選項的值必須設定為已佈建 Azure 資源的端點 URI。|
-| `Eula` | 表示您接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
+| `ApiKey` | 用來追蹤帳單資訊的認知服務資源的 API 金鑰。<br/>此選項的值必須設定為 佈建的資源中指定的 API 金鑰`Billing`。 |
+| `Billing` | 用來追蹤帳單資訊的認知服務資源端點。<br/>此選項的值必須設定為已佈建 Azure 資源的端點 URI。|
+| `Eula` | 表示您接受容器的授權。<br/>此選項的值必須設定為**接受**。 |
 
 

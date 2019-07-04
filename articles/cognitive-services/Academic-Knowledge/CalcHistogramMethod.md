@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60498824"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 方法
 
@@ -30,14 +30,14 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>要求參數
 
-名稱  |值 | 必要？  |描述
+名稱  |值 | 必要項？  |描述
 -----------|----------|--------|----------
 **expr**    |文字字串 | 是  |查詢運算式，用來指定用於計算長條圖的實體。
-**model** |文字字串 | 否 |選取您想要查詢的模型名稱。  目前，此值會預設為 latest。
+**model** |文字字串 | 否 |選取您想要查詢的模型名稱。  目前，此值會預設為 latest  。
 **attributes** | 文字字串 | 否<br>預設值： | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
-**count** |數字 | 否<br>預設值：10 |要傳回的結果數目。
-**offset**  |數字 | 否<br>預設值：0 |要傳回的第一個結果索引。
-**timeout**  |數字 | 否<br>預設值：1000 |逾時 (以毫秒為單位)。 只會傳回在逾時之前找到的解譯。
+**計數** |Number | 否<br>預設值：10 |要傳回的結果數目。
+**offset**  |Number | 否<br>預設值：0 |要傳回的第一個結果索引。
+**timeout**  |Number | 否<br>預設值：1000 |逾時 (以毫秒為單位)。 只會傳回在逾時之前找到的解譯。
 
 ## <a name="response-json"></a>回應 (JSON)
 
@@ -65,14 +65,14 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime teevan after 2012
 ```
-<br>第一個解譯中從解譯 API 傳回的運算式為 *And(Composite(AA.AuN=='jaime teevan'),Y>2012)*。
+<br>第一個解譯中從解譯 API 傳回的運算式為 *And(Composite(AA.AuN=='jaime teevan'),Y>2012)* 。
 <br>此運算式值會接著傳遞至 **calchistogram** API。 *attributes=Y,F.FN* 參數表示論文計數應該依年度和研究領域分佈，例如：
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4
 ```
-<br>此要求的回應先指出有 37 篇符合查詢運算式的論文。  對於 Year  屬性，有 3 個相異值，如查詢中所指定，在 2012 年後每年一個值 (也就是 2013、2014 和 2015)。  3 個相異值的總計論文計數為 37。  對於每個 Year，長條圖會顯示值、總計自然對數可能性及相符實體計數。     
+<br>此要求的回應先指出有 37 篇符合查詢運算式的論文。  對於 Year  屬性，有 3 個相異值，如查詢中所指定，在 2012 年後每年一個值 (也就是 2013、2014 和 2015)。  3 個相異值的總計論文計數為 37。  對於每個 Year  ，長條圖會顯示值、總計自然對數可能性及相符實體計數。     
 
-「研究領域」的長條圖顯示有 34 個不同的研究領域。 因為一篇論文可能與多個研究領域相關聯，所以總計數 (53) 可以大於相符的實體數字。  雖然有 34 個相異值，但回應只包含前 4 個值，因為 *count=4* 參數。
+「研究領域」  的長條圖顯示有 34 個不同的研究領域。 因為一篇論文可能與多個研究領域相關聯，所以總計數 (53) 可以大於相符的實體數字。  雖然有 34 個相異值，但回應只包含前 4 個值，因為 *count=4* 參數。
 
 ```JSON
 {

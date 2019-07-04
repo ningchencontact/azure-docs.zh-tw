@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237496"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445575"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>使用裝飾標記醒目提示文字
 
@@ -31,7 +31,7 @@ Bing 提供以 Unicode 字元或 HTML 標籤作為標記的選項。 若要指�
   
 如果 `textDecorations` 為 **true**，Bing 可能會在回答的顯示字串中包含下列標記。 如果沒有 HTML 對等項目，HTML 資料表儲存格會是空的。
 
-|Unicode|HTML|說明
+|Unicode|HTML|描述
 |-|-|-
 |U+E000|\<b>|標示查詢詞彙的開頭 (搜尋結果醒目提示)
 |U+E001|\</b>|標示查詢詞彙的結尾

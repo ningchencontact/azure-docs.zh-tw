@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814146"
 ---
 # <a name="interpret-method"></a>解譯方法
 
-「解譯」方法會拿取自然語言查詢字串，然後根據文法和索引資料來傳回格式化的使用者意圖解譯。  若要提供互動式搜尋體驗，您可以呼叫這個方法，原因是每個字元都是由使用者輸入的，並且 complete 參數會設為 1 以啟用自動完成建議。
+「解譯」  方法會拿取自然語言查詢字串，然後根據文法和索引資料來傳回格式化的使用者意圖解譯。  若要提供互動式搜尋體驗，您可以呼叫這個方法，原因是每個字元都是由使用者輸入的，並且 complete  參數會設為 1 以啟用自動完成建議。
 
 ## <a name="request"></a>要求
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Name|值| 說明
+名稱|值| 描述
 ----|----|----
 query    | 文字字串 | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
 完成 | 0 (預設值) 或 1 | 1 表示根據文法與索引資料產生自動完成建議。         
 count    | 數字 (預設值 = 10) | 要傳回的解譯數目上限。         
-Offset   | 數字 (預設值 = 0) | 要傳回的第一個解譯索引。  例如，count=2&offset=0 會傳回解譯 0 和 1。 count=2&offset=2 會傳回解譯 2 和 3。       
+Offset   | 數字 (預設值 = 0) | 要傳回的第一個解譯索引。  例如，count=2&offset=0  會傳回解譯 0 和 1。 count=2&offset=2  會傳回解譯 2 和 3。       
 timeout  | 數字 (預設值 = 1000) | 逾時 (以毫秒為單位)。 只會傳回在逾時之前找到的解譯。
 
-使用 count 和 offset 參數，即可透過多個要求以累加方式取得大量結果。
+使用 count  和 offset  參數，即可透過多個要求以累加方式取得大量結果。
 
 ## <a name="response-json"></a>回應 (JSON)
 
-JSONPath     | 說明
+JSONPath     | 描述
 ---------|---------
-$.query |要求中的 query 參數。
+$.query |要求中的 query  參數。
 $.interpretations   |0 個以上方式的陣列，用來針對文法比對輸入查詢。
 $.interpretations[\*].logprob   |解譯的相對對數機率 (<= 0)。  值越高表示越有可能。
 $.interpretations[\*].parse |XML 字串，可顯示如何解譯查詢的每個部分。
@@ -112,7 +112,7 @@ $.aborted | 如果要求逾時，則為 true。
 }
 ```  
 
-當語意輸出的類型為「查詢」時 (正如同此範例)，您可以透過 expr 參數將 output.value 傳遞至[評估](evaluateMethod.md) API 來擷取相符的物件。
+當語意輸出的類型為「查詢」時 (正如同此範例)，您可以透過 expr  參數將 output.value  傳遞至[評估  ](evaluateMethod.md) API 來擷取相符的物件。
 
 `http://<host>/evaluate?expr=Composite(AA.AuN=='jaime teevan')`
   

@@ -3,20 +3,20 @@ title: Docker 容器設定
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 容器執行階段環境可使用 `docker run` 命令引數來設定。 LUIS 有數個必要的設定，和一些選擇性的設定。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: diberry
-ms.openlocfilehash: afd29c1689d6d467a42a7c3c60f9a1dccd1a66f0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 4a9f7762b7960c74acad8203f70bc1e7c7cbd90f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063232"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
@@ -28,14 +28,14 @@ ms.locfileid: "66242603"
 
 |必要項|設定|目的|
 |--|--|--|
-|有|[ApiKey](#apikey-setting)|用來追蹤帳單資訊。|
-|無|[ApplicationInsights](#applicationinsights-setting)|可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援新增至容器。|
-|有|[計費](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
-|有|[Eula](#eula-setting)| 表示您已接受容器的授權。|
-|無|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
-|無|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP Proxy 以進行輸出要求。|
-|無|[記錄](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
-|有|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
+|是|[ApiKey](#apikey-setting)|用來追蹤帳單資訊。|
+|否|[ApplicationInsights](#applicationinsights-setting)|可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援新增至容器。|
+|是|[Billing](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
+|是|[Eula](#eula-setting)| 表示您已接受容器的授權。|
+|否|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
+|否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP Proxy 以進行輸出要求。|
+|否|[Logging](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
+|是|[Mounts](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
 
 > [!IMPORTANT]
 > 系統會同時使用 [`ApiKey`](#apikey-setting)、[`Billing`](#billing-setting) 及 [`Eula`](#eula-setting) 設定，因此您必須同時為這三個設定提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](luis-container-howto.md#billing)。
@@ -67,9 +67,9 @@ ms.locfileid: "66242603"
 請記得包含`luis/v2.0`中 URL 的路由表中所示：
 
 
-|必要項| 名稱 | 数据类型 | 說明 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
-|有| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -89,7 +89,7 @@ ms.locfileid: "66242603"
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 
-## <a name="mount-settings"></a>掛接設定
+## <a name="mount-settings"></a>裝載設定
 
 使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。 
 
@@ -99,10 +99,10 @@ LUIS 容器不會使用輸入或輸出裝載來儲存訓練或服務資料。
 
 下表說明支援的設定。
 
-|必要項| 名稱 | 数据类型 | 說明 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
-|有| `Input` | String | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
-|無| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 其中包括 LUIS 查詢記錄和容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|是| `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
+|否| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 其中包括 LUIS 查詢記錄和容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令
 
@@ -116,7 +116,7 @@ LUIS 容器不會使用輸入或輸出裝載來儲存訓練或服務資料。
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| 預留位置 | Value | 格式或範例 |
+| Placeholder | 值 | 格式或範例 |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | 已定型 LUIS 應用程式的端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT} | 計費的端點值是可在 Azure`Cognitive Services`概觀 頁面。 |https://westus.api.cognitive.microsoft.com/luis/v2.0|

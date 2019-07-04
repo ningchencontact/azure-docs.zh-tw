@@ -1,5 +1,5 @@
 ---
-title: 傳送影像查詢 - Bing 影像搜尋 API
+title: 自訂及建議的影像搜尋查詢 Bing 影像搜尋 API
 titleSuffix: Azure Cognitive Services
 description: 了解如何自訂傳送至 Bing 影像搜尋 API 的搜尋查詢。
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384409"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542747"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>將查詢傳送至 Bing 影像搜尋 API
+# <a name="customize-and-suggest-image-search-queries"></a>自訂及建議的影像搜尋查詢
 
-Bing 影像搜尋 API 可提供與 Bing.com/images 類似的體驗。 可以用來將搜尋查詢傳送到 Bing，並取得相關影像清單。
+您可以使用本文來了解如何自訂查詢，並建議將傳送至 Bing 影像搜尋 API 的搜尋詞彙。
 
-## <a name="use-and-suggest-search-terms"></a>使用建議搜尋字詞
-
-輸入搜尋字詞之後，請先對此字詞進行 URL 編碼，再設定 [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) 查詢參數。 例如，如果您輸入 *sailing dinghies*，請將 `q` 設定為 `sailing+dinghies` 或 `sailing%20dinghies`。
+## <a name="suggest-search-terms"></a>建議的搜尋詞彙
 
 如果您的應用程式有用來輸入搜尋字詞的搜尋方塊，您可以使用[Bing 自動建議 API](../../bing-autosuggest/get-suggested-search-terms.md) 來改善體驗。 API 會即時顯示建議的搜尋字詞。 API 會根據部分搜尋字詞和認知服務，傳回建議的查詢字串。
 

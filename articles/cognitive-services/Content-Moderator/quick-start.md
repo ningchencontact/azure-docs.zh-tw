@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127647"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>快速入門：在 Web 上試用 Content Moderator
 
@@ -38,7 +38,7 @@ ms.locfileid: "58756475"
 
 ## <a name="upload-sample-content"></a>上傳範例內容
 
-現在，您已做好上傳範例內容的準備。 選取 [試用] > [影像]、[試用] > [文字] 或 [試用] > [影片]。
+現在，您已做好上傳範例內容的準備。 選取 [試用] > [影像]  、[試用] > [文字]  或 [試用] > [影片]  。
 
 ![嘗試影像或文字審核](images/tryimagesortext.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "58756475"
 
 ![檢閱結果](images/reviewresults_text.png)
 
-在專案中，您或審核小組可以視需要變更這些標記或新增更多標記。 您將透過 [下一步] 按鈕來提交這些變更。 當您的商務應用程式呼叫 Moderator API 時，已加上標記的內容會在這裡排入佇列，準備供人工審核小組進行審核。 您可以使用此方法快速審核大量內容。
+在專案中，您或審核小組可以視需要變更這些標記或新增更多標記。 您將透過 [下一步]  按鈕來提交這些變更。 當您的商務應用程式呼叫 Moderator API 時，已加上標記的內容會在這裡排入佇列，準備供人工審核小組進行審核。 您可以使用此方法快速審核大量內容。
 
 到目前為止，您已使用「Content Moderator 審核工具」來查看 Content Moderator 服務的功能範例。 接著，您可以深入了解審核工具及如何使用「審核 API」將其整合至軟體專案，或是跳到[後續步驟](#next-steps)一節，以了解如何在您的應用程式中使用「仲裁 API」本身。
 

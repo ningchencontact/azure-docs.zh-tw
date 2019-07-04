@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 0d0ebe57c26f5cc5b42fb449ffb10b444a03f734
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145403"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174268"
 ---
 區域| 權杖服務端點
 -|-
@@ -17,7 +17,7 @@ ms.locfileid: "66145403"
 加拿大中部 | `https://canadacentral.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 美國中部 | `https://centralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 東亞 | `https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-美國東部 | `https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+East US | `https://eastus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 美國東部 2 | `https://eastus2.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 法國中部 | `https://francecentral.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 印度中部 | `https://centralindia.api.cognitive.microsoft.com/sts/v1.0/issueToken`

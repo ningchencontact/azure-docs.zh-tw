@@ -3,19 +3,19 @@ title: 語言支援 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具文字 API 支援的自然語言清單。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514990"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435889"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 

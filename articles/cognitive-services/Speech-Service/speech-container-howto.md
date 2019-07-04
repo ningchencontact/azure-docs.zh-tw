@@ -3,19 +3,19 @@ title: 安裝語音容器
 titleSuffix: Azure Cognitive Services
 description: 安裝並執行語音容器。 語音轉文字會即時地將音訊串流轉譯成文字，以便您的應用程式、工具或裝置使用或顯示。 文字轉語音會將輸入文字轉換為仿真人的合成語音。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 8f395788d4dd3c845155a52bd6b4666998838fcd
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752436"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490225"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝並執行語音服務的容器
 
@@ -25,7 +25,7 @@ ms.locfileid: "66752436"
 
 |函式|功能|最新|
 |-|-|--|
-|語音轉文字| <li>Transcribes 連續即時語音或批次音訊錄製成中繼結果的文字。|1.1.1|
+|語音轉文字| <li>Transcribes 連續即時語音或批次音訊錄製成中繼結果的文字。|1.1.3|
 |文字轉語音| <li>將文字轉換成自然發音語音。 輸入純文字或語音合成標記語言 (SSML)。 |1.1.0|
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -71,14 +71,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 * 每個核心必須至少 2.6 GHz 或更快。
 
-
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
 **請注意**;最低和建議，根據 Docker 限制*不*主機機器的資源。 例如，語音轉換文字容器記憶體對應部分大型的語言模型，而且它是_建議_整個檔案，以符合在記憶體中，這是額外的 4-6 GB。 此外，任一容器第一次執行可能會更久，因為模型需到記憶體分頁處理。
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 
-使用語音的容器映像。 
+使用語音的容器映像。
 
 | 容器 | 存放庫 |
 |-----------|------------|
@@ -89,7 +88,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="language-locale-is-in-container-tag"></a>語言地區設定是在容器標記
 
-`latest`標記提取`en-us`地區設定和`jessarus`語音。 
+`latest`標記提取`en-us`地區設定和`jessarus`語音。
 
 #### <a name="speech-to-text-locales"></a>語音轉換文字的地區設定
 
@@ -102,10 +101,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 下列標記是格式的範例：
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.3-amd64-en-us-preview
 ```
 
-下表列出支援的地區設定，如**語音轉換文字**1.1.1 中容器的版本：
+下表列出支援的地區設定，如**語音轉換文字**1.1.3 在容器的版本：
 
 |語言地區設定|標記|
 |--|--|
@@ -119,7 +118,6 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 |葡萄牙文|`pt-br`|
 |西班牙文|`es-es`<br>`es-mx`|
 
-
 #### <a name="text-to-speech-locales"></a>文字轉換語音的地區設定
 
 所有標記，除了`latest`都是以下列格式，其中`<culture>`表示地區設定和`<voice>`指出容器的語音：
@@ -131,7 +129,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 下列標記是格式的範例：
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 下表列出支援的地區設定，如**文字轉換語音**1.1.0 中容器的版本：
@@ -171,8 +169,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 容器位於[主機電腦](#the-host-computer)上時，請透過下列程序來使用容器。
 
-1. 使用必要但未使用的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](speech-container-configuration.md#example-docker-run-commands)可供參考。 
-1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
+1. 使用必要但未使用的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](speech-container-configuration.md#example-docker-run-commands)可供參考。
+1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
 
@@ -194,7 +192,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### <a name="speech-to-text"></a>語音轉文字
@@ -204,7 +202,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 此命令：
@@ -212,7 +210,7 @@ ApiKey={BILLING_KEY}
 * 從容器映像執行語音容器
 * 2 個 CPU 核心和 2 gb 的記憶體配置
 * 公開 TCP 連接埠 5000，並為容器配置虛擬 TTY
-* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。 
+* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
@@ -241,7 +239,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 為使用容器端點的這項呼叫：
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>針對 Python
@@ -249,22 +249,22 @@ var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/d
 從使用此 Azure 雲端初始化呼叫變更
 
 ```python
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, region=service_region)
 ```
 
 為使用容器端點的這項呼叫：
 
 ```python
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
+speech_config = speechsdk.SpeechConfig(
+    subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
 ```
 
 ### <a name="text-to-speech"></a>文字轉換語音
 
 容器提供 REST 端點 Api，可以找到[此處](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)和您可以找到範例[這裡](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)。
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## <a name="stop-the-container"></a>停止容器
 
@@ -272,11 +272,11 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ## <a name="troubleshooting"></a>疑難排解
 
-當您執行容器時，容器會使用 **stdout** 和 **stderr** 來輸出資訊，該資訊有助於排解在啟動或執行容器時所發生的問題。 
+當您執行容器時，容器會使用 **stdout** 和 **stderr** 來輸出資訊，該資訊有助於排解在啟動或執行容器時所發生的問題。
 
 ## <a name="billing"></a>計費
 
-帳單寄送至 Azure 的資訊，請使用 語音容器傳送_語音_上您的 Azure 帳戶的資源。 
+帳單寄送至 Azure 的資訊，請使用 語音容器傳送_語音_上您的 Azure 帳戶的資源。
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

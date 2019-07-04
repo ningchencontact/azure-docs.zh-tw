@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468314"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073051"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>使用的轉碼器壓縮音訊輸入與 Speech SDK
 
@@ -23,6 +23,7 @@ ms.locfileid: "65468314"
 
 > [!IMPORTANT]
 > 壓縮的音訊資料流處理，才支援C++， C#，和在 Linux （Ubuntu 16.04，Ubuntu 18.04，Debian 9） 上的 Java。
+> 語音 SDK 1.4.0 版或更高的需要。
 
 Wav/PCM，請參閱主線語音文件。  外部 wav/PCM，支援下列的轉碼器壓縮輸入的格式：
 

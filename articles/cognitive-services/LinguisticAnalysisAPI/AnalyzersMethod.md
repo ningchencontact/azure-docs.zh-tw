@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60404704"
 ---
 # <a name="analyzers-method"></a>分析器方法
 
@@ -32,15 +32,17 @@ None
 <br>
 
 ## <a name="response-parameters"></a>回應參數
-Name | 類型 | 說明
+
+名稱 | 類型 | 描述
 -----|------|--------------
 語言 | 字串的清單 | 可以使用此分析器的兩個字母 ISO 語言代碼清單。
-id   | 字串 | 此分析器的唯一識別碼
-kind | 字串 | 此處分析器的廣泛類型
-規格 | 字串 | 用於此分析器的規格名稱
-實作 | 字串 | 此分析器後方的模型和/或演算法描述
+id   | string | 此分析器的唯一識別碼
+kind | string | 此處分析器的廣泛類型
+規格 | string | 用於此分析器的規格名稱
+實作 | string | 此分析器後方的模型和/或演算法描述
 
 <br>
+
 ## <a name="example"></a>範例
 GET / 分析器
 

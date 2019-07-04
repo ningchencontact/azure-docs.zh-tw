@@ -8,17 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606344"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490185"
 ---
 # <a name="release-notes"></a>版本資訊
+
+## <a name="speech-sdk-160-2019-june-release"></a>語音 SDK 1.6.0:2019 年 6 月版本
+
+**範例**
+*   在 UWP 和 Unity 的文字轉換語音的快速入門範例
+*   在 iOS 上的快速入門範例 for Swift
+*   語音意圖辨識和轉譯的 unity 範例
+*   DialogServiceConnector 的已更新的快速入門範例
+
+**/變更**
+* 對話方塊命名空間：
+    * 已重新命名為 DialogServiceConnector SpeechBotConnector
+    * 已重新命名為 DialogServiceConfig BotConfig
+    * 已重新對應至 DialogServiceConfig::FromBotSecret() 的 BotConfig::FromChannelSecret()
+    * 所有現有的直接列語音用戶端會繼續支援重新命名之後
+* 更新 TTS REST 介面卡，若要支援 proxy，持續連線
+* 當傳遞無效的地區時，改善錯誤訊息
+* C: Swift/目標
+    * 已改進的錯誤報告：可能會導致錯誤的方法現在有兩種版本：公開 （expose） 的其中一個`NSError`錯誤處理和引發例外狀況的其中一個物件。 前者會公開至 Swift。 這項變更需要採用現有的 Swift 程式碼。
+    * 改良式的事件處理
+
+**錯誤修正**
+*   修正 TTS： 其中 SpeakTextAsync 未來傳回，而不等待，直到完成呈現音訊。
+*   修正程式中的字串封送處理C#若要啟用完整的語言支援
+*   載入與 net461 範例中的目標 framework 的核心程式庫的.NET core 應用程式問題的修正
+*   若要部署至範例的輸出資料夾的原生程式庫的偶發問題修正
+*   修正可靠地關閉 web 通訊端
+*   可能的損毀時開啟連線，以在 Linux 上的非常繁重負載下的修正程式
+*   修正適用於 macOS 的架構組合中的遺漏中繼資料
+*   修正問題`pip install --user`在 Windows 上
+
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
 

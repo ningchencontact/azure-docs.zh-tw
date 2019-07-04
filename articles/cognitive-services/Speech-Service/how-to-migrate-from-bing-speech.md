@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848961"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561327"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>從 Bing 語音移轉至語音服務
 
@@ -69,7 +69,7 @@ WebSocket 通訊協定 | :heavy_check_mark: | :heavy_check_mark: | 語音服務 
 
 如果您是針對特定程式設計語言使用 Bing 語音用戶端程式庫，基於 API 不同的原因，移轉至[語音 SDK](speech-sdk.md) 會需要對您的應用程式做出變更。 語音 SDK 能簡化您的程式碼，同時讓您存取新的功能。
 
-目前，語音 SDK 支援 C# (Windows 10、UWP、.NET Standard)、Java (Android 和自訂裝置)、Objective C (iOS)、C++ (Windows 和 Linux)，以及 JavaScript。 所有平台上的 API 都非常類似，進一步簡化多平台開發的工作。
+語音 SDK 目前支援C#([以下將詳細說明](https://aka.ms/csspeech))、 Java （Android 和自訂的裝置）、 Objective C (iOS)、 C++ （Windows 和 Linux） 和 JavaScript。 所有平台上的 API 都非常類似，進一步簡化多平台開發的工作。
 
 語音服務不會提供全域端點。 請判斷自己的應用程式是否能在針對所有流量使用單一區域端點的情況下有效運作。 如果不行，請使用地理位置來判斷最有效的端點。 您需要個別的語音服務訂用帳戶在您使用每個區域中。
 

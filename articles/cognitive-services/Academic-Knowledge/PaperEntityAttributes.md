@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875745"
 ---
 # <a name="paper-entity"></a>論文實體
@@ -24,27 +24,27 @@ ms.locfileid: "64875745"
 
 名稱    |描述                                        |類型       | 作業
 ------- | ------------------------------------------------- | --------- | ----------------------------
-id      |實體識別碼                                          |Int64      |Equals
-Ti      |論文標題                                        |字串     |Equals,<br/>StartsWith
+Id      |實體識別碼                                          |Int64      |Equals
+Ti      |論文標題                                        |String     |Equals,<br/>StartsWith
 L       |文件語言程式碼分隔 」\@\@\@"          |字串     |Equals
 Y       |論文年度                                         |Int32      |Equals,<br/>IsBetween
-D       |論文日期                                         |date       |Equals,<br/>IsBetween
+D       |論文日期                                         |Date       |Equals,<br/>IsBetween
 CC      |引用計數                                     |Int32      |None  
 ECC     |預估引用計數                           |Int32      |None
 AA.AuN  |作者姓名                                        |字串     |Equals,<br/>StartsWith
 AA.AuId |作者識別碼                                          |Int64      |Equals
-AA.AfN  |作者服務機關名稱                            |字串     |Equals,<br/>StartsWith
+AA.AfN  |作者服務機關名稱                            |String     |Equals,<br/>StartsWith
 AA.AfId |作者服務機關識別碼                              |Int64      |Equals
 AA.S    |論文的作者順序                         |Int32      |Equals
-F.FN    |研究領域名稱                                |字串     |Equals,<br/>StartsWith
+F.FN    |研究領域名稱                                |String     |Equals,<br/>StartsWith
 F.FId   |研究領域識別碼                                  |Int64      |Equals
-J.JN    |期刊名稱                                       |字串     |Equals,<br/>StartsWith
+J.JN    |期刊名稱                                       |String     |Equals,<br/>StartsWith
 J.JId   |期刊識別碼                                         |Int64      |Equals
-C.CN    |會議系列名稱                             |字串     |Equals,<br/>StartsWith
+C.CN    |會議系列名稱                             |String     |Equals,<br/>StartsWith
 C.CId   |會議系列識別碼                               |Int64      |Equals
 RId     |所參考論文的識別碼                              |Int64[]    |Equals
 W       |論文標題和摘要的文字                |String[]   |Equals
-E       |擴充中繼資料 (請參閱下表)                |字串     |None  
+E       |擴充中繼資料 (請參閱下表)                |String     |None  
         
 
 

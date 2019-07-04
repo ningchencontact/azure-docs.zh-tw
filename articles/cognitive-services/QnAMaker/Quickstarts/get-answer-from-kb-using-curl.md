@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 42ca0c116521b7493c587271422fa760f2376533
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 817a19d5cabd7d20dc17154f29b4430e6b96c5fa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072046"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>快速入門：使用 cURL 從知識庫取得答案
 
@@ -32,7 +32,7 @@ ms.locfileid: "65767224"
 
 ## <a name="use-production-endpoint-with-curl"></a>搭配 cURL 使用生產端點
 
-發佈知識庫時，[發佈] 頁面會顯示用來產生答案的 HTTP 要求設定。 [CURL] 索引標籤會顯示從命令列工具 ([CURL](https://www.getpostman.com)) 產生答案所需的設定。
+發佈知識庫時，[發佈]  頁面會顯示用來產生答案的 HTTP 要求設定。 [CURL]  索引標籤會顯示從命令列工具 ([CURL](https://www.getpostman.com)) 產生答案所需的設定。
 
 [![發佈結果](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 

@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995569"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60203278"
 ---
 # <a name="categorize-images-by-subject-matter"></a>依主題分類的映像
 
@@ -24,7 +24,7 @@ ms.locfileid: "59995569"
 
 ## <a name="the-86-category-concept"></a>86 類別概念
 
-计算机视觉可以使用下图中 86 个类别的列表广泛或具体地对图像进行分类。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
+電腦視覺可以分類影像廣泛地或明確地說下, 圖中使用的 86 類別清單。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
 
 ![類別分類法中所有類別的分組清單](./Images/analyze_categories-v2.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "59995569"
 
 下表所列的是一般的影像集和電腦視覺針對每個影像所傳回的類別。
 
-| 映像 | 類別 |
+| Image | Category |
 |-------|----------|
 | ![拍全家福的四個人](./Images/family_photo.png) | people_group |
 | ![坐在草地上的小狗](./Images/cute_dog.png) | animal_dog |

@@ -3,18 +3,18 @@ title: 安裝及執行容器-異常偵測器
 titleSuffix: Azure Cognitive Services
 description: 您可以使用異常偵測器 API 的進階的演算法來識別時間序列資料中的異常狀況。
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: aahi
-ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 704ea3ecbc309c2328e120d5b6776e659944d254
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306988"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275021"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>安裝並執行異常偵測器的容器
 
@@ -97,7 +97,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，並可在 Azure 入口網站的 [異常偵測器金鑰] 頁面上取得。  |
 |{BILLING_ENDPOINT_URI} | 在 Azure 入口網站的異常偵測器概觀頁面上，您可以使用計費的端點 URI 值。|
@@ -155,7 +155,7 @@ ApiKey={BILLING_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 https://localhost:5000。
+針對容器 API 請使用主機 https://localhost:5000 。
 
 <!--  ## Validate container is running -->
 

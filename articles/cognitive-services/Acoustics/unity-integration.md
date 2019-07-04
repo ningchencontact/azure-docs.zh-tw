@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8605fe2ea86f875b5c5fd8ea451a287442dcd51b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922496"
 ---
 # <a name="project-acoustics-unity-integration"></a>Project 樂器 Unity 整合
@@ -26,7 +26,7 @@ ms.locfileid: "64922496"
 
 ## <a name="import-the-plugin"></a>匯入外掛程式
 將聲場 UnityPackage 匯入到您的專案中。 
-* 在 Unity 中，移至 [Assets] \(資產\) > [Import Package] \(匯入套件\) > [Custom Package] \(自訂套件\)
+* 在 Unity 中，移至 [Assets] \(資產\) > [Import Package] \(匯入套件\) > [Custom Package] \(自訂套件\) 
 
     ![Unity 匯入封裝的螢幕擷取畫面 功能表](media/import-package.png)  
 
@@ -48,12 +48,12 @@ ms.locfileid: "64922496"
 
 ![Unity 空間的螢幕擷取畫面設定 面板中選取的專案樂器空間與](media/choose-spatializer.png)
 
-然後開啟 音訊 Mixer (**視窗中 > 音訊 Mixer**)。 請確定您至少有一個含有一個群組的「混音器」。 如果沒有，請按一下 [Mixers] \(混音器\) 右邊的 [+] 按鈕。 以滑鼠右鍵按一下 [效果] 區段中，在通道區域底部並新增**專案樂器 Mixer**效果。 請注意，一次只支援一個「Project Acoustics 混音器」。
+然後開啟 音訊 Mixer (**視窗中 > 音訊 Mixer**)。 請確定您至少有一個含有一個群組的「混音器」。 如果沒有，請按一下 [Mixers] \(混音器\)  右邊的 [+] 按鈕。 以滑鼠右鍵按一下 [效果] 區段中，在通道區域底部並新增**專案樂器 Mixer**效果。 請注意，一次只支援一個「Project Acoustics 混音器」。
 
 ![螢幕擷取畫面的 Unity 音訊 Mixer 裝載專案樂器混音器](media/audio-mixer.png)
 
 ## <a name="enable-acoustics-on-sound-sources"></a>啟用樂器音效來源
-建立音訊來源。 按一下 AudioSource 偵測器面板底部的 [Spatialize] \(空間定位\) 核取方塊。 請確定 [Spatial Blend] \(空間混合\) 已設定為完全 3D。  
+建立音訊來源。 按一下 AudioSource 偵測器面板底部的 [Spatialize] \(空間定位\)  核取方塊。 請確定 [Spatial Blend] \(空間混合\)  已設定為完全 3D。  
 
 ![Unity 音訊來源螢幕擷取畫面 面板](media/audio-source.png)
 

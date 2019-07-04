@@ -3,19 +3,19 @@ title: 支援的資料來源 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔案或 MS Word DOC 檔的常見問題集、產品手冊、指導方針、支援文件和原則) 擷取問答組合。 內容也可以從結構化 QnA 內容檔案新增至知識庫。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/26/2019
-ms.author: tulasim
-ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.author: diberry
+ms.openlocfilehash: efb2524b430935e6c74415efe850b69835825bc7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578623"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447680"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -122,9 +122,9 @@ Answer2
 
  ![知識庫的結構化 QnA 文件範例](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
-## <a name="structured-txt-tsv-and-xls-files"></a>結構化的 TXT、TSV 和 XLS 檔案
+## <a name="structured-txt-tsv-and-xls-files"></a>結構化的 TXT  、TSV  和 XLS  檔案
 
-採用結構化 .txt、.tsv 或 .xls 檔案形式的 QnA 也可上傳至 QnA Maker，以便建立或擴大知識庫。  這些檔案可以是純文字，也可以具有 RTF 或 HTML 的內容。 
+採用結構化 .txt  、.tsv  或 .xls  檔案形式的 QnA 也可上傳至 QnA Maker，以便建立或擴大知識庫。  這些檔案可以是純文字，也可以具有 RTF 或 HTML 的內容。 
 
 | 問題  | Answer  | 中繼資料 (1 鍵：1 的值） |
 |-----------|---------|-------------------------|
@@ -133,7 +133,7 @@ Answer2
 
 來源檔案中的任何其他資料行都會被忽略。
 
-以下是具有 HTML 內容的結構化 QnA .xls 檔案範例：
+以下是具有 HTML 內容的結構化 QnA .xls  檔案範例：
 
  ![知識庫的結構化 QnA Excel 範例](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
@@ -141,7 +141,7 @@ Answer2
 
 匯入知識庫後，將會取代現有知識庫的內容。 匯入時必須要有包含資料來源資訊的結構化 .tsv 檔案。 這項資訊可協助 QnA Maker 將問答組分組，並將其歸於特定資料來源。
 
-| 問題  | Answer  | 來源| 中繼資料 (1 鍵：1 的值） |          
+| 問題  | Answer  | source| 中繼資料 (1 鍵：1 的值） |          
 |-----------|---------|----|---------------------|
 | 問題 1 | 解答 1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | 問題 2 | 解答 2 | 編輯|    `Key:Value`       |
@@ -152,7 +152,7 @@ Answer2
 
 ## <a name="formatting-considerations"></a>格式化考量
 
-檔案或 URL 在匯入後會轉換為 Markdown，並以該格式進行儲存。 如果轉換程序未正確地轉換檔案和 URL 中的連結，您應該在 [編輯] 頁面上編輯問題與解答。 
+檔案或 URL 在匯入後會轉換為 Markdown，並以該格式進行儲存。 如果轉換程序未正確地轉換檔案和 URL 中的連結，您應該在 [編輯]  頁面上編輯問題與解答。 
 
 |格式|目的|
 |--|--|
@@ -163,13 +163,13 @@ Answer2
 
 在建立知識庫之後，建議您在 [QnA Maker 入口網站](https://qnamaker.ai)中對知識庫文字進行編輯，而不要透過本機檔案匯出和重新匯入。 不過，有時您可能需要在本機編輯知識庫。 
 
-請從 [設定] 頁面匯出知識庫，然後使用 Microsoft Excel 來編輯知識庫。 如果您選擇使用另一個應用程式來編輯已匯出的 TSV 檔案，應用程式可能會因為它不完全符合 TSV 規範而造成語法錯誤。 Microsoft Excel 的 TSV 檔案通常不會造成任何格式設定錯誤。 
+請從 [設定]  頁面匯出知識庫，然後使用 Microsoft Excel 來編輯知識庫。 如果您選擇使用另一個應用程式來編輯已匯出的 TSV 檔案，應用程式可能會因為它不完全符合 TSV 規範而造成語法錯誤。 Microsoft Excel 的 TSV 檔案通常不會造成任何格式設定錯誤。 
 
-完成編輯之後，請從 [設定] 檔案重新匯入 TSV 檔案。 這會以匯入的知識庫完全取代目前的知識庫。 
+完成編輯之後，請從 [設定]  檔案重新匯入 TSV 檔案。 這會以匯入的知識庫完全取代目前的知識庫。 
 
 ## <a name="testing-your-markdown"></a>測試您的 Markdown
 
-請使用 **[CommonMark](https://commonmark.org/help/tutorial/index.html)** \(英文\) 教學課程來驗證您的 Markdown。 此教學課程具有 [Try it] \(試用\) 功能，可快速進行複製/貼上驗證。 
+請使用 **[CommonMark](https://commonmark.org/help/tutorial/index.html)** \(英文\) 教學課程來驗證您的 Markdown。 此教學課程具有 [Try it] \(試用\)  功能，可快速進行複製/貼上驗證。 
 
 ## <a name="next-steps"></a>後續步驟
 

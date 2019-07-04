@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 9cff5fdac39be2338305cd37a4b2328a28a48255
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472435"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67269270"
 ---
 # <a name="limits-and-quotas"></a>限制和配額
 
@@ -39,3 +39,5 @@ S0 專案預期會在一段時間後增加「每個專案的訓練影像數」�
 |[其他 API 呼叫](https://go.microsoft.com/fwlink/?linkid=865446) (每秒交易數)|10|10|
 |最大影像大小 (訓練影像上傳) |6 MB|6 MB|
 |最大影像大小 (預測)|4 MB|4 MB|
+|每個物件偵測訓練影像的最大區域|200|200|
+|每個分類影像的最大值標籤|30|30|

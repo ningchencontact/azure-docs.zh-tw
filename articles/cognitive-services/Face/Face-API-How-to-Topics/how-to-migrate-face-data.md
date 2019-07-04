@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
 ms.openlocfilehash: 702aed12860c090e83b997e6b56d56e06b416568
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65913799"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>將您的臉部資料移轉至其他臉部訂用帳戶
@@ -233,5 +233,5 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 - [快照集參考文件 (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [人臉識別 API 快照集範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [新增臉部](how-to-add-faces.md)
-- [偵測影像中的臉孔](HowtoDetectFacesinImage.md)
-- [識別影像中的人臉](HowtoIdentifyFacesinImage.md)
+- [偵測影像中的臉部](HowtoDetectFacesinImage.md)
+- [識別影像中的臉部](HowtoIdentifyFacesinImage.md)

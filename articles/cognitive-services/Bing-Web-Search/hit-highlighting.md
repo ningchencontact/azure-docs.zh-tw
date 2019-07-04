@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: bde3ec0aab954defa31ca667283e6413716a3b42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61431441"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>使用裝飾標記醒目提示文字
 

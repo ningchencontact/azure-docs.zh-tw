@@ -3,26 +3,26 @@ title: 翻譯工具語音 API 參考
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具語音 API 參考文件。
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0f083a6ca3079128aad4aba3a53013df378a6106
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446910"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-此服務提供串流處理 API，將交談語音從某種語言謄寫為另一種語言的文字。 此 API 也會整合文字轉換語音功能，以說出翻譯的文字。 翻譯工具語音 API 會啟用 Skype Translator 中即時翻譯交談這類情節。
+此服務提供串流處理 API，將交談語音從某種語言謄寫為另一種語言的文字。 API 也整合了傳回翻譯的文字的讀出的文字轉換語音功能。 翻譯工具語音 API 會啟用 Skype Translator 中即時翻譯交談這類情節。
 
 使用翻譯工具語音 API，用戶端應用程式會將語音音訊串流處理至服務，並接收以文字為基礎之結果的資料流，包括來源語言中的已辨識文字以及它在目標語言中的翻譯。 產生文字結果時，是透過將採用深度類神經網路技術的「自動語音辨識」(ASR) 套用至傳入的音訊資料流來產生。 原始 ASR 輸出使用稱為 TrueText 的新技術進一步改善，以更密切地反映使用者意圖。 例如，TrueText 會移除言語上的不流利 (嗯和咳嗽)，並還原適當的標點符號和大小寫。 也會包括遮罩或排除粗話的能力。 辨識和翻譯引擎皆特別經過訓練來處理交談語音。 「語音翻譯」服務使用無聲偵測來判斷語句的結束。 在語音活動暫停之後，服務會串流來傳回已完成語句的最終結果。 此服務也可以送回部分結果，以提供進行中語句的中繼辨識和翻譯。 在最終結果中，此服務提供以目標語言從口語文字合成語音 (文字轉換語音) 的能力。 會以用戶端指定的格式建立文字轉換語音音訊。 可用的格式包括 WAV 和 MP3。
 
@@ -168,28 +168,28 @@ GET /speech/translate 建立語音翻譯的工作階段
 
 |參數|值|描述|參數類型|資料類型|
 |:---|:---|:---|:---|:---|
-|api-version|1.0|用戶端要求的 API 版本。 允許的值包括：`1.0`。|query   |字串|
-|from|(空白)   |指定內送語音的語言。 此值是 Languages API 回應中來自 `speech` 範圍 的其中一個語言識別碼。|query|字串|
-|to|(空白)|指定用來翻譯已轉譯文字的目標語言。 此值是 Languages API 回應中來自 `text` 範圍 的其中一個語言識別碼。|query|字串|
-|特性|(空白)   |用戶端選取的逗號分隔功能集。 可用功能包括：<ul><li>`TextToSpeech`：指定服務必須傳回最終翻譯句子的翻譯音訊。</li><li>`Partial`：指定服務必須傳回中繼辨識結果，而音訊會串流處理至服務。</li><li>`TimingInfo`：指定服務必須傳回與每個辨識建立關聯的計時資訊。</li></ul>例如，用戶端指定 `features=partial,texttospeech` 收到局部結果和文字轉換語音，但沒有計時資訊。 請注意，最終結果一律會串流處理至用戶端。|query|字串|
-|voice|(空白)|識別要用於翻譯文字之文字轉換語音轉譯的聲音。 此值是 Languages API 回應中來自 tts 範圍 的其中一個語音識別碼。 若未指定語音，則系統會在啟用文字轉換語音功能時自動選擇語音。|query|字串|
-|format|(空白)|指定服務所傳回的文字轉換語音音訊資料流格式。 可用選項包括：<ul><li>`audio/wav`:Waveform 音訊資料流。 用戶端應該會使用 WAV 標頭，適當地解譯音訊格式。 文字轉換語音的 WAV 音訊是取樣率為 24kHz 或 16 kHz 的 16 位元單一通道 PCM。</li><li>`audio/mp3`:MP3 音訊資料流。</li></ul>預設值為 `audio/wav`。|query|字串|
-|ProfanityAction    |(空白)    |指定服務應該如何處理語音中所辨識的粗話。 有效的動作包括︰<ul><li>`NoAction`:粗話會保持原狀。</li><li>`Marked`:粗話會取代為標記。 請參閱 `ProfanityMarker` 參數。</li><li>`Deleted`:刪除粗話。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a .".`</li></ul>預設值是 Marked。|query|字串|
-|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`:粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`:粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|字串|
-|Authorization|(空白)  |指定用戶端持有人權杖的值。 使用 `Bearer` 字首，後面接著驗證權杖服務所傳回 `access_token` 值的值。|頁首   |字串|
-|Ocp-Apim-Subscription-Key|(空白)|若未指定 `Authorization` 標頭，則為必要項目。|頁首|字串|
-|access_token|(空白)   |傳遞有效 OAuth 存取權杖的替代方式。 持有人權杖通常會與 `Authorization` 標頭一起提供。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `access_token` 查詢參數來傳遞有效的權杖。 使用存取權杖驗證時，若未設定 `Authorization` 標頭，則必須設定 `access_token`。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞權杖。|query|字串|
-|subscription-key|(空白)   |傳遞訂用帳戶金鑰的替代方式。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `subscription-key` 查詢參數來傳遞有效的訂用帳戶金鑰。 使用訂用帳戶金鑰驗證時，若未設定 `Ocp-Apim-Subscription-Key` 標頭，則必須設定訂用帳戶金鑰。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞 `subscription key`。|query|字串|
-|X-ClientTraceId    |(空白)    |用來追蹤要求之用戶端產生的 GUID。 如需針對問題進行適當地疑難排解，用戶端應該隨著每項要求提供新的值並予以記錄。<br/>此值可以使用 `X-ClientTraceId` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|字串|
-|X-CorrelationId|(空白)    |用來相互關聯交談中多個通道之用戶端產生的識別碼。 可以建立多個語音翻譯工作階段，以啟用使用者之間的交談。 在這類情況下，所有語音翻譯工作階段都會使用相同的相互關聯識別碼，將通道繫結在一起。 這有助於追蹤和診斷。 識別碼應該符合：`^[a-zA-Z0-9-_.]{1,64}$`<br/>此值可以使用 `X-CorrelationId` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|字串|
-|X-ClientVersion|(空白)    |識別用戶端應用程式的版本。 範例："2.1.0.123"。<br/>此值可以使用 `X-ClientVersion` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|字串|
-|X-OsPlatform|(空白)   |識別用戶端應用程式在其上執行的作業系統名稱和版本。 範例："Android 5.0"、"iOs 8.1.3"、"Windows 8.1"。<br/>此值可以使用 `X-OsPlatform` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|字串|
+|api-version|1.0|用戶端要求的 API 版本。 允許的值包括：`1.0`。|query   |string|
+|from|(空白)   |指定內送語音的語言。 此值是 Languages API 回應中來自 `speech` 範圍 的其中一個語言識別碼。|query|string|
+|to|(空白)|指定用來翻譯已轉譯文字的目標語言。 此值是 Languages API 回應中來自 `text` 範圍 的其中一個語言識別碼。|query|string|
+|特性|(空白)   |用戶端選取的逗號分隔功能集。 可用功能包括：<ul><li>`TextToSpeech`：指定服務必須傳回最終翻譯句子的翻譯音訊。</li><li>`Partial`：指定服務必須傳回中繼辨識結果，而音訊會串流處理至服務。</li><li>`TimingInfo`：指定服務必須傳回與每個辨識建立關聯的計時資訊。</li></ul>例如，用戶端指定 `features=partial,texttospeech` 收到局部結果和文字轉換語音，但沒有計時資訊。 請注意，最終結果一律會串流處理至用戶端。|query|string|
+|voice|(空白)|識別要用於翻譯文字之文字轉換語音轉譯的聲音。 此值是 Languages API 回應中來自 tts 範圍 的其中一個語音識別碼。 若未指定語音，則系統會在啟用文字轉換語音功能時自動選擇語音。|query|string|
+|format|(空白)|指定服務所傳回的文字轉換語音音訊資料流格式。 可用選項包括：<ul><li>`audio/wav`:Waveform 音訊資料流。 用戶端應該會使用 WAV 標頭，適當地解譯音訊格式。 文字轉換語音的 WAV 音訊是取樣率為 24kHz 或 16 kHz 的 16 位元單一通道 PCM。</li><li>`audio/mp3`:MP3 音訊資料流。</li></ul>預設值為 `audio/wav`。|query|string|
+|ProfanityAction    |(空白)    |指定服務應該如何處理語音中所辨識的粗話。 有效的動作包括︰<ul><li>`NoAction`:粗話會保持原狀。</li><li>`Marked`:粗話會取代為標記。 請參閱 `ProfanityMarker` 參數。</li><li>`Deleted`:刪除粗話。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a .".`</li></ul>預設值是 Marked。|query|string|
+|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`:粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`:粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|string|
+|Authorization|(空白)  |指定用戶端持有人權杖的值。 使用 `Bearer` 字首，後面接著驗證權杖服務所傳回 `access_token` 值的值。|頁首   |string|
+|Ocp-Apim-Subscription-Key|(空白)|若未指定 `Authorization` 標頭，則為必要項目。|頁首|string|
+|access_token|(空白)   |傳遞有效 OAuth 存取權杖的替代方式。 持有人權杖通常會與 `Authorization` 標頭一起提供。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `access_token` 查詢參數來傳遞有效的權杖。 使用存取權杖驗證時，若未設定 `Authorization` 標頭，則必須設定 `access_token`。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞權杖。|query|string|
+|subscription-key|(空白)   |傳遞訂用帳戶金鑰的替代方式。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `subscription-key` 查詢參數來傳遞有效的訂用帳戶金鑰。 使用訂用帳戶金鑰驗證時，若未設定 `Ocp-Apim-Subscription-Key` 標頭，則必須設定訂用帳戶金鑰。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞 `subscription key`。|query|string|
+|X-ClientTraceId    |(空白)    |用來追蹤要求之用戶端產生的 GUID。 如需針對問題進行適當地疑難排解，用戶端應該隨著每項要求提供新的值並予以記錄。<br/>此值可以使用 `X-ClientTraceId` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
+|X-CorrelationId|(空白)    |用來相互關聯交談中多個通道之用戶端產生的識別碼。 可以建立多個語音翻譯工作階段，以啟用使用者之間的交談。 在這類情況下，所有語音翻譯工作階段都會使用相同的相互關聯識別碼，將通道繫結在一起。 這有助於追蹤和診斷。 識別碼應該符合：`^[a-zA-Z0-9-_.]{1,64}$`<br/>此值可以使用 `X-CorrelationId` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
+|X-ClientVersion|(空白)    |識別用戶端應用程式的版本。 範例："2.1.0.123"。<br/>此值可以使用 `X-ClientVersion` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
+|X-OsPlatform|(空白)   |識別用戶端應用程式在其上執行的作業系統名稱和版本。 範例："Android 5.0"、"iOs 8.1.3"、"Windows 8.1"。<br/>此值可以使用 `X-OsPlatform` 查詢參數傳遞，而不是使用標頭。 若同時設定標頭和查詢參數，則會忽略查詢參數。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|回應模型|headers|
+|HTTP 狀態碼|`Reason`|回應模型|headers|
 |:--|:--|:--|:--|
-|101    |WebSocket 升級。|模型範例值 <br/> 物件 {}|X-RequestId<br/>值，識別進行疑難排解的要求。<br/>字串|
+|101    |WebSocket 升級。|模型範例值 <br/> 物件 {}|X-RequestId<br/>值，識別進行疑難排解的要求。<br/>string|
 |400    |不正確的要求。 請檢查輸入參數，以確保參數有效。 回應物件包括錯誤的更詳細描述。|||
 |401    |未經授權。 確定已設定認證、認證有效，而且您的 Azure Data Market 訂用帳戶具有可用餘額。|||
 |500    |發生錯誤。 若錯誤仍然存在，請使用用戶端追蹤識別碼 (X-ClientTraceId) 或要求識別碼 (X-RequestId) 予以回報。|||

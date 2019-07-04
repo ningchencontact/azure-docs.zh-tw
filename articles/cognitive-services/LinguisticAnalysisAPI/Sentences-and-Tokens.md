@@ -12,11 +12,11 @@ ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
 ms.openlocfilehash: 435513023cf74bbc259cb922220d5f9940452d79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60635461"
 ---
 # <a name="sentence-separation-and-tokenization"></a>分句和 Token 化
 
@@ -57,7 +57,7 @@ ms.locfileid: "55879389"
 
 情況有時很麻煩。
 第一，標點符號往往 (但並非一定) 應該會與其周圍內容分開。
-第二，英文有「縮寫」：如 "didn't" 或 "it's"，其中的字組已經壓縮，並縮寫為較小的片段。
+第二，英文有「縮寫」  ：如 "didn't" 或 "it's"，其中的字組已經壓縮，並縮寫為較小的片段。
 Tokenizer 的目標是將字元序列分拆為字組。
 
 讓我們回到上述的句子範例。

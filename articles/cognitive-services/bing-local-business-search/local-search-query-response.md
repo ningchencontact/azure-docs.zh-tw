@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 06/26/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e2911ebe9157507534717a4177d4380813dd2ff6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796782"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541560"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>傳送並使用 Bing 當地商家搜尋 API 查詢和回應
 
@@ -22,7 +22,7 @@ ms.locfileid: "65796782"
 
 ## <a name="creating-a-request"></a>建立要求
 
-若要將要求傳送至 Bing 當地商家搜尋 API，請在將 `q=` 參數新增至 API 端點之前將搜尋詞彙新增至該參數，並包含 `Ocp-Apim-Subscription-Key` 標頭。 例如：
+若要將要求傳送至 Bing 當地商家搜尋 API，請在將 `q=` 參數新增至 API 端點之前將搜尋詞彙新增至該參數，並包含 `Ocp-Apim-Subscription-Key` 標頭。 例如:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -37,6 +37,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## <a name="using-responses"></a>使用回應
 
 Bing 當地商家搜尋 API 的 JSON 回應包含 `SearchResponse` 物件。 API 將在 `places` 欄位中傳回相關的搜尋結果。 如果未找到結果，則 `places` 欄位將不會包含在回應中。
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {

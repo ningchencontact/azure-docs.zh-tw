@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411499"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449016"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定臉部辨識模式
 
@@ -38,12 +38,12 @@ ms.locfileid: "65411499"
 
 辨識模型時使用臉部功能會擷取，以便執行偵測作業時，您可以指定模型版本。
 
-使用時[面臨-偵測]API，將指定的模型版本`recognitionModel`參數。 可用的值為：
+使用時[Face - Detect]API，將指定的模型版本`recognitionModel`參數。 可用的值為：
 
 * `recognition_01`
 * `recognition_02`
 
-您可以選擇性地指定_returnRecognitionModel_參數 (預設**false**)，表示是否_recognitionModel_應該在回應中傳回。 因此，要求 URL[面臨-偵測]REST API 看起來像這樣：
+您可以選擇性地指定_returnRecognitionModel_參數 (預設**false**)，表示是否_recognitionModel_應該在回應中傳回。 因此，要求 URL[Face - Detect]REST API 看起來像這樣：
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
 &subscription-key=<Subscription key>`
@@ -53,7 +53,7 @@ ms.locfileid: "65411499"
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>使用指定的模型識別人臉
@@ -67,12 +67,12 @@ A **PersonGroup**應該有一個唯一辨識模型的所有**人員**，然後�
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 在此程式碼中， **PersonGroup**識別碼`mypersongroupid`建立，而且它設定為使用_recognition_02_模型，以擷取臉部特徵。
 
-同樣地，您需要指定哪一個模型来使用偵測臉部時，用來比較這**PersonGroup** (透過[面臨-偵測]API)。 您使用的模型應該一律是配合**PersonGroup**的組態; 否則作業會失敗因不相容的模型。
+同樣地，您需要指定哪一個模型来使用偵測臉部時，用來比較這**PersonGroup** (透過[Face - Detect]API)。 您使用的模型應該一律是配合**PersonGroup**的組態; 否則作業會失敗因不相容的模型。
 
 在沒有變更[面臨-識別]API，您只需要在偵測指定的模型版本。
 
@@ -83,16 +83,16 @@ await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group 
 請參閱下列程式碼範例.NET 用戶端程式庫。
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
-此程式碼會建立名為臉部清單`My face collection`，並使用_recognition_02_模型來擷取特徵。 當您搜尋新偵測到臉部的相似臉部此臉部清單時，該臉部必須偵測到 ([面臨-偵測]) 使用_recognition_02_模型。 上一節中，模型必須保持一致。
+此程式碼會建立名為臉部清單`My face collection`，並使用_recognition_02_模型來擷取特徵。 當您搜尋新偵測到臉部的相似臉部此臉部清單時，該臉部必須偵測到 ([Face - Detect]) 使用_recognition_02_模型。 上一節中，模型必須保持一致。
 
 在沒有變更[臉部-尋找相似]API，您只能在偵測指定的模型版本。
 
 ## <a name="verify-faces-with-specified-model"></a>驗證具有指定之模型的臉部
 
-[Face - Verify]API 會檢查是否兩張臉部是屬於同一個人。 不沒有關於辨識模型中，確認 API 中的任何變更，但您只可以比較臉部偵測到使用相同的模型。 因此，這兩張臉兩者必須偵測到使用`recognition_01`或`recognition_02`。
+[面臨-驗證]API 會檢查是否兩張臉部是屬於同一個人。 不沒有關於辨識模型中，確認 API 中的任何變更，但您只可以比較臉部偵測到使用相同的模型。 因此，這兩張臉兩者必須偵測到使用`recognition_01`或`recognition_02`。
 
 ## <a name="evaluate-different-models"></a>評估不同的模型
 
@@ -108,12 +108,12 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 
 在本文中，您已了解如何指定辨識模型，以搭配不同臉部服務 Api。 接下來，請依照下列快速入門來開始使用臉部偵測。
 
-* [偵測影像中的臉孔](../quickstarts/csharp-detect-sdk.md)
+* [偵測影像中的臉部](../quickstarts/csharp-detect-sdk.md)
 
-[面臨-偵測]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
+[Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [臉部-尋找相似]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [面臨-識別]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
-[Face - Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a（人脸 - 验证）
+[面臨-驗證]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - 建立]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
 [PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b

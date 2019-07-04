@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60628974"
 ---
 # <a name="create-human-reviews"></a>建立人工審核
 
@@ -46,7 +46,7 @@ ms.locfileid: "58758493"
 
     ![仲裁詳細資料列在不同窗格的影像](images/review-images-4.png)
 
-1. 在您視需要審查並更新標記指派後，請按 [下一步] 以提交您的審查。 在您提交之後，您大約有五秒的時間可按 [上一步] 按鈕，以返回上一個畫面並再次審查影像。 在這之後，影像不再存在於 [提交] 佇列中，而且無法再使用 [上一步] 按鈕。
+1. 在您視需要審查並更新標記指派後，請按 [下一步]  以提交您的審查。 在您提交之後，您大約有五秒的時間可按 [上一步]  按鈕，以返回上一個畫面並再次審查影像。 在這之後，影像不再存在於 [提交] 佇列中，而且無法再使用 [上一步]  按鈕。
 
 ## <a name="text-reviews"></a>文字檢閱
 

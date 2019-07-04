@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388793"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485143"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>在您 LUIS 模型中，每個文化特性的實體
 
@@ -51,6 +51,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -72,6 +73,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -93,6 +95,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    ✔   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -113,7 +116,8 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |   -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -135,6 +139,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -155,7 +160,8 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -177,6 +183,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -198,6 +205,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -219,6 +227,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    -   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -240,6 +249,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -261,6 +271,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -282,6 +293,7 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 

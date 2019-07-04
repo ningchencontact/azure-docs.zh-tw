@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417972"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204109"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -189,11 +189,11 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>我收到了有關超出配額的錯誤。 如何修正問題？ 
 
-若要深入了解，請參閱[如何修正金鑰超出定價層使用量時所產生的超出配額錯誤](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage)。
+查看，請[修正的 HTTP 狀態碼 403 和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429)若要深入了。
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>我需要處理更多端點查詢。 該怎麼做？ 
 
-若要深入了解，請參閱[如何修正金鑰超出定價層使用量時所產生的超出配額錯誤](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage)。
+查看，請[修正的 HTTP 狀態碼 403 和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429)若要深入了。
 
 
 

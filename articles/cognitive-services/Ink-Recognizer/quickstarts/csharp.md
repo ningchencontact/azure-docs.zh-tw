@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: d661d6eca6e4916946944c48cc2e5411aeaf8f14
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060986"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>快速入門：辨識與筆跡的辨識器 REST API 的數位筆跡和C#
 
@@ -34,7 +34,7 @@ ms.locfileid: "65518679"
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
     - 若要在 Visual studio 中的 NuGet 套件形式安裝 Newtonsoft.Json:
         1. 以滑鼠右鍵按一下**Solution Manager**
-        2. 按一下 [管理 NuGet 套件...]
+        2. 按一下 [管理 NuGet 套件...] 
         3. 搜尋`Newtonsoft.Json`並安裝套件
 - 如果您使用 Linux/MacOS，可以使用執行此應用程式[Mono](https://www.mono-project.com/)。
 

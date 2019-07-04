@@ -3,19 +3,19 @@ title: 設定語音容器
 titleSuffix: Azure Cognitive Services
 description: 語音容器
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072447"
 ---
 # <a name="configure-speech-service-containers"></a>設定語音服務容器
 
@@ -50,9 +50,9 @@ ms.locfileid: "65797916"
 
 * Azure 入口網站：**語音的**概觀，標示為 `Endpoint`
 
-|必要項| 名稱 | 数据类型 | 說明 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
-|有| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -70,7 +70,7 @@ ms.locfileid: "65797916"
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>掛接設定
+## <a name="mount-settings"></a>裝載設定
 
 使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
 
@@ -78,7 +78,7 @@ ms.locfileid: "65797916"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](speech-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 数据类型 | 說明 |
+|選用| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 語音容器不要使用這個動作。|
 |選用| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -92,7 +92,7 @@ ms.locfileid: "65797916"
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| 預留位置 | Value | 格式或範例 |
+| Placeholder | 值 | 格式或範例 |
 |-------------|-------|---|
 |{BILLING_KEY} | 語音資源端點索引鍵。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | 包括區域的計費端點值。|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|

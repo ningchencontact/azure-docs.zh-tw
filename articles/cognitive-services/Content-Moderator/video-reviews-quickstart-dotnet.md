@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726841"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 來建立影片審核項目
 
@@ -61,7 +61,7 @@ ms.locfileid: "59527365"
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
 
 1. 將專案命名為 **VideoReviews**。
 
@@ -174,7 +174,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **CreateVideoReviews** 會傳回 IList<string>。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
+> **CreateVideoReviews**會傳回 IList\<字串 >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
@@ -550,7 +550,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>查看您的影片審核項目
 
-最後，您會在 Content Moderator 審核工具帳戶中的 [審核]>[影片] 畫面上看到影片審核項目。
+最後，您會在 Content Moderator 審核工具帳戶中的 [審核]  >[影片]  畫面上看到影片審核項目。
 
 ![給人工仲裁者的影片審核項目](images/ams-video-review.PNG)
 

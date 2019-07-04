@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072299"
 ---
 # <a name="webhooks-for-speech-services"></a>語音服務的 Webhook
 
@@ -38,6 +38,8 @@ Webhook 就像是可讓您的應用程式接受從語音服務的資料，可供
 ## <a name="create-a-webhook"></a>建立 Webhook
 
 讓我們建立離線的轉譯的 webhook。 案例： 使用者已是他們想要以非同步方式轉譯，使用 Batch 轉譯 API 的長時間執行的音訊檔案。 
+
+您可以建立 Webhook POST 要求至 https://\<地區\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks。
 
 要求的組態參數提供為 JSON:
 
@@ -122,17 +124,61 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 > [!Note] 
 > 在上述範例中，區域會是 'westus'。 應該取代您已在其中建立在 Azure 入口網站中您的語音服務資源的區域。
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping主體： 空白
+POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping 主體： 空白
 
 將 POST 要求傳送到已註冊的 URL。 此要求包含`X-MicrosoftSpeechServices-Event`標頭值的 ping。 如果祕密已註冊 webhook，它會包含`X-MicrosoftSpeechServices-Signature`標頭與裝載使用 HMAC 金鑰與祕密的 SHA256 雜湊。 雜湊是 Base64 編碼。 
 
-POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test主體： 空白
+POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test 主體： 空白
 
 如果訂閱的事件類型 （轉譯） 的實體存在系統中，並且處於適當狀態，請傳送 POST 要求到已註冊的 URL。 從最後一個實體，會叫用 web 勾點，就會產生承載。 如果實體不存在，會回應 POST 204。 如果可以進行測試要求，它會回應 200。 要求主體是圖形的在相同與特定實體的 GET 要求的 web 勾點訂閱 （例如轉譯）。 要求將會有`X-MicrosoftSpeechServices-Event`和`X-MicrosoftSpeechServices-Signature`之前所述的標頭。
 
 ### <a name="run-a-test"></a>執行測試
 
-可以進行快速測試使用網站 https://bin.webhookrelay.com。 您可以從該處取得呼叫後要當做參數傳遞至 HTTP POST 來建立文件稍早所述的 webhook Url。
+可以進行快速測試使用網站 https://bin.webhookrelay.com 。 您可以從該處取得呼叫後要當做參數傳遞至 HTTP POST 來建立文件稍早所述的 webhook Url。
+
+按一下 建立貯體 ' 並遵循螢幕上指示取得攔截程序。 要向語音服務勾點，然後使用此頁面中提供的資訊。 – 以回應轉譯完成 – 轉送訊息的裝載如下所示：
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+此訊息包含錄製 URL 及用來轉譯該記錄的模型。
 
 ## <a name="next-steps"></a>後續步驟
 

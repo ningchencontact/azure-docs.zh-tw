@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058529"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
-撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 就公用應用程式而言，端點存取權適用於擁有自己 LUIS 帳戶且擁有公用應用程式識別碼的所有使用者。 
+撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 公用應用程式中，端點存取可供每個人都有自己的 Azure[認知服務](../cognitive-services-apis-create-account.md)或是[LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal)資源，並具有公用應用程式的識別碼。 
 
 ## <a name="access-to-authoring"></a>存取撰寫
 從 [LUIS](luis-reference-regions.md#luis-website) 網站或[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087) 存取應用程式時，會受到應用程式擁有者所控制。 
@@ -40,7 +40,7 @@ ms.locfileid: "65522484"
 
 ## <a name="access-to-endpoint"></a>存取端點
 
-查詢端點的存取權是由 [應用程式資訊] 頁面的 [管理] 區段中的設定所控制。 
+查詢端點的存取權是由 [應用程式資訊]  頁面的 [管理]  區段中的設定所控制。 
 
 ![將應用程式設定為公用](./media/luis-concept-security/set-application-as-public.png)
 
@@ -66,9 +66,9 @@ ms.locfileid: "65522484"
 
 ### <a name="public-app-endpoint-access"></a>公用應用程式端點存取權
 
-將應用程式設定為公用之後，「任何」有效的 LUIS 撰寫金鑰或 LUIS 端點金鑰都能查詢您的應用程式，只要該金鑰尚未使用整個端點配額即可。
+將應用程式設定為公用之後，「任何」  有效的 LUIS 撰寫金鑰或 LUIS 端點金鑰都能查詢您的應用程式，只要該金鑰尚未使用整個端點配額即可。
 
-使用者如果不是擁有者或共同作業者，在取得應用程式識別碼的情況下，只能存取公用應用程式。 LUIS 沒有公用「市集」或其他方式可供搜尋公用應用程式。  
+使用者如果不是擁有者或共同作業者，在取得應用程式識別碼的情況下，只能存取公用應用程式。 LUIS 沒有公用「市集」  或其他方式可供搜尋公用應用程式。  
 
 公用應用程式會在所有區域中發佈，以便具有區域型 LUIS 資源金鑰的使用者在與資源金鑰相關聯的區域中存取應用程式。
 
