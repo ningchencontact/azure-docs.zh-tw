@@ -3,20 +3,20 @@ title: 設定容器
 titlesuffix: Text Analytics - Azure Cognitive Services
 description: 文字分析為每個容器提供了常見的設定架構，因此您可以輕易地設定及管理您容器的儲存體、記錄和遙測，以及安全性設定。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 06/20/2019
+ms.author: dapine
+ms.openlocfilehash: 604b17bc3d4696ff0bf2be1759a53927a531fe13
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011753"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296029"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>設定文字分析 Docker 容器
 
@@ -51,7 +51,7 @@ ms.locfileid: "60011753"
 
 您需要新增`text/analytics/v2.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI。
 
-|必要項| Name | 資料類型 | 描述 |
+|必要項| 名稱 | 数据类型 | 描述 |
 |--|------|-----------|-------------|
 |是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
@@ -79,9 +79,9 @@ ms.locfileid: "60011753"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| Name | 資料類型 | 描述 |
+|選用| 名稱 | 数据类型 | 描述 |
 |-------|------|-----------|-------------|
-|不允許| `Input` | 字串 | 文字分析容器不會使用此項目。|
+|不允許| `Input` | String | 文字分析容器不會使用此項目。|
 |選用| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 

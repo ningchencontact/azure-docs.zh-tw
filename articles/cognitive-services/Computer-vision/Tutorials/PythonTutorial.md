@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b55b1fdf3b93d3865bdb115e43ff8583af61b45d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326420"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341491"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>教學課程：電腦視覺 API Python
 
@@ -35,19 +35,20 @@ ms.locfileid: "56326420"
 3. 開啟命令提示字元，然後瀏覽至 **Cognitive-Vision-Python\Jupyter Notebook** 資料夾。
 1. 從命令提示字元執行 `pip install requests opencv-python numpy matplotlib` 命令，以確定您已具備所有必要的程式庫。
 1. 從命令提示字元執行 `jupyter notebook` 命令，以啟動 Jupyter。
-1. 在 Jupyter 視窗中按一下 [電腦視覺 API Example.ipynb]，以開啟教學課程 Notebook。
+1. 在 Jupyter 視窗中按一下 [電腦視覺 API Example.ipynb]  ，以開啟教學課程 Notebook。
 
 ## <a name="run-the-tutorial"></a>執行教學課程
 
-若要使用這個 Notebook，您將需要有「電腦視覺 API」的訂用帳戶金鑰。 請造訪[訂用帳戶頁面](https://azure.microsoft.com/try/cognitive-services/)來註冊。 在 [登入] 頁面上，使用您的 Microsoft 帳戶登入，便能訂閱並取得免費的金鑰。 完成註冊程序之後，將金鑰貼到 Notebook 的 `Variables` 區段中 (重新產生於下方)。 不論是主要金鑰還是次要金鑰都可運作。 請務必以引號括住金鑰使其成為字串。
+若要使用這個 Notebook，您將需要有「電腦視覺 API」的訂用帳戶金鑰。 請造訪[訂用帳戶頁面](https://azure.microsoft.com/try/cognitive-services/)來註冊。 在 [登入]  頁面上，使用您的 Microsoft 帳戶登入，便能訂閱並取得免費的金鑰。 完成註冊程序之後，將金鑰貼到 Notebook 的 `Variables` 區段中 (重新產生於下方)。 不論是主要金鑰還是次要金鑰都可運作。 請務必以引號括住金鑰使其成為字串。
 
 您也必須確定 `_region` 欄位符合與您的訂用帳戶相對應的區域。
 
 ```python
 # Variables
-_region = 'westcentralus' #Here you enter the region of your subscription
-_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(_region)
-_key = None #Here you have to paste your primary key
+_region = 'westcentralus'  # Here you enter the region of your subscription
+_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(
+    _region)
+_key = None  # Here you have to paste your primary key
 _maxNumRetries = 10
 ```
 

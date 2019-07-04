@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515357"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>快速入門：針對 Windows 以適用於 .NET 的 C&#35; 使用 Bing 語音辨識 API
 
@@ -40,7 +40,7 @@ ms.locfileid: "56670089"
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>訂閱語音辨識 API 並取得免費試用訂用帳戶金鑰
 
-Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您可以從[認知服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)頁面，取得免費試用訂用帳戶金鑰。 選取 Speech API 之後，請選取 [取得 API 金鑰] 以取得金鑰。 這會傳回主要和次要金鑰。 兩個金鑰都繫結至同一個配額，因此你可以使用任一金鑰。
+Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您可以從[認知服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)頁面，取得免費試用訂用帳戶金鑰。 選取 Speech API 之後，請選取 [取得 API 金鑰]  以取得金鑰。 這會傳回主要和次要金鑰。 兩個金鑰都繫結至同一個配額，因此你可以使用任一金鑰。
 
 > [!IMPORTANT]
 > * 取得訂用帳戶金鑰。 您必須有[訂用帳戶金鑰](https://azure.microsoft.com/try/cognitive-services/)，才能使用語音用戶端程式庫。
@@ -49,30 +49,30 @@ Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您�
 
 ## <a name="step-1-install-the-sample-application"></a>步驟 1：安裝範例應用程式
 
-1. 啟動 Visual Studio 2015，然後選取 [檔案] > [開啟] > [專案/方案]。
+1. 啟動 Visual Studio 2015，然後選取 [檔案]   > [開啟]   > [專案/方案]  。
 
-2. 瀏覽至儲存已下載之「語音辨識 API」檔案的資料夾。 選取 [語音] > [Windows]，然後選取 [Sample-WP] 資料夾。
+2. 瀏覽至儲存已下載之「語音辨識 API」檔案的資料夾。 選取 [語音]   > [Windows]  ，然後選取 [Sample-WP] 資料夾。
 
 3. 按兩下以開啟名為 SpeechToText-WPF-Samples.sln 的 Visual Studio 2015 解決方案 (.sln) 檔案。 此解決方案隨即在 Visual Studio 中開啟。
 
 ## <a name="step-2-build-the-sample-application"></a>步驟 2：建置範例應用程式
 
-1. 如果您想要使用「含有意圖的辨識」，就必須先註冊 [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)。 接著，使用您 LUIS 應用程式的端點 URL 來設定 samples/SpeechRecognitionServiceExample 資料夾之 app.config 檔案中 `LuisEndpointUrl` 索引鍵的值。 如需有關 LUIS 應用程式之端點 URL 的詳細資訊，請參閱[發佈您的應用程式](../../luis/luis-get-started-create-app.md#publish-your-app)。
+1. 如果您想要使用「含有意圖的辨識」  ，就必須先註冊 [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)。 接著，使用您 LUIS 應用程式的端點 URL 來設定 samples/SpeechRecognitionServiceExample 資料夾之 app.config 檔案中 `LuisEndpointUrl` 索引鍵的值。 如需有關 LUIS 應用程式之端點 URL 的詳細資訊，請參閱[發佈您的應用程式](../../luis/luis-get-started-create-app.md#publish-your-app)。
 
    > [!TIP]
    > 以 `&amp;` 取代 LUIS 端點 URL 中的 `&` 字元，以確保 XML 剖析器會正確解譯該 URL。
 
-2. 按 Ctrl+Shift+B，或選取功能區功能表上的 [建置]。 然後選取 [建置方案]。
+2. 按 Ctrl+Shift+B，或選取功能區功能表上的 [建置]  。 然後選取 [建置方案]  。
 
 ## <a name="step-3-run-the-sample-application"></a>步驟 3：執行範例應用程式
 
-1. 在建置完成之後，按 F5 或選取功能區功能表上的 [啟動] 來執行範例。
+1. 在建置完成之後，按 F5 或選取功能區功能表上的 [啟動]  來執行範例。
 
-2. 移至 [Project Oxford 語音轉換文字範例] 視窗。 將您的訂用帳戶金鑰貼到 [請在這裡貼上您的訂用帳戶金鑰來開始] 文字方塊中，如下所示。 若要將您的訂用帳戶金鑰保存在您的電腦或膝上型電腦上，請選取 [儲存金鑰]。 若要從系統中刪除訂用帳戶金鑰，請選取 [刪除金鑰] 以將它從電腦或膝上型電腦中移除。
+2. 移至 [Project Oxford 語音轉換文字範例]  視窗。 將您的訂用帳戶金鑰貼到 [請在這裡貼上您的訂用帳戶金鑰來開始]  文字方塊中，如下所示。 若要將您的訂用帳戶金鑰保存在您的電腦或膝上型電腦上，請選取 [儲存金鑰]  。 若要從系統中刪除訂用帳戶金鑰，請選取 [刪除金鑰]  以將它從電腦或膝上型電腦中移除。
 
    ![語音辨識貼入金鑰](../Images/SpeechRecog_paste_key.PNG)
 
-3. 在 [語音辨識來源] 底下，選擇六個來源其中之一，這分成兩個主要輸入分類：
+3. 在 [語音辨識來源]  底下，選擇六個來源其中之一，這分成兩個主要輸入分類：
 
    * 使用您電腦的麥克風或連結的麥克風來擷取語音。
    * 播放音訊檔案。
@@ -83,7 +83,7 @@ Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您�
     * **LongDictation 模式**：語句最長為 2 分鐘。 將資料傳送給伺服器時，用戶端會根據伺服器指出句子暫停的位置，收到多個部分結果和多個最終結果。
     * **意圖偵測**：伺服器會傳回與語音輸入相關的額外結構化資訊。 若要使用意圖偵測，您必須先使用 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 將模型定型。
 
-請將範例音訊檔案與此範例應用程式搭配使用。 在您隨此範例下載之存放庫中的 samples/SpeechRecognitionServiceExample 資料夾底下，即可找到這些檔案。 當您選取 [將 wav 檔案用於 Shortphrase 模式] 或 [將 wav 檔案用於 Longdictation 模式] 作為語音輸入時，如果沒有選擇任何其他檔案，這些範例音訊檔案就會自動執行。 目前僅支援 WAV 音訊格式。
+請將範例音訊檔案與此範例應用程式搭配使用。 在您隨此範例下載之存放庫中的 samples/SpeechRecognitionServiceExample 資料夾底下，即可找到這些檔案。 當您選取 [將 wav 檔案用於 Shortphrase 模式]  或 [將 wav 檔案用於 Longdictation 模式]  作為語音輸入時，如果沒有選擇任何其他檔案，這些範例音訊檔案就會自動執行。 目前僅支援 WAV 音訊格式。
 
 ![語音轉換文字介面](../Images/HelloJones.PNG)
 

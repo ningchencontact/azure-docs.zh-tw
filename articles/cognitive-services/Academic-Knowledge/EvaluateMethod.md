@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61339080"
 ---
 # <a name="evaluate-method"></a>評估模型
 
@@ -30,14 +30,14 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="request-parameters"></a>要求參數  
 
-名稱     | 值 | 必要？  | 描述
+名稱     | 值 | 必要項？  | 描述
 -----------|-----------|---------|--------
 **expr**       | 文字字串 | 是 | 可指定應傳回哪些實體的查詢運算式。
-**model**      | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
-**attributes** | 文字字串 | 否<br>預設值：id | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
-**count**        | 數字 | 否<br>預設值：10 | 要傳回的結果數目。
-**offset**     | 數字 |   否<br>預設值：0    | 要傳回的第一個結果索引。
-**orderby** |   文字字串 | 否<br>預設值：藉由減少 prob | 用來排序實體的屬性名稱。 (選擇性) 可以指定遞增/遞減。 格式為：name:asc 或 name:desc。
+**model**      | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest  。        
+**attributes** | 文字字串 | 否<br>預設值：Id | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
+**計數**        | Number | 否<br>預設值：10 | 要傳回的結果數目。
+**offset**     | Number |   否<br>預設值：0    | 要傳回的第一個結果索引。
+**orderby** |   文字字串 | 否<br>預設值：藉由減少 prob | 用來排序實體的屬性名稱。 (選擇性) 可以指定遞增/遞減。 格式為：name:asc  或 name:desc  。
   
  <br>
 
@@ -58,7 +58,7 @@ Composite(AA.AuN=='jaime teevan')&count=2&attributes=Ti,Y,CC,AA.AuN,AA.AuId
 ```
 <br>通常會從**解譯**方法的回應中取得運算式。  但是您也可以自行撰寫查詢運算式 (請參閱[查詢運算式語法](QueryExpressionSyntax.md))。  
   
-使用 count 和 offset 參數，可能會取得大量結果，但不會傳送會導致大量 (且可能很緩慢) 回應的單一要求。  在此範例中，此要求使用了**解譯** API 回應中第一個解譯的運算式作為 expr 值。 count=2 參數會指定正在要求 2 個實體結果。 而 attributes=Ti,Y,CC,AA.AuN,AA.AuId 參數會指出每個結果會要求標題、年度、引用次數、作者名稱和作者識別碼。  請參閱[實體屬性](EntityAttributes.md)以取得屬性清單。
+使用 count  和 offset  參數，可能會取得大量結果，但不會傳送會導致大量 (且可能很緩慢) 回應的單一要求。  在此範例中，此要求使用了**解譯** API 回應中第一個解譯的運算式作為 expr  值。 count=2  參數會指定正在要求 2 個實體結果。 而 attributes=Ti,Y,CC,AA.AuN,AA.AuId  參數會指出每個結果會要求標題、年度、引用次數、作者名稱和作者識別碼。  請參閱[實體屬性](EntityAttributes.md)以取得屬性清單。
   
 ```JSON
 {

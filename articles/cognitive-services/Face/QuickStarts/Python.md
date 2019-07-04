@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 3df6c34420369effe11ae5a7ec58eba595ffa471
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1ecfd46d0b3186e412b68e909b9c071b8f539c0c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956994"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341464"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入門：使用 Face REST API 和 Python 偵測影像中的臉部
 
@@ -45,9 +45,9 @@ ms.locfileid: "65956994"
     1. 將 `subscription_key` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域中，將 `face_api_url` 的值取代為人臉識別 API 資源的端點 URL。
     1. (選擇性) 將 `image_url` 的值取代為您要分析之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `detect-face.py`。
+1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `detect-face.py` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `python` 命令執行範例。 例如： `python detect-face.py`。
+1. 出現提示時，使用 `python` 命令執行範例。 例如： `python detect-face.py` 。
 
 ```python
 import requests
@@ -60,15 +60,16 @@ face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/dete
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
-    
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+response = requests.post(face_api_url, params=params,
+                         headers=headers, json={"url": image_url})
 print(json.dumps(response.json()))
 ```
 

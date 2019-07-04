@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60815109"
 ---
 # <a name="structured-query-expression"></a>結構化查詢運算式
 
-結構化查詢運算式會指定一組要針對資料索引進行評估的作業。  其包含屬性查詢運算式和更高層級的函式。  請使用[評估](evaluateMethod.md)方法來計算符合運算式的物件。  以下範例來自學術刊物領域，會傳回自 2013 年後由 Jaime Teevan 所撰寫的刊物。
+結構化查詢運算式會指定一組要針對資料索引進行評估的作業。  其包含屬性查詢運算式和更高層級的函式。  請使用[評估  ](evaluateMethod.md)方法來計算符合運算式的物件。  以下範例來自學術刊物領域，會傳回自 2013 年後由 Jaime Teevan 所撰寫的刊物。
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
 
-結構化查詢運算式可能取自[解譯](interpretMethod.md)要求，每個解譯的語意輸出都是結構化查詢運算式，會傳回符合輸入自然語言查詢的索引物件。  或者，您也可以使用本節所述的語法，手動撰寫結構化查詢運算式。
+結構化查詢運算式可能取自[解譯  ](interpretMethod.md)要求，每個解譯的語意輸出都是結構化查詢運算式，會傳回符合輸入自然語言查詢的索引物件。  或者，您也可以使用本節所述的語法，手動撰寫結構化查詢運算式。
 
 ## <a name="attribute-query-expression"></a>屬性查詢運算式
 
@@ -31,14 +31,14 @@ ms.locfileid: "55860128"
 
 | 類型 | 作業 | 範例 |
 |------|-------------|------------|
-| 字串 | equals | Title='latent semantic analysis'  (canonical + synonyms) |
-| 字串 | equals | Author.Name=='susan t dumais'  (canonical only)|
-| 字串 | starts_with | Title='latent s'... |
+| String | equals | Title='latent semantic analysis'  (canonical + synonyms) |
+| String | equals | Author.Name=='susan t dumais'  (canonical only)|
+| String | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (any decimal value starting with "20") |
-| Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) (includes only left boundary value:2010, 2011) <br/> Year=[2000,2012] (includes both boundary values:2010, 2011, 2012) |
-| 日期 | equals | BirthDate='1984-05-14' |
-| 日期 | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
+| Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) (includes only left boundary value:  2010, 2011) <br/> Year=[2000,2012] (includes both boundary values:  2010, 2011, 2012) |
+| Date | equals | BirthDate='1984-05-14' |
+| Date | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
 | Guid | equals | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
@@ -47,7 +47,7 @@ ms.locfileid: "55860128"
 若屬性有相關聯的同義字，查詢運算式可以使用 "==" 運算子指定其標準值符合指定字串的物件，也可以使用 "=" 運算子指定其任何標準/同義字值相符的物件。  這兩種方式都需要在屬性定義中指定 "equals" 運算子。
 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 有一組內建函式可從基本的屬性查詢建構更複雜的查詢運算式。
 

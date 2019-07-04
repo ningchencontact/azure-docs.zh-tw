@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: e4b762d6f36f8682162160be6f42b8691e4b2ca3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870243"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339381"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入門：建立 Python 指令碼來偵測並框出影像中的臉部
 
@@ -46,10 +46,12 @@ pip install cognitive_face
 ```python
 import cognitive_face as CF
 
-KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
+# Replace with a valid subscription key (keeping the quotes in place).
+KEY = '<Subscription Key>'
 CF.Key.set(KEY)
 
-BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'  # Replace with your regional Base URL
+# Replace with your regional Base URL
+BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'
 CF.BaseUrl.set(BASE_URL)
 
 # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
@@ -73,7 +75,7 @@ print(faces)
 
 ## <a name="draw-face-rectangles"></a>繪製臉部矩形
 
-您可以使用從上一個命令收到的座標，在影像上繪製矩形以視覺方式表示每張臉。 您必須安裝 Pillow (`pip install pillow`) 才能使用 Pillow 影像模組。 在 FaceQuickstart.py 頂端，新增下列程式碼：
+您可以使用從上一個命令收到的座標，在影像上繪製矩形以視覺方式表示每張臉。 您必須安裝 Pillow (`pip install pillow`) 才能使用 Pillow 影像模組。 在 FaceQuickstart.py  頂端，新增下列程式碼：
 
 ```python
 import requests
@@ -84,7 +86,9 @@ from PIL import Image, ImageDraw
 然後，在指令碼底部新增下列程式碼。 這會建立用於分析矩形座標的簡單函式，並使用 Pillow 在原始影像上繪製矩形。 然後，它會在預設的影像檢視器中顯示該影像。
 
 ```python
-#Convert width height to a point in a rectangle
+# Convert width height to a point in a rectangle
+
+
 def getRectangle(faceDictionary):
     rect = faceDictionary['faceRectangle']
     left = rect['left']
@@ -93,16 +97,17 @@ def getRectangle(faceDictionary):
     right = top + rect['width']
     return ((left, top), (bottom, right))
 
-#Download the image from the url
+
+# Download the image from the url
 response = requests.get(img_url)
 img = Image.open(BytesIO(response.content))
 
-#For each face returned use the face rectangle and draw a red box.
+# For each face returned use the face rectangle and draw a red box.
 draw = ImageDraw.Draw(img)
 for face in faces:
     draw.rectangle(getRectangle(face), outline='red')
 
-#Display the image in the users default image browser.
+# Display the image in the users default image browser.
 img.show()
 ```
 
@@ -114,7 +119,7 @@ img.show()
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解臉部 API Python SDK 的基本使用程序，並建立了指令碼來偵測並框出影像中的臉部。 接下來，請在更複雜的範例中探索 Python SDK 的使用方式。 移至 GitHub 上的認知臉部 Python 範例、將範例複製到專案資料夾，然後遵循 README.md 檔案中的指示。
+在本快速入門中，您已了解臉部 API Python SDK 的基本使用程序，並建立了指令碼來偵測並框出影像中的臉部。 接下來，請在更複雜的範例中探索 Python SDK 的使用方式。 移至 GitHub 上的認知臉部 Python 範例、將範例複製到專案資料夾，然後遵循 README.md  檔案中的指示。
 
 > [!div class="nextstepaction"]
 > [認知臉部 Python 範例](https://github.com/Microsoft/Cognitive-Face-Python)

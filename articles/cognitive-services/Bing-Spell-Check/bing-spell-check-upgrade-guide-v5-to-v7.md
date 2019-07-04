@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: b19681fd1ad70985bccd375931f5d5801f153aa8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60895791"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>拼字檢查 API 升級指南
 
@@ -25,7 +25,7 @@ ms.locfileid: "56886344"
 
 ### <a name="endpoints"></a>端點
 
-- 從 v5 變更為 v7 的端點版本號碼。 例如： `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`。
+- 從 v5 變更為 v7 的端點版本號碼。 例如： `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck` 。
 
 ### <a name="error-response-objects-and-error-codes"></a>錯誤回應物件和錯誤碼
 

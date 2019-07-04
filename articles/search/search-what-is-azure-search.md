@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539327"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485226"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 查詢是透過使用者定義的索引而執行的。
@@ -134,7 +134,7 @@ Azure 訂閱者可以[在免費層中佈建服務](search-create-service-portal.
 3. 繼續使用 .NET 或 REST API 執行程式碼：
 
    + [如何使用 .NET SDK](search-howto-dotnet-sdk.md) 示範受控程式碼中的主要工作流程。  
-   + [開始使用 REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文) 會示範使用 REST API 的相同步驟。 您也可以使用本快速入門從 Postman 或 Fiddler 呼叫 REST API：[探索 Azure 搜尋服務 REST API](search-fiddler.md)。
+   + [開始使用 REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文) 會示範使用 REST API 的相同步驟。 您也可以使用本快速入門從 Postman 或 Fiddler 呼叫 REST API：[探索 Azure 搜尋服務 REST API](search-get-started-postman.md)。
 
 ## <a name="watch-this-video"></a>觀看這部影片
 

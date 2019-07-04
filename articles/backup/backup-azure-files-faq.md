@@ -2,18 +2,18 @@
 title: 備份 Azure 檔案服務常見問題集
 description: 本文提供關於如何保護 Azure 檔案共用的詳細資料。
 services: backup
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0c9e68a14aa18726a751709e99953d494c62308e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426608"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275544"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -76,7 +76,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>可以將相同儲存體帳戶中的兩個不同檔案共用放入不同的保存庫中保護？
 沒有。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>每個檔案共用可以進行多少個隨選備份？ <br/>
 在任何時間點，檔案共用最多可以有 200 個快照集。 如您的原則所定義，此限制包含 Azure 備份所產生的快照集。 如果您的備份在達到此限制之後開始失敗，請刪除隨選還原點，以便未來備份成功。
@@ -90,7 +90,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 刪除 Azure 檔案共用時，系統會顯示將一併刪除的備份清單並要求您確認。 已刪除的 Azure 檔案共用無法還原。
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>如果我停止保護 Azure 檔案共用，是否可以從備份還原？ <br/>
-是。 如果您在停止保護時選擇 [保留備份資料]，則您可以從所有現有的還原點進行還原。
+是。 如果您在停止保護時選擇 [保留備份資料]  ，則您可以從所有現有的還原點進行還原。
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>如果我取消進行中的還原作業，會發生什麼事？
 如果取消進行中的還原作業，還原程序會停止，而所有在取消前還原的檔案會留在所設定的目的地 (原始或替代位置)，不需要回復。 

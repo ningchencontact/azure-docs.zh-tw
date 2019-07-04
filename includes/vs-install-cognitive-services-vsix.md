@@ -11,25 +11,25 @@ ms.author: ghogen
 ms.custom: include file
 manager: douge
 ms.openlocfilehash: 892db95a3d8ebaf4d9d3339d4965ce96b1084537
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116652"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174246"
 ---
 ## <a name="install-the-cognitive-services-vsix-extension"></a>安裝認知服務 VSIX 擴充功能
 
-1. 在 Visual Studio 中開啟 Web 專案，選擇 [已連線的服務] 索引標籤。當您開啟新的專案時，可在顯示的歡迎頁面上看到此索引標籤。 如果您沒有看到此索引標籤，請在 [方案總管] 的專案中，選取 [已連線的服務]。
+1. 在 Visual Studio 中開啟 Web 專案，選擇 [已連線的服務]  索引標籤。當您開啟新的專案時，可在顯示的歡迎頁面上看到此索引標籤。 如果您沒有看到此索引標籤，請在 [方案總管] 的專案中，選取 [已連線的服務]  。
 
    ![[已連線的服務] 索引標籤的螢幕擷取畫面](./media/vs-install-cognitive-services-vsix/Connected-Services-Tab.PNG)
 
-1. 向下捲動至服務清單底部，然後選取 [尋找更多服務]。
+1. 向下捲動至服務清單底部，然後選取 [尋找更多服務]  。
 
     ![[尋找更多服務] 連結的螢幕擷取畫面](./media/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
  
-    [擴充功能和更新] 對話方塊隨即出現。
+    [擴充功能和更新]  對話方塊隨即出現。
 
-1. 在 [擴充功能和更新] 對話方塊中，搜尋**認知服務**，然後下載並安裝認知服務 VSIX 套件。
+1. 在 [擴充功能和更新]  對話方塊中，搜尋**認知服務**，然後下載並安裝認知服務 VSIX 套件。
 
    ![[擴充功能和更新] 對話方塊的螢幕擷取畫面](./media/vs-install-cognitive-services-vsix/install-cognitive-services-vsix.PNG)
 

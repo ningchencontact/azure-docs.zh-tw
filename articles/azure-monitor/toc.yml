@@ -122,8 +122,6 @@
       href: visualizations.md
     - name: 合作夥伴整合
       href: platform/partners.md
-    - name: OMS 入口網站已淘汰
-      href: platform/oms-portal-transition.md
     - name: 常見問題集
       items:
         - name: Log Analytics
@@ -837,10 +835,12 @@
               items:
                 - name: 活動記錄事件警示
                   href: platform/alerts-activity-log.md
-                - name: 將管理事件遷移至活動記錄警示
-                  href: platform/migrate-management-alerts.md
-                - name: 服務健康情況警示
-                  href: platform/alerts-activity-log-service-notifications.md
+            - name: 活動記錄中的服務健康情況通知
+              items:
+                - name: 檢視服務健康情況通知
+                  href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+                - name: 設定服務健康情況警示規則
+                  href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
             - name: 使用動作群組
               items:
                 - name: 建立動作群組
@@ -885,12 +885,6 @@
                   href: platform/alerts-enable-template.md
                 - name: 傳統計量警示呼叫 Webhook
                   href: platform/alerts-webhooks.md
-        - name: 活動記錄中的服務健康情況通知
-          items:
-            - name: 檢視通知
-              href: platform/service-notifications.md
-            - name: 設定通知事件警示
-              href: platform/alerts-activity-log-service-notifications.md
         - name: Autoscale
           items:
             - name: 逐步介紹
@@ -1076,12 +1070,10 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: 傳統警示和監視
           href: platform/monitoring-classic-retirement.md
-        - name: 將警示從 Log Analytics 延伸至 Azure
-          href: platform/alerts-extend.md
-        - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
-          href: platform/alerts-extend-tool.md
         - name: 切換記錄警示 API 喜好設定
           href: platform/alerts-log-api-switch.md
+        - name: OMS 入口網站已淘汰
+          href: platform/oms-portal-transition.md
 - name: 資源
   items:
     - name: Azure 藍圖

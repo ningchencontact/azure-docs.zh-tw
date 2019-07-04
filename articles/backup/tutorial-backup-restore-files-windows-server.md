@@ -1,21 +1,19 @@
 ---
 title: 將檔案從 Azure 復原至 Windows Server
 description: 本教學課程會詳細說明從 Azure 復原到 Windows Server 的項目。
-services: backup
-author: saurabhsensharma
-manager: shivamg
-keywords: Windows Server 備份; 還原檔案 Windows Server; 備份與災害復原
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b01811d9c933802263e975b23b5d40cd77303766
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 575ebfb62b3eed70f783bc68b7f06559e5632490
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722860"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273978"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>將檔案從 Azure 復原至 Windows Server
 
@@ -36,23 +34,23 @@ Azure Backup 可以復原 Windows Server 備份中的個別項目。 如果必�
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/mars.png)
 
-2. 在精靈中，按一下代理程式主控台 [動作] 窗格的 [復原資料]，啟動 [復原資料精靈]。
+2. 在精靈中，按一下代理程式主控台 [動作]  窗格的 [復原資料]  ，啟動 [復原資料精靈]  。
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. 在 [入門] 頁面上，選取 [This server (server name)] \(這部伺服器 (伺服器名稱))，然後按一下 [下一步]。
+3. 在 [入門]  頁面上，選取 [This server (server name)] \(這部伺服器 (伺服器名稱))  ，然後按一下 [下一步]  。
 
-4. 在 [選取復原模式] 頁面上，選取 [個別檔案與資料夾]，然後按一下 [下一步] 開始復原點選取程序。
+4. 在 [選取復原模式]  頁面上，選取 [個別檔案與資料夾]  ，然後按一下 [下一步]  開始復原點選取程序。
  
-5. 在 [選取磁碟區和日期] 頁面上，選取包含要還原之檔案或資料夾的磁碟區，然後按一下 [掛接]。 選取日期，再從對應到復原點的下拉式功能表中選取時間。 **粗體**的日期表示當日至少有一個復原點可用。
+5. 在 [選取磁碟區和日期]  頁面上，選取包含要還原之檔案或資料夾的磁碟區，然後按一下 [掛接]  。 選取日期，再從對應到復原點的下拉式功能表中選取時間。 **粗體**的日期表示當日至少有一個復原點可用。
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
  
-    當您按一下 [掛接]，Azure 備份就會讓復原點能像磁碟一樣使用。 瀏覽並復原磁碟的檔案。
+    當您按一下 [掛接]  ，Azure 備份就會讓復原點能像磁碟一樣使用。 瀏覽並復原磁碟的檔案。
 
 ## <a name="restore-items-from-a-recovery-point"></a>從復原點還原項目
 
-1. 掛接復原磁碟區之後，按一下 [瀏覽] 開啟 Windows 檔案總管，找到您希望復原的檔案和資料夾。 
+1. 掛接復原磁碟區之後，按一下 [瀏覽]  開啟 Windows 檔案總管，找到您希望復原的檔案和資料夾。 
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
@@ -62,13 +60,13 @@ Azure Backup 可以復原 Windows Server 備份中的個別項目。 如果必�
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. 當您完成還原檔案及/或資料夾後，請在 [復原資料精靈] 的 [瀏覽及復原檔案] 頁面上，按一下 [卸載]。 
+3. 當您完成還原檔案及/或資料夾後，請在 [復原資料精靈]  的 [瀏覽及復原檔案]  頁面上，按一下 [卸載]  。 
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  按一下 [是] 確認卸載磁碟區。
+4.  按一下 [是]  確認卸載磁碟區。
 
-    快照集卸載後，代理程式主控台的 [作業] 窗格就會顯示 [作業已完成]。
+    快照集卸載後，代理程式主控台的 [作業]  窗格就會顯示 [作業已完成]  。
 
 ## <a name="next-steps"></a>後續步驟
 
