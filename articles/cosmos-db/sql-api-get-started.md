@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596102"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342128"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶中的資料
 
@@ -450,7 +450,7 @@ Azure Cosmos DB 支援針對儲存於集合中的 JSON 文件進行豐富[查詢
 
 ![說明 NoSQL 教學課程用來建立 C# 主控台應用程式之查詢的範圍和意義的圖表](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-因為 Azure Cosmos DB 查詢已侷限於單一集合，所以 SQL 查詢中的 [FROM](how-to-sql-query.md#FromClause) 關鍵字是選擇性的。 您可以將 `FROM Families f` 與 `FROM root r` 或您選擇的任何其他變數名稱交換。 依預設，Azure Cosmos DB 會推斷該 `Families`、`root` 或您選擇的變數名稱來參考目前的集合。
+因為 Azure Cosmos DB 查詢已侷限於單一集合，所以 SQL 查詢中的 [FROM](sql-query-from.md) 關鍵字是選擇性的。 您可以將 `FROM Families f` 與 `FROM root r` 或您選擇的任何其他變數名稱交換。 依預設，Azure Cosmos DB 會推斷該 `Families`、`root` 或您選擇的變數名稱來參考目前的集合。
 
 ## <a id="ReplaceDocument"></a>更新 JSON 文件
 

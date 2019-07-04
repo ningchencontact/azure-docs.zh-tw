@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f9e5c531e387ba8d2c61c6d46b1e8935bc7d42cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243185"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67429051"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中匯入 Azure 函式應用程式作為 API
 
@@ -69,7 +69,7 @@ Azure API 管理支援將 Azure 函式應用程式匯入為新的 API，或將�
     ![從函式應用程式新增](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > 您只能匯入設有 HTTP 觸發程序、且授權層級設定設為 [匿名]  或 [函式]  的函式。 目前不支援 Linux 函式應用程式。
+    > 您只能匯入設有 HTTP 觸發程序、且授權層級設定設為 [匿名]  或 [函式]  的函式。
 
 7. 切換至 [完整]  檢視，然後將 [產品]  指派給您的新 API。 視需要編輯其他預先填入的欄位。
 
