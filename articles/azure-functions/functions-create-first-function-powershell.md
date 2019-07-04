@@ -10,12 +10,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 1fc541f1236d17e1c2ffbf64ddb0340dcf5c0b9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063475"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>在 Azure 中建立您的第一個 PowerShell 函式 (預覽)
 
@@ -36,7 +36,7 @@ ms.locfileid: "65473277"
 
 若要完成本快速入門：
 
-* 安裝 [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* 安裝 [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * 在其中一個[支援的平台](https://code.visualstudio.com/docs/supporting/requirements#_platforms)上安裝 [Visual Studio Code](https://code.visualstudio.com/)。 
 
@@ -60,19 +60,19 @@ Visual Studio Code 中的 Azure Functions 專案範本會建立可發佈至 Azur
 
     ![建立函式應用程式專案](./media/functions-create-first-function-powershell/create-function-app-project.png)
 
-1. 選擇 Functions 專案工作區的位置，然後選擇 [選取]。
+1. 選擇 Functions 專案工作區的位置，然後選擇 [選取]  。
 
     > [!NOTE]
     > 本文主要設計為在工作區以外的地方完成。 在此案例中，請勿選取屬於工作區的專案資料夾。
 
-1. 選取 [Powershell (預覽)] 作為函式應用程式專案的語言，然後選取 [Azure Functions v2]。
+1. 選取 [Powershell (預覽)]  作為函式應用程式專案的語言，然後選取 [Azure Functions v2]  。
 
-1. 選擇 [HTTP 觸發程序] 作為您第一個函式的範本，使用 `HTTPTrigger` 作為函式名稱，然後選擇 [函式] 授權層級。
+1. 選擇 [HTTP 觸發程序]  作為您第一個函式的範本，使用 `HTTPTrigger` 作為函式名稱，然後選擇 [函式]  授權層級。
 
     > [!NOTE]
-    > 在 Azure 中呼叫函式端點時，[函式] 授權層級需要[函式金鑰](functions-bindings-http-webhook.md#authorization-keys)值。 這讓任何人更難以呼叫您的函式。
+    > 在 Azure 中呼叫函式端點時，[函式]  授權層級需要[函式金鑰](functions-bindings-http-webhook.md#authorization-keys)值。 這讓任何人更難以呼叫您的函式。
 
-1. 出現提示時，請選擇 [新增到工作區]。
+1. 出現提示時，請選擇 [新增到工作區]  。
 
 Visual Studio Code 會在新的工作區中建立 PowerShell 函式應用程式專案。 此專案包含 [host.json](functions-host-json.md) 和 [local.settings.json](functions-run-local.md#local-settings-file) 組態檔，其套用於專案中的所有函式。 這個 [PowerShell 專案](functions-reference-powershell.md#folder-structure)與在 Azure 中執行的函式應用程式相同。
 

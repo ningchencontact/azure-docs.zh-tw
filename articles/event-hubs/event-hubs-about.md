@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236237"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275373"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中樞 — 巨量資料串流平台和事件擷取服務
 Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒可接收和處理數百萬個事件。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。
@@ -35,7 +35,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒�
 
 只有在能輕鬆地處理資料並從資料來源中獲得即時見解時，資料才顯得有價值。 事件中樞提供低延遲的分散式串流處理平台，並與 Azure 內部或外部的資料及分析服務完美整合，藉以建置完整的巨量資料管線。
 
-事件中樞代表事件管線的「大門」，在方案架構中通常稱為「事件擷取器」。 事件擷取器是介於事件發佈者和事件取用者之間的元件或服務，它能將事件串流的生產與這些事件的取用彼此脫鉤。 事件中樞提供具有時間保留緩衝的統一串流平台，可分開處理事件產生者和事件取用者。 
+事件中樞代表事件管線的「大門」，在方案架構中通常稱為「事件擷取器」  。 事件擷取器是介於事件發佈者和事件取用者之間的元件或服務，它能將事件串流的生產與這些事件的取用彼此脫鉤。 事件中樞提供具有時間保留緩衝的統一串流平台，可分開處理事件產生者和事件取用者。 
 
 下列各節會說明 Azure 事件中樞服務的主要功能： 
 
@@ -45,9 +45,9 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒�
 
 ## <a name="support-for-real-time-and-batch-processing"></a>支援即時和批次處理
 
-即時內嵌、緩衝、儲存及處理您的資料流，以取得可採取動作的見解。 事件中樞會使用[分割的取用者模型](event-hubs-features.md#partitions)，可讓多個應用程式同時處理資料流，並讓您控制處理的速度。
+即時內嵌、緩衝、儲存及處理您的資料流，以取得可採取動作的見解。 事件中樞會使用[分割的取用者模型](event-hubs-scalability.md#partitions)，可讓多個應用程式同時處理資料流，並讓您控制處理的速度。
 
-近乎即時地[擷取 ](event-hubs-capture-overview.md)[Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)  中的資料，以用於長期保留或微批次處理。 您可以在用來取得即時分析的相同資料流上實現此行為。 擷取事件資料的作業很快就能設定完成。 執行作業時不需要系統管理成本，而且它可以針對事件中樞的 [輸送量單位](event-hubs-features.md#throughput-units)自動進行調整。 事件中樞可讓您專注於資料處理，而不是資料擷取。
+近乎即時地[擷取 ](event-hubs-capture-overview.md)[Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)  中的資料，以用於長期保留或微批次處理。 您可以在用來取得即時分析的相同資料流上實現此行為。 擷取事件資料的作業很快就能設定完成。 執行作業時不需要系統管理成本，而且它可以針對事件中樞的 [輸送量單位](event-hubs-scalability.md#throughput-units)自動進行調整。 事件中樞可讓您專注於資料處理，而不是資料擷取。
 
 Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達到無伺服器架構。
 

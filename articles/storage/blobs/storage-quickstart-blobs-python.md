@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0c40d0985b0d6c967a55b1954a1cb54feeb15361
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149392"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514582"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 
@@ -54,11 +54,13 @@ block_blob_service = BlockBlobService(account_name = 'accountname', account_key 
 
 首先，執行 `pip install` 來安裝相依性：
 
+```python
     pip install azure-storage-blob
+```
 
 接下來，執行範例。 您會看到類似於下列輸出的訊息：
   
-```
+```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -109,7 +111,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 最常使用的�
 
 若要將檔案上傳至 Blob，請聯結本機磁碟機上的目錄名稱和檔案名稱，以取得完整檔案路徑。 然後，您可以使用 `create_blob_from_path` 方法將檔案上傳至指定的路徑。 
 
-範例程式碼會建立用於上傳和下載的本機檔案，同時將要上傳的檔案儲存為 full_path_to_file，並將 Blob 的名稱儲存為 local_file_name。 下列範例會將檔案上傳到名為 **quickstartblobs** 的容器。
+範例程式碼會建立用於上傳和下載的本機檔案，同時將要上傳的檔案儲存為 full_path_to_file  ，並將 Blob 的名稱儲存為 local_file_name  。 下列範例會將檔案上傳到名為 **quickstartblobs** 的容器。
 
 ```python
 # Create a file in Documents to test the upload and download.

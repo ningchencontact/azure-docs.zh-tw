@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754245"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514594"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帳戶建置 Python 應用程式
 
@@ -184,13 +184,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 4. 在整合式終端機視窗中，確保您在 azure-cosmos-db-python-getting-started 資料夾中。 如果不是，請執行下列命令來切換至範例資料夾。 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. 執行以下命令來安裝 azure-cosmos 套件。 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -198,7 +198,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 6. 執行下列命令以執行範例，並且在 Azure Cosmos dB 中建立和儲存新文件。
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 

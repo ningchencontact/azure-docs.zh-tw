@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9ae894bee803c60b56a1bfacd5667f355aa44d2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799990"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478364"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Python REST API 呼叫文字分析認知服務 
 <a name="HOLTop"></a>
@@ -49,7 +49,6 @@ ms.locfileid: "65799990"
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 建立訂用帳戶金鑰的變數，以及文字分析 REST API 的端點。 確認端點中的區域會對應到您註冊時所使用的區域 (例如 `westcentralus`)。 如果您使用免費試用金鑰，則不需變更任何項目。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919617"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514531"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式
 
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 儲存您的變更並結束編輯器。 使用 `^S` 命令進行儲存，以及使用 `^Q` 來結束作業。
 
-使用 [`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) 命令重新部署應用程式。 將應用程式的名稱替代為 `<app-name>`，並指定 `<location-name>` 的位置 (使用 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 命令中其中一個顯示的值)。
+使用 [`az webapp up`](/cli/azure/webapp#az-webapp-up) 命令重新部署應用程式。 將應用程式的名稱替代為 `<app-name>`，並指定 `<location-name>` 的位置 (使用 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 命令中其中一個顯示的值)。
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

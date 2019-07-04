@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149442"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536166"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>快速入門：使用適用於 JavaScript 的 Azure 儲存體 v10 SDK 上傳、下載、列出及刪除 Blob
 
-在本快速入門中，您將了解如何在 Node.js 中，使用[適用於 JavaScript 的 Azure 儲存體 v10 SDK](https://github.com/Azure/azure-storage-js) \(英文\)，來上傳、下載、列出及刪除 Blob，以及管理容器。
+在本快速入門中，您將了解如何在 Node.js 中，使用[適用於 JavaScript 的 Azure 儲存體 v10 SDK](https://github.com/Azure/azure-sdk-for-js) \(英文\)，來上傳、下載、列出及刪除 Blob，以及管理容器。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -42,11 +42,11 @@ cd azure-storage-js-v10-quickstart
 
 ## <a name="configure-your-storage-credentials"></a>設定儲存體認證
 
-執行應用程式之前，您必須先提供儲存體帳戶的安全性認證。 存放庫範例包含名為 .env.example 的檔案。 藉由移除 *.example* 副檔名來將這個檔案重新命名，從而產生名為 *.env* 的檔案。 在 *.env* 檔案內部，於 *AZURE_STORAGE_ACCOUNT_NAME* 和 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 金鑰之後新增您的帳戶名稱和存取金鑰值。
+執行應用程式之前，您必須先提供儲存體帳戶的安全性認證。 存放庫範例包含名為 .env.example  的檔案。 藉由移除 *.example* 副檔名來將這個檔案重新命名，從而產生名為 *.env* 的檔案。 在 *.env* 檔案內部，於 *AZURE_STORAGE_ACCOUNT_NAME* 和 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 金鑰之後新增您的帳戶名稱和存取金鑰值。
 
 ## <a name="install-required-packages"></a>安裝必要的套件
 
-在應用程式目錄中，執行 npm install 來安裝應用程式的所需套件。
+在應用程式目錄中，執行 npm install  來安裝應用程式的所需套件。
 
 ```bash
 npm install
@@ -99,11 +99,11 @@ const {
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
-*dotenv* 模組會在本機執行應用程式進行偵錯時載入環境變數。 值均定義於名為 *.env* 的檔案中，並載入到目前的執行內容。 在生產環境中，伺服器設定會提供這些值，這就是為什麼只有當指令碼「不是」在「生產」環境下執行時，這段程式碼才會執行。
+*dotenv* 模組會在本機執行應用程式進行偵錯時載入環境變數。 值均定義於名為 *.env* 的檔案中，並載入到目前的執行內容。 在生產環境中，伺服器設定會提供這些值，這就是為什麼只有當指令碼「不是」  在「生產」環境下執行時，這段程式碼才會執行。
 
 模組的下一個區塊會匯入來協助連接檔案系統。
 
@@ -203,7 +203,7 @@ Aborters 讓您能夠透過下列方式控制要求：
 - 針對要求批次指定給定的時間量
 - 指定個別的要求必須在批次中執行的時間長度
 - 讓您能夠取消要求
-- 使用 Aborter.none 靜態成員來防止所有要求一起逾時
+- 使用 Aborter.none  靜態成員來防止所有要求一起逾時
 
 ### <a name="show-container-names"></a>顯示容器名稱
 帳戶可以儲存大量容器。 下列程式碼示範如何以分段方式列出容器，讓您能夠循環瀏覽大量容器。 *showContainerNames* 函式是 *ServiceURL* 和 *Aborter* 的過時執行個體。

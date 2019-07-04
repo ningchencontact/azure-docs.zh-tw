@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d218ebcacf18687d01402f2c6ac354d95a1fe71f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071406"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -82,8 +82,6 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
    | **部署模型** | Resource Manager  | Resource Manager 含有最新的功能。|
    | **帳戶類型** | StorageV2 | 如需帳戶類型的詳細資訊，請參閱[儲存體帳戶的類型](../common/storage-introduction.md#types-of-storage-accounts) |
    | **效能** | 標準 | 標準便足供此案例範例使用。 |
-   | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 此設定是讓範例起作用的必要項目。 |
-   |**訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
    | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 這是讓範例起作用的必要項目。 |
    |**訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions)。 |
    |**ResourceGroup** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |

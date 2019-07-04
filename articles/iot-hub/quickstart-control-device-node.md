@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/27/2019
-ms.openlocfilehash: 15b96d44b1ff78a83a4364579b7984d20e3f4d85
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 06/21/2019
+ms.openlocfilehash: 462b485b5dc5106ab18959ab2cdbfe1bfc0f94bf
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597702"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330566"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>快速入門：控制連線到 IoT 中樞的裝置 (Node.js)
 
@@ -99,12 +99,12 @@ az extension add --name azure-cli-iot-ext
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName --output table
+      --name YourIoTHubName --policy-name service --output table
     ```
 
     記下服務連接字串，它看起來如下：
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     您稍後會在快速入門中使用此值。 服務連接字符串與裝置連接字串不同。
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務進行小組 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8160e72657be83af6f9af5226b7cd77c692dcd82
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480370"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061837"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>快速入門：使用 Azure Dev Spaces 在 Kubernetes 上進行小組開發
 
@@ -90,7 +90,7 @@ MyAKS               MyResourceGroup   dev       fedcab0987.eus.azds.io
 ```cmd
 cd charts/
 helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+helm install -n bikesharing . --dep-up --namespace dev --atomic 
 ```
 > [!Note]
 > **如果您使用已啟用 RBAC 的叢集**，請務必設定 [Tiller 的服務帳戶](https://helm.sh/docs/using_helm/#role-based-access-control)。 否則，`helm` 命令將會失敗。
@@ -103,7 +103,7 @@ $ helm init --wait
 ...
 Happy Helming!
 
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+$ helm install -n bikesharing . --dep-up --namespace dev --atomic
 
 Hang tight while we grab the latest from your chart repositories...
 ...

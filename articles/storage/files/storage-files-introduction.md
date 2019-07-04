@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706962"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508334"
 ---
 # <a name="what-is-azure-files"></a>什麼是 Azure 檔案服務？
 Azure 檔案提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)存取。 Windows、Linux 和 macOS 的雲端部署或內部部署可同時掛接 Azure 檔案共用。 此外，透過 Azure 檔案同步可以在 Windows Server 上快取 Azure 檔案共用，以便在資料的使用位置附近快速存取。
@@ -21,7 +21,7 @@ Azure 檔案提供雲端中完全受控的檔案共用，可透過業界標準[�
 ## <a name="videos"></a>影片
 | Azure 檔案同步簡介 (2 分鐘) | 同步的 Azure 檔案 (Ignite 2017) (85 分鐘)  |
 |-|-|
-| [![介紹 Azure 檔案同步影片的螢幕錄製影片 - 按一下以播放！](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Azure 檔案同步簡報的螢幕錄製影片 - 按一下以播放！](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![介紹 Azure 檔案同步影片的螢幕錄製影片 - 按一下以播放！](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Azure 檔案同步簡報的螢幕錄製影片 - 按一下以播放！](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## <a name="why-azure-files-is-useful"></a>Azure 檔案服務為何很實用
 Azure 檔案共用可以用來：

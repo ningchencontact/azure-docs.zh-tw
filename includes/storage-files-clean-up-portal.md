@@ -9,14 +9,14 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114655"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174053"
 ---
 當您完成時，您可以刪除資源群組。 刪除資源群組也會刪除儲存體帳戶、Azure 檔案共用，以及您在資源群組內部署的任何其他資源。
 
-1. 在左功能表中選取 [資源群組]。
-2. 以滑鼠右鍵資源群組，然後選取 [刪除資源群組]。 隨即開啟一個視窗，其中顯示有關資源將會與資源群組一起刪除的警告。
-3. 輸入資源群組的名稱，然後選取 [刪除]。
+1. 在左功能表中選取 [資源群組]  。
+2. 以滑鼠右鍵資源群組，然後選取 [刪除資源群組]  。 隨即開啟一個視窗，其中顯示有關資源將會與資源群組一起刪除的警告。
+3. 輸入資源群組的名稱，然後選取 [刪除]  。

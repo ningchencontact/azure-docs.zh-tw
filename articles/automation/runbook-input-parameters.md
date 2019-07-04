@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f190d60a059108b9763f35e2ee8cf99ae77b694
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499960"
@@ -85,7 +85,7 @@ Param
 
 您可以使用 [**Write-Output**](/powershell/module/microsoft.powershell.utility/write-output) 活動來輸出虛擬機器的名稱。 **Get-AzureRmVm** 活動會接受兩個參數：**虛擬機器名稱**和**資源群組名稱**。 由於這些參數在您每次啟動 Runbook 時可能需要不同的值，因此您可以將輸入參數新增至您的 Runbook。 以下是新增輸入參數的步驟：
 
-1. 從 [Runbook]  刀鋒視窗中選取圖形化 Runbook，然後按一下 [編輯][  ](automation-graphical-authoring-intro.md)。
+1. 從 [Runbook]  刀鋒視窗中選取圖形化 Runbook，然後按一下 [**編輯**](automation-graphical-authoring-intro.md)。
 2. 在 Runbook 編輯器中，按一下 [輸入和輸出]  以開啟 [輸入和輸出]  刀鋒視窗。
 
    ![自動化圖形化 Runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)

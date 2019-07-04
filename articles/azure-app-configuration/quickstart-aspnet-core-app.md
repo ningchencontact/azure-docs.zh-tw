@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 19e0814f6e4da364a70c41e1d99fb6f1897bf0c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408692"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052070"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
 Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 ASP.NET Core Web 應用程式中。 
 
-ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定，來建置一個以索引鍵-值為基礎的設定物件。 這些資料來源稱為「設定提供者」。 因為應用程式設定的 .NET Core 用戶端會實作為這類提供者，服務看來就像其他資料來源。
+ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定，來建置一個以索引鍵-值為基礎的設定物件。 這些資料來源稱為「設定提供者」  。 因為應用程式設定的 .NET Core 用戶端會實作為這類提供者，服務看來就像其他資料來源。
 
 您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 Windows、macOS 及 Linux 平台上都有提供的 [Visual Studio Code](https://code.visualstudio.com/) 是一個絕佳的選項。
 
@@ -41,7 +41,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]   >  [+ 建立]  來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
@@ -50,7 +50,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
     | TestApp:Settings:FontColor | 黑色 |
     | TestApp:Settings:Message | Azure 應用程式設定的值 |
 
-    目前先讓 [標籤] 和 [內容類型] 保持空白。
+    目前先讓 [標籤]  和 [內容類型]  保持空白。
 
 ## <a name="create-an-aspnet-core-web-app"></a>建立 ASP.NET Core Web 應用程式
 
@@ -66,7 +66,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 將[祕密管理員工具](https://docs.microsoft.com/aspnet/core/security/app-secrets) \(機器翻譯\) 新增至您的專案。 祕密管理員工具能儲存專案樹狀結構外開發工作的敏感性資料。 此作法能協助避免於原始程式碼內意外共用應用程式祕密。
 
-- 開啟 .csproj 檔案。 新增 `UserSecretsId` 元素 (如下所示)，並將其值更換為您自己的值 (此值通常是 GUID)。 儲存檔案。
+- 開啟 .csproj  檔案。 新增 `UserSecretsId` 元素 (如下所示)，並將其值更換為您自己的值 (此值通常是 GUID)。 儲存檔案。
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -94,7 +94,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
         dotnet restore
 
-3. 將名為 ConnectionStrings:AppConfig 的祕密新增至祕密管理員。
+3. 將名為 ConnectionStrings:AppConfig  的祕密新增至祕密管理員。
 
     此祕密會包含用來存取應用程式設定存放區的連接字串。 請以應用程式設定存放區的連接字串取代下列命令中的值。
 
@@ -106,7 +106,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
     此祕密可使用設定 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)。 請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。
 
-4. 開啟 Program.cs，並將參考新增至 .NET Core 應用程式組態提供者。
+4. 開啟 Program.cs  ，並將參考新增至 .NET Core 應用程式組態提供者。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -125,14 +125,12 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
             .UseStartup<Startup>();
     ```
 
-6. 開啟 Views > Home 目錄中的 Index.cshtml，並將其內容更換為下列程式碼：
+6. 開啟 Views > Home 目錄中的 Index.cshtml  ，並將其內容更換為下列程式碼：
 
     ```html
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
-    <!DOCTYPE html>
-    <html lang="en">
     <style>
         body {
             background-color: @Configuration["TestApp:Settings:BackgroundColor"]
@@ -142,16 +140,11 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
             font-size: @Configuration["TestApp:Settings:FontSize"];
         }
     </style>
-    <head>
-        <title>Index View</title>
-    </head>
-    <body>
-        <h1>@Configuration["TestApp:Settings:Message"]</h1>
-    </body>
-    </html>
+
+    <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-7. 開啟 Views > Shared 目錄中的 _Layout.cshtml，並將其內容更換為下列程式碼：
+7. 開啟 Views > Shared 目錄中的 _Layout.cshtml  ，並將其內容更換為下列程式碼：
 
     ```html
     <!DOCTYPE html>

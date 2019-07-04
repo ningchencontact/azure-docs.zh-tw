@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5788f6e699833c606b1bdeaf63a9aac13da2a0e9
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754416"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513272"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入門：使用 Python API 執行您的第一個 Batch 作業
 
-本快速入門會從在 Azure Batch Python API 上建置的應用程式執行 Azure Batch 作業。 此應用程式會將數個輸入資料檔案上傳至 Azure 儲存體，然後建立 Batch 計算節點 (虛擬機器) 的「集區」。 然後，它會建立可執行「工作」的「作業」範例，以使用基本命令處理集區上的每個輸入檔案。 完成本快速入門之後，您將了解 Batch 服務的重要概念，並可準備使用更多真實的工作負載來大規模試用 Batch。
+本快速入門會從在 Azure Batch Python API 上建置的應用程式執行 Azure Batch 作業。 此應用程式會將數個輸入資料檔案上傳至 Azure 儲存體，然後建立 Batch 計算節點 (虛擬機器) 的「集區」  。 然後，它會建立可執行「工作」  的「作業」  範例，以使用基本命令處理集區上的每個輸入檔案。 完成本快速入門之後，您將了解 Batch 服務的重要概念，並可準備使用更多真實的工作負載來大規模試用 Batch。
  
 ![快速入門應用程式工作流程](./media/quick-run-python/sampleapp.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "55754416"
 
 從 GitHub [下載或複製範例應用程式](https://github.com/Azure-Samples/batch-python-quickstart)。 若要使用 Git 用戶端複製範例應用程式存放庫，請使用下列命令：
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 若要查看作用中的 Batch 工作流程，請執行以下指令碼：
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -77,7 +77,7 @@ python python_quickstart_client.py
 
 當您執行範例應用程式時，主控台輸出大致如下。 在執行期間，集區的計算節點啟動後，您會在 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` 遇到暫停。 工作會排入佇列中，以便在第一個計算節點執行時執行。 移至 [Azure 入口網站](https://portal.azure.com)中您的 Batch 帳戶，以監視 Batch 帳戶中的集區、計算節點、作業和工作。
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -92,7 +92,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 工作完成之後，您會看到每項工作有類似以下的輸出：
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z
@@ -127,9 +127,9 @@ blob_client = azureblob.BlockBlobService(
 應用程式會使用 `blob_client` 參考在儲存體帳戶中建立容器，並將資料檔案上傳至該容器。 儲存體中的檔案會定義為 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 物件，Batch 之後可將這類物件下載到計算節點。
 
 ```python
-input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
-                     os.path.join(sys.path[0], 'taskdata1.txt'),
-                     os.path.join(sys.path[0], 'taskdata2.txt')]
+input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
+                    os.path.join(sys.path[0], 'taskdata1.txt'),
+                    os.path.join(sys.path[0], 'taskdata2.txt')]
 
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
@@ -140,18 +140,18 @@ input_files = [
 
 ```python
 credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
-    config._BATCH_ACCOUNT_KEY)
+                                              config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=config._BATCH_ACCOUNT_URL)
+    batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>建立計算節點的集區
 
 為了建立 Batch 集區，應用程式會使用 [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 類別來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 物件會將 [ImageReference](/python/api/azure.batch.models.imagereference) 指定至 Azure Marketplace 中發佈的 Ubuntu Server 18.04 LTS 映像。 Batch 支援 Azure Marketplace 中各式各樣的 Linux 和 Windows Server 映像，以及自訂 VM 映像。
 
-節點數目 (`_POOL_NODE_COUNT`) 和 VM 大小 (`_POOL_VM_SIZE`) 都是已定義的常數。 此範例預設建立的集區包含 2 個大小為 Standard_A1_v2 的節點。 建議的大小可為此快速範例提供良好的效能與成本平衡。
+節點數目 (`_POOL_NODE_COUNT`) 和 VM 大小 (`_POOL_VM_SIZE`) 都是已定義的常數。 此範例預設建立的集區包含 2 個大小為 Standard_A1_v2  的節點。 建議的大小可為此快速範例提供良好的效能與成本平衡。
 
 [pool.add](/python/api/azure.batch.operations.pooloperations) 方法會將此集區提交至 Batch 服務。
 
@@ -164,7 +164,7 @@ new_pool = batch.models.PoolAddParameter(
             offer="UbuntuServer",
             sku="18.04-LTS",
             version="latest"
-            ),
+        ),
         node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
@@ -192,14 +192,14 @@ batch_service_client.job.add(job)
 ```python
 tasks = list()
 
-for idx, input_file in enumerate(input_files): 
+for idx, input_file in enumerate(input_files):
     command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file]
     )
-)
+    )
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
@@ -211,12 +211,13 @@ batch_service_client.task.add_collection(job_id, tasks)
 tasks = batch_service_client.task.list(job_id)
 
 for task in tasks:
-    
+
     node_id = batch_service_client.task.get(job_id, task.id).node_info.node_id
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(
+        job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,
@@ -229,7 +230,7 @@ for task in tasks:
 
 應用程式會自動刪除它所建立的儲存體容器，並且為您提供用於刪除 Batch 集區和工作的選項。 即使沒有排定的作業，您仍需支付節點執行時的集區費用。 當您不再需要集區時，請將它刪除。 當您刪除集區時，節點上的所有工作輸出也會跟著刪除。 
 
-若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]。
+若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

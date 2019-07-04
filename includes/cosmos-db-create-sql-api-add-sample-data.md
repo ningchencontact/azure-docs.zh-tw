@@ -9,15 +9,15 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 127d67cc3b5dcd0ddd585470821eb1baa08c2388
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151372"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174525"
 ---
 您現在可以使用 [資料總管] 將資料新增至您的新集合。
 
-1. 在 [資料總管] 中，新的資料庫會出現在 [集合] 窗格中。 依序展開 [工作] 資料庫、[項目] 集合，按一下 [文件]，然後按一下 [新增文件]。 
+1. 在 [資料總管] 中，新的資料庫會出現在 [集合] 窗格中。 依序展開 [工作]  資料庫、[項目]  集合，按一下 [文件]  ，然後按一下 [新增文件]  。 
 
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
@@ -33,7 +33,7 @@ ms.locfileid: "66151372"
      }
      ```
 
-3. 將 json 新增至 [文件] 索引標籤後，按一下 [儲存]。
+3. 將 json 新增至 [文件]  索引標籤後，按一下 [儲存]  。
 
     ![將 json 資料複製在 Azure 入口網站的 [資料總管] 中並按一下 [儲存]](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
 

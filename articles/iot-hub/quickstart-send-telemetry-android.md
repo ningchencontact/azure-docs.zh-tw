@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6e7d0ff396a4d264ee1f724d192c6c36abb400b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005383"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051560"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>快速入門：從 Android 裝置傳送 IoT 遙測
 
@@ -31,7 +31,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 從 https://developer.android.com/studio/ 取得的 Android Studio。 如需有關安裝 Android Studio 的詳細資訊，請參閱 [android-installation](https://developer.android.com/studio/install)。 
+* 從 https://developer.android.com/studio/ 取得的 Android Studio。 如需有關安裝 Android Studio 的詳細資訊，請參閱 [android-installation](https://developer.android.com/studio/install)。
 
 * 本中的範例會使用 Android SDK 27。
 
@@ -81,13 +81,13 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. 在 Android Studio 中開啟專案範例的 gradle.properties，並以您先前記下的裝置連接字串取代 **Device_Connection_String** 預留位置。
+2. 在 Android Studio 中開啟專案範例的 gradle.properties  ，並以您先前記下的裝置連接字串取代 **Device_Connection_String** 預留位置。
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. 在 Android Studio 中，按一下 [檔案] > [同步專案與 Gradle 檔案]。 確認建置是否完成。
+3. 在 Android Studio 中，按一下 [檔案]   > [同步專案與 Gradle 檔案]  。 確認建置是否完成。
 
    > [!NOTE]
    > 如果專案同步失敗，其可能的原因包括：
@@ -95,9 +95,9 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
    > * 對您的 Android Studio 版本而言，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過時。 請依照[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
    > * Android SDK 的授權合約尚未簽署。 請依照建置輸出中的指示，簽署授權合約並下載 SDK。
 
-4. 完成建置後，按一下 [執行] > [執行「應用程式」]。 設定應用程式，以在實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。
+4. 完成建置後，按一下 [執行]   > [執行「應用程式」]  。 設定應用程式，以在實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。
 
-5. 載入應用程式後，按一下 [啟動] 按鈕，以開始將遙測傳送至 IoT 中樞：
+5. 載入應用程式後，按一下 [啟動]  按鈕，以開始將遙測傳送至 IoT 中樞：
 
     ![Application](media/quickstart-send-telemetry-android/sample-screenshot.png)
 
@@ -113,11 +113,10 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     下列螢幕擷取畫面顯示 IoT 中樞從 Android 裝置接收所傳送遙測時的輸出：
 
       ![使用 Azure CLI 來閱讀裝置訊息](media/quickstart-send-telemetry-android/read-data.png)
-
-
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
@@ -130,4 +129,3 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 > [!div class="nextstepaction"]
 > [快速入門：控制連線到 IoT 中樞的裝置](quickstart-control-device-android.md)
-

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080522"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解決方案加速器是什麼？
 
@@ -42,7 +42,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 ### <a name="connected-factory"></a>連線的處理站
 
-使用[連線的工廠解決方案加速器](iot-accelerators-connected-factory-sample-walkthrough.md)可使用 [OPC 統一架構](https://opcfoundation.org/about/opc-technologies/opc-ua/)介面收集工業資產所傳來的遙測資料以及控制這些資產。 工業資產可能包含工廠生產線內的組裝台和測試台。
+使用[連線的工廠解決方案加速器](iot-accelerators-connected-factory-features.md)可使用 [OPC 統一架構](https://opcfoundation.org/about/opc-technologies/opc-ua/)介面收集工業資產所傳來的遙測資料以及控制這些資產。 工業資產可能包含工廠生產線內的組裝台和測試台。
 
 您可以使用連線工廠儀表板來監視及管理您的工業裝置：
 
