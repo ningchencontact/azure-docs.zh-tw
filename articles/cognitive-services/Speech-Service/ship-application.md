@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: ae075dbc922932a4eaffd9126560c159d33459d0
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808448"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466972"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -46,6 +46,9 @@ ms.locfileid: "66808448"
 
 >[!NOTE]
 > 從版本 1.3.0 開始檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現已整合在 SDK 的核心。
+
+>[!NOTE]
+> Windows Forms 應用程式 (.NET Framework)C#專案中，確定程式庫加入您專案的部署設定中。 您可以檢查下`Properties -> Publish Section`。 按一下 `Application Files`按鈕，然後尋找對應的程式庫，從清單中向下捲動。 請確定值設定為`Included`。 Visual Studio 專案發佈/部署時，會包含檔案。
 
 ## <a name="linux"></a>Linux
 

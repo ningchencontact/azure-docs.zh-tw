@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 286bc73cb7226d95c1e46fc51ae5999ea27d44ad
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 364599c6eb555d1ec72e84c998ae0c4e9a43929b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535662"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341607"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教學課程：使用 Python API 透過 Azure Batch 執行平行工作負載
 
@@ -107,7 +107,7 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-移至 Azure 入口網站中您的 Batch 帳戶，以監視集區、計算節點、作業和工作。 例如，若要查看集區中計算節點的熱度圖，請按一下 [集區] > [LinuxFFmpegPool]。
+移至 Azure 入口網站中您的 Batch 帳戶，以監視集區、計算節點、作業和工作。 例如，若要查看集區中計算節點的熱度圖，請按一下 [集區]   > [LinuxFFmpegPool]  。
 
 當工作正在執行時，熱度圖會如下所示：
 
@@ -135,7 +135,7 @@ blob_client = azureblob.BlockBlobService(
 
 ```python
 credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+                                             _BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
@@ -150,13 +150,14 @@ batch_client = batch.BatchServiceClient(
 blob_client.create_container(input_container_name, fail_on_exist=False)
 blob_client.create_container(output_container_name, fail_on_exist=False)
 input_file_paths = []
-    
-for folder, subs, files in os.walk(os.path.join(sys.path[0],'./InputFiles/')):
+
+for folder, subs, files in os.walk(os.path.join(sys.path[0], './InputFiles/')):
     for filename in files:
         if filename.endswith(".mp4"):
-            input_file_paths.append(os.path.abspath(os.path.join(folder, filename)))
+            input_file_paths.append(os.path.abspath(
+                os.path.join(folder, filename)))
 
-# Upload the input files. This is the collection of files that are to be processed by the tasks. 
+# Upload the input files. This is the collection of files that are to be processed by the tasks.
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
@@ -166,7 +167,7 @@ input_files = [
 
 接著，範例會呼叫 `create_pool` 以在 Batch 帳戶中建立計算節點集區。 這個已定義的函式會使用 [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 類別來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 物件會將 [ImageReference](/python/api/azure.batch.models.imagereference) 指定至 Azure Marketplace 中發佈的 Ubuntu Server 18.04 LTS 映像。 Batch 支援 Azure Marketplace 中各式各樣的 VM 映像，以及自訂 VM 映像。
 
-使用已定義的常數可設定節點數目和 VM 大小。 Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而您可以在集區中使用其中一種或同時使用兩種。 專用節點會保留給您的集區使用。 低優先順序節點則會以較低的價格從 Azure 中的剩餘容量提供。 如果 Azure 沒有足夠的容量，便無法使用低優先順序節點。 此範例預設建立的集區只包含 5 個大小為 Standard_A1_v2 的低優先順序節點。 
+使用已定義的常數可設定節點數目和 VM 大小。 Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而您可以在集區中使用其中一種或同時使用兩種。 專用節點會保留給您的集區使用。 低優先順序節點則會以較低的價格從 Azure 中的剩餘容量提供。 如果 Azure 沒有足夠的容量，便無法使用低優先順序節點。 此範例預設建立的集區只包含 5 個大小為 Standard_A1_v2  的低優先順序節點。 
 
 除了實體節點屬性以外，此集區設定還包含 [StartTask](/python/api/azure.batch.models.starttask) 物件。 StartTask 會在每個節點加入集區以及每次重新啟動節點時，於該節點上執行。 在此範例中，StartTask 會執行 Bash Shell 命令，以在節點上安裝 ffmpeg 套件和相依項目。
 
@@ -181,7 +182,7 @@ new_pool = batch.models.PoolAddParameter(
             offer="UbuntuServer",
             sku="18.04-LTS",
             version="latest"
-            ),
+        ),
         node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
@@ -221,10 +222,11 @@ batch_service_client.job.add(job)
 ```python
 tasks = list()
 
-for idx, input_file in enumerate(input_files): 
-    input_file_path=input_file.file_path
-    output_file_path="".join((input_file_path).split('.')[:-1]) + '.mp3'
-    command = "/bin/bash -c \"ffmpeg -i {} {} \"".format(input_file_path, output_file_path)
+for idx, input_file in enumerate(input_files):
+    input_file_path = input_file.file_path
+    output_file_path = "".join((input_file_path).split('.')[:-1]) + '.mp3'
+    command = "/bin/bash -c \"ffmpeg -i {} {} \"".format(
+        input_file_path, output_file_path)
     tasks.append(batch.models.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
@@ -236,10 +238,10 @@ for idx, input_file in enumerate(input_files):
                     container_url=output_container_sas_url)),
             upload_options=batchmodels.OutputFileUploadOptions(
                 upload_condition=batchmodels.OutputFileUploadCondition.task_success))]
-        )
+    )
     )
 batch_service_client.task.add_collection(job_id, tasks)
-```    
+```
 
 ### <a name="monitor-tasks"></a>監視工作
 
@@ -254,7 +256,7 @@ while datetime.datetime.now() < timeout_expiration:
     tasks = batch_service_client.task.list(job_id)
 
     incomplete_tasks = [task for task in tasks if
-                         task.state != batchmodels.TaskState.completed]
+                        task.state != batchmodels.TaskState.completed]
     if not incomplete_tasks:
         print()
         return True
@@ -267,7 +269,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 應用程式在執行工作之後，會自動刪除它所建立的輸入儲存體容器，並且為您提供用於刪除 Batch 集區和工作的選項。 BatchClient 的 [JobOperations](/python/api/azure.batch.operations.joboperations) 和 [PoolOperations](/python/api/azure.batch.operations.pooloperations) 類別都有刪除方法 (在您確認刪除時呼叫)。 雖然您不需支付作業和工作本身的費用，但您需支付計算節點的費用。 因此，我們建議您只在必要時配置集區。 當您刪除集區時，節點上的所有工作輸出也會跟著刪除。 不過，輸入和輸出檔案會保留在儲存體帳戶中。
 
-若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]。
+若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026662"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340895"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>特性是動作和內容的相關資訊
 
@@ -25,11 +25,11 @@ ms.locfileid: "65026662"
 
 例如，您可能會有關於下列項目的**特性**：
 
-* 使用者，例如 `UserID`。 
-* 內容，例如某段影片是 `Documentary`、`Movie` 還是 `TV Series`，或是商店內是否有某個零售商品。
-* 當前的一段時間，例如一週內的哪一天。
+* 使用者  ，例如 `UserID`。 
+* 內容  ，例如某段影片是 `Documentary`、`Movie` 還是 `TV Series`，或是商店內是否有某個零售商品。
+* 當前  的一段時間，例如一週內的哪一天。
 
-個人化工具並未規定、限制或固定您可以為動作和內容傳送的特性：
+Personalizer 並未規定，限制，或修正的功能，您可以傳送動作的內容：
 
 * 您可以針對某些動作傳送某些特性，至於其他您未擁有的動作，則不傳送。 例如，電視影集便可能沒有電影所擁有的屬性。
 * 您可能會擁有某些只會在某些時候才出現的特性。 例如，行動應用程式可能會提供比網頁還要多的資訊。 
@@ -41,6 +41,12 @@ ms.locfileid: "65026662"
 
 個人化工具支援字串、數字和布林值類型的特性。
 
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>功能類型選擇如何影響 Machine Learning 中 Personalizer
+
+* **字串**:對於字串型別，每個索引鍵和值的組合，請在 Personalizer 機器學習服務模型中建立新的加權。 
+* **數值**:時數比例會影響個人化的結果，您應該使用的數值。 這是非常相依的案例。 在簡化的範例例如當個人化零售體驗，NumberOfPetsOwned 可能是一項功能是數字，因為您可能需要 2 或 3 個寵物的人來影響兩倍或三次高達發生 1 寵物的個人化結果。 功能，會根據數字的單位，而其中意義不是線性的-例如年齡、 溫度、 或人員高度時，最適合會編碼成字串，以及功能品質通常可改善使用範圍。 例如，年齡無法編碼為"Age":"0-5"，"Age":"6-10" 等等。
+* **布林**傳送值為"false"的 act，如同它們還沒有已完全進行傳送的值。
+
 要求中應該省略不存在的特性。 請避免傳送 Null 值的特性，因為系統在將模型定型時會將其視為既存特性來進行處理，且認為其值為「Null」。
 
 ## <a name="categorize-features-with-namespaces"></a>使用命名空間來分類特性
@@ -50,7 +56,7 @@ ms.locfileid: "65026662"
 以下是應用程式所用特性命名空間的範例：
 
 * User_Profile_from_CRM
-* 時間
+* Time
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -64,12 +70,15 @@ ms.locfileid: "65026662"
 
 在下列 JSON 中，`user`、`state` 和 `device` 便是特性命名空間。
 
+JSON 物件可以包含巢狀的 JSON 物件和簡單屬性/值。 陣列項目都是數字時，才可以包含陣列。 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -96,7 +105,7 @@ ms.locfileid: "65026662"
 
 * 有足夠的特性可促成個人化。 如需更加精確的針對性內容，就需要提供更多的特性。
 
-* 特性數量多到足以實現多樣化「密度」。 如果有許多項目群組到少數幾個貯體，便代表該特性的「密度」夠高。 例如，您可以將數千部影片分類為「長時間」(長度超過 5 分鐘) 和「短時間」(長度不到 5 分鐘)。 這會是「密度非常高」的特性。 另一方面，您也可以讓同樣的數千個項目具有稱為「標題」的屬性，如此一來，這些項目幾乎就不會有彼此相同的值。 這種特性的密度就非常低 (或是「疏鬆」)。  
+* 特性數量多到足以實現多樣化「密度」  。 如果有許多項目群組到少數幾個貯體，便代表該特性的「密度」  夠高。 例如，您可以將數千部影片分類為「長時間」(長度超過 5 分鐘) 和「短時間」(長度不到 5 分鐘)。 這會是「密度非常高」  的特性。 另一方面，您也可以讓同樣的數千個項目具有稱為「標題」的屬性，如此一來，這些項目幾乎就不會有彼此相同的值。 這種特性的密度就非常低 (或是「疏鬆」  )。  
 
 具有高密度特性可協助個人化工具不斷類推地學習每一個項目。 但如果特性數量不多且密度過高，個人化工具就會嘗試在只有幾個貯體可供選擇的情況下，精確地鎖定內容。
 
@@ -115,7 +124,7 @@ ms.locfileid: "65026662"
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>使用類推的資訊擴大特性集合
 
-您也可以想想有沒有尚未探索到的屬性可以從您已經擁有的資訊來衍生，從而獲得更多的特性。 例如，在進行虛構電影清單的個人化作業時，週末和平日是否可能會得到不同的使用者行為？ 您可以擴充時間來獲得「週末」或「平日」屬性。 與文化有關的國定假日是否會讓人們關注某些電影類型？ 例如，「萬聖節」屬性在與其相關的地點便很有用。 雨天是否可能會對許多人在選擇電影時造成重大影響？ 使用時間和地點，天氣服務便可以提供該資訊，您也可以將其新增為額外的特性。 
+您也可以想想有沒有尚未探索到的屬性可以從您已經擁有的資訊來衍生，從而獲得更多的特性。 比方說，如果在虛構的電影清單的個人化，請是週末 vs 工作日 elicits 不同的行為，從使用者的可能會嗎？ 您可以擴充時間來獲得「週末」或「平日」屬性。 與文化有關的國定假日是否會讓人們關注某些電影類型？ 例如，「萬聖節」屬性在與其相關的地點便很有用。 雨天是否可能會對許多人在選擇電影時造成重大影響？ 使用時間和地點，天氣服務便可以提供該資訊，您也可以將其新增為額外的特性。 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>使用人工智慧和認知服務來擴大特性集合
 
@@ -123,7 +132,7 @@ ms.locfileid: "65026662"
 
 藉由使用人工智慧服務來前置處理您的項目，您就可以自動擷取出可能與個人化有所關聯的資訊。
 
-例如︰
+例如:
 
 * 您可以透過[影片索引器](https://azure.microsoft.com/services/media-services/video-indexer/)來執行電影檔案，以擷取場景元素、文字、情緒和其他眾多屬性。 然後讓這些屬性變得更密集，以反映原始項目的中繼資料所沒有的特徵。 
 * 可以透過偵測物件來執行影像，透過情緒來執行臉部等等。
@@ -156,9 +165,9 @@ ms.locfileid: "65026662"
 
 您傳送給排名 API 的動作取決於您要嘗試個人化的項目。
 
-這裡有一些範例：
+以下是一些範例：
 
-|目的| 動作|
+|目的|動作|
 |--|--|
 |將要在新聞網站上選出的條目個人化。|每個動作都是潛在的新聞條目。|
 |將廣告放在網站上最佳的位置。|每個動作都會是版面配置或用來建立廣告版面配置 (例如，在頂端、在右邊、小圖、大圖) 的規則。|
@@ -174,7 +183,7 @@ ms.locfileid: "65026662"
 
 * 具有動作特徵的特性。 例如，是電影還是電視影集？
 * 關於使用者過去可能如何與此動作互動的特性。 例如，這部電影的觀看人數在人口統計 A 還是 B 中最多，這部電影一般不會播放超過一次。
-* 與使用者如何「看到」動作的特徵有關的特性。 例如，縮圖中顯示的電影海報是否包含臉部、車輛或景色？
+* 與使用者如何「看到」  動作的特徵有關的特性。 例如，縮圖中顯示的電影海報是否包含臉部、車輛或景色？
 
 ### <a name="load-actions-from-the-client-application"></a>從用戶端應用程式載入動作
 
@@ -184,11 +193,13 @@ ms.locfileid: "65026662"
 
 在某些情況下，您可能會有不想對使用者顯示的動作。 若要防止某個動作成為排名第一的項目，您最好不要將其以首位納入到要傳送給排名 API 的動作清單。
 
-在某些情況下，您的商務邏輯只能在後面才判斷是否要對使用者顯示排名 API 呼叫所產生的「動作」。 針對這些情況，請使用「非作用中事件」。
+在某些情況下，您的商務邏輯只能在後面才判斷是否要對使用者顯示排名 API 呼叫所產生的「動作」  。 針對這些情況，請使用「非作用中事件」  。
 
 ## <a name="json-format-for-actions"></a>動作的 JSON 格式
 
 在呼叫排名時，您會傳送多個動作以供選擇：
+
+JSON 物件可以包含巢狀的 JSON 物件和簡單屬性/值。 陣列項目都是數字時，才可以包含陣列。 
 
 ```json
 {
@@ -198,7 +209,8 @@ ms.locfileid: "65026662"
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +223,8 @@ ms.locfileid: "65026662"
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +236,8 @@ ms.locfileid: "65026662"
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +252,8 @@ ms.locfileid: "65026662"
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -251,7 +266,7 @@ ms.locfileid: "65026662"
 
 ## <a name="examples-of-context-information"></a>內容資訊的範例
 
-「內容」的資訊取決於每個應用程式和使用案例，但一般來說，可能包含的資訊如下：
+「內容」  的資訊取決於每個應用程式和使用案例，但一般來說，可能包含的資訊如下：
 
 * 關於使用者的人口統計和設定檔資訊。
 * 從 HTTP 標頭中擷取的資訊 (例如，使用者代理程式)，或衍生自 HTTP 資訊的資訊 (例如，根據 IP 位址的反向地理對應)。
@@ -264,6 +279,8 @@ ms.locfileid: "65026662"
 ## <a name="json-format-for-context"></a>內容的 JSON 格式 
 
 內容會以傳送給排名 API 的 JSON 物件來表示：
+
+JSON 物件可以包含巢狀的 JSON 物件和簡單屬性/值。 陣列項目都是數字時，才可以包含陣列。 
 
 ```JSON
 {
@@ -282,7 +299,9 @@ ms.locfileid: "65026662"
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

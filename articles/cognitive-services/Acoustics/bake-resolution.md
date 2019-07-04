@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: KyleStorck
 ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61335441"
 ---
 # <a name="project-acoustics-bake-resolution"></a>專案樂器製作解析
 這個概念的概觀說明粗略與沒問題的解決方式，同時將備份樂器之間的差異。 您選擇此烘焙維度的工作流程的探查步驟期間設定。

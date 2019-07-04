@@ -124,6 +124,8 @@
         - name: 針對 Runbook 進行疑難排解
           href: troubleshoot/runbooks.md
           displayName: troubleshoot
+        - name: 開始/停止 VM
+          href: troubleshoot/start-stop-vm.md
 - name: 更新管理
   items:
     - name: 更新管理概觀
@@ -313,6 +315,8 @@
   items:
     - name: 將 Azure 自動化作業資料轉送到 Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md
+    - name: Log Analytics 工作區對應的支援區域
+      href: how-to/region-mappings.md
 - name: 移轉
   items:
     - name: 從 Orchestrator 移轉

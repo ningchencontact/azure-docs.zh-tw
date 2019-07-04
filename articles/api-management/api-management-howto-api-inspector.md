@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415877"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203537"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用要求追蹤對 API 進行偵錯
 
@@ -35,31 +35,31 @@ ms.locfileid: "50415877"
 ## <a name="prerequisites"></a>必要條件
 
 + 了解 [Azure API 管理術語](api-management-terminology.md)。
-+ 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ 以及完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
++ 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
++ 此外，請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
 ## <a name="trace-a-call"></a>追蹤呼叫
 
 ![API 追蹤](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
 
-1. 選取 [API]。
-2. 按一下 API 清單中的 [Demo Conference API]。
+1. 選取 [API]  。
+2. 按一下 API 清單中的 [示範會議 API]  。
 3. 切換至 [測試]  索引標籤。
-4. 選取 [GetSpeakers] 作業。
+4. 選取 [GetSpeakers]  作業。
 5. 務必包含名為 **Ocp-Apim-Trace** 且值為 **true** 的 HTTP 標頭。
 
     > [!NOTE]
     > 如果 Ocp-Apim-Subscription-Key 未自動填入，您可以移至開發人員入口網站並且在設定檔頁面公開金鑰，以便擷取該金鑰。
 
-6. 按一下 [傳送] 以進行 API 呼叫。 
+6. 按一下 [傳送]  以進行 API 呼叫。 
 7. 請等待呼叫完成。 
-8. 移至 **API 主控台**中的 [追蹤] 索引標籤。 您可以按一下下列任一連結，跳至詳細的追蹤資訊：**輸入**、**後端**、**輸出**。
+8. 移至 **API 主控台**中的 [追蹤]  索引標籤。 您可以按一下下列任一連結，跳至詳細的追蹤資訊：**輸入**、**後端**、**輸出**。
 
-    在 [輸入] 區段中，您會看到 API 管理從呼叫者那邊接收的原始要求，以及所有套用到要求的原則，包括我們在步驟 2 中新增的速率限制與設定標頭原則。
+    在 [輸入]  區段中，您會看到 API 管理從呼叫者那邊接收的原始要求，以及所有套用到要求的原則，包括我們在步驟 2 中新增的速率限制與設定標頭原則。
 
-    在 [後端] 區段中，您會看到 API 管理傳送至 API 後端的要求及其接收的回應。
+    在 [後端]  區段中，您會看到 API 管理傳送至 API 後端的要求及其接收的回應。
 
-    在 [輸出] 區段中，您會看到回應在傳回至呼叫者之前套用的所有原則。
+    在 [輸出]  區段中，您會看到回應在傳回至呼叫者之前套用的所有原則。
 
     > [!TIP]
     > 每個步驟也會顯示 API 管理收到要求後耗用的時間。

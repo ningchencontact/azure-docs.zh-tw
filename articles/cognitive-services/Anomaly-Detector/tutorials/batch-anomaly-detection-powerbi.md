@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2019
 ms.author: aahi
 ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827147"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>教學課程：以視覺化方式檢視使用批次偵測及 Power BI 的異常
@@ -131,7 +131,7 @@ Power BI 會將轉換的第一個資料行中的時間戳記`Date/Time`資料型
 
 ![顯示指定的存取認證的要求的影像](../media/tutorials/edit-credentials-message.png)
 
-若要修正此問題，按一下**編輯認證**訊息中。  對話方塊中出現之後，請選取**Anonymous**以匿名方式連線到 API。 然後按一下 [ **連接**]。 
+若要修正此問題，按一下**編輯認證**訊息中。 對話方塊中出現之後，請選取**Anonymous**以匿名方式連線到 API。 然後按一下 [ **連接**]。 
 
 之後，按一下**關閉並套用**中**首頁**以套用變更的功能區。
 
@@ -143,7 +143,7 @@ Power BI 會將轉換的第一個資料行中的時間戳記`Date/Time`資料型
 
 加入下列欄位從**叫用函式**圖表**值**欄位。 使用以下螢幕擷取畫面，可協助您建立您的圖表。
 
-    * Value
+    * 值
     * UpperMargins
     * LowerMargins
     * ExpectedValues

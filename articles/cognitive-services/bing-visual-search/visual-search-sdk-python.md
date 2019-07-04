@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
-ms.openlocfilehash: eb115d1bfe033761c8dab82b693e4e694ff3bd2b
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734627"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204024"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 圖像式搜尋 SDK 來取得影像見解
 
@@ -24,7 +24,7 @@ ms.locfileid: "66734627"
 ## <a name="prerequisites"></a>必要條件
 
 * [Python](https://www.python.org/) 2.x 或 3.x
-* 建議使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。 安裝適用於 Python 2.7 的 virtualenv。
+* 建議使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。
 * 適用於 Python 的 Bing 圖像式搜尋 SDK。 您可以使用下列命令加以安裝：
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`

@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111107"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174215"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>使用 Azure 入口網站建立主題
 1. 在 [服務匯流排命名空間]  頁面上，選取左側功能表上的 [主題]  。

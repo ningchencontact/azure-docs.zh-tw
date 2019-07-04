@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072403"
 ---
 # <a name="what-is-speech-translation"></a>什麼是語音翻譯？
 
@@ -42,11 +42,11 @@ Microsoft 的轉譯引擎由兩個不同的方法： 統計機器翻譯 (SMT) �
 
 | 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#.NET framework](quickstart-translate-speech-dotnetframework-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) |  Windows | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#.NET framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows、Linux、macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>範例程式碼
 
@@ -67,11 +67,11 @@ Microsoft 的轉譯引擎由兩個不同的方法： 統計機器翻譯 (SMT) �
 
 * [語音 SDK](speech-sdk-reference.md)
 * [語音裝置 SDK](speech-devices-sdk.md)
-* [REST API：語音轉換文字](rest-speech-to-text.md)
-* [REST API：Text-to-speech](rest-text-to-speech.md)
-* [REST API：Batch 轉譯和自訂](https://westus.cris.ai/swagger/ui/index)
+* [REST API：語音轉文字](rest-speech-to-text.md)
+* [REST API：文字轉語音](rest-text-to-speech.md)
+* [REST API：批次轉譯與自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [免費取得語音服務訂用帳戶金鑰](get-started.md)
+* [免費取得語音服務的訂用帳戶金鑰](get-started.md)
 * [取得語音 SDK](speech-sdk.md)

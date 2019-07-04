@@ -3,20 +3,20 @@ title: 限制和界限 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 知識庫和服務的某些部分有中繼資料的限制。 請務必將您的知識庫保持在這些限制範圍內，以便進行測試及發佈。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/22/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 43d0e7566102c882d4a2819237a795fdff425f75
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237262"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446482"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 知識庫的限制和界限
 QnA Maker 的完整限制清單。

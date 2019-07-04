@@ -12,23 +12,23 @@ ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
 ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148157"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>新增意圖以判斷語句的使用者用意
 
 將[意圖](luis-concept-intent.md)新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。 
 
-從上方導覽列的 [建置] 區段，然後從左側面板的 [意圖] 管理意圖。 
+從上方導覽列的 [建置]  區段，然後從左側面板的 [意圖]  管理意圖。 
 
 ## <a name="add-intent"></a>新增意圖
 
-1. 在 [意圖] 頁面上，選取 [建立新意圖]。
+1. 在 [意圖]  頁面上，選取 [建立新意圖]  。
 
-1. 在 [建立新的意圖] 對話方塊中，輸入意圖名稱 `GetEmployeeInformation`，然後按一下 [完成]。
+1. 在 [建立新的意圖]  對話方塊中，輸入意圖名稱 `GetEmployeeInformation`，然後按一下 [完成]  。
 
     ![新增意圖](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "65148157"
 * 刪除：從意圖中移除語句。 如果您仍想要語句，最好的方法是將其移至 **None** 意圖。 
 * 加入模式：模式可讓您採用一般語句，並標示可取代的文字和可忽略的文字，藉此減少意圖中更多語句的需求。 
 
-[加上標籤的意圖] 資料行可讓您變更語句的意圖。
+[加上標籤的意圖]  資料行可讓您變更語句的意圖。
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>在利用意圖變更模型後訓練您的應用程式
 

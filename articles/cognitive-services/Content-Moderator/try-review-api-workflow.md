@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756589"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605851"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>定義及使用仲裁工作流程 (REST)
 
@@ -27,7 +27,7 @@ ms.locfileid: "58756589"
 
 ## <a name="create-a-workflow"></a>建立工作流程
 
-若要建立或更新工作流程，請前往**[工作流程-建立或更新](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面的[審核工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
+若要建立或更新工作流程，請前往 **[工作流程-建立或更新](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面的[審核工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
 
 ![[工作流程 - 建立或更新] 頁面的區域選取項目](images/test-drive-region.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "58756589"
 
 ### <a name="submit-your-request"></a>提交您的要求
   
-選取 [傳送]。 如果作業成功，[Response status] \(回應狀態\) 就會是 `200 OK`，而 [Response content] \(回應內容\) 方塊則會顯示 `true`。
+選取 [傳送]  。 如果作業成功，[Response status] \(回應狀態\)  就會是 `200 OK`，而 [Response content] \(回應內容\)  方塊則會顯示 `true`。
 
 ### <a name="examine-the-new-workflow"></a>檢查新的工作流程
 
@@ -94,7 +94,7 @@ ms.locfileid: "58756589"
 
 ## <a name="get-workflow-details"></a>取得工作流程詳細資料
 
-若要擷取現有的工作流程有關的詳細資訊，請前往**[工作流程-Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)**  API 參考頁面，然後選取您的區域 按鈕 （取決於您的金鑰所在的區域）。
+若要擷取現有的工作流程有關的詳細資訊，請前往 **[工作流程-Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)**  API 參考頁面，然後選取您的區域 按鈕 （取決於您的金鑰所在的區域）。
 
 ![[工作流程 - 取得] 的區域選取項目](images/test-drive-region.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "58756589"
 
 ![取得查詢參數和標頭](images/workflow-get-default.PNG)
 
-選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示工作流程，以 JSON 格式，如下所示：
+選取 [傳送]  。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示工作流程，以 JSON 格式，如下所示：
 
 ```json
 {

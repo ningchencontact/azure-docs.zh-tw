@@ -1,21 +1,19 @@
 ---
 title: 使用 Azure 備份還原 VM 磁碟
 description: 了解如何還原磁碟，並在 Azure 中使用備份與復原服務建立 VM。
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: c3fcf6430f04a3fc10abbd9129e4857e35db84eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 70431870027cc27d886995b0bf7f47108ad767fa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127572"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273947"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中還原磁碟並建立已復原的 VM
 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文說明如何使用 CLI 還原完整的 VM。 在本教學課程中，您將了解如何：
@@ -95,7 +93,7 @@ az backup job list \
     --output table
 ```
 
-輸出會類似下列範例，其顯示的還原作業為 InProgress︰
+輸出會類似下列範例，其顯示的還原作業為 InProgress  ︰
 
 ```
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -105,7 +103,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-當還原作業的 [狀態] 回報 [已完成] 時，磁碟便已還原到儲存體帳戶。
+當還原作業的 [狀態]  回報 [已完成]  時，磁碟便已還原到儲存體帳戶。
 
 
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>將還原的磁碟轉換成受控磁碟

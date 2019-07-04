@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: lahugh
 ms.openlocfilehash: bd51eabcff412de4928c682683b2a69b3e82e601
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66127365"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174329"
 ---
 ### <a name="retrieve-output-files"></a>擷取輸出檔案
 
 您可以使用 Azure 入口網站來下載 ffmpeg 工作所產生的 MP3 輸出檔案。 
 
-1. 按一下 [所有服務] > [儲存體帳戶]，然後按一下您的儲存體帳戶名稱。
-2. 按一下 [Blob] > [輸出]。
-3. 以滑鼠右鍵按一下其中一個 MP3 輸出檔案，然後按 [下載]。 請依照瀏覽器的提示開啟或儲存檔案。
+1. 按一下 [所有服務]   > [儲存體帳戶]  ，然後按一下您的儲存體帳戶名稱。
+2. 按一下 [Blob]   > [輸出]  。
+3. 以滑鼠右鍵按一下其中一個 MP3 輸出檔案，然後按 [下載]  。 請依照瀏覽器的提示開啟或儲存檔案。
 
 ![下載輸出檔案](./media/batch-common-tutorial-download/download.png)
 

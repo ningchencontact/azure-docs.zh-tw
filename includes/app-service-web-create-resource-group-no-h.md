@@ -9,15 +9,15 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: b59b45de04ebb717dfe55eb17c9dbd92f7523976
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120859"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174460"
 ---
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-在 Cloud Shell 中，使用 [`az group create`](/cli/azure/group?view=azure-cli-latest) 命令來建立資源群組。 下列範例會在「西歐」位置建立名為 myResourceGroup 的資源群組。 若要查看**免類**層中 App Service 的所有支援位置，請執行 [`az appservice list-locations --sku FREE`](/cli/azure/appservice?view=azure-cli-latest) 命令。
+在 Cloud Shell 中，使用 [`az group create`](/cli/azure/group?view=azure-cli-latest) 命令來建立資源群組。 下列範例會在「西歐」  位置建立名為 myResourceGroup  的資源群組。 若要查看**免類**層中 App Service 的所有支援位置，請執行 [`az appservice list-locations --sku FREE`](/cli/azure/appservice?view=azure-cli-latest) 命令。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236952"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用儀表板，以改善您的應用程式
@@ -33,7 +33,7 @@ ms.locfileid: "66236952"
 |問題|圖表色彩|說明|
 |--|--|--|
 |資料不平衡|-|會發生這種情況時大幅範例談話數量而有所不同。 所有的對應方式必須能夠_大約_相同數目的範例談話-無的意圖 除外。 它應該只有 10%-15%的總數量的表達方式在應用程式。<br><br> 如果資料不平衡，但意圖精確度高於某個臨界值，此不平衡並不會報告為問題。<br><br>**開始本文承蒙-它可能是其他問題的根本原因。**|
-|不清楚的預測|橘色|這發生前的意圖和下一步 的意圖分數時關閉它們可能翻轉的下一步 的訓練課程，因為[negative 取樣](luis-how-to-train.md#train-with-all-data)或加入意圖的詳細範例談話。 |
+|不清楚的預測|橙色|這發生前的意圖和下一步 的意圖分數時關閉它們可能翻轉的下一步 的訓練課程，因為[negative 取樣](luis-how-to-train.md#train-with-all-data)或加入意圖的詳細範例談話。 |
 |不正確的預測|紅色|會發生這種情況是當範例 [utterance] 不會加上標籤的意圖 （在意圖） 的預測。|
 
 正確的預測是以藍色表示。
@@ -113,7 +113,7 @@ ms.locfileid: "66236952"
 
 ### <a name="review-unclear-predictions"></a>檢閱不清楚的預測
 
-**清楚預測**意圖清單會顯示與使用預測分數不是從其最接近的競爭對手，[utterance] 的最上層的意圖可能變更的下一步的訓練課程，因為夠遠方式的發音的意圖[negative 取樣](luis-how-to-train.md#train-with-all-data)。
+**清楚預測**意圖清單會顯示與使用預測分數不是從其最接近的競爭對手，[utterance] 的最上層的意圖可能變更的下一步 的訓練課程，因為夠遠方式的發音的意圖[negative 取樣](luis-how-to-train.md#train-with-all-data)。
 
 **若要修正此問題**;
 

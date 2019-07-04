@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523098"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813556"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
 模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
@@ -68,7 +68,7 @@ ms.locfileid: "59523098"
 |函式|語法|巢狀層級|範例|
 |--|--|--|--|
 |實體| {} 層大括號|2|其中是表單 {實體-名稱}？|
-|選用|[]-[方括號<BR><BR>3 的選擇性和群組的任意組合的巢狀層級上的限制 |2|問號是選擇性的 [？]|
+|選用|[]-方括號<BR><BR>3 的選擇性和群組的任意組合的巢狀層級上的限制 |2|問號是選擇性的 [？]|
 |群組|（)-括號|2|是 ( \| b）。|
 |或| \| -分隔號 （管線）<br><br>在垂直軸 （或者） 在一個群組 2 的限制 |-|其中是表單 ({表單-名稱-簡短} &#x7c; {表單名稱-長時間} &#x7c; {表單 number})| 
 |開頭和/或結束 [utterance]|^-插入號|-|^ 開始 [utterance]<br>完成 [utterance] ^<br>^ 嚴格常值相符項目與 {number} 實體的整個 utterance ^|
@@ -91,7 +91,7 @@ ms.locfileid: "59523098"
 |--|--|
 |RedWest-C|符合外部群組實體|
 |Seattle|符合其中一個內部群組實體|
-|Cairo|符合其中一個內部群組實體|
+|開羅|符合其中一個內部群組實體|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>巢狀限制具有選擇性語法的群組
 
@@ -170,7 +170,7 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 |模式與選用文字|意義|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` 和`from {person}`是選擇性的|
-|' 您可以幫我 [？] |是選擇性的標點符號|
+|`Can you help me[?]|是選擇性的標點符號|
 
 標點符號 (`?`， `!`， `.`) 應該予以忽略，而且您需要略過它們在模式中使用括號語法。 
 

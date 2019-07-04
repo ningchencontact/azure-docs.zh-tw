@@ -9,20 +9,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 2efc48df906117a8d01ea8c309f001d2f623444f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431135"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485080"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding 中最新消息
 
 了解什麼是服務的新功能。 附註、 影片、 部落格文章和其他類型的資訊，可能會發行這些項目。 本頁加入書籤來保持最新的服務。  
 
 ## <a name="release-notes"></a>版本資訊 
+
+### <a name="june-24-2019"></a>2019 年 6 月 24日日
+
+* [OrdinalV2 預先建置的實體](luis-reference-prebuilt-ordinal-v2.md)来支援排序下一步，例如上一個和最後一個。 僅英文文化特性。
 
 ### <a name="may-6-2019---build-conference"></a>2019-5 月 6日日 //Build 會議
 

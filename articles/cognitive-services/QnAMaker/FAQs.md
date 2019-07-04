@@ -3,20 +3,20 @@ title: 常見問題集 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 最常見問題的解答，QnA Maker 服務有關的策劃的清單將協助您更快速且更好的結果，採用的服務。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/11/2019
-ms.author: tulasim
+ms.date: 06/11/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: d96c5829dfaa57e66b4afec203c27110b8627ac1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607159"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447570"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker 的常見問題集
 
@@ -32,7 +32,7 @@ QnA Maker 提供**協助**QnA Maker 入口網站，可協助您的 bot。 使用
 
 ### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>我不小心刪除了一部分的 QnA Maker，該怎麼辦？ 
 
-所有刪除都是永久的，包括問答組、檔案、URL、自訂問答、知識庫或 Azure 資源。 務必先從 [設定] 頁面匯出知識庫，再刪除知識庫的任何部分。 
+所有刪除都是永久的，包括問答組、檔案、URL、自訂問答、知識庫或 Azure 資源。 務必先從 [設定]  頁面匯出知識庫，再刪除知識庫的任何部分。 
 
 ### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>為何我的 URL/檔案不會擷取問答組？
 
@@ -52,7 +52,7 @@ QnA Maker 提供**協助**QnA Maker 入口網站，可協助您的 bot。 使用
 
 ### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>是否可以與不屬於相同 AAD 租用戶的參與者共用知識庫，以修改該知識庫？ 
 
-共用是以 Azure 角色型存取控制 (RBAC) 為基礎。 如果您可以與另一個使用者共用 Azure 中的「任何」資源，便代表您也可以共用 QnA Maker。
+共用是以 Azure 角色型存取控制 (RBAC) 為基礎。 如果您可以與另一個使用者共用 Azure 中的「任何」  資源，便代表您也可以共用 QnA Maker。
 
 ### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>假設我有有 5 個 QnAMaker 知識庫的 App Service 方案。 是否能將讀取/寫入權限指派給 5 個不同的使用者，使他們只能個別存取 1 個 QnAMaker 知識庫？
 
@@ -64,7 +64,7 @@ QnA Maker 提供**協助**QnA Maker 入口網站，可協助您的 bot。 使用
 - 在 Azure 入口網站中，移至您的 App Service 資源
 
 ![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
-- 按一下 [設定] 選項
+- 按一下 [設定]  選項
 
 ![qnamaker appservice 設定](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - 變更 **DefaultAnswer** 設定的值
@@ -78,7 +78,7 @@ QnA Maker 提供**協助**QnA Maker 入口網站，可協助您的 bot。 使用
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>我對知識庫所做的更新並未在發佈時反映。 為什麼？
 
-無論是資料表更新、測試或設定，每個編輯作業都必須先儲存才能加以發佈。 每次完成編輯作業後，請務必按一下 [儲存並訓練] 按鈕 **。** 
+無論是資料表更新、測試或設定，每個編輯作業都必須先儲存才能加以發佈。 每次完成編輯作業後，請務必按一下 [儲存並訓練] 按鈕 **。**  
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>知識庫是否支援豐富的資料或多媒體？
 
@@ -96,7 +96,7 @@ QnA Maker 提供**協助**QnA Maker 入口網站，可協助您的 bot。 使用
 
 ### <a name="when-should-i-restart-my-app-service"></a>何時應該重新啟動我的應用程式服務？ 
 
-在 [使用者設定][ 頁面](https://www.qnamaker.ai/UserSettings)上的 [端點金鑰] 資料表中，當注意圖示出現在知識庫的版本值旁邊時，重新整理您的應用程式服務。
+在 [使用者設定]  [ 頁面](https://www.qnamaker.ai/UserSettings)上的 [端點金鑰]  資料表中，當注意圖示出現在知識庫的版本值旁邊時，重新整理您的應用程式服務。
 
 ### <a name="when-should-i-refresh-my-endpoint-keys"></a>何時應重新整理端點金鑰？
 
@@ -114,7 +114,7 @@ Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在
 
 ### <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>我是否需要使用 Bot Framework 才能使用 QnA Maker？
 
-否，您不需要將 Bot Framework 用於 QnA Maker。 不過，Azure Bot 服務會以數個範本之一的形式提供 QnA Maker。 Bot Service 可透過 Microsoft Bot Framework 快速開發智慧型 Bot，並且可在無伺服器環境中執行。
+否，您不需要使用[Bot Framework](https://github.com/Microsoft/botbuilder-dotnet)使用 QnA Maker。 然而，QnA Maker 提供數個範本中的其中一個 [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)。 Bot Service 可透過 Microsoft Bot Framework 快速開發智慧型 Bot，並且可在無伺服器環境中執行。
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>如何使用 QnA Maker 建立 Bot？
 

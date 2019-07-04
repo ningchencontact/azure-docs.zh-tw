@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/24/2019
+ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724146"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446405"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 
@@ -65,8 +65,7 @@ Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka
     </dependency>
     ```
 
-    > [!NOTE]  
-    > `${kafka.version}` 項目會在 `pom.xml` 的 `<properties>..</properties>` 區段中進行宣告，並設定為 HDInsight 叢集的 Kafka 版本。
+    `${kafka.version}` 項目會在 `pom.xml` 的 `<properties>..</properties>` 區段中進行宣告，並設定為 HDInsight 叢集的 Kafka 版本。
 
 * 外掛程式：Maven 外掛程式可提供多種功能。 在此專案中，會使用下列外掛程式：
 
@@ -218,12 +217,21 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 > [!IMPORTANT]  
 > 一個取用者群組中的取用者執行個體不得超過資料分割。 在此範例中，一個取用者群組可以包含最多 8 個取用者，因為這是主題中的資料分割數目。 或者，您可以有多個取用者群組，其各有不超過 8 個取用者。
 
-Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 若要達到依序傳遞「資料分割內」的記錄，請建立取用者群組，其中的取用者執行個體數目與資料分割數目相符。 若要達到依序傳遞「主題內」的記錄，請建立只有一個取用者執行個體的取用者群組。
+Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 若要達到依序傳遞「資料分割內」  的記錄，請建立取用者群組，其中的取用者執行個體數目與資料分割數目相符。 若要達到依序傳遞「主題內」  的記錄，請建立只有一個取用者執行個體的取用者群組。
+
+## <a name="clean-up-resources"></a>清除資源
+
+若要清除本教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
+
+若要使用 Azure 入口網站移除資源群組：
+
+1. 在 Azure 入口網站中展開左側功能表，以開啟服務的功能表，然後選擇 [資源群組]  以顯示資源群組的清單。
+2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多]  按鈕 (...)。
+3. 選取 [刪除資源群組]  ，並加以確認。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本文件中，您會了解如何使用 Apache Kafka Producer 和 Consumer API 搭配 HDInsight 上的 Apache Kafka。 使用下列各項來深入了解 Kafka 的使用方式︰
 
-* [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)
-* [在 Apache Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)
-* [採用 HDInsight 的 Apache Kafka Streams API](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)

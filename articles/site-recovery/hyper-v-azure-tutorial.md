@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9d45e0f0c759685f9d35285ee7718585d5961333
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: f4c9ddf608033f6b85268fe74b12861eb8c30082
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399402"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295147"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 
@@ -106,7 +106,7 @@ Azure Site Recovery 會取出來自 Hyper-V 伺服器的中繼資料，而該伺
 3. 執行下列命令以註冊伺服器：
 
     ```
-    cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
+    cd  "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境

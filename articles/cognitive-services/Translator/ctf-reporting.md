@@ -3,19 +3,19 @@ title: Collaborative Translation Framework (CTF) 報告 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Collaborative Translation Framework (CTF) 報告。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-pawal
-ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: swmachan
+ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389380"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443452"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>如何使用 Collaborative Translation Framework (CTF) 報告
 
@@ -34,7 +34,7 @@ ms.locfileid: "66389380"
 
 
 ## <a name="methods"></a>方法
-| Name |    描述|
+| 名稱 |    描述|
 |:---|:---|
 | GetUserTranslationCounts 方法 | 取得使用者所建立的翻譯計數。 |
 | GetUserTranslations 方法 | 擷取使用者所建立的翻譯。 |

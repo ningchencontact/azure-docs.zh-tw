@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/24/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: da7259585ad66ac9b58131ce834d82e7b3d4bcf2
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020371"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466951"
 ---
 # <a name="what-is-text-to-speech"></a>文字轉換語音是什麼？
 
@@ -24,15 +23,18 @@ ms.locfileid: "65020371"
 
 文字轉換語音技術可讓內容作者與使用者互動，以不同的方式。 文字轉換語音可以讓使用者能用語音與內容互動的選項，以改善協助工具。 無論使用者有視覺障礙，學習傷殘保險，還是需要瀏覽資訊在駕駛時，文字轉換語音可以改善現有的體驗。 文字轉換語音也是重要的附加元件，如語音 bot 和虛擬的助理。
 
+
+使用文字轉換語音服務的開發人員可以利用語音合成標記語言 (SSML)，一種以 XML 為基礎的標記語言，指定如何輸入的文字轉換成合成語音。 使用 SSML，您可以調整音調、 發音讀出速率、 磁碟區，以及更多。 如需詳細資訊，請參閱 < [SSML](#speech-synthesis-markup-language-ssml)。
+
 ### <a name="standard-voices"></a>標準語音
 
-標準的語音會建立使用統計的參數式合成及/或串連合成的技術。 這些語音高容易理解，聽起來很自然。 您可以輕鬆地啟用您的應用程式，說出超過 45 國語言，使用各種不同的語音選項。 這些語音提供高發音精確度，包括支援的縮寫、 首字母縮略字擴充、 日期/時間的方式解讀、 polyphones，和更多功能。 若要改善您的應用程式和服務的協助工具可讓使用者與內容互動的輪流使用標準的聲音。
+標準的語音會建立使用統計的參數式合成及/或串連合成的技術。 這些語音都是高度可理解和音效的自然。 您可以輕鬆地啟用您的應用程式，說出超過 45 國語言，使用各種不同的語音選項。 這些語音提供高發音精確度，包括支援的縮寫、 首字母縮略字擴充、 日期/時間的方式解讀、 polyphones，和更多功能。 若要改善您的應用程式和服務的協助工具可讓使用者與內容互動的輪流使用標準的聲音。
 
 ### <a name="neural-voices"></a>神經語音
 
-類神經的語音使用深度類神經網路來克服在比對的壓力和口說語言中，在和中由單位的語音合成到電腦聲音的聲調模式中的傳統文字轉換語音系統的限制。 標準的文字轉換語音細分成個別的語言分析和獨立的模型所控管的原音預測步驟的韻律。 會導致 muffled、 buzzy 語音合成。 我們的類神經功能會韻律預測和語音合成同時，這會導致更流暢且自然發音的語音。
+類神經的語音使用深度類神經網路來克服在比對的壓力和口說語言中，在和中由單位的語音合成到電腦聲音的聲調模式中的傳統文字轉換語音系統的限制。 標準的文字轉換語音細分成個別的語言分析和獨立的模型，可能會導致 muffled 的語音合成所控管的原音預測步驟的韻律。 我們的類神經功能會韻律預測和語音合成同時，這會導致更流暢且自然發音的語音。
 
-神經語音可用來讓與聊天機器人及虛擬小幫手的互動變得更加自然有趣；例如將數位文字 (例如電子書) 轉換成有聲書；以及增強車上導航系統。 人性自然韻律和表明的字數，類神經語音大幅降低接聽疲勞 AI 系統互動時。 
+神經語音可用來讓與聊天機器人及虛擬小幫手的互動變得更加自然有趣；例如將數位文字 (例如電子書) 轉換成有聲書；以及增強車上導航系統。 人性自然韻律和表明的字數，類神經語音大幅降低接聽疲勞 AI 系統互動時。
 
 類神經的語音支援不同的樣式，例如中性和聽起來。 比方說，傑 (EN-US) 的語音可以唸出 cheerfully，其中最適合用於暖、 快樂的交談。 您可以調整語音輸出，例如音，音調、 並加快速度使用[語音合成標記語言](speech-synthesis-markup.md)。 可用的語音的完整清單，請參閱 <<c0> [ 支援的語言](language-support.md#text-to-speech)。
 
@@ -41,6 +43,26 @@ ms.locfileid: "65020371"
 ### <a name="custom-voices"></a>自訂語音
 
 語音自訂可讓您建立可辨識、 一個獨特的聲音您的品牌。 若要建立自訂的語音字型，您可以讓 studio 錄製，並上傳做為訓練資料相關聯的指令碼。 此服務會接著建立專為您的錄音調整的獨特語音模型。 您可以使用這個自訂的語音字型合成語音。 如需詳細資訊，請參閱 <<c0> [ 自訂語音](how-to-customize-voice-font.md)。
+
+## <a name="speech-synthesis-markup-language-ssml"></a>語音合成標記語言 (SSML)
+
+語音合成標記語言 (SSML) 是一種以 XML 為基礎的標記語言，可讓開發人員指定如何輸入的文字會轉換成使用文字轉換語音服務的合成語音。 相較於純文字，SSML 可讓開發人員来微調的音調、 發音讀出速率、 磁碟區，以及多個文字轉換語音輸出。 一般標點符號，例如暫停期間過後，或問號結尾的句子時，請使用正確的聲調會自動處理。
+
+傳送到文字轉換語音服務的所有文字輸入必須是結構都化成 SSML。 如需詳細資訊，請參閱 <<c0> [ 語音合成標記語言](speech-synthesis-markup.md)。
+
+### <a name="pricing-note"></a>定價的附註
+
+使用文字轉換語音服務時，您需支付每個轉換成語音，包括標點符號的字元。 雖然 SSML 文件本身不計費，用來調整 如何將文字轉換語音，例如音素和音調、 的選擇性項目會視為可計費的字元。 以下是一份內容會列入計費：
+
+* 傳遞至要求的 SSML 主體中的文字轉換語音服務的文字
+* SSML 格式的要求主體的文字欄位中的所有標記以外`<speak>`和`<voice>`標記
+* 字母、 標點符號、 空格、 定位點、 標記和所有泛空白字元
+* 以 Unicode 定義的每個字碼指標
+
+如需詳細資訊，請參閱 <<c0> [ 定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
+
+> [!IMPORTANT]
+> 每個中文、 日文和韓文的語言字元都會計算為計費的兩個字元。
 
 ## <a name="core-features"></a>核心功能
 
@@ -65,7 +87,10 @@ ms.locfileid: "65020371"
 
 | 快速入門 (SDK) | 平台 | API 參考資料 |
 |------------|----------|---------------|
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#.NET framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#Unity](quickstart-text-to-speech-csharp-unity.md) | Windows、 Android | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 

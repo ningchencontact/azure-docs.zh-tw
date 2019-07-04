@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.openlocfilehash: 36b41d8d6b488eabe1c2985ec8a3ad5ecb2cce76
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66138949"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174468"
 ---
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -17,4 +17,4 @@ ms.locfileid: "66138949"
  
 1. 從 Azure 入口網站中的 Web 應用程式**概觀**頁面，選取**資源群組**底下的 **myResourceGroup** 連結。
 2. 在 [資源群組] 頁面上，確定所列出的資源是您想要刪除的項目。
-3. 選取 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後再選取 [刪除]。
+3. 選取 [刪除]  ，在文字方塊中輸入 **myResourceGroup**，然後再選取 [刪除]  。

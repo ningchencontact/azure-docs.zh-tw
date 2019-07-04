@@ -3,20 +3,20 @@ title: 快速入門：翻譯工具語音 API C#
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用翻譯工具語音 API。
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 04/26/2019
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5cca3d5d02f9618e99f122bf3fc2a7d2874e1cdf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65910507"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444516"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>快速入門：翻譯工具語音 API (使用 C#)
 <a name="HOLTop"></a>
