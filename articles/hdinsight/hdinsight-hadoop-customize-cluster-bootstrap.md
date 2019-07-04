@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203713"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484047"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 叢集
 
@@ -135,7 +135,7 @@ Resource Manager 範本中，您可以使用啟動程序︰
 ## <a name="see-also"></a>請參閱
 * [在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
 * [開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]
-* [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]
+* [安裝和使用 HDInsight 叢集上的 Apache Spark][hdinsight-install-spark]
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -149,9 +149,6 @@ Resource Manager 範本中，您可以使用啟動程序︰
 ## <a name="appendix-powershell-sample"></a>附錄：PowerShell 範例
 
 此 PowerShell 指令碼會建立 HDInsight 叢集，並自訂 Hive 設定。 請務必輸入的值`$nameToken`， `$httpPassword`，和`$sshPassword`。
-
-> [!IMPORTANT]  
-> 值`DefaultStorageAccount`，並`DefaultStorageContainer`不會傳回從[Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster)時[安全傳輸](../storage/common/storage-require-secure-transfer.md)啟用儲存體帳戶。
 
 > [!WARNING]  
 > 儲存體帳戶種類`BlobStorage`無法用於 HDInsight 叢集。

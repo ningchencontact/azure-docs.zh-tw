@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978783"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447236"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的存留時間 (TTL) 
 
@@ -45,6 +45,42 @@ ms.locfileid: "65978783"
 * 如果容器的 TTL 設定為 -1，則此容器中存留時間設為 n 的項目會在 n 秒後過期，而其餘的項目則不會過期。 
 
 刪除以 TTL 為基礎的項目是免費的。 因為 TTL 過期而刪除項目時，沒有任何額外的成本 (也就是不會使用任何額外的 RU)。
+
+## <a name="examples"></a>範例
+
+此區段會顯示不同存留時間值指派給容器和項目使用的一些範例：
+
+### <a name="example-1"></a>範例 1
+
+在容器上的 TTL 設定為 null (DefaultTimeToLive = null)
+
+|項目上的 TTL| 結果|
+|---|---|
+|ttl = null|    已停用 TTL。 項目永遠不會過期 （預設值）。|
+|ttl = -1   |已停用 TTL。 項目永遠不會到期。|
+|ttl = 2000年 |已停用 TTL。 項目永遠不會到期。|
+
+
+### <a name="example-2"></a>範例 2
+
+在容器上的 TTL 設定為-1 (DefaultTimeToLive =-1)
+
+|項目上的 TTL| 結果|
+|---|---|
+|ttl = null |啟用 TTL 為止。 項目永遠不會過期 （預設值）。|
+|ttl = -1   |啟用 TTL 為止。 項目永遠不會到期。|
+|ttl = 2000年 |啟用 TTL 為止。 在 2000 秒後逾期項目。|
+
+
+### <a name="example-3"></a>範例 3
+
+在容器上的 TTL 設為 1000年 (DefaultTimeToLive = 1000年)
+
+|項目上的 TTL| 結果|
+|---|---|
+|ttl = null|    啟用 TTL 為止。 項目將到期之後 1000 秒 （預設值）。|
+|ttl = -1   |啟用 TTL 為止。 項目永遠不會到期。|
+|ttl = 2000年 |啟用 TTL 為止。 在 2000 秒後逾期項目。|
 
 ## <a name="next-steps"></a>後續步驟
 

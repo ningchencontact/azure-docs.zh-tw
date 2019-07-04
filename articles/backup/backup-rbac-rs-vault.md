@@ -6,14 +6,14 @@ author: trinadhk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 06/24/2019
 ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 6ca4de7dfb948f49ebf1c91e29cc0537e67a3c21
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253719"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436207"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用角色型存取控制來管理 Azure 備份復原點
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。
@@ -23,7 +23,7 @@ Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權�
 
 Azure 備份提供三個內建的角色，以控制備份管理作業。 深入了解 [Azure RBAC 內建角色](../role-based-access-control/built-in-roles.md)
 
-* [備份參與者](../role-based-access-control/built-in-roles.md#backup-contributor) - 此角色具有所有用來建立和管理備份的權限，但用來建立復原服務保存庫和賦予他人存取權的權限除外。 您可以將此角色想做是管理備份的系統管理員，其可執行每一種備份管理作業。
+* [備份參與者](../role-based-access-control/built-in-roles.md#backup-contributor)-這個角色具有建立和管理備份刪除復原服務保存庫和賦予他人存取權以外的所有權限。 您可以將此角色想做是管理備份的系統管理員，其可執行每一種備份管理作業。
 * [備份操作員](../role-based-access-control/built-in-roles.md#backup-operator) - 此角色擁有參與者的所有權限，但用來移除備份和管理備份原則的權限除外。 此角色相當於參與者，但無法執行破壞性作業，例如停止備份並刪除資料，或移除內部部署資源的註冊。
 * [備份讀取者](../role-based-access-control/built-in-roles.md#backup-reader) - 此角色擁有用來檢視所有備份管理作業的權限。 您可以將此角色想做是監視者。
 
@@ -36,7 +36,7 @@ Azure 備份提供三個內建的角色，以控制備份管理作業。 深入�
 
 | 管理作業 | 所需的最小 RBAC 角色 | 所需的範圍 |
 | --- | --- | --- |
-| 建立復原服務保存庫 | 參與者 | 包含保存庫的資源群組 |
+| 建立復原服務保存庫 | 備份參與者 | 包含保存庫的資源群組 |
 | 啟用 Azure VM 的備份 | 備份操作員 | 包含保存庫的資源群組 |
 | | 虛擬機器參與者 | VM 資源 |
 | VM 的隨選備份 | 備份操作員 | 復原保存庫資源 |

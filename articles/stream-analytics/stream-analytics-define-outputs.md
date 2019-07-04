@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329986"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443635"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -229,7 +229,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個資料分割的唯一整數值。
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)是一種全域分散式的資料庫服務，提供無限的彈性調整全球、 豐富的查詢，並透過無從驗證結構描述資料模型自動編製索引。 若要深入了解 Stream Analytics 的 Azure Cosmos DB 集合選項，請參閱[使用 Azure Cosmos DB 做為輸出的 Stream Analytics](stream-analytics-documentdb-output.md)文章。
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)是一種全域分散式的資料庫服務，提供無限的彈性調整全球、 豐富的查詢，並透過無從驗證結構描述資料模型自動編製索引。 若要深入了解 Stream Analytics 的 Azure Cosmos DB 容器選項，請參閱[使用 Azure Cosmos DB 做為輸出的 Stream Analytics](stream-analytics-documentdb-output.md)文章。
 
 從 Stream Analytics 的 azure Cosmos DB 輸出目前不是適用於 Azure 中國 21Vianet 和 Azure 德國 (T-systems International) 區域。
 
@@ -247,7 +247,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 | 帳戶識別碼 | Azure Cosmos DB 帳戶的名稱或端點 URI。 |
 | 帳戶金鑰 | Azure Cosmos DB 帳戶的共用存取金鑰。 |
 | 資料庫 | Azure Cosmos DB 資料庫名稱。 |
-| 集合名稱 | 在 Azure Cosmos DB 集合的名稱。 Azure Cosmos DB 與 Azure Cosmos DB 中自動分割您的資料，調整您的工作負載為基礎的分割區無限制的容器是建議的方法。 |
+| 容器名稱 | 容器名稱使用，Cosmos DB 中必須存在。 範例：  <br /><ul><li> _MyContainer_:必須存在名為"MyContainer"的容器。</li>|
 | 文件識別碼 |選用。 輸出事件中，用來指定主索引鍵的 insert 或 update 作業所依據的欄位名稱。
 
 ## <a name="azure-functions"></a>Azure Functions
@@ -302,10 +302,10 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | Azure 資料表儲存體 | 是 | 任何輸出資料行。  | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure 服務匯流排主題 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個資料分割的唯一整數值。| 與輸出主題中的分割區數目相同。  |
 | Azure 服務匯流排佇列 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 資料分割索引鍵是每個資料分割的唯一整數值。| 與輸出佇列中的分割區數目相同。 |
-| Azure Cosmos DB | 是 | 集合名稱模式中使用 {partition} 權杖。 {Partition} 值根據查詢中的 PARTITION BY 子句。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
+| Azure Cosmos DB | 是 | 根據查詢中的 PARTITION BY 子句。 | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure Functions | 否 | None | 不適用。 |
 
-如果您的輸出配接器尚未分割，在某個輸入分割區中缺少資料的情況下，將會導致最多為延遲傳入時間長度的延遲。 在這種情況下，輸出會合併至單一的寫入器，可能會導致管線中的瓶頸。 若要深入了解遲到原則，請參閱[Azure Stream Analytics 事件的順序考量](stream-analytics-out-of-order-and-late-events.md)。
+輸出寫入器數目也可以控制使用`INTO <partition count>`(請參閱 < [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) 在您的查詢，能幫助您達到所需的作業拓樸中的子句。 如果您的輸出配接器尚未分割，在某個輸入分割區中缺少資料的情況下，將會導致最多為延遲傳入時間長度的延遲。 在這種情況下，輸出會合併至單一的寫入器，可能會導致管線中的瓶頸。 若要深入了解遲到原則，請參閱[Azure Stream Analytics 事件的順序考量](stream-analytics-out-of-order-and-late-events.md)。
 
 ## <a name="output-batch-size"></a>輸出批次大小
 Azure Stream Analytics 會使用可變大小的批次來處理事件，並寫入至輸出。 通常，Stream Analytics 引擎不會寫入一次，一則訊息，並使用效率的批次。 當傳入和傳出事件的速率很高時，Stream Analytics 會使用較大的批次。 當輸出速率較低時，它會使用較小的批次來降低延遲。

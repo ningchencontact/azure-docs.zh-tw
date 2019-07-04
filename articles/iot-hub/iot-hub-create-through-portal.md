@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571046"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432636"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 入口網站建立 IoT 中樞
 
@@ -50,13 +50,15 @@ ms.locfileid: "64571046"
 
 ![顯示新增共用存取原則的螢幕擷取畫面](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* [登錄讀取]  和 [登錄寫入]  原則會授與讀取和寫入存取權給身分識別登錄。 選擇寫入選項就會自動選擇讀取選項。
+* [登錄讀取]  和 [登錄寫入]  原則會授與讀取和寫入存取權給身分識別登錄。 後端雲端服務會使用這些權限來管理裝置身分識別。 選擇寫入選項就會自動選擇讀取選項。
 
-* [服務連線]  原則會授與存取服務端點的權限，例如**接收裝置到雲端**。 
+* **服務連線**原則會授與存取服務端點的權限。 後端雲端服務會使用此權限來傳送和接收來自裝置以及更新和讀取裝置對應項和模組對應項資料的訊息。
 
-* [裝置連線]  原則會授與使用 IoT 中樞裝置端端點傳送和接收訊息的權限。
+* [裝置連線]  原則會授與使用 IoT 中樞裝置端端點傳送和接收訊息的權限。 裝置會使用此權限來傳送和接收來自 IoT 中樞的訊息、 更新和讀取裝置對應項和模組對應項資料，以及執行檔案上傳。
 
 按一下 [建立]  將此新建立的原則新增至現有的清單。
+
+如需詳細的特定權限授與存取權的相關資訊，請參閱[IoT 中樞的權限](./iot-hub-devguide-security.md#iot-hub-permissions)。
 
 ## <a name="message-routing-for-an-iot-hub"></a>IoT 中樞的訊息路由
 

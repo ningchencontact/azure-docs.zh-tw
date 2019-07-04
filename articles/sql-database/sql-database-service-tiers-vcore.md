@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693343"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449740"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>選擇 虛擬核心服務層，並從 DTU 服務層移轉
 
@@ -28,6 +28,8 @@ ms.locfileid: "66693343"
 
 在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
 
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
 > [!NOTE]
 > 如需以 DTU 為基礎的服務層的詳細資訊，請參閱[服務層針對以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。 如需以 DTU 為基礎的服務層和以 vCore 為基礎的購買模型之間的差異資訊，請參閱[購買模型的 Azure SQL Database](sql-database-purchase-models.md)。
 

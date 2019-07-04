@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306463"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458708"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory for Azure 的 Red Hat OpenShift 的整合
 
@@ -26,14 +26,14 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 
 在  [Azure 入口網站](https://portal.azure.com)，確保您的租用戶，會出現在右上角您的使用者名稱下入口網站的權限：
 
-![與租用戶入口網站的螢幕擷取畫面示右上方](./media/howto-create-tenant/tenant-callout.png)如果顯示錯誤的租用戶，請按一下右上方，您的使用者名稱，然後按一下**切換目錄**，然後選取正確的租用戶從**所有目錄**清單。
+![與租用戶入口網站的螢幕擷取畫面示右上方](./media/howto-create-tenant/tenant-callout.png)如果顯示錯誤的租用戶，請按一下右上方，使用者名稱，然後按一下 **切換目錄**，然後選取正確的租用戶從**所有目錄**清單。
 
 建立新的 Azure Active Directory 全域管理員使用者來登入您的 Azure Red Hat OpenShift 叢集。
 
 1. 移至[使用者所有使用者](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)刀鋒視窗。
 2. 按一下  **+ 新增使用者**來開啟**使用者**窗格。
 3. 請輸入**名稱**這位使用者。
-4. 建立**使用者名**根據您所建立的租用戶名稱與`.onmicrosoft.com`附加在結尾。 例如： `yourUserName@yourTenantName.onmicrosoft.com`。 記下此使用者名稱。 您將需要它來登入您的叢集。
+4. 建立**使用者名**根據您所建立的租用戶名稱與`.onmicrosoft.com`附加在結尾。 例如： `yourUserName@yourTenantName.onmicrosoft.com` 。 記下此使用者名稱。 您將需要它來登入您的叢集。
 5. 按一下 **目錄角色**以開啟 目錄角色 窗格中，選取**全域系統管理員**，然後按一下  **Ok**窗格的底部。
 6. 在 **使用者**窗格中，按一下**顯示密碼**和錄製的暫時密碼。 登入第一次之後，系統會提示您重設它。
 7. 在窗格的底部，按一下**建立**來建立使用者。
@@ -43,7 +43,7 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 若要授與叢集系統管理員存取權，請在 Azure AD 安全性群組中的成員資格都會同步處理到 OpenShift 群組 「 osa-客戶-系統管理員 」。 如果未指定，就會授不與任何叢集系統管理員存取權。
 
 1. 開啟[Azure Active Directory 群組](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups)刀鋒視窗。
-2. 按一下  **+ 新增群組**
+2. 按一下  **+ 新增群組**。
 3. 提供群組名稱和描述。
 4. 設定**群組類型**要**安全性**。
 5. 設定**成員資格類型**要**指派**。
@@ -54,7 +54,7 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 7. 在 [成員] 清單中，選取您先前建立的 Azure AD 使用者。
 8. 在入口網站底部，按一下**選取**  ，然後**建立**建立安全性群組。
 
-    請記下的群組識別碼值
+    記下的群組識別碼值。
 
 9. 建立群組時，您會在所有群組清單中看見它。 按一下新的群組。
 10. 在出現的頁面上，複製**物件識別碼**。 我們會將此值作為`GROUPID`中[建立 Azure 的 Red Hat OpenShift 叢集](tutorial-create-cluster.md)教學課程。
@@ -83,17 +83,34 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 4. 設定**Expires**想，比方說的持續期間**2 年內**。
 5. 按一下 **新增**金鑰的值會出現在**用戶端祕密**頁面區段。
 6. 複製金鑰值。 我們會將此值作為`SECRET`中[建立 Azure 的 Red Hat OpenShift 叢集](tutorial-create-cluster.md)教學課程。
- 
+
 ![憑證和祕密 窗格的螢幕擷取畫面](./media/howto-create-tenant/create-key.png)
- 
-如需 Azure 應用程式物件的詳細資訊，請參閱[應用程式和 Azure Active Directory 中的服務主體物件](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)。
+
+如需有關 Azure 應用程式物件的詳細資訊，請參閱 <<c0> [ 應用程式和 Azure Active Directory 中的服務主體物件](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)。
 
 如需有關建立新的 Azure AD 應用程式，請參閱[註冊應用程式與 Azure Active Directory v1.0 端點](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)。
 
+## <a name="add-api-permissions"></a>新增 API 的權限
+
+1. 在 **管理**區段中，按一下**API 的權限**。
+2. 按一下 **新增權限**，然後選取**Azure Active Directory Graph**然後**委派的權限**
+3. 依序展開**使用者**下方的清單，請確定上**User.Read**已啟用。
+4. 向上捲動並選取**應用程式權限**。
+5. 依序展開**Directory**下方的清單和啟用**Directory.ReadAll**
+6. 按一下 **新增權限**以接受變更。
+7. API 權限 面板現在應該會顯示這兩*User.Read*並*Directory.ReadAll*。 請注意在警告**所需的系統管理員同意**旁的資料行*Directory.ReadAll*。
+8. 您若是*Azure 訂用帳戶系統管理員*，按一下**授與系統管理員同意*訂用帳戶名稱*** 如下。 如果您不是*Azure 訂用帳戶管理員*，要求系統管理員同意。
+![API 權限] 面板的螢幕擷取畫面。 User.Read 和 Directory.ReadAll 權限新增，系統管理員同意所需的 Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> 叢集系統管理員群組的同步處理可授與同意之後，才。 您會看到訊息與核取記號的綠色圓圈"獲得*訂用帳戶名稱*」 中*所需的系統管理員同意*資料行。
+
+如需有關管理系統管理員和其他角色的詳細資訊，請參閱[新增或變更 Azure 訂用帳戶系統管理員](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator)。
+
 ## <a name="resources"></a>資源
 
-* [應用程式與 Azure Active Directory 中的服務主體物件](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [快速入門：使用 Azure Active Directory v1.0 端點註冊 app](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [應用程式與 Azure Active Directory 中的服務主體物件](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [快速入門：使用 Azure Active Directory v1.0 端點註冊 app](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>後續步驟
 

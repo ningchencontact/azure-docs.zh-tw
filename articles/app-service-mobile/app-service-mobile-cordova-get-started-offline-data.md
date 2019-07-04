@@ -2,7 +2,7 @@
 title: 啟用 Azure 行動應用程式的離線同步處理 (Cordova) | Microsoft Docs
 description: 了解如何在 Cordova 應用程式中使用 App Service 行動應用程式快取和同步離線資料
 documentationcenter: cordova
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 04c8e7b2b60a60f17c49862d5c17793c16456032
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110970"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443531"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>啟用 Cordova 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data)今天。
+>
+
+## <a name="overview"></a>概觀
 此教學課程介紹適用於 Cordova 之 Azure 行動應用程式的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動&mdash;檢視、新增或修改資料&mdash;即使沒有網路連接進也可行。 變更會儲存在本機資料庫中。  裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
 
 本教學課程是根據您完成教學課程 [Apache Cordova 快速入門]時所建立之 Mobile Apps 的 Cordova 快速入門方案。 在本教學課程中，您將會更新快速入門方案來新增 Azure Mobile Apps 的離線功能。  我們也會在應用程式中反白顯示離線特有的程式碼。

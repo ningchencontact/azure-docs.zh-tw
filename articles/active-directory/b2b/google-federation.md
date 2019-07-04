@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 06/25/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 735c3db14963c1f3cfe700a97dee9fedb70e29f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65892049"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441115"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>將 Google 新增為 B2B 來賓使用者的識別提供者
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>將 Google 新增為 B2B 來賓使用者 （預覽） 的身分識別提供者
+
+|     |
+| --- |
+| Google 同盟是 Azure Active directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
+|     |
 
 藉由設定 Google 同盟，您可以讓受邀的使用者使用自己的 Google 帳戶登入共用應用程式和資源，而不需要建立 Microsoft 帳戶 (MSA) 或 Azure AD 帳戶。  
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752733"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445734"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
@@ -94,7 +94,7 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active 
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版  
 
-Microsoft 可使用 Azure AD 來驗證所有 Marketplace 使用者，因此已驗證的使用者點選試用版清單並重新導向至試用版環境時，您可以將使用者直接佈建置至試用版，而不需要額外的登入步驟。 應用程式在驗證期間從 Azure AD 收到的權杖，包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 如需有關權杖的詳細資訊，請參閱[權杖範例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
+Microsoft 會驗證所有 Marketplace 使用者與 Azure AD，因此當已驗證的使用者透過您的試用版清單在 Marketplace 中按一下，並會重新導向至您的試用版環境，您可以將使用者佈建直接至試用版而不需要額外的登入步驟。 應用程式在驗證期間從 Azure AD 收到的權杖，包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 如需有關權杖的詳細資訊，請參閱[權杖範例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
 
 使用 Azure AD 對應用程式或試用版啟用單鍵驗證，可達到以下效果：  
 * 簡化客戶從 Marketplace 至試用版的體驗。  
@@ -104,7 +104,7 @@ Microsoft 可使用 Azure AD 來驗證所有 Marketplace 使用者，因此已�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>向 Marketplace 證明您的 Azure Active Directory 整合  
 
-您可以使用幾個不同的方式來證明 Azure AD 整合，而這取決於您的應用程式是單一租用戶或多租用戶，以及您是初次接觸 Azure AD 同盟單一登入 (SSO)，還是已經支援此項目。  
+以幾個不同的方式，根據您的應用程式是單一租用戶或多租用戶，認證您的 Azure AD 整合，您不熟悉 Azure AD 同盟單一登入 (SSO)，還是已經支援它。  
 
 **對於多租用戶應用程式：**  
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12e86e2a47698d7f736b5f66a92819a4621d5e96
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 47e14ff87a6197ccc97231835da545207545a328
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165677"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460844"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>新增 IoT 中樞事件來源到您的時間序列深入解析環境
 
@@ -42,7 +42,7 @@ ms.locfileid: "67165677"
 
 1. 底下**設定**，選取**內建端點**，然後選取**事件**端點。
 
-   [![在 [內建端點] 頁面中，選取 [事件] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
+   [![在 [內建端點] 頁面中，選取 [事件] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png#lightbox)
 
 1. 在 [取用者群組]  下，輸入取用者群組的唯一名稱。 當您建立新的事件來源時，請在時間序列深入解析環境中使用此同一名稱。
 
@@ -56,7 +56,7 @@ ms.locfileid: "67165677"
 
 1. 在 [環境拓撲]  下，選取 [事件來源]  ,，然後選取 [新增]  。
 
-   [![選取事件來源，然後選取 [新增] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
+   [![選取事件來源，然後選取 [新增] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png#lightbox)
 
 1. 在 [新增事件來源]  窗格中，為 [事件來源名稱]  輸入對此時間序列深入解析環境而言為唯一的值。 例如，輸入 **event-stream**。
 
@@ -66,11 +66,11 @@ ms.locfileid: "67165677"
 
    * 如果您的其中一個訂用帳戶已經有 IoT 中樞，請選取 [從可用的訂閱帳戶使用 IoT 中樞]  。 此選項是最簡單的方法。
    
-     [![在 [新的事件來源] 窗格中選取選項](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
+     [![在 [新的事件來源] 窗格中選取選項](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
 
     * 下表說明 [從可用的訂用帳戶使用 Iot 中樞]  選項的必要屬性：
 
-       [![新的事件來源窗格-設定中使用的 IoT 中樞，從可用的訂用帳戶選項的屬性](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
+       [![新的事件來源窗格-設定中使用的 IoT 中樞，從可用的訂用帳戶選項的屬性](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png#lightbox)
 
        | 屬性 | 描述 |
        | --- | --- |
@@ -101,7 +101,7 @@ ms.locfileid: "67165677"
 
 1. 選取 [建立]  。
 
-   [![[建立] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
+   [![[建立] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png#lightbox)
 
 1. 建立事件來源之後，時間序列深入解析會自動開始將資料串流處理至您的環境。
 

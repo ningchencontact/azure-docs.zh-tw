@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685383"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488638"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -90,6 +90,9 @@ ms.locfileid: "64685383"
 > 根據預設，註冊和安裝不會過期。
 
 註冊與安裝必須包含每個裝置/通道的有效 PNS 控制代碼。 由於 PNS 控制代碼只能在裝置上的用戶端 app 中取得，因此有一種模式是直接在該裝置上使用用戶端 app 進行註冊。 另一方面，與標記相關的安全性考量和商務邏輯可能會需要您在 app 後端管理裝置註冊。
+
+> [!NOTE]
+> 安裝 API 不支援百度服務 （雖然註冊 API）。 
 
 ### <a name="templates"></a>範本
 

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc80fcde8de3fb2d6dd6f59804f6019b76aa8727
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8def58eb003fcc817c21151416744cf391b5f38f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295602"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443933"
 ---
 # <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>定型，並向 Azure Machine Learning 服務的規模 PyTorch 模型
 
-這篇文章會示範如何訓練並註冊 PyTorch 模型使用 Azure Machine Learning 服務。 它根據[PyTorch 的遷移學習教學課程](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)建置的映像的 ants 和蜜蜂的深度類神經網路 (DNN) 分類器。
+這篇文章會示範如何訓練並註冊 PyTorch 模型使用 Azure Machine Learning 服務。 它根據[PyTorch 的遷移學習教學課程](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)，建置影像 chickens 和火雞深度類神經網路 (DNN) 分類器。
 
 [PyTorch](https://pytorch.org/)是一個開放原始碼運算架構，通常用來建立深度類神經網路 (DNN)。 使用 Azure Machine Learning 服務時，您可以快速擴充使用彈性的雲端計算資源的開放原始碼訓練作業。 您也可以追蹤您的定型執行、 版本模型部署的模型，以及其他等等。
 
@@ -75,19 +75,19 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>建立實驗
 
-建立實驗和資料夾以保存您的訓練指令碼。 在此範例中，建立稱為 「 pytorch hymenoptera"實驗。
+建立實驗和資料夾以保存您的訓練指令碼。 在此範例中，建立稱為 「 pytorch 鳥"實驗。
 
 ```Python
-project_folder = './pytorch-hymenoptera'
+project_folder = './pytorch-birds'
 os.makedirs(project_folder, exist_ok=True)
 
-experiment_name = 'pytorch-hymenoptera'
+experiment_name = 'pytorch-birds'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
 ### <a name="get-the-data"></a>取得資料
 
-資料集是由約 120 訓練和映像每個 ants 蜜蜂，75 驗證映像，每個類別所組成。 Hymenoptera 是包含 ants 和蜜蜂昆蟲的順序。 下載並解壓縮的資料集做為我們的訓練指令碼的一部分`pytorch_train.py`。
+資料集是由約 120 訓練和映像每個火雞 chickens，100 驗證映像，每個類別所組成。 我們將會下載並擷取資料集做為我們的訓練指令碼的一部分`pytorch_train.py`。 映像都是的子集[開啟的映像 v5 資料集](https://storage.googleapis.com/openimages/web/index.html)。
 
 ### <a name="prepare-training-scripts"></a>準備訓練指令碼
 

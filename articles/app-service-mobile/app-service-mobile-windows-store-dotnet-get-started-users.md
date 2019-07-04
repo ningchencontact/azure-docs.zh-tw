@@ -3,7 +3,7 @@ title: 將驗證新增至您的通用 Windows 平台 (UWP) 應用程式 | Micros
 description: 了解如何使用 Azure App Service Mobile Apps 驗證使用不同的身分識別提供者，包括通用 Windows 平台 (UWP) 應用程式的使用者：AAD、 Google、 Facebook、 Twitter 和 Microsoft。
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: panarasi
-ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127993"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440225"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>將驗證新增至您的 Windows 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users)今天。
+>
+
+## <a name="overview"></a>概觀
 本主題說明如何將雲端式驗證加入到您的行動應用程式。 在本教學課程中，您會使用 Azure App Service 所支援的身分識別提供者，將驗證新增至 Mobile Apps 的通用 Windows 平台 (UWP) 快速入門專案。 由行動應用程式後端成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程以 Azure Mobile Apps 快速入門為基礎。 您必須先完成 [開始使用 Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md)教學課程。

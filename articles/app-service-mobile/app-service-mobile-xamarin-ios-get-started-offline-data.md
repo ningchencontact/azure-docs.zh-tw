@@ -2,7 +2,7 @@
 title: 啟用 Azure 行動應用程式 (Xamarin iOS) 的離線同步處理
 description: 了解如何在 Xamarin iOS 應用程式中使用應用程式服務行動應用程式快取和同步離線資料
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: cfowler
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 6a43ed0a50082cc37587752631c707bf9b5059ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: b87a1d86370e3abdb200b691d5216b1262512b3e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097436"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440049"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>啟用 Xamarin iOS 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-offline-data)今天。
+>
 
 ## <a name="overview"></a>概觀
 此教學課程介紹適用於 Xamarin.iOS 之 Azure 行動應用程式的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
@@ -106,7 +110,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 ## <a name="additional-resources"></a>其他資源
 * [Azure Mobile Apps 中的離線資料同步處理]
-* [Azure Mobile Apps .NET SDK HOWTO][8]
+* [Azure Mobile Apps.NET SDK 做法][8]
 
 <!-- Images -->
 

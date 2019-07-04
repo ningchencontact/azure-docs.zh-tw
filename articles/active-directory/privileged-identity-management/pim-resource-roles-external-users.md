@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07476c9f5db64a5d107a493022fa3548fe0dae4c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307066"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476348"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>邀請來賓使用者，並將在 PIM 中的 Azure 資源角色指派
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 當您使用 B2B 共同作業時，您可以邀請外部使用者到您的組織以來賓身分。 客體會顯示在您的組織，但客體並沒有任何與其相關聯的認證。 每當來賓必須進行驗證，他們必須通過驗證，在其所屬組織，而不是在您的組織。 這表示，如果來賓不再具有其主要組織的存取權，他們也無法存取您的組織。 比方說，如果客體離開組織，他們會自動無法存取您與他們共用 Azure AD 中，您不必採取任何動作的任何資源。 如需 B2B 的詳細資訊，請參閱[什麼是 Azure Active Directory B2B 中的來賓使用者存取權？](../b2b/what-is-b2b.md)。
 
-![B2B 和來賓](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![此圖的顯示如何來賓使用者會出現在您的目錄，但其主目錄驗證](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## <a name="check-guest-collaboration-settings"></a>請檢查客體共同作業設定
 
@@ -59,7 +59,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 按一下 [管理外部共同作業設定]  。
 
-    ![外部共同作業設定](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![顯示權限、 邀請和共同作業限制設定的外部共同作業設定頁面](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. 確定 [系統管理員與具備「來賓邀請者角色」的使用者可邀請來賓]  參數設定為 [是]  。
 
@@ -81,21 +81,21 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 按一下 [管理] 下方的 [角色]  ，以查看 Azure 資源角色的清單。
 
-    ![Azure 資源角色](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Azure 資源角色 清單顯示為作用中和合格的使用者數目](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. 按一下使用者需要的最小角色。
 
-    ![選取的角色](./media/pim-resource-roles-external-users/selected-role.png)
+    ![選取 [角色] 頁面上列出該角色的目前成員](./media/pim-resource-roles-external-users/selected-role.png)
 
 1. 在角色頁面上，按一下 [新增成員]  以開啟 [新增指派] 窗格。
 
 1. 按一下 [選取成員或群組]  。
 
-    ![選取成員或群組](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![新指派-選取的成員或群組 窗格，列出使用者和群組以及邀請選項](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. 若要邀請來賓，請按一下**邀請**。
 
-    ![邀請來賓](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![邀請來賓頁面中的，輸入電子郵件地址，並指定個人訊息方塊](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. 您已選取 來賓之後，請按一下**邀請**。
 
@@ -105,13 +105,13 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 在 [**成員資格設定**] 窗格中，選取指派類型和持續時間。
 
-    ![成員資格設定](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![新指派-成員資格設定 頁面來指定指派類型、 開始日期、 時間和結束日期選項](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. 若要完成指派，請按一下 [完成]  ，然後 [新增]  。
 
     來賓角色指派會出現在您的角色清單。
 
-    ![客體的角色指派](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![列出為合格客體的 [角色] 頁面](./media/pim-resource-roles-external-users/role-assignment.png)
 
 ## <a name="activate-role-as-a-guest"></a>啟用以來賓身分的角色
 
@@ -119,13 +119,13 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 開啟您的邀請電子郵件。 電子郵件會如下所示。
 
-    ![電子郵件邀請](./media/pim-resource-roles-external-users/email-invite.png)
+    ![目錄名稱、 個人訊息與開始使用連結的電子郵件邀請](./media/pim-resource-roles-external-users/email-invite.png)
 
 1. 按一下電子郵件中的 [開始]  連結。
 
 1. 檢閱權限之後，按一下 [接受]  。
 
-    ![檢閱權限](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![檢閱在瀏覽器中使用的組織想要檢閱您的權限清單的權限 頁面](./media/pim-resource-roles-external-users/invite-accept.png)
 
 1. 可能會要求您接受使用規定，並指定您是否想要保持登入。
 
@@ -133,11 +133,11 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 若要啟用您的角色，請開啟含有啟用角色連結的電子郵件。 電子郵件會如下所示。
 
-    ![電子郵件邀請](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![從 PIM 指出該您符合資格的角色未啟用的角色連結的電子郵件訊息](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
 1. 按一下 [啟用角色]  以在 PIM 中開啟您有資格的角色。
 
-    ![我的角色-合格](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![我在列出您的合格角色的 PIM 中的 [角色] 頁面](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. 按一下 [動作] 下方的 [啟用]  連結。
 
@@ -145,7 +145,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 您指定了角色的設定之後，按一下 [啟用]  以啟用角色。
 
-    ![啟用角色](./media/pim-resource-roles-external-users/activate-role.png)
+    ![啟用網頁清單範圍及選項，以指定的開始時間、 持續時間和原因](./media/pim-resource-roles-external-users/activate-role.png)
 
     除非需要系統管理員核准您的要求，否則您應該具有所指定資源的存取權。
 
@@ -157,13 +157,13 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 按一下 [資源稽核]  來檢視該資源的活動。 下列範例顯示資源群組的活動範例。
 
-    ![資源稽核](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Azure 資源-資源稽核網頁列出時間、 要求者和動作](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. 若要檢視客體的活動，請按一下**Azure Active Directory** > **使用者**> 客體名稱。
 
 1. 按一下 **稽核記錄檔**以查看組織的稽核記錄檔。 如有需要，您可以搜尋篩選條件。
 
-    ![組織稽核](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![目錄稽核記錄清單的日期、 目標，由和活動](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>後續步驟
 

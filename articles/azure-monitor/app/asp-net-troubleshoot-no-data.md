@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272412"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561180"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -28,13 +28,13 @@ ms.locfileid: "67272412"
 
 *我要隨機發生資料遺失。*
 
-* 檢查您發生在資料遺失[遙測通道](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* 檢查您發生在資料遺失[遙測通道](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * 檢查是否有任何遙測通道中的已知問題[Github 存放庫](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *若要停止應用程式時遇到資料遺失，在主控台應用程式或 Web 應用程式。*
 
-* SDK 通道將遙測保留在緩衝區中，並將它們傳送批次。 如果應用程式正在關閉時，您可能需要明確地呼叫[flush （)](api-custom-events-metrics.md#flushing-data)。 行為`Flush()`取決於實際[通道](telemetry-channels.md#built-in-telemetrychannels)使用。
+* SDK 通道將遙測保留在緩衝區中，並將它們傳送批次。 如果應用程式正在關閉時，您可能需要明確地呼叫[flush （)](api-custom-events-metrics.md#flushing-data)。 行為`Flush()`取決於實際[通道](telemetry-channels.md#built-in-telemetry-channels)使用。
 
 ## <a name="no-data-from-my-server"></a>沒有來自我的伺服器的資料
 我已在 Web 伺服器上安裝我的應用程式，而我現在沒看到任何來自於它的遙測。  它在我的開發電腦上運作正常。
@@ -215,7 +215,9 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 ### <a name="net-core"></a>.NET Core
 
-1. 安裝[Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup)來自 NuGet 的套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsights` 版本
+1. 從 NuGet 安裝 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 套件。 您安裝的版本必須符合目前安裝的 `Microsoft.ApplicationInsights` 版本
+
+最新版本的 Microsoft.ApplicationInsights.AspNetCore 2.7.1，而且它是指 Microsoft.ApplicationInsights 2.10 版。 因此 Microsoft.AspNet.ApplicationInsights.HostingStartup 安裝的版本應該是 2.10.0
 
 2. 修改 `Startup.cs` 類別中的 `ConfigureServices` 方法：
 

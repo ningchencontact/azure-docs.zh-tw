@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299030"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465876"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智慧型偵測 - 失敗異常
 當 Web 應用程式的失敗要求比率異常增加時，[Application Insights](../../azure-monitor/app/app-insights-overview.md) 會以幾乎即時的方式自動通知您。 它偵測到回報為失敗的 HTTP 要求率異常提高或相依性呼叫。 對於要求，失敗的要求通常是回應碼為 400 或更高的要求。 為了協助您分級並診斷問題，通知中會提供失敗的特性分析與相關遙測。 其中也有 Application Insights 入口網站的連結，以供進一步診斷。 不需要設定該功能，因為它是使用機器學習演算法來預測一般失敗率。
 
-這項功能適用於 Java 和 ASP.NET Web 應用程式，其裝載於雲端或您自己的伺服器上。 它也適用於產生要求或相依性遙測的任何應用程式 - 例如，如果您有呼叫 [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 或 [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency) 的背景工作角色。
+此功能適用於任何 web 應用程式，裝載在雲端中，或您自己的伺服器上產生要求或相依性遙測-例如，如果您有呼叫的背景工作角色[trackrequest （)](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)或[trackdependency （)](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 設定[專案的 Application Insights](../../azure-monitor/app/app-insights-overview.md)之後，如果您的應用程式產生某些最少量的遙測，錯誤異常的「智慧型偵測」需先花費 24 小時來了解您應用程式的正常行為，然後才會啟動而能夠傳送警示。
 
@@ -43,6 +43,26 @@ ms.locfileid: "61299030"
 * 與失敗關聯的特性模式。 在此範例中，有特定的回應碼、要求名稱 (操作) 和應用程式版本。 可立即告訴您從何處開始了解程式碼。 其他可能性則可能是特定的瀏覽器或用戶端作業系統。
 * 看起來似乎與特色失敗相關聯的例外狀況、記錄追蹤和相依性失敗 (資料庫或其他外部元件)。
 * 直接連結到 Application Insights 的遙測上相關搜尋。
+
+## <a name="failure-anomalies-v2"></a>失敗異常 v2
+現在使用新版的失敗異常警示規則。 這個新版本在新的 Azure 警示平台上執行，並覆蓋現有版本介紹各種不同的增強功能。
+
+### <a name="whats-new-in-this-version"></a>什麼是此版本的新功能？
+- 更快速偵測問題
+- 警示規則會建立一組豐富的動作，以及相關聯[動作群組](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)名為"Application Insights 智慧偵測 」，包含電子郵件和 webhook 動作，而且可以擴充來觸發其他動作時警示就會引發。
+- 集中精力通知-此警示規則所傳來的電子郵件通知現在依預設會傳送給訂用帳戶的監視讀取器 」 和 「 監視參與者 」 角色相關聯的使用者。 在此的詳細資訊[此處](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)。
+- 更容易的設定，透過 ARM 範本-請參閱範例[此處](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)。
+- 常見的警示的結構描述支援-請遵循此警示規則所傳來的通知[常見的警示結構描述](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)。
+- 整合電子郵件範本-電子郵件通知此警示規則已一致的外觀與感覺與其他警示類型。 透過這項變更，以取得詳細的診斷資訊的失敗異常警示選項不再可用。
+
+### <a name="how-do-i-get-the-new-version"></a>如何取得新版本？
+- 新建立的 Application Insights 資源現在會使用新的版本，失敗異常警示規則的佈建。
+- 現有的 Application Insights 資源的精簡版本的失敗異常警示規則將會取得新版本一次其裝載的訂用帳戶移轉至新的警示平台一部分[傳統警示淘汰程序](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> 失敗異常警示規則的新版本仍為可用。 此外，電子郵件和 webhook 觸發動作由相關聯 「 Application Insights 智慧偵測 」 也是免費的動作群組。
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>智慧型偵測的優點
 一般的 [度量警示](../../azure-monitor/app/alerts.md) 會告訴您可能有問題。 但「智慧型偵測」會為您啟動診斷工作，執行許多您原本必須自己執行的分析。 您達到幾近封裝完成的結果，幫助您快速取得問題的根源。

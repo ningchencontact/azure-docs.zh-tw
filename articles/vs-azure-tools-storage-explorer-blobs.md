@@ -12,27 +12,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458299"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442972"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>使用儲存體總管來管理 Azure Blob 儲存體資源
+
 ## <a name="overview"></a>概觀
+
 [Azure Blob 儲存體](storage/blobs/storage-dotnet-how-to-use-blobs.md)是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。
 您可以使用 Blob 儲存體向全球公開資料，或私下儲存應用程式資料。 在本文中，您將學習如何使用儲存體總管 來處理 Blob 容器和 Blob。
 
 ## <a name="prerequisites"></a>必要條件
+
 若要完成這篇文章中的步驟，您需要下列項目︰
 
 * [下載並安裝儲存體總管](https://www.storageexplorer.com)
 * [連線到 Azure 儲存體帳戶或服務](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>建立 Blob 容器
+
 所有 blob 必須都位於 blob 容器，這是 blob 的邏輯群組。 帳戶可以包含無限數量的容器，每個容器可以儲存無限數量的 blob。
 
 下列步驟說明如何在儲存體總管中建立 blob 容器。
@@ -42,7 +46,7 @@ ms.locfileid: "60458299"
 3. 以滑鼠右鍵按一下 [Blob 容器]  ，從內容功能表中，選取 [建立 Blob 容器]  。
 
    ![建立 Blob 容器內容功能表][0]
-4. [Blob 容器]  資料夾底下會出現文字方塊。 輸入 blob 容器的名稱。 請參閱[建立容器與設定權限](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)，以取得為 Blob 容器命名的規則和限制。
+4. [Blob 容器]  資料夾底下會出現文字方塊。 輸入 blob 容器的名稱。 請參閱[建立容器](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container)有關規則和限制的命名 blob 容器。
 
    ![建立 Blob 容器文字方塊][1]
 5. 完成建立 blob 容器時按下 **Enter**鍵，或按下 **Esc** 鍵取消。 一旦成功建立 blob 容器，它就會顯示在所選的儲存體帳戶的 [Blob 容器]  資料夾底下。
@@ -50,6 +54,7 @@ ms.locfileid: "60458299"
    ![Blob 容器已建立][2]
 
 ## <a name="view-a-blob-containers-contents"></a>檢視 blob 容器的內容
+
 Blob 容器包含 blob 和資料夾 (也包含 blob)。
 
 下列步驟說明如何在儲存體總管中檢視 blob 容器的內容：
@@ -66,6 +71,7 @@ Blob 容器包含 blob 和資料夾 (也包含 blob)。
    ![Blob 容器編輯器][3]
 
 ## <a name="delete-a-blob-container"></a>刪除 Blob 容器
+
 Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除個別的 blob，請參閱[管理 blob 容器中的 blob 區段](#managing-blobs-in-a-blob-container)。)
 
 下列步驟說明如何在儲存體總管中刪除 blob 容器：
@@ -82,6 +88,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
    ![刪除 Blob 容器確認][5]
 
 ## <a name="copy-a-blob-container"></a>複製 Blob 容器
+
 儲存體總管可讓您將 blob 容器複製到剪貼簿，然後將該 blob 容器貼到另一個儲存體帳戶。 (若要查看如何複製個別的 blob，請參閱[管理 blob 容器中的 blob 區段](#managing-blobs-in-a-blob-container)。)
 
 下列步驟說明如何將 blob 容器從某個儲存體帳戶複製到另一個儲存體帳戶。
@@ -97,6 +104,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
    ![貼上 Blob 容器內容功能表][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>取得 Blob 容器的 SAS
+
 [共用存取簽章 (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) 可提供您儲存體帳戶中資源的委派存取。
 這表示您可以在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。
 
@@ -119,6 +127,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
 8. 完成時，選取 [關閉]  。
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>管理 blob 容器的存取原則
+
 下列步驟說明如何管理 (新增和移除) blob 容器的存取原則︰
 
 1. 開啟儲存體總管。
@@ -129,7 +138,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
    ![管理存取原則內容功能表][11]
 5. [存取原則]  對話方塊會列出已針對所選的 blob 容器建立的任何存取原則。
 
-   ![存取原則選項][12]        
+   ![存取原則選項][12]
 6. 根據存取原則管理工作遵循下列步驟︰
 
    * **新增新的存取原則** -選取 [新增]  。 一旦產生，[存取原則]  對話方塊將會顯示新加入的存取原則 (具有預設設定)。
@@ -137,6 +146,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
    * **移除存取原則** -選取您想要移除的存取原則旁邊的 [移除]  。
 
 ## <a name="set-the-public-access-level-for-a-blob-container"></a>設定 blob 容器的公用存取層級
+
 根據預設，每個 blob 容器設定為「沒有公用存取」。
 
 下列步驟說明如何指定 blob 容器的公用存取層級。
@@ -153,6 +163,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
 6. 選取 [套用]  。
 
 ## <a name="managing-blobs-in-a-blob-container"></a>管理 blob 容器中的 blob
+
 建立 blob 容器之後，您可以將 blob 上傳至 blob 容器、將 blob 下載到本機電腦或在本機電腦上開啟 blob 等等。
 
 下列步驟說明如何管理 blob 容器中的 blob (及資料夾)。
@@ -175,7 +186,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      2. 在 [上傳檔案]  對話方塊中，選擇 [檔案]  文字方塊右側的省略符號 ( **…** ) 按鈕，以選取您想要上傳的檔案。
 
         ![上傳檔案選項][16]
-     3. 指定 [Blob 類型]  的類型。 如需詳細資訊，請參閱[建立容器並設定權限](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)。
+     3. 指定 [Blob 類型]  的類型。 請參閱[建立容器](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container)如需詳細資訊。
      4. 選擇性地指定選取的檔案將會上傳至其中的目標資料夾。 如果目標資料夾不存在，系統就會加以建立。
      5. 選取 [上傳]  。
    * **將資料夾上傳至 blob 容器**
@@ -186,7 +197,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      2. 在 [上傳資料夾]  對話方塊中，選擇 [資料夾]  文字方塊右側的省略符號 ( **…** ) 按鈕，以選取您想要上傳其內容的資料夾。
 
         ![上傳資料夾選項][18]
-     3. 指定 [Blob 類型]  的類型。 如需詳細資訊，請參閱[建立容器並設定權限](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)。
+     3. 指定 [Blob 類型]  的類型。 請參閱[建立容器](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container)如需詳細資訊。
      4. 選擇性地指定選取的資料夾的內容將會上傳至其中的目標資料夾。 如果目標資料夾不存在，系統就會加以建立。
      5. 選取 [上傳]  。
    * **將 blob 下載到本機電腦**
@@ -213,6 +224,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      3. 選取確認對話方塊上的 [是]  。
 
 ## <a name="next-steps"></a>後續步驟
+
 * 檢視 [最新的儲存體 Explorer 版本資訊與影片](https://www.storageexplorer.com)。
 * 了解如何 [利用 Azure Blob、資料表、佇列和檔案建立應用程式](https://azure.microsoft.com/documentation/services/storage/)。
 

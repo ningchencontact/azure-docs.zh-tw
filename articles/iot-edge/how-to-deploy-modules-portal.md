@@ -4,18 +4,18 @@ description: 使用 Azure 入口網站將模組部署到 IoT Edge 裝置
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595233"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448551"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>從 Azure 入口網站部署 Azure IoT Edge 模組
 
@@ -43,9 +43,9 @@ Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，�
 
 ### <a name="add-modules"></a>新增模組
 
-1. 請在頁面的 [登錄設定]  區段中，提供可以存取任何私人容器登錄 (其中包含您的模組映像) 的認證。
+1. 在 **容器登錄設定**區段頁面上，提供存取任何包含您的模組映像的私人容器登錄的認證。
 
-1. 在頁面的 [部署模組]  區段中，選取 [新增]  。
+1. 在 **部署模組**頁面上，選取一節**新增**。
 
 1. 從下拉式清單中查看模組的類型：
 

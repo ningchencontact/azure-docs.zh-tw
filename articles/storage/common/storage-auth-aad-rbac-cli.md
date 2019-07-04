@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153886"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443702"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>授與存取權與使用 Azure CLI 的 RBAC 的 Azure blob 和佇列資料
 
-Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體定義一組內建的 RBAC 角色，其中包含用來存取 blob 或佇列資料的權限的一組通用。 
+Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體定義一組內建的 RBAC 角色，其中包含用來存取 blob 或佇列資料的權限的一組通用。
 
 RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資源的安全性主體。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
 
@@ -52,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>將 RBAC 角色指派給使用者
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>將 RBAC 角色指派給安全性主體
 
-若要指派使用者 RBAC 角色，請使用[az 角色指派建立](/cli/azure/role/assignment#az-role-assignment-create)命令。 命令的格式可以根據指派的範圍而不同。 下列範例示範如何將角色指派給不同範圍的使用者。
+若要將 RBAC 角色指派給安全性主體，請使用[az 角色指派建立](/cli/azure/role/assignment#az-role-assignment-create)命令。 命令的格式可以根據指派的範圍而不同。 下列範例示範如何將角色指派給不同的範圍中的使用者，但您可以使用相同的命令，將角色指派給任何安全性主體。
 
 ### <a name="container-scope"></a>容器範圍
 

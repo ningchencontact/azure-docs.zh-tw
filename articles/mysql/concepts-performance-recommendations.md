@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 569ef6e9f91fdd728c5d230e2a6c46a7b01e5a62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: af3c4482b1ce9e521d14a0e0c63de40625c25c73
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078816"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461785"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的效能建議
 
 **適用範圍：** 適用於 MySQL 5.7 的 azure 資料庫
 
 > [!NOTE]
-> 效能建議處於預覽狀態。 效能建議支援 Azure 入口網站中的即將推出，並可能尚無法在您的區域。
+> 效能建議處於預覽狀態。
 
 [效能建議] 功能會分析您的資料庫，以建立自訂的建議，以改善效能。 若要產生的建議，分析會探討各種資料庫特性，包括結構描述。 啟用[查詢存放區](concepts-query-store.md)您充分利用 [效能建議] 功能的伺服器上。 如果效能結構描述是 OFF，開啟 [查詢存放區可讓 performance_schema 和效能] 功能所需的結構描述 instruments 的子集。 實作任何效能建議後，您應該測試來評估這些變更的影響效能。
 

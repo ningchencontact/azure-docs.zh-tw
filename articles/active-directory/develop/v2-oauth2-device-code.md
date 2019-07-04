@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e92e4d0e296e83b413cfd2a67041a5749c16699e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052240"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482239"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 裝置程式碼流程
 
@@ -52,7 +52,7 @@ Microsoft 身分識別平台支援[裝置的程式碼授與](https://tools.ietf.
 
 > [!TIP]
 > 嘗試在 Postman 中執行這項要求！
-> [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![嘗試在 Postman 中執行此要求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -77,7 +77,7 @@ scope=user.read%20openid%20profile
 
 | 參數 | 格式 | 描述 |
 | ---              | --- | --- |
-|`device_code`     | 字串 | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數，來向授權伺服器要求存取權杖。 |
+|`device_code`     | String | 長字串，可用於驗證用戶端與授權伺服器之間的工作階段。 用戶端會使用此參數，來向授權伺服器要求存取權杖。 |
 |`user_code`       | 字串 | 簡短的字串，用來顯示給使用者用來識別的次要裝置上的工作階段。|
 |`verification_uri`| URI | 為了執行登入程序，使用者應使用 `user_code` 查看的 URI。 |
 |`expires_in`      | int | `device_code` 和 `user_code` 到期之前的秒數。 |
@@ -133,7 +133,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 | 參數 | 格式 | 描述 |
 | --------- | ------ | ----------- |
-| `token_type` | 字串| 一律是「Bearer」。 |
+| `token_type` | String| 一律是「Bearer」。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，則會列出存取權杖的有效範圍。 |
 | `expires_in`| int | 包含的存取權杖須經過多久 (秒數) 才會生效。 |
 | `access_token`| 不透明字串 | 針對已要求的[範圍](v2-permissions-and-consent.md)發出。  |

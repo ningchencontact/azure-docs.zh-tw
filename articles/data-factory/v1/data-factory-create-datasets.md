@@ -238,7 +238,7 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 | frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |是 |NA |
 | interval |指定頻率的倍數。<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。 例如，如果您需要將資料集以每小時為單位來切割，請將 <b>frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/>請注意，如果您將 **frequency** 指定為 **Minute**，則應該將 interval 設定為不小於 15。 |是 |NA |
 | style |指定應該在間隔的開始還是結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>如果將 **frequency** 設定為 **Month**，並將 **style** 設定為 **EndOfInterval**，就會在當月的最後一天產生配量。 如果將 **style** 設定為 **StartOfInterval**，則會在當月的第一天產生配量。<br/><br/>如果將 **frequency** 設定為 **Day**，並將 **style** 設定為 **EndOfInterval**，就會在當天的最後一小時產生配量。<br/><br/>如果 **frequency** 設定為 **Hour**，並將 **style** 設定為 **EndOfInterval**，則會在該小時結束時產生配量。 例如，就下午 1 點 - 2 點期間的配量而言，會在下午 2 點產生配量。 |否 |EndOfInterval |
-| anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/>請注意，是否這個屬性會比指定的頻率更細微的日期部分，會忽略更細微的部分。 例如，如果 **interval** 為 **hourly** (frequency：hour 且 interval：1)，而且 **anchorDateTime** 包含**分鐘和秒鐘**，則會忽略 **anchorDateTime** 的分鐘和秒鐘部分。 |否 |01/01/0001 |
+| anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/>請注意，如果此屬性有比所指定頻率更細微的日期部分，則系統會忽略那些更細微的部分。 例如，如果 **interval** 為 **hourly** (frequency：hour 且 interval：1)，而且 **anchorDateTime** 包含**分鐘和秒鐘**，則會忽略 **anchorDateTime** 的分鐘和秒鐘部分。 |否 |01/01/0001 |
 | offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/>請注意，如果同時指定 **anchorDateTime** 和 **offset**，則結果會是合併的位移。 |否 |NA |
 
 ### <a name="offset-example"></a>位移範例

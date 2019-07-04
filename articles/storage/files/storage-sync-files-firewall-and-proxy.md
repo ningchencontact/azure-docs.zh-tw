@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdbbea2d32762d2d4030ec3a10826595dadd371c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449820"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 檔案同步 Proxy 和防火牆設定
 Azure 檔案同步會將您的內部部署伺服器連線到 Azure 檔案服務，以啟用多網站同步處理和雲端層功能。 因此，內部部署伺服器必須連線到網際網路。 IT 系統管理員必須決定進入 Azure 雲端服務之伺服器的最佳路徑。
@@ -111,20 +111,31 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 | 雲端  | 區域 | 主要端點 URL | 配對的區域 | 探索 URL |
 |--------|--------|----------------------|---------------|---------------|
-| 公開 |澳洲東部 | https://kailani-aue.one.microsoft.com | 澳大利亞東南部 | https://kailani-aue.one.microsoft.com |
+| 公開 |澳洲東部 | https://kailani-aue.one.microsoft.com | 澳大利亞東南部 | https://tm-kailani-aue.one.microsoft.com |
 | 公開 |澳大利亞東南部 | https://kailani-aus.one.microsoft.com | 澳洲東部 | https://tm-kailani-aus.one.microsoft.com |
+| 公開 | 巴西南部 | https://brazilsouth01.afs.azure.net | 美國中南部 | https://tm-brazilsouth01.afs.azure.net |
 | 公開 | 加拿大中部 | https://kailani-cac.one.microsoft.com | 加拿大東部 | https://tm-kailani-cac.one.microsoft.com |
 | 公開 | 加拿大東部 | https://kailani-cae.one.microsoft.com | 加拿大中部 | https://tm-kailani.cae.one.microsoft.com |
+| 公開 | 印度中部 | https://kailani-cin.one.microsoft.com | 印度南部 | https://tm-kailani-cin.one.microsoft.com |
 | 公開 | 美國中部 | https://kailani-cus.one.microsoft.com | 美國東部 2 | https://tm-kailani-cus.one.microsoft.com |
 | 公開 | 東亞 | https://kailani11.one.microsoft.com | 東南亞 | https://tm-kailani11.one.microsoft.com |
-| 公開 | 美國東部 | https://kailani1.one.microsoft.com | 美國西部 | https://tm-kailani1.one.microsoft.com |
+| 公開 | East US | https://kailani1.one.microsoft.com | 美國西部 | https://tm-kailani1.one.microsoft.com |
 | 公開 | 美國東部 2 | https://kailani-ess.one.microsoft.com | 美國中部 | https://tm-kailani-ess.one.microsoft.com |
+| 公開 | 日本東部 | https://japaneast01.afs.azure.net | 日本西部 | https://tm-japaneast01.afs.azure.net |
+| 公開 | 日本西部 | https://japanwest01.afs.azure.net | 日本東部 | https://tm-japanwest01.afs.azure.net |
+| 公開 | 南韓中部 | https://koreacentral01.afs.azure.net/ | 南韓南部 | https://tm-koreacentral01.afs.azure.net/ |
+| 公開 | 南韓南部 | https://koreasouth01.afs.azure.net/ | 南韓中部 | https://tm-koreasouth01.afs.azure.net/ |
+| 公開 | 美國中北部 | https://northcentralus01.afs.azure.net | 美國中南部 | https://tm-northcentralus01.afs.azure.net |
 | 公開 | 北歐 | https://kailani7.one.microsoft.com | 西歐 | https://tm-kailani7.one.microsoft.com |
+| 公開 | 美國中南部 | https://southcentralus01.afs.azure.net | 美國中北部 | https://tm-southcentralus01.afs.azure.net |
+| 公開 | 印度南部 | https://kailani-sin.one.microsoft.com | 印度中部 | https://tm-kailani-sin.one.microsoft.com |
 | 公開 | 東南亞 | https://kailani10.one.microsoft.com | 東亞 | https://tm-kailani10.one.microsoft.com |
 | 公開 | 英國南部 | https://kailani-uks.one.microsoft.com | 英國西部 | https://tm-kailani-uks.one.microsoft.com |
 | 公開 | 英國西部 | https://kailani-ukw.one.microsoft.com | 英國南部 | https://tm-kailani-ukw.one.microsoft.com |
+| 公開 | 美國中西部 | https://westcentralus01.afs.azure.net | 美國西部 2 | https://tm-westcentralus01.afs.azure.net |
 | 公開 | 西歐 | https://kailani6.one.microsoft.com | 北歐 | https://tm-kailani6.one.microsoft.com |
-| 公開 | 美國西部 | https://kailani.one.microsoft.com | 美國東部 | https://tm-kailani.one.microsoft.com |
+| 公開 | 美國西部 | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| 公開 | 美國西部 2 | https://westus201.afs.azure.net | 美國中西部 | https://tm-westus201.afs.azure.net |
 | 政府 | 美國政府亞利桑那州 | https://usgovarizona01.afs.azure.us | 美國政府德克薩斯州 | https://tm-usgovarizona01.afs.azure.us |
 | 政府 | 美國政府德克薩斯州 | https://usgovtexas01.afs.azure.us | 美國政府亞利桑那州 | https://tm-usgovtexas01.afs.azure.us |
 

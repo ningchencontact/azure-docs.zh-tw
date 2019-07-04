@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 336a9d9c76114920e92de2000152e500f7dce46f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60255120"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445309"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager 連線到 Azure 監視器
 
@@ -40,7 +40,7 @@ ms.locfileid: "60255120"
 
 如果 IT 安全性原則不允許您網路上的電腦連線到網際網路，則可以將管理伺服器設定為連線到 Log Analytics 閘道，以根據已啟用的解決方案來接收組態資訊和傳送收集到的資料。 如需詳細資訊以及有關如何設定 Operations Manager 管理群組以透過 Azure 監視器的 Log Analytics 閘道進行通訊的步驟，請參閱[將電腦連線到 Azure 監視器使用 Log Analytics 閘道](../../azure-monitor/platform/gateway.md)。  
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請檢閱下列需求。
 
@@ -48,7 +48,19 @@ ms.locfileid: "60255120"
 * 與美國政府雲端整合 System Center Operations Manager 2016 需要包含更新彙總套件 2 或更新版本已更新的 Advisor 管理組件。 System Center Operations Manager 2012 R2 需要包含更新彙總套件 3 或更新版本已更新的 Advisor 管理組件。
 * 所有 Operations Manager 代理程式必須符合最低支援需求。 請確定代理程式已安裝最低更新版本，否則 Windows 代理程式通訊可能會失敗，而且會在 Operations Manager 事件記錄中產生錯誤。
 * Log Analytics 工作區。 如需進一步資訊，請檢閱 [Log Analytics 工作區概觀](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json)。   
-* 您必須使用屬於 [Log Analytics 參與者角色](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users)向 Azure 驗證。  
+* 您必須使用屬於 [Log Analytics 參與者角色](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users)向 Azure 驗證。
+
+* 支援的區域-只有下列的 Azure 區域都受到 System Center Operations Manager 連線到 Log Analytics 工作區：
+    - 美國中西部
+    - 澳大利亞東南部
+    - 西歐
+    - East US
+    - 東南亞
+    - 日本東部
+    - 英國南部
+    - 印度中部
+    - 加拿大中部
+    - 美國西部 2
 
 >[!NOTE]
 >Azure Api 的最新變更會防止客戶能夠成功地設定管理群組與 Azure 監視器整合，第一次。 已將其管理群組與該服務整合的客戶則不會受影響，除非您需要重新設定您的現有連線。  
@@ -90,7 +102,7 @@ ms.locfileid: "60255120"
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 通訊協定
 
-為了確保資料傳輸至 Azure 監視器中的安全性，強烈建議您設定代理程式及管理群組至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。 如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
+為了確保資料傳輸至 Azure 監視器中的安全性，強烈建議您設定代理程式及管理群組至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。 如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Operations Manager 連接到 Azure 監視器
 
@@ -105,7 +117,7 @@ ms.locfileid: "60255120"
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-完成下列步驟，以使用 Azure 監視器整合之後, 您可以執行移除組態`netsh winhttp reset proxy`，然後使用**設定 proxy 伺服器**Operations 主控台中指定的 proxy 或記錄檔的選項分析閘道伺服器。 
+完成下列步驟，以使用 Azure 監視器整合之後, 您可以執行移除組態`netsh winhttp reset proxy`，然後使用**設定 proxy 伺服器**Operations 主控台中指定的 proxy 或記錄檔的選項分析閘道伺服器。
 
 1. 在 Operations Manager 主控台中，選取 [管理]  工作區。
 1. 展開 Operations Management Suite 節點，然後按一下 [連接]  。
@@ -113,14 +125,14 @@ ms.locfileid: "60255120"
 1. 在 [Operations Management Suite 登入精靈:  驗證] 頁面上，輸入與您 OMS 月租方案相關聯之系統管理員帳戶的電子郵件地址或電話號碼，然後按一下 [登入]  。
 
    >[!NOTE]
-   >Operations Management Suite 名稱已被淘汰。 
-   
+   >Operations Management Suite 名稱已被淘汰。
+
 1. 成功通過驗證之後，在 [Operations Management Suite 登入精靈:  選取工作區] 頁面上，系統會提示您選取您的 Azure 租用戶、訂用帳戶和 Log Analytics 工作區。 如果您有多個工作區，請從下拉式清單中選取您想要向 Operations Manager 管理群組註冊的工作區，然後按 [下一步]  。
-   
+
    > [!NOTE]
    > Operations Manager 一次只支援一個 Log Analytics 工作區。 連接都與先前的工作區已註冊到 Azure 監視器的電腦就會從 Azure 監視器中移除。
-   > 
-   > 
+   >
+   >
 1. 在 [Operations Management Suite 登入精靈:  摘要] 頁面上，確認您的設定正確無誤，如果正確，請按一下 [建立]  。
 1. 在 [Operations Management Suite 登入精靈:  完成] 頁面上，按一下 [關閉]  。
 
@@ -180,11 +192,11 @@ ms.locfileid: "60255120"
 1. 展開 Log Analytics，然後選取 [連線]  。
 1. 選取窗格中間的 [重新設定 Operation Management Suite]  連結。
 1. 遵循 [Log Analytics 上架精靈]  ，然後輸入與新的 Log Analytics 工作區相關聯之系統管理員帳戶的電子郵件地址或電話號碼和密碼。
-   
+
    > [!NOTE]
    > [Operations Management Suite 登入精靈:  選取工作區] 頁面會顯示使用中的現有工作區。
-   > 
-   > 
+   >
+   >
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>驗證 Operations Manager 與 Azure 監視器整合
 
@@ -194,9 +206,9 @@ ms.locfileid: "60255120"
 
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。
 1. 在 Log Analytics 工作區清單中，選取適用的工作區。  
-1. 選取 [進階設定]  ，選取 [連接的來源]  然後選取 [系統中心]  。 
+1. 選取 [進階設定]  ，選取 [連接的來源]  然後選取 [系統中心]  。
 1. 在 [System Center Operations Manager] 區段下方的表格中，您應該會看到管理群組名稱，還會列出上次收到資料時的代理程式數目和狀態。
-   
+
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>從 Operations 主控台確認整合
@@ -205,7 +217,7 @@ ms.locfileid: "60255120"
 1. 選取 [管理組件]  ，並在 [尋找:]  文字方塊中輸入 **Advisor** 或 **Intelligence**。
 1. 根據您已啟用的解決方案，您會看到搜尋結果中列出對應的管理組件。  例如，如果您已啟用警示管理解決方案，則 [Microsoft System Center Advisor 警示管理] 管理組件會在清單中。
 1. 從 [監視]  檢視中，瀏覽至 [Operations Management Suite\健全狀況狀態]  檢視。  在 [管理伺服器狀態]  窗格下選取管理伺服器，然後在 [詳細資料檢視]  窗格中，確認 [驗證服務 URI]  屬性的值符合 Log Analytics 工作區識別碼。
-   
+
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>移除與 Azure 監視器整合
@@ -215,34 +227,34 @@ ms.locfileid: "60255120"
 解決方案的管理組件已啟用且與 Operations Manager 整合，並支援使用 Azure 監視器整合所需的管理組件無法輕鬆地從管理群組刪除。 這是因為某些 Azure 監視管理組件的其他相關的管理組件有相依性。 若要刪除與其他管理組件相依的管理組件，請從 TechNet 指令碼中心下載[移除具有相依性的管理組件](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) (英文) 指令碼。  
 
 1. 使用身為 Operations Manager 系統管理員角色成員的帳戶開啟 Operations Manager 命令殼層。
-   
+
     > [!WARNING]
     > 繼續之前，請確認您的任何自訂管理組件名稱中沒有 Advisor 或 IntelligencePack 這個字，否則下列步驟會從管理群組中刪除它們。
-    > 
+    >
 
 1. 從命令殼層提示字元中，輸入 `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 接著輸入 `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 若要移除與其他 System Center Advisor 管理組件具有相依性的任何其餘管理組件，請使用您稍早從 TechNet 指令碼中心下載的 *RecursiveRemove.ps1* 指令碼。  
- 
+
     > [!NOTE]
     > 使用 PowerShell 移除 Advisor 管理組件的步驟將不會自動刪除 Microsoft System Center Advisor 或 Microsoft System Center Advisor 內部管理組件。  不要嘗試刪除它們。  
     >  
 
 1. 使用身為 Operations Manager 系統管理員角色成員的帳戶開啟 Operations Manager Operations 主控台。
 1. 在 [管理]  下，選取 [管理組件]  節點，然後在 [尋找:]  方塊中輸入 **Advisor**，並確認下列管理組件仍匯入到管理群組中︰
-   
+
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
 1. 在 Azure 入口網站中，按一下 [設定]  圖格。
 1. 選取 [連接的來源]  。
 1. 在 [System Center Operations Manager] 區段下方的表格中，您應該會看到想要從工作區移除的管理群組名稱。 在 [最後一筆資料]  資料行之下，按一下 [移除]  。  
-   
+
     > [!NOTE]
     > 在偵測到已連線的管理群組有 14 天沒有任何活動之後，[移除]  連結才能使用。  
-    > 
+    >
 
-1. 將出現視窗，要求您確認想要繼續移除。  按一下 [是]  以繼續。 
+1. 將出現視窗，要求您確認想要繼續移除。  按一下 [是]  以繼續。
 
 若要刪除兩個連接器 - Microsoft.SystemCenter.Advisor.DataConnector 和 Advisor 連接器，請將以下 PowerShell 指令碼儲存至您的電腦，並使用下列範例來執行：
 
@@ -253,8 +265,8 @@ ms.locfileid: "60255120"
 
 > [!NOTE]
 > 您執行此指令碼的電腦 (如果不是管理伺服器) 應該已安裝 Operations Manager 命令殼層，視您的管理群組版本而定。
-> 
-> 
+>
+>
 
 ```powershell
     param(

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 46eb90d2ec9902a9b5b7830063d0a6164ae948dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061135"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441442"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -66,10 +66,14 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 1. 安裝預覽[Azure AD PowerShell 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)。
 
    ```powershell
-   Install-Module AzureADPreview
+   Install-Module AzureAD
    ```
 
-2. 使用全域管理員 (租用戶系統管理員) 認證來輸入 `Connect-AzureAD`。
+2. 使用全域系統管理員 （租用戶系統管理員） 認證進行連接。
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. 檢查是否已經建立 Microsoft Azure Powershell 服務主體。
 

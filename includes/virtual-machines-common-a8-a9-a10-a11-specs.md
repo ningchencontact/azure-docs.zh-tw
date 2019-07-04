@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755203"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538034"
 ---
 ## <a name="deployment-considerations"></a>部署考量
 * **Azure 訂用帳戶** – 若要部署的不只是少數的計算密集執行個體，請考慮隨用隨付訂用帳戶或其他購買選項。 如果您使用 [Azure 免費帳戶](https://azure.microsoft.com/free/)，您只能使用有限數目的 Azure 計算核心。
@@ -34,6 +34,6 @@ ms.locfileid: "66755203"
 這個介面允許支援 RDMA 的執行個體透過 InfiniBand (IB) 網路，作業系統 EDR 費率 HB HC、 FDR 費率，針對 H16r、 H16mr，與支援 RDMA 的 N 系列虛擬機器，以及針對 A8 與 A9 虛擬機器以 QDR 速率進行通訊。 這些 RDMA 功能可以提高特定訊息傳遞介面 (MPI) 應用程式的延展性和效能。 如需有關速度的詳細資訊，請參閱此頁面上的資料表中的詳細資料。
 
 > [!NOTE]
-> 在 Azure 中，透過 IB 的 IP 僅適用於在 SR-IOV 啟用 Vm （目前 HB 和 HC）。 所有具備 RDMA 功能的執行個體可支援透過 IB 的 RDMA。
+> 在 Azure 中，透過 IB 的 IP 僅適用於在 SR-IOV 已啟用虛擬機器 (SR-IOV InfiniBand、 目前 HB 和 HC)。 所有具備 RDMA 功能的執行個體可支援透過 IB 的 RDMA。
 >
 

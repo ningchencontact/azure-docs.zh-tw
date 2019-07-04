@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080466"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428309"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
@@ -29,7 +29,7 @@ ms.locfileid: "67080466"
 * 測試站台
 * 封裝站台
 
-這些 OPC UA 伺服器會讓 OPC UA 節點和 [OPC 發行者](https://github.com/Azure/iot-edge-opc-publisher) \(英文\) 將這些節點的值傳送至連線的處理站。 其中包括：
+這些 OPC UA 伺服器會讓 OPC UA 節點和 [OPC 發行者](overview-opc-publisher.md) \(英文\) 將這些節點的值傳送至連線的處理站。 其中包括：
 
 * 目前的操作狀態，例如目前的耗電量。
 * 生產資訊，例如所生產的產品數目。
@@ -264,10 +264,10 @@ ms.locfileid: "67080466"
 
 此分類中的屬性會定義連線處理站儀表板的視覺外觀。 範例包括：
 
-* Name
+* 名稱
 * 描述
 * Image
-* 位置
+* Location
 * Units
 * 可見
 
@@ -307,7 +307,7 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 
   識別 OPC UA 伺服器中的節點值。 此屬性的格式必須是如在 OPC UA 規格中所指定。 在內嵌訊息中，此屬性會當作 **NodeId** 傳送。
 
-如需如何使用 OPC 發行者來將遙測資料內嵌於連線處理站的詳細資訊，請查閱[這個](https://github.com/Azure/iot-edge-opc-publisher) \(英文\) GitHub 頁面。
+請參閱[什麼是 OPC 發行者](overview-opc-publisher.md)如需有關的遙測資料內嵌至連線處理站的方式。
 
 ## <a name="example-how-kpi1-is-calculated"></a>範例：如何計算 KPI1
 

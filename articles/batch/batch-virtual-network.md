@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550175"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436267"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 
@@ -56,7 +56,7 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 
 若要確保 Azure Batch 集區的計算節點會在已啟用強制通道的 VNet 中運作，您必須為該子網路新增下列[使用者定義的路由](../virtual-network/virtual-networks-udr-overview.md)：
 
-* Batch 服務需要與集區的計算節點通訊，以便安排工作。 若要啟用此通訊，請在 Batch 帳戶所在的區域中，為 Batch 服務所使用的每個 IP 位址新增使用者定義的路由。 若要取得 Batch 服務的 IP 位址清單，請連絡 Azure 支援。
+* Batch 服務需要與集區的計算節點通訊，以便安排工作。 若要啟用此通訊，請在 Batch 帳戶所在的區域中，為 Batch 服務所使用的每個 IP 位址新增使用者定義的路由。 若要了解如何取得 Batch 服務的 IP 位址的清單，請參閱[服務在內部部署環境中的標籤](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * 確定您並未透過內部部署網路應用裝置禁止輸出到 Azure 儲存體的流量 (具體地說，就是 `<account>.table.core.windows.net`、`<account>.queue.core.windows.net` 和 `<account>.blob.core.windows.net` 表單的 URL)。
 

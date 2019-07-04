@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: bcd66d1a8077b4cc87c184f34b43cc5846a83f2f
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144421"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443249"
 ---
 # <a name="develop-secure-applications-on-azure"></a>在 Azure 上開發安全的應用程式
 在本文中我們將會呈現安全性活動和您開發的雲端應用程式時要考量的控制項。 安全性問題和概念，請考慮在 Microsoft 的實作及驗證階段期間[安全性開發生命週期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)涵蓋。 目標是為了協助您定義活動和 Azure 服務可供您開發更安全的應用程式。
@@ -139,7 +139,7 @@ DAST 與靜態應用程式安全性測試 (SAST) 不同。 SAST 工具會分析�
 
 程式碼完成功能可協助確保任何的設計或實作變更為應用程式，或已被視為系統之後，請檢閱受攻擊面。 它可協助確保任何新的攻擊媒介，因為變更，包括威脅分析模型，建立已檢閱並降低。
 
-您可以建置受攻擊面的圖片掃描應用程式。 Microsoft 提供一個稱為的攻擊面分析工具[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487)。 您可以選擇許多商業的動態測試和弱點掃描工具或服務，包括[OWASP Zed 攻擊 Proxy 專案](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)， [Arachni](http://arachni-scanner.com/)， [Skipfish](http://code.google.com/p/skipfish/)，並[w3af](http://w3af.sourceforge.net/)。 這些掃描工具搜耙您的應用程式，並將對應的部分應用程式可透過 web 存取。 您也可以搜尋 Azure Marketplace 中的類似[開發人員工具](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)。
+您可以建置受攻擊面的圖片掃描應用程式。 Microsoft 提供一個稱為的攻擊面分析工具[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487)。 您可以選擇許多商業的動態測試和弱點掃描工具或服務，包括[OWASP Zed 攻擊 Proxy 專案](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)， [Arachni](http://arachni-scanner.com/)， [Skipfish](https://code.google.com/p/skipfish/)，並[w3af](http://w3af.sourceforge.net/)。 這些掃描工具搜耙您的應用程式，並將對應的部分應用程式可透過 web 存取。 您也可以搜尋 Azure Marketplace 中的類似[開發人員工具](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)。
 
 ### <a name="perform-security-penetration-testing"></a>執行安全性滲透測試
 

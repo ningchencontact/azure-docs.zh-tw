@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455143"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440199"
 ---
 1. 下載用戶端 SDK 快速入門，為下列平台：
     
@@ -100,6 +100,4 @@ ms.locfileid: "66455143"
 
         4. 選取**App Service**發佈的目標，然後按一下**選取現有**，然後按一下**發行**底部的視窗 按鈕。
 
-        5. 您必須先登入 Visual Studio Azure 訂用帳戶。 選取  `Subscription`， `Resource Group`，然後選取 應用程式的名稱。 當您準備好時，按一下**確定**，這會將您所擁有的.NET 伺服器專案部署到 App Service 後端的本機。 部署完成時，您將會重新導向至`http://{zumoappname}.azurewebsites.net/`瀏覽器中。
-        
-           ![後端已啟動](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. 您必須先登入 Visual Studio Azure 訂用帳戶。 選取  `Subscription`， `Resource Group`，然後選取 應用程式的名稱。 當您準備好時，按一下**確定**，這會將您所擁有的.NET 伺服器專案部署到 App Service 後端的本機。 部署完成時，您將會重新導向至`http://{zumoappname}.azurewebsites.net/`瀏覽器中。                   

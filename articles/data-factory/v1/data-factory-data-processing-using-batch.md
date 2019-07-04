@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204029"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446616"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -124,7 +124,7 @@ Data Factory 包含內建的活動。 例如，使用「複製」活動可將資
    f. 選取 [確定]  以建立集區。
 
 #### <a name="azure-storage-explorer"></a>Azure 儲存體總管
-您將使用 [Azure 儲存體總管 6](https://azurestorageexplorer.codeplex.com/) 或 [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (來自 ClumsyLeaf Software) 來檢查和更改您儲存體專案中的資料。 您也可以檢查和更改雲端所裝載應用程式之記錄中的資料。
+您將使用 [Azure 儲存體總管 6](https://azurestorageexplorer.codeplex.com/) 或 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (來自 ClumsyLeaf Software) 來檢查和更改您儲存體專案中的資料。 您也可以檢查和更改雲端所裝載應用程式之記錄中的資料。
 
 1. 建立名為 **mycontainer** 且具有私人存取權 (無匿名存取權) 的容器。
 

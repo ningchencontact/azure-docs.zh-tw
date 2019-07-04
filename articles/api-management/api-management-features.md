@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304338"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448002"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API 管理層的功能式比較
 
@@ -40,6 +40,7 @@ ms.locfileid: "66304338"
 | [透過 Git 管理](api-management-configuration-repository-git.md)                        | 否                            | yes            | 是            | 是            | 是            |
 | 直接管理 API                                                                        | 否                            | yes            | 是            | 是            | 是            |
 | Azure 監視器記錄和計量                                                               | 否                | yes            | 是            | 是            | 是            |
+| 靜態 IP                                                               | 否                | yes            | 是            | 是            | 是            |
 
 <sup>1</sup>可讓您的 Azure AD 使用 （與 Azure AD B2C） 做為識別提供者的使用者登入開發人員入口網站。<br/>
 <sup>2</sup> 包括相關的功能，例如使用者、群組、問題、應用程式以及電子郵件範本和通知。<br/>

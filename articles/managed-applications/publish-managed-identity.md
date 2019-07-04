@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312241"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434867"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Azure 受管理的應用程式管理的身分識別
 
@@ -323,7 +323,22 @@ ms.locfileid: "67312241"
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+要求主體參數：
+
+參數 | 必要項 | 描述
+---|---|---
+authorizationAudience | *no* | 目標資源應用程式識別碼 URI。 它也是`aud`核發的權杖 （對象） 宣告。 預設值是"https://management.azure.com/ 」
+userAssignedIdentities | *no* | 指派給使用者管理的身分識別來擷取權杖的清單。 如果未指定，`listTokens`會傳回系統指派的受控身分識別的權杖。
+
 
 範例回應如下：
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+回應會包含在權杖的陣列`value`屬性：
+
+參數 | 說明
+---|---
+access_token | 请求的访问令牌。
+expires_in | 存取權杖就會是有效的秒數。
+expires_on | 存取權杖到期的時間範圍。 這會表示為秒數，從新紀元。
+not_before | 時間範圍時的存取權杖才會生效。 這會表示為秒數，從新紀元。
+authorizationAudience | `aud` （對象） 存取權杖的要求。 這是與所提供的相同`listTokens`要求。
+ResourceId | Azure 資源所發出權杖識別碼。 這是受管理的應用程式識別碼或使用者指派身分識別識別碼。
+token_type | 語彙基元的型別。
 
 ## <a name="next-steps"></a>後續步驟
 

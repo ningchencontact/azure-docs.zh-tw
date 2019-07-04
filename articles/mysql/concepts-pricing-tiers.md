@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 06/27/2019
+ms.openlocfilehash: aab3aaafd410c4f85eba7a246d0922128908bf93
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339934"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445438"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -62,12 +62,12 @@ ms.locfileid: "67339934"
 |              | **一般用途** | **記憶體最佳化** |
 |:-------------|:--------------------|:---------------------|
 | 儲存體類型 | Azure 進階儲存體 | Azure 進階儲存體 |
-| 儲存體大小 | 32 GB 到 16 TB| 32 到 16 TB |
+| 儲存體大小 | 32 GB 到 16 TB| 32 GB 到 16 TB |
 | 儲存體遞增大小 | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大| 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大 |
 
 > [!IMPORTANT]
-> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 北歐、 西歐、 東南亞、 日本東部、 韓國中部、 澳大利亞東部。
+> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 北歐、 西歐、 英國南部、 英國西部、 東南亞、 東亞、 日本東部、 日本西部、 韓國中部、 韓國南部、 澳大利亞東部、 澳洲南部東部。
 >
 > 目前不支援大型儲存體預覽：
 >

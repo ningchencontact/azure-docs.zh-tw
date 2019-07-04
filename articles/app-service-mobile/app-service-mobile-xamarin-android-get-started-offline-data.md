@@ -2,7 +2,7 @@
 title: 啟用 Azure 行動應用程式 (Xamarin Android) 的離線同步處理
 description: 了解如何在 Xamarin Android 應用程式中使用應用程式服務行動應用程式快取和同步處理離線資料
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 7e951b9f2c2fda3c63f154b5b144addcbf65aacf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9409260af0fd9739ae68545eca102ee420e9b2e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127959"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440135"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>啟用您 Xamarin.Android 行動應用程式的離線同步處理
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-offline-data)今天。
+>
 
 ## <a name="overview"></a>概觀
 
@@ -120,7 +124,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 ## <a name="additional-resources"></a>其他資源
 
 * [Azure Mobile Apps 中的離線資料同步處理]
-* [Azure Mobile Apps .NET SDK HOWTO][8]
+* [Azure Mobile Apps.NET SDK 做法][8]
 
 <!-- URLs. -->
 [建立 Xamarin Android 應用程式]: ./app-service-mobile-xamarin-android-get-started.md

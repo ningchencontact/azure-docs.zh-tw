@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735081"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488678"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
@@ -29,22 +29,24 @@ ms.locfileid: "66735081"
 
 **認知深入解析**小工具包含從您的影片索引編製程序中擷取的所有視覺化深入解析。 深入解析小工具支援下列選擇性 URL 參數：
 
-|Name|定義|描述|
+|名稱|定義|描述|
 |---|---|---|
 |widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 第 2 版中不支援小工具的 URL 參數。 |
+|地區設定|簡短的語言程式碼|控制 insights 語言。 預設值為 `en`。 例如： `language=de` 。|
+|Tab 鍵|預設選取的索引標籤|控制預設會轉譯 [insights] 索引標籤。 `tab=timeline` 選取 [時間軸] 索引標籤呈現深入解析。|
 
 ### <a name="player-widget"></a>播放器小工具
 
 **播放器**小工具可讓您使用調適性位元速率來串流影片。 播放器小工具支援下列選擇性 URL 參數：
 
-|Name|定義|描述|
+|名稱|定義|描述|
 |---|---|---|
-|t|開始後的秒數|可讓播放器從指定的時間點開始播放。<br/>範例：t=60|
-|captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例：captions=en-US|
-|showCaptions|布林值|可讓播放器載入已啟用的標題。<br/>範例：showCaptions=true|
-|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|
-|autoplay|布林值|指出播放器是否應在影片載入後開始播放 (預設值為 true)。<br/>範例：autoplay=false|
-|語言|語言代碼|控制播放器語言 (預設值為 en-US)<br/>範例：language=de-DE|
+|t|從一開始的秒數|可讓播放器從指定的時間點開始播放。<br/>範例： `t=60`.|
+|captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例： `captions=en-US`.|
+|showCaptions|布林值|可讓播放器載入已啟用的標題。<br/>範例： `showCaptions=true`.|
+|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例： `type=audio`.|
+|autoplay|布林值|指出播放器是否應在影片載入後開始播放 (預設值為 true)。<br/>範例： `autoplay=false`.|
+|語言|語言代碼|控制播放器語言 (預設值為 en-US)<br/>範例： `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>內嵌公用內容
 
@@ -63,7 +65,7 @@ ms.locfileid: "66735081"
     ![小工具](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> 如果您有問題，以共用您影片的 Url，請嘗試將 'location' 參數新增至連結。 參數應該設定為[影片索引器所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`。
+> 如果您有問題，以共用您影片的 Url，請嘗試將 'location' 參數新增至連結。 參數應該設定為[影片索引器所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial` 。
 
 ## <a name="embedding-private-content"></a>內嵌私人內容
 

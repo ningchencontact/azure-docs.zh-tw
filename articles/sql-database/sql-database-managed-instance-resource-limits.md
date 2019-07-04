@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447808"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>概觀 Azure SQL Database 受控執行個體的資源限制
 
@@ -42,6 +42,9 @@ Azure SQL Database 受控執行個體可以在兩個世代的硬體上部署：G
 | 最大記憶體內部 OLTP 記憶體 | 執行個體限制：每個虛擬核心 3 GB<br/>資料庫的限制：<br/> -8 個核心：每個資料庫的 8 GB<br/> -16 個核心：每個資料庫的 20 GB<br/> -24 個核心：每個資料庫的高過 36 GB | 執行個體限制：每個虛擬核心 2.5 GB<br/>資料庫的限制：<br/> -8 個核心：每個資料庫的 13 GB<br/> -16 個核心：每個資料庫 32 GB |
 | 最大執行個體儲存體 （一般用途） |  8 TB | 8 TB |
 | 執行個體的儲存體上限 （商務關鍵） | 1 TB | 1 TB、2 TB 或 4 TB，視核心數目而定 |
+
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 

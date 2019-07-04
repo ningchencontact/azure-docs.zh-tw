@@ -3,7 +3,7 @@ title: 在具有 Azure Mobile Apps 的 iOS 上新增驗證
 description: 了解如何使用 Azure Mobile Apps 透過眾多身分識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128144"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449126"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>將驗證新增至您的 iOS 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users)今天。
+>
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 [iOS 快速入門] 專案。 本教學課程以 [iOS 快速入門] 教學課程為基礎，您必須先完成該教學課程。
 
@@ -77,7 +81,7 @@ ms.locfileid: "62128144"
     }
     ```
 
-    如果您不使用 Google 作為識別提供者，請將 google  變更為 microsoftaccount  、twitter  、facebook  或 windowsazureactivedirectory  。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]。
+    如果您不使用 Google 作為識別提供者，請將 google  變更為 microsoftaccount  、twitter  、facebook  或 windowsazureactivedirectory  。 如果您使用 Facebook，您必須[Facebook 網域列入白名單][1]應用程式中。
 
     使用您應用程式的唯一名稱來取代 **urlScheme**。  urlScheme 必須與您在 Azure 入口網站中的 [允許的外部重新導向 URL]  欄位中指定的 URL 配置通訊協定相同。 urlScheme 可在完成驗證要求之後，供驗證回呼用來切換回您的應用程式。
 
@@ -163,7 +167,7 @@ ms.locfileid: "62128144"
     }
     ```
 
-    如果您不使用 Google 作為識別提供者，請將 google  變更為 microsoftaccount  、twitter  、facebook  或 windowsazureactivedirectory  。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]。
+    如果您不使用 Google 作為識別提供者，請將 google  變更為 microsoftaccount  、twitter  、facebook  或 windowsazureactivedirectory  。 如果您使用 Facebook，您必須[Facebook 網域列入白名單][1]應用程式中。
 
     使用您應用程式的唯一名稱來取代 **urlScheme**。  urlScheme 必須與您在 Azure 入口網站中的 [允許的外部重新導向 URL]  欄位中指定的 URL 配置通訊協定相同。 urlScheme 可在完成驗證要求之後，供驗證回呼用來切換回您的應用程式。
 
@@ -212,7 +216,7 @@ ms.locfileid: "62128144"
 
 5. 按下 [執行]  以啟動應用程式，然後登入。 當您登入時，應該能夠檢視待辦事項清單並進行更新。
 
-App Service 驗證會使用 Apples Inter-App Communication。  如需有關這個主題的詳細資訊，請參閱 [Apple 文件][2]
+App Service 驗證會使用 Apples Inter-App Communication。  如需有關這個主題的詳細資訊，請參閱[Apple 文件][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

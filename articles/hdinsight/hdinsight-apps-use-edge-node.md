@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165908"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433743"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點
 
@@ -108,7 +108,7 @@ ms.locfileid: "67165908"
    * **叢集登入密碼**：輸入 Hadoop HTTP 使用者密碼。
    * **SSH 使用者名稱**︰輸入 SSH 使用者名稱。 預設名稱為 **sshuser**。
    * **SSH 密碼**︰輸入 SSH 使用者密碼。
-   * **安裝指令碼動作**︰請保留預設值以便完成本教學課程。
+   * **安裝指令碼動作**︰請閱讀本文的預設值。
      
      某些屬性已被硬式編碼在範本中︰叢集類型、叢集背景工作角色節點計數、邊緣節點大小與邊緣節點名稱。
 4. 核取 [我同意上方所述的條款及條件]  ，然後按一下 [購買]  以建立具有邊緣節點的叢集。

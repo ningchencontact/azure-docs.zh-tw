@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204508"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440503"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 是什麼？
 
-Azure Active Directory Identity Protection 可讓組織設定自動回應偵測到使用者的身分識別相關的可疑活動。
+Azure Active Directory[識別](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)Protection 可讓組織就能設定自動回應偵測到使用者的身分識別相關的可疑活動。
 
 ## <a name="get-started"></a>開始使用
 

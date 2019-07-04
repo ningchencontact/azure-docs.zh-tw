@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752582"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551778"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
@@ -71,7 +71,7 @@ Azure 資訊安全中心正在透過與 [Windows Defender 進階威脅防護](ht
 
 ## <a name="enable-windows-defender-atp-integration"></a>啟用 Windows Defender ATP 整合
 
-若要檢視是否已啟用 Windows Defender ATP 整合，請選取**資訊安全中心** > **安全性原則** > **訂用帳戶** > **編輯設定**。
+若要檢視如果已啟用 Windows Defender ATP 整合，請選取**資訊安全中心** > **定價和設定**> 按一下 訂用帳戶。
 
   ![Azure 資訊安全中心原則管理](media/security-center-wdatp/policy-management.png)
 

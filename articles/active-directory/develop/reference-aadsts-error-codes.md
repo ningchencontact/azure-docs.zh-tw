@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111294"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482476"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -215,6 +215,7 @@ ms.locfileid: "67111294"
 | AADSTS90093 | GraphUserUnauthorized - 傳回的圖表包含要求的禁止錯誤碼。 |
 | AADSTS90094 | AdminConsentRequired - 需要系統管理員同意。 |
 | AADSTS90100 | InvalidRequestParameter - 參數空白或無效。 |
+| AADSTS901002 | AADSTS901002:不支援 'resource' 要求參數。 |
 | AADSTS90101 | InvalidEmailAddress - 所提供的資料不是有效的電子郵件地址。 電子郵件地址的格式必須是 `someone@example.com`。 |
 | AADSTS90102 | InvalidUriParameter - 值必須是有效的絕對 URI。 |
 | AADSTS90107 | InvalidXml - 要求無效。 請確定您的資料不會有無效的字元。|

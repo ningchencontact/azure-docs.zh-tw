@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 906024ecb3e95c75c45efddafbbf76944c6aea29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058077"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442989"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>從 VM 設定備份 Azure VM
 
@@ -72,7 +72,8 @@ ms.locfileid: "67058077"
 
 
 > [!NOTE]
-> Azure 備份服務會建立個別的資源群組 （以外的 VM 資源群組中） 來儲存快照集，使用的命名格式**AzureBackupRG_geography_number** (範例：AzureBackupRG_northeurope_1)。 此資源群組中的資料仍會保留在所指定的天期間的 Azure 虛擬機器備份原則的 「 保留立即復原快照集 」 一節。 將鎖定套用到此資源群組，可能會導致備份失敗。
+> Azure 備份服務會建立個別的資源群組 （以外的 VM 資源群組中） 來儲存快照集，使用的命名格式**AzureBackupRG_geography_number** (範例：AzureBackupRG_northeurope_1)。 此資源群組中的資料仍會保留在所指定的天期間的 Azure 虛擬機器備份原則的 「 保留立即復原快照集 」 一節。 將鎖定套用到此資源群組，可能會導致備份失敗。<br>
+此資源群組應該也會排除任何名稱/標記的限制，限制原則會封鎖建立在它再次導致備份失敗的資源點集合。
 
 
 ## <a name="run-a-backup-immediately"></a>立即執行備份

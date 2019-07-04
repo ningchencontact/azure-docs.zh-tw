@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399336"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440425"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>了解並解決 Azure Active Directory 應用程式 Proxy CORS 問題
 
-[跨原始資源共用 (CORS)](http://www.w3.org/TR/cors/) 有時可以呈現您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式和 Api 的挑戰。 這篇文章討論的 Azure AD 應用程式 Proxy CORS 問題和解決方案。
+[跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/) 有時可以呈現您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式和 Api 的挑戰。 這篇文章討論的 Azure AD 應用程式 Proxy CORS 問題和解決方案。
 
 瀏覽器安全性通常會防止網頁對另一個網域提出 AJAX 要求。 這項限制稱為*同源原則*，可防止惡意網站從另一個網站讀取敏感性資料。 不過，有時候您可能想要讓呼叫您的 web API 的其他站台。 CORS 是 W3C 標準，可讓伺服器放寬同源原則，並允許某些跨源要求，並拒絕其他。
 

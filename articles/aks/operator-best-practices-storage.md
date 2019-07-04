@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072633"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447155"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中進行儲存和備份的最佳做法
 
@@ -38,8 +38,7 @@ ms.locfileid: "65072633"
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | 共用設定       | Azure 檔案   | 是 | 是 | 是 | 是 |
 | 結構化應用程式資料        | Azure 磁碟   | 是 | 否  | 否  | 是 |
-| 應用程式資料、唯讀共用 | [Dysk (預覽)][dysk] | 是 | 是 | 否  | 否 |
-| 非結構化資料、檔案系統作業 | [BlobFuse (預覽)][blobfuse] | 是 | 是 | 是 | 否 |
+| 非結構化資料、檔案系統作業 | [BlobFuse （預覽）][blobfuse] | 是 | 是 | 是 | 否 |
 
 AKS 中針對磁碟區所提供的兩個主要儲存體類型，是由 Azure 磁碟或 Azure 檔案所支援。 為了提升安全性，這兩種儲存體預設都會使用 Azure 儲存體服務加密 (SSE) 來對待用資料進行加密。 目前磁碟無法在 AKS 節點層級使用 Azure 磁碟加密進行加密。
 
@@ -48,11 +47,11 @@ Azure 檔案目前可於「標準」效能層級取得。 Azure 磁碟可於「�
 - 「進階」  磁碟是由高效能固態硬碟 (SSD) 所支援。 針對所有生產環境工作負載，都建議使用進階磁碟。
 - 「標準」  磁碟是由一般磁碟 (HDD) 所支援，且適用於封存或不常存取的資料。
 
-藉由了解應用程式效能需求和存取模式，來選擇適當的儲存層。 如需受控磁碟大小和效能的詳細資訊，請參閱 [Azure 受控磁碟概觀][managed-disks]
+藉由了解應用程式效能需求和存取模式，來選擇適當的儲存層。 如需有關受控磁碟大小和效能層級的詳細資訊，請參閱[Azure 受控磁碟概觀][managed-disks]
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>建立及使用儲存體類別來定義應用程式需求
 
-您所使用的儲存體類型，是使用 Kubernetes「儲存體類別」  所定義。 儲存體類別接著會參考於 Pod 或部署規格中。 這些定義會一起運作以建立適當的儲存體，並將它連線至 Pod。 如需詳細資訊，請參閱 [AKS 中的儲存體類別][aks-concepts-storage-classes]。
+您所使用的儲存體類型，是使用 Kubernetes「儲存體類別」  所定義。 儲存體類別接著會參考於 Pod 或部署規格中。 這些定義會一起運作以建立適當的儲存體，並將它連線至 Pod。 如需詳細資訊，請參閱 < [AKS 中的儲存體類別][aks-concepts-storage-classes]。
 
 ## <a name="size-the-nodes-for-storage-needs"></a>針對儲存體需求評估節點大小
 
@@ -69,7 +68,7 @@ AKS 節點會以 Azure VM 的形式執行。 有不同類型和大小的 VM 可�
 
 在這裡，*Standard_DS2_v2* 能允許兩倍的附加磁碟數目，並提供三到四倍的 IOPS 和磁碟輸送量。 如果您僅查看核心運算資源並比較成本，您可能會選擇 *Standard_B2ms* VM 大小，以及其較為不佳的儲存體效能和限制。 請與您的應用程式開發團隊一起合作，以了解他們的儲存體容量和效能需求。 針對 AKS 節點選擇適當的 VM 大小，以符合或超越他們的效能需求。 定期對應用程式進行基準評估，以視需求調整 VM 大小。
 
-如需可用 VM 大小的詳細資訊，請參閱 [Azure 中的 Linux 虛擬機器大小][vm-sizes]。
+如需有關可用的 VM 大小的詳細資訊，請參閱 <<c0> [ 在 Azure 中 Linux 虛擬機器的大小][vm-sizes]。
 
 ## <a name="dynamically-provision-volumes"></a>動態佈建磁碟區
 
@@ -81,9 +80,9 @@ AKS 節點會以 Azure VM 的形式執行。 有不同類型和大小的 VM 可�
 
 永續性磁碟區宣告 (PVC) 可讓您視需求以動態方式建立儲存體。 基礎的 Azure 磁碟會在 Pod 要求它們時建立。 在 Pod 定義中，您會要求建立並將磁碟區附加至設計的掛接路徑
 
-如需如何動態建立及使用磁碟區的概念，請參閱[永續性磁碟區宣告][aks-concepts-storage-pvcs]。
+如需如何以動態方式建立，並使用磁碟區的概念，請參閱 <<c0> [ 永續性磁碟區宣告][aks-concepts-storage-pvcs]。
 
-若要查看這些磁碟區實際運作的方式，請參閱如何搭配 [Azure 磁碟][dynamic-disks]或 [Azure 檔案][dynamic-files]以動態方式建立及使用永續性磁碟區。
+若要查看作用中的這些磁碟區，請參閱 < 如何以動態方式建立和使用的永續性磁碟區[Azure 磁碟][dynamic-disks] or [Azure Files][dynamic-files]。
 
 作為您磁碟區類別定義的一部分，請設定適當的 *reclaimPolicy*。 此 reclaimPolicy 可控制基礎 Azure 儲存體資源在 Pod 刪除後和不再需要永續性磁碟區時的行為。 基礎儲存體資源可以刪除或保留供未來的 Pod 使用。 reclaimPolicy 可以被設定為 [保留]  或 [刪除]  。 了解您的應用程式需求，並對保留的儲存體實作定期檢查，以將不需要但是被使用且計費的儲存體量降到最低。
 
@@ -93,17 +92,16 @@ AKS 節點會以 Azure VM 的形式執行。 有不同類型和大小的 VM 可�
 
 **最佳作法指引**： 備份資料，可針對您的儲存體類型，例如 Velero 或 Azure Site Recovery 使用適當的工具。 驗證那些備份的完整性及安全性。
 
-當您的應用程式儲存及使用保存在磁碟上或檔案中的資料時，您必須對該資料進行定期備份或擷取快照集。 Azure 磁碟可以使用內建的快照集技術。 在執行快照集作業之前，您可能需要應用程式的勾點，以針對磁碟進行清除寫入。 [Velero] [ velero]可以備份以及其他叢集資源和組態的永續性磁碟區。 如果您無法[從應用程式移除狀態][remove-state]，請備份來自永續性磁碟區的資料並定期測試還原作業，以確認資料完整性及必要的處理程序。
+當您的應用程式儲存及使用保存在磁碟上或檔案中的資料時，您必須對該資料進行定期備份或擷取快照集。 Azure 磁碟可以使用內建的快照集技術。 在執行快照集作業之前，您可能需要應用程式的勾點，以針對磁碟進行清除寫入。 [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state]、 將資料從永續性磁碟區備份，並定期測試還原作業，以確認資料完整性及所需的處理程序。
 
-請了解不同資料備份方法的限制，以及您是否需要在擷取快照集之前使資料靜止。 資料備份並不一定能讓您還原您的叢集部署應用程式環境。 如需那些案例的詳細資訊，請參閱 [AKS 中商務持續性和災害復原的最佳做法][best-practices-multi-region]。
+請了解不同資料備份方法的限制，以及您是否需要在擷取快照集之前使資料靜止。 資料備份並不一定能讓您還原您的叢集部署應用程式環境。 如需有關這些案例的詳細資訊，請參閱 < [AKS 中的商務持續性和災害復原的最佳做法][best-practices-multi-region]。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文著重於 AKS 中的儲存體最佳做法。 如需 Kubernetes 中儲存體基本概念的詳細資訊，請參閱 [AKS 中適用於應用程式的儲存體概念][aks-concepts-storage]。
+本文著重於 AKS 中的儲存體最佳做法。 如需有關在 Kubernetes 中的儲存體基本概念的詳細資訊，請參閱[AKS 中的應用程式的儲存體概念][aks-concepts-storage]。
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

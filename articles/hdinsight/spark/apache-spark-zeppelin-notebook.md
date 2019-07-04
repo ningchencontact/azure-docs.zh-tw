@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 9fc18b11b24791c1e154d89d757408da4ab20539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 219cdeea228ae3e334213a0f0654f904592cb09e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64709560"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448731"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集
 
@@ -141,7 +141,7 @@ HDInsight Spark 叢集包含可用來執行 [Apache Spark](https://spark.apache.
 
 4. 如果您想要了解如何得出上面所輸入的金鑰值，其方法如下。
    
-    a. 在「Maven 儲存機制」中找出套件。 針對本教學課程，我們使用 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
+    a. 在「Maven 儲存機制」中找出套件。 在本文中，我們使用[spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)。
    
     b. 從儲存機制收集 [GroupId]  、[ArtifactId]  及 [版本]  的值。
    

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238393"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460268"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型將檔案還原至 Windows
 
@@ -97,7 +97,7 @@ ms.locfileid: "60238393"
 * *範例保存庫* – 來源電腦和目標電腦註冊所在的復原服務保存庫。 <br/>
 
 > [!NOTE]
-> 備份無法還原到執行舊版作業系統的目標電腦。 例如，從 Windows 7 電腦建立的備份可以還原至 Windows 8 (或更新版本) 的電腦。 從 Windows 8 電腦建立的備份無法還原至 Windows 7 電腦。
+> 備份無法還原到執行舊版作業系統的目標電腦。 例如，從 Windows 7 電腦建立的備份可以還原 Windows 7 （或更新版本） 電腦上。 從 Windows 8 電腦建立的備份無法還原至 Windows 7 電腦。
 >
 >
 

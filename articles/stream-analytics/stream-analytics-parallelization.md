@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329807"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449201"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
 先決條件是，您必須熟悉[了解及調整串流處理單位](stream-analytics-streaming-unit-consumption.md)中所述的串流處理單位概念。
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>串流分析工作由哪些部分所組成？
-串流分析工作的定義包含輸入、查詢及輸出。 輸入是指作業讀取資料流的來源。 查詢是用來轉換資料輸入資料流，而輸出是作業傳送作業結果的目的地。  
+串流分析工作的定義包含輸入、查詢及輸出。 輸入是指作業讀取資料流的來源。 查詢是用來轉換資料輸入資料流，而輸出是作業傳送作業結果的目的地。
 
 一個工作至少需要一個輸入來源來進行資料串流。 資料流輸入來源可以儲存在 Azure 事件中樞或 Azure Blob 儲存體中。 如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)和[開始使用 Azure 串流分析](stream-analytics-real-time-fraud-detection.md)。
 
@@ -248,11 +248,65 @@ Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平�
 > 
 > 
 
+## <a name="achieving-higher-throughputs-at-scale"></a>達成更高的輸送量規模
 
+[窘迫平行](#embarrassingly-parallel-jobs)作業是必要的但不是足以承受較高的輸送量規模。 每個儲存體系統和其對應的 Stream Analytics 輸出有變化，如何達成最可能的寫入輸送量。 與任何規模的案例，有一些挑戰，就可解決使用正確的組態。 本節討論的幾個一般輸出設定，並提供範例，以維持每秒的 1 K 5k，10k 事件的擷取速率。
 
+下列觀察會使用無狀態 (passthrough) 查詢中，基本 JavaScript UDF 將寫入至事件中樞、 Azure SQL DB 或 Cosmos DB 中的 Stream Analytics 作業。
 
+#### <a name="event-hub"></a>事件中樞
+
+|擷取速率 （每秒的事件） | 串流處理單位 | 輸出資源  |
+|--------|---------|---------|
+| 1K     |    1    |  2 個 TU   |
+| 5K     |    6    |  6 個 TU   |
+| 10K    |    12   |  10 個 TU  |
+
+[事件中樞](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs)解決方案以線性方式調整為根據串流單位 (SU) 和輸送量、 進行最高的效率和高效能的方式來分析及串流 Stream Analytics 中的資料。 最多 192 SU，大致上會轉譯為最多 200 MB/秒或每日的 19 兆個事件的處理，您可以調整作業。
+
+#### <a name="azure-sql"></a>Azure SQL
+|擷取速率 （每秒的事件） | 串流處理單位 | 輸出資源  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
+|    10K  |   36 |  P6   |
+
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)支援以平行方式撰寫，稱為繼承資料分割，但它預設不啟用。 不過，啟用繼承的資料分割，以及完全平行查詢時，不可能不足以達到更高的輸送量。 SQL 寫入輸送量大幅取決於您 SQL Azure 資料庫設定和資料表的結構描述。 [SQL 輸出效能](./stream-analytics-sql-output-perf.md)發行項有更多詳細的參數，可以將您的寫入輸送量最大化。 如中所述[到 Azure SQL Database 的 Azure Stream Analytics 輸出](./stream-analytics-sql-output-perf.md#azure-stream-analytics)文章中，此解決方案不會以線性方式擴充做為完全平行的管線，超過 8 個分割區，並可能需要重新分割之前 SQL 輸出 (請參閱[到](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))。 進階 Sku 所需承受高 IO 率，以及發生每隔幾個記錄備份的額外負荷分鐘的時間。
+
+#### <a name="cosmos-db"></a>Cosmos DB
+|擷取速率 （每秒的事件） | 串流處理單位 | 輸出資源  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60K RU  |
+|  10K  |  48   | 120K RU |
+
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)輸出 Stream Analytics 已更新為使用底下的原生整合[相容性層級 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12)。 相容性層級 1.2 啟用明顯較高的輸送量，並可降低 RU 耗用量，相較於 1.1 中，也就是新的作業的預設相容性層級。 解決方案會使用 CosmosDB /deviceId 上進行資料分割的容器，且具有相同設定解決方案的其餘部分。
+
+所有[擴展 azure 範例資料流](https://github.com/Azure-Samples/streaming-at-scale)使用事件中樞傳送負載模擬測試用戶端，做為輸入。 每個輸入的事件是 1KB JSON 文件，可輕鬆地將轉譯為 （1 MB/秒、 5 MB/s 和 10 MB/秒） 的輸送量速率的設定的擷取速率。 事件會模擬 IoT 裝置傳送的下列 JSON 資料 （以縮短形式） 最多 1 K 裝置：
+
+```
+{
+    "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
+    "complexData": {
+        "moreData0": 51.3068118685458,
+        "moreData22": 45.34076957651598
+    },
+    "value": 49.02278128887753,
+    "deviceId": "contoso://device-id-1554",
+    "type": "CO2",
+    "createdAt": "2019-05-16T17:16:40.000003Z"
+}
+```
+
+> [!NOTE]
+> 設定有可能因為解決方案中使用的各種元件的變更。 更精確的預估值，自訂以符合您案例的範例。
+
+### <a name="identifying-bottlenecks"></a>找出瓶頸
+
+使用 Azure Stream Analytics 作業中的 [計量] 窗格中，找出您的管線中的瓶頸。 檢閱**輸入/輸出事件**輸送量並[浮水印延遲 」](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)或**待處理項目事件**若要查看工作是否跟輸入速率。 針對事件中樞計量，尋求**節流要求**並據以調整臨界值的單位。 針對 Cosmos DB 計量，請檢閱**針對每個資料分割索引鍵範圍取用 RU/秒上限**下輸送量，以確保您的資料分割索引鍵範圍一致的方式取用。 適用於 Azure SQL DB，監視**記錄 IO**並**CPU**。
 
 ## <a name="get-help"></a>取得說明
+
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟

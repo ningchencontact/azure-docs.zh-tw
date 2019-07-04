@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588013"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449332"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -224,6 +224,8 @@ Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者�
 - 您正在計劃一個會大幅增加網路流量的病毒式事件。
 
 - 有心人士威脅要針對您的資源發動 DDoS 攻擊。
+
+- 如果您從 Azure DDoS Protection Standard 需要列入白名單 IP 或 IP 範圍。 如果流量依序傳遞至 Azure 外部的雲端 WAF 白名單 IP 是常見的案例。 
 
 對於會對業務造成重大影響的攻擊，請建立嚴重性 A 的[支援票證](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546409"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441573"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
@@ -35,7 +35,7 @@ ms.locfileid: "65546409"
 本概觀說明關於如何 ISE 可讓您的 logic apps 的更多詳細資料，並整合帳戶直接存取您的 Azure 虛擬網路，並比較 ISE 和全域的 Logic Apps 服務之間的差異。
 
 > [!NOTE]
-> Logic apps、 內建的觸發程序、 內建動作和執行 ISE 使用定價方案的耗用量為基礎的定價方案從不同的連接器。 如需詳細資訊，請參閱 [Logic Apps 定價](../logic-apps/logic-apps-pricing.md)。
+> Logic apps、 內建的觸發程序、 內建動作和執行 ISE 使用定價方案的耗用量為基礎的定價方案從不同的連接器。 如需詳細資訊，請參閱 [Logic Apps 定價](../logic-apps/logic-apps-pricing.md)。 您的 ISE 也增加了限制上執行的持續時間、 儲存體保留期、 輸送量、 HTTP 要求和回應逾時、 訊息大小，以及自訂連接器的要求。 如需詳細資訊，請參閱 <<c0> [ 限制和設定適用於 Azure Logic Apps](logic-apps-limits-and-config.md)。
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ ISE 與非 ISE 連接器的差異是觸發與動作執行的位置：
 
   ![選取 ISE 連接器](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+ISE 也提供更高的限制執行持續時間、 儲存體保留期、 輸送量、 HTTP 要求和回應逾時、 訊息大小，以及自訂連接器的要求。 如需詳細資訊，請參閱 <<c0> [ 限制和設定適用於 Azure Logic Apps](logic-apps-limits-and-config.md)。
+
 ### <a name="access-to-on-premises-data-sources"></a>在內部部署資料來源的存取權
 
 對於連線到 Azure 虛擬網路的內部部署系統，ISE 插入該網路，因此您的邏輯應用程式可以直接存取這些系統，使用任何這些項目：
 
 * 該系統，例如，SQL Server 的 ISE 版本連接器
-  
 * HTTP 動作
-  
 * 自訂連接器
 
   * 如果您有需要則內部部署資料閘道的自訂連接器，您建立這些外部 ISE 的連接器，在 ISE 中的邏輯應用程式也可以使用這些連接器。

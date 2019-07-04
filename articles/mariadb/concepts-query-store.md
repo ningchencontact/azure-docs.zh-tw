@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 9016fa159e868f649901928cdf2dca2f08725e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: 883f780059e38c53dedda309dd059cc714539f80
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079388"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462095"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>使用查詢存放區的 MariaDB 效能進行監視的 Azure 資料庫
 
 **適用於：**  10.2 的 MariaDB 的 Azure 資料庫
 
 > [!NOTE]
-> 查詢存放區處於預覽狀態。 在 Azure 入口網站支援查詢存放區正推出，並可能尚無法在您的區域。
+> 查詢存放區處於預覽狀態。
 
 適用於 Mariadb 的 Azure 資料庫中的查詢存放區功能可用來追蹤一段時間的查詢效能。 查詢存放區可協助您快速找到執行時間最長又最耗資源的查詢，簡化效能疑難排解。 查詢存放區會自動擷取查詢的歷程記錄和執行階段統計資料，並予以保留以供您檢閱。 依時間範圍區分資料，以便查看資料庫使用模式。 針對所有使用者、 資料庫和查詢的資料會儲存在**mysql** MariaDB 的執行個體的 Azure 資料庫中的結構描述資料庫。
 
@@ -29,10 +29,6 @@ ms.locfileid: "67079388"
 - 偵測迴歸的查詢
 - 判斷查詢在指定時間範圍內的執行次數
 - 跨時間範圍比較查詢的平均值行時間，查看大幅差異
-- 識別在過去 X 小時中執行最久的查詢
-- 識別等候資源的前 N 項查詢
-- 了解查詢的等候本質。
-- 資源等候和資源爭用所在的了解趨勢
 
 ## <a name="enabling-query-store"></a>啟用查詢存放區
 

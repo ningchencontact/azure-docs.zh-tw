@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303412"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449962"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -26,7 +26,8 @@ Azure 檔案同步代理程式支援下列版本：
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
 | V7 發行- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 年 6 月 19日日 | [試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| 2019 年 6 月更新彙總套件- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 年 6 月 13日日 | 支援 (建議的版本) |
+| 2019 年 6 月更新彙總套件- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 年 6 月 27日日 | 支援 (建議的版本) |
+| 2019 年 6 月更新彙總套件- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 年 6 月 13日日 | 支援 |
 | 2019 年更新彙總套件- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 5 月 7日日 | 支援 |
 | V6 發行- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 年 4 月 21日日 | 支援 |
 | 2019 年 4 月更新彙總套件- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 年 4 月 4日日 | 支援 |
@@ -113,6 +114,14 @@ Azure 檔案同步代理程式支援下列版本：
 ### <a name="cloud-tiering"></a>雲端階層處理
 - 如果使用 Robocopy 將階層式檔案複製到另一個位置，則所產生的檔案不會進行階層處理。 因為 Robocopy 未正確地在複製作業中包含該屬性，所以可能設定離線屬性。
 - 使用 robocopy 複製檔案時，請使用 /MIR 選項來保留檔案的時間戳記。 這可確保較舊的檔案會比最近存取的檔案更快進行階層處理。
+
+## <a name="agent-version-6300"></a>代理程式版本 6.3.0.0
+下列版本資訊適用於 6.3.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 6 月 27 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。
+
+此版本修正的問題清單：  
+- 存取，或瀏覽透過 SMB 的伺服器端點位置變慢上 Windows Server 2012 R2 
+- 安裝 Azure 檔案同步 v6 代理程式之後增加的 CPU 使用率
+- 雲端階層處理遙測改善
 
 ## <a name="agent-version-6200"></a>代理程式版本 6.2.0.0
 下列版本資訊適用於 6.2.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 6 月 13 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。

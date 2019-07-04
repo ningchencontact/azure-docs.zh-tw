@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023391"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491461"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>解決 Azure 訂用帳戶的逾期未付帳款
 
@@ -34,7 +34,7 @@ ms.locfileid: "66023391"
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>解析逾期資產負債在 Azure 入口網站中
 
 1. 登入[Azure 入口網站](https://portal.azure.com)為帳戶管理員。
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋**成本管理 + 計費**。
 1. 在 [概觀] 頁面中，您會看到一份您訂用帳戶。 如果您的訂用帳戶狀態逾期未付帳款，請按一下**支付餘額**連結。
     ![螢幕擷取畫面，顯示選定平衡連結](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. 總計的未付餘額會反映使用失敗的付款方法的所有 Microsoft 服務未償費用。

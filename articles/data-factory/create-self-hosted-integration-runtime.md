@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190827"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446227"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -74,7 +74,7 @@ ms.locfileid: "67190827"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 支援的作業系統版本包括 Windows 7 Service Pack 1、Windows 8.1、Windows 10、Windows Server 2008 R2 SP1、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016。 不支援在網域控制站上安裝自我裝載整合執行階段。
+- 支援的作業系統版本是 Windows 7 Service Pack 1、 Windows 8.1，Windows 10，Windows Server 2008 R2 SP1，Windows Server 2012、 Windows Server 2012 R2、 Windows Server 2016 和 Windows Server 2019。 不支援在網域控制站上安裝自我裝載整合執行階段。
 - 必須要有 .NET Framework 4.6.1 或更新版本。 如果您要在 Windows 7 電腦上安裝自我裝載整合執行階段，必須安裝 .NET Framework 4.6.1 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](/dotnet/framework/get-started/system-requirements) 。
 - 建議的自我裝載整合執行階段電腦組態為至少 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 - 如果主機電腦休眠，自我裝載整合執行階段不會回應資料要求。 因此，安裝自我裝載整合執行階段之前，請先在電腦上設定適當的電源計劃。 如果電腦已設定為休眠，安裝自我裝載整合執行階段時會提示訊息。

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a56006e5209a8ff6c15a2c626a752c00fcf131e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243912"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509183"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -124,7 +124,7 @@ ms.locfileid: "66243912"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**SapEccSource** | 是 |
-| query | 用來篩選資料的 OData 查詢選項。 Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：(連結服務中指定的 URL)/(資料集中指定的路徑)?(複製活動來源中指定的查詢)。 請參考 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) \(英文\)。 | 否 |
+| query | 用來篩選資料的 OData 查詢選項。 Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 連接器會將資料複製從合併的 URL: `(url specified in linked service)/(path specified in dataset)?(query specified in copy activity source)`。 請參考 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/) \(英文\)。 | 否 |
 
 **範例：**
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065777"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514034"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -24,6 +24,57 @@ ms.locfileid: "67065777"
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
+
+
+## <a name="2019-07-01"></a>2019-07-01
+
+### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning 資料準備 SDK v1.1.7
+
+因為時會造成問題的一些使用 Azure Databricks 的客戶，我們就會還原更佳的效能，變更。 如果您遇到的問題，在 Azure Databricks 上時，您可以升級至版本 1.1.7 使用其中一種下列方法：
+1. 執行此指令碼來升級： `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. 重新建立叢集，這將會安裝最新的資料準備 SDK 版本。
+
+## <a name="2019-06-25"></a>2019-06-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine Learning SDK for Python v1.0.45
+
++ **新功能**
+  + 加入決策樹 surrogate 模型來模擬在 azureml 說明模型封裝中的說明
+  + 指定在推斷映像上安裝 CUDA 版本的能力。 CUDA 9.0、 9.1 和 10.0 的支援。
+  + 基底映像現在已推出 Azure ML 訓練的相關資訊[Azure ML 容器 GitHub 儲存機制](https://github.com/Azure/AzureML-Containers)和[DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + 已新增的 CLI 支援管線的排程。 若要了解更多執行"az ml 管線-h"
+  + 加入 AKS web 服務部署組態和 CLI 的自訂 Kubernetes 命名空間參數。
+  + 管線的所有步驟的已被取代的 hash_paths 參數
+  + Model.register 現在支援註冊多個個別的檔案，即使用單一模型`child_paths`參數。
+  
++ **預覽功能**
+    + 評分 explainers 現在可以選擇性地儲存 conda 並 pip 更可靠的序列化和還原序列化的資訊。
+    + 自動功能選取器的錯誤修正。
+    + 已更新至新的 api，新的實作所公開的修補 bug mlflow.azureml.build_image。
+
++ **重大變更**
+
++ **Bug 修正和增強功能**
+  + 從 azureml 核心移除的 paramiko 相依性。 新增的取代舊版的計算目標的警告會附加方法。
+  + 改善效能的 run.create_children
+  + 在模擬使用二元分類器的詳細說明，修正老師機率是用來進行調整 shap 值的機率的順序
+  + 改良的錯誤處理和自動化機器學習服務的訊息。 
+  + 已修正自動化機器學習服務的反覆項目逾時問題。
+  + 改善自動 machine learning 時間序列轉換效能。
+
+## <a name="2019-06-24"></a>2019-06-24
+
+### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning 資料準備 SDK v1.1.6
+
++ **新功能**
+  + 新增彙總函數的上界值 (`SummaryFunction.TOPVALUES`) 下方的值 (`SummaryFunction.BOTTOMVALUES`)。
+
++ **Bug 修正和增強功能**
+  + 大幅改善的效能`read_pandas_dataframe`。
+  + 已修正的錯誤，造成`get_profile()`上資料流程指向二進位檔案失敗。
+  + 公開`set_diagnostics_collection()`允許以程式設計方式啟用/停用遙測收集。
+  + 變更的行為， `get_profile()`。 NaN 值現在會忽略最小值、 平均值、 標準和加總，與 Pandas 的行為一致。
+
 
 ## <a name="2019-06-10"></a>2019-06-10
 
@@ -38,7 +89,6 @@ ms.locfileid: "67065777"
     + STL featurizer 預測
     + KMeans 叢集都可使用功能掃掠
   + AmlCompute 配額核准就變得更快 ！ 我們現在已自動核准您的配額要求的臨界值內的程序。 如需有關配額的運作方式的詳細資訊，了解[如何管理配額](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas)。
- 
 
 + **預覽功能**
     + 與整合[MLflow](https://mlflow.org)透過 azureml mlflow 套件追蹤 1.0.0 ([中的範例筆記本](https://aka.ms/azureml-mlflow-examples))。

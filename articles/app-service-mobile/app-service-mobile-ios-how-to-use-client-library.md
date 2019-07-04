@@ -3,7 +3,7 @@ title: 如何使用適用於 Azure Mobile Apps 的 iOS SDK
 description: 如何使用適用於 Azure Mobile Apps 的 iOS SDK
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,24 +11,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122450"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440395"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南說明如何使用最新的 [Azure Mobile Apps iOS SDK][1] 執行常見案例。 如果您是 Azure Mobile Apps 的新手，請先完成 [Azure Mobile Apps 快速啟動] 以建立後端、建立資料表及下載預先建置的 iOS Xcode 專案。 在本指南中，我們會著重於用戶端 iOS SDK。 若要深入了解後端的伺服器端 SDK，請參閱伺服器 SDK 做法。
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library)今天。
+>
+
+## <a name="overview"></a>概觀
+本指南說明如何執行一般案例，使用最新[Azure Mobile Apps iOS SDK][1]。 如果您是 Azure Mobile Apps 的新手，請先完成 [Azure Mobile Apps 快速啟動] 以建立後端、建立資料表及下載預先建置的 iOS Xcode 專案。 在本指南中，我們會著重於用戶端 iOS SDK。 若要深入了解後端的伺服器端 SDK，請參閱伺服器 SDK 做法。
 
 ## <a name="reference-documentation"></a>參考文件
 
-iOS 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps iOS 用戶端參考資料][2]。
+iOS 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps iOS 用戶端參考][2]。
 
 ## <a name="supported-platforms"></a>支援的平台
 
@@ -435,7 +440,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 使用自訂 API，您可以公開任何後端功能。 它不必對應至資料表作業。 您不僅能進一步控制訊息，甚至還可以讀取或設定標頭，並變更回應內文格式。 若要了解如何在後端上建立自訂 API，請閱讀 [自訂 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-若要呼叫自訂 API，請呼叫 `MSClient.invokeAPI`。 要求和回應內容會被視為 JSON。 若要使用其他媒體類型，[請使用 `invokeAPI`] 的其他多載[5]。  若要進行 `GET` 要求而不是 `POST` 要求，請將參數 `HTTPMethod` 設為 `"GET"`，以及將參數 `body` 設為 `nil` (因為 GET 要求沒有訊息內文)。如果您的自訂 API 支援其他 HTTP 動詞命令，請適當地變更 `HTTPMethod`。
+若要呼叫自訂 API，請呼叫 `MSClient.invokeAPI`。 要求和回應內容會被視為 JSON。 若要使用其他媒體類型，[使用的其他多載`invokeAPI` ][5]。  若要進行 `GET` 要求而不是 `POST` 要求，請將參數 `HTTPMethod` 設為 `"GET"`，以及將參數 `body` 設為 `nil` (因為 GET 要求沒有訊息內文)。如果您的自訂 API 支援其他 HTTP 動詞命令，請適當地變更 `HTTPMethod`。
 
 **Objective-C**：
 
@@ -510,13 +515,13 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-所有標記都將因安全性而移除。  若要將標籤新增至安裝中或安裝內的範本，請參閱[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK][4]。  若要使用這些已註冊的範本來傳送通知，請使用[通知中樞 API][3]。
+所有標記都將因安全性而移除。  若要在安裝中將標記新增至安裝或範本，請參閱 [使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK][4]。  若要傳送通知使用這些已註冊的範本，請使用[通知中樞 Api][3]。
 
 ## <a name="errors"></a>操作說明：處理錯誤
 
 呼叫 Azure App Service行動後端時，completion 區塊會包含 `NSError` 參數。 發生錯誤時，此參數便會傳回非 Nil。 您應檢查程式碼中的此參數，並視需要處理錯誤，如上述的程式碼片段所示。
 
-檔案 [`<WindowsAzureMobileServices/MSError.h>`][6] 定義常數 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey`。 若要取得與錯誤相關的詳細資料︰
+檔案[ `<WindowsAzureMobileServices/MSError.h>` ][6]定義常數`MSErrorResponseKey`， `MSErrorRequestKey`，和`MSErrorServerItemKey`。 若要取得與錯誤相關的詳細資料︰
 
 **Objective-C**：
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 相較於使用 `loginWithProvider:completion:` 方法，較建議使用身分識別提供者 SDK 的用戶端流程驗證。  用戶端流程驗證能提供較原生的 UX 風格，並允許進行其他自訂。
 
-1. 依照[如何設定 App Service 來進行 Active Directory 登入][7]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。 若是 iOS，我們建議採用 `<app-scheme>://<bundle-id>` 形式的重新導向 URI。 如需詳細資訊，請參閱 [ADAL iOS 快速入門][8]。
+1. 依照 [如何設定 App Service 來進行 Active Directory 登入][7] 教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。 若是 iOS，我們建議採用 `<app-scheme>://<bundle-id>` 形式的重新導向 URI。 如需詳細資訊，請參閱 < [ADAL iOS 快速入門][8]。
 2. 使用 Cocoapods 安裝 ADAL。 編輯您的 Podfile 以納入下列定義，並以您的 Xcode 專案名稱取代 **YOUR-PROJECT** ：
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 您可以使用 Facebook SDK for iOS，利用 Facebook 將使用者登入應用程式。  相較於使用 `loginWithProvider:completion:` 方法，較建議使用用戶端流程驗證。  用戶端流程驗證能提供較原生的 UX 風格，並允許進行其他自訂。
 
-1. 依照[如何設定 App Service 來進行 Facebook 登入][9]教學課程的說明，設定您的行動應用程式後端來進行 Facebook 登入。
-2. 依照 [Facebook SDK for iOS - 開始使用][10]文件來安裝 Facebook SDK for iOS。 您可以在現有註冊中新增 iOS 平台，而不必建立應用程式。
+1. 依照下列設定進行 Facebook 登入您的行動裝置應用程式後端[如何設定 App Service 來進行 Facebook 登入][9]教學課程。
+2. 依照安裝 Facebook SDK for iOS [Facebook SDK for iOS-開始使用][10]文件。 您可以在現有註冊中新增 iOS 平台，而不必建立應用程式。
 3. Facebook 的文件包含應用程式委派中的某些 Objective-C 程式碼。 如果您要使用 **Swift**，您可以使用 AppDelegate.swift 的下列轉譯：
 
     ```swift

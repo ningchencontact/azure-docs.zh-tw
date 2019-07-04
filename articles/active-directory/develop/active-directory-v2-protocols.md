@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417660"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482994"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft 身分識別平台通訊協定
 
@@ -36,7 +36,7 @@ Microsoft 身分識別平台服務的端點身分識別-為-a-使用業界標準
 
 幾乎在所有的 OAuth 2.0 和 OpenID Connect 流程中，都有四個參與交換的合作對象：
 
-![OAuth 2.0 角色](./media/active-directory-v2-flows/protocols-roles.svg)
+![此圖顯示的 OAuth 2.0 角色](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * **授權伺服器**是 Microsoft 的身分識別平台端點，以及負責確保使用者的身分識別，授與和撤銷資源存取權，以及發出權杖。 授權伺服器也稱為識別提供者：安全地處理與使用者資訊、使用者存取權，以及流程中合作對象彼此間信任關係有關的任何項目。
 * **資源擁有者**通常是使用者。 其是擁有資料的一方，而且有權允許第三方存取該資料或資源。

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: 364d4a11772e6bb72e2e258503f3cce49dc61453
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174674"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476262"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取權檢閱
 
@@ -25,7 +25,7 @@ ms.locfileid: "67174674"
 
 1. 設定 [開始日期]  。 根據預設，存取權檢閱會在其建立的相同時間開始，並在一個月後結束。 您可以將存取權檢閱的開始和結束日期變更為未來，並持續任何天數。
 
-    ![建立存取權檢閱 - 開始和結束日期](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
+    ![開始日期、 頻率、 持續時間、 結束、 的次數，和結束日期](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
 1. 若要讓存取權檢閱重複發生，請變更**頻率**從設定**一次**來**每週**，**每月**， **每季**，**每年**，或**半 annually**。 使用**持續時間**滑桿或文字的方塊，以定義多少天後，每個檢閱的週期性的序列將會開啟從檢閱者的輸入。 例如，您可以為每月檢閱設定的最長持續期間為 27 天，以避免重疊的檢閱。
 
@@ -33,22 +33,22 @@ ms.locfileid: "67174674"
 
 1. 在 **使用者**區段中，選取您想要檢閱的成員資格的一或多個角色。
 
-    ![建立存取權檢閱-使用者](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![若要檢閱的角色成員資格的使用者範圍](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
     > 選取一個以上的角色，會建立多個存取權檢閱。 例如，選取 5 個角色，會建立五個不同的存取權檢閱。
 
     如果您要建立 Azure AD 角色的存取權檢閱，以下顯示檢閱成員資格清單的範例。
 
-    ![建立存取權檢閱-檢閱角色成員資格](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![您可以選取檢閱列出 Azure AD 角色的成員資格](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
     如果您要建立 Azure 資源角色的存取權檢閱，以下顯示檢閱成員資格清單的範例。
 
-    ![建立存取權檢閱-檢閱角色成員資格](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![您可以選取檢閱列出的 Azure 資源角色的成員資格](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
 1. 在 **檢閱者**區段中，選取一或多人以檢閱所有使用者。 或者，您可以選擇讓成員檢閱自己的存取權。
 
-    ![建立存取權檢閱 - 檢閱者](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![檢閱者清單中選取的使用者或成員 （自我）](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **選取的使用者**-使用此選項，如果您不知道誰需要存取權。 使用此選項，您可以指派資源擁有者或群組管理員完成檢閱。
     - **（本身） 的成員**-使用此選項可讓使用者檢閱自己的角色指派。
@@ -57,7 +57,7 @@ ms.locfileid: "67174674"
 
 1. 若要指定檢閱完成後所應執行的動作，請展開 [完成時的設定]  區段。
 
-    ![完成時的設定](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![完成時自動設定會套用，而應該檢閱回應](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. 如果您想要對遭拒絕的使用者自動移除存取權，請將 [自動將結果套用至資源]  設為 [啟用]  。 如果您想要在檢閱完成時手動套用結果，請將開關設為 [停用]  。
 
@@ -72,7 +72,7 @@ ms.locfileid: "67174674"
 
 1. 若要指定其他設定，請展開 [進階設定]  區段。
 
-    ![進階設定](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![如需顯示建議的進階的設定需要核准、 郵件通知與提醒的原因](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. 將 [顯示建議]  設為 [啟用]  ，會向檢閱者顯示系統根據使用者的存取資訊所做的建議。
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707985"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433724"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -21,7 +21,7 @@ ms.locfileid: "64707985"
 
 叢集複寫會使用來源推入方法。 HBase 叢集可以是來源、目的地，或可同時滿足兩個角色。 複寫不是同步進行。 複寫的目標最終會一致。 如果來源在複寫啟用時接收到資料行系列的編輯，該編輯會傳播到所有目的地叢集。 當資料從一個叢集複寫到另一個時，會追蹤來源叢集和已取用資料的所有叢集，以避免複寫迴圈。
 
-在本教學課程中，您會設定來源與目的地之間的複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](https://hbase.apache.org/book.html#_cluster_replication)。
+在本文中，您會將設定來源目的地複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](https://hbase.apache.org/book.html#_cluster_replication)。
 
 以下是適用於單一虛擬網路的 HBase 複寫使用案例︰
 
@@ -39,7 +39,7 @@ ms.locfileid: "64707985"
 您可以從 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication) 使用[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)指令碼複寫叢集。
 
 ## <a name="prerequisites"></a>必要條件
-開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+開始閱讀本文之前，您必須有 Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ## <a name="set-up-the-environments"></a>設定環境
 
@@ -68,7 +68,7 @@ ms.locfileid: "64707985"
 
 | 屬性 | 值 |
 |----------|-------|
-| 位置 | 美國西部 |
+| Location | 美國西部 |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet1 |
 | 位址空間首碼 | 10.1.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -85,7 +85,7 @@ ms.locfileid: "64707985"
 
 | 屬性 | 值 |
 |----------|-------|
-| 位置 | 美國東部 |
+| Location | East US |
 | VNet 名稱 | &lt;ClusterNamePrevix>-vnet2 |
 | 位址空間首碼 | 10.2.0.0/16 |
 | 子網路名稱 | subnet 1 |
@@ -301,7 +301,7 @@ sudo service bind9 status
 
 必要的引數︰
 
-|Name|描述|
+|名稱|描述|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|Name|描述|
+|名稱|描述|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
@@ -396,7 +396,7 @@ sudo service bind9 status
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何在虛擬網路內或兩個虛擬網路之間設定 Apache HBase 複寫。 若要深入了解 HDInsight 與 Apache HBase，請參閱下列文章：
+在本文中，您已了解如何設定虛擬網路內或兩個虛擬網路之間的 Apache HBase 複寫。 若要深入了解 HDInsight 與 Apache HBase，請參閱下列文章：
 
 * [開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache HBase 概觀](./apache-hbase-overview.md)

@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 5cd88eeb2016a90a95f0e54a334eb3c88cb75744
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078738"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461729"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>監視 Azure Database for MySQL 效能，使用查詢存放區
 
 **適用於：**  適用於 MySQL 5.7 的 Azure 資料庫
 
 > [!NOTE]
-> 查詢存放區處於預覽狀態。 在 Azure 入口網站支援查詢存放區正推出，並可能尚無法在您的區域。
+> 查詢存放區處於預覽狀態。
 
 查詢存放區中的功能適用於 MySQL 的 Azure 資料庫提供追蹤一段時間的查詢效能的方法。 查詢存放區可協助您快速找到執行時間最長又最耗資源的查詢，簡化效能疑難排解。 查詢存放區會自動擷取查詢的歷程記錄和執行階段統計資料，並予以保留以供您檢閱。 依時間範圍區分資料，以便查看資料庫使用模式。 針對所有使用者、 資料庫和查詢的資料會儲存在**mysql** Azure Database for MySQL 執行個體中的結構描述資料庫。
 
@@ -29,10 +29,6 @@ ms.locfileid: "67078738"
 - 偵測迴歸的查詢
 - 判斷查詢在指定時間範圍內的執行次數
 - 跨時間範圍比較查詢的平均值行時間，查看大幅差異
-- 識別在過去 X 小時中執行最久的查詢
-- 識別等候資源的前 N 項查詢
-- 了解查詢的等候本質。
-- 資源等候和資源爭用所在的了解趨勢
 
 ## <a name="enabling-query-store"></a>啟用查詢存放區
 

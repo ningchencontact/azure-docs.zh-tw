@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cccfb749af07d1deeeda6e94de9c2cd5ce5396f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428648"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Azure 搜尋服務的 OData 運算式語法參考
 
-Azure 搜尋服務會使用[OData 運算式](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html)作為整個 API 的參數。 OData 運算式用於大多數情況下，`$orderby`和`$filter`參數。 這些運算式可能很複雜，其中包含多個子句、 函數和運算子的。 不過，甚至是簡單的 OData 運算式，例如 Azure 搜尋服務 REST API 的許多地方使用路徑的屬性。 比方說，路徑運算式用來參考的複雜的欄位，隨處在 API 中，例如當列出子欄位中的子欄位[建議工具](index-add-suggesters.md)，則[計分函數](index-add-scoring-profiles.md)，則`$select`參數或甚至[Lucene 查詢中加入欄位的搜尋](query-lucene-syntax.md)。
+Azure 搜尋服務會使用[OData 運算式](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html)作為整個 API 的參數。 OData 運算式用於大多數情況下，`$orderby`和`$filter`參數。 這些運算式可能很複雜，其中包含多個子句、 函數和運算子的。 不過，甚至是簡單的 OData 運算式，例如 Azure 搜尋服務 REST API 的許多地方使用路徑的屬性。 比方說，路徑運算式用來參考的複雜的欄位，隨處在 API 中，例如當列出子欄位中的子欄位[建議工具](index-add-suggesters.md)，則[計分函數](index-add-scoring-profiles.md)，則`$select`參數或甚至[Lucene 查詢中加入欄位的搜尋](query-lucene-syntax.md)。
 
 本文說明所有這些形式的 OData 運算式使用正式文法。 另外還有[互動式圖表](#syntax-diagram)協助以視覺化方式探索文法。
 

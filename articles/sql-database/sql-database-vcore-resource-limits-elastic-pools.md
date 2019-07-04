@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447173"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用以虛擬核心為基礎的購買模型的彈性集區資源限制
 
@@ -36,6 +36,9 @@ ms.locfileid: "66240347"
 > 彈性集區中個別資料庫的資源限制通常與集區外部具有相同計算大小的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層級：儲存體大小與計算大小
+
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層級：第 4 代計算平台 (第 1 部分)
 
@@ -149,6 +152,9 @@ ms.locfileid: "66240347"
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層級：儲存體大小與計算大小
+
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層級：第 4 代計算平台 (第 1 部分)
 

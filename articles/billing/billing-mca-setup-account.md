@@ -1,8 +1,6 @@
 ---
-title: 設定您的帳單帳戶，Microsoft 客戶合約-Azure |Microsoft Docs
+title: 設定您的帳單帳戶，Microsoft 客戶合約-Azure
 description: 了解如何設定您的帳單帳戶，Microsoft 客戶協議。
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,23 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919159"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490685"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>設定您的帳單帳戶，Microsoft 客戶協議
 
-如果您的 Enterprise 合約註冊已過期或即將到期，您可以登入 Microsoft 的客戶合約，更新您的註冊。 更新包含下列步驟：
+如果您的 Enterprise 合約註冊已過期或即將到期，您可以登入 Microsoft 的客戶合約，更新您的註冊。 這篇文章說明您現有的計費，在安裝之後所做的變更，並逐步引導您安裝新的計費帳戶。 更新包含下列步驟：
 
 1. 接受新的 Microsoft 客戶合約。 使用您的 Microsoft 欄位代表了解詳細資料，並接受新的協議。
 2. 設定新的計費帳戶建立新的 Microsoft 客戶協議。
-
-這篇文章說明您現有的計費，在安裝之後所做的變更，並逐步引導您安裝新的計費帳戶。
 
 若要設定帳單帳戶，您必須從您的 Enterprise 合約註冊轉換 Azure 訂用帳戶的計費到新的帳戶。 安裝程式不會影響您的訂用帳戶中執行的 Azure 服務。 不過，它會變更您要管理您的訂用帳戶的計費方式。
 
@@ -45,7 +41,7 @@ ms.locfileid: "64919159"
 - **了解您帳單的階層架構的變更**
   - 您新的計費帳戶的組織方式與您的 Enterprise 合約註冊。 [了解您帳單的階層，在新的帳戶中的變更](#understand-changes-to-your-billing-hierarchy)。
 - **了解對您計費系統管理員的存取**
-  - 從您的 Enterprise 合約註冊的系統管理員取得計費的範圍中的新帳戶的存取權。[了解其存取權變更](#understand-changes-to-your-billing-administrators-access)。
+  - 從您的 Enterprise 合約註冊的系統管理員取得計費的範圍中的新帳戶的存取權。[了解其存取權變更](#changes-to-billing-administrator-access)。
 - **檢視 Enterprise 合約功能所取代的新帳戶**
   - 檢視 Enterprise 合約註冊會在新的帳戶中的功能所取代的功能。
 - **檢視最常見的問題的解答**
@@ -55,7 +51,7 @@ ms.locfileid: "64919159"
 
 若要完成安裝程式，您需要下列存取：
 
-- Microsoft 客戶合約已簽署時所建立的帳單設定檔的擁有者。 若要深入了解計費的設定檔，請參閱[了解計費的設定檔](billing-mca-overview.md#understand-billing-profiles)。
+- Microsoft 客戶合約已簽署時所建立的帳單設定檔的擁有者。 若要深入了解計費的設定檔，請參閱[了解計費的設定檔](billing-mca-overview.md#billing-profiles)。
 
 - 更新註冊的企業系統管理員。
 
@@ -87,12 +83,12 @@ ms.locfileid: "64919159"
 
 ![Ea-mca-post-轉換-階層的映像](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. 您可以使用計費的帳戶來管理您的 Microsoft 客戶協議的計費。 若要深入了解帳單帳戶，請參閱[了解帳單帳戶](billing-mca-overview.md#understand-billing-account)。
-2. 您可以使用計費的設定檔來為您的組織，類似於您的 Enterprise 合約註冊管理計費。 企業系統管理員會成為擁有者的帳單的設定檔。 若要深入了解計費的設定檔，請參閱[了解計費的設定檔](billing-mca-overview.md#understand-billing-profiles)。
-3. 您可以使用 [發票] 區段來組織您根據需求，類似於您的 Enterprise 合約註冊中的部門的成本。 部門變成發票區段和部門系統管理員發揮各自的發票區段的擁有者。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#understand-invoice-sections)。
+1. 您可以使用計費的帳戶來管理您的 Microsoft 客戶協議的計費。 若要深入了解帳單帳戶，請參閱[了解帳單帳戶](billing-mca-overview.md#your-billing-account)。
+2. 您可以使用計費的設定檔來為您的組織，類似於您的 Enterprise 合約註冊管理計費。 企業系統管理員會成為擁有者的帳單的設定檔。 若要深入了解計費的設定檔，請參閱[了解計費的設定檔](billing-mca-overview.md#billing-profiles)。
+3. 您可以使用 [發票] 區段來組織您根據需求，類似於您的 Enterprise 合約註冊中的部門的成本。 部門變成發票區段和部門系統管理員發揮各自的發票區段的擁有者。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#invoice-sections)。
 4. 您的 Enterprise 合約中所建立的帳戶並不支援新的計費帳戶。 帳戶的訂用帳戶隸屬於其系所的個別發票區段。 帳戶擁有者可以建立和管理訂用帳戶，其 「 發票 」 章節。
 
-## <a name="understand-changes-to-your-billing-administrators-access"></a>了解對您計費系統管理員的存取
+## <a name="changes-to-billing-administrator-access"></a>變更計費系統管理員存取權
 
 根據其存取權，您的 Enterprise 合約註冊的計費系統管理員會取得新的帳戶上計費的範圍的存取權。 下表將說明在安裝期間存取的變更：
 
@@ -110,7 +106,7 @@ ms.locfileid: "64919159"
 
 當您邀請的使用者時，他們會以來賓使用者身分加入租用戶，並取得計費帳戶的存取權。 若要邀請的使用者，來賓存取權必須開啟租用戶。 如需詳細資訊，請參閱 <<c0> [ 控制 Azure Active Directory 中的來賓存取](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)。 如果來賓存取已關閉，請連絡全域系統管理員，您的租用戶將它開啟。 <!-- Todo - How can they find their global administrator -->
 
-## <a name="view-features-replaced-by-the-new-billing-account"></a>檢視新的計費帳戶被取代的功能
+## <a name="view-replaced-features"></a>檢視已取代的功能
 
 以下的 Enterprise 合約功能會取代 Microsoft 的客戶合約中的計費帳戶的新功能。
 
@@ -197,7 +193,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
    ![顯示的轉換狀態的螢幕擷取畫面](./media/billing-mca-setup-account/ea-mca-set-up-status.png)
 
-## <a name="validate-the-billing-account-is-set-up-properly"></a>驗證的計費帳戶已正確設定
+## <a name="validate-billing-account-set-up"></a>驗證設定帳單帳戶
 
  驗證以確保您新的計費帳戶已正確設定下列各項：
 
@@ -205,7 +201,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋**成本管理 + 計費**。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -221,7 +217,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋**成本管理 + 計費**。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -241,7 +237,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋**成本管理 + 計費**。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +253,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋**成本管理 + 計費**。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)上也提供本文中使用的原始碼。
 

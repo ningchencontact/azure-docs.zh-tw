@@ -3,17 +3,17 @@ title: 如何使用 Azure IoT 中樞裝置佈建服務的自動佈建向 IoT 中
 description: 如何使用 Azure IoT 中樞裝置佈建服務的自動佈建向 IoT 中樞註冊 MXChip IoT DevKit。
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c809077b0ec14240d231e9b281285080f68596b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122807"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439494"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中樞裝置佈建服務的自動佈建向 IoT 中樞註冊 MXChip IoT DevKit
 
@@ -30,7 +30,7 @@ ms.locfileid: "62122807"
 
 若要完成本教學課程中的步驟，請先執行下列工作：
 
-* 設定您的 DevKit Wi-fi 及準備您的開發環境中的步驟[將 IoT DevKit az3166 連線到 Azure IoT 中樞，在雲端中](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)。
+* 設定您的 DevKit Wi-fi 並備妥的下列 「 準備開發環境 」 一節中的步驟，您的開發環境[將 IoT DevKit az3166 連線到 Azure IoT 中樞，在雲端中](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)。
 * 利用[更新 DevKit 韌體](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)教學課程，升級至最新的韌體 (1.3.0 或更新版本)。
 * 遵循[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](/azure/iot-dps/quick-setup-auto-provision)中的步驟，建立 IoT 中樞並將其與裝置佈建服務執行個體連結。
 

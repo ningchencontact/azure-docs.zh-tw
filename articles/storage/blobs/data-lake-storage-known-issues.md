@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: daf9199104047f714d568bd2796490b836243952
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061325"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443241"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -57,7 +57,6 @@ Blob 儲存體 Api 會停用，以避免可能發生因為 Blob 儲存體 Api �
 | **AzCopy** | 特定版本的支援 <br><br>使用最新版的 AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json))。 不支援例如 AzCopy v8.1，舊版的 AzCopy。|
 | **Azure Blob 儲存體生命週期管理原則** | 尚不支援 |
 | **Azure 內容傳遞網路 (CDN)** | 尚不支援|
-| **事件格線** | 尚不支援 |
 | **Azure 搜尋服務** |尚不支援|
 | **Azure 儲存體總管** | 特定版本的支援 <br><br>使用唯一版本`1.6.0`或更高版本。 <br>版本`1.6.0`可從[免費下載](https://azure.microsoft.com/features/storage-explorer/)。|
 | **Blob 容器的 Acl** |尚不支援|

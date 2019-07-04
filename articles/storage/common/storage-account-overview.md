@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754997"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443763"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -68,7 +68,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 區塊 blob 儲存體帳戶目前不支援經常性存取、 非經常性存取或封存存取層級階層處理。
 
-### <a name="filestorage-preview-storage-accounts"></a>FileStorage （預覽） 的儲存體帳戶
+### <a name="filestorage-storage-accounts"></a>FileStorage 儲存體帳戶
 
 FileStorage 儲存體帳戶是專門的儲存體帳戶，用來儲存及建立進階檔案共用。 FileStorage 儲存體帳戶會提供專用的唯一效能特性，例如 IOPS 負載平衡。 如需有關這些特性的詳細資訊，請參閱 <<c0> [ 檔案共用效能層級](../files/storage-files-planning.md#file-share-performance-tiers)planning guide 》 中的檔案區段。
 
@@ -88,7 +88,7 @@ FileStorage 儲存體帳戶是專門的儲存體帳戶，用來儲存及建立�
 
 區塊 blob 儲存體帳戶提供 premium 效能層級，用於儲存區塊 blob 和附加 blob。
 
-FileStorage （預覽） 的儲存體帳戶會提供 Azure 檔案共用的進階效能層級。
+FileStorage 儲存體帳戶會提供 Azure 檔案共用的進階效能層級。
 
 ## <a name="access-tiers-for-block-blob-data"></a>區塊 blob 資料的存取層
 

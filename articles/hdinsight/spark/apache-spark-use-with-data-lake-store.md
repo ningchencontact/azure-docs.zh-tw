@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 203f704862c4cbcef58d7ef902380c1dbbf00076
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 5a98cb2356c25329e091514dd1d6181dfc2690be
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137084"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448646"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage Gen1 中的資料
 
-在本教學課程中，您可以使用 HDInsight Spark 叢集提供的 [Jupyter Notebook](https://jupyter.org/) \(英文\)，來執行可從 Data Lake Storage 帳戶讀取資料的作業。
+在本文中，您可以使用[Jupyter Notebook](https://jupyter.org/)適用於 HDInsight Spark 叢集，以執行一個作業以從 Data Lake 儲存體帳戶讀取資料。
 
 ## <a name="prerequisites"></a>必要條件
 

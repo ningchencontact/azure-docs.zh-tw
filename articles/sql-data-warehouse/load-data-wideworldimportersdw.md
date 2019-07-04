@@ -1,6 +1,6 @@
 ---
 title: 教學課程：將資料載入 Azure SQL 資料倉儲 | Microsoft Docs
-description: 教學課程使用 Azure 入口網站和 SQL Server Management Studio，將 WideWorldImportersDW 資料倉儲從公用 Azure Blob 載入 Azure SQL 資料倉儲中。
+description: 教學課程使用 Azure 入口網站和 SQL Server Management Studio，將 WideWorldImportersDW 資料倉儲從全球的 Azure blob 複製到 Azure SQL 資料倉儲。
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242914"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461855"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入到 Azure SQL 資料倉儲
 
@@ -38,7 +38,7 @@ ms.locfileid: "66242914"
 
 開始本教學課程之前，請下載並安裝最新版的 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -72,7 +72,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
     | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 | 
     | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。|
     | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
-    | **位置** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
+    | **Location** | 任何有效位置 | 如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
 
     ![建立資料庫伺服器](media/load-data-wideworldimportersdw/create-database-server.png)
 
@@ -158,7 +158,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 4. 按一下 [ **連接**]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
 
-5. 在 [物件總管] 中，展開 [資料庫]  。 然後展開 [系統資料庫]  和 [主要資料庫]  來檢視主要資料庫中的物件。  展開 [mySampleDatabase]  可檢視新資料庫中的物件。
+5. 在 [物件總管] 中，展開 [資料庫]  。 然後展開 [系統資料庫]  和 [主要資料庫]  來檢視主要資料庫中的物件。  依序展開**SampleDW**若要檢視您的新資料庫中的物件。
 
     ![資料庫物件](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 您已準備好開始將資料載入新資料倉儲的程序。 如需日後參考，要了解如何將您的資料置於 Azure Blob 儲存體，或直接從您的來源將資料載入 SQL 資料倉儲，請參閱[載入概觀](sql-data-warehouse-overview-load.md)。
 
-執行下列 SQL 指令碼可指定您要載入之資料的相關資訊。 這項資訊包括資料所在位置、資料內容的格式，以及資料的資料表定義。 此資料位於公用 Azure Blob。
+執行下列 SQL 指令碼可指定您要載入之資料的相關資訊。 這項資訊包括資料所在位置、資料內容的格式，以及資料的資料表定義。 將資料放在全域 Azure Blob。
 
 1. 在上一節中，您以 LoaderRC60 身分登入您的資料倉儲。 在 SSMS 中，以滑鼠右鍵按一下 LoaderRC60 連線底下的 [SampleDW]  ，然後選取 [新增查詢]  。  新的查詢視窗隨即開啟。 
 
@@ -231,7 +231,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     CREATE MASTER KEY;
     ```
 
-4. 執行下列 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 陳述式來定義 Azure blob 的位置。 這是外部計程車資料的位置。  若要執行您已附加到查詢視窗中的命令，請反白顯示您需要執行的命令，然後按一下 [執行]  。
+4. 執行下列 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 陳述式來定義 Azure blob 的位置。 這是外部世界各地的匯入工具資料的位置。  若要執行您已附加到查詢視窗中的命令，請反白顯示您需要執行的命令，然後按一下 [執行]  。
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     );
     ```
 
-8. 在 [物件總管] 中，展開 [SampleDW] 可查看您剛才建立的外部資料表清單。
+8. 在 [物件總管] 中，展開 [sampledw] 可查看您所建立的外部資料表清單。
 
     ![檢視外部資料表](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>將資料載入資料倉儲
 
-本節會使用您剛定義的外部資料表，將範例資料從 Azure Blob 載入 SQL 資料倉儲中。  
+本節會使用您從 Azure Blob 的範例資料載入到 SQL 資料倉儲定義的外部資料表。  
 
 > [!NOTE]
 > 本教學課程會將資料直接載入最終資料表。 在生產環境中，您通常會使用 CREATE TABLE AS SELECT 來載入暫存資料表。 當資料位於暫存資料表時，您可以執行任何必要的轉換。 若要將暫存資料表中的資料附加至生產資料表，您可以使用 INSERT...SELECT 陳述式。 如需詳細資訊，請參閱[將資料插入生產資料表中](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
@@ -554,7 +554,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 指令碼會使用 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 陳述式，將資料從 Azure 儲存體 Blob 載入資料倉儲中的新資料表。 CTAS 會以 select 陳述式的結果作為基礎，建立新的資料表。 新的資料表擁有和 select 陳述式結果相同的資料行和資料類型。 當 select 陳述式從外部資料表選取時，SQL 資料倉儲會將資料匯入資料倉儲中的關聯式資料表。 
 
-此指令碼不會將資料載入到 wwi.dimension_Date 和 wwi.fact_Sales 資料表。 這些資料表會在稍後的步驟中產生，以便讓資料表擁有相當多的資料列。
+此指令碼不會載入到 wwi.dimension_Date 和 wwi.fact_Sale 資料表的資料。 這些資料表會在稍後的步驟中產生，以便讓資料表擁有相當多的資料列。
 
 1. 執行下列指令碼，將資料載入資料倉儲中的新資料表。
 
@@ -750,7 +750,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>建立資料表和程序來產生日期和銷售資料表
 
-本節會建立 wwi.dimension_Date 和 wwi.fact_Sales 資料表。 它也會建立可以在 wwi.dimension_Date 和 wwi.fact_Sales 資料表中產生數百萬個資料列的預存程序。
+本節會建立 wwi.dimension_Date 和 wwi.fact_Sale 資料表。 它也會建立可以在 wwi.dimension_Date 和 wwi.fact_Sale 資料表中產生數百萬個資料列的預存程序。
 
 1. 建立 dimension_Date 和 fact_Sale 資料表。  
 
@@ -893,7 +893,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     DROP table #days;
     END;
     ```
-4. 建立這個會填入 wwi.dimension_Date 和 wwi.fact_Sales 資料表的預存程序。 它會呼叫 [wwi].[PopulateDateDimensionForYear] 來填入 wwi.dimension_Date。
+4. 建立這個會填入 wwi.dimension_Date 和 wwi.fact_Sale 資料表的程序。 它會呼叫 [wwi].[PopulateDateDimensionForYear] 來填入 wwi.dimension_Date。
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     ```
 
 ## <a name="generate-millions-of-rows"></a>產生數百萬個資料列
-使用您建立的預存程序在 wwi.fact_Sales 資料表中產生數百萬個資料列，並在 wwi.dimension_Date 資料表中產生對應資料。 
+使用您建立用來在 wwi.fact_Sale 資料表，並在 wwi.dimension_Date 資料表中對應的資料中產生數百萬個資料列的預存程序。 
 
 
 1. 執行此程序以在 [wwi].[seed_Sale] 植入更多資料列。
@@ -958,7 +958,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. 執行此程序，針對西元 2000 年的每一天，為 wwi.fact_Sales 填入資料列 (每天 100,000 個)。
+2. 執行此程序來填入 wwi.fact_Sale 與每日於 2000 年，每一天的 100,000 個資料列。
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1098,7 @@ SQL 資料倉儲會藉由將資料快取到每個計算節點來複寫資料表�
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停計算。 暫停計算時，您只需支付資料儲存體的費用，並在您準備好要使用資料時，隨時繼續計算。 若要暫停計算，請按一下 [暫停]  按鈕。 資料倉儲暫停時，您會看到 [啟動]  按鈕。  若要繼續計算，請按一下 [啟動]  。
+2. 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停計算。 藉由暫停計算，您只會針對資料儲存體的費用，和您已準備好使用資料時，您可以繼續計算。 若要暫停計算，請按一下 [暫停]  按鈕。 資料倉儲暫停時，您會看到 [啟動]  按鈕。  若要繼續計算，請按一下 [啟動]  。
 
 3. 如果您需要移除未來的費用，可以將資料倉儲刪除。 若要移除資料倉儲而不再支付運算或儲存體的費用，請按一下 [刪除]  。
 

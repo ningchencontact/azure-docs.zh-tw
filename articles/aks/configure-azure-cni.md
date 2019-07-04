@@ -7,20 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441968"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
-根據預設，AKS 叢集會使用 [kubenet][kubenet]，並為您建立虛擬網路和子網路。 使用 *kubenet*，節點會從虛擬網路子網路取得 IP 位址。 接著會在節點上設定網路位址轉譯 (NAT)，而 Pod 會接收「隱藏」於節點 IP 後面的 IP 位址。 此方法可減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
+根據預設，AKS 叢集會使用[kubenet][kubenet]，並為您建立的虛擬網路和子網路。 使用 *kubenet*，節點會從虛擬網路子網路取得 IP 位址。 接著會在節點上設定網路位址轉譯 (NAT)，而 Pod 會接收「隱藏」於節點 IP 後面的 IP 位址。 此方法可減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
-使用 [Azure 容器網路介面 (CNI)][cni-networking]，每個 Pod 都會從子網路取得 IP 位址，並且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大型子網路中重建叢集。
+具有[Azure 容器網路介面 (CNI)][cni-networking]，每個 pod 從子網路取得 IP 位址，而且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大型子網路中重建叢集。
 
-本文示範如何使用 *Azure CNI* 網路，針對 AKS 叢集建立和使用虛擬網路子網路。 如需網路選項與考量的詳細資訊，請參閱 [Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
+本文示範如何使用 *Azure CNI* 網路，針對 AKS 叢集建立和使用虛擬網路子網路。 如需有關網路選項和考量的詳細資訊，請參閱 < [Kubernetes 和 AKS 網路概念][aks-network-concepts]。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -79,7 +79,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 > [!NOTE]
 > 上表中的最小值是會嚴格強制執行 AKS 服務。 您可以設定 maxPods 值低於最小值顯示為這樣做可以讓叢集無法啟動。
 
-* **Azure CLI**：當您使用 [az aks create][ az-aks-create] 命令部署叢集時，請指定 `--max-pods` 引數。 最大值為 250。
+* **Azure CLI**：指定`--max-pods`當您部署的叢集時的引數[az aks 建立][az-aks-create]命令。 最大值為 250。
 * **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。 最大值為 250。
 * **Azure 入口網站**︰當您使用 Azure 入口網站部署叢集時，您無法變更每一節點的 Pod 數目上限。 使用 Azure 入口網站進行部署時，Azure CNI 網路叢集限制為每一節點 30 個 Pod。
 
@@ -95,14 +95,14 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 
 **子網路**：虛擬網路內要用來部署叢集的子網路。 如果您要在虛擬網路中為叢集建立新的子網路，請選取 [新建]  並遵循＜建立子網路＞  一節中的步驟。 混合式連線的位址範圍不應該與您環境中的任何其他虛擬網路重疊。
 
-**Kubernetes 服務位址範圍**：這是 Kubernetes 指派給您叢集中內部[服務][services]的一組虛擬 IP。 您可以使用任何符合下列需求的私人位址範圍：
+**Kubernetes 服務位址範圍**：這是 Kubernetes 會指派給內部的虛擬 Ip 組[services][services]叢集中。 您可以使用任何符合下列需求的私人位址範圍：
 
 * 不得在叢集的虛擬網路 IP 位址範圍內
 * 不得與叢集虛擬網路對等的任何其他虛擬網路重疊
 * 不得與任何內部部署 IP 重疊
 * 不得在範圍內`169.254.0.0/16`， `172.30.0.0/16`， `172.31.0.0/16`，或 `192.0.2.0/24`
 
-雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][services]。
+雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 < [Services][services] Kubernetes 文件中。
 
 **Kubernetes DNS 服務 IP 位址**：叢集 DNS 服務的 IP 位址。 此位址必須位於 Kubernetes 服務位址範圍  內。 請勿使用您位址範圍中的第一個 IP 位址，例如 .1。 您子網路範圍內的第一個位址會用於 kubernetes.default.svc.cluster.local  位址。
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-使用 [az aks create][az-aks-create] 命令搭配 `--network-plugin azure` 參數來建立具備進階網路功能的叢集。 使用在上一個步驟中收集的子網路識別碼來更新 `--vnet-subnet-id` 值：
+使用[az aks 建立][az-aks-create]命令搭配`--network-plugin azure`引數，以使用進階的網路功能建立叢集。 使用在上一個步驟中收集的子網路識別碼來更新 `--vnet-subnet-id` 值：
 
 ```azurecli-interactive
 az aks create \
@@ -178,15 +178,15 @@ az aks create \
 
 - [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
 - [啟用 HTTP 應用程式路由附加元件][aks-http-app-routing]
-- [建立使用內部私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
-- [使用動態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-tls]
-- [使用靜態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-static-tls]
+- [建立會使用內部的私人網路和 IP 位址輸入控制器][aks-ingress-internal]
+- [使用動態公用 IP 建立輸入控制器，並設定 let 's Encrypt 來自動產生的 TLS 憑證][aks-ingress-tls]
+- [建立具有靜態公用 IP 的輸入控制器，並設定 let 's Encrypt 來自動產生的 TLS 憑證][aks-ingress-static-tls]
 
 ### <a name="aks-engine"></a>AKS 引擎
 
-[Azure Kubernetes Service 引擎 (AKS 引擎)][aks-engine] 是一個開放原始碼專案，會產生 Azure Resource Manager 範本供您用於在 Azure 上部署 Kubernetes 叢集。
+[Azure Kubernetes 服務引擎 （AKS 引擎）][aks-engine]是開放原始碼專案，會產生可用來部署 Azure 上的 Kubernetes 叢集的 Azure Resource Manager 範本。
 
-使用 AKS 引擎所建立的 Kubernetes 叢集同時支援 [kubenet][kubenet] 和 [Azure CNI][cni-networking] 外掛程式。 因此，這兩個網路案例都會受到 AKS 引擎支援。
+建立與 AKS 引擎的 Kubernetes 叢集可支援這兩種[kubenet][kubenet] and [Azure CNI][cni-networking]外掛程式。 因此，這兩個網路案例都會受到 AKS 引擎支援。
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -211,3 +211,4 @@ az aks create \
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[network-comparisons]: concepts-network.md#compare-network-models

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391427"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457258"
 ---
 暫時的 OS 磁碟是本機的虛擬機器 (VM) 儲存體上建立，並不會保存到遠端的 Azure 儲存體。 暫時的 OS 磁碟適用於無狀態工作負載，其中的應用程式可容忍的個別 VM 失敗，但關心更大規模的部署所花費的時間或時間來重新安裝映像個別的 VM 執行個體。 它也適合用於部署的應用程式，使用傳統部署模型中，移至 Resource Manager 部署模型。 使用暫時性 OS 磁碟時，您會發現 OS 磁碟的讀寫延遲較低，而重新安裝 VM 映像的速度較快。 此外，暫時的作業系統磁碟是免費，您需要支付在 OS 磁碟沒有儲存體費用。 
  

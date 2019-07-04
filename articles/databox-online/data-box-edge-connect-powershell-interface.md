@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448635"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>管理透過 Windows PowerShell 的 Azure 資料方塊的邊緣裝置
 
@@ -52,8 +52,9 @@ Azure 資料方塊邊緣解決方案可讓您處理資料，並透過網路傳�
 下列範例會示範這個指令程式可安裝 IoT Edge 憑證的使用方式：
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+當您執行這個指令程式時，系統會提示您提供網路共用的密碼。
 
 如需有關憑證的詳細資訊，請移至[Azure IoT Edge 憑證](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs)或是[閘道上安裝憑證](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)。
 
@@ -75,13 +76,12 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
     下列範例會示範這個指令程式的使用方式：
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     以下是此指令程式所使用的參數的描述：
     - `Path`:提供您想要用來建立計算記錄檔封裝的共用網路路徑。
-    - `Credential`:提供網路共用的使用者名稱和密碼。
-    - `RoleInstanceName`:提供此字串`IotRole`此參數。
+    - `Credential`:提供網路共用的使用者名稱。 當您執行這個指令程式時，您必須提供共用密碼。
     - `FullLogCollection`:此參數可確保記錄檔封裝將包含所有計算記錄檔。 根據預設，記錄檔封裝只包含一部分的記錄檔。
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>監視和疑難排解計算模組

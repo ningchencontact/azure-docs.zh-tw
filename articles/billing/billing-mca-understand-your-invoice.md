@@ -1,39 +1,36 @@
 ---
-title: 了解您的 Microsoft 客戶合約發票 |Microsoft Docs
-description: 了解如何閱讀並了解 MCA 帳單
-services: ''
-documentationcenter: ''
-author: jureid
+title: 了解在 Azure 中的 Microsoft 客戶合約發票
+description: 了解如何閱讀並了解您在 Azure 中的 Microsoft 客戶合約帳單
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fed658d3f672d6116d7c2b0f3e2e9ad989dd67c6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604031"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490646"
 ---
-# <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>了解您的 Microsoft 客戶合約發票上的字詞
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>在您的 Microsoft 客戶合約發票的條款
 
-這篇文章適用於計費的帳戶 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
+這篇文章適用於 Azure 的計費帳戶的 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
 
 發票會提供您的費用和付款指示的摘要。 您可以從 [Azure 入口網站](https://portal.azure.com/)下載可攜式文件格式 (.pdf) 的發票，或可透過電子郵件傳送。 如需詳細資訊，請參閱 <<c0> [ 檢視並下載您的 Microsoft Azure 發票](billing-download-azure-invoice.md)。
 
-<!-- ## When am I billed?
+## <a name="billing-period"></a>計費期間
 
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
+您會以每月為基礎的發票。 您可以找出您藉由檢查接收發票的月份的哪一天*發票日期*下方計費中的設定檔屬性[Azure 入口網站](https://portal.azure.com/)。 因為在下一個計費週期也就是下個月的發票，已包含在計費週期結束和發票日期之間進行的費用。 計費週期開始和結束日期的每筆發票詳列於上述的 PDF 發票**帳單摘要**。
 
 ## <a name="invoice-terms-and-descriptions"></a>發票字詞和描述
 
-下列各節列出您在看到您的發票和描述每個詞彙的重要詞彙。
+下列各節的清單中的重要字詞在發票上看到，並提供描述每個詞彙。
 
 ### <a name="invoice-summary"></a>發票摘要
 
@@ -78,7 +75,6 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 
 應付總額的每個服務系列的計算方式是減去*Azure 信用額度*從*信用額度/費用*並加入*稅務*:
 
-<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![發票區段的詳細資料](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
@@ -103,9 +99,9 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 

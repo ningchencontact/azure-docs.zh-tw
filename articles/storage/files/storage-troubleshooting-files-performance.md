@@ -1,6 +1,6 @@
 ---
 title: Azure 檔案效能疑難排解指南
-description: 已知的進階 Azure 檔案共用 （預覽） 與相關聯的因應措施的效能問題。
+description: 已知的 Azure 檔案共用與相關聯的因應措施的效能問題。
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190043"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445661"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>針對 Azure 檔案服務的效能問題進行疑難排解
 
-本文列出一些常見的問題與 premium Azure 檔案共用 （預覽）。 它提供可能的原因和因應措施時遇到這些問題。
+本文列出一些常見的問題與 Azure 檔案共用。 它提供可能的原因和因應措施時遇到這些問題。
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>高延遲、 低的輸送量和一般的效能問題
 
 ### <a name="cause-1-share-experiencing-throttling"></a>原因 1：共用發生節流
 
-在共用上的預設配額是 100 GiB，提供 100 基準 IOPS （可能高達 300 載到 1 小時）。 如需有關佈建和其 IOPS 的關聯性的詳細資訊，請參閱 <<c0> [ 佈建共用](storage-files-planning.md#provisioned-shares)規劃指南的區段。
+在 進階共用上的預設配額是 100 GiB，提供 100 基準 IOPS （可能高達 300 載到 1 小時）。 如需有關佈建和其 IOPS 的關聯性的詳細資訊，請參閱 <<c0> [ 佈建共用](storage-files-planning.md#provisioned-shares)規劃指南的區段。
 
 若要確認您的共用會進行節流處理，您可以在入口網站中利用 Azure 計量。
 
@@ -39,7 +39,7 @@ ms.locfileid: "65190043"
 
 1. 選取 **交易**做為計量。
 
-1. 新增的篩選條件**ResponseType**和任何要求是否有回應碼的核取**SuccessWithThrottling**。
+1. 新增的篩選條件**ResponseType**和任何要求是否有回應碼的核取**SuccessWithThrottling** （適用於 SMB) 或**ClientThrottlingError** （適用於 REST)。
 
 ![進階檔案共用的度量選項](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ ms.locfileid: "65190043"
 
 ### <a name="cause"></a>原因
 
-用戶端 VM 可以位於與 premium 檔案共用不同的區域。
+用戶端 VM 可以位於與檔案共用不同的區域。
 
 ### <a name="solution"></a>解決方法
 
-- 從 VM 位於與 premium 檔案共用相同的區域中執行應用程式。
+- 從 VM 位於與檔案共用相同的區域中執行應用程式。
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>用戶端無法達到網路支援的最大輸送量
 
@@ -121,6 +121,10 @@ ms.locfileid: "65190043"
 
 - 升級至 CentOS 8 / RHEL 8。
 - 變更到 Ubuntu。
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>從 Linux 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
+
+如果您遇到緩慢的檔案複製到和從 Azure 檔案，看看[緩慢檔案複製在 Linux 中的 Azure 檔案來回](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux)Linux 疑難排解一節引導。
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>IOPS 的抖動/saw tooth 模式
 

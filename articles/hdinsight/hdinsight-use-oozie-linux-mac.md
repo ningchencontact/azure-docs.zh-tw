@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142820"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433424"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -26,7 +26,7 @@ ms.locfileid: "65142820"
 您也可以使用 Oozie 來排程系統的特定作業，例如 Java 程式或 Shell 指令碼。
 
 > [!NOTE]  
-> 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。 若要深入了解 Data Factory，請參閱 [將 Apache Pig 和 Apache Hive 與 Data Factory 搭配使用][azure-data-factory-pig-hive]。 若要在使用企業安全性套件的叢集上使用 Oozie，請參閱[在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)。
+> 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。 若要深入了解 Data Factory，請參閱[使用 Apache Pig 和 Hive 與 Data Factory 的 Apache][azure-data-factory-pig-hive]。 若要在使用企業安全性套件的叢集上使用 Oozie，請參閱[在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -56,10 +56,10 @@ ms.locfileid: "65142820"
 
     如需有關 Hive 的詳細資訊，請參閱[將 Apache Hive 與 HDInsight 搭配使用][hdinsight-use-hive]。
 
-2. Sqoop 動作會將新的 Hive 資料表內容匯出至 Azure SQL Database 中建立的資料表。 如需 Sqoop 的詳細資訊，請參閱[將 Apache Sqoop 與 HDInsight 搭配使用][hdinsight-use-sqoop]。
+2. Sqoop 動作會將新的 Hive 資料表內容匯出至 Azure SQL Database 中建立的資料表。 如需 Sqoop 的詳細資訊，請參閱[使用 Apache Sqoop 與 HDInsight][hdinsight-use-sqoop]。
 
 > [!NOTE]  
-> 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 提供之 Hadoop 叢集版本中的新增功能][hdinsight-versions]。
+> 支援在 HDInsight 叢集上的 Oozie 版本，請參閱 <<c0> [ 什麼是 HDInsight 所提供 Hadoop 叢集版本的新][hdinsight-versions]。
 
 ## <a name="create-the-working-directory"></a>建立工作目錄
 
@@ -127,7 +127,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 
    * `${hiveDataFolder}`:包含要儲存資料表之資料檔案的位置。
 
-     工作流程定義檔 (在此教學課程中為 workflow.xml) 會在執行階段將這些值傳遞至此 HiveQL 指令碼。
+     工作流程定義檔，workflow.xml，在本文中，會將這些值傳遞至此 HiveQL 指令碼，在執行階段。
 
 4. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。  
 
@@ -708,12 +708,12 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何定義 Oozie 工作流程，以及如何執行 Oozie 工作。 若要深入了解如何使用 HDInsight，請參閱下列文章：
+在本文中，您已了解如何定義 Oozie 工作流程，以及如何執行 Oozie 工作。 若要深入了解如何使用 HDInsight，請參閱下列文章：
 
-* [在 HDInsight 中上傳 Apache Hadoop 作業的資料][hdinsight-upload-data]
-* [在 HDInsight 中將 Apache Sqoop 與 Apache Hadoop 搭配使用][hdinsight-use-sqoop]
-* [在 HDInsight 上將 Apache Hive 與 Apache Hadoop 搭配使用][hdinsight-use-hive]
-* [在 HDInsight 上將 Apache Pig 與 Apache Hadoop 搭配使用][hdinsight-use-pig]
+* [在 HDInsight 中的 Apache Hadoop 工作的資料上傳][hdinsight-upload-data]
+* [在 HDInsight 中使用 Apache Sqoop 搭配 Apache Hadoop][hdinsight-use-sqoop]
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive][hdinsight-use-hive]
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563

@@ -10,36 +10,44 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2196e375db582202997b838d05c902db95b3a3ad
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331712"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461477"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
 深入了解架構、 概念和 Azure Machine Learning 服務的工作流程。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
 
-[![Azure Machine Learning 服務架構與工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning 服務的架構和工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>工作流程
 
-機器學習服務工作流程通常會遵循此順序：
+機器學習服務模型工作流程時，通常會遵循這個順序：
 
-1. 開發機器學習服務訓練中的指令碼**Python**或透過視覺化介面。
-1. 建立並設定**計算目標**。
-1. **提交指令碼**至設定的計算目標以在該環境中執行。 在訓練期間，可以從**資料存放區**讀取或寫入指令碼。 而執行的記錄會在**工作區**中儲存為**執行**，並歸類在**實驗**之下。
-1. **查詢實驗**取得目前和過去回合的記錄計量。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
-1. 找到令人滿意的回合之後，請在**模型登錄**中註冊保存的模型。
-1. 開發使用模型的評分指令碼並**部署模型**作為**web 服務**在 Azure 中，或**IoT Edge 裝置**。
+1. **訓練**
+    + 開發機器學習服務訓練中的指令碼**Python**或透過視覺化介面。
+    + 建立並設定**計算目標**。
+    + **提交指令碼**至設定的計算目標以在該環境中執行。 在訓練期間，可以從**資料存放區**讀取或寫入指令碼。 而執行的記錄會在**工作區**中儲存為**執行**，並歸類在**實驗**之下。
 
-您執行這些步驟，使用下列其中一項：
-+ [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code 擴充功能](how-to-vscode-tools.md)
-+  [Azure Machine Learning 服務的視覺化介面 （預覽）](ui-concept-visual-interface.md)
+1. **封裝**-之後找到令人滿意的執行，則註冊中的持續性的模型**模型登錄**。
 
+1. **驗證** - **查詢實驗**從目前和過去的執行記錄計量。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
+
+1. **部署**-開發使用模型的評分指令碼並**部署模型**作為**web 服務**在 Azure 中，或**IoT Edge 裝置**。
+
+1. **監視**-監視**資料漂移**之間部署的模型定型資料集和推斷資料。 如有必要，回到步驟 1 重新定型模型使用新的訓練資料。
+
+## <a name="tools-for-azure-machine-learning"></a>適用於 Azure Machine Learning 的工具 
+
+適用於 Azure Machine Learning 中使用這些工具：
+
++  在任何 Python 環境中與服務互動[適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。
++ 自動化您的機器學習活動[Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)。
++ 使用 Visual Studio Code 中撰寫程式碼[Azure Machine Learning VS Code 延伸模組](how-to-vscode-tools.md) 
++ 使用[視覺化介面 （預覽） Azure Machine Learning 服務](ui-concept-visual-interface.md)無須撰寫程式碼執行的工作流程步驟。
 
 ## <a name="glossary-of-concepts"></a>名詞解釋的概念
 

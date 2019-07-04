@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277167"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457260"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 的下列限制僅適用於網路資源，透過管理**Azure Resource Manager**每個訂用帳戶每區域。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -75,7 +75,7 @@ ms.locfileid: "67277167"
 
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
-| 虛擬網路 |50 |100 |
+| 虛擬網路 |100 |100 |
 | 區域網路網站 |20 |請連絡支援人員。 |
 | 每個虛擬網路的 DNS 伺服器 |20 |20 |
 | 每個虛擬網路的私人 IP 位址 |4,096 |4,096 |
@@ -84,8 +84,8 @@ ms.locfileid: "67277167"
 | 每一 NSG 的 NSG 規則 |1,000 |1,000 |
 | 使用者定義的路由表 |200 |200 |
 | 使用者定義的路由，每個路由表 |400 |400 |
-| 公用 IP 位址 (動態) |5 |請連絡支援人員 |
-| 保留的公用 IP 位址 |20 |請連絡支援人員 |
+| 公用 IP 位址 (動態) |500 |500 |
+| 保留的公用 IP 位址 |500 |500 |
 | 每個部署的公用 VIP |5 |請連絡支援人員 |
 | 每個部署私人 VIP （內部負載平衡） |1 |1 |
 | 端點存取控制清單 (Acl) |50 |50 |

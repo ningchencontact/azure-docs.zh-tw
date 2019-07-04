@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753052"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443957"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>探索及準備資料的資料集類別 （預覽）
 
 了解如何探索及準備資料中的資料集的 azureml 封裝[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。 [資料集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)類別 （預覽） 可讓您探索及準備您的資料，例如提供函式： 取樣、 摘要統計資料和智慧型的轉換。 轉換步驟就會存入[資料集定義](how-to-manage-dataset-definitions.md)高度可調整的方式處理不同的結構描述的多個大型檔案的能力。
 
 > [!Important]
-> 某些資料集類別 （預覽） 有相依性[azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)封裝 (GA)。 雖然轉換函式可以直接使用 GA'ed[資料準備函式](how-to-transform-data.md)，我們建議您在本文中所述，如果您要建立新方案的資料集封裝包裝函式。 Azure Machine Learning 資料集 （預覽） 可讓您不只將您的資料，但也[快照集資料](how-to-create-dataset-snapshots.md)並儲存[建立版本的資料集定義](how-to-manage-dataset-definitions.md)。 資料集是資料準備 SDK 中，供應項目擴充的功能管理 AI 解決方案中的資料集的下一個版本。
+> 某些資料集類別 （預覽） 有相依性[azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)封裝 (GA)。 雖然轉換函式可以直接使用 GA'ed[資料準備函式](how-to-transform-data.md)，我們建議您在本文中所述，如果您要建立新方案的資料集封裝包裝函式。 Azure Machine Learning 資料集 （預覽） 可讓您不只將您的資料，但也[快照集資料](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py)並儲存[建立版本的資料集定義](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)。 資料集是資料準備 SDK 中，供應項目擴充的功能管理 AI 解決方案中的資料集的下一個版本。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|案例編號|Date|區塊|IUCR|主要類型|...|
+||id|案例編號|Date|區塊|IUCR|主要類型|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|詐騙的作法|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|案例編號|Date|區塊|IUCR|主要類型|...|
+||id|案例編號|Date|區塊|IUCR|主要類型|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S 沙加緬度 AVE|1154|詐騙的作法|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|案例編號|Date|區塊|IUCR|主要類型|...|
+||id|案例編號|Date|區塊|IUCR|主要類型|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|遭竊|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|遭竊|...
@@ -119,7 +119,7 @@ dataset.get_profile()
 
 ||類型|Min|max|Count|遺漏計數|未遺漏計數|遺漏百分比|錯誤計數|空白計數|0.1% 分位數|1% 分位數|5% 分位數|25% 分位數|50% 分位數|75% 分位數|95% 分位數|99% 分位數|99.9% 分位數|平均值|標準差|Variance|偏度|峰度
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 案例編號|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 區塊|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -140,7 +140,7 @@ Year|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2
 更新日期|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 緯度|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
 經度|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-位置|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
+Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>插補遺漏值
 
@@ -162,7 +162,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(3)
 ```
 
-||ID|阻止| 緯度|經度|
+||id|阻止| 緯度|經度|
 -|---------|-----|---------|----------|
 |0|10498554|False|41.692834|-87.604319|
 |1|10516598|False| 41.744107 |-87.664494|
@@ -215,7 +215,7 @@ ds_def.head(3)
 
 使用下列的輸出資料表所示，遺失的緯度已插補`MEAN`的值`Arrest==False`群組，以及遺失的經度已插補-87 使用。
 
-||ID|阻止|緯度|經度
+||id|阻止|緯度|經度
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
 1|10516598|False|41.744107|-87.664494
@@ -228,7 +228,7 @@ dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(3)
 ```
 
-||ID|阻止|緯度|經度
+||id|阻止|緯度|經度
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
 1|10516598|False|41.744107|-87.664494
@@ -258,7 +258,7 @@ ds_def.get_profile()
 
 ||類型|Min|max|Count|遺漏計數|未遺漏計數|遺漏百分比|錯誤計數|空白計數|0.1% 分位數|1% 分位數|5% 分位數|25% 分位數|50% 分位數|75% 分位數|95% 分位數|99% 分位數|99.9% 分位數|平均值|標準差|Variance|偏度|峰度
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 阻止|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 緯度|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1.05
 經度|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|案例編號|Date|區塊|...|
+||id|案例編號|Date|區塊|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 下表中，請注意，新的資料行，Date_Time_Range 包含指定之格式的記錄。
 
-||ID|Date|Date_Time_Range
+||id|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10PM-12AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 4PM-6PM
@@ -376,8 +376,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## <a name="next-steps"></a>後續步驟
-
-* [管理資料集定義的生命週期](how-to-manage-dataset-definitions.md)。
 
 * 將自動化的機器學習[教學課程](tutorial-auto-train-models.md)迴歸模型範例。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303920"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449859"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -183,6 +183,12 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 - 進行中的重複資料刪除最佳化工作，針對雲端階層處理日期原則將取得延遲，重複資料刪除[MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定，如果檔案已經不會分層。 
     - 範例：如果將 MinimumFileAgeDays 設定為 7 天雲端階層處理日期原則是 30 天，原則將 37 天後層檔案的日期。
     - 注意：一旦檔案已分層的 Azure 檔案同步，重複資料刪除最佳化工作會略過檔案。
+- 如果已安裝 Azure 檔案同步代理程式執行 Windows Server 2012 R2 的伺服器已升級至 Windows Server 2016 或 Windows Server 2019，則必須以支援重複資料刪除和雲端階層處理相同的磁碟區上執行下列步驟：  
+    - 解除安裝 Windows Server 2012 R2 的 Azure 檔案同步代理程式，並重新啟動伺服器。
+    - 下載新的伺服器作業系統版本 （Windows Server 2016 或 Windows Server 2019） 的 Azure 檔案同步代理程式。
+    - 安裝 Azure 檔案同步代理程式，並重新啟動伺服器。  
+    
+    注意：解除安裝並重新安裝代理程式時，會保留在伺服器上的 Azure 檔案同步組態設定。
 
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
 Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。
@@ -255,7 +261,7 @@ Azure 檔案同步僅於下列區域提供：
 | 印度中部 | 浦那 |
 | 美國中部 | 愛荷華州 |
 | 東亞 | 香港特別行政區 |
-| 美國東部 | 維吉尼亞州 |
+| East US | 維吉尼亞州 |
 | 美國東部 2 | 維吉尼亞州 |
 | 南韓中部| 首爾 |
 | 南韓南部| 斧山 |
@@ -296,7 +302,7 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 印度中部       | 印度南部        |
 | 美國中部          | 美國東部 2          |
 | 東亞           | 東南亞     |
-| 美國東部             | 美國西部            |
+| East US             | 美國西部            |
 | 美國東部 2           | 美國中部         |
 | 日本東部          | 日本西部         |
 | 日本西部          | 日本東部         |
@@ -314,7 +320,7 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 美國政府維吉尼亞州      | 美國政府德克薩斯州       |
 | 西歐         | 北歐       |
 | 美國中西部     | 美國西部 2          |
-| 美國西部             | 美國東部            |
+| 美國西部             | East US            |
 | 美國西部 2           | 美國中西部    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則

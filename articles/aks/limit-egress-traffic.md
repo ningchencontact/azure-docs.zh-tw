@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752189"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441930"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>預覽-限制輸出流量的叢集節點和控制存取權所需的連接埠和服務在 Azure Kubernetes Service (AKS)
 
@@ -30,19 +30,22 @@ ms.locfileid: "66752189"
 
 您需要 Azure CLI 2.0.66 版或更新版本安裝並設定。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
-若要建立的 AKS 叢集，可能會限制輸出流量，請先啟用您訂用帳戶的功能旗標。 此功能註冊會設定任何您要使用的基本系統從 MCR 或 ACR 的容器映像建立的 AKS 叢集。 若要註冊*AKSLockingDownEgressPreview*功能旗標，請使用[az 功能註冊][ az-feature-register]命令，在下列範例所示：
+若要建立的 AKS 叢集，可能會限制輸出流量，請先啟用您訂用帳戶的功能旗標。 此功能註冊會設定任何您要使用的基本系統從 MCR 或 ACR 的容器映像建立的 AKS 叢集。 若要註冊*AKSLockingDownEgressPreview*功能旗標，請使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+
+> [!CAUTION]
+> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以藉由檢查註冊狀態[az 功能清單][ az-feature-list]命令：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以藉由檢查註冊狀態[az 功能清單][az-feature-list]命令：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register] [ az-provider-register]命令：
+準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -54,7 +57,7 @@ az provider register --namespace Microsoft.ContainerService
 
 若要增加您的 AKS 叢集的安全性，您可能想要限制輸出流量。 叢集已設定為提取基底的系統從 MCR 或 ACR 的容器映像。 如果您鎖定的輸出流量，以這種方式時，您必須定義特定連接埠，以便正確地與所需的外部服務進行通訊的 AKS 節點的 Fqdn。 如果沒有這些授權的連接埠和 Fqdn，AKS 節點無法與 API 伺服器通訊，或安裝核心元件。
 
-您可以使用[Azure 防火牆][ azure-firewall]或第 3 方防火牆應用裝置來保護您的輸出流量，並定義這些必要連接埠和位址。 AKS 不會自動建立這些規則，以供您。 下列連接埠和位址適合參考，當您在網路防火牆中建立適當的規則。
+您可以使用[Azure 防火牆][azure-firewall]或第 3 方防火牆應用裝置來保護您的輸出流量，並定義這些必要連接埠和位址。 AKS 不會自動建立這些規則，以供您。 下列連接埠和位址適合參考，當您在網路防火牆中建立適當的規則。
 
 在 AKS，有兩組的連接埠和位址：
 
@@ -62,7 +65,7 @@ az provider register --namespace Microsoft.ContainerService
 * [選擇性的建議地址和 AKS 叢集中的連接埠](#optional-recommended-addresses-and-ports-for-aks-clusters)並不需要所有的案例，但與其他服務整合，例如 Azure 監視器將無法正常運作。 檢閱的選擇性連接埠和 Fqdn，這份清單，並授權的任何服務和 AKS 叢集中使用的元件。
 
 > [!NOTE]
-> 限制輸出流量僅適用於新的 AKS 叢集建立之後啟用功能旗標註冊。 現有的叢集，如[執行叢集升級作業][ aks-upgrade]使用`az aks upgrade`命令之前限制輸出流量。
+> 限制輸出流量僅適用於新的 AKS 叢集建立之後啟用功能旗標註冊。 現有的叢集，如[執行叢集升級作業][aks-upgrade]使用`az aks upgrade`命令之前限制輸出流量。
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>必要的連接埠和位址 AKS 叢集
 

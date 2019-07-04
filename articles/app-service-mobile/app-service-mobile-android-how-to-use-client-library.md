@@ -3,7 +3,7 @@ title: 如何使用 Android 版 Azure Mobile Apps SDK | Microsoft Docs
 description: 如何使用 Android 版 Azure Mobile Apps SDK
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859387"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443534"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
+
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library)今天。
+>
 
 本指南說明如何使用適用於 Mobile Apps 的 Android 用戶端 SDK 來實作常見案例，例如：
 
@@ -29,11 +33,11 @@ ms.locfileid: "60859387"
 * 處理錯誤。
 * 自訂用戶端。
 
-本指南著重於用戶端 Android SDK。  若要深入了解 Mobile Apps 的伺服器端 SDK，請參閱[使用 .NET 後端 SDK][10]或[如何使用 Node.js 後端 SDK][11]。
+本指南著重於用戶端 Android SDK。  若要深入了解伺服器端 Sdk 適用於 Mobile Apps，請參閱[使用.NET 後端 SDK][10] or [How to use the Node.js backend SDK][11]。
 
 ## <a name="reference-documentation"></a>參考文件
 
-您可以在 GitHub 找到 Android 用戶端程式庫的 [Javadocs API 參考][12]。
+您可以找到[Javadocs API 參考][12]GitHub 上的 Android 用戶端程式庫。
 
 ## <a name="supported-platforms"></a>支援的平台
 
@@ -45,7 +49,7 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
 
 如果您決定不要完成快速入門教學課程，請完成下列工作︰
 
-* [建立行動應用程式後端][13]以搭配 Android 應用程式使用。
+* [建立行動應用程式後端][13]以搭配 Android 應用程式。
 * 在 Android Studio 中， [更新 Gradle 組建檔案](#gradle-build)。
 * [啟用網際網路權限](#enable-internet)。
 
@@ -77,7 +81,7 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    目前最新版為 3.4.0。 支援的版本列在 [Bintray 上][14]。
+    目前最新版為 3.4.0。 支援的版本列[bintray 上][14]。
 
 ### <a name="enable-internet"></a>啟用網際網路權限
 
@@ -197,17 +201,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-若要了解如何在 Mobile Apps 後端中建立資料表，請參閱[做法：定義資料表控制器][15] (.NET 後端) 或[使用動態結構描述定義資料表][16] (Node.js 後端)。
+若要了解如何在 Mobile Apps 後端中建立資料表，請參閱[做法：定義資料表控制器][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] （Node.js 後端）。
 
 Azure Mobile Apps 後端資料表定義了五個特殊欄位，其中四個可供用戶端使用︰
 
-* `String id`:記錄的全域唯一識別碼。  最佳做法是，使識別碼成為 [UUID][17] 物件的字串表示法。
+* `String id`:記錄的全域唯一識別碼。  最佳做法，讓識別碼的字串表示法[UUID][17]物件。
 * `DateTimeOffset updatedAt`:上次更新的日期/時間。  UpdatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
 * `DateTimeOffset createdAt`:建立物件的日期/時間。  CreatedAt 欄位由伺服器設定，且不得由用戶端程式碼設定。
 * `byte[] version`:通常會以字串表示，版本也是由伺服器設定。
 * `boolean deleted`:表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
 
-`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用 [gson][3] 程式庫，建立物件與 "across-the-wire" 名稱之間的對應。  例如:
+`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以建立對應物件之間使用的 「 跨連線 」 名稱[gson][3]程式庫。  例如:
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>建立資料表參考
 
-若要存取資料表，請先在 [MobileServiceClient][9] 上呼叫 **getTable** 方法，以建立 [MobileServiceTable][8] 物件。  此方法有兩個多載：
+若要存取資料表，請先建立[MobileServiceTable][8]藉由呼叫物件**getTable**方法[MobileServiceClient][9]。  此方法有兩個多載：
 
 ```java
 public class MobileServiceClient {
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-上述範例會傳回所有結果 (最多為伺服器所設定的最大頁面大小)。  `.execute()` 方法會在後端執行查詢。  傳送至 Mobile Apps 後端之前，查詢會轉換成 [OData v3][19] 查詢。  在收到時，Mobile Apps 後端在 SQL Azure 執行個體上執行查詢之前，會將查詢轉換成 SQL 陳述式。  由於網路活動耗費時間，`.execute()` 方法會傳回 [`ListenableFuture<E>`][18]。
+上述範例會傳回所有結果 (最多為伺服器所設定的最大頁面大小)。  `.execute()` 方法會在後端執行查詢。  查詢會轉換成[OData v3][19]傳輸至 Mobile Apps 後端之前的查詢。  在收到時，Mobile Apps 後端在 SQL Azure 執行個體上執行查詢之前，會將查詢轉換成 SQL 陳述式。  網路活動耗費時間，因為`.execute()`方法會傳回[ `ListenableFuture<E>` ][18]。
 
 ### <a name="filtering"></a>篩選傳回的資料
 
@@ -382,7 +386,7 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-如需篩選的詳細討論與範例，請參閱[探索功能豐富的 Android 用戶端查詢模型][20]。
+如需篩選的詳細討論與範例，請參閱 [探索功能豐富的 Android 用戶端查詢模型][20]。
 
 ### <a name="sorting"></a>排序傳回的資料
 
@@ -609,7 +613,7 @@ ToDoItemAdapter 建構函式的第二個參數是配置的參考。 我們現在
 
 請在每次修改 **ToDoItem** 資料表時呼叫配接器。 修改是對個別記錄逐一執行的，因此您會處理單一資料列，而不是集合。 在插入項目時，請對配接器呼叫 **add** 方法，刪除時則呼叫 **remove** 方法。
 
-您可以在 [Android 快速入門專案][21]中找到完整的範例。
+您可以找到完整的範例，在[Android 快速入門專案][21]。
 
 ## <a name="inserting"></a>將資料插入後端
 
@@ -697,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 在您建立 **MobileServiceJsonTable**的執行個體後，它就幾乎具有和型別程式設計模型所能使用的一樣的 API。 在某些情況下，這些方法會採用不具型別的參數，而非具型別的參數。
 
 ### <a name="json_insert"></a>插入不具型別的資料表中
-下列程式碼將說明如何執行插入。 第一個步驟是建立屬於 [gson][3] 程式庫的 [JsonObject][1]。
+下列程式碼將說明如何執行插入。 第一個步驟是建立[JsonObject][1] , which is part of the [gson][3]程式庫。
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1003,7 +1007,7 @@ dependencies {
 
 ### <a name="caching"></a>快取驗證權杖
 
-您必須將使用者 ID 和驗證語彙基元儲存在本機裝置上，才能快取驗證語彙基元。 當應用程式下次啟動時，您只需確認這些值仍存在於快取中，即可略過登入程序，並使用這項資料還原用戶端。 但這項資料具有敏感性，因此應加密儲存，以確保在手機失竊的狀況下仍保有安全性。  您可以在[快取驗證權杖一節][7]中看到如何快取驗證權杖的完整範例。
+您必須將使用者 ID 和驗證語彙基元儲存在本機裝置上，才能快取驗證語彙基元。 當應用程式下次啟動時，您只需確認這些值仍存在於快取中，即可略過登入程序，並使用這項資料還原用戶端。 但這項資料具有敏感性，因此應加密儲存，以確保在手機失竊的狀況下仍保有安全性。  您可以看到如何快取驗證權杖中的完整範例[快取驗證權杖一節][7]。
 
 當您嘗試使用到期的權杖時，您會收到「401 未授權」  的回應。 您可以使用篩選器處理驗證錯誤。  篩選器會攔截對 App Service 後端提出的要求。 篩選器程式碼會測試 401 的回應、觸發登入程序，然後繼續執行產生 401 的要求。
 
@@ -1081,7 +1085,7 @@ MobileServiceUser user = mClient
 
 您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 使用用戶端流程登入通常會比使用 `loginAsync()` 方法還適合，因為它提供更原生的 UX 風格，並允許其他自訂。
 
-1. 依照[如何設定 App Service 來進行 Active Directory 登入][22]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
+1. 依照 [如何設定 App Service 來進行 Active Directory 登入][22] 教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
 2. 安裝 ADAL，方法是修改您的 build.gradle 檔案以納入下列定義：
 
     ```gradle
@@ -1276,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>設定自動序列化
 
-您可以使用 [gson][3] API 指定套用至每個資料行的轉換策略。 Android 用戶端程式庫會先在背景使用 [gson][3] 來將 Java 物件序列化為 JSON 資料，再將資料傳送至 Azure App Service。  下列程式碼使用 **setFieldNamingStrategy()** 方法來設定策略。 此範例會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。 比方說，它會將「mId」變成「id」。  實作轉換策略，以減少大部分欄位上的 `SerializedName()` 註釋需要。
+您可以指定使用套用至每個資料行的轉換策略[gson][3] API。 Android 用戶端程式庫會使用[gson][3]在幕後將 Java 物件序列化為 JSON 資料之前將資料傳送至 Azure App Service。  下列程式碼使用 **setFieldNamingStrategy()** 方法來設定策略。 此範例會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。 比方說，它會將「mId」變成「id」。  實作轉換策略，以減少大部分欄位上的 `SerializedName()` 註釋需要。
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681776"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444335"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>在 HDInsight 上計算 ML 服務的內容選項
 
@@ -76,6 +76,5 @@ local  和 localpar  選項的差別只在於執行 **rxExec** 呼叫的方式�
 在此文章中，您可以了解可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。 若要深入了解如何使用 HDInsight 叢集上的 ML 服務，請參閱下列主題：
 
 * [適用於 Apache Hadoop 的 ML 服務概觀](r-server-overview.md)
-* [開始使用適用於 Apache Hadoop 的 ML 服務](r-server-get-started.md)
 * [HDInsight 上適用於 ML 服務的 Azure 儲存體選項](r-server-storage.md)
 

@@ -4,14 +4,14 @@ description: 如何連線到 vFXT 叢集和瀏覽器型 Avere 控制台以設定
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794271"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439978"
 ---
 # <a name="access-the-vfxt-cluster"></a>存取 vFXT 叢集
 
@@ -27,9 +27,11 @@ vFXT 叢集位於私人虛擬網路內，因此您必須建立 SSH 通道，或�
 
 連線之前，請確定本機電腦上已安裝建立叢集控制器時所使用的 SSH 公開/私密金鑰組。 如果您需要協助，請閱讀 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 或 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 適用的 SSH 金鑰文件。 (如果您使用密碼而非公開金鑰，在連線時系統將會提示您輸入密碼。) 
 
-## <a name="ssh-tunnel-with-a-linux-host"></a>使用 Linux 主機的 SSH 通道
+## <a name="create-an-ssh-tunnel"></a>建立 SSH 通道 
 
-如果使用 Linux 型用戶端，請使用這種形式的 SSH 通道命令： 
+您可以建立 SSH 通道，從以 Linux 為基礎的命令列或 Windows 10 用戶端系統。 
+
+使用 SSH 通道與這種形式的命令： 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -40,28 +42,6 @@ ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_pub
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-如果您使用 SSH 公開金鑰建立叢集，而且用戶端系統上已安裝相符的金鑰，便會自動驗證。 如果您使用密碼，系統將會提示您輸入密碼。
-
-## <a name="ssh-tunnel-with-a-windows-host"></a>使用 Windows 主機的 SSH 通道
-
-此範例會使用一般 Windows 型終端機公用程式 (PuTTY)。
-
-請在 PuTTY **hostname** 欄位中填入叢集控制器的使用者名稱及其 IP 位址：*your_username*\@*controller_public_IP*。
-
-範例： ``azureuser@203.0.113.51``
-
-在 [設定]  面板中：
-
-1. 展開左側的 [連線]   > [SSH]  。 
-1. 按一下 [通道]  。 
-1. 輸入來源連接埠，例如 8443。 
-1. 在目的地中，輸入 vFXT 叢集的管理 IP 位址和連接埠 443。 
-   範例： ``203.0.113.51:443``
-1. 按一下 [新增]  。
-1. 按一下 [開啟]  。
-
-![顯示按一下哪裡可新增通道的 Putty 應用程式螢幕擷取畫面](media/avere-vfxt-ptty-numbered.png)
 
 如果您使用 SSH 公開金鑰建立叢集，而且用戶端系統上已安裝相符的金鑰，便會自動驗證。 如果您使用密碼，系統將會提示您輸入密碼。
 

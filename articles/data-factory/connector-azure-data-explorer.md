@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: orspodek
-ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449638"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料
 
@@ -140,6 +140,7 @@ Azure 資料總管連結服務支援以下屬性：
 | type | 複製活動來源的 **type** 屬性必須設定為：**AzureDataExplorerSource** | 是 |
 | query | [KQL 格式](/azure/kusto/query/)中指定的唯讀要求。 使用自訂的 KQL 查詢作為參考。 | 是 |
 | queryTimeout | 查詢要求逾時之前的等待時間。預設值是 10 分鐘 (00:10:00)；允許的最大值為 1 小時 (01:00:00)。 | 否 |
+| noTruncation | 指出是否要截斷傳回的結果集。 根據預設，結果會截斷之後 500,000 個記錄或 64 MB。 截斷強烈建議針對適當的行為的活動。 |否 |
 
 >[!NOTE]
 >預設的 azure 資料總管來源有 500,000 記錄或 64 MB 的大小限制。 若要擷取而不會截斷的所有記錄，您可以指定`set notruncation;`查詢的開頭。 請參閱[查詢限制](https://docs.microsoft.com/azure/kusto/concepts/querylimits)上更多詳細資料。

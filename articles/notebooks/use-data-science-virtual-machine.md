@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357575"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441195"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>使用 Azure 資料科學虛擬機器
 
@@ -51,7 +51,7 @@ ms.locfileid: "67357575"
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>從 DSVM 存取 Azure Notebooks 檔案
 
-檔案系統存取權是支援的 DSVM 版本 19.06.15 或更新版本。 若要檢查版本，請先連接到您的 DSVM，透過 SSH （IP 位址可在 Azure 入口網站中）。 然後執行下列命令使用您`<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`。 版本號碼會顯示的輸出中的 「 版本 」。
+檔案系統存取權是支援的 DSVM 版本 19.06.15 或更新版本。 若要檢查版本，請先連接到您的 DSVM，透過 SSH，，然後執行下列命令： `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` （您必須使用正確的 IP 位址，如下所示）。 版本號碼會顯示的輸出中的 「 版本 」。
 
 若要保留的檔案路徑的同位檢查**免費計算**層，您就能夠只在 DSVM 上一次開啟一個專案。 若要開啟新的專案，您必須關閉開啟的專案第一次。
 
