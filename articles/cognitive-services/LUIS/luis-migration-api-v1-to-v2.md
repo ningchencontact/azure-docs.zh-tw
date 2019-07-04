@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522353"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 應用程式 API v1 至 v2 的移轉指南
@@ -112,7 +112,7 @@ v2 端點成功回應：
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [端點金鑰](luis-how-to-azure-subscription.md)會在 Azure 入口網站中產生。 您要在**[發佈](luis-how-to-azure-subscription.md)** 頁面上指派金鑰給 LUIS 應用程式。 您不需要知道實際的金鑰值。 LUIS 會使用訂用帳戶名稱來進行指派。 
+Azure [端點金鑰](luis-how-to-azure-subscription.md)會在 Azure 入口網站中產生。 您要在 **[發佈](luis-how-to-azure-subscription.md)** 頁面上指派金鑰給 LUIS 應用程式。 您不需要知道實際的金鑰值。 LUIS 會使用訂用帳戶名稱來進行指派。 
 
 ## <a name="new-versioning-route"></a>新的版本控制路由
 v2 模型現在包含在[版本](luis-how-to-manage-versions.md)中。 版本名稱是路由中的 10 個字元。 預設版本為 "0.1"。
@@ -134,7 +134,7 @@ v2 模型現在包含在[版本](luis-how-to-manage-versions.md)中。 版本名
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Sample" 已重新命名為 "suggest"
-LUIS 建議使用現有[端點語句](luis-how-to-review-endpoint-utterances.md)中的語句來加強模型。 在舊版中，這名為 **sample**。 在新版中，名稱已從 sample 變更為 **suggest**。 這在 LUIS 網站中稱為**[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)** \(英文\)。
+LUIS 建議使用現有[端點語句](luis-how-to-review-endpoint-utterances.md)中的語句來加強模型。 在舊版中，這名為 **sample**。 在新版中，名稱已從 sample 變更為 **suggest**。 這在 LUIS 網站中稱為 **[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)** \(英文\)。
 
 | version | 路由 |
 |--|--|

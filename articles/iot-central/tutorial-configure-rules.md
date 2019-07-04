@@ -3,18 +3,18 @@ title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
 description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 01/28/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2bd22dec13e2dba63c512276a0b36d4fc50e05f8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 56ced4f5e2fd0fbf829f72cff2413998398a7a09
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066004"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>教學課程：在 Azure IoT Central 中為您的裝置設定規則和動作
 
@@ -34,15 +34,15 @@ ms.locfileid: "59681552"
 
 ## <a name="create-a-telemetry-based-rule"></a>建立以遙測為基礎的規則
 
-1. 若要將以遙測為基礎的新規則新增至應用程式，請在左側導覽功能表中選取 [裝置範本]：
+1. 若要將以遙測為基礎的新規則新增至應用程式，請在左側導覽功能表中選取 [裝置範本]  ：
 
     ![裝置範本頁面](media/tutorial-configure-rules/templatespage1.png)
 
     您會看到在上一個教學課程中建立的**連線的空調 (1.0.0)** 裝置範本。
 
-2. 若要自訂您的裝置範本，請選取您在上一個教學課程中建立的「連線的空調」範本。
+2. 若要自訂您的裝置範本，請選取您在上一個教學課程中建立的「連線的空調」  範本。
 
-3. 若要在 [規則] 檢視中新增以遙測為基礎的規則，請依序選取 [規則]、[+ 新增規則] 和 [遙測]：
+3. 若要在 [規則]  檢視中新增以遙測為基礎的規則，請依序選取 [規則]  、[+ 新增規則]  和 [遙測]  ：
 
     ![規則檢視](media/tutorial-configure-rules/newrule.png)
 
@@ -57,13 +57,13 @@ ms.locfileid: "59681552"
 
     ![溫度規則條件](media/tutorial-configure-rules/temperaturerule.png)
 
-    然後選取 [儲存]。
+    然後選取 [儲存]  。
 
 ## <a name="add-an-action"></a>新增動作
 
 在定義規則時，您也須定義在符合規則條件時所要執行的動作。 在本教學課程中，您建立的規則會包含傳送電子郵件通知的動作。
 
-1. 若要新增 [動作]，請先 [儲存] 規則，然後在 [設定遙測規則] 面板上向下捲動。 選擇 [動作] 旁的 [+]，接著選擇 [電子郵件]：
+1. 若要新增 [動作]  ，請先 [儲存]  規則，然後在 [設定遙測規則]  面板上向下捲動。 選擇 [動作]  旁的 [+]  ，接著選擇 [電子郵件]  ：
 
     ![溫度規則動作](media/tutorial-configure-rules/addaction.png)
 
@@ -79,7 +79,7 @@ ms.locfileid: "59681552"
 
     ![溫度動作](media/tutorial-configure-rules/temperatureaction.png)
 
-3. 選取 [ **儲存**]。 您的規則會列在 [規則] 頁面上。
+3. 選取 [ **儲存**]。 您的規則會列在 [規則]  頁面上。
 
 ## <a name="test-the-rule"></a>測試規則
 

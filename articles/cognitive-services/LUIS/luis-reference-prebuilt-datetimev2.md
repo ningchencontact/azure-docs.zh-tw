@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148644"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
-**datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。 
+**datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」  。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。 
 
 ## <a name="types-of-datetimev2"></a>datetimeV2 類型
 DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub 存放庫管理
@@ -295,10 +295,10 @@ API V3 中，已變更 DatetimeV2 JSON 回應。
 
 若要在 LUIS 應用程式中以 `datetimeV2` 取代 `datetime`，請完成下列步驟：
 
-1. 開啟 LUIS 網頁介面的 [實體] 窗格。 
+1. 開啟 LUIS 網頁介面的 [實體]  窗格。 
 2. 刪除 **datetime** 預先建置的實體。
-3. 按一下 [新增預先建置的實體]
-4. 選取 [datetimeV2]，然後按一下 [儲存]。
+3. 按一下 [新增預先建置的實體] 
+4. 選取 [datetimeV2]  ，然後按一下 [儲存]  。
 
 ## <a name="next-steps"></a>後續步驟
 

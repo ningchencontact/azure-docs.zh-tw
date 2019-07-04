@@ -11,11 +11,11 @@ ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60394484"
 ---
 # <a name="part-of-speech-tagging"></a>詞性標記
 
@@ -25,12 +25,12 @@ ms.locfileid: "55883146"
 ## <a name="background-and-motivation"></a>背景和動機
 
 一旦文字已分成句子和標記後，分析的下一步就是識別每個字組的類別或詞性。
-這些類別包括像是「名詞」(通常代表人員、位置、事情、想法等等) 和「動詞」(通常代表動作或狀態變更等等)。某些字組的詞性相當明確 (例如 *quagmire* (泥沼) 就只有名詞)，但其他許多字組的詞性很難判斷。
+這些類別包括像是「名詞」  (通常代表人員、位置、事情、想法等等) 和「動詞」  (通常代表動作或狀態變更等等)。某些字組的詞性相當明確 (例如 *quagmire* (泥沼) 就只有名詞)，但其他許多字組的詞性很難判斷。
 Table  可以是您圍坐的地方 (或是數字的 2-D 輸出)，但您可以 "table a discussion" (提出議題)。
 
 ## <a name="list-of-part-of-speech-tags"></a>詞性標記清單
 
-| Tag | 說明 | 範例文字 (英文) |
+| Tag | 描述 | 範例文字 (英文) |
 |-----|-------------|---------------|
 | $ | 貨幣單位 | $ |
 | \`\` | 左雙引號 | \` \`\` |

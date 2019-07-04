@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 813659b9b1a25e03bf599b0aa1dc9d6af67f1935
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829104"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>如何對於文字分析認知服務尋找端點和存取金鑰
 
@@ -27,11 +27,11 @@ ms.locfileid: "60002199"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左導覽窗格中，選取 [所有服務]。
+2. 在左導覽窗格中，選取 [所有服務]  。
 
 3. 在 [篩選] 中，輸入*認知服務*。 如果您的訂用帳戶有文字分析，它會出現在清單中，而且 API 類型是**文字分析 API**。
 
-4. 按一下連結來開啟服務刀鋒視窗。 您現在即可從 [資源] > [金鑰] 中取得金鑰，也可以按一下基本資訊窗格中的 [顯示存取金鑰]。 端點也會出現在基本資訊窗格中。
+4. 按一下連結來開啟服務刀鋒視窗。 您現在即可從 [資源] > [金鑰]  中取得金鑰，也可以按一下基本資訊窗格中的 [顯示存取金鑰]  。 端點也會出現在基本資訊窗格中。
 
    ![有端點和金鑰的入口網站頁面](../media/portal-keys-endpoint.png)
 

@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61435937"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>專案樂器 Unreal 和 Wwise 整合
 此操作說明提供詳細的整合步驟的專案樂器外掛程式封裝到您現有的 Unreal 和 Wwise 遊戲專案。 
@@ -45,7 +45,7 @@ ms.locfileid: "59006493"
 7. Unreal 中的音訊設定
 
 ## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1.安裝專案樂器混音器外掛程式
-* 開啟 Wwise 啟動器，然後在 [Plugins] \(外掛程式\) 索引標籤的 [Install New Plugins] \(安裝新外掛程式\) 之下，選取 [Add From Directory] \(從目錄新增\)。 
+* 開啟 Wwise 啟動器，然後在 [Plugins]  \(外掛程式\) 索引標籤的 [Install New Plugins]  \(安裝新外掛程式\) 之下，選取 [Add From Directory]  \(從目錄新增\)。 
 
     ![安裝外掛程式 Wwise 啟動器中的螢幕擷取畫面](media/wwise-install-new-plugin.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "59006493"
 
 * **引擎外掛程式：** 如果您有安裝中的 Unreal 遊戲外掛程式為 WwiseC++專案中，略過此步驟。 如果執行個體因為您的 Unreal 專案是使用我們的混音器 」 外掛程式藍圖，Wwise 部署是更複雜，它會改為引擎外掛程式安裝。 建立空的、 空的 UnrealC++專案、 Unreal 編輯器隨即開啟，如果將它關閉，然後遵循其餘的程序，來將 Wwise 部署到此虛擬的專案。 然後複製已部署的 Wwise 外掛程式。
  
-* 從 Wwise 啟動器，按一下 [Unreal Engine] 索引標籤，然後按一下 [Recent Unreal Engine Projects] \(最近使用的 Unreal Engine 專案\) 旁邊的漢堡功能表，並選取 [Browse for project] \(瀏覽專案\)。 開啟您的遊戲 Unreal 專案`.uproject`檔案。
+* 從 Wwise 啟動器，按一下 [Unreal Engine]  索引標籤，然後按一下 [Recent Unreal Engine Projects]  \(最近使用的 Unreal Engine 專案\) 旁邊的漢堡功能表，並選取 [Browse for project]  \(瀏覽專案\)。 開啟您的遊戲 Unreal 專案`.uproject`檔案。
 
     ![螢幕擷取畫面的 Wwise 啟動器的 Unreal 索引標籤](media/wwise-unreal-tab.png)
 

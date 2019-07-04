@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
 ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61271064"
 ---
 # <a name="define-and-use-moderation-workflows"></a>定義及使用仲裁工作流程
 
@@ -23,7 +23,7 @@ ms.locfileid: "59795792"
 
 ## <a name="create-a-new-workflow"></a>建立新的工作流程
 
-移至[內容仲裁審查工具](https://contentmoderator.cognitive.microsoft.com/)並登入。 在 [設定] 索引標籤中，選取 [工作流程]。
+移至[內容仲裁審查工具](https://contentmoderator.cognitive.microsoft.com/)並登入。 在 [設定]  索引標籤中，選取 [工作流程]  。
 
 ![[工作流程] 設定](images/2-workflows-0.png)
 

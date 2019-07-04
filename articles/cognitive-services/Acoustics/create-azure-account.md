@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61335643"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>專案樂器 Azure Batch 帳戶設定
 此操作說明描述專案樂器 Unity 和 Unreal 引擎整合搭配 Azure Batch 帳戶的設定。
@@ -41,13 +41,13 @@ Azure 需要幾分鐘的時間來部署帳戶。 在入口網站的右上角即�
   ![螢幕擷取畫面的 Azure 入口網站儀表板顯示的 Batch 和儲存體帳戶](media/azure-portal-dashboard.png)
 
 ## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>使用 Azure 認證來設定聲場製作 UI
-按一下儀表板上的 Batch 帳戶連結，然後按一下 Batch 帳戶頁面上的 [金鑰] 連結以存取您的認證。
+按一下儀表板上的 Batch 帳戶連結，然後按一下 Batch 帳戶頁面上的 [金鑰]  連結以存取您的認證。
   
   ![反白顯示的 [金鑰] 頁面連結的螢幕擷取畫面的 Azure Batch 帳戶](media/batch-access-keys.png)
 
   ![螢幕擷取畫面的 Azure Batch 帳戶金鑰 頁面以存取金鑰](media/batch-keys-info.png)
 
-按一下頁面上的 [儲存體帳戶] 連結，以存取您的「Azure 儲存體」帳戶認證。
+按一下頁面上的 [儲存體帳戶]  連結，以存取您的「Azure 儲存體」帳戶認證。
   
   ![螢幕擷取畫面的 Azure 儲存體帳戶金鑰 頁面以存取金鑰](media/storage-keys-info.png)
 
@@ -58,7 +58,7 @@ Azure 需要幾分鐘的時間來部署帳戶。 在入口網站的右上角即�
 ![顯示依區域的 Azure 虛擬機器的螢幕擷取畫面](media/azure-regions.png) 
 
 ## <a name="upgrading-your-quota"></a>升級您的配額
-建立 Azure Batch 帳戶時，為帳戶佈建的計算核心數目限制為 20 個。 我們可能想要增加此限制的更快速的製作時間，因為您可以平行處理許多節點，最多的場景中的探查點數樂器工作負載。 您可以按一下 Azure Batch 入口網站頁面上的 [配額] 連結，然後按一下 [申請加大配額]，來申請加大配額：
+建立 Azure Batch 帳戶時，為帳戶佈建的計算核心數目限制為 20 個。 我們可能想要增加此限制的更快速的製作時間，因為您可以平行處理許多節點，最多的場景中的探查點數樂器工作負載。 您可以按一下 Azure Batch 入口網站頁面上的 [配額]  連結，然後按一下 [申請加大配額]  ，來申請加大配額：
 
 ![Azure 配額的螢幕擷取畫面頁面](media/azure-quotas.png)
 

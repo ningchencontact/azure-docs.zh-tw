@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141033"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080045"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
@@ -109,6 +109,30 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 
 混合實體會使用實體偵測方法的組合。
 
+## <a name="machine-learned-entities-use-context"></a>機器學習的實體使用內容
+
+在 [utterance] 的內容中，了解機器學習的實體。 如此一來放置的變化中範例的發音顯著。 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>非機器學習的實體不使用內容
+
+下列非機器已了解實體不要考慮 [utterance] 內容比對實體時： 
+
+* [預先建置實體](#prebuilt-entity)
+* [Regex 實體](#regular-expression-entity)
+* [清單實體](#list-entity) 
+
+這些實體不需要標記，或定型模型。 一旦您加入或設定實體時，會擷取實體。 缺點是這些實體可以 overmatched，其中內容已納入考量，如果相符項目會有尚未進行。 
+
+這個清單的實體與新的模型上情況經常發生。 您建置和測試您的模型清單中的實體，但當您發行您的模型，並從端點收到查詢，您就會發現您的模型 overmatching 內容的不足。 
+
+如果您想要比對單字或片語，並納入考量的內容，您會有兩個選項。 第一個是使用搭配片語清單的簡單實體。 片語清單不會用於比對，但改為將有助於訊號相對相似字組 （可互換的清單）。 如果您必須有完全相符而不是片語清單的變化，使用清單實體和角色，如下所述。
+
+### <a name="context-with-non-machine-learned-entities"></a>使用非機器學習的實體的內容
+
+如果您想要重要的非機器學習到實體 [utterance] 的內容時，您應該使用[角色](luis-concept-roles.md)。
+
+如果您具有非機器學習的實體，例如[預先建置的實體](#prebuilt-entity)， [regex](#regular-expression-entity)實體或[清單](#list-entity)實體，這比對您想要的執行個體之外，請考慮使用兩個角色中建立一個實體。 一個角色會擷取您要尋找，和一個角色會擷取項目不想要。 範例談話中標示為需要兩個版本。  
+
 ## <a name="composite-entity"></a>複合實體
 
 複合實體是組成其他實體，例如預先建置的實體，簡單的規則運算式和清單的實體。 個別實體會構成一個完整的提體。 
@@ -133,8 +157,9 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 當文字資料有下列特性時，最適用此實體：
 
 * 是已知的組合。
+* 不常變更。 如果您需要經常變更的清單，或想要自行展開的清單，促進式片語清單的簡單實體就會是較好的選擇。 
 * 此組合不會超過此實體類型的最大 LUIS [界限](luis-boundaries.md)。
-* 語句中的文字是與同義字或正式名稱完全相符的項目。 LUIS 不會將清單用於完全相符之文字項目以外的範圍。 詞幹分析、複數及其他變化無法透過清單實體來解析。 若要管理變化，請考慮使用[模式](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)並搭配選擇性的文字語法。
+* 語句中的文字是與同義字或正式名稱完全相符的項目。 LUIS 不會將清單用於完全相符之文字項目以外的範圍。 模糊比對、 不區分大小寫、 詞幹分析、 複數和其他變化不會解析與實體清單中。 若要管理變化，請考慮使用[模式](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)並搭配選擇性的文字語法。
 
 ![清單實體](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 |語句|
 |--|
-|' 已攔截者誤判。 他的妻子 Hat 和其他作者 American 今年的臨床故事嗎？<br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
+|Was Half Asleep in Frog Pajamas written by an American this year?<br><br>Was **Half Asleep in Frog Pajamas** written by an American this year?|
+|Was The Particular Sadness of Lemon Cake:A Novel written by an American this year?<br><br>Was **The Particular Sadness of Lemon Cake:A Novel** written by an American this year?|
+|Was There's A Wocket In My Pocket! written by an American this year?<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
+||
 
 ## <a name="prebuilt-entity"></a>預建實體
 
@@ -226,6 +252,18 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 [教學課程](luis-quickstart-intents-regex-entity.md)<br>
 [實體的 JSON 回應範例](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
+可能比您預期符合更多符合規則運算式。 其中一個範例就是比對這類的數值字`one`和`two`。 例如，下列的 regex，用來比對的數字`one`以及其他數字：
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+這個 regex 運算式也會比對任何以這些數字，例如結尾的單字`phone`。 若要修正這類問題，請確定 regex 會比對會將帳戶的字詞界限。 此範例中使用的字詞界限 regex 會在下列的 regex:
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
+
 ## <a name="simple-entity"></a>簡單實體 
 
 簡單實體是描述單一概念並從機器學習內容學習到的一般實體。 由於簡單實體通常是名稱，例如公司名稱、產品名稱或其他類別的名稱，因此，使用簡單實體時可加入[片語清單](luis-concept-feature.md)，以提升所用名稱所代表的信號。 
@@ -251,7 +289,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 LUIS 也提供非機器學習但可讓您的 LUIS 應用程式指定固定值清單的清單實體類型。 請參閱 [LUIS 界限](luis-boundaries.md)參考，以檢閱「清單」實體類型的限制。 
 
-如果您已被視為這些實體，而且仍然需要超過此限制，請連絡支援服務。 若要這樣做，請收集關於您系統的詳細資訊、前往 [LUIS](luis-reference-regions.md#luis-website) 網站，然後選取 [支援]。 如果您的 Azure 訂用帳戶包含支援服務，請與 [Azure 技術支援人員](https://azure.microsoft.com/support/options/)連絡。 
+如果您已被視為這些實體，而且仍然需要超過此限制，請連絡支援服務。 若要這樣做，請收集關於您系統的詳細資訊、前往 [LUIS](luis-reference-regions.md#luis-website) 網站，然後選取 [支援]  。 如果您的 Azure 訂用帳戶包含支援服務，請與 [Azure 技術支援人員](https://azure.microsoft.com/support/options/)連絡。 
 
 ## <a name="next-steps"></a>後續步驟
 

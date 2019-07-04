@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61337783"
 ---
 # <a name="lambda-search-syntax"></a>Lambda 搜尋語法
 
-每個 lambda 搜尋查詢字串都會描述一個圖表模式。 查詢必須至少有一個起始節點，並指定我們開始周遊的圖表節點。 若要指定起始節點，請呼叫 *MAG.StartFrom()* 方法並傳入一或多個節點的識別碼，或傳入可指定搜尋條件約束的查詢物件。 *StartFrom()* 方法有三項多載。 全都採用兩個引數，第二個為選擇性引數。 第一個引數可以是長整數、可列舉的長整數集合，或代表 JSON 物件的字串，其語意與在 *json* 搜尋中相同：
+每個 lambda  搜尋查詢字串都會描述一個圖表模式。 查詢必須至少有一個起始節點，並指定我們開始周遊的圖表節點。 若要指定起始節點，請呼叫 *MAG.StartFrom()* 方法並傳入一或多個節點的識別碼，或傳入可指定搜尋條件約束的查詢物件。 *StartFrom()* 方法有三項多載。 全都採用兩個引數，第二個為選擇性引數。 第一個引數可以是長整數、可列舉的長整數集合，或代表 JSON 物件的字串，其語意與在 *json* 搜尋中相同：
 ```
 StartFrom(long cellid, IEnumerable<string> select = null)
 StartFrom(IEnumerable<long> cellid, IEnumerable<string> select = null)
@@ -33,13 +33,13 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > 如果我們不在意要遵循的邊緣類型，只要在兩個節點之間略過 *FollowEdge()* 即可：查詢將通過這兩個節點之間的所有可能邊緣。
 
-我們可以透過 *VisitNode()* 指定要在節點上採取的周遊動作，也就是，是否要停在這個節點並傳回目前路徑作為結果，或繼續探索圖表。  列舉類型 *Action* 可定義兩種動作：*Action.Return* 和 *Action.Continue*。 我們可以將這類列舉值直接傳入 *VisitNode()*，或使用位元 and 運算子 '&' 加以結合。 結合兩個動作時，這表示將會採取這兩個動作。 注意：請勿對動作使用位元 or 運算子 '|'。 這麼做會導致查詢終止，但未傳回任何項目。 略過兩個 *FollowEdge()* 呼叫之間的 *VisitNode()* 會導致查詢在抵達節點之後，無限制地探索圖表。
+我們可以透過 *VisitNode()* 指定要在節點上採取的周遊動作，也就是，是否要停在這個節點並傳回目前路徑作為結果，或繼續探索圖表。  列舉類型 *Action* 可定義兩種動作：*Action.Return* 和 *Action.Continue*。 我們可以將這類列舉值直接傳入 *VisitNode()* ，或使用位元 and 運算子 '&' 加以結合。 結合兩個動作時，這表示將會採取這兩個動作。 注意：請勿對動作使用位元 or 運算子 '|'。 這麼做會導致查詢終止，但未傳回任何項目。 略過兩個 *FollowEdge()* 呼叫之間的 *VisitNode()* 會導致查詢在抵達節點之後，無限制地探索圖表。
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-對於 *VisitNode()*，我們也可以傳入 *Expression\<Func\<INode, Action\>\>* 類型的 lambda 運算式，其可採用 *INode* 並傳回周遊動作：
+對於 *VisitNode()* ，我們也可以傳入 *Expression\<Func\<INode, Action\>\>* 類型的 lambda 運算式，其可採用 *INode* 並傳回周遊動作：
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -47,7 +47,7 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 ## <a name="inode"></a>*INode* 
 
-*INode* 會提供「唯讀」資料存取介面和節點上的一些內建協助程式函式。 
+*INode* 會提供「唯讀」  資料存取介面和節點上的一些內建協助程式函式。 
 
 ### <a name="basic-data-access-interfaces"></a>基本資料存取介面
 
@@ -65,7 +65,7 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 ##### <a name="string-getstring-fieldname"></a>string get(string fieldName)
 
-運作方式類似 *GetField\<string\>(fieldName)*。 不過，它不會在找不到欄位時擲回例外狀況，而會改為傳回空的字串 ("")。
+運作方式類似 *GetField\<string\>(fieldName)* 。 不過，它不會在找不到欄位時擲回例外狀況，而會改為傳回空的字串 ("")。
 
 ##### <a name="bool-hasstring-fieldname"></a>bool has(string fieldName)
 

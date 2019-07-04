@@ -12,11 +12,11 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60368554"
 ---
 # <a name="detect-color-schemes-in-images"></a>偵測影像中的色彩配置
 
@@ -54,16 +54,16 @@ ms.locfileid: "59998612"
 
 下表顯示傳回之每個範例影像的前景、背景及影像色彩。
 
-| 映像 | 主要色彩 |
+| Image | 主要色彩 |
 |-------|-----------------|
-|![具有綠色背景的白色花卉](./Images/flower.png)| 前景：黑色<br/>後景：白色<br/>色彩：黑色、白色、綠色|
+|![具有綠色背景的白色花卉](./Images/flower.png)| 前景：黑色<br/>後景：白皮書<br/>色彩：黑色、白色、綠色|
 ![通過車站的火車](./Images/train_station.png) | 前景：黑色<br/>後景：黑色<br/>色彩：黑色 |
 
 ### <a name="accent-color-examples"></a>輔色範例
 
  下表顯示傳回之每個範例影像的輔色 (十六進位 HTML 色彩值)。
 
-| 映像 | 輔色 |
+| Image | 輔色 |
 |-------|--------------|
 |![日落時站在山岩上的人](./Images/mountain_vista.png) | #BB6D10 |
 |![具有綠色背景的白色花卉](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ ms.locfileid: "59998612"
 
 下表顯示電腦視覺對範例影像的黑白評估。
 
-| 映像 | 黑白？ |
+| Image | 黑白？ |
 |-------|----------------|
 |![曼哈頓建築物的黑白照片](./Images/bw_buildings.png) | true |
 |![藍色房屋和前院](./Images/house_yard.png) | false |

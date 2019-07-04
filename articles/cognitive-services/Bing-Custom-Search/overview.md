@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 03/4/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 93af1cce37c69691fb39f62270f4de6c9c73cf32
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 067693c3c02d19f3bdab77f315c920b25078e7f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388592"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542700"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>什麼是 Bing 自訂搜尋 API？
 
@@ -48,6 +48,8 @@ Bing 自訂搜尋 API 可讓您針對感興趣的主題，建立量身訂做且�
 請務必先閱讀 [Bing 使用和顯示需求](./use-and-display-requirements.md)，以便在服務和應用程式中使用搜尋結果。
 
 讓自己熟悉每個自訂搜尋端點的內容。 此參考包含端點、標頭，以及您用來要求搜尋結果的查詢參數。 它也包含回應物件的定義。
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 - [自訂搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
 - [自訂影像 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)

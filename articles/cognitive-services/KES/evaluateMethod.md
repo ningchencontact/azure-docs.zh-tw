@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: dcfa9bb7931cf3b682bacf722b67acd6d4a370c0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860723"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814101"
 ---
 # <a name="evaluate-method"></a>評估方法
 
-「評估」方法會根據索引資料來評估並傳回結構化查詢運算式的輸出。
+「評估」  方法會根據索引資料來評估並傳回結構化查詢運算式的輸出。
 
 通常會從解譯方法的回應中取得運算式。  但是您也可以自行撰寫查詢運算式 (請參閱[結構化查詢運算式](Expressions.md))。  
 
@@ -27,28 +27,28 @@ ms.locfileid: "55860723"
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Name|值|說明
+名稱|值|描述
 ----|----|----
 expr       | 文字字串 | 會選取索引實體子集的結構化查詢運算式。
 屬性 | 文字字串 | 回應中所要包含屬性的逗號分隔清單。
 count      | 數字 (預設值 = 10) | 要傳回的結果數目上限。
 Offset     | 數字 (預設值 = 0) | 要傳回的第一個結果索引。
-orderby |   文字字串 | 用來排序結果的屬性名稱，後接選擇性排序次序 (預設值 = asc)："attrname[:(asc&#124;desc)]"。  如果未指定，則會以逐漸降低的自然對數機率傳回結果。
+orderby |   文字字串 | 用來排序結果的屬性名稱，後接選擇性排序次序 (預設值 = asc)："attrname  [:(asc&#124;desc)]"。  如果未指定，則會以逐漸降低的自然對數機率傳回結果。
 timeout  | 數字 (預設值 = 1000) | 逾時 (以毫秒為單位)。 只會傳回在逾時之前計算的結果。
 
-使用 count 和 offset 參數，即可透過多個要求以累加方式取得大量結果。
+使用 count  和 offset  參數，即可透過多個要求以累加方式取得大量結果。
   
 ## <a name="response-json"></a>回應 (JSON)
-JSONPath|說明
+JSONPath|描述
 ----|----
-$.expr | 要求中的 expr 參數。
+$.expr | 要求中的 expr  參數。
 $.entities | 0 個以上符合結構化查詢運算式的物件實體陣列。 
 $.aborted | 如果要求逾時，則為 true。
 
-每個實體都包含 logprob 值和所要求屬性的值。
+每個實體都包含 logprob  值和所要求屬性的值。
 
 ## <a name="example"></a>範例
-在學術刊物的範例中，下列要求會傳遞結構化查詢運算式(可能來自「解譯」要求的輸出)，並針對前 2 個相符實體擷取幾個屬性：
+在學術刊物的範例中，下列要求會傳遞結構化查詢運算式(可能來自「解譯」  要求的輸出)，並針對前 2 個相符實體擷取幾個屬性：
 
 `http://<host>/evaluate?expr=Composite(Author.Name=='jaime teevan')&attributes=Title,Y,Author.Name,Author.Id&count=2`
 

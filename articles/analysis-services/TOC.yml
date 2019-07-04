@@ -1,8 +1,8 @@
-- name: Analysis Services 文件
+- name: Azure Analysis Services 文件
   href: index.md
 - name: 概觀
   items:
-    - name: 什麼是 Analysis Services？
+    - name: 什麼是 Azure Analysis Services？
       href: analysis-services-overview.md
 - name: 快速入門
   items:

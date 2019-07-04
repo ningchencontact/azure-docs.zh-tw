@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60812949"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding (LUIS) 認知服務中的資料儲存和移除
 LUIS 會將資料以加密方式儲存在與金鑰所指定區域對應的 Azure 資料存放區中。 此資料會儲存 30 天。 
@@ -40,7 +40,7 @@ LUIS 會將資料以加密方式儲存在與金鑰所指定區域對應的 Azure
 
 ### <a name="delete-utterances-in-review-from-active-learning"></a>刪除檢閱中的表達方式從主動學習
 
-您可以在 [[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 從此清單中刪除語句可防止系統建議這些語句，但並不會從記錄中刪除它們。
+您可以在 [[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)  ] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 從此清單中刪除語句可防止系統建議這些語句，但並不會從記錄中刪除它們。
 
 如果您不想主動學習談話，您可以[停用主動式學習](luis-how-to-review-endpoint-utterances.md#disable-active-learning)。 停用主動式學習也會停用記錄。
 
@@ -53,10 +53,10 @@ LUIS 會將資料以加密方式儲存在與金鑰所指定區域對應的 Azure
 ## <a name="delete-an-account"></a>刪除帳戶
 如果您刪除帳戶，系統就會刪除所有應用程式及其範例語句和記錄。 資料會保留 60 天，之後系統就會將帳戶和資料永久刪除。
 
-刪除帳戶時，是從 [Settings] \(設定\) 頁面執行刪除。 請選取右上方導覽列中您的帳戶名稱，以移至 [Settings] \(設定\) 頁面。
+刪除帳戶時，是從 [Settings] \(設定\)  頁面執行刪除。 請選取右上方導覽列中您的帳戶名稱，以移至 [Settings] \(設定\)  頁面。
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>資料非作用中狀態視為過期訂用帳戶
-基於資料保留和刪除的目的，非作用中 LUIS 應用程式可能「由 Microsoft 斟酌決定」視為過期的訂用帳戶。 應用程式如果在過去 90 天符合下列條件，即可視為非作用中： 
+基於資料保留和刪除的目的，非作用中 LUIS 應用程式可能「由 Microsoft 斟酌決定」  視為過期的訂用帳戶。 應用程式如果在過去 90 天符合下列條件，即可視為非作用中： 
 
 * **沒有**任何對它發出的呼叫。
 * 尚未經過修改。

@@ -3,18 +3,18 @@ title: 在 Azure IoT Central 中監視您的裝置 | Microsoft Docs
 description: 身為操作員，您可以使用 Azure IoT Central 應用程式監視您的裝置。
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/01/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d6ad7631ae32f8bd04812093a0fef4fa3d575864
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067403"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>教學課程：使用 Azure IoT Central 監視您的裝置
 
@@ -39,33 +39,33 @@ ms.locfileid: "57760467"
 
 Azure IoT Central 會以電子郵件訊息傳送關於裝置的通知。 建置者已新增會在連線的空調裝置溫度超出閾值時傳送通知的規則。 請查看傳送至建置者選擇要接收通知之帳戶的電子郵件。
 
-開啟您在[為您的裝置設定規則和動作](tutorial-configure-rules.md)教學課程末尾收到的電子郵件訊息。 在電子郵件中，選擇 [按一下這裡以開啟您的裝置]：
+開啟您在[為您的裝置設定規則和動作](tutorial-configure-rules.md)教學課程末尾收到的電子郵件訊息。 在電子郵件中，選擇 [按一下這裡以開啟您的裝置]  ：
 
 ![警示通知電子郵件](media/tutorial-monitor-devices/email.png)
 
-您在先前的教學課程中建立的**連線的空調-1** 模擬裝置的 [裝置] 頁面，會在您的瀏覽器中開啟：
+您在先前的教學課程中建立的**連線的空調-1** 模擬裝置的 [裝置]  頁面，會在您的瀏覽器中開啟：
 
 ![觸發通知電子郵件訊息的裝置](media/tutorial-monitor-devices/sourcedevice.png)
 
 ## <a name="investigate-an-issue"></a>調查問題
 
-身為操作員，您可以在 [測量]、[設定]、[屬性]、[規則] 和 [儀表板] 頁面上檢視裝置的相關資訊。 建置者自訂了 [儀表板]，以顯示與連線的空調裝置有關的重要資訊。
+身為操作員，您可以在 [測量]  、[設定]  、[屬性]  、[規則]  和 [儀表板]  頁面上檢視裝置的相關資訊。 建置者自訂了 [儀表板]  ，以顯示與連線的空調裝置有關的重要資訊。
 
-選擇 [儀表板] 檢視以查看裝置的相關資訊。
+選擇 [儀表板]  檢視以查看裝置的相關資訊。
 
 ![裝置儀表板](media/tutorial-monitor-devices/initial_screen.png)
 
-儀表板上的圖表會顯示裝置溫度的繪圖。 您也可以在 [裝置屬性] 圖格中檢視裝置目前的目標溫度。 您判定目標溫度過高。
+儀表板上的圖表會顯示裝置溫度的繪圖。 您也可以在 [裝置屬性]  圖格中檢視裝置目前的目標溫度。 您判定目標溫度過高。
 
 ## <a name="remediate-an-issue"></a>補救問題
 
-若要變更裝置的目標溫度，請使用 [設定] 頁面：
+若要變更裝置的目標溫度，請使用 [設定]  頁面：
 
-1. 選擇 [設定]。 將 [設定溫度] 變更為 75。 選擇 [更新]，以將新的目標溫度傳送至裝置。 當裝置確認設定變更之後，設定的狀態將會變更為 [已同步]：
+1. 選擇 [設定]  。 將 [設定溫度]  變更為 75。 選擇 [更新]  ，以將新的目標溫度傳送至裝置。 當裝置確認設定變更之後，設定的狀態將會變更為 [已同步]  ：
 
     ![更新設定](media/tutorial-monitor-devices/change_settings.png)
 
-2. 選擇 [儀表板]，並確認新的設定值：
+2. 選擇 [儀表板]  ，並確認新的設定值：
 
     ![已更新的裝置儀表板](media/tutorial-monitor-devices/new_settings.png)
 

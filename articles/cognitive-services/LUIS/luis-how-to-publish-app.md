@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
 ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60194403"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>將作用中且經過訓練的應用程式發佈至預備或生產端點
 
@@ -26,7 +26,7 @@ ms.locfileid: "55873134"
 
 ## <a name="publishing"></a>發佈
 
-若要發佈至端點，請選取右側面板頂端的 [發佈]。 
+若要發佈至端點，請選取右側面板頂端的 [發佈]  。 
 
 ![右上方導覽列](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
@@ -40,11 +40,11 @@ ms.locfileid: "55873134"
 
 ![發佈連結至端點的快顯視窗](./media/luis-how-to-publish-app/publish-success.png)
 
-如果您需要端點 URL，請選取此連結。 您也可以選取頂端功能表中的 [管理]，然後選取左側功能表中的 [金鑰和端點]，以取得端點 URL。 
+如果您需要端點 URL，請選取此連結。 您也可以選取頂端功能表中的 [管理]  ，然後選取左側功能表中的 [金鑰和端點]  ，以取得端點 URL。 
 
 ## <a name="configuring-publish-settings"></a>配置發佈設定
 
-選取右上方導覽列中的 [管理]，然後選取 [發佈設定]，以配置發佈設定。 
+選取右上方導覽列中的 [管理]  ，然後選取 [發佈設定]  ，以配置發佈設定。 
 
 ![發佈設定](./media/luis-how-to-publish-app/publish-settings.png)
 

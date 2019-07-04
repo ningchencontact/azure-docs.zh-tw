@@ -12,11 +12,11 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002426"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60372817"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>使用電腦視覺產生智慧裁剪的縮圖
 
@@ -24,15 +24,15 @@ ms.locfileid: "60002426"
 
 電腦視覺縮圖產生演算法的運作方式如下所示：
 
-1. 從影像中移除雜亂的元素，並找出「關注區域 (area of interest)」&mdash;影像中顯示主要物件的區域。
-1. 根據所識別的「關注區域」來裁剪影像。
+1. 從影像中移除雜亂的元素，並找出「關注區域 (area of interest)」  &mdash;影像中顯示主要物件的區域。
+1. 根據所識別的「關注區域」  來裁剪影像。
 1. 變更外觀比例以符合目標縮圖尺寸。
 
 ## <a name="area-of-interest"></a>關注區域
 
-當您上傳影像時，電腦視覺 API 會分析該影像，以判斷「關注區域」。 然後使用此區域來決定如何裁剪影像。 不過，若未指定的話，裁剪作業一律會符合所需的外觀比例。
+當您上傳影像時，電腦視覺 API 會分析該影像，以判斷「關注區域」  。 然後使用此區域來決定如何裁剪影像。 不過，若未指定的話，裁剪作業一律會符合所需的外觀比例。
 
-您也可以藉由呼叫 **areaOfInterest** API，改為取得此相同「關注區域」的原始週框方塊座標。 接著，您可以使用此資訊來依照喜好修改原始影像。
+您也可以藉由呼叫 **areaOfInterest** API，改為取得此相同「關注區域」  的原始週框方塊座標。 接著，您可以使用此資訊來依照喜好修改原始影像。
 
 ## <a name="examples"></a>範例
 
@@ -42,7 +42,7 @@ ms.locfileid: "60002426"
 
 下表顯示的是電腦視覺針對範例影像所產生的典型縮圖。 這些是目標高度和寬度指定為 50 像素，並啟用智慧裁剪功能所產生的縮圖。
 
-| 映像 | 縮圖 |
+| Image | 縮圖 |
 |-------|-----------|
 |![在日落，與個人的黑色輪廓戶外 Mountain](./Images/mountain_vista.png) | ![Outdoor Mountain 的日落，與個人的黑色輪廓的縮圖](./Images/mountain_vista_thumbnail.png) |
 |![具有綠色背景的白色花卉](./Images/flower.png) | ![視覺分析花朵縮圖](./Images/flower_thumbnail.png) |

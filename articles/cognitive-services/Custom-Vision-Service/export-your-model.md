@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550548"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>匯出您的模型以用於行動裝置
@@ -44,28 +44,28 @@ ms.locfileid: "65550548"
 
     ![首頁圖示和專案清單的影像](./media/export-your-model/projects-list.png)
 
-2. 選取專案，然後選取頁面右上方的 [齒輪] 圖示。
+2. 選取專案，然後選取頁面右上方的 [齒輪]  圖示。
 
     ![齒輪圖示的影像](./media/export-your-model/gear-icon.png)
 
-3. 在 [區域] 區段中，選取 [密集] 網域。 選取 [儲存變更] 以儲存變更。
+3. 在 [區域]  區段中，選取 [密集]  網域。 選取 [儲存變更]  以儲存變更。
 
     ![區域選取項目的影像](./media/export-your-model/domains.png)
 
-4. 在頁面頂端選取 [訓練]，以使用新的區域進行重新訓練。
+4. 在頁面頂端選取 [訓練]  ，以使用新的區域進行重新訓練。
 
 ## <a name="export-your-model"></a>匯出您的模型
 
 若要在重新訓練之後匯出模型，請使用下列步驟：
 
-1. 移至 [效能] 索引標籤，並選取 [匯出]。 
+1. 移至 [效能]  索引標籤，並選取 [匯出]  。 
 
     ![匯出圖示的影像](./media/export-your-model/export.png)
 
     > [!TIP]
-    > 如果 [匯出] 項目無法使用，則選取的反覆項目不會使用密集區域。 請使用此頁面的 [反覆項目] 區段選取使用密集區域的反覆項目，然後選取 [匯出]。
+    > 如果 [匯出]  項目無法使用，則選取的反覆項目不會使用密集區域。 請使用此頁面的 [反覆項目]  區段選取使用密集區域的反覆項目，然後選取 [匯出]  。
 
-2. 選取匯出格式，然後選取 [匯出] 以下載模型。
+2. 選取匯出格式，然後選取 [匯出]  以下載模型。
 
 ## <a name="next-steps"></a>後續步驟
 

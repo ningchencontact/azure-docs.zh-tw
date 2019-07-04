@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080796"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行異常情況偵測
 
@@ -74,7 +74,7 @@ ms.locfileid: "66807473"
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
     |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../../azure-resource-manager/resource-group-overview.md)。 |
-    |**位置**     | 選取 **美國東部 2**或其中一個其他可用的區域。 請參閱[提供的 Azure 服務的區域](https://azure.microsoft.com/regions/services/)區域可用性。        |
+    |**Location**     | 選取 **美國東部 2**或其中一個其他可用的區域。 請參閱[提供的 Azure 服務的區域](https://azure.microsoft.com/regions/services/)區域可用性。        |
     |定價層      |  選擇 [標準]  或 [進階]  。 請勿選擇**試用版**。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
     選取 [建立]  。
@@ -164,9 +164,9 @@ ms.locfileid: "66807473"
 
     |值 |描述  |
     |---------|---------|
-    |Name     | 異常偵測器資源的名稱。        |
+    |名稱     | 異常偵測器資源的名稱。        |
     |訂用帳戶     | Azure 訂用帳戶資源相關聯。        |
-    |位置     | Azure 位置。        |
+    |Location     | Azure 位置。        |
     |定價層     | 服務的定價層。 如需有關異常偵測器定價的詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)。        |
     |資源群組     | 指定您是要建立新的資源群組，還是選取現有資源群組。        |
 
@@ -670,22 +670,22 @@ adResult.show()
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
+```
 
+就這麼簡單！ 使用 Azure Databricks，您已成功將資料串流到 Azure 事件中樞、 取用串流資料，使用事件中樞連接器，然後對串流近乎即時的資料執行異常偵測。
+雖然在此教學課程中，資料粒度是每小時，您可以隨時變更以符合您需求的資料粒度。 
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
-Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
+## <a name="clean-up-resources"></a>清除資源
 
-## Clean up resources
+在本教學課程執行完後，您可以終止叢集。 若要這樣做，請在 Azure Databricks 工作區中，選取**叢集**從左窗格中。 對於您想要終止的叢集，將游標移到底下的省略符號**動作**資料行，然後選取**終止**圖示，然後選取**確認**。
 
-After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
+![停止 Databricks 叢集](../media/tutorials/terminate-databricks-cluster.png "停止 Databricks 叢集")
 
-![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
+如果您不手動終止的叢集將會自動停止，提供您所選取**後終止\_\_停止活動幾分鐘**建立叢集時的核取方塊。 在這種情況下，叢集將會在停止活動達指定時間後自動停止。
 
-If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+## <a name="next-steps"></a>後續步驟
 
-## Next steps
-
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
+在本教學課程中，您已了解如何使用 Azure Databricks 將資料串流到 Azure 事件中樞，然後從事件中樞即時讀取串流資料。 請前進到下一個教學課程，以了解如何呼叫異常偵測器 API，並以視覺化方式檢視使用 Power BI desktop 的異常狀況。 
 
 > [!div class="nextstepaction"]
->[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[使用 Power BI desktop 的批次異常偵測](batch-anomaly-detection-powerbi.md)

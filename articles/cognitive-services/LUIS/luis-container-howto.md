@@ -3,20 +3,20 @@ title: Docker 容器
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 容器會將您已定型或發佈的應用程式載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.topic: conceptual
+ms.date: 07/02/2019
+ms.author: dapine
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306617"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537104"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -55,7 +55,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 |容器| 最小值 | 建議 | TPS<br>（最小值、 最大值）|
 |-----------|---------|-------------|--|
-|LUIS|1 核心，2 GB 記憶體|1 核心，4 GB 記憶體|20,40|
+|LUIS|1 個核心，2 GB 記憶體|1 個核心，4 GB 記憶體|20,40|
 
 * 每個核心必須至少 2.6 GHz 或更快。
 * TPS - 每秒的交易數
@@ -109,7 +109,7 @@ LUIS 容器需要以已定型或發佈的 LUIS 應用程式來回應使用者語
 |套件類型|查詢端點 API|查詢可用性|套件檔案名稱格式|
 |--|--|--|--|
 |已定型|Get, Post|僅限容器|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|預備環境|Get, Post|Azure 和容器|`{APPLICATION_ID}_STAGING.gz`|
+|預備|Get, Post|Azure 和容器|`{APPLICATION_ID}_STAGING.gz`|
 |Production|Get, Post|Azure 和容器|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -168,23 +168,14 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{APPLICATION_ID} | 已發佈 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_ENVIRONMENT} | 已發佈 LUIS 應用程式的環境。 請使用下列其中一個值：<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定]  頁面取得撰寫金鑰。 |
 |{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` - 美國西部<br/>```westeurope``` - 西歐<br/>```australiaeast``` - 澳洲東部 |
 
-使用下列 CURL 命令並取代為您自己的值，以下載已發佈的套件：
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-如果成功，回應將是 LUIS 套件檔案。 請將此檔案儲存在為容器的輸入掛接指定的儲存位置中。 
+若要下載已發佈的封裝，請參閱[API 文件][download-published-package]。 如果成功下載，則回應會是 LUIS 封裝檔案。 請將此檔案儲存在為容器的輸入掛接指定的儲存位置中。 
 
 ### <a name="export-trained-apps-package-from-api"></a>從 API 匯出已定型的應用程式套件
 
@@ -196,29 +187,20 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{APPLICATION_ID} | 已定型 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_VERSION} | 已定型 LUIS 應用程式的應用程式版本。 |
 |{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定]  頁面取得撰寫金鑰。  |
 |{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` - 美國西部<br/>```westeurope``` - 西歐<br/>```australiaeast``` - 澳洲東部 |
 
-請使用下列 CURL 命令下載已定型的套件：
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-如果成功，回應將是 LUIS 套件檔案。 請將此檔案儲存在為容器的輸入掛接指定的儲存位置中。 
+若要下載訓練的套件，請參閱[API 文件][download-trained-package]。 如果成功下載，則回應會是 LUIS 封裝檔案。 請將此檔案儲存在為容器的輸入掛接指定的儲存位置中。 
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
 
 將 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令執行容器。 此命令會使用下列參數：
 
-| 預留位置 | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{ENDPOINT_KEY} | 此金鑰可用來啟動容器。 請勿使用入門金鑰。 |
 |{BILLING_ENDPOINT} | 在 Azure 入口網站的計費的端點值可用`Cognitive Services`概觀 頁面。 您需要新增`luis/v2.0`傳送至端點 URI，如下列範例所示： `https://westus.api.cognitive.microsoft.com/luis/v2.0`。|
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* 此範例會使用目錄關閉`c:`以避免任何權限衝突，在 Windows 上的磁碟機。 如果您需要使用特定目錄作為輸入目錄，您可能需要授與 Docker 服務權限。 
+* 此範例會使用目錄關閉`C:`以避免任何權限衝突，在 Windows 上的磁碟機。 如果您需要使用特定目錄作為輸入目錄，您可能需要授與 Docker 服務權限。 
 * 若非十分熟悉 Docker 容器，請勿變更引數的順序。
 * 如果您使用不同的作業系統，使用正確的主控台/終端機、 資料夾語法掛接，和您系統的行接續字元。 這些範例假設 Windows 主控台中的，使用行接續字元`^`。 因為容器是 Linux 作業系統，所以目標掛接使用 Linux 型資料夾語法。
-
-
 
 此命令：
 
@@ -270,9 +250,9 @@ ApiKey={ENDPOINT_KEY}
 
 針對容器 API 請使用主機 `https://localhost:5000`。 
 
-|封裝類型|方法|路由|查詢參數|
+|套件類型|方法|路由|查詢參數|
 |--|--|--|--|
-|已發行|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
+|Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
 |已定型|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
 查詢參數會設定傳回查詢回應的方式和內容：
@@ -280,7 +260,7 @@ ApiKey={ENDPOINT_KEY}
 |查詢參數|類型|目的|
 |--|--|--|
 |`q`|string|使用者的語句。|
-|`timezoneOffset`|號|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
+|`timezoneOffset`|number|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
 |`verbose`|boolean|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
 |`staging`|boolean|設為 true 時，會從預備環境的結果中傳回查詢。 |
 |`log`|boolean|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|
@@ -324,7 +304,6 @@ curl -X GET \
 
 在上傳記錄後，在 LUIS 入口網站中[檢閱端點](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances)語句。
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,14 +341,13 @@ curl -X GET \
 
 不支援的應用程式組態|詳細資料|
 |--|--|
-|不支援的容器文化特性| 荷蘭文 (nl-NL)<br>日文 (ja-JP)<br>僅支援德文[1.0.1 tokenizer 或更新版本](luis-language-support.md#custom-tokenizer-versions)。|
+|不支援的容器文化特性| 荷蘭文 (nl-NL)<br>日文 (ja-JP)<br>僅支援德文[1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions)。|
 |所有文化特性皆不支援的實體|適用於所有文化特性的 [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) 預先建置實體|
 |英文 (en-US) 文化特性不支援的實體|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 預先建置的實體|
 |語音預備|在容器中不支援外部相依性。|
 |情感分析|在容器中不支援外部相依性。|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>總結
@@ -390,3 +368,7 @@ curl -X GET \
 * 檢閱[設定容器](luis-container-configuration.md)以了解組態設定
 * 請參閱[疑難排解](troubleshooting.md)來解決與 LUIS 功能相關的問題。
 * 使用更多[認知服務容器](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

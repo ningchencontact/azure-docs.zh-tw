@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60462583"
 ---
 # <a name="project-url-preview-v7-reference"></a>專案 URL 預覽 v7 參考
 
@@ -76,8 +76,8 @@ q - 識別欲預覽之 URL 的查詢
 |名稱|值|類型|必要項|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|字串|是|
-|<a name="query" />q|要預覽的 URL|字串|是|
-|<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](https://json-ld.org/)。|字串|否|
+|<a name="query" />q|要預覽的 URL|String|是|
+|<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](https://json-ld.org/)。|String|否|
 |<a name="safesearch"/>safeSearch|禁止非法成人內容或盜版內容，錯誤代碼為 400，並且不會傳回 *isFamilyFriendly* 旗標。 <p>對於合法的成人內容，會出現以下行為。 狀態碼傳回 200，而且 *isFamilyFriendly* 旗標設為 false。<ul><li>safeSearch=strict：不會傳回標題、描述、URL 以及映像。</li><li>safeSearch=moderate；取得標題、URL 以及描述，但不會有描述性的影像。</li><li>safeSearch=off；取得所有回應物件/元素 – 標題、URL、描述、影像。</li></ul> |字串|不需要。 </br> 預設值為 safeSearch=strict。|
 
 ## <a name="response-objects"></a>回應物件
@@ -92,10 +92,10 @@ q - 識別欲預覽之 URL 的查詢
 
 |元素|描述|類型|
 |-------------|-----------------|----------|
-|<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|字串|
+|<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|String|
 |<a name="error-message" />message|錯誤的描述。|字串|
 |<a name="error-moredetails" />moreDetails|提供其他錯誤相關資訊的描述。|字串|
-|<a name="error-parameter" />parameter|要求中導致錯誤的查詢參數。|字串|
+|<a name="error-parameter" />parameter|要求中導致錯誤的查詢參數。|String|
 |<a name="error-subcode" />subCode|識別錯誤的錯誤碼。 例如，如果 `code`是 InvalidRequest，則 `subCode` 可能是 ParameterInvalid 或 ParameterInvalidValue。 |字串|
 |<a name="error-value" />value|非有效的查詢參數值。|字串|
 
@@ -112,16 +112,16 @@ q - 識別欲預覽之 URL 的查詢
 
 |名稱|值|類型|
 |----------|-----------|----------|
-|name|頁面標題，不一定是 HTML 標題|字串|
-|url|實際搜耙的 URL (要求可能已遵循重新導向)|字串|
-|說明|頁面和內容的簡短描述|字串|
-|isFamilyFriendly|對於 Web 索引中的項目最準確；即時擷取僅會根據 URL 進行此偵測動作，而非頁面內容|布林值|
-|primaryImageOfPage/contentUrl|要包含在預覽中的代表圖片 URL|字串|
+|name|頁面標題，不一定是 HTML 標題|String|
+|url|實際搜耙的 URL (要求可能已遵循重新導向)|String|
+|description|頁面和內容的簡短描述|String|
+|isFamilyFriendly|對於 Web 索引中的項目最準確；即時擷取僅會根據 URL 進行此偵測動作，而非頁面內容|boolean|
+|primaryImageOfPage/contentUrl|要包含在預覽中的代表圖片 URL|String|
 
 ### <a name="identifiable"></a>Identifiable
 |名稱|值|類型|
 |-------------|-----------------|----------|
-|id|資源識別碼|字串|
+|id|資源識別碼|String|
 
 ## <a name="error-codes"></a>錯誤碼
 

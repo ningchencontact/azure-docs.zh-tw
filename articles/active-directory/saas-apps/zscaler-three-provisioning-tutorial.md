@@ -1,6 +1,6 @@
 ---
 title: 教學課程：以 Azure Active Directory 設定 Zscaler Three 來自動佈建使用者 | Microsoft Docs
-description: 在本教學課程中，您將了解如何透過設定，來使 Azure Active Directory 自動對 Zscaler Three 進行或取消使用者帳戶的佈建。
+description: 在本教學課程中，您將了解如何設定 Azure Active Directory 來對 Zscaler Three 自動佈建及取消佈建使用者帳戶。
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,24 +16,24 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "67049001"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>教學課程：設定 Zscaler Three 來自動佈建使用者
 
-在本教學課程中，您將了解如何透過設定，來使 Azure Active Directory (Azure AD) 自動對 Zscaler Three 進行和取消使用者和/或群組的佈建。
+在本教學課程中，您將了解如何設定 Azure Active Directory (Azure AD) 來對 Zscaler Three 自動佈建及取消佈建使用者和/或群組。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題答案等重要詳細資訊，請參閱[使用 Azure Active Directory 自動對 SaaS 應用程式進行和取消使用者的佈建](../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題答案等重要詳細資訊，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建](../active-directory-saas-app-provisioning.md)。
 >
-> 此連接器目前為公開預覽版。 如需有關預覽功能的一般使用規定詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此連接器目前為公開預覽版。 如需有關預覽功能的一般 Azure 使用規定詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程中概述的步驟，您需要下列項目：
+若要完成此教學課程中概述的步驟，您需要下列項目：
 
 * Azure AD 租用戶。
 * Zscaler Three 租用戶。
@@ -105,7 +105,7 @@ Azure AD 使用者必須先獲得所選應用程式的存取權，才能使用�
 
     選取 [設定 SAML]  來開啟 [設定 SAML]  視窗：
 
-    ![設定 SAML 視窗](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
+    ![[設定 SAML] 視窗](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
 
     選取 [啟用 SCIM 型佈建]  並複製 [基底 URL]  和 [持有人權杖]  ，然後儲存設定。 在 Azure 入口網站中，將 [基底 URL]  貼到 [租用戶 URL]  方塊中，以及將 [持有人權杖]  貼到 [祕密權杖]  方塊中。
 

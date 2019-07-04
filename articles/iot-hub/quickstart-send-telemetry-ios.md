@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: a3f72c2a55acfc53d7d8a07bd10250c6ed6102ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03a0f285b2e8c74070a30bfbaac50e9bd9c58f65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006893"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051471"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入門：將遙測資料從裝置傳送到 IoT 中樞 (iOS)
 
@@ -99,15 +99,15 @@ pod install
    open "MQTT Client Sample.xcworkspace"
    ```
 
-2. 展開 [MQTT 用戶端範例] 專案，然後展開同名的資料夾。  
+2. 展開 [MQTT 用戶端範例]  專案，然後展開同名的資料夾。  
 3. 開啟 **ViewController.swift** 以便在 XCode 中編輯。 
 4. 搜尋 **connectionString** 變數，並使用您先前記下的裝置連接字串來更新此值。
 5. 儲存您的變更。 
-6. 使用 [建置並執行] 按鈕或 **Command + r** 按鍵組合，在裝置模擬器中執行專案。 
+6. 使用 [建置並執行]  按鈕或 **Command + r** 按鍵組合，在裝置模擬器中執行專案。 
 
    ![執行專案](media/quickstart-send-telemetry-ios/run-sample.png)
 
-7. 當模擬器開啟時，在範例應用程式中選取 [啟動]。
+7. 當模擬器開啟時，在範例應用程式中選取 [啟動]  。
 
 下列螢幕擷取畫面顯示應用程式將模擬的遙測傳送到 IoT 中樞時的一些範例輸出：
 
@@ -141,9 +141,3 @@ az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
 
 > [!div class="nextstepaction"]
 > [快速入門：控制連線到 IoT 中樞的裝置](quickstart-control-device-node.md)
-
-<!-- Links -->
-[lnk-process-d2c-tutorial]: tutorial-routing.md
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/

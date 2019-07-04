@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829634"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>如何註冊文字分析 API
 
@@ -35,11 +35,11 @@ ms.locfileid: "57449950"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)並[尋找服務](text-analytics-how-to-access-key.md)。
 
-2. 按一下 [定價層]。
+2. 按一下 [定價層]  。
 
    ![左側導覽功能表中的定價層命令](../media/portal-pricing-tier.png)
 
-3. 選取某個階層，然後按一下 [選取]。  選取項目一經處理，新的限制便會生效。 
+3. 選取某個階層，然後按一下 [選取]  。  選取項目一經處理，新的限制便會生效。 
 
    ![層級選取頁面中的圖格和選取按鈕](../media/portal-choose-tier.png)
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: aahi
 ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829594"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>建立圖像式搜尋單頁 Web 應用程式
 
@@ -118,7 +118,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 </div>
 ```
 
-當所有新的 JavaScript 程式碼與 HTML 元素皆設置妥當後，就會顯示搜尋結果以及**尋找類似項目**連結。 按一下此連結，可在 [類似] 區段中填入與您選擇的影像類似的影像。 您可能必須展開 [類似] 區段以顯示影像。
+當所有新的 JavaScript 程式碼與 HTML 元素皆設置妥當後，就會顯示搜尋結果以及**尋找類似項目**連結。 按一下此連結，可在 [類似]  區段中填入與您選擇的影像類似的影像。 您可能必須展開 [類似]  區段以顯示影像。
 
 ## <a name="next-steps"></a>後續步驟
 

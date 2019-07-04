@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814406"
 ---
 # <a name="schema-format"></a>結構描述格式
 
@@ -52,13 +52,13 @@ ms.locfileid: "59549673"
 | `Blob` | 在內部壓縮的非索引資料 | *None* | 「讓地球上的每個人和每個組織有能力獲得更大成就」 |
 | `Composite` | 多個子屬性的複合體| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
-字串屬性可用來表示可能會顯示為使用者查詢一部分的字串值。  這些屬性支援 equals (完全相符) 作業，以及適用於查詢完成案例的 starts_with 作業，例如比對「micros」與「microsoft」。  未來的版本會支援用來處理拼字錯誤的不區分大小寫比對和模糊比對。
+字串屬性可用來表示可能會顯示為使用者查詢一部分的字串值。  這些屬性支援 equals  (完全相符) 作業，以及適用於查詢完成案例的 starts_with  作業，例如比對「micros」與「microsoft」。  未來的版本會支援用來處理拼字錯誤的不區分大小寫比對和模糊比對。
 
-Int32/Int64/Double 屬性可用來表示數值。  is_between 作業可在執行階段支援不等比較 (lt、le、gt、ge)。  starts_with 作業可支援查詢完成案例，例如比對「20」與「2016」，或比對「3」 與「3.14」。
+Int32/Int64/Double 屬性可用來表示數值。  is_between  作業可在執行階段支援不等比較 (lt、le、gt、ge)。  starts_with  作業可支援查詢完成案例，例如比對「20」與「2016」，或比對「3」 與「3.14」。
 
-Date 屬性可用來有效率地對日期值編碼。  is_between 作業可在執行階段支援不等比較 (lt、le、gt、ge)。
+Date 屬性可用來有效率地對日期值編碼。  is_between  作業可在執行階段支援不等比較 (lt、le、gt、ge)。
   
-Guid 屬性可用來有效率地表示 GUID 值，並預設支援 equals 作業。
+Guid 屬性可用來有效率地表示 GUID 值，並預設支援 equals  作業。
 
 Blob 屬性可用來有效率地對可能較大的資料 Blob 進行編碼，以供對應物件的執行階段查閱使用，但不支援任何以 Blob 值內容為基礎的索引作業。
 
@@ -70,12 +70,12 @@ Blob 屬性可用來有效率地對可能較大的資料 Blob 進行編碼，以
 
 ## <a name="attribute-operations"></a>屬性作業
 
-根據預設，每個屬性都會建立索引以支援該屬性資料類型可用的所有作業。  如果不需要特定作業，則可以明確指定一組已建立索引的作業來減少索引大小。  在來自上述結構描述範例的下列程式碼片段中，Author.Id 屬性會建立索引，以便僅支援 equals 作業，而不會另外對 Int32 屬性支援 starts_with 和 is_between 作業。
+根據預設，每個屬性都會建立索引以支援該屬性資料類型可用的所有作業。  如果不需要特定作業，則可以明確指定一組已建立索引的作業來減少索引大小。  在來自上述結構描述範例的下列程式碼片段中，Author.Id 屬性會建立索引，以便僅支援 equals  作業，而不會另外對 Int32 屬性支援 starts_with  和 is_between  作業。
 ```json
 {"name":"Author.Id", "type":"Int32", "operations":["equals"]}
 ```
 
-當文法內參考某個屬性時，就必須在結構描述中指定 starts_with 作業，讓服務能夠從部分查詢產生完成查詢。  
+當文法內參考某個屬性時，就必須在結構描述中指定 starts_with  作業，讓服務能夠從部分查詢產生完成查詢。  
 
 ## <a name="attribute-synonyms"></a>屬性同義字
 

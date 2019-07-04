@@ -2,19 +2,19 @@
 title: 快速入門：建置、部署和使用自訂模型 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會進行「使用自訂翻譯工具來建置翻譯系統」的逐步程序。
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: aa38bbf211c9d62bcb9051a7ddc7f7d404add585
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 8f39abd41534ec470b5b4b6f232a556a8c8de5b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389618"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449462"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>快速入門：建置、部署和使用自訂模型來進行翻譯
 

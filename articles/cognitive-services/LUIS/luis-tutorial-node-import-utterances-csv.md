@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
 ms.openlocfilehash: 314d121e8964ba1cdbb457260826d85bf8505fbc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60494865"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以程式設計方式建置 LUIS 應用程式
 
@@ -167,7 +167,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>開啟 LUIS 應用程式
-當指令碼完成之後，您可以登入 [LUIS](luis-reference-regions.md)，然後在 [我的應用程式] 底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]、[TurnOff] 及 [None] 意圖底下看到您所新增的語句。
+當指令碼完成之後，您可以登入 [LUIS](luis-reference-regions.md)，然後在 [我的應用程式]  底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]  、[TurnOff]  及 [None]  意圖底下看到您所新增的語句。
 
 ![TurnOn 意圖](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

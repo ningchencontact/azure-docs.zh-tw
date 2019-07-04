@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: 5d2ea9d971eff22ddeed4122c9697ca3096697b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813890"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>預先建置的定義域、意圖及實體模型
 
@@ -28,17 +28,17 @@ LUIS 提供 3 種預先建置的模型類型。 您可以隨時將各個模型�
 
 |模型類型|包括|
 |--|--|
-|網域|意圖、語句、實體|
+|Domain|意圖、語句、實體|
 |對應方式|意圖、語句|
 |實體|僅限實體| 
 
 ## <a name="prebuilt-domains"></a>預先建置的定義域
 
-Language Understanding (LUIS) 提供「預建網域」，這是預建的[意圖](luis-how-to-add-intents.md)和[實體](luis-concept-entity-types.md)集合，可針對網域或常見的用戶端應用程式類別一起運作。 
+Language Understanding (LUIS) 提供「預建網域」  ，這是預建的[意圖](luis-how-to-add-intents.md)和[實體](luis-concept-entity-types.md)集合，可針對網域或常見的用戶端應用程式類別一起運作。 
 
 預先建置的定義域已定型，並已準備好新增到您的 LUIS 應用程式。 在您將預先建置定義域中的意圖和實體新增到應用程式之後，可以完全自訂這些意圖和實體。 
 
-如果您從自訂整個預建網域著手，請刪除您的應用程式不需要使用的意圖和實體。 您也可以將一些意圖或實體新增至預建網域已經提供的集合。 例如，如果您對運動事件應用程式使用 [事件] 預建網域，則可為運動團隊新增實體。 當您開始[提供語句](luis-how-to-add-example-utterances.md)給 LUIS 時，請包含您應用程式專屬的條款。 LUIS 會學習辨識這些條款，並針對您應用程式的需求調整預建網域的意圖和實體。 
+如果您從自訂整個預建網域著手，請刪除您的應用程式不需要使用的意圖和實體。 您也可以將一些意圖或實體新增至預建網域已經提供的集合。 例如，如果您對運動事件應用程式使用 [事件]  預建網域，則可為運動團隊新增實體。 當您開始[提供語句](luis-how-to-add-example-utterances.md)給 LUIS 時，請包含您應用程式專屬的條款。 LUIS 會學習辨識這些條款，並針對您應用程式的需求調整預建網域的意圖和實體。 
 
 > [!TIP]
 > 預建網域中的意圖和實體一起運作的效果最好。 最好儘可能結合來自相同網域的意圖和實體。
@@ -46,7 +46,7 @@ Language Understanding (LUIS) 提供「預建網域」，這是預建的[意圖]
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>變更預建網域意圖的行為
 
-您可能會發現，預建網域包含的意圖類似於您希望存在 LUIS 應用程式中，但行為不同的意圖。 例如，[地點] 預建網域會提供 `MakeReservation` 意圖以供預訂餐廳，但您希望您的應用程式使用該意圖來預訂旅館。 在此情況下，您可以修改該意圖的行為，做法是將有關預訂旅館的語句提供給 LUIS 並使用 `MakeReservation` 意圖加以標記，那麼就可以在預訂飯店要求中重新訓練 LUIS 來辨識 `MakeReservation` 意圖。
+您可能會發現，預建網域包含的意圖類似於您希望存在 LUIS 應用程式中，但行為不同的意圖。 例如，[地點]  預建網域會提供 `MakeReservation` 意圖以供預訂餐廳，但您希望您的應用程式使用該意圖來預訂旅館。 在此情況下，您可以修改該意圖的行為，做法是將有關預訂旅館的語句提供給 LUIS 並使用 `MakeReservation` 意圖加以標記，那麼就可以在預訂飯店要求中重新訓練 LUIS 來辨識 `MakeReservation` 意圖。
 
 您可以在[預建網域參考](./luis-reference-prebuilt-domains.md)中發現完整的預建網域清單。
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519836"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561278"
 ---
 # <a name="scenario-availability"></a>案例的可用性
 
@@ -25,7 +25,7 @@ ms.locfileid: "65519836"
   - 所有的程式設計語言/環境所在的箭號連結 <img src="media/index/link.jpg" height="15" width="15"></img> 在 快速入門資料表[此處](https://aka.ms/csspeech)。
 - **Text-to-Speech (TTS)**
   - C++/ Windows 和 Linux
-  - C#/Windows
+  - C#/ Windows UWP & Unity
   - TTS REST API 可用於每一種情況。
 - **網路喚醒字 (關鍵字車/KWS)**
   - C++/ Windows 和 Linux

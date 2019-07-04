@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150689"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>擷取與意圖和實體的 [utterance] 文字方塊中的資料
@@ -28,9 +28,9 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-當您編輯 LUIS 應用程式時，從該 LUIS 應用程式的 [設定] 頁面，以及從您 URL 的一部分 (在 `/apps/` 之後)，都可以取得 `appID`。 `subscription-key` 是用來查詢您應用程式的端點金鑰。 在學習 LUIS 期間，雖然您可以使用免費的撰寫/入門金鑰，但請務必將端點金鑰變更為支援[預期的 LUIS 使用方式](luis-boundaries.md#key-limits)的金鑰。 `timezoneOffset` 單位為分鐘。
+當您編輯 LUIS 應用程式時，從該 LUIS 應用程式的 [設定]  頁面，以及從您 URL 的一部分 (在 `/apps/` 之後)，都可以取得 `appID`。 `subscription-key` 是用來查詢您應用程式的端點金鑰。 在學習 LUIS 期間，雖然您可以使用免費的撰寫/入門金鑰，但請務必將端點金鑰變更為支援[預期的 LUIS 使用方式](luis-boundaries.md#key-limits)的金鑰。 `timezoneOffset` 單位為分鐘。
 
-**HTTPS 回應**包含 LUIS 可以根據目前已發佈之預備或生產環境端點模型來判斷的所有意圖和實體資訊。 端點 URL 是在 [LUIS](luis-reference-regions.md) 網站、[管理] 區段、[金鑰和端點] 頁面上找到的。
+**HTTPS 回應**包含 LUIS 可以根據目前已發佈之預備或生產環境端點模型來判斷的所有意圖和實體資訊。 端點 URL 是在 [LUIS](luis-reference-regions.md) 網站、[管理]  區段、[金鑰和端點]  頁面上找到的。
 
 ## <a name="data-from-intents"></a>來自意圖的資料
 主要資料是最高分的**意圖名稱**。 使用 `MyStore` [快速入門](luis-quickstart-intents-only.md) 時，端點回應為：
@@ -46,7 +46,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 }
 ```
 
-|資料物件|数据类型|資料位置|Value|
+|資料物件|資料類型|資料位置|值|
 |--|--|--|--|
 |意圖|字串|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -75,10 +75,10 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 意圖會依最高分到最低分排序。
 
-|資料物件|数据类型|資料位置|Value|分數|
+|資料物件|資料類型|資料位置|值|分數|
 |--|--|--|--|:--|
-|意圖|字串|intents[0].intent|"GetStoreInfo"|0.984749258|
-|意圖|字串|intents[1].intent|"None"|0.0168218873|
+|意圖|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|意圖|String|intents[1].intent|"None"|0.0168218873|
 
 如果您新增預先建置的定義域，則意圖名稱除了會指出意圖之外，也會指出該定義域，例如 `Utilties` 或 `Communication`：
 
@@ -106,11 +106,11 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 }
 ```
 
-|網域|資料物件|数据类型|資料位置|Value|
+|Domain|資料物件|資料類型|資料位置|值|
 |--|--|--|--|--|
-|公用事業|意圖|字串|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|公用事業|意圖|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |通訊|意圖|字串|intents[1].intent|<b>Communication</b>.StartOver"|
-||意圖|字串|intents[2].intent|"None"|
+||意圖|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>來自實體的資料
@@ -168,7 +168,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 ]
 ```
 
-|資料物件|實體名稱|Value|
+|資料物件|實體名稱|值|
 |--|--|--|
 |簡單實體|`Customer`|`bob jones`|
 
@@ -228,7 +228,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 ]
 ```    
 
-|資料物件|實體名稱|Value|
+|資料物件|實體名稱|值|
 |--|--|--|
 |預先建置的實體 - number|"builtin.number"|"2"|
 |Prebuilt Entity - GeographyV2|"Location::ToLocation"|"paris"|
@@ -241,7 +241,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 |清單項目|項目同義字|
 |---|---|
-|`Seattle`|`sea-tac`、`sea`、`98101`、`206`、`+1` |
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
 |`Paris`|`cdg`、`roissy`、`ory`、`75001`、`1`、`+33`|
 
 `book 2 tickets to paris`
@@ -408,17 +408,17 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 ### <a name="names-of-people"></a>人名
 
-人名可依據語言和文化特性而有些微的格式。 使用其中一個預先建置好**[personName](luis-reference-prebuilt-person.md)** 實體或**[簡單實體](luis-concept-entity-types.md#simple-entity)** 使用[角色](luis-concept-roles.md)第一個和最後一個名稱。 
+人名可依據語言和文化特性而有些微的格式。 使用其中一個預先建置好 **[personName](luis-reference-prebuilt-person.md)** 實體或 **[簡單實體](luis-concept-entity-types.md#simple-entity)** 使用[角色](luis-concept-roles.md)第一個和最後一個名稱。 
 
 如果您使用簡單的實體，請務必提供跨所有用途，包括 無使用第一個和最後一個名稱，在 utterance 的不同長度的表達方式和談話中的不同部分的範例意圖。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
 
 ### <a name="names-of-places"></a>地名
 
-位置名稱已設定且已如城市、 縣市、 狀態、 省和國家/地區。 使用預先建置的實體**[geographyV2](luis-reference-prebuilt-geographyv2.md)** 擷取位置資訊。
+位置名稱已設定且已如城市、 縣市、 狀態、 省和國家/地區。 使用預先建置的實體 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 擷取位置資訊。
 
 ### <a name="new-and-emerging-names"></a>全新和新興的名稱
 
-有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些類型的名稱是最困難的一種資料擷取。 開頭**[簡單實體](luis-concept-entity-types.md#simple-entity)** ，並新增[片語清單](luis-concept-feature.md)。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
+有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些類型的名稱是最困難的一種資料擷取。 開頭 **[簡單實體](luis-concept-entity-types.md#simple-entity)** ，並新增[片語清單](luis-concept-feature.md)。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
 
 ## <a name="pattern-roles-data"></a>模式角色資料
 角色是實體的內容相關差異。

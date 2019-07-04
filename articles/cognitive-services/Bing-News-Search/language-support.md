@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384975"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing 新聞搜尋 API 支援的語言和區域
@@ -137,7 +137,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |德國|DE|  
 |香港特別行政區|HK|  
 |印度|IN|  
-|印尼|ID|  
+|印尼|id|  
 |義大利|IT|  
 |日本|JP|  
 |南韓|KR|  

@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: 單次密碼驗證
               href: one-time-passcode.md
+            - name: 直接同盟
+              href: direct-federation.md
+            - name: 與 AD FS 建立直接同盟的範例
+              href: direct-federation-adfs.md
             - name: 允許或封鎖邀請
               href: allow-deny-list.md
             - name: 在沒有邀請的情況下新增 B2B 使用者

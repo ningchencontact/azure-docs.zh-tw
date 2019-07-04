@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954714"
 ---
 # <a name="analyzer-names"></a>分析器名稱
@@ -27,7 +27,7 @@ ms.locfileid: "65954714"
 分析器名稱包含四個部分：識別碼、種類、規格和實作。
 每個元件的角色定義如下。
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 首先，分析器具有唯一的識別碼；也就是 GUID。
 這些 GUID 難得會相對地變更，但卻是可唯一描述特定分析師的唯一方式。
 

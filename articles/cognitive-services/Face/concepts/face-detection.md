@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
 ms.openlocfilehash: e61048eeab9d7061c18f3237db22fc87ca52f526
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65891161"
 ---
 # <a name="face-detection-and-attributes"></a>臉部偵測和屬性
@@ -80,4 +80,4 @@ Face ID 是唯一的識別碼字串中每個偵測到臉部影像。 您可以�
 
 既然您已熟悉使用臉部偵測的概念，了解如何撰寫指令碼，在特定的映像中偵測到臉部。
 
-* [偵測影像中的臉孔](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [偵測影像中的臉部](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

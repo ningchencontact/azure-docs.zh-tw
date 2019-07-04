@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57895313"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072521"
 ---
 # <a name="speech-to-text-rest-api"></a>語音轉換文字 REST API
 
@@ -89,10 +89,10 @@ Expect: 100-continue
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 狀態碼 | 描述 | 可能的原因 |
+| HTTP 状态代码 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 100 | Continue | 已接受初始要求。 繼續傳送其餘的資料。 (搭配區塊傳輸使用。) |
-| 200 | OK | 要求成功；回應主體是 JSON 物件。 |
+| 200 | [確定] | 要求成功；回應主體是 JSON 物件。 |
 | 400 | 不正確的要求 | 未提供語言代碼，或不是支援的語言；無效的音訊檔案。 |
 | 401 | 未經授權 | 訂用帳戶金鑰或授權權杖在指定的區域中無效，或是無效的端點。 |
 | 403 | 禁止 | 遺漏訂用帳戶金鑰或授權權杖。 |
@@ -164,7 +164,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 如果音訊只包含不雅內容，而且 `profanity` 查詢參數設為 `remove`，則服務不會傳回語音結果。
 
-`detailed`格式包含相同的資料`simple`格式，以及使用`NBest`，替代的解譯，相同的辨識結果的清單。 這些結果是從最可能排列到最不可能。第一個項目與主要辨識結果相同。  使用 `detailed` 格式時，系統會提供 `DisplayText` 作為 `NBest` 清單中每個結果的 `Display`。
+`detailed`格式包含相同的資料`simple`格式，以及使用`NBest`，替代的解譯，相同的辨識結果的清單。 這些結果會從最有可能項目，到最不可能。 第一個項目與主要辨識結果相同。  使用 `detailed` 格式時，系統會提供 `DisplayText` 作為 `NBest` 清單中每個結果的 `Display`。
 
 `NBest` 清單中的每個物件包括：
 

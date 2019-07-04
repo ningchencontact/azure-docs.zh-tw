@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605336"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>使用 C# 分析視訊內容中的不當題材
 
@@ -36,11 +36,11 @@ Content Moderator 的影片仲裁功能是以 Azure 媒體服務 (AMS) 中免費
 
 ### <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
 
-在 Azure 入口網站中瀏覽至您新的 AMS 訂用帳戶，然後從側邊功能表選取 **API 存取**。 選取 [使用服務主體連線到 Azure 媒體服務]。 記下 [REST API 端點] 欄位中的值，稍後會需要它。
+在 Azure 入口網站中瀏覽至您新的 AMS 訂用帳戶，然後從側邊功能表選取 **API 存取**。 選取 [使用服務主體連線到 Azure 媒體服務]  。 記下 [REST API 端點]  欄位中的值，稍後會需要它。
 
-在 [Azure AD 應用程式] 區段中，選取 [新建]，並為您新的 Azure AD 應用程式註冊命名 (例如 "VideoModADApp")。 按一下 [儲存]，在設定應用程式的同時，請稍候幾分鐘。 然後，您應該會在頁面的 [Azure AD 應用程式] 區段底下看到您新增的應用程式註冊。
+在 [Azure AD 應用程式]  區段中，選取 [新建]  ，並為您新的 Azure AD 應用程式註冊命名 (例如 "VideoModADApp")。 按一下 [儲存]  ，在設定應用程式的同時，請稍候幾分鐘。 然後，您應該會在頁面的 [Azure AD 應用程式]  區段底下看到您新增的應用程式註冊。
 
-選取您的應用程式註冊，然後按一下其下方 [管理應用程式] 按鈕。 記下 [應用程式識別碼] 欄位中的值，稍後會需要它。 選取 [設定] > [金鑰]，並為新的金鑰輸入描述 (例如 "VideoModKey")。 按一下 [儲存]，然後留意到新的金鑰值。 複製這個字串，並將它儲存在安全的位置。
+選取您的應用程式註冊，然後按一下其下方 [管理應用程式]  按鈕。 記下 [應用程式識別碼]  欄位中的值，稍後會需要它。 選取 [設定]   > [金鑰]  ，並為新的金鑰輸入描述 (例如 "VideoModKey")。 按一下 [儲存]  ，然後留意到新的金鑰值。 複製這個字串，並將它儲存在安全的位置。
 
 如需上述程序更完整的逐步解說，請參閱[利用 Azure 入口網站開始使用 Azure AD 驗證](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)。
 
@@ -56,7 +56,7 @@ Azure 媒體服務總管是方便使用的 AMS 前端。 您可以使用它來�
 
 1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將它命名為 **VideoModeration**。 
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
-1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]  ，然後尋找並安裝下列套件：
     - windowsazure.mediaservices
     - windowsazure.mediaservices.extensions
 
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 如果您想要使用本機的視訊檔案 (最簡單的情況)，請將它新增至專案，並將其路徑輸入為 `INPUT_FILE` 值 (相對路徑是相對於執行目錄)。
 
-您也需要在目前的目錄中建立 _preset.json_ 檔案，並使用它來指定版本號碼。 例如︰
+您也需要在目前的目錄中建立 _preset.json_ 檔案，並使用它來指定版本號碼。 例如:
 
 ```JSON
 {

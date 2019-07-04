@@ -1,5 +1,5 @@
 ---
-title: 字彙
+title: 詞彙
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: 此詞彙說明使用 LUIS API Service 時可能遇到的字詞。
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523503"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>常用詞彙和概念的語言理解詞彙
@@ -74,7 +74,7 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="endpoint"></a>端點
 
-[LUIS 端點](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的[金鑰和端點](luis-how-to-azure-subscription.md)頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
+[LUIS 端點](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是您編寫和發佈 [LUIS 應用程式](#luis-app)之後，送出 LUIS 查詢的位置。 端點 URL 包含已發佈應用程式的區域，以及應用程式識別碼。 您可以在應用程式的[金鑰和端點](luis-how-to-azure-subscription.md)  頁面上找到端點，或者可以從 [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 取得端點 URL。
 
 範例端點看起來像：
 
@@ -82,11 +82,11 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 |查詢字串參數|description|
 |--|--|
-|地區| [發佈的區域](luis-reference-regions.md#publishing-regions) |
+|region| [發佈的區域](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 應用程式識別碼 |
 |subscriptionID | 在 Azure 入口網站中建立的 LUIS 端點 (訂用帳戶) 金鑰 |
 |q | 語句 |
-|timezoneOffset| 分鐘|
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>實體
 
@@ -177,7 +177,7 @@ LUIS 配額是 [Azure 訂用帳戶層](https://aka.ms/luis-price-tier)的限制�
 
 ## <a name="subscription-key"></a>訂用帳戶金鑰
 
-訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS](luis-reference-regions.md) 網站中[金鑰和端點頁面](luis-how-to-azure-subscription.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。
+訂用帳戶金鑰是與[您在 Azure 中建立](luis-how-to-azure-subscription.md)之 LUIS 服務相關聯的**端點**金鑰。 這個金鑰不是[編寫金鑰](#programmatic-key)。 如果您有端點金鑰，則應該針對任何端點要求使用，而不是針對撰寫金鑰使用。 您可以在 [LUIS](luis-reference-regions.md) 網站中[金鑰和端點  頁面](luis-how-to-azure-subscription.md)底部的端點 URL 內，查看您目前的端點金鑰。 這是 **subscription-key** 名稱/值組的值。
 
 ## <a name="test"></a>測試
 

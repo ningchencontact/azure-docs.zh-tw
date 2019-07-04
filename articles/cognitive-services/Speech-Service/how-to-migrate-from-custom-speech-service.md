@@ -12,11 +12,11 @@ ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 8a2c149faa0ec9d135713a123a33d7c220522496
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58495998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60995615"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>從自訂語音服務移轉至語音服務
 
@@ -28,7 +28,7 @@ ms.locfileid: "58495998"
 
 計價模式更為簡單，並針對語音服務使用以小時為基礎的計價模式。  
 
-1. 在提供您應用程式的每個區域中建立 Azure 資源。 Azure 資源名稱為「語音」。 您可以將單一 Azure 資源用於相同區域中的下列服務，而不建立個別的資源：
+1. 在提供您應用程式的每個區域中建立 Azure 資源。 Azure 資源名稱為「語音」  。 您可以將單一 Azure 資源用於相同區域中的下列服務，而不建立個別的資源：
 
     * 語音轉文字
     * 自訂語音轉換文字
@@ -50,9 +50,9 @@ ms.locfileid: "58495998"
 
 1. 登入 [cris.ai](https://cris.ai/Home/CustomSpeech) \(英文\) 入口網站，然後選取右上方功能表中的訂用帳戶。
 
-2. 選取 [Migrate selected subscription] \(移轉選取的訂用帳戶\)。
+2. 選取 [Migrate selected subscription] \(移轉選取的訂用帳戶\)  。
 
-3. 在文字方塊中輸入訂用帳戶金鑰，然後選取 [Migrate] \(移轉\)。
+3. 在文字方塊中輸入訂用帳戶金鑰，然後選取 [Migrate]  \(移轉\)。
 
 ## <a name="next-steps"></a>後續步驟
 

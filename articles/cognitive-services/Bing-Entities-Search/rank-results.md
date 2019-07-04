@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60309329"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>使用排名來顯示實體搜尋結果  
 
@@ -24,7 +24,7 @@ ms.locfileid: "55867829"
 在每個群組內，[項目](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items)陣列會識別內容必須出現的順序。 每個項目會提供兩種方式來識別回應內的結果。  
  
 
-|欄位 | 說明  |
+|欄位 | 描述  |
 |---------|---------|
 |`answerType`和`resultIndex` | `answerType` 會識別回應 (實體或位置)，而 `resultIndex` 會識別回應內的結果 (例如一個實體)。 索引從 0 開始。|
 |`value`    | `value` 包含的識別碼會符合回應或回應內結果的識別碼。 回應或結果其中一個 (而非兩者) 會包含識別碼。 |

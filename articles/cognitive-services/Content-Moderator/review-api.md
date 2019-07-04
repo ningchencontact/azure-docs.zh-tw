@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607266"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>內容仲裁審查、 工作流程和工作
 
@@ -29,7 +29,7 @@ Content Moderator 結合機器輔助仲裁，在迴圈人類的功能，來建�
 
 請參閱[檢閱工具指南](./review-tool-user-guide/review-moderated-images.md)來開始建立評論，或查看[REST API 指南](./try-review-api-review.md)若要了解如何以程式設計方式操作。
 
-## <a name="workflows"></a>工作流程
+## <a name="workflows"></a>Workflows
 
 工作流程是雲端架構自訂篩選器內容。 工作流程可以連接到各種不同的方式篩選內容，並採取適當的動作的服務。 使用 Content Moderator 連接器，工作流程可以自動套用仲裁標記，並建立已提交的內容檢閱。
 

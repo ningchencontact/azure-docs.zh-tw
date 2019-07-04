@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
 ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60829169"
 ---
 # <a name="experimentation"></a>測試
 
@@ -77,20 +77,20 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 結果的記錄會附加至 *mwt-ds/DataScience/experiments.csv* 檔案。
 
 ### <a name="parameters"></a>參數
-| 輸入 | 說明 | 預設值 |
+| 輸入 | 描述 | 預設值 |
 | --- | --- | --- |
-| `-h`、`--help` | 顯示說明訊息並結束。 | |
-| `-f FILE_PATH`、`--file_path FILE_PATH` | 資料檔案路徑 (`.json` 或 `.json.gz` 格式 - 每行都是 `dsjson`)。 | 必要 |  
-| `-b BASE_COMMAND`、`--base_command BASE_COMMAND` | 基本 Vowpal Wabbit 命令。  | `vw --cb_adf --dsjson -c` |  
-| `-p N_PROC`、`--n_proc N_PROC` | 要使用的平行處理序數目。 | 邏輯處理器 |  
+| `-h`、 `--help` | 顯示說明訊息並結束。 | |
+| `-f FILE_PATH`、 `--file_path FILE_PATH` | 資料檔案路徑 (`.json` 或 `.json.gz` 格式 - 每行都是 `dsjson`)。 | 必要項 |  
+| `-b BASE_COMMAND`、 `--base_command BASE_COMMAND` | 基本 Vowpal Wabbit 命令。  | `vw --cb_adf --dsjson -c` |  
+| `-p N_PROC`、 `--n_proc N_PROC` | 要使用的平行處理序數目。 | 邏輯處理器 |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | 共用功能命名空間 (例如 `abc` 表示命名空間 `a`、`b` 和 `c`)。  | 從資料檔案自動偵測 |  
 | `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | 動作功能命名空間。 | 從資料檔案自動偵測 |  
 | `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | 臨界功能命名空間。 | 從資料檔案自動偵測 |  
 | `--auto_lines AUTO_LINES` | 要掃描以自動偵測功能命名空間的資料檔案行數。 | `100` |  
 | `--only_hp` | 只要對超參數 (`learning rate`、`L1 regularization` 和 `power_t`) 掃掠。 | `False` |  
-| `-l LR_MIN_MAX_STEPS`、`--lr_min_max_steps LR_MIN_MAX_STEPS` | 學習速度範圍，以正值 `min,max,steps` 表示。 | `1e-5,0.5,4` |  
-| `-r REG_MIN_MAX_STEPS`、`--reg_min_max_steps REG_MIN_MAX_STEPS` | L1 正規化範圍，以正值 `min,max,steps` 表示。 | `1e-9,0.1,5` |  
-| `-t PT_MIN_MAX_STEPS`、`--pt_min_max_steps PT_MIN_MAX_STEPS` | Power_t 範圍，以正值 `min,max,step` 表示。 | `1e-9,0.5,5` |  
+| `-l LR_MIN_MAX_STEPS`、 `--lr_min_max_steps LR_MIN_MAX_STEPS` | 學習速度範圍，以正值 `min,max,steps` 表示。 | `1e-5,0.5,4` |  
+| `-r REG_MIN_MAX_STEPS`、 `--reg_min_max_steps REG_MIN_MAX_STEPS` | L1 正規化範圍，以正值 `min,max,steps` 表示。 | `1e-9,0.1,5` |  
+| `-t PT_MIN_MAX_STEPS`、 `--pt_min_max_steps PT_MIN_MAX_STEPS` | Power_t 範圍，以正值 `min,max,step` 表示。 | `1e-9,0.5,5` |  
 | `--q_bruteforce_terms Q_BRUTEFORCE_TERMS` | 要在暴力密碼破解階段中測試的二次方配對數。 | `2` |  
 | `--q_greedy_stop Q_GREEDY_STOP` | 沒有改善的回合數，之後會停止二次方窮盡搜尋階段。 | `3` |  
 

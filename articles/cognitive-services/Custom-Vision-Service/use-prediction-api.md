@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60816772"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>使用您的模型使用預測 API
 
@@ -26,7 +26,7 @@ ms.locfileid: "59046065"
 
 ## <a name="publish-your-trained-iteration"></a>發行已訓練的反覆項目
 
-從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能] 索引標籤。
+從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能]  索引標籤。
 
 若要提交給預測 API 的映像，將必須先發佈的預測，可藉由選取反覆項目的__發佈__並指定已發行的反覆項目名稱。 這可讓您的模型來預測 API，您的自訂視覺 Azure 資源的存取。
 

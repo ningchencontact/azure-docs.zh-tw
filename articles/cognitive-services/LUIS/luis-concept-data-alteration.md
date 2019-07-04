@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 0648dd9bc93097d3c2433943f983b5e9d22f0279
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473500"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>預測之前或預測期間變更語句資料
@@ -30,7 +30,7 @@ LUIS 使用 [Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cogn
 
 端點必須有兩個參數，才能讓拼字校正運作：
 
-|參數|Value|
+|參數|值|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|[Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 端點金鑰|
@@ -58,7 +58,7 @@ LUIS 中使用的 Bing 拼字檢查 API 不支援要在拼字檢查變動期間�
 ### <a name="endpoint-querystring-parameter"></a>端點查詢字串參數
 更正時區的方式是使用 `timezoneOffset` 參數將使用者時區新增至[端點](https://go.microsoft.com/fwlink/?linkid=2092356)。 `timezoneOffset` 的值應該是用以變更時間的正數或負數 (以分鐘為單位)。  
 
-|參數|Value|
+|參數|值|
 |--|--|
 |`timezoneOffset`|正數或負數 (以分鐘為單位)|
 
