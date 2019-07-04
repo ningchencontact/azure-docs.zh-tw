@@ -156,9 +156,9 @@ Stream 活動記錄到事件中樞所[建立記錄設定檔](#create-a-log-profi
     | --- | --- | --- |
     | name |是 |記錄檔設定檔的名稱。 |
     | storage-account-id |是 |資源識別碼，活動記錄應該要儲存至此儲存體帳戶。 |
-    | Location |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
+    | locations |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
     | days |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄。  如果是零，則啟用的參數應設為 true。 |
-    |已啟用 | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
+    |enabled | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
     | categories |是 |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 

@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: diberry
 ms.openlocfilehash: a65b075e89180441eecfb420130bfd1e47b277a5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123556"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174286"
 ---
 若要在聊天機器人或其他應用程式中收到 LUIS 預測，您必須將應用程式發佈到端點。 
 
-1. 選取右上方導覽列中的 [發佈]。
+1. 選取右上方導覽列中的 [發佈]  。
 
     ![右上方功能表中的 LUIS 發佈到端點按鈕](./media/cognitive-services-luis/publish-button.png)
 
-2. 選取 [生產] 位置和 [發佈] 按鈕。
+2. 選取 [生產]  位置和 [發佈]  按鈕。
 
     ![LUIS 發佈到端點](./media/cognitive-services-luis/publish-this-app-popup.png)
 
@@ -31,6 +31,6 @@ ms.locfileid: "66123556"
 
     ![LUIS 發佈到端點](./media/cognitive-services-luis/publish-to-endpoint-success.png)
 
-4. 選取綠色狀態列中的 [端點] 連結，以移至 [金鑰和端點] 頁面。 端點 URL 會列在底部。
+4. 選取綠色狀態列中的 [端點]  連結，以移至 [金鑰和端點]  頁面。 端點 URL 會列在底部。
 
     <!-- TBD: add image -->

@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2b9d696ca896d0c8f0801f055000b9763d65d7ff
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121725"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174591"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>新增控制器以處理登入和登出要求
 
@@ -27,8 +27,8 @@ ms.locfileid: "66121725"
 
 1.  以滑鼠右鍵按一下 `Controllers` 資料夾並選取 `Add` > `Controller`
 2.  選取 `MVC (.NET version) Controller – Empty`。
-3.  按一下 [新增]
-4.  將它命名為 `HomeController`，然後按一下 [新增]
+3.  按一下 [新增] 
+4.  將它命名為 `HomeController`，然後按一下 [新增] 
 5.  新增 *OWIN* 參考至類別：
 
     ```csharp
@@ -121,7 +121,7 @@ ms.locfileid: "66121725"
 
 1.  以滑鼠右鍵按一下 `Controllers` 資料夾：`Add` > `Controller`
 2.  選取 `MVC {version} Controller – Empty`。
-3.  按一下 [新增]
+3.  按一下 [新增] 
 4.  將它命名為 `ClaimsController`
 5.  以下面的程式碼取代您控制器類別的程式碼 ，這會將 `[Authorize]` 屬性新增至類別：
 
@@ -156,7 +156,7 @@ ms.locfileid: "66121725"
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>相關資訊
-> 因為使用了 `[Authorize]` 屬性，所以此控制器的所有方法都只能在使用者已通過驗證的情況下才能執行。 如果使用者未通過驗證且嘗試存取控制器，OWIN 會起始一個驗證挑戰，並強制使用者進行驗證。 前述程式碼會查看宣告清單，尋找使用者識別碼權杖中所包含的特定使用者屬性。 這些屬性包括使用者的完整名稱和使用者名稱，以及全域使用者識別元主體。 它也包含「租用戶識別碼」，這代表使用者所屬組織的識別碼。 
+> 因為使用了 `[Authorize]` 屬性，所以此控制器的所有方法都只能在使用者已通過驗證的情況下才能執行。 如果使用者未通過驗證且嘗試存取控制器，OWIN 會起始一個驗證挑戰，並強制使用者進行驗證。 前述程式碼會查看宣告清單，尋找使用者識別碼權杖中所包含的特定使用者屬性。 這些屬性包括使用者的完整名稱和使用者名稱，以及全域使用者識別元主體。 它也包含「租用戶識別碼」  ，這代表使用者所屬組織的識別碼。 
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>建立檢視來顯示使用者的宣告

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150722"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174645"
 ---
-設定合作夥伴軟體以連線至用戶端。 若要連線至合作夥伴軟體，您通常需要下列資訊 (可能會有所不同)，這些資訊是您從上一個步驟中本機 Web UI 的 [連線並複製] 頁面所收集的：
+設定合作夥伴軟體以連線至用戶端。 若要連線至合作夥伴軟體，您通常需要下列資訊 (可能會有所不同)，這些資訊是您從上一個步驟中本機 Web UI 的 [連線並複製]  頁面所收集的：
 
 - 儲存體帳戶名稱
 - 存取金鑰
@@ -21,7 +21,7 @@ ms.locfileid: "66150722"
 
 如果這是您第一次使用「儲存體總管」，則必須執行下列步驟。
 
-1. 從頂端命令列，移至 [編輯] > [目標 Azure Stack]。
+1. 從頂端命令列，移至 [編輯] > [目標 Azure Stack]  。
 
     ![資料箱儀表板](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器、微服務和 Java 快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Java, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 2a7ff71a8143883226c10754afc9757aea310c63
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: b3074fc280098d0aa55292c48a1562b8dfeb3cc0
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393465"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503091"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>快速入門：使用 Azure Dev Spaces 在 Kubernetes 上透過 Java 進行開發
 
@@ -195,7 +195,7 @@ return "Hello from webfrontend in Azure while debugging!";
 
 儲存檔案。 依序按一下 [偵錯]  和 [重新啟動偵錯]  ，或在 [偵錯工具列]  中按一下 [重新啟動偵錯]  按鈕。
 
-![重新整理偵錯](media/get-started-java/debug-action-refresh.png)
+![重新整理偵錯](media/common/debug-action-refresh.png)
 
 在瀏覽器中開啟您的服務，並注意您已更新的訊息會顯示出來。
 

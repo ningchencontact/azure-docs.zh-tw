@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: e9f691147b5dcb12a48a632ff01880f3fdff89c5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2b33c27e7af603c73bf7b7c6188bd9aef5ebc669
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390271"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542706"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>將要求傳送至 Bing 拼字檢查 API
 
 若要檢查文字字串是否有拼字和文法錯誤，您會將 GET 要求傳送至下列端點：  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 ```  
@@ -73,6 +73,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 
 以下顯示前一個要求的回應。 此範例也示範 Bing 特定回應標頭。
 
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
@@ -119,7 +121,7 @@ BingAPIs-Market: en-US
 }  
 ```  
 
-# <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 - [什麼是 Bing 拼字檢查 API？](../overview.md)
 - [Bing 拼字檢查 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167228"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174057"
 ---
 ## <a name="c-program-example"></a>C# 程式範例
 
@@ -24,22 +24,22 @@ ms.locfileid: "66167228"
 
 ### <a name="entity-relationship-diagram-erd"></a>實體關聯圖 (ERD)
 
-`CREATE TABLE` 陳述式包含 **REFERENCES** 關鍵字，可建立兩個資料表之間的「外部索引鍵」(FK) 關聯性。 如果您使用 tempdb，請使用一對前置破折號將 `--REFERENCES` 關鍵字註解化。
+`CREATE TABLE` 陳述式包含 **REFERENCES** 關鍵字，可建立兩個資料表之間的「外部索引鍵」  (FK) 關聯性。 如果您使用 tempdb  ，請使用一對前置破折號將 `--REFERENCES` 關鍵字註解化。
 
-ERD 會顯示兩個資料表之間的關聯性。 **tabEmployee.DepartmentCode**「子」資料行中的值受限於 **tabDepartment.DepartmentCode**「父」資料行中的值。
+ERD 會顯示兩個資料表之間的關聯性。 **tabEmployee.DepartmentCode**「子」  資料行中的值受限於 **tabDepartment.DepartmentCode**「父」  資料行中的值。
 
 ![顯示外部索引鍵的 ERD](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 > [!NOTE]
-> 您可以選擇編輯 T-SQL，將前置 `#` 新增至資料表名稱，以將其建立為 tempdb 中的暫存資料表。 沒有測試資料庫可供使用時，這很適合用於示範。 在外部索引鍵使用期間不會強制執行任何參考，而在程式完成執行之後，暫存資料表會在連線關閉時自動刪除。
+> 您可以選擇編輯 T-SQL，將前置 `#` 新增至資料表名稱，以將其建立為 tempdb  中的暫存資料表。 沒有測試資料庫可供使用時，這很適合用於示範。 在外部索引鍵使用期間不會強制執行任何參考，而在程式完成執行之後，暫存資料表會在連線關閉時自動刪除。
 
 ### <a name="to-compile-and-run"></a>編譯和執行
 
 C# 程式在邏輯上是一個 .cs 檔案，而實際上會分成數個程式碼區塊，讓您更容易了解每個區塊。 若要編譯及執行此程式，請執行下列步驟：
 
-1. 在 Visual Studio 中建立 C# 專案。 專案類型應該是「主控台」，可在 [範本] > [Visual C#] > [Windows 桌面] > [主控台應用程式 (.NET Framework)] 下找到。
+1. 在 Visual Studio 中建立 C# 專案。 專案類型應該是「主控台」  ，可在 [範本]   > [Visual C#]   > [Windows 桌面]   > [主控台應用程式 (.NET Framework)]  下找到。
 
-1. 在 Program.cs 檔案中，利用下列步驟取代程式碼的起始行：
+1. 在 Program.cs  檔案中，利用下列步驟取代程式碼的起始行：
 
     1. 複製並貼上下列程式碼區塊 (以其出現的相同順序)，請參閱[連線到資料庫](#cs_1_connect)、[產生 T-SQL](#cs_2_return)，以及[提交至資料庫](#cs_3_submit)。
 
@@ -50,9 +50,9 @@ C# 程式在邏輯上是一個 .cs 檔案，而實際上會分成數個程式碼
         - *cb.Password*
         - *cb.InitialCatalog*
 
-1. 確認已參照 *System.Data.dll* 組件。 若要確認，請展開 [方案總管] 窗格中的 [參考] 節點。
+1. 確認已參照 *System.Data.dll* 組件。 若要確認，請展開 [方案總管]  窗格中的 [參考]  節點。
 
-1. 若要從 Visual Studio 建置及執行程式，請選取 [啟動] 按鈕。 報告輸出會顯示在程式視窗中，而 GUID 值會隨著測試回合有所不同。
+1. 若要從 Visual Studio 建置及執行程式，請選取 [啟動]  按鈕。 報告輸出會顯示在程式視窗中，而 GUID 值會隨著測試回合有所不同。
 
     ```Output
     =================================

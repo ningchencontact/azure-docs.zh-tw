@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 309ef92b33d5bbdf8e8aed6b162ed9428a669c87
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119352"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174449"
 ---
 ## <a name="verify-the-output"></a>驗證輸出
 管道會自動在 adftutorial Blob 容器中建立輸出資料夾。 然後，它會將 emp.txt 檔案從輸入資料夾複製到輸出資料夾。 
 
-1. 在 Azure 入口網站的 [adftutorial] 容器頁面上，按一下 [重新整理] 可查看輸出資料夾。 
+1. 在 Azure 入口網站的 [adftutorial]  容器頁面上，按一下 [重新整理]  可查看輸出資料夾。 
     
     ![重新整理](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
-2. 在資料夾清單中按一下 [輸出]。 
+2. 在資料夾清單中按一下 [輸出]  。 
 2. 確認 **emp.txt** 已複製到輸出資料夾。 
 
     ![重新整理](media/data-factory-quickstart-verify-output-cleanup/output-file.png)

@@ -179,7 +179,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | type | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
 | 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | description | 否 | 警示的選擇性描述。 |
-| 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>閾值

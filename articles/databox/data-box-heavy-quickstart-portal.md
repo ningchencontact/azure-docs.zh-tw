@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515937"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446726"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure Data Box Heavy
 
@@ -57,7 +57,7 @@ ms.locfileid: "66515937"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="order"></a>順序
 
@@ -95,7 +95,7 @@ ms.locfileid: "66515937"
 
 此步驟約需要 5-7 分鐘來完成。
 
-1. 若要取得裝置密碼，請前往 [Azure 入口網站](http://portal.azure.com)中的 [一般] > [裝置詳細資料]  。 同一組密碼會使用於裝置的兩個節點。
+1. 若要取得裝置密碼，請前往 [Azure 入口網站](https://portal.azure.com)中的 [一般] > [裝置詳細資料]  。 同一組密碼會使用於裝置的兩個節點。
 2. 將靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，指派到您要用來連接至 Data Box Heavy 之電腦上的乙太網路介面卡。 在 `https://192.168.100.10` 存取裝置的本機 Web UI。 開啟裝置後，連線可能需要最多 5 分鐘。
 3. 使用 Azure 入口網站中的密碼登入。 您會看到錯誤指出網站的安全性憑證有問題。 請依照瀏覽器專屬指示，繼續前往網頁。
 4. 根據預設，介面的網路設定 (不包含 MGMT) 會設定為 DHCP。 如有需要，您可以將這些介面設定為靜態，並提供 IP 位址。

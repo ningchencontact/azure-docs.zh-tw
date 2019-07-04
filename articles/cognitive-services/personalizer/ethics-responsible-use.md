@@ -2,19 +2,20 @@
 title: 道德和負責任的使用 - 個人化工具
 titleSuffix: Azure Cognitive Services
 description: 這些指導方針旨在協助您以有助於在公司和服務中建立信任的方式實作個人化。 請務必花點時間研究、了解並審慎評估個人化對人們的生活將有何影響。 如有疑問，請尋求指引。
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239878"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428437"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>負責任地實作個人化工具的指導方針
 
@@ -196,7 +197,7 @@ Microsoft 會持續將心力投注於工具和文件，以協助您善盡相關�
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) (作者：DJ Patil、Hilary Mason、Mike Loukides)。
 * [ACM 道德法規](https://www.acm.org/code-of-ethics)
 * [基因資訊平等法 - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML 負責任的演算法原則](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML 負責任的演算法原則](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>後續步驟

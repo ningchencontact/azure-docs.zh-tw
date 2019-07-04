@@ -15,15 +15,15 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121639"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67174154"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
-您會在本節中建立新的專案來示範如何整合 Windows Desktop .NET 應用程式 (XAML) 與使用 Microsoft 登入，以便應用程式可以查詢需要權杖的 Web API。
+您會在本節中建立新的專案來示範如何整合 Windows Desktop .NET 應用程式 (XAML) 與使用 Microsoft 登入  ，以便應用程式可以查詢需要權杖的 Web API。
 
 您使用本指南所建立的應用程式會顯示用來呼叫圖表的按鈕、在畫面上顯示結果的區域，以及登出按鈕。
 
@@ -33,13 +33,13 @@ ms.locfileid: "66121639"
 
 若要建立應用程式，請執行下列動作：
 
-1. 在 Visual Studio 中，選取 [檔案]  >  [新增]  >  [專案]。
-2. 在 [範本] 底下，選取 [Visual C#]。
-3. 選取 [WPF 應用程式 (.NET Framework)]，視您所使用的 Visual Studio 版本而定。
+1. 在 Visual Studio 中，選取 [檔案]   >  [新增]   >  [專案]  。
+2. 在 [範本]  底下，選取 [Visual C#]  。
+3. 選取 [WPF 應用程式 (.NET Framework)]  ，視您所使用的 Visual Studio 版本而定。
 
 ## <a name="add-msal-to-your-project"></a>將 MSAL 新增至您的專案
 
-1. 在 Visual Studio 中，選取 [工具]  >  [NuGet 套件管理員] >  [套件管理員主控台]。
+1. 在 Visual Studio 中，選取 [工具]   >  [NuGet 套件管理員]  >  [套件管理員主控台]  。
 2. 在 [套件管理器主控台] 視窗中，貼上下列 Azure PowerShell 命令：
 
     ```powershell
@@ -54,7 +54,7 @@ ms.locfileid: "66121639"
 
 在這個步驟中，您建立類別來處理和 MSAL 的互動，例如處理權杖。
 
-1. 開啟 App.xaml.cs 檔案，然後將 MSAL 的參考新增至類別：
+1. 開啟 App.xaml.cs  檔案，然後將 MSAL 的參考新增至類別：
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -95,7 +95,7 @@ ms.locfileid: "66121639"
 
 本節會說明應用程式如何查詢受保護的後端伺服器 (例如 Microsoft Graph)。 
 
-系統應會自動建立 MainWindow.xaml 檔案，作為專案範本的一部分。 開啟此檔案，然後將應用程式的 \<Grid> 節點取代為下列程式碼：
+系統應會自動建立 MainWindow.xaml  檔案，作為專案範本的一部分。 開啟此檔案，然後將應用程式的 \<Grid>  節點取代為下列程式碼：
 
 ```xml
 <Grid>

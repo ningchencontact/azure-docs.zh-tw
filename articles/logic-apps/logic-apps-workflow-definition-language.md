@@ -1,6 +1,6 @@
 ---
-title: 工作流程定義語言-Azure Logic Apps 的結構描述參考
-description: Azure Logic Apps 中的工作流程定義語言結構描述的參考指南
+title: Azure Logic Apps 中工作流程定義語言的結構描述參考
+description: Azure Logic Apps 中工作流程定義語言的結構描述參考
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -42,12 +42,12 @@ ms.locfileid: "65596755"
 |-----------|----------|-------------|
 | `definition` | 是 | 工作流程定義的起始元素 |
 | `$schema` | 只有在外部參考工作流程定義時 | JSON 結構描述檔案的位置，該檔案說明工作流程定義語言版本，您可以在此找到此版本： <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| `actions` | 否 | 若要在工作流程執行階段執行的一或多個動作定義。 如需詳細資訊，請參閱 <<c0> [ 觸發程序和動作](#triggers-actions)。 <p><p>動作上限：250 |
+| `actions` | 否 | 要在工作流程執行階段執行之一或多個動作的定義 如需詳細資訊，請參閱[觸發程序](#triggers-actions)和資料集。 <p><p>動作上限：250 |
 | `contentVersion` | 否 | 您的工作流程定義版本號碼，預設為 "1.0.0.0"。 若要在部署工作流程時協助識別及確認正確的定義，請指定要使用的值。 |
-| `outputs` | 否 | 輸出會傳回從執行工作流程定義。 如需詳細資訊，請參閱 <<c0> [ 輸出](#outputs)。 <p><p>輸出上限：10 |
-| `parameters` | 否 | 將資料傳遞至您的工作流程的一或多個參數的定義。 如需詳細資訊，請參閱 <<c0> [ 參數](#parameters)。 <p><p>參數上限：50 |
+| `outputs` | 否 | 從工作流程執行傳回之輸出的定義 如需詳細資訊，請參閱[Outputs](#outputs) <p><p>輸出上限：10 |
+| `parameters` | 否 | 一或多個參數的定義，此參數可將資料傳入您的工作流程中 如需詳細資訊，請參閱 [Parameters 元素](#parameters) <p><p>參數上限：50 |
 | `staticResults` | 否 | 定義這些動作上啟用靜態的結果時，傳回的動作為模擬 （mock） 的輸出的一或多個靜態的結果。 在每個動作定義中，`runtimeConfiguration.staticResult.name`屬性會參考對應的定義內`staticResults`。 如需詳細資訊，請參閱 <<c0> [ 靜態結果](#static-results)。 |
-| `triggers` | 否 | 一或多個觸發程序的定義，此觸發程序可具現化您的工作流程。 您可以定義多個觸發程序，但只能利用工作流程定義語言，而不會透過 Logic Apps 設計工具呈現。 如需詳細資訊，請參閱 <<c0> [ 觸發程序和動作](#triggers-actions)。 <p><p>觸發程序上限：10 |
+| `triggers` | 否 | 一或多個觸發程序的定義，此觸發程序可具現化您的工作流程。 您可以定義多個觸發程序，但只能利用工作流程定義語言，而不會透過 Logic Apps 設計工具呈現。 如需詳細資訊，請參閱[觸發程序](#triggers-actions)和資料集。 <p><p>觸發程序上限：10 |
 ||||
 
 <a name="triggers-actions"></a>
@@ -80,16 +80,16 @@ ms.locfileid: "65596755"
 |-----------|----------|------|-------------|
 | <*key-name*> | 是 | String | 輸出傳回值的索引鍵名稱 |
 | <*key-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
-| <*key-value*> | 是 | 與相同 <*金鑰類型*> | 輸出傳回值 |
+| <*key-value*> | 是 | 與相同 <*key-type*> | 輸出傳回值 |
 |||||
 
-若要從執行工作流程取得輸出，請檢閱邏輯應用程式的執行歷程記錄和在 Azure 入口網站中的詳細資料，或使用[工作流程 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。
+若要取得工作流程執行的輸出，請在 Azure 入口網站中或使用 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows) 檢閱邏輯應用程式的執行歷程記錄和詳細資料。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。
 
 <a name="parameters"></a>
 
 ## <a name="parameters"></a>參數
 
-在 `parameters`區段中，定義您的工作流程定義會在部署使用接受輸入的所有工作流程參數。 在部署時需要有參數宣告和參數值。 請務必先在這些區段中宣告所有參數，您才可以在其他工作流程區段中使用這些參數。 
+在 `parameters` 區段中，定義邏輯應用程式在部署時用於接受輸入的所有工作流程參數。 在部署時需要有參數宣告和參數值。 請務必先在這些區段中宣告所有參數，您才可以在其他工作流程區段中使用這些參數。 
 
 以下是參數定義的一般結構︰
 
@@ -110,10 +110,10 @@ ms.locfileid: "65596755"
 
 | 屬性 | 必要項 | 類型 | 描述 |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
+| <*parameter-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 | 參數的類型 |
 | <*default-parameter-values*> | 是 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
-| <*array-with-permitted-parameter-values*> | 否 | Array | 具有參數可接受值的陣列 |
-| `metadata` | 否 | JSON 物件 | 任何其他參數詳細資料，例如 「 名稱 」 或 「 您的邏輯應用程式或流程或使用 Visual Studio 或其他工具的設計階段資料的可讀取描述 |
+| <*array-with-permitted-parameter-values*> | 否 | 陣列 | 具有參數可接受值的陣列 |
+| `metadata` | 否 | JSON 物件 | 任何參數詳細資訊，例如：邏輯應用程式的名稱或可讀取描述，或是 Visual Studio 或其他工具所使用的設計階段資料 |
 ||||
 
 <a name="static-results"></a>
@@ -304,7 +304,7 @@ HTTP 動作傳回的輸出`HTTP0`內定義`staticResults`。 在此範例中，�
 
 ## <a name="functions"></a>函式
 
-某些運算式可能尚不存在您的工作流程定義開始執行時的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用工作流程定義語言所提供的[*函式*](../logic-apps/workflow-definition-language-functions-reference.md)。
+某些運算式會從邏輯應用程式開始執行時還不存在的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用工作流程定義語言所提供的[*函式*](../logic-apps/workflow-definition-language-functions-reference.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
