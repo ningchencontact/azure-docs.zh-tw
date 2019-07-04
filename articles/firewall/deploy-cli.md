@@ -277,7 +277,7 @@ az network firewall network-rule create \
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com]\(www.google.com) 要求，應該會成功，且 www.microsoft.com 要求應該會失敗。 這示範了您的防火牆規則，如預期般運作。
+   www.google.com 要求，應該會成功，且 www.microsoft.com 要求應該會失敗。 這示範了您的防火牆規則，如預期般運作。
 
 因此，現在您已確認防火牆規則正在運作：
 
