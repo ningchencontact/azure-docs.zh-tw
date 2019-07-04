@@ -3,20 +3,20 @@ title: 知識庫的生命週期 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684016"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447624"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker 中的知識庫生命週期
 QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。 
@@ -31,7 +31,7 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 知識庫在填入內容 (透過編輯或自動擷取) 後即可供測試。 互動式可以測試在 QnA Maker 入口網站中透過**測試**面板輸入使用者的常用查詢，並確認具有足夠的信心分數與正確的回應傳回的回應。 
 
 * **若要修正低的信心分數**： 新增替代的問題。 
-* **當查詢不正確地傳回[預設回應](confidence-score.md#change-default-answer)**： 加入新問題的解答。 
+* **當查詢不正確地傳回[預設回應](confidence-score.md#change-default-answer)** ： 加入新問題的解答。 
 
 「測試-更新」的這個密封迴圈會持續執行，直到您得到滿意的結果為止。 了解如何[測試知識庫](../How-To/test-knowledge-base.md)。
 

@@ -1,6 +1,6 @@
 ---
 title: Authentication
-titleSuffix: Cognitive Services - Azure
+titleSuffix: Azure Cognitive Services
 description: 有三種方式可以驗證 Azure 認知服務資源的要求，分別是訂用帳戶金鑰、持有人權杖或多服務訂用帳戶。 在本文中，您將了解每個方法，以及如何提出要求。
 services: cognitive-services
 author: erhopf
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435939"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>驗證 Azure 認知服務要求
 
@@ -28,8 +28,8 @@ Azure 認知服務的每個要求必須包含驗證標頭。 此標頭會與訂�
 
 提出要求之前，您需要 Azure 帳戶和 Azure 認知服務訂用帳戶。 如果您已經有帳戶，請繼續進行並跳至下一節。 如果您還沒有帳戶，我們會引導您在數分鐘內完成設定：[針對 Azure 建立認知服務帳戶](cognitive-services-apis-create-account.md)。
 
-您可以取得您的訂用帳戶金鑰[Azure 入口網站](cognitive-services-apis-create-account.md#access-your-resource)建立您的帳戶，或啟動之後[免費試用](https://azure.microsoft.com/try/cognitive-services/my-apis)。
- 
+您可以取得您的訂用帳戶金鑰[Azure 入口網站](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription)建立您的帳戶，或啟動之後[免費試用](https://azure.microsoft.com/try/cognitive-services/my-apis)。
+
 ## <a name="authentication-headers"></a>驗證標頭
 
 讓我們快速檢閱適用於 Azure 認知服務的驗證標頭。

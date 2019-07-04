@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939198"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447734"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 
@@ -45,9 +45,6 @@ ms.locfileid: "64939198"
 
 * **安全殼層 (SSH) 用戶端**：如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-> [!IMPORTANT]
-> 此文中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是 Azure HDInsight 版本 3.4 或更新版本唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
 ## <a name="download-the-flight-data"></a>下載航班資料
 
 1. 瀏覽至[創新技術研究管理部運輸統計處](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)。
@@ -62,7 +59,7 @@ ms.locfileid: "64939198"
    
    清除所有其他欄位。
 
-3. 選取 [下載]。 您會取得含有您所選資料欄位的 .zip 檔案。
+3. 選取 [下載]  。 您會取得含有您所選資料欄位的 .zip 檔案。
 
 ## <a name="extract-and-upload-the-data"></a>擷取並上傳資料
 
@@ -80,7 +77,7 @@ ms.locfileid: "64939198"
 
    如果您使用密碼來驗證您的 SSH 登入，系統會提示您輸入密碼。
 
-   如果您使用的是公用金鑰，您可能必須使用 `-i` 參數並指定對應的私密金鑰路徑。 例如： `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`。
+   如果您使用的是公用金鑰，您可能必須使用 `-i` 參數並指定對應的私密金鑰路徑。 例如： `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:` 。
 
 2. 完成上傳之後，使用 SSH 連線至叢集。 在命令提示字元中輸入下列命令：
 
@@ -232,15 +229,15 @@ ms.locfileid: "64939198"
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [SQL 資料庫]。
+2. 選取 [SQL 資料庫]  。
 
-3. 篩選您選擇要使用的資料庫名稱。 伺服器名稱會列在 [伺服器名稱] 資料行中。
+3. 篩選您選擇要使用的資料庫名稱。 伺服器名稱會列在 [伺服器名稱]  資料行中。
 
-4. 篩選您要使用的資料庫名稱。 伺服器名稱會列在 [伺服器名稱] 資料行中。
+4. 篩選您要使用的資料庫名稱。 伺服器名稱會列在 [伺服器名稱]  資料行中。
 
     ![取得 Azure SQL 伺服器詳細資料](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "取得 Azure SQL 伺服器詳細資料")
 
-    連接至 SQL Database 並建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/) 。
+    連接至 SQL Database 並建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](https://www.freetds.org/) 。
 
 5. 若要安裝 FreeTDS，請從 SSH 連線對叢集使用下列命令：
 

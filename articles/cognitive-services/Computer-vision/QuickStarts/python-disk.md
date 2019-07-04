@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9227685dc99a4fe84cdefa0953e51aff29df5c06
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: feba14f3557ac5d09c0455b02a9df64872f632c1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003219"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342066"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Python 分析本機影像
 
@@ -46,14 +46,14 @@ ms.locfileid: "60003219"
     1. 將 `subscription_key` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域中，將 `vision_base_url` 的值取代為電腦視覺資源的端點 URL。
     1. (選擇性) 將 `image_path` 的值取代為您要分析之不同影像的路徑和檔案名稱。
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `analyze-local-image.py`。
+1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `analyze-local-image.py` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `python` 命令執行範例。 例如： `python analyze-local-image.py`。
+1. 出現提示時，使用 `python` 命令執行範例。 例如： `python analyze-local-image.py` 。
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -78,9 +78,9 @@ image_path = "C:/Documents/ImageToAnalyze.jpg"
 
 # Read the image into a byte array
 image_data = open(image_path, "rb").read()
-headers    = {'Ocp-Apim-Subscription-Key': subscription_key,
-              'Content-Type': 'application/octet-stream'}
-params     = {'visualFeatures': 'Categories,Description,Color'}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key,
+           'Content-Type': 'application/octet-stream'}
+params = {'visualFeatures': 'Categories,Description,Color'}
 response = requests.post(
     analyze_url, headers=headers, params=params, data=image_data)
 response.raise_for_status()

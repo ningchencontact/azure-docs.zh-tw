@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393786"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485627"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -94,7 +94,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ## <a name="get-a-key-and-url-endpoint"></a>取得金鑰和 URL 端點
 
-除了少數例外狀況以外，使用新服務時，您需要提供 URL 端點和授權 API 金鑰。 快速入門、教學課程 (例如[探索 Azure 搜尋服務 REST API (Postman)](search-fiddler.md) 和[如何從 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md))、範例和自訂程式碼全都需要端點和金鑰，才能在特定資源上執行。
+除了少數例外狀況以外，使用新服務時，您需要提供 URL 端點和授權 API 金鑰。 快速入門、教學課程 (例如[探索 Azure 搜尋服務 REST API (Postman)](search-get-started-postman.md) 和[如何從 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md))、範例和自訂程式碼全都需要端點和金鑰，才能在特定資源上執行。
 
 1. 在服務概觀頁面中，找出並複製頁面右側的 URL 端點。
 

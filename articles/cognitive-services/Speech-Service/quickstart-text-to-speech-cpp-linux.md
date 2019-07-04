@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: b5b768e52a40652840e9e3d3069df8a9c895f77b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: a954d1d9466a35925726c36361dc00edfddfbf63
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001607"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484964"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 合成語音
 
@@ -31,7 +31,7 @@ ms.locfileid: "66001607"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.5.1`。
+認知服務語音 SDK 目前的版本為 `1.6.0`。
 
 適用於 Linux 的語音 SDK 可用來建置 64 位元和 32 位元應用程式。 您可從 https://aka.ms/csspeech/linuxbinary 以 tar 檔案格式下載必要的程式庫和標頭檔。
 
@@ -95,7 +95,7 @@ ms.locfileid: "66001607"
 ## <a name="build-the-app"></a>建置應用程式
 
 > [!NOTE]
-> 請務必以「單一命令行」的形式輸入下面的命令。 若要這麼做，最簡單的方式就是使用每個命令旁邊的 [複製] 按鈕來複製命令，然後將它貼在殼層提示字元。
+> 請務必以「單一命令行」  的形式輸入下面的命令。 若要這麼做，最簡單的方式就是使用每個命令旁邊的 [複製]  按鈕來複製命令，然後將它貼在殼層提示字元。
 
 * 在 **x64** (64 位元) 系統上，執行下列命令以建置應用程式。
 

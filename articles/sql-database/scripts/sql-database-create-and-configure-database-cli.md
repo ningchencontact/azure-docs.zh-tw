@@ -11,13 +11,13 @@ author: stevestein
 manager: craigg
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/08/2019
-ms.openlocfilehash: 4c02ab45cd6e10b86681aae41cbb4bd99e6e0d6d
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/25/2019
+ms.openlocfilehash: 2a5fb6fcd9b1f0c327df23741284ec0d5fc26c71
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832563"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447864"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 建立單一 Azure SQL 資料庫並設定防火牆規則
 
@@ -31,14 +31,14 @@ ms.locfileid: "65832563"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
 使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>指令碼說明

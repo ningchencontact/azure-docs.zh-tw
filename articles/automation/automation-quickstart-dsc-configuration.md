@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449103"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477609"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定 Linux 虛擬機器
 
@@ -36,27 +36,27 @@ ms.locfileid: "58449103"
 ## <a name="onboard-a-virtual-machine"></a>將虛擬機器上架
 有許多不同的方法可將電腦上架及啟用 Desired State Configuration。 本快速入門涵蓋透過自動化帳戶進行上架。 您可以閱讀[上架](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)文章，深入了解將您的電腦上架至 Desired State Configuration 的不同方法。
 
-1. 在 Azure 入口網站的左側窗格中，選取 [自動化帳戶]。 如果未顯示在左窗格中，請按一下 [所有服務]，然後在產生的檢視中加以搜尋。
+1. 在 Azure 入口網站的左側窗格中，選取 [自動化帳戶]  。 如果未顯示在左窗格中，請按一下 [所有服務]  ，然後在產生的檢視中加以搜尋。
 1. 在清單中，選取自動化帳戶。
-1. 在自動化帳戶的左側窗格中，選取 [狀態組態 (DSC)]。
-2. 按一下 [新增] 以開啟 [VM 選取] 頁面。
+1. 在自動化帳戶的左側窗格中，選取 [狀態組態 (DSC)]  。
+2. 按一下 [新增]  以開啟 [VM 選取] 頁面。
 3. 尋找您需要啟用 DSC 的虛擬機器。 若要尋找特定的虛擬機器，您可以使用搜尋欄位和篩選選項。
-4. 按一下虛擬機器，然後選取 [連線]
-5. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
+4. 按一下虛擬機器，然後選取 [連線] 
+5. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」  。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
 6. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ![將 Azure VM 上架至 DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
-雖然 Desired State Configuration 延伸模組是部署到虛擬機器，但它會顯示為連線。
+雖然 Desired State Configuration 延伸模組是部署到虛擬機器，但它會顯示為連線。 
 
 ## <a name="import-modules"></a>匯入模組
 
 模組包含 DSC 資源，當中有許多可以在 [PowerShell 資源庫](https://www.powershellgallery.com)上找到。 您設定中所使用的任何資源在編譯之前，都必須匯入自動化帳戶中。 在本教學課程中，需要名為 **nx** 的模組。
 
 1. 在自動化帳戶的左窗格中，選取**模組資源庫** (在共用資源下)。
-1. 搜尋您需要匯入的模組，方法是輸入其部分名稱：nx
+1. 搜尋您需要匯入的模組，方法是輸入其部分名稱：nx 
 1. 按一下您需要匯入的模組
-1. 按一下 [匯入]。
+1. 按一下 [匯入]  。
 
 ![匯入 DSC 模組](./media/automation-quickstart-dsc-configuration/dsc-import-module-nx.png)
 
@@ -101,9 +101,9 @@ configuration LAMPServer {
 
 若要匯入設定：
 
-1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]，然後按一下 [組態] 索引標籤。
-2. 按一下 [+ 新增]
-3. 選取您在先前步驟中儲存的組態檔
+1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]  ，然後按一下 [組態]  索引標籤。
+2. 按一下 [+ 新增] 
+3. 選取您在先前步驟中儲存的組態檔 
 4. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ## <a name="compile-a-configuration"></a>編譯設定
@@ -112,26 +112,26 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 
 若要編譯設定：
 
-1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]，然後按一下 [組態] 索引標籤。
+1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]  ，然後按一下 [組態]  索引標籤。
 1. 選取您在先前步驟中匯入的設定 "LAMPServer"
-1. 從功能表選項中，按一下 [編譯]，然後按一下 [是]
-1. 在 [設定] 檢視中，您會看到新的 [編譯作業] 排入佇列。 當作業順利完成時，即準備好進行下一個步驟。 如果發生任何失敗，您可以按一下 [編譯作業] 來取得詳細資料。
+1. 從功能表選項中，按一下 [編譯]  ，然後按一下 [是] 
+1. 在 [設定] 檢視中，您會看到新的 [編譯作業]  排入佇列。 當作業順利完成時，即準備好進行下一個步驟。 如果發生任何失敗，您可以按一下 [編譯作業] 來取得詳細資料。
 
 ## <a name="assign-a-node-configuration"></a>指派節點設定
 
-可以將編譯的節點設定指派給 DSC 節點。 指派會將設定套用至電腦，並監視 (或自動更正) 該設定中的任何漂移。
+可以將編譯的節點設定  指派給 DSC 節點。 指派會將設定套用至電腦，並監視 (或自動更正) 該設定中的任何漂移。
 
-1. 在自動化帳戶的左側窗格中選取 [**狀態組態 (DSC)]，然後按一下 [節點] 索引標籤。
+1. 在自動化帳戶的左側窗格中選取 [**狀態組態 (DSC)]，然後按一下 [節點]  索引標籤。
 1. 選取您需要指派設定的節點
-1. 按一下 [指派節點設定]
-1. 選取 [節點設定] - **LAMPServer.localhost** - 來指派，並按一下 [確定]
-1. 已編譯的設定現在已指派給節點，且節點狀態變更為 [擱置]。 下一次定期檢查時，節點會擷取設定、加以套用，然後回報狀態。 節點可能需要 30 分鐘的時間才能擷取設定，根據節點的設定而定。 若要強制立即檢查，您可以在 Linux 虛擬機器上本機執行下列命令：`sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
+1. 按一下 [指派節點設定] 
+1. 選取 [節點設定]   - **LAMPServer.localhost** - 來指派，並按一下 [確定] 
+1. 已編譯的設定現在已指派給節點，且節點狀態變更為 [擱置]  。 下一次定期檢查時，節點會擷取設定、加以套用，然後回報狀態。 節點可能需要 30 分鐘的時間才能擷取設定，根據節點的設定而定。 若要強制立即檢查，您可以在 Linux 虛擬機器上本機執行下列命令：`sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![指派節點設定](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
 
 ## <a name="viewing-node-status"></a>檢視節點狀態
 
-您可以在自動化帳戶中，從 [狀態組態 (DSC)] 中的 [節點] 索引標籤下找到所有受控節點的狀態。 您可以依狀態、節點設定或名稱搜尋來篩選顯示。
+您可以在自動化帳戶中，從 [狀態組態 (DSC)]  中的 [節點]  索引標籤下找到所有受控節點的狀態。 您可以依狀態、節點設定或名稱搜尋來篩選顯示。
 
 ![DSC 節點狀態](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
