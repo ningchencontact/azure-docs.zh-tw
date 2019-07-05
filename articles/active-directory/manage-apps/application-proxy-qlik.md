@@ -60,8 +60,8 @@ Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可�
 您的應用程式現已完成測試準備。 請存取您在應用程式 #1 中用來發佈 QlikSense 的外部 URL，然後以已指派給這兩個應用程式的使用者身分登入。  
 
 ## <a name="additional-references"></a>其他參考
-如需有關使用應用程式 Proxy 發佈的 Qlik Sense 的詳細資訊，請參閱下列 Qlik 社群文章： 
-- [Azure AD 與 Qlik Sense 搭配使用 Kerberos 限制委派的整合式 Windows 驗證](https://community.qlik.com/docs/DOC-20183)
+如需使用 Application Proxy 發佈 Qlik Sense 的詳細資訊，請參閱 Qlik 社群文章： 
+- [使用 Qlik Sense 搭配 Kerberos 限制委派來搭配使用 Azure AD 和整合式 Windows 驗證](https://community.qlik.com/docs/DOC-20183)。
 - [使用 Azure AD 應用程式 Proxy 的 Qlik Sense 整合](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>後續步驟

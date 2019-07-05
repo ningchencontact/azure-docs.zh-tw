@@ -19,7 +19,7 @@ ms.locfileid: "65952834"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>專案負責人在 Team Data Science Process 中的工作
 
-本教學課程概述希望專案負責人的工作應該在其專案小組完成。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是 Microsoft 開發的架構，提供結構化的一系列活動，以有效率地執行雲端式、預測性分析解決方案。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
+本教學課程概述希望專案負責人為他/她的專案小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是 Microsoft 開發的架構，提供結構化的一系列活動，以有效率地執行雲端式、預測性分析解決方案。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
 **專案負責人**會管理特定資料科學專案的個別資料科學家日常活動。 由專案負責人完成以便設定此環境之工作的工作流程，如下圖所述：
 
@@ -150,7 +150,7 @@ ms.locfileid: "65952834"
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-如果您使用 Azure DevOps 的程式碼裝載平台，為通常_專案存放庫的 SSH URL_是 _ssh: / / < Azure DevOps 服務名稱\>@< Azure DevOps 服務名稱\>.visualstudio.com:22/ < 您的專案名稱\>/\_git / < 您的專案存放庫名稱\>。 在此範例中，我們有***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***。
+如果您使用 Azure DevOps 作為程式碼裝載平台，_專案存放庫的 SSH URL_ 通常是 _ssh://<Azure DevOps Services 名稱\>@<Azure DevOps Services 名稱\>.visualstudio.com:22/\>/\_git/<您的專案存放庫名稱\>。 在此範例中，我們有***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***。
 
 ### <a name="copy-contents-of-d3-to-d5"></a>將 D3 的內容複製到 D5 
 

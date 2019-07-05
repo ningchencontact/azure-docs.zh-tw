@@ -1,6 +1,6 @@
 ---
 title: 如何使用 Windows 的 Log Analytics 代理程式的問題進行疑難排解 |Microsoft Docs
-description: 使用 Windows Azure 監視器中的 Log Analytics 代理程式，說明徵狀、 原因和解決最常見的問題。
+description: 說明 Log Analytics Linux 代理程式最常見問題的徵兆、原因和解決方法。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -20,9 +20,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67120106"
 ---
-# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何使用 Windows 的 Log Analytics 代理程式的問題進行疑難排解 
+# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何針對 Log Analytics Linux 代理程式的問題進行疑難排解 
 
-本文章提供幫助您疑難排解的錯誤，您可能會遇到與 Windows Azure 監視器中的 Log Analytics 代理程式，並建議可能的解決方式。
+此文章提供的說明可協助您針對 Log Analytics Linux 代理程式的錯誤進行疑難排解，並建議可解決問題的解決方法。
 
 如果這些步驟對您都沒有幫助，還有下列支援管道可供使用：
 
@@ -77,7 +77,7 @@ Azure Government 所需的防火牆資訊，請參閱[Azure Government 管理](.
     |2127 |健全狀況服務模組 |傳送資料失敗的收到的錯誤碼 |如果是它只會在一天內會定期發生，可能只是隨機的異常可以略過。 若要了解發生的頻率發生的監視。 如果全天經常發生，請先檢查您的網路組態和 proxy 設定。 如果描述包含 HTTP 錯誤碼 404，而且是第一次代理程式會嘗試將資料傳送至服務，它會包含內部 404 錯誤碼 500 錯誤。 404 代表找不到，這表示，新的工作區的儲存體區域仍在佈建。 下一步 重試時，資料會成功地寫入至工作區如預期般運作。 HTTP 錯誤 403 可能表示權限或認證問題。 沒有隨附 403 錯誤，以協助疑難排解此問題的詳細資訊。|
     |4000 |服務連接器 |DNS 名稱解析失敗 |電腦無法解析時將資料傳送至服務所使用的網際網路位址。 這可能是在您電腦中，不正確的 proxy 設定或可能是暫時性的 DNS 問題 」 與您的提供者中的 DNS 解析程式設定。 如果定期發生，它可能是暫時性的網路相關問題所引起。|
     |4001 |服務連接器 |連接到服務失敗。 |代理程式無法在直接或透過防火牆/proxy 伺服器與 Azure 監視器服務通訊時，會發生此錯誤。 請確認代理程式 proxy 設定或網路防火牆/proxy 可讓電腦從服務的 TCP 流量。|
-    |4002 |服務連接器 |服務會傳回 HTTP 狀態碼 403 以回應查詢。 請洽詢服務管理員以服務的健全狀況。 稍後將重試查詢。 |此錯誤會寫入代理程式的初始註冊階段期間，您會看到類似下列的 URL: *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*。 錯誤的程式碼 403 禁止的方式，並可能因輸入錯誤的工作區識別碼或索引鍵，或日期和時間不正確的電腦上。 如果時間為自目前時間起的 + /-15 分鐘，則上架失敗。 若要修正此問題，更新的日期和/或 Windows 電腦的時區。|
+    |4002 |服務連接器 |服務會傳回 HTTP 狀態碼 403 以回應查詢。 請洽詢服務管理員以服務的健全狀況。 稍後將重試查詢。 |此錯誤會寫入代理程式的初始註冊階段期間，您會看到類似下列的 URL: *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*。 錯誤的程式碼 403 禁止的方式，並可能因輸入錯誤的工作區識別碼或索引鍵，或日期和時間不正確的電腦上。 如果時間為自目前時間起的 + /-15 分鐘，則上架失敗。 若要修正此問題，請更新 Linux 伺服器的日期和/或時區。|
 
 ## <a name="data-collection-issues"></a>資料收集問題
 
