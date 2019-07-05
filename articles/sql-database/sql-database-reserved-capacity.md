@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 8c4fd3d49b4df3b3d18802e49d51aa54c0b58333
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574205"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566168"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源
 
@@ -28,7 +28,7 @@ ms.locfileid: "64574205"
 
 您可以在 [Azure 入口網站](https://portal.azure.com)購買 Azure SQL Database 保留容量。 若要購買 SQL Database 保留容量：
 
-- 您必須至少為一個企業或隨用隨付訂用帳戶的擁有者角色。
+- 您必須至少一個企業或隨用隨付費率的個別訂用帳戶的擁有者角色中。
 - 針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用**新增保留執行個體**。 或者，如果該設定已停用，則您必須是訂用帳戶上的 EA 系統管理員。
 - 若為雲端解決方案提供者 (CSP) 方案，則只有系統管理員代理人或銷售人員可以購買 SQL Database 保留容量。
 
@@ -44,26 +44,25 @@ ms.locfileid: "64574205"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [所有服務]   > [保留]  。
-3. 選取 [新增]  ，然後在 [選取產品類型] 窗格中，選取 [SQL 資料庫]  以購買新的 SQL Database 保留容量。
-4. 填寫必要欄位。 符合所選屬性的現有或全新單一資料庫、彈性集區或受控執行個體，就有資格獲得保留容量折扣。 取得折扣的 SQL Database 執行個體實際數目取決於選取的範圍和數量。
+3. 選取 **新增**，然後在 購買保留項目 窗格中，選取**SQL 資料庫**購買新的保留區 SQL database。
+4. 填入必要的欄位。 符合所選屬性的現有或全新單一資料庫、彈性集區或受控執行個體，就有資格獲得保留容量折扣。 取得折扣的 SQL Database 執行個體實際數目取決於選取的範圍和數量。
+    ![螢幕擷取畫面，再送出 SQL Database 會保留容量採購單](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-   ![提交 SQL Database 保留容量購買前的螢幕擷取畫面](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+下表描述必要的欄位。
 
-    | 欄位      | 描述|
-    |:------------|:--------------|
-    |名稱        |此保留項目的名稱。|
-    |訂用帳戶|用來支付 SQL Database 保留容量費用的訂用帳戶。 SQL Database 保留容量的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P 或 MS-AZR-0148P) 或隨用隨付 (供應項目號碼：MS-AZR-0003P 或 MS-AZR-0023P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對隨用隨付訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。|
-    |影響範圍       |虛擬核心保留容量範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <br/><br/>**單一訂用帳戶**：虛擬核心保留折扣會套用至此訂用帳戶中的 SQL Database 執行個體。 <br/><br/>**共用訂用帳戶**：虛擬核心保留折扣會套用至您帳單內容內任何訂用帳戶中所執行的 SQL Database 執行個體。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 針對隨用隨付客戶，共用範圍是帳戶系統管理員所建立的所有隨用隨付訂用帳戶。|
-    |區域      |SQL Database 保留容量所涵蓋的 Azure 區域。|
-    |部署類型|您要為其購買保留容量的 SQL 資源類型。|
-    |效能層級|SQL Database 執行個體的服務層級。
-    |詞彙        |一年或三年。|
-    |數量    |SQL Database 保留容量內所購買的執行個體數目。 數量是可以取得帳單折扣的執行中 SQL Database 執行個體數目。 例如，如果您在美國東部執行 10 個 SQL Database 執行個體，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
-    |||
+| 欄位      | 描述|
+|------------|--------------|
+|訂用帳戶|用來支付 SQL Database 保留容量費用的訂用帳戶。 SQL Database 保留容量的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P 或 MS-AZR-0148 P) 或個別的合約，與隨用隨付定價 (提供數字：MS-AZR-0003P 或 MS-AZR-0023P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 隨用隨付定價的個別訂用帳戶的信用卡或發票付款方式的訂用帳戶被計費費用。|
+|`Scope`       |虛擬核心保留容量範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <br/><br/>**共用**，vCore 保留折扣套用至計費內容內的任何訂用帳戶中執行的 SQL Database 執行個體。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 針對隨用隨付客戶，共用範圍是帳戶系統管理員所建立的所有隨用隨付訂用帳戶。<br/><br/>**單一訂用帳戶**，vCore 保留折扣會套用到此訂用帳戶中的 SQL Database 執行個體。 <br/><br/>**單一資源群組**，保留折扣套用至選取的訂用帳戶和該訂用帳戶內選取的資源群組中的 SQL Database 執行個體。|
+|區域      |SQL Database 保留容量所涵蓋的 Azure 區域。|
+|部署類型|您要為其購買保留容量的 SQL 資源類型。|
+|效能層級|SQL Database 執行個體的服務層級。
+|詞彙        |一年或三年。|
+|數量    |SQL Database 保留容量內所購買的執行個體數目。 數量是可以取得帳單折扣的執行中 SQL Database 執行個體數目。 例如，如果您在美國東部執行 10 個 SQL Database 執行個體，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
 
-5. 檢閱 [成本]  區段中 SQL Database 保留容量的成本。
-6. 選取 [購買]  。
-7. 選取 [檢視此保留]  以查看您的購買狀態。
+1. 檢閱 [成本]  區段中 SQL Database 保留容量的成本。
+1. 選取 [購買]  。
+1. 選取 [檢視此保留]  以查看您的購買狀態。
 
 ## <a name="cancellations-and-exchanges"></a>取消和交換
 
@@ -76,6 +75,10 @@ ms.locfileid: "64574205"
 ## <a name="vcore-size-flexibility"></a>vCore 大小彈性
 
 vCore 大小彈性可協助您在效能層級和區域內相應增加或相應減少，而不會失去保留容量優勢。 SQL Database 保留容量為您提供彈性地在集區與單一資料庫之間暫時移動最忙碌的資料庫，作為一般作業 (在相同的區域和效能層級) 的一部分，而不會失去保留容量優勢。 透過在保留區中保留未套用的緩衝區，您可以在不超出您預算的情況下有效地管理效能高峰。
+
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -91,7 +94,3 @@ vCore 大小彈性可協助您在效能層級和區域內相應增加或相應�
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](../billing/billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
-
-如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

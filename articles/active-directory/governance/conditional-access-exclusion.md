@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8611338acf7a1299e9c3a4f5347fb633604254e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880593773ca7801da2874dc2a09a4bddf910a503
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110405"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471848"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>使用 Azure AD 存取權檢閱管理使用者排除條件式存取原則
 
@@ -36,7 +36,7 @@ ms.locfileid: "67110405"
 
 另舉一例，您可以使用[具名位置](../conditional-access/location-condition.md)條件式存取來設定一組各郡及從中您不想要允許使用者存取其租用戶的區域中。
 
-![具名位置](./media/conditional-access-exclusion/named-locations.png)
+![條件式存取中的具名的位置](./media/conditional-access-exclusion/named-locations.png)
 
 不過，在某些情況下，使用者可能會有合理的原因，若要從這些已封鎖的國家/地區登入。 例如，使用者可能因為工作或個人原因而旅行。 在此範例中，條件式存取原則，來封鎖這些國家/地區可能會有專用的雲端安全性群組會從原則中排除的使用者。 在旅行時需要存取的使用者，可以使用 [Azure AD 自助式群組管理](../users-groups-roles/groups-self-service-management.md)將本身新增到群組。
 
@@ -68,7 +68,7 @@ ms.locfileid: "67110405"
 
 1. 選取應成為此排除群組成員的使用者，然後按一下 [建立]  。
 
-    ![新增群組窗格](./media/conditional-access-exclusion/new-group.png)
+    ![Azure Active Directory 中的新群組 窗格](./media/conditional-access-exclusion/new-group.png)
 
 ### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>建立條件式存取原則，排除群組
 
@@ -93,7 +93,7 @@ ms.locfileid: "67110405"
 
 1. 繼續設定您組織的需求為基礎的條件式存取原則。
 
-    ![選取排除的使用者](./media/conditional-access-exclusion/select-excluded-users.png)
+    ![選取排除的條件式存取中的 [使用者] 窗格](./media/conditional-access-exclusion/select-excluded-users.png)
 
 我們會先討論兩個範例，其中您可以使用存取權檢閱來管理條件式存取原則的排除項目。
 
@@ -116,7 +116,7 @@ ms.locfileid: "67110405"
 
 6. 啟用郵件通知，讓使用者能收到開始和完成存取權檢閱的通知。
 
-    ![建立存取權檢閱](./media/conditional-access-exclusion/create-access-review-1.png)
+    ![建立存取權檢閱窗格中，例如 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
 ## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>範例 2：可供使用者透過舊版驗證存取的存取權檢閱
 
@@ -134,7 +134,7 @@ ms.locfileid: "67110405"
 
 6. 啟用郵件通知，讓使用者能收到開始和完成存取權檢閱的通知。
 
-    ![建立存取權檢閱](./media/conditional-access-exclusion/create-access-review-2.png)
+    ![建立存取權檢閱窗格中，例如 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 **專業提示**：如果您有許多排除群組，因而需要建立多個存取權檢閱，Microsoft Graph 搶鮮版 (Beta) 端點中現在有一個 API，可讓您以程式設計方式建立和管理存取權檢閱。 若要開始，請參閱 [Azure AD 存取權檢閱 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root)和[透過 Microsoft Graph 擷取 Azure AD 存取權檢閱的範例](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096)。
 
@@ -148,11 +148,11 @@ ms.locfileid: "67110405"
 
 1. 按一下 [結果]  ，查看有誰獲准留在清單上，以及誰已遭到移除。
 
-    ![存取權檢閱結果](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![存取權檢閱的結果顯示哪些人員已核准](./media/conditional-access-exclusion/access-reviews-results.png)
 
 1. 然後按一下 [稽核記錄]  以查看在此檢閱期間採取的動作。
 
-    ![存取權檢閱稽核記錄](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![存取權檢閱列出動作的稽核記錄檔](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
 IT 系統管理員知道管理您原則的排除群組有時是不可避免的。 不過，利用 Azure AD 存取權檢閱，可以更輕鬆地維護這些群組、由商務擁有者或使用者本身定期檢閱它們，以及稽核這些變更。
 
