@@ -3,7 +3,7 @@ title: 建立。使用安全的 LDAP (LDAPS) 憑證的 PFX 檔案，Azure AD Dom
 description: 為 Azure AD Domain Services 受控網域建立安全 LDAP 憑證
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: d89034610eb22108efc832d32ed9d8f593e9f12a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235031"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67474385"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>為受控網域建立具有安全 LDAP (LDAPS) 憑證的 .PFX 檔案
 

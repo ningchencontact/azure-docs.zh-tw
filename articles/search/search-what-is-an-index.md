@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024433"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485191"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 
@@ -36,7 +36,7 @@ ms.locfileid: "65024433"
   
    當您按一下 [建立]  時，所有支援您索引的實體結構都會建立於您的搜尋服務中。
 
-3. 使用[取得索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-fiddler.md) 之類的 Web 測試工具，下載索引結構描述。 對於您在入口網站中建立的索引，您現在有其 JSON 表示法。 
+3. 使用[取得索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-get-started-postman.md) 之類的 Web 測試工具，下載索引結構描述。 對於您在入口網站中建立的索引，您現在有其 JSON 表示法。 
 
    您會在此時切換到程式碼式方法。 入口網站不太適合用於反覆運算，因為您無法編輯已經建立的索引。 但您可以使用 Postman 和 REST 進行剩餘的工作。
 
@@ -48,7 +48,7 @@ ms.locfileid: "65024433"
 
 因為在服務中，會建立實體的結構[卸除並重新建立索引](search-howto-reindex.md)是必要的每當您變更資料時對現有的欄位定義。 這表示在開發期間，您應該規劃經常重建。 您可以考慮處理部份的資料，讓重建更快速。 
 
-建議將程式碼 (而非入口網站方法) 用於反覆式設計。 如果您依賴入口網站進行索引定義，則必須在每次重建時填妥索引定義。 另外，當開發專案仍在早期階段時，[Postman 和 REST API](search-fiddler.md) 之類的工具對於概念證明測試很有幫助。 您可以對要求主體中的索引定義進行累加變更，然後將要求傳送至您的服務，以使用更新後的結構描述來重建索引。
+建議將程式碼 (而非入口網站方法) 用於反覆式設計。 如果您依賴入口網站進行索引定義，則必須在每次重建時填妥索引定義。 另外，當開發專案仍在早期階段時，[Postman 和 REST API](search-get-started-postman.md) 之類的工具對於概念證明測試很有幫助。 您可以對要求主體中的索引定義進行累加變更，然後將要求傳送至您的服務，以使用更新後的結構描述來重建索引。
 
 ## <a name="components-of-an-index"></a>索引的元件
 
@@ -160,16 +160,22 @@ ms.locfileid: "65024433"
 您可以在這裡找到有關 Azure 搜尋服務 [支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)的詳細資訊。
 
 ### <a name="index-attributes"></a>索引屬性
+
+索引中的一個欄位必須與指定**金鑰**唯一識別每個文件的欄位。
+
+其他屬性會決定應用程式中使用欄位的方式。 例如，**可搜尋**屬性指派給全文檢索搜尋中應包含每個欄位。 
+
+您用來建立索引 Api 有不同的預設行為。 針對[REST Api](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，預設會啟用大部分屬性 (比方說，**可搜尋**並**可擷取**適用於字串欄位) 和您通常只需要設定它們，如果您想要將它們關閉。 .NET sdk 的情況則相反。 您沒有明確設定任何屬性預設為停用對應的搜尋行為，除非您特別啟用它。
+
 | 屬性 | 描述 |
 | --- | --- |
-| *金鑰* |字串，提供每一份文件的唯一識別碼，用於查閱文件。 每個索引必須有一個索引鍵。 只有一個欄位可以做為索引鍵，而且其類型必須設定為 Edm.String。 |
-| *Retrievable* |指定搜尋結果中是否可傳回某欄位。 |
-| *Filterable* |允許欄位用於篩選查詢。 |
-| *Sortable* |允許查詢使用此欄位排序搜尋結果。 |
-| *Facetable* |允許欄位用於使用者自我引導篩選的 [多面向導覽](search-faceted-navigation.md) 結構中。 通常，欄位若包含您可以用來將多份文件群組在一起的重複值 (例如，落在單一品牌或服務類別目錄下的多份文件)，最適合做為 Facet。 |
-| *Searchable* |將欄位標記為可供全文檢索。 |
+| `key` |字串，提供每一份文件的唯一識別碼，用於查閱文件。 每個索引必須有一個索引鍵。 只有一個欄位可以做為索引鍵，而且其類型必須設定為 Edm.String。 |
+| `retrievable` |指定搜尋結果中是否可傳回某欄位。 |
+| `filterable` |允許欄位用於篩選查詢。 |
+| `Sortable` |允許查詢使用此欄位排序搜尋結果。 |
+| `facetable` |允許欄位用於使用者自我引導篩選的 [多面向導覽](search-faceted-navigation.md) 結構中。 通常，欄位若包含您可以用來將多份文件群組在一起的重複值 (例如，落在單一品牌或服務類別目錄下的多份文件)，最適合做為 Facet。 |
+| `searchable` |將欄位標記為可供全文檢索。 |
 
-您可以在這裡找到有關 Azure 搜尋服務 [索引屬性](https://docs.microsoft.com/rest/api/searchservice/Create-Index)的詳細資訊。
 
 ## <a name="storage-implications"></a>儲存體影響
 

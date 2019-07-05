@@ -1,5 +1,5 @@
 ---
-title: REST API 宣告交換-Azure Active Directory B2C |Microsoft Docs
+title: REST API 宣告交換-Azure Active Directory B2C
 description: 加入在 Active Directory B2C 自訂原則中的 REST API 宣告交換。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439004"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>若要在 Azure Active Directory B2C 自訂原則新增 REST API 宣告交換
 
@@ -28,7 +28,7 @@ ms.locfileid: "66508757"
 - 可以設計成協調流程步驟。
 - 可以觸發外部動作。 例如，它可以在外部資料庫中記錄一個事件。
 - 可用來擷取值，然後將它存放在使用者資料庫中。
-- 可以變更執行流程。 
+- 可以變更執行流程。
 
 表示在這篇文章中的案例包含下列動作：
 
@@ -45,9 +45,16 @@ ms.locfileid: "66508757"
 
 在本節中，您準備 Azure 的函式，來獲得價值`email`，然後傳回的值`city`，可供 Azure AD B2C 做為宣告。
 
-變更您要使用下列程式碼建立 Azure 函式的 run.csx 檔案： 
+變更您要使用下列程式碼建立 Azure 函式的 run.csx 檔案：
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>宣告交換設定
 
-技術設定檔提供宣告交換的設定。 
+技術設定檔提供宣告交換的設定。
 
-開啟*TrustFrameworkExtensions.xml*檔案，並新增下列 XML 元素內**ClaimsProvider**項目。
+開啟*TrustFrameworkExtensions.xml*檔案，並新增下列**ClaimsProvider**內的 XML 項目**ClaimsProviders**項目。
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ public class ResponseContent
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ public class ResponseContent
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ public class ResponseContent
 加入新的宣告之後，技術設定檔看起來像此範例中：
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

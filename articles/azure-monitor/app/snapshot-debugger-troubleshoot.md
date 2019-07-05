@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783935"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444542"
 ---
 # <a id="troubleshooting"></a> 針對啟用 Application Insights 快照集偵錯工具，或檢視快照集的問題進行疑難排解
 如果您針對您的應用程式啟用 Application Insights 快照集偵錯工具，但看不到的例外狀況的快照集，您可以使用這些指示進行疑難排解。 可以有許多不同的原因為何不會產生快照集。 您可以執行快照集的健全狀況檢查，以識別可能的常見原因。
@@ -38,6 +38,10 @@ ms.locfileid: "60783935"
 ## <a name="verify-the-instrumentation-key"></a>驗證檢測金鑰
 
 請確定您在已發佈的應用程式中使用正確的檢測金鑰。 通常，會從 ApplicationInsights.config 檔案中讀取檢測金鑰。 請確認此值與您在入口網站中看到之 Application Insights 資源的檢測金鑰相同。
+
+## <a name="preview-versions-of-net-core"></a>預覽版本的.NET Core
+如果應用程式使用.NET Core 的 preview 版本，而且快照集偵錯工具已透過啟用[Application Insights 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)在入口網站中，則快照集偵錯工具可能無法啟動。 請遵循指示[啟用快照集偵錯工具的其他環境](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)第一次，以包含[Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件，與應用程式***此外***來啟用透過[Application Insights 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)。
+
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>升級至最新版本的 NuGet 套件
 

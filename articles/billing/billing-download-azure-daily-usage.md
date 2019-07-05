@@ -1,26 +1,23 @@
 ---
-title: 檢視和下載 Azure 使用量和費用 |Microsoft Docs
+title: 檢視和下載 Azure 使用量和費用
 description: 說明如何下載或檢視您的 Azure 每日使用量和費用。
 keywords: 計費使用量、 使用費用，使用方式下載，請檢視使用量，azure 發票，azure 使用量
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60918972"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491437"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>檢視及下載您的 Azure 使用量和費用
 
@@ -77,7 +74,7 @@ ms.locfileid: "60918972"
 ### <a name="download-usage-for-billed-charges"></a>下載使用量計費的費用
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋*成本管理 + 計費*。
 3. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
 4. 選取 [發票]  。
 5. 在發票方格中，尋找對應至您想要下載使用量發票的資料列。
@@ -94,9 +91,9 @@ ms.locfileid: "60918972"
 您也可以下載月-日使用情況，目前的計費週期。 這些尚未有不已計費的使用量費用。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋*成本管理 + 計費*。
 3. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
-4. 在 **概觀**刀鋒視窗中，尋找下方至今的月份費用的下載連結。
+4. 在 **概觀**區域中，尋找下方至今的月份費用的下載連結。
 5. 選取  **Azure 使用量和費用**。
 
     ![從 [概觀] 顯示下載的螢幕擷取畫面](./media/billing-download-azure-usage/open-usage.png)
@@ -104,9 +101,9 @@ ms.locfileid: "60918972"
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>請檢查您的存取權的 Microsoft 客戶合約
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 

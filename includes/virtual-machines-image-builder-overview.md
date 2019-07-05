@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347108"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509817"
 ---
 標準化的虛擬機器 (VM) 映像可讓組織移轉至雲端，並確保在部署中的一致性。 映像通常包含預先定義的安全性和組態設定和必要的軟體。 設定您自己的映像處理管線需要的時間、 基礎結構和安裝程式，但使用 Azure VM 映像產生器，只是提供描述您的映像的簡單設定、 提交至服務，和建置，並散發映像。
  
-Azure VM 映像產生器 （Azure 映像產生器） 可讓您開始使用 Windows 或 Linux 為基礎的 Azure Marketplace 映像、 現有的自訂映像或 Red Hat Enterprise Linux (RHEL) ISO，並開始新增您自己的自訂。 因為映像產生器的基礎[HashiCorp Packer](https://packer.io/)，您也可以匯入現有的 Packer shell 佈建程式指令碼。 您也可以指定您想要您的映像或裝載的 Azure 共用映像庫 (virtual-machines-common-shared-image-galleries.md)，做為受管理的映像 VHD 的位置。
+Azure VM 映像產生器 （Azure 映像產生器） 可讓您開始使用 Windows 或 Linux 為基礎的 Azure Marketplace 映像、 現有的自訂映像或 Red Hat Enterprise Linux (RHEL) ISO，並開始新增您自己的自訂。 因為映像產生器的基礎[HashiCorp Packer](https://packer.io/)，您也可以匯入現有的 Packer shell 佈建程式指令碼。 您也可以指定您要在裝載您的映像[Azure 共用映像庫](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)、 受控映像為 VHD。
 
 > [!IMPORTANT]
 > Azure 映像產生器目前處於公開預覽狀態。
@@ -35,7 +35,7 @@ Azure VM 映像產生器 （Azure 映像產生器） 可讓您開始使用 Windo
 
 ## <a name="regions"></a>Regions
 Azure 映像產生器服務會在這些區域提供預覽。 這些區域外，就可以發佈映像。
-- 美國東部
+- East US
 - 美國東部 2
 - 美國中西部
 - 美國西部
@@ -50,6 +50,12 @@ AIB 會支援 Azure Marketplace 基本 OS 映像：
 - Windows 2016
 - Windows 2019
 
+AIB 將支援 RHEL ISO 的做為來源：
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+不支援 RHEL 7.6，但正在測試。
 
 ## <a name="how-it-works"></a>運作方式
 

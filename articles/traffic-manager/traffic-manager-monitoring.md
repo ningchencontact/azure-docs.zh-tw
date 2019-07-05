@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071064"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550369"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 
@@ -102,7 +102,7 @@ Azure 流量管理員包含內建的端點監視和自動端點容錯移轉。 �
 - 如果監視通訊協定是 HTTP 或 HTTPS：
     - 您會收到不是 200 的回應，或不包含**預期狀態碼範圍**設定中指定狀態範圍的回應 (包括不同的 2xx 碼或 301/302 重新導向)。
 - 如果監視通訊協定是 TCP： 
-    - 在流量管理員傳送給 SYNC 要求以嘗試連線建立的回應中，收到 ACK 或 SYN-ACK 以外的回應。
+    - 以回應 SYN 要求傳送給嘗試連線建立的 流量管理員收到 ACK 或 SYN-ACK 以外的回應。
 - 逾時。 
 - 導致無法連線到端點的任何其他連線問題。
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 77bbb333157f5c8cec9fa87e5f76fa4ae2678058
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070605"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543723"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Apache Hive 與 Apache Hadoop 分析 Twitter 資料
 
@@ -322,7 +322,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 您已經學會如何將非結構化的 JSON 資料集轉換成結構化的 [Apache Hive](https://hive.apache.org/) 資料表。 若要深入了解 HDInsight 上的 Hive，請參閱下列文件：
 
 * [開始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [使用 HDInsight 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
+* [使用 HDInsight 分析航班延誤資料](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

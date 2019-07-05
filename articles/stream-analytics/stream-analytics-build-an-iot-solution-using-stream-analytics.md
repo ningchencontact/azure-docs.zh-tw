@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201489"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443683"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
@@ -138,6 +138,7 @@ ms.locfileid: "60201489"
 10. 一段時間之後，系統會顯示通知以確認**部署成功**。
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>檢閱 Azure 串流分析 TollApp 資源
+
 1. 登入 Azure 入口網站
 
 2. 尋找您在上一節中所命名的資源群組。
@@ -171,7 +172,7 @@ ms.locfileid: "60201489"
    - **註冊**輸入是 Azure Blob 儲存體連線，會指向可視需要用於查閱的靜態 registration.json 檔案。 此參考資料輸入會用於稍後的查詢語法變化。
 
 4. 檢查 TollApp 範例作業的輸出。
-   - **Cosmos DB** 輸出是 Cosmos 資料庫集合，可接收輸出的接收事件。 請注意，此輸出用於串流查詢的 INTO 子句。
+   - **Cosmos DB**輸出是 Cosmos 資料庫容器接收輸出的接收事件。 請注意，此輸出用於串流查詢的 INTO 子句。
 
 ## <a name="start-the-tollapp-streaming-job"></a>啟動 TollApp 串流作業
 請遵循下列步驟以啟動串流作業：

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165014"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561385"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和資料庫中佈建輸送量
 
@@ -98,7 +98,6 @@ Azure Cosmos 資料庫上的設定輸送量保證，您會收到佈建的輸送�
 |---------|---------|---------|
 |RU 數目下限 |400 (在前四個容器之後，每個額外的容器至少需要每秒 100 RU)。 |400|
 |每個容器的 RU 數目下限|100|400|
-|取用 1 GB 儲存體所需的 RU 數目下限|40|40|
 |RU 數目上限|在資料庫上無限制。|在容器上無限制。|
 |指派給或適用於特定容器的 RU|不提供保證。 指派給指定容器的 RU 視屬性而定。 屬性可以選擇是共用輸送量之容器的資料分割索引鍵、工作負載散發，以及容器的數目。 |設定於容器上的所有 RU 都是專為該容器保留的。|
 |容器的儲存體上限|無限制。|無限制。|

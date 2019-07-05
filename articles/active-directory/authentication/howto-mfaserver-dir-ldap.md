@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057357"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536907"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 驗證和 Azure Multi-Factor Authentication Server
 
@@ -49,6 +49,9 @@ ms.locfileid: "67057357"
 ### <a name="configure-the-ldap-directory-connection"></a>設定 LDAP 目錄連線
 
 當 Azure Multi-Factor Authentication 設定為接受 LDAP 驗證時，它必須將這些驗證交由 LDAP 目錄代理。 因此，[目標] 索引標籤只會顯示灰色的單一選項來使用 LDAP 目標。
+
+> [!NOTE]
+> 目錄整合不保證使用 Active Directory 網域服務以外的目錄。
 
 1. 若要設定 LDAP 目錄連線，請按一下 [目錄整合]  圖示。
 2. 在 [設定] 索引標籤上，選取 [使用特定 LDAP 設定]  選項按鈕。

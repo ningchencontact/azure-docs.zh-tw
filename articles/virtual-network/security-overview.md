@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056532"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436616"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -51,43 +51,51 @@ ms.locfileid: "67056532"
 
 ## <a name="service-tags"></a>服務標籤
 
- 服務標籤表示一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。 您無法建立自己的服務標籤，或指定標籤中包含哪些 IP 位址。 Microsoft 會管理服務標籤包含的位址前置詞，並隨著位址變更自動更新服務標籤。 建立安全性規則時，您可以使用服務標籤取代特定的 IP 位址。 
- 
- 您可以從 Azure [公用](https://www.microsoft.com/download/details.aspx?id=56519)、[美國政府](https://www.microsoft.com/download/details.aspx?id=57063)、[中國](https://www.microsoft.com/download/details.aspx?id=57062)和[德國](https://www.microsoft.com/download/details.aspx?id=57064)雲端的下列每週發行集下載服務標記清單與前置詞詳細資料，並與內部部署防火牆整合。
+服務標籤表示一組 IP 位址前置詞，有助於降低建立安全性規則的複雜性。 您無法建立自己的服務標籤，或指定標籤中包含哪些 IP 位址。 Microsoft 會管理服務標籤包含的位址前置詞，並隨著位址變更自動更新服務標籤。 建立安全性規則時，您可以使用服務標籤取代特定的 IP 位址。 
 
- 下列服務標籤可使用於安全性規則定義中。 其在 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)之間的名稱稍有不同。
+下列服務標籤可供使用，在[網路安全性群組規則](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)。 以星號結尾 （也就是 AzureCloud *） 的服務標籤也會用於[網路的 Azure 防火牆規則](https://docs.microsoft.com/azure/firewall/service-tags)。 
 
-* **VirtualNetwork** (Resource Manager) (在傳統模型為 **VIRTUAL_NETWORK**)：這個標籤包含虛擬網路位址空間 （定義的所有 CIDR 範圍的虛擬網路），所有已連線內部部署位址空間，並[對等互連](virtual-network-peering-overview.md)虛擬網路或虛擬網路連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)並處理上使用的前置詞[使用者定義的路由](virtual-networks-udr-overview.md)。
+* **VirtualNetwork** (Resource Manager) (在傳統模型為 **VIRTUAL_NETWORK**)：這個標籤包含虛擬網路位址空間 （定義的所有 CIDR 範圍的虛擬網路），所有已連線的內部部署位址空間[對等互連](virtual-network-peering-overview.md)虛擬網路或虛擬網路連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)並處理上使用的前置詞[使用者定義的路由](virtual-networks-udr-overview.md)。 請注意，此標記可能會包含預設路由。 
 * **AzureLoadBalancer** (Resource Manager) (在傳統模型為 **AZURE_LOADBALANCER**)：此標記代表 Azure 基礎結構的負載平衡器。 此標記會轉譯成作為 Azure 健康情況探查來源的[主機虛擬 IP 位址](security-overview.md#azure-platform-considerations) (168.63.129.16)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
 * **Internet** (Resource Manager) (在傳統模型為 **INTERNET**)：此標記代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
-* **AzureCloud** (僅限 Resource Manager)：此標記代表包含所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCloud，您可以指定區域。 例如，如果您只想要在美國東部區域允許存取 Azure AzureCloud，您可以指定 *AzureCloud.EastUS* 作為服務標記。 
-* **AzureTrafficManager** (僅限 Resource Manager)：此標記代表 Azure 流量管理員探查 IP 位址的 IP 位址空間。 如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 
-* **Storage** (僅限 Resource Manager)：此標記代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 
-* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database、 適用於 MySQL 的 Azure 資料庫、 適用於 PostgreSQL 的 Azure 資料庫的位址首碼和 Azure SQL 資料倉儲服務。 如果您指定 Sql  作為值，就會允許或拒絕 Sql 的流量。 如果您只需要允許存取特定[地區](https://azure.microsoft.com/regions)中的 Sql，可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 
-* **AzureCosmosDB** (僅限 Resource Manager)：此標記代表 Azure Cosmos Database 服務的位址前置詞。 如果您指定 *AzureCosmosDB* 作為值，就會允許或拒絕 AzureCosmosDB 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCosmosDB，您可以用 AzureCosmosDB.[region name] 的格式指定區域。 
-* **AzureKeyVault** (僅限 Resource Manager)：此標記代表 Azure KeyVault 服務的位址前置詞。 如果您指定 *AzureKeyVault* 作為值，就會允許或拒絕 AzureKeyVault 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureKeyVault，您可以用 AzureKeyVault.[region name] 的格式指定區域。 
-* **EventHub** (僅限 Resource Manager)：此標記代表 Azure EventHub 服務的位址前置詞。 如果您指定 EventHub  作為值，就會允許或拒絕 EventHub 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 EventHub，您可以用 EventHub.[region name] 的格式指定區域。 
-* **ServiceBus** (僅限 Resource Manager)：這個標籤代表使用 Premium 服務層的 Azure 服務匯流排服務的位址前置詞。 如果您指定 ServiceBus  作為值，就會允許或拒絕 ServiceBus 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 ServiceBus，您可以用 ServiceBus.[region name] 的格式指定區域。 
-* **MicrosoftContainerRegistry** (僅限 Resource Manager)：此標記代表 Microsoft Container Registry 服務的位址前置詞。 如果您指定 MicrosoftContainerRegistry  作為值，就會允許或拒絕 MicrosoftContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 MicrosoftContainerRegistry，您可以用 MicrosoftContainerRegistry.[region name] 的格式指定區域。 
-* **AzureContainerRegistry** (僅限 Resource Manager)：此標記代表 Azure Container Registry 服務的位址前置詞。 如果您指定 AzureContainerRegistry  作為值，就會允許或拒絕 AzureContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureContainerRegistry，您可以用 AzureContainerRegistry.[region name] 的格式指定區域。 
-* **AppService** (僅限 Resource Manager)：此標記代表 Azure AppService 服務的位址前置詞。 如果您指定 AppService  作為值，就會允許或拒絕 AppService 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AppService，您可以用 AppService.[region name] 的格式指定區域。 
-* **AppServiceManagement** (僅限 Resource Manager)：此標記代表 Azure AppService Management 服務的位址前置詞。 如果您指定 AppServiceManagement  作為值，就會允許或拒絕 AppServiceManagement 的流量。 
-* **ApiManagement** (僅限 Resource Manager)：此標記代表 Azure API Management 服務的位址前置詞。 如果您指定*ApiManagement*的值，允許或拒絕授與 ApiManagement 的管理介面流量。  
-* **AzureConnectors** (僅限 Resource Manager)：此標記代表 Azure Connectors 服務的位址前置詞。 如果您指定 AzureConnectors  作為值，就會允許或拒絕 AzureConnectors 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureConnectors，您可以用 AzureConnectors.[region name] 的格式指定區域。 
-* **GatewayManager** (僅限 Resource Manager)：此標記代表 Azure Gateway Manager 服務的位址前置詞。 如果您指定 GatewayManager  作為值，就會允許或拒絕 GatewayManager 的流量。  
-* **AzureDataLake** (僅限 Resource Manager)：此標記代表 Azure Data Lake 服務的位址前置詞。 如果您指定 AzureDataLake  作為值，就會允許或拒絕 AzureDataLake 的流量。 
-* **AzureActiveDirectory** (僅限 Resource Manager)：此標記代表 AzureActiveDirectory 服務的位址前置詞。 如果您指定 AzureActiveDirectory  作為值，就會允許或拒絕 AzureActiveDirectory 的流量。  
-* **AzureMonitor** (僅限 Resource Manager)：此標記代表 AzureMonitor 服務的位址前置詞。 如果您指定 AzureMonitor  作為值，就會允許或拒絕 AzureMonitor 的流量。 
-* **ServiceFabric** (僅限 Resource Manager)：此標記代表 ServiceFabric 服務的位址前置詞。 如果您指定 ServiceFabric  作為值，就會允許或拒絕 ServiceFabric 的流量。 
-* **AzureMachineLearning** (僅限 Resource Manager)：此標記代表 AzureMachineLearning 服務的位址前置詞。 如果您指定 AzureMachineLearning  作為值，就會允許或拒絕 AzureMachineLearning 的流量。 
-* **BatchNodeManagement** (僅限 Resource Manager):這個標籤代表 Azure BatchNodeManagement 服務的位址首碼。 如果您指定*BatchNodeManagement*的值，是允許或拒絕流量從 Batch 服務至計算節點。
-* **AzureBackup**(僅限 Resource Manager): 這個標籤代表 AzureBackup 服務的位址首碼。 如果您指定 AzureBackup 值時，允許或拒絕流量以 AzureBackup。
+* **AzureCloud*** (僅限 Resource Manager):此標記代表包含所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只是要允許存取特定的 AzureCloud[地區](https://azure.microsoft.com/regions)，您可以指定地區，以下列格式 AzureCloud。 [區域名稱]。 輸出安全性規則，建議您使用此標記。 
+* **AzureTrafficManager*** (僅限 Resource Manager):此標記代表 Azure 流量管理員探查 IP 位址的 IP 位址空間。 如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 此標籤建議的輸入的安全性規則。  
+* **儲存體*** (僅限 Resource Manager):此標記代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取儲存體中特定[地區](https://azure.microsoft.com/regions)，您可以指定地區，以下列格式儲存。 [區域名稱]。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。 輸出安全性規則，建議您使用此標記。 
+* **Sql*** (僅限 Resource Manager):這個標籤代表 Azure SQL Database、 適用於 MySQL 的 Azure 資料庫、 適用於 PostgreSQL 的 Azure 資料庫的位址首碼和 Azure SQL 資料倉儲服務。 如果您指定 Sql  作為值，就會允許或拒絕 Sql 的流量。 如果您只是要允許存取 Sql 中特殊[地區](https://azure.microsoft.com/regions)，您可以以下列格式中指定的區域。 Sql。 [區域名稱] 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 SQL Database 或伺服器服務，但不代表特定的 Azure SQL Database。 輸出安全性規則，建議您使用此標記。 
+* **AzureCosmosDB*** (僅限 Resource Manager):此標記代表 Azure Cosmos Database 服務的位址前置詞。 如果您指定 *AzureCosmosDB* 作為值，就會允許或拒絕 AzureCosmosDB 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCosmosDB，您可以用 AzureCosmosDB.[region name] 的格式指定區域。 輸出安全性規則，建議您使用此標記。 
+* **AzureKeyVault*** (僅限 Resource Manager):此標記代表 Azure KeyVault 服務的位址前置詞。 如果您指定 *AzureKeyVault* 作為值，就會允許或拒絕 AzureKeyVault 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureKeyVault，您可以用 AzureKeyVault.[region name] 的格式指定區域。 此標記有相依性**AzureActiveDirectory**標記。 輸出安全性規則，建議您使用此標記。  
+* **EventHub*** (僅限 Resource Manager):此標記代表 Azure EventHub 服務的位址前置詞。 如果您指定 EventHub  作為值，就會允許或拒絕 EventHub 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 EventHub，您可以用 EventHub.[region name] 的格式指定區域。 輸出安全性規則，建議您使用此標記。 
+* **服務匯流排*** (僅限 Resource Manager):這個標籤代表使用 Premium 服務層的 Azure 服務匯流排服務的位址前置詞。 如果您指定 ServiceBus  作為值，就會允許或拒絕 ServiceBus 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 ServiceBus，您可以用 ServiceBus.[region name] 的格式指定區域。 輸出安全性規則，建議您使用此標記。 
+* **MicrosoftContainerRegistry*** (僅限 Resource Manager):此標記代表 Microsoft Container Registry 服務的位址前置詞。 如果您指定 MicrosoftContainerRegistry  作為值，就會允許或拒絕 MicrosoftContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 MicrosoftContainerRegistry，您可以用 MicrosoftContainerRegistry.[region name] 的格式指定區域。 輸出安全性規則，建議您使用此標記。 
+* **AzureContainerRegistry*** (僅限 Resource Manager):此標記代表 Azure Container Registry 服務的位址前置詞。 如果您指定 AzureContainerRegistry  作為值，就會允許或拒絕 AzureContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureContainerRegistry，您可以用 AzureContainerRegistry.[region name] 的格式指定區域。 輸出安全性規則，建議您使用此標記。 
+* **AppService*** (僅限 Resource Manager):此標記代表 Azure AppService 服務的位址前置詞。 如果您指定 AppService  作為值，就會允許或拒絕 AppService 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AppService，您可以用 AppService.[region name] 的格式指定區域。 此標記的 web 應用程式前端建議輸出安全性規則。  
+* **AppServiceManagement*** (僅限 Resource Manager):這個標籤代表專用的 App Service Environment 部署的管理流量的位址首碼。 如果您指定 AppServiceManagement  作為值，就會允許或拒絕 AppServiceManagement 的流量。 此標籤建議的輸入/輸出安全性規則。 
+* **ApiManagement*** (僅限 Resource Manager):這個標籤代表 APIM 的管理流量的位址首碼專用的部署。 如果您指定 ApiManagement  作為值，就會允許或拒絕 ApiManagement 的流量。 此標籤建議的輸入/輸出安全性規則。 
+* **AzureConnectors*** (僅限 Resource Manager):這個標籤代表探查/後端連線的 Logic Apps 連接器的位址首碼。 如果您指定 AzureConnectors  作為值，就會允許或拒絕 AzureConnectors 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureConnectors，您可以用 AzureConnectors.[region name] 的格式指定區域。 此標籤建議的輸入的安全性規則。 
+* **GatewayManager** (僅限 Resource Manager)：這個標籤代表專用的 VPN/應用程式閘道部署的管理流量的位址首碼。 如果您指定 GatewayManager  作為值，就會允許或拒絕 GatewayManager 的流量。 此標籤建議的輸入的安全性規則。 
+* **AzureDataLake*** (僅限 Resource Manager):此標記代表 Azure Data Lake 服務的位址前置詞。 如果您指定 AzureDataLake  作為值，就會允許或拒絕 AzureDataLake 的流量。 輸出安全性規則，建議您使用此標記。 
+* **AzureActiveDirectory*** (僅限 Resource Manager):此標記代表 AzureActiveDirectory 服務的位址前置詞。 如果您指定 AzureActiveDirectory  作為值，就會允許或拒絕 AzureActiveDirectory 的流量。 輸出安全性規則，建議您使用此標記。
+* **AzureMonitor*** (僅限 Resource Manager):這個標籤代表的 Log Analytics、 應用程式深入解析、 AzMon，及自訂的度量 （Gb 端點） 的位址前置詞。 如果您指定 AzureMonitor  作為值，就會允許或拒絕 AzureMonitor 的流量。 Log analytics，此標記會有相依性**儲存體**標記。 輸出安全性規則，建議您使用此標記。
+* **ServiceFabric*** (僅限 Resource Manager):此標記代表 ServiceFabric 服務的位址前置詞。 如果您指定 ServiceFabric  作為值，就會允許或拒絕 ServiceFabric 的流量。 輸出安全性規則，建議您使用此標記。 
+* **AzureMachineLearning*** (僅限 Resource Manager):此標記代表 AzureMachineLearning 服務的位址前置詞。 如果您指定 AzureMachineLearning  作為值，就會允許或拒絕 AzureMachineLearning 的流量。 輸出安全性規則，建議您使用此標記。 
+* **BatchNodeManagement*** (僅限 Resource Manager):這個標籤代表專用的 Azure 批次部署的管理流量的位址首碼。 如果您指定*BatchNodeManagement*的值，是允許或拒絕流量從 Batch 服務至計算節點。 此標籤建議的輸入/輸出安全性規則。 
+* **AzureBackup*** (僅限 Resource Manager):這個標籤代表 AzureBackup 服務的位址首碼。 如果您指定*AzureBackup*的值，允許或拒絕 AzureBackup 流量。 此標記有相依性**儲存體**並**AzureActiveDirectory**標記。輸出安全性規則，建議您使用此標記。 
+* **AzureActiveDirectoryDomainServices*** (僅限 Resource Manager):這個標籤代表 Azure Active Directory Domain Services 專用部署的管理流量的位址首碼。 如果您指定*AzureActiveDirectoryDomainServices*的值，允許或拒絕 AzureActiveDirectoryDomainServices 流量。 此標籤建議的輸入/輸出安全性規則。  
+* **SqlManagement*** (僅限 Resource Manager):這個標籤代表 sql 管理流量的位址首碼專用的部署。 如果您指定*SqlManagement*的值，允許或拒絕 SqlManagement 流量。 此標籤建議的輸入/輸出安全性規則。 
 
 > [!NOTE]
 > Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 
 
 > [!NOTE]
 > 如果您對服務 (例如 Azure 儲存體或 Azure SQL Database) 實作[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，Azure 會將[路由](virtual-networks-udr-overview.md#optional-default-routes)新增至服務的虛擬網路子網路。 路由中的位址前置詞為相同的位址前置詞，或 CIDR 範圍，以及對應的服務標籤。
+
+### <a name="service-tags-in-on-premises"></a>在內部部署的服務標籤  
+您可以下載並整合內部部署防火牆清單中的前置詞的詳細資料適用於 Azure 的下列每週發行集上的服務標籤[公開金鑰](https://www.microsoft.com/download/details.aspx?id=56519)，[美國政府](https://www.microsoft.com/download/details.aspx?id=57063)，[中國](https://www.microsoft.com/download/details.aspx?id=57062)，並[德國](https://www.microsoft.com/download/details.aspx?id=57064)雲端。
+
+您可以也以程式設計方式擷取此資訊使用**服務標記探索 API** （公開預覽）- [REST](https://aka.ms/discoveryapi_rest)， [Azure PowerShell](https://aka.ms/discoveryapi_powershell)，和[Azure CLI](https://aka.ms/discoveryapi_cli)。 
+
+> [!NOTE]
+> 遵循每週的發行集 （舊版） azure[公開金鑰](https://www.microsoft.com/en-us/download/details.aspx?id=41653)，[中國](https://www.microsoft.com/en-us/download/details.aspx?id=42064)，並[德國](https://www.microsoft.com/en-us/download/details.aspx?id=54770)雲端會在 2020 年 6 月 30 日淘汰。 請開始使用更新的發行集，如上面所述。 
 
 ## <a name="default-security-rules"></a>預設安全性規則
 

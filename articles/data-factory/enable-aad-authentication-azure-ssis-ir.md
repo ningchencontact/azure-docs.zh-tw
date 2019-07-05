@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593792"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490061"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 
@@ -146,17 +146,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>為 Azure SQL Database 受控執行個體設定 Azure AD 驗證
 
-1.   在 Azure 入口網站中，從左側導覽中選取 [所有服務]   -> [SQL 伺服器]  。
-
-2.   選取要使用 Azure AD 驗證設定的受控執行個體。
-
-3.   在刀鋒視窗的 [設定]  區段中，選取 [Active Directory 管理員]  。
-
-4.   在命令列中選取 [設定管理員]  。
-
-5.   選取要設定為伺服器管理員的 Azure AD 使用者帳戶，然後選取 [選取]  。
-
-6.   在命令列中，選取 [儲存]  。
+請依照下列中的步驟[佈建您受控執行個體的 Azure Active Directory 系統管理員](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance)。
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中，以使用者身分為 ADF 新增受控識別
 
@@ -164,7 +154,7 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 1.  啟動 SSMS。
 
-2.  使用您的 SQL/Active Directory 管理員帳戶，連線到受控執行個體。
+2.  連接到您受管理的執行個體使用的 SQL Server 帳戶**sysadmin**。 這是暫時性的限制，將會移除後的 Azure SQL Database 受控執行個體的 Azure AD 伺服器主體 （登入） 會變成公開上市 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：Msg 15247，層級 16，State 1，行 1 位使用者沒有執行此動作的權限。
 
 3.  在 [物件總管]  中，展開 [資料庫]  [系統資料庫] ->   資料夾。
 

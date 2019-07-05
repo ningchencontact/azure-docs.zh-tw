@@ -3,7 +3,7 @@ title: 將 Windows Server VM 加入 Azure Active Directory Domain Services | Mic
 description: 使用 Azure Resource Manager 範本將 Windows Server 虛擬機器加入受控網域。
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: e4ca613059e10755056616b964cc500625fef187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245950"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473026"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入受控網域
 本文示範如何使用 Resource Manager 範本，將 Windows Server 虛擬機器加入至 Azure Active Directory Domain Services 之受控網域。

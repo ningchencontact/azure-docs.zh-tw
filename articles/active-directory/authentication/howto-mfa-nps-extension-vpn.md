@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570650"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561131"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -246,7 +246,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
     b. 在 [共用密碼]  中選取 [變更]  ，然後輸入您稍早所建立並記錄下來的共用密碼。
 
-    c. 在 [逾時 (秒)]  方塊中，選取 **30** 到 **60** 之間的值。  
+    c. 在 **逾時 （秒）** 方塊中，輸入值為**30**。  
     您必須設定逾時值，才能讓第二個驗證要素有足夠的時間完成。
 
     ![[新增 RADIUS 伺服器] 視窗設定的逾時](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ NPS 擴充功能需要 Windows Server 2008 R2 SP1 或更新版本，並安裝網
 
 ## <a name="configure-multi-factor-authentication"></a>設定 Multi-Factor Authentication
 
-如需設定 Multi-Factor Authentication 之使用者的協助，請參閱[如何要求使用者或群組使用雙步驟驗證](howto-mfa-userstates.md)和[對我的帳戶進行雙步驟驗證設定](../user-help/multi-factor-authentication-end-user-first-time.md)文章
+設定 Multi-factor Authentication 使用者的協助，請參閱文章[規劃雲端式 Azure Multi-factor Authentication 部署](howto-mfa-getstarted.md#create-conditional-access-policy)和[我的帳戶進行雙步驟驗證設定](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>安裝和設定 NPS 擴充功能
 

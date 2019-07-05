@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147968"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565793"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -61,16 +61,21 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 | 儲存體類型 | 授權的目前支援的方法 |
 |--|--|
 |**Blob 儲存體** | Azure AD & SAS |
-|**Blob 儲存體 （階層式命名空間）** | 僅限 Azure AD 使用 |
+|**Blob 儲存體 （階層式命名空間）** | Azure AD & SAS |
 |**檔案儲存體** | 只有 SAS |
 
 ### <a name="option-1-use-azure-ad"></a>選項 1：使用 Azure AD
 
+使用 Azure AD，您可以提供一次而不需將 SAS 權杖附加至每個命令的認證。  
+
 您需要的授權層級取決於您是否計劃將檔案上傳或下載它們。
 
-如果您只想下載檔案，然後確認[儲存體 Blob 資料讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)已指派給您的身分識別。
+如果您只想下載檔案，然後確認[儲存體 Blob 資料讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)已指派給您的使用者身分識別或服務主體。 
 
-如果您想要上傳檔案，然後確認，以您的身分識別將其中一個角色指派：
+> [!NOTE]
+> 使用者的身分識別和服務主體是每一種*安全性主體*，因此我們將使用的詞彙*安全性主體*這篇文章的其餘部分。
+
+如果您想要上傳檔案，然後確認，這些角色的其中一個已指派給安全性主體：
 
 - [儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [儲存體 Blob 資料擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -84,13 +89,16 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 若要了解如何驗證和指派角色，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-您不需要有其中一個角色指派給您的身分識別，如果您的身分識別新增至目標容器或目錄的存取控制清單 (ACL)。 在 ACL 中，您的身分識別會需要寫入權限的目標目錄上，並執行容器和每個父目錄的權限。
+> [!NOTE] 
+> 請記住，RBAC 角色指派可能需要五分鐘的時間傳播。
+
+您不需要有其中一個角色指派給安全性主體，如果您的安全性主體新增至目標容器或目錄的存取控制清單 (ACL)。 在 ACL 中，您的安全性主體會需要寫入權限的目標目錄上，並執行容器和每個父目錄的權限。
 
 若要進一步了解，請參閱[存取控制，在 Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
 
-#### <a name="authenticate-your-identity"></a>驗證您的身分識別
+#### <a name="authenticate-a-user-identity"></a>驗證使用者身分識別
 
-確認您的身分識別具有已指定必要的授權層級之後，開啟命令提示字元，輸入下列命令，，然後按 ENTER 鍵。
+確認您的使用者身分識別具有已指定必要的授權層級之後，開啟命令提示字元，輸入下列命令，，然後按 ENTER 鍵。
 
 ```azcopy
 azcopy login
@@ -109,6 +117,72 @@ azcopy login --tenant-id=<tenant-id>
 ![建立容器](media/storage-use-azcopy-v10/azcopy-login.png)
 
 隨即會出現登入視窗。 在該視窗中，使用您的 Azure 帳戶認證登入 Azure 帳戶。 順利登入之後，您可以關閉瀏覽器視窗，然後開始使用 AzCopy。
+
+<a id="service-principal" />
+
+#### <a name="authenticate-a-service-principal"></a>驗證服務主體
+
+如果您打算執行而不需要使用者互動的指令碼內使用 AzCopy，這會是不錯的選擇。 
+
+在執行該指令碼之前，您必須登入以互動方式在至少一次，讓您可以提供您的服務主體的認證中的 AzCopy。  這些認證會儲存在安全且加密的檔案中，如此您的指令碼不需要提供該項機密資訊。
+
+您可以使用用戶端祕密，或使用服務主體的應用程式註冊相關聯憑證的密碼登入您的帳戶。 
+
+若要深入了解建立服務主體，請參閱[How to:使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+
+若要深入了解服務主體在一般情況下，請參閱[應用程式和 Azure Active Directory 中的服務主體物件](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### <a name="using-a-client-secret"></a>使用用戶端祕密
+
+先是設定`AZCOPY_SPA_CLIENT_SECRET`環境變數，將您的服務主體的用戶端密碼的應用程式註冊。 
+
+> [!NOTE]
+> 請務必將此值設定從命令提示字元，而不是在環境變數設定您的作業系統。 如此一來，值為僅適用於目前的工作階段。
+
+這個範例會示範如何您無法在 PowerShell 中這麼。
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> 請考慮使用提示字元，在此範例中所示。 如此一來，用戶端祕密不會出現在您的主控台命令歷程記錄。 
+
+接下來，輸入下列命令，，，然後按 ENTER 鍵。
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+取代`<application-id>`預留位置取代為您的服務主體的應用程式識別碼的應用程式註冊。
+
+##### <a name="using-a-certificate"></a>使用憑證
+
+如果您想要使用您自己的認證進行授權，您可以將憑證上傳到您的應用程式註冊，然後使用 登入該憑證。
+
+除了您的憑證上傳至您的應用程式註冊，您也要有一份憑證儲存至電腦或 AzCopy 將會執行的 VM。 這份憑證應該位於中。PFX 或。PEM 格式，然後必須包含私密金鑰。 私用金鑰應受密碼保護。 如果您使用 Windows，而且您的憑證只存在於憑證存放區，請確定該憑證匯出至 PFX 檔案 （包括私密金鑰）。 如需指引，請參閱[Export-pfxcertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+接下來，設定`AZCOPY_SPA_CERT_PASSWORD`環境變數，將憑證密碼。
+
+> [!NOTE]
+> 請務必將此值設定從命令提示字元，而不是在環境變數設定您的作業系統。 如此一來，值為僅適用於目前的工作階段。
+
+這個範例會示範如何您無法在 PowerShell 中這麼。
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+接下來，輸入下列命令，，，然後按 ENTER 鍵。
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+取代`<path-to-certificate-file>`預留位置取代為憑證檔案的相對或完整路徑。 AzCopy 將此憑證的路徑，但它不會儲存一份憑證，因此請務必將該憑證保留在原位。
+
+> [!NOTE]
+> 請考慮使用提示字元，在此範例中所示。 如此一來，您的密碼不會出現在您的主控台命令歷程記錄。 
 
 ### <a name="option-2-use-a-sas-token"></a>選項 2：使用 SAS 權杖
 
@@ -134,7 +208,11 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 
 - [使用 AzCopy 和 Amazon S3 貯體轉送資料](storage-use-azcopy-s3.md)
 
+- [使用 AzCopy 和 Azure Stack 儲存體傳輸資料](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
 ## <a name="use-azcopy-in-a-script"></a>在 指令碼中使用 AzCopy
+
+在執行該指令碼之前，您必須登入以互動方式在至少一次，讓您可以提供您的服務主體的認證中的 AzCopy。  這些認證會儲存在安全且加密的檔案中，如此您的指令碼不需要提供該項機密資訊。 如需範例，請參閱[驗證您的服務主體](#service-principal)一節。
 
 經過一段時間，AzCopy[下載連結](#download-and-install-azcopy)會指向新版本的 AzCopy。 如果您的指令碼下載 AzCopy、 指令碼可能會停止運作如果新版的 AzCopy 修改取決於您的指令碼的功能。 
 

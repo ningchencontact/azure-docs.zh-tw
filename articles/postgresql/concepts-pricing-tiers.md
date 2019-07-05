@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448068"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL-單一伺服器的定價層
 
@@ -64,16 +64,16 @@ ms.locfileid: "67340729"
 | 儲存體類型 | Azure 進階儲存體 | Azure 進階儲存體 |
 | 儲存體大小 | 32 GB 到 16 TB| 32 到 16 TB |
 | 儲存體遞增大小 | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大| 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大 |
+| IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大 | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大 |
 
 > [!IMPORTANT]
-> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 北歐、 西歐、 東南亞、 日本東部、 韓國中部、 澳大利亞東部。
+> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 北歐、 西歐、 英國南部、 英國西部、 東南亞、 東亞、 日本東部、 日本西部、 韓國中部、 韓國南部、 澳大利亞東部、 澳洲南部東部。
 >
->目前不支援大型儲存體預覽：
+> 目前不支援大型儲存體預覽：
 >
 > * 透過虛擬網路服務端點的連入連線
 > * 異地備援備份
-> * 跨區域複寫
+> * 讀取複本
 
 ### <a name="reaching-the-storage-limit"></a>到達儲存體限制
 

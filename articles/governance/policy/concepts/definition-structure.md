@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979555"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428751"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -72,6 +72,10 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="mode"></a>模式
 
+**模式**是設定根據原則的目標 Azure 資源管理員屬性或資源提供者屬性。
+
+### <a name="resource-manager-modes"></a>Resource Manager 模式
+
 **Mode** 決定原則要評估哪些資源類型。 支援的模式如下：
 
 - `all`：評估資源群組和所有資源類型
@@ -80,6 +84,13 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則可手動指定 **mode** 參數。 如果原則定義未包含 **mode** 值，則在 Azure PowerShell 中會預設為 `all`，而在 Azure CLI 中會預設為 `null`。 `null` 模式與使用 `indexed` 來支援回溯相容性相同。
 
 建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源，請參閱[標記適用於 Azure 資源的支援](../../../azure-resource-manager/tag-support.md)。
+
+### <a name="resource-provider-modes"></a>資源提供者模式
+
+目前支援的唯一資源提供者模式`Microsoft.ContainerService.Data`許可控制站的規則，以便[Azure Kubernetes Service](../../../aks/intro-kubernetes.md)。
+
+> [!NOTE]
+> [針對 Kubernetes 的 azure 原則](rego-for-aks.md)處於公開預覽狀態，而且僅支援內建原則定義。
 
 ## <a name="parameters"></a>參數
 
@@ -389,6 +400,7 @@ Azure 原則支援下列類型的效果：
 - **AuditIfNotExists**：如果資源不存在，便啟用稽核
 - **DeployIfNotExists**：如果資源不存在，便部署該資源
 - **Disabled**：不會評估資源是否符合原則規則的規範
+- **EnforceRegoPolicy**： 設定 Azure Kubernetes Service （預覽） 中的 開啟原則代理程式許可控制站
 
 對於 **append**，您必須提供下列詳細資料：
 

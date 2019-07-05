@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
-ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc5b5a287a421f93d3184ded3e429c5cff8fa3c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755314"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566285"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>高效能運算 VM 大小
 
@@ -31,11 +31,10 @@ ms.locfileid: "66755314"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **作業系統** - Windows Server 2016、Windows Server 2012 R2、Windows Server 2012
+* **作業系統**-所有上述 HPC 系列 Vm 上的 Windows Server 2016。 Windows Server 2012 R2 中，Windows Server 2012 也支援非 SR-IOV 啟用 Vm 上 （因此不含 HB 和 HC）。
 
-* **MPI** - Microsoft MPI (MS-MPI) 2012 R2 或更新版本、Intel MPI Library 5.x
-
-  在非 SR-IOV 啟用 Vm 上支援的 MPI 實作會使用 Microsoft 網路直接存取 (ND) 介面執行個體之間進行通訊。 SR-IOV 啟用的 VM 大小 （HB 和 HC 系列） 在 Azure 上所允許的 MPI 搭配 Mellanox OFED 幾乎任何版本。 
+* **MPI** -SR-IOV 啟用 （HB、 HC） 在 Azure 上的 VM 大小所允許的 MPI 搭配 Mellanox OFED 幾乎任何類別。
+在非 SR-IOV 啟用 Vm 上支援的 MPI 實作會使用 Microsoft 網路直接存取 (ND) 介面執行個體之間進行通訊。 因此，只有 Microsoft MPI (MS-MPI) 2012 R2 或更新版本和支援的 Intel MPI 5.x 版本。 更新版本 （2017年和 2018年） 的 Intel MPI 執行階段程式庫可能會或可能無法與 Azure RDMA 驅動程式相容。
 
 * **InfiniBandDriverWindows VM 延伸模組**-在支援 RDMA 的 Vm 上將啟用 InfiniBand InfiniBandDriverWindows 擴充功能。 此 Windows VM 延伸模組會安裝 Windows Network Direct 的驅動程式 （非 SR-IOV 在 Vm 上） 或 （在 SR-IOV Vm) 上進行 RDMA 連線的 Mellanox OFED 驅動程式。
 在某些部署 A8 和 A9 執行個體中，會自動新增 HpcVmDrivers 擴充功能。 請注意，HpcVmDrivers VM 擴充功能已被取代;它將不會更新。 若要將 VM 擴充功能新增至 VM，您可以使用 [Azure PowerShell](/powershell/azure/overview) Cmdlet。 
@@ -53,7 +52,16 @@ ms.locfileid: "66755314"
   "typeHandlerVersion": "1.0",
   } 
   ```
-  
+
+  下列命令中現有的 VM 擴展集的所有處理支援 RDMA 之 Vm 上安裝最新版本 1.0 InfiniBandDriverWindows 擴充功能*myVMSS*部署在資源群組中名為*myResourceGroup*:
+
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+
   如需詳細資訊，請參閱[虛擬機器擴充功能和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 您也可以針對已在[傳統部署模型](classic/manage-extensions.md)中部署的 VM 使用擴充功能。
 
 * **RDMA 網路位址空間** - Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/16。 若要在 Azure 虛擬網路中已部署的執行個體上執行 MPI 應用程式，請確定虛擬網路位址空間不會與 RDMA 網路重疊。
@@ -66,6 +74,8 @@ Azure 提供數個選項來建立 Windows HPC VM 的叢集，而這些 VM 可以
 * **虛擬機器** - 在相同的可用性設定組中部署支援 RDMA 的 HPC VM (當您使用 Azure Resource Manager 部署模型時)。 如果您使用傳統部署模型，請將 VM 部署在相同的雲端服務中。 
 
 * **虛擬機器擴展集**-在虛擬機器擴展集，請確定您限制為單一放置群組部署。 例如，在 Resource Manager 範本中，將 `singlePlacementGroup` 屬性設定為 `true`。 
+
+* **在虛擬機器之間的 MPI** -如果 MPI 通訊如果虛擬機器 (Vm) 之間所需確保 Vm 會在相同的可用性設定組，或相同的虛擬機器擴展集。
 
 * **Azure CycleCloud** - 在 [Azure CycleCloud](/azure/cyclecloud/) 中建立 HPC 叢集，以在 Windows 節點上執行 MPI 作業。
 

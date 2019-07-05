@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04f623a889a87c325b1f53e3b39656ca4b703961
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405920"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509225"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
@@ -30,13 +30,16 @@ ms.locfileid: "60405920"
 
 您可以將資料從 Oracle 資料庫複製到任何支援的接收資料存放區。 您也可以從任何支援的來源資料存放區將資料複製到 Oracle 資料庫。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 Oracle 連接器支援下列版本的 Oracle 資料庫。 它也支援基本或 OID 驗證：
+具體而言，這個 Oracle 連接器支援：
 
-- Oracle 12c R1 (12.1)
-- Oracle 11g R1、R2 (11.1、11.2)
-- Oracle 10g R1、R2 (10.1、10.2)
-- Oracle 9i R1、R2 (9.0.1、9.2)
-- Oracle 8i R3 (8.1.7)
+- 下列版本的 Oracle 資料庫：
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1、R2 (11.1、11.2)
+  - Oracle 10g R1、R2 (10.1、10.2)
+  - Oracle 9i R1、R2 (9.0.1、9.2)
+  - Oracle 8i R3 (8.1.7)
+- 複製 使用資料**基本**或是**OID**驗證。
+- 從 Oracle 來源的平行複製。 請參閱[平行從 Oracle 複製](#parallel-copy-from-oracle)詳細資料 區段。
 
 > [!Note]
 > 不支援 Oracle Proxy 伺服器。
@@ -190,16 +193,24 @@ ms.locfileid: "60405920"
 
 ### <a name="oracle-as-a-source-type"></a>Oracle 作為來源類型
 
+> [!TIP]
+>
+> 進一步了解[平行從 Oracle 複製](#parallel-copy-from-oracle)如何將資料從 Oracle 有效率地使用 資料分割上的一節。
+
 若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 **OracleSource**。 複製活動的 [來源]  區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **OracleSource**。 | 是 |
-| oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 |
+| oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割的負載時，您需要在查詢中攔截相對應的內建的資料分割參數。 請參閱中的範例[平行從 Oracle 複製](#parallel-copy-from-oracle)一節。 | 否 |
+| partitionOptions | 指定資料分割選項用來將資料從 Oracle 的資料。 <br>允許的值為：**無**（預設值）， **PhysicalPartitionsOfTable**並**DynamicRange**。<br>啟用資料分割選項時 (沒有 ' None')，請也設定 **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** 設定複製活動，例如 4 中，以決定從 Oracle，同時將資料的平行程度資料庫。 | 否 |
+| partitionSettings | 指定的設定資料分割的群組。 <br>不是資料分割選項時，適用`None`。 | 否 |
+| partitionNames | 要複製的實體分割區的清單。 <br>套用資料分割選項時`PhysicalPartitionsOfTable`。 如果您使用查詢來擷取來源資料時，攔截`?AdfTabularPartitionName`WHERE 子句中。 中的範例，請參閱[平行從 Oracle 複製](#parallel-copy-from-oracle)一節。 | 否 |
+| partitionColumnName | 指定的來源資料行名稱**中的整數型別**，將使用的定界分割的平行複製。 如果未指定，則資料表的主索引鍵將會自動偵測到並做為分割區資料行。 <br>套用資料分割選項時`DynamicRange`。 如果您使用查詢來擷取來源資料時，攔截`?AdfRangePartitionColumnName`WHERE 子句中。 中的範例，請參閱[平行從 Oracle 複製](#parallel-copy-from-oracle)一節。 | 否 |
+| partitionUpperBound | 將資料複製的資料分割資料行的最大值。 <br>套用資料分割選項時`DynamicRange`。 如果您使用查詢來擷取來源資料時，攔截`?AdfRangePartitionUpbound`WHERE 子句中。 中的範例，請參閱[平行從 Oracle 複製](#parallel-copy-from-oracle)一節。 | 否 |
+| PartitionLowerBound | 將資料複製的資料分割資料行的最小值。 <br>套用資料分割選項時`DynamicRange`。 如果您使用查詢來擷取來源資料時，攔截`?AdfRangePartitionLowbound`WHERE 子句中。 中的範例，請參閱[平行從 Oracle 複製](#parallel-copy-from-oracle)一節。 | 否 |
 
-如果您未指定 "oracleReaderQuery"，就會使用資料集的 "structure" 區段中定義的資料行，來建構要針對 Oracle 資料庫執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
-
-**範例：**
+**使用基本的查詢，而不需要資料分割的範例： 複製資料**
 
 ```json
 "activities":[
@@ -230,6 +241,8 @@ ms.locfileid: "60405920"
     }
 ]
 ```
+
+請參閱中的更多範例[平行從 Oracle 複製](#parallel-copy-from-oracle)一節。
 
 ### <a name="oracle-as-a-sink-type"></a>Oracle 作為接收類型
 
@@ -271,6 +284,54 @@ ms.locfileid: "60405920"
         }
     }
 ]
+```
+
+## <a name="parallel-copy-from-oracle"></a>從 Oracle 的平行複製
+
+資料處理站的 Oracle 連接器提供內建的資料分割來從 Oracle 複製資料，以平行方式有絕佳的效能。 您可以找到在複製活動的資料分割選項]-> [Oracle 來源：
+
+![資料分割選項](./media/connector-oracle/connector-oracle-partition-options.png)
+
+當您啟用資料分割的複本時，data factory 會針對 Oracle 來源載入資料分割的資料執行平行查詢。 設定和控制透過平行程度 **[ `parallelCopies` ](copy-activity-performance.md#parallel-copy)** 複製活動上設定。 例如，如果您設定`parallelCopies`為四個，同時會產生資料處理站，並執行四個查詢根據您指定的資料分割選項和設定，將資料從 Oracle 資料庫中每個擷取的一部分。
+
+建議您在使用資料分割，特別是當您從 Oracle 資料庫載入大量的資料時，才啟用平行複製。 以下是不同案例的建議的設定：
+
+| 案例                                                     | 建議的設定                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 從具有實體分割區的大型資料表的完整載入          | **資料分割選項**:資料表的實體分割區。 <br><br/>在執行期間，資料處理站，自動偵測實體分割區，並將資料複製的資料分割。 |
+| 如果沒有實體的資料分割，而使用整數資料行的資料分割的大型資料表中的完整載入 | **資料分割選項**:動態定界分割區。<br>**資料分割資料行**:指定用來分割資料的資料行。 如果未指定，則主索引鍵資料行使用。 |
+| 載入大量的自訂查詢下, 面使用實體資料分割的資料 | **資料分割選項**:資料表的實體分割區。<br>**查詢**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`。<br>**資料分割名稱**:指定要從其中複製資料的資料分割名稱。 如果未指定，ADF 會自動偵測您 Oracle 資料集中指定的資料表上的實體分割區。<br><br>在執行期間，資料處理站取代`?AdfTabularPartitionName`與 Oracle 的傳送與實際的資料分割名稱。 |
+| 載入大量的資料分割的自訂查詢下, 面使用而不需要實體資料分割，而使用整數資料行的資料 | **資料分割選項**:動態定界分割區。<br>**查詢**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`。<br>**資料分割資料行**:指定用來分割資料的資料行。 您可以針對資料行分割具有整數資料類型。<br>**資料分割上限**並**分割區下限**:指定是否您想要針對資料分割資料行，只擷取下限和上限範圍之間的資料篩選。<br><br>在執行期間，資料處理站 replace `?AdfRangePartitionColumnName`， `?AdfRangePartitionUpbound`，和`?AdfRangePartitionLowbound`使用實際的資料行的名稱和值範圍，每個資料分割，並將傳送至 Oracle。 <br>比方說，如果您的磁碟分割資料行的 「 識別碼 」 設定下限為 1 到上限為 80，平行複製設定為 4，ADF 會擷取資料，由 4 個磁碟分割識別碼之間 [1,20]，[21，40，] [41，60] 和 [61，80]。 |
+
+**使用實體資料分割的範例： 查詢**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> PARTITION(\"?AdfTabularPartitionName\") WHERE <your_additional_where_clause>",
+    "partitionOption": "PhysicalPartitionsOfTable",
+    "partitionSettings": {
+        "partitionNames": [
+            "<partitionA_name>",
+            "<partitionB_name>"
+        ]
+    }
+}
+```
+
+**範例： 查詢具有動態範圍資料分割**
+
+```json
+"source": {
+    "type": "OracleSource",
+    "query": "SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>",
+    "partitionOption": "DynamicRange",
+    "partitionSettings": {
+        "partitionColumnName": "<partition_column_name>",
+        "partitionUpperBound": "<upper_value_of_partition_column>",
+        "partitionLowerBound": "<lower_value_of_partition_column>"
+    }
+}
 ```
 
 ## <a name="data-type-mapping-for-oracle"></a>Oracle 的資料類型對應

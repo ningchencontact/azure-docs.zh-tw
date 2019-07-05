@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080774"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443481"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>來自 Verizon Premium 規則引擎功能的 azure CDN
 
@@ -24,7 +24,7 @@ ms.locfileid: "67080774"
 
 這些功能是設計來控制內容的存取權。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [拒絕存取 (403)](#deny-access-403) | 判斷所有要求是否已遭拒絕且含有 [403 禁止] 回應。
 [權杖驗證](#token-auth) | 判斷是否將權杖型驗證套用到要求。
@@ -36,7 +36,7 @@ Name | 目的
 
 這些功能是設計來自訂快取內容的時機和方法。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [頻寬參數](#bandwidth-parameters) | 判斷是否使用頻寬節流設定參數 (例如 ec_rate 和 ec_prebuf)。
 [頻寬節流設定](#bandwidth-throttling) | 針對存在點 (POP) 所提供的回應進行頻寬節流。
@@ -66,7 +66,7 @@ Name | 目的
 
 這項功能設計用來提供規則內的其他資訊。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [Comment](#comment) | 能夠在規則中新增附註。
 
@@ -86,7 +86,7 @@ Name | 目的
 
 這些功能是設計來自訂儲存於原始記錄檔中的資料。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [自訂記錄欄位 1](#custom-log-field-1) | 判斷要指派給原始記錄檔中自訂記錄欄位的格式和內容。
 [記錄查詢字串](#log-query-string) | 判斷查詢字串以及 URL 是否會一起儲存於存取記錄中。
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能是設計來控制 CDN 與原始伺服器通訊的方式。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [最大 Keep-Alive 要求數目](#maximum-keep-alive-requests) | 判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
 [Proxy 特殊標頭](#proxy-special-headers) | 定義從 POP 轉送到原始伺服器的一組 CDN 特定要求標頭。
@@ -1128,7 +1128,7 @@ Enabled|導致 POP 從原始伺服器重新擷取資產。
 
 請確定指定的標頭名稱不符合下列任一個名稱：
 
-- 標準要求標頭名稱。 您可以在 [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) 中找到標準標頭名稱清單。
+- 標準要求標頭名稱。 您可以在 [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) 中找到標準標頭名稱清單。
 - 保留的標頭名稱：
     - forwarded-for
     - host

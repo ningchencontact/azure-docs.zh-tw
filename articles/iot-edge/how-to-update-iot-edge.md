@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/17/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c461da44d3d9075d66a68fe8994a4e970288fca
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152625"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543755"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全性精靈和執行階段
 
@@ -41,12 +41,14 @@ IoT Edge 安全性精靈是一項原生元件，必須在 IoT Edge 裝置上使�
 
 ### <a name="linux-devices"></a>Linux 裝置
 
-在 Linux 裝置上，請使用 apt-get 或適當的套件管理員來更新安全性精靈。 
+在 Linux x64 裝置上使用 apt get 或適當的封裝管理員來更新安全性精靈。 
 
 ```bash
 apt-get update
 apt-get install libiothsm iotedge
 ```
+
+在 Linux ARM32 裝置上使用中的步驟[(ARM32v7/armhf) 在 Linux 上的安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)安裝最新版的安全性服務精靈。 
 
 ### <a name="windows-devices"></a>Windows 裝置
 
@@ -62,7 +64,7 @@ apt-get install libiothsm iotedge
 
 ## <a name="update-the-runtime-containers"></a>更新執行階段容器
 
-您更新 IoT Edge 代理程式和 IoT Edge 中樞容器的方式，取決於您在部署中使用的是累積標記 (例如 1.0) 還是特定標記 (例如 1.0.2)。 
+您更新的 IoT Edge 代理程式 」 和 「 IoT Edge 中樞容器的方式取決於是否在部署中使用循環的標記 （例如 1.0) 或特定的標記 （例如 version:1.0.7)。 
 
 使用 `iotedge logs edgeAgent` 或 `iotedge logs edgeHub` 命令，檢查您裝置上目前的 IoT Edge 代理程式和 IoT Edge 中樞模組版本。 
 
@@ -73,7 +75,7 @@ apt-get install libiothsm iotedge
 IoT Edge 代理程式和 IoT Edge 中樞映像會標示與其相關聯的 IoT Edge 版本。 標記可透過兩種不同的使用方式用於執行階段映像上： 
 
 * **累積標記** - 僅使用版本號碼的前兩個值來取得符合這些數字的最新映像。 例如，有新版本指向最新的 1.0.x 版時，就會更新 1.0。 如果 IoT Edge 裝置的容器執行階段重新提取映像，執行階段模組就會更新為最新版本。 進行開發時建議使用此方法。 從 Azure 入口網站執行的部署預設為累積標記。 
-* **特定標記** - 版本號碼的三個值全都會使用，以明確設定映像版本。 例如，1.0.2 在其初始版本後將不會變更。 當您準備好要更新時，您可以在部署資訊清單中宣告新的版本號碼。 建議將此方法用於生產用途。
+* **特定標記** - 版本號碼的三個值全都會使用，以明確設定映像版本。 比方說，version:1.0.7 不會變更其初始發行之後。 當您準備好要更新時，您可以在部署資訊清單中宣告新的版本號碼。 建議將此方法用於生產用途。
 
 ### <a name="update-a-rolling-tag-image"></a>更新累積標記映像
 
@@ -92,7 +94,7 @@ IoT Edge 服務將會提取執行階段映像的最新版本，並自動在您�
 
 ### <a name="update-a-specific-tag-image"></a>更新特定標記映像
 
-如果您在部署中使用特定標記 (例如 mcr.microsoft.com/azureiotedge-hub:**1.0.2**)，則只需要更新部署資訊清單中的標記，並將變更套用至裝置即可。 
+如果您在部署中使用特定的標記 (例如 mcr.microsoft.com/azureiotedge-hub:**version:1.0.7**) 則您只需要更新您的部署資訊清單中的標記，並將變更套用至您的裝置。 
 
 在 Azure 入口網站中，執行階段部署映像會宣告於 [設定進階 Edge 執行階段設定]  區段中。 
 
@@ -105,7 +107,7 @@ IoT Edge 服務將會提取執行階段映像的最新版本，並自動在您�
   "edgeAgent": {
     "type": "docker",
     "settings": {
-      "image": "mcr.microsoft.com/azureiotedge-agent:1.0.2",
+      "image": "mcr.microsoft.com/azureiotedge-agent:1.0.7",
       "createOptions": ""
     }
   },
@@ -114,12 +116,24 @@ IoT Edge 服務將會提取執行階段映像的最新版本，並自動在您�
     "status": "running",
     "restartPolicy": "always",
     "settings": {
-      "image": "mcr.microsoft.com/azureiotedge-hub:1.0.2",
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0.7",
       "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
     }
   }
 },
 ```
+
+## <a name="update-to-a-release-candidate-version"></a>更新為發行候選版本
+
+Azure IoT Edge 定期發行新版本的 IoT Edge 服務。 之前每一個穩定的版本中，沒有一或多個發行候選 (版本 RC) 版本。 RC 版本包括所有計劃的功能版本中，但仍在進行測試和驗證程序所需的穩定版本。 如果您想要及早測試的新功能，您可以安裝 RC 版本，並透過 GitHub 提供意見反應。 
+
+遵循相同的編號慣例的版本中，發行候選版本，但有 **-rc**再加上結尾附加一個累加數字。 您所見的相同清單中的候選[Azure IoT Edge 釋放](https://github.com/Azure/azure-iotedge/releases)穩定版本。 例如，尋找**1.0.7-rc1**並**1.0.7-rc2**，這兩個版本之前出現的候選項目**version:1.0.7**。 您也可以查看 RC 版本會標有**發行前版本**標籤。 
+
+預覽中，為發行候選版本不會包含最新版本，一般的安裝程式的目標。 相反地，您需要以手動方式為目標，您想要測試的 RC 版本的資產。 根據您 IoT Edge 裝置的作業系統，請更新至特定版本的 IoT Edge 使用下列各節：
+
+* [Linux X64](how-to-install-iot-edge-linux.md#install-a-specific-version)
+* [Linux ARM32](how-to-install-iot-edge-linux-arm.md#install-a-specific-version)
+* [Windows](how-to-install-iot-edge-windows.md#offline-installation)
 
 ## <a name="next-steps"></a>後續步驟
 

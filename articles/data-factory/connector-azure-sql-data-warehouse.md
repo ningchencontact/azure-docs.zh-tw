@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449586"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務的版本："]
@@ -472,7 +472,10 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
 
 當來源資料不符合上一節中的準則時，請啟用透過過渡暫存 Azure Blob 儲存體執行個體複製資料。 這不可以是 Azure 進階儲存體。 在此情況下，Azure Data Factory 會自動執行資料轉換，以符合 PolyBase 的資料格式需求。 然後，它會使用 PolyBase 將資料載入 SQL 資料倉儲。 最後，它會清除 Blob 儲存體中的暫存資料。 如需透過暫存 Azure Blob 儲存體執行個體複製資料的詳細資訊，請參閱[分段複製](copy-activity-performance.md#staged-copy)。
 
-若要使用此功能，請建立 [Azure 儲存體連結服務](connector-azure-blob-storage.md#linked-service-properties)，讓其參考具有過渡 Blob 儲存體的 Azure 儲存體帳戶。 然後指定複製活動的 `enableStaging` 和 `stagingSettings` 屬性，如下列程式碼所示：
+若要使用這項功能，建立[Azure Blob 儲存體連結服務](connector-azure-blob-storage.md#linked-service-properties)，這是指具有過渡 blob 儲存體的 Azure 儲存體帳戶。 然後指定`enableStaging`和`stagingSettings`供 「 複製活動，如下列程式碼所示的屬性。
+
+>[!IMPORTANT]
+>如果您預備的 Azure 儲存體設定為使用 VNet 服務端點，您必須使用受控身分識別驗證-是指[使用 VNet 服務端點搭配 Azure 儲存體的影響](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 了解從 Data Factory 中所需的組態[Azure Blob-受控身分識別驗證](connector-azure-blob-storage.md#managed-identity)。
 
 ```json
 "activities":[

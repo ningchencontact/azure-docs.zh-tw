@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2019
+ms.date: 07/02/2019
 ms.author: jaredr80
-ms.openlocfilehash: 3a29940c4ef904d813fa7400928448a5c48334a4
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: MT
+ms.openlocfilehash: 90b18a2181dae7474141c478725b0c6f829b2ea8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205959"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537978"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -79,7 +79,7 @@ ms.locfileid: "67205959"
 | **阿姆斯特丹** | Equinix | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
 | **阿姆斯特丹2** | Interxion | 西歐 | DE-CIX、 Interxion、 Vodafone |
 | **亞特蘭大** | Equinix | n/a | Equinix、Megaport |
-| **奧克蘭** | Vocus | n/a | Devoli |
+| **奧克蘭** | Vocus | n/a | Devoli、 Megaport |
 | **斧山** |LG CNS | 南韓南部 | LG CNS |
 | **坎培拉** | CDC | 澳大利亞中部 | CDC |
 | **坎培拉2** | CDC | 澳大利亞中部 2| CDC |

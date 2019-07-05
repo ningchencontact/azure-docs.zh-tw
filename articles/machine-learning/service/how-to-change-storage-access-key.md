@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 11abbb0494a9771676dcf2436b5e808346c16368
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078556"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543835"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>重新產生儲存體帳戶存取金鑰
 
@@ -72,7 +72,7 @@ for name, ds in datastores.items():
 > [!IMPORTANT]
 > 執行所有步驟，更新兩種產品工作區中使用 CLI，並使用 Python 的資料存放區。 更新只能有一個或其他可能會造成錯誤，直到同時更新。
 
-1. 重新產生金鑰。 如需有關重新產生存取金鑰，請參閱[管理儲存體帳戶](/azure/storage/common/storage-account-manage.md#access-keys)文章。 儲存新的金鑰。
+1. 重新產生金鑰。 如需有關重新產生存取金鑰，請參閱[管理儲存體帳戶](/azure/storage/common/storage-account-manage#access-keys)文章。 儲存新的金鑰。
 
 1. 若要更新的工作區，以使用新的金鑰，請使用下列步驟：
 

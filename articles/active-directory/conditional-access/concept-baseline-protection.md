@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112580"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440784"
 ---
 # <a name="what-are-baseline-policies"></a>什麼是基準原則？
 
@@ -30,18 +30,18 @@ ms.locfileid: "67112580"
 
 有四個基準原則，可讓組織：
 
-* [適用於系統管理員需要 MFA](howto-baseline-protect-administrators.md)
+* [適用於系統管理員 （預覽） 需要 MFA](howto-baseline-protect-administrators.md)
 * [終端使用者 protection （預覽）](howto-baseline-protect-end-users.md)
 * [區塊舊有的驗證 （預覽）](howto-baseline-protect-legacy-auth.md)
 * [需要 MFA 才能進行服務管理 （預覽）](howto-baseline-protect-azure.md)
 
 這些原則的所有四個會影響 POP、 IMAP 等舊版的 Office 桌面用戶端的舊有的驗證流程。
 
-### <a name="require-mfa-for-admins"></a>管理員需要進行 MFA
+### <a name="require-mfa-for-admins-preview"></a>適用於系統管理員 （預覽） 需要 MFA
 
 由於 power 和系統管理員帳戶具有的存取，您應該將它們視為特別。 一種通用的方法，以改善保護特殊權限帳戶是要求更強的帳戶驗證表單，當它們用來登入。 在 Azure Active Directory 中，您可以取得更強的帳戶驗證需要系統管理員來註冊及使用 Azure Multi-factor Authentication。
 
-[適用於系統管理員要求 MFA](howto-baseline-protect-administrators.md) 是被視為最特殊權限的 Azure AD 角色的下列目錄角色需要 multi-factor authentication (MFA) 的基準原則：
+[適用於系統管理員 （預覽） 要求 MFA](howto-baseline-protect-administrators.md) 是被視為最特殊權限的 Azure AD 角色的下列目錄角色需要 multi-factor authentication (MFA) 的基準原則：
 
 * 全域管理員
 * SharePoint 管理員
@@ -52,7 +52,7 @@ ms.locfileid: "67112580"
 * 計費管理員
 * 使用者管理員
 
-如果貴組織擁有這些帳戶在指令碼或程式碼中使用，請考慮更換它們 [受管理身分識別](../managed-identities-azure-resources/overview.md)。 您暫時可以在基準原則中排除特定使用者帳戶，來解決此問題。
+如果貴組織擁有這些帳戶在指令碼或程式碼中使用，請考慮更換它們 [受管理身分識別](../managed-identities-azure-resources/overview.md)。
 
 ### <a name="end-user-protection-preview"></a>終端使用者 protection （預覽）
 
@@ -96,7 +96,7 @@ ms.locfileid: "67112580"
 
 * [可保護身分識別基礎結構的五個步驟](../../security/azure-ad-secure-steps.md)
 * [什麼是 Azure Active Directory 中的條件式存取？](overview.md)
-* [適用於系統管理員需要 MFA](howto-baseline-protect-administrators.md)
+* [適用於系統管理員 （預覽） 需要 MFA](howto-baseline-protect-administrators.md)
 * [終端使用者 protection （預覽）](howto-baseline-protect-end-users.md)
 * [區塊舊有的驗證 （預覽）](howto-baseline-protect-legacy-auth.md)
 * [需要 MFA 才能進行服務管理 （預覽）](howto-baseline-protect-azure.md)

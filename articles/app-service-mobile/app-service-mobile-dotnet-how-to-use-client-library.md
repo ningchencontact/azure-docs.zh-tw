@@ -3,7 +3,7 @@ title: 使用 App Service Mobile Apps 受控用戶端程式庫 |Microsoft Docs
 description: 了解如何搭配 Windows 和 Xamarin 應用程式使用 Azure App Service Mobile App 的 .NET 用戶端程式庫。
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,24 +12,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119298"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446347"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library)今天。
+>
+
 ## <a name="overview"></a>概觀
-本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受控用戶端程式庫，來執行一般案例。 如果您不熟悉 Mobile Apps，應該考慮先完成 [Azure Mobile Apps 快速入門][1]教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入了解 Mobile Apps 的伺服器端 SDK，請參閱 [.NET 伺服器 SDK][2] 或 [Node.js 伺服器 SDK][3] 的文件。
+本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受控用戶端程式庫，來執行一般案例。 如果您不熟悉 Mobile Apps，應考慮先完成 [Azure Mobile Apps 快速入門][1] 教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入了解伺服器端 Sdk 適用於 Mobile Apps，請參閱文件[.NET 伺服器 SDK][2] or the
+[Node.js Server SDK][3]。
 
 ## <a name="reference-documentation"></a>參考文件
-用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps .NET 用戶端參考資料][4]。
-您也可以在 [Azure 範例 GitHub 儲存機制][5]中找到數個用戶端範例。
+用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps.NET 用戶端參考][4]。
+您也可以在 [Azure-Samples GitHub 儲存機制][5]中找到數個用戶端範例。
 
 ## <a name="supported-platforms"></a>支援的平台
 .NET 平台支援下列平台︰
@@ -43,7 +48,7 @@ ms.locfileid: "62119298"
 「伺服器流程」驗證在呈現的 UI 中使用 WebView。  如果裝置無法呈現 WebView UI，您需要其他驗證方法。  因此，此 SDK 不適用於手錶類型或受到類似限制的裝置。
 
 ## <a name="setup"></a>設定和必要條件
-我們假設您已建立並發佈您的行動應用程式後端專案 (至少包含一個資料表)。  在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其具有下列資料行：`Id`、`Text` 和 `Complete`。 此資料表與您完成 [Azure Mobile Apps 快速入門][1]時所建立的資料表相同。
+我們假設您已建立並發佈您的行動應用程式後端專案 (至少包含一個資料表)。  在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其具有下列資料行：`Id`、`Text` 和 `Complete`。 此資料表就是當您完成 [Azure Mobile Apps 快速入門][1]時所建立的相同資料表。
 
 C# 中對應的具類型用戶端類型為下列類別：
 
@@ -60,12 +65,13 @@ public class TodoItem
 }
 ```
 
-[JsonPropertyAttribute][6] 是用來定義用戶端欄位與資料表欄位之間的 *PropertyName* 對應。
+[JsonPropertyAttribute][6]用來定義*PropertyName*用戶端欄位與資料表欄位之間的對應。
 
-若要了解如何在 Mobile Apps 後端中建立資料表，請參閱 [.NET 伺服器 SDK 主題][7] 或 [Node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
+若要了解如何在 Mobile Apps 後端建立資料表，請參閱[.NET 伺服器 SDK 主題][7]
+or the [Node.js Server SDK topic][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>作法：安裝受控用戶端 SDK 封裝
-使用下列其中一種方法，從 [NuGet][9] 安裝適用於 Mobile Apps 的受控用戶端 SDK 套件：
+使用下列其中一種方法，從 [NuGet][9]針對 Mobile Apps 安裝受控用戶端 SDK 封裝：
 
 * **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]  ，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]  。
 * **Xamarin Studio**以滑鼠右鍵按一下您的專案中，按一下**新增** > **新增 NuGet 套件**，搜尋`Microsoft.Azure.Mobile.Client`封裝，然後按一下 **加入封裝**.
@@ -80,10 +86,11 @@ using Microsoft.WindowsAzure.MobileServices;
 > 請注意，您 Android 專案中所參考的所有支援套件都必須具有相同版本。 此 SDK 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
 
 ### <a name="symbolsource"></a>操作說明：使用 Visual Studio 中的偵錯符號
-您可以從 [SymbolSource][10] 取得適用於 Microsoft.Azure.Mobile 命名空間的符號。  若要將 SymbolSource 與 Visual Studio 整合，請參閱 [SymbolSource 指示][11]。
+適用於 Microsoft.Azure.Mobile 命名空間的符號位於[SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11]来整合 SymbolSource 與 Visual Studio。
 
 ## <a name="create-client"></a>建立 Mobile Apps 用戶端
-下列程式碼會建立用來存取「行動應用程式」後端的 [MobileServiceClient][12] 物件。
+下列程式碼會建立用來存取行動應用程式後端的 [MobileServiceClient][12] 物件。
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");
@@ -520,9 +527,9 @@ PullOptions pullOptions = new PullOptions
 1. 在 Visual Studio 中，以滑鼠右鍵按一下方案 > [管理方案的 NuGet 套件...]  ，然後為方案中的所有專案，尋找並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
 2. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
 
-   * **Windows 8.1 執行階段：** 安裝 [SQLite for Windows 8.1][3]。
-   * **Windows Phone 8.1：** 安裝 [SQLite for Windows Phone 8.1][4]。
-   * **通用 Windows 平台：** 安裝[適用於通用 Windows 平台的 SQLite][5]。
+   * **Windows 8.1 執行階段：** 安裝[適用於 Windows 8.1 的 SQLite][3]。
+   * **Windows Phone 8.1：** 安裝[SQLite for Windows Phone 8.1][4]。
+   * **通用 Windows 平台**安裝[適用於通用 Windows SQLite][5]。
 3. (選擇性)。 若為 Windows 裝置，請按一下 [參考]   >  [新增參考...]  ，展開 **Windows** 資料夾 > [擴充功能]  ，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
     每個 Windows 平台的 SQLite SDK 名稱稍有差異。
 

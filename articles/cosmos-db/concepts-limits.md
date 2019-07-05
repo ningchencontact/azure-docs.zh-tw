@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969488"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561241"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB 中的限制
 
@@ -37,7 +37,6 @@ ms.locfileid: "65969488"
 
 Cosmos 容器 （或共用的輸送量資料庫） 必須具有最少 400 Ru 的輸送量。 隨著容器時，最小支援的輸送量也會取決於下列因素：
 
-* 使用容器中的最大儲存體的測量單位的每 GB 的已使用的儲存體的 40 Ru 遞增。 例如，如果容器包含 100 GB 的資料，則輸送量必須至少 4000 Ru
 * 以往在容器上佈建的輸送量上限。 此服務支援容器以佈建最多 10%的降低的輸送量。 例如，如果您的輸送量已增加到 10000 Ru，則最低可能佈建的輸送量會是 1000 Ru
 * 在每個容器的 100 個 Ru，測量您曾經在共用的輸送量資料庫中，建立容器的總數。 比方說，如果您已經建立共用的輸送量資料庫內的五個容器，則輸送量必須至少 500 Ru
 
@@ -48,7 +47,6 @@ Cosmos 容器 （或共用的輸送量資料庫） 必須具有最少 400 Ru 的
 | 每個容器的最小 Ru ([專用的輸送量佈建的模式](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | 每個資料庫最小的 Ru ([共用的輸送量佈建的模式](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | 最小的 Ru，每個共用的輸送量資料庫內的容器 | 100 |
-| 每 GB 已使用儲存體的最小的 Ru | 40 |
 
 Cosmos DB 支援彈性調整輸送量 (Ru) 的每個容器或透過 Sdk 或入口網站的資料庫。 每個容器可以調整以同步和立即 10 到 100 倍，最小和最大值之間的縮放範圍內。 如果要求的輸送量值超出範圍時，縮放比例會以非同步方式執行。 非同步的調整可能需要分鐘小時才能完成取決於容器中的資料儲存體大小與要求的輸送量。  
 

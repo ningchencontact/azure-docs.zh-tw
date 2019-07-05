@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/27/2019
+ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357339"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460672"
 ---
 # <a name="automated-backups"></a>自動備份
 
-SQL Database 自動建立資料庫備份保留 7 到 35 天之間，並使用 Azure[讀取權限異地備援儲存體 (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)以確保即使資料中心都無法使用會保留。 這些備份是自動建立的，且不需額外付費。 您不需要執行任何動作來建立備份。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則有需要，您的備份可供使用一段時間 （最多 10 年），您可以設定[長期保留](sql-database-long-term-retention.md)上單一資料庫和彈性集區。
+SQL Database 自動建立資料庫備份保留 7 到 35 天之間，並使用 Azure[讀取權限異地備援儲存體 (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)以確保即使資料中心都無法使用會保留。 這些備份會自動建立。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則有需要，您的備份可供使用一段時間 （最多 10 年），您可以設定[長期保留](sql-database-long-term-retention.md)上單一資料庫和彈性集區。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

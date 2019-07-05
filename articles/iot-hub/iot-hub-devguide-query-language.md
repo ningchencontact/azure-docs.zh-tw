@@ -1,18 +1,18 @@
 ---
 title: 了解 Azure IoT 中樞查詢語言 | Microsoft Docs
 description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置/模組對應項和作業的相關資訊。
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137717"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450067"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -328,8 +328,8 @@ SELECT <select_list>
 
 **< From_specification > 從**子句可以假設只有三個值：**從裝置**來查詢裝置對應項，**從 devices.modules**來查詢模組對應項，或**從 devices.jobs**查詢作業的每一裝置詳細資料。
 
-
 ## <a name="where-clause"></a>WHERE 子句
+
 **WHERE <filter_condition>** 子句是選擇性的。 它會指定一或多個條件，而且 FROM 集合中的 JSON 文件必須滿足這些條件，才能納入為結果的一部分。 任何 JSON 文件都必須將指定的條件評估為 "true"，才能併入結果。
 
 [運算式和條件](iot-hub-devguide-query-language.md#expressions-and-conditions)一節中會說明允許的條件。
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 目前，只有在裝置對應項的彙總查詢中，才支援與 **SELECT*** 不同的選取範圍子句。
 
 ## <a name="group-by-clause"></a>GROUP BY 子句
+
 **GROUP BY <group_specification>** 子句是一個選擇性步驟，會在 WHERE 子句中指定的篩選之後、SELECT 中指定的投影之前執行。 它會根據屬性值來分組文件。 這些群組可用來產生 SELECT 子句中所指定的彙總值。
 
 使用 GROUP BY 的查詢範例如下︰
@@ -393,9 +394,9 @@ GROUP BY <group_by_element>
 > [!IMPORTANT]
 > `group` 一詞目前被視為查詢中的特殊關鍵字。 萬一您使用 `group` 作為屬性名稱，請考慮使用雙括號括住，以避免發生錯誤，例如 `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`。
 >
->
 
 ## <a name="expressions-and-conditions"></a>運算式和條件
+
 概括而言，運算式  ：
 
 * 會評估為 JSON 類型 (例如布林值、數字、字串、陣列或物件) 的執行個體。
@@ -443,6 +444,7 @@ GROUP BY <group_by_element>
 | string_literal |字串常值是由零個或多個 Unicode 字元序列或逸出序列所表示的 Unicode 字串。 字串常值會以單引號或雙引號括起來。 允許的逸出︰`\'`、`\"`、`\\`、`\uXXXX` (適用於由 4 個十六進位數字所定義的 Unicode 字元)。 |
 
 ### <a name="operators"></a>運算子
+
 支援下列運算子：
 
 | 系列 | 運算子 |
@@ -452,6 +454,7 @@ GROUP BY <group_by_element>
 | 比較 |=、!=、<、>、<=、>=、<> |
 
 ### <a name="functions"></a>函式
+
 查詢對應項和作業時唯一支援的函式為：
 
 | 函式 | 描述 |

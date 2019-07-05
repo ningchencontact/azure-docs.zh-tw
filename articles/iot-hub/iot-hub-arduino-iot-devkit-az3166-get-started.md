@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/17/2019
+ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4017a3be5e03e1a9b85b4002b8069a1adc3a6b83
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924637"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551575"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -30,6 +30,8 @@ ms.locfileid: "64924637"
 * 如何準備開發環境和開發 IoT devkit 適用的應用程式。
 
 還沒有 DevKit 嗎？ 請試用 [DevKit 模擬器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[購買 DevKit](https://aka.ms/iot-devkit-purchase)。
+
+您可以在所有 DevKit 教學課程中都找到的原始程式碼[IoTDevEnvExamples](https://github.com/IoTDevEnvExamples)存放庫。
 
 ## <a name="what-you-need"></a>您需要什麼
 
@@ -132,6 +134,11 @@ ms.locfileid: "64924637"
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
     ![傳送資料](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+
+1. 若要確認傳送至 Azure 的遙測資料，請在 Azure Cloud Shell 中執行下列命令：
+    ```bash
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
@@ -301,7 +308,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 1. 在 VS Code 中，按一下 `F1`，鍵入並選取 [Azure IoT 中樞：  設定 IoT 中樞連接字串]。 將連接字串複製到其中。
     ![設定 Azure IoT 中樞連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. 展開右側的 [AZURE IOT 中樞裝置]  窗格，以滑鼠右鍵按一下您所建立的裝置名稱，然後選取 [開始監視 D2C 訊息]  。
+1. 依序展開**AZURE IOT 中樞裝置**右邊的窗格以滑鼠右鍵按一下裝置名稱建立，然後選取**開始監視內建事件端點**。
     ![監視 D2C 訊息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. 在 [輸出]  窗格中，您可以看到 IoT 中樞的連入 D2C 訊息。

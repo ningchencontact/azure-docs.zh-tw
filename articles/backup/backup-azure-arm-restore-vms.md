@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62e10f382882e70d488f9814cb00c2b86b8b9691
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65906503"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460225"
 ---
 # <a name="restore-azure-vms"></a>還原 Azure VM
 
@@ -185,7 +185,7 @@ VM 在還原期間，Azure 備份不會使用儲存體帳戶。 如果是，但�
 
 - 系統會安裝出現在備份組態期間的擴充功能，但不會加以啟用。 如果您發現問題，請重新安裝擴充功能。
 - 如果備份的 VM 具有靜態 IP 位址，則還原的 VM 會有動態 IP 位址，這是為了避免發生衝突。 您可以[將靜態 IP 位址新增至已還原的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)。
-- 還原的 VM 不會有可用性設定值組。 如果您使用還原磁碟選項，您可以在使用提供的範本或 PowerShell 從磁碟建立 VM 時，[指定可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)。
+- 還原的 VM 不會有可用性設定值組。 如果您使用還原磁碟選項，則您可以[zadat skupinu dostupnosti](../virtual-machines/windows/tutorial-availability-sets.md)從使用提供的範本或 PowerShell，在磁碟建立 VM 時。
 - 如果您使用 cloud-init 型 Linux 散發套件 (例如 Ubuntu)，基於安全理由，還原後會封鎖密碼。 請在還原的 VM 上使用 VMAccess 擴充功能[重設密碼](../virtual-machines/linux/reset-password.md)。 我們建議您在這些散發套件中使用 SSH 金鑰，如此一來，您就不需要在還原後重設密碼。
 
 

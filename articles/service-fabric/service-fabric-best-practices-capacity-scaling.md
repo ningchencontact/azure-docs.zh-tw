@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059153"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444721"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>容量規劃和調整適用於 Azure Service Fabric
 
@@ -78,6 +78,8 @@ Resource Manager 範本中的下列程式碼片段會顯示您要宣告的屬性
 2. 執行 `Get-ServiceFabricNode` 以確保節點已轉換為停用狀態。 如果沒有，請等到節點停用。 這可能需要幾個小時，每個節點。 請等到節點已轉換為停用狀態後，再繼續操作。
 3. 減少該節點類型的一個 Vm 數目。 此時將會移除最高的 VM 執行個體。
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 如需建議的行個體清單，請參閱[規劃 Service Fabric 叢集容量](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)。
+5. 一旦所有 Vm 都都已消失 （表示為 「 關閉 」） 的 fabric: / System/InfrastructureService / [節點名稱] 會顯示錯誤狀態。 然後，您可以更新叢集資源，若要移除的節點型別。 您可以使用 ARM 範本部署，或編輯叢集資源，透過[Azure resource manager](https://resources.azure.com)。 這會啟動叢集升級會移除 fabric: / System/InfrastructureService / [節點類型] 服務，處於錯誤狀態。
+ 6. 之後，您可以選擇刪除 VMScaleSet，您仍然會 「 相應減少 」 從 Service Fabric Explorer 檢視 不過看到節點。 最後一個步驟就是與將它們清除`Remove-ServiceFabricNodeState`命令。
 
 ### <a name="example-scenario"></a>範例案例
 何時執行垂直調整作業的支援案例： 您想要將您的 Service Fabric 叢集和應用程式從非受控磁碟移轉至受控磁碟，而不需要應用程式停機。 

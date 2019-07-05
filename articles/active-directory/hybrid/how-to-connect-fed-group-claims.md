@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00e41a34bb28a2569d5922926a8f6c4fbe4bd57
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138742"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481430"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>設定應用程式的群組宣告與 Azure Active Directory （公開預覽）
 
@@ -137,7 +137,7 @@ Azure Active Directory 所提供的應用程式中使用的權杖中的使用者
 
 3. 設定群組名稱設定選擇性宣告。
 
-   如果您想要在權杖中的群組以包含選用的宣告區段中的 AD 群組屬性可讓您指定此語彙基元類型的選擇性宣告應該套用到在內部部署、 要求的選擇性宣告和所需的任何其他內容的名稱。  可以列出多個語彙基元的型別：
+   如果您想要在權杖中的群組，包含選用的宣告區段中的 AD 群組屬性可讓您指定此語彙基元類型的選擇性宣告應該套用到在內部部署、 要求的選擇性宣告和所需的任何其他內容的名稱。  可以列出多個語彙基元的型別：
 
    - OIDC 識別碼權杖的 idToken
    - accessToken OAuth/OIDC 存取權杖

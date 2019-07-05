@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471437"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514561"
 ---
 # <a name="about-recovery-plans"></a>關於復原方案
 
 本文說明 [Azure Site Recovery](site-recovery-overview.md) 中的復原方案。
 
-復原方案會將機器收集至復原群組中。 您可以將順序、指示及工作新增至方案來加以自訂。 定義方案之後，您可以在該方案上執行容錯移轉。
-
+復原方案會將機器收集至復原群組中。 您可以將順序、指示及工作新增至方案來加以自訂。 定義方案之後，您可以在該方案上執行容錯移轉。  機器可以參考多個復原方案，以後續的計劃會略過電腦部署/啟動，如果先前已部署透過另一個復原方案中。
 
 
 ## <a name="why-use-a-recovery-plan"></a>為何使用復原方案？

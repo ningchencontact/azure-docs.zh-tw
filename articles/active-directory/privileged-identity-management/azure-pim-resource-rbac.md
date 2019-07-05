@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441310"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476505"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>在 PIM 中檢視 Azure 資源角色的活動和稽核記錄
 
@@ -43,11 +43,11 @@ ms.locfileid: "60441310"
 
     您會依日期看到使用者在 Azure 資源中所採取動作的圖形化檢視。 它也會顯示同一段時間週期內最新的角色啟用。
 
-    ![使用者詳細資料](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![資源活動摘要] 和 [角色啟用的使用者詳細資料](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. 按一下特定的角色啟用可查看詳細資料，以及該使用者作用中時所發生的對應 Azure 資源活動。
 
-    ![選取角色啟用](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![選取的角色啟用及顯示依日期的活動詳細資料](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>匯出具有子系的角色指派
 
@@ -63,11 +63,11 @@ ms.locfileid: "60441310"
 
 1. 按一下 [匯出]  來開啟 [匯出成員資格] 窗格。
 
-    ![匯出成員資格窗格](media/azure-pim-resource-rbac/export-membership.png)
+    ![匯出至匯出的所有成員的成員資格 窗格](media/azure-pim-resource-rbac/export-membership.png)
 
 1. 按一下 [匯出所有成員]  ，匯出 CSV 檔案中的所有角色指派。
 
-    ![匯出 CSV 檔案](media/azure-pim-resource-rbac/export-csv.png)
+    ![匯出為 Excel 中顯示的 CSV 檔案中的角色指派](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>檢視資源稽核記錄
 
@@ -83,15 +83,15 @@ ms.locfileid: "60441310"
 
 1. 使用預先定義的日期或自訂範圍篩選記錄。
 
-    ![篩選資源稽核](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![資源稽核篩選器清單](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. 在 [稽核類型]  中，選取 [啟動 (已指派 + 已啟動)]  。
 
-    ![活動詳細資料](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![資源稽核清單來啟用稽核類型篩選](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. 在 [動作]  底下，按一下使用者的 [(活動)]  以查看該使用者在 Azure 資源中的活動詳細資料。
 
-    ![使用者活動詳細資料](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![在特定動作的使用者活動詳細資料](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>檢視我的稽核
 
@@ -107,7 +107,7 @@ ms.locfileid: "60441310"
 
 1. 使用預先定義的日期或自訂範圍篩選記錄。
 
-    ![個人角色活動](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![目前使用者的 [稽核] 清單](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>後續步驟
 

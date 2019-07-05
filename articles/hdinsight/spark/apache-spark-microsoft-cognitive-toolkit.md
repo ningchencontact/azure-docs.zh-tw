@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695074"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448691"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>使用 Microsoft 辨識工具組深入了解模型與 Azure HDInsight Spark 叢集
 
@@ -25,13 +25,13 @@ ms.locfileid: "64695074"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **Azure 訂用帳戶**。 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。 請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free)。
+* **Azure 訂用帳戶**。 開始閱讀本文之前，您必須有 Azure 訂用帳戶。 請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free)。
 
 * **Azure HDInsight Spark 叢集**。 針對本文，建立 Spark 2.0 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
 ## <a name="how-does-this-solution-flow"></a>此解決方案的流程為何？
 
-此解決方案可分為本文章與您上傳作為本教學課程一部分的 Jupyter Notebook。 在本文中，您必須完成下列步驟：
+此解決方案可分為本文章，並以您上傳這篇文章的一部分的 Jupyter notebook。 在本文中，您必須完成下列步驟：
 
 * 在 HDInsight Spark 叢集上執行指令碼動作來安裝 Microsoft 辨識工具組和 Python 套件。
 * 將 Jupyter Notebook 上傳至執行此解決方案的 HDInsight Spark 叢集。
@@ -83,7 +83,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 4. 再次按一下 [上傳]  。
 
-5. 將 Notebook 上傳之後，按一下 Notebook 名稱，然後遵循 Notebook 本身有關如何載入資料集的指示，並執行教學課程中。
+5. 將 notebook 上傳之後，按一下 notebook 的名稱，然後遵循 notebook 本身有關如何載入資料集，並執行本文中的指示。
 
 ## <a name="see-also"></a>請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)

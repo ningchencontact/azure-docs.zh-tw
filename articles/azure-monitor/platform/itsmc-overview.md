@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395717"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479806"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -62,7 +62,9 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 3. 在 [OMS 工作區]  區段中，選取您要安裝解決方案的 Azure Log Analytics 工作區。
    >[!NOTE]
-   >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
+   > * 因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 工作區現在稱為 Log Analytics 工作區。
+   > * ITSM Connector 只能安裝在以下區域內的 Log Analytics 工作區中：美國東部、 西歐、 東南亞、 澳洲東南部西部美國中部、 日本東部、 英國南部、 印度中部、 加拿大中部。
+
 4. 在 [OMS 工作區設定]  區段中，選取您要建立解決方案資源的資源群組。
 
    ![ITSMC 工作區](media/itsmc-overview/itsmc-solution-workspace.png)

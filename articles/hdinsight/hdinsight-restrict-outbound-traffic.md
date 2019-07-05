@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077167"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433440"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>設定 Azure HDInsight 叢集使用的防火牆 （預覽） 的輸出網路流量
 
@@ -89,7 +89,7 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 
    | **名稱** | **通訊協定** | **來源位址** | **服務標記** | **目的地連接埠** | **注意事項** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | 在 [服務標記] 區段中設定網路規則，可讓您記錄和稽核 SQL 流量，除非您對 SQL Server 設定服務端點將會略過防火牆之 HDInsight 子網路上的 sql。 |
+   | Rule_7 | TCP | * | SQL | `1433` | 在 [服務標記] 區段中設定網路規則，可讓您記錄和稽核 SQL 流量，除非您對 SQL Server 設定服務端點將會略過防火牆之 HDInsight 子網路上的 sql。 |
 
 1. 按一下 **新增**以完成建立網路規則集合。
 

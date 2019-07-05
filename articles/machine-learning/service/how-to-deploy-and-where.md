@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331668"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514262"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -100,6 +100,8 @@ ms.locfileid: "67331668"
 **估計時間**：大約 10 秒。
 
 如需詳細資訊，請參閱 [Model 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py) \(英文\) 的參考文件。
+
+如需有關使用模型的詳細資訊訓練外的 Azure Machine Learning 服務，請參閱[如何將現有的模型部署](how-to-deploy-existing-model.md)。
 
 <a name="target"></a>
 
@@ -259,16 +261,22 @@ def run(data):
 
 ### <a name="2-define-your-inferenceconfig"></a>2.定義您 InferenceConfig
 
-推斷組態會描述如何設定模型進行預測。 下列範例示範如何建立推斷組態：
+推斷組態會描述如何設定模型進行預測。 下列範例示範如何建立推斷設定。 這個組態會指定執行階段、 項目指令碼，以及 （選擇性） conda 環境檔案：
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
+如需詳細資訊，請參閱 < [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)類別參考。
+
+如需推斷組態搭配使用自訂的 Docker 映像的資訊，請參閱[如何部署模型使用自訂的 Docker 映像](how-to-deploy-custom-docker-image.md)。
+
 ### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig 的 CLI 範例
+
+下列 JSON 文件是用於機器學習 CLI 的範例推斷組態：
+
 ```JSON
 {
    "entryScript": "x/y/score.py",
@@ -277,6 +285,23 @@ inference_config = InferenceConfig(source_directory="C:/abc",
    "sourceDirectory":"C:/abc",
 }
 ```
+
+在這個檔案是有效的下列實體：
+
+* __entryScript__:包含執行映像的程式碼的本機檔案路徑。
+* __執行階段__:要用於映像的執行階段。 目前支援的執行階段是 ' spark py' 與 'python'。
+* __condaFile__ （選擇性）：包含要用於映像的 conda 環境定義的本機檔案路徑。
+* __extraDockerFileSteps__ （選擇性）：包含其他的 Docker 步驟，以設定 映像時所執行的本機檔案路徑。
+* __sourceDirectory__ （選擇性）：包含建立映像的所有檔案的資料夾路徑。
+* __enableGpu__ （選擇性）：指出要啟用 GPU 支援映像中。 GPU 映像必須使用 Microsoft Azure 服務，例如 Azure Container Instances、 Azure Machine Learning 計算、 Azure 虛擬機器和 Azure Kubernetes 服務。 預設為 False。
+* __baseImage__ （選擇性）：要做為基底映像的自訂映像。 如果不指定了任何基底映像，則基底映像會使用基礎的指定執行階段參數。
+* __baseImageRegistry__ （選擇性）：包含基底映像的映像登錄。
+* __cudaVersion__ （選擇性）：CUDA 安裝需要 GPU 支援的映像的版本。 GPU 映像必須使用 Microsoft Azure 服務，例如 Azure Container Instances、 Azure Machine Learning 計算、 Azure 虛擬機器和 Azure Kubernetes 服務。 支援的版本為 9.0、 9.1 和 10.0。 如果設定 'enable_gpu'，則預設為 '9.1'。
+
+這些實體對應至參數[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)類別。
+
+下列命令示範如何部署模型，使用 CLI:
+
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
@@ -287,8 +312,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 * 此模型需要使用 Python
 * [項目指令碼](#script)，用以處理 web 要求傳送至已部署的服務
 * 描述推斷所需的 Python 套件的 conda 檔案
-
-如需 InferenceConfig 功能資訊，請參閱[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)類別參考。
 
 如需推斷組態搭配使用自訂的 Docker 映像的資訊，請參閱[如何部署模型使用自訂的 Docker 映像](how-to-deploy-custom-docker-image.md)。
 
@@ -309,9 +332,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 下列各節示範如何建立部署組態，並接著使用它來部署 web 服務。
 
 ### <a name="optional-profile-your-model"></a>選用：分析您的模型
-在部署之前即服務模型，您可以分析以判斷最佳的 CPU 和記憶體需求。
-
-您可以執行您的模型使用 SDK 或 CLI 設定檔。
+在部署之前即服務模型，您可以分析以判斷最佳的 CPU 和記憶體需求。 您可以執行您的模型使用 SDK 或 CLI 設定檔。
 
 如需詳細資訊，您可以查看我們 SDK 文件： https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -544,6 +565,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## <a name="continuous-model-deployment"></a>Continuous 模型部署 
+
+您可以連續部署模型使用的機器學習服務延伸模組[Azure DevOps](https://azure.microsoft.com/services/devops/)。 使用 Azure DevOps 的機器學習服務的擴充功能，您可以在 Azure 機器學習服務工作區中註冊新的機器學習模型時觸發的部署管線。 
+
+1. 報名[Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)，這可讓產生持續整合與傳遞到任何平台/任何您應用程式的雲端。 Azure 的管線[不同於 ML 管線](concept-ml-pipelines.md#compare)。 
+
+1. [建立 Azure DevOps 專案。](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. 安裝[Azure 管線的機器學習服務延伸模組](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. 使用__服務連線__設定服務主體連線到您的 Azure 機器學習服務工作區，來存取您的所有構件。 移至 專案設定，按一下 服務連線，並選取 Azure Resource Manager。
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. 定義為 AzureMLWorkspace__範圍層級__並填入後續的參數。
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. 接下來，若要持續部署您使用 Azure 管線的機器學習服務模型，在管線選取__釋放__。 加入新的成品，請選取 AzureML 模型的成品與先前步驟中建立的服務連線。 選取模型和版本，以觸發部署。 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. 可讓您的模型成品模型觸發程序。 藉由開啟觸發程序，每次指定的版本 （亦即 最新的版本） 該模型會在您的工作區中的暫存器，則會觸發 Azure DevOps 發行管線。 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+如需範例專案和範例，請參閱[MLOps 存放庫](https://github.com/Microsoft/MLOps)
 
 ## <a name="clean-up-resources"></a>清除資源
 若要刪除已部署的 Web 服務，請使用 `service.delete()`。

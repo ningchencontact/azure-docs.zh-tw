@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050693"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479873"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>使用 Azure DevOps 的持續傳遞
 
@@ -158,6 +158,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### <a name="linux-function-app"></a>Linux 函式應用程式
@@ -171,6 +175,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## <a name="template-based-pipeline"></a>範本為基礎的管線
@@ -206,9 +215,11 @@ Azure DevOps 中的範本是預先定義的建置或部署應用程式的工作�
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+在發行範本中不支援部署到部署位置。
+
 ## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>建立使用 Azure CLI，Azure 管線
 
-使用`az functionapp devops-pipeline create`[命令](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)，若要建置和發行您的存放庫中變更任何程式碼會建立 Azure 的管線。 此命令會產生新的 YAML 檔案來定義組建和發行管線，並認可至存放庫。
+使用`az functionapp devops-pipeline create`[命令](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)，若要建置和發行您的存放庫中變更任何程式碼會建立 Azure 的管線。 此命令會產生新的 YAML 檔案來定義組建和發行管線，並認可至存放庫。 Azure CLI 命令不支援部署到部署位置。
 此命令的先決條件取決於您的程式碼的位置：
 
 - 如果您的程式碼是在 GitHub 中：

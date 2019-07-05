@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475640"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491563"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整以符合應用程式需求在 Azure Kubernetes Service (AKS) 叢集
 
@@ -32,30 +32,34 @@ ms.locfileid: "66475640"
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-支援叢集 autoscaler 的 AKS 叢集必須使用虛擬機器擴展集，並執行 Kubernetes 版本*1.12.7*或更新版本。 此擴展集支援處於預覽狀態。 若要加入並建立使用擴展集的叢集，首先請使用 [az extension add][az-extension-add] 命令，安裝 *aks-preview* Azure CLI 擴充功能，如以下範例所示：
+若要使用叢集中自動調整程式，您需要*aks 預覽*CLI 擴充功能版本 0.4.1 或更高版本。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update]命令：
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> 如果您先前已安裝*aks 預覽*延伸模組，安裝任何可用更新使用`az extension update --name aks-preview`命令。
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-scale-set-feature-provider"></a>註冊擴展集功能提供者
 
-若要建立使用擴展集的 AKS，還必須在您的訂用帳戶上啟用功能旗標。 若要註冊 *VMSSPreview* 功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
+若要建立使用擴展集的 AKS，還必須在您的訂用帳戶上啟用功能旗標。 若要註冊*VMSSPreview*功能旗標，請使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+
+> [!CAUTION]
+> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-準備就緒時，使用 [az provider register][az-provider-register] 命令重新整理 *Microsoft.ContainerService* 資源提供者的註冊：
+準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -66,7 +70,6 @@ az provider register --namespace Microsoft.ContainerService
 當您建立和管理 AKS 叢集中使用叢集自動調整程式時，就會套用下列限制：
 
 * 無法使用的 HTTP 應用程式路由附加元件。
-* 目前無法使用 （目前在 AKS 中的預覽） 的多個節點集區。
 
 ## <a name="about-the-cluster-autoscaler"></a>關於叢集自動調整程式
 
@@ -83,9 +86,9 @@ az provider register --namespace Microsoft.ContainerService
 * Pod 中斷預算 (PDB) 限制太多，而且不允許低於特定閾值的 Pod 數目。
 * 如果排程在不同節點上，則 Pod 會使用節點選取器或無法接受的反親和性。
 
-如需更多叢集自動調整程式可能無法相應減少的相關資訊，請參閱[哪些類型的 Pod 可以防止叢集自動調整程式移除節點？][autoscaler-scaledown]
+如需有關如何可能無法相應減少叢集中自動調整程式的詳細資訊，請參閱[何種類型的 pod 可以防止叢集 autoscaler 移除節點？][autoscaler-scaledown]
 
-叢集自動調整程式會使用啟動參數來處理調整事件和資源閾值之間的時間間隔。 這些參數由 Azure 平台定義，而且目前未公開供您調整。 如需叢集自動調整程式使用哪些參數的相關資訊，請參閱[什麼是叢集自動調整程式參數？][autoscaler-parameters]。
+叢集自動調整程式會使用啟動參數來處理調整事件和資源閾值之間的時間間隔。 這些參數由 Azure 平台定義，而且目前未公開供您調整。 如需有關哪些參數使用叢集中自動調整程式，請參閱[什麼是叢集 autoscaler 參數？][autoscaler-parameters]。
 
 兩個自動調整程式可以搭配運作，而且通常會同時部署在一個叢集中。 當兩者組合時，水平 Pod 自動調整程式著重於執行符合應用程式需求的 Pod 數目。 叢集自動調整程式著重於執行支援排程 Pod 所需的節點數目。
 
@@ -94,7 +97,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>建立 AKS 叢集並啟用叢集自動調整程式
 
-如果您需要建立 AKS 叢集，請使用 [az aks create][az-aks-create] 命令。 指定符合或高於上一節[開始之前](#before-you-begin)所述之最低版本號碼的 *--kubernetes-version*。 若要啟用和設定叢集自動調整程式，請使用 *--enable-cluster-autoscaler* 參數，並指定節點 *--min-count* 和 *--max-count*。
+如果您需要建立 AKS 叢集，請使用[az aks 建立][az-aks-create]命令。 指定符合或高於上一節[開始之前](#before-you-begin)所述之最低版本號碼的 *--kubernetes-version*。 若要啟用和設定叢集自動調整程式，請使用 *--enable-cluster-autoscaler* 參數，並指定節點 *--min-count* 和 *--max-count*。
 
 > [!IMPORTANT]
 > 叢集自動調整程式是一項 Kubernetes 元件。 雖然 AKS 叢集會將虛擬機器擴展集用於節點，但請勿手動在 Azure 入口網站中或使用 Azure CLI 啟用或編輯擴展集自動調整的設定。 請讓 Kubernetes 叢集自動調整程式管理所需的調整設定。 如需詳細資訊，請參閱[是否可以修改 MC_ 資源群組中 AKS 資源？](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
@@ -120,7 +123,7 @@ az aks create \
 
 ### <a name="enable-the-cluster-autoscaler-on-an-existing-aks-cluster"></a>在現有的 AKS 叢集上啟用叢集自動調整程式
 
-您可以在符合上一節[開始之前](#before-you-begin)所述需求的現有 AKS 叢集上，啟用叢集自動調整程式。 使用 [az aks update][az-aks-update] 命令，並選擇 *--enable-cluster-autoscaler*，然後指定節點 *--min-count* 和 *--max-count*。 下列範例在使用最少 *1* 個和最多 *3* 個節點的現有叢集上，啟用叢集自動調整程式：
+您可以在符合上一節[開始之前](#before-you-begin)所述需求的現有 AKS 叢集上，啟用叢集自動調整程式。 使用[更新 az aks][az-aks-update]命令，並選擇 *-自動調整叢集中啟用程式*，然後指定節點 *-最小計數*並 *-最大計數*. 下列範例在使用最少 *1* 個和最多 *3* 個節點的現有叢集上，啟用叢集自動調整程式：
 
 ```azurecli-interactive
 az aks update \
@@ -137,7 +140,7 @@ az aks update \
 
 在建立或更新現有 AKS 叢集的先前步驟中，叢集自動調整程式最小節點計數已設為 *1*，最大節點計數已設為 *3*。 隨著應用程式需求的變化，您可能需要調整叢集自動調整程式節點計數。
 
-若要變更節點計數，請使用 [az aks update][az-aks-update] 命令，並指定最小值和最大值。 以下範例將 *--min-count* 設為 *1*，將 *--max-count* 設為 *5*：
+若要變更節點計數，請使用[az aks 更新][az-aks-update]命令並指定最小和最大值。 以下範例將 *--min-count* 設為 *1*，將 *--max-count* 設為 *5*：
 
 ```azurecli-interactive
 az aks update \
@@ -155,7 +158,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>停用叢集自動調整程式
 
-如果您不想再使用叢集自動調整程式，可以使用 [az aks update][az-aks-update] 命令來停用該程式。 當叢集自動調整程式停用時，不會移除節點。
+如果您不再想要使用叢集中自動調整程式，您可以使用停用它[az aks 更新][az-aks-update]命令。 當叢集自動調整程式停用時，不會移除節點。
 
 若要移除叢集自動調整程式，請指定 *--disable-cluster-autoscaler* 參數，如以下範例所示：
 
@@ -166,11 +169,11 @@ az aks update \
   --disable-cluster-autoscaler
 ```
 
-您可以使用 [az aks scale][az-aks-scale] 命令，手動調整您的叢集。 如果您使用水平 Pod 自動調整程式，該功能會在停用叢集自動調整程式的情況下繼續執行，但如果所有節點資源皆在使用中，Pod 最後可能會無法排程。
+您可以手動調整您的叢集使用[az aks 擴展][az-aks-scale]命令。 如果您使用水平 Pod 自動調整程式，該功能會在停用叢集自動調整程式的情況下繼續執行，但如果所有節點資源皆在使用中，Pod 最後可能會無法排程。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文示範如何自動調整 AKS 節點數目。 您也可以使用水平 Pod 自動調整程式，自動調整執行應用程式的 Pod 數目。 如需使用水平 Pod 自動調整程式的步驟，請參閱 [在 AKS 中調整應用程式][aks-scale-apps]。
+本文示範如何自動調整 AKS 節點數目。 您也可以使用水平 Pod 自動調整程式，自動調整執行應用程式的 Pod 數目。 如需使用水平 pod 自動調整程式的步驟，請參閱 < [AKS 中調整應用程式][aks-scale-apps]。
 
 <!-- LINKS - internal -->
 [aks-upgrade]: upgrade-cluster.md
@@ -185,9 +188,10 @@ az aks update \
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235242"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482397"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 身分識別平台的應用程式類型
 
@@ -55,7 +55,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 應用程式在此流程中，直接從 Microsoft 身分識別平台收到權杖授權端點，而不需要任何伺服器對伺服器交換。 所有驗證邏輯和工作階段處理都完全在 JavaScript 用戶端中進行，而不需要執行額外的頁面重新導向。
 
-![隱含驗證流程](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![顯示隱含的驗證流程](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 若要查看此案例的實際運作，請嘗試在單一頁面應用程式程式碼範例[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
 
@@ -80,7 +80,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 在 Web 伺服器應用程式中，登入驗證流程會採用下列概要步驟：
 
-![Web 應用程式驗證流程](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![顯示 web 應用程式驗證流程](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 您可以使用接收自 Microsoft 身分識別平台端點的公開簽署金鑰驗證識別碼權杖，以確保使用者的身分識別。 系統會設定工作階段 Cookie，這可在後續的頁面要求上用來識別使用者。
 
@@ -106,7 +106,7 @@ Web API 可透過公開權限的方式 (亦稱為[範圍](v2-permissions-and-con
 
 Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺服器應用程式、傳統型應用程式和行動應用程式、單頁應用程式、伺服器端精靈，甚至是其他的 Web API。 Web API 的概要流程看起來像這樣：
 
-![Web API 驗證流程](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![顯示 web API 驗證流程](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 若要了解如何使用 OAuth2 存取權杖來保護 Web API，請參閱中的 Web API 程式碼範例[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
 
@@ -118,7 +118,7 @@ Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺�
 
 在此流程中，應用程式收到授權碼的 Microsoft 身分識別平台端點使用者登入時。 授權碼代表應用程式具備權限，可代表登入的使用者呼叫後端服務。 應用程式可以在背景中以授權碼交換 OAuth 2.0 存取權杖和重新整理權杖。 應用程式可以使用存取權杖在 HTTP 要求中向 Web API 進行驗證，以及在舊存取權杖到期時，使用重新整理權杖來取得新的存取權杖。
 
-![原生應用程式驗證流程](./media/v2-app-types/convergence-scenarios-native.svg)
+![顯示原生應用程式驗證流程](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>精靈和伺服器端應用程式
 
@@ -126,6 +126,6 @@ Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺�
 
 在此流程中，應用程式則是直接與互動`/token`端點，以取得存取權：
 
-![精靈應用程式驗證流程](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![顯示精靈的應用程式驗證流程](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 若要建置精靈應用程式，請參閱[用戶端認證文件](v2-oauth2-client-creds-grant-flow.md)，或試試 [.NET 範例應用程式](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。

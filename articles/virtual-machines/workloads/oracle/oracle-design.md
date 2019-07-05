@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155135"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446707"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>在 Azure 中設計和實作 Oracle 資料庫
 
@@ -147,7 +147,7 @@ SQL> @?/rdbms/admin/awrrpt.sql
 - 使用與虛擬機器[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)以提升網路效能。
 - 某些 Linux distrubutions，請考慮啟用[TRIM/UNMAP 支援](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)。
 - 安裝[Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html)個別的虛擬機器上。
-- 在 linux 上預設不啟用龐大的頁面。 請考慮啟用龐大的頁面，並設定`use_large_pages = ONLY `上 Oracle DB。 這可能有助於提升效能。 如需詳細資訊，請參閱 [這裡](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)。
+- 在 linux 上預設不啟用龐大的頁面。 請考慮啟用龐大的頁面，並設定`use_large_pages = ONLY`上 Oracle DB。 這可能有助於提升效能。 如需詳細資訊，請參閱 [這裡](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)。
 
 ### <a name="disk-types-and-configurations"></a>磁碟類型和設定
 

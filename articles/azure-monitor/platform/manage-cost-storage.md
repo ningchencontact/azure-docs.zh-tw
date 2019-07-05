@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061046"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466737"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>管理使用量和成本，以及 Azure 監視器記錄檔
 
@@ -105,10 +105,12 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 3. 在窗格上，移動滑桿來增加或減少天數，然後按一下 [確定]  。  如果您位於「免費」  層，將無法修改資料保留期，必須升級至付費層，才能控制此設定。
 
     ![變更工作區資料保留設定](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+也可以保留[設定透過 ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)使用`dataRetention`參數。 此外，如果您將資料保留期設定為 30 天，您可以觸發立即清除舊資料使用的`immediatePurgeDataOn30Days`的合規性相關的案例會很有用的參數。 這項功能只會公開透過 ARM。 
 
 ## <a name="legacy-pricing-tiers"></a>舊版定價層
 
-訂用帳戶中的 Log Analytics 工作區或 Application Insights 資源有在 2018 年 4 月 2 日之前，或連結至 Enterprise 合約在 2019 年 2 月 1 日之前啟動並且也將繼續擁有存取權的舊版定價層：**免費**， **（每 GB) 的獨立**並**每個節點 (OMS)** 。  在免費定價層中的工作區會有每日的資料擷取限制為 500 MB （除了 Azure 資訊安全中心收集安全性資料類型） 和資料保留期僅限於 7 天。 免費定價層僅供評估之用。 在獨立或每個節點定價層中的工作區有使用者可設定的保留期最多 2 年。 
+訂用帳戶中的 Log Analytics 工作區或 Application Insights 資源有在 2018 年 4 月 2 日之前，或連結至 Enterprise 合約在 2019 年 2 月 1 日之前啟動並且也將繼續擁有存取權的舊版定價層：**免費**， **（每 GB) 的獨立**並**每個節點 (OMS)** 。  在免費定價層中的工作區會有每日的資料擷取限制為 500 MB （除了 Azure 資訊安全中心收集安全性資料類型） 和資料保留期僅限於 7 天。 免費定價層僅供評估之用。 在獨立或每個節點定價層中的工作區有使用者可設定的保留期最多 2 年。 在 2016 年 4 月之前建立的工作區也擁有存取原始**標準**並**Premium**定價層。 定價層限制的更多詳細資料[此處](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)。
 
 > [!NOTE]
 > 若要使用來自購買 OMS E1套件、OMS E2 套件或 OMS Add-On for System Center 的權利，請選擇 Log Analytics [每個節點]  定價層。
@@ -126,11 +128,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 3. 在 [定價層]  下方選取定價層，然後按一下 [選取]  。  
     ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-如果您想要將您的工作區移至目前的定價層，您需要變更您的訂用帳戶的監視[在 Azure 監視定價模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)這將變更該訂用帳戶中的所有工作區的定價層。
-
-> [!NOTE]
-> 您可以深入了解設定定價層時[使用 Azure Resource Manager 範本](template-workspace-configuration.md#create-a-log-analytics-workspace)建立工作區，並確保您的 Azure Resource Manager 範本部署會不論是否成功訂用帳戶在傳統或新的定價模型。 
-
+您也可以[設定的定價層，透過 ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace)使用`ServiceTier`參數。 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>針對 Log Analytics 為什麼不再收集資料的問題進行疑難排解
 

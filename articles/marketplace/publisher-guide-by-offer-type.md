@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
-ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442058"
 ---
 # <a name="publishing-guide-by-offer-type"></a>依供應項目類型的發行指南
 
 一旦您[決定發佈選項](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)，就能夠選取要用於展示供應項目的供應項目類型。 
 
-供應項目是您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com)中建立、發佈及管理的發佈物件。 「供應項目類型」  會定義供應項目結構 (包括用來在市集中展示供應項目的中繼資料、成品和其他內容)。
+ 「供應項目類型」  會定義供應項目結構 (包括用來在市集中展示供應項目的中繼資料、成品和其他內容)。
 
 您必須先選擇供應項目類型，才能建立供應項目。 供應項目類型會對應至您想要發佈的解決方案、應用程式服務供應項目類型，以及對等的 Microsoft 產品和服務。 
 
-單一供應項目類型可以在 Cloud Partner 入口網站中以不同方式設定，以啟用不同的發佈選項、呼籲行動、佈建或定價。 發佈選項和供應項目類型的組態，也會符合供應項目資格和技術需求。 
+佈建或價格，則可以啟用不同的發佈選項，呼叫的動作，以不同的方式設定單一供應項目類型。 發佈選項和供應項目類型的組態，也會符合供應項目資格和技術需求。 
 
 在您建立供應項目之前，請務必檢閱店面和供應項目類型資格需求，以及技術發佈需求。
 
@@ -39,8 +39,8 @@ ms.locfileid: "64937658"
 | [**SaaS 應用程式**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | 您可以使用「SaaS 應用程式」供應項目類型，讓客戶以訂用帳戶的形式購買您的 SaaS 型技術解決方案。 |
 | [**容器供應項目**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | 當您的解決方案是佈建成 Kubernetes 型 Azure 容器服務的 Docker 容器映像時，請使用「容器」供應項目類型。 |
 | [**IoT Microsoft Edge 模組**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge 模組是 IoT Edge 所管理的最小計算單位，並可包含 Microsoft 服務 (例如「Azure 串流分析」)、第三方服務，或您自己的解決方案特定程式碼。 |
-| [**諮詢服務**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Azure Marketplace 中的諮詢服務可協助連結客戶與服務，以支援並擴大客戶對 Azure 的使用。 |
-| [**AppSource 供應項目**](https://docs.microsoft.com/azure/marketplace/appsource-offer-publishing-guide) | AppSource 店面包含可建置或擴充 Dynamics 365、Office 365、Power BI 和 Power Apps 的供應項目。 |
+| [**諮詢服務**](https://docs.microsoft.com/azure/marketplace/consulting-services) | 諮詢服務以協助連結客戶與服務進而支援並擴展其使用 Azure、 Dynamics 365 或 Power Suite 服務。|
+
 
 最後，請參閱 [**Azure AD 需求**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) (藉由列出選項和供應項目類型)，以深入了解單一登入需求。
 
@@ -48,4 +48,4 @@ ms.locfileid: "64937658"
 
 *   請依據供應項目類型區段，檢閱發佈選項中的資格需求，以完成供應項目的選取和設定。
 *   請依據店面檢閱發佈模式，以取得解決方案如何對應至供應項目類型和組態的範例。
-*   請登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)，以建立及設定您的供應項目。
+

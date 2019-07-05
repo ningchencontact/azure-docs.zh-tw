@@ -3,17 +3,17 @@ title: 在 Azure Linux 虛擬機器中執行指令碼
 description: 本主題說明如何執行虛擬機器內的指令碼
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3881a6d0ee1139fa481908f09b6e96efda24a5cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6175ae4263aee0ecdca5b1d768438ad20352375c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542538"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477026"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>在 Linux 虛擬機器中執行指令碼
 

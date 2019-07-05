@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 081d65f60eab4e2412a5dd14c3a63a18598e3b8a
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 583845b2ea63efd42f382c9c150de650f34bafed
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67146324"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514117"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>收集記錄資料，與 Log Analytics 代理程式
 
@@ -68,7 +68,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Red Hat Enterprise Linux Server 6 (x86/x64) 和 7 (x64)
 * Debian GNU/Linux 8 和 9 (x86/x64)
 * Ubuntu 14.04 LTS (x86/x64)、16.04 LTS (x86/x64) 和 18.04 LTS (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* SUSE Linux Enterprise Server 12 (x64) 和 15 (x64)
 
 >[!NOTE]
 >OpenSSL 1.1.0 只支援用於 x86_x64 平台 (64 位元)，1.x 之前的 OpenSSL 則不支援用於任何平台。

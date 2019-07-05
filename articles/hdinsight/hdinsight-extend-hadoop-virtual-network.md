@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163649"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543685"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -67,9 +67,7 @@ ms.locfileid: "67163649"
 
     加入之後，Resource Manager 網路中所安裝的 HDInsight 就可以與傳統網路中的資源互動。
 
-2. 您使用強制通道嗎？ 強制通道是一種子網路設定，可強制裝置的輸出網際網路流量以進行檢查和記錄。 HDInsight 不支援強制通道。 先移除強制通道，再將 HDInsight 部署至現有子網路，或為 HDInsight 建立沒有強制通道的新子網路。
-
-3. 您使用網路安全性群組、使用者定義路由或虛擬網路設備來限制傳入或傳出虛擬網路的流量嗎？
+2. 您使用網路安全性群組、使用者定義路由或虛擬網路設備來限制傳入或傳出虛擬網路的流量嗎？
 
     HDInsight 是一個受控服務，需要 Azure 資料中心內數個 IP 位址的無限制存取權。 若要允許與這些 IP 位址的通訊，請更新任何現有網路安全性群組或使用者定義路由。
     
@@ -108,7 +106,7 @@ ms.locfileid: "67163649"
 
         如需詳細資訊，請參閱[為路由疑難排解](../virtual-network/diagnose-network-routing-problem.md)文件。
 
-4. 建立 HDInsight 叢集，並在設定期間選擇 Azure 虛擬網路。 使用下列文件中的步驟，以了解叢集建立程序：
+3. 建立 HDInsight 叢集，並在設定期間選擇 Azure 虛擬網路。 使用下列文件中的步驟，以了解叢集建立程序：
 
     * [使用 Azure 入口網站建立 HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [使用 Azure PowerShell 建立 HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -247,14 +245,14 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 ## <a id="hdinsight-ip"></a> 所需的 IP 位址
 
-> [!IMPORTANT]  
-> Azure 健康狀態和管理服務必須能夠與 HDInsight 通訊。 如果您使用網路安全性群組或使用者定義的路由，請允許來自這些服務之 IP 位址的流量到達 HDInsight。
->
+如果您使用網路安全性群組或使用者定義的路由來控制流量時，您必須允許來自 Azure 健康狀態和管理服務的 IP 位址的流量，使您的 HDInsight 叢集與其進行通訊。 一些 IP 位址是區域而有所不同，且其中部分適用於所有 Azure 區域。 此外，您可能也需要允許來自 Azure DNS 服務的流量，如果您未使用自訂 DNS。 您也必須允許子網路內 VM 之間的流量。 您可以使用下列步驟來尋找必須允許的 IP 位址：
+
+> [!Note]  
 > 如果您未使用網路安全性群組或使用者定義的路由來控制流量，可以忽略這個章節。
 
-如果您使用網路安全性群組，就必須允許來自 Azure 健康狀態和管理服務的流量透過連接埠 443 到達 HDInsight 叢集。 您也必須允許子網路內 VM 之間的流量。 您可以使用下列步驟來尋找必須允許的 IP 位址：
+1. 如果您使用 Azure 提供的 DNS 服務，允許從的存取權__168.63.129.16__連接埠 53 上。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。 如果您使用自訂 DNS，請略過此步驟。
 
-1. 您必須一律允許來自下列 IP 位址的流量：
+2. 允許來自下列 IP 位址為 Azure 健康狀態和管理服務套用到所有 Azure 區域的流量：
 
     | 來源 IP 位址 | 目的地  | Direction |
     | ---- | ----- | ----- |
@@ -263,7 +261,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     | 168.61.48.131 | \*:443 | 輸入 |
     | 138.91.141.162 | \*:443 | 輸入 |
 
-2. 如果您的 HDInsight 叢集是位於下列其中一個區域中，就必須允許來自針對區域所列的 IP 位址之流量：
+3. 允許從您的資源位於何處的特定區域中的 Azure 健康狀態和管理服務列出的 IP 位址的流量：
 
     > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
@@ -296,15 +294,13 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     | 英國 | 英國西部 | 51.141.13.110</br>51.141.7.20 | \*:443 | 輸入 |
     | &nbsp; | 英國南部 | 51.140.47.39</br>51.140.52.16 | \*:443 | 輸入 |
     | 美國 | 美國中部 | 13.89.171.122</br>13.89.171.124 | \*:443 | 輸入 |
-    | &nbsp; | 美國東部 | 13.82.225.233</br>40.71.175.99 | \*:443 | 輸入 |
+    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | 輸入 |
     | &nbsp; | 美國中北部 | 157.56.8.38</br>157.55.213.99 | \*:443 | 輸入 |
     | &nbsp; | 美國中西部 | 52.161.23.15</br>52.161.10.167 | \*:443 | 輸入 |
     | &nbsp; | 美國西部 | 13.64.254.98</br>23.101.196.19 | \*:443 | 輸入 |
     | &nbsp; | 美國西部 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | 輸入 |
 
     如需用於 Azure Government 之 IP 位址的資訊，請參閱 [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 文件。
-
-3. 您也必須允許來自 __168.63.129.16__ 的存取。 此位址是 Azure 遞迴解析程式。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。
 
 如需詳細資訊，請參閱[控制網路流量](#networktraffic)一節。
 
@@ -573,7 +569,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
     
     * 將 `192.168.0.1` 值取代為內部部署 DNS 伺服器的 IP 位址。 此項目會將所有其他 DNS 要求路由傳送至內部部署 DNS 伺服器。
 
-3. 若要使用設定，請重新啟動 Bind。 例如： `sudo service bind9 restart`。
+3. 若要使用設定，請重新啟動 Bind。 例如： `sudo service bind9 restart` 。
 
 4. 將條件式轉寄站新增至內部部署 DNS 伺服器。 設定條件式轉寄站，以將步驟 1 中之 DNS 尾碼的要求傳送至自訂 DNS 伺服器。
 

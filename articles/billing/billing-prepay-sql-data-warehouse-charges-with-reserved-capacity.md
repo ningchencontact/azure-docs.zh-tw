@@ -1,19 +1,19 @@
 ---
-title: 支付 SQL 資料倉儲的費用，以 Azure 保留的容量 |Microsoft Docs
+title: 以 Azure 保留的容量預先支付 SQL 資料倉儲的費用
 description: 了解如何您可以預先支付 SQL 資料倉儲的費用與保留的容量，以節省成本。
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371184"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565351"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>支付 SQL 資料倉儲的費用，以保留容量
 
@@ -49,8 +49,9 @@ SQL 資料倉儲保留大小應該根據總計會計算您所使用的資料倉�
   - 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。
   - 針對隨用隨付訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。
 4. 選取範圍。 您可以使用範圍清單來選擇訂用帳戶範圍。
-  - 具有**單一**選項時，保留折扣會套用至選取的訂用帳戶中部署的 SQL 資料倉儲。
-  - 具有**共用**選項時，保留折扣套用至計費內容內的任何訂用帳戶中執行的執行個體。
+  - **單一資源群組範圍**— 在選取的資源群組中的比對資源套用保留折扣。
+  - **單一訂用帳戶範圍**— 保留折扣會套用至選取的訂用帳戶中比對資源。
+  - **共用範圍**— 會保留折扣套用至對應的計費內容中的合格訂用帳戶中的資源。 Enterprise 合約客戶，計費內容會是註冊。 以隨用隨付費率的個別訂用帳戶，計費的範圍是由帳戶系統管理員建立的所有合格訂閱。
     - 適用於企業客戶計費的內容會是 EA 註冊。
     - 針對隨用隨付客戶，共用範圍是帳戶系統管理員所建立的所有隨用隨付訂用帳戶。
 5. 選取要選擇 Azure 區域的保留容量所涵蓋的區域。

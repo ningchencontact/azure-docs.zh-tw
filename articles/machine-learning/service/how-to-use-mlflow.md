@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure Machine Learning 服務的 MLflow
+title: MLflow 搭配 Azure Machine Learning 服務
 titleSuffix: Azure Machine Learning service
 description: 了解如何記錄計量和使用 Azure Machine Learning 服務的 MLflow 程式庫的成品
 services: machine-learning
@@ -11,21 +11,21 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144016"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461656"
 ---
-# <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>如何使用 Azure Machine Learning 服務 （預覽） 中的 MLflow
+# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>MLflow 搭配 Azure Machine Learning 服務 （預覽）
 
 這篇文章示範如何使用 MLflow 的追蹤 URI 和記錄 API，以下合稱也稱為 MLflow 追蹤，Azure Machine Learning 服務，可追蹤及記錄您的實驗計量和中的成品與您[Azure Machine Learning服務工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace)。 如果您已經使用 MLflow 追蹤為您的實驗，工作區會提供集中式、 安全且可擴充的位置來儲存訓練計量和模型。
 
 [MLflow](https://www.mlflow.org)是用於管理您的機器學習服務實驗生命週期的開放原始碼程式庫。 [MLFlow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)是元件的記錄，並追蹤您的訓練執行計量的 MLflow 和模型成品是否會在本機執行您的實驗虛擬機器上，或在遠端計算叢集。
 ![使用 azure machine learning 圖表 mlflow](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## <a name="compare-mlflow-and-azure-machine-learning-service-clients"></a>比較 MLflow 和 Azure Machine Learning 服務用戶端
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>比較 MLflow 和 Azure Machine Learning 的用戶端
 
  下表摘要說明不同的用戶端可以使用 Azure Machine Learning 服務和其各自的函式功能。
 

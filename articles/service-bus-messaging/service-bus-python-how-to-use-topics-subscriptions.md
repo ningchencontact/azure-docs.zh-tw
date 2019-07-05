@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991988"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543669"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何透過 Python 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文說明如何使用服務匯流排主題和訂用帳戶。 相關範例是以 Python 撰寫，並且使用 [Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括：
+本文說明如何使用服務匯流排主題和訂用帳戶。 這些範例撰寫在 Python 中並使用[Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括：
 
 - 建立主題和訂用帳戶 
 - 建立訂用帳戶篩選 
@@ -58,7 +58,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-您可以從 [Azure 入口網站][Azure portal]取得 SAS 金鑰名稱和值的值。
+您可以從 [Azure 入口網站][Azure portal]取得 SAS 金鑰名稱和值。
 
 ```python
 bus_service.create_topic('mytopic')
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 **ServiceBusService** 物件也能用來建立主題的訂用帳戶。 訂閱是具名的，它們能擁有選用的篩選器，以限制傳遞至訂閱之虛擬佇列的訊息集合。
 
 > [!NOTE]
-> 訂用帳戶是持續性的，它們會持續存在，直到本身或它們訂閱的主題遭到刪除為止。
+> 根據預設，訂用帳戶是持續性，而且將會繼續直到它們，或要訂閱的人員，、 已刪除的主題存在。
 > 
-> 
+> 您可以藉由設定自動刪除的訂用帳戶[auto_delete_on_idle 屬性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶
 
@@ -178,7 +178,7 @@ msg.delete()
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
 
-主題和訂用帳戶是持續性的，您必須透過 [Azure 入口網站][Azure portal]或以程式設計方式明確地刪除它們。 下列範例示範如何刪除名為 `mytopic` 的主題：
+主題和訂用帳戶是持續性除非[auto_delete_on_idle 屬性](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python)設定。 可刪除透過[Azure 入口網站][Azure portal]或以程式設計的方式。 下列範例示範如何刪除名為 `mytopic` 的主題：
 
 ```python
 bus_service.delete_topic('mytopic')

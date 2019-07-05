@@ -4,7 +4,7 @@ description: 瞭解如何在 Azure Functions 中使用「Azure 服務匯流排�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241155"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480225"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -354,7 +354,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
 |maxAutoRenewDuration|00:05:00|將自動更新訊息鎖定的最大持續時間。|
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 使用 Azure 服務匯流排輸出繫結來傳送佇列或主題訊息。
 

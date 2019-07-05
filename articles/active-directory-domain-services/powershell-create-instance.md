@@ -3,7 +3,7 @@ title: 使用 PowerShell 啟用 Azure Active Directory Domain Services | Microso
 description: 使用 PowerShell 啟用 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: ergreenl
-ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: daddb2d13aee08fe7294ab2d7f0892bab761562b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246850"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472675"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。

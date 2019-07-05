@@ -2,18 +2,18 @@
 title: Azure Site Recovery 中設定 Azure 磁碟加密啟用 Vm 的複寫 |Microsoft Docs
 description: 本文說明如何使用 Site Recovery 中設定的 Azure 磁碟加密啟用的 Vm 從一個 Azure 區域之間複寫。
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790973"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449208"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>啟用 Azure 磁碟加密的虛擬機器複寫到另一個 Azure 區域
 
@@ -22,23 +22,23 @@ ms.locfileid: "60790973"
 >[!NOTE]
 >Azure Site Recovery 目前僅支援 Azure Vm 執行 Windows OS，以及屬於[進行加密與 Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app)。
 
-## <a name="required-user-permissions"></a>必要的使用者權限
+## <a id="required-user-permissions"></a> 必要的使用者權限
 Site Recovery 需要有在目標區域和複製金鑰至區域中建立金鑰保存庫的權限的使用者。
 
 若要啟用從 Azure 入口網站中啟用磁碟加密的 Vm 的複寫，使用者會需要下列權限：
 
 - 金鑰保存庫權限
-    - 列出
+    - List
     - 建立
     - 取得
 
 -   金鑰保存庫祕密權限
-    - 列出
+    - List
     - 建立
     - 取得
 
 - 金鑰保存庫金鑰權限 （在 Vm 使用金鑰加密金鑰來加密磁碟加密金鑰時，才需要）
-    - 列出
+    - List
     - 取得
     - 建立
     - 加密
@@ -139,18 +139,25 @@ Site Recovery 需要有在目標區域和複製金鑰至區域中建立金鑰保
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>疑難排解 Azure 至 Azure VM 複寫期間的金鑰保存庫權限問題
 
-**原因 1：** 您可能會從所選取的目標區域的已建立金鑰保存庫沒有必要的權限，而不是讓 Site Recovery 建立一個。 請確定金鑰保存庫具有需要權限，如先前所述。
+Azure Site Recovery 需要至少讀取的來源區域的金鑰保存庫權限，以及在目標區域金鑰保存庫讀取祕密，並將它複製到目標區域的 key vault 的寫入權限。 
+
+**原因 1：** 您不具 「 取得 」 權限**來源區域的金鑰保存庫**讀取索引鍵。 </br>
+**修正方式：** 不論您是訂用帳戶管理員或 不，請務必取得權限對金鑰保存庫。
+
+1. 移至來源區域 Key vault 也在此範例中就是 「 ContososourceKeyvault">**存取原則** 
+2. 底下**選取主體**新增您的使用者名稱，例如:"dradmin@contoso.com」
+3. 底下**金鑰權限**選取 [取得] 
+4. 底下**祕密權限**選取 [取得] 
+5. 儲存存取原則
+
+**原因 2：** 您不具必要的權限**目標區域的金鑰保存庫**来寫入之索引鍵。 </br>
 
 *例如*：您嘗試將複寫的 VM 具有金鑰保存庫*ContososourceKeyvault*來源區域。
 對來源區域的 key vault 中的所有權限。 但在保護期間，您可以選取已建立金鑰保存庫 ContosotargetKeyvault，沒有權限。 發生錯誤。
 
-**修正方式：** 移至**首頁** > **Keyvaults** > **ContososourceKeyvault** > **存取原則**並新增適當的權限。
+在所需的權限[目標金鑰保存庫](#required-user-permissions)
 
-**原因 2：** 您可能會從所選取目標區域的已建立金鑰保存庫沒有解密加密而不是讓 Site Recovery 建立的權限。 請確定您已解密的加密權限如果您也要加密之金鑰的來源地區。</br>
-
-*例如*：您嘗試將複寫的 VM 具有金鑰保存庫*ContososourceKeyvault*來源區域。 您在來源區域的金鑰保存庫上有所有必要的權限。 但在保護期間，您可以選取已建立金鑰保存庫 ContosotargetKeyvault，沒有權限來解密和加密。 發生錯誤。</br>
-
-**修正方式：** 移至**首頁** > **Keyvaults** > **ContososourceKeyvault** > **存取原則**。 新增權限之下**金鑰權限** > **密碼編譯作業**。
+**修正方式：** 移至**首頁** > **Keyvaults** > **ContosotargetKeyvault** > **存取原則**並新增適當的權限。
 
 ## <a name="next-steps"></a>後續步驟
 

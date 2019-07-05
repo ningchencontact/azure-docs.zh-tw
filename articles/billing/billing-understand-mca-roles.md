@@ -1,24 +1,21 @@
 ---
 title: 了解適用於 Microsoft 客戶合約-Azure 的計費系統管理角色
 description: 深入了解計費適用於 Microsoft 客戶合約計費帳戶在 Azure 中的角色。
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370890"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490433"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>了解在 Azure 中的 Microsoft 客戶合約系統管理角色
 
@@ -30,7 +27,7 @@ ms.locfileid: "60370890"
 
 下表描述您用來管理您的帳單帳戶計費設定檔，和發票區段的計費角色。
 
-|角色|描述|
+|Role|描述|
 |---|---|
 |計費帳戶擁有者|管理計費帳戶的所有項目|
 |計費帳戶參與者|管理計費帳戶的權限以外的所有項目|
@@ -46,7 +43,7 @@ ms.locfileid: "60370890"
 
 ## <a name="billing-account-roles-and-tasks"></a>計費帳戶的角色和工作
 
-帳單帳戶可讓您管理貴組織的計費。 您可以使用計費帳戶組織成本、 監視費用和發票，並控制您組織的計費的存取。 如需詳細資訊，請參閱 <<c0> [ 了解帳單帳戶](billing-mca-overview.md#understand-billing-account)。
+帳單帳戶可讓您管理貴組織的計費。 您可以使用計費帳戶組織成本、 監視費用和發票，並控制您組織的計費的存取。 如需詳細資訊，請參閱 <<c0> [ 了解帳單帳戶](billing-mca-overview.md#your-billing-account)。
 
 下表顯示您需要完成的工作計費帳戶的內容中的角色。
 
@@ -92,7 +89,7 @@ ms.locfileid: "60370890"
 
 ## <a name="billing-profile-roles-and-tasks"></a>計費的設定檔角色和工作
 
-帳單的設定檔可讓您管理您的發票和付款方法。 Azure 訂用帳戶和計費的設定檔的使用購買其他產品，會產生每月的發票。 您可以使用的付款方法要按發票付款。 如需詳細資訊，請參閱 <<c0> [ 了解計費的設定檔](billing-mca-overview.md#understand-billing-profiles)。
+帳單的設定檔可讓您管理您的發票和付款方法。 Azure 訂用帳戶和計費的設定檔的使用購買其他產品，會產生每月的發票。 您可以使用的付款方法要按發票付款。 如需詳細資訊，請參閱 <<c0> [ 了解計費的設定檔](billing-mca-overview.md#billing-profiles)。
 
 下表顯示您需要完成的工作計費的設定檔的內容中的角色。
 
@@ -142,7 +139,7 @@ ms.locfileid: "60370890"
 
 ## <a name="invoice-section-roles-and-tasks"></a>發票區段角色和工作
 
-發票 區段可讓您組織的成本，發票上。 您可以建立依部門、 開發環境、 組織您的成本區段，或根據您組織的需求。 若要建立之區段的 Azure 訂用帳戶的權限讓其他人。 任何使用費用和購買訂用帳戶則顯示在發票中的區段。 如需詳細資訊，請參閱 <<c0> [ 了解發票區段](billing-mca-overview.md#understand-invoice-sections)。
+發票 區段可讓您組織的成本，發票上。 您可以建立依部門、 開發環境、 組織您的成本區段，或根據您組織的需求。 若要建立之區段的 Azure 訂用帳戶的權限讓其他人。 任何使用費用和購買訂用帳戶則顯示在發票中的區段。 如需詳細資訊，請參閱 <<c0> [ 了解發票區段](billing-mca-overview.md#invoice-sections)。
 
 下表顯示您需要發票區段的內容中完成工作的角色。
 
@@ -185,7 +182,7 @@ ms.locfileid: "60370890"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單]  進行搜尋。
+2. 搜尋**成本管理 + 計費**。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

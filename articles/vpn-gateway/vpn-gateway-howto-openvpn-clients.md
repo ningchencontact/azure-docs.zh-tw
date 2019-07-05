@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147248"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477853"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端
 
@@ -67,9 +67,9 @@ ms.locfileid: "67147248"
 4. 以 Base64 的 P2S 用戶端憑證公開金鑰填入 P2S 用戶端憑證區段。 在 PEM 格式的憑證中，您只需開啟 .cer 檔案並在憑證標題之間複製 Base64 金鑰。 如需如何匯出憑證以取得編碼的公開金鑰的詳細資訊，請參閱[匯出公開金鑰](vpn-gateway-certificates-point-to-site.md#cer)。
 5. 以 Base64 的 P2S 用戶端憑證私密金鑰填入私密金鑰區段。 如需如何擷取私用金鑰的資訊，請參閱[匯出私密金鑰](https://openvpn.net/community-resources/how-to/#pki)。
 6. 請勿變更任何其他欄位。 使用用戶端輸入中填入的設定來連線至 VPN。
-7. 按兩下設定檔檔案以在 Tunnelblik 中建立設定檔。
-8. 從應用程式資料夾啟動 Tunnelblik。
-9. 按一下系統匣中的 Tunnelblik 圖示並挑選連線。
+7. 按兩下 Tunnelblick 中建立設定檔設定檔。
+8. 啟動 Tunnelblick 從應用程式資料夾。
+9. 按一下系統匣中的 Tunnelblick 圖示，然後挑選連接。
 
 > [!IMPORTANT]
 >OpenVPN 通訊協定僅支援 iOS 11.0 和更新版本以及 MacOS 10.13 和更新版本。

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f55beca65a19ee9e47708000976dd42a6f252e2e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 0fd605d7d502970dccd37da1f3f70fdadb1094a1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154166"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550456"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>移轉 Azure 應用程式閘道和 Web 應用程式防火牆從 v1 為 v2
 
@@ -76,7 +76,8 @@ Azure PowerShell 指令碼，會進行下列作業：
 
 1. 執行`Get-Help AzureAppGWMigration.ps1`檢查必要的參數：
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
@@ -84,7 +85,8 @@ Azure PowerShell 指令碼，會進行下列作業：
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
     -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -validateMigration -enableAutoScale
+   ```
 
    指令碼的參數：
    * **resourceId: [String]:所需**-這是您現有的標準 v1 或 WAF v1 閘道的 Azure 資源識別碼。 若要尋找此字串值，請瀏覽至 Azure 入口網站、 選取您的應用程式閘道或 WAF 的資源，然後按一下**屬性**閘道的連結。 在該頁面上，位於資源識別碼。

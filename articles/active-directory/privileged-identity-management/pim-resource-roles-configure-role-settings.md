@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288332"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476309"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>在 PIM 中設定 Azure 資源角色設定
 
@@ -38,19 +38,19 @@ ms.locfileid: "60288332"
 
 1. 按一下您想要管理的資源，例如訂用帳戶或管理群組。
 
-    ![要管理的 Azure 資源清單](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![列出可以管理資源的 azure 資源網頁](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. 按一下 [角色設定]  。
 
-    ![角色設定](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![角色設定 頁面列出 Azure 資源角色](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. 按一下您想要設定其設定的角色。
 
-    ![角色設定詳細資料](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![角色設定詳細資料 頁面上列出數個指派和啟用設定](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. 按一下 [編輯]  以開啟 [角色設定] 窗格。
 
-    ![編輯角色設定](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![編輯角色設定 頁面以更新指派及啟用的設定選項](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     在每個角色的 [角色設定] 窗格上，有許多您可以設定的設定。
 
@@ -109,7 +109,7 @@ PIM 針對兩個不同的案例提供選擇性強制 Azure Multi-Factor Authenti
 
 1. 按一下 [選取核准者]  以開啟 [選取成員或群組] 窗格。
 
-    ![選取成員或群組](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![選取 [選取核准者的成員或群組] 窗格](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. 選取至少一個成員或群組後，按一下 [選取]  。 您可以新增任何成員和群組的組合。 您必須至少選取一個核准者。 沒有任何預設核准者。
 

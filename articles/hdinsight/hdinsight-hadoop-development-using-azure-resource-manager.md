@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 320611f05190d755c85a94a8e8eb9a1c04b3310e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523340"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508833"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)
 
@@ -52,7 +52,7 @@ HDInsight 正在取代以 Azure Service Manager (ASM) 為基礎的工具 (適用
 
 * [使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [使用 cURL 搭配執行 Apache Hive 查詢與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-hive-curl.md)
-* [使用 cURL 搭配 HDInsight 上的 Apache Hadoop 執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-curl.md)
+
 
 若要了解其他用來以互動方式執行 Apache Hadoop MapReduce、Apache Hive 和 Apache Pig 的方式，請參閱[使用 MapReduce 搭配 HDInsight 上的 Hadoop](hadoop/hdinsight-use-mapreduce.md)、[使用 Apache Hive 搭配 HDInsight 上的 Apache Hadoop](hadoop/hdinsight-use-hive.md) 和[使用 Apache Pig 搭配 HDInsight 上的 Apache Hadoop](hadoop/hdinsight-use-pig.md)。
 
@@ -213,7 +213,6 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 #### <a name="other-samples"></a>其他範例
 * [建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [提交 Apache Hive 作業](hadoop/apache-hadoop-use-hive-powershell.md)
-* [提交 Apache Pig 作業](hadoop/apache-hadoop-use-pig-powershell.md)
 * [提交 Apache Sqoop 作業](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>移轉至新的 HDInsight .NET SDK
@@ -231,7 +230,6 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 | 搭配使用 Azure Active Directory 與 .NET SDK，以互動方式驗證應用程式 |請參閱[使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。 在本文中的程式碼片段會使用互動式驗證方法。 |
 | 搭配使用 Azure Active Directory 與 .NET SDK，以非互動方式驗證應用程式 |請參閱 [建立 HDInsight 的非互動式應用程式](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | 使用 .NET SDK 提交 Apache Hive 作業 |請參閱[提交 Apache Hive 作業](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| 使用 .NET SDK 提交 Apache Pig 作業 |請參閱[提交 Apache Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
 | 使用 .NET SDK 提交 Apache Sqoop 作業 |請參閱[提交 Apache Sqoop 作業](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | 使用 .NET SDK 列出 HDInsight 叢集 |請參閱 [列出 HDInsight 叢集](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | 使用.NET SDK 調整 HDInsight 叢集 |請參閱 [調整 HDInsight 叢集](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |

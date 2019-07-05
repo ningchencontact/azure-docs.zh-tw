@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: ad3e2157e7b8748174cc8b81d1debd5de0ba77b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a2f9b7597022822272692d20976e1da654b9d524
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079479"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462063"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的效能建議
 
-**適用範圍：** 適用於 MariaDB 10.2s 的 azure 資料庫
+**適用範圍：** 適用於 10.2 的 MariaDB 的 azure 資料庫
 
 > [!NOTE]
-> 效能建議處於預覽狀態。 效能建議支援 Azure 入口網站中的即將推出，並可能尚無法在您的區域。
+> 效能建議處於預覽狀態。
 
 [效能建議] 功能會分析您的資料庫，以建立自訂的建議，以改善效能。 若要產生的建議，分析會探討各種資料庫特性，包括結構描述。 啟用[查詢存放區](concepts-query-store.md)您充分利用 [效能建議] 功能的伺服器上。 如果效能結構描述是 OFF，開啟 [查詢存放區可讓 performance_schema 和效能] 功能所需的結構描述 instruments 的子集。 實作任何效能建議後，您應該測試來評估這些變更的影響效能。
 

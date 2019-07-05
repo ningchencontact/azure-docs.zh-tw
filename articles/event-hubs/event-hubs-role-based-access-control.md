@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978301"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448150"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -29,10 +29,10 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 ## <a name="event-hubs-roles-and-permissions"></a>事件中樞角色和權限
 Azure 會提供下列內建的 RBAC 角色的授權存取事件中樞命名空間：
 
-[事件中樞資料擁有者 （預覽）](../role-based-access-control/built-in-roles.md#service-bus-data-owner)角色可讓資料存取事件中樞命名空間和其實體 （佇列、 主題、 訂用帳戶和篩選器）
+[Azure 事件中樞資料擁有者 （預覽）](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview)角色可讓資料存取事件中樞命名空間和其實體 （佇列、 主題、 訂用帳戶和篩選器）
 
 >[!IMPORTANT]
-> 我們稍早支援新增至受管理的身分識別**擁有者**或是**參與者**角色。 不過，資料存取權限**擁有者**並**參與者**角色都不會再接受。 如果您使用**擁有者**或是**參與者**角色時，切換到使用**事件中樞資料擁有者**角色。
+> 我們稍早支援新增至受管理的身分識別**擁有者**或是**參與者**角色。 不過，資料存取權限**擁有者**並**參與者**角色都不會再接受。 如果您使用**擁有者**或是**參與者**角色時，切換到使用**Azure 事件中樞資料擁有者 （預覽）** 角色。
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>搭配使用事件中樞與 Azure AD 網域使用者帳戶

@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 07/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514497"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560441"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -25,31 +25,33 @@ ms.locfileid: "66514497"
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS 是否支援節點自動調整？
 
-是，自動調整是可透過[Kubernetes autoscaler] [ auto-scaler]從 Kubernetes 1.10 開始。 如需如何手動設定，並使用叢集中自動調整程式的資訊，請參閱[AKS 叢集中自動調整][aks-cluster-autoscale]。
-
-您也可以使用內建的叢集中自動調整程式 （目前在 AKS 中的預覽），來管理節點的縮放比例。 如需詳細資訊，請參閱 <<c0> [ 自動調整規模以符合應用程式需求在 AKS 叢集中][aks-cluster-autoscaler]。
-
-## <a name="does-aks-support-kubernetes-rbac"></a>AKS 是否支援 Kubernetes RBAC？
-
-是，將 Kubernetes 角色型存取控制 (RBAC) 啟用預設情況下，使用 Azure CLI 建立叢集時。 您可以使用 Azure 入口網站或範本所建立的叢集啟用 RBAC。
+是，自動在 AKS 中水平調整代理程式節點的功能目前可供預覽。 請參閱[自動調整規模以符合應用程式需求在 AKS 叢集中][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler]。
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>可以將 AKS 部署到我現有的虛擬網路嗎？
 
 是，您可以使用部署到現有的虛擬網路的 AKS 叢集[進階網路功能][aks-advanced-networking]。
 
+## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>我可以限制誰可以存取 Kubernetes API 伺服器嗎？
+
+您可以限制存取 Kubernetes API 伺服器中使用的是， [API 伺服器授權 IP 範圍][api-server-authorized-ip-ranges]，其中目前處於預覽狀態。
+
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>可以讓 Kubernetes API 伺服器可存取只在我的虛擬網路內？
 
-目前沒有。 Kubernetes API 伺服器會以公用完整網域名稱 (FQDN) 公開。 您也可以使用您的叢集來控制存取[Kubernetes RBAC 與 Azure Active Directory (Azure AD)][aks-rbac-aad]。
+目前不行，但此計劃。 您可以上追蹤進度[AKS GitHub 存放庫][private-clusters-github-issue]。
+
+## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>我可以在單一叢集擁有不同的 VM 大小？
+
+是，建立您的 AKS 叢集中使用不同的虛擬機器大小[多個節點的集區][multi-node-pools]，其中目前處於預覽狀態。
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>安全性更新是否會套用至 AKS 代理程式節點？
 
 Azure 會自動套用至您在夜間排程上的叢集中的 Linux 節點的安全性修補程式。 不過，您有責任確保節點重新開機為這些 Linux 所需。 您有數個選項來重新啟動節點：
 
 - 手動、透過 Azure 入口網站，或透過 Azure CLI。
-- 藉由升級 AKS 叢集。 叢集升級[cordon 和 drain 節點][ cordon-drain]自動，然後將新節點上線與最新的 Ubuntu 映像和新的修補程式版本或次要的 Kubernetes 版本。 如需詳細資訊，請參閱[升級 AKS 叢集][aks-upgrade]。
-- 藉由使用[Kured](https://github.com/weaveworks/kured)，Kubernetes 開放原始碼重新啟動服務精靈。 Kured [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)並監視每個節點，表示需要重新開機的檔案是否存在。 在叢集中，由相同管理 OS 重新開機[cordon 和 drain 程序][ cordon-drain]叢集升級。
+- 藉由升級 AKS 叢集。 叢集升級[cordon 和 drain 節點][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade]。
+- 藉由使用[Kured](https://github.com/weaveworks/kured)，Kubernetes 開放原始碼重新啟動服務精靈。 Kured [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)並監視每個節點，表示需要重新開機的檔案是否存在。 在叢集中，由相同管理 OS 重新開機[cordon 和 drain 程序][cordon-drain]叢集升級。
 
-如需使用 kured 的詳細資訊，請參閱[將安全性和核心更新套用至 AKS 中的節點][node-updates-kured]。
+如需使用 kured 的詳細資訊，請參閱[將安全性及核心的更新套用至 AKS 中的節點][node-updates-kured]。
 
 ### <a name="windows-server-nodes"></a>Windows Server 的節點
 
@@ -68,7 +70,7 @@ Azure 會自動套用至您在夜間排程上的叢集中的 Linux 節點的安�
 
 是。 根據預設，AKS 資源提供者會自動建立次要的資源群組 (例如*MC_myResourceGroup_myAKSCluster_eastus*) 在部署期間。 為了符合公司原則，您可以提供您自己的名稱，此受管理的叢集 (*MC_* ) 的資源群組。
 
-若要指定您自己的資源群組名稱，請安裝[aks 預覽][ aks-preview-cli] Azure CLI 擴充功能版本*0.3.2*或更新版本。 當您使用建立 AKS 叢集時[az aks 建立][ az-aks-create]命令，使用 *-節點資源群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][ aks-rm-template]來部署 AKS 叢集，您可以利用定義的資源群組名稱*nodeResourceGroup*屬性。
+若要指定您自己的資源群組名稱，請安裝[aks 預覽][aks-preview-cli]Azure CLI 擴充功能版本*0.3.2*或更新版本。 當您使用建立 AKS 叢集時[az aks 建立][az-aks-create]命令，使用 *-節點資源群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][aks-rm-template]來部署 AKS 叢集，您可以利用定義的資源群組名稱*nodeResourceGroup*屬性。
 
 * 次要的資源群組會自動建立您自己的訂用帳戶中的 Azure 資源提供者。
 * 只有在建立叢集時，您可以指定自訂的資源群組名稱。
@@ -87,7 +89,7 @@ Azure 會自動套用至您在夜間排程上的叢集中的 Linux 節點的安�
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS 支援哪些 Kubernetes 許可控制器？ 是否可以新增或移除許可控制器？
 
-AKS 支援下列[許可控制器][admission-controllers]：
+AKS 支援下列[許可控制站][admission-controllers]:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -104,7 +106,7 @@ AKS 支援下列[許可控制器][admission-controllers]：
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault 是否會與 AKS 整合？
 
-AKS 目前原生不使用 Azure Key Vault 整合。 不過， [Kubernetes 專案的 Azure 金鑰保存庫 FlexVolume] [ keyvault-flexvolume]可讓您直接從 Kubernetes pod 整合 Key Vault 祕密。
+AKS 目前原生不使用 Azure Key Vault 整合。 不過， [Kubernetes 專案的 Azure 金鑰保存庫 FlexVolume][keyvault-flexvolume]可讓您直接從 Kubernetes pod 整合 Key Vault 祕密。
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>我是否可以在 AKS 上執行 Windows Server 容器？
 
@@ -131,7 +133,7 @@ Windows Server 容器是以預覽形式提供。 若要在 AKS 中執行 Windows
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>可以套用 Azure 保留折扣至我的 AKS 代理程式節點嗎？
 
-AKS 代理程式節點計費作為標準的 Azure 虛擬機器，因此，如果您已購買[Azure 保留的項目][ reservation-discounts] AKS 中使用的 VM 大小，這些折扣會自動套用。
+AKS 代理程式節點計費作為標準的 Azure 虛擬機器，因此，如果您已購買[Azure 保留的項目][reservation-discounts]AKS 中使用的 VM 大小，這些折扣會自動套用。
 
 <!-- LINKS - internal -->
 
@@ -144,12 +146,14 @@ AKS 代理程式節點計費作為標準的 Azure 虛擬機器，因此，如果
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
+[multi-node-pools]: ./use-multiple-node-pools.md
 
 <!-- LINKS - external -->
 
@@ -158,3 +162,4 @@ AKS 代理程式節點計費作為標準的 Azure 虛擬機器，因此，如果
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357259"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448027"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -65,7 +65,7 @@ ms.locfileid: "66357259"
 
 * 使用 HTTP 基本驗證。 如需詳細資訊，請參閱[匯入和發佈您的第一個 API](import-and-publish.md)。
 * 依照[如何使用 Azure API 管理中的用戶端憑證驗證保護後端服務](api-management-howto-mutual-certificates.md)所述，使用 SSL 相互驗證。
-* 在您的後端服務上使用 IP 允許清單。 在 API 管理的所有層級中，閘道的 IP 位址會維持不變，但有一些[注意事項](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)。 您可以設定您的允許清單來允許此 IP 位址。 您可以在 Azure 入口網站中的 [儀表板] 上取得API 管理執行個體的 IP 位址。
+* 在您的後端服務上使用 IP 允許清單。 在所有層除了耗用量層的 API 管理中，閘道的 IP 位址會維持不變，但有一些[注意事項](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)。 您可以設定您的允許清單來允許此 IP 位址。 您可以在 Azure 入口網站中的 [儀表板] 上取得API 管理執行個體的 IP 位址。
 * 將您的 API 管理執行個體連接至 Azure 虛擬網路。
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>如何將我的 API 管理服務執行個體複製到新的執行個體？

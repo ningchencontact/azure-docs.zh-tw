@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495814"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446773"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>追蹤與您 Azure 資料箱 」 和 「 Azure 資料方塊大量的事件記錄
 
@@ -29,7 +29,7 @@ ms.locfileid: "66495814"
 | 資料複製到裝置        | [檢視*error.xml*檔案](#view-error-log-during-data-copy)進行的資料複製                                                             |
 | 準備寄送            | [檢查 BOM 的檔案](#inspect-bom-during-prepare-to-ship)或在裝置上的資訊清單檔案                                      |
 | 資料上傳至 Azure       | [檢閱*copylogs* ](#review-copy-log-during-upload-to-azure)錯誤期間的資料上傳，Azure 資料中心                         |
-| 從裝置的資料清除   | [檢視的監督鏈記錄鏈結](#get-chain-of-custody-logs-after-data-erasure)包括稽核記錄檔和訂購歷程記錄                                                   |
+| 從裝置的資料清除   | [檢視的監督鏈記錄鏈結](#get-chain-of-custody-logs-after-data-erasure)包括稽核記錄檔和訂購歷程記錄                |
 
 本文會說明詳細資料，不同的機制或工具可用來追蹤和稽核資料箱 」 或 「 大量資料方塊的順序。 這篇文章中的資訊適用於，方塊中的資料和大量資料方塊中。 在後續章節中，任何參考資料 方塊也適用於大量資料方塊中。
 
@@ -203,7 +203,7 @@ BOM 或資訊清單檔案也會複製到 Azure 儲存體帳戶中。 您可以�
 
 循環冗餘檢查 (CRC) 計算期間完成的作業上傳至 Azure。 從複製的資料，並比較資料上傳之後 CRCs。 CRC 不相符，表示對應的檔案無法上傳。
 
-根據預設，記錄會寫入到名為 copylog 的容器。 記錄會儲存具有下列命名慣例：
+根據預設，記錄會寫入名為容器 `copylog`。 記錄會儲存具有下列命名慣例：
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml` 。
 
@@ -245,7 +245,41 @@ Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一�
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+以下是範例`copylog`已在資料上傳至 Azure 期間重新命名的容器，不符合 Azure 命名慣例。
 
+適用於容器的新唯一名稱的格式`DataBox-GUID`和容器的資料會放入新的重新命名容器。 `copylog`指定舊的和新的容器名稱的容器。
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+以下是範例`copylog`其中的 blob 或 Azure 的命名慣例，不符合的檔案已重新命名資料上傳至 Azure 期間。 新的 blob 或檔案名稱會轉換成的容器的相對路徑的 SHA256 摘要並上傳至目的型別為基礎的路徑。 目的地可以是區塊 blob、 分頁 blob 或 Azure 檔案。
+
+`copylog`指定 Azure 中的舊和新的 blob 或檔案名稱和路徑。
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>資料清除後取得監督鏈記錄的鏈結
 

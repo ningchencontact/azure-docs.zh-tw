@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62109996"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550374"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>將 Web 角色和背景工作角色轉換成 Service Fabric 無狀態服務的指南
 本文說明如何將雲端服務的 Web 角色和背景工作角色移轉至 Service Fabric 無狀態服務。 對於整體架構會大致保持相同的應用程式來說，這是最簡單的雲端服務至 Service Fabric 移轉路徑。
@@ -32,7 +32,7 @@ ms.locfileid: "62109996"
 ![Service Fabric 和雲端服務專案的比較][3]
 
 ## <a name="worker-role-to-stateless-service"></a>背景工作角色至無狀態服務
-從概念上來說，背景工作角色代表無狀態的工作負載，這表示是工作負載的每個執行個體都是相同的，隨時都可將要求路由傳送到任何執行個體。 每個執行個體應該不會記得先前的要求。 工作負載的運作狀態是由外部狀態存放區 (例如 Azure 資料表儲存體或 Azure Document DB) 負責管理。 在 Service Fabric 中，這類工作負載是以無狀態服務來代表。 只要將背景工作角色程式碼轉換成無狀態服務，就能以最簡單的方式將背景工作角色移轉到 Service Fabric。
+從概念上來說，背景工作角色代表無狀態的工作負載，這表示是工作負載的每個執行個體都是相同的，隨時都可將要求路由傳送到任何執行個體。 每個執行個體應該不會記得先前的要求。 工作負載運作的狀態是由外部狀態存放區，例如 Azure 資料表儲存體或 Azure Cosmos DB 管理。 在 Service Fabric 中，這類工作負載是以無狀態服務來代表。 只要將背景工作角色程式碼轉換成無狀態服務，就能以最簡單的方式將背景工作角色移轉到 Service Fabric。
 
 ![背景工作角色至無狀態服務][4]
 

@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296507"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565598"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>開始使用 Azure 監視器中的 Log Analytics
 
@@ -55,7 +55,7 @@ Event | search "error"
 
 此查詢會搜尋_事件_資料表的記錄，包含該詞彙_錯誤_中任何屬性。
 
-查詢可以透過資料表名稱或 [search](/kusto/query/searchoperator) 命令來開始。 上述範例中的資料表名稱開頭_事件_，表示事件資料表中擷取所有記錄。 縱線 (|) 字元區隔命令，，因此第一個輸出可做為輸入的下列命令。 您可以在單一查詢中新增任意數目的命令。
+查詢可以透過資料表名稱或 [search](/azure/kusto/query/searchoperator) 命令來開始。 上述範例中的資料表名稱開頭_事件_，表示事件資料表中擷取所有記錄。 縱線 (|) 字元區隔命令，，因此第一個輸出可做為輸入的下列命令。 您可以在單一查詢中新增任意數目的命令。
 
 另一種撰寫該相同查詢的方式會是：
 

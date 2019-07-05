@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299282"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565377"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>追蹤 Azure Application Insights 中的相依性 
 
@@ -104,7 +104,7 @@ ASP.NET 應用程式，完整的 SQL 查詢會收集的位元組程式碼檢測�
 | --- | --- |
 | Azure Web 應用程式 |在您 web 應用程式控制台[開啟 [Application Insights] 刀鋒視窗](../../azure-monitor/app/azure-web-apps.md)並啟用 SQL 命令，在.NET 底下 |
 | IIS 伺服器 （Azure VM、 內部，等等。） | [您的應用程式執行所在的伺服器上安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)並重新啟動 IIS。
-| Azure 雲端服務 |[使用啟動工作](../../azure-monitor/app/cloudservices.md)至[安裝狀態監視器](monitor-performance-live-website-now.md#download) |
+| Azure 雲端服務 | 新增[安裝 StatusMonitor 的啟動工作](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> 您的應用程式應該會在建置階段上的架到 application Insights SDK 所安裝的 NuGet 套件[ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)或[ASP.NET Core 應用程式](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | 不支援
 
 在上述所有情況下，驗證該檢測引擎的正確方式是正確安裝是藉由驗證的 SDK 版本收集`DependencyTelemetry`是 'rddp'。 'rdddsd' 或 'rddf' 表示相依性會收集透過 DiagnosticSource 或 EventSource 的回呼，並因此將不會擷取完整的 SQL 查詢。
@@ -113,47 +113,25 @@ ASP.NET 應用程式，完整的 SQL 查詢會收集的位元組程式碼檢測�
 
 * [應用程式對應](app-map.md)會以視覺化方式顯示您應用程式與相鄰元件之間的相依性。
 * [交易診斷](transaction-diagnostics.md)顯示整合、 相互關聯的伺服器資料。
-* [瀏覽器刀鋒視窗](javascript.md#ajax-performance)會顯示來自您使用者瀏覽器的 AJAX 呼叫。
+* [瀏覽器索引標籤](javascript.md#ajax-performance)顯示來自使用者的瀏覽器的 AJAX 呼叫。
 * 從速度緩慢或失敗的要求逐一點選以檢查其相依性呼叫。
-* [分析](#analytics)可用來查詢相依性資料。
+* [分析](#logs-analytics)可用來查詢相依性資料。
 
 ## <a name="diagnosis"></a> 診斷速度緩慢的要求
 
-每個要求事件都與相依性呼叫、例外狀況及您應用程式處理要求時所追蹤的其他事件相關聯。 因此如果某些要求執行錯誤，您可以找出是否因為相依性回應變慢。
-
-讓我們逐步解說一個該情況的範例。
+每個要求事件是相關聯的相依性呼叫、 例外狀況，以及其他應用程式處理要求時所追蹤的事件。 因此如果某些要求執行錯誤，您可以找出是否因為相依性回應變慢。
 
 ### <a name="tracing-from-requests-to-dependencies"></a>進行從要求到相依性的追蹤
 
-開啟 [效能] 刀鋒視窗，然後查看要求方格：
+開啟**效能**索引標籤，然後瀏覽至**相依性**旁邊作業頂端索引標籤。
 
-![含有平均和計數的要求清單](./media/asp-net-dependencies/02-reqs.png)
+按一下 **相依性名稱**整體底下。 選取相依性之後該相依性的持續時間的分佈的圖形會顯示在右邊。
 
-最上方的時間長。 來看看我們是否可以查明時間花費在何處。
+![在效能 索引標籤上按一下 相依性 索引標籤，然後在圖表中的相依性名稱上方](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-按一下該列，以查看個別的要求事件：
+按一下藍色**範例**右下角，然後按一下 [範例，了解端對端交易詳細資料] 按鈕。
 
-![要求發生次數的清單](./media/asp-net-dependencies/03-instances.png)
-
-按一下任何長時間執行的執行個體來進一步檢查，然後向下捲動至與此要求相關的遠端相依性呼叫：
-
-![尋找遠端相依性的呼叫，識別不尋常的持續時間](./media/asp-net-dependencies/04-dependencies.png)
-
-看起來此要求的大部分時間似乎都花費在呼叫本機服務上。
-
-選取該列，以取得詳細資訊：
-
-![點選該遠端相依性來找出問題原因](./media/asp-net-dependencies/05-detail.png)
-
-看起來像是此相依性是問題所在。 我們已經指出問題，因此現在只需要了解為何該呼叫花費那麼長的時間。
-
-### <a name="request-timeline"></a>要求時間軸
-
-在一個不同的案例中，並沒有任何特別長的相依性呼叫。 但藉由切換到時間軸檢視，我們即可看到在內部處理中發生延遲的地方：
-
-![尋找遠端相依性的呼叫，識別不尋常的持續時間](./media/asp-net-dependencies/04-1.png)
-
-在第一次相依性呼叫之後似乎有一個很大的間隔，因此我們應該查看程式碼來找出原因。
+![按一下以查看端對端交易詳細資料範例](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>剖析您的即時網站
 
@@ -161,35 +139,35 @@ ASP.NET 應用程式，完整的 SQL 查詢會收集的位元組程式碼檢測�
 
 ## <a name="failed-requests"></a>失敗的要求
 
-失敗的要求可能也會與失敗的相依性呼叫關聯。 同樣地，我們可以逐一點選來追蹤問題。
+失敗的要求可能也會與失敗的相依性呼叫關聯。
 
-![按一下失敗要求的圖表](./media/asp-net-dependencies/06-fail.png)
+我們可以前往**失敗**左側索引標籤，然後按一下**相依性**頂端索引標籤。
 
-逐一點選至失敗要求的某個發生項目，然後查看其相關事件。
+![按一下失敗要求的圖表](./media/asp-net-dependencies/4-fail.png)
 
-![按一下要求類型，按一下執行個體以取得同一個執行個體的不同檢視，按一下執行個體以取得例外狀況的詳細資料。](./media/asp-net-dependencies/07-faildetail.png)
+這裡您將能夠看到失敗的相依性計數。 若要取得更多詳細的失敗嘗試按一下下表中的相依性名稱的項目。 您可以按一下藍色**相依性**右下方，以取得端對端交易詳細資料 按鈕。
 
-## <a name="analytics"></a>分析
+## <a name="logs-analytics"></a>記錄檔 （分析）
 
 您可以在 [Kusto 查詢語言](/azure/kusto/query/)中追蹤相依性。 以下是一些範例。
 
 * 尋找任何失敗的相依性呼叫：
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * 尋找 AJAX 呼叫︰
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * 尋找與要求關聯的相依性呼叫：
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ ASP.NET 應用程式，完整的 SQL 查詢會收集的位元組程式碼檢測�
 
 * 尋找與頁面檢視關聯的 AJAX 呼叫：
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>影片
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
@@ -220,7 +194,6 @@ ASP.NET 應用程式，完整的 SQL 查詢會收集的位元組程式碼檢測�
 
 ## <a name="open-source-sdk"></a>開放原始碼 SDK
 每個 Application Insights SDK 中，例如相依性集合模組也是開放原始碼。 讀取和貢獻程式碼，或回報問題[官方 GitHub 存放庫](https://github.com/Microsoft/ApplicationInsights-dotnet-server)。
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 882f44683bbdc7f4eb49ff4912ca7a33187afbf8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758643"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537895"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>管理叢集相應放大以因應不斷變化的需求
 
@@ -76,10 +76,10 @@ ms.locfileid: "60758643"
 
 您現在已為您的 Azure 資料總管叢集設定相應放大作業。 為相應縮小作業新增另一條規則。 此設定可讓您的叢集調整會根據您指定的計量，以動態方式。
 
-您也可以[管理叢集相應增加](manage-cluster-scale-up.md)適當調整大小的叢集。
-
 如果您需要叢集調整問題，協助[開啟支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)在 Azure 入口網站中。
 
 ## <a name="next-steps"></a>後續步驟
 
-[監視 Azure 資料總管效能、 健全狀況和使用量計量](using-metrics.md)
+* [監視 Azure 資料總管效能、 健全狀況和使用量計量](using-metrics.md)
+
+* [管理叢集相應增加](manage-cluster-scale-up.md)適當調整大小的叢集。

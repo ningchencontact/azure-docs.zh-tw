@@ -2,26 +2,21 @@
 title: Azure Active Directory 條件式存取常見問題集 |Microsoft Docs
 description: 取得 Azure Active Directory 中的條件式存取常見問題的解答。
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112403"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508986"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 條件式存取常見問題集
 
@@ -33,12 +28,9 @@ ms.locfileid: "67112403"
 
 系統會針對企業對企業 (B2B) 共同作業使用者強制執行原則。 不過，在某些情況下，使用者可能無法符合原則需求。 例如，來賓使用者的組織可能不支援多重要素驗證。 
 
-
-
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>SharePoint Online 原則也適用於商務用 OneDrive 嗎？
 
 是。 SharePoint Online 原則也會套用至商務用 OneDrive。
-
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>為什麼我無法在用戶端應用程式 (例如 Word 或 Outlook) 上設定原則？
 
@@ -56,7 +48,6 @@ ms.locfileid: "67112403"
 
 目前，條件式存取原則會選擇性地強制執行 iOS 和 Android 裝置的使用者。 其他裝置平台上的應用程式，根據預設，不會受到適用於 iOS 和 Android 裝置的條件式存取原則。 租用戶管理員可選擇覆寫全域原則，以禁止不受支援平台上的使用者存取。
 
-
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>條件式存取原則如何運作的 Microsoft Teams？
 
 Microsoft Teams 在核心產能情節中非常依賴 Exchange Online 和 SharePoint Online，例如會議、行事曆和檔案共用。 已為這些雲端應用程式的條件式存取原則套用至 Microsoft Teams 時使用者用以登直接在 Microsoft Teams。
@@ -64,3 +55,7 @@ Microsoft Teams 在核心產能情節中非常依賴 Exchange Online 和 SharePo
 Microsoft Teams 也支援分別作為雲端應用程式在 Azure Active Directory 條件式存取原則。 當使用者登入時，已為雲端應用程式的條件式存取原則會套用至 Microsoft Teams。 不過，如果其他應用程式 (例如 Exchange Online 和 SharePoint Online) 沒有正確的原則，使用者可能仍然可以直接存取這些資源。
 
 適用於 Windows 和 Mac 的 Microsoft Teams 桌面用戶端支援新式驗證。 新式驗證以 Azure Active Directory 驗證程式庫 (ADAL) 為基礎，支援 Microsoft Office 用戶端應用程式跨平台登入。
+
+## <a name="next-steps"></a>後續步驟
+
+- 若要設定條件式存取原則，為您的環境，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。 

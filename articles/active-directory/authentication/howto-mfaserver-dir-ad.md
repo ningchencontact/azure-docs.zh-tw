@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055994"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536977"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 
@@ -31,6 +31,9 @@ ms.locfileid: "67055994"
 根據預設，Azure Multi-Factor Authentication (MFA) Server 會設定為從 Active Directory 匯入或同步處理使用者。  [目錄整合] 索引標籤可讓您覆寫預設行為，並繫結至不同的 LDAP 目錄、ADAM 目錄或特定 Active Directory 網域控制站。  它也支援使用 LDAP 驗證來代理 LDAP 或 LDAP 繫結做為 RADIUS 目標、IIS 驗證的預先驗證，或使用者入口網站的主要驗證。  下表描述個別設定。
 
 ![編輯 LDAP 組態，在 MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> 目錄整合不保證使用 Active Directory 網域服務以外的目錄。
 
 | 功能 | 描述 |
 | --- | --- |

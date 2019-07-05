@@ -3,6 +3,7 @@ title: Azure SQL Database Machine Learning 服務 （預覽） 的主要差異
 description: 本主題說明 Azure SQL Database 機器學習服務 (搭配 R) 和 SQL Server 機器學習服務的主要差異。
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725046"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485997"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL Database （預覽） 中的機器學習服務和 SQL Server 的主要差異
 
@@ -43,12 +44,15 @@ SQL Database 和 SQL Server 對於 R 套件的管理和安裝方式有所不同�
 - 套件無法執行輸出網路呼叫。 這項限制是類似[Machine Learning 服務的預設防火牆規則](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration)在 SQL Server，但無法變更 SQL Database 中。
 - 對於依賴外部執行階段 (如 Java) 或需要 OS API 安裝或使用存取權的套件並不支援。
 
+## <a name="writing-to-a-temporary-table"></a>寫入暫存資料表
+
+如果您在 Azure SQL Database，使用 RODBC，則您無法寫入暫存資料表時，是否就會建立之內或之外`sp_execute_external_script`工作階段。 因應措施是使用[RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata)並[rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (覆寫 = FALSE，並將附加 = 「 資料列 」) 將寫入之前建立的全域暫存資料表`sp_execute_external_script`查詢。
+
 ## <a name="resource-governance"></a>資源管理
 
 無法透過 [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) 和外部資源集區限制 R 資源。
 
 公開預覽期間，R 資源設定為最多 20%的 SQL Database 資源，且取決在您選擇哪個服務層上。 如需詳細資訊，請參閱 [Azure SQL Database 購買模型](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)。
-
 ### <a name="insufficient-memory-error"></a>記憶體不足的錯誤
 
 如果沒有適用於 R 的記憶體不足，就會出現錯誤訊息。 常見的錯誤訊息如下：

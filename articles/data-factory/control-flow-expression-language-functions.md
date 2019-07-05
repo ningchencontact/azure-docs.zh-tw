@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d48d9e89085e08ac4da9db15458e3a3aa8152bb5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573544"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541225"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
 > [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
@@ -139,6 +139,9 @@ ms.locfileid: "64573544"
     }
 }
 ```
+#### <a name="tutorial"></a>教學課程
+這[教學課程](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)逐步引導您如何將參數傳遞的管線及活動內的活動之間。
+
   
 ## <a name="functions"></a>函式  
  您可以在運算式內呼叫函式。 下列各節提供可在運算式中使用之函式的相關資訊。  
@@ -149,16 +152,16 @@ ms.locfileid: "64573544"
 |函式名稱|描述|  
 |-------------------|-----------------|  
 |concat|結合任何數目的字串。 例如，如果 parameter1 是 `foo,`，下列運算式會傳回 `somevalue-foo-somevalue`：`concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：字串 *n*<br /><br /> **描述**：必要。 要結合至單一字串的字串。|  
-|substring|從字串傳回字元的子集。 例如，下列運算式：<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 傳回：<br /><br /> `foo`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 從中採用子字串的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：開始索引<br /><br /> **描述**：必要。 子字串在參數 1 中開始的索引。<br /><br /> **參數編號**：3<br /><br /> **名稱**：長度<br /><br /> **描述**：必要。 子字串的長度。|  
+|substring|從字串傳回字元的子集。 例如，下列運算式：<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> 傳回：<br /><br /> `foo`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 從中採用子字串的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：開始索引<br /><br /> **描述**：必要。 子字串在參數 1 中開始的索引。<br /><br /> **參數編號**：3<br /><br /> **名稱**：長度<br /><br /> **描述**：必要。 子字串的長度。|  
 |取代|以指定的字串取代字串。 例如，運算式：<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> 傳回：<br /><br /> `the new string`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。  若參數 2 在參數 1 中找到時，針對參數 2 搜尋和使用參數 3 更新的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：舊字串<br /><br /> **描述**：必要。 在參數 1 中找到相符項目時，以參數 3 取代的字串<br /><br /> **參數編號**：3<br /><br /> **名稱**：新字串<br /><br /> **描述**：必要。 在參數 1 中找到相符項目時，用來取代參數 2 中字串的字串。|  
 |GUID| 產生全域唯一字串 (亦稱為 GUID)。 例如，可能會產生下列輸出 `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`：<br /><br /> `guid()`<br /><br /> **參數編號**：1<br /><br /> **名稱**：格式<br /><br /> **描述**：選用。 單一格式規範，指出[如何格式化這個 Guid 值](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx)。 格式參數可以是 "N"、"D"、"B"、"P" 或 "X"。 如果未提供格式，則會使用 "D"。|  
 |toLower|將字串轉換為小寫。 例如，下列範例會傳回 `two by two is four`：`toLower('Two by Two is Four')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要轉換成小寫的字串。 如果字串中的字元沒有對等小寫，它在傳回的字串中會保持不變。|  
-|toUpper|將字串轉換為大寫。 例如，下列運算式會傳回 `TWO BY TWO IS FOUR`：`toUpper('Two by Two is Four')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要轉換成大寫的字串。 如果字串中的字元沒有對等大寫，它在傳回的字串中會保持不變。|  
-|indexof|在不區分大小寫字串內尋找值的索引。 例如，下列運算式會傳回 `7`：`indexof('hello, world.', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要搜尋索引的值。|  
-|lastindexof|在不區分大小寫字串內尋找值的最後一個索引。 例如，下列運算式會傳回 `3`：`lastindexof('foofoo', 'foo')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要搜尋索引的值。|  
-|startswith|檢查字串是否以不區分大小寫的值開頭。 例如，下列運算式會傳回 `true`：`startswith('hello, world', 'hello')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 字串可能開始的值。|  
-|endswith|檢查字串是否以不區分大小寫的值結尾。 例如，下列運算式會傳回 `true`：`endswith('hello, world', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 字串可能結尾的值。|  
-|split|使用分隔符號分隔字串。 例如，下列運算式會傳回 `["a", "b", "c"]`：`split('a;b;c',';')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 分割的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 分隔符號。|  
+|toUpper|將字串轉換為大寫。 例如，下列運算式會傳回 `TWO BY TWO IS FOUR`：`toUpper('Two by Two is Four')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 要轉換成大寫的字串。 如果字串中的字元沒有對等大寫，它在傳回的字串中會保持不變。|  
+|indexof|在不區分大小寫字串內尋找值的索引。 例如，下列運算式會傳回 `7`：`indexof('hello, world.', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 要搜尋索引的值。|  
+|lastindexof|在不區分大小寫字串內尋找值的最後一個索引。 例如，下列運算式會傳回 `3`：`lastindexof('foofoo', 'foo')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 要搜尋索引的值。|  
+|startswith|檢查字串是否以不區分大小寫的值開頭。 例如，下列運算式會傳回 `true`：`startswith('hello, world', 'hello')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 字串可能開始的值。|  
+|endswith|檢查字串是否以不區分大小寫的值結尾。 例如，下列運算式會傳回 `true`：`endswith('hello, world', 'world')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 可以包含值的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 字串可能結尾的值。|  
+|split|使用分隔符號分隔字串。 例如，下列運算式會傳回 `["a", "b", "c"]`：`split('a;b;c',';')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 分割的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 分隔符號。|  
   
   
 ## <a name="collection-functions"></a>集合函式  
@@ -167,14 +170,14 @@ ms.locfileid: "64573544"
 |函式名稱|描述|  
 |-------------------|-----------------|  
 |contains|如果字典包含索引鍵、清單包含值，或字串包含子字串，則傳回 true。 例如，下列運算式會傳回 `true:``contains('abacaba','aca')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合中<br /><br /> **描述**：必要。 在其中搜尋的集合。<br /><br /> **參數編號**：2<br /><br /> **名稱**：尋找物件<br /><br /> **描述**：必要。 要在**集合內**尋找的物件。|  
-|length|傳回陣列或字串中的元素數目。 例如，下列運算式會傳回 `3`：`length('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合<br /><br /> **描述**：必要。 要用來取得長度的集合。|  
-|empty|如果物件、陣列或字串是空的，則傳回 true。 例如，下列運算式會傳回 `true`：<br /><br /> `empty('')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合<br /><br /> **描述**：必要。 集合為空白時要檢查的集合。|  
+|length|傳回陣列或字串中的元素數目。 例如，下列運算式會傳回 `3`：`length('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Collection<br /><br /> **描述**：必要。 要用來取得長度的集合。|  
+|empty|如果物件、陣列或字串是空的，則傳回 true。 例如，下列運算式會傳回 `true`：<br /><br /> `empty('')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Collection<br /><br /> **描述**：必要。 集合為空白時要檢查的集合。|  
 |交集|傳回單一陣列或物件，在陣列或物件之間具有傳入的通用元素。 例如，此函式會傳回 `[1, 2]`：<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> 函式的參數可以是一組物件或一組陣列 (不是混合)。 如果有兩個物件具有相同名稱，具有該名稱的最後一個物件會出現在最終物件。<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：集合 *n*<br /><br /> **描述**：必要。 要評估的集合。 物件必須在傳入以出現在結果中的所有集合中。|  
 |union|傳回單一陣列或物件，在陣列或物件中具有傳入的所有元素。 例如，此函式會傳回 `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> 函式的參數可以是一組物件或一組陣列 (不是混合)。 如果最終輸出中有兩個物件具有相同名稱，具有該名稱的最後一個物件會出現在最終物件。<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：集合 *n*<br /><br /> **描述**：必要。 要評估的集合。 會出現在任何集合的物件，就會出現在結果中。|  
-|first|傳回傳入之陣列或字串中的第一個元素。 例如，此函式會傳回 `0`：<br /><br /> `first([0,2,3])`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合<br /><br /> **描述**：必要。 要從中採用第一個物件的集合。|  
-|last|傳回傳入之陣列或字串中的最後一個元素。 例如，此函式會傳回 `3`：<br /><br /> `last('0123')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合<br /><br /> **描述**：必要。 要從中採用最後一個物件的集合。|  
-|take|傳回傳入之陣列或字串中的第一個 **Count** 元素，例如，此函式會傳回 `[1, 2]`：`take([1, 2, 3, 4], 2)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合<br /><br /> **描述**：必要。 從其中採用第一個 **Count** 物件的集合。<br /><br /> **參數編號**：2<br /><br /> **名稱**：計數<br /><br /> **描述**：必要。 從**集合**採用的物件數目。 必須是正整數。|  
-|skip|傳回從索引**計數**開始之陣列中的元素，例如，此函式會傳回 `[3, 4]`：<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：集合<br /><br /> **描述**：必要。 略過第一個 **Count** 物件的集合。<br /><br /> **參數編號**：2<br /><br /> **名稱**：計數<br /><br /> **描述**：必要。 從**集合**前面移除的物件數目。 必須是正整數。|  
+|first|傳回傳入之陣列或字串中的第一個元素。 例如，此函式會傳回 `0`：<br /><br /> `first([0,2,3])`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Collection<br /><br /> **描述**：必要。 要從中採用第一個物件的集合。|  
+|last|傳回傳入之陣列或字串中的最後一個元素。 例如，此函式會傳回 `3`：<br /><br /> `last('0123')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Collection<br /><br /> **描述**：必要。 要從中採用最後一個物件的集合。|  
+|take|傳回傳入之陣列或字串中的第一個 **Count** 元素，例如，此函式會傳回 `[1, 2]`：`take([1, 2, 3, 4], 2)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Collection<br /><br /> **描述**：必要。 從其中採用第一個 **Count** 物件的集合。<br /><br /> **參數編號**：2<br /><br /> **名稱**：計數<br /><br /> **描述**：必要。 從**集合**採用的物件數目。 必須是正整數。|  
+|skip|傳回從索引**計數**開始之陣列中的元素，例如，此函式會傳回 `[3, 4]`：<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Collection<br /><br /> **描述**：必要。 略過第一個 **Count** 物件的集合。<br /><br /> **參數編號**：2<br /><br /> **名稱**：計數<br /><br /> **描述**：必要。 從**集合**前面移除的物件數目。 必須是正整數。|  
   
 ## <a name="logical-functions"></a>邏輯函式  
  這些函式在條件內相當有用，而且可以用來評估任何類型的邏輯。  
@@ -194,7 +197,7 @@ ms.locfileid: "64573544"
 ## <a name="conversion-functions"></a>轉換函式  
  這些函式是用來在每個原生類型語言之間轉換︰  
   
--   字串  
+-   string  
   
 -   integer  
   
@@ -209,25 +212,25 @@ ms.locfileid: "64573544"
 |函式名稱|描述|  
 |-------------------|-----------------|  
 |int|將參數轉換成整數。 例如，下列運算式會傳回 100 做為數字，而不是字串︰`int('100')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成整數的值。|  
-|字串|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成字串的值。|  
+|string|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成字串的值。|  
 |json|將參數轉換成 JSON 類型值， 並且與 string() 相反。 例如，下列運算式會傳回 `[1,2,3]` 做為數字，而不是字串︰<br /><br /> `json('[1,2,3]')`<br /><br /> 同樣地，您可以將字串轉換成物件。 例如，`json('{"bar" : "baz"}')` 會傳回：<br /><br /> `{ "bar" : "baz" }`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 轉換成原生類型值的字串。<br /><br /> JSON 函式也支援 XML 輸入。 例如，參數值︰<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 轉換為下列 JSON：<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|將參數引數轉換成浮點數。 例如，下列運算式會傳回 `10.333`：`float('10.333')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成浮點數的值。|  
-|布林|將參數轉換成布林值。 例如，下列運算式會傳回 `false`：`bool(0)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成布林值的值。|  
+|bool|將參數轉換成布林值。 例如，下列運算式會傳回 `false`：`bool(0)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成布林值的值。|  
 |coalesce|傳回傳入的引數中第一個非 null 的物件。 注意︰空字串不是 null。 例如，如果未定義參數 1 和 2，此範例會傳回 `fallback`：`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：物件*n*<br /><br /> **描述**：必要。 要檢查其是否有 `null` 的物件。|  
 |base64|傳回輸入字串的 base64 表示法。 例如，下列運算式會傳回 `c29tZSBzdHJpbmc=`：`base64('some string')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串 1<br /><br /> **描述**：必要。 要編碼為 base64 表示法的字串。|  
-|base64ToBinary|傳回 base64 編碼字串的二進位表示法。 例如，下列運算式會傳回某字串的二進位表示法：`base64ToBinary('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 base64 編碼的字串。|  
-|base64ToString|傳回 based64 編碼字串的字串表示法。 例如，下列運算式會傳回某字串：`base64ToString('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 base64 編碼的字串。|  
+|base64ToBinary|傳回 base64 編碼字串的二進位表示法。 例如，下列運算式會傳回某字串的二進位表示法：`base64ToBinary('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 base64 編碼的字串。|  
+|base64ToString|傳回 based64 編碼字串的字串表示法。 例如，下列運算式會傳回某字串：`base64ToString('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 base64 編碼的字串。|  
 |Binary|傳回值的二進位表示法。  例如，下列運算式會傳回某字串的二進位表示法：`binary(‘some string’).`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成二進位的值。|  
 |dataUriToBinary|傳回資料 URI 的二進位表示法。 例如，下列運算式會傳回某字串的二進位表示法：`dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要轉換成二進位表示法的資料 URI。|  
 |dataUriToString|傳回資料 URI 的字串表示法。 例如，下列運算式會傳回某字串：`dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br />**描述**：必要。 要轉換成字串表示法的資料 URI。|  
 |dataUri|傳回值的資料 URI。 例如，下列運算式會傳回資料：`text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')`<br /><br /> **參數編號**：1<br /><br />**名稱**：值<br /><br />**描述**：必要。 要轉換成資料 URI 的值。|  
-|decodeBase64|傳回輸入 based64 字串的字串表示法。 例如，下列運算式會傳回 `some string`：`decodeBase64('c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：傳回輸入 based64 字串的字串表示法。|  
-|encodeUriComponent|URL 逸出傳入的字串。 例如，下列運算式會傳回 `You+Are%3ACool%2FAwesome`：`encodeUriComponent('You Are:Cool/Awesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要從中逸出 URL 不安全字元的字串。|  
-|decodeUriComponent|非 URL 逸出傳入的字串。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`encodeUriComponent('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要從中解碼 URL 不安全字元的字串。|  
-|decodeDataUri|傳回輸入資料 URI 字串的二進位表示法。 例如，下列運算式會傳回 `some string` 的二進位表示法：`decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要解碼為二進位表示法的 dataURI。|  
+|decodeBase64|傳回輸入 based64 字串的字串表示法。 例如，下列運算式會傳回 `some string`：`decodeBase64('c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：傳回輸入 based64 字串的字串表示法。|  
+|encodeUriComponent|URL 逸出傳入的字串。 例如，下列運算式會傳回 `You+Are%3ACool%2FAwesome`：`encodeUriComponent('You Are:Cool/Awesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 要從中逸出 URL 不安全字元的字串。|  
+|decodeUriComponent|非 URL 逸出傳入的字串。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`encodeUriComponent('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 要從中解碼 URL 不安全字元的字串。|  
+|decodeDataUri|傳回輸入資料 URI 字串的二進位表示法。 例如，下列運算式會傳回 `some string` 的二進位表示法：`decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br /> **描述**：必要。 要解碼為二進位表示法的 dataURI。|  
 |uriComponent|傳回值的 URI 編碼表示法。 例如，下列運算式會傳回 `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`<br /><br /> 參數詳細資料：編號：1，名稱：字串，描述：必要。 要進行 URI 編碼的字串。|  
-|uriComponentToBinary|傳回 URI 編碼字串的二進位表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome` 的二進位表示法：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br />**描述**：必要。 URI 編碼的字串。|  
-|uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br />**名稱**：字串<br /><br />**描述**：必要。 URI 編碼的字串。|  
+|uriComponentToBinary|傳回 URI 編碼字串的二進位表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome` 的二進位表示法：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：String<br /><br />**描述**：必要。 URI 編碼的字串。|  
+|uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br />**名稱**：String<br /><br />**描述**：必要。 URI 編碼的字串。|  
 |Xml|傳回值的 XML 表示法。 例如，下列運算式會傳回以 `'\<name>Alan\</name>'` 表示的 XML 內容：`xml('\<name>Alan\</name>')`。 XML 函式也支援 JSON 物件輸入。 例如，參數 `{ "abc": "xyz" }` 轉換成 XML 內容 `\<abc>xyz\</abc>`<br /><br /> **參數編號**：1<br /><br />**名稱**：值<br /><br />**描述**：必要。 要轉換成 XML 的值。|  
 |xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。<br /><br />  **範例 1**<br /><br /> 假設參數 ‘p1’ 的值是下列 XML 的字串表示法：<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1.此程式碼：`xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 會傳回<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 而<br /><br /> 2.此程式碼：`xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 會傳回<br /><br /> `13`<br /><br /> <br /><br /> **範例 2**<br /><br /> 指定下列 XML 內容：<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 或<br /><br /> 2.此程式碼：`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 傳回<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 和<br /><br /> 3.此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 傳回<br /><br /> ``bar``<br /><br /> **參數編號**：1<br /><br />**名稱**：Xml<br /><br />**描述**：必要。 要評估 XPath 運算式的 XML。<br /><br /> **參數編號**：2<br /><br />**名稱**：XPath<br /><br />**描述**：必要。 要評估的 XPath 運算式。|  
 |array|將參數轉換成陣列。  例如，下列運算式會傳回 `["abc"]`：`array('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成陣列的值。|

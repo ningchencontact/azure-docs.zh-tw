@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4c6952aab1581a968fc671141792c0e16a7d46
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113387"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536959"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
 Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透過 Azure 入口網站使用。 下表列出可用的報告：
 
-| 報告 | 位置 | 描述 |
+| 報告 | Location | 描述 |
 |:--- |:--- |:--- |
 | 已封鎖的使用者歷程記錄 | Azure AD > MFA Server > 封鎖/解除封鎖使用者 | 顯示使用者封鎖或解除封鎖要求的歷程記錄。 |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
@@ -188,5 +188,6 @@ MFA 的登入活動報告可讓您存取下列資訊：
 
 ## <a name="next-steps"></a>後續步驟
 
+* [SSPR 和 MFA 使用量和 insights 報告](howto-authentication-methods-usage-insights.md)
 * [適用於使用者](../user-help/multi-factor-authentication-end-user.md)
 * [部署的位置](concept-mfa-whichversion.md)

@@ -4,7 +4,7 @@ description: 了解如何在 Azure Functions 中使用 Azure 佇列儲存體觸�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472291"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480147"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -307,7 +307,7 @@ module.exports = async function (context, message) {
 
 [host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 請參閱[host.json 設定](#hostjson-settings)一節以取得有關可用設定的詳細資訊。
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 使用 Azure 佇列儲存體輸出繫結，將訊息寫入佇列。
 

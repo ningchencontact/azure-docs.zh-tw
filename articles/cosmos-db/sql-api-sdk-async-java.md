@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57570091"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509275"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Async JAVA SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 | **最低支援執行階段**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* TCP 模式現在預設
+* 跨分割區中的查詢計量現在會傳回所有資料分割
+* 全域的強式現在可正常運作
+* 查詢的容錯移轉未正確重試的多重主機
+* 相依性 bumps 安全性 hotfix
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* 如需雜湊 V2 支援的錯誤修正
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * Client#close() 上的資源流失的錯誤修正 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88))。

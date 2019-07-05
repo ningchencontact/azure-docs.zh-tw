@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
-ms.translationtype: MT
+ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150332"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540346"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -83,29 +83,24 @@ Azure 檔案服務提供兩個效能層級： 標準和進階。
 標準檔案共用最多 5 TiB 的大小都有的 GA 供應項目。 雖然較大的檔案共用，也就是任何大於 5 TiB，上限為 100 的 TiB 的共用是目前可供預覽供應項目。
 
 > [!IMPORTANT]
-> - 必須要建立新的一般用途儲存體帳戶 （不能擴充現有的儲存體帳戶）。
-> - 僅適用於 LRS。
-> - 提供三個區域：美國西部 2、 西歐及東南亞區域。
-> - GRS 帳戶轉換成 LRS 不可能在訂用帳戶已接受較大的檔案共用預覽之後建立任何新儲存體帳戶。
+> 請參閱[到較大的檔案共用 （標準層） 上架](#onboard-to-larger-file-shares-standard-tier)上架，以及範圍和限制的預覽區段的步驟。
 
-如果您想要上架到較大的檔案共用大小的預覽，提交這[表單](https://aka.ms/azurefilesatscalesurvey)。 
+### <a name="premium-file-shares"></a>進階檔案共用
 
-### <a name="premium-file-shares-preview"></a>進階檔案共用 (預覽)
-
-進階檔案共用 （預覽） 是由固態硬碟 (Ssd) 支援。 進階檔案共用提供一致的高效能、 低的延遲，對於大部分的 IO 作業，適用於 IO 密集型工作負載的個位數毫秒之內。 這讓它們適合各種不同的工作負載，例如資料庫、網站託管、開發環境等等。進階檔案共用僅適用於佈建計費模型。 進階檔案共用使用不同於標準檔案共用的部署模型。
+進階檔案共用是由固態硬碟 (Ssd) 支援。 進階檔案共用提供一致的高效能、 低的延遲，對於大部分的 IO 作業，適用於 IO 密集型工作負載的個位數毫秒之內。 這讓它們適用於各種不同的工作負載，例如資料庫、 web 站台裝載和開發環境。 進階檔案共用僅適用於佈建計費模型。 進階檔案共用使用不同於標準檔案共用的部署模型。
 
 Azure 備份可供進階檔案共用和 Azure Kubernetes 服務和更新版本 1.13，支援進階檔案共用。
 
 如果您想要了解如何建立進階檔案共用，請參閱我們的文章：[如何建立 Azure 的進階檔案儲存體帳戶](storage-how-to-create-premium-fileshare.md)。
 
-目前，您無法直接轉換為標準檔案共用和進階檔案共用之間。 如果您想要切換至其中一個階層，您必須在該層中建立新的檔案共用，並以手動方式從原始共用的資料複製到您所建立的新共用。 您可以使用任何支援的 Azure 檔案複製工具，例如 AzCopy。
+目前，您無法直接轉換為標準檔案共用和進階檔案共用之間。 如果您想要切換至其中一個階層，您必須在該層中建立新的檔案共用，並以手動方式從原始共用的資料複製到您所建立的新共用。 您可以使用任何支援的 Azure 檔案複製工具，例如 Robocopy 或 AzCopy。
 
 > [!IMPORTANT]
-> 進階檔案共用仍處於預覽狀態，僅適用於 LRS、，可提供儲存體帳戶的大部分區域中。 若要了解進階檔案共用是否目前可在您的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=storage)適用於 Azure 的頁面。
+> 進階檔案共用，僅適用於 LRS，並可提供儲存體帳戶的大部分區域中。 若要了解進階檔案共用是否目前可在您的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=storage)適用於 Azure 的頁面。
 
 ### <a name="provisioned-shares"></a>佈建共用
 
-進階檔案共用 （預覽） 會根據固定的 GiB/IOPS/輸送量比佈建。 對於每個佈建的 GiB，共用將會發出一個 IOPS 和 0.1 MiB/秒輸送量，直到每個共用的上限為止。 允許佈建的最小值為 100 GiB 與最小 IOPS/輸送量。
+進階檔案共用會以固定的 GiB/IOPS/輸送量比例為基礎佈建。 對於每個佈建的 GiB，共用將會發出一個 IOPS 和 0.1 MiB/秒輸送量，直到每個共用的上限為止。 允許佈建的最小值為 100 GiB 與最小 IOPS/輸送量。
 
 在盡可能達成的基礎上，每個佈建之儲存體 Gib 的所有共用都可高載至最多三個 IOPS，並持續 60 分鐘或更久的時間 (視共用大小而定)。 新的共用一開始有以佈建容量為基礎的完整高載額度。
 
@@ -136,6 +131,9 @@ Azure 備份可供進階檔案共用和 Azure Kubernetes 服務和更新版本 1
 |33,792      | 33,792  | 最多 100,000 部 | 2,088 | 1,392   |
 |51,200      | 51,200  | 最多 100,000 部 | 3,132 | 2,088   |
 |102,400     | 100,000 | 最多 100,000 部 | 6,204 | 4,136   |
+
+> [!NOTE]
+> 檔案共用效能受限於電腦網路限制、 可用的網路頻寬、 IO 大小、 平行處理原則，還有許多其他因素。 若要達到最大效能的小數位數，將負載分散到多個 Vm 上。 請參閱[疑難排解指南](storage-troubleshooting-files-performance.md)一些常見效能問題和因應措施。
 
 ### <a name="bursting"></a>負載平衡
 
@@ -192,6 +190,48 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 * 區域備援儲存體 (ZRS) 提供高可用性使用同步複寫，而且可能在某些情況下比 GRS 更好的選擇。 如需有關 ZRS 的詳細資訊，請參閱 [ZRS](../common/storage-redundancy-zrs.md)。
 * 非同步複寫會涉及從將資料寫入主要區域，到將資料複寫至次要區域這段時間的延遲。 當發生區域性災害時，如果無法從主要區域復原尚未複寫到次要區域的變更，則這些變更可能會遺失。
 * 使用 GRS 時，複本不提供讀取或寫入存取，除非 Microsoft 起始對次要區域的容錯移轉。 在容錯移轉的情況下，當容錯移轉完成時，您會有該資料的讀取和寫入存取權。 如需詳細資訊，請參閱[災害復原指導方針](../common/storage-disaster-recovery-guidance.md)。
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>上架到較大的檔案共用 （標準層）
+
+本節僅適用於標準檔案共用。 GA 供應項目如果所有進階檔案共用有 100 TiB。
+
+### <a name="restrictions"></a>限制
+
+- 必須要建立新的一般用途儲存體帳戶 （不能擴充現有的儲存體帳戶）。
+- GRS 帳戶轉換成 LRS 不可能在訂用帳戶已接受較大的檔案共用預覽之後建立任何新儲存體帳戶。
+
+### <a name="regional-availability"></a>區域可用性
+
+標準檔案共用可用於所有區域最多 5 TiB。 在特定區域中，可以使用 100 TiB 限制，這些區域詳列於下表：
+
+|區域  |支援的備援  |現有的儲存體帳戶的支援  |
+|---------|---------|---------|
+|東南亞     |LRS|否         |
+|西歐     |LRS|否         |
+|美國西部 2     |LRS、 ZRS|否         |
+
+
+### <a name="steps-to-onboard"></a>要上架的步驟
+
+若要註冊您的訂用帳戶，以較大的檔案共用預覽，請執行下列 PowerShell 命令：
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+這兩個命令會執行後，會自動核准您的訂用帳戶。
+
+若要確認您的註冊狀態，您可以執行下列命令：
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+它可能需要 15 分鐘的時間的狀態，不過更新至 「 已註冊 」，您應該能夠使用，儘管功能。
+
+### <a name="use-larger-file-shares"></a>使用較大的檔案共用
+
+若要開始使用較大的檔案共用，請建立新的一般用途 v2 儲存體帳戶和新的檔案共用。
 
 ## <a name="data-growth-pattern"></a>資料成長模式
 

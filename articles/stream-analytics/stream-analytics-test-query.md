@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340871"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508712"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
 
 藉由使用 Azure Stream Analytics，您可以從輸入資料取樣，或上傳至 Azure 入口網站中測試查詢，而不需要啟動或停止工作的範例資料。
 
-## <a name="upload-sample-data-and-test-the-query"></a>上傳範例資料和測試查詢
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>上傳或從即時來源來測試查詢的範例資料
 
 1. 登入 Azure 入口網站。 
 
@@ -30,7 +30,7 @@ ms.locfileid: "67340871"
 
 4. 若要測試您的查詢您可以接著是取樣的即時輸入或從檔案上的傳的資料。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
 
-    1. 使用即時輸入： 以滑鼠右鍵按一下任何輸入。 然後選取**範例資料從輸入**。 在下一個畫面中，您可以設定此範例的持續時間。
+    1. 使用即時輸入： 以滑鼠右鍵按一下任何輸入。 然後選取**範例資料從輸入**。 在下一個畫面中，您可以設定此範例的持續時間。 取樣事件從即時來源將會擷取最多 1000 個事件或 1 MB （視何者先），讓取樣的資料不一定代表指定完整的時間間隔。
 
     1. 使用檔案： 以滑鼠右鍵按一下任何輸入。 然後選取 [從檔案上傳樣本資料]  。 
 

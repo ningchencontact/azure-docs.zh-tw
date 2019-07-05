@@ -1,19 +1,20 @@
 ---
-title: Azure 資料庫中的限制適用於 PostgreSQL-單一伺服器
-description: 本文說明 Azure database for PostgreSQL-單一伺服器，例如連線數量和儲存引擎選項的限制。
+title: 在 Azure Database for PostgreSQL-單一伺服器的限制
+description: 本文說明 Azure 資料庫中的限制適用於 PostgreSQL-單一伺服器，例如連線數量和儲存引擎選項。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732871"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448090"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Azure 資料庫中的限制適用於 PostgreSQL-單一伺服器
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL-單一伺服器的限制
 下列各節說明資料庫服務中的容量和功能限制。 如果您想要了解資源 （計算、 記憶體、 儲存體） 層，請參閱[定價層](concepts-pricing-tiers.md)文章。
 
 
@@ -34,7 +35,7 @@ ms.locfileid: "66732871"
 |記憶體最佳化| 4| 500|
 |記憶體最佳化| 8| 960|
 |記憶體最佳化| 16| 1900|
-|記憶體最佳化| 32| 1900|
+|記憶體最佳化| 32| 1987|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 嚴重錯誤︰很抱歉，已經有太多用戶端
@@ -48,6 +49,9 @@ Azure 系統需要五個連線，以用於監控適用於 PostgreSQL 伺服器�
 
 ### <a name="server-version-upgrades"></a>伺服器版本升級
 - 目前不支援在主要資料庫引擎版本之間進行自動轉換。 如果您希望升級至下個主要版本，請將資料庫[備份和還原](./howto-migrate-using-dump-and-restore.md)至使用新引擎版本所建立的伺服器。
+
+> 之前 PostgreSQL 第 10 版，請注意， [PostgreSQL 版本政策](https://www.postgresql.org/support/versioning/)視為_主要版本_升級為會在第一個增加_或_號碼 （若為第二個範例中，被視為 9.5 至 9.6_主要_版本升級)。
+> 從 10 版開始，只有第一個數字的變更會被視為主要版本升級 (比方說，是 10.0 到 10.1_次要_版本升級和 10 至 11_主要_版本升級)。
 
 ### <a name="vnet-service-endpoints"></a>VNet 服務端點
 - VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。

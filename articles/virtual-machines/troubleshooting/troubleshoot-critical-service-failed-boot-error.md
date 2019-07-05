@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593228"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449807"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>將 Azure VM 重新開機時，Windows 會在藍色畫面上顯示 "CRITICAL SERVICE FAILED"
 本文說明當您在 Microsoft Azure 中將 Windows 虛擬機器 (VM) 開機時可能發生的 "CRITICAL SERVICE FAILED" 錯誤。 文中會提供疑難排解步驟，以協助解決問題。 
@@ -30,7 +30,7 @@ ms.locfileid: "60593228"
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.md)中的開機螢幕擷取畫面時，您會在藍色畫面中看到下列其中一項錯誤訊息：
 
-- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 http://windows.com/stopcode 。 如果您連絡支援人員，請提供此資訊：停止代碼：CRITICAL SERVICE FAILED" 
+- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 https://windows.com/stopcode 。 如果您連絡支援人員，請提供此資訊：停止代碼：CRITICAL SERVICE FAILED" 
 - 「您的電腦發生問題，並需要重新啟動。 我們只會收集一些錯誤資訊，然後會為您重新啟動。 若要深入了解，您可稍後在線上搜尋此錯誤：CRITICAL_SERVICE_FAILED」
 
 ## <a name="cause"></a>原因

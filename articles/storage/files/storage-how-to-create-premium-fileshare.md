@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449908"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>如何建立進階 Azure 檔案共用
-進階檔案共用 （預覽） 提供固態硬碟 (SSD) 儲存媒體上，而且可用於 IO 密集型工作負載，包括裝載資料庫和高效能運算 (HPC)。 進階檔案共用裝載於特殊用途儲存體帳戶類型，稱為 FileStorage 帳戶。 進階檔案共用專為高效能和企業規模應用程式，提供一致的低延遲、 高 IOPS，以及高輸送量的共用。
+進階檔案共用提供固態硬碟 (SSD) 儲存媒體上，而且可用於 IO 密集型工作負載，包括裝載資料庫和高效能運算 (HPC)。 進階檔案共用裝載於特殊用途儲存體帳戶類型，稱為 FileStorage 帳戶。 進階檔案共用專為高效能和企業規模應用程式，提供一致的低延遲、 高 IOPS，以及高輸送量的共用。
 
 這篇文章會示範如何建立這個新的帳戶類型使用[Azure 入口網站](https://portal.azure.com/)，Azure PowerShell 和 Azure CLI。
 
@@ -30,7 +30,7 @@ ms.locfileid: "65190104"
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-### <a name="create-a-filestorage-preview-storage-account"></a>建立 filestorage （預覽） 的儲存體帳戶
+### <a name="create-a-filestorage-storage-account"></a>建立 filestorage 儲存體帳戶
 
 現在您已準備好建立您的儲存體帳戶。
 
@@ -47,10 +47,10 @@ ms.locfileid: "65190104"
 1. 接下來，輸入儲存體帳戶的名稱。 您所選擇的名稱在整個 Azure 中必須是唯一的。 名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。
 1. 選取儲存體帳戶的位置，或使用預設位置。
 1. 針對**效能**選取**Premium**。
-1. 選取 **帳戶種類**，然後選擇**FileStorage （預覽）** 。
+1. 選取 **帳戶種類**，然後選擇**FileStorage**。
 1. 離開**複寫**設為其預設值是**本地備援儲存體 (LRS)** 。
 
-    ![如何建立進階檔案共用的儲存體帳戶](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![如何建立進階檔案共用的儲存體帳戶](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. 選取 [檢閱 + 建立]  ，以檢閱您的儲存體帳戶設定並建立帳戶。
 1. 選取 [建立]  。
@@ -59,7 +59,7 @@ ms.locfileid: "65190104"
 
 ### <a name="create-a-premium-file-share"></a>建立進階檔案共用
 
-1. 在儲存體帳戶的左側功能表中，捲動到**檔案服務**區段，然後選取**檔案 （預覽）** 。
+1. 在儲存體帳戶的左側功能表中，捲動到**檔案服務**區段，然後選取**檔案**。
 1. 選取  **+ 檔案共用**來建立進階檔案共用。
 1. 輸入的名稱和所需的配額為檔案共用，然後選取**建立**。
 
@@ -82,14 +82,14 @@ ms.locfileid: "65190104"
 
 ### <a name="upgrade-your-powershell-module"></a>升級您的 PowerShell 模組
 
-若要使用 PowerShell 從 premium 」 的檔案共用進行互動，您必須安裝最新的 Az.Storage 模組。
+若要使用 PowerShell 從 premium 」 的檔案共用進行互動，您必須安裝 Az.Storage 模組版本 1.4.0 或最新的 Az.Storage 模組。
 
 從以提高的權限開啟 PowerShell 工作階段作為開始。
 
 安裝 Az.Storage 模組：
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶
@@ -112,9 +112,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>建立 FileStorage （預覽） 的儲存體帳戶
+### <a name="create-a-filestorage-storage-account"></a>建立 FileStorage 儲存體帳戶
 
-若要從 PowerShell 建立 filestorage （預覽） 的儲存體帳戶，請使用[新增 AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)命令：
+若要從 PowerShell 建立 filestorage 儲存體帳戶，請使用[新增 AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)命令：
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -145,15 +145,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 若要啟動 Azure Cloud Shell，請登入 [Azure 入口網站](https://portal.azure.com)。
 
-若想要登入您的本機安裝 CLI，請執行登入命令：
+如果您想要登入您的本機安裝的 cli，先確定您有最新版本，然後執行 登入命令：
 
 ```cli
 az login
 ```
-
-### <a name="add-the-preview-storage-cli-extension"></a>加入預覽儲存體 CLI 擴充功能
-
-因為進階檔案共用是一項預覽功能，您必須加入您的殼層中的預覽延伸模組。 若要這樣做，請使用 Cloud Shell 或本機殼層輸入以下命令：`az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 

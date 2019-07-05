@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123909"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508775"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>為組態伺服器設定從實體伺服器至 Azure 的災害復原
 
@@ -24,7 +24,7 @@ ms.locfileid: "62123909"
 本文假設您已經有：
 - [Azure 入口網站] (https://portal.azure.com "Azure 入口網站")中的復原服務保存庫。
 - 可供安裝設定伺服器的實體電腦。
-- 如果您已在您要安裝設定伺服器所在的電腦上停用 TLS 1.0，請確定已啟用 TLS 1.2，並在電腦上安裝 .NET Framework 4.6 或更新版本 (在已停用強式密碼編譯的情況下)。 [深入了解](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
+- 如果您已在您要在其安裝組態伺服器的電腦上停用 TLS 1.0，請確定，則會啟用 TLs 1.2，和.NET Framework 4.6 或更新版本安裝在電腦上 （有啟用強式密碼編譯）。 [深入了解](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
 
 ### <a name="configuration-server-minimum-requirements"></a>組態伺服器最低需求
 下表列出組態伺服器的最低硬體、軟體與網路需求。

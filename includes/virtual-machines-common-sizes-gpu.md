@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: e8e11ffd4260c2956c6bb4740973eb77abfdc7b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26a5baf07ee31bdf155629139e12ef1977ddca1d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457261"
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文章提供有關 GPU、vCPU、資料磁碟及 NIC 之數量和類型的資訊。 另說明此群組中每個大小的輸送量和網路頻寬。
 
@@ -103,9 +103,9 @@ NDv2 系列虛擬機器是 GPU 家族的新增項目，專為 HPC、AI 和機器
 [於預覽期間註冊並存取這些機器](https://aka.ms/ndv2signup)。
 <br>
 
-| 大小 | vCPU | GPU | 記憶體 | NIC (最大) | 最大 磁碟大小 | 最大 資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大網路頻寬 | 
+| 大小 | vCPU | GPU | 記憶體 | NIC (最大) | 暫存儲存體 (SSD) GiB | 最大 資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大網路頻寬 | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 暫存 1344 / 2948XIO | 32 | 80000 / 800 | 24000 Mbps |
+| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000 / 800 | 24000 Mbps |
 
 ## <a name="nd-series"></a>ND 系列
 

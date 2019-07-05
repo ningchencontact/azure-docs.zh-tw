@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507681"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438825"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -79,25 +79,26 @@ ms.locfileid: "66507681"
 
 若要在 Blob 儲存體中建立公用容器，請執行下列作業：
 
-1. 按一下 [概觀]  索引標籤。
-2. 按一下 [容器]  。
-3. 在 [名稱]  中，輸入 **$root**。
-4. 將 [存取類型]  設定為 [Blob]  。
-5. 按一下 **$root** 以開啟新的容器。
+1. 底下**Blob 服務**在左側功能表中，選取**Blob**。
+2. 按一下  **+ 容器**。
+3. 針對**名稱**，輸入*根*。 這可以是您的選擇，例如名稱*wingtiptoys*，但我們會使用*根*在此範例中為求簡化。
+4. 針對**公用存取層級**，選取**Blob**，然後**確定**。
+5. 按一下 **根**以開啟新的容器。
 6. 按一下 [上傳]  。
 7. 按一下 [選取檔案]  旁的資料夾圖示。
-8. 移至 **customize-ui.html**，這是您稍早在「頁面 UI 自訂」一節中建立的檔案。
-9. 按一下 [上傳]  。
-10. 選取您上傳的 customize-ui.html blob。
-11. 在 **URL** 旁邊，按一下 [複製]  。
-12. 在瀏覽器中，貼上所複製的 URL，然後移至網站。 如果無法存取此網站，請確定容器的存取類型設定為 **blob**。
+8. 若要瀏覽並選取**customize-ui.html**您稍早建立的頁面 UI 自訂區段中。
+9. 如果您想要上傳至子資料夾，展開**進階**，然後輸入資料夾名稱中的**上傳到資料夾**。
+10. 選取 [上傳]  。
+11. 選取  **customize-ui.html**您上傳的 blob。
+12. 右邊**URL**文字方塊中，選取**複製到剪貼簿**圖示，以將 URL 複製到剪貼簿。
+13. 在網頁瀏覽器，瀏覽至您複製以確認您上傳的 blob 是可存取的 URL。 如果無法存取，例如，如果您遇到`ResourceNotFound`錯誤，請確定容器的存取類型設定為**blob**。
 
 ## <a name="configure-cors"></a>設定 CORS
 
 執行下列作業，針對跨原始資源共用設定 Blob 儲存體：
 
 1. 在功能表中，選取 [CORS]  。
-2. 針對 [允許的來源]  ，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com`。 輸入您的租用戶名稱時，必須全部使用小寫字母。
+2. 針對 [允許的來源]  ，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com` 。 輸入您的租用戶名稱時，必須全部使用小寫字母。
 3. 針對 [允許的方法]  ，選取 `GET` 和 `OPTIONS`。
 4. 針對 [允許的標頭]  ，輸入星號 (*)。
 5. 針對 [公開的標頭]  ，輸入星號 (*)。
@@ -121,7 +122,7 @@ ms.locfileid: "66507681"
 3. 開啟擴充檔案。 例如 TrustFrameworkExtensions.xml  。 搜尋 **BuildingBlocks** 元素。 如果此元素不存在，請加以新增。
 4. 貼上您複製的 **ContentDefinitions** 元素完整內容，作為 **BuildingBlocks** 元素的子項目。 
 5. 在您複製的 XML 中，搜尋包含 `Id="api.signuporsignin"` 的 **ContentDefinition** 元素。
-6. 將 **LoadUri** 的值變更為您上傳至儲存體的 HTML 檔案 URL。 例如： `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`。
+6. 將 **LoadUri** 的值變更為您上傳至儲存體的 HTML 檔案 URL。 例如： `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html` 。
     
     自訂原則看起來應該如下所示：
 
@@ -159,6 +160,7 @@ ms.locfileid: "66507681"
 
 ## <a name="reference"></a>參考
 
+### <a name="sample-templates"></a>範例範本
 您可以在此找到 UI 自訂的範例範本：
 
 ```
@@ -174,6 +176,16 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 | selfasserted.html  | 使用此檔案作為社交帳戶註冊頁面、本機帳戶註冊頁面或本機帳戶登入頁面的範本。 |
 | unified.html  | 使用此檔案作為統一註冊或登入頁面的範本。 |
 | *updateprofile.html* | 使用此檔案作為統一註冊或登入頁面的範本。 |
+
+以下是有關如何使用此範例的步驟。 
+1. 複製您的本機電腦上的儲存機制。 選擇 範本 資料夾之下的 sample_templates。 您可以使用`wingtip`或`contoso`。
+2. 底下的所有檔案上都傳`css`， `fonts`，和`images`到 Blob 儲存體前幾節所述的資料夾。 
+3. 接下來，開啟每一個\*.html 檔案中的根`wingtip`或`contoso`（無論您選取第一個步驟中），並取代所有的執行個體的"http://localhost 」 與您在步驟 2 中上傳的 css、 影像和字型檔案的 Url。
+4. 儲存\*.html 檔案，並將它們上傳至 Blob 儲存體。
+5. 現在修改擴充檔案，如先前所述，在[修改擴充檔案](#modify-the-extensions-file)。
+6. 如果您看到遺失的字型、 影像或 css，請檢查您在擴充原則中的參考和\*.html 檔案。
+
+### <a name="content-defintion-ids"></a>內容定義識別碼
 
 在「修改註冊或登入自訂原則」一節中，您設定了 `api.idpselections` 的內容定義。 Azure AD B2C 身分識別體驗架構所能辨識的一組完整內容定義識別碼，而其說明位於下表中：
 

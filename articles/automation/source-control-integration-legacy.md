@@ -4,17 +4,17 @@ description: 本文說明在 Azure 自動化中與 GitHub 的原始檔控制整�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2567536cd81eb2339622868a731948b1380614ad
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881067"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478438"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自動化中的原始檔控制整合 - 舊版
 
@@ -43,7 +43,7 @@ ms.locfileid: "60881067"
    | **參數** | **說明** |
    |:--- |:--- |
    | 選擇原始檔 |選取原始檔。 目前只支援 **GitHub** 。 |
-   | 授權 |按一下 [授權]  按鈕，授與 GitHub 儲存機制的 Azure 自動化存取權。 如果您已在不同的視窗中登入您的 GitHub 帳戶，則會使用該帳戶的認證。 成功授權之後，分頁會在 [授權屬性]  之下顯示您的 GitHub 使用者名稱。 |
+   | Authorization |按一下 [授權]  按鈕，授與 GitHub 儲存機制的 Azure 自動化存取權。 如果您已在不同的視窗中登入您的 GitHub 帳戶，則會使用該帳戶的認證。 成功授權之後，分頁會在 [授權屬性]  之下顯示您的 GitHub 使用者名稱。 |
    | 選擇儲存機制 |從可用的儲存機制清單中選取 GitHub 儲存機制。 |
    | 選擇分支 |從可用的分支清單中選取分支。 如果您尚未建立任何分支，只會顯示 **master** 分支。 |
    | Runbook 資料夾路徑 |Runbook 資料夾路徑可指定 GitHub 儲存機制中的路徑，以便您從中推送或提取程式碼。 它必須以 **/foldername/subfoldername**格式輸入。 只有 Runbook 資料夾路徑中的 Runbook 會同步處理至您的自動化帳戶。 Runbook 資料夾路徑之子資料夾中的 Runbook **不會** 進行同步處理。 使用 **/** 來同步處理儲存機制下的所有 Runbook。 |
@@ -65,7 +65,7 @@ ms.locfileid: "60881067"
      | **參數** | **值** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |字串 |
+     | `Type`  |String |
      | `Value` |{"Branch":\<您的分支名稱  >,"RunbookFolderPath":\<Runbook 資料夾路徑  >,"ProviderType":\<GitHub 的值為 1  >,"Repository":\<您的儲存機制名稱  >,"Username":\<您的 GitHub 使用者名稱  >} |
 
    * **Microsoft.Azure.Automation.SourceControl.OauthToken**變數包含 OAuthToken 的安全加密值。  

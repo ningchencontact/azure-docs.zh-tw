@@ -2,27 +2,21 @@
 title: 如何規劃 Azure Active Directory (Azure AD) 中的混合式 Azure Active Directory Join 實作 | Microsoft Docs
 description: 了解如何設定混合式 Azure Active Directory 已加入的裝置。
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110602"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509602"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -83,7 +77,7 @@ ms.locfileid: "67110602"
 
 加入混合式 Azure AD 目前不支援使用虛擬桌面基礎結構 (VDI) 時。
 
-混合式 Azure AD 不支援 FIPS 相容的 Tpm。 如果您的裝置有 FIPS 相容的 Tpm，您必須進行混合式 Azure AD 聯結之前，先停用它們。 Microsoft 不提供任何工具對 Tpm 中停用 FIPS 模式，因為它是取決於 TPM 製造商。 請如需支援，連絡您的硬體 OEM。
+加入混合式 Azure AD 不支援 FIPS 相容的 Tpm。 如果您的裝置有 FIPS 相容的 Tpm，您必須進行混合式 Azure AD 聯結之前，先停用它們。 Microsoft 不提供任何工具對 Tpm 中停用 FIPS 模式，因為它是取決於 TPM 製造商。 請如需支援，連絡您的硬體 OEM。
 
 執行網域控制站 (DC) 角色的 Windows Server 不支援混合式 Azure AD join。
 
@@ -99,13 +93,11 @@ ms.locfileid: "67110602"
 - 您可以防止您加入的網域的裝置 Azure AD 註冊加入此登錄機碼-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin，「 BlockAADWorkplaceJoin"= dword: 00000001。
 - 這項變更現在是適用於 Windows 10 1803年版 KB4489894 套用使用中。 不過，如果您有 Windows hello 企業版設定，使用者也需要重新設定 Windows hello 企業版的雙狀態之後清除。
 
-
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>檢閱受控制的混合式 Azure AD join 的驗證
 
 所有必要的元件時就地，將自動將 Windows 裝置註冊為 Azure AD 租用戶中的裝置。 在 Azure AD 中的這些裝置身分識別狀態稱為 「 混合式 Azure AD 聯結 」。 可以在文章中找到這篇文章所涵蓋的概念的詳細資訊[Azure Active Directory 中的裝置身分識別管理簡介](overview.md)和[規劃您的混合式 Azure Active Directory join實作](hybrid-azuread-join-plan.md)。
 
 組織可能想要執行混合式 Azure AD join 控制的驗證，再讓它全部一次其整個組織。 檢閱文件[控制的混合式 Azure AD join 驗證](hybrid-azuread-join-control.md)來了解如何完成這項工作。
-
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>選取您根據您的身分識別基礎結構的案例
 
@@ -135,8 +127,6 @@ ms.locfileid: "67110602"
 
 - [設定同盟環境中的混合式 Azure Active Directory join](hybrid-azuread-join-federated-domains.md)
 - [設定受管理環境的混合式 Azure Active Directory join](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>檢閱內部部署 AD UPN 支援混合式 Azure AD 加入
 

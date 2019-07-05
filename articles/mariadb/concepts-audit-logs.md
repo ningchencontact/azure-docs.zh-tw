@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 765db8461465b74ac068782c1b91d3c68b73f7d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079518"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439210"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>稽核適用於 MariaDB 的 Azure 資料庫中的記錄檔
 
@@ -44,7 +44,7 @@ ms.locfileid: "67079518"
 
 稽核記錄檔會與 Azure 監視器的診斷記錄檔整合。 一旦您 MariaDB 伺服器上啟用稽核記錄檔，您可以發出這些 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用 Azure 入口網站中的診斷記錄檔，請參閱[稽核記錄檔入口網站的文章](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)。
 
-## <a name="schemas"></a>結構描述
+## <a name="diagnostic-logs-schemas"></a>診斷記錄結構描述
 
 下列各節會描述什麼是由 MariaDB 稽核記錄，根據事件類型的輸出。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 
@@ -52,9 +52,9 @@ ms.locfileid: "67079518"
 
 | **屬性** | **說明** |
 |---|---|
-| `TenantId` | 您的租用戶識別碼 |
+| `TenantId` | 租户 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `TimeGenerated [UTC]` | 以 UTC 記錄記錄時的時間戳記 |
 | `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
 | `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
 | `ResourceGroup` | 伺服器所屬資源群組的名稱 |
@@ -64,13 +64,13 @@ ms.locfileid: "67079518"
 | `Resource` | 伺服器的名稱 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`、 `DISCONNECT` |
-| `connection_id` | MariaDB 所產生的唯一連接識別碼 |
-| `host` | 空白 |
-| `ip` | 連線到 MariaDB 的用戶端 IP 位址 |
-| `user` | 執行查詢的使用者名稱 |
-| `db` | 若要連接的資料庫名稱 |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`、 `DISCONNECT` |
+| `connection_id_d` | MariaDB 所產生的唯一連接識別碼 |
+| `host_s` | 空白 |
+| `ip_s` | 連線到 MariaDB 的用戶端 IP 位址 |
+| `user_s` | 執行查詢的使用者名稱 |
+| `db_s` | 若要連接的資料庫名稱 |
 | `\_ResourceId` | 資源 URI |
 
 ### <a name="general"></a>一般
@@ -79,9 +79,9 @@ ms.locfileid: "67079518"
 
 | **屬性** | **說明** |
 |---|---|
-| `TenantId` | 您的租用戶識別碼 |
+| `TenantId` | 租户 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | 時間戳記以 utc 格式記錄 tshe 記錄 |
+| `TimeGenerated [UTC]` | 以 UTC 記錄記錄時的時間戳記 |
 | `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
 | `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
 | `ResourceGroup` | 伺服器所屬資源群組的名稱 |
@@ -91,24 +91,25 @@ ms.locfileid: "67079518"
 | `Resource` | 伺服器的名稱 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` |
+| `LogicalServerName_s` | 伺服器的名稱 |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | 查詢中的 UNIX 時間戳記開始秒 |
-| `error_code` | 如果查詢失敗，出現錯誤代碼。 `0` 表示沒有任何錯誤 |
-| `thread_id` | 執行查詢的執行緒識別碼 |
-| `host` | 空白 |
-| `ip` | 連線到 MariaDB 的用戶端 IP 位址 |
-| `user` | 執行查詢的使用者名稱 |
-| `sql_text` | 完整的查詢文字 |
+| `error_code_d` | 如果查詢失敗，出現錯誤代碼。 `0` 表示沒有任何錯誤 |
+| `thread_id_d` | 執行查詢的執行緒識別碼 |
+| `host_s` | 空白 |
+| `ip_s` | 連線到 MariaDB 的用戶端 IP 位址 |
+| `user_s` | 執行查詢的使用者名稱 |
+| `sql_text_s` | 完整的查詢文字 |
 | `\_ResourceId` | 資源 URI |
 
 ### <a name="table-access"></a>資料表存取權
 
 | **屬性** | **說明** |
 |---|---|
-| `TenantId` | 您的租用戶識別碼 |
+| `TenantId` | 租户 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `TimeGenerated [UTC]` | 以 UTC 記錄記錄時的時間戳記 |
 | `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
 | `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
 | `ResourceGroup` | 伺服器所屬資源群組的名稱 |
@@ -118,12 +119,13 @@ ms.locfileid: "67079518"
 | `Resource` | 伺服器的名稱 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ``INSERT`， `UPDATE`，或 `DELETE` |
-| `connection_id` | MariaDB 所產生的唯一連接識別碼 |
-| `db` | 存取資料庫的名稱 |
-| `table` | 存取的資料表名稱 |
-| `sql_text` | 完整的查詢文字 |
+| `LogicalServerName_s` | 伺服器的名稱 |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ``INSERT`， `UPDATE`，或 `DELETE` |
+| `connection_id_d` | MariaDB 所產生的唯一連接識別碼 |
+| `db_s` | 存取資料庫的名稱 |
+| `table_s` | 存取的資料表名稱 |
+| `sql_text_s` | 完整的查詢文字 |
 | `\_ResourceId` | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟

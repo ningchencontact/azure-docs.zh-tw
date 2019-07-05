@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111812"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564436"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory 中可設定的權杖存留期 (預覽)
 
 您可以指定 Azure Active Directory (Azure AD) 所簽發的權杖存留期。 不論是針對組織中所有的應用程式、針對多租用戶 (多組織) 應用程式，還是針對組織中特定的服務主體，都可以設定權杖存留期。
 
 > [!IMPORTANT]
-> 之後從客戶期待在預覽期間，我們已取代的可設定權杖存留期功能[驗證工作階段管理功能](https://go.microsoft.com/fwlink/?linkid=2083106)在 Azure AD 條件式存取。 這項功能將於 2019 年 11 月 1 日被取代。 如果您使用可設定權杖存留期原則，請切換到新的條件式存取功能。 
+> 之後從客戶期待在預覽期間，我們已實作[驗證工作階段管理功能](https://go.microsoft.com/fwlink/?linkid=2083106)在 Azure AD 條件式存取。 您可以使用這項新功能，來設定重新整理權杖存留期設定頻率的正負號。 在 2019 年 11 月 1 日之後，您將無法使用可設定權杖存留期原則來設定重新整理權杖，但您仍然可以使用它來設定存取權杖。
 
 在 Azure AD 中，原則物件代表在組織中個別應用程式或所有應用程式上強制執行的一組規則。 每個原則類型都具有包含一組屬性的獨特結構，這些屬性會套用至它們已被指派的物件。
 

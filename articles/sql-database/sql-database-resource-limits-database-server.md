@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762795"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445636"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 伺服器的 SQL Database 資源限制
 
@@ -44,6 +44,9 @@ ms.locfileid: "65762795"
 > 每當資料庫數量接近每台 SQL Database 伺服器的限制時，可能會出現下列情況：
 > - 使用 master 資料庫執行查詢時，延遲狀況增加。  這包含資源使用率統計資料的檢視，例如 sys.resource_stats。
 > - 管理作業以及涉及列舉伺服器中資料庫入口網站檢視點的轉譯作業，皆增加延遲狀況。
+
+### <a name="storage-size"></a>儲存體大小
+- 單一資料庫的 rources 請來參考[以 DTU 為基礎的資源限制](sql-database-dtu-resource-limits-single-databases.md)或[vCore 架構的資源限制](sql-database-vcore-resource-limits-single-databases.md)的儲存體大小限制，每個定價層。
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>達到資料庫資源限制時，會發生什麼事？
 

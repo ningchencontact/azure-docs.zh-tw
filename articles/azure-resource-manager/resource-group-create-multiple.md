@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807376"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508183"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>資源、 屬性或 Azure Resource Manager 範本中變數的反覆項目
 
@@ -50,6 +50,8 @@ ms.locfileid: "66807376"
 若要指定的反覆運算次數，您提供的 count 屬性值。 計數不能超過 800。
 
 計數不可為負數。 如果您部署範本，以使用 REST API 版本**2019年-05-10**或更新版本中，您可以在這裡設定計數為零。 較早版本的 REST API 不支援計數為零。 目前，Azure CLI 或 PowerShell 不支援計數為零，但將在未來版本中新增支援。
+
+請小心使用[完成模式部署](deployment-modes.md)複本。 如果您重新部署到資源群組的完整模式，則會刪除未在範本中指定解決複製迴圈之後的任何資源。
 
 是否使用與資源、 變數或屬性計數限制都是相同的。
 

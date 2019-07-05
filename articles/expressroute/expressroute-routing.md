@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dd5f01c915c658903e87a91992753065c59dfa63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c475ab0a2e47cf654d1299a4c5638b34fb5e4b6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054262"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508529"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -157,7 +157,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 | **Microsoft Azure 區域** | **區域的 BGP 社群** | **儲存體 BGP 社群** | **SQL BGP 社群** | **Cosmos DB 的 BGP 社群** |
 | --- | --- | --- | --- | --- |
 | **北美洲** | |
-| 美國東部 | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | 美國東部 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | 美國西部 | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | 美國西部 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
@@ -210,6 +210,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 > 
 > 
 
+### <a name="service-to-bgp-community-value"></a>BGP 社群值的服務
 除了上述各項，Microsoft 也將根據其所屬的服務加上標記及前置詞。 這只適用於 Microsoft 對等互連。 下表提供服務與 BGP 社群值的對應。
 
 | **服務** | **BGP 社群值** |

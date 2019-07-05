@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237803"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481131"
 ---
 # <a name="back-up-an-sap-hana-database"></a>備份 SAP HANA 資料庫
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237803"
 > [!NOTE]
 > 此功能目前為公開預覽狀態。 它目前不適合在生產環境，並沒有保證的 SLA。 
 
-
 ## <a name="scenario-support"></a>案例支援
 
 **支援** | **詳細資料**
 --- | ---
 **支援的地區** | 澳大利亞東南部、 澳大利亞東部 <br> 巴西南部 <br> 加拿大中部、 加拿大東部 <br> 東南亞、 東亞 <br> 美國東部、 美國東部 2、 美國中西部、 美國西部、 美國西部 2、 North Central US、 美國中部、 美國中南部<br> 印度中部、 印度南部 <br> 日本東部、日本西部<br> 南韓中部、南韓南部 <br> 北歐、西歐 <br> 英國南部、 英國西部
 **支援的 VM 作業系統** | SLES 12 SP2 或 SP3。
-**支援的 HANA 版本** | 在 HANA 上的 SSDC 1.x，MDC HANA 上 2.x < = SPS03
-
+**支援的 HANA 版本** | 在 HANA 上的 SDC 1.x，MDC HANA 上 2.x < = SPS03
 
 ### <a name="current-limitations"></a>目前的限制
 
@@ -39,12 +37,9 @@ ms.locfileid: "65237803"
 - 您可以只備份資料庫以相應增加模式。
 - 每隔 15 分鐘，您可以將資料庫記錄備份中。 記錄備份只會開始流向成功的完整資料庫備份完成後。
 - 您可以建立完整和差異備份。 目前不支援增量備份。
-- 適用於 SAP HANA 備份之後，您無法修改備份原則。 如果您想要使用不同的設定備份，建立新的原則，或將不同原則指派。 
-    - 若要建立新的原則，請在保存庫中按一下**原則** > **備份原則** >  **+ 新增** > **中的 SAP HANAAzure VM**，並指定原則設定。
-    - 若要指派不同的原則，在執行資料庫的 vm 屬性中按一下目前的原則名稱。 接著，在**備份原則**頁面，您可以選取要用於備份不同的原則。
-
-
-
+- 適用於 SAP HANA 備份之後，您無法修改備份原則。 如果您想要使用不同的設定備份，建立新的原則，或將不同原則指派。
+  - 若要建立新的原則，請在保存庫中按一下**原則** > **備份原則** >  **+ 新增** > **中的 SAP HANAAzure VM**，並指定原則設定。
+  - 若要指派不同的原則，在執行資料庫的 vm 屬性中按一下目前的原則名稱。 接著，在**備份原則**頁面，您可以選取要用於備份不同的原則。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -57,14 +52,16 @@ ms.locfileid: "65237803"
 
         ![封裝的安裝選項](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  在 VM 上安裝並啟用從官方 SLES 套件/媒體，如下所示使用 zypper，ODBC 驅動程式套件：
+2. 在 VM 上安裝並啟用從官方 SLES 套件/媒體，如下所示使用 zypper，ODBC 驅動程式套件：
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  允許連線從 VM 到網際網路，以便它可以連線到 Azure，如下列程序中所述。
 
+3. 允許來自連線 VM 到網際網路，以便在程序中所述，它可以連線到 Azure[以下](#set-up-network-connectivity)。
+
+4. HANA 安裝為根使用者的所在虛擬機器中執行前的註冊指令碼。 提供指令碼[在入口網站](#discover-the-databases)流程中才需要設定[權限以滑鼠右鍵](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions)。
 
 ### <a name="set-up-network-connectivity"></a>設定網路連線
 
@@ -80,7 +77,7 @@ SAP HANA VM 的所有作業，都必須連線到 Azure 的公用 IP 位址。 �
 - 在入口網站，註冊復原服務的服務提供者，藉由您訂用帳戶 ID[遵循這篇文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal)。 
 - 針對 PowerShell，請執行這個指令程式。 它應該為 「 已註冊 」 完成。
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ SAP HANA VM 的所有作業，都必須連線到 Azure 的公用 IP 位址。 �
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>探索資料庫
-
 
 1. 在保存庫中，在**快速入門**，按一下**備份**。 在 **地方執行您的工作負載？** ，選取**Azure VM 中的 SAP HANA**。
 2. 按一下 **開始探索**。 這會起始的未受保護的 Linux Vm，在保存庫區域中的探索。
@@ -104,7 +100,7 @@ SAP HANA VM 的所有作業，都必須連線到 Azure 的公用 IP 位址。 �
 6. Azure 備份會探索所有在 VM 上的 SAP HANA 資料庫。 在探索期間 Azure 備份保存庫註冊 VM，並在 VM 上安裝擴充功能。 在資料庫上不安裝任何代理程式。
 
     ![探索 SAP HANA 資料庫](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>設定備份  
 
 立即啟用備份。
@@ -116,6 +112,7 @@ SAP HANA VM 的所有作業，都必須連線到 Azure 的公用 IP 位址。 �
 5. 備份組態中追蹤進度 **通知** 入口網站的區域。
 
 ### <a name="create-a-backup-policy"></a>建立備份原則
+
 備份原則會定義包含執行備份，以及要保留的時間長度。
 
 - 原則會建立於保存庫層級上。
@@ -189,6 +186,5 @@ SAP HANA VM 的所有作業，都必須連線到 Azure 的公用 IP 位址。 �
 
 ## <a name="next-steps"></a>後續步驟
 
+[深入了解](backup-azure-sap-hana-database-troubleshoot.md)如何針對常見錯誤進行疑難排解時使用的 SAP HANA 備份 Azure Vm 中。
 [深入了解](backup-azure-arm-vms-prepare.md)備份 Azure Vm。
-
-

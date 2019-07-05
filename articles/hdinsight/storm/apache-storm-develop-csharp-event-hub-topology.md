@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078275"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483922"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>使用 HDInsight 上的 Apache Storm 處理 Azure 事件中樞的事件 (C#)
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>下載完成的專案
 
-您可以從 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) 下載本教學課程中所建立之專案的完整版本。 不過，您仍需要遵循本教學課程中的步驟，提供組態設定。
+您可以下載完整的版本，從這篇文章中所建立的專案[GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)。 不過，您仍然需要依照這篇文章中的步驟提供組態設定。
 
 ### <a name="prerequisites"></a>必要條件
 
-* [Apache Storm on HDInsight 叢集 3.5 或 3.6 版](apache-storm-tutorial-get-started-linux.md)。
+* 在 HDInsight 上 Apache Storm 叢集。 請參閱[使用 Azure 入口網站中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取**Storm** for**叢集類型**。
 
     > [!WARNING]  
     > 此文件中所使用的範例需要 Storm on HDInsight version 3.5 或 3.6 版。 由於重大類別名稱變更，這不適用舊版的 HDInsight。 如需這個範例適用於較舊叢集的版本，請參閱 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)。
@@ -135,7 +135,7 @@ topologyBuilder.SetJavaBolt(
 
 1. 在建立事件中樞之後，檢視 Azure 入口網站中的 [事件中樞]  設定，然後選取 [共用存取原則]  。 選取 [+ 新增]  連結來新增下列原則︰
 
-   | Name | 權限 |
+   | 名稱 | 權限 |
    | --- | --- |
    | 寫入器 |傳送 |
    | 讀取器 |接聽 |

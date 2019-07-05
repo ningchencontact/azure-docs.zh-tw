@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341419"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461447"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>管理裝置身分識別使用 Azure 入口網站
 
@@ -57,14 +57,14 @@ ms.locfileid: "67341419"
 
 ![管理 Intune 裝置](./media/device-management-azure-portal/21.png)
 
-- **使用者可能會將裝置加入 Azure AD** -此設定可讓您選取的使用者可以註冊其裝置作為[裝置加入 Azure AD](overview.md#azure-ad-joined-devices)。 預設值是 [全部]  。
+- **使用者可能會將裝置加入 Azure AD** -此設定可讓您選取的使用者可以註冊其裝置與 Azure AD 加入裝置。 預設值是 [全部]  。
 
 > [!NOTE]
 > **使用者可能會將裝置加入 Azure AD**設定僅適用於 Windows 10 上的 Azure AD join。
 
 - **加入 Azure AD 的裝置上其他本機系統管理員** - 您可以選取哪些使用者會授與裝置的本機系統管理員權限。 新增至此處的使用者將會新增至 Azure AD 中的「裝置系統管理員」  角色。 Azure AD 中的全域管理員和裝置擁有者預設會授與本機系統管理員權限。 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階編輯功能。
-- **使用者可以註冊其裝置與 Azure AD** -您需要設定此設定可為 Windows 10 個人、 iOS、 Android 和 macOs 裝置[註冊](overview.md#azure-ad-registered-devices)與 Azure AD。 如果您選取**無**，不允許使用 Azure AD 註冊裝置。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部]  且無法使用 [無]  。 如果您已啟用這項設定 Intune，則選項會呈現灰色。
-- **需要 Multi-Factor Auth 才能加入裝置** - 您可以選擇使用者是否需要提供次要驗證因素，才能將其裝置[加入](overview.md#azure-ad-joined-devices) Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的多重要素驗證之前，您必須確定使用的 Azure Multi-factor Authentication 設定註冊其裝置的使用者。 如需詳細資訊，請參閱文章[部署 Azure Multi-factor Authentication](../authentication/howto-mfa-getstarted.md)。 
+- **使用者可以註冊其裝置與 Azure AD** -您需要設定此設定可允許與 Azure AD 註冊的 Windows 10 個人、 iOS、 Android 和 macOs 裝置。 如果您選取**無**，不允許使用 Azure AD 註冊裝置。 需要先註冊 (registration)，才可註冊 (enrollment) Microsoft Intune 或適用於 Office 365 的行動裝置管理 (MDM)。 如果您已設定任一服務，則會選取 [全部]  且無法使用 [無]  。
+- **需要 Multi-factor Auth 才能聯結裝置**-您可以選擇是否需要使用者提供的額外驗證因素，才能將其裝置加入 Azure AD。 預設值為 [ **否**]。 建議在註冊裝置時要求 Multi-Factor Authentication。 啟用此服務的 Multi-Factor Authentication 之前，您必須確定已為註冊其裝置的使用者設定 Multi-Factor Authentication。 如需不同 Azure Multi-Factor Authentication 服務的詳細資訊，請參閱[開始使用 Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md)。 
 
 > [!NOTE]
 > **需要 Multi-factor Auth 才能聯結裝置**設定不適用於混合式 Azure AD 加入裝置。

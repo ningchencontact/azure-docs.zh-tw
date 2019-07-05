@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059254"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442363"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>什麼是 Azure 機器學習服務工作區？
 
@@ -83,7 +83,7 @@ ms.locfileid: "67059254"
 建立新的工作區時，會自動建立工作區使用的幾個 Azure 資源：
 
 + [Azure 容器登錄](https://azure.microsoft.com/services/container-registry/)：註冊您在定型期間及部署模型時使用的 Docker 容器。 若要降低成本，是 ACR**消極式載入**直到部署映像建立。
-+ [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)：用來作為工作區的預設資料存放區。
++ [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)：用來作為工作區的預設資料存放區。  與您的 notebook Vm 搭配使用 Jupyter notebook 會儲存在這裡也。
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)：儲存與模型有關的監視資訊。
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)：儲存計算目標所使用的密碼與工作區所需的其他機密資訊。
 

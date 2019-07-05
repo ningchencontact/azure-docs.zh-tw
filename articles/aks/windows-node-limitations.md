@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203679"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444109"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server 節點集區和應用程式工作負載在 Azure Kubernetes Service (AKS) 目前的限制
 
@@ -28,7 +28,7 @@ Azure Kubernetes Service (AKS) 中，您可以建立在節點執行客體 OS 的
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>適用於在 Kubernetes 中的 Windows Server 的限制
 
-Windows Server 容器必須在以 Windows 為基礎的容器主機上執行。 若要在 AKS 中執行 Windows Server 容器，您可以[建立執行 Windows Server 的節點集區][ windows-node-cli]客體 OS。 視窗伺服器節點集區支援包括屬於上游 Kubernetes 專案中的 Windows Server 的一些限制。 這些限制不 AKS 所特有。 如需有關此上游的支援，適用於在 Kubernetes 中的 Windows Server 的詳細資訊，請參閱[Windows Server 容器，Kubernetes 限制](https://docs.microsoft.com/azure/aks/windows-node-limitations)。
+Windows Server 容器必須在以 Windows 為基礎的容器主機上執行。 若要在 AKS 中執行 Windows Server 容器，您可以[建立執行 Windows Server 的節點集區][windows-node-cli]客體 OS。 視窗伺服器節點集區支援包括屬於上游 Kubernetes 專案中的 Windows Server 的一些限制。 這些限制不 AKS 所特有。 如需有關此上游的支援，適用於在 Kubernetes 中的 Windows Server 的詳細資訊，請參閱[Windows Server 容器，Kubernetes 限制](https://docs.microsoft.com/azure/aks/windows-node-limitations)。
 
 下列的上游限制適用於在 Kubernetes 中的 Windows Server 容器是與 AKS 相關：
 
@@ -45,7 +45,6 @@ Windows Server 容器必須在以 Windows 為基礎的容器主機上執行。 �
 下列額外的限制適用於 AKS 中的 Windows Server 節點集區支援：
 
 - AKS 叢集一律會包含作為第一個節點集區的 Linux 節點集區。 無法刪除此第一個以 Linux 為基礎的節點集區，除非刪除 AKS 叢集本身。
-- 目前，AKS 僅支援基本負載平衡器，其只允許一個後端集區，預設的 Linux 節點集區。 如此一來，一律為輸出流量從 Windows pod[轉譯為 Azure 受控公用 IP 位址][azure-outbound-traffic]。 因為此 IP 位址不是可設定的所以不目前可能來自 Windows pod 的白名單流量。 
 - AKS 叢集必須使用 Azure CNI （進階） 的網路模型。
     - 不支援 Kubenet （基本） 網路。 您無法建立使用 kubenet 的 AKS 叢集。 如需有關網路模型中的差異的詳細資訊，請參閱 <<c0> [ 網路 AKS 中的應用程式的概念][azure-network-models]。
     - Azure CNI 網路模型會需要額外的規劃和 IP 位址管理考量。 如需有關如何規劃及實作 Azure CNI 的詳細資訊，請參閱 < [AKS 中的設定 Azure CNI 網路][configure-azure-cni]。
@@ -60,11 +59,11 @@ Windows Server 容器必須在以 Windows 為基礎的容器主機上執行。 �
 - 輸入控制器，始應排程在使用 NodeSelector 的 Linux 節點上。
 - Azure 開發人員空間是目前僅適用於以 Linux 為基礎的節點集區。
 - 群組受管理的服務帳戶 (gMSA) 支援的 Windows Server 節點未加入 Active Directory 網域時不 AKS 中目前可用。
-    - 開放原始碼，上游[aks 引擎][ aks-engine]專案目前並未提供 gMSA 的支援，如果您要使用這項功能。
+    - 開放原始碼，上游[aks 引擎][aks-engine]專案目前並未提供 gMSA 的支援，如果您要使用這項功能。
 
 ## <a name="os-concepts-that-are-different"></a>不同的 OS 概念
 
-Kubernetes 是過去以 Linux 為主。 許多範例用於上游[Kubernetes.io] [ kubernetes]網站僅供在 Linux 節點上的使用。 當您建立使用 Windows Server 容器，在 OS 層級套用下列項目容器的部署：
+Kubernetes 是過去以 Linux 為主。 許多範例用於上游[Kubernetes.io][kubernetes]網站僅供在 Linux 節點上的使用。 當您建立使用 Windows Server 容器，在 OS 層級套用下列項目容器的部署：
 
 - **身分識別**-Linux 會使用使用者識別碼 (UID) 和 groupID (GID)，表示為整數型別。 使用者和群組的名稱不是標準-這些都只是中的別名*eg /etc/ 群組*或是*eg /etc/ passwd*回到 UID + GID。
     - Windows Server 會使用較大二進位安全性識別碼 (SID 會儲存在 Windows 安全性存取管理員 (SAM) 資料庫)。 這個資料庫不會在主機與容器之間或容器之間共用。

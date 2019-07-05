@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295076"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449846"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -103,7 +103,7 @@ ms.locfileid: "67295076"
     - 針對兩個檔案共用之間的所有傳輸，使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
     - 使用平行的 cp 無法複製更快、 執行緒數目取決於您的使用案例和工作負載。 這個範例會使用六個： `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`。
     - 這類開放原始碼協力廠商工具：
-        - [GNU 平行](http://www.gnu.org/software/parallel/)。
+        - [GNU 平行](https://www.gnu.org/software/parallel/)。
         - [Fpart](https://github.com/martymac/fpart) -排序檔案並將它們封裝到資料分割。
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -使用 Fpart 和複製工具繁衍多個執行個體，以將資料移轉到 dst_url src_dir。
         - [多重](https://github.com/pkolano/mutil)-多執行緒的 cp 和 md5sum 依據 GNU coreutils。

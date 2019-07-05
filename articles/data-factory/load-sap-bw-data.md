@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c846ab3e81e7ab8a4948aa4ed96cfa75e8eb3f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152424"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449689"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
 
@@ -125,7 +125,7 @@ ms.locfileid: "66152424"
 
     ![活動輸出詳細資料檢視](media/load-sap-bw-data/activity-output-details.png)
 
-## <a name="do-an-incremental-copy-from-sap-bw-open-hub"></a>從 SAP BW Open Hub 進行增量複本
+## <a name="incremental-copy-from-sap-bw-open-hub"></a>從 SAP BW Open Hub 的增量複製
 
 > [!TIP]
 > 請參閱[SAP BW Open Hub 連接器差異擷取流程](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow)若要了解 Data Factory 中的 SAP BW Open Hub 連接器從 SAP BW 所複製的增量資料。 這篇文章也有助於您了解基本的連接器設定。

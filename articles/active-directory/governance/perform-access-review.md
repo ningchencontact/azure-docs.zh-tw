@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113249"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471834"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱群組的存取權或在 Azure AD 中的應用程式存取權檢閱
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 1. 尋找來自會要求您檢閱存取權的 Microsoft 電子郵件。 以下是範例電子郵件給檢閱群組存取權。
 
-    ![檢閱存取權電子郵件](./media/perform-access-review/access-review-email.png)
+    ![若要檢閱群組的存取權的 microsoft 的範例電子郵件](./media/perform-access-review/access-review-email.png)
 
 1. 按一下 **開始檢閱**開啟存取權檢閱的連結。
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 1. 登入 MyApps 入口網站，網址[ https://myapps.microsoft.com ](https://myapps.microsoft.com)。
 
-    ![MyApps 入口網站](./media/perform-access-review/myapps-access-panel.png)
+    ![列出您有權限的應用程式的 MyApps 入口網站](./media/perform-access-review/myapps-access-panel.png)
 
 1. 在頁面右上角按一下使用者符號，其中顯示您的名稱和預設組織。 如果列出多個組織，請選取已要求存取權檢閱的組織。
 
@@ -56,7 +56,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
     如果看不到磚，則沒有針對該組織執行的存取權檢閱，此時也不需要採取任何動作。
 
-    ![存取權檢閱清單](./media/perform-access-review/access-reviews-list.png)
+    ![應用程式和群組的擱置中的存取權檢閱清單](./media/perform-access-review/access-reviews-list.png)
 
 1. 按一下 **開始檢閱**您想要執行的存取權檢閱的連結。
 
@@ -66,7 +66,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 如果要求檢閱您自己的存取權，網頁會看起來不同。 如需詳細資訊，請參閱 <<c0> [ 自行檢閱存取權，來群組或應用程式](review-your-access.md)。
 
-![執行存取權檢閱](./media/perform-access-review/perform-access-review.png)
+![列出需要檢閱的使用者開啟的存取權檢閱](./media/perform-access-review/perform-access-review.png)
 
 有兩種方式，您可以核准或拒絕存取：
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 1. 按一下 **核准**或是**拒絕**。 如果您不確定，您可以按一下**不知道**。 這樣會導致使用者維護其存取權，但選取項目將會反映在稽核記錄檔。
 
-    ![執行存取權檢閱](./media/perform-access-review/approve-deny.png)
+    ![動作的視窗，其中包含核准、 拒絕，而且不知道選項](./media/perform-access-review/approve-deny.png)
 
 1. 如有必要，請輸入中的原因**原因** 方塊中。
 
@@ -102,11 +102,11 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 1. 在頁面底部的藍色列，按一下**接受建議**。
 
-    ![接受建議](./media/perform-access-review/accept-recommendations.png)
+    ![開啟的存取權檢閱清單顯示 [接受建議] 按鈕](./media/perform-access-review/accept-recommendations.png)
 
     您會看到建議的動作的摘要。
 
-    ![接受建議的摘要](./media/perform-access-review/accept-recommendations-summary.png)
+    ![顯示建議的動作的摘要視窗](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. 按一下  **Ok**來接受建議。
 

@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077059"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446848"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>以 .NET 開始使用 Azure 佇列儲存體
 
@@ -82,7 +82,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 > [!NOTE]
 > 儲存體用戶端程式庫套件也會包含在[Azure SDK for.NET](https://azure.microsoft.com/downloads/)。 不過，我們建議您也從以確保您永遠有最新版本的 NuGet 安裝儲存體用戶端程式庫。
 >
-> 適用於.NET 的儲存體用戶端程式庫中的 ODataLib 相依性會解決 ODataLib 套件可用在 NuGet 上而不是從 WCF 資料服務。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 儲存體用戶端程式庫所使用的特定 ODataLib 封裝包括[OData](http://nuget.org/packages/Microsoft.Data.OData/)， [Edm](http://nuget.org/packages/Microsoft.Data.Edm/)，並[空間](http://nuget.org/packages/System.Spatial/)。 雖然這些程式庫類別所使用的 Azure 資料表儲存體，也就是必要的相依性，使用儲存體用戶端程式庫進行程式設計。
+> 適用於.NET 的儲存體用戶端程式庫中的 ODataLib 相依性會解決 ODataLib 套件可用在 NuGet 上而不是從 WCF 資料服務。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 儲存體用戶端程式庫所使用的特定 ODataLib 封裝包括[OData](https://nuget.org/packages/Microsoft.Data.OData/)， [Edm](https://nuget.org/packages/Microsoft.Data.Edm/)，並[空間](https://nuget.org/packages/System.Spatial/)。 雖然這些程式庫類別所使用的 Azure 資料表儲存體，也就是必要的相依性，使用儲存體用戶端程式庫進行程式設計。
 
 ### <a name="determine-your-target-environment"></a>決定您的目標環境
 

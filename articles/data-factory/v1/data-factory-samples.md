@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7ebc57e09691af1583815ae9672e1afb820145b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61260015"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462071"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - 範例
 > [!NOTE]
@@ -30,20 +30,20 @@ ms.locfileid: "61260015"
 
 | 範例 | 描述 |
 |:--- |:--- |
-| [ADF 逐步解說](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |此範例提供一個端對端逐步解說，說明如何使用 Azure Data Factory 來處理記錄檔，以將來自記錄檔的資料轉換成深入解析。 <br/><br/>在此逐步解說中，Data Factory 管線會收集範例記錄、處理這些記錄並以參考資料充實記錄資料，然後轉換資料以評估最近展開之行銷活動的成效。 |
-| [JSON 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |此範例提供常見案例的 JSON 範例。 |
-| [Http 資料下載程式範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |此範例展示如何使用自訂的 .NET 活動，從 HTTP 端點將資料下載到「Azure Blob 儲存體」。 |
-| [跨 AppDomain .NET 活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |此範例可讓您撰寫不受 ADF 啟動器所使用之組件版本 (例如 WindowsAzure.Storage v4.3.0、Newtonsoft.Json v6.0.x 等) 限制的自訂 .NET 活動。 |
-| [執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |此範例包含可用來叫用 RScript.exe 的 Data Factory 自訂活動。 此範例只能與您自己的 (非隨選) 且已安裝 R 的 HDInsight 叢集搭配運作。 |
-| [在 HDInsight Hadoop 叢集上叫用 Spark 作業](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) |此範例示範如何使用 MapReduce 活動來叫用 Spark 程式。 Spark 程式只是將資料從一個 Azure Blob 容器複製到另一個。 |
-| [使用 Azure Machine Learning 批次評分活動進行的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |此範例示範如何使用 AzureMLBatchScoringActivity 來叫用執行 Twitter 情緒分析、評分、預測等的 Azure Machine Learning 模型。 |
-| [使用自訂活動進行的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |此範例示範如何使用自訂的 .NET 活動來叫用執行 Twitter 情緒分析、評分、預測等的 Azure Machine Learning 模型。 |
-| [Azure Machine Learning 的參數化管線](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |此範例提供一個端對端 C# 程式碼來部署 N 條管線，為的是以不同的區域參數來評分和重新訓練每條管線，其中區域清單是來自此檔案隨附的 parameters.txt 檔案。 |
-| [Azure 串流分析作業的參考資料重新整理](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |此範例示範如何使用 Azure Data Factory 搭配「Azure 串流分析」來以參考資料執行查詢，並在排程上設定參考資料重新整理。 |
-| [搭配內部部署 Hortonworks Hadoop 的混合式管線](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |此範例使用內部部署 Hadoop 叢集做為在 Data Factory 中執行作業的運算目標，就像您會在雲端新增其他運算目標 (例如以 HDInsight 為基礎的 Hadoop 叢集) 一樣。 |
-| [JSON 轉換工具](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |此工具可讓您將 2015-07-01-preview 之前的 JSON 版本轉換成最新版本或 2015-07-01-preview (預設)。 |
-| [U-SQL 範例輸入檔](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |此檔案是 U-SQL 活動所使用的範例檔案。 |
-| [刪除 blob 檔案](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | 本範例將示範 C# 檔案，該檔案可以作為 ADF 自訂 .net 活動的一部分，以在複製檔案之後從來源 Azure Blob 位置刪除檔案。|
+| [ADF 逐步解說](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |此範例提供一個端對端逐步解說，說明如何使用 Azure Data Factory 來處理記錄檔，以將來自記錄檔的資料轉換成深入解析。 <br/><br/>在此逐步解說中，Data Factory 管線會收集範例記錄、處理這些記錄並以參考資料充實記錄資料，然後轉換資料以評估最近展開之行銷活動的成效。 |
+| [JSON 範例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |此範例提供常見案例的 JSON 範例。 |
+| [Http 資料下載程式範例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |此範例展示如何使用自訂的 .NET 活動，從 HTTP 端點將資料下載到「Azure Blob 儲存體」。 |
+| [跨 AppDomain .NET 活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |此範例可讓您撰寫不受 ADF 啟動器所使用之組件版本 (例如 WindowsAzure.Storage v4.3.0、Newtonsoft.Json v6.0.x 等) 限制的自訂 .NET 活動。 |
+| [執行 R 指令碼](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |此範例包含可用來叫用 RScript.exe 的 Data Factory 自訂活動。 此範例只能與您自己的 (非隨選) 且已安裝 R 的 HDInsight 叢集搭配運作。 |
+| [在 HDInsight Hadoop 叢集上叫用 Spark 作業](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |此範例示範如何使用 MapReduce 活動來叫用 Spark 程式。 Spark 程式只是將資料從一個 Azure Blob 容器複製到另一個。 |
+| [使用 Azure Machine Learning 批次評分活動進行的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |此範例示範如何使用 AzureMLBatchScoringActivity 來叫用執行 Twitter 情緒分析、評分、預測等的 Azure Machine Learning 模型。 |
+| [使用自訂活動進行的 Twitter 分析](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |此範例示範如何使用自訂的 .NET 活動來叫用執行 Twitter 情緒分析、評分、預測等的 Azure Machine Learning 模型。 |
+| [Azure Machine Learning 的參數化管線](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |此範例提供一個端對端 C# 程式碼來部署 N 條管線，為的是以不同的區域參數來評分和重新訓練每條管線，其中區域清單是來自此檔案隨附的 parameters.txt 檔案。 |
+| [Azure 串流分析作業的參考資料重新整理](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |此範例示範如何使用 Azure Data Factory 搭配「Azure 串流分析」來以參考資料執行查詢，並在排程上設定參考資料重新整理。 |
+| [搭配內部部署 Hortonworks Hadoop 的混合式管線](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |此範例使用內部部署 Hadoop 叢集做為在 Data Factory 中執行作業的運算目標，就像您會在雲端新增其他運算目標 (例如以 HDInsight 為基礎的 Hadoop 叢集) 一樣。 |
+| [JSON 轉換工具](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |此工具可讓您將 2015-07-01-preview 之前的 JSON 版本轉換成最新版本或 2015-07-01-preview (預設)。 |
+| [U-SQL 範例輸入檔](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |此檔案是 U-SQL 活動所使用的範例檔案。 |
+| [刪除 blob 檔案](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | 本範例將示範 C# 檔案，該檔案可以作為 ADF 自訂 .net 活動的一部分，以在複製檔案之後從來源 Azure Blob 位置刪除檔案。|
 
 ## <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 您可以在 GitHub 上找到下列適用於 Data Factory 的 Azure Resource Manager 範本。

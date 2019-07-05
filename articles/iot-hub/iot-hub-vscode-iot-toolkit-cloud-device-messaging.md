@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440061"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543812"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 來傳送和接收裝置與 IoT 中樞之間的訊息
 
@@ -62,11 +62,11 @@ ms.locfileid: "61440061"
 
 若要監視從您的裝置傳送到IoT 中樞的訊息，請遵循下列步驟：
 
-1. 在裝置上按滑鼠右鍵，然後選取 [Start Monitoring D2C Message]  \(開始監視 D2C 訊息\)。
+1. 以滑鼠右鍵按一下您的裝置，然後選取**開始監視內建事件端點**。
 
 2. 受監視的訊息會顯示在 [OUTPUT] \(輸出\)   > [Azure IoT Hub Toolkit]  \(Azure IoT 中樞工具組\) 檢視中。
 
-3. 若要停止監視，請在 [輸出]  檢視上按滑鼠右鍵，然後選取 [Stop Monitoring D2C Message]  \(停止監視 D2C 訊息\)。
+3. 若要停止監視，以滑鼠右鍵按一下**輸出**檢視，然後選取**停止監視內建事件端點**。
 
 ## <a name="send-cloud-to-device-messages"></a>傳送雲端到裝置訊息
 

@@ -1,42 +1,38 @@
 ---
-title: 了解 Microsoft 的客戶合約條款，在您的 Azure 使用量和費用 CSV |Microsoft Docs
-description: 了解如何閱讀並了解 Azure 使用量和費用 CSV 帳單設定檔的區段
-services: ''
-documentationcenter: ''
+title: Microsoft 客戶合約的 Azure 使用量和費用檔案中的條款
+description: 了解如何閱讀並了解 Azure 使用量和費用 CSV 帳單設定檔的區段。
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371303"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490616"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>了解 Microsoft 的客戶合約條款，在您的 Azure 使用量和費用 CSV
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 客戶合約的 Azure 使用量和費用檔案中的條款
 
 這篇文章適用於計費的帳戶 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
 
 Azure 使用量和費用 CSV 檔案包含目前計費週期的每日及計量層級使用量費用。
 
-若要取得 Azure 使用量和費用檔案，請參閱[檢視和下載 Azure 使用量和費用，Microsoft 客戶合約](billing-download-azure-daily-usage.md)。
-此檔案以逗號分隔值 (.csv) 檔案格式提供，您可以使用試算表應用程式開啟這個檔案。
+若要取得 Azure 使用量和費用檔案，請參閱[檢視和下載 Azure 使用量和費用，Microsoft 客戶合約](billing-download-azure-daily-usage.md)。 此檔案以逗號分隔值 (.csv) 檔案格式提供，您可以使用試算表應用程式開啟這個檔案。
 
 使用量費用是訂用帳戶的**每月**總費用。 使用量費用不會將任何信用額度或折扣列入考慮。
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Enterprise 合約的 Azure 使用量和費用 CSV 中的變更
+## <a name="changes-from-azure-ea-usage-and-charges"></a>從 Azure EA 使用量和費用的變更
 
-如果您是 EA 客戶，您會發現，帳單的設定檔的 Azure 使用量 CSV 檔案中的條款位於不同條款 EA Azure 使用量 CSV 檔案。 以下是 EA 使用條款帳務設定檔使用詞彙的對應：
+如果您是 EA 客戶，您會發現，Azure 帳單設定檔使用量 CSV 檔案中的條款與合約中不同的 Azure EA 使用情況 CSV 檔案中。 以下是 EA 使用條款帳務設定檔使用詞彙的對應：
 
-| EA Azure 使用情況 CSV | Microsoft 客戶合約的 Azure 使用量和費用 CSV |
+| Azure EA 使用情況 CSV | Microsoft 客戶合約的 Azure 使用量和費用 CSV |
 | --- | --- |
 | Date | date |
 | 月| date |
@@ -49,7 +45,7 @@ Azure 使用量和費用 CSV 檔案包含目前計費週期的每日及計量層
 | 計量地區 | meterRegion |
 | 計量名稱 | meterName |
 | ConsumedQuantity | quantity |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | 資源位置 | resourceLocation |
 | 已使用的服務 | consumedService |
@@ -59,17 +55,15 @@ Azure 使用量和費用 CSV 檔案包含目前計費週期的每日及計量層
 | 其他資訊 | additionalInfo |
 | 標記 | 标记 |
 | StoreServiceIdentifier | N/A |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | 測量單位 | unitofMeasure |
-| ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| resourceGroup | resourceGroup |
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>詳細的字詞和描述
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>詳細的字詞和描述您的 Azure 使用量和費用檔案中
-
-下節說明 Azure 的使用量和費用檔案中所示的重要字詞。
+下列詞彙會顯示在 Azure 的使用量和費用檔案中。
 
 詞彙 | 描述
 --- | ---
@@ -120,16 +114,16 @@ serviceInfo2 | 舊版欄位，可擷取選擇性的服務特定中繼資料
 additionalInfo | 其他服務特定的中繼資料。
 标记 | 您將指派給資源的標記
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>我如何確定我的 Azure 使用量和費用檔案中的費用是否正確？
+### <a name="make-sure-that-charges-are-correct"></a>請確定費用正確
 
-如果您想要更多詳細資料，在您詳細的使用量檔案費用，請參閱[了解帳單設定檔的發票費用](billing-mca-understand-your-bill.md)
+如果您想要確定詳細的使用量檔案中的費用正確，您可以對它們進行驗證。 請參閱[了解帳單設定檔的發票費用](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 

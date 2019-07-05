@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399962"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491805"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>對 VM 和實體伺服器進行容錯移轉 
 
@@ -70,9 +70,9 @@ ms.locfileid: "66399962"
 
 > [!NOTE]
 > 在兩個內部部署網站之間容錯移轉 Hyper-v 虛擬機器期間，若要回到主要內部部署網站，您必須先將虛擬機器**反向複寫**回主要網站，然後再觸發容錯移轉。 如果主要虛擬機器無法使用，則開始**反向複寫**之前，您必須從備份還原虛擬機器。   
-> 
-> 
-> ## <a name="failover-job"></a>容錯移轉作業
+ 
+ 
+## <a name="failover-job"></a>容錯移轉作業
 
 ![容錯移轉](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ ms.locfileid: "66399962"
 ## <a name="post-failover-considerations"></a>容錯移轉後的考量
 容錯移轉之後，您可能要考慮下列建議：
 ### <a name="retaining-drive-letter-after-failover"></a>在容錯移轉之後保留磁碟機代號
-若要在容錯移轉後保留虛擬機器上的磁碟機代號，您可以將虛擬機器的 [SAN 原則]  設定為 [OnlineAll]  。 [閱讀更多](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
+Azure Site Recovery 會處理保留的磁碟機代號。 [深入了解](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk)如何進行當您選擇要排除某些磁碟上。
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM
 

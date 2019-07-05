@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467663"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503220"
 ---
 # <a name="configure-the-application-dashboard"></a>設定應用程式儀表板
 
@@ -41,6 +41,8 @@ ms.locfileid: "65467663"
 ![含針對圖格顯示之設定和屬性的 [儀表板] 索引標籤](media/howto-configure-homepage/image4a.png)
 
 您可以瀏覽其他 圖格類型程式庫中，以了解如何進一步自訂預設的應用程式儀表板。
+
+若要深入了解如何使用 Azure IoT Central 中的磚，請參閱[使用儀表板磚](howto-use-tiles.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

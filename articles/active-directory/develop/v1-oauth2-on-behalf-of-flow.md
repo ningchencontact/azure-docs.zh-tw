@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110981"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482423"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>使用代理者流程中委派使用者身分識別的服務對服務呼叫
 
@@ -38,7 +38,7 @@ OAuth 2.0 代理者 (OBO) 流程能讓叫用服務或 Web API 的應用程式將
 
 OBO 流程會在使用者已在使用 [OAuth 2.0 授權碼授與流程](v1-protocols-oauth-code.md)的應用程式上取得驗證之後開始。 此時，應用程式會將存取權杖 (權杖 A) 傳送至包含使用者宣告及同意的中介層 Web API (API A) 以存取 API A。接下來，API A 會向下游 Web API (API B) 發出已驗證的要求。
 
-這些步驟會構成代理者流程：![OAuth2.0 代理者流程](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+這些步驟會構成代理者流程：![顯示 OAuth2.0 代理者的流程中的步驟](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. 用戶端應用程式使用權杖 A 向 API A 提出要求。
 1. API A會向 Azure AD 權杖發行端點進行驗證，並要求存取 API B 的權杖。

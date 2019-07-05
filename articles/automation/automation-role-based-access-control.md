@@ -5,17 +5,17 @@ keywords: 自動化 rbac, 角色型存取控制, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738691"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477724"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -232,6 +232,7 @@ ms.locfileid: "60738691"
 |上線狀態檢查 - 讀取 VM      | Microsoft.Compute/virtualMachines/read         | 虛擬機器         |
 |上線狀態檢查 - 讀取帳戶      | Microsoft.Automation/automationAccounts/read  |  自動化帳戶   |
 | 上架工作區中檢查 VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | 訂用帳戶         |
+| 註冊 Log Analytics 提供者 |Microsoft.Insights/register/action | 訂用帳戶|
 
 <sup>1</sup>此權限，才能透過入口網站體驗，VM 上架。
 
@@ -251,6 +252,7 @@ ms.locfileid: "60738691"
 |建立/編輯已儲存的搜尋     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
 |建立/編輯範圍設定     | Microsoft.OperationalInsights/workspaces/write        | 工作區        |
 |將解決方案連結至範圍設定      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 解決方法         |
+| 註冊 Log Analytics 提供者 |Microsoft.Insights/register/action | 訂用帳戶|
 |**步驟 2 - 讓多個 VM 上線**     |         |         |
 |VMOnboarding 刀鋒視窗 - 建立 MMA 延伸模組     | Microsoft.Compute/virtualMachines/write           | 虛擬機器        |
 |建立/編輯已儲存的搜尋     | Microsoft.OperationalInsights/workspaces/write           | 工作區        |

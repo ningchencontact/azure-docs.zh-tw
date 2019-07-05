@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 35193380cc890a93d93c68bf5fc405572b5aa409
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: ba34638bbdb838adc6f1e61b1f8b07a6915815c0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339887"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540768"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>憑證和 App Service Environment 
 
@@ -55,7 +55,7 @@ ASE 是單一租用戶系統。 因為它是單一租用戶，所以有一些功
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+當建立自我簽署憑證時，您必須確定主體名稱格式為 CN = {ASE_NAME_HERE} _InternalLoadBalancingASE。
 
 ## <a name="application-certificates"></a>應用程式憑證 
 

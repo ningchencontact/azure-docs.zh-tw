@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113508"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537007"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
@@ -136,6 +136,8 @@ Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 
 ## <a name="next-steps"></a>後續步驟
 
 [在您的租用戶中的啟用結合註冊](howto-registration-mfa-sspr-combined.md)
+
+[SSPR 和 MFA 使用量和 insights 報告](howto-authentication-methods-usage-insights.md)
 
 [可用的方法進行多重要素驗證和 SSPR](concept-authentication-methods.md)
 

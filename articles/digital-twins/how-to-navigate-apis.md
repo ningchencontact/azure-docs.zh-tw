@@ -1,19 +1,19 @@
 ---
 title: 瀏覽 Azure Digital Twins API | Microsoft Docs
 description: 了解查詢 Azure Digital Twins 管理 API 的常見模式。
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-adgera
+ms.openlocfilehash: 1c5549b903e9a4768d81d601c42e621864522781
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60924489"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462028"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
 

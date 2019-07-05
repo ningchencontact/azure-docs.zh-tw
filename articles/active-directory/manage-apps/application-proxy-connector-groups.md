@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22d44b02b3cc25c855361cab17132c46fa04794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d896a45931512b925491e05ff6e5eef8a856d83d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783707"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481330"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "65783707"
 1. 選取 [Azure Active Directory]   >  [企業應用程式]   >  [應用程式 Proxy]  。
 2. 選取 [新增連接器群組]  。 [新增連接器群組] 刀鋒視窗隨即出現。
 
-   ![選取新的連接器群組](./media/application-proxy-connector-groups/new-group.png)
+   ![顯示畫面以選取新的連接器群組](./media/application-proxy-connector-groups/new-group.png)
 
 3. 指定新連接器群組的名稱，然後使用下拉式功能表來選取哪些連接器屬於此群組。
 4. 選取 [ **儲存**]。
@@ -74,25 +74,25 @@ ms.locfileid: "65783707"
 
 以擁有數個虛擬機器連線到本身 IaaS 主控之虛擬網路的組織為例。 若要允許員工使用這些應用程式，這些私人網路會使用站台對站 VPN 連線到公司網路。 針對位於內部部署的員工，這會提供良好的體驗。 但是，它可能不適合遠端員工，因為它需要額外內部部署基礎結構來路由存取權，如您所見下圖顯示︰
 
-![AzureAD Iaas 網路](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![此圖說明 Azure AD IaaS 網路](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 使用 Azure AD 應用程式 Proxy 連接器群組，您可以啟用一般服務來保護所有應用程式，而無須在您的公司網路上建立其他相依性︰
 
-![AzureAD Iaas 多雲端廠商](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS 多雲端廠商](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>多樹系 – 每個樹系不同的連接器群組
 
 大部分已部署應用程式 Proxy 的客戶會執行 Kerberos 限制委派 (KCD) 來使用單一登入 (SSO) 功能。 若要達到此目的，連接器的電腦需要加入可將使用者委派至應用程式的網域。 KCD 支援跨樹系功能。 但對於擁有不同的多樹系環境且它們之間沒有信任的公司來說，單一連接器無法用於所有的樹系。 
 
 在此情況下，每個樹系可以部署特定連接器，並設定為僅為該特定樹系使用者提供服務所發佈的應用程式提供服務。 每個連接器群組代表不同的樹系。 雖然租用戶和大部分的體驗會針對所有樹系進行整合，使用者可以使用 Azure AD 群組指派給其樹系的應用程式。
- 
+
 ### <a name="disaster-recovery-sites"></a>災害復原網站
 
 您可以根據您站台的實作方式，使用災害復原 (DR) 網站採用兩種不同的方法︰
 
 * 如果您的 DR 網站是在主動-主動模式中建置，其中與主要站台完全相同，且具有相同的網路與 AD 設定，您可以在與主要站台相同的連接器群組中，在 DR 網站上建立連接器。 這可讓 Azure AD 為您偵測容錯移轉。
 * 如果 DR 網站是獨立於主要網站，您可以在 DR 網站中建立不同的連接器群組，並且 1) 擁有備份應用程式，或 2) 視需要手動將現有的應用程式轉向至 DR 連接器群組。
- 
+
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>從單一租用戶為多家公司提供服務
 
 有許多不同的方式可實作模型，其中單一服務提供者可部署及為多家公司維護 Azure AD 的相關服務。 連接器群組可協助系統管理員將連接器和應用程式分成不同的群組。 適合小型公司的一個方法是擁有單一 Azure AD 租用戶，同時不同公司都有自己的網域名稱和網路。 M&A 案例和情況也是如此，其中單一 IT 部門會針對規範或企業原因為幾家公司提供服務。 
@@ -100,32 +100,30 @@ ms.locfileid: "65783707"
 ## <a name="sample-configurations"></a>範例組態
 
 您可以實作一些範例，包括下列連接器群組。
- 
+
 ### <a name="default-configuration--no-use-for-connector-groups"></a>預設組態 – 不使用連接器群組
 
 如果您不使用連接器群組，您的組態會看起來像這樣︰
 
-![AzureAD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
- 
+![範例 Azure AD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+
 這個組態就對小型部署和測試就已足夠。 如果您的組織具有平面網路拓撲，則它也會正常運作。
- 
+
 ### <a name="default-configuration-and-an-isolated-network"></a>預設組態和隔離的網路
 
-此組態是預設的演化，其中有在隔離網路 (例如 IaaS 虛擬網路) 中執行的特定應用程式︰ 
+此組態是預設的演化，其中有在隔離網路 (例如 IaaS 虛擬網路) 中執行的特定應用程式︰
 
-![AzureAD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
- 
+![範例 Azure AD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>建議的組態 – 幾個特定的群組和預設的閒置群組
 
 大型及複雜組織的建議組態是具有預設連接器群組做為不提供任何應用程式服務並用於閒置或新安裝連接器的群組。 所有應用程式會使用自訂的連接器群組來提供服務。 這可啟用上述案例的所有複雜度。
 
-下列範例中，公司有兩個資料中心 (A 和 B)，並具有兩個連接器可為每個站台提供服務。 每個網站都有不同的應用程式在其上執行。 
+下列範例中，公司有兩個資料中心 (A 和 B)，並具有兩個連接器可為每個站台提供服務。 每個網站都有不同的應用程式在其上執行。
 
-![AzureAD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
- 
+![具有 2 個資料中心和 2 的連接器公司的範例](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+
 ## <a name="next-steps"></a>後續步驟
 
 * [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)
 * [啟用單一登入](what-is-single-sign-on.md)
-
-

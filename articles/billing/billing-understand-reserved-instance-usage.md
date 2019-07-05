@@ -1,27 +1,24 @@
 ---
-title: 了解 Azure 保留的項目使用方式，隨用隨付訂用帳戶 |Microsoft Docs
-description: 學習如何看懂使用量，以了解隨用隨付型方案訂用帳戶的 Azure 保留套用情形。
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: 以隨用隨付費率個別訂用帳戶的 azure 保留使用情況
+description: 了解如何讀取您的使用量，以了解如何套用個別訂用帳戶以隨用隨付費率的 Azure 保留項目。
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370311"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490372"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>了解個別訂用帳戶與隨用隨付費率訂用帳戶的 Azure 保留使用情況
 
 使用[保留頁面](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)的 ReservationId 和 [Azure 帳戶入口網站](https://account.azure.com)的使用量檔案，來評估保留使用量。
 
@@ -62,7 +59,7 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 4. [計量識別碼]  是保留的計量識別碼。 此計量的成本為 $0。 任何有資格獲得保留折扣的 VM 都會出現此計量識別碼。
 5. Standard_DS1_v2 是一種 vCPU 虛擬機器，且是在沒有 Azure Hybrid Benefit 的情況下部署的虛擬機器。 因此，這個計量涵蓋 Windows 軟體的額外費用。 若要尋找對應於 D 系列 1 核心 VM 的計量，請參閱 [Azure 保留 VM 執行個體的 Windows 軟體成本](billing-reserved-instance-windows-software-costs.md)。 如果您擁有 Azure Hybrid Benefit，就不會產生此額外費用。
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 與 Cosmos DB 保留容量保留項目的使用情況
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>使用 SQL Database 和 Cosmos DB 的保留項目
 
 下列各節使用 Azure SQL Database 作為範例來說明使用情況報表。 您也可以使用相同步驟來取得 Azure Cosmos DB 的使用情況。
 

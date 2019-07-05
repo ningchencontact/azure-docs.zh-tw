@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237595"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446821"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>佈建及管理 Azure 時間序列深入解析預覽版
 
@@ -45,7 +45,7 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
 1. 選取 [SKU]  功能表下的 [預付型]  。 提供環境名稱，並選擇要使用的訂用帳戶群組與資源群組。 接著，選取要在其中裝載環境的支援位置。
 
-   [![建立 Azure Time Series Insights 執行個體。](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![建立 Azure Time Series Insights 執行個體。](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. 輸入時間序列識別碼。
 
@@ -56,7 +56,7 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
 1. 透過選取儲存體帳戶名稱並指定複寫選項，以建立 Azure 儲存體帳戶。 這樣做會自動建立 Azure 儲存體一般用途 v1 帳戶。 它將會在與您先前選取之 Azure 時間序列深入解析預覽版環境相同的區域中建立。
 
-    [![建立您的執行個體的 Azure 儲存體帳戶](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![建立您的執行個體的 Azure 儲存體帳戶](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. (選擇性) 您可以新增事件來源。
 
@@ -67,11 +67,11 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
      > [!TIP]
      > 在批次事件或歷史資料上傳案例中，訊息加入佇列時間可能不是最佳配置設定。 務必確定您是否要在此類案例中使用時間戳記屬性的決定。
 
-     [![事件來源 索引標籤](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![事件來源 索引標籤](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. 確認您的環境已使用想要的設定佈建。
 
-    [![檢閱 + 建立的索引標籤](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![檢閱 + 建立的索引標籤](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>管理環境
 
@@ -88,7 +88,7 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
 * 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [參考]  資料刀鋒視窗，因為參考資料不是預付型環境的元件。
 
-[![在 Azure 入口網站中的時間序列深入解析預覽環境](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![在 Azure 入口網站中的時間序列深入解析預覽環境](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

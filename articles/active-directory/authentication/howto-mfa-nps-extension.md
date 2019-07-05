@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97bad4d9cd599890dd5e26cbc77f81156c0f1070
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204663"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560750"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -76,14 +76,14 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 NPS 伺服器必須能夠透過連接埠 80 和 443 與下列 URL 通訊。
 
-* https:\//adnotifications.windowsazure.com  
-* https:\//login.microsoftonline.com
+- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
 
 此外，下列 Url 的連線才可完成[配接器使用提供的 PowerShell 指令碼的安裝程式](#run-the-powershell-script)
 
-- https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
+- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
@@ -121,9 +121,14 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 1. 在 RADIUS 用戶端 (VPN、Netscaler 伺服器或其他) 與 NPS 伺服器之間使用的密碼加密演算法。
    - **PAP** 支援雲端中 Azure MFA 的所有驗證方法：通話、單向簡訊、行動裝置應用程式通知，和行動裝置應用程式驗證碼。
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知。
-2. 用戶端應用程式 (VPN、Netscaler 伺服器或其他) 可以處理的輸入法。 例如，VPN 用戶端是否有一些方法可讓使用者從文字或行動裝置應用程式輸入驗證程式碼？
 
-當您部署 NPS 擴充時，使用這些因素來評估哪些方法可供您的使用者使用。 如果您的 RADIUS 用戶端支援 PAP，但用戶端 UX 沒有驗證碼的輸入欄位，則通話和行動裝置應用程式通知是兩個支援的選項。
+      > [!NOTE]
+      > 當您部署 NPS 擴充時，使用這些因素來評估哪些方法可供您的使用者使用。 如果您的 RADIUS 用戶端支援 PAP，但用戶端 UX 沒有驗證碼的輸入欄位，則通話和行動裝置應用程式通知是兩個支援的選項。
+      >
+      > 此外，如果您的 VPN 用戶端 UX 支援輸入欄位，而且已設定網路存取原則-驗證可能會成功，但是網路原則中設定的 RADIUS 屬性不會套用任何未與網路存取裝置，例如，RRAS 伺服器上，也無法在 VPN 用戶端。 如此一來，VPN 用戶端可能會有比所需的時間沒有存取權以更多的存取權。
+      >
+
+2. 用戶端應用程式 (VPN、Netscaler 伺服器或其他) 可以處理的輸入法。 例如，VPN 用戶端是否有一些方法可讓使用者從文字或行動裝置應用程式輸入驗證程式碼？
 
 您可以在 Azure 中[停用不受支援的驗證方法](howto-mfa-mfasettings.md#verification-methods)。
 
@@ -132,11 +137,10 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 在您部署與使用 NPS 擴充功能之前，必須先針對 MFA 註冊需執行雙步驟驗證的使用者。 緊接著，若要同時部署與測試延伸模組，您必須至少有一個測試帳戶，並應已針對 Multi-Factor Authentication 完全註冊此帳戶。
 
 使用下列步驟啟動測試帳戶：
-1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。 
-2. 遵循提示來設定驗證方法。
-3. 建立條件式存取原則或[變更使用者狀態](howto-mfa-userstates.md)要求測試帳戶的雙步驟驗證。 
 
-您的使用者在向 NPS 擴充功能驗證之前，也必須遵循下列步驟進行註冊。
+1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。
+2. 遵循提示來設定驗證方法。
+3. [建立條件式存取原則](howto-mfa-getstarted.md#create-conditional-access-policy)可測試帳戶時要求多重要素驗證。
 
 ## <a name="install-the-nps-extension"></a>安裝 NPS 擴充功能
 
@@ -188,6 +192,14 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 > [!NOTE]
 > 如果您使用自己的憑證，而不是透過 PowerShell 指令碼產生憑證，請確定這些憑證遵守 NPS 命名慣例。 主體名稱必須是 **CN=\<租用戶識別碼\>,OU=Microsoft NPS Extension**。 
+
+### <a name="certificate-rollover"></a>憑證變換
+
+版本現已支援 1.0.1.32 讀取多個憑證的 NPS 擴充功能。 這項功能有助於促進輪流更新，憑證尚未過期。 如果您的組織正在執行舊版的 NPS 擴充功能，您應該升級為版本 1.0.1.32 或更高版本。
+
+建立的憑證`AzureMfaNpsExtnConfigSetup.ps1`指令碼的有效期為 2 年。 IT 組織應該監視到期的憑證。 之 NPS 延伸模組的憑證會放在個人在本機電腦憑證存放區，並發行至租用戶識別碼提供給指令碼。
+
+當憑證即將到期時，就應該建立新的憑證來取代它。  此程序會伴隨執行`AzureMfaNpsExtnConfigSetup.ps1`一次並保留相同的租用戶識別碼出現提示時。 在您的環境中的每個 NPS 伺服器上，就應該重複此程序。
 
 ## <a name="configure-your-nps-extension"></a>設定 NPS 擴充功能
 
@@ -291,6 +303,10 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
 
 除非您的組織需要較舊的和較弱的加密套件，否則建議您加以停用或移除。 如需如何完成這項工作的相關資訊，請參閱[管理 AD FS 的 SSL/TLS 通訊協定和加密套件](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)一文
+
+### <a name="additional-troubleshooting"></a>其他疑難排解
+
+文章中，可以找到其他的疑難排解指引和可能的解決方案[解決 Azure Multi-factor Authentication 的 NPS 擴充功能的錯誤訊息](howto-mfa-nps-extension-errors.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

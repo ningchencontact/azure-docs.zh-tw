@@ -1,7 +1,6 @@
 ---
-title: 按發票支付 Azure 訂用帳戶 | Microsoft Docs
-description: 描述如何按發票支付 Azure 訂用帳戶
-documentationcenter: ''
+title: 依發票支付 Azure 訂用帳戶
+description: 描述如何依發票支付 Azure 訂用帳戶。
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -10,23 +9,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 7af8789d61069f37d34d07653177e839caf35304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ca726ef737ce4750018d2461bc4bcd6c7ebb5f5
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076500"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491258"
 ---
-# <a name="pay-azure-subscription-by-invoice"></a>依發票支付 Azure 訂用帳戶
+# <a name="pay-for-your-azure-subscription-by-invoice"></a>依發票支付 Azure 訂用帳戶
 
-如果您切換到發票付款，這表示您的發票日期的 30 天內支付帳單。 若要成為合格發票支付 Azure 訂用帳戶，提交要求給 Azure 支援。 一旦您的要求核准之後，您可以切換到發票支付訂用帳戶中[Azure 入口網站](https://portal.azure.com)。
+如果您切換到發票付款，這表示您的核取/網路傳輸的發票日期的 30 天內支付您的帳單。 若要成為合格發票支付 Azure 訂用帳戶，提交要求給 Azure 支援。 一旦您的要求核准之後，您可以在切換到發票付款 （核取/寫入傳輸） [Azure 入口網站](https://portal.azure.com)。
 
 > [!IMPORTANT]
-> * 發票支付只適用於商務帳戶。
+> * 發票支付 （核取/寫入傳輸） 只適用於商務帳戶。
 > * 切換到發票支付之前，您必須支付所有未付費用。
-> * 一旦您切換到發票付款後，就無法切換回信用卡或轉帳卡付款。
 
 ## <a name="request-to-pay-by-invoice"></a>若要依發票付款的要求
 
@@ -70,12 +68,18 @@ ms.locfileid: "67076500"
 
 如果我們需要進行信用查核因為您需要的信用額度的金額，我們會傳送您的信用額度檢查應用程式。
 
-## <a name="switch-to-invoice-pay"></a>切換到發票支付
+## <a name="switch-to-invoice-pay-checkwire-transfer"></a>切換到發票支付 （核取/寫入傳輸）
 
-一旦您獲准依發票付款，您可以切換您 Azure 訂用帳戶中使用發票付款方法[Azure 入口網站](https://portal.azure.com)。
+一旦您獲准依發票付款，您可以切換到發票支付 （核取/寫入傳輸），在 Azure 入口網站中。
 
-1. 登入[Azure 入口網站](https://portal.azure.com)帳戶管理員身分。
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+如果您有 Microsoft Online Services 的計劃帳戶，您可以切換核取/網路傳輸至您 Azure 訂用帳戶。 如果您有 Microsoft 客戶合約時，您可以切換核取/網路傳輸至帳單設定檔。 [了解如何檢查您的帳戶類型](#check-access-to-a-microsoft-customer-agreement)。
+
+### <a name="switch-azure-subscription-to-checkwire-transfer"></a>切換核取/網路傳輸至 Azure 訂用帳戶
+
+請遵循下列步驟來切換 Azure 訂用帳戶發票支付 （核取/寫入傳輸）。 **一旦您切換到發票支付 （核取/寫入傳輸） 您無法切換回信用卡**。
+
+1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+1. 搜尋**成本管理 + 計費**。
 
     ![顯示搜尋螢幕擷取畫面](./media/billing-how-to-pay-by-invoice/search.png)
 
@@ -85,9 +89,32 @@ ms.locfileid: "67076500"
 
     ![螢幕擷取畫面顯示支付發票 按鈕](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+### <a name="switch-billing-profile-to-checkwire-transfer"></a>計費以核取/網路傳輸的設定檔的參數
 
-如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+請遵循下列步驟來切換核取/網路傳輸至帳單設定檔。 請注意，只有已註冊 Azure 的人員可以變更帳單的設定檔的預設付款方法。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 在左側功能表中，按一下**帳單設定檔**。
+
+    ![顯示計費的設定檔功能表中的螢幕擷取畫面](./media/billing-how-to-pay-by-invoice/billing-profile.png)
+
+1. 選取計費的設定檔。
+1. 在左側功能表中，選取**付款方法**。
+
+   ![在功能表中顯示的付款方法的螢幕擷取畫面](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
+
+1. 按一下藍色橫幅： 即符合資格的核取/電匯付費。
+
+    ![若要切換到核取/寫入的藍色橫幅會顯示的螢幕擷取畫面](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 如有需要更新在帳單連絡人資訊[Azure 帳戶中心](https://account.azure.com/Profile)。

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252787"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508786"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上 Apache Hadoop 服務所使用的連接埠
 
@@ -41,7 +41,7 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | sshd |23 |SSH |將用戶端連接到次要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | Ambari |443 |HTTPS |Ambari Web UI。 請參閱 [使用 Apache Ambari Web UI 來管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API。 請參閱[使用 Apache Ambari REST API 來管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API。 請參閱[搭配使用 Apache Hive 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 Apache Pig 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 MapReduce 與 Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API。 請參閱[搭配使用 MapReduce 與 Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |使用 ODBC 連接至 Hive。 請參閱 [使用 Microsoft ODBC 驅動程式將 Excel 連接到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。 |
 | HiveServer2 |443 |JDBC |使用 JDBC 來連線至 Hive。 請參閱[使用 Hive JDBC 驅動程式來連線至 HDInsight 上的 Apache Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 

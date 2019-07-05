@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969067"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490154"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
-本文將協助您深入了解 Azure 成本管理所包含的資料。 此外也說明處理、收集、顯示和關閉資料的頻率。 您須按月支付使用 Azure 的費用。 不過，您的 Azure 訂用帳戶類型會決定您的計費月份於何時結束。 「成本管理」接收使用量資料的頻率會隨著不同的因素而改變。 這類因素包括處理資料所需的時間，以及 Azure 服務向計費系統發出使用量資料的頻率。
+這篇文章可協助您深入了解 Azure 成本管理中包含的 Azure 成本和使用方式資料。 它會說明通常如何處理資料時，收集，如下所示，和已關閉。 您須按月支付使用 Azure 的費用。 雖然計費週期是每月等期間，週期的開始和結束日期會因訂用帳戶類型。 「成本管理」接收使用量資料的頻率會隨著不同的因素而改變。 這類因素包括處理資料所需的時間，以及 Azure 服務向計費系統發出使用量資料的頻率。
 
-成本的管理會包含所有的使用方式與購買項目，包括保留項目和 Enterprise 合約 (EA) 帳戶的第三方供應項目。 Microsoft 客戶協議 (MCA) 帳戶和隨用隨付訂用帳戶只會包含從 Azure 與 Marketplace 服務的使用方式。 支援和其他成本不包含在內。 成本估計，直到產生發票並不會納入信用額度。
+成本的管理會包含所有的使用方式與購買項目，包括保留項目和 Enterprise 合約 (EA) 帳戶的第三方供應項目。 Microsoft 客戶協議 (MCA) 帳戶和個別的訂用帳戶，以隨用隨付費率僅包括從 Azure 與 Marketplace 服務的使用方式。 支援和其他成本不包含在內。 成本估計，直到產生發票並不會納入信用額度。
 
-## <a name="supported-microsoft-offers"></a>支援的 Microsoft 供應項目
+## <a name="supported-microsoft-azure-offers"></a>支援的 Microsoft Azure 優惠
 
-下列資訊顯示 Azure 成本管理中目前支援的 [Microsoft Azure 供應項目](https://azure.microsoft.com/support/legal/offer-details/)。  Azure 供應項目是您 Azure 訂用帳戶的類型。
+下列資訊會顯示目前支援[Microsoft Azure 提供](https://azure.microsoft.com/support/legal/offer-details/)Azure 成本管理。 您簽署的協議的 Azure 供應項目會決定您擁有 Azure 訂用帳戶的類型。
 
 | Category  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ ms.locfileid: "65969067"
 | **Visual Studio** | [Visual Studio 企業版](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-下表顯示不支援的供應項目。
+下表顯示不支援的成本管理的 Azure 供應項目。
 
 | Category  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ ms.locfileid: "65969067"
 | **支援方案** | Azure Government 專業指導支援 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **支援方案** | Azure Government 開發人員支援  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-使用隨用隨付、MSDN 和 Visual Studio 供應項目類別的客戶，自 2018/10/02 起可在「成本管理」中取得資料。 若要存取您的訂用帳戶在 2018 年 10 月 02 日之前的資料，您可以使用[Azure 帳戶中心](https://account.azure.com/subscriptions)若要下載您的使用量詳細資料的 CSV 檔案中，或者您可以使用[使用情況詳細資料 API](/rest/api/consumption/usagedetails)。
+隨用隨付的客戶，MSDN 和 Visual Studio 提供類別，從 2018 年 10 月 02 的成本管理中取得的資料。 若要存取您的訂用帳戶在 2018 年 10 月 02 日之前的資料，您可以使用[Azure 帳戶中心](https://account.azure.com/subscriptions)若要下載您的使用量詳細資料的 CSV 檔案中，或者您可以使用[使用情況詳細資料 API](/rest/api/consumption/usagedetails)。
 
 ## <a name="determine-your-offer-type"></a>判斷您的供應項目類型
 如果您未看到訂用帳戶的資料，而您想要確認訂用帳戶是否屬於支援的供應項目，您可以驗證您的訂用帳戶是否受支援。 若要驗證 Azure 訂用帳戶是否受支援，請登入 [Azure 入口網站](https://portal.azure.com)。 然後，在左側功能表窗格中選取 [所有服務]  。 在服務清單中，選取 [訂用帳戶]  。 在訂用帳戶清單功能表中，按一下您要確認的的訂用帳戶。 您的訂用帳戶會顯示在 [概觀] 索引標籤上，您會看到 [供應項目]  和 [供應項目識別碼]  。 下圖說明一個範例。
@@ -116,7 +116,7 @@ Enterprise 合約 (EA) 訂用帳戶 – 如果計費月份在 3 月 31 日結束
 
 ### <a name="rerated-data"></a>重新評估的資料
 
-您是否使用[成本管理 Api](https://aka.ms/costmgmt/docs)，Power BI 或 Azure 入口網站來擷取資料，預期取得重新分級，並因此變更，直到關閉的發票目前計費週期的費用。
+您是否使用[成本管理 Api](index.yml)，Power BI 或 Azure 入口網站來擷取資料，預期取得重新分級，並因此變更，直到關閉的發票目前計費週期的費用。
 
 ## <a name="usage-data-update-frequency-varies"></a>使用量資料更新頻率不相同
 
@@ -129,7 +129,7 @@ Enterprise 合約 (EA) 訂用帳戶 – 如果計費月份在 3 月 31 日結束
 
 ## <a name="historical-data-might-not-match-invoice"></a>歷程記錄資料可能不符合發票
 
-歷程記錄資料點數為基礎和預先付費供應項目可能不符合您的發票。 Azure 信用額度與套用到發票的進階的付款，可以有一些 Azure 隨用隨付、 MSDN 及 Visual Studio 供應項目。 不過，在成本管理中所顯示的歷程記錄資料根據您的預估的耗用量費用只。 成本的管理歷程記錄資料不包含付款與信用額度。 如此一來，使用下列供應項目所顯示的歷程記錄資料可能不符合完全與您的發票。
+歷程記錄資料點數為基礎和預先付費供應項目可能不符合您的發票。 某些 Azure 隨用隨付、 MSDN 及 Visual Studio 提供了可以擁有的 Azure 信用額度和進階的付款套用到發票。 不過，在成本管理中所顯示的歷程記錄資料根據您的預估的耗用量費用只。 成本的管理歷程記錄資料不包含付款與信用額度。 如此一來，使用下列供應項目所顯示的歷程記錄資料可能不符合完全與您的發票。
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

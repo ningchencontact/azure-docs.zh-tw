@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8a67cd2f82eb069555bda68e4cb04a6634e3b31d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164347"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476019"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私用雲端環境
 
@@ -187,7 +187,10 @@ NSX manager 會使用預設密碼部署。  我們建議您建立私用雲端之
 
     ![尋找 NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
 
-若要變更密碼，請依照下列中的指示[NSX Manager 安裝](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html)。
+若要變更密碼，請依照下列中的指示[管理使用者的密碼](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html)。
+
+> [!WARNING]
+> 根據預設，NSX 系統管理員密碼會在 90 天後到期。
 
 ## <a name="create-a-port-group"></a>建立通訊埠群組
 

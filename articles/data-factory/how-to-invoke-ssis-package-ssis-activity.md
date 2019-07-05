@@ -8,26 +8,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/01/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33259fff17633cc4864a342609f747ebb9902ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153112"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484867"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
-本文描述如何使用 Execute SSIS 套件活動，在 Azure Data Factory (ADF) 管線執行 SSIS 套件。 
+本文說明如何在 Azure Data Factory (ADF) 管線中執行的 SQL Server Integration Services (SSIS) 封裝，使用 「 執行 SSIS 套件 」 活動。 
 
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果您未依照以下教學課程中的逐步指示進行，請建立 Azure SSIS 整合執行階段 (IR)：[教學課程：將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。
+如果您未依照以下教學課程中的逐步指示進行，請建立 Azure SSIS 整合執行階段 (IR)：[教學課程：佈建 Azure SSIS IR](tutorial-create-azure-ssis-runtime-portal.md)。
 
 ## <a name="run-a-package-in-the-azure-portal"></a>在 Azure 入口網站中執行套件
 在本節中，您會使用 ADF 使用者介面 (UI)/應用程式來建立 ADF 管線，其中具有要執行 SSIS 套件的執行 SSIS 套件活動。
@@ -51,25 +51,63 @@ ms.locfileid: "66153112"
 
    ![在 [一般] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. 在 Execute SSIS 套件活動的 [設定]  索引標籤上，選取與 SSISDB 資料庫 (套件部署所在) 相關聯的 Azure-SSIS IR。 如果您的套件會使用 Windows 驗證來存取資料存放區，例如 SQL 伺服器/檔案共用內部部署，Azure 檔案等檢查**Windows 驗證**核取方塊，然後輸入網域/使用者名稱/密碼為您的封裝執行。 如果您的套件需要 32 位元執行階段以便執行，請核取 [32 位元執行階段]  核取方塊。 針對 [記錄層級]  ，針對您的套件執行選取預先定義的記錄範圍。 如果您想要改為輸入您的自訂記錄名稱，請核取 [自訂]  核取方塊。 執行您的 Azure-SSIS IR 且 [手動項目]  核取方塊未核取時，您可以瀏覽並從 SSISDB 選取現有資料夾/專案/套件/環境。 按一下 [重新整理]  按鈕，擷取您剛剛從 SSISDB 新增的資料夾/專案/套件/環境，讓它們可供瀏覽和選取。 
+4. 在 **設定**執行 SSIS 套件活動索引標籤上，選取您要執行套件的 AZURE-SSIS 整合執行階段。 如果您的套件會使用 Windows 驗證來存取資料存放區，例如 SQL 伺服器/檔案共用內部部署，Azure 檔案等檢查**Windows 驗證**核取方塊，輸入您的封裝執行認證值(**網域**/**使用者名稱**/**密碼**)。 或者，您可以使用儲存在您的 Azure Key Vault (AKV) 做為其值的祕密。 若要這樣做，請按一下**AZURE KEY VAULT**相關的認證，旁邊的核取方塊選取/編輯現有連結的 AKV 服務或建立一個新，然後選取您的認證值祕密名稱/版本。  當您建立/編輯連結的 AKV 服務時，您可以選取/編輯您現有的 AKV 或建立新的連線，但請 ADF 受控身分識別存取權授與您 AKV 如果您還沒做這樣。 您也可以直接以下列格式輸入您的祕密： `<AKV linked service name>/<secret name>/<secret version>`。 如果您的套件需要 32 位元執行階段以便執行，請核取 [32 位元執行階段]  核取方塊。 
+
+   針對**封裝位置**，選取**SSISDB**，**檔案系統 （封裝）** ，或**檔案系統 （專案）** 。 如果您選取**SSISDB**做為封裝位置，如果您的 Azure SSIS IR 已佈建 Azure SQL Database 伺服器/受控執行個體所裝載的 SSIS 目錄 (SSISDB) 自動選取，您必須指定您的套件若要執行的已部署至 SSISDB。 如果您的 Azure SSIS 整合執行階段正在執行，**手動的項目**核取方塊未核取，您可以瀏覽並選取從 SSISDB 的現有資料夾/專案/封裝/環境。 按一下 [重新整理]  按鈕，擷取您剛剛從 SSISDB 新增的資料夾/專案/套件/環境，讓它們可供瀏覽和選取。 
+   
+   針對 [記錄層級]  ，針對您的套件執行選取預先定義的記錄範圍。 如果您想要改為輸入您的自訂記錄名稱，請核取 [自訂]  核取方塊。 
 
    ![在 [設定] 索引標籤上設定屬性 - 自動化](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   未執行您的 Azure SSIS IR 時或**手動的項目**核取方塊已核取，您可以從 SSISDB 輸入您的封裝和環境路徑，直接以下列格式：`<folder name>/<project name>/<package name>.dtsx`和`<folder name>/<environment name>`。
+   如果您的 Azure SSIS IR 不在執行中或**手動的項目**核取方塊已核取，您可以從 SSISDB 輸入您的封裝和環境路徑，直接以下列格式：`<folder name>/<project name>/<package name>.dtsx`和`<folder name>/<environment name>`。
 
    ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. 在執行 SSIS 套件活動的 [SSIS 參數]  索引標籤上，當您的 Azure-SSIS IR 執行中且未核取 [設定]  索引標籤上的 [手動項目]  核取方塊時，會為您顯示從 SSISDB 選取的專案/套件的現有 SSIS 參數，讓您為它們指派值。 否則，您可以逐一輸入以手動將值指派給它們，請確定它們存在且已正確輸入，您的套件執行才會成功。 您可以將動態內容新增至它們使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數的值。 或者，您可以使用儲存在您的 Azure Key Vault (AKV) 做為其值的祕密。 若要這樣做，請按一下**AZURE KEY VAULT**相關的參數，旁邊的核取方塊選取/編輯現有連結的 AKV 服務或建立新的程式，然後選取祕密參數值的名稱/版本。  當您建立/編輯連結的 AKV 服務時，您可以選取/編輯您現有的 AKV 或建立新的連線，但請 ADF 受控身分識別存取權授與您 AKV 如果您還沒做這樣。 您也可以直接以下列格式輸入您的祕密： `<AKV linked service name>/<secret name>/<secret version>`。
+   如果您選取**檔案系統 （封裝）** 做為封裝位置，如果您的 Azure SSIS IR 已佈建 SSISDB 不會自動選取，您必須指定封裝執行所提供的通用命名慣例 （封裝檔案的 UNC) 路徑 (`.dtsx`) 中**封裝路徑**。 例如，如果您在 「 Azure 檔案儲存您的套件，其封裝路徑會是`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`。 
+   
+   如果您在不同的檔案中設定您的套件，您也必須提供您的組態檔的 UNC 路徑 (`.dtsConfig`) 中**組態路徑**。 例如，如果您在 「 Azure 檔案儲存您的設定，其組態路徑會是`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`。
+
+   ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+
+   如果您選取**檔案系統 （專案）** 做為封裝位置，您必須指定您要藉由提供您的專案檔案的 UNC 路徑執行的封裝 (`.ispac`) 中**專案路徑**和封裝檔案 （`.dtsx`) 從您的專案中**套件名稱**。 例如，如果您在 「 Azure 檔案儲存您的專案，其專案路徑會是`\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`。
+
+   ![在 [設定] 索引標籤上設定屬性 - 手動](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+
+   接下來，您需要指定認證以存取您的專案/套件/設定檔案。 如果您先前輸入的值，封裝執行認證 （如上所示），您可以重複使用它們藉由檢查**相同封裝執行認證**核取方塊。 否則，您必須輸入您套件的存取認證的值 (**網域**/**使用者名稱**/**密碼**)。 比方說，如果您在 「 Azure 檔案儲存您的專案/封裝/組態**網域**是`Azure`;**使用者名稱**是`<storage account name>`; 而**密碼**是`<storage account key>`。 或者，您可以使用值 （見上文） 為您的 AKV 中儲存的祕密。 這些認證會用來存取您的封裝和執行封裝工作中，所有從他們自己路徑 / 相同專案中，以及設定，包括您的套件中所指定的子封裝中。 
+   
+   如果您已使用**EncryptAllWithPassword**/**EncryptSensitiveWithPassword**保護層級建立您的套件透過 SQL Server Data Tools (SSDT) 時，您需要輸入值在您的密碼**加密密碼**。 或者，您可以使用您 AKV 中儲存做為其值 （如上所示） 的密碼。 如果您已使用**EncryptSensitiveWithUserKey**保護層級，您必須重新輸入您敏感值，在組態檔中或在**SSIS 參數**/ **連線管理員**/**屬性會覆寫**索引標籤 （如下所示）。 如果您已使用**EncryptAllWithUserKey**保護層級，它是不受支援，因此您需要重新設定您要使用 SSDT 透過其他保護層級的套件或`dtutil`命令列公用程式。 
+   
+   針對 [記錄層級]  ，針對您的套件執行選取預先定義的記錄範圍。 如果您想要改為輸入您的自訂記錄名稱，請核取 [自訂]  核取方塊。 如果您想要記錄您超過使用標準的記錄提供者可指定在封裝中的封裝執行時，您需要提供在中的 UNC 路徑，以指定記錄檔資料夾**記錄路徑**。 比方說，如果您在 「 Azure 檔案儲存您的記錄檔，您的記錄路徑會是`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`。 將在每個個別的套件已執行的這個路徑中建立子資料夾，並將其命名為 「 執行 SSIS 套件 」 活動的執行的識別碼，在其中產生記錄檔將會每隔五分鐘之後。 
+   
+   最後，您也需要指定認證以存取您的記錄檔資料夾。 如果您先前輸入的值，封裝的存取認證 （如上所示），您可以重複使用它們藉由檢查**相同封裝的存取認證**核取方塊。 否則，您必須輸入您記錄的存取認證的值 (**網域**/**使用者名稱**/**密碼**)。 比方說，如果您將記錄儲存在 Azure 檔案**網域**是`Azure`;**使用者名稱**是`<storage account name>`; 而**密碼**是`<storage account key>`。 或者，您可以使用值 （見上文） 為您的 AKV 中儲存的祕密。 這些認證會用來儲存您的記錄檔中。 
+   
+   針對上述所有的 UNC 路徑，完整的檔案名稱必須少於 260 個字元，以及目錄名稱必須少於 248 個字元。
+
+5. 上**SSIS 參數**索引標籤上執行 SSIS 套件活動，如果您的 Azure SSIS 整合執行階段正在執行， **SSISDB**當做您套件的位置，而**手動項目**核取方塊**設定**索引標籤取消核取時，會顯示您所選專案/套件從 SSISDB 的現有 SSIS 參數，讓您指派值給它們。 否則，您可以逐一輸入以手動將值指派給它們，請確定它們存在且已正確輸入，您的套件執行才會成功。 
+   
+   如果您已使用**EncryptSensitiveWithUserKey**保護層級建立您的套件，透過 SSDT 時並**檔案系統 （封裝）** /**檔案系統 （專案）** 已選取與您套件的位置，您也需要重新輸入您在設定檔，或此索引標籤上，為他們指派值的敏感性參數。 
+   
+   當指派值給您的參數，您可以使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數來新增動態內容。 或者，您可以使用值 （見上文） 為您的 AKV 中儲存的祕密。
 
    ![在 [SSIS 參數] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. 上**連接管理員**索引標籤上執行 SSIS 套件活動，在執行您的 Azure SSIS IR 時，**手動項目**上的核取方塊**設定** 索引標籤上未選取，在您所選專案/套件從 SSISDB 的現有連接管理員會顯示，以將值指派給它們的屬性。 否則，您可以輸入它們其中一個用來以手動方式將值指派給它們的屬性，請確定它們存在，並且為您的封裝執行成功輸入正確的。 您可以將動態內容新增至它們使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數的屬性值。 或者，您可以使用儲存在您的 Azure Key Vault (AKV) 做為其屬性值的祕密。 若要這樣做，請按一下**AZURE KEY VAULT**相關屬性旁的核取方塊選取/編輯現有連結的 AKV 服務或建立新的程式，然後選取祕密名稱/版本的屬性值。  當您建立/編輯連結的 AKV 服務時，您可以選取/編輯您現有的 AKV 或建立新的連線，但請 ADF 受控身分識別存取權授與您 AKV 如果您還沒做這樣。 您也可以直接以下列格式輸入您的祕密： `<AKV linked service name>/<secret name>/<secret version>`。
+6. 上**連接管理員** 索引標籤的活動執行 SSIS 套件，如果您的 Azure SSIS 整合執行階段正在執行，如**SSISDB**當做您套件的位置，和**手動項目的**上的核取方塊**設定**索引標籤取消核取時，在您所選專案/套件從 SSISDB 的現有連接管理員將會顯示為您將值指派給它們的屬性。 否則，您可以輸入它們其中一個用來以手動方式將值指派給它們的屬性，請確定它們存在，並且為您的封裝執行成功輸入正確的。 
+   
+   如果您已使用**EncryptSensitiveWithUserKey**保護層級建立您的套件，透過 SSDT 時並**檔案系統 （封裝）** /**檔案系統 （專案）** 已選取與您套件的位置，您也需要重新輸入您的機密的連接管理員屬性，在設定檔，或此索引標籤上，為他們指派值。 
+   
+   當指派值給您的連線管理員屬性，您可以使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數來新增動態內容。 或者，您可以使用值 （見上文） 為您的 AKV 中儲存的祕密。
 
    ![在 [連線管理員] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-7. 在執行 SSIS 套件活動的 [屬性覆寫]  索引標籤上，您可以逐一輸入從 SSISDB 選取的套件中現有屬性的路徑，手動為它們指派值，請確定它們存在且已正確輸入，您的套件執行才會成功，例如，若要覆寫您使用者變數的值，請使用下列格式輸入其路徑：`\Package.Variables[User::YourVariableName].Value`。 您也可以使用運算式、函式、ADF 系統變數及 ADF 管線參數/變數，將動態內容新增至其值。
+7. 在 [**屬性會覆寫**] 索引標籤上執行 SSIS 套件活動，您可以在您選取的封裝一一指派值給它們，以手動方式 – 請確認它們存在，且已正確輸入現有的屬性路徑輸入您的封裝執行成功，例如若要覆寫您的使用者變數的值，請輸入其路徑採用下列格式： `\Package.Variables[User::<variable name>].Value`。 
+   
+   如果您已使用**EncryptSensitiveWithUserKey**保護層級建立您的套件，透過 SSDT 時並**檔案系統 （封裝）** /**檔案系統 （專案）** 已選取與您套件的位置，您也需要重新輸入您在組態檔中，或此索引標籤上，為他們指派值的機密屬性。 
+   
+   時指派值給您的屬性，您可以使用運算式、 函式、 ADF 系統變數和 ADF 管線的參數/變數來新增動態內容。
 
    ![在 [屬性覆寫] 索引標籤上設定屬性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+
+   在組態檔和指派的值*SSIS 參數* 索引標籤上可以使用來覆寫**連接管理員**/**屬性會覆寫**索引標籤上，而這些上指派**連接管理員**索引標籤可以也使用覆寫**屬性會覆寫** 索引標籤。
 
 8. 若要驗證管線設定，按一下工具列上的 [驗證]  。 若要關閉 [管線驗證報告]  ，按一下 **>>** 。
 
@@ -102,7 +140,7 @@ ms.locfileid: "66153112"
 
    ![確認封裝執行](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. 您也可以從管線活動執行的輸出取得 SSISDB 執行識別碼，並使用識別碼來檢查更完整的執行記錄和 SSMS 中的錯誤訊息。
+4. 您也可以從管線活動執行的輸出取得 SSISDB 執行識別碼，並使用識別碼來檢查更完整的執行記錄和錯誤訊息中 SQL Server Management Studio (SSMS)。
 
    ![取得執行識別碼。](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 

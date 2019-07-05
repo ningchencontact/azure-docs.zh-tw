@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962869"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483013"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>為什麼要更新至 Microsoft 身分識別平台 (v2.0)？
 
@@ -46,7 +46,7 @@ Microsoft 身分識別平台的端點，您可以使用來取得存取消費者�
 
 使用 Azure AD v1.0 端點的應用程式必須事先指定其所需的 OAuth 2.0 權限，例如：
 
-![權限註冊 UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![顯示權限註冊 UI 的範例](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 直接在應用程式註冊上設定的權限是**靜態的**。 雖然在 Azure 入口網站中定義應用程式的靜態使用權限，可讓程式碼保持簡潔，但它可能為開發人員帶來一些問題：
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718992"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508069"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -150,10 +150,6 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 ## <a name="find-the-default-storage-account"></a>尋找預設的儲存體帳戶
 下列 PowerShell 指令碼示範如何取得預設儲存體帳戶名稱和相關資訊：
 
-> [!IMPORTANT]  
-> 值`DefaultStorageAccount`，並`DefaultStorageContainer`不會傳回從[Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster)時[安全傳輸](../storage/common/storage-require-secure-transfer.md)啟用儲存體帳戶。
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -197,10 +193,6 @@ $resourceGroupName = $cluster.ResourceGroup
 **提交 Apache Hive 作業**
 
 請參閱[使用 PowerShell 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-powershell.md)。
-
-**提交 Apache Pig 作業**
-
-請參閱[使用 PowerShell 執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-powershell.md)。
 
 **提交 Apache Sqoop 作業**
 

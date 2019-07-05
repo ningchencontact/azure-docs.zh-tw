@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077315"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471664"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
 用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。
@@ -80,11 +80,17 @@ Data Flow 執行的預設值是 8 核心的一般計算，當 TTL 為 60 分鐘�
 
 ![執行資料流參數](media/data-flow/params.png "參數")
 
-### <a name="debugging-parameterized-data-flows"></a>偵錯的參數化的資料流
+## <a name="parameterized-data-flows"></a>參數化的資料流
 
-您可以只偵錯管線偵錯使用 execute 資料流程活動來執行參數化資料集的資料流。 目前，在 ADF 資料流程 」 中的互動式偵錯工作階段不適用於參數化資料集。 管線執行和偵錯回合會使用參數。
+如果您在資料流程內有參數，您將設定執行資料流活動的參數區段中的動態參數的值您的資料流量這裡。 若要設定使用動態運算式的參數值或常值的靜態值，您可以使用 ADF 管線運算式語言 （僅適用於字串參數的型別） 或資料的 流程運算式語言。
 
-理想的作法是建立與靜態的資料集的資料流程，讓您在設計階段有可用的完整中繼資料資料行傳播。 然後當您實作您的資料流管線時，請使用動態參數化資料集取代靜態的資料集。
+![執行資料流參數範例](media/data-flow/parameter-example.png "參數範例")
+
+### <a name="debugging-data-flows-with-parameters"></a>使用參數的偵錯資料流程
+
+在此目前的時間，您可以只偵錯資料流，以從管線進行偵錯使用 execute 資料流程活動執行的參數。 在 ADF 資料流程 」 中的互動式偵錯工作階段即將推出。 管線執行和偵錯執行，不過，可使用的參數。
+
+理想的作法是建立具有靜態內容的資料流程，讓您在設計階段能否有可用的完整中繼資料資料行傳播。 然後當您實作您的資料流管線時，請使用動態參數化資料集取代靜態的資料集。
 
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 

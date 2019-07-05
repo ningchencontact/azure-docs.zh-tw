@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330873"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442890"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure 前端服務常見問題的解答
 
@@ -79,25 +79,34 @@ Azure 的前端服務是分散在世界各地的多租用戶服務。 因此，�
 
 ### <a name="is-http-https-redirection-supported"></a>是否支援 HTTP->HTTPS 重新導向？
 
-是。 事實上，Azure 前端服務支援的主機、 路徑和查詢字串重新導向，以及組件的 URL 重新導向。 深入了解[URL 重新導向](front-door-url-redirect.md)。 
+是。 事實上，Azure 前端服務所支援的主機、 路徑和查詢字串重新導向，以及組件的 URL 重新導向。 深入了解[URL 重新導向](front-door-url-redirect.md)。 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>路由規則處理順序為何？
 
 未排序您的前端的路由和特定的路由根據最符合項目。 深入了解[如何大門符合要求的路由規則](front-door-route-matching.md)。
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>我該如何以我的後端，以 Azure 前端服務鎖定的存取？
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>我該如何至我的後端以僅 Azure 大門鎖定的存取？
 
-您可以設定執行 IP Acl 的您的後端接受僅來自 Azure 前端服務流量。 您可以限制您的應用程式，以接受連入連線，只能從 Azure 前端服務的後端 IP 空間。 我們正在努力整合[Azure IP 範圍和服務標籤](https://www.microsoft.com/download/details.aspx?id=56519)不過現在您可以直接參考，如下所示的 IP 範圍：
+若要鎖定您的應用程式，以接受流量，只會從特定的大門，您必須設定您的後端 IP Acl，然後限制的標頭 ' X-轉送-Host' 傳送由 Azure 大門接受的值集合。 這些步驟詳述出，如下所示：
+
+- 設定執行 IP Acl 的您的後端以接受來自 Azure 前端的後端 IP 位址空間與僅限 Azure 的基礎結構服務的流量。 我們正在努力整合[Azure IP 範圍和服務標籤](https://www.microsoft.com/download/details.aspx?id=56519)不過現在您可以直接參考，如下所示的 IP 範圍：
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - 最上層的門**IPv4**後端 IP 空間： `147.243.0.0/16`
+    - 最上層的門**IPv6**後端 IP 空間： `2a01:111:2050::/44`
+    - Azure 的[基本的基礎結構服務](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)透過虛擬化的主機 IP 位址：`168.63.129.16`和 `169.254.169.254`
 
-> [!WARNING]
-> 我們的後端 IP 空間可能會稍後變更，不過，我們會確認之前發生這種情況，我們會在使用已整合[Azure IP 範圍和服務標籤](https://www.microsoft.com/download/details.aspx?id=56519)。 我們建議您訂閱[Azure IP 範圍和服務標籤](https://www.microsoft.com/download/details.aspx?id=56519)是否有任何變更或更新。 
+    > [!WARNING]
+    > 前端的後端 IP 空間可能會稍後變更，不過，我們會確認之前發生這種情況，我們會在使用已整合[Azure IP 範圍和服務標籤](https://www.microsoft.com/download/details.aspx?id=56519)。 我們建議您訂閱[Azure IP 範圍和服務標籤](https://www.microsoft.com/download/details.aspx?id=56519)是否有任何變更或更新。
+
+-   篩選條件的連入的標頭的值 '**X 轉送主機**' 傳送的大門。 唯一允許的標頭值應該是所有前端主機大門組態中所定義。事實上甚至更具體來說，只有主機名稱要接受，您這個特定後端上的流量。
+    - 範例-讓我們假設您的前端設定具有下列前端主機 _`contoso.azurefd.net`_ （A)、 _`www.contoso.com`_ （B) _ (C)，以及 _`notifications.contoso.com`_ （D)。 例如，假設您有兩個後端，X 和 Y。 
+    - 後端 X 應該只需要從主機名稱的流量和 B.後端 Y 可以接受流量，a、 C 和 d。
+    - 因此，在後端 X 上，才應接受流量具有標頭 '**X 轉送主機**' 設為 _`contoso.azurefd.net`_ 或是 _`www.contoso.com`_ 。 至於其他項目後, 端 X 應該拒絕的流量。
+    - 同樣地，在後端 y 軸上，才應接受流量具有標頭 」**X 轉送主機**"會設定為  _`contoso.azurefd.net`_ ， _`api.contoso.com`_ 或 _`notifications.contoso.com`_ . 至於其他項目後, 端 Y 應該拒絕的流量。
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>任一傳播 IP 可以變更我的大門存留期嗎？
 
-您前端的任一傳播 FRONTEND-IP 通常不應該變更，並可能會維持不變的大門存留期。 不過，還有**不保證**相同。 Ip 才請任何直接依存性。  
+您前端的任一傳播 FRONTEND-IP 通常不應該變更，並可能會維持不變的大門存留期。 不過，還有**不保證**相同。 Ip 才請任何直接依存性。
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Azure 前端服務是否支援靜態或專用的 Ip？
 
@@ -142,10 +151,10 @@ Azure 的前端服務是容量的分散在世界各地的多租用戶平台有�
 若要啟用 HTTPS 通訊協定來安全地傳遞大門的自訂網域上的內容，您可以選擇使用受 Azure 前端服務的憑證，或使用您自己的憑證。
 前門 Digicert 透過標準的 SSL 憑證管理選項佈建，並儲存在 Front 門的金鑰保存庫。 如果您選擇使用您自己的憑證，則您可以上架支援之 CA 的憑證，可以是標準的 SSL、 延伸的驗證憑證或甚至是萬用字元憑證。 不支援自我簽署的憑證。 了解[如何啟用自訂網域 HTTPS](https://aka.ms/FrontDoorCustomDomainHTTPS)。
 
-### <a name="does-front-door-support-auto-rotation-of-certificates"></a>前門是否支援自動輪替的憑證？
+### <a name="does-front-door-support-autorotation-of-certificates"></a>前門是否支援將自動旋轉的憑證？
 
-您自己自訂的 SSL 憑證，不支援自動輪替。 類似於如何安裝第一次時指定的自訂網域，您需要以點大門至正確的憑證版本您金鑰保存庫中及確保前端的服務主體仍有 Key Vault 存取權。 此更新的憑證首度發行作業的大門完全不可部分完成，且不會造成任何提供主體名稱的影響實際或不會變更憑證的 SAN。
-</br>受管理的大門憑證選項時，憑證會自動旋轉的大門。
+受管理的大門憑證選項時，憑證會是 autorotated 的大門。 如果您使用大門受管理的憑證，並查看憑證到期日是少於 60 天，提出支援票證。
+</br>您自己自訂的 SSL 憑證，不支援將自動旋轉。 類似於它已設定為指定的自訂網域的第一次，您需要以點大門至正確的憑證版本您金鑰保存庫中及確保前端的服務主體仍有 Key Vault 存取權。 此更新的憑證首度發行作業的大門是不可部分完成，且不會造成任何提供主體名稱的影響實際或不會變更憑證的 SAN。
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>目前 Azure 大門 Service 所支援的加密套件有哪些？
 
@@ -176,7 +185,7 @@ Azure 的前端服務是容量的分散在世界各地的多租用戶平台有�
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>是否可設定 SSL 原則來控制 SSL 通訊協定版本嗎？
 
-否，目前大門不支援以拒絕特定的 TLS 版本，也可以設定最小的 TLS 版本。 
+否，目前的大門不支援以拒絕特定的 TLS 版本，也可以設定的最低 TLS 版本。 
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>可以設定為僅支援特定的加密套件的大門嗎？
 

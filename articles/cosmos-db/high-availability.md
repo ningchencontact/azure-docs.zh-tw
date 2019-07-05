@@ -4,15 +4,15 @@ description: 這篇文章說明 Azure Cosmos DB 如何提供高可用性
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063556"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508575"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -70,6 +70,9 @@ Azure Cosmos DB 是全域散發的多重主機資料庫服務在區域中斷期�
 
 * 英國南部
 * 東南亞 
+* East US
+* 美國東部 2 
+* 美國中部
 
 > [!NOTE] 
 > 啟用可用性區域的單一區域 Azure Cosmos 帳戶會產生相當於您的帳戶中加入其他區域的費用。 如需有關定價的詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)並[多重區域 Azure Cosmos DB 中的成本](optimize-cost-regions.md)文章。 
@@ -89,7 +92,10 @@ Azure Cosmos DB 是全域散發的多重主機資料庫服務在區域中斷期�
 |區域性中斷-可用性  |  失去可用性       |  失去可用性       |  不會遺失任何可用性  |
 |Throughput    |  X RU/s 佈建輸送量      |  X RU/s 佈建輸送量       |  2x RU/s 佈建的輸送量 <br/><br/> 此組態模式需要兩倍的輸送量，相較於單一區域具有可用性區域因為有兩個區域的數量。   |
 
-將區域新增至新的或現有的 Azure Cosmos 帳戶時，您可以啟用區域備援。 目前，您只可以使用 PowerShell 或 Azure Resource Manager 範本啟用區域備援。 若要啟用您的 Azure Cosmos 帳戶的區域備援，您應該設定`isZoneRedundant`旗標設為`true`的特定位置。 您可以設定此旗標，在 [位置] 屬性。 例如，下列 powershell 程式碼片段可讓 「 東南亞 」 區域的區域備援：
+> [!NOTE] 
+> 若要啟用可用性區域支援，Azure Cosmos DB 帳戶必須具有多重-主機/多區域寫入已啟用。 
+
+將區域新增至新的或現有的 Azure Cosmos 帳戶時，您可以啟用區域備援。 目前，您可以只啟用區域備援藉由使用 Azure 入口網站、 PowerShell 和 Azure Resource Manager 範本。 若要啟用您的 Azure Cosmos 帳戶的區域備援，您應該設定`isZoneRedundant`旗標設為`true`的特定位置。 您可以設定此旗標，在 [位置] 屬性。 例如，下列 powershell 程式碼片段可讓 「 東南亞 」 區域的區域備援：
 
 ```powershell
 $locations = @( 
@@ -97,6 +103,10 @@ $locations = @(
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
 ```
+
+您可以使用 Azure 入口網站建立 Azure Cosmos 帳戶時，以啟用可用性區域。 當您建立帳戶時，請務必啟用**異地備援**，**多重區域寫入**，然後選擇支援可用性區域的區域： 
+
+![啟用使用 Azure 入口網站的可用性區域](./media/high-availability/enable-availability-zones-using-portal.png) 
 
 ## <a name="building-highly-available-applications"></a>高度可用的應用程式
 

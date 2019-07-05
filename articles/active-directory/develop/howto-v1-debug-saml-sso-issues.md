@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111475"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482718"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯
 
@@ -37,7 +37,6 @@ ms.locfileid: "67111475"
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-
 ## <a name="test-saml-based-single-sign-on"></a>測試 SAML 型單一登入
 
 若要測試 SAML 型單一登入 Azure ad 和目標應用程式：
@@ -48,26 +47,24 @@ ms.locfileid: "67111475"
 1. 若要開啟 SAML 型單一登入測試經驗，請前往**測試單一登入**（步驟 5）。 如果**測試** 按鈕會呈現灰色，您必須第一次填入出，並將必要的屬性儲存**基本 SAML 組態**一節。
 1. 在 [測試單一登入]  刀鋒視窗中，使用公司的認證來登入目標應用程式。 您可以使用目前使用者或不同使用者的身分來登入。 如果您使用不同使用者的身分登入，會有提示要求您進行驗證。
 
-    ![測試 SAML 頁面](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
-
+    ![顯示測試 SAML SSO 頁面螢幕擷取畫面](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 如果您成功登入，就表示您已通過測試。 在此情況下，Azure AD 會向應用程式發出 SAML 回應權杖。 應用程式使用 SAML 權杖成功地將您登入。
 
 如果您在公司的登入頁面或應用程式的頁面上遇到錯誤，請使用下列其中一節來解決錯誤。
 
-
 ## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>解決公司登入頁面上的登入錯誤
 
 當您嘗試登入時，您可能會看到類似下列的範例您公司登入頁面上的錯誤。
 
-![登入錯誤](./media/howto-v1-debug-saml-sso-issues/error.png)
+![在 [公司登入] 頁面中顯示錯誤的範例](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-若要對這個錯誤進行偵錯，您需要錯誤訊息和 SAML 要求。 My Apps 安全登入擴充功能會自動收集此資訊，並在 Azure AD 上顯示解決指導方針。 
+若要對這個錯誤進行偵錯，您需要錯誤訊息和 SAML 要求。 My Apps 安全登入擴充功能會自動收集此資訊，並在 Azure AD 上顯示解決指導方針。
 
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>若要解決此登入錯誤，使用 My Apps 安全登入延伸模組安裝
 
-1. 發生錯誤時，延伸模組會將您導向回 Azure AD**測試單一登入**刀鋒視窗。 
-1. 在 **測試單一登入**刀鋒視窗中，選取**下載 SAML 要求**。 
+1. 發生錯誤時，延伸模組會將您導向回 Azure AD**測試單一登入**刀鋒視窗。
+1. 在 **測試單一登入**刀鋒視窗中，選取**下載 SAML 要求**。
 1. 根據錯誤和 SAML 要求中的值，您應該會看到特定的解決指導方針。
 1. 您會看到**修正此問題**按鈕，以自動更新以解決此問題的 Azure AD 中設定。 如果您沒有看到此按鈕，然後登入問題不因為在 Azure AD 上設定不正確。
 
@@ -88,24 +85,23 @@ ms.locfileid: "67111475"
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>解決應用程式頁面上的登入錯誤
 
-您可能會先成功登入，之後才在應用程式的頁面上看到錯誤。 當 Azure AD 核發權杖給應用程式，但應用程式不接受該回應時，就會發生這種情況。   
+您可能會先成功登入，之後才在應用程式的頁面上看到錯誤。 當 Azure AD 核發權杖給應用程式，但應用程式不接受該回應時，就會發生這種情況。
 
 若要解決此錯誤，請依照下列步驟執行︰
 
 1. 如果應用程式在 Azure AD 資源庫中，請確認您已遵循與 Azure AD 整合應用程式的所有步驟。 若要尋找應用程式的整合指示，請參閱 [SaaS 應用程式整合教學課程清單](../saas-apps/tutorial-list.md)。
 1. 擷取 SAML 回應。
     - 如果您已安裝 My Apps 安全登入擴充功能，請從 [測試單一登入]  刀鋒視窗中，按一下 [下載 SAML 回應]  。
-    - 如果未安裝此擴充功能，則請使用 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來擷取 SAML 回應。 
+    - 如果未安裝此擴充功能，則請使用 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來擷取 SAML 回應。
 1. 請注意 SAML 回應權杖中的這些元素：
    - NameID 值和格式的使用者唯一識別碼
    - 在權杖中所發出的宣告
-   - 用來簽署權杖的憑證。 
+   - 用來簽署權杖的憑證。
 
      如需 SAML 回應的詳細資訊，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
 
 1. 既然您已檢閱 SAML 回應，請參閱[登入後的應用程式的頁面上的錯誤](../manage-apps/application-sign-in-problem-application-error.md)如需如何解決此問題的指引。 
 1. 如果您仍然無法成功登入，您可以要求應用程式廠商遺漏的項目從 SAML 回應。
-
 
 ## <a name="next-steps"></a>後續步驟
 

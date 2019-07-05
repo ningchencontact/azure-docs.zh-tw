@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120733"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565519"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -48,9 +48,9 @@ function.json 檔案會定義函式的觸發程序、繫結和其他組態設定
 
 | 屬性 | 值/類型 | 註解 |
 | --- | --- | --- |
-| `type` |字串 |繫結類型。 例如， `queueTrigger`。 |
+| `type` |string |繫結類型。 例如， `queueTrigger`。 |
 | `direction` |'in'、'out' |表示繫結用於將資料接收到函數，還是從函數傳送資料。 |
-| `name` |字串 |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
+| `name` |string |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
 
 ## <a name="function-app"></a>函式應用程式
 函數應用程式在 Azure 中提供您的函式可在其中執行的執行內容。 函式應用程式是由一或多個個別函式所組成，這些函式可一起管理、部署與調整。 函式應用程式中的所有函式會共用相同的定價方案、持續部署和執行階段版本。 請將函式應用程式視為用來組織及集體管理函式的方式。 
@@ -107,5 +107,5 @@ Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制�
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [撰寫 Azure Functions 並在本機進行測試](./functions-develop-local.md)
 * [Azure Functions 的最佳作法](functions-best-practices.md)
-* [Azure Functions C# 開發人員參考](functions-reference-csharp.md)
+* [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
