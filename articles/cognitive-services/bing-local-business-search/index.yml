@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: Bing 當地商家搜尋 API 可讓您的應用程式依搜尋查詢項目，尋找當地商家的連絡方式及位置資訊。
 sections:
