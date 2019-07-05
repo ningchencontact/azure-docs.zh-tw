@@ -37,10 +37,12 @@
       items:
         - name: 案例
           href: scenarios.md
-        - name: 選取虛擬網路
+        - name: 規劃虛擬網路
           href: network-considerations.md
     - name: 管理 Azure AD DS
       items:
+        - name: 啟用安全性稽核事件 (預覽)
+          href: security-audit-events.md
         - name: 檢查受控網域的健康狀態
           href: check-health.md
         - name: 在 Azure AD 中將保留範圍同步處理至受控網域

@@ -197,7 +197,7 @@
         - name: 使用 MLflow 追蹤實驗
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
-        - name: 使用 TensorBoard 將實驗視覺化
+        - name: 使用 TensorBoard 執行視覺化
           displayName: 'log, monitor, metrics'
           href: how-to-monitor-tensorboard.md
     - name: 將機器學習自動化
