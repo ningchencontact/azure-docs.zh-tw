@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347406"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560428"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -33,7 +33,7 @@ ms.locfileid: "60347406"
 
 ![警示流程](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-警示規則分成警示和警示引發時所採取的動作。 
+警示規則會分開警示和警示引發時所採取的動作。 
 
 **警示規則** - 警規則會擷取用於警示的目標和準則。 警示規則可處於已啟用或已停用狀態。 警示只有在啟用時才會引發。 
 
@@ -94,6 +94,8 @@ ms.locfileid: "60347406"
 ## <a name="alerts-experience"></a>警示體驗 
 對於特定時間內建立的警示，預設的 [警示] 頁面提供警示的摘要。 它會顯示每個嚴重性的警示總計，且有欄顯示每個嚴重性和每個狀態的警示總數。 選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](#all-alerts-page) 頁面。
 
+或者，您可以[以程式設計方式列舉您訂用帳戶使用 REST Api 產生警示的執行個體](#manage-your-alert-instances-programmatically)。
+
 它不會顯示或追蹤舊版[傳統警示](#classic-alerts)。 您可以變更訂用帳戶或篩選參數來更新頁面。 
 
 ![警示頁面](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ ms.locfileid: "60347406"
 
 | 欄 | 描述 |
 |:---|:---|
-| 訂用帳戶 | 選取最多五個 Azure 訂用帳戶。 檢視僅會包含所選訂用帳戶中出現的警示。 |
+| 訂用帳戶 | 選取您要檢視警示的 Azure 訂用帳戶。 您可以選擇選取 所有訂用帳戶。 檢視中所包含唯一的警示，您選取的訂用帳戶中擁有存取權。 |
 | 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
 | 時間範圍 | 只有在所選時間範圍內引發的警示才會包含在檢視中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 |
 
@@ -145,7 +147,7 @@ ms.locfileid: "60347406"
 
 | 欄 | 描述 |
 |:---|:---|
-| 訂用帳戶 | 選取最多五個 Azure 訂用帳戶。 檢視僅會包含所選訂用帳戶中出現的警示。 |
+| 訂用帳戶 | 選取您要檢視警示的 Azure 訂用帳戶。 您可以選擇選取 所有訂用帳戶。 檢視中所包含唯一的警示，您選取的訂用帳戶中擁有存取權。 |
 | 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
 | 資源類型 | 選取一個或多個資源類型。 檢視僅會包含所選類型目標之具目標的警示。 指定資源群組之後，才可使用此欄。 |
 | 資源 | 選取資源。 只有以該資源作為目標的警示才會包含在檢視中。 指定資源類型之後，才可使用此欄。 |
@@ -157,20 +159,47 @@ ms.locfileid: "60347406"
 
 選取頁面頂端的 [欄]  以選取要顯示的欄。 
 
-## <a name="alert-detail-page"></a>警示詳細資料頁面
+## <a name="alert-details-page"></a>警示詳細資料頁面
 當您選取警示時，隨即顯示 [警示詳細資料] 頁面。 它會提供警示的詳細資料，且可讓您變更其狀態。
 
 ![警示詳細資料](media/alerts-overview/alert-detail2.png)
 
-[警示詳細資料] 頁面包含下列區段。
+[警示詳細資料] 頁面包含下列各節。
 
 | Section | 描述 |
 |:---|:---|
-| 基本資訊 | 顯示警示的內容和其他重要資訊。 |
+| 總結 | 顯示警示的內容和其他重要資訊。 |
 | 歷程記錄 | 列出警示採取的每個動作，以及對警示所做的任何變更。 目前僅限於狀態變更。 |
-| 智慧群組 | 內含警示之智慧群組的相關資訊。 「警示計數」  是指智慧群組中包含的警示數目。 包括相同智慧群組中過去 30 天內所建立的其他警示，不論警示清單頁面中所設定的時間篩選條件為何。 選取警示以檢視其詳細資料。 |
-| 其他詳細資訊 | 對於建立警示的來源類型一般特定的警示，顯示其他內容相關資訊。 |
+| 診斷 | 內含警示之智慧群組的相關資訊。 「警示計數」  是指智慧群組中包含的警示數目。 包括相同智慧群組中過去 30 天內所建立的其他警示，不論警示清單頁面中所設定的時間篩選條件為何。 選取警示以檢視其詳細資料。 |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>您的警示執行個體的角色型存取控制 (RBAC)
+
+耗用量和管理警示的執行個體的要求有內建 RBAC 角色的使用者[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或是[監視讀取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)。 這些角色支援在任何 Azure 資源管理員範圍內，從訂用帳戶層級更細微的指派，在資源層級。 例如，如果使用者只具有 '監視參與者' 'ContosoVM1' 的虛擬機器的存取權，然後他可以使用及管理上 'ContosoVM1' 產生的警示。
+
+## <a name="manage-your-alert-instances-programmatically"></a>以程式設計方式管理您的警示執行個體
+
+有許多案例中，您會以程式設計方式查詢所產生的警示對您的訂用帳戶。 這可能是建立在 Azure 入口網站中，外部的自訂檢視或分析您的警示來識別模式和趨勢。
+
+您可以針對您使用的訂用帳戶所產生的警示查詢[警示的管理 REST API](https://aka.ms/alert-management-api)或使用[警示的 Azure 資源 Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)。
+
+[警示的 Azure 資源 Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)可讓您大規模的警示執行個體的查詢。 這被建議您不必管理跨許多訂用帳戶中產生警示的案例。 
+
+下列範例要求給 API 傳回一個訂用帳戶內的警示的計數：
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+警示可以查詢其['基本'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)欄位。
+
+[警示管理 REST API](https://aka.ms/alert-management-api)可用來取得有關特定警示，包括的詳細資訊及其['警示內容'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)欄位。
 
 ## <a name="classic-alerts"></a>傳統警示 
 

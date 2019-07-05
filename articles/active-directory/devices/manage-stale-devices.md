@@ -1,30 +1,24 @@
 ---
 title: 如何在 Azure AD 中管理過時的裝置 | Microsoft Docs
-description: 由於裝置遺失、遭竊、損毀或作業系統重新安裝，環境中一般都會有過時的裝置。 了解如何在 Azure Active Directory (Azure AD) 中，從已註冊裝置的資料庫移除過時的裝置。
+description: 了解如何從您的 Azure Active Directory 中的已註冊裝置的資料庫移除過時的裝置。
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-ms.date: 01/30/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
+ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521528"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481660"
 ---
-# <a name="how-to-manage-stale-devices-in-azure-ad"></a>作法：管理 Azure AD 中的過時裝置
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>如何：管理 Azure AD 中的過時裝置
 
 在理想情況下，若要完成生命週期，已註冊的裝置應在不需要時取消註冊。 不過，因為一些原因，例如裝置遺失、遭竊、損毀或作業系統重新安裝，造成您環境中常有過時的裝置。 身為 IT 系統管理員，您可能需要一個移除過時裝置的方法，讓您能專心管理裝置上實際需要管理的資源。
 
@@ -36,15 +30,10 @@ ms.locfileid: "58521528"
 過時裝置是已向 Azure AD 註冊，但在特定時間範圍內未存取任何雲端應用程式的裝置。 過時裝置會影響您管理和支援租用戶中裝置和使用者的能力，因為： 
 
 - 重複的裝置會讓技術服務人員難以識別目前正在使用的裝置。
-
 - 裝置數目增加會建立不必要的裝置回寫，並增加 AAD Connect 的同步處理時間。
-
 - 為了具備一般防護並遵循合規性，您的裝置應處於乾淨的狀態。 
 
-
 Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生命週期原則。
-
-
 
 ## <a name="detect-stale-devices"></a>偵測過時裝置
 
@@ -54,15 +43,11 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 活動時間戳記的評估會在裝置有驗證嘗試時觸發。 Azure AD 會在以下時機評估活動時間戳記：
 
-- 已觸發需要[受控裝置](../conditional-access/require-managed-devices.md)或[已核准用戶端應用程式](../conditional-access/app-based-conditional-access.md)的條件式存取原則。
-
+- 需要條件式存取原則[受管理的裝置](../conditional-access/require-managed-devices.md)或是[核准的用戶端應用程式](../conditional-access/app-based-conditional-access.md)已觸發。
 - 已加入 Azure AD 或已加入混合式 Azure AD 的 Windows 10 裝置正在網路上運作。 
-
 - Intune 受控裝置已簽入至服務。
 
-
 如果現有活動時間戳記值和目前時間值之間的差異超過 14 天，則現有的值會取代為新值。
-    
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>如何取得活動時間戳記？
 
@@ -72,12 +57,9 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
     ![活動時間戳記](./media/manage-stale-devices/01.png)
 
-
 - [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet
 
     ![活動時間戳記](./media/manage-stale-devices/02.png)
-
-
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>規劃過時裝置的清除作業
 
@@ -88,13 +70,10 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 若要在 Azure AD 中更新裝置，您需要已指派下列其中一個角色的帳戶：
 
 - 全域管理員
-
 - 雲端裝置系統管理員 (現已推出的新角色！)
-
 - Intune 服務管理員
 
 在清除原則中，選取已指派必要角色的帳戶。 
-
 
 ### <a name="timeframe"></a>時間範圍
 
@@ -104,16 +83,13 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 我們不建議立即刪除似乎已過時的裝置，因為您無法復原因誤判而刪除的裝置。 最佳做法是在寬限期內先停用裝置，然後再刪除裝置。 在您的原則中，可以定義在刪除裝置前先停用的時間範圍。
 
-
 ### <a name="mdm-controlled-devices"></a>由 MDM 控制的裝置
 
 如果裝置在 Intune 或任何其他 MDM 解決方案的控制之下，請在管理系統中淘汰該裝置，然後再將其停用或刪除。
 
-
 ### <a name="system-managed-devices"></a>由系統管理的裝置
 
 請勿刪除由系統管理的裝置。 這些通常是自動駕駛之類的裝置。 刪除之後，這些裝置將無法重新佈建。 新的 `get-msoldevice` Cmdlet 會根據預設排除由系統管理的裝置。 
-
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>混合式 Azure AD 已加入裝置
 
@@ -122,55 +98,43 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 若要清除 Azure AD：
 
 - **Windows 10 裝置** - 在內部部署 AD 中停用或刪除 Windows 10 裝置，並讓 Azure AD Connect 將變更的裝置狀態同步至 Azure AD。
-
 - **Windows 7/8** - 停用或刪除 Azure AD 中的 Windows 7/8 裝置。 您無法使用 Azure AD Connect 來停用或刪除 Azure AD 中的 Windows 7/8 裝置。
-
-
 
 ### <a name="azure-ad-joined-devices"></a>Azure AD 加入裝置
 
 在 Azure AD 中停用或刪除加入 Azure AD 的裝置。
 
-
 ### <a name="azure-ad-registered-devices"></a>Azure AD 註冊裝置
 
 在 Azure AD 中停用或刪除 Azure AD 註冊裝置。
-
-
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>在 Azure 入口網站中清除過時裝置  
 
 雖然您可以在 Azure 入口網站中清除過時裝置，但使用 PowerShell 指令碼來處理此程序會更有效率。 若要使用時間戳記篩選，並篩選出由系統管理的裝置 (例如自動駕駛)，請使用最新的 PowerShell V1 模組。 目前尚不建議使用 PowerShell V2。
 
-
 典型的執行階段包含下列步驟：
 
 1. 使用 [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) Cmdlet來連線到 Azure Active Directory
-
-2. 取得裝置清單
-
-3. 使用 [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) Cmdlet 停用裝置。 
-
-4. 須等到您選擇的寬限期 (無論多久) 結束，才能刪除裝置。
-
-5. 使用 [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) Cmdlet 移除裝置。
+1. 取得裝置清單
+1. 使用 [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) Cmdlet 停用裝置。 
+1. 須等到您選擇的寬限期 (無論多久) 結束，才能刪除裝置。
+1. 使用 [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) Cmdlet 移除裝置。
 
 ### <a name="get-the-list-of-devices"></a>取得裝置清單
 
 若要取得所有裝置，並將傳回的資料儲存在 CSV 檔案：
 
-```powershell
+```PowerShell
 Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-如果您的目錄中有大量裝置，請使用時間戳記篩選來縮小傳回的裝置數目。 若要取得時間戳記晚於特定日期的所有裝置，並將傳回的資料儲存在 CSV 檔案： 
+如果您有大量的裝置，在您的目錄中，使用時間戳記篩選來縮小傳回的裝置數目。 若要取得時間戳記晚於特定日期的所有裝置，並將傳回的資料儲存在 CSV 檔案： 
 
-```powershell
+```PowerShell
 $dt = [datetime]’2017/01/01’
 Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
-
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 
@@ -191,16 +155,9 @@ Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, Devi
 任何使用裝置對 Azure AD 進行驗證的驗證都會遭到拒絕。 常見範例包括：
 
 - **加入混合式 Azure AD 的裝置** - 使用者可能會使用裝置登入其內部部署網域。 不過，他們無法存取 Azure AD 資源，例如 Office 365。
-
 - **加入 Azure AD 的裝置** - 使用者不能使用裝置來登入。 
-
 - **行動裝置** - 使用者無法存取 Azure AD 資源，例如 Office 365。 
-
-
 
 ## <a name="next-steps"></a>後續步驟
 
 若要取得在 Azure 入口網站中管理裝置的概觀，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)
-
-
-

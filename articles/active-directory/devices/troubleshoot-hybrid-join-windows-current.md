@@ -2,26 +2,21 @@
 title: 針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解 | Microsoft Docs
 description: 針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解。
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110551"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481613"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解 
 
@@ -35,14 +30,10 @@ ms.locfileid: "67110551"
 本文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
 
 - 裝置型條件式存取
-
 - [設定的企業漫遊](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [Windows Hello 企業版](../active-directory-azureadjoin-passport-deployment.md)
 
-
 本文件提供有關如何解決潛在問題的疑難排解指引。 
-
 
 對於 Windows 10 和 Windows Server 2016，混合式 Azure Active Directory 會加入對 Windows 10 2015 年 11 月更新 (含) 以上版本的支援。 建議使用年度更新版。
 
@@ -53,8 +44,6 @@ ms.locfileid: "67110551"
 1. 以系統管理員身分開啟命令提示字元
 
 2. 輸入 **dsregcmd /status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -101,8 +90,6 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
 ## <a name="step-2-evaluate-the-join-status"></a>步驟 2：評估加入狀態 
 
 請檢閱下列欄位，並確定它們具有預期的值：
@@ -114,22 +101,14 @@ WamDefaultAuthority: organizations
 **可能的原因：**
 
 - 驗證要加入的電腦失敗。
-
 - 組織中有電腦探索不到的 HTTP Proxy。
-
 - 電腦無法連線到 Azure AD 來進行驗證，或無法連線到 Azure DRS 來進行註冊
-
 - 電腦可能不在組織的內部網路上，或不在可直接看到內部部署 AD 網域控制站的 VPN 上。
-
 - 如果電腦有 TPM，它可能是處於不正常狀態。
-
 - 在本文件稍早提到的服務中可能有設定錯誤的情況，您將必須重新確認。 常見範例包括：
-
-    - 您的同盟伺服器未啟用 WS-Trust 端點
-
-    - 您的同盟伺服器不允許來自您網路中使用「整合式 Windows 驗證」之電腦的輸入驗證。
-
-    - 沒有「服務連接點」物件指向電腦所屬 AD 樹系之 Azure AD 中已驗證的網域名稱
+   - 您的同盟伺服器未啟用 WS-Trust 端點
+   - 您的同盟伺服器不允許來自您網路中使用「整合式 Windows 驗證」之電腦的輸入驗證。
+   - 沒有「服務連接點」物件指向電腦所屬 AD 樹系之 Azure AD 中已驗證的網域名稱
 
 ---
 
@@ -150,9 +129,7 @@ WamDefaultAuthority: organizations
 這些欄位指出使用者在登入裝置時，是否已順利向 Azure AD 進行驗證。 如果值為 **NO**，可能是因為：
 
 - 註冊時，與裝置關聯之 TPM 中的儲存體金鑰 (STK) 無效 (請在提高權限執行的情況下，檢查 KeySignTest)。
-
 - 替代登入識別碼
-
 - 找不到 HTTP Proxy
 
 ## <a name="next-steps"></a>後續步驟

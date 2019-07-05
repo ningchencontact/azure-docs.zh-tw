@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9433714c06dfad09270a6033f38a99471bcd517a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107670"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513613"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure 監視器的活頁簿，針對 Azure Active Directory 報告
 
@@ -57,7 +57,7 @@ ms.locfileid: "67107670"
 
 2. 在左側的導覽窗格中，選取**Azure Active Directory**。
 
-3. 在 **監視**區段中，選取**Insights**。 
+3. 在 **監視**區段中，選取**活頁簿**。 
 
     ![選取 [Insights]](./media/howto-use-azure-monitor-workbooks/41.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "67107670"
 
 每個趨勢，您取得明細依下列類別：
 
-- 位置
+- Location
 
     ![依位置的登入](./media/howto-use-azure-monitor-workbooks/45.png)
 

@@ -4,17 +4,17 @@ description: 描述如何在 Azure 自動化中建立及擷取 Runbook 的輸出
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61226911"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476931"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
 大部分 Azure 自動化 Runbook 都有一些輸出形式。 此輸出可能是給使用者的錯誤訊息，或是您想要與另一個 Runbook 搭配使用的物件。 Windows PowerShell 提供 [多個資料流](/powershell/module/microsoft.powershell.core/about/about_redirection) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同方式處理這些資料流中的每一個。 建立 Runbook 時，應遵循如何使用每個資料流的最佳做法。
@@ -23,7 +23,7 @@ ms.locfileid: "61226911"
 
 | Stream | 描述 | Published | 測試 |
 |:--- |:--- |:--- |:--- |
-| 輸出 |要供其他 Runbook 使用的物件。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
+| Output |要供其他 Runbook 使用的物件。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
 | 警告 |適用於使用者的警告訊息。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
 | Error |適用於使用者的錯誤訊息。 與例外狀況不同，Runbook 預設會在出現錯誤訊息後繼續執行。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
 | 詳細資訊 |提供一般或偵錯資訊的訊息。 |只有為 Runbook 開啟詳細記錄時才會寫入工作歷程記錄。 |只有在 Runbook 中將 $VerbosePreference 設為 Continue 時，才會在 [測試輸出] 窗格中顯示。 |

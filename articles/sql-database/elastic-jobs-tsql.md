@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475808"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568280"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -426,7 +426,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 新增作業。 
   
@@ -492,7 +492,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 
 如需與這些角色的權限有關的詳細資訊，請參閱本文件中的「權限」一節。 只有系統管理員的成員可以使用此預存程序來編輯其他使用者所擁有的作業屬性。
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 更新現有作業。
 
@@ -555,7 +555,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 刪除現有作業。
 
@@ -587,7 +587,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 將步驟新增至作業。
 
@@ -713,7 +713,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 更新作業步驟。
 
@@ -838,7 +838,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 從作業移除作業步驟。
 
@@ -884,7 +884,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 開始執行作業。
 
@@ -915,7 +915,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 如需與這些角色的權限有關的詳細資訊，請參閱本文件中的「權限」一節。 只有系統管理員的成員可以使用此預存程序來編輯其他使用者所擁有的作業屬性。
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 停止作業執行。
 
@@ -944,7 +944,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 如需與這些角色的權限有關的詳細資訊，請參閱本文件中的「權限」一節。 只有系統管理員的成員可以使用此預存程序來編輯其他使用者所擁有的作業屬性。
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 新增目標群組。
 
@@ -975,7 +975,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 如需與這些角色的權限有關的詳細資訊，請參閱本文件中的「權限」一節。 只有系統管理員的成員可以使用此預存程序來編輯其他使用者所擁有的作業屬性。
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 刪除目標群組。
 
@@ -1003,7 +1003,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 如需與這些角色的權限有關的詳細資訊，請參閱本文件中的「權限」一節。 只有系統管理員的成員可以使用此預存程序來編輯其他使用者所擁有的作業屬性。
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 將資料庫或資料庫群組新增至目標群組。
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 從目標群組中移除目標群組成員。
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 移除作業的歷程記錄。
 
@@ -1204,7 +1204,7 @@ GO
 |[target_group_members](#target_groups_members-view)     |   顯示所有目標群組的所有成員。      |
 
 
-### <a name="jobsexecutions-view"></a>jobs_executions 檢視
+### <a name="jobs_executions-view"></a>jobs_executions 檢視
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ GO
 |**schedule_end_time**| datetime2(7)|   作業上次執行完成的日期和時間。|
 
 
-### <a name="jobversions-view"></a>job_versions 檢視
+### <a name="job_versions-view"></a>job_versions 檢視
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ GO
 |**max_parallelism**|   int|    每個彈性集區將逐一執行作業步驟的資料庫數目上限。 預設值為 NULL，表示沒有限制。 |
 
 
-### <a name="jobstepversions-view"></a>jobstep_versions 檢視
+### <a name="jobstep_versions-view"></a>jobstep_versions 檢視
 
 [jobs].[jobstep_versions]
 
 顯示每項作業的所有版本中包含的所有步驟。 結構描述等同於[作業步驟](#jobsteps-view)。
 
-### <a name="targetgroups-view"></a>target_groups 檢視
+### <a name="target_groups-view"></a>target_groups 檢視
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ GO
 |**target_group_name**| nvarchar(128)   |要刪除的目標群組 (資料庫集合) 的名稱。 
 |**target_group_id**    |uniqueidentifier   |目標群組的唯一識別碼。
 
-### <a name="targetgroupsmembers-view"></a>target_groups_members 檢視
+### <a name="target_groups_members-view"></a>target_groups_members 檢視
 
 [jobs].[target_groups_members]
 

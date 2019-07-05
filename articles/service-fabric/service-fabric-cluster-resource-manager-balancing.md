@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809426"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446742"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>平衡 Service Fabric 叢集
 「Service Fabric 叢集資源管理員」支援動態負載變更、因應節點或服務的新增或移除。 它也會自動修正條件約束違規，以及主動重新平衡叢集。 但是這些動作執行的頻率，以及觸發它們的項目是什麼？
@@ -36,9 +36,9 @@ ms.locfileid: "60809426"
 「叢集資源管理員」可執行的每個不同類型修正，都是由控管其頻率的不同計時器所控制。 當每個計時器啟動時，便會排程工作。 根據預設，Resource Manager 會：
 
 * 每 1/10 秒掃描一次其狀態並套用更新 (例如記錄某個節點已關閉)
-* 設定放置檢查旗標 
+* 每秒設定放置檢查旗標
 * 設定每秒條件約束檢查旗標
-* 每 5 秒設定一次平衡旗標。
+* 每隔五秒設定平衡旗標
 
 控管這些計時器的設定範例如下：
 

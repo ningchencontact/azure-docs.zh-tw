@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 06/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6fb7e6b9611b28dab856209aaf03aa93c25d3968
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273371"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478057"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用 Azure 監視器的 Vm （預覽） 概觀
 
@@ -41,7 +41,7 @@ ms.locfileid: "67273371"
 
 - 美國中西部
 - 美國西部 2<sup>1</sup>
-- 美國東部
+- East US
 - 加拿大中部
 - 英國南部
 - 西歐
@@ -86,7 +86,7 @@ ms.locfileid: "67273371"
 |Red Hat Enterprise Linux (RHEL) 6 7| X | X| X |
 |Ubuntu 14.04、 16.04、 18.04 | X | X | X |
 |CentOS Linux 6、 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 11、 12 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
 |Debian 8、 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> 適用於 VM 的 Azure 監視器的效能功能僅能從 Azure 監視器使用。 不可以直接從 Azure VM 的左窗格。
@@ -127,16 +127,10 @@ ms.locfileid: "67273371"
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| Ubuntu 18.04 | 核心 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | 核心 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
-
-#### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
-
-| 作業系統版本 | 核心版本
-|:--|:--|
-|11 SP4 | 3.0.* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -144,6 +138,8 @@ ms.locfileid: "67273371"
 |:--|:--|
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | Azure 調整核心 |
 
 ### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
 

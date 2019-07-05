@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293051"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508228"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>在 Azure Functions 中的部署技術
 
@@ -50,16 +50,18 @@ ms.locfileid: "67293051"
 當您變更任何程式觸發程序時，函式基礎結構必須注意這些變更。 這項同步處理會自動執行許多部署技術。 不過，在某些情況下您必須手動同步您的觸發程序。 當您部署您使用外部套件 URL、 本機 Git、 雲端同步處理或 FTP 的更新時，您必須手動同步處理您的觸發程序。 您可以同步處理觸發程序在三種方式之一：
 
 * 在 Azure 入口網站中重新啟動您的函式應用程式
-* 傳送 HTTP POST 要求來`https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>`使用[主鍵](functions-bindings-http-webhook.md#authorization-keys)。
+* 傳送 HTTP POST 要求來`https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>`使用[主鍵](functions-bindings-http-webhook.md#authorization-keys)。
 * 傳送 HTTP POST 要求到`https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`。 您的訂用帳戶識別碼、 資源群組名稱，與您的函式應用程式的名稱來取代預留位置。
 
 ## <a name="deployment-technology-details"></a>部署技術詳細資料  
+
+Azure Functions 支援下列部署方法。
 
 ### <a name="external-package-url"></a>外部套件 URL
 
 可讓您參考包含函式應用程式的遠端封裝 (.zip) 檔案。 從提供的 URL，下載檔案，並在中執行的應用程式[執行從套件](run-functions-from-deployment-package.md)模式。
 
->__如何使用它：__ 新增`WEBSITE_RUN_FROM_PACKAGE`至您的應用程式設定。 此設定的值應該是 URL-您想要執行特定封裝檔案的位置。 您可以新增設定任一[在入口網站](functions-how-to-use-azure-function-app-settings.md#settings)或是[藉由使用 Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。 如果使用 Azure blob 儲存體，您應該使用的私用容器[共用存取簽章 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)以便封裝函式存取。 隨時在應用程式重新啟動它會擷取一份內容，這表示應用程式的存留期內必須是有效參考之用。
+>__如何使用它：__ 新增`WEBSITE_RUN_FROM_PACKAGE`至您的應用程式設定。 此設定的值應該是 URL-您想要執行特定封裝檔案的位置。 您可以新增設定任一[在入口網站](functions-how-to-use-azure-function-app-settings.md#settings)或是[藉由使用 Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。 如果使用 Azure blob 儲存體，您應該使用的私用容器[共用存取簽章 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)以便封裝函式存取。 隨時在應用程式重新啟動它會擷取一份內容，這表示應用程式的存留期內必須是有效參考之用。
 
 >__使用時機：__ 這是在取用方案 （預覽） 在 Linux 上執行的 Azure Functions 的支援僅部署方法。 在更新函式應用程式所參考的封裝檔案時，您必須[手動同步處理觸發程序](#trigger-syncing)告訴 Azure 您的應用程式已變更。
 
@@ -88,11 +90,11 @@ ms.locfileid: "67293051"
 
 ### <a name="web-deploy-msdeploy"></a>Web 部署 (MSDeploy)
 
-封裝和部署您的 Windows 應用程式至任何 IIS 伺服器，包括您在 Windows 上執行的 Azure 函式應用程式。
+封裝和部署您的 Windows 應用程式至任何 IIS 伺服器，包括在 Azure 中的 Windows 上執行的函式應用程式。
 
->__如何使用它：__ 使用[適用於 Azure Functions 的 Visual Studio tools](functions-create-your-first-function-visual-studio.md)，而不刻度`Run from package file (recommended)`核取方塊。
+>__如何使用它：__ 使用[適用於 Azure Functions 的 Visual Studio tools](functions-create-your-first-function-visual-studio.md)，並取消核取`Run from package file (recommended)` 方塊中。
 >
->或者，呼叫`MSDeploy.exe`下載之後，直接[Web 部署 3.6](https://www.iis.net/downloads/microsoft/web-deploy)。
+> 您也可以下載[Web 部署 3.6](https://www.iis.net/downloads/microsoft/web-deploy) ，並呼叫`MSDeploy.exe`直接。
 
 >__使用時機：__ 這項部署技術支援，而且不有任何問題，但是慣用的機制現在[Zip Deploy 執行從套件啟用](#zip-deploy)。 若要進一步了解，請造訪[Visual Studio 開發指南](functions-develop-vs.md#publish-to-azure)。
 

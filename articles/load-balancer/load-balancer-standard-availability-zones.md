@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734451"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491977"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>標準 Load Balancer 和可用性區域
 
@@ -186,7 +186,7 @@ Load Balancer 特意設計成在可用性區域的內容中具有彈性。 您�
 
 Load Balancer 可簡化以單一 IP 作為區域備援前端的作業。 區域備援 IP 位址可安全地為任何區域中的區域性資源提供服務，且在一或多個區域失敗時仍可存留，只要區域內有一個區域維持良好狀況即可。 相反地，區域性前端則是將服務縮減為單一區域，且個別的區域將會有共同的結果。
 
-區域備援不代表無中斷的資料路徑或控制平面；它實際上是資料平面。 區域備援流量可以使用任何區域，且客戶的流量將會使用區域中所有狀況良好的區域。 如果區域失敗，在該時間點使用良好區域的流量並不會受到影響。  流量使用的若是發生區域失敗時的區域，則可能受到影響，但在 Azure 收斂區域失敗後，應用程式即可復原，且這些流量也可在重新傳輸或重新建立後，在區域內其餘狀態良好的區域中繼續執行。
+區域備援不代表無中斷的資料路徑或控制平面；它實際上是資料平面。 區域備援流量可以使用任何區域，且客戶的流量將會使用區域中所有狀況良好的區域。 如果區域失敗，在該時間點使用良好區域的流量並不會受到影響。  在區域失敗時使用區域的流量可能會受到影響，但應用程式即可復原。 Azure 有交集區域失敗後，這些流程可以繼續在重新傳輸或重新建立作業，在區域內其餘狀態良好的區域中。
 
 ### <a name="xzonedesign"></a>跨區域界限
 

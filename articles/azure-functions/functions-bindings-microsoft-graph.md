@@ -3,18 +3,18 @@ title: 適用於 Azure Functions 的 Microsoft Graph 繫結
 description: 了解如何在 Azure Functions 中使用 Microsoft Graph 觸發程序和繫結。
 services: functions
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae376343103d68df226d30d1d76133a3f055f5c2
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511824"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480377"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -674,7 +674,7 @@ module.exports = function (context, req) {
 繫結會向 .NET 函式公開下列類型：
 - byte[]
 - Stream
-- 字串
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -822,7 +822,7 @@ module.exports = function (context, req) {
 繫結會向 .NET 函式公開下列類型：
 - byte[]
 - Stream
-- 字串
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -972,7 +972,7 @@ module.exports = function (context, req) {
 繫結會向 .NET 函式公開下列類型：
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- 字串
+- string
 - 自訂物件類型 (使用結構化模型繫結)
 
 
@@ -980,7 +980,7 @@ module.exports = function (context, req) {
 
 
 
-## <a name="webhooks"></a>Webhook
+## <a name="webhooks"></a>webhooks
 
 Webhook 可讓您回應 Microsoft Graph 中的事件。 若要支援 webhook，必須建立函式、重新整理並回應 _webhook 訂用帳戶_。 完整的 Webhook 解決方案需要下列繫結的組合：
 - [Microsoft Graph webhook 觸發程序](#webhook-trigger)可讓您回應傳入的 webhook。
@@ -1402,7 +1402,7 @@ module.exports = function (context, req) {
 ### <a name="webhook-output---usage"></a>Webhook 輸出 - 使用方式
 
 繫結會向 .NET 函式公開下列類型：
-- 字串
+- string
 - Microsoft.Graph.Subscription
 
 

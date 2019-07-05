@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542860"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551661"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -30,7 +30,9 @@ ms.locfileid: "60542860"
 
 若要建立一份現有 Linux VM 的副本以進行備份或偵錯，或是從內部部署 VM 上傳特定的 Linux VHD，請參閱[從自訂的磁碟映像上傳及建立 Linux VM](upload-vhd.md)。  
 
-您也可以使用 **Packer** 建立您的自訂設定。 如需詳細資訊，請參閱[如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像](build-image-with-packer.md)。
+您可以使用**Azure VM 映像產生器 （公開預覽）** 服務來建置您的自訂映像，不需要了解任何工具，或安裝程式建置管線，只要提供的映像組態，和映像產生器會建立映像。 如需詳細資訊，請參閱 < [Getting Started with Azure VM 映像產生器](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)。
+
+此外，使用**Packer**來建立自訂組態。 如需詳細資訊，請參閱[如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像](build-image-with-packer.md)。
 
 建立映像之前，您需要下列項目：
 

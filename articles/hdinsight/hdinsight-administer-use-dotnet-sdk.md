@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724141"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508099"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -257,10 +257,6 @@ foreach (var key in results.Configuration.Keys)
 
 請參閱[使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 
-**提交 Apache Pig 作業**
-
-請參閱[使用 .NET SDK 執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
-
 **提交 Apache Sqoop 作業**
 
 請參閱[搭配 HDInsight 使用 Apache Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
@@ -271,13 +267,13 @@ foreach (var key in results.Configuration.Keys)
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
 
-請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
+請參閱[資料上傳至 HDInsight][hdinsight-upload-data]。
 
 ## <a name="see-also"></a>另请参阅
 
 * [HDInsight .NET SDK 參考文件](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)
-* [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
+* [管理 HDInsight 使用命令列介面][hdinsight-admin-cli]
 * [建立 HDInsight 叢集][hdinsight-provision]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [開始使用 Azure HDInsight][hdinsight-get-started]

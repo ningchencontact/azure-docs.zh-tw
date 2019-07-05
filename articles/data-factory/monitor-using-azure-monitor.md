@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319115"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514409"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 监视还有助于避免潜在问题，或者解决过去的问题。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -387,7 +387,7 @@ ADFV2 會發出下列計量
 
 | **度量**           | **計量顯示名稱**         | **單位** | **彙總類型** | **說明**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | 成功的管線執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
+| PipelineSucceededRuns | 成功的管線執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的管線執行總計 |
 | PipelineFailedRuns   | 失敗的管線執行計量    | 計數    | 總計                | 為期一分鐘的時間內失敗的管線執行總計    |
 | ActivitySucceededRuns | 成功的活動執行計量 | 計數    | 總計                | 為期一分鐘的時間內成功的活動執行總計  |
 | ActivityFailedRuns   | 失敗的活動執行計量    | 計數    | 總計                | 為期一分鐘的時間內失敗的活動執行總計     |

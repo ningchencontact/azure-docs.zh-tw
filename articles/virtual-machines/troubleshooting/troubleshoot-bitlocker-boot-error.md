@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684765"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485163"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 開機錯誤
 
@@ -48,7 +48,7 @@ ms.locfileid: "64684765"
 如果此方法未解決問題，請遵循下列步驟來手動還原 BEK 檔案：
 
 1. 擷取受影響虛擬機器系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
-2. [將系統磁碟連結至由 BitLocker 加密的復原 VM](troubleshoot-recovery-disks-portal-windows.md)。 必須這麼做才能執行 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 命令，原因是此命令只能在 BitLocker 加密 VM 中使用。
+2. [將系統磁碟連結至復原 VM](troubleshoot-recovery-disks-portal-windows.md)。 若要執行[管理 bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde)命令，在步驟 7 中， **BitLocker 磁碟機加密**必須在復原 VM 中啟用功能。
 
     當您連結至受控磁碟時，可能會收到「包含加密設定，因此無法作為資料磁碟」的錯誤訊息。 在此情況下，請執行下列程式碼以重新試著連結磁碟：
 
@@ -106,7 +106,7 @@ ms.locfileid: "64684765"
 
     如果 [內容類型]  值是 [包裝的 BEK]  ，請移至[金鑰加密金鑰 (KEK) 案例](#key-encryption-key-scenario)。
 
-    您已得到磁碟機的 BEK 檔案名稱，接下來您必須建立 secret-file-name.BEK 檔案，以將磁碟機解除鎖定。 
+    您已得到磁碟機的 BEK 檔案名稱，接下來您必須建立 secret-file-name.BEK 檔案，以將磁碟機解除鎖定。
 
 6.  將 BEK 檔案下載到復原磁碟。 下列範例會將 BEK 檔案儲存至 C:\BEK 資料夾。 請先確定 `C:\BEK\` 路徑存在，再執行指令碼。
 
@@ -120,14 +120,14 @@ ms.locfileid: "64684765"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  若要使用 BEK 檔案將連結的磁碟解除鎖定，請執行下列命令：
+7.  若要使用 BEK 檔案來解除鎖定連接的磁碟，執行下列命令。
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     在此範例中，連結的 OS 磁碟是磁碟機 F。請確定您使用的是正確的磁碟機代號。 
 
-    - 如果成功地使用 BEK 金鑰將磁碟解除鎖定， 我們可以認為 BItLocker 問題已解決。 
+    - 如果成功地使用 BEK 金鑰將磁碟解除鎖定， 我們可以考慮 BitLocker 問題解決。 
 
     - 如果使用 BEK 金鑰未能將該磁碟解除鎖定，則可以使用暫止保護，藉由執行下列命令將 BitLocker 暫時關閉
     
@@ -254,7 +254,7 @@ ms.locfileid: "64684765"
     ```
     在此範例中，連結的 OS 磁碟是磁碟機 F。請確定您使用的是正確的磁碟機代號。 
 
-    - 如果成功地使用 BEK 金鑰將磁碟解除鎖定， 我們可以認為 BItLocker 問題已解決。 
+    - 如果成功地使用 BEK 金鑰將磁碟解除鎖定， 我們可以考慮 BitLocker 問題解決。 
 
     - 如果使用 BEK 金鑰未能將該磁碟解除鎖定，則可以使用暫止保護，藉由執行下列命令將 BitLocker 暫時關閉
     

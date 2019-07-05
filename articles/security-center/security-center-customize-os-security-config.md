@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573598"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551384"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定
 
@@ -56,13 +56,11 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 1.  開啟 [資訊安全中心]  儀表板。
 
-2.  在左窗格中，選取 [安全性原則]  。      
+2.  在左窗格中，選取**價格和設定**。
 
     ![[安全性原則] 清單](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  在您要自訂的訂用帳戶資料列中，按一下 [編輯設定]  。
-
-4. 選取 [編輯安全性組態]  。  
+4. 選取適用的訂用帳戶，然後選取**編輯安全性設定**。  
 
     ![[編輯安全性設定] 視窗](media/security-center-customize-os-security-config/blade.png)
 

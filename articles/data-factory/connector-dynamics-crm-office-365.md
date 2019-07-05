@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356965"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514100"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Dynamics 365 (Common Data Service) 複製資料以及複製資料至 Dynamics 365
 
@@ -27,7 +27,13 @@ ms.locfileid: "66356965"
 
 您可以將資料從 Dynamics 365 (Common Data Service) 或 Dynamics CRM 複製到任何支援的接收資料存放區。 您也可以從任何支援的來源資料存放區將資料複製到 Dynamics 365 (Common Data Service) 或 Dynamics CRM。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-這個 Dynamics 連接器支援下列 Dynamics 版本和驗證類型。 (IFD 是網際網路對向部署的縮寫。)
+這個 Dynamics 連接器支援 Dynamics 版本 7.x 兩者 9.x 線上或內部部署。 具體而言：
+
+- 版本 7.x 對應至 Dynamics CRM 2015
+- 版本 8.x 並對應至 Dynamics CRM 2016 和舊版的 Dynamics 365
+- Dynamics 365 較新版本的版本 9.x 對應
+
+請參閱下表上的受支援的驗證類型和適用於個別 Dynamics 版本/產品的組態。 (IFD 是網際網路對向部署的縮寫。)
 
 | Dynamics 版本 | 驗證類型 | 已連結的服務範例 |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ ms.locfileid: "66356965"
 - Dynamics 365 for Marketing
 
 此連接器不支援其他應用程式類型，例如 Finance and Operations、Talent 等。
+
+這個 Dynamics 連接器為基礎建置的[Dynamics XRM 工具](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)。
 
 >[!TIP]
 >若要從 **Dynamics 365 Finance and Operations** 複製資料，您可以使用 [Dynamics AX 連接器](connector-dynamics-ax.md)。
@@ -156,7 +164,7 @@ ms.locfileid: "66356965"
 > [!IMPORTANT]
 >- 當您從 Dynamics 複製資料時，"structure"區段是選擇性的但高度 recommanded Dynamics 資料集，以確保具決定性的複製結果。 它會定義您想要複製的 Dynamics 資料之資料行名稱和資料類型。 若要深入了解，請參閱[資料集結構](concepts-datasets-linked-services.md#dataset-structure-or-schema)和 [Dynamics 的資料類型對應](#data-type-mapping-for-dynamics)。
 >- 在撰寫 UI 中匯入結構描述時，ADF 會推斷結構描述，方法是從 Dynamics 查詢結果取前幾個資料列作為樣本來進行結構建構初始化，在此情況下，會省略沒有值的資料行。 相同的行為套用至複製的執行，如果沒有任何明確結構的定義。 您可以視需要檢閱及將更多資料行新增至 Dynamics 資料集結構描述/結構，在複製執行階段即會予以採用。
->- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行則由來源資料的結構描述決定。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
+>- 將資料複製到 Dynamics 時，Dynamics 資料集內不一定要有 "structure" 區段。 要複製到哪些資料行取決於來源資料結構描述。 如果來源是沒有標題的 CSV 檔案，在輸入資料集中使用資料行名稱和資料類型指定 "structure"。 它們會按順序一一對應至 CSV 檔案中的欄位。
 
 **範例：**
 
@@ -341,9 +349,8 @@ Dynamics 365 線上版限制[每個組織只能有 2 個並行批次呼叫](http
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> 不支援 Dynamics 資料類型 AttributeType.CalendarRules 和 AttributeType.PartyList。
+> 不支援 Dynamics 資料類型 AttributeType.CalendarRules、 AttributeType.MultiSelectPicklist 和 AttributeType.PartyList。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

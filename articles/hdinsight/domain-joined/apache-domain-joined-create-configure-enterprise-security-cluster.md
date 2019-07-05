@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166221"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484589"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>建立並在 Azure HDInsight 中設定企業安全性套件的叢集
 
 Azure HDInsight 的企業安全性套件可讓您存取 Active Directory 為基礎的驗證、 多使用者支援和角色型存取控制您 Azure 中的 Apache Hadoop 叢集。 ESP HDInsight 叢集啟用遵守嚴格的公司安全性原則，以安全地處理敏感性資料的組織。
 
-本指南的目標已正確設定必要的資源，因此，內部部署使用者可以登入 ESP 啟用 HDInsight 叢集。 這篇文章會逐步建立啟用企業安全性套件在 Azure HDInsight 叢集所需的步驟。 這些步驟會包含網域名稱服務 (DNS) 啟用與 Active Directory 中建立 Windows IaaS VM。 此伺服器做為取代您**實際**在內部部署環境，並可讓您進行安裝和設定步驟，以便您可以將它們重複之後，在您自己的環境。 本指南也會協助您建立混合式身分識別環境與 Azure Active Directory 中使用密碼雜湊同步處理。
+本指南的目標是要正確地設定所需的資源，以便在內部部署使用者可以登入 ESP 啟用 HDInsight 叢集。 這篇文章會逐步建立啟用企業安全性套件在 Azure HDInsight 叢集所需的步驟。 這些步驟會包含網域名稱服務 (DNS) 啟用與 Active Directory 中建立 Windows IaaS VM。 此伺服器做為取代您**實際**在內部部署環境，並可讓您進行安裝和設定步驟，以便您可以將它們重複之後，在您自己的環境。 本指南也會協助您建立混合式身分識別環境與 Azure Active Directory 中使用密碼雜湊同步處理。
 
 本指南旨在補足[在 HDInsight 中使用企業安全性套件](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Azure HDInsight 的企業安全性套件可讓您存取 Active Directory 為基�
 1. 登入 Azure 入口網站。
 1. 按一下 **建立資源**，輸入**網域服務**，然後選取**Azure AD Domain Services**。
 1. 在 **基本概念**螢幕完成下列步驟：
-    1. 底下**目錄名**選取為此教學課程中，建立 Azure Active Directory **HDIFabrikam**。
+    1. 底下**目錄名**選取為本文中，建立 Azure Active Directory **HDIFabrikam**。
     1. 請輸入**DNS 網域名稱**的**HDIFabrikam.com**。
     1. 選取您的訂用帳戶。
     1. 指定的資源群組**HDIFabrikam CentralUS**並**位置**的**美國中部**。
@@ -219,7 +219,7 @@ Azure HDInsight 的企業安全性套件可讓您存取 Active Directory 為基�
 
     ![選取網路](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. 在上**系統管理員群組**畫面中，您應該會看到一則通知，群組命名為**AAD DC 系統管理員**來管理此群組已經存在。 您可以選擇性地修改此群組的成員資格，但並不需要針對本教學課程的步驟。 按一下 [確定]  。
+1. 在上**系統管理員群組**畫面中，您應該會看到一則通知，群組命名為**AAD DC 系統管理員**來管理此群組已經存在。 您可以選擇性地修改此群組的成員資格，但它並不需要這篇文章的步驟。 按一下 [確定]  。
 
     ![檢視系統管理員群組](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
@@ -311,7 +311,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | Protocol | 任意 |
         | 動作 | 允許 |
         | 優先順序 | <Desired Number> |
-        | Name | Port_LDAP_636 |
+        | 名稱 | Port_LDAP_636 |
 
     ![輸入的安全性規則](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

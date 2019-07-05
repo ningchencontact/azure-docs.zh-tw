@@ -1,28 +1,22 @@
 ---
 title: 在 Azure Active Directory 中啟用企業狀態漫遊 | Microsoft Docs
-description: Windows 裝置中企業狀態漫遊設定的常見問題集。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。
+description: Windows 裝置中企業狀態漫遊設定的常見問題集。
 services: active-directory
-keywords: 企業狀態漫遊, windows 雲端, 如何啟用企業狀態漫遊
-documentationcenter: ''
-author: tanning
-manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
+ms.subservice: devices
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45c1fc6340df6a5400864b2e1222a2c65e586232
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954940"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482021"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
@@ -32,9 +26,7 @@ ms.locfileid: "65954940"
 ## <a name="to-enable-enterprise-state-roaming"></a>啟用企業狀態漫遊
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
-
 1. 選取 [Azure Active Directory]  &gt; [裝置]  &gt; [企業狀態漫遊]  。
-
 1. 選取 [使用者可以在裝置間同步設定及應用程式資料]  。 如需詳細資訊，請參閱[如何進行裝置設定](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
   
    ![標示為 [使用者可以在裝置間同步設定及應用程式資料] 的裝置設定影像](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -44,12 +36,12 @@ ms.locfileid: "65954940"
 ## <a name="data-storage"></a>資料儲存體
 企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如:
 
-國家/區域值 | 將其資料裝載於
----------------------|-------------------------
-EMEA 國家/地區如法國或尚比亞 | 歐洲內的一個或多個 Azure 區域 
-North American 例如美國或加拿大國家/地區 | 美國內的一個或多個 Azure 區域
-APAC 國家/地區例如澳洲或紐西蘭 | 亞洲內的一個或多個 Azure 區域
-南美洲和南極洲區域 | 美國內的一個或多個 Azure 區域
+| 國家/區域值 | 將其資料裝載於 |
+| -------------------- | ------------------------ |
+| EMEA 國家/地區如法國或尚比亞 | 歐洲內的一個或多個 Azure 區域 |
+| North American 例如美國或加拿大國家/地區 | 美國內的一個或多個 Azure 區域 |
+| APAC 國家/地區例如澳洲或紐西蘭 | 亞洲內的一個或多個 Azure 區域 |
+| 南美洲和南極洲區域 | 美國內的一個或多個 Azure 區域 |
 
 國家/地區值是在 Azure AD 目錄建立程序期間所建立，之後無法修改。 如果您需要資料儲存體位置的詳細資料，請向 [Azure 支援](https://azure.microsoft.com/support/options/)提出票證。
 
@@ -57,11 +49,8 @@ APAC 國家/地區例如澳洲或紐西蘭 | 亞洲內的一個或多個 Azure �
 請遵循下列步驟來檢視每個使用者裝置同步處理狀態報告。
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
-
 1. 選取 [Azure Active Directory]  &gt; [使用者]  &gt; [所有使用者]  。
-
 1. 選取使用者，然後選取 [裝置]  。
-
 1. 在 [顯示]  底下，選取 [裝置同步設定和應用程式資料]  ，以顯示同步處理狀態。
   
    ![裝置同步處理資料設定的影像](./media/enterprise-state-roaming-enable/sync-status.png)

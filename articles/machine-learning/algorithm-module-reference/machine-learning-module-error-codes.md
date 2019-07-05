@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029756"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568237"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>例外狀況和錯誤代碼的演算法和模組參考
 
@@ -251,15 +251,16 @@ Azure Machine learning 不支援某些較新的帳戶類型。 比方說，新�
 |----|----|----|
 |任何分類器|[定型模型](train-model.md) |[評分模型](score-model.md)|
 |任何迴歸模型|[定型模型](train-model.md) |[評分模型](score-model.md)|
-<!--| 群集模型| [群集模型的定型](train-clustering-model.md)或[掃掠叢集](sweep-clustering.md)| [將資料指派給群集](assign-data-to-clusters.md)|
-| 異常偵測-一級 SVM | [定型異常偵測模型](train-anomaly-detection-model.md) |[評分模型](score-model.md)|
-| 異常偵測-PCA |[定型模型](train-model.md) |[評分模型](score-model.md) </br> 一些額外的步驟，才能評估模型。 |
-| 異常偵測為時間序列|  [時間序列異常偵測](time-series-anomaly-detection.md) |模型定型資料，並產生分數。 模組不會建立定型的學習模組，需要任何額外的評分。 |
-| 建議模型| [定型 Matchbox 推薦](train-matchbox-recommender.md) | [評分 Matchbox 推薦](score-matchbox-recommender.md) |
-| 影像分類 | [預先定型的串聯影像分類](pretrained-cascade-image-classification.md) | [評分模型](score-model.md) |
-|Vowpal Wabbit 模型| [7-4 模型定型 Vowpal Wabbit 版本](train-vowpal-wabbit-version-7-4-model.md) | [評分 Vowpal Wabbit 版本 7-4 模型](score-vowpal-wabbit-version-7-4-model.md) |   
-|Vowpal Wabbit 模型| [7-10 模型定型 Vowpal Wabbit 版本](train-vowpal-wabbit-version-7-10-model.md) | [評分 Vowpal Wabbit 版本 7-10 模型](score-vowpal-wabbit-version-7-10-model.md) |
-|Vowpal Wabbit 模型| [定型的 Vowpal Wabbit 第 8 版模型](score-vowpal-wabbit-version-8-model.md) | [分數 Vowpal Wabbit 第 8 版模型](score-vowpal-wabbit-version-8-model.md) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |例外狀況訊息|  
 |------------------------|  
@@ -1680,7 +1681,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |------------------------|  
 |模組定義檔包含錯誤。|  
 |模組定義檔 '{0}' 包含錯誤。|  
-|模組定義檔 '{0}' 包含錯誤。 {1}|  
+|模組定義檔 '{0}' 包含錯誤。 [https://doi.org/10.13012/J8PN93H8]({1})|  
   
 
 ## <a name="error-0114"></a>錯誤 0114  
@@ -2081,7 +2082,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |例外狀況訊息|  
 |------------------------|  
 |GitHub 的存取時發生錯誤。|  
-|GitHub 的存取時發生錯誤。 {0}|  
+|GitHub 的存取時發生錯誤。 [https://doi.org/10.13012/J8PN93H8]({0})|  
   
 
 ## <a name="error-0148"></a>錯誤 0148  

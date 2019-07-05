@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bb89eec0b4905e101bed87d3d3fc617dec589e0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461556"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477869"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
@@ -29,12 +29,14 @@ ms.locfileid: "61461556"
 
 您可以設定智慧偵測規則的下列設定：
 - 是否啟用規則 (預設值是 **true**)。
-- 是否應在找到偵測時，將電子郵件傳送給訂用帳戶擁有者、參與者和讀者 (預設值是 **true**)。
+- 是否應將電子郵件傳送給使用者的訂用帳戶相關聯[監視讀取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)並[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)角色在發現偵測時 (預設值是**true**.)
 - 應該在找到偵測時收到通知的任何其他電子郵件收件者。
-- * 對於標示為_預覽_的智慧偵測規則，無法使用電子郵件設定。
+    -  電子郵件設定便無法使用的智慧偵測規則將會標示_預覽_。
 
 為了允許透過 Azure Resource Manager 設定規則設定，智慧偵測規則設定現在可作為 Application Insights 資源 (名為 **ProactiveDetectionConfigs**) 中的內部資源。
 為獲得最大彈性，您可以使用唯一的通知設定來設定每個智慧偵測規則。
+
+## 
 
 ## <a name="examples"></a>範例
 
@@ -136,12 +138,46 @@ ms.locfileid: "61461556"
 
 ```
 
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>失敗異常 v2 （非傳統） 警示規則
+
+此 Azure Resource Manager 範本會示範設定失敗異常 v2 警示規則 2 的嚴重性。 失敗異常警示規則的這個新版本是新的 Azure 警示平台的一部分，並取代已進入淘汰階段一部分的傳統版本[傳統警示淘汰程序](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "properties": {
+                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> 此 Azure Resource Manager 範本是唯一的失敗異常 v2 的警示規則，並且會在本文中的不同於其他傳統智慧偵測規則描述。   
+
 ## <a name="smart-detection-rule-names"></a>智慧偵測規則名稱
 
 下表有智慧偵測規則在入口網站中的顯示名稱，以及其應該在 Azure Resource Manager 範本中使用的內部名稱。
 
 > [!NOTE]
-> 標示為預覽版的智慧偵測規則不支援電子郵件通知。 因此，您只可以為這些規則設定 enabled 屬性。 
+> 智慧偵測規則將會標示_預覽_不支援電子郵件通知。 因此，您只能設定_啟用_這些規則的屬性。 
 
 | Azure 入口網站規則名稱 | 內部名稱
 |:---|:---|
@@ -154,18 +190,7 @@ ms.locfileid: "61461556"
 | 磁碟區例外狀況異常升高 (預覽) | extension_exceptionchangeextension |
 | 偵測到潛在記憶體流失 (預覽) | extension_memoryleakextension |
 | 偵測到潛在安全性問題 (預覽) | extension_securityextensionspackage |
-| 偵測到資源使用率問題 (預覽) | extension_resourceutilizationextensionspackage |
-
-## <a name="who-receives-the-classic-alert-notifications"></a>誰會收到 (傳統) 警示通知？
-
-本節僅適用於智慧偵測傳統警示，並協助您將警示通知最佳化，以確保只有您所需的收件者會收到通知。 若要深入了解[傳統警示](../platform/alerts-classic.overview.md)和新警示體驗之間的差異，請參閱[警示概觀文章](../platform/alerts-overview.md)。 目前智慧偵測警示只支援傳統警示體驗。 [Azure 雲端服務中的智慧偵測警示](./proactive-cloud-services.md)是一個例外。 若要控制 Azure 雲端服務中智慧偵測警示的警示通知，請使用[動作群組](../platform/action-groups.md)。
-
-* 我們建議針對智慧偵測/傳統警示通知使用特定的收件者。
-
-* 如已啟用 [大量/群組]  核取方塊選項，系統就會將智慧偵測警示傳送給訂用帳戶中具有擁有者、參與者或讀者角色的使用者。 實際上，「所有」  有權存取 Application Insights 資源訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
-
-> [!NOTE]
-> 如果您目前使用 [大量/群組]  核取方塊選項並停用它，您將無法還原變更。
+| 在 每日資料量 （預覽） 中的異常升高 | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>後續步驟
 

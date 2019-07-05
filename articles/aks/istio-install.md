@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850404"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465700"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
-[Istio][istio-github] 是一種開放原始碼服務網格，可在 Kubernetes 叢集中提供跨微服務的主要功能集。 這些功能包括流量管理、服務識別和安全性、原則強制執行和可檢視性。 如需 Istio 的詳細資訊，請參閱官方文件[什麼是 Istio？][istio-docs-concepts]。
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts]文件。
 
 本文說明如何安裝 Istio。 Istio`istioctl`到您的用戶端電腦上安裝用戶端二進位和 Istio 元件安裝在 AKS 上在 Kubernetes 叢集中。
 
 > [!NOTE]
 > 這些指示參考 Istio 版本`1.1.3`。
 >
-> Istio`1.1.x`版本都已經過測試針對 Kubernetes 版本 Istio team `1.11`， `1.12`， `1.13`。 您可以找到其他 Istio 版本[GitHub-Istio 釋放][ istio-github-releases]以及每個版本的相關資訊[Istio-版本資訊][ istio-release-notes].
+> Istio`1.1.x`版本都已經過測試針對 Kubernetes 版本 Istio team `1.11`， `1.12`， `1.13`。 您可以找到其他 Istio 版本[GitHub-Istio 版本][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes]。
 
 在本文中，您將了解：
 
@@ -38,11 +38,11 @@ ms.locfileid: "65850404"
 
 ## <a name="before-you-begin"></a>開始之前
 
-這篇文章中詳述的步驟假設您已建立 AKS 叢集 (Kubernetes`1.11`和更新版本，使用 RBAC 啟用)，並已建立`kubectl`與叢集的連線。 如果您需要前述任何方面的協助，請參閱 [AKS 快速入門][aks-quickstart]。
+這篇文章中詳述的步驟假設您已建立 AKS 叢集 (Kubernetes`1.11`和更新版本，使用 RBAC 啟用)，並已建立`kubectl`與叢集的連線。 如果您需要協助進行任何這些項目，則會看到[AKS 快速入門][aks-quickstart]。
 
-您將需要[Helm] [ helm]遵循這些指示，並安裝 Istio。 建議您有版本`2.12.2`或更新版本正確安裝並設定您的叢集中。 如果您需要安裝 Helm 的協助，則會看到[AKS Helm 安裝的指導][helm-install]。 所有 Istio pod，則也必須都排程在 Linux 節點上執行。
+您將需要[Helm][helm]遵循這些指示，並安裝 Istio。 建議您有版本`2.12.2`或更新版本正確安裝並設定您的叢集中。 如果您需要安裝 Helm 的協助，則會看到[AKS Helm 安裝指引][helm-install]。 所有 Istio pod，則也必須都排程在 Linux 節點上執行。
 
-本文將 Istio 安裝指引分成數個獨立的步驟。 最終結果的結構與官方的 Istio 安裝[指引][istio-install-helm]相同。
+本文將 Istio 安裝指引分成數個獨立的步驟。 最終結果是相同的結構與官方 Istio 安裝[指引][istio-install-helm]。
 
 ## <a name="download-istio"></a>下載 Istio
 
@@ -83,6 +83,8 @@ curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-
 $ISTIO_VERSION="1.1.3"
 
 # Windows
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
@@ -126,7 +128,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 ### <a name="linux-or-windows-subsystem-for-linux"></a>Linux 或適用於 Linux 的 Windows 子系統
 
-使用下列命令，在 Linux 或[適用於 Linux 的 Windows 子系統][install-wsl]上的 Bash 型殼層中，安裝 Istio `istioctl` 用戶端二進位檔。 這些命令會將 `istioctl` 用戶端二進位檔複製到 `PATH` 中的標準使用者程式位置。
+使用下列命令來安裝 Istio`istioctl`二進位在 Linux 上以 bash 為基礎的殼層中的用戶端或[適用於 Linux 的 Windows 子系統][install-wsl]。 這些命令會將 `istioctl` 用戶端二進位檔複製到 `PATH` 中的標準使用者程式位置。
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -167,13 +169,13 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 > [!IMPORTANT]
 > 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
 
-使用 Istio[自訂資源定義 (Crd)] [ kubernetes-crd]來管理其執行階段組態。 我們需要 Istio Crd 先安裝，因為 Istio 元件在其上有相依性。 使用 Helm 和`istio-init`圖表，以安裝至 Istio Crd `istio-system` AKS 叢集中的命名空間：
+使用 Istio[自訂資源定義 (Crd)][kubernetes-crd]來管理其執行階段組態。 我們需要 Istio Crd 先安裝，因為 Istio 元件在其上有相依性。 使用 Helm 和`istio-init`圖表，以安裝至 Istio Crd `istio-system` AKS 叢集中的命名空間：
 
 ```azurecli
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
 ```
 
-[作業][ kubernetes-jobs]部署成一部分`istio-init`Helm 圖表安裝 Crd。 這些作業花費 1 到 2 分鐘，才能完成，取決於您的叢集環境。 您可以確認該作業已順利完成，如下所示：
+[作業][kubernetes-jobs]部署成一部分`istio-init`Helm 圖表安裝 Crd。 這些作業花費 1 到 2 分鐘，才能完成，取決於您的叢集環境。 您可以確認該作業已順利完成，如下所示：
 
 ```azurecli
 kubectl get jobs -n istio-system
@@ -208,7 +210,7 @@ Powershell
 > [!IMPORTANT]
 > 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
 
-我們將安裝[Grafana] [ grafana]並[Kiali] [ kiali]我們 Istio 安裝的一部分。 Grafana 提供分析和監視儀表板，而且 Kiali 提供服務網格可檢視性儀表板。 在我們的設定，每個元件都需要認證必須提供作為[祕密][kubernetes-secrets]。
+我們將安裝[Grafana][grafana] and [Kiali][kiali]我們 Istio 安裝的一部分。 Grafana 提供分析和監視儀表板，而且 Kiali 提供服務網格可檢視性儀表板。 在我們的設定，每個元件都需要認證必須提供作為[祕密][kubernetes 祕密]。
 
 我們可以安裝 Istio 元件之前，我們必須 Kiali 和 Grafana 來建立祕密。 執行適當的命令，為您的環境，以建立這些祕密。
 
@@ -344,7 +346,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 
 ## <a name="validate-the-istio-installation"></a>驗證 Istio 安裝
 
-先確認是否已建立預期的服務。 使用 [kubectl get svc][kubectl-get] 命令來檢視執行中的服務。 查詢`istio-system`命名空間，Istio 和附加元件已安裝元件的`istio`Helm 圖表：
+先確認是否已建立預期的服務。 使用[kubectl get svc][kubectl-get]命令來檢視執行中的服務。 查詢`istio-system`命名空間，Istio 和附加元件已安裝元件的`istio`Helm 圖表：
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -379,7 +381,7 @@ tracing                  ClusterIP      10.0.165.210   <none>          80/TCP   
 zipkin                   ClusterIP      10.0.126.211   <none>          9411/TCP                                                                                                                                     118s      app=jaeger
 ```
 
-接著，確認是否已建立所需的 Pod。 使用[kubectl get pods] [ kubectl-get]命令，並再次查詢`istio-system`命名空間：
+接著，確認是否已建立所需的 Pod。 使用[kubectl get pods][kubectl-get]命令，並再次查詢`istio-system`命名空間：
 
 ```console
 kubectl get pods --namespace istio-system
@@ -409,11 +411,11 @@ kiali-5c4cdbb869-s28dv                   1/1       Running     0          6m26s
 prometheus-67599bf55b-pgxd8              1/1       Running     0          6m26s
 ```
 
-應該是兩個`istio-init-crd-*`pod 數與`Completed`狀態。 這些 pod 會負責執行先前步驟中建立 Crd 的作業。 所有的其他 pod 應該會顯示狀態為`Running`。 如果您的 Pod 沒有這些狀態，請等候一兩分鐘直到其成為該狀態。 如果有任何 Pod 回報發生問題，請使用 [kubectl describe pod][kubectl-describe] 命令檢閱其輸出和狀態。
+應該是兩個`istio-init-crd-*`pod 數與`Completed`狀態。 這些 pod 會負責執行先前步驟中建立 Crd 的作業。 所有的其他 pod 應該會顯示狀態為`Running`。 如果您的 Pod 沒有這些狀態，請等候一兩分鐘直到其成為該狀態。 如果任何 pod 回報的問題，使用[kubectl 描述 pod][kubectl-describe]命令以查看其輸出和狀態。
 
 ## <a name="accessing-the-add-ons"></a>存取附加元件
 
-上方的設定中安裝了 Istio 和許多附加元件以提供額外功能。 附加元件的使用者介面不會透過外部 IP 位址來公開。 若要存取附加元件使用者介面，請使用 [kubectl port-forward][kubectl-port-forward] 命令。 此命令會建立用戶端電腦和相關的 pod 之間的安全連線，在您的 AKS 叢集。
+上方的設定中安裝了 Istio 和許多附加元件以提供額外功能。 附加元件的使用者介面不會透過外部 IP 位址來公開。 若要存取的附加元件使用者介面，請使用[kubectl 的連接埠轉送][kubectl-port-forward]命令。 此命令會建立用戶端電腦和相關的 pod 之間的安全連線，在您的 AKS 叢集。
 
 我們稍早在本文中，為其指定的認證，Grafana 和 Kiali 新增額外的安全性。
 
@@ -470,7 +472,7 @@ Forwarding from [::1]:16686 -> 16686
 
 ### <a name="kiali"></a>Kiali
 
-服務網格可檢視性儀表板會由 [Kiali][kiali] 來提供。 將本機連接埠`20001`用戶端電腦上要連接埠`20001`在 AKS 叢集中執行 Kiali pod:
+所提供的服務網格可檢視性儀表板[Kiali][kiali]。 將本機連接埠`20001`用戶端電腦上要連接埠`20001`在 AKS 叢集中執行 Kiali pod:
 
 ```console
 kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
@@ -527,14 +529,14 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 下列文件說明如何使用 Istio 提供推出 canary 版本的智慧型路由：
 
 > [!div class="nextstepaction"]
-> [AKS Istio 智慧型路由案例][istio-scenario-routing]
+> [AKS Istio 的智慧型路由案例][istio-scenario-routing]
 
 若要深入探索 Istio 的安裝和組態選項，請參閱下列官方 Istio 文章：
 
-- [Istio - Helm 安裝指南][istio-install-helm]
-- [Istio - Helm 安裝選項][istio-install-helm-options]
+- [Istio-Helm 安裝指南][istio-install-helm]
+- [Istio-Helm 安裝選項][istio-install-helm-options]
 
-您也可以使用 [Istio Bookinfo 應用程式範例][istio-bookinfo-example]來跟隨其他案例。
+您也可以依照使用的其他案例[Istio Bookinfo 應用程式範例][istio-bookinfo-example]。
 
 若要了解如何監視使用 Application Insights 和 Istio AKS 應用程式，請參閱下列 Azure 監視器文件：
 - [Kubernetes 零檢測應用程式監視裝載之應用程式][app-insights]

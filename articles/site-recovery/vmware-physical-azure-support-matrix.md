@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341443"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491651"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -186,8 +186,8 @@ Docker 磁碟設定 | 否
 客體/伺服器 SMB 3.0 | 否
 客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
 客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
-客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 是
-客體/伺服器磁碟使用 4k 邏輯與 512 位元組實體磁區大小 | 是
+客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 否
+客體/伺服器磁碟使用 4k 邏輯與 512 位元組實體磁區大小 | 否
 客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| 是
 客體/伺服器 - 儲存體空間 | 否
 客體/伺服器 熱新增/移除磁碟 | 否
@@ -218,7 +218,7 @@ Docker 磁碟設定 | 否
 進階儲存體 | 是
 匯入/匯出服務 | 否
 適用於 Vnet 的 azure 儲存體防火牆 | 是。<br/> 在 目標儲存體/快取儲存體帳戶 （用來儲存複寫資料） 上設定。
-一般用途 v2 儲存體帳戶 （經常性存取與非經常性存取層） | 否
+一般用途 v2 儲存體帳戶 （經常性存取與非經常性存取層） | 是 （成本是相較於 V1 的 v2 較高的交易）
 
 ## <a name="azure-compute"></a>Azure 計算
 

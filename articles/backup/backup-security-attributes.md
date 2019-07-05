@@ -2,18 +2,18 @@
 title: 適用於 Azure 備份的常見安全性屬性
 description: 用來評估 Azure 備份的常見安全性屬性檢查清單
 services: backup
-author: msmbaldwin
+author: utraghuv
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 86b8ab96a94a6ffc44c304d8a0a689301560a989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 595cc4eff70e2df4cb6d7f1d6a0c1a2748b34bf2
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002809"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565625"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Azure 備份的安全性屬性
 
@@ -51,7 +51,7 @@ ms.locfileid: "66002809"
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
 | Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |
-| 授權| 是 | 會使用建立客戶和內建的 RBAC 角色。 請參閱[使用角色型存取控制來管理 Azure 備份復原點](/azure/backup/backup-rbac-rs-vault)如需詳細資訊。 |
+| Authorization| 是 | 會使用建立客戶和內建的 RBAC 角色。 請參閱[使用角色型存取控制來管理 Azure 備份復原點](/azure/backup/backup-rbac-rs-vault)如需詳細資訊。 |
 
 
 ## <a name="audit-trail"></a>稽核線索

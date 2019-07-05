@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753896"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485325"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理金鑰的 azure 搜尋服務加密
 
@@ -41,7 +41,7 @@ ms.locfileid: "66753896"
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)或是[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)用於設定工作。
 
-+ [Postman](search-fiddler.md)， [Azure PowerShell](search-create-index-rest-api.md)並[Azure 搜尋服務 SDK](https://aka.ms/search-sdk-preview)可以用來呼叫 REST API 的預覽。 沒有任何入口網站或客戶管理的加密，在此階段的.NET SDK 支援。
++ [Postman](search-get-started-postman.md)， [Azure PowerShell](search-create-index-rest-api.md)並[Azure 搜尋服務 SDK](https://aka.ms/search-sdk-preview)可以用來呼叫 REST API 的預覽。 沒有任何入口網站或客戶管理的加密，在此階段的.NET SDK 支援。
 
 ## <a name="1---enable-key-recovery"></a>1-啟用金鑰修復
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926266"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560486"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -234,7 +234,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 | Windows 版本                           | SMB 1 預設狀態 | 停用/移除方法       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (預覽)             | 已停用             | 利用 Windows 功能移除 |
+| Windows Server 2019                       | 已停用             | 利用 Windows 功能移除 |
 | Windows Server 版本 1709+            | 已停用             | 利用 Windows 功能移除 |
 | Windows 10 版本 1709+                | 已停用             | 利用 Windows 功能移除 |
 | Windows Server 2016                       | Enabled              | 利用 Windows 功能移除 |
@@ -246,7 +246,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 | Windows 7                                 | Enabled              | 利用登錄停用       | 
 
 ### <a name="auditing-smb-1-usage"></a>稽核 SMB 1 使用量
-> 套用至 Windows Server 2019 (預覽)、Windows Server 半年度通道 (版本 1709 和 1803)、Windows Server 2016、Windows 10 (版本 1507、1607、1703、1709 和 1803)、Windows Server 2012 R2 和 Windows 8.1
+> 適用於 Windows Server 2019、 Windows Server 半年通道 （1709年和 1803年版）、 Windows Server 2016、 Windows 10 （版本 1507年、 1607年、 1703年、 1709年和 1803年）、 Windows Server 2012 R2 和 Windows 8.1
 
 移除您環境中的 SMB 1 之前，您可以稽核 SMB 1 使用情況，以查看是否有任何用戶端會因此變更而中斷。 如果對含有 SMB 1 的 SMB 共用 提出任何要求，稽核事件將會記錄在 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 之下的事件記錄中。 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>從 Windows Server 移除 SMB 1
-> 套用至 Windows Server 2019 (預覽)、Windows Server 半年度通道 (版本 1709 和 1803)、Windows Server 2016、Windows Server 2012 R2
+> 適用於 Windows Server 2019，Windows Server 半年通道 （版本 1709年和 1803年），Windows Server 2016 中，Windows Server 2012 R2
 
 若要從 Windows Server 執行個體移除 SMB 1，請從提高權限的 PowerShell 工作階段執行下列 Cmdlet︰
 

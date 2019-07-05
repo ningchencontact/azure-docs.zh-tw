@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540709"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537806"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -27,16 +27,18 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ## <a name="core-concepts"></a>核心概念
 [Service Fabric 術語](service-fabric-technical-overview.md)、[應用程式模型](service-fabric-application-model.md)及[支援的程式設計模型](service-fabric-choose-framework.md)提供更多概念和描述，但這裡提供基本概念。
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>設計階段：應用程式類型、服務類型、應用程式套件和資訊清單、服務套件和資訊清單
-應用程式類型是指派給服務類型集合的名稱/版本。 這是在 *ApplicationManifest.xml* 檔案中定義，此檔案內嵌在應用程式套件目錄中。 然後，系統會將應用程式套件複製到 Service Fabric 叢集的映像存放區。 您可以接著從這個應用程式類型建立一個具名應用程式，然後在叢集內執行該應用程式。 
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>設計階段： 服務類型、 服務套件和資訊清單、 應用程式類型、 應用程式套件和資訊清單
+服務類型是指派給服務的程式碼封裝、資料封裝及組態封裝的名稱/版本。 這被定義在 ServiceManifest.xml 檔案中。 服務類型是由可執行程式碼和服務組態設定，會在執行階段載入，以及靜態資料是由服務所組成。
 
-服務類型是指派給服務的程式碼封裝、資料封裝及組態封裝的名稱/版本。 這是在 ServiceManifest.xml 檔案中定義，此檔案內嵌在服務套件目錄中。 然後，應用程式套件的 *ApplicationManifest.xml* 檔案會參考此服務套件目錄。 在叢集內，建立具名應用程式之後，可以從應用程式類型的其中一個服務類型建立具名服務。 服務類型會由其 *ServiceManifest.xml* 檔案來描述。 服務類型是由可執行程式碼和服務組態設定，會在執行階段載入，以及靜態資料是由服務所組成。
+服務封裝是一個磁碟目錄，其中包含服務類型的 ServiceManifest.xml 檔案，此檔案會參考服務類型的程式碼、靜態資料及組態封裝。 例如，服務套件可能會參考構成資料庫服務的程式碼、靜態資料和組態封裝。
+
+應用程式類型是指派給服務類型集合的名稱/版本。 這被定義在 ApplicationManifest.xml 檔案中。
 
 ![Service Fabric 應用程式類型和服務類型][cluster-imagestore-apptypes]
 
-應用程式套件是一個磁碟目錄，其中包含應用程式類型的 *ApplicationManifest.xml* 檔案，此檔案會參考組成應用程式類型之每個服務類型的服務套件。 例如，電子郵件應用程式類型的應用程式封裝可能包含指向佇列服務封裝、前端服務封裝、資料庫服務封裝的參考。 應用程式封裝目錄中的檔案會複製到 Service Fabric 叢集的映像存放區。 
+應用程式封裝是一個磁碟目錄，其中包含應用程式類型的 ApplicationManifest.xml 檔案，此檔案會參考之每個服務類型組成的應用程式類型的服務封裝。 例如，電子郵件應用程式類型的應用程式封裝可能包含指向佇列服務封裝、前端服務封裝、資料庫服務封裝的參考。  
 
-服務套件是一個磁碟目錄，其中包含服務類型的 *ServiceManifest.xml* 檔案，此檔案會參考服務類型的程式碼、靜態資料及組態套件。 應用程式類型的 *ApplicationManifest.xml* 檔案會參考服務套件目錄中的檔案。 例如，服務套件可能會參考構成資料庫服務的程式碼、靜態資料和組態封裝。
+應用程式封裝目錄中的檔案會複製到 Service Fabric 叢集的映像存放區。 您可以接著從這個應用程式類型建立一個具名應用程式，然後在叢集內執行該應用程式。 建立具名應用程式之後, 您可以建立具名的服務從應用程式類型的服務類型之一。 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>執行階段︰叢集和節點、具名應用程式、具名服務、分割區及複本
 [Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 叢集可擴充至數千部機器。

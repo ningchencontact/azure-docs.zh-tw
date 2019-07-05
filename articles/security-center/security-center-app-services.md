@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966832"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551869"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 資訊安全中心來保護 App Service
 本文可協助您使用「Azure 資訊安全中心」來監視及保護在 App Service 上執行的應用程式。
@@ -47,9 +47,8 @@ Web 應用程式中的弱點經常會遭到攻擊者利用，因為對網際網�
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>啟用 App Service 監視和保護
 
 1. 在 Azure 中，選擇 [資訊安全中心]。
-2. 移至 [安全性原則]  ，然後選擇一個訂用帳戶。
-3. 在訂用帳戶的資料列結尾，按一下 [編輯設定]  。
-4. 在 [定價層]  底下的 [應用程式服務]  資料列中，將方案切換至 [已啟用]  。
+2. 移至**價格和設定**，然後選擇 訂用帳戶。
+3. 在 [定價層]  底下的 [應用程式服務]  資料列中，將方案切換至 [已啟用]  。
 
 ![App Service 切換](./media/security-center-app-services/app-services-toggle.png)
 

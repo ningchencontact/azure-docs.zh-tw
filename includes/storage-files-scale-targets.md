@@ -4,14 +4,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 241e43a9cd851bf550c3eef8cad1fc3e0cc3e5a9
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9f259c3e403e933c847ac56000b1db2cd594caf5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150479"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449951"
 ---
-| 資源 | 標準檔案共用 | 進階檔案共用 (預覽) |
+| 資源 | 標準檔案共用 | 進階檔案共用 |
 |----------|---------------|------------------------------------------|
 | 檔案共用大小上限 | 沒有最小值;預付 | 100 giB;佈建 |
 | 檔案共用的大小上限 | 5 TiB (GA)、 100 TiB （預覽） | 100 TiB |

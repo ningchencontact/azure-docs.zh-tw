@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472030"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491824"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原，以便進行災害復原
 
@@ -196,7 +196,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 如需有關進行 AD 和 DNS 之測試容錯移轉的指引，請參閱 [AD 和 DNS 的測試容錯移轉考量](site-recovery-active-directory.md#test-failover-considerations)文件。
 
-如需有關進行 SQL Always ON 可用性群組之測試容錯移轉的指引，請參閱[進行 SQL Server Always On 的測試容錯移轉](site-recovery-sql.md#steps-to-do-a-test-failover)文件。
+如需有關進行測試容錯移轉 SQL Always ON 可用性群組的指引，請參閱[與 Azure Site Recovery 進行測試容錯移轉執行應用程式 DR](site-recovery-sql.md#disaster-recovery-of-application)文件。
 
 ## <a name="doing-a-failover"></a>執行容錯移轉
 請依照[本指引](site-recovery-failover.md)來進行容錯移轉。

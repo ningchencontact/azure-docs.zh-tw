@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595973"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485179"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
 
@@ -29,7 +29,7 @@ ms.locfileid: "65595973"
 | 方法 | 描述 |
 |-------------|-------------|
 | [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
-| [Postman 或 Fiddler](search-fiddler.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
+| [Postman 或 Fiddler](search-get-started-postman.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | 可用來查詢 Azure 搜尋服務索引的用戶端。  <br/>[深入了解。](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [搜尋文件 (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 索引的 GET 或 POST 方法，使用查詢參數作為額外輸入。  |
 

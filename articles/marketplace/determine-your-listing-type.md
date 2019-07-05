@@ -8,22 +8,19 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fef64bae6462923da67fc41945871f5dcde3094
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938103"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450047"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
-您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，Cloud Partner 入口網站中發佈選項和供應項目類型的選取項目，會定義使用者與市集供應項目互動的方式。
+您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，選取發行選項與供應項目類型定義使用者會與您的 marketplace 供應項目互動的方式。
 
-您可以藉由在 Cloud Partner 入口網站中選取供應項目類型，然後建立市集供應項目，以啟用發佈選項。 若要執行這個操作，您必須了解下列主要市集概念：發佈選項、供應項目類型和組態及呼籲行動，這些項目控制您的供應項目在市集店面展示的方式和位置。
+若要設定您的供應項目，您必須了解下列索引鍵的 marketplace 概念： 發行的選項，提供型別和組態，以及呼叫信號會控制如何及在 marketplace 店面中會到您的供應項目。
 
 ![](./media/marketplace-publishers-guide/storefronts_options_table.png)
-
->[!Note]
->上表描述您的解決方案或服務如何對應到用來在市集中展示供應項目的店面、發佈選項和供應項目類型。
 
 
 在本文中，您將了解…
@@ -36,33 +33,28 @@ ms.locfileid: "64938103"
 
 選取發佈選項之前，請務必了解市集解決方案、應用程式和服務的店面資格需求：
 
-**Azure Marketplace** 應用程式是 Azure 內建或針對 Azure 建置的技術「建置組塊」。 Azure Marketplace 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Azure。
+**Azure Marketplace**應用程式是技術 「 建置組塊 」 建置上的解決方案或建置用於 Azure 的並且 IT 或開發人員對象。 Azure Marketplace 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Azure。
 
-**AppSource** 應用程式是企業營運解決方案，可以內建於 Azure 或針對下列項目建置：Dynamics 365、Office 365、PowerBI 或 Power Apps。 AppSource 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Dynamics 365 和 Power BI。
+**AppSource** 應用程式是企業營運解決方案，可以內建於 Azure 或針對下列項目建置：Dynamics 365，Office 365，Power BI 中或 Power Apps。 AppSource 諮詢服務是專業服務供應項目，協助客戶開始使用或加速使用 Dynamics 365 和 Power BI。
 
-一旦註冊成為發行者並且收到 Cloud Partner 入口網站的存取權，用以建立、設定及發佈市集供應項目，您就可以：
-
-<ul>1.  了解如何決定供應項目的店面</ul>
-<ul>2.  為您的供應項目選擇發佈選項</ul>
-<ul>3.  選取供應項目類型並檢閱資格需求</ul>
-<ul>4.  在 Cloud Partner 入口網站中建置及設定要發佈的供應項目</il></ul>
 
 ## <a name="understand-storefront-selection"></a>了解店面選取範圍
 
-系統會依據您的供應項目詳細資料和目標對象，以及當您在 Cloud Partner 入口網站中建立供應項目時選取的類別和產業，自動判斷展示供應項目所在的店面 (Azure Marketplace 和/或 AppSource)。 
+店面，您會看到您的供應項目，Azure Marketplace 和/或 AppSource，將會自動決定您的供應項目詳細資料和目標對象，以及分類和建立您的供應項目時，您所選取的產業。 
 
 >[!Note]
 >「跨清單」(僅適用於 SaaS App)：當清單型或試用型供應項目符合技術和商務使用者對象的準則時，您的供應項目就會同時列在兩者的店面中。 在下方深入了解發佈選項。
 
 ## <a name="choose-a-publishing-option"></a>選擇發佈選項
 
-可用的發佈選項會提供差異化客戶參與，同時給予您潛在客戶共用和[進入市場權益](https://partner.microsoft.com/reach-customers/gtm)的存取權。 在使用 Cloud Partner 入口網站建立市集供應項目之前，請從三個可行的發佈選項中選取。 請注意與發佈選項對應的呼籲行動：
+可用的發佈選項會提供差異化客戶參與，同時給予您潛在客戶共用和[進入市場權益](https://partner.microsoft.com/reach-customers/gtm)的存取權。 請注意與發佈選項對應的呼籲行動：
 
 | **發行選項**    | **說明**  |
 | :------------------- | :-------------------|
 | **清單** | 應用程式或服務的簡易清單，可讓市集使用者向您要求透過**與我連絡**呼籲行動，與客戶聯繫。 |
-| **試用版** | 使用市集來增強曝光度，並且將佈建應用程式的試用體驗自動化，讓潛在使用者在購買之前，在一段有限的時間內免費使用您的 SaaS、IaaS 或 Microsoft 應用程式內體驗。 用於試用發佈選項的呼籲行動有：**免費試用**或**試用產品**。 |
-| **交易** | 您的應用程式是在 Azure 上執行，當客戶選取「立即取得」呼籲行動時，可用資源形式直接佈建到客戶的 Azure 訂用帳戶中。 您可以透過客戶選擇的付款方式和條款，選擇性地購買軟體並支付授權費用；也可以讓客戶限時存取**免費軟體試用** (僅適用於 Azure Marketplace)。 |
+| **試用版** | 您可以使用 marketplace 來加強可探索性和自動佈建解決方案的試用體驗，讓潛在使用者免費使用您的 SaaS、 IaaS、 或 Microsoft 應用程式內體驗，有限的時間之前購買。 用於試用發佈選項的呼籲行動有：**免費試用**或**試用產品**。 |
+|**BYOL**  |使用 marketplace 加強可探索性和自動佈建您的方案，並分別完成財務交易。 BYOL 供應項目類型適合用於內部部署至雲端的移轉。 動作的呼叫是**立即取得**。
+| **交易** | 您的應用程式在 Azure 上執行，並且可以直接在客戶的 Azure 訂用帳戶選取客戶時佈建為資源**立即取得**呼叫動作。 您可以透過客戶選擇的付款方式和條款，選擇性地購買軟體並支付授權費用；也可以讓客戶限時存取**免費軟體試用** (僅適用於 Azure Marketplace)。 |
 
 >[!Note]
 >當使用交易發佈選項時，請務必了解定價、計費、發票處理和付款考量，然後再選取供應項目類型與建立供應項目。 檢閱[市集計費與商業考量文章以深入了解](./marketplace-commercial-transaction-capabilities-and-considerations.md)。
@@ -72,6 +64,6 @@ ms.locfileid: "64938103"
 *   一旦您決定發佈選項，就能夠選取要用於展示供應項目的[供應項目類型](./publisher-guide-by-offer-type.md)。
 *   請依據供應項目類型區段，檢閱發佈選項中的資格需求，以完成供應項目的選取和設定。
 *   請依據店面檢閱發佈模式，以取得解決方案如何對應至供應項目類型和組態的範例。
-*   請登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)，以建立及設定您的供應項目。
+
 
 

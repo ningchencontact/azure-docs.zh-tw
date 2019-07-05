@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Edge 串流分析
 description: 在 Azure 串流分析中建立 Edge 作業，並將其部署至執行 Azure IoT Edge 的裝置。
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804039"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508337"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析
  
@@ -111,7 +110,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 
 > [!Note]
 > 在此步驟中，ASA 會在儲存體容器中建立一個名為 "EdgeJobs" 的資料夾 (如果該資料夾不存在)。 針對每個部署，會在 "EdgeJobs" 資料夾中建立新的子資料夾。
-> 若要將作業部署到您的 Edge 裝置，ASA 會建立作業定義檔的共用存取簽章 (SAS)。 SAS 索引鍵會使用裝置對應項安全地傳輸至 IoT Edge 裝置。 這個索引鍵的到期日是從其建立起的三年。
+> 當您部署您的工作到 IoT Edge 裝置時，ASA 會建立作業定義檔案的共用的存取簽章 (SAS)。 SAS 索引鍵會使用裝置對應項安全地傳輸至 IoT Edge 裝置。 這個索引鍵的到期日是從其建立起的三年。 當您更新 IoT Edge 作業時，SAS 將會變更，但不是會變更映像版本。 您一次**更新**，請遵循部署工作流程，並更新通知登入裝置。
 
 
 如需 IoT Edge 部署的詳細資訊，請參閱[此頁面](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)。
@@ -203,9 +202,31 @@ IoT Edge 上的參考資料更新會由部署觸發。 觸發之後，ASA 模組
 * [Azure IoT Edge 串流分析授權](https://go.microsoft.com/fwlink/?linkid=862827)。 
 * [Azure IoT Edge 串流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828)。
 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure Stream Analytics 模組映像資訊 
+
+在 2019 年 06 月 27 日上次更新此版本資訊：
+
+- 映像： `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - 基底映像： microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - 平台：
+      - 架構： amd64
+      - 作業系統： linux
+  
+- 映像： `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - 基底映像： microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - 平台：
+      - 架構： arm
+      - 作業系統： linux
+  
+- 映像： `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - 基底映像： microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - 平台：
+      - 架構： amd64
+      - 作業系統： windows
+      
+      
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430921"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480758"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>針對 Azure App Service 中設定自訂的 Linux 容器
 
@@ -50,10 +50,10 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 永續性儲存體時已停用，然後將寫入`/home`目錄不保存應用程式重新啟動或跨越多個執行個體。 唯一的例外是`/home/LogFiles`用來儲存 Docker 和容器的記錄檔的目錄。 當啟用永續性儲存體時，所有寫入`/home`目錄會保存，並且可以存取的向外延展應用程式的所有執行個體。
 
-根據預設，是永續性儲存體*停用*。 若要啟用或停用它，請設定`WEBSITES_ENABLE_APP_SERVICE_STORAGE`所執行的應用程式設定[ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set)命令在 Cloud Shell 中。 例如︰
+根據預設，是永續性儲存體*啟用*和設定不會出現在應用程式設定。 若要停用它，請設定`WEBSITES_ENABLE_APP_SERVICE_STORAGE`所執行的應用程式設定[ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set)命令在 Cloud Shell 中。 例如:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]

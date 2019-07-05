@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 854645af95d780053d94668921e41ac189bbbfb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 345b10a0d66456d795a63e3aacd941ade0e0159c
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159506"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467009"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>預覽：使用 Azure 映像產生器中建立 Linux VM
 
@@ -21,6 +21,7 @@ ms.locfileid: "65159506"
 - Shell (ScriptUri)-下載並執行[殼層指令碼](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh)。
 - Shell （內嵌）-執行特定命令。 在此範例中，內嵌命令會包含建立目錄和更新的作業系統。
 - 檔案-複本[檔案，從 GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html)到 VM 上的目錄。
+
 
 我們將使用範例.json 範本來設定映像。 .Json 檔案，我們會使用已正式推出： [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json)。 
 
@@ -57,7 +58,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="create-a-resource-group"></a>建立資源群組
+## <a name="setup-example-variables"></a>設定範例變數
 
 我們將使用資訊的某些部分重複，因此我們將建立一些變數，以儲存該資訊。
 
@@ -79,14 +80,17 @@ runOutputName=aibLinux
 subscriptionID=<Your subscription ID>
 ```
 
-建立資源群組。
+## <a name="create-the-resource-group"></a>建立資源群組。
+這用來儲存映像組態範本成品和映像。
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
+## <a name="set-permissions-on-the-resource-group"></a>設定資源群組的權限
+提供的資源群組中建立映像的映像產生器 「 參與者 」 權限。 沒有適當的權限，映像組建將會失敗。 
 
-提供映像產生器來建立該資源群組中的資源的權限。 `--assignee`值是映像產生器服務的應用程式註冊識別碼。 
+`--assignee`值是映像產生器服務的應用程式註冊識別碼。 
 
 ```azurecli-interactive
 az role assignment create \
@@ -95,9 +99,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-json-example"></a>下載 json 範例
+## <a name="download-the-template-example"></a>下載範本範例
 
-下載範例.json 檔案，並使用您所建立的變數加以設定。
+您可以使用已建立參數化的範例映像組態範本。 下載範例.json 檔案，並使用您稍早設定的變數加以設定。
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -109,7 +113,19 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-## <a name="create-the-image"></a>建立映像
+您可以視需要修改此範例.json。 例如，您可以增加值`buildTimeoutInMinutes`以允許較長的執行組建。 您可以編輯的檔案，在 Cloud Shell 中使用`vi`。
+
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+
+> [!NOTE]
+> 來源映像，您必須一律[指定的版本](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)，您無法使用`latest`。
+>
+> 如果您新增或變更位置的映像發佈的資源群組，您必須先確定[資源群組設定權限](#set-permissions-on-the-resource-group)。
+
+
+## <a name="submit-the-image-configuration"></a>送出的映像組態
 映像的組態提交至 VM 映像產生器服務
 
 ```azurecli-interactive
@@ -121,7 +137,26 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
+如果順利完成，它會傳回成功訊息，並建立 $imageResourceGroup 映像產生器的組態範本成品。 如果您啟用 顯示隱藏的類型'，您可以看到入口網站中的資源群組。
+
+此外，在背景中，映像產生器會建立暫存的資源群組，您的訂用帳戶中。 映像產生器會使用映像組建的預備環境的資源群組。 資源群組的名稱會是這種格式： `IT_<DestinationResourceGroup>_<TemplateName>`。
+
+> [!IMPORTANT]
+> 請勿直接刪除預備環境的資源群組。 如果您刪除映像範本成品時，它會自動刪除暫存的資源群組。 如需詳細資訊，請參閱 <<c0> [ 清除](#clean-up)這篇文章的最後一節。
+
+如果服務映像組態範本提交期間回報失敗，請參閱[疑難排解](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting)步驟。 您也必須刪除範本，然後再重試提交組建。 若要刪除範本：
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## <a name="start-the-image-build"></a>啟動映像組建
+
 啟動映像組建。
+
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -131,7 +166,9 @@ az resource invoke-action \
      --action Run 
 ```
 
-等待建置完成。 這可能需要大約 15 分鐘。
+等待建置完成時，此範例之前，可能需要 10-15 分鐘。
+
+如果您遇到任何錯誤，請檢閱這些[疑難排解](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting)步驟。
 
 
 ## <a name="create-the-vm"></a>建立 VM
@@ -179,14 +216,20 @@ cat helloImageTemplateLinux.json
 
 ## <a name="clean-up"></a>清除
 
-當您完成時刪除的資源。
+完成之後，您可以刪除資源。
+
+刪除映像產生器範本。
 
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateLinux01
+```
 
+刪除映像資源群組。
+
+```bash
 az group delete -n $imageResourceGroup
 ```
 

@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808307"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514442"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>將檔案和資料夾備份的相關常見問題 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>將檔案和資料夾備份的相關常見問題
 
 本文提供常見問題的解答備份檔案與資料夾中的 Microsoft Azure 復原服務 (MARS) 代理程式也就大量湧現[Azure 備份](backup-overview.md)服務。
 
 ## <a name="general"></a>一般
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>MARS 代理程式為何需要.NET framework 4.5.2 或更新版本？
-
-中所提供的新功能[立即還原](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine)需要.NET Framework 4.5.2 或更高版本。
-
 ## <a name="configure-backups"></a>設定備份
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>哪裡可以下載最新版的 MARS 代理程式？ 
-備份 Windows Server 電腦、 System Center DPM 與 Microsoft Azure 備份伺服器時使用的最新的 MARS 代理程式可供[下載](https://aka.ms/azurebackup_agent)。 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>哪裡可以下載最新版的 MARS 代理程式？
+備份 Windows Server 電腦、 System Center DPM 與 Microsoft Azure 備份伺服器時使用的最新的 MARS 代理程式可供[下載](https://aka.ms/azurebackup_agent)。
 
 ### <a name="how-long-are-vault-credentials-valid"></a>多久是有效的保存庫認證？
 保存庫認證將於 48 小時後過期。 如果認證檔案到期，再次下載這個檔案從 Azure 入口網站。
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>哪些磁碟機從我可以備份檔案和資料夾？ 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>哪些磁碟機從我可以備份檔案和資料夾？
 
 您無法備份下列類型的磁碟機和磁碟區：
 
@@ -45,29 +41,20 @@ ms.locfileid: "66808307"
 
 ### <a name="what-file-and-folder-types-are-supported"></a>支援哪些檔案和資料夾的類型？
 
-支援下列類型：
-
-* 已加密
-* 已壓縮
-* 疏鬆
-* 已壓縮 + 疏鬆
-* 永久連結：不支援並略過
-* 重新分析點：不支援並略過
-* 已加密 + 疏鬆：不支援並略過
-* 壓縮資料流：不支援並略過
-* 重新分析點，包括 DFS 連結和連接點
-
+[了解更多](backup-support-matrix-mars-agent.md#supported-file-types-for-backup)有關檔案和資料夾備份支援的類型。
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>我是否可以使用 MARS 代理程式來備份 Azure VM 上的檔案和資料夾？  
-是。 Azure 備份提供 VM 層級備份 Azure vm 使用 Azure VM 代理程式的 VM 擴充功能。 如果您想要在客體 Windows 作業系統，以在 VM 上備份檔案和資料夾，您可以安裝 MARS 代理程式，若要這麼做。 
+是。 Azure 備份提供 VM 層級備份 Azure vm 使用 Azure VM 代理程式的 VM 擴充功能。 如果您想要在客體 Windows 作業系統，以在 VM 上備份檔案和資料夾，您可以安裝 MARS 代理程式，若要這麼做。
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>可以使用 MARS 代理程式來備份檔案和資料夾上的暫存儲存體的 Azure vm 嗎？ 
-是。 安裝 MARS 代理程式，並備份檔案和資料夾在客體 Windows 作業系統上的暫時儲存體。 -備份工作失敗的相關資料抹除暫存儲存體。
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>可以使用 MARS 代理程式來備份檔案和資料夾上的暫存儲存體的 Azure vm 嗎？
+是。 安裝 MARS 代理程式，並備份檔案和資料夾在客體 Windows 作業系統上的暫時儲存體。
+
+- 備份工作失敗時抹除暫存儲存體資料。
 - 如果刪除暫存儲存體資料，您只能還原到非揮發性儲存體。
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>如何註冊的伺服器到另一個區域？
 
-備份資料會傳送至保存庫註冊伺服器的資料中心。 變更資料中心的最簡單方式是解除安裝並重新安裝代理程式，然後在您需要的區域中註冊新的保存庫的機器
+備份資料會傳送至保存庫註冊伺服器的資料中心。 變更資料中心的最簡單方式是解除安裝並重新安裝代理程式，然後註冊新的保存庫的機器，您需要的區域中。
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>會的 MARS 代理程式支援 Windows Server 2012 重複資料刪除？
 是。 MARS 代理程式會將重複資料刪除的資料轉換成一般資料中，準備備份作業時。 然後最佳化備份的資料、 加密資料，並接著傳送到保存庫的 加密的資料。
@@ -80,7 +67,7 @@ ms.locfileid: "66808307"
 
 - 您必須向備份保存庫註冊新的機器名稱。
 - 當您向保存庫註冊新的名稱時，第一項作業會*完整*備份。
-- 如果您需要復原已備份到採用舊伺服器名稱之保存庫的資料，請還原到替代位置復原資料精靈 中使用選項。 [深入了解](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)。 
+- 如果您需要復原已備份到採用舊伺服器名稱之保存庫的資料，請還原到替代位置復原資料精靈 中使用選項。 [深入了解](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)。
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>什麼是備份的最大的檔案路徑長度？
 MARS 代理程式依存於 NTFS，並使用檔案路徑長度規格受限於[Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths)。 如果您想要保護的檔案超過允許的值，備份父資料夾或磁碟機。  
@@ -143,8 +130,8 @@ MARS 代理程式依存於 NTFS，並允許[支援的字元](/windows/desktop/Fi
 快取資料夾和中繼資料 VHD 都不具有 Azure 備份代理程式所需的屬性。
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>是否有辦法調整備份所使用的頻寬量？
- 
-是，您可以使用**變更屬性**中選項的 MARS 代理程式調整的頻寬與時間。 [了解更多](backup-configure-vault.md#enable-network-throttling)* *。
+
+是，您可以使用**變更屬性**中選項的 MARS 代理程式調整的頻寬與時間。 [深入了解](backup-configure-vault.md#enable-network-throttling)。
 
 ## <a name="restore"></a>Restore
 

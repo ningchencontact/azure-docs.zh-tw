@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393663"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537757"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 開發 C# Service Fabric 應用程式
 
@@ -77,6 +77,17 @@ sudo code . --user-data-dir='.'
 4. 確認應用程式執行之後，啟動瀏覽器，並開啟此頁面： http:\//localhost:31002。 這是應用程式的 Web 前端。 由於計數器的值會增加，請重新整理頁面以查看目前的值。
 
    ![瀏覽器中的計數器服務應用程式](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>應用程式發行至 Azure Service Fabric 叢集
+以及應用程式部署到本機叢集，您也可以發佈到遠端的 Azure Service Fabric 叢集應用程式。 
+
+1. 請確定您已建立您的應用程式使用上述指示。 更新產生的組態檔`Cloud.json`您想要發行至遠端叢集的詳細資料。
+
+2. 從 [命令選擇區]  中選取 **Service Fabric:發行應用程式命令**。 安裝程序的輸出會傳送到整合式終端機。
+
+   ![在 VS Code 中發佈應用程式命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. 部署完成時，請啟動瀏覽器並開啟 Service Fabric Explorer： `https:<clusterurl>:19080/Explorer` 。 您應該會看到應用程式正在執行。 這可能需要一些時間，請耐心等候。 
 
 ## <a name="debug-the-application"></a>偵錯應用程式
 在 VS Code 中針對應用程式進行偵錯時，應用程式必須在本機叢集上執行。 然後您可以將中斷點新增到程式碼中。

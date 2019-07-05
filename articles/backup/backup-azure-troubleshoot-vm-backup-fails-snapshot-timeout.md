@@ -2,19 +2,19 @@
 title: 針對 Azure 備份失敗進行疑難排解：無法使用客體代理程式狀態
 description: 與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。
 services: backup
-author: genlin
-manager: cshepard
+author: saurabhsensharma
+manager: saurabhsensharma
 keywords: Azure 備份; VM 代理程式; 網路連線;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
-ms.author: genli
-ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: saurabhsensharma
+ms.openlocfilehash: 5abaa040b22000a300fba22590866846f6dbbd4a
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64914937"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565679"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 

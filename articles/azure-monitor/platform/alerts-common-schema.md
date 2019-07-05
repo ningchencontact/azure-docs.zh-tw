@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be38f5d3bbf4fe3d90fc78feab8774595b5338f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776571"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447660"
 ---
 # <a name="common-alert-schema"></a>一般警示結構描述
 
@@ -125,6 +125,7 @@ ms.locfileid: "60776571"
 ## <a name="next-steps"></a>後續步驟
 
 - [一般 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook 的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+- [了解如何建立邏輯應用程式，運用常見的警示結構描述來處理所有警示。](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

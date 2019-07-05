@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254676"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446783"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
 
@@ -93,6 +93,9 @@ Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用 Java SDK 的舊版本，
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>從 Maven 將 Azure Cosmos DB Spark 連接器升級為最新版本
 
 Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用 Cosmos DB Spark 連接器的舊版本，並建議升級至最新版本從 Maven 最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB Spark 連接器](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>啟用虛擬機器複寫
+不需要複寫到另一個區域啟用的虛擬機器並非從區域性中斷時復原。 複寫虛擬機器的 Azure 區域中斷期間減少任何負面的業務衝擊。 Advisor 會偵測並沒有複寫的 Vm 已啟用，並建議您啟用複寫，以便在發生中斷時，您可以快速地將您的虛擬機器備份遠端 Azure 區域中。 [深入了解虛擬機器複寫](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 

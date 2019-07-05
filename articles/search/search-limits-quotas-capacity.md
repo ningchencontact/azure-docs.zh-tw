@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024646"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485401"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 最大值限制儲存體、 工作負載和數量的索引、 文件，和其他物件相依於是否您[佈建 Azure 搜尋服務](search-create-service-portal.md)在**免費**，**基本**， **標準**，或**儲存體最佳化**定價層。
@@ -29,7 +29,7 @@ ms.locfileid: "65024646"
 + **儲存體最佳化**會使用更多的儲存體總計、 儲存體頻寬和記憶體比專用的機器上執行**標準**。 儲存體最佳化 有兩個層級：L1 與 L2
 
 > [!NOTE]
-> 在儲存體最佳化的服務層是目前可供預覽，以供測試和測試以收集意見反應為目標的實付款項折扣定價。 最終價格將於日後宣佈正式推出這些層時。 我們建議您避免使用這些層次，對於生產應用程式。
+> 自 7 月 1 日起所有的層為正式運作，包括儲存體最佳化的階層。 所有價格都位於[定價詳細資料](https://azure.microsoft.com/pricing/details/search/)頁面。
 
   S3 高密度 (S3 HD) 是針對特定工作負載所設計：[多租用戶](search-modeling-multitenant-saas-applications.md)和大量的小型索引 (每個索引有 1 百萬份文件，每個服務有三千個索引)。 這一層不提供[索引子功能](search-indexer-overview.md)。 在 S3 HD 上，資料擷取必須利用推送方法，使用 API 呼叫以將資料從來源推送到索引。 
 

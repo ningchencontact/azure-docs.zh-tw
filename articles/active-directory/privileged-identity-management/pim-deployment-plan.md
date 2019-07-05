@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440591"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476432"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>部署 Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>專案關係人：適用於 Azure AD 角色的 PIM
 
-| 名稱 | 角色 | 動作 |
+| 名稱 | Role | 動作 |
 | --- | --- | --- |
 | 名稱和電子郵件 | **身分識別架構設計師或 Azure 全域系統管理員**<br/>身分識別管理小組所推派的代表人員，負責定義這項變更要如何與組織的核心身分識別管理基礎結構相配合。 | SO/R/I |
 | 名稱和電子郵件 | **服務擁有者/部門經理**<br/>單一或一組服務的 IT 擁有者所推派的代表人員。 這些人員是為其團隊做出決策並協助推廣 PIM 的關鍵人物。 | SO/R/I |
@@ -109,7 +109,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>專案關係人：Azure 資源角色的 PIM
 
-| 名稱 | 角色 | 動作 |
+| 名稱 | Role | 動作 |
 | --- | --- | --- |
 | 名稱和電子郵件 | **訂用帳戶/資源擁有者**<br/>要為其部署 PIM 的每個訂用帳戶或資源，其 IT 擁有者所推派的代表人員 | SO/R/I |
 | 名稱和電子郵件 | **安全性擁有者**<br/>安全性團隊所推派的代表人員，可簽字同意該規劃符合組織的安全性需求。 | SO/R |
@@ -143,7 +143,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 1. 列出組織中具有特殊權限角色的人員。 您可以使用 [PIM 精靈](pim-security-wizard.md#run-the-wizard)來前往如下所示的頁面。
 
-    ![探索特殊權限角色](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![探索特殊權限的角色 窗格中顯示誰具有特殊權限角色](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. 針對組織中的所有全域系統管理員，了解其為何需要該角色。 根據前面的文件所述，如果該人員的工作可由一或多個細微的系統管理員角色執行，您就應該將其從全域系統管理員角色移除，並據此在 Azure Active Directory 內進行指派 (供您參考：Microsoft 目前只有大約 10 個系統管理員具有全域系統管理員角色。 請深入了解 [Microsoft 如何使用 PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access))。
 
@@ -151,7 +151,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 若要自動執行步驟 3 和 4，您可以利用 PIM 內的存取權檢閱功能。 藉由遵循[在 PIM 中開始 Azure AD 角色的存取權檢閱](pim-how-to-start-security-review.md)中的步驟，即可為每個具有一或多個成員的 Azure AD 角色設定存取權檢閱。
 
-![建立存取權檢閱](./media/pim-deployment-plan/create-access-review.png)
+![建立 Azure AD 角色的存取權檢閱窗格](./media/pim-deployment-plan/create-access-review.png)
 
 請將檢閱者設定為 [成員 (本身)]  。 這會對屬於該角色的所有成員傳送電子郵件，讓這些成員確認其是否需要此存取權。 也請開啟進階設定中的 [需要核准的原因]  ，讓使用者可以陳述其為何需要該角色。 根據這項資訊，您就能夠將使用者從不必要的角色中移除，並對其委派更細微的系統管理員角色 (就全域系統管理員來說)。
 
@@ -240,7 +240,7 @@ Azure 資源的 PIM 可支援有時間限制的服務帳戶。 在對待服務�
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Azure AD 角色的 PIM 設定
 
-| 角色 | 需要 MFA | 通知 | 事件票證 | 需要核准 | 核准者 | 啟動持續時間 | 永久性系統管理員 |
+| Role | 需要 MFA | 通知 | 事件票證 | 需要核准 | 核准者 | 啟動持續時間 | 永久性系統管理員 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 全域管理員 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 其他全域系統管理員 | 1 小時 | 緊急存取帳戶 |
 | Exchange 系統管理員 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 小時 | None |
@@ -248,7 +248,7 @@ Azure 資源的 PIM 可支援有時間限制的服務帳戶。 在對待服務�
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Azure 資源角色的 PIM 設定
 
-| 角色 | 需要 MFA | 通知 | 需要核准 | 核准者 | 啟動持續時間 | 有效系統管理員 | 有效到期日 | 合格到期日 |
+| Role | 需要 MFA | 通知 | 需要核准 | 核准者 | 啟動持續時間 | 有效系統管理員 | 有效到期日 | 合格到期日 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 重要訂用帳戶的擁有者 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 訂用帳戶的其他擁有者 | 1 小時 | None | n/a | 3 個月 |
 | 較不重要訂用帳戶的使用者存取系統管理員 | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 小時 | None | n/a | 3 個月 |
@@ -258,7 +258,7 @@ Azure 資源的 PIM 可支援有時間限制的服務帳戶。 在對待服務�
 
 | 設定 | 描述 |
 | --- | --- |
-| 角色 | 要為其定義設定的角色名稱。 |
+| Role | 要為其定義設定的角色名稱。 |
 | 需要 MFA | 符合資格的使用者是否必須先執行 MFA 才能啟動該角色。<br/><br/> :heavy_check_mark:**Microsoft 建議**您對所有系統管理員角色 (尤其是如果該角色有來賓使用者) 強制執行 MFA。 |
 | 通知 | 如果設定為 true，則組織中的全域系統管理員、特殊權限角色系統管理員和安全性系統管理員會在符合資格的使用者啟動該角色時收到電子郵件通知。<br/><br/>**附註：** 某些組織並未將電子郵件地址繫結至其系統管理員帳戶，若要取得這些電子郵件通知，請設定替代的電子郵件地址，以便讓系統管理員能夠收到這些電子郵件。 |
 | 事件票證 | 符合資格的使用者是否必須在啟動其角色時記錄下事件票證號碼。 此設定可協助組織透過內部事件號碼來識別每個啟動，以減少不必要的啟動。<br/><br/> :heavy_check_mark:**Microsoft 建議**您利用事件票證號碼，以讓 PIM 與內部系統繫結在一起。 這特別適用於需要知道啟動情境的核准者。 |
@@ -318,7 +318,7 @@ Azure 資源的 PIM 可支援有時間限制的服務帳戶。 在對待服務�
 
 請使用這個階段來確認您為角色設定的所有組態是否可正常運作。 請使用下表來記載測試。 也請使用這個階段來將與受影響使用者的溝通方式最佳化。
 
-| 角色 | 啟動期間的預期行為 | 實際結果 |
+| Role | 啟動期間的預期行為 | 實際結果 |
 | --- | --- | --- |
 | 全域管理員 | (1) 需要 MFA<br/>(2) 需要核准<br/>(3) 核准者收到通知並可核准<br/>(4) 角色在預設時間過後到期 |  |
 | 訂用帳戶 X  的擁有者 | (1) 需要 MFA<br/>(2) 符合資格的指派在所設定的期間過後到期 |  |

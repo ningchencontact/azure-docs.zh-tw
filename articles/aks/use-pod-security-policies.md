@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 881a16501574dc7309eede6b58e270a97bed977a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9da722006651cfc9e9f2a175d5c330ba5df08123
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235735"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447077"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>預覽-保護您的叢集使用 Azure Kubernetes Service (AKS) 中的 pod 安全性原則
 
@@ -26,36 +26,40 @@ ms.locfileid: "66235735"
 
 ## <a name="before-you-begin"></a>開始之前
 
-此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 AKS 快速入門[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
 
 您需要 Azure CLI 2.0.61 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-AKS 叢集中會更新以啟用使用 pod 安全性原則*aks 預覽*CLI 擴充功能。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][ az-extension-add]命令，如下列範例所示：
+若要使用 pod 安全性原則，您需要*aks 預覽*CLI 擴充功能版本 0.4.1 或更高版本。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update]命令：
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> 如果您先前已安裝*aks 預覽*延伸模組，安裝任何可用更新使用`az extension update --name aks-preview`命令。
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-pod-security-policy-feature-provider"></a>註冊 pod 安全性原則功能提供者
 
-若要建立或更新的 AKS 叢集，以將 pod 安全性原則，請先啟用您訂用帳戶的功能旗標。 若要註冊*PodSecurityPolicyPreview*功能旗標，請使用[az 功能註冊][ az-feature-register]命令，在下列範例所示：
+若要建立或更新的 AKS 叢集，以將 pod 安全性原則，請先啟用您訂用帳戶的功能旗標。 若要註冊*PodSecurityPolicyPreview*功能旗標，請使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+
+> [!CAUTION]
+> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-準備就緒時，使用 [az provider register][az-provider-register] 命令重新整理 *Microsoft.ContainerService* 資源提供者的註冊：
+準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -77,7 +81,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>啟用 AKS 叢集上的 pod 安全性原則
 
-您可以啟用或停用使用的 pod 安全性原則[更新 az aks] [ az-aks-update]命令。 下列範例啟用 pod 上的安全性原則的叢集名稱*myAKSCluster*資源群組中名為*myResourceGroup*。
+您可以啟用或停用使用的 pod 安全性原則[az aks 更新][az-aks-update]命令。 下列範例啟用 pod 上的安全性原則的叢集名稱*myAKSCluster*資源群組中名為*myResourceGroup*。
 
 > [!NOTE]
 > 真實世界的使用，請勿啟用 pod 安全性原則直到您已定義您自己自訂的原則。 在本文中，您必須讓 pod 安全性原則的第一個步驟，以查看如何預設原則會限制 pod 部署。
@@ -93,7 +97,7 @@ az aks update \
 
 當您啟用 pod 安全性原則時，AKS 建立兩個名為的預設原則*特殊權限*並*限制*。 不要編輯或移除這些預設原則。 相反地，建立您自己的原則定義您想要的設定來控制。 讓我們率先一睹這些預設原則是它們如何影響 pod 部署。
 
-若要檢視可用的原則，請使用[kubectl get psp] [ kubectl-get]命令，如下列範例所示。 做為預設值的一部分*受限*原則，使用者會被拒絕*PRIV*用於特殊權限的 pod 升級，以及使用者*MustRunAsNonRoot*。
+若要檢視可用的原則，請使用[kubectl get psp][kubectl-get]命令，如下列範例所示。 做為預設值的一部分*受限*原則，使用者會被拒絕*PRIV*用於特殊權限的 pod 升級，以及使用者*MustRunAsNonRoot*。
 
 ```console
 $ kubectl get psp
@@ -103,7 +107,7 @@ privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny  
 restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-*限制*pod 安全性原則會套用至任何已驗證的使用者，在 AKS 叢集中。 這項指派是由 ClusterRoles 和 ClusterRoleBindings 控制。 使用[kubectl get clusterrolebindings] [ kubectl-get]命令，並搜尋*預設： 限制：* 繫結：
+*限制*pod 安全性原則會套用至任何已驗證的使用者，在 AKS 叢集中。 這項指派是由 ClusterRoles 和 ClusterRoleBindings 控制。 使用[kubectl get clusterrolebindings][kubectl-get]命令，並搜尋*預設值： 限制：* 繫結：
 
 ```console
 kubectl get clusterrolebindings default:restricted -o yaml
@@ -132,16 +136,16 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>在 AKS 叢集中建立的測試使用者
 
-根據預設，當您使用[az aks get-credentials 來取得認證][ az-aks-get-credentials]命令*管理員*AKS 叢集的認證，並加入您`kubectl`組態。系統管理員使用者會略過強制執行的 pod 安全性原則。 如果您使用 Azure Active Directory 整合以用於您的 AKS 叢集，您可以查看動作中的原則強制執行登入非系統管理員使用者的認證。 在本文中，讓我們建立在 AKS 叢集中可供您的測試使用者帳戶。
+根據預設，當您使用[az aks get-credentials 來取得認證][az-aks-get-credentials]命令， *admin* AKS 叢集的認證，並加入您`kubectl`組態。系統管理員使用者會略過強制執行的 pod 安全性原則。 如果您使用 Azure Active Directory 整合以用於您的 AKS 叢集，您可以查看動作中的原則強制執行登入非系統管理員使用者的認證。 在本文中，讓我們建立在 AKS 叢集中可供您的測試使用者帳戶。
 
-建立名為範例命名空間*psp aks*測試使用的資源[kubectl 建立命名空間][ kubectl-create]命令。 接著，建立名為的服務帳戶*nonadmin 使用者*使用[kubectl 建立 serviceaccount] [ kubectl-create]命令：
+建立名為範例命名空間*psp aks*測試使用的資源[kubectl 建立命名空間][kubectl-create]命令。 接著，建立名為的服務帳戶*nonadmin 使用者*使用[kubectl 建立 serviceaccount][kubectl-create]命令：
 
 ```console
 kubectl create namespace psp-aks
 kubectl create serviceaccount --namespace psp-aks nonadmin-user
 ```
 
-接下來，建立針對 RoleBinding *nonadmin 使用者*若要在命名空間中使用執行基本動作[kubectl 建立 rolebinding] [ kubectl-create]命令：
+接下來，建立針對 RoleBinding *nonadmin 使用者*若要在命名空間中使用執行基本動作[kubectl 建立 rolebinding][kubectl-create]命令：
 
 ```console
 kubectl create rolebinding \
@@ -184,7 +188,7 @@ spec:
         privileged: true
 ```
 
-建立使用 pod [kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+建立使用 pod [kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl-nonadminuser apply -f nginx-privileged.yaml
@@ -217,7 +221,7 @@ spec:
       image: nginx:1.14.2
 ```
 
-建立使用 pod [kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+建立使用 pod [kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
@@ -232,7 +236,7 @@ NAME                 READY   STATUS                       RESTARTS   AGE
 nginx-unprivileged   0/1     CreateContainerConfigError   0          26s
 ```
 
-使用[kubectl 描述 pod] [ kubectl-describe]命令來查看 pod 的事件。 下列扼要的範例會顯示容器和映像需要根權限，即使我們並未要求它們：
+使用[kubectl 描述 pod][kubectl-describe]命令來查看 pod 的事件。 下列扼要的範例會顯示容器和映像需要根權限，即使我們並未要求它們：
 
 ```console
 $ kubectl-nonadminuser describe pod nginx-unprivileged
@@ -256,7 +260,7 @@ Nginx 的容器映像即使我們並未要求任何特殊權限的存取，必�
 
 此範例會顯示作用中建立的 AKS 預設 pod 的安全性原則，並限制使用者可以執行的動作。 務必了解這些預設原則，原則的行為，您可能不會預期要拒絕的基本 NGINX pod。
 
-您移至下一個步驟之前，先刪除使用您建立這個測試 pod [kubectl 刪除 pod] [ kubectl-delete]命令：
+您移至下一個步驟之前，先刪除使用您建立這個測試 pod [kubectl 刪除 pod][kubectl-delete]命令：
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -281,7 +285,7 @@ spec:
         runAsUser: 2000
 ```
 
-建立使用 pod [kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+建立使用 pod [kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
@@ -296,7 +300,7 @@ NAME                         READY   STATUS              RESTARTS   AGE
 nginx-unprivileged-nonroot   0/1     CrashLoopBackOff    1          3s
 ```
 
-使用[kubectl 描述 pod] [ kubectl-describe]命令來查看 pod 的事件。 下列扼要的範例顯示的 pod 事件：
+使用[kubectl 描述 pod][kubectl-describe]命令來查看 pod 的事件。 下列扼要的範例顯示的 pod 事件：
 
 ```console
 $ kubectl-nonadminuser describe pods nginx-unprivileged
@@ -318,7 +322,7 @@ Events:
   Warning  BackOff    105s (x5 over 2m11s)  kubelet, aks-agentpool-34777077-0  Back-off restarting failed container
 ```
 
-事件會指出已建立容器，並啟動。 沒有任何明顯關於 pod 處於失敗狀態。 讓我們看看使用 pod 記錄[kubectl 記錄][ kubectl-logs]命令：
+事件會指出已建立容器，並啟動。 沒有任何明顯關於 pod 處於失敗狀態。 讓我們看看使用 pod 記錄[kubectl 記錄][kubectl-logs]命令：
 
 ```console
 kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
@@ -337,7 +341,7 @@ nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission den
 
 同樣地，務必了解預設 pod 安全性原則的行為。 這個錯誤是有點難追蹤，並同樣地，您可能不會預期要拒絕的基本 NGINX pod。
 
-您移至下一個步驟之前，先刪除使用您建立這個測試 pod [kubectl 刪除 pod] [ kubectl-delete]命令：
+您移至下一個步驟之前，先刪除使用您建立這個測試 pod [kubectl 刪除 pod][kubectl-delete]命令：
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
@@ -370,13 +374,13 @@ spec:
   - '*'
 ```
 
-建立原則使用[kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+建立原則使用[kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-若要檢視可用的原則，請使用[kubectl get psp] [ kubectl-get]命令，如下列範例所示。 比較*psp 拒絕 privileged*原則，預設值*限制*已強制執行先前的範例來建立 pod 中的原則。 只使用*PRIV*擴大規模會拒絕您的原則。 沒有任何使用者或群組的限制*psp 拒絕 privileged*原則。
+若要檢視可用的原則，請使用[kubectl get psp][kubectl-get]命令，如下列範例所示。 比較*psp 拒絕 privileged*原則，預設值*限制*已強制執行先前的範例來建立 pod 中的原則。 只使用*PRIV*擴大規模會拒絕您的原則。 沒有任何使用者或群組的限制*psp 拒絕 privileged*原則。
 
 ```console
 $ kubectl get psp
@@ -409,7 +413,7 @@ rules:
   - use
 ```
 
-建立使用 ClusterRole [kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+建立使用 ClusterRole [kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
@@ -432,7 +436,7 @@ subjects:
   name: system:serviceaccounts
 ```
 
-建立使用 ClusterRoleBinding [kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+建立使用 ClusterRoleBinding [kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
@@ -443,13 +447,13 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>測試無特殊權限的 pod 建立一次
 
-套用您自訂的 pod 的安全性原則和使用者帳戶以使用原則的繫結，讓我們嘗試再次建立無特殊權限的 pod。 使用相同`nginx-privileged.yaml`來建立 pod 的使用資訊清單[kubectl 套用][ kubectl-apply]命令：
+套用您自訂的 pod 的安全性原則和使用者帳戶以使用原則的繫結，讓我們嘗試再次建立無特殊權限的 pod。 使用相同`nginx-privileged.yaml`來建立 pod 的使用資訊清單[kubectl 套用][kubectl-apply]命令：
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-已成功排程 pod。 當您核取狀態的 pod using [kubectl get pods] [ kubectl-get]命令，是 pod*執行*:
+已成功排程 pod。 當您核取狀態的 pod using [kubectl get pods][kubectl-get]命令時，是 pod*執行*:
 
 ```
 $ kubectl-nonadminuser get pods
@@ -460,7 +464,7 @@ nginx-unprivileged   1/1     Running   0          7m14s
 
 此範例會示範如何建立自訂的 pod 定義不同的使用者或群組在 AKS 叢集中的存取權的安全性原則。 預設 AKS 原則提供的嚴格控制哪些 pod 上的可以執行，因此建立您自己自訂的原則，然後正確定義您所需要的限制。
 
-刪除使用無特殊權限的 NGINX pod [kubectl 刪除][ kubectl-delete]命令並指定您的 YAML 資訊清單的名稱：
+刪除使用無特殊權限的 NGINX pod [kubectl 刪除][kubectl-delete]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -468,7 +472,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要停用 pod 安全性原則，請使用[更新 az aks] [ az-aks-update]命令一次。 下列範例會停用 pod 上的安全性原則的叢集名稱*myAKSCluster*資源群組中名為*myResourceGroup*:
+若要停用 pod 安全性原則，請使用[az aks 更新][az-aks-update]命令一次。 下列範例會停用 pod 上的安全性原則的叢集名稱*myAKSCluster*資源群組中名為*myResourceGroup*:
 
 ```azurecli-interactive
 az aks update \
@@ -484,7 +488,7 @@ kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-網路原則使用刪除[kubectl 刪除][ kubectl-delete]命令並指定您的 YAML 資訊清單的名稱：
+網路原則使用刪除[kubectl 刪除][kubectl-delete]命令並指定您的 YAML 資訊清單的名稱：
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml
@@ -525,3 +529,5 @@ kubectl delete namespace psp-aks
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

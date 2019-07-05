@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2019
+ms.date: 07/03/2019
 ms.author: jaredr80
-ms.openlocfilehash: 90b18a2181dae7474141c478725b0c6f829b2ea8
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
-ms.translationtype: HT
+ms.openlocfilehash: bda5fb8a267fae3309c73678465693e1fef9b838
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537978"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565949"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -77,7 +77,7 @@ ms.locfileid: "67537978"
 | **Location** | **對等互連位置擁有者** | **本機的 Azure 區域** | **服務提供者** |
 | --- | --- | --- | --- |
 | **阿姆斯特丹** | Equinix | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
-| **阿姆斯特丹2** | Interxion | 西歐 | DE-CIX、 Interxion、 Vodafone |
+| **阿姆斯特丹2** | Interxion | 西歐 | CenturyLink Cloud Connect、 DE CIX、 Interxion、 Vodafone |
 | **亞特蘭大** | Equinix | n/a | Equinix、Megaport |
 | **奧克蘭** | Vocus | n/a | Devoli、 Megaport |
 | **斧山** |LG CNS | 南韓南部 | LG CNS |
@@ -100,7 +100,7 @@ ms.locfileid: "67537978"
 | **倫敦** | Equinix | 英國南部 | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
 | **London2** | Telehouse | 英國南部 | IX 觸達、 Equinix |
 | **洛杉磯** | CoreSite | n/a | CoreSite、Equinix、Megaport、Neutrona Networks、NTT、Zayo |
-| **馬賽** |Interxion | 法國南部 | Interxion、 豹網路 |
+| **馬賽** |Interxion | 法國南部 | DE-CIX、 Interxion、 豹網路 |
 | **墨爾本** | NEXTDC | 澳大利亞東南部 | AARNet，Devoli，Equinix、 Megaport、 NEXTDC、 Optus、 Telstra Corporation，TPG Telecom |
 | **邁阿密** | Equinix | n/a | C3ntro+、Equinix、Megaport、Neutrona Networks |
 | **蒙特婁** | Cologix | n/a | Bell Canada、Cologix、Telus、Zayo |
@@ -109,7 +109,7 @@ ms.locfileid: "67537978"
 | **紐約** | Equinix | n/a | CenturyLink Cloud Connect、 Coresite、 Equinix、 InterCloud、 Megaport、 封包、 Zayo |
 | **Newport(Wales)** | 新一代資料 | 英國西部 | British Telecom、 Colt、 Level 3 Communications、 新一代資料 |
 | **大阪** | Equinix | 日本西部 | Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
-| **巴黎** | Interxion | 法國中部 | Colt、 Equinix、 Intercloud、 Interxion、 Orange、 Telia 電信業者、 Zayo |
+| **巴黎** | Interxion | 法國中部 | CenturyLink Cloud Connect、 Colt、 Equinix、 Intercloud、 Interxion、 Orange、 Telia 電信業者、 Zayo |
 | **伯斯** | NEXTDC | n/a | Megaport、 NextDC |
 | **魁北克市** | 4Degrees | 加拿大東部 | Bell Canada、Megaport |
 | **聖安東尼奧** | CyrusOne | 美國中南部 | CenturyLink Cloud Connect、Megaport |

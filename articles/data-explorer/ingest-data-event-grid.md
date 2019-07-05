@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494736"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490124"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>訂閱 Event Grid 通知，以便將 Blob 擷取至 Azure 資料總管
 
@@ -38,7 +38,7 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
 
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | Name | *test-grid-connection* | 您想要建立之事件格線的名稱。|
+    | 名稱 | *test-grid-connection* | 您想要建立之事件格線的名稱。|
     | 事件結構描述 | *事件格線結構描述* | 應該用於事件格線的結構描述。 |
     | 主題類型 | *儲存體帳戶* | 事件格線主題的類型。 |
     | 主題資源 | *gridteststorage* | 儲存體帳戶的名稱。 |
@@ -112,10 +112,10 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
     | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
-    | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 |
+    | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 支援的壓縮選項：郵遞區號和 GZip |
     | 資料行對應 | *TestMapping* | 您在 **TestDatabase** 中建立的對應，會將傳入的 JSON 資料對應至 **TestTable** 的資料行名稱與資料類型。|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>產生範例資料
 
 既然 Azure 資料檔案總管及儲存體帳戶已經連線，您可以建立範例資料並上傳至 Blob 儲存體。

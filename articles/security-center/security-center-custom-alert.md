@@ -14,27 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab7165c3315e3a53f90900be8eaf1b9c614a2b07
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341133"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485287"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 資訊安全中心內的自訂警示規則 (預覽)
 本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。
 
 > [!NOTE]
-> 自訂警示將於 2019 年 6 月 30 日淘汰。
+> 自訂警示已從資訊安全中心已淘汰。 
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>在 Azure 資訊安全中心中的停用的自訂警示規則
 
-自訂警示體驗將淘汰 2019 年 6 月 30 日，因為停用的基礎結構為基礎。 在取代之前時間範圍內，使用者將能夠編輯現有的自訂警示規則，但是不能加入新的。 已被取代，下列任何定義的自訂警示不會生效，並不會產生這些自訂警示規則為基礎的安全性警示。
+自訂警示 體驗已淘汰於 2019 年 6 月 30 日，因為它依賴基礎結構的淘汰。 retriement 之前所定義的任何自訂警示未生效，不會產生這些自訂警示規則為基礎的安全性警示。 您仍然可以檢視在資訊安全中心的自訂警示規則的查詢，以重新建立它們在下面所述的替代方案：
+
 其中一個建議使用者：
 - 啟用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) ，並使用內建[analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)功能來重新建立其警示的規則
 - 重新建立其警示與 Azure 監視器記錄警示
                                      
-若要保留您現有的警示，並將它們移轉到 Azure 的 Sentinel，請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟中，選取 [儲存您自訂的警示] 工作區，然後選取 「 分析 」 功能表項目，來設定您的自訂警示規則。 請瀏覽[文件](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)如需詳細資訊。
+若要保留您現有的警示，並重新建立它們在 Azure 的 Sentinel，請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟中，選取 [儲存您自訂的警示] 工作區，然後選取 「 分析 」 功能表項目，來設定您的自訂警示規則。 請瀏覽[文件](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)如需詳細資訊。
 
 > [!NOTE]
 > 使用自訂的警示[搜尋](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries)或是[聯集](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html)陳述式查詢不支援 Azure Sentinel。 請執行移轉之前，編輯這些警示。

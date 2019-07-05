@@ -3,16 +3,16 @@ title: Azure IoT 中樞的裝置設定最佳做法 | Microsoft Docs
 description: 了解大規模設定 IoT 裝置的最佳做法
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734825"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485819"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>IoT 解決方案內的裝置設定最佳做法
 
@@ -64,9 +64,11 @@ Azure IoT 中樞內的自動裝置管理，可將管理大量裝置機群的許�
 
 * **組織使用裝置對應項標記的裝置：** 解決方案應該允許操作員定義品質環形或其他組的各種不同的部署策略，例如 canary 為基礎的裝置。 裝置組織可以使用裝置對應項標記和[查詢](iot-hub-devguide-query-language.md)在您的解決方案中實作。 必須仰賴裝置組織，才能安全且精確地推出設定。
 
-* **實作[自動裝置組態](iot-hub-auto-device-config.md):** 自動裝置設定部署和監視設定變更到大量 IoT 裝置透過裝置對應項。 自動裝置設定可透過**目標條件** (這是對裝置對應項標記或報告屬性的查詢) 將多組裝置對應項設為目標。 **目標內容**是將在目標裝置對應項內設定的一組所需屬性。 目標內容應與 IoT 硬體製造商/整合者所定義的裝置對應項結構相一致。
+* **實作[自動裝置組態](iot-hub-auto-device-config.md):** 自動裝置設定部署和監視設定變更到大量 IoT 裝置透過裝置對應項。
 
-   **計量**是對裝置對應項報告屬性的查詢，也應與 IoT 硬體製造商/整合者所定義的裝置對應項結構相一致。 自動裝置設定的優點還包括 IoT 中樞在執行裝置對應項作業時，速率絕不會超過裝置對應項讀取和更新的[節流限制](iot-hub-devguide-quotas-throttling.md)。
+   自動裝置設定可透過**目標條件** (這是對裝置對應項標記或報告屬性的查詢) 將多組裝置對應項設為目標。 **目標內容**是將在目標裝置對應項內設定的一組所需屬性。 目標內容應與 IoT 硬體製造商/整合者所定義的裝置對應項結構相一致。 **計量**查詢裝置對應項報告屬性，且也應該配合 IoT 硬體製造商/整合者所定義之裝置對應項結構。
+
+   自動裝置組態執行組態建立後，很快就在第一次，然後在五分鐘的時間間隔。 它們也可以從 IoT 中樞執行裝置對應項作業的速率，絕對不會超過[節流限制](iot-hub-devguide-quotas-throttling.md)裝置對應項讀取和更新。
 
 * **使用[裝置佈建服務](../iot-dps/how-to-manage-enrollments.md):** 方案開發人員應該使用 「 裝置佈建服務將裝置對應項標籤指派給新的裝置，使它們會自動設定**自動裝置組態**的適用對象是具有該標記的對應項。 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154832"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551824"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>SQL server Azure 虛擬機器上 （公開預覽） 的進階的資料安全性
 Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階安全性功能的整合的套件。 它目前 （公開預覽） 中包含呈現及緩解潛在的資料庫弱點和偵測可能表示您的資料庫威脅的異常活動的功能。 
@@ -95,7 +95,7 @@ Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階
 
 您可以設定要產生 ASC 警示時收到電子郵件通知收件者清單。 電子郵件會包含 Azure 資訊安全中心警示，以及所有相關的詳細資料的直接連結。 
 
-1. 移至**資訊安全中心** > **安全性原則**以及相關訂用帳戶按一下 資料列內**編輯設定 >** 。
+1. 移至**資訊安全中心** > **定價和設定**，然後按一下相關的訂用帳戶
 
     ![訂用帳戶設定](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

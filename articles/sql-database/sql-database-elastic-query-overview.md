@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067061"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491659"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -143,6 +143,7 @@ ms.locfileid: "67067061"
 * 除了 nvarchar （max），在外部資料表定義中不支援 LOB 類型 （包括空間類型）。 若要解決此問題，您可以在將 LOB 類型轉型成 nvarchar (max) 的遠端資料庫上建立檢視表、透過此檢視表而非基底資料表定義外部資料表，然後在查詢中將它轉換回原始的 LOB 類型。
 * 結果集中屬於 nvarchar(max) 資料類型的資料行會停用彈性查詢實作中使用的批次處理術語，且可能對查詢造成一個數量級的影響，或甚至在要將大量非彙總的資料視為查詢結果進行傳輸的非標準使用案例中，造成兩個數量級的影響。
 * 目前不支援外部資料表的資料行統計資料。 支援資料表統計資料，但必須以手動方式建立。
+* 彈性查詢只能搭配 Azure SQL Database。 您無法使用它來查詢內部部署 SQL Server 或在 VM 中的 SQL Server。
 
 ## <a name="feedback"></a>意見反應
 

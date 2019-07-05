@@ -4,19 +4,19 @@ description: 了解如何在 Azure Functions 中使用 Azure Mobile Apps 繫結�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438120"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480370"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
@@ -163,7 +163,7 @@ module.exports = function (context, myQueueItem) {
 
 在 C# 和 F# 函式中，當函式成功結束時，會將對輸入記錄 (輸入參數) 所做的任何變更自動傳送回資料表。 您無法修改 JavaScript 函式中的記錄。
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 使用 Mobile Apps 輸出繫結將新記錄寫入至 Mobile Apps 資料表。  
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991388"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490117"
 ---
 # <a name="understand-and-work-with-scopes"></a>了解並使用範圍
 
@@ -100,19 +100,19 @@ Azure 訂用帳戶註冊帳戶之下巢狀。 計費的使用者有訂用帳戶�
 
 計費的使用者沒有存取權管理群組，因為它們不明確落在特定的帳單帳戶。 存取必須明確授與給管理群組。 管理群組中所有的巢狀的訂用帳戶中的彙總成本。 不過，它們只包含使用狀況為基礎的購買項目。 它們不包含購買項目，例如保留項目和第三方 Marketplace 供應項目。 若要檢視這些成本，請使用 EA 計費帳戶。
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>個別的合約 （隨用隨付） 範圍
+## <a name="individual-agreement-scopes"></a>個別的合約範圍
 
-隨用隨付 (PAYG) 訂用帳戶，包括相關的型別喜歡免費/試用和開發/測試優惠，沒有明確的計費帳戶範圍。 相反地，每個訂用帳戶有帳戶擁有者或帳戶管理員，例如 EA 帳戶擁有者。
+從個別的供應項目建立的 azure 訂用帳戶要隨用隨付和相關的類型，例如免費試用版，並開發/測試優惠，沒有明確的計費帳戶範圍。 相反地，每個訂用帳戶有帳戶擁有者或帳戶管理員，例如 EA 帳戶擁有者。
 
 - [**計費帳戶**](../billing/billing-view-all-accounts.md) -表示一個或多個 Azure 訂用帳戶的單一帳戶擁有者。 它目前不支援多位人員或彙總的成本檢視存取權授與存取。
 
     資源類型：不適用
 
-PAYG 訂用帳戶的帳戶管理員可以檢視和管理計費的資料，例如發票與付款，從[Azure 帳戶中心](https://account.azure.com/subscriptions)。 不過，它們無法檢視成本資料，或在 Azure 入口網站中管理資源。 若要授與存取權的帳戶管理員，使用先前所述的成本管理角色。
+個別的 Azure 訂用帳戶的帳戶管理員可以檢視和管理計費的資料，例如發票與付款，從[Azure 帳戶中心](https://account.azure.com/subscriptions)。 不過，它們無法檢視成本資料，或在 Azure 入口網站中管理資源。 若要授與存取權的帳戶管理員，使用先前所述的成本管理角色。
 
-不同於 EA，PAYG 訂用帳戶的帳戶管理員可以看到他們在 Azure 入口網站中的發票。 請記住，成本管理讀取器 」 和 「 成本管理參與者 」 角色不提供發票存取權。 如需詳細資訊，請參閱 <<c0> [ 如何授與存取權 PAYG 發票](../billing/billing-manage-access.md#give-access-to-billing)。
+不同於 EA，個別的 Azure 訂用帳戶的帳戶管理員可以看到他們在 Azure 入口網站中的發票。 請記住，成本管理讀取器 」 和 「 成本管理參與者 」 角色不提供發票存取權。 如需詳細資訊，請參閱 <<c0> [ 如何授與存取發票](../billing/billing-manage-access.md##give-read-only-access-to-billing)。
 
-## <a name="customer-agreement-scopes"></a>客戶合約範圍
+## <a name="microsoft-customer-agreement-scopes"></a>Microsoft 客戶合約範圍
 
 Microsoft 客戶合約計費帳戶有下列範圍：
 
@@ -148,7 +148,7 @@ Azure 訂用帳戶發票等區段，它們的 EA 註冊帳戶的方式之下巢�
 
 ## <a name="switch-between-scopes-in-cost-management"></a>在成本管理中的範圍之間切換
 
-在 Azure 入口網站中的所有成本管理檢視都包含**範圍**丸在左上方的檢視。 您可以使用它來快速變更範圍。 按一下 **範圍**丸開啟範圍選擇器。 它會顯示計費的帳戶、 根管理群組中，並不巢狀根管理群組下的任何訂用帳戶。 若要選取的範圍內，按一下 反白顯示，然後按一下 背景**選取**底部。 若要向下切入以巢狀範圍，例如資源群組中的訂用帳戶中，按一下 範圍名稱連結。 若要選取之任何巢狀層級的父範圍，請按一下**選取此選項&lt;範圍&gt;** 頂端的範圍選擇器。
+在 Azure 入口網站中的所有成本管理檢視都包含**範圍**在左上方的檢視的選取項目丸。 您可以使用它來快速變更範圍。 按一下 **範圍**丸開啟範圍選擇器。 它會顯示計費的帳戶、 根管理群組中，並不巢狀根管理群組下的任何訂用帳戶。 若要選取的範圍內，按一下 反白顯示，然後按一下 背景**選取**底部。 若要向下切入以巢狀範圍，例如資源群組中的訂用帳戶中，按一下 範圍名稱連結。 若要選取之任何巢狀層級的父範圍，請按一下**選取此選項&lt;範圍&gt;** 頂端的範圍選擇器。
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>識別範圍的資源識別碼
 

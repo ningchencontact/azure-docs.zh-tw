@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190793"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490102"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>適用於對應資料流程的來源轉換 
 
@@ -146,6 +146,12 @@ Data Factory 有將近 80 原生的連接器的存取。 若要在資料流程�
 您可以修改稍後衍生資料行 」 轉換中的資料行資料類型。 使用選取的轉換，修改資料行名稱。
 
 ![設定預設資料格式](media/data-flow/source2.png "預設格式")
+
+### <a name="add-dynamic-content"></a>新增動態內容
+
+當您按一下 [設定] 面板中的欄位內時，您會看到 [新增動態內容] 超連結。 按一下這裡，您將會啟動運算式產生器。 這是您可以在其中設定使用動態運算式、 靜態的常值或參數的設定值。
+
+![參數](media/data-flow/params6.png "參數")
 
 ## <a name="next-steps"></a>後續步驟
 

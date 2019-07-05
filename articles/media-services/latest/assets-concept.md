@@ -1,5 +1,5 @@
 ---
-title: 媒體服務中的資產 - Azure | Microsoft Docs
+title: 在 Azure 媒體服務資產 |Microsoft Docs
 description: 本文解釋資產是什麼，以及 Azure 媒體服務用它們來做什麼。
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551767"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565820"
 ---
 # <a name="assets"></a>Assets
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 如需完整範例，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。 在媒體服務 v3 中，您也可以從 HTTPS URL 中建立作業的輸入 (請參閱[從 HTTPS URL 中建立作業輸入](job-input-from-http-how-to.md))。
 
-## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
+## <a name="map-v3-asset-properties-to-v2"></a>V3 資產屬性對應至 v2
 
-請參閱[媒體服務實體的篩選、排序、分頁](entities-overview.md)。
+下表顯示如何[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)的 v3 中的屬性對應至在 v2 中的資產的屬性。
+
+|v3 屬性|v2 內容|
+|---|---|
+|識別碼為 （唯一） 的完整 Azure Resource Manager 路徑，請參閱範例中[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|名稱-（唯一） 請參閱[命名慣例](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|識別碼為 （唯一） 值開頭`nb:cid:UUID:`前置詞。|
+|created|建立時間|
+|description|名稱|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| 選項-建立選項|
+|type||
 
 ## <a name="storage-side-encryption"></a>儲存端加密
 
@@ -104,6 +117,10 @@ curl -X PUT \
 <sup>1</sup> 雖然媒體服務支援處理乾淨/不含任何加密形式的內容，但不建議您這麼做。
 
 <sup>2</sup> 在媒體服務 v3 中，如果您的資產是以媒體服務 v2 建立，則儲存體加密 (AES-256 加密) 只對回溯相容性有所支援。 這表示 v3 可用於現有的儲存體加密資產，但不允許建立新的。
+
+## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
+
+請參閱[媒體服務實體的篩選、排序、分頁](entities-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

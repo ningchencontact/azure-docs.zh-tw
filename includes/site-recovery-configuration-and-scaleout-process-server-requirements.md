@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3b4992a16061bef782f012aa7887b248e3423234
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173686"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568301"
 ---
 **組態/處理序伺服器需求**
 
@@ -49,7 +49,7 @@ https:\//management.azure.com | 用於複寫管理作業和協調
 time.nist.gov | 用於檢查系統時間與通用時間之間的時間同步處理。
 time.windows.com | 用於檢查系統時間與通用時間之間的時間同步處理。
 | <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF 設定需要存取這些 URL。 其可供 Azure Active Directory 用於管理存取控制和身分識別
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | 完成 MySQL 下載
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | 若要完成下載 MySQL。 </br> 在幾個區域中，下載可能會重新導向至 CDN URL。 請確定，CDN URL 也會列入允許清單，如有必要也一樣。
 |
 **要安裝的軟體** | 
 VMware vSphere PowerCLI | 如果組態伺服器在 VMware 虛擬機器上執行，則應該安裝 [PowerCLI 6.0 版](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。

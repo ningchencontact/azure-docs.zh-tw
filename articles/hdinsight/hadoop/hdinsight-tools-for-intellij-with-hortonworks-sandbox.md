@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696136"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450114"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ
 
@@ -24,7 +24,7 @@ ms.locfileid: "64696136"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始進行本教學課程之前，您必須具備下列項目：
+開始閱讀本文之前，您必須有下列各項：
 
 - 在您的本機電腦執行的 Hortonworks 沙箱上要有 Hortonworks Data Platform (HDP) 2.4。 若要設定 HDP，請參閱[透過虛擬機器的 Apache Hadoop 沙箱開始使用 Hadoop 生態系統](apache-hadoop-emulator-get-started.md)。 
     > [!NOTE]
@@ -142,7 +142,7 @@ ms.locfileid: "64696136"
 2. 完成下列步驟：
 
     1. 在 [Spark 叢集 (僅限 Linux)]  下拉式清單中，選取您的本機 Hortonworks 沙箱。
-    2. 在 [主要類別名稱]  方塊中，選取或輸入主要類別名稱。 在本教學課程中，名稱是 **GroupByTest**。
+    2. 在 [主要類別名稱]  方塊中，選取或輸入主要類別名稱。 在本文中，檔案名**GroupByTest**。
 
 3. 選取 [提交]  。 Spark 提交工具視窗會顯示工作提交記錄。
 

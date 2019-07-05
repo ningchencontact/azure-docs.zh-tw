@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113193"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471750"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>自行檢閱存取權給群組或 Azure AD 中的應用程式存取權檢閱
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組或�
 
 1. 尋找來自會要求您檢閱存取權的 Microsoft 電子郵件。 以下是範例電子郵件給檢閱您的存取權的群組。
 
-    ![檢閱存取權電子郵件](./media/review-your-access/access-review-email.png)
+    ![範例電子郵件是來自 Microsoft，以檢閱您的存取權的群組](./media/review-your-access/access-review-email.png)
 
 1. 按一下 **檢閱存取權**開啟存取權檢閱的連結。
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組或�
 
 1. 登入 MyApps 入口網站，網址[ https://myapps.microsoft.com ](https://myapps.microsoft.com)。
 
-    ![MyApps 入口網站](./media/review-your-access/myapps-access-panel.png)
+    ![列出您有權限的應用程式的 MyApps 入口網站](./media/review-your-access/myapps-access-panel.png)
 
 1. 在頁面右上角按一下使用者符號，其中顯示您的名稱和預設組織。 如果列出多個組織，請選取已要求存取權檢閱的組織。
 
@@ -56,7 +56,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組或�
 
     如果看不到磚，則沒有針對該組織執行的存取權檢閱，此時也不需要採取任何動作。
 
-    ![存取權檢閱清單](./media/review-your-access/access-reviews-list.png)
+    ![擱置中的存取權檢閱清單，為您的應用程式及群組](./media/review-your-access/access-reviews-list.png)
 
 1. 按一下 **開始檢閱**您想要執行的存取權檢閱的連結。
 
@@ -68,13 +68,13 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組或�
 
     如果要求是要供其他人檢閱存取權，網頁會看起來不同。 如需詳細資訊，請參閱 <<c0> [ 檢閱存取權的群組或應用程式](perform-access-review.md)。
 
-    ![執行存取權檢閱](./media/review-your-access/perform-access-review.png)
+    ![開啟的存取權檢閱，詢問您是否仍需要群組存取權](./media/review-your-access/perform-access-review.png)
 
 1. 按一下  **是**保護的存取，或按一下  **No**移除您的存取權。
 
 1. 如果您按一下**是**，您可能需要指定在理由**原因** 方塊中。
 
-    ![執行存取權檢閱](./media/review-your-access/perform-access-review-submit.png)
+    ![完成詢問您是否仍需要群組存取權的存取權檢閱](./media/review-your-access/perform-access-review-submit.png)
 
 1. 按一下 [提交]  。
 

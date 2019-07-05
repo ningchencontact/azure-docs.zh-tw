@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989130"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550344"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>在 Microsoft 身分識別平台中設定單一登入非資源庫應用程式
 
@@ -186,7 +186,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 3. 選取 **使用者和群組 (\<數字 > 選取)** 。 **使用者和群組**頁面隨即出現，顯示一份可用的使用者和群組。
 4. 型別或捲軸來尋找使用者或您想要從清單指派的群組。
 5. 選取每個使用者或群組，您要新增，然後選取**選取** 按鈕。 **使用者和群組**頁面就會消失。
-6. 在 **新增的工作分派**頁面上，選取**指派**。 **<application name> -使用者和群組**與顯示在清單中的其他使用者的頁面隨即出現。
+6. 在 **新增的工作分派**頁面上，選取**指派**。 **\<應用程式名稱 >-使用者和群組**與顯示在清單中的其他使用者的頁面隨即出現。
 
    ![應用程式的使用者和群組](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

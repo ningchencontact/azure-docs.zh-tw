@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357584"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514206"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357584"
 
 
 > [!NOTE]
-> 安裝和設定 Office 365 解決方案的建議的方法讓[Office 365 連接器](../../sentinel/connect-office-365.md)中[Azure Sentinel](../../sentinel/overview.md)而不是使用這篇文章中的步驟。 這是 Office 365 解決方案，具有改良的設定經驗的更新的版本。 若要與 Azure AD 記錄連線，請使用 [Azure Sentinel Azure AD 連接器](../../sentinel/connect-azure-active-directory.md)，其可提供比 Office 365 管理記錄更豐富的記錄資料。 
+> 安裝和設定 Office 365 解決方案的建議的方法讓[Office 365 連接器](../../sentinel/connect-office-365.md)中[Azure Sentinel](../../sentinel/overview.md)而不是使用這篇文章中的步驟。 這是 Office 365 解決方案，具有改良的設定經驗的更新的版本。 若要將 Azure AD 記錄檔的連線，您可以使用[Azure Sentinel Azure AD 連接器](../../sentinel/connect-azure-active-directory.md)或是[設定 Azure AD 的診斷設定](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)，以提供更豐富的記錄資料，與 Office 365 管理事件的記錄。 
 >
 > 當您[上架 Azure Sentinel](../../sentinel/quickstart-onboard.md)，指定您想要安裝在 Office 365 解決方案的 Log Analytics 工作區。 一旦您啟用連接器時，解決方案將會出現在工作區，並做為其他您已安裝的監視解決方案使用完全相同。
 >

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 4721d87ab932f2e61346af3a48193e7075128622
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abb807262d976419a0c7700046bd8ad58322fc90
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492849"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537087"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -27,8 +27,8 @@ ms.locfileid: "66492849"
 
 |環境                              |Languages         |描述|
 |-----------------------------------------|------------|---|
-| [命令提示字元或終端機](functions-run-local.md) | [C# (類別程式庫)](functions-dotnet-class-library.md)、[C# script (.csx)](functions-reference-csharp.md)、[JavaScript](functions-reference-node.md) | [Azure Functions Core Tools]提供核心執行階段與範本來建立啟用本機開發函式。 2\.x 版支援在 Linux、MacOS 和 Windows 上進行開發。 所有環境都依賴 Core Tools 執行本機 Functions 執行階段。 |
-|[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (類別程式庫)](functions-dotnet-class-library.md)、[C# script (.csx)](functions-reference-csharp.md)、[JavaScript](functions-reference-node.md) | [適用於 VS Code 的 Azure Functions 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)將 Functions 支援新增至 VS Code。 需要 Core Tools。 使用 2.x 版 Core Tools 時，支援在 Linux、MacOS 和 Windows 上進行開發。 若要深入了解，請參閱[使用 Visual Studio Code 建立第一個函式](functions-create-first-function-vs-code.md)。 |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C#（類別程式庫）](functions-dotnet-class-library.md)， [ C#指令碼 (.csx)](functions-reference-csharp.md)， [JavaScript](functions-reference-node.md)， [PowerShell](functions-create-first-function-powershell.md)， [Python](functions-reference-python.md) | [適用於 VS Code 的 Azure Functions 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)將 Functions 支援新增至 VS Code。 需要 Core Tools。 使用 2.x 版 Core Tools 時，支援在 Linux、MacOS 和 Windows 上進行開發。 若要深入了解，請參閱[使用 Visual Studio Code 建立第一個函式](functions-create-first-function-vs-code.md)。 |
+| [命令提示字元或終端機](functions-run-local.md) | [C#（類別程式庫）](functions-dotnet-class-library.md)， [ C#指令碼 (.csx)](functions-reference-csharp.md)， [JavaScript](functions-reference-node.md)， [PowerShell](functions-reference-powershell.md)， [Python](functions-reference-python.md) | [Azure Functions Core Tools]提供核心執行階段與範本來建立啟用本機開發函式。 2\.x 版支援在 Linux、MacOS 和 Windows 上進行開發。 所有環境都依賴 Core Tools 執行本機 Functions 執行階段。 |
 | [Visual Studio 2019](functions-develop-vs.md) | [C# (類別庫)](functions-dotnet-class-library.md) | Azure Functions tools 隨附於**Azure 開發**的工作負載[Visual Studio 2019](https://www.visualstudio.com/vs/)和更新版本。 讓您編譯類別庫中的函式，並將 .dll 發佈至 Azure。 包括用於本機測試的 Core Tools。 若要深入了解，請參閱[使用 Visual Studio 開發 Azure Functions](functions-develop-vs.md)。 |
 | [Maven](functions-create-first-java-maven.md) (各種) | [Java](functions-reference-java.md) | 與 Core Tools 整合以便進行 Java 函式開發。 2\.x 版支援在 Linux、MacOS 和 Windows 上進行開發。 若要深入了解，請參閱[使用 Java 和 Maven 建立您的第一個函式](functions-create-first-java-maven.md)。 也支援使用 [Eclipse](functions-create-maven-eclipse.md) 和 [IntelliJ IDEA](functions-create-maven-intellij.md) 進行開發 |
 

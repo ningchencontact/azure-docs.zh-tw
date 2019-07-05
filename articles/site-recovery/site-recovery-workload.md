@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417844"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491750"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -35,7 +35,7 @@ Site Recovery 可協助您實作應用程式層級的保護和復原，如下所
 * 應用程式無從驗證，針對在受支援電腦上執行的任何工作負載提供複寫。
 * 僅需 30 秒即可完成 PRO 近同步複寫，能滿足大多數重要商務應用程式的需求。
 * 適用於單一或多層式架構應用程式的應用程式一致性快照。
-* 整合 SQL Server AlwaysOn，並與其他應用程式層級的複寫技術合作，包括 AD 複寫、SQL AlwaysOn、Exchange 資料庫可用性群組 (DAG) 和 Oracle 資料保護。
+* 與 SQL Server AlwaysOn，並與其他應用程式層級的複寫技術，包括 AD 複寫，SQL AlwaysOn、 Exchange 資料庫可用性群組 (Dag) 的合作關係的整合。
 * 彈性修復計劃，讓您只要按一下就能復原整個應用程式堆疊，並在方案中納入外部指令碼和手動動作。
 * Site Recovery 和 Azure 中的進階網路管理可簡化應用程式網路需求，包括保留 IP 位址、設定負載平衡，以及與 Azure 流量管理員整合而達到低 RTO 網路轉換。
 * 豐富的自動化程式庫，提供已可用於生產環境的應用程式特定指令碼，這些指令碼可供下載並與復原方案整合。

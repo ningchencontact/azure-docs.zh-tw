@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
-ms.translationtype: HT
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540346"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564410"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -227,7 +227,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-它可能需要 15 分鐘的時間的狀態，不過更新至 「 已註冊 」，您應該能夠使用，儘管功能。
+可能需要 15 分鐘的時間才會更新為您狀態**註冊**。 一旦您的身分**註冊**，您應該能夠使用此功能。
 
 ### <a name="use-larger-file-shares"></a>使用較大的檔案共用
 

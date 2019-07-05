@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a794852e68fdb2bf52717aaa6441880bd1d51139
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174331"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436242"
 ---
 ### <a name="general-requirements"></a>一般需求
 
@@ -71,9 +71,9 @@ ms.locfileid: "67174331"
 
 **輸出安全性規則**
 
-| source | 來源連接埠 | 目的地 | 目的地服務標記 | Protocol | 動作 |
-| --- | --- | --- | --- | --- | --- |
-| 任意 | 443 | [服務標記](../articles/virtual-network/security-overview.md#service-tags) | `Storage` （在您的 Batch 帳戶和 VNet 位於相同區域）  | 任意 | 允許 |
+| source | 來源連接埠 | 目的地 | 目的地服務標記 | 目的地連接埠 | Protocol | 動作 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 任意 | * | [服務標記](../articles/virtual-network/security-overview.md#service-tags) | `Storage` （在您的 Batch 帳戶和 VNet 位於相同區域） | 443 | TCP | 允許 |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>雲端服務組態中的集區
 

@@ -2,26 +2,21 @@
 title: Azure Active Directory 裝置管理常見問題集 | Microsoft Docs
 description: Azure Active Directory 裝置管理常見問題集。
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110656"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481758"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -61,17 +56,15 @@ ms.locfileid: "67110656"
 
 若要從已加入內部部署 Active Directory 網域的 Windows 10 和 Windows Server 2016 清除加入狀態，請執行下列步驟：
 
-1.  以系統管理員身分開啟命令提示字元。
-
-2.  輸入 `dsregcmd.exe /debug /leave` 。
-
-3.  登出後再登入，以觸發向 Azure AD 重新註冊裝置的排定工作。 
+1. 以系統管理員身分開啟命令提示字元。
+1. 輸入 `dsregcmd.exe /debug /leave` 。
+1. 登出後再登入，以觸發向 Azure AD 重新註冊裝置的排定工作。 
 
 針對已加入內部部署 Active Directory 網域的舊版 Windows OS 版本，請執行下列步驟：
 
-1.  以系統管理員身分開啟命令提示字元。
-2.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` 。
-3.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` 。
+1. 以系統管理員身分開啟命令提示字元。
+1. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` 。
+1. 輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` 。
 
 ---
 
@@ -79,19 +72,16 @@ ms.locfileid: "67110656"
 
 **答：**
 
--   就 Windows 10 和 Windows Server 2016 而言，如果重複嘗試將同一個裝置取消加入再重新加入，就可能導致產生重複的項目。 
-
--   每個使用 [新增工作或學校帳戶]  的 Windows 使用者都會以相同的裝置名稱建立一個新裝置記錄。
-
--   針對已加入內部部署 Active Directory 網域的舊版 Windows OS 版本，自動註冊會為每個登入裝置的網域使用者，以相同的裝置名稱建立一個新裝置記錄。 
-
--   已加入 Azure AD 的機器如果經過抹除、重新安裝，然後再以相同名稱重新加入，就會顯示成另一個具有相同裝置名稱的記錄。
+- 就 Windows 10 和 Windows Server 2016 而言，如果重複嘗試將同一個裝置取消加入再重新加入，就可能導致產生重複的項目。 
+- 每個使用 [新增工作或學校帳戶]  的 Windows 使用者都會以相同的裝置名稱建立一個新裝置記錄。
+- 針對已加入內部部署 Active Directory 網域的舊版 Windows OS 版本，自動註冊會為每個登入裝置的網域使用者，以相同的裝置名稱建立一個新裝置記錄。 
+- 已加入 Azure AD 的機器如果經過抹除、重新安裝，然後再以相同名稱重新加入，就會顯示成另一個具有相同裝置名稱的記錄。
 
 ---
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>問：在 Azure AD 中的 Windows 10 裝置註冊並在 FIPS 模式下支援 Tpm？
 
-**答：** 否，目前在 Windows 10 上所有的裝置狀態-混合式 Azure AD join、 加入 Azure AD 和 Azure AD 註冊-裝置註冊不支援 Tpm 在 FIPS 模式中。 已成功加入，或註冊至 Azure AD，FIPS 模式需要在這些裝置上的 tpm 已關閉
+**答：** 否，目前在 Windows 10 所有裝置狀態-混合式 Azure AD join，Azure AD 聯結，以及 Azure AD 註冊-裝置註冊不支援 Tpm 在 FIPS 模式中。 已成功加入，或註冊至 Azure AD，FIPS 模式需要在這些裝置上的 tpm 已關閉
 
 ---
 
@@ -110,7 +100,6 @@ ms.locfileid: "67110656"
 
 **答：** 
 - 針對已加入混合式 Azure AD 的裝置，請務必關閉自動註冊。 如此一來，排定的工作就不會重新註冊該裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，若要進行大量退出，請以指令碼方式跨多個裝置執行此命令。
-
 - 針對純粹的已加入 Azure AD 裝置，請確定您具有離線的本機系統管理員帳戶，或建立一個這樣的帳戶。 您無法使用任何 Azure AD 使用者認證來登入。 接下來，移至 [設定]   > [帳戶]   > [存取公司或學校資源]  。 選取您的帳戶，然後選取 [中斷連線]  。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
 
 ---
@@ -125,7 +114,7 @@ ms.locfileid: "67110656"
 
 ---
 
-### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>問：可以停用或已刪除的使用者登入 Azure AD 加入裝置？
+### <a name="q-can-a-disabled-or-deleted-user-sign-in-to-an-azure-ad-joined-devices"></a>問：可以停用或已刪除的使用者登入 Azure AD 加入裝置
 
 **答：** 是，但時間有限。 當使用者在 Azure AD 中被刪除或停用時，Windows 裝置並不會立即得知此狀況。 所以先前曾登入的使用者能夠以快取的使用者名稱和密碼存取桌面。 
 
@@ -166,7 +155,6 @@ ms.locfileid: "67110656"
 此行為：
 
 - 適用於 Azure AD 已加入和 Azure AD 已註冊裝置，但不適用於混合式 Azure AD 已加入裝置。
-
 - 它不適用於任何其他登入該裝置的使用者。 所以所有其他存取該裝置的使用者都會收到 Multi-Factor Authentication 挑戰。 然後，他們便可存取要求 Multi-Factor Authentication 的應用程式。
 
 ---
@@ -176,11 +164,8 @@ ms.locfileid: "67110656"
 **答：** 此情況的常見原因如下：
 
 - 您的使用者認證已經無效。
-
 - 您的電腦無法與 Azure Active Directory 進行通訊。 請檢查是否有任何網路連線問題。
-
 - 同盟登入會要求同盟伺服器支援已啟用並可供存取的 WS-Trust 端點。 
-
 - 您已啟用傳遞驗證。 所以當您登入時，必須變更暫時密碼。
 
 ---
@@ -205,10 +190,9 @@ ms.locfileid: "67110656"
 
 ### <a name="qwhy-do-i-see-multiple-expired-certificates-issued-by-ms-organization-p2p-access-on-our-windows-10-devices-how-can-i-delete-them"></a>Q:Why 我會看到多個公布在我們的 Windows 10 裝置上的 MS-組織-P2P-存取過期的憑證嗎？ 如何刪除它們？
 
-**答：** 在 Windows 10 1709 版和更舊的版本上已發現一個問題，就是因為密碼編譯問題，導致過期的 MS-Organization-P2P-Access 憑證繼續存在電腦存放區上。 如果您使用任何無法處理大量過期憑證的 VPN 用戶端 (例如 Cisco AnyConnect)，使用者就可能遇到網路連線問題。 此問題在 Windows 10 1803 版中已修正，可自動刪除任何這類過期的 MS-Organization-P2P-Access 憑證。 您可以將裝置更新至 Windows 10 1803 來解決此問題。 如果無法更新，您可以刪除這些憑證，而不會產生任何負面影響。  
+**答：** 在 Windows 10 1709 版和更舊的版本上已發現一個問題，就是因為密碼編譯問題，導致過期的 MS-Organization-P2P-Access 憑證繼續存在電腦存放區上。 您的使用者無法使用網路連線遇到問題，如果您使用的任何 VPN 用戶端 (例如，Cisco AnyConnect) 無法處理大量的過期的憑證。 此問題在 Windows 10 1803 版中已修正，可自動刪除任何這類過期的 MS-Organization-P2P-Access 憑證。 您可以將裝置更新至 Windows 10 1803 來解決此問題。 如果無法更新，您可以刪除這些憑證，而不會產生任何負面影響。  
 
 ---
-
 
 ## <a name="hybrid-azure-ad-join-faq"></a>混合式 Azure AD Join 常見問題集
 
@@ -217,7 +201,6 @@ ms.locfileid: "67110656"
 **答：** 如需疑難排解資訊，請參閱下列文章：
 
 - [針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解](troubleshoot-hybrid-join-windows-current.md)
-
 - [針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>問：為什麼看到重複的 Azure AD 註冊的記錄我的 Windows 10 混合式 Azure AD 已加入 Azure AD 的 [裝置] 清單中的裝置？
@@ -226,27 +209,25 @@ ms.locfileid: "67110656"
 
 混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 因此您的裝置會被視為加入混合式 Azure AD 進行任何驗證和條件式存取評估。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)。 
 
-
 ---
 
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>問：為什麼我的使用者有問題在混合式 Azure AD 已加入的 Windows 10 裝置上變更其 UPN 之後？
 
-**答：** 目前，已加入混合式 Azure AD 的裝置並未完全支援 UPN 變更。 雖然使用者可以登入裝置，並存取其內部部署應用程式，但在變更 UPN 之後，向 Azure AD 進行驗證會失敗。 所以使用者會在其裝置上遇到 SSO 和條件式存取的問題。 目前，您必須先讓裝置取消加入 Azure AD (使用較高的權限執行 "dsregcmd /leave") 再重新加入 (會自動發生)，以解決此問題。 我們目前正努力解決此問題。 不過，使用 Windows Hello 企業版來登入的使用者不會遇到這個問題。 
+**答：** 目前，已加入混合式 Azure AD 的裝置並未完全支援 UPN 變更。 雖然使用者可以登入裝置，並存取其內部部署應用程式，但在變更 UPN 之後，向 Azure AD 進行驗證會失敗。 所以使用者會在其裝置上遇到 SSO 和條件式存取的問題。 在此階段中，您需要退出 （較高權限執行 「 dsregcmd /leave"） 的 Azure AD 的裝置並重新聯結 （會自動發生） 若要解決此問題。 我們目前正努力解決此問題。 不過，使用 Windows Hello 企業版來登入的使用者不會遇到這個問題。 
 
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>問：混合式 Azure AD 已加入的 Windows 10 裝置需要直視網域控制站，以取得雲端資源的存取權嗎？
 
-**答：** 通常不會，但使用者的密碼變更時。 Windows 10 混合式 Azure AD 聯結完成而且使用者至少登入一次後，裝置不需要網域控制站的視線，即可存取雲端資源。 除了密碼變更時，Windows 10 可以透過網際網路連線在任何地方取得 Azure AD 應用程式的單一登入。 使用 Windows hello 企業版登入繼續取得單一使用者登入 Azure AD 應用程式即使在密碼變更，即使他們沒有其網域控制站的視野。 
+**答：** 否，除非使用者的密碼變更時。 Windows 10 的混合式 Azure AD join 已完成，而且至少一次使用者登入之後，裝置就不需要直視網域控制站，來存取雲端資源。 Windows 10 可以取得單一登入 Azure AD 應用程式從任何地方透過網際網路連線，除了密碼變更時。 使用 Windows hello 企業版登入繼續取得單一使用者登入 Azure AD 應用程式即使在密碼變更時，即使他們沒有其網域控制站的視野。 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>問：如果使用者變更其密碼，並嘗試登入其 Windows 10 的混合式 Azure AD 已加入公司網路外部的裝置？
 
-**答：** 如果公司網路外部變更密碼 （例如，藉由使用 Azure AD SSPR），然後以新密碼的使用者登入將會失敗。 對於混合式 Azure AD 已加入裝置，在內部部署 Active Directory 會是主要的授權單位。 當裝置不需要直視網域控制站時，就無法驗證新的密碼。 因此，使用者就必須建立與網域控制站 （無論是透過 VPN 或公司網路中） 連線他們能夠登入的裝置有新密碼之前。 否則，他們用來登入舊密碼因為 Windows 中的快取登入功能。 不過，舊的密碼都無效的權杖要求期間的 Azure AD 和因此，防止單一登入和任何裝置型條件式存取原則就會失敗。 如果您使用 Windows Hello 企業版，則不會發生此問題。 
+**答：** 如果公司網路外部變更密碼 （例如，藉由使用 Azure AD SSPR），使用者登入的新密碼將會失敗。 對於混合式 Azure AD 已加入裝置，在內部部署 Active Directory 會是主要的授權單位。 當裝置不需要直視網域控制站時，就無法驗證新的密碼。 因此，使用者就必須建立與網域控制站 （無論是透過 VPN 或公司網路中） 連線他們能夠登入的裝置有新密碼之前。 否則，他們用來登入舊密碼因為快取登在 Windows 中的功能。 不過，舊的密碼都無效的權杖要求期間的 Azure AD 和因此，防止單一登入和任何裝置型條件式存取原則就會失敗。 如果您使用 Windows Hello 企業版，則不會發生此問題。 
 
 ---
-
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 註冊常見問題集
 
@@ -259,11 +240,15 @@ ms.locfileid: "67110656"
 **答：** 請執行下列步驟：
 
 1.  [建立裝置相容性原則](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [定義 macOS 裝置的條件式存取原則](../active-directory-conditional-access-azure-portal.md) 
+1.  [定義 macOS 裝置的條件式存取原則](../active-directory-conditional-access-azure-portal.md) 
 
 **備註：**
 
 - 包含在您的條件式存取原則需求的使用者[支援適用於 macOS 的 Office 版本](../conditional-access/technical-reference.md#client-apps-condition)來存取資源。 
-
 - 在第一次嘗試存取時，系統會提示使用者使用公司入口網站來註冊裝置。
 
+## <a name="next-steps"></a>後續步驟
+
+- 深入了解[Azure AD 註冊裝置](concept-azure-ad-register.md)
+- 深入了解[Azure AD 已加入裝置](concept-azure-ad-join.md)
+- 深入了解[混合式 Azure AD 已加入裝置](concept-azure-ad-join-hybrid.md)

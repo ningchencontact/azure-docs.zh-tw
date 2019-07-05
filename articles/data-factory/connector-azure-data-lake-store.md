@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057923"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509573"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Azure Data Lake 儲存體 Gen1 來回複製資料使用 Azure Data Factory
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 的版本："]
@@ -81,7 +81,7 @@ ms.locfileid: "67057923"
 >若要從根層級開始列出資料夾，則必須將所要授與的服務主體權限設為**在根層級具有「執行」的權限**。 您使用下列項目時，這種情況即會成立：
 >- **複製資料工具**以作者複製管線。
 >- 以 **Data Factory UI** 在製作期間測試連線和瀏覽資料夾。
->如果您有關於根層級的權限授與的考量，略過連線測試，並在撰寫期間手動輸入的路徑。 複製活動的運作方式，只要服務主體會授與適當的權限在檔案複製。
+>如果您有顧慮授與根層級的權限，在撰寫期間，略過測試連線，以及授與權限的 paraent 路徑然後選擇瀏覽 從指定路徑的輸入。 只要服務主體授與具有適當的權限在檔案複製，請將複製活動的運作方式。
 
 以下是支援的屬性：
 
@@ -135,7 +135,7 @@ ms.locfileid: "67057923"
 >清單資料夾從根目錄開始，您必須設定受管理的身分識別授與的權限**與 「 執行 」 權限的根層級**。 您使用下列項目時，這種情況即會成立：
 >- **複製資料工具**以作者複製管線。
 >- 以 **Data Factory UI** 在製作期間測試連線和瀏覽資料夾。
->如果您有關於根層級的權限授與的考量，略過連線測試，並在撰寫期間手動輸入的路徑。 複製活動的運作方式，只要受控身分識別時授與適當的權限在檔案複製。
+>如果您有顧慮授與根層級的權限，在撰寫期間，略過測試連線，以及授與權限的父路徑 [瀏覽] 從指定路徑的輸入。 只要服務主體授與具有適當的權限在檔案複製，請將複製活動的運作方式。
 
 在 Azure Data Factory 中，除了 Data Lake Store 的一般資訊，您不需要在連結服務中指定任何屬性。
 

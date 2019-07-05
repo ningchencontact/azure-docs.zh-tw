@@ -2,7 +2,7 @@
 title: 啟用 iOS Mobile Apps 的離線同步處理 | Microsoft Docs
 description: 了解如何使用 Azure App Service Mobile Apps 來快取及同步處理 iOS 應用程式中的離線資料。
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112645"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446380"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data)今天。
+>
 
 ## <a name="overview"></a>概觀
 本教學課程涵蓋適用於 iOS 的 Azure App Service Mobile Apps 功能的離線同步處理說明。 透過離線同步處理，終端使用者即使沒有網路連線，也可以和行動裝置 App 互動以檢視、新增、修改資料。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端後端進行同步處理。
@@ -164,7 +168,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | id | 整數 64 |
 | itemId | 字串 |
 | properties | 二進位資料 |
-| table | 字串 |
+| table | String |
 | tableKind | 整數 16 |
 
 
@@ -174,7 +178,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 | 屬性 | 類型 |
 | --- | --- |
-| id |字串 |
+| id |String |
 | operationId |整數 64 |
 | properties |二進位資料 |
 | tableKind |整數 16 |
@@ -185,11 +189,11 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 | 屬性 | 類型 |
 | --- | --- |
-| id |字串 |
-| 索引鍵 |字串 |
+| id |String |
+| key |字串 |
 | keyType |整數 64 |
-| table |字串 |
-| value |字串 |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>資料表
 
@@ -199,10 +203,10 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | --- | --- | --- |
 | id | 字串 (標示為必要) |遠端存放區中的主索引鍵 |
 | 完成 | Boolean | To-do 項目欄位 |
-| text |字串 |To-do 項目欄位 |
+| text |String |To-do 項目欄位 |
 | 建立時間 | Date | (選擇性) 對應至 **createdAt** 系統屬性 |
 | 更新時間 | Date | (選擇性) 對應至 **updatedAt** 系統屬性 |
-| version | 字串 | (選擇性) 用來偵測衝突，對應至版本 |
+| version | String | (選擇性) 用來偵測衝突，對應至版本 |
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
 在本節中，您將修改 App，使它在啟動或有使用者插入並更新項目時不會同步處理。 只有在執行重新整理動作按鈕時，它才會同步。

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544874"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482150"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>權限及同意 Microsoft 身分識別平台端點中
 
@@ -89,7 +89,7 @@ Microsoft 身分識別平台的 OpenID Connect 實作有一些定義妥善的範
 
 `email` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會以 `email` 宣告的形式為應用程式提供使用者主要電子郵件地址的存取權。 `email`宣告已包含在權杖中，只有電子郵件地址是相關聯的使用者帳戶，不一定要這樣。 如果它使用 `email` 範圍，您的應用程式就應該做好準備，以處理權杖中沒有 `email` 宣告的情況。
 
-### <a name="profile"></a>設定檔
+### <a name="profile"></a>profile
 
 `profile` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會為應用程式提供大量使用者相關資訊的存取權。 它可以存取的資訊包括但不限於使用者的名字、 姓氏、 慣用使用者名稱和物件識別碼。 如需特定使用者之識別碼權杖中可用的設定檔宣告完整清單，請參閱 [`id_tokens` 參考](id-tokens.md)。
 
@@ -124,7 +124,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 > [!NOTE]
 > 此時，`offline_access` (「維持存取您可存取的資料」) 和 `user.read` (「將您登入並讀取您的設定檔」) 權限會自動包含在應用程式的初始同意中。  通常需要這些權限，才能獲得適當的應用程式功能 - `offline_access` 可供應用程式存取重新整理權杖 (對原生和 Web 應用程式都很重要)，而 `user.read` 可供存取 `sub` 宣告，讓用戶端或應用程式能正確地隨著時間識別使用者及存取基本使用者資訊。  
 
-![工作帳戶同意](./media/v2-permissions-and-consent/work_account_consent.png)
+![範例螢幕擷取畫面，顯示的工作帳戶同意](./media/v2-permissions-and-consent/work_account_consent.png)
 
 當使用者核准權限要求時，系統就會記錄同意，使用者在後續登入應用程式時將不需要重新表示同意。
 

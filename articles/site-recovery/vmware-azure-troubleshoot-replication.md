@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924817"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491680"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 
@@ -77,6 +77,13 @@ Site recovery[處理序伺服器](vmware-physical-azure-config-process-server-ov
         - VSS 服務
         - Azure Site Recovery VSS 提供者
         - VDS 服務
+
+- 如果您執行 SQL 或 Exchange 的工作負載，請檢查這些應用程式撰寫者，針對失敗的記錄檔。 下列文件中擷取常出現的錯誤和解決方法：
+    -  [SQL Server 資料庫的自動關閉選項設定為 TRUE](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 擲回非可重試的錯誤](https://support.microsoft.com/help/4504103)
+    - [在 SQL Server 2016 和 2017年的已知的問題](https://support.microsoft.com/help/4493364)
+    - [常見的問題，與 Exchange 伺服器 2013年和 2016](https://support.microsoft.com/help/4037535)
+
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>來源機器具有高變換 [error 78188]
 

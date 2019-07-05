@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9fe8ff710cbfe7fbb4a4d8bd351028bb50efcb0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331743"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442425"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -120,7 +120,7 @@ ms.locfileid: "67331743"
 
 請參閱範例，以及了解如何建置使用自動化的機器學習服務模型：
 
-+ 請依照下列[教學課程：使用自動化的 Azure Machine Learning 自動將分類模型定型](tutorial-auto-train-models.md)
++ 請依照下列[教學課程：自動定型迴歸模型使用 Azure 自動化的 Machine Learning](tutorial-auto-train-models.md)
 
 + 設定自動的訓練實驗的設定：
   + 在 Azure 入口網站介面中，[使用下列步驟](how-to-create-portal-experiments.md)。

@@ -4,17 +4,17 @@ description: 圖形化編寫可讓您建立 Azure 自動化的 Runbook，而不�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740544"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476682"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -44,7 +44,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。 �
 
 程式庫控制項是您選取 [活動](#activities) 以加入至您的 Runbook 的位置。 您會將它們加入畫布，在畫布中將它們連接到其他活動。 它包含下表所述的四個區段：
 
-| Section | Description |
+| Section | 描述 |
 |:--- |:--- |
 | Cmdlet |包含可以在 Runbook 中使用的所有 Cmdlet。 Cmdlet 是依模組組織。 已在您自動化帳戶中安裝的所有模組皆可供使用。 |
 | runbook |包含自動化帳戶中的 Runbook。 這些 Runbook 可以加入至畫布以做為子 Runbook。 只會顯示與所編輯之 Runbook 相同核心類型的 Runbook。針對圖形化 Runbook，只會顯示以 PowerShell 為基礎的 Runbook，而針對圖形化 PowerShell 工作流程 Runbook，只會顯示以 PowerShell 工作流程為基礎的 Runbook。 |
@@ -109,7 +109,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執�
 
 在指定參數的值時，您可以選取資料來源以判斷如何指定值。 特定參數可使用的資料來源取決於該參數的有效值。 例如，對於不允許 Null 值的參數而言，Null 並非可用選項。
 
-| 資料來源 | Description |
+| 資料來源 | 描述 |
 |:--- |:--- |
 | 常數值 |輸入參數的值。 這只適用於下列資料類型：Int32、Int64、String、Boolean、DateTime、Switch。 |
 | 活動輸出 |從優先於工作流程中的目前活動的活動輸出。 列出所有有效的活動。 對參數值只選取要使用它的輸出的活動。 如果活動會輸出具有多個屬性的物件，您可以在選取活動之後輸入名稱屬性。 |
@@ -139,7 +139,7 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執�
 
 重試條件可以使用名為 $RetryData 的變數，提供活動重試相關資訊的存取權。 此變數具有下表中的屬性：
 
-| 屬性 | Description |
+| 屬性 | 描述 |
 |:--- |:--- |
 | NumberOfAttempts |活動已執行的次數。 |
 | Output |活動上次執行的輸出。 |
@@ -191,7 +191,7 @@ $DateTimeStart
 
 在 [組態] 分頁中選取連結來設定其屬性。 這包括下表中所說明的連結類型：
 
-| 連結類型 | Description |
+| 連結類型 | 描述 |
 |:--- |:--- |
 | 管線 |目的地活動會對從來源活動輸出的每一個物件執行一次。 如果來源活動不會產生任何輸出，則不會執行目的地活動。 從來源活動輸出以物件形式提供。 |
 | 順序 |目的地活動只會執行一次。 它會從來源活動接收物件的陣列。 從來源活動輸出以物件陣列形式提供。 |
@@ -322,13 +322,13 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 下表中的屬性定義每個輸入參數：
 
-| 屬性 | Description |
+| 屬性 | 描述 |
 |:--- |:--- |
-| Name |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
-| Description |輸入參數的選擇性描述。 |
-| Type |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
-| Mandatory |指定是否必須提供參數的值。 如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |
-| Default Value |如果未提供其中一個的值，要對參數指定什麼值。 這可以是 Null 或特定值。 |
+| 名稱 |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
+| 描述 |輸入參數的選擇性描述。 |
+| 類型 |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
+| 強制 |指定是否必須提供參數的值。 如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |
+| 預設值 |如果未提供其中一個的值，要對參數指定什麼值。 這可以是 Null 或特定值。 |
 
 ### <a name="runbook-output"></a>Runbook 輸出
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357526"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536927"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -175,6 +175,7 @@ ms.locfileid: "60357526"
 
 ## <a name="next-steps"></a>後續步驟
 
+* [SSPR 和 MFA 使用量和 insights 報告](howto-authentication-methods-usage-insights.md)
 * [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
 * [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)。
 * [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)。

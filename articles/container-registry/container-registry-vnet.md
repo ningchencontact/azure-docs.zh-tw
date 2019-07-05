@@ -1,27 +1,27 @@
 ---
-title: 部署到虛擬網路的 Azure container registry
+title: 存取限於從虛擬網路的 Azure container registry
 description: 允許存取至 Azure container registry，只能從 Azure 虛擬網路中的資源或公用 IP 位址範圍。
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067958"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514390"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure container registry 使用 Azure 虛擬網路或防火牆規則限制存取
 
-[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)提供安全的私人網路，為您的 Azure 和內部部署資源。 藉由部署到 Azure 虛擬網路私人 Azure 容器登錄，您可以確保只有在虛擬網路中的資源存取登錄。 跨單位案例中，您也可以設定防火牆規則以允許僅來自特定 IP 位址的登錄存取權。
+[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)提供安全的私人網路，為您的 Azure 和內部部署資源。 藉由限制至私人 Azure 容器登錄的存取，從一個 Azure 虛擬網路，您可以確定只有在虛擬網路中的資源存取登錄。 跨單位案例中，您也可以設定防火牆規則以允許僅來自特定 IP 位址的登錄存取權。
 
-本文將說明兩個案例，來建立網路存取規則，以限制存取權的 Azure container registry： 從虛擬機器部署在相同的網路，進出 VM 的公用 IP 位址。
+本文將說明兩個案例，來建立網路存取規則，以限制存取權的 Azure container registry： 從虛擬網路中部署的虛擬機器或虛擬機器的公用 IP 位址。
 
 > [!IMPORTANT]
-> 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 >
 
 ## <a name="preview-limitations"></a>預覽限制
@@ -30,7 +30,7 @@ ms.locfileid: "67067958"
 
 * 只有[Azure Kubernetes Service](../aks/intro-kubernetes.md)叢集或 Azure[虛擬機器](../virtual-machines/linux/overview.md)可以做為主機用來存取虛擬網路中的容器登錄庫。 *目前不支援其他 Azure 服務，包括 Azure 容器執行個體。*
 
-* [ACR 工作](container-registry-tasks-overview.md)作業目前不支援在容器登錄部署至虛擬網路。
+* [ACR 工作](container-registry-tasks-overview.md)作業目前不支援在虛擬網路中存取的容器登錄庫。
 
 * 每個登錄最多 100 個虛擬網路規則，可支援。
 
@@ -38,7 +38,7 @@ ms.locfileid: "67067958"
 
 * 若要使用 Azure CLI 本文中，Azure CLI 版本 2.0.58 中的步驟，或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-* 如果您還沒有容器登錄庫，建立一個 (需要 Premium SKU) 和推播範例映像時，例如`hello-world`從 Docker Hub。 例如，使用[Azure 入口網站][ quickstart-portal]或[Azure CLI] [ quickstart-cli]建立登錄庫。 
+* 如果您還沒有容器登錄庫，建立一個 (需要 Premium SKU) 和推播範例映像時，例如`hello-world`從 Docker Hub。 例如，使用[Azure 入口網站][quickstart-portal]or the [Azure CLI][quickstart-cli]建立登錄庫。 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>關於 container registry 的網路規則
 
@@ -58,7 +58,7 @@ ms.locfileid: "67067958"
 
 ## <a name="create-a-docker-enabled-virtual-machine"></a>建立啟用 Docker 的虛擬機器
 
-在本文中，使用已啟用 Docker 的 Ubuntu VM 來存取 Azure container registry。 若要在登錄中使用 Azure Active Directory 驗證，同時安裝[Azure CLI] [ azure-cli]在 VM 上。 如果您已經有 Azure 虛擬機器，略過此步驟中建立。
+在本文中，使用已啟用 Docker 的 Ubuntu VM 來存取 Azure container registry。 若要在登錄中使用 Azure Active Directory 驗證，同時安裝[Azure CLI][azure-cli]在 VM 上。 如果您已經有 Azure 虛擬機器，略過此步驟中建立。
 
 您可以使用相同的資源群組，您的虛擬機器和您的容器登錄。 此安裝程式簡化清除結束，但不需要。 如果您選擇建立的虛擬機器和虛擬網路的個別的資源群組，執行[az 群組建立][az-group-create]。 下列範例會建立名為的資源群組*myResourceGroup*中*westcentralus*位置：
 
@@ -121,7 +121,7 @@ This message shows that your installation appears to be working correctly.
 
 #### <a name="add-a-service-endpoint-to-a-subnet"></a>將服務端點新增至子網路
 
-當您建立 VM 時，Azure 預設會在相同的資源群組中建立虛擬網路。 虛擬網路的名稱根據虛擬機器的名稱。 例如，如果您命名您的虛擬機器*myDockerVM*，預設虛擬網路名稱*myDockerVMVNET*，與子網路名為*myDockerVMSubnet*。 在 Azure 入口網站或使用，請確認這[az 網路 vnet 清單][ az-network-vnet-list]命令：
+當您建立 VM 時，Azure 預設會在相同的資源群組中建立虛擬網路。 虛擬網路的名稱根據虛擬機器的名稱。 例如，如果您命名您的虛擬機器*myDockerVM*，預設虛擬網路名稱*myDockerVMVNET*，與子網路名為*myDockerVMSubnet*。 在 Azure 入口網站或使用，請確認這[az 網路 vnet 清單][az-network-vnet-list]命令：
 
 ```azurecli
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
@@ -138,7 +138,7 @@ az network vnet list --resource-group myResourceGroup --query "[].{Name: name, S
 ]
 ```
 
-使用[az 網路的 vnet 子網路更新][ az-network-vnet-subnet-update]命令，將新增**Microsoft.ContainerRegistry**至子網路的服務端點。 取代您的虛擬網路和子網路，在下列命令中的名稱：
+使用[az 網路的 vnet 子網路更新][az-network-vnet-subnet-update]命令來新增**Microsoft.ContainerRegistry**至子網路的服務端點。 取代您的虛擬網路和子網路，在下列命令中的名稱：
 
 ```azurecli
 az network vnet subnet update \
@@ -148,7 +148,7 @@ az network vnet subnet update \
   --service-endpoints Microsoft.ContainerRegistry
 ```
 
-使用[az 網路的 vnet 子網路顯示][ az-network-vnet-subnet-show]命令來擷取子網路的資源識別碼。 您需要在稍後步驟中設定網路存取規則。
+使用[az 網路的 vnet 子網路顯示][az-network-vnet-subnet-show]命令來擷取子網路的資源識別碼。 您需要在稍後步驟中設定網路存取規則。
 
 ```azurecli
 az network vnet subnet show \
@@ -167,7 +167,7 @@ az network vnet subnet show \
 
 #### <a name="change-default-network-access-to-registry"></a>變更登錄的預設網路存取
 
-根據預設，Azure container registry 會允許任何網路上主機的連線。 若要限制對選取的網路存取，變更預設動作來拒絕存取。 使用下列登錄的名稱來替代[az acr update] [ az-acr-update]命令：
+根據預設，Azure container registry 會允許任何網路上主機的連線。 若要限制對選取的網路存取，變更預設動作來拒絕存取。 使用下列登錄的名稱來替代[az acr update][az-acr-update]命令：
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -175,7 +175,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 #### <a name="add-network-rule-to-registry"></a>將網路規則新增至登錄
 
-使用[az acr 網路規則新增][ az-acr-network-rule-add]命令，將網路規則新增至您的登錄，以允許從 VM 的子網路的存取。 取代容器登錄的名稱和下列命令中的子網路的資源識別碼： 
+使用[az acr 網路規則新增][az-acr-network-rule-add]命令，將網路規則新增至您的登錄，以允許從 VM 的子網路的存取。 取代容器登錄的名稱和下列命令中的子網路的資源識別碼： 
 
  ```azurecli
 az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
@@ -222,7 +222,7 @@ az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 
 #### <a name="change-default-network-access-to-registry"></a>變更登錄的預設網路存取
 
-如果您尚未這麼做，更新預設為拒絕存取的登錄設定。 使用下列登錄的名稱來替代[az acr update] [ az-acr-update]命令：
+如果您尚未這麼做，更新預設為拒絕存取的登錄設定。 使用下列登錄的名稱來替代[az acr update][az-acr-update]命令：
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -230,7 +230,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 #### <a name="remove-network-rule-from-registry"></a>從登錄移除網路規則
 
-如果您先前已加入網路規則，以允許從 VM 的子網路的存取，請移除子網路的服務端點和網路規則。 Container registry 的名稱與您在先前步驟中擷取的子網路的資源識別碼取代[az acr 網路規則移除][ az-acr-network-rule-remove]命令： 
+如果您先前已加入網路規則，以允許從 VM 的子網路的存取，請移除子網路的服務端點和網路規則。 Container registry 的名稱與您在先前步驟中擷取的子網路的資源識別碼取代[az acr 網路規則移除][az-acr-network-rule-remove]命令： 
 
 ```azurecli
 # Remove service endpoint
@@ -248,7 +248,7 @@ az acr network-rule remove --name mycontainerregistry --subnet <subnet-resource-
 
 #### <a name="add-network-rule-to-registry"></a>將網路規則新增至登錄
 
-使用[az acr 網路規則新增][ az-acr-network-rule-add]命令，將網路規則新增至您的登錄，以允許從 VM 的 IP 位址的存取。 取代容器登錄的名稱和下列命令中的虛擬機器的公用 IP 位址。
+使用[az acr 網路規則新增][az-acr-network-rule-add]命令，將網路規則新增至您的登錄，以允許從 VM 的 IP 位址的存取。 取代容器登錄的名稱和下列命令中的虛擬機器的公用 IP 位址。
 
 ```azurecli
 az acr network-rule add --name mycontainerregistry --ip-address <public-IP-address>
@@ -292,7 +292,7 @@ az acr network-rule add --name mycontainerregistry --ip-address <public-IP-addre
 
 ## <a name="verify-access-to-the-registry"></a>確認登錄的存取權
 
-之後等候幾分鐘的時間來更新組態，請確認 VM 可以存取的容器登錄。 請透過 SSH 連線到您的 VM，並執行[az acr login] [ az-acr-login]命令來登入您的登錄。 
+之後等候幾分鐘的時間來更新組態，請確認 VM 可以存取的容器登錄。 請透過 SSH 連線到您的 VM，並執行[az acr 登入][az-acr-login]命令來登入您的登錄。 
 
 ```bash
 az acr login --name mycontainerregistry
@@ -320,13 +320,13 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 #### <a name="remove-network-rules"></a>移除網路規則
 
-若要查看您的登錄設定的網路規則的清單，請執行下列[az acr 網路規則清單][ az-acr-network-rule-list]命令：
+若要查看您的登錄設定的網路規則的清單，請執行下列[az acr 網路規則清單][az-acr-network-rule-list]命令：
 
 ```azurecli
 az acr network-rule list--name mycontainerregistry 
 ```
 
-針對每個已設定的規則，執行[az acr 網路規則移除][ az-acr-network-rule-remove]命令來移除它。 例如:
+針對每個已設定的規則，執行[az acr 網路規則移除][az-acr-network-rule-remove]命令來移除它。 例如:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -345,7 +345,7 @@ az acr network-rule remove \
 
 #### <a name="allow-access"></a>允許存取
 
-使用下列登錄的名稱來替代[az acr update] [ az-acr-update]命令：
+使用下列登錄的名稱來替代[az acr update][az-acr-update]命令：
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
 ```

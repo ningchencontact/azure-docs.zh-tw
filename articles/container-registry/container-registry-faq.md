@@ -4,16 +4,16 @@ description: Azure Container Registry 服務的相關常見問題的解答
 services: container-registry
 author: sajayantony
 manager: jeconnoc
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303581"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551595"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題集
 
@@ -27,6 +27,7 @@ ms.locfileid: "67303581"
 - [如何取得容器登錄的系統管理員認證？](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [如何取得 Resource Manager 範本中的系統管理員認證？](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [雖然使用 Azure CLI 或 Azure PowerShell 刪除複寫刪除的複寫會失敗並禁止狀態](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [已順利更新防火牆規則，但它們不會生效](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>我可以建立 Azure Container Registry 使用 Resource Manager 範本嗎？
 
@@ -34,11 +35,11 @@ ms.locfileid: "67303581"
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>是否有安全性弱點掃描在 ACR 中映像？
 
-是。 請參閱文件[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)並[Aqua](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)。
+是。 請參閱文件[Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/)並[Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)。
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>如何在使用 Azure Container Registry 設定 Kubernetes？
 
-請參閱文件[Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr)步驟並[Azure Kubernetes Service](container-registry-auth-aks.md)。
+請參閱文件[Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr)步驟並[Azure Kubernetes Service](container-registry-auth-aks.md)。
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>如何取得容器登錄的系統管理員認證？
 
@@ -90,6 +91,11 @@ Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.Con
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>已順利更新防火牆規則，但它們不會生效
+
+它需要一些時間來傳播變更防火牆規則。 在您變更防火牆設定之後，請等候幾分鐘，然後驗證這項變更。
+
 
 ## <a name="registry-operations"></a>登錄作業
 
@@ -245,8 +251,9 @@ az acr login -n MyRegistry
 
 映像隔離目前為預覽功能的 ACR。 您可以啟用登錄庫的隔離模式，如此只有這些映像已成功傳遞安全性掃描會對一般使用者顯示。 如需詳細資訊，請參閱 < [ACR GitHub 存放庫](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)。
 
-## <a name="diagnostics"></a>診斷
+## <a name="diagnostics-and-health-checks"></a>診斷和健康情況檢查
 
+- [檢查使用的健全狀況 `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker 提取失敗，發生錯誤： net/http： 要求取消時等候連接 (Client.Timeout 超過等待標頭)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker 推播會成功，但 docker 提取失敗，發生錯誤： 未經授權： 需要驗證](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [啟用與取得 docker 精靈的偵錯記錄檔](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -255,16 +262,30 @@ az acr login -n MyRegistry
 - [為什麼不會在 Azure 入口網站列出我所有的存放庫或標記？](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [如何收集 Windows 上的 http 追蹤？](#how-do-i-collect-http-traces-on-windows)
 
+### <a name="check-health-with-az-acr-check-health"></a>檢查使用的健全狀況 `az acr check-health`
+
+若要疑難排解常見的環境和登錄問題，請參閱[檢查 Azure container registry 的健全狀況](container-registry-check-health.md)。
+
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker 提取失敗，發生錯誤： net/http： 要求取消時等候連接 (Client.Timeout 超過等待標頭)
 
  - 如果此錯誤是暫時性的問題，然後重試將會成功。
- - 如果`docker pull`持續失敗，則可能有問題，並使用 docker 精靈。 重新啟動 docker 精靈通常可以降低問題。 
- - 如果您繼續看到此問題，重新啟動 docker 精靈之後，問題可能是某些與機器的網路連線問題。 若要檢查電腦上的一般網路是否狀況良好，請嘗試命令這類`ping www.bing.com`。
- - 您一律應該有重試機制在所有的 docker 用戶端作業。
+ - 如果`docker pull`持續失敗，則可能有問題，並使用 Docker 精靈。 重新啟動 Docker 精靈通常可以降低問題。 
+ - 如果您繼續看到此問題，重新啟動 Docker 精靈之後，問題可能是某些與機器的網路連線問題。 若要檢查電腦上的一般網路是否狀況良好，執行下列命令來測試端點的連線。 最小值`az acr`包含此連線能力檢查命令的版本是 2.2.9。 如果您使用較舊的版本，請升級您的 Azure CLI。
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - 您一律應該有重試機制在所有的 Docker 用戶端作業。
+
+### <a name="docker-pull-is-slow"></a>Docker 提取速度很慢
+使用[這](http://www.azurespeed.com/Azure/Download)工具來測試您的電腦網路下載速度。 如果機器的網路速度很慢，請考慮在您的登錄與相同的區域中使用 Azure VM。 這通常可讓您更快的網路速度。
+
+### <a name="docker-push-is-slow"></a>Docker 推送速度很慢
+使用[這](http://www.azurespeed.com/Azure/Upload)工具來測試您的電腦網路上傳速度。 如果機器的網路速度很慢，請考慮在您的登錄與相同的區域中使用 Azure VM。 這通常可讓您更快的網路速度。
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>docker 推播會成功，但 docker 提取失敗，發生錯誤： 未經授權： 需要驗證
 
-Red Hat 版本的 docker 精靈，就會發生此錯誤其中`--signature-verification`預設會啟用。 您可以執行下列命令來檢查 Red Hat Enterprise Linux (RHEL) 或 Fedora 的 docker 精靈選項：
+Red Hat 版本的 Docker 精靈，就會發生此錯誤其中`--signature-verification`預設會啟用。 您可以執行下列命令來檢查 Red Hat Enterprise Linux (RHEL) 或 Fedora 的 Docker 精靈選項：
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -284,12 +305,12 @@ unauthorized: authentication required
 ```
 
 若要解決此錯誤：
-1. 將選項加入`--signature-verification=false`至 docker 精靈組態檔`/etc/sysconfig/docker`。 例如:
+1. 將選項加入`--signature-verification=false`至 Docker 精靈組態檔`/etc/sysconfig/docker`。 例如:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. 執行下列命令，重新啟動 docker 精靈服務：
+2. 執行下列命令，重新啟動 Docker 精靈服務：
 
   ```bash
   sudo systemctl restart docker.service
@@ -297,9 +318,9 @@ unauthorized: authentication required
 
 詳細資料`--signature-verification`可以找到執行`man dockerd`。
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>啟用與取得 docker 精靈的偵錯記錄檔  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>啟用與取得 Docker 精靈的偵錯記錄檔  
 
-開始`dockerd`與`debug`選項。 首先，建立 docker 精靈的組態檔 (`/etc/docker/daemon.json`) 如果不存在，並新增`debug`選項：
+開始`dockerd`與`debug`選項。 首先，建立 Docker 精靈的組態檔 (`/etc/docker/daemon.json`) 如果不存在，並新增`debug`選項：
 
 ```json
 {   
@@ -387,7 +408,7 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>為什麼不會在 Azure 入口網站列出我所有的存放庫或標記？ 
 
-如果您使用 Microsoft Edge 瀏覽器，您可以看到最多 100 個存放庫或列出的標記。 如果您的登錄具有 100 個以上的存放庫或標記，我們建議您若要列出所有使用 Firefox 或 Chrome 瀏覽器。
+如果您使用 Microsoft Edge/IE 瀏覽器，您可以看到最多 100 個存放庫或標記。 如果您的登錄具有 100 個以上的存放庫或標記，我們建議您若要列出所有使用 Firefox 或 Chrome 瀏覽器。
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>如何收集 Windows 上的 http 追蹤？
 
@@ -439,86 +460,6 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub 動作](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## <a name="error-references-for-az-acr-check-health"></a>錯誤參考 `az acr check-health`
-
-### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
-
-此錯誤表示該 docker 用戶端，如 CLI 找不到，無法讓尋找 docker 版本、 評估 docker daemon 狀態以及確保可以執行 docker pull 命令。
-
-*可能的解決方案*： 安裝 docker 用戶端，將 docker 路徑，與系統變數。
-
-### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
-
-此錯誤表示 docker daemon 狀態無法使用，或，它無法使用 CLI。 這表示，例如登入 （提取） 的 docker 作業將無法透過 CLI。
-
-*可能的解決方案*:重新啟動 docker 精靈，或驗證正確安裝。
-
-### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
-
-此錯誤表示 CLI 程式無法執行命令`docker --version`。
-
-*可能的解決方案*： 嘗試以手動方式執行命令，請確定您擁有最新的 CLI 版本，並調查的錯誤訊息。
-
-### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
-
-此錯誤表示 CLI 無法範例映像提取至您的環境。
-
-*可能的解決方案*： 驗證提取映像所需的所有元件皆正常都執行。
-
-### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
-
-此錯誤表示找不到該 helm 用戶端，cli，防止其他 helm 作業。
-
-*可能的解決方案*： 確認該 helm 安裝用戶端，且其路徑會新增至系統環境變數。
-
-### <a name="helmversionerror"></a>HELM_VERSION_ERROR
-
-此錯誤表示 CLI 程式無法判斷安裝的 Helm 版本。 就可能發生此 Azure CLI 版本 (或如果 helm 版本) 正在使用已過時。
-
-*可能的解決方案*： 更新為最新的 Azure CLI 版本，或以建議的 helm 版本，以手動方式執行命令，並調查的錯誤訊息。
-
-### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
-
-此錯誤表示指定的登錄登入伺服器的 DNS 的 ping，但沒有回應，這表示無法使用。 這表示某些連線問題。 這也可能表示，登錄不存在，該使用者沒有權限在登錄中 （若要正確地擷取其登入伺服器），或確認目標登錄在不同的雲端，比使用 Azure CLI 中。
-
-*可能的解決方案*： 驗證連線; 請檢查拼字的登錄，和該登錄存在; 驗證，使用者有適當的權限，且登錄的雲端是 Azure CLI 上使用的相同。
-
-### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
-
-這表示指定的登錄的挑戰端點回應 403 禁止 HTTP 狀態。 這表示，使用者不必存取登錄中，最可能的原因 VNET 組態。
-
-*可能的解決方案*： 移除 VNET 規則或加入目前的用戶端 IP 允許清單。
-
-### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
-
-此錯誤表示目標登錄的挑戰端點未發出一項挑戰。
-
-*可能的解決方案*： 一段時間後再試。 如果錯誤持續發生，請開啟上午問題 https://aka.ms/acr/issues 。
-
-### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
-
-此錯誤表示目標登錄的挑戰端點發出一項挑戰，但是登錄不支援 AAD 登入。
-
-*可能的解決方案*： 嘗試登入，例如，系統管理員認證的其他方式。 如果使用者想要登入 AAD 的支援，請開啟上午問題 https://aka.ms/acr/issues 。
-
-### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
-
-這表示登錄登入伺服器未回應以重新整理權杖，這表示目標登錄的存取權遭到拒絕。 如果使用者沒有登錄的適當權限，或 Azure CLI 的使用者認證已過時，也可能會發生。
-
-*可能的解決方案*： 請確認使用者是否有正確的權限，在登錄上，執行`az login`重新整理權限、 權杖和認證。
-
-### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
-
-這表示登錄登入伺服器未使用存取權杖，這表示目標登錄的存取權遭到拒絕回應。 如果使用者沒有登錄的適當權限，或 Azure CLI 的使用者認證已過時，也可能會發生。
-
-*可能的解決方案*： 請確認使用者是否有正確的權限，在登錄上，執行`az login`重新整理權限、 權杖和認證。
-
-### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
-
-這表示 CLI 找不到指定的登錄中的登入伺服器，而且沒有預設值後置詞找不到目前的雲端。 這可能是登錄不存在，如果使用者沒有正確的權限在登錄中，如果登錄的雲端和目前的 Azure CLI 雲端不相符，則 Azure CLI 版本已過時。
-
-*可能的解決方案*： 確認拼字正確無誤並登錄存在，驗證使用者是否已在登錄中，正確的權限，而且登錄和 CLI 環境的雲端符合; 更新為最新版本的 Azure CLI。
 
 ## <a name="next-steps"></a>後續步驟
 

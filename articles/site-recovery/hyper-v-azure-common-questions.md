@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36c109e083873e9c4ec63ebe34f5c5c0cfb6eeb1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399451"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491818"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
 
@@ -26,6 +26,10 @@ ms.locfileid: "66399451"
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>如何支付 Azure VM 費用？
 在複寫期間，資料會複寫至 Azure 儲存體，您無須為任何 VM 變更付費。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。 之後就會針對您在 Azure 中取用的運算資源進行計費。
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>是否有任何差異的成本時複寫到一般用途 v2 儲存體帳戶？
+
+您通常會看到產生 GPv2 儲存體帳戶，因為 Azure Site Recovery 是大量交易的交易成本增加。 [深入了解](../storage/common/storage-account-upgrade.md#pricing-and-billing)來估計變更。
 
 ## <a name="azure"></a>Azure
 

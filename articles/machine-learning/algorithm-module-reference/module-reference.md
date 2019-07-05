@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e73d4ebd3eb05f7cf217573d8112e3dbbe6d3a37
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145143"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514071"
 ---
 # <a name="algorithm--module-reference-overview"></a>演算法和模組參考概觀
 
@@ -33,8 +33,8 @@ ms.locfileid: "65145143"
 | --- |--- | ---- |
 | 資料格式轉換 | 在機器學習中使用的各種檔案格式的資料轉換 | [轉換為 CSV](convert-to-csv.md) |
 | 資料輸入和輸出 | 將資料從雲端來源移到您的實驗。 Azure 儲存體、 SQL database，或 Hive，撰寫您的結果或中繼資料，同時執行實驗，或使用雲端儲存體來實驗之間交換資料。  | [匯入資料](import-data.md)<br/>[匯出資料](export-data.md)<br/>[手動輸入資料](enter-data-manually.md) |
-| 資料轉換 | 是唯一的機器學習服務，例如正規化或分類收納資料、 特徵選取和維度縮減的資料作業。| [選取資料集中的資料行](select-columns-in-dataset.md) <br/> [編輯中繼資料](edit-metadata.md) <br/> [清除遺漏的資料](clean-missing-data.md) <br/> [加入資料行](add-columns.md) <br/> [Add Rows](add-rows.md) <br/> [移除重複的資料列](remove-duplicate-rows.md) <br/> [將資料分割](split-data.md) <br/> [將資料標準化，](normalize-data.md) <br/> [資料分割和取樣](partition-and-sample.md) |
-| Python 模組 | 撰寫程式碼，並將它內嵌至整合您的實驗中的 Python 模組中。 | [執行 Python 指令碼](execute-python-script.md)   <br/> [建立 Python 模型](create-python-model.md)
+| 資料轉換 | 是唯一的機器學習服務，例如正規化或分類收納資料、 特徵選取和維度縮減的資料作業。| [選取資料集中的資料行](select-columns-in-dataset.md) <br/> [編輯中繼資料](edit-metadata.md) <br/> [清除遺漏的資料](clean-missing-data.md) <br/> [加入資料行](add-columns.md) <br/> [Add Rows](add-rows.md) <br/> [移除重複的資料列](remove-duplicate-rows.md) <br/> [加入資料](join-data.md) <br/> [將資料分割](split-data.md) <br/> [將資料標準化，](normalize-data.md) <br/> [資料分割和取樣](partition-and-sample.md) |
+| Python 和 R 模組 | 撰寫程式碼，並將它內嵌至整合您的實驗中的 Python 和 R 模組中。 | [執行 Python 指令碼](execute-python-script.md)   <br/> [建立 Python 模型](create-python-model.md) <br/> [執行 R 指令碼](execute-r-script.md)
 |  | **機器學習服務演算法**: | |
 | 分類 | 預測的類別。  選擇從 （雙類別） 的二進位或多級的演算法。| [多元決策樹系](multiclass-decision-forest.md) <br/> [多級羅吉斯迴歸](multiclass-logistic-regression.md)  <br/> [多級類神經網路](multiclass-neural-network.md)  <br/>  [二級羅吉斯迴歸](two-class-logistic-regression.md)  <br/>[二級平均感知器](two-class-averaged-perceptron.md) <br/> [二級&nbsp;促進&nbsp;決策&nbsp;樹狀結構](two-class-boosted-decision-tree.md)  <br/> [二級決策樹系](two-class-decision-forest.md)  <br/> [二級類神經網路](two-class-neural-network.md)  <br/> [兩個&#8209;類別&nbsp;支援&nbsp;向量&nbsp;機器](two-class-support-vector-machine.md) 
 | 叢集 | 群組在一起的資料。| [K-means 群集](k-means-clustering.md)

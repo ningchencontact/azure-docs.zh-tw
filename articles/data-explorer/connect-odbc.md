@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494839"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537588"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>連接到 Azure 的資料總管，使用 ODBC
 
@@ -20,7 +20,13 @@ ms.locfileid: "66494839"
 
 在幕後，應用程式呼叫 ODBC 介面，該屬性在呼叫的特定資料庫的模組實作函式*驅動程式*。 Azure 資料總管支援 SQL Server 通訊協定的子集 ([MS TDS](/azure/kusto/api/tds/))，因此它可以使用 ODBC driver for SQL Server。
 
-在本文中，您會學習如何使用 SQL Server ODBC 驅動程式，因此您可以從任何支援 ODBC 應用程式連接到 Azure 資料總管。
+使用下列影片，您可以了解如何建立 ODBC 連接。 
+
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+或者，您可以[ODBC 資料來源設定](#configure-the-odbc-data-source)如下所述。 
+
+在本文中，您將了解如何使用 SQL Server ODBC 驅動程式，因此您可以從任何支援 ODBC 應用程式連接到 Azure 資料總管。 
 
 ## <a name="prerequisites"></a>必要條件
 

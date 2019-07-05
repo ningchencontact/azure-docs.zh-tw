@@ -1,42 +1,38 @@
 ---
-title: 重新啟動用已停用的 Azure 訂用帳戶 | Microsoft Docs
+title: 重新啟用已停用的 Azure 訂用帳戶
 description: 描述當您何時可能有停用的 Azure 訂用帳戶，以及如何重新啟動它。
 keywords: Azure 訂用帳戶已停用
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing
-ms.assetid: 4529d685-3a87-49d9-8d7a-49baad552d76
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfe11a8cbb6dd2de77bbac9d14c294c3f93438f3
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370762"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490412"
 ---
-# <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>我的 Azure 訂用帳戶為何停用，以及如何重新啟動它？
+# <a name="reactivate-a-disabled-azure-subscription"></a>重新啟用已停用的 Azure 訂用帳戶
 
-您的 Azure 訂用帳戶停用的原因可能是點數已過期、達到消費限制、帳單逾期、達到信用卡額度限制，或是帳戶管理員取消訂用帳戶。 查看您適用的問題，並遵循此文章中的步驟，以讓您的訂用帳戶重新啟動。
+您的 Azure 訂用帳戶可以取得停用，因為您的點數已過期、 達到消費限制、 帳單逾期、 達到信用卡額度限制，或因為帳戶管理員取消訂用帳戶。 查看您適用的問題，並遵循此文章中的步驟，以讓您的訂用帳戶重新啟動。
 
 ## <a name="your-credit-is-expired"></a>您的點數已過期
 
-當您註冊免費的 Azure 帳戶時，您會獲得免費試用訂用帳戶，以提供您價值美金 200 員的 Azure 點數，讓您得以獲得 30 天和 12 個月的免費服務。 30 天結束時，Azure 就會停用訂用帳戶。 您的訂用帳戶會停用，以防止您不小心衍生超出訂用帳戶所隨附點數和免費服務的使用費。 若要繼續使用 Azure 服務，您必須[將訂用帳戶升級為隨用隨付訂用帳戶](billing-upgrade-azure-subscription.md)。 升級之後，您的訂用帳戶仍可存取免費服務 12 個月。 您只要支付免費服務和數量以外的使用量。
+當您註冊免費的 Azure 帳戶時，您會獲得免費試用訂用帳戶，以提供您價值美金 200 員的 Azure 點數，讓您得以獲得 30 天和 12 個月的免費服務。 30 天結束時，Azure 就會停用訂用帳戶。 您的訂用帳戶會停用，以防止您不小心衍生超出訂用帳戶所隨附點數和免費服務的使用費。 若要繼續使用 Azure 服務，您必須[您的訂用帳戶升級](billing-upgrade-azure-subscription.md)。 升級之後，您的訂用帳戶仍可存取免費服務 12 個月。 您只要支付免費服務和數量以外的使用量。
 
 ## <a name="you-reached-your-spending-limit"></a>您已達到消費限制
 
 擁有免費試用和 Visual Studio Enterprise 等點數的 Azure 訂用帳戶有其消費限制。 這表示您在使用服務時最多只能用掉隨附的點數。 當使用量達到消費限制時，Azure 就會在該計費期間的剩下時間裡停用訂用帳戶。 您的訂用帳戶會停用，以防止您不小心衍生超出訂用帳戶所隨附點數的使用費。 若要移除消費限制，請參閱[在帳戶中心裡移除消費限制](billing-spending-limit.md#remove)。
 
-> [!NOTE] 
-> 如果您使用免費試用訂閱且已移除消費限制，免費試用結束時，系統會將您的訂閱轉換成隨用隨付。 您可以在建立訂用帳戶之後保留剩餘點數達整整 30 天之久。 您也可以在 12 個月內存取免費服務。
+> [!NOTE]
+> 如果您有免費試用訂用帳戶，而且您移除消費限制，您的訂用帳戶會將結尾的免費試用版的隨用隨付費率的個別訂用帳戶。 您可以在建立訂用帳戶之後保留剩餘點數達整整 30 天之久。 您也可以在 12 個月內存取免費服務。
 
 若要監視和管理 Azure 計費活動，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing-getting-started.md)。
 
@@ -49,9 +45,9 @@ ms.locfileid: "60370762"
 
 若要解決此問題，請[切換為不同的信用卡](billing-how-to-change-credit-card.md)。 或如果您代表企業，您可以[切換為按發票付款](billing-how-to-pay-by-invoice.md)。
 
-## <a name="the-subscription-was-accidentally-canceled-and-you-want-to-reactivate"></a>不小心取消訂閱，想要重新啟用
+## <a name="the-subscription-was-accidentally-canceled"></a>不小心取消訂用帳戶
 
-如果您是帳戶管理員且不小心取消隨用隨付訂閱，可以在帳戶中心重新啟用。
+如果您是帳戶管理員，且不小心取消隨用隨付費率的個別訂用帳戶，您可以在帳戶中心重新啟動它。
 
 1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
 1. 選取已取消的訂用帳戶。
@@ -64,3 +60,6 @@ ms.locfileid: "60370762"
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
+# <a name="next-steps"></a>後續步驟
+- 了解如何[監視和管理適用於 Azure 的計費活動](billing-getting-started.md)。

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052933"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503204"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中使用裝置集合
 
 本文說明如何以操作員的身分在 Azure IoT Central 應用程式中使用裝置集合。
 
-裝置集合是一份裝置清單，這些裝置因為全都符合某些指定準則而群組在一起。 裝置集合可藉由將裝置分組到較小的邏輯群組，來協助您大規模地對裝置進行管理、視覺化和分析。 例如，您建立了一份西雅圖所有空調裝置的清單，讓位於西雅圖的技師可以找到其負責的所有裝置。 本文說明如何建立和設定裝置集合。
+裝置集是因為它們符合某些指定的準則時一起組成群組的裝置清單。 裝置集合可藉由將裝置分組到較小的邏輯群組，來協助您大規模地對裝置進行管理、視覺化和分析。 比方說，您可以建立裝置設定為清單中若要啟用以找出裝置，它們必須負責技術人員的西雅圖的所有空調裝置。 本文說明如何建立和設定裝置集合。
 
 ## <a name="create-a-device-set"></a>建立裝置集合
 
@@ -42,9 +42,9 @@ ms.locfileid: "67052933"
 
 1. 選擇 [儲存]  。
 
-## <a name="configure-the-dashboard-for-your-device-set"></a>設定裝置集合的儀表板
+## <a name="configure-the-dashboard-for-your-device-set"></a>設定您的裝置集的儀表板
 
-建立裝置集合後，就可以設定其 [儀表板]  。 [儀表板]  是可供放置影像和連結的首頁。 您也可以新增會列出裝置集合所含裝置的格線。
+建立裝置集合後，就可以設定其 [儀表板]  。 **儀表板**是您放置影像和連結的首頁。 您也可以新增會列出裝置集合所含裝置的格線。
 
 1. 在左側導覽功能表上選擇 [裝置集合]  。
 
@@ -85,19 +85,20 @@ ms.locfileid: "67052933"
   
     1. 選取 [完成]  。
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>在裝置集合儀表板中設定位置圖
+若要深入了解如何使用 Azure IoT Central 中的磚，請參閱[使用儀表板磚](howto-use-tiles.md)。
 
-您可以在地圖中新增位置圖，以將裝置集合位置視覺化。
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>在 裝置設定儀表板中設定位置地圖
 
-若要將位置圖新增到裝置集合儀表板，您必須先在 [裝置範本] 中設定好位置屬性，請參閱[建立位置屬性 (採用 Azure 地圖服務)](howto-set-up-template.md)。
+您可以將地圖加入以視覺化方式檢視您的裝置集合中裝置的位置。
 
-1. 在 [裝置集合儀表板] 上，從資源庫選取 [地圖]。
-2. 提供標題，然後選擇您先前在 [裝置屬性] 中設定的位置屬性。
-3. 儲存之後，就會在 [裝置集合] 中看到顯示您裝置位置的地圖磚。
-4. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！
+若要新增對應到您的裝置設定儀表板，您必須已設定的位置測量或位置屬性在裝置範本中。 若要進一步了解，請參閱[建立位置測量](howto-set-up-template.md)或是[建立位置屬性](howto-set-up-template.md)。
 
-> [!NOTE]
-> 您可以將地圖調整為所需的大小。 選取釘選在對應中顯示的裝置資訊、 名稱和位置。 您可以選取快顯視窗中，前往 [裝置] 屬性頁。
+1. 在您的裝置上設定**儀表板**，選取**地圖**從程式庫。
+2. 加入標題，然後選擇的位置測量或您先前設定的屬性。
+3. 選取 **儲存**和地圖底圖會顯示裝置的最後一個已知的位置中您的裝置集。
+4. 當運算子檢視裝置設定儀表板時，運算子就會看到您已設定，包括位置地圖的圖格。
+
+您可以調整地圖底圖的儀表板上。 選取 釘選在地圖上的會顯示裝置資訊、 名稱和位置。 選取快顯視窗中，前往 [裝置] 屬性頁。
 
 ## <a name="configure-the-list-for-your-device-set"></a>設定裝置集合的清單
 

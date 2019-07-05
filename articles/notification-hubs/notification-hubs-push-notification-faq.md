@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730454"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488654"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
 
@@ -69,7 +69,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 ### <a name="which-client-platforms-do-you-support"></a>支援哪些用戶端平台？
 
-支援推播通知[iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)， [Android](notification-hubs-android-push-notification-google-fcm-get-started.md)， [Windows 通用](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)， [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)， [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)， [android China （由百度開發）](notification-hubs-baidu-china-android-notifications-get-started.md)，Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)和 Android，以及[Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)。 如需詳細資訊，請移至[通知中樞入門教學課程]頁面。
+支援推播通知[iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)， [Android](notification-hubs-android-push-notification-google-fcm-get-started.md)， [Windows 通用](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)， [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)， [Android China (由百度開發）](notification-hubs-baidu-china-android-notifications-get-started.md)，Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)和 Android，以及[Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)。 如需詳細資訊，請移至[通知中樞入門教學課程]頁面。
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>你們是否支援簡訊、電子郵件、或 Web 通知？
 
@@ -85,7 +85,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 
 如需支援的裝置數目詳細資訊，請參閱[通知中樞價格]頁面。
 
-如果您需要支援超過 1 千萬個已註冊的裝置，請直接 [與我們連絡](https://azure.microsoft.com/overview/contact-us/) ，我們將協助您調整您的解決方案。
+如果您需要支援超過 10 萬個已註冊的裝置時，您必須將裝置分割到多個中樞中。
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>我可以傳送多少推播通知？
 

@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services：暫時停權的網域 | Microsof
 description: 受控網域的暫時停權與刪除
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: a4e43518ce70c040b8243034c52e4b215548a47c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: f50d16687632224a21d6ae294f4070485fb4eead
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246715"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472515"
 ---
 # <a name="suspended-domains"></a>暫時停權的網域
 當 Azure Active Directory Domain Services (Azure AD DS) 有很長的一段時間無法服務受控網域時，其會使該受控網域進入暫時停權狀態。 本文會說明受控網域被暫時停權的原因，以及如何修復被暫時停權的網域。

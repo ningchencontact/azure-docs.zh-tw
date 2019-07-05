@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523079"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485443"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編製 JSON blob
 本文說明如何設定 Azure 搜尋服務 blob [indexer](search-indexer-overview.md)擷取 Azure Blob 儲存體中的 JSON 文件中的結構化的內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入具有現有從 JSON blob 擷取的文字。 
@@ -118,7 +118,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 JSON 實體�
 
 您可以檢閱[REST 範例程式碼](#rest-example)本節示範如何建立所有的三個物件的結尾。 本章節也包含詳細資料的相關[剖析模式的 JSON](#parsing-modes)，[單一 blob](#parsing-single-blobs)， [JSON 陣列](#parsing-arrays)，以及[巢狀陣列](#nested-json-arrays)。
 
-針對程式碼為基礎 JSON 編製索引，使用[Postman](search-fiddler.md)和 REST API 來建立這些物件：
+針對程式碼為基礎 JSON 編製索引，使用[Postman](search-get-started-postman.md)和 REST API 來建立這些物件：
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-組合要求的輸入
 
-針對每個要求中，您必須提供服務名稱和系統管理金鑰 （POST 標頭中），Azure 搜尋服務和儲存體帳戶名稱和 blob 儲存體金鑰。 您可以使用[Postman](search-fiddler.md)將 HTTP 要求傳送至 Azure 搜尋服務。
+針對每個要求中，您必須提供服務名稱和系統管理金鑰 （POST 標頭中），Azure 搜尋服務和儲存體帳戶名稱和 blob 儲存體金鑰。 您可以使用[Postman](search-get-started-postman.md)將 HTTP 要求傳送至 Azure 搜尋服務。
 
 將下列四項值複製到 記事本，讓您可以將其貼到 要求：
 

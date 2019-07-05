@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688066"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442322"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
-Azure SQL Database 提供數種方式，可讓您在同個伺服器或不同的伺服器上，建立現有 Azure SQL 資料庫的交易一致性複本。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。 
+Azure SQL Database 提供了幾種方法建立的現有 Azure SQL database 的交易一致性複本 ([單一資料庫](sql-database-single-database.md)) 相同的伺服器或不同的伺服器上。 若要複製 SQL Database，您可使用 Azure 入口網站、PowerShell 或 T-SQL。 
 
 ## <a name="overview"></a>概觀
 
@@ -94,7 +94,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>將 SQL database 複製到不同的訂用帳戶
 
-您可以使用上一節中的步驟 descrbed，將資料庫複製到不同的訂用帳戶中的 SQL Database 伺服器。 請確定您使用來源資料庫的資料庫擁有者具有相同的名稱和密碼登入，而且它是 dbmanager 角色的成員或伺服器層級主體登入。 
+您可以使用上一節中所述的步驟，將資料庫複製到不同的訂用帳戶中的 SQL Database 伺服器。 請確定您使用來源資料庫的資料庫擁有者具有相同的名稱和密碼登入，而且它是 dbmanager 角色的成員或伺服器層級主體登入。 
 
 > [!NOTE]
 > [Azure 入口網站](https://portal.azure.com)不支援複製到不同的訂用帳戶，因為入口網站呼叫 ARM API，並使用訂用帳戶憑證存取這兩個異地複寫中涉及的伺服器。  

@@ -1,25 +1,22 @@
 ---
-title: 了解 Azure 企業版上的帳單 |Microsoft Docs
-description: 了解如何閱讀並了解適用於 Azure Enterprise 合約的使用量和帳單
-services: ''
-documentationcenter: ''
+title: 了解 Azure 企業版上的帳單
+description: 了解如何閱讀並了解您的使用量和帳單，適用於 Azure Enterprise 合約。
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571200"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490290"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>了解 Azure Enterprise 合約帳單
 
@@ -59,7 +56,7 @@ ms.locfileid: "64571200"
 
 1. 登入[企業版入口網站](https://ea.azure.com)。
 1. 選取 [報表]  。
-1. 在索引標籤右上角，將檢視從 **M** 切換為 **C**，以符合發票上的期間。  
+1. [] 索引標籤右上角，將檢視從切換**M**要**C**搭發票上的期間。  
     ![螢幕擷取畫面顯示 M + C 選項，在 使用量摘要。](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. 總和的量**總使用量**並**Azure Marketplace**應該符合**擴充總量變更**您發票上。
 1. 若要取得有關費用的詳細資料，請前往**下載使用量**。  
@@ -100,7 +97,7 @@ ms.locfileid: "64571200"
 
 1. 登入[企業版入口網站](https://ea.azure.com)。
 1. 選取 [報表]  。
-1. 在索引標籤右上角，將檢視從 **M** 切換為 **C**，以符合發票上的期間。  
+1. [] 索引標籤右上角，將檢視從切換**M**要**C**搭發票上的期間。  
     ![螢幕擷取畫面顯示 M + C 選項，在 使用量摘要。](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. [總使用量]  金額應該符合您服務超額發票上的 [應收金額總計]  。  
 1. 若要取得費用的詳細資訊，請前往 [下載使用量]   > [進階報表下載]  。 報告不包含稅金，或保留項目的費用或 marketplace 費用。  
@@ -124,7 +121,7 @@ ms.locfileid: "64571200"
 
 1. 登入[企業版入口網站](https://ea.azure.com)。
 1. 選取 [報表]  。
-1. 在索引標籤右上角，將檢視從 **M** 切換為 **C**，以符合發票上的期間。  
+1. [] 索引標籤右上角，將檢視從切換**M**要**C**搭發票上的期間。  
      ![螢幕擷取畫面顯示 M + C 選項，在 使用量摘要。](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. **Azure Marketplace** 總計應該符合 Marketplace 發票上的**銷售總額**。
 1. 若要取得依使用量計算的費用詳細資訊，請前往 [下載使用量]  。 在 [Marketplace 費用]  下方，選取 [下載]  。 此報表不包含稅金或顯示一次性購買。  

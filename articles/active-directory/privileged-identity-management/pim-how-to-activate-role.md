@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7b3e02222580da67a4eeb4159e4fc5dc3b9a98f
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289535"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501684"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>啟用我在 PIM 中的 Azure AD 角色
 
@@ -41,25 +41,25 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 1. 按一下 **我的角色**若要查看您符合資格的 Azure AD 角色。
 
-    ![Azure AD 角色-我的角色](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD 角色-我顯示合格或有效的角色 清單中的角色](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. 尋找您想要啟用的角色。
 
-    ![Azure AD 角色-我的角色清單](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD 角色-我的合格角色清單中顯示啟用 連結](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. 按一下 [啟用]  以開啟角色啟用詳細資料窗格。
 
 1. 如果您的角色需要多重要素驗證 (MFA)，請按一下 [先驗證您的身分識別後再繼續]  。 您只需在每個工作階段驗證一次。
 
-    ![在啟用角色之前先以 MFA 驗證](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![確認啟用角色之前先使用 MFA 我識別 窗格](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
 1. 按一下 [驗證我的身分識別]  ，並遵循指示來提供其他安全性驗證。
 
-    ![其他安全性驗證](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![詢問如何與您連絡其他安全性驗證 頁面](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. 按一下 [啟用]  以開啟啟用窗格。
 
-    ![啟用窗格](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![啟用窗格，即可指定開始時間、 持續時間、 票證，以及原因](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
 1. 如有必要，請指定自訂啟用開始時間。
 
@@ -67,19 +67,19 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 1. 在 [啟用原因]  方塊中輸入此啟用要求的原因。 有些角色會要求您提供問題票證號碼。
 
-    ![已完成的啟用窗格](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![已完成的啟用窗格中使用自訂的開始時間、 持續時間、 票證，以及原因](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. 按一下 **[啟用]** 。
 
     如果角色不需要核准**啟用狀態**窗格隨即出現，顯示的啟用狀態。
 
-    ![啟用狀態](./media/pim-how-to-activate-role/activation-status.png)
+    ![顯示在三個階段的啟動的啟用狀態頁面](./media/pim-how-to-activate-role/activation-status.png)
 
     所有階段完成後，按一下**登出**来登出 Azure 入口網站的連結。 當您登入入口網站時，您現在可以使用角色。
 
     如果[角色需要核准](./azure-ad-pim-approval-workflow.md)才能啟用，通知會出現在瀏覽器右上角，通知您要求正在等待核准。
 
-    ![要求擱置通知](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    ![啟用要求正在等待核准通知](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
 ## <a name="view-the-status-of-your-requests"></a>檢視要求狀態
 
@@ -91,7 +91,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 1. 按一下 [我的要求]  以查看要求清單。
 
-    ![Azure AD 角色-我的要求](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD 角色-我的要求清單](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>停用角色
 
@@ -123,15 +123,19 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
     當您按一下 [取消] 時，將會取消要求。 若要再次啟用角色，您必須提交新的啟用要求。
 
-   ![取消擱置要求](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![我的要求清單反白顯示 [取消] 按鈕](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="troubleshoot"></a>疑難排解
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>啟動角色之後未授與權限
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>啟用角色之後不授與權限
 
-當您在 PIM 中啟動角色之後，至少需等候 10 分鐘才能存取所需的系統管理入口網站，或在特定系統管理工作負載內執行函式。 啟用完成後，Azure 入口網站登出再重新登入若要開始使用新的主動的角色。
+當您啟用 PIM 中的角色時，啟動可能無法立即傳遞到需要特殊權限的角色的所有入口網站。 有時候，即使該變更會傳播，web 入口網站中的快取可能會導致不立即生效的變更。 如果您啟用已延遲，以下是該怎麼辦。
 
-如需其他疑難排解步驟，請參閱[針對較高的權限進行疑難排解](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx) \(英文\)。
+1. Azure 入口網站登出，然後重新登入。
+
+    當您啟用 Azure AD 角色時，您會看到您的啟用階段。 所有階段完成後，您會看到**登出**連結。 若要登出，您可以使用此連結。這將會解決大部分的情況下，啟用延遲。
+
+1. 在 PIM，確認您已列為角色的成員。
 
 ## <a name="next-steps"></a>後續步驟
 

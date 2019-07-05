@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320992"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485854"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>自動大規模使用 Azure CLI 的 IoT 裝置管理
 
@@ -29,7 +29,9 @@ Azure IoT 中樞中的自動裝置管理會自動執行許多管理大型裝置�
 
 * **目標內容**會定義要在目標裝置對應項中新增或更新的所需屬性。 內容包含了一個路徑，連往所要變更屬性的區段。
 
-* **計量**會定義各種設定狀態 (例如 **Success**、**Progress** 及 **Error**) 的摘要計數。 自訂計量會以查詢的形式指定於裝置對應項報告屬性上。  系統計量是預設計量，用來計算對應項更新的狀態，例如為目標的裝置對應項的數目和已成功更新的對應項的數目。 
+* **計量**會定義各種設定狀態 (例如 **Success**、**Progress** 及 **Error**) 的摘要計數。 自訂計量會以查詢的形式指定於裝置對應項報告屬性上。  系統計量是預設計量，用來計算對應項更新的狀態，例如為目標的裝置對應項的數目和已成功更新的對應項的數目。
+
+自動裝置組態執行組態建立後，很快就在第一次，然後在五分鐘的時間間隔。 計量查詢執行每次執行時自動裝置組態。
 
 ## <a name="cli-prerequisites"></a>CLI 先決條件
 
@@ -56,7 +58,7 @@ Azure IoT 中樞中的自動裝置管理會自動執行許多管理大型裝置�
 
 ## <a name="define-the-target-content-and-metrics"></a>定義目標內容和計量
 
-內容的目標和度量的查詢會指定為 JSON 文件，說明裝置對應項所需的屬性集和報告的屬性，來測量。  若要使用 Azure CLI 建立自動裝置組態，請在本機上將目標內容和計量儲存為 .txt 檔案。 當您執行命令，以將組態套用到您的裝置時，您可以使用後續小節中的檔案路徑。 
+內容的目標和度量的查詢會指定為 JSON 文件，說明裝置對應項所需的屬性集和報告的屬性，來測量。  若要使用 Azure CLI 建立自動裝置組態，請在本機上將目標內容和計量儲存為 .txt 檔案。 當您執行命令，以將組態套用到您的裝置時，您可以使用後續小節中的檔案路徑。
 
 以下是基本目標內容範例：
 

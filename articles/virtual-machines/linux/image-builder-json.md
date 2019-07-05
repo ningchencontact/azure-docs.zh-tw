@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65538285"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501886"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>預覽：建立 Azure 映像產生器範本 
 
@@ -51,11 +51,11 @@ Azure 映像產生器會將資訊傳遞到映像產生器服務使用的.json �
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>位置
+## <a name="location"></a>Location
 
 這個位置是即將建立的自訂映像的區域。 對於映像產生器 預覽中，支援下列區域：
 
-- 美國東部
+- East US
 - 美國東部 2
 - 美國中西部
 - 美國西部
@@ -331,6 +331,8 @@ OS 支援：Linux 和 Windows
  
  
 如果發生錯誤嘗試下載檔案，或將它放在指定的目錄中，自訂步驟會失敗，而且這會位於 customization.log。
+
+>> 請注意 ！ 檔案自訂只適合小型檔案下載，但 < 20 MB。 對於較大的檔案下載，請使用指令碼或內嵌命令，使用程式碼，例如下載檔案、 Linux`wget`或是`curl`，Windows， `Invoke-WebRequest`。
 
 可以從 Azure 儲存體下載檔案的自訂中的檔案使用[MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)。
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715450"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568267"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>航太工業中預測性維護之 Cortana Intelligence 解決方案範本的技術指南
 
@@ -88,7 +88,7 @@ Azure 事件中樞非常廣泛；資料可以 CSV 或 JSON 格式張貼至中樞
 
 這份文件不會描述如何擷取您的資料，但您可以使用事件中樞 API，輕鬆地將事件或資料傳送到 Azure 事件中樞。
 
-### <a name="azure-stream-analytics"></a>Azure 串流分析
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 使用 Azure 串流分析服務提供近乎即時的分析，方法是從資料串流讀取並輸出資料至任意數目的來源。
 
 針對航太解決方案的預測性維護範本，Azure 串流分析查詢方案範本包含四個子查詢，每個查詢均從 Azure 事件中樞服務取用事件，並且輸出至四個不同的位置。 這些輸出包含三個 Power BI 資料集和一個 Azure 儲存體位置。

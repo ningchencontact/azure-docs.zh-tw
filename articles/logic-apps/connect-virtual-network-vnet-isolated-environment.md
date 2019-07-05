@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65961443"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467086"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -64,7 +64,7 @@ ms.locfileid: "65961443"
 
 當您使用整合服務環境 (ISE) 與虛擬網路時，常見的安裝程式發生問題就具有一或多個連接埠遭到封鎖。 您用來建立您的 ISE 與目標系統之間的連線的連接器也可能具有自己的連接埠需求。 例如，如果您使用 FTP 連接器與 FTP 系統進行通訊，請確定可取得您在該 FTP 系統使用的連接埠 (如傳送命令的連接埠 21)。
 
-若要跨虛擬網路的子網路，您將部署 ISE 控制的流量，您可以設定[網路安全性群組](../virtual-network/security-overview.md)依[篩選子網路間的網路流量](../virtual-network/tutorial-filter-network-traffic.md)。 不過，您的 ISE 必須開啟 虛擬網路使用網路安全性群組上的特定連接埠。 如此一來，您 ISE 保持可存取，可以會使您不無法存取您的 ISE 正確運作。 否則，如果任何必要的連接埠無法使用，您 ISE 便會停止運作。
+若要跨虛擬網路的子網路，您在其中部署您的 ISE 控制的流量，您可以選擇性地設定[網路安全性群組 (Nsg)](../virtual-network/security-overview.md)的虛擬網路中[跨子網路篩選網路流量](../virtual-network/tutorial-filter-network-traffic.md). 如果您選擇此路由，請確定您 ISE 開啟特定連接埠，在下列資料表中，使用 Nsg 的虛擬網路上。 如果您的虛擬網路中有現有的 Nsg 或防火牆，請確定它們開啟這些連接埠。 如此一來，您 ISE 保持可存取，可以會使您不無法存取您的 ISE 正確運作。 否則，如果任何必要的連接埠無法使用，您 ISE 便會停止運作。
 
 這些表格描述您的 ISE 在您的虛擬網路中使用的連接埠及其用途。 [Resource Manager 服務標籤](../virtual-network/security-overview.md#service-tags)代表一組協助建立安全性規則時，將複雜性降至最低的 IP 位址首碼。
 

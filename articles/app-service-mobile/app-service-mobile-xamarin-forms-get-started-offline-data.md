@@ -2,7 +2,7 @@
 title: 啟用 Azure 行動應用程式的離線同步處理 (Xamarin.Forms) | Microsoft Docs
 description: 了解如何在 Xamarin.Forms 應用程式中使用 App Service 行動應用程式快取和同步離線資料
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -12,24 +12,28 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: crdun
-ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127874"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446290"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>啟用 Xamarin.Forms 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data)今天。
+>
+
 ## <a name="overview"></a>概觀
 此教學課程介紹適用於 Xamarin.Forms 之 Azure 行Mobile Apps 的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
 
-本教學課程是根據您完成教學課程 [建立 Xamarin iOS 應用程式] 時所建立之 Mobile Apps 的 Xamarin.Forms 快速入門方案。 Xamarin.Forms 的快速入門方案包含程式碼來支援離線同步處理，只需要啟用即可。 在本教學課程中，您將會更新快速入門方案來開啟 Azure Mobile Apps 的離線功能。 我們也會在應用程式中反白顯示離線特有的程式碼。 如果您不要使用下載的快速入門方案，則必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK][1]。
+本教學課程是根據您完成教學課程 [建立 Xamarin iOS 應用程式] 時所建立之 Mobile Apps 的 Xamarin.Forms 快速入門方案。 Xamarin.Forms 的快速入門方案包含程式碼來支援離線同步處理，只需要啟用即可。 在本教學課程中，您將會更新快速入門方案來開啟 Azure Mobile Apps 的離線功能。 我們也會在應用程式中反白顯示離線特有的程式碼。 如果您不要使用下載的快速入門方案，則必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK][1]。
 
-若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理][2]主題。
+若要深入了解離線同步處理功能，請參閱 [Azure 行動應用程式中的離線資料同步處理][2]主題。
 
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>啟用快速入門方案中的離線同步處理功能
 專案中使用 C# 前置處理器指示詞來包含離線同步處理程式碼。 定義 **OFFLINE\_SYNC\_ENABLED** 符號後，組建中會包含這些程式碼路徑。 針對 Windows 應用程式，您也必須安裝 SQLite 平台。
@@ -40,8 +44,8 @@ ms.locfileid: "62127874"
         #define OFFLINE_SYNC_ENABLED
 3. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
 
-   * **Windows 8.1 執行階段：** 安裝 [SQLite for Windows 8.1][3]。
-   * **Windows Phone 8.1：** 安裝 [SQLite for Windows Phone 8.1][4]。
+   * **Windows 8.1 執行階段：** 安裝[適用於 Windows 8.1 的 SQLite][3]。
+   * **Windows Phone 8.1：** 安裝[SQLite for Windows Phone 8.1][4]。
    * **通用 Windows 平台：** 安裝 [適用於通用 Windows 平台的 SQLite][5]。
 
      雖然快速入門中未包含通用 Windows 專案，使用 Xamarin Forms 可支援通用 Windows 平台。
@@ -118,7 +122,7 @@ ms.locfileid: "62127874"
 
 針對具有內容追蹤之擱置中本機更新的資料表執行提取，該提取作業將自動觸發先前的內容推送。 在此範例中重新整理、新增和完成項目時，您可以省略明確的 **PushAsync** 呼叫。
 
-在提供的程式碼中，遠端 TodoItem 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 **PushAsync**來篩選記錄。 如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理][2]中的「增量同步處理」  一節。
+在提供的程式碼中，遠端 TodoItem 資料表中的所有記錄都會進行查詢，但是也可能透過將查詢識別碼與查詢傳遞至 **PushAsync**來篩選記錄。 如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理][2]中的*增量同步處理*一節。
 
 ## <a name="run-the-client-app"></a>執行用戶端應用程式
 離線同步現在已啟用，請在每個平台執行用戶端應用程式至少一次，以填入本機存放區資料庫。 稍後，模擬一個離線案例，並在應用程式離線時修改本機存放區中的資料。
@@ -146,13 +150,13 @@ ms.locfileid: "62127874"
 
 1. 重新開啟 Constants.cs。 更正 `applicationURL` 以指向正確的 URL。
 2. 重建並執行用戶端應用程式。 應用程式在啟動後會嘗試與行動應用程式後端同步處理。 請確認偵錯主控台沒有記錄任何例外狀況。
-3. (選擇性) 使用 SQL Server 物件總管或 REST 工具 (例如 Fiddler 或 [Postman][6]) 檢視已更新的資料。 請注意，後端資料庫與本機存放區之間尚未同步處理資料。
+3. （選擇性）檢視更新的資料使用 SQL Server 物件總管或 Fiddler 等 REST 工具或[Postman][6]。 請注意，後端資料庫與本機存放區之間尚未同步處理資料。
 
     請注意，資料庫與本機存放區之間的資料已同步處理，並包含應用程式中斷連接時您所新增的項目。
 
 ## <a name="additional-resources"></a>其他資源
 * [Azure Mobile Apps 中的離線資料同步處理][2]
-* [Azure Mobile Apps .NET SDK HOWTO][8]
+* [Azure Mobile Apps.NET SDK 做法][8]
 
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

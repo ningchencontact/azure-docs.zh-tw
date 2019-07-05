@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296179"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551604"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題集的問題-備份 Azure Vm
 
@@ -46,10 +46,6 @@ ms.locfileid: "67296179"
 如果您的復原服務保存庫和 VM 有不同的資源群組，請確定您在復原服務保存庫的資源群組中具有寫入權限。  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>您可以使用 Azure 備份來備份哪些 Azure VM？
-
-檢閱[支援矩陣](backup-support-matrix-iaas.md)支援詳細資料和限制。
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會使用與排定備份相同的保留排程？
 沒有。 指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，則會保留 30 天。
 
@@ -73,17 +69,12 @@ ms.locfileid: "67296179"
 
 使用者必須移除鎖定並清除 使未來的備份成功，還原點集合，從該資源群組[遵循下列步驟](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)移除還原點集合。
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>備份原則是否會考慮日光節約時間 (DST)？
-沒有。 您本機電腦上的日期與時間會在本機套用目前的日光節約時間。 針對排定備份所設定的時間可能會因為 DST 而與當地時間不同。
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>我可以將多少個資料磁碟連結到由 Azure 備份所備份的 VM？
-Azure 備份可以備份最多具有 16 個磁碟的 VM。 [立即還原](backup-instant-restore-capability.md)中提供 16 個磁碟的支援。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 備份是否支援標準 SSD 受控磁碟？
 Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 受控磁碟提供持久儲存體的新類型的 Azure Vm。 [立即還原](backup-instant-restore-capability.md)中提供 SSD 受控磁碟的支援。
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>我們可以備份具有已啟用寫入加速器 (WA) 之磁碟的 VM 嗎？
-您無法在已啟用 WA 的磁碟上建立快照集。 不過，Azure 備份服務可以從備份中排除已啟用 WA 的磁碟。 僅針對已升級到「立即還原」的訂用帳戶，提供對具有已啟用 WA 之磁碟的 VM 進行磁碟排除的支援。
+您無法在已啟用 WA 的磁碟上建立快照集。 不過，Azure 備份服務可以從備份中排除已啟用 WA 的磁碟。
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>我的 VM 具有寫入加速器 (WA) 磁碟並已安裝 SAP HANA。 該如何備份？
 Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁碟。 不過，備份將不會提供資料庫一致性，因為系統不會備份已啟用 WA 之磁碟的相關資訊。 如果您想要作業系統磁碟備份以及未啟用 WA 的磁碟備份，您可以使用此設定來備份磁碟。
@@ -93,6 +84,8 @@ Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁�
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>可以從 排定的備份時間，我已在 我的 VM 備份原則中設定的備份開始時間的預期的延遲上限為何？
 排定的備份時間的 2 小時內，就會觸發排程的備份。 Ex。 如果 100 個 Vm 有備份的開始時間排程在上午 2:00，最大上午 4:00 所有 100VMs 會都有備份作業進行中。 如果已暫停排定的備份，因為中斷和恢復/重試備份可以啟動此排程的 2 小時的時段之外。
 
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>什麼是每日備份點的最小的允許的保留範圍？
+Azure 虛擬機器的備份原則支援長度最小的保留範圍為 7 天內最 9999 天。 以現有的 VM 備份原則與少於 7 天的任何修改都需要更新以符合最小的保留範圍為 7 天。
 
 ## <a name="restore"></a>Restore
 

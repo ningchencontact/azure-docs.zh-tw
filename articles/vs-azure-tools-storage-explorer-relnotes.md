@@ -14,26 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a051f3a0c55e207e6a53955d1cb4b9ea7e54a4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620485"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544134"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
-本文包含 Azure 儲存體總管 1.8.1 版的版本資訊，以及適用於舊版的版本資訊。
+本文包含 Azure 儲存體總管 1.9.0 版發行的版本資訊，以及適用於舊版的版本資訊。
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
+## <a name="version-190"></a>版本 1.9.0
+7/1/2019
+
+### <a name="download-azure-storage-explorer-190"></a>下載 Azure 儲存體總管 1.9.0
+- [適用於 Windows azure 儲存體總管 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac 的 azure 儲存體總管 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 azure 儲存體總管 1.9.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+
+* 您現在可以附加 Blob 容器，透過 Azure AD （RBAC 或 ACL 權限）。 這項功能被要協助使用者可存取的容器，但不是儲存體帳戶中的容器。 這項功能，請參閱我們入門指南的詳細資訊。
+* 取得，並中斷租用現在使用 RBAC。 [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* 管理存取原則和設定公用存取層級現在使用 RBAC。 [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* 正在刪除 blob 資料夾現在可以使用 RBAC。 [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* 變更 blob 的存取層現在已可使用 RBAC。 [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* 您現在可以快速重設快速存取，透過 說明 → "重設 」。 [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+
+### <a name="preview-features"></a>預覽功能
+
+* 裝置程式碼流程登入現可供預覽。 若要啟用它，請移至 預覽 → 「 使用裝置程式碼流程登入 」。 我們鼓勵任何有空白登入 windows 嘗試這項功能，問題，因為它可能會產生成為更可靠的表單的 登入的使用者。
+* 使用 AzCopy 整合的儲存體總管是目前可供預覽。 若要啟用它，請移至 [預覽] → [使用 AzCopy 的改善 Blob 上傳和下載]。 使用 AzCopy 完成 blob 傳輸應會更快和更好的效能。
+
+### <a name="fixes"></a>修正
+
+* 已修正無法載入 50 個以上的訂用帳戶，一個帳戶。 [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* 已修正無法運作的直接連結失敗時，會出現資訊列上的 [登入] 按鈕。 [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* 已修正未在 macOS 上的.app 檔案上傳。 [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* 已修正 「 重試一次全部 」 的失敗的 blob 重新命名無法正常運作。 [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* 已修正 [取消] 開啟 blob 時無法運作。 [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* 已修正整個產品的多個拼字和工具提示問題。 非常感謝所有報告這些問題的人 ！ [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+
+### <a name="known-issues"></a>已知問題
+
+* 在執行非 AzCopy Blob 下載時，將大型檔案的 MD5 不正在驗證。 這是因為儲存體 SDK 中的 bug。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* 使用 RBAC 時，儲存體總管會需要一些的管理層級權限，才能存取您的儲存體資源。 請參閱[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)如需詳細資訊。
+* 嘗試存取 proxy 後方的 ADLS Gen2 Blob 可能會失敗。
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+   * ADLS Gen2
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 在 Linux 上執行儲存體總管需要先安裝特定相依性。 檢查儲存體總管[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)如需詳細資訊。
+
+## <a name="previous-releases"></a>舊版
+
+* [1.8.1 版](#version-181)
+* [版本 1.8.0](#version-180)
+* [版本 1.7.0](#version-170)
+* [版本 1.6.2](#version-162)
+* [1.6.1 版](#version-161)
+* [1.6.0 版](#version-160)
+* [1.5.0 版](#version-150)
+* [1.4.4 版](#version-144)
+* [1.4.3 版](#version-143)
+* [1.4.2 版](#version-142)
+* [1.4.1 版](#version-141)
+* [1.3.0 版](#version-130)
+* [版本 1.2.0](#version-120)
+* [1.1.0 版](#version-110)
+* [1.0.0 版](#version-100)
+* [0.9.6 版](#version-096)
+* [0.9.5 版](#version-095)
+* [0.9.4 和 0.9.3 版](#version-094-and-093)
+* [0.9.2 版](#version-092)
+* [0.9.1 和 0.9.0 版](#version-091-and-090)
+* [0.8.16 版](#version-0816)
+* [版本 0.8.14](#version-0814)
+* [0.8.13 版](#version-0813)
+* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
+* [0.8.9 和 0.8.8 版](#version-089-and-088)
+* [0.8.7 版](#version-087)
+* [0.8.6 版](#version-086)
+* [0.8.5 版](#version-085)
+* [0.8.4 版](#version-084)
+* [0.8.3 版](#version-083)
+* [0.8.2 版](#version-082)
+* [0.8.0 版](#version-080)
+* [0.7.20160509.0 版](#version-07201605090)
+* [0.7.20160325.0 版](#version-07201603250)
+* [0.7.20160129.1 版](#version-07201601291)
+* [0.7.20160105.0 版](#version-07201601050)
+* [0.7.20151116.0 版](#version-07201511160)
+
 ## <a name="version-181"></a>1\.8.1 版
 5/13/2019
-
-### <a name="download-azure-storage-explorer-181"></a>下載 Azure 儲存體總管 1.8.1
-- [適用於 Windows azure 儲存體總管 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac 的 azure 儲存體總管 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 azure 儲存體總管 1.8.1](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfix
 * 在某些情況下，按一下 [載入更多] 資源層級會傳回資源的下一個頁面。 已修正此問題。 [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
@@ -89,52 +182,8 @@ ms.locfileid: "65620485"
 
 * 在 Linux 上執行儲存體總管需要先安裝特定相依性。 檢查儲存體總管[疑難排解指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)如需詳細資訊。
 
-## <a name="previous-releases"></a>舊版
-
-* [版本 1.8.0](#version-180)
-* [版本 1.7.0](#version-170)
-* [版本 1.6.2](#version-162)
-* [1.6.1 版](#version-161)
-* [1.6.0 版](#version-160)
-* [1.5.0 版](#version-150)
-* [1.4.4 版](#version-144)
-* [1.4.3 版](#version-143)
-* [1.4.2 版](#version-142)
-* [1.4.1 版](#version-141)
-* [1.3.0 版](#version-130)
-* [版本 1.2.0](#version-120)
-* [1.1.0 版](#version-110)
-* [1.0.0 版](#version-100)
-* [0.9.6 版](#version-096)
-* [0.9.5 版](#version-095)
-* [0.9.4 和 0.9.3 版](#version-094-and-093)
-* [0.9.2 版](#version-092)
-* [0.9.1 和 0.9.0 版](#version-091-and-090)
-* [0.8.16 版](#version-0816)
-* [版本 0.8.14](#version-0814)
-* [0.8.13 版](#version-0813)
-* [0.8.12、0.8.11 和 0.8.10 版](#version-0812-and-0811-and-0810)
-* [0.8.9 和 0.8.8 版](#version-089-and-088)
-* [0.8.7 版](#version-087)
-* [0.8.6 版](#version-086)
-* [0.8.5 版](#version-085)
-* [0.8.4 版](#version-084)
-* [0.8.3 版](#version-083)
-* [0.8.2 版](#version-082)
-* [0.8.0 版](#version-080)
-* [0.7.20160509.0 版](#version-07201605090)
-* [0.7.20160325.0 版](#version-07201603250)
-* [0.7.20160129.1 版](#version-07201601291)
-* [0.7.20160105.0 版](#version-07201601050)
-* [0.7.20151116.0 版](#version-07201511160)
-
 ## <a name="version-180"></a>版本 1.8.0
 5/1/2019
-
-### <a name="download-azure-storage-explorer-180"></a>下載 Azure 儲存體總管 1.8.0
-- [適用於 Windows azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac 的 azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 azure 儲存體總管 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
 
@@ -1277,7 +1326,7 @@ ms.locfileid: "65620485"
 * 將 Electron 版本更新至 1.7.2 以利用數個重要安全性更新
 * 現已可從 [說明] 功能表快速存取線上疑難排解指南
 * 儲存體總管疑難排解[指南][2]
-* 連線至 Azure Stack 訂用帳戶的[指示][3]
+* [指示][3]上連接到 Azure Stack 訂用帳戶
 
 ### <a name="known-issues"></a>已知問題
 
@@ -1302,7 +1351,7 @@ ms.locfileid: "65620485"
 #### <a name="new"></a>新增
 
 * 儲存體總管疑難排解[指南][2]
-* 連線至 Azure Stack 訂用帳戶的[指示][3]
+* [指示][3]上連接到 Azure Stack 訂用帳戶
 
 #### <a name="fixes"></a>修正
 

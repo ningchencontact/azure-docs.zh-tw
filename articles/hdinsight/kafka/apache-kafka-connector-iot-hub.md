@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5559d243573ea04400007cdce0e71009dc91e27a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698170"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446446"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 
@@ -37,7 +37,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
 * Kafka 叢集中的邊緣節點。 如需詳細資訊，請參閱[搭配使用邊緣節點與 HDInsight](../hdinsight-apps-use-edge-node.md) 文件。
 
-* Azure IoT 中樞。 使用本教學課程時，建議您參閱[將 Raspberry Pi 線上模擬器連線至 Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started)文件。
+* Azure IoT 中樞。 在本文中，我建議[到 Azure IoT 中樞的連線 Raspberry Pi 線上模擬器](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started)文件。
 
 * SSH 用戶端。 本文件中的步驟會使用 SSH 來連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 

@@ -4,14 +4,14 @@ description: 說明如何指定是否要透過 Azure Resource Manager 使用完�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206556"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508217"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -22,6 +22,8 @@ ms.locfileid: "67206556"
 ## <a name="complete-mode"></a>完整模式
 
 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 資源如果是範本中已指定的資源，但因為某個[條件](resource-group-authoring-templates.md#condition)評估為 false 而未部署，則不會被刪除。
+
+請小心使用完整模式搭配[複製迴圈](resource-group-create-multiple.md)。 會刪除解決複製迴圈之後在範本中未指定任何資源。
 
 有一些差異，在 資源類型如何處理完整模式刪除。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，會刪除這些子資源。 
 

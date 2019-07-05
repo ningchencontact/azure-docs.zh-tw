@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991426"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566069"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>將現有的 Azure 服務匯流排標準命名空間移轉到 「 進階 」 層
 先前，Azure 服務匯流排提供只能在標準層上的命名空間。 命名空間是最適合用於低的輸送量和開發人員環境的多租用戶設定。 進階層提供每個命名空間的可預測的延遲並增加的輸送量，以固定價格的專用的資源。 進階層已針對高輸送量和所需的其他企業功能的實際執行環境最佳化。
@@ -117,6 +117,28 @@ ms.locfileid: "65991426"
 1. 檢閱 [摘要] 頁面上的變更。 選取 **完成移轉**切換命名空間，並完成移轉。
     ![切換命名空間-切換功能表][]完成移轉時，會出現 [確認] 頁面。
     ![參數命名空間-成功][]
+
+## <a name="caveats"></a>需要注意的事項
+
+某些 Azure 服務匯流排標準層所提供的功能不支援的 Azure 服務匯流排進階層。 這些是根據設計，因為進階層提供可預測的輸送量和延遲的專屬的資源。
+
+以下是不支援 Premium 和其風險降低-的功能清單 
+
+### <a name="express-entities"></a>快速實體
+
+   在 Premium 中不支援快速實體時，不認可至儲存體的任何訊息資料。 提供顯著的輸送量改進，同時確保保存資料，如預期從任何傳訊系統的企業專用的資源。
+   
+   在移轉期間，任何 express 標準命名空間中的實體將做為非 express 實體建立進階命名空間上。
+   
+   如果您使用 Azure Resource Manager (ARM) 範本，請確定您的部署組態從移除 'enableExpress' 旗標，好讓您的自動化工作流程執行無誤。
+
+### <a name="partitioned-entities"></a>分割的實體
+
+   在標準層提供更好的可用性，在多租用戶設定中已支援資料分割的實體。 與每個進階層中的命名空間提供的專用資源的佈建，這就無用武之地。
+   
+   在移轉期間，標準的命名空間中的任何資料分割的實體會建立進階命名空間上，為非資料分割的實體。
+   
+   如果您的 ARM 範本設定特定的佇列或主題的 'enablePartitioning' 為 'true'，它將會忽略由訊息代理程式。
 
 ## <a name="faqs"></a>常見問題集
 

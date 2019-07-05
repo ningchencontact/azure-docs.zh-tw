@@ -6,13 +6,13 @@ manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072622"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514062"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
@@ -42,7 +42,9 @@ ms.locfileid: "67072622"
 
 選取 [建立]  。  **提供概觀**頁面已經為此供應項目。  
 
-![在合作夥伴中心上的供應項目概觀](./media/commercial-marketplace-offer-overview.png)
+<!---
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## <a name="offer-overview"></a>供應項目概觀
 
@@ -260,11 +262,11 @@ ms.locfileid: "67072622"
 
 ## <a name="technical-configuration"></a>技術設定
 
-**技術設定** 索引標籤上定義的技術詳細資料 （URL 路徑、 webhook、 租用戶識別碼和應用程式識別碼） 用來連接到您的供應項目。 此連線可讓我們為客戶的 Azure 訂用帳戶中的資源佈建您的供應項目，如果他們選擇要取得它。
+**技術設定** 索引標籤上定義的技術詳細資料 （URL 路徑、 webhook、 租用戶識別碼和應用程式識別碼） 用來連接到您的供應項目。 此連線可讓我們來佈建終端客戶的您供應項目，如果他們選擇要取得它。 文件中有描述所收集的欄位的使用方式的圖表[SaaS 履行 Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)。
 
-- **登陸頁面 URL** （必要）：定義站台 URL 的客戶將會導向至登入之後取得從 marketplace 供應項目。 此 URL 也會是接收連線 API 以與 Microsoft 建立商務的端點。
+- **登陸頁面 URL** （必要）：定義將在之後取得從 marketplace 供應項目落在客戶的網站 URL。 這個 URL 將會收到一個權杖，客戶會路由傳送至網頁時的端點。 該權杖可用來交換佈建在 「 履行 」 Api 中使用解析的詳細資料。 這些詳細資料，以及您收集任何其他可用來當做內建您的使用經驗的客戶互動式網頁的一部分才能完成註冊並啟動其購買。
 
-- **連線 webhook** （必要）：針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：Azure 訂用帳戶已經無效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統位置中，最簡單的組態是 HTTP 端點的邏輯應用程式會接聽任何事件張貼到它，並適當地處理它們 (例如 https:\//prod-1westus.logic.azure.com:443/work)。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
+- **連線 webhook** （必要）：針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：SaaS 的訂用帳戶已經無效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統位置中，最簡單的組態是 HTTP 端點的邏輯應用程式會接聽任何事件張貼到它，並適當地處理它們 (例如 https:\//prod-1westus.logic.azure.com:443/work)。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
 - **Azure AD 租用戶識別碼**（必要）：在 Azure 入口網站中，我們需要您[建立 Azure Active Directory (AD) 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，讓我們能驗證我們的兩個服務之間的連線位於已驗證的通訊。 若要尋找[租用戶識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id)，請移至您的 Azure Active Directory，然後選取**屬性**，然後尋找**目錄識別碼**數字 （例如，列出50c464d3-4930-494c-963c-1e951d15360e)。
 
@@ -438,7 +440,7 @@ Microsoft 可以移除所裝載及維護服務佈建和部署使用這種類型�
 
 - **Azure AD 應用程式識別碼**（必要）：輸入您 Azure Active Directory (AD)[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取 [Active Directory] 索引標籤的左側功能表中，選取**應用程式註冊**，然後尋找**應用程式識別碼**數目列出 (例如 50c464d3-4930-494c-963c-1e951d15360e)。
 
-- **Azure AD 應用程式金鑰**（必要）：輸入您 Azure Active Directory (AD)[應用程式金鑰](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取 [Active Directory] 索引標籤的左側功能表中，選取**應用程式註冊**，然後選取**設定** > **金鑰**。
+- **Azure AD 應用程式的用戶端祕密**（必要）：輸入您的 Azure AD 應用程式[用戶端祕密](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)。 若要尋找此值，請登入[Azure 入口網站](https://portal.azure.com/)。 選取 [ **Azure Active Directory** ] 索引標籤的左側功能表中，選取**應用程式註冊**，然後選取您的測試磁碟機應用程式。 接下來，選取**憑證和祕密**，選取**新的用戶端祕密**，輸入描述，選取**永不**下**Expires**，然後選擇**新增**。 請務必複製此值。 （請勿離開頁面之前這樣做，否則就無法再行存取的值。）
 
 請記得**儲存**再繼續進行下一節 ！
 

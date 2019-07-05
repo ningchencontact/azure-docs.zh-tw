@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275596"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537840"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -38,7 +38,7 @@ ms.locfileid: "67275596"
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>超大規模資料庫服務層級與一般用途和商務關鍵服務層有何不同
 
-以虛擬核心為基礎的服務層主要可根據可用性、儲存體類型和 IOPS 來區分。
+以 vCore 為基礎的服務層主要做區分根據可用性、 儲存體類型和 IOPs。
 
 - 一般用途服務層針對 IO 延遲或容錯移轉時間並非優先考量的案例提供了一組平衡的計算和儲存體選項，適用於大多數的商務工作負載。
 - 超大規模資料庫服務層級對於非常大的資料庫工作負載可發揮最佳效益。
@@ -53,7 +53,7 @@ ms.locfileid: "67275596"
 | **儲存體類型** | 全部 |進階遠端儲存體 (每個執行個體) | 與本機 SSD 快取分離的儲存體 (每個執行個體) | 超快速本機 SSD 儲存體 (每個執行個體) |
 | **儲存體大小** | 單一資料庫/彈性集區 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
 | | 受控執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO 輸送量** | 單一資料庫** | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 目前未知 | 5000 IOPS，IOPS 上限為 200,000|
+| **IO 輸送量** | 單一資料庫** | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模是多層式架構與多個層級快取。 有效的 IOPs 將取決於工作負載。 | 5000 IOPS，IOPS 上限為 200,000|
 | | 受控執行個體 | 視檔案大小而定 | N/A | 受控執行個體：視檔案大小而定|
 |**可用性**|全部|1 個複本、無讀取規模、無本機快取 | 多個複本、最多 15 個讀取規模、部分本機快取 | 3 個複本、1 個讀取規模、區域備援 HA、完整本機快取 |
 |**備份**|全部|RA-GRS、7-35 天 (預設為 7 天)| RA-GRS，-grs、7-35 天 （預設的 7 天），常數時間的時間點復原 (PITR) | RA-GRS、7-35 天 (預設為 7 天) |
@@ -92,7 +92,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
   使用超大規模資料庫時，您可以在 CPU、記憶體等資源方面相應增加主要計算大小，然後再依常數時間相應減少。 由於儲存體是共用的，因此相應增加和相應減少並非資料作業的大小。  
 - **相應縮小/相應放大**
 
-  使用超大規模資料庫時，您也將能夠佈建一或多個額外的計算節點，用來支應您的讀取要求。 這表示，您可以將這些額外的計算節點作為唯讀節點，用以卸除主要計算節點的讀取工作負載。 除了作為唯讀節點，這些節點也可在主要節點進行容錯移轉時作為熱待命節點。
+  使用超大規模資料庫時，您也將能夠佈建一或多個額外的計算節點，用來支應您的讀取要求。 這表示，您可以將這些額外的計算節點作為唯讀節點，用以卸除主要計算節點的讀取工作負載。 除了以唯讀模式，這些節點也做為熱待命的發生容錯移轉時從主要。
 
   佈建每個這些額外計算節點的作業也可在常數時間內完成，而且這是線上作業。 您可以將連接字串的 `ApplicationIntent` 引數設為 `readonly`，藉以連線至這些額外的唯讀計算節點。 任何標示為 `readonly` 的連線都會自動路由至其中一個額外的唯讀計算節點。
 
@@ -120,7 +120,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>如何在 Azure SQL 資料倉儲與 SQL Database 超大規模資料庫之間做選擇
 
-如果您目前以 SQL Server 作為資料倉儲而執行互動式分析查詢，「SQL Database 超大規模資料庫」將是絕佳選項，因為您可用最低的成本裝載相對較小的資料倉儲 (例如，數 TB 到數十 TB)，並且可將資料倉儲工作負載直接移轉至「SQL Database 超大規模資料庫」，而不需要變更 T-SQL 程式碼。
+如果您目前正在使用 SQL Server 做為資料倉儲的互動式分析查詢，SQL Database 的超大規模是絕佳選項，因為您可以裝載 （例如高達 10 TB 的幾個 TB) 的相對較小的資料倉儲較低的成本，而且您可以移轉資料 warehouse 工作負載，以 SQL 資料庫的超大規模而不需 T-SQL 程式碼變更。
 
 如果您使用平行處理資料倉儲 (PDW)、Teradata 或其他巨量平行處理器 (MPP) 資料倉儲，以複雜的查詢大規模執行資料分析，則 SQL 資料倉儲將是最佳選擇。
   
@@ -349,7 +349,7 @@ IOPS 和 IO 延遲會因工作負載模式。  如果需要存取的資料是本
 
 是。 暫存資料庫將隨著計算的成長而自動相應增加。  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>我是否可以佈建多個主要計算，例如有多個主要計算前端可提高並行層級的多重主機系統
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>可以佈建多個主要的計算節點，例如多重主機系統，其中多個主要的計算讀寫頭可以驅動較高層級的並行存取
 
 沒有。 只有主要計算節點會接受讀取/寫入要求。 次要計算節點僅接受唯讀要求。
 
@@ -369,11 +369,11 @@ IOPS 和 IO 延遲會因工作負載模式。  如果需要存取的資料是本
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>系統是否會對讀取工作負載進行智慧型負載平衡
 
-沒有。 重新導向至隨機的讀取級別複本讀取的唯一工作負載。
+沒有。 唯讀工作負載重新導向至隨機的讀取級別複本。
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>是否可在主要計算節點外獨立相應增加/減少次要計算節點
 
-沒有。 次要的計算節點也會用於 HA，因此必須要與主要資料庫，在容錯移轉時相同的組態。
+沒有。 次要的計算節點也會用於 HA，因此必須要與主要資料庫發生容錯移轉時相同的組態。
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>主要計算節點和其他次要計算節點是否可以有不同的暫存資料庫大小
 

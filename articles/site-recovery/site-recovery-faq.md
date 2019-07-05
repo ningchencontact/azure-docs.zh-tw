@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9c7aa2be945e4fbaa65bdd2a145d576422c5539
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396493"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491760"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文摘要說明 Azure Site Recovery 的相關常見問題的解答。</br>
@@ -150,7 +150,7 @@ Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體�
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>為何我無法透過 VPN 進行複寫？
 
-當您複寫至 Azure 時，複寫流量就會達到 Azure 儲存體的公用端點。 因此您只能複寫透過公用網際網路透過 ExpressRoute （公用對等互連），以及 VPN 無法運作。
+當您複寫至 Azure 時，複寫流量就會達到 Azure 儲存體的公用端點。 因此您只能複寫透過公用網際網路 （Microsoft 對等互連或現有的公用對等） 的 expressroute 和 VPN 無法運作。
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>我可以使用複寫 Riverbed SteelHeads 嗎？
 
@@ -159,12 +159,11 @@ Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體�
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>可以使用 ExpressRoute 將虛擬機器複寫到 Azure 嗎？
 是的，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 將內部部署虛擬機器複寫至 Azure。
 
-- Azure Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，以使用 Site Recovery 複寫的 ExpressRoute。
+- Azure Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體。 您必須設定[Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)或使用現有[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)（適用於新的電路已被取代） 使用 Site Recovery 複寫的 ExpressRoute。
 - Microsoft 對等互連是建議用於複寫的路由網域。
-- 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)安裝來存取這些虛擬機器。
 - 私用對等互連不支援複寫。
-- 如果您要保護 VMware 機器或實體機器，請確定組態伺服器遵守[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)複寫。 
-
+- 如果您要保護 VMware 機器或實體機器，請確認[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)也會符合組態伺服器。 Site Recovery 複寫的協調流程，特定 Url 的連線所需的組態伺服器。 無法為此連線使用 ExpressRoute。
+- 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)安裝來存取這些虛擬機器。
 
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>如果我複寫至 Azure，我需要哪種儲存體帳戶或受控的磁碟？

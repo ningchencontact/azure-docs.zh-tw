@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427107"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514470"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>商務持續性和災害復原 (BCDR)：Azure 配對區域
 
@@ -42,7 +42,7 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 印度 |印度西部 |印度南部 |
 | 日本 |日本東部 |日本西部 |
 | 南韓 |南韓中部 |南韓南部 |
-| 北美洲 |美國東部 |美國西部 |
+| 北美洲 |East US |美國西部 |
 | 北美洲 |美國東部 2 |美國中部 |
 | 北美洲 |美國中北部 |美國中南部 |
 | 北美洲 |美國西部 2 |美國中西部 
@@ -77,7 +77,7 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure 運算 (IaaS)** ：您必須佈建額外的運算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。 如需詳細資訊，請參閱 [Azure 復原技術指導](resiliency/resiliency-technical-guidance.md)。
 
-![儲存體](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體**：建立 Azure 儲存體帳戶時，預設會設定異地備援儲存體 (GRS)。 使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/common/storage-redundancy.md)。
+![儲存體](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體**-如果您使用受控的磁碟，深入了解[跨區域備份](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines)使用 Azure 備份，以及[複寫 Vm](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)從一個區域到另一個使用 Azure Site Recovery。 如果您使用儲存體帳戶，則異地備援儲存體 (GRS) 設定預設 Azure 儲存體帳戶建立時。 使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。 如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/common/storage-redundancy.md)。
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – 使用 Azure SQL Database 異地複寫，您就可以設定非同步交易複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。 如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](sql-database/sql-database-geo-replication-overview.md)。
 

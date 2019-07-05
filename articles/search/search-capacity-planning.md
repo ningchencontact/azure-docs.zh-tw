@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308699"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485707"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>調整資料分割和複本適用於查詢和編製索引工作負載，在 Azure 搜尋服務
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
@@ -47,6 +47,7 @@ ms.locfileid: "60308699"
 一般而言，搜尋應用程式需要的複本數量會多於分割區數量，特別是在服務作業偏向查詢工作負載的情況下。 [高可用性](#HA) 一節將會說明原因。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後選取搜尋服務。
+
 2. 在 **設定**，開啟**擴展**頁面以修改複本和分割區。 
 
    下列螢幕擷取畫面顯示一個複本和分割區佈建的標準服務。 在底部的公式會指出多少個搜尋單位正在使用 (1)。 如果單位價格為 $100 （而不實際價格），執行這項服務的每月成本就會平均是美金 100 元。
@@ -108,6 +109,7 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 針對高可用性的一般建議為：
 
 * 針對唯讀工作負載 (查詢)，需有 2 個複本才能達到高可用性
+
 * 針對讀寫工作負載 (查詢再加上新增、更新或刪除個別文件時的索引編製)，需有 3 個或更多個複本才能達到高可用性
 
 「Azure 搜尋服務」的「服務等級協定」(SLA) 是針對查詢作業和由新增、更新或刪除文件所組成的索引更新。

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399582"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491874"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 至 Azure 災害復原架構
 
@@ -31,7 +31,7 @@ ms.locfileid: "66399582"
 **來源區域中的 VM** | [支援的來源區域](azure-to-azure-support-matrix.md#region-support)中的一或多個 Azure VM。<br/><br/> VM 可執行任何[支援的作業系統](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)。
 **來源 VM 儲存體** | Azure VM 可以是受控的，或具有分散於不同儲存體帳戶間的非受控磁碟。<br/><br/>[深入了解](azure-to-azure-support-matrix.md#replicated-machines---storage)支援的 Azure 儲存體。
 **來源 VM 網路** | VM 可在來源區域中位於虛擬網路 (VNet) 內的一或多個子網路上。 [深入了解](azure-to-azure-support-matrix.md#replicated-machines---networking)網路需求。
-**快取儲存體帳戶** | 您必須要有位於來源網路中的快取儲存體帳戶。 在複寫期間，VM 變更會先儲存在快取中，再傳送至目標儲存體。<br/><br/> 使用快取可確保在 VM 上執行的生產應用程式所受到的影響會降到最低。<br/><br/> [深入了解](azure-to-azure-support-matrix.md#cache-storage)快取儲存體需求。 
+**快取儲存體帳戶** | 您必須要有位於來源網路中的快取儲存體帳戶。 在複寫期間，VM 變更會先儲存在快取中，再傳送至目標儲存體。  快取儲存體帳戶必須是 Standard。<br/><br/> 使用快取可確保在 VM 上執行的生產應用程式所受到的影響會降到最低。<br/><br/> [深入了解](azure-to-azure-support-matrix.md#cache-storage)快取儲存體需求。 
 **目標資源** | 在複寫期間和執行容錯移轉時，都會使用目標資源。 Site Recovery 可依預設進行目標資源設定，您也可自行加以建立/自訂。<br/><br/> 在目標區域中，請確認您能夠建立 VM，且您的訂用帳戶有足夠的資源可支援目標區域中所需的 VM 大小。 
 
 ![來源和目標複寫](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

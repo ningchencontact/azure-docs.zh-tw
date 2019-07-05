@@ -2,18 +2,18 @@
 title: 針對將更新管理、變更追蹤和清查上線時的錯誤進行疑難排解
 description: 了解如何針對將更新管理、變更追蹤和清查解決方案上線時的錯誤進行疑難排解
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 012cf227bea7dc24eb85fcd9179a7b1025327dcf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342140"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477490"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 

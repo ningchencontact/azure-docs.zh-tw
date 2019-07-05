@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332364"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551792"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>Azure 資源和使用者的 UEBA 
 
@@ -55,8 +55,8 @@ Azure 資訊安全中心與 Microsoft Cloud App Security 合作，為您的 Azur
 
 這些警示預設為啟用，但您可以停用它們：
 
-1. 在 [資訊安全中心] 刀鋒視窗中，選取 [安全性原則]  。 針對您要變更的訂用帳戶按一下 [編輯設定]  。
-2.  按一下 [威脅偵測]  。
+1. 在 [資訊安全中心] 刀鋒視窗中，選取**價格和設定**選取適用的訂用帳戶。
+2. 按一下 [威脅偵測]  。
 3. 在 [啟用整合]  底下，取消選取 [允許 Microsoft Cloud App Security 存取我的資料]  ，然後按一下 [儲存]  。
 
    ![威脅偵測警示](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252804"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450090"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -55,7 +55,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 | sequence-number |IoT 中樞指派給每則雲端到裝置訊息的數字 (對每個裝置佇列而言都是唯一的)。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
 | to |[雲端到裝置](iot-hub-devguide-c2d-guidance.md) 訊息中指定的目的地。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
 | absolute-expiry-time |訊息到期的日期和時間。 | 是 |
-| iothub-enqueuedtime |IoT 中樞收到[雲端到裝置](iot-hub-devguide-c2d-guidance.md)訊息的日期和時間。 | [否] 表示 C2D 訊息；[是] 表示其他。 |
+| iothub-enqueuedtime |日期和時間[裝置到雲端](iot-hub-devguide-d2c-guidance.md)IoT 中樞所收到訊息。 | [否] 表示 D2C 訊息；[是] 表示其他。 |
 | correlation-id |回應訊息中的字串屬性，通常包含採用「要求-回覆」模式之要求的 MessageId。 | 是 |
 | user-id |用來指定訊息來源的識別碼。 當 IoT 中樞產生訊息時，它會設定為 `{iot hub name}`。 | 否 |
 | iothub-ack |意見反應訊息產生器。 這個屬性是在雲端到裝置訊息中使用，可要求 IoT 中樞因為裝置取用訊息而產生意見反應訊息。 可能的值︰**none** (預設值)︰不會產生任何意見反應訊息；**positive**︰如果訊息已完成，則會收到意見反應訊息；**negative**︰如果訊息未由裝置完成就到期 (或已達到最大傳遞計數) 則會收到意見反應訊息；或者 **full**︰positive 和 negative。 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | 是 |
