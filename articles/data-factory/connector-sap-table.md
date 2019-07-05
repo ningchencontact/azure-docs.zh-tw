@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e54a69b6c2b48e50c089f8b6b7458cf91133dd85
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074055"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443309"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>從 SAP 資料表使用 Azure Data Factory 複製資料
 
@@ -206,16 +206,16 @@ SAP BW Open Hub 來回，請複製資料，支援下列屬性。
 
 | 屬性                         | 描述                                                  | 必要項 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| type                             | Type 屬性必須設定為**SapTableSource**。       | 是      |
+| type                             | Type 屬性必須設定為**SapTableSource**。         | 是      |
 | rowCount                         | 要擷取的資料列數目。                              | 否       |
-| rfcTableFields                   | 若要從 SAP 資料表複製的欄位。 例如： `column0, column1`。 | 否       |
-| rfcTableOptions                  | SAP 資料表中的資料列篩選選項。 例如： `COLUMN0 EQ 'SOMEVALUE'`。 請參閱此表格下方的詳細描述。 | 否       |
-| customRfcReadTableFunctionModule | 自訂 RFC 函式的模組，可用來從 SAP 資料表讀取資料。 | 否       |
+| rfcTableFields                   | 若要從 SAP 資料表複製的欄位。 例如： `column0, column1` 。 | 否       |
+| rfcTableOptions                  | SAP 資料表中的資料列篩選選項。 例如： `COLUMN0 EQ 'SOMEVALUE'` 。 請參閱此表格下方的詳細描述。 | 否       |
+| customRfcReadTableFunctionModule | 自訂 RFC 函式的模組，可用來從 SAP 資料表讀取資料。<br>您可以使用自訂的 RFC 函式模組來定義如何從您的 SAP 系統中讀取資料，並傳回給 ADF。 同時，請注意自訂函數模組需要有類似的介面實作 （匯入、 匯出資料表），為 SAPDS/RFC_READ_TABLE2 ADF 所使用的預設為類似。 | 否       |
 | partitionOption                  | 若要從 SAP 資料表讀取資料分割機制。 支援的選項包括： <br/>- **None**<br/>- **PartitionOnInt** （一般整數或整數值，以零填補左方 0000012345 等）<br/>- **PartitionOnCalendarYear** (4 digits in format "YYYY")<br/>- **PartitionOnCalendarMonth** （格式為"YYYYMM 」 的 6 位數）<br/>- **PartitionOnCalendarDate** （格式為"YYYYMMDD"的 8 位數） | 否       |
-| partitionColumnName              | 要分割資料的資料行名稱。 | 否       |
+| partitionColumnName              | 要分割資料的資料行名稱。                | 否       |
 | partitionUpperBound              | 在指定的資料行的最大值`partitionColumnName`，將會用於進行資料分割。 | 否       |
 | partitionLowerBound              | 在指定的資料行的最小值`partitionColumnName`，將會用於進行資料分割。 | 否       |
-| maxPartitionsNumber              | 若要將資料分割成的資料分割的數目上限。 | 否       |
+| maxPartitionsNumber              | 若要將資料分割成的資料分割的數目上限。     | 否       |
 
 >[!TIP]
 >- 如果您的 SAP 資料表有大量的資料，例如數個數十億個資料列，使用`partitionOption`和`partitionSetting`將資料分割成小型資料分割，在此情況下讀取的資料分割且每個資料分割的資料會從您透過一個單一的 SAP 伺服器RFC 呼叫。<br/>
@@ -278,13 +278,13 @@ SAP BW Open Hub 來回，請複製資料，支援下列屬性。
 
 | SAP ABAP 類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| C (字串) | 字串 |
+| C (字串) | String |
 | 我 （整數） | Int32 |
 | F (浮點數) | Double |
 | D (日期) | 字串 |
 | T (時間) | 字串 |
 | P (BCD 封裝、貨幣、小數、數量) | Decimal |
-| N （數值） | 字串 |
+| N （數值） | String |
 | X (二進位和原始) | 字串 |
 
 ## <a name="next-steps"></a>後續步驟

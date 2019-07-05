@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bc2e585ccce250dd83dc855c3eda5f958186a7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696917"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484060"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight 中的大規模串流
 
@@ -64,7 +64,7 @@ Apache Spark 可根據應用程式需求，使用下列三個主要參數來設�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [開始使用 Apache Storm on HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
+* [建立和監視 Azure HDInsight 中的 Apache Storm 拓撲](storm/apache-storm-quickstart.md)
 * [Apache Storm on HDInsight 的範例拓撲](storm/apache-storm-example-topology.md)
 * [HDInsight 上的 Apache Spark 簡介](spark/apache-spark-overview.md)
 * [開始使用 Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)

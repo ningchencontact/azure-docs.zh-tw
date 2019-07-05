@@ -1,34 +1,30 @@
 ---
-title: 了解價位表中的條款，Microsoft 客戶合約-Azure |Microsoft Docs
-description: 學習如何閱讀並了解 Azure 訂用帳戶的使用情形和帳單
-services: ''
-documentationcenter: ''
-author: jureid
+title: 了解價位表中的條款，Microsoft 客戶合約-Azure
+description: 了解如何閱讀並了解您的使用量和帳單，Microsoft 客戶協議。
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371354"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490655"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>了解 Microsoft 的客戶合約的價位表中的條款
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>在您的 Microsoft 客戶合約價位表中的條款
 
-這篇文章適用於計費的帳戶 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
+這篇文章適用於 Azure 的計費帳戶的 Microsoft 客戶合約。 [檢查您是否擁有存取權的 Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)。
 
 如果您是擁有者、 參與者、 讀取器或發票管理員的帳單設定檔您可以從 Azure 入口網站來下載您組織的價位表。 請參閱[檢視並下載您的組織的定價](billing-ea-pricing.md)。
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>詳細的字詞和描述，在您的 Microsoft 客戶合約價位表
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>條款和價位表中的描述
 
 下節說明您的 Microsoft 客戶合約價位表所示的重要字詞。
 
@@ -61,7 +57,7 @@ ms.locfileid: "60371354"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 

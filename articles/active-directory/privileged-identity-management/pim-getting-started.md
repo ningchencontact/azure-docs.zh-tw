@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289912"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476477"
 ---
 # <a name="start-using-pim"></a>開始使用 PIM
 
@@ -56,25 +56,25 @@ ms.locfileid: "60289912"
 
 1. 在清單中，按一下 [同意 PIM]  。
 
-    ![同意 PIM](./media/pim-getting-started/consent-pim.png)
+    ![同意 PIM，若要啟用 PIM](./media/pim-getting-started/consent-pim.png)
 
 1. 按一下 [驗證我的身分識別]  以使用 Azure MFA 驗證您的身分識別。 系統會要求您選取帳戶。
 
-    ![選取帳戶](./media/pim-getting-started/pick-account.png)
+    ![挑選帳戶視窗，以確認您的身分識別](./media/pim-getting-started/pick-account.png)
 
 1. 如果需要更多資訊才能完成驗證，系統將會引導您完成相關程序。 如需詳細資訊，請參閱[取得雙步驟驗證的說明](https://go.microsoft.com/fwlink/p/?LinkId=708614)。
 
-    ![需要更多資訊](./media/pim-getting-started/more-information-required.png)
+    ![如果您的組織需要更多的資訊視窗所需的詳細資訊](./media/pim-getting-started/more-information-required.png)
 
     例如，系統可能會要求您提供電話驗證。
 
-    ![其他安全性驗證](./media/pim-getting-started/additional-security-verification.png)
+    ![詢問如何與您連絡其他安全性驗證 頁面](./media/pim-getting-started/additional-security-verification.png)
 
 1. 一旦您完成驗證程序後，請按一下 [同意]  按鈕。
 
 1. 在出現的訊息中，按一下 [是]  以同意 PIM 服務。
 
-    ![同意 PIM 訊息](./media/pim-getting-started/consent-pim-message.png)
+    ![同意 PIM 訊息，必須先完成同意程序](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>針對 Azure AD 角色註冊 PIM
 
@@ -100,7 +100,7 @@ ms.locfileid: "60289912"
 
 PIM 設定完成後，您可以執行身分識別管理工作。
 
-![PIM 的最上層工作 - 螢幕擷取畫面](./media/pim-getting-started/pim-quickstart-tasks.png)
+![瀏覽視窗中的 PIM 顯示工作，並管理選項](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | 工作 + 管理 | 描述 |
 | --- | --- |
@@ -125,11 +125,11 @@ PIM 設定完成後，您可以執行身分識別管理工作。
 
 1. 請參閱**將刀鋒視窗釘選到儀表板**，將 [PIM 快速入門] 刀鋒視窗釘選到儀表板上。
 
-    ![將刀鋒視窗釘選到儀表板](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![圖釘圖示來 PIM 刀鋒視窗釘選到儀表板](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     在 Azure 儀表板上，您會看到像這樣的圖格：
 
-    ![PIM 快速入門圖格](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![在 [儀表板上的 PIM 快速入門] 圖格](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>後續步驟
 

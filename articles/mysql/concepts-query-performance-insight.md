@@ -5,22 +5,34 @@ author: ajlam
 ms.author: andrela
 ms.service: MySQL
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 1243ae8ae20d08ea643661606639abedbc56ab9c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078777"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461762"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 
 **適用於：**  適用於 MySQL 5.7 的 Azure 資料庫
 
 > [!NOTE]
-> 查詢效能深入解析為預覽狀態。 在 Azure 入口網站支援查詢效能深入解析正推出，並可能尚無法在您的區域。
+> 查詢效能深入解析為預覽狀態。
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
+
+## <a name="common-scenarios"></a>常見案例
+
+### <a name="long-running-queries"></a>長時間執行的查詢
+
+- 識別在過去 X 小時中執行最久的查詢
+- 識別等候資源的前 N 項查詢
+ 
+### <a name="wait-statistics"></a>等候統計資料
+
+- 了解查詢的等候本質。
+- 資源等候和資源爭用所在的了解趨勢
 
 ## <a name="permissions"></a>權限
 
@@ -36,11 +48,20 @@ Azure 入口網站中的[查詢效能深入解析](concepts-query-performance-in
 
 在您的 Azure Database for MySQL 伺服器的入口網站頁面中，選取 **查詢效能深入解析** 之下 **智慧型效能** 功能表列的部分。
 
-![查詢效能深入解析長時間執行的查詢](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+### <a name="long-running-queries"></a>長時間執行的查詢
 
  **長時間執行的查詢** 索引標籤會顯示前 5 個查詢的平均持續時間，每次執行，每隔 15 分鐘彙總。 您可以檢視更多查詢，從選取 **的查詢數目** 下拉式清單。 當您這樣做時，特定查詢識別碼的圖表色彩可能會有所變更。
 
 您可以在圖表中按一下並拖曳來縮小到特定時間範圍。 或者，使用 in 和 out 圖示為縮放層級，分別檢視一段小或較大的時間。
+
+![查詢效能深入解析長時間執行的查詢](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+
+### <a name="wait-statistics"></a>等候統計資料
+
+> [!NOTE]
+> 等候統計資料是為了疑難排解查詢效能問題。 建議您開啟的僅供疑難排解之用。
+
+等候統計資料會提供特定的查詢執行期間發生的等候事件的檢視。 深入了解在等候事件類型[MySQL 引擎文件](https://go.microsoft.com/fwlink/?linkid=2098206)。
 
 選取  **Wait Statistics**索引標籤，檢視對應的視覺效果上伺服器的等候時間。
 

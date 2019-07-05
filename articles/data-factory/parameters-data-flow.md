@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274701"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477712"
 ---
 # <a name="mapping-data-flow-parameters"></a>對應資料的流程參數
 
@@ -37,6 +37,12 @@ Azure Data Factory 中的對應資料流支援使用參數。 您可以定義參
 參數可以利用任何資料的流程運算式中。 參數會以 $ 開頭，而且是固定不變。 您會發現在 運算式產生器的 參數 索引標籤內的可用參數的清單。
 
 ![資料流程參數運算式](media/data-flow/parameter-expression.png "資料流程參數運算式")
+
+## <a name="use-parameters-in-your-data-flow"></a>在資料流程中使用參數
+
+* 您可以使用參數值，轉換運算式內。 在 運算式產生器中，您會發現在 參數 索引標籤下的參數清單。 ![使用資料流程的參數](media/data-flow/params9.png "使用資料流程的參數")
+
+* 參數也會用來設定動態值，您的來源和接收器轉換設定。 當您按一下內可設定的欄位時，您會看到出現的 [新增動態 contect] 連結。 按一下那里會帶您前往 運算式產生器，您可以使用參數來使用動態值。 ![資料流程動態內容](media/data-flow/params6.png "資料流程動態內容")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>從管線中設定對應的資料流的參數
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219032"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434213"
 ---
 # <a name="manage-azure-vm-backups"></a>管理 Azure VM 備份
 
@@ -103,25 +103,36 @@ ms.locfileid: "61219032"
 
 有兩種方式可停止保護 VM:
 
-- 停止所有未來的備份作業並刪除所有復原點。 在此情況下，您將無法還原 VM。
-- 停止所有未來的備份作業，並保留復原點。 雖然您會需要保存庫中保留復原點，用多少付多少，您將能夠還原 VM，如有需要。 如需詳細資訊，請參閱 < [Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
+* **停止保護並保留備份資料**。 此選項會停止所有未來的備份作業，從保護您的 VM;不過，Azure 備份服務會保留已備份的復原點。  您將需要支付給保存庫中保留復原點 (請參閱[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)如需詳細資訊)。 您可以視需要還原 VM。 如果您決定要繼續 VM 的保護，則您可以使用*繼續備份*選項。
+* **停止保護並且刪除備份資料**。 這個選項會停止所有未來的備份作業，從保護您的 VM，並刪除所有復原點。 您將無法還原的 VM，也無法使用*繼續備份*選項。
 
 >[!NOTE]
 >如果您刪除資料來源而不需停止備份時，新的備份將會失敗。 根據原則，將到期的舊的復原點，但將一律會保留最後一個復原點，直到您停止備份並刪除資料。
 >
 
-若要停止 VM 的保護：
+### <a name="stop-protection-and-retain-backup-data"></a>停止保護並保留備份資料
+
+若要停止保護並保留 VM 的資料：
 
 1. 在 [保存庫項目的儀表板](#view-vms-on-the-dashboard)，選取**停止備份**。
-2. 選擇是否要保留或刪除備份資料，並視需要請確認您的選取項目。 如果您想要請新增註解。 如果您不確定項目的名稱，請暫留在驚嘆號來檢視的名稱。
+2. 選擇**保留備份資料**，並視需要請確認您的選取項目。 如果您想要請新增註解。 如果您不確定項目的名稱，請暫留在驚嘆號來檢視的名稱。
 
-    ![停止保護](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![保留備份資料](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     通知可讓您知道備份作業已停止。
+通知可讓您知道備份作業已停止。
+
+### <a name="stop-protection-and-delete-backup-data"></a>停止保護並且刪除備份資料
+
+若要停止保護並刪除 VM 的資料：
+
+1. 在 [保存庫項目的儀表板](#view-vms-on-the-dashboard)，選取**停止備份**。
+2. 選擇**刪除備份資料**，並視需要請確認您的選取項目。 輸入備份項目的名稱，並加入註解，如果您想要。
+
+    ![刪除備份資料](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>繼續保護 VM
 
-如果當您停止 VM 時，您就會保留備份資料，您可以稍後繼續保護。 如果您刪除備份資料時，您無法繼續保護。
+如果您已選擇[停止保護並保留備份資料](#stop-protection-and-retain-backup-data)選項停止 VM 的保護，則您可以使用**繼續備份**。 不提供，如果您選擇此選項[停止保護並且刪除備份資料](#stop-protection-and-delete-backup-data)選項或[刪除備份資料](#delete-backup-data)。
 
 若要繼續保護 VM:
 
@@ -134,23 +145,25 @@ ms.locfileid: "61219032"
 
 ## <a name="delete-backup-data"></a>刪除備份資料
 
-您可以刪除虛擬機器的備份資料期間**停止備份**作業或在備份作業完成之後。 刪除備份資料之前，請記住這些詳細資料：
+有兩種方式刪除虛擬機器的備份資料：
 
-- 它可能是個不錯的主意，等候幾天或數週之前刪除復原點。
-- 不同於處理程序來還原復原點，當您刪除備份資料，您無法選擇刪除特定的復原點。 如果您刪除備份資料時，您就會刪除所有相關聯的復原點。
+- 從保存庫項目儀表板中，選取 停止備份，並遵循指示[停止保護並且刪除備份資料](#stop-protection-and-delete-backup-data)選項。
 
-在您停止或停用 VM 的備份作業之後，您可以刪除備份資料：
+  ![選取 [停止備份]](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- 從保存庫項目儀表板中，選取 刪除備份資料。 如果您已選擇啟用此選項，則[停止保護並保留備份資料](#stop-protection-and-retain-backup-data)期間停止 VM 的保護選項
 
-1. 在 [保存庫項目儀表板](#view-vms-on-the-dashboard)，選取**刪除備份資料**。
+  ![選取 刪除備份](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![選取 刪除備份](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - 在 [保存庫項目儀表板](#view-vms-on-the-dashboard)，選取**刪除備份資料**。
+  - 輸入備份項目，以確認您想要刪除復原點的名稱。
 
-1. 輸入備份項目，以確認您想要刪除復原點的名稱。
+    ![刪除備份資料](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![確認您想要刪除復原點](./media/backup-azure-manage-vms/item-verification-box.png)
+  - 若要刪除之項目的備份資料，請選取**刪除**。 通知訊息可讓您知道已刪除備份資料。
 
-1. 若要刪除之項目的備份資料，請選取**刪除**。 通知訊息可讓您知道已刪除備份資料。
+  > [!NOTE]
+  > 當您刪除備份資料會刪除所有相關聯的復原點。 您無法選擇刪除特定的復原點。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[從 VM 的 設定 Azure Vm 備份](backup-azure-vms-first-look-arm.md)。

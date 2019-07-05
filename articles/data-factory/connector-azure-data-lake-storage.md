@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203302"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509246"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料
 
@@ -115,7 +115,7 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
 >清單資料夾啟動從帳戶層級，或若要測試連線，您需要設定服務主體授與的權限**儲存體帳戶中 IAM 的 「 儲存體 Blob 資料讀者 」 權限**。 您使用下列項目時，這種情況即會成立：
 >- **複製資料工具**以作者複製管線。
 >- 以 **Data Factory UI** 在製作期間測試連線和瀏覽資料夾。 
->如果您有關於在帳戶層級的權限授與的考量，您可以略過測試連接，並輸入的路徑以手動方式在撰寫期間。 複製活動仍能運作，只要服務主體授與具有適當的權限在檔案複製。
+>如果您有疑慮授與權限在帳戶層級，在撰寫期間，略過測試連線，以及授與權限的父路徑 [瀏覽] 從指定路徑的輸入。 只要服務主體授與具有適當的權限在檔案複製，請將複製活動的運作方式。
 
 針對已連結服務支援這些屬性：
 
@@ -169,7 +169,7 @@ Azure Data Lake 儲存體 Gen2 連接器支援下列驗證類型。 請參閱對
 >清單資料夾啟動從帳戶層級，或若要測試連線，您必須設定受管理的身分識別授與的權限**儲存體帳戶中 IAM 的 「 儲存體 Blob 資料讀者 」 權限**。 您使用下列項目時，這種情況即會成立：
 >- **複製資料工具**以作者複製管線。
 >- 以 **Data Factory UI** 在製作期間測試連線和瀏覽資料夾。 
->如果您有關於在帳戶層級的權限授與的考量，您可以略過測試連接，並輸入的路徑以手動方式在撰寫期間。 複製活動仍能運作，只要受控身分識別時授與適當的權限在檔案複製。
+>如果您有疑慮授與權限在帳戶層級，在撰寫期間，略過測試連線，以及授與權限的父路徑 [瀏覽] 從指定路徑的輸入。 只要服務主體授與具有適當的權限在檔案複製，請將複製活動的運作方式。
 
 >[!IMPORTANT]
 >如果您使用 PolyBase 將資料從 Data Lake 儲存體 Gen2 載入 SQL 資料倉儲中，使用 Data Lake 儲存體 Gen2 受控身分識別驗證時，請確定您也可以遵循步驟 1 和 2 中的[本指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)為 1) 註冊您的 SQL資料庫伺服器與 Azure Active Directory (Azure AD) 和 2），將儲存體 Blob 資料參與者角色指派給您的 SQL Database 伺服器;Data Factory 會處理其餘部分。 如果您的 Data Lake 儲存體 Gen2 已與 Azure 虛擬網路端點，若要使用 PolyBase 載入資料，您必須使用受控身分識別驗證所需的 PolyBase。

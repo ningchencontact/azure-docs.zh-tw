@@ -2,28 +2,21 @@
 title: 在 Azure Active Directory 條件式存取的存取控制有哪些？ | Microsoft Docs
 description: 了解在 Azure Active Directory 條件式存取的工作中的存取控制如何。
 services: active-directory
-keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 06/15/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206b5fef3e4e686bd237fe0f45cfb91dccd4626f
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: a5fc672898a56d8b3e1486b1d8d84cf532fa2b6d
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136499"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509399"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>在 Azure Active Directory 條件式存取的存取控制有哪些？
 
@@ -34,7 +27,6 @@ ms.locfileid: "67136499"
 條件式存取的內容中
 
 - "**When this happens**" 稱為**條件**
-
 - "**Then do this**" 稱為**存取控制**
 
 條件陳述式與控制項的組合即代表條件式存取原則。
@@ -46,7 +38,6 @@ ms.locfileid: "67136499"
 控制項分為兩種：
 
 - **授與控制項** - 限制存取權限
-
 - **工作階段控制項** - 限制工作階段內的存取權限
 
 本主題說明 Azure AD 條件式存取中可用的各種控制項。 
@@ -65,7 +56,6 @@ ms.locfileid: "67136499"
 您可以使用這個控制項來要求使用者通過 Multi-Factor Authentication 後，才能存取指定的雲端應用程式。 這個控制項支援以下多重要素提供者：
 
 - Azure Multi-Factor Authentication
-
 - 結合 Active Directory Federation Services (AD FS) 的內部部署 Multi-Factor Authentication 提供者。
 
 對於未獲授權但已取得有效使用者之主要認證存取權的使用者，使用 Multi-Factor Authentication 有助於防止其存取資源。
@@ -76,9 +66,11 @@ ms.locfileid: "67136499"
 
 您的裝置必須向 Azure AD 註冊，才能標示為符合規範。 若要註冊裝置，您會有三個選項： 
 
-- [Azure AD 註冊裝置](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD 已加入裝置](../devices/overview.md#azure-ad-joined-devices)  
-- [混合式 Azure AD 已加入裝置](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Azure AD 註冊裝置
+- Azure AD 加入裝置  
+- 混合式 Azure AD 已加入裝置
+
+在本文中討論這三個選項[什麼是裝置身分識別？](../devices/overview.md)
 
 如需詳細資訊，請參閱 <<c0> [ 如何要求使用條件式存取的雲端應用程式存取的受管理的裝置](require-managed-devices.md)。
 
@@ -106,16 +98,11 @@ ms.locfileid: "67136499"
 
 如需支援的原則的受保護的用戶端應用程式，請參閱[應用程式保護原則需求](technical-reference.md#app-protection-policy-requirement)。
 
-
 ### <a name="terms-of-use"></a>使用規定
 
 您可以要求租用戶中的使用者先同意使用條款，再授與他們存取資源的權利。 身為系統管理員，您可以上傳 PDF 文件來設定及自訂使用條款。 使用者如果落在此控制項的控制範圍內，就必須同意使用條款才會獲得應用程式的存取權。
 
-### <a name="custom-controls-preview"></a>自訂控制項 (預覽)
-
-您可以將使用者重新導向至相容的服務，以進一步滿足需求，Azure Active Directory 之外的條件式存取中新增自訂控制項。 這可讓您使用某些外部的多重要素驗證和驗證提供者來強制執行條件式存取需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。 
-
-## <a name="custom-controls"></a>自訂控制項
+## <a name="custom-controls-preview"></a>自訂控制項 (預覽)
 
 自訂控制項是 Azure Active Directory Premium P1 版本的一項功能。 使用自訂控制項時，系統會將使用者重新導向到相容的服務，以滿足 Azure Active Directory 之外的進一步需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 確認回應，而且，如果使用者已成功驗證或驗證，使用者會繼續進行條件式存取流程。
 
@@ -157,10 +144,8 @@ ms.locfileid: "67136499"
 若要刪除自訂控制項，您必須先確定它不在任何條件式存取原則中所使用。 完成之後：
 
 1. 移至 [自訂控制項] 清單
-
-2. 按一下 [...]  
-
-3. 選取 [刪除]  。
+1. 按一下 [...]  
+1. 選取 [刪除]  。
 
 ### <a name="editing-custom-controls"></a>編輯自訂控制項
 
@@ -179,11 +164,9 @@ ms.locfileid: "67136499"
 若要深入了解，請參閱：
 
 - [啟用 SharePoint Online 的有限存取](https://aka.ms/spolimitedaccessdocs)
-
 - [啟用 Exchange Online 的有限存取](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如果您想要了解如何設定條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
-
 - 如果您已準備好設定您的環境的條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。

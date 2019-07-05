@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824836"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476545"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>在 Azure Active Directory 設定使用者同意應用程式的方式
 了解如何設定使用者同意應用程式權限的方式。 您可以授與管理員同意，以簡化使用者體驗。 本文提供不同的方式供您設定使用者同意。 這些方法適用於 Azure Active Directory (Azure AD) 租用戶中的所有使用者。 
@@ -38,9 +38,10 @@ ms.locfileid: "65824836"
 2. 按一下左側導覽功能表頂端的 [所有服務]  。 [Azure Active Directory 擴充功能]  隨即開啟。
 3. 在篩選搜尋方塊中，輸入[Azure Active Directory]  ，然後選取 [Azure Active Directory]  項目。
 4. 從導覽功能表中，按一下 [企業應用程式]  。
-5. 按一下 [授與管理員同意]  。 系統會提示您登入以管理應用程式。
-6. 使用有權限授與管理員同意應用程式的帳戶登入。 
-7. 同意應用程式權限。
+5. 選取 同意的應用程式。
+6. 選取 **權限**，然後按一下**授與系統管理員同意**。 系統會提示您登入以管理應用程式。
+7. 使用有權限授與管理員同意應用程式的帳戶登入。 
+8. 同意應用程式權限。
 
 此選項僅適用於下列情況的應用程式： 
 
@@ -54,8 +55,8 @@ ms.locfileid: "65824836"
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 [應用程式註冊]  刀鋒視窗。
 3. 選取同意的應用程式。
-4. 選取 [必要權限]  。
-5. 按一下刀鋒視窗頂端的 [授與權限]  。
+4. 選取 [API 權限]  。
+5. 按一下 **授與系統管理員同意**。
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>透過 URL 要求授與管理員同意

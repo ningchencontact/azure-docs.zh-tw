@@ -1,23 +1,21 @@
 ---
-title: 管理 Azure 保留 | Microsoft Docs
+title: 管理 Azure 保留的項目
 description: 了解如何變更訂用帳戶範圍和管理 Azure 保留的存取權。
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127118"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491189"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
@@ -54,7 +52,7 @@ ms.locfileid: "66127118"
 
 如果您從共用變更為單一範圍，您只能選取擁有者是您的訂用帳戶。 只能選取與保留屬於相同計費內容的訂用帳戶。
 
-該範圍僅適用於隨用隨付供應項目的 MS-AZR-0003P 或 MS-AZR-0023P、企業供應項目的 MS-AZR-0017P 或 MS-AZR-0148P，或 CSP 訂用帳戶類型。
+範圍僅適用於個別的訂用帳戶，以隨用隨付的費率 （供應項目 MS-AZR-0003 P 或 MS-AZR-0023 P），Enterprise 優惠 MS-AZR-0017 P 或 MS-AZR-0148 P 或 CSP 訂用帳戶類型。
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>新增或變更可以管理保留的使用者
 

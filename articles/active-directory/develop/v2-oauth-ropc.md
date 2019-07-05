@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545117"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482389"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 身分識別平台和 OAuth 2.0 資源擁有者密碼認證
 
@@ -39,7 +39,7 @@ Microsoft 身分識別平台支援[資源擁有者密碼認證 (ROPC) 授與](ht
 
 下圖顯示 ROPC 流程。
 
-![ROPC 流程](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![此圖顯示資源擁有者密碼認證流程](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>授權要求
 
@@ -47,7 +47,7 @@ ROPC 流程是單一要求&mdash;它會將用戶端識別與使用者的認證�
 
 > [!TIP]
 > 嘗試在 Postman 中執行這項要求！
-> [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![嘗試在 Postman 中執行此要求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118581"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436169"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>使用 Azure Batch 搭配轉譯伺服陣列管理員
 
@@ -23,7 +23,7 @@ Azure 會為受歡迎的轉譯管理員提供內建支援或附加元件。 您�
 支援下列轉譯器管理員：
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>使用 Azure 搭配 PipelineFX Qube
@@ -32,7 +32,7 @@ Azure 會為受歡迎的轉譯管理員提供內建支援或附加元件。 您�
 
 ## <a name="using-azure-with-royal-render"></a>使用 Azure 搭配 Royal Render
 
-Royal Render 已內建 Azure 和 Azure Batch 整合功能，可讓您使用以 Azure 為基礎的 VM 擴充轉譯伺服陣列。 如需摘要，請參閱[說明檔](http://www.royalrender.de/help8/index.html?Cloudrendering.html)。
+Royal Render 已內建 Azure 和 Azure Batch 整合功能，可讓您使用以 Azure 為基礎的 VM 擴充轉譯伺服陣列。 如需摘要，請參閱[說明檔](https://www.royalrender.de/help8/index.html?Cloudrendering.html)。
 
 如需使用 Azure 整合的 Royal Render 客戶範例，請參閱 [Jellyfish Pictures 客戶案例](https://customers.microsoft.com/story/jellyfishpictures)。
 

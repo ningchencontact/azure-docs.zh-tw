@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289680"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476530"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>核准或拒絕要求的 Azure AD PIM 中的角色
 
@@ -41,7 +41,7 @@ ms.locfileid: "60289680"
 
 1. 按一下 [核准要求]  。
 
-    ![PIM 的 Azure AD 角色的角色](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Azure AD 角色-核准要求](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     您將看到一份等待您核准的要求清單。
 
@@ -49,27 +49,27 @@ ms.locfileid: "60289680"
 
 1. 選取您要核准的要求，然後按一下 [核准]  ，以開啟 [核准選取要求] 窗格。
 
-    ![PIM 核准要求清單](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![反白顯示的核准選項的核准要求清單](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. 在 [核准原因]  方塊中輸入原因。
 
-    ![PIM 核准所選要求](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![核准所選的要求窗格中，核准原因](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. 按一下 [核准]  。
 
     狀態符號會隨著您的核准而更新。
 
-    ![PIM 核准所選要求](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![核准所選的要求窗格中之後按一下 [核准] 按鈕](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>拒絕要求
 
 1. 選取您要拒絕的要求，然後按一下 [拒絕]  ，以開啟 [拒絕選取要求] 窗格。
 
-    ![PIM 核准要求清單](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![核准要求清單反白顯示的拒絕選項](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. 在 [拒絕原因]  方塊中輸入原因。
 
-    ![PIM 拒絕所選要求](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![拒絕所選的要求窗格中，拒絕原因](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. 按一下 [拒絕]  。
 

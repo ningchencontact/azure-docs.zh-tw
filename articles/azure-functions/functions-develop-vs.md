@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050752"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447723"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
-Azure Functions Tools for Visual Studio 2019 是可讓您開發、 測試及部署的 Visual Studio 的擴充功能C#至 Azure 的函式。 如果這是您第一次體驗 Azure Functions，可至 [Azure Functions 簡介](functions-overview.md)深入了解。
+Azure Functions Tools 是適用於 Visual Studio，可讓您開發、 測試及部署擴充功能C#至 Azure 的函式。 如果這是您第一次體驗 Azure Functions，可至 [Azure Functions 簡介](functions-overview.md)深入了解。
 
 Azure Functions Tools 提供下列優點： 
 
@@ -42,13 +42,11 @@ Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](htt
 
 請確定您的 Visual Studio 是最新的，且您使用的是[最新版本](#check-your-tools-version)的 Azure Functions 工具。
 
-### <a name="other-requirements"></a>其他需求
+### <a name="azure-resources"></a>Azure 資源
 
-若要建立及部署函數，您也需要：
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* 有效的 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，可以使用[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-
-* Azure 儲存體帳戶。 若要建立儲存體帳戶，請參閱[儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
+其他所需資源，例如 Azure 儲存體帳戶，會在您的訂用帳戶，在發佈程序期間建立。
 
 ### <a name="check-your-tools-version"></a>檢查您的工具版本
 
@@ -80,12 +78,20 @@ Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](htt
 
 * **host.json**：可讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
-* **local.settings.json**：維護在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 使用此檔案指定您的函式所需的環境變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值]  陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
+* **local.settings.json**：維護在本機執行函數時所使用的設定。 在 Azure 中執行時，不會使用這些設定。 如需詳細資訊，請參閱 <<c0> [ 本機設定檔](#local-settings-file)。
 
     >[!IMPORTANT]
     >由於 local.settings.json 檔案可以包含祕密，因此，您必須從專案原始檔控制中排除它。 這個檔案的 [複製到輸出目錄]  設定應該一律是 [有更新時才複製]  。 
 
 如需詳細資訊，請參閱 [Functions 類別庫專案](functions-dotnet-class-library.md#functions-class-library-project)。
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+當您發行專案時，不會自動上載 local.settings.json 中的設定。 若要確定這些設定也存在於您的函式應用程式，在 Azure 中，您必須上傳它們之後發佈您的專案。 若要進一步了解，請參閱[函式應用程式設定](#function-app-settings)。
+
+**ConnectionStrings** 中的值永遠不會發佈。
+
+這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱 <<c0> [ 環境變數](functions-dotnet-class-library.md#environment-variables)。
 
 ## <a name="configure-the-project-for-local-development"></a>設定專案以進行本機開發
 
@@ -133,8 +139,9 @@ Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](htt
         }
     }
     ```
+
     會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會作為參數傳遞至 **QueueTrigger** 屬性。 如需詳細資訊，請參閱 [Azure Functions 的 Azure 佇列儲存體繫結](functions-bindings-storage-queue.md#trigger---c-example)。
-    
+
 您可以使用上述程序，對函式應用程式專案新增更多函式。 專案中的每個函式都可以有不同的觸發程序，但函式必須只有一個觸發程序。 如需詳細資訊，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
 
 ## <a name="add-bindings"></a>新增繫結
@@ -183,11 +190,14 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 ## <a name="publish-to-azure"></a>發佈至 Azure
 
+當從 Visual Studio 發佈時，會使用兩種部署方法之一：
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy)： 封裝，並將 Windows 應用程式部署至任何 IIS 伺服器。
+* [壓縮部署與執行-從-套件啟用](functions-deployment-technologies.md#zip-deploy)： 建議用於 Azure Functions 的部署。
+
+您可以使用下列步驟來將專案發佈至 Azure 中的函式應用程式。
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### <a name="deployment-technology"></a>部署技術
-
-當從 Visual Studio 發佈，這兩項技術的其中一個用來執行部署：[Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy)並[Zip Deploy 執行-從-套件啟用 （建議選項）](functions-deployment-technologies.md#zip-deploy)。
 
 ## <a name="function-app-settings"></a>函數應用程式設定
 

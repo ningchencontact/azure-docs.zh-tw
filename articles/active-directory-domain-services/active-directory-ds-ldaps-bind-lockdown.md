@@ -3,7 +3,7 @@ title: 使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域 | Mic
 description: 使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234861"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483376"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域
 
@@ -35,6 +35,11 @@ ms.locfileid: "66234861"
 
 接著繫結至受控網域。 按一下功能表中的 [連線]  ，然後按一下 [繫結...]  。 提供屬於「AAD DC 系統管理員」群組之使用者帳戶的認證。
 
+> [!IMPORTANT]
+> 使用者 （和服務帳戶），如果您已在您的 Azure AD Domain Services 執行個體上停用 NTLM 密碼雜湊同步處理無法執行 LDAP 簡單繫結。  如需有關如何停用 NTLM 密碼雜湊同步處理的詳細資訊，請參閱[保護您的 Azure AD DOmain Services 受控的網域](secure-your-domain.md)。
+>
+>
+
 選取功能表中的 [檢視]  ，然後選取 [樹狀]  。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
 
 > [!TIP]
@@ -43,7 +48,7 @@ ms.locfileid: "66234861"
 >
 >
 
-更多資訊 - [LDAP 查詢基本概念](https://technet.microsoft.com/library/aa996205.aspx)
+更多資訊 - [LDAP 查詢基本概念](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>工作 6：限制透過網際網路存取受控網域時只能使用安全 LDAP 存取
@@ -66,7 +71,7 @@ ms.locfileid: "66234861"
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](create-instance.md)
 * [管理 Azure AD Domain Services 網域](manage-domain.md)
-* [LDAP 查詢基本概念](https://technet.microsoft.com/library/aa996205.aspx)
+* [LDAP 查詢基本概念](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 * [管理 Azure AD Domain services 的群組原則](manage-group-policy.md)
 * [網路安全性群組](../virtual-network/security-overview.md)
 * [建立網路安全性群組](../virtual-network/tutorial-filter-network-traffic.md)

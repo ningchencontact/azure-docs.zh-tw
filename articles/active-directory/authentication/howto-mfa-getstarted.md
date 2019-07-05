@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 296486755f0935e4eb8dcdb663da46ef60ef38bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235543"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441019"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃雲端式 Azure Multi-factor Authentication Server 部署
 
@@ -182,7 +182,7 @@ Get-MsolUser -All | Set-MfaState -State Enforced
 
 # Wrapper to disable MFA with the option to keep the MFA
 # methods (to avoid having to proof-up again later)
-function Disable-Mfa {
+function Disable-MFA {
 
     [CmdletBinding()]
     param(
@@ -368,7 +368,7 @@ Azure MFA 的報表
 
 Azure Multi-factor Authentication 提供透過 Azure 入口網站的報表：
 
-| 報告 | 位置 | 描述 |
+| 報告 | Location | 描述 |
 | --- | --- | --- |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
 

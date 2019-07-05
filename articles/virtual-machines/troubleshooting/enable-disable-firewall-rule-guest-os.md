@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505534"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444640"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>啟用或停用 Azure VM 客體 OS 上的防火牆規則
 
@@ -99,7 +99,7 @@ ms.locfileid: "60505534"
 
 1.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)，然後選取 [檔案]   > [連線網路登錄]  。
 
-2.  開啟  *TARGET MACHINE*\SYSTEM 分支，然後指定下列值：
+2.  開啟*目標機器*\SYSTEM 分支，，然後再指定下列值：
 
     * 若要啟用規則，請開啟下列登錄值：
     
@@ -123,30 +123,30 @@ ms.locfileid: "60505534"
 
 如果任何方法皆無法存取虛擬機器，使用自訂指令碼擴充將會失敗，而且您必須直接透過系統磁碟，在離線模式下工作。
 
-在按照下列步驟進行之前，請先擷取受影響虛擬機器系統磁碟的快照集作為備份。 如需詳細資訊，請參閱 [擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
+在按照下列步驟進行之前，請先擷取受影響虛擬機器系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 
-1.  [將系統磁碟連結至復原虛擬機器](troubleshoot-recovery-disks-portal-windows.md)。
+1.  [將系統磁碟連結至復原 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
 2.  啟動復原 VM 的遠端桌面連線。
 
-3.  確定該磁碟在磁碟管理主控台中標示為 **線上** 。 記下指派給已連結系統磁碟的磁碟機代號。
+3.  確定該磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給已連結系統磁碟的磁碟機代號。
 
-4.  進行任何變更之前，請建立 \windows\system32\config 資料夾的複本，以便在需要回復變更時使用。
+4.  在進行任何變更之前，建立 \windows\system32\config 資料夾的複本，以防是必要的變更回復。
 
-5.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)。
+5.  疑難排解在 VM 上，啟動登錄編輯程式 (regedit.exe)。
 
-6.  反白 **HKEY_LOCAL_MACHINE**  索引鍵，然後從功能表選取 [ **檔案**]  >  [**載入 Hive**]。 
+6.  反白顯示**HKEY_LOCAL_MACHINE**鍵，然後按**檔案** > **載入 hive 控制檔**從功能表。
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  找出，然後開啟 \windows\system32\config\SYSTEM 檔案。 
 
     > [!Note]
-    > 系統會提示您輸入名稱。 輸入  **BROKENSYSTEM**，然後展開  **HKEY_LOCAL_MACHINE**。 您會看見名稱為 **BROKENSYSTEM** 的額外索引鍵。 如需此疑難排解，我們會將這些有問題的 Hive 掛接為  **BROKENSYSTEM**。
+    > 系統會提示您輸入名稱。 請輸入**BROKENSYSTEM**，然後展開**HKEY_LOCAL_MACHINE**。 您現在會看到名為額外索引鍵**BROKENSYSTEM**。 如需此疑難排解，我們會掛接為這些問題 hive **BROKENSYSTEM**。
 
 8.  在 BROKENSYSTEM 分支上進行下列變更：
 
-    1.  檢查虛擬機器從哪個 **ControlSet** 登錄機碼開始。 您會在 HKLM\BROKENSYSTEM\Select\Current 中看見其索引鍵號碼。
+    1.  檢查虛擬機器從哪個 **ControlSet** 登錄機碼開始。 您會看到在 HKLM\BROKENSYSTEM\Select\Current 中索引鍵的編號。
 
     2.  若要啟用規則，請開啟下列登錄值：
     
@@ -164,8 +164,8 @@ ms.locfileid: "60505534"
         
         **v2.22 |動作 = 允許 |作用中 = FALSE |Dir = In |通訊協定 = 6 |設定檔 = Domain |設定檔 = 私密金鑰 |設定檔 = 公用 |LPort = 3389 |App=%SystemRoot%\system32\svchost.exe|Svc = termservice |名稱 =\@還可使用 FirewallAPI.dll，-28775 |Desc =\@還可使用 FirewallAPI.dll，-28756 |EmbedCtxt =\@還可使用 FirewallAPI.dll，-28752 |**
 
-9.  反白  **BROKENSYSTEM**，然後從功能表選取 [ **檔案**]  >  [**上傳 Hive**] 。
+9.  反白顯示**BROKENSYSTEM**，然後選取**檔案** > **解除載入 Hive**從功能表。
 
-10. [中斷連結系統磁碟，並重新建立虛擬機器](troubleshoot-recovery-disks-portal-windows.md)。
+10. [中斷連結系統磁碟並重新建立 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
 11. 檢查問題是否已解決。

@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services：相容的協力廠商軟體 | Mi
 description: 可與 Azure Active Directory Domain Services 搭配運作的協力廠商軟體
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.author: ergreenl
-ms.openlocfilehash: cde5fb8a423f2ee9da2021b371f26ffef2ffd403
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 7d0130c3489d29f4e6b0fbe42f184dd06f17bbd7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246445"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473775"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Azure AD Domain Services 相容的協力廠商軟體
 

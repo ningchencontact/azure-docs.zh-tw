@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734569"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471910"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>建立群組的存取權檢閱，或在 Azure AD 中的應用程式存取權檢閱
 
@@ -43,7 +43,7 @@ ms.locfileid: "66734569"
 
 1. 按一下 [新增存取權檢閱]  ，以建立新的存取權檢閱。
 
-    ![存取權檢閱 - 控制項](./media/create-access-review/access-reviews.png)
+    ![存取權檢閱] 窗格中 [身分識別控管](./media/create-access-review/access-reviews.png)
 
 1. 替存取權檢閱命名。 選擇性地提供檢閱的描述。 檢閱者就會看到名稱和描述。
 
@@ -91,7 +91,7 @@ ms.locfileid: "66734569"
 
 1. 若要指定檢閱完成後所應執行的動作，請展開 [完成時的設定]  區段。
 
-    ![完成時的設定](./media/create-access-review/upon-completion-settings.png)
+    ![建立存取權檢閱-當設定完成時](./media/create-access-review/upon-completion-settings.png)
 
 1. 如果您想要對遭拒絕的使用者自動移除存取權，請將 [自動將結果套用至資源]  設為 [啟用]  。 如果您想要在檢閱完成時手動套用結果，請將開關設為 [停用]  。
 
@@ -106,7 +106,7 @@ ms.locfileid: "66734569"
 
 1. 若要指定其他設定，請展開 [進階設定]  區段。
 
-    ![進階設定](./media/create-access-review/advanced-settings.png)
+    ![建立存取權檢閱-進階設定](./media/create-access-review/advanced-settings.png)
 
 1. 將 [顯示建議]  設為 [啟用]  ，會向檢閱者顯示系統根據使用者的存取資訊所做的建議。
 
@@ -122,7 +122,7 @@ ms.locfileid: "66734569"
 
 在指定存取權檢閱的設定後，請按一下 [啟動]  。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
 
-![存取權檢閱清單](./media/create-access-review/access-reviews-list.png)
+![存取權檢閱的清單和其狀態](./media/create-access-review/access-reviews-list.png)
 
 依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何指示[檢閱存取權的群組或應用程式](perform-access-review.md)。 如果您允許來賓檢閱自己的存取權的可顯示它們如何指示[自行檢閱存取權，來群組或應用程式](review-your-access.md)。
 

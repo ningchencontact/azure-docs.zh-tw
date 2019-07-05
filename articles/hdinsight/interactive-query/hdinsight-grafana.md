@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719716"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458815"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中存取 Grafana
 
@@ -46,7 +46,7 @@ ms.locfileid: "64719716"
     |---------|---------|
     |**訂用帳戶**     |  選取 Azure 訂用帳戶。 |
     |**資源群組**     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
-    |**位置**     | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
+    |**Location**     | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
     |**叢集類型**     | 選取 [Hadoop]  。 |
     |**叢集名稱**     | 輸入 Apache Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 名稱的第一個和最後一個字元不可以是連字號。 |
     |**叢集登入名稱和密碼**     | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
@@ -66,7 +66,7 @@ ms.locfileid: "64719716"
     
 
 > [!NOTE]  
-> 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 
+> 如需其他叢集建立方法及了解這篇文章中使用的內容，請參閱[建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 
 
 ## <a name="access-the-grafana-dashboard"></a>存取 Grafana 儀表板
 
@@ -78,7 +78,7 @@ ms.locfileid: "64719716"
 
     ![HDInsight 叢集儀表板入口網站](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "入口網站上的 HDInsight 叢集儀表板")
 
-4. 在儀表板中，按一下 [Grafana]  圖格。 或者，瀏覽至您叢集 URL 的 `/grafana/` 路徑。 例如： `https://<clustername>.azurehdinsight.net/grafana/`。
+4. 在儀表板中，按一下 [Grafana]  圖格。 或者，瀏覽至您叢集 URL 的 `/grafana/` 路徑。 例如： `https://<clustername>.azurehdinsight.net/grafana/` 。
 
 5. 輸入 Hadoop 叢集使用者認證。
 
@@ -108,7 +108,7 @@ ms.locfileid: "64719716"
 在此文章中，您已了解如何使用 Resource Manager 範本來建立 Linux 型 HDInsight 叢集，以及如何執行基本的 Apache Hive 查詢。 在下一篇文章中，您將了解如何使用 HDInsight 上的 Hadoop 來執行擷取、轉換及載入 (ETL) 作業。
 
 > [!div class="nextstepaction"]
->[使用 HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](../hdinsight-analyze-flight-delay-data-linux.md)
+>[擷取、 轉換和載入 HDInsight 上使用互動式查詢的資料](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 如果您準備好開始使用您自己的資料，並需要進一步了解 HDInsight 儲存資料的方式或如何將資料匯入 HDInsight，請參閱下列文章：
 

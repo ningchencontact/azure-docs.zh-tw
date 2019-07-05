@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702230"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484202"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>在 HDInsight 上搭配 Apache Hive 和 Apache Pig 使用 Python 使用者定義函數 (UDF)
 
@@ -99,7 +99,7 @@ while True:
 1. 從 STDIN 中讀取資料的行。
 2. 使用 `string.strip(line, "\n ")` 移除結尾新行字元。
 3. 執行串流處理時，有一行包含所有的值，而每個值之間是一個定位字元。 因此， `string.split(line, "\t")` 可在每個索引標籤進行分割輸入，並只傳回欄位。
-4. 處理完成時，輸出必須以一行寫入 STDOUT，而每一個欄位之間是一個定位字元。 例如： `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`。
+4. 處理完成時，輸出必須以一行寫入 STDOUT，而每一個欄位之間是一個定位字元。 例如： `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])` 。
 5. `while` 迴圈會一直重複直到沒有 `line` 讀取。
 
 指令碼輸出是 `devicemake` 和 `devicemodel` 的輸入值串連，並且是串連值的雜湊。
@@ -161,9 +161,6 @@ while True:
     ```
 
 ### <a name="upload-file-powershell"></a>上傳檔案 (PowerShell)
-
-> [!IMPORTANT]  
-> 如果這些 PowerShell 指令碼將無法運作[安全傳輸](../../storage/common/storage-require-secure-transfer.md)已啟用。  使用殼層命令，或停用安全傳輸。
 
 PowerShell 也可用來從遠端執行 Hive 查詢。 請確定您的工作目錄正是`hiveudf.py`所在。  若要執行 Hive 查詢會使用下列 PowerShell 指令碼`hiveudf.py`指令碼：
 
@@ -433,9 +430,6 @@ def create_structure(input):
 
 
 ### <a name="upload-file-powershell"></a>上傳檔案 (PowerShell)
-
-> [!IMPORTANT]  
-> 如果這些 PowerShell 指令碼將無法運作[安全傳輸](../../storage/common/storage-require-secure-transfer.md)已啟用。  使用殼層命令，或停用安全傳輸。
 
 PowerShell 也可用來從遠端執行 Hive 查詢。 請確定您的工作目錄正是`pigudf.py`所在。  若要執行 Hive 查詢會使用下列 PowerShell 指令碼`pigudf.py`指令碼：
 

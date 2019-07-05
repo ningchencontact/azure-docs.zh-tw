@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859819"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445491"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝自訂的 Apache Hadoop 應用程式
 
@@ -107,7 +107,7 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒有看到該功能表，請按一下 [瀏覽]  ，然後按一下 [HDInsight 叢集]  。
 3. 按一下您已安裝應用程式的叢集。
-4. 在 [設定]  刀鋒視窗中，按一下 [一般]  類別之下的 [應用程式]  。 您應該會看到已安裝的應用程式清單。 在此教學課程中，**hue** 列在 [已安裝的應用程式]  刀鋒視窗中。
+4. 在 [設定]  刀鋒視窗中，按一下 [一般]  類別之下的 [應用程式]  。 您應該會看到已安裝的應用程式清單。 在本文中， **hue**中所列**安裝的應用程式**刀鋒視窗。
 5. 以滑鼠右鍵按一下您想要移除的應用程式，然後按一下 [刪除]  。
 6. 按一下 [ **是** ] 以確認。
 

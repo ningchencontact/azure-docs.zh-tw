@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118076"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536228"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用以 vCore 為基礎的購買模型的單一資料庫資源限制
 
@@ -34,6 +34,9 @@ ms.locfileid: "67118076"
 > 有关缩放指南和注意事项，请参阅[缩放单一数据库](sql-database-single-database-scale.md)。
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層級：儲存體大小與計算大小
+
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層級：第 4 代計算平台 (第 1 部分)
 
@@ -157,6 +160,9 @@ ms.locfileid: "67118076"
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>佈建的計算層的業務關鍵服務層
 
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層級：第 4 代計算平台 (第 1 部分)
 
 |計算大小|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -268,7 +274,7 @@ ms.locfileid: "67118076"
 |記錄大小上限 (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB 大小 (GB)|64|128|256|384|384|384|384|384|
 |儲存體類型|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|
-|目標 IOPS (64 KB)|待決定|待決定|待決定|待決定|待決定|待決定|待決定|待決定|
+|目標 IOPS (64 KB)| [附註 1](#note-1) |[附註 1](#note-1)|[附註 1](#note-1) |[附註 1](#note-1) |[附註 1](#note-1) |[附註 1](#note-1) |[附註 1](#note-1) | [附註 1](#note-1) |
 |IO 延遲 (大約)|待決定|待決定|待決定|待決定|待決定|待決定|待決定|待決定|
 |並行背景工作 (要求) 數上限|200|400|800|1600|2400|3200|4000|8000|
 |允許的工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ ms.locfileid: "67118076"
 |內含備份儲存體 |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>後續步驟
+### <a name="note-1"></a>附註 1
+
+超大規模是多層式架構與多個層級快取。 有效的 IOPS 將取決於工作負載。
+
+### <a name="next-steps"></a>後續步驟
 
 - 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 如需適用於彈性集區的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)

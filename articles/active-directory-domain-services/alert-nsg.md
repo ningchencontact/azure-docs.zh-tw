@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services：對網路安全性群組設定�
 description: 針對 Azure AD Domain Services 的 NSG 設定進行疑難排解
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: ''
 editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
-ms.author: mstephen
-ms.openlocfilehash: 743f83fd25ff897492fda7103d3db1f4b961714d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 08875ec23740eab7787c4a919566df521deba9a5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246565"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473914"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
 本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：

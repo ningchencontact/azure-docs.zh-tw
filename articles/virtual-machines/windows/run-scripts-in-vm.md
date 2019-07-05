@@ -3,17 +3,17 @@ title: 在 Azure Windows VM 中執行指令碼
 description: 本主題說明如何執行 Windows 虛擬機器內的指令碼
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ec34ff874eae9bbdd53470f135bcf0c182d5daed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e10cab5261d6bd970135273bd4632b7c916641de
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251051"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476750"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>在 Windows 虛擬機器中執行指令碼
 

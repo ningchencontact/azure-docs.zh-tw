@@ -14,20 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111487"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444777"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間和佇列
 
 本文說明如何使用 Azure Resource Manager 範本，建立服務匯流排命名空間和在該命名空間內的佇列。 本文說明如何指定要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
-如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
+如需建立範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
-如需完整的範本，請參閱 GitHub 上的 [服務匯流排命名空間和佇列範本][Service Bus namespace and queue template]。
+如需完整的範本，請參閱 GitHub 上的 [服務匯流排命名空間和佇列範本][Service Bus namespace and queue template] 。
 
 > [!NOTE]
 > 下列 Azure Resource Manager 範本可供下載和部署。
@@ -37,7 +37,7 @@ ms.locfileid: "62111487"
 > * [建立服務匯流排命名空間](service-bus-resource-manager-namespace.md)
 > * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋**服務匯流排**。
+> 若要檢查最新的範本，請瀏覽[Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋**Service Bus**。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>後續步驟
-現在您已使用 Azure Resource Manager 建立並部署資源，請檢視這些文件，了解如何管理這些資源︰
+請參閱下列主題示範如何建立命名空間/佇列授權規則：[建立命名空間和佇列使用的 Azure Resource Manager 範本的服務匯流排授權規則](service-bus-resource-manager-namespace-auth-rule.md)
+
+了解如何檢視這些文件管理這些資源：
 
 * [使用 PowerShell 管理服務匯流排](service-bus-manage-with-ps.md)
 * [使用服務匯流排總管管理服務匯流排資源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

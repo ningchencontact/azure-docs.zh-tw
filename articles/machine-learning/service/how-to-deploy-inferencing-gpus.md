@@ -1,7 +1,7 @@
 ---
 title: 部署具有 GPU 的推斷的模型
 titleSuffix: Azure Machine Learning service
-description: 了解如何將深度學習模型部署為 web 服務使用 GPU 的推斷。 在本文中，Tensorflow 模型會部署到 Azure Kubernetes 服務叢集。 叢集會使用已啟用 GPU 的 VM 來裝載 web 服務和分數推斷要求。
+description: 這篇文章會教導您如何使用 Azure Machine Learning 服務來部署深度學習模型作為 web service.service 和分數推斷要求已啟用 GPU 功能 Tensorflow。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,34 +9,36 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 05/02/2019
-ms.openlocfilehash: 5f455d4f972153af934ab8966d0f1753fc55aa21
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/01/2019
+ms.openlocfilehash: 8086d059913cc61bff0bca31681368bea6d76777
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205907"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543810"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>部署推斷配備 GPU 的深度學習模型
 
-了解如何使用 GPU 推斷，來進行機器學習模型部署為 web 服務。 推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。
+這篇文章會教導您如何使用 Azure Machine Learning 服務來部署深度學習模型作為 web 服務已啟用 GPU 功能 Tensorflow。
 
-這篇文章會教導您如何使用 Azure Machine Learning 服務來部署範例 Tensorflow 深度學習模型，以在已啟用 GPU 的虛擬機器 (VM) 上的 Azure Kubernetes Service (AKS) 叢集。 當要求傳送至服務時，此模型會使用 GPU 來執行推斷工作負載。
+將您的模型部署至 Azure Kubernetes Service (AKS) 叢集來執行已啟用 GPU 的推斷。 推斷，或模型計分，是已部署的模型，用於預測的階段。 使用 Gpu，而不可高度平行化的計算上的 Cpu 提供效能優點。
 
-Gpu 提供的效能優於 Cpu 上可高度平行化的計算。 已啟用 GPU 的 Vm 的絕佳的使用案例包括深度學習模型訓練和推斷，特別是針對大型批次要求。
+雖然這個範例會使用 TensorFlow 模型，您可以套用任何機器學習架構，可支援 Gpu 對評分檔案及環境檔案進行小變更下列步驟。 
 
-此範例示範如何將模型儲存至 Azure Machine Learning TensorFlow 的部署。 請執行下列步驟：
+在本文中，您會執行下列步驟：
 
 * 建立已啟用 GPU 的 AKS 叢集
 * 部署 GPU Tensorflow 模型
+* 發給您已部署的模型中的範例查詢
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 機器學習服務工作區
-* Python 散發套件
-* 已註冊的 Tensorflow 儲存模型。 若要了解如何註冊模型，請參閱[部署模型](../service/how-to-deploy-and-where.md#registermodel)。
+* Azure 機器學習服務工作區中。
+* Python 散發套件。
+* 已註冊的 Tensorflow 儲存模型。
+    * 若要了解如何註冊模型，請參閱[部署模型](../service/how-to-deploy-and-where.md#registermodel)。
 
-這篇文章根據 Jupyter notebook [AKS 部署 Tensorflow 模型](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb)。 Jupyter notebook 使用 TensorFlow 儲存模型，然後將它們部署至 AKS 叢集。 您也可以套用至任何機器學習架構，可對評分檔案及環境檔案進行小變更支援 Gpu 的 notebook。  
+您可以完成本使用說明的系列的第一部分[如何定型 TensorFlow 模型](how-to-train-tensorflow.md)，以滿足所需的必要條件。
 
 ## <a name="provision-an-aks-cluster-with-gpus"></a>佈建以 Gpu AKS 叢集
 
@@ -44,16 +46,25 @@ Azure 有許多不同的 GPU 選項。 您可以使用其中任何的推斷。 �
 
 如需有關使用 AKS 使用 Azure Machine Learning 服務的詳細資訊，請參閱[如何部署和位置](../service/how-to-deploy-and-where.md#deploy-aks)。
 
-```python
-# Provision AKS cluster with GPU machine
-prov_config = AksCompute.provisioning_configuration(vm_size="Standard_NC6")
+```Python
+# Choose a name for your cluster
+aks_name = "aks-gpu"
 
-# Create the cluster
-aks_target = ComputeTarget.create(
-    workspace=ws, name=aks_name, provisioning_configuration=prov_config
-)
+# Check to see if the cluster already exists
+try:
+    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    # Provision AKS cluster with GPU machine
+    prov_config = AksCompute.provisioning_configuration(vm_size="Standard_NC6")
 
-aks_target.wait_for_deployment()
+    # Create the cluster
+    aks_target = ComputeTarget.create(
+        workspace=ws, name=aks_name, provisioning_configuration=prov_config
+    )
+
+    aks_target.wait_for_completion(show_output=True)
 ```
 
 > [!IMPORTANT]
@@ -64,66 +75,49 @@ aks_target.wait_for_deployment()
 將下列程式碼儲存至您的工作目錄為`score.py`。 此檔案分數的映像，因為它們會被傳送到您的服務。 該載入儲存的 TensorFlow 模型、 每個 POST 要求傳遞到 TensorFlow 的工作階段輸入的映像，然後傳回產生的分數。 其他推斷架構需要不同的評分檔案。
 
 ```python
-import tensorflow as tf
+import json
 import numpy as np
-import ujson
+import os
+import tensorflow as tf
+
 from azureml.core.model import Model
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
-    global session
-    global input_name
-    global output_name
+    global X, output, sess
+    tf.reset_default_graph()
+    model_root = Model.get_model_path('tf-dnn-mnist')
+    saver = tf.train.import_meta_graph(os.path.join(model_root, 'mnist-tf.model.meta'))
+    X = tf.get_default_graph().get_tensor_by_name("network/X:0")
+    output = tf.get_default_graph().get_tensor_by_name("network/output/MatMul:0")
     
-    session = tf.Session()
+    sess = tf.Session()
+    saver.restore(sess, os.path.join(model_root, 'mnist-tf.model'))
 
-    model_path = Model.get_model_path('resnet50')
-    model = tf.saved_model.loader.load(session, ['serve'], model_path)
-    if len(model.signature_def['serving_default'].inputs) > 1:
-        raise ValueError("This score.py only supports one input")
-    input_name = [tensor.name for tensor in model.signature_def['serving_default'].inputs.values()][0]
-    output_name = [tensor.name for tensor in model.signature_def['serving_default'].outputs.values()]
-    
-
-@rawhttp
-def run(request):
-    if request.method == 'POST':
-        reqBody = request.get_data(False)
-        resp = score(reqBody)
-        return AMLResponse(resp, 200)
-    if request.method == 'GET':
-        respBody = str.encode("GET is not supported")
-        return AMLResponse(respBody, 405)
-    return AMLResponse("bad request", 500)
-
-def score(data):
-    result = session.run(output_name, {input_name: [data]})
-    return ujson.dumps(result[1])
-
-if __name__ == "__main__":
-    init()
-    with open("lynx.jpg", 'rb') as f: #load file for testing locally
-        content = f.read()
-        print(score(content))
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    out = output.eval(session=sess, feed_dict={X: data})
+    y_hat = np.argmax(out, axis=1)
+    return y_hat.tolist()
 
 ```
-
 ## <a name="define-the-conda-environment"></a>定義的 conda 環境
 
 建立名為的 conda 環境檔案`myenv.yml`到指定的相依性服務。 請務必指定您要使用`tensorflow-gpu`達到加速的效能。
 
 ```yaml
-name: aml-accel-perf
-channels:
-  - defaults
+name: project_environment
 dependencies:
-  - tensorflow-gpu = 1.12
-  - numpy
-  - ujson
-  - pip:
-    - azureml-core
-    - azureml-contrib-services
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.6.2
+
+- pip:
+  - azureml-defaults==1.0.43.*
+- numpy
+- tensorflow-gpu=1.12
+channels:
+- conda-forge
 ```
 
 ## <a name="define-the-gpu-inferenceconfig-class"></a>定義 GPU InferenceConfig 類別
@@ -134,12 +128,12 @@ dependencies:
 from azureml.core.model import Model
 from azureml.core.model import InferenceConfig
 
-aks_service_name ='gpu-rn'
+aks_service_name ='aks-dnn-mnist'
 gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled = False, 
                                                     num_replicas = 3, 
                                                     cpu_cores=2, 
                                                     memory_gb=4)
-model = Model(ws,"resnet50")
+model = Model(ws,"tf-dnn-mnist")
 
 inference_config = InferenceConfig(runtime= "python", 
                                    entry_script="score.py",
@@ -173,18 +167,30 @@ print(aks_service.state)
 
 如需詳細資訊，請參閱 <<c0> [ 模型類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)。
 
-## <a name="issue-a-sample-query-to-your-deployed-model"></a>發給您已部署的模型中的範例查詢
+## <a name="issue-a-sample-query-to-your-model"></a>發給您的模型中的範例查詢
 
-將測試查詢傳送至部署的模型。 當您將 jpeg 影像傳送至模型時，它會分數映像。
+將測試查詢傳送至部署的模型。 當您將 jpeg 影像傳送至模型時，它會分數映像。 下列程式碼範例會使用外部公用程式函式，載入影像。 您可以找到相關的程式碼在 pir [GitHub 上的 TensorFlow 範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py)。 
 
 ```python
-scoring_url = aks_service.scoring_uri
-api_key = aks_service.get_key()(0)
-IMAGEURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Lynx_lynx_poing.jpg/220px-Lynx_lynx_poing.jpg"
+# Used to test your webservice
+from utils import load_data 
 
-headers = {'Authorization':('Bearer '+ api_key)}
-img_data = read_image_from(IMAGEURL).read()
-r = requests.post(scoring_url, data = img_data, headers=headers)
+# Load test data from model training
+X_test = load_data('./data/mnist/test-images.gz', False) / 255.0
+y_test = load_data('./data/mnist/test-labels.gz', True).reshape(-1)
+
+# send a random row from the test set to score
+random_index = np.random.randint(0, len(X_test)-1)
+input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
+
+api_key = aks_service.get_keys()[0]
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+resp = requests.post(aks_service.scoring_uri, input_data, headers=headers)
+
+print("POST to url", aks_service.scoring_uri)
+#print("input data:", input_data)
+print("label:", y_test[random_index])
+print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]

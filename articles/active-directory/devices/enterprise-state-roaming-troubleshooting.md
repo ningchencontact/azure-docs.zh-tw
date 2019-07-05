@@ -2,29 +2,21 @@
 title: 針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解 | Microsoft Docs
 description: 回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
 services: active-directory
-keywords: 企業狀態漫遊設定, windows 雲端, 企業狀態漫遊常見問題集
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110674"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481861"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解
 
@@ -70,12 +62,11 @@ ms.locfileid: "67110674"
 
 企業狀態漫遊需要在 Azure AD 註冊裝置。 雖然並非針對企業狀態漫遊，但遵循下列指示有助於確認 Windows 10 用戶端是否已經註冊，並確認憑證指紋、Azure AD 設定 URL、NGC 狀態及其他資訊。
 
-1.  在未提高權限的情況下開啟命令提示字元。 若要在 Windows 中執行此操作，請開啟「執行」啟動程式 (Win + R) 並輸入 "cmd" 來開啟。
-2.  命令提示字元開啟後，輸入 *dsregcmd.exe /status*。
-3.  若要獲得預期的輸出，[AzureAdJoined]  欄位值應該是 [YES]、[WamDefaultSet]  欄位值應該是 [YES]，而 [WamDefaultGUID]  欄位值則應該是一個結尾為 “(AzureAd)” 的 GUID。
+1. 在未提高權限的情況下開啟命令提示字元。 若要在 Windows 中執行此操作，請開啟「執行」啟動程式 (Win + R) 並輸入 "cmd" 來開啟。
+1. 命令提示字元開啟後，輸入 *dsregcmd.exe /status*。
+1. 若要獲得預期的輸出，[AzureAdJoined]  欄位值應該是 [YES]、[WamDefaultSet]  欄位值應該是 [YES]，而 [WamDefaultGUID]  欄位值則應該是一個結尾為 “(AzureAd)” 的 GUID。
 
 **可能的問題**：**WamDefaultSet** 和 **AzureAdJoined** 的欄位值都是 “NO”、裝置已加入網域並已向 Azure AD 註冊，以及裝置未進行同步處理。如果顯示此問題，表示裝置可能需要等待原則套用，或裝置在連線至 Azure AD 時驗證失敗。 使用者可能需等待幾個小時來等待原則套用。 其他疑難排解步驟可能包括透過登出並重新登入來重試自動註冊，或在工作排程器中啟動工作。 在某些情況下，於已提升權限的命令提示字元視窗中執行 *dsregcmd.exe /leave*、重新開機，然後再試一次註冊，可能有助於解決此問題。
-
 
 **可能的問題**：**SettingsUrl** 的欄位空白且裝置未進行同步處理。使用者上次登入裝置的時間可能是在於 Azure Active Directory 入口網站中啟用企業狀態漫遊之前。 重新啟動裝置並讓使用者登入。 (選擇性) 在入口網站中，嘗試讓 IT 系統管理員瀏覽至 [Azure Active Directory]   > [裝置]   > [企業狀態漫遊]  ，然後停用再重新啟用 [使用者可以在裝置間同步處理設定及應用程式資料]  。 重新啟用之後，請重新啟動裝置並讓使用者登入。 如果這樣做無法解決問題，錯誤裝置憑證中的 **SettingsUrl** 可能是空的。 在此情況下，於已提升權限的命令提示字元視窗中執行 *dsregcmd.exe /leave*、重新開機，然後再試一次註冊，可能有助於解決此問題。
 

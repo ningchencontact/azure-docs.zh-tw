@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 572043598c71a400e154c5c2e9e6c2f1e9b4ab49
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 69548541d16db95f633400808f72aebaf59cff08
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191794"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477770"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion-preview"></a>使用 Azure 防禦 （預覽） 對 Linux 虛擬機器使用 SSH 連線
 
@@ -33,16 +33,16 @@ SSH 私密金鑰必須是開頭為格式`"-----BEGIN RSA PRIVATE KEY-----"`，�
 
 請確定您已設定的虛擬網路的 VM 所在 Azure 防禦主機。 如需詳細資訊，請參閱 <<c0> [ 建立 Azure 防禦主機](bastion-create-host-portal.md)。 一旦佈建和部署虛擬網路中的防禦服務，您可以使用它來連接到此虛擬網路中的任何 VM。 在此預覽中，當您要連線，使用防禦，它會假設您使用 RDP 連線到 Windows VM 和 SSH 連線到您的 Linux Vm。
 
-若要建立的連線，下列角色則是必要項目：
+若要建立連線，必須具備下列角色：
 
-* 在虛擬機器上的讀取者角色
-* 在虛擬機器的私人 ip 位址與 NIC 上的讀取者角色
-* 在 Azure 防禦資源上的讀取者角色
+* 虛擬機器上的讀取者角色
+* 虛擬機器的私人 IP 位址與 NIC 上的讀取者角色
+* Azure Bastion 資源上的讀取者角色
 
 ## <a name="username"></a>連接：使用使用者名稱和密碼
 
 
-1. 在  [Azure 入口網站](https://aka.ms/BastionHost)防禦預覽版本中，瀏覽至您想要連接至虛擬機器，然後按一下**Connect**。 使用 SSH 連線時，VM 應該為 Linux 虛擬機器。
+1.  使用[此連結](https://aka.ms/BastionHost)開啟防禦 Azure 預覽入口網站頁面。 瀏覽至您想要連接至虛擬機器，然後按一下  **Connect**。 使用 SSH 連線時，VM 應該為 Linux 虛擬機器。
 1. 按一下 連接後，提要欄位會顯示具有三個索引標籤-RDP、 SSH 及防禦。 如果防禦已佈建的虛擬網路，防禦 索引標籤預設為使用中。 如果您未佈建防禦，虛擬網路，請參閱[設定防禦](bastion-create-host-portal.md)。 如果您看不見**防禦**列出，您無法開啟預覽入口網站。 開啟入口網站使用[此連結](https://aka.ms/BastionHost)。
 
       ![連接 VM](./media/bastion-connect-vm-ssh/bastion.png)
@@ -52,7 +52,7 @@ SSH 私密金鑰必須是開頭為格式`"-----BEGIN RSA PRIVATE KEY-----"`，�
 
 ## <a name="privatekey"></a>連接：手動輸入的私用金鑰
 
-1. 在  [Azure 入口網站](https://aka.ms/BastionHost)防禦預覽版本中，瀏覽至您想要連接至虛擬機器，然後按一下**Connect**。 使用 SSH 連線時，VM 應該為 Linux 虛擬機器。
+1.  使用[此連結](https://aka.ms/BastionHost)開啟防禦 Azure 預覽入口網站頁面。 瀏覽至您想要連接至虛擬機器，然後按一下  **Connect**。 使用 SSH 連線時，VM 應該為 Linux 虛擬機器。
 1. 按一下 連接後，提要欄位會顯示具有三個索引標籤-RDP、 SSH 及防禦。 如果防禦已佈建的虛擬網路，防禦 索引標籤預設為使用中。 如果您未佈建防禦，虛擬網路，請參閱[設定防禦](bastion-create-host-portal.md)。 如果您看不見**防禦**列出，您無法開啟預覽入口網站。 開啟入口網站使用[此連結](https://aka.ms/BastionHost)。
 
       ![連接 VM](./media/bastion-connect-vm-ssh/bastion.png)
@@ -63,7 +63,7 @@ SSH 私密金鑰必須是開頭為格式`"-----BEGIN RSA PRIVATE KEY-----"`，�
 
 ## <a name="ssh"></a>連接：使用私密金鑰檔案
 
-1. 在  [Azure 入口網站](https://aka.ms/BastionHost)防禦預覽版本中，瀏覽至您想要連接至虛擬機器，然後按一下**Connect**。 使用 SSH 連線時，VM 應該為 Linux 虛擬機器。
+1.  使用[此連結](https://aka.ms/BastionHost)開啟防禦 Azure 預覽入口網站頁面。 瀏覽至您想要連接至虛擬機器，然後按一下  **Connect**。 使用 SSH 連線時，VM 應該為 Linux 虛擬機器。
 
     ![連接 VM](./media/bastion-connect-vm-ssh/connect.png)
 

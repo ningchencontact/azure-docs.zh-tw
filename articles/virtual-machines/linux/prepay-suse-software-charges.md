@@ -1,23 +1,21 @@
 ---
-title: 預付軟體計劃-Azure 保留的 |Microsoft Docs
+title: 預付的軟體計劃-Azure 保留項目
 description: 了解如何預付軟體計劃，以省下較隨用隨付的成本。
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771238"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489888"
 ---
 # <a name="prepay-for-azure-software-plans"></a>預付 Azure 軟體方案
 
@@ -25,7 +23,7 @@ ms.locfileid: "60771238"
 
 您可以購買 Azure 入口網站中的 SUSE 及 RedHat 軟體方案。 若要購買方案：
 
-- 您必須至少一個企業或隨用隨付訂用帳戶的擁有者角色。
+- 您必須至少一個企業或隨用隨付定價的個別訂用帳戶的擁有者角色。
 - Enterprise 訂用帳戶，如**新增保留的執行個體**必須在啟用選項[EA 入口網站](https://ea.azure.com/)。 如果設定已停用，您必須是訂用帳戶為 EA 系統管理員。
 - 雲端解決方案提供者 (CSP) 計畫中，銷售的代理程式的管理專員可以購買軟體方案。
 
@@ -35,12 +33,12 @@ ms.locfileid: "60771238"
 2. 按一下 **新增**，然後選取您想要購買軟體方案。
 填寫必要欄位。 所有 SUSE Linux VM 或 RedHat VM 符合您所購買的屬性都取得折扣。 取得折扣的實際部署數目取決於選取的範圍和數量。
 3. 選取一個訂用帳戶。 它用來購買的方案。
-訂用帳戶付款方法會負責保留項目的預付費用。 訂用帳戶類型必須是 Enterprise 合約 (提供數字：MS-AZR-0017P 或 MS-AZR-0148P) 或隨用隨付 (供應項目號碼：MS-AZR-0003P 或 MS-AZR-0023P)。
+訂用帳戶付款方法會負責保留項目的預付費用。 訂用帳戶類型必須是 Enterprise 合約 (提供數字：MS-AZR-0017P 或 MS-AZR-0148 P) 或個別的合約，與隨用隨付定價 (提供數字：MS-AZR-0003P 或 MS-AZR-0023P)。
     - 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。
-    - 隨用隨付訂用帳戶，費用會計費訂用帳戶的信用卡或發票付款方法。
+    - 隨用隨付定價的個別訂用帳戶，費用是訂用帳戶的信用卡或發票付款方法來計費。
 4. 選取範圍。 此範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。
     - 單一訂用帳戶-計劃折扣會套用至對應的訂用帳戶中的使用方式。
-    - （共用）-計劃折扣會套用至比對您的帳單寄送內容中的任何訂用帳戶中的執行個體。 適用於企業客戶，計費內容會是註冊，並包含所有訂用帳戶中註冊。 對於隨用隨付客戶，計費內容會是所有隨用隨付訂用帳戶的帳戶管理員所建立。
+    - （共用）-計劃折扣會套用至比對您的帳單寄送內容中的任何訂用帳戶中的執行個體。 適用於企業客戶，計費內容會是註冊，並包含所有訂用帳戶中註冊。 個別的計劃與隨用隨付定價的客戶，計費內容是由帳戶系統管理員建立的隨用隨付定價訂閱的所有個別計畫。
 5. 選擇要選擇的 VM 大小和映像類型的產品。 選取 VM 大小僅適用於折扣。
 6. 選取的一年期或三年的詞彙。
 7. 選擇數量，也就是可以取得帳單折扣的預付 VM 執行個體數目。

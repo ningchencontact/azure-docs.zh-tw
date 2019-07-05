@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791949"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447813"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
-本主題中，您將了解如何設定記錄的診斷遙測為 Azure SQL Database 透過 Azure 入口網站、 PowerShell、 Azure CLI、 Azure 監視器 REST API 和 Azure Resource Manager 範本。 這些診斷可用來量測計的資源使用率和查詢執行統計資料。 
+本主題中，您將了解如何設定記錄的診斷遙測為 Azure SQL Database 透過 Azure 入口網站、 PowerShell、 Azure CLI、 Azure 監視器 REST API 和 Azure Resource Manager 範本。 這些診斷可用來量測計的資源使用率和查詢執行統計資料。
 
 單一資料庫、彈性集區中的集區資料庫，以及受控執行個體中的執行個體資料庫可以傳輸計量和診斷記錄，讓您以較輕鬆的方式監視效能。 您可以將資料庫設定為將資源使用量、背景工作角色與工作階段及連線傳輸下列其中一項 Azure 資源：
 
@@ -119,7 +119,7 @@ ms.locfileid: "65791949"
 1. 此外，設定診斷遙測，為您想要在下一節中所述的下列步驟來監視彈性集區中每個資料庫的資料流。
 
 > [!IMPORTANT]
-> 除了設定彈性集區的診斷遙測，您也需要在彈性集區，設定診斷遙測的每個資料庫，如下所述。 
+> 除了設定彈性集區的診斷遙測，您也需要在彈性集區，設定診斷遙測的每個資料庫，如下所述。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
 
@@ -181,7 +181,7 @@ ms.locfileid: "65791949"
 1. 此外，設定診斷遙測，您想要遵循下一節所述的步驟來監視受管理的執行個體中每個執行個體資料庫的資料流。
 
 > [!IMPORTANT]
-> 除了設定受管理的執行個體的診斷遙測，您也需要設定診斷遙測，每個執行個體資料庫，如下所述。 
+> 除了設定受管理的執行個體的診斷遙測，您也需要設定診斷遙測，每個執行個體資料庫，如下所述。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>設定串流診斷遙測的執行個體資料庫
 
@@ -261,6 +261,7 @@ ms.locfileid: "65791949"
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    以訂用帳戶識別碼取代 \<subID\>，以資源群組的名稱取代 \<RG_NAME\>，並且以工作區名稱取代 \<WS_NAME\>。
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -396,10 +397,6 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### <a name="download-metrics-and-logs-from-storage"></a>從儲存體下載計量和記錄
-
-了解如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)。
 
 ## <a name="data-retention-policy-and-pricing"></a>資料保留原則和價格
 
@@ -719,5 +716,3 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-若要深入了解 Azure 儲存體，請參閱如何[從儲存體下載計量和診斷記錄](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)。

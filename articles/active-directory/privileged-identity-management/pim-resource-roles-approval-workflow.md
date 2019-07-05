@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288428"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476377"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>在 PIM 中核准或拒絕 Azure 資源角色的要求
 
@@ -38,15 +38,15 @@ ms.locfileid: "60288428"
 
 1. 按一下 [核准要求]  。
 
-    ![Azure 資源 - 核准要求](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![核准要求數-顯示要求檢閱的 Azure 資源頁面](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     在 [要求啟用角色]  區段中，您會看見正等待您核准的要求清單。
 
 ## <a name="approve-requests"></a>核准要求
 
-1. 尋求並按一下您想要核准的要求。 核准窗格隨即出現。
+1. 尋求並按一下您想要核准的要求。 核准或拒絕窗格隨即出現。
 
-    ![核准要求窗格](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![核准要求-核准或拒絕詳細資料和對齊方塊窗格](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. 在 [理由]  方塊中，輸入理由。
 
@@ -54,13 +54,13 @@ ms.locfileid: "60288428"
 
     表示您核准的通知隨即顯示。
 
-    ![核准通知](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![核准通知顯示已核准要求](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>拒絕要求
 
-1. 尋求並按一下您想要拒絕的要求。 核准窗格隨即出現。
+1. 尋求並按一下您想要拒絕的要求。 核准或拒絕窗格隨即出現。
 
-    ![核准要求窗格](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![核准要求-核准或拒絕詳細資料和對齊方塊窗格](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. 在 [理由]  方塊中，輸入理由。
 

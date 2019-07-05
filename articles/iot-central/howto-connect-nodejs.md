@@ -3,17 +3,17 @@ title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central | Micr
 description: 身為裝置開發人員，如何將一般的 Node.js 裝置連線到 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888913"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444225"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 
@@ -69,6 +69,18 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 > [!NOTE]
 > 事件量測的資料類型為字串。
 
+### <a name="location-measurements"></a>位置的度量
+
+新增下列位置測量**測量**頁面：
+
+| 顯示名稱 | 欄位名稱  |
+| ------------ | ----------- |
+| Location     | location    |
+
+資料類型組成的兩個位置測量浮點數經度和緯度，以及選擇性浮點數的高度。
+
+在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，就無法顯示位置的應用程式中。
+
 ### <a name="device-properties"></a>裝置屬性
 
 新增下列裝置屬性上**屬性**頁面：
@@ -95,13 +107,13 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 
 新增下列命令，在**命令**頁面：
 
-| 顯示名稱    | 欄位名稱     | 預設逾時 | 数据类型 |
+| 顯示名稱    | 欄位名稱     | 預設逾時 | 資料類型 |
 | --------------- | -------------- | --------------- | --------- |
 | 倒數計時       | 倒數計時      | 30              | number    |
 
 倒數計時命令中加入下列的輸入的欄位：
 
-| 顯示名稱    | 欄位名稱     | 数据类型 | 值 |
+| 顯示名稱    | 欄位名稱     | 資料類型 | 值 |
 | --------------- | -------------- | --------- | ----- |
 | 從計算      | countFrom      | number    | 10    |
 
@@ -144,12 +156,14 @@ Azure IoT Central 應用程式中加入您在上一節中建立的裝置範本�
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     更新預留位置`{your device connection string}`具有[裝置連接字串](tutorial-add-device.md#generate-connection-string)。 在此範例中，您會初始化`targetTemperature`為零，您可以使用目前正在讀取的從裝置或裝置對應項的值。
 
-1. 若要傳送的遙測、 狀態和事件的度量，Azure IoT Central 應用程式時，將下列函式加入檔案：
+1. 若要傳送的遙測、 狀態、 事件及位置測量 Azure IoT Central 應用程式時，將下列函式加入檔案：
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ Azure IoT Central 應用程式中加入您在上一節中建立的裝置範本�
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ node connectedAirConditionerAdv.js
 * 在 [量值]  頁面上檢視遙測：
 
     ![檢視遙測](media/howto-connect-nodejs/viewtelemetry.png)
+
+* 檢視上的位置**測量**頁面：
+
+    ![檢視位置度量](media/howto-connect-nodejs/viewlocation.png)
 
 * 在 [屬性]  頁面上檢視從裝置傳送的裝置屬性值。 當裝置連線的裝置屬性的磚更新：
 

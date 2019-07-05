@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465706"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>建立使用 Azure 入口網站共用映像庫
 
@@ -53,6 +53,9 @@ ms.locfileid: "66245001"
 ## <a name="create-vms-from-an-image"></a>從映像建立 VM
 
 映像版本完成之後，您可以建立一或多個新的 VM。 
+
+> [!IMPORTANT]
+> 若要從另一個 azure 租用戶中的映像部署 VM，您無法使用入口網站。 若要從租用戶之間共用映像建立 VM，您必須使用[Azure CLI](../linux/shared-images.md#create-a-vm)或是[Powershell](shared-images.md#create-vms-from-an-image)。
 
 此範例在*美國東部*資料中心的 *myResourceGroup* 中建立名為 *myVMfromImage* 的 VM。
 

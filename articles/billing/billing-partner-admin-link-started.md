@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694215"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502673"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 
-身為合作夥伴，您可以追蹤對客戶業務開發的影響力。 您可以將合作夥伴識別碼連結到用來管理客戶資源的帳戶。
+Microsoft 合作夥伴提供服務，可協助客戶達成業務和使用 Microsoft 產品的關鍵目標。 代表客戶管理時, 設定和支援 Azure 服務，合作夥伴使用者需要存取客戶的環境。 使用夥伴系統管理員的連結，合作夥伴可以將他們的合作夥伴網路識別碼，關聯所使用的服務提供的認證。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ C:\ az managementpartner delete --partner-id 12345
 
 **如果我的公司有多個，應使用哪個 MPN 識別碼？**
 
-您可以使用任何有效的 MPN 識別碼除了虛擬 organization(v-org) MPN 識別碼。 大部分的合作夥伴選擇 MPN 識別碼用於的地理位置以客戶為基礎，或提供服務。
+連結合作夥伴識別碼，則應該使用夥伴位置帳戶和相關聯的 MPN 識別碼  深入了解[夥伴帳戶](https://docs.microsoft.com/partner-center/account-structure)
 
 **哪裡可以找到受影響的收入報告的已連結的合作夥伴識別碼？**
 
-您可以找到受影響的收入報告[我的深入解析儀表板](https://partner.microsoft.com/membership/reports/myinsights)。 您必須選取夥伴系統管理員連結為夥伴關聯型別。
+雲端產品效能報表可供合作夥伴在合作夥伴中心[我的深入解析儀表板](https://partner.microsoft.com/membership/reports/myinsights)。 您必須選取夥伴系統管理員連結為夥伴關聯型別。
 
 **為什麼看不到我的報表中的客戶？**
 

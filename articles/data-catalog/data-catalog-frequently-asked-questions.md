@@ -1,19 +1,17 @@
 ---
 title: Azure 資料目錄的常見問題集
 description: 與 Azure 資料目錄相關的常見問題集，包括資料來源探索、註解和管理功能。
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61004036"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508897"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
@@ -36,7 +34,7 @@ ms.locfileid: "61004036"
 目前只有下列資料中心提供資料目錄服務：
 
 * 美國西部
-* 美國東部
+* East US
 * 西歐
 * 北歐
 * 澳洲東部
@@ -103,9 +101,6 @@ ms.locfileid: "61004036"
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>目錄是否可與我感興趣的其他資料來源搭配運作？
 我們正積極將更多資料來源新增至資料目錄。 如果您希望我們支援某個特定的資料來源，請前往 [Azure 資料目錄意見反應論壇](https://feedback.azure.com/forums/906052-data-catalog)提出建議 (如果已有人建議，請表達支持)。
-
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Azure 資料目錄與 Power BI for Office 365 中的資料目錄有何關係？
-您可將 Azure 資料目錄視為 Power BI 中進化版的「資料目錄」。 從 2017 年春季開始，Azure 資料目錄用來在 Excel 2016 和 Power Query for Excel 中共用和探索查詢。 Excel 中的資料目錄功能適用於具有 Power BI Pro 授權的使用者。
 
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>向資料目錄註冊資產需要什麼權限？
 若要執行資料目錄註冊工具，您在資料來源上需要有可讓您從來源讀取中繼資料的權限。 若要一併包含預覽，您必須有可讓您從註冊的物件讀取資料的權限。

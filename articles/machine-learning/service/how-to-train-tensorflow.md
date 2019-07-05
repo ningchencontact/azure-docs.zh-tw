@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165548"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543783"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>定型，並向 Azure Machine Learning 服務的規模 TensorFlow 模型
 
@@ -23,7 +23,7 @@ ms.locfileid: "67165548"
 
 TensorFlow 是開放原始碼運算架構，通常用來建立深度類神經網路 (DNN)。 使用 Azure Machine Learning 服務時，您可以快速擴充使用彈性的雲端計算資源的開放原始碼訓練作業。 您也可以追蹤您的定型執行、 版本模型部署的模型，以及其他等等。
 
-不論您正在開發從頭 TensorFlow 模型，或是您要將現有的模型帶到雲端，Azure Machine Learning 服務可協助您建置可實際執行的模型。
+您正在開發從頭 TensorFlow 模型，還是您要採用[現有的模型](how-to-deploy-existing-model.md)到雲端，Azure Machine Learning 服務如何協助您建置可實際執行的模型。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -290,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您可以接受訓練，並且註冊 Azure Machine Learning 服務的 TensorFlow 模型。 若要了解如何部署模型，請繼續閱讀我們的模型部署文件。
+在本文中，您可以接受訓練，並且註冊 TensorFlow 模型。 若要了解如何將模型部署到已啟用 GPU 功能的叢集中，繼續閱讀我們 GPU 模型部署文件。
 
-> [!div class="nextstepaction"]
-> [如何及在何處部署模型](how-to-deploy-and-where.md)
+[如何部署具有 Gpu 的推斷](how-to-deploy-inferencing-gpus.md)
+[如何使用 Tensorboard 監視](how-to-monitor-tensorboard.md)

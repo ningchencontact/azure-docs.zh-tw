@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ff036fbdf3ae9360bed8d728b9bec3a1937b70a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c391aa157e35bdc389bd30efe48fa380d06c193e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808257"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508366"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>將構件儲存機制新增至您在 DevTest Labs 的實驗室
 DevTest Labs 可讓您指定要加入至 VM，在建立 VM 時或之後建立 VM 構件。 一種工具或您想要在 VM 上安裝的應用程式，可能是此成品。 從 GitHub 或 Azure DevOps Git 儲存機制載入的 JSON 檔案中定義的成品。 
@@ -303,7 +303,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

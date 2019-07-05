@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358107"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483312"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -41,7 +41,9 @@ ms.locfileid: "60358107"
 使用[傳遞驗證](../hybrid/how-to-connect-pta.md)時，您必須確定：
 
 * Azure AD 的鎖定閾值「小於」  Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
-* Azure AD 的鎖定持續期間 **(以秒表示)** 比 Active Directory 的「下列時間過後重設帳戶鎖定計數器」持續期間 **(分鐘)** 「還長」  。
+* Azure AD 的鎖定持續時間必須超過 Active Directory 帳戶鎖定計數器重設期間之後設定。 請注意，Azure AD 期間設定以秒為單位，廣告時持續時間以分鐘為單位設定。 
+
+例如，如果您想要高於 AD 您 Azure AD 計數器，然後 Azure AD 會是 120 秒 （2 分鐘），而您在將內部部署 AD 值設為 1 分鐘 （60 秒）。
 
 > [!IMPORTANT]
 > 目前，如果使用者的雲端帳戶已被智慧鎖定功能鎖定，則系統管理員無法將其解除鎖定。 系統管理員必須等待鎖定持續期間結束。

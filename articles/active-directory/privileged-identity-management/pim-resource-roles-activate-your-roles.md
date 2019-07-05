@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e8615cc5534255308c35fa1f675ef3a85aa84e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdce060006f65f2b0fb08023066ee504578bc552
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438378"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501656"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>在 PIM 中啟用我的 Azure 資源角色
 
@@ -38,37 +38,37 @@ ms.locfileid: "60438378"
 
 1. 按一下 [我的角色]  。
 
-    ![Azure AD 角色和 Azure 資源角色-我的角色](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![您可以啟用我顯示角色的角色頁面](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. 按一下  **Azure 資源角色**以查看您的合格的 Azure 資源角色的清單。
 
-   ![Azure 資源角色](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![我的角色-Azure 資源角色 頁面](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. 在 [Azure 資源角色]  清單中，尋找您要啟用的角色。
 
-    ![Azure 資源角色 - 我的角色清單](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+    ![Azure 資源角色-我的合格角色清單](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
 1. 按一下 [啟用]  以開啟 [啟用] 窗格。
 
 1. 如果您的角色需要多重要素驗證 (MFA)，請按一下 [先驗證您的身分識別後再繼續]  。 您只需在每個工作階段驗證一次。
 
-    ![在啟用角色之前先以 MFA 驗證](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![我使用 MFA 的身分啟用角色之前先確認](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. 按一下 [驗證我的身分識別]  ，並遵循指示來提供其他安全性驗證。
 
-    ![其他安全性驗證](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![提供例如 PIN 碼的安全性驗證 畫面](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. 如果您想要指定縮小的範圍，請按一下 [範圍]  開啟 [資源] 篩選窗格。
 
     最佳做法是僅要求存取您需要的資源。 在 [資源] 篩選窗格中，您可以指定資源群組或您需要存取的群組。
 
-    ![啟用 - 資源篩選](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+    ![啟用-指定範圍的資源篩選窗格](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
 
 1. 如有必要，請指定自訂啟用開始時間。 成員會在選取的時間後啟用。
 
 1. 在 [原因]  方塊中輸入此啟用要求的原因。
 
-    ![已完成的啟用窗格](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+    ![已完成的啟動窗格範圍、 開始時間、 持續時間和原因](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. 按一下 **[啟用]** 。
 
@@ -76,7 +76,7 @@ ms.locfileid: "60438378"
 
     如果[角色需要核准](pim-resource-roles-approval-workflow.md)才能啟用，通知會出現在瀏覽器右上角，通知您要求正在等待核准。
 
-    ![要求擱置通知](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![啟用要求正在等待核准通知](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>啟用後可立即使用角色
 
@@ -102,7 +102,7 @@ ms.locfileid: "60438378"
 
 1. 按一下 **我的要求**若要查看您的 Azure AD 角色和 Azure 資源角色的要求。
 
-    ![Azure AD 角色和 Azure 資源角色-我的要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![我的要求-Azure 資源 畫面，顯示暫止要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. 捲動至右側可檢視 [要求狀態]  欄。
 
@@ -118,22 +118,19 @@ ms.locfileid: "60438378"
 
     當您按一下 [取消] 時，將會取消要求。 若要再次啟用角色，您必須提交新的啟用要求。
 
-   ![取消擱置要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![我的要求清單，並反白顯示的 [取消] 動作](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>疑難排解
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>啟動角色之後未授與權限
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>啟用角色之後不授與權限
 
-當您在 PIM 中啟動角色之後，至少需等候 10 分鐘才能存取所需的系統管理入口網站，或在特定系統管理工作負載內執行函式。 啟用完成後，Azure 入口網站登出再重新登入若要開始使用新的主動的角色。
+當您啟用 PIM 中的角色時，啟動可能無法立即傳遞到需要特殊權限的角色的所有入口網站。 有時候，即使該變更會傳播，web 入口網站中的快取可能會導致不立即生效的變更。 如果您啟用已延遲，以下是該怎麼辦。
 
-如需其他疑難排解步驟，請參閱[針對較高的權限進行疑難排解](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx) \(英文\)。
+1. Azure 入口網站登出，然後重新登入。
 
-### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>由於資源鎖定，因此無法啟動角色
+    當您啟用的 Azure 資源角色時，您會看到您的啟用階段。 所有階段完成後，您會看到**登出**連結。 若要登出，您可以使用此連結。這將會解決大部分的情況下，啟用延遲。
 
-如果您收到一則訊息，顯示出當您嘗試啟動角色時有 Azure 資源遭到鎖定，則可能是因為角色指派範圍內有鎖定的資源。 鎖定可保護資源，以免遭到意外刪除或非預期的變更。 鎖定也可防止 PIM 在啟動期間結束時，移除資源上的角色指派。 由於套用資源鎖定時，PIM 無法正常運作，因此 PIM 會禁止使用者啟動資源上的角色。 解決此問題的方式有兩種：
-
-- 依[鎖定資源以防止非預期的變更](../../azure-resource-manager/resource-group-lock-resources.md)所述，將鎖定刪除。
-- 如果您想要保持鎖定，請讓角色指派變成永久，或使用急用帳戶。
+1. 在 PIM，確認您已列為角色的成員。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754734"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488493"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -123,9 +123,13 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 從不同的對等互連位置的多個 ExpressRoute 線路可以連接到相同虛擬網路，並提供高可用性，萬一單一線路變得無法使用。 您可以接著[較高權數指派](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)偏好本機連接到偏好特定的線路。 強烈建議客戶設定至少兩個 ExpressRoute 線路，以避免單一失敗點。 
 
+請參閱[這裡](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)以獲得高可用性的設計並[這裡](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)設計災害復原。  
+
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>如何實作備援 Microsoft 對等互連？
 
 強烈建議客戶使用 Microsoft 對等互連來存取 Azure 公用服務，例如 Azure 儲存體或 Azure SQL，以及使用 Microsoft 對等互連，它們會實作多個線路不同對等互連中的 Office 365 的客戶時若要避免發生單一 faiure 點的位置。 客戶可以通告相同的前置詞，這兩個線路上並使用[AS PATH 前置](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)或通告不同的前置詞，以決定從內部部署的路徑。
+
+請參閱[此處](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)設計高可用性。
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何確保在連線到 ExpressRoute 之虛擬網路上的高可用性？
 

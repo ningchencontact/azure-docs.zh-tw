@@ -1,8 +1,6 @@
 ---
-title: 完成 Microsoft 客戶合約-Azure 中的 Enterprise 合約工作 |Microsoft Docs
+title: 完成 Microsoft 客戶合約-Azure 中的 Enterprise 合約工作
 description: 了解如何完成中新的計費帳戶的 Enterprise 合約工作。
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,20 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371323"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490701"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 客戶合約完成您的帳單帳戶中的 Enterprise 合約工作
 
 如果您的組織已簽署更新您的 Enterprise 合約註冊的 Microsoft 客戶合約，新的計費帳戶會建立協議。 在您的新帳戶的計費被組織的方式不同於您的 Enterprise 合約。 本文說明如何使用新的計費帳戶來執行您在您的 Enterprise 合約中執行的工作。
 
-## <a name="how-billing-is-organized-in-the-new-account"></a>計費在新的帳戶中的組織方式
+## <a name="billing-organization-in-the-new-account"></a>計費的組織中新的帳戶
 
 下圖說明如何計費依照您新的計費帳戶。
 
@@ -33,16 +31,16 @@ ms.locfileid: "60371323"
 
 | Enterprise 合約   | Microsoft 客戶合約    |
 |------------------------|--------------------------------------------------------|
-| 申請            | 您可以使用計費的設定檔來為您的組織，類似於您的 Enterprise 合約註冊管理計費。 企業系統管理員會成為擁有者的帳單的設定檔。 若要深入了解計費的設定檔，請參閱[了解計費的設定檔](billing-mca-overview.md#understand-billing-profiles)。
-| department            | 您可以使用 [發票] 區段來組織您的成本，類似於您的 Enterprise 合約註冊中的部門。 部門變成發票區段和部門系統管理員發揮各自的發票區段的擁有者。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#understand-invoice-sections)。 |
+| 申請            | 您可以使用計費的設定檔來為您的組織，類似於您的 Enterprise 合約註冊管理計費。 企業系統管理員會成為擁有者的帳單的設定檔。 若要深入了解計費的設定檔，請參閱[了解計費的設定檔](billing-mca-overview.md#billing-profiles)。
+| department            | 您可以使用 [發票] 區段來組織您的成本，類似於您的 Enterprise 合約註冊中的部門。 部門變成發票區段和部門系統管理員發揮各自的發票區段的擁有者。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#invoice-sections)。 |
 | 帳戶               | 您的 Enterprise 合約中所建立的帳戶並不支援新的計費帳戶。 帳戶的訂用帳戶隸屬於其系所的個別發票區段。 帳戶擁有者可以建立和管理訂用帳戶，其 「 發票 」 章節。 |
 
-## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>在新的計費帳戶中的企業系統管理員的變更
+## <a name="changes-for-enterprise-administrators"></a>企業系統管理員的的變更
 
 下列變更會套用到已更新至 Microsoft 客戶協議的 Enterprise 合約的企業系統管理員。
 
-- 帳單的設定檔會建立您的註冊。 若要為您的組織管理計費，例如 Enterprise 合約註冊，您將使用帳單的設定檔。 若要深入了解計費的設定檔[了解計費的設定檔](billing-mca-overview.md#understand-billing-profiles)。
-- 在您的 Enterprise 合約註冊的每個部門建立發票一節。 您將使用發票各節來管理您的部門。 您可以建立新的發票幾節，來設定其他部門。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#understand-invoice-sections)。
+- 帳單的設定檔會建立您的註冊。 若要為您的組織管理計費，例如 Enterprise 合約註冊，您將使用帳單的設定檔。 若要深入了解計費的設定檔[了解計費的設定檔](billing-mca-overview.md#billing-profiles)。
+- 在您的 Enterprise 合約註冊的每個部門建立發票一節。 您將使用發票各節來管理您的部門。 您可以建立新的發票幾節，來設定其他部門。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#invoice-sections)。
 - 您將使用發票各節中的 Azure 訂用帳戶建立者角色授與其他人建立 Azure 訂用帳戶，例如 Enterprise 合約註冊中所建立的帳戶的權限。
 - 您將使用[Azure 入口網站](https://portal.azure.com)來管理您的組織，而不是 Azure EA 入口網站的計費。
 
@@ -76,7 +74,7 @@ ms.locfileid: "60371323"
 
 若要了解如何下載 Azure 的使用量和費用 csv 檔案，請參閱[Microsoft 客戶合約下載使用量](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement)。
 
-若要了解如何下載價位表，請參閱[下載您的 Microsoft 客戶合約的定價](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement)。
+若要了解如何下載價位表，請參閱[下載您的 Microsoft 客戶合約的定價](billing-ea-pricing.md#microsoft-customer-agreement-pricing)。
 
 若要了解如何下載稅務文件，請參閱[稅務文件檢視您的 Microsoft 客戶合約](billing-mca-download-tax-document.md#view-and-download-tax-documents)。
 
@@ -92,13 +90,13 @@ ms.locfileid: "60371323"
 
 ### <a name="create-a-new-account"></a>建立新帳戶
 
-將使用者指派發票各節提供這些權限來建立 Azure 訂用帳戶，例如 Enterprise 合約註冊中建立帳戶的 Azure 訂用帳戶建立者角色。 如需詳細資訊，請參閱 <<c0> [ 讓其他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)。
+將使用者指派發票各節提供這些權限來建立 Azure 訂用帳戶，例如 Enterprise 合約註冊中建立帳戶的 Azure 訂用帳戶建立者角色。 如需詳細資訊，請參閱 <<c0> [ 讓其他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission)。
 
-## <a name="changes-for-department-administrators-in-the-new-billing-account"></a>在新的計費帳戶中的部門系統管理員的變更
+## <a name="changes-for-department-administrators"></a>部門系統管理員的變更
 
 下列變更會套用到 Microsoft 的客戶合約已更新了 Enterprise 合約的部門系統管理員。
 
-- 在您的 Enterprise 合約註冊的每個部門建立發票一節。 您將使用發票區段來管理您 department(s)。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#understand-invoice-sections)。
+- 在您的 Enterprise 合約註冊的每個部門建立發票一節。 您將使用發票區段來管理您 department(s)。 若要深入了解發票區段，請參閱[了解發票區段](billing-mca-overview.md#invoice-sections)。
 - 您將使用 [發票] 區段中的 Azure 訂用帳戶建立者角色授與其他人建立 Azure 訂用帳戶，例如 Enterprise 合約註冊中建立帳戶的權限。
 - 您將使用 Azure 入口網站來為您的組織，而不是 Azure EA 入口網站中管理計費。
 
@@ -118,7 +116,7 @@ ms.locfileid: "60371323"
 
 ### <a name="create-a-new-account-in-your-department"></a>在您的部門建立新的帳戶
 
-將使用者指派的 Azure 訂用帳戶建立者角色，系統會為您部門的 [發票] 區段。 如需詳細資訊，請參閱 <<c0> [ 讓其他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)。
+將使用者指派的 Azure 訂用帳戶建立者角色，系統會為您部門的 [發票] 區段。 如需詳細資訊，請參閱 <<c0> [ 讓其他人建立 Azure 訂用帳戶的權限](billing-mca-create-subscription.md#give-others-permission)。
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>檢視費用，為您部門中的帳戶
 
@@ -126,7 +124,7 @@ ms.locfileid: "60371323"
 
 若要檢視您的部門中的帳戶屬於訂用帳戶的彙總成本，您必須設定每個訂用帳戶的成本中心。 然後，您可以篩選根據成本中心的訂用帳戶使用 Azure 的使用量和費用檔案。
 
-## <a name="changes-for-account-owners-in-the-new-billing-account"></a>中新的計費帳戶的帳戶擁有者的變更
+## <a name="changes-for-account-owners"></a>變更帳戶擁有者
 
 在 Enterprise 合約上的帳戶擁有者取得新的計費帳戶建立 Azure 訂用帳戶的權限。 您現有的 Azure 訂用帳戶隸屬於系統會為您部門的 [發票] 區段。 如果您的帳戶不屬於一個部門，您的訂用帳戶會屬於名為預設 [發票] 區段的發票區段。
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617eb8c8cfcdc7af5e91d0ed122ccdd21e7b86ff
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720813"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508091"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Apache Hadoop 作業
 
@@ -25,21 +25,18 @@ ms.locfileid: "64720813"
 
   - [建立非互動式驗證 .NET 應用程式](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [使用 HDInsight .NET SDK 執行 Apache Hive 查詢](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Pig 作業](apache-hadoop-use-pig-dotnet-sdk.md)
   - [在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Sqoop 作業](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [使用 HDInsight .NET SDK 執行 MapReduce 作業](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - **url**:
 
   - [使用 curl 在 HDInsight 中以 Apache Hadoop 執行 Apache Hive 查詢](apache-hadoop-use-hive-curl.md)
-  - [使用 curl 在 HDInsight 中以 Apache Hadoop 執行 Apache Pig 作業](apache-hadoop-use-pig-curl.md)
   - [使用 curl 在 HDInsight 中以 Apache Hadoop 執行 Apache Sqoop 作業](apache-hadoop-use-sqoop-curl.md)
   - [使用 curl 在 HDInsight 中以 Apache Hadoop 執行 MapReduce 作業](apache-hadoop-use-mapreduce-curl.md)
 
 - **PowerShell**:
 
   - [使用 PowerShell 執行 Apache Hive 查詢](apache-hadoop-use-hive-powershell.md)
-  - [使用 PowerShell 執行 Apache Pig 作業](apache-hadoop-use-pig-powershell.md)
   - [在 HDInsight 中使用 Apache Sqoop 搭配 Apache Hadoop](apache-hadoop-use-sqoop-powershell.md)
   - [使用 PowerShell 在 HDInsight 中以 Apache Hadoop 執行 MapReduce 作業](apache-hadoop-use-mapreduce-powershell.md)
 

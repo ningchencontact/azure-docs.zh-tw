@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272775"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543861"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>部署模型使用自訂的 Docker 映像
 
@@ -55,14 +55,14 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
 
     當使用映像儲存在__工作區的容器登錄庫__，您不需要向登錄進行驗證。 驗證工作區所處理。
 
-    > [!TIP]
-    > 第一次訓練，或部署模型使用的工作區時，會建立容器登錄中，供您的工作區。 如果您已建立新的工作區中，但不是受過訓練或建立模型，任何的 Azure Container Registry 會不存在的工作區。
+    > [!WARNING]
+    > 為您的工作區的 Azure 容器 Rzegistry__訓練，或將模型部署的第一次建立__使用的工作區。 如果您已建立新的工作區中，但不是受過訓練或建立模型，任何的 Azure Container Registry 會不存在的工作區。
 
     如需有關擷取您的工作區的 Azure Container Registry 的名稱，請參閱[取得容器登錄名稱](#getname)一節。
 
     當使用映像儲存在__獨立容器登錄庫__，您必須設定至少具有讀取權限的服務主體。 您接著會提供的服務主體識別碼 （使用者名稱） 和密碼使用映像從登錄的任何人。 例外情況是如果您將容器登錄可公開存取。
 
-    如需建立私人 Azure 容器登錄的詳細資訊，請參閱[建立私人容器登錄庫](/azure/container-registry/container-registery-get-started-azure-cli)。
+    如需建立私人 Azure 容器登錄的詳細資訊，請參閱[建立私人容器登錄庫](/azure/container-registry/container-registry-get-started-azure-cli)。
 
     如需使用 Azure Container Registry 中的服務主體的資訊，請參閱[使用服務主體進行 Azure Container Registry 驗證](/azure/container-registry/container-registry-auth-service-principal)。
 
@@ -80,8 +80,8 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
 
 在本節中，了解如何取得您的 Azure 機器學習服務工作區中的 Azure Container Registry 的名稱。
 
-> [!TIP]
-> 第一次訓練，或部署模型使用的工作區時，會建立容器登錄中，供您的工作區。 如果您已建立新的工作區中，但不是受過訓練或建立模型，任何的 Azure Container Registry 會不存在的工作區。
+> [!WARNING]
+> Azure Container registry，您的工作區__訓練，或將模型部署的第一次建立__使用的工作區。 如果您已建立新的工作區中，但不是受過訓練或建立模型，任何的 Azure Container Registry 會不存在的工作區。
 
 如果您已經已受過訓練，或部署使用 Azure 機器學習服務模型，為您工作區建立容器登錄庫。 若要尋找此容器登錄的名稱，請使用下列步驟：
 
@@ -153,9 +153,9 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
     Run ID: cda was successful after 2m56s
     ```
 
-如需有關如何建置使用 Azure Container Registry 的映像的詳細資訊，請參閱[建置並執行使用 Azure 容器登錄工作的容器映像](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+如需有關如何建置使用 Azure Container Registry 的映像的詳細資訊，請參閱[建置並執行使用 Azure 容器登錄工作的容器映像](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-如需有關如何將現有的映像上傳至 Azure Container Registry 的詳細資訊，請參閱 <<c0> [ 您的第一個映像推送至私人 Docker 容器登錄](/azure/container-registry/container-registry-get-started-docker-cli.md)。
+如需有關如何將現有的映像上傳至 Azure Container Registry 的詳細資訊，請參閱 <<c0> [ 您的第一個映像推送至私人 Docker 容器登錄](/azure/container-registry/container-registry-get-started-docker-cli)。
 
 ## <a name="use-a-custom-image"></a>使用自訂映像
 
@@ -164,7 +164,7 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
 * __映像名稱__。 比方說，`mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`是基本的 Docker 映像，Microsoft 所提供的路徑。
 * 如果映像位於__私人存放庫__，您需要下列資訊：
 
-    * 登錄__地址__。 例如： `myregistry.azureecr.io`。
+    * 登錄__地址__。 例如： `myregistry.azureecr.io` 。
     * 服務主體__使用者名稱__並__密碼__登錄具有讀取權限。
 
     如果您沒有此資訊，請向系統管理員，Azure Container registry，其中包含您的映像。

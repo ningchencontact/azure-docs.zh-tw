@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01e7ca184f2be755f23cd402e0694ea282e3b85e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391882"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441384"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Apache Hadoop
 
@@ -32,7 +32,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
 * 具有 Office 2010 專業增強版或更新版本，或是 Excel 2010 或更新版本的工作站。
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>安裝 Microsoft Hive ODBC 驅動程式
-下載並安裝[Microsoft Hive ODBC 驅動程式](https://go.microsoft.com/fwlink/?LinkID=286698)符合應用程式在您將使用 「 ODBC 驅動程式版本的版本。  本教學課程將針對 Office Excel 使用此驅動程式。
+下載並安裝[Microsoft Hive ODBC 驅動程式](https://go.microsoft.com/fwlink/?LinkID=286698)符合應用程式在您將使用 「 ODBC 驅動程式版本的版本。  本文章中，驅動程式會使用 Office excel。
 
 ## <a name="create-apache-hive-odbc-data-source"></a>建立 Apache Hive ODBC 資料來源
 下列步驟將說明如何建立 Hive ODBC 資料來源。

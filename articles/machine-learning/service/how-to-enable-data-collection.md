@@ -11,19 +11,19 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024254"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443986"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
 在本文中，您可以了解如何將輸入模型資料從您已部署至 Azure Kubernetes Cluster (AKS) 的 Azure Machine Learning 服務收集到 Azure Blob 儲存體。 
 
 啟用之後，您收集的此資料可協助您：
-* 監視生產資料進入您模型時的資料變化
+* [監視資料 drifts](how-to-monitor-data-drift.md)當實際執行資料輸入您的模型
 
 * 制定何時重新訓練或最佳化您模型的更佳決策
 

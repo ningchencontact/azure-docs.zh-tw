@@ -3,7 +3,7 @@ title: 利用 Xamarin.Forms 開始使用 Mobile Apps
 description: 遵循此教學課程，開始使用 Mobile Apps 進行 Xamarin.Forms 開發
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: bca0f0de7de321060635459c4435525f650c7467
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062217"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446328"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
+> [!NOTE]
+> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started)今天。
+>
+
+## <a name="overview"></a>概觀
 本教學課程說明如何使用 Azure App Service 的 Mobile Apps 功能作為後端，將雲端型後端服務新增到 Xamarin.Forms 行動裝置應用程式。 您會同時建立新的 Mobile Apps 後端，以及可在 Azure 中儲存應用程式資料的簡易待辦事項清單 Xamarin.Forms 應用程式。
 
 完成本教學課程是所有其他 Xamarin.Forms 應用程式的行動應用程式教學課程的必要條件。
@@ -34,7 +39,7 @@ ms.locfileid: "67062217"
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* Visual Studio Tools for Xamarin，在 Visual Studio 2017 或更新版本或 Visual Studio for mac。 如需指示，請參閱 [Xamarin 安裝頁面][Install Xamarin]。
+* Visual Studio Tools for Xamarin，在 Visual Studio 2017 或更新版本或 Visual Studio for mac。 請參閱[Xamarin 安裝頁面][Install Xamarin]如需相關指示。
 
 * (選擇性) 若要建置 iOS 應用程式，則需要安裝了 Xcode 9.0 或更新版本的 Mac。 Visual Studio for Mac 可以用來開發 iOS 應用程式或 Visual Studio 2017 或更新版本可用 （只要 Mac 在網路上可用）。
 
@@ -46,7 +51,7 @@ ms.locfileid: "67062217"
 
 ## <a name="run-the-xamarinforms-solution"></a>執行 Xamarin.Forms 方案
 
-需要有 Visual Studio Tools for Xamarin 才能開啟解決方案，請參閱 [Xamarin 安裝指示][Install Xamarin]。 如果工具已安裝好，請遵循下列步驟來下載並開啟解決方案：
+Visual Studio Tools for Xamarin 所開啟的方案，請參閱[Xamarin 安裝指示][Install Xamarin]。 如果工具已安裝好，請遵循下列步驟來下載並開啟解決方案：
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio （Windows 和 Mac）
 

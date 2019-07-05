@@ -4,17 +4,17 @@ description: 變數資產是可用於 Azure 自動化中所有 Runbook 和 DSC �
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 39282e816be875e598d7e0599eeb358a79941be7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342151"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478074"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
 
@@ -43,7 +43,7 @@ ms.locfileid: "67342151"
 
 * String
 * Integer
-* Datetime
+* DateTime
 * Boolean
 * Null
 

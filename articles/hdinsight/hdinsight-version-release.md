@@ -5,18 +5,18 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 77260eaa2e19135586e438576397b4647afe7ece
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546288"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483982"
 ---
 # <a name="hdinsight-40-overview"></a>HDInsight 4.0 概觀
 
-Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Apache Hadoop 與 Apache Spark 分析使用。 HDInsight 4.0 是 [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) \(英文\) 中 Apache Hadoop 元件的雲端發佈。 本文提供有關最新 Azure HDInsight 版本及如何升級的資訊。
+Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Apache Hadoop 與 Apache Spark 分析使用。 HDInsight 4.0 是 Apache Hadoop 元件的雲端發佈。 本文提供有關最新 Azure HDInsight 版本及如何升級的資訊。
 
 ## <a name="whats-new-in-hdinsight-40"></a>HDInsight 4.0 有何新功能？
 

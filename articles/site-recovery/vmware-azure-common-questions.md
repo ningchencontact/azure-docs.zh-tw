@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417768"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491703"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>有關常見問題 VMware 複寫至 Azure
 
@@ -85,6 +85,10 @@ Site Recovery 已通過 ISO 27001:2013 和 27018、 HIPAA 和 DPA 認證。 它�
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>是否有任何差別成本複寫到儲存體，或直接為受控磁碟？
 
 受控的磁碟收取儲存體帳戶的方式稍有不同。 [了解更多](https://azure.microsoft.com/pricing/details/managed-disks/)有關受控磁碟定價。
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>是否有任何差異的成本時複寫到一般用途 v2 儲存體帳戶？
+
+您通常會看到產生 GPv2 儲存體帳戶，因為 Azure Site Recovery 是大量交易的交易成本增加。 [深入了解](../storage/common/storage-account-upgrade.md#pricing-and-billing)來估計變更。
 
 ## <a name="mobility-service"></a>行動服務
 
@@ -293,7 +297,7 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>如何更新到版本 9.24 或更新版本的正確的健全狀況資訊的處理序伺服器？
 
-開頭[版本 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups)，已加入更多警示指出健全狀況的處理序伺服器。 [更新您的 Site Recovery 元件 9.24 或更新版本的版本](service-updates-how-to.md#links-to-currently-supported-update-rollups) 以便產生所有警示。
+開頭[版本 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups)，已加入更多警示指出健全狀況的處理序伺服器。 [9.24 或更新版本的版本更新您的 Site Recovery 元件](service-updates-how-to.md#links-to-currently-supported-update-rollups)以便產生所有警示。
 
 ## <a name="failover-and-failback"></a>容錯移轉和容錯回復
 

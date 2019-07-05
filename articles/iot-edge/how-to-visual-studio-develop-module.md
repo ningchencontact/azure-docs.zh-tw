@@ -5,18 +5,18 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 05/27/2019
+ms.date: 07/01/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 953a549a44d224f9d196c6d6842bdcae04cca975
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474776"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485921"
 ---
-# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>使用 Visual Studio 2019 開發和偵錯模組，適用於 Azure IoT Edge （預覽）
+# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 開發和偵錯適用於 Azure IoT Edge 的模組
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組。 本文說明如何使用 Visual Studio 2019 作為主要工具，開發和偵錯模組。
 
@@ -40,10 +40,10 @@ Azure IoT Edge Tools for Visual Studio 提供下列優點：
 
 您的 Visual Studio 2019 備妥之後，您還需要下列工具和元件：
 
-- 下載並安裝[Azure IoT Edge 工具 （預覽）](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)從 Visual Studio marketplace 建立 IoT Edge 專案在 Visual Studio 2019。
+- 下載並安裝[Azure IoT Edge 工具](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)從 Visual Studio marketplace 建立 IoT Edge 專案在 Visual Studio 2019。
 
 > [!TIP]
-> 如果您使用 Visual Studio 2017，plrease 下載並安裝[Azure IoT Edge 工具 （預覽）](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)適用於 VS 2017 的 Visual Studio marketplace
+> 如果您使用 Visual Studio 2017，plrease 下載並安裝[Azure IoT Edge 工具](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)適用於 VS 2017 的 Visual Studio marketplace
 
 - 在開發電腦下載並安裝 [Docker Community Edition](https://docs.docker.com/install/)，以建置並執行您的模組映像。 您必須設定 Docker CE 在 Linux 容器模式或 Windows 容器模式中執行。
 

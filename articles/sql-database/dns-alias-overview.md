@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 06/19/2019
-ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275191"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461816"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database 的 DNS 別名
 
@@ -30,6 +30,7 @@ DNS 別名的常見用法包含下列案例：
 - 為 Azure SQL Server 建立好記的名稱。
 - 在初始開發期間，您的別名可以參照一部測試 SQL Database 伺服器。 當應用程式上線時，您可以將別名修改為參照生產伺服器。 從測試轉換到生產環境時，不需要修改數個連線到資料庫伺服器之用戶端的組態。
 - 假設您的應用程式中唯一的資料庫已移到另一個 SQL Database 伺服器。 您可以在此修改別名，而不需要修改數個用戶端的組態。
+- 在區域中斷期間中，您可以使用異地還原復原您在不同的伺服器和區域中的資料庫。 您可以修改您現有的別名，以指向新的伺服器，使現有的用戶端應用程式無法重新連線到它。 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>網際網路的網域名稱系統 (DNS)
 

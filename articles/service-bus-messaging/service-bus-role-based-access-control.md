@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979632"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444738"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -33,12 +33,12 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 Azure 提供內建的 RBAC 角色，以授權存取服務匯流排命名空間如下：
 
-* [服務匯流排資料擁有者 （預覽）](../role-based-access-control/built-in-roles.md#service-bus-data-owner):可讓您的資料存取服務匯流排命名空間和其實體 （佇列、 主題、 訂用帳戶和篩選器）
+* [Azure 服務匯流排資料擁有者 （預覽）](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview):可讓您的資料存取服務匯流排命名空間和其實體 （佇列、 主題、 訂用帳戶和篩選器）
 
 >[!IMPORTANT]
 > 我們稍早支援新增至受管理的身分識別 **「 擁有者 」** 或是 **「 參與者 」** 角色。
 >
-> 不過，資料存取權限 **「 擁有者 」** 並 **「 參與者 」** 角色將不會再接受。 如果您使用 **「 擁有者 」** 或是 **「 參與者 」** 利用調整需要角色，則這些 **「 服務匯流排資料擁有者 」** 角色。
+> 不過，資料存取權限 **「 擁有者 」** 並 **「 參與者 」** 角色將不會再接受。 如果您使用 **「 擁有者 」** 或是 **「 參與者 」** 利用調整需要角色，則這些 **「 Azure 服務匯流排資料擁有者 （預覽） 」** 角色。
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>搭配使用服務匯流排與 Azure AD 網域使用者帳戶
 

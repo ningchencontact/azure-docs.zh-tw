@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258793"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491857"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -600,6 +600,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 重新保護完成之後，您可以起始反向方向 （至美國東部美國西部） 和容錯回復至來源區域中的容錯移轉。
+
+## <a name="disable-replication"></a>停用複寫
+
+您可以使用 移除 ASRReplicationProtectedItem cmdlet 來停用複寫。
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>後續步驟
 檢視[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/az.RecoveryServices)若要了解如何執行其他工作，例如建立復原計劃及測試透過 PowerShell 的復原計劃的容錯移轉。

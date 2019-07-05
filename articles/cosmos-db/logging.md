@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: b0a5c9fc5cac441a6680f9f72e3223ace95399f3
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296552"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448986"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -251,7 +251,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>存取記錄
-**DataPlaneRequests** 類別的 Azure Cosmos DB 記錄會儲存在您提供之儲存體帳戶的 **insights-logs-data-plane-requests** 容器中。 
+Azure Cosmos DB 記錄**DataPlaneRequests**類別目錄會儲存在**insights-記錄-dataplanerequests**您提供儲存體帳戶中的容器。 
 
 首先，建立容器名稱的變數。 此變數會用於逐步解說的各個部分。
 
@@ -464,7 +464,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 | **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
 | **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|
 | **類別** | **分類** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
-| **operationName** | **OperationName** | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
+| **operationName** | **OperationName** | 操作的名称。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |
 | **userAgent** | **userAgent_s** | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|

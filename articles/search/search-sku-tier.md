@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539256"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485299"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
-當您建立 Azure 搜尋服務，[建立資源](search-create-service-portal.md)在定價層或服務的存留期內固定的 SKU。 層次包括免費、 基本、 標準和儲存體最佳化。 標準和儲存體最佳化有數個組態和容量。
+當您建立 Azure 搜尋服務，[建立資源](search-create-service-portal.md)定價的 「 層 」 （或稱 「 SKU 」），都固定的服務的存留期。 層次包括免費、 基本、 標準和儲存體最佳化。 標準和儲存體最佳化有數個組態和容量。
 
-在免費層的大部分客戶啟動，因此它們可以評估服務。 他們再升級至其中一個更高的層，用於開發與生產部署。 您可以完成所有的快速入門和教學課程使用免費層，其中包含需要大量資源的認知搜尋的。
+在免費層的大部分客戶啟動，因此它們可以評估服務。 後評估，通常會在其中一個更高的層，用於開發與生產部署中建立第二個服務。 您可以完成所有的快速入門和教學課程使用免費層，其中包含需要大量資源的認知搜尋的。
 
 > [!NOTE]
-> Microsoft 目前提供儲存體最佳化的服務層中的預覽折扣定價，進行測試和實驗，以期收集意見反應。 最終價格將於日後宣佈正式推出這些層時。 我們建議您避免使用這些層次，對於生產應用程式。
+> 自 7 月 1 日起所有的層為正式運作，包括儲存體最佳化的階層。 所有價格都位於[定價詳細資料](https://azure.microsoft.com/pricing/details/search/)頁面。
 
 層級會反映裝載服務之硬體的特性 (而非功能)，並會依下列方式來加以區分：
 
 + 您可以建立的索引數目。
 + 大小和速度的資料分割 （實體儲存體）。
 
-雖然所有層，包括免費層中，通常會都提供類似的功能，較大的工作負載可以決定需要更高的層。 例如， [AI 與認知服務進行索引編製](cognitive-search-concept-intro.md)除非長時間執行的技能逾時的一項免費服務上的資料集很小。
+雖然所有層，包括免費層中，通常會都提供類似的功能，較大的工作負載可以決定需要更高的層。 例如， [AI 與認知服務的豐富](cognitive-search-concept-intro.md)除非長時間執行的技能逾時的一項免費服務上的資料集很小。
 
 > [!NOTE] 
 > 功能同位檢查的例外狀況是[索引子](search-indexer-overview.md)，並不是可在 S3 HD 上取得。
@@ -60,7 +60,11 @@ ms.locfileid: "65539256"
 
 ## <a name="how-billing-works"></a>計費的運作方式
 
-有三種方式產生成本，在 Azure 搜尋服務，並有固定且可變的元件。 本節描述三種計費元件： 核心服務成本、 資料輸出費用，和 AI 輔助編製索引。
+有三種方式可產生 Azure 搜尋服務中的成本。 本節描述三種計費元件： 
+
++ 核心服務成本
++ 資料輸出 （或頻寬） 的費用
++ AI 類
 
 ### <a name="core-service-costs-fixed-and-variable"></a>核心服務成本 （固定且可變）
 
@@ -98,9 +102,9 @@ SU 是乘積*複本*並*分割區*服務所使用： **(R x P = SU)** .
 
 如果服務位於不同區域費用適用的輸出資料。 這些費用不會實際隨您的 Azure 搜尋服務帳單。 因為如果您使用資料或 AI 擴充索引子將資料提取來自不同區域，您會看到您整體的帳單中反映的成本，它們是此處提及。
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>豐富 AI 與認知服務編製索引
+### <a name="ai-enrichments-with-cognitive-services"></a>使用認知服務的 AI 類
 
-針對[AI 與認知服務進行索引編製](cognitive-search-concept-intro.md)，您應該規劃將可計費的 Azure 認知服務資源，請在 Azure 搜尋服務，與隨用隨付處理 S0 定價層在相同的區域。 沒有任何附加認知服務相關聯的固定的成本。 您只需支付您所需要的處理。
+針對[AI 與認知服務的豐富](cognitive-search-concept-intro.md)，您應該規劃將可計費的 Azure 認知服務資源，請在 Azure 搜尋服務，與隨用隨付處理 S0 定價層在相同的區域。 沒有任何附加認知服務相關聯的固定的成本。 您只需支付您所需要的處理。
 
 在文件破解的映像擷取是屬於 Azure 搜尋服務的費用。 就會根據從您的文件中擷取的映像數目計費。 文字擷取目前是免費的。
 

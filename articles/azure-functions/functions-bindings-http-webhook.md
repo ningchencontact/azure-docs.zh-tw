@@ -4,19 +4,19 @@ description: 瞭解如何在 Azure Functions 中使用 HTTP 觸發程序和繫�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f9f43720ff36b6dfac51a1626413ff7c2e590cd0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342268"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480460"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -757,7 +757,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 當使用這其中一種函數應用程式等級的安全性方法時，您應該將 HTTP 觸發的函式驗證等級設定為 `anonymous`。
 
-### <a name="webhooks"></a>Webhook
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > Webhook 模式僅適用於 1.x 版 Functions 執行階段。 此變更已完成，可在版本 2.x 中提升 HTTP 觸發程序的效能。

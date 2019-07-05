@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: dfa57b3f597ba1c01dc78421cc04074f7b6a858e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: a2f44b52c6d34adb1bebf666ff8453b17f7778a5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063046"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448477"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>設定和存取 Azure 入口網站中的稽核記錄
 
@@ -40,7 +40,7 @@ ms.locfileid: "67063046"
 1. 更新**audit_log_enabled**參數設為 ON。
     ![啟用稽核記錄檔](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. 選取要藉由更新記錄的事件**audit_log_events**參數。
+1. 選取 [事件型別](concepts-audit-logs.md#configure-audit-logging)藉由更新記錄**audit_log_events**參數。
     ![稽核記錄檔事件](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. 新增要排除的記錄，藉由更新任何 MySQL 使用者**audit_log_exclude_users**參數。 指定使用者藉由提供他們的 MySQL 使用者名稱。

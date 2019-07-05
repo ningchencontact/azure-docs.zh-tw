@@ -5,14 +5,14 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 06/25/2019
 ms.author: vinagara
-ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8183c7070b5d42e1c7a96fc0d64974658b2ec7d0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244948"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448934"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -24,16 +24,17 @@ ms.locfileid: "66244948"
 > [!IMPORTANT]
 > 服務健康情況通知的警示是無法透過活動記錄警示建立的介面來建立的。 若要深入了解建立及使用服務健康情況通知，請參閱[在服務健康情況通知上接收活動記錄警示](alerts-activity-log-service-notifications.md)。
 
+在建立警示規則時，請確定下列各項：
+
+- 範圍中的訂用帳戶和警示建立所在訂用帳戶並無不同。
+- 設定警示必須以層級/狀態/呼叫端/資源群組/資源識別碼/資源類型/事件類別目錄為準則。
+- 警示設定 JSON 中不得有 “anyOf” 條件或巢狀條件 (基本上，只允許 allOf，不得進一步使用 allOf/anyOf)。
+- 當類別為「系統管理」時。 您必須在您的警示中指定至少一個上述準則。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
+
+
 ## <a name="azure-portal"></a>Azure 入口網站
 
-> [!NOTE]
-> 
->  在建立警示規則時，請確定下列各項：
-> 
-> - 範圍中的訂用帳戶和警示建立所在訂用帳戶並無不同。
-> - 設定警示必須以層級/狀態/呼叫端/資源群組/資源識別碼/資源類型/事件類別目錄為準則。
-> - 警示設定 JSON 中不得有 “anyOf” 條件或巢狀條件 (基本上，只允許 allOf，不得進一步使用 allOf/anyOf)。
-> - 當類別為「系統管理」時。 您必須在您的警示中指定至少一個上述準則。 您不能建立會在每次活動記錄中建立事件時即啟動的警示。
+使用 Azure 入口網站，使用者可以建立和修改活動記錄警示規則。 並使用 Azure 活動記錄-以確保無縫式警示建立特定的事件感興趣的整合體驗。
 
 ### <a name="create-with-azure-portal"></a>使用 Azure 入口網站建立
 
@@ -220,11 +221,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 活動記錄警示有專用的 PowerShell Cmdlet 可供使用：
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) :新建或更新現有的活動記錄警示。
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) :取得一或多個活動記錄警示的資源。
-- [啟用 AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) :啟用現有活動記錄警示並設定其標籤。
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) :停用現有活動記錄警示，並設定其標籤。
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    :移除活動記錄警示。
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert) :新建或更新現有的活動記錄警示。
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert) :取得一或多個活動記錄警示的資源。
+- [啟用 AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert) :啟用現有活動記錄警示並設定其標籤。
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) :停用現有活動記錄警示，並設定其標籤。
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert)    :移除活動記錄警示。
 
 ## <a name="cli"></a>CLI
 

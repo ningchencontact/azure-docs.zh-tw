@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2c5491bab9b45df11c2fe81aa933a1a34c49a41b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205927"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477004"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure 機器學習服務工作區
 
@@ -103,6 +103,19 @@ az group deployment create \
 ```
 
 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../../azure-resource-manager/resource-manager-cli-sas-token.md)。
+
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure 金鑰保存庫存取原則和 Azure Resource Manager 範本
+
+當您使用 Azure Resource Manager 範本來建立工作區和相關聯的資源 （包括 Azure Key Vault），許多次。 例如，使用範本多次使用相同的參數做為一部分的連續整合和部署管線。
+
+大部分的資源建立作業，透過範本具有等冪性，但金鑰保存庫清除的存取原則每次使用此範本。 清除 存取原則符號 Key Vault 存取權的任何現有的工作區正在使用它。 例如，Azure Notebook vm 停止/建立功能可能會失敗。  
+
+若要避免這個問題，我們建議下列方式之一：
+
+*  請勿部署範本一次以上相同的參數。 或使用範本來重新建立它們之前刪除現有的資源。
+  
+* 檢查金鑰保存庫的存取原則，然後使用這些原則範本的 Accesspolicy 屬性設定。
+* 檢查 Key Vault 資源是否已經存在。 若是如此，不會重建它透過範本。 例如，加入參數，可讓您停用建立金鑰保存庫資源，如果已經存在。
 
 ## <a name="next-steps"></a>後續步驟
 

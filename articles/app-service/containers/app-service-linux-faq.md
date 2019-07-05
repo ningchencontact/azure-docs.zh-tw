@@ -4,7 +4,7 @@ description: Linux 上的 Azure App Service 常見問題集。
 keywords: azure app service, web 應用程式, 常見問題集, linux, oss, 用於容器的 Web App, 多重容器
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594271"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448430"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -119,10 +119,7 @@ const io = require('socket.io')(server,{
 
 **我使用自己的自訂容器。我希望平台將 SMB 共用掛接至 `/home/` 目錄。**
 
-您可以將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 應用程式設定設為 true  來執行此動作。 請記住，當平台儲存體進行變更時，如此會導致容器重新啟動。
-
->[!NOTE]
->如果 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 設定為未指定或設定為 false  ，`/home/` 目錄不會由級別執行個體共用，而且寫入其中的檔案不會保存到重新啟動之後。
+如果`WEBSITES_ENABLE_APP_SERVICE_STORAGE`設定為**未指定**或設為 *，則為 true*，則`/home/`目錄**共用**跨擴展執行個體，並寫入檔案**會保存**重新啟動時。 明確設定`WEBSITES_ENABLE_APP_SERVICE_STORAGE`要*false*將會停用掛接。
 
 **我的自訂容器需要很長時間才能啟動，而平台會在它完成啟動之前將容器重新啟動。**
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293197"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448115"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器中的 PostgreSQL 擴充功能
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 擴充功能可在單一封裝中一併統合多個相關的 SQL 物件，其可使用單一命令從您的資料庫加以載入或移除。 載入資料庫之後，擴充功能就可如內建功能般運作。 如需有關 PostgreSQL 擴充功能的詳細資訊，請參閱 [將相關物件封裝成擴充功能](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)。
@@ -48,7 +48,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 依時間或識別碼管理分割的資料表。 |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | 提供可根據三併詞比對判斷英數文字相似度的函式和運算子。 |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | 提供操縱整個資料表 (包括交叉資料表) 的函式。 |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | 產生通用唯一識別碼 (UUID)。 |
+> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | 產生通用唯一識別碼 (UUID)。 (請參閱以下關於此延伸模組的注意事項)。 |
 > | [orafce](https://github.com/orafce/orafce) | 提供函數和封裝模擬從商業的資料庫的子集。 |
 
 ### <a name="full-text-search-extensions"></a>全文檢索搜尋擴充功能
@@ -118,6 +118,10 @@ pg_stat_statements 提供查詢執行資訊，不過會對於伺服器效能造�
 dblink 和 postgres_fdw 可讓您從一個 PostgreSQL 伺服器連線至另一個伺服器，或連線至相同伺服器中的另一個資料庫。 接收端伺服器必須允許來自傳送端伺服器通過其防火牆的連線。 將這些延伸模組用於「適用於 PostgreSQL 的 Azure 資料庫」伺服器之間的連線時，可藉由將 [允許存取 Azure 服務] 設為 [開啟] 來執行此動作。 如果您想要使用延伸模組來回路到相同的伺服器，也需要執行此動作。 [允許存取 Azure 服務] 設定可在「適用於 PostgreSQL 的 Azure 資料庫」伺服器的 Azure 入口網站頁面中找到，位於 [連線安全性] 下方。 開啟 [允許存取 Azure 服務]，可將所有 Azure IP 列入允許清單中。
 
 目前，輸出連線從 Azure Database for PostgreSQL 不是支援，除了其他適用於 PostgreSQL 伺服器的 Azure 資料庫的連接。
+
+## <a name="uuid"></a>uuid
+如果您打算使用`uuid_generate_v4()`從 uuid ossp 延伸模組，請考慮與比較`gen_random_uuid()`從 pgcrypto 延伸模組的效能優勢。
+
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB 是會封裝成擴充功能，適用於 PostgreSQL 的時間序列資料庫。 TimescaleDB 提供時間導向分析函式，最佳化，並調整 Postgres 適用於時間序列工作負載。

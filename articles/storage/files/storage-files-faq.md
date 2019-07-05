@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190073"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540365"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -73,10 +73,10 @@ ms.locfileid: "65190073"
 
 * <a id="tier-options"></a>
   **Azure 檔案服務中支援哪些儲存層？**  
-    Azure 檔案服務目前只支援標準儲存層。 對於進階儲存體和非經常性儲存體的支援，目前尚無確切時間表。 
+    Azure 檔案服務支援兩個儲存層： 進階和標準。 標準檔案共用建立一般用途儲存體帳戶 （GPv1 或 GPv2） 和進階檔案共用會建立在 FileStorage 儲存體帳戶。 深入了解如何建立[標準檔案共用](storage-how-to-create-file-share.md)並[premium 檔案共用](storage-how-to-create-premium-fileshare.md)。 
     
     > [!NOTE]
-    > 您無法從僅限 Blob 的儲存體帳戶或進階儲存體帳戶建立 Azure 檔案共用。
+    > 您無法從 Blob 儲存體帳戶中建立 Azure 檔案共用或*premium*一般用途儲存體帳戶 （GPv1 或 GPv2）。 必須在中建立的標準 Azure 檔案共用*標準*只有和進階的 Azure 檔案共用必須建立 FileStorage 儲存體帳戶中的一般用途帳戶。 *Premium*進階分頁 blob 只是一般用途儲存體帳戶 （GPv1 與 GPv2）。 
 
 * <a id="give-us-feedback"></a>
   **我真的希望 Azure 檔案服務中能加入某個特定功能。是否有此可能？**  
@@ -356,8 +356,8 @@ ms.locfileid: "65190073"
     如需 Azure 檔案服務的延展性和效能目標相關資訊，請參閱 [Azure 檔案服務延展性和效能目標](storage-files-scale-targets.md)。
 
 * <a id="need-larger-share"></a>
-**我需要的檔案共用比 Azure 檔案服務目前所提供的更大。我可以提高 Azure 檔案共用的大小嗎？**  
-    沒有。 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
+**何種大小可供 Azure 檔案共用？**  
+    （進階和標準），azure 檔案共用大小可以調整為 100 TiB。 最多 100 TiB 進階檔案共用大小都有的 GA 供應項目。 最多 5 TiB 的標準檔案共用大小都有 GA 供應項目，而高達 100 TiB 大小目前為預覽版。 請參閱[到較大的檔案共用 （標準層） 上架](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier)區段規劃指南的上線指示較大的檔案共用的標準層的預覽。
 
 * <a id="open-handles-quota"></a>
 **多少個用戶端可以同時存取相同的檔案？**    

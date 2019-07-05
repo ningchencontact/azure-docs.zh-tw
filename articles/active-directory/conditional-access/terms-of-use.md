@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f891642761a2f692158efbd9111ff96444c4269d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112122"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476196"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 使用規定
 
@@ -74,11 +74,11 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入 Azure。
 1. 瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 上的 [使用規定]  。
 
-   ![[使用規定] 刀鋒視窗](./media/terms-of-use/tou-blade.png)
+   ![條件式存取-使用刀鋒視窗中的條款](./media/terms-of-use/tou-blade.png)
 
 1. 按一下 [新增規定]  。
 
-   ![新增 TOU](./media/terms-of-use/new-tou.png)
+   ![指定您使用設定的條款 窗格使用的新詞彙](./media/terms-of-use/new-tou.png)
 
 1. 在 **名稱**方塊中，輸入將使用的使用規定的名稱在 Azure 入口網站中。
 1. 在 [顯示名稱]  方塊中，輸入使用者在登入時會看見的標題。
@@ -88,7 +88,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 1. 若要要求使用者接受從存取每個裝置上的使用規定，設定**要求每個裝置上同意的使用者**要**上**。 如需詳細資訊，請參閱 <<c0> [ 每一裝置的使用規定](#per-device-terms-of-use)。
 1. 如果您想要到期的排程同意使用條款，設定**到期同意**要**上**。 設定為 [開啟] 時，系統會顯示兩個額外的排程設定。
 
-   ![到期同意](./media/terms-of-use/expire-consents.png)
+   ![到期的授權設定，才能開始日期、 頻率和持續時間](./media/terms-of-use/expire-consents.png)
 
 1. 使用**到期時間起**並**頻率**設定，以指定的排程中的條款使用到期時間。 下表會顯示幾個範例設定的結果：
 
@@ -115,7 +115,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 1. 底下**條件式存取**，使用**強制使用條件式存取原則範本**清單中選取的範本，以強制執行的使用規定。
 
-   ![條件式存取範本](./media/terms-of-use/conditional-access-templates.png)
+   ![若要選取原則範本的條件式存取下拉式清單](./media/terms-of-use/conditional-access-templates.png)
 
    | 範本 | 描述 |
    | --- | --- |
@@ -133,11 +133,11 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
    如果您選取自訂的條件式存取範本，然後新畫面隨即出現，可讓您建立自訂的條件式存取原則。
 
-   ![自訂原則](./media/terms-of-use/custom-policy.png)
+   ![如果您選擇自訂的條件式存取原則範本的新條件式存取窗格](./media/terms-of-use/custom-policy.png)
 
    現在，您應該會看到新使用規定。
 
-   ![新增 TOU](./media/terms-of-use/create-tou.png)
+   ![新的條款使用刀鋒視窗中所列的使用規定](./media/terms-of-use/create-tou.png)
 
 ## <a name="view-report-of-who-has-accepted-and-declined"></a>檢視已接受和已拒絕的人員報表
 
@@ -145,19 +145,19 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 1. 登入 Azure 並瀏覽至 [https://aka.ms/catou](https://aka.ms/catou) 上的 [使用規定]  。
 
-   ![[使用規定] 刀鋒視窗](./media/terms-of-use/view-tou.png)
+   ![使用刀鋒視窗中列出的使用者顯示數字的條款已接受和拒絕](./media/terms-of-use/view-tou.png)
 
 1. 使用規定，請按一下下方的數字**Accepted**或是**已拒絕**若要檢視使用者的目前狀態。
 
-   ![針對使用規定的同意](./media/terms-of-use/accepted-tou.png)
+   ![規定使用同意窗格列出已接受的使用者](./media/terms-of-use/accepted-tou.png)
 
 1. 若要檢視個別使用者的歷程記錄，請按一下省略符號 ( **...** )，然後按一下 [檢視記錄]  。
 
-   ![[檢視記錄] 功能表](./media/terms-of-use/view-history-menu.png)
+   ![檢視使用者的歷程記錄內容功能表](./media/terms-of-use/view-history-menu.png)
 
    在 [檢視記錄] 窗格中，您可以看見所有接受、拒絕及到期的歷程記錄。
 
-   ![[檢視記錄] 窗格](./media/terms-of-use/view-history-pane.png)
+   ![檢視歷程記錄 窗格會列出記錄接受、 拒絕和使用者的到期時間](./media/terms-of-use/view-history-pane.png)
 
 ## <a name="view-azure-ad-audit-logs"></a>檢視 Azure AD 稽核記錄
 
@@ -169,31 +169,31 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 1. 選取 使用規定。
 1. 按一下 [檢視稽核記錄]  。
 
-   ![[使用規定] 刀鋒視窗](./media/terms-of-use/audit-tou.png)
+   ![使用刀鋒視窗，檢視的條款稽核反白顯示的記錄檔選項](./media/terms-of-use/audit-tou.png)
 
 1. 在 Azure AD 稽核記錄畫面上，您可以使用提供的清單來篩選資訊，以找出特定的稽核記錄資訊。
 
    您也可以按一下 [下載]  ，將資訊下載成 .csv 檔案，以在本機中使用。
 
-   ![稽核記錄](./media/terms-of-use/audit-logs-tou.png)
+   ![Azure AD 稽核記錄畫面列出日期、 目標原則，由和活動](./media/terms-of-use/audit-logs-tou.png)
 
    如果您按一下某個記錄，螢幕會出現具有額外活動詳細資料的窗格。
 
-   ![活動詳細資料](./media/terms-of-use/audit-log-activity-details.png)
+   ![活動詳細資料顯示活動，活動狀態，由，記錄檔的原則目標。](./media/terms-of-use/audit-log-activity-details.png)
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>使用者的使用條款看起來像
 
 一旦建立並強制執行使用規定，使用者會在範圍內，會在登入時看到下列畫面。
 
-![使用者網頁登入](./media/terms-of-use/user-tou.png)
+![範例會顯示當使用者登入時的使用規定](./media/terms-of-use/user-tou.png)
 
 使用者可以檢視使用規定，如果有必要，請使用按鈕來放大和縮小。
 
-![檢視與縮放按鈕的使用規定](./media/terms-of-use/zoom-buttons.png)
+![使用顯示比例按鈕的使用規定的檢視](./media/terms-of-use/zoom-buttons.png)
 
 下列畫面顯示使用規定行動裝置上的外觀。
 
-![使用者行動裝置登入](./media/terms-of-use/mobile-tou.png)
+![範例會顯示當使用者登入時，在行動裝置上的使用規定](./media/terms-of-use/mobile-tou.png)
 
 使用者只需要接受使用條款之後，它們將不會看到的使用規定再次後續的登入。
 
@@ -204,11 +204,11 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
 1. 在右上角，按一下您的名稱並選取 [設定檔]  。
 
-   ![設定檔](./media/terms-of-use/tou14.png)
+   ![使用者的窗格中開啟 MyApps 網站](./media/terms-of-use/tou14.png)
 
 1. 在您的設定檔頁面上，按一下 [檢閱使用規定]  。
 
-   ![設定檔 - 檢閱使用規定](./media/terms-of-use/tou13a.png)
+   ![顯示檢閱條款，使用連結的使用者設定檔頁面](./media/terms-of-use/tou13a.png)
 
 1. 您可以在此檢閱您已接受的使用規定。
 
@@ -223,7 +223,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
    如果您想要變更，例如 PDF 文件的其他設定要求使用者同意每個裝置上，過期同意、 持續時間 reacceptance 或之前的條件式存取原則，您必須建立新的使用條款。
 
-   ![編輯使用規定](./media/terms-of-use/edit-tou.png)
+   ![編輯使用規定使用窗格顯示名稱和展開選項](./media/terms-of-use/edit-tou.png)
 
 1. 按一下 [確定]  儲存變更。
 
@@ -237,12 +237,12 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 1. 選取您想要編輯的使用規定。
 1. 在 [詳細資料] 窗格中，按一下 [語言]  索引標籤。
 
-   ![新增 TOU](./media/terms-of-use/languages-tou.png)
+   ![選取 使用和顯示詳細資料窗格中的 語言 索引標籤中的條款](./media/terms-of-use/languages-tou.png)
 
 1. 按一下 [新增語言]  。
 1. 在 [新增使用規定語言] 窗格中，上傳當地語系化的 PDF 並選取的語言。
 
-   ![新增 TOU](./media/terms-of-use/language-add-tou.png)
+   ![新增具有上傳當地語系化的 Pdf 等選項使用 [語言] 窗格中的條款](./media/terms-of-use/language-add-tou.png)
 
 1. 按一下 [新增]  來新增語言。
 
@@ -273,7 +273,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 如果使用者是使用 Windows 10 和 Microsoft Edge，他們將會收到類似下列的訊息以[加入其裝置](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device)。
 
-![Windows 10 和 Microsoft Edge - 加入裝置提示](./media/terms-of-use/per-device-win10-edge.png)
+![Windows 10 和 Microsoft Edge-訊息，指出您的裝置必須註冊](./media/terms-of-use/per-device-win10-edge.png)
 
 如果他們是使用 Chrome，系統將會提示他們安裝 [Windows 10 Accounts 擴充功能](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) \(英文\)。
 
@@ -281,7 +281,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 如果使用者是使用不支援的瀏覽器，系統將會提示他們使用其他瀏覽器。
 
-![不支援的瀏覽器](./media/terms-of-use/per-device-browser-unsupported.png)
+![訊息，指出您的裝置必須註冊，但不是支援瀏覽器](./media/terms-of-use/per-device-browser-unsupported.png)
 
 ## <a name="delete-terms-of-use"></a>刪除使用規定
 
@@ -292,7 +292,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 1. 按一下 [刪除規定]  。
 1. 出現詢問您是否要繼續的訊息時，請按一下 [是]  。
 
-   ![刪除使用規定](./media/terms-of-use/delete-tou.png)
+   ![訊息，要求確認要刪除使用規定](./media/terms-of-use/delete-tou.png)
 
    您應該不會再看到使用規定。
 
@@ -316,7 +316,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 使用規定只會在使用者於 Azure AD 中具有來賓帳戶的情況下顯示。 SharePoint Online 目前有[臨機操作外部共用收件者經驗](/sharepoint/what-s-new-in-sharing-in-targeted-release)共用文件或不需要使用者具有來賓帳戶的資料夾。 在此情況下，不會顯示使用規定。
 
-![所有來賓使用者](./media/terms-of-use/b2b-guests.png)
+![使用者和群組 窗格-包括所有來賓使用者選項 索引標籤檢查](./media/terms-of-use/b2b-guests.png)
 
 ## <a name="support-for-cloud-apps-preview"></a>針對雲端應用程式的支援 (預覽)
 
@@ -326,13 +326,13 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 您可以設定 Azure 資訊保護應用程式的條件式存取原則，並要求使用規定，當使用者存取受保護的文件。 這會觸發在使用者第一次存取受保護的文件之前的使用規定。
 
-![Azure 資訊保護雲端應用程式](./media/terms-of-use/cloud-app-info-protection.png)
+![使用 Microsoft Azure 資訊保護應用程式選取的雲端應用程式 窗格](./media/terms-of-use/cloud-app-info-protection.png)
 
 ### <a name="microsoft-intune-enrollment"></a>Microsoft Intune 註冊
 
 您可以設定 Microsoft Intune 註冊應用程式的條件式存取原則，並要求在 Intune 中的裝置註冊之前的使用規定。 如需詳細資訊，請參閱[為您組織的部落格文章選擇正確的規定解決方案](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) \(英文\)。
 
-![Microsoft Intune 雲端應用程式](./media/terms-of-use/cloud-app-intune.png)
+![使用 Microsoft Intune 應用程式選取的雲端應用程式 窗格](./media/terms-of-use/cloud-app-intune.png)
 
 > [!NOTE]
 > Intune 註冊應用程式不支援[每一裝置的使用規定](#per-device-terms-of-use)。

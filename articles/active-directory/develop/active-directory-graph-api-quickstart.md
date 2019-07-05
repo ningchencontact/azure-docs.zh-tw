@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544674"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483169"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>作法：使用 Azure AD Graph API
 
@@ -65,7 +65,7 @@ Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，�
 
 如果您瀏覽至「Azure AD Graph 總管」、登入，然後輸入 `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` 來顯示登入使用者之目錄中的所有使用者，以下螢幕擷取畫面即是您會看到的輸出：
 
-![Azure AD Graph API 總管](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![在 Azure AD Graph API 總管 中的範例輸出](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **載入 Azure AD Graph 總管**：若要載入工具，請瀏覽至 [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)。 按一下 [登入]  ，然後使用 Azure AD 帳戶認證來登入，以針對您的租用戶執行「Azure AD Graph 總管」。 如果您針對自己的租用戶執行「Azure AD Graph 總管」，則您或系統管理員將必須在登入期間表示同意。 如果您擁有 Office 365 訂用帳戶，就會自動擁有 Azure AD 租用戶。 事實上，您用來登入 Office 365 的認證就是 Azure AD 帳戶，而您可以將這些認證與「Azure AD Graph 總管」搭配使用。
 

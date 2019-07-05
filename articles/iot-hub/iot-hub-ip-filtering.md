@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 中樞 IP 連線篩選器 | Microsoft Docs
 description: 如何使用 IP 篩選來封鎖從特定 IP 位址至 Azure IoT 中樞的連接。 您可以封鎖來自個別 IP 位址或 IP 位址範圍的連接。
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: rezas
-ms.openlocfilehash: 5e755a528d91d6321f431f256eafdcb01e67d601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 82b079a7e826d870ed3e156b56921fc347a0fbd8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398970"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445537"
 ---
 # <a name="use-ip-filters"></a>使用 IP 篩選器
 

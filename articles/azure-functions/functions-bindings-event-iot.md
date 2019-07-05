@@ -4,19 +4,19 @@ description: 了解如何在 Azure Functions 中使用 IoT 中樞繫結。
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e39a7b2c29ee541a9a104d681d25335496e5625b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511375"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480609"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>適用於 Azure Functions 的 azure IoT 中樞繫結
 

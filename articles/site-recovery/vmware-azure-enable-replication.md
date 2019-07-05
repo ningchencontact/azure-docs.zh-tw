@@ -3,15 +3,15 @@ title: 啟用 VMware Vm 複寫至 Azure Site Recovery 與 Azure 的災害復原 
 description: 本文說明如何使用 Azure Site Recovery 將 VMware Vm 啟用複寫至 Azure 的災害復原。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540773"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491721"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -37,11 +37,13 @@ ms.locfileid: "65540773"
 ## <a name="enable-replication"></a>啟用複寫
 
 請遵循本節中的步驟之前，請注意下列資訊：
-* Azure Site Recovery 現在會直接複寫至受控磁碟的所有新的複寫。 處理序伺服器會將複寫記錄檔寫入的目標區域中的快取儲存體帳戶。 這些記錄檔用來建立複本受控磁碟中的復原點。
+* Azure Site Recovery 現在會直接複寫至受控磁碟的所有新的複寫。 處理序伺服器會將複寫記錄檔寫入的目標區域中的快取儲存體帳戶。 這些記錄檔用來建立復原點的 asrseeddisk 命名慣例的複本受控磁碟中。
+* 複寫至受控磁碟的 Powershell 支援已可從[Az.RecoveryServices 模組 2.0.0 版及更新版本](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * 在容錯移轉時，您選取的復原點用來建立目標受控磁碟。
 * 先前已設定為複寫到目標儲存體帳戶的 Vm 不會受到影響。
 * 只有透過 Representational State Transfer (REST) API 和 Powershell 使用新的虛擬機器的儲存體帳戶的複寫。 使用 Azure REST API 2016-08-10 或 2018年-01-10 版本複寫到儲存體帳戶。
 
+請依照下列步驟來啟用複寫：
 1. 移至**步驟 2:** 複寫應用程式 > 來源  。 為第一次啟用複寫之後，請選取 **+ 複寫**保存庫啟用額外的虛擬機器的複寫中。
 2. 在 [來源]  頁面 > [來源]  中，選取組態伺服器。
 3. 針對**機器類型**，選取**虛擬機器**或是**實體機器**。

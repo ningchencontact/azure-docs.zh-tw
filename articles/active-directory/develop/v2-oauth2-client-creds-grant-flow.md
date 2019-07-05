@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545104"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482240"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 用戶端認證流程
 
@@ -42,7 +42,7 @@ OAuth 2.0 用戶端認證授與流程可允許 Web 服務 (機密用戶端) 在�
 
 整個用戶端認證流程看起來類似下圖。 我們會在本文稍後說明每個步驟。
 
-![用戶端認證流程](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![此圖顯示用戶端認證流程](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>取得直接授權
 
@@ -92,7 +92,7 @@ OAuth 2.0 用戶端認證授與流程可允許 Web 服務 (機密用戶端) 在�
 當您準備好向組織的系統管理員要求權限時，您可以將使用者重新導向至 Microsoft 身分識別平台*系統管理員同意端點*。
 
 > [!TIP]
-> 嘗試在 Postman 中執行這項要求！ （為了獲得最佳結果，使用您自己的應用程式識別碼-教學課程的應用程式將不會要求很有用的權限）。[![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> 嘗試在 Postman 中執行這項要求！ （為了獲得最佳結果，使用您自己的應用程式識別碼-教學課程的應用程式將不會要求很有用的權限）。[![嘗試在 Postman 中執行此要求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 取得應用程式的必要授權後，請繼續取得 API 的存取權杖。 若要使用的用戶端認證授與取得權杖，請傳送 POST 要求至`/token`Microsoft 身分識別平台端點：
 
 > [!TIP]
-> 嘗試在 Postman 中執行這項要求！ （為了獲得最佳結果，使用您自己的應用程式識別碼-教學課程的應用程式將不會要求很有用的權限）。[![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> 嘗試在 Postman 中執行這項要求！ （為了獲得最佳結果，使用您自己的應用程式識別碼-教學課程的應用程式將不會要求很有用的權限）。[![嘗試在 Postman 中執行此要求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
 

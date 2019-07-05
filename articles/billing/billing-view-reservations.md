@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369124"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490274"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 保留的項目
 
@@ -32,7 +32,7 @@ ms.locfileid: "60369124"
 若要以「擁有者」或「讀者」身分檢視保留，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 針對 [保留]  進行搜尋。
+2. 搜尋**保留**。
     ![螢幕擷取畫面顯示 Azure 入口網站搜尋](./media/billing-view-reservation/portal-reservation-search.png)  
 3. 此清單會顯示所有保留項目具有 「 擁有者 」 或 「 讀取者角色。 每個保留項目顯示的最後一個已知的使用率百分比。  
     ![範例，顯示一份保留項目](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ ms.locfileid: "60369124"
 若要在 Azure 入口網站中檢視保留交易，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋**成本管理 + 計費**。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-cm-billing-search.png)
 

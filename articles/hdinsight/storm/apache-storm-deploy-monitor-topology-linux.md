@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078234"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483842"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲 
 
@@ -21,11 +21,12 @@ ms.locfileid: "67078234"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **HDInsight 叢集上以 Linux 為基礎的 Storm**：請參閱 [開始使用 Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md) 以取得建立叢集的步驟
+* 在 HDInsight 上 Apache Storm 叢集。 請參閱[使用 Azure 入口網站中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取**Storm** for**叢集類型**。
 
-* (選擇性) **熟悉 SSH 和 SCP**：如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-* (選擇性) **Visual Studio**：Azure SDK 2.5.1 或更新版本，以及 Data Lake Tools for Visual Studio。 如需詳細資訊，請參閱[開始使用 Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
+* （選擇性）熟悉 SSH 和 SCP:如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+* （選擇性）Visual Studio 中：Azure SDK 2.5.1 或更新版本，以及 Data Lake Tools for Visual Studio。 如需詳細資訊，請參閱[開始使用 Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
     下列其中一個 Visual Studio 版本：
 

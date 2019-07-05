@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191885"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478411"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>連接到 Windows 虛擬機器使用 Azure 防禦 （預覽）
 
@@ -26,15 +26,15 @@ ms.locfileid: "67191885"
 
 請確定您已設定的虛擬網路的 VM 所在 Azure 防禦主機。 如需詳細資訊，請參閱 <<c0> [ 建立 Azure 防禦主機](bastion-create-host-portal.md)。 一旦佈建和部署虛擬網路中的防禦服務，您可以使用它來連接到此虛擬網路中的任何 VM。 在此預覽中，防禦會假設您使用 RDP 連線到 Windows VM 和 SSH 連線到您的 Linux Vm。 連接至 Linux VM 的相關資訊，請參閱[連線到 Linux VM-](bastion-connect-vm-ssh.md)。
 
-若要建立的連線，下列角色則是必要項目：
+若要建立連線，必須具備下列角色：
 
-* 在虛擬機器上的讀取者角色
-* 在虛擬機器的私人 ip 位址與 NIC 上的讀取者角色
-* 在 Azure 防禦資源上的讀取者角色
+* 虛擬機器上的讀取者角色
+* 虛擬機器的私人 IP 位址與 NIC 上的讀取者角色
+* Azure Bastion 資源上的讀取者角色
 
 ## <a name="rdp"></a>使用 RDP 連線
 
-1. 在  [Azure 入口網站](https://aka.ms/BastionHost)防禦預覽版本中，瀏覽至您想要連接至虛擬機器，然後按一下**Connect**。 使用 RDP 連線時，VM 應該是 Windows 虛擬機器。
+1. 使用[此連結](https://aka.ms/BastionHost)開啟防禦 Azure 預覽入口網站頁面。 瀏覽至您想要連接至虛擬機器，然後按一下  **Connect**。 使用 RDP 連線時，VM 應該是 Windows 虛擬機器。
 
     ![連接 VM](./media/bastion-connect-vm-rdp/connect.png)
 

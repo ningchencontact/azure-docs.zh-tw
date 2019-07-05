@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476911"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442961"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>管理您的 Azure 資料方塊邊緣的存取、 電源和連線模式
 
@@ -66,7 +66,7 @@ ms.locfileid: "66476911"
 -  與相關聯的儲存體帳戶中建立共用。
 -  建立使用者可以存取裝置上的共用的人員。
 
-您應該`User`您需要能夠存取 Active Directory 租用戶上`Read all directory objects`。 您不能來賓使用者，因為它們沒有權限`Read all directory objects`。 如果您是來賓，則例如產生的啟用金鑰，建立您的資料方塊的邊緣裝置上的共用作業建立使用者將會全部失敗。
+您應該`User`您需要能夠存取 Active Directory 租用戶上`Read all directory objects`。 您不能來賓使用者，因為它們沒有權限`Read all directory objects`。 如果您是來賓，則作業，例如產生的啟用金鑰、 建立您的資料方塊的邊緣裝置、 建立使用者、 設定 Edge 上的共用計算角色、 重設裝置密碼會將會失敗。
 
 如需有關如何為 Azure Active Directory Graph API 的使用者提供存取的詳細資訊，請參閱 <<c0> [ 系統管理員、 使用者和來賓使用者的預設存取](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)。
 

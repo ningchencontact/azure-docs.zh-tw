@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070407"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447780"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用 SQL Database 進階資料安全性搭配虛擬網路幾乎 100%相容
 
@@ -81,6 +81,9 @@ ms.locfileid: "67070407"
 - **第 5 代**邏輯 Cpu 的基礎 Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，迅速 NVMe SSD，超執行緒邏輯核心與計算介於 4 到 80 個核心的大小。
 
 在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)中尋找關於硬體世代之間差異的詳細資訊。
+
+> [!IMPORTANT]
+> 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
 
 ## <a name="managed-instance-service-tiers"></a>受控執行個體服務層級
 
@@ -172,7 +175,7 @@ Azure SQL Database 提供一組可用來保護資料的進階安全性功能。
 
   此驗證方法會使用由 Azure Active Directory 管理的身分識別，並且受控網域和整合式網域都支援此驗證。 [盡可能](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)使用 Active Directory 驗證 (整合式安全性)。
 
-### <a name="authorization"></a>授權
+### <a name="authorization"></a>Authorization
 
 授權是指使用者可以在 Azure SQL Database 內執行的動作，這是由使用者帳戶的資料庫角色成員資格和物件層級權限所控制。 受控執行個體與 SQL Server 2017 具有相同的授權功能。
 

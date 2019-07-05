@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460207"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 在專案根目錄中，有共用的 [host.json](functions-host-json.md) 檔案可用來設定函式應用程式。 每個函式都有本身程式碼檔案 (.js) 和繫結設定檔 (function.json) 的資料夾。 `function.json` 的父目錄名稱一律是函式的名稱。
 
-在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+在函式執行階段的[版本 2.x](functions-versions.md) 中所需的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 ## <a name="exporting-a-function"></a>匯出函數
 
@@ -60,7 +60,7 @@ JavaScript 函式必須透過 [`module.exports`](https://nodejs.org/api/modules.
 
 根據預設，Functions 執行階段會在 `index.js` 中尋找您的函式，其中 `index.js` 與對應的 `function.json` 會共用相同的父目錄。 在預設情況中，您匯出的函式應該是僅來自其檔案的匯出，或是名為 `run` 或 `index` 的匯出。 若要設定檔案位置，並匯出函式的名稱，請參閱以下的[設定您的函式進入點](functions-reference-node.md#configure-function-entry-point)。
 
-您匯出的函式在執行時，會傳入多個引數。 它所採用的第一個引數一律為 `context` 物件。 如果您的函式是同步的 (不會傳回 Promise)，則必須傳入 `context` 物件，因為必須呼叫 `context.done` 才能正確使用。
+您匯出的函式在執行時，會傳入多個引數。 它所採用的第一個引數一律為 `context` 物件。 如果您的函式是同步 （不會傳回一項承諾），您必須傳遞`context`物件，與呼叫`context.done`才能正確使用。
 
 ```javascript
 // You should include context, other arguments are optional
@@ -136,7 +136,7 @@ module.exports = async function (context, req) {
    };
    ```
 
-### <a name="outputs"></a>輸出
+### <a name="outputs"></a>outputs
 函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 *function.json* 中為繫結定義的 `name` 屬性都會對應至在您的函式中寫入的物件成員名稱。 
 
 您可以指派給輸出繫結的資料 （不結合這些方法） 以下列方式之一：
@@ -399,7 +399,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
     ```
 + ** _[僅回應]_ 藉由呼叫 `context.res.send(body?: any)`。** HTTP 回應是以做為回應主體的輸入 `body` 所建立。 隱含地呼叫 `context.done()`。
 
-+ ** _[僅回應]_ 藉由呼叫 `context.done()`。** 特殊類型的 HTTP 繫結，會傳回傳遞到 `context.done()` 方法的回應。 下列 HTTP 輸出繫結定義 `$return` 輸出參數︰
++ ** _[僅回應]_ 藉由呼叫 `context.done()`。** 一種特殊類型的 HTTP 繫結會將回應傳回傳遞至`context.done()`方法。 下列 HTTP 輸出繫結定義 `$return` 輸出參數︰
 
     ```json
     {
@@ -421,7 +421,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 | Functions 版本 | Node.js 版本 | 
 |---|---|
 | 1.x | 6.11.2 (由執行階段鎖定) |
-| 2.x  | _作用中 LTS_ 和偶數的_目前_ Node.js 版本 (建議使用 8.11.1 和 10.14.1)。 使用 WEBSITE_NODE_DEFAULT_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
+| 2.x  | _作用中的 LTS_並_維護 LTS_ （8.11.1 和建議的 10.14.1） 的 Node.js 版本。 使用 WEBSITE_NODE_DEFAULT_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
 
 您可以藉由檢查以上的應用程式設定，或藉由從任何函式列印 `process.version`，來查看執行階段目前正在使用的版本。
 
@@ -576,7 +576,7 @@ TypeScript 檔案 (.ts) 中會轉換成 JavaScript 檔案 (.js)`dist`輸出目�
 
 [適用於 Visual Studio Code 的 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)延伸模組可讓您開發使用 TypeScript 函式。 Core Tools 是 Azure Functions 擴充功能的需求。
 
-若要建立 Visual Studio Code 中的 TypeScript 函式應用程式，您只需選擇`TypeScript`當您建立函式應用程式，並要求您選擇的語言。
+若要建立 Visual Studio Code 中的 TypeScript 函式應用程式，請選擇`TypeScript`作為您的語言，當您建立函式應用程式。
 
 當您按下**F5**執行應用程式在本機的轉譯完成初始化主應用程式 (func.exe) 之前。 
 
@@ -584,7 +584,7 @@ TypeScript 檔案 (.ts) 中會轉換成 JavaScript 檔案 (.js)`dist`輸出目�
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-若要建立使用 Core Tools 的 TypeScript 函式應用程式專案，您必須指定 typescript 語言選項，當您建立函式應用程式。 您可以透過下列方式之一來這麼做：
+若要建立使用 Core Tools 的 TypeScript 函式應用程式專案，您必須指定 TypeScript 語言選項，當您建立函式應用程式。 您可以透過下列方式之一來這麼做：
 
 - 執行`func init`命令，並選取`node`作為您的語言堆疊，然後選取`typescript`。
 
@@ -614,6 +614,55 @@ TypeScript 檔案 (.ts) 中會轉換成 JavaScript 檔案 (.js)`dist`輸出目�
 ### <a name="connection-limits"></a>連線限制
 
 當您使用 Azure Functions 應用程式中的特定服務的用戶端時，不要建立新的用戶端，每個函式引動過程。 相反地，在全域範圍中建立單一的靜態用戶端。 如需詳細資訊，請參閱 <<c0> [ 管理在 Azure Functions 中的連接](manage-connections.md)。
+
+### <a name="use-async-and-await"></a>使用`async`和 `await`
+
+在以 JavaScript 撰寫 Azure Functions，您應該撰寫程式碼使用`async`和`await`關鍵字。 撰寫程式碼使用`async`並`await`而不是回呼或`.then`和`.catch`搭配 Promises 有助於避免兩個常見的問題：
+ - 擲回未攔截到例外狀況，[損毀 Node.js 處理序](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)，這可能會影響其他函式的執行。
+ - 未預期的行為，例如遺漏的記錄檔從 context.log，因未正確地等候的非同步呼叫。
+
+在下列範例中，非同步方法中`fs.readFile`錯誤第一個回呼函式做為其第二個參數叫用。 此程式碼會導致這兩個先前所述的問題。 不明確攔截到例外狀況的正確範圍內當機的整個程序 （問題 #1）。 呼叫`context.done()`超出範圍的回呼函式表示的函式引動過程可能結束之前會讀取檔案 （問題 #2）。 在此範例中，呼叫`context.done()`太早結果中遺漏記錄開頭的項目`Data from file:`。
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+使用`async`和`await`關鍵字可協助避免這些錯誤。 您應該使用 Node.js 的公用程式函式[ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original)使錯誤第一個樣式的回呼函式變成 awaitable 函式。
+
+在下列範例中，函式執行期間擲回任何未處理例外狀況只能容錯引發了例外狀況的個別引動過程。 `await`關鍵字表示，下列步驟`readFileAsync`之後僅執行`readFile`完成。 具有`async`並`await`，您也不需要呼叫`context.done()`回呼。
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

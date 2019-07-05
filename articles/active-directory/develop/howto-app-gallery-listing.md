@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540538"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482959"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -117,21 +117,21 @@ ms.locfileid: "65540538"
 
 客戶可以提交要求，即可列出應用程式**應用程式會要求客戶** -> **提交新要求**。
 
-![客戶要求的應用程式圖格](./media/howto-app-gallery-listing/customer-submit-request.png)
+![要求向客戶顯示應用程式 磚](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 以下是客戶的流程要求的應用程式-
 
-![客戶要求的應用程式流程](./media/howto-app-gallery-listing/customer-request.png)
+![顯示客戶要求的應用程式流程](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>時間表
 
 在應用程式庫中列出 SAML 2.0 或 WS-Fed 應用程式的程序時間表為 7-10 個工作天。
 
-   ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/timeline.png)
+   ![列出資源庫中的 SAML 應用程式的時間軸](./media/howto-app-gallery-listing/timeline.png)
 
 在應用程式庫中列出 OpenID Connect 應用程式的程序時間表為 2-5 個工作天。
 
-   ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/timeline2.png)
+   ![列出資源庫中的 SAML 應用程式的時間軸](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>呈報
 

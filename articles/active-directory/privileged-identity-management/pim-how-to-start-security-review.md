@@ -14,12 +14,12 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0680ddf2c9e654455933bf09699ab81e8ab65d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e69bebfaeb28709b43ea74b7d33289426371a2bf
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65141835"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476458"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>在 PIM 中建立 Azure AD 角色的存取權檢閱
 
@@ -41,7 +41,7 @@ ms.locfileid: "65141835"
 
 1. 管理 下按一下 **存取權檢閱**。
 
-    ![Azure AD 角色的存取權檢閱](./media/pim-how-to-start-security-review/access-reviews.png)
+    ![Azure AD 角色的存取權檢閱清單，其中顯示所有評論的狀態](./media/pim-how-to-start-security-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "65141835"
 
 在指定存取權檢閱的設定後，請按一下 [啟動]  。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
 
-![存取權檢閱清單](./media/pim-how-to-start-security-review/access-reviews-list.png)
+![存取權檢閱清單，其中顯示的已啟動的檢閱狀態](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
 依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何指示[檢閱存取權給 Azure AD 角色](pim-how-to-perform-security-review.md)。
 
@@ -59,7 +59,7 @@ ms.locfileid: "65141835"
 
 當檢閱者完成其檢閱，您可以追蹤進度**概觀**的存取權檢閱 頁面。 在之前的目錄中變更任何存取權限[完成檢閱](pim-how-to-complete-review.md)。
 
-![存取權檢閱進度](./media/pim-how-to-start-security-review/access-review-overview.png)
+![存取權檢閱顯示的 檢閱詳細資料的 概觀 頁面](./media/pim-how-to-start-security-review/access-review-overview.png)
 
 如果這是一次性的檢閱，然後存取權檢閱期間結束後或系統管理員停止存取權檢閱之後, 請依照下列中的步驟[完成 Azure AD 角色的存取權檢閱](pim-how-to-complete-review.md)來查看並套用結果。  
 

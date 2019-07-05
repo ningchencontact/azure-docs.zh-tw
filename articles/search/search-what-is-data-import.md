@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445405"
 ---
 # <a name="data-import-overview---azure-search"></a>資料匯入概觀-Azure 搜尋服務
 
@@ -36,7 +36,7 @@ ms.locfileid: "65024347"
 
 目前沒有工具可支援透過入口網站推送資料。
 
-如需每個方法，請參閱[快速入門：建立使用 PowerShell 和 REST API 的 Azure 搜尋服務索引](search-create-index-rest-api.md)或[快速入門：建立 Azure 搜尋服務索引中的C# ](search-import-data-dotnet.md)。
+如需每個方法，請參閱[快速入門：建立使用 PowerShell 的 Azure 搜尋服務索引](search-create-index-rest-api.md)或是[C#快速入門：建立使用.NET SDK 的 Azure 搜尋服務索引](search-get-started-dotnet.md)。
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ ms.locfileid: "65024347"
 
 您可以控制每個文件為基礎的索引編製動作的類型指定文件是否應上傳中完整、 合併與現有的文件內容，或已刪除。
 
-在 REST API 中，具有 JSON 要求主體向 Azure 搜尋服務索引的端點 URL 發出 HTTP POST 要求。 "Value"陣列中的每個 JSON 物件會包含文件的索引鍵，並指定索引編製動作新增、 更新、 或刪除文件內容。 如需程式碼範例，請參閱 <<c0> [ 載入文件](search-create-index-rest-api.md#load-documents)。
+在 REST API 中，具有 JSON 要求主體向 Azure 搜尋服務索引的端點 URL 發出 HTTP POST 要求。 "Value"陣列中的每個 JSON 物件會包含文件的索引鍵，並指定索引編製動作新增、 更新或刪除文件內容。 如需程式碼範例，請參閱 <<c0> [ 載入文件](search-get-started-dotnet.md#load-documents)。
 
-在.NET SDK 中，將資料封裝成`IndexBatch`物件。 `IndexBatch`封裝的集合`IndexAction`物件，其中每一個包含文件，並且告知 Azure 搜尋服務文件上執行哪些動作的屬性。 如需程式碼範例，請參閱 <<c0> [ 建構 IndexBatch](search-import-data-dotnet.md#construct-indexbatch)。
+在.NET SDK 中，將資料封裝成`IndexBatch`物件。 `IndexBatch`封裝的集合`IndexAction`物件，其中每一個包含文件，並且告知 Azure 搜尋服務文件上執行哪些動作的屬性。 如需程式碼範例，請參閱 < [ C#快速入門](search-get-started-dotnet.md)。
 
 
 | @search.action | 描述 | 每個文件的必要欄位 | 注意 |

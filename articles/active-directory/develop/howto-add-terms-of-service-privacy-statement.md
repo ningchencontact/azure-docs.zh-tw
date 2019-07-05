@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235308"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482858"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>作法：設定應用程式的服務及隱私權聲明條款
 
@@ -69,7 +69,7 @@ ms.locfileid: "66235308"
 4. 填妥 [服務條款 URL]  和 [隱私權聲明 URL]  欄位。
 5. 儲存您的變更。
 
-    ![具有服務條款和隱私權聲明 URL 的應用程式屬性區段](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![應用程式屬性包含服務和隱私權的陳述式 Url 中的條款](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>使用應用程式物件 JSON
 

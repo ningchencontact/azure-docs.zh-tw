@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 06/27/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 86ca3080229f2a286e8aa4725fe13c40e2a38549
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbab0d8d0947c18cf8e6c178d12fdbd7b335d2b6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054286"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485890"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -26,9 +26,13 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 本文列出您在 Ubuntu Linux x64 (Intel/AMD) 上安裝 Azure IoT Edge 執行階段的步驟 IoT Edge 裝置。 請參閱[Azure IoT Edge 支援系統](support.md#operating-systems)取得一份支援 AMD64 的作業系統。
 
 > [!NOTE]
-> Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name  )。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用套件。
+> Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name  )。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用封裝。
 
-## <a name="register-microsoft-key-and-software-repository-feed"></a>註冊 Microsoft 金鑰和軟體存放庫摘要
+## <a name="install-the-latest-version"></a>安裝最新版本
+
+若要安裝最新版的 Azure IoT Edge 服務到您的裝置上使用下列各節。 
+
+### <a name="register-microsoft-key-and-software-repository-feed"></a>註冊 Microsoft 金鑰和軟體存放庫摘要
 
 準備您的裝置之 IoT edge 執行階段安裝。
 
@@ -61,7 +65,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-## <a name="install-the-container-runtime"></a>安裝容器執行階段
+### <a name="install-the-container-runtime"></a>安裝容器執行階段
 
 Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器執行階段。 生產案例，我們建議您使用[白鯨型](https://mobyproject.org/)下面提供的引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段相容。
 
@@ -83,7 +87,7 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    sudo apt-get install moby-cli
    ```
 
-### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>請確認您的 Linux 核心的白鯨相容性
+#### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>請確認您的 Linux 核心的白鯨相容性
 
 許多內嵌的裝置製造商提供裝置映像，其中包含自訂的 Linux 核心可能會遺失所需的容器執行階段相容性功能。 如果您遇到問題時安裝的建議[白鯨](https://github.com/moby/moby)容器的執行階段，您可以疑難排解您 Linux 核心設定，使用[核取設定](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh)中提供的指令碼官方[白鯨 Github 存放庫](https://github.com/moby/moby)藉由在裝置上執行下列命令。
 
@@ -95,11 +99,11 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
 
 這會提供詳細的輸出，其中包含白鯨執行階段所使用的核心功能的狀態。 您會想要確保所有項目底下`Generally Necessary`和`Network Drivers`可確保您的核心是與白鯨執行階段完全相容。  如果您已識別任何遺漏的功能，您可能會重建您的核心，從來源，然後選取包含相關聯的模組，在適當的核心.config 檔案中啟用它們。同樣地，如果您使用的核心組態產生器，例如 defconfig 或 menuconfig，您必須尋找及啟用個別功能，並據以重建您的核心。  一旦您已部署了新修改的核心，執行一次以確認您已識別的功能已成功啟用的核取設定指令碼。
 
-## <a name="install-the-azure-iot-edge-security-daemon"></a>安裝 Azure IoT Edge 安全性精靈
+### <a name="install-the-azure-iot-edge-security-daemon"></a>安裝 Azure IoT Edge 安全性精靈
 
 **IoT Edge 安全性精靈**提供及維護 IoT Edge 裝置上的安全性標準。 此精靈會在每次開機時啟動，並藉由啟動 IoT Edge 執行階段讓裝置進入啟動程序。
 
-如果 **iothsmlib** 尚不存在，安裝命令也會安裝其標準版本。
+安裝命令也會安裝標準版本**libiothsm**尚不存在。
 
 執行 apt 更新。
 
@@ -112,6 +116,54 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    ```bash
    sudo apt-get install iotedge
    ```
+
+已成功安裝 IoT Edge 之後，輸出會提示您更新組態檔。 請依照下列中的步驟[設定 Azure IoT Edge 安全性精靈](#configure-the-azure-iot-edge-security-daemon)一節，以完成佈建您的裝置。 
+
+## <a name="install-a-specific-version"></a>安裝特定版本
+
+如果您想要安裝特定版本的 Azure IoT Edge，您可以針對直接從 IoT Edge GitHub 存放庫的元件檔案。 若要取得所有 IoT Edge 的元件到您的裝置上使用下列步驟： 白鯨引擎和 CLI、 libiothsm，以及最後的 IoT Edge 安全性服務精靈。
+
+1. 瀏覽至[Azure IoT Edge 釋放](https://github.com/Azure/azure-iotedge/releases)，並尋找您想要為目標的發行版本。 
+
+2. 依序展開**資產**該版本的一節。
+
+3. 那里可能會或可能無法在任何指定的版本中的白鯨引擎的更新。 如果您看到檔案開頭**白鯨引擎**並**白鯨 cli**，使用下列命令來更新這些元件。 如果您沒有看到 白鯨的任何檔案，而且您還沒有安裝在您的裝置上的白鯨，返回透過較舊的版本資產，直到您找出它們。 
+
+   1. 尋找**白鯨引擎**檔案符合您的 IoT Edge 裝置的架構。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。
+
+   2. 使用下列命令中的已複製的連結，安裝該版本的白鯨引擎： 
+
+      ```bash
+      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
+      ```
+
+   3. 尋找**白鯨 cli**檔案符合您的 IoT Edge 裝置的架構。 白鯨 CLI 是選擇性元件，但可以在開發期間很有幫助。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。 
+
+   4. 使用下列命令中的複製的連結，可安裝該版本的白鯨 cli: 
+
+      ```bash
+      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
+      ```
+
+4. 每個版本應該為 IoT Edge 安全性精靈 」 和 「 hsmlib 的新檔案。 您可以使用下列命令來更新這些元件。 
+
+   1. 尋找**libiothsm std**檔案符合您的 IoT Edge 裝置的架構。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。 
+
+   2. 使用下列命令中的已複製的連結，來安裝 hsmlib 版：
+
+      ```bash
+      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+      ```
+   
+   3. 尋找**iotedge**檔案符合您的 IoT Edge 裝置的架構。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。 
+
+   4. 使用下列命令中的已複製的連結，安裝該版本的 IoT Edge 安全性精靈。 
+
+      ```bash
+      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+      ```
+
+已成功安裝 IoT Edge 之後，輸出會提示您更新組態檔。 請遵循下一節，以完成佈建您的裝置中的步驟。 
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>設定 Azure IoT Edge 安全性精靈
 

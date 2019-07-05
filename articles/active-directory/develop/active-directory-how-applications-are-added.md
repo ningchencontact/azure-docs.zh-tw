@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111623"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483078"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 
@@ -79,8 +79,10 @@ ms.locfileid: "67111623"
 * 以程式設計方式透過 Azure AD Graph API 或 PowerShell 來建立
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>應用程式物件和服務主體彼此之間如何建立關聯性？
+
 應用程式在其主目錄中有一個應用程式物件，可供其運作所在每個目錄 (包括應用程式的主目錄) 中的一或多個服務主體來參考。
-![說明應用程式物件和服務主體在 Azure AD 執行個體中如何互動的圖表。][apps_service_principals_directory]
+
+![顯示應用程式物件和服務主體之間的關聯性][apps_service_principals_directory]
 
 在上圖中，Microsoft 會在內部維護兩個用來發佈應用程式的目錄 (顯示在左)：
 
@@ -96,6 +98,7 @@ ms.locfileid: "67111623"
 * 使用 Azure AD 應用程式 Proxy 所發佈的應用程式
 
 ### <a name="notes-and-exceptions"></a>附註及例外狀況
+
 * 並非所有服務主體都會往回指向應用程式物件。 原先建置 Azure AD 時提供給應用程式的服務會有更多限制，而且服務主體就足以建立應用程式識別碼。 原先服務主體的功能狀況接近 Windows Server Active Directory 服務帳戶。 基於這個原因，您還是可以透過不同路徑來建立服務主體 (例如使用 Azure AD PowerShell)，而無需先建立應用程式物件。 Azure AD Graph API 需要應用程式物件才能建立服務主體。
 * 並非所有上述資訊目前都處於以程式設計方式公開的狀態。 以下功能僅適用於 UI：
   * 宣告轉換規則
@@ -105,6 +108,7 @@ ms.locfileid: "67111623"
   * [服務主體](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>應用程式為何要與 Azure AD 整合？
+
 將應用程式新增至 Azure AD，即可利用一或多個其所提供的服務：
 
 * 應用程式驗證和授權
@@ -116,6 +120,7 @@ ms.locfileid: "67111623"
 * 應用程式發佈與 Proxy - 將應用程式從私人網路發佈到網際網路
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>誰有權將應用程式加入我的 Azure AD 執行個體？
+
 雖然仍有一些工作只能由全域管理員進行 (例如，從應用程式庫新增應用程式，以及將應用程式設定為使用應用程式 Proxy)，但根據預設，目錄中的所有使用者都有權註冊其所開發的應用程式，並可自行決定哪些應用程式可在經過同意後共用/存取其組織資料。 如果某人是您目錄中第一位登入應用程式並授與同意的使用者，便會在您的租用戶中建立服務主體；否則，就會將同意授與資訊儲存在現有的服務主體內。
 
 剛聽到要允許使用者註冊並同意應用程式可能會讓您有些疑慮，但請記住下列要點：
@@ -132,10 +137,11 @@ ms.locfileid: "67111623"
 
 * 若要防止使用者同意應用程式代表使用者自己行事：
   1. 在 Azure 入口網站中，移至企業應用程式下的[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)區段。
-  2. 將 [使用者可同意應用程式代表自己存取公司資料]  變更為 [否]  。 
+  2. 將 [使用者可同意應用程式代表自己存取公司資料]  變更為 [否]  。
      
      > [!NOTE]
-     > 如果您決定關閉使用者同意功能，使用者需要使用的任何新應用程式就必須由系統管理員同意。    
+     > 如果您決定關閉使用者同意功能，使用者需要使用的任何新應用程式就必須由系統管理員同意。
+
 * 若要防止使用者註冊自己的應用程式：
   1. 在 Azure 入口網站中，移至 Azure Active Directory 下的[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)區段
   2. 將 [使用者可以註冊應用程式]  變更為 [否]  。
@@ -145,4 +151,3 @@ ms.locfileid: "67111623"
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

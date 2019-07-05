@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616293"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491414"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>下載或檢視您的 Azure 帳單發票和每日使用量資料
 
@@ -56,9 +56,9 @@ ms.locfileid: "60616293"
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft 客戶合約下載發票
 
-為每個會產生發票[帳單設定檔](billing-mca-overview.md#understand-billing-profiles)Microsoft 客戶合約。 您必須是帳單設定檔擁有者、 參與者、 讀取器或管理員從 Azure 入口網站下載發票的發票。
+為每個會產生發票[帳單設定檔](billing-mca-overview.md#billing-profiles)Microsoft 客戶合約。 您必須是帳單設定檔擁有者、 參與者、 讀取器或管理員從 Azure 入口網站下載發票的發票。
 
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋**成本管理 + 計費**。
 2. 選取計費的設定檔。
 3. 選取 [發票]  。
 4. 在發票方格中，尋找您想要下載發票的資料列。
@@ -108,7 +108,7 @@ ms.locfileid: "60616293"
 
 如果您有 Microsoft 客戶合約時，您可以選擇在以電子郵件取得發票。 所有計費的設定檔擁有者、 參與者、 讀者和發票管理員會透過電子郵件取得發票。 讀取器無法更新電子郵件發票喜好設定。
 
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋**成本管理 + 計費**。
 1. 選取計費的設定檔。
 1. 在 [設定]  下方，選取 [屬性]  。
 1. 底下**電子郵件發票**，選取**更新電子郵件發票喜好設定**。
@@ -169,7 +169,7 @@ ms.locfileid: "60616293"
 
 #### <a name="download-usage-for-billed-charges"></a>下載使用量計費的費用
 
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋**成本管理 + 計費**。
 2. 選取計費的設定檔。
 3. 選取 [發票]  。
 4. 在發票方格中，尋找對應至您想要下載使用量發票的資料列。
@@ -180,7 +180,7 @@ ms.locfileid: "60616293"
 
 您也可以下載月-日使用量目前的計費週期，這表示有不尚未計費費用。
 
-1. 針對 [成本管理 + 帳單]  進行搜尋。
+1. 搜尋**成本管理 + 計費**。
 2. 選取計費的設定檔。
 3. 在 **概觀**刀鋒視窗中，按一下**下載 Azure 使用量和費用**。
 

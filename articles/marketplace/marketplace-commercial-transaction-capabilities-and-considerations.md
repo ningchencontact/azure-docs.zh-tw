@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bd8cdbec42ea7df34ceee3ab82a1c6cac60ab59e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d266b314f19979578b7e7b8de4e7a7090200c9d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849711"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445446"
 ---
-# <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace ‎商業交易功能和考量
+# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Marketplace 商業交易功能和考量
 
-Azure Marketplace 發行選項提供獨特的方式來將雲端軟體和服務提供者與客戶連接。 此文章涵蓋 Azure Marketplace 中的下列商務相關主題：
+本文章涵蓋下列商務相關主題中的商業的 marketplace
 
 * Marketplace 發行選項
 * 交易一般概觀
@@ -26,21 +26,22 @@ Azure Marketplace 發行選項提供獨特的方式來將雲端軟體和服務�
 
 ## <a name="marketplace-publishing-options"></a>Marketplace 發行選項
 
-Azure Marketplace 發行者可取得下列發行選項。
+下列的發行選項可用於商業 marketplace 發行者。
 
 ### <a name="list--trial-publishing-options"></a>清單和試用版發行選項
 
-在 Azure Marketplace 中，發行者可利用清單和試用版發行選項，進行促銷和使用者取得。 使用清單或試用版發行選項，Microsoft 不會在發行者的軟體授權交易中直接參與，且沒有相關的交易費用。 發行者要負責支援軟體授權交易的所有層面，包含但不限於：訂購、履行、計量、計費、發票開立、付款與收帳。 使用清單和試用版發行選項，發行者保有從客戶收取的發行者軟體授權費用的 100%。 
+發行者可以利用清單、 試用版，以及發行選項的 BYOL 促銷和使用者取得用途。 使用這些選項，Microsoft 直接不參與發行者的軟體授權的交易，而且沒有任何相關聯的交易費用。 發行者要負責支援軟體授權交易的所有層面，包含但不限於：訂購、履行、計量、計費、發票開立、付款與收帳。 使用清單和試用版發行選項，發行者保有從客戶收取的發行者軟體授權費用的 100%。 
 
 ### <a name="transact-publishing-option"></a>交易發行選項
 
-除了清單和試用版發行選項之外，Azure Marketplace 發行者還可取得交易發行選項。   它利用 Microsoft 可全球取得的商務功能。 此選項可讓 Microsoft 代替發行者裝載雲端市集交易。
+除了清單和試用版的發行選項，交易發行選項是提供給發佈者。 這會充分利用 Microsoft 的全域可用的商務功能，並可讓 Microsoft 代表 「 發行者 」 端的主應用程式雲端 marketplace 交易。
 
 ## <a name="transact-general-overview"></a>交易一般概觀
 
-當使用交易發行選項時，Microsoft 可讓的協力廠商軟體的銷售和客戶的 Azure 訂用帳戶的某些供應項目類型的部署。 當發行者在 Azure Marketplace 中選取計費模型和供應項目類型時，必須考慮 Azure 基礎結構費用的計費，以及發行者自己的軟體授權費用。
+當使用交易發行選項時，Microsoft 可讓的協力廠商軟體的銷售和客戶的 Azure 訂用帳戶的某些供應項目類型的部署。 「 發行者 」 必須考慮基礎結構費用的計費和發行者自己的軟體授權費用，當選取的計費模型，並供應項目類型。
 
-Azure Marketplace 中的交易發行選項目前支援下列提供項目類型：虛擬機器、Azure 應用程式或 SaaS 應用程式。
+交易發行選項目前支援下列供應項目類型：虛擬機器、 Azure 應用程式和 SaaS 應用程式。
+
 
 ![[在 Azure Marketplace 中交易企業交易]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -64,7 +65,7 @@ Azure Marketplace 中的交易發行選項目前支援下列提供項目類型�
 
 * 隨用隨付：軟體授權費用會依使用的 Azure 基礎結構，呈現為每小時、每核心 (vCPU) 費率。 這只適用於虛擬機器和 Azure 應用程式。
 
-* 月租方案定價 (網站型)：軟體授權費用以每月週期性費用呈現。  這只適用於 SaaS 應用程式和 Azure 應用程式 - 受控應用程式。
+* • 訂用帳戶價格：軟體授權費用會以每月或年，週期性費用為每一基座或固定費率計費。 這只適用於 SaaS 應用程式和 Azure 應用程式 - 受控應用程式。
 
 * 軟體免費試用版：30 天或 90 天軟體授權不收費。
 
@@ -74,11 +75,10 @@ Azure Marketplace 中的交易發行選項目前支援下列提供項目類型�
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>隨用隨付和月租方案 (網站型) 定價
 
-在發行隨用隨付或月租方案交易供應項目的情況下，Microsoft 會提供處理軟體授權購買、退貨及退款的技術和服務。 在此案例中，發行者針對這些目的授權 Microsoft 為代理人。 發行者允許 Microsoft 協助軟體授權交易，同時保留其為賣方、提供者、散發者和授權人的角色。
+WPay 作為-付和訂用帳戶價格時發行的隨用隨付或訂用帳戶的 「 交易 」 優惠，Microsoft 提供的技術和服務，以處理軟體授權購買，會傳回，及退款。 在此案例中，發行者針對這些目的授權 Microsoft 為代理人。 發行者允許 Microsoft 協助軟體授權交易，同時保留其為賣方、提供者、散發者和授權人的角色。
 
-Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵守 Azure Marketplace 和發行者使用者授權合約 (請參閱 Cloud Partner 入口網站) 的條款與條件。 發行者必須在市集供應項目中提供其使用者授權合約。
+Microsoft 可讓客戶訂單、 授權和使用發行者軟體的條款及條件的 Microsoft 商業服務商場和 「 發行者 」 的使用者授權合約與否。 發行者必須提供其使用者授權合約，或選取[標準的合約](https://docs.microsoft.com/azure/marketplace/standard-contract)建立供應項目時。
 
-透過市集處理的訂單會在單一帳單中向客戶的 Azure 訂用帳戶收費，其收費方式和客戶的 Azure 基礎結構成本一樣。 客戶可以使用其 Azure 訂用帳戶所慣用的發票開立方法和付款方式。
 
 ### <a name="free-software-trials"></a>免費軟體試用
 
@@ -86,9 +86,10 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 ### <a name="private-offers"></a>私人供應項目
 
-除了使用供應項目類型和計費模型來創造供應項目的獲利，發行者也可以交易解決方案供應項目的私人版本，按照交涉、交易特定的定價來完成，並使用自訂映像來自訂設定。 所有 3 個交易發行選項都支援私人供應項目。
+除了使用提供的類型和計費模型，以創造營收的供應項目，發行者可以 transact 私用供應項目，完成交涉，特定交易的定價，或自訂設定。 所有 3 個交易發行選項都支援私人供應項目。
 
-定價選項可以高於或低於公開顯示的定價。  私人供應項目可用於為供應項目折扣或加入進階功能。 藉由將客戶的 Azure 訂用帳戶加入供應項目層級的允許清單，他們就能取得私人供應項目。
+此選項可讓您更高或較低價格比公開可用的供應項目。 私人供應項目可用於為供應項目折扣或加入進階功能。 藉由將客戶的 Azure 訂用帳戶加入供應項目層級的允許清單，他們就能取得私人供應項目。
+
 
 ### <a name="examples"></a>範例
 
@@ -125,11 +126,10 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 |Microsoft 保留 Azure 使用量成本    |   每小時美金 $0.14 元     |
 |Microsoft 保留授權成本的 0%   |  每小時美金 $0.00 元       |
 
-**SaaS 應用程式月租方案 (透過 Azure 銷售)**
+**SaaS 應用程式的訂用帳戶**
 
-此選項必須設定成透過 Microsoft 來銷售，且可以使用在供應項目層級定義的一或多個一般費率每月方案來定價。
-
-* 如果您啟用 [透過 Azure 銷售] 選項，就會有下列結構成本。
+這個選項必須設定為透過 Microsoft 銷售，並可以在以統一費率，或每位使用者每月或年度計費。
+• 如果您啟用 Microsoft 選項 SaaS 供應項目，透過銷售，則您有下列的成本結構。
 
 |授權成本       | 每月 $100.00  |
 |--------------|---------|
@@ -205,13 +205,13 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 * 客戶通常會使用 Enterprise 合約或以信用卡付款的隨用隨付合約來購買。 合約類型會決定計費、發票開立、收帳和付款時間。
 
 >[!NOTE] 
->交易發行選項的所有報告和見解，都可透過 Cloud Partner 入口網站的 [見解] 區段取得。
+>所有的報告和深入解析的交易發行選項可透過合作夥伴中心的 Cloud Partner 入口網站或分析區段的 [Insights] 區段。
 
 #### <a name="billing-questions-and-support"></a>計費問題和支援
 
 如需詳細資訊和法律原則，請參閱可在 Cloud Partner 入口網站取得的[發行者合約](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) \(英文\)。
 
-若要取得帳單問題的說明，請建立[支援事件](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423)，並視所使用的供應項目類型選擇虛擬機器或 Web 應用程式 (又稱 SaaS 應用程式)。
+若要取得計費問題的說明，請連絡[商業 marketplace 發行者支援](https://aka.ms/marketplacepublishersupport)。
 
 ## <a name="transact-requirements"></a>交易需求
 
@@ -219,13 +219,11 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 ### <a name="requirements-for-all-offer-types"></a>所有提供項目類型的需求
 
-**開發人員中心和 Microsoft 帳戶** 
+- Microsoft 帳戶和財務資訊所需的交易發行選項，不論該供應項目的定價模型。
+- 必要的財務資訊包括支出帳戶和稅務設定檔。
 
-* 交易發行選項需要開發人員中心和 Microsoft 帳戶，不論該供應項目的定價模型為何。
-* 開發人員中心帳戶持有 Microsoft 代表發行者向客戶收費及付款給發行者所需的所有相關財務詳細資料。
-* 雖然您可能會跨這兩個帳戶使用的相同組織或 Microsoft 登入詳細資料，開發人員中心是從 Cloud Partner 入口網站的帳戶不同的帳戶。 若要使用交易發行選項，發行者比需完成開發人員中心帳戶註冊程序，才能註冊存取 Cloud Partner 入口網站。
+如需有關設定這些帳戶的詳細資訊，請參閱 <<c0> [ 管理您的合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details)。
 
-如需有關設定這些帳戶的詳細資訊，請參閱[成為雲端市集發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
 
 ### <a name="requirements-for-specific-offer-types"></a>特定供應項目類型的需求
 
@@ -237,10 +235,9 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 
 **Azure 應用程式：解決方案範本或受控應用程式** 
 
-必須佈建一或多個虛擬機器，並透過虛擬機器定價總和來提取。 對於單一方案上的受控應用程式，可以選取一般費率的每月月租方案作為定價模型，而不是虛擬機器定價。 在這兩種情況下，Azure 基礎結構使用費用會與軟體授權費用分開傳遞給客戶，但是在相同的帳單上。
+必須佈建一或多個虛擬機器，並透過虛擬機器定價總和來提取。 對於單一方案上的受控應用程式，可以選取一般費率的每月月租方案作為定價模型，而不是虛擬機器定價。 在某些情況下，Azure 基礎結構的使用費用會傳遞給客戶個別軟體授權費用，但在相同的帳單上。 不過，如果您設定受管理的應用程式的 ISV 基礎結構費用，供應項目到 「 發行者 」 計費的 Azure 資源，客戶會收到一般的費用，包括基礎結構、 軟體授權和管理服務的成本。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 請依據供應項目類型區段，檢閱發佈選項中的資格需求，以完成供應項目的選取和設定。
 * 請依據店面檢閱發佈模式，以取得解決方案如何對應至供應項目類型和組態的範例。
-* 成為 Marketplace 發行者，並登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)來建立及設定您的供應項目。

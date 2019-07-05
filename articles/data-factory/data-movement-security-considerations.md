@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153250"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460677"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>在 Azure Data Factory 中資料移動的安全性考量
 > [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
@@ -119,7 +119,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件和�
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>在自我裝載整合執行階段上加密連結服務時所使用的連接埠
-根據預設，PowerShell 會在含自我裝載整合執行階段的電腦上，使用連接埠 8050 進行安全通訊。 您可以視需要變更此連接埠。  
+根據預設，PowerShell 會使用連接埠 8060，安全通訊的自我裝載的整合執行階段電腦上。 您可以視需要變更此連接埠。  
 
 ![閘道的 HTTPS 連接埠](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Azure 虛擬網路是您網路在雲端的邏輯呈現方式。 您可以透過�
 
 **自我裝載整合執行階段需要什麼連接埠才能運作？**
 
-自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443，自我裝載整合執行階段才能建立此連線。 針對認證管理員應用程式，請只在機器層級 (而非公司防火牆層級) 開啟輸入連接埠 8050。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入允許清單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
+自我裝載整合執行階段會建立 HTTP 型連線來存取網際網路。 必須開啟輸出連接埠 443，自我裝載整合執行階段才能建立此連線。 開啟輸入連接埠 8060 只在電腦層級 （而非公司防火牆層級） 的認證管理員應用程式。 如果使用 Azure SQL Database 或 Azure SQL 資料倉儲作為來源或目的地，則也需要開啟連接埠 1433。 如需詳細資訊，請參閱[防火牆組態及將 IP 位址加入允許清單](#firewall-configurations-and-whitelisting-ip-address-of-gateway)一節。 
 
 
 ## <a name="next-steps"></a>後續步驟

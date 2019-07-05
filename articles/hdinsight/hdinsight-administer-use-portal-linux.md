@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068910"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460639"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -152,7 +152,7 @@ HDInsight 中現有的 Apache Hadoop 叢集。  請參閱 [使用 Azure 入口�
 有許多方法可以設計程序：
 
 * 使用 Azure Data Factory。 如需建立隨選 HDInsight 連結服務，請參閱 [使用 Azure Data Factory 在 HDInsight 中建立 Linux 型隨選 Apache Handooop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。
-* 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
+* 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)。
 * 使用 Azure CLI。 請參閱[使用 Azure CLI 管理 Azure HDInsight 叢集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 請參閱[提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
@@ -214,7 +214,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 建立程序期間建立的 HD
    | 欄位 | 值 |
    | --- | --- |
    | 指令碼類型 | 從下拉式清單中選取 [- 自訂]  。|
-   | Name |「變更 SSH 密碼」 |
+   | 名稱 |「變更 SSH 密碼」 |
    | Bash 指令碼 URI |changepassword.sh 檔案的 URI |
    | 節點類型：(前端、背景工作、Nimbus、監督員、Zookeeper 等) |✓ 針對列出的所有節點類型 |
    | 參數 |輸入 SSH 使用者名稱，然後輸入密碼。 使用者名稱和密碼之間應該有一個空格。 |

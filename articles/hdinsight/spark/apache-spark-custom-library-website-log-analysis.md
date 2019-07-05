@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728915"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448748"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>使用自訂 Python 程式庫搭配 HDInsight 上的 Apache Spark 叢集來分析網站記錄
 
 此 Notebook 示範如何使用自訂程式庫搭配 HDInsight 上的 Apache Spark 來分析記錄資料。 我們使用的自訂程式庫是名為 **iislogparser.py**的 Python 程式庫。
 
 > [!TIP]  
-> 本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。 Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。 如果要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 **PySpark** 資料夾下的 Notebook **使用自訂 library.ipynb 透過 Spark 分析記錄**。
+> 這篇文章也會提供您在 HDInsight 中建立的 Spark (Linux) 叢集上的 Jupyter notebook 的。 Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。 執行從 notebook 中的文章，請建立 Spark 叢集、 啟動 Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 notebook**的 使用自訂 library.ipynb 的 Spark 分析記錄檔**下**PySpark**資料夾。
 >
 >
 

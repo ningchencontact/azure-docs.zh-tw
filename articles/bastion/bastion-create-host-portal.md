@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339443"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477871"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>建立 Azure 防禦主機 （預覽）
 
@@ -33,15 +33,11 @@ ms.locfileid: "67339443"
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-若要參與此預覽版本，您需要註冊。 若要註冊預覽版本中使用下列步驟：
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
-
 ## <a name="createhost"></a>建立防禦主機
 
 本節可協助您從 Azure 入口網站中建立新的防禦 Azure 資源。
 
-1. 從首頁[Azure 入口網站-preview](https://aka.ms/BastionHost)，按一下 **+ 建立資源**。 請確定您使用提供的連結，存取此預覽中，不是一般的 Azure 入口網站的網站。
+1. 從首頁[Azure 入口網站-防禦預覽](https://aka.ms/BastionHost)，按一下 **+ 建立資源**。 請確定您使用提供的連結，存取此預覽中，不是一般的 Azure 入口網站的網站。
 
 1. 在上**新增**頁面上，於*在 Marketplace 內搜尋*欄位中，輸入**防禦**，然後按一下**Enter**回到搜尋結果。
 
@@ -72,7 +68,7 @@ ms.locfileid: "67339443"
 
 如果您建立的防禦主機，您可以在入口網站中使用現有的 VM，各項設定會自動預設對應至您的虛擬機器和/或虛擬網路。
 
-1. 在  [preview 入口網站](https://aka.ms/BastionHost)，瀏覽至您的虛擬機器，然後按一下**Connect**。
+1. 在  [Azure 入口網站-防禦預覽](https://aka.ms/BastionHost)，瀏覽至您的虛擬機器，然後按一下**Connect**。
 
     ![連接 VM](./media/bastion-create-host-portal/vmsettings.png)
 

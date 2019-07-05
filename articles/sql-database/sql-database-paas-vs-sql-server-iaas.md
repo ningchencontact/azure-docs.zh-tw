@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584843"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447761"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中選擇適當的 SQL Server 選項
 
@@ -167,3 +167,4 @@ ms.locfileid: "60584843"
 - 若要開始使用 SQL Database，請參閱[您的第一個 Azure SQL Database](sql-database-single-database-get-started.md)。
 - 請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 - 請參閱 [在 Azure 中佈建 SQL Server 虛擬機器](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) 以開始使用 Azure VM 上的 SQL Server。
+- [識別正確 Azure SQL Database/受控執行個體的 SKU 為您的內部部署資料庫](/sql/dma/dma-sku-recommend-sql-db/)。

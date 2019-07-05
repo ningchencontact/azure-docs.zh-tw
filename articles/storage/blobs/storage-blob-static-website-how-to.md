@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071445"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435942"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>裝載在 Azure 儲存體中的靜態網站
 
@@ -44,13 +44,7 @@ ms.locfileid: "67071445"
 
 1. 首先，開啟[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)，或如果您已經[安裝](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)在本機 Azure CLI 開啟命令主控台應用程式，例如 Windows PowerShell。
 
-2. 從您開啟 [命令] 視窗中，安裝儲存體的預覽延伸模組。
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. 如果您的身分識別與多個訂用帳戶相關聯，然後設定您的有效訂用帳戶至訂用帳戶會裝載您的靜態網站的儲存體帳戶。
+2. 如果您的身分識別與多個訂用帳戶相關聯，然後設定您的有效訂用帳戶至訂用帳戶會裝載您的靜態網站的儲存體帳戶。
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ ms.locfileid: "67071445"
 
    取代`<subscription-id>`訂用帳戶識別碼的預留位置值。
 
-4. 啟用靜態網站代管。
+3. 啟用靜態網站代管。
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ ms.locfileid: "67071445"
 
    * 取代`<index-document-name>`預留位置索引文件的名稱。 這份文件通常是 「 index.html"。
 
-5. 將物件從來源目錄上傳至 *$web* 容器。
+4. 將物件從來源目錄上傳至 *$web* 容器。
 
    > [!NOTE]
    > 如果您使用 Azure Cloud Shell，請務必新增`\`參考時，逸出字元`$web`容器 (例如： `\$web`)。 如果您使用 Azure CLI 的本機安裝，然後您就不必使用逸出字元。

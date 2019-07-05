@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753994"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485457"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜尋服務索引子的 Cosmos DB 編製索引
 
@@ -133,7 +133,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-組合要求的輸入
 
-針對每個要求中，您必須提供服務名稱和系統管理金鑰 （POST 標頭中），Azure 搜尋服務和儲存體帳戶名稱和 blob 儲存體金鑰。 您可以使用[Postman](search-fiddler.md)將 HTTP 要求傳送至 Azure 搜尋服務。
+針對每個要求中，您必須提供服務名稱和系統管理金鑰 （POST 標頭中），Azure 搜尋服務和儲存體帳戶名稱和 blob 儲存體金鑰。 您可以使用[Postman](search-get-started-postman.md)將 HTTP 要求傳送至 Azure 搜尋服務。
 
 將下列四項值複製到 記事本，讓您可以將其貼到 要求：
 
@@ -258,7 +258,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 | Bool |Edm.Boolean、Edm.String |
 | 看起來像是整數的數字 |Edm.Int32、Edm.Int64、Edm.String |
 | 看起來像是浮點的數字 |Edm.Double、Edm.String |
-| 字串 |Edm.String |
+| String |Edm.String |
 | 基本類型的陣列，例如 ["a", "b", "c"] |Collection(Edm.String) |
 | 看起來像是日期的字串 |Edm.DateTimeOffset、Edm.String |
 | GeoJSON 物件，例如 { "type":"Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

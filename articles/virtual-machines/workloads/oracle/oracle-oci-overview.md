@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808629"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446689"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle 應用程式解決方案，整合 Microsoft Azure 與 Oracle 雲端基礎結構 （預覽）
 
@@ -74,5 +74,7 @@ Microsoft 和 Oracle 已建立合作關係提供低延遲、 高輸送量跨雲�
 目前，這項整合可讓您在單一中央位置，也就是 Azure Active Directory 中管理。 Azure AD 與對應的 Oracle 目錄同步處理目錄中的任何變更，並進行單一登入來跨雲端的 Oracle 解決方案。
 
 ## <a name="next-steps"></a>後續步驟
+
+快速入門[跨雲端網路](configure-azure-oci-networking.md)Azure 與 OCI 之間。 
 
 如需詳細資訊和相關 OCI 的白皮書，請參閱[Oracle 雲端](https://docs.cloud.oracle.com/iaas/Content/home.htm)文件。

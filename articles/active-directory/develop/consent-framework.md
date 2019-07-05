@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235464"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482942"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 同意架構
 
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) 同意架構可讓您輕鬆地開發多租用�
 
 1. 使用者登入之後，Azure AD 會判斷是否需要向使用者顯示同意頁面。 此判斷根據使用者 (或其組織的系統管理員) 是否已經同意應用程式。 如果尚未授與同意，Azure AD 會提示使用者取得同意，並顯示其運作所需的必要權限。 同意對話方塊中顯示的權限集，會和在 Azure 入口網站 [委派的權限]  中選取的權限相符。
 
-    ![使用者同意體驗](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![顯示同意對話方塊中顯示的權限的範例](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. 使用者同意後，授權碼會傳回您的應用程式，藉以兌換取得存取權杖和重新整理權杖。 如需此流程的詳細資訊，請參閱 [Web API 應用程式類型](web-api.md)。
 

@@ -3,7 +3,7 @@ title: 保護您的 Azure Active Directory Domain Services 受控網域 | Micros
 description: 保護受控網域
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: ab371553a96f3a8d393c8b773c4024d04fd171a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246730"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483284"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>保護您的 Azure AD Domain Services 受控網域
 本文將協助您保護受控網域。 您可以關閉弱式加密套件的使用，並停用 NTLM 認證雜湊同步處理。
@@ -56,6 +56,11 @@ $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPa
 // Apply the settings to the managed domain.
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
+
+> [!IMPORTANT]
+> 使用者 （和服務帳戶），如果您已在您的 Azure AD Domain Services 執行個體上停用 NTLM 密碼雜湊同步處理無法執行 LDAP 簡單繫結。  如需有關如何停用 NTLM 密碼雜湊同步處理的詳細資訊，請參閱[保護您的 Azure AD DOmain Services 受控的網域](secure-your-domain.md)。
+>
+>
 
 ## <a name="next-steps"></a>後續步驟
 * [了解 Azure AD Domain Services 中的同步處理](synchronization.md)
