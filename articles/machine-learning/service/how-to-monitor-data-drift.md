@@ -1,5 +1,5 @@
 ---
-title: 如何偵測 AKS 部署上的資料漂移 （預覽）
+title: 偵測到 AKS 部署上的資料漂移 （預覽）
 titleSuffix: Azure Machine Learning service
 description: 了解如何偵測資料漂移，Azure Kubernetes Service 上的部署 Azure Machine Learning 服務中的模型。
 services: machine-learning
@@ -10,21 +10,24 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 06/20/2019
-ms.openlocfilehash: e4deeab28fb643ff32624ba9dd16574e621f508c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c446c8236ca64948f0bb6a8354a83579cc6ff24c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332925"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443946"
 ---
-# <a name="how-to-detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>如何偵測資料漂移模型部署到 Azure Kubernetes Service （預覽）
-在本文中，您了解如何監視[資料漂移](concept-data-drift.md)之間部署的模型定型資料集和推斷資料。 
+# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service"></a>偵測資料漂移模型部署到 Azure Kubernetes Service （預覽）
+在本文中，您了解如何監視資料漂移，訓練資料集和推斷之間的已部署的模型資料。 
 
-資料漂移是其中一個主要原因模型精確度會隨著時間的降低。 它會提供給模型，以在生產環境中的資料是用來定型模型的資料不同。 Azure Machine Learning 服務可以監視使用資料漂移偵測器的資料漂移。 如果偵測到漂移時，服務可以將警示傳送給您。  
+## <a name="what-is-data-drift"></a>什麼是資料漂移？
+
+資料漂移，也稱為概念漂移，是其中一個主要原因模型精確度會隨著時間的降低。 它會提供給模型，以在生產環境中的資料是用來定型模型的資料不同。 Azure Machine Learning 服務可以監視資料漂移，並在偵測到漂移時，服務可以傳送電子郵件警示給您。  
 
 > [!Note]
 > 此服務為 （預覽） 和受限制的組態選項。 請參閱我們[API 文件](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)並[版本資訊](azure-machine-learning-release-notes.md)如需詳細資訊和更新。 
 
+## <a name="what-can-i-monitor"></a>我可以監視什麼？
 使用 Azure Machine Learning 服務時，您可以監視部署在 AKS 上模型的輸入，並比較這項資料給模型的訓練資料集。 推斷資料是定期[快照集，並分析](how-to-explore-prepare-data.md)，然後針對基準資料集，以產生資料漂移分析計算的： 
 
 + 測量資料漂移，稱為漂移係數的大小。
@@ -60,7 +63,7 @@ ms.locfileid: "67332925"
     print(model_name, image_name, service_name, model)
     ```
 
-- 設定好[模型資料收集器](how-to-enable-data-collection.md)AKS 部署的模型中收集資料，並確認資料收集在`modeldata`blob 容器。
+- [啟用模型資料收集](how-to-enable-data-collection.md)AKS 部署的模型中收集資料，並確認資料收集在`modeldata`blob 容器。
 
 ## <a name="import-dependencies"></a>匯入相依性 
 本指南中使用的匯入相依性：
@@ -85,11 +88,11 @@ datadrift = DataDriftDetector.create(ws, model.name, model.version, services, fr
 print('Details of Datadrift Object:\n{}'.format(datadrift))
 ```
 
-如需詳細資訊，請參閱 < [DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)參考。
+如需詳細資訊，請參閱`[DataDrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py)`類別參考文件。
 
 ## <a name="submit-a-datadriftdetector-run"></a>提交 DataDriftDetector 執行
 
-透過設定 DataDriftDetector，您可以提交[執行的資料漂移](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-)模型在特定日期。 
+具有`DataDriftDetector`設定的物件，您可以提交[執行的資料漂移](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-)模型在特定日期。 
 
 ```python
 # adhoc run today
@@ -107,7 +110,7 @@ dd_run = Run(experiment=exp, run_id=run)
 RunDetails(dd_run).show()
 ```
 
-## <a name="get-data-drift-analysis-results"></a>取得資料漂移分析結果
+## <a name="visualize-drift-metrics"></a>以視覺化方式檢視漂移計量
 
 下列 Python 範例示範如何繪製相關資料漂移度量。 您可以使用傳回的度量，以建置自訂的視覺效果：
 
@@ -120,13 +123,13 @@ drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 drift_figures = datadrift.show(with_details=True)
 ```
 
-![資料漂移 Show](media/how-to-monitor-data-drift/drift_show.png)
+![請參閱資料漂移偵測到的 Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
 
 如需計算的度量的詳細資訊，請參閱[資料漂移概念](concept-data-drift.md)文章。
 
-## <a name="schedule-data-drift-detection"></a>排程資料漂移偵測 
+## <a name="schedule-data-drift-scans"></a>排程資料漂移掃描 
 
-啟用資料漂移排程執行指定的頻率執行 DataDriftDetector。 如果漂移係數大於給定的臨界值時，會傳送一封電子郵件。 
+當您啟用資料漂移偵測時，DataDriftDetector 是執行指定的排程頻率。 如果漂移係數大於給定的臨界值時，會傳送一封電子郵件。 
 
 ```python
 datadrift.enable_schedule()
@@ -143,9 +146,9 @@ datadrift.disable_schedule()
 
 ![Azure 入口網站資料漂移](media/how-to-monitor-data-drift/drift_ui.png)
 
-## <a name="setting-up-alerts"></a>設定警示 
+## <a name="receiving-drift-alerts"></a>接收漂移的警示
 
-設定警示臨界值，並提供電子郵件地址的漂移係數[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)漂移係數高於閾值時傳送電子郵件警示。 所有資料漂移度量資訊會都儲存在 Azure Machine Learning 服務工作區，讓您設定自訂警示或動作相關聯的 app insights 資源。 您可以遵循 app insights 查詢電子郵件警示中的連結。
+設定警示臨界值，並提供電子郵件地址的漂移係數[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)漂移係數高於閾值時，會自動傳送電子郵件警示。 為了讓您設定自訂警示和動作，所有資料漂移度量資訊會都儲存在 Azure Machine Learning 服務工作區以及建立的 Application Insights 資源。 您可以依照電子郵件警示中的連結至 Application Insights 查詢。
 
 ![資料漂移電子郵件警示](media/how-to-monitor-data-drift/drift_email.png)
 
