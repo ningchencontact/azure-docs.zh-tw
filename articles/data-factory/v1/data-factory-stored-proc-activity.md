@@ -21,7 +21,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61254973"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 預存程序活動
-> [!div class="op_single_selector" title1="轉換活動"]
+> [!div class="op_single_selector" title1="資料轉換活動"]
 > * [Hive 活動](data-factory-hive-activity.md)
 > * [Pig 活動](data-factory-pig-activity.md)
 > * [MapReduce 活動](data-factory-map-reduce.md)

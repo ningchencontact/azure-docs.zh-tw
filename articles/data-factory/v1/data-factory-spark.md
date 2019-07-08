@@ -23,7 +23,7 @@ ms.locfileid: "61257497"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
-> [!div class="op_single_selector" title1="轉換活動"]
+> [!div class="op_single_selector" title1="資料轉換活動"]
 > * [Hive 活動](data-factory-hive-activity.md)
 > * [Pig 活動](data-factory-pig-activity.md)
 > * [MapReduce 活動](data-factory-map-reduce.md)
@@ -349,7 +349,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 | Path | 描述 | 必要項 | 類型 |
 | ---- | ----------- | -------- | ---- |
-| . | Spark 作業在儲存體已連結服務中的根路徑。 | 是 | 資料夾 |
+| 。 | Spark 作業在儲存體已連結服務中的根路徑。 | 是 | 資料夾 |
 | &lt;使用者定義&gt; | 指向 Spark 作業之輸入檔案的路徑。 | 是 | 檔案 |
 | ./jars | 此資料夾下的所有檔案都會上傳並放在叢集的 Java 類別路徑中。 | 否 | 資料夾 |
 | ./pyFiles | 此資料夾下的所有檔案都會上傳並放在叢集的 PYTHONPATH 中。 | 否 | 資料夾 |
