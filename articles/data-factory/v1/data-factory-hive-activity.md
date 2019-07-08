@@ -82,8 +82,8 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 | outputs |Hive 活動所耗用的輸出 |是 |
 | linkedServiceName |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
 | script |指定 Hive 指令碼內嵌 |否 |
-| 指令碼路徑 |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
-| 定義 |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
+| scriptPath |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
+| defines |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
 
 ## <a name="example"></a>範例
 我們來看看遊戲記錄分析的範例，您想要識別使用者花多少時間在玩貴公司開發的遊戲。 
