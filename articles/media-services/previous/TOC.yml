@@ -51,6 +51,9 @@
   items:
     - name: 管理
       items:
+        - name: 帳戶
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: 實體
           items:
             - name: .NET
