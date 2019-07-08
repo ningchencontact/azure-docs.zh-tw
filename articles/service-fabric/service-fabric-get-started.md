@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/10/2019
+ms.date: 07/03/2019
 ms.author: aljo
-ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067209"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566051"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67067209"
 > 
 > 
 
-若要在您的 Windows 開發機器上建置並執行 [Azure Service Fabric 應用程式][1]，請安裝 Service Fabric 執行階段、SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
+若要建置並執行[Azure Service Fabric 應用程式][1]在您的 Windows 開發電腦上安裝 Service Fabric 執行階段、 SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
 
 ## <a name="prerequisites"></a>必要條件
 ### <a name="supported-operating-system-versions"></a>支援的作業系統版本
@@ -43,7 +43,7 @@ ms.locfileid: "67067209"
 
 > [!NOTE]
 > Windows 7 支援：
-> - 根據預設，Windows 7 只包含 Windows PowerShell 2.0。 Service Fabric PowerShell Cmdlet 需要 PowerShell 3.0 或更新版本。 您可以從 Microsoft 下載中心[下載 Windows PowerShell 5.0][powershell5-download]。
+> - 根據預設，Windows 7 只包含 Windows PowerShell 2.0。 Service Fabric PowerShell Cmdlet 需要 PowerShell 3.0 或更新版本。 您可以[下載 Windows PowerShell 5.0][powershell5-download]從 Microsoft 下載中心取得。
 > - 無法在 Windows 7 上使用 Service Fabric 反向 Proxy。
 >
 
@@ -69,9 +69,9 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具 3.4.639
-* Service Fabric 執行階段 6.5.639
-* Service Fabric Tools for Visual Studio 2015 2.4.11116.1
+* Service Fabric SDK 和工具 3.4.641
+* Service Fabric 執行階段 6.5.641
+* Service Fabric Tools pro Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 
 如需支援版本的清單，請參閱[Service Fabric 版本](service-fabric-versions.md)

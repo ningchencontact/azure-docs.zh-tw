@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: 6de16b7264c7ae7ead06b4e131e7fa46c664cedd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 2c1b7e8f777f1975a20bbf63919a3dbfe543e683
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573348"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537718"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MariaDB 的 Azure 資料庫
 適用於 MariaDB 的 Azure 資料庫支援使用安全通訊端層 (SSL)，將適用於 MariaDB 的 Azure 資料庫伺服器連線至用戶端應用程式。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。
@@ -21,9 +21,19 @@ ms.locfileid: "64573348"
 **針對 Internet Explorer 和 Microsoft Edge：** 在下載完成後，請將憑證重新命名為 BaltimoreCyberTrustRoot.crt.pem。
 
 ## <a name="bind-ssl"></a>繫結 SSL
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 透過 SSL 連線至伺服器
-設定使 MySQL Workbench 安全地透過 SSL 連線。 從 [設定新連線] 對話方塊，瀏覽至 [SSL]  索引標籤。在 [SSL CA 檔案:]  欄位中輸入 **BaltimoreCyberTrustRoot.crt.pem** 的檔案位置。 
-![儲存自訂的圖格](./media/howto-configure-ssl/mysql-workbench-ssl.png) 對於現有連線，您可以透過在 [連線] 圖示上按一下滑鼠右鍵，然後選擇 [編輯] 將 SSL 繫結。 然後瀏覽至 [SSL]  索引標籤上，並繫結憑證檔案。
+
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 透過 SSL 連線至伺服器
+設定使 MySQL Workbench 安全地透過 SSL 連線。 
+
+1. 從 [設定新連線] 對話方塊，瀏覽至 [SSL]  索引標籤。 
+
+1. 更新**使用 SSL**欄位設為 「 需要 」。
+
+1. 在 [SSL CA 檔案:]  欄位中輸入 BaltimoreCyberTrustRoot.crt.pem 的檔案位置。 
+    
+    ![儲存 SSL 設定](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+對於現有的連線，您可以將 SSL 繫結 連線 圖示上按一下滑鼠右鍵，然後選擇 編輯。 然後瀏覽至 [SSL]  索引標籤上，並繫結憑證檔案。
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>使用 MySQL CLI 透過 SSL 連線至伺服器
 有另一個繫結 SSL 憑證的方法，就是藉由執行下列命令來使用 MySQL 命令列介面。 

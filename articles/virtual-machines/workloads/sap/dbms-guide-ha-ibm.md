@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689703"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503329"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,11 +77,11 @@ ms.locfileid: "64689703"
 | 文件 | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes):適用於 Linux 都具有所有必要 SAP 附註 |
-| [Azure 虛擬機器規劃和實作適用於 SAP on Linux] [ planning-guide]指南 |
-| [適用於 SAP on Linux 的 azure 虛擬機器部署][ deployment-guide] （本文） |
-| [Azure 虛擬機器資料庫管理 system(DBMS) 部署適用於 SAP on Linux] [ dbms-guide]指南 |
+| [Azure 虛擬機器規劃和實作適用於 SAP on Linux][planning-guide]指南 |
+| [適用於 SAP on Linux 的 azure 虛擬機器部署][deployment-guide]（本文） |
+| [Azure 虛擬機器資料庫管理 system(DBMS) 部署適用於 SAP on Linux][dbms-guide]指南 |
 | [在 Azure 的規劃與部署檢查清單上的 SAP 工作負載][azr-sap-plancheck] |
-| [適用於 SAP Applications 12 SP3 的 SUSE Linux Enterprise Server 最佳做法指南][sles-for-sap-bp] |
+| [SUSE Linux Enterprise Server，適用於 SAP 應用程式 12 SP3 最佳做法指南][sles-for-sap-bp] |
 | [SUSE Linux Enterprise 高可用性延伸模組 12 SP3][sles-ha-guide] |
 | [針對 SAP 工作負載的 IBM Db2 Azure 虛擬機器 DBMS 部署][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
@@ -162,7 +162,7 @@ IBM Db2 LUW 的資源代理程式一併併入 SUSE Linux Enterprise Server for S
 1.  建立虛擬機器 2。
     + 使用 SLES for SAP 映像，在 Azure Marketplace 中。
     + 選取 Azure 可用性設定組中步驟 3 中建立或選取可用性區域 （未如步驟 3 所示的相同區域）。
-1. 將資料磁碟新增至 Vm，，然後檢查 文件中的檔案系統設定的建議[IBM Db2 Azure 虛擬機器 DBMS 部署的 SAP 工作負載][dbms-db2]。
+1. 將資料磁碟新增至 Vm，，然後檢查 文件中的檔案系統設定的建議[針對 SAP 工作負載的 IBM Db2 Azure 虛擬機器 DBMS 部署][dbms-db2]。
 
 ## <a name="create-the-pacemaker-cluster"></a>建立 Pacemaker 叢集
     
@@ -496,13 +496,12 @@ j2ee/dbhost = db-virt-hostname
 
 您可以使用 J2EE 組態工具來檢查或更新 JDBC URL。 由於 J2EE 組態工具是圖形化工具，您需要有 X 伺服器安裝：
  
-1. 登入主要的應用程式伺服器的 J2EE 執行個體，並執行：
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. 登入主要的應用程式伺服器的 J2EE 執行個體，並執行：   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. 在左框架內，選擇**安全性存放區**。
-1. 在右側框架中，選擇 索引鍵的 jdbc/集區 / \<SAPSID>含 /url。
+1. 在右側框架中，選擇 索引鍵的 jdbc/集區/\<SAPSID > / url。
 1. 將 JDBC URL 中的主機名稱變更為 虛擬主機名稱。
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. 選取 **新增**。
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. 選取 [新增]  。
 1. 若要儲存您的變更，請選取磁碟圖示左上方。
 1. 關閉組態工具。
 1. 重新啟動的 Java 執行個體。
@@ -516,7 +515,7 @@ j2ee/dbhost = db-virt-hostname
 
 您可以使用現有的高可用性 NFS 共用的傳輸或設定檔目錄。 如需詳細資訊，請參閱
 
-- [SUSE Linux Enterprise Server 上 Azure VM 的 NFS 高可用性][nfs-ha] 
+- [SUSE Linux Enterprise Server 上的 Azure Vm 上 nfs 的高可用性][nfs-ha] 
 - [適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 - [Azure 的 NetApp 檔案](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction)（若要建立 NFS 共用）
 

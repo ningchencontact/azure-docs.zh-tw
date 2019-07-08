@@ -20,15 +20,15 @@ ms.locfileid: "65144885"
 
 當您想要遵循這篇文章**剖析 Parquet 檔案，或將資料寫入 Parquet 格式**。 
 
-Parquet 格式支援下列連接器：[Amazon S3](connector-amazon-simple-storage-service.md)， [Azure Blob](connector-azure-blob-storage.md)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md)， [Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md)， [Azure 檔案儲存體](connector-azure-file-storage.md)，[檔案系統](connector-file-system.md)， [FTP](connector-ftp.md)， [Google 雲端儲存體](connector-google-cloud-storage.md)， [HDFS](connector-hdfs.md)， [HTTP](connector-http.md)，與[SFTP](connector-sftp.md)。
+Parquet 格式支援下列連接器：](connector-amazon-simple-storage-service.md)Amazon S3[、](connector-azure-blob-storage.md)Azure Blob[、](connector-azure-data-lake-store.md)Azure Data Lake Storage Gen1[、](connector-azure-data-lake-storage.md)Azure Data Lake Storage Gen2[、](connector-azure-file-storage.md)Azure 檔案儲存體[、](connector-file-system.md)檔案系統[、](connector-ftp.md)FTP[、](connector-google-cloud-storage.md)Google Cloud Storage[、](connector-hdfs.md)HDFS[、](connector-http.md)HTTP[ 和 ](connector-sftp.md)SFTP。
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Parquet 資料集所支援的屬性的清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Oracle 資料集所支援的屬性清單。
 
 | 屬性         | 描述                                                  | 必要項 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 資料集的 type 屬性必須設定為**Parquet**。 | 是      |
+| type             | 資料集的類型屬性必須設定為： | 是      |
 | location         | 對檔案的位置設定。 每個檔案為基礎的連接器有它自己的位置類型和支援的屬性底下`location`。 **請參閱文章中的詳細資料連接器]-> [資料集屬性區段**。 | 是      |
 | compressionCodec | 壓縮轉碼器來寫入 Parquet 檔案時使用。 從 Parquet 檔案讀取時，Data Factory 會自動決定根據檔案的中繼資料的壓縮轉碼器。<br>支援的類型為"**無**"，"**gzip**"，"**snappy**"（預設值） 和 「**lzo**"。 請注意，目前複製活動不支援 LZO。 | 否       |
 
@@ -61,24 +61,24 @@ Parquet 格式支援下列連接器：[Amazon S3](connector-amazon-simple-storag
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供一份 Parquet 來源和接收器所支援的屬性。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Oracle 來源和接收所支援的屬性清單。
 
 ### <a name="parquet-as-source"></a>Parquet 作為來源
 
-以下支援的屬性將複製活動中***\*來源\**** 一節。
+複製活動的 ***source\* 區段支援下列屬性：
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 複製活動來源的 type 屬性必須設定為**ParquetSource**。 | 是      |
+| type          | 複製活動來源的 type 屬性必須設定為 **OracleSource**。 | 是      |
 | storeSettings | 一組有關如何從資料存放區讀取資料的屬性。 每個檔案為基礎的連接器有自己支援的讀取的設定下`storeSettings`。 **請參閱文章中的詳細資料連接器-> 複製活動屬性 區段**。 | 否       |
 
 ### <a name="parquet-as-sink"></a>Parquet，接收
 
-以下支援的屬性將複製活動中***\*接收器\**** 一節。
+複製活動的 ***sink\* 區段支援下列屬性：
 
 | 屬性      | 描述                                                  | 必要項 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 複製活動來源的 type 屬性必須設定為**ParquetSink**。 | 是      |
+| type          | 複製活動來源的類型屬性必須設定為：**HttpSource** | 是      |
 | storeSettings | 如何將資料寫入至資料存放區上的屬性群組。 每個檔案為基礎的連接器有自己支援的寫入設定下`storeSettings`。 **請參閱文章中的詳細資料連接器-> 複製活動屬性 區段**。 | 否       |
 
 ## <a name="mapping-data-flow-properties"></a>對應資料流程屬性
@@ -89,7 +89,7 @@ Parquet 格式支援下列連接器：[Amazon S3](connector-amazon-simple-storag
 
 Parquet 複雜資料型別是目前不支援 （例如 MAP、 LIST、 結構）。
 
-## <a name="using-self-hosted-integration-runtime"></a>使用自我裝載的整合執行階段
+## <a name="using-self-hosted-integration-runtime"></a>自我裝載整合執行階段
 
 > [!IMPORTANT]
 > 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 **64 位元的 JRE 8 (Java Runtime Environment) 或 OpenJDK**。 如需更多詳細資料，請參閱接下來的段落。
@@ -109,6 +109,6 @@ Parquet 複雜資料型別是目前不支援 （例如 MAP、 LIST、 結構）�
 ## <a name="next-steps"></a>後續步驟
 
 - [複製活動概觀](copy-activity-overview.md)
-- [對應資料流程](concepts-data-flow-overview.md)
+- 對應資料流程
 - [查閱活動](control-flow-lookup-activity.md)
 - [GetMetadata 活動](control-flow-get-metadata-activity.md)

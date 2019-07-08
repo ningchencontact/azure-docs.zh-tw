@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5092872433529f11f699aa8a0c5e87d110cb59f7
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67077433"
@@ -30,7 +30,7 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 
 ### <a name="for-simple-requests"></a>對於簡單要求︰
 
-1. 瀏覽器會傳送有額外**來源** HTTP 要求標頭的 CORS 要求。 此標頭的值是提供父頁面的來源，是以*通訊協定*、*網域*和*連接埠*的組合來定義的。  當頁面上，從 https\:/ / www.contoso.com 嘗試存取位於 fabrikam.com 來源的使用者資料時，下列要求標頭就會傳送到 fabrikam.com:
+1. 瀏覽器會傳送有額外**來源** HTTP 要求標頭的 CORS 要求。 此標頭的值是提供父頁面的來源，是以*通訊協定*、*網域*和*連接埠*的組合來定義的。  當來自 https://www.contoso.com 的頁面嘗試存取位於 fabrikam.com 來源的使用者資料時，會將以下要求標頭傳送到 fabrikam.com：
 
    `Origin: https://www.contoso.com`
 

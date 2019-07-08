@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726451"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484127"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
 
@@ -34,9 +34,6 @@ ms.locfileid: "64726451"
 * 如果使用 PowerShell，您必須[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
 * 文字編輯器。 這篇文章會使用 「 Microsoft 記事本 」。
-
-> [!IMPORTANT]  
-> Azure PowerShell cmdlet [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster)並[Get AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput)目前無法運作時[安全傳輸](../../storage/common/storage-require-secure-transfer.md)啟用儲存體帳戶.
 
 ## <a name="test-environment"></a>測試環境
 本文所使用的環境是執行 Windows 10 的電腦。  在命令提示字元中執行命令，各種檔案已使用 「 記事本 」 編輯。 據此修改為您的環境。

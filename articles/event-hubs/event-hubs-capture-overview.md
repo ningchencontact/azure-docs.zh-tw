@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 47ae3eb41145a74c1726847943df9074a4a75dfe
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 96b9d90ce942b7755feae8298a408f46f20bf04d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273653"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461681"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>透過 Azure 事件中樞在 Azure Blob 儲存體或 Azure Data Lake Storage 中擷取事件
 Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-scalability.md#throughput-units)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
@@ -51,6 +51,8 @@ Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選�
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
+
+您的 Azure 儲存體 blob 是暫時無法使用，則事件中樞擷取會在事件中樞上設定資料保留期限內保留您的資料和背景填滿資料，一旦您的儲存體帳戶恢復可用狀態時。
 
 ### <a name="scaling-to-throughput-units"></a>調整至輸送量單位
 
@@ -135,6 +137,8 @@ Apache Avro 已完成快速入門指南[Java][Java] and [Python][Python]。 您�
 ## <a name="how-event-hubs-capture-is-charged"></a>事件中樞擷取的收費方式
 
 事件中樞擷取的計量方式類似輸送量單位，屬於每小時的費用。 其費用與命名空間所購買的輸送量單位數目成正比。 當輸送量單位增加和減少時，事件中樞擷取也會增加和減少以提供相符的效能。 計量會串聯地發生。 如需定價詳細資訊，請參閱[事件中樞定價](https://azure.microsoft.com/pricing/details/event-hubs/)。 
+
+請注意，擷取不會使用輸出配額，就會分開計費。 
 
 ## <a name="integration-with-event-grid"></a>事件格線整合 
 
