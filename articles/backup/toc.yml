@@ -62,6 +62,8 @@
           href: backup-azure-files-faq.md
         - name: 常見問題集 - 將 SQL Server 資料庫備份到 Azure VM
           href: faq-backup-sql-server.md
+        - name: 常見問題集 - Azure 備份伺服器和 DPM
+          href: backup-azure-dpm-azure-server-faq.md
     - name: 備份架構
       href: backup-architecture.md
     - name: 角色型存取控制

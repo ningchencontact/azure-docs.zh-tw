@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: 檢查叢集健康情況
           href: check-cluster-health.md
-        - name: 管理叢集相應放大
-          href: manage-cluster-scale-out.md
-        - name: 管理叢集相應增加
-          href: manage-cluster-scale-up.md
+        - name: 管理叢集的水平調整
+          href: manage-cluster-horizontal-scaling.md
+        - name: 管理叢集的垂直調整
+          href: manage-cluster-vertical-scaling.md
         - name: 刪除資料
           href: delete-data.md
         - name: 處理資料重複
