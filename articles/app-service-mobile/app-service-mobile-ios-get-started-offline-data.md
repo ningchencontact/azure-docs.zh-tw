@@ -165,11 +165,11 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 | 屬性 | 類型 |
 | --- | --- |
-| id | 整數 64 |
-| itemId | 字串 |
-| properties | 二進位資料 |
+| id | Integer 64 |
+| itemId | String |
+| properties | Binary Data |
 | table | String |
-| tableKind | 整數 16 |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -179,9 +179,9 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | 屬性 | 類型 |
 | --- | --- |
 | id |String |
-| operationId |整數 64 |
-| properties |二進位資料 |
-| tableKind |整數 16 |
+| operationId |Integer 64 |
+| properties | Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -190,8 +190,8 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | 屬性 | 類型 |
 | --- | --- |
 | id |String |
-| key |字串 |
-| keyType |整數 64 |
+| key |String |
+| keyType |Integer 64 |
 | table |String |
 | value |String |
 
