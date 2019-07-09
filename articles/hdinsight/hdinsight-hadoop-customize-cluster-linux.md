@@ -260,7 +260,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
     | 選取指令碼 | 若要使用自己的指令碼，請選取 [自訂]  。 否則，請選取提供的指令碼。 |
     | 名稱 |指定脚本操作的名称。 |
     | Bash 指令碼 URI |指定指令碼的 URI。 |
-    | Head/Worker/Zookeeper |指定用來執行指令碼的節點：[前端]  、[背景工作]  或 [ZooKeeper]  。 |
+    | Head/Worker/ZooKeeper |指定用來執行指令碼的節點：Head 、 Worker 或 ZooKeeper  。 |
     | 參數 |如果指令碼要求，請指定參數。 |
 
     使用 [保存此指令碼動作]  項目，可確保在執行規模調整作業時套用此指令碼。
