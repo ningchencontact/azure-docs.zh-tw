@@ -190,10 +190,10 @@ Write-host "`nScript completed" -ForegroundColor Green
     |屬性  |值  |
     |---------|---------|
     |Name | 輸入資料處理站的名稱。 此名稱必須是全域唯一的。|
-    |訂用帳戶 | 選取 Azure 訂用帳戶。 |
-    |資源群組 | 選取 [使用現有的]  ，然後選取您使用 PowerShell 指令碼建立的資源群組。 |
+    |Subscription | 選取 Azure 訂用帳戶。 |
+    |Resource group | 選取 [使用現有的]  ，然後選取您使用 PowerShell 指令碼建立的資源群組。 |
     |Version | 將保留**V2**。 |
-    |位置 | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部]  。 |
+    |Location | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部]  。 |
 
     ![使用 Azure 入口網站建立 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "使用 Azure 入口網站建立 Azure Data Factory")
 
