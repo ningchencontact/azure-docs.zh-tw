@@ -22,7 +22,7 @@
       href: quick-create-template.md
 - name: 教學課程
   items:
-    - name: 'Azure Web Apps '
+    - name: Azure Web Apps
       items:
         - name: 在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault
           href: tutorial-net-create-vault-azure-web-app.md
@@ -164,8 +164,6 @@
       href: common-parameters-and-headers.md
     - name: 客戶資料
       href: key-vault-customer-data.md
-    - name: 版本資訊
-      href: key-vault-versions.md
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 區域可用性

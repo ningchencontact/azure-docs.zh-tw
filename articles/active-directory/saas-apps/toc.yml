@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8x8 Virtual Office
           href: 8x8virtualoffice-tutorial.md
-    - name: A
+    - name: 具有使用
       items:
         - name: abintegro
           href: abintegro-tutorial.md
@@ -831,7 +831,7 @@
           href: novatus-tutorial.md
         - name: Nuclino
           href: nuclino-tutorial.md
-        - name: O.C. Tanner - AppreciateHub 的人員
+        - name: 已啟用 O.C. Tanner - AppreciateHub 的人員
           href: oc-tanner-tutorial.md
         - name: OfficeSpace Software
           href: officespace-tutorial.md
@@ -899,7 +899,7 @@
           href: peakon-tutorial.md
         - name: Pega Systems
           href: pegasystems-tutorial.md
-        - name: People
+        - name: 人員
           href: people-tutorial.md
         - name: Peoplecart
           href: peoplecart-tutorial.md
@@ -1428,6 +1428,8 @@
           href: dynamic-signal-provisioning-tutorial.md
         - name: Dialpad
           href: dialpad-provisioning-tutorial.md
+        - name: Figma
+          href: figma-provisioning-tutorial.md
         - name: G Suite
           href: google-apps-provisioning-tutorial.md
         - name: GitHub
@@ -1454,6 +1456,8 @@
           href: netsuite-provisioning-tutorial.md
         - name: Pingboard
           href: pingboard-provisioning-tutorial.md
+        - name: Peakon
+          href: peakon-provisioning-tutorial.md
         - name: Salesforce
           href: salesforce-provisioning-tutorial.md
         - name: Salesforce 沙箱

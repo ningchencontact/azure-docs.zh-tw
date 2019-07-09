@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: 概念
           items:
+            - name: 閱讀安全性方針
+              href: data-box-heavy-safety.md
             - name: 檢閱追蹤和記錄
               href: data-box-logs.md
             - name: 檢閱需求
