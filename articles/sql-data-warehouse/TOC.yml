@@ -127,6 +127,14 @@
           href: sql-data-warehouse-overview-develop.md
         - name: 最佳作法
           href: sql-data-warehouse-best-practices-development.md
+        - name: 具體化檢視
+          items:
+            - name: 依選取建立具體化檢視 (Transact-SQL)
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: 依選取變更具體化檢視 (Transact-SQL)
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: 結果集設定快取
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: 資料表
           items:
             - name: 概觀

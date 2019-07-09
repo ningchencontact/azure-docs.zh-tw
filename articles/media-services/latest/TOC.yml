@@ -36,11 +36,16 @@
   items:
     - name: 概觀
       href: concepts-overview.md
-    - name: 雲端上傳和儲存體
+    - name: 帳戶
       items:
-        - name: 儲存體
+        - name: 媒體服務帳戶
+          displayName: subscription
+          href: media-services-account-concept.md
+        - name: 儲存體帳戶
           href: storage-account-concept.md
           displayName: Storage side encryption
+    - name: 上傳
+      items:
         - name: Assets
           href: assets-concept.md
     - name: 編碼

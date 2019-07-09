@@ -71,6 +71,8 @@
           href: how-to/upgrade-tools.md
         - name: 使用 CI/CD 搭配 Azure Dev Spaces
           href: how-to/setup-cicd.md
+        - name: 使用適用於 Jenkins 的 Azure Dev Spaces 外掛程式
+          href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: 適用於 Azure Dev Spaces 的業務持續性和災害復原
           href: how-to/dev-spaces-business-continuity.md
     - name: 疑難排解
