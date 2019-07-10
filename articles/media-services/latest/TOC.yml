@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: 監視事件 - CLI
           href: job-state-events-cli-how-to.md
+    - name: 使用 Azure 監視器
+      items:
+        - name: 監視計量
+          href: media-services-metrics-howto.md
+        - name: 監視器診斷記錄
+          href: media-services-diagnostic-logs-howto.md
     - name: 保護內容
       items:
         - name: 取得內容金鑰原則 - .NET

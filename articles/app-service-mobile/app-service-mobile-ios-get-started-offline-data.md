@@ -180,7 +180,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | --- | --- |
 | id |String |
 | operationId |Integer 64 |
-| properties | Binary Data |
+| properties |Binary Data |
 | tableKind |Integer 16 |
 
  **MS_TableConfig**
