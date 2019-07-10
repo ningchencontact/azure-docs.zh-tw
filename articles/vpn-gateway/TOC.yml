@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: 轉換為 P2S 的公用 CA 閘道憑證
           href: vpn-gateway-point-to-site-gateway-public-ca.md
+        - name: 設定 Always On VPN 裝置通道
+          href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: 在 Azure 可用性區域中建立區域備援的 VNet 閘道
       href: create-zone-redundant-vnet-gateway.md
     - name: 在連線上設定 IPsec/IKE 原則

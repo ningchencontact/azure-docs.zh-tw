@@ -9,14 +9,18 @@
       items:
         - name: 小組開發
           href: quickstart-team-development.md
-        - name: Java (VS Code 與 CLI)
+        - name: 執行應用程式
+          href: quickstart-cli.md
+        - name: 使用 Dockerfile 執行應用程式
+          href: quickstart-cli-dockerfile.md
+        - name: 使用 VS Code 執行和偵錯 Java
           href: quickstart-java.md
-        - name: .NET Core (VS Code 和 CLI)
+        - name: 使用 VS Code 執行和偵錯 .NET Core
           href: quickstart-netcore.md
-        - name: .NET Core (Visual Studio)
-          href: quickstart-netcore-visualstudio.md
-        - name: Node.js (VS Code 與 CLI)
+        - name: 使用 VS Code 執行和偵錯 Node.js
           href: quickstart-nodejs.md
+        - name: 使用 Visual Studio 執行和偵錯 .NET Core
+          href: quickstart-netcore-visualstudio.md
     - name: 教學課程
       items:
         - name: Java (VS Code 與 CLI)
@@ -55,6 +59,8 @@
       items:
         - name: Dev Spaces 如何運作
           href: how-dev-spaces-works.md
+        - name: VS Code 如可與 Dev Spaces 搭配使用
+          href: how-vs-code-works-with-dev-spaces.md
     - name: 作法
       items:
         - name: 使用 Azure Cloud Shell 建立 Kubernetes 叢集

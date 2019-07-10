@@ -209,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: 受控執行個體功能
           href: sql-database-managed-instance.md
+        - name: 受控執行個體常見問題集
+          href: sql-database-managed-instance-faq.md
         - name: 管理 API 參考
           href: sql-database-managed-instance-create-manage.md
         - name: 資源限制

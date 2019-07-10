@@ -49,6 +49,14 @@
       items:
         - name: 什麼是單一登入
           href: what-is-single-sign-on.md
+        - name: 為多租用戶應用程式啟用 SSO
+          href: isv-sso-content.md
+        - name: 為多租用戶應用程式建立 Azure 租用戶
+          href: isv-tenant-multi-tenant-app.md
+        - name: 選擇多租用戶同盟
+          href: isv-choose-multi-tenant-federation.md
+        - name: 為多租用戶應用程式建立文件
+          href: isv-create-sso-documentation.md
         - name: 規劃單一登入部署
           href: plan-sso-deployment.md
     - name: One Click SSO
@@ -73,6 +81,20 @@
           href: tenant-restrictions.md
         - name: 設定 SAML 權杖加密 (預覽)
           href: howto-saml-token-encryption.md
+    - name: 單一登入
+      items:
+        - name: 什麼是單一登入
+          href: what-is-single-sign-on.md
+        - name: 規劃單一登入部署
+          href: plan-sso-deployment.md
+        - name: 在多租用戶應用程式中啟用單一登入
+          href: isv-sso-content.md
+        - name: 選擇正確的 SSO 同盟通訊協定
+          href: isv-choose-multi-tenant-federation.md
+        - name: 為多租用戶應用程式建立 Azure 租用戶
+          href: isv-tenant-multi-tenant-app.md
+        - name: 建立及發佈應用程式的 SSO 文件
+          href: isv-create-sso-documentation.md
     - name: 使用者入口網站
       href: end-user-experiences.md
 - name: 使用說明指南

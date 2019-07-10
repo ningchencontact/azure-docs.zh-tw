@@ -8,23 +8,31 @@ metadata:
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 04/29/2019
+  ms.date: 07/08/2019
   ms.author: zarhoads
-  manager: jeconnoc
+  manager: gwallace
 abstract:
   description: Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS) 中執行的整個微服務應用程式，無需複製或模擬相依性。 Azure Dev Spaces 能降低在共用 Azure Kubernetes Service (AKS) 叢集中與小組共同作業的負擔及複雜度，並直接在 AKS 中執行及偵錯容器。 了解如何透過這些快速入門使用 Azure Dev Spaces。
 sections:
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 了解如何使用 Azure Dev Spaces 在 AKS 中進行小組共同作業：
+        text: 了解如何使用 AKS 中的 Azure Dev Spaces：
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: 使用 Azure CLI 進行小組開發
+            text: 開發為小組的一部分
             href: quickstart-team-development.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: 執行應用程式
+            href: quickstart-cli.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: 使用 Dockerfile 執行應用程式
+            href: quickstart-cli-dockerfile.md
       - type: paragraph
         text: 了解如何反覆地使用 Azure Dev Spaces，直接在 AKS 中開發和偵錯：
       - type: list
