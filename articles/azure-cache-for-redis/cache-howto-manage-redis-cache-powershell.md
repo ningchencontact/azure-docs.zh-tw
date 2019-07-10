@@ -155,7 +155,7 @@ ms.locfileid: "62097924"
 | set-max-intset-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
 | zset-max-ziplist-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
 | zset-max-ziplist-value |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
-| 資料庫 |設定資料庫數目。 這個屬性僅可以在建立快取時設定。 |標準和進階 |
+| databases |設定資料庫數目。 這個屬性僅可以在建立快取時設定。 |標準和進階 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>建立 Azure Cache for Redis
 建立新的「Azure Redis 快取」執行個體時，會使用 [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) Cmdlet 來建立。
