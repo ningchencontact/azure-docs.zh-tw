@@ -261,7 +261,7 @@ public static void Run(
 |**apiKey**|**ApiKey**| 包含您 API 金鑰的應用程式設定名稱。 若未設定，預設應用程式設定名稱是「AzureWebJobsSendGridApiKey」。|
 |**to**|**To**| 收件者的電子郵件地址。 |
 |**from**|**From**| 寄件者的電子郵件地址。 |
-|**subject**|**主旨**| 電子郵件主旨。 |
+|**subject**|**Subject**| 電子郵件主旨。 |
 |**text**|**Text**| 電子郵件內容。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
