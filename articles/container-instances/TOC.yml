@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: 取得容器記錄和事件
           href: container-instances-get-logs.md
-        - name: 透過 Azure Log Analytics 記錄
+        - name: 使用 Azure 監視器記錄進行記錄
           href: container-instances-log-analytics.md
     - name: 疑難排解
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: 影片
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: 常見問題集
+      href: container-instances-faq.md
