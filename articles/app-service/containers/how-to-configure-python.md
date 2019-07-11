@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: ad2ea32749c6556d17460b2a16ed41bbaa2ec62e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: fb90122f7277687886a6579fdb729b7f91660ed6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956144"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617282"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Linux Python 應用程式
 
@@ -90,11 +91,11 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-如果您想要更加具體地控制啟動命令，請使用[自訂啟動命令](#customize-startup-command)，並將 `<module>` 替換為包含 wsgi.py 的模組名稱。
+如果您想要更加具體地控制啟動命令，請使用[自訂啟動命令](#customize-startup-command)，並將 `<module>` 替換為包含 wsgi.py  的模組名稱。
 
 ### <a name="flask-app"></a>Flask 應用程式
 
-針對 Flask，App Service 會尋找名為 application.py 或 app.py 的檔案，並啟動 Gunicorn，如下所示：
+針對 Flask，App Service 會尋找名為 application.py  或 app.py  的檔案，並啟動 Gunicorn，如下所示：
 
 ```bash
 # If application.py
@@ -107,7 +108,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
 
 ### <a name="default-behavior"></a>預設行為
 
-如果 App Service 沒找到自訂命令、Django 應用程式或 Flask 應用程式，則會執行位於 opt/defaultsite 資料夾中的預設唯讀應用程式。 預設應用程式看起來會像下面這樣：
+如果 App Service 沒找到自訂命令、Django 應用程式或 Flask 應用程式，則會執行位於 opt/defaultsite  資料夾中的預設唯讀應用程式。 預設應用程式看起來會像下面這樣：
 
 ![Linux 網頁上的預設 App Service](media/how-to-configure-python/default-python-app.png)
 
@@ -133,7 +134,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 
 您也可以對 *\<custom-command>* 新增任何額外的 Gunicorn 引數，例如 `--workers=4`。 如需詳細資訊，請參閱[執行 Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org)。
 
-若要使用非 Gunicorn 伺服器，例如 [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)，您可以使用以下內容取代 *\<custom-command>*：
+若要使用非 Gunicorn 伺服器，例如 [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)，您可以使用以下內容取代 *\<custom-command>* ：
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -174,7 +175,7 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 - **您在部署自己的應用程式程式碼之後，卻看到預設應用程式。** 之所以出現預設應用程式，原因可能是您並未將應用程式程式碼部署至 App Service，也可能是 App Service 找不到應用程式程式碼，而改為執行預設應用程式。
 - 重新啟動 App Service，等候 15 到 20 秒，然後再檢查一次應用程式。
 - 請確定您使用的是適用於 Linux 的 App Service，而不是以 Windows 為基礎的執行個體。 從 Azure CLI 執行 `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind` 命令，並替換對應的 `<resource_group_name>` 和 `<app_service_name>`。 輸出應該會是 `app,linux`；若非如此，請重新建立 App Service 並選擇 Linux。
-- 使用 SSH 或 Kudu 主控台直接連線到 App Service，並確認檔案有在 site/wwwroot 底下。 如果檔案不存在，請檢閱部署程序，並重新部署應用程式。
+- 使用 SSH 或 Kudu 主控台直接連線到 App Service，並確認檔案有在 site/wwwroot  底下。 如果檔案不存在，請檢閱部署程序，並重新部署應用程式。
 - 如果檔案存在，App Service 卻無法識別特定的啟動檔案。 請檢查應用程式的結構是否符合 App Service 對 [Django](#django-app) 或 [Flask](#flask-app) 的預期，或者，您也可以使用[自訂啟動命令](#customize-startup-command)。
 - **您在瀏覽器中看到「服務無法使用」訊息。** 瀏覽器在等候 App Service 的回應時逾時，這表示 App Service 已啟動 Gunicorn 伺服器，但用來指定應用程式程式碼的引數不正確。
 - 重新整理瀏覽器，如果您使用 App Service 方案中的最低定價層，更應該如此。 舉例來說，如果您使用免費層，應用程式可能需要更久的時間才能啟動，在您重新整理瀏覽器後，應用程式便會有回應。

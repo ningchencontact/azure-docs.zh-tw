@@ -2,24 +2,25 @@
 title: 設定適用於 IoT 的 Azure 資訊安全中心解決方案 (預覽) | Microsoft Docs
 description: 了解如何使用適用於 IoT 的 Azure 資訊安全中心來設定端對端 IoT 解決方案。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: c60b421e9b60c6a2191fe2be189d1abd1c328f24
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7f90dba899651b677740e9ceb88bdd579ebb073c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200785"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616650"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>快速入門：設定 IoT 解決方案
 
@@ -47,10 +48,10 @@ ms.locfileid: "65200785"
 若要將新的資源新增至 IoT 解決方案，請執行下列步驟： 
 
 1. 在 Azure 入口網站中開啟您的 **IoT 中樞**。 
-2. 從左側功能表中選取並開啟 [安全性] 下方的 [資源]。 
-3. 選取 [新增資源]。
+2. 從左側功能表中選取並開啟 [安全性]  下方的 [資源]  。 
+3. 選取 [新增資源]  。
 4. 選擇屬於您 IoT 解決方案的資源。
-5. 按一下 [新增] 。 
+5. 按一下 [新增]  。 
 
 恭喜！ 您已將新的資源新增至 IoT 解決方案。
 

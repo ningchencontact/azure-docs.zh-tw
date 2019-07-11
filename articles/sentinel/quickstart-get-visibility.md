@@ -7,7 +7,8 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 07839c6372e0048048b62fbfedd58bfa9b9942f5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65207522"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619813"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>快速入門：開始使用 Azure Sentinel 預覽版
 
@@ -54,7 +55,7 @@ ms.locfileid: "65207522"
 
 - **近期案例**：檢視近期案例，其嚴重性和案例相關警示數目。 如果您看到特定警示類型突然出現尖峰，這可能表示目前有作用中的攻擊正在進行。 比方說，如果突然出現 20 個來自 Azure ATP 的雜湊傳遞事件，則可能是有人目前正試圖攻擊您。
 
-- **資料來源異常**：Microsoft 的資料分析師建立了一些模型，這些模型會不斷地在您資料來源的資料中搜尋異常情況。 如果沒有任何異常狀況，則不會顯示任何內容。 如果偵測到異常，您應該深入探討這些異常以查看發生什麼情況。 例如，按一下 Azure 活動中的尖峰。 您可以按一下 [圖表] 來查看何時發生尖峰，然後篩選在那段期間發生的活動，以了解造成尖峰的原因。
+- **資料來源異常**：Microsoft 的資料分析師建立了一些模型，這些模型會不斷地在您資料來源的資料中搜尋異常情況。 如果沒有任何異常狀況，則不會顯示任何內容。 如果偵測到異常，您應該深入探討這些異常以查看發生什麼情況。 例如，按一下 Azure 活動中的尖峰。 您可以按一下 [圖表]  來查看何時發生尖峰，然後篩選在那段期間發生的活動，以了解造成尖峰的原因。
 
    ![Azure Sentinel 地圖](./media/qs-get-visibility/anomolies.png)
 
@@ -62,7 +63,7 @@ ms.locfileid: "65207522"
 
 內建儀表板會從已連線的資料來源提供整合式資料，讓您深入探討這些服務中所產生的事件。 內建儀表板包含 Azure 識別碼、Azure 活動事件和內部部署資料，該資料可以是來自伺服器、來自第一方警示、來自任何第三方 (包括防火牆流量記錄、Office 365 和以 Windows 為基礎的不安全通訊協定) 的 Windows 事件資料。
 
-1. 在 [設定] 之下，選取 [儀表板]。 在 [已安裝] 之下，您可以看到所有已安裝的儀表板。 在 [全部] 底下，您可以看到可供安裝的完整內建儀表板資源庫。 
+1. 在 [設定]  之下，選取 [儀表板]  。 在 [已安裝]  之下，您可以看到所有已安裝的儀表板。 在 [全部]  底下，您可以看到可供安裝的完整內建儀表板資源庫。 
 2. 搜尋特定儀表板，以查看所提供功能的完整清單和描述。 
 3. 假設您使用 Azure AD 來啟動並執行 Azure Sentinel，我們建議您至少安裝下列儀表板：
    - **Azure AD**：使用下列其中一項或兩項：
@@ -74,7 +75,7 @@ ms.locfileid: "65207522"
       ![Pal Alto 儀表板](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-您可藉由編輯主要查詢![按鈕](./media/qs-get-visibility/edit-query-button.png)來自訂儀表板。 您可以按一下按鈕![按鈕](./media/qs-get-visibility/go-to-la-button.png)前往 [Log Analytics 來編輯查詢](../azure-monitor/log-query/get-started-portal.md)，而且可以選取省略符號 (...) 並選取 [自訂圖格資料]，這可讓您編輯主要時間篩選器，或從儀表板中移除特定圖格。
+您可藉由編輯主要查詢![按鈕](./media/qs-get-visibility/edit-query-button.png)來自訂儀表板。 您可以按一下按鈕![按鈕](./media/qs-get-visibility/go-to-la-button.png)前往 [Log Analytics 來編輯查詢](../azure-monitor/log-query/get-started-portal.md)，而且可以選取省略符號 (...) 並選取 [自訂圖格資料]  ，這可讓您編輯主要時間篩選器，或從儀表板中移除特定圖格。
 
 如需使用查詢的詳細資訊，請參閱[教學課程︰Log Analytics 中的視覺化資料](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -82,16 +83,16 @@ ms.locfileid: "65207522"
 
 如果您想要新增圖格，則可將它新增至現有儀表板 (您所建立的儀表板或 Azure Sentinel 內建儀表板)。 
 1. 在 Log Analytics 中，使用[教學課程：Log Analytics 中的視覺化資料](../azure-monitor/learn/tutorial-logs-dashboards.md)中的指示建立圖格。 
-2. 建立圖格之後，在 [釘選] 之下，選取您希望出現圖格的儀表板。
+2. 建立圖格之後，在 [釘選]  之下，選取您希望出現圖格的儀表板。
 
 ## <a name="create-new-dashboards"></a>建立新儀表板
 您可以從頭開始建立新的儀表板，或使用內建儀表板作為新儀表板的基礎。
 
-1. 若要從頭開始建立新的儀表板，選取 [儀表板]，然後選取 [+新增儀表板]。
+1. 若要從頭開始建立新的儀表板，選取 [儀表板]  ，然後選取 [+新增儀表板]  。
 2. 選取儀表板建立所在的訂用帳戶，並為它提供描述性名稱。 每個儀表板都是一項 Azure 資源，您可以指派其角色 (RBAC) 來定義及限制可以存取的人員。 
-3. 若要讓它顯示在您要釘選視覺效果的儀表板中，您必須共用它。 按一下 [共用]，然後按一下 [管理使用者]。 
+3. 若要讓它顯示在您要釘選視覺效果的儀表板中，您必須共用它。 按一下 [共用]  ，然後按一下 [管理使用者]  。 
  
-1. 如同處理任何其他 Azure 資源一樣，使用 [檢查存取權] 和 [角色指派]。 如需詳細資訊，請參閱[使用 RBAC 共用 Azure 儀表板](../azure-portal/azure-portal-dashboard-share-access.md)。
+1. 如同處理任何其他 Azure 資源一樣，使用 [檢查存取權]  和 [角色指派]  。 如需詳細資訊，請參閱[使用 RBAC 共用 Azure 儀表板](../azure-portal/azure-portal-dashboard-share-access.md)。
 
 
 ## <a name="new-dashboard-examples"></a>新增儀表板範例
@@ -124,13 +125,13 @@ ms.locfileid: "65207522"
 
 當您建立新的偵測時，利用 Microsoft 安全性研究人員鎖建立的內建偵測，其已針對您連線的資料來源量身訂製。
 
-1. [在 GitHub 社群](https://github.com/Azure/Azure-Sentinel/tree/master/Detections)中移至 [偵測] 資料夾，然後選取相關的資料夾。
+1. [在 GitHub 社群](https://github.com/Azure/Azure-Sentinel/tree/master/Detections)中移至 [偵測]  資料夾，然後選取相關的資料夾。
    ![相關資料夾](./media/qs-get-visibility/detection-folders.png)
  
-3.  移至 [分析] 索引標籤，然後選取 [新增]。
+3.  移至 [分析]  索引標籤，然後選取 [新增]  。
    ![在 Log Analytics 中建立規則](./media/qs-get-visibility/query-params.png)
 
-3.  將所有參數都複製到此規則，然後按一下 [建立]。
+3.  將所有參數都複製到此規則，然後按一下 [建立]  。
    ![建立警示規則](./media/qs-get-visibility/create-alert-rule.png)
 
  

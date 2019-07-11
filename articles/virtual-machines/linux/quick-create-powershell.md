@@ -4,7 +4,7 @@ description: 在本快速入門中，您會了解如何使用 Azure PowerShell �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46ab5cae7514adfc4ec31ad88f5445a09e3c0e6a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2bbf76e161ec4106b625d1ceb7677c728a989d66
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975291"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667055"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入門：使用 PowerShell 在 Azure 中建立 Linux 虛擬機器
 
@@ -33,7 +33,7 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="create-ssh-key-pair"></a>建立 SSH 金鑰組
 
@@ -192,7 +192,7 @@ Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ssh azureuser@10.111.12.123
 ```
 
-出現提示時，登入使用者名稱為 azureuser。 如果 SSH 金鑰搭配使用複雜密碼，則需要在提示時輸入該複雜密碼。
+出現提示時，登入使用者名稱為 azureuser  。 如果 SSH 金鑰搭配使用複雜密碼，則需要在提示時輸入該複雜密碼。
 
 
 ## <a name="install-nginx"></a>安裝 NGINX

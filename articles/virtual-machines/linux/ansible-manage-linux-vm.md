@@ -5,15 +5,15 @@ keywords: ansible、azure、devops、bash、cloudshell、腳本、bash
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a7862e95966d7b0e0ab31f242dff0244735fe7a1
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c4878902425a26086ad77647ea06568f2110ccfe
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409236"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668629"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>快速入門：使用 Ansible 在 Azure 中管理 Linux 虛擬機器
 

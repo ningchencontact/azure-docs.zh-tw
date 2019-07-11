@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 83f5b08e5fee17c0ea5577d4d56d4d3208a818e3
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001113"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625299"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>快速入門：建置與 Azure AD 整合來進行驗證和授權的 .NET Web API
 
@@ -79,7 +79,7 @@ ms.locfileid: "66001113"
 
 2. 將 OWIN 啟動類別加入至名為 `Startup.cs`的 TodoListService 專案。  在專案上按一下滑鼠右鍵，選取 [新增] > [新增項目]  ，然後搜尋 **OWIN**。 OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
 
-3. 將類別宣告變更為 `public partial class Startup`。 我們已在另一個檔案中為您實作此類別的一部分。 請在 `Configuration(…)` 方法中，呼叫 `ConfgureAuth(…)` 來為您的 Web 應用程式設定驗證。
+3. 將類別宣告變更為 `public partial class Startup`。 我們已在另一個檔案中為您實作此類別的一部分。 請在 `Configuration(…)` 方法中，呼叫 `ConfigureAuth(…)` 來為您的 Web 應用程式設定驗證。
 
     ```csharp
     public partial class Startup

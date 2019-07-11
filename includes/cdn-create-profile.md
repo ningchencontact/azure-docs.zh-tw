@@ -3,17 +3,17 @@ title: 包含檔案
 description: 包含檔案
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174324"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594003"
 ---
 ## <a name="create-a-new-cdn-profile"></a>建立新的 CDN 設定檔
 
@@ -35,7 +35,7 @@ CDN 設定檔是 CDN 端點的容器，會指定定價層。
     | -------- | ----- |
     | **名稱** | 輸入 *my-cdn-profile-123* 作為設定檔名稱。 此名稱必須是全域唯一的；如果已在使用中，您可以輸入不同名稱。 |
     | **訂用帳戶** | 從下拉式清單中，選取 Azure 訂用帳戶。 |
-    | **資源群組** | 選取 [新建]  ，並輸入 *my-resource-group-123* 作為資源群組名稱。 此名稱必須是全域唯一的。 如果此名稱已在使用中，您可以輸入不同名稱或是選取 [使用現有項目]  ，並從下拉式清單中選取 [my-resource-group-123]  。 | 
+    | **資源群組** | 選取 [新建]  ，並輸入 *my-resource-group-123* 作為資源群組名稱。 如果此名稱已在使用中，您可以輸入不同名稱或是選取 [使用現有項目]  ，並從下拉式清單中選取 [my-resource-group-123]  。 | 
     | **資源群組位置** | 從下拉式清單中選取 [美國中部]  。 |
     | **定價層** | 從下拉式清單中選取 [標準 Verizon]  。 |
     | **立即建立新的 CDN 端點** | 保留為未選取。 |  

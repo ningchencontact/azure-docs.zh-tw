@@ -2,24 +2,25 @@
 title: 為適用於 IoT 的 Azure 資訊安全中心建立自訂警示 (預覽) | Microsoft Docs
 description: 為適用於 IoT 的 Azure 資訊安全中心建立和指派自訂裝置警示。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786174"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618035"
 ---
 # <a name="quickstart-create-custom-alerts"></a>快速入門：建立自訂警示
 

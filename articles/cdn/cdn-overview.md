@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843669"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593616"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>什麼是 Azure 上的內容傳遞網路？
 內容傳遞網路 (CDN) 是可以有效率地將 Web 內容傳遞給使用者的分散式伺服器網路。 CDN 會將快取的內容儲存在使用者附近的邊緣伺服器上的存在點 (POP) 位置中，以將延遲降至最低。 
@@ -38,7 +38,7 @@ Azure 內容傳遞網路 (CDN) 為開發人員提供一套全域解決方案，�
 ## <a name="how-it-works"></a>運作方式
 ![CDN 概觀](./media/cdn-overview/cdn-overview.png)
 
-1. 使用者 (Alice) 使用具有特殊網域名稱的 URL (例如 _&lt;端點名稱&gt;_.azureedge.net) 要求檔案 (也稱為資產)。 此名稱可以是端點主機名稱或自訂網域。 DNS 會將要求路由至效能最佳的 POP 位置，這通常是地理位置最接近使用者的 POP。
+1. 使用者 (Alice) 使用具有特殊網域名稱的 URL (例如 _&lt;端點名稱&gt;_ .azureedge.net) 要求檔案 (也稱為資產)。 此名稱可以是端點主機名稱或自訂網域。 DNS 會將要求路由至效能最佳的 POP 位置，這通常是地理位置最接近使用者的 POP。
     
 2. 如果 POP 中的邊緣伺服器在其快取中都沒有該檔案，則 POP 會從原始伺服器要求檔案。 原始伺服器可以是 Azure Web 應用程式、Azure 雲端服務、Azure 儲存體帳戶，或任何可公開存取的 Web 伺服器。
    
