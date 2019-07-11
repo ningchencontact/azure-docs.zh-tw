@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448219"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教學課程：退回 Azure 資料箱磁碟，並確認資料上傳至 Azure
 
@@ -88,7 +88,7 @@ ms.locfileid: "65603079"
 
 ### <a name="pick-up-in-asia-pacific-region"></a>在亞太地區取貨
 
-此區域包含在日本、韓國和澳洲取貨的指示。
+此區域包含在日本、韓國、澳洲和新加坡取貨的指示。
 
 #### <a name="pick-up-in-australia"></a>在澳洲取貨
 
@@ -103,43 +103,64 @@ ms.locfileid: "65603079"
 
 #### <a name="pick-up-in-japan"></a>日本取貨
 
-1. 請務必附上日本郵局運費到付的退貨理貨單。
-2. 在理貨單上寫下貴公司名稱和地址資訊，作為您的寄件者資訊。
-3. 撥打日本郵局取貨要求號碼 0800-0800-111 (免費撥接)。 撥打取貨地址的 7 位數郵遞區號，然後轉接到離您最近的郵局。
-    - 可用的取貨要求時間取決於各家郵局。
-    - 通知此出貨適用於日本郵局運費到付 Yu-Pack。
-    - 使用內含的運費到付理貨單。
-4. 如果未包含日本郵局運費到付理貨單，請利用 `Customerservice.JP@quantiumsolutions.com` 傳送電子郵件給 Quantium Solutions  。 *Quantium Solutions* 會要求日本郵局取貨並要求他們在取貨時提供理貨單。
-    - 指出日本郵局提供的運費到付理貨單備註欄上的參考號碼。
-    - 輸入如下所示的交貨地址：   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. 在理貨單上寫下貴公司名稱和地址資訊，作為您的寄件者資訊。
+2. 使用下列電子郵件範本傳送電子郵件給 Quantium Solutions。
 
-如果遺漏運費到付理貨單，您可以透過電子郵件要求取貨。 使用下列電子郵件範本來要求取貨。
+    - 如果日本郵局運費到付託運單未隨附或遺失，請在這封電子郵件註明。 Quantium Solutions (Japan) 會要求日本郵局在取貨時提供理貨單。
+    - 如果您有多個訂單，請透過電子郵件確保每件都會順利取貨。
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. 在預約取貨時間後，接收來自 Quantium Solutions 的電子郵件確認。 電子郵件確認也會包含運費到付理貨單的資訊。
+
+如有需要，您可以透過下列資訊連絡 Quantium Solutions 支援人員 (日文)： 
+
+- 電子郵件：Customerservice.JP@quantiumsolutions.com 
+- 電話：03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>韓國取貨
 
 1. 請務必附上退貨理貨單。
-2. 若要要求取貨：
-    1. 在上班時間 (週一至週五上午 10 點到下午 5 點) 撥打 *Quantium Solutions International* 熱線 070-8231-1418。 引述 Microsoft Pickup  和理貨單號碼以便安排收貨。  
-    2. 如果熱線忙線中，請傳送電子郵件到 `microsoft@rocketparcel.com`，其電子郵件主旨為 *Microsoft Pickup* 並提供理貨單號碼作為參考。
+2. 若要在附有理貨單時要求取貨：
+    1. 在上班時間 (週一至週五上午 10 點到下午 5 點) 撥打 *Quantium Solutions International* 熱線 070-8231-1418。 報上 *Microsoft Azure Pickup* 和服務要求號碼以便安排收貨。  
+    2. 如果熱線忙線中，請將主旨為 *Microsoft Azure Pickup* 的電子郵件傳送到 `microsoft@rocketparcel.com`，並提供服務要求號碼作為參考。
     3. 如果快遞人員未到府收貨，請撥打 *Quantium Solutions International* 熱線以便尋求替代安排。 
+    4. 您會收到電子郵件向您確認排定的取貨時間。
+3. 沒有理貨單時，才需要執行此步驟。 若要要求取貨：
+    1. 在上班時間 (週一至週五上午 10 點到下午 5 點) 撥打 *Quantium Solutions International* 熱線 070-8231-1418。 報上 *Microsoft Azure Pickup* 和服務要求號碼以便安排收貨。 指定您需要新的理貨單來安排收貨。 請提供寄件者 (客戶)、接收者資訊 (Azure 資料中心)，以及參考號碼 (服務要求號碼)。 
+    2. 如果熱線忙線中，請將主旨為 *Microsoft Azure Pickup* 的電子郵件傳送到 `microsoft@rocketparcel.com`，並提供服務要求號碼作為參考。
+    3. 如果快遞人員未到府收貨，請撥打 *Quantium Solutions International* 熱線以便尋求替代安排。 
+    4. 如果您透過電話提出要求，則會收到口頭確認。
+
+### <a name="pick-up-in-singapore"></a>在新加坡取貨
+
+1. 列印出貨標籤並黏貼在紙箱上。 如果標籤受損或遺失：
+    - 移至 [概觀 > 下載出貨標籤]  。
+
+        ![下載出貨標籤](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        此動作會下載退貨標籤，如下所示。
+
+        ![範例出貨標籤](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - 將標籤黏貼在裝置上。 請確定標籤清楚可見。
+
+2. 若要要求取貨：
+    - 在上班時間 (週一至週五上午 9 點到下午 5 點) 撥打 **SingPost** 熱線 **6845 6485**。  
+    - 報上 *Microsoft Azure Pickup* 和服務要求號碼 (退回出貨標籤上的追蹤號碼) 以便安排收貨。 
+    - 您會獲得排定取貨時間的口頭確認。 
+    - 如果快遞人員未到府收貨，請撥打 **SingPost** 熱線 **6845 6485** 以另作安排。 
+3. 將貨交給快遞人員。 
+
 
 ## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
 
@@ -156,6 +177,8 @@ Body:
 一旦複製完成，訂單狀態會更新為 [已完成]  。
 
 ![資料複製已完成](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+如果複製完成但發生錯誤，請參閱[對上傳錯誤進行疑難排解](data-box-disk-troubleshoot-upload.md)。
 
 請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。 您的資料可以位於：
 

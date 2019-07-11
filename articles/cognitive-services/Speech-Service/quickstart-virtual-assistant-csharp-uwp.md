@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954796"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467064"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>快速入門：使用語音 SDK、UWP 建立語音優先虛擬助理
 
-另備有[語音轉換文字](quickstart-csharp-uwp.md)和[語音翻譯](quickstart-translate-speech-uwp.md)的快速入門。
+另備有[語音轉文字](quickstart-csharp-uwp.md)、[文字轉語音](quickstart-text-to-speech-csharp-uwp.md)和[語音翻譯](quickstart-translate-speech-uwp.md)的快速入門。
 
 在本文中，您會使用[語音 SDK](speech-sdk.md)來開發 C# 通用 Windows 平台 (UWP) 應用程式。 此程式會連線到先前撰寫和設定的 Bot，讓您從用戶端應用程式獲得語音優先虛擬助理體驗。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
 
@@ -32,14 +32,11 @@ ms.locfileid: "65954796"
 本快速入門需要：
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)或 [Azure 入口網站](https://portal.azure.com)上建立金要。
 * 先前建立且使用 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)設定的 Bot
 
     > [!NOTE]
-    > 在預覽中，Direct Line Speech 頻道目前僅支援 **westus2** 區域。
-
-    > [!NOTE]
-    > [免費試用語音服務](get-started.md)中所述標準定價層的 30 天試用受限於 **westus** (不是 **westus2**)，因此與 Direct Line Speech 不相容。 免費與標準層 **westus2** 訂用帳戶相容。
+    > Direct Line Speech (預覽) 目前僅可在部分的語音服務區域使用。 請參閱[語音優先虛擬助理支援的區域清單](regions.md#voice-first-virtual-assistants)，並確定您的資源部署於其中一個區域。
 
 ## <a name="optional-get-started-fast"></a>選用：快速開始使用
 
@@ -63,7 +60,7 @@ ms.locfileid: "65954796"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                 <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
@@ -111,7 +108,7 @@ ms.locfileid: "65954796"
     {
         public sealed partial class MainPage : Page
         {
-            private SpeechBotConnector botConnector;
+            private DialogServiceConnector connector;
 
             private enum NotifyType
             {
@@ -230,7 +227,7 @@ ms.locfileid: "65954796"
                 });
             }
 
-            private void InitializeBotConnector()
+            private void InitializeDialogServiceConnector()
             {
                 // New code will go here
             }
@@ -243,31 +240,31 @@ ms.locfileid: "65954796"
     }
     ```
 
-1. 接下來，您將使用您的訂用帳戶資訊建立 `SpeechBotConnector`。 將下列內容新增到 `InitializeBotConnector` 的方法主體，並針對您的 Bot、語音訂用帳戶和[區域](regions.md)，以您自己的值取代字串 `YourChannelSecret`、`YourSpeechSubscriptionKey` 和 `YourServiceRegion`。
+1. 接下來，您將使用您的訂用帳戶資訊建立 `DialogServiceConnector`。 將下列內容新增到 `InitializeDialogServiceConnector` 的方法主體，並針對您的 Bot、語音訂用帳戶和[區域](regions.md)，以您自己的值取代字串 `YourChannelSecret`、`YourSpeechSubscriptionKey` 和 `YourServiceRegion`。
 
     > [!NOTE]
-    > 在預覽中，Direct Line Speech 頻道目前僅支援 **westus2** 區域。
+    > Direct Line Speech (預覽) 目前僅可在部分的語音服務區域使用。 請參閱[語音優先虛擬助理支援的區域清單](regions.md#voice-first-virtual-assistants)，並確定您的資源部署於其中一個區域。
 
     > [!NOTE]
     > 如需設定 Bot 和擷取頻道祕密的詳細資訊，請參閱 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)的 Bot Framework 文件。
 
     ```csharp
-    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret";
-    const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
-    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
-    botConnector = new SpeechBotConnector(botConnectorConfig);
+    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `SpeechBotConnector` 依賴多個事件來傳達其 Bot 活動、語音辨識結果及其他資訊。 新增這些事件的處理常式，並將下列內容附加至 `InitializeBotConnector` 的方法主體結尾。
+1. `DialogServiceConnector` 依賴多個事件來傳達其 Bot 活動、語音辨識結果及其他資訊。 新增這些事件的處理常式，並將下列內容附加至 `InitializeDialogServiceConnector` 的方法主體結尾。
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
         NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
@@ -277,7 +274,7 @@ ms.locfileid: "65954796"
         }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += (sender, canceledEventArgs) =>
+    connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
@@ -286,47 +283,47 @@ ms.locfileid: "65954796"
         }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. 建立組態和註冊事件處理常式後，`SpeechBotConnector` 現在只需要接聽。 將下列程式碼新增至 `MainPage` 類別中的 `ListenButton_ButtonClicked` 方法。
+1. 建立組態和註冊事件處理常式後，`DialogServiceConnector` 現在只需要接聽。 將下列程式碼新增至 `MainPage` 類別中的 `ListenButton_ButtonClicked` 方法。
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (botConnector == null)
+        if (connector == null)
         {
-            InitializeBotConnector();
+            InitializeDialogServiceConnector();
             // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = botConnector.ConnectAsync();
+            var connectTask = connector.ConnectAsync();
         }
 
         try
         {
             // Start sending audio to your speech-enabled bot
-            var listenTask = botConnector.ListenOnceAsync();
+            var listenTask = connector.ListenOnceAsync();
 
             // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
             string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await botConnector.SendActivityAsync(speakActivity);
+            await connector.SendActivityAsync(speakActivity);
 
         }
         catch (Exception ex)
@@ -340,29 +337,31 @@ ms.locfileid: "65954796"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-1. 建置應用程式。 從 Visual Studio 的功能表列中，選取 [建置] > [建置解決方案]。 現在會編譯程式碼，而且不會出現任何錯誤。
+1. 建置應用程式。 從 Visual Studio 的功能表列中，選取 [建置]   > [建置解決方案]  。 現在會編譯程式碼，而且不會出現任何錯誤。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-csharp-uwp-08-build.png "成功建置")
 
-1. 啟動應用程式。 從 Visual Studio 的功能表列中，選取 [偵錯] > [開始偵錯]，或按 **F5**。
+1. 啟動應用程式。 從 Visual Studio 的功能表列中，選取 [偵錯]   > [開始偵錯]  ，或按 **F5**。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-csharp-uwp-09-start-debugging.png "啟動應用程式並進行偵錯")
 
-1. 此時會出現快顯視窗。 在您的應用程式中，選取 [啟用麥克風]，並確認彈出的權限要求。
+1. 此時會出現快顯視窗。 在您的應用程式中，選取 [啟用麥克風]  ，並確認彈出的權限要求。
 
     ![權限要求的螢幕擷取畫面](media/sdk/qs-csharp-uwp-10-access-prompt.png "啟動應用程式進入偵錯模式")
 
-1. 選取 [與您的 Bot 交談]，然後對裝置的麥克風說出英文片語或句子。 您的語音會傳送到 Direct Line Speech 頻道並轉譯為文字，該文字會出現在視窗中。
+1. 選取 [與您的 Bot 交談]  ，然後對裝置的麥克風說出英文片語或句子。 您的語音會傳送到 Direct Line Speech 頻道並轉譯為文字，該文字會出現在視窗中。
 
     ![成功 Bot 回合的螢幕擷取畫面](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "成功 Bot 回合")
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples) \(英文\)
+> [建立及部署基本 Bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>另請參閱
 
-- [轉譯語音](how-to-translate-speech-csharp.md)
-- [自訂原音模型](how-to-customize-acoustic-models.md)
-- [自訂語言模型](how-to-customize-language-model.md)
+- [關於語音優先虛擬助理](voice-first-virtual-assistants.md)
+- [免費取得語音服務的訂用帳戶金鑰](get-started.md)
+- [自訂喚醒字](speech-devices-sdk-create-kws.md)
+- [將 Direct Line Speech 連線至 Bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples) \(英文\)

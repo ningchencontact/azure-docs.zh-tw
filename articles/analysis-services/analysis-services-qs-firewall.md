@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187278"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537139"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入門：設定伺服器防火牆 - 入口網站
 
@@ -31,10 +31,10 @@ ms.locfileid: "54187278"
 ## <a name="configure-a-firewall"></a>設定防火牆
 
 1. 按一下您的伺服器，以開啟 [概觀] 頁面。 
-2. 在 [設定] > [防火牆] > [啟用防火牆] 中，按一下 [開啟]。
-3. 若要允許從 Power BI 服務的 DirectQuery 存取，請在 [允許從 Power BI 存取] 中按一下 [開啟]。  
-4. (選用) 指定一或多個 IP 位址範圍。 輸入每個範圍的名稱、起始和結束 IP 位址。 
-5. 按一下 [檔案] 。
+2. 在 [設定]   > [防火牆]   > [啟用防火牆]  中，按一下 [開啟]  。
+3. 若要允許從 Power BI 服務的 DirectQuery 存取，請在 [允許從 Power BI 存取]  中按一下 [開啟]  。  
+4. (選用) 指定一或多個 IP 位址範圍。 輸入每個範圍的名稱、起始和結束 IP 位址。 防火牆規則名稱應該限制在 128 個字元內，而且只能包含大寫字元、小寫字元、數字、底線和連字號。 不允許使用空格和其他特殊字元。
+5. 按一下 [檔案]  。
 
      ![防火牆設定](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 

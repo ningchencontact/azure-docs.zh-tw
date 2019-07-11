@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b060c971218561f285dbd2292529e01a0069d357
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359976"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147746"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL 資料庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "59359976"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
+Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
 
   || 單一資料庫 | 受控執行個體 |
   |:--- |:--- |:---|
@@ -37,7 +37,6 @@ ms.locfileid: "59359976"
   |||[現場的連線能力](sql-database-managed-instance-configure-p2s.md)
   |載入資料|每個快速入門載入的 Adventure Works|[還原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||從 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 中的 [BACPAC](sql-database-import.md) 檔案還原或匯入 Adventure Works|
-  |||
 
   > [!IMPORTANT]
   > 本文中已撰寫的指令碼會使用 Adventure Works 資料庫。 對於受控執行個體，您必須將 Adventure Works 資料庫匯入執行個體資料庫中，或將本文中的指令碼修改為使用 Wide World Importers 資料庫。
@@ -52,9 +51,9 @@ ms.locfileid: "59359976"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。
 
 ## <a name="connect-to-your-database"></a>連接到您的資料庫
 
@@ -64,7 +63,7 @@ ms.locfileid: "59359976"
 > Azure SQL Database 伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的 SQL Database 伺服器，該防火牆必須開啟此連接埠。
 >
 
-1. 開啟 SSMS。 [連線到伺服器] 對話方塊隨即出現。
+1. 開啟 SSMS。 [連線到伺服器]  對話方塊隨即出現。
 
 2. 輸入以下資訊：
 
@@ -79,21 +78,21 @@ ms.locfileid: "59359976"
 
    ![連接到伺服器](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. 選取 [連線到伺服器] 對話方塊中的 [選項]。 在 [連線到伺服器] 下拉式功能表中，選取 **mySampleDatabase**。
+3. 選取 [連線到伺服器]  對話方塊中的 [選項]  。 在 [連線到伺服器]  下拉式功能表中，選取 **mySampleDatabase**。
 
    ![連線到伺服器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
 4. 選取 [ **連接**]。 此時會開啟 [物件總管] 視窗。
 
-5. 若要檢視資料庫的物件，請展開 [資料庫]，然後展開 **mySampleDatabase**。
+5. 若要檢視資料庫的物件，請展開 [資料庫]  ，然後展開 **mySampleDatabase**。
 
-   ![檢視資料庫物件](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase 物件](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>查詢資料
 
 執行此 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 程式碼，依照類別查詢前 20 項產品。
 
-1. 在 [物件總管] 中，於 **mySampleDatabase** 上按一下滑鼠右鍵，然後選取 [新增查詢]。 連線到您資料庫的新查詢視窗將會開啟。
+1. 在 [物件總管] 中，於 **mySampleDatabase** 上按一下滑鼠右鍵，然後選取 [新增查詢]  。 連線到您資料庫的新查詢視窗將會開啟。
 
 2. 在查詢視窗中，貼上此 SQL 查詢。
 
@@ -104,9 +103,9 @@ ms.locfileid: "59359976"
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. 在工具列上，選取 [執行] 以擷取 `Product` 和 `ProductCategory` 資料表中的資料。
+3. 在工具列上，選取 [執行]  以擷取 `Product` 和 `ProductCategory` 資料表中的資料。
 
-    ![從兩個資料表擷取資料的查詢](./media/sql-database-connect-query-ssms/query2.png)
+    ![查詢以從 Product 和 ProductCategory 資料表擷取資料](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>插入資料
 
@@ -133,7 +132,7 @@ ms.locfileid: "59359976"
            ,GETDATE() );
    ```
 
-2. 選取 [執行] 以在 `Product` 資料表中插入新資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
+2. 選取 [執行]  以在 `Product` 資料表中插入新資料列。 [訊息]  窗格會顯示 [(1 個資料列受影響)]  。
 
 ## <a name="view-the-result"></a>檢視結果
 
@@ -144,9 +143,9 @@ ms.locfileid: "59359976"
    WHERE Name='myNewProduct'
    ```
 
-2. 選取 [執行] 。 此時會出現下列結果。
+2. 選取 [執行]  。 此時會出現下列結果。
 
-   ![結果](./media/sql-database-connect-query-ssms/result.png)
+   ![Product 資料表查詢的結果](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>更新資料
 
@@ -160,7 +159,7 @@ ms.locfileid: "59359976"
    WHERE Name = 'myNewProduct';
    ```
 
-2. 選取 [執行] 以在 `Product` 資料表中更新指定的資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
+2. 選取 [執行]  以在 `Product` 資料表中更新指定的資料列。 [訊息]  窗格會顯示 [(1 個資料列受影響)]  。
 
 ## <a name="delete-data"></a>刪除資料
 
@@ -173,7 +172,7 @@ ms.locfileid: "59359976"
    WHERE Name = 'myNewProduct';
    ```
 
-2. 選取 [執行] 以在 `Product` 資料表中刪除指定的資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
+2. 選取 [執行]  以在 `Product` 資料表中刪除指定的資料列。 [訊息]  窗格會顯示 [(1 個資料列受影響)]  。
 
 ## <a name="next-steps"></a>後續步驟
 

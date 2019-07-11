@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427801"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508668"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>教學課程：送回 Azure Data Box Heavy，並確認資料已上傳至 Azure (預覽)
 
@@ -43,11 +43,11 @@ ms.locfileid: "66427801"
 ## <a name="ship-data-box-heavy-back"></a>寄回 Data Box Heavy
 
 1. 確定裝置的電源已關閉，然後所有纜線皆已卸下。 纏繞 4 個電源線，並將其妥善置於可從裝置背面開關的匣盒中。
-2. 如果裝置是在美國或歐洲運送，則貨運商會是 FedEx。
+2. 在美國和歐盟，分別會透過 FedEx 和 DHL 以 LTL 貨運來運送裝置
 
-    1. 撥打當地貨運商的電話號碼，並約定取貨時間。
-    2. 連絡 [Data Box Operations](mailto:DataBoxOps@microsoft.com)，告知取貨事宜並取得寄返標籤。
-    3. 確定出貨標籤顯示在裝置正面的清晰螢幕上。
+    1. 連絡 [Data Box Operations](mailto:DataBoxOps@microsoft.com)，告知取貨事宜並取得寄返標籤。
+    2. 撥打當地貨運商的電話號碼，並約定取貨時間。
+    3. 確認貨物外部有醒目顯示的出貨標籤。
     4. 確實從裝置上移除前次出貨的舊出貨標籤。
 3. 一旦貨運業者收取 Data Box Heavy 並進行掃描，入口網站的訂單狀態就會更新為 [已取貨]  。 此外，也會顯示追蹤識別碼。
 

@@ -3,38 +3,37 @@ title: Azure Digital Twins 概觀 | Microsoft Docs
 description: 深入了解 Azure Digital Twins，一個關於空間智慧的 Azure IoT 解決方案。
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437107"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459025"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 概觀
 
-Azure Digital Twins 是一項 Azure IoT 服務，其可建立完整的實體環境模型。 此服務可建立空間智慧圖形，用模型來呈現人員、空間和裝置之間的關聯性與互動情形。
+Azure Digital Twins 預覽版是一項 Azure IoT 服務，可建立完整的實體環境模型。 此服務可建立空間智慧圖形，用模型來呈現人員、空間和裝置之間的關聯性與互動情形。
 
-透過 Azure Digital Twins，您可以查詢來自實體空間 (而非來自許多不同感應器) 的資料。 這項服務可協助您建置可重複使用、具有高度擴充性、可感知空間的體驗，以便將數位和實體世界的串流資料彼此連結。 這些獨一無二的內容相關功能可增強您的應用程式。 可使用 Azure Digital Twins 來完成的範例工作如下：
+透過 Azure Digital Twins，您可以查詢來自實體空間 (而非來自許多不同感應器) 的資料。 這項服務可協助您建置可重複使用、具有高度擴充性、可感知空間的體驗，以便將數位和實體世界的串流資料彼此連結。 這些獨一無二的內容相關功能可增強您的應用程式。 
+
+Azure Digital Twins 適用於各種環境類型，例如倉儲、辦公室、學校、醫院和銀行。 甚至可以用於運動場、工廠、停車場、公園、智慧電網和城市。 以下是 Azure Digital Twins 可發揮效用的部分案例：
 
 - 預測工廠的維修需求。
 - 分析輸電網路的即時能源需求。
 - 最佳化辦公室的可用空間利用。
-
-Azure Digital Twins 適用於所有類型的環境。 像是倉儲、辦公室、學校、醫院和銀行等等。 甚至可以用於運動場、工廠、停車場、公園、智慧電網和城市。 可使用 Azure Digital Twins 來完成的範例案例如下：
-
 - 追蹤各種狀態的每日溫度。
 - 監視忙碌的無人機路徑。
 - 識別自動型交通工具。
 - 分析建築物的佔用層級。
 - 找出您店裡最忙碌的收銀機。
 
-無論實際的商業案例為何，都可以透過 Azure Digital Twins 佈建對應的數位執行個體。
+無論實際的商業案例為何，幾乎都可透過 Azure Digital Twins 佈建對應的數位執行個體。
 
 下列影片會深入探討 Azure Digital Twins。
 
@@ -46,13 +45,13 @@ Azure Digital Twins 具有下列重要功能。
 
 ### <a name="spatial-intelligence-graph"></a>空間智慧圖形
 
-[*空間智慧圖形*](./concepts-objectmodel-spatialgraph.md) (或空間圖形)  是實體環境的虛擬表示法。 使用此功能建立人員、地點與裝置間的關聯性模型。
+[*空間智慧圖形*](./concepts-objectmodel-spatialgraph.md#graph) (或空間圖形)  是實體環境的虛擬表示法。 使用此功能建立人員、地點與裝置間的關聯性模型。
 
 假設有一個智慧型公用事業應用程式，其涉及連接到鄰近地區的數個電力用量電錶。 智慧型公共事業公司必須精確地監視及預測電力使用量並進行計費。 每個裝置和感應器都必須根據位置和消費者的相關內容來建立模型。 您可以使用空間智慧圖形以模型呈現這些複雜的關聯性種類。
 
 ### <a name="digital-twin-object-models"></a>Digital Twins 物件模型
 
-[Digital Twins 物件模型](./concepts-objectmodel-spatialgraph.md)是預先定義的裝置通訊協定和資料結構描述。 這些項目會配合您解決方案的網域專屬需求，以加速及簡化開發。
+[Digital Twins 物件模型](./concepts-objectmodel-spatialgraph.md#model)是預先定義的裝置通訊協定和資料結構描述。 這些項目會配合您解決方案的網域專屬需求，以加速及簡化開發。
 
 例如，會議室使用情况應用程式可以使用預先定義的空間類型，例如校園、大樓、樓層和會議室等。
 

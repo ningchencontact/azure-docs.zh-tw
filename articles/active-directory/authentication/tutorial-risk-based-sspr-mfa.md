@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113210"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>教學課程：使用風險事件觸發 Multi-Factor Authentication 和密碼變更
 
@@ -55,11 +55,11 @@ Azure AD Identity Protection 原則可以與現有的條件式存取原則搭配
 Azure AD Identity Protection 包含預設原則，可協助您讓使用者進行 Multi-Factor Authentication 的註冊，並輕鬆識別目前的註冊狀態。 啟用此原則後並不會隨即要求使用者執行 Multi-Factor Authentication，但會要求他們預先註冊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 按一下 [所有服務]，然後瀏覽至 [Azure AD Identity Protection]。
-1. 按一下 [MFA 註冊]。
-1. 將 [強制執行原則] 設定為 [開啟]。
+1. 按一下 [所有服務]  ，然後瀏覽至 [Azure AD Identity Protection]  。
+1. 按一下 [MFA 註冊]  。
+1. 將 [強制執行原則] 設定為 [開啟]  。
    1. 設定此原則後，會要求您的所有使用者註冊準備要以 Multi-Factor Authentication 使用的方法。
-1. 按一下 [檔案] 。
+1. 按一下 [檔案]  。
 
    ![需要使用者在登入時註冊 MFA](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
@@ -68,11 +68,11 @@ Azure AD Identity Protection 包含預設原則，可協助您讓使用者進行
 Microsoft 與研究人員、執法機關，Microsoft 的各個安全性小組和其他受信任的來源合作，以找出使用者名稱和密碼的配對。 當其中一個配對符合您環境中的帳戶時，就可以使用下列原則觸發風險型密碼變更。
 
 1. 按一下使用者風險原則。
-1. 在 [條件] 下方選取 [使用者風險]，然後選擇 [中 (含) 以上]。
+1. 在 [條件]  下方選取 [使用者風險]  ，然後選擇 [中 (含) 以上]  。
 1. 按一下 [選取]，然後按一下 [完成]。
-1. 在 [存取] 下方選擇 [允許存取]，然後選取 [需要變更密碼]。
+1. 在 [存取]  下方選擇 [允許存取]  ，然後選取 [需要變更密碼]  。
 1. 按一下 [選取]
-1. 將 [強制執行原則] 設定為 [開啟]。
+1. 將 [強制執行原則] 設定為 [開啟]  。
 1. 按一下 [儲存] 
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>啟用風險型 Multi-Factor Authentication
@@ -80,13 +80,13 @@ Microsoft 與研究人員、執法機關，Microsoft 的各個安全性小組和
 大部分使用者都有可追蹤的正常行為，而當他們超出此標準範圍時，光是允許他們登入就可能會有風險。 您可以封鎖該使用者，或只是要求他們執行 Multi-Factor Authentication 以證明他們的真實身分。 若要在偵測到有風險的登入時啟用需要 MFA 的原則，請啟用下列原則。
 
 1. 按一下登入風險原則
-1. 在 [條件] 下方選取 [使用者風險]，然後選擇 [中 (含) 以上]。
+1. 在 [條件]  下方選取 [使用者風險]  ，然後選擇 [中 (含) 以上]  。
 1. 按一下 [選取]，然後按一下 [完成]。
-1. 在 [存取] 下方選擇 [允許存取]，然後選取 [需要多重要素驗證]。
+1. 在 [存取]  下方選擇 [允許存取]  ，然後選取 [需要多重要素驗證]  。
 1. 按一下 [選取]
-1. 將 [強制執行原則] 設定為 [開啟]。
+1. 將 [強制執行原則] 設定為 [開啟]  。
 1. 按一下 [儲存] 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您已完成測試，且不再需要啟用風險型原則，請回到您要停用的每個原則，並將 [強制執行原則] 設定為 [關閉]。
+如果您已完成測試，且不再需要啟用風險型原則，請回到您要停用的每個原則，並將 [強制執行原則]  設定為 [關閉]  。

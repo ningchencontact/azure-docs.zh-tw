@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 800db36f8432a8d8cf99028643f91269ffb648e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871717"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>教學課程：Azure Active Directory 與 MobileIron 整合
 
@@ -53,19 +53,19 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 MobileIron，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **MobileIron**，從結果面板中選取 [MobileIron]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **MobileIron**，從結果面板中選取 [MobileIron]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 MobileIron](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 MobileIron 測試使用者](#create-mobileiron-test-user)** - 在 MobileIron 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表該使用者的項目連結。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -89,36 +89,36 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 若要設定與 MobileIron 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [MobileIron] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [MobileIron]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
+4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態]  區段執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.mobileiron.com/<key>`
+    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://www.mobileiron.com/<key>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-    c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+    c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<host>.mobileiron.com/user/login.html`
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<host>.mobileiron.com/user/login.html`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 您將會從 MobileIron 的系統管理入口網站取得 key 和 host 的值 (本教學課程稍後說明)。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -126,15 +126,15 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 MobileIron 公司網站。
 
-2. 移至 [管理員] > [身分識別]，並且在 [雲端 IDP 設定的相關資訊] 欄位中選取 [AAD] 選項。
+2. 移至 [管理員]   > [身分識別]  ，並且在 [雲端 IDP 設定的相關資訊]  欄位中選取 [AAD]  選項。
 
     ![設定單一登入管理員按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
-3. 複製 [金鑰] 和 [主機] 的值，並貼到 Azure 入口網站的 [基本 SAML 組態] 區段中來補齊 URL。
+3. 複製 [金鑰]  和 [主機]  的值，並貼到 Azure 入口網站的 [基本 SAML 組態]  區段中來補齊 URL。
 
     ![設定單一登入管理員按鈕](./media/mobileiron-tutorial/key.png)
 
-4. 在 [從 AAD 匯出中繼資料檔案並匯入至 MobileIron 雲端] 欄位中，按一下 [選擇檔案]，上傳從 Azure 入口網站下載的中繼資料。 上傳之後，按一下 [完成]。
+4. 在 [從 AAD 匯出中繼資料檔案並匯入至 MobileIron 雲端]  欄位中，按一下 [選擇檔案]  ，上傳從 Azure 入口網站下載的中繼資料。 上傳之後，按一下 [完成]  。
 
     ![設定單一登入管理員中繼資料按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
@@ -142,11 +142,11 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -154,20 +154,20 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 MobileIron 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [MobileIron]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [MobileIron]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -175,19 +175,19 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![應用程式清單中的 MobileIron 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-mobileiron-test-user"></a>建立 MobileIron 測試使用者
 
@@ -198,21 +198,21 @@ MobileIron 需以手動方式佈建。
 
 1. 以系統管理員身分登入您的 MobileIron 公司網站。
 
-1. 移至 [使用者]，然後按一下 [新增] > [單一使用者]。
+1. 移至 [使用者]  ，然後按一下 [新增]   > [單一使用者]  。
 
     ![設定單一登入使用者按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
 
-1. 在 [使用者] 對話方塊頁面上，執行下列步驟：
+1. 在 [使用者]  對話方塊頁面上，執行下列步驟：
 
     ![設定單一登入使用者新增按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
+    a. 在 [電子郵件地址]  文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
 
-    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
+    b. 在 [名字]  文字方塊中，輸入使用者的名字，例如 Britta。
 
-    c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
+    c. 在 [姓氏]  文字方塊中，輸入使用者的姓氏，例如 Simon。
 
-    d. 按一下 [完成] 。
+    d. 按一下 [完成]  。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

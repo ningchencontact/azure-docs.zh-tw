@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603197"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509628"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "65603197"
 
 ## <a name="clone-and-edit-the-sample-app"></a>複製並編輯應用程式範例
 
-在此步驟中，您會複製應用程式範例，並設定 Maven 專案物件模型 (POM 或 pom.xml) 以供部署。
+在此步驟中，您會複製應用程式範例，並設定 Maven 專案物件模型 (POM 或 pom.xml  ) 以供部署。
 
 ### <a name="clone-the-sample"></a>複製範例
 
@@ -50,9 +50,9 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>更新 Maven POM
 
-使用 App Service 的所需名稱和資源群組來更新 Maven Azure 外掛程式。 您不需要事先建立 App Service 方案或執行個體。 Maven 外掛程式會建立資源群組和 App Service (如果尚未存在)。 
+使用 App Service 的所需名稱和資源群組來更新 Maven Azure 外掛程式。 您不需要事先建立 App Service 方案或執行個體。 Maven 外掛程式會建立資源群組和 App Service (如果尚未存在)。
 
-您可以向下捲動至 _pom.xml_ 的 `<plugins>` 區段 (第 200 行) 來進行變更。 
+您可以向下捲動至 *pom.xml* 的 `<plugins>` 區段 (第 200 行) 來進行變更。
 
 ```xml
 <!-- Azure App Service Maven plugin for deployment -->
@@ -67,6 +67,7 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
   ...
 </plugin>  
 ```
+
 將 `YOUR_APP_NAME` 和 `YOUR_RESOURCE_GROUP` 更換為 App Service 和資源群組的名稱。
 
 ## <a name="build-and-deploy-the-application"></a>建置並部署應用程式
@@ -103,17 +104,23 @@ mvn azure-webapp:deploy
 
 ## <a name="provision-a-postgres-database"></a>佈建 Postgres 資料庫
 
-若要佈建 Postgres 資料庫伺服器，請開啟終端機，然後使用您想要的伺服器名稱、使用者名稱、密碼和位置等值，來執行下列命令。 使用 App Service 所在的相同資源群組。 請記下密碼以供稍後使用！
+若要佈建 Postgres 資料庫伺服器，請開啟終端機，並使用 [az postgres server create](https://docs.microsoft.com/cli/azure/postgres/server) 命令，如下列範例所示。 以您選擇的值取代預留位置 (包括角括號)，並使用您稍早提供給 App Service 執行個體的相同資源群組。 您提供的系統管理員認證將能啟用未來的存取權，因此請務必記下以供稍後使用。
 
 ```bash
-az postgres server create -n <desired-name> -g <same-resource-group> --sku-name GP_Gen4_2 -u <desired-username> -p <desired-password> -l <location>
+az postgres server create \
+    --name <server name> \
+    --resource-group <resource group> \
+    --location <location>
+    --sku-name GP_Gen5_2 \
+    --admin-user <administrator username> \
+    --admin-password <administrator password> \
 ```
 
-瀏覽至入口網站，然後搜尋 Postgres 資料庫。 當刀鋒視窗啟動時，複製 [伺服器名稱] 和 [伺服器管理員登入名稱] 的值，以供稍後使用。
+執行此命令之後，請瀏覽至 Azure 入口網站，再瀏覽至 Postgres 資料庫。 當刀鋒視窗啟動時，複製 [伺服器名稱] 和 [伺服器管理員登入名稱] 的值，以供稍後使用。
 
 ### <a name="allow-access-to-azure-services"></a>允許存取 Azure 服務
 
-在 [Azure 資料庫] 刀鋒視窗的 [連線安全性] 面板中，將 [允許存取 Azure 服務] 按鈕切換到 [開啟] 位置。
+在 [Azure 資料庫] 刀鋒視窗的 [連線安全性]  面板中，將 [允許存取 Azure 服務] 按鈕切換到 [開啟]  位置。
 
 ![允許存取 Azure 服務](media/tutorial-java-enterprise-postgresql-app/postgress_button.JPG)
 
@@ -123,7 +130,7 @@ az postgres server create -n <desired-name> -g <same-resource-group> --sku-name 
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>將 Postgres 認證新增至 POM
 
-在 _pom.xml_ 中，使用 Postgres 伺服器名稱、管理員登入名稱和密碼來取代大寫的預留位置值。 這些欄位位於 Azure Maven 外掛程式內。 (請務必取代 `<value>` 標記中的 `YOUR_SERVER_NAME`、`YOUR_PG_USERNAME` 和 `YOUR_PG_PASSWORD` ...而非 `<name>` 標記中的！)
+在 *pom.xml* 中，使用 Postgres 伺服器名稱、管理員登入名稱和密碼來取代大寫的預留位置值。 這些欄位位於 Azure Maven 外掛程式內。 (請務必取代 `<value>` 標記中的 `YOUR_SERVER_NAME`、`YOUR_PG_USERNAME` 和 `YOUR_PG_PASSWORD` ...而非 `<name>` 標記中的！)
 
 ```xml
 <plugin>
@@ -148,36 +155,34 @@ az postgres server create -n <desired-name> -g <same-resource-group> --sku-name 
 
 ### <a name="update-the-java-transaction-api"></a>更新 Java 交易 API
 
-接下來，我們需要編輯 Java 交易 API (JPA) 組態，讓 Java 應用程式會與 Postgres (而非先前使用的記憶體內部 H2 資料庫) 通訊。 開啟編輯器並前往 _src/main/resources/META-INF/persistence.xml_。 將 `<jta-data-source>` 的值更換為 `java:jboss/datasources/postgresDS`。 JTA XML 現在應該會有這項設定：
+接下來，我們需要編輯 Java 交易 API (JPA) 組態，讓 Java 應用程式會與 Postgres (而非先前使用的記憶體內部 H2 資料庫) 通訊。 開啟編輯器並前往 *src/main/resources/META-INF/persistence.xml*。 將 `<jta-data-source>` 的值更換為 `java:jboss/datasources/postgresDS`。 JTA XML 現在應該會有這項設定：
 
 ```xml
-...
 <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
-...
 ```
 
 ## <a name="configure-the-wildfly-application-server"></a>設定 WildFly 應用程式伺服器
 
 在部署重新設定過的應用程式之前，我們必須先使用 Postgres 模組和其相依性來更新 WildFly 應用程式伺服器。 您可以在[設定 WildFly 伺服器](configure-language-java.md#configure-java-ee-wildfly)中找到組態的詳細資訊。
 
-若要設定伺服器，我們需要 `wildfly_config/` 目錄中的四個檔案：
+若要設定伺服器，我們需要 wildfly_config/  目錄中的四個檔案：
 
 - **postgresql-42.2.5.jar**：這個 JAR 檔案是 Postgres 的 JDBC 驅動程式。 如需詳細資訊，請參閱[官方網站](https://jdbc.postgresql.org/index.html)。
 - **postgres-module.xml**：這個 XML 檔案會宣告 Postgres 模組 (org.postgres) 的名稱。 此外，它也會指定所要使用模組的必要資源和相依性。
 - **jboss_cli_commands.cl**：這個檔案包含 JBoss CLI 所將會執行的組態命令。 這些命令會將 Postgres 模組新增至 WildFly 應用程式伺服器、提供認證、宣告 JNDI 名稱、設定逾時閾值等等。如果您不熟悉 JBoss CLI，請參閱[官方文件](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)。
-- **startup_script.sh**：最後，每當 App Service 執行個體啟動時，就會執行這個殼層指令碼。 此指令碼只會執行一個函式：將 `jboss_cli_commands.cli` 中的命令以管道傳送至 JBoss CLI。
+- **startup_script.sh**：最後，每當 App Service 執行個體啟動時，就會執行這個殼層指令碼。 此指令碼只會執行一個函式：將 jboss_cli_commands.cli  中的命令以管道傳送至 JBoss CLI。
 
-建議您一定要閱讀這些檔案的內容，尤其是 _jboss_cli_commands.cli_ 檔案。
+建議您一定要閱讀這些檔案的內容，尤其是 *jboss_cli_commands.cli* 檔案。
 
 ### <a name="ftp-the-configuration-files"></a>以 FTP 傳送組態檔
 
-我們必須將 `wildfly_config/` 的內容以 FTP 傳送至 App Service 執行個體。 若要取得 FTP 認證，請在 Azure 入口網站中的 [App Service] 刀鋒視窗上，按一下 [取得發行設定檔] 按鈕。 FTP 使用者名稱和密碼會位於所下載的 XML 文件中。 如需發行設定檔的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)。
+我們必須將 wildfly_config/  的內容以 FTP 傳送至 App Service 執行個體。 若要取得 FTP 認證，請在 Azure 入口網站中的 [App Service] 刀鋒視窗上，按一下 [取得發行設定檔]  按鈕。 FTP 使用者名稱和密碼會位於所下載的 XML 文件中。 如需發行設定檔的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)。
 
-使用您選擇的 FTP 工具，將 `wildfly_config/` 中的四個檔案傳輸至 `/home/site/deployments/tools/`。 (注意，請勿傳輸目錄，只要傳輸檔案本身即可)。
+使用您選擇的 FTP 工具，將 wildfly_config/  中的四個檔案傳輸至 /home/site/deployments/tools/  。 (注意，請勿傳輸目錄，只要傳輸檔案本身即可)。
 
 ### <a name="finalize-app-service"></a>完成 App Service
 
-在 [App Service] 刀鋒視窗中，瀏覽至 [應用程式設定] 面板。 在 [執行階段] 下，將 [啟動檔案] 欄位設定為 `/home/site/deployments/tools/startup_script.sh`。 這可確保系統會在 App Service 執行個體建立好之後，但在 WildFly 伺服器啟動之前，執行殼層指令碼。
+在 [App Service] 刀鋒視窗中，瀏覽至 [應用程式設定] 面板。 在 [執行階段] 底下，將 [啟動檔案] 欄位設定為 /home/site/deployments/tools/startup_script.sh  。這可確保系統會在 App Service 執行個體建立好之後，但在 WildFly 伺服器啟動之前，執行殼層指令碼。
 
 最後，重新啟動 App Service。 此按鈕位於 [概觀] 面板中。
 

@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jasonfreeberg
 ms.custom: mvc
-ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bd11b5334fbffc28aa6869c9f37b2b9909692d56
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393221"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154786"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>快速入門：在 App Service 中建立 Java 應用程式
 
@@ -66,7 +66,7 @@ code pom.xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
+        <version>1.6.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -105,9 +105,9 @@ code pom.xml
 | Placeholder | 說明 |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | 您要作為應用程式部署目的地的唯一訂用帳戶識別碼。 使用 `az account show` 命令，可以從 Cloud Shell 或 CLI 取得預設訂用帳戶的 ID。 如需所有可用的訂用帳戶，請使用 `az account list` 命令。|
-| `RESOURCEGROUP_NAME` | 容納新建立應用程式的新資源群組名稱。 將應用程式的所有資源放在群組中，藉此同時管理。 例如，刪除資源群組會刪除所有與應用程式相關聯的資源。 使用唯一的新資源群組名稱來更新此值，例如 TestResources  。 您在下一節中會使用此資源群組名稱來清除所有的 Azure 資源。 |
+| `RESOURCEGROUP_NAME` | 容納新建立應用程式的新資源群組名稱。 將應用程式的所有資源放在群組中，藉此同時管理。 例如，刪除資源群組會刪除所有與應用程式相關聯的資源。 使用唯一的新資源群組名稱來更新此值，例如 myResourceGroup  。 您在下一節中會使用此資源群組名稱來清除所有的 Azure 資源。 |
 | `WEBAPP_NAME` | 應用程式名稱會成為應用程式在部署至 Azure 時的部分主機名稱 (WEBAPP_NAME.azurewebsites.net)。 將此值更新為新 App Service 應用程式的唯一名稱 (例如 contoso  )，它將會主控您的 Java 應用程式。 |
-| `REGION` | 託管應用程式的 Azure 區域，例如 `westus2`。 您可以使用 `az account list-locations` 命令，從 Cloud Shell 或 CLI 取得區域清單。 |
+| `REGION` | 託管應用程式的 Azure 區域，例如 westus2  。 您可以使用 `az account list-locations` 命令，從 Cloud Shell 或 CLI 取得區域清單。 |
 
 ## <a name="deploy-the-app"></a>部署應用程式
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f22f70c587556793c2b02fc79fa6175584b0c5cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>教學課程：Azure Active Directory 與 Moxtra 整合
 
@@ -52,19 +52,19 @@ ms.locfileid: "65871450"
 
 **若要從資源庫新增 Moxtra，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中輸入 **Moxtra**，並從結果面板中選取 [Moxtra]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中輸入 **Moxtra**，並從結果面板中選取 [Moxtra]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Moxtra](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "65871450"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Moxtra 測試使用者](#create-moxtra-test-user)** - 使 Moxtra 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -88,29 +88,29 @@ ms.locfileid: "65871450"
 
 若要設定與 Moxtra 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Moxtra] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Moxtra]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![Moxtra 網域和 URL 單一登入資訊](common/sp-signonurl.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://www.moxtra.com/service/#login`
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://www.moxtra.com/service/#login`
 
-5. Moxtra 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
+5. Moxtra 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
 
     ![image](common/edit-attribute.png)
 
-6. 除了以上屬性外，Moxtra 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
+6. 除了以上屬性外，Moxtra 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示： 
 
     | Name | 來源屬性|
     | ------------------- | -------------------- |    
@@ -119,31 +119,31 @@ ms.locfileid: "65871450"
     | idpid    | <Azure AD 識別碼>
 
     > [!Note]
-    > **idpid** 值不是真實的屬性。 您可以從 [設定 Moxtra] 區段中的步驟 8 取得實際值。 
+    > **idpid** 值不是真實的屬性。 您可以從 [設定 Moxtra]  區段中的步驟 8 取得實際值。 
 
-    a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
+    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 
     ![映像](common/new-save-attribute.png)
 
     ![映像](common/new-attribute-details.png)
 
-    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 讓 [命名空間] 保持空白。
+    c. 讓 [命名空間]  保持空白。
 
-    d. 選取 [來源] 作為 [屬性]。
+    d. 選取 [來源] 作為 [屬性]  。
 
-    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
+    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
 
-    f. 按一下 [確定]。
+    f. 按一下 [確定]  。
 
-    g. 按一下 [檔案] 。
+    g. 按一下 [檔案]  。
 
-7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+7. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-8. 在 [設定 Moxtra] 區段上，依據您的需求複製適當的 URL。
+8. 在 [設定 Moxtra]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -157,7 +157,7 @@ ms.locfileid: "65871450"
 
 1. 在另一個瀏覽器視窗中，以系統管理員身分登入您的 Moxtra 公司網站。
 
-2. 在左邊工具列中，按一下 [管理主控台] > [SAML 單一登入]，然後按一下 [新增]。
+2. 在左邊工具列中，按一下 [管理主控台] > [SAML 單一登入]  ，然後按一下 [新增]  。
    
     ![設定單一登入](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
@@ -165,34 +165,34 @@ ms.locfileid: "65871450"
    
     ![設定單一登入](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. 在 [Name] \(名稱\) 文字方塊中，輸入您的設定名稱 (例如：*SAML*)。 
+    a. 在 [Name] \(名稱\)  文字方塊中，輸入您的設定名稱 (例如：*SAML*)。 
   
-    b. 在 [IdP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。 
+    b. 在 [IdP 實體識別碼]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。 
  
-    c. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。 
+    c. 在 [登入 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。 
  
-    d. 在 [AuthnContextClassRef] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**。 
+    d. 在 [AuthnContextClassRef]  文字方塊中，輸入 **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**。 
  
-    e. 在 [名稱識別碼格式] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**。 
+    e. 在 [名稱識別碼格式]  文字方塊中，輸入 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**。 
  
-    f. 在記事本中開啟您從 Azure 入口網站下載的憑證，複製其內容，然後貼到 [憑證] 文字方塊中。    
+    f. 在記事本中開啟您從 Azure 入口網站下載的憑證，複製其內容，然後貼到 [憑證]  文字方塊中。    
  
     g. 在 SAML 電子郵件網域文字方塊中，輸入您的 SAML 電子郵件網域。    
   
     >[!NOTE]
     >若要查看用來驗證網域的步驟，請按一下下方的 "**i**"。
 
-    h. 按一下 [更新] 。
+    h. 按一下 [更新]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -200,40 +200,40 @@ ms.locfileid: "65871450"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Moxtra 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Moxtra]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Moxtra]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Moxtra] 。
+2. 在應用程式清單中，選取 [Moxtra]  。
 
     ![應用程式清單中的 Moxtra 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-moxtra-test-user"></a>建立 Moxtra 測試使用者
 
@@ -243,25 +243,25 @@ ms.locfileid: "65871450"
 
 1. 以系統管理員身分登入您的 Moxtra 公司網站。
 
-1. 在左邊工具列中，按一下 [管理主控台] > [使用者管理]，然後按一下 [新增使用者]。
+1. 在左邊工具列中，按一下 [管理主控台] > [使用者管理]  ，然後按一下 [新增使用者]  。
    
     ![設定單一登入](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. 在 [加入使用者]  對話方塊中，執行下列步驟：
   
-    a. 在 [名字] 文字方塊中，輸入 **Britta**。
+    a. 在 [名字]  文字方塊中，輸入 **Britta**。
   
-    b. 在 [姓氏] 文字方塊中，輸入 **Simon**。
+    b. 在 [姓氏]  文字方塊中，輸入 **Simon**。
   
-    c. 在 [電子郵件] 文字方塊中，輸入 Britta 在 Azure 入口網站中的同一個電子郵件地址。
+    c. 在 [電子郵件]  文字方塊中，輸入 Britta 在 Azure 入口網站中的同一個電子郵件地址。
   
-    d. 在 [事業處] 文字方塊中，輸入 **Dev**。
+    d. 在 [事業處]  文字方塊中，輸入 **Dev**。
   
-    e. 在 [部門] 文字方塊中，輸入 **IT**。
+    e. 在 [部門]  文字方塊中，輸入 **IT**。
   
-    f. 選取 [系統管理員]。
+    f. 選取 [系統管理員]  。
   
-    g. 按一下 [新增] 。
+    g. 按一下 [新增]  。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

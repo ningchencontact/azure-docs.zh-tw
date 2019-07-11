@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383423"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274161"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>使用 Bing 新聞搜尋 API 來搜尋新聞
 
@@ -51,7 +51,7 @@ Host: api.cognitive.microsoft.com
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-以下顯示前一個查詢的回應。 由於 Bing 搜尋 API 的[使用和顯示需求](../useanddisplayrequirements.md)，您必須以回應中提供的順序來顯示每則新聞文章。 如果該文章有叢集化文章，您應該指出有相關文章存在，並在要求時加以顯示。
+以下 JSON 範例顯示前一個查詢的回應。 由於 Bing 搜尋 API 的[使用和顯示需求](../useanddisplayrequirements.md)，您必須以回應中提供的順序來顯示每則新聞文章。 如果該文章有叢集化文章，您應該指出有相關文章存在，並在要求時加以顯示。
 
 ```json
 {
@@ -107,7 +107,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies
 
 ## <a name="get-todays-top-news"></a>取得今天的熱門新聞
 
-若要取得今天的熱門新聞文章，請進行和取得一般新聞相同的要求，不同之處在於不要設定 `q`。
+若要取得今天的熱門新聞文章，您可以如同以前一樣傳送相同的一般新聞要求，讓 `q` 參數取消設定。
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-取得熱門新聞的回應幾乎和取得一般新聞相同。 不過，`news` 回應中不會包含 `totalEstimatedMatches` 欄位，原因是其會有一組固定數目的結果。 不同新聞週期可能會有不同的熱門新聞數目。 請務必使用 `provider` 來歸類文章。
+取得熱門新聞的回應幾乎和取得一般新聞相同。 不過，`news` 回應中不會包含 `totalEstimatedMatches` 欄位，原因是其會有一組固定數目的結果。 不同新聞週期可能會有不同的熱門新聞數目。 請務必使用 `provider` 欄位來歸類文章。
 
 ## <a name="get-news-by-category"></a>取得各類別的新聞
 

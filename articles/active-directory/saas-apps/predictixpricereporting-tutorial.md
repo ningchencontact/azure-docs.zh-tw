@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 8074919a61ed4f2e3d0b127c13e733b0c485bf62
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>教學課程：Azure Active Directory 與 Predictix Price Reporting 整合
 
@@ -34,7 +34,7 @@ ms.locfileid: "65890655"
 
 若要深入了解 SaaS 應用程式與 Azure AD 的整合，請參閱 [Azure Active Directory 中的應用程式單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -174,7 +174,7 @@ ms.locfileid: "65890655"
 
     ![應用程式清單](common/all-applications.png)
 
-3. 在左側窗格中，選取 [使用者和群組]  ：
+3. 在左窗格中，選取 [使用者和群組]  ：
 
     ![選取 [使用者和群組]](common/users-groups-blade.png)
 

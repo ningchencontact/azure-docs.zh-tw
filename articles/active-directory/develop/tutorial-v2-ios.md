@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780da9359aaf645abc9b685fa9d90bbea9199759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b7d68f6f7079872b81b750ba71997117aaa27d33
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962172"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550567"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>從 iOS 應用程式登入使用者並呼叫 Microsoft Graph
 
@@ -56,10 +56,10 @@ ms.locfileid: "65962172"
 
 ### <a name="create-a-new-project"></a>建立新專案
 
-1. 開啟 Xcode，然後選取 [Create a new Xcode project] \(建立新的 Xcode 專案\)。
-2. 選取 [iOS] > [Single view Application] \(單一檢視應用程式\)，然後選取 [Next] \(下一步\)。
-3. 提供產品名稱，然後選取 [Next] \(下一步\)。
-4. 選取用來建立應用程式的資料夾，然後按一下 [建立]。
+1. 開啟 Xcode，然後選取 [Create a new Xcode project] \(建立新的 Xcode 專案\)  。
+2. 選取 [iOS] > [Single view Application] \(單一檢視應用程式\)  ，然後選取 [Next] \(下一步\)  。
+3. 提供產品名稱，然後選取 [Next] \(下一步\)  。
+4. 選取用來建立應用程式的資料夾，然後按一下 [建立]  。
 
 ## <a name="register-your-application"></a>註冊您的應用程式 
 
@@ -382,7 +382,7 @@ MSAL 會公開兩個主要方法來取得權杖：`acquireTokenSilently` 和 `ac
 
 | 標頭索引鍵    | value                 |
 | ------------- | --------------------- |
-| Authorization | Bearer <access-token> |
+| Authorization | 持有人 \<access-token> |
 
 將下面內容新增至 `ViewController.swift`：
 

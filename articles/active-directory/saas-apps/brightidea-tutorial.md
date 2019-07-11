@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fa15a91a6b82a8858bf46a08e8a9dbe11a51d8d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900013"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>教學課程：Azure Active Directory 與 Brightidea 整合
 
@@ -56,19 +56,19 @@ ms.locfileid: "65900013"
 
 **若要從資源庫新增 Brightidea，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Brightidea**，從結果面板中選取 [Brightidea]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Brightidea**，從結果面板中選取 [Brightidea]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Brightidea](common/search-new-app.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "65900013"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Brightidea 測試使用者](#create-brightidea-test-user)** - 在 Brightidea 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -92,46 +92,46 @@ ms.locfileid: "65900013"
 
 若要設定與 Brightidea 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Brightidea] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Brightidea]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定] 區段上，如果您有**服務提供者中繼資料檔案**，而想要以 **IDP** 起始模式進行設定，請執行下列步驟：
+4. 在 [基本 SAML 設定]  區段上，如果您有**服務提供者中繼資料檔案**，而想要以 **IDP** 起始模式進行設定，請執行下列步驟：
 
-    a. 按一下 [上傳中繼資料檔案]。
+    a. 按一下 [上傳中繼資料檔案]  。
 
     ![上傳中繼資料檔案](common/upload-metadata.png)
 
-    b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]。
+    b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]  。
 
     ![選擇中繼資料檔案](common/browse-upload-metadata.png)
 
-    c. 在成功上傳中繼資料檔案之後，會自動在 [Brightidea] 區段文字方塊中填入 [識別碼] 和 [回覆 URL] 值：
+    c. 在成功上傳中繼資料檔案之後，會自動在 [Brightidea] 區段文字方塊中填入 [識別碼]  和 [回覆 URL]  值：
 
     ![image](common/idp-intiated.png)
 
     > [!Note]
-    > 如果 [識別碼] 和 [回覆 URL] 值未自動填入，則請根據您的需求手動填入這些值。
+    > 如果 [識別碼]  和 [回覆 URL]  值未自動填入，則請根據您的需求手動填入這些值。
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     ![image](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<SUBDOMAIN>.brightidea.com`
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<SUBDOMAIN>.brightidea.com`
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載 [同盟中繼資料 XML]，並儲存在您的電腦上。
+4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載 [同盟中繼資料 XML]  ，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Brightidea] 區段上，依據您的需求複製適當的 URL。
+6. 在 [設定 Brightidea]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -145,46 +145,46 @@ ms.locfileid: "65900013"
 
 1. 在不同的網頁瀏覽器視窗中，使用系統管理員認證來登入 Brightidea。
 
-2. 若要移至您 Brightidea 系統的 SSO 功能，請瀏覽至 [Enterprise Setup] \(企業設定\) -> [Authentication] \(驗證\) 索引標籤。您會在該處看到兩個子索引標籤：[Auth Selection]\(驗證選取項目\) 和 [SAML Profiles] \(SAML 設定檔\)。
+2. 若要移至您 Brightidea 系統的 SSO 功能，請瀏覽至 [Enterprise Setup] \(企業設定\)   -> [Authentication] \(驗證\)  索引標籤。您會在該處看到兩個子索引標籤：[Auth Selection]\(驗證選取項目\) 和 [SAML Profiles] \(SAML 設定檔\)。
 
     ![Brightidea 設定](./media/brightidea-tutorial/configure1.png)
 
-3. 選取 [Auth Selection]\(驗證選取項目\)。 預設只會顯示兩個標準方法：Brightidea [Login] \(登入\) 和 [Registration] \(註冊\)。 新增 SSO 方法之後，它就會顯示在清單中。
+3. 選取 [Auth Selection]\(驗證選取項目\)  。 預設只會顯示兩個標準方法：Brightidea [Login] \(登入\) 和 [Registration] \(註冊\)。 新增 SSO 方法之後，它就會顯示在清單中。
 
     ![Brightidea 設定](./media/brightidea-tutorial/configure2.png)
 
-4. 選取 [SAML Profiles] \(SAML 設定檔\)，然後執行下列步驟：
+4. 選取 [SAML Profiles] \(SAML 設定檔\)  ，然後執行下列步驟：
 
     ![Brightidea 設定](./media/brightidea-tutorial/configure3.png)
 
-    a. 按一下 [Download Metadata] \(下載中繼資料\)，然後在 Azure 入口網站中的 [基本 SAML 設定] 區段上傳該中繼資料。
+    a. 按一下 [Download Metadata] \(下載中繼資料\)  ，然後在 Azure 入口網站中的 [基本 SAML 設定]  區段上傳該中繼資料。
 
-    b. 按一下 [Identity Provider Setting] \(身分識別提供者設定\) 底下的 [Add New] \(新增\) 按鈕，然後執行下列步驟：
+    b. 按一下 [Identity Provider Setting] \(身分識別提供者設定\)  底下的 [Add New] \(新增\)  按鈕，然後執行下列步驟：
     
     ![Brightidea 設定](./media/brightidea-tutorial/configure4.png)
     
-   * 輸入 [SAML Profile Name] \(SAML 設定檔名稱\)，例如 `Azure Ad SSO`
+   * 輸入 [SAML Profile Name] \(SAML 設定檔名稱\)  ，例如 `Azure Ad SSO`
     
-   * 針對 [Upload Metadata] \(上傳中繼資料\)，按一下 [Choose File] \(選擇檔案\)，然後上傳從 Azure 入口網站下載的中繼資料檔案。
+   * 針對 [Upload Metadata] \(上傳中繼資料\)  ，按一下 [Choose File] \(選擇檔案\)，然後上傳從 Azure 入口網站下載的中繼資料檔案。
 
      > [!NOTE]
-     > 上傳中繼資料檔案之後，剩餘的欄位 [Single Sign-on Service] \(單一登入服務\)、[Identity Provider Issuer] \(身分識別提供者簽發者\)、[Upload Public Key] \(上傳公開金鑰\) 中將會自動填入資料。
+     > 上傳中繼資料檔案之後，剩餘的欄位 [Single Sign-on Service] \(單一登入服務\)、[Identity Provider Issuer] \(身分識別提供者簽發者\)、[Upload Public Key] \(上傳公開金鑰\)  中將會自動填入資料。
 
-   * 在 [Email] \(電子郵件\) 文字方塊中，將值輸入為 `mail`。
+   * 在 [Email] \(電子郵件\)  文字方塊中，將值輸入為 `mail`。
      
-   * 在 [Screen Name] \(畫面名稱\) 文字方塊中，將值輸入為 `givenName`。
+   * 在 [Screen Name] \(畫面名稱\)  文字方塊中，將值輸入為 `givenName`。
      
-   * 按一下 [儲存變更] 。  
+   * 按一下 [儲存變更]  。  
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -192,40 +192,40 @@ ms.locfileid: "65900013"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Brightidea 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Brightidea]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Brightidea]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Brightidea]。
+2. 在應用程式清單中，選取 [Brightidea]  。
 
     ![應用程式清單中的 Brightidea 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-brightidea-test-user"></a>建立 Brightidea 測試使用者
 

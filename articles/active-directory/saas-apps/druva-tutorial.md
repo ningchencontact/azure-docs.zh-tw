@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf359f38bd7032b4de48a17b91ba1c10b165c91
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3f034a206ca114b484bd29c72d8e53f9ae5aa498
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103696"
 ---
 # <a name="tutorial-integrate-druva-with-azure-active-directory"></a>教學課程：整合 Druva 與 Azure Active Directory
 
@@ -155,7 +155,7 @@ ms.locfileid: "66807783"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `Britta Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 

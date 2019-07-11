@@ -4,20 +4,20 @@ description: 本快速入門會示範如何開始建立串流分析作業、設�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493363"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449239"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
-本快速入門會示範如何開始建立串流分析作業。 在本快速入門中，您會定義串流分析作業，以讀取即時串流資料並篩選出溫度大於 27 的訊息。 串流分析作業會從 IoT 中樞裝置讀取資料、轉換資料，以及將資料寫回 Blob 儲存體中的容器。 本快速入門中使用的輸入資料是由 Raspberry Pi 線上模擬器產生。 
+本快速入門會示範如何開始建立串流分析作業。 在本快速入門中，您會定義串流分析作業，以讀取即時串流資料並篩選出溫度大於 27 的訊息。 串流分析作業會從 IoT 中樞讀取資料、轉換資料，以及將資料寫回 Blob 儲存體中的容器。 本快速入門中使用的輸入資料是由 Raspberry Pi 線上模擬器產生。 
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -27,7 +27,7 @@ ms.locfileid: "66493363"
 
 ## <a name="prepare-the-input-data"></a>準備輸入資料
 
-定義串流分析作業前，您應先準備資料，該資料稍後會設定為作業輸入。 為了準備作業所需的輸入資料，請完成下列步驟：
+定義串流分析作業前，您應先準備輸入資料。 即時感應器資料會內嵌至 IoT 中樞，然後設定為作業輸入。 為了準備作業所需的輸入資料，請完成下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -179,7 +179,7 @@ ms.locfileid: "66493363"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，可刪除資源群組、串流作業和所有相關資源。 刪除作業可避免因為作業使用串流單位而產生費用。 如果您計劃在未來使用該作業，您可以將其停止並在之後需要時重新啟動。 如果您將不繼續使用此作業，請使用下列步驟，刪除本快速入門所建立的所有資源：
+若不再需要，請刪除資源群組、串流分析作業和所有相關資源。 刪除作業可避免因為作業使用串流單位而產生費用。 如果您計劃在未來使用該作業，您可以將其停止並在之後需要時重新啟動。 如果您將不繼續使用此作業，請使用下列步驟，刪除本快速入門所建立的所有資源：
 
 1. 從 Azure 入口網站的左側功能表中，選取 [資源群組]  ，然後選取您所建立資源的名稱。  
 

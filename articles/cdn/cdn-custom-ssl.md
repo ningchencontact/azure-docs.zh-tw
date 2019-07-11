@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6a41df70340da626a849804155ca245d95b6da46
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150859"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190512"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -50,7 +50,11 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 您必須先建立 CDN 設定檔和至少一個 CDN 端點，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
-此外，您必須在您的 CDN 端點上讓 Azure CDN 自訂網域產生關聯。 如需詳細資訊，請參閱[教學課程：將自訂網域新增至 Azure CDN 端點](cdn-map-content-to-custom-domain.md)
+此外，您必須在您的 CDN 端點上讓 Azure CDN 自訂網域產生關聯。 如需詳細資訊，請參閱[教學課程：將自訂網域新增至 Azure CDN 端點](cdn-map-content-to-custom-domain.md) 
+
+> [!IMPORTANT]
+> CDN 受控憑證不適用於根或頂點網域。 如果您的 Azure CDN 自訂網域是根或頂點網域，則您必須使用「使用您自己的憑證」功能。 
+>
 
 ---
 
@@ -70,17 +74,17 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
     ![端點清單](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
-    [端點] 頁面隨即出現。
+    [端點]  頁面隨即出現。
 
 3. 在自訂網域清單中，選取您要啟用 HTTPS 的自訂網域。
 
     ![自訂網域清單](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-    [自訂網域] 頁面隨即出現。
+    [自訂網域]  頁面隨即出現。
 
-4. 在憑證管理類型底下，選取 [CDN 管理]。
+4. 在憑證管理類型底下，選取 [CDN 管理]  。
 
-5. 選取 [開啟] 以啟用 HTTPS。
+5. 選取 [開啟]  以啟用 HTTPS。
 
     ![自訂網域 HTTPS 狀態](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
@@ -118,17 +122,17 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
  
 授與 Azure CDN 權限，以存取您 Azure Key Vault 帳戶中的憑證 (祕密)。
 
-1. 在您的金鑰保存庫帳戶中，於 [設定] 之下選取 [存取原則]，然後選取 [新增] 以建立新原則。
+1. 在您的金鑰保存庫帳戶中，於 [設定] 之下選取 [存取原則]  ，然後選取 [新增]  以建立新原則。
 
     ![建立新的存取原則](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-2. 在 [選取主體] 中，搜尋 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**，然後選擇 [Microsoft.Azure.Cdn]。 按一下 [選取] 。
+2. 在 [選取主體]  中，搜尋 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**，然後選擇 [Microsoft.Azure.Cdn]  。 按一下 [選取]  。
 
     ![存取原則設定](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. 在 [祕密權限] 中，選取 [取得] 允許 CDN 執行這些權限，以取得並列出憑證。 
+3. 在 [祕密權限]  中，選取 [取得]  允許 CDN 執行這些權限，以取得並列出憑證。 
 
-4. 選取 [確定] 。 
+4. 選取 [確定]  。 
 
     Azure CDN 現在可以存取此金鑰保存庫和此金鑰保存庫中儲存的憑證 (祕密)。
  
@@ -138,9 +142,9 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 2. 在自訂網域清單中，選取您要啟用 HTTPS 的自訂網域。
 
-    [自訂網域] 頁面隨即出現。
+    [自訂網域]  頁面隨即出現。
 
-3. 在憑證管理類型底下，選取 [使用我自己的憑證]。 
+3. 在憑證管理類型底下，選取 [使用我自己的憑證]  。 
 
     ![設定您的憑證](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
 
@@ -151,7 +155,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
     - 所選金鑰保存庫底下的憑證 (密碼)。 
     - 可用的憑證版本。 
  
-5. 選取 [開啟] 以啟用 HTTPS。
+5. 選取 [開啟]  以啟用 HTTPS。
   
 6. 當您使用自己的憑證時，不需要進行網域驗證。 請繼續進行[等待傳播](#wait-for-propagation)。
 
@@ -168,7 +172,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 如果您使用自己的憑證，則不需要進行網域驗證。
 
-您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 CDN 端點主機名稱：
+您的 CNAME 記錄應該採用下列格式，其中「名稱」  是您的自訂網域名稱，而「值」  則是您的 CDN 端點主機名稱：
 
 | Name            | 類型  | 值                 |
 |-----------------|-------|-----------------------|
@@ -178,17 +182,17 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並且為您的網域名稱建立專用憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[等待傳播](#wait-for-propagation)。 
 
-自動驗證通常只需要幾分鐘。 如果您沒有看到您的網域在一小時內進行驗證，請開啟支援票證。
+自動驗證通常需要幾小時。 如果您沒有看到您的網域在 24 小時內進行驗證，請開啟支援票證。
 
 >[!NOTE]
 >如果您具有 DNS 提供者的憑證授權單位授權 (CAA) 記錄，它必須包括 DigiCert 作為有效的 CA。 CAA 記錄可讓網域擁有者透過其 DNS 提供者，指定哪些 CA 有權為其網域發行憑證。 如果 CA 收到具有 CAA 記錄之網域的憑證訂單，而且該 CA 未列出為授權簽發者，則禁止該 CA 將憑證發行給該網域或子網域。 如需管理 CAA 記錄的相關資訊，請參閱[管理 CAA 記錄](https://support.dnsimple.com/articles/manage-caa-record/)。 有關 CAA 記錄工具，請參閱 [CAA 記錄協助程式](https://sslmate.com/caa/)。
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>自訂網域未對應至您的 CDN 端點
 
-如果您端點的 CNAME 記錄項目已不存在或包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
-
 >[!NOTE]
->自訂網域擁有權的電子郵件驗證目前不適用於**來自 Akamai 的 Azure CDN** 設定檔。 此功能目前為待處理項目 (backlog)。 
+>自訂網域擁有權的電子郵件驗證目前不適用於**來自 Akamai 的 Azure CDN** 設定檔。 如果您使用**來自 Akamai 的 Azure CDN**，您的自訂網域必須對應至您的 CDN 端點，具有如上所述的 CNAME 記錄。  此功能目前為待處理項目 (backlog)。 
+
+如果 CNAME 記錄項目包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
 
 在您提交要求以在自訂網域上啟用 HTTPS 之後，DigiCert CA 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 必須先完成網域驗證才能在您的自訂網域上啟用 HTTPS。 您有六個工作天可以核准網域。 未在六個工作天內核准的要求將會自動遭到取消。 
 
@@ -220,7 +224,7 @@ postmaster@&lt;your-domain-name.com&gt;
 
 ## <a name="wait-for-propagation"></a>等待傳播
 
-自訂網域 HTTPS 功能要在網域名稱通過驗證之後 6-8 小時才會啟用。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已啟用]，而且 [自訂網域] 對話方塊中的四個作業步驟會標示為完成。 您的自訂網域現在已準備好使用 HTTPS。
+自訂網域 HTTPS 功能要在網域名稱通過驗證之後 6-8 小時才會啟用。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已啟用]  ，而且 [自訂網域] 對話方塊中的四個作業步驟會標示為完成。 您的自訂網域現在已準備好使用 HTTPS。
 
 ![[啟用 HTTPS] 對話方塊](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
@@ -266,13 +270,13 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     ![自訂網域清單](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. 按一下 [關閉] 以停用 HTTPS，然後按一下 [套用]。
+4. 按一下 [關閉]  以停用 HTTPS，然後按一下 [套用]  。
 
     ![自訂 HTTPS 對話方塊](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
 ### <a name="wait-for-propagation"></a>等待傳播
 
-自訂網域 HTTPS 功能停用之後，可能需要 6-8 小時才會生效。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已停用]，而且 [自訂網域] 對話方塊中的三個作業步驟會標示為完成。 您的自訂網域無法再使用 HTTPS。
+自訂網域 HTTPS 功能停用之後，可能需要 6-8 小時才會生效。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已停用]  ，而且 [自訂網域] 對話方塊中的三個作業步驟會標示為完成。 您的自訂網域無法再使用 HTTPS。
 
 ![[停用 HTTPS] 對話方塊](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 

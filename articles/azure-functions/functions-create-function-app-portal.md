@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900761"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155568"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>從 Azure 入口網站建立函數應用程式
 
@@ -27,7 +27,7 @@ Azure 函數應用程式使用 Azure App Service 基礎結構。 本主題說明
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-當您建立函數應用程式時，請提供有效的**應用程式名稱**，其中只能包含字母、數字和連字號。 不允許使用底線 (**_**) 字元。
+當您建立函數應用程式時，請提供有效的**應用程式名稱**，其中只能包含字母、數字和連字號。 不允許使用底線 ( **_** ) 字元。
 
 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 儲存體帳戶名稱必須在 Azure 中是獨一無二的。 
 
@@ -52,4 +52,7 @@ Azure Functions 有兩個不同的服務方案︰取用方案或 App Service 方
 
 ## <a name="next-steps"></a>後續步驟
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+雖然 Azure 入口網站可以讓建立及試用 Functions 變得容易，但是我們建議[本機開發](functions-develop-local.md)。 在入口網站中建立函數應用程式之後，您仍然必須新增函式。 
+
+> [!div class="nextstepaction"]
+> [新增由 HTTP 觸發的函式](functions-create-first-azure-function.md#create-function)

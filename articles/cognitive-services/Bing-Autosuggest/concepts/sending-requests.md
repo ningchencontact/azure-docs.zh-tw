@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382703"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542633"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>將要求傳送至 Bing 自動建議 API。
 
-如果應用程式將查詢傳送給任何 Bing 搜尋 API，您就可以使用 Bing 自動建議 API 來改善使用者的搜尋體驗。 Bing 自動建議 API 會根據搜尋方塊中的部分查詢字串，傳回建議的查詢清單。 隨著您在應用程式的搜尋方塊中輸入字元，下拉式清單中便會顯示建議。 使用本文來深入了解如何將要求傳送至此 API。
+如果應用程式將查詢傳送給任何 Bing 搜尋 API，您就可以使用 Bing 自動建議 API 來改善使用者的搜尋體驗。 Bing 自動建議 API 會根據搜尋方塊中的部分查詢字串，傳回建議的查詢清單。 隨著您在應用程式的搜尋方塊中輸入字元，下拉式清單中便會顯示建議。 使用本文來深入了解如何將要求傳送至此 API。 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Bing 自動建議 API 端點
 
@@ -44,7 +44,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 ## <a name="bing-autosuggest-api-requests"></a>Bing 自動建議 API 要求
 
 > [!NOTE]
-> 對 Bing 自動建議 API 的要求必須使用 HTTPS 通訊協定。
+> * 對 Bing 自動建議 API 的要求必須使用 HTTPS 通訊協定。
 
 建議讓所有要求來自伺服器。 將金鑰作為用戶端應用程式的一部份散佈，會讓惡意第三方有更多機會存取金鑰。 此外，從伺服器進行呼叫，未來就能以單一升級點進行更新。
 
@@ -95,11 +95,13 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 如果這是您第一次呼叫任何的 Bing API，請勿包含用戶端識別碼標頭。 如果您先前已呼叫 Bing API 且 Bing 傳回了使用者和裝置組合的用戶端識別碼，則只要包含用戶端識別碼標頭。
 
-以下顯示先前要求的回應。 回應包括內含搜尋查詢建議清單的網路建議群組。 每個建議都包含 `displayText``query`，以及 `url` 欄位。
+下列 Web 建議群組是上述要求的回應。 此群組包含一份搜尋查詢建議清單，且每個建議內都包含 `displayText`、`query` 和 `url` 欄位。
 
 `displayText` 欄位包含建議的查詢，您可以用來填入搜尋方塊的下拉式清單。 您必須依提供的順序顯示回應包含的所有建議。  
 
-如果使用者從下拉式清單選取查詢，您可以使用該查詢來呼叫其中一個 [Bing 搜尋 API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) 並自行顯示結果，或使用傳回的 `url` 欄位將使用者送到 Bing 結果頁面。 下列範例使用 Bing Web 搜尋 API。
+如果使用者從下拉式清單選取查詢，您可以使用該查詢來呼叫其中一個 [Bing 搜尋 API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) 並自行顯示結果，或使用傳回的 `url` 欄位將使用者送到 Bing 結果頁面。
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

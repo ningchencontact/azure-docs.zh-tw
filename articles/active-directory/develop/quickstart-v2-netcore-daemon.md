@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784964"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540700"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
 
@@ -95,6 +95,10 @@ ms.locfileid: "65784964"
     ```
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [產生新的用戶端密碼]()
+    
+    > [!div renderon="portal"]
+    > > [!NOTE]
+    > > 本快速入門支援 Enter_the_Supported_Account_Info_Here。
     
     > [!div renderon="docs"]
     >> 其中：

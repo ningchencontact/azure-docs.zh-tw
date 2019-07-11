@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
-ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 06/25/2019
+ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873019"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445515"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -629,15 +629,9 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多]  按鈕 (...)。
 3. 選取 [刪除資源群組]  ，並加以確認。
 
-> [!WARNING]  
-> HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
-> 
-> 刪除 HDInsight 叢集上的 Kafka，也會刪除 Kafka 中儲存的任何資料。
-
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何使用 [Apache Storm](https://storm.apache.org/) 拓撲對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 進行寫入和讀取。 您也已了解如何將資料儲存至 HDInsight 所使用的 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容儲存體。
 
-若要深入了解如何使用 HDInsight 上的 Kafka，請參閱[使用 Apache Kafka Producer 和 Consumer API](kafka/apache-kafka-producer-consumer-api.md) 文件。
-
-如需部署和監視以 Linux 為基礎的 HDInsight 上的拓撲相關資訊，請參閱[部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
+> [!div class="nextstepaction"]
+> [使用 Apache Kafka 產生者與取用者 API](kafka/apache-kafka-producer-consumer-api.md)

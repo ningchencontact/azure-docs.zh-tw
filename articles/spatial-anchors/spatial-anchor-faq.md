@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304169"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273307"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors 的相關常見問題集
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors 會遵循 [Azure 服務合約條款](https://go.microsoft.
 正式運作 (GA) 日期會在近期公布。
 
 **問：您是否已設置任何節流限制？**
- 
+
 **答**：是，我們設有節流限制。  您的一般應用程式開發和測試應該不會達到這些限制。 針對生產環境部署，我們已有能力支援客戶的高度延展需求。 請[與我們連絡](mailto:azuremrs@microsoft.com)以了解詳情。 在此預覽階段期間，我們尚未發佈分層與定價結構，但預計於近期發佈。
 
 **問：Azure Spatial Anchors 的適用區域為何？**
@@ -125,3 +125,7 @@ Azure Spatial Anchors 會遵循 [Azure 服務合約條款](https://go.microsoft.
 **問：它是否適用於 Xamarin？**
 
 **答：** 是。 雖然我們未提供 Xamarin SDK，我們預期開發人員可藉由 Azure Spatial Anchors API 的整合在其 Xamarin 應用程式中使用 Azure Spatial Anchors。
+
+**問：Azure Spatial Anchors 使用哪些連接埠和通訊協定？**
+
+**答：** Azure Spatial Anchors 使用加密通訊協定，透過 TCP 連接埠 443 進行通訊。 針對驗證，它使用 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)，使用 HTTPS 透過連接埠 443 進行通訊。

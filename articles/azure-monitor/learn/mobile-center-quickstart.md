@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8ce08c662e1615b62160e0c681a2fe8dbcb2be1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683435"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447032"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 
@@ -68,17 +68,17 @@ Analytics.trackEvent("Video clicked")
 一旦您的應用程式開始傳送自訂事件，且 App Center 已經收到這些事件，您就需要在 Azure 入口網站中建立 App Center 類型的 Application Insights 資源：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 選取 [建立資源]   > [管理工具]   > [Application Insights]  。
+2. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
 
-    ![新增 Application Insights 資源](./media/mobile-center-quickstart/add-b.png)
+    > [!NOTE]
+    > 如果這是您第一次建立 Application Insights 資源，您可以瀏覽[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)文件以進一步了解。
 
     隨後將會出現設定方塊。 根據下表來填寫輸入欄位。
 
     | 設定        |  值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 某些全域唯一的值，例如 "myApp-iOS" | 此名稱可識別您要監視的應用程式 |
-   | **應用程式類型** | App Center 應用程式 | 您要監視的應用程式類型 |
-   | **資源群組**     | 新的資源群組或功能表中現有的資源群組 | 要在其中建立新 Application Insights 資源的資源群組 |
+     | **資源群組**     | 新的資源群組或功能表中現有的資源群組 | 要在其中建立新 Application Insights 資源的資源群組 |
    | **位置** | 功能表中的位置 | 選擇您附近或接近應用程式裝載位置的地點 |
 
 3. 按一下頁面底部的 [新增]  。
@@ -89,9 +89,7 @@ Analytics.trackEvent("Video clicked")
 
 位於 [概觀]  頁面上您的新 Application Insights 資源中。 從資源複製檢測金鑰。
 
-   ![Application Insights 中的 [分析] 按鈕](./media/mobile-center-quickstart/overview-01.png)
-
-在應用程式的 App Center 執行個體中：
+在應用程式的 [App Center](https://appcenter.ms/) 執行個體中：
 
 1. 在 [設定]  頁面上，按一下 [匯出]  。
 2. 選擇 [新匯出]  ，挑選 [Application Insights]  ，然後按一下 [自訂]  。
@@ -108,13 +106,11 @@ Analytics.trackEvent("Video clicked")
 
 Application Insights 可以查詢、分割、篩選及分析應用程式的自訂事件遙測資料，遠勝於 App Center 提供的分析工具。
 
-1. **查詢您的自訂事件遙測資料。** 從 Application Insights [概觀]  頁面，選擇 [分析]  。 
+1. **查詢您的自訂事件遙測資料。** 從 Application Insights [概觀]  頁面，選擇 [記錄 (分析)]  。
 
-   ![Application Insights 中的 [分析] 按鈕](./media/mobile-center-quickstart/analytics-001.png)
-
-   接著便會開啟與 Application Insights 資源相關的 Application Insights 分析入口網站。 分析入口網站可讓您使用 Log Analytics 查詢語言直接查詢資料，因此您可以任意地詢問有關應用程式和其使用者的複雜問題。
+   此時會開啟與您的 Application Insights 資源相關聯的 Application Insights 記錄 (分析) 入口網站。 記錄 (分析) 入口網站可讓您使用 Log Analytics 查詢語言直接查詢資料，因此您可以任意詢問有關應用程式和其使用者的複雜問題。
    
-   在分析入口網站中開啟新索引標籤，然後貼上下列查詢。 它會傳回過去 24 小時內有多少個不同的使用者從您的應用程式傳送每個自訂事件，並根據這些不同的計數來排序。
+   在記錄 (分析) 入口網站中開啟新的索引標籤，然後貼上下列查詢。 它會傳回過去 24 小時內有多少個不同的使用者從您的應用程式傳送每個自訂事件，並根據這些不同的計數來排序。
 
    ```AIQL
    customEvents
@@ -123,7 +119,7 @@ Application Insights 可以查詢、分割、篩選及分析應用程式的自�
    | order by dcount_user_Id desc 
    ```
 
-   ![分析入口網站](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![記錄 (分析) 入口網站](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. 在文字編輯器中的查詢上任一處按一下，以選取該查詢。
    2. 按一下 [執行]  來執行查詢。 

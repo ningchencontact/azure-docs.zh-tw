@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848408"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155665"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
 
@@ -74,6 +74,8 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 資料類型：
 Azure Cosmos DB Cassandra API 支援下列 CQL 函式：
 
 * token  
+* 彙總函式
+  * min、max、avg、count
 * Blob 轉換函式 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -88,7 +90,8 @@ Azure Cosmos DB Cassandra API 支援下列 CQL 函式：
   * toDate(timestamp)  
   * toUnixTimestamp(timestamp)  
   * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+  * toUnixTimestamp(date) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Cassandra 查詢語言限制
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>一致性對應 
 
-Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。 所有寫入作業，總是會使用寫入效能 SLA 來寫入 (不論帳戶一致性為何)。
+Azure Cosmos DB Cassandra API 提供讀取作業的一致性選擇。  一致性對應有詳細說明 [這裡[(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping) 。
 
 ## <a name="permission-and-role-management"></a>權限與角色管理
 
-Azure Cosmos DB 支援角色型存取控制 (RBAC) 與讀寫和唯讀密碼/金鑰，可透過 [Azure 入口網站](https://portal.azure.com)來取得。 Azure Cosmos DB 尚不支援資料平面活動的使用者與角色。 
+Azure Cosmos DB 支援角色型存取控制 (RBAC) 來佈建、輪替金鑰、檢視計量及讀寫和唯讀密碼/金鑰，其可透過 [Azure 入口網站](https://portal.azure.com)取得。 Azure Cosmos DB 尚不支援 CRUD 活動的使用者與角色。 
 
 ## <a name="planned-support"></a>計劃的支援 
 * 目前忽略了建立 keyspace 命令中的區域名稱 - 資料的散佈會實作在基礎 Cosmos DB 平台中，並且會透過帳戶的入口網站或 powershell 加以公開。 

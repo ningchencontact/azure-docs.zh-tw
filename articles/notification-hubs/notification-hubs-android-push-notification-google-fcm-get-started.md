@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 0a344e4a068ac6791403f686fa728530b3c4f17e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65209360"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509085"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊將通知推送至 Android 裝置
 
@@ -29,36 +29,39 @@ ms.locfileid: "65209360"
 
 本教學課程說明如何使用 Azure 通知中樞和 Firebase 雲端通訊 (FCM)，將通知推送至 Android 應用程式。 在本教學課程中，您會建立空白的 Android 應用程式，其可使用 Firebase 雲端通訊 (FCM) 接收推播通知。
 
-您可以從 [此處](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp)的 GitHub 下載本教學課程的完整程式碼。
+您可以[從 GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp) 下載本教學課程的完整程式碼。
 
 在本教學課程中，您會執行下列步驟：
 
 > [!div class="checklist"]
 > * 建立 Android Studio 專案。
 > * 建立支援 Firebase 雲端通訊的 Firebase 專案。
-> * 建立通知中樞。
-> * 將您的應用程式連線至通知中樞。
+> * 建立中樞。
+> * 將應用程式連線至中樞。
 > * 測試應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
+若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。 
 
-* 除了上述的作用中 Azure 帳戶，本教學課程需要最新版的 [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)。
-* 適用於 Firebase 雲端通訊的 Android 2.3 或更新版本。
-* 適用於 Firebase 雲端通訊的 Google Repository 修訂版本 27 或更新版本。
-* 適用於 Firebase 雲端通訊的 Google Play Services 9.0.2 或更新版本。
-* 完成本教學課程是 Android app 所有其他通知中樞教學課程的先決條件。
+您也需要下列項目： 
+
+* 最新版的 [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)
+* 適用於 Firebase 雲端通訊的 Android 2.3 或更新版本
+* 適用於 Firebase 雲端通訊的 Google Repository 修訂版本 27 或更新版本
+* 適用於 Firebase 雲端通訊的 Google Play Services 9.0.2 或更新版本
+
+完成本教學課程是進行 Android app 所有其他通知中樞教學課程的先決條件。
 
 ## <a name="create-an-android-studio-project"></a>建立 Android Studio 專案
 
 1. 啟動 Android Studio。
-2. 選取功能表上的 [檔案]，指向 [新增]，然後選取 [新專案]。 
-2. 在 [選擇您的專案] 頁面上，選取 [空的活動]，然後選取 [下一步]。 
-3. 在 [設定您的專案] 頁面上，執行下列步驟： 
-    1. 輸入應用程式的**名稱**。
-    2. 指定要儲存專案檔案的位置。 
-    3. 選取 [完成]。 
+2. 選取 [檔案]  ，指向 [新增]  ，然後選取 [新增專案]  。 
+2. 在 [選擇您的專案]  頁面上，選取 [空的活動]  ，然後選取 [下一步]  。 
+3. 在 [設定您的專案]  頁面上，採取下列步驟： 
+    1. 輸入應用程式的名稱。
+    2. 指定要用來儲存專案檔的位置。 
+    3. 選取 [完成]  。 
 
         ![設定您的專案](./media/notification-hubs-android-push-notification-google-fcm-get-started/configure-project.png)
 
@@ -66,20 +69,20 @@ ms.locfileid: "65209360"
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a name="configure-a-notification-hub"></a>設定通知中樞
+## <a name="configure-a-hub"></a>設定中樞
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>設定中樞的 Firebase 雲端通訊設定
 
-1. 選取左側功能表上的 [設定] 下方的 [Google (GCM/FCM)]。 
-2. 針對您稍早儲存的 FCM 專案，貼上**伺服器金鑰**。 
-3. 在工具列上選取 [儲存]。 
+1. 在左窗格的 [設定]  下方，選取 [Google (GCM/FCM)]  。 
+2. 針對您稍早儲存的 FCM 專案，輸入其**伺服器金鑰**。 
+3. 在工具列上，選取 [儲存]  。 
 
     ![Azure 通知中樞 - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
-4. 您會看到警示中的訊息表示已成功更新通知中樞。 [儲存] 按鈕已停用。 
+4. Azure 入口網站會在警示中顯示訊息來指出中樞的更新已成功。 [儲存]  按鈕已停用。 
 
-現在已將您的通知中樞設定成使用 Firebase 雲端通訊，而且您已擁有可用來註冊應用程式以接收和傳送推播通知的連接字串。
+您的中樞現在已設定為與 Firebase 雲端通訊搭配使用。 您也擁有了所需的連接字串，而可將通知傳送給裝置並註冊應用程式來接收通知。
 
 ## <a id="connecting-app"></a>將您的應用程式連接到通知中樞
 
@@ -87,16 +90,16 @@ ms.locfileid: "65209360"
 
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-### <a name="adding-azure-notification-hubs-libraries"></a>新增 Azure 通知中樞程式庫
+### <a name="add-azure-notification-hubs-libraries"></a>新增 Azure 通知中樞程式庫
 
-1. 在 **app** 的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列數行。
+1. 在應用程式的 Build.Gradle 檔案中，於 [相依性] 區段中新增下列幾行。
 
     ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
-2. 加入下列儲存機制到 **dependencies** 一節之後。
+2. 將下列存放庫新增到 dependencies 區段之後。
 
     ```gradle
     repositories {
@@ -108,7 +111,7 @@ ms.locfileid: "65209360"
 
 ### <a name="add-google-firebase-support"></a>新增 Google Firebase 支援
 
-1. 在**應用程式**的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列幾行 (如果尚未存在的話)。 
+1. 在應用程式的 Build.Gradle 檔案中，於 [相依性]  區段中新增下列幾行 (如果還沒有這幾行程式碼的話)。 
 
     ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.8'
@@ -120,11 +123,11 @@ ms.locfileid: "65209360"
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
-3. 在工具列上選取 [立即同步]。
+3. 在工具列上選取 [立即同步]  。
 
-### <a name="updating-the-androidmanifestxml"></a>更新 AndroidManifest.xml
+### <a name="update-the-androidmanifestxml-file"></a>更新 AndroidManifest.xml 檔案
 
-1. 在您收到 FCM 註冊權杖後，您會用它來[向 Azure 通知中樞註冊](notification-hubs-push-notification-registration-management.md)。 您會使用名為 `RegistrationIntentService` 的 `IntentService` 在背景支援此註冊。 此服務也會負責重新整理 FCM 註冊權杖。
+1. 在收到 FCM 註冊權杖後，請將其用來[向 Azure 通知中樞註冊](notification-hubs-push-notification-registration-management.md)。 您可以使用名為 `RegistrationIntentService` 的 `IntentService` 在背景支援此註冊。 此服務也會重新整理 FCM 註冊權杖。
 
     將下列服務定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。
 
@@ -148,8 +151,8 @@ ms.locfileid: "65209360"
     ```
 
     > [!IMPORTANT]
-    > 以 `AndroidManifest.xml` 檔案頂端顯示的實際套件名稱取代 `<your package NAME>` 預留位置。
-3. 在 `</application>` 標籤**下面**新增下列必要的 FCM 相關權限。
+    > 以 AndroidManifest.xml 檔案頂端顯示的實際套件名稱取代 `<your package NAME>` 預留位置。
+3. 在 `</application>` 標籤下面新增下列必要的 FCM 相關權限。
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -157,14 +160,14 @@ ms.locfileid: "65209360"
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     ```
 
-### <a name="adding-code"></a>加入程式碼
+### <a name="add-code"></a>新增程式碼
 
-1. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。 以滑鼠右鍵按一下 **java** 底下您的套件資料夾，並按一下 [新增]，然後按一下 [Java 類別]。 輸入 `NotificationSettings` 作為名稱，然後選取 [確定]。
+1. 在 [專案檢視] 中，展開 [app]   > [src]   > [main]   > [java]  。 以滑鼠右鍵按一下 **java** 底下您的套件資料夾，並選取 [新增]  ，然後選取 [Java 類別]  。 輸入 **NotificationSettings** 作為名稱，然後選取 [確定]  。
 
     請務必在 `NotificationSettings` 類別的下列程式碼中更新這三個預留位置：
 
-   * **HubListenConnectionString**：中樞的 **DefaultListenAccessSignature** 連接字串。 在 [Azure 入口網站]上的中樞內按一下 [存取原則]，即可複製該連接字串。
-   * **HubName**︰使用出現在 [Azure 入口網站]中樞頁面中的通知中樞名稱。
+   * **HubListenConnectionString**：中樞的 **DefaultListenAccessSignature** 連接字串。 在 [Azure 入口網站]上的中樞內按一下 [存取原則]  ，即可複製該連接字串。
+   * **HubName**︰使用出現在 [Azure 入口網站]中樞頁面中的中樞名稱。
 
      `NotificationSettings` 程式碼︰
 
@@ -176,9 +179,9 @@ ms.locfileid: "65209360"
         ```
 
      > [!IMPORTANT]
-     > 請輸入通知中樞的**名稱**和 **DefaultListenSharedAccessSignature**，再繼續進行。 
+     > 請輸入中樞的**名稱**和 **DefaultListenSharedAccessSignature**，再繼續進行。 
 
-3. 將另一個新類別新增至名為 `RegistrationIntentService`的專案。 此類別會實作 `IntentService` 介面，並處理[重新整理 FCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)和[向通知中樞註冊](notification-hubs-push-notification-registration-management.md)。
+3. 將另一個新類別新增至名為 `RegistrationIntentService`的專案。 此類別會實作 `IntentService` 介面。 此類別也會處理[重新整理 GCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)和[向通知中樞註冊](notification-hubs-push-notification-registration-management.md)的作業。
 
     針對此類別使用下列程式碼。
 
@@ -224,8 +227,8 @@ ms.locfileid: "65209360"
                 TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
-                // sent to your server. If it is not stored, send the token to your server,
-                // otherwise your server should have already received the token.
+                // sent to your server. If it is not stored, send the token to your server.
+                // Otherwise, your server should have already received the token.
                 if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
 
                     NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
@@ -244,7 +247,7 @@ ms.locfileid: "65209360"
                     sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
                 }
 
-                // Check if the token may have been compromised and needs refreshing.
+                // Check to see if the token has been compromised and needs refreshing.
                 else if ((storedToken=sharedPreferences.getString("FCMtoken", "")) != FCM_token) {
 
                     NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
@@ -268,7 +271,7 @@ ms.locfileid: "65209360"
                 }
             } catch (Exception e) {
                 Log.e(TAG, resultString="Failed to complete registration", e);
-                // If an exception happens while fetching the new token or updating our registration data
+                // If an exception happens while fetching the new token or updating registration data
                 // on a third-party server, this ensures that we'll attempt the update at a later time.
             }
 
@@ -306,7 +309,7 @@ ms.locfileid: "65209360"
     ```java
     /**
     * Check the device to make sure it has the Google Play Services APK. If
-    * it doesn't, display a dialog that allows users to download the APK from
+    * it doesn't, display a dialog box that enables  users to download the APK from
     * the Google Play Store or enable it in the device's system settings.
     */
 
@@ -328,7 +331,7 @@ ms.locfileid: "65209360"
     }
     ```
 
-7. 在 `MainActivity` 類別中加入下列程式碼，以在呼叫 `IntentService` 之前檢查 Google Play 服務，進而取得 FCM 註冊權杖並向通知中樞註冊。
+7. 在 `MainActivity` 類別中加入下列程式碼，以在呼叫 `IntentService` 之前檢查 Google Play 服務，進而取得 FCM 註冊權杖並向中樞註冊：
 
     ```java
     public void registerWithNotificationHubs()
@@ -341,7 +344,7 @@ ms.locfileid: "65209360"
     }
     ```
 
-8. 在 `MainActivity` 類別的 `OnCreate` 方法中，加入下列程式碼以便在活動建立時開始註冊程序。
+8. 在 `MainActivity` 類別的 `OnCreate` 方法中，加入下列程式碼以便在活動建立時開始註冊程序：
 
     ```java
     @Override
@@ -355,7 +358,7 @@ ms.locfileid: "65209360"
     }
     ```
 
-9. 為了驗證應用程式狀態及報告您的應用程式狀態，請將上述其他方法新增至 `MainActivity`。
+9. 為了驗證應用程式狀態及報告您的應用程式狀態，請將上述其他方法新增至 `MainActivity`：
 
     ```java
     @Override
@@ -394,7 +397,7 @@ ms.locfileid: "65209360"
     }
     ```
 
-10. `ToastNotify` 方法會使用 *"Hello World"* `TextView` 控制項持續在應用程式中報告狀態和通知。 在 **res** -> **layout** -> **activity_main.xml** 配置中，為該控制項新增下列識別碼。
+10. `ToastNotify` 方法會使用 *"Hello World"* `TextView` 控制項持續在應用程式中報告狀態和通知。 在 **res** > **layout** > **activity_main.xml** 配置中，為該控制項新增下列識別碼。
 
     ```java
     android:id="@+id/text_hello"
@@ -421,7 +424,7 @@ ms.locfileid: "65209360"
 
 13. 在 `MyHandler` 類別中新增下列程式碼，使其成為 `com.microsoft.windowsazure.notifications.NotificationsHandler` 的子類別。
 
-    此程式碼會覆寫 `OnReceive` 方法，以便讓處理常式報告所收到的通知。 處理常式也會使用 `sendNotification()` 方法，將推播通知傳送給 Android 通知管理員。 當應用程式不在執行中並收到通知時，應該執行 `sendNotification()` 方法。
+    此程式碼會覆寫 `OnReceive` 方法，以便讓處理常式報告所收到的通知。 處理常式也會使用 `sendNotification()` 方法，將推播通知傳送給 Android 通知管理員。 當應用程式並未執行卻收到通知時，請呼叫 `sendNotification()` 方法。
 
     ```java
     public class MyHandler extends NotificationsHandler {
@@ -485,26 +488,26 @@ ms.locfileid: "65209360"
     }
     ```
 
-14. 在 Android Studio 的功能表列上，按一下 [建置] > [重新建置專案]，確保您的程式碼中未沒有任何錯誤。 如果您收到有關 `ic_launcher` 圖示的錯誤，請移除 AndroidManifest.xml 檔案中的下列陳述式。 
+14. 在 Android Studio 的功能表列上，選取 [建置]   > [重新建置專案]  ，來確保程式碼中未沒有任何錯誤。 如果您收到有關 `ic_launcher` 圖示的錯誤，請移除 AndroidManifest.xml 檔案中的下列陳述式： 
 
     ```
         android:icon="@mipmap/ic_launcher"
     ```
-15. 在您的裝置上執行應用程式，並確認該應用程式已向通知中心註冊成功。
+15. 在您的裝置上執行應用程式，並確認該應用程式已向中樞註冊成功。
 
     > [!NOTE]
-    > 註冊可能會在初始啟動時失敗，直到呼叫執行個體識別碼服務的 `onTokenRefresh()` 方法為止。 重新整理作業應該會起始向通知中樞註冊的作業並且會成功。
+    > 註冊可能會在初始啟動期間失敗，直到呼叫執行個體識別碼服務的 `onTokenRefresh()` 方法為止。 重新整理作業應該會起始向通知中樞註冊的作業並且會成功。
 
     ![裝置註冊成功](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
 ## <a name="test-send-notification-from-the-notification-hub"></a>進行從通知中樞傳送通知的測試
 
-您可以執行下列動作，從 [Azure 入口網站]傳送推播通知：
+您可以採取下列步驟，從 [Azure 入口網站]傳送推播通知：
 
-1. 在 Azure 入口網站中，於您通知中樞的 [通知中樞] 頁面上，選取 [疑難排解] 區段中的 [測試傳送]。
-3. 針對 [平台]，選取 [Android]。
-4. 選取 [傳送]。  您在 Android 裝置上還看不到通知，因為您未在其上執行行動應用程式。 在您執行行動應用程式後，請再次選取 [傳送] 按鈕，以查看通知訊息。
-5. 在底部的清單中查看作業的 [結果]。
+1. 在 Azure 入口網站中，於中樞的 [通知中樞] 頁面上，選取 [疑難排解]  區段中的 [測試傳送]  。
+3. 針對 [平台]  ，選取 [Android]  。
+4. 選取 [傳送]  。  您尚未在 Android 裝置上執行行動應用程式，所以不會在裝置上看到通知。 在您執行行動應用程式後，請再次選取 [傳送]  按鈕，以查看通知訊息。
+5. 在底部的清單中查看作業的結果。
 
     ![Azure 通知中樞 - 測試傳送](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 6. 您會在裝置上看到通知訊息。 
@@ -515,9 +518,9 @@ ms.locfileid: "65209360"
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>在模擬器上執行行動應用程式
-如果您要在模擬器中測試推播通知，請確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。 如果您的映像不支援原生 Google API，您會遇到 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
+在模擬器內測試推播通知之前，請先確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。 如果您的映像不支援原生 Google API，您可能會遇到 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
 
-除此之外，請確定已將 Google 帳戶新增至執行中模擬器的 [設定] > [帳戶] 之下。 否則，嘗試向 FCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
+除此之外，請確定已將 Google 帳戶新增至執行中模擬器的 [設定]   > [帳戶]  之下。 否則，嘗試向 FCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已使用 Firebase 雲端通訊將通知廣播至所有向服務註冊的 Android 裝置。 若想了解如何將通知推送至特定裝置，請繼續進行下列教學課程：

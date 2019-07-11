@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用 Resource Manager 建立 Apache Hadoop 叢集 - Azure HDInsight
-description: 了解如何建立 HDInsight 叢集。
+description: 在本快速入門中，您將使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Hadoop 叢集
 keywords: 開始使用,hadoop linux,hadoop 快速入門,開始使用 hive,hive 快速入門
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 05/14/2019
-ms.openlocfilehash: 9084e8e0fe7707b5f115df80792cea102772b8e9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.date: 06/12/2019
+ms.openlocfilehash: 89d25c9c0a45b740bfb60a71f6d85bfbf4a4686a
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861654"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459876"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Hadoop 叢集
 
@@ -59,11 +59,8 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
 > [!NOTE]  
 > 如需其他叢集建立方法及了解本快速入門中所使用的屬性，請參閱[建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-## <a name="troubleshoot"></a>疑難排解
-
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-hadoop-customize-cluster-linux.md#access-control)。
-
 ## <a name="clean-up-resources"></a>清除資源
+
 完成此快速入門之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 > [!NOTE]  
@@ -84,37 +81,4 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
 在本快速入門中，您已了解如何使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集。 在下一篇文章中，您將了解如何使用 HDInsight 上的 Hadoop 來執行擷取、轉換及載入 (ETL) 作業。
 
 > [!div class="nextstepaction"]
->[使用 HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](../hdinsight-analyze-flight-delay-data-linux.md)
-
-如果您準備好開始使用您自己的資料，並需要進一步了解 HDInsight 儲存資料的方式或如何將資料匯入 HDInsight，請參閱下列文章：
-
-* 如需有關 HDInsight 如何使用 Azure 儲存體的資訊，請參閱 [搭配 HDInsight 使用 Azure 儲存體](../hdinsight-hadoop-use-blob-storage.md)。
-* 如需有關如何使用 Data Lake Storage 建立 HDInsight 叢集的資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* 如需關於如何上傳資料到 HDInsight 的資訊，請參閱[將資料上傳到 HDInsight](../hdinsight-upload-data.md)。
-* [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
-
-若要深入了解如何使用 HDInsight 分析資料，請參閱下列文章：
-
-* 若要深入了解如何搭配 HDInsight 使用 Hive，包括如何從 Visual Studio 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 Apache Hive](hdinsight-use-hive.md)。
-* 若要了解 Pig (一種用來轉換資料的語言)，請參閱[搭配 HDInsight 使用 Apache Pig](hdinsight-use-pig.md)。
-* 若要了解 MapReduce (一種撰寫程式以處理 Hadoop 資料的方式)，請參閱[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)。
-* 若要了解如何使用適用於 Visual Studio 的 HDInsight 工具來分析 HDInsight 資料，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md)。
-* 若要了解如何使用適用於 VSCode 的 HDInsight 工具來分析 HDInsight 資料，請參閱[使用適用於 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
-
-
-如果您想要深入了解如何建立或管理 HDInsight 叢集，請參閱下列文章：
-
-* 若要了解如何管理以 Linux 為基礎的 HDInsight 叢集，請參閱[使用 Apache Ambari 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
-* 若要深入了解建立 HDInsight 叢集時可選取的選項，請參閱 [使用自訂選項在 Linux 上建立 HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)。
-
-若要了解如何使用 Azure Resource Manager 範本建立 HDInsight 叢集，請參閱：
-
-* [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)。
-* [Azure 範本參考](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions)。
-
-[1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-provision]: hdinsight-provision-linux-clusters.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+>[使用 HDInsight 上的互動式查詢來擷取、轉換和載入資料](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

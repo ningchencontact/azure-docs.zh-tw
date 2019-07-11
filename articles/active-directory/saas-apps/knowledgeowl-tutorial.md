@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b57beb18b8bf7d82694f89e131d79d15c6fcd6bc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab80b6efef71c71feea1359112d09bae90a7ab84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>教學課程：Azure Active Directory 與 KnowledgeOwl 整合
 
@@ -98,7 +98,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -142,7 +142,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 您將需要從實際的識別碼、回覆 URL 及登入 URL 更新這些值，本教學課程稍後會說明這些值。
 
-6. KnowledgeOwl 應用程式需要特定格式的 SAML 判斷提示，需要您將自訂屬性對應新增到 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下**編輯**圖示以開啟 [使用者屬性]  對話方塊。
+6. KnowledgeOwl 應用程式需要特定格式的 SAML 判斷提示，需要您將自訂屬性對應新增到 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 

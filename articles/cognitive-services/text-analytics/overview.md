@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417284"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304009"
 ---
 # <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
 
@@ -89,7 +89,18 @@ ms.locfileid: "66417284"
 | 整體要求的大小上限 | 1 MB |
 | 要求中的文件數上限 | 1,000 份文件 |
 
-速率限制是每秒 100 個要求和每分鐘 1000 個要求。 您可以在單一呼叫中提交大量文件 (最多 1000 份文件)。
+您的速率限制會隨著定價層而不同。
+
+| 層          | 每秒要求 | 每分鐘要求 |
+|---------------|---------------------|---------------------|
+| 多服務 | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+要求是針對每個「文字分析」功能個別進行測量。 例如，您可以同時將適用於定價層的要求數量上限傳送到每個功能。      
 
 ## <a name="unicode-encoding"></a>Unicode 編碼
 

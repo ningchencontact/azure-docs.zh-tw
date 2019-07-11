@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962144"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550581"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>從 Android 應用程式登入使用者並呼叫 Microsoft Graph
 
@@ -64,10 +64,10 @@ ms.locfileid: "65962144"
 
 ### <a name="create-a-new-project"></a>建立新專案
 
-1. 開啟 Android Studio，然後選取 [開始新的 Android Studio 專案]。
-    - 如果 Android Studio 已開啟，請選取 [檔案] > [新增] > [新增專案]。
-2. 將 [空白活動] 保留原狀，選取 [下一步]。
-3. 命名您的應用程式，將 `Minimum API level`設定為 **API 19 或更新版本**，然後點擊 [完成]。
+1. 開啟 Android Studio，然後選取 [開始新的 Android Studio 專案]  。
+    - 如果 Android Studio 已開啟，請選取 [檔案]   > [新增]   > [新增專案]  。
+2. 將 [空白活動]  保留原狀，選取 [下一步]  。
+3. 命名您的應用程式，將 `Minimum API level`設定為 **API 19 或更新版本**，然後點擊 [完成]  。
 5. 在您的 `app/build.gradle` 中，將 `targetedSdkVersion`設定為 27。 
 
 ## <a name="register-your-application"></a>註冊您的應用程式
@@ -87,10 +87,10 @@ ms.locfileid: "65962144"
 
 ### <a name="configure-your-android-app"></a>設定您的 Android 應用程式
 
-1. 以滑鼠右鍵按一下 [res] > [新增] > [資料夾] > [未經處理的資源資料夾]
-2. 在 [app] > [res] > [raw] 中，建立稱為 `auth_config.json` 的新 JSON 檔案，並貼上您的 ***MSAL 組態***. 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
+1. 以滑鼠右鍵按一下 [res]   > [新增]   > [資料夾]   > [未經處理的資源資料夾] 
+2. 在 [app]   > [res]   > [raw]  中，建立稱為 `auth_config.json` 的新 JSON 檔案，並貼上您的 ***MSAL 組態***. 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
    <!-- Workaround for Docs conversion bug -->
-3. 在 [app] > [manifests] > [AndroidManifest.xml] 中，新增下方的 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
+3. 在 [app]   > [manifests]   > [AndroidManifest.xml]  中，新增下方的 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -120,7 +120,7 @@ ms.locfileid: "65962144"
 
 ### <a name="create-the-apps-ui"></a>建立應用程式 UI
 
-1. 移至 [res] > [配置]，然後開啟 **activity_main.xml**。
+1. 移至 [res]   > [配置]  ，然後開啟 **activity_main.xml**。
 2. 將活動配置從 `android.support.constraint.ConstraintLayout` 或其他配置變更為 `LinearLayout`。
 3. 將 `android:orientation="vertical"` 屬性新增至 `LinearLayout` 節點。
 4. 將下列程式碼貼到 `LinearLayout` 節點中，並取代目前的內容：
@@ -178,8 +178,8 @@ ms.locfileid: "65962144"
 
 ### <a name="add-msal-to-your-project"></a>將 MSAL 新增至您的專案
 
-1. 在 Android Studio 中，選取 [Gradle 指令碼] >  [build.gradle (模組: 應用程式)]。
-2. 在 [相依性] 之下，貼上下列程式碼：
+1. 在 Android Studio 中，選取 [Gradle 指令碼]   >  [build.gradle (模組: 應用程式)]  。
+2. 在 [相依性]  之下，貼上下列程式碼：
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
@@ -465,7 +465,7 @@ private void onSignOutClicked() {
 
 | 標頭索引鍵    | value                 |
 | ------------- | --------------------- |
-| Authorization | Bearer <access-token> |
+| Authorization | 持有人 \<access-token> |
 
 若要在程式碼中執行該作業，請將下列兩個方法加入您的應用程式，以呼叫圖形和更新 UI： 
 

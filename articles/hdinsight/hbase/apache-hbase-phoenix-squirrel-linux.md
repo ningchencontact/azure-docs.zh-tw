@@ -1,19 +1,19 @@
 ---
 title: 快速入門：在 Azure HDInsight 中查詢 Apache HBase - Apache Phoenix
-description: 了解如何在 HDInsight 中使用 Apache Phoenix。 也了解如何在電腦上安裝並設定 SQLLine，以連線到在 HDInsight 中的 HBase 叢集。
+description: 在本快速入門中，您學會如何在 HDInsight 中使用 Apache Phoenix。 也了解如何在電腦上安裝並設定 SQLLine，以連線到在 HDInsight 中的 HBase 叢集。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 20af6d32d03ae5d4fe37b1a37198ef1f2c50ec95
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596198"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137412"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>快速入門：搭配 Apache Phoenix 在 Azure HDInsight 中查詢 Apache HBase
 
@@ -126,10 +126,3 @@ curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clus
 
 > [!div class="nextstepaction"]
 > [HDInsight 中的 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
-
-## <a name="see-also"></a>另請參閱
-
-* [SQLLine 手冊](http://sqlline.sourceforge.net/#manual) \(英文\)。
-* [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html) \(英文\)。
-* [15 分鐘內學會 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) \(英文\)
-* [HDInsight HBase 概觀](./apache-hbase-overview.md)

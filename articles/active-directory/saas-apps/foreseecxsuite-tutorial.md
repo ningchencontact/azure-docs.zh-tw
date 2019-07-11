@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988036"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>教學課程：Azure Active Directory 與 ForeSee CX Suite 整合
 
@@ -99,7 +99,7 @@ ms.locfileid: "65988036"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ ms.locfileid: "65988036"
 
     a. 在 [登入 URL]  文字方塊中，輸入 URL：`https://cxsuite.foresee.com/`
 
-    b. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：https:\//www.okta.com/saml2/service-provider/<UniqueID>
+    b. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：https:\//www.okta.com/saml2/service-provider/\<UniqueID>
 
     > [!Note]
     > 如果 [識別碼]  值未自動填入，請根據上述模式手動填入這些值。 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [ForeSee CX Suite 用戶端支援小組](mailto:support@foresee.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

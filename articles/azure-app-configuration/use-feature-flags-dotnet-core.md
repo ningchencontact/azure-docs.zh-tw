@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274140"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>教學課程：在 .NET Core 應用程式中使用功能旗標
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用功能旗標
 
 .NET Core 功能管理程式庫可讓您在 .NET 或 ASP.NET Core 應用程式中以慣用方式實作功能旗標。 這些程式庫可讓您以宣告方式在程式碼中新增功能旗標，因此您不必以手動方式為功能旗標撰寫所有 `if` 陳述式。
 
@@ -109,7 +109,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>控制器動作
 
-在 MVC 控制器中，您可以使用 `Feature` 屬性來控制是要啟用整個控制器類別還是特定動作。 下列 `HomeController` 控制器必須在 `FeatureA`「開啟」  時，才能執行該控制器類別所包含的動作：
+在 MVC 控制器中，您可以使用 `FeatureGate` 屬性來控制是要啟用整個控制器類別還是特定動作。 下列 `HomeController` 控制器必須在 `FeatureA`「開啟」  時，才能執行該控制器類別所包含的動作：
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 下列 `Index` 動作必須在 `FeatureA`「開啟」  時才能執行：
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ public IActionResult Index()
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+若要在不符合需求時顯示替代內容，可以使用 `negate` 屬性。
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+如果清單中的任何功能或所有功能都啟用，功能 `<feature>` 標記也可以用來顯示內容。
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

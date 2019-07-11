@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: 244a4ebe20863945bfc3b6236e70e786387c8909
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116644"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509142"
 ---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "67116644"
 
     1. 在 [建立新的命名空間]  中輸入名稱。 命名空間包含一或多個中樞。
 
-    1. 從 [位置]  下拉式清單方塊選取值。 此值會指定您要在其中建立通知中樞的位置。
+    1. 從 [位置]  下拉式清單方塊選取值。 此值會指定您要在其中建立中樞的位置。
 
     1. 在 [資源群組]  中選取現有的資源群組，或建立一個新群組。
 
@@ -39,7 +39,7 @@ ms.locfileid: "67116644"
 
         ![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-1. 選取 [通知]  \(鈴鐺圖示)，然後選取 [前往資源]  。 您也可以重新整理 [通知中樞]  頁面中的清單，然後選取您的通知中樞。
+1. 選取 [通知]  \(鈴鐺圖示)，然後選取 [前往資源]  。 您也可以重新整理 [通知中樞]  頁面中的清單，然後選取您的中樞。
 
       ![Azure 入口網站 - 通知 -> 前往資源](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 

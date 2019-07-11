@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67130626"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448895"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 ML 服務
 
@@ -27,7 +27,7 @@ HDInsight 上的 ML 服務所提供的最新功能，適用於幾乎任何大小
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>開始使用 HDInsight 上的 ML 服務
 
-若要在 Azure HDInsight 中建立 ML 服務叢集，請在使用 Azure 入口網站建立 HDInsight 叢集時，選取 **ML 服務**叢集類型。 ML 服務叢集類型包括在叢集資料節點上的 ML Server，以及在邊緣節點上的 ML Server，可當作 ML 型分析的登陸區域。 請參閱[開始使用 HDInsight 上的 ML 服務](r-server-get-started.md)，以了解如何建立叢集的相關逐步解說。
+若要在 Azure HDInsight 中建立 ML 服務叢集，請在使用 Azure 入口網站建立 HDInsight 叢集時，選取 **ML 服務**叢集類型。 ML 服務叢集類型包括在叢集資料節點上的 ML Server，以及在邊緣節點上的 ML Server，可當作 ML 型分析的登陸區域。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，以取得建立叢集的逐步指示。
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>為何選擇 HDInsight 中的 ML 服務？
 
@@ -68,13 +68,13 @@ HDInsight 上的 ML 服務包含下列功能。
 
 HDInsight 叢集之 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳戶或 Azure Data Lake Storage 產生關聯。 此關聯可確保在分析期間，上傳至叢集儲存體的任何資料皆保有永續性，而且即使刪除叢集之後還是可以取用資料。 有各種工具可用於處理將資料傳輸到您所選儲存體選項的作業，包括儲存體帳戶的入口網站型上傳工具，以及 [AzCopy](../../storage/common/storage-use-azcopy.md) 公用程式。
 
-不論使用中的儲存體選項為何，您都可以選擇在叢集佈建程序期間，啟用其他 Blob 和 Data Lake 儲存體的存取權。 如需有關新增其他帳戶存取權的詳細資訊，請參閱[開始使用 HDInsight 上的 ML 服務](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started)。 若要深入了解如何使用多個儲存體帳戶，請參閱[適用於 HDInsight 上 ML 服務的 Azure 儲存體選項](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage)文章。
+不論使用中的儲存體選項為何，您都可以選擇在叢集佈建程序期間，啟用其他 Blob 和 Data Lake 儲存體的存取權。  若要深入了解如何使用多個儲存體帳戶，請參閱[適用於 HDInsight 上 ML 服務的 Azure 儲存體選項](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage)文章。
 
 您也可以將 [Azure 檔案](../../storage/files/storage-how-to-use-files-linux.md)作為在邊緣節點上使用的儲存體選項。 Azure 檔案可讓您將建立於 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 如需適用於 HDInsight 叢集上 ML 服務的這些資料儲存體選項詳細資訊，請參閱[適用於 HDInsight 上 ML 服務的 Azure 儲存體選項](r-server-storage.md)。
 
 ## <a name="access-ml-services-edge-node"></a>存取 ML 服務邊緣節點
 
-您可以使用瀏覽器連線到邊緣節點上的 Microsoft ML Server。 它預設會在叢集建立期間安裝。 如需詳細資訊，請參閱[開始使用 HDInsight 上的 ML 服務](r-server-get-started.md)。 您也可以使用 SSH/PuTTY 來存取 R 主控台，從命令列連線到叢集邊緣節點。
+您可以使用瀏覽器連線到邊緣節點上的 Microsoft ML Server。 它預設會在叢集建立期間安裝。  您也可以使用 SSH/PuTTY 來存取 R 主控台，從命令列連線到叢集邊緣節點。
 
 ## <a name="develop-and-run-r-scripts"></a>開發和執行 R 指令碼
 
@@ -142,6 +142,6 @@ HDInsight 叢集的 Linux 邊緣節點，是 R 型分析的登陸區域。 HDIns
 
 若要深入了解如何使用 HDInsight 叢集上的 ML 服務，請參閱下列主題：
 
-* [開始使用 HDInsight 上的 ML 服務叢集](r-server-get-started.md)
+* [使用 RStudio Server 對 Azure HDInsight 中的 ML 服務叢集執行 R 指令碼](machine-learning-services-quickstart-job-rstudio.md)
 * [在 HDInsight 上計算 ML 服務叢集的內容選項](r-server-compute-contexts.md)
 * [HDInsight 上適用於 ML 服務叢集的儲存體選項](r-server-storage.md)

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417938"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304058"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>範例：如何使用文字分析來偵測語言
 
@@ -79,7 +79,7 @@ ms.locfileid: "66417938"
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
-分析會在接收要求時執行。 服務每分鐘最多可接受 100 個要求。 每個要求最多可以是 1 MB。
+分析會在接收要求時執行。 請參閱概觀中的[資料限制](../overview.md#data-limits)一節，以取得您每分鐘和每秒鐘可以傳送的要求大小和數量資訊。
 
 請記得，服務是無狀態的。 您的帳戶中並不會儲存任何資料。 結果會在回應中立即傳回。
 
@@ -92,7 +92,7 @@ ms.locfileid: "66417938"
 
 範例要求的結果看起來應該類似下列 JSON。 請注意，它是一份具有多個項目的文件。 輸出的語言是英文。 語言識別項包括易記名稱和 [ISO 639-1](https://www.iso.org/standard/22109.html) \(英文\) 格式的語言代碼。
 
-1.0 的正面分數表示最高的分析信賴等級。
+1\.0 的正面分數表示最高的分析信賴等級。
 
 
 

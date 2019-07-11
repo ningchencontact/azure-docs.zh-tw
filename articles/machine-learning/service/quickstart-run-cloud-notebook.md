@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015287"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476050"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning
 
@@ -74,15 +74,20 @@ ms.locfileid: "66015287"
 
 1. 在 Jupyter Notebook 網頁上，上方的資料夾名稱即為您的使用者名稱。  選取此資料夾。
 
+    > [!TIP]
+    > 此資料夾位於工作區中的[儲存體容器](concept-workspace.md#resources)上，而不是 Notebook VM 本身。  您可以刪除 Notebook VM，同時保有您所有的工作。  您後續建立新的 Notebook VM 時，將會載入相同的資料夾。
+
 1. 範例資料夾名稱包含版本號碼，例如 **範例 1.0.33.1**。  選取範例資料夾。
 
-1. 選取**快速入門** Notebook。
+1. 選取**快速入門**資料夾。
 
 ## <a name="run-the-notebook"></a>執行 Notebook
 
 執行 Notebook，以評估 pi 並將錯誤記錄至您的工作區。
 
 1. 選取 **01.run-experiment.ipynb** 以開啟 Notebook。
+
+1. 如果您看到「找不到核心」警示，請選取核心 **Python 3.6 - AzureML** (約在清單中段)，並設定核心。
 
 1. 在第一個程式碼儲存格中按一下，然後選取 [執行]  。
 
@@ -113,11 +118,11 @@ ms.locfileid: "66015287"
 
 1. 按一下 [連結至 Azure 入口網站]  ，在您的工作區中檢視執行的相關資訊。  此連結會在 Azure 入口網站中開啟您的工作區。
 
-1. 您看到的記錄值繪圖已自動建立於工作區中。 每當您使用相同的名稱參數記錄多個值時，系統就會自動為您產生繪圖。
+1. 您看到的記錄值繪圖已自動建立於工作區中。 每當您使用相同的名稱參數記錄多個值時，系統就會自動為您產生繪圖。 下列是一個範例：
 
    ![檢視歷程記錄](./media/quickstart-run-cloud-notebook/web-results.png)
 
-用於大致估計 pi 的程式碼會使用隨機值，因此您的圖會顯示不同的值。  
+用於大致估計 pi 的程式碼會使用隨機值，因此您的圖看起來會不同。  
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -152,7 +157,9 @@ ms.locfileid: "66015287"
 * 執行 Notebook。
 * 在工作區中檢視記錄錯誤的值。  這個範例示範工作區如何協助您追蹤指令碼中所產生的資訊。 
 
-在 Jupyter Notebook 網頁的範例資料夾中瀏覽其他 Notebook，進一步了解 Azure Machine Learning 服務。
+在 Jupyter Notebook 網頁上的**快速入門**資料夾中，開啟並執行 **02.deploy-web-service.ipynb** Notebook，以了解如何部署 Web 服務。
+
+此外，在 Jupyter Notebook 網頁的範例資料夾中瀏覽其他 Notebook，以進一步了解 Azure Machine Learning 服務。
 
 如需深入的工作流程體驗，請按照 Machine Learning 教學課程來定型和部署模型：  
 

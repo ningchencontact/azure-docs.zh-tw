@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991696"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271753"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>什麼是 Azure Data Box Heavy？ (預覽)
 
@@ -62,14 +62,14 @@ Data Box Heavy 的設計可讓它在幾乎不對網路產生影響的情況下�
 
 | 規格                                          | 說明              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | ~ 500 磅。                |
+| Weight                                                  | ~ 500 磅。 <br>用於傳輸的鎖定輪上的裝置|
 | 維度                                              | 寬度：26 英吋高：28 英吋長：48 英吋 |
 | 機架空間                                              | 不能安裝在機架上|
 | 必要纜線                                         | 內含 4 條接地 120 V/10 A 電源線 (NEMA 5-15) <br> 裝置支援最多 240 V 電源，並配備 C-13 電源箱 <br> 使用與 [Mellanox MCX314A BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) \(英文\) 相容的網路纜線  |
-|乘冪                                                    | 跨兩個裝置節點共用的 4 個內建電源供應器單位 (PSU)|
+| 乘冪                                                    | 跨兩個裝置節點共用的 4 個內建電源供應器單位 (PSU) <br> 1,200 瓦特一般電力消耗|
 | 儲存體容量                                        | ~ 1-PB 未經處理、70 個 14 TB 磁碟 <br> 770-TB 可用容量|
-|節點數目                                          | 每個裝置 2 個獨立的節點 (各 500 TB) |
-| 每個節點的網路介面                             | 每個節點 4 個網路介面 <br> MGMT, DATA3 <ul><li> 2 個 1-GbE 介面 </li><li> MGMT 用於管理，使用者無法設定，用於初始設定 </li><li> DATA3 是使用者可設定的資料介面，預設使用動態主機設定通訊協定 (DHCP)</li><li>1-GbE 網路介面也可以設定為 10-GbE 介面</li></ul>DATA1、DATA2 資料介面 <ul><li>2 個 40-GbE 介面 </li><li> 可由使用者設定的資料介面，預設值為 DHCP，也可設為靜態</li>|
+| 節點數目                                          | 每個裝置 2 個獨立的節點 (各 500 TB) |
+| 每個節點的網路介面                             | 每個節點 4 個網路介面 <br><br> MGMT, DATA3 <ul><li> 2 個 1-GbE 介面 </li><li> MGMT 用於管理和初始設定，使用者無法設定 </li><li> DATA3 是使用者可設定的，預設使用動態主機設定通訊協定 (DHCP)</li><li>1-GbE 網路介面也可以設定為 10-GbE 介面</li></ul>DATA1、DATA2 資料介面 <ul><li>2 個 40-GbE 介面 </li><li> 使用者可設定的 DHCP (預設) 或靜態</li></ul>|
 
 
 ## <a name="components"></a>元件
@@ -117,7 +117,7 @@ Data Box Heavy 可以根據其服務所部署的區域、裝置所寄送的國�
 
 Data Box Heavy 處於預覽狀態，而且您必須註冊。 請採取下列步驟以註冊 Data Box Heavy︰
 
-1. 登入 Azure 入口網站： https://aka.ms/azuredatabox。
+1. 登入 Azure 入口網站： https://aka.ms/azuredatabox 。
 2. 按一下 [+ 建立資源]  以建立新的資源。 搜尋 **Azure 資料箱**。 選取 [Azure 資料箱]  服務。
 
     <!--![The Data Box Heavy sign up 1]()-->

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236290"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561402"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -53,7 +53,7 @@ A. 資料箱擁有 100 TB 的原始容量，而可用容量則為 80 TB。 您�
 A.  如需哪些國家/地區提供資料箱的資訊，請移至[區域可用性](data-box-overview.md#region-availability)。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>問： 在哪些區域中可以使用資料箱來儲存資料？
-A. 美國、西歐、北歐、法國與英國內的所有區域都支援資料箱。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。 如需詳細資訊，請移至[區域可用性](data-box-overview.md#region-availability)。
+A. 美國、歐洲西部、歐洲北部、法國、英國、日本、澳大利亞和加拿大內的所有區域都支援資料箱。 如需詳細資訊，請移至[區域可用性](data-box-overview.md#region-availability)。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>問： 如果遇到任何資料箱方面的問題，該與誰連絡？
 A. 如果您遇到任何資料箱方面的問題，請連絡 [Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>問： 是否可對資料箱使用多個儲存體帳戶？
-A.  是。 資料箱可支援最多 10 個儲存體帳戶、一般用途、傳統或 Blob 儲存體。 經常性存取和非經常性存取 Blob 均受支援。 在公開推出版本中，支援 Azure 公用雲端中位於美國、西歐、北歐、法國和英國內所有區域的儲存體帳戶。
+A.  是。 資料箱可支援最多 10 個儲存體帳戶、一般用途、傳統或 Blob 儲存體。 經常性存取和非經常性存取 Blob 均受支援。 
 
 
 ## <a name="ship-device"></a>寄送裝置

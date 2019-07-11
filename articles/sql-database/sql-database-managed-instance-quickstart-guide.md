@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360177"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447777"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>開始使用 Azure SQL Database 受控執行個體
 
@@ -79,3 +79,4 @@ ms.locfileid: "59360177"
 - 在[這裡取得受控執行個體中已支援功能的高階清單](sql-database-features.md)，並在[這裡取得詳細資料和已知問題](sql-database-managed-instance-transact-sql-information.md)。
 - 了解[受控執行個體的技術特性](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)。
 - 如需更進階的操作說明，請參閱[如何在 Azure SQL Database 中使用受控執行個體](sql-database-howto-managed-instance.md)。
+- [為您的內部部署資料庫識別正確的 Azure SQL Database/受控執行個體 SKU](/sql/dma/dma-sku-recommend-sql-db/)。

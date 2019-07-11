@@ -5,33 +5,33 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/17/2018
+ms.date: 6/26/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9771e312269eb78e0dc4535a61e9287b5b169d7c
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153718"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459216"
 ---
 1. 登入 [Azure 入口網站](http://portal.azure.com)。
 
-1. 從左窗格中選取 [建立資源]。 搜尋「Digital Twins」，然後選取 [Digital Twins (預覽)]。 選取 [建立] 以啟動部署程序。
+1. 從左窗格中選取 [建立資源]  。 搜尋「Digital Twins」  ，然後選取 [Digital Twins]  。 選取 [建立]  以啟動部署程序。
 
    ![用於建立新 Digital Twins 執行個體的選取項目](./media/create-digital-twins-portal/create-digital-twins.png)
 
-1. 在 [Digital Twins] 窗格中，輸入下列資訊：
+1. 在 [Digital Twins]  窗格中，輸入下列資訊：
    * **資源名稱**：為 Digital Twins 執行個體建立獨一無二的名稱。
-   * 訂用帳戶：選擇您要用來建立此 Digital Twins 執行個體的訂用帳戶。 
+   * 訂用帳戶  ：選擇您要用來建立此 Digital Twins 執行個體的訂用帳戶。 
    * **資源群組**：選取或建立 Digital Twins 執行個體的[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。
    * **位置**：選取最接近裝置的位置。
 
      ![已輸入資訊的 Digital Twins 窗格](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
-1. 檢閱 Digital Twins 資訊，然後選取 [建立]。 Digital Twins 執行個體可能需要幾分鐘的時間才會建立好。 您可以在 [通知] 窗格中監視進度。
+1. 檢閱 Digital Twins 資訊，然後選取 [建立]  。 Digital Twins 執行個體可能需要幾分鐘的時間才會建立好。 您可以在 [通知]  窗格中監視進度。
 
-1. 開啟 Digital Twins 執行個體的 [概觀] 窗格。 請記下 [管理 API] 底下的連結。
+1. 開啟 Digital Twins 執行個體的 [概觀]  窗格。 請記下 [管理 API]  底下的連結。
 
    **管理 API** URL 的格式為：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`。 此 URL 會帶您前往您的執行個體所適用的 Azure Digital Twins REST API 文件。 請閱讀[如何使用 Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md)，以了解如何閱讀及使用此 API 文件。
 

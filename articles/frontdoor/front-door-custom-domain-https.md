@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520498"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450184"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>教學課程：在 Front Door 自訂網域上設定 HTTPS
 
@@ -63,7 +63,7 @@ ms.locfileid: "65520498"
 
 2. 在前端主機清單中，選取您想要啟用 HTTPS，以包含您自訂網域的自訂網域。
 
-3. 在 [自訂網域 HTTPS] 區段下方，按一下 [啟用]，然後選取 [Front Door 受控] 作為憑證來源。
+3. 在 [自訂網域 HTTPS]  區段下方，按一下 [啟用]  ，然後選取 [Front Door 受控]  作為憑證來源。
 
 4. 按一下 [儲存]。
 
@@ -77,12 +77,11 @@ ms.locfileid: "65520498"
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>準備您的 Azure Key Vault 帳戶和憑證
  
 1. Azure Key Vault：在與您想要啟用自訂 HTTPS 的 Front Door 相同訂用帳戶下，您必須有執行中的 Azure Key Vault 帳戶。 建立 Azure Key Vault 帳戶 (如果您還沒有的話)。
- 
-2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴 CA 透過 Azure Key Vault 建立新憑證。
 
 > [!WARNING]
-> </br> - Azure Front Door Service 目前僅支援與 Front Door 設定相同訂用帳戶中的 Key Vault 帳戶。 選擇與您 Front Door 不同訂用帳戶下的 Key Vault 將會失敗。
-> </br> - Azure Front Door Service 目前僅支援使用**不具**密碼 PFX 所上傳的憑證。
+> Azure Front Door Service 目前僅支援與 Front Door 設定相同訂用帳戶中的 Key Vault 帳戶。 選擇與您 Front Door 不同訂用帳戶下的 Key Vault 將會失敗。
+
+2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴 CA 透過 Azure Key Vault 建立新憑證。
 
 #### <a name="register-azure-front-door-service"></a>註冊 Azure Front Door Service
 
@@ -98,14 +97,14 @@ ms.locfileid: "65520498"
  
 授與 Azure Front Door Service 權限，存取您 Azure Key Vault 帳戶中「祕密」下的憑證。
 
-1. 在您的金鑰保存庫帳戶中，於 [設定] 之下選取 [存取原則]，然後選取 [新增] 以建立新原則。
+1. 在您的金鑰保存庫帳戶中，於 [設定] 之下選取 [存取原則]  ，然後選取 [新增]  以建立新原則。
 
-2. 在 [選取主體] 中，搜尋 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**，然後選擇 [Microsoft.Azure.Frontdoor]。 按一下 [選取] 。
+2. 在 [選取主體]  中，搜尋 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**，然後選擇 [Microsoft.Azure.Frontdoor]  。 按一下 [選取]  。
 
 
-3. 在 [祕密權限] 中，選取 [取得] 以允許 Front Door 執行這些權限取得及列出憑證。 
+3. 在 [祕密權限]  中，選取 [取得]  以允許 Front Door 執行這些權限取得及列出憑證。 
 
-4. 選取 [確定] 。 
+4. 選取 [確定]  。 
 
     Azure Front Door Service 現在可以存取此金鑰保存庫和此金鑰保存庫中儲存的憑證 (祕密)。
  
@@ -115,9 +114,9 @@ ms.locfileid: "65520498"
 
 2. 在自訂網域清單中，選取您要啟用 HTTPS 的自訂網域。
 
-    [自訂網域] 頁面隨即出現。
+    [自訂網域]  頁面隨即出現。
 
-3. 在憑證管理類型底下，選取 [使用我自己的憑證]。 
+3. 在憑證管理類型底下，選取 [使用我自己的憑證]  。 
 
 4. Azure Front Door Service 需要 Key Vault 帳戶的訂用帳戶與 Front Door 的訂用帳戶相同。 選取金鑰保存庫、憑證 (祕密) 和憑證版本。
 
@@ -139,7 +138,7 @@ ms.locfileid: "65520498"
 
 如果您使用自己的憑證，則不需要進行網域驗證。
 
-您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 Front Door 預設 .azurefd.net 主機名稱：
+您的 CNAME 記錄應該採用下列格式，其中「名稱」  是您的自訂網域名稱，而「值」  則是您的 Front Door 預設 .azurefd.net 主機名稱：
 
 | Name            | 類型  | 值                 |
 |-----------------|-------|-----------------------|
@@ -170,7 +169,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-您應該會在幾分鐘之內收到邀請您核准要求的電子郵件，如以下範例所示。 如果您使用垃圾郵件篩選器，請將 admin@digicert.com 加入白名單。 如果您未在 24 小時內收到驗證電子郵件，請連絡 Microsoft 支援服務。
+您應該會在幾分鐘之內收到邀請您核准要求的電子郵件，如以下範例所示。 如果您使用垃圾郵件篩選器，請將 admin@digicert.com 加入允許清單。 如果您未在 24 小時內收到驗證電子郵件，請連絡 Microsoft 支援服務。
 
 當您按一下核准連結時，系統會將您導向線上核准表單。 遵循表單上的指示；您有兩個驗證選項：
 
@@ -182,7 +181,7 @@ postmaster@&lt;your-domain-name.com&gt;
 
 ## <a name="wait-for-propagation"></a>等待傳播
 
-自訂網域 HTTPS 功能要在網域名稱通過驗證之後 6-8 小時才會啟用。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已啟用]，而且 [自訂網域] 對話方塊中的四個作業步驟會標示為完成。 您的自訂網域現在已準備好使用 HTTPS。
+自訂網域 HTTPS 功能要在網域名稱通過驗證之後 6-8 小時才會啟用。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已啟用]  ，而且 [自訂網域] 對話方塊中的四個作業步驟會標示為完成。 您的自訂網域現在已準備好使用 HTTPS。
 
 ### <a name="operation-progress"></a>作業進度
 
@@ -218,15 +217,15 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ### <a name="disable-the-https-feature"></a>停用 HTTPS 功能 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的 [Azure Front Door Service] 設定。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的 [Azure Front Door Service]  設定。
 
 2. 在前端主機清單中，按一下您要停用 HTTPS 的自訂網域。
 
-3. 按一下 [停用] 以停用 HTTPS，然後按一下 [儲存]。
+3. 按一下 [停用]  以停用 HTTPS，然後按一下 [儲存]  。
 
 ### <a name="wait-for-propagation"></a>等待傳播
 
-自訂網域 HTTPS 功能停用之後，可能需要 6-8 小時才會生效。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已停用]，而且 [自訂網域] 對話方塊中的三個作業步驟會標示為完成。 您的自訂網域無法再使用 HTTPS。
+自訂網域 HTTPS 功能停用之後，可能需要 6-8 小時才會生效。 當流程完成時，Azure 入口網站中的自訂 HTTPS 狀態會設定為 [已停用]  ，而且 [自訂網域] 對話方塊中的三個作業步驟會標示為完成。 您的自訂網域無法再使用 HTTPS。
 
 #### <a name="operation-progress"></a>作業進度
 

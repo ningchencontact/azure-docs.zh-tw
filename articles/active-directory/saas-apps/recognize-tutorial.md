@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 94e0b365d159ef18d7c0e6216ac9f5babb0d6231
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教學課程：Azure Active Directory 與 Recognize 整合
 
@@ -53,19 +53,19 @@ ms.locfileid: "65890526"
 
 **若要從資源庫新增 Recognize，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Recognize**，從結果面板中選取 ，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Recognize**，從結果面板中選取  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Recognize](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "65890526"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Recognize 測試使用者](#create-recognize-test-user)** - 使 Recognize 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -89,45 +89,45 @@ ms.locfileid: "65890526"
 
 若要設定與 Recognize 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Recognize] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Recognize]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 如果您有 服務提供者中繼資料檔案 ****，請在 [基本 SAML 組態] **** 區段上執行下列步驟：
+4. 如果您有 服務提供者中繼資料檔案 **** ，請在 [基本 SAML 組態] **** 區段上執行下列步驟：
 
     >[!NOTE]
     >您會從本教學課程的**設定 Recognize 單一登入**一節中取得**服務提供者中繼資料檔案**。
 
-    a. 按一下 [上傳中繼資料檔案]。
+    a. 按一下 [上傳中繼資料檔案]  。
 
     ![上傳中繼資料檔案](common/upload-metadata.png)
 
-    b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]。
+    b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]  。
 
     ![選擇中繼資料檔案](common/browse-upload-metadata.png)
 
-    c. 成功上傳中繼資料檔案後，就會在 [基本 SAML 組態] 區段中自動填入 [識別碼] 值。
+    c. 成功上傳中繼資料檔案後，就會在 [基本 SAML 組態] 區段中自動填入 [識別碼]  值。
 
     ![Recognize 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://recognizeapp.com/<your-domain>/saml/sso`
+     在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://recognizeapp.com/<your-domain>/saml/sso`
 
     > [!Note]
-    > 如果未自動填入 [識別碼] 值，您可從 [SSO 設定] 區段開啟 [服務提供者中繼資料 URL] (本教學課程稍後的**設定 Recognize 單一登入**一節會說明)，以取得 [識別碼] 值。 [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Recognize 用戶端支援小組](mailto:support@recognizeapp.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 如果未自動填入 [識別碼]  值，您可從 [SSO 設定] 區段開啟 [服務提供者中繼資料 URL] (本教學課程稍後的**設定 Recognize 單一登入**一節會說明)，以取得 [識別碼] 值。 [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Recognize 用戶端支援小組](mailto:support@recognizeapp.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-6. 在 [設定 Recognize] 區段上，依據您的需求複製適當的 URL。
+6. 在 [設定 Recognize]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -141,35 +141,35 @@ ms.locfileid: "65890526"
 
 1. 在不同的網頁瀏覽器視窗中，以管理員身分登入您的 Recognize 租用戶。
 
-2. 按一下右上角的 [功能表]。 移至 [Company Admin] (公司管理員)。
+2. 按一下右上角的 [功能表]  。 移至 [Company Admin]  (公司管理員)。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-3. 在左側的導覽窗格上，按一下 [設定] 。
+3. 在左側的導覽窗格上，按一下 [設定]  。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_001.png)
 
-4. 在 [SSO Settings] \(SSO 設定) 區段下執行下列步驟。
+4. 在 [SSO Settings]  \(SSO 設定) 區段下執行下列步驟。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. 將 **[啟用 SSO]** 選取為 **ON**。
 
-    b. 在 [IDP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。
+    b. 在 [IDP 實體識別碼]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
     
-    c. 在 [SSO 目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
+    c. 在 [SSO 目標 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
     
-    d. 在 [SSO 目標 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。 
+    d. 在 [SSO 目標 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。 
     
-    e. 在記事本中開啟您下載的**憑證 (Base64)** 檔案，將其內容複製到剪貼簿，然後貼到 [憑證] 文字方塊中
+    e. 在記事本中開啟您下載的**憑證 (Base64)** 檔案，將其內容複製到剪貼簿，然後貼到 [憑證]  文字方塊中
     
     f. 按一下 [儲存設定]  按鈕。 
 
-5. 在 [SSO Settings] 區段中，複製 [Service Provider Metadata url] 下方的 URL。
+5. 在 [SSO Settings]  區段中，複製 [Service Provider Metadata url]  下方的 URL。
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-6. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID) 值，然後貼到 Azure 入口網站中 [基本 SAML 組態] 區段的 [識別碼] 文字方塊中。
+6. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID) 值，然後貼到 Azure 入口網站中 [基本 SAML 組態]  區段的 [識別碼]  文字方塊中。
     
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_004.png)
 
@@ -177,11 +177,11 @@ ms.locfileid: "65890526"
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -189,39 +189,39 @@ ms.locfileid: "65890526"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 brittasimon@yourcompanydomain.extension。 例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱]  欄位中，輸入 brittasimon@yourcompanydomain.extension。 例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Recognize 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Recognize]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Recognize]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Recognize] 。
+2. 在應用程式清單中，選取 [Recognize]  。
 
     ![應用程式清單中的 Recognize 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-recognize-test-user"></a>建立 Recognize 測試使用者
 
@@ -233,19 +233,19 @@ ms.locfileid: "65890526"
 
 1. 以管理員身分登入您的 Recognize 公司網站。
 
-2. 按一下右上角的 [功能表]。 移至 [Company Admin] \(公司管理員)。
+2. 按一下右上角的 [功能表]  。 移至 [Company Admin]  \(公司管理員)。
 
-3. 在左側的導覽窗格上，按一下 [設定] 。
+3. 在左側的導覽窗格上，按一下 [設定]  。
 
-4. 在 [使用者同步處理] 區段中執行下列步驟。
+4. 在 [使用者同步處理]  區段中執行下列步驟。
    
     ![新增使用者](./media/recognize-tutorial/tutorial_recognize_005.png "新增使用者")
    
-    a. 對於 [已啟用同步處理] 選取 **ON**。
+    a. 對於 [已啟用同步處理]  選取 **ON**。
    
-    b. 對於 [Choose sync provider] (選擇同步處理提供者)，選取 [Microsoft / Office 365]。
+    b. 對於 [Choose sync provider]  (選擇同步處理提供者)，選取 [Microsoft / Office 365]  。
    
-    c. 按一下 [Run User Sync] \(執行使用者同步處理)。
+    c. 按一下 [Run User Sync]  \(執行使用者同步處理)。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

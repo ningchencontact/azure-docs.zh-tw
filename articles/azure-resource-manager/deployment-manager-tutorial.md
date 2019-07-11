@@ -4,25 +4,22 @@ description: 使用 Resource Manager 範本與 Azure 部署管理員來部署 Az
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238859"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205712"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
-了解如何使用 [Azure 部署管理員](./deployment-manager-overview.md)跨多個區域部署您的應用程式。 若要使用部署管理員，您必須建立兩個範本：
+了解如何使用 [Azure 部署管理員](./deployment-manager-overview.md)跨多個區域部署您的應用程式。 如果您偏好更快的方法，[Azure Deployment Manager 快速入門](https://github.com/Azure-Samples/adm-quickstart)會在您的訂用帳戶中建立必要的組態並且自訂成品，以在多個區域之間部署應用程式。 快速入門會執行與它在本教學課程中所做的相同工作。
+
+若要使用部署管理員，您必須建立兩個範本：
 
 * **拓撲範本**：說明構成應用程式的 Azure 資源及其部署位置。
 * **首度發行範本**：說明部署應用程式時所應採取的步驟。
@@ -44,7 +41,10 @@ ms.locfileid: "66238859"
 > * 部署較新版本
 > * 清除資源
 
-在[這裡](https://docs.microsoft.com/rest/api/deploymentmanager/)可以找到 Azure 部署管理員 REST API 參考。
+其他資源：
+
+* [Azure Deployment Manager REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
+* [教學課程：在 Azure 部署管理員中使用健康情況檢查](./deployment-manager-tutorial-health-check.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -130,7 +130,7 @@ ms.locfileid: "66238859"
     </html>
     ```
 
-    HTML 中顯示位置和版本資訊。 1.0.0.1 資料夾中的二進位檔案會顯示「1.0.0.1 版」。 在部署服務之後，您可以瀏覽這些頁面。
+    HTML 中顯示位置和版本資訊。 1\.0.0.1 資料夾中的二進位檔案會顯示「1.0.0.1 版」。 在部署服務之後，您可以瀏覽這些頁面。
 5. 查看其他成品檔案。 這有助於您進一步了解案例。
 
 範本成品由服務拓撲範本使用，二進位成品則由首度發行範本使用。 拓撲範本和首度發行範本都會定義成品來源 Azure 資源，此資源會用來將 Resource Manager 指向部署中使用的範本和二進位成品。 為了簡化本教學課程，我們使用一個儲存體帳戶來儲存範本成品和二進位成品。 這兩個成品來源指向相同的儲存體帳戶。

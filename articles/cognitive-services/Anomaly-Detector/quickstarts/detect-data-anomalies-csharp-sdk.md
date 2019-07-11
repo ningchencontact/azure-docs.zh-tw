@@ -1,0 +1,172 @@
+---
+title: 快速入門：使用適用於 .NET 的 Anomaly Detector SDK 來偵測時間序列資料中的異常情況
+titleSuffix: Azure Cognitive Services
+description: 開始使用 Anomaly Detector 服務來偵測時間序列資料中的異常情況。
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: quickstart
+ms.date: 07/01/2019
+ms.author: aahi
+ms.openlocfilehash: c2a8bf10d7c279243c9f53801264ebbe9bfe72c9
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503702"
+---
+# <a name="quickstart-anomaly-detector-client-library-for-net"></a>快速入門：適用於 .NET 的 Anomaly Detector 用戶端程式庫
+
+開始使用適用於 .NET 的 Anomaly Detector 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。 Anomaly Detector 服務可藉由自動對時間序列資料使用最適合的模型，而讓您找出其中的異常狀況，不論是什麼產業、情境或資料量都沒問題。
+
+使用適用於 .NET 的 Anomaly Detector 用戶端程式庫來：
+
+* 批次地偵測異常行為
+* 偵測最新資料點的異常狀態
+
+[API 參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [範例](https://github.com/Azure-Samples/anomalydetector)
+
+## <a name="prerequisites"></a>必要條件
+
+* Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+* 最新版 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+
+## <a name="setting-up"></a>設定
+
+### <a name="create-an-anomaly-detector-resource"></a>建立 Anomaly Detector 資源
+
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+
+### <a name="create-a-new-c-app"></a>建立新的 C# 應用程式
+
+在您慣用的編輯器或 IDE 中，建立新的 .NET Core 應用程式。 
+
+在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：**Program.cs**。 
+
+```console
+dotnet new console -n anomaly-detector-quickstart
+```
+
+將目錄變更為新建立的應用程式資料夾。 您可以使用下列命令來建置應用程式：
+
+```console
+dotnet build
+```
+
+建置輸出應該不會有警告或錯誤。 
+
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+### <a name="install-the-client-library"></a>安裝用戶端程式庫
+
+在應用程式目錄中，使用下列命令安裝適用於 .NET 的 Anomaly Detector 用戶端程式庫：
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
+```
+
+如果您使用 Visual Studio IDE，則可以取得 NuGet 套件形式的用戶端程式庫。 
+
+## <a name="object-model"></a>物件模型
+
+Anomaly Detector 用戶端是一種 [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) 物件，會使用含有金鑰的 [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials) 向 Azure 進行驗證。 此用戶端會提供兩種異常偵測方法：使用 [EntireDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync) 在整個資料集上進行，以及使用 [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync) 在最新的資料點上進行。 
+
+時間序列資料會透過 [Request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) 物件以 [Point](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) 序列的形式來傳送。 `Request` 物件包含用來說明資料的屬性 (例如，[細微性](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity))，以及供異常偵測使用的參數。 
+
+Anomaly Detector 回應會是 [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) 或 [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) 物件 (端視所使用的方法而定)。 
+
+## <a name="code-examples"></a>程式碼範例
+
+這些程式碼片段會示範如何使用適用於 .NET 的 Anomaly Detector 用戶端程式庫來執行下列動作：
+
+* [驗證用戶端](#authenticate-the-client)
+* [從檔案載入時間序列資料集](#load-time-series-data-from-a-file)
+* [偵測整個資料集內的異常](#detect-anomalies-in-the-entire-data-set) 
+* [偵測最新資料點的異常狀態](#detect-the-anomaly-status-of-the-latest-data-point)
+
+### <a name="add-the-main-method"></a>新增 Main 方法
+
+從專案目錄：
+
+1. 在您慣用的編輯器或 IDE 中，開啟 Program.cs 檔案
+2. 新增下列 `using` 指示詞
+
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+> [!NOTE]
+> 本快速入門假設您已針對名為 `ANOMALY_DETECTOR_KEY` 的 Anomaly Detector 金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
+
+在應用程式的 `main()` 方法中，為資源的 Azure 位置建立變數，並將金鑰建立為環境變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
+
+### <a name="authenticate-the-client"></a>驗證用戶端
+
+在新方法中，使用端點和金鑰來具現化用戶端。 使用金鑰建立 [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials?view=azure-dotnet-preview) 物件，並使用該物件與您的端點來建立 [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-dotnet-preview) 物件。 
+
+[!code-csharp[Client authentication function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=createClient)]
+    
+### <a name="load-time-series-data-from-a-file"></a>從檔案載入時間序列資料集
+
+從 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv) 下載此快速入門的資料範例：
+1. 在瀏覽器中以滑鼠右鍵按一下 [原始]  。
+2. 按一下 [另存連結]  。
+3. 以 .csv 檔案的形式將該檔案另儲到應用程式目錄中。
+
+此時間序列資料會格式化為 .csv 檔案，且會傳送至 Anomaly Detector API。
+
+建立新方法來讀取時間序列資料，並將其新增至 [Request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request?view=azure-dotnet-preview) 物件。 使用檔案路徑呼叫 `File.ReadAllLines()`，並建立 [Point](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point?view=azure-dotnet-preview) 物件清單，然後移除任何新行字元。 擷取這些值，並將時間戳記與其數字值分開，然後將其新增至新的 `Point` 物件。 
+
+使用資料點序列製作 `Request` 物件，並為資料點的[細微性](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) (或週期性) 製作 `Granularity.Daily`。
+
+[!code-csharp[load the time series data file](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=GetSeriesFromFile)]
+
+### <a name="detect-anomalies-in-the-entire-data-set"></a>偵測整個資料集內的異常 
+
+使用 `Request` 物件建立方法來呼叫用戶端的 [EntireDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_EntireDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) 方法，並等候 [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-dotnet-preview) 物件形式的回應。 如果時間序列包含任何異常，請逐一查看回應的 [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse.isanomaly?view=azure-dotnet-preview) 值和，並列印任何屬於 `true` 的值。 如果有找到，這些值會對應到異常資料點的索引。
+
+[!code-csharp[EntireDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=entireDatasetExample)]
+
+### <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測最新資料點的異常狀態
+
+使用 `Request` 物件建立方法來呼叫用戶端的 [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) 方法，並等候 [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) 物件形式的回應。 檢查回應的 [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) 屬性來判斷所傳送的最新資料點是否異常。 
+
+[!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
+
+## <a name="run-the-application"></a>執行應用程式
+
+從應用程式目錄使用 dotnet `run` 命令來執行應用程式。
+
+```dotnet
+dotnet run
+```
+
+## <a name="clean-up-resources"></a>清除資源
+
+如果您想要清除和移除認知服務訂用帳戶，則可以刪除資源或資源群組。 刪除資源群組也會刪除與資源群組相關聯的任何其他資源。
+
+* [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+您也可以執行下列 Cloud Shell 命令來移除資源群組及其相關聯的資源。 這可能需要幾分鐘才能完成。 
+
+```azurecli-interactive
+az group delete --name example-anomaly-detector-resource-group
+```
+
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+>[使用 Azure Databricks 進行串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* 什麼是 [Anomaly Detector API？](../overview.md)
+* 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。
+* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs) 上找到。

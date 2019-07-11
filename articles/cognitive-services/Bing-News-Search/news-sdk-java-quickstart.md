@@ -1,5 +1,5 @@
 ---
-title: 快速入門：執行新聞搜尋 - 適用於 Java 的 Bing 新聞搜尋 SDK
+title: 快速入門：使用適用於 Java 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用「適用於 Java 的 Bing 新聞搜尋 SDK」來搜尋新聞，並處理回應。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b128f43637649f4faf104a81940f2937c2354bc6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d84b47feb91a9165a4bc03b20b0b7d079aa8f6ae
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799718"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203360"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 新聞搜尋 SDK 來搜尋新聞
 
@@ -92,7 +92,7 @@ import java.io.IOException;
 
 ## <a name="send-and-receive-a-search-request"></a>傳送及接收搜尋要求
 
-1. 建立呼叫 `getClient()` 的方法，並將搜尋要求傳送至 Bing 新聞搜尋服務。 以 market 和 count 參數來篩選搜尋，然後列印第一個新聞結果的相關資訊：名稱、URL、發行日期、描述、提供者名稱和預估的相符搜尋項目總數。
+1. 建立呼叫 `getClient()` 的方法，並將搜尋要求傳送至 Bing 新聞搜尋服務。 以 market  和 count  參數來篩選搜尋，然後列印第一個新聞結果的相關資訊：名稱、URL、發行日期、描述、提供者名稱和預估的相符搜尋項目總數。
 
     ```java
     public static void newsSearch(String subscriptionKey)

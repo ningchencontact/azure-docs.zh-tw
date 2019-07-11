@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872989"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513454"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入門：搭配使用 Azure Cache for Redis 與 Python
 
@@ -48,7 +48,9 @@ ms.locfileid: "65872989"
 
 以下範例使用適用於 Python3 的 *pip3*，透過 Visual Studio 2019 開發人員命令提示字元搭配提高權限的系統管理員權限，在 Windows 10 上安裝 redis-py 套件。
 
+```python
     pip3 install redis
+```
 
 ![安裝 redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -67,6 +69,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> 若為 Redis 3.0 版或更新版本，系統會強制執行 SSL 憑證檢查。 連線至 Redis 時，必須明確設定 ssl_ca_certs。 如果是 RH Linux，則可於 "/etc/pki/tls/certs/ca-bundle.crt" 憑證模組中找到 ssl_ca_certs。
+
 ## <a name="create-a-python-script"></a>建立 Python 指令碼
 
 建立新的指令碼文字檔案，命名為 PythonApplication1.py  。
@@ -79,7 +84,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -91,7 +97,7 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```

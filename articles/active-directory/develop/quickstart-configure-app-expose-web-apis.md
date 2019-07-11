@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04838c1dbc9a524d04998f4d6c851037e43c9d90
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545780"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482681"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>快速入門：設定應用程式以公開 Web API
 
@@ -44,30 +44,30 @@ ms.locfileid: "65545780"
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
-1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀] 或主要註冊頁面。
+1. 在左側導覽窗格中，選取 [Azure Active Directory]  服務，然後選取 [應用程式註冊]  。
+1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀]  或主要註冊頁面。
 1. 選擇您想要使用哪一個方法 (UI 還是應用程式資訊清單) 來公開新的範圍：
     * [透過 UI 公開新的範圍](#expose-a-new-scope-through-the-ui)
     * [透過應用程式資訊清單公開新的範圍或角色](#expose-a-new-scope-or-role-through-the-application-manifest)
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>透過 UI 公開新的範圍
 
-[![使用 UI 公開 API](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![說明如何使用 UI 公開 API](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 若要透過 UI 公開新的範圍：
 
-1. 從應用程式的 [概觀] 頁面，選取 [公開 API] 區段。
+1. 從應用程式的 [概觀]  頁面，選取 [公開 API]  區段。
 
-1. 選取 [新增範圍]。
+1. 選取 [新增範圍]  。
 
-1. 如果您還未設定 [應用程式識別碼 URI]，您會看到提示要求您輸入。 輸入應用程式識別碼 URI 或使用所提供的 URI，然後選取 [儲存並繼續]。
+1. 如果您還未設定 [應用程式識別碼 URI]  ，您會看到提示要求您輸入。 輸入應用程式識別碼 URI 或使用所提供的 URI，然後選取 [儲存並繼續]  。
 
-1. 當 [新增範圍] 頁面出現時，輸入範圍的資訊：
+1. 當 [新增範圍]  頁面出現時，輸入範圍的資訊：
 
     | 欄位 | 說明 |
     |-------|-------------|
-    | **範圍名稱** | 為範圍輸入有意義的名稱。<br><br>例如： `Employees.Read.All`。 |
-    | **誰可以同意** | 選取此範圍可由使用者同意，還是必須由管理員同意。 選取 [僅限系統管理員] 以要求較高權限。 |
+    | **範圍名稱** | 為範圍輸入有意義的名稱。<br><br>例如： `Employees.Read.All` 。 |
+    | **誰可以同意** | 選取此範圍可由使用者同意，還是必須由管理員同意。 選取 [僅限系統管理員]  以要求較高權限。 |
     | **管理員同意顯示名稱** | 為範圍輸入有意義的描述，以便讓管理員看到。<br><br>例如， `Read-only access to Employee records` |
     | **管理員同意描述** | 為範圍輸入有意義的描述，以便讓管理員看到。<br><br>例如， `Allow the application to have read-only access to all Employee data.` |
 
@@ -78,7 +78,7 @@ ms.locfileid: "65545780"
     | **使用者同意顯示名稱** | 為範圍輸入有意義的名稱，以便讓使用者看到。<br><br>例如， `Read-only access to your Employee records` |
     | **使用者同意描述** | 為範圍輸入有意義的描述，以便讓使用者看到。<br><br>例如， `Allow the application to have read-only access to your Employee data.` |
 
-1. 完成時，請設定 [狀態] 並選取 [新增範圍]。
+1. 完成時，請設定 [狀態]  並選取 [新增範圍]  。
 
 1. 遵循相關步驟來[確認已向其他應用程式公開 Web API](#verify-the-web-api-is-exposed-to-other-applications)。
 
@@ -88,7 +88,7 @@ ms.locfileid: "65545780"
 
 若要透過應用程式資訊清單公開新的範圍：
 
-1. 從應用程式的 [概觀] 頁面，選取 [資訊清單] 區段。 Web 式的資訊清單編輯器隨即開啟，以供您在入口網站內**編輯**資訊清單。 或者，您也可以選取 [下載] 並在本機編輯資訊清單，然後使用 [上傳] 以將其重新套用到您的應用程式。
+1. 從應用程式的 [概觀]  頁面，選取 [資訊清單]  區段。 Web 式的資訊清單編輯器隨即開啟，以供您在入口網站內**編輯**資訊清單。 或者，您也可以選取 [下載]  並在本機編輯資訊清單，然後使用 [上傳]  以將其重新套用到您的應用程式。
     
     下列範例說明如何藉由將下列 JSON 元素新增至 `oauth2Permissions` 集合，從而在資源/API 上公開稱為 `Employees.Read.All` 的新範圍。
 
@@ -110,14 +110,14 @@ ms.locfileid: "65545780"
    >
    > 稍後您可以視需要公開其他範圍。 請考慮您的 Web API 可能會公開多個與各種不同功能相關聯的範圍。 在執行階段，您的資源可藉由評估所收到之 OAuth 2.0 存取權杖中的範圍 (`scp`) 宣告，來控制 Web API 的存取。
 
-1. 完成時，按一下 [儲存]。 您的 Web API 現在已設定為可供目錄中的其他應用程式使用。
+1. 完成時，按一下 [儲存]  。 您的 Web API 現在已設定為可供目錄中的其他應用程式使用。
 1. 遵循相關步驟來[確認已向其他應用程式公開 Web API](#verify-the-web-api-is-exposed-to-other-applications)。
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>確認已向其他應用程式公開 Web API
 
-1. 返回 Azure AD 租用戶，選取 [應用程式註冊]，然後尋找並選取您想要設定的用戶端應用程式。
+1. 返回 Azure AD 租用戶，選取 [應用程式註冊]  ，然後尋找並選取您想要設定的用戶端應用程式。
 1. 重複進行設定用戶端應用程式以存取 Web API 中所述的步驟。
-1. 當您進行到 [選取 API] 步驟時，選取您的資源。 您應該會看到可供用戶端權限要求使用的新範圍。
+1. 當您進行到 [選取 API]  步驟時，選取您的資源。 您應該會看到可供用戶端權限要求使用的新範圍。
 
 ## <a name="more-on-the-application-manifest"></a>應用程式資訊清單的詳細資料
 

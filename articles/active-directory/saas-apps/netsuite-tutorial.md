@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2600989273d6ebfe4319a048cc65c8c3ff9ecdbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>教學課程：Azure Active Directory 與 NetSuite 整合
 
@@ -55,19 +55,19 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 NetSuite，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，鍵入 **NetSuite**，從結果面板中選取 **NetSuite**，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，鍵入 **NetSuite**，從結果面板中選取 **NetSuite**，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 NetSuite](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 NetSuite 測試使用者](#create-netsuite-test-user)** - 讓 NetSuite 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -91,23 +91,23 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 若要使用 NetSuite 設定 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [NetSuite] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [NetSuite]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![NetSuite 網域和 URL 單一登入資訊](common/idp-reply.png)
 
-    在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    在 [回覆 URL]  文字方塊中，以下列模式輸入 URL：
 
     `https://<tenant-name>.NetSuite.com/saml2/acs`
 
@@ -124,42 +124,42 @@ NetSuite 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [NetSuite 客戶支援小組](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. NetSuite 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+5. NetSuite 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  按鈕以開啟 [使用者屬性]  對話方塊。
 
     ![image](common/edit-attribute.png)
 
-6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，使用 [編輯]  圖示來編輯宣告或使用 [新增宣告]  來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
     | Name | 來源屬性 | 
     | ---------------| --------------- |
     | 帳戶  | `account id` |
 
-    a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
+    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 
     ![映像](common/new-save-attribute.png)
 
     ![映像](common/new-attribute-details.png)
 
-    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 讓 [命名空間] 保持空白。
+    c. 讓 [命名空間]  保持空白。
 
-    d. 選取 [來源] 作為 [屬性]。
+    d. 選取 [來源] 作為 [屬性]  。
 
-    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
+    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
 
-    f. 按一下 [確定]。
+    f. 按一下 [確定]  。
 
-    g. 按一下 [檔案] 。
+    g. 按一下 [檔案]  。
 
     >[!NOTE]
     >帳戶屬性值不是真實的值。 您將會更新此值，稍後會在本教學課程中說明。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載 [中繼資料 XML]，並儲存在您的電腦上。
+4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  以依據您的需求從指定選項下載 [中繼資料 XML]  ，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 NetSuite] 區段上，依據您的需求複製適當的 URL。
+6. 在 [設定 NetSuite]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -173,85 +173,85 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 1. 在瀏覽器中開啟新索引標籤，以系統管理員的身分登入您的 NetSuite 公司網站。
 
-2. 在頁面頂端的工具列中，按一下 [設定]，巡覽至 [公司]，然後按一下 [啟用功能]。
+2. 在頁面頂端的工具列中，按一下 [設定]  ，巡覽至 [公司]  ，然後按一下 [啟用功能]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. 在頁面中間的工具列中，按一下 [SuiteCloud]。
+3. 在頁面中間的工具列中，按一下 [SuiteCloud]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. 在 [管理驗證] 區段底下，選取 [SAML 單一登入] 以在 NetSuite 中啟用 [SAML 單一登入] 選項。
+4. 在 [管理驗證]  區段底下，選取 [SAML 單一登入]  以在 NetSuite 中啟用 [SAML 單一登入] 選項。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. 在頁面頂端的工具列上，按一下 [設定]。
+5. 在頁面頂端的工具列上，按一下 [設定]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-setup.png)
 
-6. 從 [設定工作] 清單中，按一下 [整合]。
+6. 從 [設定工作]  清單中，按一下 [整合]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-integration.png)
 
-7. 在 [管理驗證] 區段中，按一下 [SAML 單一登入]。
+7. 在 [管理驗證]  區段中，按一下 [SAML 單一登入]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-saml.png)
 
-8. 在 [SAML 設定] 頁面上的 [NetSuite 組態] 區段底下，執行下列步驟：
+8. 在 [SAML 設定]  頁面上的 [NetSuite 組態]  區段底下，執行下列步驟：
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-saml-setup.png)
   
-    a. 選取 [主要驗證方法]。
+    a. 選取 [主要驗證方法]  。
 
-    b. 對標示為 [SAMLV2 識別提供者中繼資料] 的欄位，選取 [上傳 IDP 中繼資料檔案]。 然後按一下 [瀏覽] ，上傳您從 Azure 入口網站下載的中繼資料檔案。
+    b. 對標示為 [SAMLV2 識別提供者中繼資料]  的欄位，選取 [上傳 IDP 中繼資料檔案]  。 然後按一下 [瀏覽]  ，上傳您從 Azure 入口網站下載的中繼資料檔案。
 
-    c. 按一下 [提交] 。
+    c. 按一下 [提交]  。
 
-9. 在 NetSuite 中，按一下 [設定]，巡覽至 [公司]，然後從頂端導覽功能表按一下 [公司資訊]。
+9. 在 NetSuite 中，按一下 [設定]  ，巡覽至 [公司]  ，然後從頂端導覽功能表按一下 [公司資訊]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-com.png)
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-account-id.png)
 
-    b. 在右側資料行上的 [公司資訊]頁面上，複製 [帳戶識別碼]。
+    b. 在右側資料行上的 [公司資訊]  頁面上，複製 [帳戶識別碼]  。
 
-    c. 將您從 NetSuite 帳戶複製的 [帳戶識別碼] 貼至 Azure AD 中的 [屬性值] 欄位中。 
+    c. 將您從 NetSuite 帳戶複製的 [帳戶識別碼]  貼至 Azure AD 中的 [屬性值]  欄位中。 
 
 10. 在使用者可以執行單一登入 NetSuite 之前，必須先在 NetSuite 中指派適當的權限。 請依照下列指示來指派這些權限。
 
-    a. 在頂端的導覽功能表上，按一下 [設定]。
+    a. 在頂端的導覽功能表上，按一下 [設定]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-setup.png)
 
-    b. 在左方的瀏覽功能表上，選取 [使用者/角色]，然後按一下 [管理角色]。
+    b. 在左方的瀏覽功能表上，選取 [使用者/角色]  ，然後按一下 [管理角色]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-manage-roles.png)
 
-    c. 按一下 [新角色] 。
+    c. 按一下 [新角色]  。
 
     d. 針對新角色輸入**名稱**。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-new-role.png)
 
-    e. 按一下 [檔案] 。
+    e. 按一下 [檔案]  。
 
-    f. 在頂端的功能表中，按一下 [權限] 。 然後按一下 [設定] 。
+    f. 在頂端的功能表中，按一下 [權限]  。 然後按一下 [設定]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-sso.png)
 
-    g. 選取 [SAML 單一登入]，然後按一下 [新增]。
+    g. 選取 [SAML 單一登入]  ，然後按一下 [新增]  。
 
-    h. 按一下 [檔案] 。
+    h. 按一下 [檔案]  。
 
-    i. 在頂端的瀏覽功能表上，按一下 [設定]，然後按一下 [設定管理員]。
+    i. 在頂端的瀏覽功能表上，按一下 [設定]  ，然後按一下 [設定管理員]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-setup.png)
 
-    j. 在左方的瀏覽功能表上，選取 [使用者/角色]，然後按一下 [管理使用者]。
+    j. 在左方的瀏覽功能表上，選取 [使用者/角色]  ，然後按一下 [管理使用者]  。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-manage-users.png)
 
-    k. 選取測試使用者。 按一下 [編輯]，然後巡覽至 [存取] 索引標籤。
+    k. 選取測試使用者。 按一下 [編輯]  ，然後巡覽至 [存取]  索引標籤。
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-edit-user.png)
 
@@ -259,17 +259,17 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/NetSuite-tutorial/ns-add-role.png)
 
-    m. 按一下 [檔案] 。
+    m. 按一下 [檔案]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -277,20 +277,20 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 NetSuite 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [NetSuite]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [NetSuite]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -298,19 +298,19 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     ![應用程式清單中的 NetSuite 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-netsuite-test-user"></a>建立 NetSuite 測試使用者
 

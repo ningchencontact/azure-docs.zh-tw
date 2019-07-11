@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795044"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509446"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>在 Azure 入口網站中移轉要求多重要素驗證的傳統原則
 
@@ -36,15 +36,15 @@ ms.locfileid: "59795044"
 
 ## <a name="open-a-classic-policy"></a>開啟傳統原則
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側導覽列上，按一下 [Azure Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側導覽列上，按一下 [Azure Active Directory]  。
 
    ![Azure Active Directory](./media/policy-migration-mfa/01.png)
 
-1. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+1. 在 [Azure Active Directory]  頁面的 [管理]  區段中，按一下 [條件式存取]  。
 
    ![條件式存取](./media/policy-migration-mfa/02.png)
 
-1. 在 [管理] 區段中，按一下 [傳統原則 (預覽)]。
+1. 在 [管理]  區段中，按一下 [傳統原則 (預覽)]  。
 
    ![傳統原則](./media/policy-migration-mfa/12.png)
 
@@ -54,71 +54,61 @@ ms.locfileid: "59795044"
 
 ## <a name="create-a-new-conditional-access-policy"></a>建立新的條件式存取原則
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側導覽列上，按一下 [Azure Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側導覽列上，按一下 [Azure Active Directory]  。
 
    ![Azure Active Directory](./media/policy-migration/01.png)
 
-1. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+1. 在 [Azure Active Directory]  頁面的 [管理]  區段中，按一下 [條件式存取]  。
 
    ![條件式存取](./media/policy-migration/02.png)
 
-1. 若要在 [條件式存取] 頁面上開啟 [新增] 頁面，請在頂端的工具列中按一下 [新增]。
+1. 若要在 [條件式存取]  頁面上開啟 [新增]  頁面，請在頂端的工具列中按一下 [新增]  。
 
    ![條件式存取](./media/policy-migration/03.png)
 
-1. 在 [新增] 頁面的 [名稱] 文字方塊中，鍵入您的原則名稱。
+1. 在 [新增]  頁面的 [名稱]  文字方塊中，鍵入您的原則名稱。
 
    ![條件式存取](./media/policy-migration/29.png)
 
-1. 在 [指派] 區段中，按一下 [使用者和群組]。
+1. 在 [指派]  區段中，按一下 [使用者和群組]  。
 
    ![條件式存取](./media/policy-migration/05.png)
 
-   1. 如已選取傳統原則中的所有使用者，請按一下 [所有使用者]。 
+   1. 如已選取傳統原則中的所有使用者，請按一下 [所有使用者]  。 
 
-   ![條件式存取](./media/policy-migration/35.png)
+      ![條件式存取](./media/policy-migration/35.png)
 
-   1. 如已選取傳統原則中的群組，請按一下 [選取使用者和群組]，然後選取所需的使用者和群組。
+   1. 如已選取傳統原則中的群組，請按一下 [選取使用者和群組]  ，然後選取所需的使用者和群組。
 
-   ![條件式存取](./media/policy-migration/36.png)
+      ![條件式存取](./media/policy-migration/36.png)
 
-   1. 如已排除群組，請按一下 [排除] 索引標籤，然後選取所需的使用者和群組。 
+   1. 如已排除群組，請按一下 [排除]  索引標籤，然後選取所需的使用者和群組。 
 
-   ![條件式存取](./media/policy-migration/37.png)
+      ![條件式存取](./media/policy-migration/37.png)
 
-1. 在 [新增] 頁面上，若要開啟 [雲端應用程式] 頁面，請在 [指派] 區段中，按一下 [雲端應用程式]。
-
-1. 在 [雲端應用程式] 頁面上，執行下列步驟︰
-
-   ![條件式存取](./media/policy-migration/08.png)
-
-   1. 按一下 [選取應用程式]。
-
-   1. 按一下 [選取] 。
-
-   1. 在 [選取] 頁面上，選取您的雲端應用程式，然後按一下 [選取]。
-
-   1. 在 [雲端應用程式] 頁面上，按一下 [完成]。
-
-1. 如已選取 [需要多重要素驗證]：
+1. 在 [新增]  頁面上，若要開啟 [雲端應用程式]  頁面，請在 [指派]  區段中，按一下 [雲端應用程式]  。
+1. 在 [雲端應用程式]  頁面上，執行下列步驟︰
+   1. 按一下 [選取應用程式]  。
+   1. 按一下 [選取]  。
+   1. 在 [選取]  頁面上，選取您的雲端應用程式，然後按一下 [選取]  。
+   1. 在 [雲端應用程式]  頁面上，按一下 [完成]  。
+1. 如已選取 [需要多重要素驗證]  ：
 
    ![條件式存取](./media/policy-migration/26.png)
 
-   1. 在 [存取控制] 區段中，按一下 [授與]。
+   1. 在 [存取控制]  區段中，按一下 [授與]  。
 
-   ![條件式存取](./media/policy-migration/27.png)
+      ![條件式存取](./media/policy-migration/27.png)
 
-   1. 在 [授與] 頁面上，按一下 [授與存取權]，然後按一下 [需要多重要素驗證]。
-
-   1. 按一下 [選取] 。
-
-1. 按一下 [開啟] 以啟用您的原則。
+   1. 在 [授與]  頁面上，按一下 [授與存取權]  ，然後按一下 [需要多重要素驗證]  。
+   1. 按一下 [選取]  。
+1. 按一下 [開啟]  以啟用您的原則。
 
    ![條件式存取](./media/policy-migration/30.png)
 
 ## <a name="disable-the-classic-policy"></a>停用傳統原則
 
-若要停用傳統原則，請在 [詳細資料] 檢視中按一下 [停用]。
+若要停用傳統原則，請在 [詳細資料]  檢視中按一下 [停用]  。
 
 ![傳統原則](./media/policy-migration-mfa/14.png)
 

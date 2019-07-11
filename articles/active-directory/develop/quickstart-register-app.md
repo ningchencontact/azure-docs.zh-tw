@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 156b26454aad6d6fd3230e19b47a938841331aec
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545715"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482579"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式
 
@@ -34,8 +34,8 @@ ms.locfileid: "65545715"
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊] > [新增註冊]。
-1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
+1. 在左側導覽窗格中，選取 [Azure Active Directory]  服務，然後選取 [應用程式註冊] > [新增註冊]  。
+1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊：
 
    - **名稱** - 輸入會顯示給應用程式使用者的有意義應用程式名稱。
    - **支援的帳戶類型** - 選取要讓應用程式支援的帳戶。
@@ -43,22 +43,22 @@ ms.locfileid: "65545715"
        | 支援的帳戶類型 | 說明 |
        |-------------------------|-------------|
        | **僅此組織目錄中的帳戶** | 如果您要建置企業營運 (LOB) 應用程式，請選取此選項。 如果您未在目錄中註冊應用程式，則無法使用此選項。<br><br>此選項對應至僅限 Azure AD 的單一租用戶。<br><br>除非您在目錄外註冊應用程式，否則會預設使用此選項。 如果在目錄外註冊應用程式，則會預設使用 Azure AD 多租用戶和個人 Microsoft 帳戶。 |
-       | **任何組織目錄中的帳戶** | 如果您想要鎖定所有商業和教育客戶，請選取此選項。<br><br>此選項對應至僅限 Azure AD 的多租用戶。<br><br>如果您將應用程式註冊為僅限 Azure AD 的單一租用戶，則可透過 [驗證] 刀鋒視窗，將其更新為 Azure AD 多租用戶以及重新更新為單一租用戶。 |
+       | **任何組織目錄中的帳戶** | 如果您想要鎖定所有商業和教育客戶，請選取此選項。<br><br>此選項對應至僅限 Azure AD 的多租用戶。<br><br>如果您將應用程式註冊為僅限 Azure AD 的單一租用戶，則可透過 [驗證]  刀鋒視窗，將其更新為 Azure AD 多租用戶以及重新更新為單一租用戶。 |
        | **任何組織目錄中的帳戶及個人的 Microsoft 帳戶** | 選取此選項以鎖定最廣泛的一組客戶。<br><br>此選項對應至 Azure AD 多租用戶和個人 Microsoft 帳戶。<br><br>如果您將應用程式註冊為 Azure AD 多租用戶和個人 Microsoft 帳戶，則無法在 UI 中變更此選擇。 相反地，您必須使用應用程式資訊清單編輯器來變更支援的帳戶類型。 |
 
-   - **重新導向 URI (選擇性)** - 選取您要建置的應用程式類型 ([Web] 或 [公用用戶端 (行動和傳統型)])，然後輸入應用程式的重新導向 URI (或回覆 URL)。
+   - **重新導向 URI (選擇性)** - 選取您要建置的應用程式類型 ([Web]  或 [公用用戶端 (行動和傳統型)]  )，然後輸入應用程式的重新導向 URI (或回覆 URL)。
        - 若為 Web 應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
        - 若為公用用戶端應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `myapp://auth`。
 
      若要查看 Web 應用程式或原生應用程式的特定範例，請參閱我們的[快速入門](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)。
 
-1. 完成時，選取 [註冊]。
+1. 完成時，選取 [註冊]  。
 
-    [![在 Azure 入口網站註冊新的應用程式](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![顯示在 Azure 入口網站註冊新應用程式的畫面](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD 會將唯一的應用程式 (用戶端) 識別碼指派給您的應用程式，然後系統會帶您進入應用程式的 [概觀] 頁面。 若要在應用程式中新增額外的功能，您可以選取其他組態選項，包括商標、憑證和祕密、API 權限等等。
+Azure AD 會將唯一的應用程式 (用戶端) 識別碼指派給您的應用程式，然後系統會帶您進入應用程式的 [概觀]  頁面。 若要在應用程式中新增額外的功能，您可以選取其他組態選項，包括商標、憑證和祕密、API 權限等等。
 
-[![新註冊應用程式的 [概觀] 頁面](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![新註冊應用程式 [概觀] 頁面的範例](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

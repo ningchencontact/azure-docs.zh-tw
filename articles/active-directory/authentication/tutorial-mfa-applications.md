@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113249"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>教學課程：完成 Azure Multi-Factor Authentication 試驗推出
 
@@ -36,22 +36,22 @@ ms.locfileid: "56204792"
 ## <a name="enable-azure-multi-factor-authentication"></a>啟用 Azure Multi-Factor Authentication
 
 1. 使用全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至 [Azure Active Directory]、[條件式存取]
-1. 選取 [新增原則]
+1. 瀏覽至 [Azure Active Directory]  、[條件式存取] 
+1. 選取 [新增原則] 
 1. 將您的原則命名為 **MFA 試驗**
-1. 在 [使用者和群組] 下方，選取 [選取使用者和群組] 選項按鈕
+1. 在 [使用者和群組]  下方，選取 [選取使用者和群組]  選項按鈕
     * 選取您在本文的先決條件一節中建立的試驗群組
-    * 按一下 [完成]
-1. 在 [雲端應用程式] 下方，選取 [選取應用程式] 選項按鈕
+    * 按一下 [完成] 
+1. 在 [雲端應用程式]  下方，選取 [選取應用程式]  選項按鈕
     * Azure 入口網站的雲端應用程式是 **Microsoft Azure 管理**
-    * 按一下 [選取]
-    * 按一下 [完成]
-1. 略過 [條件] 區段
-1. 在 [授與] 下方，確定已選取 [授與存取權] 選項按鈕
-    * 核取 [需要多重要素驗證] 的方塊
-    * 按一下 [選取]
-1. 略過 [工作階段] 區段
-1. 將 [啟用原則] 切換為 [開啟]
+    * 按一下 [選取] 
+    * 按一下 [完成] 
+1. 略過 [條件]  區段
+1. 在 [授與]  下方，確定已選取 [授與存取權]  選項按鈕
+    * 核取 [需要多重要素驗證]  的方塊
+    * 按一下 [選取] 
+1. 略過 [工作階段]  區段
+1. 將 [啟用原則]  切換為 [開啟] 
 1. 按一下 [建立] 
 
 ## <a name="test-azure-multi-factor-authentication"></a>測試 Azure Multi-Factor Authentication
@@ -70,9 +70,9 @@ ms.locfileid: "56204792"
 如果您決定不再使用您在本教學課程中設定的功能，請進行下列變更。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至 [Azure Active Directory]、[條件式存取]。
+1. 瀏覽至 [Azure Active Directory]  、[條件式存取]  。
 1. 選取您先前建立的條件式存取原則。
-1. 按一下 [刪除] 。
+1. 按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

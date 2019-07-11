@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434784"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107644"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中設定具名位置
 
@@ -37,25 +37,25 @@ ms.locfileid: "58434784"
 
 * Azure AD 租用戶。 註冊[免費試用](https://azure.microsoft.com/trial/get-started-active-directory/)。 
 * 一個使用者，他必須是租用戶端全域系統管理員。
-* 在您的組織中建立且可信任的 IP 範圍。 IP 範圍的格式必須為「無類別網域間路由選擇」(CIDR)。
+* 在您的組織中建立且可信任的 IP 範圍。 IP 範圍的格式必須為「無類別網域間路由選擇」  (CIDR)。
 
 ## <a name="configure-named-locations"></a>設定具名位置
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左窗格中，選取 [Azure Active Directory]，然後從 [安全性] 區段選取 [條件式存取]。
+2. 在左窗格中，選取 [Azure Active Directory]  ，然後從 [安全性]  區段選取 [條件式存取]  。
 
     ![[條件式存取] 索引標籤](./media/quickstart-configure-named-locations/entrypoint.png)
 
-3. 在 [條件式存取] 頁面上，選取 [具名位置] 並選取 [新增位置]。
+3. 在 [條件式存取]  頁面上，選取 [具名位置]  並選取 [新增位置]  。
 
     ![具名位置](./media/quickstart-configure-named-locations/namedlocation.png)
 
 6. 填寫新頁面上的表單。 
 
-   * 在 [名稱] 方塊中，輸入具名位置的名稱。
-   * 在 [IP 位址] 方塊中，輸入 CIDR 格式的 IP 範圍。  
-   * 按一下頁面底部的 [新增] 。
+   * 在 [名稱]  方塊中，輸入具名位置的名稱。
+   * 在 [IP 位址]  方塊中，輸入 CIDR 格式的 IP 範圍。  
+   * 按一下頁面底部的 [新增]  。
     
      ![[新增] 刀鋒視窗](./media/quickstart-configure-named-locations/61.png)
 

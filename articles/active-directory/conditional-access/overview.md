@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: a5ef72f1db329d04809a1069c1916d1ffcfffe65
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997255"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509392"
 ---
-# <a name="what-is-conditional-access-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的條件式存取？
+# <a name="what-is-conditional-access"></a>何謂條件式存取？
 
 安全性是使用雲端之組織的首要考量。 就管理雲端資源而言，雲端安全性的關鍵層面就是身分識別和存取。 在行動優先、雲端至上的世界中，使用者可以使用各種裝置和應用程式、從任何位置存取您組織的資源。 因此，只將焦點放在誰可以存取資源，已不再足夠。 為了掌控安全性與生產力之間的平衡，您在進行存取控制決策時，也必須考量資源存取方式因素。 有了 Azure Active Directory (Azure AD) 條件式存取，您就能夠因應這項需求。 條件式存取是 Azure Active Directory 的功能。 使用條件式存取，您便可以實作會根據條件存取雲端應用程式的自動化存取控制決定。
 
@@ -39,13 +39,10 @@ ms.locfileid: "65997255"
 
 以下是條件式存取能夠有所幫助的一些常見存取考量：
 
-- **[登入風險](conditions.md#sign-in-risk)**：Azure AD Identity Protection 會偵測登入風險。 如果偵測到的登入風險指出有不良執行者，您要如何限制存取？ 當您想要取得登入使用者是合法使用者的更有力證據時，該怎麼辦？ 當您的懷疑強烈到甚至足以封鎖定使用者存取應用程式時，又該怎麼辦？  
-
-- **[網路位置](location-condition.md)**：從任何位置都可以存取 Azure AD。 如果執行存取嘗試的來源網路位置不在您的 IT 部門控制下，該怎麼辦？ 針對來自公司網路的存取嘗試，使用使用者名稱與密碼的組合可能就足以作為身分識別證明。 如果針對從世界上其他非預期國家或地區起始的存取嘗試，您要求提供更強力的證明，該怎麼辦？ 當您甚至想要封鎖來自特定位置的存取嘗試時，又該怎麼辦？  
-
-- **[裝置管理](conditions.md#device-platforms)**：在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的人才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？
-
-- **[用戶端應用程式](conditions.md#client-apps)**：現今，您可以使用各種不同的應用程式類型 (例如 Web 型應用程式、行動應用程式或傳統型應用程式) 來存取許多雲端應用程式。 如果存取嘗試是使用造成已知問題的用戶端應用程式類型來執行的，該怎麼辦？ 如果您要求必須使用 IT 部門所管理的裝置才能使用某些應用程式類型，又該怎麼辦？
+- **[登入風險](conditions.md#sign-in-risk)** ：Azure AD Identity Protection 會偵測登入風險。 如果偵測到的登入風險指出有不良執行者，您要如何限制存取？ 當您想要取得登入使用者是合法使用者的更有力證據時，該怎麼辦？ 當您的懷疑強烈到甚至足以封鎖定使用者存取應用程式時，又該怎麼辦？  
+- **[網路位置](location-condition.md)** ：從任何位置都可以存取 Azure AD。 如果執行存取嘗試的來源網路位置不在您的 IT 部門控制下，該怎麼辦？ 針對來自公司網路的存取嘗試，使用使用者名稱與密碼的組合可能就足以作為身分識別證明。 如果針對從世界上其他非預期國家或地區起始的存取嘗試，您要求提供更強力的證明，該怎麼辦？ 當您甚至想要封鎖來自特定位置的存取嘗試時，又該怎麼辦？  
+- **[裝置管理](conditions.md#device-platforms)** ：在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的人才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？
+- **[用戶端應用程式](conditions.md#client-apps)** ：現今，您可以使用各種不同的應用程式類型 (例如 Web 型應用程式、行動應用程式或傳統型應用程式) 來存取許多雲端應用程式。 如果存取嘗試是使用造成已知問題的用戶端應用程式類型來執行的，該怎麼辦？ 如果您要求必須使用 IT 部門所管理的裝置才能使用某些應用程式類型，又該怎麼辦？
 
 這些問題和相關解答代表了 Azure AD 條件式存取的常見存取案例。
 條件式存取是 Azure Active Directory 的功能，可讓您使用以原則為基礎的方法來處理存取案例。
@@ -58,13 +55,11 @@ ms.locfileid: "65997255"
 
 ![控制](./media/overview/10.png)
 
-**Then do this** 會指定您原則的回應。 請務必注意，條件式存取原則的目標不是要授與對雲端應用程式的存取權。 在 Azure AD 中，授與對雲端應用程式的存取權是使用者指派所要處理的主題。 藉由條件式存取原則，您將可以控制已獲授權的使用者 (已取得雲端應用程式存取權的使用者) 在特定的條件下如何存取雲端應用程式。 在您的回應中，您將強制額外的需求，例如多重要素驗證、受控裝置等。 在 Azure AD 條件式存取內容中，您原則所強制的需求稱為存取控制。 以最嚴格的限制形式來說，您的原則可以封鎖存取。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的存取控制](controls.md)。
 
 **When this happens** 定義了觸發您原則的原因。 此原因是以一組已滿足的條件為特徵。 在 Azure AD 條件式存取中，有兩個指派條件扮演特殊的角色：
 
-- **[使用者](conditions.md#users-and-groups)**：執行存取嘗試的使用者 (**執行者**)。
-
-- **[雲端應用程式](conditions.md#cloud-apps-and-actions)**：存取嘗試的目標 (**目標**)。
+- **[使用者](conditions.md#users-and-groups)** ：執行存取嘗試的使用者 (**執行者**)。
+- **[雲端應用程式](conditions.md#cloud-apps-and-actions)** ：存取嘗試的目標 (**目標**)。
 
 這兩個條件是條件式存取原則中的必要條件。 除了這兩個必要條件之外，您也可以納入說明存取嘗試執行方式的額外條件。 常見的範例包括使用您公司網路外的行動裝置或位置。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的條件](conditions.md)。
 
@@ -80,7 +75,7 @@ ms.locfileid: "65997255"
 
 條件式存取原則可完美地與[同盟驗證](../../security/azure-ad-choose-authn.md#federated-authentication)搭配使用。 此支援包括所有支援的條件及控制項，以及可了解如何使用 [Azure AD 報告](../reports-monitoring/concept-sign-ins.md)將原則套用至作用中的使用者登入。
 
-「使用 Azure AD 進行同盟驗證」表示受信任驗證服務會處理 Azure AD 的使用者驗證。 受信任的驗證服務可能是 Active Directory 同盟服務 (AD FS)，或任何其他同盟服務。 在此組態中，主要的使用者驗證會在服務上執行，而 Azure AD 會用來登入個別的應用程式。 需先套用 Azure AD 條件式存取，才能將存取權授與使用者要存取的應用程式。 
+「使用 Azure AD 進行同盟驗證」  表示受信任驗證服務會處理 Azure AD 的使用者驗證。 受信任的驗證服務可能是 Active Directory 同盟服務 (AD FS)，或任何其他同盟服務。 在此組態中，主要的使用者驗證會在服務上執行，而 Azure AD 會用來登入個別的應用程式。 需先套用 Azure AD 條件式存取，才能將存取權授與使用者要存取的應用程式。 
 
 如果設定的條件式存取原則需要多重要素驗證，Azure AD 預設會使用 Azure MFA。 如果您使用同盟服務來進行 MFA，您可以在 [PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings) 中將 `-SupportsMFA` 設定為 `$true`，以在需要 MFA 時，將 Azure AD 重新導向至同盟服務。 此設定適用於支援 MFA 查問要求 (由 Azure AD 使用`wauth= http://schemas.microsoft.com/claims/multipleauthn` 所提出) 的同盟驗證服務。
 
@@ -89,6 +84,8 @@ ms.locfileid: "65997255"
 ## <a name="license-requirements"></a>授權需求
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
+
+擁有 [Microsoft 365 商務版授權](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)的客戶也有條件式存取功能的存取權。 
 
 ## <a name="next-steps"></a>後續步驟
 

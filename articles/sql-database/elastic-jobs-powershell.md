@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666779"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445377"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 要建立彈性作業代理程式，必須要有作為[作業資料庫](sql-database-job-automation-overview.md#job-database)的資料庫 (S0 或更高版本)。 
 
-*下列指令碼會建立新的資源群組、伺服器，以及作為作業資料庫的資料庫。下列指令碼也會建立含有 2 個空白資料庫的第二個伺服器，以對其執行作業。*
+*下列指令碼會建立新的資源群組、伺服器，以及作為作業資料庫的資料庫。下列指令碼也會建立含有兩個空白資料庫的第二個伺服器，以對其執行作業。*
 
 彈性作業沒有特定的命名需求，因此，您可以使用您所需的任何命名慣例，只要它們符合 [Azure 需求](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)即可。
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>作業執行狀態
+
+下表列出可能的作業執行狀態：
+
+|State|說明|
+|:---|:---|
+|**建立時間** | 作業執行剛建立，且尚未開始執行。|
+|**InProgress** | 作業執行目前正在進行中。|
+|**WaitingForRetry** | 作業執行無法完成其動作，且正在等候重試。|
+|**已成功** | 作業執行已順利完成。|
+|**SucceededWithSkipped** | 作業執行已順利完成，但略過了部分子系。|
+|**已失敗** | 作業執行失敗，且用完重試次數。|
+|**TimedOut** | 作業執行逾時。|
+|**Canceled** | 作業執行已取消。|
+|**已略過** | 已略過作業執行，因為已在相同的目標上執行相同作業步驟的另一個執行。|
+|**WaitingForChildJobExecutions** | 作業執行正在等候其子系執行完成。|
 
 ## <a name="schedule-the-job-to-run-later"></a>排程要稍後執行的作業
 

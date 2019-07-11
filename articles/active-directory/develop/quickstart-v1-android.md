@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122002"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482664"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入門：從 Android 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -45,7 +45,7 @@ Azure AD 驗證程式庫 (ADAL) Android 程式庫可讓您的應用程式使用�
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>案例：登入使用者並呼叫 Microsoft Graph
 
-![拓撲](./media/quickstart-v1-android/active-directory-android-topology.png)
+![顯示 Azure AD 和 Android 拓樸](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 您可以將此應用程式用於所有的 Azure AD 帳戶。 它同時支援單一租用戶和多租用戶案例 (會在後續步驟中討論)。 它也會向您示範如何建置應用程式以便與企業使用者連線，並透過 Microsoft Graph 存取其 Azure + O365 資料。 驗證流程期間，使用者必須登入並同意應用程式的權限，在某些情況下可能需要系統管理員同意應用程式。 此範例中的大部分邏輯會示範如何驗證使用者，並對 Microsoft Graph 進行基本呼叫。
 

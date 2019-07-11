@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603176"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561459"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>教學課程：訂購 Azure 資料箱磁碟
 
@@ -49,7 +49,12 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 
 ## <a name="order-data-box-disk"></a>訂購資料箱磁碟
 
-請在 [Azure 入口網站](https://aka.ms/azuredataboxfromdiskdocs)中執行下列步驟，以訂購資料箱磁碟。
+登入：
+
+- 位於此 URL (https://portal.azure.com ) 的 Azure 入口網站，以訂購資料箱磁碟。
+- 或者，位於以下 URL 的 Azure Government 入口網站： https://portal.azure.us 。 如需詳細資訊，請移至[使用入口網站連線到 Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)。
+
+請採取下列步驟以訂購資料箱磁碟。
 
 1. 在入口網站的左上角按一下 [+ 建立資源]  ，然後搜尋 [Azure 資料箱]  。 按一下 [Azure 資料箱]  。
     
@@ -82,7 +87,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
     |目的地 Azure 區域| 選取儲存體帳戶的區域。<br> 目前支援全美國、西歐和北歐、加拿大及澳大利亞地區的儲存體帳戶。 |
     |預估資料大小 (TB)| 輸入以 TB 為單位的估計值。 <br>Microsoft 會根據資料大小為您傳送適當數目的 8 TB SSD (可用容量為 7 TB)。 <br>5 個磁碟的可用容量上限為 35 TB。 |
     |磁碟通行金鑰| 如果您核取了 [使用自訂金鑰而非 Azure 產生的通行金鑰]  ，請提供磁碟通行金鑰。 <br> 請提供 12 到 32 個字元的英數字元金鑰，且至少須包含一個數字和一個特殊字元。 允許的特殊字元為 `@?_+`。 <br> 您可以選擇略過此選項並使用 Azure 產生的通行金鑰，將您的磁碟解除鎖定。|
-    |儲存體目的地     | 從儲存體帳戶、受控磁碟或兩者中進行選擇。 <br> 根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中選取儲存體帳戶。 資料箱可以與最多 10 個儲存體帳戶連結。 <br> 您也可以建立新的**一般用途 v1**、**一般用途 v2** 或 **Blob 儲存體帳戶**。 <br>您無法使用已設定規則的儲存體帳戶。 儲存體帳戶必須**允許來自防火牆和虛擬網路區段中所有網路的存取**。|
+    |儲存體目的地     | 從儲存體帳戶、受控磁碟或兩者中進行選擇。 <br> 根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中選取儲存體帳戶。 資料箱磁碟只能與 1 個儲存體帳戶連結。 <br> 您也可以建立新的**一般用途 v1**、**一般用途 v2** 或 **Blob 儲存體帳戶**。 <br>支援具有虛擬網路的儲存體帳戶。 若要允許資料箱服務使用受保護的儲存體帳戶來運作，請在儲存體帳戶網路防火牆設定內啟用受信任的服務。 如需詳細資訊，請參閱如何[新增 Azure 資料箱作為受信任的服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。|
 
     如果使用儲存體帳戶作為儲存體目的地，您就會看到下列螢幕擷取畫面：
 

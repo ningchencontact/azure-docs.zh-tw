@@ -1,21 +1,24 @@
 ---
 title: 如何在 Azure Cosmos DB 中設定多重主機
 description: 了解如何在 Azure Cosmos DB 中對應用程式設定多重主機。
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/02/2019
+ms.author: mjbrown
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244754"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538086"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>在使用 Azure Cosmos DB 的應用程式中設定多重主機
 
-若要在應用程式中使用多重主機功能，您必須在 Azure Cosmos DB 中啟用多區域寫入並設定多路連接功能。 若要設定多路連接，請設定應用程式部署所在的區域。
+所建立的帳戶在啟用多個寫入區域後，您就必須在應用程式中對 ConnectionPolicy 進行兩項變更，DocumentClient 才能在 Azure Cosmos DB 中啟用多重主機及多路連接功能。 在 ConnectionPolicy 內，將 UseMultipleWriteLocations 設定為 true，並將應用程式部署所在區域的名稱傳遞至 SetCurrentLocation。 這會根據所傳入位置的地理鄰近性填入 PreferredLocations 屬性。 如果之後在帳戶中新增新的區域，應用程式便不必更新或重新部署，而是會自動偵測較接近的區域，並在發生區域性事件時自動以該處作為主要位置。
+
+> [!TIP]
+> 所建立的 Cosmos 帳戶如果一開始並未設定多重主機，便可不停機就進行遷移。 若要深入了解，請參閱[設定多重寫入區域](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 

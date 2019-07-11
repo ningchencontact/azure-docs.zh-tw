@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603455"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551517"
 ---
 # <a name="what-is-azure-data-box"></a>什麼是 Azure 資料箱？
 
@@ -116,6 +116,9 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
     - 歐盟 - 西歐及北歐。
     - 英國 - 英國南部與英國西部。
     - 法國 - 法國中部與法國南部。
+    - 日本 - 日本東部和日本西部。
+    - 澳大利亞 - 澳大利亞東部和澳大利亞東南部。
+    - 加拿大 - 加拿大東部和加拿大中部。
 
 - **目的地儲存體帳戶** - 儲存資料的儲存體帳戶在服務可用的所有 Azure 區域都可用。  
 

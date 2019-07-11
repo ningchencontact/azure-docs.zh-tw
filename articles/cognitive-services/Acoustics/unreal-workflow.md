@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784671"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477821"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>聲場專案 Unreal/Wwise 設計教學課程
 本教學課程描述 Unreal 和 Wwise 中聲場專案的設計設定與工作流程。
@@ -122,6 +122,11 @@ Wwise 障礙物曲線會影響隔離的乾燥層級，但聲場專案會使用�
 必須在呼叫強制載入磚之前就設定好磚大小。 例如，您可以執行類似此類的作業，以載入 ACE 檔案、設定磚大小，以及在區域中進行串流：
 
 ![Unreal 中串流設定選項的螢幕擷取畫面](media/streaming-setup.png)
+
+此範例中使用的「載入聲場資料」藍圖函式具有下列參數：
+
+* **目標：** AcousticsSpace 動作項目。
+* **新的聲場模擬：** 要載入的聲場資料資產。 將此選項保留為空白/設為 Null，將會卸載目前的聲場模擬而不載入新的。
 
 ### <a name="optionally-query-for-surface-proximity"></a>選擇性查詢表面鄰近性
 如果您要查看某一收聽者周圍特定方向的表面距離靠近狀況，可以使用查詢距離函式。 此函式很有用，可用於驅動方向性延遲反射，或用於由表面鄰近性驅動的其他遊戲邏輯。 查詢的成本低於光線轉換，因為是從聲場查閱資料表取得結果。

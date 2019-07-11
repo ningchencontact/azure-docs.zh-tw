@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4724789dd1a0893c5ef4ab112306c185f0e87da7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162069"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274374"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -71,7 +71,7 @@ Resource Graph 會在使用者層級進行查詢的節流處理。 服務回應�
 - `x-ms-user-quota-remaining` (int)：使用者的剩餘資源配額。 此值會對應至查詢計數。
 - `x-ms-user-quota-resets-after` (hh:mm:ss)：使用者配額耗用量重設之前的剩餘時間長度
 
-如需詳細資訊，請參閱[對 Resource Manager 要求進行節流](../../azure-resource-manager/resource-manager-request-limits.md)(機器翻譯\)。
+如需詳細資訊，請參閱[節流要求指引](./concepts/guidance-for-throttled-requests.md)。
 
 ## <a name="running-your-first-query"></a>執行您的第一個查詢
 

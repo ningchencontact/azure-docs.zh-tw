@@ -1,30 +1,29 @@
 ---
 title: '教學課程：使用 Apache Kafka 串流 API - Azure HDInsight '
-description: 了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka 串流 API。 此 API 可讓您在 Kafka 主題之間執行串流處理。
+description: 教學課程 - 了解如何搭配使用 Apache Kafka 串流 API 與 HDInsight 上的 Kafka。 此 API 可讓您在 Kafka 主題之間執行串流處理。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 9425af0f39d14287b49fe06a81172281feb24e83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/25/2019
+ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715965"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446386"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中使用 Apache Kafka 串流 API
 
-了解如何建立應用程式，該應用程式會使用 Apache Kafka 串流 API，並且與 HDInsight 上的 Kafka 搭配使用。 
+了解如何建立應用程式，該應用程式會使用 Apache Kafka 串流 API，並且與 HDInsight 上的 Kafka 搭配使用。
 
 本教學課程中使用的應用程式是串流字數統計程式。 它會讀取 Kafka 主題中的文字資料、擷取個別文字，然後將文字和字數儲存到另一個 Kafka 主題中。
 
-> [!NOTE]  
-> Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kafka 1.1.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。 
->
-> 如需有關 Kafka 串流的詳細資訊，請參閱 Apache.org 上的[串流簡介](https://kafka.apache.org/10/documentation/streams/)文件。
+Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kafka 1.1.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。
+
+如需有關 Kafka 串流的詳細資訊，請參閱 Apache.org 上的[串流簡介](https://kafka.apache.org/10/documentation/streams/)文件。
 
 在本教學課程中，您了解如何：
 
@@ -68,8 +67,7 @@ ms.locfileid: "64715965"
     </dependency>
     ```
 
-    > [!NOTE]  
-    > `${kafka.version}` 項目會在 `pom.xml` 的 `<properties>..</properties>` 區段中進行宣告，並設定為 HDInsight 叢集的 Kafka 版本。
+    `${kafka.version}` 項目會在 `pom.xml` 的 `<properties>..</properties>` 區段中進行宣告，並設定為 HDInsight 叢集的 Kafka 版本。
 
 * 外掛程式：Maven 外掛程式可提供多種功能。 在此專案中，會使用下列外掛程式：
 
@@ -206,8 +204,7 @@ public class Stream
    * `RekeyedIntermediateTopic`：此主題可在 `countByKey` 運算子更新計數時用來重新分割資料。
    * `wordcount-example-Counts-changelog`：此主題是 `countByKey` 作業所使用的狀態存放區
 
-     > [!IMPORTANT]  
-     > HDInsight 上的 Kafka 也可設定為自動建立主題。 如需詳細資訊，請參閱[設定自動建立主題功能](apache-kafka-auto-create-topics.md)文件。
+    HDInsight 上的 Kafka 也可設定為自動建立主題。 如需詳細資訊，請參閱[設定自動建立主題功能](apache-kafka-auto-create-topics.md)文件。
 
 ## <a name="run-the-code"></a>執行程式碼
 
@@ -217,8 +214,7 @@ public class Stream
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > 您可能會收到關於 Apache log4j 的警告。 您可以忽略此警告。
+    您可能會收到關於 Apache log4j 的警告。 您可以忽略此警告。
 
 2. 若要將記錄傳送至 `test` 主題，請使用下列命令啟動產生器應用程式：
 
@@ -232,8 +228,7 @@ public class Stream
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > `--property` 參數會告知主控台取用者列印索引鍵 (字組) 和計數 (值)。 這個參數也會設定從 Kafka 讀取這些值時要使用的還原序列化。
+    `--property` 參數會告知主控台取用者列印索引鍵 (字組) 和計數 (值)。 這個參數也會設定從 Kafka 讀取這些值時要使用的還原序列化。
 
     輸出大致如下：
    
@@ -250,8 +245,7 @@ public class Stream
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > 參數 `--from-beginning` 會設定讓取用者從主題中儲存的記錄開頭處開始執行。 每遇到一個字，字數就會增加一個，因此主題中會包含每個字的多個項目，且計數會遞增。
+    參數 `--from-beginning` 會設定讓取用者從主題中儲存的記錄開頭處開始執行。 每遇到一個字，字數就會增加一個，因此主題中會包含每個字的多個項目，且計數會遞增。
 
 4. 使用 __Ctrl + C__ 來結束產生者。 繼續使用 __Ctrl + C__ 來結束應用程式和取用者。
 
@@ -264,9 +258,19 @@ public class Stream
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+若要清除本教學課程所建立的資源，您可以刪除資源群組。 刪除資源群組也會刪除相關聯的 HDInsight 叢集，以及與資源群組相關聯的任何其他資源。
+
+若要使用 Azure 入口網站移除資源群組：
+
+1. 在 Azure 入口網站中展開左側功能表，以開啟服務的功能表，然後選擇 [資源群組]  以顯示資源群組的清單。
+2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多]  按鈕 (...)。
+3. 選取 [刪除資源群組]  ，並加以確認。
+
 ## <a name="next-steps"></a>後續步驟
 
-在本文件中，您會了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka 串流 API。 使用下列各項來深入了解 Kafka 的使用方式︰
+在本文件中，您會了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka 串流 API。 使用下列各項來深入了解 Kafka 的使用方式。
 
-* [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)
-* [在 Apache Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)

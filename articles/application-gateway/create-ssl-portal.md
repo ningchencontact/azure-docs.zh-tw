@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed4230969e81eee0d77b7e4b69eac3a264068388
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66134438"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449157"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設定包含 SSL 終止的應用程式閘道
 
@@ -54,9 +54,9 @@ PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 Thumbprint                                Subject
 ----------                                -------
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
-
-Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
 ```
+
+使用 [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) 搭配系統所傳回的指紋，以將 pfx 檔案從憑證匯出：
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
@@ -70,37 +70,37 @@ Export-PfxCertificate \
 
 需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
 
-1. 選取 Azure 入口網站左上角的 [新增]。
-2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
-3. 輸入 myAppGateway 作為應用程式閘道的名稱，輸入 myResourceGroupAG 作為新的資源群組。
-4. 接受其他設定的預設值，然後選取 [確定]。
-5. 選取 [選擇虛擬網路]，接著選取 [新建]，然後針對虛擬網路輸入這些值：
+1. 選取 Azure 入口網站左上角的 [新增]  。
+2. 在 [精選] 清單中選取 [網路]  ，然後選取 [應用程式閘道]  。
+3. 輸入 myAppGateway  作為應用程式閘道的名稱，輸入 myResourceGroupAG  作為新的資源群組。
+4. 接受其他設定的預設值，然後選取 [確定]  。
+5. 選取 [選擇虛擬網路]  ，接著選取 [新建]  ，然後針對虛擬網路輸入這些值：
 
-   - myVNet - 作為虛擬網路的名稱。
-   - 10.0.0.0/16 - 作為虛擬網路位址空間。
-   - myAGSubnet - 作為子網路名稱。
-   - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet  - 作為虛擬網路的名稱。
+   - 10.0.0.0/16  - 作為虛擬網路位址空間。
+   - myAGSubnet  - 作為子網路名稱。
+   - 10.0.0.0/24  - 作為子網路位址空間。
 
      ![建立虛擬網路](./media/create-ssl-portal/application-gateway-vnet.png)
 
-6. 選取 [確定] 以建立虛擬網路和子網路。
-7. 依序選取 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後選取 [確定]。
-8. 選取接聽程式通訊協定的 [HTTPS]，並確定連接埠定義為 **443**。
-9. 選取資料夾圖示，並瀏覽至您先前建立的 appgwcert.pfx 憑證，以將其上傳。
-10. 輸入 mycert1 作為憑證的名稱，並輸入 Azure123456! 作為密碼，然後選取 [確定]。
+6. 選取 [確定]  以建立虛擬網路和子網路。
+7. 依序選取 [選擇公用 IP 位址]  、[新建]  ，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress  。 接受其他設定的預設值，然後選取 [確定]  。
+8. 選取接聽程式通訊協定的 [HTTPS]  ，並確定連接埠定義為 **443**。
+9. 選取資料夾圖示，並瀏覽至您先前建立的 appgwcert.pfx  憑證，以將其上傳。
+10. 輸入 mycert1  作為憑證的名稱，並輸入 Azure123456!  作為密碼，然後選取 [確定]  。
 
     ![建立新的應用程式閘道](./media/create-ssl-portal/application-gateway-create.png)
 
-11. 檢閱 [摘要] 頁面上的設定，然後選取 [確定] 以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
+11. 檢閱 [摘要] 頁面上的設定，然後選取 [確定]  以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
 
 ### <a name="add-a-subnet"></a>新增子網路
 
-1. 選取左側功能表中的 [所有資源]，然後從 [資源] 清單中選取 [myVNet]。
-2. 選取 [子網路]，然後選取 [子網路]。
+1. 選取左側功能表中的 [所有資源]  ，然後從 [資源] 清單中選取 [myVNet]  。
+2. 選取 [子網路]  ，然後選取 [子網路]  。
 
     ![建立子網路](./media/create-ssl-portal/application-gateway-subnet.png)
 
-3. 輸入 myBackendSubnet 作為子網路的名稱，然後選取 [確定]。
+3. 輸入 myBackendSubnet  作為子網路的名稱，然後選取 [確定]  。
 
 ## <a name="create-backend-servers"></a>建立後端伺服器
 
@@ -109,19 +109,19 @@ Export-PfxCertificate \
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
 1. 選取 [ **新增**]。
-2. 選取 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。
+2. 選取 [計算]  ，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]  。
 3. 針對虛擬機器，請輸入這些值：
 
-    - myVM - 作為虛擬機器的名稱。
-    - azureuser - 作為系統管理員使用者名稱。
+    - myVM  - 作為虛擬機器的名稱。
+    - azureuser  - 作為系統管理員使用者名稱。
     - *Azure123456!* 作為密碼。
-    - 選取 [使用現有的]，然後選取 [myResourceGroupAG]。
+    - 選取 [使用現有的]  ，然後選取 [myResourceGroupAG]  。
 
-4. 選取 [確定] 。
-5. 選取 [DS1_V2] 作為虛擬機器的大小，然後選取 [選取]。
-6. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。 
-7. 選取 [停用] 來停用開機診斷。
-8. 選取 [確定]，檢閱 [摘要] 頁面上的設定，然後選取 [建立]。
+4. 選取 [確定]  。
+5. 選取 [DS1_V2]  作為虛擬機器的大小，然後選取 [選取]  。
+6. 確定您已選取 [myVNet]  作為虛擬網路，而且子網路是 [myBackendSubnet]  。 
+7. 選取 [停用]  來停用開機診斷。
+8. 選取 [確定]  ，檢閱 [摘要] 頁面上的設定，然後選取 [建立]  。
 
 ### <a name="install-iis"></a>安裝 IIS
 
@@ -143,13 +143,13 @@ Export-PfxCertificate \
       -Location EastUS
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 作為其名稱，及作為 Set-AzVMExtension 中的 VMName。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2  作為其名稱，及作為 Set-AzVMExtension 中的 VMName。
 
 ### <a name="add-backend-servers"></a>新增後端伺服器
 
-1. 選取 [所有資源]，然後選取 [myAppGateway]。
-1. 選取 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 選取 **appGatewayBackendPool**。
-1. 選取 [新增目標]，將您所建立的每個虛擬機器新增至後端集區。
+1. 選取 [所有資源]  ，然後選取 [myAppGateway]  。
+1. 選取 [後端集區]  。 已自動建立具有應用程式閘道的預設集區。 選取 **appGatewayBackendPool**。
+1. 選取 [新增目標]  ，將您所建立的每個虛擬機器新增至後端集區。
 
     ![新增後端伺服器](./media/create-ssl-portal/application-gateway-backend.png)
 
@@ -157,7 +157,7 @@ Export-PfxCertificate \
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-1. 選取 [所有資源]，然後選取 [myAGPublicIPAddress]。
+1. 選取 [所有資源]  ，然後選取 [myAGPublicIPAddress]  。
 
     ![記錄應用程式閘道公用 IP 位址](./media/create-ssl-portal/application-gateway-ag-address.png)
 

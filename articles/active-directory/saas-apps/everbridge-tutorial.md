@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: f8dd11e7fb0b9fda0e0f1c7d3f794f6bfd766cdf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>教學課程：Azure Active Directory 與 Everbridge 整合
 
@@ -52,19 +52,19 @@ ms.locfileid: "65231461"
 
 若要從 Azure Marketplace 新增 Everbridge，請遵循下列步驟。
 
-1. 在 [Azure 入口網站](https://portal.azure.com) 的左導覽窗格上，選取 [Azure Active Directory]。
+1. 在 [Azure 入口網站](https://portal.azure.com) 的左導覽窗格上，選取 [Azure Active Directory]  。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+2. 移至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]。
+3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]  。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Everbridge**。 從結果面板中選取 [Everbridge]，然後選取 [新增]。
+4. 在搜尋方塊中，輸入 **Everbridge**。 從結果面板中選取 [Everbridge]  ，然後選取 [新增]  。
 
      ![結果清單中的 Everbridge](common/search-new-app.png)
 
@@ -89,56 +89,56 @@ ms.locfileid: "65231461"
 
 若要設定與 Everbridge 搭配運作的 Azure AD 單一登入，請遵循下列步驟。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 **Everbridge** 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 **Everbridge** 應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上選取 [編輯]，以開啟 [基本 SAML 組態] 對話方塊。
+3. 在 [以 SAML 設定單一登入]  頁面上選取 [編輯]  ，以開啟 [基本 SAML 組態]  對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
     >[!NOTE]
-    >在 Azure 入口網站和 Everbridge 入口網站上，將應用程式設定為管理員入口網站「或」成員入口網站。
+    >在 Azure 入口網站和 Everbridge 入口網站上，將應用程式設定為管理員入口網站「或」  成員入口網站。
 
-4. 若要將 **Everbridge** 應用程式設為 **EverBridge 管理員入口網站**，請在 [基本 SAML 設定] 區段執行下列步驟：
+4. 若要將 **Everbridge** 應用程式設為 **EverBridge 管理員入口網站**，請在 [基本 SAML 設定]  區段執行下列步驟：
 
     ![Everbridge 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 方塊中，輸入遵循 `https://sso.everbridge.net/<API_Name>` 模式的 URL
+    a. 在 [識別碼]  方塊中，輸入遵循 `https://sso.everbridge.net/<API_Name>` 模式的 URL
 
-    b. 在 [回覆 URL] 方塊中，輸入遵循 `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias` 模式的 URL
+    b. 在 [回覆 URL]  方塊中，輸入遵循 `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias` 模式的 URL
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 值來更新這些值。 若要取得這些值，請連絡 [Everbridge 支援小組](mailto:support@everbridge.com)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 若要將  應用程式設為 **EverBridge 成員入口網站**，請在 [基本 SAML 設定] 區段執行下列步驟：
+5. 若要將  應用程式設為 **EverBridge 成員入口網站**，請在 [基本 SAML 設定]  區段執行下列步驟：
 
   * 如果您想要以 IDP 起始模式設定應用程式，請遵循下列步驟：
 
      ![IDP 起始模式的 Everbridge 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 方塊中，輸入遵循 `https://sso.everbridge.net/<API_Name>/<Organization_ID>` 模式的 URL
+    a. 在 [識別碼]  方塊中，輸入遵循 `https://sso.everbridge.net/<API_Name>/<Organization_ID>` 模式的 URL
 
-    b. 在 [回覆 URL] 方塊中，輸入遵循 `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias` 模式的 URL
+    b. 在 [回覆 URL]  方塊中，輸入遵循 `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias` 模式的 URL
 
-   * 如果您想要以 SP 起始模式設定應用程式，請選取 [設定其他 URL]，然後遵循此步驟：
+   * 如果您想要以 SP 起始模式設定應用程式，請選取 [設定其他 URL]  ，然後遵循此步驟：
 
      ![SP 起始模式的 Everbridge 網域及 URL 單一登入資訊](common/both-signonurl.png)
 
-     a. 在 [登入 URL] 方塊中，輸入遵循 `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true` 模式的 URL
+     a. 在 [登入 URL]  方塊中，輸入遵循 `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true` 模式的 URL
 
      > [!NOTE]
      > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」和「登入 URL」值更新這些值。 若要取得這些值，請連絡 [Everbridge 支援小組](mailto:support@everbridge.com)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. 在 [以 SAML 設定單一登入] 頁面上的 [SAML 簽署憑證] 區段中，選取 [下載] 以下載**同盟中繼資料 XML**。 然後將其儲存在您的電腦上。
+6. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，選取 [下載]  以下載**同盟中繼資料 XML**。 然後將其儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-7. 在 [設定 Everbridge] 區段上，依據需求複製所需的 URL：
+7. 在 [設定 Everbridge]  區段上，依據需求複製所需的 URL：
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -152,21 +152,21 @@ ms.locfileid: "65231461"
  
 1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 Everbridge。
 
-1. 在頂端的功能表中，選取 [設定] 索引標籤。在 [安全性] 底下選取 [單一登入]。
+1. 在頂端的功能表中，選取 [設定]  索引標籤。在 [安全性]  底下選取 [單一登入]  。
    
      ![設定單一登入](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-     a. 在 [名稱] 方塊中，輸入識別碼提供者的名稱。 例如您的公司名稱。
+     a. 在 [名稱]  方塊中，輸入識別碼提供者的名稱。 例如您的公司名稱。
    
-     b. 在 [API 名稱] 方塊中，輸入 API 的名稱。
+     b. 在 [API 名稱]  方塊中，輸入 API 的名稱。
    
-     c. 選取 [選擇檔案]，以上傳您從 Azure 入口網站下載的中繼資料檔案。
+     c. 選取 [選擇檔案]  ，以上傳您從 Azure 入口網站下載的中繼資料檔案。
    
-     d. 對於 [SAML 身分識別位置]，請選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]。
+     d. 對於 [SAML 身分識別位置]  ，請選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]  。
    
-     e. 在 [識別提供者登入 URL] 方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
+     e. 在 [識別提供者登入 URL]  方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
    
-     f. 對於 [服務提供者起始的要求繫結]，請選取 [HTTP 重新導向]。
+     f. 對於 [服務提供者起始的要求繫結]  ，請選取 [HTTP 重新導向]  。
 
      g. 選取 [ **儲存**]。
 
@@ -178,51 +178,51 @@ ms.locfileid: "65231461"
 
 若要在 Azure 入口網站中建立測試使用者 Britta Simon，請遵循以下步驟。
 
-1. 在 Azure 入口網站中，於左窗格選取 [Azure Active Directory] > [使用者] > [所有使用者]。
+1. 在 Azure 入口網站中，於左窗格選取 [Azure Active Directory]   > [使用者]   > [所有使用者]  。
 
     ![[使用者] 和 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
-3. 在 [使用者] 對話方塊中，遵循下列步驟。
+3. 在 [使用者]  對話方塊中，遵循下列步驟。
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  方塊中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 方塊中，輸入 `brittasimon@yourcompanydomain.extension`。 例如 BrittaSimon@contoso.com。
+    b. 在 [使用者名稱]  方塊中，輸入 `brittasimon@yourcompanydomain.extension`。 例如 BrittaSimon@contoso.com。
 
-    c. 選取 [顯示密碼] 核取方塊。 寫下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊。 寫下 [密碼]  方塊中顯示的值。
 
-    d. 選取 [建立] 。
+    d. 選取 [建立]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 藉由將 Everbridge 的存取權授與 Britta Simon，使其能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，選取 [企業應用程式] > [所有應用程式] >[Everbridge]。
+1. 在 Azure 入口網站中，選取 [企業應用程式]   > [所有應用程式]   >[Everbridge]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Everbridge] 。
+2. 在應用程式清單中，選取 [Everbridge]  。
 
     ![應用程式清單中的 Everbridge 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 選取 [新增使用者]。 在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 選取 [新增使用者]  。 在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 對話方塊](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。 選擇畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊中，選取 [使用者] 清單中的 [Britta Simon]  。 選擇畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當的使用者角色。 選擇畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當的使用者角色。 選擇畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，選取 [指派]。
+7. 在 [新增指派]  對話方塊中，選取 [指派]  。
 
 ### <a name="create-an-everbridge-test-user"></a>建立 Everbridge 測試使用者
 

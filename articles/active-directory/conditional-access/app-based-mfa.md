@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5ab513034d6e2946dcb31f3a31dbf86f14873e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895980"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509068"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA
 
-為了簡化使用者的登入體驗，您可以讓他們透過使用者名稱和密碼登入您的雲端應用程式。 不過，在許多環境中應該至少有好幾種應用程式建議必須採用更為強式的帳戶驗證，例如多重要素驗證 (MFA)。 好比說，針對組織的電子郵件系統或 HR 應用程式的存取就可能需要這類驗證。 在 Azure Active Directory (Azure AD) 中，您可以使用條件式存取原則來完成上述目標。
+為了簡化使用者的登入體驗，您可以讓他們透過使用者名稱和密碼登入您的雲端應用程式。 不過，在許多環境中應該至少有好幾種應用程式建議必須採用更為強式的帳戶驗證，例如多重要素驗證 (MFA)。 針對組織的電子郵件系統或 HR 應用程式的存取就可能需要此原則。 在 Azure Active Directory (Azure AD) 中，您可以使用條件式存取原則來完成上述目標。
 
 本快速入門示範如何針對環境中所選的雲端應用程式，將 [Azure AD 條件式存取原則](../active-directory-conditional-access-azure-portal.md)設為需要使用多重要素驗證。
 
@@ -33,14 +33,13 @@ ms.locfileid: "58895980"
 若要完成本快速入門中的案例，您需要：
 
 - **Azure AD Premium 版的存取權** - Azure AD 條件式存取是 Azure AD Premium 中的功能。
-
 - **稱為 Isabella Simonsen 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
 
 要部署本快速入門中的案例，您的測試帳戶必須未啟用每一使用者 MFA。 如需詳細資訊，請參閱[如何要求使用者使用雙步驟驗證](../authentication/howto-mfa-userstates.md)。
 
-## <a name="test-your-sign-in"></a>測試您的登入
+## <a name="test-your-experience"></a>測試體驗
 
-此步驟的目標是取得登入體驗的印象，而不需要條件式存取原則。
+此步驟的目標是要取得體驗的印象，而不需要條件式存取原則。
 
 **若要初始化您的環境：**
 
@@ -64,97 +63,88 @@ ms.locfileid: "58895980"
 
 ![已展開條件式存取原則](./media/app-based-mfa/31.png)
 
-**設定條件式存取原則：**
+**若要設定條件式存取原則：**
 
 1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分，登入 [Azure 入口網站](https://portal.azure.com)。
-
-1. 在 Azure 入口網站的左側導覽列上，按一下 [Azure Active Directory]。
+1. 在 Azure 入口網站的左側導覽列上，按一下 [Azure Active Directory]  。
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-1. 在 [Azure Active Directory] 頁面的 [安全性] 區段中，按一下 [條件式存取]。
+1. 在 [Azure Active Directory]  頁面的 [安全性]  區段中，按一下 [條件式存取]  。
 
    ![條件式存取](./media/app-based-mfa/03.png)
 
-1. 在 [條件式存取] 頁面頂端的工具列中，按一下 [新增原則]。
+1. 在 [條件式存取]  頁面頂端的工具列中，按一下 [新增原則]  。
 
    ![加](./media/app-based-mfa/04.png)
 
-1. 在 [新增] 頁面的 [名稱] 文字方塊中，鍵入「必須使用 MFA 才能存取 Azure 入口網站」。
+1. 在 [新增]  頁面的 [名稱]  文字方塊中，鍵入「必須使用 MFA 才能存取 Azure 入口網站」  。
 
    ![Name](./media/app-based-mfa/05.png)
 
-1. 在 [指派] 區段中，按一下 [使用者和群組]。
+1. 在 [指派]  區段中，按一下 [使用者和群組]  。
 
    ![使用者和群組](./media/app-based-mfa/06.png)
 
-1. 在 [使用者和群組] 頁面上，執行下列步驟︰
+1. 在 [使用者和群組]  頁面上，執行下列步驟︰
 
    ![使用者和群組](./media/app-based-mfa/24.png)
 
-   1. 按一下 [選取使用者和群組]，然後選取 [群組設定]。
+   1. 按一下 [選取使用者和群組]  ，然後選取 [群組設定]  。
+   1. 按一下 [選取]  。
+   1. 在 [選取]  頁面上，選取 [Isabella Simonsen]  ，然後按一下 [選取]  。
+   1. 在 [使用者和群組]  頁面上，按一下 [完成]  。
 
-   1. 按一下 [選取] 。
-
-   1. 在 [選取] 頁面上，選取 [Isabella Simonsen]，然後按一下 [選取]。
-
-   1. 在 [使用者和群組] 頁面上，按一下 [完成]。
-
-1. 按一下 [雲端應用程式]。
+1. 按一下 [雲端應用程式]  。
 
    ![雲端應用程式](./media/app-based-mfa/08.png)
 
-1. 在 [雲端應用程式] 頁面上，執行下列步驟︰
+1. 在 [雲端應用程式]  頁面上，執行下列步驟︰
 
    ![選取雲端應用程式](./media/app-based-mfa/26.png)
 
-   1. 按一下 [選取應用程式]。
+   1. 按一下 [選取應用程式]  。
+   1. 按一下 [選取]  。
+   1. 在 [選取]  頁面中，選取 [Microsoft Azure 管理]  ，然後按一下 [選取]  。
+   1. 在 [雲端應用程式]  頁面上，按一下 [完成]  。
 
-   1. 按一下 [選取] 。
-
-   1. 在 [選取] 頁面中，選取 [Microsoft Azure 管理]，然後按一下 [選取]。
-
-   1. 在 [雲端應用程式] 頁面上，按一下 [完成]。
-
-1. 在 [存取控制] 區段中，按一下 [授與]。
+1. 在 [存取控制]  區段中，按一下 [授與]  。
 
    ![存取控制](./media/app-based-mfa/10.png)
 
-1. 在 [授與] 頁面上，執行下列步驟︰
+1. 在 [授與]  頁面上，執行下列步驟︰
 
    ![授與](./media/app-based-mfa/11.png)
 
-   1. 選取 [授與存取權]。
+   1. 選取 [授與存取權]  。
+   1. 選取 [需要 Multi-Factor Authentication]  。
+   1. 按一下 [選取]  。
 
-   1. 選取 [需要 Multi-Factor Authentication]。
-
-   1. 按一下 [選取] 。
-
-1. 在 [啟用原則] 區段中，按一下 [開啟]。
+1. 在 [啟用原則]  區段中，按一下 [開啟]  。
 
    ![啟用原則](./media/app-based-mfa/18.png)
 
-1. 按一下頁面底部的 [新增] 。
+1. 按一下頁面底部的 [新增]  。
 
 ## <a name="evaluate-a-simulated-sign-in"></a>評估模擬的登入狀況
 
 現在您已設定條件式存取原則，建議您查看它是否如預期般運作。 第一個步驟是使用條件式存取 What If 原則工具，模擬您測試使用者的登入情況。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。  
 
-若要初始化 What If 原則評估工具，請設定下列項目：
+若要初始化 **What If** 原則評估工具，請設定下列項目：
 
 - 將 **Isabella Simonsen** 設為使用者
-- 將 [Microsoft Azure 管理] 設為雲端應用程式
+- 將 [Microsoft Azure 管理]  設為雲端應用程式
 
-按一下 [What If] 建立模擬報表，即會顯示：
+按一下 [What If]  建立模擬報表，即會顯示：
 
-- [會套用的原則] 下方顯示 [Require MFA for Azure portal access] \(必須使用 MFA 才能存取 Azure 入口網站\)
-- [需要多重要素驗證] 顯示為 [授與控制]。
+- [會套用的原則]  下方顯示 [Require MFA for Azure portal access] \(必須使用 MFA 才能存取 Azure 入口網站\) 
+- [需要多重要素驗證]  顯示為 [授與控制]  。
 
 ![What If 原則工具](./media/app-based-mfa/23.png)
 
-**建立條件式存取原則：**
+**若要評估條件式存取原則：**
 
-1. 在 [條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 頁面頂端的功能表中，按一下 [What If]。  
+1. 在[條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)頁面頂端的功能表中，按一下 [What If]  。  
 
    ![What If](./media/app-based-mfa/14.png)
 
@@ -166,17 +156,13 @@ ms.locfileid: "58895980"
 
    ![雲端應用程式](./media/app-based-mfa/16.png)
 
-   1. 按一下 [雲端應用程式]。
+   1. 按一下 [雲端應用程式]  。
+   1. 在 [雲端應用程式]  頁面上，按一下 [選取應用程式]  。
+   1. 按一下 [選取]  。
+   1. 在 [選取]  頁面中，選取 [Microsoft Azure 管理]  ，然後按一下 [選取]  。
+   1. 在 [雲端應用程式] 頁面上，按一下 [完成]  。
 
-   1. 在 [雲端應用程式] 頁面上，按一下 [選取應用程式]。
-
-   1. 按一下 [選取] 。
-
-   1. 在 [選取] 頁面中，選取 [Microsoft Azure 管理]，然後按一下 [選取]。
-
-   1. 在 [雲端應用程式] 頁面上，按一下 [完成]。
-
-1. 按一下 [What If]。
+1. 按一下 [What If]  。
 
 ## <a name="test-your-conditional-access-policy"></a>測試條件式存取原則
 
@@ -191,7 +177,7 @@ ms.locfileid: "58895980"
 當您不再需要測試使用者與條件式存取原則時，即可予以刪除：
 
 - 如果您不知道如何刪除 Azure AD 使用者，請參閱[從 Azure AD 刪除使用者](../fundamentals/add-users-azure-active-directory.md#delete-a-user)。
-- 若要刪除原則，請選取您的原則，然後按一下快速存取工具列的 [刪除]。
+- 若要刪除原則，請選取您的原則，然後按一下快速存取工具列的 [刪除]  。
 
     ![Multi-Factor Authentication](./media/app-based-mfa/33.png)
 

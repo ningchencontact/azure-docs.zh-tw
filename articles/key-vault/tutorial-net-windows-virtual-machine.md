@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4ae02a494949e92ad8e59cd35e46b6ce246ae7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115013"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>教學課程：在 .NET 中搭配使用 Azure Key Vault 與 Windows 虛擬機器
 
@@ -45,7 +45,7 @@ Azure Key Vault 可協助您保護秘密，例如，API 金鑰、存取應用程
 
 ## <a name="about-managed-service-identity"></a>關於受控服務識別
 
-Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯示出來。 不過，您需要向 Azure Key Vault 驗證才能擷取您的金鑰。 若要向 Key Vault 進行驗證，您必須要有認證。 這是典型的啟動程序難題。 受控服務識別 (MSI) 可藉由提供可簡化此程序的「啟動程序身分識別」來解決此問題。
+Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯示出來。 不過，您需要向 Azure Key Vault 驗證才能擷取您的金鑰。 若要向 Key Vault 進行驗證，您必須要有認證。 這是典型的啟動程序難題。 受控服務識別 (MSI) 可藉由提供可簡化此程序的「啟動程序身分識別」  來解決此問題。
 
 當您針對 Azure 服務 (例如，Azure 虛擬機器、Azure App Service 或 Azure Functions) 啟用 MSI 時，Azure 會建立[服務主體](key-vault-whatis.md#basic-concepts)。 MSI 會在 Azure Active Directory (Azure AD) 中為服務執行個體執行此作業，並將服務主體的認證插入該執行個體中。 
 
@@ -53,7 +53,11 @@ Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯�
 
 接下來，為了取得存取權杖，您的程式碼會呼叫 Azure 資源上可用的本機中繼資料服務。 為了向 Azure Key Vault 服務進行驗證，您的程式碼會使用從本機 MSI 端點取得的存取權杖。 
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="create-resources-and-assign-permissions"></a>建立資源並指派權限
+
+在您開始編碼之前，您必須建立一些資源，將祕密放入您的金鑰保存庫，以及指派權限。
+
+### <a name="sign-in-to-azure"></a>登入 Azure
 
 若要使用 Azure CLI 登入 Azure，請輸入：
 
@@ -61,13 +65,11 @@ Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯�
 az login
 ```
 
-## <a name="create-a-resource-group"></a>建立資源群組
+### <a name="create-a-resource-group"></a>建立資源群組
 
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 
 
-使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 
-
-然後，選取資源群組名稱，並填入預留位置。 下列範例會在美國西部位置建立一個資源群組：
+此範例會建立位於美國西部位置的資源群組：
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -76,22 +78,21 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 您會在本教學課程中使用新建立的資源群組。
 
-## <a name="create-a-key-vault"></a>建立金鑰保存庫
+### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>建立金鑰保存庫，並且以祕密填入
 
-為了在您於上一個步驟中建立的資源群組內建立金鑰保存庫，請提供下列資訊：
+藉由提供 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 命令以及下列資訊，在您的資源群組中建立金鑰保存庫：
 
 * 金鑰保存庫名稱：由 3 到 24 個字元組成的字串，只能包含數字 (0-9)、字母 (a-z、A-Z) 和連字號 (-)
 * 資源群組名稱
-* 位置：美國西部
+* 位置：美國西部 
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
 此時，您的 Azure 帳戶是唯一獲得授權在這個新的金鑰保存庫上執行作業的帳戶。
 
-## <a name="add-a-secret-to-the-key-vault"></a>將秘密新增至金鑰保存庫
+現在使用 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 命令將祕密新增至您的金鑰保存庫
 
-我們將新增密碼，以協助說明其運作方式。 此祕密可以是 SQL 連接字串，也可以是任何您必須安全保存並可供應用程式使用的其他資訊。
 
 為了在金鑰保存庫中建立名為 **AppSecret** 的秘密，請輸入下列命令：
 
@@ -101,15 +102,15 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 此秘密會儲存值 **MySecret**。
 
-## <a name="create-a-virtual-machine"></a>建立虛擬機器
-您可以使用下列其中一個方法來建立虛擬機器：
+### <a name="create-a-virtual-machine"></a>建立虛擬機器
+使用下列其中一個方法來建立虛擬機器：
 
 * [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [Azure 入口網站](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="assign-an-identity-to-the-vm"></a>將身分識別指派給 VM
-在此步驟中，請藉由在 Azure CLI 中執行下列命令，為虛擬機器建立系統指派的身分識別：
+### <a name="assign-an-identity-to-the-vm"></a>將身分識別指派給 VM
+使用 [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 命令，為虛擬機器建立系統指派的身分識別：
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -124,36 +125,52 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>對 VM 身分識別指派權限
-現在，您可以執行下列命令來對金鑰保存庫指派先前所建立的身分識別權限：
+### <a name="assign-permissions-to-the-vm-identity"></a>對 VM 身分識別指派權限
+使用 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令，對您的金鑰保存庫指派先前建立的身分識別權限：
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="log-on-to-the-virtual-machine"></a>登入虛擬機器
+### <a name="sign-in-to-the-virtual-machine"></a>登入虛擬機器
 
 若要登入虛擬機器，請遵循[連接和登入執行 Windows 的 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)中的指示。
 
-## <a name="install-net-core"></a>安裝 .NET Core
+## <a name="set-up-the-console-app"></a>設定主控台應用程式
+
+使用 `dotnet` 命令來建立主控台應用程式並安裝必要的套件。
+
+### <a name="install-net-core"></a>安裝 .NET Core
 
 若要安裝 .NET Core，請移至 [.NET 下載](https://www.microsoft.com/net/download)頁面。
 
-## <a name="create-and-run-a-sample-net-app"></a>建立和執行 .NET 應用程式範例
+### <a name="create-and-run-a-sample-net-app"></a>建立和執行 .NET 應用程式範例
 
 開啟命令提示字元。
 
 您可以執行下列命令以在主控台中列印出「Hello World」：
 
-```batch
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
 ```
 
+### <a name="install-the-packages"></a>安裝套件
+
+ 從主控台視窗中，安裝本快速入門所需的 .NET 套件：
+
+ ```console
+dotnet add package System.IO;
+dotnet add package System.Net;
+dotnet add package System.Text;
+dotnet add package Newtonsoft.Json;
+dotnet add package Newtonsoft.Json.Linq;
+```
+
 ## <a name="edit-the-console-app"></a>編輯主控台應用程式
 
-開啟 Program.cs 檔案並新增這些套件：
+開啟 Program.cs  檔案並新增這些套件：
 
 ```csharp
 using System;

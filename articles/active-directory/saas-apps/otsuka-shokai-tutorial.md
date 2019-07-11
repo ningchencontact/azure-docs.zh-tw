@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752458"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274187"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>教學課程：整合 Otsuka Shokai 與 Azure Active Directory
 
@@ -29,7 +29,6 @@ ms.locfileid: "66752458"
 
 * 在 Azure AD 中控制可存取 Otsuka Shokai 的人員。
 * 讓使用者使用其 Azure AD 帳戶自動登入 Otsuka Shokai。
-* 在 Azure 入口網站集中管理您的帳戶。
 
 若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
@@ -112,17 +111,15 @@ ms.locfileid: "66752458"
 
     g. 按一下 [檔案]  。
 
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]  ，並將資料儲存在您的 [筆記本] 上。
-
-   ![憑證下載連結](common/copy-metadataurl.png)
-
-1. 在 [設定 Otsuka Shokai]  區段上，根據您的需求複製適當的 URL。
-
-   ![複製組態 URL](common/copy-configuration-urls.png)
-
 ### <a name="configure-otsuka-shokai"></a>設定 Otsuka Shokai
 
-若要在 **Otsuka Shokai** 端設定單一登入，您必須將**應用程式同盟中繼資料 URL** 傳送給 [Otsuka Shokai 支援小組](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 當您從 SSO 應用程式連線到客戶的 [我的頁面]，SSO 設定的精靈隨即啟動。
+
+2. 如果 Otsuka 識別碼未註冊，請繼續 Otsuka 識別碼的新註冊。   如果您已註冊 Otsuka 識別碼，請繼續進行連結設定。
+
+3. 繼續到最後，在登入客戶的 [我的頁面] 之後顯示上方畫面時，SSO 設定即完成。
+
+4. 下次您從 SSO 應用程式連線到客戶的 [我的頁面] 時，在指引畫面開啟之後，上方畫面會在登入客戶的 [我的頁面] 之後顯示。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -132,7 +129,7 @@ ms.locfileid: "66752458"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `B. Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 
@@ -156,7 +153,7 @@ ms.locfileid: "66752458"
 
 ### <a name="create-otsuka-shokai-test-user"></a>建立 Otsuka Shokai 測試使用者
 
-在本節中，您要在 Otsuka Shokai 中建立名為 B.Simon 的使用者。 請與 [Otsuka Shokai 支援小組](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp)合作，在 Otsuka Shokai 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+SaaS 帳戶新註冊會在第一次存取 Otsuka Shokai 時執行。 此外，我們也會在新建時讓 Azure AD 帳戶與 SaaS 帳戶產生關聯。
 
 ### <a name="test-sso"></a>測試 SSO
 

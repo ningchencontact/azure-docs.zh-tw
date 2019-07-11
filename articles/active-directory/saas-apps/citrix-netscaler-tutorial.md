@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>教學課程：Azure Active Directory 與 Citrix Netscaler 整合
 
@@ -55,19 +55,19 @@ ms.locfileid: "65863770"
 
 **若要從資源庫新增 Citrix Netscaler，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Citrix Netscaler**，從結果面板中選取 [Citrix Netscaler]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Citrix Netscaler**，從結果面板中選取 [Citrix Netscaler]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Citrix Netscaler](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "65863770"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Citrix Netscaler 測試使用者](#create-citrix-netscaler-test-user)** - 在 Citrix Netscaler 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -91,27 +91,27 @@ ms.locfileid: "65863770"
 
 若要設定與 Citrix Netscaler 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Citrix Netscaler] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Citrix Netscaler]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![Citrix Netscaler 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>`
+    b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>`
 
-    c. 在 [回覆 URL (判斷提示取用者服務 URL)] 文字方塊中，以下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    c. 在 [回覆 URL (判斷提示取用者服務 URL)]  文字方塊中，以下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Citrix Netscaler 用戶端支援小組](https://www.citrix.com/contact/technical-support.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -119,11 +119,11 @@ ms.locfileid: "65863770"
     > [!NOTE]
     > 為了讓 SSO 能夠運作，應該要能夠從公用網站存取這些 URL。 您必須在 Netscaler 端啟用防火牆或其他安全性設定，才能讓 Azure AD 在所設定的 ACS URL 上公佈權杖。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [安裝 Citrix Netscaler] 區段上，依據您的需求複製適當的 URL。
+6. 在 [安裝 Citrix Netscaler]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -141,65 +141,65 @@ ms.locfileid: "65863770"
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure01.png)
 
-3. 在 [VPN Virtual Server] \(VPN 虛擬伺服器\) 頁面上，執行下列步驟：
+3. 在 [VPN Virtual Server] \(VPN 虛擬伺服器\)  頁面上，執行下列步驟：
 
      ![設定單一登入](./media/citrix-netscaler-tutorial/configure02.png)
 
-    a. 將閘道設定 [ICA Only] \(僅限 ICA\) 設定為 **true**。
+    a. 將閘道設定 [ICA Only] \(僅限 ICA\)  設定為 **true**。
     
-    b. 將 [Enable Authentication] \(啟用驗證\) 設定為 **true**。
+    b. 將 [Enable Authentication] \(啟用驗證\)  設定為 **true**。
     
-    c. [DTLS] 為選擇性。
+    c. [DTLS]  為選擇性。
     
-    d. 確定 [SSLv3] 為 [Disabled] \(已停用\)。
+    d. 確定 [SSLv3]  為 [Disabled] \(已停用\)  。
 
-4. 如下所示，會建立一個自訂 [SSL Ciphers] \(SSL 加密\) 群組，以在 https://www.ssllabs.com 取得 A+：
+4. 如下所示，會建立一個自訂 [SSL Ciphers] \(SSL 加密\)  群組，以在 https://www.ssllabs.com 取得 A+：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure03.png)
 
-5. 在 [Configure Authentication SAML Server] \(設定驗證 SAML 伺服器\) 頁面上，執行下列步驟：
+5. 在 [Configure Authentication SAML Server] \(設定驗證 SAML 伺服器\)  頁面上，執行下列步驟：
 
       ![設定單一登入](./media/citrix-netscaler-tutorial/configure04.png)
 
-    a. 在 [Name] \(名稱\) 文字方塊中，輸入您伺服器的名稱。
+    a. 在 [Name] \(名稱\)  文字方塊中，輸入您伺服器的名稱。
 
-    b. 在 [Redirect URL] \(重新導向 URL\) 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
+    b. 在 [Redirect URL] \(重新導向 URL\)  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
-    c. 在 [Single Logout URL] \(單一登出 URL\) 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+    c. 在 [Single Logout URL] \(單一登出 URL\)  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
 
-    d. 在 [IDP Certificate Name] \(IDP 憑證名稱\) 中，按一下 [+] 號以新增您從 Azure 入口網站下載的憑證。 上傳憑證之後，請從下拉式清單中選取該憑證。
+    d. 在 [IDP Certificate Name] \(IDP 憑證名稱\)  中，按一下 [+]  號以新增您從 Azure 入口網站下載的憑證。 上傳憑證之後，請從下拉式清單中選取該憑證。
 
     e. 以下是需要在此頁面上設定的其他欄位
 
       ![設定單一登入](./media/citrix-netscaler-tutorial/configure24.png)
 
-    f. 在 [Requested Authentication Context] \(要求的驗證內容\) 選取 [Exact] \(完全符合\)。
+    f. 在 [Requested Authentication Context] \(要求的驗證內容\)  選取 [Exact] \(完全符合\)  。
 
-    g. 在 [Signature Algorithm] \(簽章演算法\) 選取 [RSA-SHA256]。
+    g. 在 [Signature Algorithm] \(簽章演算法\)  選取 [RSA-SHA256]  。
 
-    h. 在 [Digest Method] \(摘要方法\) 選取 [SHA256]。
+    h. 在 [Digest Method] \(摘要方法\)  選取 [SHA256]  。
 
-    i. 勾選 [Enforce Username] \(強制使用使用者名稱\)。
+    i. 勾選 [Enforce Username] \(強制使用使用者名稱\)  。
 
     j. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
-6. 若要設定 [Session Profile] \(工作階段設定檔\)，請執行下列步驟：
+6. 若要設定 [Session Profile] \(工作階段設定檔\)  ，請執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure06.png)
 
-    a. 在 [Name] \(名稱\) 文字方塊中，輸入您工作階段設定檔的名稱。
+    a. 在 [Name] \(名稱\)  文字方塊中，輸入您工作階段設定檔的名稱。
 
-    b. 在 [Client Experience] \(用戶端體驗\) 索引標籤上進行變更，如以下螢幕擷取畫面所示。
+    b. 在 [Client Experience] \(用戶端體驗\)  索引標籤上進行變更，如以下螢幕擷取畫面所示。
 
-    c. 繼續在 [General] \(一般\) 索引標籤上進行變更 (如下所示)，然後按一下 [OK] \(確定\)
+    c. 繼續在 [General] \(一般\)  索引標籤上進行變更 (如下所示)，然後按一下 [OK] \(確定\) 
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure07.png)
 
-    d. 在 [Published Applications] \(已發佈的應用程式\) 索引標籤上進行變更 (如以下螢幕擷取畫面所示)，然後按一下 [OK] \(確定\)。
+    d. 在 [Published Applications] \(已發佈的應用程式\)  索引標籤上進行變更 (如以下螢幕擷取畫面所示)，然後按一下 [OK] \(確定\)  。
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure08.png)
 
-    e. 在 [Security] \(安全性\) 索引標籤上進行變更 (如以下螢幕擷取畫面所示)，然後按一下 [OK] \(確定\)。
+    e. 在 [Security] \(安全性\)  索引標籤上進行變更 (如以下螢幕擷取畫面所示)，然後按一下 [OK] \(確定\)  。
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure09.png)
 
@@ -207,125 +207,125 @@ ms.locfileid: "65863770"
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure10.png)
 
-8. 在 [SAML] 區段上，新增 [Servers] \(伺服器\)，如以下螢幕擷取畫面所示。
+8. 在 [SAML]  區段上，新增 [Servers] \(伺服器\)  ，如以下螢幕擷取畫面所示。
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure11.png)
 
-9. 在 [SAML] 區段上，新增 [Policies] \(原則\)，如以下螢幕擷取畫面所示。
+9. 在 [SAML]  區段上，新增 [Policies] \(原則\)  ，如以下螢幕擷取畫面所示。
 
      ![設定單一登入](./media/citrix-netscaler-tutorial/configure12.png)
 
-10. 在 [Global Settings] \(全域設定\) 頁面上，移至 [Clientless Access] \(無用戶端存取\) 區段。
+10. 在 [Global Settings] \(全域設定\)  頁面上，移至 [Clientless Access] \(無用戶端存取\)  區段。
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure13.png)
 
-11. 在 [Configuration] \(設定\) 索引標籤上，執行下列步驟：
+11. 在 [Configuration] \(設定\)  索引標籤上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure14.png)
 
-    a. 選取 [Allow Domains] \(允許網域\)。
+    a. 選取 [Allow Domains] \(允許網域\)  。
 
-    b. 在 [Domain Name] \(網域名稱\) 文字方塊中，選取網域。
+    b. 在 [Domain Name] \(網域名稱\)  文字方塊中，選取網域。
 
-    c. 按一下 [確定]。
+    c. 按一下 [確定]  。
 
-12. 進行 **StoreFront** 的 [Receiver for Web Sites] \(網站的接收端\) 相關設定，如以下螢幕擷取畫面所示：
+12. 進行 **StoreFront** 的 [Receiver for Web Sites] \(網站的接收端\)  相關設定，如以下螢幕擷取畫面所示：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure15.png)
 
-13. 在 [Manage Authentication Methods - Corp] \(管理驗證方法 - 公司\) 快顯視窗上，執行下列步驟：
+13. 在 [Manage Authentication Methods - Corp] \(管理驗證方法 - 公司\)  快顯視窗上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure16.png)
 
-    a. 選取「使用者名稱和密碼」。
+    a. 選取「使用者名稱和密碼」  。
 
-    b. 選取 [Pass-through from NetScaler Gateway] \(從 NetScaler 閘道傳遞\)。
+    b. 選取 [Pass-through from NetScaler Gateway] \(從 NetScaler 閘道傳遞\)  。
 
-    c. 按一下 [確定]。
+    c. 按一下 [確定]  。
 
-14. 在 [Configure Trusted Domains] \(設定受信任的網域\) 快顯視窗上，執行下列步驟：
+14. 在 [Configure Trusted Domains] \(設定受信任的網域\)  快顯視窗上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure17.png)
 
-    a. 選取 [Trusted domains only] \(僅限受信任的網域\)。
+    a. 選取 [Trusted domains only] \(僅限受信任的網域\)  。
 
-    b. 按一下 [Add] \(新增\)，以在 [Trusted domains] \(受信任的網域\) 文字方塊中新增您的網域。
+    b. 按一下 [Add] \(新增\)  ，以在 [Trusted domains] \(受信任的網域\)  文字方塊中新增您的網域。
 
-    c. 從 [Default domain] \(預設網域\) 清單中選取預設網域。
+    c. 從 [Default domain] \(預設網域\)  清單中選取預設網域。
 
-    d. 選取 [Show domains list in logon page] \(在登入頁面上顯示網域清單\)。
+    d. 選取 [Show domains list in logon page] \(在登入頁面上顯示網域清單\)  。
 
-    e. 按一下 [確定]。
+    e. 按一下 [確定]  。
 
-15. 在 [Manage NetScaler Gateways] \(管理 NetScaler 閘道\) 快顯視窗上，執行下列步驟：
+15. 在 [Manage NetScaler Gateways] \(管理 NetScaler 閘道\)  快顯視窗上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure18.png)
 
-    a. 按一下 [Add] \(新增\)，以在 [NetScaler Gateways] \(NetScaler 閘道\) 文字方塊中新增您的 NetScaler 閘道。
+    a. 按一下 [Add] \(新增\)  ，以在 [NetScaler Gateways] \(NetScaler 閘道\)  文字方塊中新增您的 NetScaler 閘道。
 
-    b. 按一下 [關閉] 。
+    b. 按一下 [關閉]  。
 
-16. 在 StoreFront 的 [General Settings] \(一般設定\) 索引標籤上，執行下列步驟：
+16. 在 StoreFront 的 [General Settings] \(一般設定\)  索引標籤上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure19.png)
 
-    a. 在 [Display name] \(顯示名稱\) 文字方塊中，輸入您的 NetScaler 閘道名稱。
+    a. 在 [Display name] \(顯示名稱\)  文字方塊中，輸入您的 NetScaler 閘道名稱。
 
-    b. 在 [NetScaler Gateway URL] \(NetScaler 閘道 URL\) 文字方塊中，輸入您的 NetScaler 閘道 URL。
+    b. 在 [NetScaler Gateway URL] \(NetScaler 閘道 URL\)  文字方塊中，輸入您的 NetScaler 閘道 URL。
 
-    c. 在 [Usage or role] \(使用方式或角色\) 選取 [Authentication and HDX routing] \(驗證和 HDX 路由\)。
+    c. 在 [Usage or role] \(使用方式或角色\)  選取 [Authentication and HDX routing] \(驗證和 HDX 路由\)  。
 
-    d. 按一下 [確定]。
+    d. 按一下 [確定]  。
 
-17. 在 StoreFront 的 [Secure Ticket Authority] \(安全票證授權單位\) 索引標籤上，執行下列步驟：
+17. 在 StoreFront 的 [Secure Ticket Authority] \(安全票證授權單位\)  索引標籤上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure20.png)
 
-    a. 按一下 [Add] \(新增\) 按鈕，以在文字方塊中新增您的 [Secure Ticket Authority URL] \(安全票證授權單位 URL\)。
+    a. 按一下 [Add] \(新增\)  按鈕，以在文字方塊中新增您的 [Secure Ticket Authority URL] \(安全票證授權單位 URL\)  。
 
-    b. 選取 [Enable session reliability] \(啟用工作階段可靠性\)。
+    b. 選取 [Enable session reliability] \(啟用工作階段可靠性\)  。
 
-    c. 按一下 [確定]。
+    c. 按一下 [確定]  。
 
-18. 在 StoreFront 的 [Authentication Settings] \(驗證設定\) 索引標籤上，執行下列步驟：
+18. 在 StoreFront 的 [Authentication Settings] \(驗證設定\)  索引標籤上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure21.png)
 
-    a. 選取您的 [Version] \(版本\)。
+    a. 選取您的 [Version] \(版本\)  。
 
-    b. 在 [Logon type] \(登入類型\) 選取 [Domain] \(網域\)。
+    b. 在 [Logon type] \(登入類型\)  選取 [Domain] \(網域\)  。
 
-    c. 輸入您的 [Callback URL] \(回呼 URL\)。
+    c. 輸入您的 [Callback URL] \(回呼 URL\)  。
 
-    d. 按一下 [確定]。
+    d. 按一下 [確定]  。
 
-19. 在 StoreFront 的 [Deploy Citrix Receiver] \(部署 Citrix Receiver\) 索引標籤上，執行下列步驟：
+19. 在 StoreFront 的 [Deploy Citrix Receiver] \(部署 Citrix Receiver\)  索引標籤上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure22.png)
 
-    a. 在 [Deployment option] \(部署選項\) 選取 [Use Receiver for HTML5 if local Receiver is unavailable] \(如果無法使用本機接收端，則使用 HTML5 的接收端\)。
+    a. 在 [Deployment option] \(部署選項\)  選取 [Use Receiver for HTML5 if local Receiver is unavailable] \(如果無法使用本機接收端，則使用 HTML5 的接收端\)  。
 
-    b. 按一下 [確定]。
+    b. 按一下 [確定]  。
 
-20. 在 [Manage Beacons] \(管理指標\) 快顯視窗上，執行下列步驟：
+20. 在 [Manage Beacons] \(管理指標\)  快顯視窗上，執行下列步驟：
 
     ![設定單一登入](./media/citrix-netscaler-tutorial/configure23.png)
 
-    a. 在 [Internal beacon] \(內部指標\) 選取 [Use the service URL] \(使用服務 URL\)。
+    a. 在 [Internal beacon] \(內部指標\)  選取 [Use the service URL] \(使用服務 URL\)  。
 
-    b. 按一下 [Add] \(新增\)，以在 [External beacons] \(外部指標\) 文字方塊中新增您的 URL。
+    b. 按一下 [Add] \(新增\)  ，以在 [External beacons] \(外部指標\)  文字方塊中新增您的 URL。
 
-    c. 按一下 [確定]。
+    c. 按一下 [確定]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -333,40 +333,40 @@ ms.locfileid: "65863770"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Citrix Netscaler 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Citrix Netscaler]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Citrix Netscaler]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Citrix Netscaler]。
+2. 在應用程式清單中，選取 [Citrix Netscaler]  。
 
     ![應用程式清單中的 [Citrix Netscaler] 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-citrix-netscaler-test-user"></a>建立 Citrix Netscaler 測試使用者
 
