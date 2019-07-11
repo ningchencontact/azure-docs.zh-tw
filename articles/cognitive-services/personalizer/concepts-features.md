@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340895"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620290"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>特性是動作和內容的相關資訊
 
@@ -167,7 +167,7 @@ JSON 物件可以包含巢狀的 JSON 物件和簡單屬性/值。 陣列項目�
 
 以下是一些範例：
 
-|目的|動作|
+|用途|動作|
 |--|--|
 |將要在新聞網站上選出的條目個人化。|每個動作都是潛在的新聞條目。|
 |將廣告放在網站上最佳的位置。|每個動作都會是版面配置或用來建立廣告版面配置 (例如，在頂端、在右邊、小圖、大圖) 的規則。|

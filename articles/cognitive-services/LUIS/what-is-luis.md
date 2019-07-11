@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062162"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 
@@ -33,7 +33,7 @@ LUIS 應用程式發佈後，用戶端應用程式會將語句 (文字) 傳送�
 
 ![LUIS 使用聊天機器人以自然語言理解 (NLP) 預測使用者文字的概念影像](./media/luis-overview/luis-overview-process-2.png "LUIS 使用聊天機器人以自然語言理解 (NLP) 預測使用者文字的概念影像")
 
-|步驟| 動作|
+|步驟|動作|
 |:--|:--|
 |1|用戶端應用程式將使用者_語句_ (其個人風格的文字) "I want to call my HR rep." 傳送至 LUIS 端點作為 HTTP 要求。|
 |2|LUIS 將學習到的模型套用至自然語言文字，以提供關於使用者輸入的智慧理解。 LUIS 傳回 JSON 格式的回應，最高意圖為 "HRContact"。 JSON 最基本的端點回應包含查詢語句和評分最高的意圖。 它也可以擷取「連絡人類型」實體之類的資料。|
@@ -101,7 +101,7 @@ LUIS 會提供工具、版本控制和與其他 LUIS 作者的共同作業，以
 LUIS 在作為 REST API 時，可以與任何會發出 HTTP 要求的產品、服務或架構搭配使用。 下列清單包含最常與 LUIS 搭配使用的 Microsoft 產品和服務。
 
 LUIS 最上層的用戶端應用程式是：
-* [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) 可快速建立具備 LUIS 功能的聊天機器人，以透過文字輸入與使用者交談。 使用 [Bot Framework][bot-framework] [3.x](https://github.com/Microsoft/BotBuilder) 或 [4.x](https://github.com/Microsoft/botbuilder-dotnet) 版可取得完整的 Bot 體驗。
+* [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) 可快速建立具備 LUIS 功能的聊天機器人，以透過文字輸入與使用者交談。 使用 [Bot Framework][bot-framework] [4.x](https://github.com/Microsoft/botbuilder-dotnet) 版可取得完整的 Bot 體驗。
 
 可供快速且輕鬆地搭配使用 LUIS 與聊天機器人的工具：
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM 套件可透過獨立命令列工具或匯入形式來提供撰寫和預測功能。 

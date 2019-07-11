@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090140"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>教學課程：Azure Active Directory 與 Spotinst 整合
 
@@ -114,7 +114,7 @@ Spotinst 與 Azure AD 整合提供下列優點：
 
     ![Spotinst 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL]  文字方塊中，輸入 URL：`https://console.spotinst.com`
+    在 [登入 URL]  文字方塊中，輸入 URL：`https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > 轉送狀態的值不是真正的值。 您將會使用實際的「回覆狀態」值來更新 [回覆狀態] 值，本教學課程稍後會說明。

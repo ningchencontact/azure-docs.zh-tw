@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064089"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603313"
 ---
 # <a name="speech-services-for-telephony-data"></a>電話語音資料的語音服務
 
@@ -36,7 +36,7 @@ ms.locfileid: "67064089"
 
 在語音服務的功能層面以外，其主要目的 (若套用到話務中心) 是要改善客戶體驗。 這方面有三個清楚的領域存在：
 
-* 通話後分析，也就是通話錄音的批次處理 
+* 通話後分析，也就是通話錄音的批次處理
 * 音訊訊號的即時分析處理，可在通話進行時擷取各種見解 (以情感作為顯著的使用案例)，以及
 * 虛擬助理 (Bot)，推動客戶與 bot 之間的對話，以嘗試在沒有服務專員參與的情況下解決客戶問題，或作為 AI 通訊協定的應用程式來協助服務專員。
 
@@ -44,9 +44,9 @@ ms.locfileid: "67064089"
 
 ## <a name="speech-analytics-technology-components"></a>語音分析技術元件
 
-不論是通話後或即時領域，Azure 都會提供一組成熟且新興的技術來改善客戶體驗。 
+不論是通話後或即時領域，Azure 都會提供一組成熟且新興的技術來改善客戶體驗。
 
-### <a name="speech-to-text-stt"></a>語音轉換文字 (STT) 
+### <a name="speech-to-text-stt"></a>語音轉換文字 (STT)
 
 [語音轉換文字](speech-to-text.md)是任何話務中心解決方案中最受歡迎的功能。 因為許多下游分析程序都依賴轉譯的文字，所以字組錯誤率 (WER) 非常重要。 話務中心轉譯的重要挑戰之一就是話務中心常見的雜訊 (例如，其他服務專員在背景中說話)、各種豐富的語言地區設定和方言，以及低品質的實際電話訊號。 WER 與針對特定地區設定定型原音和語言模型的程度高度相互關聯，因此能夠自訂模型以符合您的地區設定很重要。 我們最新的整合 4.x 版模型是轉譯精確度和延遲的解決方案。 使用成千上萬小時的原音資料和大量語彙資訊進行定型，整合模型是市場中轉譯話務中心資料的最精確模型。
 
@@ -56,17 +56,17 @@ ms.locfileid: "67064089"
 ### <a name="silence-non-talk"></a>無聲 (未交談)
 35% 的支援通話通常會是我們所謂的未交談時間。 發生未交談的案例如下：服務專員正在查閱客戶先前的案例記錄、服務專員正在使用工具，使其存取客戶的桌面並執行功能、客戶正在等候轉接等等。 能測量通話中何時會發生無聲情形極為重要，因為在這幾種案例中會出現數種重要客戶敏感性，而且都發生在通話中。
 
-### <a name="translation"></a>翻譯
+### <a name="translation"></a>轉譯
 有些公司正在試驗提供外國語言支援通話的翻譯文字記錄，以便交付經理了解其客戶的全球體驗。 我們可提供卓越的[翻譯](translation.md)功能。 我們可以從大量的地區設定進行音訊到音訊或音訊到文字的翻譯。
 
 ### <a name="text-to-speech"></a>文字轉語音
-實作可與客戶互動的 Bot 時，[文字轉換語音](text-to-speech.md)是另一個重要領域。 典型的路徑是客戶說話、其語音會轉譯為文字、分析文字的意圖、根據所辨識的意圖來合成回應，然後將資產呈現給客戶或產生合成的語音回應。 當然，這一切都快速發生 – 因此延遲是這些系統的重要成功元件。 
+實作可與客戶互動的 Bot 時，[文字轉換語音](text-to-speech.md)是另一個重要領域。 典型的路徑是客戶說話、其語音會轉譯為文字、分析文字的意圖、根據所辨識的意圖來合成回應，然後將資產呈現給客戶或產生合成的語音回應。 當然，這一切都快速發生 – 因此延遲是這些系統的重要成功元件。
 
-若考量到各種相關技術，例如[語音轉換文字](speech-to-text.md)[LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)、[Bot Framework](https://dev.botframework.com/)、[文字轉換語音](text-to-speech.md)，我們的端對端延遲相當低。 
+若考量到各種相關技術，例如[語音轉換文字](speech-to-text.md)[LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)、[Bot Framework](https://dev.botframework.com/)、[文字轉換語音](text-to-speech.md)，我們的端對端延遲相當低。
 
 我們的新語音也難以與人聲辨別。 您可以使用我們的語音，賦予您的 Bot 獨特的性格。
 
-### <a name="search"></a>Search
+### <a name="search"></a>搜尋
 分析的另一個主要部分是要識別發生特定事件或體驗時的互動。 通常會透過以下兩種方法完成：隨選搜尋或更具結構化的查詢，在前者中，使用者只要輸入一個片語，系統就會回應，而在後者中，析師可以建立一組邏輯陳述式來識別通話中的案例，然後根據這組查詢來編製每次通話的索引。 以下普遍存在的合規性陳述是一個很好的搜尋範例：「為了確保品質，本次通話會進行錄音... 」– 因為很多公司都想確保其服務專員在通話實際錄音前，會將此免責聲明提供給客戶。 大多數的分析系統都能夠分析查詢/搜尋演算法所找到的行為趨勢 – 因為此趨勢報告終究是分析系統的最重要功能之一。 透過[認知服務目錄](https://azure.microsoft.com/services/cognitive-services/directory/search/)，可以利用編製索引和搜尋功能大幅增強端對端解決方案。
 
 ### <a name="key-phrase-extraction"></a>關鍵片語擷取

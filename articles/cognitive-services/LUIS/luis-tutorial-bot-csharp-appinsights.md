@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: fa7147dd1b5f22ead17a60042c1c35c4b770cd18
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 720352403fd5f5937669f9838f3974cb0d3f8797
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154909"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657789"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>從 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 
@@ -173,7 +173,7 @@ ms.locfileid: "67154909"
     ![檢閱儲存在 Application Insights 中的 LUIS 自訂屬性](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>查詢 Application Insights 中的意圖、分數和語句
-Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) 語言查詢資料，以及將它匯出至 [PowerBI](https://powerbi.microsoft.com)。 
+Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) 語言查詢資料，以及將它匯出至 [PowerBI](https://powerbi.microsoft.com)。 
 
 1. 選取 [Log Analytics]  。 即會開啟新的視窗，而其頂端有查詢視窗，其下則有資料表視窗。 若您先前使用過資料庫，則這種排列方式十分熟悉。 查詢會呈現您先前篩選的資料。 **CustomDimensions** 資料行具有 Bot 和 LUIS 資訊。
 1. 若要拉出最上層意圖、分數和語句，請在查詢視窗中於最後一行 (`|top...` 行) 正上方新增下列項目：

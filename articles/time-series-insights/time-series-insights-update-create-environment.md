@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b7b90b63ffebc14498183fc179b9c8ae76a722
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237854"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273038"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教學課程：設定 Azure 時間序列深入解析預覽版環境
 
@@ -28,6 +28,9 @@ ms.locfileid: "66237854"
 * 執行解決方案加速器範例，以將資料串流處理至「Azure 時間序列深入解析預覽版」環境。
 * 在資料上執行基本的分析。
 * 定義「時間序列模型」類型和階層，並將其與您的執行個體建立關聯。
+
+>[!TIP]
+> [IoT 解決方案加速器](https://www.azureiotsolutions.com/Accelerators)提供預先設定的企業級解決方案，可讓您用來加快自訂 IoT 解決方案的開發速度。
 
 ## <a name="create-a-device-simulation"></a>建立裝置模擬
 
@@ -43,58 +46,18 @@ ms.locfileid: "66237854"
 
     | 參數 | 動作 |
     | --- | --- |
-    | **解決方案名稱** | 為新的資源群組輸入唯一值。 列出的 Azure 資源會在建立後指派給資源群組。 |
-    | **訂用帳戶** | 選取用來建立「時間序列深入解析」環境的訂用帳戶。 |
-    | **區域** | 選取用來建立「時間序列深入解析」環境的區域。 |
-    | **部署選擇性 Azure 資源** | 讓 [IoT 中樞]  核取方塊繼續保持選取狀態。 模擬裝置會使用 IoT 中樞來連結或串流資料。 |
+    | **部署名稱** | 為新的資源群組輸入唯一值。 列出的 Azure 資源會在建立後指派給資源群組。 |
+    | **Azure 訂用帳戶** | 選取用來建立「時間序列深入解析」環境的訂用帳戶。 |
+    | **Azure 位置** | 選取用來建立「時間序列深入解析」環境的區域。 |
+    | **部署選項** | 選取 [佈建新的 IoT 中樞]  。 |
  
-    選取 [建立解決方案]  。 等候 10 到 15 分鐘來部署解決方案。
+    選取 [建立解決方案]  。 需要 20 分鐘的時間讓解決方案完成部署。
 
     [![建立裝置模擬解決方案](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox) 頁面
 
-1. 在解決方案加速器儀表板中，選取 [啟動]  ：
-
-    [![啟動裝置模擬解決方案](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. 系統會將您重新導向至 [Microsoft Azure IoT 裝置模擬]  頁面。 在頁面的右上角，選取 [新增模擬]  。
-
-    [![Azure IoT 模擬頁面](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. 在 [模擬設定]  窗格中，設定下列參數：
-
-    | 參數 | 動作 |
-    | --- | --- |
-    | **名稱** | 為模擬器輸入唯一的名稱。 |
-    | **說明** | 輸入定義。 |
-    | **模擬持續時間** | 設定為 [Run indefinitely] \(無限期執行\)  。 |
-    | **裝置型號** | **名稱**：輸入 **Chiller**。 <br />**數量**：輸入 **3**。 |
-    | **目標 IoT 中樞** | 設定為 [Use pre-provisioned IoT Hub] \(使用預先佈建的 IoT 中樞\)  。 |
-
-    [![要設定的參數](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    選取 [開始模擬]  。
-
-    在裝置模擬儀表板中，記下 [作用中裝置]  和 [每秒訊息數]  所顯示的資訊。
-
-    [![Azure IoT 模擬儀表板](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## <a name="list-device-simulation-properties"></a>列出裝置模擬屬性
-
-在建立「Azure 時間序列深入解析」環境之前，您需要有 IoT 中樞、訂用帳戶及資源群組的名稱。
-
-1. 請移至解決方案加速器儀表板。 使用相同的 Azure 訂用帳戶來登入。 尋找您在上一節建立的裝置模擬。
-
-1. 選取裝置模擬器，然後選取 [啟動]  。 在位於右側的裝置模擬器解決方案加速器窗格中，選取 [Azure 管理入口網站]  選項。
-
-    [![模擬器清單](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. 記下 IoT 中樞、訂用帳戶及資源群組的名稱。
-
-    [![Azure 入口網站的裝置模擬器儀表板詳細資料](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
 ## <a name="create-a-time-series-insights-preview-payg-environment"></a>建立時間序列深入解析預覽版 PAYG 環境
 
-本節說明如何使用 [Azure 入口網站](https://portal.azure.com/)建立 Azure 時間序列深入解析預覽版環境。
+本節說明如何使用 [Azure 入口網站](https://portal.azure.com/)建立 Azure 時間序列深入解析預覽環境，並且將其連接至 IoT 解決方案加速器建立的 IoT 中樞。
 
 1. 使用訂用帳戶登入 Azure 入口網站。
 
@@ -109,7 +72,7 @@ ms.locfileid: "66237854"
     | **環境名稱** | 為 Azure 時間序列深入解析預覽版環境輸入唯一的名稱。 |
     | **訂用帳戶** | 輸入您要在其中建立 Azure 時間序列深入解析預覽版環境的訂用帳戶。 您使用的訂用帳戶最好和裝置模擬器所建立的其餘 IoT 資源相同。 |
     | **資源群組** | 請為 Azure 時間序列深入解析預覽版環境資源選取現有的資源群組，或建立新的資源群組。 資源群組是 Azure 資源的容器。 您使用的資源群組最好與裝置模擬器所建立的其餘 IoT 資源相同。 |
-    | **位置** | 為「Azure 時間序列深入解析預覽版」環境選取資料中心區域。 為了避免增加頻寬成本和延遲時間，建議您將 Azure 時間序列深入解析預覽版環境建立於與其他 IoT 資源相同的區域中。 |
+    | **位置** | 為「Azure 時間序列深入解析預覽版」環境選取資料中心區域。 為了避免增加額外延遲時間，建議您將 Azure 時間序列深入解析預覽版環境建立於與其他 IoT 資源相同的區域中。 |
     | **層級** |  選取 [PAYG]  ([隨用隨付]  )。 這是適用於「Azure 時間序列深入解析預覽版」產品的 SKU。 |
     | **屬性識別碼** | 輸入可唯一識別時間序列執行個體的值。 您在 [屬性識別碼]  方塊中輸入的值是不可變的。 之後將無法加以變更。 針對本教學課程，請輸入 **iothub-connection-device-id**。若要深入了解時間序列識別碼，請參閱[選擇時間序列識別碼的最佳做法](./time-series-insights-update-how-to-id.md)。 |
     | **儲存體帳戶名稱** | 針對要建立的新儲存體帳戶輸入全域唯一的名稱。 |
@@ -159,6 +122,34 @@ ms.locfileid: "66237854"
       [![列出的認證](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
    如果未列出您的認證，您就必須對自己授與環境的存取權限。 若要深入了解如何設定權限，請參閱[授與資料存取權](./time-series-insights-data-access.md)。
+
+## <a name="stream-data-into-your-environment"></a>將資料串流到您的環境
+
+1. 瀏覽回到 [Azure IoT 解決方案加速器頁面](https://www.azureiotsolutions.com/Accelerators)。 在解決方案加速器儀表板中，尋找您的解決方案。 然後選取 [啟動]  ：
+
+    [![啟動裝置模擬解決方案](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. 系統會將您重新導向至 [Microsoft Azure IoT 裝置模擬]  頁面。 在頁面的右上角，選取 [新增模擬]  。
+
+    [![Azure IoT 模擬頁面](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. 在 [模擬設定]  窗格中，設定下列參數：
+
+    | 參數 | 動作 |
+    | --- | --- |
+    | **名稱** | 為模擬器輸入唯一的名稱。 |
+    | **說明** | 輸入定義。 |
+    | **模擬持續時間** | 設定為 [Run indefinitely] \(無限期執行\)  。 |
+    | **裝置型號** | **名稱**：輸入 **Chiller**。 <br />**數量**：輸入 **3**。 |
+    | **目標 IoT 中樞** | 設定為 [Use pre-provisioned IoT Hub] \(使用預先佈建的 IoT 中樞\)  。 |
+
+    [![要設定的參數](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    選取 [開始模擬]  。
+
+    在裝置模擬儀表板中，記下 [作用中裝置]  和 [每秒訊息數]  所顯示的資訊。
+
+    [![Azure IoT 模擬儀表板](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data-in-your-environment"></a>在您的環境中分析資料
 
