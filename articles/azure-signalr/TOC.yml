@@ -53,6 +53,8 @@
       href: signalr-concept-performance.md
     - name: Authentication
       href: signalr-concept-authenticate-oauth.md
+    - name: 事件處理
+      href: signalr-concept-event-grid-integration.md
 - name: 使用說明指南
   items:
     - name: 調整
@@ -67,6 +69,8 @@
       items:
         - name: Azure Functions 繫結
           href: signalr-concept-azure-functions.md
+        - name: 事件方格整合
+          href: signalr-howto-event-grid-integration.md
 - name: 參考
   items:
     - name: Azure CLI

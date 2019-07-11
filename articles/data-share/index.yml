@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Share Preview 文件
+metadata:
+  title: Azure Data Share Preview 文件 - 教學課程和操作指南
+  description: Azure Data Share Preview 是一項安全的服務，適用於與第三方組織共用資料。
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: <p>Azure Data Share Preview 是一項安全的服務，適用於與第三方組織共用資料。 選取您希望共用的資料集、新增收件者並開始分享資料，同時還可控管、監視和控制您的資料共用關係。 </p><p>透過教學課程了解如何使用 Azure Data Share。</p>
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/azure-friday.png
+      width: 250
+    title: Azure Data Share on Azure Friday's
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
+    width: 250
+sections:
+  - title: 使用說明指南
+    items:
+      - type: paragraph
+        text: 透過下列操作指南，了解如何監視您的資料共用、設定資料集對應、新增收件者及執行其他作業：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: 監視 Azure Data Share
+            href: /azure/data-share/how-to-monitor
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: 設定資料集對應
+            href: /azure/data-share/how-to-configure-mapping
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: 針對 Azure Data Share 進行疑難排解
+            href: /azure/data-share/data-share-troubleshoot
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何使用 Azure Data Share 開始共用資料
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="share-your-data">使用 Azure Data Share 共用資料</a>
+          - html: <a href="subscribe-to-data-share">使用 Azure Data Share 接受和接收資料</a>

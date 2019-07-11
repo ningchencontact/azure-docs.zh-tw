@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b49e7453079b848a273aa8c1c706b2d00fff921
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063185"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606529"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>準備資料以建立自訂的語音
 
@@ -31,11 +31,11 @@ ms.locfileid: "67063185"
 
 下表列出資料類型和如何都用來建立自訂文字轉換語音的語音模型。
 
-| 数据类型 | 描述 | 使用時機 | 所需的其他服務 | 用於定型模型的數量 | Locale(s) |
+| 資料類型 | 描述 | 使用時機 | 所需的其他服務 | 用於定型模型的數量 | Locale(s) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **個別的談話 + 比對的文字記錄** | (.Zip) 檔案的集合音訊 (.wav) 為個別的發音。 每個音訊的檔案應該是 15 秒長度等於或小於，搭配已格式化的文字 (.txt)。 | 專業的記錄，以相符的文字記錄 | 若已準備好進行訓練。 | EN-US 」 和 「 ZH-CN 不困難。 超過 2,000 個以上其他地區設定不同的發音。 | 所有的自訂語音地區設定 |
-| **長音訊 + 轉譯 (beta)** | (.Zip) 檔案的集合、 未分段音訊 （超過 20 秒），搭配文字 (.txt)，其中包含所有說出口的的話。 | 您有音訊檔和比對的文字記錄，但它們不會劃分到談話。 | （使用 batch 轉譯） 區隔。<br>音訊格式轉換所需位置。 | EN-US 」 和 「 ZH-CN 不困難。 | `en-US`和`zh-CN` |
-| **僅限音訊 (beta)** | 集合 (.zip) 音訊檔案，而文字記錄。 | 您只需要提供，而不需要文字記錄的音訊檔案。 | 區隔 + （使用批次文字記錄） 的文字記錄產生。<br>音訊格式轉換所需位置。| 不一定`en-US`和`zh-CN`。 | `en-US`和`zh-CN` |
+| **長音訊 + 轉譯 (beta)** | (.Zip) 檔案的集合、 未分段音訊 （超過 20 秒），搭配文字 (.txt)，其中包含所有說出口的的話。 | 您有音訊檔和比對的文字記錄，但它們不會劃分到談話。 | （使用 batch 轉譯） 區隔。<br>音訊格式轉換所需位置。 | EN-US 」 和 「 ZH-CN 不困難。 | `en-US` 和 `zh-CN` |
+| **僅限音訊 (beta)** | 集合 (.zip) 音訊檔案，而文字記錄。 | 您只需要提供，而不需要文字記錄的音訊檔案。 | 區隔 + （使用批次文字記錄） 的文字記錄產生。<br>音訊格式轉換所需位置。| 不一定`en-US`和`zh-CN`。 | `en-US` 和 `zh-CN` |
 
 檔案應該依類型至資料集，和上傳為 zip 檔案。 每個資料集只能包含單一資料類型。
 

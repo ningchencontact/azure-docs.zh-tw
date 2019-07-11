@@ -168,6 +168,8 @@
           href: event-schema-azure-maps.md
         - name: 應用程式組態
           href: event-schema-app-configuration.md
+        - name: Azure SignalR
+          href: event-schema-azure-signalr.md
     - name: 範本資源
       items:
         - name: 事件訂閱

@@ -1,37 +1,38 @@
 ---
-title: 安裝及執行容器 - 表單辨識器
+title: 如何安裝和執行表單的辨識器的容器
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用表單辨識器容器來剖析表單和資料表資料。
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a251e97d671c4aad0aebb1d6c3349cdc09444308
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441888"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718479"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>安裝及執行表單辨識器容器
+
 Azure 的形式辨識器適用於機器學習技術來識別和擷取表單中的索引鍵 / 值組和資料表。 它關聯的索引鍵 / 值組的值與資料表項目，然後輸出包含在原始檔的關聯性的結構化的資料。 
 
 若要為降低複雜性，並輕鬆地將自訂的表單辨識器模型整合到您的工作流程自動化程序或其他應用程式，您可以使用簡單的 REST API 呼叫模型。 只有五個表單的文件 （或一個空白表單和兩個的填滿表單） 需要用到，因此您可以取得結果，快速、 精確地說，和量身訂做您特定的內容。 需要不到任何大量手動操作或廣泛的資料科學專業知識。 而且它不需要資料標籤或資料註解。
 
-|函式|功能|
+|功能|功能|
 |-|-|
 |表單辨識器| <li>處理 PDF、 PNG 和 JPG 檔<li>定型的 5 種相同的配置的最少的自訂模型 <li>擷取索引鍵 / 值組和資料表資訊 <li>使用 Azure 認知服務電腦視覺 API 辨識文字功能來偵測及擷取映像，在表單內的列印的文字<li>不需要註解或標記|
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 使用表單辨識器容器之前，您必須符合下列必要條件：
 
-|必要項|目的|
+|必要|用途|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> 在 Windows、 Docker 也必須設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應該有基本了解 Docker 的概念，例如登錄、 存放庫、 容器和容器映像，以及的基本知識`docker`命令。|
