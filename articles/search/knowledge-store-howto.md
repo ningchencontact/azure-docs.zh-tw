@@ -1,47 +1,46 @@
 ---
-title: 如何開始使用知識存放區 (預覽) - Azure 搜尋服務
+title: 如何開始使用知識發掘 (預覽) - Azure 搜尋服務
 description: 了解將 Azure 搜尋服務中的 AI 索引管線所建立的擴充文件傳送至您 Azure 儲存體帳戶中知識存放區的步驟。 您可以從該處檢視、調整及取用 Azure 搜尋服務和其他應用程式中的擴充文件。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540734"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551061"
 ---
-# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>如何在 Azure 搜尋服務中開始使用知識存放區 (預覽)
+# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>如何開始在 Azure 搜尋服務中使用知識發掘
 
 > [!Note]
-> 知識存放區處於預覽階段，不適用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
+> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
 >
+[知識存放區](knowledge-store-concept-intro.md)會將在編製索引期間建立的 AI 擴充文件儲存到您的 Azure 儲存體帳戶，以便在其他應用程式中進行下游知識發掘。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。 
 
-[知識存放區](knowledge-store-concept-intro.md)會將在編製索引期間建立的 AI 擴充儲存到您的 Azure 儲存體帳戶，以便在其他應用程式中進行下游知識發掘。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。
-
-知識存放區是由技能集定義的。 對於一般的 Azure 搜尋服務全文檢索搜尋案例，技能集的目的在於提供 AI 擴充資料，提高內容的可搜尋性。 在知識採礦的情況下，技能集的角色會在其他應用程式和處理程序中建立、填入和儲存多個用於分析或模型化的資料結構。
+知識存放區是由「技能集」  所定義，並由「索引子」  所建立。 知識存放區的實體運算式是透過能判斷儲存體中資料結構的「投影」  來指定。 在您完成此逐步解說之後，您將會建立所有這些物件，並了解它們彼此配合的方式。 
 
 這個練習會從範例資料、服務和工具開始，逐步了解建立和使用您第一個知識存放區的基本工作流程，並將重點放在技能集定義。
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門會使用下列服務、工具和資料。 
+知識存放區位於多個服務的中心，並由 Azure Blob 儲存體和 Azure 資料表儲存體提供實體儲存體，以及由 Azure 搜尋服務和認知服務提供物件建立和更新。 熟悉[基本架構](knowledge-store-concept-intro.md)為本逐步解說的必要條件。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。 
+本快速入門會使用下列服務和工具。 
 
-+ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。 您的知識存放區將存在於 Azure 儲存體中。 
++ [取得 Postman 傳統型應用程式](https://www.getpostman.com/) \(英文\)，其是用來將 HTTP 要求傳送至 Azure 搜尋服務。
 
-+ 在 S0 預付型方案層[建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(機器翻譯\)，以廣泛取得在 AI 擴充資料中使用的完整技能。 此資訊和伙 Azure 搜尋服務都必須位於相同區域。
++ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)以儲存範例資料和知識存放區。 您的知識存放區將存在於 Azure 儲存體中。
 
-+ [Postman 傳統型應用程式](https://www.getpostman.com/)可將要求傳送至 Azure 搜尋服務。
++ 在 S0 隨用隨付層[建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(機器翻譯\)，以廣泛取得在 AI 擴充資料中使用的完整技能。 認知服務和您的 Azure 搜尋服務都必須位於相同區域。
 
-+ [Postman 集合](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw)包含預先準備的要求，可用於建立資料來源、索引、技能集和索引子。 有幾個物件定義因為太長而無法包含在此文章中。 您必須取得此集合，才能查看完整的索引和技能集定義。
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。 
 
-+ [Caselaw 範例資料](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) \(英文\) 源自 [Caselaw 存取專案](https://case.law/bulk/download/) \(英文\) Public Bulk Data 下載頁面。 具體來說，此練習會使用第一個下載項目 (Arkansas) 的前 10 個文件。 我們為此練習上傳了包含 10 個文件的範例至 GitHub。
+範例 JSON 文件和 Postman 集合檔案也是必要項目。 找出並載入在[準備範例資料](#prepare-sample-data)小節中所提供之增補檔案的指示。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
@@ -51,15 +50,29 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
-    ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
+    ![取得 HTTP 端點和存取金鑰](media/search-get-started-postman/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
-所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。
+所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 您將會在下列各節於每個 HTTP 要求中提供服務名稱和 API 金鑰。
+
+<a name="prepare-sample-data"></a>
 
 ## <a name="prepare-sample-data"></a>準備範例資料
 
+知識存放區包含擴充管線的輸出。 輸入包含「無法使用」的資料；這些資料在通過管線後，最終會變成「可用」的資料。 無法使用的資料範例可能是需要分析文字或影像特徵的影像檔案，或是可對其分析實體、關鍵片語或情緒的密集文字檔。 
+
+本練習會使用源自於 [Caselaw Access Project](https://case.law/bulk/download/) \(英文\) 公用大量資料下載頁面的密集文字檔 (判例法資訊)。 我們為此練習上傳了包含 10 個文件的範例至 GitHub。 
+
+在此工作中，您將會為這些文件建立 Azure Blob 容器以作為管線的輸入使用。 
+
+1. 下載 [Azure 搜尋服務範例資料](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) \(英文\) 存放庫並將其解壓縮，以取得 [Caselaw 資料集](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) \(英文\)。 
+
 1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]  ，然後按一下 [+ 容器]  。
 
-1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 使用容器名稱 "caselaw-test"。 您可以將公用存取層級設定為任何有效值。
+1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料： 
+
+   1. 將容器命名為 `caselaw-test`。 
+   
+   1. 將 [公用存取層級] 設定為任何有效值。
 
 1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]  。
 
@@ -67,88 +80,44 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 瀏覽至包含 **caselaw-sample.json** 範例檔案的資料夾。 選取檔案，然後按一下 [上傳]  。
 
+1. 當您位於 Azure 儲存體中時，請取得連接字串和容器名稱。  您在[建立資料來源](#create-data-source)時將會需要這兩個字串：
+
+   1. 在 [概觀] 頁面中，按一下 [存取金鑰]  並複製「連接字串」  。 它會以 `DefaultEndpointsProtocol=https;` 作為開頭，並以 `EndpointSuffix=core.windows.net` 作為結尾。 您的帳戶名稱和金鑰會介於它們之間。 
+
+   1. 容器名稱應該是 `caselaw-test` 或您所指派的任何名稱。
+
+
 
 ## <a name="set-up-postman"></a>設定 Postman
 
-啟動 Postman 並匯入 Caselaw Postman 集合。 或者，設定一系列的 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
+Postman 是您將用來把要求和 JSON 文件傳送至 Azure 搜尋服務的用戶端應用程式。 有數個要求只需要使用此文章中的資訊便可以構成。 不過，其中兩個最大的要求 (建立索引、建立技能集) 會包含具詳細資訊的 JSON，其大小過大而無法內嵌在文章中。 
 
-+ 此逐步解說中每個呼叫的要求方法都是 **PUT** 或 **POST**。
-+ 要求標頭 (2) 包括：分別將 "Content-type" 設定為 "application/json"，將 "api-key" 設為您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 
-+ 要求本文是您放置呼叫實際內容的地方。 
+若要使所有 JSON 文件和要求皆完全可用，我們已建立 Postman 集合檔案。 下載並匯入此檔案，是您設定用戶端的第一個工作。
 
-  ![半結構化搜尋](media/search-semi-structured-data/postmanoverview.png)
+1. 下載 [Azure 搜尋服務 Postman 範例](https://github.com/Azure-Samples/azure-search-postman-samples) \(英文\) 存放庫，並將它解壓縮。
 
-我們使用 Postman 對您的搜尋服務進行四個 API 呼叫，並按此順序建立資料來源、索引、技能集及索引子。 資料來源包括指向您 Azure 儲存體帳戶和 JSON 資料的指標。 您的搜尋服務會在匯入資料時進行連線。
+1. 啟動 Postman 並匯入 Caselaw Postman 集合：
 
-[建立技能集](#create-skillset)是此逐步解說的重點：它會指定擴充步驟和在知識存放區中保存資料的方式。
+   1. 按一下 [匯入]   > [匯入檔案]   > [選擇檔案]  。 
 
-URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**。 用於建立支援知識存放區之技能集的預覽 api-version 為 `2019-05-06-Preview` (區分大小寫)。
+   1. 瀏覽至 \azure-search-postman-samples-master\azure-search-postman-samples-master\Caselaw 資料夾。
 
-從您的 REST 用戶端執行下列 API 呼叫。
+   1. 選取 **Caselaw.postman_collection_v2.json**。 您在集合中應該會看到四個 **POST** 要求。
 
-## <a name="create-a-data-source"></a>建立資料來源
-
-[建立資料來源 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 會建立一個 Azure 搜尋服務物件，以指定要編製索引的資料。
-
-此呼叫的端點為 `https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview` 
-
-1. 使用您的搜尋服務名稱來取代 `[service name]`。 
-
-2. 對於此呼叫，要求本文必須包含您的儲存體帳戶連接字串和 Blob 容器名稱。 此連線可以在 Azure 入口網站中，您儲存體帳戶的**存取金鑰**內部找到。 
-
-   請務必先取代要求本文中的連接字串和 Blob 容器名稱，再執行呼叫。
-
-    ```json
-    {
-        "name": "caselaw-ds",
-        "description": null,
-        "type": "azureblob",
-        "subtype": null,
-        "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
-        },
-        "container": {
-            "name": "<YOUR-BLOB-CONTAINER-NAME>",
-            "query": null
-        },
-        "dataChangeDetectionPolicy": null,
-        "dataDeletionDetectionPolicy": null
-    }
-    ```
-
-3. 傳送要求。 回應應為 **201**，且回應本文看起來應該和您所提供的要求承載幾乎一模一樣。
-
-    ```json
-    {
-        "name": "caselaw-ds",
-        "description": null,
-        "type": "azureblob",
-        "subtype": null,
-        "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
-        },
-        "container": {
-            "name": "<your blob container name>",
-            "query": null
-        },
-        "dataChangeDetectionPolicy": null,
-        "dataDeletionDetectionPolicy": null
-    }
-    ```
+   ![適用於 Caselaw 示範的 Postman 集合](media/knowledge-store-howto/postman-collection.png "適用於 Caselaw 示範的 Postman 集合")
+   
 
 ## <a name="create-an-index"></a>建立索引
     
-第二次呼叫為[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，進而建立可儲存所有可搜尋資料的 Azure 搜尋服務索引。 索引會指定所有欄位、參數及屬性。
+第一個要求會使用[建立索引 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) \(英文\)，其會建立可儲存所有可搜尋資料的 Azure 搜尋服務索引。 索引會指定所有欄位、參數及屬性。
 
 您不一定需要索引來進行知識採礦，但必須提供索引才能執行索引子。 
 
-此呼叫的 URL 為 `https://[service name].search.windows.net/indexes?api-version=2019-05-06-Preview`
+1. 在 `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/indexes?api-version=2019-05-06-Preview` 這個 URL 中，將 `YOUR-AZURE-SEARCH-SERVICE-NAME` 取代為您搜尋服務的名稱。 
 
-1. 使用您的搜尋服務名稱來取代 `[service name]`。
+1. 在 [標頭] 區段中，將 `<YOUR AZURE SEARCH ADMIN API-KEY>` 取代為適用於 Azure 搜尋服務的管理員 API 金鑰。
 
-2. 將索引定義從 Postman 集合中的「建立索引」要求複製到要求本文中。 索引定義包含數百行，因為太長而無法在這裡列印。 
-
-   索引的外殼由下列元素組成。 
+1. 在 [主體] 區段中，JSON 文件會是索引結構描述。 基於可見性的原因，索引的外殼預設已摺疊；其由下列元素組成。 欄位集合會對應至 Caselaw 資料集中的欄位。
 
    ```json
    {
@@ -166,9 +135,9 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
    }
    ```
 
-3. `fields` 集合包含大量索引定義。 它包含簡單欄位、具巢狀結構的[複雜欄位](search-howto-complex-data-types.md)，以及集合。
+1. 展開 `fields` 集合。 它包含大部分的索引定義，並由簡單欄位、具巢狀子結構的[複雜欄位](search-howto-complex-data-types.md)，以及集合所組成。
 
-   檢閱第 302-384 行的欄位定義 `casebody`。 請注意，需使用階層式表示法時，複雜欄位可包含其他複雜欄位。
+   請花點時間檢閱位於第 302-384 行上，適用於 `casebody` 複雜欄位的欄位定義。 請注意，需使用階層式表示法時，複雜欄位可包含其他複雜欄位。 階層式結構可以在索引中模型化 (如這裡所示)，也可以模型化為技能集中的投影，因而會在知識存放區中建立巢狀資料結構。
 
    ```json
    {
@@ -258,59 +227,53 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
     . . .
    ```
 
-4. 傳送要求。 
+1. 按一下 [傳送]  以執行要求。  作為回覆，您應該會收到「狀態:已建立 201」  。
 
-   回應應為 **201**，且看起來應該類似以下範例 (僅顯示前幾個欄位)：
+<a name="create-data-source"></a>
+
+## <a name="create-a-data-source"></a>建立資料來源
+
+第二個要求會使用[建立資料來源 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) \(英文\) 來連線至 Azure Blob 儲存體。 
+
+1. 在 `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/datasources?api-version=2019-05-06-Preview` 這個 URL 中，將 `YOUR-AZURE-SEARCH-SERVICE-NAME` 取代為您搜尋服務的名稱。 
+
+1. 在 [標頭] 區段中，將 `<YOUR AZURE SEARCH ADMIN API-KEY>` 取代為適用於 Azure 搜尋服務的管理員 API 金鑰。
+
+1. 在 [主體] 區段中，JSON 文件會包含您的儲存體帳戶連接字串和 Blob 容器名稱。 該連接字串可以在 Azure 入口網站中您儲存體帳戶的 [存取金鑰]  內找到。 
 
     ```json
     {
-        "name": "caselaw",
-        "defaultScoringProfile": null,
-        "fields": [
-            {
-                "name": "id",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": true,
-                "retrievable": true,
-                "sortable": true,
-                "facetable": true,
-                "key": true,
-                "indexAnalyzer": null,
-                "searchAnalyzer": null,
-                "analyzer": null,
-                "synonymMaps": []
-            },
-            {
-                "name": "name",
-                "type": "Edm.String",
-                "searchable": true,
-                "filterable": true,
-                "retrievable": true,
-                "sortable": true,
-                "facetable": true,
-                "key": false,
-                "indexAnalyzer": null,
-                "searchAnalyzer": null,
-                "analyzer": null,
-                "synonymMaps": []
-            },
-      . . .
+        "name": "caselaw-ds",
+        "description": null,
+        "type": "azureblob",
+        "subtype": null,
+        "credentials": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
+        },
+        "container": {
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
+            "query": null
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null
+    }
     ```
+
+1. 按一下 [傳送]  以執行要求。  作為回覆，您應該會收到「狀態:已建立 201」  。
+
+
 
 <a name="create-skillset"></a>
 
 ## <a name="create-a-skillset-and-knowledge-store"></a>建立技能集和知識存放區
 
-[建立技能集 API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) \(英文\) 可建立 Azure 搜尋服務物件，以指定要呼叫哪些認知技術、如何鏈結技術，以及如何指定知識存放區 (此逐步解說最重要的重點)。
+第三個要求會使用[建立技能集 API](https://docs.microsoft.com/rest/api/searchservice/create-skillset) \(英文\)，其可建立 Azure 搜尋服務物件，以指定要呼叫哪些認知技術、如何鏈結技術，以及如何指定知識存放區 (此為本逐步解說的重點)。
 
-此呼叫的端點為 `https://[service name].search.windows.net/skillsets?api-version=2019-05-06-Preview`
+1. 在 `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/skillsets?api-version=2019-05-06-Preview` 這個 URL 中，將 `YOUR-AZURE-SEARCH-SERVICE-NAME` 取代為您搜尋服務的名稱。 
 
-1. 使用您的搜尋服務名稱來取代 `[service name]`。
+1. 在 [標頭] 區段中，將 `<YOUR AZURE SEARCH ADMIN API-KEY>` 取代為適用於 Azure 搜尋服務的管理員 API 金鑰。
 
-2. 將技能集定義從 Postman 集合中的「建立技能集」要求複製到要求本文中。 技能集定義包含數百行，因為太長而無法在這裡列印，但它是本逐步解說的重點。
-
-   技能集的外殼由下列元素組成。 `skills` 集合會定義記憶體內部的擴充資料，但 `knowledgeStore` 定義會指定輸出的儲存方式。 `cognitiveServices` 定義是您與 AI 擴充引擎的連線。
+1. 在 [主體] 區段中，JSON 文件會是技能集定義。 基於可見性的原因，技能集的外殼預設已摺疊；其由下列元素組成。 `skills` 集合會定義記憶體內部的擴充資料，但 `knowledgeStore` 定義會指定輸出的儲存方式。 `cognitiveServices` 定義是您與 AI 擴充引擎的連線。
 
    ```json
    {
@@ -322,7 +285,11 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
    }
    ```
 
-3. 請先設定 `cognitiveServices` 和 `knowledgeStore` 金鑰與連接字串。 在範例中，這些字串位於技能集定義後方，靠近要求本文的結尾處。 使用認知服務資源，在位於與 Azure 搜尋服務相同區域的 S0 服務層級中佈建。
+1. 展開 `cognitiveServices` 和 `knowledgeStore` 來讓您可以提供連線資訊。 在範例中，這些字串位於技能集定義後方，靠近要求本文的結尾處。 
+
+   針對 `cognitiveServices`，請在位於與 Azure 搜尋服務相同區域的 S0 層佈建資源。 您可以從 Azure 入口網站中的相同頁面上取得 cognitiveServices 名稱和金鑰。 
+   
+   針對 `knowledgeStore`，您可以使用和 Caselaw Blob 容器相同的連接字串。
 
     ```json
     "cognitiveServices": {
@@ -334,7 +301,7 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
         "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
-3. 檢閱技能集合，特別是分別位於第 85 和 170 行的 Shaper 技能。 Shaper 技能很重要，因為它會組合您進行知識採礦時所需的資料結構。 技能集在執行期間，這些結構只會存在於記憶體內部，但當您移至下一個步驟時，就會了解此輸出如何儲存至知識存放區以供進一步探索。
+1. 展開技能集合，特別是分別位於第 85 和 179 行的 Shaper 技能。 Shaper 技能很重要，因為它會組合您進行知識採礦時所需的資料結構。 技能集在執行期間，這些結構只會存在於記憶體內部，但當您移至下一個步驟時，就會了解此輸出如何儲存至知識存放區以供進一步探索。
 
    下列程式碼片段來自第 217 行。 
 
@@ -370,7 +337,7 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
    . . .
    ```
 
-3. 檢閱 `knowledgeStore` 中的 `projections` 元素 (從第 262 行開始)。 投影會指定知識存放區組合。 投影是在資料表-物件組中指定的，但目前有時只有一個。 如您在第一個投影中所見，已指定 `tables` 但未指定 `objects`。 在第二個中則是相反的。
+1. 展開 `knowledgeStore` 中的 `projections` 元素 (從第 262 行開始)。 投影會指定知識存放區組合。 投影是在資料表-物件組中指定的，但目前有時只有一個。 如您在第一個投影中所見，已指定 `tables` 但未指定 `objects`。 在第二個中則是相反的。
 
    在 Azure 儲存體中，您建立的每個資料表都會在資料表儲存體中建立，而且每個物件都會在 Blob 儲存體中取得一個容器。
 
@@ -406,7 +373,7 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
     ]
     ```
 
-5. 傳送要求。 回應應為 **201**，且看起來應該類似以下範例 (僅顯示回應的前面部分)。
+1. 按一下 [傳送]  以執行要求。 回應應為 **201**，且看起來應該類似以下範例 (僅顯示回應的前面部分)。
 
     ```json
     {
@@ -439,13 +406,13 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
 
 ## <a name="create-and-run-an-indexer"></a>建立及執行索引子
 
-[建立索引子 API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) \(英文\) 會建立並立即執行索引子。 您到目前為止已經建立的所有定義都將在此步驟中發揮效用。 索引子會立即執行，因為它不存在服務中。 當它存在之後，對現有索引子進行的 POST 呼叫就會是一個更新作業。
+第四個要求會使用[建立索引子 API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) \(英文\)，其會建立 Azure 搜尋服務索引子。 索引子是索引管線的執行引擎。 您到目前為止已經建立的所有定義都將在此步驟中發揮效用。
 
-此呼叫的端點為 `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`
+1. 在 `https://YOUR-AZURE-SEARCH-SERVICE-NAME.search.windows.net/indexers?api-version=2019-05-06-Preview` 這個 URL 中，將 `YOUR-AZURE-SEARCH-SERVICE-NAME` 取代為您搜尋服務的名稱。 
 
-1. 使用您的搜尋服務名稱來取代 `[service name]`。 
+1. 在 [標頭] 區段中，將 `<YOUR AZURE SEARCH ADMIN API-KEY>` 取代為適用於 Azure 搜尋服務的管理員 API 金鑰。
 
-2. 對於此呼叫，要求本文是指定索引子名稱。 索引子需要資料來源和索引。 技能集對索引子而言是選擇性的，但對 AI 擴充資料來說是必要的。
+1. 在 [主體] 區段中，JSON 文件會指定索引子名稱。 索引子需要資料來源和索引。 技能集對索引子而言是選擇性的，但對 AI 擴充資料來說是必要的。
 
     ```json
     {
@@ -456,47 +423,44 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
         "targetIndexName": "caselaw",
         "disabled": null,
         "schedule": null,
-        "parameters": {
-            "batchSize": 1,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": {
-                "parsingMode": "jsonLines"
-            }
-        },
+        "parameters": { },
         "fieldMappings": [],
-        "outputFieldMappings": [
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
-                "targetFieldName": "people",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/organizations/*",
-                "targetFieldName": "orginizations",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/locations/*",
-                "targetFieldName": "locations",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/Case/OpinionsSnippets/*/Entities/*",
-                "targetFieldName": "entities",
-                "mappingFunction": null
-            },
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/keyPhrases/*",
-                "targetFieldName": "keyPhrases",
-                "mappingFunction": null
-            }
-        ]
-    }
+        "outputFieldMappings": [ ]
     ```
 
-3. 傳送要求。 回應應為 **201**，且回應本文看起來應該和您所提供的要求承載幾乎一模一樣 (為了簡潔起見已修剪)。
+1. 展開 outputFieldMappings。 相較於 fieldMappings (適用於資料來源和索引中欄位之間的自訂對應)，outputFieldMappings 是用來將擴充欄位 (由管線建立並填入) 對應至索引或投影中的輸出欄位。
+
+    ```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
+            "targetFieldName": "people",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/organizations/*",
+            "targetFieldName": "orginizations",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/locations/*",
+            "targetFieldName": "locations",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/Case/OpinionsSnippets/*/Entities/*",
+            "targetFieldName": "entities",
+            "mappingFunction": null
+        },
+        {
+            "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/keyPhrases/*",
+            "targetFieldName": "keyPhrases",
+            "mappingFunction": null
+        }
+    ]
+    ```
+
+1. 按一下 [傳送]  以執行要求。 回應應為 **201**，且回應本文看起來應該和您所提供的要求承載幾乎一模一樣 (為了簡潔起見已修剪)。
 
     ```json
     {
@@ -507,23 +471,9 @@ URL 端點必須指定 api-version，且每個呼叫都應傳回 **201 Created**
         "targetIndexName": "caselaw",
         "disabled": null,
         "schedule": null,
-        "parameters": {
-            "batchSize": 1,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration": {
-                "parsingMode": "jsonLines"
-            }
-        },
+        "parameters": { },
         "fieldMappings": [],
-        "outputFieldMappings": [
-            {
-                "sourceFieldName": "/document/casebody/data/opinions/*/text/pages/*/people/*",
-                "targetFieldName": "people",
-                "mappingFunction": null
-            }
-        ]
+        "outputFieldMappings": [ ]
     }
     ```
 

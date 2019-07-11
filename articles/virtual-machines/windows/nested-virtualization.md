@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510048"
@@ -26,7 +26,7 @@ ms.locfileid: "65510048"
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>建立可使用巢狀結構的 Azure VM
 
-建立新的 Windows Server 2016 Azure VM。  如需快速參考，v3 的所有虛擬機器都支援巢狀虛擬化。 如需支援巢狀結構的虛擬機器完整清單，請參閱 [Azure 計算單位](acu.md)一文。
+建立新的 Windows Server 2016 Azure VM。  為了方便參考，所有 v3 虛擬機器都支援巢狀虛擬化。 如需支援巢狀結構的虛擬機器完整清單，請參閱 [Azure 計算單位](acu.md)一文。
 
 請務必選擇大小足以支援客體虛擬機器需求的 VM。 在此範例中，我們使用的是 D3_v3 大小的 Azure VM。 
 
@@ -52,7 +52,7 @@ ms.locfileid: "65510048"
 您可以手動設定這些設定，或者使用我們提供的 PowerShell 指令碼，將設定自動化。
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>選項 1：使用 PowerShell 指令碼設定巢狀虛擬化
-要在 Windows Server 2016 主機上啟用巢狀虛擬化的 PowerShell 指令碼可在 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested) \(英文\) 上取得。 此指令碼會檢查必要條件，然後在 Azure VM 上設定巢狀虛擬化。 若要完成設定，必須重新啟動 Azure VM。 此指令碼或許能夠在其他環境下運作，但並不能保證。 查看 Azure 部落格文章中有關在 Azure 上執行之巢狀虛擬化的即時影片示範！ https://aka.ms/AzureNVblog 。
+要在 Windows Server 2016 主機上啟用巢狀虛擬化的 PowerShell 指令碼可在 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested) \(英文\) 上取得。 此指令碼會檢查必要條件，然後在 Azure VM 上設定巢狀虛擬化。 若要完成設定，必須重新啟動 Azure VM。 此指令碼或許能夠在其他環境下運作，但並不能保證。 查看 Azure 部落格文章中有關在 Azure 上執行之巢狀虛擬化的即時影片示範！ [https://aka.ms/AzureNVblog](https://aka.ms/AzureNVblog ) 。
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>選項 2：手動設定巢狀虛擬化
 
