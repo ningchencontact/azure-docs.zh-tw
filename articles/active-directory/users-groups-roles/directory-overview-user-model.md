@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775a03a82c1fc432e65ce45309a5af3febb448a9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d2053ad07e555cc04cea714524141068f1404796
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083883"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>大型組織的使用者、群組、授權和角色
 
@@ -62,7 +62,7 @@ ms.locfileid: "56428216"
 
 您可以使用 Azure AD 將群組存取權指派給[部署在 Azure AD 租用戶中的企業應用程式](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)。 如果您將具有群組指派的動態群組合併至應用程式，您就可以在組織成長時，自動化使用者應用程式的存取權指派。 您需要 Azure Active Directory Premium P1 或 Premium P2 授權，才能將存取權指派給企業應用程式。
 
-Azure AD 也可讓您更精細地控制在應用程式與群組 (您對其指派存取權) 之間流動的資料。 在[企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)中，開啟應用程式，然後選取 [佈建] 來：
+Azure AD 也可讓您更精細地控制在應用程式與群組 (您對其指派存取權) 之間流動的資料。 在[企業應用程式](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)中，開啟應用程式，然後選取 [佈建]  來：
 
 * 為應用程式設定自動佈建 (若有支援)
 * 提供認證以連線至應用程式的使用者管理 API

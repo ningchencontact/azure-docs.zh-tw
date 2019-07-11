@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97db4159927183edef6fc7490c6453ba9d818565
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67927e06d2ffb48bd14a5408d39c0f3cda539f6e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852918"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>教學課程：Azure Active Directory 與 Convercent 整合
 
@@ -53,19 +53,19 @@ ms.locfileid: "57852918"
 
 **若要從資源庫加入 Convercent，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Convercent**，從結果面板中選取 [Convercent]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Convercent**，從結果面板中選取 [Convercent]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Convercent](common/search-new-app.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "57852918"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Convercent 測試使用者](#create-convercent-test-user)** - 在 Convercent 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -88,40 +88,40 @@ ms.locfileid: "57852918"
 
 若要設定與 Convercent 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Convercent] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Convercent]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+4. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
     ![Convercent 網域與 URL 單一登入資訊](common/both-identifier.png)
 
-    在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<instancename>.convercent.com/`
+    在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<instancename>.convercent.com/`
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     ![Convercent 網域與 URL 單一登入資訊](common/both-advanced-urls.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<instancename>.convercent.com/`
+    a. 在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<instancename>.convercent.com/`
 
-    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<instancename>.convercent.com/`
+    b. 在 [轉送狀態]  文字方塊中，使用下列模式輸入 URL：`https://<instancename>.convercent.com/`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、登入 URL 和轉送狀態來更新這些值。 請連絡 [Convercent 用戶端支援小組](http://support.convercent.com/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+6. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-7. 在 [安裝 Convercent] 區段上，依據您的需求複製適當的 URL。
+7. 在 [安裝 Convercent]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -133,17 +133,17 @@ ms.locfileid: "57852918"
 
 ### <a name="configure-convercent-single-sign-on"></a>設定 Convercent 單一登入
 
-若要在 **Convercent** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [Convercent 支援小組](http://support.convercent.com/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Convercent** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和複製的適當 URL 傳送給 [Convercent 支援小組](http://support.convercent.com/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -151,40 +151,40 @@ ms.locfileid: "57852918"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Convercent 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Convercent]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Convercent]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Convercent]。
+2. 在應用程式清單中，選取 [Convercent]  。
 
     ![應用程式清單中的 Convercent 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-convercent-test-user"></a>建立 Convercent 測試使用者
 

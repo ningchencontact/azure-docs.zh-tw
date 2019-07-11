@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 195e7bf21fe1f6017705883f2ec692c182f15375
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>教學課程：Azure Active Directory 與 Pega Systems 整合
 
@@ -252,7 +252,7 @@ ms.locfileid: "65560601"
 
     ![應用程式清單](common/all-applications.png)
 
-3. 在左側窗格中，選取 [使用者和群組]  ：
+3. 在左窗格中，選取 [使用者和群組]  ：
 
     ![選取 [使用者和群組]](common/users-groups-blade.png)
 
@@ -262,7 +262,7 @@ ms.locfileid: "65560601"
 
 5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的角色值，請在 [選取角色]  對話方塊的清單中選取適當的使用者角色。 按一下畫面底部的 [選取]  按鈕。
+6. 如果您在 SAML 判斷提示中需要角色值，請在 [選取角色]  對話方塊的清單中選取適當的使用者角色。 按一下畫面底部的 [選取]  按鈕。
 
 7. 在 [新增指派]  對話方塊中，選取 [指派]  。
 

@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545597"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484504"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>教學課程：建置自訂映像，並從私人登錄在 App Service 中執行
 
-[App Service](app-service-linux-intro.md) 在 Linux 上提供內建的 Docker 映像，且支援特定的版本，例如 PHP 7.0 和 Node.js 4.5。 App Service 會使用 Docker 容器技術，來裝載內建映像和自訂映像作為平台即服務。 在此教學課程中，您將了解如何建置自訂映像，並在 App Service 中執行它。 當內建的映像不包含您所選擇的語言，或當您應用程式所需的特定組態未在內建的映像中提供時，此模式相當有用。
+[App Service](app-service-linux-intro.md) 在 Linux 上提供內建的 Docker 映像，且支援特定的版本，例如 PHP 7.3 和 Node.js 10.14。 App Service 會使用 Docker 容器技術，來裝載內建映像和自訂映像作為平台即服務。 在此教學課程中，您將了解如何建置自訂映像，並在 App Service 中執行它。 當內建的映像不包含您所選擇的語言，或當您應用程式所需的特定組態未在內建的映像中提供時，此模式相當有用。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 將自訂映像部署到私人容器登錄中
@@ -41,7 +41,7 @@ ms.locfileid: "59545597"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要：
+若要完成本教學課程，您需要：
 
 * [Git](https://git-scm.com/downloads)
 * [Docker](https://docs.docker.com/get-started/#setup)
@@ -211,7 +211,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="configure-registry-credentials-in-web-app"></a>在 Web 應用程式中設定登錄認證
 
-若要使 App Service 提取私人映像，它需要有關您的登錄和映像的相關資訊。 在 Cloud Shell 中，為他們提供 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令。 取代 *\<app-name>*、*\<azure-container-registry-name>*、_\<registry-username>_ 及 _\<password>_。
+若要使 App Service 提取私人映像，它需要有關您的登錄和映像的相關資訊。 在 Cloud Shell 中，為他們提供 [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) 命令。 取代 *\<app-name>* 、 *\<azure-container-registry-name>* 、 _\<registry-username>_ 及 _\<password>_ 。
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -223,7 +223,7 @@ az webapp config container set --name <app-name> --resource-group myResourceGrou
 
 ### <a name="configure-environment-variables"></a>設定環境變數
 
-大部分的 Docker 映像會使用自訂環境變數，例如 80 以外的連接埠。 可告訴 App Service 您映像所使用的連接埠，方法是使用 `WEBSITES_PORT` 應用程式設定。 [此教學課程中的 Python 範例](https://github.com/Azure-Samples/docker-django-webapp-linux) GitHub 頁面說明您必須將 `WEBSITES_PORT` 設定為 _8000_。
+大部分的 Docker 映像會使用自訂環境變數，例如 80 以外的連接埠。 可告訴 App Service 您映像所使用的連接埠，方法是使用 `WEBSITES_PORT` 應用程式設定。 [本教學課程中的 Python 範例](https://github.com/Azure-Samples/docker-django-webapp-linux) GitHub 頁面說明您必須將 `WEBSITES_PORT` 設定為 _8000_。
 
 若要設定應用程式的設定，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
   </nav>
 ```
 
-一旦您修改了 Python 檔案並加以儲存後，必須重建並推送新的 Docker 映像。 接著，重新啟動 Web 應用程式，變更才會生效。 使用您先前已在此教學課程中使用的相同命令。 您可以參考[從 Docker 檔案建立映像](#build-the-image-from-the-docker-file)和[將映像推送至 Azure Container Registry](#push-image-to-azure-container-registry)。 遵循[測試 Web 應用程式](#test-the-web-app)中的指示來測試 web 應用程式。
+一旦您修改了 Python 檔案並加以儲存後，必須重建並推送新的 Docker 映像。 接著，重新啟動 Web 應用程式，變更才會生效。 使用您先前已在本教學課程中使用的相同命令。 您可以參考[從 Docker 檔案建立映像](#build-the-image-from-the-docker-file)和[將映像推送至 Azure Container Registry](#push-image-to-azure-container-registry)。 遵循[測試 Web 應用程式](#test-the-web-app)中的指示來測試 web 應用程式。
 
 ## <a name="access-diagnostic-logs"></a>存取診斷記錄
 
@@ -278,7 +278,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 若要啟用與容器的
     > [!NOTE]
     > 此設定不允許容器的外部連線。 SSH 只能透過 Kudu/SCM 站台提供。 Kudu/SCM 站台會向 Azure 帳戶進行驗證。
 
-* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) 會將 [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) 複製到 */etc/ssh/* 目錄。
+* [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) 會將存放庫中的 [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) 檔案複製到 /etc/ssh/  目錄。
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

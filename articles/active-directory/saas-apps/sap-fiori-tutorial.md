@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>教學課程：Azure Active Directory 與 SAP Fiori 整合
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f354d0413d023e7af6d1719d86e0fbff59cf2b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813311"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>教學課程：Azure Active Directory 與 SurveyMonkey Enterprise 整合
 
@@ -54,19 +54,19 @@ SurveyMonkey Enterprise 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 SurveyMonkey Enterprise，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽面板中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽面板中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **SurveyMonkey Enterprise**，從結果面板中選取 [SurveyMonkey Enterprise]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **SurveyMonkey Enterprise**，從結果面板中選取 [SurveyMonkey Enterprise]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 SurveyMonkey Enterprise](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ SurveyMonkey Enterprise 與 Azure AD 整合提供下列優點：
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 SurveyMonkey Enterprise 測試使用者](#create-surveymonkey-enterprise-test-user)** - 在 SurveyMonkey Enterprise 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -90,33 +90,33 @@ SurveyMonkey Enterprise 與 Azure AD 整合提供下列優點：
 
 若要設定與 SurveyMonkey Enterprise 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SurveyMonkey Enterprise] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SurveyMonkey Enterprise]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上按一下 [編輯] 圖示，以開啟 [基本 SAML 組態] 對話方塊。
+3. 在 [以 SAML 設定單一登入]  頁面上按一下 [編輯]  圖示，以開啟 [基本 SAML 組態]  對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定] 設定區段上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存] 按鈕，才能儲存設定。
+4. 在 [基本 SAML 設定]  設定區段上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
     ![SurveyMonkey Enterprise 網域及 URL 單一登入資訊](common/preintegrated.png)
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     ![SurveyMonkey Enterprise 網域及 URL 單一登入資訊](common/both-signonurl.png)
 
-    在 [登入 URL] 文字方塊中，輸入 URL：` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    在 [登入 URL]  文字方塊中，輸入 URL：`https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
-6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+6. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-7. 在 [安裝 SurveyMonkey Enterprise] 區段上，依據您的需求複製適當的 URL。
+7. 在 [安裝 SurveyMonkey Enterprise]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -128,17 +128,17 @@ SurveyMonkey Enterprise 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-surveymonkey-enterprise-single-sign-on"></a>設定 SurveyMonkey Enterprise 單一登入
 
-若要在 **SurveyMonkey Enterprise** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [SurveyMonkey Enterprise 支援小組](mailto:support@selerix.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **SurveyMonkey Enterprise** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [SurveyMonkey Enterprise 支援小組](mailto:support@selerix.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -146,39 +146,39 @@ SurveyMonkey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon@yourcompanydomain.extension`。 例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon@yourcompanydomain.extension`。 例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 SurveyMonkey Enterprise 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [SurveyMonkey Enterprise]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [SurveyMonkey Enterprise]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [SurveyMonkey Enterprise]。
+2. 在應用程式清單中，選取 [SurveyMonkey Enterprise]  。
 
     ![應用程式清單中的 [SurveyMonkey Enterprise] 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色] 對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-surveymonkey-enterprise-test-user"></a>建立 SurveyMonkey Enterprise 測試使用者
 

@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 63de2045498b312580640859c1911046f9785d8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 83a888a28c1d1e51a1fe59649dfb956cd0f72203
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071432"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>將大量隨機資料平行上傳至 Azure 儲存體
 
@@ -31,7 +31,7 @@ ms.locfileid: "65794354"
 
 Azure Blob 儲存體會提供可擴充的服務來儲存您的資料。 若要確保您的應用程式能發揮最好的效能，建議您了解 Blob 儲存體的運作方式。 關於 Azure Blob 限制的知識十分重要，若要深入了解這些限制，請造訪：[Blob 儲存體的延展性目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)。
 
-使用 Blob 設計高度執行的應用程式時，[分割區命名](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)是另一個重要的要素。 Azure 儲存體使用範圍型的資料分割配置來進行縮放和負載平衡。 此設定表示具有相似命名慣例或前置詞的檔案會進入相同分割區。 此邏輯也包含將對其上傳檔案的容器名稱。 在本教學課程中，您會使用以 GUID 命名的檔案和隨機產生的內容。 然後這些項目會上傳至五個具有隨機名稱的不同容器。
+使用 Blob 設計高度執行的應用程式時，[分割區命名](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)是另一個可能很重要的要素。 對於大於或等於 4 MiB 的區塊大小，則會使用[高輸送量的區塊 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)，且分割區命名並不會影響效能。 對於小於 4 MiB 的區塊大小，Azure 儲存體使用範圍型的資料分割配置來進行縮放和負載平衡。 此設定表示具有相似命名慣例或前置詞的檔案會進入相同分割區。 此邏輯也包含將對其上傳檔案的容器名稱。 在本教學課程中，您會使用以 GUID 命名的檔案和隨機產生的內容。 然後這些項目會上傳至五個具有隨機名稱的不同容器。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -47,7 +47,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>設定連接字串
 
-在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 登入先前教學課程中所建立的虛擬機器。 以系統管理員身分開啟 [命令提示字元]，並以 `/m` 執行 `setx` 命令，此命令會儲存機器的設定環境變數。 您須重新載入**命令提示字元**，才能使用環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
+在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定]  下的 [存取金鑰]  。 從主要或次要金鑰複製**連接字串**。 登入先前教學課程中所建立的虛擬機器。 以系統管理員身分開啟 [命令提示字元]  ，並以 `/m` 執行 `setx` 命令，此命令會儲存機器的設定環境變數。 您須重新載入**命令提示字元**，才能使用環境變數。 取代下列範例中的 **\<storageConnectionString\>** ：
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m

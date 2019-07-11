@@ -5,17 +5,18 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/03/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e6b4ba902e9951cd04dc282cc2a163200a38607a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4a075a2c5a5da677ae8d56c918ecab3384209431
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066075"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>快速入門：使用 PowerShell 在 HDInsight 中建立 Apache Spark 叢集
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入門：使用 PowerShell 在 Azure HDInsight 中建立 Apache Spark 叢集
+
 了解如何在 Azure HDInsight 中建立 [Apache Spark](https://spark.apache.org/) 叢集，以及如何對 [Apache Hive](https://hive.apache.org/) 資料表執行 Spark SQL 查詢。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
 在本快速入門中，您會使用 Azure PowerShell 來建立 HDInsight Spark 叢集。 叢集會使用 Azure 儲存體 Blob 作為叢集存放區。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
@@ -23,11 +24,11 @@ ms.locfileid: "65142889"
 > [!IMPORTANT]  
 > 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱本文的[清除資源](#clean-up-resources)一節。
 
-## <a name="prerequisites"></a>必要條件
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-* 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+## <a name="prerequisite"></a>必要條件
 
-* 安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
+安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>建立 HDInsight Spark 叢集
 
@@ -48,7 +49,7 @@ ms.locfileid: "65142889"
 |叢集登入認證 | 您稍後會在本快速入門中使用此帳戶連線到叢集儀表板。|
 |SSH 使用者認證 | SSH 用戶端可以用來建立含有 HDInsight 叢集的遠端命令列工作階段。|
 
-1. 選取以下程式碼區塊右上角的 [試用] 以開啟 [Azure Cloud Shell](../../cloud-shell/overview.md)，然後遵循指示連線到 Azure。
+1. 選取以下程式碼區塊右上角的 [試用]  以開啟 [Azure Cloud Shell](../../cloud-shell/overview.md)，然後遵循指示連線到 Azure。
 
 2. 複製以下 PowerShell 指令碼並貼到 Cloud Shell 中。
 
@@ -134,15 +135,15 @@ ms.locfileid: "65142889"
 [Jupyter Notebook](https://jupyter.org/) 是支援各種程式設計語言的互動式 Notebook 環境。 Notebook 可讓您與資料互動、將程式碼與 Markdown 文字相結合，並執行簡單的視覺效果。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [HDInsight 叢集]，然後選取您所建立的叢集。
+2. 選取 [HDInsight 叢集]  ，然後選取您所建立的叢集。
 
     ![在 Azure 入口網站中開啟 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. 從入口網站中選取 [叢集儀表板]，然後選取 [Jupyter Notebook]。 出現提示時，輸入叢集的叢集登入認證。
+3. 從入口網站中選取 [叢集儀表板]  ，然後選取 [Jupyter Notebook]  。 出現提示時，輸入叢集的叢集登入認證。
 
    ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
-4. 選取 [新增] > [PySpark] 來建立 Notebook。 
+4. 選取 [新增]   > [PySpark]  來建立 Notebook。 
 
    ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -181,16 +182,16 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
 
     ![HDInsight Spark 中的 Hive 查詢輸出](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark 中的 Hive 查詢輸出")
 
-2. 從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 關閉 Notebook 可釋出叢集資源。
+2. 從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 關閉 Notebook 可釋出叢集資源。
 
 ## <a name="clean-up-resources"></a>清除資源
 HDInsight 會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Storage 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
 
-切換回 Azure 入口網站，然後選取 [刪除]。
+切換回 Azure 入口網站，然後選取 [刪除]  。
 
 ![刪除 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
 
-您也可以選取資源群組名稱來開啟資源群組頁面，然後選取 [刪除資源群組]。 刪除資源群組時，會同時刪除 HDInsight Spark 叢集及預設儲存體帳戶。
+您也可以選取資源群組名稱來開啟資源群組頁面，然後選取 [刪除資源群組]  。 刪除資源群組時，會同時刪除 HDInsight Spark 叢集及預設儲存體帳戶。
 
 ### <a name="piecemeal-clean-up-with-powershell-az-module"></a>使用 PowerShell Az 模組的分次清除
 

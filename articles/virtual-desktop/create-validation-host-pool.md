@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070652"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>教學課程：建立主機集區以驗證服務更新
 
@@ -71,7 +71,7 @@ Cmdlet 的結果應該類似以下輸出：
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已建立驗證主機集區，您可以在驗證主機集區中選擇性地填入 RemoteApps。 若要深入了解如何管理 Windows 虛擬桌面中的應用程式，請參閱「管理應用程式群組」教學課程。
+既然您已建立驗證主機集區，您可了解如何部署並連線管理工具，以便管理 Microsoft 虛擬桌面資源。
 
 > [!div class="nextstepaction"]
-> [管理應用程式群組教學課程](./manage-app-groups.md)
+> [部署管理工具教學課程](./manage-resources-using-ui.md)

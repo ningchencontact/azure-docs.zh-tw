@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: d4a93bbd823db59d688f77a626b1225519fb7b44
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d1176d2d70dcd4de3e4287a1973de027c061f291
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407623"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055547"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
 
@@ -470,21 +470,21 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 ### <a name="connect-wordpress-to-redis"></a>將 WordPress 連線至 Redis
 
-登入 WordPress 管理。在左側導覽中選取 [外掛程式]，然後選取 [已安裝的外掛程式]。
+登入 WordPress 管理。在左側導覽中選取 [外掛程式]  ，然後選取 [已安裝的外掛程式]  。
 
 ![選取 WordPress 外掛程式][2]
 
 在此處顯示所有的外掛程式
 
-在 [外掛程式] 頁面中，尋找 [Redis 物件快取]，然後按一下 [啟動]。
+在 [外掛程式] 頁面中，尋找 [Redis 物件快取]  ，然後按一下 [啟動]  。
 
 ![啟動 Redis][3]
 
-按一下 [設定] 。
+按一下 [設定]  。
 
 ![按一下 [設定]][4]
 
-按一下 [啟用物件快取] 按鈕。
+按一下 [啟用物件快取]  按鈕。
 
 ![按一下 [啟用物件快取] 按鈕][5]
 

@@ -1,7 +1,7 @@
 ---
-title: Bot - C# - v4
+title: Language Understanding Bot C# v4
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用人力資源應用程式來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 第 4 版和 Azure Web 應用程式 Bot 所建置的。
+description: 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 是使用 Bot Framework 第 4 版和 Azure Web 應用程式 Bot 服務所建置的。
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -9,26 +9,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960289"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438447"
 ---
-# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>教學課程：C# 中使用 Bot Framework 4.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
-使用 C#，您可以建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 會使用 HomeAutomation 應用程式來實作 Bot 解決方案。 此 Bot 是使用 [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 和 [Bot Framework 第 4 版](https://github.com/Microsoft/botbuilder-js)所建置的。
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>教學課程：使用以 C# 中 Language Understanding 啟用的 Web 應用程式 Bot
+
+使用 C# 建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 是使用 Azure [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 資源和 [Bot Framework 版本](https://github.com/Microsoft/botbuilder-dotnet) V4 所建置的。
 
 **在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
 > * 建立 Web 應用程式 Bot。 此程序會為您建立新的 LUIS 應用程式。
-> * 將預先建置的領域加入新的 LUIS 模型中
-> * 下載 Web Bot 服務所建立的專案
+> * 下載 Web Bot 服務所建立的 Bot 專案
 > * 在本機電腦上啟動 Bot 和模擬器
-> * 修改新 LUIS 意圖的 Bot 程式碼
 > * 在 Bot 中檢視語句結果
 
 ## <a name="prerequisites"></a>必要條件
@@ -37,13 +36,13 @@ ms.locfileid: "56960289"
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 
-## <a name="create-web-app-bot"></a>建立 Web 應用程式 Bot
+## <a name="create-a-web-app-bot-resource"></a>建立 Web 應用程式 Bot 資源
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立新資源]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立新資源]  。
 
-2. 在搜尋方塊中，搜尋並選取 [Web 應用程式 Bot]。 選取 [建立] 。
+1. 在搜尋方塊中，搜尋並選取 [Web 應用程式 Bot]  。 選取 [建立]  。
 
-3. 在 [Bot 服務] 中提供必要資訊：
+1. 在 [Bot 服務]  中提供必要資訊：
 
     |設定|目的|建議的設定|
     |--|--|--|
@@ -55,253 +54,315 @@ ms.locfileid: "56960289"
     |應用程式名稱|將 Bot 部署到雲端時，此名稱會用來作為子領域 (例如 humanresourcesbot.azurewebsites.net)。|`luis-csharp-bot-` + `<your-name>`，例如 `luis-csharp-bot-johnsmith`|
     |Bot 範本|Bot Framework 設定 - 請參閱下一個資料表|
     |LUIS 應用程式位置|必須與 LUIS 資源區域相同|`westus`|
+    |App Service 方案/位置|請勿變更提供的預設值。|
+    |Application Insights|請勿變更提供的預設值。|
+    |Microsoft 應用程式識別碼和密碼|請勿變更提供的預設值。|
 
-4. 在 [Bot 範本設定] 中選取下列項目，然後在這些設定下選擇 [選取] 按鈕：
+1. 在 [Bot 範本]  中選取下列項目，然後在這些設定下選擇 [選取]  按鈕：
 
     |設定|目的|選取項目|
     |--|--|--|
     |SDK 版本|Bot Framework 版本|**SDK v4**|
     |SDK 語言|Bot 的程式設計語言|**C#**|
-    |Echo/基本 Bot|Bot 類型|**基本 Bot**|
+    |Bot|Bot 類型|**基本 Bot**|
     
-5. 選取 [建立] 。 這會建立 Bot 服務，並將其部署到 Azure。 此程序中的一部份會為您建立名為 `luis-csharp-bot-XXXX` 的 LUIS 應用程式。 此名稱會以上一節中的 Bot 和應用程式名稱為基礎。
+1. 選取 [建立]  。 這會建立 Bot 服務，並將其部署到 Azure。 此程序中的一部份會為您建立名為 `luis-csharp-bot-XXXX` 的 LUIS 應用程式。 這個名稱是根據 /Azure Bot Service 應用程式名稱。
 
     [![建立 Web 應用程式 Bot](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
-6. 讓此瀏覽器索引標籤保持開啟。 對於使用到 LUIS 入口網站的任何步驟，請開啟新的瀏覽器索引標籤。部署新的 Bot 服務後，請繼續下一節。
+    等候 Bot 服務建立後再繼續。
 
-## <a name="add-prebuilt-domain-to-model"></a>將預建領域新增至模型
-Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用程式。 Bot 提供的意圖會對應到新 LUIS 應用程式的下列意圖： 
+## <a name="the-bot-has-a-language-understanding-model"></a>Bot 具有 Language Understanding 模型
+
+Bot 服務建立流程也會以意圖和語句範例來建立新 LUIS 應用程式。 Bot 提供的意圖會對應到新 LUIS 應用程式的下列意圖： 
 
 |基本 Bot 的 LUIS 意圖|範例語句|
 |--|--|
-|取消|`stop`|
-|Greeting|`hello`|
-|說明|`help`|
+|預訂航班|`Travel to Paris`|
+|取消|`bye`|
 |None|應用程式領域以外的任何項目。|
 
-將預先建置的 HomeAutomation 應用程式新增至模型，以處理類似下列的語句：`Turn off the living room lights`
+## <a name="test-the-bot-in-web-chat"></a>在網路聊天中測試 Bot
 
-1. 前往 [LUIS 入口網站](https://www.luis.ai)並登入。
-2. 在 [我的應用程式] 頁面上，選取 [建立日期] 資料行，以根據應用程式的建立日期排序。 Azure Bot 服務已在上一節中建立新的應用程式。 其名稱是 `luis-csharp-bot-` + `<your-name>` + 4 個隨機字元所組成。
-3. 開啟應用程式並選取頂端導覽列中的 [建置] 區段。
-4. 從左側功能表中，選取 [預先建置領域]。
-5. 藉由在其卡片上選取 [新增領域] 來選取 **HomeAutomation** 領域。
-6. 選取右上方功能表中的 [訓練]。
-7. 選取右上方功能表中的 [發佈]。 
+1. 針對新的 Bot 仍在 Azure 入口網站時，選取 [在網路聊天中測試]  。 
+1. 在 [輸入您的訊息]  文字方塊中，輸入文字 `hello`。 Bot 會回應 Bot Framework 的相關資訊，以及特定 LUIS 模型 (例如預訂飛往巴黎的班機) 的範例查詢。 
 
-    由 Azure Bot 服務建立的應用程式現在有新的意圖：
+    ![Azure 入口網站的螢幕擷取畫面，輸入文字 'hello'。](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    |基本 Bot 的新意圖|範例語句|
-    |--|--|
-    |HomeAutomation.TurnOn|`turn the fan to high`
-    |HomeAutomation.TurnOff|`turn off ac please`|
+    您可以使用測試功能快速測試您的 Bot。 如需完整測試 (包括偵錯)，請下載 Bot 程式碼並使用 Visual Studio。 
 
-## <a name="download-the-web-app-bot"></a>下載 Web 應用程式 Bot 
+## <a name="download-the-web-app-bot-source-code"></a>下載 Web 應用程式 Bot 來源程式碼
 若要開發 Web 應用程式 Bot 程式碼，請下載程式碼並在您的本機電腦上使用。 
 
-1. 仍在 Azure 入口網站中的 Web 應用程式 Bot 資源上，選取 [應用程式設定]，並複製 **botFilePath** 和 **botFileSecret** 的值。 您稍後需要將這些值新增至環境檔案。 
+1. 在 Azure 入口網站中，從 [Bot 管理]  區段中選取 [建置]  。 
 
-2. 在 Azure 入口網站中，從 [Bot 管理] 區段中選取 [建置]。 
-
-3. 選取 [下載 Bot 原始程式碼]。 
+1. 選取 [下載 Bot 原始程式碼]  。 
 
     [![下載基本 Bot 的 Web 應用程式 Bot 原始程式碼](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. 如果原始程式碼已壓縮為 zip 檔，將會有提供程式碼下載連結的訊息。 選取連結。 
+1. 當快顯對話方塊詢問**在下載的 ZIP 檔案中包含應用程式設定嗎？** ，選取 [是]  。
 
-5. 將 zip 檔儲存到本機電腦並解壓縮。 開啟專案。 
+1. 如果原始程式碼已壓縮為 zip 檔，將會有提供程式碼下載連結的訊息。 選取連結。 
 
-6. 開啟 bot.js 檔案並尋找 `_services.LuisServices`。 此階段會將進入 Bot 的使用者語句傳送到 LUIS。
+1. 將 zip 檔儲存到本機電腦並解壓縮。 在 Visual Studio 中開啟專案。 
+
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>檢閱程式碼以將語句傳送至 LUIS 並取得回應
+
+1. 開啟 **LuisHelper.cs** 檔案。 此階段會將進入 Bot 的使用者語句傳送到 LUIS。 LUIS 提供的回應是從 **BookDetails** 物件方法所傳回。 建立自己的 Bot 時，您也應建立自己的物件以從 LUIS 傳回詳細資料。 
+
 
     ```csharp
-    /// <summary>
-    /// Run every turn of the conversation. Handles orchestration of messages.
-    /// </summary>
-    /// <param name="turnContext">Bot Turn Context.</param>
-    /// <param name="cancellationToken">Task CancellationToken.</param>
-    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-    public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken)
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    using System;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Bot.Builder;
+    using Microsoft.Bot.Builder.AI.Luis;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Logging;
+    
+    namespace Microsoft.BotBuilderSamples
     {
-        var activity = turnContext.Activity;
-
-        if (activity.Type == ActivityTypes.Message)
+        public static class LuisHelper
         {
-            // Perform a call to LUIS to retrieve results for the current activity message.
-            var luisResults = await _services.LuisServices[LuisConfiguration].RecognizeAsync(turnContext, cancellationToken).ConfigureAwait(false);
-
-            // If any entities were updated, treat as interruption.
-            // For example, "no my name is tony" will manifest as an update of the name to be "tony".
-            var topScoringIntent = luisResults?.GetTopScoringIntent();
-
-            var topIntent = topScoringIntent.Value.intent;
-            switch (topIntent)
+            public static async Task<BookingDetails> ExecuteLuisQuery(IConfiguration configuration, ILogger logger, ITurnContext turnContext, CancellationToken cancellationToken)
             {
-                case GreetingIntent:
-                    await turnContext.SendActivityAsync("Hello.");
-                    break;
-                case HelpIntent:
-                    await turnContext.SendActivityAsync("Let me try to provide some help.");
-                    await turnContext.SendActivityAsync("I understand greetings, being asked for help, or being asked to cancel what I am doing.");
-                    break;
-                case CancelIntent:
-                    await turnContext.SendActivityAsync("I have nothing to cancel.");
-                    break;
-                case NoneIntent:
-                default:
-                    // Help or no intent identified, either way, let's provide some help.
-                    // to the user
-                    await turnContext.SendActivityAsync("I didn't understand what you just said to me.");
-                    break;
-            }
-        }
-        else if (activity.Type == ActivityTypes.ConversationUpdate)
-        {
-            if (activity.MembersAdded.Any())
-            {
-                // Iterate over all new members added to the conversation.
-                foreach (var member in activity.MembersAdded)
+                var bookingDetails = new BookingDetails();
+    
+                try
                 {
-                    // Greet anyone that was not the target (recipient) of this message.
-                    // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
-                    if (member.Id != activity.Recipient.Id)
+                    // Create the LUIS settings from configuration.
+                    var luisApplication = new LuisApplication(
+                        configuration["LuisAppId"],
+                        configuration["LuisAPIKey"],
+                        "https://" + configuration["LuisAPIHostName"]
+                    );
+    
+                    var recognizer = new LuisRecognizer(luisApplication);
+    
+                    // The actual call to LUIS
+                    var recognizerResult = await recognizer.RecognizeAsync(turnContext, cancellationToken);
+    
+                    var (intent, score) = recognizerResult.GetTopScoringIntent();
+                    if (intent == "Book_flight")
                     {
-                        var welcomeCard = CreateAdaptiveCardAttachment();
-                        var response = CreateResponse(activity, welcomeCard);
-                        await turnContext.SendActivityAsync(response).ConfigureAwait(false);
+                        // We need to get the result from the LUIS JSON which at every level returns an array.
+                        bookingDetails.Destination = recognizerResult.Entities["To"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
+                        bookingDetails.Origin = recognizerResult.Entities["From"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
+    
+                        // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+                        // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+                        bookingDetails.TravelDate = recognizerResult.Entities["datetime"]?.FirstOrDefault()?["timex"]?.FirstOrDefault()?.ToString().Split('T')[0];
                     }
                 }
+                catch (Exception e)
+                {
+                    logger.LogWarning($"LUIS Exception: {e.Message} Check your LUIS configuration.");
+                }
+    
+                return bookingDetails;
             }
         }
-
     }
     ```
 
-    Bot 將使用者的語句傳送至 LUIS，並取得結果。 最上層的意圖會決定對話流程。 
+1. 開啟 **BookingDetails.cs** 以檢視物件如何擷取 LUIS 資訊。 
 
-
-## <a name="start-the-bot"></a>啟動 Bot
-變更任何程式碼或設定之前，請先確認 Bot 能正常運作。 
-
-1. 在 Visual Studio 中開啟解決方案檔案。 
-
-2. 建立 `appsettings.json` 檔案來保存 Bot 程式碼尋找的 Bot 變數：
-
-    ```JSON
+    ```csharp
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    namespace Microsoft.BotBuilderSamples
     {
-    "botFileSecret": "",
-    "botFilePath": ""
-
+        public class BookingDetails
+        {
+            public string Destination { get; set; }
+    
+            public string Origin { get; set; }
+    
+            public string TravelDate { get; set; }
+        }
     }
     ```
 
-    您在 **[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，已從 Azure Bot 服務的 [應用程式設定] 中複製值，請將變數的值設為您複製的值。
-
-3. 在 Visual Studio 中，啟動 Bot。 瀏覽器視窗會開啟 Web 應用程式 Bot 的網站，網址為 `http://localhost:3978/`。
-
-## <a name="start-the-emulator"></a>啟動模擬器
-
-1. 起始 Bot 模擬器。
-
-2. 在 Bot 模擬器中，選取專案根目錄中的 *.bot 檔案。 此 `.bot` 檔案包含訊息的 Bot URL 端點：
-
-    [![Bot 模擬器 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
-
-3. 輸入您在 **[下載 Web 應用程式 Bot](#download-the-web-app-bot)** 一節的步驟 1 中，從 Azure Bot 服務 [應用程式設定] 中複製的 Bot 祕密。 這可讓模擬器存取 `.bot` 檔案中的任何加密欄位。
-
-    ![Bot 模擬器祕密 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
-
-4. 在 Bot 模擬器中輸入 `Hello`，並取得基本 Bot 的適當回應。
-
-    [![模擬器中的基本 Bot 回應](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
-
-## <a name="modify-bot-code"></a>修改 Bot 程式碼 
-
-在 `BasicBot.cs` 檔案中，新增程式碼來處理新的意圖。 
-
-1. 在檔案頂端，尋找**支援的 LUIS 意圖**區段，並為 HomeAutomation 意圖新增常數：
+1. 開啟 **Dialogs -> BookingDialog.cs** 來了解 BookingDetails 物件如何用來管理對話流程。 旅行的詳細資訊會按步驟詢問，然後確認整個預訂，最後再向使用者重述。 
 
     ```csharp
-    // Supported LUIS Intents
-    public const string GreetingIntent = "Greeting";
-    public const string CancelIntent = "Cancel";
-    public const string HelpIntent = "Help";
-    public const string NoneIntent = "None";
-    public const string TurnOnIntent = "HomeAutomation_TurnOn"; // new intent
-    public const string TurnOffIntent = "HomeAutomation_TurnOff"; // new intent
-    ```
-
-    請注意，在 LUIS 入口網站應用程式中的領域和意圖之間會以底線 (`_`) 取代句點 (`.`)。 
-
-2. 尋找接收語句 LUIS 預測的 **OnTurnAsync** 方法。 在 switch 陳述式中新增程式碼，以傳回兩個 HomeAutomation 意圖的 LUIS 回應。 
-
-    ```csharp
-    case TurnOnIntent:
-        await turnContext.SendActivityAsync("TurnOn intent found, JSON response: " + luisResults?.Entities.ToString());
-        break;
-    case TurnOffIntent:
-        await turnContext.SendActivityAsync("TurnOff intent found, JSON response: " + luisResults?.Entities.ToString());
-        break;
-    ```
-
-    Bot 沒有與 LUIS REST API 要求完全相同的回應，因此請務必查看 JSON 回應以了解差異。 文字和意圖屬性都相同，但是實體的屬性值已修改。 
-
-    ```JSON
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Bot.Builder;
+    using Microsoft.Bot.Builder.Dialogs;
+    using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
+    
+    namespace Microsoft.BotBuilderSamples.Dialogs
     {
-        "$instance": {
-            "HomeAutomation_Device": [
+        public class BookingDialog : CancelAndHelpDialog
+        {
+            public BookingDialog()
+                : base(nameof(BookingDialog))
+            {
+                AddDialog(new TextPrompt(nameof(TextPrompt)));
+                AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt)));
+                AddDialog(new DateResolverDialog());
+                AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
                 {
-                    "startIndex": 23,
-                    "endIndex": 29,
-                    "score": 0.9776345,
-                    "text": "lights",
-                    "type": "HomeAutomation.Device"
-                }
-            ],
-            "HomeAutomation_Room": [
+                    DestinationStepAsync,
+                    OriginStepAsync,
+                    TravelDateStepAsync,
+                    ConfirmStepAsync,
+                    FinalStepAsync,
+                }));
+    
+                // The initial child Dialog to run.
+                InitialDialogId = nameof(WaterfallDialog);
+            }
+    
+            private async Task<DialogTurnResult> DestinationStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                if (bookingDetails.Destination == null)
                 {
-                    "startIndex": 12,
-                    "endIndex": 22,
-                    "score": 0.9079433,
-                    "text": "livingroom",
-                    "type": "HomeAutomation.Room"
+                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where would you like to travel to?") }, cancellationToken);
                 }
-            ]
-        },
-        "HomeAutomation_Device": [
-            "lights"
+                else
+                {
+                    return await stepContext.NextAsync(bookingDetails.Destination, cancellationToken);
+                }
+            }
+    
+            private async Task<DialogTurnResult> OriginStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                bookingDetails.Destination = (string)stepContext.Result;
+    
+                if (bookingDetails.Origin == null)
+                {
+                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where are you traveling from?") }, cancellationToken);
+                }
+                else
+                {
+                    return await stepContext.NextAsync(bookingDetails.Origin, cancellationToken);
+                }
+            }
+            private async Task<DialogTurnResult> TravelDateStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                bookingDetails.Origin = (string)stepContext.Result;
+    
+                if (bookingDetails.TravelDate == null || IsAmbiguous(bookingDetails.TravelDate))
+                {
+                    return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), bookingDetails.TravelDate, cancellationToken);
+                }
+                else
+                {
+                    return await stepContext.NextAsync(bookingDetails.TravelDate, cancellationToken);
+                }
+            }
+    
+            private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                bookingDetails.TravelDate = (string)stepContext.Result;
+    
+                var msg = $"Please confirm, I have you traveling to: {bookingDetails.Destination} from: {bookingDetails.Origin} on: {bookingDetails.TravelDate}";
+    
+                return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions { Prompt = MessageFactory.Text(msg) }, cancellationToken);
+            }
+    
+            private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+            {
+                if ((bool)stepContext.Result)
+                {
+                    var bookingDetails = (BookingDetails)stepContext.Options;
+    
+                    return await stepContext.EndDialogAsync(bookingDetails, cancellationToken);
+                }
+                else
+                {
+                    return await stepContext.EndDialogAsync(null, cancellationToken);
+                }
+            }
+    
+            private static bool IsAmbiguous(string timex)
+            {
+                var timexProperty = new TimexProperty(timex);
+                return !timexProperty.Types.Contains(Constants.TimexTypes.Definite);
+            }
+        }
+    }
+    ```
+
+
+## <a name="start-the-bot-code-in-visual-studio"></a>在 Visual Studio 中啟動 Bot 程式碼
+
+在 Visual Studio 中，啟動 Bot。 瀏覽器視窗會開啟 Web 應用程式 Bot 的網站，網址為 `http://localhost:3978/`。 首頁上會顯示 Bot 的相關資訊。
+
+![首頁上會顯示 Bot 的相關資訊。](./media/bfv4-csharp/running-bot-web-home-page-success.png)
+
+## <a name="use-the-bot-emulator-to-test-the-bot"></a>使用 Bot 模擬器來測試 Bot
+
+1. 啟動 Bot 模擬器，然後選取 [開啟 Bot]  。
+1. 在 [開啟 Bot]  快顯對話方塊中，輸入 Bot 的 URL，例如 `http://localhost:3978/api/messages`。 `/api/messages` 路由是 Bot 的網址。
+1. 輸入在您下載的 Bot 程式碼根目錄中 **appsettings.json** 檔案中所找到的 **Microsoft 應用程式識別碼**和 **Microsoft 應用程式密碼**。
+
+    (選用) 您可以建立新的 Bot 設定，並從 Bot 的 Visual Studio 專案中 **appsettings.json** 檔案複製 `appId` 和 `appPassword`。 Bot 設定檔的名稱應與 Bot 名稱相同。 
+
+    ```json
+    {
+        "name": "<bot name>",
+        "description": "<bot description>",
+        "services": [
+            {
+                "type": "endpoint",
+                "appId": "<appId from appsettings.json>",
+                "appPassword": "<appPassword from appsettings.json>",
+                "endpoint": "http://localhost:3978/api/messages",
+                "id": "<don't change this value>",
+                "name": "http://localhost:3978/api/messages"
+            }
         ],
-        "HomeAutomation_Room": [
-            "livingroom"
-        ]
+        "padlock": "",
+        "version": "2.0",
+        "overrides": null,
+        "path": "<local path to .bot file>"
     }
     ```
 
+1. 在 Bot 模擬器中，輸入 `Hello` 並取得基本 Bot 的相同回應，如同您在**在網路聊天中測試**中所收到。
+
+    [![模擬器中的基本 Bot 回應](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 
-## <a name="view-results-in-bot"></a>在 Bot 中檢視結果
+## <a name="ask-bot-a-question-for-the-book-flight-intent"></a>詢問 Bot「預訂航班」意圖的問題
 
-1. 在 Bot 模擬器中，輸入語句：`Turn on the livingroom lights to 50%`
+1. 在 Bot 模擬器中，藉由輸入下列語句來預訂班機： 
 
-2. Bot 會回應：
+    ```bot
+    Book a flight from Paris to Berlin on March 22, 2020
+    ```
 
-    ```JSON
-    TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    
+    Bot 模擬器會要求確認。 
 
-## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
-Azure Bot 服務會使用 Bot Framework SDK。 深入了解 SDK 和 Bot Framework：
+1. 選取 [是]  。 Bot 會回應其動作摘要。 
+1. 從 Bot 模擬器的記錄中，選取包含 `Luis Trace` 的資料行。 這會顯示針對意圖和語句實體 LUIS 的 JSON 回應。
 
-* [Azure Bot 服務](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 文件
-* [Bot Builder 範例](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Bot Builder 工具](https://github.com/Microsoft/botbuilder-tools):
+    [![模擬器中的基本 Bot 回應](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+
+[!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-您已建立了 Azure Bot 服務、複製 Bot 祕密和 `.bot` 檔案路徑，以及下載了程式碼的 zip 檔案。 您將預先建置的 HomeAutomation 領域新增至建立為新 Azure Bot 服務一部份的 LUIS 應用程式，然後再次訓練並發佈應用程式。 您將程式碼專案解壓縮，並建立了環境檔案 (`.env`)，然後設定 Bot 祕密和 `.bot` 檔案路徑。 在 bot.js 檔案中，您新增了程式碼來處理兩個新的意圖。 然後您在 Bot 模擬器中測試 Bot，以查看 LUIS 如何回應其中一個新意圖的語句。 
-
-查看更多聊天機器人[範例](https://github.com/Microsoft/AI)。 
+查看更多聊天機器人[範例](https://github.com/microsoft/botframework-solutions)。 
 
 > [!div class="nextstepaction"]
-> [在 LUIS 中建置自訂領域](luis-quickstart-intents-only.md)
+> [使用自訂主體網域建置 Language Understanding 應用程式](luis-quickstart-intents-only.md)

@@ -1,6 +1,6 @@
 ---
-title: 透過 Azure 媒體服務 v3 使用 .NET 執行上傳、編碼和串流 | Microsoft Docs
-description: 遵循此教學課程的步驟，透過 Azure 媒體服務 v3 使用 .NET 來上傳檔案、編碼影片及串流內容。
+title: 透過 Azure 媒體服務 v3 執行上傳、編碼和串流 | Microsoft Docs
+description: 遵循此教學課程的步驟，透過 Azure 媒體服務 v3 來上傳檔案、編碼影片及串流內容。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46a1add812d5721e36d8af030195c42542dc360c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149153"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273235"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>教學課程：使用 .NET 上傳、編碼和串流影片
+# <a name="tutorial-upload-encode-and-stream-videos"></a>教學課程：上傳、編碼和串流影片
+
+> [!NOTE]
+> 雖然教學課程使用 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 範例，但是 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支援 [SDK](media-services-apis-overview.md#sdks) 的一般步驟都相同。
 
 Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽器和裝置上播放的格式。 例如，您可能會想要串流處理 Apple 的 HLS 或 MPEG DASH 格式的內容。 在進行串流處理之前，您應先編碼高品質數位媒體檔案。 如需編碼指引，請參閱[編碼概念](encoding-concept.md)。 本教學課程會上傳本機視訊檔案，並編碼上傳的檔案。 您也可以編碼可透過 HTTPS URL 存取的內容。 如需詳細資訊，請參閱[從 HTTP URL 建立作業輸入](job-input-from-http-how-to.md)。
 
@@ -56,7 +59,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>檢查上傳、編碼和串流處理的程式碼
 
-本節將針對 UploadEncodeAndStreamFiles 專案的 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) 檔案，檢查其中定義的函式。
+本節將針對 UploadEncodeAndStreamFiles  專案的 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) 檔案，檢查其中定義的函式。
 
 此範例會執行下列動作：
 
@@ -96,11 +99,11 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>建立轉換和編碼上傳檔案的作業
 
-在媒體服務中編碼或處理內容時，將編碼設定設為配方 (recipe) 是很常見的模式。 然後您可以透過提交**作業**，將該配方套用到影片。 藉由為每部新影片提交新的作業，您可以將該配方套用到媒體櫃中的所有影片。 配方在媒體服務中稱為「**轉換 (Transform)**」。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。 本教學課程中所述的範例會定義編碼影片的配方，以便將影片串流到各種 iOS 和 Android 裝置。 
+在媒體服務中編碼或處理內容時，將編碼設定設為配方 (recipe) 是很常見的模式。 然後您可以透過提交**作業**，將該配方套用到影片。 藉由為每部新影片提交新的作業，您可以將該配方套用到媒體櫃中的所有影片。 配方在媒體服務中稱為「**轉換 (Transform)** 」。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。 本教學課程中所述的範例會定義編碼影片的配方，以便將影片串流到各種 iOS 和 Android 裝置。 
 
 #### <a name="transform"></a>轉換
 
-建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 如需此 Preset 的相關資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)** 。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 如需此 Preset 的相關資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
 
 您可以使用內建的 EncoderNamedPreset 或使用自訂預設值。 如需詳細資訊，請參閱[如何自訂編碼器預設值](customize-encoder-presets-how-to.md)。
 
@@ -134,7 +137,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 編碼完成後，下一個步驟是要讓用戶端可播放輸出資產中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
 
-建立 [串流定位器] 的程序稱為發佈。 根據預設，[串流定位器] 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
+建立 [串流定位器]  的程序稱為發佈。 根據預設，[串流定位器]  會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
 建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 時，您必須指定需要的 **StreamingPolicyName**。 在此範例中，您將串流處理乾淨或未加密的內容，而使用預先定義的乾淨串流原則 (**PredefinedStreamingPolicy.ClearStreamingOnly**)。
 
@@ -149,7 +152,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ### <a name="get-streaming-urls"></a>取得串流 URL
 
-建立了[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)之後，現在您可以取得串流 URL，如 **GetStreamingURLs** 中所示。 若要建置 URL，您需要串連[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱和**串流定位器**路徑。 此範例會使用預設的**串流端點**。 初次建立媒體服務帳戶時，此預設的**串流端點**會處於停止狀態，因此您需要呼叫 **Start**。
+建立了[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)之後，現在您可以取得串流 URL，如 **GetStreamingURLs** 中所示。 若要建置 URL，您需要串連[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱和**串流定位器**路徑。 此範例會使用預設的  **串流端點**。 初次建立媒體服務帳戶時，此預設的  **串流端點**會處於停止狀態，因此您需要呼叫 **Start**。
 
 > [!NOTE]
 > 在此方法中，您需要 locatorName，也就是為輸出資產建立**串流定位器**時所使用的項目。
@@ -164,7 +167,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 
-1. 按下 Ctrl+F5 來執行 EncodeAndStreamFiles 應用程式。
+1. 按下 Ctrl+F5 來執行 EncodeAndStreamFiles  應用程式。
 2. 從主控台中複製其中一個串流 URL。
 
 此範例顯示可以使用其他不同通訊協定來播放影片的 URL：
@@ -179,8 +182,8 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 > 如果播放程式裝載在 HTTPS 網站上，請務必將 URL 更新為 "https"。
 
 1. 開啟瀏覽器並巡覽至 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)。
-2. 在 [URL:] 方塊中，貼上您在執行應用程式時取得的其中一個串流 URL 值。 
-3. 按一下 [更新播放程式]。
+2. 在 [URL:]  方塊中，貼上您在執行應用程式時取得的其中一個串流 URL 值。 
+3. 按一下 [更新播放程式]  。
 
 Azure 媒體播放器可以用於測試，但不應用於生產環境。 
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077530"
 ---
-若要快速建立 VNet，您可以按一下本文的 [試試看]，以開啟 PowerShell 主控台。 調整值，然後複製命令並貼到主控台視窗。 若要深入了解新的 Az 模組和 AzureRM 的相容性，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。 如需 Az 模組安裝指示，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
+若要快速建立 VNet，您可以按一下本文的 [試試看]，以在 Azure Cloud Shell 中開啟 PowerShell 主控台。 調整值，然後複製命令並貼到主控台視窗。 
 
 請務必確認您所建立的 VNet 位址空間不會與任何其他想要連線的 Vnet 位址範圍重疊，或是不會與內部部署網路的位址空間重疊。
 

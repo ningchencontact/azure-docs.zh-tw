@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509085"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653860"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊將通知推送至 Android 裝置
 
@@ -88,7 +88,26 @@ ms.locfileid: "67509085"
 
 ### <a name="add-google-play-services-to-the-project"></a>新增 Google Play 服務至專案
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. 在 Android Studio 中，選取功能表上的 [工具]  ，然後選取 [SDK 管理員]  。 
+2. 選取您專案中使用的 Android SDK 目標版本。 然後選取 [顯示套件詳細資料]  。 
+
+    ![Android SDK 管理員 - 選取目標版本](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. 如果尚未安裝 [Google API]  ，請加以選取。
+
+    ![Android SDK Manager - 已選取 Google API](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. 切換到 [SDK 工具]  索引標籤。如果您尚未安裝 Google Play Services，請選取 [Google Play Services]  ，如下圖所示。 然後選取 [套用]  來安裝。 請注意在稍後步驟中使用的 SDK 路徑。
+
+    ![Android SDK Manager - 已選取 Google Play Services](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. 如果您看到 [確認變更]  對話方塊，請選取 [確定]  。 元件安裝程式會安裝要求的元件。 在安裝元件後選取 [完成]  。
+4. 選取 [確定]  以關閉 [新專案的設定]  對話方塊。  
+5. 選取工具列中的 [立即同步]  圖示。
+1. 開啟 AndroidManifest.xml 檔案，然後在「應用程式」  標籤中新增下列標籤。
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>新增 Azure 通知中樞程式庫
 
@@ -354,7 +373,6 @@ ms.locfileid: "67509085"
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -526,7 +544,7 @@ ms.locfileid: "67509085"
 在本教學課程中，您已使用 Firebase 雲端通訊將通知廣播至所有向服務註冊的 Android 裝置。 若想了解如何將通知推送至特定裝置，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
->[教學課程：將通知推播至特定的 Android 裝置](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[教學課程：將通知推播至特定的 Android 裝置](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

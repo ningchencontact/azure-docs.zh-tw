@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49e5b6f52b92889ccc7c46f091ea1b90d43b0307
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3b16d928e2e4fc4b5376d30b81eb39e5a46e54b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>教學課程：Azure Active Directory 與 LinkedIn Elevate 整合
 
@@ -102,7 +102,7 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

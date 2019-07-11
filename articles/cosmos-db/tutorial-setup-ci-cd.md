@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069234"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -48,6 +48,9 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
    ![選取組建管線的 Team 專案、存放庫和分支](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. 最後，選取所需的組建管線範本。 我們會在本教學課程中選取 **ASP.NET** 範本。 
+
+> [!NOTE]
+> 要選取用於此 CI 的代理程式集區應該已安裝適用於 Windows 的 Docker，除非在先前工作中手動安裝成為 CI 的一部分。 請參閱 [Microsoft 裝載的代理程式](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml)一文中精選的代理程式集區；我們建議從 `Hosted VS2017` 或 `Hosted VS2019` 著手。 
 
 現在，我們已有可設定成使用 Azure Cosmos DB 模擬器建置工作的組建管線。 
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498650ce8a22f4804773bb66db3d640cd63bab8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105541"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>教學課程：Azure Active Directory 與 Cisco Webex Meetings 整合
 
@@ -122,7 +122,7 @@ ms.locfileid: "67105541"
 
     在 [登入 URL]  文字方塊中，貼上透過 SP 中繼資料檔案上傳而自動填入的 [回覆 URL]  值。
 
-5. Cisco Webex Meetings 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****   圖示以新增屬性。
+5. Cisco Webex Meetings 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以新增屬性。
 
     ![image](common/edit-attribute.png)
 

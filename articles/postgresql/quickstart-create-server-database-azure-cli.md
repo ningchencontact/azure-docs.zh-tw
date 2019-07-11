@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: d8e5ddf0820c789150f264aa4f7d6bd291adb3af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069061"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443140"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
@@ -145,6 +145,13 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
+   > [!TIP]
+   > 如果您想要使用 URL 路徑來連線到 Postgres，URL 在使用者名稱中以 `%40` 編碼 @ 符號。 例如，psql 的連接字串會是
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
+
+
 2. 連線到伺服器後，請在提示字元建立空白資料庫。
    ```sql
    CREATE DATABASE mypgsqldb;
@@ -161,19 +168,19 @@ pgAdmin 是搭配 PostgreSQL 使用的開放原始碼工具。 您可以從 [pgA
 
 1. 在您的用戶端電腦上開啟 pgAdmin 應用程式。
 
-2. 移至工具列中的 [物件]，將滑鼠停留在 [建立] 上方，然後選取 [伺服器]。
+2. 移至工具列中的 [物件]  ，將滑鼠停留在 [建立]  上方，然後選取 [伺服器]  。
 
-3. 在 [建立 - 伺服器] 對話方塊的 [一般] 索引標籤上，輸入伺服器的唯一易記名稱，例如 **mydemoserver**。
+3. 在 [建立 - 伺服器]  對話方塊的 [一般]  索引標籤上，輸入伺服器的唯一易記名稱，例如 **mydemoserver**。
 
    ![[一般] 索引標籤](./media/quickstart-create-server-database-azure-cli/9-pgadmin-create-server.png)
 
-4. 在 [建立 - 伺服器] 對話方塊的 [連線] 索引標籤上，填寫設定資料表。
+4. 在 [建立 - 伺服器]  對話方塊的 [連線]  索引標籤上，填寫設定資料表。
 
    ![[連線] 索引標籤](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
     pgAdmin 參數 |值|說明
     ---|---|---
-    主機名稱/位址 | 伺服器名稱 | 您稍早建立 Azure Database for PostgreSQL 伺服器時所用的伺服器名稱值。 我們的範例伺服器是 **mydemoserver.postgres.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.postgres.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
+    主機名稱/位址 | 伺服器名稱 | 您稍早建立 Azure Database for PostgreSQL 伺服器時所用的伺服器名稱值。 我們的範例伺服器是 **mydemoserver.postgres.database.azure.com**。 使用如範例所示的完整網域名稱 ( **\*.postgres.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
     Port | 5432 | 當您連線至 Azure Database for PostgreSQL 伺服器時所要使用的連接埠。 
     維護資料庫 | *postgres* | 系統產生的預設資料庫名稱。
     使用者名稱 | 伺服器管理員登入名稱 | 您稍早建立 Azure Database for PostgreSQL 時所提供的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式是 *username\@servername*。
@@ -183,21 +190,21 @@ pgAdmin 是搭配 PostgreSQL 使用的開放原始碼工具。 您可以從 [pgA
     
 5. 選取 [ **儲存**]。
 
-6. 在左側的 [瀏覽器] 窗格中，展開 [伺服器] 節點。 選取您的伺服器，例如 **mydemoserver**。 按一下以連線到它。
+6. 在左側的 [瀏覽器]  窗格中，展開 [伺服器]  節點。 選取您的伺服器，例如 **mydemoserver**。 按一下以連線到它。
 
-7. 展開伺服器節點，然後展開其下的 [資料庫]。 此清單應包含現有 postgres 資料庫和其他您已建立的資料庫。 您可以使用適用於 PostgreSQL 的 Azure 資料庫，為每一部伺服器建立多個資料庫。
+7. 展開伺服器節點，然後展開其下的 [資料庫]  。 此清單應包含現有 postgres  資料庫和其他您已建立的資料庫。 您可以使用適用於 PostgreSQL 的 Azure 資料庫，為每一部伺服器建立多個資料庫。
 
-8. 以滑鼠右鍵按一下 [資料庫]，選擇 [建立] 功能表，然後選取 [資料庫]。
+8. 以滑鼠右鍵按一下 [資料庫]  ，選擇 [建立]  功能表，然後選取 [資料庫]  。
 
-9. 在 [資料庫] 欄位中輸入您選擇的資料庫名稱，例如 **mypgsqldb2**。
+9. 在 [資料庫]  欄位中輸入您選擇的資料庫名稱，例如 **mypgsqldb2**。
 
-10. 從清單方塊中選取資料庫的 [擁有者]。 選擇您的伺服器管理員登入名稱，例如範例中的 **my admin**。
+10. 從清單方塊中選取資料庫的 [擁有者]  。 選擇您的伺服器管理員登入名稱，例如範例中的 **my admin**。
 
     ![在 pgadmin 中建立資料庫](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
 
-11. 選取 [儲存] 以建立新的空白資料庫。
+11. 選取 [儲存]  以建立新的空白資料庫。
 
-12. 在 [瀏覽器] 窗格中，您可以在伺服器名稱之下的 [資料庫] 清單中看到您所建立的資料庫。
+12. 在 [瀏覽器]  窗格中，您可以在伺服器名稱之下的 [資料庫] 清單中看到您所建立的資料庫。
 
 
 

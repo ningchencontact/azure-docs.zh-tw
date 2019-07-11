@@ -5,16 +5,16 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/26/2019
+ms.date: 06/18/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: b8b46db043113f29f559ad44855d19f0d6ca73c3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a450c47c7264bdecb663c9f71e3a9753df5e1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244149"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273486"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
@@ -40,14 +40,50 @@ ms.locfileid: "66244149"
 
 ## <a name="overview"></a>概觀
 
-時間序列深入解析環境是收集及儲存裝置資料之處。 儲存資料後，[Azure 時間序列深入解析總管](time-series-quickstart.md)和[時間序列深入解析查詢 API](/rest/api/time-series-insights/ga-query-api) 即可用來查詢及分析資料。 Azure IoT 中樞是所有裝置 (模擬或實體) 用來安全地連線至 Azure 雲端並傳輸資料的連線點。 [時間序列深入解析概觀](time-series-insights-overview.md)提到，Azure IoT 中樞也可作為將資料串流至時間序列深入解析環境中的事件來源。 本教學課程會使用 [IoT 解決方案加速器](/azure/iot-accelerators/)產生範例遙測資料並串流至 IoT 中樞。
+時間序列深入解析環境是收集及儲存裝置資料之處。 儲存資料後，[Azure 時間序列深入解析總管](time-series-quickstart.md)和[時間序列深入解析查詢 API](/rest/api/time-series-insights/ga-query-api) 即可用來查詢及分析資料。
+
+Azure IoT 中樞是教學課程中所有裝置 (模擬或實體) 用來安全地連線至 Azure 雲端並傳輸資料的事件來源。
+
+本教學課程也會使用 [IoT 解決方案加速器](https://www.azureiotsolutions.com)，以產生範例遙測資料並串流處理至 IoT 中樞。
 
 >[!TIP]
-> IoT 解決方案加速器提供預先設定的企業級解決方案，可讓您用來加快自訂 IoT 解決方案的開發速度。
+> [IoT 解決方案加速器](https://www.azureiotsolutions.com)提供預先設定的企業級解決方案，可讓您用來加快自訂 IoT 解決方案的開發速度。
+
+## <a name="create-a-device-simulation"></a>建立裝置模擬
+
+首先，請建立裝置模擬解決方案，此解決方案將產生測試資料以填入您的時間序列深入解析環境中。
+
+1. 在個別視窗或索引標籤中，移至 [azureiotsolutions.com](https://www.azureiotsolutions.com)。 使用相同的 Azure 訂用帳戶登入，然後選取 [裝置模擬]  加速器。
+
+   [![執行裝置模擬加速器](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
+
+1. 在 [建立裝置模擬解決方案]  頁面上輸入必要的參數。
+
+   參數|說明
+   ---|---
+   **部署名稱** | 此唯一值會用來建立新的資源群組。 列出的 Azure 資源會在建立後指派給資源群組。
+   **Azure 訂用帳戶** | 指定與上一節中用於建立「時間序列深入解析」環境的相同訂用帳戶。
+   **部署選項** | 選取 [佈建新的 IoT 中樞]  以建立本教學課程特定的新 IoT 中樞。
+   **Azure 位置** | 指定與上一節中用於建立「時間序列深入解析」環境的相同區域。
+
+   完成後，請選取 [建立解決方案]  以佈建解決方案的 Azure 資源。 完成此程序約需要 20 分鐘的時間。
+
+   [![佈建裝置模擬解決方案](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
+
+1. 佈建完成後，新解決方案上方的文字會從**佈建中...** 變更為**就緒**。
+
+   >[!IMPORTANT]
+   > 請還不要選取 [啟動]  ！ 請將此網頁保持為開啟，因為您稍後將會回到這裡。
+
+   [![裝置模擬解決方案佈建完成](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
+
+1. 現在，您可以在 Azure 入口網站中檢查新建立的資源。 在 [資源群組]  頁面中，您會看到已建立的新資源群組，其使用上一個步驟中提供的**解決方案名稱**。 記下針對裝置模擬所建立的資源。
+
+   [![裝置模擬資源](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>建立環境
 
-首先，在您的 Azure 訂用帳戶中建立時間序列深入解析環境。
+其次，在您的 Azure 訂用帳戶中建立時間序列深入解析環境。
 
 1. 使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。 
 1. 選取左上方的 [+ 建立資源]  。 
@@ -59,119 +95,36 @@ ms.locfileid: "66244149"
 
    參數|說明
    ---|---
-   **環境名稱** | 為時間序列深入解析環境選擇唯一的名稱。 時間序列深入解析總管和查詢 API 會使用這些名稱。
+   **環境名稱** | 為時間序列深入解析環境選擇唯一的名稱。 時間序列深入解析總管和[查詢 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) 會使用這些名稱。
    **訂用帳戶** | 訂用帳戶是 Azure 資源的容器。 請選擇要建立時間序列深入解析環境的訂用帳戶。
    **資源群組** | 資源群組是 Azure 資源的容器。 請為時間序列深入解析環境資源選擇現有的資源群組，或建立新的群組。
-   **位置** | 為時間序列深入解析環境選擇資料中心區域。 為了避免增加頻寬成本和延遲時間，應將時間序列深入解析環境設置於與其他 IoT 資源相同的區域中。
-   **定價 SKU** | 選擇所需的輸送量。 若要有最低成本和入門級的容量，請選取 `S1`。
-   **容量** | 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。 您可以在建立之後變更容量。 如需最低成本，選取 1 作為容量。
+   **位置** | 為時間序列深入解析環境選擇資料中心區域。 為了避免額外延遲時間，請在與其他 IoT 資源相同的區域中建立時間序列深入解析環境。
+   **層級** | 選擇所需的輸送量。 選取 [S1]  。
+   **容量** | 容量是套用至與所選取 SKU 相關聯輸入速率和儲存體容量的乘數。 您可以在建立之後變更容量。 選取 **1** 作為容量。
 
-   完成後，請選取 [建立]  開始佈建程序。
+   完成後，請選取 [檢閱 + 建立]  以繼續下一個步驟。
 
    [![建立時間序列深入解析環境資源](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
+
+1. 現在，將時間序列深入解析環境連線到解決方案加速器建立的 IoT 中樞。 將 [選取中樞]  設定為 `Select existing`。 然後，在設定 [IoT 中樞名稱]  時，選擇解決方案加速器建立的 IoT 中樞。
+
+   [![將時間序列深入解析環境連線到已建立的 IoT 中樞](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
 
 1. 查看 [通知]  面板以監視部署完成進度。 
 
    [![時間序列深入解析環境部署成功](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="create-a-device-simulation"></a>建立裝置模擬
-
-接下來，請建立裝置模擬解決方案，此解決方案將產生測試資料以填入您的時間序列深入解析環境中。
-
-1. 在個別視窗或索引標籤中，移至 [azureiotsolutions.com](https://www.azureiotsolutions.com)。 使用相同的 Azure 訂用帳戶登入，然後選取 [裝置模擬]  加速器。
-
-   [![執行裝置模擬加速器](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
-
-1. 在 [建立裝置模擬解決方案]  頁面上輸入必要的參數。
-
-   參數|說明
-   ---|---
-   **解決方案名稱** | 此唯一值會用來建立新的資源群組。 列出的 Azure 資源會在建立後指派給資源群組。
-   **訂用帳戶** | 指定與上一節中用於建立「時間序列深入解析」環境的相同訂用帳戶。
-   **區域** | 指定與上一節中用於建立「時間序列深入解析」環境的相同區域。
-   **部署選擇性 Azure 資源** | 保留勾選 [IoT 中樞]  。 模擬裝置會使用該項目來連結或串流資料。
-
-   完成後，請選取 [建立解決方案]  以佈建解決方案的 Azure 資源。 完成此程序約需要 6-7 分鐘的時間。
-
-   [![佈建裝置模擬解決方案](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
-
-1. 佈建完成後，新解決方案上方的文字會從**佈建中...** 變更為**就緒**。
-
-   >[!IMPORTANT]
-   > 請還不要選取 [啟動]  ！ 請將此網頁保持為開啟，因為您稍後將會回到這裡。
-
-   [![裝置模擬解決方案佈建完成](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
-
-1. 現在，請返回 Azure 入口網站，並在您的訂用帳戶中檢查新建立的資源。 在入口網站的 [資源群組]  頁面中，您會看到已建立的新資源群組，其使用上一個步驟中提供的**解決方案名稱**。 也請留意為了支援裝置模擬解決方案而建立的所有資源。
-
-   [![裝置模擬解決方案資源](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
-
-## <a name="connect-the-environment-to-the-iot-hub"></a>將環境連線至 IoT 中樞
-
-此時，您已了解如何建立兩組資源 (分別屬於其本身的資源群組)：
-
-- 空的時間序列深入解析環境。
-- 解決方案加速器所產生的裝置模擬解決方案資源，其中包括 IoT 中樞。
-
-前文提過，模擬裝置必須連線至 IoT 中樞，以串流處理裝置資料。 若要使資料流入時間序列深入解析環境中，您必須同時對 IoT 中樞和時間序列深入解析環境進行組態變更。
-
-### <a name="iot-hub-configuration-define-a-consumer-group"></a>IoT 中樞組態：定義取用者群組
-
-IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事件」端點會提供方法，讓其他應用程式在資料串流至 IoT 中樞執行個體時取用資料。 具體來說，「取用者群組」會提供讓應用程式接聽 IoT 中樞並從中提取資料的機制。
-
-接著，您可以在裝置模擬解決方案的 IoT 中樞**事件端點**上定義新的**取用者群組**屬性。
-
-1. 在 Azure 入口網站中，移至您為裝置模擬解決方案建立的資源群組 [概觀]  頁面。 選取 IoT 中樞資源。
-
-   [![裝置模擬解決方案資源群組](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
-
-   記下為該解決方案產生的 IoT 中樞資源 [名稱]  。 您後續將會參照該名稱。
-
-1. 向下捲動並選取 [端點]  頁面，然後選取 [事件]  端點。 在端點的 [屬性]  頁面上，在 $Default" 取用者群組下輸入端點的唯一名稱。 選取 [ **儲存**]。
-
-   [![裝置模擬解決方案 IoT 中樞端點](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
-
-### <a name="environment-configuration-define-an-event-source"></a>環境組態：定義事件來源
-
-現在，將新的 IoT 中樞**取用者群組**事件端點連線至時間序列深入解析環境，作為**事件來源**。
-
-1. 移至您為時間序列深入解析環境建立的資源群組 [概觀]  頁面。 選取 Time Series Insights 環境。
-
-   [![時間序列深入解析環境資源群組和環境](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-view-rg.png#lightbox)
-
-1. 在時間序列深入解析環境頁面上選取 [事件來源]  。 然後選取 [+ 新增]  。
-
-   [![時間序列深入解析環境概觀](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add.png#lightbox)
-
-1. 在 [新增事件來源]  頁面上輸入必要參數。
-
-   參數|說明
-   ---|---
-   **事件來源名稱** | 需要唯一值，用來為事件來源命名。
-   **來源** | 選取 [IoT 中樞]  。
-   **匯入選項** | 選取預設 `Use IoT hub from available subscriptions`。 此選項會使下一個下拉式清單填入可用的訂用帳戶。
-   **訂用帳戶** | 選取您用來建立時間序列深入解析環境和裝置模擬資源的相同訂用帳戶。
-   **IoT 中樞名稱** | 應預設為您先前記下的 IoT 中樞名稱。 否則，請選取正確的 IoT 中樞。
-   **IoT 中樞原則名稱** | 選取 [iothubowner]  。
-   **IoT 中樞取用者群組** | 應預設為您先前建立的 IoT 中樞取用者群組的名稱。 否則，請選取正確的取用者群組名稱。
-   **事件序列化格式** | 保留為預設值 `JSON`。
-   **時間戳記屬性名稱** | 指定為 `timestamp`。
-
-   當您完成時，選取 [建立]  來新增事件來源。 當您返回資源群組的 [概觀]  頁面時，您將會看到時間序列深入解析環境資源與「時間序列深入解析事件來源」資源。
-
-   [![時間序列深入解析環境的新事件來源](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png)](media/tutorial-create-populate-tsi-environment/ap-add-env-event-source-add-event-source.png#lightbox)
-
 ## <a name="run-device-simulation-to-stream-data"></a>執行裝置模擬以串流處理資料
 
-所有組態工作皆已完成，現在您可以在時間序列深入解析環境中填入來自模擬裝置的範例資料。
+既然部署和初始設定已完成，請將[加速器建立的模擬裝置](#create-a-device-simulation)的範例資料填入時間序列深入解析環境。
 
-您可以回想在[建立裝置模擬區段](#create-a-device-simulation)時，加速器建立了數個 Azure 資源用以支援解決方案。 連同先前所討論的 IoT 中樞，也產生了 Azure App Service Web 應用程式，以建立及傳輸模擬裝置遙測資料。
+連同 IoT 中樞，也產生了 Azure App Service Web 應用程式，以建立及傳輸模擬裝置遙測資料。
 
 1. 返回您的[解決方案加速器儀表板](https://www.azureiotsolutions.com/Accelerators#dashboard)。 如有必要，請使用您在本教學課程中使用的相同 Azure 帳戶重新登入。 現在，您可以選取「裝置模擬」解決方案下的 [啟動]  。
 
      [![解決方案加速器儀表板](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
-1. 裝置模擬 Web 應用程式會在此時啟動，且可能需要幾秒鐘來完成初始載入。 系統也會提示您表示同意，為 Web 應用程式授與「將您登入並讀取您的設定檔」的權限。 此權限可讓應用程式擷取支援應用程式運作所需的使用者設定檔資訊。
+1. 裝置模擬 Web 應用程式會從提示您把「將您登入並讀取您的設定檔」的權限授與 Web 應用程式開始。 此權限可讓應用程式擷取支援應用程式運作所需的使用者設定檔資訊。
 
      [![裝置模擬 Web 應用程式同意](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
@@ -219,7 +172,7 @@ IoT 中樞提供多種可讓您與其他執行者共用功能的端點。 「事
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本教學課程建立了數個執行中的 Azure 服務，用以支援時間序列深入解析環境和裝置模擬解決方案。 如果您要放棄或延後本教學課程系列上的工作，請刪除所有資源，以免產生不必要的成本。
+本教學課程建立了數個執行中的 Azure 服務，用以支援時間序列深入解析環境和裝置模擬解決方案。 若要移除，請瀏覽回到 Azure 入口網站。
 
 從 Azure 入口網站左側的功能表中：
 

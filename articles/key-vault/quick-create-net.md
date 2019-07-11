@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052796"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>快速入門：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
 
@@ -174,7 +174,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 現在當您執行應用程式時，您應該會看到擷取的秘密值。 在上述命令中，您會獲得 App Service 權限的身分識別，而可在金鑰保存庫上執行**取得**與**列出**作業。
 
 ## <a name="clean-up-resources"></a>清除資源
-請刪除不再需要的資源群組、虛擬機器和所有相關的資源。 若要這樣做，請選取 VM 的資源群組，然後選取 [刪除]  。
+請刪除不再需要的資源群組、虛擬機器和所有相關的資源。 若要這樣做，請選取金鑰保存庫的資源群組，然後選取 [刪除]  。
 
 藉由使用 [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) 命令來刪除金鑰保存庫：
 

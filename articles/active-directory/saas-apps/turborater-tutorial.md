@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>教學課程：Azure Active Directory 與 TurboRater 整合
 

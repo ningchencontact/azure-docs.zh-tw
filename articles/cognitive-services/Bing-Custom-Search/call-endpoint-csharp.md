@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 06/18/2018
 ms.author: maheshb
-ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 87c6744dd9ee0a921a422320563f10acff9ed875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595799"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206226"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>快速入門：使用 C# 呼叫您的 Bing 自訂搜尋端點 
 
@@ -25,9 +25,9 @@ ms.locfileid: "65595799"
 
 - 「Bing 自訂搜尋」執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)的任何版本
+- [Visual Studio 2019 或更新版本](https://www.visualstudio.com/downloads/)的任何版本
 - 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
-- 已安裝 [NuGet 自訂搜尋](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)套件。 
+- [Bing 自訂搜尋](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet 套件。 
     - 在 Visual Studio 的 [方案總管]  中，以滑鼠右鍵按一下專案，然後從功能表選取 [管理 NuGet 套件]  。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件。 安裝 NuGet 自訂搜尋套件也會一併安裝下列組件：
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
@@ -104,7 +104,7 @@ ms.locfileid: "65595799"
     ```
    ## <a name="process-and-view-the-results"></a>處理並檢視結果
 
-1. 逐一查看回應物件以顯示每個搜尋結果的相關資訊，包括其名稱、URL，以及上次搜耙網頁的日期。
+3. 逐一查看回應物件以顯示每個搜尋結果的相關資訊，包括其名稱、URL，以及上次搜耙網頁的日期。
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

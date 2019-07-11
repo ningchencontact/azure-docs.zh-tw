@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925309"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206053"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>教學課程：使用資料複製服務將資料複製到 Azure 資料箱 (預覽)
 
@@ -59,7 +59,7 @@ ms.locfileid: "64925309"
     |-------------------------------|---------|
     |**作業名稱**                       |作業的唯一名稱超過 230 個字元。 作業名稱中不允許以下字元：\<、\>、\|、\?、\*、\\、\:、\/ 及 \\\.         |
     |**來源位置**                |以下列格式提供資料來源的 SMB 路徑：`\\<ServerIPAddress>\<ShareName>` 或 `\\<ServerName>\<ShareName>`。        |
-    |**使用者名稱**                       |用以存取資料來源的使用者名稱 (採用 `\\<DomainName><UserName>` 格式)。        |
+    |**使用者名稱**                       |用以存取資料來源的使用者名稱 (採用 `\\<DomainName><UserName>` 格式)。 如果本機系統管理員正在連線，他們需要明確的安全性權限。 以滑鼠右鍵按一下資料夾，選取 [屬性]  ，然後選取 [安全性]  。 這樣應該會在 [安全性]  索引標籤中新增本機系統管理員。       |
     |**密碼**                       |用以存取資料來源的密碼。           |
     |**目的地儲存體帳戶**    |從清單中選取要作為資料上傳目的地的儲存體帳戶。         |
     |**目的地類型**       |從清單中選取目標儲存體類型：**區塊 Blob**、**分頁 Blob** 或 **Azure 檔案儲存體**。        |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 721e0c40ec2e02dabee0681e01fea4182b906183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>教學課程：Azure Active Directory 與 Coralogix 整合
 
@@ -45,7 +45,7 @@ Coralogix 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Coralogix 支援由 SP 起始的 SSO。
+* Coralogix 支援郵 SP 起始的 SSO。
 
 ## <a name="add-coralogix-from-the-gallery"></a>從資源庫新增 Coralogix
 

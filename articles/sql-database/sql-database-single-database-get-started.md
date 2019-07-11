@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 85bbd14c8d2bcd8e3699e5f5efdae9f52acd63e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 1c24c8a10e35c0cf8979538c67fa8fb71b712741
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070159"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫
 
@@ -137,4 +137,4 @@ ms.locfileid: "66808546"
   - [使用 Azure Data Studio 進行連線及查詢](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - 若要使用 Azure CLI 在已佈建的計算層中建立單一資料庫，請參閱 [Azure CLI 範例](sql-database-cli-samples.md)。
 - 若要使用 Azure PowerShell 在已佈建的計算層中建立單一資料庫，請參閱 [Azure PowerShell 範例](sql-database-powershell-samples.md)。
-- 若要使用 Azure PowerShell 在無伺服器電腦中建立單一資料庫，請參閱[使用 PowerShell 建立無伺服器資料庫](sql-database-serverless.md#create-new-database-in-serverless-compute-tier-using-powershell)
+- 若要使用 Azure PowerShell 在無伺服器電腦中建立單一資料庫，請參閱[建立無伺服器資料庫](sql-database-serverless.md#create-new-database-in-serverless-compute-tier)。

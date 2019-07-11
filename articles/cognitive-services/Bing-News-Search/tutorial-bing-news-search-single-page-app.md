@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建立單頁 Web 應用程式 - Bing 新聞搜尋 API
+title: 教學課程：使用 Bing 新聞搜尋 API 建立單頁 Web 應用程式
 titlesuffix: Azure Cognitive Services
 description: 使用此教學課程來建置可將搜尋查詢傳送給「Bing 新聞 API」並在網頁內顯示結果的單頁 Web 應用程式。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 78a985180fb2b665aed75b39acfc4d39ccd04132
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 144ad8761b4d462012963e040b7699e38587831b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798567"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272785"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>教學課程：建立單頁 Web 應用程式
 
@@ -267,7 +267,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> 成功的 HTTP 要求「不」一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 新聞搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
+> 成功的 HTTP 要求「不」  一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 新聞搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
 
 上述兩個函式中大部分的程式碼都是專門用來處理錯誤的。 下列階段可能會發生錯誤：
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736321"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330826"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure 前端服務是什麼？
 Azure Front Door Service 可讓您針對最佳效能和立即全域容錯移轉以獲得高可用性最佳化，定義、管理及監視網路流量的全域路由。 透過 Front Door，您可以將全球 (多區域) 消費者和企業應用程式轉換成健全、高效能的個人化新式應用程式、API，以及觸及 Azure 全球對象的內容。
@@ -60,6 +60,13 @@ Front Door 也支援自訂網域名稱使用 HTTPS。 針對您的流量選擇�
 Azure Front Door 可讓您撰寫自訂 Web 應用程式防火牆 (WAF) 規則進行存取控制，以保護您的 HTTP/HTTPS 工作負載，免於遭受以用戶端 IP 位址、國家/地區代碼及 http 參數為基礎的攻擊。 此外，Front Door 也可讓您建立速率限制規則來對抗惡意 Bot 流量。 
 
 Front Door 本身受到基本 [Azure DDoS 保護](../virtual-network/ddos-protection-overview.md)所保護。 如需進一步保護，可在您的 VNET 啟用標準 Azure DDoS 保護，以透過自動調整和風險降低，保護資源免於遭受網路層 (TCP/UDP) 攻擊。 Front Door 是第 7 層反向 Proxy，只允許 Web 流量傳遞到後端，且預設會封鎖其他類型的流量。
+
+## <a name="url-redirection"></a>URL 重新導向
+由於業界強烈要求僅支援安全通訊，Web 應用程式預計可自動將任何 HTTP 流量重新導向至 HTTPS。 這可確保使用者和應用程式之間的所有通訊都會發生在加密的路徑上。 
+
+傳統上，應用程式擁有者處理這項需求的方法是建立專用服務，其唯一目的是要將 HTTP 上收到的要求重新導向至 HTTPS。 AFD 支援將流量從 HTTP 重新導向至 HTTPS 的功能。 這可簡化應用程式組態、將資源使用量最佳化，並支援新的重新導向案例，包括全域和路徑式重新導向。 AFD 的 URL 重新導向並不僅限於從 HTTP 重新導向至 HTTPS，也包括重新導向至不同的主機名稱、不同的路徑，或甚至是重新導向至 URL 中新的查詢字串。
+
+如需詳細資訊，請參閱[使用 AFD 將流量重新導向](front-door-url-redirect.md)。
 
 ## <a name="url-rewrite"></a>URL 重寫
 Front Door 能透過允許您設定選擇性的[自訂轉送路徑](front-door-url-rewrite.md)，以用於建構要轉送至後端之要求的情況，來支援 URL 重寫功能。 Front Door 可進一步讓您將 Host 標頭設定為在將要求轉送到後端時傳送。

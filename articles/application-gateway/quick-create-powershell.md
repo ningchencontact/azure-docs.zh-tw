@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 06/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053347"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure PowerShell
 
@@ -36,7 +36,7 @@ ms.locfileid: "66729665"
 
 ### <a name="resource-group"></a>資源群組
 
-在 Azure 中，您可以將相關資源配置到資源群組。 您可以使用現有的資源群組，或建立一個新的群組。 在此範例中，我們將使用 [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) Cmdlet 建立新的資源群組，如下所示： 
+在 Azure 中，您可以將相關資源配置到資源群組。 您可以使用現有的資源群組，或建立一個新的群組。 在此範例中，您將使用 [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) Cmdlet 建立新的資源群組，如下所示： 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ### <a name="required-network-resources"></a>必要的網路資源
 
-Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。  應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。  您可以為應用程式閘道建立新的子網路，或使用現有的子網路。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您可以根據自己的使用案例，將應用程式閘道的前端 IP 設定為「公用」或「私人」。 在此範例中，我們會選擇公用前端 IP。
+Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。  應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。  您可以為應用程式閘道建立新的子網路，或使用現有的子網路。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您可以根據自己的使用案例，將應用程式閘道的前端 IP 設定為「公用」或「私人」。 在此範例中，您會選擇公用前端 IP。
 
 1. 呼叫 [New-AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig) 以建立子網路組態。
 2. 呼叫 [New-AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork) 以使用子網路組態建立虛擬網路。 
@@ -109,7 +109,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -219,7 +219,7 @@ New-AzApplicationGateway `
 雖然不需要 IIS 即可建立應用程式閘道，但您仍會在本快速入門中加以安裝，以確認 Azure 是否已成功建立應用程式閘道。 使用 IIS 測試應用程式閘道：
 
 1. 執行 [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) 以取得應用程式閘道的公用 IP 位址。 
-2. 將公用 IP 位址複製並貼到瀏覽器的網址列中。 當您重新整理瀏覽器時，應該會看到虛擬機器的名稱。 有效的回應會確認應用程式閘道已成功建立，並能與後端順利連線。
+2. 將公用 IP 位址複製並貼到瀏覽器的網址列中。 當您重新整理瀏覽器時，應該會看到虛擬機器的名稱。 有效的回應會確認應用程式閘道已成功建立，並可與後端順利連線。
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

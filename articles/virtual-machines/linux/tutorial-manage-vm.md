@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb01802ec5b20ce57955a4e74e9de8108f4d96d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077020"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux VM
 
@@ -42,7 +42,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group) 命令來建立資源群組。 
 
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器之前建立。 在此範例中，會在 eastus 區域中建立名為 myResourceGroupVM 的資源群組。 
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器之前建立。 在此範例中，會在 eastus  區域中建立名為 myResourceGroupVM  的資源群組。 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
@@ -54,7 +54,7 @@ az group create --name myResourceGroupVM --location eastus
 
 使用 [az vm create](https://docs.microsoft.com/cli/azure/vm) 命令建立虛擬機器。 
 
-建立虛擬機器時，有數個可用的選項，例如作業系統映像、磁碟大小及系統管理認證。 下列範例會建立名為 myVM 的 VM，而該 VM 執行 Ubuntu Server。 VM 上會建立名為 azureuser 的使用者帳戶，而如果預設金鑰位置 (~/.ssh) 沒有 SSH 金鑰，則會加以產生：
+建立虛擬機器時，有數個可用的選項，例如作業系統映像、磁碟大小及系統管理認證。 下列範例會建立名為 myVM  的 VM，而該 VM 執行 Ubuntu Server。 VM 上會建立名為 azureuser  的使用者帳戶，而如果預設金鑰位置 (~/.ssh  ) 沒有 SSH 金鑰，則會加以產生：
 
 ```azurecli-interactive
 az vm create \
@@ -122,7 +122,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-新增 `--all` 引數即可查看完整的清單。 您也可以依 `--publisher` 或 `–-offer` 來篩選此映像清單。 在此範例中，是以符合 CentOS 的供應項目作為條件來篩選此清單的所有映像。 
+新增 `--all` 引數即可查看完整的清單。 您也可以依 `--publisher` 或 `–-offer` 來篩選此映像清單。 在此範例中，是以符合 CentOS  的供應項目作為條件來篩選此清單的所有映像。 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
@@ -141,7 +141,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-若要使用特定映像部署 VM，請記下 Urn 資料行中的值，其中包含可用來[識別](cli-ps-findimage.md#terminology)映像的發行者、供應項目、SKU 和版本號碼 (選擇性)。 指定映像時，可以使用 “latest” 來取代映像版本號碼，這會選取最新的散發版本。 在此範例中，是使用 `--image` 引數來指定最新版的 CentOS 6.5 映像。  
+若要使用特定映像部署 VM，請記下 Urn  資料行中的值，其中包含可用來[識別](cli-ps-findimage.md#terminology)映像的發行者、供應項目、SKU 和版本號碼 (選擇性)。 指定映像時，可以使用 “latest” 來取代映像版本號碼，這會選取最新的散發版本。 在此範例中，是使用 `--image` 引數來指定最新版的 CentOS 6.5 映像。  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -155,14 +155,14 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 下表會將大小分類成各種使用案例。  
 
-| 類型                     | 大小           |    說明       |
+| 類型                     | 一般大小           |    說明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [一般用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| 平衡的 CPU 對記憶體。 適用於開發/測試及小型到中型應用程式和資料解決方案。  |
-| [計算最佳化](sizes-compute.md)   | Fs、F             | CPU 與記憶體的比例高。 適用於中流量應用程式、網路設備，以及批次處理。        |
-| [記憶體最佳化](../virtual-machines-windows-sizes-memory.md)    | Esv3、Ev3、M、GS、G、DSv2、DS、Dv2、D   | 記憶體與核心的比例高。 適用於關聯式資料庫、中型到大型快取，以及記憶體內分析。                 |
-| [儲存體最佳化](../virtual-machines-windows-sizes-storage.md)      | Ls                | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
-| [GPU](sizes-gpu.md)          | NV、NC            | 以大量圖形轉譯和視訊編輯為目標的特製化 VM。       |
-| [高效能](sizes-hpc.md) | H、A8-11          | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 
+| [一般用途](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| 平衡的 CPU 對記憶體。 適用於開發/測試及小型到中型應用程式和資料解決方案。  |
+| [計算最佳化](sizes-compute.md)   | Fsv2          | CPU 與記憶體的比例高。 適用於中流量應用程式、網路設備，以及批次處理。        |
+| [記憶體最佳化](sizes-memory.md)    | Esv3、Ev3、M、DSv2、Dv2  | 記憶體與核心的比例高。 適用於關聯式資料庫、中型到大型快取，以及記憶體內分析。                 |
+| [儲存體最佳化](sizes-storage.md)      | Lsv2、Ls              | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
+| [GPU](sizes-gpu.md)          | NV、NVv2、NC、NCv2、NCv3、ND            | 以大量圖形轉譯和視訊編輯為目標的特製化 VM。       |
+| [高效能](sizes-hpc.md) | H        | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 |
 
 
 ### <a name="find-available-vm-sizes"></a>尋找可用的 VM 大小

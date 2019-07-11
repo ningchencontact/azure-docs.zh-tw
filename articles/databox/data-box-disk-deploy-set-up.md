@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939658"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147497"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -123,7 +123,9 @@ ms.locfileid: "64939658"
     ```  
 8. 將磁碟解除鎖定之後，您就可以檢視磁碟的內容。    
 
-    ![資料箱磁碟內容](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![資料箱磁碟內容](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+如果您在解除鎖定磁碟時遇到任何問題，請參閱如何[針對解除鎖定問題進行疑難排解](data-box-disk-troubleshoot-unlock.md)。 
 
 ## <a name="unlock-disks-on-linux-client"></a>將 Linux 用戶端上的磁碟解除鎖定
 
@@ -253,6 +255,9 @@ ms.locfileid: "64939658"
 8. 將磁碟解除鎖定之後，您可以移至掛接點並檢視磁碟的內容。 您現在已準備好將資料複製到 *BlockBlob* 或 *PageBlob* 資料夾。 
 
     ![資料箱磁碟內容](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+如果您在解除鎖定磁碟時遇到任何問題，請參閱如何[針對解除鎖定問題進行疑難排解](data-box-disk-troubleshoot-unlock.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 

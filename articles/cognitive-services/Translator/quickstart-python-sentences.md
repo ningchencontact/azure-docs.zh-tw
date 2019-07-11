@@ -3,19 +3,19 @@ title: 快速入門：取得句子長度 (Python) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您將了解如何搭配使用 Python 與翻譯工具文字 REST API 來判斷句子長度 (以字元為單位)。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 9ab2ebe5556e6850845392fc574c35809730a41a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: eddad0efae0a6de691cc55020c0e01742960cb18
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515065"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444885"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來判斷句子長度
 
@@ -36,7 +36,10 @@ ms.locfileid: "66515065"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -92,6 +95,8 @@ headers = {
 }
 ```
 
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="create-a-request-to-determine-sentence-length"></a>建立判斷句子長度的要求
 
 定義要判斷長度的一或多個句子：
@@ -115,7 +120,8 @@ response = request.json()
 最後一個步驟是列印結果。 此程式碼片段會排序索引鍵、設定縮排，並宣告項目和索引鍵分隔符號，以美化結果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>組合在一起

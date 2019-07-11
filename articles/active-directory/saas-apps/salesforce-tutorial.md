@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4dffa40d4a34241f54b67fc28a1d4b7ba320347d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>教學課程：Azure Active Directory 與 Salesforce 整合
 
@@ -58,19 +58,19 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Salesforce，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽面板中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左側導覽面板中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Salesforce**，從結果面板中選取 [Salesforce]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Salesforce**，從結果面板中選取 [Salesforce]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 Salesforce](common/search-new-app.png)
 
@@ -86,7 +86,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Salesforce 測試使用者](#create-salesforce-test-user)** - 使 Salesforce 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -94,29 +94,29 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 若要設定與 Salesforce 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Salesforce] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Salesforce]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上按一下 [編輯] 圖示，以開啟 [基本 SAML 組態] 對話方塊。
+3. 在 [以 SAML 設定單一登入]  頁面上按一下 [編輯]  圖示，以開啟 [基本 SAML 組態]  對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![Salesforce 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入值：
+    a. 在 [登入 URL]  文字方塊中，以下列模式輸入值：
 
     企業帳戶： `https://<subdomain>.my.salesforce.com`
 
     開發人員帳戶： `https://<subdomain>-dev-ed.my.salesforce.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式將值輸入：
+    b. 在 [識別碼]  文字方塊中，使用下列模式將值輸入：
 
     企業帳戶： `https://<subdomain>.my.salesforce.com`
 
@@ -125,11 +125,11 @@ Salesforce 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)以取得這些值。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Salesforce] 區段上，依據您的需求複製適當的 URL。
+6. 在 [設定 Salesforce]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -143,26 +143,26 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 1. 在瀏覽器中開啟新索引標籤，登入您的 Salesforce 系統管理員帳戶。
 
-2. 按一下分頁右上角**設定圖示**底下的 [設定]。
+2. 按一下分頁右上角**設定圖示**底下的 [設定]  。
 
     ![設定單一登入](./media/salesforce-tutorial/configure1.png)
 
-3. 在瀏覽窗格中向下捲動至 [設定]，按一下 [識別] 以展開相關的區段。 然後按一下 [單一登入設定]。
+3. 在瀏覽窗格中向下捲動至 [設定]  ，按一下 [識別]  以展開相關的區段。 然後按一下 [單一登入設定]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-admin-sso.png)
 
-4. 在 [單一登入設定] 頁面上，按一下 [編輯] 按鈕。
+4. 在 [單一登入設定]  頁面上，按一下 [編輯]  按鈕。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > 如果您的 Salesforce 帳戶無法啟用單一登入設定，您可能需要連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)。
 
-5. 選取 [啟用 SAML]，然後按一下 [儲存]。
+5. 選取 [啟用 SAML]  ，然後按一下 [儲存]  。
 
       ![設定單一登入](./media/salesforce-tutorial/sf-enable-saml.png)
 
-6. 若要設定 SAML 單一登入設定，請按一下 [從中繼資料檔案新增]。
+6. 若要設定 SAML 單一登入設定，請按一下 [從中繼資料檔案新增]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
@@ -170,19 +170,19 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/salesforce-tutorial/xmlchoose.png)
 
-8. 在 [SAML 單一登入設定] 頁面上，欄位會自動填入，然後按一下 [儲存]。
+8. 在 [SAML 單一登入設定]  頁面上，欄位會自動填入，然後按一下 [儲存]。
 
     ![設定單一登入](./media/salesforce-tutorial/salesforcexml.png)
 
-9. 在 Salesforce 的左方導覽窗格中，按一下 [公司設定] 以展開相關的區段，然後按一下 [我的網域]。
+9. 在 Salesforce 的左方導覽窗格中，按一下 [公司設定]  以展開相關的區段，然後按一下 [我的網域]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-my-domain.png)
 
-10. 向下捲動至 [驗證組態] 區段，然後按一下 [編輯] 按鈕。
+10. 向下捲動至 [驗證組態]  區段，然後按一下 [編輯]  按鈕。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. 在 [驗證組態] 區段中，核取 [AzureSSO] 作為 SAML SSO 設定的 [驗證服務]，然後按一下 [儲存]。
+11. 在 [驗證組態]  區段中，核取 [AzureSSO]  作為 SAML SSO 設定的 [驗證服務]  ，然後按一下 [儲存]  。
 
     ![設定單一登入](./media/salesforce-tutorial/sf-auth-config.png)
 
@@ -193,11 +193,11 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -205,39 +205,39 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
+    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com 。
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Salesforce 的存取權授與 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Salesforce]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Salesforce]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Salesforce]。
+2. 在應用程式清單中，選取 [Salesforce]  。
 
     ![應用程式清單中的 Salesforce 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-salesforce-test-user"></a>建立 Salesforce 測試使用者
 

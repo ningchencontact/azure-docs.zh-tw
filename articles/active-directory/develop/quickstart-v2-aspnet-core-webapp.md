@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b11636068c2b5fc8d7591fd7e10a686037d9a4
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 04d13786dc731627ba2000ab6069ea06ed3183ba
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509311"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565451"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -86,7 +86,7 @@ ms.locfileid: "67509311"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > 本快速入門支援 Enter_the_Supported_Account_Info_Here。
 

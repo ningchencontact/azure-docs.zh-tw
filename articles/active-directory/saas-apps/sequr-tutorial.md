@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dace26f9eb4948a8cfd06be568ab9ec471765d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2eed00aab4296cb5352e74d9e6bfc014f2340646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>教學課程：Azure Active Directory 與 Sequr 整合
 
@@ -98,7 +98,7 @@ Sequr 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

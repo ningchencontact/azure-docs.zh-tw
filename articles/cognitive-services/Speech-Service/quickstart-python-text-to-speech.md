@@ -7,22 +7,22 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 8086e67753821cd6dd87192835b8a2180014db17
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339072"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338636"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>快速入門：使用 Python 將文字轉換為語音
 
 在本快速入門中，您將了解如何使用 Python 和文字轉語音 REST API 將文字轉換為語音。 本指南中的要求本文已結構化為[語音合成標記語言 (SSML)](speech-synthesis-markup.md)，這可讓您選擇回應的語音和語言。
 
-本快速入門需要[Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)與語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](get-started.md)來取得訂用帳戶金鑰。
+本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](get-started.md)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,14 +30,16 @@ ms.locfileid: "58339072"
 
 * Python 2.7.x 或 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器
-* 語音服務的 Azure 訂用帳戶金鑰
+* 適用於語音服務的 Azure 訂用帳戶金鑰
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
 在您慣用的 IDE 或編輯器建立新的 Python 專案。 然後，將下列程式碼片段複製到您的專案中名為 `tts.py` 的檔案。
 
 ```python
-import os, requests, time
+import os
+import requests
+import time
 from xml.etree import ElementTree
 ```
 
@@ -51,8 +53,10 @@ from xml.etree import ElementTree
 在接下來的幾節中，您將建立方法來處理授權、呼叫文字轉語音 API，並驗證回應。 首先讓我們新增一些程式碼，確保此範例可搭配 Python 2.7.x 及 3.x 來運作。
 
 ```python
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 接下來，讓我們建立類別。 這是我們會放置權杖交換方法的位置，並且會呼叫文字轉語音 API。
@@ -70,9 +74,9 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>取得存取權杖
 
-文字轉語音 REST API 需要存取權杖來進行驗證。 若要取得存取權杖，則必須進行交換。 此範例會交換語音服務的訂用帳戶金鑰的存取權杖使用`issueToken`端點。
+文字轉語音 REST API 需要存取權杖來進行驗證。 若要取得存取權杖，則必須進行交換。 此範例會使用 `issueToken` 端點，以語音服務訂用帳戶金鑰交換存取權杖。
 
-這個範例假設您的語音服務訂用帳戶是在美國西部區域中。 如果您使用不同的區域，請更新 `fetch_token_url` 的值。 如需完整清單，請參閱[區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)。
+這個範例假設您的語音服務訂用帳戶是在美國西部區域。 如果您使用不同的區域，請更新 `fetch_token_url` 的值。 如需完整清單，請參閱[區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)。
 
 請將此程式碼複製到 `TextToSpeech` 類別：
 
@@ -91,7 +95,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>提出要求並儲存回應
 
-在此，您要建置要求並儲存語音回應。 首先，您必須設定 `base_url` 和 `path`。 此範例假設您會使用美國西部端點。 如果您的資源註冊至不同區域，請務必更新 `base_url`。 如需詳細資訊，請參閱 <<c0> [ 語音服務區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)。
+在此，您要建置要求並儲存語音回應。 首先，您必須設定 `base_url` 和 `path`。 此範例假設您會使用美國西部端點。 如果您的資源註冊至不同區域，請務必更新 `base_url`。 如需詳細資訊，請參閱[語音服務區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)。
 
 接下來，您必須為要求新增必要的標頭。 請務必將 `User-Agent` 更新為您的資源名稱 (位於 Azure 入口網站)，並將 `X-Microsoft-OutputFormat` 設定為您偏好的音訊輸出。 如需輸出格式的完整清單，請參閱[音訊輸出](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
 
@@ -120,7 +124,8 @@ def save_audio(self):
     xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
-    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.set(
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
@@ -128,9 +133,11 @@ def save_audio(self):
     if response.status_code == 200:
         with open('sample-' + self.timestr + '.wav', 'wb') as audio:
             audio.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nYour TTS is ready for playback.\n")
     else:
-        print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
+        print("\nStatus code: " + str(response.status_code) +
+              "\nSomething went wrong. Check your subscription key and headers.\n")
 ```
 
 ## <a name="put-it-all-together"></a>組合在一起
@@ -164,7 +171,7 @@ python tts.py
 > [!div class="nextstepaction"]
 > [探索 GitHub 上的 Python 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python) \(英文\)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [建立自訂語音調](how-to-customize-voice-font.md)

@@ -3,19 +3,19 @@ title: 快速入門：翻譯文字 (Java) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何搭配使用 Java 和翻譯工具文字 REST API 將文字字串從英文翻譯成義大利文和德文。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: fbbe139160a7efd528e63e206aa37ac72b2542df
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: f8846e8dc6df8753562a36c05342f04307dd886e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515196"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445096"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來翻譯字串
 
@@ -107,6 +107,8 @@ public class Translate {
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de,it";
 ```
+
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="create-a-client-and-build-a-request"></a>建立用戶端，並建置要求
 

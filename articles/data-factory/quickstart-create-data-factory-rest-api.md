@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: d5255e8cd8c662295a714931a3e292b20ab10079
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96f65ef17f25e1ff6ee3847507b33492642af5e8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156943"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067476"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>快速入門：使用 REST API 建立 Azure 資料處理站和管線
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [目前的版本](quickstart-create-data-factory-rest-api.md)
 
@@ -80,7 +80,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ```powershell
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]"https://login.microsoftonline.com/${tenantId}"
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($appId, $authKey)
-$result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
+$result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
 $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
@@ -115,7 +115,7 @@ $response | ConvertTo-Json
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
-* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 以下是範例回應：
 

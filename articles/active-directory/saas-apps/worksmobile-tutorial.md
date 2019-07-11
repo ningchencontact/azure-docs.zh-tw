@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f0ead46bf93815644cb766c24fc9d894c2b4983
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7e1dfe10cdf80f750efbb7f08d001c7ce25fe068
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>教學課程：Azure Active Directory 與 LINE WORKS 整合
 
@@ -102,7 +102,7 @@ ms.locfileid: "65905271"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

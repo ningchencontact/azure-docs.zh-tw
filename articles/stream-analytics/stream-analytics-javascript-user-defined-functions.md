@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192270"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329371"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教學課程：Azure 串流分析 JavaScript 使用者定義函式
  
@@ -100,7 +100,7 @@ Azure 串流分析 JavaScript 使用者定義函式支援標準的內建 JavaScr
 串流分析 | JavaScript
 --- | ---
 bigint | Number (JavaScript 只能準確地表示最高到 2^53 的整數)
-DateTime | Date (JavaScript 只支援毫秒)
+Datetime | Date (JavaScript 只支援毫秒)
 double | Number
 nvarchar(MAX) | String
 Record | Object
@@ -114,12 +114,14 @@ NULL | Null
 JavaScript | 串流分析
 --- | ---
 Number | Bigint (若數字為整數且介於 long.MinValue 和 long.MaxValue 之間，否則為 double)
-Date | DateTime
+Date | Datetime
 String | nvarchar(MAX)
 Object | Record
 Array | Array
 Null、Undefined | NULL
 任何其他類型 (例如，函式或錯誤) | 不支援 (產生執行階段錯誤)
+
+JavaScript 語言需區分大小寫，且 JavaScript 程式碼中物件欄位的大小寫必須符合內送資料中欄位的大小寫。 請注意相容性層級 1.0 的作業會將 SQL SELECT 陳述式欄位轉換成小寫。 若是相容性層級 1.1 和以上，SELECT 陳述式的欄位會與 SQL 查詢中所指定的大小寫相同。
 
 ## <a name="troubleshooting"></a>疑難排解
 JavaScript 執行階段錯誤會被視為嚴重問題，並顯示在活動記錄。 若要擷取記錄檔，在 Azure 入口網站中，請移至您的作業並選取 [活動記錄]  。

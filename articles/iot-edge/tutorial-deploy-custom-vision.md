@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239694"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433948"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
-Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解決方案的效率。 這項功能非常適合用於會處理大量資料的服務，例如電腦視覺模型。 [自訂視覺服務](../cognitive-services/custom-vision-service/home.md)可讓您建置自訂影像分類器，並部署至裝置作為容器。 一起使用這兩項服務，您就可以從影像或影片串流中找到深入解析，而不必先將所有資料傳出網站。 自訂視覺所提供的分類器會比較影像與經過訓練的模型，以產生深入解析。 
+Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解決方案的效率。 這項功能非常適合用於會處理大量資料的服務，例如電腦視覺模型。 [自訂視覺服務](../cognitive-services/custom-vision-service/home.md)可讓您建置自訂影像分類器，並部署至裝置作為容器。 一起使用這兩項服務，您就可以從影像或影片串流中找到深入解析，而不必先將所有資料傳出網站。 自訂視覺所提供的分類器會比較影像與經過訓練的模型，以產生深入解析。
 
-例如，IoT Edge 裝置上的自訂視覺無法判斷高速公路的車流量較平常高或低，也無法判斷停車場的某一排是否有停車位。 這些深入解析可與其他服務共用以便採取動作。 
+例如，IoT Edge 裝置上的自訂視覺無法判斷高速公路的車流量較平常高或低，也無法判斷停車場的某一排是否有停車位。 這些深入解析可與其他服務共用以便採取動作。
 
-在本教學課程中，您了解如何： 
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
+>
 > * 使用電腦視覺建置影像分類器。
 > * 開發 IoT Edge 模組來查詢裝置上的自訂視覺 Web 伺服器。
 > * 將影像分類器的結果傳送至 IoT 中樞。
@@ -72,10 +73,11 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
    | ----- | ----- |
    | Name | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
    | 說明 | 選擇性的專案描述。 |
-   | 資源群組 | 接受預設值**有限的試用版**。 |
+   | 資源群組 | 選取包含自訂視覺服務資源的其中一個 Azure 資源群組，或如果您尚未新增，請**建立新項目**。 |
    | 專案類型 | **分類** |
-   | 分類類型 | **多類別 (每個影像一個標記)** | 
+   | 分類類型 | **多類別 (每個影像一個標記)** |
    | 網域 | **一般 (精簡)** |
+   | 匯出功能 | **基本平台 (Tensorflow、CoreML、ONNX...)** |
 
 5. 選取 [建立專案]  。
 

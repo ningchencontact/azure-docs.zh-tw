@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052143"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定已加入混合式 Azure Active Directory 的裝置
 
@@ -139,7 +139,7 @@ Azure AD Connect：
 
 * 使用 Active Directory PowerShell 模組和 Azure Active Directory Domain Services (Azure AD DS) 工具。 這些工具須依賴在網域控制站上執行的 Active Directory Web 服務。 執行 Windows Server 2008 R2 和更新版本的網域控制站可支援 Active Directory Web 服務。
 * 只有 MSOnline PowerShell 模組 1.1.166.0 版才支援。 若要下載此模組，請使用[這個連結](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/)。
-* 若未安裝 Azure AD DS 工具，`Initialize-ADSyncDomainJoinedComputerSync` 將會失敗。 您可以透過 [功能]   > [遠端伺服器管理工具]   > [角色管理工具]  下的 [伺服器管理員] 來安裝 Azure AD DS 工具。
+* 若未安裝 AD DS 工具，`Initialize-ADSyncDomainJoinedComputerSync` 將會失敗。 您可以透過 [功能]   > [遠端伺服器管理工具]   > [角色管理工具]  下的 [伺服器管理員] 來安裝 AD DS 工具。
 
 對於執行 Windows Server 2008 或更早版本的網域控制站，請使用下列指令碼來建立服務連接點。 在多樹系組態中，請使用下列指令碼在電腦所在的樹系中建立服務連接點。
 

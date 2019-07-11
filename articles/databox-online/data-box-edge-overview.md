@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/28/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544563"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484765"
 ---
 # <a name="what-is-azure-data-box-edge"></a>什麼是 Azure 資料箱邊緣？ 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge 為具備 AI 能力的邊緣運算裝置，並具有網路�
     - 對所需的資料進行子集處理，並傳輸到雲端以進行更深入的分析。
     - 分析並對 IoT 事件做出反應。 
 
-- **推斷 Azure Machine Learning** - 透過使用 Data Box Edge，您可以執行 Machine Learning (ML) 模型，以在資料被傳送到雲端之前快速取得能用來據以採取動作的結果。 完整資料集會完成傳輸，以繼續重新定型並改善您的 ML 模型。
+- **推斷 Azure Machine Learning** - 透過使用 Data Box Edge，您可以執行 Machine Learning (ML) 模型，以在資料被傳送到雲端之前快速取得能用來據以採取動作的結果。 完整資料集會進行傳輸，以繼續重新定型並改善您的 ML 模型。 如需有關如何在 Databox Edge 裝置上使用 Azure ML 硬體加速模型的詳細資訊，請參閱[在 Databox Edge 上部署 Azure ML 硬體加速模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)。
 
 - **透過網路將資料傳輸到 Azure** - 使用 Data Box Edge 來輕鬆且快速地將資料傳輸到 Azure，以進行進一步的運算和分析，或用於封存目的。 
 
@@ -55,7 +55,7 @@ Data Box Edge 具有下列功能：
 |功能 |說明  |
 |---------|---------|
 |高效能     | 完全自動化且高度最佳化的資料傳輸與頻寬。|
-|支援的通訊協定     | 針對資料擷取支援標準 SMB 與 NFS 通訊協定。 <br> 如需支援版本的詳細資訊，請移至 [Data Box Edge 系統需求](https://aka.ms/dbe-docs) \(英文\)。|
+|支援的通訊協定     | 針對資料擷取支援標準 SMB 與 NFS 通訊協定。 <br> 如需支援版本的詳細資訊，請移至 [Data Box Edge 系統需求](data-box-edge-system-requirements.md) \(英文\)。|
 |運算       |允許對資料進行分析、處理、篩選。|
 |資料存取     | 能使用雲端 API 直接從 Azure 儲存體 Blob 與 Azure 檔案存取資料，以在雲端中進行額外的資料處理。|
 |快速存取     | 裝置上的本機快取可讓您快速存取最近使用的檔案。|
@@ -75,13 +75,13 @@ Data Box Edge 解決方案由 Data Box Edge 資源、Data Box Edge 實體裝置�
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    如需詳細資訊，請移至[使用 Data Box Edge 服務來管理您的 Data Box Edge 裝置](https://aka.ms/dbe-docs)。
+    如需詳細資訊，請移至[為您的 Data Box Edge 裝置建立訂單](data-box-edge-deploy-prep.md#create-a-new-resource)。
 
 * **資料箱本機 Web UI** - 使用本機 Web UI 來對 Data Box Edge 裝置執行診斷、關機和重新啟動、檢視複製記錄，以及連絡 Microsoft 支援服務以提出服務要求。
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    如需有關使用 Web 型 UI 的資訊，請移至[使用 Web 型 UI 來管理資料箱](https://aka.ms/dbe-docs)。
+    如需有關使用 Web 型 UI 的資訊，請移至[使用 Web 型 UI 來管理資料箱](data-box-edge-manage-access-power-connectivity-mode.md)。
 
 
 ## <a name="region-availability"></a>區域可用性

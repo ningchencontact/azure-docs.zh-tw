@@ -2,18 +2,18 @@
 title: 教學課程：分析來自 Azure Digital Twins 設定的事件 | Microsoft Docs
 description: 了解如何透過本教學課程中的步驟，使用 Azure 時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析。
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 3f6111457d3438b80ace8cd557747ab8c799efd3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542262"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484745"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析
 
@@ -46,34 +46,34 @@ ms.locfileid: "57542262"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在左窗格中選取 [建立資源]。
+1. 在左窗格中選取 [建立資源]  。
 
-1. 搜尋並選取 [事件中樞]。 選取 [建立] 。
+1. 搜尋並選取 [事件中樞]  。 選取 [建立]  。
 
-1. 輸入事件中樞命名空間的 [名稱]。 選擇 [標準] **定價層**、[訂用帳戶]、用於 Digital Twins 執行個體的 [資源群組]，以及 [位置]。 選取 [建立] 。
+1. 輸入事件中樞命名空間的 [名稱]  。 選擇 [標準]  **定價層**、[訂用帳戶]  、用於 Digital Twins 執行個體的 [資源群組]  ，以及 [位置]  。 選取 [建立]  。
 
-1. 在事件中樞命名空間部署中，選取 [資源] 底下的命名空間。
+1. 在事件中樞命名空間部署中，選取 [概觀]  窗格，然後選取 [移至資源]  。
 
     ![部署後的事件中樞命名空間](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
-1. 在事件中樞命名空間的 [概觀] 窗格中，選取頂端的 [事件中樞] 按鈕。
+1. 在事件中樞命名空間的 [概觀]  窗格中，選取頂端的 [事件中樞]  按鈕。
     ![事件中樞按鈕](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. 輸入事件中樞的 [名稱]，然後選取 [建立]。
+1. 輸入事件中樞的 [名稱]  ，然後選取 [建立]  。
 
-   事件中樞部署好之後，便會出現在事件中樞命名空間的 [事件中樞] 窗格中，且狀態為 [作用中]。 選取此事件中樞以開啟其 [概觀] 窗格。
+   事件中樞部署好之後，便會出現在事件中樞命名空間的 [事件中樞]  窗格中，且狀態為 [作用中]  。 選取此事件中樞以開啟其 [概觀]  窗格。
 
-1. 選取頂端的 [取用者群組] 按鈕，然後為取用者群組輸入名稱，例如 **tsievents**。 選取 [建立] 。
+1. 選取頂端的 [取用者群組]  按鈕，然後為取用者群組輸入名稱，例如 **tsievents**。 選取 [建立]  。
 
     ![事件中樞取用者群組](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   取用者群組建立好之後，便會出現在事件中樞 [概觀] 窗格底部的清單中。
+   取用者群組建立好之後，便會出現在事件中樞 [概觀]  窗格底部的清單中。
 
-1. 開啟事件中樞的 [共用存取原則] 窗格，然後選取 [新增] 按鈕。 輸入 **ManageSend** 作為原則名稱，確定所有核取方塊皆已選取，然後選取 [建立]。
+1. 開啟事件中樞的 [共用存取原則]  窗格，然後選取 [新增]  按鈕。 輸入 **ManageSend** 作為原則名稱，確定所有核取方塊皆已選取，然後選取 [建立]  。
 
     ![事件中樞連接字串](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
-1. 開啟所建立的 ManageSend 原則，然後將 [連接字串 - 主要金鑰] 和 [連接字串 - 次要金鑰] 的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
+1. 開啟所建立的 ManageSend 原則，然後將 [連接字串 - 主要金鑰]  和 [連接字串 - 次要金鑰]  的值複製到暫存檔。 下一節在建立事件中樞的端點時需要用到這些值。
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>建立事件中樞的端點
 
@@ -99,13 +99,13 @@ ms.locfileid: "57542262"
       path: Name_of_your_Event_Hub
     ```
 
-1. 將預留位置 `Primary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 主要金鑰] 值。 確定此連接字串的格式如下：
+1. 將預留位置 `Primary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 主要金鑰]  值。 確定此連接字串的格式如下：
 
    ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. 將預留位置 `Secondary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 次要金鑰] 值。 確定此連接字串的格式如下： 
+1. 將預留位置 `Secondary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 次要金鑰]  值。 確定此連接字串的格式如下： 
 
    ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
@@ -128,31 +128,33 @@ ms.locfileid: "57542262"
 
 ## <a name="analyze-with-time-series-insights"></a>使用時間序列深入解析來進行分析
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [建立資源]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [建立資源]  。 
 
-1. 搜尋並選取新的**時間序列深入解析**資源。 選取 [建立] 。
+1. 搜尋並選取新的**時間序列深入解析**資源。 選取 [建立]  。
 
-1. 輸入時間序列深入解析執行個體的**名稱**，然後選取 [訂用帳戶]。 選取用於 Digital Twins 執行個體的 [資源群組]，以及您的 [位置]。 選取 [建立] 。
+1. 輸入時間序列深入解析執行個體的**名稱**，然後選取 [訂用帳戶]  。 選取用於 Digital Twins 執行個體的 [資源群組]  ，以及您的 [位置]  。 完成時，選取 [下一步:**事件來源**] 按鈕或 [事件來源]  索引標籤。
 
     ![用於建立時間序列深入解析執行個體的選取項目](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. 執行個體部署好之後，開啟時間序列深入解析環境，然後開啟其 [事件來源] 窗格。 選取頂端的 [新增] 按鈕來新增取用者群組。
-
-1. 在 [新增事件來源] 窗格中，輸入 [名稱]，並確定所選取的其他值是否正確。 選取 [ManageSend] 作為 [事件中樞原則名稱]，然後選取您在上一節建立的取用者群組來作為 [事件中樞取用者群組]。 選取 [建立] 。
+1. 在 [事件來源]  索引標籤上輸入**名稱**，並選取 [事件中樞]  作為 [來源類型]  ，然後確定其他值都已正確地選取。 選取 [ManageSend]  作為 [事件中樞存取原則名稱]  ，然後選取您在上一節建立的取用者群組來作為 [事件中樞取用者群組]  。 選取 [檢閱 + 建立]  。
 
     ![用於建立事件來源的選取項目](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. 開啟時間序列深入解析環境的 [概觀] 窗格，然後選取頂端的 [移至環境] 按鈕。 如果您收到資料存取警告，則請開啟時間序列深入解析執行個體的 [資料存取原則] 窗格，選取 [新增]，選取 [參與者] 角色，然後選取適當的使用者。
+1. 在 [檢閱 + 建立]  窗格中，檢閱您所輸入的資訊，然後選取 [建立]  。
 
-1. [移至環境] 按鈕會開啟[時間序列深入解析總管](../time-series-insights/time-series-insights-explorer.md)。 如果總管中未顯示任何事件，請藉由瀏覽至 Digital Twins 範例的 **device-connectivity** 專案並執行 `dotnet run`，以模擬裝置事件。
+1. 在部署窗格中，選取您剛才建立的時間序列深入解析資源。 這會開啟您「時間序列深入解析」環境的 [概觀]  窗格。
+
+1. 選取頂端的 [移至環境]  按鈕。 如果您收到資料存取警告，則請開啟時間序列深入解析執行個體的 [資料存取原則]  窗格，選取 [新增]  ，選取 [參與者]  角色，然後選取適當的使用者。
+
+1. [移至環境]  按鈕會開啟[時間序列深入解析總管](../time-series-insights/time-series-insights-explorer.md)。 如果總管中未顯示任何事件，請藉由瀏覽至 Digital Twins 範例的 **device-connectivity** 專案並執行 `dotnet run`，以模擬裝置事件。
 
 1. 產生幾個模擬事件後，返回時間序列深入解析總管，並選取頂端的 [重新整理] 按鈕。 您應該會看到系統已針對模擬感應器資料建立了分析圖表。 
 
     ![時間序列深入解析總管中的圖表](./media/tutorial-facilities-analyze/tsi-explorer.png)
 
-1. 在時間序列深入解析總管中，您接著可以針對來自房間、感應器和其他資源的不同事件和資料，產生圖表和熱度圖。 使用左側的 [量值] 和 [分割依據] 下拉式方塊，來建立您自己的視覺效果。 
+1. 在時間序列深入解析總管中，您接著可以針對來自房間、感應器和其他資源的不同事件和資料，產生圖表和熱度圖。 使用左側的 [量值]  和 [分割依據]  下拉式方塊，來建立您自己的視覺效果。 
 
-   例如，選取 [事件] 作為 [量值] 並選取 [DigitalTwins-SensorHardwareId] 作為 [分割依據]，來為每個感應器產生熱度圖。 熱度圖將類似下圖：
+   例如，選取 [事件]  作為 [量值]  並選取 [DigitalTwins-SensorHardwareId]  作為 [分割依據]  ，來為每個感應器產生熱度圖。 熱度圖將類似下圖：
 
    ![時間序列深入解析總管中的熱度圖](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
 
@@ -160,7 +162,7 @@ ms.locfileid: "57542262"
 
 如果您想要停止探索超過此時間點的 Azure Digital Twins，請放心地刪除在本教學課程中建立的資源：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，選取您的 Digital Twins 資源群組，然後選取 [刪除]  。
 
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。

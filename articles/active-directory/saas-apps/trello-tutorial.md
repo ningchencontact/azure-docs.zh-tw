@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff5ff12f18d1f85b3ca53adb42fee41e19fb4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>教學課程：Azure Active Directory 與 Trello 整合
 
@@ -55,21 +55,21 @@ Trello 與 Azure AD 整合提供下列優點：
 
 若要從資源庫新增 Trello，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [Azure Active Directory] 圖示。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 選取 [企業應用程式]，然後選取 [所有應用程式]。
+2. 選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請選取對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
 4. 在搜尋方塊中，輸入 **Trello**，然後從結果窗格中選取 **Trello**。
 
-5. 選取 [新增] 按鈕以新增應用程式。
+5. 選取 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Trello](common/search-new-app.png)
 
@@ -97,40 +97,40 @@ Trello 與 Azure AD 整合提供下列優點：
 
 若要設定與 Trello 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Trello] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Trello]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上選取 [編輯] 圖示，以開啟 [基本 SAML 組態] 對話方塊。
+3. 在 [以 SAML 設定單一登入]  頁面上選取 [編輯]  圖示，以開啟 [基本 SAML 組態]  對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段中，若您想要以 IDP 起始模式設定應用程式，請執行下列步驟：
+4. 在 [基本 SAML 組態]  區段中，若您想要以 IDP 起始模式設定應用程式，請執行下列步驟：
 
     ![Trello 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/metadata`
+    a. 在 [識別碼]  方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/metadata`
 
-    b. 在 [回覆 URL] 方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/consume/<enterprise>`
+    b. 在 [回覆 URL]  方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/consume/<enterprise>`
 
-5. 如果您想要以 SP 起始模式設定應用程式，請選取 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 SP 起始模式設定應用程式，請選取 [設定其他 URL]  ，然後執行下列步驟：
 
     ![Trello 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/login/<enterprise>`
+    在 [登入 URL]  方塊中，以下列模式輸入 URL：`https://trello.com/auth/saml/login/<enterprise>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 及登入 URL 來更新這些值。 請連絡 [Trello 用戶端支援小組](mailto:support@trello.com)以取得這些值。 您也可以參考 Azure 入口網站中 [基本 SAML 組態] 區段中的模式。
+    > 這些都不是真正的值。 請使用實際的識別碼、回覆 URL 及登入 URL 來更新這些值。 請連絡 [Trello 用戶端支援小組](mailto:support@trello.com)以取得這些值。 您也可以參考 Azure 入口網站中 [基本 SAML 組態]  區段中的模式。
 
-6. Trello 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上選取 [編輯] 按鈕，以開啟 [使用者屬性] 對話方塊。
+6. Trello 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中管理這些屬性的值。 在 [以 SAML 設定單一登入]  頁面上選取 [編輯]  按鈕，以開啟 [使用者屬性]  對話方塊。
 
     ![[使用者屬性] 對話方塊](common/edit-attribute.png)
 
-7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，設定 SAML 權杖屬性，如上圖所示。 然後採取下列步驟：
+7. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，設定 SAML 權杖屬性，如上圖所示。 然後採取下列步驟：
 
     | Name |  來源屬性|
     | --- | --- |
@@ -138,29 +138,29 @@ Trello 與 Azure AD 整合提供下列優點：
     | User.FirstName | user.givenname |
     | User.LastName | user.surname |
 
-    a. 選取 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
+    a. 選取 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 
     ![使用者宣告對話方塊](common/new-save-attribute.png)
 
     ![管理使用者宣告](common/new-attribute-details.png)
 
-    b. 在 [名稱] 方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱]  方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 讓 [命名空間] 保持空白。
+    c. 讓 [命名空間]  保持空白。
 
-    d. 針對 [來源]，選取 [屬性]。
+    d. 針對 [來源]  ，選取 [屬性]  。
 
-    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
+    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
 
-    f. 選取 [確定]。
+    f. 選取 [確定]  。
 
     g. 選取 [ **儲存**]。
 
-8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中選取 [下載]，以依據您的需求從指定的選項下載 [憑證 (Base64)]。 然後將它儲存在您的電腦上。
+8. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中選取 [下載]  ，以依據您的需求從指定的選項下載 [憑證 (Base64)]  。 然後將它儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-9. 在 [設定 Trello] 區段上，依據您的需求複製適當的 URL。
+9. 在 [設定 Trello]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -172,57 +172,57 @@ Trello 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-trello-single-sign-on"></a>設定 Trello 單一登入
 
-若要設定 Trello 端的單一登入，請先將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的 URL 傳送給 [Trello 支援小組](mailto:support@trello.com)。 他們會確保兩端的 SAML SSO 連線已正確設定。
+若要設定 Trello 端的單一登入，請先將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的 URL 傳送給 [Trello 支援小組](mailto:support@trello.com)。 他們會確保兩端的 SAML SSO 連線已正確設定。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
-3. 在 [使用者] 對話方塊中，執行下列步驟。
+3. 在 [使用者]  對話方塊中，執行下列步驟。
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 "brittasimon@yourcompanydomain.extension"。 例如，在此情況下，您可以輸入 "BrittaSimon@contoso.com"。
+    b. 在 [使用者名稱]  欄位中，輸入 "brittasimon@yourcompanydomain.extension"。 例如，在此情況下，您可以輸入 "BrittaSimon@contoso.com"。
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 選取 [建立] 。
+    d. 選取 [建立]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Trello 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Trello]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Trello]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Trello] 。
+2. 在應用程式清單中，選取 [Trello]  。
 
     ![應用程式清單中的 Trello 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 選取 [新增使用者] 按鈕。 然後，在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 選取 [新增使用者]  按鈕。 然後，在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊中，選取 [使用者] 清單中的 [Britta Simon]。 然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊中，選取 [使用者] 清單中的 [Britta Simon]  。 然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當的使用者角色。 然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當的使用者角色。 然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，選取 [指派]  按鈕。
 
 ### <a name="create-a-trello-test-user"></a>建立 Trello 測試使用者
 

@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60876234"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428783"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
 
@@ -109,7 +109,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 所有上述權限都會納入 [擁有者]  角色。 [參與者]  角色已建立藍圖並刪除藍圖權限，但是沒有藍圖指派權限。 如果這些內建角色不符合您的安全性需求，請考慮建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
 > [!NOTE]
-> Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。
+> 如果使用系統指派的受控識別，Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。 如果使用使用者指派的受控識別，只有建立藍圖指派的使用者才需要**擁有者**權限。
 
 ## <a name="video-overview"></a>影片概觀
 

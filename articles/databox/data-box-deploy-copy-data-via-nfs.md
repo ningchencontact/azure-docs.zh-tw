@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 672bcc3d0cb15ef348d090ed6c5a38d6912465ef
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496300"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443157"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教學課程：透過 NFS 將資料複製到 Azure 資料箱
 
@@ -87,7 +87,13 @@ ms.locfileid: "66496300"
 -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱限制](data-box-limits.md)中所述的大小限制。 
 - 如果資料 (由資料箱上傳) 同時由資料箱以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 - 建議您不要同時使用 SMB 與 NFS，或將相同的資料複製到 Azure 上的相同最終目的地。 在這種情況下，無法判斷最後的結果。
-- **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 root  資料夾。
+- **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 [root]  資料夾。
+- 如果從 NFS 共用內嵌區分大小寫的目錄和檔案名稱至資料箱上的 NFS： 
+    - 在名稱中會保留大小寫。
+    - 檔案不區分大小寫。
+    
+    例如，如果複製 `SampleFile.txt` 和 `Samplefile.Txt`，在複製到資料箱時，名稱將會保留大小寫，但第二個檔案將會覆寫第一個，因為兩者被視為相同的檔案。
+
 
 如果您使用 Linux 主機電腦，請使用類似於 Robocopy 的複製公用程式。 在 Linux 中有替代工具可供使用，包括 [rsync](https://rsync.samba.org/)、[FreeFileSync](https://www.freefilesync.org/)、[Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 或 [Ultracopier](https://ultracopier.first-world.info/)。  
 

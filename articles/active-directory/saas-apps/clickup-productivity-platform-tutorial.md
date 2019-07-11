@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a6958e88e7e20b94a54216a92651c2f6d3fe650e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950908"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>教學課程：Azure Active Directory 與 ClickUp Productivity Platform 整合
 
@@ -96,7 +96,7 @@ ms.locfileid: "65950908"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

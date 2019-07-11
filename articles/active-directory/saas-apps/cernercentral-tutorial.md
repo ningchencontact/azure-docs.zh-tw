@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3595a946d930ca83b5d2f1f3d82b775bf8eb4855
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d530ce802b6735ffe0b45abdc97fe99a1a7e619b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>教學課程：Azure Active Directory 與 Cerner Central 整合
 
@@ -99,7 +99,7 @@ ms.locfileid: "64712679"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

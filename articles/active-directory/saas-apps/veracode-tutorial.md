@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 11f75f53adc9e8ce1dbf78ef7a7d58742b6bc839
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1024f0c09d6ab67b412a8f65d8964f3ac9d43254
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>教學課程：Azure Active Directory 與 Veracode 整合
 
@@ -99,7 +99,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

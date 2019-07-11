@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205873"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069292"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本
 
@@ -37,15 +37,15 @@ ms.locfileid: "65205873"
 許多有經驗的範本開發人員會在嘗試部署不熟悉的 Azure 資源時，使用此方法來產生範本。 如需如何使用入口網站匯出範本的詳細資訊，請參閱[將資源群組匯出至範本](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。 尋找可行範本的另一種方法是在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)中尋找。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [建立資源] > [儲存體] > [儲存體帳戶 - Blob、檔案、資料表、佇列]。
+2. 選取 [建立資源]   > [儲存體]   > [儲存體帳戶 - Blob、檔案、資料表、佇列]  。
 
     ![使用 Azure 入口網站建立 Azure 儲存體帳戶](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 輸入以下資訊：
 
     |Name|值|
     |----|----|
-    |**資源群組**|選取 [新建] 並指定您所選擇的資源群組名稱。 在螢幕擷取畫面上，資源群組名稱為 mystorage1016rg。 資源群組是 Azure 資源的容器。 資源群組可讓您更輕鬆地管理 Azure 資源。 |
-    |**名稱**|為儲存體帳戶指定唯一名稱。 儲存體帳戶名稱必須是整個 Azure 中的唯一名稱，並只包含小寫字母和數字。 名稱必須介於 3 到 24 個字元之間。 如果您收到錯誤訊息指出「儲存體帳戶名稱 'mystorage1016' 已有人使用"」，請嘗試使用 **&lt;您的名稱>storage&lt;MMDD 格式的今天日期>**，例如 **johndolestorage1016**。 如需詳細資訊，請參閱[命名規則和限制](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。|
+    |**資源群組**|選取 [新建]  並指定您所選擇的資源群組名稱。 在螢幕擷取畫面上，資源群組名稱為 mystorage1016rg  。 資源群組是 Azure 資源的容器。 資源群組可讓您更輕鬆地管理 Azure 資源。 |
+    |**名稱**|為儲存體帳戶指定唯一名稱。 儲存體帳戶名稱必須是整個 Azure 中的唯一名稱，並只包含小寫字母和數字。 名稱必須介於 3 到 24 個字元之間。 如果您收到錯誤訊息指出「儲存體帳戶名稱 'mystorage1016' 已有人使用"」，請嘗試使用 **&lt;您的名稱>storage&lt;MMDD 格式的今天日期>** ，例如 **johndolestorage1016**。 如需詳細資訊，請參閱[命名規則和限制](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。|
 
     您可以對其餘屬性使用預設值。
 
@@ -54,8 +54,8 @@ ms.locfileid: "65205873"
     > [!NOTE]
     > 部分已匯出的範本必須先進行某些編輯才可供部署。
 
-4. 選取螢幕底部的 [檢閱 + 建立]。 在下一個步驟中，請不要選取 [建立]。
-5. 選取螢幕底部的 [下載範本以便自動化]。 入口網站會顯示所產生的範本：
+4. 選取螢幕底部的 [檢閱 + 建立]  。 在下一個步驟中，請不要選取 [建立]  。
+5. 選取螢幕底部的 [下載範本以便自動化]  。 入口網站會顯示所產生的範本：
 
     ![從入口網站產生範本](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
@@ -64,9 +64,9 @@ ms.locfileid: "65205873"
     已定義六個參數。 其中一個稱為**storageAccountName**。 在上述螢幕擷取畫面中，第二個醒目提示的部分會示範如何參考範本中的這個參數。 在下一節中，您會編輯此範本，以使用為儲存體帳戶所產生的名稱。
 
     範本中已定義一個 Azure 資源。 類型是 `Microsoft.Storage/storageAccounts`。 請查看該資源的定義方式，以及定義結構。
-6. 從畫面頂端選取 [下載]。 
+6. 從畫面頂端選取 [下載]  。
 7. 開啟下載的 zip 檔案，然後將 **template.json** 儲存到您的電腦。 在下一節中，您會使用範本部署工具來編輯範本。
-8. 選取 [參數] 索引標籤，查看您所提供的參數值。 記下這些值，您在下一節中部署範本時需要用到。
+8. 選取 [參數]  索引標籤，查看您所提供的參數值。 記下這些值，您在下一節中部署範本時需要用到。
 
     ![從入口網站產生範本](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
@@ -74,18 +74,21 @@ ms.locfileid: "65205873"
 
 ## <a name="edit-and-deploy-the-template"></a>編輯和部署範本
 
-Azure 入口網站可用來執行一些基本範本編輯作業。 在本快速入門中，您會使用名為「範本部署」的入口網站工具。 由於本教學課程中使用「範本部署」，因此您可以使用一個介面 (Azure 入口網站) 來完成整個教學課程。 若要編輯更複雜的範本，請考慮使用提供更多樣化編輯功能的 [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)。
+Azure 入口網站可用來執行一些基本範本編輯作業。 在本快速入門中，您會使用名為「範本部署」  的入口網站工具。 由於本教學課程中使用「範本部署」  ，因此您可以使用一個介面 (Azure 入口網站) 來完成整個教學課程。 若要編輯更複雜的範本，請考慮使用提供更多樣化編輯功能的 [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)。
+
+> [!IMPORTANT]
+> 範本部署會提供用於測試簡單範本的介面。 不建議在生產環境中使用這項功能。 然而，在 Azure 儲存體帳戶或 GitHub 之類的原始程式碼存放庫中儲存您的範本。
 
 Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已存在的儲存體帳戶名稱，部署可能會失敗。 若要避免發生此問題，您可以將範本修改為使用範本函式呼叫 `uniquestring()`，以產生唯一的儲存體帳戶名稱。
 
-1. 在 Azure 入口網站中，選取 [建立資源]。
-2. 在 [搜尋 Marketplace] 中，輸入**範本部署**，然後按 **ENTER**。
-3. 選取 [範本部署]。
+1. 在 Azure 入口網站中，選取 [建立資源]  。
+2. 在 [搜尋 Marketplace]  中，輸入**範本部署**，然後按 **ENTER**。
+3. 選取 [範本部署]  。
 
     ![Azure Resource Manager 範本程式庫](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-4. 選取 [建立] 。
-5. 選取 [在編輯器中組建您自己的範本]。
-6. 選取 [載入檔案]，然後依照指示來載入您在上一節中下載的 template.json。
+4. 選取 [建立]  。
+5. 選取 [在編輯器中組建您自己的範本]  。
+6. 選取 [載入檔案]  ，然後依照指示來載入您在上一節中下載的 template.json。
 7. 對範本進行下列三項變更：
 
     ![Azure 資源管理員範本](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
@@ -167,12 +170,12 @@ Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已
 
     ![Azure Resource Manager 範本部署](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
 
-10. 選取 [購買]。
-11. 從畫面頂端選取鈴鐺圖示 (通知)，以查看部署狀態。 您應該會看到 [部署進行中]。 請等候部署完成。
+10. 選取 [購買]  。
+11. 從畫面頂端選取鈴鐺圖示 (通知)，以查看部署狀態。 您應該會看到 [部署進行中]  。 請等候部署完成。
 
     ![Azure Resource Manager 範本部署通知](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
 
-12. 在 [通知] 窗格中選取 [移至資源群組]。 您應該會看到類似下方的畫面：
+12. 在 [通知] 窗格中選取 [移至資源群組]  。 您應該會看到類似下方的畫面：
 
     ![Azure Resource Manager 範本部署資源群組](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
@@ -182,10 +185,10 @@ Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表上的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
+1. 在 Azure 入口網站中，選取左側功能表上的 [資源群組]  。
+2. 在 [依名稱篩選]  欄位中輸入資源群組名稱。
 3. 選取資源群組名稱。  您應該會看到資源群組中的儲存體帳戶。
-4. 選取頂端功能表中的 [刪除資源群組]。
+4. 選取頂端功能表中的 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

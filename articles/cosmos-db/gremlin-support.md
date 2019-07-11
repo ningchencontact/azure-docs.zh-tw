@@ -5,68 +5,34 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: b36c041c24a07f89701e78aea4d08270342b8d22
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978941"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502723"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Apache Tinkerpop 的](https://tinkerpop.apache.org)圖形周遊語言，稱為 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
 
-Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 這些功能包括跨越兩個以上 Azure 區域之資料庫的全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引、SLA、讀取可用性。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個相容圖表資料庫撰寫的應用程式。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](https://spark.apache.org/graphx/)。 
-
 在本文中，我們提供 Gremlin 的快速逐步解說，並列舉 Gremlin API 所支援的 Gremlin 功能。
 
-## <a name="gremlin-by-example"></a>Gremlin 範例
-讓我們利用一個範例圖表了解如何以 Gremlin 表達查詢。 下圖顯示的商務應用程式以圖表形式管理使用者、興趣和裝置的相關資料。  
+## <a name="compatible-client-libraries"></a>相容的用戶端程式庫
 
-![顯示人員、裝置和興趣的範例資料庫](./media/gremlin-support/sample-graph.png) 
+下表顯示您可以運用在 Azure Cosmos DB 上的常用 Gremlin 驅動程式︰
 
-此圖表有下列頂點類型 (在 Gremlin 中稱為「標籤」)︰
+| 下載 | 來源 | 開始使用 | 支援的連接器版本 |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub 上的 Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [使用 .NET 建立圖表](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [使用 JAVA 建立圖表](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub 上的 Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [使用 Node.js 建立圖表](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [GitHub 上的 Gremlin-Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [使用 Python 建立圖表](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [GitHub 上的 Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [使用 PHP 建立圖表](create-graph-php.md) | 3.1.0 |
+| [Gremlin 主控台](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 文件](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [使用 Gremlin 主控台建立圖表](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- 人員：圖表中有三個人：Robin、Thomas 和 Ben
-- 興趣：在此範例中他們的興趣是足球比賽
-- 裝置：人員使用的裝置
-- 作業系統：執行裝置的作業系統
-
-我們透過下列邊緣類型/標籤，表達這些實體之間的關聯性︰
-
-- 認識：例如，「Thomas 認識 Robin」
-- 有興趣：在圖表中表示人員的興趣，例如「Ben 對足球有興趣」
-- 執行 OS︰膝上型電腦執行 Windows OS
-- 使用：代表某個人使用的裝置。 例如，Robin 使用序號 77 的 Motorola 手機
-
-讓我們使用 [Gremlin 主控台](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console) (英文) 對此圖表執行一些作業。 也可以在您選擇的平台 (Java、Node.js、Python 或 .NET) 使用 Gremlin 驅動程式執行這些作業。  在了解 Azure Cosmos DB 中支援什麼功能之前，讓我們先看看幾個範例，以熟悉語法。
-
-首先，讓我們看看 CRUD。 下列 Gremlin 陳述式會將 "Thomas" 頂點插入圖表中︰
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-接著，下列 Gremlin 陳述式會在 Thomas 和 Robin 之間插入 "knows" 邊緣。
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-下列查詢會依名字的遞減順序傳回 "person" 頂點：
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-圖表的威力在於當您需要回答「Thomas 的朋友使用什麼作業系統？」這種問題時。 您可以執行這個 Gremlin 周遊，從圖表中取得這項資訊︰
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-現在，讓我們看看 Azure Cosmos DB 為 Gremlin 開發人員提供什麼功能。
-
-## <a name="gremlin-features"></a>Gremlin 功能
+## <a name="supported-graph-objects"></a>支援的圖形物件
 TinkerPop 是一套涵蓋各種圖表技術的標準。 因此，它採用標準術語來描述圖表提供者所提供的功能。 Azure Cosmos DB 提供持續、高度並行、可寫入的圖表資料庫，可分割至多個伺服器或叢集。 
 
 下表列出 Azure Cosmos DB 所實作的 TinkerPop 功能︰ 
@@ -128,7 +94,7 @@ GraphSON 用於頂點的屬性說明如下︰
 | 屬性 | 說明 | 
 | --- | --- | --- |
 | `id` | 頂點的識別碼。 必須是唯一的 (適合的話，與 `_partition` 的值結合)。 如果未提供任何值，則會自動使用 GUID 來提供 | 
-| `label` | 頂點的標籤。 這可用來描述實體類型。 |
+| `label` | 頂點的標籤。 此屬性可用來描述實體類型。 |
 | `type` | 用來區別頂端和非圖表文件 |
 | `properties` | 與頂點相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
 | `_partition` | 頂點的資料分割索引鍵。 用於[圖表分割](graph-partitioning.md)。 |
@@ -184,12 +150,12 @@ GraphSON 用於頂點的屬性說明如下︰
 | `sample` | 用於取樣周遊的結果 | [sample 步驟](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | 用於投射周遊的結果 |  [select 步驟](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | 用於來自周遊的非封鎖彙總 | [store 步驟](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對屬性與指定字串的開頭 | [TextP 述詞](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
-| `TextP.endingWith(string)` |  字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對屬性與指定字串的結尾 | [TextP 述詞](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
-| `TextP.containing(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對屬性與指定字串的內容 | [TextP 述詞](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
-| `TextP.notStartingWith(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對不是以指定字串開頭的屬性 | [TextP 述詞](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
-| `TextP.notEndingWith(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對不是以指定字串結尾的屬性 | [TextP 述詞](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
-| `TextP.notContaining(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對未包含指定字串的屬性 | [TextP 述詞](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
+| `TextP.startingWith(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對屬性與指定字串的開頭 | [TextP 述詞](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
+| `TextP.endingWith(string)` |  字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對屬性與指定字串的結尾 | [TextP 述詞](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
+| `TextP.containing(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對屬性與指定字串的內容 | [TextP 述詞](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
+| `TextP.notStartingWith(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對不是以指定字串開頭的屬性 | [TextP 述詞](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
+| `TextP.notEndingWith(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對不是以指定字串結尾的屬性 | [TextP 述詞](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
+| `TextP.notContaining(string)` | 字串篩選函式。 此函式是作為 `has()` 步驟的述詞使用，以比對未包含指定字串的屬性 | [TextP 述詞](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) \(英文\) |
 | `tree` | 將頂點的路徑彙總至樹狀目錄 | [tree 步驟](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | 將迭代器展開為步驟| [unfold 步驟](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | 合併來自多個周遊的結果| [unfold 步驟](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496559"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444587"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
 
@@ -32,7 +32,7 @@ ms.locfileid: "66496559"
 
 + 安裝 [Python 3.6](https://www.python.org/downloads/)。
 
-+ 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.6.666 版或更新版本。
++ 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.6.1071 版或更新版本。
 
 + 安裝 [Azure CLI](/cli/azure/install-azure-cli) 2.x 版或更新版本。
 
@@ -44,18 +44,18 @@ ms.locfileid: "66496559"
 
 若要在本機開發及測試 Python 函式，您必須在 Python 3.6 環境中工作。 執行下列命令來建立並啟用名為 `.env` 的虛擬環境。
 
-### <a name="bash-or-a-terminal-window"></a>Bash 或終端機視窗：
+### <a name="bash"></a>Bash：
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell 或 Windows 命令提示字元：
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 其餘命令會在虛擬環境中執行。
@@ -66,7 +66,7 @@ Functions 專案相當於 Azure 中的函式應用程式。 它可以有多個�
 
 在虛擬環境中，選擇 **python** 作為您的背景工作執行階段，以執行下列命令。
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -78,25 +78,17 @@ func init MyFunctionProj
 
 瀏覽至新的 MyFunctionProj 資料夾：
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 接著，您可以更新 host.json 檔案以啟用延伸組合。  
 
-## <a name="reference-bindings"></a>參考繫結
-
-延伸組合可讓您更輕鬆地新增繫結延伸。 此外，.NET Core 2.x SDK 也因而無需安裝。 延伸組合需要 Core Tools 2.6.1071 版或更新版本。 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-現在，您可以將函式新增至您的專案。
-
 ## <a name="create-a-function"></a>建立函式
 
 若要將函式新增至專案，請執行下列命令：
 
-```command
+```console
 func new
 ```
 

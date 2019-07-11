@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: aahi
-ms.openlocfilehash: c2a8bf10d7c279243c9f53801264ebbe9bfe72c9
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: a75196e035585a7501cdd842fb5b80ceff424dcc
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503702"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721568"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>快速入門：適用於 .NET 的 Anomaly Detector 用戶端程式庫
 

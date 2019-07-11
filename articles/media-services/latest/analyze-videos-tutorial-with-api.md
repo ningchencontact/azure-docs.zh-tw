@@ -1,5 +1,5 @@
 ---
-title: 透過媒體服務使用 .NET 分析影片 - Azure | Microsoft Docs
+title: 使用 Azure 媒體服務分析影片 | Microsoft Docs
 description: 請遵循本教學課程的步驟，使用 Azure 媒體服務分析影片。
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415634"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273886"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 分析影片
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>教學課程：透過媒體服務 v3 分析影片
+
+> [!NOTE]
+> 雖然教學課程使用 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 範例，但是 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支援 [SDK](media-services-apis-overview.md#sdks) 的一般步驟都相同。
 
 本教學課程會示範如何使用 Azure 媒體服務分析影片。 在許多情況下，您會想從記錄影片或音訊內容中取得深入的見解。 例如，為達到更高的客戶滿意度，組織可以執行語音轉文字處理，將客戶支援記錄轉換為可搜尋的目錄，且其中可包含索引及儀表板。 然後，他們可以取得有關其業務的見解，例如常見的抱怨清單、這類抱怨的來源和其他實用資訊等。
 
 本教學課程說明如何：    
-
+ 
 > [!div class="checklist"]
 > * 下載本主題中所述的範例應用程式
 > * 檢查用來分析指定視訊的程式碼
@@ -54,7 +57,7 @@ ms.locfileid: "65415634"
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>檢查用來分析指定視訊的程式碼
 
-本節將針對 AnalyzeVideos 專案的 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) 檔案，檢查其中定義的函式。
+本節將針對 AnalyzeVideos  專案的 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) 檔案，檢查其中定義的函式。
 
 此範例會執行下列動作：
 
@@ -96,11 +99,11 @@ ms.locfileid: "65415634"
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>建立分析影片的轉換和作業
 
-在媒體服務中編碼或處理內容時，將編碼設定設為配方 (recipe) 是很常見的模式。 然後您可以透過提交**作業**，將該配方套用到影片。 藉由為每部新影片提交新的作業，您可以將該配方套用到媒體櫃中的所有影片。 配方在媒體服務中稱為「**轉換 (Transform)**」。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。 本教學課程中所述的範例會定義用來分析指定影片的配方。 
+在媒體服務中編碼或處理內容時，將編碼設定設為配方 (recipe) 是很常見的模式。 然後您可以透過提交**作業**，將該配方套用到影片。 藉由為每部新影片提交新的作業，您可以將該配方套用到媒體櫃中的所有影片。 配方在媒體服務中稱為「**轉換 (Transform)** 」。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。 本教學課程中所述的範例會定義用來分析指定影片的配方。 
 
 #### <a name="transform"></a>轉換
 
-建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼，**TransformOutput** 是必要參數。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 此範例中會使用 **VideoAnalyzerPreset** 預設，以及將語言 ("en-US") 傳遞至其建構函式 (`new VideoAnalyzerPreset("en-US")`)。 此預設可讓您從影片擷取多個音訊和影片見解。 如果您需要從影片擷取多個音訊見解，可以使用 **AudioAnalyzerPreset** 預設。 
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼，**TransformOutput** 是必要參數。 每個 **TransformOutput** 都會包含 **Preset (預設)** 。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 此範例中會使用 **VideoAnalyzerPreset** 預設，以及將語言 ("en-US") 傳遞至其建構函式 (`new VideoAnalyzerPreset("en-US")`)。 此預設可讓您從影片擷取多個音訊和影片見解。 如果您需要從影片擷取多個音訊見解，可以使用 **AudioAnalyzerPreset** 預設。 
 
 建立**轉換**時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 

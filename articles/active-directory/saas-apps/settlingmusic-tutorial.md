@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713ca571a4321eded82cbc9db56dae7616126e2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08f084bc0231bceeaf2c7d87dc0a160cdf188978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>教學課程：Azure Active Directory 與 Settling music 整合
 
@@ -98,7 +98,7 @@ ms.locfileid: "65902408"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

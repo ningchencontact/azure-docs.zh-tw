@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>教學課程：Azure Active Directory 與 Percolate 整合
 
@@ -186,7 +186,7 @@ ms.locfileid: "65560554"
 
     ![應用程式清單](common/all-applications.png)
 
-3. 在左側窗格中，選取 [使用者和群組]  ：
+3. 在左窗格中，選取 [使用者和群組]  ：
 
     ![選取 [使用者和群組]](common/users-groups-blade.png)
 
@@ -196,7 +196,7 @@ ms.locfileid: "65560554"
 
 5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的角色值，請在 [選取角色]  對話方塊的清單中選取適當的使用者角色。 按一下畫面底部的 [選取]  按鈕。
+6. 如果您在 SAML 判斷提示中需要角色值，請在 [選取角色]  對話方塊的清單中選取適當的使用者角色。 按一下畫面底部的 [選取]  按鈕。
 
 7. 在 [新增指派]  對話方塊中，選取 [指派]  。
 
@@ -216,7 +216,7 @@ ms.locfileid: "65560554"
 
     ![建立使用者頁面](./media/percolate-tutorial/configure04.png)
 
-    1. 在 [電子郵件]  方塊中，輸入使用者的電子郵件地址。 例如： brittasimon@contoso.com。
+    1. 在 [電子郵件]  方塊中，輸入使用者的電子郵件地址。 例如： brittasimon@contoso.com 。
 
     1. 在 [全名]  方塊中，輸入使用者的名稱。 例如，**Brittasimon**。
 

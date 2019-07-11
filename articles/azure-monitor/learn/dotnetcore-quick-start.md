@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236585"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428500"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 
@@ -47,14 +47,14 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 1. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
 
-   ![新增 Application Insights 資源](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >如果這是您第一次建立 Application Insights 資源，您可以瀏覽[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)文件以進一步了解。
 
     設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
-    | 設定        |  值           | 說明  |
+   | 設定        |  值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
-   | **應用程式類型** | ASP.NET Web 應用程式 | 您要監視的應用程式類型 |
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7d844f4d2ad77f5b7cc53275a24167e5f2e71b78
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064089"
 ---
 # <a name="speech-services-for-telephony-data"></a>電話語音資料的語音服務
 
@@ -34,7 +34,7 @@ ms.locfileid: "65026632"
 
 ## <a name="azure-technology-for-call-centers"></a>適用於話務中心的 Azure 技術
 
-在語音服務的功能層面以外，其主要目的 (若套用到話務中心) 是要改善客戶體驗。 這方面有三個清楚的領域存在 
+在語音服務的功能層面以外，其主要目的 (若套用到話務中心) 是要改善客戶體驗。 這方面有三個清楚的領域存在：
 
 * 通話後分析，也就是通話錄音的批次處理 
 * 音訊訊號的即時分析處理，可在通話進行時擷取各種見解 (以情感作為顯著的使用案例)，以及
@@ -62,7 +62,7 @@ ms.locfileid: "65026632"
 ### <a name="text-to-speech"></a>文字轉語音
 實作可與客戶互動的 Bot 時，[文字轉換語音](text-to-speech.md)是另一個重要領域。 典型的路徑是客戶說話、其語音會轉譯為文字、分析文字的意圖、根據所辨識的意圖來合成回應，然後將資產呈現給客戶或產生合成的語音回應。 當然，這一切都快速發生 – 因此延遲是這些系統的重要成功元件。 
 
-若考量到各種相關技術，例如[語音轉換文字](speech-to-text.md)[Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)、[Bot Framework](https://dev.botframework.com/)、[文字轉換語音](text-to-speech.md)，我們的端對端延遲相當低。 
+若考量到各種相關技術，例如[語音轉換文字](speech-to-text.md)[LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)、[Bot Framework](https://dev.botframework.com/)、[文字轉換語音](text-to-speech.md)，我們的端對端延遲相當低。 
 
 我們的新語音也難以與人聲辨別。 您可以使用我們的語音，賦予您的 Bot 獨特的性格。
 
@@ -79,10 +79,10 @@ ms.locfileid: "65026632"
 為了轉譯大量音訊，我們開發了[批次轉譯 API](batch-transcription.md)。 批次轉譯 API 的開發用意是要以非同步方式轉譯大量的音訊資料。 關於話務中心資料的轉譯，我們的解決方案是以下列要素為基礎：
 
 * **精確度**：透過第四代整合模型，我們可提供卓越的轉譯品質。
-* **延遲**：我們了解在進行大量轉譯時，需要快速轉譯。 透過[批次轉譯 API](batch-transcription.md) 起始的轉譯作業會立即排入佇列，而一旦執行此作業，其執行速度比即時轉譯還要快。
+* **延遲**：我們了解在進行大量轉譯時，需要快速轉譯。 透過[批次轉譯 API](batch-transcription.md) 起始的轉譯作業會立即排入佇列，而一旦作業開始執行，其執行速度比即時轉譯還要快。
 * **安全性**：我們了解通話內容可能包含敏感性資料。 請放心，安全性是我們的最高優先順序之一。 我們的服務已取得 ISO、SOC、HIPAA、PCI 認證。
 
-話務中心會每天產生大量的音訊資料。 如果您的企業將電話語音資料儲存在集中位置 (例如 Azure 儲存體)，您可使用 [批次轉譯 API](batch-transcription.md) 以非同步方式要求及接收轉譯。
+話務中心會每天產生大量的音訊資料。 如果您的企業將電話語音資料儲存在集中位置 (例如 Azure 儲存體)，您可使用[批次轉譯 API](batch-transcription.md)以非同步方式要求及接收轉譯。
 
 典型的解決方案會使用下列服務：
 
@@ -98,7 +98,7 @@ ms.locfileid: "65026632"
 
 有些企業需要即時轉譯交談。 即時轉譯可用來識別關鍵字組及觸發交談相關內容和資源的搜尋，以便監視情感，進而改善可存取性，或為不是母語人士的客戶和服務專員提供翻譯。
 
-對於需要即時轉譯的案例，我們建議使用[語音 SDK](speech-sdk.md)。 語音轉換文字目前以[超過 20 種語言](language-support.md)提供，而 SDK 則以 C++、C#、Java、Python、Node.js 和 Javascript 提供。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk) 上取得每種語言的範例。 如需最新消息和更新，請參閱[版本資訊](releasenotes.md)。
+對於需要即時轉譯的案例，我們建議使用[語音 SDK](speech-sdk.md)。 語音轉換文字目前以[超過 20 種語言](language-support.md)提供，而 SDK 則以 C++、C#、Java、Python、Node.js、Objective-C 和 JavaScript 提供。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk) 上取得每種語言的範例。 如需最新消息和更新，請參閱[版本資訊](releasenotes.md)。
 
 我們在內部使用上述技術來即時分析 Microsoft 客戶通話。
 
@@ -110,7 +110,7 @@ ms.locfileid: "65026632"
 
 有數個 IVR 或電話語音服務產品 (例如 Genesys 或 AudioCodes) 提供整合功能，可用來啟用對 Azure 服務的輸入和輸出音訊傳遞。 基本上，自訂 Azure 服務可能提供一個特定介面，用來定義電話通話工作階段 (例如通話開始或通話結束)，並公開一個 WebSocket API，以接收搭配語音服務使用的輸入串流音訊。 輸出回應 (例如交談轉譯或與 Bot Framework 的連線) 可與 Microsoft 的文字轉換語音服務合成並傳回給 IVR 進行播放。
 
-另一個案例是直接 SIP 整合。 Azure 服務連線到 SIP 伺服器，從而取得輸入資料流和輸出資料流，其用於語音轉換文字和文字轉換語音階段。 為了連線到 SIP 伺服器，因而有一些商業軟體供應項目，例如 Ozieki SDK，或 [Teams 通話與會議 API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (目前為搶鮮版 (Beta))，其設計訴求是要支援這種音訊通話案例。
+另一個案例是直接 SIP 整合。 Azure 服務連線到 SIP 伺服器，從而取得輸入資料流和輸出資料流，其用於語音轉換文字和文字轉換語音階段。 為了連線到 SIP 伺服器，因而有一些商業軟體供應項目，例如 Ozeki SDK，或 [Teams 通話與會議 API](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (目前為搶鮮版 (Beta))，其設計訴求是要支援這種音訊通話案例。
 
 ## <a name="customize-existing-experiences"></a>自訂現有的體驗
 

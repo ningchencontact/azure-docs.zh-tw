@@ -4,17 +4,17 @@ description: 本教學課程會逐步引導您設定開發機器和雲端資源�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/26/2019
+ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e5499afebf29df2942e74148b33797844fa9c880
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051879"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教學課程：開發適用於 Linux 裝置的 IoT Edge 模組
 
@@ -22,7 +22,7 @@ ms.locfileid: "66303857"
 
 在快速入門的文章當中，您已使用 Linux 虛擬機器建立 IoT Edge 裝置，並部署了來自 Azure Marketplace 的預先建置模組。 本教學課程會逐步引導您了解要如何做才能開發您自己的程式碼並將其部署至 IoT Edge 裝置。 本教學課程是其他所有教學課程的實用先決條件，其內容會深入探討特定的程式設計語言或 Azure 服務。 
 
-本教學課程所使用的範例是部署 **C 模組至 Linux 裝置**。 選擇此範例是因為其先決條件最少，您可以了解開發工具，而不必擔心是否有安裝正確的程式庫。 了解開發概念後，您就可以選擇您偏好的語言或 Azure 服務來對細節進行深入了解。 
+本教學課程使用將 **C# 模組部署至 Linux 裝置**的範例。 選擇此範例是因為這是 IoT Edge 解決方案最常見的開發人員案例。 即使您打算使用不同的語言或部署 Azure 服務，本教學課程對於了解開發工具和概念還是很有用。 完成此開發程序的簡介後，您就可以選擇您偏好的語言或 Azure 服務來深入了解細節。 
 
 在本教學課程中，您了解如何：
 
@@ -51,7 +51,7 @@ ms.locfileid: "66303857"
 | **Linux 裝置架構** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure 服務** | Azure Functions <br> Azure 串流分析 <br> Azure Machine Learning |   |
 | **語言** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **詳細資訊** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [適用於 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)、[適用於 Visual Studio 2019 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+| **詳細資訊** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 本教學課程會教授 Visual Studio Code 的開發步驟。 如果您比較想要使用 Visual Studio，請參閱[使用 Visual Studio 2019 來開發適用於 Azure IoT Edge 的模組並針對其進行偵錯](how-to-visual-studio-develop-module.md)中的指示。
 
@@ -62,6 +62,8 @@ ms.locfileid: "66303857"
 * 您可以使用自己的電腦或虛擬機器 (視您偏好的開發方式而定)。
 * 大部分可以執行容器引擎的作業系統，均可用來開發適用於 Linux 裝置的 IoT Edge 模組。 本教學課程會使用 Windows 電腦，但會指出 MacOS 或 Linux 上的已知差異。 
 * 安裝 [Git](https://git-scm.com/)，以在本教學課程稍後提取模組的範本套件。  
+* [C# for Visual Studio Code (採用 OmniSharp 技術) 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
 
 位於 Linux 上的 Azure IoT Edge 裝置：
 
@@ -116,7 +118,7 @@ IoT Edge 模組會封裝為容器，因此開發機器上必須有容器引擎�
 
 Azure IoT Tools 擴充功能會針對 Visual Studio Code 中所有支援的 IoT Edge 模組語言，提供專案範本。 這些範本具有您部署運作中模組以測試 IoT Edge 時需要的所有檔案和程式碼，或可成為您利用自己的商務邏輯自訂此範本的起點。 
 
-本教學課程會使用 C 模組範本，因為其所需安裝的先決條件最少。 
+本教學課程會使用 C# 模組範本，因為這是最常使用的範本。 
 
 ### <a name="create-a-project-template"></a>建立專案範本
 
@@ -126,7 +128,7 @@ Azure IoT Tools 擴充功能會針對 Visual Studio Code 中所有支援的 IoT 
    | ----- | ----- |
    | 選取資料夾 | 選擇開發機器上可供 VS Code 建立解決方案檔案的位置。 |
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
-   | 選取模組範本 | 選擇 [C 模組]  。 |
+   | 選取模組範本 | 選擇 [C# 模組]  。 |
    | 提供模組名稱 | 接受預設的 **SampleModule**。 |
    | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 您的容器映像會從您在上一個步驟中提供的名稱預先填入。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/samplemodule。 |
  
@@ -152,9 +154,9 @@ IoT Edge 擴充功能會嘗試從 Azure 提取您的容器登錄認證，並將�
 2. 新增您從 Azure Container Registry 複製過來的 [使用者名稱]  和 [密碼]  值。
 3. 將變更儲存至 .env 檔案。 
 
-### <a name="select-your-target-architecture"></a>選取目標架構
+### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 C 模組。 您必須為每個解決方案選取要作為目標的架構，因為架構會影響容器的建置和執行方式。 預設為 Linux AMD64。 
+目前，Visual Studio Code 可以開發適用於 Linux AMD64 和ARM32v7 裝置的 C# 模組。 您必須為每個解決方案選取要作為目標的架構，因為架構會影響容器的建置和執行方式。 預設為 Linux AMD64。 
 
 1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 
@@ -168,17 +170,19 @@ IoT Edge 擴充功能會嘗試從 Azure 提取您的容器登錄認證，並將�
 
 每個模組都可以在其程式碼中宣告多個「輸入」  和「輸出」  佇列。 在裝置上執行的 IoT Edge 中樞會將訊息從某個模組的輸出路由傳送至一或多個模組的輸入。 用於宣告輸入和輸出的特定語言會隨語言而異，但概念在所有模組則都相同。 如需模組之間路由方式的詳細資訊，請參閱[宣告路由](module-composition.md#declare-routes)。
 
-1. 開啟 **main.c** 檔案，其位於 **modules/SampleModules/** 資料夾內。 
+專案範本所隨附的範例 C# 程式碼會使用 IoT Hub SDK for .NET 所提供的 [ModuleClient 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)。 
 
-2. IoT 中樞 C SDK 會使用 [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) 函式來初始化模組輸入佇列。 在 main.c 檔案內搜尋該函式。
+1. 開啟 **Program.cs** 檔案，其位於 **modules/SampleModule/** 資料夾內。 
 
-3. 檢閱 SetInputMessageCallback 函式建構函式，您會看到程式碼中初始化了名為 **input1** 的輸入佇列。 
+2. 在 program.cs 中，尋找 **SetInputMessageHandlerAsync** 方法。
+
+2. [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet)方法可設定用於接收內送訊息的輸入佇列。 檢閱此方法，並查看它如何初始化名為 **input1** 的輸入佇列。 
 
    ![在 SetInputMessageCallback 建構函式中尋找輸入名稱](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
-4. 模組輸出佇列會以類似的方式初始化。 在 main.c 檔案中搜尋 [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) 函式。 
+3. 接著，尋找 **SendEventAsync** 方法。
 
-5. 檢閱 SendEventToOutputAsync 函式建構函式，您會看到程式碼中初始化了名為 **output1** 的輸出佇列。 
+4. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) 方法會處理接收的訊息並設定輸出佇列來傳遞它們。 檢閱此方法，並查看它初始化名為 **output1** 的輸出佇列。 
 
    ![在 SendEventToOutputAsync 中尋找輸出名稱](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
@@ -245,7 +249,7 @@ Visual Studio Code 現在可以存取容器登錄，因此您現在可以將解�
 
 10. 在容器登錄中，依序選取 [存放庫]  和 [samplemodule]  。 確認映像的這兩個版本皆已推送至登錄。
 
-   ![在容器登錄中檢視這兩個映像版本](./media/tutorial-develop-for-linux/view-repository-versions.png)
+    ![在容器登錄中檢視這兩個映像版本](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
@@ -256,7 +260,7 @@ Visual Studio Code 現在可以存取容器登錄，因此您現在可以將解�
 * 您是否使用從容器登錄複製的認證來執行 `docker login` 命令？ 這些認證與您用來登入 Azure 的認證不同。 
 * 您的容器存放庫是否正確？ 其是否有正確的容器登錄名稱和正確的模組名稱？ 開啟 SampleModule 資料夾中的 **module.json** 檔案來進行檢查。 存放庫值看起來類似於： **\<登錄名稱\>.azurecr.io/samplemodule**。 
 * 如果您為模組使用不同於 **SampleModule** 的名稱，該名稱在整個解決方案中是否保持一致？
-* 機器所執行的容器類型是否與所建置的容器類型相同？ 本教學課程適用於 Linux 的 IoT Edge 裝置，因此 Visual Studio Code 應該要在提要欄位中顯示 **amd64** 或 **arm32v7**，且 Docker Desktop 應該執行 Linux 容器。 Visual Studio Code 中的 C 模組不支援 Windows 容器。 
+* 機器所執行的容器類型是否與所建置的容器類型相同？ 本教學課程適用於 Linux 的 IoT Edge 裝置，因此 Visual Studio Code 應該要在提要欄位中顯示 **amd64** 或 **arm32v7**，且 Docker Desktop 應該執行 Linux 容器。  
 
 ## <a name="deploy-modules-to-device"></a>將模組部署到裝置
 

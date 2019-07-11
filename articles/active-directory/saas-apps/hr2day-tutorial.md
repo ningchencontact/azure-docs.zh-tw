@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898294"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -97,7 +97,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -112,7 +112,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [HR2day by Merces 用戶端支援小組](mailto:servicedesk@merces.nl)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. HR2day by Merces 應用程式會預期要有特定格式的 SAML 判斷提示，這需要您將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+5. HR2day by Merces 應用程式會預期要有特定格式的 SAML 判斷提示，這需要您將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-hr2day-by-merces-test-user"></a>建立 HR2day by Merces 測試使用者
 
-在本節中，您會在 HR2day by Merces 中建立名為 Britta Simon 的使用者。 請與  [HR2day by Merces](mailto:servicedesk@merces.nl) 支援小組合作，在 HR2day by Merces 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 HR2day by Merces 中建立名為 Britta Simon 的使用者。 請與 [HR2day by Merces 支援小組](mailto:servicedesk@merces.nl)合作，在 HR2day by Merces 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 > [!NOTE]
 > 如果您需要手動建立使用者，請連絡 [HR2day by Merces 用戶端支援小組](mailto:servicedesk@merces.nl)。

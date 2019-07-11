@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d24c635607e41b83b33f7168be9d31e69245b06a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea824cfd5e80ce3aff06774a2e1525cf97d15f65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65868173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091861"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>教學課程：整合 Sansan 與 Azure Active Directory
 
@@ -74,7 +74,7 @@ ms.locfileid: "65868173"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Sansan]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
-1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 組態]  的編輯/畫筆圖示，以編輯設定。
+1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "65868173"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `Britta Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 

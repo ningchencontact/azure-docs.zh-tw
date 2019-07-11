@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f14e7e4a5699d00e9d94c1796e02e97a7a2441e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ff01d9bc07408fa825fa933966d583b3d6ff7f56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>教學課程：Azure Active Directory 與 Softeon WMS 整合
 
@@ -98,7 +98,7 @@ Softeon WMS 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

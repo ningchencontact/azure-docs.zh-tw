@@ -2,22 +2,22 @@
 title: 教學課程：使用 Azure Digital Twins 監視空間 | Microsoft Docs
 description: 了解如何依照本教學課程中的步驟，使用 Azure Digital Twins 來佈建空間資源及監視運作狀況。
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535377"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484679"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>教學課程：使用 Azure Digital Twins 來佈建建築物及監視運作狀況
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>教學課程：使用 Azure Digital Twins 預覽版來佈建建築物及監視運作狀況
 
-本教學課程會示範如何使用 Azure Digital Twins 來監視您的空間是否有所需的溫度條件和舒適程度。 [設定範例建築物](tutorial-facilities-setup.md)後，您可以佈建您的建築物，並且依照本教學課程中的步驟對感應器資料執行自訂函式。
+本教學課程會示範如何使用 Azure Digital Twins 預覽版來監視您的空間是否有所需的溫度條件和舒適程度。 [設定範例建築物](tutorial-facilities-setup.md)後，您可以佈建您的建築物，並且依照本教學課程中的步驟對感應器資料執行自訂函式。
 
 在本教學課程中，您了解如何：
 
@@ -39,18 +39,18 @@ ms.locfileid: "57535377"
 
 ## <a name="define-conditions-to-monitor"></a>定義要監視的狀況
 
-您可以定義一組要在裝置或感應器資料中監視的特定狀況，稱之為「比對器」。 接著，您可以定義稱為「使用者定義的函式」的函式。 如果發生比對器所指定的狀況，這些函式可對來自空間和裝置的資料執行自訂邏輯。 如需詳細資訊，請閱讀[資料處理與使用者定義的函式](concepts-user-defined-functions.md)。 
+您可以定義一組要在裝置或感應器資料中監視的特定狀況，稱之為「比對器」  。 接著，您可以定義稱為「使用者定義的函式」  的函式。 如果發生比對器所指定的狀況，這些函式可對來自空間和裝置的資料執行自訂邏輯。 如需詳細資訊，請閱讀[資料處理與使用者定義的函式](concepts-user-defined-functions.md)。 
 
-從 **occupancy-quickstart** 範例專案，在 Visual Studio Code 中開啟 **src\actions\provisionSample.yaml** 檔案。 請注意，以 **matchers** 類型開頭的區段。 此類型下的每個項目都會建立具有指定**名稱**的比對器。 比對器會監視 **dataTypeValue** 類型的感應器。 請注意，它與名為「聚焦會議室 A1」 的空間有何關聯，它具有包含幾個感應器的 **devices** 節點。 若要佈建會追蹤其中一個感應器的比對器，請確定其 **dataTypeValue** 符合該感應器的 **dataType**。 
+從 **occupancy-quickstart** 範例專案，在 Visual Studio Code 中開啟 **src\actions\provisionSample.yaml** 檔案。 請注意，以 **matchers** 類型開頭的區段。 此類型下的每個項目都會建立具有指定**名稱**的比對器。 比對器會監視 **dataTypeValue** 類型的感應器。 請注意，它與名為「聚焦會議室 A1」  的空間有何關聯，它具有包含幾個感應器的 **devices** 節點。 若要佈建會追蹤其中一個感應器的比對器，請確定其 **dataTypeValue** 符合該感應器的 **dataType**。 
 
-在現有比對器下面，新增下列比對器。 確定索引鍵相符且並未以 Tab 取代空格。
+在現有比對器下面，新增下列比對器。 確定索引鍵相符且並未以 Tab 取代空格。 這幾行也會出現在 provisionSample.yaml  檔案中，並已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-這個比對器會追蹤您在[第一個教學課程](tutorial-facilities-setup.md)中新增的 SAMPLE_SENSOR_TEMPERATURE 感應器。 這幾行也會出現在 provisionSample.yaml 檔案中，並已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。
+這個比對器會追蹤您在[第一個教學課程](tutorial-facilities-setup.md)中新增的 SAMPLE_SENSOR_TEMPERATURE 感應器。 
 
 <a id="udf"></a>
 
@@ -73,7 +73,7 @@ ms.locfileid: "57535377"
    修改 JavaScript 檔案，以監視溫度以及其他狀況。 新增下列幾行程式碼以尋找下列狀況：在會議室中偵測不到任何移動、二氧化碳濃度低於 1,000 ppm，以及溫度低於華氏 78 度。
 
    > [!NOTE]
-   > 這一節會修改 src\actions\userDefinedFunctions\availability.js 檔案，讓您深入了解用於撰寫使用者定義函式的一種方法。 不過，您可以選擇在您的設定中直接使用 [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) 檔案。 此檔案具有本教學課程需要的所有變更。 如果您改為使用此檔案，請務必使用 [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 中 **script** 索引鍵的正確檔名。
+   > 這一節會修改 src\actions\userDefinedFunctions\availability.js  檔案，讓您深入了解用於撰寫使用者定義函式的一種方法。 不過，您可以選擇在您的設定中直接使用 [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) 檔案。 此檔案具有本教學課程需要的所有變更。 如果您改為使用此檔案，請務必使用 [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 中 **script** 索引鍵的正確檔名。
 
     a. 在檔案頂端，針對註解 `// Add your sensor type here` 下方的溫度新增下列幾行：
 
@@ -195,9 +195,9 @@ ms.locfileid: "57535377"
 
 ## <a name="simulate-sensor-data"></a>模擬感應器資料
 
-在本節中，您會使用範例中名為 device-connectivity 的專案。 您會模擬用於偵測動作、溫度和二氧化碳的感應器資料。 此專案會為感應器產生隨機值，然後使用裝置連接字串將這些值傳送到 IoT 中樞。
+在本節中，您會使用範例中名為 device-connectivity  的專案。 您會模擬用於偵測動作、溫度和二氧化碳的感應器資料。 此專案會為感應器產生隨機值，然後使用裝置連接字串將這些值傳送到 IoT 中樞。
 
-1. 在個別的命令視窗中，移至 Azure Digital Twins 範例，然後移至 device-connectivity 資料夾。
+1. 在個別的命令視窗中，移至 Azure Digital Twins 範例，然後移至 device-connectivity  資料夾。
 
 1. 執行此命令，以確定專案的相依性是否正確：
 
@@ -257,7 +257,7 @@ ms.locfileid: "57535377"
 
 至此，如果您不想要再探索 Azure Digital Twins，請放心地刪除在本教學課程中建立的資源：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，選取您的 Digital Twins 資源群組，然後選取 [刪除]  。
 
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。

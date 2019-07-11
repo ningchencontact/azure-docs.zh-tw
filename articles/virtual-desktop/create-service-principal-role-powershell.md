@@ -7,26 +7,26 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523305"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206650"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>教學課程：使用 PowerShell 建立服務主體和角色指派
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>教學課程：使用 PowerShell 建立服務主體和角色指派
 
 服務主體是您可以在 Azure Active Directory 中建立的身分識別，用以指派特定用途的角色和權限。 在 Windows 虛擬桌面預覽版中，您可以建立服務主體：
 
-- 將特定 Windows 虛擬桌面管理工作自動化
-- 執行任何 Windows 虛擬桌面 Azure Resource Manager 範本時，使用認證代替需要 MFA 的使用者
+- 將特定 Windows 虛擬桌面管理工作自動化。
+- 執行任何 Windows 虛擬桌面 Azure Resource Manager 範本時，使用認證代替需要 MFA 的使用者。
 
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 在 Azure Active Directory 中建立服務主體
-> * 在 Windows 虛擬桌面中建立角色指派
-> * 使用服務主體登入 Windows 虛擬桌面
+> * 請在 Azure Active Directory 中建立服務主體。
+> * 在 Windows 虛擬桌面中建立角色指派。
+> * 使用服務主體登入 Windows 虛擬桌面。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -72,7 +72,7 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>使用服務主體來登入
 
-建立服務主體的角色指派之後，您現在應藉由執行下列 Cmdlet 來確定服務主體可以登入 Windows 虛擬桌面：
+建立服務主體的角色指派之後，請藉由執行下列 Cmdlet 來確定服務主體可以登入 Windows 虛擬桌面：
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
@@ -83,7 +83,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 
 ## <a name="view-your-credentials-in-powershell"></a>在 PowerShell 中檢視您的認證
 
-結束您的 PowerShell 工作階段之前，您應該檢視您的認證並記下它們以供日後參考。 密碼特別重要，因為一旦關閉此 PowerShell 工作階段，便無法擷取它。
+結束您的 PowerShell 工作階段之前，請檢視您的認證並記下它們以供日後參考。 密碼特別重要，因為在關閉此 PowerShell 工作階段之後，便無法擷取它。
 
 以下是您應該記下的三個認證，以及您要取得認證所需執行的 Cmdlet：
 
@@ -107,7 +107,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦建立了服務主體並將 Windows 虛擬桌面租用戶中的角色指派給租用戶，您就可以使用此租用戶建立主機集區。 若要深入了解主機集區，請繼續進行在 Windows 虛擬桌面中建立主機集區的教學課程。
+建立服務主體並將 Windows 虛擬桌面租用戶中的角色指派給租用戶之後，您就可以使用此租用戶建立主機集區。 若要深入了解主機集區，請繼續進行在 Windows 虛擬桌面中建立主機集區的教學課程。
 
  > [!div class="nextstepaction"]
  > [Windows 虛擬桌面主機集區教學課程](./create-host-pools-azure-marketplace.md)

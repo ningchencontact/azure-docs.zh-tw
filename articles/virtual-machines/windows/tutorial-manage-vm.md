@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6a23ca469aab582fed4b4e72f48bc2dd0b9dafe0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3055b629865344bef43c3d06ec88ed394e498348
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807797"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075630"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立和管理 Windows VM
 
@@ -184,10 +184,10 @@ VM 大小會決定可供 VM 使用的計算資源 (例如 CPU、GPU 和記憶體
 | 類型                     | 一般大小           |    說明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [一般用途](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| 平衡的 CPU 對記憶體。 適用於開發/測試及小型到中型應用程式和資料解決方案。  |
-| [計算最佳化](sizes-compute.md)   | Fsv2            | CPU 與記憶體的比例高。 適用於中流量應用程式、網路設備，以及批次處理。        |
-| [記憶體最佳化](sizes-memory.md)    | Esv3、Ev3、M、GS、G、DSv2、Dv2  | 記憶體與核心的比例高。 適用於關聯式資料庫、中型到大型快取，以及記憶體內分析。                 |
-| [儲存體最佳化](sizes-storage.md)      | Lsv2、Ls                | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
-| [GPU](sizes-gpu.md)          | NV、NVv2、NC、NCv2、NCv3、NDv2、ND   | 以大量圖形轉譯和視訊編輯為目標的特製化 VM。       |
+| [計算最佳化](sizes-compute.md)   | Fsv2          | CPU 與記憶體的比例高。 適用於中流量應用程式、網路設備，以及批次處理。        |
+| [記憶體最佳化](sizes-memory.md)    | Esv3、Ev3、M、DSv2、Dv2  | 記憶體與核心的比例高。 適用於關聯式資料庫、中型到大型快取，以及記憶體內分析。                 |
+| [儲存體最佳化](sizes-storage.md)      | Lsv2、Ls              | 高磁碟輸送量及 IO。 適用於巨量資料、SQL 及 NoSQL 資料庫。                                                         |
+| [GPU](sizes-gpu.md)          | NV、NVv2、NC、NCv2、NCv3、ND            | 以大量圖形轉譯和視訊編輯為目標的特製化 VM。       |
 | [高效能](sizes-hpc.md) | H        | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 |
 
 ### <a name="find-available-vm-sizes"></a>尋找可用的 VM 大小

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442216"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>開始監視 ASP.NET Web 應用程式
 
@@ -63,13 +63,13 @@ Application Insights 會為您的應用程式收集遙測資料，不論其執�
 
 1. 在方案總管中展開 [連線的服務]  資料夾 (雲端和加號圖示)，然後以滑鼠右鍵按一下 [Application Insights]  資料夾，並按一下 [開啟 Application Insights 入口網站]  。  您可以看到有關您的應用程式的某些資訊和各種選項。
 
-    ![應用程式對應](media/quick-monitor-portal/4overview.png)
+    ![應用程式對應](media/quick-monitor-portal/04-overview.png)
 
 2. 按一下 [應用程式對應]  ，取得應用程式元件之間相依性關聯性的視覺化配置。  每個元件會顯示負載、效能、失敗和警示等 KPI。
 
-    ![應用程式對應](media/quick-monitor-portal/5appmap.png)
+    ![應用程式對應](media/quick-monitor-portal/05-appmap.png)
 
-3. 按一下其中一個應用程式元件的 [應用程式分析]  圖示 ![應用程式對應](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中檢視**。 這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。  此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3. 按一下其中一個應用程式元件的 [應用程式分析]  圖示 [應用程式對應]![](media/quick-monitor-portal/app-viewinlogs-icon.png) [在記錄中檢視 (Analytics)]  。 這會開啟**記錄 (Analytics)** ，它可提供豐富的查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
     ![分析](media/quick-monitor-portal/6viewanalytics.png)
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: e10d9088f6de3b7a3a638cdbe18f51425d206b7b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3673f18ff38b2ae98180f470b9f76f1fc57ee8b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798170"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442543"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 影片搜尋 SDK 來執行影片搜尋
 
-透過本快速入門開始使用適用於 C# 的 Bing 影片搜尋 SDK 來搜尋新聞。 雖然 Bing 影片搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) 上找到。 其中包含更多的註解和功能。
+透過本快速入門開始使用適用於 C# 的 Bing 影片搜尋 SDK 來搜尋新聞。 雖然 Bing 影片搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 在 [Github](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) 上可找到此範例的完整原始程式碼，以及其他註釋和功能。
 
 ## <a name="prerequisites"></a>必要條件
 

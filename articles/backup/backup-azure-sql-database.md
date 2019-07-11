@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 2a6319565aa05f34ce31a14c5fc57e591248f4ee
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399702"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443021"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>關於 Azure VM 中的 SQL Server 備份
 
@@ -50,6 +50,17 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 **受支援的作業系統** | Windows Server 2016、Windows Server 2012 R2、Windows Server 2012<br/><br/> 目前不支援 Linux。
 **支援的 SQL Server 版本** | SQL Server 2017、SQL Server 2016、SQL Server 2014、SQL Server 2012。<br/><br/> Enterprise、Standard、Web、Developer、Express。
 **支援的 .NET 版本** | 安裝在 VM 上的 .NET Framework 4.5.2 和更新版本
+
+### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>支援 SQL Server 2008 和 SQL Server 2008 R2
+
+Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) - SQL Server 2008 和 SQL Server 2008 R2。 此解決方案目前對 EOS SQL Server 為預覽狀態，且支援下列設定：
+
+1. 在 Windows 2008 R2 SP1 上執行的 SQL Server 2008 和 SQL Server 2008 R2
+2. .NET Framework 4.5.2 和更新版本需要安裝在 VM 上
+3. 不支援 FCI 和鏡像資料庫的備份
+
+針對這項功能使用者不需付費，直到它正式推出為止。 所有其他[功能考量與限制](#feature-consideration-and-limitations)也適用於這些版本。 在您針對 SQL Server 2008 和 2008 R2 設定保護 (其中包含設定[登錄機碼](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration)) 之前，請參閱[必要條件](backup-sql-server-database-azure-vms.md#prerequisites) (此功能正式推出時，則不需要此步驟)。
+
 
 ## <a name="feature-consideration-and-limitations"></a>功能考量和限制
 
@@ -114,9 +125,19 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 記錄檔 |  次要
 只複製完整 |  次要
 
-## <a name="fix-sql-sysadmin-permissions"></a>修正 SQL 系統管理員權限
+## <a name="set-vm-permissions"></a>設定 VM 權限
 
-  若因 **UserErrorSQLNoSysadminMembership** 錯誤而需要修正權限，請執行下列步驟：
+  當您在 SQL Server 上執行探索時，Azure 備份會執行下列動作：
+
+* 新增 AzureBackupWindowsWorkload 擴充功能。
+* 建立 NT SERVICE\AzureWLBackupPluginSvc 帳戶以探索虛擬機器上的資料庫。 此帳戶會用於備份和還原，且必須具備 SQL 系統管理員 (sysadmin) 權限。
+* 探索在虛擬機器上執行的資料庫，Azure 備份會使用 NT AUTHORITY\SYSTEM 帳戶。 此帳戶必須是 SQL 上的公用登入。
+
+如果您未在 Azure Marketplace 建立 SQL Server VM，或如果您在 SQL 2008 和 2008 R2 上，則可能會收到 **UserErrorSQLNoSysadminMembership** 錯誤。
+
+有關如何為 Windows 2008 R2 上執行的 **SQL 2008** 和 **2008 R2** 提供權限，請參閱[這裡](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2)。
+
+針對所有其他版本，請依照下列步驟修正權限：
 
   1. 使用具有 SQL Server 系統管理員權限的帳戶登入 SQL Server Management Studio (SSMS)。 除非您需要特殊權限，否則 Windows 驗證應該能運作。
   2. 在 SQL Server 上，開啟 [安全性]/[登入]  資料夾。
@@ -146,8 +167,72 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 > [!NOTE]
 > 如果您的 SQL Server 安裝了多個 SQL Server 執行個體，您就必須將 **NT Service\AzureWLBackupPluginSvc** 帳戶的系統管理員權限新增至所有的 SQL 執行個體。
 
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>為 SQL 2008 和 SQL 2008 R2 提供 SQL 系統管理員權限
+
+新增 **NT AUTHORITY\SYSTEM** 和 **NT Service\AzureWLBackupPluginSvc** 登入至 SQL Server 執行個體：
+
+1. 移至 [物件總管] 中的 SQL Server 執行個體。
+2. 瀏覽至 [安全性] -> [登入]
+3. 以滑鼠右鍵按一下 [登入]，然後按一下 [新增登入...] 
+
+    ![使用 SSMS 的新登入](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+
+4. 移至 [一般] 索引標籤，然後輸入 **NT AUTHORITY\SYSTEM** 為登入名稱。
+
+    ![SSMS 的登入名稱](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+
+5. 移至 [伺服器角色]  ，然後選擇 [公用]  和 [sysadmin]  角色。
+
+    ![選擇 SSMS 中的角色](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+
+6. 移至 [狀態]  。 「授與」  權限連線到資料庫引擎，且 [登入] 為 [已啟用]  。
+
+    ![在 SSMS 中授與權限](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+
+7. 按一下 [確定]。
+8. 重複相同的步驟順序 (上述 1-7)，將 NT Service\AzureWLBackupPluginSvc 登入新增到 SQL Server 執行個體。 如果登入已存在，請確定其具有 sysadmin 伺服器角色，且在 [狀態] 下具有「授與權限連線到資料庫引擎，且 [登入] 為 [已啟用]」。
+9. 授與權限之後，在入口網站中**重新探索 DB**：保存庫 **->** 備份基礎結構 **->** Azure VM 中的工作負載：
+
+    ![在 Azure 入口網站中重新探索 DB](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+
+或者，您可以藉由在管理員模式中執行下列 PowerShell 命令以自動化提供權限。 預設執行個體名稱設定為 MSSQLSERVER。 視需要在指令碼中變更執行個體名稱引數：
+
+```powershell
+param(
+    [Parameter(Mandatory=$false)]
+    [string] $InstanceName = "MSSQLSERVER"
+)
+if ($InstanceName -eq "MSSQLSERVER")
+{
+    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+}
+else
+{
+    $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+```
+
+
 ## <a name="next-steps"></a>後續步驟
 
-- [了解](backup-sql-server-database-azure-vms.md)如何備份 SQL Server 資料庫。
-- [了解](restore-sql-database-azure-vm.md)如何還原已備份的 SQL Server 資料庫。
-- [了解](manage-monitor-sql-database-backup.md)如何管理已備份的 SQL Server 資料庫。
+* [了解](backup-sql-server-database-azure-vms.md)如何備份 SQL Server 資料庫。
+* [了解](restore-sql-database-azure-vm.md)如何還原已備份的 SQL Server 資料庫。
+* [了解](manage-monitor-sql-database-backup.md)如何管理已備份的 SQL Server 資料庫。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 71feb455457fdf75fb19121bac1927b42fe38b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f614838ae44b5c4263bc9eac81e43fd13f87baa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>教學課程：Azure Active Directory 與 Wdesk 整合
 
@@ -53,19 +53,19 @@ ms.locfileid: "65865361"
 
 **若要從資源庫新增 Wdesk，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 ，從結果面板中選取 [Wdesk]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入  ，從結果面板中選取 [Wdesk]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Wdesk](common/search-new-app.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "65865361"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Wdesk 測試使用者](#create-wdesk-test-user)** - 使 Wdesk 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -89,40 +89,40 @@ ms.locfileid: "65865361"
 
 若要使用 Wdesk 設定 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Wdesk] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Wdesk]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+4. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
     ![Wdesk 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     ![Wdesk 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
+    在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 當您設定 SSO 時，您可以從 WDesk 入口網站取得這些值。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+4. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Wdesk] 區段上，依據您的需求複製適當的 URL。
+6. 在 [設定 Wdesk]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -136,35 +136,35 @@ ms.locfileid: "65865361"
 
 1. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Wdesk。
 
-2. 按一下左下方的 [管理員]，選擇 [帳戶管理員]：
+2. 按一下左下方的 [管理員]  ，選擇 [帳戶管理員]  ：
  
      ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. 在 Wdesk 管理員中，依序巡覽至 [安全性]、[SAML] > [SAML 設定]：
+3. 在 Wdesk 管理員中，依序巡覽至 [安全性]  、[SAML]   > [SAML 設定]  ：
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
-4. 勾選 [一般設定] 下的 [Enable SAML Single Sign On] \(啟用 SAML 單一登入)：
+4. 勾選 [一般設定]  下的 [Enable SAML Single Sign On] \(啟用 SAML 單一登入)  ：
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
-5. 在 [Service Provider Details] \(提供者詳細資料) 區段中，執行下列步驟：
+5. 在 [Service Provider Details] \(提供者詳細資料)  區段中，執行下列步驟：
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. 將**登入 URL** 複製並貼入 Azure 入口網站的 [登入 URL] 文字方塊。
+      a. 將**登入 URL** 複製並貼入 Azure 入口網站的 [登入 URL]  文字方塊。
    
-      b. 將**中繼資料 URL** 複製並貼入 Azure 入口網站的 [識別碼] 文字方塊。
+      b. 將**中繼資料 URL** 複製並貼入 Azure 入口網站的 [識別碼]  文字方塊。
        
-      c. 將**取用者 URL** 複製並貼入 Azure 入口網站的 [回覆 URL] 文字方塊。
+      c. 將**取用者 URL** 複製並貼入 Azure 入口網站的 [回覆 URL]  文字方塊。
    
-      d. 按一下 Azure 入口網站的 [儲存]，以儲存變更。      
+      d. 按一下 Azure 入口網站的 [儲存]  ，以儲存變更。      
 
-6. 按一下 [Configure IdP Settings] \(設定 IdP 設定) 開啟 [Edit IdP Settings] \(編輯 IdP 設定) 對話方塊。 按一下 [選擇檔案] 找出從 Azure 入口網站儲存的 **Metadata.xml** 檔案，然後將它上傳。
+6. 按一下 [Configure IdP Settings] \(設定 IdP 設定)  開啟 [Edit IdP Settings] \(編輯 IdP 設定)  對話方塊。 按一下 [選擇檔案]  找出從 Azure 入口網站儲存的 **Metadata.xml** 檔案，然後將它上傳。
     
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-7. 按一下 [儲存變更] 。
+7. 按一下 [儲存變更]  。
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
@@ -172,11 +172,11 @@ ms.locfileid: "65865361"
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -184,39 +184,39 @@ ms.locfileid: "65865361"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 brittasimon@yourcompanydomain.extension。 例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱]  欄位中，輸入 brittasimon@yourcompanydomain.extension。 例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Wdesk 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Wdesk]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Wdesk]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Wdesk]。
+2. 在應用程式清單中，選取 [Wdesk]  。
 
     ![應用程式清單中的 Wdesk 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-wdesk-test-user"></a>建立 Wdesk 測試使用者
 
@@ -226,17 +226,17 @@ ms.locfileid: "65865361"
 
 1. 以安全性系統管理員身分登入 Wdesk。
 
-2. 巡覽至 [管理員] > [帳戶管理員]。
+2. 巡覽至 [管理員]   > [帳戶管理員]  。
 
      ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. 按一下 [人員] 下的 [成員]。
+3. 按一下 [人員]  下的 [成員]  。
 
-4. 現在按一下 [新增成員] 開啟 [新增成員] 對話方塊。 
+4. 現在按一下 [新增成員]  開啟 [新增成員]  對話方塊。 
    
     ![建立 Azure AD 測試使用者](./media/wdesk-tutorial/createuser1.png)  
 
-5. 在 [使用者] 文字方塊中，輸入使用者的使用者名稱，例如 brittasimon@contoso.com，然後按一下 [繼續] 按鈕。
+5. 在 [使用者]  文字方塊中，輸入使用者的使用者名稱，例如 brittasimon@contoso.com，然後按一下 [繼續]  按鈕。
 
     ![建立 Azure AD 測試使用者](./media/wdesk-tutorial/createuser3.png)
 
@@ -244,13 +244,13 @@ ms.locfileid: "65865361"
   
     ![建立 Azure AD 測試使用者](./media/wdesk-tutorial/createuser4.png)
  
-    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
+    a. 在 [電子郵件]  文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
 
-    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
+    b. 在 [名字]  文字方塊中，輸入使用者的名字，例如 **Britta**。
 
-    c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
+    c. 在 [姓氏]  文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-7. 按一下 [儲存成員] 按鈕。  
+7. 按一下 [儲存成員]  按鈕。  
 
     ![建立 Azure AD 測試使用者](./media/wdesk-tutorial/createuser5.png)
 

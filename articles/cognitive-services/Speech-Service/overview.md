@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4a9af96c1defab4cbb10d917b5faa7e0e3ab837f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002996"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485071"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
@@ -32,7 +32,7 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 | | [批次轉譯](batch-transcription.md) | 批次轉譯可讓您非同步地對大量資料進行語音轉文字的轉譯。 這是以 REST 為基礎的服務，其在自訂和模型管理上使用相同端點。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
 | | [對話轉譯](conversation-transcription-service.md) | 啟用即時語音辨識、說話者識別和自動分段標記功能。 非常適合利用辨識說話者的能力來轉譯面對面會議。 | yes | 否 |
 | | [建立自訂語音模型](#customize-your-speech-experience) | 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
-| [文字轉換語音](text-to-speech.md) | 文字轉換語音 | 文字轉語音會將輸入文字轉換為仿真人的合成語音。 可選擇標準語音和類神經語音 (請參閱[語言支援](language-support.md))。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [文字轉換語音](text-to-speech.md) | 文字轉換語音 | 文字轉語音會使用[語音合成標記語言 (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml) 將輸入文字轉換為仿真人的合成語音。 可選擇標準語音和類神經語音 (請參閱[語言支援](language-support.md))。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [建立自訂語音](#customize-your-speech-experience) | 建立您品牌或產品專有的自訂聲音音調。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [語音翻譯](speech-translation.md) | 語音翻譯 | 語音翻譯可讓您在應用程式、工具和裝置上使用即時且多語言的語音翻譯。 此服務可用於語音轉語音及語音轉文字翻譯。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 否 |
 | [語音優先虛擬助理](voice-first-virtual-assistants.md) | 語音優先虛擬助理 | 使用 Azure 語音服務自訂虛擬助理，賦予開發人員建立自然、擬人的對話介面，供應用程式和體驗之用。 Bot Framework 的 Direct Line Speech 頻道提供相容 Bot 有組織且協調的進入點，具備低延遲性和高可靠性的互動語音功能。 | [是](voice-first-virtual-assistants.md) | 否 |
@@ -41,6 +41,8 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 了解 Azure 語音服務的新功能。
 
+* 2019 年 6 月
+    * 發行的語音 SDK 1.6.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 5 月 - [對話轉譯](conversation-transcription-service.md), [話務中心轉譯](call-center-transcription.md)和[語音優先虛擬助理](voice-first-virtual-assistants.md)的文件目前可供使用。
 * 2019 年 5 月
     * 發行的語音 SDK 1.5.1。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。

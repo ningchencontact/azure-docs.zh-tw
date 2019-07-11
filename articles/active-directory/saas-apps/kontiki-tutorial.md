@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bee7454942b9214eeb1253339446df370e20fe01
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>教學課程：Azure Active Directory 與 Kontiki 整合
 
@@ -173,7 +173,7 @@ Kontiki 支援下列功能︰
 
 1. 在 [使用者和群組]  窗格中，選取使用者清單中的 [Britta Simon]  。 選擇 [選取]  。
 
-1. 如果您在 SAML 判斷提示中需要任何角色值，則在 [選取角色]  窗格的清單中選取相關的使用者角色。 選擇 [選取]  。
+1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  窗格的清單中選取相關的使用者角色。 選擇 [選取]  。
 
 1. 在 [新增指派]  窗格中，選取 [指派]  。
 

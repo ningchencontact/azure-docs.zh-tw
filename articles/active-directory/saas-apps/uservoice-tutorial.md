@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905642"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>教學課程：Azure Active Directory 與 UserVoice 整合
 
@@ -97,7 +97,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

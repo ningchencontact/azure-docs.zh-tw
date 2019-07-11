@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 89a1fa396ff8bc5b954e91e7b08e6d731a81559a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304009"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657640"
 ---
 # <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
 
@@ -28,13 +28,13 @@ ms.locfileid: "67304009"
 文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下所述。
 
 ## <a name="sentiment-analysis"></a>情感分析
-使用[情感分析](how-tos/text-analytics-how-to-sentiment-analysis.md)可藉由分析原始文字而獲得有關於正面或負面情感的線索，來了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+使用[情感分析](how-tos/text-analytics-how-to-sentiment-analysis.md)可藉由分析原始文字而獲得有關於正面或負面情感的線索，來了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
 
 ## <a name="key-phrase-extraction"></a>關鍵片語擷取
-可自動[擷取關鍵片語](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 您可以使用這裡的 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+可自動[擷取關鍵片語](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 您可以使用這裡的 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
 
 ## <a name="language-detection"></a>語言偵測
-您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，包括多種不同的語言、變體、方言，和某些區域性/文化語言。 語言代碼各配有一個分數，表示分數的強度。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，包括多種不同的語言、變體、方言，和某些區域性/文化語言。 語言代碼各配有一個分數，表示分數的強度。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
 
 ## <a name="named-entity-recognition"></a>具名實體辨識
 [識別文字中的實體並分類](how-tos/text-analytics-how-to-entity-linking.md)為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API。

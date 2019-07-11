@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065531"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 建立第一個耐久函式
 
@@ -32,7 +32,7 @@ ms.locfileid: "65921359"
 
 * 安裝 [Visual Studio Code](https://code.visualstudio.com/download)。
 
-* 確定您有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
+* 確定您有最新版的 [Azure Functions Core Tools](../functions-run-local.md)。
 
 * 在 Windows 電腦上，確認您已安裝且正在執行 [Azure 儲存體模擬器](../../storage/common/storage-use-emulator.md)。 在 Mac 或 Linux 電腦上，您必須使用實際的 Azure 儲存體帳戶。
 
@@ -48,69 +48,61 @@ ms.locfileid: "65921359"
 
 1. 在函式應用程式的根目錄中執行 `durable-functions`，以安裝 `npm install durable-functions` npm 套件。
 
-## <a name="create-a-starter-function"></a>建立入門函式
+## <a name="creating-your-functions"></a>建立您的函式
+
+我們現在將建立開始使用 Durable Functions 所需的三個函式：HTTP 入門、協調器時和活動函式。 HTTP 入門將起始您的整個解決方案，且協調器會將工作分派給各種活動函式。
+
+### <a name="http-starter"></a>HTTP 入門
 
 首先，建立 HTTP 觸發的函式，該函式會啟動耐久函式協調流程。
 
-1. 從 [Azure: 函式]  中，選擇 [建立函式] 圖示。
+1. 從 [Azure: 函式]  中，選擇 [建立函式]  圖示。
 
     ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-2. 選取具有函式應用程式專案的資料夾，然後選取 [HTTP 觸發程序]  函式範本。
+2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions HTTP 入門]  函式範本。
 
-    ![選擇 HTTP 觸發程序範本](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![選擇 HTTP 入門範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. 輸入 `HttpStart` 作為函式名稱，並按下 Enter，然後選取 [匿名]  驗證。
+3. 將預設名稱保留為 `DurableFunctionsHttpStart` 並按下 ****Enter**，然後選取 [匿名]  驗證。
 
     ![選擇匿名驗證](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
-    系統隨即會使用由 HTTP 觸發的函式範本，以您所選的語言來建立函式。
-
-4. 以下面的 JavaScript 取代 index.js：
-
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
-
-5. 以下面的 JSON 取代 function.json：
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
-
 我們現已在我們的耐久函式中建立進入點。 讓我們新增協調器。
 
-## <a name="create-an-orchestrator-function"></a>建立協調器函式
+### <a name="orchestrator"></a>協調器
 
-接下來，您會建立另一個函式作為協調器。 為了方便起見，我們會使用 HTTP 觸發程序函式範本。 函式程式碼本身會由協調器程式碼所取代。
+現在，我們將建立協調器來協調活動函式。
 
-1. 重複上一節的步驟，以使用 HTTP 觸發程序範本建立第二個函式。 這次將函式命名為 `OrchestratorFunction`。
+1. 從 [Azure: 函式]  中，選擇 [建立函式]  圖示。
 
-2. 開啟新函式的 index.js 檔案，並以下列程式碼取代內容：
+    ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions 協調器]  函式範本。 將名稱保留為預設值 "DurableFunctionsOrchestrator"
 
-3. 開啟 function.json 檔案，並以下列 JSON 取代它：
-
-    [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
+    ![選擇協調器範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 我們已新增協調器來協調活動函式。 讓我們現在新增參考的活動函式。
 
-## <a name="create-an-activity-function"></a>建立活動函式
+### <a name="activity"></a>活動
 
-1. 重複上一節的步驟，以使用 HTTP 觸發程序範本建立第三個函式。 但這次將函式命名為 `E1_SayHello`。
+現在，我們將建立活動函式來實際執行解決方案的工作。
 
-2. 開啟新函式的 index.js 檔案，並以下列程式碼取代內容：
+1. 從 [Azure: 函式]  中，選擇 [建立函式]  圖示。
 
-    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+    ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-3. 以下面的 JSON 取代 function.json：
+2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions 活動]  函式範本。 將名稱保留為預設值 "Hello"。
 
-    [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+    ![選擇活動範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 我們現在已新增要開始協調流程以及將活動函式鏈結在一起所需的所有元件。
 
 ## <a name="test-the-function-locally"></a>在本機測試函式
 
-Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functions 專案。 第一次從 Visual Studio Code 啟動函式時，系統會提示您安裝這些工具。  
+Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functions 專案。 第一次從 Visual Studio Code 啟動函式時，系統會提示您安裝這些工具。
 
-1. 在 Windows 電腦上，啟動 Azure 儲存體模擬器，並確定 local.settings.json 的 **AzureWebJobsStorage** 屬性設定為 `UseDevelopmentStorage=true`。 
+1. 在 Windows 電腦上，啟動 Azure 儲存體模擬器，並確定 local.settings.json  的 **AzureWebJobsStorage** 屬性設定為 `UseDevelopmentStorage=true`。
 
     針對 Storage Emulator 5.8，請確定 local.settings.json 的 **AzureWebJobsSecretStorageType** 屬性設定為 `files`。 在 Mac 或 Linux 電腦上，您必須將 **AzureWebJobsStorage** 屬性設定為現有 Azure 儲存體帳戶的連接字串。 您稍後會在本文中建立儲存體帳戶。
 
@@ -123,7 +115,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
     ![Azure 本機輸出](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. 將 `{functionName}` 取代為 `OrchestratorFunction`。
+4. 將 `{functionName}` 取代為 `DurableFunctionsOrchestrator`。
 
 5. 使用 [Postman](https://www.getpostman.com/) 或 [cURL](https://curl.haxx.se/) 之類的工具，將 HTTP POST 要求傳送至 URL 端點。
 

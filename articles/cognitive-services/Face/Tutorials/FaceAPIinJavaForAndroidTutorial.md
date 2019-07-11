@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a809a4de588a388c4be8ca6efa245450699eeb64
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312513"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441611"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 
@@ -44,23 +44,23 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 請遵循下列步驟以建立新的 Android 應用程式專案。
 
-1. 在 Android Studio 中，選取 [啟動新的 Android Studio 專案]。
-1. 在 [建立 Android 專案] 畫面上，如有必要可修改預設欄位，然後按 [下一步]。
-1. 在 [目標 Android 裝置] 畫面上，使用下拉式選取器選擇 [API 22] 或更高版本，然後按 [下一步]。
-1. 選取 [空白活動]，然後按 [下一步]。
-1. 取消核取 [回溯相容性]，然後按一下 [完成]。
+1. 在 Android Studio 中，選取 [啟動新的 Android Studio 專案]  。
+1. 在 [建立 Android 專案]  畫面上，如有必要可修改預設欄位，然後按 [下一步]  。
+1. 在 [目標 Android 裝置]  畫面上，使用下拉式選取器選擇 [API 22]  或更高版本，然後按 [下一步]  。
+1. 選取 [空白活動]  ，然後按 [下一步]  。
+1. 取消核取 [回溯相容性]  ，然後按一下 [完成]  。
 
 ## <a name="add-the-initial-code"></a>新增初始程式碼
 
 ### <a name="create-the-ui"></a>建立 UI
 
-開啟 activity_main.xml。 在配置編輯器中，選取 [文字] 索引標籤，然後將其中的內容取代為下列程式碼。
+開啟 activity_main.xml  。 在配置編輯器中，選取 [文字]  索引標籤，然後將其中的內容取代為下列程式碼。
 
 [!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
 
 ### <a name="create-the-main-class"></a>建立主要類別
 
-開啟 MainActivity.java，然後以下列程式碼取代現有 `import` 陳述式。
+開啟 MainActivity.java  ，然後以下列程式碼取代現有 `import` 陳述式。
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
 
@@ -70,7 +70,7 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 ### <a name="try-the-app"></a>試用應用程式
 
-將 **onActivityResult** 方法中 **detectAndFrame** 的呼叫註解化。 然後，按下功能表上的 [執行] 來測試應用程式。 當應用程式開啟時，在模擬器或連線的裝置中，按一下底部的 [瀏覽]。 裝置的檔案選取對話方塊應該會隨即出現。 選擇影像，並確認影像有顯示在視窗中。 然後，關閉應用程式，並進入下一個步驟。
+將 **onActivityResult** 方法中 **detectAndFrame** 的呼叫註解化。 然後，按下功能表上的 [執行]  來測試應用程式。 當應用程式開啟時，在模擬器或連線的裝置中，按一下底部的 [瀏覽]  。 裝置的檔案選取對話方塊應該會隨即出現。 選擇影像，並確認影像有顯示在視窗中。 然後，關閉應用程式，並進入下一個步驟。
 
 ![相片中具有臉部的 Android 螢幕擷取畫面](../Images/android_getstarted1.1.PNG)
 
@@ -78,7 +78,7 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 ### <a name="add-the-gradle-dependency"></a>新增 Gradle 相依性
 
-在 [專案] 窗格中，使用下拉式選取器來選取 [Android]。 展開 [Gradle 指令碼]，然後開啟 build.gradle (模組：應用程式)。 為臉部用戶端程式庫 `com.microsoft.projectoxford:face:1.4.3` 新增相依性 (如以下螢幕擷取畫面所示)，然後按一下 [立即同步]。
+在 [專案]  窗格中，使用下拉式選取器來選取 [Android]  。 展開 [Gradle 指令碼]  ，然後開啟 build.gradle (模組：應用程式)  。 為臉部用戶端程式庫 `com.microsoft.projectoxford:face:1.4.3` 新增相依性 (如以下螢幕擷取畫面所示)，然後按一下 [立即同步]  。
 
 ![build.gradle 應用程式檔案的 Android Studio 螢幕擷取畫面](../Images/face-tut-java-gradle.png)
 
@@ -94,13 +94,13 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 您必須將 `<Subscription Key>` 取代為訂用帳戶金鑰。 此外，也請使用適合金鑰的區域識別碼，將 `<API endpoint>` 取代為臉部 API 端點 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。
 
-在 [專案] 窗格中，依序展開 [應用程式] 和 [資訊清單]，然後開啟 AndroidManifest.xml。 將下列元素插入為 `manifest` 元素的直接子系：
+在 [專案]  窗格中，依序展開 [應用程式]  和 [資訊清單]  ，然後開啟 AndroidManifest.xml  。 將下列元素插入為 `manifest` 元素的直接子系：
 
 [!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
 
 ## <a name="upload-image-and-detect-faces"></a>上傳影像和偵測臉部
 
-應用程式會藉由呼叫 **FaceServiceClient.detect** 方法來偵測臉部，此方法會包裝[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API，並傳回**臉部**執行個體的清單。
+應用程式會藉由呼叫 **faceClient.Face.DetectWithStreamAsync** 方法來偵測臉部，此方法會包裝[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API，並傳回**臉部**執行個體的清單。
 
 每個傳回的**臉部**都會包含矩形來指出其位置，以及一系列的選擇性臉部屬性。 在此範例中，我們只會要求臉部矩形。
 

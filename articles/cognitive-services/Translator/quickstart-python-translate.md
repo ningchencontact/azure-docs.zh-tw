@@ -3,19 +3,19 @@ title: 快速入門：翻譯文字 (Python) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將使用翻譯工具文字 API 搭配 Python，在 10 分鐘內將文字翻譯成另一種語言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 48e6aa8c098c702095c9e25207f04eef7fd46a4f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 689aa655967910c0114f50eac522df00c5659d1b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514690"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444900"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來翻譯字串
 
@@ -36,7 +36,10 @@ ms.locfileid: "66514690"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -92,13 +95,15 @@ headers = {
 }
 ```
 
+如果您使用認知服務多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="create-a-request-to-translate-text"></a>建立翻譯文字的要求
 
 定義您要翻譯的一或多個字串：
 
 ```python
 body = [{
-    'text' : 'Hello World!'
+    'text': 'Hello World!'
 }]
 ```
 
@@ -114,7 +119,8 @@ response = request.json()
 最後一個步驟是列印結果。 此程式碼片段會排序索引鍵、設定縮排，並宣告項目和索引鍵分隔符號，以美化結果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>組合在一起

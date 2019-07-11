@@ -4,26 +4,26 @@ description: 了解如何尋找對 Azure Cosmos 容器執行的任何作業所�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416048"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163829"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位費用
 
-本文將介紹不同的方法，供您尋找對 Azure Cosmos DB 中的容器執行的任何作業所產生的[要求單位](request-units.md) (RU) 耗用量。 目前，該耗用量只能藉由使用 Azure 入口網站，或藉由查看 Azure Cosmos DB 經任一 SDK 所傳回的回應來測量。
+本文將介紹不同的方法，供您尋找對 Azure Cosmos DB 中的容器執行的任何作業所產生的[要求單位](request-units.md) (RU) 耗用量。 目前，您僅可使用 Azure 入口網站來測量，也可查看 Azure Cosmos DB 透過其中一個 SDK 傳回的回應來測量。
 
 ## <a name="sql-core-api"></a>SQL (Core) API
 
-如果您使用的是 SQL API，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。
+如果您使用 SQL API，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
-目前，在 Azure 入口網站中，您只能找到 SQL 查詢的要求費用。
+目前，您只能對於 SQL 查詢在 Azure 入口網站中找到要求費用。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -161,7 +161,7 @@ RU 費用可用名為 `getLastRequestStatistics` 的自訂[資料庫命令](http
 
 ### <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
-目前，在 Azure 入口網站中，您只能找到查詢的要求費用。
+目前，您只能對於查詢在 Azure 入口網站中找到要求費用。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -249,7 +249,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ## <a name="gremlin-api"></a>Gremlin API
 
-如果您使用的是 Gremlin API 時，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。 
+您使用 Gremlin API 時，會有多個選項可用來找出對 Azure Cosmos 容器的作業所產生的 RU 耗用量。 
 
 ### <a name="use-drivers-and-sdk"></a>使用驅動程式和 SDK
 
@@ -302,3 +302,4 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 * [全域調整佈建的輸送量](scaling-throughput.md)
 * [在容器和資料庫中佈建輸送量](set-throughput.md)
 * [佈建容器的輸送量](how-to-provision-container-throughput.md)
+* [使用 Azure Cosmos DB 中的計量進行監視及偵錯](use-metrics.md)

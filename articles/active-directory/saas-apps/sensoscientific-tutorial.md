@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dc228f3473a4ddca8b5b68cdd99f1fced1a04cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ea2f5e33859852388357526052c39fa432471efb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922232"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>教學課程：Azure Active Directory 與 SensoScientific Wireless Temperature Monitoring System 整合
 
@@ -98,7 +98,7 @@ ms.locfileid: "64922232"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313612"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502948"
 ---
 # <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
 聲場專案是可提供 3D 互動式體驗的聲場引擎。 它可模擬複雜場景中的繞射、傳送及殘響等聲波效果，完全不需要手動加上區域標記。 它也包含遊戲引擎和音訊中介軟體整合。 聲場專案的原理類似於靜態光照：離線詳細模擬物理特性以提供實際基準，並透過清楚表達的設計控制項，使用輕量的執行階段，實現您的藝術目標。
@@ -51,7 +51,7 @@ ms.locfileid: "58313612"
   * 如需 Xbox 二進位檔與支援，請透過下面的「註冊」表單，與我們連絡
 
 ## <a name="contact-us"></a>與我們連絡
-* [聲場專案論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [聲場專案討論及問題回報](https://github.com/microsoft/ProjectAcoustics/issues)
 * [註冊以接收聲場專案更新](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>後續步驟

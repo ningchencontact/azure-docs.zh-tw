@@ -2,18 +2,18 @@
 title: 教學課程：擷取來自 Azure Digital Twins 空間的事件 | Microsoft Docs
 description: 了解如何使用本教學課程中的步驟，藉由整合 Azure Digital Twins 與 Logic Apps，接收來自空間的通知。
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528897"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484704"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 
@@ -49,17 +49,17 @@ ms.locfileid: "57528897"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在左窗格中選取 [建立資源]。 
+1. 在左窗格中選取 [建立資源]  。 
 
-1. 搜尋並選取 [事件方格主題]。 選取 [建立] 。
+1. 搜尋並選取 [事件方格主題]  。 選取 [建立]  。
 
-1. 輸入事件方格主題的 [名稱]，然後選擇 [訂用帳戶]。 選取針對 Digital Twins 執行個體所使用或建立的 [資源群組]，以及 [位置]。 選取 [建立] 。 
+1. 輸入事件方格主題的 [名稱]  ，然後選擇 [訂用帳戶]  。 選取針對 Digital Twins 執行個體所使用或建立的 [資源群組]  ，以及 [位置]  。 選取 [建立]  。 
 
     ![建立事件方格主題](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. 從資源群組瀏覽至事件方格主題，選取 [概觀]，然後將 [主題端點] 的值複製到暫存檔。 您在後續章節中將會用到此 URL。 
+1. 從資源群組瀏覽至事件方格主題，選取 [概觀]  ，然後將 [主題端點]  的值複製到暫存檔。 您在後續章節中將會用到此 URL。 
 
-1. 選取 [存取金鑰]，然後將 **YOUR_KEY_1** 和 **YOUR_KEY_2** 複製到暫存檔。 下一節在建立端點時需要用到這些值。
+1. 選取 [存取金鑰]  ，然後將 **YOUR_KEY_1** 和 **YOUR_KEY_2** 複製到暫存檔。 下一節在建立端點時需要用到這些值。
 
     ![事件方格金鑰](./media/tutorial-facilities-events/event-grid-keys.png)
 
@@ -76,16 +76,16 @@ ms.locfileid: "57528897"
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. 將預留位置 `Primary_connection_string_for_your_Event_Grid` 取代為 **YOUR_KEY_1** 的值。
+1. 將預留位置 `<Primary connection string for your Event Grid>` 取代為 **YOUR_KEY_1** 的值。
 
-1. 將預留位置 `Secondary_connection_string_for_your_Event_Grid` 取代為 **YOUR_KEY_2** 的值。
+1. 將預留位置 `<Secondary connection string for your Event Grid>` 取代為 **YOUR_KEY_2** 的值。
 
-1. 將預留位置 `Event_Grid_Topic_Path` 替換為事件方格主題的路徑。 若要取得此路徑，請從**主題端點** URL 中移除 **https://** 和尾端的資源路徑。 此路徑的格式應該會類似：*yourEventGridName.yourLocation.eventgrid.azure.net*。
+1. 將 **path** 的預留位置替換為事件方格主題的路徑。 若要取得此路徑，請從**主題端點** URL 中移除 **https://** 和尾端的資源路徑。 此路徑的格式應該會類似：*yourEventGridName.yourLocation.eventgrid.azure.net*。
 
     > [!IMPORTANT]
     > 所有值在輸入時不得有任何引號。 請確定 YAML 檔案中的所有冒號後面都至少有一個空格字元。 您也可以使用任何線上的 YAML 驗證器 (例如[此工具](https://onlineyamltools.com/validate-yaml)) 來驗證 YAML 檔案的內容。
@@ -104,37 +104,37 @@ ms.locfileid: "57528897"
 
 您可以使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 服務建立自動化工作，以接收來自其他服務的事件。 在本節中，您會設定 Logic Apps，藉助[事件方格主題](../event-grid/overview.md)來為空間感應器所路由傳送過來的事件建立電子郵件通知。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [建立資源]。
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [建立資源]  。
 
-1. 搜尋並選取新的**邏輯應用程式**資源。 選取 [建立] 。
+1. 搜尋並選取新的**邏輯應用程式**資源。 選取 [建立]  。
 
-1. 輸入邏輯應用程式資源的 [名稱]，然後選取 [訂用帳戶]、[資源群組] 和 [位置]。 選取 [建立] 。
+1. 輸入邏輯應用程式資源的 [名稱]  ，然後選取 [訂用帳戶]  、[資源群組]  和 [位置]  。 選取 [建立]  。
 
     ![建立 Logic Apps 資源](./media/tutorial-facilities-events/create-logic-app.png)
 
-1. 開啟部署好的 Logic Apps 資源，然後開啟 [邏輯應用程式設計工具] 窗格。 
+1. 開啟部署好的 Logic Apps 資源，然後開啟 [邏輯應用程式設計工具]  窗格。 
 
-1. 選取 [發生事件方格事件時] 觸發程序。 當系統提示時，使用 Azure 帳戶登入租用戶。 出現提示時，針對您的事件方格資源選取 [允許存取]。 選取 [繼續]。
+1. 選取 [發生事件方格資源事件時]  觸發程序。 當系統提示時，使用 Azure 帳戶登入租用戶。 如果出現提示，針對您的事件方格資源選取 [允許存取]  。 選取 [繼續]  。
 
-1. 在 [發生資源事件時 (預覽)\] 視窗中： 
+1. 在 [發生資源事件時 (預覽)\  ] 視窗中： 
    
-   a. 選取用來建立事件方格主題的 [訂用帳戶]。
+   a. 選取用來建立事件方格主題的 [訂用帳戶]  。
 
-   b. 選取 [Microsoft.EventGrid.Topics] 作為 [資源類型]。
+   b. 選取 [Microsoft.EventGrid.Topics]  作為 [資源類型]  。
 
-   c. 從 [資源名稱] 下拉式方塊中選取事件方格資源。
+   c. 從 [資源名稱]  下拉式方塊中選取事件方格資源。
 
    ![邏輯應用程式設計工具窗格](./media/tutorial-facilities-events/logic-app-resource-event.png)
 
-1. 選取 [新增步驟] 按鈕。
+1. 選取 [新增步驟]  按鈕。
 
-1. 在 [選擇動作] 視窗中：
+1. 在 [選擇動作]  視窗中：
 
-   a. 搜尋「剖析 json」片語，然後選取 [剖析 JSON] 動作。
+   a. 搜尋「剖析 json」  片語，然後選取 [剖析 JSON]  動作。
 
-   b. 在 [內容] 欄位中，選取 [動態內容] 清單中的 [主體]。
+   b. 在 [內容]  欄位中，選取 [動態內容]  清單中的 [主體]  。
 
-   c. 選取 [使用承載範例來產生結構描述]。 貼上下列 JSON 承載，然後選取 [完成]。
+   c. 選取 [使用範例承載來產生結構描述]  。 貼上下列 JSON 承載，然後選取 [完成]  。
 
     ```JSON
     {
@@ -154,35 +154,35 @@ ms.locfileid: "57528897"
     }
     ```
 
-    此承載有虛構值。 Logic Apps 會使用此承載範例來產生 [結構描述]。
+    此承載有虛構值。 Logic Apps 會使用此承載範例來產生 [結構描述]  。
 
     ![事件方格的 Logic Apps 剖析 JSON 視窗](./media/tutorial-facilities-events/logic-app-parse-json.png)
 
-1. 選取 [新增步驟] 按鈕。
+1. 選取 [新增步驟]  按鈕。
 
-1. 在 [選擇動作] 視窗中：
+1. 在 [選擇動作]  視窗中：
 
-   a. 在 [動作] 清單中選取 [控制 > 條件] 或搜尋 [條件]。 
+   a. 在 [動作]  清單中選取 [控制 > 條件]  或搜尋 [條件]  。 
 
-   b. 在第一個 [選擇值] 文字方塊中，從 [剖析 JSON] 視窗的 [動態內容] 清單中選取 [eventType]。
+   b. 在第一個 [選擇值]  文字方塊中，從 [剖析 JSON]  視窗的 [動態內容]  清單中選取 [eventType]  。
 
-   c. 在第二個 [選擇值] 文字方塊中，輸入`UdfCustom`。
+   c. 在第二個 [選擇值]  文字方塊中，輸入`UdfCustom`。
 
    ![已選取的條件](./media/tutorial-facilities-events/logic-app-condition.png)
 
-1. 在 [若為 true] 視窗中：
+1. 在 [若為 true]  視窗中：
 
-   a. 選取 [新增動作]，然後選取 [Office 365 Outlook]。
+   a. 選取 [新增動作]  ，然後選取 [Office 365 Outlook]  。
 
-   b. 在 [動作] 的清單中，選取 [傳送電子郵件]。 選取 [登入]，並使用電子郵件帳戶的認證。 出現提示時，選取 [允許存取]。
+   b. 在 [動作]  的清單中，選取 [傳送電子郵件]  。 選取 [登入]  ，並使用電子郵件帳戶的認證。 如果出現提示，選取 [允許存取]  。
 
-   c. 在 [收件者] 方塊中，輸入要用來接收通知的電子郵件識別碼。 在 [主旨] 中，輸入文字：**空間中空氣品質不佳的 Digital Twins 通知**。 然後從 [剖析 JSON] 的 [動態內容] 中選取 [TopologyObjectId]。
+   c. 在 [收件者]  方塊中，輸入要用來接收通知的電子郵件識別碼。 在 [主旨]  中，輸入文字：**空間中空氣品質不佳的 Digital Twins 通知**。 然後從 [剖析 JSON]  的 [動態內容]  中選取 [TopologyObjectId]  。
 
-   d. 在相同視窗中的 [本文] 底下，輸入如下的文字：**房間內所偵測到的空氣品質不良，且需要調整溫度**。 您可以使用 [動態內容] 清單中的元素，任意地加上詳細說明。
+   d. 在相同視窗中的 [本文]  底下，輸入如下的文字：**房間內所偵測到的空氣品質不良，且需要調整溫度**。 您可以使用 [動態內容]  清單中的元素，任意地加上詳細說明。
 
    ![Logic Apps 的「傳送電子郵件」選取項目](./media/tutorial-facilities-events/logic-app-send-email.png)
 
-1. 選取 [邏輯應用程式設計工具] 窗格頂端的 [儲存] 按鈕。
+1. 選取 [邏輯應用程式設計工具]  窗格頂端的 [儲存]  按鈕。
 
 1. 請務必藉由在命令視窗中瀏覽至 Digital Twins 範例的**device-connectivity** 資料夾，並執行 `dotnet run`，來模擬感應器資料。
 
@@ -190,13 +190,13 @@ ms.locfileid: "57528897"
 
    ![電子郵件通知](./media/tutorial-facilities-events/logic-app-notification.png)
 
-若要停止接收這些電子郵件，請在入口網站中瀏覽至您的 Logic Apps 資源，然後選取 [概觀] 窗格。 選取 [停用]。
+若要停止接收這些電子郵件，請在入口網站中瀏覽至您的 Logic Apps 資源，然後選取 [概觀]  窗格。 選取 [停用]  。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 至此，如果您不想要再探索 Azure Digital Twins，請放心地刪除在本教學課程中建立的資源：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，選取您的 Digital Twins 資源群組，然後選取 [刪除]  。
 
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。

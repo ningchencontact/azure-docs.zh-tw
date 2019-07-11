@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162859"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330542"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>教學課程：第 2 部分 - 檢視路由的訊息
 
@@ -38,13 +38,13 @@ ms.locfileid: "66162859"
 
 服務匯流排佇列會用來接收指定為 critical 的訊息。 設定邏輯應用程式來監視服務匯流排佇列，並在訊息新增至佇列時傳送電子郵件。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [+ 建立資源]。 在 [搜尋] 方塊中輸入**邏輯應用程式**，然後按一下 Enter。 從顯示的搜尋結果中選取邏輯應用程式，然後選取 [建立] 繼續前往 [建立邏輯應用程式] 窗格。 填寫欄位。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [+ 建立資源]  。 在 [搜尋] 方塊中輸入**邏輯應用程式**，然後按一下 Enter。 從顯示的搜尋結果中選取邏輯應用程式，然後選取 [建立]  繼續前往 [建立邏輯應用程式]  窗格。 填寫欄位。
 
    **名稱**：此欄位是邏輯應用程式的名稱。 本教學課程使用 **ContosoLogicApp**。
 
-   訂用帳戶：選取 Azure 訂用帳戶。
+   訂用帳戶  ：選取 Azure 訂用帳戶。
 
-   **資源群組**：選取 [使用現有的] 並選取您的資源群組。 本教學課程使用 **ContosoResources**。
+   **資源群組**：選取 [使用現有的]  並選取您的資源群組。 本教學課程使用 **ContosoResources**。
 
    **位置**：使用您的位置。 本教學課程使用**美國西部**。
 
@@ -52,15 +52,15 @@ ms.locfileid: "66162859"
 
    ![[建立邏輯應用程式] 畫面](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   選取 [建立] 。
+   選取 [建立]  。
 
-2. 現在請移至邏輯應用程式。 取得邏輯應用程式最簡單的方式是選取 [資源群組]，選取您的資源群組 (本教學課程使用 **ContosoResources**)，然後從資源清單中選取邏輯應用程式。 Logic Apps 設計工具頁面隨即顯示 (您可能需要捲動至右側才能看到完整頁面)。 在 Logic Apps 設計工具頁面上，向下捲動直到您看到標示 [空白邏輯應用程式 +] 的圖格，然後加以選取。 預設索引標籤是 [提供給您]。 如果此窗格空無一物，請選取 [全部] 以查看所有可用的連接器和觸發程序。
+2. 現在請移至邏輯應用程式。 取得邏輯應用程式最簡單的方式是選取 [資源群組]  ，選取您的資源群組 (本教學課程使用 **ContosoResources**)，然後從資源清單中選取邏輯應用程式。 Logic Apps 設計工具頁面隨即顯示 (您可能需要捲動至右側才能看到完整頁面)。 在 Logic Apps 設計工具頁面上，向下捲動直到您看到標示 [空白邏輯應用程式 +]  的圖格，然後加以選取。 預設索引標籤是 [提供給您]。 如果此窗格空無一物，請選取 [全部]  以查看所有可用的連接器和觸發程序。
 
-3. 從連接器清單中選取 [服務匯流排]。
+3. 從連接器清單中選取 [服務匯流排]  。
 
    ![連接器清單](./media/tutorial-routing-view-message-routing-results/logic-app-connectors.png)
 
-4. 觸發程序清單隨即顯示。 選取 [佇列中收到訊息時 (自動完成)/服務匯流排]。
+4. 觸發程序清單隨即顯示。 選取 [佇列中收到訊息時 (自動完成)/服務匯流排]  。
 
    ![服務匯流排的觸發程序清單](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "66162859"
 
    ![設定服務匯流排佇列的連線](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
 
-   選取 [服務匯流排命名空間]。 本教學課程使用 **ContosoSBNamespace**。 當您選取命名空間時，入口網站會查詢服務匯流排命名空間來擷取金鑰。 選取 [RootManageSharedAccessKey]，然後選取 [建立]。
+   選取 [服務匯流排命名空間]。 本教學課程使用 **ContosoSBNamespace**。 當您選取命名空間時，入口網站會查詢服務匯流排命名空間來擷取金鑰。 選取 [RootManageSharedAccessKey]  ，然後選取 [建立]  。
 
    ![完成連線的設定](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
 
@@ -76,13 +76,13 @@ ms.locfileid: "66162859"
 
    ![佇列選項](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. 現在要設定在佇列中收到訊息時會傳送電子郵件的動作。 在 Logic Apps 設計工具中，選取 [+ 新增步驟] 以新增步驟，然後選取 [全部] 以查看所有可用的選項。 在 [選擇動作] 窗格中，尋找並選取 [Office 365 Outlook]。 在觸發程序畫面上，選取 [傳送電子郵件/Office 365 Outlook]。  
+7. 現在要設定在佇列中收到訊息時會傳送電子郵件的動作。 在 Logic Apps 設計工具中，選取 [+ 新增步驟]  以新增步驟，然後選取 [全部]  以查看所有可用的選項。 在 [選擇動作]  窗格中，尋找並選取 [Office 365 Outlook]  。 在觸發程序畫面上，選取 [傳送電子郵件/Office 365 Outlook]  。  
 
    ![Office365 選項](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
 8. 登入 Office 365 帳戶來設定連線。 如果此程序逾時，請直接再試一次。 指定電子郵件收件者的電子郵件地址。 也請指定主旨，然後在本文中輸入要讓收件者看到的訊息。 為了進行測試，請填寫您自己的電子郵件地址作為收件者。
 
-   選取 [新增動態內容] 會顯示您可以包含的訊息內容。 選取 [內容] -- 訊息將會包含在電子郵件中。
+   選取 [新增動態內容]  會顯示您可以包含的訊息內容。 選取 [內容]  -- 訊息將會包含在電子郵件中。
 
    ![邏輯應用程式的電子郵件選項](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
 
@@ -94,13 +94,13 @@ ms.locfileid: "66162859"
 
 ### <a name="create-the-stream-analytics-job"></a>建立串流分析作業
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [物聯網] > [串流分析作業]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]   > [物聯網]   > [串流分析作業]  。
 
 2. 輸入作業的以下資訊。
 
    **作業名稱**：作業的名稱。 此名稱必須是全域唯一的。 本教學課程使用 **contosoJob**。
 
-   訂用帳戶：您將在本教學課程中使用的 Azure 訂用帳戶。
+   訂用帳戶  ：您將在本教學課程中使用的 Azure 訂用帳戶。
 
    **資源群組**：使用 IoT 中樞所用的相同資源群組。 本教學課程使用 **ContosoResources**。
 
@@ -108,25 +108,25 @@ ms.locfileid: "66162859"
 
    ![建立串流分析作業](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. 選取 [建立] 來建立作業。 若要回到該作業，請選取 [資源群組]。 本教學課程使用 **ContosoResources**。 選取資源群組，然後選取資源清單中的串流分析作業。
+3. 選取 [建立]  來建立作業。 若要回到該作業，請選取 [資源群組]  。 本教學課程使用 **ContosoResources**。 選取資源群組，然後選取資源清單中的串流分析作業。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
-4. 在 [作業拓撲] 下方，選取 [輸入]。
+4. 在 [作業拓撲]  下方，選取 [輸入]  。
 
-5. 在 [輸入] 窗格中，選取 [新增資料流輸入] 並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
+5. 在 [輸入]  窗格中，選取 [新增資料流輸入]  並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
 
    **輸入別名**：本教學課程使用 **contosoinputs**。
 
    **從訂用帳戶選取 IoT 中樞**：選取此選項按鈕選項。
 
-   訂用帳戶：選取您要用於本教學課程的 Azure 訂用帳戶。
+   訂用帳戶  ：選取您要用於本教學課程的 Azure 訂用帳戶。
 
    **IoT 中樞**：選取 IoT 中樞。 本教學課程使用 **ContosoTestHub**。
 
-   **端點**：選取 [傳訊]。 (如果您選取「作業監視」，則您會取得有關 IoT 中樞的遙測資料，而不是您要傳送的資料。) 
+   **端點**：選取 [傳訊]  。 (如果您選取「作業監視」，則您會取得有關 IoT 中樞的遙測資料，而不是您要傳送的資料。) 
 
-   **共用存取原則名稱**：選取 [iothubowner]。 入口網站會為您填入共用存取原則金鑰。
+   **共用存取原則名稱**：選取 [服務]  。 入口網站會為您填入共用存取原則金鑰。
 
    **取用者群組**：選取您在本教學課程的步驟 1 中所設定的取用者群組。 本教學課程使用 **contosoconsumers**。
    
@@ -138,9 +138,9 @@ ms.locfileid: "66162859"
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
-1. 在 [作業拓撲] 下方，選取 [輸出]。
+1. 在 [作業拓撲]  下方，選取 [輸出]  。
 
-2. 在 [輸出] 窗格中，選取 [新增]，然後選取 [Power BI]。 在顯示的畫面上，填寫下列欄位：
+2. 在 [輸出]  窗格中，選取 [新增]  ，然後選取 [Power BI]  。 在顯示的畫面上，填寫下列欄位：
 
    **輸出別名**：輸出的唯一別名。 本教學課程使用 **contosooutputs**。 
 
@@ -150,7 +150,7 @@ ms.locfileid: "66162859"
 
    對於其餘欄位，請採用預設值。
 
-3. 選取 [授權]，然後登入您的 Power BI 帳戶。 (這可能需要嘗試多次)。
+3. 選取 [授權]  ，然後登入您的 Power BI 帳戶。 (這可能需要嘗試多次)。
 
    ![設定串流分析作業的輸出](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
@@ -158,7 +158,7 @@ ms.locfileid: "66162859"
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
-1. 在 [作業拓撲] 下方，選取 [查詢]。
+1. 在 [作業拓撲]  下方，選取 [查詢]  。
 
 2. 使用作業的輸入別名取代 `[YourInputAlias]`。 本教學課程使用 **contosoinputs**。
 
@@ -172,7 +172,7 @@ ms.locfileid: "66162859"
 
 ### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
-在串流分析作業中，選取 [啟動] > [立即] > [啟動]。 成功啟動作業後，作業狀態會從 [已停止] 變更為 [執行中]。
+在串流分析作業中，選取 [啟動]   > [立即]   > [啟動]  。 成功啟動作業後，作業狀態會從 [已停止]  變更為 [執行中]  。
 
 由於您需要資料來設定 Power BI 報表，因此您要先建立裝置並執行裝置模擬應用程式，然後再設定 Power BI。
 
@@ -212,7 +212,7 @@ ms.locfileid: "66162859"
    * 從服務匯流排佇列擷取訊息的邏輯應用程式可正常運作。
    * Outlook 的邏輯應用程式連接器可正常運作。 
 
-2. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [資源群組]，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 選取儲存體帳戶，選取 [Blob]，然後選取 [容器]。 本教學課程使用 **contosoresults**。 您應該會看到資料夾，然後您可以向下鑽研這些目錄，直到您看到一個或多個檔案。 開啟這些檔案的其中一個，其中會包含路由至儲存體帳戶的項目。 
+2. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [資源群組]  ，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 選取儲存體帳戶，選取 [Blob]  ，然後選取 [容器]。 本教學課程使用 **contosoresults**。 您應該會看到資料夾，然後您可以向下鑽研這些目錄，直到您看到一個或多個檔案。 開啟這些檔案的其中一個，其中會包含路由至儲存體帳戶的項目。 
 
    ![儲存體中的結果檔案](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -228,11 +228,11 @@ ms.locfileid: "66162859"
 
 2. 請移至**工作區**，然後選取建立串流分析作業輸出時所設定的工作區。 本教學課程使用 **My Workspace**。 
 
-3. 選取 [資料集]。 如果沒有資料集，請稍候幾分鐘，然後再檢查一次。
+3. 選取 [資料集]  。 如果沒有資料集，請稍候幾分鐘，然後再檢查一次。
 
    您應該會看到在建立串流分析作業輸出時所指定的資料集。 本教學課程使用 **contosodataset**。 (第一次執行可能需要 5-10 分鐘才會出現資料集)。
 
-4. 在 [動作] 之下，選取 第一個圖示以建立報告。
+4. 在 [動作]  之下，選取 第一個圖示以建立報告。
 
    ![Power BI 工作區與動作，以及醒目提示的 [報告] 圖示](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
 
@@ -242,11 +242,11 @@ ms.locfileid: "66162859"
 
      ![視覺效果和欄位](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
 
-   * 在 [欄位] 窗格上，展開您建立串流分析作業輸出時指定的資料表。 本教學課程使用 **contosotable**。
+   * 在 [欄位]  窗格上，展開您建立串流分析作業輸出時指定的資料表。 本教學課程使用 **contosotable**。
 
-   * 將 **EventEnqueuedUtcTime** 拖放至 [視覺效果] 窗格上的 [軸]。
+   * 將 **EventEnqueuedUtcTime** 拖放至 [視覺效果]  窗格上的 [軸]  。
 
-   * 將 **temperature** 拖放至 [值]。
+   * 將 **temperature** 拖放至 [值]  。
 
    折線圖已建立。 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
 
@@ -254,7 +254,7 @@ ms.locfileid: "66162859"
 
    ![最終的 Power BI 報告與兩個圖表](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. 選取 [儲存] 以儲存報告。
+7. 選取 [儲存]  以儲存報告。
 
 您應該會看到兩個圖表的資料。 此結果表示下列陳述式為 true：
 

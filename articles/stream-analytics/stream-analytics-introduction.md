@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/16/2019
-ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/21/2019
+ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393975"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329327"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure 串流分析是什麼？
 
-Azure 串流分析這個事件處理引擎是設計用來檢查大量的串流資料。 可以從多個輸入來源 (包括裝置、感應器、網站、社交媒體摘要和應用程式) 中擷取的資訊，識別模式和關聯性。 這些模式可以用來觸發其他動作下游，例如建立警示、將資訊提供給報告工具，或是儲存轉換資料以供之後使用。
+Azure 串流分析是即時分析與處理複雜事件的引擎，用來同時分析和處理多個來源的大量快速串流資料。 它可以從多個輸入來源 (包括裝置、感應器、點選流、社交媒體摘要和應用程式) 中擷取的資訊，識別模式和關聯性。 這些模式可以用來觸發動作並啟動工作流程，例如建立警示、將資訊提供給報告工具，或是儲存轉換資料以供之後使用。 此外，串流分析可用於 Azure IoT Edge 執行階段，並支援與雲端相同的語言或語法。 
 
 下列案例是您何時可以使用 Azure 串流分析的範例：
 
-* 物聯網 (IoT) 感應器融合和即時分析裝置遙測
+* 從 IoT 裝置分析即時遙測資料流
 * Web 記錄/點選流分析
 * 車隊管理和自駕車的地理空間分析
 * 高價值資產的遠端監視和預測性維護
@@ -29,12 +29,12 @@ Azure 串流分析這個事件處理引擎是設計用來檢查大量的串流�
 
 ## <a name="how-does-stream-analytics-work"></a>串流分析如何運作？
 
-Azure 串流分析作業是由輸入、轉換查詢，以及輸出所組成。 當 Azure 事件中樞、Azure IoT 中樞或 Azure Blob 儲存體中從您的軟體或裝置中擷取事件時，您可以指定一或多個這些服務作為作業的輸入來源。 轉換查詢以 SQL 查詢語言為基礎，用於在一段時間內輕鬆地篩選、排序、彙總和聯結資料流處理資料。 您可以調整事件排序選項，而在執行彙總作業時則可調整時間範圍的持續時間。
+Azure 串流分析作業是由輸入、查詢及輸出所組成。 串流分析內嵌 Azure 事件中樞、Azure IoT 中樞或 Azure Blob 儲存體的資料。 查詢以 SQL 查詢語言為基礎，可在一段時間內輕鬆地篩選、排序、彙總和聯結串流處理資料。 您也可以使用 JavaScript 和 C# 使用者定義函式 (UDF) 來擴充此 SQL 語言。 透過簡單的語言建構和/或設定執行彙總作業時，您可以輕鬆調整事件排序選項和時間範圍的持續長度。
 
 每個作業都具有所轉換資料的輸出，並可控制所要採取的動作以回應您所分析的資訊。 例如，您可以：
 
-* 將資料傳送至受監視的佇列，以觸發警示或自訂工作流程下游。
-* 將資料傳送至 Power BI 儀表板以獲得即時的視覺效果。
+* 將資料傳送至服務如 Azure Functions、服務匯流排主題或佇列，以觸發通訊或自訂工作流程下游。
+* 將資料傳送至 Power BI 儀表板以即時顯示在儀表板上。
 * 將資料儲存至其他 Azure 儲存體服務，以便根據歷程記錄資料定型機器學習服務模型，或執行批次分析。
 
 下圖顯示如何將資料傳送至串流分析、加以分析並傳送，以進行儲存或呈現等其他動作：
@@ -51,7 +51,7 @@ Azure 串流分析的設計訴求是方便使用、具靈活性、可靠，以�
 
 您可以輕鬆地開始使用 Azure 串流分析。 只要按幾下就能連線到多個來源與接收，建立端對端管線。 串流分析可以連線到 [Azure 事件中樞](/azure/event-hubs/)和 [Azure IoT 中樞](/azure/iot-hub/)進行串流資料擷取，以及連線到 [Azure Blob 儲存體](/azure/storage/storage-introduction)以取得歷史資料。 作業輸入也可以包含來自 Azure Blob 儲存體或 [SQL 資料庫](stream-analytics-use-reference-data.md#azure-sql-database)的靜態或變更緩慢的參考資料，您可以將參考資料加入到串流資料，以執行查閱作業。
 
-串流分析可將作業輸出路由至許多儲存體系統，例如 [Azure Blob 儲存體](/azure/storage/storage-introduction)、[Azure SQL Database](/azure/sql-database/)、[Azure Data Lake Store](/azure/data-lake-store/) 和 [Azure Cosmos DB](/azure/cosmos-db/introduction)。 您可以使用 Azure HDInsight 對儲存的輸出執行批次分析，也可以將輸出傳送至另一個服務 (例如事件中樞) 以供取用，或用於即時呈現視覺效果的 [Power BI](https://docs.microsoft.com/power-bi/)。
+串流分析可將作業輸出路由至許多儲存體系統，例如 [Azure Blob 儲存體](/azure/storage/storage-introduction)、[Azure SQL Database](/azure/sql-database/)、[Azure Data Lake Store](/azure/data-lake-store/) 和 [Azure CosmosDB](/azure/cosmos-db/introduction)。 您可以使用 Azure HDInsight 對儲存的輸出執行批次分析，也可以將輸出傳送至另一個服務 (例如事件中樞) 以供取用，或用於即時呈現視覺效果的 [Power BI](https://docs.microsoft.com/power-bi/)。
 
 如需串流分析輸出的完整清單，請參閱[了解來自 Azure 串流分析的輸出](stream-analytics-define-outputs.md)。
 
@@ -67,9 +67,9 @@ Azure 串流分析使用已擴增的簡單 SQL 架構查詢語言，搭配強大
 
 Azure 串流分析是 Azure 上完全受控的無伺服器 (PaaS) 供應項目。 您不必佈建任何硬體或管理叢集即可執行您的作業。 Azure 串流分析會全權管理您的作業，它會在雲端設定複雜的計算叢集，並負責處理執行作業所需的效能微調。 與 Azure 事件中樞和 Azure IoT 中樞整合，可讓作業每秒擷取數百萬來自各種來源 (包括連線裝置、點擊資料流及記錄檔等) 的事件。 透過事件中樞的分割功能，您可以將計算分割為邏輯步驟，而每個步驟都可以再進一步地分割來增加延展性。
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>在雲端或在智慧邊緣執行
+## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>在雲端或在智慧邊緣執行
 
-Azure 串流分析可以在雲端執行以進行大規模分析，或在 IoT Edge 上執行以進行超低延遲分析。 Azure 串流分析會在雲端和智慧邊緣上使用相同的查詢語言，讓開發人員能夠建置真正的混合式架構進行串流處理。
+Azure 串流分析可以在雲端執行以進行大規模分析，或在 IoT Edge 上執行以進行超低延遲分析。 Azure 串流分析會在雲端和智慧邊緣上使用相同的查詢語言，讓開發人員能夠建置真正的混合式架構進行串流處理。 
 
 ## <a name="low-total-cost-of-ownership"></a>低擁有權總成本
 
@@ -85,7 +85,7 @@ Azure 串流分析可保證僅只一次的事件處理，以及至少一次的�
 
 Azure 串流分析具有可在事件傳遞失敗時進行復原的內建功能。 串流分析也會提供內建檢查點來維護作業的狀態，並提供可重複出現的結果。
 
-串流分析為受控服務，可保證處理事件在分鐘層級有 99.9% 的可用性。 如需詳細資訊，請參閱[串流分析 SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 頁面。 
+串流分析為受控服務，可保證事件處理在分鐘層級細微性上有 99.9% 的可用性。 如需詳細資訊，請參閱[串流分析 SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 頁面。 
 
 ### <a name="security"></a>安全性
 
@@ -97,7 +97,7 @@ Azure 串流分析會遵循如 [Azure 合規性概觀](https://gallery.technet.m
 
 ## <a name="performance"></a>效能
 
-串流分析每秒可以處理數百萬個事件，並可低延遲地傳遞結果。 它可讓您相應增加及向外延展，以處理大型的即時和複雜事件處理應用程式。 串流分析藉由下列方式來支援效能：進行分割，並允許在多個串流節點上平行化及執行複雜的查詢。 Azure 串流分析是以 [Trill](https://github.com/Microsoft/Trill) 為基礎，這是與 Microsoft Research 合作開發的高效能記憶體內部串流分析引擎。
+串流分析每秒可以處理數百萬個事件，並可極低延遲地傳遞結果。 它可讓您相應增加及向外延展，以處理大型的即時和複雜事件處理應用程式。 串流分析藉由下列方式來支援更高的效能：進行分割，並允許在多個串流節點上平行化及執行複雜的查詢。 Azure 串流分析是以 [Trill](https://github.com/Microsoft/Trill) 為基礎，這是與 Microsoft Research 合作開發的高效能記憶體內部串流分析引擎。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482579"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655488"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式
 
@@ -50,7 +50,7 @@ ms.locfileid: "67482579"
        - 若為 Web 應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
        - 若為公用用戶端應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `myapp://auth`。
 
-     若要查看 Web 應用程式或原生應用程式的特定範例，請參閱我們的[快速入門](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)。
+     若要查看 Web 應用程式或原生應用程式的特定範例，請參閱我們的[快速入門](https://docs.microsoft.com/azure/active-directory/develop)。
 
 1. 完成時，選取 [註冊]  。
 
@@ -67,6 +67,6 @@ Azure AD 會將唯一的應用程式 (用戶端) 識別碼指派給您的應用�
     - [設定用戶端應用程式以存取 Web API](quickstart-configure-app-access-web-apis.md)
     - [設定應用程式以公開 Web API](quickstart-configure-app-expose-web-apis.md)
     - [修改應用程式所支援的帳戶](quickstart-modify-supported-accounts.md)
-- 選擇[快速入門](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)來快速建置應用程式並新增諸如取得權杖、重新整理權杖、讓使用者登入、顯示一些使用者資訊等功能。
+- 選擇[快速入門](https://docs.microsoft.com/azure/active-directory/develop)來快速建置應用程式並新增諸如取得權杖、重新整理權杖、讓使用者登入、顯示一些使用者資訊等功能。
 - 若要深入了解代表已註冊應用程式的兩個 Azure AD 物件，以及它們之間的關聯性，請參閱[應用程式物件和服務主體物件](app-objects-and-service-principals.md)。
 - 若要深入了解開發應用程式時應使用的商標指導方針，請參閱[應用程式的商標指導方針](howto-add-branding-in-azure-ad-apps.md)。

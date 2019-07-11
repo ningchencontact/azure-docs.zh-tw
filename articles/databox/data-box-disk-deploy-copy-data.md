@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925157"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147520"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -250,6 +250,8 @@ ms.locfileid: "64925157"
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+如果您在使用分割複製工具時看到錯誤，請移至如何[針對分割複製工具錯誤進行疑難排解](data-box-disk-troubleshoot-data-copy.md)。
+
 資料複製完成之後，接下來您可以驗證資料。 如果您使用「分割複製」工具，請略過驗證 (「分割複製」工具也會進行驗證)，並進入下一個教學課程。
 
 
@@ -270,6 +272,8 @@ ms.locfileid: "64925157"
     > - 如果處理包含小檔案 (~KB) 的大型資料集，請使用選項 1。 此選項只會驗證檔案，因為產生總和檢查碼可能需要很長的時間，而且效能可能會變得非常慢。
 
 3. 如果使用了多個磁碟，請對每個磁碟執行命令。
+
+如果您在驗證期間看到錯誤，請參閱[針對驗證錯誤進行疑難排解](data-box-disk-troubleshoot.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

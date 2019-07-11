@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 15-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2d7c7cf4972b1ee0a5add3b4611dc4c8655da875
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>教學課程：Azure Active Directory 與 Sectigo Certificate Manager 整合
 
@@ -192,7 +192,7 @@ Sectigo Certificate Manager 支援下列功能：
 
 1. 在 [使用者和群組]  窗格中，選取使用者清單中的 [Britta Simon]  。 選擇 [選取]  。
 
-1. 如果您預期使用 SAML 判斷提示中的角色值，則在 [選取角色]  窗格的清單中選取相關的使用者角色。 選擇 [選取]  。
+1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  窗格的清單中選取相關的使用者角色。 選擇 [選取]  。
 
 1. 在 [新增指派]  窗格中，選取 [指派]  。
 

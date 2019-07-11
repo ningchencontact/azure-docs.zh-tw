@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 86aab19eb0203e75fb8586adbdeb3f6fff9d14bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b77b44856e9623235051470bc087885765ee12c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080440"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -41,7 +41,7 @@ ms.locfileid: "64575441"
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
-* 已使用 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 設定 [Visual Studio Code](https://code.visualstudio.com/)。
+* 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * [Docker CE](https://docs.docker.com/install/) 已設定為執行 Linux 容器。
 
 本教學課程會使用 Azure Functions 模組，將資料傳送至 SQL Server。 若要以 Azure Functions 開發 IoT Edge 模組，請在您的開發機器上安裝下列其他必要條件： 
@@ -69,7 +69,7 @@ ms.locfileid: "64575441"
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱 (例如 **SqlSolution**)，或接受預設值。 |
    | 選取模組範本 | 選擇 [Azure Functions - C#]  。 |
    | 提供模組名稱 | 將模組命名為 **sqlFunction**。 |
-   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br>最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/sqlFunction。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br>最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/sqlfunction。 |
 
    VS Code 視窗會載入您的 IoT Edge 方案工作區。 
    
@@ -83,11 +83,11 @@ ms.locfileid: "64575441"
 
 ### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 C 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設為 Linux AMD64。 
+目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 C 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
 
 1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 
-2. 在命令選擇區中，從選項清單中選取目標架構。 針對此教學課程，我們是使用 Ubuntu 虛擬機器作為 IoT Edge 裝置，因此會保留預設的 **amd64**。 
+2. 在命令選擇區中，從選項清單中選取目標架構。 針對此教學課程，我們是使用 Ubuntu 虛擬機器作為 IoT Edge 裝置，因此會保留預設 **amd64**。 
 
 ### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
 

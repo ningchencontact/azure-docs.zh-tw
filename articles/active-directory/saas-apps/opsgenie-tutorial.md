@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 446ac54d84f7b2b3bf3aaf6eaf5536f0dfb804fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>教學課程：Azure Active Directory 與 OpsGenie 整合
 
@@ -97,7 +97,7 @@ OpsGenie 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

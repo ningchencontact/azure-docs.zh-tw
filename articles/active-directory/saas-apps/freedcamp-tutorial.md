@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9aabdba16b334aa957e1e8109d1e16d22e01dc7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 4de1ae135df4cd070fe9c6ee322e304caa1e17c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101903"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>教學課程：整合 Freedcamp 與 Azure Active Directory
 
@@ -49,8 +49,8 @@ ms.locfileid: "65987852"
 若要進行將 Freedcamp 整合到 Azure AD 中的設定，您必須從資源庫將 Freedcamp 新增至受控 SaaS 應用程式清單。
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在左側瀏覽窗格上，選取 [Azure Active Directory]  服務。
-1. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  。
+1. 在左方瀏覽窗格上，選取 [Azure Active Directory]  服務。
+1. 巡覽至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 1. 若要新增應用程式，請選取 [新增應用程式]  。
 1. 在 [從資源庫新增]  區段的搜尋方塊中，輸入 **Freedcamp**。
 1. 從結果面板中選取 [Freedcamp]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
@@ -131,13 +131,13 @@ ms.locfileid: "65987852"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-在本節中，您將在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。
+在本節中，您會在 Azure 入口網站中建立名稱為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `Britta Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 

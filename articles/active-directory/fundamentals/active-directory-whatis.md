@@ -2,20 +2,20 @@
 title: 什麼是 Azure Active Directory？ - Azure Active Directory | Microsoft Docs
 description: 關於 Azure Active Directory 的概觀和概念性資訊，包括術語、可用的授權，以及具有詳細資訊連結的相關功能清單。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 05/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8fad7f0dc76aad306e0f2a8e26692ec997952c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470350"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440540"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 
@@ -48,7 +48,7 @@ Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 
 >
 >目前在中國不支援 Premium P1、Premium P2 及 Azure Active Directory Basic。 如需有關 Azure AD 定價的詳細資訊，請透過 [Azure Active Directory 論壇](https://azure.microsoft.com/support/community/?product=active-directory)與我們連絡。
 
-- **Azure Active Directory Free。** 提供跨 Azure、Office 365 和許多熱門 SaaS 應用程式的使用者和群組管理、內部部署目錄同步作業、基本報告和單一登入。
+- **Azure Active Directory Free。** 提供跨 Azure、Office 365 和許多熱門 SaaS 應用程式的使用者和群組管理、內部部署目錄同步作業、基本報告、雲端使用者的自助式密碼變更和單一登入。
 
 - **Azure Active Directory Basic。** 除了 Free 版的功能外，Basic 版還會提供以雲端為中心的應用程式存取、以群組為基礎的存取管理、適用於雲端應用程式的自助式密碼重設，以及 Azure AD 應用程式 Proxy，讓您可以使用 Azure AD 來發佈內部部署 Web 應用程式。
 
@@ -56,7 +56,7 @@ Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 
 
 - **Azure Active Directory Premium P2。** 除了 Free 版、Basic 版和 P1 版的功能外，P2 版還會提供 [Azure Active Directory Identity Protection](../identity-protection/enable.md) (以協助針對應用程式和重要的公司資料提供以風險為基礎的條件式存取權) 以及 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) (以協助探索、限制和監視系統管理員及其對資源的存取權，以及視需要提供 Just-In-Time 存取權)。
 
-- **「預付型方案」功能授權。** 您也可以取得其他功能授權，例如 Azure Active Directory 企業對消費者 (B2C)。 B2C 可協助您提供適用於消費者面向應用程式的身分識別和存取管理解決方案。 如需詳細資訊，請參閱 [Azure Active Directory B2C 文件](../../active-directory-b2c/index.yml)。
+- **「隨用隨付方案」功能授權。** 您也可以取得其他功能授權，例如 Azure Active Directory 企業對消費者 (B2C)。 B2C 可協助您提供適用於消費者面向應用程式的身分識別和存取管理解決方案。 如需詳細資訊，請參閱 [Azure Active Directory B2C 文件](../../active-directory-b2c/index.yml)。
 
 如需如何將 Azure 訂用帳戶關聯至 Azure AD 的詳細資訊，請參閱[操作說明：將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)，以及如需如何將授權指派給使用者的詳細資訊，請參閱[操作說明：指派或移除 Azure Active Directory 授權](license-users-groups.md)。
 
@@ -66,12 +66,14 @@ Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 
 
 |詞彙或概念|說明|
 |---------------|-----------|
+|身分識別| 可以獲得驗證的項目。 身分識別可以是具有使用者名稱和密碼的使用者。 身分識別也包含需要透過祕密金鑰或憑證進行驗證的應用程式或其他伺服器。|
+|帳戶| 具有相關聯資料的身分識別。 您無法擁有沒有身分識別的帳戶。|
+|Azure AD 帳戶| 透過 Azure AD 或其他 Microsoft 雲端服務 (例如 Office 365) 所建立的身分識別。 身分識別會儲存在 Azure AD 中，並可供組織的雲端服務訂用帳戶來存取。 此帳戶有時也稱為公司或學校帳戶。|
 |Azure 訂用帳戶| 用來支付 Azure 雲端服務費用。 您可以擁有許多訂用帳戶，而它們都會與信用卡連結。|
 |Azure 租用戶| 組織在註冊 Microsoft 雲端服務訂用帳戶 (例如 Microsoft Azure、Microsoft Intune 或 Office 365) 時，所自動建立的專用且受信任 Azure AD 執行個體。 一個 Azure 租用戶代表一個組織。|
 |單一租用戶| 如果 Azure 租用戶會存取專用環境中的其他服務，便可將其視為單一租用戶。|
 |多租用戶| 如果 Azure 租用戶會存取多個組織所共用環境中的其他服務，便可將其視為多租用戶。|
 |Azure AD 目錄|每個 Azure 租用戶都有專用且受信任的 Azure AD 目錄。 Azure AD 目錄包含租用戶的使用者、群組和應用程式，並可用來對租用戶資源執行身分識別和存取管理功能。|
-|Azure AD 帳戶 | 透過 Azure AD 或其他 Microsoft 雲端服務 (例如 Office 365) 所建立的身分識別。 身分識別會儲存在 Azure AD 中，並可供組織的雲端服務訂用帳戶來存取。 此帳戶有時也稱為公司或學校帳戶。|
 |自訂網域|每個新的 Azure AD 目錄皆隨附初始網域名稱 (domainname.onmicrosoft.com)。 除了初始名稱外，您也可以在清單中新增組織的網域名稱，其中的名稱除了可供營運使用，亦可供使用者用來存取組織的資源。 新增自訂網域名稱可協助您建立使用者熟悉的使用者名稱，例如 alain@contoso.com。|
 |帳戶管理員|在概念上，這個傳統的訂用帳戶系統管理員角色是訂用帳戶的計費擁有者。 這個角色可存取 [Azure 帳戶中心](https://account.azure.com/Subscriptions)，並可讓您管理帳戶中的所有訂用帳戶。 如需詳細資訊，請參閱[傳統訂用帳戶管理員角色、Azure 角色型存取控制 (RBAC) 角色和 Azure AD 管理員角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
 |服務管理員|這個傳統的訂用帳戶系統管理員角色可讓您管理所有 Azure 資源，包括存取權。 這個角色所具有的存取權，與在訂用帳戶範圍獲派擁有者角色的使用者相同。 如需詳細資訊，請參閱[傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|

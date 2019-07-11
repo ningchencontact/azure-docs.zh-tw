@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 0cc94141d683f626d0654e2067135569710de330
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b2a22beb1c88e30ce0c88a0f57ec71bbdc45ece8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>教學課程：Azure Active Directory 與 Yonyx Interactive Guides 整合
 
@@ -99,7 +99,7 @@ Yonyx Interactive Guides 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

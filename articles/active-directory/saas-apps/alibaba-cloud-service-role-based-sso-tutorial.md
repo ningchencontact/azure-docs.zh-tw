@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>教學課程：Azure Active Directory 與 Alibaba Cloud Service (角色型 SSO) 整合
 
@@ -103,7 +103,7 @@ ms.locfileid: "65899757"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "65899757"
     > [!Note]
     > 如果 [識別碼]  和 [回覆 URL]  值未自動填入，則請根據您的需求手動填入這些值。
 
-5. Alibaba Cloud Service (角色型 SSO) 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性]  對話方塊。
+5. Alibaba Cloud Service (角色型 SSO) 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 

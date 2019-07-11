@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88940b40eb309a5fb6ff73c04a47813ec3a47669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4728ad4fcd44c754a62ec19037562e63d92ec304
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103868"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656616"
 ---
 # <a name="tutorial-integrate-drift-with-azure-active-directory"></a>教學課程：整合 Drift 與 Azure Active Directory
 
@@ -88,7 +88,7 @@ ms.locfileid: "67103868"
 
     d. 在 [登入 URL]  文字方塊中，輸入 URL：`https://start.drift.com`
 
-6. Drift 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂屬性對應加入您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+6. Drift 應用程式需要特定格式的 SAML 判斷提示，您需要將自訂屬性對應加入您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 

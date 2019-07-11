@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a13d2a62c64ea114e45b49e38eda0ddc686fe7cf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>教學課程：Azure Active Directory 與 Workable 整合
 
@@ -99,7 +99,7 @@ Workable 與 Azure AD 整合可提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -162,7 +162,7 @@ Workable 與 Azure AD 整合可提供下列優點：
 
     a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
+    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com 。
 
     c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 

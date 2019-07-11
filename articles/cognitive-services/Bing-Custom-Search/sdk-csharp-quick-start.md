@@ -1,21 +1,21 @@
 ---
 title: 快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點 | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 設定自訂搜尋 SDK C# 主控台應用程式。
+description: 使用適用於 C# 的 Bing 自訂搜尋 SDK 來搜尋您的自訂搜尋執行個體。
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 09/06/2018
+ms.date: 06/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9e13edce77819d5ef8cfc3b6becff9fb82224a83
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0381df439d0c0904e8741bb1f31b179566c72ec5
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595956"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206165"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點 
 
@@ -27,7 +27,7 @@ ms.locfileid: "65595956"
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)的任何版本
 - 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
-- 已安裝 [NuGet 自訂搜尋](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)套件。 
+- [Bing 自訂搜尋](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet 套件。 
     - 在 Visual Studio 的 [方案總管]  中，以滑鼠右鍵按一下專案，然後從功能表選取 [管理 NuGet 套件]  。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件。 安裝 NuGet 自訂搜尋套件也會一併安裝下列組件：
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

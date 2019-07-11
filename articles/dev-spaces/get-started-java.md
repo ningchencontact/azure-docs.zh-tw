@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 517951be2bc99f7607facaed3c9b04260fc6d3d8
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393167"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503183"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>在使用 Java 的 Azure Dev Spaces 上開始使用
 
@@ -137,18 +137,27 @@ azds up
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-在瀏覽器視窗中開啟此 URL，您應該會看到 Web 應用程式載入。 當容器執行時，`stdout` 和 `stderr` 輸出會串流至終端機視窗。
+從 `up` 命令的輸出中識別服務的公用 URL。 該 URL 會以 `.azds.io` 結尾。 在上述範例中，公用 URL 是 `http://webfrontend.1234567890abcdef1234.eus.azds.io/`。
+
+若要查看您的 Web 應用程式，請在瀏覽器中開啟公用 URL。 另請注意，當您與 Web 應用程式互動時，`stdout` 和 `stderr` 輸出會串流到 azds trace  終端機視窗。 您也會看到 HTTP 要求通過系統時的追蹤資訊。 這可讓您更輕鬆地在開發期間追蹤複雜的多重服務呼叫。 由 Dev Spaces 新增的檢測會提供此要求追蹤。
 
 > [!Note]
-> 第一次執行時，可能需要數分鐘的時間才能備妥公用 DNS。 如果無法解析公用 URL，您可以使用主控台輸出中顯示的替代 `http://localhost:<portnumber>` URL。 如果您使用 localhost URL，容器可能看起來像在本機執行，但實際是在 AKS 中執行。 為了方便您操作以及與本機電腦上的服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。 當 DNS 記錄備妥時，您可以返回且稍後嘗試公用 URL。
-> ### <a name="update-a-content-file"></a>更新內容檔案
-> Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
+> 除了公用 URL，您也可以使用主控台輸出中顯示的替代 `http://localhost:<portnumber>` URL。 如果您使用 localhost URL，容器可能看起來像在本機執行，但實際是在 AKS 中執行。 Azure Dev Spaces 會使用 Kubernetes 的「連接埠轉送  功能將 localhost 連接埠對應至 AKS 中執行的容器。 這可促使您從本機電腦與服務互動。
+
+### <a name="update-a-content-file"></a>更新內容檔案
+Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
 
 1. 在終端機視窗中，按 `Ctrl+C` (以停止 `azds up`)。
-1. 開啟名為 `src/main/java/com/ms/sample/webfrontend/Application.java` 的程式碼檔案，然後編輯問候語訊息：`return "Hello from webfrontend in Azure!";`
+1. 開啟 `src/main/java/com/ms/sample/webfrontend/Application.java`，並在[第 19 行](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)上編輯問候語訊息：
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. 儲存檔案。
 1. 在終端機視窗中執行 `azds up`。
 
@@ -181,7 +190,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> 如果您未在 [命令選擇區] 中看到任何 Azure 開發人員空間命令，請確定您已安裝適用於 Azure 開發人員空間的 VS Code 擴充功能。 請確定您在 VS Code 中開啟的工作區是包含 azds.yaml 的資料夾。
+> 如果您未在 [命令選擇區] 中看到任何 Azure 開發人員空間命令，請確定您已安裝適用於 Azure 開發人員空間的 VS Code 擴充功能。 請確定您在 VS Code 中開啟的工作區是包含 `azds.yaml` 的資料夾。
 
 ### <a name="debug-the-container-in-kubernetes"></a>在 Kubernetes 中進行容器偵錯
 按 **F5** 可在 Kubernetes 中進行程式碼偵錯。
@@ -189,7 +198,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 與 `up` 命令相同，程式碼也會同步到開發人員空間，且容器會建置並部署到 Kubernetes。 此時，偵錯工具當然會連結至遠端容器。
 
 > [!Tip]
-> VS Code 狀態列會顯示可點按的 URL。
+> VS Code 狀態列會變成橘色，指出已連結偵錯工具。 其中也會顯示可點選的 URL，讓您用來開啟您的應用程式。
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -207,9 +216,9 @@ public String greeting()
 }
 ```
 
-儲存檔案，然後在 [偵錯動作]  窗格中，按一下 [重新整理]  按鈕。
+儲存檔案，然後在 [偵錯動作]  窗格中，按一下 [重新啟動]  按鈕。
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Azure 開發人員空間會以累加方式重新編譯現有容器中的程式碼，以提供更快的編輯/偵錯迴圈，而不是在每次進行程式碼編輯時重新建置及重新部署新的容器映像 (這通常要花費相當長的時間)。
 

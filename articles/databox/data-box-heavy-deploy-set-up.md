@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427951"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271716"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>教學課程：連接 Azure Data Box Heavy (預覽) 的纜線並且連線
 
@@ -79,7 +79,7 @@ ms.locfileid: "66427951"
 在裝置的其中一個節點上，執行下列步驟來連接網路纜線。
 
 1. 使用 CAT 6 RJ-45 網路纜線 (圖片中的藍色纜線)，將主機電腦連接到 1 Gbps 的管理連接埠。
-2. 使用 Twinax QSFP+ 銅纜線 (圖片中的黑色纜線) 連接至少一個 40-Gbps (最好超過 1 Gbps) 網路介面來傳輸資料。 如果使用 10-Gbps 交換器，應使用 Twinax SFP + 銅纜線和 QSFP+ 對 SFP+ 配接器 (QSA 配接器) 連接 40-Gbps 的網路介面來傳輸資料。
+2. 針對資料使用 QSFP+ 纜線 (Fiber 或銅纜線) 連接至少一個 40 Gbps (最好超過 1 Gbps) 網路介面。 如果使用 10-Gbps 交換器，應使用 SFP + 纜線和 QSFP+ 對 SFP+ 配接器 (QSA 配接器) 連接 40-Gbps 的網路介面來傳輸資料。
 
     ![已連接纜線的 Data Box Heavy 連接埠](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

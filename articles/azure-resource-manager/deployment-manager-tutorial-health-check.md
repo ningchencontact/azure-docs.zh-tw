@@ -4,21 +4,16 @@ description: 使用 Resource Manager 範本與 Azure 部署管理員來部署 Az
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479172"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442590"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>教學課程：在 Azure 部署管理員 (公開預覽版) 中使用健康情況檢查
 
@@ -41,7 +36,10 @@ ms.locfileid: "66479172"
 > * 驗證首度發行部署
 > * 清除資源
 
-在[這裡](https://docs.microsoft.com/rest/api/deploymentmanager/)可以找到 Azure 部署管理員 REST API 參考。
+其他資源：
+
+- [Azure 部署管理員 REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
+- [Azure 部署管理員範例](https://github.com/Azure-Samples/adm-quickstart)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -59,7 +57,7 @@ ms.locfileid: "66479172"
 下列兩個檔案用於部署 Azure 函式。 您不需要下載這些檔案，即可進行本教學課程。
 
 * Resource Manager 範本位於 [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)。 您會部署此範本來建立 Azure 函式。
-* Azure 函式原始程式碼的 zip 檔 [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip)。 Resource Manager 範本會呼叫此 zip 檔。
+* Azure 函式原始程式碼的 zip 檔 [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip)。 Resource Manager 範本會呼叫此 zip 檔。
 
 若要部署 Azure 函式，請選取 [試試看]  以開啟 Azure Cloud Shell，然後將下列指令碼貼到 Shell 視窗。  若要貼上程式碼，請以滑鼠右鍵按一下 Shell 視窗，然後選取 [貼上]  。
 

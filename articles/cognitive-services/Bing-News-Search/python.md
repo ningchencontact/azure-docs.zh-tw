@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Python 來執行新聞搜尋 - Bing 新聞搜尋 REST API
+title: 快速入門：使用 Python 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 titlesuffix: Azure Cognitive Services
 description: 使用此快速入門以運用 Python 來傳送要求給「Bing 新聞搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7745db722d1862e5254c0e0fb07605799a8f7457
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8912e38e063a93a90b2e7877aad538fbfd4044d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076712"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338991"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>快速入門：使用 Python 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
@@ -77,7 +77,8 @@ search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 
 ```python
 from IPython.display import HTML
-rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
+rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc)
+                  for desc in descriptions])
 HTML("<table>"+rows+"</table>")
 ```
 

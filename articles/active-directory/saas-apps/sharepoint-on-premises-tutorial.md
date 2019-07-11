@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699868"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>教學課程：Azure Active Directory 與 SharePoint 內部部署整合
 
@@ -56,6 +56,9 @@ ms.locfileid: "64699868"
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
+
+    > [!NOTE]   
+    > 如果元素應該無法使用，也可以透過左側導覽窗格頂端的固定 [所有服務]  連結來開啟。 在下列概觀中，[Azure Active Directory]  連結位於 [身分識別]  區段中，或者可以透過使用篩選文字方塊來搜尋。
 
 2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
@@ -98,7 +101,7 @@ ms.locfileid: "64699868"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -268,7 +271,7 @@ ms.locfileid: "64699868"
 10. 請在 SharePoint 內部部署伺服器陣列上設定 AzureCP，或設定替代的自訂宣告提供者解決方案。  在此範例中，我們使用 AzureCP。
 
     > [!NOTE]
-    > 請注意，AzureCP 並非 Microsoft 產品，無法使用 Microsoft 技術支援。 依循 https://yvand.github.io/AzureCP/，在內部部署 SharePoint 伺服器陣列上下載、安裝及設定 AzureCP 
+    > 請注意，AzureCP 並非 Microsoft 產品，無法使用 Microsoft 技術支援。 依循 https://yvand.github.io/AzureCP/ ，在內部部署 SharePoint 伺服器陣列上下載、安裝及設定 AzureCP 
 
 11. **在內部部署 SharePoint 中授與 Azure Active Directory 安全性群組的存取權**：必須將 SharePoint 內部部署中應用程式的存取權授與群組。  您可以使用下列步驟來設定存取 Web 應用程式的權限。
 

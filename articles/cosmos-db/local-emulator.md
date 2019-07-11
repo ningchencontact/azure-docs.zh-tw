@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 05/20/2019
-ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/21/2019
+ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953953"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331763"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -284,9 +284,9 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 若要變更 Azure Cosmos 模擬器中可用的容器數目，請執行下列步驟：
 
-1. 以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [重設資料...]，來刪除所有的本機 Azure Cosmos 模擬器資料。
+1. 以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器]  圖示，然後按一下 [重設資料...]  ，來刪除所有的本機 Azure Cosmos 模擬器資料。
 2. 刪除此資料夾 `%LOCALAPPDATA%\CosmosDBEmulator` 中的所有模擬器資料。
-3. 結束所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
+3. 結束所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器]  圖示，然後按一下 [結束]  。 結束所有執行個體可能需要數分鐘的時間。
 4. 安裝最新版的 [Azure Cosmos 模擬器](https://aka.ms/cosmosdb-emulator)。
 5. 啟動具有 PartitionCount 旗標的模擬器，方法是設定值 <= 250。 例如： `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100` 。
 
@@ -352,7 +352,7 @@ Cmdlet 可確保在解除安裝之前停止模擬器。
 
 Azure Cosmos 模擬器可以在適用於 Windows 的 Docker 上執行。 模擬器無法在 Docker for Oracle Linux 上運作。
 
-安裝 [Docker for Windows](https://www.docker.com/docker-windows) 後，以滑鼠右鍵按一下工具列上的 Docker 圖示，然後選取 [切換到 Windows 容器]，即可切換到 Windows 容器。
+安裝 [Docker for Windows](https://www.docker.com/docker-windows) 後，以滑鼠右鍵按一下工具列上的 Docker 圖示，然後選取 [切換到 Windows 容器]  ，即可切換到 Windows 容器。
 
 接下來，從最喜愛的殼層執行下列命令，即可從 Docker Hub 提取模擬器映像。
 
@@ -413,6 +413,57 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## 在 Mac 或 Linux 上執行<a id="mac"></a>
+
+目前 Cosmos 模擬器只能在 Windows 上執行。 執行 Mac 或 Linux 的使用者可以在裝載於 Parallels 或 VirtualBox 等 Hypervisor 的 Windows 虛擬機器中執行模擬器。 以下是此功能的啟用步驟。
+
+在 Windows VM 內執行下列命令，並記下 IPv4 位址。
+
+```cmd
+ipconfig.exe
+```
+
+您需要在應用程式內變更 DocumentClient 物件的 URI，以使用 `ipconfig.exe` 所傳回的 IPv4 位址。 下一個步驟是在建構 DocumentClient 物件時，處理 CA 驗證。 為此您需要提供 HttpClientHandler 給 DocumentClient 建構函式，其中包含 ServerCertificateCustomValidationCallback 本身的實作。
+
+以下是程式碼外觀的範例。
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+最後，在 Windows VM 內，使用下列選項從命令列啟動 Cosmos 模擬器。
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -432,14 +483,14 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
 - 如果您收到**服務無法使用**訊息，模擬器可能無法初始化網路堆疊。 由於 Pulse 安全用戶端或 Juniper 網路用戶端的網路篩選驅動程式可能會造成問題，因此請檢查是否已安裝這些驅動程式。 解除安裝協力廠商網路篩選驅動程式通常便會修正問題。 或者，使用 /DisableRIO 來啟動模擬器，將模擬器網路通訊切換為一般 Winsock。 
 
-- 當模擬器執行時，如果您的電腦進入睡眠模式或執行任何作業系統更新，您應該會看見**服務目前無法使用**的訊息。 以滑鼠右鍵按一下視窗通知匣上出現的圖示，然後選取 [重設資料]，來重設模擬器的資料。
+- 當模擬器執行時，如果您的電腦進入睡眠模式或執行任何作業系統更新，您應該會看見**服務目前無法使用**的訊息。 以滑鼠右鍵按一下視窗通知匣上出現的圖示，然後選取 [重設資料]  ，來重設模擬器的資料。
 
 ### <a id="trace-files"></a>收集追蹤檔案
 
 若要收集偵錯追蹤，請從系統管理命令提示字元執行下列命令︰
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown` 。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos 模擬器使用者介面中的 [結束]。
+2. `CosmosDB.Emulator.exe /shutdown` 。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos 模擬器使用者介面中的 [結束]  。
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 重現問題。 如果資料總管無法運作，您只需要等候數秒鐘的時間，等到瀏覽器開啟即可攔截錯誤。
@@ -450,8 +501,8 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 ### <a id="uninstall"></a>將本機模擬器解除安裝
 
 1. 以滑鼠右鍵按一下系統匣上的 Azure Cosmos 模擬器圖示，然後按一下 [結束]，即可結束本機模擬器所有已開啟的執行個體。 結束所有執行個體可能需要數分鐘的時間。
-2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)] 結果。
-3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器] 並將其選取，按一下 [解除安裝]，然後確認並再按一下 [解除安裝]。
+2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)]  結果。
+3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器]  並將其選取，按一下 [解除安裝]  ，然後確認並再按一下 [解除安裝]  。
 4. 當應用程式已解除安裝時，請瀏覽至 `%LOCALAPPDATA%\CosmosDBEmulator` 然後刪除該資料夾。
 
 ## <a name="next-steps"></a>後續步驟

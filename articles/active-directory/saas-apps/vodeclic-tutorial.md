@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c9c860bf994dfeef57e8fd86329ed3a2b3f85e4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990549"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>教學課程：Azure Active Directory 與 Vodeclic 整合
 
@@ -97,7 +97,7 @@ ms.locfileid: "65990549"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

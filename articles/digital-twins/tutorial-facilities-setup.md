@@ -2,22 +2,22 @@
 title: 教學課程：部署 Azure Digital Twins | Microsoft Docs
 description: 了解如何使用本教學課程中步驟，部署 Azure Digital Twins 執行個體及設定空間資源。
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
-ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537451"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484683"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 及設定空間圖形
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 預覽版及設定空間圖形
 
-您可以使用 Azure Digital Twins 在一致的空間系統中將人員、地點及裝置結合在一起。 這系列的教學課程會示範如何使用 Azure Digital Twins 來偵測溫度和空氣品質狀況最佳的會議室使用情况。 
+您可以使用 Azure Digital Twins 預覽版在一致的空間系統中將人員、地點及裝置結合在一起。 這系列的教學課程會示範如何使用 Azure Digital Twins 來偵測溫度和空氣品質狀況最佳的會議室使用情况。 
 
 這些教學課程會逐步引導您使用 .NET 主控台應用程式來建置辦公大樓的案例。 這棟大樓有多個樓層，每個樓層各有許多會議室。 會議室內含一些裝置，附加可偵測移動、周圍溫度和空氣品質的感應器。 
 
@@ -103,7 +103,7 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
 1. 在 Visual Studio Code 中，開啟 **occupancy-quickstart** 專案中的 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 檔案。 更新下列值：
    * **ClientId**：輸入 Azure AD 應用程式註冊的應用程式識別碼。 您在[設定應用程式權限](#permissions)的章節中記下了這個識別碼。
    * **Tenant**：輸入 [Azure AD 租用戶](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)的目錄識別碼。 您也在[設定應用程式權限](#permissions)的章節中記下了這個識別碼。
-   * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 您也可以從[部署區段](#deploy)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/**。
+   * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 您也可以從[部署區段](#deploy)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/** 。
 
 1. 查看您可以使用此範例來探索的 Digital Twins 功能清單。 執行以下命令：
 
@@ -137,7 +137,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-此函式會使用相同資料夾中的 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml)。 開啟此檔案，並記下辦公大樓的階層：Venue、Floor、Area 和 Rooms。 上述任何實體空間均可包含「裝置」和「感應器」。 每個項目都有預先定義的 `type`&mdash;例如，Floor、Room。
+此函式會使用相同資料夾中的 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml)。 開啟此檔案，並記下辦公大樓的階層：Venue  、Floor  、Area  和 Rooms  。 上述任何實體空間均可包含「裝置」  和「感應器」  。 每個項目都有預先定義的 `type`&mdash;例如，Floor、Room。
 
 範例 **yaml** 檔案會顯示使用 `Default` Digital Twins 物件模型的空間圖形。 此模型可提供適用於大部分類型的泛型名稱。 對於大樓來說，使用泛型名稱就已足夠。 例如，對 SensorDataType 使用 Temperature，對 SpaceBlobType 使用 Map。 範例空間類型是子類型為 FocusRoom、ConferenceRoom 等等的 Room。 
 
@@ -153,9 +153,9 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 - **spaces**：在 Digital Twins 物件模型中，`spaces` 表示實際位置。 每個空間都有一個 `Type`&mdash;例如，Region、Venue 或 Customer&mdash;，以及易記的 `Name`。 空間可以屬於建立階層式結構的其他空間。 provisionSample.yaml 檔案有虛構建築物的空間圖形。 請注意，`Venue` 內的 `Floor` 類型、樓層中的 `Area`，以及區域中 `Room` 節點的空間邏輯巢狀。 
 
-- **devices**：空間可以包含 `devices`，這是可管理許多感應器的實體或虛擬實體。 例如，裝置可能是使用者的電話、Raspberry Pi 感應器 Pod 或閘道。 在您範例的虛構建築物中，請注意名為「聚焦會議室」(Focus Room) 且包含 Raspberry Pi 3 A1 裝置的會議室。 每個裝置節點都是以唯一的 `hardwareId` 識別，這已在範例中硬式編碼。 若要針對實際生產環境設定這個範例，請以您設定中的值取代這些值。  
+- **devices**：空間可以包含 `devices`，這是可管理許多感應器的實體或虛擬實體。 例如，裝置可能是使用者的電話、Raspberry Pi 感應器 Pod 或閘道。 在您範例的虛構建築物中，請注意名為「聚焦會議室」(Focus Room)  且包含 Raspberry Pi 3 A1  裝置的會議室。 每個裝置節點都是以唯一的 `hardwareId` 識別，這已在範例中硬式編碼。 若要針對實際生產環境設定這個範例，請以您設定中的值取代這些值。  
 
-- **sensors**:裝置可以包含多個 `sensors`。 其可偵測並記錄實體變更，例如溫度、移動和電力。 每個感應器節點都是以 `hardwareId` 唯一識別 (已在此硬式編碼)。 對於實際應用程式，請使用設定中感應器的唯一識別碼來取代這些值。 provisionSample.yaml 檔案有兩個感應器可記錄 Motion 和 CarbonDioxide。 在 CarbonDioxide 感應器的程式碼行下面新增下列幾行，以新增另一個感應器來記錄 Temperature。 請注意，在 provisionSample.yaml 中，這幾行已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
+- **sensors**:裝置可以包含多個 `sensors`。 其可偵測並記錄實體變更，例如溫度、移動和電力。 每個感應器節點都是以 `hardwareId` 唯一識別 (已在此硬式編碼)。 對於實際應用程式，請使用設定中感應器的唯一識別碼來取代這些值。 provisionSample.yaml 檔案有兩個感應器可記錄 Motion  和 CarbonDioxide  。 在 CarbonDioxide 感應器的程式碼行下面新增下列幾行，以新增另一個感應器來記錄 Temperature  。 請注意，在 provisionSample.yaml 中，這幾行已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
 
     ```yaml
             - dataType: Temperature
@@ -173,7 +173,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 至此，如果您不想要再探索 Azure Digital Twins，請放心地刪除在本教學課程中建立的資源：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，選取您的 Digital Twins 資源群組，然後選取 [刪除]  。
 
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。

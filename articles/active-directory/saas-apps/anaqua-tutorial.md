@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc60cb221b167f6157dbc767e780cd912cbfd7d8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 147ce4c898d29f08593019073d69bba78edb75b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106878"
 ---
 # <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>教學課程：整合 ANAQUA 與 Azure Active Directory
 
@@ -111,7 +111,7 @@ ms.locfileid: "66481904"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `B. Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 

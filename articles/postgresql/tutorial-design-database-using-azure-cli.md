@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 5/6/2019
-ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 06/25/2019
+ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447231"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>教學課程：使用 Azure CLI 設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
@@ -121,15 +121,21 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 如果您的用戶端電腦已安裝 PostgreSQL，您可以使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 的本機執行個體，或 Azure 雲端主控台來連線到 Azure PostgreSQL 伺服器。 現在我們將使用 psql 命令列公用程式來連線到「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 
 1. 執行下列 psql 命令以連線到「適用於 PostgreSQL 的 Azure 資料庫」資料庫：
-   ```azurecli-interactive
+   ```
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
    例如，下列命令會使用存取認證，連線到 PostgreSQL 伺服器 **mydemoserver.postgres.database.azure.com** 上名為 **postgres** 的預設資料庫。 系統提示輸入密碼時，請輸入您選擇的 `<server_admin_password>`。
   
-   ```azurecli-interactive
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > 如果您想要使用 URL 路徑來連線到 Postgres，在進行 URL 編碼時，請將使用者名稱中的 @ 符號編碼為 `%40`。 例如，psql 的連接字串會是
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
 2. 連線到伺服器之後，在提示字元中建立空白資料庫：
    ```sql

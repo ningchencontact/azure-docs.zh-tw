@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100136"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>教學課程：Azure Active Directory 與 Insperity ExpensAble 整合
 
@@ -108,7 +108,7 @@ Insperity ExpensAble 與 Azure AD 整合提供下列優點：
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Insperity ExpensAble 用戶端支援小組](http://expensable.com/support/support-overview)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Insperity ExpensAble 用戶端支援小組](https://www.insperity.com/products/expense-management/support/express/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
 
@@ -126,7 +126,7 @@ Insperity ExpensAble 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>設定 Insperity ExpensAble 單一登入
 
-若要設定 **Insperity ExpensAble** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [Insperity ExpensAble 支援小組](http://expensable.com/support/support-overview)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **Insperity ExpensAble** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [Insperity ExpensAble 支援小組](https://www.insperity.com/products/expense-management/support/express/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -181,7 +181,7 @@ Insperity ExpensAble 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-insperity-expensable-test-user"></a>建立 Insperity ExpensAble 測試使用者
 
-在本節中，您會在 Insperity ExpensAble 中建立名為 Britta Simon 的使用者。 請與  [Insperity ExpensAble 支援小組](http://expensable.com/support/support-overview)合作，在 Insperity ExpensAble 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Insperity ExpensAble 中建立名為 Britta Simon 的使用者。 請與  [Insperity ExpensAble 支援小組](https://www.insperity.com/products/expense-management/support/express/)合作，在 Insperity ExpensAble 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

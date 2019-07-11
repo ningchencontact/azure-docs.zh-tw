@@ -3,19 +3,19 @@ title: 快速入門：取得句子長度 (Java) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何使用 Java 和翻譯工具文字 API 來判斷句子長度。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 748f8cfa1e105b5c6d7b9b3fc073eac9f38a63dd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 252be03bfb0f24f0de5868d64d5add0e635cef34
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514859"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445115"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來判斷句子長度
 
@@ -108,6 +108,7 @@ public class LengthSentence {
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
 ```
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="create-a-client-and-build-a-request"></a>建立用戶端，並建置要求
 

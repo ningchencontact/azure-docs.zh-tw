@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7dab6f6b9215ead8cdcf513e226fd2fb8e59d8fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>教學課程：Azure Active Directory 與 Leapsome 整合
 
@@ -97,7 +97,7 @@ ms.locfileid: "65988084"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ ms.locfileid: "65988084"
     > [!NOTE]
     > 上述 [回覆 URL] 和 [登入 URL] 值並非真正的值。 您將會使用實際的值來更新這些值，稍後會在本教學課程中說明。
 
-6. Leapsome 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性]  對話方塊。
+6. Leapsome 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 

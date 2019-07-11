@@ -3,19 +3,19 @@ title: 快速入門：偵測文字語言 (Node.js) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您將了解如何搭配使用 Node.js 與翻譯工具文字 REST API 來識別所提供文字的語言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 2a22584cdace196287f5475536ac019d8dcfc15d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: c4baf5fc72986f73bf9081a351a9baec1b4ea277
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515182"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445054"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>快速入門：使用翻譯工具文字 API 搭配 Node.js 來偵測文字語言
 
@@ -89,10 +89,11 @@ let options = {
     json: true,
 };
 ```
+要驗證要求，最簡單的方式是將您的訂用帳戶金鑰以 `Ocp-Apim-Subscription-Key` 標頭的形式傳入，我們在此範例中即採用此方式。 或者，您可以將訂用帳戶金鑰替換為存取權杖，並將存取權杖連同 `Authorization` 標頭傳入，以驗證您的要求。 
 
-### <a name="authentication"></a>Authentication
+如果您使用認知服務多服務訂用帳戶，您也必須在要求標題中包含 `Ocp-Apim-Subscription-Region`。 
 
-要驗證要求，最簡單的方式是將您的訂用帳戶金鑰以 `Ocp-Apim-Subscription-Key` 標頭的形式傳入，我們在此範例中即採用此方式。 或者，您可以將訂用帳戶金鑰替換為存取權杖，並將存取權杖連同 `Authorization` 標頭傳入，以驗證您的要求。 如需詳細資訊，請參閱[驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如需詳細資訊，請參閱[驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="make-the-request-and-print-the-response"></a>提出要求並列印回應
 

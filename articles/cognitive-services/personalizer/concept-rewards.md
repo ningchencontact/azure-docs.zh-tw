@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077405"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>獎勵分數表示個人化的成就
 
@@ -30,6 +30,18 @@ ms.locfileid: "66244242"
 獎勵會在使用者行為發生後傳送，而這有可能是幾天後。 個人化工具最多會等到事件已被認定沒有獎勵為止，或是 Azure 入口網站中的[獎勵等候時間](#reward-wait-time)已設定預設獎勵。
 
 如果未在**獎勵等候時間**內收到事件的獎勵分數，則會套用**預設獎勵**。 通常， **[預設獎勵](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** 會設定為零。
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>考慮獎勵的行為和資料
+
+針對獎勵分數的內容，考慮下列訊號和行為：
+
+* 涉及選項時，使用者直接輸入的建議 (「您的意思是 X？」)。
+* 工作階段長度。
+* 工作階段之間的時間。
+* 使用者互動的情感分析。
+* 直接問題或迷你問卷，Bot 會在其中要求使用者提供關於實用性、精確度的意見反應。
+* 回應警示，或延遲回應警示。
 
 ## <a name="composing-reward-scores"></a>撰寫獎勵分數
 

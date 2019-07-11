@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ff939fa514e067c26daf609270ef49de8c16db2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087430"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>教學課程：Azure Active Directory 與 Vidyard 整合
 
@@ -99,7 +99,7 @@ ms.locfileid: "66143170"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

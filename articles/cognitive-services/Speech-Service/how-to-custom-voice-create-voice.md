@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2889cef01345f00d1669e7549a2fe25ac07b97
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410732"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603136"
 ---
 # <a name="create-a-custom-voice"></a>建立自訂的語音
 
@@ -115,7 +115,7 @@ ms.locfileid: "65410732"
     > [!NOTE]
     > 您的文字語言必須與聲音音調語言相同。 您可以測試只有成功定型的模型。 在此步驟中支援僅純文字。
 
-5.  按一下頁面底部的 [新增]  。
+5.  按一下 [建立]  。
 
 一旦您已經提交您的測試要求，您會回到 [測試] 頁面。 資料表中現在包含與新的要求對應的項目，以及狀態資料行。 合成語音可能需要幾分鐘的時間。 當 [狀態] 欄寫著**Succeeded**，您可以播放音訊，或下載的文字輸入 （.txt 檔），以及音訊輸出 （.wav 檔案），並進一步聆聽後者的品質。
 

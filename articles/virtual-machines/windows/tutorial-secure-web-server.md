@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2b92700caab27b527ae58cc0c7e8deca89c4d43f
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 4396af1b96cbf13d59e9562d6d85f875ae6c4af7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66727926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080169"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教學課程：在 Azure 中使用 Key Vault 內儲存的 SSL 憑證，來保護 Windows 虛擬機器上的網頁伺服器
 
@@ -57,7 +57,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-接著，使用 [New-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) 建立 Key Vault。 每個 Key Vault 需要唯一的名稱，而且應該全部小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 `mykeyvault`：
+接下來，使用 [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) 建立金鑰保存庫。 每個 Key Vault 需要唯一的名稱，而且應該全部小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 `mykeyvault`：
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -68,16 +68,16 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>產生憑證並儲存於 Key Vault
-若要在生產環境中使用，您應該使用 [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何使用 [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) 來產生自我簽署憑證，而且該憑證會使用透過 [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy) 所得到的預設憑證原則。 
+若要在生產環境中使用，您應該使用 [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何使用 [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) 來產生自我簽署憑證，而且該憑證會使用透過 [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy) 所得到的預設憑證原則。 
 
 ```azurepowershell-interactive
-$policy = New-AzureKeyVaultCertificatePolicy `
+$policy = New-AzKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
     -IssuerName Self `
     -ValidityInMonths 12
 
-Add-AzureKeyVaultCertificate `
+Add-AzKeyVaultCertificate `
     -VaultName $keyvaultName `
     -Name "mycert" `
     -CertificatePolicy $policy 
@@ -121,10 +121,10 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>將憑證從 Key Vault 新增至 VM
-若要將憑證從 Key Vault 新增至 VM，請使用 [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret) 來取得憑證的識別碼。 使用 [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret) 將憑證新增至 VM：
+若要將憑證從 Key Vault 新增至 VM，請使用 [Get-AzKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultsecret) 來取得憑證的識別碼。 使用 [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret) 將憑證新增至 VM：
 
 ```azurepowershell-interactive
-$certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
+$certURL=(Get-AzKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzVM -ResourceGroupName $resourceGroup -Name "myVM"
 $vaultId=(Get-AzKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId

@@ -4,23 +4,24 @@ description: 在本教學課程中，您會將 Azure 函式部署為 IoT Edge �
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239648"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433035"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教學課程：將 Azure 函式部署為 IoT Edge 模組
 
-您可以使用 Azure Functions 來部署程式碼，直接在 Azure IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 Azure 函式，能在模擬的 IoT Edge 裝置上篩選感應器資料。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：     
+您可以使用 Azure Functions 來部署程式碼，直接在 Azure IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 Azure 函式，能在模擬的 IoT Edge 裝置上篩選感應器資料。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
+>
 > * 使用 Visual Studio Code 來建立 Azure 函式。
 > * 使用 VS Code 和 Docker 建立 Docker 映像，並將其發佈至您的容器登錄。
 > * 從容器登錄將模組部署到您的 IoT Edge 裝置。
@@ -136,14 +137,14 @@ ms.locfileid: "66239648"
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -160,12 +161,12 @@ ms.locfileid: "66239648"
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -176,17 +177,17 @@ ms.locfileid: "66239648"
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **CSharpFunction**，來篩選掉回報的機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。
 
-在本節中，您為容器登錄提供兩次認證。 第一次用來從您的開發電腦本機登入，讓 Visual Studio Code 可將映像推送至您的登錄。 第二次是在 IoT Edge 解決方案的 **.env** 檔案中提供，為您的 IoT Edge 裝置授與從登錄中提取映像的權限。 
+在本節中，您第二次提供容器登錄的認證 (第一次是 IoT Edge 解決方案的 **.env** 檔案)，藉由從開發電腦本機登入，讓 Visual Studio Code 可以將映像推送至您的登錄。
 
 1. 選取 [檢視]   > [終端機]  ，以開啟 VS Code 整合式終端機。 
 
 2. 在整合式終端機中輸入下列命令，以登入您的容器登錄。 請使用您先前從 Azure 容器登錄複製而來的使用者名稱和登入伺服器。
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    當系統提示您輸入密碼時，請貼上容器登錄的密碼，然後按 **Enter** 鍵。
+    當系統提示您輸入密碼時，請貼上容器登錄的密碼 (密碼不會顯示在終端機視窗中)，然後按 **Enter** 鍵。
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

@@ -1,6 +1,6 @@
 ---
 title: 快速入門：在 Azure HDInsight 中執行 Apache Hive 查詢 - Apache Zeppelin
-description: 了解如何使用 Apache Zeppelin 來執行 Apache Hive 查詢。
+description: 在此快速入門中，您將了解如何使用 Apache Zeppelin 執行 Apache Hive 查詢。
 keywords: hdinsight,hadoop,hive,互動式查詢,LLAP
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: f4b8495646e83005dc48e8a729a0e5987b832721
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056689"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>快速入門：使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢
 
@@ -24,7 +24,7 @@ ms.locfileid: "65801015"
 
 ## <a name="prerequisites"></a>必要條件
 
-HDInsight 互動式查詢叢集。 請參閱[建立叢集](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)以建立 HDInsight 叢集。  請務必選擇 [互動式查詢] 叢集類型。
+HDInsight 互動式查詢叢集。 請參閱[建立叢集](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)以建立 HDInsight 叢集。  請務必選擇 [互動式查詢]  叢集類型。
 
 ## <a name="create-an-apache-zeppelin-note"></a>建立 Apache Zeppelin 記事
 
@@ -34,14 +34,14 @@ HDInsight 互動式查詢叢集。 請參閱[建立叢集](../hadoop/apache-hado
 
     ![HDInsight 互動式查詢 Zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
 
-3. 選取 [建立新記事]。
+3. 選取 [建立新記事]  。
 
-4. 從 [建立新記事] 對話方塊，輸入或選取下列值：
+4. 從 [建立新記事]  對話方塊，輸入或選取下列值：
 
     - 記事名稱：輸入記事的名稱。
-    - 預設解譯器：從下拉式清單中選取 [jdbc]。
+    - 預設解譯器：從下拉式清單中選取 [jdbc]  。
 
-5. 選取 [建立記事]。
+5. 選取 [建立記事]  。
 
 6. 在程式碼區段中輸入下列 Hive 查詢，然後按 **Shift + Enter**：
 
@@ -54,7 +54,7 @@ HDInsight 互動式查詢叢集。 請參閱[建立叢集](../hadoop/apache-hado
 
     第一行裡面的 **%jdbc(hive)** 陳述式會指示筆記本使用 Hive JDBC 解譯器。
 
-    此查詢應該會傳回一個 Hive 資料表，其名稱為 hivesampletable。
+    此查詢應該會傳回一個 Hive 資料表，其名稱為 hivesampletable  。
 
     以下是您可以對 **hivesampletable** 執行的另外兩個 Hive 查詢：
 
@@ -83,12 +83,3 @@ HDInsight 互動式查詢叢集。 請參閱[建立叢集](../hadoop/apache-hado
 
 > [!div class="nextstepaction"]
 > [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>另請參閱
-
-* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Apache Hive 資料視覺化](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
-* [在 Azure HDInsight 中使用 Power BI 將互動式查詢 Apache Hive 資料視覺化](./apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。
-* [使用 Power Query 將 Excel 連線到 Apache Hadoop](../hadoop/apache-hadoop-connect-excel-power-query.md)。
-* [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
-* [將資料上傳至 HDInsight](../hdinsight-upload-data.md)。

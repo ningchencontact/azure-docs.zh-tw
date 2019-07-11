@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d58ef2716e2a432e1123d6b215b33fb2b688a32
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e093c9065cf7372e329af68e0fb9867bb12782a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certent-equity-management"></a>教學課程：Azure Active Directory 與 Certent Equity Management 整合
 
@@ -98,7 +98,7 @@ ms.locfileid: "64724454"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "64724454"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡客戶成功管理員所指派的 Certent Integration Analyst 以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Certent Equity Management 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下**編輯**圖示以開啟 [使用者屬性]  對話方塊。
+5. Certent Equity Management 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 

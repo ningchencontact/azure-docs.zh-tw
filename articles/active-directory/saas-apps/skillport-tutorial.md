@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bf79907feb4ec3b3747316f62102d2c235d407c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>教學課程：Azure Active Directory 與 Skillport 整合
 
@@ -97,7 +97,7 @@ Skillport 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

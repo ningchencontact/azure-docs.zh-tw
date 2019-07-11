@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 428b42e62f44d182de109740359544135561e54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476825"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441502"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>教學課程：準備部署 Azure Data Box Gateway
 
@@ -50,11 +50,10 @@ ms.locfileid: "66476825"
 
 在您開始前，請確定：
 
-- Data Box Gateway 資源應支援您的 Microsoft Azure 訂用帳戶。 不支援隨用隨付訂用帳戶。
+- Data Box Gateway 資源應支援您的 Microsoft Azure 訂用帳戶。 也支援隨用隨付訂用帳戶。
 - 您在 Data Box Edge/Data Box Gateway、IoT 中樞及 Azure 儲存體資源的資源群組層級上，具有擁有者或參與者存取權限。
 
     - 若要建立任何 Data Box Edge/ Data Box Gateway 資源，您應該要有以資源群組層級作為範圍的參與者權限 (或更高權限)。 您也需要確定已註冊 `Microsoft.DataBoxEdge` 提供者。 如需有關如何註冊的資訊，請移至[註冊資源提供者](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)。
-    - 若要建立任何 IoT 中樞資源，請確定已註冊該 Microsoft.Devices 提供者。 如需有關如何註冊的資訊，請移至[註冊資源提供者](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)。
     - 同樣的，若要建立儲存體帳戶資源，您需要以資源群組層級作為範圍的參與者存取權限 (或更高權限)。 根據預設，Azure 儲存體是已註冊的資源提供者。
 - 您有 Azure Active Directory 圖形 API 的管理員或使用者存取權。 如需詳細資訊，請參閱 [Azure Active Directory 圖形 API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)。
 - 您擁有的 Microsoft Azure 儲存體帳戶具有存取認證。

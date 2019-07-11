@@ -3,19 +3,19 @@ title: 快速入門：取得支援的語言清單 (Node.js) - 翻譯工具文字
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以取得搭配 Node.js 使用翻譯工具文字 API 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 1341307ef3868e5398f8ee6583c8bec9759832f5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cb01269d21d3b036dfff84faef1903dc082dc6f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515150"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445048"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 和 Node.js 取得支援的語言清單
 
@@ -63,6 +63,8 @@ let options = {
     json: true,
 };
 ```
+
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="make-the-request-and-print-the-response"></a>提出要求並列印回應
 

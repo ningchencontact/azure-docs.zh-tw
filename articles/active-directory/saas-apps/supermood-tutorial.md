@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>教學課程：Azure Active Directory 與 Supermood 整合
 
@@ -99,7 +99,7 @@ ms.locfileid: "64922092"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

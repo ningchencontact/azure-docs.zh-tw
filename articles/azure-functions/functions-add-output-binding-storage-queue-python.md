@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870019"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443192"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>將 Azure 儲存體佇列繫結新增至您的函式
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>將 Azure 儲存體佇列繫結新增至您的 Python 函式
 
 Azure Functions 可讓您直接將 Azure 服務和其他資源連線至函式，而不需要自行撰寫整合程式碼。 這些*繫結*同時代表輸入和輸出，會宣告於函式定義內。 繫結中的資料會提供給函式作為參數。 觸發程序是一種特殊的輸入繫結。 函式雖然只有一個觸發程序，但可以有多個輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
 
@@ -32,7 +32,7 @@ Azure Functions 可讓您直接將 Azure 服務和其他資源連線至函式，
 
 ## <a name="download-the-function-app-settings"></a>下載函式應用程式設定
 
-在先前的快速入門文章中，您已在 Azure 中建立函式應用程式與儲存體帳戶。 此帳戶的連接字串會安全地儲存在 Azure 的應用程式設定中。 在本文中，您會將訊息寫入至相同帳戶中的儲存體佇列。 在本機執行函式時若要連線至儲存體帳戶，您必須將應用程式設定下載到 local.settings.json 檔案。 執行下列 Azure Functions Core Tools 命令以將設定下載至 local.settings.json，並將 `<APP_NAME>` 取代為上一篇文章中的函式應用程式名稱：
+在先前的快速入門文章中，您已在 Azure 中建立函式應用程式與必要的儲存體帳戶。 此帳戶的連接字串會安全地儲存在 Azure 的應用程式設定中。 在本文中，您會將訊息寫入至相同帳戶中的儲存體佇列。 在本機執行函式時若要連線至儲存體帳戶，您必須將應用程式設定下載到 local.settings.json 檔案。 執行下列 Azure Functions Core Tools 命令以將設定下載至 local.settings.json，並將 `<APP_NAME>` 取代為上一篇文章中的函式應用程式名稱：
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ func azure functionapp fetch-app-settings <APP_NAME>
 > local.settings.json 檔案中包含秘密，因此絕不可發行，且應從原始檔控制中排除。
 
 您需要值 `AzureWebJobsStorage`，這是儲存體帳戶的連接字串。 您將使用此連線來確認輸出繫結會如預期般運作。
+
+## <a name="enable-extension-bundles"></a>啟用延伸模組搭售方案
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+現在，您可以將儲存體輸出繫結新增至您的專案。
 
 ## <a name="add-an-output-binding"></a>新增輸出繫結
 
@@ -117,8 +123,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> 由於您已在前一篇文章啟用 host.json 中中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x)已在啟動期間下載並安裝。
+> 由於您已在前一篇文章啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
 
 從執行階段輸出複製 `HttpTrigger` 函式的 URL，並將它貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 您應該會在瀏覽器中看到與前一篇文章中相同的回應。
 

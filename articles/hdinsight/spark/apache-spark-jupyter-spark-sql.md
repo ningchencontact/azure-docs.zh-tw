@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 74c5fcfabe0f24127c4eddb3a019f8ea5debe453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4bfa325017d485a76bfe87c0f7facde4acf8f2b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066088"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>快速入門：使用範本在 HDInsight 中建立 Apache Spark 叢集
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集
 
 了解如何在 Azure HDInsight 中建立 [Apache Spark](https://spark.apache.org/) 叢集，以及如何對 [Apache Hive](https://hive.apache.org/) 資料表執行 Spark SQL 查詢。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
@@ -40,7 +40,7 @@ ms.locfileid: "64714322"
 
     | 屬性 | 值 |
     |---|---|
-    |**訂用帳戶**|選取用來建立此叢集的 Azure 訂用帳戶。 針對本快速入門所使用的訂用帳戶是 **&lt;Azure 訂用帳戶名稱>**。 |
+    |**訂用帳戶**|選取用來建立此叢集的 Azure 訂用帳戶。 針對本快速入門所使用的訂用帳戶是 **&lt;Azure 訂用帳戶名稱>** 。 |
     | **資源群組**|建立資源群組，或選取現有的資源群組。 資源群組用來管理專案的 Azure 資源。 針對本快速入門所使用的新資源群組名稱是 **myspark20180403rg**。|
     | **位置**|選取資源群組的位置。 此範本會使用這個位置，用於建立叢集以及預設叢集儲存體。 本快速入門所使用的位置是**美國東部 2**。|
     | **ClusterName**|輸入您想要建立的 HDInsight 叢集名稱。 針對本快速入門所使用的新叢集名稱是 **myspark20180403**。|
@@ -49,7 +49,7 @@ ms.locfileid: "64714322"
 
     ![使用 Azure Resource Manager 範本建立 HDInsight Spark 叢集](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "在 HDInsight 中使用 Azure Resource Manager 範本建立 Spark 叢集")
 
-3. 選取 [我同意上方所述的條款及條件]，選取 [釘選到儀表板]，然後選取 [購買]。 您可以看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。
+3. 選取 [我同意上方所述的條款及條件]  ，選取 [釘選到儀表板]  ，然後選取 [購買]  。 您可以看到標題為 [進行範本部署]  的新圖格。 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。
 
 如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
@@ -64,15 +64,15 @@ ms.locfileid: "64714322"
 [Jupyter Notebook](https://jupyter.org/) 是支援各種程式設計語言的互動式 Notebook 環境。 Notebook 可讓您與資料互動、將程式碼與 Markdown 文字相結合，並執行簡單的視覺效果。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [HDInsight 叢集]，然後選取您所建立的叢集。
+2. 選取 [HDInsight 叢集]  ，然後選取您所建立的叢集。
 
     ![在 Azure 入口網站中開啟 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. 從入口網站的 [叢集儀表板] 區段，按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的叢集登入認證。
+3. 從入口網站的 [叢集儀表板]  區段，按一下 [Jupyter Notebook]  。 出現提示時，輸入叢集的叢集登入認證。
 
    ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
-4. 選取 [新增] > [PySpark] 來建立 Notebook。
+4. 選取 [新增]   > [PySpark]  來建立 Notebook。
 
    ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -111,16 +111,16 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
 
     ![HDInsight Spark 中的 Hive 查詢輸出](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark 中的 Hive 查詢輸出")
 
-2. 從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 關閉 Notebook 可釋出叢集資源，包括 Spark 應用程式。
+2. 從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 關閉 Notebook 可釋出叢集資源，包括 Spark 應用程式。
 
 ## <a name="clean-up-resources"></a>清除資源
 HDInsight 會將您的資料和 Jupyter Notebook 儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
 
-切換回 Azure 入口網站，然後選取 [刪除]。
+切換回 Azure 入口網站，然後選取 [刪除]  。
 
 ![刪除 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "刪除 HDInsight 叢集")
 
-您也可以選取資源群組名稱來開啟資源群組頁面，然後選取 [刪除資源群組]。 刪除資源群組時，會同時刪除 HDInsight Spark 叢集及預設儲存體帳戶。
+您也可以選取資源群組名稱來開啟資源群組頁面，然後選取 [刪除資源群組]  。 刪除資源群組時，會同時刪除 HDInsight Spark 叢集及預設儲存體帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

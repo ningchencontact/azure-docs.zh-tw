@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11370e651c338de3d139a4bb70c9658090052469
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c4d161295f236c711e8efbe23deb3c8ba5cad985
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>教學課程：Azure Active Directory 與 Zendesk 整合
 
@@ -55,19 +55,19 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Zendesk，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Zendesk**，從結果面板中選取 [Zendesk]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Zendesk**，從結果面板中選取 [Zendesk]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Zendesk](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Zendesk 測試使用者](#create-zendesk-test-user)** - 讓 Zendesk 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -91,61 +91,61 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 若要設定與 Zendesk 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Zendesk] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Zendesk]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![Zendesk 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.zendesk.com`
+    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.zendesk.com`
 
-   b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.zendesk.com`
+   b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.zendesk.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zendesk 用戶端支援小組](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Zendesk 應用程式需要特定格式的 SAML 判斷提示。 沒有任何必要 SAML 屬性，但您可以視需要從應用程式整合頁面的 [使用者屬性] 區段管理。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+5. Zendesk 應用程式需要特定格式的 SAML 判斷提示。 沒有任何必要 SAML 屬性，但您可以視需要從應用程式整合頁面的 [使用者屬性]  區段管理。 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  按鈕以開啟 [使用者屬性]  對話方塊。
 
     ![映像](common/edit-attribute.png)
 
-6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+6. 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
-    a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
+    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 
     ![映像](common/new-save-attribute.png)
 
     ![映像](common/new-attribute-details.png)
 
-    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 讓 [命名空間] 保持空白。
+    c. 讓 [命名空間]  保持空白。
 
-    d. 選取 [來源] 作為 [屬性]。
+    d. 選取 [來源] 作為 [屬性]  。
 
-    e. 從 [來源屬性] 清單中，選取適當的屬性值。
+    e. 從 [來源屬性]  清單中，選取適當的屬性值。
 
-    f. 按一下 [確定]。
+    f. 按一下 [確定]  。
 
-    g. 按一下 [檔案] 。
+    g. 按一下 [檔案]  。
 
     > [!NOTE]
     > 您可以使用擴充屬性來新增預設不在 Azure AD 中的屬性。 按一下[可以在 SAML 中設定的使用者屬性](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-)，以取得 **Zendesk**接受的完整 SAML 屬性清單。
 
-7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，複製 [指紋] 並將其儲存在電腦上。
+7. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，複製 [指紋]  並將其儲存在電腦上。
 
     ![複製指紋值](common/copy-certificatethumbprint.png)
 
-8. 在 [設定 Zendesk] 區段上，依據您的需求複製適當的 URL。
+8. 在 [設定 Zendesk]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -157,11 +157,11 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 9. 有兩種方式可設定 Zendesk - 自動和手動。
   
-10. 若要自動執行 Zendesk 內的設定，您必須按一下 [安裝延伸模組] 來安裝「我的應用程式安全登入瀏覽器延伸模組」。
+10. 若要自動執行 Zendesk 內的設定，您必須按一下 [安裝延伸模組]  來安裝「我的應用程式安全登入瀏覽器延伸模組」  。
 
     ![image](./media/zendesk-tutorial/install_extension.png)
 
-11. 將延伸模組新增至瀏覽器之後，按一下 [安裝 Zendesk] 便會將您導向到 Zendesk 應用程式。 請從該處提供用以登入 Zendesk 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行**設定 Zendesk 單一登入**一節中的步驟。
+11. 將延伸模組新增至瀏覽器之後，按一下 [安裝 Zendesk]  便會將您導向到 Zendesk 應用程式。 請從該處提供用以登入 Zendesk 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行**設定 Zendesk 單一登入**一節中的步驟。
 
     ![image](./media/zendesk-tutorial/d2_saml.png)
 
@@ -169,9 +169,9 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 1. 如果您想要手動設定 Zendesk，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Zendesk 公司網站，然後執行下列步驟：
 
-2. 按一下 Admin 。
+2. 按一下 Admin  。
 
-3. 在左側導覽窗格中按一下 [設定]，然後按一下 [安全性]。
+3. 在左側導覽窗格中按一下 [設定]  ，然後按一下 [安全性]  。
 
 4. 在 [安全性]  頁面上執行下列步驟：
 
@@ -179,27 +179,27 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
     ![單一登入](././media/zendesk-tutorial/ic773090.png "單一登入")
 
-    a. 按一下 [系統管理員和代理程式] 索引標籤。
+    a. 按一下 [系統管理員和代理程式]  索引標籤。
 
-    b. 選取 [單一登入 (SSO) 和 SAML]，然後選取 [SAML]。
+    b. 選取 [單一登入 (SSO) 和 SAML]  ，然後選取 [SAML]  。
 
-    c. 在 [SAML SSO URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
+    c. 在 [SAML SSO URL]  文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
 
-    d. 在 [遠端登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+    d. 在 [遠端登出 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
 
-    e. 在 [憑證指紋] 文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋] 值。
+    e. 在 [憑證指紋]  文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋]  值。
 
-    f. 按一下 [檔案] 。
+    f. 按一下 [檔案]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -207,20 +207,20 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Zendesk 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Zendesk]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Zendesk]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -228,19 +228,19 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
     ![應用程式清單中的 Zendesk 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-zendesk-test-user"></a>建立 Zendesk 測試使用者
 
@@ -249,16 +249,16 @@ Zendesk 與 Azure AD 整合提供下列優點：
 **如果您需要手動建立使用者，請執行下列步驟：**
 
 > [!NOTE]
-> [使用者] 帳戶會在登入時自動佈建。 登入之前，必須在 **Zendesk** 中手動佈建 [代理程式] 和 [系統管理員] 帳戶。
+> [使用者]  帳戶會在登入時自動佈建。 登入之前，必須在 **Zendesk** 中手動佈建 [代理程式]  和 [系統管理員]  帳戶。
 
 1. 登入您的 **Zendesk** 租用戶。
 
 2. 選取 [客戶清單]  索引標籤。
 
-3. 選取 [使用者] 索引標籤，然後按一下 [新增]。
+3. 選取 [使用者]  索引標籤，然後按一下 [新增]  。
 
     ![新增使用者](././media/zendesk-tutorial/ic773632.png "新增使用者")
-4. 輸入您要佈建之現有 Azure AD 帳戶的**名稱**和**電子郵件**，然後按一下 [儲存]。
+4. 輸入您要佈建之現有 Azure AD 帳戶的**名稱**和**電子郵件**，然後按一下 [儲存]  。
 
     ![新增使用者](././media/zendesk-tutorial/ic773633.png "新增使用者")
 

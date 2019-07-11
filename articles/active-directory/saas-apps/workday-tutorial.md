@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: aba2d3bab7d709b4bb9ac18e4a9c6ed052a5fb83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086971"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>教學課程：整合 Workday 與 Azure Active Directory
 
@@ -220,7 +220,7 @@ ms.locfileid: "66388876"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `Britta Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 

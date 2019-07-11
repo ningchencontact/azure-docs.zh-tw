@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: 9b529780387e1129dd7827e4d9c805d185a459d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4b37da8d31fc5ac605e59d9aceb456e996df438b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399263"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503047"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>在使用 .NET Core 和 Visual Studio 的 Azure Dev Spaces 上開始使用
 
@@ -125,9 +125,16 @@ Visual Studio 會與開發人員空間通訊，以建置和部署應用程式，
 Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
 
 ### <a name="update-a-content-file"></a>更新內容檔案
-1. 找出檔案 `./Views/Home/Index.cshtml` 並進行 HTML 編輯。 例如，將第 70 行 `<h2>Application uses</h2>` 變更如下：`<h2>Hello k8s in Azure!</h2>`
-1. 儲存檔案。
-1. 移至您的瀏覽器並重新整理頁面。 您應該會看到網頁顯示更新後的 HTML。
+
+
+1. 找出檔案 `./Views/Home/Index.cshtml` 並進行 HTML 編輯。 例如，將[第 73 行 `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) 變更如下： 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. 儲存檔案。
+3. 移至您的瀏覽器並重新整理頁面。 您應該會看到網頁顯示更新後的 HTML。
 
 發生什麼情形？ 編輯內容檔案 (例如 HTML 和 CSS) 時，不需要在 .NET Core Web 應用程式中重新編譯，所以作用中 F5 工作階段會自動將任何修改過的內容檔案，直接同步處理到 AKS 中的執行中容器，您即可立即查看內容編輯。
 

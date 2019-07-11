@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9c422e93a6768b764873f21ad9eab6fad4a868e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d35aebb1ec7b2b4eb1753e6b4aa79d583483d0c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474155"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合
 
@@ -139,7 +139,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -231,7 +231,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com。
+    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon\@yourcompanydomain.extension`。 例如： BrittaSimon@contoso.com 。
 
     c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 

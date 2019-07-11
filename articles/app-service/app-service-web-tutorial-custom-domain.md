@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742862"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155542"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure App Service
 
@@ -68,7 +68,7 @@ ms.locfileid: "66742862"
 
 您看到 App Service 應用程式的管理分頁。  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>檢查定價層
 
@@ -82,7 +82,7 @@ ms.locfileid: "66742862"
 
 如果 App Service 方案不是位於 **F1** 層，請關閉 [相應增加]  分頁，然後跳至 [對應 CNAME 記錄](#cname)。
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
@@ -96,7 +96,7 @@ ms.locfileid: "66742862"
 
 ![擴充作業確認](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>對應您的網域
 
@@ -162,7 +162,7 @@ ms.locfileid: "66742862"
 
 ![驗證錯誤](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>對應 A 記錄
 
@@ -213,7 +213,7 @@ ms.locfileid: "66742862"
 
 ![[DNS 記錄] 頁面](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>在應用程式中啟用 A 記錄對應
 
@@ -246,7 +246,7 @@ ms.locfileid: "66742862"
 
 ![驗證錯誤](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>對應萬用字元網域
 
@@ -310,7 +310,7 @@ ms.locfileid: "66742862"
 - 設定的自訂網域遺漏 A 記錄和/或 CNAME 記錄。
 - 瀏覽器用戶端已將網域的舊 IP 位址加入快取。 請清除快取並再次測試 DNS 解析。 在 Windows 電腦上，您可以使用 `ipconfig /flushdns` 清除快取。
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>移轉作用中的網域
 

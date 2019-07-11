@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8bba46bba103eae49ea26ffc0c653c2ccc8309
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eba2aad0c758aeff189ba8638d92c46ed0902c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>教學課程：Azure Active Directory 與 Amplitude 整合
 
@@ -54,19 +54,19 @@ ms.locfileid: "57860460"
 
 **若要從資源庫新增 Amplitude，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Amplitude**，從結果面板中選取 [Amplitude]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Amplitude**，從結果面板中選取 [Amplitude]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 Amplitude](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "57860460"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Amplitude 測試使用者](#create-amplitude-test-user)** - 在 Amplitude 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -90,40 +90,40 @@ ms.locfileid: "57860460"
 
 若要設定與 Amplitude 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Amplitude] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Amplitude]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
     ![Amplitude 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入 URL：`https://amplitude.com/saml/sso/metadata`
+    a. 在 [識別碼]  文字方塊中，輸入 URL：`https://amplitude.com/saml/sso/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://analytics.amplitude.com/saml/sso/<uniqueid>`
+    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 您會在本教學課程中稍後取得 [回覆 URL] 值。
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
+5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     ![Amplitude 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://analytics.amplitude.com/sso`
+    在 [登入 URL]  文字方塊中，輸入 URL：`https://analytics.amplitude.com/sso`
 
-6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+6. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-7. 在 [設定 Amplitude] 區段上，依據您的需求複製適當的 URL。
+7. 在 [設定 Amplitude]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -137,21 +137,21 @@ ms.locfileid: "57860460"
 
 1. 以系統管理員身分登入您的 Amplitude 公司網站。
 
-2. 從左側導覽列中選取 [Plan Admin] \(方案管理\)。
+2. 從左側導覽列中選取 [Plan Admin] \(方案管理\)  。
 
     ![設定單一登入](./media/amplitude-tutorial/configure1.png)
 
-3. 從 [SSO Integration] \(單一登入整合\)中選取 [Microsoft Azure Active Directory Metadata] \(Microsoft Azure Active Directory 中繼資料\)。
+3. 從 [SSO Integration] \(單一登入整合\)  中選取 [Microsoft Azure Active Directory Metadata] \(Microsoft Azure Active Directory 中繼資料\)  。
 
     ![設定單一登入](./media/amplitude-tutorial/configure2.png)
 
-4. 在 [Set Up Single Sign-On] \(設定單一登入\) 區段中，執行下列步驟：
+4. 在 [Set Up Single Sign-On] \(設定單一登入\)  區段中，執行下列步驟：
 
     ![設定單一登入](./media/amplitude-tutorial/configure3.png)
 
-    a. 在記事本中開啟從 Azure 入口網站下載的**中繼資料 Xml**，將內容貼到 [Microsoft Azure Active Directory Metadata] \(Microsoft Azure Active Directory 中繼資料\) 文字方塊中。
+    a. 在記事本中開啟從 Azure 入口網站下載的**中繼資料 Xml**，將內容貼到 [Microsoft Azure Active Directory Metadata] \(Microsoft Azure Active Directory 中繼資料\)  文字方塊中。
 
-    b. 複製 [Reply URL (ACS)] \(回覆 URL (ACS)\) 值，然後貼到 Azure 入口網站之 [基本 SAML 設定] 的 [回覆 URL] 文字方塊中。
+    b. 複製 [Reply URL (ACS)] \(回覆 URL (ACS)\)  值，然後貼到 Azure 入口網站之 [基本 SAML 設定]  的 [回覆 URL]  文字方塊中。
 
     c. 按一下 [儲存] 
 
@@ -159,11 +159,11 @@ ms.locfileid: "57860460"
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -171,40 +171,40 @@ ms.locfileid: "57860460"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會把將 Amplitude 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Amplitude]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Amplitude]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Amplitude]。
+2. 在應用程式清單中，選取 [Amplitude]  。
 
     ![應用程式清單中的 Amplitude 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊的 [使用者] 清單中，選取 [Britta Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
 
-6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色]  對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-amplitude-test-user"></a>建立 Amplitude 測試使用者
 

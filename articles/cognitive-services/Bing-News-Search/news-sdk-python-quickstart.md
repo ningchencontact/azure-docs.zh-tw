@@ -1,5 +1,5 @@
 ---
-title: 快速入門：執行新聞搜尋 - 適用於 Python 的 Bing 新聞搜尋 SDK
+title: 快速入門：使用適用於 Python 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用「適用於 Python 的 Bing 新聞搜尋 SDK」來搜尋新聞，並處理回應。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e9a24084e025723febf854fad7ba83db55d1f824
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2f6185ca6c2ddd44be2c12a81cedf1adcc2e30cd
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798611"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339017"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
@@ -72,7 +72,8 @@ python -m pip install azure-cognitiveservices-search-newssearch
 ```python
 if news_result.value:
     first_news_result = news_result.value[0]
-    print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
+    print("Total estimated matches value: {}".format(
+        news_result.total_estimated_matches))
     print("News result count: {}".format(len(news_result.value)))
     print("First news name: {}".format(first_news_result.name))
     print("First news url: {}".format(first_news_result.url))

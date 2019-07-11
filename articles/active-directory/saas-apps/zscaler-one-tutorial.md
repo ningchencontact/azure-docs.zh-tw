@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 94682cfae8078a38fff9ef36ccfc619baee2e612
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79eae27becf0d2570132b3ad709414879140fd0f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694430"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>教學課程：Azure Active Directory 與 Zscaler One 整合
 
@@ -99,7 +99,7 @@ ms.locfileid: "64694430"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

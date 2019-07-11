@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>教學課程：Azure Active Directory 與 TextMagic 整合
 
@@ -98,7 +98,7 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -116,10 +116,10 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     | Name |   來源屬性| 命名空間  |
     | --------------- | --------------- | --------------- |
-    | company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | 電話               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | 電話               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。

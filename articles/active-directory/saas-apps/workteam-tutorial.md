@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a59e7d9177834790b6df0f1c45a60849d3fdca0e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>教學課程：Azure Active Directory 與 Workteam 整合
 
@@ -97,7 +97,7 @@ Workteam 與 Azure AD 的整合可提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

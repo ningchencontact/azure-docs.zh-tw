@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 734e1d08413867a438270660fa97bb8c5737e087
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629313"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135389"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>教學課程：跨工作階段和裝置來共用 Azure Spatial Anchors
 
@@ -38,7 +38,7 @@ Azure Spatial Anchors 是一款跨平台開發人員服務，可讓您使用在�
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>在 Unity 中開啟範例專案
+## <a name="download-the-unity-sample-project"></a>下載 Unity 範例專案
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 

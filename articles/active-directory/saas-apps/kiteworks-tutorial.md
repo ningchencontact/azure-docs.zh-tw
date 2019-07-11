@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b1789f0f6441da8a38440fc606a5748d48930a1a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c480babcb88528ef59cc9f1a9a0478e35a7b3fba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>教學課程：將 Azure Active Directory 與 Kiteworks 整合
 
@@ -98,7 +98,7 @@ ms.locfileid: "65897913"
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

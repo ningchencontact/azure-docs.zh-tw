@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 51db52d5a5bfef6ef5a34fa9a0877516d5786236
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143195"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>教學課程：Azure Active Directory 與 ZIVVER 整合
 
@@ -97,7 +97,7 @@ ZIVVER 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

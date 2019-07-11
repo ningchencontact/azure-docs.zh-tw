@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2e717e612973fa4c46c9ab4e70091d32fcf19
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7dbf96c3480f47e5f6b292759a949c9bbf36dc07
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902418"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>教學課程：Azure Active Directory 與 SECURE DELIVER 整合
 
@@ -98,7 +98,7 @@ SECURE DELIVER 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

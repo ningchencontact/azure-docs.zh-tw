@@ -3,19 +3,19 @@ title: 快速入門：在雙語字典中查詢單字 (Java) - 翻譯工具文字
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何使用 Java 和翻譯工具文字 API 取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 027e895ffbeb3cc0ff5b3348c2d7a8b76b930cf3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: d4c8f06b1689f3aaa5a88e39583a48cf990dd532
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514816"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445135"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>快速入門：使用 Java 在雙語字典中查詢單字
 
@@ -108,6 +108,8 @@ public class AltTranslation {
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
+
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="create-a-client-and-build-a-request"></a>建立用戶端，並建置要求
 

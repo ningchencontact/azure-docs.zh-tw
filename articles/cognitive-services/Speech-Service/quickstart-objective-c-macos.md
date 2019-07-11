@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67f2531b24796de1e00505fdc757f3c2244c5054
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 25f341d167cecd765fd89d9286708d0bd8df6dd2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002342"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603026"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 macOS 上以 Objective-C 辨識語音
 
@@ -34,14 +34,14 @@ ms.locfileid: "66002342"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.5.1`。
+認知服務語音 SDK 目前的版本為 `1.6.0`。
 
 適用於 Mac 的認知服務語音 SDK 會以架構組合的形式散發。
 它可在 Xcode 專案中作為 [CocoaPod](https://cocoapods.org/) 使用，或是從 https://aka.ms/csspeech/macosbinary 下載並手動連結。 本指南使用 CocoaPod。
 
 ## <a name="create-an-xcode-project"></a>建立 Xcode 專案
 
-啟動 Xcode，然後按一下 [檔案] > [新增] > [專案] 以啟動新專案。
+啟動 Xcode，然後按一下 [檔案]   > [新增]   > [專案]  以啟動新專案。
 在範本選取對話方塊中，選擇「Cocoa 應用程式」範本。
 
 在後續的對話方塊中，進行下列選取：
@@ -67,13 +67,7 @@ ms.locfileid: "66002342"
 ## <a name="install-the-sdk-as-a-cocoapod"></a>將 SDK 安裝為 CocoaPod
 
 1. 依照[安裝指示](https://guides.cocoapods.org/using/getting-started.html)中的說明安裝 CocoaPod 相依性管理員。
-1. 瀏覽至範例應用程式的目錄 (`helloworld`)。 在該目錄中放入名為 `Podfile` 的文字檔和下列內容：
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.1'
-    end
-    ```
+1. 瀏覽至範例應用程式的目錄 (`helloworld`)。 在該目錄中放入名為 `Podfile` 的文字檔和下列內容：[!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. 瀏覽至終端機的 `helloworld` 目錄，並執行命令 `pod install`。 這將會產生一個 `helloworld.xcworkspace` Xcode 工作區，其中包含範例應用程式和作為相依性的語音 SDK。 此工作區將用於下列作業。
 
 ## <a name="add-the-sample-code"></a>新增範例程式碼
@@ -86,12 +80,11 @@ ms.locfileid: "66002342"
 
 ## <a name="build-and-run-the-sample"></a>建置並執行範例
 
-1. 顯示偵錯輸出 ([檢視] > [偵錯區域] > [啟動主控台])。
-1. 建置範例程式碼，然後從功能表中選取 [產品] -> [執行] 或按一下 [播放] 按鈕，以執行該程式碼。
+1. 顯示偵錯輸出 ([檢視]   > [偵錯區域]   > [啟動主控台]  )。
+1. 建置範例程式碼，然後從功能表中選取 [產品]   > [執行]  或按一下 [播放]  按鈕，以執行該程式碼。
 1. 按一下該按鈕並說出幾個字後，您應該會在畫面的下半部看到說出的文字。 當您第一次執行應用程式時，系統應會提示您為應用程式授與電腦麥克風的存取權。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 Objective-C 範例](https://aka.ms/csspeech/samples)
-

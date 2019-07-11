@@ -3,19 +3,19 @@ title: 快速入門：取得支援的語言清單 (Python) - 翻譯工具文字 
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以取得使用翻譯工具文字 API 搭配 Python 來翻譯、音譯及查閱字典時，所支援的語言清單與範例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: fe2ab3952b68243f7e95ebf754a42e58006f012b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 23a850723e4f7b4df2a8fca969380156586d6aae
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514724"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444914"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來取得支援的語言清單
 
@@ -33,7 +33,10 @@ ms.locfileid: "66514724"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -67,6 +70,8 @@ headers = {
 }
 ```
 
+如果您使用認知服務多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>建立要求以取得支援的語言清單
 
 我們將使用 `requests` 模組建立 GET 要求。 此作業會採用兩個引數：串連的 URL 和要求標頭：
@@ -81,7 +86,8 @@ response = request.json()
 最後一個步驟是列印結果。 此程式碼片段會排序索引鍵、設定縮排，並宣告項目和索引鍵分隔符號，以美化結果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>組合在一起

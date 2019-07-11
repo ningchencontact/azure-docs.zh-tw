@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa088aa331621409103997755b2344f2dd70c64
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3bc061cca3a2c57d2ebccb0fc09f8168c2fad253
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992941"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163971"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>教學課程：整合 Whatfix 與 Azure Active Directory
 
@@ -107,7 +107,7 @@ ms.locfileid: "65992941"
 1. 在畫面頂端選取 [新增使用者]  。
 1. 在 [使用者]  屬性中，執行下列步驟：
    1. 在 [名稱]  欄位中，輸入 `Britta Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com`。
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `BrittaSimon@contoso.com` 。
    1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
    1. 按一下頁面底部的 [新增]  。
 

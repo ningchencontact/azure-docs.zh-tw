@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070674"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用實際範例在 Azure Cosmos DB 上建立資料的模型及加以分割
 
@@ -479,7 +479,7 @@ function updateUsernames(userId, username) {
 
 此容器依 `type` 進行分割，這在我們項目中一律為 `post`。 這麼做可確保此容器中的所有項目將位於相同的分割區中。
 
-要完成反正規化，我們只需連結先前導入的變更摘要管線，以將貼文分派到這個新的容器即可。 需留意的一項重點，是必須確定我們僅儲存了 100 篇最新的貼文；否則，容器的內容可能會超出分割區的大小上限。 每次在容器中新增文件後，您可以藉由呼叫[後置觸發程序](stored-procedures-triggers-udfs.md#triggers)來確認這一點：
+要完成反正規化，我們只需連結先前導入的變更摘要管線，以將貼文分派到這個新的容器即可。 需留意的一項重點，就是必須確定我們僅儲存了 100 篇最新的貼文；否則，容器的內容可能會超出分割區的大小上限。 每次在容器中新增文件後，您可以藉由呼叫[後置觸發程序](stored-procedures-triggers-udfs.md#triggers)來確認這一點：
 
 ![將貼文反正規化至摘要容器中](./media/how-to-model-partition-example/denormalization-3.png)
 

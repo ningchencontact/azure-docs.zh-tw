@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2019
+ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 57ec4990447070d1889f7476b89abb742296c056
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597515"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485821"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教學課程：實作裝置韌體更新程序
 
@@ -41,7 +41,7 @@ ms.locfileid: "65597515"
 
 ## <a name="prerequisites"></a>必要條件
 
-您在此快速入門中執行的兩個範例應用程式是使用 Node.js 所撰寫的。 您的開發電腦上需要 Node.js v10.x.x 版或更高版本。
+您在此快速入門中執行的兩個範例應用程式是使用 Node.js 所撰寫的。 您的開發電腦上需要 Node.js 10.x.x 版或更新版本。
 
 您可以從 [nodejs.org](https://nodejs.org) 下載適用於多種平台的 Node.js。
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -o table
+az iot hub show-connection-string --name $hubname -policy-name service -o table
 
 ```
 
@@ -95,8 +95,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 ```
 
 > [!TIP]
-> 如果您在 Windows 命令提示字元或 Powershell 命令提示字元中執行這些命令，請參閱 [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
-) 頁面，以取得如何為 JSON 字串加上引號的相關資訊。
+> 如果您在 Windows 命令提示字元或 Powershell 命令提示字元中執行這些命令，請參閱 [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips) 頁面，以取得如何為 JSON 字串加上引號的相關資訊。
 
 ## <a name="start-the-firmware-update"></a>開始進行韌體更新
 
@@ -187,7 +186,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![後端應用程式](./media/tutorial-firmware-update/BackEnd2.png)
 
-由於 IoT 中樞裝置身分識別登錄中的延遲，您可能不會看到每個傳送至後端應用程式的狀態更新。 您也可以在入口網站中，經由 IoT 中樞的 [自動裝置管理] -> [IoT 裝置組態]  區段來檢視計量：
+由於自動裝置設定會在建立時執行，以及之後每五分鐘執行一次，因此您可能不會看到每個傳送至後端應用程式的更新狀態。 您也可以在入口網站中，經由 IoT 中樞的 [自動裝置管理] -> [IoT 裝置組態]  區段來檢視計量：
 
 ![在入口網站中檢視組態](./media/tutorial-firmware-update/portalview.png)
 

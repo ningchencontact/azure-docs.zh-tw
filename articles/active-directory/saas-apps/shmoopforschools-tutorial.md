@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 39b7d251f1d6d75ac22d50f1b62a3581f9d343c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0cf318161bff8950280fc5a8b007e08ef683ad18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>教學課程：Azure Active Directory 與 Shmoop For Schools 整合
 
@@ -99,7 +99,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 

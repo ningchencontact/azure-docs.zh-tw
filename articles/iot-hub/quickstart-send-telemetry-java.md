@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 52e221088a7b12551636ecdc81532448f38eb26c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59004792"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330455"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Java)
 
@@ -75,7 +75,7 @@ az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
-2. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得「裝置連接字串」：**YourIoTHubName:以您為 IoT 中樞選擇的名稱取代此預留位置。
+2. 在 Azure Cloud Shell 中執行下列命令，以針對您剛註冊的裝置取得「裝置連接字串」  ：**YourIoTHubName:以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
@@ -87,7 +87,7 @@ az extension add --name azure-cli-iot-ext
 
     您稍後會在快速入門中使用此值。
 
-3. 您還需要 IoT 中樞的「事件中樞相容端點」、「事件中樞相容路徑」和「iothubowner 主要金鑰」，以便讓後端應用程式連線到 IoT 中樞並擷取訊息。 下列命令會針對您的 IoT 中樞擷取這些值：
+3. 您還需要 IoT 中樞的「事件中樞相容端點」  、「事件中樞相容路徑」  和「服務主要金鑰」  ，以便讓後端應用程式連線到 IoT 中樞並擷取訊息。 下列命令會針對您的 IoT 中樞擷取這些值：
 
      **YourIoTHubName：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
@@ -96,7 +96,7 @@ az extension add --name azure-cli-iot-ext
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     請記下這三個值，以便稍後在快速入門中使用。
@@ -139,8 +139,7 @@ az extension add --name azure-cli-iot-ext
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | 使用先前所記錄的事件中樞相容端點來取代變數的值。 |
     | `eventHubsCompatiblePath`     | 使用先前所記錄的事件中樞相容路徑來取代變數的值。 |
-    | `iotHubSasKey`                | 使用先前所記錄的 iothubowner 主要金鑰來取代變數的值。 |
-
+    | `iotHubSasKey`                | 使用先前所記錄的服務主要金鑰來取代變數的值。 |
 
 3. 在本機終端機視窗中，執行下列命令安裝所需的程式庫並建置後端應用程式：
 
