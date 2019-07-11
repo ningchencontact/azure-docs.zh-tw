@@ -1,5 +1,5 @@
 ---
-title: 配置設定
+title: 設定設定-Personalizer
 titleSuffix: Azure Cognitive Services
 description: 服務設定包括服務如何處理報酬、服務進行探索的頻率、模型重新定型的頻率，以及要儲存多少資料。
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: HT
+ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478588"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722330"
 ---
 # <a name="personalizer-settings"></a>個人化工具設定
 
@@ -35,7 +35,7 @@ ms.locfileid: "66478588"
 1. 尋找個人化工具資源。 
 1. 在 [資源管理]  區段中，選取 [設定]  。
 
-    離開 Azure 入口網站之前，從**金鑰**頁面中複製其中一個資源金鑰。 您需要此金鑰方可使用[個人化工具 SDK](https://go.microsoft.com/fwlink/?linkid=2092353)。
+    離開 Azure 入口網站之前，從**金鑰**頁面中複製其中一個資源金鑰。 您需要此金鑰方可使用[個人化工具 SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)。
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>依使用案例設定意見反應迴圈的報酬設定
 
@@ -43,7 +43,7 @@ ms.locfileid: "66478588"
 
 ![設定意見反應迴圈的報酬設定](media/settings/configure-model-reward-settings.png)
 
-|設定|目的|
+|設定|用途|
 |--|--|
 |報酬等候時間|設定要讓個人化工具為排名呼叫收集報酬值的時間長度，這段時間從該排名呼叫發生的當下起算。 系統會詢問下列問題來設定此值：「個人化工具應該等候報酬呼叫多久？」 在此時段過後才抵達的報酬會記錄下來，但不會用於學習。|
 |預設報酬|如果個人化工具未在「報酬等候時間」的時段內收到任何報酬呼叫，便會指派預設報酬。 預設報酬會預設為零，且大部分情況下皆是如此。|

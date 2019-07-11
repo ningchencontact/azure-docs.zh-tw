@@ -6,22 +6,22 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480803"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592949"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>何時使用列舉實體和設定實體動作
 
 本教學課程將說明何時應該使用列舉 (enumeration) 的實體和 SET_ENTITY 動作。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![設定實體的教學課程預覽](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
 
@@ -85,7 +85,7 @@ Bot:您喜歡 Azure 認知服務嗎？
 
 ### <a name="set-entity-actions"></a>設定實體動作。
 
-如先前所述，「 設定實體 」 動作只是將實體設定為已知的列舉值。 您可以藉由建立 API 回呼的動作，並使用記憶體管理員設為值的實體來達到相同的結果。 例如 `memory.Set(entityName, entityValue)` 。 不必撰寫此程式碼，並建立這些動作會變得既繁瑣又難管理-因此對話學習模組必須採取特殊動作來協助這項工作，以及使用時，自動產生這些動作。 擁有這些做為獨立的動作會保留這些不在結合其他動作或在您的機器人的程式碼撰寫的能力。
+如先前所述，「 設定實體 」 動作只是將實體設定為已知的列舉值。 您可以藉由建立 API 回呼的動作，並使用記憶體管理員設為值的實體來達到相同的結果。 例如 `memory.Set(entityName, entityValue)`. 不必撰寫此程式碼，並建立這些動作會變得既繁瑣又難管理-因此對話學習模組必須採取特殊動作來協助這項工作，以及使用時，自動產生這些動作。 擁有這些做為獨立的動作會保留這些不在結合其他動作或在您的機器人的程式碼撰寫的能力。
 
 - 設定參考實體的一個列舉值，因此您必須先建立列舉實體時，可以只建立動作的實體。
 - 設定實體動作是也非-await > 因為它們有沒有可見的輸出，而且需要持續追蹤使用者會看到 「 等候 」 動作。

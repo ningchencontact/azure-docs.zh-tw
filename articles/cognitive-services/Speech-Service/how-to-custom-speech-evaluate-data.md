@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c1b3602b09c1a129923180c4b1d4a5f8293de2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e9818fad9a0b5d04cc50a293b16d838c319dd86
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65026726"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606577"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>評估自訂語音準確度
 
@@ -33,7 +33,7 @@ ms.locfileid: "65026726"
 * 刪除 (D):未偵測到假設文字記錄中的文字
 * 替代 (S):參考和假設之間已取代的文字
 
-以下是範例：
+以下為範例：
 
 ![識別不正確的字組的範例](./media/custom-speech/custom-speech-dis-words.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "65026726"
 2. 按一下 **加入測試**。
 3. 選取 **評估精確度**。 為測試的名稱、 描述，然後選取 音訊 + 人類看得標示為轉譯資料集。
 4. 選取您想要測試的最多兩個模型。
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 
 已成功建立您的測試之後，您可以比較的結果並排顯示。
 

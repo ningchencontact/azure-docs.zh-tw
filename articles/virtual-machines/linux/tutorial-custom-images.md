@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何使用 Azure CLI 在 Azur
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 080d1d68c2f2fb757bb51471b91a807b2f00fa2d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66166005"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709514"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立 Azure VM 的自訂映像
 
@@ -50,7 +50,7 @@ ms.locfileid: "66166005"
 
 ### <a name="deprovision-the-vm"></a>取消佈建 VM 
 
-取消佈建會藉由移除電腦特定的資訊來將 VM 一般化。 這個一般化讓您能夠從單一映像部署多部 VM。 解除佈建期間，將主機名稱重設為 localhost.localdomain。 SSH 主機金鑰、名稱伺服器設定、根密碼及快取的 DHCP 租用也會一併刪除。
+取消佈建會藉由移除電腦特定的資訊來將 VM 一般化。 這個一般化讓您能夠從單一映像部署多部 VM。 解除佈建期間，將主機名稱重設為 localhost.localdomain  。 SSH 主機金鑰、名稱伺服器設定、根密碼及快取的 DHCP 租用也會一併刪除。
 
 若要取消佈建 VM，請使用 Azure VM 代理程式 (waagent)。 Azure VM 代理程式會安裝於 VM 上，並管理佈建以及與 Azure 網狀架構控制器進行互動。 如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](../extensions/agent-linux.md)。
 
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>建立映像
 
-現在，您可以使用 [az image create](/cli//azure/image) 來建立 VM 的映像。 下列範例會從名為 myVM 的 VM 建立名為 myImage 的映像。
+現在，您可以使用 [az image create](/cli//azure/image) 來建立 VM 的映像。 下列範例會從名為 myVM  的 VM 建立名為 myImage  的映像。
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>從映像建立 VM
 
-現在您已有映像，您可以使用 [az vm create](/cli/azure/vm) 從映像建立一個或多個新的 VM。 下列範例會從名為 myImage 的映像建立名為 myVMfromImage 的 VM。
+現在您已有映像，您可以使用 [az vm create](/cli/azure/vm) 從映像建立一個或多個新的 VM。 下列範例會從名為 myImage  的映像建立名為 myVMfromImage  的 VM。
 
 ```azurecli-interactive 
 az vm create \
@@ -120,7 +120,7 @@ az image list \
     --resource-group myResourceGroup
 ```
 
-删除映像。 此範例會刪除 myResourceGroup 中名為 myOldImage 的映像。
+删除映像。 此範例會刪除 myResourceGroup  中名為 myOldImage  的映像。
 
 ```azurecli-interactive 
 az image delete \

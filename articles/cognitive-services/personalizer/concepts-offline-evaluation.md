@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 29caea481b1999086440db2021b86d949ce6cbc6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026690"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722483"
 ---
 # <a name="offline-evaluation"></a>離線評估
 
@@ -52,7 +52,7 @@ ms.locfileid: "65026690"
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>了解離線評估結果的相關性
 
-當您執行離線評估時，務必要分析結果的「信賴界限」。 如果界限很寬，表示您的應用程式未收到足夠的資料，無法準確或有效地預估獎勵。 由於系統會累積更多資料，而且您會對更長的期間執行離線評估，因此信賴區間會變得愈來愈窄。
+當您執行離線評估時，務必要分析結果的「信賴界限」  。 如果界限很寬，表示您的應用程式未收到足夠的資料，無法準確或有效地預估獎勵。 由於系統會累積更多資料，而且您會對更長的期間執行離線評估，因此信賴區間會變得愈來愈窄。
 
 ## <a name="how-offline-evaluations-are-done"></a>離線評估的運作方式
 
@@ -91,7 +91,7 @@ ms.locfileid: "65026690"
 我們建議您查看特性評估並詢問：
 
 * 您的應用程式或系統可提供什麼其他更有效果的額外特性？
-* 可以移除哪些效果低的特性？ 效果低的特性會加重機器學習中的「干擾」。
+* 可以移除哪些效果低的特性？ 效果低的特性會加重機器學習中的「干擾」  。
 * 是否有任何意外加入的特性？ 範例如下：個人識別資訊 (PII) 或重複識別碼等等。
 * 是否有任何不可用的特性，也就是因為法規或責任考量而不應該用來個人化的特性？ 是否有可以取代不可用特性的特性 (也就是即近似或相關的特性)？
 

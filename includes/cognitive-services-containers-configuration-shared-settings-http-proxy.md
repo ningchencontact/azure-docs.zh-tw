@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2019
-ms.openlocfilehash: fe1b4699a300831294c26b103d322fb83ad87d3b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9911b1c92bdca6c0cdf064ea484cfb603e659467
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174249"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712407"
 ---
 如果您需要設定 HTTP Proxy 以進行輸出要求，請使用以下兩個引數：
 
-| 名稱 | 数据类型 | 描述 |
+| 名稱 | 資料類型 | 描述 |
 |--|--|--|
 |HTTP_PROXY|string|要使用的 Proxy，例如 `http://proxy:8888`<br><proxy-url>|
 |HTTP_PROXY_CREDS|string|對 Proxy 進行驗證時所需的任何認證，例如 username:password。|

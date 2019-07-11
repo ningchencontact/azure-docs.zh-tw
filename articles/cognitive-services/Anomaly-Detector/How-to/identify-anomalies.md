@@ -1,5 +1,6 @@
 ---
 title: 如何使用您的時間序列資料的異常偵測器 API
+titleSuffix: Azure Cognitive Services
 description: 了解如何在您的資料中偵測異常行為，以批次，或對串流資料。
 services: cognitive-services
 author: aahill
@@ -9,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 551196815004cb047680e2ae2f8dbe32186c1a0c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432300"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721786"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>作法：使用您的時間序列資料的異常偵測器 API  
+# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>HOW TO：使用您的時間序列資料的異常偵測器 API  
 
 [異常偵測器 API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)提供兩種方法的異常偵測。 您可以偵測異常狀況視為一個批次在您的時間序列，或藉由偵測異常的狀態最新的資料點產生您的資料。 偵測模型會傳回異常結果，以及每個資料點的預期值和上限和下限的異常偵測界限。 您可以使用這些值，以視覺化方式檢視的範圍，一般的值，以及在資料中的異常狀況。
 
@@ -32,7 +33,7 @@ ms.locfileid: "61432300"
 
 若要偵測異常狀況，整個批次的資料點在給定的時間範圍內，使用時間序列資料中的下列要求 URI: 
 
-`/timeseries/entire/detect` 。 
+`/timeseries/entire/detect`. 
 
 藉由同時傳送時間序列資料，API 會使用整個系列中，產生模型，並分析與其每個資料點。  
 
@@ -40,7 +41,7 @@ ms.locfileid: "61432300"
 
 若要持續偵測異常狀況對串流資料，使用最新的資料點中的下列要求 URI: 
 
-`/timeseries/last/detect'` 。 
+`/timeseries/last/detect'`. 
 
 藉由在產生它們，請傳送新的資料點，您可以監視您即時的資料。 將與資料點在傳送時，產生的模型和 API 會判斷為時間序列中最新的點是否異常狀況。
 

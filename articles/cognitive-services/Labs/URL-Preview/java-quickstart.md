@@ -9,17 +9,17 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.author: rosh
+ms.openlocfilehash: 5fa3b723b184e6c20ee678e7ef750d6a9d18f2c6
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259596"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592840"
 ---
 # <a name="quickstart-url-preview-with-java"></a>快速入門：使用 Java 的 URL 預覽
 
-下列 Java 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
+下列 Java 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en 。
 
 ## <a name="prerequisites"></a>必要條件
 

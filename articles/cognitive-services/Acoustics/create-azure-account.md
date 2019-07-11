@@ -7,15 +7,15 @@ author: ashtat
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db4f96ff7c355f3582966e4daa945f54a6e5b847
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61335643"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616538"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>專案樂器 Azure Batch 帳戶設定
 此操作說明描述專案樂器 Unity 和 Unreal 引擎整合搭配 Azure Batch 帳戶的設定。

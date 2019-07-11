@@ -4,18 +4,17 @@ titleSuffix: Azure Open Datasets
 description: 了解如何利用 Azure 開放資料集的便利性以及 Azure Machine Learning 服務的強大功能，來建立迴歸模型以預測 NYC 計程車車資價格。
 services: open-datasets
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: e753793b5da59d09a21991831046a43899c62ef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a1df79c59ede8cd9ad72a2ebb2edb4bdb64b802a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027514"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588961"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>教學課程：使用自動化機器學習和開放資料集來建置迴歸模型
 
@@ -29,7 +28,7 @@ ms.locfileid: "65027514"
 - 為自動化機器學習迴歸模型定型
 - 計算模型精確度
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此教學課程需要下列先決條件。
 
@@ -44,7 +43,7 @@ ms.locfileid: "65027514"
 
 此範例搭配 Jupyter 筆記本使用 Anaconda 環境，但您可以在任何 3.6.x 環境中，使用任何文字編輯器或 IDE 來執行此程式碼。 使用下列步驟來建立新的開發環境。
 
-1. 如果您還沒有開發環境，請[下載](https://www.anaconda.com/distribution/)並安裝 Anaconda，然後選擇 [Python 3.7 版]。
+1. 如果您還沒有開發環境，請[下載](https://www.anaconda.com/distribution/)並安裝 Anaconda，然後選擇 [Python 3.7 版]  。
 1. 開啟 Anaconda 提示，然後建立新環境。 建立環境可能需要幾分鐘的時間，因為需要下載元件和套件。
     ```
     conda create -n tutorialenv python=3.6.5
@@ -1926,10 +1925,10 @@ print(1 - mean_abs_percent_error)
 
 如果您不打算使用您建立的資源，請刪除它們，以免產生任何費用。
 
-1. 在 Azure 入口網站中，選取最左邊的 [資源群組]。
+1. 在 Azure 入口網站中，選取最左邊的 [資源群組]  。
 1. 在清單中，選取您所建立的資源群組。
-1. 選取 [刪除資源群組]。
-1. 輸入資源群組名稱。 然後選取 [刪除]。
+1. 選取 [刪除資源群組]  。
+1. 輸入資源群組名稱。 然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

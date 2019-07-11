@@ -6,16 +6,16 @@ services: cognitive-services
 author: longl
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449016"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592975"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定臉部辨識模式
 
@@ -25,7 +25,7 @@ ms.locfileid: "67449016"
 
 如果您是新的使用者，我們建議使用最新的模型。 繼續閱讀以了解如何在不同的臉部作業中加以指定，同時還能避免模型衝突。 如果您是進階的使用者，並不確定是否應該切換至最新的模型，請跳至[評估不同的模型](#evaluate-different-models)區段來評估新的模型，並使用您目前的資料集的結果進行比較。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您應該熟悉如何使用 AI 臉部偵測及識別的概念。 如果您不是，請先查閱這些操作方法指南：
 

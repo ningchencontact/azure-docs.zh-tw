@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何監視 Windows 虛擬機�
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aa423fc441c50c774a9670feec64d0f844a4f5ec
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 05fd9f06bec2a68455d42bfd460f0a5a419a255e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755267"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708046"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Windows 虛擬機器
 

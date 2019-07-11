@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 04/26/2019
-ms.author: rosh, v-gedod
-ms.openlocfilehash: ad00076c9cb5ef1c3d21677adabbb167b05a6228
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 3b75d89720212149711c8aad9985267d72b8cecd
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051607"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592776"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>快速入門：傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 API
 

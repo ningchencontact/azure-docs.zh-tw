@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何在 Azure 中的 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d870e5eedf362a6c929216735c8b5e9240aaa4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155278"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708489"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上建立 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆疊
 
@@ -44,7 +44,7 @@ ms.locfileid: "66155278"
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group) 命令建立資源群組，並使用 [az vm create](https://docs.microsoft.com/cli/azure/vm) 命令建立 Linux VM。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-下列範例使用 Azure CLI 在 eastus 位置建立名為 myResourceGroupMEAN 的資源群組。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立具有這些金鑰的 VM (名為 myVM)。 若要使用一組特定金鑰，請使用 --ssh-key-value 選項。
+下列範例使用 Azure CLI 在 eastus  位置建立名為 myResourceGroupMEAN  的資源群組。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立具有這些金鑰的 VM (名為 myVM  )。 若要使用一組特定金鑰，請使用 --ssh-key-value 選項。
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -132,7 +132,7 @@ sudo apt-get install -y nodejs
     sudo npm install body-parser
     ```
 
-6. 建立名為 Books 的資料夾，並於其中新增名為 server.js 的檔案，此檔案中包含 Web 伺服器的組態。
+6. 建立名為 Books  的資料夾，並於其中新增名為 server.js  的檔案，此檔案中包含 Web 伺服器的組態。
 
     ```javascript
     var express = require('express');
@@ -157,7 +157,7 @@ sudo apt-get install -y nodejs
     sudo npm install express mongoose
     ```
 
-2. 在 Books 資料夾中，建立名為 apps 的資料夾，並新增定義了 Express 路由且名為 routes.js 的檔案。
+2. 在 Books  資料夾中，建立名為 apps  的資料夾，並新增定義了 Express 路由且名為 routes.js  的檔案。
 
     ```javascript
     var Book = require('./models/book');
@@ -199,7 +199,7 @@ sudo apt-get install -y nodejs
     };
     ```
 
-3. 在 apps 資料夾中，建立名為 models 的資料夾，並新增定義了書籍模型組態且名為 book.js 的檔案。  
+3. 在 apps  資料夾中，建立名為 models  的資料夾，並新增定義了書籍模型組態且名為 book.js  的檔案。  
 
     ```javascript
     var mongoose = require('mongoose');
@@ -221,7 +221,7 @@ sudo apt-get install -y nodejs
 
 [AngularJS](https://angularjs.org) 提供一種 Web 架構讓您在 Web 應用程式中建立動態檢視。 在本教學課程中，我們會使用 AngularJS 來以 Express 連線我們的網頁，並對我們的書籍資料庫執行動作。
 
-1. 將目錄變更回到 Books (`cd ../..`)，然後建立名為 public 的資料夾，並新增定義了控制器組態且名為 script.js 的檔案。
+1. 將目錄變更回到 Books  (`cd ../..`)，然後建立名為 public  的資料夾，並新增定義了控制器組態且名為 script.js  的檔案。
 
     ```javascript
     var app = angular.module('myApp', []);
@@ -263,7 +263,7 @@ sudo apt-get install -y nodejs
     });
     ```
     
-2. 在 public 資料夾中，建立定義了網頁且名為 index.html 的檔案。
+2. 在 public  資料夾中，建立定義了網頁且名為 index.html  的檔案。
 
     ```html
     <!doctype html>
@@ -318,7 +318,7 @@ sudo apt-get install -y nodejs
 
 ##  <a name="run-the-application"></a>執行應用程式
 
-1. 將目錄變更回到 Books (`cd ..`)，並執行這個命令來啟動伺服器：
+1. 將目錄變更回到 Books  (`cd ..`)，並執行這個命令來啟動伺服器：
 
     ```bash
     nodejs server.js
@@ -328,7 +328,7 @@ sudo apt-get install -y nodejs
 
     ![書籍記錄](media/tutorial-mean/meanstack-init.png)
 
-3. 在文字方塊中輸入資料，然後按一下 [新增]。 例如︰
+3. 在文字方塊中輸入資料，然後按一下 [新增]  。 例如︰
 
     ![新增書籍記錄](media/tutorial-mean/meanstack-add.png)
 
@@ -336,7 +336,7 @@ sudo apt-get install -y nodejs
 
     ![列出書籍記錄](media/tutorial-mean/meanstack-list.png)
 
-5. 您可以按一下 [刪除]，從資料庫中移除書籍記錄。
+5. 您可以按一下 [刪除]  ，從資料庫中移除書籍記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

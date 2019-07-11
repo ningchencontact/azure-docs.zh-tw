@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: b691d447f51165ea3cb56410da9cd2d4d00ce913
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 6bfcb531d0e4e8073a5553f7bc84a25e4f8a92a9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490196"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785688"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>取得與 GenerateAnswer API 和中繼資料的答案
 
@@ -96,7 +96,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer 回應屬性
 
-[回應](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query)是 JSON 物件，包括所有交談，開啟您要顯示答案和下一個所需資訊，如果有的話。
+[回應](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query)是 JSON 物件，包括所有交談，開啟您要顯示答案和下一個所需資訊，如果有的話。
 
 ```json
 {

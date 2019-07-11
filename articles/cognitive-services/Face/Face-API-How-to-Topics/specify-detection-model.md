@@ -6,16 +6,16 @@ services: cognitive-services
 author: yluiu
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 037a059c95150314b6f85ea3eacdec0f6bb3d6c0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449020"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592931"
 ---
 # <a name="specify-a-face-detection-model"></a>指定臉部偵測模式
 
@@ -27,7 +27,7 @@ ms.locfileid: "67449020"
 
 如果您不確定您是否應使用最新的模型，請跳至[評估不同的模型](#evaluate-different-models)區段來評估新的模型，並使用您目前的資料集的結果進行比較。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您應該熟悉如何使用 AI 臉部偵測的概念。 如果您不是，請參閱臉部偵測的概念指南或作法指南：
 

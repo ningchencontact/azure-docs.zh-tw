@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何在 Azure 中的 Linux �
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 15d88e082f9ab0838f4a560d89801edd9d46d682
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511272"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703530"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上安裝 LEMP 網頁伺服器
 
@@ -107,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-在編輯器中，將 `/etc/nginx/sites-available/default` 的內容取代為下列項目。 如需設定的說明，請參閱註解。 以您 VM 的公用 IP 位址替代 yourPublicIPAddress，在 `fastcgi_pass` 中確認 PHP 版本，其餘設定則予以保留。 然後儲存檔案。
+在編輯器中，將 `/etc/nginx/sites-available/default` 的內容取代為下列項目。 如需設定的說明，請參閱註解。 以您 VM 的公用 IP 位址替代 yourPublicIPAddress  ，在 `fastcgi_pass` 中確認 PHP 版本，其餘設定則予以保留。 然後儲存檔案。
 
 ```
 server {

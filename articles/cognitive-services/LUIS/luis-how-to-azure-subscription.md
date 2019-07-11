@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204150"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797959"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>使用您的訂用帳戶金鑰搭配 LUIS 應用程式
 
@@ -32,6 +32,8 @@ ms.locfileid: "67204150"
 
 您建立[預測端點資源](get-started-portal-deploy-app.md#create-the-endpoint-resource)在 Azure 入口網站中。 此資源僅適用於端點預測查詢。 請勿使用此資源撰寫應用程式的變更。
 
+您可以建立語言理解資源或認知服務資源。 如果您要建立語言理解資源，最好是的 postpend 的資源類型的資源名稱。 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ ms.locfileid: "67204150"
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>使用從 LUIS 入口網站的資源
+
+如果您使用來自 LUIS 入口網站的資源，您不需要知道您的金鑰和位置。 相反地，您需要知道您的資源租用戶、 訂用帳戶和資源名稱。
+
+您一次[指派](#assign-resource-key-to-luis-app-in-luis-portal)資源應用程式 LUIS，LUIS 入口網站、 金鑰和位置來提供查詢預測端點 url，在 [管理] 區段**金鑰和端點設定**頁面。
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>使用來自 REST API 或 SDK 資源
+
+如果您使用來自 REST API(s) 或 SDK 的資源，您需要知道您的金鑰和位置。 這項資訊可在 管理 區段中的查詢預測端點 URL 的一部分**金鑰和端點設定**也如同 Azure 入口網站中，在 資源概觀 和 索引鍵的頁面上的頁面。
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>將資源金鑰指派給 LUIS 入口網站中的 LUIS 應用程式
 
@@ -121,7 +132,7 @@ ms.locfileid: "67204150"
 
     此 POST API 需要下列設定︰
 
-    |頁首|值|
+    |標頭|值|
     |--|--|
     |`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。| 
     |`Ocp-Apim-Subscription-Key`|您的[撰寫金鑰](luis-how-to-account-settings.md)。|
@@ -132,13 +143,13 @@ ms.locfileid: "67204150"
 
     此 POST API 需要下列設定︰
 
-    |類型|設定|值|
+    |type|設定|值|
     |--|--|--|
-    |頁首|`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。|
-    |頁首|`Ocp-Apim-Subscription-Key`|您的[撰寫金鑰](luis-how-to-account-settings.md)。|
-    |頁首|`Content-type`|`application/json`|
+    |標頭|`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。|
+    |標頭|`Ocp-Apim-Subscription-Key`|您的[撰寫金鑰](luis-how-to-account-settings.md)。|
+    |標頭|`Content-type`|`application/json`|
     |Querystring|`appid`|LUIS 應用程式識別碼。 
-    |body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |本文||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     此 API 成功執行時，會傳回「201 - 已建立」狀態。 
 

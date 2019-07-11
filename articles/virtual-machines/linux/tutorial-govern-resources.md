@@ -4,7 +4,7 @@ description: 在此教學課程中，您將了解如何使用 Azure CLI，透過
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d3182c51ca80a26159e962a6354a53b5283326a2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 760055a831998aa026439302094e146fd4d39394
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343063"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708428"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 控管 Linux 虛擬機器
 
@@ -65,9 +65,9 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-如果出現錯誤，指出**原則 <guid> 不存在於目錄中**，表示新群組未傳播至整個 Azure Active Directory。 請嘗試再次執行命令。
+如果出現錯誤，指出**原則 \<guid> 不存在於目錄中**，表示新群組未傳播至整個 Azure Active Directory。 請嘗試再次執行命令。
 
-通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
+通常您需要針對網路參與者  和儲存體帳戶參與者  重複進行此程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
 
 ## <a name="azure-policy"></a>Azure 原則
 

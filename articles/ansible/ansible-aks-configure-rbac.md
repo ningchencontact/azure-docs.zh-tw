@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: eae23806ee1b4e2dac1d3410e32c3242e89d4be8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231294"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719827"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>教學課程：使用 Ansible 在 Azure Kubernetes Service (AKS) 中設定角色型存取控制 (RBAC) 角色
 
@@ -39,7 +39,7 @@ AKS 可設定為使用 [Azure Active Directory (AD)](/azure/active-directory/) �
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>設定 Azure AD 以進行 AKS 驗證
 
-設定 Azure AD 以進行 AKS 驗證時，會設定兩個 Azure AD 應用程式。 這項作業必須由 Azure 租用戶系統管理員完成。 如需詳細資訊，請參閱[整合 Azure Active Directory 與 AKS](/azure/aks/aad-integration#create-server-application)。 
+設定 Azure AD 以進行 AKS 驗證時，會設定兩個 Azure AD 應用程式。 這項作業必須由 Azure 租用戶系統管理員完成。 如需詳細資訊，請參閱[整合 Azure Active Directory 與 AKS](/azure/aks/aad-integration#create-the-server-application)。 
 
 向 Azure 租用戶系統管理員索取下列值：
 
@@ -73,7 +73,7 @@ AKS 可設定為使用 [Azure Active Directory (AD)](/azure/active-directory/) �
       location: "{{ location }}"
 
 - name: List supported kubernetes version from Azure
-  azure_rm_aks_version:
+  azure_rm_aksversion_facts:
       location: "{{ location }}"
   register: versions
 
@@ -129,13 +129,13 @@ AKS 可設定為使用 [Azure Active Directory (AD)](/azure/active-directory/) �
 
 1. 按一下 `Enter`。
 
-1. 在 [管理] 功能表中，選取 [使用者]。
+1. 在 [管理]  功能表中，選取 [使用者]  。
 
 1. 在 [名稱] 欄位中搜尋您的帳戶。
 
-1. 在 [名稱] 資料行中，選取您帳戶的連結。
+1. 在 [名稱]  資料行中，選取您帳戶的連結。
 
-1. 在 [身分識別] 區段中，複製 [物件識別碼]。
+1. 在 [身分識別]  區段中，複製 [物件識別碼]  。
 
     ![複製 Azure AD 物件識別碼。](./media/ansible-aks-configure-rbac/ansible-aad-object-id.png)
 

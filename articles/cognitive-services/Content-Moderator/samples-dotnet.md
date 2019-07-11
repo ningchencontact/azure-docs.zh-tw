@@ -9,18 +9,16 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f2b5fb5c44cbb2e0d766c49ed6b715484c22f62e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0857d571e3bb029f564299efbe8cc4fdf5fbb3ff
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756735"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604102"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK 範例
 
 以下清單包含使用 Azure Content Moderator SDK for .NET 建置之程式碼範例的連結。
-
-- **協助程式程式庫**：[建立可供在其他範例中使用的 Content Moderator 用戶端](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs)。 請參閱[快速入門](content-moderator-helper-quickstart-dotnet.md)。
 
 ## <a name="moderation"></a>審核
 

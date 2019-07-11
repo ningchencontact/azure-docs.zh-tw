@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 6e1ffa11456fc6a021e370d674624d297463ac73
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137247"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603186"
 ---
 # <a name="prepare-data-for-custom-speech"></a>準備資料以自訂語音
 
@@ -25,7 +25,7 @@ ms.locfileid: "67137247"
 
 下表列出可接受的資料類型時應該使用每種資料類型及建議的數量。 並非每個資料類型，才能建立模型。 資料需求會根據您是在建立測試或定型模型而有所不同。
 
-| 数据类型 | 使用的測試 | 數量 | 用於定型 | 數量 |
+| 資料類型 | 使用的測試 | 數量 | 用於定型 | 數量 |
 |-----------|-----------------|----------|-------------------|----------|
 | [音訊](#audio-data-for-testing) | 是<br>使用進行視覺檢查 | 5 + 音訊檔案 | 否 | N/a |
 | [音訊 + 人類看得標示的文字記錄](#audio--human-labeled-transcript-data-for-testingtraining) | 是<br>用來評估精確度 | 0.5-5 小時的音訊 | 是 | 1-1,000 小時音訊 |
@@ -104,7 +104,7 @@ ms.locfileid: "67137247"
 
 如果您有產品名稱或功能，是唯一的而且您想要確定正確地辨識，務必包含相關的文字資料進行訓練。 兩種類型的相關的文字資料可供改善辨識：
 
-| 数据类型 | 這項資料可辨識的改善 |
+| 資料類型 | 這項資料可辨識的改善 |
 |-----------|------------------------------------|
 | 談話和/或句子 | 這些可以辨認的產品名稱或業界特定詞彙，句子的內容中時，改善精確度。 |
 | 發音 | 這些可以改善未定義的發音與不常見的詞彙、 首字母縮略字或其他文字的發音。 |

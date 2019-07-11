@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 006b9401a3418e3b2b3803fa0b7897b28887d14a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561306"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606598"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>語言和地區支援語音服務
 
@@ -26,7 +26,7 @@ ms.locfileid: "67561306"
 
 Microsoft 語音辨識 SDK 和 REST API 支援下列語言版本 （地區設定）。 每個語言有不同的自訂層級。
 
-  代碼 | 語言 | [採用原音](how-to-customize-acoustic-models.md) | [採用語言](how-to-customize-language-model.md) | [採用發音](how-to-customize-pronunciation.md)
+  程式碼 | 語言 | [採用原音](how-to-customize-acoustic-models.md) | [採用語言](how-to-customize-language-model.md) | [採用發音](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | 阿拉伯文 (埃及)，現代標準 | 否 | 是 | 否
  ca-ES | 卡達隆尼亞文 | 否 | 否 | 否

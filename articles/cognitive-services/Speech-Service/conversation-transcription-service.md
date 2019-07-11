@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18de3e52d61afd8e1ef20f80c020c8b7d96b9757
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243852"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603259"
 ---
 # <a name="what-is-conversation-transcription"></a>交談文字記錄是什麼？
 

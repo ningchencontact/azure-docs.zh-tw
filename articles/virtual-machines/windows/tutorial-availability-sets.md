@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何使用 Azure PowerShell �
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: afc3e550f0a3d135f1c62ee321fff8d7afc5cae6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9e3fc52b9cdf5126cb8d58778a59b8e8691f80a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785249"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708143"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立及部署高可用性的虛擬機器
 
@@ -48,13 +48,13 @@ ms.locfileid: "60785249"
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="create-an-availability-set"></a>建立可用性設定組
 
 位置中的硬體已分為多個更新網域和容錯網域。 **更新網域**是一組虛擬機器和可同時重新啟動的基礎實體硬體。 相同**容錯網域**中的 VM 會共用一般儲存體以及通用電源和網路交換器。  
 
-您可以使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) 建立可用性設定組。 在此範例中，更新和容錯網域數目為 2，而 可用性設定組會命名為 myAvailabilitySet。
+您可以使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) 建立可用性設定組。 在此範例中，更新和容錯網域數目為 2  ，而 可用性設定組會命名為 myAvailabilitySet  。
 
 建立資源群組。
 
@@ -108,7 +108,7 @@ for ($i=1; $i -le 2; $i++)
 
 建立及設定這兩部 VM 需要幾分鐘的時間。 完成後，您會有兩個分散於基礎硬體上的虛擬機器。 
 
-如果您在入口網站中移至 [資源群組] > [myResourceGroupAvailability] > [myAvailabilitySet] 來查看可用性設定組，您應會看到 VM 分散在 2 個容錯和更新網域上。
+如果您在入口網站中移至 [資源群組]   > [myResourceGroupAvailability]   > [myAvailabilitySet]  來查看可用性設定組，您應會看到 VM 分散在 2 個容錯和更新網域上。
 
 ![入口網站中的可用性設定組](./media/tutorial-availability-sets/fd-ud.png)
 
@@ -126,7 +126,7 @@ Get-AzVMSize `
 
 您也可以使用 Azure Advisor，取得改善 VM 可用性方式的詳細資訊。 Azure Advisor 可分析您的組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、可用性和安全性的解決方案。
 
-登入 [Azure 入口網站](https://portal.azure.com)，選取 [所有服務]，然後輸入 **Advisor**。 Advisor 儀表板會顯示所選取訂用帳戶的個人化建議。 如需詳細資訊，請參閱[開始使用 Azure Advisor](../../advisor/advisor-get-started.md)。
+登入 [Azure 入口網站](https://portal.azure.com)，選取 [所有服務]  ，然後輸入 **Advisor**。 Advisor 儀表板會顯示所選取訂用帳戶的個人化建議。 如需詳細資訊，請參閱[開始使用 Azure Advisor](../../advisor/advisor-get-started.md)。
 
 
 ## <a name="next-steps"></a>後續步驟

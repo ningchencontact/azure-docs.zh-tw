@@ -1,20 +1,21 @@
 ---
-title: 設定容器-異常偵測器
+title: 如何設定容器的異常偵測器 API
 titleSuffix: Azure Cognitive Services
-description: 異常偵測器的容器執行階段環境的設定使用`docker run`命令引數。 此容器有數個必要的設定，和一些選擇性的設定。
+description: 異常偵測器 API 容器執行階段環境的設定使用`docker run`命令引數。 此容器有數個必要的設定，和一些選擇性的設定。
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e6b5bcefb2a8df136d37dad062fbca651c312dc4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275508"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721726"
 ---
 # <a name="configure-anomaly-detector-containers"></a>設定異常偵測器的容器
 
@@ -24,7 +25,7 @@ ms.locfileid: "67275508"
 
 此容器具有下列組態設定：
 
-|必要項|設定|目的|
+|必要|設定|用途|
 |--|--|--|
 |是|[ApiKey](#apikey-configuration-setting)|用來追蹤帳單資訊。|
 |否|[ApplicationInsights](#applicationinsights-setting)|可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援新增至容器。|
@@ -58,9 +59,9 @@ ms.locfileid: "67275508"
 
 * Azure 入口網站：**異常偵測器**概觀，標示為 `Endpoint`
 
-|必要項| 名稱 | 数据类型 | 描述 |
+|必要| 名稱 | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|是| `Billing` | 字串 | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -87,10 +88,10 @@ ms.locfileid: "67275508"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](anomaly-detector-container-howto.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 数据类型 | 描述 |
+|選擇性| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
-|不允許| `Input` | String | 異常偵測器容器不要使用這個動作。|
-|選用| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|不允許| `Input` | 字串 | 異常偵測器容器不要使用這個動作。|
+|選擇性| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
