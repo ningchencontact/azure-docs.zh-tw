@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 84960e82e25f4b6cc59324f17ce46de7f9f7ac23
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272797"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704672"
 ---
 # <a name="install-and-run-face-containers"></a>安裝並執行臉部的容器
 
@@ -24,11 +24,11 @@ Azure 認知服務臉部偵測人臉映像中的 Docker 提供標準化的 Linux
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須符合下列必要條件，才能使用人臉識別 API 容器。
 
-|必要項|目的|
+|必要|用途|
 |--|--|
 |Docker 引擎| 必須安裝 Docker 引擎[主機電腦](#the-host-computer)。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> 在 Windows、 Docker 也必須設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您需要 Docker 的概念，例如登錄、 存放庫、 容器和容器映像的基本知識。 您也需要的基本知識`docker`命令。| 
@@ -41,7 +41,6 @@ Azure 認知服務臉部偵測人臉映像中的 Docker 提供標準化的 Linux
 ### <a name="the-host-computer"></a>主機電腦
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 

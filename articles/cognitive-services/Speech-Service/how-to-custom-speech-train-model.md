@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063925"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625394"
 ---
 # <a name="train-a-model-for-custom-speech"></a>自訂語音的定型模型
 
@@ -25,12 +25,11 @@ ms.locfileid: "67063925"
 
 如果您遇到辨識問題與您的模型，使用人類看得標籤文字記錄和其他訓練的相關的資料可協助以改善精確度。 您可以使用此表格來判斷要用來解決您問題的資料集：
 
-| 使用案例 | 数据类型 | 資料品質 |
-|----------|-----------|---------------|
-| 會將適當的名稱 | 相關的文字方塊 （句子/談話） | 為 500 MB 的 10 MB |
-| 文字會將因為輔色 | 相關的文字方塊 （發音） | 提供 misrecognized 的單字 |
-| 刪除或將常見的字詞 | 音訊 + 人類看得標示的文字記錄 | 10 到 1,000 轉譯時數 |
-
+| 使用案例 | 資料類型 |
+|----------|-----------|
+| 增進辨識準確度業界特定詞彙和文法檢查，例如醫療術語或 IT 專業術語 | 相關的文字方塊 （句子/談話） |
+| 定義語音及顯示表單的單字或詞彙，使用非標準的發音 中，例如產品名稱或縮寫。 | 相關的文字方塊 （發音） |
+| 增進辨識準確度上講話樣式、 腔調字或特定背景雜音 | 音訊 + 人類看得標示的文字記錄 |
 > [!IMPORTANT]
 > 如果您還沒有上傳資料集，請參閱[準備和測試您的資料](how-to-custom-speech-test-data.md)。 本文件提供上傳資料，以及建立高品質資料集的指導方針的指示。
 

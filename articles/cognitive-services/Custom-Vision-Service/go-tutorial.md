@@ -6,20 +6,20 @@ services: cognitive-services
 author: areddish
 manager: daauld
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: f740974d17ad5f95bca6530a61619ee0283f819a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 94eacf6815a3fc0b65aa03d5620f19e783139a5e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479975"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593040"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>快速入門：使用自訂視覺 Go SDK 建立影像分類專案
 
-本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Go 來建置影像分類模型。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的已發佈預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Go 應用程式。 如果您想要進行「不用」程式碼來建置及使用分類模型的程序，請改為參閱[以瀏覽器為基礎的指引](getting-started-build-a-classifier.md)。
+本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Go 來建置影像分類模型。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的已發佈預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Go 應用程式。 如果您想要進行「不用」  程式碼來建置及使用分類模型的程序，請改為參閱[以瀏覽器為基礎的指引](getting-started-build-a-classifier.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -44,7 +44,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ## <a name="add-the-code"></a>新增程式碼
 
-在您偏好的專案目錄中建立名為 sample.go 的新檔案。
+在您偏好的專案目錄中建立名為 sample.go  的新檔案。
 
 ### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
 
@@ -88,7 +88,7 @@ func main() {
 
 ### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-若要在專案中建立分類標記，請在 sample.go 結尾新增以下程式碼：
+若要在專案中建立分類標記，請在 sample.go  結尾新增以下程式碼：
 
 ```go
     // Make two tags in the new project
@@ -169,7 +169,7 @@ func main() {
 
 ## <a name="run-the-application"></a>執行應用程式
 
-執行 sample.go。
+執行 sample.go  。
 
 ```powershell
 go run sample.go
@@ -190,7 +190,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-接著，您可以確認測試影像 (位於 **<base_image_url>/Images/Test/**) 的標記是否適當。 您也可以返回[自訂視覺網站](https://customvision.ai)，然後查看新建立專案的目前狀態。
+接著，您可以確認測試影像 (位於 **<base_image_url>/Images/Test/** ) 的標記是否適當。 您也可以返回[自訂視覺網站](https://customvision.ai)，然後查看新建立專案的目前狀態。
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

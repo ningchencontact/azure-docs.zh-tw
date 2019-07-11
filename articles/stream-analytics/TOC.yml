@@ -119,6 +119,9 @@
         - name: 處理 Kafka 事件
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
           maintainContext: true
+        - name: 處理事件中樞資料
+          href: ../event-hubs/process-data-azure-stream-analytics.md
+          maintainContext: true
         - name: 地理空間案例
           href: geospatial-scenarios.md
     - name: 監視

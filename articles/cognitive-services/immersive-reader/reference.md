@@ -1,20 +1,21 @@
 ---
 title: 沈浸式讀取器 SDK 參考
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 沈浸式的讀取器 SDK 的參考
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311790"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718399"
 ---
 # <a name="immersive-reader-sdk-reference"></a>沈浸式讀取器 SDK 參考
 
@@ -34,12 +35,12 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 #### <a name="parameters"></a>參數
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 說明 |
 | ---- | ---- |------------ |
 | `token` | string | 取得從呼叫的存取權杖`issueToken`端點。 |
 | `resourceName` | string | 保留。 必須設為 `null`。 |
 | `content` | [內容](#content) | 物件，包含要在沈浸式的讀取器中顯示的內容。 |
-| `options` | [選項](#options) | 設定沈浸式的讀取器的特定行為的選項。 選用。 |
+| `options` | [選項](#options) | 設定沈浸式的讀取器的特定行為的選項。 選擇性。 |
 
 #### <a name="returns"></a>傳回值
 
@@ -73,7 +74,7 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 | text/plain | 純文字。 |
 | application/mathml+xml | 數學標記語言 (MathML)。 [深入了解](https://developer.mozilla.org/en-US/docs/Web/MathML)。
 
-### <a name="options"></a>選項
+### <a name="options"></a>選項。
 
 包含設定沈浸式的讀取器的特定行為的屬性。
 
@@ -99,7 +100,7 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 #### <a name="error-codes"></a>錯誤碼
 
-| 代碼 | 描述 |
+| 程式碼 | 描述 |
 | ---- | ----------- |
 | BadArgument | 提供的引數無效，請參閱`message`如需詳細資訊。 |
 | 逾時 | 沈浸式的讀取器無法載入指定的逾時期限內。 |
@@ -117,7 +118,7 @@ SDK 會提供啟動沈浸式的讀取器的按鈕的預設樣式。 使用`immer
 
 您可以使用下列屬性來設定按鈕的外觀與風格。
 
-| 屬性 | 描述 |
+| 屬性 | 說明 |
 | --------- | ----------- |
 | `data-button-style` | 設定按鈕的樣式。 可以是 `icon`、`text` 或 `iconAndText`。 預設值為 `icon`。 |
 | `data-locale` | 設定地區設定，例如`en-US`， `fr-FR`。 預設為英文。 |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: dd8e760e658715b89bf45718ac571ccaeb5ade96
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: b55c6535184a905790f575b98c1b5a60a83f5daf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465585"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606378"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來辨識語音
 
@@ -37,7 +37,7 @@ ms.locfileid: "67465585"
 
 * [Unity 2018.3 或更新版本](https://store.unity.com/)與[新增 UWP ARM64 支援的 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * 如需 ARM64 支援，安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+     * 如需 ARM64 支援，安裝[適用於 ARM64 的選擇性建置工具和適用於 ARM64 的 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
 * 適用於語音服務的訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 * 能夠存取電腦的麥克風。
 

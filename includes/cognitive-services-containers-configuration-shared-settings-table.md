@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2019
-ms.openlocfilehash: 4f9300ab1d688e1f5043f5b919e70c5a36c7c0e7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46376477aae9f94c1c8f6e1dd6bc718d213cc373
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063996"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712477"
 ---
 容器具有下列組態設定：
 
-|必要項|設定|目的|
+|必要|設定|用途|
 |--|--|--|
 |是|[ApiKey](#apikey-configuration-setting)|帳單資訊的追蹤。|
 |否|[ApplicationInsights](#applicationinsights-setting)|可讓您新增[Azure Application Insights](https://docs.microsoft.com/azure/application-insights)遙測的支援，以您的容器。|

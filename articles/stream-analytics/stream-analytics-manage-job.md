@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493423"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612372"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>使用串流分析分析通話資料並在 Power BI 儀表板中以視覺方式呈現結果
 
@@ -191,7 +191,7 @@ ms.locfileid: "66493423"
 
 ## <a name="define-a-query-to-analyze-input-data"></a>定義查詢來分析輸入資料
 
-下一步是建立轉換來即時分析資料。 您可使用[串流分析查詢語言](https://msdn.microsoft.com/library/dn834998.aspx)來定義轉換查詢。 本教學課程中使用的查詢會從電話資料中偵測詐騙電話。
+下一步是建立轉換來即時分析資料。 您可使用[串流分析查詢語言](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)來定義轉換查詢。 本教學課程中使用的查詢會從電話資料中偵測詐騙電話。
 
 在此範例中，詐騙電話是由相同的使用者在 5 秒內從不同的位置撥打。 例如，按照常理，同一位使用者不可能同時從美國和澳大利亞打電話。 若要為串流分析作業定義轉換查詢：
 
@@ -212,7 +212,7 @@ ms.locfileid: "66493423"
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   若要檢查詐騙電話，您可以根據 `CallRecTime` 值自我聯結串流資料。 然後，您可以尋找 `CallingIMSI` 值 (發話號碼) 相同、但 `SwitchNum` 值 (發話國家/地區) 不同的通話記錄。 當您在串流資料中使用 JOIN 作業時，聯結必須稍微限制相符的資料列在時間上可以相隔多久。 由於串流資料無止盡，所以會使用 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) 函式，在聯結的 **ON** 子句內指定關聯性的時間界限。
+   若要檢查詐騙電話，您可以根據 `CallRecTime` 值自我聯結串流資料。 然後，您可以尋找 `CallingIMSI` 值 (發話號碼) 相同、但 `SwitchNum` 值 (發話國家/地區) 不同的通話記錄。 當您在串流資料中使用 JOIN 作業時，聯結必須稍微限制相符的資料列在時間上可以相隔多久。 由於串流資料無止盡，所以會使用 [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics) 函式，在聯結的 **ON** 子句內指定關聯性的時間界限。
 
    此查詢就像一般 SQL 聯結一樣，差別在於 **DATEDIFF** 函式。 此查詢中使用的 **DATEDIFF** 函式是串流分析專用的，必須出現在 `ON...BETWEEN` 子句中。
 

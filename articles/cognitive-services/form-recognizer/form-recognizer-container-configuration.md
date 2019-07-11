@@ -1,20 +1,20 @@
 ---
-title: 設定容器 - 表單辨識器
+title: 如何設定表單的辨識器的容器
 titleSuffix: Azure Cognitive Services
 description: 了解如何設定表單辨識器容器來剖析表單和資料表資料。
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7e8e7a13cd02a6f3b109a84829dba2a81fd36aaa
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296240"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718447"
 ---
 # <a name="configure-form-recognizer-containers"></a>設定表單辨識器容器
 
@@ -45,7 +45,7 @@ ms.locfileid: "67296240"
 
 您可以找到此設定在 Azure 入口網站中，在**形式辨識器概觀**下方**端點**。
 
-|必要項| 名稱 | 数据类型 | 描述 |
+|必要項| 名稱 | 資料類型 | 描述 |
 |--|------|-----------|-------------|
 |是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
 
@@ -74,10 +74,10 @@ ms.locfileid: "67296240"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，掛接的位置[主機電腦](form-recognizer-container-howto.md#the-host-computer)可能因為而無法存取 Docker 服務帳戶權限與主應用程式掛接位置的權限之間的衝突。
 
-|選用| 名稱 | 数据类型 | 描述 |
+|選擇性| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |必要項| `Input` | String | 輸入裝載的目標。 預設值為 `/input`。    <br><br>範例：<br>`--mount type=bind,src=c:\input,target=/input`|
-|必要項| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。  <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|必要| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。  <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令
 

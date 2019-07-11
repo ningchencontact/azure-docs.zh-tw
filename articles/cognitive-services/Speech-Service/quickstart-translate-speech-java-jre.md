@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467007"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604959"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來轉譯語音
 
@@ -59,9 +59,9 @@ ms.locfileid: "65467007"
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
-1. 若要將新的空白類別新增到您的 Java 專案，請選取 [檔案] > [新增] > [類別]。
+1. 若要將新的空白類別新增到您的 Java 專案，請選取 [檔案]   > [新增]   > [類別]  。
 
-1. 在 [新增 Java 類別] 視窗中，於 [套件] 欄位中輸入 **speechsdk.quickstart**，並在 [名稱] 欄位中輸入 **Main**。
+1. 在 [新增 Java 類別]  視窗中，於 [套件]  欄位中輸入 **speechsdk.quickstart**，並在 [名稱]  欄位中輸入 **Main**。
 
    ![[新增 Java 類別] 視窗的螢幕擷取畫面](media/sdk/qs-java-jre-06-create-main-java.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "65467007"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-按 F11 鍵，或選取 [執行] > [偵錯]。
+按 F11 鍵，或選取 [執行]   > [偵錯]  。
 
 系統將會辨識來自您麥克風的語音輸入，並將它轉譯為德文，然後記錄在主控台視窗中。 按 "Enter" 來停止擷取語音。
 

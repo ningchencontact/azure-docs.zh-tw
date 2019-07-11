@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ee8115a29911d0c3d1ccf87366f939b4184e1ba2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725777"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606900"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>教學課程：搭配使用自訂視覺中的 ONNX 模型與 Windows ML (預覽)
 
@@ -57,13 +57,13 @@ ms.locfileid: "64725777"
 
 若要使用您自己的模型，請使用下列步驟：
 
-1. 使用自訂視覺服務[建立及訓練](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)分類器。 若要匯出模型，請選取 __精簡__網域，例如 [一般 (精簡)]。 若要匯出現有的分類器，請選取右上方的齒輪圖示，將網域轉換為精簡。 在 [設定] 中，選擇精簡模型，儲存及訓練您的專案。  
+1. 使用自訂視覺服務[建立及訓練](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)分類器。 若要匯出模型，請選取 __精簡__網域，例如 [一般 (精簡)]  。 若要匯出現有的分類器，請選取右上方的齒輪圖示，將網域轉換為精簡。 在 [設定]  中，選擇精簡模型，儲存及訓練您的專案。  
 
-1. 移至 [效能] 索引標籤，以[匯出您的模型](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)。選取使用精簡網域訓練的反覆項目，[匯出] 按鈕就會出現。 選取 [匯出]、[ONNX]、[ONNX1.2]，然後選取 [匯出]。 檔案準備就緒後，請選取 [下載] 按鈕。
+1. 移至 [效能] 索引標籤，以[匯出您的模型](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)。選取使用精簡網域訓練的反覆項目，[匯出] 按鈕就會出現。 選取 [匯出]  、[ONNX]  、[ONNX1.2]  ，然後選取 [匯出]  。 檔案準備就緒後，請選取 [下載]  按鈕。
 
 1. 將 ONNX 檔案放入您專案的 __Assets__ 資料夾。 
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 Assets 資料夾，然後選取 [新增現有的項目]。 選取 ONNX 檔案。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 Assets 資料夾，然後選取 [新增現有的項目]  。 選取 ONNX 檔案。
 
 1. 在 [方案總管] 中，從 Assets 資料夾選取 ONNX 檔案。 變更檔案的下列屬性：
 

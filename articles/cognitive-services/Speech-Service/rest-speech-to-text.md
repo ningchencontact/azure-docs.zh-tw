@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072521"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606346"
 ---
 # <a name="speech-to-text-rest-api"></a>語音轉換文字 REST API
 
@@ -42,20 +41,20 @@ REST 要求的查詢字串中可能包括這些參數。
 
 | 參數 | 描述 | 必要/選用 |
 |-----------|-------------|---------------------|
-| `language` | 識別正在辨識的口說語言。 請參閱[支援的語言](language-support.md#speech-to-text)。 | 必要項 |
-| `format` | 指定結果格式。 接受的值為 `simple` 和 `detailed`。 簡單的結果包含 `RecognitionStatus`、`DisplayText`、`Offset` 和 `Duration`。 詳細的回應包含多個具有信賴值的結果和四個不同的表示法。 預設設定為 `simple`。 | 選用 |
-| `profanity` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `masked` (以星號取代不雅內容)、`removed` (移除結果中所有的不雅內容)，或 `raw` (結果中包含不雅內容)。 預設設定為 `masked`。 | 選用 |
+| `language` | 識別正在辨識的口說語言。 請參閱[支援的語言](language-support.md#speech-to-text)。 | 必要 |
+| `format` | 指定結果格式。 接受的值為 `simple` 和 `detailed`。 簡單的結果包含 `RecognitionStatus`、`DisplayText`、`Offset` 和 `Duration`。 詳細的回應包含多個具有信賴值的結果和四個不同的表示法。 預設設定為 `simple`。 | 選擇性 |
+| `profanity` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `masked` (以星號取代不雅內容)、`removed` (移除結果中所有的不雅內容)，或 `raw` (結果中包含不雅內容)。 預設設定為 `masked`。 | 選擇性 |
 
 ## <a name="request-headers"></a>要求標頭
 
 下表列出了語音轉文字要求的必要標頭和選用標頭。
 
-|頁首| 描述 | 必要/選用 |
+|標頭| 描述 | 必要/選用 |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | 您的語音服務訂用帳戶金鑰。 | 必須有此標頭或 `Authorization`。 |
 | `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必須有此標頭或 `Ocp-Apim-Subscription-Key`。 |
 | `Content-type` | 描述所提供音訊資料的格式和轉碼器。 接受的值為 `audio/wav; codecs=audio/pcm; samplerate=16000` 和 `audio/ogg; codecs=opus`。 | 必要項 |
-| `Transfer-Encoding` | 指定正在傳送的音訊資料區塊，而不是單一檔案。 只有在以區塊處理音訊資料時，才能使用此標頭。 | 選用 |
+| `Transfer-Encoding` | 指定正在傳送的音訊資料區塊，而不是單一檔案。 只有在以區塊處理音訊資料時，才能使用此標頭。 | 選擇性 |
 | `Expect` | 如果使用區塊傳輸，請傳送 `Expect: 100-continue`。 語音服務會確認初始要求，並且等候其他資料。| 如果傳送的是音訊資料區塊，則為必要。 |
 | `Accept` | 如果提供，則必須是 `application/json`。 語音服務提供 JSON 中的結果。 如果您未指定預設值，則有些 Web 要求架構會提供不相容的預設值，因此一律包含 `Accept` 是很好的做法。 | 此為選用步驟，但建議執行。 |
 
@@ -89,7 +88,7 @@ Expect: 100-continue
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 状态代码 | 描述 | 可能的原因 |
+| HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 100 | Continue | 已接受初始要求。 繼續傳送其餘的資料。 (搭配區塊傳輸使用。) |
 | 200 | [確定] | 要求成功；回應主體是 JSON 物件。 |
@@ -144,7 +143,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 結果以 JSON 格式提供。 `simple` 格式包含以下的最上層欄位。
 
-| 參數 | 描述  |
+| 參數 | 說明  |
 |-----------|--------------|
 |`RecognitionStatus`|狀態，例如 `Success` 代表辨識成功。 請參閱下一個表格。|
 |`DisplayText`|在大寫字、標點符號、反向文字正規化 (將語音文字轉換為較短的形式，例如 200 表示 "two hundred" 或將 "Dr.Smith" 表示 "doctor smith")，以及不雅內容遮罩之後辨識的文字。 只會在成功時呈現。|
@@ -153,7 +152,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 欄位可包含下列的值：
 
-| 狀態 | 描述 |
+| 狀態 | 說明 |
 |--------|-------------|
 | `Success` | 辨識成功並顯示 `DisplayText` 欄位。 |
 | `NoMatch` | 音訊串流中偵測到語音，但目標語言中沒有符合的字組。 通常表示辨識語言與使用者的口語語言不同。 |
@@ -168,7 +167,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `NBest` 清單中的每個物件包括：
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 |-----------|-------------|
 | `Confidence` | 項目的信賴分數從 0.0 (不信賴) 到 1.0 (完全信賴) |
 | `Lexical` | 已辨識文字的語彙形式：已辨識的實際文字。 |

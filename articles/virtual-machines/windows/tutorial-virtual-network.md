@@ -4,7 +4,7 @@ description: 在本教學課程中，了解如何使用 Azure PowerShell 來建�
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 568631705b590bb2ee312b9519164be17c8443ab
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d283a18d0ec2391b05210b785351dda0ca0ad416
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984234"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707903"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 來建立及管理 Windows 虛擬機器的 Azure 虛擬網路
 
@@ -58,14 +58,14 @@ Azure 虛擬網路可以讓虛擬機器、網際網路與其他 Azure 服務 (�
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 
 ## <a name="create-subnet"></a>建立子網路 
 
 在本教學課程中，會建立一個具有兩個子網路的虛擬網路。 一個是裝載 Web 應用程式的前端子網路，一個是裝載資料庫伺服器的後端子網路。
 
-建立虛擬網路之前，請先使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 建立資源群組。 下列範例會在 EastUS 位置建立名為 myRGNetwork 的資源群組。
+建立虛擬網路之前，請先使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 建立資源群組。 下列範例會在 EastUS  位置建立名為 myRGNetwork  的資源群組。
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
@@ -184,7 +184,7 @@ $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-您可以為後端子網路建立 NSG，以僅允許從 myFrontendVM 傳送內部流量給 myBackendVM。 下列範例會建立一個名為 *myBackendNSGRule* 的 NSG 規則：
+您可以為後端子網路建立 NSG，以僅允許從 myFrontendVM  傳送內部流量給 myBackendVM  。 下列範例會建立一個名為 *myBackendNSGRule* 的 NSG 規則：
 
 ```azurepowershell-interactive
 $nsgBackendRule = New-AzNetworkSecurityRuleConfig `
@@ -244,7 +244,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 在本教學課程中，建立後端 VM 的最簡單方式是使用 SQL Server 映像。 本教學課程只會建立具有資料庫伺服器的 VM，而不會提供有關存取該資料庫的資訊。
 
-建立 myBackendNic：
+建立 myBackendNic  ：
 
 ```azurepowershell-interactive
 $backendNic = New-AzNetworkInterface `

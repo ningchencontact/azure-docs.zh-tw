@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858394"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604092"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>快速入門：在 C# 中根據自訂字詞清單檢查文字
+# <a name="check-text-against-a-custom-term-list-in-c"></a>在 C# 中根據自訂字詞清單檢查文字
 
 Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內容審核需求。 不過，您可能會需要審查屬於您組織的特定字詞。 例如，您可能要標記競爭對手名稱以供進一步檢閱。 
 
@@ -40,7 +40,7 @@ Azure Content Moderator 中的預設全域字詞清單已可滿足大部分內�
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
 
 1. 將專案命名為 **TermLists**。 選取此專案作為解決方案的單一啟始專案。
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>總整理
+## <a name="compose-the-main-method"></a>撰寫 Main 方法
 
 將 **Main** 方法定義新增至 **TermLists** 命名空間、**Program** 類別。 最後，關閉 **Program** 類別和 **TermLists** 命名空間。
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>執行應用程式以查看此輸出
 
-下列幾行將是您的輸出，但是資料可能會有所差異。
+您的主控台輸出會如下所示：
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

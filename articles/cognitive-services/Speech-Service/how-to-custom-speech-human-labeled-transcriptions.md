@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fca2a21758a060dbfdc4acb2123a59fcae585fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060864"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606555"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>如何建立可標示為轉譯
 
@@ -29,7 +29,7 @@ ms.locfileid: "67060864"
 
 以下是一些範例：
 
-| 要避免的字元 | 替代字元 | 注意 |
+| 要避免的字元 | 替代字元 | 附註 |
 |---------------------|--------------|-------|
 | “Hello world” | "Hello world" | 已有適當的 ASCII 字元取代開頭和結尾的引號。 |
 | John’s day | John's day | 單引號已取代為適當的 ASCII 字元。 |
@@ -84,7 +84,7 @@ It costs $3.14| it costs three fourteen |
 
 以下是一些範例：
 
-| 要避免的字元 | 替代字元 | 注意 |
+| 要避免的字元 | 替代字元 | 附註 |
 |---------------------|--------------|-------|
 | "你好" | "你好" | 已使用適當的字元取代開頭和結尾的引號。 |
 | 需要什么帮助? | 需要什么帮助？ | 問號已取代為適當的字元。 |

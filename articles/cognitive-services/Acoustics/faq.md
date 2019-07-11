@@ -7,15 +7,15 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: resources
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e979db29f4a223b61580c48101c0d242fdbebbf
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693887"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616325"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>專案樂器常見問題集
 
@@ -45,7 +45,7 @@ ms.locfileid: "64693887"
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>我是否需要簡化關卡幾何？ 控制三角面計數？ 讓網格防水？
 
-沒有。 此系統會直接內嵌詳細的關卡幾何。 系統會將其體素化來進行內部處理。
+資料分割 此系統會直接內嵌詳細的關卡幾何。 系統會將其體素化來進行內部處理。
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>什麼是執行階段查閱資料表？
 
@@ -57,11 +57,11 @@ ACE 檔案包含是柔和式參數之間多個來源和接聽程式位置的配�
  
 ## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>專案樂器可以處理動態幾何？ 關閉中的門？ 被吹走的牆面？
 
-沒有。 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 離開樂器，超出的媒體櫃門幾何，然後將套用其他阻擋易損壞的狀態為基礎的建議，並使用可移動的遊戲物件建立技術。
+資料分割 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 離開樂器，超出的媒體櫃門幾何，然後將套用其他阻擋易損壞的狀態為基礎的建議，並使用可移動的遊戲物件建立技術。
  
 ## <a name="does-project-acoustics-use-acoustic-materials"></a>專案樂器是否使用原音資料？
 
-是。 它會從您關卡中的實體材質名稱挑選材質來決定吸收性。
+是的。 它會從您關卡中的實體材質名稱挑選材質來決定吸收性。
  
 ## <a name="what-do-the-probes-represent"></a>「探查」代表什麼？
 

@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何使用 Azure PowerShell �
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6766dc2b4d99d51e2832a054969697e4e330dd86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9099c8989b5ad3df1d8e27eb33a19ee6f23eb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785147"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708080"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 在 Windows 上建立虛擬機器擴展集及部署高可用性應用程式
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目。 您也可以定義規則以根據如 CPU、記憶體需求或網路流量的資源使用量來自動調整。 在本教學課程中，您將會在 Azure 部署虛擬機器擴展集，並了解如何：
@@ -37,10 +37,10 @@ ms.locfileid: "60785147"
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="scale-set-overview"></a>擴展集概觀
-虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 擴展集中的 VM 會分散於一或多個放置群組中的邏輯容錯網域和更新網域。 放置群組是類似已設定 VM 的群組，類似於[可用性設定組](tutorial-availability-sets.md)。
+虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 擴展集中的 VM 會分散於一或多個放置群組  中的邏輯容錯網域和更新網域。 放置群組是類似已設定 VM 的群組，類似於[可用性設定組](tutorial-availability-sets.md)。
 
 VM 會視需要建立於擴展集中。 您將定義自動調整規則，以控制如何及何時新增或移除擴展集中的 VM。 您可以根據計量 (例如 CPU 負載、記憶體使用量或網路流量) 觸發這些規則。
 
@@ -48,7 +48,7 @@ VM 會視需要建立於擴展集中。 您將定義自動調整規則，以控�
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-使用 [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 建立虛擬機器擴展集。 下列範例會建立使用 Windows Server 2016 資料中心平台映像，名為 myScaleSet 的擴展集。 系統會自動建立虛擬網路、公用 IP 位址和負載平衡器的 Azure 網路資源。 出現提示時，您可以為擴展集中的 VM 執行個體設定自己的系統管理認證：
+使用 [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) 建立虛擬機器擴展集。 下列範例會建立使用 Windows Server 2016 資料中心  平台映像，名為 myScaleSet  的擴展集。 系統會自動建立虛擬網路、公用 IP 位址和負載平衡器的 Azure 網路資源。 出現提示時，您可以為擴展集中的 VM 執行個體設定自己的系統管理認證：
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -148,7 +148,7 @@ Update-AzVmss `
 ```
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看作用中的擴展集，可使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會顯示建立作為擴展集一部分的 myPublicIP IP 位址︰
+若要查看作用中的擴展集，可使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會顯示建立作為擴展集一部分的 myPublicIP  IP 位址︰
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -195,7 +195,7 @@ Get-AzVmssVM `
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>增加或減少 VM 執行個體
-若要查看擴展集中目前擁有的執行個體數目，請使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 並查詢 sku.capacity：
+若要查看擴展集中目前擁有的執行個體數目，請使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 並查詢 sku.capacity  ：
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 C# 中根據自訂清單檢查影像 - Content Moderator
+title: 在 C# 中根據自訂清單檢查影像 - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for C# 以自訂影像清單仲裁影像。
 services: cognitive-services
@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881786"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603402"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>快速入門：在 C# 中使用自訂影像清單進行仲裁
+# <a name="moderate-with-custom-image-lists-in-c"></a>在 C# 中使用自訂影像清單進行仲裁
 
 本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
 - 建立自訂影像清單
@@ -32,7 +32,7 @@ ms.locfileid: "55881786"
 > [!NOTE]
 > 上限是 **5 個影像清單**，且每個清單**不可超過 10,000 個影像**。
 
-本快速入門的主控台應用程式會模擬一些您可以使用影像清單 API 來執行的工作。
+本指南中的主控台應用程式會模擬一些您可以使用映像清單 API 執行的工作。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
@@ -42,7 +42,7 @@ ms.locfileid: "55881786"
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
 
    在範例程式碼中，將專案命名為 **ImageLists**。
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>建立方法以將影像集合新增至清單
 
-將下列方法新增至 **Program** 類別。 本快速入門並不示範如何將標籤套用至清單中的影像。 
+將下列方法新增至 **Program** 類別。 本指南不會示範如何將標籤套用至清單中的映像。 
 
 ```csharp
 /// <summary>

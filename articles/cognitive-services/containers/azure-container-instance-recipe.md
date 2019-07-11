@@ -10,18 +10,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445823"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704363"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>部署和執行容器 Azure 容器執行個體 (ACI)
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>部署和 Azure 容器執行個體上執行容器
 
-使用下列步驟中，調整在雲端中輕鬆地使用 Azure 的 Azure 認知服務應用程式[容器執行個體](https://docs.microsoft.com/azure/container-instances/)(ACI)。 本文協助您專注於建置您的應用程式，而不是管理基礎結構中。
+使用下列步驟中，調整在雲端中輕鬆地使用 Azure 的 Azure 認知服務應用程式[容器執行個體](https://docs.microsoft.com/azure/container-instances/)。 本文協助您專注於建置您的應用程式，而不是管理基礎結構中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此解決方案適用於任何認知服務容器。 認知服務資源必須建立在 Azure 入口網站，才能使用此配方。 每個支援容器的認知服務有特別針對安裝和設定容器服務的 < 如何安裝 > 文件。 因為某些服務需要檔案或一組檔案，做為容器的輸入時，很重要，您會了解，並以前用過容器已成功使用此解決方案。
 
@@ -35,7 +35,7 @@ ms.locfileid: "67445823"
 
 角括弧中的所有變數`<>`，需要換成您自己的值。 這項取代包含角括號。
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>使用容器執行個體
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 20920a04c5b85c9eede7d7b249dd6e0548308240
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883401"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607001"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>快速入門：使用 Python 分析文字內容中的不當題材
 
@@ -32,7 +32,7 @@ ms.locfileid: "55883401"
 
 透過開啟命令提示字元並執行下列命令，來安裝 Content Moderator Python SDK：
 
-```
+```bash
 pip install azure-cognitiveservices-vision-contentmoderator
 ```
 

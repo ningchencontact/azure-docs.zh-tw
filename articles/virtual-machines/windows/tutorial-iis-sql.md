@@ -4,7 +4,7 @@ description: 在本教學課程中，您將學習如何在 Azure 中的 Windows 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 770fa89bc08b448482b4a74d21ee307df8a9f836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88a7a1ea736a418f4b08a22b3fa7b45ab0e126ff
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167910"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708029"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 在 Windows VM 中安裝 SQL、IIS、.NET 堆疊
 
@@ -36,7 +36,7 @@ ms.locfileid: "58167910"
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="create-an-iis-vm"></a>建立 IIS VM 
 

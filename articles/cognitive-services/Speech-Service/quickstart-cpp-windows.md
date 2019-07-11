@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 672a691cdad5c83583ea840907fa7dd193c7ae3a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d63d1c96077642e660e2272cbd8c2ee1250b1471
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466972"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606482"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上以 C++ 辨識語音
 
@@ -36,7 +36,7 @@ ms.locfileid: "65466972"
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
-1. 開啟來源檔案 helloworld.cpp。 使用下列項目取代開頭 include 陳述式 (`#include "stdafx.h"` 或 `#include "pch.h"`) 下方的所有程式碼：
+1. 開啟來源檔案 helloworld.cpp  。 使用下列項目取代開頭 include 陳述式 (`#include "stdafx.h"` 或 `#include "pch.h"`) 下方的所有程式碼：
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -48,11 +48,11 @@ ms.locfileid: "65466972"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-1. 建置應用程式。 從功能表列中，選擇 [建置] > [建置解決方案]。 這應該會編譯程式碼，而且不會出現任何錯誤。
+1. 建置應用程式。 從功能表列中，選擇 [建置]   > [建置解決方案]  。 這應該會編譯程式碼，而且不會出現任何錯誤。
 
    ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-cpp-windows-06-build.png)
 
-1. 啟動應用程式。 從功能表列中，選擇 [偵錯] > [開始偵錯]，或按 **F5**。
+1. 啟動應用程式。 從功能表列中，選擇 [偵錯]   > [開始偵錯]  ，或按 **F5**。
 
    ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-cpp-windows-07-start-debugging.png)
 

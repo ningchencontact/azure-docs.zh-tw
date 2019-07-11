@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9562a1686c4de4f4e2ef57a7d91bbf18dce63ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e40af9b2362ee52a1d00f29cdc112d3c2b9a842
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447580"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565858"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>什麼是 QnA Maker 知識庫？
 
@@ -40,15 +40,15 @@ QnA Maker 知識庫是由一組問題/回答 (QnA) 配對以及與每個 QnA 配
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>QnA Maker 如何處理使用者查詢，以選取最佳的回應
 
-定型並[發行](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)QnA Maker 知識庫在收到來自 bot 或其他用戶端應用程式中，使用者查詢[GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)。 收到使用者查詢時下, 圖說明此程序。
+定型並[發行](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base)QnA Maker 知識庫在收到來自 bot 或其他用戶端應用程式中，使用者查詢[GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)。 收到使用者查詢時下, 圖說明此程序。
 
 ![排名程序，以供使用者查詢](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
 下表會說明的程序：
 
-|步驟|目的|
+|步驟|用途|
 |--|--|
-|1|用戶端應用程式傳送的使用者查詢[GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)。|
+|1|用戶端應用程式傳送的使用者查詢[GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)。|
 |2|Qna Maker 前置處理使用者查詢語言偵測、 spellers，與斷詞工具。|
 |3|這個前置處理是擷取改變使用者為了得到最佳搜尋結果的查詢。|
 |4|此變更的查詢會傳送至 Azure 搜尋服務索引，接收`top`結果數目。 如果在這些結果中，不正確的答案，增加值`top`稍微。 一般值為 10 的`top`90%的查詢中的運作方式。|
@@ -65,6 +65,6 @@ QnA Maker 知識庫是由一組問題/回答 (QnA) 配對以及與每個 QnA 配
 > [!div class="nextstepaction"]
 > [知識庫的開發生命週期](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [QnA Maker 概觀](../Overview/overview.md)

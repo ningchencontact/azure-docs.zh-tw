@@ -15,24 +15,24 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547822"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656627"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 
 > [!NOTE]
-> 此文章會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署至 App Service，請參閱[在 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](../app-service-web-tutorial-dotnetcore-sqldb.md)。
+> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署至 App Service，請參閱[在 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](../app-service-web-tutorial-dotnetcore-sqldb.md)。
 >
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 此教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 Linux 上的 App Service中執行的 .NET Core MVC 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 Linux 上的 App Service中執行的 .NET Core MVC 應用程式。
 
 ![在 Linux 上的 App Service 中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 SQL Database
@@ -46,7 +46,7 @@ ms.locfileid: "59547822"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程：
+若要完成本教學課程：
 
 * [安裝 Git](https://git-scm.com/)
 * [安裝 .NET Core](https://www.microsoft.com/net/core/)
@@ -78,7 +78,7 @@ dotnet ef database update
 dotnet run
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:5000` 。 選取 [新建] 連結，並且建立幾個 [待辦事項] 項目。
+在瀏覽器中，瀏覽至 `http://localhost:5000` 。 選取 [新建]  連結，並且建立幾個 [待辦事項]  項目。
 
 ![成功連線至 SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -90,7 +90,7 @@ dotnet run
 
 在此步驟中，您要在 Azure 中建立 SQL Database。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
-對於 SQL Database，此教學課程使用 [Azure SQL Database](/azure/sql-database/)。
+對於 SQL Database，本教學課程使用 [Azure SQL Database](/azure/sql-database/)。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>建立連接字串
 
-將下列字串取代為您稍早使用的 *\<server-name>*、*\<db-username>* 和 *\<db-password>*。
+將下列字串取代為您稍早使用的 *\<server-name>* 、 *\<db-username>* 和 *\<db-password>* 。
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -292,7 +292,7 @@ dotnet ef database update
 
 ### <a name="use-the-new-property"></a>使用新屬性
 
-在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在此教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
+在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在本教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
 
 開啟 _Controllers\TodosController.cs_。
 
@@ -344,7 +344,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 dotnet run
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:5000/`。 您現在可以新增待辦事項項目，並且勾選 [完成]。 然後，它應該會在您的首頁中顯示為已完成的項目。 請記住，[`Edit`] 檢視不會顯示 [`Done`] 欄位，因為您沒有變更 [`Edit`] 檢視。
+在瀏覽器中，瀏覽至 `http://localhost:5000/`。 您現在可以新增待辦事項項目，並且勾選 [完成]  。 然後，它應該會在您的首頁中顯示為已完成的項目。 請記住，[`Edit`] 檢視不會顯示 [`Done`] 欄位，因為您沒有變更 [`Edit`] 檢視。
 
 ### <a name="publish-changes-to-azure"></a>將變更發佈至 Azure
 
@@ -362,13 +362,13 @@ git push azure master
 
 ## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
 
-範例專案已遵循 [Azure 中的 ASP.NET Core 記錄](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)指引，其中有兩項組態變更：
+範例專案已遵循 [Azure 中的 ASP.NET Core 記錄](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)指引，其中有兩項組態變更：
 
 - 在 *DotNetCoreSqlDb.csproj* 中包含 `Microsoft.Extensions.Logging.AzureAppServices` 的參考。
-- 在 Startup.cs 中呼叫 `loggerFactory.AddAzureWebAppDiagnostics()`。
+- 在 Startup.cs  中呼叫 `loggerFactory.AddAzureWebAppDiagnostics()`。
 
 > [!NOTE]
-> 專案的記錄層級在 appsettings.json 中設定為 `Information`。
+> 專案的記錄層級在 appsettings.json  中設定為 `Information`。
 >
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
@@ -379,11 +379,11 @@ git push azure master
 
 移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-根據預設，入口網站會顯示應用程式的 [概觀] 頁面。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
+根據預設，入口網站會顯示應用程式的 [概觀]  頁面。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
 
 ![Azure 入口網站中的 App Service 頁面](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 

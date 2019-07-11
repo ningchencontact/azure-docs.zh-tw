@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e975bbdcec2b45d67f910ac1a83a71ed252ebda
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072363"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606269"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -37,7 +37,7 @@ ms.locfileid: "67072363"
 
 [版本資訊](https://aka.ms/csspeech/whatsnew)會更新為新的版本都有提供。 資訊會包含新功能、 改善和 bug 修正的相關資訊。
 
-## <a name="search"></a>Search
+## <a name="search"></a>搜尋
 
 您可能會在下列項目中發現需要的答案：文件、範例或 [Stack Overflow](https://www.stackoverflow.com) 問題的解答。
 
@@ -64,14 +64,14 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 制訂問題時，請使用下列其中一個標記：
 
-|元件/區域  |標記  |
+|元件/區域  |Tags  |
 |---------|---------|
 |語音辨識 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |語音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |語音翻譯 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |語音意圖 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |一般語音 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| 語音第一個虛擬助理 （預覽） | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| 語音第一個虛擬助理 （預覽） | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  

@@ -7,22 +7,22 @@ author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 05/01/2019
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: HT
+ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827757"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604272"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>使用 Visual Studio 中已連線的服務來連線到電腦視覺 API
 
 這篇文章和其附屬文件提供使用適用於認知服務電腦視覺 API 的 Visual Studio 連線服務功能詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2017 15.7 或更新版本。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 - 已安裝 [Web 開發]  工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://visualstudio.microsoft.com/downloads/)。

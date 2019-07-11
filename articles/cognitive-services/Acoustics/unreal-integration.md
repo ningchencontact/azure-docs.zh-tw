@@ -7,15 +7,15 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435937"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704800"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>專案樂器 Unreal 和 Wwise 整合
 此操作說明提供詳細的整合步驟的專案樂器外掛程式封裝到您現有的 Unreal 和 Wwise 遊戲專案。 
@@ -26,7 +26,7 @@ ms.locfileid: "61435937"
 * [Unreal Wwise 外掛程式](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * 如果您使用 Wwise SDK 直接整合，而不使用 Wwise Unreal 外掛程式，請參閱專案樂器 Unreal 外掛程式，並調整 Wwise API 呼叫。
 
-如果您想要使用的音訊引擎 Wwise 以外的專案樂器上, 與我們連絡[專案樂器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)。 您可以使用專案樂器 Unreal 外掛程式來查詢樂器資料，然後再進行 API 呼叫，以便您的引擎。
+如果您想要使用的音訊引擎 Wwise 以外的專案樂器，對增強功能要求[專案樂器討論區論壇](https://github.com/microsoft/ProjectAcoustics/issues)。 您可以使用專案樂器 Unreal 外掛程式來查詢樂器資料，然後再進行 API 呼叫，以便您的引擎。
 
 ## <a name="download-project-acoustics"></a>下載專案樂器
 如果您還沒有這麼做，下載[Unreal 專案樂器 & Wwise 外掛程式封裝](https://www.microsoft.com/download/details.aspx?id=58090))。 

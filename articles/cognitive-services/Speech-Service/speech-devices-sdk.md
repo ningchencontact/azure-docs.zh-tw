@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 341f35d04c7f3f591198acbbf05ac32afe84e95c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409095"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718537"
 ---
 # <a name="about-the-speech-devices-sdk"></a>關於語音裝置 SDK
 
@@ -33,6 +32,22 @@ ms.locfileid: "65409095"
 您也可以使用語音裝置 SDK 來建置環境有自己的裝置[自訂喚醒 word](speech-devices-sdk-create-kws.md)因此是唯一您的品牌的提示，會起始使用者互動。
 
 語音裝置 SDK 有助於各種啟用語音的案例，例如[自訂語音第一個虛擬助理](https://aka.ms/bots/speech/va)、 磁碟機透過訂購系統[交談文字記錄](conversation-transcription-service.md)，和智慧說話者。 您可以利用文字來回應使用者、以預設或[自訂語音](how-to-customize-voice-font.md)回答他們、提供搜尋結果、[翻譯](speech-translation.md)成其他語言等等。 我們期待看到您所打造的不凡成果！
+
+## <a name="get-the-speech-devices-sdk"></a>取得語音裝置 SDK
+
+### <a name="android"></a>Android
+
+適用於 Android 裝置會下載最新版[Android 語音裝置 SDK](https://aka.ms/sdsdk-download-android)。
+
+### <a name="windows"></a>視窗
+
+Windows 的跨平台的 Java 應用程式提供的範例應用程式。 下載最新版[JRE 語音裝置 SDK](https://aka.ms/sdsdk-download-JRE)。
+應用程式已內建此語音 SDK 封裝，並在 64 位元 Windows 上的 Eclipse Java IDE (v4)。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
+
+### <a name="linux"></a>Linux
+
+適用於 Linux 的跨平台的 Java 應用程式提供的範例應用程式。 下載最新版[JRE 語音裝置 SDK](https://aka.ms/sdsdk-download-JRE)。
+應用程式已內建的語音 SDK 套件及 64 位元 Linux （Ubuntu 16.04，Ubuntu 18.04，Debian 9） 上的 Eclipse Java IDE (v4)。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
 
 ## <a name="next-steps"></a>後續步驟
 

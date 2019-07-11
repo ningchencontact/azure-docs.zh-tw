@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: HT
+ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743212"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604760"
 ---
 # <a name="swagger-documentation"></a>Swagger 文件
 
-語音服務提供了一個 Swagger 規格，用於與少數 REST API 互動，這些 REST API 用來匯入資料、建立模型、測試模型精確度、建立自訂端點、排入批次轉譯佇列和管理訂用帳戶。 透過自訂語音入口網站提供的大部分作業都可以使用這些 API 以程式設計方式來完成。 
+語音服務提供了一個 Swagger 規格，用於與少數 REST API 互動，這些 REST API 用來匯入資料、建立模型、測試模型精確度、建立自訂端點、排入批次轉譯佇列和管理訂用帳戶。 透過自訂語音入口網站提供的大部分作業都可以使用這些 API 以程式設計方式來完成。
 
 > [!NOTE]
 > 支援語音轉換文字和文字轉換語音的作業作為 REST API，然後在 Swagger 規格中進行記錄。

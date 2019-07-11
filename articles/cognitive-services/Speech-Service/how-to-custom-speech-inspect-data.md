@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 900d9b032b4ed121589d904a8ad18059b3283661
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064048"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603114"
 ---
 # <a name="inspect-custom-speech-data"></a>檢查自訂語音資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "67064048"
 2. 按一下 **加入測試**。
 3. 選取 **檢查品質 （僅限音訊的資料）** 。 為測試的名稱、 描述，然後選取 音訊資料集。
 4. 選取您想要測試的最多兩個模型。
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 
 已成功建立測試之後，您可以比較模型並排顯示。
 

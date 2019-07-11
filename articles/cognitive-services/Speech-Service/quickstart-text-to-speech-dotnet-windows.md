@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465568"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605020"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入門：使用適用於 .NET Framework (Windows) 的語音 SDK 來合成語音
 
@@ -53,11 +53,11 @@ ms.locfileid: "65465568"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-1. 從功能表列中，選取 [建置]  >  [建置解決方案]。 現在會編譯程式碼，而且不會出現任何錯誤。
+1. 從功能表列中，選取 [建置]   >  [建置解決方案]  。 現在會編譯程式碼，而且不會出現任何錯誤。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-csharp-dotnet-windows-08-build.png "成功建置")
 
-1. 從功能表列中選取 [偵錯] > [開始偵錯]，或按 **F5** 以啟動應用程式。
+1. 從功能表列中選取 [偵錯]   > [開始偵錯]  ，或按 **F5** 以啟動應用程式。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "啟動應用程式並進行偵錯")
 

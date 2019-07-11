@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何使用 Azure PowerShell �
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 4a60d3d77408e7c05311a2bd6bcceeb9331bd1af
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b6098d6a8752737ef0bffaf35c8ba4b6e5223d22
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924690"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707977"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教學課程 - 使用 Azure PowerShell 管理 Azure 磁碟
 
@@ -39,7 +39,7 @@ Azure 虛擬機器使用硬碟來儲存 VM 作業系統、應用程式和資料�
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="default-azure-disks"></a>預設 Azure 磁碟
 

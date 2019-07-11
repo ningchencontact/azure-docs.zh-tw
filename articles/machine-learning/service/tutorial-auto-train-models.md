@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417301"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622367"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 建立散佈圖，以視覺化方式呈現預測成本值與實際成本值的比較。 下列程式碼使用 `distance` 特徵作為 x 軸，以及行程 `cost` 作為 y 軸。 為了比較每個行程距離值之預測成本的變化，會將前 100 個預測成本值和實際成本值建立成個別的序列。 檢查繪圖會顯示距離/成本近似線性關係，而且預測的成本值在大部分情況下都非常接近相同車程距離的實際成本值。
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

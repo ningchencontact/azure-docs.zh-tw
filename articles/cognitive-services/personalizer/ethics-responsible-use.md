@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: HT
+ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428437"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722403"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>負責任地實作個人化工具的指導方針
 
@@ -50,7 +50,7 @@ Microsoft 會持續將心力投注於其工具和文件，以協助您善盡相�
 
 使用可經由學習將內容和使用者介面個人化的服務，確實很有幫助。 但若個人化的方式會在實際環境中產生不良副作用 (包括使用者不知道內容會個人化)，也可能會有誤用的情形。 
 
-較有可能出現不良副作用或缺乏透明度的個人化工具使用案例，包括「回報」取決於許多長時間的複雜因素，而在過度簡化為立即的回報時可能對個人產生不利結果的案例。 這些常會被視為「必然性」選擇，或涉及損害風險的選擇。 例如︰ 
+較有可能出現不良副作用或缺乏透明度的個人化工具使用案例，包括「回報」取決於許多長時間的複雜因素，而在過度簡化為立即的回報時可能對個人產生不利結果的案例。 這些常會被視為「必然性」選擇，或涉及損害風險的選擇。 例如: 
 
 
 * **金融**：將貸款、金融及保險產品的相關優惠個人化，而其中的風險因素以個人不知悉、無法取得或無從抗辯的資料為基礎。 
@@ -102,7 +102,7 @@ Microsoft 會持續將心力投注於其工具和文件，以協助您善盡相�
 ### <a name="unintended-consequences-from-reward-scores"></a>回報分數的非預期結果
 雖然回報分數可依據良好立意而建置，但仍可能在個人化工具對內容的排名方面產生非預期的後果或結果。 
 
-請思考一下以下範例：
+請考量下列範例：
 
 * 依據觀看影片的長度百分比來回報影片內容的個人化，可能會使短片獲得較高排名。
 * 直接回報社交媒體分享，而不進行其分享方式或內容本身的情感分析，可能會導致冒犯性、未經審核或煽動性的內容獲得較高排名，這樣雖然可帶動大量「參與」，但卻無法增加實質價值。

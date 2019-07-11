@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何使用 Azure PowerShell �
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fe19ea2d8946d645704139bbf2faa80f21e84039
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285970"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708065"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像
 
@@ -44,7 +44,7 @@ ms.locfileid: "58285970"
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="prepare-vm"></a>準備 VM
 
@@ -57,8 +57,8 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 
 1. 連接至虛擬機器。
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 *%windir%\system32\sysprep* 目錄，然後執行 `sysprep.exe`。
-3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
-4. 在 [關機選項] 中選取 [關機]，然後按一下 [確定]。
+3. 在 [系統準備工具]  對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，並確認已勾選 [一般化]  核取方塊。
+4. 在 [關機選項]  中選取 [關機]  ，然後按一下 [確定]  。
 5. Sysprep 完成時，會關閉虛擬機器。 **不要重新啟動 VM**。
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除配置並將 VM 標示為一般化
@@ -84,7 +84,7 @@ Set-AzVM `
 
 ## <a name="create-the-image"></a>建立映像
 
-現在您可以使用 [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage) 建立 VM 的映象。 下列範例會從名為 myVM 的 VM 建立名為 myImage 的映像。
+現在您可以使用 [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage) 建立 VM 的映象。 下列範例會從名為 myVM  的 VM 建立名為 myImage  的映像。
 
 取得虛擬機器。 
 
@@ -143,7 +143,7 @@ $images = Get-AzResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-删除映像。 此範例會刪除 myResourceGroup 中名為 myImage 的映像。
+删除映像。 此範例會刪除 myResourceGroup  中名為 myImage  的映像。
 
 ```azurepowershell-interactive
 Remove-AzImage `

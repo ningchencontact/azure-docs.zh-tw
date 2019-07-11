@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2018
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92793a583fc8681d610db3549891dff13529806d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c69db15f4db16dcbeadc4a21ff7a6b7bfcdb4424
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995093"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604230"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Ruby 分析遠端影像
 
@@ -39,9 +39,9 @@ ms.locfileid: "59995093"
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域，將 `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` 取代為 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法的端點 URL。
     1. (選擇性) 以不同的語言取代 `language` 要求參數的值。 
     1. (選擇性) 將 `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` 取代為您要分析之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.rb` 的檔案。 例如： `analyze-image.rb`。
+1. 將程式碼儲存為副檔名為 `.rb` 的檔案。 例如： `analyze-image.rb` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `ruby` 命令執行範例。 例如： `ruby analyze-image.rb`。
+1. 出現提示時，使用 `ruby` 命令執行範例。 例如： `ruby analyze-image.rb` 。
 
 ```ruby
 require 'net/http'

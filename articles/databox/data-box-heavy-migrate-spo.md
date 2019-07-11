@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446724"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592342"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>使用 Azure Data Box Heavy 將檔案共用內容遷移至 SharePoint Online
 
@@ -23,7 +23,7 @@ Microsoft Azure 資料箱服務可讓您從 Microsoft Azure 入口網站訂購�
 
 - [資料箱磁碟](https://docs.microsoft.com/azure/databox/data-box-disk-overview)，每筆訂單會有 35 TB 的可用容量，適用於中小型資料集。
 - [資料箱](https://docs.microsoft.com/azure/databox/data-box-overview)，每個裝置會有 80 TB 的可用容量，適用於中大型資料集。
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview)，每個裝置會有 770 TB 的可用容量，適用於大型資料集。 Data Box Heavy 目前為預覽狀態。
+- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview)，每個裝置會有 770 TB 的可用容量，適用於大型資料集。
 
 本文會專門探討如何使用 Data Box Heavy 將檔案共用內容遷移至 SharePoint Online。
 

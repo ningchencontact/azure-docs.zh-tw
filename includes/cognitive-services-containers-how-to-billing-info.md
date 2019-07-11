@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2019
-ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a24300958c27daaaf49cc3045a5e99d77c938ab7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052021"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704328"
 ---
 至容器的查詢會使用於 Azure 資源的定價層計費`<ApiKey>`。
 
@@ -23,7 +23,7 @@ Azure 認知服務容器在未連線至計費端點以進行計量的情況下�
 
 針對`docker run`命令來啟動容器時，必須指定下列選項中的所有三個有效的值：
 
-| 選項 | 描述 |
+| 選項 | 說明 |
 |--------|-------------|
 | `ApiKey` | 用來追蹤帳單資訊的認知服務資源的 API 金鑰。<br/>此選項的值必須設定為 佈建的資源中指定的 API 金鑰`Billing`。 |
 | `Billing` | 用來追蹤帳單資訊的認知服務資源端點。<br/>此選項的值必須設定為已佈建 Azure 資源的端點 URI。|

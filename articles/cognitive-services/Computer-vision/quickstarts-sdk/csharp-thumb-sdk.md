@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea03aa8242358833d32029918ce2e381182f6ba2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 78ffd9628c7a65ae60d457bbff3631ea261649d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998323"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603447"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 來產生縮圖
 
@@ -36,9 +36,9 @@ ms.locfileid: "59998323"
 
 1. 在 Visual Studio 中建立 Visual C# 主控台應用程式。
 1. 安裝「電腦視覺」用戶端程式庫 NuGet 套件。
-    1. 在功能表中，按一下 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
-    1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
-    1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
+    1. 在功能表中，按一下 [工具]  ，選取 [NuGet 套件管理員]  ，然後選取 [管理解決方案的 NuGet 套件]  。
+    1. 按一下 [瀏覽]  索引標籤，然後在 [搜尋]  方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
+    1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]  ，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]  。
 1. 使用以下程式碼來取代 `Program.cs`。 `GenerateThumbnailAsync` 和 `GenerateThumbnailInStreamAsync` 方法可分別針對遠端和本機影像包裝[取得縮圖 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (英文)。 
 
     ```csharp

@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311851"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606734"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
 如果您想要轉譯儲存體 (例如 Azure Blob) 中數量龐大的音訊，則適用批次轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並以非同步方式接收轉譯。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="subscription-key"></a>訂用帳戶金鑰
 
@@ -56,7 +55,7 @@ Batch 轉譯 API 支援下列格式：
 | MP3 | PCM | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
 | OGG | OPUS | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
 
-針對立體聲音訊資料流，Batch 轉譯 API 會在轉譯期間分離左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 此範例要求包含不雅內容篩選、標點符號和字組層級時間戳記的屬性。 
+針對立體聲音訊資料流，Batch 轉譯 API 會在轉譯期間分離左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 此範例要求包含不雅內容篩選、標點符號和字組層級時間戳記的屬性。
 
 ### <a name="configuration"></a>組態
 
@@ -97,7 +96,7 @@ Batch 轉譯 API 支援下列格式：
 
 Batch 轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)讀取音訊 」 和 「 寫入至儲存體的轉譯。
 
-## <a name="webhooks"></a>webhooks 
+## <a name="webhooks"></a>webhooks
 
 輪詢程式可能不會轉譯狀態的最有效，或提供最佳使用者體驗。 若要輪詢狀態，您可以註冊長時間執行轉譯工作完成時，會通知用戶端的回呼。
 
@@ -123,7 +122,7 @@ Diarization 是音訊的區隔喇叭的程序。 我們的批次管線支援 Dia
 }
 ```
 
-因為上述要求中的參數表示 Word 層級的時間戳記也必須以 '開啟'。 
+因為上述要求中的參數表示 Word 層級的時間戳記也必須以 '開啟'。
 
 對應的音訊會包含以編號識別的說話者 (目前，我們支援只有兩個語音，因此喇叭會被識別為 '演講者備忘 1' 和 ' 演講者備忘 2') 後面接著轉譯輸出。
 
@@ -134,7 +133,7 @@ Diarization 是音訊的區隔喇叭的程序。 我們的批次管線支援 Dia
 
 ## <a name="sentiment"></a>情感
 
-情感是 Batch 轉譯 API 中的新功能，在呼叫 center 網域中的重要功能。 客戶可以使用`AddSentiment`其要求的參數 
+情感是 Batch 轉譯 API 中的新功能，在呼叫 center 網域中的重要功能。 客戶可以使用`AddSentiment`其要求的參數
 
 1.  客戶滿意度上取得深入解析
 2.  取得深入解析 （小組採取呼叫） 的代理程式的效能
@@ -187,7 +186,7 @@ JSON 輸出範例如下所示：
 
 完整的範例都可以從[GitHub 範例存放庫](https://aka.ms/csspeech/samples)內`samples/batch`子目錄。
 
-您自訂的範例程式碼要有訂用帳戶資訊、服務區域、指向音訊檔的 SAS URI 以轉譯，以及模型識別碼，以防您想要使用自訂原音或語言模型。 
+您自訂的範例程式碼要有訂用帳戶資訊、服務區域、指向音訊檔的 SAS URI 以轉譯，以及模型識別碼，以防您想要使用自訂原音或語言模型。
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

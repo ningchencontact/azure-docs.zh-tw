@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: f4a0da5d3ef0dd2d5ae04a2cc1b07ddb0a649bef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dd11696ea4a90e61408a03400fa3315ee7eaff5f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205402"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653500"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊 (FCM) 將通知推送至特定 Android 裝置
 
@@ -207,7 +207,7 @@ ms.locfileid: "65205402"
     ```java
     private Notifications notifications;
     ```
-5. 接著，更新 `onCreate` 方法，如下列程式碼所示。 您可以在 [通知] 類別的 **subscribeToCategories** 方法中向通知中樞註冊。 
+5. 接著，更新 `onCreate` 方法，如下列程式碼所示。 您可以在 [通知]  類別的 **subscribeToCategories** 方法中向通知中樞註冊。 
 
     ```java
     @Override
@@ -317,7 +317,7 @@ ms.locfileid: "65205402"
 ## <a name="test-the-app"></a>測試應用程式
 
 1. 使用 Android Studio，在您的 Android 裝置或模擬器上執行應用程式。 應用程式 UI 提供一組切換，可讓您選擇要訂閱的類別。
-2. 啟用一或多個類別切換，然後按一下 [訂閱] 。 應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 隨即會傳回已註冊的類別，且會顯示在快顯通知中。
+2. 啟用一或多個類別切換，然後按一下 [訂閱]  。 應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 隨即會傳回已註冊的類別，且會顯示在快顯通知中。
 
     ![訂閱類別](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
 3. 執行 .NET 主控台應用程式，這會傳送每個類別的通知。 選取的類別通知會以快顯通知方式出現。
@@ -329,7 +329,7 @@ ms.locfileid: "65205402"
 在本教學課程中，您已將廣播通知傳送至已註冊相關類別的特定 Android 裝置。 若想了解如何將通知推送給特定使用者，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
->[將通知推送給特定使用者](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[將通知推送給特定使用者](push-notifications-android-specific-users-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

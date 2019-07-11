@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: ae075dbc922932a4eaffd9126560c159d33459d0
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466972"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604852"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "67466972"
 
 視平台而定，有不同的相依性存在以執行您的應用程式。
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>視窗
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
@@ -39,7 +39,7 @@ ms.locfileid: "67466972"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| 名稱 | 函式
+| 名稱 | 功能
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需

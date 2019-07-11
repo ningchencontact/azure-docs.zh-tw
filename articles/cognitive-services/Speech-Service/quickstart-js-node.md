@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 5fa0b6d2a361fdbf372ba73fed9d8e2c48cb3630
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9d233de8a9cdd4b9a3637edcd1c6196b4ad16fd2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871212"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605121"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的語音 SDK 來辨識語音
 
@@ -96,7 +96,7 @@ SpeechRecognitionResult {
 
 您也可以從 Visual Studio Code 執行範例。 請遵循這些步驟來安裝、開啟及執行快速入門：
 
-1. 啟動 Visual Studio Code。 選取 [開啟資料夾]。 然後瀏覽至 quickstart 資料夾。
+1. 啟動 Visual Studio Code。 選取 [開啟資料夾]  。 然後瀏覽至 quickstart 資料夾。
 
    ![開啟資料夾](media/sdk/qs-js-node-01-open_project.png)
 
@@ -112,7 +112,7 @@ SpeechRecognitionResult {
 
    ![在行 16 上具有中斷點的 index.js](media/sdk/qs-js-node-04-setup_breakpoint.png)
 
-1. 若要開始偵錯，請選取 F5 或從功能表選取 [偵錯/開始偵錯]。
+1. 若要開始偵錯，請選取 F5 或從功能表選取 [偵錯/開始偵錯]  。
 
    ![[偵錯] 功能表](media/sdk/qs-js-node-05-start_debugging.png)
 

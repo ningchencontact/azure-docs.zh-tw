@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072403"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657734"
 ---
 # <a name="what-is-speech-translation"></a>什麼是語音翻譯？
 
@@ -42,10 +41,10 @@ Microsoft 的轉譯引擎由兩個不同的方法： 統計機器翻譯 (SMT) �
 
 | 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#.NET framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | 視窗 | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#.NET framework](quickstart-translate-speech-dotnetframework-windows.md) | 視窗 | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | 視窗 | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | 視窗 | [Browse](https://aka.ms/csspeech/cppref)|
 | [Java](quickstart-translate-speech-java-jre.md) | Windows、Linux、macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>範例程式碼
@@ -56,10 +55,7 @@ Microsoft 的轉譯引擎由兩個不同的方法： 統計機器翻譯 (SMT) �
 
 ## <a name="migration-guides"></a>移轉指南
 
-> [!WARNING]
-> Translator Speech 晚會於 2019 年 10 月 15 日。
-
-如果您的應用程式、 工具或產品使用 Translator Speech，我們建立了指南，以協助您移轉至語音服務。
+如果使用您的應用程式、 工具或產品[Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview)，我們提供了指南，以協助您移轉至語音服務。
 
 * [Translator Speech API 從移轉到語音服務](how-to-migrate-from-translator-speech-api.md)
 

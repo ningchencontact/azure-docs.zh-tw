@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afe69d396c42023df8fcf5e4a6772771afc75c76
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072323"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606241"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
 語音轉換文字從 Azure 語音服務，也就是語音轉換文字，啟用即時轉譯的音訊資料流為可使用您的應用程式、 工具或裝置，文字會顯示，，並採取動作做為命令的輸入。 這項服務具備相同，Microsoft 會使用 Cortana 和 Office 產品的完美搭配的轉譯和文字轉換語音辨識技術。  如需可用的語音轉換文字語言的完整清單，請參閱 <<c0> [ 支援的語言](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)。
 
-根據預設，語音轉換文字服務會使用通用的語言模型。 此模型已定型使用 Microsoft 所擁有的資料，並部署在雲端中。 它是適合交談和語音輸入案例。 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 
+根據預設，語音轉換文字服務會使用通用的語言模型。 此模型已定型使用 Microsoft 所擁有的資料，並部署在雲端中。 它是適合交談和語音輸入案例。 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。
 
 您可以輕鬆地擷取從麥克風的音訊、 讀取從資料流中，或從儲存體與 Speech SDK 和 REST Api 存取音訊檔案。 語音 SDK 支援 WAV PCM/16 位元，16 kHz/8 kHz、 單一通道語音辨識的音訊。 使用可支援額外的音訊格式[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[batch 轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)。
 
@@ -51,10 +50,10 @@ ms.locfileid: "67072323"
 
 | 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#.NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | 視窗 | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#.NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | 視窗 | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | 視窗 | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | 視窗 | [Browse](https://aka.ms/csspeech/cppref)|
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows、Linux、macOS | [Browse](https://aka.ms/csspeech/javaref) |

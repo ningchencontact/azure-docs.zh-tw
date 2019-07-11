@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342200"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604893"
 ---
 # <a name="text-to-speech-rest-api"></a>文字轉換語音 REST API
 
@@ -68,9 +67,9 @@ ms.locfileid: "67342200"
 
 下表列出文字轉換語音要求的必要和選擇性標頭。
 
-| 頁首 | 描述 | 必要/選用 |
+| 標頭 | 描述 | 必要/選用 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
+| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要 |
 
 ### <a name="request-body"></a>Request body
 
@@ -136,7 +135,7 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 状态代码 | 描述 | 可能的原因 |
+| HTTP 狀態碼 | 說明 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 200 | [確定] | 要求成功。 |
 | 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
@@ -159,12 +158,12 @@ Authorization: Bearer [Base64 access_token]
 
 下表列出文字轉換語音要求的必要和選擇性標頭。
 
-| 頁首 | 描述 | 必要/選用 |
+| 標頭 | 描述 | 必要/選用 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
-| `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要項 |
-| `X-Microsoft-OutputFormat` | 指定音訊輸出格式。 如需接受值的完整清單，請參閱[音訊輸出](#audio-outputs)。 | 必要項 |
-| `User-Agent` | 應用程式名稱。 提供的值必須是少於 255 個字元。 | 必要項 |
+| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要 |
+| `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要 |
+| `X-Microsoft-OutputFormat` | 指定音訊輸出格式。 如需接受值的完整清單，請參閱[音訊輸出](#audio-outputs)。 | 必要 |
+| `User-Agent` | 應用程式名稱。 提供的值必須是少於 255 個字元。 | 必要 |
 
 ### <a name="audio-outputs"></a>音訊輸出
 
@@ -219,13 +218,13 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 状态代码 | 描述 | 可能的原因 |
+| HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 200 | [確定] | 要求成功；回應主體是音訊檔案。 |
 | 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
 | 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 413 | 要求實體太大 | SSML 輸入的長度大於 1024 個字元。 |
-| 415 | 不支援的媒體類型 | 可能的錯誤`Content-Type`所提供。 `Content-Type` 應該設定為`application/ssml+xml`。 | 
+| 415 | 不支援的媒體類型 | 可能的錯誤`Content-Type`所提供。 `Content-Type` 應該設定為`application/ssml+xml`。 |
 | 429 | 太多要求 | 您已超出訂用帳戶允許的配額或要求率。 |
 | 502 | 錯誤的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
 

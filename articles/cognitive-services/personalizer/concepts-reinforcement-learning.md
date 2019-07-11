@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: HT
+ms.openlocfilehash: 26f8348bc2de9cb56110c1cc7ce896934bb46ef7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506895"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722464"
 ---
 # <a name="what-is-reinforcement-learning"></a>增強式學習是什麼？
 
@@ -31,7 +31,7 @@ ms.locfileid: "65506895"
 
 * 應用程式會提供機會來顯示替代項目清單中的一段內容。
 * 應用程式會提供關於每一種替代項目與使用者內容的資訊。
-* 應用程式會計算「報酬分數」。
+* 應用程式會計算「報酬分數」  。
 
 不同於增強式學習的一些方法，個人化工具不需要有模擬環境就能工作。 其學習演算法的設計目的是要對外界做出回應 (而非對其進行控制)，並從每個資料點進行學習，因為其了解這是需要花費時間和金錢才能建立的獨特機會，如果效能未達到最佳狀況，將可能造成遺憾 (損失可能的報酬)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "65506895"
 
 個人化工具的目前版本會使用**內容相關吃角子老虎機**，這是根據要在給定內容下於不連續動作之間做出決策或選擇的情形所制定的一種增強式學習方法。
 
-「決策記憶體」是為了在給定內容下擷取最佳可能決策而定型的模型，其會使用一組線性模型。 這些經過實證的方法會一再顯示商務結果，部分原因是其可以非常快速地從現實世界中學習，而不需要完成多階段的訓練，另外部分原因則是其可以輔助監督式學習模型和深度神經網路模型。
+「決策記憶體」  是為了在給定內容下擷取最佳可能決策而定型的模型，其會使用一組線性模型。 這些經過實證的方法會一再顯示商務結果，部分原因是其可以非常快速地從現實世界中學習，而不需要完成多階段的訓練，另外部分原因則是其可以輔助監督式學習模型和深度神經網路模型。
 
 探索/利用流量會遵循針對探索所設定的百分比來隨機配置，而且用於探索的預設演算法是 epsilon-greedy。
 

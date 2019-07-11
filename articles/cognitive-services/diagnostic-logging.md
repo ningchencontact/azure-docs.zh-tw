@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155748"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657689"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>啟用診斷記錄的 Azure 認知服務
 
@@ -28,14 +28,14 @@ ms.locfileid: "67155748"
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -彈性的記錄搜尋和分析工具，可讓您的 Azure 資源所產生的未經處理記錄檔的分析。
 
 > [!NOTE]
-> 有其他組態選項。 若要進一步了解，請參閱[收集並取用來自 Azure 資源的記錄資料](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)。
+> 有其他組態選項。 若要進一步了解，請參閱[收集並取用來自 Azure 資源的記錄資料](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)。
 
 ## <a name="enable-diagnostic-log-collection"></a>啟用診斷記錄檔收集  
 
 現在就開始啟用診斷記錄使用 Azure 入口網站。
 
 > [!NOTE]
-> 若要啟用這項功能，使用 PowerShell 或 Azure CLI，使用所提供的指示[收集並取用來自 Azure 資源的記錄資料](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs)。
+> 若要啟用這項功能，使用 PowerShell 或 Azure CLI，使用所提供的指示[收集並取用來自 Azure 資源的記錄資料](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings)。
 
 1. 瀏覽至 Azure 入口網站。 然後尋找並選取 認知服務資源。 例如，Bing Web 搜尋訂用帳戶。   
 2. 接下來，從左側導覽功能表中，找出**監視**，然後選取**診斷設定**。 此畫面包含此資源的所有先前建立的診斷設定。
@@ -43,7 +43,7 @@ ms.locfileid: "67155748"
 4. 輸入設定的名稱。 然後選取**封存至儲存體帳戶**並**傳送給 log Analytics**。
 5. 出現提示時設定，請選取儲存體帳戶和您想要用來儲存診斷記錄的 OMS 工作區。 **注意**：如果您沒有儲存體帳戶或 OMS 工作區，請依照下列提示來建立一個。
 6. 選取 **稽核**，**要求回應**，並**AllMetrics**。 然後設定您的診斷記錄資料的保留期限。 如果保留原則設定為零，會無限期地儲存該記錄類別的事件。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 可能需要最多兩個小時，才有可用來查詢及分析記錄資料。 因此別擔心，如果您沒有立即看到任何項目。
 
@@ -58,7 +58,7 @@ Azure 儲存體是最適合用於儲存大量非結構化資料的強固的物�
 
 深入了解您可以如何處理中的診斷資料[Azure 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)。
 
-## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
+## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄檔
 
 請遵循下列指示來探索資源的 log analytics 資料。
 

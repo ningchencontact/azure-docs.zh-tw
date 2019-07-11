@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4055b474938e38f653021b46f18200f8e39dd69d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603473"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604750"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>關於自訂的語音第一個虛擬助理預覽
 
@@ -30,7 +29,7 @@ ms.locfileid: "65603473"
 
 ## <a name="core-features"></a>核心功能
 
-| Category | 功能 |
+| 分類 | 功能 |
 |----------|----------|
 |[自訂的網路喚醒 word](speech-devices-sdk-create-kws.md) | 您可以讓使用者以使用自訂的關鍵字 「 嘿，Contoso。 」 類似的機器人開始交談 完成這項工作與自訂的網路喚醒 word 引擎在語音 SDK 中，可以設定以文字做為自訂的網路喚醒[您可以在這裡產生](speech-devices-sdk-create-kws.md)。 直接列語音通道包括更為精確的線上醒機 word 啟用，與單獨裝置的服務端喚醒文字驗證。
 |[語音轉換文字](speech-to-text.md) | 直接列語音通道包含音訊的已辨識的文字所使用的即時轉譯[語音轉換文字](speech-to-text.md)Azure 語音服務。 因為它謄寫，此文字是可供您的機器人和用戶端應用程式。

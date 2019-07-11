@@ -1,21 +1,21 @@
 ---
-title: 離線評估
-titleSuffix: Personalizer - Azure Cognitive Services
+title: 離線評估-Personalizer
+titleSuffix: Azure Cognitive Services
 description: 了解如何透過離線評估來分析您的學習迴圈
 services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e99a8242e438ef5a8ab7fd917724450f8080bb41
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026640"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722322"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>如何透過離線評估來分析您的學習迴圈
 
@@ -32,7 +32,7 @@ ms.locfileid: "65026640"
 1. 您必須已設定個人化工具迴圈
 1. 個人化工具迴圈在其記錄中必須有至少 50,000 個事件，以提供有意義的評估結果。
 
-(選擇性) 您可能先前也已匯出「學習原則」檔案，以便在相同評估中進行比較和測試。
+(選擇性) 您可能先前也已匯出「學習原則」  檔案，以便在相同評估中進行比較和測試。
 
 ## <a name="steps-to-start-a-new-offline-evaluation"></a>開始新離線評估的步驟
 

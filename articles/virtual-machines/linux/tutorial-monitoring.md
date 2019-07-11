@@ -4,7 +4,7 @@ description: 在本教學課程中，您會了解如何監視 Linux 虛擬機器
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 7aa0fd328e923df5882a2b6354dc61aac7ca4feb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754409"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695588"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Linux 虛擬機器
 

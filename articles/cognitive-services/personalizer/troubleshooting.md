@@ -1,5 +1,5 @@
 ---
-title: 疑難排解
+title: 疑難排解-Personalizer
 titleSuffix: Azure Cognitive Services
 description: 這篇文章中可以找到疑難排解 Personalizer 疑問。
 author: edjez
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: article
 ms.date: 06/15/2019
 ms.author: edjez
-ms.openlocfilehash: 5136bd295c12c4439a894b4dcf0b868d32ce43ca
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: be6119d96b89622f45db1099a47e858a5893c2cb
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313201"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722260"
 ---
 # <a name="personalizer-troubleshooting"></a>Personalizer 疑難排解
 
@@ -23,7 +23,7 @@ ms.locfileid: "67313201"
 
 ## <a name="learning-loop"></a>學習迴圈
 
-### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>若要了解似乎不是學習迴圈。 如何修正此警示?
+### <a name="the-learning-loop-doesnt-seem-to-learn-how-do-i-fix-this"></a>若要了解似乎不是學習迴圈。 如何修正此？
 
 學習迴圈需要少數的數千個 Reward 呼叫陣序的呼叫有效地排列優先順序。 
 

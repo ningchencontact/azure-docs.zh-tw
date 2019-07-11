@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad2a3cd73fe97415f0d6835d70e15bf90349696c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954631"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604897"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>錄製語音樣本來建立自訂語音
 
@@ -33,7 +32,7 @@ ms.locfileid: "65954631"
 
 自訂語音錄音專案中有四個基本角色：
 
-Role|目的
+角色|用途
 -|-
 配音員        |這個人的聲音將形成自訂語音的基礎。
 錄音工程師  |監看錄音的技術層面，並操作錄音設備。

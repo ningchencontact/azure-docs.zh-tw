@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 827c94472d3778da338c662691363919f96d4813
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 07b238f900a7f0ba15ad7b37ba7e194567fa0f6a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051554"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592711"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>快速入門：使用 Node.js 向 Bing 當地商家搜尋 API 傳送查詢
 
