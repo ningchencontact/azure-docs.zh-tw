@@ -6,13 +6,13 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/19
-ms.openlocfilehash: 49d4e56dabf046675970c65f2be71cea5094e9ef
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 06/18/2019
+ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550881"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785660"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -22,7 +22,7 @@ Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS
 
 此教學課程也使用 Azure Container Registry (ACR)。 ACR 會儲存影像、ACR 工作組建 Docker 和 Helm 成品。 將 ACR 和 ACR 工作用於產生成品，便不再需要在您的 Jenkins 伺服器上安裝其他軟體 (例如，Docker)。 
 
-在此教學課程中，您將完成下列工作：
+在本教學課程中，您將完成下列工作：
 
 > [!div class="checklist"]
 > * 建立啟用 AKS 叢集的 Azure Dev Spaces
@@ -63,7 +63,7 @@ Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS
     az group create --name MyResourceGroup --location westus2
     ```
 
-2. 建立 AKS 叢集。 在[支援 Dev Spaces 的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams) \(部分機器翻譯\) 建立 AKS 叢集。
+2. 建立 AKS 叢集。 在[支援 Dev Spaces 的區域](../dev-spaces/about.md#supported-regions-and-configurations) \(部分機器翻譯\) 建立 AKS 叢集。
 
     ```bash
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
