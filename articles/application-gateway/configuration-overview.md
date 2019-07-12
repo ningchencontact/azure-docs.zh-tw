@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073971"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795911"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
 
@@ -25,7 +25,7 @@ Azure 應用程式閘道是由您可以針對不同案例的各種方式設定�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 虛擬網路和專用子網路
 
@@ -245,7 +245,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 
 #### <a name="rewrite-the-http-header-setting"></a>請重寫的 HTTP 標頭設定
 
-這項設定會新增、 移除或更新 HTTP 要求和回應標頭時要求和回應封包將用戶端與後端集區之間移動。 您可以只設定這項功能，透過 PowerShell。 Azure 入口網站和 CLI 支援尚無法使用。 如需詳細資訊，請參閱
+這項設定會新增、 移除或更新 HTTP 要求和回應標頭時要求和回應封包將用戶端與後端集區之間移動。 您可以只設定這項功能，透過 PowerShell。 Azure 入口網站和 CLI 支援尚無法使用。 如需詳細資訊，請參閱：
 
  - [重新撰寫 HTTP 標頭概觀](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
@@ -297,6 +297,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
   | / home/secondhome /          | /pathrule*      | /override/            | 覆寫/home/secondhome /   |
   | /pathrule/home /            | pathrule/首頁 * | /override/            | /override/                   |
   | /pathrule/home/secondhome/ | pathrule/首頁 * | /override/            | 覆寫/secondhome / /        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>使用 app service
 

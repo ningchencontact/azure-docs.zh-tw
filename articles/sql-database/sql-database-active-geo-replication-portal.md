@@ -25,7 +25,7 @@ ms.locfileid: "60864060"
 
 如需單一和集區資料庫的自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配單一和集區資料庫的最佳作法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)。 如需搭配受控執行個體 (預覽) 之自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉叢集搭配受控執行個體的最佳做法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用 Azure 入口網站來設定作用中異地複寫，您需要下列資源：
 
@@ -40,7 +40,7 @@ ms.locfileid: "60864060"
 
 若要新增次要資料庫，您必須是訂用帳戶擁有者或共同擁有者。
 
-次要資料庫的名稱會與主要資料庫相同，並且預設會具有相同的服務層和計算大小。 次要資料庫可以是單一資料庫或集區資料庫。 如需詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
+次要資料庫的名稱會與主要資料庫相同，並且預設會具有相同的服務層級和計算大小。 次要資料庫可以是單一資料庫或集區資料庫。 如需詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 建立並植入次要複本之後，就會開始從主要資料庫將資料複寫到新的次要資料庫。
 
 > [!NOTE]
@@ -49,12 +49,12 @@ ms.locfileid: "60864060"
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您想要為「異地複寫」設定的資料庫。
 2. 在 SQL Database 頁面上，選取 [異地複寫]  ，然後選取要建立次要資料庫的區域。 您可以選取裝載主要資料庫之區域以外的任何區域，但我們建議您選取[配對區域](../best-practices-availability-paired-regions.md)。
 
-    ![配置异地复制](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
+    ![設定異地複寫](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. 選取或設定伺服器及次要資料庫的定價層。
 
     ![設定次要資料庫](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. (選擇性) 您可以將次要資料庫新增至彈性集區。 若要在集區中建立次要資料庫，請按一下 [彈性集區]  ，然後選取目標伺服器上的集區。 池必须已在目标服务器上存在。 此工作流程不會建立集區。
-5. 单击“创建”  添加辅助数据库。
+4. (選擇性) 您可以將次要資料庫新增至彈性集區。 若要在集區中建立次要資料庫，請按一下 [彈性集區]  ，然後選取目標伺服器上的集區。 集區必須已存在目標伺服器上。 此工作流程不會建立集區。
+5. 按一下 [建立]  以加入次要資料庫。
 6. 將會建立次要資料庫並開始植入程序。
 
     ![設定次要資料庫](./media/sql-database-geo-replication-portal/seeding0.png)
@@ -75,12 +75,12 @@ ms.locfileid: "60864060"
 
 命令會立即將次要資料庫切換為主要角色。 通常在 30 秒或更少，應該完成此程序。
 
-切换角色时，有一小段时间无法使用这两个数据库（大约为 0 到 25 秒）。 如果主要資料庫有多個次要資料庫，此命令會自動重新設定其他次要複本以連接至新的主要複本。 在正常情況下，完成整個作業所需的時間應該少於一分鐘。
+切換角色時，會有一小段時間無法使用這兩個資料庫 (大約為 0 到 25 秒)。 如果主要資料庫有多個次要資料庫，此命令會自動重新設定其他次要複本以連接至新的主要複本。 在正常情況下，完成整個作業所需的時間應該少於一分鐘。
 
 > [!NOTE]
-> 此命令的設計目的是要快速復原發生中斷的資料庫。 它會觸發容錯移轉但不進行資料同步 (強制性容錯移轉)。  如果发出命令时主数据库处于在线状态且正在提交事务，则可能会丢失某些数据。
+> 此命令的設計目的是要快速復原發生中斷的資料庫。 它會觸發容錯移轉但不進行資料同步 (強制性容錯移轉)。  發出命令時，如果主要複本處於線上並且正在認可交易，可能會發生部分資料遺失。
 
-## <a name="remove-secondary-database"></a>删除辅助数据库
+## <a name="remove-secondary-database"></a>移除次要資料庫
 
 此作業會永久終止對次要資料庫的複寫，並將次要資料庫的角色變更為一般讀寫資料庫。 如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成讀寫資料庫。  
 

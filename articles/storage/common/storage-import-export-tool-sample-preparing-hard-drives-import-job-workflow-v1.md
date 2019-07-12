@@ -20,7 +20,7 @@ ms.locfileid: "60320579"
   
 此範例會將下列資料匯入名為 `mystorageaccount` 的 Windows Azure 儲存體帳戶：  
   
-|位置|描述|  
+|Location|描述|  
 |--------------|-----------------|  
 |H:\Video|視訊集合，總共 5 TB。|  
 |H:\Photo|相片集合，總共 30 GB。|  
@@ -29,7 +29,7 @@ ms.locfileid: "60320579"
   
 匯入作業會將此資料匯入儲存體帳戶中的下列目的地：  
   
-|source|目的地虛擬目錄或 Blob|  
+|Source|目的地虛擬目錄或 Blob|  
 |------------|-------------------------------------------|  
 |H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
@@ -44,7 +44,7 @@ ms.locfileid: "60320579"
   
 針對此範例，兩個 3 TB 的硬碟應該就已足夠。 不過，由於來源目錄 `H:\Video` 具有 5 TB 的資料，而您的單一硬碟容量只有 3 TB，因此必須在執行 Microsoft Azure 匯入/匯出工具之前，將 `H:\Video` 分為兩個較小的目錄：`H:\Video1` 和 `H:\Video2`。 此步驟將會產生下列來源目錄：  
   
-|位置|大小|目的地虛擬目錄或 Blob|  
+|Location|Size|目的地虛擬目錄或 Blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2.5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2.5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

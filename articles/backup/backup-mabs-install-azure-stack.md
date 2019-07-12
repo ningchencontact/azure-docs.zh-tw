@@ -214,7 +214,7 @@ Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Az
 
     ![Azure 備份伺服器 - 歡迎使用和必要條件檢查](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    如果您的環境具有所需的必要條件，就會看到訊息指出機器符合需求。 单击“下一步”  。  
+    如果您的環境具有所需的必要條件，就會看到訊息指出機器符合需求。 按一下 [下一步]  。  
 
     ![Azure 備份伺服器 - 必要條件檢查通過](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 

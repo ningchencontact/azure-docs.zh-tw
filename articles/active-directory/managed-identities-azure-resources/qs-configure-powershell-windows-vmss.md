@@ -90,7 +90,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 1. 使用 `Connect-AzAccount` 登入 Azure。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外，也請確定您的帳戶屬於在虛擬機器擴展集上具有寫入權限的角色，例如「虛擬機器參與者」：
 
-2. 运行以下 cmdlet：
+2. 執行下列 Cmdlet：
 
    ```powershell
    Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"

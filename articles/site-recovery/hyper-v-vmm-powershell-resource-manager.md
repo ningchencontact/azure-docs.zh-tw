@@ -21,7 +21,7 @@ ms.locfileid: "60362351"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 檢閱[案例架構和元件](hyper-v-vmm-architecture.md)。
 - 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-sec-site.md)。

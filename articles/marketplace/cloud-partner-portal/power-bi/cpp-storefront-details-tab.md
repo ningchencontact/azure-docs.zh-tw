@@ -109,7 +109,7 @@ ms.locfileid: "64942631"
 
 |    欄位               |   潛在客戶目的地                               |
 |------------------------|--------------------------------------            |
-|  **None**              | 收集任何潛在客戶。 這是預設選項。  |
+|  **無**              | 收集任何潛在客戶。 這是預設選項。  |
 | **Azure Blob (已淘汰)** | 指定[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)使用容器名稱和連接字串。  此選項已被取代。 使用**Azure 表格**改。  |
 | **Azure 資料表**        | 指定[Azure 表格儲存體](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview)使用連接字串。  |
 | **Dynamics CRM Online** | 指定[Dynamics 365](https://dynamics.microsoft.com/)使用 URL 和驗證認證。 |

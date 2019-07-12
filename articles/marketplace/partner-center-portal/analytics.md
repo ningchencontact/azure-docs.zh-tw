@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247720"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619695"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>分析商業 marketplace 在合作夥伴中心
 
@@ -138,7 +138,7 @@ ms.locfileid: "66247720"
 
 - **透過 Azure 計費**:Microsoft 會代表您的客戶，當您選擇[銷售您的供應項目，透過 Microsoft](./create-new-saas-offer.md#sell-through-microsoft)此授權類型。 付款類型包括透過信用卡或發票企業的隨用隨付。
 - **自備授權**:Microsoft 向客戶收取其使用量，這種類型的 marketplace 供應項目不收費。 列為 **[立即取得 （免費）](./create-new-saas-offer.md#get-it-now-free)** 在 marketplace 中。
-- **免費**：Microsoft 向客戶收取其使用量，這種類型的 marketplace 供應項目不收費。 列為 **[免費試用](./create-new-saas-offer.md#free-trial)** 在 marketplace 中。
+- **免費**：Microsoft 向客戶收取其使用量，這種類型的 marketplace 供應項目不收費。 列為 **[免費試用](./create-new-saas-offer.md##free-trial-listing)** 在 marketplace 中。
 - **Microsoft 轉銷商**:代表由 Microsoft 轉銷商銷售的一部分的供應項目 **[雲端解決方案提供者 (CSP) 計畫](./create-new-saas-offer.md#csp-program-opt-in)** 。
 
 ![授權類型的合作夥伴中心進行分析訂單](./media/analyze-license-type.png)

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235950"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798442"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -81,6 +81,10 @@ Ubuntu  | 18.04
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net
+
+這提供受管理的節點與 Azure 自動化進行通訊的網路連線。
+如果您使用 DSC 資源，例如節點間通訊[WaitFor * 資源](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource)，您也必須在允許的節點之間的流量。
+請參閱每個 DSC 資源，以了解這些網路需求的文件。
 
 #### <a name="proxy-support"></a>Proxy 支援
 

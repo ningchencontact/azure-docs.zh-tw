@@ -32,7 +32,7 @@ Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些�
 - [網路架構](azure-infrastructure-network.md)
 - [生產網路](azure-production-network.md)
 - [SQL Database](azure-infrastructure-sql.md)
-- [作業](azure-infrastructure-operations.md)
+- [操作](azure-infrastructure-operations.md)
 - [監視](azure-infrastructure-monitoring.md)
 - [完整性](azure-infrastructure-integrity.md)
 - [資料保護](azure-protection-of-customer-data.md)
@@ -44,7 +44,7 @@ Microsoft Azure 是在 Microsoft 管理並操作的資料中心執行。 這些�
 
 下列項目一律由您負責 (不論部署類型)：
 
-- 資料
+- Data
 - 端點
 - 帳戶
 - 存取管理

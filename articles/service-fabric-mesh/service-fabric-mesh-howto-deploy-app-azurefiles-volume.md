@@ -28,7 +28,7 @@ ms.locfileid: "60419368"
 
 若要在服務中裝載磁碟區，請在 Service Fabric Mesh 應用程式中建立磁碟區資源，然後在服務中參考該磁碟區。  您可以在[以 YAML 為基礎的資源檔](#declare-a-volume-resource-and-update-the-service-resource-yaml)或[以 JSON 為基礎的部署範本](#declare-a-volume-resource-and-update-the-service-resource-json)中，宣告磁碟區資源並在服務資源中加以參考。 在裝載磁碟區之前，請先建立 Azure 儲存體帳戶和[檔案儲存體中的檔案共用](/azure/storage/files/storage-how-to-create-file-share)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成本文。 
 

@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7f2f85f8b68efadf1dc0a35d1a8e6bda2655f53b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 697983000f84f9e4efe7e2c8ef9dbb2f636e0735
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65207290"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620567"
 ---
 # <a name="connect-data-from-azure-security-center"></a>從 Azure 資訊安全中心連線資料
 
@@ -45,7 +46,7 @@ Azure 的 Sentinel 可讓您連線的警示[Azure 資訊安全中心](../securit
 1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure 資訊安全中心**圖格。
 1. 在右側，按一下**Connect**每個訂用帳戶的警示，您想要串流處理至 Azure 的 Sentinel 旁邊。 請確定每個訂用帳戶升級到 Azure 資訊安全中心標準層，以資料流的警示，以便 Azure Sentinel。
 
-3. 按一下 [ **連接**]。
+3. 按一下 **[連接]** 。
 
 4. 若要使用 Log Analytics 中的 Azure 資訊安全中心警示相關的結構描述，搜尋**SecurityEvent**。
 

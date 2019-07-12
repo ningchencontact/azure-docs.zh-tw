@@ -36,7 +36,7 @@ Azure 提供各種不同的網路功能，它們可以合併或分開使用。 �
 
 ## <a name="connectivity"></a>Azure 資源之間的連線
 
-Azure 資源 (例如虛擬機器、雲端服務、 虛擬機器擴展集和 Azure App Service Environment) 可透過 Azure 虛擬網路 (VNet) 和彼此進行私下通訊。 VNet 是專屬於您[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 雲端邏輯隔離。 您可以在每個 Azure 訂用帳戶和 Azure [區域](https://azure.microsoft.com/regions)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 对于每个 VNet，可执行以下操作：
+Azure 資源 (例如虛擬機器、雲端服務、 虛擬機器擴展集和 Azure App Service Environment) 可透過 Azure 虛擬網路 (VNet) 和彼此進行私下通訊。 VNet 是專屬於您[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 雲端邏輯隔離。 您可以在每個 Azure 訂用帳戶和 Azure [區域](https://azure.microsoft.com/regions)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 對於每個 VNet，您可以︰
 
 - 使用公用和私人 (RFC 1918) 位址指定自訂私人 IP 位址空間。 Azure 會從您指派的位址空間，將私人 IP 位址指派給連線至 VNet 的資源。
 - 將 VNet 分成一或多個子網路，並將 VNet 位址空間的一部分配置給每個子網路。
@@ -107,7 +107,7 @@ Azure 應用程式閘道服務提供應用程式傳遞控制站 (ADC) 服務。 
 
 下圖顯示以 URL 路徑為基礎的路由與應用程式閘道︰
 
-![应用程序网关](./media/networking-overview/application-gateway.png)
+![應用程式閘道](./media/networking-overview/application-gateway.png)
 
 **網路負載平衡**
 

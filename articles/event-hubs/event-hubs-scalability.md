@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276778"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827697"
 ---
 # <a name="scaling-with-event-hubs"></a>使用事件中樞自動調整規模
 
@@ -48,14 +48,14 @@ ms.locfileid: "67276778"
 如需有關自動擴充功能，請參閱 <<c0> [ 自動調整輸送量單位](event-hubs-auto-inflate.md)。
 
 ## <a name="partitions"></a>分割數
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-資料分割可讓您向下游處理。 由於事件中樞資料分割提供資料分割取用者模型，您可以向外延展時同時處理您的事件。 事件中樞可以有最多 32 個分割區。
+### <a name="partition-key"></a>資料分割索引鍵
 
-我們建議您平衡 1:1 輸送量單位和分割區，以達到最佳規模。 單一分割區具有保證的輸入和輸出的最多一個輸送量單位。 雖然您可以達到更高輸送量的磁碟分割上，不保證效能。 這就是為什麼我們強烈建議在事件中樞的資料分割數目會大於或等於輸送量單位數目。
+您可以使用[資料分割索引鍵](event-hubs-programming-guide.md#partition-key)，將連入事件資料對應至特定的資料分割來組織資料。 資料分割索引鍵是由傳送者提供的值。系統會將它傳遞到事件中樞， 然後透過靜態雜湊函式加以處理，而建立資料分割指派。 如果您在發佈事件時未指定資料分割索引鍵，系統會使用循環配置資源指派。
 
-假設您計劃需要的總輸送量，您知道您所需要的輸送量單位數目和最小數目的資料分割，但您多少個分割區應該有嗎？ 選擇您想要達成的下游平行處理原則為基礎的資料分割數目，以及您未來的輸送量需求。 沒有會收取您擁有事件中樞內的資料分割數目。
+事件發佈行者只會知道資料分割索引鍵，不會知道事件發佈的目的地資料分割。 索引鍵和資料分割脫鉤的這種機制，讓傳送者不需要知道太多有關下游處理的細節。 每部裝置或每位使用者的唯一身分識別能成為有效的資料分割索引鍵，不過像地理位置之類的其他屬性也能用來將相關事件歸納成一個資料分割。
 
-如需詳細的事件中樞價格資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰

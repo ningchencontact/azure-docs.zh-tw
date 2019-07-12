@@ -40,7 +40,7 @@ ms.locfileid: "60389571"
 
 使用巢狀範本，即可超出一些範本限制。 如需詳細資訊，請參閱[在部署 Azure 資源時使用連結的範本](resource-group-linked-templates.md)。 若要減少參數、變數或輸出數目，您可以將數個值合併成一個物件。 如需詳細資訊，請參閱[物件作為參數](resource-manager-objects-as-parameters.md)。
 
-## <a name="resource-group"></a>資源群組
+## <a name="resource-group"></a>Resource group
 
 當您將資源部署至資源群組時，資源群組會儲存有關之資源的中繼資料。 中繼資料會儲存在資源群組的位置。
 
@@ -293,7 +293,7 @@ ms.locfileid: "60389571"
    > 
    > 
 
-## <a name="outputs"></a>輸出
+## <a name="outputs"></a>outputs
 
 如果您使用範本來建立公用 IP 位址，請包含 [outputs 區段](resource-group-authoring-templates.md#outputs)，以傳回 IP 位址和完整網域名稱 (FQDN) 的詳細資料。 您可以使用輸出值，輕鬆在部署後擷取公用 IP 位址和 FQDN 的相關詳細資料。
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568267"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626414"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>航太工業中預測性維護之 Cortana Intelligence 解決方案範本的技術指南
 
@@ -39,7 +39,7 @@ ms.locfileid: "67568267"
 > 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 ![預測性維護架構](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 當您部署解決方案時，解決方案會啟動 Cortana Analytics Suite 內的 Azure 服務 (包含事件中樞、串流分析、HDInsight、Data Factory 和 Machine Learning)。 架構圖顯示為航太解決方案範本建構預測性維護的方式。 您可以按一下在部署解決方案時所建立的解決方案範本圖表上的服務 (HDInsight 除外，因為 HDInsight 是在需要執行相關管線活動，且會在執行之後刪除的情況下，才能依需求佈建)。
@@ -103,7 +103,7 @@ Azure 事件中樞非常廣泛；資料可以 CSV 或 JSON 格式張貼至中樞
   * [查詢] 以檢視查詢本身
   * [輸出] 以檢視不同的輸出
 
-Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查詢參考](https://msdn.microsoft.com/library/azure/dn834998.aspx) 中找到。
+Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查詢參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 中找到。
 
 在此解決方案中，查詢會將三個資料集及內送資料串流近乎即時的分析資訊輸出到隨著這個解決方案範本提供的 Power BI 儀表板。 因為對於內送資料格式具有隱含知識，所以必須根據您的資料格式變更這些查詢。
 
@@ -162,7 +162,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 ### <a name="set-up-the-cold-path-dashboard"></a>設定冷路徑儀表板
 在冷路徑資料管線中，目標是在飛機完成航班 (起降) 後取得每個飛機引擎的預測 RUL (剩餘使用年限)。 預測結果會每 3 個小時更新，用於預測在過去 3 小時內完成航班的飛機引擎。
 
-Power BI 會連接到 Azure SQL 資料庫做為其資料來源，即預測結果的儲存位置。 注意：1) 在部署解決方案時，會在資料庫中顯示過去 3 小時內的預測。
+Power BI 會連接到 Azure SQL 資料庫做為其資料來源，即預測結果的儲存位置。 注意:1) 在部署解決方案時，會在資料庫中顯示過去 3 小時內的預測。
 產生器下載隨附的 pbix 檔案包含一些種子資料，因此您可以立即建立 Power BI 儀表板。 2) 在此步驟中，必要條件就是下載並安裝免費版軟體 [Power BI 桌面版](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)。
 
 下列步驟會引導您將 pbix 檔案連接到 SQL Database，該資料庫會在部署包含視覺效果資料 (例如預測結果) 的解決方案時加快運轉。
@@ -197,7 +197,7 @@ Power BI 會連接到 Azure SQL 資料庫做為其資料來源，即預測結果
      <br/>
    * 排程重新整理的資料，將滑鼠移**PredictiveMaintenanceAerospace**資料集，按一下![省略符號圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png)，然後選擇**排程重新整理**。
      <br/>
-     **附註：** 如果看到警告訊息，請按一下 [編輯認證]  ，並確定您的資料庫認證與步驟 1 中所述相同。
+     **注意：** 如果看到警告訊息，請按一下 [編輯認證]  ，並確定您的資料庫認證與步驟 1 中所述相同。
      <br/>
      ![排程重新整理](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>

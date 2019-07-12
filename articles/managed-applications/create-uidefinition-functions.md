@@ -496,7 +496,7 @@ ms.locfileid: "60587915"
 ## <a name="conversion-functions"></a>轉換函式
 這些函式可用來轉換 JSON 資料類型與編碼之間的值。
 
-### <a name="int"></a>int
+### <a name="int"></a>ssNoversion
 將參數轉換成整數。 此函式支援數值和字串類型的參數。
 
 下列範例會傳回 `1`：
@@ -511,7 +511,7 @@ ms.locfileid: "60587915"
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>float
+### <a name="float"></a>FLOAT
 將參數轉換成浮點數。 此函式支援數值和字串類型的參數。
 
 下列範例會傳回 `1.0`：
@@ -526,7 +526,7 @@ ms.locfileid: "60587915"
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>字串
+### <a name="string"></a>string
 將參數轉換成字串。 此函式支援所有 JSON 資料類型的參數。
 
 下列範例會傳回 `"1"`：
@@ -553,7 +553,7 @@ ms.locfileid: "60587915"
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>布林
+### <a name="bool"></a>bool
 將參數轉換成布林值。 此函式支援數值、字串和布林值類型的參數。 類似於 JavaScript 中的布林值，`0` 或 `'false'` 以外的任何值都會傳回 `true`。
 
 下列範例會傳回 `true`：

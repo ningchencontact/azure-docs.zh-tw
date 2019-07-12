@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d527b08f3610531bef8e98a11998942411651d27
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925682"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621356"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>設定註冊應用程式開發人員控制發佈 (ADCD) 在 IBM zD & T v1
 
@@ -21,13 +21,13 @@ ms.locfileid: "64925682"
 
 這篇文章會示範如何設定 ADCD zD & T 在 Azure 上的環境中執行個體。 ADCDs 建立開發和測試環境中 zD & t 執行的完整 Z 系列作業系統實作
 
-ZD (& T)，例如 ADCDs 是僅適用於 IBM 客戶和合作夥伴，專門用於開發與測試之用。 也就是不是要用於生產環境。 許多 IBM 安裝套件可供下載，透過[Passport 優點](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html)或是[IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd)。
+ZD (& T)，例如 ADCDs 是僅適用於 IBM 客戶和合作夥伴，專門用於開發與測試之用。 也就是不是要用於生產環境。 許多 IBM 安裝套件可供下載，透過[Passport 優點](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html)或是[IBM PartnerWorld](https://www.ibm.com/partnerworld/public)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-- [ZD & T 環境][ ibm-install-z]先前在 Azure 上設定。 本文假設您使用的稍早建立的相同 Ubuntu 16.04 VM 映像。
+- [ZD & T 環境][ibm-install-z]先前在 Azure 上設定。 本文假設您使用的稍早建立的相同 Ubuntu 16.04 VM 映像。
 
 - 透過 IBM PartnerWorld 或 Passport 利用 ADCD 媒體的存取。
 
@@ -39,7 +39,7 @@ ZD (& T)，例如 ADCDs 是僅適用於 IBM 客戶和合作夥伴，專門用於
 
 ## <a name="download-the-installation-packages-from-passport-advantage"></a>從 Passport 利用下載安裝套件
 
-需要 ADCD 媒體的存取權。 下列步驟假設您是 IBM 客戶，並且可以使用 Passport 的優點。 可以使用 IBM 合作夥伴[IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd)。
+需要 ADCD 媒體的存取權。 下列步驟假設您是 IBM 客戶，並且可以使用 Passport 的優點。 可以使用 IBM 合作夥伴[IBM PartnerWorld](https://www.ibm.com/partnerworld/public)。
 
 > [!NOTE]
 > 本文假設 Windows 電腦，用來存取 Azure 入口網站，以及下載 IBM 媒體。 如果您使用 Mac 或 Ubuntu 桌面、 命令和取得 IBM 媒體的程序可能稍有不同。
@@ -180,7 +180,7 @@ ZD (& T)，例如 ADCDs 是僅適用於 IBM 客戶和合作夥伴，專門用於
 > [!NOTE]
 > 如果您收到錯誤，指出您沒有足夠的磁碟空間，請注意，區域需要 151 Gb。
 
-恭喜！ 您現在已在 Azure 上執行的 IBM 大型主機環境。
+恭喜您！ 您現在已在 Azure 上執行的 IBM 大型主機環境。
 
 ## <a name="learn-more"></a>深入了解
 

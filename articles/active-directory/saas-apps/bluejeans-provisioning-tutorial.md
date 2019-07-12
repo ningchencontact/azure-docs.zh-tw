@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84870ef03e07cdabe994da7c04a103bead48d34f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60281906"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673002"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>教學課程：設定 BlueJeans 來自動佈建使用者
 
@@ -30,7 +30,7 @@ ms.locfileid: "60281906"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -116,7 +116,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![BlueJeans 佈建](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
-8. 按一下 [檔案]  。
+8. 按一下 [儲存]  。
 
 9. 在 [對應]  區段中，選取 [同步處理 Azure Active Directory 使用者至 BlueJeans]  。
 

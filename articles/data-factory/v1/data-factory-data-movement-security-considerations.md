@@ -22,7 +22,7 @@ ms.locfileid: "60487030"
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的資料移動安全性考量](../data-movement-security-considerations.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的資料移動安全性考量](../data-movement-security-considerations.md)。
 
 ## <a name="introduction"></a>簡介
 本文說明 Azure Data Factory 中資料移動服務用來保護您資料的基本安全性基礎結構。 Azure Data Factory 管理資源建置在 Azure 安全性基礎結構上，並使用 Azure 提供的所有可能安全性措施。
@@ -127,7 +127,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 
 下表根據混合式資料移動的不同來源和目的地位置組合，摘要說明網路和閘道組態的建議事項。
 
-| 來源 | 目的地 | 網路組態 | 閘道安裝 |
+| Source | 目的地 | 網路組態 | 閘道安裝 |
 | ------ | ----------- | --------------------- | ------------- | 
 | 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | IPSec VPN (點對站或站台對站台) | 閘道可以安裝在內部部署環境或 VNet 中的 Azure 虛擬機器 (VM) 上 | 
 | 內部部署 | 部署在虛擬網路中的虛擬機器和雲端服務 | ExpressRoute (私用對等) | 閘道可以安裝在內部部署環境或 VNet 中的 Azure VM 上 | 

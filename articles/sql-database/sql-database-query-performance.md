@@ -33,7 +33,7 @@ ms.locfileid: "60585193"
 > [!TIP]
 > 若要對 Azure SQL Database 進行基本的效能監視，建議您使用查詢效能深入解析。 請留意本文所列的產品限制。 若要對資料庫效能大規模的進階監視，建議您使用 [Azure SQL 分析](../azure-monitor/insights/azure-sql.md)。 它具有可自動執行效能疑難排解的內建智慧。 若要自動調整一些最常見資料庫效能問題，建議您使用[自動調整](sql-database-automatic-tuning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 依預設會為所有 Azure SQL 資料庫啟用此項目。 如果查詢存放區未執行，Azure 入口網站會提示您加以啟用。
 
@@ -41,7 +41,7 @@ ms.locfileid: "60585193"
 > 如果入口網站中出現「此資料庫的查詢存放區未正確設定」訊息，請參閱[最佳化查詢存放區組態](#optimize-the-query-store-configuration-for-query-performance-insight)。
 >
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 必須要有下列[角色型存取控制](../role-based-access-control/overview.md)權限，才能使用「查詢效能深入解析」︰
 

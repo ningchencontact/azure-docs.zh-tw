@@ -11,32 +11,32 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917667"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702899"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
 ## <a name="general-questions"></a>一般問題
 
-**问：使用者可以使用哪些指引來了解如何選取安全密碼？**
+**問：使用者可以使用哪些指引來了解如何選取安全密碼？**
 
 下列連結是目前 Microsoft 中有關本主題的指引：
 
-[Microsoft 密碼指引](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Microsoft 密碼指引](https://www.microsoft.com/research/publication/password-guidance)
 
-**问：非公用雲端是否支援內部部署 Azure AD 密碼保護？**
+**問：非公用雲端是否支援內部部署 Azure AD 密碼保護？**
 
 否 - 僅公用雲端支援內部部署 Azure AD 密碼保護。 尚未宣告非公用雲端可支援的日期。
 
-**问：如何讓內部部署使用者的子集受益於 Azure AD 密碼保護？**
+**問：如何讓內部部署使用者的子集受益於 Azure AD 密碼保護？**
 
 不支援。 部署並啟用之後，Azure AD 密碼保護會一視同仁，所有使用者都會受惠於相同的安全性優點。
 
-**问：密碼變更和已設定密碼 （或重設） 之間的差異為何？**
+**問：密碼變更和已設定密碼 （或重設） 之間的差異為何？**
 
 密碼變更時，使用者選擇新密碼之後證明他們已經知道舊密碼。 比方說，這是在使用者登入 Windows，而且系統會接著提示選擇新密碼時，會發生什麼事。
 
@@ -44,19 +44,23 @@ ms.locfileid: "64917667"
 
 密碼驗證原則的行為相同，不論是否已完成密碼變更或設定。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件，通知您是否變更密碼，或設定作業已完成。  請參閱[監視和記錄的 Azure AD 密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
 
-**问：是否支援同時安裝 Azure AD 密碼保護與其他密碼篩選產品？**
+**問：嘗試設定弱式密碼時所記錄的重複的密碼拒絕事件為何要使用 [Active Directory 使用者和電腦管理] 嵌入式管理單元？**
 
-是。 核心 Windows 功能之一就是支援多個已註冊的密碼篩選 dll，因此並不限於 Azure AD 密碼保護。 所有註冊的密碼篩選 dll 必須先同意才能接受密碼。
+Active Directory 使用者和電腦管理 嵌入式管理單元會先嘗試設定新的密碼使用 Kerberos 通訊協定。 在失敗時嵌入式管理單元會讓第二個嘗試設定使用舊版 (SAM RPC) 通訊協定 （使用特定的通訊協定不重要） 的密碼。 如果新的密碼被視為弱式 Azure AD 密碼保護，這會導致兩組記錄的密碼重設拒絕事件。
 
-**问：如果不使用 Azure，我要如何在 Active Directory 環境中部署和設定 Azure AD 密碼保護？**
+**問：是否支援同時安裝 Azure AD 密碼保護與其他密碼篩選產品？**
+
+是的。 核心 Windows 功能之一就是支援多個已註冊的密碼篩選 dll，因此並不限於 Azure AD 密碼保護。 所有註冊的密碼篩選 dll 必須先同意才能接受密碼。
+
+**問：如果不使用 Azure，我要如何在 Active Directory 環境中部署和設定 Azure AD 密碼保護？**
 
 不支援。 Azure AD 密碼保護是 Azure 功能，可延伸至內部部署 Active Directory 環境。
 
-**问：如何修改 Active Directory 層級上的原則內容？**
+**問：如何修改 Active Directory 層級上的原則內容？**
 
 不支援。 您只可以使用 Azure AD 管理入口網站來管理原則。 另請參閱上一個問題。
 
-**问：為什麼 sysvol 複寫需要 DFSR？**
+**問：為什麼 sysvol 複寫需要 DFSR？**
 
 FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Windows Server Active Directory 中完全不支援。 在 FRS 設定的網域上，完全不會執行任何 Azure AD 密碼保護測試。
 
@@ -66,27 +70,27 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 [FRS 終章將至](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) \(英文\)
 
-**问：此功能在網域 Sysvol 共用上需要多少磁碟空間？**
+**問：此功能在網域 Sysvol 共用上需要多少磁碟空間？**
 
 精確的空間使用量會因為一些因素而有所不同，例如 Microsoft 全域禁用清單和每個租用戶自訂清單中禁用的權杖數量和長度，以及加密的額外負荷。 這些清單的內容很可能在未來繼續增加。 有鑑於此，我們合理預期此功能在網域 sysvol 共用上至少需要五 (5) MB 的空間。
 
-**问：為什麼需要重新開機才能安裝或升級 DC 代理程式軟體？**
+**問：為什麼需要重新開機才能安裝或升級 DC 代理程式軟體？**
 
 這項需求是核心 Windows 行為所造成。
 
-**问：是否有任何方法可將 DC 代理程式設定為使用特定 Proxy 伺服器？**
+**問：是否有任何方法可將 DC 代理程式設定為使用特定 Proxy 伺服器？**
 
-沒有。 由於 Proxy 伺服器是無狀態的，因此使用哪一個特定 Proxy 伺服器並不重要。
+資料分割 由於 Proxy 伺服器是無狀態的，因此使用哪一個特定 Proxy 伺服器並不重要。
 
-**问：Azure AD 密碼保護 Proxy 服務是否可以與其他服務 (例如 Azure AD Connect) 一起部署？**
+**問：Azure AD 密碼保護 Proxy 服務是否可以與其他服務 (例如 Azure AD Connect) 一起部署？**
 
-是。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
+是的。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
 
-**问：以何種順序應該 DC 代理程式和 proxy 安裝並註冊嗎？**
+**問：以何種順序應該 DC 代理程式和 proxy 安裝並註冊嗎？**
 
 支援的 Proxy 代理程式安裝、 DC 代理程式安裝、 樹系註冊和 Proxy 註冊的任何排序。
 
-**问：是否應該顧慮到部署此功能時，對網域控制站造成的效能衝擊？**
+**問：是否應該顧慮到部署此功能時，對網域控制站造成的效能衝擊？**
 
 在狀況良好的現有 Active Directory 部署中，Azure AD 密碼保護 DC 代理程式服務應不會大幅影響網域控制站效能。
 
@@ -94,23 +98,23 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 不過，如果您目前的網域控制站已在效能受限的層級上執行 (例如 CPU、磁碟空間和磁碟 I/O 等已達到極限)，建議您先新增其他網域控制站或擴展可用磁碟空間，然後再部署這項功能。 另請參閱上面有關 Sysvol 磁碟空間使用量的問題。
 
-**问：我只想在網域中的幾個 DC 上測試 Azure AD 密碼保護。有可能強制使用這些特定 DC 來進行使用者密碼變更作業嗎？**
+**問：我只想在網域中的幾個 DC 上測試 Azure AD 密碼保護。有可能強制使用這些特定 DC 來進行使用者密碼變更作業嗎？**
 
-沒有。 使用者變更其密碼時，Windows 用戶端 OS 會控制要使用哪一個網域控制站。 網域控制站的選取會取決於 Active Directory 站台和子網路指派，以及環境特有網路設定等因素。Azure AD 密碼保護不會控制這些因素，也無法影響要選取哪個網域控制站來變更使用者密碼。
+資料分割 使用者變更其密碼時，Windows 用戶端 OS 會控制要使用哪一個網域控制站。 網域控制站的選取會取決於 Active Directory 站台和子網路指派，以及環境特有網路設定等因素。Azure AD 密碼保護不會控制這些因素，也無法影響要選取哪個網域控制站來變更使用者密碼。
 
 可部分達成此目標的方法之一是，在指定 Active Directory 站台中的所有網域控制站上部署 Azure AD 密碼保護。 此方法合理地將指派至該站台的 Windows 用戶端涵蓋在一個範圍內，因此也涵蓋登入這些用戶端並變更其密碼的使用者。
 
-**问：如果我只在主要網域控制站 (PDC) 上安裝 Azure AD 密碼保護 DC 代理程式服務，網域中的所有其他網域控制站也可受到保護嗎？**
+**問：如果我只在主要網域控制站 (PDC) 上安裝 Azure AD 密碼保護 DC 代理程式服務，網域中的所有其他網域控制站也可受到保護嗎？**
 
-沒有。 當非 PDC 網域控制站上的使用者密碼變更時，純文字密碼永遠不會傳送到 PDC (這是常見的錯誤觀念)。 當指定 DC 接受新密碼後，此 DC 會使用該密碼來建立該密碼的各種驗證通訊協定特有雜湊，然後在目錄中保存這些雜湊。 純文字密碼不會保存。 已更新的雜湊接著會複寫到 PDC。 在某些情況下，使用者密碼可能會直接在 PDC 上變更，這也是取決於各種因素，例如網路拓樸和 Active Directory 站台的設計。 (請參閱上一個問題。)
+資料分割 當非 PDC 網域控制站上的使用者密碼變更時，純文字密碼永遠不會傳送到 PDC (這是常見的錯誤觀念)。 當指定 DC 接受新密碼後，此 DC 會使用該密碼來建立該密碼的各種驗證通訊協定特有雜湊，然後在目錄中保存這些雜湊。 純文字密碼不會保存。 已更新的雜湊接著會複寫到 PDC。 在某些情況下，使用者密碼可能會直接在 PDC 上變更，這也是取決於各種因素，例如網路拓樸和 Active Directory 站台的設計。 (請參閱上一個問題。)
 
 總之，在 PDC 上部署 Azure AD 密碼保護 DC 代理程式服務時，就必須達到此功能在網域間的 100% 安全性涵蓋範圍。 只在 PDC 上部署此功能並不會使網域中其他 DC 享有 Azure AD 密碼保護安全性的優勢。
 
-**问：System Center Operations Manager 管理組件可用於 Azure AD 密碼保護嗎？**
+**問：System Center Operations Manager 管理組件可用於 Azure AD 密碼保護嗎？**
 
-沒有。
+資料分割
 
-**问：為什麼 Azure 仍拒絕弱式密碼即使我已設定的原則處於稽核模式？**
+**問：為什麼 Azure 仍拒絕弱式密碼即使我已設定的原則處於稽核模式？**
 
 稽核模式只有內部部署 Active Directory 環境中執行。 Azure 會隱含地一律是在 「 強制執行 」 模式時，它會評估密碼。
 

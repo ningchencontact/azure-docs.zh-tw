@@ -35,7 +35,7 @@ ms.locfileid: "60454504"
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>是否需要成為全域管理員，才能在 Azure 入口網站中使用 Identity Protection？
-**答：** 沒有。 成為安全性讀取者、安全性系統管理員或全域管理員都能使用 Identity Protection。
+**答：** 資料分割 成為安全性讀取者、安全性系統管理員或全域管理員都能使用 Identity Protection。
 
 ---
 

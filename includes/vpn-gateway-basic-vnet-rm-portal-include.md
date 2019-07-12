@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173821"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673270"
 ---
 您可以使用下列步驟，透過 Resource Manager 部署模型和 Azure 入口網站建立 VNet。 如需虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../articles/virtual-network/virtual-networks-overview.md)。
 
@@ -22,7 +22,7 @@ ms.locfileid: "67173821"
 >
 >
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，然後選取 [建立資源]  。 [新增]  頁面隨即開啟。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取 [建立資源]  。 [新增]  頁面隨即開啟。
 
 2. 在 [搜尋 Marketplace]  欄位中，輸入「虛擬網路」  ，然後從傳回的清單中選取 [虛擬網路]  。 [虛擬網路]  頁面隨即開啟。
 

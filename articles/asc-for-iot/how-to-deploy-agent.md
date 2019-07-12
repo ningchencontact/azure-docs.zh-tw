@@ -2,24 +2,25 @@
 title: 選取和部署 IoT 代理程式預覽的 Azure 資訊安全中心 |Microsoft Docs
 description: 了解關於如何選取和部署 Azure 資訊安全中心的 IoT 裝置上的 IoT 安全性代理程式。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c549e5ccbda9b364b3e7d20c9572eb777c32299e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200575"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616835"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>選取並部署您的 IoT 裝置上的安全性代理程式
 

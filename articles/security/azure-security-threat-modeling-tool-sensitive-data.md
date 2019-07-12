@@ -26,7 +26,7 @@ ms.locfileid: "60610573"
 | --------------- | ------- |
 | **電腦信任邊界** | <ul><li>[確定包含敏感性資訊的二進位檔已經過模糊處理](#binaries-info)</li><li>[考慮使用加密檔案系統 (EFS) 來保護機密的使用者特定資料](#efs-user)</li><li>[確定應用程式儲存在檔案系統上的敏感性資料已加密](#filesystem)</li></ul> | 
 | **Web 應用程式** | <ul><li>[確定瀏覽器上不會快取敏感性內容](#cache-browser)</li><li>[加密包含敏感性資料的 Web 應用程式組態檔區段](#encrypt-data)</li><li>[明確停用敏感性表單和輸入內的自動完成 HTML 屬性](#autocomplete-input)</li><li>[確定使用者畫面上顯示的敏感性資料已遮罩](#data-mask)</li></ul> | 
-| **資料庫** | <ul><li>[實作動態資料遮罩來限制敏感性資料暴露非特殊權限使用者](#dynamic-users)</li><li>[確定密碼是以 salted 雜湊格式儲存](#salted-hash)</li><li>[請確定資料庫資料行中的敏感性資料已加密](#db-encrypted)</li><li>[確定已啟用資料庫層級加密 (TDE)](#tde-enabled)</li><li>[確定資料庫備份已加密](#backup)</li></ul> | 
+| **[資料庫備份]** | <ul><li>[實作動態資料遮罩來限制敏感性資料暴露非特殊權限使用者](#dynamic-users)</li><li>[確定密碼是以 salted 雜湊格式儲存](#salted-hash)</li><li>[請確定資料庫資料行中的敏感性資料已加密](#db-encrypted)</li><li>[確定已啟用資料庫層級加密 (TDE)](#tde-enabled)</li><li>[確定資料庫備份已加密](#backup)</li></ul> | 
 | **Web API** | <ul><li>[確定與 Web API 相關的敏感性資料未儲存在瀏覽器的儲存體中](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[將儲存在 Azure Cosmos DB 中的敏感性資料加密](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM 信任邊界** | <ul><li>[使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](#disk-vm)</li></ul> | 

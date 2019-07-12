@@ -4,19 +4,19 @@ description: 描述如何在到達訂用帳戶限制時，對 Azure Resource Man
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399722"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705126"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
 
-針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制之範圍包括提出要求的主體識別碼，以及訂用帳戶識別碼或租用戶識別碼。 如果您的要求來自多個主體識別碼，則訂用帳戶或租用戶之間的限制會大於每小時 12,000 個和 1,200 個。
+針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制的範圍設定為安全性主體 （使用者或應用程式） 進行的要求和訂用帳戶識別碼或租用戶識別碼。 如果您的要求是來自多個安全性主體，您的訂用帳戶或租用戶之間的限制是大於 12000，且每小時 1,200 個。
 
 要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶的要求是涉及傳遞您的訂用帳戶識別碼，例如擷取訂用帳戶中的資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
 

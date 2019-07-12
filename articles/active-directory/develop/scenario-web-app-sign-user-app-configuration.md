@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254015"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785486"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Web 應用程式，讓登入使用者-程式碼組態
 
@@ -36,6 +36,8 @@ ms.locfileid: "66254015"
 | ![.NET](media/sample-v2-code/logo_net.png) | [適用於.NET 的身分識別模型延伸模組](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | 直接使用 ASP.NET 和 ASP.NET Core，適用於.NET 的 Microsoft 身分識別延伸模組所提出一組執行.NET Framework 和.NET Core 的 Dll。 從 ASP.NET/ASP.NET Core Web 應用程式，您可以控制使用權杖驗證**TokenValidationParameters**類別 （尤其在某些 ISV 案例） |
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 組態
+
+在這篇文章和下列程式碼片段取自[ASP.NET Core Web 應用程式增量教學課程，第 1 章](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)。 您可能想要完整的實作詳細資料進行該教學課程，請參閱。
 
 ### <a name="application-configuration-files"></a>應用程式組態檔
 

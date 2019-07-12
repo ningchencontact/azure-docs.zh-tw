@@ -17,7 +17,7 @@ ms.locfileid: "60586255"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的分析
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov/) 為美國政府層面的計劃，能為雲端產品與服務提供安全評估、授權及持續監視的標準方法。 此 Azure 安全性和合規性藍圖提供如何實行 Microsoft Azure 分析架構的指引，以協助實作 FedRAMP 高階控制項的子集。 此解決方案提供一般參考架構的 Azure 資源部署和組態指引，其中示範的方式讓客戶能符合特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定他們自有分析解決方案的基礎。
 

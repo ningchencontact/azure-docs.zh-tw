@@ -2,17 +2,17 @@
 title: 操作員最佳做法 - Azure Kubernetes Services (AKS) 中的基本排程器功能
 description: 了解叢集操作員在使用基本排程器功能 (例如，Azure Kubernetes Service (AKS) 中的資源配額和 Pod 中斷預算) 時的最佳做法
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074117"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614626"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中基本排程器功能的最佳做法
 
@@ -29,7 +29,7 @@ ms.locfileid: "65074117"
 
 **最佳做法指引** - 請在命名空間層級規劃和套用資源配額。 如果 Pod 未定義資源要求和限制，則拒絕該部署。 監視資源使用量，並視需要調整配額。
 
-資源要求和限制會放置在 Pod 規格中。 Kubernetes 排程器會在部署期間使用這些限制來尋找叢集中可用的節點。 這些限制和要求可在個別 Pod 層級中運作。 如需如何定義這些值的詳細資訊，請參閱[定義 Pod 資源要求和限制][resource-limits]
+資源要求和限制會放置在 Pod 規格中。 Kubernetes 排程器會在部署期間使用這些限制來尋找叢集中可用的節點。 這些限制和要求可在個別 Pod 層級中運作。 如需如何定義這些值的詳細資訊，請參閱[定義 pod 資源要求和限制][resource-limits]
 
 若要提供一個方式來保留及限制跨開發小組或專案的資源，請使用「資源配額」  。 這些配額會定義在命名空間上，且可用來對下列基礎設定配額：
 
@@ -39,7 +39,7 @@ ms.locfileid: "65074117"
 
 Kubernetes 不會過量使用資源。 一旦資源要求或限制的累計總和超過指派的配額後，任何進一步的部署都不會成功。
 
-當您定義資源配額時，命名空間中建立的 Pod 都必須在其 Pod 規格中提供限制或要求。 如果未提供這些值，您可以拒絕部署。 相反地，您可以[設定命名空間的預設要求和限制][configure-default-quotas]。
+當您定義資源配額時，命名空間中建立的 Pod 都必須在其 Pod 規格中提供限制或要求。 如果未提供這些值，您可以拒絕部署。 相反地，您可以[設定預設要求和命名空間的限制][configure-default-quotas]。
 
 下列名為 dev-app-team-quotas.yaml  的範例 YAML 資訊清單會設定總共只能有 10  個 CPU、20 Gi  的記憶體和 10  個 Pod 的固定限制：
 
@@ -63,7 +63,7 @@ kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 
 請與您的應用程式開發人員和擁有者合作，了解他們的需求並套用適當的資源配額。
 
-如需可用資源物件、範圍和優先順序的詳細資訊，請參閱 [Kubernetes 中的資源配額][k8s-resource-quotas]。
+如需可用的資源物件、 範圍和優先順序的詳細資訊，請參閱[在 Kubernetes 中的資源配額][k8s-resource-quotas]。
 
 ## <a name="plan-for-availability-using-pod-disruption-budgets"></a>使用 Pod 中斷預算規劃可用性
 
@@ -118,24 +118,24 @@ kubectl apply -f nginx-pdb.yaml
 
 請與您的應用程式開發人員和擁有者合作，了解他們的需求並套用適當的 Pod 中斷預算。
 
-如需如何使用 Pod 中斷預算的詳細資訊，請參閱[指定應用程式的中斷預算][k8s-pdbs]。
+如需使用 pod 中斷預算的詳細資訊，請參閱[指定您的應用程式中斷預算][k8s-pdbs]。
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>使用 kube-advisor 定期檢查叢集的問題
 
 **最佳作法指引**-定期執行的最新版本`kube-advisor`開放原始碼工具，來偵測您的叢集中的問題。 如果您在現有的 AKS 叢集上套用資源配額，請先執行 `kube-advisor` 以尋找未定義資源要求和限制的 Pod。
 
-[Kube advisor] [ kube-advisor]工具是相關聯的 AKS 開放原始碼專案，掃描的 Kubernetes 叢集，並報告它找到的問題。 一個實用的檢查，就是找出沒有備妥資源要求和限制的 Pod。
+[Kube advisor][kube-advisor]工具是相關聯的 AKS 開放原始碼專案，掃描的 Kubernetes 叢集，並報告它找到的問題。 一個實用的檢查，就是找出沒有備妥資源要求和限制的 Pod。
 
-Kube advisor 工具可報告資源的要求和限制遺漏 PodSpecs for Windows 應用程式，以及 Linux 應用程式，但 kube advisor 工具本身必須經過排程上的 Linux pod。 您可以排程在特定的作業系統使用的節點集區上執行的 pod[節點選取器][ k8s-node-selector] pod 的組態中。
+Kube advisor 工具可報告資源的要求和限制遺漏 PodSpecs for Windows 應用程式，以及 Linux 應用程式，但 kube advisor 工具本身必須經過排程上的 Linux pod。 您可以排程在特定的作業系統使用的節點集區上執行的 pod[節點選取器][k8s-node-selector]pod 的組態中。
 
 在裝載多個開發小組和應用程式的 AKS 叢集中，若沒有這些資源要求和限制集，就可能難以追蹤 Pod。 最佳做法是在您的 AKS 叢集上定期執行 `kube-advisor`，特別是如果您未對命名空間指派資源配額時。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文著重於 Kubernetes 排程器的基本功能。 如需 AKS 中叢集作業的詳細資訊，請參閱下列最佳做法：
+本文著重於 Kubernetes 排程器的基本功能。 如需 AKS 中叢集作業的相關詳細資訊，請參閱下列最佳作法：
 
-* [多租用戶和叢集隔離][aks-best-practices-cluster-isolation]
-* [Kubernetes 排程器的進階功能][aks-best-practices-advanced-scheduler]
+* [多租用戶和叢集的隔離][aks-best-practices-cluster-isolation]
+* [進階的 Kubernetes 排程器功能][aks-best-practices-advanced-scheduler]
 * [驗證和授權][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

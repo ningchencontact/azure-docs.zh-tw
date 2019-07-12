@@ -28,16 +28,16 @@ ms.locfileid: "65067400"
 
 
 ## <a name="diagnostic-logs"></a>診斷記錄
-「適用於 PostgreSQL 的 Azure 資料庫」已與「Azure 監視器診斷記錄」整合。 在 PostgreSQL 服务器上启用日志后，可以选择将它们发送到 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)、事件中心或 Azure 存储。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的＜如何＞一節。 
+「適用於 PostgreSQL 的 Azure 資料庫」已與「Azure 監視器診斷記錄」整合。 一旦您的 PostgreSQL 伺服器上啟用記錄，您可以選擇將它們發出[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的＜如何＞一節。 
 
 > [!IMPORTANT]
-> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
+> 此診斷功能的伺服器記錄檔僅適用於一般用途和記憶體最佳化[定價層](concepts-pricing-tiers.md)。
 
 下表描述每個記錄的內容。 視您選擇的輸出端點而定，所含欄位及其出現順序可能會有所不同。 
 
-|**欄位** | **說明** |
+|**欄位** | **描述** |
 |---|---|
-| TenantId | 租户 ID |
+| TenantId | 您的租用戶識別碼 |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | 以 UTC 記錄記錄時的時間戳記 |
 | Type | 記錄的類型。 一律為 `AzureDiagnostics` |
@@ -45,7 +45,7 @@ ms.locfileid: "65067400"
 | ResourceGroup | 伺服器所屬資源群組的名稱 |
 | ResourceProvider | 資源提供者名稱。 一律為 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| ResourceId | 資源 URI |
+| resourceId | 資源 URI |
 | Resource | 伺服器的名稱 |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |

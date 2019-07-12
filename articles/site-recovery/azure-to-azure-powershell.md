@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491857"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671893"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -39,7 +39,7 @@ ms.locfileid: "67491857"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前：
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。
@@ -153,6 +153,16 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+Azure 至 Azure 移轉，您可以設定至新建立的保存庫的保存庫內容： 
+
+```azurepowershell
+
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+
+```
+
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>讓保存庫準備好開始複寫 Azure 虛擬機器
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>建立 Site Recovery 網狀架構物件來代表主要 (來源) 區域
@@ -405,7 +415,7 @@ $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccoun
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.

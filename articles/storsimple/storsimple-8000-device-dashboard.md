@@ -23,7 +23,7 @@ ms.locfileid: "60578155"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>使用 StorSimple 裝置管理員服務中的裝置摘要
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 StorSimple 裝置摘要刀鋒視窗可提供特定 StorSimple 裝置的資訊概觀；相對於服務摘要刀鋒視窗，其提供 Microsoft Azure StorSimple 解決方案中所有裝置的相關資訊。
 
 對於已向給定 StorSimple 裝置管理員註冊的 StorSimple 8000 系列裝置，裝置摘要刀鋒視窗提供摘要檢視，並醒目提示需要系統管理員注意的裝置問題。 本教學課程介紹裝置摘要刀鋒視窗、說明內容和功能，並描述您可以從這個刀鋒視窗執行的工作。

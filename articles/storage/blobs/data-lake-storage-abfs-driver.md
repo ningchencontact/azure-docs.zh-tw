@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939492"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696135"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob Filesystem 驅動程式 (ABFS)：適用於 Hadoop 的專用 Azure 儲存體驅動程式
 
@@ -43,9 +43,9 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 ABFS 驅動程式會在內部將 URI 中指定的資源轉譯為檔案和目錄，並使用那些參考來呼叫 Azure Data Lake Storage REST API。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
-ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安全地存取具有 Data Lake Storage Gen2 功能的帳戶內所含的資源。 [Azure 儲存體安全性指南](../common/storage-security-guide.md)中有提供可用驗證配置的完整詳細資料。 如下：
+ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安全地存取具有 Data Lake Storage Gen2 功能的帳戶內所含的資源。 [Azure 儲存體安全性指南](../common/storage-security-guide.md)中有提供可用驗證配置的完整詳細資料。 其中包括：
 
 - **共用金鑰：** 這允許使用者存取帳戶中的所有資源。 金鑰會加密並儲存於 Hadoop 設定中。
 
@@ -59,7 +59,7 @@ ABFS 驅動程式支援兩種形式的驗證，讓 Hadoop 應用程式可以安�
 
 ### <a name="hadoop-documentation"></a>Hadoop 文件
 
-ABFS 驅動程式完整記載於 [Hadoop 官方文件](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) \(英文\) 中。
+ABFS 驅動程式完整記載於 [Hadoop 官方文件](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md) \(英文\) 中。
 
 ## <a name="next-steps"></a>後續步驟
 

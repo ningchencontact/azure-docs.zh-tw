@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53c1de9678db497a20788d0cab7ee4f0e6f0c9c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393864"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607072"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -110,7 +110,7 @@ ms.locfileid: "66393864"
 
 - **存留期和規模已知的工作負載**。 例如，一整年都需要使用且已預測好需求的應用程式。
 
-若要搭配 SQL Server VM 使用 BYOL，您必須具備 SQL Server Standard 或 Enterprise 的授權及[軟體保證](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1)，這是透過某些大量授權方案時的必要選項，也是搭配其他方案時的選購項目。 根據合約的類型及數量和 (或) 對 SQL Server 之承諾的不同，透過「大量授權」方案提供的定價層級也會不同。 但根據經驗法則，自備授權可為持續性生產環境工作負載提供下列優點：
+若要搭配 SQL Server VM 使用 BYOL，您必須具備 SQL Server Standard 或 Enterprise 的授權及[軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)，這是透過某些大量授權方案時的必要選項，也是搭配其他方案時的選購項目。 根據合約的類型及數量和 (或) 對 SQL Server 之承諾的不同，透過「大量授權」方案提供的定價層級也會不同。 但根據經驗法則，自備授權可為持續性生產環境工作負載提供下列優點：
 
 | BYOL 優點 | 描述 |
 |-----|-----|

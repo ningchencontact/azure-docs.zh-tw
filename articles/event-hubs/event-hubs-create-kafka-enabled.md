@@ -26,7 +26,7 @@ Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞
 
 本文說明如何建立事件中樞命名空間，以及取得將 Kafka 應用程式連線至已啟用 Kafka 之事件中樞所需的連接字串。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
@@ -38,7 +38,7 @@ Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞
     
     ![在入口網站中搜尋事件中樞](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增]  。
+3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下 [建立]  。
     
     ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

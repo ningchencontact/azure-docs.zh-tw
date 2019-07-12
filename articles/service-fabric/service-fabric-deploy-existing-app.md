@@ -170,7 +170,7 @@ SetupEntryPoint 元素用來指定任何應在服務的程式碼啟動前執行�
 
 服務資訊清單檔中的 `EntryPoint` 元素用來指定如何啟動服務。
 
-`ExeHost` 元素指定應用來啟動服務的可執行檔 (和引數)。 您可以選擇性地將 `IsExternalExecutable="true"` 屬性新增至 `ExeHost`，表示此程式為程式碼套件之外的外部可執行檔。 例如： `<ExeHost IsExternalExecutable="true">`。
+`ExeHost` 元素指定應用來啟動服務的可執行檔 (和引數)。 您可以選擇性地將 `IsExternalExecutable="true"` 屬性新增至 `ExeHost`，表示此程式為程式碼套件之外的外部可執行檔。 例如： `<ExeHost IsExternalExecutable="true">` 。
 
 * `Program` 指定應啟動服務的執行檔名稱。
 * `Arguments` 指定應傳遞至可執行檔的引數。 這可以是具有引數的參數清單。

@@ -58,7 +58,7 @@ ms.locfileid: "60457350"
 
 您用於建立虛擬網路對等互連的帳戶必須具有必要角色或權限。 在以下範例中，如果您要將兩個虛擬網路 (分別名為 Hub-RM 和 Spoke-Classic) 對等互連，您的帳戶必須具有每個虛擬網路的下列角色或權限：
     
-|虛擬網路|部署模型|角色|權限|
+|虛擬網路|部署模型|Role|Permissions|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|

@@ -26,7 +26,7 @@ Azure Container Registry (ACR) 具有多個服務層級 (稱為SKU)。 這些 SK
 |  傳統 (*2019 年 4 月之後無法使用*) | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
 
 > [!IMPORTANT]
-> 经典注册表 SKU 即将**弃用**，**2019 年 4 月**之后将不可用。 我們建議所有新的登錄使用 Basic、 Standard 或 Premium。 应在 2019 年 4 月之前升级所有现有的经典注册表。 如需升級的資訊，請參閱[傳統登錄升級][container-registry-upgrade]。
+> 「 傳統 」 登錄 SKU 正在**過時**，將無法在之後與**2019 年 4 月**。 我們建議所有新的登錄使用 Basic、 Standard 或 Premium。 應該在 2019 年 4 月之前升級所有現有的傳統登錄。 如需升級的資訊，請參閱[傳統登錄升級][container-registry-upgrade]。
 
 基本、 標準和進階 Sku (共同稱為*受控登錄*) 全部都會提供相同的程式設計功能。 它們也所有受惠[映像儲存體][ container-registry-storage]完全由 Azure 管理。 選擇較高層級的 SKU 可提供更多的效能和延展性。 由於有多個服務層級，您可以一開始先使用「基本」，再隨著登錄使用量的增加而轉換為「標準」和「進階」。
 

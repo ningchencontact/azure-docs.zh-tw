@@ -96,7 +96,7 @@ ms.locfileid: "60906933"
 > 如需如何使用 Azure Logic App 來建立自己的劇本的詳細資訊，請參閱[建立第一個邏輯應用程式工作流程來自動執行雲端應用程式與雲端服務之間的程序](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)。
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心內使用劇本。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

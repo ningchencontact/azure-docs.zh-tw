@@ -4,7 +4,7 @@ description: 減少推測性執行旁路攻擊漏洞在 Azure 中造成的風險
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: spectre, meltdown, specter
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2019
 ms.author: cynthn
-ms.openlocfilehash: 0302b29103fbe993589ee4d3f44b8a5fff5bd77c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77be13a8550b49af04b3ae8dc9d314c893af7c0a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735205"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723094"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>減少推測性執行旁路攻擊漏洞在 Azure 中造成的風險指引
 

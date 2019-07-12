@@ -30,7 +30,7 @@ ms.locfileid: "60394014"
 
 本快速入門可協助您在短短幾分鐘內在 Linux 開發環境中建立第一個 Azure Service Fabric Java 應用程式。  當您完成時，您會有一個在本機開發叢集上執行的簡單 Java 單一服務應用程式。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始之前，請在 [Linux 開發環境](service-fabric-get-started-linux.md)中安裝 Service Fabric SDK、Service Fabric CLI、Yeoman，然後設定 Java 開發環境，並設定開發叢集。 如果您使用 Mac OS X，您可以[使用 Docker 在 Mac 上設定開發環境](service-fabric-get-started-mac.md)。
 
 另請安裝 [Service Fabric CLI](service-fabric-cli.md)。

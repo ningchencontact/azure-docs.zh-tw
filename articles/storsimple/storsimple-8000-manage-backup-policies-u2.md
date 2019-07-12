@@ -24,7 +24,7 @@ ms.locfileid: "60819185"
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>在 Azure 入口網站中，使用 StorSimple 裝置管理員服務來管理備份原則
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本教學課程說明如何使用 StorSimple 裝置管理員服務的 [備份原則]  刀鋒視窗來控制 StorSimple 磁碟區的備份程序和備份保留。 它也會說明如何完成手動備份。
 

@@ -40,7 +40,7 @@ ms.locfileid: "60746185"
 
    ![Azure 入口網站 - 按一下 [儲存]](./media/howto-manage-firewall-portal/5-save-firewall-rule.png)
 
-## <a name="connecting-from-azure"></a>从 Azure 连接
+## <a name="connecting-from-azure"></a>從 Azure 連線
 若要允許應用程式從 Azure 連線到您適用於 MariaDB 的 Azure 資料庫伺服器，必須啟用 Azure 連線。 例如，裝載 Azure Web Apps 應用程式或在 Azure VM 中執行的應用程式，或是從 Azure Data Factory 資料管理閘道連線。 資源不需要在相同虛擬網路 (VNet) 或資源群組，防火牆規則就可以啟用這些連線。 當 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會確認是否允許 Azure 連線。 有幾種方法可以啟用這些類型的連線。 開始和結束位址等於 0.0.0.0 的防火牆設定表示允許這些連線。 或者，您可以在入口網站中從 [連線安全性]  窗格將 [允許存取 Azure 服務]  選項設為 [開啟]  ，然後按一下 [儲存]  。 如果不允許連線嘗試，要求就不會到達適用於 MariaDB 的 Azure 資料庫伺服器。
 
 > [!IMPORTANT]

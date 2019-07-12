@@ -23,7 +23,7 @@ Microsoft Power BI 中的功能可供使用 Power BI Desktop 輕鬆地從 SQL DB
 
 本文包含如何從 PowerBI 桌面連線至 Azure Blockchain Workbench SQL Database、建立報告，並將報告部署至 powerbi.com 的逐步解說。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 下載 [Power BI Desktop](https://aka.ms/pbidesktopstore)。
 

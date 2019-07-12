@@ -16,18 +16,18 @@ ms.date: 05/18/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825925"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807846"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>如何設定應用程式 Proxy 應用程式
 
 這篇文章可協助您了解如何設定應用程式 Proxy 應用程式在 Azure AD 內公開您的內部部署應用程式到雲端。
 
-## <a name="recommended-documents"></a>建議的文件 
+## <a name="recommended-documents"></a>建議的文件
 
 若要深入了解應用程式 Proxy 應用程式透過管理入口網站的初始設定與建立，請遵循[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 
@@ -39,19 +39,15 @@ ms.locfileid: "65825925"
 
 如果您依照[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)文件中的步驟，並在建立應用程式時發生錯誤，請查看錯誤詳細資料，以取得修正應用程式的資訊及建議。 大部分的錯誤訊息都包含建議的修正。 若要避免常見的錯誤，請確認：
 
--   您是具有建立應用程式 Proxy 應用程式權限的系統管理員
-
--   內部 URL 是唯一的
-
--   外部 URL 是唯一的
-
--   URL 開頭為 http 或 https，且結尾為 “/”
-
--   URL 應該是網域名稱，而非 IP 位址
+- 您是具有建立應用程式 Proxy 應用程式權限的系統管理員
+- 內部 URL 是唯一的
+- 外部 URL 是唯一的
+- URL 開頭為 http 或 https，且結尾為 “/”
+- URL 應該是網域名稱，而非 IP 位址
 
 當您建立應用程式時，應該會在右上角顯示的錯誤訊息。 您也可以選取通知圖示來查看錯誤訊息。
 
-   ![通知提示](./media/application-proxy-config-how-to/error-message.png)
+![示範如何在 Azure 入口網站中尋找通知提示字元](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>設定連接器/連接器群組
 
@@ -61,19 +57,16 @@ ms.locfileid: "65825925"
 
 ## <a name="upload-certificates-for-custom-domains"></a>上傳自訂網域的憑證
 
-自訂網域可讓您指定外部 URL 的網域。 若要使用自訂網域，您需要上傳該網域的憑證。 如需使用自訂網域和憑證的詳細資訊，請參閱[使用 Azure AD 應用程式 Proxy 中的自訂網域](application-proxy-configure-custom-domain.md)。 
+自訂網域可讓您指定外部 URL 的網域。 若要使用自訂網域，您需要上傳該網域的憑證。 如需使用自訂網域和憑證的詳細資訊，請參閱[使用 Azure AD 應用程式 Proxy 中的自訂網域](application-proxy-configure-custom-domain.md)。
 
 如果您在上傳憑證時遇到問題，請尋找入口網站中的錯誤訊息以取得憑證問題的其他資訊。 常見的憑證問題包括：
 
--   過期的憑證
-
--   憑證為自我簽署
-
--   憑證沒有私密金鑰
+- 過期的憑證
+- 憑證為自我簽署
+- 憑證沒有私密金鑰
 
 在右上角的錯誤訊息顯示，當您嘗試上傳的憑證。 您也可以選取通知圖示來查看錯誤訊息。
 
-   ![通知提示](./media/application-proxy-config-how-to/error-message2.png)
-
 ## <a name="next-steps"></a>後續步驟
+
 [使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)

@@ -27,7 +27,7 @@ ms.locfileid: "60293229"
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 本文提供一份 SDK 範例清單，其中示範如何針對 Azure 資源的受控識別使用其各自的 Azure SDK 支援。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "60293229"
 | .NET Core       | [使用 Azure 資源的受控識別從 Linux VM 呼叫 Azure 服務](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js         | [使用 Azure 資源的受控識別管理資源](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python          | [使用 Azure 資源的受控識別直接從虛擬機器內驗證](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
-| 拼音            | [從 Azure 資源的受控識別啟用的虛擬機器管理資源](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
+| Ruby            | [從 Azure 資源的受控識別啟用的虛擬機器管理資源](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
 
 ## <a name="next-steps"></a>後續步驟
 

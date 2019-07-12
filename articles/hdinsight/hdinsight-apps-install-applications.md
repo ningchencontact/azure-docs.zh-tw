@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3e1f64aa00ea0d78eca8a994814a91600b91239f
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 9d25996db9c13a12781d369327f2b43a41fb4115
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190701"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786524"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式
 
@@ -23,7 +23,7 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 
 下列清單顯示已發佈的應用程式：
 
-|Application |叢集類型 | 描述 |
+|應用程式 |叢集類型 | 描述 |
 |---|---|---|
 |[AtScale 智慧平台](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale 開啟您的 HDInsight 叢集至向外延展的 OLAP 伺服器，可讓您查詢無數的資料列的資料以互動方式使用您所熟悉、 擁有，且喜愛 – 從 Microsoft Excel、 Power BI、 Tableau Software 或 qlikview 的 BI 工具。 |
 |[HDInsight 的 CDAP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP 是加速時間值，適用於 Hadoop 和可讓 IT 提供自助服務資料的巨量資料的第一個統一的整合平台。 開放原始碼，並可擴充 CDAP 移除創新的障礙。 需求：4 的區域節點，min D3 v2。 |
@@ -38,13 +38,13 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 |[爆炸 Presto for Azure HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto 是快速且可調整分散式的 SQL 查詢引擎。 Presto 專為分隔儲存體與計算所打造的架構，最適合用來查詢 Azure Data Lake Storage、Azure Blob 儲存體、SQL 與 NoSQL 資料庫以及其他資料來源中的資料。 |
 |[適用於 HDInsight 雲端的 StreamSets Data Collector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop、 HBase、 Spark、 Kafka |StreamSets Data Collector 是輕量型、 強大的引擎，將即時資料串流。 使用路由及處理的資料，您的資料流中資料收集器。 它隨附 30 天試用版授權。 |
 |[Trifacta 奇兵 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop、 Spark、 HBase |HDInsight 的 Trifacta 奇兵企業支援企業級資料爭議適用於任何規模的資料。 在 Azure 上執行 Trifacta 的成本是 Trifacta 訂用帳戶成本加上虛擬機器的 Azure 基礎結構成本的組合。 |
-|[Unifi 資料平台](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop、 HBase、 Storm、 Spark |Unifi 資料平台是自助式資料設計工具可讓商務使用者解決資料難題該磁碟機的增量營收、 降低成本或操作複雜度完美的整合式套件。 |
+|[Unifi 資料平台](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop、 HBase、 Storm、 Spark |Unifi 資料平台是自助式資料設計工具可讓商務使用者解決資料難題該磁碟機的增量營收、 降低成本或操作複雜度完美的整合式套件。 |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |解決資料應用程式，適用於 HDInsight Spark 叢集。 |
 |[Waterline AI 驅動資料目錄](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline 目錄、 組織和控管使用 AI 來自動標記資料與商務詞彙的資料。 Waterline 是自助式分析、合規性與治理以及 IT 管理計劃成功的重要環節。 |
 
 本文提供的指示將使用 Azure 入口網站。 您也可以從入口網站匯出 Azure Resource Manager 範本或從廠商取得 Resource Manage 範本的複本，然後使用 Azure PowerShell 與 Azure 傳統 CLI 來部署範本。  請參閱[使用 Resource Manager 範本在 HDInsight 上建立 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您想要在現有的 HDInsight 叢集上安裝 HDInsight 應用程式，您必須有 HDInsight 叢集。 若要建立叢集，請參閱 [建立叢集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 您也可以在建立 HDInsight 叢集時安裝 HDInsight 應用程式。
 
 ## <a name="install-applications-to-existing-clusters"></a>將應用程式安裝到現有的叢集

@@ -23,7 +23,7 @@ ms.locfileid: "61481823"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>建立及管理 StorSimple 8000 系列的支援封裝
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄以協助 Microsoft 支援服務針對任何 StorSimple 裝置問題進行疑難排解。 收集的記錄都會經過加密並壓縮。
 
@@ -76,10 +76,10 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 | --- | --- | --- |
 | `-Path` |必要項 |用來提供存放支援封裝的網路共用資料夾位置。 |
 | `-EncryptionPassphrase` |必要項 |用來提供複雜密碼，以協助加密支援封裝。 |
-| `-Credential` |選用 |用來提供網路共用資料夾的存取認證。 |
-| `-Force` |選用 |用來略過加密複雜密碼確認步驟。 |
-| `-PackageTag` |選用 |用來指定 *Path* 下存放支援封裝的目錄。 預設值是 [裝置名稱]-[目前日期和時間：yyyy-MM-dd-HH-mm-ss]。 |
-| `-Scope` |選用 |指定為 **Cluster** (預設值) 可以為兩個控制器建立支援封裝。 如果您只想針對目前的控制器建立封裝，請指定 **Controller**。 |
+| `-Credential` |選擇性 |用來提供網路共用資料夾的存取認證。 |
+| `-Force` |選擇性 |用來略過加密複雜密碼確認步驟。 |
+| `-PackageTag` |選擇性 |用來指定 *Path* 下存放支援封裝的目錄。 預設值是 [裝置名稱]-[目前日期和時間：yyyy-MM-dd-HH-mm-ss]。 |
+| `-Scope` |選擇性 |指定為 **Cluster** (預設值) 可以為兩個控制器建立支援封裝。 如果您只想針對目前的控制器建立封裝，請指定 **Controller**。 |
 
 ## <a name="edit-a-support-package"></a>編輯支援封裝
 

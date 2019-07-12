@@ -73,8 +73,8 @@ ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆�
 -------- | ----------- | -------------- | --------
 name | for-each 活動的名稱。 | 字串 | 是
 type | 必須設定為 **ForEach** | 字串 | 是
-isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方式可一次執行最多 20 個迴圈反覆項目。 例如，如果您的 ForEach 活動會反覆查詢 10 個不同來源和接收資料集的複製活動，且 **isSequential** 設為 False，則所有複本會都執行一次。 預設值為 False。 <br/><br/> 如果 isSequential 設定為 False，請確認有正確的設定可執行多個可執行檔。 否則，應謹慎使用這個屬性，以避免引發寫入衝突。 如需詳細資訊，請參閱[平行執行](#parallel-execution)一節。 | Boolean | 沒有。 預設值為 False。
-batchCount | 批次計數，用於控制平行執行的數目 (當 isSequential 設定為 false 時)。 | 整數 (最大值 50) | 沒有。 預設值為 20。
+isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方式可一次執行最多 20 個迴圈反覆項目。 例如，如果您的 ForEach 活動會反覆查詢 10 個不同來源和接收資料集的複製活動，且 **isSequential** 設為 False，則所有複本會都執行一次。 預設值為 False。 <br/><br/> 如果 isSequential 設定為 False，請確認有正確的設定可執行多個可執行檔。 否則，應謹慎使用這個屬性，以避免引發寫入衝突。 如需詳細資訊，請參閱[平行執行](#parallel-execution)一節。 | Boolean | 資料分割 預設值為 False。
+batchCount | 批次計數，用於控制平行執行的數目 (當 isSequential 設定為 false 時)。 | 整數 (最大值 50) | 資料分割 預設值為 20。
 項目 | 傳回要反覆查詢之 JSON 陣列的運算式。 | 運算式 (傳回 JSON 陣列) | 是
 activities | 要執行的活動。 | 活動清單 | 是
 

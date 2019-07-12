@@ -29,7 +29,7 @@ ms.locfileid: "60242369"
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure AD 傳遞驗證會建立下列記錄類型，其中可能會包含「個人資料」：
 

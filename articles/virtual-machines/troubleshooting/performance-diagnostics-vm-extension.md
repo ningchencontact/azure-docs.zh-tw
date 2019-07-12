@@ -28,7 +28,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 > [!NOTE]
 > 如果您想要從 Azure 入口網站在您的 VM 上針對非傳統 VM 執行診斷，建議使用新體驗。 如需詳細資訊，請參閱 [Azure 虛擬機器的效能診斷](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此擴充功能可安裝於 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 及 Windows Server 2016。 它也可以安裝於 Windows 8.1 和 Windows 10。
 
@@ -67,7 +67,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 
 ### <a name="property-values"></a>屬性值
 
-|   **名稱**   |**值 / 範例**|       **說明**      |
+|   **名稱**   |**值 / 範例**|       **描述**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|API 的版本。
 |publisher|Microsoft.Azure.Performance.Diagnostics|擴充功能的發行者命名空間。
@@ -81,7 +81,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 |storPortTrace|s|啟用 StorPort 追蹤的選項。 有效值為 **s** 或空值。 如果您不想要擷取此追蹤，請將值保持空白即可。
 |srNumber|123452016365929|支援票證號碼 (若可用)。 如果您沒有此值，請保持空白。
 |requestTimeUtc|2017-09-28T22:08:53.736Z|目前的日期時間 (UTC)。 如果您使用入口網站來安裝此擴充功能，就不需提供此值。
-|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM 的唯一識別碼。
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM 的唯一識別碼。
 |storageAccountName|mystorageaccount|要儲存診斷記錄和結果的儲存體帳戶名稱。
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|儲存體帳戶的金鑰。
 

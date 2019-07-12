@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870871"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617628"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式，提供以 Azure 檔案服務為基礎的磁碟區。
@@ -28,7 +28,7 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 > Azure 檔案磁碟區外掛程式 6.4.571.9590 版是使用這份文件的預覽版本。 因為是預覽版本，此版本並**不**支援在生產環境中使用。
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Azure 檔案服務磁碟區外掛程式的 Windows 版本只能在 [Windows Server 1709 版](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709)、[Windows 10 1709 版](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709)或更新版本的作業系統上運作。 Azure 檔案服務磁碟區外掛程式的 Linux 版本可在 Service Fabric 所支援的所有作業系統版本上運作。
 
 * Azure 檔案磁碟區外掛程式只適用於 Service Fabric 6.2 版及更新版本。

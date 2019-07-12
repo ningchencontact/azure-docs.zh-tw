@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433440"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620698"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>設定 Azure HDInsight 叢集使用的防火牆 （預覽） 的輸出網路流量
 
@@ -81,7 +81,7 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
    | **名稱** | **通訊協定** | **來源位址** | **目的地位址** | **目的地連接埠** | **注意事項** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 時間服務 |
-   | Rule_2 | 任意 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 如果您使用企業安全性套件 」 (ESP)，然後可允許與 AAD DS ESP 叢集進行通訊的 IP 位址區段中新增網路規則。 您可以在入口網站中找到 AAD DS 區段上的網域控制站的 IP 位址 | 
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 如果您使用企業安全性套件 」 (ESP)，然後可允許與 AAD DS ESP 叢集進行通訊的 IP 位址區段中新增網路規則。 您可以在入口網站中找到 AAD DS 區段上的網域控制站的 IP 位址 | 
    | Rule_3 | TCP | * | 您的 Data Lake 儲存體帳戶的 IP 位址 | `*` | 如果您使用 Azure Data Lake 儲存體，您可以解決 ADLS sku:gen1 和 Gen2 SNI 問題的 IP 位址 區段中新增網路規則。 此選項會將流量路由傳送到防火牆，可能會導致較高的成本，對於大型資料載入，但流量將會進行記錄，並可稽核防火牆記錄檔中。 判斷您的 Data Lake 儲存體帳戶的 IP 位址。 您可以使用 powershell 命令，例如`[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`來將 FQDN 解析到 IP 位址。|
    | Rule_4 | TCP | * | * | `12000` | （選擇性）如果您使用 Log Analytics，然後與您的 Log Analytics 工作區進行通訊的 IP 位址 區段中建立網路規則。 |
 

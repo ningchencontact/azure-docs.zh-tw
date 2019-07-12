@@ -35,7 +35,7 @@ ms.locfileid: "60711011"
 
 若客體系統防火牆設計不正確，可能會封鎖部分前往 VM 的網路流量，或是將所有類型的流量全數擋下。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在按照下列步驟進行之前，請先擷取受影響虛擬機器系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 

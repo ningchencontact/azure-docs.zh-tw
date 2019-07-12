@@ -8,13 +8,13 @@ keywords: 如何備份;備份系統狀態
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: srinathv
+ms.openlocfilehash: 87b5fff58ecf9e89bc94f31a0bc3a591c146c88f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165122"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705004"
 ---
 # <a name="troubleshoot-system-state-backup"></a>系統狀態備份的疑難排解
 
@@ -132,21 +132,21 @@ Microsoft 軟體陰影複製 Provider(SWPRV) | 手動
 
 ### <a name="vss-writer-timeout-error"></a>VSS 寫入器逾時錯誤
 
-| 徵狀 | 原因 | 解決方案
+| 徵兆 | 原因 | 解決方案
 | -- | -- | --
 | MARS 代理程式失敗且錯誤訊息：「 WSB 作業失敗，發生 VSS 錯誤。 請檢查 VSS 來解決失敗的事件記錄檔 」<br/><br/> -下列錯誤記錄檔位於 VSS 應用程式事件記錄檔：」 的 VSS 寫入器已拒絕事件與錯誤 0x800423f2，凍結和解除凍結事件之間的寫入器的逾時過期。 」| VSS 寫入器無法完成的時間，因為缺少的電腦上的 CPU 和記憶體資源 <br/><br/> 另一個的備份軟體已經在使用 VSS 寫入器，因此快照集作業無法完成此備份 | 等候 CPU/記憶體釋出了系統上或中止花費太多的記憶體/CPU 的處理程序並再次嘗試操作 <br/><br/>  等候完成，並在機器上不執行任何備份時，請再次嘗試操作於稍後進行中的備份
 
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>磁碟空間不足以增加陰影複製
 
-| 徵狀 | 解決方案
+| 徵兆 | 解決方案
 | -- | --
 | MARS 代理程式失敗且錯誤訊息：備份失敗，因為陰影複製磁碟區不包含系統檔案的磁碟區上成長因為磁碟空間不足 <br/><br/> -接在錯誤/警告記錄檔位於 volsnap 系統事件記錄檔：「 發生足夠的磁碟空間成長的 c： 由於此失敗的陰影複製的陰影複製儲存體的 c： 的磁碟區上所有 c： 有風險的要刪除的磁碟區陰影複製 」 | -釋放事件記錄檔中反白顯示的磁碟區中的空間，使其沒有足夠的空間成長時正在進行備份的陰影複製 <br/><br/> -如果您在設定陰影複製空間，我們可以限制陰影複製所使用的空間量，如需詳細資訊請參閱此[文章](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 
 ### <a name="efi-partition-locked"></a>鎖定的 EFI 磁碟分割
 
-| 徵狀 | 解決方案
+| 徵兆 | 解決方案
 | -- | --
 | MARS 代理程式失敗且錯誤訊息：「 系統狀態回最多失敗，因為 EFI 系統磁碟分割已鎖定。 這可以是因為存取由協力廠商安全性的系統磁碟區或備份軟體 」 | -如果此問題是因為協力廠商安全性軟體，然後您需要連絡防毒廠商，讓它們可讓 MARS 代理程式 <br/><br/> -如果正在執行協力廠商備份軟體，然後等候它完成，然後重試後，註冊
 

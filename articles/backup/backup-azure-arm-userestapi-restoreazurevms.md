@@ -37,7 +37,7 @@ GET  URI 具備所有必要參數。 不需要額外的要求內文
 
 ### <a name="responses"></a>Responses
 
-|Name  |類型  |描述  |
+|名稱  |type  |描述  |
 |---------|---------|---------|
 |200 確定     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       [確定]  |
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 若要觸發從 Azure VM 備份還原磁碟，以下是要求本文的元件。
 
-|Name  |類型  |描述  |
+|名稱  |type  |描述  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -171,7 +171,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |描述  |
+|名稱  |type  |描述  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 

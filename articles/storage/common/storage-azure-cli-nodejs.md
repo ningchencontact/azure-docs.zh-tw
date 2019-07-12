@@ -18,7 +18,7 @@ ms.locfileid: "65147050"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>搭配 Azure 儲存體使用 Azure 傳統 CLI
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 傳統 CLI 為您提供一組開放式原始碼的跨平台命令集合，供您運用在 Azure 平台上。 它提供許多與 [Azure 入口網站](https://portal.azure.com) 相同的功能，以及豐富的資料存取功能。
 

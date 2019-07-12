@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81f14fa54303911a34b334f41b5f7f6b0f9f394b
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126222"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720616"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -34,6 +34,8 @@ ms.locfileid: "67126222"
 啟用 Azure AD-DS 是必要條件，如此您才能建立具有 ESP 的 HDInsight 叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md)。 
 
 Azure AD-DS 啟用時，所有使用者和物件依預設都會開始從 Azure Active Directory (AAD) 同步處理至 Azure AD-DS。 同步作業的所需時間取決於 Azure AD 中的物件數目。 數十萬個物件的同步可能需要幾天的時間。 
+
+使用與 Azure AD DS 的網域名稱必須是 39 個字元或更少，才能使用 HDInsight。
 
 您可以選擇同步處理只需要存取 HDInsight 叢集的群組。 這個僅同步特定群組的選項，稱為*特定範圍同步處理*。 請參閱[設定從 Azure AD 到受控網域的特定範圍同步處理](../../active-directory-domain-services/scoped-synchronization.md)，以取得指示。
 
@@ -112,11 +114,11 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 下列螢幕擷取畫面顯示 Azure 入口網站中的成功設定：
 
-![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png)上也提供本文中使用的原始碼。
+![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png)。
 
 您所建立的受控識別，可在建立新的叢集時從 [使用者指派的受控識別] 下拉式清單中選擇。
 
-![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)上也提供本文中使用的原始碼。
+![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)。
 
 ## <a name="next-steps"></a>後續步驟
 

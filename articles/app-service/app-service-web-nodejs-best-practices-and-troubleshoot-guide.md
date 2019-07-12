@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60853026"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719791"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
@@ -281,7 +281,7 @@ NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 在 Azure App S
 請遵循下列連結以深入了解 Azure App Service 上的 node.js 應用程式。
 
 * [在 Azure App Service 中開始使用 Node.js Web 應用程式](app-service-web-get-started-nodejs.md)
-* [如何在 Azure App Service 中偵錯 Node.js Web 應用程式](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [如何在 Azure App Service 中偵錯 Node.js Web 應用程式](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [使用 Node.js 模組與 Azure 應用程式搭配](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 開發人員中心](../nodejs-use-node-modules-azure-apps.md)

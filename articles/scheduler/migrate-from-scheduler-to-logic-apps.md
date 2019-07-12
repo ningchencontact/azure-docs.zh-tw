@@ -31,7 +31,7 @@ ms.locfileid: "60531498"
 
 若要深入了解，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md) 或者，請嘗試在此快速入門中建立第一個邏輯應用程式：[建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
@@ -47,7 +47,7 @@ ms.locfileid: "60531498"
 
    如需基本的步驟，請遵循[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜尋方塊中，輸入「當 http 要求」作為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 请求时** 
+1. 在搜尋方塊中，輸入「當 http 要求」作為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時** 
 
    ![新增「要求」觸發程序](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "60531498"
 
 例如，使用 Postman 應用程式，您可以使用類似此範例的設定來建立 POST 要求，然後選擇 [Send]  \(傳送\) 來提出要求。
 
-| 要求方法 | URL | body | headers |
+| 要求方法 | URL | 本文 | headers |
 |----------------|-----|------|---------| 
 | **POST** | <*endpoint-URL*> | **未經處理** <p>**JSON(application/json)** <p>在 [raw]  \(未經處理\) 方塊中，輸入您希望在要求中傳送的承載。 <p>**注意**：此設定會自動設定**標頭**值。 | **金鑰**：Content-Type <br>**值**：application/json
  |||| 

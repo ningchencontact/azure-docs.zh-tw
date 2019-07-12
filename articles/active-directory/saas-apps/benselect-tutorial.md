@@ -177,7 +177,7 @@ ms.locfileid: "60282993"
 
     c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="creating-a-benselect-test-user"></a>建立 BenSelect 測試使用者
 

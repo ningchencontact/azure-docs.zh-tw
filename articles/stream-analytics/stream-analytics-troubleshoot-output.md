@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340781"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620799"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>對 Azure 串流分析輸出進行疑難排解
 
@@ -38,11 +38,11 @@ ms.locfileid: "67340781"
       - 若要找出錯誤，請前往[稽核記錄](../azure-resource-manager/resource-group-audit.md)，並篩選*失敗*狀態。
       
     - 如果 InputEvents > 0 且 OutputEvents = 0，則表示符合下列其中一個情況︰
-      - 查询处理导致生成零个输出事件。
+      - 查詢處理產生了零個輸出事件。
       - 事件或其欄位可能格式錯誤，因此在查詢處理後導致零個輸出。
       - 由於連線或驗證問題，作業無法將推送資料至輸出接收端。
       
-    - 在所有前述錯誤案例中，作業記錄訊息說明了其他詳細資料 (包括目前所發生的事)，僅有查詢邏輯篩選掉所有事件的案例除外。 如果处理多个事件时出现错误，流分析会将 10 分钟内类型相同的前 3 个错误消息记录在操作日志中。 接著會隱藏其他完全相同的錯誤並顯示錯誤訊息，內容為「錯誤發生次數太頻繁，因此隱藏這些錯誤」。
+    - 在所有前述錯誤案例中，作業記錄訊息說明了其他詳細資料 (包括目前所發生的事)，僅有查詢邏輯篩選掉所有事件的案例除外。 如果多事件處理產生錯誤，串流分析會在 10 分鐘內將同類型的前三個錯誤記錄到作業記錄中。 接著會隱藏其他完全相同的錯誤並顯示錯誤訊息，內容為「錯誤發生次數太頻繁，因此隱藏這些錯誤」。
     
 ## <a name="job-output-is-delayed"></a>作業輸出延遲
 
@@ -79,7 +79,7 @@ ms.locfileid: "67340781"
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 輸出的索引鍵違規警告
 
-當您設定 Azure SQL 資料庫作為串流分析作業的輸出時，它會將記錄大量插入至目的地資料表。 一般情況下，Azure 串流分析保證[至少一次傳遞]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics)至輸出接收，當 SQL 資料表已定義唯一限制式時，仍然可以[達到準確一次傳遞]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)至 SQL 輸出。 
+當您設定 Azure SQL 資料庫作為串流分析作業的輸出時，它會將記錄大量插入至目的地資料表。 一般情況下，Azure 串流分析保證[至少一次傳遞](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)至輸出接收，當 SQL 資料表已定義唯一限制式時，仍然可以[達到準確一次傳遞]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/)至 SQL 輸出。 
 
 一旦在 SQL 資料表上設定好唯一的索引鍵限制式，如果有重複的記錄插入至 SQL 資料表，Azure 串流分析就會移除重複的記錄。 它會將資料分割為幾個批次，並以遞迴方式插入批次，直到找到單一重複的記錄。 如果串流作業有相當多的重複資料列，這種分割和插入的程序必須一個一個忽略重複的項目，這樣比較沒有效率而且耗時。 如果您在過去一小時內的活動記錄中看到多個索引鍵違規警告訊息，有可能是 SQL 輸出減緩整個作業。 
 
@@ -97,12 +97,12 @@ ms.locfileid: "67340781"
 
 ## <a name="get-help"></a>取得說明
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

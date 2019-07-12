@@ -29,7 +29,7 @@ ms.locfileid: "60336859"
 
 如需有關放置追蹤陳述式，請參閱[How to:將追蹤陳述式新增至應用程式程式碼](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)。
 
-藉由在程式碼中放置 [Trace 參數](/dotnet/framework/debug-trace-profile/trace-switches) ，您可以控制是否發生追蹤以及廣泛程度。 這可讓您監視您的應用程式在生產環境中的狀態。 對於在多部電腦上執行多個元件的商務應用程式來說，這特別重要。 如需詳細資訊，請參閱[操作說明：設定追蹤參數](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches)。
+藉由在程式碼中放置 [Trace 參數](/dotnet/framework/debug-trace-profile/trace-switches) ，您可以控制是否發生追蹤以及廣泛程度。 這可讓您監視您的應用程式在生產環境中的狀態。 對於在多部電腦上執行多個元件的商務應用程式來說，這特別重要。 如需詳細資訊，請參閱[如何：設定追蹤參數](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches)。
 
 ## <a name="configure-the-trace-listener-in-an-azure-application"></a>在 Azure 應用程式中設定追蹤接聽程式
 Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記錄傳送的訊息。 接聽程式會收集、儲存和路由傳送追蹤訊息。 它們將追蹤輸出導向至適當的目標，例如記錄檔、視窗或文字檔。 Azure 診斷使用 [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) 類別。
@@ -74,6 +74,6 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
     ```
         using System.Diagnostics;
     ```
-3. 在您想要用來擷取應用程式狀態資訊的位置加入 Trace 陳述式。 您可以使用各種方法來格式化 Trace 陳述式的輸出。 如需詳細資訊，請參閱[操作說明：將追蹤陳述式新增至應用程式程式碼](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)。
+3. 在您想要用來擷取應用程式狀態資訊的位置加入 Trace 陳述式。 您可以使用各種方法來格式化 Trace 陳述式的輸出。 如需詳細資訊，請參閱[如何：將追蹤陳述式新增至應用程式程式碼](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code)。
 4. 儲存原始程式檔。
 

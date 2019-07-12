@@ -18,7 +18,7 @@ ms.locfileid: "60812900"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>開始使用 U-SQL 的辨識功能
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 U-SQL 的辨識功能讓開發人員可以在其公司的巨量資料程式中使用 put 智慧。 
 
 下列使用認知功能的範例可供使用：

@@ -20,7 +20,7 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 
 如需 Webhook 要求的詳細資訊，請參閱 [Azure Container Registry Webhook 結構描述參考](container-registry-webhook-reference.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 容器登錄 - 在 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。 [Azure Container Registry Sku](container-registry-skus.md)有不同的 webhook 配額。
 * Docker CLI - 若要將您的本機電腦設定為 Docker 主機並存取 Docker CLI 命令，請安裝 [Docker 引擎](https://docs.docker.com/engine/installation/)。
@@ -36,7 +36,7 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 | 值 | 描述 |
 |---|---|
 | Webhook 名稱 | 您想要提供給 Webhook 的名稱。 它只能包含字母和數字必須是長度為 5 到 50 個字元。 |
-| 位置 | 針對[異地複寫](container-registry-geo-replication.md)登錄中，指定的登錄複本的 Azure 區域。 
+| Location | 針對[異地複寫](container-registry-geo-replication.md)登錄中，指定的登錄複本的 Azure 區域。 
 | 服務 URI | Webhook 需在當中傳送 POST 通知的 URI。 |
 | 自訂標頭 | 您想要與 POST 要求一起傳遞的標頭。 它們應該為「金鑰：值」的格式。 |
 | 觸發程序動作 | 觸發 Webhook 的動作。 動作包括映像推送、 映像刪除、 Helm 圖表推播、 Helm 圖表 delete 和映像的隔離。 您可以選擇一或多個動作來觸發 webhook。 |

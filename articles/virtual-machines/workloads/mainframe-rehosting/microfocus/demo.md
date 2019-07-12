@@ -2,15 +2,16 @@
 title: Micro 焦點企業開發人員 4.0 Azure 虛擬機器上設定 Micro 焦點 CICS BankDemo
 description: 在 Azure 虛擬機器 (Vm)，以了解如何使用 Micro Focus Enterprise Server 和企業開發人員執行 Micro 焦點 BankDemo 應用程式。
 author: sread
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304814"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621342"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>在 Azure 上微焦點企業開發人員 4.0 設定 Micro 焦點 CICS BankDemo
 
@@ -18,7 +19,7 @@ ms.locfileid: "66304814"
 
 CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所用的交易平台。 BankDemo 應用程式適合用於學習企業伺服器與企業開發人員的運作方式，以及如何管理和部署實際的應用程式完整的綠色螢幕終端機。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 使用的 VM[企業開發人員](set-up-micro-focus-azure.md)。 請記住，企業開發人員會有完整執行個體的企業伺服器上進行開發和測試目的。 這個執行個體是用來示範企業伺服器的執行個體。
 
@@ -264,7 +265,7 @@ TN3270 的工作階段存取 BankDemo 應用程式中建立的接聽程式。
 ![大型主機顯示歡迎使用 畫面](media/14-demo.png)
 ![大型主機顯示-Rumba-子系統示範畫面](media/15-demo.png)
 
-恭喜！ 您現在已執行的 CICS 應用程式在 Azure 中使用 Micro Focus Enterprise Server。
+恭喜您！ 您現在已執行的 CICS 應用程式在 Azure 中使用 Micro Focus Enterprise Server。
 
 ## <a name="next-steps"></a>後續步驟
 

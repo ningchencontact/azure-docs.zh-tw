@@ -29,7 +29,7 @@ ms.locfileid: "60878096"
 
 在本文中，您會了解如何使用 Java SDK 向 Azure Data Lake Storage Gen1 進行使用者驗證。 如需使用 Java SDK 向 Data Lake Storage Gen1 進行服務對服務驗證，請參閱[使用 Java 向 Data Lake Storage Gen1 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-java.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **建立 Active Directory 「原生」應用程式**。 您必須先完成[使用 Azure Active Directory 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)中的步驟。

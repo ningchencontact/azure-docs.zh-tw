@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/18/2019
-ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341438"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807305"
 ---
-# <a name="creating-and-using-active-geo-replication"></a>创建并使用活动异地复制
+# <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
 
 作用中異地複寫是 Azure SQL Database 的功能，可讓您在相同或不同資料中心 (區域) 中的 SQL Database 伺服器上建立個別資料庫的可讀取次要資料庫。
 
@@ -43,7 +43,6 @@ ms.locfileid: "67341438"
 - [Transact-SQL：單一資料庫或彈性集區](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API：單一資料庫](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-容錯移轉之後，請確認已在新的主要資料庫上設定伺服器和資料庫的驗證需求。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。
 
 主動式異地複寫會利用 SQL Server 的 [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 技術，使用快照隔離，以非同步方式將主要資料庫上認可的交易複寫到次要資料庫。 自動容錯移轉群組在主動式異地複寫之上提供群組語意，但使用相同的非同步複寫機制。 雖然次要資料可能會在任何指定時間點稍微落後主要資料庫，但是次要資料保證絕對不會含有部分交易。 跨區域備援可讓應用程式從天然災害、災難性人為錯誤或惡意行為所造成的全部或部分資料中心永久遺失快速復原。 在 [商務持續性概觀](sql-database-business-continuity.md)中可以找到特定的 RPO 資料。
 
@@ -69,7 +68,7 @@ ms.locfileid: "67341438"
 
 - **自動非同步複寫**
 
-  您只能藉由新增至現有資料庫來建立次要資料庫。 您可以在任何 Azure SQL Database 伺服器建立次要資料庫。 创建完成之后，使用从主数据库复制的数据填充辅助数据库。 這個程序稱為植入。 建立並植入次要資料庫之後，主要資料庫的更新會以非同步方式自動複製到次要資料庫。 非同步複寫表示交易會先在主要資料庫上受到認可，才會複製到次要資料庫。
+  您只能藉由新增至現有資料庫來建立次要資料庫。 您可以在任何 Azure SQL Database 伺服器建立次要資料庫。 一旦建立之後，次要資料庫就要填入從主要資料庫複製的資料。 這個程序稱為植入。 建立並植入次要資料庫之後，主要資料庫的更新會以非同步方式自動複製到次要資料庫。 非同步複寫表示交易會先在主要資料庫上受到認可，才會複製到次要資料庫。
 
 - **可讀取的次要資料庫**
 
@@ -78,17 +77,17 @@ ms.locfileid: "67341438"
 > [!NOTE]
 > 如果主要資料庫上有結構描述更新，次要資料庫上的記錄重播會延遲， 因為後者需要次要資料庫上的結構描述鎖定。
 > [!IMPORTANT]
-> 可以使用异地复制在与主数据库相同的区域中创建辅助数据库。 可以使用此辅助数据库对同一区域中的只读工作负荷进行负载均衡。 但是，同一区域中的辅助数据库不能提供额外的故障恢复能力，因此不适合用作灾难恢复的故障转移目标。 它也不保證會 avaialability 區域隔離。 使用商務關鍵性或使用 Premium 服務層[區域備援設定](sql-database-high-availability.md#zone-redundant-configuration)以達到 avaialability 區域隔離。   
+> 若要建立次要資料庫與主要資料庫相同的區域中，您可以使用異地複寫。 您可以使用 負載平衡唯讀工作負載的這個次要相同區域中。 不過，相同的區域中的次要資料庫不會提供額外的錯誤復原，因此不適合的容錯移轉目標的災害復原。 它也不保證會 avaialability 區域隔離。 使用商務關鍵性或使用 Premium 服務層[區域備援設定](sql-database-high-availability.md#zone-redundant-configuration)以達到 avaialability 區域隔離。   
 >
 
 - **計劃性容錯移轉**
 
-  計劃性容錯移轉會在主要資料庫和次要資料庫之間執行完整同步處理，然後將次要資料庫切換為主要角色。 這可確保不會遺失資料。 計劃性容錯移轉用於下列案例：(a) 在生產環境中執行 DR 鑽研而不接受遺失資料的時候；(b) 將資料庫重新放置到不同區域；(c) 在中斷已經緩和 (容錯回復) 之後，將資料庫歸回至主要區域。
+  完整的同步處理完成之後，請規劃容錯移轉切換主要和次要資料庫的角色。 它是一項線上作業，不會導致資料遺失。 作業的時間取決於需要同步處理在主要伺服器上的交易記錄檔的大小。 規劃的容錯移轉專為下列案例: (a) 執行 DR 演練在生產環境中時資料遺失是無法接受;若要將資料庫重新放置到不同的區域; (b)(c) 若要將資料庫回復到主要區域中斷之後降低 （容錯回復）。
 
 - **非計劃性容錯移轉**
 
-  非計劃性或強制容錯移轉會立即將次要資料庫切換為主要角色，而不會與主要資料庫進行任何同步處理。 這項作業會導致資料遺失。 非計劃性容錯移轉是主要資料庫無法存取時，用來作為中斷期間的復原方法。 當原始的主要資料庫重新上線時，它會自動重新連線而不進行同步處理，並且變為新的次要資料庫。
-
+  非計劃性或強制容錯移轉會立即將次要資料庫切換為主要角色，而不會與主要資料庫進行任何同步處理。 任何已認可到主要複本，但不是會複寫至次要資料庫的交易將會遺失。 這項作業是在中斷期間帳戶設計做為復原方法主要不能存取，但必須迅速還原資料庫的可用性。 原始的主要複本回到線上時它就會自動重新連線，並成為新次要資料庫。 所有未同步處理的交易，在容錯移轉前將保留備份檔案中，但不是會同步處理與新的主要複本，以避免發生衝突。 這些交易就必須以手動方式合併與主要資料庫的最新版本。
+ 
 - **多個次要資料庫**
 
   每個主要資料庫最多可建立 4 個次要資料庫。 如果只有一個次要資料庫卻失敗了，應用程式會暴露在更高的風險中，直到建立新的次要資料庫。 如果有多個次要資料庫存在，即使其中一個次要資料庫失敗，應用程式仍會受到保護。 其他的次要資料庫也可用來擴充唯讀工作負載
@@ -105,21 +104,26 @@ ms.locfileid: "67341438"
 
   應用程式或使用者可以隨時明確也將次要資料庫切換到主要角色。 在實際的中斷期間，應該使用「非計劃性」選項，這樣會立即將次要升級為主要。 當失敗的主要資料庫復原，並且可再次使用時，系統會自動將復原的主要資料庫標示為次要資料庫，並讓它與新的主要資料庫保持更新。 由於複寫的非同步本質，如果主要資料庫在將最新的變更複寫至次要資料庫之前失敗，則非計劃的容錯移轉期間會有少量的資料遺失。 當具有多個次要資料庫的主要資料庫容錯移轉時，系統會自動重新設定複寫關聯性，並且將剩餘的次要資料庫連結至新升級的主要資料庫，而不需要任何使用者介入。 解決造成容錯移轉的中斷之後，可能想要讓應用程式返回主要區域。 若要這麼做，應該使用「計劃」選項叫用容錯移轉命令。
 
-- **保持認證和防火牆規則同步**
+## <a name="preparing-secondary-database-for-failover"></a>準備容錯移轉的次要資料庫
 
-建议对异地复制数据库使用[数据库级 IP 防火墙规则](sql-database-firewall-configure.md)，以便这些规则可与数据库一起复制，确保所有辅助数据库具有与主数据库相同的 IP 防火墙规则。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
+若要確保您的應用程式，可以立即存取新的主要複本容錯移轉之後，請確定已正確設定您的次要伺服器和資料庫的驗證需求。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。 若要確保在容錯移轉之後的相容性，請確定在次要資料庫上的備份保留原則符合的主要。 這些設定不是資料庫的一部分，而且不會複寫。 根據預設，次要資料庫會設有七天的預設 PITR 保留期限。 如需詳細資訊，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
 
 ## <a name="configuring-secondary-database"></a>設定次要資料庫
 
-主要和次要資料庫必須有相同的服務層級。 此外也強烈建議您使用與主要資料庫相同的計算大小 (DTU 或虛擬核心) 來建立次要資料庫。 如果主要資料庫發生大量寫入工作負載，次要資料庫的較低的計算大小可能無法跟上它。 這會在次要，可能無法使用，重做延隔時間，因此在容錯移轉之後的重大資料遺失的風險。 因此，將無法保證已發佈的 RPO = 5 秒。 它也可能會導致失敗，或在主要伺服器上的其他工作負載的懸置。 
-
-不平衡的次要組態的其他結果是，在容錯移轉之後應用程式的效能折損因為新的主要複本不足的計算容量。 它就必須升級至更高的計算到所需的層級，無法進行直到中斷情況趨緩。 
-
-> [!NOTE]
-> 升級主要資料庫目前不可能如果次要資料庫已離線。 
+主要和次要資料庫必須有相同的服務層級。 此外也強烈建議您使用與主要資料庫相同的計算大小 (DTU 或虛擬核心) 來建立次要資料庫。 如果主要資料庫發生大量寫入工作負載，次要資料庫的較低的計算大小可能無法跟上它。 它將會讓次要和可能無法使用的重做延隔時間。 落後主要資料庫的次要資料庫也可能在需要強制容錯移轉時，有遺失大量資料的風險。 若要減輕這些風險，有效的作用中異地複寫會節流允許其次要複本趕上主要的記錄速率。 不平衡的次要組態的其他結果是，在容錯移轉之後應用程式的效能折損因為新的主要複本不足的計算容量。 它就必須升級至更高的計算到所需的層級，無法進行直到中斷情況趨緩。 
 
 
-如果您決定建立具有較低計算大小的次要資料庫，您可以利用 Azure 入口網站上的記錄 IO 百分比圖表，來預估次要資料庫承受複寫負載所需的最低計算大小。 例如，如果您的主要資料庫是 P6 (1000 DTU) 和其記錄 IO 百分比為 50%，則次要資料庫必須至少是 P4 (500 DTU)。 您也可以使用 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 資料庫檢視來擷取記錄 IO 資料。  如需 SQL Database 計算大小的詳細資訊，請參閱 [SQL Database 服務層是什麼](sql-database-purchase-models.md)。
+> [!IMPORTANT]
+> 已發行的 RPO = 無法保證 5 秒，除非將次要資料庫已使用與主要資料庫相同的計算大小。 
+
+
+如果您決定建立具有較低計算大小的次要資料庫，您可以利用 Azure 入口網站上的記錄 IO 百分比圖表，來預估次要資料庫承受複寫負載所需的最低計算大小。 例如，如果您的主要資料庫是 P6 (1000 DTU) 和其記錄 IO 百分比為 50%，則次要資料庫必須至少是 P4 (500 DTU)。 您也可以使用 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 或 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 資料庫檢視來擷取記錄 IO 資料。  節流會回報為 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 等候狀態中[sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)並[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)資料庫檢視。 
+
+如需 SQL Database 計算大小的詳細資訊，請參閱 [SQL Database 服務層是什麼](sql-database-purchase-models.md)。
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>保持認證和防火牆規則的同步
+
+我們建議您使用[資料庫層級 IP 防火牆規則](sql-database-firewall-configure.md)異地複寫資料庫，所以這些規則可以使用資料庫，以確保所有的次要資料庫都有相同的 IP 防火牆規則，與主要資料庫複寫。 此方法不需要客戶手動設定及維護同時裝載主要和次要資料庫之伺服器上的防火牆規則。 同樣地，針對資料存取使用 [自主資料庫使用者](sql-database-manage-logins.md) ，確保主要與次要資料庫永遠具有相同的使用者認證，在容錯移轉時不會因為登入和密碼不相符而有任何中斷。 使用額外的 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，客戶可以管理主要和次要資料庫的使用者存取，並且排除在資料庫中管理認證的需求。
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>升級或降級主要資料庫
 
@@ -129,26 +133,26 @@ ms.locfileid: "67341438"
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。
 
 > [!IMPORTANT]
-> 不能将故障转移组中的主数据库扩展到更高的层，除非已先将辅助数据库扩展到该层。 如果尝试在扩展辅助数据库之前扩展主数据库，可能会收到以下错误：
+> 容錯移轉群組中的主要資料庫無法調整到較高層級，除非次要資料庫第一次調整為較高的層。 如果您嘗試調整主要資料庫，次要資料庫會調整之前，您可能會收到下列錯誤：
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止重要資料遺失
 
-由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 但是，某些应用程序可能要求不能有数据丢失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
+由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** 可避免在容錯移轉之後資料遺失，但是不保證讀取權限會完整同步。 **sp_wait_for_database_copy_sync** 程序呼叫所造成的延遲可能會相當明顯，且取決於呼叫時的交易記錄大小。
 
-## <a name="monitoring-geo-replication-lag"></a>监视异地复制延迟
+## <a name="monitoring-geo-replication-lag"></a>監視異地複寫延遲
 
-若要监视与 RPO 相关的延迟，请使用主数据库中 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 的 *replication_lag_sec* 列。 它显示在主数据库上提交的事务与在辅助数据库上保留的事务之间的延迟（以秒为单位）。 例如 如果延隔時間的值為 1 秒，這表示如果主要目前受中斷影響，而且起始容錯移轉，1 秒的最新的轉換將不會儲存。 
+若要監視延隔時間方面的 RPO，請使用*replication_lag_sec*資料行[sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)主要資料庫上。 它會在主要複本上認可並保存在次要複本上的交易之間的秒數顯示延隔時間。 例如 如果延隔時間的值為 1 秒，這表示如果主要目前受中斷影響，而且起始容錯移轉，1 秒的最新的轉換將不會儲存。 
 
-若要以在主数据库上所做的更改应用到辅助数据库（即可以从辅助数据库读取）所需的时间来衡量延迟，请将辅助数据库上的 *last_commit* 时间与主数据库上的同一值进行比较。
+若要測量延隔時間相對於主要資料庫上的變更已套用在次要複本，也就是可讀取次要複本時，從比較*last_commit*次要資料庫上以在主要伺服器上相同的值時間資料庫。
 
 > [!NOTE]
-> 有时候，主数据库上的 *replication_lag_sec* 的值为 NULL，这意味着主数据库目前不知道辅助数据库辅助数据库有多远。   这通常发生在进程重启之后，应该是一个暂时情况。 如果 *replication_lag_sec* 在长时间内一直返回 NULL，考虑向应用程序报警。 这表示辅助数据库因永久连接故障而无法与主数据库通信。 此外还有情况可能会导致辅助数据库上的 *last_commit* 时间与主数据库上的该时间的差异变得很大。 例如 如果在长期没有进行更改的情况下进行提交，则该差异会突然变成一个很大的值，然后快速回到 0。 如果这两个值之间的差异长时间保持很大，可将其视为一种错误情况。
+> 有時候*replication_lag_sec*主要資料庫上具有 NULL 值，這表示，主要不目前知道伸展多遠的次要資料庫。   這通常發生之後重新啟動處理程序，且應該是暫時性的狀況。 如果警示應用程式，請考慮*replication_lag_sec*長的時間，則傳回 NULL。 它會指出次要資料庫不能與永久性連線失敗的主要通訊。 另外還有狀況可能導致之間的差異*last_commit*時間變得很大的主要資料庫和次要資料庫上。 例如 如果認可在主要伺服器上很長一段任何變更之後，差異會快速地傳回至 0 之前跳最大值。 將它視為錯誤狀況這兩個值之間的差異很長的時間保持大型。
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>以程式設計方式管理主動式異地複寫
@@ -175,7 +179,7 @@ ms.locfileid: "67341438"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 | Cmdlet | 描述 |
 | --- | --- |
@@ -194,7 +198,7 @@ ms.locfileid: "67341438"
 | API | 描述 |
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |建立、更新或還原主要或次要資料庫。 |
-| [获取创建或更新数据库状态](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |在建立作業期間傳回狀態。 |
+| [取得建立或更新資料庫狀態](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |在建立作業期間傳回狀態。 |
 | [將次要資料庫設定為主要資料庫 (計劃性容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |從目前主要資料庫進行容錯移轉，以設定主要的次要資料庫。 **此選項不支援受控執行個體。**|
 | [將次要資料庫設定為主要資料庫 (非計劃的容錯移轉)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |從目前主要資料庫進行容錯移轉，以設定主要的次要資料庫。 這項作業可能會導致資料遺失。 **此選項不支援受控執行個體。**|
 | [取得複寫連結](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |取得異地複寫關聯性中指定 SQL Database 的特定複寫連結。 它會擷取 sys.geo_replication_links 目錄檢視中顯示的資訊。 **此選項不支援受控執行個體。**|
@@ -210,5 +214,5 @@ ms.locfileid: "67341438"
 - SQL Database 也支援自動容錯移轉群組。 如需詳細資訊，請參閱使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
-- 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。
-- 若要了解新主服务器和数据库的身份验证要求，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)。
+- 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。
+- 若要深入了解新的主要伺服器和資料庫的驗證需求，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。

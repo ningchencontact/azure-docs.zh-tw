@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023863"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672123"
 ---
 # <a name="custom-web-api-skill"></a>自訂 Web API 技能
 
@@ -201,8 +201,8 @@ Microsoft.Skills.Custom.WebApiSkill
 
 針對 Web API 無法使用或傳回 HTTP 錯誤的情況，將在索引子執行歷程記錄中加入有關 HTTP 錯誤的任何可用詳細資料的易懂錯誤。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [在認知搜尋中加入自訂技能](cognitive-search-custom-skill-interface.md)
-+ [建立使用文字翻譯 API 的自訂技能](cognitive-search-create-custom-skill-example.md)
++ [範例：建立自訂的技能，認知搜尋](cognitive-search-create-custom-skill-example.md)

@@ -28,7 +28,7 @@ ms.locfileid: "62130614"
 > 這篇文章是關於 App Service 環境 v1。  有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure App Service Environment 是由數個主要元件所組成：
 
 * 在 Azure App Service 環境託管服務中執行的計算資源
@@ -192,7 +192,7 @@ ASE 刀鋒視窗中有一個包含幾項重要功能的 [設定]  區段：
 
 ![刪除 App Service 環境 UI][9]  
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 若要開始使用 App Service 環境，請參閱 [如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

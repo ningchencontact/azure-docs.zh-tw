@@ -28,7 +28,7 @@ ms.locfileid: "61131540"
 
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **編碼** |[編碼](media-services-mes-schema.md#Encoding) |根元素，表示即將編碼的輸入來源。 |
 | **輸出** |[輸出](media-services-mes-schema.md#Output) |想要的輸出檔案集合。 |
@@ -36,7 +36,7 @@ ms.locfileid: "61131540"
 
 ### <a name="attributes"></a>屬性
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **版本**<br/><br/> 必要項 |**xs: decimal** |預設版本。 套用下列限制︰xs:fractionDigits value="1" 和 xs:minInclusive value="1"。例如，**version="1.0"** 。 |
 
@@ -45,7 +45,7 @@ ms.locfileid: "61131540"
 
 ### <a name="elements"></a>元素
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |視訊的 H.264 編碼設定。 |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |音訊的 AAC 編碼設定。 |
@@ -56,7 +56,7 @@ ms.locfileid: "61131540"
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |目前，只支援 One-pass 編碼。 |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |決定 IDR 框架之間的固定間距 (以秒為單位)。 也稱為 GOP 持續時間。 若要控制編碼器是否可以脫離此值，請參閱 **SceneChangeDetection**。 |
@@ -67,7 +67,7 @@ ms.locfileid: "61131540"
 
 ### <a name="attributes"></a>屬性
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | 當輸入沒有視訊時，您可能需要強制編碼器插入單色視訊播放軌。若要這樣做，請使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" (只以最低位元速率插入視訊) 或 Condition="InsertBlackIfNoVideo" (以所有輸出位元速率插入視訊)。 如需詳細資訊，請參閱[本篇文章](media-services-advanced-encoding-with-mes.md#no_video)。|
 
@@ -77,7 +77,7 @@ ms.locfileid: "61131540"
               
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |H264 圖層的集合。 |
 
@@ -89,7 +89,7 @@ ms.locfileid: "61131540"
 
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **設定檔**<br/><br/> minOccurs="0"<br/><br/> 預設值=”Auto” |**xs:string** |可能是下列其中一個 **xs:string** 值：**Auto**、**Baseline**、**Main**、**High**。 |
 | **Level**<br/><br/> minOccurs="0"<br/><br/> 預設值=”Auto” |**xs:string** | |
@@ -112,19 +112,19 @@ ms.locfileid: "61131540"
 
 ### <a name="elements"></a>元素
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **設定檔**<br/><br/> minOccurs="0 "<br/><br/> 預設值="AACLC" |**xs:string** |可能是下列其中一個值：**AACLC**、**HEAACV1** 或 **HEAACV2**。 |
 
 ### <a name="attributes"></a>屬性
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Condition** |**xs:string** |若要強制編碼器在輸入不含音訊時產生包含靜音曲目的資產，請指定 "InsertSilenceIfNoAudio" 值。<br/><br/> 依照預設，如果您傳送僅包含視訊不含音訊的輸入到編碼器，輸出資產將包含僅含視訊資料的檔案。 某些播放器可能無法處理此類型輸出資料流。 您可以在該案例中使用此設定來強制編碼器將靜音曲目新增至輸出。 |
 
 ### <a name="groups"></a>群組
 
-| 參考 | 描述 |
+| 參考資料 | 描述 |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |請參閱 [AudioGroup](media-services-mes-schema.md#AudioGroup) 的說明，以得知適當的聲道數目、取樣率以及可為每個設定檔設定的位元速率。 |
 
@@ -133,7 +133,7 @@ ms.locfileid: "61131540"
 
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Channels**<br/><br/> minOccurs="0" |**xs:int** |編碼的音訊聲道數目。 以下是有效的選項︰1、2、5、6、8。<br/><br/> 預設值：2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |音訊取樣率 (以 Hz 指定)。 |
@@ -150,7 +150,7 @@ ms.locfileid: "61131540"
 ## <a name="Clip"></a> 剪輯
 ### <a name="attributes"></a>屬性
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |指定簡報的開始時間。 StartTime 值必須符合輸入視訊的絕對時間戳記。 例如，如果輸入視訊的第一個畫面有 12:00:10.000 的時間戳記，則 StartTime 至少應該為 12:00:10.000 或以上。 |
 | **Duration** |**xs:duration** |指定簡報的持續時間 (例如，視訊中的覆疊外觀)。 |
@@ -158,7 +158,7 @@ ms.locfileid: "61131540"
 ## <a name="Output"></a> 輸出
 ### <a name="attributes"></a>屬性
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **FileName** |**xs:string** |輸出檔案的名稱。<br/><br/> 您可以使用下表中所述的巨集來建置輸出檔案名稱。 例如:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type":"MP4Format"       }     }   ]** |
 
@@ -178,7 +178,7 @@ ms.locfileid: "61131540"
 ## <a name="Video"></a> 視訊 (複雜類型繼承自轉碼器)
 ### <a name="attributes"></a>屬性
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **啟動** |**xs:string** | |
 | **Step** |**xs:string** | |
@@ -203,7 +203,7 @@ ms.locfileid: "61131540"
 ## <a name="FormatGroup"></a> FormatGroup (群組)
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
@@ -212,35 +212,35 @@ ms.locfileid: "61131540"
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>屬性
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>元素
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>屬性
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>元素
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -248,49 +248,49 @@ ms.locfileid: "61131540"
 
 ### <a name="attributes"></a>屬性
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (複雜類型繼承自視訊)
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 圖層 |
 
 ## <a name="JpgImage"></a> JpgImage (複雜類型繼承自視訊)
 ### <a name="elements"></a>元素
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 圖層 |
 
 ## <a name="PngImage"></a> PngImage (複雜類型繼承自視訊)
 ### <a name="elements"></a>元素
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png 圖層 |
 

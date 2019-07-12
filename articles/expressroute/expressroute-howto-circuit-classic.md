@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c3368408b06f13139b9126dfecad0a82857134
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370256"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657297"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -21,6 +21,7 @@ ms.locfileid: "60370256"
 > * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 範本](expressroute-howto-circuit-resource-manager-template.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
@@ -125,7 +126,7 @@ get-help get-azurededicatedcircuit -detailed
 您可以執行下列工作，而無需中途停機：
 
 * 啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
-* 只要連接埠有可用的容量，就增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。 
+* 只要連接埠有可用的容量，就增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。
 * 將計量方案從 [計量付費] 變更為 [無限制]。 不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
 * 您可以啟用和停用 [允許傳統作業]  。
 
@@ -154,8 +155,8 @@ Status                           : Enabled
 
 > [!IMPORTANT]
 > 如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>考量
 
@@ -189,8 +190,8 @@ Status                           : Enabled
 > 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果該位置已無額外的容量，您無法升級線路。
 >
 > 降低 ExpressRoute 線路的頻寬時必須中斷運作。 頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>調整電路大小
 

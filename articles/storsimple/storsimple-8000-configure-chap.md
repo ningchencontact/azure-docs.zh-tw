@@ -59,7 +59,7 @@ CHAP 代表 Challenge Handshake 驗證通訊協定。 它是伺服器用來驗�
    3. 確認密碼。
 
        ![CHAP 啟動器](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. 按一下 [檔案]  。 隨即顯示確認訊息。 按一下 [確定]  儲存變更。
+3. 按一下 [儲存]  。 隨即顯示確認訊息。 按一下 [確定]  儲存變更。
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>在 Windows 主機伺服器上設定單向驗證
 1. 在 Windows 主機伺服器上啟動 iSCSI 啟動器。
@@ -113,7 +113,7 @@ CHAP 代表 Challenge Handshake 驗證通訊協定。 它是伺服器用來驗�
    3. 確認密碼。
 
        ![CHAP 啟動器](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. 按一下 [檔案]  。 隨即顯示確認訊息。 按一下 [確定]  儲存變更。
+4. 按一下 [儲存]  。 隨即顯示確認訊息。 按一下 [確定]  儲存變更。
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>在 Windows 主機伺服器上設定雙向驗證
 

@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88c157c5f37bb0bd1e82225bdacfbd60806bbf8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204383"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620632"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>從 Azure AD Identity Protection 連線資料
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204383"
 您可以從串流記錄[Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)到 Azure Sentinel 串流到 Azure Sentinel 檢視儀表板、 建立自訂警示，並改善調查的警示。 Azure Active Directory Identity Protection 提供的合併的檢視具風險使用者、 風險事件及弱點，並能夠立即修復風險，以及設定原則以自動修復未來的事件。 此服務建基於 Microsoft 保護消費者身分識別的經驗，並獲得極大的訊號達到 13 億個登入一天。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須擁有[Azure Active Directory Premium P1 或 P2 的授權](https://azure.microsoft.com/pricing/details/active-directory/)
 - 以全域系統管理員或安全性系統管理員權限的使用者

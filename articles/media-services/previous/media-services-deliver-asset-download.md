@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465655"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>作法：透過下載來傳遞資產  
+# <a name="how-to-deliver-an-asset-by-download"></a>HOW TO：透過下載來傳遞資產  
 本文將討論有哪些選項可傳遞已上傳至媒體服務的媒體資產。 您可以透過多種應用程式案例來傳遞媒體服務內容。 編碼之後，下載所產生的媒體資產，或使用串流定位器來存取它們。 若要改善效能和延展性，您也可以使用內容傳遞網路 (CDN) 傳遞內容。
 
 這個範例示範如何從媒體服務下載媒體資產到本機電腦。 程式碼會以工作 ID 查詢與媒體服務帳戶相關聯的工作，並存取其 **OutputMediaAssets** 集合 (這是執行工作後所產生的一或多個輸出媒體資產)。 此範例將說明如何從工作下載輸出媒體資產，但您也可以用相同的方式來下載其他資產。
@@ -87,6 +87,6 @@ ms.locfileid: "61465655"
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [傳遞串流內容](media-services-deliver-streaming-content.md)
 

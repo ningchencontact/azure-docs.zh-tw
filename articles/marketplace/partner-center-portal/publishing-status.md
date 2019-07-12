@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae4840877ae461244a76984ed8ac3edc82d57a38
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474516"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653988"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>檢查發佈狀態的商業的 Marketplace 供應項目
 
@@ -75,7 +75,7 @@ ms.locfileid: "66474516"
 - 品質螢幕擷取畫面和隨附的影片，和
 - 說明的供應項目如何利用 Microsoft 平台和工具。
 
-相關內容的驗證準則閱讀深入[一般列出原則](https://docs.microsoft.com/legal/marketplace/general-policies#10-general-listing-policies)。
+相關內容的驗證準則閱讀深入[一般列出原則](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general-policies)。
 
 #### <a name="technical-validation"></a>技術驗證
 

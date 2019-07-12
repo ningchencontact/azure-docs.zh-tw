@@ -234,25 +234,25 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
-| data | 物件 | 訂用帳戶事件資料。 |
+| data | object | 訂用帳戶事件資料。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
 | metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
-| authorization | 物件 | 作業的所要求授權。 |
-| claims | 物件 | 宣告的屬性。 如需詳細資訊，請參閱 [JWT 規格](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。 |
+| authorization | object | 作業的所要求授權。 |
+| claims | object | 宣告的屬性。 如需詳細資訊，請參閱 [JWT 規格](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。 |
 | correlationId | string | 用於疑難排解的作業識別碼。 |
-| httpRequest | 物件 | 作業的詳細資料。 更新現有資源或刪除資源時，只會包含這個物件。 |
+| httpRequest | object | 作業的詳細資料。 更新現有資源或刪除資源時，只會包含這個物件。 |
 | resourceProvider | string | 作業的資源提供者。 |
 | resourceUri | string | 作業中資源的 URI。 |
 | operationName | string | 已採取的作業。 |

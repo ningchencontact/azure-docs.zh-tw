@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd9aa28703003d2e286197d57e9f00361e2b460d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258950"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653992"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -22,11 +22,11 @@ ms.locfileid: "66258950"
 
 |  | 註冊步驟 | Duration | 詳細資料 |  
 |:--- |:--- |:--- |:--- |  
-| 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | 建立 Microsoft 帳戶 <ul>(對於 Azure Marketplace 交易供應項目而言是必要的；對於其他項目則是建議)</ul> | 15 分鐘 | [建立 Microsoft ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 2 | 建立 Microsoft 帳戶 <ul>(對於 Azure Marketplace 交易供應項目而言是必要的；對於其他項目則是建議)</ul> | 15 分鐘 | [建立 Microsoft ID](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | 建立合作夥伴中心帳戶 | 15 分鐘 | [建立合作夥伴中心帳戶](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
-| 4 |  登入 Cloud Partner 入口網站 | 1-3 天 | [登入 Cloud Partner 入口網站](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | 在 Microsoft 開發人員中心內註冊 (適用於 Azure Marketplace 交易供應項目) | 5-10 天 | [在開發人員中心註冊](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 4 |  登入 Cloud Partner 入口網站 | 1-3 天 | [登入 Cloud Partner 入口網站](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  
+| 5 | 在 Microsoft 開發人員中心內註冊 (適用於 Azure Marketplace 交易供應項目) | 5-10 天 | [在開發人員中心註冊](/azure/marketplace/deprecated/register-dev-center) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1.在 Microsoft 合作夥伴網路中註冊  
@@ -50,9 +50,9 @@ Microsoft 帳戶，例如 *\@outlook.com 或\@live.com*，用來存取許多 Mic
 [! 重要] 請注意，與您工作電子郵件相關聯的 Microsoft 帳戶將不允許用來存取入口網站。
 
 > [!Note]
-> 如果您已經有 Microsoft 帳戶，請檢閱[建立 Microsoft 識別碼以管理市集帳戶的指導方針](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)，來判斷此帳戶是否可以用在市集發行上。 
+> 如果您已經有 Microsoft 帳戶，請檢閱[建立 Microsoft 識別碼以管理市集帳戶的指導方針](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-tenants)，來判斷此帳戶是否可以用在市集發行上。 
 > 
-> 使用 Azure Active Directory 同盟公司帳戶的使用者應該先閱讀[這篇文章](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)，再嘗試建立或使用現有的 Microsoft 帳戶。
+> 使用 Azure Active Directory 同盟公司帳戶的使用者應該先閱讀[這篇文章](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-users)，再嘗試建立或使用現有的 Microsoft 帳戶。
 
 *   如需建立或管理 Microsoft 帳戶的說明，請瀏覽 [Microsoft 帳戶說明的支援頁面](https://support.microsoft.com/products/microsoft-account?category=manage-account)。
 

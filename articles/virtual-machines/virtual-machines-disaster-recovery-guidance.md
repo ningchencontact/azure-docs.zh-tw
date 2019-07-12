@@ -4,7 +4,7 @@ description: 了解發生影響 Azure 虛擬機器的 Azure 服務中斷事件�
 services: virtual-machines
 documentationcenter: ''
 author: kmouss
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f071e1ae97228a16799d391e226ba44b99f6096e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478839"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721178"
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>發生影響 Azure VM 的 Azure 服務中斷事件時該怎麼辦
 Microsoft 的同仁一向努力確保提供您需要的服務。 有時候因為不可抗力之影響，造成服務意外中斷。
@@ -44,7 +44,7 @@ Azure 已經有許多支援高可用性應用程式的內建平台功能。 如�
 
 
 > [!NOTE]
-> 請注意，您完全無法控制這個程序，而且它只有在全區域服務中斷時才會發生。 因此，您也必須依賴其他的應用程式特定備份策略，以達到最高層級的可用性。 如需詳細資訊，請參閱 [災害復原的資料策略](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery)一節。
+> 請注意，您完全無法控制這個程序，而且它只有在全區域服務中斷時才會發生。 因此，您也必須依賴其他的應用程式特定備份策略，以達到最高層級的可用性。 如需詳細資訊，請參閱 [災害復原的資料策略](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)一節。
 >
 >
 

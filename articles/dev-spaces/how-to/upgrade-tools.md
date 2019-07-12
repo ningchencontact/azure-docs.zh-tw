@@ -29,7 +29,7 @@ ms.locfileid: "60686406"
 
 ## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>更新 Dev Spaces CLI 擴充功能和命令列工具
 
-執行以下命令：
+執行下列命令：
 
 ```cmd
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update

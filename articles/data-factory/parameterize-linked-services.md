@@ -36,7 +36,7 @@ ms.locfileid: "60635523"
 目前，Azure 入口網站的 Data Factory UI 中支援下列資料存放區的連結服務參數化。 至於其他資料存放區，您可以選取 [連線]  索引標籤上的 [程式碼]  圖示，並使用 JSON 編輯器，將連結的服務參數化。
 - Azure SQL Database
 - Azure SQL 資料倉儲
-- SQL Server
+- [SQL Server]
 - Oracle
 - Cosmos DB
 - Amazon Redshift

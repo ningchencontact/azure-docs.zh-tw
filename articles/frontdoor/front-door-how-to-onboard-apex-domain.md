@@ -3,16 +3,16 @@ title: 上架根或頂點的網域，才能使用 Azure 入口網站中現有大
 description: 了解如何上架根或頂點的網域，才能使用 Azure 入口網站中現有大門。
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 464c38b0ece274d2ea7df89ab9fd7c0a60dc4b58
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333010"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605784"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>上架根或頂點的網域，在您的大門
 Azure 的前端會使用 CNAME 記錄來驗證上架的自訂網域的網域擁有權。 此外，大門不會與您的前端設定檔相關聯的前端 IP 位址上公開，因此您無法將 apex 網域對應至 IP 位址，如果目的是要上架它以 Azure 大門。

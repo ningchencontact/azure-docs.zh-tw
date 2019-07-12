@@ -43,7 +43,7 @@ ms.locfileid: "60776519"
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Linux 集區 - 虛擬機器組態
 
-| 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
+| Size | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r、H16mr、A8、A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r、NC24rs_v2、NC24rs_v3、ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS，或<br/>CentOS 型 HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA 驅動程式 | 啟用節點間通訊、停用並行工作執行 |
 | [NC、NCv2、NCv3、NDv2 系列](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (依系列而有所不同) | Ubuntu 16.04 LTS，或<br/>CentOS 7.3 或 7.4<br/>(Azure Marketplace) | NVIDIA CUDA 或 CUDA Toolkit 驅動程式 | N/A | 
@@ -53,7 +53,7 @@ ms.locfileid: "60776519"
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows 集區 - 虛擬機器組態
 
-| 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
+| Size | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r、H16mr、A8、A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r、NC24rs_v2、NC24rs_v3、ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016、2012 R2 或<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 或更新版本，或<br/> Intel MPI 5<br/><br/>Windows RDMA 驅動程式 | 啟用節點間通訊、停用並行工作執行 |
 | [NC、NCv2、NCv3、ND、NDv2 系列](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (依系列而有所不同) | Windows Server 2016 或 <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA 或 CUDA Toolkit 驅動程式| N/A | 
@@ -67,7 +67,7 @@ ms.locfileid: "60776519"
 > 具有雲端服務組態的 Batch 集區不支援 N 系列大小。
 >
 
-| 大小 | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
+| Size | 功能 | 作業系統 | 必要的軟體 | 集區設定 |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r、H16mr、A8、A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016、2012 R2、2012 或<br/>2008 R2 (客體作業系統系列) | Microsoft MPI 2012 R2 或更新版本，或<br/>Intel MPI 5<br/><br/>Windows RDMA 驅動程式 | 啟用節點間通訊、<br/> 停用並行工作執行 |
 

@@ -29,9 +29,9 @@ Azure 區塊鏈服務資源被隔離的私人虛擬網路中。 每個交易和�
 
 ## <a name="encryption"></a>加密
 
-使用者資料會儲存在 Azure 儲存體。 使用者資料是動態及待用加密的安全性與機密性。 如需詳細資訊，請參閱[Azure 儲存體安全性指南](../../storage/common/storage-security-guide.md)。
+使用者資料會儲存在 Azure 儲存體。 使用者資料是動態及待用加密的安全性與機密性。 如需詳細資訊，請參閱：[Azure 儲存體安全性指南](../../storage/common/storage-security-guide.md)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 交易可以傳送到區塊鏈節點透過 RPC 端點。 用戶端通訊使用反向 proxy 伺服器的交易節點會處理使用者驗證和透過 SSL 加密資料。
 

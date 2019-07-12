@@ -6,14 +6,14 @@ author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60642583"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705146"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 此文章說明使用「復原服務」保存庫針對「Azure 備份」設定報告時，所需依循的步驟。 本文也說明如何使用 Power BI 來存取報告。 完成這些步驟之後，您可以直接移至 Power BI 來檢閱、自訂及建立報告。
@@ -31,7 +31,7 @@ ms.locfileid: "60642583"
 - 如果針對每個保存庫皆設定相同的儲存體帳戶，您便可以跨保存庫和訂用帳戶檢閱報告。 所選儲存體帳戶必須與「復原服務」保存庫位於相同的區域。
 - Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以執行報告的臨機操作重新整理 Power BI 中。 在此情況下，會使用客戶儲存體帳戶中的最新資料來轉譯報告。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 建立 [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)以針對報告進行設定。 這個儲存體帳戶會用來儲存與報告相關的資料。
 - [建立 Power BI 帳戶](https://powerbi.microsoft.com/landing/signin/)，以使用 Power BI 入口網站來檢視、自訂及建立您自己的報告。
 - 註冊資源提供者 **Microsoft.insights** (如果尚未註冊的話)。 請使用儲存體帳戶和「復原服務」保存庫的訂用帳戶，以便讓報告資料能夠流向儲存體帳戶。 若要執行此步驟，請前往 Azure 入口網站，選取 [訂用帳戶]   > [資源提供者]  ，然後查看是否有此提供者以註冊它。
@@ -71,7 +71,7 @@ ms.locfileid: "60642583"
       ![檢視診斷設定步驟 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> 在您儲存儲存體帳戶來設定報告之後，請「等候 24 小時」  ，讓初始資料推送完成。 請只在該時間之後，才在 Power BI 中匯入 Azure 備份應用程式。 如需詳細資訊，請參閱[常見問題集](#frequently-asked-questions)一節。
+> 在您儲存儲存體帳戶來設定報告之後，請「等候 24 小時」  ，讓初始資料推送完成。 請只在該時間之後，才在 Power BI 中匯入 Azure 備份應用程式。 如需詳細資訊，請參閱[常見問題集](backup-azure-monitor-alert-faq.md)一節。
 >
 >
 
@@ -112,34 +112,6 @@ ms.locfileid: "60642583"
 
       ![Azure 備份報告索引標籤](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
-## <a name="frequently-asked-questions"></a>常見問題集
-
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>如何確認報告資料是否已開始流入儲存體帳戶？
-請前往您所設定的儲存體帳戶，然後選取容器。 如果容器有 insights-logs-azurebackupreport 的項目，則表示報告資料已經開始流入。
-
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>將資料推送到儲存體帳戶和 Power BI 中 Azure 備份內容套件的頻率為何？
-  針對使用時間尚未達一天的使用者，大約需要 24 小時的時間，才能將資料推送到儲存體帳戶。 完成此初始推送之後，就會依下圖所示的頻率重新整理資料。
-
-  * 與 [作業]  、[警示]  、[備份項目]  、[保存庫]  、[受保護的伺服器]  及 [原則]  相關的資料會在記錄資料的同時推送到客戶儲存體帳戶。
-
-  * 與 [儲存體]  相關的資料會每 24 小時推送到客戶儲存體帳戶。
-
-       ![Azure 備份報表資料推送頻率](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
-
-  * Power BI 具有[一天一次的排程重新整理](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)。 您可以手動重新整理 Power BI 中內容套件的資料。
-
-### <a name="how-long-can-i-retain-reports"></a>報告可以保留多久？
-設定儲存體帳戶時，您可以為儲存體帳戶中的報告資料選取保留期間。 請依照[針對報告設定儲存體帳戶](backup-azure-configure-reports.md#configure-storage-account-for-reports)一節中的步驟 6 進行操作。 您也可以根據需求，[在 Excel 中分析報告](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)並儲存它們，以延長保留期間。
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>在設定儲存體帳戶之後，我是否會在報告中看到所有的資料？
- 在您設定儲存體帳戶之後產生的所有資料都會被推送到儲存體帳戶，並會出現在報告中。 系統不會推送進行中的作業來提供報告。 在作業完成或失敗之後，才會將其傳送至報告。
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>如果我已經設定儲存體帳戶以檢視報告，是否可以變更設定以使用其他儲存體帳戶？
-是。您可以變更設定以指向不同的儲存體帳戶。 請在您連線到「Azure 備份」內容套件時，使用新設定的儲存體帳戶。 此外，在設定不同的儲存體帳戶之後，新資料便會流入這個儲存體帳戶。 較舊的資料 (在您變更設定之前的資料) 仍會保留在較舊的儲存體帳戶中。
-
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>我是否可以跨保存庫和訂用帳戶檢視報告？
-是。您可以在不同的保存庫上設定相同的儲存體帳戶，以檢視跨保存庫的報告。 您也可以針對跨訂用帳戶的保存庫設定相同的儲存體帳戶。 接著，您便可以在於 Power BI 中連線至「Azure 備份」內容套件時，使用這個儲存體帳戶來檢視報告。 所選儲存體帳戶必須與「復原服務」保存庫位於相同的區域。
 
 ## <a name="troubleshooting-errors"></a>錯誤疑難排解
 | 錯誤詳細資料 | 解決方案 |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155150"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724117"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -34,7 +34,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 * Azure 德國國家雲端區域： kms.core.chinacloudapi.cn:1688
 * Azure 美國政府國家雲端區域： kms.core.chinacloudapi.cn:1688
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 當您嘗試啟用 Azure Windows VM 時，收到類似下列範例的錯誤訊息：
 
@@ -44,7 +44,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 
 一般而言，如果不是使用正確的 KMS 用戶端安裝識別碼來設定 Windows VM，或 Windows VM 無法連線到 Azure KMS 服務 (kms.core.windows.net，連接埠 1688)，就會發生 Azure VM 啟用問題。 
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 >[!NOTE]
 >如果您使用網站間 VPN 和強制通道，請參閱[使用 Azure 自訂路由來啟用搭配強制通道的 KMS 啟用](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) \(英文\)。 
@@ -84,7 +84,6 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 
 3. 確定已將 VM 設定為使用正確的 Azure KMS 伺服器。 若要這樣做，請執行下列命令：
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -93,41 +92,38 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 
 4. 使用能夠連線到 KMS 伺服器的 Psping 來進行確認。 切換到您將所下載的 Pstools.zip 解壓縮的資料夾，然後執行下列命令：
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    在輸出的倒數第二行，確定您看到的是：Sent = 4, Received = 4, Lost = 0 (0% loss)。
 
    如果 Lost 大於 0 (零)，即表示 VM 無法連線到 KMS 伺服器。 在此情況下，如果 VM 位於虛擬網路中並已指定自訂的 DNS 伺服器，您就必須確定 DNS 伺服器能夠解析 kms.core.windows.net。 或者，將 DNS 伺服器變更為能夠解析 kms.core.windows.net 的伺服器。
 
    請注意，如果您從虛擬網路中移除所有 DNS 伺服器，VM 將會使用 Azure 的內部 DNS 服務。 此服務可以解析 kms.core.windows.net。
   
-此外，請確認來賓防火牆未設定成會封鎖啟用嘗試。
+    也請確定在 VM 防火牆未封鎖到 KMS 端點的連接埠 1688年的輸出網路流量。
 
-1. 在您確認可成功連線到 kms.core.windows.net 之後，請在該提升權限的 Windows PowerShell 提示中執行下列命令。 此命令會多次嘗試啟用。
+5. 在您確認可成功連線到 kms.core.windows.net 之後，請在該提升權限的 Windows PowerShell 提示中執行下列命令。 此命令會多次嘗試啟用。
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-成功啟用時，會傳回類似以下的資訊：
-
-**正在啟用 Windows(R) Server Datacenter 版本 (12345678-1234-1234-1234-12345678) … 產品已成功啟用。**
+    成功啟用時，會傳回類似以下的資訊：
+    
+    **正在啟用 windows server datacenter 版本 (12345678-1234年-1234年-1234年-12345678)... 已成功啟動的產品。**
 
 ## <a name="faq"></a>常見問題集 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>我從 Azure Marketplace 建立了 Windows Server 2016。 我是否需要設定 KMS 金鑰來啟用 Windows Server 2016？ 
 
  
-沒有。 Azure Marketplace 中的映像已設定適當的 KMS 用戶端安裝識別碼。 
+資料分割 Azure Marketplace 中的映像已設定適當的 KMS 用戶端安裝識別碼。 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>是否不論 VM 是否使用 Azure Hybrid Use Benefit (HUB)，Windows 啟用的運作方式都相同？ 
 
  
-是。 
+是的。 
  
 
 ### <a name="what-happens-if-windows-activation-period-expires"></a>如果 Windows 啟用期間已到期，會發生什麼情況？ 

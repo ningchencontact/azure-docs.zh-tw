@@ -21,7 +21,7 @@ Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配
 
 * 在建立匯入工作之前，您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。
 * 匯入工作完成後，您可以使用此工具來修復損毀、遺漏或與其他 Blob 衝突的任何 Blob。
-* 通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。
+* 當您收到已完成的匯出工作中的磁碟機後，您可以使用此工具來修復磁碟機上損毀或遺漏的任何檔案。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -205,7 +205,7 @@ Examples:
 
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [預覽匯出作業的磁碟機使用量](../storage-import-export-tool-previewing-drive-usage-export-v1.md)
-* [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)
+* [利用複製記錄檔檢閱作業狀態](../storage-import-export-tool-reviewing-job-status-v1.md)
 * [修復匯入作業](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修復匯出作業](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [針對 Azure 匯入/匯出工具進行疑難排解](storage-import-export-tool-troubleshooting-v1.md)

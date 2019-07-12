@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509441"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655508"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>如何：規劃 Azure Active Directory 中的條件式存取部署
 
@@ -57,7 +57,7 @@ Azure Active Directory 條件式的存取可讓您將保護的雲端應用程式
 
 透過**則執行此動作**，您要定義原則對於存取條件的回應。 在您的回應中，您可以搭配其他需求 (例如多重要素驗證 (MFA)) 來封鎖或授與存取權。 如需完整概觀，請參閱[什麼是存取控制在 Azure Active Directory 條件式存取？](controls.md)  
 
-條件與存取控制的組合代表條件式存取原則。
+條件與存取控制的組合即代表了條件式存取原則。
 
 ![原因和回應](./media/plan-conditional-access/51.png)
 
@@ -158,11 +158,11 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 測試計畫非常重要，它可用來比較預期結果和實際結果。 您應該一律先做出預期，然後再測試某些項目。 下表概述範例測試案例。 根據您 CA 原則設定的方式，調整案例和預期的結果。
 
-|原則 |案例 |預期的結果 | 結果 |
+|原則 |狀況 |預期的結果 | 結果 |
 |---|---|---|---|
 |[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者在信任的位置/公司登入應用程式 |不會提示使用者進行 MFA| |
 |[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者不是在信任的位置/公司登入應用程式 |提示使用者進行 MFA 且成功登入| |
-|[要求 MFA (適用於管理員)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|全域管理員登入應用程式 |提示管理員進行 MFA| |
+|[要求 MFA (適用於管理員)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|全域管理員登入應用程式 |提示管理員進行 MFA| |
 |[有風險的登入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|使用者使用 [Tor 瀏覽器](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)登入應用程式 |提示管理員進行 MFA| |
 |[裝置管理](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|已授權的使用者嘗試從已授權的裝置登入|授與存取權| |
 |[裝置管理](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|已授權的使用者嘗試從未經授權的裝置登入|封鎖存取權| |
@@ -181,7 +181,7 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 ### <a name="evaluate-a-simulated-sign-in"></a>評估模擬的登入狀況
 
-既然您已設定條件式存取原則，您可能會想要知道它要以如預期般運作。 第一個步驟中，使用條件式存取[假設原則工具](what-if-tool.md)來模擬登入您的測試使用者。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。
+現在您已設定條件式存取原則，建議您查看它是否如預期般運作。 第一個步驟是使用條件式存取 [What If 原則工具](what-if-tool.md)，模擬您測試使用者的登入情況。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。
 
 >[!NOTE]
 > 雖然模擬的執行可提供您的條件式存取原則的影響，但它不會取代實際的測試回合。

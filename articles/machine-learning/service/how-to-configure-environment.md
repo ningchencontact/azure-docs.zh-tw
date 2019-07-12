@@ -40,7 +40,7 @@ ms.locfileid: "65606422"
 
 如果您已經擁有 Python 3 環境，或者只是想要安裝 SDK 的基本步驟，請參閱[本機電腦](#local)一節。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。 工作區是您只需要開始使用您自己[雲端為基礎的 notebook 伺服器](#notebookvm)，則[DSVM](#dsvm)， [Azure Databricks](#aml-databricks)，或[Azure Notebooks](#aznotebooks).
 
@@ -311,7 +311,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 
 1. 選擇**只有一個**（支援任何其他的 SDK 安裝） 的選項
 
-   |SDK&nbsp;封裝&nbsp;額外項目|source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;封裝&nbsp;額外項目|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks| 上傳 Python Egg 或 PyPI | azureml-sdk[databricks]|
    |-加上-的 databricks<br> 自動化的 ML 功能| 上傳 Python Egg 或 PyPI | azureml-sdk[automl_databricks]|

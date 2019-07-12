@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/10/2019
-ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/10/2019
+ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059347"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795477"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -23,7 +23,7 @@ ms.locfileid: "67059347"
 
 使用雲端服務時，最好先存取只限於需要它的使用者。 這一開始會了解服務所使用的驗證和授權模型。 您可能也想要限制的網路存取或安全地參與您的內部部署網路與雲端中的資源。 資料加密也是很重要，在 rest 與服務之間的資料移動時。 最後，您需要能夠監視服務，並產生稽核記錄檔的所有活動。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 如果 Azure Active Directory (Azure AD) 設定為相同，支援多重要素驗證。
 * 用戶端登入 Azure AD，並取得 Azure Resource Manager 的權杖。  完全支援使用者和服務主體。
 * 用戶端出示權杖至 Azure Resource Manager 和所有的 Azure Machine Learning 服務
@@ -51,7 +51,7 @@ print(primary)
 > 如果您需要重新產生金鑰，使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 
-## <a name="authorization"></a>授權
+## <a name="authorization"></a>Authorization
 
 您可以建立多個工作區，而且每個工作區都可由多人共用。 共用工作區時，您可以透過指派下列角色給使用者來控制對工作區的存取：
 * 擁有者
@@ -83,7 +83,7 @@ print(primary)
 
 如需有關受管理的身分識別的詳細資訊，請參閱[管理適用於 Azure 資源的身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| 資源 | 權限 |
+| Resource | Permissions |
 | ----- | ----- |
 | 工作區 | 參與者 | 
 | 儲存體帳戶 | 儲存體 Blob 資料參與者 | 

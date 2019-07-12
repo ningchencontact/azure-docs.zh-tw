@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963582"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807627"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
 
@@ -31,14 +31,11 @@ ms.locfileid: "65963582"
 使用 Azure Active Directory 入口網站來檢視和管理已針對單一登入的目錄中的所有應用程式。 企業應用程式是您組織內部署和使用的應用程式。 請遵循下列步驟來檢視及管理企業應用程式：
 
 1. 開啟[Azure Active Directory 入口網站](https://aad.portal.azure.com)。
-
 1. 選取 **企業應用程式**從左窗格中。 會顯示所有設定的應用程式的清單，包括從資源庫新增的應用程式。
-
 1. 選取要載入其資源窗格中，您可以在其中檢視報表以及管理應用程式設定的任何應用程式。
-
 1. 選取 **佈建**來管理使用者帳戶佈建所選的應用程式的設定。
 
-   ![應用程式資源窗格](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![佈建來管理使用者帳戶佈建的設定畫面](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>佈建模式
 
@@ -68,17 +65,17 @@ ms.locfileid: "65963582"
 
 沒有一組預先的設定的 Azure AD 使用者物件和每個 SaaS 應用程式的使用者物件之間的對應。 有些 app 則管理其他類型的物件，例如群組或連絡人。 選取對應資料表中，開啟對應編輯器的右邊，您可以在其中檢視並加以自訂。
 
-![應用程式資源窗格](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![顯示 [屬性對應] 畫面](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 支援的自訂項目包含：
 
 * 啟用和停用特定物件的對應，例如 Azure AD 使用者物件對應至 SaaS 應用程式的使用者物件。
 * 編輯會從 Azure AD 使用者物件流向應用程式使用者物件的屬性。 如需有關屬性對應的詳細資訊，請參閱 [了解屬性對應類型](customize-application-attributes.md#understanding-attribute-mapping-types)。
-* 篩選目標的應用程式執行的 Azure AD 佈建動作。 您不需要完整同步處理物件的 Azure AD，您可以限制執行的動作。 
+* 篩選目標的應用程式執行的 Azure AD 佈建動作。 您不需要完整同步處理物件的 Azure AD，您可以限制執行的動作。
 
   例如，只選取**更新**和 Azure AD 只會更新現有的使用者帳戶的應用程式中，但並不會建立新的。 只能選取**建立**和 Azure 只會建立新的使用者帳戶，但不會更新現有的。 這項功能可讓系統管理員建立不同的對應，為帳戶建立和更新工作流程。
 
-* 加入新的屬性對應。 選取 **加入新的對應**底部**屬性對應**窗格。 填寫**編輯屬性**表單，然後選取**確定**將新的對應新增到清單。 
+* 加入新的屬性對應。 選取 **加入新的對應**底部**屬性對應**窗格。 填寫**編輯屬性**表單，然後選取**確定**將新的對應新增到清單。
 
 ### <a name="settings"></a>設定
 

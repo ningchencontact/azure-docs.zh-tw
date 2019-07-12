@@ -55,6 +55,6 @@ ms.locfileid: "60584942"
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>分割合併工具是否會在分割或合併作業期間佈建 (或刪除) 資料庫
 
-沒有。 如果是「分割」  作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」  作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
+資料分割 如果是「分割」  作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」  作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

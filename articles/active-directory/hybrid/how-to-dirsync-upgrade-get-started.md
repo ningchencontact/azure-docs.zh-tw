@@ -40,7 +40,7 @@ Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可�
 ## <a name="upgrade-from-dirsync"></a>從 DirSync 升級
 根據您目前的 DirSync 部署，有不同的升級選項。 如果預期的升級時間少於 3 小時，則建議您執行就地升級。 如果預期的升級時間超過 3 小時，則建議您在另一部伺服器上進行平行部署。 如果您有超過 5 萬個物件，預估會花費超過 3 個小時來進行升級。
 
-| 案例 |
+| 狀況 |
 | --- |
 | [就地升級](#in-place-upgrade) |
 | [平行部署](#parallel-deployment) |
@@ -160,7 +160,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。 這些密碼�
    * 用來連接到 SQL Server 的服務帳戶 (如果您的 SQL Server 資料庫位於遠端，則這個帳戶必須是網域服務帳戶)。
      您可以在這個畫面上看到下列選項：  
      ![輸入您的 Azure AD 認證](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
-7. 单击“下一步”  。
+7. 按一下 [下一步]  。
 8. 在 [準備好設定]  頁面上，保持核取 [設定一完成，即開始同步處理程序]  。 伺服器現在處於[預備模式](how-to-connect-sync-staging-server.md)，讓變更不會匯出至 Azure AD。
 9. 按一下 [Install]  。
 10. 安裝完成之後，請先登出 Windows 再重新登入，才能使用 Synchronization Service Manager、同步化規則編輯器，或嘗試任何其他組態變更。

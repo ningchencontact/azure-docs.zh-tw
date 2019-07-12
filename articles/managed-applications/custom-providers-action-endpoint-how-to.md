@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 1bfc0be81d42e922c47755543fb65aa413ec73a9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6fbd20c201e1b141b7276e3283599b00cdefd118
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478754"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795290"
 ---
 # <a name="adding-custom-actions-to-azure-rest-api"></a>將自訂動作加入至 Azure 的 REST API
 
@@ -134,7 +134,7 @@ az resource invoke-action --action {actionName} \
 
 參數 | 必要項 | 描述
 ---|---|---
-action | *yes* | 中所定義的動作名稱**ResourceProvider**。
+動作 | *yes* | 中所定義的動作名稱**ResourceProvider**。
 識別碼 | *yes* | 資源識別碼**ResourceProvider**。
 要求本文 | *no* | 將會傳送至要求本文**端點**。
 
@@ -195,5 +195,6 @@ functionValues | *no* | 將會傳送至要求本文**端點**。
 ## <a name="next-steps"></a>後續步驟
 
 - [在 Azure 的自訂資源提供者的概觀](./custom-providers-overview.md)
-- [教學課程：建立 Azure 自訂資源提供者和部署自訂的資源](./create-custom-provider.md)
+- [快速入門：建立 Azure 自訂資源提供者和部署自訂的資源](./create-custom-provider.md)
+- [教學課程：在 Azure 中建立自訂動作和資源](./tutorial-custom-providers-101.md)
 - [如何：將自訂資源新增至 Azure 的 REST API](./custom-providers-resources-endpoint-how-to.md)

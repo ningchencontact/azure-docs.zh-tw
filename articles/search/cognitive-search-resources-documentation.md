@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022172"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671913"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>認知搜尋工作負載的文件資源
 
@@ -23,11 +23,11 @@ ms.locfileid: "65022172"
 
 下列文章是認知搜尋的完整文件。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 + [什麼是認知搜尋？](cognitive-search-concept-intro.md)
 + [快速入門：在入口網站試用認知搜尋](cognitive-search-quickstart-blob.md)
 + [教學課程：了解認知搜尋 API](cognitive-search-tutorial-blob.md)
-+ [範例：建立自訂技能](cognitive-search-create-custom-skill-example.md)
++ [範例：建立自訂的技能，認知搜尋](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>做法指引
 + [如何定義技能集](cognitive-search-defining-skillset.md)
@@ -38,7 +38,7 @@ ms.locfileid: "65022172"
 + [如何定義自訂技能介面](cognitive-search-custom-skill-interface.md)
 + [疑難排解秘訣](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
@@ -55,7 +55,7 @@ ms.locfileid: "65022172"
   + [建立技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)
 + [Azure 搜尋服務中的索引子](search-indexer-overview.md)

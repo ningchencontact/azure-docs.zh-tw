@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205004"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655302"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自動調整和區域備援應用程式閘道的 v2 
 
@@ -23,7 +23,7 @@ ms.locfileid: "67205004"
 - **自動調整**：自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 此 SKU 提供，則為 true 的彈性。 在 Standard_v2 和 WAF_v2 SKU 中，應用程式閘道能在固定的容量 （已停用自動調整），以啟用自動調整規模模式。 固定容量模式適用於工作負載一致且可預測的案例。 自動調整模式是有幫助，請參閱中的應用程式流量的變異數的應用程式中。
 - **區域備援**：部署 WAF 的應用程式閘道可以跨越多個可用性區域，而不需要佈建每個區域使用流量管理員中的個別應用程式閘道執行個體。 您可以選擇單一區域或多個區域部署的應用程式閘道執行個體的位置，讓區域失敗更有彈性。 應用程式的後端集區可以均等分散在可用性區域間。
 
-  區域備援可只所在 Azure 區域可用。 在其他區域，支援所有其他功能。 如需詳細資訊，請參閱[什麼是 Azure 中可用性區域？](../availability-zones/az-overview.md#services-support-by-region)
+  區域備援可只所在 Azure 區域可用。 在其他區域，支援所有其他功能。 如需詳細資訊，請參閱[什麼是 Azure 中的可用性區域？](../availability-zones/az-overview.md#services-support-by-region)
 - **靜態 VIP**：應用程式閘道 v2 SKU 僅支援靜態 VIP 類型。 這可確保應用程式閘道相關聯的 VIP 不會變更生命週期的部署，即使重新啟動。  沒有靜態 VIP 在 v1 中，因此您必須使用應用程式閘道 URL 而非 IP 位址的網域名稱路由至 App Service 透過應用程式閘道。
 - **標頭重寫**:應用程式閘道可讓您新增、 移除或更新 HTTP 要求和回應標頭與 v2 SKU。 如需詳細資訊，請參閱[重寫的 HTTP 標頭，與應用程式閘道](rewrite-http-headers.md)
 - **金鑰保存庫整合 （預覽）** :應用程式閘道 v2 支援與整合 Key Vault （公開預覽） 中的之伺服器憑證附加到啟用 HTTPS 接聽程式。 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。
@@ -35,7 +35,7 @@ ms.locfileid: "67205004"
 
 ## <a name="supported-regions"></a>支援區域
 
-Standard_v2 和 WAF_v2 SKU 會在以下區域上市：美國中北部、美國中南部、美國西部、美國西部 2、美國東部、美國東部 2、美國中部、北歐、西歐、東南亞、法國中部、英國西部、日本東部、日本西部。 將在未來新增其他區域。
+Standard_v2 和 WAF_v2 SKU 會在以下區域上市：中北部、 美國中南部、 美國西部、 美國西部 2、 美國東部、 美國東部 2、 美國中部、 北歐、 西歐、 東南亞、 法國中部、 英國西部、 日本東部、 日本西部、 澳大利亞東部、 澳大利亞東南部、 加拿大中部、 加拿大東部、 東亞、 韓國中部、 韓國南部、 印度南部、 英國南部、 印度中部、 印度西部、 印度南部。
 
 ## <a name="pricing"></a>價格
 

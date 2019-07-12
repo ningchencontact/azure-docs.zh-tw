@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475278"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593830"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 X-EC-Debug HTTP 標頭
 偵錯快取要求標頭 `X-EC-Debug` 會提供與要求的資產所套用的快取原則有關的其他資訊。 這些標頭是**來自 Verizon 的 Azure CDN 進階**產品特有的標頭。
@@ -54,7 +54,7 @@ X-EC-Debug: x-ec-cache-state | [快取狀態](#cache-state-response-header)
 ## <a name="cache-status-code-information"></a>快取狀態碼資訊
 X-EC-Debug 回應標頭可透過下列指示詞來識別伺服器及其處理回應的方式：
 
-頁首 | 描述
+標頭 | 描述
 -------|------------
 X-EC-Debug: x-ec-cache | 每當透過 CDN 路由內容時，就會報告此標頭。 此標頭可識別已回應要求的 POP 伺服器。
 X-EC-Debug: x-ec-cache-remote | 只有在原始保護盾伺服器或 ADN 閘道伺服器上快取要求的內容時，才會報告此標頭。
@@ -74,7 +74,7 @@ X-EC-Debug 標頭會以下列格式報告快取狀態碼資訊：
 
 - 平台：表示要求內容的平台。 下列程式碼適用於此欄位：
 
-    代碼  | 平台
+    程式碼  | 平台
     ------| --------
     ECAcc | HTTP Large
     ECS   | HTTP Small

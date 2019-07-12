@@ -112,7 +112,7 @@ ms.locfileid: "60899969"
 
 請搜尋完整單字，而不是子字串。 使用引號來括住的特殊字元。
 
-| 字串 | 這樣「找不到」  | 這樣找得到 |
+| string | 這樣「找不到」  | 這樣找得到 |
 | --- | --- | --- |
 | HomeController.About |home<br/>controller<br/>out | homecontroller<br/>about<br/>"homecontroller.about"|
 |美國|Uni<br/>ted|united<br/>states<br/>united AND states<br/>"united states"
@@ -158,7 +158,7 @@ ms.locfileid: "60899969"
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>我如何查看我的伺服器要求中的 POST 資料？
 我們不會自動記錄 POST 資料，但您可以使用 [TrackTrace 或記錄呼叫](../../azure-monitor/app/asp-net-trace-logs.md)。 將 POST 資料放在訊息參數中。 您無法像篩選屬性一樣來篩選訊息，但大小限制比較長。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 

@@ -26,7 +26,7 @@ ms.locfileid: "60552133"
 
 ![範例儀表板](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 中的共用儀表板屬於[資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，如同虛擬機器和儲存體帳戶。  因此，透過 [Azure Resource Manager REST API](/rest/api/)、[Azure CLI](https://docs.microsoft.com/cli/azure)、[Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/get-started-azureps)，以及以這些 API 為基礎的許多 [Azure 入口網站](https://portal.azure.com)，都能夠以程式設計方式管理這些儀表板，因此更容易管理資源。  
 

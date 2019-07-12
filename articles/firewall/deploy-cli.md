@@ -1,31 +1,31 @@
 ---
-title: 使用 Azure 入口網站部署和設定 Azure 防火牆。
-description: 在本教學課程中，您將了解如何使用 Azure 入口網站部署及設定 Azure 防火牆。
+title: 部署和設定使用 Azure CLI 的 Azure 防火牆
+description: 在本文中，您會學習如何部署和設定使用 Azure CLI 的 Azure 防火牆。
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083349"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707150"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure 入口網站部署和設定 Azure 防火牆。
+# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>部署和設定使用 Azure CLI 的 Azure 防火牆
 
 控制輸出網路存取是整體網路安全性計畫的重要部分。 例如，您可以限制對網站的存取。 或者，限制可存取的輸出 IP 位址和連接埠。
 
 要控制從 Azure 子網路的輸出網路存取，使用 Azure 防火牆是可行的方式之一。 透過 Azure 防火牆，您可以設定：
 
-* 應用程式規則，用以定義可從子網路存取的完整網域名稱 (FQDN)。
+* 應用程式規則，用以定義可從子網路存取的完整網域名稱 (FQDN)。 FQDN 也[包含 SQL 執行個體](sql-fqdn-filtering.md)。
 * 網路規則，用以定義來源位址、通訊協定、目的地連接埠和目的地位址。
 
 當您將網路流量路由傳送到防火牆作為子網路預設閘道時，網路流量必須遵守設定的防火牆規則。
 
-在本教學課程中，您會建立包含三個子網路的簡易單一 VNet，以進行簡單的部署。 生產環境部署[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)建議。 防火牆是在它自己的 VNet 中。 工作負載伺服器位於相同區域中的對等互連 VNet，其中包含一個或多個子網路。
+在本文中中,，您可以建立簡化的單一 VNet 具有三個子網路，以便於部署。 生產環境部署[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)建議。 防火牆是在它自己的 VNet 中。 工作負載伺服器位於相同區域中的對等互連 VNet，其中包含一個或多個子網路。
 
 * **AzureFirewallSubnet** - 防火牆位於此子網路中。
 * **Workload-SN** - 工作負載伺服器位於此子網路。 此子網路的網路流量會通過防火牆。
@@ -43,17 +43,24 @@ ms.locfileid: "67083349"
 > * 設定允許存取外部 DNS 伺服器的網路規則
 > * 測試防火牆
 
-您可以依偏好使用 [Azure PowerShell](tutorial-firewall-deploy-portal.md) 或 [Azure 入口網站](deploy-ps.md)來完成此程序。
+如果您想，您可以完成此程序使用[Azure 入口網站](tutorial-firewall-deploy-portal.md)或是[Azure PowerShell](deploy-ps.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-cli"></a>Azure CLI
 
 如果您選擇在本機安裝和使用 CLI，請執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 **az --version**。 如需安裝或升級的相關資訊，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
+
+安裝 Azure 防火牆擴充功能：
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>設定網路
 
@@ -61,7 +68,7 @@ ms.locfileid: "67083349"
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-此資源群組會包含教學課程的所有資源。
+資源群組包含部署的所有資源。
 
 ```azurecli-interactive
 az group create --name Test-FW-RG --location eastus
@@ -127,7 +134,7 @@ az network nic create \
    --dns-servers 209.244.0.3 209.244.0.4
 ```
 
-建立工作負載虛擬機器
+現在建立工作負載的虛擬機器。
 出現提示時，輸入虛擬機器的密碼。
 
 ```azurecli-interactive
@@ -142,7 +149,7 @@ az vm create \
 
 ## <a name="deploy-the-firewall"></a>部署防火牆
 
-現在將防火牆部署到中樞虛擬網路中。
+現在部署到虛擬網路的防火牆。
 
 ```azurecli-interactive
 az network firewall create \
@@ -196,7 +203,7 @@ az network route-table route create \
   --next-hop-ip-address $fwprivaddr
 ```
 
-使路由表與私人子網路產生關聯。
+關聯至子網路的路由表
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -209,7 +216,7 @@ az network vnet subnet update \
 
 ## <a name="configure-an-application-rule"></a>設定應用程式規則
 
-此應用程式規則允許對 www.google.com 進行輸出存取。
+應用程式規則可讓 www.google.com 對外存取。
 
 ```azurecli-interactive
 az network firewall application-rule create \
@@ -228,7 +235,7 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 
 ## <a name="configure-a-network-rule"></a>設定網路規則
 
-此網路規則允許透過連接埠 53 對兩個 IP 位址進行輸出存取 (DNS)。
+網路規則可讓您在連接埠 53 (DNS) 的兩個 IP 位址的輸出存取。
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -256,7 +263,7 @@ az network firewall network-rule create \
    -n Srv-Work
    ```
 
-1. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 從那裡，開啟對 **Srv-Work** 私人 IP 位址的遠端桌面連線。
+1. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 在這裡，開啟 遠端桌面連線**Srv 工作**私用 IP 位址和登入。
 
 3. 開啟 PowerShell 視窗並執行下列命令：  。
 
@@ -286,7 +293,7 @@ az network firewall network-rule create \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以保留防火牆資源供下一個教學課程使用，若不再需要，則可刪除 **Test-FW-RG** 資源群組來刪除所有防火牆相關資源。
+您可以保留您的防火牆資源下一個教學課程中，或如果不再需要刪除**測試 FW PUBLICIP01**刪除防火牆相關的所有資源的資源群組：
 
 ```azurecli-interactive
 az group delete \

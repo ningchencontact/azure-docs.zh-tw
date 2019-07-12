@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6007b66e31996db5c6b043219470968a7b05031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26350479f0f066f45c143e1a35061b3a409de309
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114679"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786485"
 ---
 # <a name="creating-filters-with-cli"></a>使用 CLI 建立篩選器 
 
@@ -32,7 +32,7 @@ ms.locfileid: "67114679"
 > [!NOTE]
 > 請務必檢閱[presentationTimeRange](filters-concept.md#presentationtimerange)。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源群組名稱和「媒體服務」帳戶名稱。 
 
@@ -88,7 +88,7 @@ ms.locfileid: "67114679"
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter)。
+此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter)。
 
 ## <a name="create-asset-filters"></a>建立資產篩選器
 
@@ -98,7 +98,7 @@ az ams account-filter create -a amsAccount -g resourceGroup -n filterName --trac
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter)。
+此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter)。
 
 ## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
 
@@ -130,6 +130,6 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
 
 [串流影片](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

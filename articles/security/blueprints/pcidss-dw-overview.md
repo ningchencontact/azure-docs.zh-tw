@@ -17,7 +17,7 @@ ms.locfileid: "60608233"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI DSS 的資料倉儲
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此「Azure 安全性與合規性藍圖」提供在 Azure 中部署資料倉儲架構的指引，並協助符合支付卡產業資料安全標準 (PCI DSS 3.2) 的要求。 它會演示常見參考架構，並且示範如何在安全且相容的多層式環境中，正確處理信用卡資料 (包含信用卡號碼、到期日和驗證資料)。 此藍圖示範的方式讓客戶能符合特定的安全性和合規性要求，並且作為客戶在 Azure 上建置及設定他們自有資料倉儲解決方案的基礎。
 
@@ -218,7 +218,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 ### <a name="optional-services"></a>選擇性服務
 
 Azure 提供各種不同的服務，以協助儲存及暫存格式化與未格式化的資料。 根據客戶需求，可將下列服務新增至此參考架構：
--   [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) 是一個針對複雜混合式擷取-轉換-載入及資料整合專案建置的受控雲端服務。 Azure Data Factory 中的功能可協助追蹤及尋找持卡人資料，包括用來識別資料何時抵達及其來源的視覺化和監視工具。 客戶可以使用 Azure Data Factory 建立並排程資料驅動的工作流程 (稱為管線)，以從不同的資料存放區擷取資料。 這些管線可讓客戶從內部和外部來源內嵌資料。 接著，客戶可以處理並轉換資料，以輸出至資料存放區，例如 Azure SQL 資料倉儲。
+-   [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) 是一個針對複雜混合式擷取-轉換-載入及資料整合專案建置的受控雲端服務。 Azure Data Factory 中的功能可協助追蹤及尋找持卡人資料，包括用來識別資料何時抵達及其來源的視覺化和監視工具。 客戶可以使用 Azure Data Factory 建立並排程資料驅動的工作流程 (稱為管線)，以從不同的資料存放區內嵌資料。 這些管線可讓客戶從內部和外部來源內嵌資料。 接著，客戶可以處理並轉換資料，以輸出至資料存放區，例如 Azure SQL 資料倉儲。
 - 客戶可以在 [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) 中暫存非結構化的資料，這會在單一位置以任何擷取速度來擷取任何大小和類型的資料，以進行運作和探勘分析。  Azure Data Lake 具有擷取及轉換資料的功能。 Azure Data Lake Store 與 Hadoop 生態系統中大部分的開放原始碼元件相容，並與其他 Azure 服務 (例如 Azure SQL 資料倉儲) 順利整合。
 
 ## <a name="disclaimer"></a>免責聲明

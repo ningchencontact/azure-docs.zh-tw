@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffce8a2bd8a04e73acdeac037be0b10ba1a9a887
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244436"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672376"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
@@ -42,7 +42,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
 1. 開啟 [匯入資料精靈]:
 
-   ![開啟匯入資料精靈](media/search-get-started-portal/import-data-cmd2.png "開啟匯入資料精靈")
+   ![開啟匯入資料精靈](media/search-get-started-portal/import-data-cmd.png "開啟匯入資料精靈")
 
 1. 選擇資料來源，並繼續**認知搜尋 （選擇性） 新增**。 如需此精靈的逐步解說，請參閱[匯入、 索引和查詢，藉由使用入口網站工具](search-get-started-portal.md)。
 

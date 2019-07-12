@@ -4,15 +4,15 @@ description: 若要設定 VPN 閘道診斷記錄事件的警示的步驟
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202883"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607123"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>從 VPN 閘道設定診斷記錄事件的警示
 
@@ -20,7 +20,7 @@ ms.locfileid: "67202883"
 
 下列記錄檔可在 Azure 中：
 
-|***名稱*** | ***說明*** |
+|***名稱*** | ***描述*** |
 |---        | ---               |
 |GatewayDiagnosticLog | 包含閘道設定事件、 主要的變更和維護事件的診斷記錄檔 |
 |TunnelDiagnosticLog | 包含通道狀態變更事件。 如果適用的話，通道連接/中斷連接事件會有摘要的理由，狀態變更 |

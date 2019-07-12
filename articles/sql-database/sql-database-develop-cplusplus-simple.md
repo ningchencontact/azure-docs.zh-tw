@@ -75,7 +75,7 @@ Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (
 
 ![建立 DSN 檔案](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-恭喜！ 您現在已在 Windows 上使用 C++ 和 ODBC 成功連接至 Azure SQL。 您可以繼續閱讀，針對 Linux 平台上執行相同的作業。
+恭喜您！ 您現在已在 Windows 上使用 C++ 和 ODBC 成功連接至 Azure SQL。 您可以繼續閱讀，針對 Linux 平台上執行相同的作業。
 
 ## <a id="Linux"></a>步驟 5：從 Linux C/C++ 應用程式連接
 如果您還沒聽過新聞，那麼 Visual Studio 現在也可讓您開發 C++ Linux 應用程式。 您可以在 [Linux 開發的 Visual C++](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) 部落格中閱讀這個新的案例。 若要針對 Linux 建置，您需要正在執行您 Linux 散發版本的遠端電腦。 如果您沒有帳戶，可以使用 [Linux Azure 虛擬機器](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)快速設定一個。
@@ -120,7 +120,7 @@ Azure 目前有兩個選項可主控 SQL Server 的工作負載：虛擬機器 (
 
 ![Linux 主控台視窗輸出](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-恭喜！ 您已順利完成本教學課程，現在可以在 Windows 和 Linux 平台上從 C++ 連線到您的 Azure SQL DB。
+恭喜您！ 您已順利完成本教學課程，現在可以在 Windows 和 Linux 平台上從 C++ 連線到您的 Azure SQL DB。
 
 ## <a id="GetSolution"></a>取得完整的 C/C++ 教學課程方案
 您可以在 GitHub 中找到包含本文中所有範例的 GetStarted 方案：

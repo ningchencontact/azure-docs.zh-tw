@@ -24,7 +24,7 @@ ms.locfileid: "60772460"
 
 Azure Site Recovery 可讓您針對容錯移轉至不同 Azure 區域的 Azure 虛擬機器，利用加速網路的優點。 本文說明如何針對使用 Azure Site Recovery 所複寫的 Azure 虛擬機器，啟用加速網路。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您了解：
 -   Azure 虛擬機器[複寫架構](azure-to-azure-architecture.md)

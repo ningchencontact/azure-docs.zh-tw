@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68be46b406e7a5caaabbc0726a6aece0fd0423ce
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a6935d2a89968b55dec1626d23b3f290261cf66f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472191"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655452"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -79,7 +79,7 @@ ms.locfileid: "67472191"
 
 |欄位名稱|變更內容|舊值|新值|
 |----------|------------|----------|----------|
-|類別|這以前是 [服務名稱]  欄位。 現在是 [稽核類別]  欄位。 [服務名稱]  已重新命名為 [loggedByService]  欄位。|<ul><li>帳戶佈建</li><li>核心目錄</li><li>自助式密碼重設</li></ul>|<ul><li>使用者管理</li><li>群組管理</li><li>應用程式管理</li></ul>|
+|Category|這以前是 [服務名稱]  欄位。 現在是 [稽核類別]  欄位。 [服務名稱]  已重新命名為 [loggedByService]  欄位。|<ul><li>帳戶佈建</li><li>核心目錄</li><li>自助式密碼重設</li></ul>|<ul><li>使用者管理</li><li>群組管理</li><li>應用程式管理</li></ul>|
 |targetResources|包含最高層級的 **TargetResourceType**。|&nbsp;|<ul><li>原則</li><li>應用程式</li><li>使用者</li><li>群組</li></ul>|
 |loggedByService|提供產生稽核記錄之服務的名稱。|Null|<ul><li>帳戶佈建</li><li>核心目錄</li><li>自助式密碼重設</li></ul>|
 |結果|提供稽核記錄的結果。 在過去這是列舉的，但我們現在會顯示實際值。|<ul><li>0</li><li>1</li></ul>|<ul><li>成功</li><li>失敗</li></ul>|
@@ -121,7 +121,7 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
 
 - 其他行動驗證器應用程式 / 硬體權杖
 
-- 電子郵件
+- Email
 
 - 撥打電話
 
@@ -308,7 +308,7 @@ Azure Active Directory Domain Services 會在 Azure 入口網站上提供有關�
 
 - 全域管理員
 
-- Intune 管理員
+- Intune 系統管理員
 
 - 使用者管理員
 
@@ -395,7 +395,7 @@ Azure 入口網站的 [登入]  頁面上有新的 [疑難排解和支援]  索�
 
 - Microsoft Stream
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
@@ -1167,7 +1167,7 @@ Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱
 
 在設定 SAML 型 SSO 應用程式時，您無法在設定頁面上測試整合。 如果您在登入時發生錯誤，您可以提供測試經驗中的錯誤，而 Azure AD 會提供給您解決特定問題的解決步驟。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 - [如何偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
@@ -1324,7 +1324,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 
 針對 SAML 型單一登入設定的企業應用程式，有些使用者未收到相關通知。 此問題已解決。 若憑證將在 7、30 和 60 天內到期，Azure AD 就會傳送通知。 您可以在稽核記錄中看到此事件。 
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [在 Azure Active Directory 中管理同盟單一登入的憑證](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 - [Azure Active Directory 入口網站中的稽核活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
@@ -1357,7 +1357,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 
 如需深入了解，請參閱我們的[部落格文章](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/) \(英文\)。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [設定應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
@@ -1473,7 +1473,7 @@ Powershell GA 模組中目前提供應用程式 Proxy Cmdlet 的支援！ 這需
  
 輸入佈建 (從 Workday 至 Active Directory 和 Azure AD) 的公開預覽現在支援擷取和佈建 Workday Get_Workers API 中可用的所有屬性值。 在隨附於 Workday 輸入佈建連接器初始版本的屬性之外，這會新增數百個其他標準和自訂屬性的支援。
 
-如需詳細資訊，請參閱[自訂 Workday 使用者屬性的清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
+如需詳細資訊，請參閱：[自訂 Workday 使用者屬性的清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
 
 ---
 
@@ -1716,7 +1716,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 
 - Microsoft Invoicing
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -1829,7 +1829,7 @@ MFA 設定位於：**Azure Active Directory \> MFA 伺服器**
 
 在轉換至新系統管理主控台的過程中，我們提供了 2 個新 API 來擷取 Azure AD 活動記錄。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 現在可透過 Microsoft Graph 的 Identity Protection 風險事件 API 來存取先前透過安全性報告所使用的資料。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [開始使用 Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
@@ -2014,7 +2014,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/) \(英文\)
 - Microsoft StaffHub
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -2106,7 +2106,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 - **確保 macOS 裝置遵守組織在 Intune 中定義的合規性原則。** 您現在可以在 Azure 入口網站上的 Intune 中，設定適用於 macOS 裝置的合規性原則。 
 - **限制只有符合規範的 macOS 裝置才能存取 Azure AD 中的應用程式。** 條件式存取原則撰寫具有 macOS 作為個別裝置平台選項。 現在您可以撰寫 macOS 特定條件式存取原則在 Azure 中設定的目標應用程式。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [使用 Intune 為 macOS 裝置建立裝置合規性原則](https://aka.ms/macoscompliancepolicy)
 - [在 Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
@@ -2159,7 +2159,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 - Microsoft Planner
 - Azure 資訊保護 
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -2213,7 +2213,7 @@ Azure 入口網站可讓您使用：
 **服務類別：** 我的應用程式  
 **產品功能：** 單一登入  
 
-Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。 [如何自動擷取應用程式的登入欄位](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](https://aad.portal.azure.com) 的 [企業應用程式]  頁面上新增 [非資源庫]  應用程式來尋找此功能。 此外，您也可以在此新應用程式上將 [單一登入]  模式設定為 [密碼單一登入]  ，輸入 Web URL，然後再儲存頁面。
+Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。 [如何自動擷取應用程式的登入欄位](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems#manually-capture-sign-in-fields-for-an-app)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](https://aad.portal.azure.com) 的 [企業應用程式]  頁面上新增 [非資源庫]  應用程式來尋找此功能。 此外，您也可以在此新應用程式上將 [單一登入]  模式設定為 [密碼單一登入]  ，輸入 Web URL，然後再儲存頁面。
  
 之前因為服務問題，而將此功能暫時停用。 此問題已解決，因此已恢復自動登入欄位偵測功能。
 

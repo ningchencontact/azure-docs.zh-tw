@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688907"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705143"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -216,7 +216,7 @@ ms.locfileid: "66688907"
 * Azure 儲存體
 * Azure 工作負載
 
-#### <a name="operation"></a>作業
+#### <a name="operation"></a>運算
 
 您可以檢視一項作業或所有作業。 您無法選取兩項或三項作業。 可用的作業如下：
 
@@ -260,21 +260,6 @@ ms.locfileid: "66688907"
 * 與保存庫相關聯的雲端 LRS 儲存體使用量
 * 與保存庫相關聯的雲端 GRS 儲存體使用量
 
-
-## <a name="frequently-asked-questions"></a>常見問題集
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Azure 備份代理程式作業狀態需要多久時間才會反映在入口網站中？
-Azure 入口網站最多可能需要 15 分鐘，才會反映 Azure 備份代理程式作業狀態。
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>當備份作業失敗時，需要多久的時間才會引發警示？
-在 Azure 備份失敗的 20 分鐘內就會引發警示。
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>是否會有已設定通知但不會傳送電子郵件的情況？
-是。 在下列情況下，不會傳送通知。
-
-* 如果通知設為每小時，而且在一小時內引發警示並加以解決
-* 作業遭到取消時
-* 如果第二項備份作業失敗，因為原始備份作業正在進行中
 
 ## <a name="troubleshooting-monitoring-issues"></a>疑難排解監視問題
 

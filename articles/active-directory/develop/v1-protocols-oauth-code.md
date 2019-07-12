@@ -173,7 +173,7 @@ Azure AD 在成功回應時會傳回[存取權杖](access-tokens.md)。 為了�
 
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | access_token |要求的[存取權杖](access-tokens.md)，其形式為帶正負號的 JSON Web 權杖 (JWT)。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\) |

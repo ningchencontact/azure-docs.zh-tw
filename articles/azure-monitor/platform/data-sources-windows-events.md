@@ -46,7 +46,7 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 電腦 |收集事件的來源電腦名稱。 |
+| Computer |收集事件的來源電腦名稱。 |
 | EventCategory |事件的類別。 |
 | EventData |原始格式的所有事件資料。 |
 | EventID |事件的編號。 |
@@ -56,7 +56,7 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 | ParameterXml |XML 格式的事件參數值。 |
 | ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  對於其他代理程式，這個值是 `AOI-<workspace ID>` |
 | RenderedDescription |含參數值的事件描述 |
-| 來源 |事件的來源。 |
+| Source |事件的來源。 |
 | SourceSystem |收集事件的來源代理程式類型。 <br> OpsManager - Windows 代理程式，直接連接或由 Operations Manager 管理 <br> Linux – 所有的 Linux 代理程式  <br> AzureStorage – Azure 診斷 |
 | TimeGenerated |在 Windows 中建立事件的日期和時間。 |
 | UserName |記錄此事件之帳戶的使用者名稱。 |
@@ -66,7 +66,7 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 
 | 查詢 | 描述 |
 |:---|:---|
-| Event |所有的 Windows 事件。 |
+| Event - 事件 |所有的 Windows 事件。 |
 | Event &#124; where EventLevelName == "error" |所有 Windows 事件與錯誤的嚴重性。 |
 | Event &#124; summarize count() by Source |依據來源的 Windows 事件計數。 |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |依據來源的 Windows 錯誤事件計數。 |

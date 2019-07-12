@@ -41,7 +41,7 @@ ms.locfileid: "60325862"
 | **RowKey** (員工識別碼) |字串 |
 | **名字** |字串 |
 | **姓氏** |字串 |
-| **年齡** |Integer |
+| **年齡** |整數 |
 | **EmailAddress** |字串 |
 
 ＜[Azure 表格儲存體概觀](table-storage-overview.md) ＞一文將說明某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 請注意，下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)。  

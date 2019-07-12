@@ -27,7 +27,7 @@ ms.locfileid: "60525695"
 您可以透過下列方式，來設定及取得警示規則的相關資訊：
 * [Azure 入口網站](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure 监视器 REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>從 Azure 入口網站建立計量的警示規則
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您想要監視的「適用於 MySQL 的 Azure 資料庫」伺服器。

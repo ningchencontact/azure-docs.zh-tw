@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055108"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654218"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Microsoft 帳戶登入
 
 ## <a name="create-a-microsoft-account-application"></a>建立 Microsoft 帳戶應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Microsoft 帳戶作為[識別提供者](active-directory-b2c-reference-oidc.md)，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 Microsoft 帳戶，可以至 [https://www.live.com/](https://www.live.com/) 取得。
+若要使用 Microsoft 帳戶作為[身分識別提供者](active-directory-b2c-reference-oidc.md)在 Azure Active Directory (Azure AD) B2C 中，您需要在 Azure AD 租用戶中建立應用程式。 此 Azure AD 租用戶與您的 Azure AD B2C 租用戶不同。 如果您還沒有 Microsoft 帳戶，您可以取得一個[ https://www.live.com/ ](https://www.live.com/)。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 選取 **所有的服務**左上角的 Azure 入口網站，然後搜尋並選取**應用程式註冊**。
-1. 選取**新增註冊**
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]  ，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
+1. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [應用程式註冊]  。
+1. 選取 [新增註冊]  。
 1. 輸入應用程式的**名稱**。 例如 *MSAapp1*。
 1. 底下**支援的帳戶類型**，選取**中任何組織的目錄和個人 Microsoft 帳戶 (例如 Skype、 Xbox、 Outlook.com) 帳戶**。 此選項會以最寬的 Microsoft 身分識別集合為目標。
 

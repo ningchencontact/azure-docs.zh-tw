@@ -104,7 +104,7 @@ ms.locfileid: "66399941"
 
 如果您想要在容錯移轉後使用 RDP/SSH 連線到 Azure VM，請遵循資料表中摘要說明的需求。
 
-**容錯移轉** | **位置** | **動作**
+**容錯移轉** | **Location** | **動作**
 --- | --- | ---
 **執行 Windows 的 Azure VM** | 在容錯移轉前的內部部署機器 | 若要透過網際網路存取 Azure VM，請啟用 RDP，並確定已針對 [公用]  新增 TCP 和 UDP 規則，且在 [Windows 防火牆]   > [允許的應用程式]  中已針對所有設定檔允許 RDP。<br/><br/> 若要透過站對站連線存取 Azure VM，請在機器上啟用 RDP，並確定在 [Windows 防火牆]   ->  [允許的應用程式和功能]  中已針對 [網域]  和 [私人] 網路允許 RDP。<br/><br/>  確定作業系統的 SAN 原則已設為 **OnlineAll**。 [深入了解](https://support.microsoft.com/kb/3031135)。<br/><br/> 觸發容錯移轉時，請確定 VM 上沒有任何暫止的 Windows 更新。 容錯移轉時，可能會啟動 Windows 更新，必須等到更新完成，才能登入 VM。
 **執行 Windows 的 Azure VM** | 容錯移轉後的 Azure VM |  [新增 VM 的公用 IP 位址](https://aka.ms/addpublicip)。<br/><br/> 已容錯移轉的 VM 上的網路安全性群組規則 (以及它所連線的 Azure 子網路) 必須允許 RDP 連接埠的連入連線。<br/><br/> 勾選 [開機診斷]  以確認 VM 的螢幕擷取畫面。<br/><br/> 如果您無法連線，請檢查 VM 是否正在執行，並檢閱這些[疑難排解祕訣](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。

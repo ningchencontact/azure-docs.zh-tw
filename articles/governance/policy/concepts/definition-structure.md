@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428751"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718193"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -105,7 +105,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 參數有下列在原則定義中使用的屬性：
 
 - **名稱**：參數的名稱。 由原則規則中的 `parameters` 部署函式使用。 如需詳細資訊，請參閱[使用參數值](#using-a-parameter-value)。
-- `type`:判斷參數是**字串**或**陣列**。
+- `type`:判斷參數是否**字串**，**陣列**，**物件**，**布林**，**整數**， **浮點數**，或**datetime**。
 - `metadata`:定義主要由 Azure 入口網站使用的子屬性，以顯示使用者易讀的資訊：
   - `description`:參數用途的說明。 能用來提供可接受值的範例。
   - `displayName`:參數在入口網站中顯示的易記名稱。

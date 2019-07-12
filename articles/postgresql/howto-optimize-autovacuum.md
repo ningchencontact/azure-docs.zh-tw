@@ -91,7 +91,7 @@ autovacuum_max_workers 參數決定可同時執行的自動資料清理處理序
 使用 PostgreSQL 時，您可以在資料表層級或執行個體層級設定這些參數。 您目前只能在適用於 PostgreSQL 的 Azure 資料庫中，於資料表層級設定這些參數。
 
 ## <a name="optimize-autovacuum-per-table"></a>針對每個資料表最佳化自動資料清理
-您可以針對每個資料表設定所有上述設定參數。 以下是範例：
+您可以針對每個資料表設定所有上述設定參數。 以下為範例：
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);
 ALTER TABLE t SET (autovacuum_vacuum_scale_factor = 0.1);

@@ -26,7 +26,7 @@ ms.locfileid: "65992088"
 
 在本教學課程中，您將了解如何建立 PHP 應用程式，來傳送和接收來自服務匯流排佇列的訊息。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 2. 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。
     1. 閱讀快速**概觀**的服務匯流排**佇列**。 

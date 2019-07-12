@@ -138,7 +138,7 @@ az monitor diagnostic-settings create \
 
 系統針對下列記錄類別會寫入 JSON 格式的資料：
 
-### <a name="event"></a>Event
+### <a name="event"></a>Event - 事件
 
 事件記錄包含要根據 MAC 位址，將哪些 NSG 規則套用至 VM 的相關資訊。 每個事件會記錄下列資料。 在下列範例中，會為 IP 位址為 192.168.1.4 且 MAC 為 00-0D-3A-92-6A-7C 的虛擬機器記錄資料：
 

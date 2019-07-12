@@ -123,7 +123,7 @@ VNet 會彼此[隔離](https://docs.microsoft.com/azure/virtual-network/virtual-
 
 Azure 會針對連線至 VNet 的 VM 和[雲端服務](https://azure.microsoft.com/services/cloud-services/)角色執行個體提供內部名稱解析。 您可以選擇地將 VNet 設定成使用自己的 DNS 伺服器，而不是使用 Azure 內部名稱解析。
 
-您可以在每個 Azure [訂用帳戶](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json)和 Azure [區域](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 对于每个 VNet，可执行以下操作：
+您可以在每個 Azure [訂用帳戶](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json)和 Azure [區域](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 對於每個 VNet，您可以︰
 
 -   使用公用和私人 (RFC 1918) 位址指定自訂私人 IP 位址空間。 Azure 會從您指派的位址空間，將私人 IP 位址指派給連線至 VNet 的資源。
 
@@ -280,7 +280,7 @@ NSG 使用 5 個 Tuple 來評估流量 (且使用於您為 NSG 設定的規則)�
 
 這表示您可以控制單一 VM 與一組 VM、單一 VM 與另一個單一 VM，或整個子網路之間的存取。 同樣地，請記住，這是簡單的具狀態封包篩選，而不是完整的封包檢查。 網路安全性群組中沒有通訊協定驗證或網路層級 IDS 或 IPS 功能。
 
-NSG 隨附一些您應該注意的內建規則。 它們是：
+NSG 隨附一些您應該注意的內建規則。 這些是：
 
 -   **允許特定虛擬網路內的所有流量：** 相同 Azure 虛擬網路上的所有 VM 均可彼此通訊。
 
@@ -318,7 +318,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 
 下節列出 Azure 虛擬網路路由表和路由目前的限制：
 
-- 每个虚拟网络子网具有内置的系统路由表。 系統路由表具有下列 3 個路由群組：
+- 每個虛擬網路的子網路皆有內建的系統路由表。 系統路由表具有下列 3 個路由群組：
 
   -  **本機 VNet 路由：** 直接連線至相同虛擬網路中的目的地 VM
 
@@ -413,7 +413,7 @@ Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標，�
 
 -   Azure Load Balancer
 
--   应用程序网关
+-   應用程式閘道
 
 -   流量管理員
 
@@ -426,9 +426,9 @@ Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標，�
 
 Azure Load Balancer 可以設定為：
 
--   对传入到虚拟机的 Internet 流量进行负载均衡。 這個組態稱為 [網際網路面向的負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)。
+-   對虛擬機器的連入網際網路流量進行負載平衡。 這個組態稱為 [網際網路面向的負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)。
 
--   平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。 此配置称为 [负载均衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)。
+-   平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。 這個組態稱為 [內部負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)。
 
 -   將外部流量轉送到特定的虛擬機器。
 
@@ -476,7 +476,7 @@ Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資
 
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。
 
-可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
+您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
 
 **使用 Resource Manager 的優點**
 
@@ -590,7 +590,7 @@ IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據�
 
 #### <a name="metrics"></a>度量
 
-計量是在一段時間內所收集到的效能測量數據和計數器。 計量目前適用於應用程式閘道。 計量可用來根據臨界值觸發警示。 Azure 應用程式閘道預設會監視其後端集區中所有資源的健康狀況，並自動從集區中移除任何被視為狀況不良的資源。 應用程式閘道會繼續監視狀況不良的執行個體，一旦其恢復可用狀態並回應健康狀況探查，就會將其新增回狀況良好後端集區中。 应用程序网关发送的运行状况探测所针对的端口与后端 HTTP 设置中定义的端口相同。 此組態可確保探查所測試的連接埠會和客戶用來連接到後端的連接埠相同。
+計量是在一段時間內所收集到的效能測量數據和計數器。 計量目前適用於應用程式閘道。 計量可用來根據臨界值觸發警示。 Azure 應用程式閘道預設會監視其後端集區中所有資源的健康狀況，並自動從集區中移除任何被視為狀況不良的資源。 應用程式閘道會繼續監視狀況不良的執行個體，一旦其恢復可用狀態並回應健康狀況探查，就會將其新增回狀況良好後端集區中。 應用程式閘道會以後端 HTTP 設定中定義的相同連接埠傳送健康狀態探查。 此組態可確保探查所測試的連接埠會和客戶用來連接到後端的連接埠相同。
 
 > [!Note]
 > 請參閱[應用程式閘道診斷](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)，以檢視如何使用計量來建立警示。

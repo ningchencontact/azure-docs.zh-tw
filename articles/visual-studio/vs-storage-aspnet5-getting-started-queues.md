@@ -27,7 +27,7 @@ ms.locfileid: "60508468"
 
 Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。 如需以程式設計方式處理佇列的詳細資料，另請參閱[以 .NET 開始使用 Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md)。
 
-若要開始，請先在儲存體帳戶中建立 Azure 佇列。 本文章將接著示範如何以 C# 建立佇列，以及如何執行基本的佇列作業，例如新增、修改、讀取和移除佇列訊息。  程式碼使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 有关 ASP.NET 的详细信息，请参阅 [ASP.NET](https://www.asp.net)。
+若要開始，請先在儲存體帳戶中建立 Azure 佇列。 本文章將接著示範如何以 C# 建立佇列，以及如何執行基本的佇列作業，例如新增、修改、讀取和移除佇列訊息。  程式碼使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](https://www.asp.net)。
 
 某些 Azure 儲存體 API 是非同步的，本文章中的程式碼假設我們正在使用非同步方法。 如需詳細資訊，請參閱[非同步程式設計](https://docs.microsoft.com/dotnet/csharp/async)。
 

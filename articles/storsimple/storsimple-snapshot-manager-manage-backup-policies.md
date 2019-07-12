@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687286"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>使用 StorSimple Snapshot Manager 來建立和管理備份原則
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 備份原則會建立一個在本機或雲端中備份磁碟區資料的排程。 建立備份原則時，您也可以指定保留原則。 (您最多可以保留 64 個快照)。如需備份原則的詳細資訊，請參閱 [StorSimple 8000 系列：混合式雲端解決方案](storsimple-overview.md)中的[備份類型](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies)。
 
 本教學課程說明如何：

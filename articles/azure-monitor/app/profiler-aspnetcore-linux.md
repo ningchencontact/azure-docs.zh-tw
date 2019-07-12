@@ -29,7 +29,7 @@ ms.locfileid: "60306457"
 
 ![分析工具追蹤](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 下列指示適用於所有 Windows、Linux 和 Mac 開發環境：
 
 * 安裝 [.NET Core SDK 2.1.2 或更新版本](https://dotnet.microsoft.com/download/archives)。

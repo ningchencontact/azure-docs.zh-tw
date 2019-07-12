@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449859"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798673"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -69,23 +69,10 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 檔案同步系統需求和互通性 
 本節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
 
-### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或 OS 版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
+### <a name="evaluation-cmdlet"></a>評估 cmdlet
+在部署 Azure 檔案同步，您應該評估是否與您使用 Azure 檔案同步評估 cmdlet 的系統相容。 此 cmdlet 會檢查潛在的問題，與您的檔案系統和資料集，例如不支援的字元或不受支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
 
-#### <a name="download-instructions"></a>下載指示
-1. 請確定您已安裝最新版的 PackageManagement 和 PowerShellGet (這可讓您安裝預覽模組)
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. 重新啟動 PowerShell
-3. 安裝模組
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+評估指令程式可以安裝所安裝的 Az PowerShell 模組，可依照此處的指示進行安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
 #### <a name="usage"></a>使用量  
 您可以使用幾個不同的方式來叫用評估工具：您可以執行系統檢查、資料集檢查，或兩者都執行。 若要執行系統和資料集的檢查： 
@@ -115,11 +102,11 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
     | Version | 支援的 SKU | 支援的部署選項 |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
-    | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
-    | Windows Server 2012 R2 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
+    | Windows Server 2019 | Datacenter 和 Standard | 完整和核心 |
+    | Windows Server 2016 | Datacenter 和 Standard | 完整和核心 |
+    | Windows Server 2012 R2 | Datacenter 和 Standard | 完整和核心 |
 
-    Windows Server 的未來版本將會於發佈時加入支援清單。 舊版的 Windows 可能會根據使用者意見反應加入支援清單。
+    Windows Server 的未來版本將會於發佈時加入支援清單。
 
     > [!Important]  
     > 建議您透過 Windows Update 的最新更新，將搭配 Azure 檔案同步使用的所有伺服器保持在最新狀態。 
@@ -169,8 +156,12 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 > 必須在容錯移轉叢集中的每個節點上安裝 Azure 檔案同步代理程式，同步才能正確運作。
 
 ### <a name="data-deduplication"></a>重複資料刪除
-**代理程式版本 5.0.2.0**   
-重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。 請注意這些磁碟區節約只適用於內部部署;您在 Azure 檔案服務的資料將不會重複資料刪除。 
+**代理程式版本 5.0.2.0 或更新版本**   
+重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 啟用重複資料刪除磁碟區上，以啟用雲端階層處理，可讓您快取多個檔案內部，不需要佈建更多儲存空間。 
+
+重複資料刪除磁碟區上啟用以啟用雲端階層處理時，重複資料刪除最佳化檔案內的伺服器端點的位置會分層類似於一般的檔案為基礎的雲端階層處理原則設定。 一次最佳化的檔案已分層儲存重複資料刪除，重複資料刪除記憶體回收工作會自動執行不必要區塊移除，不再參考回收磁碟空間的磁碟區上的其他檔案。
+
+請注意省下的磁碟區只會套用到伺服器;Azure 檔案共用中的資料將不會重複資料刪除。
 
 **Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
@@ -182,13 +173,13 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
     - 日期原則會略過的可能已否則適合因為重複資料刪除最佳化工作存取的檔案分層的檔案階層處理。
 - 進行中的重複資料刪除最佳化工作，針對雲端階層處理日期原則將取得延遲，重複資料刪除[MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定，如果檔案已經不會分層。 
     - 範例：如果將 MinimumFileAgeDays 設定為 7 天雲端階層處理日期原則是 30 天，原則將 37 天後層檔案的日期。
-    - 注意：一旦檔案已分層的 Azure 檔案同步，重複資料刪除最佳化工作會略過檔案。
+    - 注意:一旦檔案已分層的 Azure 檔案同步，重複資料刪除最佳化工作會略過檔案。
 - 如果已安裝 Azure 檔案同步代理程式執行 Windows Server 2012 R2 的伺服器已升級至 Windows Server 2016 或 Windows Server 2019，則必須以支援重複資料刪除和雲端階層處理相同的磁碟區上執行下列步驟：  
     - 解除安裝 Windows Server 2012 R2 的 Azure 檔案同步代理程式，並重新啟動伺服器。
     - 下載新的伺服器作業系統版本 （Windows Server 2016 或 Windows Server 2019） 的 Azure 檔案同步代理程式。
     - 安裝 Azure 檔案同步代理程式，並重新啟動伺服器。  
     
-    注意：解除安裝並重新安裝代理程式時，會保留在伺服器上的 Azure 檔案同步組態設定。
+    注意:解除安裝並重新安裝代理程式時，會保留在伺服器上的 Azure 檔案同步組態設定。
 
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
 Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。
@@ -220,7 +211,7 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 作為 Microsoft 內部防毒解決方案的 Windows Defender 和 System Center Endpoint Protection (SCEP)，皆會自動略過讀取已設定此屬性的檔案。 我們已經測試這兩個解決方案並找到一個小問題：當您將伺服器新增至現有同步群組時，會在新的伺服器上重新叫用 (下載) 小於 800 個位元組的檔案。 這些檔案會保留在新的伺服器上，而且不會分層，因為這些檔案不符合階層處理大小需求 (> 64 kb)。
 
 > [!Note]  
-> 防毒軟體廠商可以檢查其產品和 Azure 檔案同步使用 [Azure 檔案同步防毒軟體相容性測試套件] 之間的相容性 (https://www.microsoft.com/download/details.aspx?id=58322) ，適用於 Microsoft Download Center 下載。
+> 防毒軟體廠商可以檢查其產品和 Azure 檔案同步使用之間的相容性[Azure 檔案同步防毒軟體相容性測試套件](https://www.microsoft.com/download/details.aspx?id=58322)，適用於 Microsoft Download Center 下載。
 
 ### <a name="backup-solutions"></a>備份解決方案
 備份解決方案類似防毒解決方案，可能會導致階層式檔案的重新叫用。 建議使用雲端備份解決方案來備份 Azure 檔案共用，而不要使用內部部署備份產品。
@@ -263,6 +254,7 @@ Azure 檔案同步僅於下列區域提供：
 | 東亞 | 香港特別行政區 |
 | East US | 維吉尼亞州 |
 | 美國東部 2 | 維吉尼亞州 |
+| 法國中部 | 巴黎 |
 | 南韓中部| 首爾 |
 | 南韓南部| 斧山 |
 | 日本東部 | 東京，埼玉 |
@@ -304,6 +296,7 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 東亞           | 東南亞     |
 | East US             | 美國西部            |
 | 美國東部 2           | 美國中部         |
+| 法國中部      | 法國南部       |
 | 日本東部          | 日本西部         |
 | 日本西部          | 日本東部         |
 | 南韓中部       | 南韓南部        |

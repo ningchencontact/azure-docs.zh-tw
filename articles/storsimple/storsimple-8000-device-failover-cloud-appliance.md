@@ -23,7 +23,7 @@ ms.locfileid: "60584327"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>容錯移轉至您的 StorSimple 雲端設備
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本教學課程說明當發生災害時，將 StorSimple 8000 系列實體裝置容錯移轉至 StorSimple 雲端設備所需要的步驟。 StorSimple 會使用裝置容錯移轉功能，將資料從資料中心的實體裝置來源移轉至 Azure 中執行的雲端設備。 本教學課程中的指導方針適用於 StorSimple 8000 系列實體裝置和執行軟體版本為 Update 3 和更新版本的雲端設備。
 

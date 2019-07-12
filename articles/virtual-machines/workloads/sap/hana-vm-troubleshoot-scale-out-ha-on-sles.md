@@ -4,7 +4,7 @@ description: 在 Azure 虛擬機器執行的 SLES 12 SP3 上，針對根據 SAP 
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477047"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707248"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>在 SLES 12 SP3 上驗證 SAP HANA scale-out 高可用性設定並為其進行疑難排解 
 
@@ -42,16 +42,16 @@ ms.locfileid: "60477047"
 ## <a name="important-notes"></a>重要事項
 
 SAP HANA scale-out 與 SAP HANA System Replication 和 Pacemaker 的所有測試都僅使用 SAP HANA 2.0 完成。 作業系統版本是適用於 SAP 應用程式的 SUSE Linux Enterprise Server 12 SP3。 使用了 SUSE 中的最新 RPM 套件 SAPHanaSR-ScaleOut 來設定 pacemaker 叢集。
-SUSE 已發佈[此效能最佳化設定的詳細描述][sles-hana-scale-out-ha-paper]。
+發行的 SUSE[詳細說明這項效能最佳化設定][sles-hana-scale-out-ha-paper]。
 
-針對 SAP HANA scale-out 所支援的虛擬機器類型，檢查 [SAP HANA 認證 IaaS 目錄][sap-hana-iaas-list]。
+針對 SAP HANA 向外延展支援的虛擬機器類型，檢查[經 SAP HANA 認證的 IaaS 目錄][sap-hana-iaas-list]。
 
 搭配使用 SAP HANA scale-out 與多個子網路和 vNIC 並設定 HSR 時發生技術問題。 必須使用已修正此問題的最新 SAP HANA 2.0 修補程式。 支援的 SAP HANA 版本如下： 
 
 * rev2.00.024.04 或更新版本 
 * rev2.00.032 或更新版本
 
-如果您需要 SUSE 的支援，請遵循此[指南][suse-pacemaker-support-log-files]。 收集所有 SAP HANA 高可用性 (HA) 叢集的資訊，如本文中所述。 SUSE 支援需要這項資訊，以進一步分析。
+如果您需要從 SUSE 的支援，請遵循這[指南][suse-pacemaker-support-log-files]。 收集所有 SAP HANA 高可用性 (HA) 叢集的資訊，如本文中所述。 SUSE 支援需要這項資訊，以進一步分析。
 
 在內部測試期間，叢集設定會與透過 Azure 入口網站的一般正常 VM 關機混淆。 因此，建議您以其他方法來測試叢集容錯移轉。 請使用強制核心異常或關閉網路這類方法，或遷移 **msl** 資源。 請參閱下列各節中的詳細資料。 假設蓄意發生標準關機。 蓄意關機的最佳範例是進行維護。 請參閱[計劃性維護](#planned-maintenance)中的詳細資料。
 
@@ -94,7 +94,7 @@ SUSE 已發佈[此效能最佳化設定的詳細描述][sles-hana-scale-out-ha-p
 
 如需使用多個網路的 SAP HANA 設定資訊，請參閱 [SAP HANA global.ini](#sap-hana-globalini)。
 
-叢集中的每個 VM，都具有對應至子網路數目的三個 vNIC。 [如何以多個網路介面卡在 Azure 中建立 Linux 虛擬機器][azure-linux-multiple-nics]描述在部署 Linux VM 時，Azure 上的潛在路由問題。 本特定路由文章僅適用於使用多個 vNIC。 根據預設，在 SLES 12 SP3 中，是由 SUSE 來解決問題。 如需詳細資訊，請參閱 [EC2 和 Azure 中搭配雲端 netconfig 的多個 NIC][suse-cloud-netconfig]。
+叢集中的每個 VM，都具有對應至子網路數目的三個 vNIC。 [如何建立 Linux 虛擬機器在 Azure 中有多個網路介面卡][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig]。
 
 
 若要確認 SAP HANA 已正確設定為使用多個網路，請執行下列命令。 首先檢查所有三個子網路的所有三個內部 IP 位址均為使用中的 OS 層級。 如果您定義具有不同 IP 位址範圍的子網路，則必須調整命令：
@@ -126,7 +126,7 @@ select * from "SYS"."M_SYSTEM_OVERVIEW"
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-若要尋找 SAP 軟體堆疊中使用的每個連接埠 (包含 SAP HANA)，請搜尋[所有 SAP 產品的 TCP/IP 連接埠][sap-list-port-numbers]。
+若要尋找每個所使用的通訊埠，包括 SAP HANA 的 SAP 軟體堆疊中，搜尋[的所有 SAP 產品的 TCP/IP 通訊埠][sap-list-port-numbers]。
 
 假設 SAP HANA 2.0 測試系統中的執行個體數目為 **00**，則名稱伺服器的連接埠號碼為 **30001**。 HSR 中繼資料通訊的連接埠號碼為 **40002**。 其中一個選項是登入背景工作節點，然後檢查主要節點服務。 在本文中，我們檢查了站台 2 上的背景工作節點 2，嘗試連線至站台 2 上的主要節點。
 
@@ -173,7 +173,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 測試系統的 **corosync.conf** 內容即為範例。
 
-第一個區段為 **totem**，如[叢集安裝](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation)步驟 11 中所述。 您可以忽略 **mcastaddr** 的值。 只需要保留現有項目。 必須根據 [Microsoft Azure SAP HANA 文件][sles-pacemaker-ha-guide]設定 **token** 和 **consensus** 的項目。
+第一個區段為 **totem**，如[叢集安裝](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation)步驟 11 中所述。 您可以忽略 **mcastaddr** 的值。 只需要保留現有項目。 項目**語彙基元**並**共識**必須設為根據[Microsoft Azure 的 SAP HANA 文件][sles-pacemaker-ha-guide]。
 
 <pre><code>
 totem {
@@ -657,7 +657,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>容錯移轉或接管
 
-如[重要事項](#important-notes)中所述，您不應該使用標準正常關機來測試叢集容錯移轉或 SAP HANA HSR 接管。 反之，建議您觸發核心異常、強制資源移轉或關閉 VM 之 OS 層級上的所有網路。 另一種方法為 **crm \<node\> standby** 命令。 請參閱 [SUSE 文件][sles-12-ha-paper]。 
+如[重要事項](#important-notes)中所述，您不應該使用標準正常關機來測試叢集容錯移轉或 SAP HANA HSR 接管。 反之，建議您觸發核心異常、強制資源移轉或關閉 VM 之 OS 層級上的所有網路。 另一種方法為 **crm \<node\> standby** 命令。 請參閱[SUSE 文件][sles-12-ha-paper]。 
 
 下列三個範例命令可強制叢集容錯移轉：
 
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>預定的維修 
 
 進入計劃性維護時，有不同的使用案例。 其中一個問題是，此維護僅為基礎結構維護 (例如 OS 層級和磁碟設定的變更) 或是 HANA 升級。
-您可以從 SUSE 的文件中，例如[朝向零停機時間][sles-zero-downtime-paper] 或 [SAP HANA SR 效能最佳化案例][sles-12-for-sap]，找到其他資訊。 這些文件也包含示範如何手動遷移主要站台的範例。
+您可以從像是 SUSE 文件中找到其他資訊[零停機時間朝向][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]。 這些文件也包含示範如何手動遷移主要站台的範例。
 
 密集內部測試是要驗證基礎結構維護使用案例。 為了避免任何關於遷移主要站台的問題，我們決定一律先遷移主要站台，再讓叢集進入維護模式。 藉由此方法，不需要讓叢集忘記先前的情況：哪一端是主要站台，哪一端是次要站台。
 
@@ -979,5 +979,5 @@ https://&ltnode&gt:7630
 
 ## <a name="next-steps"></a>後續步驟
 
-本疑難排解指南描述向外延展設定中的 SAP HANA 高可用性。 除了資料庫之外，SAP 橫向中的另一個重要元件是 SAP NetWeaver 堆疊。 了解[使用 SUSE Enterprise Linux Server 之 Azure 虛擬機器上的 SAP NetWeaver 高可用性][sap-nw-ha-guide-sles]。
+本疑難排解指南描述向外延展設定中的 SAP HANA 高可用性。 除了資料庫之外，SAP 橫向中的另一個重要元件是 SAP NetWeaver 堆疊。 深入了解[使用 SUSE Enterprise Linux Server 的 Azure 虛擬機器上的 SAP NetWeaver 的高可用性][sap-nw-ha-guide-sles]。
 

@@ -37,11 +37,11 @@ ms.locfileid: "64695793"
 
 Azure Functions 部署通常包含這些資源：
 
-| 資源                                                                           | 需求 | 語法和屬性參考                                                         |   |
+| Resource                                                                           | 需求 | 語法和屬性參考                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | 函數應用程式                                                                     | 必要項    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要項    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md)元件 | 選用    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md)元件 | 選擇性    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
 | A[主控方案](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup>主控方案只是當您選擇執行函式應用程式時，需要[Premium 方案](./functions-premium-plan.md)（處於預覽狀態），或在[App Service 方案](../app-service/overview-hosting-plans.md)。

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 6a3d570d9695516a293b601b3d34c2bcba6b058d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 2970e69e825dacb6f548b3e66a830f221ece0b1c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478884"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795233"
 ---
 # <a name="custom-resource-cache-reference"></a>自訂資源快取參考
 
@@ -237,6 +237,7 @@ Content-Type: application/json; charset=utf-8
 ## <a name="next-steps"></a>後續步驟
 
 - [在 Azure 的自訂資源提供者的概觀](./custom-providers-overview.md)
-- [教學課程：建立 Azure 自訂資源提供者和部署自訂的資源](./create-custom-provider.md)
+- [快速入門：建立 Azure 自訂資源提供者和部署自訂的資源](./create-custom-provider.md)
+- [教學課程：在 Azure 中建立自訂動作和資源](./tutorial-custom-providers-101.md)
 - [如何：將自訂動作加入至 Azure 的 REST API](./custom-providers-action-endpoint-how-to.md)
 - [參考：自訂資源的 Proxy 參考](./custom-providers-proxy-resource-endpoint-reference.md)

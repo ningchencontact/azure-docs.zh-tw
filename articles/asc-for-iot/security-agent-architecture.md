@@ -2,24 +2,25 @@
 title: 了解 Azure 資訊安全中心的 IoT 安全性代理程式架構預覽 |Microsoft Docs
 description: 了解使用 Azure 資訊安全中心的 IoT 服務的代理程式安全性代理程式架構。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 3c05b7e9b1c6d1b9214da168f7abfcbb322f8f6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f4ca9a2689ab9e09b4ebff903e757f5c352b556
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192526"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616573"
 ---
 # <a name="security-agent-reference-architecture"></a>安全性代理程式參考架構
 

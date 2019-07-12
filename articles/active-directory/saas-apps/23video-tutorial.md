@@ -34,7 +34,7 @@ ms.locfileid: "60439419"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定與 23 Video 的 Azure AD 整合，您需要下列項目：
 
@@ -167,7 +167,7 @@ ms.locfileid: "60439419"
 
     c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="creating-a-23-video-test-user"></a>建立 23 Video 測試使用者
 

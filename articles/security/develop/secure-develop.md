@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443249"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653273"
 ---
 # <a name="develop-secure-applications-on-azure"></a>在 Azure 上開發安全的應用程式
 在本文中我們將會呈現安全性活動和您開發的雲端應用程式時要考量的控制項。 安全性問題和概念，請考慮在 Microsoft 的實作及驗證階段期間[安全性開發生命週期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)涵蓋。 目標是為了協助您定義活動和 Azure 服務可供您開發更安全的應用程式。
@@ -25,7 +25,7 @@ ms.locfileid: "67443249"
 此文章涵蓋下列 SDL 階段：
 
 - 實作
-- 验证
+- 驗證
 
 ## <a name="implementation"></a>實作
 實作階段的重點是，建立早期預防的最佳作法並偵測和移除的程式碼中的安全性問題。
@@ -88,7 +88,7 @@ Azure Marketplace 供應項目[開發人員工具](https://azuremarketplace.micr
 
 若要防止暴力和以字典為基礎的猜測，您必須實作強式密碼原則，以確保使用者建立複雜的密碼 （例如，12 個字元，最小長度和需要英數字元與特殊字元）。
 
-您可以使用身分識別架構建立和強制執行密碼原則。 Azure AD B2C 可協助您使用密碼管理藉由提供[內建原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy)，[自助式密碼重設](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)，等等。
+您可以使用身分識別架構建立和強制執行密碼原則。 Azure AD B2C 可協助您使用密碼管理藉由提供[內建原則](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow)，[自助式密碼重設](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)，等等。
 
 若要防禦攻擊預設帳戶，驗證所有金鑰和密碼都是可取代，而且它們是用來產生，或之後安裝資源取代。
 
@@ -106,7 +106,7 @@ Azure Marketplace 供應項目[開發人員工具](https://azuremarketplace.micr
 
 不會快取敏感性內容的瀏覽器上。 瀏覽器可以儲存快取和歷程記錄資訊。 快取的檔案會儲存在像是 [Temporary Internet Files] 資料夾中，在 Internet Explorer 的情況下的資料夾。 同樣地，在瀏覽器時參考這些頁面會顯示從其快取的頁面。 如果 （地址、 信用卡詳細資料、 社會安全號碼、 使用者名稱） 的機密資訊顯示給使用者時，資訊可能儲存在瀏覽器的快取，並無法擷取，藉由檢查瀏覽器的快取或直接按瀏覽器的**上一步** 按鈕。
 
-## <a name="verification"></a>验证
+## <a name="verification"></a>驗證
 驗證階段牽涉到完整的投入時間，以確保程式碼符合上述的階段中建立的安全性和隱私權原則。
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>找出並修正應用程式相依性中的弱點

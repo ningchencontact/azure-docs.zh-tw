@@ -37,7 +37,7 @@ ms.locfileid: "60474060"
 
 ### <a name="turn-on-two-factor-verification"></a>開啟雙因素驗證
 
-1. 在您的電腦上移至[安全性基本概念](https://account.microsoft.com/security)頁面，並使用您的個人 Microsoft 帳戶登入。 例如： alain@outlook.com。
+1. 在您的電腦上移至[安全性基本概念](https://account.microsoft.com/security)頁面，並使用您的個人 Microsoft 帳戶登入。 例如： alain@outlook.com 。
 
 2. 在 [安全性基本概念]  頁面底部，選擇 [更多安全性選項]  連結。
 

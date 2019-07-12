@@ -43,7 +43,7 @@ ms.locfileid: "60516506"
 > SQL Server 2016 Developer Edition 只能用於進行開發和測試。 您需要授權或其中一個 SQL Server VM，才能在生產環境中執行。 
 
 
-### <a name="setup"></a>設定
+### <a name="setup"></a>安裝程式
 
 資料庫伺服器經過預先設定，而且與 SQL Server 相關的 Windows 服務 (例如 `SQL Server (MSSQLSERVER)`) 是設定為自動執行。 唯一將執行的手動步驟是使用 Microsoft R 啟用資料庫內分析。您以機器系統管理員身分登入後，可以在 SQL Server Management Studio (SSMS) 中執行屬於一次性動作的下列命令，在 SSMS 中開啟 [新增查詢]，確定選取的資料庫是 `master`，然後執行： 
 
@@ -84,7 +84,7 @@ SQL Server 是以標準方式安裝的。 它位於 `C:\Program Files\Microsoft 
 
 
 
-### <a name="setup"></a>設定
+### <a name="setup"></a>安裝程式
 在 Ubuntu Linux DSVM 版本上，於 Microsoft R 伺服器的 Spark 內容中執行之前，您必須執行一次性設定步驟，以啟用本機單一節點 Hadoop HDFS 和 Yarn 執行個體。 根據預設，Hadoop 服務已安裝但是在 DSVM 上已停用。 若要啟用它，您需要在第一次以 root 身分執行下列命令︰
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa

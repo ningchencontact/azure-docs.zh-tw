@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c61544ce10c5a7d16b3ffc0009039e27f5feecb1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754528"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670807"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -36,7 +36,7 @@ Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 
 
 四個主要 JSON 結構描述是：
 
-[![JSON 結構描述](media/how-to-add-blobs/blob-models.PNG)](media/how-to-add-blobs/blob-models.PNG#lightbox)
+[![JSON 結構描述](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
 JSON blob 中繼資料符合下列模型：
 
@@ -51,14 +51,14 @@ JSON blob 中繼資料符合下列模型：
   }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | **parentId** | 字串 | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
 | **name** |字串 | blob 的人類易記名稱 |
 | **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
-| **typeId** | Integer | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
+| **typeId** | 整數 | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
 | **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
-| **subtypeId** | Integer | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtypeId** | 整數 | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
 | **description** | 字串 | 自訂的 blob 描述 |
 | **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 
@@ -108,18 +108,18 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | **id** | 字串 | Blob 的專屬識別碼 |
 | **name** |字串 | Blob 的人類易記名稱 |
 | **parentId** | 字串 | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
 | **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
-| **typeId** | Integer | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
+| **typeId** | 整數 | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
 | **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
-| **subtypeId** | Integer | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtypeId** | 整數 | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
 | **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 | **description** | 字串 | 自訂的 Blob 描述 |
-| **contentInfos** | 陣列 | 指定非結構化的中繼資料資訊，包括版本 |
+| **contentInfos** | Array | 指定非結構化的中繼資料資訊，包括版本 |
 | **fullName** | 字串 | Blob 的完整名稱 |
 | **spacePaths** | 字串 | 空間路徑 |
 
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 最後，[cURL](https://curl.haxx.se/) 使用者可以相同的方式提出多部分表單要求：
 
-[![裝置的 blob](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
+[![裝置的 blob](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ curl
 
 您可以將 blob 連結到裝置。 下圖顯示管理 API 的 Swagger 參考文件。 其中指定裝置相關 API 端點以供 Blob 取用，以及任何要傳入的必要路徑參數。
 
-[![裝置的 blob](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
+[![裝置的 blob](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 例如，若要更新或建立 Blob 並將 Blob 連結到裝置，請發出已驗證的 HTTP PATCH 要求至：
 
@@ -229,7 +229,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 您也可以江 Blob 連結道空間。 下圖列出負責處理 Blob 的所有空間 API 端點。 也會列出要傳入這些端點的任何路徑參數。
 
-[![空間 blob](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
+[![空間 blob](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 例如，若要傳回連結到空間的 Blob，請發出已驗證的 HTTP GET 要求至：
 
@@ -249,7 +249,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 您可以將 Blob 連結到使用者模型 (例如，與個人檔案的圖片建立關聯)。 下圖顯示相關使用者 API 端點和任何必要的路徑參數，例如 `id`：
 
-[![使用者的 blob](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
+[![使用者的 blob](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 例如，若要擷取連結至使用者的 Blob，請發出已驗證的 HTTP GET 要求，並搭配任何必要的表單資料：
 

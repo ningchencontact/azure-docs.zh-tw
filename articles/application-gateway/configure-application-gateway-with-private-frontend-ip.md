@@ -44,7 +44,7 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您�
    - myVNet *-虛擬網路的名稱。
    - 10.0.0.0/16*-虛擬網路的位址空間。
    - myAGSubnet  - 作為子網路名稱。
-   - 10\.0.0.0/24  - 作為子網路位址空間。  
+   - 10.0.0.0/24  - 作為子網路位址空間。  
      ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. 按一下 [確定]  以建立虛擬網路和子網路。
 7. 選擇為 私人前端 IP 組態，根據預設，它是動態的 IP 位址指派。 所選的第一個可用位址將指派子網路，做為前端 IP 位址。

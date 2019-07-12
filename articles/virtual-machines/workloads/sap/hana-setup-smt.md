@@ -4,7 +4,7 @@ description: 如何設定 SAP HANA on Azure (大型執行個體) 適用的 SMT �
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 879bea079a5de6558b20edfc05ba432c98254c9b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477944"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707377"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>設定適用於 SUSE Linux 的 SMT 伺服器
 SAP HANA 大型執行個體無法直接連線到網際網路。 它不是可向作業系統提供者註冊此類單元，並且下載與套用更新的簡單程序。 SUSE Linux 的其中一種解決方案是在 Azure 虛擬機器中設定 SMT 伺服器。 請將虛擬機器裝載於 Azure 虛擬網路中，該網路會連接到 HANA 大型執行個體。 有了這類的 SMT 伺服器，HANA 大型執行個體單位才可能註冊並下載更新。 

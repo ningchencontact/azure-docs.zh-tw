@@ -39,7 +39,7 @@ ms.locfileid: "61330843"
 
 可在佈建輸送量：
 
-- 集合
+- Collection
 
 - 資料庫
 

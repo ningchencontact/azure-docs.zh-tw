@@ -115,7 +115,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 在此區段中運用資訊來使用記錄檔的設定檔。
 
-### <a name="get-a-log-profile"></a>获取日志配置文件
+### <a name="get-a-log-profile"></a>取得記錄檔設定檔
 
 ```azurecli
 az monitor log-profiles list

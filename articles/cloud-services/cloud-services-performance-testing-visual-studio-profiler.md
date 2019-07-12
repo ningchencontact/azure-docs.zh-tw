@@ -154,7 +154,7 @@ public static string Concatenate(int number)
 
 ![比較報告][16]
 
-恭喜！ 您已開始使用分析工具。
+恭喜您！ 您已開始使用分析工具。
 
 ## <a name="troubleshooting"></a>疑難排解
 * 確定您正在分析發行組建並開始而不進行偵錯。

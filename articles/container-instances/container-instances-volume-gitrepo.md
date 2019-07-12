@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563014"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657592"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 gitRepo 磁碟區
 
 了解如何掛接 *gitRepo* 磁碟區，以將 Git 存放庫複製到您的容器執行個體中。
 
 > [!NOTE]
-> 目前只有 Linux 容器才能掛接 *gitRepo* 磁碟區。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+> 目前只有 Linux 容器才能掛接 *gitRepo* 磁碟區。 雖然我們正努力帶入 Windows 容器中的所有功能，您可以找到目前的平台的差異[概觀](container-instances-overview.md#linux-and-windows-containers)。
 
 ## <a name="gitrepo-volume"></a>gitRepo 磁碟區
 
@@ -35,9 +35,9 @@ ms.locfileid: "60563014"
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>掛接 gitRepo 磁碟區：Azure CLI
 
-當您使用 [Azure CLI](/cli/azure) 部署容器執行個體時，若要掛接 gitRepo 磁碟區，請將 `--gitrepo-url` 和 `--gitrepo-mount-path` 參數提供給 [az container create][az-container-create] 命令。 您可以選擇性地指定磁碟區內要複製存放庫到其中的目錄 (`--gitrepo-dir`)，以及要複製的修訂認可雜湊 (`--gitrepo-revision`)。
+若要掛接 gitRepo 磁碟區，當您部署容器執行個體[Azure CLI](/cli/azure)，提供`--gitrepo-url`並`--gitrepo-mount-path`參數[az 容器建立][az-container-create]命令。 您可以選擇性地指定磁碟區內要複製存放庫到其中的目錄 (`--gitrepo-dir`)，以及要複製的修訂認可雜湊 (`--gitrepo-revision`)。
 
-此範例命令會複製 Microsoft [aci helloworld] [ aci-helloworld]範例應用程式到`/mnt/aci-helloworld`容器執行個體中：
+此範例命令會複製 Microsoft [aci helloworld][aci-helloworld]範例應用程式到`/mnt/aci-helloworld`容器執行個體中：
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +50,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-若要確認已掛接 gitRepo 磁碟區，請使用 [az container exec][az-container-exec] 來啟動容器中的 Shell 並列出目錄：
+若要確認已掛接 gitRepo 磁碟區，啟動的容器中的 shell [az container exec][az-container-exec]並列出目錄：
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh

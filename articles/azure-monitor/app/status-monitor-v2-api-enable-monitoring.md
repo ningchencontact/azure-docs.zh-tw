@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479633"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807108"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>狀態監視器 v2 API:啟用 ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>狀態監視器 v2 API:啟用 ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 本文說明的 cmdlet 時的成員[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
 
@@ -93,9 +93,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 - **MachineFilter**需要C#的電腦或 VM 名稱的 regex。
     - '。 *' 會比對所有
     - 'ComputerName' 會使用指定的確切名稱符合的電腦。
-- **AppFilter**需要C#的電腦或 VM 名稱的 regex。
+- **AppFilter**需要C#regex 的 IIS 站台名稱。 您可以取得一份網站伺服器上執行命令[get iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite)。
     - '。 *' 會比對所有
-    - 'ApplicationName' 會使用指定的確切名稱符合只為 IIS 應用程式。
+    - 'SiteName' 會使用指定的確切名稱符合 IIS 站台。
 - **InstrumentationKey** ，才可啟用監視的應用程式符合上述兩個篩選條件。
     - 將此值保留為 null，如果您想要定義規則，以排除監視。
 

@@ -40,7 +40,7 @@ ms.locfileid: "60527463"
 > [!NOTE]
 > 內部快取不適用於 Azure API 管理的 [耗用量]  層。 您可以[改用外部 Azure Redis 快取](api-management-howto-cache-external.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 

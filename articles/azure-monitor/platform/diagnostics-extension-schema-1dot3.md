@@ -421,7 +421,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|描述|  
 |--------------------|-----------------|  
 |**PublicConfig**|必要。 請參閱本頁面上其他部分的說明。|  
-|**PrivateConfig**|選用。 請參閱本頁面上其他部分的說明。|  
+|**PrivateConfig**|選擇性。 請參閱本頁面上其他部分的說明。|  
 |**IsEnabled**|布林值。 請參閱本頁面上其他部分的說明。|  
 
 ## <a name="publicconfig-element"></a>PublicConfig 元素  
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 4096 MB。<br />
 |**useProxyServer** | 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|
-|**sinks** | 在 1.5 中新增。 選用。 針對支援接收的所有子元素，同時要傳送診斷資料的接收位置指標。 接收範例為 Application Insights 或事件中樞。|  
+|**sinks** | 在 1.5 中新增。 選擇性。 針對支援接收的所有子元素，同時要傳送診斷資料的接收位置指標。 接收範例為 Application Insights 或事件中樞。|  
 
 
 <br /> <br />
@@ -476,9 +476,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|描述|  
 |----------------|-----------------|  
-|**containerName**|選用。 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。|  
-|**crashDumpType**|選用。  設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
-|**directoryQuotaPercentage**|選用。  設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
+|**containerName**|選擇性。 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。|  
+|**crashDumpType**|選擇性。  設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
+|**directoryQuotaPercentage**|選擇性。  設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
 
 |子元素|描述|  
 |--------------------|-----------------|  
@@ -583,8 +583,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|以下為必要屬性：<br /><br /> - **counterSpecifier** - 效能計數器的名稱。 例如： `\Processor(_Total)\% Processor Time`。 若要在主機上取得效能計數器清單，請執行 `typeperf` 命令。<br /><br /> - **sampleRate** - 應針對計數器進行取樣的頻率。<br /><br /> 選用屬性：<br /><br /> **unit** - 計數器的測量單位。|
-|**sinks** | 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Azure 監視器或事件中樞。|    
+|**PerformanceCounterConfiguration**|以下為必要屬性：<br /><br /> - **counterSpecifier** - 效能計數器的名稱。 例如： `\Processor(_Total)\% Processor Time` 。 若要在主機上取得效能計數器清單，請執行 `typeperf` 命令。<br /><br /> - **sampleRate** - 應針對計數器進行取樣的頻率。<br /><br /> 選用屬性：<br /><br /> **unit** - 計數器的測量單位。|
+|**sinks** | 在 1.5 中新增。 選擇性。 同時要傳送診斷資料的接收位置指標。 例如，Azure 監視器或事件中樞。|    
 
 
 
@@ -598,7 +598,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |-------------------|-----------------|  
-|**DataSource**|要收集的 Windows 事件記錄。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 若要收集所有事件，請指定 "*"|  
+|**DataSource**|要收集的 Windows 事件記錄。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 若要收集所有事件，請指定 "*"|  
 
 
 
@@ -610,12 +610,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  定義基本 Azure 記錄的緩衝區組態。  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|**字串**|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|**duration**|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
-|**sinks** |**字串**| 在 1.5 中新增。 選用。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
+|**bufferQuotaInMB**|**unsignedInt**|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferLogLevelFilter**|**string**|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferPeriod**|**duration**|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**sinks** |**string**| 在 1.5 中新增。 選擇性。 同時要傳送診斷資料的接收位置指標。 例如，Application Insights 或事件中樞。|  
 
 ## <a name="dockersources"></a>DockerSources
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -642,14 +642,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  定義要傳送診斷資料的目標位置。 例如 Application Insights 服務。  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**name**|字串|識別 sinkname 的字串。|  
+|**name**|string|識別 sinkname 的字串。|  
 
-|元素|類型|描述|  
+|元素|type|描述|  
 |-------------|----------|-----------------|  
-|**Application Insights**|字串|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
-|**Channels**|字串|每個可額外篩選該資料流的其中一個|  
+|**Application Insights**|string|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
+|**Channels**|string|每個可額外篩選該資料流的其中一個|  
 
 ## <a name="channels-element"></a>Channels 元素  
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -658,9 +658,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  針對通過接收之記錄資料的資料流定義篩選器。  
 
-|元素|類型|描述|  
+|元素|type|描述|  
 |-------------|----------|-----------------|  
-|**Channel**|字串|請參閱本頁面上其他部分的說明。|  
+|**Channel**|string|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="channel-element"></a>Channel 元素
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -669,10 +669,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  定義要傳送診斷資料的目標位置。 例如 Application Insights 服務。  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |----------------|----------|-----------------|  
-|**logLevel**|**字串**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**name**|**字串**|要參考之通道的唯一名稱|  
+|**logLevel**|**string**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**name**|**string**|要參考之通道的唯一名稱|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig 元素
@@ -680,7 +680,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  已在 1.3 版中新增。  
 
- 選用  
+ 選擇性  
 
  存放儲存體帳戶的私用詳細資料 (名稱、金鑰和端點)。 此資訊會傳送至虛擬機器，但無法從中擷取。  
 

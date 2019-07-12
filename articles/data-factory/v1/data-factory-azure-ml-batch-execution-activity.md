@@ -557,7 +557,7 @@ Azure Machine Learning Studio Web 服務的讀取器和寫入器模組可能已�
 ## <a name="frequently-asked-questions"></a>常見問題集
 **問：** 我擁有巨量資料管線所產生的多個檔案。 我可以使用 AzureMLBatchExecution 活動來處理所有檔案嗎？
 
-**答：** 是。 如需詳細資料，請參閱 **使用讀取器模組讀取 Azure Blob 中多個檔案的資料** 一節。
+**答：** 是的。 如需詳細資料，請參閱 **使用讀取器模組讀取 Azure Blob 中多個檔案的資料** 一節。
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Azure Machine Learning Studio 批次評分活動
 如果您使用 **AzureMLBatchScoring** 活動來與 Azure Machine Learning 整合，建議您使用最新的 **AzureMLBatchExecution** 活動。
@@ -629,7 +629,7 @@ Azure Machine Learning Studio Web 服務的讀取器和寫入器模組可能已�
 >
 >
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [Azure 部落格文章：開始使用 Azure Data Factory 和 Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md

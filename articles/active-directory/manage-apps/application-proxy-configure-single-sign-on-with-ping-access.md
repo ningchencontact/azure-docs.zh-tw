@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481478"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724005"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -53,10 +53,11 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 已與 PingAccess 中合作
 應用程式 Proxy 連接器是 Windows Server 服務，將引導您已發佈的應用程式到您的遠端員工的流量。 如需詳細安裝指示，請參閱[教學課程：Azure Active Directory 中新增透過應用程式 Proxy 遠端存取內部部署應用程式](application-proxy-add-on-premises-application.md)。
 
 1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)身為應用程式系統管理員。 **Azure Active Directory 系統管理中心**頁面隨即出現。
-2. 選取  **Azure Active Directory** > **應用程式 proxy** > **下載連接器服務**。 **應用程式 Proxy 連接器下載**頁面隨即出現。
+1. 選取  **Azure Active Directory** > **應用程式 proxy** > **下載連接器服務**。 **應用程式 Proxy 連接器下載**頁面隨即出現。
 
    ![應用程式 proxy 連接器下載](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. 請遵循安裝指示。
+
+1. 請遵循安裝指示。
 
 下載連接器應會自動會啟用為您的目錄的應用程式 Proxy，但如果沒有，您可以選取**啟用應用程式 Proxy**。
 
@@ -138,8 +139,8 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 已與 PingAccess 中合作
 
 | Azure AD 的欄位名稱 | PingAccess 欄位名稱 | 資料格式 |
 | --- | --- | --- |
-| **應用程式 （用戶端） 識別碼** | **用戶端識別碼** | GUID |
-| **目錄 （租用戶） 識別碼** | **簽發者** | GUID |
+| **應用程式 (用戶端) 識別碼** | **用戶端識別碼** | GUID |
+| **目錄 (租用戶) 識別碼** | **簽發者** | GUID |
 | `PingAccess key` | **用戶端祕密** | 隨機字串 |
 
 若要收集此資訊：
@@ -205,7 +206,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>使用的宣告對應原則 （選用）
 
-[宣告對應原則 （預覽）](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/)的屬性不存在於 azure Ad。 宣告對應可讓您藉由新增額外的自訂宣告您的 ADFS 或使用者物件所支援將舊的內部部屬應用程式移轉至雲端
+[宣告對應原則 （預覽）](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties)的屬性不存在於 azure Ad。 宣告對應可讓您藉由新增額外的自訂宣告您的 ADFS 或使用者物件所支援將舊的內部部屬應用程式移轉至雲端
 
 若要讓應用程式使用自訂宣告，並且包含其他欄位，請確定您已經也[建立自訂宣告對應原則並將它指派給應用程式](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
 

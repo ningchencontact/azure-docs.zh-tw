@@ -49,15 +49,15 @@ ms.locfileid: "60592165"
 
 3. 在 [Marketplace]  搜尋視窗中輸入**資源群組**。
 
-   ![資源群組](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. 按一下 [資源群組]  。
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 6. 在 [資源群組名稱]  下方，輸入資源群組的名稱。 例如，輸入 **sql-ha-rg**。
 7. 如果您有多個 Azure 訂用帳戶，請確認此訂用帳戶是您要在其中建立可用性群組的 Azure 訂用帳戶。
 8. 選取位置。 此位置是您要建立可用性群組的 Azure 區域。 本文會在一個 Azure 位置建置所有資源。
 9. 確認已核取 [釘選到儀表板]  。 這個選擇性設定會在 Azure 入口網站儀表板上放置資源群組的捷徑。
 
-   ![資源群組](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. 按一下 [建立]  以建立資源群組。
 
@@ -89,13 +89,13 @@ Azure 會建立資源群組，並在入口網站中釘選資源群組的捷徑�
    | **子網路位址範圍** |10.33.0.0/29 |
    | **訂用帳戶** |指定您打算使用的訂用帳戶。 如果您只有一個訂用帳戶，則**訂用帳戶**為留白。 |
    | **資源群組** |選擇 [使用現有的]  ，然後挑選資源群組的名稱。 |
-   | **位置** |指定 Azure 位置。 |
+   | **Location** |指定 Azure 位置。 |
 
    您的位址空間和子網路位址範圍可能與此表有所不同。 視您的訂用帳戶而定，入口網站會建議可用的位址空間和對應的子網路位址範圍。 如果沒有足夠的位址空間可供使用，請使用不同的訂用帳戶。
 
    此範例會使用子網路名稱 **Admin**。此子網路用於網域控制站。
 
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 
    ![設定虛擬網路](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/06-configurevirtualnetwork.png)
 
@@ -131,7 +131,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
 | **子網路位址範圍** |這個值取決於您訂用帳戶中的可用位址範圍。 一般的值是 10.0.1.0/24。 |
 | **訂用帳戶** |指定您打算使用的訂用帳戶。 |
 | **資源群組** |**SQL-HA-RG** |
-| **位置** |指定您為資源群組選擇的相同位置。 |
+| **Location** |指定您為資源群組選擇的相同位置。 |
 
 ## <a name="create-availability-sets"></a>建立可用性設定組
 
@@ -182,7 +182,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
 | **密碼** |Contoso!0000 |
 | **訂用帳戶** |*您的訂用帳戶* |
 | **資源群組** |SQL-HA-RG |
-| **位置** |*您的位置* |
+| **Location** |*您的位置* |
 | **大小** |DS1_V2 |
 | **儲存體** | [使用受控磁碟]   - [是]  |
 | **虛擬網路** |autoHAVNET |
@@ -262,7 +262,7 @@ Azure 會建立虛擬機器。
 
 3. 按一下 [自訂]  ，然後輸入主要網域控制站的私人 IP 位址。
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 ### <a name="configure-the-second-domain-controller"></a>設定第二個網域控制站
 在主要網域控制站重新開機之後，您可以設定第二個網域控制站。 這個選擇性步驟適用於高可用性。 請依照下列步驟設定第二個網域控制站：
@@ -491,7 +491,7 @@ Azure 會建立虛擬機器。
 
    ![SQL 防火牆](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
-5. 单击“下一步”  。
+5. 按一下 [下一步]  。
 6. 在 [動作]  頁面上，保持選取 [允許連線]  ，然後按 [下一步]  。
 7. 在 [設定檔]  頁面上，接受預設設定，然後按 [下一步]  。
 8. 在 [名稱]  頁面上的 [名稱]  文字方塊中指定規則名稱 (例如 **Azure LB Probe**)，然後按一下 [完成]  。

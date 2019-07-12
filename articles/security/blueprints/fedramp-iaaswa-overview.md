@@ -23,7 +23,7 @@ ms.locfileid: "60586102"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的 IaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov) 為美國政府層面的計劃，提供雲端產品與服務的安全評估、授權及持續監視的標準方法。 此「Azure 安全性與合規性藍圖自動化」所提供的指引可用來部署符合 FedRAMP 規範的基礎結構即服務 (IaaS) 環境，且此環境適合網際網路面向的簡易 Web 應用程式。 此解決方案將一般參考架構的 Azure 資源部署和設定自動化，其中示範的方式讓客戶能符合特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定他們自己的解決方案之基礎。 此解決方案會根據 NIST SP 800-53 實作 FedRAMP 高標準基準的控制措施子集。 如需 FedRAMP 需求和此解決方案的詳細資訊，請參閱[合規性文件](#compliance-documentation)。
 > [!NOTE]

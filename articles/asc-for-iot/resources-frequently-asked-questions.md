@@ -2,24 +2,25 @@
 title: Azure 資訊安全中心的常見問題 IoT 預覽 |Microsoft Docs
 description: 尋找最常見問題集解答有關 Azure 資訊安全中心的 IoT 功能和服務。
 services: asc-for-iot
-ms.service: ASCforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 97fda6c2-1ecb-491f-b48d-41788bd7e0d3
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: f15cd14ddc3a489db3abbbd2665d242470b5a821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e04e21d55722b8cb90b277b34b5bffab343c575
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200698"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616585"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IoT 的 azure 資訊安全中心常見問題集  
 
@@ -51,7 +52,7 @@ Iot 的 ASC 整合至 Azure IoT 中樞安全性，並提供管理每日商務解
 
 ## <a name="do-i-have-to-be-an-azure-iot-customer"></a>必須是 Azure IoT 客戶嗎？
 
-是。 Iot 的 ASC 是依賴 Azure IoT 連線和基礎結構而定。
+是的。 Iot 的 ASC 是依賴 Azure IoT 連線和基礎結構而定。
 
 ## <a name="do-i-have-to-install-an-agent"></a>必須安裝代理程式嗎？
 
@@ -93,7 +94,7 @@ ASC iot 會提供可設定代理程式掃描、 資料緩衝區，以及建立�
 
 ## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>代理程式訊息會佔用從 IoT 中樞的配額？
 
-是。 代理程式傳輸資料將會在您的 IoT 中樞配額計算。 
+是的。 代理程式傳輸資料將會在您的 IoT 中樞配額計算。 
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>接下來呢？ 我已經安裝了代理程式，看不到任何活動或記錄檔
 
@@ -129,7 +130,7 @@ ASC iot 會提供可設定代理程式掃描、 資料緩衝區，以及建立�
 
 ## <a name="can-i-create-my-own-alerts"></a>我可以建立自己的警示嗎？
 
-是。 您可以在組預先決定的行為，例如 IP 位址和開啟的連接埠上設定自訂的警示。 請參閱[建立自訂警示](quickstart-create-custom-alerts.md)若要深入了解自訂警示和如何讓它們。 
+是的。 您可以在組預先決定的行為，例如 IP 位址和開啟的連接埠上設定自訂的警示。 請參閱[建立自訂警示](quickstart-create-custom-alerts.md)若要深入了解自訂警示和如何讓它們。 
 
 ## <a name="where-can-i-see-logs-can-i-customize-logs"></a>哪裡可以查看記錄檔？ 我可以自訂記錄檔嗎？
 

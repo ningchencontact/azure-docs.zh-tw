@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274408"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786542"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
 
@@ -82,7 +82,7 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > [!IMPORTANT]
 > 查詢必須**投影** **識別碼**欄位，才能使分頁運作。 如果遺漏查詢，不會包含回應 **$skipToken**。
 
-如需範例，請參閱 REST API 文件中的[下一頁查詢](/rest/api/azureresourcegraph/resources/resources#next_page_query)。
+如需範例，請參閱 REST API 文件中的[下一頁查詢](/rest/api/azureresourcegraph/resources/resources#next-page-query)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,7 +4,7 @@ description: SAP HANA on Azure (大型執行個體) 的上線需求。
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2f596f44acfd51b1e2449bc77eed6add0d9d90b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679046"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707399"
 ---
 # <a name="onboarding-requirements"></a>上線需求
 
@@ -62,7 +62,7 @@ ms.locfileid: "60679046"
 > 針對類型 II 單元，此時只支援 SLES 12 SP2 作業系統版本。 
 
 
-**資料庫**
+**[資料庫備份]**
 
 - SAP HANA (平台或企業版) 的授權和軟體安裝元件。
 

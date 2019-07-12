@@ -63,23 +63,23 @@ ms.locfileid: "60749252"
 
 | .NET 主體物件類型 | 對應的 AMQP 類型 | AMQP 主體區段類型 |
 | --- | --- | --- |
-| 布林 |boolean |AMQP 值 |
+| bool |boolean |AMQP 值 |
 | byte |ubyte |AMQP 值 |
 | ushort |ushort |AMQP 值 |
 | uint |uint |AMQP 值 |
 | ulong |ulong |AMQP 值 |
 | sbyte |byte |AMQP 值 |
 | short |short |AMQP 值 |
-| int |int |AMQP 值 |
+| ssNoversion |ssNoversion |AMQP 值 |
 | long |long |AMQP 值 |
-| float |float |AMQP 值 |
+| FLOAT |FLOAT |AMQP 值 |
 | double |double |AMQP 值 |
 | decimal |decimal128 |AMQP 值 |
 | char |char |AMQP 值 |
 | Datetime |timestamp |AMQP 值 |
 | Guid |uuid |AMQP 值 |
 | byte[] |binary |AMQP 值 |
-| 字串 |字串 |AMQP 值 |
+| string |string |AMQP 值 |
 | System.Collections.IList |list |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Array |array |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。 |
 | System.Collections.IDictionary |map |AMQP 值︰集合中包含的項目只能是在此表格中定義的項目。注意︰僅支援 String 索引鍵。 |

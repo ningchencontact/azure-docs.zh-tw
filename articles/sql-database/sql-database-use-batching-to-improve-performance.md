@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-在前一示例中，**SqlCommand** 对象从表值参数 **\@TestTvp** 插入行。 先前建立的 **DataTable** 物件透過 **SqlCommand.Parameters.Add** 方法指派給此參數。 在一個呼叫中批次處理插入的效能明顯高於循序插入。
+在上述範例中， **SqlCommand**是資料表值參數，將資料列物件插入 **\@TestTvp**。 先前建立的 **DataTable** 物件透過 **SqlCommand.Parameters.Add** 方法指派給此參數。 在一個呼叫中批次處理插入的效能明顯高於循序插入。
 
 若要進一步改善上述範例，請使用預存程序代替文字式命令。 下列 Transact-SQL 命令會建立一個接受 **SimpleTestTableType** 資料表值參數的預存程序。
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 在大部分情況下，資料表值參數的效能同於或高於其他批次處理技術。 資料表值參數通常較適合，因為比其他選項更有彈性。 例如，其他技術 (例如 SQL 大量複製) 只允許插入新資料列。 但使用資料表值參數時，您可以在預存程序中使用邏輯，判斷哪些資料列是更新和哪些是插入。 也可以修改資料表類型來包含「作業」資料行，指出是否應該插入、更新或刪除指定的資料列。
 
-下表显示使用表值参数的即席测试结果（毫秒）。
+下表顯示使用資料表值參數的臨機操作測試結果，以毫秒為單位。
 
 | 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
@@ -232,7 +232,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 在某些情況下，大量複製比資料表值參數更適合。 請參閱[資料表值參數](https://msdn.microsoft.com/library/bb510489.aspx)一文中的資料表值參數與 BULK INSERT 作業的比較表。
 
-以下即席测试结果显示具有 **SqlBulkCopy** 的批处理性能（毫秒）。
+下列臨機操作測試結果顯示的批次處理效能**SqlBulkCopy**以毫秒為單位。
 
 | 作業 | 內部部署至 Azure (亳秒) | Azure 相同資料中心 (毫秒) |
 | --- | --- | --- |
@@ -247,7 +247,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 > 
 > 
 
-批次較小時，使用資料表值參數的效能勝過 **SqlBulkCopy** 類別。 不過，在測試 1,000 和 10,000 個資料列時，**SqlBulkCopy** 的執行速度比資料表值參數快 12-31%。 与表值参数一样，**SqlBulkCopy** 是执行批处理插入的一个可选方法，特别是在与非批处理操作的性能作对比时。
+批次較小時，使用資料表值參數的效能勝過 **SqlBulkCopy** 類別。 不過，在測試 1,000 和 10,000 個資料列時，**SqlBulkCopy** 的執行速度比資料表值參數快 12-31%。 就像資料表值參數一樣， **SqlBulkCopy** 是批次插入的理想選擇，尤其與非批次作業的效能相比較。
 
 如需 ADO.NET 中的大量複製的詳細資訊，請參閱 [SQL Server 中的大量複製作業](https://msdn.microsoft.com/library/7ek5da1a.aspx)。
 
@@ -277,7 +277,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 此範例主要是示範基本概念。 在更實際的案例中會循環查看需要的實體，以同時建構查詢字串和命令參數。 總計以 2100 個查詢參數為限，此方法可處理的資料列總數受限於此。
 
-以下即席测试结果显示此类插入语句的性能（毫秒）。
+下列臨機操作測試結果會顯示這種類型的 insert 陳述式的效能，以毫秒為單位。
 
 | 作業 | 資料表值參數 (毫秒) | 單一陳述式 INSERT (毫秒) |
 | --- | --- | --- |
@@ -326,7 +326,7 @@ Entity Framework 目前不支援批次處理。 社群中不同的開發人員�
 
 在我們的測試中，將大型批次分成小塊通常沒有好處。 事實上，這樣分割通常會導致效能比提交單一大型批次更慢。 例如，假設您想要插入 1000 個資料列。 下表顯示分割成較小的批次時，使用資料表值參數插入 1000 個資料列所需的時間。
 
-| 批大小 | 反覆運算次數 | 資料表值參數 (毫秒) |
+| 批次大小 | 反覆運算次數 | 資料表值參數 (毫秒) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
@@ -536,7 +536,7 @@ CREATE TYPE PurchaseOrderDetailTableType AS TABLE
 GO
 ```
 
-然後，定義一個可接受這幾種資料表的預存程序。 此程序可讓應用程式以單一呼叫在本機批次處理一組訂單和訂單詳細資料。 以下 Transact-SQL 提供此采购订单示例的完整存储过程声明。
+然後，定義一個可接受這幾種資料表的預存程序。 此程序可讓應用程式以單一呼叫在本機批次處理一組訂單和訂單詳細資料。 下列 Transact-SQL 提供這個採購單範例的完整預存程序宣告。
 
 ```sql
 CREATE PROCEDURE sp_InsertOrdersBatch (
@@ -636,7 +636,7 @@ CREATE TYPE EmployeeTableType AS TABLE
 GO
 ```
 
-接下来，创建一个使用 MERGE 语句的存储过程或编写包含该语句的代码来执行更新和插入。 下列範例對 EmployeeTableType 類型的資料表值參數 @employees 使用 MERGE 陳述式。 此處未顯示 @employees 資料表的內容。
+接下來，建立預存程序或撰寫程式碼，使用 MERGE 陳述式來執行更新和插入。 下列範例對 EmployeeTableType 類型的資料表值參數 @employees 使用 MERGE 陳述式。 此處未顯示 @employees 資料表的內容。
 
 ```sql
 MERGE Employee AS target

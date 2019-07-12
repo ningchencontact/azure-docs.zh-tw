@@ -125,7 +125,7 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 可讓您存取 Azure 儲存體中 Azure Blob、佇列、資料表和檔案服務的帳戶。 儲存體帳戶名稱可定義 Azure 儲存體資料物件的唯一命名空間。  
 請參閱[關於 Azure 儲存體帳戶](storage/common/storage-create-storage-account.md)
 
-## <a name="subscription"></a>訂用帳戶
+## <a name="subscription"></a>subscription
 客戶與 Microsoft 的合約，可讓他們取得 Azure 服務。 訂用帳戶定價及相關條款是由針對訂用帳戶所選擇的供應項目來控管。
 請參閱 [Microsoft 線上訂用帳戶合約](https://azure.microsoft.com/support/legal/subscription-agreement/)和 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
@@ -153,7 +153,7 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 ## <a name="web-app"></a>Web 應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [開始使用 Azure](https://azure.microsoft.com/get-started/)
 * [雲端資源中心](https://azure.microsoft.com/resources/)  
