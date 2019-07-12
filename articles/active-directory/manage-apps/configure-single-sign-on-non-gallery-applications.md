@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550344"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807642"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>在 Microsoft 身分識別平台中設定單一登入非資源庫應用程式
 
@@ -50,13 +50,14 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 若要連接未列出的應用程式，使用應用程式整合範本，執行下列步驟：
 
 1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)使用 Microsoft 身分識別平台系統管理員帳戶。
-2. 選取 **企業應用程式** > **新的應用程式**。
-3. （選擇性但建議使用）在 **從資源庫新增**搜尋方塊中，輸入應用程式的顯示名稱。 如果應用程式出現在搜尋結果中，選取它，並略過此程序的其餘部分。
-4. 選取 **非資源庫應用程式**。 **新增您自己的應用程式**頁面隨即出現。
+1. 選取 **企業應用程式** > **新的應用程式**。
+1. （選擇性但建議使用）在 **從資源庫新增**搜尋方塊中，輸入應用程式的顯示名稱。 如果應用程式出現在搜尋結果中，選取它，並略過此程序的其餘部分。
+1. 選取 **非資源庫應用程式**。 **新增您自己的應用程式**頁面隨即出現。
 
-   ![新增應用程式](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. 輸入新的應用程式的顯示名稱。
-6. 選取 [新增]  。
+   ![顯示 新增您自己的應用程式頁面](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. 輸入新的應用程式的顯示名稱。
+1. 選取 [新增]  。
 
 藉由這種方式新增應用程式，您可以提供類似於預先整合的應用程式。 先選取**單一登入**從應用程式的資訊看板。 下一個頁面 (**選取 單一登入方法**) 提供選項，以設定 SSO:
 
@@ -64,7 +65,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 - **密碼式**
 - **已連結**
 
-![選取單一登入方法](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![顯示 [選取單一登入方法] 頁面](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 如需這些選項的詳細資訊，請參閱這篇文章的下列各節。
 
@@ -72,7 +73,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 選取  **SAML**選項來設定應用程式的 SAML 型驗證。 （這個選項需要應用程式支援 SAML 2.0）。**設定單一登入使用 SAML 設定**頁面隨即出現。
 
-![設定 單一登入使用 SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![顯示 設定單一登入 SAML 頁面](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 此頁面具有五個不同的標題：
 
@@ -90,7 +91,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 若要設定 Azure AD，請前往**基本 SAML 組態**標題並選取其**編輯**圖示 （鉛筆）。 您可手動輸入值或上傳中繼資料檔案，以擷取欄位的值。
 
-![基本的 SAML 組態](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![顯示基本的 SAML 組態 頁面](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 下列兩個欄位是必要欄位：
 
@@ -141,14 +142,14 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 - 移至**使用者屬性和宣告**標題並選取**編輯**圖示。 **使用者屬性] & [宣告**頁面隨即出現。
 
-![使用者屬性和宣告](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![顯示 使用者屬性與宣告頁面](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 您可能需要編輯在 SAML 權杖中發出，原因有兩個宣告：
 
 - 應用程式需要不同的宣告 URI 或宣告值組。
 - 您的應用程式需要**命名的識別項值**宣告必須是在 Microsoft 身分識別平台中所儲存之 username （也稱為使用者主體名稱） 以外的項目。
 
-如需詳細資訊，請參閱[操作說明：自訂的企業應用程式在 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)。
+如需詳細資訊，請參閱[如何：自訂的企業應用程式在 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)。
 
 ### <a name="review-certificate-expiration-data-status-and-email-notification"></a>檢閱憑證到期資料、狀態和電子郵件通知
 
@@ -158,7 +159,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 若要檢視、 建立或下載您的憑證 （作用中或非使用中），移至**SAML 簽署憑證**標題並選取**編輯**圖示。 **SAML 簽署憑證**隨即出現。
 
-![SAML 簽署憑證](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![顯示 [SAML 簽署憑證] 頁面](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 請確認憑證具有：
 
@@ -182,13 +183,13 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 若要將新的使用者或群組指派給您的應用程式中：
 
 1. 在 應用程式提要欄位中，選取**使用者和群組**。 **\<應用程式名稱 >-使用者和群組**頁面隨即出現，顯示目前指派的使用者和群組的清單。
-2. 選取 **將使用者新增**。 **加入指派**頁面隨即出現。
-3. 選取 **使用者和群組 (\<數字 > 選取)** 。 **使用者和群組**頁面隨即出現，顯示一份可用的使用者和群組。
-4. 型別或捲軸來尋找使用者或您想要從清單指派的群組。
-5. 選取每個使用者或群組，您要新增，然後選取**選取** 按鈕。 **使用者和群組**頁面就會消失。
-6. 在 **新增的工作分派**頁面上，選取**指派**。 **\<應用程式名稱 >-使用者和群組**與顯示在清單中的其他使用者的頁面隨即出現。
+1. 選取 **將使用者新增**。 **加入指派**頁面隨即出現。
+1. 選取 **使用者和群組 (\<數字 > 選取)** 。 **使用者和群組**頁面隨即出現，顯示一份可用的使用者和群組。
+1. 型別或捲軸來尋找使用者或您想要從清單指派的群組。
+1. 選取每個使用者或群組，您要新增，然後選取**選取** 按鈕。 **使用者和群組**頁面就會消失。
+1. 在 **新增的工作分派**頁面上，選取**指派**。 **\<應用程式名稱 >-使用者和群組**與顯示在清單中的其他使用者的頁面隨即出現。
 
-   ![應用程式的使用者和群組](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![顯示 [應用程式的使用者和群組] 頁面](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 從這份清單中，您可以：
 
@@ -213,26 +214,29 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 選取後**密碼型**，系統會提示您輸入的應用程式的 web 型登入頁面 URL。
 
-![密碼單一登入](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![顯示 [登入 URL] 頁面，輸入登入 URL](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 然後執行下列步驟：
 
 1. 輸入的 URL。 此字串必須包含使用者名稱輸入的欄位的頁面。
-2. 選取 [ **儲存**]。 Azure AD 會嘗試剖析輸入的使用者名稱和密碼輸入的登入頁面。
-3. 如果 Azure AD 的剖析嘗試失敗，請選取**設定\<應用程式名稱 > 密碼單一登入設定**以顯示**設定登入**頁面。 （如果該嘗試成功，您可以忽略此程序的其餘部分）。
-4. 選取 **手動偵測登入欄位**。 會出現描述手動偵測登入欄位的其他指示。
+1. 選取 [ **儲存**]。 Azure AD 會嘗試剖析輸入的使用者名稱和密碼輸入的登入頁面。
+1. 如果 Azure AD 的剖析嘗試失敗，請選取**設定\<應用程式名稱 > 密碼單一登入設定**以顯示**設定登入**頁面。 （如果該嘗試成功，您可以忽略此程序的其餘部分）。
+1. 選取 **手動偵測登入欄位**。 會出現描述手動偵測登入欄位的其他指示。
 
    ![手動設定密碼型單一登入](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. 選取 **擷取登入欄位**。 擷取狀態 頁面隨即開啟新的索引標籤，顯示的訊息**中繼資料擷取目前正在進行**。
-6. 如果**需要的存取面板擴充功能**方塊會出現在新的索引標籤中，選取**立即安裝**安裝**My Apps 安全登入延伸模組**瀏覽器延伸模組。 （瀏覽器擴充功能需要 Microsoft Edge、 Chrome 或 Firefox）。然後安裝、 啟動，並啟用延伸模組，並重新整理擷取狀態 頁面。
+
+1. 選取 **擷取登入欄位**。 擷取狀態 頁面隨即開啟新的索引標籤，顯示的訊息**中繼資料擷取目前正在進行**。
+1. 如果**需要的存取面板擴充功能**方塊會出現在新的索引標籤中，選取**立即安裝**安裝**My Apps 安全登入延伸模組**瀏覽器延伸模組。 （瀏覽器擴充功能需要 Microsoft Edge、 Chrome 或 Firefox）。然後安裝、 啟動，並啟用延伸模組，並重新整理擷取狀態 頁面。
 
    瀏覽器延伸模組則會開啟另一個索引標籤會顯示輸入的 URL。
-7. 在輸入的 url 索引標籤上，進行登入程序。 在 [使用者名稱和密碼] 欄位中，填滿，然後再次嘗試登入。 （您不需要提供正確的密碼）。
+
+1. 在輸入的 url 索引標籤上，進行登入程序。 在 [使用者名稱和密碼] 欄位中，填滿，然後再次嘗試登入。 （您不需要提供正確的密碼）。
 
    出現提示，詢問您要儲存所擷取的登入欄位。
-8. 選取 [確定]  。 索引標籤關閉、 瀏覽器延伸模組更新擷取狀態 頁面與訊息**中繼資料已更新應用程式**，以及索引標籤也會關閉該瀏覽器。
-9. 在 Azure AD**設定登入**頁面上，選取**好，我才能夠登入應用程式成功**。
-10. 選取 [確定]  。
+
+1. 選取 [確定]  。 索引標籤關閉、 瀏覽器延伸模組更新擷取狀態 頁面與訊息**中繼資料已更新應用程式**，以及索引標籤也會關閉該瀏覽器。
+1. 在 Azure AD**設定登入**頁面上，選取**好，我才能夠登入應用程式成功**。
+1. 選取 [確定]  。
 
 之後擷取的登入頁面，您可能會指派使用者和群組，以及您可以設定認證原則，就像一般[密碼 SSO 應用程式](what-is-single-sign-on.md)。
 
@@ -250,6 +254,6 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 ## <a name="related-articles"></a>相關文章
 
-- [操作說明：自訂的企業應用程式在 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)
+- [如何：自訂的企業應用程式在 SAML 權杖中發出的宣告](../develop/active-directory-saml-claims-customization.md)
 - [偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式](../develop/howto-v1-debug-saml-sso-issues.md)
 - [Microsoft 身分識別平台 (先前稱為 Azure Active Directory 為開發人員)](../develop/index.yml)

@@ -4,7 +4,7 @@ description: 了解虛擬機器使用情況詳細資料
 services: virtual-machines
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-virtual-machine
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc341492779e6ed5aef2505a98ad8a116866fe4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743202"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695269"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>了解 Azure 虛擬機器使用情況
 分析您的 Azure 使用情況資料，可以深入了解使用量，以在整個組織內實現更妥善的成本管理與配置。 本文件會針對您的 Azure 計算使用量詳細資料，提供深入探討。 如需有關一般 Azure 使用情況的詳細資訊，請瀏覽至[了解您的帳單](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。
@@ -42,7 +42,7 @@ ms.locfileid: "60743202"
 | 已耗用的服務   | 您所使用的 Azure 平台服務。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
 | 資源群組     | 部署的資源正在其中執行的資源群組。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/virtual-machines/linux/vm-usage)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
 | 執行個體識別碼        | 資源的識別碼。 識別碼包含在建立時為資源指定的名稱。 針對 VM，執行個體識別碼將會包含 SubscriptionId、ResourceGroupName 和 VMName (或用於擴展集的擴展集名稱)。                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1”<br><br>或<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1”                                                                                           |
-| 標記               | 您指派給資源的標記。 使用標記為帳單記錄分組。 深入了解如何[標記虛擬機器](tag.md)。 這僅適用於 Resource Manager VM。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
+| Tags               | 您指派給資源的標記。 使用標記為帳單記錄分組。 深入了解如何[標記虛擬機器](tag.md)。 這僅適用於 Resource Manager VM。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | 其他資訊    | 服務專屬的中繼資料。 針對 VM，我們會在其他資訊欄位中填入下列資料： <ul><li>您所執行之映像類型專屬的映像。 在 [映像類型] 底下，尋找以下支援字串的完整清單。</li><li>服務類型：您部署的大小。</li><li>VMName：您 VM 的名稱。 只會針對擴展集 VM 填入此欄位。 如果您需要您擴展集 VM 的 VM 名稱，可以在上面的執行個體識別碼字串中找到。</li><li>UsageType:這會指定這個屬性表示的使用方式的型別。<ul><li>ComputeHR 是底層 VM 的「計算時數」使用情況，例如 Standard_D1_v2。</li><li>如果 VM 使用的是進階軟體 (如 Microsoft R Server)，則 ComputeHR_SW 將是進階軟體費用。</li></ul></li></ul>    | 虛擬機器 {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>虛擬機器擴展集 {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>進階軟體 {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
 ## <a name="image-type"></a>映像類型
@@ -82,7 +82,7 @@ ms.locfileid: "60743202"
 |    chinaeast             |    中國東部                            |
 |    chinanorth            |    中國北部                           |
 |    eastasia              |    東亞                             |
-|    eastus                |    美國東部                               |
+|    eastus                |    East US                               |
 |    eastus2               |    美國東部 2                             |
 |    GermanyCentral        |    德國中部                            |
 |    GermanyNortheast      |    德國東北部                          |

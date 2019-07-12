@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
-ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: alkohli
+ms.openlocfilehash: 7e488a1b2a63323361a597aaa6a438630fc09a05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698407"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621627"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>使用 Windows PowerShell for StorSimple 管理您的裝置
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 Microsoft Azure StorSimple 裝置。 一如其名，它是 Windows PowerShell 型的命令列介面，建置在有限制的 Runspace 之中。 從命令列使用者的觀點來看，有限制的 Runspace 就像是 Windows PowerShell 的受限版本。 這個介面具備 Windows PowerShell 的一些基本功能，同時又具有額外的專用 Cmdlet，相互搭配來管理 Microsoft Azure StorSimple 裝置。
 
