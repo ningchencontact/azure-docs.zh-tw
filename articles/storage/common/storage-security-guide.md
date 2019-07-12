@@ -244,7 +244,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 
     本文包含 SAS 模型的說明、共用存取簽章的範例，以及使用 SAS 最佳做法的建議。 同時也會討論撤銷授與的權限。
 
-* Authentication
+* 驗證
 
   * [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 共用存取簽章入門教學課程
@@ -368,7 +368,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
 如果您為 VM 中的磁碟啟用「Azure 磁碟加密」，則任何新寫入的資料都會同時受到 SSE 和「Azure 磁碟加密」加密。
 
-## <a name="storage-analytics"></a>存储分析
+## <a name="storage-analytics"></a>儲存體分析
 ### <a name="using-storage-analytics-to-monitor-authorization-type"></a>使用儲存體分析來監視授權類型
 對於每個儲存體帳戶，您可以啟用 Azure 儲存體分析，來執行記錄和儲存計量資料。 當您想要檢查儲存體帳戶的效能計量，或是因為發生效能問題而需要疑難排解儲存體帳戶時，這是一個絕佳的工具。
 

@@ -23,7 +23,7 @@ ms.locfileid: "65411020"
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>連接您的實驗室網路與 Azure 實驗室服務中的對等虛擬網路 
 本文章提供您的實驗室網路與另一個網路對等互連的相關資訊。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 虛擬網路對等互連可讓您順暢地連接 Azure 虛擬網路。 經過對等互連後，所有虛擬網路就可以作為一個整體來進行連線。 透過 Microsoft 骨幹基礎結構的對等互連的虛擬網路中的虛擬機器之間的流量會路由傳送，就像在相同的虛擬網路上，透過私人 IP 位址只有虛擬機器之間路由傳送。 如需詳細資訊，請參閱[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)。
 
 您可能需要您的實驗室網路連線與對等虛擬網路在某些情況下，包括下列項目：

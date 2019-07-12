@@ -3,17 +3,17 @@ title: 管理 Azure 地圖服務中的驗證 | Microsoft Docs
 description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務中的驗證。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952561"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837821"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>管理 Azure 地圖服務中的驗證
 
@@ -59,7 +59,7 @@ ms.locfileid: "65952561"
 
 ## <a name="grant-rbac-to-azure-maps"></a>將 RBAC 授與給 Azure 地圖服務
 
-您與 Azure AD 租用戶產生關聯的 Azure 地圖服務帳戶之後，您可以將使用者或應用程式以一或多個 Azure 地圖服務的存取控制角色指派來授與存取控制。
+您與 Azure AD 租用戶產生關聯的 Azure 地圖服務帳戶之後，您可以藉由指定使用者、 群組或應用程式以一或多個 Azure 地圖服務的存取控制角色來授與存取控制。
 
 1. 移至**存取控制 （iam） 分頁**，選取**角色指派**，然後選取**新增角色指派**。
 

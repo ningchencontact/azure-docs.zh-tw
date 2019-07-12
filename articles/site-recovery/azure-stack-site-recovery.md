@@ -61,7 +61,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 7. 複寫機器與組態伺服器通訊 (透過連接埠 HTTPS 443 輸入，以管理複寫)。 機器將複寫資料傳送到處理序伺服器 (透過連接埠 HTTPS 9443 輸入 - 可修改)。
 8. 流量透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute 公用對等互連。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 以下是設定此情節時所需的項目。
 

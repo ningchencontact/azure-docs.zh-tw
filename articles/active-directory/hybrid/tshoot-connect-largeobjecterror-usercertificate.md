@@ -117,7 +117,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | Name | 提供名稱  | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」  |
+    | 名稱 | 提供名稱  | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」  |
     | 描述 | 提供描述  | 例如，「如果 userCertificate 屬性有 15 個以上的值，匯出 NULL」。  |
     | 連線系統 | 選取 Azure AD 連接器  |
     | 連線系統物件類型 | **user** | |

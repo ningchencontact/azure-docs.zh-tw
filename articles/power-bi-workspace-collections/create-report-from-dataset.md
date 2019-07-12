@@ -2,18 +2,18 @@
 title: 在 Power BI 工作區集合中從資料集建立新的報告 | Microsoft Docs
 description: 您現在可以在自己的應用程式中，從資料集建立 Power BI 工作區集合報告。
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: e7499345f03e3deedb8972b0d51e8e676cb6c982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2034c62a17b71b92b43a7afd794c2c172288d58c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683444"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672456"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中，從資料集建立新的報告
 
@@ -196,7 +196,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [開始使用範例](get-started-sample.md)  
 [儲存報告](save-reports.md)  

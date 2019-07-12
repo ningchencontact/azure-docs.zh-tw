@@ -137,7 +137,7 @@ az network application-gateway rule create \
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在本教學課程中，您將了解如何：
 
 > * 設定網路
 > * 建立接聽程式和重新導向規則

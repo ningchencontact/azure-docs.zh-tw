@@ -128,7 +128,7 @@ ms.locfileid: "64701380"
 ## <a name="next-steps"></a>後續步驟
 若要建立具有多個網路介面或 IP 位址的 VM，請參閱下列文章：
 
-|Task|工具|
+|工作|工具|
 |---|---|
 |建立具有多個 NIC 的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |建立具有多個 IPv4 位址的單一 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

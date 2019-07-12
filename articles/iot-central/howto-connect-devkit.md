@@ -188,7 +188,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 從範例 Devkits 應用程式範本建立的應用程式包含具有下列特性的 MXChip 裝置範本：
 
-### <a name="measurements"></a>度量
+### <a name="measurements"></a>量測
 
 #### <a name="telemetry"></a>遙測
 
@@ -208,7 +208,7 @@ git clone https://github.com/Azure/iot-central-firmware
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>狀態 
-| Name          | Display name   | 正常 | 警告 | 危險 | 
+| 名稱          | Display name   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
@@ -233,9 +233,9 @@ git clone https://github.com/Azure/iot-central-firmware
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | 開啟      | 關      | 關閉     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 
-| 類型            | Display name | 欄位名稱 | 数据类型 |
+| type            | Display name | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 裝置屬性 | 裝置位置   | location  | location    |

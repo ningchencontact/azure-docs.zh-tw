@@ -31,7 +31,7 @@ ms.locfileid: "60625159"
 > [!Warning]
 > 下列步驟適用於流量記錄第 1 版。 如需詳細資訊，請參閱[網路安全性群組流量記錄簡介](network-watcher-nsg-flow-logging-overview.md)。 下列指示若未經修改，則不適用於第 2 版的記錄檔。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 網路安全性群組流量記錄可使用網路監看員來啟用。 流量記錄會流入 Azure Blob 儲存體。 Logstash 外掛程式可用來從 Blob 儲存體連線和處理流量記錄，並將記錄傳送到 Graylog。 流量記錄儲存在 Graylog 後，就可供進行分析並於自訂儀表板中視覺化呈現。
 
@@ -181,7 +181,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 2. 若要瀏覽至設定頁面，請選取頂端導覽列右邊的 [系統]  下拉式功能表，然後按一下 [輸入]  。
    或者，您也可以瀏覽至 `http://<graylog-server-ip>:9000/system/inputs`
 
-   ![開始使用](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![使用者入門](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
 3. 若要啟動新的輸入，請在 [選取輸入]  下拉式清單中選取 [GELF UDP]  ，然後填寫表單。 GELF 代表 Graylog Extended Log Format。 GELF 格式是由 Graylog 所開發的。 若要深入了解其優點，請參閱 Graylog [文件](https://docs.graylog.org/en/2.2/pages/gelf.html)。
 

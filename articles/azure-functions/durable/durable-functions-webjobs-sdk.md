@@ -27,7 +27,7 @@ ms.locfileid: "65872827"
 
 鏈結的 Durable Functions 範例是 WebJobs SDK 2.x 版中可用： 下載或複製[Durable Functions 存放庫](https://github.com/azure/azure-functions-durable-extension/)，然後前往*範例\\webjobssdk\\鏈結*資料夾。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您已熟悉 WebJobs SDK、Azure Functions 的C# 類別庫開發和 Durable Functions 等項目的基本概念。 如果您需要這些主題的簡介，請參閱下列資源：
 
@@ -230,7 +230,7 @@ while (true)
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. 設定儲存體連接字串和中的 Application Insights 檢測金鑰*appsettings.json*檔案中的，使用.NET Core 組態架構。 以下是範例：
+1. 設定儲存體連接字串和中的 Application Insights 檢測金鑰*appsettings.json*檔案中的，使用.NET Core 組態架構。 以下為範例：
 
     ```json
         {
@@ -239,7 +239,7 @@ while (true)
         }
     ```
 
-1. 變更`Main`方法程式碼，若要這樣做。 以下是範例：
+1. 變更`Main`方法程式碼，若要這樣做。 以下為範例：
 
    ```cs
    static void Main(string[] args)

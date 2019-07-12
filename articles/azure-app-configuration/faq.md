@@ -44,7 +44,7 @@ ms.locfileid: "66393340"
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>應用程式組態是否會加密資料？
 
-是。 應用程式組態會在所有的索引鍵值，它會保留，並它加密的網路通訊。 索引鍵名稱可做為擷取組態資料的索引，並不會加密。
+是的。 應用程式組態會在所有的索引鍵值，它會保留，並它加密的網路通訊。 索引鍵名稱可做為擷取組態資料的索引，並不會加密。
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>如何儲存設定 （測試、 預備、 生產環境，等等） 的多個環境？
 

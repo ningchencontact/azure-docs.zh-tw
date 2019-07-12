@@ -56,7 +56,7 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 |API|針對**共用**輸送量，請設定 |針對**專用**輸送量，請設定 |
 |----|----|----|
 |SQL API|資料庫|容器|
-|適用於 MongoDB 的 Azure Cosmos DB API|資料庫|集合|
+|適用於 MongoDB 的 Azure Cosmos DB API|資料庫|Collection|
 |Cassandra API|keyspace|資料表|
 |Gremlin API|資料庫帳戶|圖形|
 |資料表 API|資料庫帳戶|資料表|

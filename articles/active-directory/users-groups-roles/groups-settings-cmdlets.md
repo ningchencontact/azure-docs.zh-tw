@@ -94,7 +94,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 ## <a name="template-settings"></a>範本設定
 以下是 Group.Unified SettingsTemplate 中定義的設定。 除非另行指定，否則這些功能都需要 Azure Active Directory Premium P1 授權。 
 
-| **設定** | **說明** |
+| **設定** | **描述** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>輸入：Boolean<li>預設值：True |此旗標指出是否允許非管理使用者在目錄中建立 Office 365 群組。 此設定不需要 Azure Active Directory Premium P1 授權。|
 |  <ul><li>GroupCreationAllowedGroupId<li>輸入：字串<li>預設值：“” |即使 EnableGroupCreation == false，仍允許成員建立 Office 365 群組之安全性群組的 GUID。 |

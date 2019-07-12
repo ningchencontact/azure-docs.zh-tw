@@ -29,7 +29,7 @@ IoT 裝置通常會使用 SIM 卡連線到雲端，讓裝置能從任何地方�
 
 ## <a name="telefnica-iot-integration-setup"></a>Telefónica IoT 整合設定
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 這項額外的遠端監視功能目前為預覽狀態。 若要將連線資料同步處理到 Azure 遠端監視解決方案，請遵循下列步驟：
 

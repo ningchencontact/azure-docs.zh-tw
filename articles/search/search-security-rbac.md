@@ -27,7 +27,7 @@ Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務�
 
 對於 Azure 搜尋服務，角色與支援以下管理工作的權限等級相關聯：
 
-| 角色 | Task |
+| Role | 工作 |
 | --- | --- |
 | 擁有者 |建立或刪除服務或服務上的任何物件，包括 api 索引鍵、索引、索引子、索引子資料來源和索引子排程。<p>檢視服務狀態，包括計數和儲存體大小。<p>新增或刪除角色成員資格 (只有「擁有者」可以管理角色成員資格)。<p>訂用帳戶管理員和服務擁有者在擁有者角色具有自動成員資格。 |
 | 參與者 |與「擁有者」相同層級的存取權，減去 RBAC 角色管理。 例如，參與者可以建立或刪除物件，或檢視和重新產生 [API 金鑰](search-security-api-keys.md)，但不能修改角色成員資格。 |
@@ -36,7 +36,7 @@ Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務�
 
 角色不會授與服務端點的存取權限。 搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [使用 Powershell 管理](search-manage-powershell.md) 
 + [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)

@@ -86,7 +86,7 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 | 非 JSON 型別 | 不支援 | 不支援 |
 ||||
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 ### <a name="none"></a>None
 如果不需要驗證，請勿包含 authentication 屬性。

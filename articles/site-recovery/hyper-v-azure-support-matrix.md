@@ -50,7 +50,7 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-require
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
 
-**Action** | **詳細資料**
+**動作** | **詳細資料**
 --- | ---
 在複寫的 Hyper-V VM 上調整磁碟大小 | 不支援。 停用複寫、進行變更，然後重新啟用 VM 的複寫。
 在複寫的 Hyper-V VM 上新增磁碟 | 不支援。 停用複寫、進行變更，然後重新啟用 VM 的複寫。
@@ -166,7 +166,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 ## <a name="recovery-services-vault-actions"></a>復原服務保存庫動作
 
-**Action** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
+**動作** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
 在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否
@@ -179,7 +179,7 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 若要確定您的部署與本文中的設定相容，請確定您所執行的是最新的提供者和代理程式版本。
 
-**名稱** | **說明** | **詳細資料**
+**名稱** | **描述** | **詳細資料**
 --- | --- | --- 
 Azure Site Recovery 提供者 | 協調內部部署伺服器與 Azure 之間的通訊 <br/><br/> Hyper-V (含 Virtual Machine Manager)：安裝在 Virtual Machine Manager 伺服器<br/><br/> Hyper-V (不含 Virtual Machine Manager)：安裝在 Hyper-V 主機| 最新版本：5.1.2700.1 (可從 Azure 入口網站取得)<br/><br/> [最新功能和修正](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure 復原服務代理程式 | 協調 HYPER-V VM 與 Azure 之間的複寫<br/><br/> 安裝在內部部署 Hyper-V 伺服器上 (無論是否有 Virtual Machine Manager) | 最新的代理程式可從入口網站取得

@@ -34,7 +34,7 @@ Qlik Sense 是一種資料視覺效果工具，可將不同來源的資料組合
 
 本文將說明使用 ODBC 連接器連線到 Cosmos DB SQL API 的詳細資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 依照本文的指示進行之前，請確定已備妥下列資源：
 

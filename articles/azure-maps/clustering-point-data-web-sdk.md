@@ -84,12 +84,12 @@ var datasource = new atlas.source.DataSource(null, {
 
 滑鼠事件發生時，包含叢集的資料點圖層上，將事件傳回叢集的資料點，以 GeoJSON 點功能物件。 此點功能將會有下列屬性：
 
-| 屬性名稱 | 類型 | 描述 |
+| 屬性名稱 | type | 描述 |
 |---------------|------|-------------|
 | 叢集 | boolean | 指出是否功能代表叢集。 |
-| cluster_id | 字串 | 可以搭配資料來源叢集的唯一識別碼`getClusterExpansionZoom`， `getClusterChildren`，和`getClusterLeaves`方法。 |
+| cluster_id | string | 可以搭配資料來源叢集的唯一識別碼`getClusterExpansionZoom`， `getClusterChildren`，和`getClusterLeaves`方法。 |
 | point_count | number | 叢集中包含的點數目。 |
-| point_count_abbreviated | 字串 | 縮寫的字串`point_count`如果很長的值。 （例如 4000 變成 4k） |
+| point_count_abbreviated | string | 縮寫的字串`point_count`如果很長的值。 （例如 4000 變成 4k） |
 
 這個範例會取得泡泡圖層可呈現叢集點，並新增 click 事件，當觸發時，計算中, 與縮放地圖來叢集就會中斷分開使用的下一步] 縮放層級`getClusterExpansionZoom`方法`DataSource`類別，並`cluster_id`屬性的已按下 [叢集資料點。 
 

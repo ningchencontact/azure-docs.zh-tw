@@ -35,7 +35,7 @@ ms.locfileid: "66258292"
 
 ### <a name="are-data-disks-supported-within-scale-sets"></a>在擴展集內是否支援資料磁碟？
 
-是。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
+是的。 擴展集可以定義套用至集合中所有 VM 的連結資料磁碟組態。 如需詳細資訊，請參閱 [Azure 擴展集和連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。 其他用於儲存資料的選項包括：
 
 * Azure 檔案 (SMB 共用磁碟機)
 * OS 磁碟機
@@ -84,7 +84,7 @@ ms.locfileid: "66258292"
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>是否有任何根據 Azure 服務匯流排主題和佇列長度自動調整的範例？
 
-是。 如需根據 Azure 服務匯流排主題和佇列長度自動調整的範例，請參閱 [Azure 監視器的自動調整常用計量](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)。
+是的。 如需根據 Azure 服務匯流排主題和佇列長度自動調整的範例，請參閱 [Azure 監視器的自動調整常用計量](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)。
 
 如需服務匯流排佇列，請使用下列 JSON：
 
@@ -134,7 +134,7 @@ ms.locfileid: "66258292"
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>如果我已停止 (已取消配置) VM，該 VM 是否在自動調整作業中啟動？
 
-沒有。 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
+資料分割 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
 
 
 
@@ -178,7 +178,7 @@ az sf cluster create -h
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>是否可指定 SSH 金鑰組以便透過 Resource Manager 範本中的 Linux 虛擬機器擴展集來進行 SSH 驗證？
 
-是。 **osProfile** 的 REST API 類似於標準 VM REST API。
+是的。 **osProfile** 的 REST API 類似於標準 VM REST API。
 
 在您的範本中包含 **osProfile**︰
 
@@ -229,9 +229,9 @@ az sf cluster create -h
 }
 ```
 
-linuxConfiguration 元素名稱 | 必要項 | 類型 | 描述
+linuxConfiguration 元素名稱 | 必要項 | type | 描述
 --- | --- | --- | ---
-ssh | 否 | 集合 | 指定 Linux OS 的 SSH 金鑰組態
+ssh | 否 | Collection | 指定 Linux OS 的 SSH 金鑰組態
 path | 是 | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
 keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
 
@@ -341,10 +341,10 @@ CRP 元件不會保存客戶密碼。 如果您對虛擬機器擴展集中的所
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/msi-overview)是否可以與虛擬機器擴展集搭配運作？
 
-是。 您可以看到適用於 Azure 快速入門範本中的某些範例 MSI 範本[Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)並[Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)。
+是的。 您可以看到適用於 Azure 快速入門範本中的某些範例 MSI 範本[Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)並[Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi)。
 
 
-## <a name="extensions"></a>擴充功能
+## <a name="extensions"></a>延伸模組
 
 ### <a name="how-do-i-delete-a-virtual-machine-scale-set-extension"></a>如何刪除虛擬機器擴展集擴充功能？
 
@@ -467,7 +467,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否可以將「網路安全性群組」(NSG) 指派給擴展集，以便將它套用至擴展集中的所有 VM NIC？
 
-是。 您可以透過在網路設定檔的 networkInterfaceConfigurations 區段中參考「網路安全性群組」，將它直接套用至擴展集。 範例：
+是的。 您可以透過在網路設定檔的 networkInterfaceConfigurations 區段中參考「網路安全性群組」，將它直接套用至擴展集。 範例：
 
 ```json
 "networkProfile": {
@@ -521,7 +521,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>我可以搭配加速的網路使用擴展集嗎？
 
-是。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如：
+是的。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如：
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -562,7 +562,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>我可以設定擴展集以搭配多個應用程式閘道使用嗎？
 
-是。 您可以新增多個應用程式閘道後端位址集區的資源識別碼_Ipconfigurations_列入_ipConfigurations_區段中的調整規模設定網路設定檔。
+是的。 您可以新增多個應用程式閘道後端位址集區的資源識別碼_Ipconfigurations_列入_ipConfigurations_區段中的調整規模設定網路設定檔。
 
 ## <a name="scale"></a>調整
 

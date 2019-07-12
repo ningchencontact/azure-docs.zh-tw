@@ -39,11 +39,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -101,12 +101,12 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
 |id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -130,12 +130,12 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
 |id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -180,12 +180,12 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
 |id|integer|是|品牌識別碼 (建立品牌時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -243,11 +243,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -303,11 +303,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**說明**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -340,11 +340,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 

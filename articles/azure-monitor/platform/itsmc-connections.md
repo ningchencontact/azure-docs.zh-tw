@@ -37,7 +37,7 @@ ms.locfileid: "66399785"
 
 下列各節提供有關如何將 System Center Service Manager 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確保已符合下列必要條件︰
 
@@ -65,7 +65,7 @@ ms.locfileid: "66399785"
 > 
 > 這些全部都是必要參數。
 
-| **欄位** | **說明** |
+| **欄位** | **描述** |
 | --- | --- |
 | 連線名稱    | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **System Center Service Manager**。 |
@@ -103,7 +103,7 @@ ms.locfileid: "66399785"
 
 - Azure 訂用帳戶詳細資料
 - 資源群組名稱
-- 位置
+- Location
 - Service Manager 伺服器詳細資料 (伺服器名稱、網域、使用者名稱和密碼)
 - Web 應用程式的網站名稱前置詞
 - 服務匯流排命名空間。
@@ -165,7 +165,7 @@ ms.locfileid: "66399785"
 
 3. 使用您的 Azure 認證登入，然後選取您在其中建立混合式連線的訂用帳戶。
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 混合式連線已成功連線。
 
@@ -182,7 +182,7 @@ ms.locfileid: "66399785"
 
 下列各節提供有關如何將 ServiceNow 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 請確保已符合下列必要條件︰
 - 已安裝 ITSMC。 詳細資訊：[新增 IT 服務管理連接器解決方案](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - ServiceNow 支援的版本：馬德里、 倫敦、 Kingston、 Jakarta、 Istanbul、 Helsinki、 Geneva。
@@ -219,7 +219,7 @@ ms.locfileid: "66399785"
 > [!NOTE]
 > 這些全部都是必要參數。
 
-| **欄位** | **說明** |
+| **欄位** | **描述** |
 | --- | --- |
 | 連線名稱    | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **ServiceNow**。 |
@@ -287,7 +287,7 @@ ms.locfileid: "66399785"
 下列各節提供有關如何將 Provance 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確保已符合下列必要條件︰
 
@@ -314,12 +314,12 @@ ms.locfileid: "66399785"
 > 
 > 這些全部都是必要參數。
 
-| **欄位** | **說明** |
+| **欄位** | **描述** |
 | --- | --- |
 | 連線名稱    | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 [Provance]  。 |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的使用者名稱。    |
-| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註：** 使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
+| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **注意：** 使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 Provance 執行個體的 URL。 |
 | **用戶端識別碼**   | 將您在 Provance 執行個體中產生的用戶端識別碼輸入以驗證此連線。  如需用戶端識別碼的詳細資訊，請參閱[如何設定 Active Directory 驗證](../../app-service/configure-authentication-provider-aad.md)。 |
 | **資料同步範圍**   | 選取您想要透過 ITSMC 同步處理到 Azure Log Analytics 的 Provance 工作項目。  系統會將這些工作項目匯入記錄分析。   **選項︰** 事件、變更要求。|
@@ -340,7 +340,7 @@ ms.locfileid: "66399785"
 
 下列各節提供有關如何將 Cherwell 產品連線到 Azure 中的 ITSMC 之詳細資料。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確保已符合下列必要條件︰
 
@@ -370,7 +370,7 @@ ms.locfileid: "66399785"
 | 連線名稱    | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 [Cherwell]。  |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的 Cherwell 使用者名稱。 |
-| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註：** 使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
+| **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **注意：** 使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 Cherwell 執行個體的 URL。 |
 | **用戶端識別碼**   | 將您在 Cherwell 執行個體中產生的用戶端識別碼輸入以驗證此連線。   |
 | **資料同步範圍**   | 選取您想要透過 ITSMC 同步的 Cherwell 工作項目。  系統會將這些工作項目匯入記錄分析。   **選項︰** 事件、變更要求。 |

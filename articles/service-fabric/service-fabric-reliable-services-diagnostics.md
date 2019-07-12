@@ -36,7 +36,7 @@ Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [
 | StatefulRunAsyncCancellation |2 |資訊 |取消服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCompletion |3 |資訊 |完成服務 RunAsync 工作時發出 |
 | StatefulRunAsyncSlowCancellation |4 |警告 |服務 RunAsync 工作花太多時間才能完成取消時發出 |
-| StatefulRunAsyncFailure |5 |Error |服務 RunAsync 工作擲回例外狀況時發出 |
+| StatefulRunAsyncFailure |5 |錯誤 |服務 RunAsync 工作擲回例外狀況時發出 |
 
 ## <a name="interpret-events"></a>解譯事件
 StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCancellation 事件可讓服務撰寫者了解服務的生命週期--以及服務啟動、取消或完成的時機。 此資訊可能適用於偵錯服務問題或了解服務生命週期。

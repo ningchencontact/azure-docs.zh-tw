@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118690"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840391"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -59,7 +59,7 @@ RBAC 角色可能會包含管理] 或 [資料層存取的權限。 「 讀者 �
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我不能管理層級權限需要系統管理員身分從嗎？
 
-我們目前還沒有 RBAC 相關的解決方案。 因應措施，您可以要求 SAS URI[附加至您的資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)。
+我們目前還沒有 RBAC 相關的解決方案。 因應措施，您可以要求 SAS URI[附加至您的資源](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri)。
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error:憑證鏈結中的自我簽署憑證 (和類似錯誤)
 
@@ -233,46 +233,76 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 ## <a name="linux-dependencies"></a>Linux 相依項目
 
-一般情況下，需要下列封裝在 Linux 上執行儲存體總管：
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)附註：儲存體總管版本 1.7.0 和稍早需要.NET Core 2.0。 如果您有較新版的.NET Core 安裝將會需要修補儲存體總管 （請參閱下文）。 如果您執行儲存體總管 1.8.0 或更高的然後您應該能夠最多可以使用.NET Core 2.2。 2\.2 版本尚未驗證能夠在這個階段。
-* `libgnome-keyring-common`和`libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> 所提供的儲存體總管.tar.gz 下載僅適用於 Ubuntu 散發套件。 其他散發套件尚未驗證，而且可能需要替代或其他封裝。
+
+這些封裝是最常見的需求，在 Linux 上的儲存體總管：
+
+* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` 或 `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-根據您的散發套件而定，可能會有不同，或您需要安裝其他套件。
+> [!NOTE]
+> 儲存體總管版本 1.7.0 和稍早需要.NET Core 2.0。 如果您有較新版的.NET Core 安裝，則您必須[修補儲存體總管](#patching-storage-explorer-for-newer-versions-of-net-core)。 如果您執行儲存體總管 1.8.0 或更高的然後您應該能夠最多可以使用.NET Core 2.2。 2\.2 版本尚未驗證能夠在這個階段。
 
-第 18.04 Ubuntu 16.04 和 14.04 正式支援儲存體總管。 安裝全新的機器的步驟如下所示：
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. 下載儲存體總管。
+2. 安裝[.NET Core 執行階段](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)。
+3. 執行下列命令：
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. 下載儲存體總管
-2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
-3. 執行 `sudo apt-get install libgconf-2-4`
-4. 執行 `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+1. 下載儲存體總管。
+2. 安裝[.NET Core 執行階段](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)。
+3. 執行下列命令：
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. 下載儲存體總管
-2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
-3. 執行 `sudo apt install libgnome-keyring-dev`
+2. 安裝[.NET Core 執行階段](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)。
+3. 執行下列命令：
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. 下載儲存體總管
-2. 安裝.NET Core 執行階段、 已驗證的最新版本是：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) （如果您已安裝較新版本，您可能需要修補儲存體總管，請見下文）
-3. 執行 `sudo apt install libgnome-keyring-dev`
+2. 安裝[.NET Core 執行階段](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)。
+3. 執行下列命令：
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>較新版本的.NET Core 的修補，儲存體總管
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>較新版本的.NET Core 的修補，儲存體總管 
-如果您有大於安裝並執行儲存體總管版本 1.7.0 2.0 或更舊版本的.NET Core 的版本，您很可能要修補儲存體總管，藉由完成下列步驟：
+儲存體總管 1.7.0 或更舊版本，您可能需要修補的儲存體總管所使用的.NET Core 版本。
+
 1. 下載新版 1.5.43 StreamJsonRpc[從 nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)。 尋找頁面的右手邊的 [下載套件] 連結。
-2. 下載封裝之後, 變更其副檔名從`.nupkg`至 `.zip`
-3. 將封裝解壓縮
-4. 移至 `streamjsonrpc.1.5.43/lib/netstandard1.1/`。
+2. 下載封裝之後, 變更其副檔名從`.nupkg`至`.zip`。
+3. 將封裝解壓縮。
+4. 開啟 `streamjsonrpc.1.5.43/lib/netstandard1.1/` 資料夾。
 5. 複製`StreamJsonRpc.dll`到儲存體總管資料夾內的下列位置：
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>開啟在 檔案總管從 Azure 入口網站無法運作
 

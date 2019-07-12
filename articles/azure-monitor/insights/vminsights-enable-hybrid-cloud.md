@@ -81,7 +81,7 @@ Windows Dependency Agent 的檔案預設安裝在 *C:\Program Files\Microsoft De
 
 Dependency Agent 的檔案位於下列目錄：
 
-| 檔案 | 位置 |
+| 檔案 | Location |
 |:--|:--|
 | 核心檔案 | /opt/microsoft/dependency-agent |
 | 記錄檔 | /var/opt/microsoft/dependency-agent/log |

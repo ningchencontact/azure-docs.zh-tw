@@ -50,7 +50,7 @@ IoT 中樞會公開您後端服務的 **messages/events** 內建端點，以讀�
 
 在入口網站中，事件中樞相容端點欄位會包含完整的事件中樞連接字串看起來像：**Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. 如果您使用的 SDK 需要其他值，則它們會：
 
-| Name | 值 |
+| 名稱 | 值 |
 | ---- | ----- |
 | 端點 | sb://abcd1234namespace.servicebus.windows.net/ |
 | 主機名稱 | abcd1234namespace.servicebus.windows.net |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510532"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835616"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 
@@ -33,7 +33,7 @@ ms.locfileid: "66510532"
 * 將憑證上傳至 Azure AD B2C 原則金鑰。
 * 將您的自訂原則設定為使用用戶端憑證。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 完成[整合 REST API 宣告交換](active-directory-b2c-custom-rest-api-netfw.md)文章中的步驟。
 * 取得有效的憑證 (具有私密金鑰的 .pfx 檔案)。
 
@@ -47,24 +47,24 @@ ms.locfileid: "66510532"
 >如需設定 **clientCertEnabled** 屬性的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>步驟 2：將憑證上傳至 Azure AD B2C 原則金鑰
-將 `clientCertEnabled` 設為 *true* 之後，與您的 RESTful API 的通訊需要用戶端憑證。 若要在您的 Azure AD B2C 租用戶中取得、上傳和儲存用戶端憑證，請執行下列動作： 
+將 `clientCertEnabled` 設為 *true* 之後，與您的 RESTful API 的通訊需要用戶端憑證。 若要在您的 Azure AD B2C 租用戶中取得、上傳和儲存用戶端憑證，請執行下列動作：
 1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定]   > [識別體驗架構]  。
 
 2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]  。
 
-3. 選取 [新增]  。  
+3. 選取 [新增]  。
     [建立金鑰]  視窗隨即開啟。
 
 4. 在 [選項]  方塊中，選取 [上傳]  。
 
-5. 在 [名稱]  方塊中，輸入 **B2cRestClientCertificate**。  
+5. 在 [名稱]  方塊中，輸入 **B2cRestClientCertificate**。
     即會自動新增前置詞 *B2C_1A_* 。
 
 6. 在 [檔案上傳]  方塊中，選取包含私密金鑰的憑證 .pfx 檔案。
 
 7. 在 [密碼]  方塊中，輸入憑證的密碼。
 
-    ![上傳原則金鑰](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![上傳在 建立在 Azure 入口網站 金鑰 頁面上的 原則金鑰](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
 7. 選取 [建立]  。
 
@@ -85,7 +85,7 @@ ms.locfileid: "66510532"
     <Item Key="AuthenticationType">ClientCertificate</Item>
     ```
 
-5. 在關閉 `<Metadata>` 元素之後，立即新增下列 XML 程式碼片段： 
+5. 在關閉 `<Metadata>` 元素之後，立即新增下列 XML 程式碼片段：
 
     ```xml
     <CryptographicKeys>
@@ -119,12 +119,12 @@ ms.locfileid: "66510532"
 
 2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
 
-3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。  
-    Azure AD B2C 會在視窗頂端顯示錯誤訊息。    
+3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。
+    Azure AD B2C 會在視窗頂端顯示錯誤訊息。
 
-    ![測試您的身分識別 API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![指定名稱 文字方塊中反白顯示，並輸入所顯示的驗證錯誤](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。  
+4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。
     Azure AD B2C 會註冊使用者，然後將會員號碼傳送至您的應用程式。 記下此 JWT 範例中的號碼：
 
    ```
@@ -152,7 +152,7 @@ ms.locfileid: "66510532"
    >如果收到錯誤訊息：*名稱無效，請提供有效的名稱*，這表示 Azure AD B2C 在呈現用戶端憑證時已成功呼叫 RESTful 服務。 下一個步驟是驗證憑證。
 
 ## <a name="step-6-add-certificate-validation"></a>步驟 6：新增憑證驗證
-Azure App Service 平台不會對 Azure AD B2C 傳送至 RESTful 服務的用戶端憑證進行任何驗證 (除了檢查憑證是否存在)。 驗證憑證是 Web 應用程式的責任。 
+Azure App Service 平台不會對 Azure AD B2C 傳送至 RESTful 服務的用戶端憑證進行任何驗證 (除了檢查憑證是否存在)。 驗證憑證是 Web 應用程式的責任。
 
 在本節中，您會基於驗證而驗證憑證內容的範例 ASP.NET 程式碼。
 
@@ -171,7 +171,7 @@ Azure App Service 平台不會對 Azure AD B2C 傳送至 RESTful 服務的用戶
 將憑證的**主體名稱**、**簽發者名稱**和**憑證指紋**值取代為您的憑證值。
 
 ### <a name="62-add-the-isvalidclientcertificate-function"></a>6.2 新增 IsValidClientCertificate 函式
-開啟 *Controllers\IdentityController.cs* 檔案，並將下列函式新增至 `Identity` 控制器類別： 
+開啟 *Controllers\IdentityController.cs* 檔案，並將下列函式新增至 `Identity` 控制器類別：
 
 ```csharp
 private bool IsValidClientCertificate()
@@ -219,7 +219,7 @@ private bool IsValidClientCertificate()
         Trace.TraceError($"Subject name '{clientCertInRequest.Subject}' is not valid");
         return false;
     }
-    
+
     // 3. Check the issuer name of the certificate
     bool foundIssuerCN = false;
     string[] certIssuerData = clientCertInRequest.Issuer.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -273,7 +273,7 @@ private bool IsValidClientCertificate()
 >根據服務的敏感度，您可能需要新增更多驗證。 例如，您可能需要測試憑證是否鏈結至信任的根授權單位、簽發者組織名稱驗證，依此類推。
 
 ### <a name="63-call-the-isvalidclientcertificate-function"></a>6.3 呼叫 IsValidClientCertificate 函式
-開啟 *Controllers\IdentityController.cs* 檔案，然後在 `SignUp()` 函式的開頭，新增下列程式碼片段： 
+開啟 *Controllers\IdentityController.cs* 檔案，然後在 `SignUp()` 函式的開頭，新增下列程式碼片段：
 
 ```csharp
 if (IsValidClientCertificate() == false)
@@ -299,4 +299,4 @@ if (IsValidClientCertificate() == false)
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(選用) 下載完整的原則檔案和程式碼
 * 在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的情節。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert)，供您參考。
-* 您可以從[供參考的範例 Visual Studio 解決方案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)中下載完整程式碼。 
+* 您可以從[供參考的範例 Visual Studio 解決方案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)中下載完整程式碼。

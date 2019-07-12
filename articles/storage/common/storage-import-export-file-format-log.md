@@ -101,7 +101,7 @@ properties-status ::=
 
 下表說明記錄檔的元素：  
   
-|XML 元素|類型|描述|  
+|XML 元素|type|描述|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML 元素|代表磁碟機記錄檔。|  
 |`Version`|屬性、字串|記錄檔格式的版本。|  
@@ -111,7 +111,7 @@ properties-status ::=
 |`Blob/BlobPath`|字串|Blob 的 URI。|  
 |`Blob/FilePath`|字串|磁碟機上檔案的相對路徑。|  
 |`Blob/Snapshot`|Datetime|Blob 快照集版本 (限匯出工作)。|  
-|`Blob/Length`|Integer|Blob 總長度 (以位元組為單位)。|  
+|`Blob/Length`|整數|Blob 總長度 (以位元組為單位)。|  
 |`Blob/LastModified`|Datetime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
 |`Blob/ImportDisposition`|字串|Blob 的匯入配置 (限匯入工作)。|  
 |`Blob/ImportDisposition/@Status`|屬性、字串|匯入配置狀態。|  
@@ -145,7 +145,7 @@ properties-status ::=
 ## <a name="drive-status-codes"></a>磁碟機狀態碼  
 下表列出磁碟機處理的狀態碼。  
   
-|狀態碼|描述|  
+|status code|描述|  
 |-----------------|-----------------|  
 |`Completed`|磁碟機已完成處理，沒有任何錯誤。|  
 |`CompletedWithWarnings`|磁碟機已完成處理，並根據為 Blob 指定的匯入配置在一或多個 Blob 中發出警告。|  
@@ -193,7 +193,7 @@ properties-status ::=
 ## <a name="import-disposition-status-codes"></a>匯入配置狀態碼  
 下表列出解決匯入配置的狀態碼。  
   
-|狀態碼|描述|  
+|status code|描述|  
 |-----------------|-----------------|  
 |`Created`|Blob 已建立。|  
 |`Renamed`|Blob 已依照重新命名匯入配置重新命名。 `Blob/BlobPath` 元素包含已重新命名的 Blob 的 URI。|  
@@ -204,7 +204,7 @@ properties-status ::=
 ## <a name="page-rangeblock-status-codes"></a>頁面範圍/區塊狀態碼  
 下表列出頁面範圍或區塊處理的狀態碼。  
   
-|狀態碼|描述|  
+|status code|描述|  
 |-----------------|-----------------|  
 |`Completed`|頁面範圍或區塊已完成處理，沒有任何錯誤。|  
 |`Committed`|區塊已認可，但不在完整區塊清單中，因為其他區塊失敗，或是放置完整區塊清單本身失敗。|  
@@ -220,7 +220,7 @@ properties-status ::=
 ## <a name="metadata-status-codes"></a>中繼資料狀態碼  
 下表列出 Blob 中繼資料處理的狀態碼。  
   
-|狀態碼|描述|  
+|status code|描述|  
 |-----------------|-----------------|  
 |`Completed`|中繼資料已完成處理，沒有任何錯誤。|  
 |`FileNameInvalid`|中繼資料檔案名稱無效。|  
@@ -238,7 +238,7 @@ properties-status ::=
 ## <a name="properties-status-codes"></a>屬性狀態碼  
 下表列出 Blob 屬性處理的狀態碼。  
   
-|狀態碼|描述|  
+|status code|描述|  
 |-----------------|-----------------|  
 |`Completed`|屬性已完成處理，沒有任何錯誤。|  
 |`FileNameInvalid`|屬性檔案名稱無效。|  

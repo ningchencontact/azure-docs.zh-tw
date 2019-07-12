@@ -28,7 +28,7 @@ ms.locfileid: "60437845"
 
 在此文章中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 SumoLogic 整合。 您首先會將記錄路由傳送至 Azure 事件中樞，然後將事件中樞與 SumoLogic 整合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用此功能，您必須要有：
 * 包含 Azure AD 活動記錄的 Azure 事件中樞。 了解如何[將活動記錄串流至事件中樞](quickstart-azure-monitor-stream-logs-to-event-hub.md)。 

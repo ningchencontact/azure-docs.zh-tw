@@ -24,7 +24,7 @@ ms.locfileid: "66305924"
 
 本文件說明如何將 Azure 虛擬機器 (VM) 使用 ASP.NET web 應用程式發佈**Microsoft Azure 虛擬機器**在 Visual Studio 2019 的發佈功能。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 Visual Studio 將 ASP.NET 專案發行到 Azure VM，必須正確設定 VM。
 
 - 機器必須設定為執行 ASP.NET web 應用程式，並安裝 WebDeploy。

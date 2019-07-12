@@ -94,9 +94,9 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]和[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [博客]
+* [部落格]
 * [功能要求]
-* [视频]
+* [影片]
 * [客戶諮詢小組部落格]
 * [建立支援票證]
 * [MSDN 論壇]
@@ -120,13 +120,13 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 
 <!--Other Web references-->
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 論壇]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
 [Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

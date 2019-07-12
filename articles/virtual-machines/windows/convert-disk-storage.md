@@ -31,7 +31,7 @@ ms.locfileid: "66417141"
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 因為轉換需要重新啟動虛擬機器 (VM)，您應該排程在預先存在的維護期間的磁碟儲存體移轉。
 * 如果您的磁碟不受管理，第一次[將它轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)讓您可以切換儲存體選項。

@@ -25,7 +25,7 @@ Azure 監視器記錄以 Azure 資料總管為基礎建置，且 Azure 監視器
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 - [開始使用 Azure 監視器 Log Analytics](get-started-portal.md)教訓來撰寫查詢，和使用 Azure 入口網站中的結果。
 - [開始使用 Azure 監視器記錄查詢](get-started-queries.md)是一堂使用 Azure 監視器記錄資料撰寫查詢的課程。
@@ -34,7 +34,7 @@ Azure 監視器記錄以 Azure 資料總管為基礎建置，且 Azure 監視器
 - [分析 Azure 監視器中的記錄資料](../../azure-monitor/log-query/log-query-overview.md)提供記錄查詢的簡短概觀，並說明建置 Azure 監視器記錄資料結構的方式。
 - [在 Azure 監視器中檢視及分析記錄資料](../../azure-monitor/log-query/portals.md)說明您要在其中建立和執行記錄查詢的入口網站。
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 
 - [查詢語言參考](/azure/kusto/query)是適用於 Kusto 查詢語言的完整語言參考。
 - [Azure 監視器記錄查詢語言差異](data-explorer-difference.md)說明 Kusto 查詢語言版本間的差異。

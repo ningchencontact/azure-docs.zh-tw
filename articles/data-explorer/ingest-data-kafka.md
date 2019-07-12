@@ -18,7 +18,7 @@ ms.locfileid: "66497274"
  
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管會提供從 Kafka 擷取資料 (資料載入) 的功能。 Kafka 是分散式串流平台，可用於建置即時串流資料管線，可靠地在系統或應用程式之間移動資料。
  
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
  
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。 
  

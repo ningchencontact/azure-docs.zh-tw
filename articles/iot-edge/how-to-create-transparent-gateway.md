@@ -47,7 +47,7 @@ ms.locfileid: "67058371"
 
 下列步驟會引導您建立的憑證並將它們安裝在正確的位置，在閘道上的程序。 您可以使用任何電腦產生憑證，然後再將其複製到您的 IoT Edge 裝置。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 設定為閘道的 Azure IoT Edge 裝置。 使用 IoT Edge 的安裝步驟，針對下列作業系統的其中一個：
   * [Windows](./how-to-install-iot-edge-windows.md)

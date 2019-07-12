@@ -34,7 +34,7 @@ ms.locfileid: "65602112"
 
 ![範例概觀](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -127,7 +127,7 @@ ms.locfileid: "65602112"
 
 下表包含這些子屬性的詳細資訊：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 |----------|------|-------|
 | `actions` | 物件集合 | 從您的程式碼片段執行前執行的動作結果物件。 每個物件都*鍵值*配對，其中索引鍵是動作的名稱，而此值相當於呼叫[actions() 函式](../logic-apps/workflow-definition-language-functions-reference.md#actions)使用`@actions('<action-name>')`。 動作的名稱會使用相同的動作名稱，用於基礎的工作流程定義，這會取代空格 ("") 中動作名稱以底線 (_)。 從目前執行的工作流程執行個體，這個物件會提供存取至動作的屬性值。 |
 | `trigger` | Object | 從觸發程序和對等項目呼叫的結果物件[trigger() 函式](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 從目前執行的工作流程執行個體，這個物件會提供存取至觸發程序的屬性值。 |
@@ -259,7 +259,7 @@ ms.locfileid: "65602112"
 
 1. 若要新增另一個動作，請選擇**加入新項目**。
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 
 如需詳細資訊**執行的 JavaScript 程式碼**動作的結構和語法，在邏輯應用程式的基礎工作流程定義中使用工作流程定義語言中，請參閱此動作的[參考區段](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code).
 

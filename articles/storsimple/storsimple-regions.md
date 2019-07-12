@@ -23,7 +23,7 @@ ms.locfileid: "64943600"
 ---
 # <a name="available-regions-for-your-storsimple"></a>您的 StorSimple 的可用區域
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 資料中心在全球多個地區運行，以滿足客戶對資料位置相關之效能、需求和喜好設定的要求。 Azure 地理位置是包含至少一個 Azure 區域的已定義世界區域。 Azure 區域是包含一或多個資料中心之地理位置內的區域。
 

@@ -265,7 +265,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 ### <a name="can-i-close-it-after-it-runs"></a>是否可以在執行之後將它關閉？
 
-是。 檢測您選取的網站之後，您可以將它關閉。
+是的。 檢測您選取的網站之後，您可以將它關閉。
 
 它本身不會收集遙測資料。 它只會設定 Web 應用程式和設定一些權限。
 
@@ -305,7 +305,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 [深入了解](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

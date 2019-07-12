@@ -29,7 +29,7 @@ ms.locfileid: "66508509"
 4. 在左側功能表選取 [認證]  ，然後選取 [建立認證]   > [Oauth 用戶端識別碼]  。
 5. 在 [應用程式類型]  下方，選取 [Web 應用程式]  。
 6. 輸入應用程式的**名稱**，在 [授權 JavaScript 來源]  中輸入 `https://your-tenant-name.b2clogin.com`，接著在 [授權重新導向 URI]  中輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 8. 複製 [用戶端識別碼]  和 [用戶端密碼]  的值。 您必須使用這兩個值，將 Google 設為租用戶中的身分識別提供者。 **用戶端密碼** 是重要的安全性認證。
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>將 Google 帳戶設為識別提供者

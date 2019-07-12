@@ -19,7 +19,7 @@ ms.locfileid: "66256946"
 
 使用 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) 和 Azure Functions 之間的原生整合，您可以直接從您的 Azure Cosmos DB 帳戶建立資料庫觸發程序、輸入繫結，以及輸出繫結。 使用 Azure Functions 與 Azure Cosmos DB，您可以建立及部署事件驅動無伺服器的應用程式，利用低延遲存取廣大用戶群的豐富資料。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure Cosmos DB 與 Azure Functions 可讓您以下列方式整合資料庫與無伺服器的應用程式：
 

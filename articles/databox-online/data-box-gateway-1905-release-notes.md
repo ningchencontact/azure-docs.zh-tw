@@ -17,7 +17,7 @@ ms.locfileid: "67078608"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Azure 資料方塊邊緣和 Azure 資料方塊閘道 1905年版本資訊
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 下列版本資訊識別的重大未決問題和 1905年版 Azure 資料方塊邊緣和 Azure 中部署資料閘道已解決的問題。
 

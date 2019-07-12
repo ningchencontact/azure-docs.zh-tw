@@ -29,7 +29,7 @@ ms.locfileid: "62105644"
 
 您可以使用觸發程序，從您的 Slack 帳戶收到回應，並且讓輸出可供其他動作使用。 您可以使用動作，該動作會使用您的 Slack 帳戶來執行工作。 您也可以讓其他動作使用 Slack 動作的輸出。 例如，建立新檔案時，您可以使用 Office 365 Outlook 連接器來傳送電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 

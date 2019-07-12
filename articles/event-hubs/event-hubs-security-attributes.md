@@ -51,8 +51,8 @@ ms.locfileid: "66247195"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | |
-| 授權|  是 | |
+| 驗證| 是 | |
+| Authorization|  是 | |
 
 
 ## <a name="audit-trail"></a>稽核線索

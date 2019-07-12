@@ -23,7 +23,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962617"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>作法：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>HOW TO：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -40,7 +40,7 @@ Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕
 * Azure Active Directory B2B
 * Azure Active Directory 條件式存取
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此操作說明會假設您知道如何：
 
@@ -240,7 +240,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > 當您跨應用程式共用金鑰鍊時，任何應用程式都可以刪除使用者，更糟的是可以跨應用程式刪除所有權杖。 如果您的應用程式依賴這些權杖來執行背景工作，這樣會造成可怕的災難。 共用金鑰鏈表示您在整個身分識別 SDK 必須非常小心進行任何移除作業。
 
-就這麼簡單！ SDK 現在會跨所有應用程式共用認證。 使用者清單也會跨應用程式執行個體共用。
+就這麼容易！ SDK 現在會跨所有應用程式共用認證。 使用者清單也會跨應用程式執行個體共用。
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>開啟訊息代理程式協助 SSO 的 SSO
 

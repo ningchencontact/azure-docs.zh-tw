@@ -114,7 +114,7 @@ ms.locfileid: "65823335"
 
 模擬服務每 5 秒執行 **chiller-01-state.js** 檔案以更新裝置狀態。 您可以在 GitHub 上的 [scripts 資料夾](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)中查看預設模擬裝置的 JavaScript 檔案。 依照慣例，這些 JavaScript 檔案具有尾碼 **-state**，以便與實作方法行為的檔案有所區別。
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 
 結構描述的 `Properties` 區段會定義裝置回報給解決方案的屬性值。 例如:
 
@@ -165,7 +165,7 @@ ms.locfileid: "65823335"
 * 二進位 - 使用 base64 序列化
 * Text
 * Boolean
-* Integer
+* 整數
 * Double
 * Datetime
 

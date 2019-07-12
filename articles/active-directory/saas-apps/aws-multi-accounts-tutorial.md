@@ -142,7 +142,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
     | 名稱  | 來源屬性  | 命名空間 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | 角色            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     | SessionDuration             | 「提供 900 秒 (15 分鐘) 到 43200 秒 (12 小時) 之間的值」 |  https://aws.amazon.com/SAML/Attributes |
 
     a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
@@ -161,7 +161,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     f. 按一下 [確定]  。
 
-    g. 按一下 [檔案]  。
+    g. 按一下 [儲存]  。
 
 7. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，按一下 [下載]  以下載**同盟中繼資料 XML** 並將其儲存在電腦上。
 
@@ -271,7 +271,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     f. 從所擷取的服務主體清單中，取得您需要修改的服務主體。 您也可以使用 Ctrl+F，從所有列出的服務主體中搜尋應用程式。 您可以透過您從 Azure AD 的 [屬性] 頁面複製的**物件識別碼**，使用下列查詢移至各自的「服務主體」。
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` 。
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
     ![Graph 總管對話方塊](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
@@ -279,7 +279,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     ![Graph 總管對話方塊](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    h.如果该值不存在，请单击“添加行”。 現在，您必須為您的應用程式產生新角色。 
+    h. 現在，您必須為您的應用程式產生新角色。 
 
     i. 以下 JSON 是 appRoles 物件的範例。 請建立類似的物件，以新增您的應用程式所需的角色。
 

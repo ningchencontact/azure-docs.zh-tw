@@ -32,11 +32,11 @@ ms.locfileid: "61400435"
 
 具體而言，這個 MongoDB 連接器所支援的**版本最高可達 3.4 版**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "61400435"
 | database | 您要存取的資料庫名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -84,7 +84,7 @@ ms.locfileid: "61400435"
 | type | 資料集的類型屬性必須設定為：**MongoDbV2Collection** | 是 |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -123,7 +123,7 @@ ms.locfileid: "61400435"
 >[!TIP]
 >ADF 支援在 **Strict 模式**中取用 BSON 文件。 請確定您的篩選查詢處於 Strict 模式，而非 Shell 模式。 您可以在 [MongoDB 手冊](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html) \(英文\) 上找到更詳細的說明。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

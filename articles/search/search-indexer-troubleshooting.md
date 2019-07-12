@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147536"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653408"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>針對 Azure 搜尋服務中的常見索引子問題進行疑難排解
 
@@ -45,7 +45,7 @@ Azure 儲存體提供可設定的防火牆。 根據預設，防火牆會停用�
 
 #### <a name="indexing-isnt-enabled"></a>未啟用編製索引
 
-Azure 搜尋服務針對 Cosmos DB 編製索引具有隱含相依性。 若您在 Cosmos DB 中關閉自動編製索引，Azure 搜尋服務雖然會傳回成功狀態，但卻無法為容器內容建立索引。 如需如何檢查設定及開啟編製索引的指示，請參閱[管理 Azure Cosmos DB 中的編製索引](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal)。
+Azure 搜尋服務針對 Cosmos DB 編製索引具有隱含相依性。 若您在 Cosmos DB 中關閉自動編製索引，Azure 搜尋服務雖然會傳回成功狀態，但卻無法為容器內容建立索引。 如需如何檢查設定及開啟編製索引的指示，請參閱[管理 Azure Cosmos DB 中的編製索引](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal)。
 
 ## <a name="document-processing-errors"></a>文件處理錯誤
 

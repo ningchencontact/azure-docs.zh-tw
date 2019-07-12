@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: bcfefc9698f7f251e99531750e19e7c06395e064
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466737"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655696"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>管理使用量和成本，以及 Azure 監視器記錄檔
 
@@ -140,7 +140,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 
 當資料收集停止時，OperationStatus 為**警告**。 當資料收集開始時，OperationStatus 為**Succeeded**。 下表描述資料收集停止的原因，並建議為繼續資料收集所要採取的動作：  
 
-|收集停止的原因| 解決方法| 
+|收集停止的原因| 方案| 
 |-----------------------|---------|
 |已達舊版免費定價層的每日限制 |請等到隔天自動重新開始收集，或變更為付費定價層。|
 |已達您工作區的每日上限|等到自動重新開始收集或提高每日資料量限制，如「管理每日資料量上限」中所述。 每日上限重設時間會顯示於 [資料量管理]  頁面上。 |
@@ -216,7 +216,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
-### <a name="data-volume-by-computer"></a>資料量 (依電腦)
+### <a name="data-volume-by-computer"></a>依電腦的資料量
 
 若要查看**大小**的可計費的事件，擷取每一部電腦，使用`_BilledSize`[屬性](log-standard-properties.md#_billedsize)，以提供以位元組為單位的大小：
 
@@ -413,7 +413,7 @@ union withsource = $table Usage
 
 ## <a name="limits-summary"></a>限制摘要
 
-有一些其他的 Log Analytics 限制，其中有些相依於 Log Analytics 定價層。 相關說明請見[此處](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits)。
+有一些其他的 Log Analytics 限制，其中有些相依於 Log Analytics 定價層。 相關說明請見[此處](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -70,9 +70,9 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 | 屬性名稱 | 值 | 必要項 | 描述 |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | 是 | 識別系統訊息的常數值。 |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 是 | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2`。 |
-| **CreationTimeUtc** | `string` | 否 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 格式的日期字串，用來識別承載的取樣時間。 例如： `2018-09-20T07:35:00.8587882-07:00`。 |
-| **CorrelationId** | `string` | 否 | 用來追蹤系統上各個事件的 UUID。 例如： `cec16751-ab27-405d-8fe6-c68e1412ce1f`。
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 是 | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2` 。 |
+| **CreationTimeUtc** | `string` | 否 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 格式的日期字串，用來識別承載的取樣時間。 例如： `2018-09-20T07:35:00.8587882-07:00` 。 |
+| **CorrelationId** | `string` | 否 | 用來追蹤系統上各個事件的 UUID。 例如： `cec16751-ab27-405d-8fe6-c68e1412ce1f` 。
 
 ### <a name="send-your-message-to-digital-twins"></a>將訊息傳送至 Digital Twins
 

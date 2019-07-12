@@ -36,7 +36,7 @@ ms.locfileid: "66693076"
 
 資料同步並非適合下列案例使用的解決方案：
 
-| 案例 | 某些建議的解決方案 |
+| 狀況 | 某些建議的解決方案 |
 |----------|----------------------------|
 | 災害復原 | [Azure 異地備援備份](sql-database-automated-backups.md) |
 | 讀取級別 | [使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)](sql-database-read-scale-out.md) |
@@ -91,7 +91,7 @@ ms.locfileid: "66693076"
 
 ### <a name="set-up-data-sync-with-powershell"></a>使用 PowerShell 設定資料同步
 
-- [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+- [使用 PowerShell 在多個 Azure SQL 資料庫之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
 - [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>檢閱資料同步最佳做法
@@ -140,7 +140,7 @@ ms.locfileid: "66693076"
 
 #### <a name="unsupported-column-types"></a>不支援的資料行類型
 
-資料同步無法同步處理唯讀或系統產生的資料行。 例如︰
+資料同步無法同步處理唯讀或系統產生的資料行。 例如:
 
 - 計算資料行。
 - 適用於時態表的系統所產生的資料行。
@@ -173,7 +173,7 @@ SQL 資料同步會在以下所有區域內上市。
 
 ### <a name="is-a-sql-database-account-required"></a>是否需要 SQL Database 帳戶？
 
-是。 您必須具有可裝載中樞資料庫的 SQL Database 帳戶。
+是的。 您必須具有可裝載中樞資料庫的 SQL Database 帳戶。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>資料同步能否僅在 SQL Server 內部部署資料庫之間同步？
 
@@ -181,18 +181,18 @@ SQL 資料同步會在以下所有區域內上市。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>我可以使用資料同步在屬於不同訂用帳戶的 SQL Database 之間進行同步嗎？
 
-是。 您可以在不同訂用帳戶擁有的資源群組所屬的 SQL Database 之間進行同步。
+是的。 您可以在不同訂用帳戶擁有的資源群組所屬的 SQL Database 之間進行同步。
 
 - 如果訂用帳戶屬於同一個租用戶，且您擁有所有訂用帳戶的權限，則可以在 Azure 入口網站中設定同步群組。
 - 否則，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>我可以使用資料同步在屬於不同雲端 (如 Azure 公用雲端和 Azure 中國) 的 SQL Database 之間進行同步嗎？
 
-是。 您可以在屬於不同雲端的 SQL Database 之間進行同步處理，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
+是的。 您可以在屬於不同雲端的 SQL Database 之間進行同步處理，您必須使用 PowerShell 來新增屬於不同訂用帳戶的同步成員。
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>能否使用資料同步將生產環境資料庫的資料植入空白資料庫，然後同步處理資料？
 
-是。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
+是的。 請從原始結構描述編寫結構描述，藉此在新的資料庫中手動建立結構描述。 建立結構描述之後，請將資料表新增到同步群組，以複製資料並讓資料保持同步。
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>應該使用 SQL 資料同步來備份及還原資料庫嗎？
 
@@ -207,7 +207,7 @@ SQL 資料同步會在以下所有區域內上市。
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援定序？
 
-是。 在下列案例中 SQL 資料同步可支援定序：
+是的。 在下列案例中 SQL 資料同步可支援定序：
 
 - 如果所選取的同步結構描述資料表尚未存在您的中樞或成員資料庫中，則當您部署同步群組時，此服務會在空的目的地資料庫中，使用所選的定序設定，自動建立對應的資料表和資料行。
 - 如果要同步處理的資料表已存在於您的中樞和成員資料庫中，則 SQL 資料同步會要求主索引鍵資料行在中樞與成員資料庫之間有相同的定序，才能成功部署同步群組。 主索引鍵資料行以外的資料行沒有任何定序限制。

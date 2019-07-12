@@ -32,7 +32,7 @@ ms.locfileid: "66734539"
 
 Analysis Services 管理物件 (AMO) 和 ADOMD 用戶端文件庫可從 [NuGet.org](https://www.nuget.org/)作為可安裝套件使用。建議您移轉至 NuGet 參考，而不是使用 Windows Installer。 
 
-|封裝  | 產品版本  | 
+|套件  | 產品版本  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    16.3.0     |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   16.3.0      |

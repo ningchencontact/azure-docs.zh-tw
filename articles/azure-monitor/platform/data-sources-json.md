@@ -86,7 +86,7 @@ ms.locfileid: "60804639"
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 資料將收集到 Azure 監視器中，記錄類型為 `<FLUENTD_TAG>_CL`。
 
 例如，Azure 監視器中的自訂標籤 `tag oms.api.tomcat`，記錄類型為 `tomcat_CL`。  您可以使用下列記錄查詢來擷取此類型的所有記錄。

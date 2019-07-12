@@ -164,7 +164,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
 - [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 下列的內建角色可以讀取 Azure SQL database 的資料分類： `Owner`， `Reader`， `Contributor`，`SQL Security Manager`和`User Access Administrator`。
 

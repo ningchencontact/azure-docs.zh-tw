@@ -23,7 +23,7 @@ ms.locfileid: "65028211"
 
 Azure AD 提供雲端式身分識別管理，並可讓您跨整個企業及存取的應用程式在 Azure 中使用單一身分識別。 Azure 區塊鏈服務與 Azure AD 整合，並提供的優點，例如識別碼同盟單一登入和多重要素驗證。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [建立使用 Azure 入口網站的區塊鏈成員](create-member.md)
 
@@ -66,7 +66,7 @@ git clone https://github.com/Microsoft/azure-blockchain-connector.git
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>使用 Azure AD 使用者帳戶連線
 
-1. 執行下列命令，以使用 Azure AD 使用者帳戶進行驗證。 取代\<myAADDirectory\>與 Azure AD 網域。 例如： `yourdomain.onmicrosoft.com`。
+1. 執行下列命令，以使用 Azure AD 使用者帳戶進行驗證。 取代\<myAADDirectory\>與 Azure AD 網域。 例如： `yourdomain.onmicrosoft.com` 。
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -102,7 +102,7 @@ connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myCl
 
 對於行動裝置或以文字為基礎的 Azure AD 驗證的快顯顯示不可能的瀏覽器中，Azure AD 會產生一次性密碼。 您可以複製密碼，並繼續使用另一個環境中的 Azure AD 驗證。
 
-若要產生密碼，取代**aadauthcode**具有**aaddevice**。 取代\<myAADDirectory\>與 Azure AD 網域。 例如： `yourdomain.onmicrosoft.com`。
+若要產生密碼，取代**aadauthcode**具有**aaddevice**。 取代\<myAADDirectory\>與 Azure AD 網域。 例如： `yourdomain.onmicrosoft.com` 。
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

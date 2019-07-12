@@ -30,7 +30,7 @@ ms.locfileid: "62130750"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 使用虛擬網路內部位址 (而不是公用 VIP) 可以建立 App Service 環境。  此內部位址是由稱為內部負載平衡器 (ILB) 的 Azure 元件提供。  使用 Azure 入口網站可以建立 ILB ASE。  也可以透過 Azure Resource Manager 範本使用自動化建立。  本文逐步解說使用 Azure Resource Manager 範本建立 ILB ASE 所需的步驟和語法。
 
 自動建立 ILB ASE 涉及三個步驟︰
@@ -134,7 +134,7 @@ ms.locfileid: "62130750"
 
 不過，就如同在公用多租用戶服務上執行的應用程式，開發人員也可以為個別的應用程式設定自訂主機名稱，然後為個別的應用程式設定唯一的 SNI SSL 憑證繫結。  
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 若要開始使用 App Service 環境，請參閱 [App Service 環境簡介](app-service-app-service-environment-intro.md)
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

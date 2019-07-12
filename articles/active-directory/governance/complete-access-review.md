@@ -29,7 +29,7 @@ ms.locfileid: "66473360"
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure AD Premium P2
 - 全域管理員、 使用者管理員、 安全性系統管理員或安全性讀取者

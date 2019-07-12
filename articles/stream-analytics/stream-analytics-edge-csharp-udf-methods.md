@@ -21,7 +21,7 @@ ms.locfileid: "64692923"
 
 Azure 串流分析提供類似 SQL 的查詢語言，以對事件資料的串流執行轉換與計算。 內建許多函式，但某些複雜的案例需要更大的彈性。 透過 .NET Standard 使用者定義的函式 (UDF)，您可以叫用任何以 .NET Standard 語言 (C#、F# 等) 撰寫的函式，以擴充串流分析查詢語言。 UDF 可讓您執行複雜的數學運算、使用 ML.NET 匯入自訂 ML 模型，及為遺漏的資料使用自訂插補邏輯。 適用於串流分析 Edge 作業的 UDF 功能目前為預覽狀態，不應該用於生產環境工作負載。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本機 (甚至離線) 測試工作，並將串流分析工作發佈至 Azure。 發佈至 Azure 後，您便可使用 IoT 中樞將工作發佈至 IoT 裝置。
 
 有三種方式可以實作 UDF：
@@ -40,10 +40,10 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 |---------|---------|
 |long  |  bigint   |
 |double  |  double   |
-|字串  |  nvarchar(max)   |
+|string  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
-|物件  |  IRecord   |
+|object  |  IRecord   |
 |Array\<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
@@ -114,8 +114,8 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
  |**設定**  |**建議的值**  |
  |---------|---------|
  |組件來源  | 來自雲端的現有組件套件    |
- |資源  |  選擇目前帳戶中的資料   |
- |訂用帳戶  |  選擇您的訂用帳戶。   |
+ |Resource  |  選擇目前帳戶中的資料   |
+ |Subscription  |  選擇您的訂用帳戶。   |
  |儲存體帳戶  |  選擇儲存體帳戶   |
  |容器  |  選擇在您的儲存體帳戶中建立的容器。   |
 

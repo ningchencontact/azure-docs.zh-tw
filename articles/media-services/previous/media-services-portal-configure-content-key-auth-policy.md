@@ -24,7 +24,7 @@ ms.locfileid: "61130537"
 # <a name="configure-a-content-key-authorization-policy"></a>設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
  您可以使用 Azure 媒體服務來傳遞受到進階加密標準 (AES) 保護的 MPEG DASH、Smooth Streaming 和 HTTP Live Streaming (HLS) 串流，方法是使用 128 位元加密金鑰或 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/)。 使用媒體服務，您還可以傳遞使用 Widevine DRM 加密的 DASH 串流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。
 
 媒體服務也提供金鑰/授權傳遞服務，用戶端可以從該處取得 AES 金鑰或 PlayReady/Widevine 授權，以便播放加密的內容。
@@ -33,7 +33,7 @@ ms.locfileid: "61130537"
 
 當播放器要求設定為動態加密的串流時，媒體服務會使用設定的金鑰，以 AES 或 DRM 加密將您的內容動態加密。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
-如果您預計有多個內容金鑰，或需要指定金鑰/授權傳遞服務 URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。 如需詳細資訊，請參閱
+如果您預計有多個內容金鑰，或需要指定金鑰/授權傳遞服務 URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。 如需詳細資訊，請參閱：
 
 * [使用媒體服務 .NET SDK 設定內容金鑰授權原則](media-services-dotnet-configure-content-key-auth-policy.md)
 * [使用媒體服務 REST API 設定內容金鑰授權原則](media-services-rest-configure-content-key-auth-policy.md)

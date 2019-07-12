@@ -93,7 +93,7 @@ ms.locfileid: "65900872"
 
 在本文的其餘章節中，您可以了解如何使用可用的 .NET 方法來執行一些作業，例如驗證、檔案上載等。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 * 如需讓應用程式進行使用者驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-net-sdk.md)。
 * 如需讓應用程式進行服務對服務驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-net-sdk.md)。
@@ -135,7 +135,7 @@ ms.locfileid: "65900872"
     // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [使用 .NET SDK 對 Data Lake Storage Gen1 進行檔案系統作業](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

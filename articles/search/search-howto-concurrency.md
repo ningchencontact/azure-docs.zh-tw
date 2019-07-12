@@ -215,7 +215,7 @@ ms.locfileid: "65025329"
 + [GitHub 上的 REST API 範例](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文)
 + [GitHub 上的 .NET SDK 範例](https://github.com/Azure-Samples/search-dotnet-getting-started) (英文)。 此解決方案包括「DotNetEtagsExplainer」專案，其中包含本文所提供的程式碼。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [常見 HTTP 要求和回應標頭 (英文)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP 狀態碼 (英文)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

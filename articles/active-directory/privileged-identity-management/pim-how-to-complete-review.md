@@ -47,7 +47,7 @@ ms.locfileid: "65602152"
 ### <a name="export"></a>匯出
 如果想要手動套用存取權檢閱的結果，您可以匯出檢閱。 [匯出]  按鈕會開始下載 CSV 檔案。 您可以在 Excel 或開啟 CSV 檔案的其他程式中管理結果。
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>DELETE
 如果對檢閱不再有任何興趣，請刪除它。 [刪除]  按鈕會將檢閱從 PIM 應用程式中移除。
 
 > [!IMPORTANT]

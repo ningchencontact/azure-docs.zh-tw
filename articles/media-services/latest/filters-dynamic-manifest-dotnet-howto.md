@@ -31,7 +31,7 @@ ms.locfileid: "66494303"
 > [!NOTE]
 > 請務必檢閱[presentationTimeRange](filters-concept.md#presentationtimerange)。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 - 檢閱[篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源群組名稱和「媒體服務」帳戶名稱。 

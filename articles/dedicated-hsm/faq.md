@@ -66,7 +66,7 @@ Azure 專用硬體安全模組 (HSM) 服務使用 SafeNet Luna Network HSM 7 (�
 
 截至晚期年 3 月 2019 下, 面所列的 14 個區域均可使用專用的 HSM。 進一步的區域計劃，並可以討論透過 Microsoft 客戶代表。
 
-* 美國東部
+* East US
 * 美國東部 2
 * 美國西部
 * 美國中南部
@@ -97,7 +97,7 @@ Azure 專用硬體安全模組 (HSM) 服務使用 SafeNet Luna Network HSM 7 (�
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>問：問：我是否可以使用儲存在專用硬體安全模組 (HSM) 的金鑰，來加密用於其他 Azure 服務的資料？
 
-沒有。 您只能從您的虛擬網路內存取 Azure 專用硬體安全模組 (HSM)。
+資料分割 您只能從您的虛擬網路內存取 Azure 專用硬體安全模組 (HSM)。
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>問：我是否可以從現有內部部署硬體安全模組 (HSM) 將金鑰匯入專用硬體安全模組 (HSM)？
 
@@ -122,7 +122,7 @@ PKCS #11、Java (JCA/JCE)、Microsoft CAPI 和 CNG、OpenSSL
 
 ### <a name="q-can-i-importmigrate-keys-from-luna-56-hsms-to-azure-dedicated-hsms"></a>問：我是否可以從 Luna 5/6 將金鑰匯入/遷移至 Azure 專用硬體安全模組 (HSM)？
 
-是。 請參閱 Gemalto 移轉指南。 
+是的。 請參閱 Gemalto 移轉指南。 
 
 ## <a name="using-your-hsm"></a>使用您的 HSM
 
@@ -143,13 +143,13 @@ Azure 專用硬體安全模組 (HSM) 最適合移轉案例。 意即，如果您
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>問：專用硬體安全模組 (HSM) 是否可以搭配 Office 365 客戶金鑰、Azure 資訊保護、Azure Data Lake Store、磁碟加密、Azure 儲存體加密、Azure SQL TDE 使用？
 
-沒有。 專用 HSM 直接佈建於客戶的私人 IP 位址空間，因此無法由其他 Azure 或 Microsoft 服務存取。
+資料分割 專用 HSM 直接佈建於客戶的私人 IP 位址空間，因此無法由其他 Azure 或 Microsoft 服務存取。
 
 ## <a name="administration-access-and-control"></a>管理、存取和控制
 
 ### <a name="q-does-the-customer-get-full-exclusive-control-over-the-hsms-with-dedicated-hsms"></a>問：客戶是否能以專用硬體安全模組 (HSM) 取得對硬體安全模組 (HSM) 的完整專屬控制權？
 
-是。 每個 HSM 裝置都由單一客戶完全專用，一旦佈建並變更系統管理員密碼之後，即沒有任何其他人具有管理控制權。
+是的。 每個 HSM 裝置都由單一客戶完全專用，一旦佈建並變更系統管理員密碼之後，即沒有任何其他人具有管理控制權。
 
 ### <a name="q-what-level-of-access-does-microsoft-have-to-my-hsm"></a>問：Microsoft 對我的硬體安全模組 (HSM) 具有何種層級的存取權？
 
@@ -161,7 +161,7 @@ HSM 裝置隨附的預設使用者的系統管理員使用其慣用的預設密�
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>問：Microsoft 或任何 Microsoft 員工是否可在我的專用硬體安全模組 (HSM) 中存取金鑰？
 
-沒有。 對於儲存在客戶配置專用 HSM 中的金鑰，Microsoft 並不具有任何存取權。
+資料分割 對於儲存在客戶配置專用 HSM 中的金鑰，Microsoft 並不具有任何存取權。
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>問：是否可以為配置給我的硬體安全模組 (HSM) 升級軟體/韌體？
 
@@ -181,13 +181,13 @@ Gemalto HSM 用戶端軟體可用於管理 HSM 和分割區。
 
 ### <a name="q-can-i-get-full-access-log-of-all-hsm-operations-from-dedicated-hsm"></a>問：我是否可取得專用硬體安全模組 (HSM) 中所有硬體安全模組 (HSM) 作業記錄的完整存取權？
 
-是。 您可以將 HSM 設備的記錄傳送至 Syslog 伺服器
+是的。 您可以將 HSM 設備的記錄傳送至 Syslog 伺服器
 
 ## <a name="high-availability"></a>高可用性
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>問：是否可以在相同區域或跨多個區域，設定高可用性？
 
-是。 高可用性設定和設定，會在 Gemalto 提供的 HSM 用戶端軟體中執行。 從相同的 VNET 或其他 Vnet 位於相同區域或跨區域，或在內部部署 Hsm 的 Hsm 連線至 VNET，使用站對站或點對點 VPN 可以新增至相同的高可用性組態。 請注意，這會同步處理只使用金鑰的內容並不是特定的設定項目，例如角色。
+是的。 高可用性設定和設定，會在 Gemalto 提供的 HSM 用戶端軟體中執行。 從相同的 VNET 或其他 Vnet 位於相同區域或跨區域，或在內部部署 Hsm 的 Hsm 連線至 VNET，使用站對站或點對點 VPN 可以新增至相同的高可用性組態。 請注意，這會同步處理只使用金鑰的內容並不是特定的設定項目，例如角色。
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>問：我是否能使用 Azure 專用硬體安全模組 (HSM) 將 HSM 從我的內部部署網路新增至高可用性群組？
 
@@ -195,7 +195,7 @@ Gemalto HSM 用戶端軟體可用於管理 HSM 和分割區。
 
 ### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>問：我是否能使用 Azure 專用硬體安全模組 (HSM) 將 Luna 5/6 HSM 從內部部署網路新增至高可用性群組？
 
-沒有。
+資料分割
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>問：問：我可以從單一應用程式將多少硬體安全模組 (HSM) 新增至相同高可用性設定？
 
@@ -267,7 +267,7 @@ HSM 具有命令列 reboot 選項，不過，我們會間歇性發生重新開�
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>問：專用硬體安全模組 (HSM) 是否已通過 FIPS 140-2 等級 3 驗證？
 
-是。 專用 HSM 服務佈建使用 FIPS 140-2 等級 3 驗證的 SafeNet Network HSM 7 設備。
+是的。 專用 HSM 服務佈建使用 FIPS 140-2 等級 3 驗證的 SafeNet Network HSM 7 設備。
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>問：我如何確定我的專用硬體安全模組 (HSM) 在 FIPS 140-2 等級 3 驗證模式下運作？
 

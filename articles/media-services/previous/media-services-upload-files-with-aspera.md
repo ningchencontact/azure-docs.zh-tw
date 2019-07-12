@@ -23,7 +23,7 @@ ms.locfileid: "60826860"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>使用 Azure 上的 Aspera Server On Demand 服務，將檔案上傳至媒體服務帳戶 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 **Aspera** 是高速檔案傳輸軟體。 適用於 Azure 的 **Aspera Server On Demand** 可讓大型檔案直接高速上傳和下載到 Azure Blob 物件儲存體。 如需有關 **Aspera On Demand** 的相關資訊，請參閱 [Aspera 雲端](http://cloud.asperasoft.com/)網站。 
   
@@ -37,7 +37,7 @@ ms.locfileid: "60826860"
 >對於支援使用 Azure 媒體服務媒體處理器 (Mp) 來進行處理的檔案大小有所限制。 請參閱[這篇](media-services-quotas-and-limitations.md)文章，以取得有關檔案大小限制的詳細資料。
 >
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要完成本教學課程，您需要：
 

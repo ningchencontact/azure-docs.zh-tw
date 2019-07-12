@@ -1,6 +1,6 @@
 ---
 title: 若要發行應用程式的要求
-description: 上也提供本文中使用的原始碼。
+description: 。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos

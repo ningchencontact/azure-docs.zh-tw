@@ -54,7 +54,7 @@ Azure 資訊安全中心可能會建議您新增由 Microsoft 合作夥伴提供
    ![設定規則以限制存取][9]
    ![編輯輸入規則][10]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 本文件說明如何實作資訊安全中心建議的「新增新一代防火牆」。 若要了解 NGFW 與檢查點合作夥伴解決方案的詳細資訊，請參閱：
 
 * [新一代防火牆](https://en.wikipedia.org/wiki/Next-Generation_Firewall)

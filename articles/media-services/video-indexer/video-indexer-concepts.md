@@ -37,6 +37,6 @@ TimeRange 是原始影片中的時間範圍。 AdjustedTimeRange 是相對於目
 
 如需有關如何開始使用的資訊，請參閱[如何註冊及上傳您的第一個影片](video-indexer-get-started.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [影片索引子概觀](video-indexer-overview.md)

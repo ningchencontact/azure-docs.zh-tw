@@ -16,7 +16,7 @@ ms.locfileid: "65067125"
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>設定 Azure Database for PostgreSQL-透過 Azure 入口網站的單一伺服器伺服器參數 
 您可以透過 Azure 入口網站列出、顯示、更新適用於 PostgreSQL 的 Azure 資料庫伺服器的設定參數。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 為了逐步執行本作法指南，您需要︰
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)
 

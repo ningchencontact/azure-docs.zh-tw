@@ -29,7 +29,7 @@ ms.locfileid: "67051757"
 > 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。 [為資產編碼](media-services-encode-asset.md) 主題說明如何編碼為調適性位元速率 MP4 集。 
 
 > [!NOTE]

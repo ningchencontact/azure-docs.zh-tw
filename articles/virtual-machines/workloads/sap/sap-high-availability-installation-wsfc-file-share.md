@@ -4,7 +4,7 @@ description: 在 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0efb1ec30430a69563c61de667ad2568f2679a1b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357704"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708985"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>在 Azure 之 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性
 
@@ -200,13 +200,13 @@ ms.locfileid: "66357704"
 
 本文說明如何在 Azure 上透過 Windows 容錯移轉叢集 (WSFC) 和向外延展檔案共用作為叢集 SAP ASCS/SCS 執行個體的選項，以安裝並設定高可用的 SAP 系統。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始安裝之前，請檢閱下列文章：
 
 * [架構指南：使用檔案共用的 Windows 容錯移轉叢集上叢集 SAP ASCS/SCS 執行個體][sap-high-availability-guide-wsfc-file-share]
 
-* [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
+* [準備 Azure 基礎結構的 SAP 高可用性 SAP ASCS/SCS 執行個體使用的 Windows 容錯移轉叢集和檔案共用][sap-high-availability-infrastructure-wsfc-file-share]
 
 * [Azure Vm 上的 SAP NetWeaver 的高可用性][high-availability-guide]
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
 
-建立 SAP ASCS/SCS 叢集網路名稱 (例如，**pr1-ascs [10.0.6.7]** )，如[建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]中所述。
+建立 SAP ASCS/SCS 叢集網路名稱 (例如**pr1-ascs [10.0.6.7]** ) 中所述[建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]。
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>在叢集中安裝 ASCS/SCS 和 ERS 執行個體
@@ -304,7 +304,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="add-a-probe-port"></a>新增探查連接埠
 
-使用 PowerShell 設定 SAP 叢集資源 SAP-SID-IP 探查連接埠。 如[本文][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]所述，請在其中一個 SAP ASCS/SCS 叢集節點上執行此設定。
+使用 PowerShell 設定 SAP 叢集資源 SAP-SID-IP 探查連接埠。 其中一個 SAP ASCS/SCS 叢集節點上執行此組態，如所述[這篇文章中][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]。
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>在第二個 ASCS/SCS 叢集節點上安裝 ASCS/SCS 執行個體
 
@@ -335,10 +335,10 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在沒有共用磁碟的容錯移轉叢集上安裝 ASCS/SCS 執行個體 - 高可用性檔案共用的官方 SAP 指導方針][sap-official-ha-file-share-document]
+* [在沒有共用磁碟的高可用性檔案共用的官方 SAP 指導方針的容錯移轉叢集上安裝 ASCS/SCS 執行個體][sap-official-ha-file-share-document]
 
 * [Windows Server 2016 中的儲存空間直接存取][s2d-in-win-2016]
 
-* [用於應用程式資料的向外延展檔案伺服器概觀][sofs-overview]
+* [向外延展檔案伺服器的應用程式資料概觀][sofs-overview]
 
-* [Windows Server 2016 中儲存空間的新功能][new-in-win-2016-storage]
+* [在 Windows Server 2016 中的儲存體中最新消息][new-in-win-2016-storage]

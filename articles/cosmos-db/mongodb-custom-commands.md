@@ -43,12 +43,12 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**描述** |
 |---------|---------|---------|
-| customAction   |  字串  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
-| offerThroughput | int  | 您在資料庫設定的佈建的輸送量。 這個參數是選擇性的。 |
+| customAction   |  string  |   名稱的自訂命令，它必須是"CreateDatabase 」。      |
+| offerThroughput | ssNoversion  | 您在資料庫設定的佈建的輸送量。 這個參數是選擇性的。 |
 
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 
 傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
 
@@ -85,12 +85,12 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**描述** |
 |---------|---------|---------|
-| customAction    |    字串     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
-|  offerThroughput   |  int       |     您想要在資料庫上設定的新佈建的輸送量。    |
+| customAction    |    string     |   自訂命令名稱。 必須是"UpdateDatabase 」。      |
+|  offerThroughput   |  ssNoversion       |     您想要在資料庫上設定的新佈建的輸送量。    |
 
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 
 傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
 
@@ -118,15 +118,15 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 下表描述在命令中的參數：
 
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**描述** |
 |---------|---------|---------|
-|  customAction   |   字串      |   自訂命令名稱。 必須是 「 GetDatabase"|
+|  customAction   |   string      |   自訂命令名稱。 必須是 「 GetDatabase"|
         
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 
 如果命令成功，回應會包含具有下列欄位的文件：
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
 | `database`    |    `string`        |   資料庫名稱。      |
@@ -160,14 +160,14 @@ db.runCommand({customAction: "GetDatabase"});
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**描述** |
 |---------|---------|---------|
-| customAction    | 字串 | 自訂命令名稱。 必須是 「 CreateCollection"     |
-| collection      | 字串 | 集合的名稱                                   |
-| offerThroughput | int    | 若要在資料庫上設定的佈建的輸送量。 這是選擇性參數 |
-| shardKey        | 字串 | 分區金鑰路徑，以建立分區化集合。 這是選擇性參數 |
+| customAction    | string | 自訂命令名稱。 必須是 「 CreateCollection"     |
+| collection      | string | 集合的名稱                                   |
+| offerThroughput | ssNoversion    | 若要在資料庫上設定的佈建的輸送量。 這是選擇性參數 |
+| shardKey        | string | 分區金鑰路徑，以建立分區化集合。 這是選擇性參數 |
 
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 
 傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
 
@@ -205,13 +205,13 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 下表描述在命令中的參數：
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**描述** |
 |---------|---------|---------|
-|  customAction   |   字串      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
-|  collection   |   字串      |   集合的名稱。       |
-| offerThroughput   |int|   若要設定的集合上佈建的輸送量。|
+|  customAction   |   string      |   自訂命令名稱。 必須是"UpdateCollection 」。      |
+|  collection   |   string      |   集合的名稱。       |
+| offerThroughput   |ssNoversion|   若要設定的集合上佈建的輸送量。|
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 傳回預設的自訂命令回應。 請參閱[預設輸出](#default-output)的自訂命令輸出中的參數。
 
@@ -240,17 +240,17 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 下表描述在命令中的參數：
 
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**描述** |
 |---------|---------|---------|
-| customAction    |   字串      |   自訂命令名稱。 必須是"GetCollection 」。      |
-| collection    |    字串     |    集合的名稱。     |
+| customAction    |   string      |   自訂命令名稱。 必須是"GetCollection 」。      |
+| collection    |    string     |    集合的名稱。     |
 
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 
 如果命令成功，回應會包含具有下列欄位的文件
 
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
 | `database`    |    `string`     |   資料庫名稱。      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 如果未指定，自訂的回應會包含具有下列欄位的文件：
 
-|**欄位**|**類型** |**說明** |
+|**欄位**|**型別** |**說明** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   回應的狀態。 1 = = 成功。 0 = = 失敗。      |
 | `code`    |   `int`      |   命令失敗時，才傳回 （也就是 [確定] = = 0）。 包含 MongoDB 錯誤程式碼。 這是選擇性的回應參數。      |

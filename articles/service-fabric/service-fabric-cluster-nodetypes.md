@@ -76,17 +76,17 @@ Service Fabric 虛擬機器延伸模組用來啟動 Service Fabric Azure 虛擬�
 
 | **名稱** | **允許的值** | ** --- ** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-| name | 字串 | --- | 延伸模組的唯一名稱 |
+| name | string | --- | 延伸模組的唯一名稱 |
 | type | 「 ServiceFabricLinuxNode"或者"ServiceFabricWindowsNode | --- | 識別作業系統的 Service Fabric 會在啟動載入至 |
 | autoUpgradeMinorVersion | True 或 False | --- | 啟用自動升級的 SF 執行階段次要版本 |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric 延伸模組發行者的名稱 |
-| clusterEndpont | 字串 | --- | 管理端點的 URI:PORT |
-| nodeTypeRef | 字串 | --- | nodeType 的名稱 |
+| clusterEndpont | string | --- | 管理端點的 URI:PORT |
+| nodeTypeRef | string | --- | nodeType 的名稱 |
 | durabilityLevel | 銅級、 銀級、 金級、 白金級 | --- | 若要暫停不可變的 Azure 基礎結構允許的時間 |
 | enableParallelJobs | True 或 False | --- | 啟用計算 ParallelJobs，例如移除 VM 和相同的擴展集以平行方式重新啟動 VM |
-| nicPrefixOverride | 字串 | --- | 子網路首碼，如 「 10.0.0.0/24" |
+| nicPrefixOverride | string | --- | 子網路首碼，如 「 10.0.0.0/24" |
 | commonNames | string[] | --- | 已安裝的叢集憑證通用名稱 |
-| x509StoreName | 字串 | --- | 已安裝的叢集憑證所在的存放區的名稱 |
+| x509StoreName | string | --- | 已安裝的叢集憑證所在的存放區的名稱 |
 | typeHandlerVersion | 1.1 | --- | 延伸模組的版本。 1.0 的傳統版本的延伸模組會建議您升級至 1.1 |
 
 ## <a name="next-steps"></a>後續步驟

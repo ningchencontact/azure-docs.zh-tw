@@ -41,7 +41,7 @@ ms.locfileid: "60851370"
    按一下應用程式註冊以選取它，然後按一下 [確定]  。 然後在 Azure Active Directory 設定頁面上按一下 [確定]  。
    App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。 您必須在應用程式程式碼中授權使用者。
 5. (選擇性) 若要限制只有透過 Azure Active Directory 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作]  設為 [使用 Azure Active Directory 登入]  。 這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Azure Active Directory 以進行驗證。
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 ## <a name="advanced"> </a>使用進階設定來設定
 
@@ -55,7 +55,7 @@ ms.locfileid: "60851370"
 4. 幾秒鐘之後，您應該會看到剛才建立的新應用程式註冊。
 5. 新增應用程式註冊之後，按一下應用程式註冊名稱，按一下上方的 [設定]  ，然後按一下 [屬性]  
 6. 在 [應用程式識別碼 URI]  方塊中，貼上應用程式 URL (來自步驟 1)，同時在 [首頁 URL]  中貼上應用程式 URL (來自步驟 1)，然後按一下 [儲存] 
-7. 現在，按一下**回覆 Url**，編輯**回覆 URL**，貼上應用程式 url （來自步驟 1），然後將它附加到 URL 結尾 */.auth/login/aad/callback* （適用於範例中， `https://contoso.azurewebsites.net/.auth/login/aad/callback`)。 按一下 [檔案]  。
+7. 現在，按一下**回覆 Url**，編輯**回覆 URL**，貼上應用程式 url （來自步驟 1），然後將它附加到 URL 結尾 */.auth/login/aad/callback* （適用於範例中， `https://contoso.azurewebsites.net/.auth/login/aad/callback`)。 按一下 [儲存]  。
 
    > [!NOTE]
    > 您也可以新增額外的多個網域使用相同的應用程式註冊**回覆 Url**。 請務必建立自己的註冊，每個 App Service 執行個體的模型，使其具有自己的權限及同意。 也請考慮使用不同的應用程式註冊，適用於不同的站台位置。 這是為了避免不同環境間共用的權限，以便您測試新的程式碼中的錯誤不會影響生產環境。
@@ -80,7 +80,7 @@ ms.locfileid: "60851370"
 2. 在左側瀏覽區域中，選取 [應用程式註冊]  。 按一下上方的 [新增應用程式註冊]  。
 4. 在 [建立]  頁面中，輸入應用程式註冊的**名稱**。 在 [應用程式類型]  中選取 [原生]  。
 5. 在 [重新導向 URI]  方塊中，使用 HTTPS 配置輸入您網站的 /.auth/login/done  端點。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done  。 如果是建立 Windows 應用程式，請改用 [封裝 SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) 作為 URI。
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 6. 新增應用程式註冊之後，選取它以開啟。 找到 [應用程式識別碼]  ，並記下此值。
 7. 按一下 [所有設定]   > [必要權限]   > [新增]   > [選取 API]  。
 8. 輸入您稍早註冊的 App Service 應用程式名稱來搜尋它，然後選取它並按一下 [選取]  。

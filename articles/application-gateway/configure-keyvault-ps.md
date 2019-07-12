@@ -26,7 +26,7 @@ ms.locfileid: "65827619"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，您必須已安裝 ManagedServiceIdentity 模組：
 

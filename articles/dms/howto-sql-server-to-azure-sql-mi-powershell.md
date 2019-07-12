@@ -33,7 +33,7 @@ ms.locfileid: "65233725"
 
 這篇文章包含有關如何執行線上和離線移轉的詳細資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成這些步驟，您需要：
 

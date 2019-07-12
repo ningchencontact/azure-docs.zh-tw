@@ -48,7 +48,7 @@ ms.locfileid: "66511856"
 
 **ClaimType** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 要在各種畫面上顯示給使用者的標題。 此值可進行[當地語系化](localization.md)。 |
 | DataType | 0:1 | 宣告的類型。 您可以使用下列資料類型：boolean、date、dateTime、int、long、string、stringCollection、alternativeSecurityIdCollection。 |

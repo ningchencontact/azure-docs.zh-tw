@@ -53,9 +53,9 @@ ms.locfileid: "66297644"
 
    ![一段時間的延遲](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | 屬性 | JSON 名稱 | 必要項 | 類型 | 描述 |
+   | 屬性 | JSON 名稱 | 必要項 | type | 描述 |
    |----------|-----------|----------|------|-------------|
-   | 計數 | count | 是 | Integer | 要延遲的時間單位數 |
+   | Count | count | 是 | 整數 | 要延遲的時間單位數 |
    | 單位 | unit | 是 | 字串 | Jednotka č a s，例如： `Second`， `Minute`， `Hour`， `Day`， `Week`，或 `Month` |
    ||||||
 
@@ -79,9 +79,9 @@ ms.locfileid: "66297644"
 
    ![指定何時結束延遲的時間戳記](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | 屬性 | JSON 名稱 | 必要項 | 類型 | 描述 |
+   | 屬性 | JSON 名稱 | 必要項 | type | 描述 |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | 是 | 字串 | 結束日期和時間繼續工作流程使用此格式： <p>YYYY-MM-DDThh:mm:ssZ <p>比方說，如果您想在 2017 年 9 月 18 日下午 2:00 時，指定"2017年-09-18T14:00:00Z"。 <p>**附註：** 此時間格式必須遵循[ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)中[UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)，但不含[UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 沒有時區中，您必須新增不包含任何空格結尾的字母"Z"。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 |
+   | Timestamp | timestamp | 是 | 字串 | 結束日期和時間繼續工作流程使用此格式： <p>YYYY-MM-DDThh:mm:ssZ <p>比方說，如果您想在 2017 年 9 月 18 日下午 2:00 時，指定"2017年-09-18T14:00:00Z"。 <p>**注意：** 此時間格式必須遵循[ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)中[UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)，但不含[UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 沒有時區中，您必須新增不包含任何空格結尾的字母"Z"。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 |
    ||||||
 
 1. 新增您想要在您的工作流程中執行的任何其他動作。

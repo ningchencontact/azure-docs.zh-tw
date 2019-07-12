@@ -46,7 +46,7 @@ ms.locfileid: "67056289"
 
     回覆 URL 必須以配置 `https` 開頭，而且所有回覆 URL 值必須共用單一 DNS 網域。 例如，如果應用程式的回覆 URL 為 `https://login.contoso.com`，您可以新增它，如這個 URL 所示：`https://login.contoso.com/new`。 或者，您可以參照 `login.contoso.com` 的 DNS 子網域，例如 `https://new.login.contoso.com`。 如果您想要有以 `login-east.contoso.com` 和 `login-west.contoso.com` 作為回覆 URL 的應用程式，您必須依照以下順序新增這些回覆 URL：`https://contoso.com`、`https://login-east.contoso.com`、`https://login-west.contoso.com`。 您可以新增後面兩個，因為它們是第一個回覆 URL (`contoso.com`) 的子網域。
 
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 ## <a name="create-a-client-secret"></a>建立用戶端密碼
 

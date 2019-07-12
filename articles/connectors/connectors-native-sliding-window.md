@@ -33,7 +33,7 @@ ms.locfileid: "66299498"
 > [!TIP]
 > 如果您要觸發邏輯應用程式，並只執行一次在未來，請參閱[執行作業只執行一次](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -51,9 +51,9 @@ ms.locfileid: "66299498"
 
    ![設定間隔和頻率](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | 屬性 | 必要項 | JSON 名稱 | 類型 | 描述 |
+   | 屬性 | 必要項 | JSON 名稱 | type | 描述 |
    |----------|----------|-----------|------|-------------|
-   | **間隔** | 是 | interval | Integer | 描述工作流程根據 frequency 多久執行一次的正整數。 以下是最小和最大間隔： <p>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>比方說，如果 interval 是 6，而 frequency 是"Hour"，則週期為每隔 6 小時。 |
+   | **間隔** | 是 | interval | 整數 | 描述工作流程根據 frequency 多久執行一次的正整數。 以下是最小和最大間隔： <p>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>比方說，如果 interval 是 6，而 frequency 是"Hour"，則週期為每隔 6 小時。 |
    | **頻率** | 是 | frequency | 字串 | 用於週期的時間單位：**第二個**，**分鐘**，或**小時** |
    ||||||
 
@@ -62,11 +62,11 @@ ms.locfileid: "66299498"
    如需更多的循環選項，開啟**加入新參數**清單。 
    選取範圍之後，觸發程序會出現任何您所選取的選項。
 
-   | 屬性 | 必要項 | JSON 名稱 | 類型 | 描述 |
+   | 屬性 | 必要項 | JSON 名稱 | type | 描述 |
    |----------|----------|-----------|------|-------------|
    | **Delay** | 否 | delay | 字串 | 延後循環使用每個持續時間[ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **時區** | 否 | timeZone | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 選取您要套用的時區。 |
-   | **開始時間** | 否 | startTime | 字串 | 提供開始日期和時間，格式如下： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>若要在 2017 年 9 月 18 日下午 2:00，比方說，然後指定"2017年-09-18T14:00:00"，然後選取 太平洋標準時間時區。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**附註：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>簡單的排程的開始時間是第一次出現，進行進階的週期觸發程序並不會引發更快於開始時間。 [*我可以使用開始日期和時間的方式有哪些？* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **開始時間** | 否 | startTime | 字串 | 提供開始日期和時間，格式如下： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>若要在 2017 年 9 月 18 日下午 2:00，比方說，然後指定"2017年-09-18T14:00:00"，然後選取 太平洋標準時間時區。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>簡單的排程的開始時間是第一次出現，進行進階的週期觸發程序並不會引發更快於開始時間。 [*我可以使用開始日期和時間的方式有哪些？* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. 現在，建立您其餘的工作流程，與其他動作。 您可以新增更多動作，請參閱[適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)。

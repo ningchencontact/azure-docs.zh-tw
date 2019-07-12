@@ -41,10 +41,10 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * EventTimestamp
 * Host
 * MALoggingHash
-* 訊息
+* Message
 * N
 * PreciseTimeStamp
-* 角色
+* Role
 * RowIndex
 * 租用戶
 * TIMESTAMP
@@ -89,7 +89,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 3. 從 [Cloud Explorer]  中，選取 [資源類型]  。  另一個可用的選項是 [資源群組]  。
 4. 展開 [儲存體帳戶]  、您叢集的預設儲存體帳戶，然後是 [資料表]  。
 5. 按兩下 [hadoopservicelog]  。
-6. 新增篩選器。 例如︰
+6. 新增篩選器。 例如:
    
         TraceLevel eq 'ERROR'
    
@@ -121,7 +121,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * **取得叢集狀態**。 從左窗格中展開 [叢集]  ，然後按一下 [關於]  。 這樣即會顯示叢集狀態詳細資料，例如配置的記憶體總計、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
   
     ![啟動叢集儀表板](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
-* **取得節點狀態**。 從左窗格中展開 [叢集]  ，然後按一下 [節點]  。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
+* **取得節點狀態**。 從左窗格中展開 [叢集]  ，然後按一下 [節點]  。 這樣會列出叢集中的所有節點、每個節點的 HTTP 位址、配置給每個節點的資源等資訊。
 * **監視工作狀態**。 從左窗格展開 [叢集]  ，然後按一下 [應用程式]  以列出叢集中的所有工作。 如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式]  底下的適當連結。 您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
 
 ### <a name="access-the-hbase-ui"></a>存取 HBase UI

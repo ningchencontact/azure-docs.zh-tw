@@ -56,7 +56,7 @@ ms.locfileid: "60845778"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | AS2 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | AS2 訊息接收者的夥伴名稱。 (選用) |
@@ -109,7 +109,7 @@ ms.locfileid: "60845778"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | AS2 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | AS2 訊息接收者的夥伴名稱。 (選用) |

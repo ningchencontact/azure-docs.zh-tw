@@ -42,7 +42,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 * 叢集狀態，包括上次狀態變更的詳細資料
 * 為主要、核心及工作節點指定的 HDInsight 執行個體類型和數目
 
-您可以使用 Azure 入口網站來取得此最上層資訊的大部分。  或者，可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 获取有关 HDInsight 群集的信息：
+您可以使用 Azure 入口網站來取得此最上層資訊的大部分。  或者，您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)來取得您的 HDInsight 叢集的相關資訊：
 
 ```azurecli
     az hdinsight list --resource-group <ResourceGroup>
@@ -75,7 +75,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>使用 Ambari UI 來檢視叢集組態設定
 
-Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理、組態及監視作業。 以 Linux 為基礎的 HDInsight 叢集會隨附 Ambari。 在 Azure 门户的“HDInsight”页上选择“群集仪表板”窗格，打开“群集仪表板”链接页。    接著，選取 [HDInsight 叢集儀表板]  窗格以開啟 Ambari UI。  系統會提示您輸入叢集登入認證。
+Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理、組態及監視作業。 以 Linux 為基礎的 HDInsight 叢集會隨附 Ambari。 選取 **叢集儀表板**以開啟 Azure 入口網站 HDInsight 頁面上的窗格**叢集儀表板**連結頁面。  接著，選取 [HDInsight 叢集儀表板]  窗格以開啟 Ambari UI。  系統會提示您輸入叢集登入認證。
 
 若要開啟服務檢視清單，請在 Azure 入口網站的 HDInsight 頁面上選取 [Ambari 檢視]  。  此清單會依您已安裝的程式庫而有所不同。  例如，您可能會看到 [YARN 佇列管理員]、[Hive 檢視] 及 [Tez 檢視]。  請選取任何服務連結來查看組態和服務資訊。  Ambari UI [Stack and Version] \(堆疊與版本\)  頁面會提供有關叢集服務組態與服務版本歷程記錄的資訊。 若要瀏覽至 Ambari UI 的這個區段，請選取 [Admin] \(系統管理\)  功能表，然後選取 [Stack and Version] \(堆疊與版本\)  。  選取 [Versions] \(版本\)  索引標籤以查看服務版本資訊。
 
@@ -97,7 +97,7 @@ HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以�
 
 ### <a name="access-the-hadoop-log-files"></a>存取 Hadoop 記錄檔
 
-HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 若要检查群集中的日志文件，可与群集建立 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 连接并浏览文件系统，或者在远程头节点服务器上使用 Hadoop YARN 状态门户。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 这些工具包括 [AzCopy](../storage/common/storage-use-azcopy.md)、[CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) 和 Visual Studio 服务器资源管理器。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
+HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 您可以檢查在叢集中的記錄檔 %installationdirectory [SSH](hdinsight-hadoop-linux-use-ssh-unix.md)連線到叢集，並瀏覽檔案系統中，或使用遠端前端節點伺服器上的 Hadoop YARN 狀態入口網站。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 範例包括[AzCopy](../storage/common/storage-use-azcopy.md)， [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)，和 Visual Studio 伺服器總管。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
 
 Hadoop 會將作業的工作以「工作嘗試」  的形式在叢集中的各種節點上執行。 HDInsight 可以起始理論式工作嘗試，其中會先終止所有其他未完成的工作嘗試。 這會產生將即時記錄至控制器、stderr 及 syslog 記錄檔的重要活動。 此外，多個工作嘗試會同時執行，但記錄檔只能以線性方式顯示結果。
 
@@ -166,7 +166,7 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 
 ### <a name="other-log-management-techniques"></a>其他記錄管理技術
 
-为了避免磁盘空间不足，可以使用一些 OS 工具（例如 [logrotate](https://linux.die.net/man/8/logrotate)）来管理日志文件的处理。 您可以設定讓 `logrotate` 每天執行，以壓縮記錄檔並移除舊記錄檔。 您的方法取決於您的需求，例如要在本機節點上保留記錄檔多久。  
+若要避免磁碟空間不足，您可以使用一 OS 工具例如[logrotate](https://linux.die.net/man/8/logrotate)來管理記錄檔的處理。 您可以設定讓 `logrotate` 每天執行，以壓縮記錄檔並移除舊記錄檔。 您的方法取決於您的需求，例如要在本機節點上保留記錄檔多久。  
 
 您也可以檢查是否已針對一或多個服務啟用 DEBUG 記錄功能，此功能會大幅增加輸出記錄大小。  
 

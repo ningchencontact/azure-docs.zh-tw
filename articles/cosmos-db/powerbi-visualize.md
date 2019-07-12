@@ -25,7 +25,7 @@ ms.locfileid: "65978999"
 > [!NOTE]
 > 目前僅支援 Azure Cosmos DB SQL API 和 Gremlin API 帳戶的 Azure Cosmos DB 與 Power BI 連接器連線。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在依照本 Power BI 教學課程中的指示進行之前，請先確定您可以存取下列資源：
 
 * [下載最新版的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
@@ -120,7 +120,7 @@ ms.locfileid: "65978999"
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. 為了將座標陣列壓平合併，請建立名為 LatLong 的 [自訂資料行]  。  選取 [新增資料行]  功能區，然後按一下 [自訂資料行]  。  [自訂資料行]  視窗會隨即出現。
 8. 提供新資料行的名稱，例如 LatLong。
-9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [確定]  。
+9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [確定 **Deploying Office Solutions**]。
    
     在 Data Analysis Expressions (DAX) 包括 DAX 函數的詳細資訊，請造訪[Power BI Desktop 的 DAX 基本概念](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)。
    
@@ -168,7 +168,7 @@ ms.locfileid: "65978999"
 若要共用您的報告，您必須有 PowerBI.com 中的帳戶。
 
 1. 在 Power BI Desktop 中，按一下 [首頁]  功能區。
-2. 按一下 [發佈]  。  系統會提示您輸入 PowerBI.com 帳戶的使用者名稱和密碼。
+2. 按一下 [發行]  。  系統會提示您輸入 PowerBI.com 帳戶的使用者名稱和密碼。
 3. 認證經過驗證後，報告即會發佈至您選取的目的地。
 4. 按一下 [開啟 Power BI 中的 'PowerBITutorial.pbix']  在 PowerBI.com 上查看與共用您的報表。
    

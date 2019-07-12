@@ -61,7 +61,7 @@ ms.locfileid: "64942874"
 | **執行個體\***      | 設定所需的執行個體數目、要在哪個區域設定，以及您的客戶多快就能取得試用產品。 如需詳細資訊，請參閱[如何發佈試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive)。           |
 | **測試磁碟機的持續時間 （小時）\*** | 輸入整數的時數。 允許的範圍是從 1 到 999。 |
 | **測試磁碟機的 ARM 範本\***     | 上傳含有適用於您應用程式之 Azure Resource Manager 範本的壓縮 (.zip) 檔案。 如需詳細資訊，請參閱 [Azure Resource Manager 試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)。 |
-| **存取資訊\***          | 在您的客戶取得試用產品之後，提供存取資訊。 例如，用來存取試用產品的 URL 和簽署資訊。 上也提供本文中使用的原始碼。 您可以使用基本 HTML 標記來設定這個說明的格式。 例如，&lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;ol&gt; 及標題。 |
+| **存取資訊\***          | 在您的客戶取得試用產品之後，提供存取資訊。 例如，用來存取試用產品的 URL 和簽署資訊。 。 您可以使用基本 HTML 標記來設定這個說明的格式。 例如，&lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;ol&gt; 及標題。 |
 | **Azure 訂用帳戶識別碼\***       | 這會授與對 Azure 服務與 Azure 入口網站的存取權。 訂用帳戶是回報資源使用狀況並針對服務計費的位置。 如果您還沒有將僅用於試用產品的獨立 Azure 訂用帳戶，請建立一個訂用帳戶。  |
 | **Azure AD 租用戶識別碼\***          | 提供 Azure Active Directory 中現有的租用戶，或建立適用於這個試用產品的租用戶。  |
 | **Azure AD App Id\***             | 建立並註冊新的應用程式。 Microsoft 會使用此應用程式，在您的試用產品執行個體上執行作業。  |

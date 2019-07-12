@@ -10,7 +10,7 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2b55fea69fe1affb6cab5d360f1e8355c3bb720d
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015447"
@@ -23,7 +23,7 @@ ms.locfileid: "66015447"
 
 如果您想要在本機電腦上執行 Docker 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 

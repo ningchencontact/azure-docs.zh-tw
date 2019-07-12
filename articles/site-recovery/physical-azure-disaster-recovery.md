@@ -28,7 +28,7 @@ ms.locfileid: "66400109"
 > * 建立複寫原則
 > * 啟用伺服器的複寫
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程：
 

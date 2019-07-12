@@ -154,7 +154,7 @@ Vamp 需要 Elasticsearch 來進行計量收集和彙總。 您可以使用 [mag
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. 按一下 [檔案]  。 Vamp 會起始部署。
+4. 按一下 [儲存]  。 Vamp 會起始部署。
 
 部署會列在 [部署]  頁面上。 按一下 [部署] 可監視其狀態。
 
@@ -215,7 +215,7 @@ Vamp 已在 DC/OS 代理程式節點上部署 sava 服務，在連接埠 9050 �
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. 按一下 [檔案]  。 藍圖會儲存在 [藍圖]  頁面上並加以列出。
+3. 按一下 [儲存]  。 藍圖會儲存在 [藍圖]  頁面上並加以列出。
 
 4. 將 sava:1.1 藍圖上的 [動作] 功能表開啟，然後按一下 [合併至]  。
 

@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319594"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>使用 StorSimple 裝置管理員服務管理備份類別目錄
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 StorSimple 裝置管理員服務的 [備份類別目錄]  刀鋒視窗會顯示在進行手動或排程備份時所建立的所有備份組。 您可以使用此頁面來列出備份原則或磁碟區的所有備份、選取或刪除備份，或是使用備份來還原或複製磁碟區。
 
 本教學課程說明如何列出、選取和刪除備份組。 若要了解如何透過備份還原裝置內容，請移至 [從備份組還原裝置](storsimple-8000-restore-from-backup-set-u2.md)。 若要了解如何複製磁碟區，請移至 [複製 StorSimple 磁碟區](storsimple-8000-clone-volume-u2.md)。

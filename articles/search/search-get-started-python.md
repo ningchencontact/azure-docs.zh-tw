@@ -1,7 +1,7 @@
 ---
 title: Python 快速入門：建立、 載入及查詢使用 Azure 搜尋服務 REST Api-Azure 搜尋服務索引
 description: 說明如何建立索引、 載入資料，並使用 Python、 Jupyter Notebook 和 Azure 搜尋服務 REST API 執行查詢。
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 123afa2452c3e492b85292514e64f84d3baec390
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485465"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840293"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>快速入門：使用 Jupyter notebook 以 Python 建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -26,11 +26,11 @@ ms.locfileid: "67485465"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-建置建立、 載入和查詢使用 Python 的 Azure 搜尋服務索引的 Jupyter notebook 並[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何建置 notebook 逐步解說，從頭開始。 或者，您可以執行已完成的 notebook。 若要下載複本，請前往[azure 搜尋服務-python 範例存放庫](https://github.com/Azure-Samples/azure-search-python-samples)。
+建置建立、 載入和查詢使用 Python 的 Azure 搜尋服務索引的 Jupyter notebook 並[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何建置 notebook 逐步解說。 或者，您可以[下載並執行已完成的 Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本快速入門會使用下列服務和工具。 
 
@@ -64,7 +64,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
    from pprint import pprint
    ```
 
-1. 在第二個資料格中，輸入要求項目將會在每次要求的常數。 以有效的值取代的搜尋服務名稱 （您-搜尋-服務-名稱） 和系統管理 API 金鑰 （您的系統管理員-API 金鑰）。 
+1. 在第二個資料格中，輸入要求項目將會在每次要求的常數。 將搜尋服務名稱 (YOUR-SEARCH-SERVICE-NAME) 與系統管理 API 金鑰 (YOUR-ADMIN-API-KEY) 取代為有效的值。 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
@@ -295,26 +295,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>清除 
+## <a name="clean-up"></a>清除
 
-如果您不再需要您應該刪除索引。 一項免費服務僅限於三個索引。 您應該刪除您未主動使用以騰出供其他教學課程的任何索引。
+當您使用您自己的訂用帳戶中時，最好在專案結尾來識別您是否仍需要資源您所建立。 讓資源繼續執行可能會產生費用。 您可以個別地刪除資源，或刪除資源群組，若要刪除的整組資源。
 
-刪除物件的最簡單方式是透過入口網站中，但由於這是 Python 快速入門中，下列語法會產生相同的結果：
+您可以尋找和管理資源，在入口網站中，使用**所有資源**或是**資源群組**左導覽窗格中的連結。
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-您可以要求一份現有的索引，以確認刪除索引。 如果您知道您的要求成功之後，則看不見了，旅館-快速入門。
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+如果您使用的一項免費服務，請記得您受限於三個索引、 索引子和資料來源。 您可以刪除在入口網站保持在限制之內的個別項目。 
 
 ## <a name="next-steps"></a>後續步驟
 

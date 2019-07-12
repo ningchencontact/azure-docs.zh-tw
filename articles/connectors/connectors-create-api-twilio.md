@@ -22,7 +22,7 @@ ms.locfileid: "62104896"
 
 您可以使用 Azure Logic Apps 和 Twilio 連接器，建立自動化的工作和工作流程，以便取得、傳送及列出 Twilio 中的訊息，其中包含全域簡訊、多媒體訊息及 IP 訊息。 您可以使用這些動作，利用您的 Twilio 帳戶來執行工作。 您也可以讓其他動作使用 Twilio 動作的輸出。 例如，當新訊息送達時，您可以使用 Slack 連接器傳送訊息內容。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 

@@ -19,7 +19,7 @@ ms.locfileid: "64688554"
 
 [有企業安全性套件 (ESP) 的 HDInsight 叢集](hdinsight-domain-joined-introduction.md)會搭配 Azure Active Directory (Azure AD) 使用者使用增強式驗證，也會使用*角色型存取控制* (RBAC) 原則。 當您將使用者和群組新增至 Azure AD 時，您可以將需要存取權的使用者同步至您的叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您尚未這樣做，請[建立有企業安全性套件的 HDInsight 叢集](hdinsight-domain-joined-configure.md)。
 
@@ -145,7 +145,7 @@ ms.locfileid: "64688554"
 
 當新的使用者 (或任何其他網域使用者) 登入 Ambari 時，他們會使用其完整的 Azure AD 使用者名稱和網域認證。  Ambari 會顯示使用者別名，這是使用者在 Azure AD 中的顯示名稱。 新的範例使用者具有使用者名稱 `hiveuser3@contoso.com`。 在 Ambari 中，這個新的使用者會顯示為 `hiveuser3`，但是使用者是以 `hiveuser3@contoso.com` 身分登入 Ambari。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [在有 ESP 的 HDInsight 中設定 Apache Hive 原則](hdinsight-domain-joined-run-hive.md)
 * [管理具有 ESP 的 HDInsight 叢集](hdinsight-domain-joined-manage.md)

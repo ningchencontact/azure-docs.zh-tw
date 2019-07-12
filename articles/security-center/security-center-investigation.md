@@ -41,14 +41,14 @@ ms.locfileid: "64569836"
 ## <a name="how-investigation-works"></a>調查的運作方式？
 調查是由佔用調查儀表板中央區域的圖表組成。 圖表永遠會將焦點放在特定實體，並且呈現與它相關的實體。 實體可以是安全性警示、使用者、電腦或事件。
 
-![對應](./media/security-center-investigation/security-center-investigation-fig1.png)
+![地圖](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 使用者可以藉由在圖表中按一下某個實體，從該實體瀏覽到另一個實體。 圖表會自動將選取的實體及其相關實體置中。 不再相關的實體可能會從圖表中移除。
 
 ### <a name="investigation-path"></a>調查路徑
 當使用者瀏覽至不同實體時，調查路徑會協助追蹤調查內容，並允許快速瀏覽。 包含調查結果的事件永遠是調查路徑中最左邊的事件。
 
-![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
+![`Path`](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>一般資訊
 當實體出現在圖表中時，索引標籤會顯示這個實體的其他資訊。 [資訊]  索引標籤會顯示各種可用資訊來源的實體一般資訊。
@@ -113,7 +113,7 @@ ms.locfileid: "64569836"
 
 從此刻起您可以探索此事件涉及的實體，並且探索更多詳細資料。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何使用資訊安全中心的調查功能。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

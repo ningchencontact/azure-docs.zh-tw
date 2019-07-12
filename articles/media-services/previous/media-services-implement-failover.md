@@ -50,7 +50,7 @@ ms.locfileid: "67051646"
 * 儲存體加密資產 (AssetCreationOptions.StorageEncrypted) 不支援複寫 (因為兩個媒體服務帳戶中的加密金鑰不同)。 
 * 如果您想要利用動態封裝，請確定您想要從中串流內容的串流端點是處於 [執行中]  狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 在新的或現有的 Azure 訂用帳戶中有兩個媒體服務帳戶。 請參閱 [如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 * .NET Framework 4.5 或 .NET Framework 4。

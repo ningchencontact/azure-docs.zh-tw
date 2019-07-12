@@ -38,7 +38,7 @@ ms.locfileid: "61347774"
 
 下列各節提供屬性的相關詳細資料，您可使用這些屬性來定義 Dynamics AX 連接器專屬的 Data Factory 實體。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用服務主體驗證，請遵循下列步驟：
 

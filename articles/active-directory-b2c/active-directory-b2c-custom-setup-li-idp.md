@@ -56,10 +56,10 @@ ms.locfileid: "66510407"
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]  。
 5. 選取 [原則金鑰]  ，然後選取 [新增]  。
 6. 針對 [選項]  選擇 `Manual`。
-7. 輸入原則金鑰的 [名稱]  。 例如： `LinkedInSecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+7. 輸入原則金鑰的 [名稱]  。 例如： `LinkedInSecret` 。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 在 [祕密]  中，輸入您先前記錄的用戶端密碼。
 9. 針對 [金鑰使用方法]  ，選取 `Signature`。
-10. 按一下頁面底部的 [新增]  。
+10. 按一下 [建立]  。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
@@ -174,7 +174,7 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInLinkedIn`。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInLinkedIn` 。
 
 ### <a name="display-the-button"></a>顯示按鈕
 
@@ -198,7 +198,7 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
     
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `LinkedIn-OAUTH`。
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `LinkedIn-OAUTH` 。
 
 3. 儲存 TrustFrameworkExtensions.xml  檔案，並再次上傳它以供驗證。
 
@@ -212,14 +212,14 @@ LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**Ex
 4. 選取 [應用程式]  ，然後選取 [新增]  。
 5. 輸入應用程式的名稱，例如 testapp1  。
 6. 針對 [Web 應用程式 / Web API]  ，選取 `Yes`，然後y在 [回覆 URL]  欄位輸入 `https://jwt.ms`。
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml  複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
-2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn` 。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。

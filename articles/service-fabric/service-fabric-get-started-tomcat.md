@@ -26,7 +26,7 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
 
 若要深入了解 Apache Tomcat，請參閱 [Apache Tomcat 首頁](https://tomcat.apache.org/) \(英文\)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 執行下列項目的開發電腦︰
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 

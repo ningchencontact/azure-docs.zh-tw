@@ -25,7 +25,7 @@ ms.locfileid: "61416866"
 
 ![iSCSI 安裝程序流程](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此部署教學課程適用於 Microsoft Azure StorSimple Virtual Array。 本教學課程說明如何執行初始設定、註冊 StorSimple iSCSI 伺服器、完成裝置設定，然後在設定為 iSCSI 伺服器的 StorSimple Virtual Array 上建立、掛接、初始化及格式化磁碟區。 
 
@@ -215,7 +215,7 @@ ms.locfileid: "61416866"
 12. 指派一個磁碟機代號給磁碟區，然後按 [下一步]  。
     
     ![新增磁碟區精靈 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. 輸入要格式化磁碟區所需的參數。 **Windows Server 只支援 NTFS。** 將配置單位大小設定為 64K。 並提供您磁碟區的標籤。 建議的最佳做法是這個名稱與您在 StorSimple Virtual Array 上提供的磁碟區名稱相同。 单击“下一步”  。
+13. 輸入要格式化磁碟區所需的參數。 **Windows Server 只支援 NTFS。** 將配置單位大小設定為 64K。 並提供您磁碟區的標籤。 建議的最佳做法是這個名稱與您在 StorSimple Virtual Array 上提供的磁碟區名稱相同。 按一下 [下一步]  。
     
     ![新增磁碟區精靈 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
 14. 查看您磁碟區的各個值，然後按一下 [完成]  。

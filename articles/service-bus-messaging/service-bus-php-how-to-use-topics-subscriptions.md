@@ -33,7 +33,7 @@ ms.locfileid: "67063862"
 - 從訂用帳戶接收訊息
 - 刪除主題和訂用帳戶
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
 

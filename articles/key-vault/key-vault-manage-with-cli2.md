@@ -39,7 +39,7 @@ ms.locfileid: "64713845"
 如需 Azure Key Vault 的概觀，請參閱[什麼是 Azure Key Vault？](key-vault-whatis.md)
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用本文中的 Azure CLI 命名，您必須具有下列項目：
 

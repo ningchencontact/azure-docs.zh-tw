@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543685"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839178"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -25,7 +25,9 @@ ms.locfileid: "67543685"
 * 直接存取無法透過網際網路公開使用的 [Apache Hadoop](https://hadoop.apache.org/) 服務。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
 > [!IMPORTANT]  
-> 在 2019 年 2 月 28 日之後, 將相同的 HDInsight 叢集資源群組中佈建的網路資源 （例如 Nic、 LBs 等） 在 VNET 中建立的新叢集。 先前，VNET 資源群組中所佈建這些資源。 不沒有目前執行的叢集和建立 VNET 沒有這些叢集的任何變更。
+> 在 VNET 中建立 HDInsight 叢集會建立數個網路資源的詳細資訊，例如 Nic 和負載平衡器。 請勿**不**刪除這些網路的資源，因為叢集中，以正確地與 VNET 的函式都需要它們。
+>
+> 在 2019 年 2 月 28 日之後, 將相同的 HDInsight 叢集資源群組中佈建這些網路資源 （如 Nic、 LBs 等） 在 VNET 中建立的新叢集。 先前，VNET 資源群組中所佈建這些資源。 不沒有目前執行的叢集和建立 VNET 沒有這些叢集的任何變更。
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>如需程式碼範例和範例的必要條件
 
@@ -266,12 +268,11 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
-    | 国家/地区 | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
+    | Country | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | \*:443 | 輸入 |
     | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | \*:443 | 輸入 |
-    | 澳大利亞 | 澳大利亞中部 | 20.36.36.33</br>20.36.36.196 | \*:443 | 輸入 |
-    | &nbsp; | 澳洲東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 輸入 |
+    | 澳大利亞 | 澳洲東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 輸入 |
     | &nbsp; | 澳大利亞東南部 | 13.77.2.56</br>13.77.2.94 | \*:443 | 輸入 |
     | 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | \*:443 | 輸入 |
     | 加拿大 | 加拿大東部 | 52.229.127.96</br>52.229.123.172 | \*:443 | 輸入 |

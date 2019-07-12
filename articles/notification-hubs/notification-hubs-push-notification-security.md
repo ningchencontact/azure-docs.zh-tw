@@ -23,7 +23,7 @@ ms.locfileid: "66431247"
 ---
 # <a name="notification-hubs-security"></a>通知中樞的安全性
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本主題說明 Azure 通知中樞的安全性模型。
 

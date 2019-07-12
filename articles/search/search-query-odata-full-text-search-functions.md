@@ -69,7 +69,7 @@ search_mode ::= "'any'" | "'all'"
 
 下表中定義的參數：
 
-| 參數名稱 | 類型 | 描述 |
+| 參數名稱 | type | 描述 |
 | --- | --- | --- |
 | `search` | `Edm.String` | 搜尋查詢 (在[簡單](query-simple-syntax.md)或是[完整](query-lucene-syntax.md)Lucene 查詢語法)。 |
 | `searchFields` | `Edm.String` | 以逗號分隔清單中的可搜尋欄位中，搜尋若要在索引中的所有可搜尋欄位的預設值。 使用時[潮流搜尋](query-lucene-syntax.md#bkmk_fields)在`search`參數，Lucene 查詢中的欄位指定名稱的覆寫此參數中指定任何欄位。 |

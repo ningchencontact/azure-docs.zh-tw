@@ -71,7 +71,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
-升級至一般用途 v2 帳戶的 v1 儲存體帳戶是免費的。 但是，更改存储访问层可能会导致帐单更改。 
+升級至一般用途 v2 帳戶的 v1 儲存體帳戶是免費的。 不過，變更儲存體存取層可能會導致變更到您的帳單。 
 
 所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 使用儲存體帳戶時，需考量下列計費資訊：
 

@@ -42,7 +42,7 @@ ms.locfileid: "67059215"
 
 您可以在[這裡](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) \(英文\) 找到各種媒體服務 .NET Azure Functions 的定義 (包括本文所示的定義)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目，才能完成教學課程：
 
@@ -75,7 +75,7 @@ ms.locfileid: "67059215"
 3. 選取 [Generic Webhook - C#] (泛型 Webhook - C#)  。
 4. 命名您的 Webhook，然後按 [建立]  。
 
-### <a name="files"></a>文件
+### <a name="files"></a>檔案
 
 您的 Azure 函式會與本節所述的程式碼檔案和其他檔案建立關聯。 根據預設，函式會與 **function.json** 和 **run.csx** (C#) 檔案相關聯。 您必須新增 **project.json** 檔案。 本節其餘部分會說明這些檔案的定義。
 

@@ -24,7 +24,7 @@ ms.locfileid: "67075818"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>連線到 Azure 上的 SQL Server 虛擬機器
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本主題說明如何連線到在 Azure 虛擬機器上執行的 SQL Server 執行個體。 它涵蓋了部分[一般連線能力案例](#connection-scenarios)，然後提供[在入口網站中變更連線設定的步驟](#change)。 如果您需要疑難排解或設定入口網站以外的連線，請參閱本主題結尾的[手動設定](#manual)。 
 

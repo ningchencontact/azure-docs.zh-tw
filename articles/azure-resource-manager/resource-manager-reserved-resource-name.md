@@ -24,7 +24,7 @@ ms.locfileid: "64683941"
 
 本文說明當您部署的資源名稱包含保留字時會發生的錯誤。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 當您部署的資源可透過公用端點取得時，可能會遇到下列錯誤：
 
@@ -76,6 +76,6 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 * WINDOWS
 * XBOX
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 提供名稱時，不要使用任何一個保留字。

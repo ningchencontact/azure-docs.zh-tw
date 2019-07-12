@@ -101,7 +101,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 讀取 + 寫入 + 執行 |
 | 5            | `R-X`        | 讀取 + 執行         |
-| 4            | `R--`        | 閱讀                   |
+| 4            | `R--`        | 讀取                   |
 | 0            | `---`        | 沒有權限         |
 
 #### <a name="permissions-inheritance"></a>權限繼承
@@ -112,7 +112,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 下表列出一些常見的案例，協助您了解儲存體帳戶上執行某些作業所需的權限。
 
-|    作業             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    運算             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -270,7 +270,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>我必須啟用 ACL 的支援嗎？
 
-沒有。 只要階層式命名空間 (HNS) 功能是開啟儲存體帳戶已啟用透過 Acl 的存取控制。
+資料分割 只要階層式命名空間 (HNS) 功能是開啟儲存體帳戶已啟用透過 Acl 的存取控制。
 
 如果 HNS 關閉，Azure RBAC 授權規則仍適用。
 
@@ -334,6 +334,6 @@ ACL 則不會繼承。 但預設 ACL 可以用來為父目錄下建立的子目�
 * [Ubuntu 上的 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux 上使用存取控制清單的 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [Azure Data Lake Storage Gen2 概觀](../blobs/data-lake-storage-introduction.md)

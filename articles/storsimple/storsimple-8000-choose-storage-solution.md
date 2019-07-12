@@ -26,12 +26,12 @@ ms.locfileid: "60637496"
 
 |                           |StorSimple 8000   |Azure 檔案同步   |資料箱邊緣           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|概觀         |分層式的混合式儲存體及封存|一般檔案伺服器儲存體，具備雲端階層和多站台同步。  |儲存體解決方案以預先處理資料，並將它透過網路傳送至 Azure。        |
+|總覽         |分層式的混合式儲存體及封存|一般檔案伺服器儲存體，具備雲端階層和多站台同步。  |儲存體解決方案以預先處理資料，並將它透過網路傳送至 Azure。        |
 |案例        |檔案伺服器、封存、備份目標 |檔案伺服器、封存 (多站台)   |資料傳輸、資料預先處理 (包括 ML 推斷)、IoT、封存    |
 |Edge 計算     |尚未提供 |尚未提供 |支援使用 Azure IoT Edge 執行容器    |
 |板型規格      |實體裝置   |安裝在 Windows Server 上的代理程式 |實體裝置   |
 |硬體         |由 Microsoft 作為服務的一部分提供的實體裝置 | 由客戶提供 |由 Microsoft 作為服務的一部分提供的實體裝置  |
-|資料格式      |自訂格式   |文件         |Blob 或檔案    |
+|資料格式      |自訂格式   |檔案         |Blob 或檔案    |
 |通訊協定支援 |iSCSI          |SMB、NFS    | SMB 或 NFS      |
 |價格          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 檔案同步](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 

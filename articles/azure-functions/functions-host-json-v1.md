@@ -163,7 +163,7 @@ ms.locfileid: "62107069"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |enabled|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
@@ -210,7 +210,7 @@ ms.locfileid: "62107069"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |categoryFilter|n/a|指定依類別的篩選| 
 |defaultLevel|資訊|針對 `categoryLevels` 陣列中未指定的任何類別，會將這個層級和以上層級的記錄傳送至 Application Insights。| 
@@ -232,7 +232,7 @@ ms.locfileid: "62107069"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |maxPollingInterval|60000|佇列輪詢之間的間隔上限 (毫秒)。| 
 |visibilityTimeout|0|處理訊息失敗時，重試之間的時間間隔。| 
@@ -254,7 +254,7 @@ ms.locfileid: "62107069"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 | 
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。| 
@@ -276,7 +276,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 
@@ -299,7 +299,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |consoleLevel|info|主控台記錄的追蹤層級。 選項為：`off`、`error`、`warning`、`info` 和 `verbose`。|
 |fileLoggingMode|debugOnly|檔案記錄的追蹤層級。 選項為 `never`、`always`、`debugOnly`。| 

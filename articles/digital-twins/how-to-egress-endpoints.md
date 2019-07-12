@@ -23,7 +23,7 @@ Azure Digital Twins 的「端點」  代表使用者 Azure 訂用帳戶內的訊
 
 若要深入了解事件、路由與事件類型，請參閱 [Azure Digital Twins 中的路由事件和訊息](./concepts-events-routing.md)。
 
-## <a name="events"></a>活動
+## <a name="events"></a>Events
 
 IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和事件代理程式進行處理。 事件會根據下列 [Azure 事件方格事件結構描述參考](../event-grid/event-schema.md)來定義。
 
@@ -47,11 +47,11 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | id | string | 事件的唯一識別碼。 |
 | subject | string | 發行者定義事件主體的路徑。 |
-| data | 物件 | 資源提供者特有的事件資料。 |
+| data | object | 資源提供者特有的事件資料。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
@@ -85,7 +85,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- 報告
+- 報表
 - RoleDefinition
 - 感應器
 - SensorBlobMetadata
@@ -122,7 +122,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -153,7 +153,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -188,7 +188,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -223,7 +223,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串|
     | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_NAMESPACE | 端點的命名空間 |
     | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |

@@ -20,7 +20,7 @@ ms.locfileid: "66508037"
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C：遷移具有社交身分識別的使用者
 當您計劃將識別提供者遷移到 Azure AD B2C 時，您可能也需要遷移具社交識別的使用者。 本文說明如何將現有的社交身分識別帳戶 (例如：Facebook、LinkedIn、Microsoft 及 Google 帳戶) 移轉至 Azure AD B2C。 本文也適用於同盟身分識別，不過這些移轉較不常見。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文延續使用者移轉文章，內容著重在社交識別移轉。 請在開始前先閱讀[使用者移轉](active-directory-b2c-user-migration.md)。
 
 ## <a name="social-identities-migration-introduction"></a>社交識別移轉簡介
@@ -63,7 +63,7 @@ ms.locfileid: "66508037"
 * **userIdentities** - 一或多個 UserIdentity 記錄，該記錄會指定來自社交識別提供者的社交帳戶類型和唯一使用者識別碼。
 * [選用] **otherMails** - 僅針對社交帳戶，此為使用者的電子郵件地址 
 
-如需詳細資訊，請參閱[Graph API 參考](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+如需詳細資訊，請參閱：[Graph API 參考](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>遷移社交帳戶 (僅限此帳戶)
 若要僅建立不含本機帳戶認證的社交帳戶。 請將 HTTPS POST 要求傳送至圖形 API。 要求本文包含要建立之社交帳戶使用者的屬性。 您最少必須指定必要的屬性。 
@@ -148,7 +148,7 @@ ms.locfileid: "66508037"
 > 使用 B2C 租用戶本機的 B2C 租用戶系統管理員帳戶。 帳戶名稱語法是 admin@tenant-name.onmicrosoft.com。
 
 ### <a name="is-it-possible-to-add-social-identity-to-an-existing-local-account"></a>是否能將社交識別新增至現有的本機帳戶？
-是。 建立本機帳戶後，您就可以新增社交識別。 執行 HTTPS PATCH 要求。 將 userObjectId 取代為您要更新的使用者識別碼。 
+是的。 建立本機帳戶後，您就可以新增社交識別。 執行 HTTPS PATCH 要求。 將 userObjectId 取代為您要更新的使用者識別碼。 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
@@ -166,7 +166,7 @@ ms.locfileid: "66508037"
 ```
 
 ### <a name="is-it-possible-to-add-multiple-social-identities"></a>是否可以新增多個社交識別？
-是。 您可以為單一 Azure AD B2C 帳戶新增多個社交識別。 執行 HTTPS PATCH 要求。 將 userObjectId 取代為使用者識別碼。 
+是的。 您可以為單一 Azure AD B2C 帳戶新增多個社交識別。 執行 HTTPS PATCH 要求。 將 userObjectId 取代為使用者識別碼。 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 

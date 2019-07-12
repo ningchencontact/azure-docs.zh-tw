@@ -362,7 +362,7 @@ ms.locfileid: "60825843"
    * 在  **typeProperties**區段中， **SqlSource**指定為**來源類型**和**BlobSink**指定為**接收類型**。
    * **SqlSource** 的 **sqlReaderQuery** 屬性指定為 SQL 查詢 `select * from emp`。
 
-   開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。
+   開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如: 2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。
 
    如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 

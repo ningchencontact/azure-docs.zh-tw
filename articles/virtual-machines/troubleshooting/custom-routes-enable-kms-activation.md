@@ -25,7 +25,7 @@ ms.locfileid: "66399795"
 
 本文說明如何解決在站對站 VPN 連線或 ExpressRoute 案例中啟用強制通道時可能遇到的 KMS 啟用問題。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 您在 Azure 虛擬網路子網路上啟用[強制通道](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md)，以將所有網際網路繫結流量導向回到您的內部部署網路。 在此案例中，執行 Windows Server 2012 R2 (或更新版本的 Windows) 的 Azure 虛擬機器 (VM) 可以成功啟動 Windows。 不過，執行舊版 Windows 的 VM 無法啟動 Windows。
 
@@ -33,7 +33,7 @@ ms.locfileid: "66399795"
 
 Azure Windows VM 需要連接到 Azure KMS 伺服器以進行 Windows 啟用。 若要啟用，啟用要求須來自 Azure 的公用 IP 位址。 在強制通道的案例中，啟用會失敗，因為啟用要求來自內部部署網路，而不是 Azure 的公用 IP 位址。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 若要解決此問題，請使用 Azure 自訂路由將啟用流量路由到 Azure KMS 伺服器。
 

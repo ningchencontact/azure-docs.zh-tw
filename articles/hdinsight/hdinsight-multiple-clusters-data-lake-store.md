@@ -34,7 +34,7 @@ Data Lake Storage 支援無限制的儲存體，使其不僅適合裝載大量�
 為了讓 HDInsight 叢集有效使用此資料夾結構，Data Lake Storage 管理員必須指派適當的權限，如下表所述。 表格中顯示的權限對應至「存取 ACL」，而不是「預設 ACL」。 
 
 
-|資料夾  |權限  |擁有使用者  |擁有群組  | 具名使用者 | 具名使用者權限 | 具名群組 | 具名群組權限 |
+|資料夾  |Permissions  |擁有使用者  |擁有群組  | 具名使用者 | 具名使用者權限 | 具名群組 | 具名群組權限 |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 |/ | rwxr-x--x  |admin |admin  |服務主體 |--x  |FINGRP   |r-x         |
 |/clusters | rwxr-x--x |admin |admin |服務主體 |--x  |FINGRP |r-x         |
@@ -55,7 +55,7 @@ Data Lake Storage 支援無限制的儲存體，使其不僅適合裝載大量�
 - 當不同的 AAD 服務主體可以在 **/clusters/finance** 下建立叢集時，黏著位元 (在 **finance** 資料夾上設定時) 可確保一個服務主體所建立的資料夾無法被其他服務主體刪除。
 - HDInsight 叢集建立程序之後的資料夾結構和權限準備就緒之後，建立特定的儲存位置下 **/叢集/finance/** 。 例如，名稱為 fincluster01 之叢集的儲存體可能是 **/clusters/finance/fincluster01**。 下表顯示 HDInsight 叢集所建立之資料夾的擁有權和權限。
 
-    |資料夾  |權限  |擁有使用者  |擁有群組  | 具名使用者 | 具名使用者權限 | 具名群組 | 具名群組權限 |
+    |資料夾  |Permissions  |擁有使用者  |擁有群組  | 具名使用者 | 具名使用者權限 | 具名群組 | 具名群組權限 |
     |---------|---------|---------|---------|---------|---------|---------|---------|
     |/clusters/finanace/ fincluster01 | rwxr-x---  |服務主體 |FINGRP  |- |-  |-   |-  | 
    
@@ -90,7 +90,7 @@ Data Lake Storage 支援無限制的儲存體，使其不僅適合裝載大量�
 #### <a name="workaround"></a>因應措施
 透過階層設定**其他人**的讀取和執行權限，例如在 **/** 、 **/clusters** 和 **/clusters/finance**，如上表所示。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)

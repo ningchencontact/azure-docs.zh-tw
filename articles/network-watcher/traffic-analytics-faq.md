@@ -68,7 +68,7 @@ ms.locfileid: "67051632"
 您可以在下列任何支援的區域中使用 NSG 的流量分析：
 - 加拿大中部
 - 美國中西部
-- 美國東部
+- East US
 - 美國東部 2
 - 美國中北部
 - 美國中南部
@@ -99,7 +99,7 @@ Log Analytics 工作區必須存在於下列區域：
 - 美國西部 2
 - 美國中南部
 - 美國中部
-- 美國東部
+- East US
 - 美國東部 2
 - 法國中部
 - 西歐
@@ -120,11 +120,11 @@ Log Analytics 工作區必須存在於下列區域：
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>可以在單一工作區內設定多個 NSG 嗎？
 
-是。
+是的。
 
 ## <a name="can-i-use-an-existing-workspace"></a>我可以使用現有的工作區嗎？
 
-是。 如果您選取現有的工作區，請確定該工作區已遷移至新的查詢語言。 如果您不想升級工作區，則需要建立新的工作區。 如需有關新的查詢語言的詳細資訊，請參閱 < [Azure 監視器記錄升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。
+是的。 如果您選取現有的工作區，請確定該工作區已遷移至新的查詢語言。 如果您不想升級工作區，則需要建立新的工作區。 如需有關新的查詢語言的詳細資訊，請參閱 < [Azure 監視器記錄升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>是否可以讓我的 Azure 儲存體帳戶位於某個訂用帳戶，而讓我的 Log Analytics 工作區位於不同的訂用帳戶中？
 
@@ -132,7 +132,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>可以在不同的訂用帳戶中儲存原始記錄嗎？
 
-沒有。 您可以將原始記錄儲存在已針對流量記錄啟用 NSG 的任何儲存體帳戶中。 但是儲存體帳戶和原始記錄必須位於相同的訂用帳戶和區域中。
+資料分割 您可以將原始記錄儲存在已針對流量記錄啟用 NSG 的任何儲存體帳戶中。 但是儲存體帳戶和原始記錄必須位於相同的訂用帳戶和區域中。
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>因為發生「找不到」錯誤而無法設定 NSG 進行流量分析，該怎麼辦？
 

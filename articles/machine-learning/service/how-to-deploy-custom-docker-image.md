@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/05/2019
-ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/11/2019
+ms.openlocfilehash: b8591fe750d4bb1441cdc28c488b2c860eb0bccb
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543861"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840077"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>部署模型使用自訂的 Docker 映像
 
@@ -38,7 +38,7 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
 * 建立自訂映像：提供建立自訂映像和設定 Azure Container Registry 使用 Azure CLI 和 Machine Learning CLI 驗證的相關資訊給管理員和 DevOps。
 * 使用自訂映像：使用自訂映像，部署定型的模型，從 Python SDK 或 ML CLI 時資料科學家和 DevOps/MLOps 提供相關資訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 機器學習服務工作群組中。 如需詳細資訊，請參閱 <<c0> [ 建立工作區](setup-create-workspace.md)文章。
 * Azure Machine Learning SDK。 如需詳細資訊，請參閱 > 一節 Python SDK[建立工作區](setup-create-workspace.md#sdk)文章。
@@ -116,6 +116,9 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
     ```text
     FROM ubuntu:16.04
 
+    ARG CONDA_VERSION=4.5.12
+    ARG PYTHON_VERSION=3.6
+
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
 
@@ -124,12 +127,12 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
-    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
         /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
         rm ~/miniconda.sh && \
         /opt/miniconda/bin/conda clean -tipsy
 
-    RUN conda install -y python=3.6 && \
+    RUN conda install -y conda=${CONDA_VERSION} python=${PYTHON_VERSION} && \
         conda clean -aqy && \
         rm -rf /opt/miniconda/pkgs && \
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;

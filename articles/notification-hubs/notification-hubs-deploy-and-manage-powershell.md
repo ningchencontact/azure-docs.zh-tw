@@ -23,7 +23,7 @@ ms.locfileid: "61457833"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 來部署和管理通知中樞
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文將說明如何使用 PowerShell 來建立和管理 Azure 通知中樞。 本文示範下列一般自動化工作。
 
@@ -34,7 +34,7 @@ ms.locfileid: "61457833"
 
 Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。 從 PowerShell 進行的最佳方法，是參考 Microsoft.Azure.NotificationHubs.dll 組件。 組件隨附於 [Microsoft Azure 通知中樞 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 訂用帳戶。 Azure 是訂閱型平台。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員供應項目]或[免費試用版]。
 - 具備 Azure PowerShell 的電腦。 如需指示，請參閱 [安裝並設定 Azure PowerShell]。

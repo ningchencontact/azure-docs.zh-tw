@@ -300,7 +300,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 此範例程式碼會模擬將佈建要求傳送至裝置佈建服務執行個體的裝置開機順序。 此開機順序能使裝置由系統辨識，並依據延遲指派給最接近的 IoT 中樞。
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並記下 [識別碼範圍]   值。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並記下 [識別碼範圍]  值。
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

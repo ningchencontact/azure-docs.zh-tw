@@ -59,7 +59,7 @@ ms.locfileid: "67056402"
 
     ![設定流程屬性](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-1. 針對 [使用者屬性與宣告]  ，選擇在註冊期間您要收集和從使用者傳送的宣告和屬性。 例如，選取**顯示更多**，然後選擇 屬性和宣告**國家/地區**，**顯示名稱**，和**Postal Code**。 按一下 [確定]  。
+1. 針對 [使用者屬性與宣告]  ，選擇在註冊期間您要收集和從使用者傳送的宣告和屬性。 例如，選取**顯示更多**，然後選擇 屬性和宣告**國家/地區**，**顯示名稱**，和**Postal Code**。 按一下 [確定 **Deploying Office Solutions**]。
 
     ![選取屬性和宣告](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "67056402"
 1. 輸入使用者流程的 [名稱]  。 例如，*passwordreset1*。
 1. 針對 [識別提供者]  啟用 [使用電子郵件地址重設密碼]  。
 1. 在 [應用程式宣告] 底下，按一下 [顯示更多]  ，並選擇您要以傳送回應用程式的授權權杖傳回的宣告。 例如，選取 [使用者的物件識別碼]  。
-1. 按一下 [確定]  。
+1. 按一下 [確定 **Deploying Office Solutions**]。
 1. 按一下 [建立]  新增使用者流程。 名稱前面會自動加上前置詞 *B2C_1*。
 
 ### <a name="test-the-user-flow"></a>測試使用者流程

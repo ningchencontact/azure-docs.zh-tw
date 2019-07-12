@@ -394,7 +394,7 @@ Azure AD Connect 會嘗試驗證在上一個步驟中從 PingFederate 中繼資�
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>「ADSync 資料庫已包含資料，而且無法覆寫」
 如果您使用 Azure AD Connect 自訂安裝，並在 [安裝必要元件]  頁面上選取 [使用現有 SQL 伺服器]  選項，則可能會出現錯誤，其中指出 **ADSync 資料庫已包含資料，而且無法覆寫。請移除現有資料庫，然後再試一次。**
 
-![Error](./media/how-to-connect-install-custom/error1.png)
+![錯誤](./media/how-to-connect-install-custom/error1.png)
 
 這是因為對於上述文字方塊中指定的 SQL 伺服器而言，其 SQL 執行個體上已經有名為 **ADSync** 的現有資料庫。
 
@@ -406,7 +406,7 @@ Azure AD Connect 會嘗試驗證在上一個步驟中從 PingFederate 中繼資�
 
 最後，您必須刪除資料庫。  您可以使用 **Microsoft SQL Server Management Studio** 並連線至 SQL 執行個體，來完成此動作。 尋找 **ADSync** 資料庫，以滑鼠右鍵按一下該項目，然後從捷徑功能表中選取 [刪除]  。  按一下 [確定]  按鈕來將其刪除。
 
-![Error](./media/how-to-connect-install-custom/error2.png)
+![錯誤](./media/how-to-connect-install-custom/error2.png)
 
 當您刪除 **ADSync** 資料庫之後，您可以按一下 [安裝]  按鈕來重試安裝。
 

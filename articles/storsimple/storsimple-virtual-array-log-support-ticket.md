@@ -23,7 +23,7 @@ ms.locfileid: "64723940"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務來登錄 StorSimple Virtual Array 的支援要求
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的支援要求**。 本文說明如何從入口網站登錄新的支援要求並管理其生命週期。
 

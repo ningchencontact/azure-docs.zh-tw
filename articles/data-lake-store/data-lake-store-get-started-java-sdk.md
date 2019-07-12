@@ -73,7 +73,7 @@ ms.locfileid: "60877459"
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 * 如需了解應用程式的終端使用者驗證，請參閱[使用 Python 向 Data Lake Storage Gen1 進行終端使用者驗證](data-lake-store-end-user-authenticate-java-sdk.md)。
 * 如需讓應用程式進行服務對服務驗證，請參閱[使用 Java 向 Data Lake Storage Gen1 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-java.md)。

@@ -28,7 +28,7 @@ ms.locfileid: "67066421"
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 * Oracle Java Development Kit 第 8 版，可用於 Eclipse IDE 執行階段。 您可以從 [Oracle 網站](https://aka.ms/azure-jdks)下載。
@@ -226,33 +226,33 @@ ms.locfileid: "67066421"
    
    ![Spark 應用程式本機執行結果](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## <a name="reader-only-role"></a>僅限讀取器角色
-當使用者提交工作至叢集，以使用僅限讀取器角色的權限時，Ambari 認證是必要的。
+## <a name="reader-only-role"></a>僅限讀取者角色
+使用者使用僅限讀取者角色權限將作業提交至叢集時，必須要有 Ambari 認證。
 
-### <a name="link-cluster-from-context-menu"></a>連結叢集，從內容功能表
+### <a name="link-cluster-from-context-menu"></a>從操作功能表連結叢集
 
-1. 使用僅限讀取器角色的帳戶登入。
+1. 使用僅限讀取者角色帳戶登入。
        
-2. 從**Azure 總管**，展開**HDInsight**若要檢視您的訂用帳戶中的 HDInsight 叢集。 叢集標示 **」 角色： 讀取者 」** 只有讀取器專用的角色的權限。
+2. 在 [Azure Explorer]  中展開 [HDInsight]  ，檢視您訂用帳戶中的 HDInsight 叢集。 標示為 **"Role:Reader"** 的叢集僅具有僅限讀取者角色權限。
 
     ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
-3. 使用僅限讀取器角色的權限在叢集上按一下滑鼠右鍵。 選取 **這個叢集連結**從內容功能表來連結叢集。 輸入 Ambari 使用者名稱和密碼。
+3. 使用僅限讀取器角色的權限在叢集上按一下滑鼠右鍵。 從操作功能表中選取 [連結此叢集]  ，以連結叢集。 輸入 Ambari 使用者名稱和密碼。
 
     ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
-4. 如果已成功連結叢集，HDInsight 會重新整理。
-   叢集的階段將會成為連結。
+4. 如果已成功連結叢集，HDInsight 將會重新整理。
+   叢集的階段會成為「已連結」。
   
     ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
-### <a name="link-cluster-by-expanding-jobs-node"></a>連結叢集，藉由展開作業節點
+### <a name="link-cluster-by-expanding-jobs-node"></a>藉由展開作業節點來連結叢集
 
-1. 按一下 **作業**節點，**叢集作業的存取被拒**視窗隨即快顯。
+1. 按一下 [作業]  節點，[叢集作業存取遭拒]  視窗隨即快顯。
    
-2. 按一下 **這個叢集連結**連結叢集。
+2. 按一下 [連結此叢集]  以連結叢集。
    
     ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
@@ -264,19 +264,19 @@ ms.locfileid: "67066421"
    
    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
-3. 選取叢集，其中包含僅限讀取器角色的權限的**叢集名稱**。 警告訊息會顯示出。您可以按一下**這個叢集連結**連結叢集。
+3. 選取叢集，其中包含僅限讀取器角色的權限的**叢集名稱**。 此時會顯示警告訊息。您可以按一下**這個叢集連結**連結叢集。
    
    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
 ### <a name="view-storage-accounts"></a>檢視儲存體帳戶
 
-* 對於具有僅限讀取器角色的權限的叢集，按一下**儲存體帳戶**節點，**儲存體的存取被拒**視窗隨即快顯。 
+* 針對具有僅限讀取者角色權限的叢集，按一下 [儲存體帳戶]  節點，[儲存體存取遭拒]  視窗隨即快顯。 
      
    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
-* 對於連結的叢集，按一下**儲存體帳戶**節點，**儲存體的存取被拒**視窗隨即快顯。 
+* 針對連結的叢集，按一下 [儲存體帳戶]  節點，[儲存體存取遭拒]  視窗隨即快顯。 
      
    ![Azure Explorer 中的 HDInsight Spark 叢集](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
@@ -314,6 +314,6 @@ ms.locfileid: "67066421"
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="managing-resources"></a>管理資源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 

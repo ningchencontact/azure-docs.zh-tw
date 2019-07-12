@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
-ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d91706da898e84effc6194a74dce69a66be0f4ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563115"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657618"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 emptyDir 磁碟區
 
 了解如何在 Azure 容器執行個體中掛接 *emptyDir* 磁碟區，以在容器群組中的容器之間共用資料。
 
 > [!NOTE]
-> 目前只有 Linux 容器才能掛接 *emptyDir* 磁碟區。 雖然我們致力於將所有功能帶入 Windows 容器，但是您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+> 目前只有 Linux 容器才能掛接 *emptyDir* 磁碟區。 雖然我們正努力帶入 Windows 容器中的所有功能，您可以找到目前的平台的差異[概觀](container-instances-overview.md#linux-and-windows-containers)。
 
 ## <a name="emptydir-volume"></a>emptyDir 磁碟區
 

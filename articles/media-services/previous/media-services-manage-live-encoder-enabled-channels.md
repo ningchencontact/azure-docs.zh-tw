@@ -16,7 +16,7 @@ ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217158"
@@ -26,7 +26,7 @@ ms.locfileid: "61217158"
 > [!NOTE]
 > 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 在 Azure 媒體服務 (AMS) 中， **通道** 代表一個管線，負責處理即時資料流內容。 **通道** 會以兩種方式之一收到即時輸入串流：
 
 * 內部部署即時編碼器會將單一位元速率串流傳送至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 接到要求時，媒體服務會傳遞串流給客戶。
@@ -246,7 +246,7 @@ ms.locfileid: "61217158"
 廣告插播的唯一識別碼，可供下游應用程式用來採取適當的動作。 必須是正整數。 您可以將此值設定為任何隨機正整數，或使用上游系統來追蹤 Cue Id。 請務必在透過 API 送出任何識別碼前將其標準化為正整數。
 
 ### <a name="show-slate"></a>顯示 slate
-選用。 在廣告插播期間發送信號給即時編碼器以切換至 [預設 slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) 映像，並隱藏連入的視訊摘要。 在 slate 期間也要使音訊靜音。 預設值為 **false**。 
+選擇性。 在廣告插播期間發送信號給即時編碼器以切換至 [預設 slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) 映像，並隱藏連入的視訊摘要。 在 slate 期間也要使音訊靜音。 預設值為 **false**。 
 
 在建立通道時會透過預設 slate 資產識別碼屬性指定要使用的映像。 slate 將會延伸到符合顯示映像大小。 
 
@@ -263,7 +263,7 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 
 ### <a id="default_slate"></a>預設靜態圖像資產識別碼
 
-選用。 指定包含 slate 映像之媒體服務資產的資產識別碼。 預設值為 null。 
+選擇性。 指定包含 slate 映像之媒體服務資產的資產識別碼。 預設值為 null。 
 
 
 > [!NOTE] 

@@ -31,7 +31,7 @@ ms.locfileid: "65806352"
 *   哪些應用程式是否有最失敗的登入？ 
 *   主要登入錯誤的每個應用程式有哪些？
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要從使用量和深入解析報告存取資料，您需要：
 

@@ -65,7 +65,7 @@ ms.locfileid: "66476793"
 -  與相關聯的儲存體帳戶中建立共用。
 -  建立使用者可以存取裝置上的共用的人員。
 
-您應該`User`您需要能夠存取 Active Directory 租用戶上`Read all directory objects`。 您不能來賓使用者，因為它們沒有權限`Read all directory objects`。 如果您是來賓，則例如產生的啟用金鑰，建立您的資料方塊的邊緣裝置上的共用作業建立使用者將會全部失敗。
+您應該`User`您需要能夠存取 Active Directory 租用戶上`Read all directory objects`。 您不能來賓使用者，因為它們沒有權限`Read all directory objects`。 如果您是來賓，則產生啟用金鑰、在 Data Box Edge 裝置上建立共用或建立使用者等作業都將會失敗。
 
 如需有關如何為 Azure Active Directory Graph API 的使用者提供存取的詳細資訊，請參閱 <<c0> [ 系統管理員、 使用者和來賓使用者的預設存取](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "66476793"
 
 若要佈建 Azure 資源 （在 Azure Resource Manager 模型中），您需要支援建立該資源的資源提供者。 例如，如果您佈建新的虛擬機器，您應該有 'Microsoft.Compute' 資源提供者可用的訂用帳戶中。
  
-資源提供者註冊訂用帳戶層級。 根據預設，任何新的 Azure 訂用帳戶是一份常用的資源提供者預先註冊。 這份清單中不包含 'Microsoft.DataBoxEdge' 的資源提供者。
+資源提供者會在訂用帳戶層級上註冊。 根據預設，任何新的 Azure 訂用帳戶都會預先註冊到常用的一組資源提供者。 這份清單中不包含 'Microsoft.DataBoxEdge' 的資源提供者。
 
 您不需要訂用帳戶層級的 「 存取 」 權限，讓使用者能夠建立資源，例如 'Microsoft.DataBoxEdge' 它們對擁有者權限，其資源群組內，只要這些資源的資源提供者已授與註冊。
 

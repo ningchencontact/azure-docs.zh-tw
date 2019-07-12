@@ -18,7 +18,7 @@ ms.locfileid: "60949060"
 
 本文將說明如何準備您的 Azure 環境，以便開始將執行 Windows 或 Linux 的實體伺服器 (x64) 複寫至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設：
 - 您已建立復原服務保存庫，用以保護實體伺服器。 您可以從 [Azure 入口網站] (https://portal.azure.com "Azure 入口網站")建立復原服務保存庫。

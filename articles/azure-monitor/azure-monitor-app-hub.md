@@ -110,7 +110,7 @@ ms.locfileid: "66255687"
                                                             <a href="./app/proactive-arm-config.md">運用範本管理智慧偵測</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>參考</h3>
+                                                        <h3>參考資料</h3>
                                                         <p>
                                                             <a href="./app/auto-collect-dependencies.md">相依性自動收集</a><br>
                                                             <a href="./app/correlation.md">遙測相互關聯</a><br>

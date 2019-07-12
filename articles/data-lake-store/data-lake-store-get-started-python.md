@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. 將變更儲存至 mysample.py。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 在本節中，我們會討論向 Azure AD 進行驗證的各種方式。 可用的選項如下︰
 
@@ -133,7 +133,7 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>後續步驟
 * [使用 Python 對 Data Lake Storage Gen1 進行檔案系統作業](data-lake-store-data-operations-python.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [azure-datalake-store Python (Filesystem) reference (azure-datalake-store Python (檔案系統) 參考)](https://azure-datalake-store.readthedocs.io/en/latest)
 * [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)

@@ -21,9 +21,9 @@ ms.locfileid: "65150891"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-data-movement-activities.md)
 > * [目前的版本](copy-activity-overview.md)
 
@@ -191,7 +191,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 | usedDataIntegrationUnits | 複製期間的有效資料整合單位。 | Int32 值 |
 | usedParallelCopies | 複製期間有效的 parallelCopies。 | Int32 值|
 | redirectRowPath | 您在 redirectIncompatibleRowSettings 下設定之 Blob 儲存體中略過之不相容資料列的記錄路徑。 請參閱下列範例。 | 文字 (字串) |
-| executionDetails | 複製活動經歷的階段，以及對應步驟、持續時間、使用的組態等詳細資料。不建議剖析此區段，因為它可能會變更。 | 陣列 |
+| executionDetails | 複製活動經歷的階段，以及對應步驟、持續時間、使用的組態等詳細資料。不建議剖析此區段，因為它可能會變更。 | Array |
 
 ```json
 "output": {

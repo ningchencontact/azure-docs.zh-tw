@@ -24,7 +24,7 @@ ms.locfileid: "60580362"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>透過 StorSimple 裝置管理員變更 StorSimple Virtual Array 裝置系統管理員密碼
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 當您使用 Windows PowerShell 介面來存取 StorSimple Virtual Array 時，您需要輸入裝置系統管理員密碼。 StorSimple 裝置第一次佈建並啟動時，預設的密碼是 *Password1*。 為了資料的安全性，您第一次登入時預設密碼便會過期，且系統會要求您變更密碼。
 

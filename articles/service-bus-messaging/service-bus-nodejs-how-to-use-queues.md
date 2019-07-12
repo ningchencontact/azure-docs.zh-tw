@@ -30,7 +30,7 @@ ms.locfileid: "65988295"
 
 [Azure sb](https://www.npmjs.com/package/azure-sb)封裝會使用[服務匯流排 REST 執行階段 Api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以取得使用新的速度[ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus)封裝，它會使用速度就越快[AMQP 1.0 通訊協定](service-bus-amqp-overview.md)。 若要深入了解新的封裝，請參閱[如何透過 Node.js 使用服務匯流排佇列和@azure/service-bus封裝](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)，否則請繼續閱讀以了解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 - 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。
     1. 閱讀快速**概觀**的服務匯流排**佇列**。 

@@ -95,7 +95,7 @@ ms.locfileid: "60415600"
 
 | 需要重設的方法數 | 一個 | 兩個 |
 | :---: | :---: | :---: |
-| 可用的行動應用程式功能 | 代碼 | 程式碼或通知 |
+| 可用的行動應用程式功能 | 程式碼 | 程式碼或通知 |
 
 使用者在從 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 註冊自助式密碼重設時，不可選擇註冊其行動應用程式。 使用者可以在 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 上，或在 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) 上新的安全性資訊註冊預覽中，註冊其行動應用程式。
 

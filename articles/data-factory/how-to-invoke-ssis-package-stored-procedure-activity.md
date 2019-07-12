@@ -23,7 +23,7 @@ ms.locfileid: "66155025"
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SSIS 套件。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 這篇文章中的逐步解說會使用裝載 SSIS 目錄的 Azure SQL 資料庫。 您也可以使用 Azure SQL Database 受控執行個體。
@@ -59,7 +59,7 @@ ms.locfileid: "66155025"
 4. 針對 [版本]  選取 [V2]  。
 5. 選取 Data Factory 的 [位置]  。 只有受到 Data Factory 支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他位置。
 6. 選取 [釘選到儀表板]  。     
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
      ![部署資料處理站圖格](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)

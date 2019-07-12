@@ -62,7 +62,7 @@ ms.locfileid: "62118682"
 
 若要能夠建立適用於轉譯工作的命令列，就必須指定轉譯應用程式可執行檔的安裝位置。  系統環境變數已建立於 Azure Marketplace VM 映像上，您可以改用這類環境變數，而不需指定實際路徑。  除了針對每個工作建立的[標準 Batch 環境變數](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables)，還有下列環境變數。
 
-|Application|應用程式可執行檔|環境變數|
+|應用程式|應用程式可執行檔|環境變數|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|

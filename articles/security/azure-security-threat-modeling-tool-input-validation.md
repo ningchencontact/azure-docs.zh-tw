@@ -21,11 +21,11 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586300"
 ---
-# <a name="security-frame-input-validation--mitigations"></a>安全性框架：輸入驗證 | 風險降低 
+# <a name="security-frame-input-validation--mitigations"></a>安全框架︰輸入驗證 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式** | <ul><li>[停用所有使用未受信任樣式表之轉換的 XSLT 指令碼](#disable-xslt)</li><li>[確定可能包含使用者可控制內容的每個頁面都選擇不要自動探查 MIME](#out-sniffing)</li><li>[強化或停用 XML 實體解析](#xml-resolution)</li><li>[利用 http.sys 的應用程式會執行 URL 標準化驗證](#app-verification)</li><li>[確定在接受使用者的檔案時已備妥適當的控制](#controls-users)</li><li>[確定 Web 應用程式有使用 type-safe 參數來存取資料](#typesafe)</li><li>[使用個別的模型繫結類別或繫結篩選清單來防止 MVC 大量指派弱點](#binding-mvc)</li><li>[先將未受信任的 Web 輸出編碼再進行轉譯](#rendering)</li><li>[對所有字串類型的模型屬性執行輸入驗證和篩選](#typemodel)</li><li>[應該對接受所有字元的表單欄位 (例如 RTF 編輯器) 套用清理](#richtext)</li><li>[請勿將沒有內建編碼的 DOM 元素指派給接收器](#inbuilt-encode)</li><li>[驗證應用程式內的所有重新導向皆已關閉或安全完成](#redirect-safe)</li><li>[對控制器方法所接受的所有字串類型參數實作輸入驗證](#string-method)</li><li>[為規則運算式處理設定逾時上限以防止因規則運算式不正確而導致 DoS](#dos-expression)</li><li>[避免在 Razor 檢視中使用 Html.Raw](#html-razor)</li></ul> | 
-| **資料庫** | <ul><li>[請勿在預存程序中使用動態查詢](#stored-proc)</li></ul> |
+| **[資料庫備份]** | <ul><li>[請勿在預存程序中使用動態查詢](#stored-proc)</li></ul> |
 | **Web API** | <ul><li>[確定 Web API 方法已完成模型驗證](#validation-api)</li><li>[對 Web API 方法所接受的所有字串類型參數實作輸入驗證](#string-api)</li><li>[確定 Web API 有使用 type-safe 參數來存取資料](#typesafe-api)</li></ul> | 
 | **Azure Document DB** | <ul><li>[針對 Azure Cosmos DB 使用參數化 SQL 查詢](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[透過結構描述繫結驗證 WCF 輸入](#schema-binding)</li><li>[透過參數偵測器驗證 WCF 輸入](#parameters)</li></ul> |

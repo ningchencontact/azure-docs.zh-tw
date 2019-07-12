@@ -54,7 +54,7 @@ Azure Data Lake Storage Gen1 提供命令列工具 [AdlCopy](https://aka.ms/down
 
 | 選項 | 描述 |
 | --- | --- |
-| source |指定來源資料在 Azure 儲存體 Blob 中的位置。 來源可以是 Blob 容器、Blob 或其他 Data Lake Storage Gen1 帳戶。 |
+| Source |指定來源資料在 Azure 儲存體 Blob 中的位置。 來源可以是 Blob 容器、Blob 或其他 Data Lake Storage Gen1 帳戶。 |
 | Dest |指定要複製的 Data Lake Storage Gen1 目的地。 |
 | SourceKey |指定 Azure 儲存體 Blob 來源的儲存體存取金鑰。 這只有在來源是 Blob 容器或 Blob 時才是必要的。 |
 | 帳戶 |**選用**。 如果您想要使用 Azure Data Lake Analytics 帳戶來執行複製工作，請使用此選項。 如果您在語法中使用 /Account 選項，但未指定 Data Lake Analytics 帳戶，AdlCopy 就會使用預設帳戶來執行工作。 此外，如果您使用此選項，就必須加入來源 (Azure 儲存體 Blob) 和目的地 (Azure Data Lake Storage Gen1) 做為 Data Lake Analytics 帳戶的資料來源。 |

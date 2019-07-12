@@ -23,7 +23,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "67059657"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure 提供內建診斷功能，可協助對 [App Service 應用程式](https://go.microsoft.com/fwlink/?LinkId=529714) \(英文\) 進行偵錯。 您會在本文中了解如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
 
 本文使用 [Azure 入口網站](https://portal.azure.com)和 Azure CLI 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](troubleshoot-dotnet-visual-studio.md)。
@@ -34,12 +34,12 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 ### <a name="web-server-diagnostics"></a>Web 伺服器診斷
 您可以啟用或停用下列各種記錄：
 
-* **详细错误日志记录** - 任何会生成 HTTP 状态代码 400（或更大数字）的请求的详细信息。 它包含的資訊可協助您判斷為何伺服器傳回錯誤碼。 会为应用的文件系统中的每个错误生成一个 HTML 文件，并可保留最多 50 个错误（文件）。 当 HTML 文件的数目超出 50 时，最旧的 26 个文件会自动删除。
-* **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 会在应用的文件系统中为每个错误生成一个文件夹。 文件保留策略与上述详细错误日志记录的相同。
+* **詳細的錯誤記錄**-導致 HTTP 狀態碼 400 或更大的任何要求的詳細資訊。 它包含的資訊可協助您判斷為何伺服器傳回錯誤碼。 其中一個應用程式的檔案系統中，最多 50 錯誤 （檔案），將會產生的每個錯誤的 HTML 檔案會保留。 當 HTML 檔案的數目超過 50 時，會自動刪除最舊的 26 檔案。
+* **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 一個資料夾會在應用程式的檔案系統中產生每個錯誤。 檔案的保留原則是詳細的錯誤記錄上述相同。
 * **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的 HTTP 交易相關資訊。 在判斷整體網站計量 (例如，處理的要求數目，或者有多少要求來自特定的 IP 位址) 時，這會相當有用。
 
 ### <a name="application-diagnostics"></a>應用程式診斷
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如︰
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -122,7 +122,7 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>作法：在 Application Insights 中檢視記錄
+## <a name="how-to-view-logs-in-application-insights"></a>HOW TO：在 Application Insights 中檢視記錄
 Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及將記錄與要求及其他事件建立相互關聯的工具。
 
 1. 在 Visual Studio 中將 Application Insights SDK 加入至專案。
@@ -152,11 +152,11 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 此命令會連線至名為 'appname' 的應用程式，並在該應用程式上發生記錄事件時，開始將資訊串流處理至視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
-若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如︰
+若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。 例如:
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如︰
+若要篩選特定記錄類型，例如 HTTP，請使用 **--Path** 參數。 例如:
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
@@ -189,15 +189,15 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 | 屬性名稱 | 值/格式 |
 | --- | --- |
-| 日期 |事件發生的日期與時間 |
+| Date |事件發生的日期與時間 |
 | Level |事件層級 (例如錯誤、警告、資訊) |
 | ApplicationName |應用程式名稱 |
 | InstanceId |發生事件的應用程式執行個體 |
-| EventTickCount |事件发生的日期和时间，刻度格式（精度更高） |
-| EventId |如果沒有指定<p><p>如果未指定，默认为 0 |
+| EventTickCount |事件發生的日期與時間 (刻度格式，精準度更高) |
+| EventId |如果沒有指定<p><p>這個事件的事件識別碼，則預設為 0 |
 | Pid |處理序識別碼 |
 | Tid |產生事件的執行緒之執行緒識別碼 |
-| 消息 |事件詳細資訊訊息 |
+| Message |事件詳細資訊訊息 |
 
 儲存在 Blob 中的資料類似下列範例：
 

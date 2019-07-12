@@ -25,7 +25,7 @@ ms.locfileid: "62121686"
 
 為了協助改善安全性，Azure 資料庫包含數個內建安全性控制項，您可用來限制和控制存取。
 
-其中包含：
+它們包括：
 
 -   防火牆，可讓您建立依 IP 位址限制連線能力的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
 -   可從 Azure 入口網站存取的伺服器層級防火牆

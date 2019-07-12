@@ -41,7 +41,7 @@ ms.locfileid: "64925482"
 
 每個受保護的來源機器都會設定各 100 GB 的 3 個磁碟。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 下表為額外處理序伺服器的必要條件摘要。
 

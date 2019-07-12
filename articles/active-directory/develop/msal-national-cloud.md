@@ -38,7 +38,7 @@ ms.locfileid: "66235272"
 
 本指南示範如何登入工作和學校帳戶、 取得存取權杖，並呼叫 Microsoft Graph API [Azure Government 雲端](https://azure.microsoft.com/global-infrastructure/government/)環境。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，請確定您符合下列先決條件。
 
@@ -72,11 +72,11 @@ ms.locfileid: "66235272"
 1. 在 **重新導向 URI**區段中，選取**Web**平台和應用程式的 URL 的值會根據您的 web 伺服器的集合。 如何設定和取得 Visual Studio 和節點中的重新導向 URL，請參閱下一節中的指示。
 1. 選取 [註冊]  。
 1. 在應用程式 [概觀]  頁面上，記下 [應用程式 (用戶端) 識別碼]  值。
-1. 本教學課程要求您啟用[隱含授與流程](v2-oauth2-implicit-grant-flow.md)。 在 已註冊的應用程式的左窗格中，選取**驗證**。
-1. 在 **進階設定**下方**隱含授與**，選取**識別碼權杖**和**存取權杖**核取方塊。 因為此應用程式需要使用者登入，以及呼叫 API，所需識別碼權杖和存取權杖。
+1. 本教學課程要求您啟用[隱含授與流程](v2-oauth2-implicit-grant-flow.md)。 在所註冊應用程式的左側窗格中，選取 [驗證]  。
+1. 在 [進階設定]  的 [隱含授與]  底下，選取 [識別碼權杖]  和 [存取權杖]  核取方塊。 因為此應用程式需要使用者登入，以及呼叫 API，所需識別碼權杖和存取權杖。
 1. 選取 [ **儲存**]。
 
-### <a name="step-2--set-up-your-web-server-or-project"></a>步驟 2：設定您的 web 伺服器或專案
+### <a name="step-2--set-up-your-web-server-or-project"></a>步驟 2：設定您的網頁伺服器或專案
 
 - [下載專案檔](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)的本機 web 伺服器，例如節點。
 

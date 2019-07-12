@@ -34,7 +34,7 @@ ms.locfileid: "65413994"
 
 會影響專案檔 *.NET 參考和 `packages.config` (NuGet 參考)。
 
-| 類型 | 參考 |
+| type | 參考資料 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -49,7 +49,7 @@ ms.locfileid: "65413994"
 
 您選取了 [讀取目錄資料]  選項時的其他參考：
 
-| 類型 | 參考 |
+| type | 參考資料 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (僅限 Visual Studio 2015) |
@@ -63,7 +63,7 @@ ms.locfileid: "65413994"
 
 下列參考已移除 (僅限 ASP.NET 4 專案，如同在 Visual Studio 2015 中)：
 
-| 類型 | 參考 |
+| type | 參考資料 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

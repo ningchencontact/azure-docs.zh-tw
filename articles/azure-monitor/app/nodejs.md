@@ -33,7 +33,7 @@ Node.js SDK 可以自動監視傳入和傳出 HTTP 要求、例外狀況、和�
 
 完成下列工作來設定應用程式或服務的監視。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您有 Azure 訂用帳戶或[免費取得一個新訂用帳戶][azure-free-offer]。 如果您的組織已經有 Azure 訂用帳戶，系統管理員可以依照 [這些指示][add-aad-user] 將您新增至該訂用帳戶。
 

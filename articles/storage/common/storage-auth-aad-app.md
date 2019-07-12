@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da10b70b85e284173abbd1779fb1d39f477ca0cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341623"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723219"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>向 Azure Active Directory 從應用程式存取 blob 和佇列
 
@@ -49,16 +49,16 @@ ms.locfileid: "67341623"
 接下來，授與您的應用程式權限來呼叫 Azure 儲存體 Api。 此步驟可讓您的應用程式授權與 Azure AD 的 Azure 儲存體的要求。
 
 1. 在 **概觀**您已註冊應用程式頁面，選取**檢視 API 的權限**。
-1. 在  **API 的權限**區段中，選取**新增權限**，然後選擇 **我的組織使用的 Api**。
-1. 底下**我的組織使用的 Api**區段中搜尋 「 Azure 儲存體 」，然後選取**Azure 儲存體**從清單中要顯示的結果**要求的 API 權限**窗格。
+1. 在  **API 的權限**區段中，選取**新增權限**，然後選擇  **Microsoft Api**。
+1. 選取  **Azure 儲存體**從清單中要顯示的結果**要求的 API 權限**窗格。
+1. 底下**應用程式需要何種權限？** ，觀察可用的權限類型為**委派的權限**。 預設為您選取此選項。
+1. 中**選取權限**一節**要求的 API 權限**窗格中，選取此核取方塊旁**user_impersonation**，然後按一下 **新增權限**。
 
     ![存放裝置的螢幕擷取畫面顯示使用權限](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. 底下**應用程式需要何種權限？** ，觀察可用的權限類型為**委派的權限**。 預設為您選取此選項。
-1. 中**選取權限**一節**要求的 API 權限**窗格中，選取此核取方塊旁**user_impersonation**，然後按一下 **新增權限**。
-1. **API 的權限**窗格現在會顯示您的 Azure AD 應用程式具有存取 Microsoft Graph 和 Azure 儲存體。 權限會自動授與 Microsoft graph 時第一次向 Azure AD 的應用程式。
+**API 的權限**窗格現在會顯示，您已註冊 Azure AD 應用程式可存取 Microsoft Graph 和 Azure 儲存體。 權限會自動授與 Microsoft graph 時第一次向 Azure AD 的應用程式。
 
-    ![螢幕擷取畫面顯示註冊應用程式權限](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![螢幕擷取畫面顯示註冊應用程式權限](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>建立用戶端密碼
 

@@ -29,7 +29,7 @@ ms.locfileid: "60751292"
 
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 使用 Azure Machine Learning Web 服務，外部應用程式會即時與機器學習服務工作流程計分模型通訊。 機器學習 Web 服務呼叫會將預測結果傳回外部應用程式。 若要進行機器學習 Web 服務呼叫，您可以傳遞部署預測時所建立的 API 金鑰。 機器學習服務 Web 服務以 REST 為基礎，這是一種常見的 Web 程式設計專案架構。
 
 Azure Machine Learning Studio 有兩種類型的服務：

@@ -91,7 +91,7 @@ Microsoft 與客戶分享責任 Kubernetes 背景工作角色節點的位置：
 * 使用 Kubernetes 的問題會控制在背景工作節點執行的元件會自動進行補救的平面。 元件包括下列各項：
   * Kube-proxy
   * kubernetes 提供通訊路徑的網路通道主要元件
-  * kubelet
+  * Kubelet
   * Docker 或白鯨精靈
 
 > [!NOTE]

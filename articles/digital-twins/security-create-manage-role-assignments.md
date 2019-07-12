@@ -39,7 +39,7 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 下表描述每個屬性：
 
-| 屬性 | Name | 必要項 | 類型 | 描述 |
+| 屬性 | 名稱 | 必要項 | type | 描述 |
 | --- | --- | --- | --- | --- |
 | roleId | 角色定義識別碼 | 是 | 字串 | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
 | objectId | 物件識別碼 | 是 | 字串 | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
@@ -163,7 +163,7 @@ YOUR_MANAGEMENT_API_URL/system/roles
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **參數值** | **必要** |  **類型** |  **說明** |
+| **參數值** | **必要** |  **型別** |  **描述** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | 字串 |   UserId objectIdType 的 objectId。 |
 | YOUR_PATH | True | 字串 |   用來檢查存取權的選擇路徑。 |

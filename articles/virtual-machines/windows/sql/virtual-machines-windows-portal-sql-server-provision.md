@@ -85,7 +85,7 @@ ms.locfileid: "67076063"
 * 底下**專案的詳細資料**，請確定已選取正確的訂用帳戶。 
 *  在 **資源群組**一節，請選取現有的資源群組清單中，或選擇**建立新**來建立新的資源群組。 資源群組是 Azure (虛擬機器、儲存體帳戶、虛擬網路等) 中相關資源的集合。 
 
-    ![訂用帳戶](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > 如果您只是測試或了解 Azure 中的 SQL Server 部署，使用新的資源群組很有幫助。 完成測試之後，請刪除資源群組以自動刪除此 VM 以及與該資源群組相關聯的所有資源。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/resource-group-overview.md)。
@@ -186,7 +186,7 @@ ms.locfileid: "67076063"
 
 
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 如果您需要 SQL Server 驗證時，按一下**啟用**下方**SQL 驗證**上**SQL Server 設定** 索引標籤。
 

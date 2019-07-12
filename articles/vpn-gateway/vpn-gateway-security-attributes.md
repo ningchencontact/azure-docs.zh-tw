@@ -37,7 +37,7 @@ ms.locfileid: "67083128"
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 服務端點支援| N/A | |
-| VNet 插入支援| N/A | 上也提供本文中使用的原始碼。 |
+| VNet 插入支援| N/A | 。 |
 | 網路隔離和 Firewalling 支援| 是 | VPN 閘道是專用的 VM 執行個體，每位客戶虛擬網路  |
 | 強制通道的支援| 是 |  |
 
@@ -51,8 +51,8 @@ ms.locfileid: "67083128"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)管理服務和設定 Azure VPN 閘道。 |
-| 授權| 是 | 支援透過授權[RBAC](../role-based-access-control/overview.md)。 |
+| 驗證| 是 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)管理服務和設定 Azure VPN 閘道。 |
+| Authorization| 是 | 支援透過授權[RBAC](../role-based-access-control/overview.md)。 |
 
 
 ## <a name="audit-trail"></a>稽核線索

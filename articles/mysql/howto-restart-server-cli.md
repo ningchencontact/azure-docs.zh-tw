@@ -20,7 +20,7 @@ ms.locfileid: "66160419"
 
 完成重新啟動所需的時間取決於 MySQL 復原程序。 若要減少重新啟動時間，建議您先盡量減少伺服器上發生的活動數量，再進行重新啟動。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本操作說明指南，您需要：
 - [Azure Database for MySQL 伺服器](quickstart-create-server-up-azure-cli.md)
 

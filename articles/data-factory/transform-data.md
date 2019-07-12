@@ -33,7 +33,7 @@ ms.locfileid: "60622102"
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET 自訂](transform-data-using-dotnet-custom-activity.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文說明 Azure Data Factory 中的資料轉換活動，您可用來轉換未經處理資料，並將其處理為預測和見解。 轉換活動會在計算環境中執行，例如 Azure HDInsight 叢集或 Azure Batch。 它會提供每個轉換活動的詳細資訊文章連結。
 
 Data Factory 支援下列可個別或與其他活動鏈結而加入至 [管線](concepts-pipelines-activities.md) 的資料轉換活動。

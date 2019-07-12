@@ -42,7 +42,7 @@ ms.locfileid: "66730018"
 3. 在 [名稱]  中輸入 `TokenSigningKeyContainer`。 可能會自動加入前置詞 `B2C_1A_`。
 4. 針對 [金鑰類型]  選取 [RSA]  。
 5. 針對 [金鑰使用方法]  選取 [簽章]  。
-6. 按一下頁面底部的 [新增]  。
+6. 按一下 [建立]  。
 
 ### <a name="create-the-encryption-key"></a>建立加密金鑰
 
@@ -51,7 +51,7 @@ ms.locfileid: "66730018"
 3. 在 [名稱]  中輸入 `TokenEncryptionKeyContainer`。 可能會自動加入前置詞 `B2C_1A`_。
 4. 針對 [金鑰類型]  選取 [RSA]  。
 5. 針對 [金鑰使用方法]  選取 [加密]  。
-6. 按一下頁面底部的 [新增]  。
+6. 按一下 [建立]  。
 
 ### <a name="create-the-facebook-key"></a>建立 Facebook 金鑰
 
@@ -62,7 +62,7 @@ ms.locfileid: "66730018"
 3. 針對 [名稱]  輸入 `FacebookSecret`。 可能會自動加入前置詞 `B2C_1A_`。
 4. 在 [祕密]  中，輸入 developers.facebook.com 提供給您的 Facebook 祕密，或輸入 `0` 作為預留位置。 這個值是祕密，而非應用程式識別碼。
 5. 針對 [金鑰使用方法]  選取 [簽章]  。
-6. 按一下頁面底部的 [新增]  。
+6. 按一下 [建立]  。
 
 ## <a name="register-identity-experience-framework-applications"></a>註冊身分識別體驗架構應用程式
 
@@ -76,7 +76,7 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
 4. 針對 [名稱]  輸入 `IdentityExperienceFramework`。
 5. 針對 [應用程式類型]  選擇 [Web 應用程式/API]  。
 6. 針對 [登入 URL]  輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `your-tenant-name` 是您的 Azure AD B2C 租用戶網域名稱。 所有 URL 現在都應會使用 [b2clogin.com](b2clogin.md)。
-7. 按一下頁面底部的 [新增]  。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
+7. 按一下 [建立]  。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>註冊 ProxyIdentityExperienceFramework 應用程式
 
@@ -84,7 +84,7 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
 2. 針對 [名稱]  輸入 `ProxyIdentityExperienceFramework`。
 3. 針對 [應用程式類型]  選擇 [原生]  。
 4. 針對 [重新導向 URI]  輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `your-tenant-name` 是您的 Azure AD B2C 租用戶。
-5. 按一下頁面底部的 [新增]  。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
+5. 按一下 [建立]  。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
 6. 在 [設定] 頁面上，選取 [必要權限]  ，然後選取 [新增]  。
 7. 選擇**選取 API**，搜尋並選取**IdentityExperienceFramework**，然後按一下**選取**。
 9. 選取 [存取 IdentityExperienceFramework]  旁的核取方塊、按一下 [選取]  ，然後按一下 [完成]  。
@@ -114,7 +114,7 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio Code](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
+2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com` 。 如果您需要 XML 編輯器，請[試用 Visual Studio Code](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>將應用程式識別碼新增至自訂原則
 

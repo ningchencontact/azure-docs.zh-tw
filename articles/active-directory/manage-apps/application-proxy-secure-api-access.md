@@ -24,7 +24,7 @@ ms.locfileid: "67108533"
 
 這篇文章會引導您設定 Azure AD 應用程式 Proxy 解決方案，來裝載原生應用程式可以存取的 web API 服務。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 下圖顯示傳統的方式，將內部部署 Api 發行。 這個方法需要開啟連入連接埠 80 和 443。
 
@@ -38,7 +38,7 @@ Azure AD 應用程式 Proxy 的骨幹方案，身為 API 存取的公用端點�
 
 因為 Azure AD 應用程式 Proxy 的驗證和授權都建置在 Azure AD 之上，您可以使用 Azure AD 條件式存取，以確保只有受信任的裝置可以存取透過應用程式 Proxy 發佈的 Api。 針對桌上型電腦和受 Intune 管理中使用 Azure AD Join 或 Azure AD 混合式已加入裝置。 您也可以充分利用 Azure Active Directory Premium 功能，例如 Azure Multi-factor Authentication 和機器學習服務為基礎的安全性[Azure Identity Protection](/azure/active-directory/active-directory-identityprotection)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依照本逐步解說中，您需要：
 

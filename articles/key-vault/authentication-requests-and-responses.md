@@ -87,7 +87,7 @@ Azure Key Vault 支援 JSON 格式化要求和回應。 搭配使用 HTTPS 與�
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>驗證  
  必須驗證所有對 Azure Key Vault 的要求。 Azure Key Vault 支援可使用 OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)] 取得的 Azure Active Directory 存取權杖。 
  
  如需註冊應用程式並使用 Azure Key Vault 驗證的詳細資訊，請參閱[使用 Azure AD 註冊用戶端應用程式](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)。
@@ -114,5 +114,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   resource：要在授權要求中使用的資源名稱。  
 
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>另請參閱  
  [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

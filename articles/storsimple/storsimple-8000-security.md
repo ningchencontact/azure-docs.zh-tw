@@ -23,7 +23,7 @@ ms.locfileid: "62117020"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 安全性是任何人在採用新技術時的主要考量，尤其是當技術用於機密或專屬資料時。 評估不同的技術時，您必須考慮因為資料保護所增加的風險和成本。 Microsoft Azure StorSimple 提供資料保護的安全性和隱私權解決方案，以協助確保：
 

@@ -30,7 +30,7 @@ ms.locfileid: "60860701"
 > [!Warning]  
 > 下列步驟適用於流量記錄第 1 版。 如需詳細資訊，請參閱[網路安全性群組流量記錄簡介](network-watcher-nsg-flow-logging-overview.md)。 下列指示若未經修改，則不適用於第 2 版的記錄檔。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 在下列案例中，我們將 Power BI Desktop 連線至我們已設定的儲存體帳戶，做為 NSG 流程記錄資料的接收器。 當我們連線至儲存體帳戶之後，Power BI 會下載並剖析記錄，以視覺表示法呈現網路安全性群組所記錄的流量。
 
@@ -44,7 +44,7 @@ ms.locfileid: "60860701"
 
 提供的範本是可編輯的，您可以修改它來新增資料、視覺效果或編輯查詢，以符合您的需求。
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 開始之前，您必須在帳戶中的一或多個網路安全性群組上，啟用網路安全性群組流程記錄。 如需有關啟用網路安全性流程記錄的指示，請參閱下列文章︰[網路安全性群組的流程記錄簡介](network-watcher-nsg-flow-logging-overview.md)。
 

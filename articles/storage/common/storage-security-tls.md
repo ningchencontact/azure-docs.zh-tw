@@ -76,7 +76,7 @@ $listOfContainers
 
 ![在 Fiddler 中驗證 TLS 版本的螢幕擷取畫面](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [傳輸層安全性 (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
 * [TLS 上的 PCI 合規性](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)

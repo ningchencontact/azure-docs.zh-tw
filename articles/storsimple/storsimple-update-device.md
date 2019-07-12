@@ -25,7 +25,7 @@ ms.locfileid: "61409909"
 > [!NOTE]
 > StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀態。 根據更新類型而定，您可以透過 Azure 傳統入口網站或透過 Windows PowerShell 介面，將更新套用到裝置。 本教學課程說明更新類型，以及如何安裝每一種更新類型。
 
 您可以套用兩種類型的裝置更新： 

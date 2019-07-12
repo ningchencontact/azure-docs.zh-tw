@@ -30,7 +30,7 @@ Azure Event Grid 是一項雲端事件服務。 此服務會使用[事件訂用�
 
 當您完成時，您會看到事件資料已傳送至 Web 應用程式。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 * 擁有有效的 Azure 訂用帳戶。
 * 建立新的 Azure 媒體服務帳戶，如[此快速入門](create-account-cli-quickstart.md)所述。

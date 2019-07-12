@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699705"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 您可以使用 [範圍]  窗格上的 [磁碟區群組]  節點，將磁碟區指派給磁碟區群組、檢視磁碟區群組的相關資訊、排定備份，以及編輯磁碟區群組。
 
 磁碟區群組是用來確保應用程式具有一致備份之相關磁碟區的集區。 如需詳細資訊，請參閱[磁碟區和磁碟區群組](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups)，以及[與 Windows 磁碟區陰影複製服務整合](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)。
@@ -51,7 +51,7 @@ ms.locfileid: "64699705"
 | 結果資料行 | 描述 |
 |:--- |:--- |
 | 名稱 |[名稱]  資料行包含磁碟區群組的名稱。 |
-| Application |[應用程式]  資料行會顯示 Windows 主機上目前已安裝且正在執行的 VSS 寫入器數目。 |
+| 應用程式 |[應用程式]  資料行會顯示 Windows 主機上目前已安裝且正在執行的 VSS 寫入器數目。 |
 | 已選取 |[已選取]  資料行會顯示磁碟區群組中所包含的磁碟區數目。 零 (0) 表示沒有任何應用程式與磁碟區群組中的磁碟區相關聯。 |
 | 已匯入 |[已匯入]  資料行會顯示已匯入的磁碟區數目。 當設定為 **True** 時，此資料行會指出已從 Azure 入口網站匯入磁碟區群組，而不是在 StorSimple Snapshot Manager 中建立它。 |
 

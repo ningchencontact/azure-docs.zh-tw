@@ -21,7 +21,7 @@ ms.locfileid: "65234053"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-http-connector.md)
 > * [目前的版本](connector-http.md)
 
@@ -58,11 +58,11 @@ ms.locfileid: "65234053"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | **type** 屬性必須設定為 **HttpServer**。 | 有 |
-| url | Web 伺服器的基底 URL。 | 有 |
-| enableServerCertificateValidation | 指定是否在您連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 如果 HTTPS 伺服器使用自我簽署的憑證，請將此屬性設定為 **false**。 | 無<br /> (預設值為 **true**) |
-| authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱此表格後面幾節。 | 有 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，此屬性會使用預設的 Azure Integration Runtime。 |無 |
+| type | **type** 屬性必須設定為 **HttpServer**。 | 是 |
+| url | Web 伺服器的基底 URL。 | 是 |
+| enableServerCertificateValidation | 指定是否在您連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 如果 HTTPS 伺服器使用自我簽署的憑證，請將此屬性設定為 **false**。 | 否<br /> (預設值為 **true**) |
+| authenticationType | 指定驗證類型。 允許的值為**匿名**、**基本**、**摘要**、**Windows** 和 **ClientCertificate**。 <br><br> 如需更多關於這些驗證類型的屬性和 JSON 範例，請參閱此表格後面幾節。 | 是 |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，此屬性會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>使用基本、摘要或 Windows 驗證
 
@@ -71,7 +71,7 @@ ms.locfileid: "65234053"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | userName | 用來存取 HTTP 端點的使用者名稱。 | 是 |
-| password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 有 |
+| password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
 
 **範例**
 
@@ -105,7 +105,7 @@ ms.locfileid: "65234053"
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 編碼的憑證資料。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
 | certThumbprint | 憑證指紋已安裝在自我裝載整合執行階段機器的憑證存放區上。 只有當 **connectVia** 屬性中已指定自我裝載整合執行階段時才適用。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
-| password | 與憑證相關聯的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 無 |
+| password | 與憑證相關聯的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 否 |
 
 如果您使用 **certThumbprint** 進行驗證，且憑證已安裝在本機電腦的個人存放區中，請將讀取權限授予自我裝載整合執行階段︰
 
@@ -171,8 +171,8 @@ ms.locfileid: "65234053"
 
 | 屬性    | 描述                                                  | 必要項 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | [類型] 屬性底下`location`資料集內必須設定為**HttpServerLocation**。 | 有      |
-| relativeUrl | 包含資料之資源的相對 URL。       | 無       |
+| type        | [類型] 屬性底下`location`資料集內必須設定為**HttpServerLocation**。 | 是      |
+| relativeUrl | 包含資料之資源的相對 URL。       | 否       |
 
 > [!NOTE]
 > 支援的 HTTP 要求承載大小是大約 500 KB。 如果您希望傳遞至 Web 端點的承載大小大於 500 KB，請考慮將承載分批處理成較小的區塊。
@@ -180,7 +180,7 @@ ms.locfileid: "65234053"
 > [!NOTE]
 > **HttpFile**下一節中所述的 Parquet] / [文字格式的類型資料集仍可作為-適用於回溯相容性的複製/查閱活動。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -212,13 +212,13 @@ ms.locfileid: "65234053"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 有 |
-| relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 無 |
-| requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 無 |
+| type | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 是 |
+| relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
+| requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的主體。 | 否 |
-| format | 如果您想要依原樣擷取 HTTP 端點的資料而不進行剖析，然後將資料複製到以檔案為基礎的存放區，請略過輸入和輸出資料集定義中的 **format** 區段。<br/><br/>如果您想要在複製期間剖析 HTTP 回應內容，下列是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 在 **format** 之下，將 **type** 屬性設定為上述其中一個值。 如需詳細資訊，請參閱 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)。 |無 |
-| compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/><br/>支援的類型：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級：**Optimal** 和 **Fastest**。 |無 |
+| format | 如果您想要依原樣擷取 HTTP 端點的資料而不進行剖析，然後將資料複製到以檔案為基礎的存放區，請略過輸入和輸出資料集定義中的 **format** 區段。<br/><br/>如果您想要在複製期間剖析 HTTP 回應內容，下列是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 在 **format** 之下，將 **type** 屬性設定為上述其中一個值。 如需詳細資訊，請參閱 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)。 |否 |
+| compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/><br/>支援的類型：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。<br/>支援的層級：**Optimal** 和 **Fastest**。 |否 |
 
 > [!NOTE]
 > 支援的 HTTP 要求承載大小是大約 500 KB。 如果您希望傳遞至 Web 端點的承載大小大於 500 KB，請考慮將承載分批處理成較小的區塊。
@@ -279,17 +279,17 @@ ms.locfileid: "65234053"
 
 | 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | [類型] 屬性底下`storeSettings`必須設為**HttpReadSetting**。 | 有      |
-| requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 無       |
+| type                     | [類型] 屬性底下`storeSettings`必須設為**HttpReadSetting**。 | 是      |
+| requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 否       |
 | addtionalHeaders         | 其他 HTTP 要求標頭。                             | 否       |
-| requestBody              | HTTP 要求的主體。                               | 無       |
-| requestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 無       |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 無       |
+| requestBody              | HTTP 要求的主體。                               | 否       |
+| requestTimeout           | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。 | 否       |
+| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否       |
 
 > [!NOTE]
 > Parquet/分隔的文字格式，如**HttpSource**類型下一節中所述的複製活動來源仍可作為-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -336,8 +336,8 @@ ms.locfileid: "65234053"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 有 |
-| httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 無 |
+| type | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 是 |
+| httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
 
 **範例**
 

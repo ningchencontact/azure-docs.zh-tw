@@ -16,7 +16,7 @@ ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956790"
@@ -31,7 +31,7 @@ ms.locfileid: "65956790"
 
 本主題探討使用篩選器會對您客戶有幫助的常見案例，並提供主題連結以示範如何以程式設計方式建立篩選器。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 當您將內容傳遞給客戶時 (串流即時事件或點播視訊)，您的目標是要在不同的網路條件下將高品質的視訊傳遞給各種裝置。 若要達成此目標，請執行下列動作：
 
 * 將您的資料流編碼成多位元速率 ([彈性位元速率](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) 視訊串流 (這會處理品質與網路條件)，並 
@@ -195,7 +195,7 @@ ms.locfileid: "65956790"
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [將內容傳遞給客戶概觀](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

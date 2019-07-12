@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5697e0b51e8349de62e71be1471beb76aa48765
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401165"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838728"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 來管理 Azure IoT 中樞裝置
 
@@ -22,7 +22,7 @@ ms.locfileid: "60401165"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 管理選項          | Task                    |
+| 管理選項          | 工作                    |
 |----------------------------|--------------------------------|
 | 直接方法             | 使裝置執行動作，例如啟動或停止傳送訊息，或是將裝置重新開機。                                        |
 | 讀取裝置對應項           | 取得裝置的報告狀態。 例如，裝置會回報 LED 現在正閃爍不停。                                    |
@@ -63,7 +63,7 @@ ms.locfileid: "60401165"
 5. 在幾秒鐘的時間內，裝置清單會顯示在 [Azure IoT Hub Devices]  \(Azure IoT 中樞裝置\) 索引標籤中。
 
    > [!Note]
-   > 您也可以選擇 [設定 IoT 中樞連接字串]  來完成設定。 在快顯視窗中，輸入與您的 IoT 裝置連線的 IoT 中樞所使用的連接字串。
+   > 您也可以選擇 [設定 IoT 中樞連接字串]  來完成設定。 請輸入**iothubowner**原則為您的 IoT 裝置連線到快顯視窗中的 IoT 中樞的連接字串。
 
 ## <a name="direct-methods"></a>直接方法
 

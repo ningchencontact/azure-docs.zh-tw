@@ -21,7 +21,7 @@ ms.locfileid: "65510905"
 
 Microsoft SQL Server Management Studio 可供快速撰寫查詢並對 Azure Blockchain Workbench 的 SQL DB 測試查詢。 本節提供如何從 SQL Server Management Studio 連線至 Azure Blockchain Workbench 的 SQL Database 的逐步解說。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 下載 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)。
 

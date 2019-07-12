@@ -36,7 +36,7 @@ Azure 客戶可以在 Azure 入口網站 ([https://portal.azure.com](https://por
 * **整合式**:當您正在疑難排解 Azure 資源的問題時，很輕易就能開啟支援要求以取得該資源，而不需要切換內容。
 * **效率**：收集支援工程師有效率地解決問題所需的金鑰資訊。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以從頂端導覽功能表或直接從資源刀鋒視窗中建立支援要求。
 
 **從頂端導覽列**

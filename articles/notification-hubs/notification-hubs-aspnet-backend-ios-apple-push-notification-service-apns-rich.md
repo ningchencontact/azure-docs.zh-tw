@@ -23,7 +23,7 @@ ms.locfileid: "60873058"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure 通知中心豐富內容推播
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 為了與使用者進行即時豐富內容交流，應用程式可能會想要推播純文字以外的內容。 這些通知可提高使用者互動，並呈現如 URL、音效、影像/優待券等內容。 本教學課程會以 [通知使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 主題為基礎，說明如何傳送包含裝載 (例如影像) 的推播通知。
 
@@ -135,7 +135,7 @@ ms.locfileid: "60873058"
     }
     ```
 8. 為了可以從所有裝置存取此應用程式，我們現在可以將它重新部署到 Azure 網站。 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]  。
-9. 選取 Azure 網站作為您的發行目標。 使用您的 Azure 帳戶登入，並選取現有或新的網站，記下 [連線]  索引標籤中的 [目的地 URL]  屬性。我們後續將在本教學課程中參考此 URL 作為您的 *後端端點* 。 按一下 [發佈]  。
+9. 選取 Azure 網站作為您的發行目標。 使用您的 Azure 帳戶登入，並選取現有或新的網站，記下 [連線]  索引標籤中的 [目的地 URL]  屬性。我們後續將在本教學課程中參考此 URL 作為您的 *後端端點* 。 按一下 [發行]  。
 
 ## <a name="modify-the-ios-project"></a>修改 iOS 專案
 

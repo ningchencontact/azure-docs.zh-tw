@@ -23,7 +23,7 @@ ms.locfileid: "60632296"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>使用.NET SDK 起始資料轉換
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明如何使用 StorSimple Data Manager 服務中的資料轉換功能來轉換 StorSimple 裝置資料。 轉換後的資料由雲端中的其他 Azure 服務取用。
 
@@ -63,7 +63,7 @@ ms.locfileid: "60632296"
     * 用戶端識別碼
     * 租用戶識別碼
     * Active Directory 金鑰 (與上面輸入的金鑰相同)
-    * 订阅 ID
+    * 訂用帳戶識別碼
 
         ![設定參數指令碼輸出](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 

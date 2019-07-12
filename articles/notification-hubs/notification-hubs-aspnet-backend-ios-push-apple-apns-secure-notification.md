@@ -28,7 +28,7 @@ ms.locfileid: "61458482"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，因而可大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。
 

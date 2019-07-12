@@ -414,7 +414,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
 
 | 參數 | 描述 |
 | -------------------- | --------------- |
-| resourceGroupName | 這是先前的教學課程中所建議的資源群組名稱。 您最好將所有教學課程的資源群組在一起。 使用您在先前的教學課程中所使用的相同資源群組。 |
+| ResourceGroupName | 這是先前的教學課程中所建議的資源群組名稱。 您最好將所有教學課程的資源群組在一起。 使用您在先前的教學課程中所使用的相同資源群組。 |
 | WebAppPlan | 輸入全新且唯一的 App Service 方案名稱。 |
 | WebAppName | 這會是新 Web 應用程式的名稱，並且是 URL 的一部分。 使用唯一名稱。 例如，signalrtestwebapp22665120。   |
 
@@ -464,7 +464,7 @@ az webapp config appsettings set --name $WebAppName \
 | -------------------- | --------------- |
 | GitHubClientId | 對此變數指派您 GitHub OAuth 應用程式的祕密用戶端識別碼。 |
 | GitHubClientSecret | 對此變數指派您 GitHub OAuth 應用程式的祕密密碼。 |
-| resourceGroupName | 將此變數更新為您在上一節中所使用的相同資源群組名稱。 |
+| ResourceGroupName | 將此變數更新為您在上一節中所使用的相同資源群組名稱。 |
 | SignalRServiceResource | 使用您在快速入門中所建立的 SignalR 服務資源名稱來更新此變數。 例如，signalrtestsvc48778624。 |
 | WebAppName | 使用您在上一節中所建立的新 Web 應用程式名稱來更新此變數。 |
 
@@ -499,7 +499,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 | -------------------- | --------------- |
 | DeploymentUserName | 選擇新的部署使用者名稱。 |
 | DeploymentUserPassword | 選擇新的部署使用者密碼。 |
-| resourceGroupName | 使用您在上一節中所使用的相同資源群組名稱。 |
+| ResourceGroupName | 使用您在上一節中所使用的相同資源群組名稱。 |
 | WebAppName | 這會是您先前所建立的新 Web 應用程式的名稱。 |
 
 記下從這個命令傳回的 Git 部署 URL。 您稍後會用到這個 URL。
@@ -565,7 +565,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 在 [依名稱篩選...]  文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 SignalRTestResources  的資源群組。 在結果清單中的目標資源群組上方，按一下 **...** ，然後按一下 [刪除資源群組]  。
 
-![Delete](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![DELETE](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]  。
 

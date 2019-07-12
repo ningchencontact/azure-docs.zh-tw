@@ -30,7 +30,7 @@ ms.locfileid: "65832586"
 
 *屬性*
 
-| Name                     | 值                      |
+| 名稱                     | 值                      |
 | ------------------------ | --------------------------- |
 | 色彩                    | 白色、紅色、藍色            |
 | 亮度               | 0 到 100                    |
@@ -40,7 +40,7 @@ ms.locfileid: "65832586"
 
 下表顯示燈泡 (lightbulb) 以資料流向雲端報告的資料：
 
-| Name   | 值      |
+| 名稱   | 值      |
 | ------ | ----------- |
 | 狀態 | 「開啟」、「關閉」 |
 | 溫度 | 華氏度數 |
@@ -76,7 +76,7 @@ ms.locfileid: "65832586"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要遵循本操作說明指南，您需要：
 
@@ -123,7 +123,7 @@ Visual Studio Code 中的 [終端機]  視窗會顯示執行中微服務的輸�
 
 1. 將下列檔案複製到所下載裝置模擬微服務複本中的新資料夾：
 
-    | source | 目的地 |
+    | Source | 目的地 |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |

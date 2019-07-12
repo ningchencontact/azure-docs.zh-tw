@@ -25,7 +25,7 @@ ms.locfileid: "66016516"
 
 您也可以部署這些模型，針對您測試和生產環境的需求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 請嘗試[在 Azure 機器學習服務免費或付費版](https://aka.ms/AMLFree)。
 

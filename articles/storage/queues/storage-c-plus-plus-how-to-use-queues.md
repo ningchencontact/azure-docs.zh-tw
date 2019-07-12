@@ -22,7 +22,7 @@ ms.locfileid: "65153113"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本指南將示範如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括「插入」  、「查看」  、「取得」  和「刪除」  佇列訊息，以及「建立和刪除佇列」  。
 
 > [!NOTE]
@@ -83,7 +83,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>作法：建立佇列
+## <a name="how-to-create-a-queue"></a>HOW TO：建立佇列
 **cloud_queue_client** 物件可讓您取得佇列的參考物件。 下列程式碼會建立一個 **cloud_queue_client** 物件。
 
 ```cpp
@@ -104,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列
+## <a name="how-to-insert-a-message-into-a-queue"></a>HOW TO：將訊息插入佇列
 若要將訊息插入現有佇列，請先建立一個新的 **cloud_queue_message**。 接著，呼叫 **add_message** 方法。 **cloud_queue_message** 便可以從字串或 **byte** 陣列建立。 以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
 
 ```cpp
@@ -125,7 +125,7 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>作法：查看下一個訊息
+## <a name="how-to-peek-at-the-next-message"></a>HOW TO：查看下一個訊息
 您可以呼叫 **peek_message** 方法，以便在佇列前面查看訊息，而無需將它從佇列中移除。
 
 ```cpp
@@ -145,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>作法：變更佇列訊息的內容
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>HOW TO：變更佇列訊息的內容
 您可以在佇列中就地變更訊息內容。 如果訊息代表工作作業，則您可以使用此功能來更新工作作業的狀態。 下列程式碼將使用新的內容更新佇列訊息，並將可見度逾時設定延長 60 秒。 這可儲存與訊息相關的工作狀態，並提供用戶端多一分鐘的時間繼續處理訊息。 您可以使用此技巧來追蹤佇列訊息上的多步驟工作流程，如果因為硬體或軟體故障而導致某個處理步驟失敗，將無需從頭開始。 通常，您也會保留重試計數，如果訊息重試超過 n 次，您會將它刪除。 這麼做可防止每次處理時便觸發應用程式錯誤的訊息。
 
 ```cpp
@@ -171,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>作法：將下一個訊息清除佇列
+## <a name="how-to-de-queue-the-next-message"></a>HOW TO：將下一個訊息清除佇列
 您的程式碼可以使用兩個步驟將訊息自佇列中清除佇列。 呼叫 **get_message** 時，您會取得佇列中的下一個訊息。 對於從此佇列讀取訊息的其他任何程式碼而言，將無法看到從 **get_message** 傳回的訊息。 若要完成從佇列中移除訊息的作業，您還必須呼叫 **delete_message**。 這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。 您的程式碼會在處理完訊息之後立即呼叫 **delete_message**。
 
 ```cpp
@@ -192,7 +192,7 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>作法：運用清除佇列訊息的其他選項
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>HOW TO：運用清除佇列訊息的其他選項
 自訂從佇列中擷取訊息的方法有兩種。 首先，您可以取得一批訊息 (最多 32 個)。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。 下列程式碼範例將使用 **get_messages** 方法，在一次呼叫中取得 20 個訊息。 接著它會使用 **for** 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。 請注意，系統會針對所有訊息同時開始計時 5 分鐘，所以從呼叫 **get_messages** 開始的 5 分鐘後，任何尚未刪除的訊息都會重新出現。
 
 ```cpp
@@ -220,7 +220,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>作法：取得佇列長度
+## <a name="how-to-get-the-queue-length"></a>HOW TO：取得佇列長度
 您可以取得佇列中的估計訊息數目。 **download_attributes** 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。 **approximate_message_count** 方法會取得佇列中大約的訊息數目。
 
 ```cpp
@@ -243,7 +243,7 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>作法：刪除佇列
+## <a name="how-to-delete-a-queue"></a>HOW TO：刪除佇列
 若要刪除佇列及其內含的所有訊息，請針對佇列物件呼叫 **delete_queue_if_exists** 方法。
 
 ```cpp

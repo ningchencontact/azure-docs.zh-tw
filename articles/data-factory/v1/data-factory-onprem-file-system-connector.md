@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d3816eebe85f01301c770a50a618142bcbfbb21
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122462"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839959"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-onprem-file-system-connector.md)
 > * [第 2 版 (目前的版本)](../connector-file-system.md)
 
@@ -50,19 +50,19 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 
 若要使用 Linux 檔案共用，請在 Linux 伺服器上安裝 [Samba](https://www.samba.org/)，在 Windows 伺服器上安裝「資料管理閘道」。 不支援在 Linux 伺服器上安裝資料管理閘道。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以將資料移進/移出檔案系統。
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
 1. 建立 **Data Factory**。 資料處理站可包含一或多個管線。
 2. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。 例如，如果您從 Azure Blob 儲存體將資料複製到內部部署檔案系統，您會建立兩個連結服務，將內部部署檔案系統和 Azure 儲存體帳戶連結至資料處理站。 有關內部部署檔案系統專屬的連結服務屬性，請參閱[連結服務屬性](#linked-service-properties)一節。
 3. 建立**資料集**，代表複製作業的輸入和輸出資料。 在上一個步驟所述的範例中，您可以建立資料集來指定包含輸入資料的 Blob 容器與資料夾。 同時，您會建立另一個資料集來指定檔案系統中的資料夾與檔案名稱 (選擇性)。 針對內部部署檔案系統專屬的資料集屬性，請參閱[資料集屬性](#dataset-properties)一節。
-4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您使用 BlobSource 作為來源，以及使用 FileSystemSink 作為複製活動的接收器。 同樣地，如果您是從內部部署檔案系統複製到 Azure Blob 儲存體，則在複製活動中使用 FileSystemSource 和 BlobSink。 針對內部部署檔案系統專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，請在上一節按一下適用於您的資料存放區的連結。
+4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您使用 BlobSource 作為來源，以及使用 FileSystemSink 作為複製活動的接收器。 同樣地，如果您是從內部部署檔案系統複製到 Azure Blob 儲存體，則在複製活動中使用 FileSystemSource 和 BlobSink。 針對內部部署檔案系統專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，按一下上一節中資料存放區的連結。
 
 使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到檔案系統 (或從檔案系統複製資料) 之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例](#json-examples-for-copying-data-to-and-from-file-system)一節。
 
@@ -82,7 +82,7 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>範例連結服務和資料集定義
-| 案例 | 連結服務定義中的主機 | 資料集定義中的 folderPath |
+| 狀況 | 連結服務定義中的主機 | 資料集定義中的 folderPath |
 | --- | --- | --- |
 | 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
 | 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
@@ -182,7 +182,7 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| 遞迴 |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
+| recursive |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
 
 **FileSystemSink** 支援下列屬性：
 
@@ -206,7 +206,7 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md)文章以了解詳細資訊。
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>從檔案系統來回複製資料的 JSON 範例
-以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。 它們會示範如何將資料複製到內部部署檔案系統和 Azure Blob 儲存體，以及複製其中的資料。 您可以使用 Azure Data Factory 中的複製活動，把資料「直接」  複製到[支援的來源和接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)一文中所述的任何接收器。
+下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 它們會示範如何將資料複製到內部部署檔案系統和 Azure Blob 儲存體，以及複製其中的資料。 您可以使用 Azure Data Factory 中的複製活動，把資料「直接」  複製到[支援的來源和接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)一文中所述的任何接收器。
 
 ### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>範例：將資料從內部部署檔案系統複製到 Azure Blob 儲存體
 此範例示範如何將資料從內部部署檔案系統複製到 Azure Blob 儲存體。 範例有下列 Data Factory 實體：

@@ -83,6 +83,6 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 ![「偵測到具有風險的使用者」電子郵件](./media/notifications/04.png)
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

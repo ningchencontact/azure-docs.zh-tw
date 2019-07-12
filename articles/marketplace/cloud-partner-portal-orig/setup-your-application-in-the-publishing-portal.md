@@ -53,7 +53,7 @@ ms.locfileid: "64943570"
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 
 您供應項目的顯示名稱。 此為會出現在 [AppSource](https://appsource.microsoft.com/) 中的名稱。 它最多不能超過 50 個字元。
 
@@ -84,7 +84,7 @@ ms.locfileid: "64943570"
 
 在本節中，請選取可使用您套件的 CRM 區域。 資訊的 CRM 區域提供服務的國家/地區，請參閱連結： [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
-注意：部署至德國「主權與美國政府雲端」主權區域，需要特殊權限且認證期間需要進行驗證
+注意:部署至德國「主權與美國政府雲端」主權區域，需要特殊權限且認證期間需要進行驗證
 
 ## <a name="storefront-details"></a>店面詳細資料
 
@@ -187,4 +187,4 @@ ms.locfileid: "64943570"
 
 ## <a name="storefront-details"></a>店面詳細資料
 
-合約詳細資料僅用於合作夥伴與 Microsoft 之間的內部溝通之用。 注意：在這些欄位中請務必使用受到監視的電子郵件地址。 我們會使用此電子郵件與您連絡發佈至 AppSource 的進度。 客戶只看得見支援 URL。
+合約詳細資料僅用於合作夥伴與 Microsoft 之間的內部溝通之用。 注意:在這些欄位中請務必使用受到監視的電子郵件地址。 我們會使用此電子郵件與您連絡發佈至 AppSource 的進度。 客戶只看得見支援 URL。

@@ -20,7 +20,7 @@ ms.locfileid: "66142349"
 
 若要深入了解使用 Azure Analysis Services 的 REST Api，請參閱[非同步重新整理使用 REST API](analysis-services-async-refresh.md)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 所有呼叫必須使用有效的 Azure Active Directory (OAuth 2) 權杖進行都驗證。  這篇文章中的範例會使用服務主體 (SPN)，向 Azure Analysis Services。 若要進一步了解，請參閱[使用 Azure 入口網站建立服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
 
@@ -29,7 +29,7 @@ ms.locfileid: "66142349"
 > [!IMPORTANT]
 > 下列範例假設 Azure Analysis Services 防火牆已停用。  如果已啟用防火牆，要求起始端的公用 IP 位址必須是在 Azure Analysis Services 防火牆的白名單。 若要深入了解每個區域的邏輯應用程式的 IP 範圍，請參閱[限制和 Azure Logic Apps 的組態資訊](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 #### <a name="create-a-service-principal-spn"></a>建立服務主體 (SPN)
 

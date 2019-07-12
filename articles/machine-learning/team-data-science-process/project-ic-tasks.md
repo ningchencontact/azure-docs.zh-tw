@@ -45,7 +45,7 @@ ms.locfileid: "61043256"
 - **D5**：從 R5 複製的本機目錄。
 
 
-## <a name="step-0-prerequisites"></a>步驟 0：必要條件
+## <a name="step-0-prerequisites"></a>步驟 0：先決條件
 
 完成[資料科學小組的群組管理員工作](group-manager-tasks.md)中所述，指派給您的群組管理員的工作，即可滿足必要條件。 簡單來說，就是在您開始小組負責人工作之前，必須符合下列需求： 
 - 您的群組管理員已設定 **GroupUtilities** 存放庫 (如果有的話)。 

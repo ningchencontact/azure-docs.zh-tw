@@ -33,14 +33,14 @@ ms.locfileid: "61477938"
 |參數|描述|  
 |---------------|-----------------|  
 |**/r:<RepairFile\>**|必要。 修復檔案的路徑，可追蹤修復進度，並可讓您繼續中斷的修復。 每個磁碟機必須只能有一個修復檔案。 當您啟動指定磁碟機的修復時，您將會傳入尚不存在之修復檔的路徑。 若要恢復中斷的修復，您應傳入現有修復檔案名稱。 一律必須指定對應於目標磁碟機的修復檔。|  
-|**/logdir:\><LogDirectory**|選用。 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定記錄檔目錄，則會使用目前的目錄做為記錄檔目錄。|  
+|**/logdir:\><LogDirectory**|選擇性。 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定記錄檔目錄，則會使用目前的目錄做為記錄檔目錄。|  
 |**/d:<TargetDirectory\>**|必要。 要驗證及修復的目錄。 這通常是匯出磁碟機的根目錄，但也可能是含有匯出檔案複本的網路檔案共用。|  
-|**/bk:<BitLockerKey\>**|選用。 如果您希望該工具解除鎖定存放匯出檔案的加密磁碟機，您應指定 BitLocker 金鑰。|  
+|**/bk:<BitLockerKey\>**|選擇性。 如果您希望該工具解除鎖定存放匯出檔案的加密磁碟機，您應指定 BitLocker 金鑰。|  
 |**/sn:<StorageAccountName\>**|必要。 匯出作業的儲存體帳戶名稱。|  
 |**/sk:<StorageAccountKey\>**|如果未指定 (且只有在未指定) 容器 SAS 時，才是**必要**參數。 匯出作業之儲存體帳戶的帳戶金鑰。|  
 |**/csas:<ContainerSas\>**|如果未指定 (且只有在未指定) 儲存體帳戶金鑰時，才是**必要**參數。 存取與匯出作業相關聯的 Blob 所用的容器 SAS。|  
 |**/CopyLogFile:<DriveCopyLogFile\>**|必要。 磁碟機複製記錄檔的路徑。 此檔案是由 Windows Azure 匯入/匯出服務所產生，您可以從與作業相關聯的 blob 儲存體下載。 複製記錄檔包含所要修復之失敗 blob 或檔案的相關資訊。|  
-|**/ManifestFile:<DriveManifestFile\>**|選用。 匯出磁碟機的資訊清單檔案路徑。 此檔案是由 Windows Azure 匯入/匯出服務所產生並儲存在匯出磁碟機上，並選擇性地儲存在與作業相關聯之儲存體帳戶的 blob 中。<br /><br /> 工具將會使用此檔案內含的 MD5 雜湊，驗證匯出磁碟機上的檔案內容。 任何被斷定為損毀的檔案都將會下載並重新寫入至目標目錄。|  
+|**/ManifestFile:<DriveManifestFile\>**|選擇性。 匯出磁碟機的資訊清單檔案路徑。 此檔案是由 Windows Azure 匯入/匯出服務所產生並儲存在匯出磁碟機上，並選擇性地儲存在與作業相關聯之儲存體帳戶的 blob 中。<br /><br /> 工具將會使用此檔案內含的 MD5 雜湊，驗證匯出磁碟機上的檔案內容。 任何被斷定為損毀的檔案都將會下載並重新寫入至目標目錄。|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>使用 RepairExport 模式來更正失敗的匯出  
 您可以使用 Azure 匯入/匯出工具來下載無法匯出的檔案。 複製記錄檔會包含無法匯出的檔案清單。  
@@ -154,6 +154,6 @@ G:\pictures\wild\canyon.jpg.properties
  
 * [設定 Azure 匯入/匯出工具](storage-import-export-tool-setup-v1.md)   
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [利用複製記錄檔檢閱作業狀態](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [修復匯入作業](storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [針對 Azure 匯入/匯出工具進行疑難排解](storage-import-export-tool-troubleshooting-v1.md)

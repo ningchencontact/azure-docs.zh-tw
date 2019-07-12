@@ -45,7 +45,7 @@ ms.locfileid: "60704635"
 4. 遵循 [Azure 入口網站中的 SQL Database 稽核](../sql-database/sql-database-auditing-portal.md)的步驟，來設定將儲存稽核記錄的儲存體。 適用於資料收集的訂用帳戶儲存體帳戶是預設儲存體帳戶。
 5. 遵循 [開始使用 SQL Database 威脅偵測](../sql-database/sql-database-threat-detection.md) ，開啟並設定威脅偵測，以及設定將在偵測到異常活動時接收到安全性警示的電子郵件清單。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 本文說明了如何實作資訊安全中心建議的「在 SQL Server 上啟用稽核與威脅偵測」。 若要深入了解如何保護您的 SQL Database，請參閱下列主題：
 
 * [保護您的 SQL Database](../sql-database/sql-database-security-overview.md)

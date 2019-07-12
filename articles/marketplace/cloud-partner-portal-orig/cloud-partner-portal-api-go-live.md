@@ -24,7 +24,7 @@ ms.locfileid: "64935480"
 <a name="uri-parameters"></a>URI 參數
 --------------
 
-|  **名稱**      |   **說明**                                                           | **資料類型** |
+|  **名稱**      |   **描述**                                                           | **資料類型** |
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | 要擷取之供應項目的發行者識別碼，例如 `contoso`       |  字串       |
 | offerId        | 要擷取之供應項目的供應項目識別碼                                   |  字串       |
@@ -32,13 +32,13 @@ ms.locfileid: "64935480"
 |  |  |  |
 
 
-<a name="header"></a>頁首
+<a name="header"></a>標頭
 ------
 
 |  **名稱**       |     **值**       |
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
-| 授權   | `Bearer YOUR_TOKEN` |
+| Authorization   | `Bearer YOUR_TOKEN` |
 |  |  |
 
 

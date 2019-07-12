@@ -46,7 +46,7 @@ ms.locfileid: "65823398"
   * 應用程式管理員
   * 安全性系統管理員
   * 特殊權限角色管理員
-  * Intune 管理員
+  * Intune 系統管理員
   * 應用程式 Proxy 服務管理員
   * Dynamics 365 系統管理員
   * Power BI 服務管理員

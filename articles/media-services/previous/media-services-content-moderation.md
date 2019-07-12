@@ -23,7 +23,7 @@ ms.locfileid: "61465672"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒體內容仲裁來偵測潛在的成人和猥褻內容 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 **Azure 媒體內容仲裁**媒體處理器 (MP) 可讓您針對影片使用機器輔助仲裁。 例如，您可能會想要偵測影片中潛在的成人和猥褻內容，並由您的人力仲裁小組檢閱這些被標記的內容。
 
 **Azure 媒體內容仲裁** MP 目前為預覽功能。
@@ -48,7 +48,7 @@ JSON 格式的仲裁輸出包含自動偵測的擷取畫面和主要畫面格。
 | --- | --- |
 | version |內容仲裁的版本。 |
 | timescale |影片每秒的「刻度」數目。 |
-| Offset |時間戳記的時間位移。 在 1.0 版的影片 API 中，此值永遠是 0。 此值未來可能會變更。 |
+| offset |時間戳記的時間位移。 在 1.0 版的影片 API 中，此值永遠是 0。 此值未來可能會變更。 |
 | framerate |影片的每秒畫面格數。 |
 | width |輸出影片畫面格的寬度 (以像素為單位)。|
 | height |輸出影片畫面格的高度 (以像素為單位)。|

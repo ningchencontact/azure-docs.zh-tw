@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482789"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的控制器模組
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程說明如何取下並更換 StorSimple 裝置中的一個或兩個控制器模組。 它也會討論單一和雙重控制器更換案例的基礎邏輯。
 
 > [!NOTE]

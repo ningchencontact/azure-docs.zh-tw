@@ -35,7 +35,7 @@ ms.locfileid: "67122971"
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>可以部署到現有的虛擬網路的叢集嗎？
 
-沒有。 但是，您可以現有的 VNET，透過對等互連來連線 Azure Red Hat OpenShift 叢集。 請參閱[叢集的虛擬網路連線到現有的虛擬網路](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)如需詳細資訊。
+資料分割 但是，您可以現有的 VNET，透過對等互連來連線 Azure Red Hat OpenShift 叢集。 請參閱[叢集的虛擬網路連線到現有的虛擬網路](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network)如需詳細資訊。
 
 ## <a name="what-cluster-operations-are-available"></a>叢集作業可供使用？
 
@@ -67,23 +67,23 @@ Docker 登錄是可從`https://docker-registry.apps.<clustername>.<region>.azmos
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>系統管理員可以管理使用者和配額嗎？
 
-是。 Azure Red Hat OpenShift 系統管理員可以管理使用者除了存取建立專案的所有使用者的配額。
+是的。 Azure Red Hat OpenShift 系統管理員可以管理使用者除了存取建立專案的所有使用者的配額。
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>可以限制叢集中只有特定的 Azure AD 使用者嗎？
 
-是。 您可以限制哪些 Azure AD 使用者可以登入到叢集設定 Azure AD 應用程式。 如需詳細資訊，請參閱[How to:一組使用者限制您的應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+是的。 您可以限制哪些 Azure AD 使用者可以登入到叢集設定 Azure AD 應用程式。 如需詳細資訊，請參閱[How to:一組使用者限制您的應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>可以在叢集有多個 Azure 區域的計算節點嗎？
 
-沒有。 Azure Red Hat OpenShift 叢集中所有節點必須都來自相同的 Azure 區域。
+資料分割 Azure Red Hat OpenShift 叢集中所有節點必須都來自相同的 Azure 區域。
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>主要節點和基礎結構節點抽離不使用 Azure Kubernetes Service (AKS)？
 
-沒有。 所有資源，包括叢集主機上，都執行您的客戶訂用帳戶中。 這些類型的資源會放在唯讀模式的資源群組。
+資料分割 所有資源，包括叢集主機上，都執行您的客戶訂用帳戶中。 這些類型的資源會放在唯讀模式的資源群組。
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>是 Open Service Broker for Azure (OSBA) 支援？
 
-是。 您可以使用 OSBA 與 Azure 的 Red Hat OpenShift。 請參閱[Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template)如需詳細資訊。
+是的。 您可以使用 OSBA 與 Azure 的 Red Hat OpenShift。 請參閱[Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template)如需詳細資訊。
 
 ## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我正在嘗試到不同的訂用帳戶中的虛擬網路對等互連，但取得`Failed to get vnet CIDR`時發生錯誤。
 

@@ -28,7 +28,7 @@ ms.locfileid: "62105797"
 
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Outlook.com 帳戶](https://outlook.live.com/owa/)
 

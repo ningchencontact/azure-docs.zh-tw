@@ -59,7 +59,7 @@ ms.locfileid: "60877893"
 
         如需詳細資訊，請參閱[在 Data Lake Storage Gen1 中加密資料](./data-lake-store-encryption.md)。
 
-4. 按一下頁面底部的 [新增]  。 如果您選擇將帳戶釘選到儀表板，您會回到儀表板，並且可以看到 Data Lake Storage Gen1 帳戶的佈建進度。 一旦佈建 Data Lake Storage Gen1 帳戶，帳戶刀鋒視窗就會出現。
+4. 按一下 [建立]  。 如果您選擇將帳戶釘選到儀表板，您會回到儀表板，並且可以看到 Data Lake Storage Gen1 帳戶的佈建進度。 一旦佈建 Data Lake Storage Gen1 帳戶，帳戶刀鋒視窗就會出現。
 
 ## <a name="assign-permissions-to-azure-key-vault"></a>指派 Azure Key Vault 的權限
 如果您使用 Azure 金鑰保存庫中的金鑰對 Data Lake Storage Gen1 帳戶設定加密，您必須設定 Data Lake Storage Gen1 帳戶和 Azure 金鑰保存庫帳戶之間的存取權。 請執行下列步驟來進行此作業。

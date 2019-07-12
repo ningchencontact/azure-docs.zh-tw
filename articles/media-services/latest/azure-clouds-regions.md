@@ -69,7 +69,7 @@ az account list-locations
 |端點 ||
 | --- | --- | 
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| 驗證 | `https://login.microsoftonline.com/` | 
 | 權杖對象 | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -77,7 +77,7 @@ az account list-locations
 |端點||
 | --- | --- | 
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| 驗證 | `https://login.microsoftonline.us/` | 
 | 權杖對象 | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Germany
@@ -85,7 +85,7 @@ az account list-locations
 | 端點 ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| 驗證 | `https://login.microsoftonline.de/` |
 | 權杖對象 | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
@@ -93,10 +93,10 @@ az account list-locations
 |端點||
 | --- | --- | 
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| 驗證 | `https://login.chinacloudapi.cn/` |
 | 權杖對象 |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)

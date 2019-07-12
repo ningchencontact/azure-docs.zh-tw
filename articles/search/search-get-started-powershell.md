@@ -1,7 +1,7 @@
 ---
 title: PowerShell 快速入門：建立、 載入及查詢使用 Azure 搜尋服務 REST Api-Azure 搜尋服務索引
 description: 說明如何建立索引、 載入資料，並使用 PowerShell 的執行查詢 Invoke-restmethod 」 和 「 Azure 搜尋服務 REST API。
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485492"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840179"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入門：在 PowerShell 中使用 REST Api 建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -26,11 +26,11 @@ ms.locfileid: "67485492"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-本文將逐步引導您完成建立、 載入和查詢使用 PowerShell 的 Azure 搜尋服務索引的程序和[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何以互動方式執行 PowerShell 命令。 或者，您可以執行已完成的指令碼。 若要下載複本，請前往[azure 搜尋服務-powershell 範例](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)存放庫。
+本文將逐步引導您完成建立、 載入和查詢使用 PowerShell 的 Azure 搜尋服務索引的程序和[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何以互動方式執行 PowerShell 命令。 或者，您可以[下載並執行 Powershell 指令碼](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)執行相同的作業。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本快速入門會使用下列服務和工具。 
 
@@ -64,7 +64,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 2. 建立 **$url**物件，指定服務的編製索引的集合。 將服務名稱 （您-搜尋-服務-名稱） 取代為有效的搜尋服務。
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. 執行**Invoke-restmethod** GET 要求傳送至服務，並驗證連接。 新增**Convertto-json** ，讓您可以檢視傳送從服務傳回的回應。
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>清除 
 
-如果您不再需要您應該刪除索引。 一項免費服務僅限於三個索引。 您可能想要刪除您未主動使用，以便您可以逐步執行其他教學課程的任何索引。
+當您使用您自己的訂用帳戶中時，最好在專案結尾來識別您是否仍需要資源您所建立。 讓資源繼續執行可能會產生費用。 您可以個別地刪除資源，或刪除資源群組，若要刪除的整組資源。
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+您可以尋找和管理資源，在入口網站中，使用**所有資源**或是**資源群組**左導覽窗格中的連結。
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+如果您使用的一項免費服務，請記得您受限於三個索引、 索引子和資料來源。 您可以刪除在入口網站保持在限制之內的個別項目。 
 
 ## <a name="next-steps"></a>後續步驟
 

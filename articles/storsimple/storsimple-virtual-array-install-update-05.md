@@ -23,7 +23,7 @@ ms.locfileid: "61445298"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>在 StorSimple Virtual Array 上安裝 Update 0.5
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此文章說明透過本機 Web UI 和透過 Azure 入口網站在 StorSimple Virtual Array 上安裝 Update 0.5 時所需的步驟。 您需要套用軟體更新或 Hotfix，以便讓您的 StorSimple Virtual Array 保持在最新狀態。
 

@@ -80,7 +80,7 @@ ms.locfileid: "61369295"
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [搖一搖以獲取推文](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

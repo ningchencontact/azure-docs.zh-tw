@@ -37,7 +37,7 @@ ms.locfileid: "66389474"
 
 下表中所述，您可以使用 Azure Cosmos 資料庫與 Azure Cosmos Api 進行互動：
 
-| 作業 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
+| 運算 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- |
 |列舉所有資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
 |讀取資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
@@ -74,13 +74,13 @@ Azure Cosmos 容器是與結構描述無關的項目容器。 在容器中的項
 
 | Azure Cosmos 實體 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 容器 | 集合 | 資料表 | 集合 | 圖形 | 資料表 |
+|Azure Cosmos 容器 | Collection | 資料表 | Collection | 圖形 | 資料表 |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 容器的屬性
 
 Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而定，某些屬性可能不會直接公開。 下表說明系統定義屬性清單：
 
-| 系統定義的屬性 | 系統產生或使用者可設定 | 目的 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
+| 系統定義的屬性 | 系統產生或使用者可設定 | 用途 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_id | System-generated | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
 |\_etag | System-generated | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
@@ -96,7 +96,7 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 
 當您使用任一 Azure Cosmos Api 時，Azure Cosmos 容器支援下列作業：
 
-| 作業 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
+| 運算 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- |
 | 列舉資料庫中的容器 | 是 | 是 | 是 | 是 | NA | NA |
 | 讀取容器 | 是 | 是 | 是 | 是 | NA | NA |
@@ -116,7 +116,7 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 
 每個 Azure Cosmos 項目具有下列系統定義屬性。 根據您所使用的 API，其中部分可能不會直接公開。
 
-| 系統定義的屬性 | 系統產生或使用者可設定| 目的 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
+| 系統定義的屬性 | 系統產生或使用者可設定| 用途 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_id | System-generated | 項目的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
 |\_etag | System-generated | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
@@ -129,7 +129,7 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 
 Azure Cosmos 項目支援下列作業。 您可以使用任一 Azure Cosmos Api 來執行作業。
 
-| 作業 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
+| 運算 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- |
 | 插入、取代、刪除、更新插入、讀取 | 否 | yes | 是 | 是 | 是 | 是 |
 

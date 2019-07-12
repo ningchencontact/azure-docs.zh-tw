@@ -40,7 +40,7 @@ CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) IN
 
 相較於執行單一索引查詢，這種方法可以產生顯著的效能提升。 這種類型的次要索引是**涵蓋索引**，包含查詢中所含的所有資料行。 因此，不需要資料表查閱，索引就可以滿足整個查詢。
 
-### <a name="views"></a>Views
+### <a name="views"></a>檢視
 
 Phoenix 檢視提供克服 HBase 限制的方法，此限制是當您建立超過約 100 個實體資料表時，效能就會開始降低。 Phoenix 檢視可以讓多個虛擬資料表  共用一個基礎實體 HBase 資料表。
 
@@ -135,6 +135,6 @@ HDInsight HBase 叢集包括 [Ambari UI](hdinsight-hadoop-manage-ambari.md)，�
 
     ![Ambari Phoenix SQL 設定區段](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [在 HDInsight 中搭配 Linux 型 HBase 叢集使用 Apache Phoenix](hbase/apache-hbase-phoenix-squirrel-linux.md)

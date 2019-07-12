@@ -25,7 +25,7 @@ ms.locfileid: "64937589"
 
 | 清單類型 | 供應項目類型 | 正在發行成品 |   
 |:--- |:--- |:--- |  
-| 列出 | 諮詢服務 | <table> <tr><th>店面詳細資料</th></tr> <tr><td>供應項目名稱 (200 個字元)</td></tr> <tr><td>描述 (2,000 個字元)</td></tr> <tr><td>MPN 識別碼</td></tr> <tr><td>國家/地區可用性</td></tr> <tr><td>適用的產業、類別及搜尋關鍵字</td></tr> <tr><td>螢幕擷取畫面 (1280x720；最多 5 張)</td></tr> <tr><td>行銷文件 (最多 3 份)</td></tr> <tr><td>潛在客戶目的地</td></tr> <tr><td>公司標誌 (48x48、216x216)</td></tr> <tr><td>專長認證</td></tr> <tr><td>產品概觀影片 (選擇性)</td></tr> </table> |  
+| List | 諮詢服務 | <table> <tr><th>店面詳細資料</th></tr> <tr><td>供應項目名稱 (200 個字元)</td></tr> <tr><td>描述 (2,000 個字元)</td></tr> <tr><td>MPN 識別碼</td></tr> <tr><td>國家/地區可用性</td></tr> <tr><td>適用的產業、類別及搜尋關鍵字</td></tr> <tr><td>螢幕擷取畫面 (1280x720；最多 5 張)</td></tr> <tr><td>行銷文件 (最多 3 份)</td></tr> <tr><td>潛在客戶目的地</td></tr> <tr><td>公司標誌 (48x48、216x216)</td></tr> <tr><td>專長認證</td></tr> <tr><td>產品概觀影片 (選擇性)</td></tr> </table> |  
 
 ## <a name="next-steps"></a>後續步驟
 *   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  

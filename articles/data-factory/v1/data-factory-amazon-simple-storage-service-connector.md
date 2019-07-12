@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e2468fdd44374343894416c8e39c263cecaa7d5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335329"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839556"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-amazon-simple-storage-service-connector.md)
 > * [第 2 版 (目前的版本)](../connector-amazon-simple-storage-service.md)
 
@@ -40,12 +40,12 @@ ms.locfileid: "60335329"
 
 如需有關完整 Amazon S3 權限清單的詳細資料，請參閱[在原則中指定權限 (英文)](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html)。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具或 API，建立內含複製活動的管線，以從 Amazon S3 來源移動資料。
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需快速逐步解說，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟，以建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -65,7 +65,7 @@ ms.locfileid: "60335329"
 
 | 屬性 | 描述 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| accessKeyID |密碼存取金鑰的識別碼。 |字串 |是 |
+| accessKeyID |密碼存取金鑰的識別碼。 |string |是 |
 | secretAccessKey |密碼存取金鑰本身。 |加密的密碼字串 |是 |
 
 >[!NOTE]
@@ -180,7 +180,7 @@ ms.locfileid: "60335329"
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON 範例：將資料從 Amazon S3 複製到 Azure Blob 儲存體
 此範例示範如何將資料從 Amazon S3 複製到 Azure Blob 儲存體。 不過，您可以使用 Data Factory 中的複製活動，將資料直接複製到[任何支援的接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。
 
-此範例提供下列 Data Factory 實體的 JSON 定義。 您可以透過 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)，使用這些定義來建立管線，以將資料從 Amazon S3 複製到 Blob 儲存體。   
+此範例提供下列 Data Factory 實體的 JSON 定義。 您可以使用這些定義來建立管線以將資料從 Amazon S3 複製到 Blob 儲存體，使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。   
 
 * [AwsAccessKey](#linked-service-properties)類型的連結服務。
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務。

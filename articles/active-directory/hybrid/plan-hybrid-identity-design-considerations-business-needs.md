@@ -110,6 +110,6 @@ ms.locfileid: "65950906"
 ## <a name="next-steps"></a>後續步驟
 [判斷目錄同步處理需求](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

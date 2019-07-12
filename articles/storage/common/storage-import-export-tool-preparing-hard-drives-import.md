@@ -17,9 +17,9 @@ ms.locfileid: "61478502"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>準備匯入工作的硬碟
 
-WAImportExport 工具是磁碟機準備及修復工具，可搭配 [Microsoft Azure 匯入/匯出服務](../storage-import-export-service.md)使用。 您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。 完成某个导入作业后，可以使用此工具修复已损坏、丢失或与其他 Blob 冲突的任何 Blob。 當您收到已完成的匯出工作中的磁碟機後，您可以使用此工具來修復磁碟機上損毀或遺漏的任何檔案。 我們會在本文中介紹此工具的使用方式。
+WAImportExport 工具是磁碟機準備及修復工具，可搭配 [Microsoft Azure 匯入/匯出服務](../storage-import-export-service.md)使用。 您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。 匯入工作完成後，您可以使用此工具來修復損毀、遺漏或與其他 Blob 衝突的任何 Blob。 當您收到已完成的匯出工作中的磁碟機後，您可以使用此工具來修復磁碟機上損毀或遺漏的任何檔案。 我們會在本文中介紹此工具的使用方式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="requirements-for-waimportexportexe"></a>WAImportExport.exe 的需求
 
@@ -31,16 +31,16 @@ WAImportExport 工具是磁碟機準備及修復工具，可搭配 [Microsoft Az
 ### <a name="preparing-disk-for-import-job"></a>準備匯入工作的磁碟
 
 - **BitLocker -** 執行 WAImportExport 工具的電腦上必須啟用 BitLocker。 如需如何啟用 BitLocker 的詳細資訊，請參閱[常見問題集](#faq)。
-- **磁盘** 。 如需磁碟規格的詳細資訊，請參閱[常見問題集](#faq)。
+- **磁碟**必須可從執行 WAImportExport 工具的電腦上存取。 如需磁碟規格的詳細資訊，請參閱[常見問題集](#faq)。
 - **來源檔案** - 您想匯入的檔案必須可從複製電腦上存取，無論它們是在網路共用或本機硬碟上。
 
 ### <a name="repairing-a-partially-failed-import-job"></a>修復部分失敗的匯入工作
 
-- **複製記錄檔**，是 Azure 匯入/匯出服務在儲存體帳戶和磁碟之間複製資料時產生的。 该文件位于目标存储帐户中。
+- **複製記錄檔**，是 Azure 匯入/匯出服務在儲存體帳戶和磁碟之間複製資料時產生的。 此檔案位於您的目標儲存體帳戶。
 
 ### <a name="repairing-a-partially-failed-export-job"></a>修復部分失敗的匯出工作
 
-- Azure 导入/导出服务在存储帐户与磁盘之间复制数据时生成的副本日志文件  。 此檔案位於您的來源儲存體帳戶。
+- **複製記錄檔**，是 Azure 匯入/匯出服務在儲存體帳戶和磁碟之間複製資料時產生的。 此檔案位於您的來源儲存體帳戶。
 - **資訊清單檔案** - [選擇性] 位於 Microsoft 寄回的匯出磁碟機上。
 
 ## <a name="download-and-install-waimportexport"></a>下載和安裝 WAImportExport
@@ -57,7 +57,7 @@ WAImportExport 工具是磁碟機準備及修復工具，可搭配 [Microsoft Az
 
 針對要匯入的每個目錄或檔案，您必須指定目的地虛擬目錄或 Azure Blob 服務中的 Blob。 您將使用這些目標做為 WAImportExport 工具的輸入。 目錄應使用斜線字元 "/" 分隔。
 
-下表显示了 Blob 目标的一些示例：
+下表顯示一些 Blob 目標範例：
 
 | 來源檔案或目錄 | 目的地 Blob 或虛擬目錄 |
 | --- | --- |
@@ -79,19 +79,19 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | 欄位 | 描述 |
 | --- | --- |
 | 基本路徑 | **[必要]**<br/>此參數的值代表要匯入資料所在的來源。 此工具將以遞迴方式複製位於此路徑下的所有資料。<br><br/>**允許值**︰這必須是本機電腦上的有效路徑或有效的共用路徑，而且應可供使用者存取。 目錄路徑必須是絕對路徑 (而非相對路徑)。 如果路徑的結尾為 "\\"，即代表目錄，而結尾不是 "\\" 的路徑則代表檔案。<br/>此欄位中不允許 Regex。 如果路徑包含空格，請使用 "" 括住。<br><br/>**範例**："c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | [必需] <br/> Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。 虛擬目錄可能已存在或可能不存在。 如果不存在，匯入/匯出服務將會建立一個。<br/><br/>指定目的地虛擬目錄或 blob 時，請確定使用有效的容器名稱。 請記住容器名稱必須是小寫。 關於容器命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。 如果只指定根，即會在目的地 Blob 容器中複寫來源的目錄結構。 如果所需的目錄結構不在來源中，CSV 中的多個對應資料列<br/><br/>您可以指定容器或 blob 首碼，如 music/70s/。 目的地目錄必須以容器名稱開頭，後面接著正斜線 "/"，並可選擇性地包含結尾是 "/" 的虛擬 Blob 目錄。<br/><br/>目的地容器為根容器時，您必須明確指定根容器 (包括正斜線)，例如 $root /。 由于根容器下的 blob 名称中不能包含“/”，因此当目标目录为根容器时，不会复制源目录中的任何子目录。<br/><br/>**範例**<br/>如果目的地 Blob 路徑是 https://mystorageaccount.blob.core.windows.net/video ，這個欄位的值可以是 video/  |
-| BlobType | [可选]  block &#124; page<br/>目前匯入/匯出服務支援兩種 Blob。 分頁 blob 和區塊 Blob，所有檔案預設會匯入為區塊 Blob。 \*.vhd 和 \*.vhdx 會匯入為分頁 Blob。區塊 Blob 和分頁 Blob 允許的大小有限。 如需詳細資訊，請參閱[儲存體延展性目標](storage-scalability-targets.md) (英文)。  |
+| DstBlobPathOrPrefix | **[必要]**<br/> Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。 虛擬目錄可能已存在或可能不存在。 如果不存在，匯入/匯出服務將會建立一個。<br/><br/>指定目的地虛擬目錄或 blob 時，請確定使用有效的容器名稱。 請記住容器名稱必須是小寫。 關於容器命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。 如果只指定根，即會在目的地 Blob 容器中複寫來源的目錄結構。 如果所需的目錄結構不在來源中，CSV 中的多個對應資料列<br/><br/>您可以指定容器或 blob 首碼，如 music/70s/。 目的地目錄必須以容器名稱開頭，後面接著正斜線 "/"，並可選擇性地包含結尾是 "/" 的虛擬 Blob 目錄。<br/><br/>目的地容器為根容器時，您必須明確指定根容器 (包括正斜線)，例如 $root /。 由於根容器下的 Blob 名稱中不能包含 "/"，當目的地目錄是根容器時，將不會複製來源目錄中的任何子目錄。<br/><br/>**範例**<br/>如果目的地 Blob 路徑是 https://mystorageaccount.blob.core.windows.net/video ，這個欄位的值可以是 video/  |
+| BlobType | **[選用]** block &#124; page<br/>目前匯入/匯出服務支援兩種 Blob。 分頁 blob 和區塊 Blob，所有檔案預設會匯入為區塊 Blob。 \*.vhd 和 \*.vhdx 會匯入為分頁 Blob。區塊 Blob 和分頁 Blob 允許的大小有限。 如需詳細資訊，請參閱[儲存體延展性目標](storage-scalability-targets.md) (英文)。  |
 | Disposition | **[選用]** rename &#124; no-overwrite &#124; overwrite <br/> 此欄位會指定匯入期間的複製行為，也就是說 正在從磁碟將資料上傳至儲存體帳戶時。 可用的選項為：rename&#124;overwrite&#124;no-overwrite。若未指定任何項目，預設值為 "rename"。 <br/><br/>**Rename**︰如果已經有同名的物件，則在目的地建立複本。<br/>覆寫︰以較新的檔案覆寫檔案。 上次修改 wins 的檔案。<br/>**不要覆寫**︰如已存在則略過覆寫檔案。|
 | MetadataFile | **[選用]** <br/>此欄位的值為中繼資料檔案，如果需要保留物件的中繼資料或提供自訂中繼資料，則可提供這個欄位的值。 目的地 Blob 的中繼資料檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。 |
-| PropertiesFile | [可选]  <br/>目的地 Blob 的屬性檔案路徑。 有关详细信息，请参阅[导入/导出服务元数据和属性文件格式](../storage-import-export-file-format-metadata-and-properties.md)。 |
+| PropertiesFile | **[選用]** <br/>目的地 Blob 的屬性檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。 |
 
-## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>准备 InitialDriveSet 或 AdditionalDriveSet CSV 文件
+## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>準備 InitialDriveSet 或 AdditionalDriveSet CSV 檔案
 
 ### <a name="what-is-driveset-csv"></a>什麼是磁碟機集 CSV
 
-/InitialDriveSet 或 /AdditionalDriveSet 旗標的值為 CSV 檔案，其中包含磁碟機代號對應的磁碟清單，使工具可以正確挑選要準備的磁碟清單。 如果数据大小大于单个磁盘的大小，WAImportExport 工具以优化方式在此 CSV 文件中所列的多个磁盘之间分配数据。
+/InitialDriveSet 或 /AdditionalDriveSet 旗標的值為 CSV 檔案，其中包含磁碟機代號對應的磁碟清單，使工具可以正確挑選要準備的磁碟清單。 如果資料大小超過單一磁碟大小，WAImportExport 工具會將資料以最佳化方式分散在此 CSV 檔案中列示的多個磁碟。
 
-單一工作階段中可寫入資料的磁碟數目沒有限制。 工具会根据磁盘大小和文件夹大小分配数据。 它会选择最适合对象大小的磁盘。 資料上傳至儲存體帳戶時將併回資料集檔案中指定的目錄結構。 若要创建驱动器集 CSV，请遵循以下步骤。
+單一工作階段中可寫入資料的磁碟數目沒有限制。 此工具會根據磁碟大小和資料夾大小來分配資料。 它將選取最適合物件大小的磁碟。 資料上傳至儲存體帳戶時將併回資料集檔案中指定的目錄結構。 若要建立磁碟機集 CSV，請遵循下列步驟。
 
 ### <a name="create-basic-volume-and-assign-drive-letter"></a>建立基本磁碟區並指派磁碟機代號
 
@@ -107,7 +107,7 @@ H,Format,SilentMode,Encrypt,
 
 ### <a name="driveset-csv-file-fields"></a>磁碟機集 CSV 檔案欄位
 
-| 字段 | 值 |
+| 欄位 | 值 |
 | --- | --- |
 | DriveLetter | **[必要]**<br/> 每個提供給工具做為目的地的磁碟機上都必須有一個簡單的 NTFS 磁碟區，並已指派磁碟機代號。<br/> <br/>**範例**：R 或 r |
 | FormatOption | **[必要]** Format &#124; AlreadyFormatted<br/><br/> **Format**︰指定這個將格式化磁碟上的所有資料。 <br/>**AlreadyFormatted**︰指定此值時，工具會略過格式化。 |
@@ -127,7 +127,7 @@ H,Format,SilentMode,Encrypt,
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] /DataSet:<dataset.csv>
 ```
 
-**範例：**
+**範例:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
@@ -135,13 +135,13 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*
 
 ### <a name="add-data-in-subsequent-session"></a>在後續工作階段中加入資料
 
-在后续复制会话中，无需指定初始参数。 您必須使用相同的日誌檔案，讓工具能記得前一個工作階段的進度。 複製工作階段的狀態會寫入日誌檔案。 以下是複製其他目錄和/或檔案的後續複製工作階段的語法︰
+在後續的複製工作階段中，您不需要指定初始參數。 您必須使用相同的日誌檔案，讓工具能記得前一個工作階段的進度。 複製工作階段的狀態會寫入日誌檔案。 以下是複製其他目錄和/或檔案的後續複製工作階段的語法︰
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
 ```
 
-**範例：**
+**範例:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
@@ -158,7 +158,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 > WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
 > ```
 
-**範例：**
+**範例:**
 
 ```
 WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
@@ -166,13 +166,13 @@ WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalD
 
 ### <a name="abort-the-latest-session"></a>中止最近的工作階段︰
 
-如果复制会话已中断且无法恢复（例如，如果源目录被证实不可访问），则必须中止当前会话，使其可以回滚并启动新的复制会话：
+如果複製工作階段中斷且無法繼續 (例如來源目錄已證實無法存取)，您必須中止目前的工作階段，使其可以回復並開始新的複製工作階段︰
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSession
 ```
 
-**範例：**
+**範例:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
@@ -182,43 +182,43 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
 
 ### <a name="resume-a-latest-interrupted-session"></a>繼續最近中斷的工作階段
 
-如果复制会话因任何原因导致中断，可通过在仅指定日记文件的情况下运行该工具来恢复会话：
+如果複製工作階段因任何原因中斷，只要指定日誌檔案，就可以執行工具來繼續︰
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSession
 ```
 
-**範例：**
+**範例:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 ```
 
 > [!IMPORTANT] 
-> 恢复复制会话时，请不要通过添加或删除文件来修改源数据文件和目录。
+> 當您繼續複製工作階段時，請勿以加入或移除檔案的方式修改來源資料檔案和目錄。
 
 ## <a name="waimportexport-parameters"></a>WAImportExport 參數
 
 | 參數 | 描述 |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **必要**<br/> 日誌檔案的路徑。 日誌檔案會追蹤一組磁碟機，並記錄準備這些磁碟機的進度。 日誌檔案一律需要指定。  |
-|     /logdir:&lt;LogDirectory&gt;  | **選擇性**。 日志目录。<br/> 詳細資訊記錄檔及某些暫存檔案會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。 同一日誌檔案只能指定一次記錄檔目錄。  |
-|     /id:&lt;SessionId&gt;  | **必需**<br/> 工作階段識別碼用於識別複製工作階段。 其用來確保正確復原中斷的複製工作階段。  |
-|     /ResumeSession  | 選用。 如果最後一個複製工作階段異常終止，可以指定此參數以繼續工作階段。   |
-|     /AbortSession  | 選用。 如果最後一個複製工作階段異常終止，可以指定此參數以中止工作階段。  |
+|     /logdir:&lt;LogDirectory&gt;  | **選擇性**。 記錄檔目錄。<br/> 詳細資訊記錄檔及某些暫存檔案會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄檔目錄。 同一日誌檔案只能指定一次記錄檔目錄。  |
+|     /id:&lt;SessionId&gt;  | **必要**<br/> 工作階段識別碼用於識別複製工作階段。 其用來確保正確復原中斷的複製工作階段。  |
+|     /ResumeSession  | 選擇性。 如果最後一個複製工作階段異常終止，可以指定此參數以繼續工作階段。   |
+|     /AbortSession  | 選擇性。 如果最後一個複製工作階段異常終止，可以指定此參數以中止工作階段。  |
 |     /sn:&lt;StorageAccountName&gt;  | **必要**<br/> 僅適用於 RepairImport 和 RepairExport。 儲存體帳戶的名稱。  |
 |     /sk:&lt;StorageAccountKey&gt;  | **必要**<br/> 儲存體帳戶的金鑰。 |
 |     /InitialDriveSet:&lt;driveset.csv&gt;  | **必要** 執行第一個複製工作階段時<br/> CSV 檔案，包含要準備的磁碟機清單。  |
-|     /AdditionalDriveSet:&lt;driveset.csv&gt; | **必需**。 將磁碟機加入目前的複製工作階段時。 <br/> CSV 檔案，包含要加入的其他磁碟機的清單。  |
+|     /AdditionalDriveSet:&lt;driveset.csv&gt; | **必要**。 將磁碟機加入目前的複製工作階段時。 <br/> CSV 檔案，包含要加入的其他磁碟機的清單。  |
 |      /r:&lt;RepairFile&gt; | **必要** 僅適用於 RepairImport 和 RepairExport。<br/> 追蹤修復進度之檔案的路徑。 每個磁碟機需要一個修復檔案，而且只能有一個。  |
 |     /d:&lt;TargetDirectories&gt; | **必要**。 僅適用於 RepairImport 和 RepairExport。 用於 RepairImport 時，是要修復的一或多個目錄 (以分號分隔)；用於 RepairExport 時，是要修復的目錄，例如磁碟機根目錄。  |
 |     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **必要** 僅適用於 RepairImport 和 RepairExport。 磁碟機複製記錄檔 (詳細資訊或錯誤) 的路徑。  |
 |     /ManifestFile:&lt;DriveManifestFile&gt; | **必要** 僅適用於 RepairExport。<br/> 磁碟機資訊清單檔案的路徑。  |
 |     /PathMapFile:&lt;DrivePathMapFile&gt; | **選擇性**。 僅適用於 RepairImport。<br/> 包含檔案路徑對應 (相對於實際檔案位置的磁碟機根目錄) 之檔案的路徑 (以 tab 分隔)。 第一次指定時，它會填入空白目標的檔案路徑，表示在 TargetDirectories 中找不到它們、存取被拒、具有無效名稱，或它們存在多個目錄中。 路徑對應檔案可以手動編輯以包含正確的目標路徑，並可再次指定，使工具可以正確解析檔案路徑。  |
 |     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **必要**。 僅適用於 PreviewExport。<br/> XML 檔案的路徑，此檔案包含要匯出的 Blob 的Blob 路徑清單或 Blob 路徑前置詞。 此檔案格式與匯入/匯出服務 REST API 的 Put Job 作業中的 Blob 清單 Blob 格式相同。  |
-|     /DriveSize:&lt;DriveSize&gt; | **必要**。 仅适用于 PreviewExport。<br/>  要用於匯出的磁碟機大小。 例如，500 GB、1.5 TB。 注意：1 GB = 1,000,000,000 個位元組 1 TB = 1,000,000,000,000 個位元組  |
+|     /DriveSize:&lt;DriveSize&gt; | **必要**。 僅適用於 PreviewExport。<br/>  要用於匯出的磁碟機大小。 例如，500 GB、1.5 TB。 注意:1 GB = 1,000,000,000 個位元組 1 TB = 1,000,000,000,000 個位元組  |
 |     /DataSet:&lt;dataset.csv&gt; | **必要**<br/> CSV 檔案，包含要複製到目標磁碟機的目錄清單和/或檔案清單。  |
-|     /silentmode  | 可选  。<br/> 如果未指定，系统会提醒驱动器的要求，并且需要确认才能继续操作。  |
+|     /silentmode  | **選擇性**。<br/> 如未指定，它會提醒您磁碟機的需求，並需要您確認才能繼續。  |
 
 ## <a name="tool-output"></a>工具輸出
 
@@ -301,7 +301,7 @@ StorageAccountKey: *******
 
 #### <a name="what-is-waimportexport-tool"></a>什麼是 WAImportExport 工具？
 
-WAImportExport 工具是磁碟機準備及修復工具，可搭配 Microsoft Azure 匯入/匯出服務使用。 您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。 匯入工作完成後，您可以使用此工具來修復損毀、遺漏或與其他 Blob 衝突的任何 Blob。 通过某个已完成的导出作业收到驱动器后，可以使用此工具修复这些驱动器上已损坏或丢失的任何文件。
+WAImportExport 工具是磁碟機準備及修復工具，可搭配 Microsoft Azure 匯入/匯出服務使用。 您可以使用此工具，將資料複製到要寄送至 Azure 資料中心的硬碟。 匯入工作完成後，您可以使用此工具來修復損毀、遺漏或與其他 Blob 衝突的任何 Blob。 當您收到已完成的匯出工作中的磁碟機後，您可以使用此工具來修復磁碟機上損毀或遺漏的任何檔案。
 
 #### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>WAImportExport 工具如何在多個來源目錄和磁碟上運作？
 
@@ -327,7 +327,7 @@ WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportE
 
 每次執行 WAImportExport 工具以將檔案複製到硬碟時，工具會建立一個複製工作階段。 複製工作階段的狀態會寫入日誌檔案。 如果複製工作階段中斷 (例如，因為系統電源斷電)，可以再次執行工具並在命令列指定日誌檔案以繼續。
 
-對於您使用 Azure 匯入/匯出工具準備的每個硬碟，此工具會建立名為 "&lt;DriveID&gt;.xml" 的單一日誌檔案，其中的磁碟機識別碼是與工具從磁碟讀取的磁碟機相關聯的序號。 所有磁碟機都將需要日誌檔案，才能建立匯入工作。 在工具中断的情况下，还可使用日记文件来恢复驱动器准备操作。
+對於您使用 Azure 匯入/匯出工具準備的每個硬碟，此工具會建立名為 "&lt;DriveID&gt;.xml" 的單一日誌檔案，其中的磁碟機識別碼是與工具從磁碟讀取的磁碟機相關聯的序號。 所有磁碟機都將需要日誌檔案，才能建立匯入工作。 如果工具中斷，日誌檔案也可用來繼續磁碟機準備。
 
 #### <a name="what-is-a-log-directory"></a>什麼是記錄檔目錄？
 
@@ -354,11 +354,11 @@ WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportE
 > 只有當他們的伺服器中沒有 TPM 時，您才需要停用 TPM 原則。 如果使用者的伺服器中具有受信任的 TPM，就不需要停用 TPM。 
 > 
 
-若要在 BitLocker 中禁用 TPM，请执行以下步骤：<br/>
+若要停用 BitLocker 中的 TPM，請遵循下列步驟︰<br/>
 1. 在命令提示字元中輸入 gpedit.msc 以啟動**群組原則編輯器**。 如果**群組原則編輯器**似乎無法使用，請先啟用 BitLocker。 請參閱先前的常見問題集。
 2. 開啟 [本機電腦原則] &gt;[電腦設定] &gt; [系統管理範本] &gt; [Windows 元件] &gt; [BitLocker 磁碟機加密] &gt; [作業系統磁碟機]  。
 3. 編輯 [啟動時需要其他驗證]  原則。
-4. 将该策略设置为“启用”  ，并确保已选中“没有兼容的 TPM 时允许 BitLocker”  。
+4. 將原則設為 [啟用]  ，確定已核取 [在不含相容 TPM 的情形下允許使用 BitLocker]  。
 
 ####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>如何檢查電腦上是否已安裝 .NET 4 或更新版本？
 
@@ -370,7 +370,7 @@ WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportE
 
 #### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>一次可以準備/傳送多少個磁碟機？
 
-工具可准备的磁盘数量没有限制。 不過，此工具需要磁碟機代號做為輸入。 因此可同時準備的磁碟限制為 25 個。 單一工作一次最多可處理 10 個磁碟。 如果您有 10 個以上的磁碟都對應同一儲存體帳戶，磁碟可以分散到多個工作。
+此工具可以準備的磁碟數目沒有限制。 不過，此工具需要磁碟機代號做為輸入。 因此可同時準備的磁碟限制為 25 個。 單一工作一次最多可處理 10 個磁碟。 如果您有 10 個以上的磁碟都對應同一儲存體帳戶，磁碟可以分散到多個工作。
 
 #### <a name="can-i-target-more-than-one-storage-account"></a>可以對應一個以上的儲存體帳戶嗎？
 
@@ -380,7 +380,7 @@ WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportE
 
 #### <a name="does-waimportexportexe-encrypt-my-data"></a>WAImportExport.exe 是否會加密資料？
 
-是。 此程序會啟用必須的 BitLocker 加密。
+是的。 此程序會啟用必須的 BitLocker 加密。
 
 #### <a name="what-will-be-the-hierarchy-of-my-data-when-it-appears-in-the-storage-account"></a>資料在儲存體帳戶中會以何種階層顯示？
 
@@ -404,11 +404,11 @@ WAImportExport 工具會以批次方式讀取和寫入檔案，一個批次最�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [设置 Azure 导入/导出工具](storage-import-export-tool-setup.md)
+* [設定 Azure 匯入/匯出工具](storage-import-export-tool-setup.md)
 * [在匯入程序期間設定屬性和中繼資料](storage-import-export-tool-setting-properties-metadata-import.md)
 * [針對匯入作業準備硬碟的簡單工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 * [常用命令快速參考](storage-import-export-tool-quick-reference.md) 
-* [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)
+* [利用複製記錄檔檢閱作業狀態](storage-import-export-tool-reviewing-job-status-v1.md)
 * [修復匯入作業](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修復匯出作業](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [針對 Azure 匯入/匯出工具進行疑難排解](storage-import-export-tool-troubleshooting-v1.md)

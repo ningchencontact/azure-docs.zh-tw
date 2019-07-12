@@ -30,7 +30,7 @@ ms.locfileid: "64868303"
 > Azure StorSimple Data Manager 目前處於私人預覽階段。 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 在媒體服務中，您會將數位檔案上傳到到資產。 「資產」可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式輔助字幕檔案 (以及這些檔案的相關中繼資料)。上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。
 
@@ -45,7 +45,7 @@ ms.locfileid: "64868303"
 
     當作業開始執行時，會建立儲存體佇列。 此佇列中會填入已轉換的 blob 備妥時的相關訊息。 此佇列的名稱與作業定義的名稱相同。 您可以使用此佇列來判斷資產何時準備就緒，並呼叫您所需的媒體服務作業以在其上執行。 例如，您可以使用此佇列來觸發 Azure Function，其中有所需的媒體服務程式碼。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [在資料管理員中使用.NET SDK 來觸發作業](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

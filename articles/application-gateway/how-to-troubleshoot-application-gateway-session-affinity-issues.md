@@ -21,7 +21,7 @@ ms.locfileid: "66397845"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 當您想要在同一個後端保留使用者工作階段時，以 Cookie 為基礎的工作階段親和性非常有用。 使用受閘道管理的 Cookie，應用程式閘道即可將來自使用者工作階段的後續流量導向至同一部伺服器進行處理。 當使用者工作階段的工作階段狀態儲存在伺服器本機時，這項功能很重要。
 
@@ -72,7 +72,7 @@ ms.locfileid: "66397845"
 
 ### <a name="application-is-using-cookie-based-affinity-but-requests-still-bouncing-between-back-end-servers"></a>應用程式使用 cookie 型同質性，但仍反彈後端伺服器之間的要求
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 當您在 Internet Explorer 中，例如使用簡短名稱的 URL 存取應用程式閘道時，您已啟用 Cookie 型同質性設定： [ http://website ](http://website/) ，要求仍會退回後端伺服器之間。
 

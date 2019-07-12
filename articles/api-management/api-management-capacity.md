@@ -11,20 +11,20 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658284"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836958"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理執行個體的容量
 
-若想明智地決定是否要調整 API 管理執行個體以容納更多負載，唯一且最重要的 [Azure 監視器計量](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis)就是**容量**。 其建構非常複雜，而且會造成某些行為。
+**容量**是最重要[Azure 監視器計量](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis)是否要調整的 API 管理執行個體，以容納更多的負載進行明智的決策。 其建構非常複雜，而且會造成某些行為。
 
 本文說明**容量**是什麼及其行為方式。 文中會說明如何在 Azure 入口網站中存取**容量**計量，並建議何時該考慮調整或升級 API 管理執行個體。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依照本文中的步驟進行，您必須有：
 
@@ -40,12 +40,14 @@ ms.locfileid: "60658284"
 
 ![容量計量](./media/api-management-capacity/capacity-ingredients.png)
 
-**容量**是 APIM 執行個體上的負載指標。 這項指標會反映資源使用量 (CPU、記憶體) 和網路佇列長度。 CPU 和記憶體使用量會揭露下列項目所取用的資源數量：
+**容量**是 API 管理執行個體上的負載指示器。 這項指標會反映資源使用量 (CPU、記憶體) 和網路佇列長度。 CPU 和記憶體使用量會揭露下列項目所取用的資源數量：
 
-+ APIM 服務，例如管理動作或要求處理，其中可包括轉送要求或執行原則
++ API 管理服務，例如管理動作或要求處理，其中可以包括轉送要求，或執行原則
 + 選取的作業系統處理程序，包括涉及新連線上 SSL 交握成本的處理程序。
 
 總**容量**是每個 API 管理執行個體單位本身所擁有數值的平均值。
+
+雖然**容量計量**是專門設計來與您的 API 管理執行個體的介面問題、 一些情況下問題不會反映在變更**容量計量**。
 
 ## <a name="capacity-metric-behavior"></a>容量計量行為
 
@@ -63,6 +65,8 @@ ms.locfileid: "60658284"
 ![容量計量突增](./media/api-management-capacity/capacity-spikes.png)
 
 **容量**也可能會間歇性突增，即使沒有要處理的要求，容量也可能大於零。 之所以如此，是因為在決定是否要調整執行個體時，不應將系統或平台特有的動作列入考量。
+
+低**容量計量**不一定表示您的 API 管理執行個體未發生任何問題。
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>使用 Azure 入口網站檢查容量
   

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466766"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703885"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 將檔案上傳至媒體服務帳戶
 
 在媒體服務中，您會將數位檔案上傳到與資產相關聯的 Blob 容器。 [資產](https://docs.microsoft.com/rest/api/media/operations/asset)實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式輔助字幕檔案 (以及這些檔案的相關中繼資料)。 一旦檔案會上傳到資產的容器，您的內容會安全地儲存在雲端，以便進行進一步的處理和串流。
 
-本文說明如何使用 REST 上傳本機檔案。
+這篇文章會示範如何使用 REST 將本機檔案上傳。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此主題中所述的步驟，您必須：
 

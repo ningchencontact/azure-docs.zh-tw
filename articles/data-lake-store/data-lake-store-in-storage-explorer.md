@@ -27,11 +27,11 @@ ms.locfileid: "60613330"
 
 另一個優點是，您不需擁有訂用帳戶權限即可管理 Data Lake Storage Gen1 資料。 在儲存體總管中，只要他人授與權限，您即可將 Data Lake Storage Gen1 路徑連結至 [本機與已連結的資源]  節點。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
 *   Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial)。
-*   Data Lake Storage Gen1 帳戶。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
+*   Data Lake Storage Gen1 帳戶。 如需有關如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
 ## <a name="install-storage-explorer"></a>安裝儲存體總管
 

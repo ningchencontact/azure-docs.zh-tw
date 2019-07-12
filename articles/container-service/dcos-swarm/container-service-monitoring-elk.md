@@ -22,7 +22,7 @@ ms.locfileid: "61467662"
 
 在此文章中，我們示範如何在 Azure Container Service 中的 DC/OS 叢集上部署 ELK (Elasticsearch、Logstash、Kibana) 堆疊。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [部署](container-service-deployment.md)並[連接](../container-service-connect.md) Azure Container Service 所設定的 DC/OS 叢集。 在[這裡](container-service-mesos-marathon-ui.md)探索探索 DC/OS 儀表板和 Marathon 服務。 同時也請安裝 [Marathon Load Balancer](container-service-load-balancing.md)。
 
 

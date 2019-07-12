@@ -21,7 +21,7 @@ ms.locfileid: "66753838"
 
 Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式架構，以將解決方案提供給有認證或合規性需求的案例。 Azure 藍圖是指引和自動化範本集合，可讓 Microsoft Azure 客戶透過佈建可擴充來符合任何進一步需求的基礎架構，加速達成其商務目標。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 這篇 Azure 安全性與合規性藍圖提供指引和自動化指令碼，以提供 Microsoft Azure [平台即服務 (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) 託管 Web 應用程式架構，該架構適合處理許多已歸類為 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf) 的工作負載。 此安全性分類涵蓋了公共部門所建立或處理的大部分資訊。 這包括例行商務作業和服務，這些作業和服務若在媒體中遺失、遭竊或發佈，則可能會有不利的影響。 OFFICIAL 分類與私人企業的典型威脅設定檔大致相同，均可提供寶貴的資訊和服務。 UK OFFICIAL 預期需要保護英國政府的資料或服務，以免遭受能力和資源有限的攻擊者威脅或入侵，例如 (但不限於) 激進駭客、單一議題壓力團體、調查記者、有能力的個別駭客，以及大多數的犯罪個體和集團。
 
@@ -113,7 +113,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 - 多個 App Service [部署位置](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
 - 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - 與 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) 整合以監視效能
-- [診斷記錄檔](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
+- [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - 度量[警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
 - [Azure API 應用程式](https://azure.microsoft.com/services/app-service/api/) 
 

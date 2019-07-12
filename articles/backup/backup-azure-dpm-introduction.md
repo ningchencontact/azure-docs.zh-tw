@@ -54,7 +54,7 @@ VMware VM 上的 DPM | System Center 2012 R2 (含更新彙總套件 5 或更新�
 不支援的檔案類型 | 區分大小寫檔案系統上的伺服器；永久連結 (略過)；重新剖析點 (略過)；加密和壓縮 (略過)；加密和疏鬆 (略過)；壓縮資料流；剖析資料流。
 本機儲存體 | 您要備份的每個機器都必須有本機可用儲存體，且其大小至少要有待備份資料大小的 5 %。 例如，備份 100GB 的資料時，在臨時位置中至少需要 5 GB 的可用空間。
 保存庫儲存體 | 可以備份至 Azure 備份保存庫的資料數量沒有限制，但是資料來源 (例如虛擬機器或資料庫) 的大小不應超過 54400 GB。
-Azure ExpressRoute | 如果已設定 Azure ExpressRoute 私用或 Microsoft 對等互連，它不能將資料備份至 Azure。<br/><br/> 如果 ExpressRoute 已設定公用對等互連，它可用來將資料備份至 Azure。<br/><br/> **附註：** 新的線路已不再支援公用對等互連。
+Azure ExpressRoute | 如果已設定 Azure ExpressRoute 私用或 Microsoft 對等互連，它不能將資料備份至 Azure。<br/><br/> 如果 ExpressRoute 已設定公用對等互連，它可用來將資料備份至 Azure。<br/><br/> **注意：** 新的線路已不再支援公用對等互連。
 Azure 備份代理程式 | 如果 DPM 執行於 System Center 2012 SP1 上，請為 DPM SP1 安裝彙總套件 2 或更新版本。 這是代理程式安裝的必要條件。<br/><br/> 本文將說明如何部署最新版的 Azure 備份代理程式，也就是 Microsoft Azure 復原服務 (MARS) 代理程式。 如果您已部署舊版，請更新為最新版本，以確保備份可如預期運作。
 
 開始之前，您必須具有已啟用 Azure 備份功能的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 請閱讀 [Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。

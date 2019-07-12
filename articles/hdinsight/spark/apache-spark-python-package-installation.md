@@ -66,7 +66,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
     |參數 | 值 |
     |---|---|
     |指令碼類型 | 從下拉式清單中選取 [- 自訂]  。|
-    |Name |在文字方塊中輸入 `tensorflow`。|
+    |名稱 |在文字方塊中輸入 `tensorflow`。|
     |Bash 指令碼 URI |在文字方塊中輸入 `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh`。 |
     |節點類型 | 選取  **Head**，並**工作者**核取方塊。 |
 
@@ -123,5 +123,5 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

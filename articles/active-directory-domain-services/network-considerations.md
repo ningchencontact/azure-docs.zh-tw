@@ -17,7 +17,7 @@ ms.date: 05/22/2010
 ms.author: mstephen
 ms.openlocfilehash: 1f21d71bba01eb4bec24dbb558a126ecbbd78bbf
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246940"
@@ -64,12 +64,12 @@ ms.locfileid: "66246940"
 ## <a name="ports-required-for-azure-ad-domain-services"></a>Azure AD 網域服務所需的連接埠
 下列是 Azure AD 網域服務維護及服務受控網域所需的連接埠。 請確保未針對已啟用受控網域的子網路封鎖這些連接埠。
 
-| 連接埠號碼 | 必要項？ | 目的 |
+| 連接埠號碼 | 必要項？ | 用途 |
 | --- | --- | --- |
-| 443 | 強制 |與 Azure AD 租用戶同步處理 |
-| 5986 | 強制 | 管理您的網域 |
-| 3389 | 強制 | 管理您的網域 |
-| 636 | 選用 | 保護受控網域的 LDAP (LDAPS) 存取 |
+| 443 | Mandatory |與 Azure AD 租用戶同步處理 |
+| 5986 | Mandatory | 管理您的網域 |
+| 3389 | Mandatory | 管理您的網域 |
+| 636 | 選擇性 | 保護受控網域的 LDAP (LDAPS) 存取 |
 
 **連接埠 443 (與 Azure AD 同步)**
 * 用來同步您的 Azure AD 目錄與受控網域。

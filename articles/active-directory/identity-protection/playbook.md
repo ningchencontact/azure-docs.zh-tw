@@ -163,7 +163,7 @@ ms.locfileid: "67108836"
 
 6. 針對 [強制執行原則]  ，選取 [開啟]  。
 
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 8. 您現在可以使用具風險的工作階段 （例如，藉由使用 Tor 瀏覽器） 登入測試登入風險型條件式存取。 
 
@@ -172,7 +172,7 @@ ms.locfileid: "67108836"
 
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

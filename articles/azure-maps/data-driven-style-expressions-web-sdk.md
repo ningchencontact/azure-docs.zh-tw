@@ -81,8 +81,8 @@ Azure 地圖服務 Web SDK 支援許多類型的可用靠自己或其他運算�
 
 | 運算是 | 傳回類型 | 描述 |
 |------------|-------------|-------------|
-| `['at', number, array]` | 物件 | 從陣列擷取項目。 |
-| `['geometry-type']` | 字串 | 取得功能的幾何類型：點、 MultiPoint、 LineString、 MultiLineString、 Polygon、 MultiPolygon。 |
+| `['at', number, array]` | object | 從陣列擷取項目。 |
+| `['geometry-type']` | string | 取得功能的幾何類型：點、 MultiPoint、 LineString、 MultiLineString、 Polygon、 MultiPolygon。 |
 | `['get', string]` | value | 取得從目前的功能屬性的屬性值。 如果遺漏要求的屬性，則，傳回 null。 |
 | `['get', string, object]` | value | 取得屬性值從提供的物件的屬性。 如果遺漏要求的屬性，則，傳回 null。 |
 | `['has', string]` | boolean | 判斷某項功能的屬性是否具有指定的屬性。 |
@@ -340,8 +340,8 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 | `['to-boolean', value]` | boolean | 輸入的值轉換為布林值。 結果是`false`輸入是空字串，當`0`， `false`， `null`，或`NaN`; 否則其`true`。 |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | 輸入的值轉換為的色彩。 如果提供多個值，則取得第一次成功的轉換之前評估每個順序。 如果可以轉換沒有任何輸入，則運算式會是錯誤。 |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 轉換輸入的值的數字，如果可能的話。 如果輸入是`null`或`false`，則結果為 0。 如果輸入是`true`，則結果為 1。 如果輸入是字串，則會轉換數字 using [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) ECMAScript 語言規格中的函式的字串。 如果提供多個值，則取得第一次成功的轉換之前評估每個順序。 如果可以轉換沒有任何輸入，則運算式會是錯誤。 |
-| `['to-string', value]` | 字串 | 將輸入的值轉換為字串。 如果輸入是`null`，結果是`""`。 如果輸入是布林值，結果會是`"true"`或`"false"`。 如果輸入是數字，它會轉換成字串，使用[ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type)編號 ECMAScript 語言規格中的函式。 如果輸入是一種色彩，則會轉換為 CSS RGBA 色彩字串`"rgba(r,g,b,a)"`。 否則，將輸入轉換成字串，使用[JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) ECMAScript 語言規格中的函式。 |
-| `['typeof', value]` | 字串 | 傳回字串，描述指定值的型別。 |
+| `['to-string', value]` | string | 將輸入的值轉換為字串。 如果輸入是`null`，結果是`""`。 如果輸入是布林值，結果會是`"true"`或`"false"`。 如果輸入是數字，它會轉換成字串，使用[ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type)編號 ECMAScript 語言規格中的函式。 如果輸入是一種色彩，則會轉換為 CSS RGBA 色彩字串`"rgba(r,g,b,a)"`。 否則，將輸入轉換成字串，使用[JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) ECMAScript 語言規格中的函式。 |
+| `['typeof', value]` | string | 傳回字串，描述指定值的型別。 |
 
 > [!TIP]
 > 如果錯誤訊息類似於`Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].`出現在瀏覽器主控台的它表示是在程式碼具有不需要其第一個值的字串陣列中的某個位置的運算式。 如果您想要傳回陣列的運算式時，自動換行的陣列`literal`運算式。 下列範例會設定圖示`offset`必須是陣列，包含兩個數字，使用一個符號圖層的選項`match`選擇兩個的位移值的運算式會根據值`entityType`點屬性功能。
@@ -399,9 +399,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 | 運算是 | 傳回類型 | 描述 |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | 字串 | 多個字串串連。 每個值必須是字串。 使用`to-string`輸入如有需要將其他實值型別轉換成字串的運算式。 |
-| `['downcase', string]` | 字串 | 將指定的字串轉換成小寫。 |
-| `['upcase', string]` | 字串 | 將指定的字串轉換成大寫。 |
+| `['concat', string, string, …]` | string | 多個字串串連。 每個值必須是字串。 使用`to-string`輸入如有需要將其他實值型別轉換成字串的運算式。 |
+| `['downcase', string]` | string | 將指定的字串轉換成小寫。 |
+| `['upcase', string]` | string | 將指定的字串轉換成大寫。 |
 
 **範例**
 

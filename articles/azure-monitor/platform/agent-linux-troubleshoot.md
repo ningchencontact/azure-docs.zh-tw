@@ -34,7 +34,7 @@ ms.locfileid: "67071664"
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>重要記錄位置和記錄收集器工具
 
- 檔案 | Path
+ 檔案 | `Path`
  ---- | -----
  Log Analytics Linux 代理程式記錄檔 | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Log Analytics 代理程式組態記錄檔 | `/var/opt/microsoft/omsconfig/omsconfig.log`
@@ -43,7 +43,7 @@ ms.locfileid: "67071664"
 
 ## <a name="important-configuration-files"></a>重要組態檔案
 
- 類別 | 檔案位置
+ Category | 檔案位置
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf`、`/etc/rsyslog.conf` 或 `/etc/rsyslog.d/95-omsagent.conf`
  效能、Nagios、Zabbix、Log Analytics 輸出和一般代理程式 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
@@ -166,7 +166,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 2. 檢閱[更新 Proxy 設定](agent-manage.md#update-proxy-settings)一節以驗證您是否已正確設定代理程式透過 Proxy 伺服器通訊。    
 * 再次檢查下列 Azure 監視器端點已列入允許清單：
 
-    |代理程式資源| 連接埠 | 方向 |
+    |代理程式資源| 連接埠 | Direction |
     |------|---------|----------|  
     |*.ods.opinsights.azure.com | 連接埠 443| 輸入和輸出 |  
     |*.oms.opinsights.azure.com | 連接埠 443| 輸入和輸出 |  

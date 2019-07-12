@@ -37,7 +37,7 @@ SQL 資料倉儲會使用伺服器層級的防火牆規則。 它不支援資料
 
 預設會加密與 SQL 資料倉儲的連線。  停用加密的修改連線設定會被忽略。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 「驗證」是指連線到資料庫時如何證明身分識別。 SQL 資料倉儲目前支援採用使用者名稱和密碼，以及 Azure Active Directory 的 SQL Server 驗證。 
 
 當您為資料庫建立邏輯伺服器時，採取使用者名稱和密碼指定了「伺服器管理員」登入。 使用這些認證，您就可以透過 SQL Server 驗證，使用資料庫擁有者或 "dbo" 的身分驗證該伺服器上的任何資料庫。
@@ -61,7 +61,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 若要提供使用者執行其他作業 (例如建立登入或建立新資料庫) 的權限，請為他們指派主要資料庫中的 `Loginmanager` 和 `dbmanager` 角色。 如需有關這些額外角色及向 SQL Database 驗證的詳細資訊，請參閱[管理 Azure SQL Database 的資料庫和登入][Managing databases and logins in Azure SQL Database]。  如需詳細資訊，請參閱[使用 Azure Active Directory 驗證連線到 SQL 資料倉儲][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]。
 
-## <a name="authorization"></a>授權
+## <a name="authorization"></a>Authorization
 授權是指您在 Azure SQL 資料倉儲資料庫內可以執行的動作。 授權權限取決於角色成員資格和權限。 最好的作法是，您應該授與使用者所需的最低權限。 若要管理角色，您可以使用下列預存程序：
 
 ```sql

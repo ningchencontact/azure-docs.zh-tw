@@ -29,14 +29,14 @@ ms.locfileid: "66161449"
 
 了解如何使用 Azure PowerShell 建立 Azure Data Lake Storage Gen1 帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關 Data Lake Storage Gen1 的詳細資訊，請參閱 [Data Lake Storage Gen1 概觀](data-lake-store-overview.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure PowerShell 1.0 或更新版本**。 請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 本文搭配使用較簡單的驗證方法與 Data Lake Storage Gen1，系統會提示您輸入 Azure 帳號認證。 Data Lake Storage Gen1 帳戶和檔案系統的存取層級則由已登入使用者的存取層級所控管。 不過，還有其他方法可向 Data Lake Storage Gen1 進行驗證：**使用者驗證**或**服務對服務驗證**。 如需有關如何驗證的指示和詳細資訊，請參閱[使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)或[服務對服務驗證](data-lake-store-authenticate-using-active-directory.md)。
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>建立 Data Lake Storage Gen1 帳戶

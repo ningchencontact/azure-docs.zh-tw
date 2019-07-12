@@ -25,7 +25,7 @@ ms.locfileid: "64713055"
 > [!NOTE]
 > StorSimple 的傳統入口網站已過時。 按照淘汰排程，StorSimple 裝置管理員會自動移至新的 Azure 入口網站。 您將收到關於此移動的電子郵件和入口網站通知。 本文件也即將遭到淘汰。 關於移動的任何問題，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文提供實用的疑難排解指導方針，可用來解決在部署 StorSimple 裝置且可運作之後您可能遇到的問題。 文中將描述常見問題、可能原因和建議的步驟，可協助您解決在執行 Microsoft Azure StorSimple 時可能遇到的問題。 此資訊適用於 StorSimple 內部部署實體裝置和 StorSimple 虛擬裝置。
 
 在本文節尾，您可以找到您可能會在 Microsoft Azure StorSimple 作業期間遭遇到的錯誤代碼清單，以及您要解決錯誤所採取的步驟。 
@@ -45,7 +45,7 @@ ms.locfileid: "64713055"
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>在安裝精靈後續執行期間發生的錯誤
 下表說明當您在可運作的裝置上執行安裝精靈時可能遇到的錯誤、產生錯誤的可能原因，以及建議用來解決這些錯誤的動作。 
 
-| 沒有。 | 錯誤訊息或情況 | 可能的原因 | 建議的動作 |
+| 資料分割 | 錯誤訊息或情況 | 可能的原因 | 建議的動作 |
 |:--- |:--- |:--- |:--- |
 | 1 |Error 350032:已停用此裝置。 |如果您在已停用的裝置上執行安裝精靈，就會看到這個錯誤。 |[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md) 以進行後續步驟。 已停用的裝置無法處於執行狀態。 您可能需要進行原廠重設，裝置才能再次啟用。 |
 | 2 |Invoke-hcssetupwizard:ERROR_INVALID_FUNCTION (來自 HRESULT 的例外狀況：0x80070001) |DNS 伺服器更新失敗。 DNS 設定是全域設定，並會在所有已啟用的網路介面上加以套用。 |啟用介面並重新套用 DNS 設定。 因為這些設定是全域的，所以這樣做可能會中斷其他已啟用介面的網路。 |

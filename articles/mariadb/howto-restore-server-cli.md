@@ -20,7 +20,7 @@ ms.locfileid: "66171384"
 
 為了能使用還原功能，適用於 MariaDB 的 Azure 資料庫伺服器會定期備份。 透過此功能，您可以將伺服器和其所有資料庫還原至更早的時間點 (在新的伺服器上)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本操作說明指南，您需要：
 

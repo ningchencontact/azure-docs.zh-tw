@@ -69,7 +69,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 
 ## <a name="tools"></a>工具
 
-|Category   |Name   |
+|Category   |名稱   |
 |---|---|
 |Linux 工具            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 工具            |[Azure CLI](https://github.com/Azure/azure-cli) 和 [Azure 傳統 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -85,7 +85,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 |語言   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
-|移至         |1.9        |
+|Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
 |PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |

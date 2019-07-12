@@ -27,7 +27,7 @@ ms.locfileid: "66511748"
 
 執行兩個布林值 inputClaim 的 And 運算，並使用運算的結果來設定 outputClaim。
 
-| Item  | TransformationClaimType  | 数据类型  | 注意 |
+| Item  | TransformationClaimType  | 資料類型  | 注意 |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | 要評估的第一個 ClaimType。 |
 | InputClaim | inputClaim2  | boolean | 要評估的第二個 ClaimType。 |
@@ -60,7 +60,7 @@ ms.locfileid: "66511748"
 
 檢查兩個宣告的布林值相等，如果不相等，則會擲回例外狀況。
 
-| Item | TransformationClaimType  | 数据类型  | 注意 |
+| Item | TransformationClaimType  | 資料類型  | 注意 |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | 要進行判斷的 ClaimType。 |
 | InputParameter |valueToCompareTo | boolean | 要比較的值 (True 或 False)。 |
@@ -117,7 +117,7 @@ ms.locfileid: "66511748"
 
 執行布林值 inputClaim 的 Not 運算，並使用運算的結果來設定 outputClaim。
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | 要運算的宣告。 |
 | OutputClaim | outputClaim | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType (True 或 False)。 |
@@ -145,7 +145,7 @@ ms.locfileid: "66511748"
 
 執行兩個布林值 inputClaim 的 Or 運算，並使用運算的結果來設定 outputClaim。
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | 要評估的第一個 ClaimType。 |
 | InputClaim | inputClaim2 | boolean | 要評估的第二個 ClaimType。 |

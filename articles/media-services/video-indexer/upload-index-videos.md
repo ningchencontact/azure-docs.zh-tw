@@ -60,13 +60,13 @@ ms.locfileid: "65799199"
 - 索引狀態變更： 
     - 屬性：    
     
-        |Name|描述|
+        |名稱|描述|
         |---|---|
         |id|影片識別碼|
         |state|影片狀態|  
     - 範例： https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 在影片中識別到的人員：
-  - properties
+  - 屬性
     
       |名稱|描述|
       |---|---|
@@ -284,7 +284,7 @@ public class AccountContractSlim
 
 下表列出上傳作業可能會傳回的狀態碼。
 
-|狀態碼|ErrorType (在回應本文中)|描述|
+|status code|ErrorType (在回應本文中)|描述|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|指定帳戶中已有正在處理的相同影片。|
 |400|VIDEO_ALREADY_FAILED|不到 2 小時前，指定帳戶中有相同的影片處理失敗。 API 用戶端應該等待至少 2 小時，才能重新上傳影片。|

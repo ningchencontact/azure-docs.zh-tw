@@ -31,7 +31,7 @@ ms.locfileid: "66244825"
 
 |要求標頭金鑰 | 值|
 |-|-|
-|授權| 以此格式指定值：**bearer {API_KEY}** <br/> 範例：bearer eyr....09| 
+|Authorization| 以此格式指定值：**bearer {API_KEY}** <br/> 範例：bearer eyr....09| 
 
 ## <a name="consumption-apis"></a>使用情況 API
 下述 API 的 Swagger 端點可在[這裡](https://consumption.azure.com/swagger/ui/index)取得，它可讓使用者輕鬆進行 API 自我檢查，並且能使用 [AutoRest](https://github.com/Azure/AutoRest) 或 [Swagger CodeGen](https://swagger.io/swagger-codegen/) 產生用戶端 SDK。 自 2014 年 5 月 1 日起的資料可透過此 API 取得。 

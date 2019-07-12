@@ -20,7 +20,7 @@ ms.locfileid: "67066211"
 
 本文提供的逐步指引，是關於如何使用 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) 中的 HDInsight 工具，對 HDInsight 叢集上的應用程式進行遠端偵錯。 若要對您的專案進行偵錯，您也可以觀看 [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (使用適用於 IntelliJ 的 Azure 工具組對 HDInsight Spark 應用程式進行偵錯) 影片。
 
-**先決條件**
+**必要條件**
 * **適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具**。 此工具是適用於 IntelliJ 之 Azure 工具組的一部分。 如需詳細資訊，請參閱[安裝適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)。 以及**適用於 IntelliJ 的 Azure 工具組**。 使用此工具組建立適用於 HDInsight 叢集的 Apache Spark 應用程式。 如需詳細資訊，請遵循[使用 Azure Toolkit for IntelliJ 建立適用於 HDInsight 叢集的 Apache Spark 應用程式](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin)中的指示進行。
 
 * **HDInsight SSH 服務與使用者名稱和密碼管理**。 如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 和[使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Apache Oozie 及其他 Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel)。 
@@ -155,7 +155,7 @@ ms.locfileid: "67066211"
    ![偵錯而未發生例外狀況](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
 ## <a name="seealso"></a>接續步驟
-* [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
+* [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
 * 建立 Scala 專案 (影片)：[建立 Apache Spark Scala 應用程式](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) \(英文\)
@@ -181,5 +181,5 @@ ms.locfileid: "67066211"
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

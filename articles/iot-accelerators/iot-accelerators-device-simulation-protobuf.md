@@ -32,7 +32,7 @@ Protocol Buffers (Protobuf) 是結構化資料的二進位序列化格式。 Pr
 1. 產生 Protobuf 類別
 1. 本機測試
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要遵循本操作指南中的步驟，您需要：
 

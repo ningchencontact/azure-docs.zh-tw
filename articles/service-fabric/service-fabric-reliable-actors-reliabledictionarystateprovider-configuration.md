@@ -66,7 +66,7 @@ SharedLogId 和 SharedLogPath 設定永遠會一起使用，以便為叢集中�
 SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記錄檔的磁碟空間數量。  若要指定SharedLogSizeInMB，不需要指定 SharedLogId 和 SharedLogPath。
 
 ## <a name="replicator-security-configuration"></a>複寫器安全性組態
-复制器安全配置用于保护在复制过程中使用的通信通道的安全。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
+複寫器安全性組態用來保護在複寫期間使用的通訊通道。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
 依預設，空白的安全性組態區段會妨礙複寫安全性。
 
 > [!IMPORTANT]
@@ -76,9 +76,9 @@ SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記�
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>复制器配置
+## <a name="replicator-configuration"></a>複寫器組態
 複寫器組態用來設定負責將狀態複寫和保存至本機，讓動作項目狀態提供者變得高度可靠的複寫器。
-默认配置由 Visual Studio 模板生成，并应已足够。 本節說明可用於微調複寫器的其他組態。
+預設組態由 Visual Studio 範本所產生，且應該已經足夠。 本節說明可用於微調複寫器的其他組態。
 
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -89,7 +89,7 @@ SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記�
 | BatchAcknowledgementInterval |秒 |0.015 |次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。 任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。 |
 | ReplicatorEndpoint |N/A |無預設值--必要的參數 |主要/次要複寫器將用於與複本集中其他複寫器通訊的 IP 位址與連接埠。 這應該參考服務資訊清單中的 TCP 資源端點。 請參閱 [服務資訊清單資源](service-fabric-service-manifest-resources.md) ，深入了解如何在服務資訊清單中定義端點資源。 |
 | MaxReplicationMessageSize |位元組 |50 MB |單一訊息可傳輸的複寫資料大小上限。 |
-| MaxPrimaryReplicationQueueSize |操作的数量 |8192 |主要佇列中作業數目上限。 主要複寫器收到所有次要複寫器的通知後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
+| MaxPrimaryReplicationQueueSize |作業數目 |8192 |主要佇列中作業數目上限。 主要複寫器收到所有次要複寫器的通知後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
 | MaxSecondaryReplicationQueueSize |作業數目 |16384 |次要佇列中作業數目上限。 透過持續性讓狀態成為高可用性後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
 | CheckpointThresholdInMB |MB |200 |狀態完成檢查點作業後的記錄檔空間量。 |
 | MaxRecordSizeInKB |KB |1024 |複寫器可以寫入記錄檔中的最大記錄大小。 此值必須是 4 的倍數且大於 16。 |

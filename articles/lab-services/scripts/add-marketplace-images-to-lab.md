@@ -27,7 +27,7 @@ ms.locfileid: "66160590"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **實驗室**。 指令碼需要您擁有現有的實驗室。 
 
 ## <a name="sample-script"></a>範例指令碼

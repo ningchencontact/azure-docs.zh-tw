@@ -413,7 +413,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|元素名稱|必要項|類型|Version|描述|
+|元素名稱|必要項|type|Version|描述|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|是|array|\<簡介版本 >|作為 base64 字串陣列的 X509 憑證鏈結。|
 
@@ -475,5 +475,5 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1?api-version
 
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 - [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

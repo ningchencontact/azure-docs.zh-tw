@@ -37,19 +37,19 @@ Event Grid 使用[事件訂閱](../event-grid/concepts.md#event-subscriptions)�
 ## <a name="event-schema"></a>結構描述
 Azure 應用程式設定的事件包含您要回應您的資料變更的所有資訊。 因為 eventType 屬性開頭為"Microsoft.AppConfiguration 」，您可以識別應用程式組態事件。 Event Grid 事件屬性之使用方式的其他資訊列於[Event Grid 事件結構描述](../event-grid/event-schema.md)。  
 
-> |屬性|類型|描述|
+> |屬性|type|描述|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |topic|字串|會發出此事件的應用程式組態的完整 Azure Resource Manager 識別碼。|
-> |主旨|字串|為事件主體之索引鍵-值的 URI。|
-> |eventTime|字串|日期/時間所產生的事件，採用 ISO 8601 格式。|
-> |eventType|字串|「 Microsoft.AppConfiguration.KeyValueModified"或者"Microsoft.AppConfiguration.KeyValueDeleted 」。|
-> |Id|字串|此事件的唯一識別碼。|
+> |topic|string|會發出此事件的應用程式組態的完整 Azure Resource Manager 識別碼。|
+> |subject|string|為事件主體之索引鍵-值的 URI。|
+> |eventTime|string|日期/時間所產生的事件，採用 ISO 8601 格式。|
+> |eventType|string|「 Microsoft.AppConfiguration.KeyValueModified"或者"Microsoft.AppConfiguration.KeyValueDeleted 」。|
+> |Id|string|此事件的唯一識別碼。|
 > |dataVersion|string|資料物件的結構描述版本。|
-> |metadataVersion|字串|最上層屬性的結構描述版本。|
-> |data|物件|Azure 應用程式設定特定的事件資料集合|
-> |data.key|字串|已修改或刪除機碼值的索引鍵。|
-> |data.label|字串|標籤，如果有的話，索引鍵-值的已修改或刪除。|
-> |data.etag|字串|針對`KeyValueModified`新的索引鍵 / 值的 etag。 針對`KeyValueDeleted`已刪除的金鑰值的 etag。|
+> |metadataVersion|string|最上層屬性的結構描述版本。|
+> |data|object|Azure 應用程式設定特定的事件資料集合|
+> |data.key|string|已修改或刪除機碼值的索引鍵。|
+> |data.label|string|標籤，如果有的話，索引鍵-值的已修改或刪除。|
+> |data.etag|string|針對`KeyValueModified`新的索引鍵 / 值的 etag。 針對`KeyValueDeleted`已刪除的金鑰值的 etag。|
 
 KeyValueModified 事件的範例如下：
 ```json

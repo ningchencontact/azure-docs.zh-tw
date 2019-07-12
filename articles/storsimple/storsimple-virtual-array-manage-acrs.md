@@ -24,7 +24,7 @@ ms.locfileid: "64724424"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的存取控制記錄
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 存取控制記錄 (ACR) 可讓您指定哪些主機可連接至 StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置) 上的磁碟區。 ACR 設為特定的磁碟區，並且包含主機的 iSCSI 限定名稱 (IQN)。 當主機嘗試連線到磁碟區時，裝置會檢查與該磁碟區相關聯的 ACR 的 IQN 名稱，如果相符，則會建立連接。 [設定]  區段內的 [存取控制記錄]  刀鋒視窗會顯示主機的存取控制記錄及對應的 IQN。
 

@@ -111,7 +111,7 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 
 下表顯示每個 Azure 搜尋服務所支援的資料類型常數的範例：
 
-| 数据类型 | 範例常數 |
+| 資料類型 | 範例常數 |
 | --- | --- |
 | `Edm.Boolean` | `true`、 `false` |
 | `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
@@ -226,7 +226,7 @@ select_expression ::= '*' | field_path(',' field_path)*
 - [Azure 搜尋服務中的 OData $orderby 語法](search-query-odata-orderby.md)
 - [Azure 搜尋服務中的 OData $select 語法](search-query-odata-select.md)
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 - [Azure 搜尋服務中的多面向導覽](search-faceted-navigation.md)
 - [Azure 搜尋服務中的篩選條件](search-filters.md)

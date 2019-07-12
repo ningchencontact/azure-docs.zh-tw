@@ -57,7 +57,7 @@ ms.locfileid: "64701022"
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>從 Azure 入口網站取得驗證資訊
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 
 若要存取 Media Services API，您必須收集下列資料點。
 

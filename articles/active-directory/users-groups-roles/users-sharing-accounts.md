@@ -23,7 +23,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "67083741"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共用帳戶
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 有時候組織需要讓多人使用同一個使用者名稱和密碼，這通常發生在兩種情況下：
 
 * 每個使用者都必須使用唯一的登入名稱和密碼來存取應用程式時 (無論是內部部署的應用程式或取用者雲端服務，例如公司的社交媒體帳戶)。

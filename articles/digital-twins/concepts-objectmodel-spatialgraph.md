@@ -82,7 +82,7 @@ Digital Twins 物件模型支援下列主要物件類別：
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | 更換為 |
+| 名稱 | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |

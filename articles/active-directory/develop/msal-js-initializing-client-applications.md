@@ -27,7 +27,7 @@ ms.locfileid: "65544032"
 # <a name="initialize-client-applications-using-msaljs"></a>初始化使用 MSAL.js 的用戶端應用程式
 本文會說明初始化 Microsoft Authentication Library for JavaScript (MSAL.js) 與使用者代理程式應用程式的執行個體。 使用者代理程式應用程式是一種用戶端程式碼執行在例如網頁瀏覽器使用者代理程式所在的公用用戶端應用程式。 由於瀏覽器內容是可公開存取，這些用戶端就不會儲存祕密。 若要了解用戶端應用程式類型與應用程式組態選項的詳細資訊，請閱讀[概觀](msal-client-applications.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 然後再初始化應用程式，您必須先[使用 Azure 入口網站註冊](scenario-spa-app-registration.md)，讓您的應用程式可以與 Microsoft 身分識別平台整合。 註冊之後，您可能需要下列資訊 （這可以在 Azure 入口網站中找到）：
 
 - 用戶端識別碼 （字串，表示您的應用程式的 GUID）
@@ -112,7 +112,7 @@ export type Configuration = {
 
 - **clientID**:必要。 您的應用程式的 clientID，您應該從取得此應用程式註冊入口網站。
 
-- **授權單位**:選用。 URL，表示 MSAL 可以要求權杖的目錄。 預設值為：`https://login.microsoftonline.com/common`。
+- **授權單位**:選擇性。 URL，表示 MSAL 可以要求權杖的目錄。 預設值為：`https://login.microsoftonline.com/common`。
     * 在 Azure AD 中，它是 https://&lt;執行個體&gt;/&lt;觀眾&gt;，其中&lt;執行個體&gt;是身分識別提供者網域 (例如`https://login.microsoftonline.com`) 和&lt;觀眾&gt;是代表登入對象的識別碼。 這可以是下列值：
         * `https://login.microsoftonline.com/<tenant>`-租用戶是租用戶，例如 contoso.onmicrosoft.com 或 GUID，表示相關聯的網域`TenantID`屬性只能用來登入使用者的特定組織的目錄。
         * `https://login.microsoftonline.com/common`-用來登入公司及學校帳戶或 Microsoft 個人帳戶的使用者。
@@ -121,25 +121,25 @@ export type Configuration = {
     * 在 Azure AD B2C 中，它是表單`https://<instance>/tfp/<tenant>/<policyName>/`、 執行個體所在的 Azure AD B2C 網域中，租用戶是 Azure AD B2C 租用戶的名稱、 policyName 是要套用的 B2C 原則的名稱。
 
 
-- **validateAuthority**:選用。  驗證權杖的簽發者。 預設值為 `true`。 對於 B2C 應用程式，因為授權值已知，而且可能會不同，每個原則，授權單位驗證將無法運作且已設為`false`。
+- **validateAuthority**:選擇性。  驗證權杖的簽發者。 預設值為 `true`。 對於 B2C 應用程式，因為授權值已知，而且可能會不同，每個原則，授權單位驗證將無法運作且已設為`false`。
 
-- **redirectUri**:選用。  應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼。 預設值為 `window.location.href`。
+- **redirectUri**:選擇性。  應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼。 預設值為 `window.location.href`。
 
-- **postLogoutRedirectUri**:選用。  若要將使用者重新導向`postLogoutRedirectUri`登出後。預設值為 `redirectUri`。
+- **postLogoutRedirectUri**:選擇性。  若要將使用者重新導向`postLogoutRedirectUri`登出後。預設為 `redirectUri`。
 
-- **navigateToLoginRequestUrl**:選用。 若要關閉 預設瀏覽至登入之後起始頁的能力。 預設值為 true。 這僅用於重新導向流程。
+- **navigateToLoginRequestUrl**:選擇性。 若要關閉 預設瀏覽至登入之後起始頁的能力。 預設值為 true。 這僅用於重新導向流程。
 
-- **cacheLocation**:選用。  將瀏覽器儲存體設定為`localStorage`或`sessionStorage`。 預設值為 `sessionStorage`。
+- **cacheLocation**:選擇性。  將瀏覽器儲存體設定為`localStorage`或`sessionStorage`。 預設為 `sessionStorage`。
 
-- **storeAuthStateInCookie**:選用。  這個旗標中引進了 MSAL.js v0.2.2 為修正[迴圈的驗證問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones)上 Microsoft Internet Explorer 和 Microsoft Edge。 啟用旗標`storeAuthStateInCookie`true 會充分利用此修正。 當啟用此選項時，MSAL.js 將儲存在瀏覽器 cookie 的驗證流程的驗證所需的驗證要求狀態。 根據預設，這個旗標設定為`false`。
+- **storeAuthStateInCookie**:選擇性。  這個旗標中引進了 MSAL.js v0.2.2 為修正[迴圈的驗證問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#1-issues-due-to-security-zones)上 Microsoft Internet Explorer 和 Microsoft Edge。 啟用旗標`storeAuthStateInCookie`true 會充分利用此修正。 當啟用此選項時，MSAL.js 將儲存在瀏覽器 cookie 的驗證流程的驗證所需的驗證要求狀態。 根據預設，這個旗標設定為`false`。
 
-- **記錄器**:選用。  回呼執行個體，可供使用，並將記錄發行以自訂方式開發人員所使用的記錄器物件。 如需傳遞記錄器物件的詳細資訊，請參閱[記錄 msal.js](msal-logging.md)。
+- **記錄器**:選擇性。  回呼執行個體，可供使用，並將記錄發行以自訂方式開發人員所使用的記錄器物件。 如需傳遞記錄器物件的詳細資訊，請參閱[記錄 msal.js](msal-logging.md)。
 
-- **loadFrameTimeout**:選用。  一段時間的 Azure AD 之權杖的更新回應應該視為已逾時之前的毫秒數。預設值為 6 秒。
+- **loadFrameTimeout**:選擇性。  一段時間的 Azure AD 之權杖的更新回應應該視為已逾時之前的毫秒數。預設值為 6 秒。
 
-- **tokenRenewalOffsetSeconds**:選用。 的毫秒數的設定更新權杖到期之前所需的位移的視窗。 預設值是 300 毫秒。
+- **tokenRenewalOffsetSeconds**:選擇性。 的毫秒數的設定更新權杖到期之前所需的位移的視窗。 預設值是 300 毫秒。
 
 這些只是適用於從 MSAL Angular 的包裝函式程式庫，向下傳遞：
-- **unprotectedResources**:選用。  未受保護資源的 Uri 的陣列。 MSAL 會附加到具有下列 URI 的連出要求的語彙基元。 預設值為 `null`。
+- **unprotectedResources**:選擇性。  未受保護資源的 Uri 的陣列。 MSAL 會附加到具有下列 URI 的連出要求的語彙基元。 預設值為 `null`。
 
-- **protectedResourceMap**:選用。  這對應的資源給 MSAL 用於自動附加在 web API 呼叫中的存取權杖的範圍。 單一的存取權杖取得資源。 因此您可以將特定的資源路徑，如下所示: {"https://graph.microsoft.com/v1.0/me 」，["user.read"]}，或做為資源的應用程式 URL: {"https://graph.microsoft.com/ 」，["user.read"，"mail.send"]}。 這是必要的 CORS 呼叫。 預設值為 `null`。
+- **protectedResourceMap**:選擇性。  這對應的資源給 MSAL 用於自動附加在 web API 呼叫中的存取權杖的範圍。 單一的存取權杖取得資源。 因此您可以將特定的資源路徑，如下所示: {"https://graph.microsoft.com/v1.0/me 」，["user.read"]}，或做為資源的應用程式 URL: {"https://graph.microsoft.com/ 」，["user.read"，"mail.send"]}。 這是必要的 CORS 呼叫。 預設值為 `null`。

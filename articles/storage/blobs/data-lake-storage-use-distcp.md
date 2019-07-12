@@ -42,7 +42,7 @@ HDInsight 叢集隨附 DistCp 公用程式，可用來將不同來源的資料�
 
     輸出應會提供容器中的內容清單。
 
-3. 同樣地，請確認您是否可以從叢集存取已啟用階層命名空間的儲存體帳戶。 執行以下命令：
+3. 同樣地，請確認您是否可以從叢集存取已啟用階層命名空間的儲存體帳戶。 執行下列命令：
 
         hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 

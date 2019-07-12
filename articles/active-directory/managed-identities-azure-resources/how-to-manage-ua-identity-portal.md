@@ -30,7 +30,7 @@ ms.locfileid: "60441569"
 
 在本文中，您會了解如何使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
@@ -46,7 +46,7 @@ ms.locfileid: "60441569"
    - 訂用帳戶  ：選擇訂用帳戶，以在其下方建立使用者指派的受控識別
    - **資源群組**：建立新資源群組來包含使用者指派的受控識別，或選擇 [使用現有項目]  在現有的資源群組中建立使用者指派的受控識別。
    - **位置**：選擇位置來部署使用者指派的受控識別，例如**美國西部**。
-4. 按一下頁面底部的 [新增]  。
+4. 按一下 [建立]  。
 
 ![建立使用者指派的受控識別](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 

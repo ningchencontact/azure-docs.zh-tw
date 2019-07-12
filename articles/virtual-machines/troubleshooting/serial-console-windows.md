@@ -4,7 +4,7 @@ description: Azure 虛擬機器和虛擬機器擴展集的雙向序列主控台�
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76fcd937f85ce3b1c156cf2f3dabb8ca95b9b68
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390497"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710560"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows azure 的序列主控台
 
@@ -33,7 +33,7 @@ ms.locfileid: "66390497"
 > 在全域 Azure 區域中，序列主控台已正式推出。 目前尚未在 Azure Government 或「Azure 中國」雲端中提供序列主控台。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您的 VM 或虛擬機器擴展集執行個體必須使用資源管理部署模型。 不支援傳統部署。
 
@@ -223,7 +223,7 @@ Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系�
 > [!CAUTION]
 > 這表示中斷連線的使用者將不會被登出。強制在中斷連線時登出的功能 (透過使用 SIGHUP 或類似的機制) 仍在規劃中。 就 Windows 而言，在 SAC 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。
 
-## <a name="accessibility"></a>協助工具
+## <a name="accessibility"></a>協助工具選項
 協助工具是 Azure 序列主控台的按鍵焦點。 為此，我們已確保視障和聽障人士以及無法使用滑鼠的使用者都能存取序列主控台。
 
 ### <a name="keyboard-navigation"></a>鍵盤導覽
@@ -234,7 +234,7 @@ Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系�
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>存取序列主控台的常見案例
 
-案例          | 序列主控台中的動作
+狀況          | 序列主控台中的動作
 :------------------|:-----------------------------------------
 不正確的防火牆規則 | 存取序列主控台，然後修正 Windows 防火牆規則。
 檔案系統損毀/檢查 | 存取序列主控台，然後復原檔案系統。
@@ -246,7 +246,7 @@ RDP 設定問題 | 存取序列主控台，然後變更設定。 如需詳細資
 ## <a name="errors"></a>Errors
 因為大部分的錯誤都是暫時性的，因此重試您的連線通常可以修正這些錯誤。 下表顯示一份錯誤和緩和措施，這兩個 Vm 和虛擬機器擴展集執行個體。
 
-Error                            |   緩和
+錯誤                            |   緩和
 :---------------------------------|:--------------------------------------------|
 無法擷取 *&lt;VMNAME&gt;* 的開機診斷設定。 若要使用序列主控台，請確定已針對此 VM 啟用診斷開機診斷。 | 請確定 VM 已啟用[開機診斷](boot-diagnostics.md)。
 VM 處於已停止 (已解除配置) 狀態。 啟動 VM 並重試序列主控台連線。 | 虛擬機器必須處於已啟動狀態，才能存取序列主控台
@@ -278,7 +278,7 @@ A. 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見�
 
 **問：序列主控台是否支援複製/貼上？**
 
-A. 是。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
+A. 是的。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
 
 **問：誰可以針對我的訂用帳戶啟用或停用序列主控台？**
 

@@ -31,7 +31,7 @@ ms.locfileid: "66730046"
 
 如果您選擇要安裝在本機使用 PowerShell，本文需要 Azure PowerShell 模組版本 6.9.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 部署在 Azure 中的雙重堆疊應用程式之前，您必須設定這項預覽功能使用下列 Azure PowerShell 的訂用帳戶：
 
 註冊，如下所示：

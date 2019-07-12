@@ -45,7 +45,7 @@ ms.locfileid: "60812628"
     "/Samples/Data/SearchLog.tsv"
 8. 按一下 [ **提交作業**]。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 * [使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)
 * [使用 Azure 入口網站管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-portal.md)

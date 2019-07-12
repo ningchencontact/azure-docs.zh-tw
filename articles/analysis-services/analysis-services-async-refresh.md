@@ -57,7 +57,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 所有呼叫必須使用授權標頭中的有效 Azure Active Directory (OAuth 2) 權杖進行驗證，而且必須符合下列需求：
 
@@ -98,7 +98,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| Name             | 類型  | 描述  |預設值  |
+| 名稱             | type  | 描述  |預設  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 | `CommitMode`     | Enum  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
@@ -212,7 +212,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 3.  執行範例。
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [範例](analysis-services-samples.md)   
 [REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   

@@ -23,7 +23,7 @@ ms.locfileid: "66507568"
 
 在本文中，您將在 Azure Active Directory (Azure AD) B2C 目錄中建立自訂屬性。 您將使用這個新屬性，作為設定檔編輯使用者旅程圖中的自訂宣告。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟進行操作。
 
@@ -294,7 +294,7 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
    extension_<app-guid>_ActivationStatus via Graph API.
    ```
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 
 如需擴充屬性的詳細資訊，請參閱[目錄結構描述擴充 | 圖形 API 概念](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) \(機器翻譯\) 一文。
 

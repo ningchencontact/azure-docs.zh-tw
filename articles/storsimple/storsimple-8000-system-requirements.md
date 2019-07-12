@@ -23,7 +23,7 @@ ms.locfileid: "60631901"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 系列軟體、高可用性和網路需求
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 歡迎使用 Microsoft Azure StorSimple。 本文描述重要的系統需求和 StorSimple 裝置以及存取裝置之儲存體用戶端的最佳做法。 建議您先仔細檢閱資訊，再部署 StorSimple 系統，然後在部署和後續作業期間，必要時回顧參考。
 

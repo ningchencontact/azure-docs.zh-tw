@@ -48,7 +48,7 @@ ms.locfileid: "65231128"
 
 不論部署類型為何，一律由您承擔責任的對象包括：
 
-- 資料
+- Data
 - 端點
 - 帳戶
 - 存取管理
@@ -113,12 +113,12 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 
 | Threat | 安全性屬性 | 潛在的 Azure 平台風險降低 |
 | --- | --- | --- |
-| 詐騙 | Authentication | 需要 HTTPS 連線。 |
+| 詐騙 | 驗證 | 需要 HTTPS 連線。 |
 | 竄改 | 完整性 | 驗證 SSL 憑證。 |
 | 否認性 | 不可否認性 | 啟用 Azure [監視和診斷](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。 |
 | 資訊洩漏 | 保密 | 使用[服務憑證](https://docs.microsoft.com/rest/api/appservice/certificates)將待用的敏感性資料加密。 |
 | Denial of service (拒絕服務) | 可用性 | 監視潛在拒絕服務狀況的效能計量。 實作 IP 連線篩選。 |
-| 權限提高 | 授權 | 使用[具特殊權限身分識別管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
+| 權限提高 | Authorization | 使用[具特殊權限身分識別管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
 
 ## <a name="develop-on-azure-app-service"></a>在 Azure App Service 上開發
 [Azure App Service](../app-service/overview.md) 是一個 PaaS 供應項目，可讓您為任何平台或裝置建立 Web 與行動應用程式，以及連線到雲端或內部部署環境中任何位置的資料。 App Service 包含先前以 Azure 網站和 Azure 行動服務形式個別提供的 Web 和行動功能。 此外，它也包含可用來自動執行商務程序及裝載雲端 API 的新功能。 App Service 會以單一整合式服務形式，為 Web、行動及整合案例提供一組豐富的功能。
@@ -146,7 +146,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 >
 
 ## <a name="install-a-web-application-firewall"></a>安裝 Web 應用程式防火牆
-Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對許多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
+Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對許多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
 [Web 應用程式防火牆 (WAF)](../application-gateway/waf-overview.md) 是一個應用程式閘道功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。 WAF 會根據 [Open Web Application Security Project (OWASP) 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。
 

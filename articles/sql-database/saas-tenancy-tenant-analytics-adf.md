@@ -63,9 +63,9 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 本教學課程提供可以從 Wingtip Tickets 資料收集之深入解析的基本範例。 例如，了解每個地點使用服務的方式，可能會讓 Wingtip Tickets 廠商針對或多或少的使用中場地思考不同的服務方案。 
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 > [!NOTE]
 > 本教學課程會使用目前處於有限預覽 (連結的服務參數化) 的 Azure Data Factory 功能。 如果想要進行本教學課程，請[在此](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu)提供訂用帳戶識別碼。 只要您的訂用帳戶一啟用，我們就會寄送確認函給您。
@@ -195,13 +195,13 @@ SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 [ **連接**]。  
+5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 **[連接]** 。  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. 在分析資料庫底下的 [導覽]  窗格中，選取星型結構描述資料表：**fact_Tickets**、**dim_Events**、**dim_Venues**、**dim_Customers** 及 **dim_Dates**。 然後選取 [載入]  。 
 
-恭喜！ 您已成功將資料載入 Power BI。 現在可以探索有趣的視覺效果，讓您深入解析您的租用戶。 您會逐步了解分析如何將部分資料驅動的建議提供給 Wingtip Tickets 業務小組。 建議可協助最佳化商務模型和客戶體驗。
+恭喜您！ 您已成功將資料載入 Power BI。 現在可以探索有趣的視覺效果，讓您深入解析您的租用戶。 您會逐步了解分析如何將部分資料驅動的建議提供給 Wingtip Tickets 業務小組。 建議可協助最佳化商務模型和客戶體驗。
 
 從分析票證銷售資料查看跨地點使用方式的變化來開始。 選取 Power BI 中顯示的選項，以依據每個地點銷售的票證總數，繪製橫條圖。 (由於票證產生器中的隨機變化，您的結果可能會不同。)
  
@@ -249,7 +249,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 針對租用戶分析部署使用星型結構描述填入的 SQL 資料倉儲。
@@ -258,7 +258,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 > * 查詢分析資料倉儲。 
 > * 使用 Power BI 以視覺化方式呈現所有租用戶的資料趨勢。
 
-恭喜！
+恭喜您！
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866456"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-create-datasets.md)
 > * [目前的版本](concepts-datasets-linked-services.md)
 
@@ -28,7 +28,7 @@ ms.locfileid: "64866456"
 
 如果您不熟悉 Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)來概略了解。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 資料處理站可以有一或多個管線。 「管線」  是一起執行某個工作的「活動」  所組成的邏輯群組。 管線中的活動會定義要在資料上執行的動作。 現在，「資料集」  是一個具名的資料檢視，指向或參考您想要在「活動」  中用來作為輸入或輸出的資料。 資料集可識別資料表、檔案、資料夾和文件等各種資料存放區中的資料。 例如，Azure Blob 資料集會指定活動應從中讀取資料之 Blob 儲存體中的 Blob 容器和資料夾。
 
 您建立資料集之前，您必須建立[**連結服務**](concepts-linked-services.md)來將資料存放區連結至 data factory。 已連結的服務非常類似連接字串，可定義 Data Factory 連接到外部資源所需的連線資訊。 這麼說吧：資料集代表已連結之資料存放區內的資料結構，而已連結的服務則定義與資料來源的連線。 例如，「Azure 儲存體」已連結服務會將儲存體帳戶連結到 Data Factory。 Azure Blob 資料集代表該 Azure 儲存體帳戶內包含要處理之輸入 Blob 的 Blob 容器和資料夾。
@@ -116,7 +116,7 @@ typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azu
 -------- | ----------- | -------- |
 name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](naming-rules.md)。 |  是 |
 type | 資料集的類型。 指定 Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 <br/><br/>如需詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
-結構描述 | 資料集的結構描述。 如需詳細資訊，請參閱 <<c0> [ 資料流程相容的資料集](#dataset-type)。 | 否 |
+schema | 資料集的結構描述。 如需詳細資訊，請參閱 <<c0> [ 資料流程相容的資料集](#dataset-type)。 | 否 |
 typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azure SQL 資料表)。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#dataset-type)。 | 是 |
 
 
@@ -184,7 +184,7 @@ structure 中的每個資料行都包含下列屬性︰
 -------- | ----------- | --------
 name | 資料行的名稱。 | 是
 type | 資料行的資料類型。 Data Factory 支援以下列過渡資料類型當作值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 及 Timespan** | 否
-culture | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設值為 `en-us`。 | 否
+culture | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的 .NET 型文化特性。 預設為 `en-us`。 | 否
 format | 當類型為 .NET 類型 (`Datetime` 或 `Datetimeoffset`) 時，所要使用的格式字串。 有關如何格式化日期時間的資訊，請參閱[自訂日期和時間格式字串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 | 否
 
 ### <a name="example"></a>範例

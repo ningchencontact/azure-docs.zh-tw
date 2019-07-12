@@ -39,7 +39,7 @@ ms.locfileid: "60811188"
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您需要 Azure 帳戶和 Spark 1.6 (或 Spark 2.0) HDInsight 叢集，才能完成此逐步解說。 請參閱[使用 Azure HDInsight 上的 Spark 的資料科學概觀](spark-overview.md)以取得這些需求。 此主題也包括這裡使用的 NYC 2013 計程車資料的描述，以及如何從 Spark 叢集的 Jupyter Notebook 執行程式碼的指示。 
 
 ## <a name="spark-clusters-and-notebooks"></a>Spark 叢集和 Notebook
@@ -121,7 +121,7 @@ Spark 可以讀取和寫入 Azure 儲存體 Blob (也稱為 WASB)。 如此可�
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>預設 Spark 內容及 PySpark magic
-Jupyter Notebook 所提供的 PySpark 核心有預設的內容。 因此您不必明確設定 Spark 或 Hive 內容，就能開始使用您所開發的應用程式。 依預設會將這些內容提供給您使用。 这些上下文包括：
+Jupyter Notebook 所提供的 PySpark 核心有預設的內容。 因此您不必明確設定 Spark 或 Hive 內容，就能開始使用您所開發的應用程式。 依預設會將這些內容提供給您使用。 這些內容包括：
 
 * sc - 代表 Spark 
 * sqlContext - 代表 Hive

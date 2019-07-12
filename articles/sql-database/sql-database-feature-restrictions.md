@@ -67,7 +67,7 @@ EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 | 資料行名稱 | 資料類型 | 描述 |
 |-------------|-----------|-------------|
 | class       | nvarchar(128) | 要套用這項限制的物件類別 |
-| 物件      | nvarchar(256) | 這項限制適用於的物件的名稱 |
+| object      | nvarchar(256) | 這項限制適用於的物件的名稱 |
 | 功能     | nvarchar(128) | 受限的功能 |
 
 ## <a name="feature-restrictions"></a>功能限制

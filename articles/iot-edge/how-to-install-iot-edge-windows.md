@@ -39,7 +39,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 如需 IoT Edge 的最新版本包含哪些內容資訊，請參閱[Azure IoT Edge 釋放](https://github.com/Azure/azure-iotedge/releases)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 使用此區段可以檢閱 Windows 裝置是否可支援 IoT Edge，以及在安裝之前為容器引擎做好準備。 
 
@@ -192,37 +192,37 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-列出執行中的模組。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
+列出執行中的模組。 新安裝之後，您應該會看到執行是唯一的模組**edgeAgent**。 之後您[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)，您會看到其他人。 
 
 ```powershell
 iotedge list
 ```
 
-## <a name="manage-module-containers"></a>管理模块容器
+## <a name="manage-module-containers"></a>管理模組容器
 
-IoT Edge 服务要求在设备上运行容器引擎。 将模块部署到设备时，IoT Edge 运行时将使用容器引擎从云中的注册表提取容器映像。 IoT Edge 服务允许与模块交互和检索日志，但有时，你可能想要使用容器引擎来与容器本身交互。 
+IoT Edge 服務需要在您的裝置上執行的容器引擎。 當您將模組部署到裝置時，IoT Edge 執行階段會使用容器引擎，以從雲端中的登錄庫提取容器映像。 IoT Edge 服務可讓您與您的模組互動，並擷取記錄檔，但有時您可能想要使用容器引擎互動容器本身。 
 
-有关模块概念的详细信息，请参阅[了解 Azure IoT Edge 模块](iot-edge-modules.md)。 
+如需模組概念的詳細資訊，請參閱[了解 Azure IoT Edge 模組](iot-edge-modules.md)。 
 
-如果在 Windows IoT Edge 设备上运行 Windows 容器，则 IoT Edge 安装中已包含 Moby 容器引擎。 Moby 引擎所基于的标准与 Docker 相同，可在 Docker Desktop 所在的同一台计算机上同时运行。 因此，若要以 Moby 引擎管理的容器为目标，则必须专门将该引擎指定为目标，而不要以 Docker 为目标。 
+如果您在 Windows IoT Edge 裝置上執行 Windows 容器，IoT Edge 安裝就會包含白鯨 container 引擎。 白鯨引擎以 Docker，相同的標準為基礎，用意是要在 Docker 桌面與相同的電腦上平行執行。 基於這個理由，如果您想要的白鯨引擎所管理的目標容器必須明確鎖定，而不是 Docker 引擎。 
 
-例如，若要列出所有 Docker 映像，可使用以下命令：
+例如，若要列出所有的 Docker 映像，請使用下列命令：
 
 ```powershell
 docker images
 ```
 
-若要列出所有 Moby 映像，可以使用指向 Moby 引擎的指针修改上述命令： 
+若要列出所有的白鯨映像，修改 白鯨引擎的指標相同的命令： 
 
 ```powershell
 docker -H npipe:////./pipe/iotedge_moby_engine images
 ```
 
-引擎 URI 将在安装脚本的输出中列出，也可以在 config.yaml 文件的容器运行时设置节中找到它。 
+URI，引擎會列在安裝指令碼的輸出，或尋找容器執行階段設定 區段中 config.yaml 檔案。 
 
-![config.yaml 中的 moby_runtime uri](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+![在 config.yaml moby_runtime uri](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
 
-若要详细了解可以使用哪些命令来与设备上运行的容器和映像交互，请参阅 [Docker 命令行接口](https://docs.docker.com/engine/reference/commandline/docker/)。
+如需詳細資訊的命令可用來與容器和映像在您的裝置上執行互動，請參閱[Docker 命令列介面](https://docs.docker.com/engine/reference/commandline/docker/)。
 
 ## <a name="update-an-existing-installation"></a>更新現有的安裝
 

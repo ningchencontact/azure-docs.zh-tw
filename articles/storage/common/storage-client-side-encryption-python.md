@@ -20,7 +20,7 @@ ms.locfileid: "65146904"
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端 Python 加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [Azure Storage Client Library for Python (適用於 Python 的 Azure 儲存體用戶端程式庫)](https://pypi.python.org/pypi/azure-storage) 支援在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載至用戶端時解密資料。
 
 > [!NOTE]

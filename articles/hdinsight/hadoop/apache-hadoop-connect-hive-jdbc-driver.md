@@ -23,7 +23,7 @@ ms.locfileid: "66480001"
 
 如需有關 Hive JDBC 介面的詳細資訊，請參閱 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight Hadoop 叢集。 若要建立，請參閱[開始使用 Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)。
 * [Java Developer Kit (JDK) 第 11 版](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)或更高版本。
@@ -37,7 +37,7 @@ ms.locfileid: "66480001"
 
 將 `CLUSTERNAME` 替換為 HDInsight 叢集的名稱。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 建立連線時，您必須使用 HDInsight 叢集系統管理員名稱和密碼來通過叢集閘道器驗證。 從 SQuirreL SQL 之類的 JDBC 用戶端連接時，您必須在用戶端設定中輸入系統管理員名稱和密碼。
 
@@ -94,7 +94,7 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
         將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
-    * **使用者名稱**：HDInsight 叢集的叢集登入帳戶名稱。 預設值為 `admin`。
+    * **使用者名稱**：HDInsight 叢集的叢集登入帳戶名稱。 預設為 `admin`。
 
     * **密碼**：叢集登入帳戶的密碼。
 

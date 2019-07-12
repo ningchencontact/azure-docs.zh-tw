@@ -17,7 +17,7 @@ ms.locfileid: "60609953"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI DSS 的 PaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此「Azure 安全性與合規性藍圖自動化」針對適用於持卡人資料收集、儲存及擷取的支付卡產業資料安全標準 (PCI DSS 3.2) 符合規範平台即服務 (PaaS) 環境，提供部署指導方針。 此解決方案將一般參考架構的 Azure 資源部署和設定自動化，其中示範的方式讓客戶能符合特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定他們自己的解決方案之基礎。 解決方案會實作 PCI DSS 3.2 要求的子集。 如需 PCI DSS 3.2 要求和此解決方案的詳細資訊，請參閱[合規性文件](#compliance-documentation)一節。
 
@@ -50,7 +50,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
 - App Service Environment v2
-- 应用程序网关
+- 應用程式閘道
   - (1) Web 應用程式防火牆
     - 防火牆模式：防止
     - 規則集：OWASP 3.0

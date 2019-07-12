@@ -26,7 +26,7 @@ ms.locfileid: "60598275"
 
 或者，您可以自動化行動服務安裝與[Azure 自動化 DSC](vmware-azure-mobility-deploy-automation-dsc.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. 環境中已部署的軟體部署工具，例如 Configuration Manager。
 2. 您應該建立兩個[裝置集合](https://technet.microsoft.com/library/gg682169.aspx)，一個用於所有 **Windows 伺服器**，另一個用於所有 **Linux 伺服器** (都是您想要使用 Site Recovery 保護的伺服器)。
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    | **參數名稱** | **值** |
    |--|--|
-   | Name | 安裝 Microsoft Azure 行動服務 (Windows) |
+   | 名稱 | 安裝 Microsoft Azure 行動服務 (Windows) |
    | 命令列 | install.bat |
    | 程式可以執行 | 使用者是否登入 |
 

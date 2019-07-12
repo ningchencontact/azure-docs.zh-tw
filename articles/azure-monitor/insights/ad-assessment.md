@@ -40,7 +40,7 @@ ms.locfileid: "60919754"
 
 ![AD 健康情況檢查儀表板的影像](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  System Center 2016 - Operations Manager 和 Operations Manager 2012 R2，以及 Azure 監視器都使用 MMA 代理程式。
 * 方案支援執行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 及 Windows Server 2016 的網域控制站。

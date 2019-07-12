@@ -21,7 +21,7 @@ ms.locfileid: "66245117"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-azure-search-connector.md)
 > * [目前的版本](connector-azure-search.md)
 
@@ -31,7 +31,7 @@ ms.locfileid: "66245117"
 
 您可以將資料從任何支援的來源資料存放區複製到「Azure 搜尋服務」索引。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -45,13 +45,13 @@ ms.locfileid: "66245117"
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**AzureSearch** | 是 |
 | url | Azure 搜尋服務的 URL。 | 是 |
-| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| key | Azure 搜尋服務的系統管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
 > 資料複製到 Azure 搜尋服務索引，Azure 搜尋服務中的雲端資料存放區連結服務時，您需要 Azure 整合執行階段在 connactVia 中指定明確的區域，請參閱。 請將區域設定為您「Azure 搜尋服務」所在的區域。 請參閱 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime) 以深入了解。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -84,7 +84,7 @@ ms.locfileid: "66245117"
 | type | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -131,7 +131,7 @@ AzureSearchSink (藉由使用 AzureSearch SDK) 提供下列兩種更新插入行
 
 Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 個動作。 一個動作可指示一份文件來執行上傳/合併作業。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

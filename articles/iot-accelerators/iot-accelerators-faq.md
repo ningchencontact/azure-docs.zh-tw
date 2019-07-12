@@ -78,7 +78,7 @@ ms.locfileid: "61447945"
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>可以繼續利用我在 Azure IoT 解決方案加速器中的現有投資嗎？
 
-是。 目前存在的任何解決方案都會繼續在您的 Azure 訂用帳戶中運作，而且原始碼在 GitHub 中仍保持可用。
+是的。 目前存在的任何解決方案都會繼續在您的 Azure 訂用帳戶中運作，而且原始碼在 GitHub 中仍保持可用。
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>我可以在一個訂用帳戶中佈建多少個 IoT 中樞執行個體？
 

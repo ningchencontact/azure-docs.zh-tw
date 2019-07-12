@@ -28,7 +28,7 @@ ms.locfileid: "66742420"
 * 建立裝置停止傳送資料時偵測到的 Stream Analytics 查詢。
 * 傳送電子郵件通知使用 Azure Functions 和 SendGrid 服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此操作指南中的步驟，您必須具備有效的 Azure 訂用帳戶。
 
@@ -46,11 +46,11 @@ ms.locfileid: "66742420"
 | URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
 | 目錄 | Azure Active Directory 租用戶 |
 | Azure 訂用帳戶 | 您的 Azure 訂用帳戶 |
-| 區域 | 美國東部 |
+| 區域 | East US |
 
 範例和螢幕擷取畫面，在此發行項使用**美國東部**區域。 選擇靠近您的位置，並確定您在相同的區域中建立的所有資源。
 
-### <a name="resource-group"></a>資源群組
+### <a name="resource-group"></a>Resource group
 
 使用[Azure 入口網站來建立資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)稱為**DetectStoppedDevices**以包含您所建立的其他資源。 在您的 IoT Central 應用程式的相同位置中建立您的 Azure 資源。
 
@@ -62,9 +62,9 @@ ms.locfileid: "66742420"
 | ------- | ----- |
 | 名稱    | 選擇您的命名空間名稱 |
 | 定價層 | 基本 |
-| 訂用帳戶 | 您的訂用帳戶 |
-| 資源群組 | DetectStoppedDevices |
-| 位置 | 美國東部 |
+| Subscription | 您的訂用帳戶 |
+| Resource group | DetectStoppedDevices |
+| Location | East US |
 | 輸送量單位 | 1 |
 
 ### <a name="stream-analytics-job"></a>Stream Analytics 作業
@@ -73,10 +73,10 @@ ms.locfileid: "66742420"
 
 | 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的作業名稱 |
-| 訂用帳戶 | 您的訂用帳戶 |
-| 資源群組 | DetectStoppedDevices |
-| 位置 | 美國東部 |
+| 名稱    | 選擇您的作業名稱 |
+| Subscription | 您的訂用帳戶 |
+| Resource group | DetectStoppedDevices |
+| Location | 美國東部 |
 | 裝載環境 | 雲端 |
 | 串流單位 | 3 |
 
@@ -87,11 +87,11 @@ ms.locfileid: "66742420"
 | 設定 | 值 |
 | ------- | ----- |
 | 應用程式名稱    | 選擇您的函式應用程式名稱 |
-| 訂用帳戶 | 您的訂用帳戶 |
-| 資源群組 | DetectStoppedDevices |
-| 作業系統 | Windows |
+| Subscription | 您的訂用帳戶 |
+| Resource group | DetectStoppedDevices |
+| OS | Windows |
 | 主控方案 | 取用方案 |
-| 位置 | 美國東部 |
+| Location | East US |
 | 執行階段堆疊 | .NET |
 | 儲存體 | 新建 |
 
@@ -103,8 +103,8 @@ ms.locfileid: "66742420"
 | ------- | ----- |
 | 名稱    | 選擇您的 SendGrid 帳戶名稱 |
 | 密碼 | 建立密碼 |
-| 訂用帳戶 | 您的訂用帳戶 |
-| 資源群組 | DetectStoppedDevices |
+| Subscription | 您的訂用帳戶 |
+| Resource group | DetectStoppedDevices |
 | 定價層 | F1 免費 |
 | 連絡人資訊 | 填寫必要資訊 |
 
@@ -243,7 +243,7 @@ test-device-3   2019-05-02T14:24:28.919Z
     | 設定 | 值 |
     | ------- | ----- |
     | 輸入別名 | centraltelemetry |
-    | 訂用帳戶 | 您的訂用帳戶 |
+    | Subscription | 您的訂用帳戶 |
     | 事件中樞命名空間 | 您的事件中樞命名空間 |
     | 事件中樞名稱 | 使用現有- **centralexport** |
 
@@ -253,9 +253,9 @@ test-device-3   2019-05-02T14:24:28.919Z
     | 設定 | 值 |
     | ------- | ----- |
     | 輸出別名 | emailnotification |
-    | 訂用帳戶 | 您的訂用帳戶 |
+    | Subscription | 您的訂用帳戶 |
     | 函式應用程式 | 函式應用程式 |
-    | 函式  | HttpTrigger1 |
+    | 函數  | HttpTrigger1 |
 
 1. 底下**作業的拓樸**，選取**查詢**和現有的查詢取代為下列 SQL:
 
@@ -316,7 +316,7 @@ test-device-3   2019-05-02T14:24:28.919Z
     | Enabled | 另一 |
     | 事件中樞命名空間 | 事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 度量 | 另一 |
+    | 量測 | 另一 |
     | 裝置 | 關閉 |
     | 裝置範本 | 關閉 |
 

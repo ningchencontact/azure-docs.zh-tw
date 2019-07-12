@@ -127,7 +127,7 @@ log.Printf("got partition IDs: %s\n", info.PartitionIDs)
 
 執行應用程式以將事件傳送到事件中樞。 
 
-恭喜！ 您現在已將傳送訊息到事件中樞。
+恭喜您！ 您現在已將傳送訊息到事件中樞。
 
 ## <a name="receive-events"></a>接收事件
 
@@ -285,7 +285,7 @@ if err != nil {
 請閱讀下列文章：
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [功能與 Azure 事件中樞中的術語](event-hubs-features.md)
+- [Azure 事件中樞的功能與術語](event-hubs-features.md)
 - [事件中樞常見問題集](event-hubs-faq.md)
 
 

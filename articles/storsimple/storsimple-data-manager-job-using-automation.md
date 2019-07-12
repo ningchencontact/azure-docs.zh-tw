@@ -58,7 +58,7 @@ ms.locfileid: "60633518"
    3. 建立新的資源群組，或從現有的資源群組中選取。
    4. 選取 [位置]  。
    5. 保持選取預設值 [建立執行身分帳戶]  選項。
-   6. 若要在儀表板上取得可供快速存取的連結，請核取 [釘選到儀表板]  。 按一下頁面底部的 [新增]  。
+   6. 若要在儀表板上取得可供快速存取的連結，請核取 [釘選到儀表板]  。 按一下 [建立]  。
 
       ![建立執行身分自動化帳戶](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -94,7 +94,7 @@ ms.locfileid: "60633518"
 
 2. 在 [新增 Runbook]  中，按一下 [匯入現有 Runbook]  。
 
-3. 在 [Runbook 檔案]  中指向 Azure PowerShell 指令碼檔案 `Trigger-DataTransformation-Job.ps1`。 會自動選取 Runbook 類型。 提供 Runbook 的名稱和選擇性描述。 按一下頁面底部的 [新增]  。
+3. 在 [Runbook 檔案]  中指向 Azure PowerShell 指令碼檔案 `Trigger-DataTransformation-Job.ps1`。 會自動選取 Runbook 類型。 提供 Runbook 的名稱和選擇性描述。 按一下 [建立]  。
 
     ![新增 Runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 

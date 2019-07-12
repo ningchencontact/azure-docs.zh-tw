@@ -46,7 +46,7 @@ ms.locfileid: "66242093"
 |Filter  |值  |
 |---------|---------|
 |事件類別目錄     | <ul><li>管理</li></ul>         |
-|作業     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
+|運算     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
 
 
 如需有關活動記錄的詳細資訊，請參閱[檢視活動記錄中的事件](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)。

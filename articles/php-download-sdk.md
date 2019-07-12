@@ -23,7 +23,7 @@ ms.locfileid: "65411582"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>下載 Azure SDK for PHP
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azure 的 PHP 應用程式。 尤其是 Azure SDK for PHP 包含下列各項：
 

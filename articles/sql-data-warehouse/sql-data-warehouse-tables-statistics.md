@@ -469,7 +469,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS() 顯示統計資料物件中保存的資料。 此資料來自三個部分：
 
-- 頁首
+- 標頭
 - 密度向量
 - 長條圖
 

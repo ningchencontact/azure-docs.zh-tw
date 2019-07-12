@@ -29,7 +29,7 @@ ms.locfileid: "65873712"
 
 使用 SQL Server Management Studio (SSMS) 連接及查詢 Azure SQL 資料倉儲。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用本教學課程，您需要：
 
 * 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
@@ -48,7 +48,7 @@ ms.locfileid: "65873712"
    * **伺服器名稱**。 輸入先前找到的 **伺服器名稱** 。
    * **驗證**。 選取 [SQL Server 驗證]  或 [Active Directory 整合式驗證]  。
    * [使用者名稱]  和 [密碼]  。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
-   * 按一下 [ **連接**]。
+   * 按一下 **[連接]** 。
 4. 若要瀏覽，請展開您的 Azure SQL 伺服器。 您可以檢視與伺服器相關聯的資料庫。 展開 AdventureWorksDW 以查看範例資料庫中的資料表。
    
     ![探索 AdventureWorksDW][3]

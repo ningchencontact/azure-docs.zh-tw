@@ -25,23 +25,23 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 在本文中，您會看到兩個範例，分別示範如何在 Azure SQL Database 中使用記憶體內部 OLTP 以及資料行存放區索引。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 - [記憶體內部 OLTP 概觀和使用案例](https://msdn.microsoft.com/library/mt774593.aspx) (包括客戶案例研究參考和入門資訊)
 - [記憶體內部 OLTP 的文件](https://msdn.microsoft.com/library/dn133186.aspx)
-- [列存储索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
+- [資料行存放區索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
 - 混合式交易/分析處理 (HTAP)，也稱為[即時作業分析](https://msdn.microsoft.com/library/dn817827.aspx)
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1.安装内存中 OLTP 示例
+## <a name="1-install-the-in-memory-oltp-sample"></a>1.安裝記憶體內部 OLTP 範例
 
-在 [Azure 入口網站](https://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT 範例資料庫。 本部分中的步骤说明如何使用内存中 OLTP 对象项目扩充 AdventureWorksLT 数据库，并演示性能优势。
+在 [Azure 入口網站](https://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT 範例資料庫。 然後，本節中的步驟會說明如何使用記憶體內部 OLTP 物件擴充 AdventureWorksLT 資料庫，並示範效能優點。
 
 如需更簡單、但更美觀的記憶體內部 OLTP 效能示範，請參閱︰
 
-- 版本： [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
+- 版本︰[in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - 原始程式碼︰[in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
 
 #### <a name="installation-steps"></a>安裝步驟
@@ -52,7 +52,7 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 3. 將 [In-Memory OLTP Transact-SQL 指令碼](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 複製到剪貼簿。 T-SQL 指令碼會在步驟 1 建立的 AdventureWorksLT 範例資料庫中建立所需的 In-Memory 物件。
 
-4. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 陳述式很重要。 例如︰
+4. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 `MEMORY_OPTIMIZED = ON` 子句 CREATE TABLE 陳述式很重要。 例如:
 
 
 ```sql
@@ -126,7 +126,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 當您執行 ostress.exe 時，建議您將指定的參數值傳遞至下列兩者：
 
-- 使用 -n100 运行大量的并发连接。
+- 使用 -n100 來執行大量的並行連線。
 - 使用 -r500 讓每個連線執行幾百次迴圈。
 
 
@@ -180,7 +180,7 @@ end
 
 在 VM 上或你選擇的任何主機上，安裝 Replay Markup Language (RML) 公用程式。 這些公用程式包括 ostress.exe。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 - [記憶體內部 OLTP 的範例資料庫](https://msdn.microsoft.com/library/mt465764.aspx)中的 ostress.exe 討論。
 - [記憶體內部 OLTP 的範例資料庫](https://msdn.microsoft.com/library/mt465764.aspx)。
 - [安裝 ostress.exe 的部落格](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)。
@@ -240,7 +240,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 #### <a name="reset-edit-for-ondisk-then-rerun"></a>重設，針對 _ondisk  編輯，然後重新執行
 
 
-在获得 _inmem  运行结果之后，请针对 _ondisk  运行执行以下步骤：
+在獲得 _inmem  執行的結果之後，請針對 _ondisk  執行回合執行下列步驟：
 
 
 1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：
@@ -263,7 +263,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2.安装内存中分析示例
+## <a name="2-install-the-in-memory-analytics-sample"></a>2.安裝記憶體內部分析範例
 
 
 在本節中，您將比較使用資料行存放區索引與使用傳統 B 型樹狀結構索引時的 IO 和統計資料結果。
@@ -273,16 +273,16 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 
 
-### <a name="prepare-the-columnstore-analytics-test"></a>准备列存储分析测试
+### <a name="prepare-the-columnstore-analytics-test"></a>準備資料行存放區分析測試
 
 
 1. 使用 Azure 入口網站，從範例建立全新的 AdventureWorksLT 資料庫。
    - 使用相同的名稱。
-   - 选择任一“高级”服务层级。
+   - 選擇任何進階服務層級。
 
 2. 將 [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) 複製到剪貼簿。
    - T-SQL 指令碼會在步驟 1 建立的 AdventureWorksLT 範例資料庫中建立所需的 In-Memory 物件。
-   - 此指令碼會建立維度資料表和兩個事實資料表。 每个事实表中填充了 350 万行。
+   - 此指令碼會建立維度資料表和兩個事實資料表。 每個事實資料表會填入 350 萬個資料列。
    - 此指令碼可能需要 15 分鐘才能完成。
 
 3. 將 T-SQL 指令碼貼到 SSMS 中，然後執行該指令碼。 **CREATE INDEX** 陳述式中的 **COLUMNSTORE** 關鍵字很重要，如下所示：<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
@@ -312,7 +312,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 叢集資料行存放區索引位於 FactResellerSalesXL\_CCI 資料表上。
 
-以下 T-SQL 脚本摘录列出了每个表查询的 IO 和 TIME 统计信息。
+下列 T-SQL 指令碼摘錄列出每個資料表查詢的 IO 和 TIME 統計資料。
 
 
 ```sql
@@ -410,7 +410,7 @@ GO
 
 - [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [在现有的 Azure SQL 应用程序中使用内存中 OLTP](sql-database-in-memory-oltp-migration.md)
+- [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 
 #### <a name="tools"></a>工具
 

@@ -59,7 +59,7 @@ demo_clustering1
 | count
 ```
 
-|計數 |
+|Count |
 |---------|
 |972    |
 
@@ -108,7 +108,7 @@ demo_clustering1
 | evaluate autocluster()
 ```
 
-| SegmentId | 計數 | Percent | 區域 | ScaleUnit | DeploymentId | ServiceHost |
+| SegmentId | Count | Percent | 區域 | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
@@ -132,7 +132,7 @@ demo_clustering1
 | evaluate basket()
 ```
 
-| SegmentId | 計數 | Percent | 區域 | ScaleUnit | DeploymentId | 追蹤點 | ServiceHost |
+| SegmentId | Count | Percent | 區域 | ScaleUnit | DeploymentId | 追蹤點 | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |

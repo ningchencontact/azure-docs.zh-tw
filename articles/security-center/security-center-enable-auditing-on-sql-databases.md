@@ -44,7 +44,7 @@ ms.locfileid: "62127220"
    ![開啟稽核與脅偵測][2]
 4. 遵循 [Azure 入口網站中的 SQL Database 威脅偵測](../sql-database/sql-database-threat-detection-portal.md)的步驟，來開啟並設定威脅偵測，以及設定將在偵測到異常活動時接收到安全性警示的電子郵件清單。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 本文說明了如何實作資訊安全中心建議的「在 SQL Database 上啟用稽核與威脅偵測」。 若要深入了解如何保護您的 SQL Database，請參閱下列主題：
 
 * [保護您的 SQL Database](../sql-database/sql-database-security-overview.md)

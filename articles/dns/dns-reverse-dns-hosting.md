@@ -249,7 +249,7 @@ Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceG
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>我可以在 Azure DNS 上，為 ISP 指派的 IP 區塊託管反向 DNS 對應區域嗎？
 
-是。 完全支援在 Azure DNS 中為您自己的 IP 範圍託管反向對應 (ARPA) 區域。
+是的。 完全支援在 Azure DNS 中為您自己的 IP 範圍託管反向對應 (ARPA) 區域。
 
 依本文所述，在 Azure DNS 中建立反向對應區域，然後使用您的 ISP [委派區域](dns-domain-delegation.md)。 接著，您就可以使用與其他記錄類型相同的方式來管理每個反向對應的 PTR 記錄。
 
@@ -259,11 +259,11 @@ Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceG
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>我可以同時在 Azure DNS 中為 IPv4 和 IPv6 位址託管反向 DNS 對應區域嗎？
 
-是。 本文說明如何在 Azure DNS 中同時建立 IPv4 和 IPv6 反向 DNS 對應區域。
+是的。 本文說明如何在 Azure DNS 中同時建立 IPv4 和 IPv6 反向 DNS 對應區域。
 
 ### <a name="can-i-import-an-existing-reverse-dns-lookup-zone"></a>可以匯入現有的反向 DNS 對應區域嗎？
 
-是。 您可以使用 Azure CLI 將現有的 DNS 區域匯入 Azure DNS 中。 這個方法適用於正向對應區域和反向對應區域。
+是的。 您可以使用 Azure CLI 將現有的 DNS 區域匯入 Azure DNS 中。 這個方法適用於正向對應區域和反向對應區域。
 
 如需詳細資訊，請參閱[使用 Azure CLI 匯入及匯出 DNS 區域檔案](dns-import-export.md)。
 

@@ -17,7 +17,7 @@ ms.locfileid: "67065713"
 
 適用於 MariaDB 的 Azure 資料庫已使用 InnoDB 引擎從開放式原始碼 [MariaDB Server](https://downloads.mariadb.org/) 來開發。 適用於 MariaDB 的 Azure 資料庫目前支援下列版本：
 
-## <a name="mariadb-version-102"></a>10\.2 的 MariaDB 版本
+## <a name="mariadb-version-102"></a>10.2 的 MariaDB 版本
 
 請參閱[MariaDB 文件](https://mariadb.com/kb/en/library/mariadb-10223-release-notes/)若要深入了解改進和修正 MariaDB 10.2.23。
 

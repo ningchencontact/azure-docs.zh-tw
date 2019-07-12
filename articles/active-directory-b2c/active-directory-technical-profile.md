@@ -120,7 +120,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD 技術提供者作業
 
-### <a name="read"></a>閱讀
+### <a name="read"></a>讀取
 
 **讀取**作業可讀取單一使用者帳戶的相關資料。 若要讀取使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames** (任何類型、使用者名稱和以電子郵件為基礎的帳戶) 或 **alternativeSecurityId**。  
 
@@ -152,7 +152,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>撰寫
+### <a name="write"></a>寫入
 
 **寫入**作業可建立或更新單一使用者帳戶。 若要寫入使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
 
@@ -254,7 +254,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 作業 | 是 | 要執行的作業。 可能的值：`Read`、`Write`、`DeleteClaims` 或 `DeleteClaimsPrincipal`。 | 
+| 運算 | 是 | 要執行的作業。 可能的值：`Read`、`Write`、`DeleteClaims` 或 `DeleteClaimsPrincipal`。 | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | 否 | 如果使用者物件不存在目錄中，會發生錯誤。 可能的值：`true` 或 `false`。 | 
 | UserMessageIfClaimsPrincipalDoesNotExist | 否 | 如果會引發錯誤 (請參閱 RaiseErrorIfClaimsPrincipalDoesNotExist 屬性的說明)，請指定當使用者物件不存在時，要向使用者顯示的訊息。 此值可進行[當地語系化](localization.md)。| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | 否 | 如果使用者物件已存在，則會引發錯誤。 可能的值：`true` 或 `false`。| 

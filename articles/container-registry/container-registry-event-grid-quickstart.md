@@ -207,7 +207,7 @@ Are you sure you want to continue? (y/n): y
 
 ![顯示含有 ImagePushed 和 ImageDeleted 事件之範例應用程式的網頁瀏覽器][sample-app-03]
 
-恭喜！ 如果您看到 `ImagePushed` 和 `ImageDeleted` 事件，表示您的登錄正在將事件傳送至事件方格，而事件方格正在將那些事件轉送至您的 Web 應用程式端點。
+恭喜您！ 如果您看到 `ImagePushed` 和 `ImageDeleted` 事件，表示您的登錄正在將事件傳送至事件方格，而事件方格正在將那些事件轉送至您的 Web 應用程式端點。
 
 ## <a name="clean-up-resources"></a>清除資源
 

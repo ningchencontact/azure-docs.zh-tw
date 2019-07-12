@@ -95,7 +95,7 @@ SQL 資料倉儲是一個相應放大系統，可以佈建大量的計算以及�
 >
 > 如果工作可以在計算節點之間分割，則查詢效能只會隨更多的平行處理增加。 如果您發現調整並未變更效能，則可能需要調整資料表設計和/或您的查詢。 如需查詢微調指引，請參閱[管理使用者查詢](sql-data-warehouse-overview-manage-user-queries.md)。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 變更資料倉儲單位需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) 中所述的權限。
 

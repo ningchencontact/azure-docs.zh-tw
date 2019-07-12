@@ -93,7 +93,7 @@ ms.locfileid: "65799073"
 
 ## <a name="videos"></a>videos
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |accountId|影片的 VI 帳戶識別碼。|
 |id|影片的識別碼。|
@@ -112,7 +112,7 @@ ms.locfileid: "65799073"
 |publishedUrlProxy|影片串流來源的 URL (適用於 Apple 裝置)。|
 |viewToken|用來串流影片的短期檢視權杖。|
 |sourceLanguage|影片的來源語言。|
-|語言|影片的實際語言 (翻譯)。|
+|language|影片的實際語言 (翻譯)。|
 |indexingPreset|用來編製影片索引的預設值。|
 |streamingPreset|用來發佈影片的預設值。|
 |linguisticModelId|用來謄寫影片的 CRIS 模型。|
@@ -152,7 +152,7 @@ ms.locfileid: "65799073"
 |Version|程式碼版本|
 |---|---|
 |sourceLanguage|影片的來源語言 (採用一個主要語言)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
-|語言|深入解析語言 (從來源語言翻譯)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
+|language|深入解析語言 (從來源語言翻譯)。 其格式為 [BCP-47](https://tools.ietf.org/html/bcp47) 字串。|
 |文字記錄|[文字記錄](#transcript)維度。|
 |ocr|[OCR](#ocr)維度。|
 |關鍵字|[關鍵字](#keywords)維度。|
@@ -198,11 +198,11 @@ id|區塊的識別碼。|
 
 #### <a name="transcript"></a>文字記錄
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
-|語言|文字記錄語言。 用於支援文字記錄，其中每一行可以有不同的語言。|
+|language|文字記錄語言。 用於支援文字記錄，其中每一行可以有不同的語言。|
 |執行個體|這一行曾出現的時間範圍清單。 如果執行個體是文字記錄，它只能有 1 個執行個體。|
 
 範例：
@@ -236,12 +236,12 @@ id|區塊的識別碼。|
 
 #### <a name="ocr"></a>ocr
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
 |信賴度|辨識信賴。|
-|語言|OCR 語言。|
+|language|OCR 語言。|
 |執行個體|此 OCR 曾出現的時間範圍清單 (相同的 OCR 可以出現多次)。|
 |height|OCR 矩形的高度|
 |top|在像素的最上層位置|
@@ -276,7 +276,7 @@ id|區塊的識別碼。|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
 |信賴度|關鍵字的辨識信賴。|
-|語言|關鍵字語言 (轉譯時)。|
+|language|關鍵字語言 (轉譯時)。|
 |執行個體|此關鍵字曾出現的時間範圍清單 (同一個關鍵字可以出現多次)。|
 
 ```json
@@ -302,7 +302,7 @@ id|區塊的識別碼。|
 
 #### <a name="faces"></a>臉部
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
@@ -347,11 +347,11 @@ id|區塊的識別碼。|
 
 #### <a name="labels"></a>標籤
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
-|語言|標籤名稱語言 (轉譯時)。 BCP-47|
+|language|標籤名稱語言 (轉譯時)。 BCP-47|
 |執行個體|此標籤曾出現的時間範圍清單 (同一個標籤可以出現多次)。 每個執行個體都有一個信賴度欄位。 |
 
 
@@ -406,7 +406,7 @@ id|區塊的識別碼。|
 
 #### <a name="scenes"></a>場景
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|場景的識別碼。|
 |執行個體|時間範圍 （場景只能有 1 個執行個體） 此場景的清單。|
@@ -489,14 +489,14 @@ id|區塊的識別碼。|
 
 在語音轉換文字的文字記錄和/或影片 OCR 中偵測到的商務和產品品牌名稱。 這不包括品牌或標誌的影像辨識偵測。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|品牌識別碼。|
 |name|品牌名稱。|
 |referenceId | 品牌 Wikipedia URL 的尾碼。 例如，"Target_Corporation" 是 [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) 的尾碼。
 |referenceUrl | 品牌的 Wikipedia URL (如果存在)。 例如：[https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation)。
 |description|品牌描述。|
-|标记|與此品牌相關聯的預先定義標記清單。|
+|tags|與此品牌相關聯的預先定義標記清單。|
 |信賴度|影片索引子品牌偵測器的信賴值 (0-1)。|
 |執行個體|此品牌的時間範圍清單。 每個執行個體都有 brandType，用以指出此品牌會出現在文字記錄還是 OCR 中。|
 
@@ -558,7 +558,7 @@ id|區塊的識別碼。|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|音訊效果識別碼。|
 |type|音訊效果類型 (例如，拍手聲、說話、無聲)。|
@@ -587,7 +587,7 @@ id|區塊的識別碼。|
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -626,7 +626,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|
@@ -662,7 +662,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|文字內容仲裁識別碼。|
 |bannedWordsCount |禁用文字數目。|
@@ -672,7 +672,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 影片索引子會根據語音和音訊提示來識別表情。可能的表情為：快樂、悲傷、憤怒或恐懼。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |id|表情識別碼。|
 |type|系統會根據語音和音訊提示來識別感性時刻。表情包括：快樂、悲傷、憤怒或恐懼。|
@@ -768,7 +768,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 |name|主題名稱，例如："Pharmaceuticals"。|
 |referenceId|反映主題階層的階層連結。 例如: 「健康與福利 / 醫藥與醫療保健 / 藥品」。|
 |信賴度|範圍內 [0,1] 的信賴分數。 值越高，信賴程度就越高。|
-|語言|主題中使用的語言。|
+|language|主題中使用的語言。|
 |iptcName|IPTC 媒體程式碼名稱 (如果偵測到)。|
 |執行個體 |目前，影片索引子並不會編製時間間隔主題的索引，因此會以整個影片作為間隔。|
 

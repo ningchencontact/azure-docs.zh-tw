@@ -29,10 +29,10 @@ ms.locfileid: "62097660"
 >
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 > [!IMPORTANT]
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Azure 资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋傳統部署模型的使用。 我們建議讓大部分的新部署使用 Resource Manager 模型。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Azure Resource Manager 和傳統模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋傳統部署模型的使用。 我們建議讓大部分的新部署使用 Resource Manager 模型。
 
 若要在 Resource Manager 模型中設定 Always On 可用性群組的接聽程式，請參閱[在 Azure 中設定 Always On 可用性群組的負載平衡器](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
@@ -65,7 +65,7 @@ ms.locfileid: "62097660"
 5. 啟動 Azure PowerShell。  
     新的 PowerShell 工作階段隨即開啟並載入 Azure 系統管理模組。
 
-6. 运行 `Get-AzurePublishSettingsFile`。 這個 Cmdlet 會將您導向瀏覽器，以便將發佈設定檔案下載至本機目錄。 系統可能會提示您輸入 Azure 訂用帳戶的登入認證。
+6. 執行 `Get-AzurePublishSettingsFile`。 這個 Cmdlet 會將您導向瀏覽器，以便將發佈設定檔案下載至本機目錄。 系統可能會提示您輸入 Azure 訂用帳戶的登入認證。
 
 7. 使用您所下載發佈設定檔案的路徑來執行下列 `Import-AzurePublishSettingsFile` 命令：
 

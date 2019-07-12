@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329991"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620965"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
@@ -64,7 +64,7 @@ ms.locfileid: "67329991"
 
     ![瀏覽到診斷記錄的刀鋒視窗](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  在 [診斷設定]  中建立 [名稱]  ，然後核取 [傳送至 Log Analytics]  旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄]  下的 [執行]  和 [編寫]  ，以及 [計量]  下的 [AllMetrics]  核取方塊。 按一下 [檔案]  。 建議您在相同的 Azure 區域與您的 Stream Analytics 工作中使用 Log Analytics 工作區，以避免額外的成本。
+2.  在 [診斷設定]  中建立 [名稱]  ，然後核取 [傳送至 Log Analytics]  旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄]  下的 [執行]  和 [編寫]  ，以及 [計量]  下的 [AllMetrics]  核取方塊。 按一下 [儲存]  。 建議您在相同的 Azure 區域與您的 Stream Analytics 工作中使用 Log Analytics 工作區，以避免額外的成本。
 
     ![診斷記錄的設定](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -102,11 +102,11 @@ Azure Stream Analytics 會擷取診斷記錄的兩個的類別：
 名稱 | 描述
 ------- | -------
 time | 記錄的時間戳記 (UTC 時間)。
-ResourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如， **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
+resourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如， **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
 category | 記錄類別 (**執行**或**編寫**)。
 operationName | 記錄的作業名稱。 例如，**傳送事件︰SQL 輸出寫入失敗至 mysqloutput**。
 status | 作業的狀態。 例如，**失敗**或**成功**。
-層級 | 記錄層級。 例如，**錯誤**、**警告**或**資訊**。
+level | 記錄層級。 例如，**錯誤**、**警告**或**資訊**。
 properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需詳細資訊，請參閱本文中下列幾節。
 
 ### <a name="execution-log-properties-schema"></a>執行記錄屬性結構描述
@@ -119,10 +119,10 @@ properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需
 
 名稱 | 描述
 ------- | -------
-source | 發生錯誤的作業輸入或輸出名稱。
+Source | 發生錯誤的作業輸入或輸出名稱。
 Message | 與錯誤相關的訊息。
-類型 | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
-資料 | 包含有助於正確找到錯誤來源的資料。 視其大小，資料可能會遭到截斷。
+type | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
+Data | 包含有助於正確找到錯誤來源的資料。 視其大小，資料可能會遭到截斷。
 
 資料錯誤會隨 **operationName** 值的不同而有下列結構描述：
 
@@ -140,9 +140,9 @@ Message | 與錯誤相關的訊息。
 
 名稱 | 描述
 -------- | --------
-Error | (選用) 錯誤資訊。 這通常是例外狀況資訊 (如果有的話)。
+錯誤 | (選用) 錯誤資訊。 這通常是例外狀況資訊 (如果有的話)。
 Message| 記錄訊息。
-類型 | 訊息類型。 對應至錯誤的內部分類。 例如，**JobValidationError**或 **BlobOutputAdapterInitializationFailure**。
+type | 訊息類型。 對應至錯誤的內部分類。 例如，**JobValidationError**或 **BlobOutputAdapterInitializationFailure**。
 相互關連識別碼 | 唯一識別作業執行的 [GUID (英文)](https://en.wikipedia.org/wiki/Universally_unique_identifier)。 從作業開始直到作業停止的所有執行記錄項目皆具有同一個**相互關聯識別碼**值。
 
 ## <a name="next-steps"></a>後續步驟
@@ -150,5 +150,5 @@ Message| 記錄訊息。
 * [串流分析介紹](stream-analytics-introduction.md)
 * [開始使用串流分析](stream-analytics-real-time-fraud-detection.md)
 * [調整串流分析作業](stream-analytics-scale-jobs.md)
-* [串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [串流分析查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics 資料錯誤](https://docs.microsoft.com/azure/stream-analytics/data-errors)

@@ -21,7 +21,7 @@ ms.locfileid: "66151964"
 
 而不是建立和管理 IoT Central 應用程式，從 IoT Central[應用程式管理員](https://aka.ms/iotcentral)頁面上，您可以使用[Azure CLI](/cli/azure/)來管理您的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

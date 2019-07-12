@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205356"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835406"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -33,45 +33,45 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 |活動類型 |描述  |
 |---------|---------|
-|授權 |有關授權使用者存取 B2C 資源的活動 (例如，系統管理員存取 B2C 原則清單)         |
-|目錄 |當系統管理員使用 Azure 入口網站登入時，所擷取目錄屬性的相關活動 |
-|Application | B2C 應用程式上的 CRUD 作業 |
+|Authorization |有關授權使用者存取 B2C 資源的活動 (例如，系統管理員存取 B2C 原則清單)         |
+|目錄 |當系統管理員身分登入使用 Azure 入口網站時，擷取的 directory 屬性的相關活動 |
+|應用程式 | B2C 應用程式上的 CRUD 作業 |
 |Key |B2C 金鑰容器所儲存金鑰上的 CRUD 作業 |
-|資源 |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
-|Authentication |使用者認證和權杖發行的驗證|
+|Resource |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
+|驗證 |使用者認證和權杖發行的驗證|
 
 > [!NOTE]
 > 如需使用者物件 CRUD 活動，請參閱**核心目錄**類別。
 
 ## <a name="example-activity"></a>範例活動
-以下範例顯示當使用者以外部識別提供者登入時所擷取的資料：![稽核記錄 - 範例](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+以下範例顯示當使用者以外部識別提供者登入時所擷取的資料：![在 Azure 入口網站中的稽核記錄活動詳細資料頁面範例](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 活動詳細資料面板包含下列相關資訊：
 
 |Section|欄位|描述|
 |-------|-----|-----------|
-| activities | Name | 發生了哪些活動。 比方說，「 將 id_token 發給應用程式 」 （其中包含實際的使用者登入）。 |
-| 啟動者 (執行者) | ObjectId | **物件識別碼**的 B2C 應用程式的使用者登入 （在 Azure 入口網站中看不到 此識別項，但可透過圖形 API 存取，例如）。 |
+| activities | 名稱 | 發生了哪些活動。 比方說，「 將 id_token 發給應用程式 」 （其中包含實際的使用者登入）。 |
+| 啟動者 (執行者) | ObjectId | **物件識別碼**的 B2C 應用程式的使用者登入 （Azure 入口網站中看不到 此識別項，但可透過圖形 API 存取，例如）。 |
 | 啟動者 (執行者) | Spn | **應用程式識別碼**的 B2C 應用程式的使用者登入。 |
 | 目標 | ObjectId | **物件識別碼**之使用者的登入。 |
 | 其他詳細資料 | TenantId | **租用戶識別碼**Azure AD B2C 租用戶。 |
 | 其他詳細資料 | `PolicyId` | **原則識別碼**用來將使用者登入的使用者流程 （原則）。 |
 | 其他詳細資料 | ApplicationId | **應用程式識別碼**的 B2C 應用程式的使用者登入。 |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>透過 Azure 入口網站來存取稽核記錄
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>透過 Azure 入口網站存取稽核記錄檔
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 確定您位於 B2C 目錄中。
 2. 在左邊 [我的最愛] 列中，按一下 [Azure Active Directory] 
-    
-    ![稽核記錄 - AAD 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Azure 入口網站的左側功能表中反白顯示的 Active Directory 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. 在 [活動]  下，按一下 [稽核記錄] 
 
-    ![稽核記錄 - 記錄區段](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![反白顯示功能表的 [活動] 區段中的稽核記錄檔按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. 在 [類別]  投寄箱中，選取 [B2C] 
 3. 按一下 [套用] 
 
-    ![稽核記錄 - 類別](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![類別目錄和稽核記錄檔篩選器中反白顯示的 [套用] 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 您會看到過去七天所記錄活動的清單。
 - 使用 [活動資源類型]  下拉式清單，根據上述活動類型來進行篩選
@@ -85,7 +85,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>透過 Azure AD 報告 API 來存取稽核記錄
 稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 若要向 Azure AD 報告 API 驗證，需要先註冊應用程式。 請務必遵循[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/) \(機器翻譯\) 中的步驟。
 
 ### <a name="accessing-the-api"></a>存取 API

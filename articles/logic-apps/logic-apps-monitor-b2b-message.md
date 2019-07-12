@@ -25,7 +25,7 @@ ms.locfileid: "62106295"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
@@ -46,7 +46,7 @@ ms.locfileid: "62106295"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]  。
 
-   | 屬性 | Value | 描述 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -88,7 +88,7 @@ ms.locfileid: "62106295"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]  。
 
-   | 屬性 | Value | 描述 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -126,7 +126,7 @@ Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程�
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如︰
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如:
 
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)

@@ -36,7 +36,7 @@ DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可�
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 

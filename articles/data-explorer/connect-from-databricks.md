@@ -18,7 +18,7 @@ ms.locfileid: "60861197"
 
 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) 是針對 Microsoft Azure 平台進行最佳化的 Apache Spark 分析平台。 本文說明如何使用 Azure Databricks 中的 Python 程式庫從 Azure 資料總管存取資料。 您可以透過數種方式向 Azure 資料總管進行驗證，包括裝置登入和 Azure Active Directory (Azure AD) 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [建立 Azure 資料總管叢集與資料庫](/azure/data-explorer/create-cluster-database-portal)。
 - [建立 Azure Databricks 工作區](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)。 在 [Azure Databricks 服務]  下方的 [定價層]  下拉式清單中，選取 [Premium]  。 此選取項目可讓您使用 Azure Databricks 祕密儲存您的認證，並在 Notebook 和作業中加以參考。

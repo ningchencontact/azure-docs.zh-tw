@@ -24,7 +24,7 @@ ms.locfileid: "60344643"
 
 此工作是 [Team Data Science Process](overview.md) 中的一個步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經：
 
 * 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)

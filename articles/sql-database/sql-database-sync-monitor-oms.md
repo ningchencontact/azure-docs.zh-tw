@@ -62,7 +62,7 @@ ms.locfileid: "60614933"
 
 -   [資料同步處理 Azure 監視器檢視](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 請確定您已設定下列項目：
 
@@ -136,7 +136,7 @@ ms.locfileid: "60614933"
 
 1.  在 Azure 入口網站中，選取 [記錄搜尋]  。
 
-2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如︰
+2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -150,7 +150,7 @@ ms.locfileid: "60614933"
 
 5.  在 [動作]  下方，將 [電子郵件通知]  設為 [是]。 輸入所需的電子郵件收件者。
 
-6.  按一下 [檔案]  。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
+6.  按一下 [儲存]  。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>建立用於監視的 Azure 監視器檢視
 
@@ -205,7 +205,7 @@ ms.locfileid: "60614933"
 -   設定資料同步
     - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](sql-database-get-started-sql-data-sync.md)
     - 透過 PowerShell
-        -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 在多個 Azure SQL 資料庫之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)

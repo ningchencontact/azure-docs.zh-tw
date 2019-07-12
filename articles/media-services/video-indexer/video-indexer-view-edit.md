@@ -39,7 +39,7 @@ ms.locfileid: "65799167"
 
 [使用您的影片深入解析](use-editor-create-project.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [影片索引子概觀](video-indexer-overview.md)
 

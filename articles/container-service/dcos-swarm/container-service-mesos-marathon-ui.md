@@ -25,7 +25,7 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 雖然許多常見的工作負載都有可用的架構，但此文件只說明如何使用 Marathon 來開始部署容器。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在練習這些範例之前，您需要 Azure 容器服務中設定的 DC/OS 叢集。 您也需要有此叢集的遠端連線。 如需這些項目的詳細資訊，請參閱下列文章。
 
 * [部署 Azure 容器服務叢集](container-service-deployment.md)
@@ -50,7 +50,7 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 
 | 欄位 | 值 |
 | --- | --- |
-| ID |nginx |
+| id |nginx |
 | 記憶體 | 32 |
 | Image |nginx |
 | 網路 |橋接 |

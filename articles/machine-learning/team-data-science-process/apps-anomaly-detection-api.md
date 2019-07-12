@@ -23,7 +23,7 @@ ms.locfileid: "64926161"
 > [!NOTE]
 > 此項目正在進行維護。 我們鼓勵您使用[異常偵測 API 服務](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/)由資源庫的機器學習演算法來偵測異常狀況，從 business，運作，以及 IoT 計量的 Azure 認知服務底下。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [異常偵測 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 是一個搭配 Azure Machine Learning 建置的範例，此 API 使用固定時間間隔的數值，偵測時間序列資料中的異常狀況。
 
 此 API 可偵測時間序列資料的下列異常模式類型︰
@@ -111,7 +111,7 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 ### <a name="detectors"></a>偵測器
 異常偵測 API 支援 3 大類別的偵測器。 下表中可以找到每個偵測器的特定輸入參數和輸出的詳細資料。
 
-| 偵測器類別 | 偵測器 | 描述 | 輸入參數 | 輸出 |
+| 偵測器類別 | 偵測器 | 描述 | 輸入參數 | outputs |
 | --- | --- | --- | --- | --- |
 | 尖峰偵測器 |TSpike 偵測器 |偵測尖峰和下降是根據值與第一個和第三個四分位數的差距 |*tspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，因而讓敏感度變低 |TSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ |
 | 尖峰偵測器 | ZSpike 偵測器 |偵測尖峰和下降是根據資料點與平均數的差距 |*zspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，讓敏感度變低 |ZSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ |
@@ -121,7 +121,7 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 ### <a name="parameters"></a>參數
 下表列出這些輸入參數的詳細資訊：
 
-| 輸入參數 | 描述 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
+| 輸入參數 | 描述 | 預設設定 | type | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |用於計算異常分數的歷程記錄 (以資料點數目為單位) |500 |integer |10 - 2000 |取決於時間序列 |
 | detectors.spikesdips | 是否偵測只有尖峰、只有下降，或兩者 |兩者 |列舉 |兩者、尖峰、下降 |兩者 |
@@ -131,13 +131,13 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 | zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
 | postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
 
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。
 
-| 輸出 | 描述 |
+| outputs | 描述 |
 | --- | --- |
 | Time |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
-| 資料 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |
+| Data |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |
 | TSpike |指出 TSpike 偵測器是否要偵測尖峰的二進位指示器 |
 | ZSpike |指出 Zspike 偵測器是否要偵測尖峰的二進位指示器 |
 | rpscore |代表雙向層級變更異常分數的浮動數字 |
@@ -157,7 +157,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 
 下表列出這些輸入參數的詳細資訊：
 
-| 輸入參數 | 描述 | 預設設定 | 類型 | 有效範圍 | 建議範圍 |
+| 輸入參數 | 描述 | 預設設定 | type | 有效範圍 | 建議範圍 |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |用來彙總輸入時間序列的彙總間隔 (秒) |0 (不執行彙總) |integer |0︰略過彙總，否則 > 0 |5 分鐘到 1 天，取決於時間序列 |
 | preprocess.aggregationFunc |用來將資料彙總到指定 AggregationInterval 的函式 |平均值 |列舉 |平均值、總和、長度 |N/A |
@@ -174,10 +174,10 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 | seasonality.transform |在套用異常偵測之前，是否應該移除季節性 (和) 趨勢元件 |deseason |列舉 |無、deseason、deseasontrend |N/A |
 | postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
 
-### <a name="output"></a>輸出
+### <a name="output"></a>Output
 API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。
 
-| 輸出 | 描述 |
+| outputs | 描述 |
 | --- | --- |
 | Time |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
 | OriginalData |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |

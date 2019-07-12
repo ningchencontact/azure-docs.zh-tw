@@ -27,7 +27,7 @@ ms.locfileid: "65073792"
 > * 建立 Jenkins 建置作業和 GitHub Webhook 來進行自動化建置。
 > * 測試 CI/CD 管線以根據 GitHub 程式碼認可來更新 AKS 中的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列項目：
 

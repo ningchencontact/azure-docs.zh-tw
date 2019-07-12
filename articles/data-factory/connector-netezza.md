@@ -146,7 +146,7 @@ Azure Data Factory 會提供內建的驅動程式來啟用連線。 您不需要
 | type | 複製活動來源的 **type** 屬性必須設定為 **NetezzaSource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 範例： `"SELECT * FROM MyTable"` | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

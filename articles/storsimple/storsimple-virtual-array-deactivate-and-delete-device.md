@@ -23,7 +23,7 @@ ms.locfileid: "60580533"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>停用及刪除 StorSimple Virtual Array
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 當您停用 StorSimple Virtual Array 時，您會切斷裝置與相對應 StorSimple 裝置管理員服務之間的連接。 本教學課程說明如何：
 

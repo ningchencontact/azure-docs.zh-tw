@@ -23,7 +23,7 @@ ms.locfileid: "61436472"
 
 了解在微調 Azure Storm 拓撲的效能時應考量的因素。 例如，務必要了解由 Spout 和 Bolt 所完成之工作 (不論是 I/O 密集或記憶體密集工作) 的特性。 本文探討各種效能微調指導方針，包括疑難排解方面的常見問題。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)。

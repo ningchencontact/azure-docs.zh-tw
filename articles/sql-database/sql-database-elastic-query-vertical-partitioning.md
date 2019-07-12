@@ -30,7 +30,7 @@ ms.locfileid: "60585390"
 * 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。
 * 需有 ALTER ANY EXTERNAL DATA SOURCE 權限，才能參考基礎資料來源。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 > [!NOTE]
 > 與水平資料分割不同，這些 DDL 陳述式並不倚賴透過彈性資料庫用戶端程式庫來定義帶有分區對應的資料層。

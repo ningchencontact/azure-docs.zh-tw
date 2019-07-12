@@ -27,7 +27,7 @@ ms.locfileid: "67074510"
 > 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。 數位視訊檔案十分龐大，並且可能太大而無法透過網際網路傳遞，或使您客戶的裝置無法正確顯示。 編碼是壓縮視訊和音訊，好讓客戶能檢視您的媒體的程序。 完成影片編碼後，即可將其放置於其他檔案容器中。 將編碼後的媒體放入容器的程序稱為封裝。 例如，您可以使用 Azure Media Packager 將 MP4 檔案轉換成 Smooth Streaming 或 HLS 內容。 
 

@@ -196,7 +196,7 @@ ms.locfileid: "60383004"
 您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來查明未同步任何密碼的原因。
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` cmdlet 仅可用于 Azure AD Connect 1.1.524.0 或更高版本。
+> `Invoke-ADSyncDiagnostics` Cmdlet 僅適用於 Azure AD Connect 1.1.524.0 版或更新版本。
 
 ### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
 
@@ -227,15 +227,15 @@ ms.locfileid: "60383004"
 
 2. 執行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
 
-3. 运行 `Import-Module ADSyncDiagnostics`。
+3. 執行 `Import-Module ADSyncDiagnostics`。
 
-4. 运行以下 cmdlet：
+4. 執行下列 Cmdlet：
 
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   例如︰
+   例如:
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -249,11 +249,11 @@ ms.locfileid: "60383004"
 
 1. Connect 伺服器是否是處於[預備模式](how-to-connect-sync-staging-server.md)？ 處於預備模式的伺服器不會同步處理任何密碼。
 
-2. 執行[取得密碼同步設定的狀態](#get-the-status-of-password-sync-settings)一節中的指令碼。 这样可以大致了解密码同步配置。  
+2. 執行[取得密碼同步設定的狀態](#get-the-status-of-password-sync-settings)一節中的指令碼。 它可讓您大致了解密碼同步設定作業。  
 
     ![來自密碼同步設定的 PowerShell 指令碼輸出](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. 如果 Azure AD 中未啟用此功能，或未啟用同步通道狀態，請執行 Connect 安裝精靈。 選取 [自訂同步處理選項]  並取消選取密碼同步。這項變更會暫時停用此功能。 然後再次執行精靈並重新啟用密碼同步處理。再次运行脚本，验证配置是否正确。
+3. 如果 Azure AD 中未啟用此功能，或未啟用同步通道狀態，請執行 Connect 安裝精靈。 選取 [自訂同步處理選項]  並取消選取密碼同步。這項變更會暫時停用此功能。 然後再次執行精靈並重新啟用密碼同步處理。再次執行指令碼，確認組態正確無誤。
 
 4. 查看事件記錄中是否有錯誤。 尋找下列事件，這些事件會指出問題所在︰
     * 來源：「目錄同步作業」識別碼：0、611、652、655。如果您看到這些事件，即表示有連線問題。 事件記錄訊息包含發生問題的樹系資訊。 如需詳細資訊，請參閱[連線問題](#connectivity problem)。
@@ -311,7 +311,7 @@ ms.locfileid: "60383004"
 
     a. 啟動 [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md)。
 
-    b. 单击“连接器”  。
+    b. 按一下 [連接器]  。
 
     c. 選取使用者所在的 **Active Directory 連接器**。
 
@@ -329,7 +329,7 @@ ms.locfileid: "60383004"
 
     如果物件記錄是空的，則表示 Azure AD Connect 無法從 Active Directory 讀取密碼雜湊。 請繼續進行連線錯誤疑難排解。 如果您看到 [成功]  以外的任何其他值，請參考[密碼同步記錄](#password-sync-log)中的表格。
 
-    h.如果该值不存在，请单击“添加行”。 選取 [歷程]  索引標籤，並確認至少有一個同步規則的 [PasswordSync]  資料行是 **True**。 在預設組態中，同步規則的名稱是 **In from AD - User AccountEnabled**。  
+    h. 選取 [歷程]  索引標籤，並確認至少有一個同步規則的 [PasswordSync]  資料行是 **True**。 在預設組態中，同步規則的名稱是 **In from AD - User AccountEnabled**。  
 
     ![使用者的相關歷程資訊](./media/tshoot-connect-password-hash-synchronization/cspasswordsync.png)  
 
@@ -353,20 +353,20 @@ ms.locfileid: "60383004"
 
 | 狀態 | 描述 |
 | --- | --- |
-| Success |已成功同步處理密碼。 |
+| 成功 |已成功同步處理密碼。 |
 | FilteredByTarget |密碼會設為 [使用者必須在下次登入時變更密碼]  。 未同步處理密碼。 |
 | NoTargetConnection |Metaverse 或 Azure AD 連接器空間中沒有任何物件。 |
 | SourceConnectorNotPresent |在內部部署 Active Directory 連接器空間中找不到任何物件。 |
 | TargetNotExportedToDirectory |尚未匯出 Azure AD 連接器空間中的物件。 |
 | MigratedCheckDetailsForMoreInfo |記錄項目建立於組建 1.0.9125.0 之前，並且以其舊版的狀態顯示。 |
-| Error |服務傳回未知的錯誤。 |
+| 錯誤 |服務傳回未知的錯誤。 |
 | 不明 |嘗試處理密碼雜湊的批次時發生錯誤。  |
 | MissingAttribute |無法使用 Azure AD Domain Services 所需的特定屬性 (例如，Kerberos 雜湊)。 |
 | RetryRequestedByTarget |先前無法使用 Azure AD Domain Services 所需的特定屬性 (例如，Kerberos 雜湊)。 會嘗試重新同步處理使用者的密碼雜湊。 |
 
 ## <a name="scripts-to-help-troubleshooting"></a>協助疑難排解的指令碼
 
-### <a name="get-the-status-of-password-sync-settings"></a>获取密码同步设置的状态
+### <a name="get-the-status-of-password-sync-settings"></a>取得密碼同步設定的狀態
 
 ```powershell
 Import-Module ADSync
@@ -421,7 +421,7 @@ if ($adConnectors -eq $null)
 Write-Host
 ```
 
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>触发所有密码的完全同步
+#### <a name="trigger-a-full-sync-of-all-passwords"></a>觸發所有密碼的完整同步處理
 
 > [!NOTE]
 > 只執行一次這個指令碼。 如果需要執行多次，則表示問題出在其他地方。 若要針對問題進行疑難排解，請連絡 Microsoft 支援服務。

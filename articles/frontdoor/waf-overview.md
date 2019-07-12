@@ -13,7 +13,7 @@ ms.date: 05/31/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 122e9687ee313edff34e5a4fd9a44b1026a63811
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478764"
@@ -95,7 +95,7 @@ Azure 受管理的規則集提供簡單的方式部署一組常見的安全性�
 - 遠端命令執行
 - 遠端檔案引入
 - 工作階段 fixation
-- SQL 注入保护
+- SQL 插入式攻擊保護
 - 通訊協定攻擊者
 
 新的攻擊簽章新增至規則集時，預設規則集的版本號碼會遞增。

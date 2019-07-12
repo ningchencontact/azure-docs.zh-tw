@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3bce5dd1dd34c53276c5486cc255c4cd93bb6080
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242112"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839760"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure 資料箱的系統需求
 
@@ -52,6 +52,13 @@ ms.locfileid: "66242112"
 ## <a name="networking-requirements"></a>網路需求
 
 您的資料中心必須有高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結來複製資料，但是複製速度會受到影響。
+
+### <a name="port-requirements"></a>連接埠需求
+
+下表列出必須在您允許 SMB 或 NFS 流量的防火牆中開啟的連接埠。 在這個資料表中，in  或 inbound  指的是輸入用戶端要求存取裝置的方向。 *Out*或*輸出*指的是您的資料箱裝置所在部署以外傳送外部資料的方向： 例如，輸出到網際網路。
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
+
 
 ## <a name="next-steps"></a>後續步驟
 

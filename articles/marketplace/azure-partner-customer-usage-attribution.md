@@ -101,7 +101,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 
 #### <a name="example-the-python-sdk"></a>範例：Python SDK
 
-針對 Python，請使用 **config** 屬性。 您只能將屬性新增到 UserAgent。 以下是範例：
+針對 Python，請使用 **config** 屬性。 您只能將屬性新增到 UserAgent。 以下為範例：
 
 ![將屬性新增到使用者代理程式](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -245,7 +245,7 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>報告
+## <a name="report"></a>報表
 
 您可以在合作夥伴中心分析儀表板中的客戶使用方式屬性找到報表。 ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 若要查看報表，您必須使用合作夥伴中心認證來登入。 如果您遇到任何問題的報表，或登入，建立支援要求，遵循 [取得支援] 區段中的指示。
 

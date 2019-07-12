@@ -22,7 +22,7 @@ ms.locfileid: "61463832"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>建立會產生 fMP4 區塊的編碼工作
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文章說明如何建立會產生分散的 MP4 (fMP4) 區塊，而不是 ISO MP4 檔案的編碼工作。 若要產生 fMP4 區塊，請使用**媒體編碼器標準**或**媒體編碼器高階工作流程**編碼器來建立編碼工作，並且指定 **AssetFormatOption.AdaptiveStreaming** 選項，如本程式碼片段所示︰  
     
@@ -176,6 +176,6 @@ namespace AdaptiveStreaming
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [媒體服務編碼概觀](media-services-encode-asset.md)
 

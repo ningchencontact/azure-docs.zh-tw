@@ -40,7 +40,7 @@ Azure Active Directory 驗證程式庫 (ADAL) v1.0 可讓應用程式開發人�
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft 支援的用戶端程式庫
 
-| 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考
+| 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考資料
 | --- | --- | --- | --- | --- | --- |
 | .NET 用戶端、Windows 市集、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [傳統型應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[參考](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | .NET 用戶端、Windows 市集、Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [傳統型應用程式](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
@@ -53,7 +53,7 @@ Azure Active Directory 驗證程式庫 (ADAL) v1.0 可讓應用程式開發人�
 
 ## <a name="microsoft-supported-server-libraries"></a>Microsoft 支援的伺服器程式庫
 
-| 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考
+| 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考資料
 | --- | --- | --- | --- | --- | --- |
 | .NET |適用於 AzureAD 的 OWIN|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC 應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |適用於 OpenIDConnect 的 OWIN |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Web 應用程式](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
@@ -82,7 +82,7 @@ ADAL 使得驗證使用者變得輕鬆，只需取得存取權杖並從 Azure AD
 
 在此案例中，開發人員具有在伺服器上執行的 Web 應用程式，需要存取由 Azure AD 所保護的遠端資源，例如 Web API。 Web API 不允許匿名呼叫，因此必須從代表經驗證使用者的授權服務呼叫。 Web API 預先設定為信任由特定 Azure AD 租用戶所發出的存取權杖，Azure AD 則預先設定為將該資源的存取權杖發給具有用戶端認證的服務。 一旦在 Web 應用程式中驗證了使用者，應用程式便可以從 Azure AD 取得使用者的授權碼。 然後，Web 應用程式可以使用 ADAL 代表使用者，利用與應用程式相關聯的授權碼和用戶端認證從 Azure AD 取得存取權杖和更新權杖。 在 Web 應用程式取得存取權杖之後，它可以呼叫 Web API，直到權杖到期。 權杖到期時，Web 應用程式可以使用 ADAL 透過先前收到的更新權杖來取得新的存取權杖。 如需示範此案例的程式碼範例，請參閱[原生用戶端至 Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory 開發人員指南](v1-overview.md)
 - [Azure Active Directory 的驗證案例](authentication-scenarios.md)

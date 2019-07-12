@@ -54,7 +54,7 @@ ms.locfileid: "65506385"
    |設定|必要項？|詳細資料|
    |---|---|---|
    |名稱|是|在網路介面中必須是唯一的|
-   |類型|是|由於您要新增 IP 組態至現有的網路介面，而每個網路介面都必須有一個[主要](#primary) IP 組態，所以您只能選擇 [次要]  。|
+   |type|是|由於您要新增 IP 組態至現有的網路介面，而每個網路介面都必須有一個[主要](#primary) IP 組態，所以您只能選擇 [次要]  。|
    |私人 IP 位址指派方法|是|[**動態**](#dynamic)：Azure 會為其中部署網路介面的子網路位址範圍指派下一個可用位址。 [**靜態**](#static)：您會為其中部署網路介面的子網路位址範圍指派未使用的位址。|
    |公用 IP 位址|否|**已停用：** IP 組態目前沒有相關聯的公用 IP 位址資源。 **已啟用：** 選取現有的 IPv4 公用 IP 位址，或建立一個新的。 若要了解如何建立公用 IP 位址，請閱讀[公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)一文。|
 6. 請完成[將多個 IP 位址指派給虛擬機器作業系統](virtual-network-multiple-ip-addresses-portal.md#os-config)一文中的指示，以手動方式將次要私人 IP 位址新增至虛擬機器作業系統。 有關手動將 IP 位址新增至虛擬機器作業系統之前的特殊考量，請參閱[私人](#private) IP 位址。 請勿將任何公用 IP 位址新增至虛擬機器作業系統。
@@ -204,7 +204,7 @@ ms.locfileid: "65506385"
 ## <a name="next-steps"></a>後續步驟
 若要建立具有不同 IP 組態的虛擬機器，請閱讀下列文章：
 
-|Task|工具|
+|工作|工具|
 |---|---|
 |建立具有多個網路介面的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |建立具有多個 IPv4 位址的單一 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

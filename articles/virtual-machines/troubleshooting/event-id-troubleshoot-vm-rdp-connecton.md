@@ -59,7 +59,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **日期：**          *時間* <br />
 **事件識別碼：**    1058 <br />
 **工作類別：** None <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**    傳統 <br />
 **使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
@@ -70,7 +70,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **日期：**          *時間* <br />
 **事件識別碼：**    1058 <br />
 **工作類別：** None <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**    傳統 <br />
 **使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
@@ -81,7 +81,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **日期：**          *時間* <br />
 **事件識別碼：**    1057 <br />
 **工作類別：** None <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**    傳統 <br />
 **使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
@@ -99,7 +99,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **日期：**          — <br />
 **事件識別碼：**    36870 <br />
 **工作類別：** None <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**       <br />
 **使用者：**        系統 <br />
 **電腦：**      *電腦* <br />
@@ -221,7 +221,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **日期：**          — <br />
 **事件識別碼：**    36871 <br />
 **工作類別：** None <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**       <br />
 **使用者：**        系統 <br />
 **電腦：**      *電腦* <br />
@@ -251,7 +251,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **日期：**          *時間* <br />
 **事件識別碼：**    2056 <br />
 **工作類別：** (109) <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**       <br />
 **使用者：**        NETWORK SERVICE <br />
 **電腦：**      *電腦 FQDN* <br />
@@ -267,7 +267,7 @@ NULL <br />
 **日期：**          *時間* <br />
 **事件識別碼：**    1296 <br />
 **工作類別：** (104) <br />
-**等級：**       Error <br />
+**等級：**       錯誤 <br />
 **關鍵字：**       <br />
 **使用者：**        NETWORK SERVICE <br />
 **電腦：**      *電腦 FQDN* <br />

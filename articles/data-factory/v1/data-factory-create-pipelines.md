@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58db6f9903c4dc02c2d76f3784b004972621a000
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487357"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836503"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管線及活動
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-create-pipelines.md)
 > * [第 2 版 (目前的版本)](../concepts-pipelines-activities.md)
 
@@ -35,7 +35,7 @@ ms.locfileid: "60487357"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 資料處理站可以有一或多個管線。 管線是一起執行某個工作的活動所組成的邏輯群組。 管線中的活動會定義要在資料上執行的動作。 例如，您可以使用複製活動將資料從內部部署 SQL Server 複製到「Azure Blob 儲存體」。 接著，使用在 Azure HDInsight 叢集上執行 Hive 指令碼的 Hive 活動，來處理/轉換來自 Blob 儲存體的資料以產生輸出資料。 最後，使用第二個複製活動將輸出資料複製到 Azure SQL 資料倉儲，以在該處建置商業智慧 (BI) 報表解決方案。
 
 一個活動可以接受零個或多個輸入[資料集](data-factory-create-datasets.md)，並且會產生一個或多個輸出[資料集](data-factory-create-datasets.md)。 下圖顯示 Data Factory 中管線、活動及資料集之間的關聯性：
@@ -147,7 +147,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 ### <a name="policies"></a>policies
 原則會影響活動的執行階段行為，特別是在處理資料表配量的時候。 下表提供詳細資料。
 
-| 屬性 | 允許的值 | 預設值 | 描述 |
+| 屬性 | 允許的值 | Default Value | 描述 |
 | --- | --- | --- | --- |
 | concurrency |整數 <br/><br/>最大值：10 |1 |活動的並行執行數目。<br/><br/>它可決定不同配量上可以發生的平行活動執行數目。 例如，如果活動需要處理大量可用的資料，具有較大的並行值會加快資料處理。 |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |決定正在處理之資料配量的順序。<br/><br/>例如，如果您有 2 個配量 (一個發生在下午 4 點，另一個發生在下午 5 點)，而兩者都暫停執行。 如果您將 executionPriorityOrder 設為 NewestFirst，則會先處理下午 5 點的配量。 同樣地，如果您將 executionPriorityOrder 設為 OldestFIrst，則會處理下午 4 點的配量。 |
@@ -291,7 +291,6 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 您可以使用下列其中一項工具或 SDK 來建立管線。
 
 - 複製精靈
-- Azure 入口網站
 - Visual Studio
 - Azure PowerShell
 - Azure Resource Manager 範本
@@ -347,7 +346,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 }
 ```
 
-請注意：
+請注意下列事項：
 
 * 未指定管線的**開始**和**結束**時間。
 * 有指定輸入和輸出資料集的**可用性** (**頻率**和**間隔**)，即使 Data Factory 未使用這些值也是一樣。

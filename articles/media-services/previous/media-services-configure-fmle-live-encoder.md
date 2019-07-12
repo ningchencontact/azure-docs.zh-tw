@@ -35,7 +35,7 @@ ms.locfileid: "61465932"
 
 本教學課程說明如何使用 AAC。 不過，依預設 FMLE 不支援 AAC。 您必須購買 AAC 編碼的外掛程式，例如從 MainConcept 購買：[AAC 外掛程式](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。

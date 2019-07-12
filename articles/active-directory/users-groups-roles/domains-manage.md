@@ -87,13 +87,13 @@ ms.locfileid: "60472299"
 
 ### <a name="frequently-asked-questions"></a>常見問題集
 
-**问：為什麼網域刪除失敗時，會收到錯誤訊息，表示我在這個網域名稱中擁有由 Exchange 主控的群組？** <br>
+**問：為什麼網域刪除失敗時，會收到錯誤訊息，表示我在這個網域名稱中擁有由 Exchange 主控的群組？** <br>
 **答：** 目前，已啟用郵件安全性群組和分散式清單等特定群組由 Exchange 佈建，且需在 [Exchange 管理中心 (EAC)](https://outlook.office365.com/ecp/) 手動清除。 可能會有停留的 ProxyAddresses 仰賴自訂網域名稱，且需要手動更新為其他網域名稱。 
 
-**问：我已經以系統管理員身分登入\@contoso.com，但我無法刪除網域名稱"contoso.com"嗎？**<br>
+**問：我已經以系統管理員身分登入\@contoso.com，但我無法刪除網域名稱"contoso.com"嗎？**<br>
 **答：** 您不能參考您在使用者帳戶名稱中嘗試刪除的自訂網域名稱。 請確認全域管理員帳戶使用初始預設網域名稱 (.onmicrosoft.com)，例如 admin@contoso.onmicrosoft.com。 使用不同的全域管理員帳戶 (例如 admin@contoso.onmicrosoft.com) 或其他帳戶是 admin@fabrikam.com 的自訂網域名稱 (例如「fabrikam.com」) 登入。
 
-**问：我已按下 [刪除網域] 按鈕，並看到刪除作業的`In Progress`狀態。需要多久的時間？如果失敗，會發生什麼事？**<br>
+**問：我已按下 [刪除網域] 按鈕，並看到刪除作業的`In Progress`狀態。需要多久的時間？如果失敗，會發生什麼事？**<br>
 **答：** 刪除網域作業是非同步的背景工作，會將所有操考重新命名為網域名稱。 此作業應會在數分鐘內完成。 如果網域刪除失敗，請確定您不擁有：
 
 * 使用 appIdentifierURI 設定網域名稱的應用程式

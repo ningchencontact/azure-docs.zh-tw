@@ -104,17 +104,17 @@ ms.locfileid: "61074826"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |--------------|----------|-----------------|  
-|`firstName`|字串|目前使用者的名字。|  
-|`lastName`|字串|目前使用者的姓氏。|  
-|`companyName`|字串|目前使用者的公司名稱。|  
-|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
-|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
+|`firstName`|string|目前使用者的名字。|  
+|`lastName`|string|目前使用者的姓氏。|  
+|`companyName`|string|目前使用者的公司名稱。|  
+|`addresserEmail`|string|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|string|相對 URL，可前往檢視目前使用者的分析。|  
 |`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
-|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
 |`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
@@ -325,17 +325,17 @@ ms.locfileid: "61074826"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |--------------|----------|-----------------|  
-|`firstName`|字串|目前使用者的名字。|  
-|`lastName`|字串|目前使用者的姓氏。|  
-|`companyName`|字串|目前使用者的公司名稱。|  
-|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
-|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
+|`firstName`|string|目前使用者的名字。|  
+|`lastName`|string|目前使用者的姓氏。|  
+|`companyName`|string|目前使用者的公司名稱。|  
+|`addresserEmail`|string|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|string|相對 URL，可前往檢視目前使用者的分析。|  
 |`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
-|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
 |`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
@@ -488,17 +488,17 @@ ms.locfileid: "61074826"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |--------------|----------|-----------------|  
-|`firstName`|字串|目前使用者的名字。|  
-|`lastName`|字串|目前使用者的姓氏。|  
-|`companyName`|字串|目前使用者的公司名稱。|  
-|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
-|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
+|`firstName`|string|目前使用者的名字。|  
+|`lastName`|string|目前使用者的姓氏。|  
+|`companyName`|string|目前使用者的公司名稱。|  
+|`addresserEmail`|string|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|string|相對 URL，可前往檢視目前使用者的分析。|  
 |`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
-|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
 |`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   

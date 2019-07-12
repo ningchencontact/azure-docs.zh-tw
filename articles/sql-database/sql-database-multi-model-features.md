@@ -23,16 +23,16 @@ ms.locfileid: "64939523"
 
 多模型資料庫可讓您儲存及處理以多種資料格式 (例如關聯式資料、圖形、JSON/XML 文件、索引鍵/值組) 表現的資料。
 
-## <a name="when-to-use-multi-model-capabilities"></a>何时使用多模型功能
+## <a name="when-to-use-multi-model-capabilities"></a>使用多模型功能的時機
 
 Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般用途應用程式的大部分情況下達到最佳效能。 不過，Azure SQL Database 不限於關聯式資料。 Azure SQL Database 可讓您使用緊密整合到關聯式模型中的各種非關聯式格式。
-对于以下情况，应考虑使用 Azure SQL 数据库的多模型功能：
-- 某些信息或结构更适合 NoSQL 模型，并且你不想要使用独立的 NoSQL 数据库。
-- 大部分数据适合关系模型，并且你需要以 NoSQL 形式为某些数据部分建模。
-- 希望利用丰富的 Transact-SQL 语言来查询和分析关系数据与 NoSQL 数据，并将其集成到可以使用 SQL 语言的各种工具和应用程序。
+您應該考慮使用 Azure SQL Database 的多模型的功能在下列情況：
+- 您有一些資訊或結構，會更適合用於 NoSQL 模型，而且您不想要使用不同的 NoSQL 資料庫。
+- 多數資料適用於關聯式模型中，並且您要建立您的資料，NoSQL 樣式中的某些部分的模型。
+- 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具和應用程式可以使用 SQL 語言整合。
 - 您想要套用的資料庫功能，例如[記憶體內部技術](sql-database-in-memory.md)提升您分析效能或處理您的 NoSQL 資料 strucutres，使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取複本](sql-database-read-scale-out.md)上其他位置中建立資料複本，並卸載某些分析的工作負載，從主要資料庫。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure SQL 提供下列多模型功能：
 - [圖形功能](#graph-features)可讓您以一組節點和邊緣的形式表現資料，並使用以 `MATCH` 運算子增強的標準 Transact-SQL 查詢來查詢圖形資料。
@@ -73,7 +73,7 @@ JSON 是一種用於在新式的 Web 與行動應用程式中交換資料的常�
 
 Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式服務整合。 Azure SQL Database 提供下列可與 JSON 資料搭配使用的函數：
 
-![JSON 函数](./media/sql-database-json-features/image_1.png)
+![JSON 函數](./media/sql-database-json-features/image_1.png)
 
 如果您有 JSON 文字，您可以透過使用內建的函式 [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx)、[JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) 及 [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx)，從 JSON 擷取資料或確認 JSON 的格式是否正確。 [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) 函式可讓您更新 JSON 文字內的值。 針對更進階的查詢和分析， [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) 函數可以將 JSON 物件陣列轉換成一組資料列。 您可以在傳回的結果集上執行任何 SQL 查詢。 最後，還有 [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) 子句，此子句可讓您將儲存在關聯式資料表中的資料格式化為 JSON 文字。
 

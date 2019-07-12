@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: a9eadabcedc9d5fd1baedb6cd893e6f7829c5ca8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154032"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835725"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>單一頁面登入 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程
 
@@ -31,7 +31,7 @@ Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而�
 
 隱含登入流程看起來像下圖。 本文稍後將詳細說明每個步驟。
 
-![OpenID Connect 區隔線](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![區隔線樣式的圖表，顯示的 OpenID Connect 的隱含流程](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>傳送驗證要求
 
@@ -108,7 +108,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --------- | ----------- |
 | access_token | 應用程式要求的存取權杖。 |
 | token_type | 權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -218,7 +218,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | access_token |應用程式要求的權杖。 |
 | token_type |權杖類型一律為持有人。 |
@@ -263,5 +263,5 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > 將使用者導向至 `end_session_endpoint`，會利用 Azure AD B2C 清除使用者的部分單一登入狀態。 不過，它不會將使用者登出使用者的社交身分識別提供者工作階段。 如果使用者之後在登入時選取相同的識別提供者，該使用者不必輸入自己的認證，就能讓系統重新驗證自己的身分。 舉例來說，如果使用者想要登出您的 Azure AD B2C 應用程式，不一定代表他們想要完全登出自己的 Facebook 帳戶。 不過，如果使用本機帳戶，使用者的工作階段將會正確地結束。
-> 
+>
 

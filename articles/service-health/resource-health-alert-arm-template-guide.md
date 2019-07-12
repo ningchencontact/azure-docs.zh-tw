@@ -24,7 +24,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要遵循此頁面上的指示，您將必須事先設定幾件事：
 

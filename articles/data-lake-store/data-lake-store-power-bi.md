@@ -22,7 +22,7 @@ ms.locfileid: "65603204"
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen1 中的資料
 在本文中，您將了解如何使用 Power BI Desktop 分析儲存在 Azure Data Lake Storage Gen1 的資料並加以視覺化。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -96,6 +96,6 @@ ms.locfileid: "65603204"
 ## <a name="publish-report-to-power-bi-service"></a>將報表發佈到 Power BI 服務
 在 Power BI Desktop 中建立視覺效果之後，即可將它發佈到 Power BI 服務，與其他人共用。 如需如何執行的指示，請參閱[從 Power BI Desktop 發佈](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [使用 Data Lake Analytics 分析 Data Lake Storage Gen1 中的資料](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

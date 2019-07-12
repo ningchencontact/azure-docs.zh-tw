@@ -145,7 +145,7 @@ public async Task<Cart> GetCartItems(int page)
 
 此時，您應該不會收到 HTTP 429 回應碼。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 如需在 Microsoft Cloud 上進行節流處理的詳細資訊，請參閱[節流模式](https://docs.microsoft.com/azure/architecture/patterns/throttling) \(英文\)。
 
