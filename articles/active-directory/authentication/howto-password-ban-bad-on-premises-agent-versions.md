@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c024954053588537ac3363703876f716a38f41d9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358203"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702940"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 密碼保護代理程式版本記錄
 
@@ -38,7 +38,7 @@ ms.locfileid: "60358203"
   * 軟體版本和 Azure 租用戶資料僅適用於 DC 代理程式和 proxy 執行 1.2.116.0 版本或更新版本。
   * Azure 租用戶的資料不會報告直到 proxy 重新註冊 （或更新），或樹系已發生。
 * Proxy 服務現在會需要安裝.NET 4.7。
-  * 完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
+  * 完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
   * 在 Server Core 系統上可能必須將 /q 旗標傳遞至.NET 4.7 安裝程式，它才會成功。
 * Proxy 服務現在支援自動升級。 自動升級會使用已安裝的並行與 Proxy 服務的 Microsoft Azure AD Connect 代理程式更新程式服務。 預設會開啟自動升級。
 * 可以啟用自動升級，或使用組 AzureADPasswordProtectionProxyConfiguration cmdlet 停用。 使用 Get AzureADPasswordProtectionProxyConfiguration cmdlet 可以查詢的目前設定。

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113479"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594949"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -143,7 +143,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
   * 名稱：EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
   * 使用者和群組：包含 ContingencyAccess。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
-  * 條件：任意
+  * 條件：Any
   * 授與控制權：要求已加入網域
   * 狀態：已停用
 * 原則 2：封鎖 Windows 以外的平台

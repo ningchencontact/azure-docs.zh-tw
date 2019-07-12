@@ -23,14 +23,14 @@ ms.locfileid: "66493645"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 完成[使用 Azure 入口網站建立區塊鏈成員](create-member.md)
+* 使用建立區塊鏈成員[Azure 入口網站](create-member.md)。
 * 如需有關 consortia、 成員和節點的詳細資訊，請參閱[Azure 區塊鏈 Service 協會](consortium.md)。
 
 ## <a name="open-azure-cloud-shell"></a>開啟 Azure Cloud Shell
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。
 
-您也可以開啟另一個瀏覽器索引標籤在 Cloud Shell 中，移至[shell.azure.com/powershell](https://shell.azure.com/powershell)。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter  鍵加以執行。
+您也可以開啟另一個瀏覽器索引標籤在 Cloud Shell 中，移至[shell.azure.com/powershell](https://shell.azure.com/powershell)。 選取 **複製**若要複製的程式碼區塊，將它貼到 Cloud Shell 中，然後選取**Enter**執行它。
 
 ## <a name="install-the-powershell-module"></a>安裝 PowerShell 模組
 
@@ -197,8 +197,8 @@ $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
 | Name | 區塊鏈成員名稱 | 是 |
-| DisplayName | 顯示名稱 | 否 |
-| AccountAddress | 帳戶位址 | 否 |
+| DisplayName | 新的顯示名稱 | 否 |
+| AccountAddress | 帳戶地址 | 否 |
 | Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
 | Web3Account | 取自匯入 Web3Account Web3Account 物件 | 是 |
 | Web3Client |  取自新增 Web3Connection Web3Client 物件| 是 |

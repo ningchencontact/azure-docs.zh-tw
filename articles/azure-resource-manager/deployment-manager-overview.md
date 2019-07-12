@@ -36,7 +36,7 @@ Azure Deployment Manager 處於預覽狀態。 協助我們改進所提供的功
 - [Azure Deployment Manager REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
 - [教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
 - [教學課程：在 Azure 部署管理員中使用健康情況檢查](./deployment-manager-tutorial-health-check.md)。
-- [Azure Deployment Manager 範例](https://github.com/Azure-Samples/adm-quickstart)。
+- [Azure 部署管理員範例](https://github.com/Azure-Samples/adm-quickstart)。
 
 ## <a name="identity-and-access"></a>身分識別與存取
 

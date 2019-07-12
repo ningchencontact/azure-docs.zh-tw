@@ -55,12 +55,12 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>要求參數 
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|name|字串|是|人員模型的名稱|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|name|string|是|人員模型的名稱|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -100,12 +100,12 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|id|字串|是|人員模型識別碼 (建立人員模型時產生)|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|id|string|是|人員模型識別碼 (建立人員模型時產生)|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -137,11 +137,11 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -192,14 +192,14 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**型別**|**必要**|**描述**|
 |---|---|---|---|
-|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|是|帳戶的全域唯一識別碼|
-|videoId|字串|是|您想要更新的人臉出現在視訊中的識別碼。 這是在上傳視訊及編製視訊索引時建立的。|
+|location|string|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|string|是|帳戶的全域唯一識別碼|
+|videoId|string|是|您想要更新的人臉出現在視訊中的識別碼。 這是在上傳視訊及編製視訊索引時建立的。|
 |faceId|integer|是|將更新之人臉的識別碼。 您可以從影片索引取得 faceId|
-|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-|name|字串|是|更新人臉所使用的新名稱。|
+|accessToken|string|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|name|string|是|更新人臉所使用的新名稱。|
 
 名稱對於人員模型而言是獨一無二的，因此如果您在相同的人員模型中為兩個不同的人臉提供相同的 **name** 參數值，影片索引器會將這些人臉視為同一個人，並在您重新編製視訊索引時加以匯整。 
 

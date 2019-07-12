@@ -52,7 +52,7 @@ Phoenix 中資料表上定義的主索引鍵，可決定資料儲存在基礎 HB
 
 在上表的第一列中，rowkey 的資料如下所示：
 
-|rowkey|       索引鍵|   value| 
+|rowkey|       key|   value| 
 |------|--------------------|---|
 |  Dole-John-111|位址 |1111 San Gabriel Dr.|  
 |  Dole-John-111|電話 |1-425-000-0002|  

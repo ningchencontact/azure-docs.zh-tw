@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952895"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812915"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試
 
@@ -31,7 +31,7 @@ Event Grid 會等候 30 秒的回應之後傳遞訊息。 30 秒之後，如果�
 - 1 分鐘
 - 5 分鐘
 - 10 分鐘
-- 30 分钟
+- 30 分鐘
 - 1 小時
 - 每小時，最多 24 小時
 
@@ -42,6 +42,12 @@ Event Grid 會將小型隨機加入所有重試步驟，並可能都伺機如果
 具決定性的行為，將即時事件的時間和最大傳遞嘗試中[訂用帳戶重試原則](manage-event-delivery.md)。
 
 根據預設，事件格線會讓所有未在 24 小時內傳遞的事件變成過期事件。 您可以在建立事件訂用帳戶時[自訂重試原則](manage-event-delivery.md)。 您可以提供傳遞嘗試次數上限 (預設為 30 次) 和事件存留時間 (預設為 1440 分鐘)。
+
+## <a name="delayed-delivery"></a>延遲的傳遞
+
+當端點發生傳遞失敗，Event Grid 會開始延遲傳遞與重試該端點的事件。 比方說，如果失敗的發佈至端點的前十個事件，Event Grid 會假設端點發生問題，且將會延遲所有後續的重試*和新*一陣子-在某些情況下數小時的傳遞項目.
+
+延遲傳遞功能的目的是保護狀況不良的端點，以及 Event Grid 系統。 如果沒有退避法和延遲的狀況不良的端點來傳遞，Event Grid 的重試原則和磁碟區功能都可以輕鬆地超過系統。
 
 ## <a name="dead-letter-events"></a>無效信件事件
 
@@ -63,25 +69,29 @@ Event Grid 使用 HTTP 回應碼以確認接收事件。
 
 ### <a name="success-codes"></a>成功碼
 
-下列 HTTP 回應碼表示事件已成功傳遞到您的 Webhook。 Event Grid 會將傳遞視為完成。
+Event Grid 會考慮**只**成功傳遞為下列的 HTTP 回應碼。 所有其他狀態碼會被視為失敗的傳遞項目，而且將會重試或寄不出適當。 收到成功狀態碼，Event Grid 會將傳遞視為完成。
 
 - 200 確定
+- 201 Created
 - 202 已接受
+- 203 未經授權的資訊
+- 204 沒有內容
 
 ### <a name="failure-codes"></a>失敗碼
 
-下列 HTTP 回應碼表示事件傳遞嘗試失敗。
+不在上述的集合 (200-204) 中的所有其他代碼則視為失敗，而且將會重試。 某些有繫結至其下面所述的特定重試原則，所有其他遵循標準指數退避法模型。 請務必記住，由於高度平行化的 Event Grid 的架構，重試行為是不具決定性。 
 
-- 400 不正確的要求
-- 401 未經授權
-- 404 找不到
-- 408 要求逾時
-- 413 要求實體太大
-- 414 URI 太長
-- 429 要求太多
-- 500 內部伺服器錯誤
-- 503 服務無法使用
-- 504 閘道逾時
+| status code | 重試行為 |
+| ------------|----------------|
+| 400 不正確的要求 | 在 5 分鐘以上後重試 (寄不出信件時，立即寄不出信件安裝程式) |
+| 401 未經授權 | 在 5 分鐘後的重試或多個 |
+| 403 禁止 | 在 5 分鐘後的重試或多個 |
+| 404 找不到 | 在 5 分鐘後的重試或多個 |
+| 408 要求逾時 | 在 2 分鐘後的重試或多個 |
+| 413 要求實體太大 | 在 10 秒或更久後重試 (寄不出信件時，立即寄不出信件安裝程式) |
+| 503 服務無法使用 | 在 30 秒後的重試或多個 |
+| 所有其他項目 | 在 10 秒後的重試或多個 |
+
 
 ## <a name="next-steps"></a>後續步驟
 

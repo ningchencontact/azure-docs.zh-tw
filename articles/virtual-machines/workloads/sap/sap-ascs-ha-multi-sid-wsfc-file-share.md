@@ -4,7 +4,7 @@ description: 在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60651576"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710119"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "60651576"
 > ![Windows][Logo_Windows] Windows
 >
 
-您可以使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 
+您可以使用來管理多個虛擬 IP 位址[Azure 內部負載平衡器][load-balancer-multivip-overview]。 
 
 如果您有 SAP 部署，可以使用內部負載平衡器，建立 SAP Central Services (ASCS/SCS) 執行個體的 Windows 叢集組態。
 
@@ -216,9 +216,9 @@ ms.locfileid: "60651576"
 > 本文件所介紹的組態尚不支援用於 [Azure 可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)
 > 
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。 也請考慮使用 [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 而非 Azure 負載平衡器的基本 SKU。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]。 也請考慮使用 [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 而非 Azure 負載平衡器的基本 SKU。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您已經使用**檔案共用**來設定要用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如下圖所示。
 
@@ -256,7 +256,7 @@ _**圖 2：** 兩個叢集中的 SAP 多重 SID 設定_
 * 在 DNS 伺服器上建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱。
 * 使用 PowerShell 將 IP 位址新增至現有的 Azure 內部負載平衡器。
 
-[SAP 多重 SID 案例的基礎結構準備][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]中說明這些步驟。
+下列步驟所述[SAP 多重 SID 案例的基礎結構準備][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]。
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>使用現有的 SAP 全域主機準備 SOFS 叢集上的基礎結構
@@ -461,10 +461,10 @@ _**圖 13：** 已建立繫結至 sapglobal2 主機和 Volume2 的第二個 sapm
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在沒有共用磁碟的容錯移轉叢集上安裝 ASCS/SCS 執行個體][sap-official-ha-file-share-document]：HA 檔案共用的官方 SAP 指導方針
+* [在沒有共用磁碟容錯移轉叢集上安裝 ASCS/SCS 執行個體][sap-official-ha-file-share-document]:HA 檔案共用的官方 SAP 指導方針
 
 * [Windows Server 2016 中的儲存空間直接存取][s2d-in-win-2016]
 
-* [用於應用程式資料的向外延展檔案伺服器概觀][sofs-overview]
+* [用於向外延展檔案伺服器應用程式資料概觀][sofs-overview]
 
-* [Windows Server 2016 中儲存空間的新功能][new-in-win-2016-storage]
+* [在 Windows Server 2016 中的儲存體中最新消息][new-in-win-2016-storage]

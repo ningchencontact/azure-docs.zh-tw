@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: <p>Azure Data Share Preview 是一項安全的服務，適用於與第三方組織共用資料。 選取您希望共用的資料集、新增收件者並開始分享資料，同時還可控管、監視和控制您的資料共用關係。 </p><p>透過教學課程了解如何使用 Azure Data Share。</p>
+  description: <p>Azure Data Share Preview 是一項安全的服務，適用於與第三方組織共用資料。 選取您希望共用的資料集、新增收件者並開始分享資料，同時還可控管、監視和控制您的資料共用關係。 </p><p>透過教學課程和操作指南了解如何使用 Azure Data Share。</p>
   aside:
     image:
       alt: null
       height: 110
       src: media/azure-friday.png
       width: 250
-    title: Azure Data Share on Azure Friday's
+    title: Azure Data Share on Azure Friday
     href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
     width: 250
 sections:

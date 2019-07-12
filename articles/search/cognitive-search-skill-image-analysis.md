@@ -39,7 +39,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 |--------------------|-------------|
 | defaultLanguageCode   |  此字串表示要傳回的語言。 服務會以指定語言傳回辨識結果。 如果未指定此屬性，則預設值為「en」。 <br/><br/>支援的語言為： <br/>*en* - 英文 (預設) <br/> *zh* - 簡體中文|
 |visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別* - 根據認知服務[說明文件](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中定義的分類法，來分類映像內容。</li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*描述*-描述內容與完整的英文句子的映像。</li><li>*臉部*-偵測到臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li> *ImageType* -偵測到映像是否為美工圖案或線條繪圖。</li><li>  *色彩*-判斷輔色，主要的色彩，以及映像是否黑色 & 白色。</li><li>*成人*-偵測到影像是否色情的本質 （描述裸體或性別 act）。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
-| 詳細資料   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人*-如果偵測到映像中辨識名人。</li><li>*地標*-識別地標，如果偵測到映像中。</li></ul>
+| details   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人*-如果偵測到映像中辨識名人。</li><li>*地標*-識別地標，如果偵測到映像中。</li></ul>
  |
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -494,7 +494,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | NotSupportedImage | 不支援的映像，例如兒童色情內容。 |
 | InvalidDetails | 不支援的特定領域模型。 |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

@@ -5,17 +5,16 @@ services: data-factory
 author: abnarain
 manager: craigg
 ms.service: data-factory
-ms.topic: troubleshoot
-ms.subservice: troubleshoot
+ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 8d6ab565098e1ea40ede5c650f05e670a1edc7f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d220730bb2e93e32d00e56ed98f4962ad89eda5a
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452679"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626317"
 ---
 # <a name="troubleshooting-azure-data-factory"></a>疑難排解 Azure Data Factory
 本文章列出常見的疑難排解問題。
@@ -81,7 +80,7 @@ ms.locfileid: "67452679"
 | 2505         | 無法建立共用存取簽章，除非使用帳戶金鑰的憑證。 | 自訂活動僅支援使用存取金鑰的儲存體帳戶。 | 描述，請參閱                                            |
 | 2507         | 資料夾路徑不存在，或為空白:...            | 位於指定路徑的儲存體帳戶中沒有任何檔案。       | FolderPath 必須包含您想要執行的可執行檔。 |
 | 2508         | 有重複的檔案處於資源資料夾。               | 有相同名稱的 folderPath 的不同子資料夾中的多個檔案。 | 自訂活動壓平合併資料夾結構 folderPath。  如果資料夾結構必須保留，zip 檔案，並將它們解壓縮 Azure Batch 上使用 unzip 命令，例如： powershell.exe-nologo noprofile-命令"& {Add-type-A 'System.IO.Compression.FileSystem';  [IO.Compression.ZipFile]::ExtractToDirectory $zipFile ($folder）;}" ;  $folder\yourProgram.exe |
-| 2509         | 批次 url...是無效的它必須是以 Uri 格式。         | 批次 Url 必須是類似於 https://mybatchaccount.eastus.batch.azure.com | 描述，請參閱                                            |
+| 2509         | 批次 url...是無效的它必須是以 Uri 格式。         | 批次 Url 必須是類似於 https:\//mybatchaccount.eastus.batch.azure.com | 描述，請參閱                                            |
 | 2510         | 傳送要求時發生錯誤。               | 批次 URL 無效                                         | 請確認批次的 URL。                                            |
 
 ## <a name="hdinsight-spark-hive-mapreduce-pig-hadoop-streaming"></a>HDInsight （Spark、 Hive、 MapReduce、 Pig、 Hadoop 資料流）
@@ -92,7 +91,7 @@ ms.locfileid: "67452679"
 | 2300         | Hadoop 工作提交失敗。 作業:...」，叢集:.../。 Error:工作已取消。 | 在提交作業的逾時。                         | 這可能是一般 HDInsight 連線問題或網路連線問題。 先確認 HDInsight Ambari UI，都可透過任何瀏覽器，而且您的認證仍然有效。 請務必執行這項操作的 VM/電腦使用自我裝載 ir。 如果要安裝自我裝載的 IR 的位置 然後再次嘗試重新提交 ADF 的作業。 如果仍然失敗，請連絡 ADF 團隊尋求支援。 |
 | 2300         | 未經授權： Ambari 使用者名稱或密碼不正確  <br/><br/>未經授權： 使用者系統管理員在 Ambari 中，已遭鎖定   <br/><br/>403-禁止：存取遭拒 | 針對 HDInsight 提供的認證不正確，或已過期 | 請更正它們，然後重新部署連結的服務。 請確定認證作用在 HDInsight 上第一次開啟叢集 URI 在任何瀏覽器，並嘗試將登入。 如果它們沒有作用，您可以從 Azure 入口網站重設它們。 |
 | 2300,   2310 | 502-網頁伺服器作為閘道或 proxy 伺服器時收到無效的回應       <br/>錯誤的閘道 | 錯誤來自 HDInsight                               | 此錯誤來自 HDInsight 叢集。 請參閱[HDInsight 疑難排解員](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)與常見的錯誤。    <br/>對於 Spark 叢集它也導致因[這](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)。 <br/><br/>[其他連結](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502) |
-| 2300         | Hadoop 工作提交失敗。 作業:...」，叢集:...錯誤: {\"錯誤\":\"無法提交作業要求提供服務，如 templeton 服務正在提交作業要求過多。 請等候一段時間再重試此作業。 請參閱設定並行要求設定 templeton.parallellism.job.submit。 \  <br/><br/>Hadoop 工作提交失敗。 作業：161da5d4-6fa8-4ef4-a240-6b6428c5ae2f，叢集： https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/ 。   錯誤: {\"錯誤\":\"java.io.IOException: org.apache.hadoop.yarn.exceptions.YarnException:無法提交 YARN 的 application_1561147195099_3730: org.apache.hadoop.security.AccessControlException:佇列 root.joblauncher 已經有 500 的應用程式，無法接受提交的應用程式： application_1561147195099_3730\ | 在相同的時間太多工作提交給 HDInsight | 鐏芶淢提交至 HDI 的並行作業數目。 請如果由相同的活動所提交，參閱 ADF 活動的並行存取。 變更觸發程序，因此並行管線執行散佈經過一段時間。 也請參閱 HDInsight 文件以調整 「 templeton.parallellism.job.submit 」，正如其錯誤。 |
+| 2300         | Hadoop 工作提交失敗。 作業:...」，叢集:...錯誤: {\"錯誤\":\"無法提交作業要求提供服務，如 templeton 服務正在提交作業要求過多。 請等候一段時間再重試此作業。 請參閱設定並行要求設定 templeton.parallellism.job.submit。 \  <br/><br/>Hadoop 工作提交失敗。 作業：161da5d4-6fa8-4ef4-a240-6b6428c5ae2f，叢集： https: \/ /abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/。   錯誤: {\"錯誤\":\"java.io.IOException: org.apache.hadoop.yarn.exceptions.YarnException:無法提交 YARN 的 application_1561147195099_3730: org.apache.hadoop.security.AccessControlException:佇列 root.joblauncher 已經有 500 的應用程式，無法接受提交的應用程式： application_1561147195099_3730\ | 在相同的時間太多工作提交給 HDInsight | 鐏芶淢提交至 HDI 的並行作業數目。 請如果由相同的活動所提交，參閱 ADF 活動的並行存取。 變更觸發程序，因此並行管線執行散佈經過一段時間。 也請參閱 HDInsight 文件以調整 「 templeton.parallellism.job.submit 」，正如其錯誤。 |
 | 2303,   2347 | Hadoop 工作失敗，結束代碼為 '5'。 請參閱 'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' 以取得詳細資料。  <br/><br/>Hive 執行失敗，錯誤碼 'UserErrorHiveOdbcCommandExecutionFailure'。   請參閱 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' 以取得詳細資料 | 作業提交至 HDInsight，並在 HDInsight 上失敗 | 作業已提交至 HDInsight 成功。 它無法在叢集上。 請開啟的工作對 HDInsight 的 Ambari UI，並開啟記錄檔，或從儲存體的檔案開啟為錯誤訊息指出。錯誤的詳細資料會在該檔案。 |
 | 2328         | 處理要求時發生內部伺服器錯誤。 請重試要求，或連絡客戶支援 | 隨選 HDInsight 上發生的狀況。                              | HDInsight 佈建失敗時，此錯誤來自 HDInsight 服務。 請連絡 HDInsight 小組，並提供他們在隨選叢集名稱。 |
 | 2310         | java.lang.NullPointerException                               | 提交至 Spark 叢集作業時發生錯誤      | 這個例外狀況來自 HDInsight，並會隱藏實際的問題。   請連絡 HDInsight 小組以取得支援，並提供叢集名稱和活動執行的時間範圍。 |

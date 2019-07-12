@@ -22,13 +22,13 @@ ms.locfileid: "62122918"
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文提供 C# 程式碼範例，示範如何在建立或更新 Azure Blob 時觸發程序。 此程式碼範例會使用 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 1.x 版。 當您使用 Visual Studio [加入連接的服務]  對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 套件會隨即安裝、適當的 .NET 參考會隨即加入專案中，而儲存體帳戶的連接字串也會隨即在 App.config 檔案中更新。
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>如何在建立或更新 Blob 時觸發函數
 本節示範如何使用 **BlobTrigger** 屬性。
 
- **附註：** WebJobs SDK 會掃描要監看的的記錄檔，找出新的或變更的 Blob。 此程序的速度原本就很慢；可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。  如果您的應用程式需要立即處理 Blob，建議的方法是在您建立 Blob 時建立佇列訊息，並在處理 Blob 的函數上使用 **QueueTrigger** 屬性，而不是 **BlobTrigger** 屬性。
+ **注意：** WebJobs SDK 會掃描要監看的的記錄檔，找出新的或變更的 Blob。 此程序的速度原本就很慢；可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。  如果您的應用程式需要立即處理 Blob，建議的方法是在您建立 Blob 時建立佇列訊息，並在處理 Blob 的函數上使用 **QueueTrigger** 屬性，而不是 **BlobTrigger** 屬性。
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>適用於含有副檔名之 Blob 名稱的單一預留位置
 下列程式碼範例會將出現在 *input* 容器中的文字 Blob 複製到 *output* 容器：
@@ -78,7 +78,7 @@ ms.locfileid: "62122918"
 ## <a name="types-that-you-can-bind-to-blobs"></a>您可以繫結至 Blob 的類型
 您可將 **BlobTrigger** 屬性用於下列類型：
 
-* **字串**
+* **string**
 * **TextReader**
 * **Stream**
 * **ICloudBlob**

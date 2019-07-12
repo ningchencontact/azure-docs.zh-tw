@@ -55,10 +55,10 @@ ms.locfileid: "60999425"
    | 屬性 | 必要項 | 範例值 | 描述 | 
    |----------|----------|---------------|-------------|
    | Name | 是 | test-integration-account | 整合帳戶的名稱。 在此範例中，請使用指定的名稱。 | 
-   | 訂用帳戶 | 是 | <*Azure-subscription-name*> | 要使用的 Azure 訂用帳戶的名稱 | 
-   | 資源群組 | 是 | test-integration-account-rg | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 在此範例中，請使用指定的名稱建立新的資源群組。 | 
+   | Subscription | 是 | <*Azure-subscription-name*> | 要使用的 Azure 訂用帳戶的名稱 | 
+   | Resource group | 是 | test-integration-account-rg | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 在此範例中，請使用指定的名稱建立新的資源群組。 | 
    | 定價層 | 是 | 免費 | 您想要使用的定價層。 在此範例中，選取 [免費]  ，但如需詳細資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md)和[Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps/)。 | 
-   | 位置 | 是 | 美國西部 | 用來存放整合帳戶資訊的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 | 
+   | Location | 是 | 美國西部 | 用來存放整合帳戶資訊的區域。 請選取與邏輯應用程式相同的位置，或在與整合帳戶相同的位置中建立邏輯應用程式。 | 
    | Log Analytics 工作區 | 否 | 關閉 | 保留診斷記錄的 [關閉]  設定。 | 
    ||||| 
 

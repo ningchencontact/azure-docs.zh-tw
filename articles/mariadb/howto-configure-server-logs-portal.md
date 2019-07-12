@@ -17,7 +17,7 @@ ms.locfileid: "67065629"
 
 您可以設定、 列出及下載[MariaDB 慢速查詢記錄的 Azure 資料庫](concepts-server-logs.md)從 Azure 入口網站。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 MariaDB 的 Azure 資料庫伺服器](quickstart-create-mariadb-server-database-using-azure-portal.md)
 

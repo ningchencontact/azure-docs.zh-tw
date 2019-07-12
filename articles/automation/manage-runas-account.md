@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478556"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798496"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -45,7 +45,7 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 若要建立或更新執行身分帳戶，您必須擁有特定的權限和使用權限。 Azure Active Directory 中的全域管理員和訂用帳戶擁有者可以完成所有工作。 針對有劃分職責的情況，下表顯示工作、對等的 Cmdlet 及所需權限的清單：
 
-|Task|Cmdlet  |最低權限  |設定權限的位置|
+|工作|Cmdlet  |最低權限  |設定權限的位置|
 |---|---------|---------|---|
 |建立 Azure AD 應用程式|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | 應用程式開發人員角色<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>[首頁] > [Azure Active Directory] > [應用程式註冊] |
 |將認證新增至應用程式。|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | 應用程式系統管理員或全域管理員<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>[首頁] > [Azure Active Directory] > [應用程式註冊]|
@@ -75,7 +75,7 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 ## <a name="create-run-as-account-using-powershell"></a>使用 PowerShell 建立執行身分帳戶
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 下列清單提供在 PowerShell 中建立執行身分帳戶的需求：
 
@@ -104,7 +104,7 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 1. 將下列指令碼儲存到電腦。 在此範例中，請以檔案名稱 *New-RunAsAccount.ps1*進行儲存。
 
-   此指令碼會使用多個 Azure Resource Manager Cmdlet 來建立資源。 下表顯示 Cmdlet 及其所需權限。
+   此指令碼會使用多個 Azure Resource Manager Cmdlet 來建立資源。 上述[權限](#permissions)表 cmdlet 和其所需的權限。
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 ## <a name="limiting-run-as-account-permissions"></a>限制執行身分帳戶的權限
 
-為了針對 Azure 自動化中的資源控制自動化目標，系統預設會將訂用帳戶中的參與者權限授予執行身分帳戶。 如果您需要限制執行身分服務主體可執行的動作，可以將帳戶從訂用帳戶的參與者角色中移除，並以參與者身分將它新增至您要指定的資源群組。
+若要控制的自動化對 Azure 中的資源為目標，您可以執行[更新 AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8)若要變更現有的執行身分帳戶服務主體，以 「 PowerShell 資源庫中的指令碼建立和使用自訂角色定義。 此角色會具有以外的所有資源的權限[Key Vault](https://docs.microsoft.com/azure/key-vault/)。 
 
-在 Azure 入口網站中，選取 [訂用帳戶]  ，並選擇您自動化帳戶的訂用帳戶。 選取 [存取控制 (IAM)]  ，然後選取 [角色指派]  索引標籤。搜尋自動化帳戶的服務主體 (它看起來像是 \<AutomationAccountName\>_unique identifier)。 選取帳戶，然後按一下 [移除]  將它從訂用帳戶中移除。
+> [!IMPORTANT]
+> 執行後`Update-AutomationRunAsAccountRoleAssignments.ps1`指令碼，透過使用 RunAs 帳戶存取金鑰保存庫的 runbook 無法再運作。 在您的帳戶對 Azure 金鑰保存庫的呼叫中，您應該檢閱的 runbook。
+>
+> 若要啟用金鑰保存庫的存取，從您想要的 Azure 自動化 runbook [RunAs 帳戶新增到金鑰保存庫的權限](#add-permissions-to-key-vault)。
 
-![訂用帳戶參與者](media/manage-runas-account/automation-account-remove-subscription.png)
+如果您需要限制執行身分服務主體可以做什麼更進一步，您可以新增其他資源類型，以`NotActions`自訂角色定義。 下列範例會限制存取`Microsoft.Compute`。 如果您加入**NotActions**的角色定義，此角色將無法再存取任何計算資源。 若要深入了解角色定義，請參閱[了解適用於 Azure 資源的角色定義](../role-based-access-control/role-definitions.md)。
 
-若要將服務主體新增至資源群組，請在 Azure 入口網站中選取資源群組，然後選取 [存取控制 (IAM)]  。 選取 [新增角色指派]  ，以開啟 [新增角色指派]  頁面。 針對 [角色]  ，選取 [參與者]  。 在 [選取]  文字方塊中，輸入您執行身分帳戶的服務主體名稱，並從清單中選取。 按一下 [儲存]  儲存變更。 請針對您想要賦予「Azure 自動化執行身分」服務主體存取權的資源群組，完成這些步驟。
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+若要判斷是否在您執行身分帳戶所使用的服務主體**參與者**或自訂角色定義移至您的自動化帳戶，並在**帳戶設定**，選取**身分執行帳戶** > **Azure 執行身分帳戶**。 底下**角色**您會發現正在使用的角色定義。 
+
+[![](media/manage-runas-account/verify-role.png "確認執行身分帳戶角色")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+若要判斷針對多個訂用帳戶或自動化帳戶的自動化執行身分帳戶所使用的角色定義，您可以使用[核取 AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) PowerShell 資源庫中的指令碼。
+
+### <a name="add-permissions-to-key-vault"></a>新增至金鑰保存庫的權限
+
+如果您想要允許 Azure 自動化來管理金鑰保存庫和執行身分帳戶的服務主體使用自訂角色定義，您必須採取額外步驟來允許這種行為：
+
+* 權限授與金鑰保存庫
+* 設定存取原則
+
+您可以使用[Extend AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb)金鑰保存庫，讓您執行身分帳戶的權限，或瀏覽至 「 PowerShell 資源庫中的指令碼[授與金鑰保存庫的應用程式存取權](../key-vault/key-vault-group-permissions-for-apps.md)如需詳細資訊，在金鑰保存庫上設定權限。
 
 ## <a name="misconfiguration"></a>設定錯誤
 

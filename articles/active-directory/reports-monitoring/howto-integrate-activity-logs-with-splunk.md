@@ -24,7 +24,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597817"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>作法：使用 Azure 監視器的 Splunk 與整合 Azure Active Directory 記錄檔
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>HOW TO：使用 Azure 監視器的 Splunk 與整合 Azure Active Directory 記錄檔
 
 在此文章中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 Splunk 整合。 您首先會將記錄路由傳送至 Azure 事件中樞，然後將事件中樞與 Splunk 整合。
 

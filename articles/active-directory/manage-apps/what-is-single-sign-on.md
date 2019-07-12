@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 01477ad3a5a0c4643721815fa2b0943512c0c520
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190277"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723979"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "67190277"
 
 此流程圖可協助您決定哪一種單一登入方法最適合您的情況。
 
-![選擇單一登入方法](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
+![單一登入方法的決策流程圖](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
 下表摘要說明單一登入方法，並提供更多詳細資料的連結。
 
@@ -47,23 +47,24 @@ ms.locfileid: "67190277"
 | [密碼式](#password-based-sso) | 雲端和內部部署 | 當應用程式使用使用者名稱和密碼進行驗證時，請選擇密碼式。 密碼式單一登入可以使用網頁瀏覽器擴充功能或行動應用程式，安全儲存應用程式的密碼以及重新執行。 此方法會使用應用程式提供的現有登入程序，但讓系統管理員可以管理密碼。 |
 | [已連結](#linked-sign-on) | 雲端和內部部署 | 針對 單一登入另一個身分識別提供者服務中設定應用程式時，請選擇連結型登入。 此選項不會將單一登入新增至應用程式。 不過，應用程式可能已經使用另一個服務 (例如 Active Directory 同盟服務) 來實作單一登入。|
 | [Disabled](#disabled-sso) | 雲端和內部部署 | 當應用程式尚未準備好設定單一登入時，請選擇已停用的單一登入。 使用者每次啟動此應用程式時，都需要輸入其使用者名稱和密碼。|
-| [整合式 Windows 驗證 (IWA)](#integrated-windows-authentication-iwa-sso) | 僅內部部署 | 請針對使用[整合式 Windows 驗證 (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 的應用程式或宣告感知的應用程式，選擇 IWA 單一登入。 至於 IWA，應用程式 Proxy 連接器會使用 Kerberos 限制委派 (KCD) 來向應用程式驗證使用者。 | 
-| [標頭式](#header-based-sso) | 僅內部部署 | 當應用程式是使用標頭進行驗證時，請使用標頭式單一登入。 標頭式單一登入需要適用於 Azure AD 的 PingAccess。 應用程式 Proxy 會使用 Azure AD 來驗證使用者，然後透過連接器服務傳遞流量。  | 
+| [整合式 Windows 驗證 (IWA)](#integrated-windows-authentication-iwa-sso) | 僅內部部署 | 請針對使用[整合式 Windows 驗證 (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 的應用程式或宣告感知的應用程式，選擇 IWA 單一登入。 至於 IWA，應用程式 Proxy 連接器會使用 Kerberos 限制委派 (KCD) 來向應用程式驗證使用者。 |
+| [標頭式](#header-based-sso) | 僅內部部署 | 當應用程式是使用標頭進行驗證時，請使用標頭式單一登入。 標頭式單一登入需要適用於 Azure AD 的 PingAccess。 應用程式 Proxy 會使用 Azure AD 來驗證使用者，然後透過連接器服務傳遞流量。  |
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect 和 OAuth
-在開發新的應用程式時，請使用 OpenID Connect 和 OAuth 等新式通訊協定，來為應用程式實現跨多個裝置平台的最佳單一登入體驗。 OAuth 可讓使用者或系統管理員對受保護的資源 (例如 [MS Graph](/graph/overview)) [授與同意](configure-user-consent.md)。 我們可讓您輕鬆地對應用程式採用 [SDK](../develop/reference-v2-libraries.md)，此外，應用程式將會準備好可以開始使用 [MS Graph](/graph/overview)。
 
-如需詳細資訊，請參閱
+在開發新的應用程式時，請使用 OpenID Connect 和 OAuth 等新式通訊協定，來為應用程式實現跨多個裝置平台的最佳單一登入體驗。 使用者或系統管理員，可讓 OAuth[授與同意](configure-user-consent.md)針對受保護的資源，例如[Microsoft Graph](/graph/overview)。 我們提供簡單的採用[Sdk](../develop/reference-v2-libraries.md)應用程式，此外，您的應用程式就可以開始使用[Microsoft Graph](/graph/overview)。
+
+如需詳細資訊，請參閱：
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
-- [Azure Active Directory 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)。
+- [Microsoft 身分識別平台開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)。
 
 ## <a name="saml-sso"></a>SAML SSO
+
 使用 **SAML 單一登入**，Azure AD 會使用使用者的 Azure AD 帳戶向應用程式驗證。 Azure AD 與應用程式透過連線通訊協定，進行登入資訊通訊。 使用 SAML 單一登入時，您可以根據您在 SAML 宣告中定義的規則，將使用者對應至特定的應用程式角色。
 
 如果應用程式支援，請選擇 SAML 型單一登入。
-
 
 使用以下任一個通訊協定的應用程式都支援 SAML 式單一登入：
 
@@ -79,9 +80,10 @@ ms.locfileid: "67190277"
 如需有關 SAML 通訊協定的詳細資訊，請參閱[單一登入 SAML 通訊協定](../develop/single-sign-on-saml-protocol.md)。
 
 ## <a name="password-based-sso"></a>密碼式 SSO
-若使用密碼式登入，使用者在第一次存取應用程式時，要以使用者名稱和密碼登入應用程式。 第一次登入之後，Azure AD 就會向應用程式提供使用者名稱和密碼。 
 
-密碼式單一登入使用應用程式所提供的現有驗證程序。 當您為應用程式啟用密碼單一登入時，Azure AD 會收集應用程式的使用者名稱和密碼，並安全地儲存。 使用者認證會以加密的狀態儲存在目錄中。 
+若使用密碼式登入，使用者在第一次存取應用程式時，要以使用者名稱和密碼登入應用程式。 第一次登入之後，Azure AD 就會向應用程式提供使用者名稱和密碼。
+
+密碼式單一登入使用應用程式所提供的現有驗證程序。 當您為應用程式啟用密碼單一登入時，Azure AD 會收集應用程式的使用者名稱和密碼，並安全地儲存。 使用者認證會以加密的狀態儲存在目錄中。
 
 選擇密碼式單一登入的時機：
 
@@ -118,12 +120,12 @@ ms.locfileid: "67190277"
 
 當使用者管理認證時：
 
-- 使用者可以管理他們的密碼，視需要更新或刪除它們。 
+- 使用者可以管理他們的密碼，視需要更新或刪除它們。
 - 系統管理員仍可設定應用程式的新認證。
 
-
 ## <a name="linked-sign-on"></a>連結型登入
-已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。 
+
+已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。
 
 ### <a name="linked-sign-on-for-application-migration"></a>連結型登入應用程式移轉
 
@@ -133,47 +135,43 @@ ms.locfileid: "67190277"
 
 ## <a name="disabled-sso"></a>已停用的 SSO
 
-停用模式表示單一登入不會用於該應用程式。 當單一登入停用時，使用者可能需要驗證兩次。 首先，使用者向 Azure AD 驗證，然後再登入應用程式。 
+停用模式表示單一登入不會用於該應用程式。 當單一登入停用時，使用者可能需要驗證兩次。 首先，使用者向 Azure AD 驗證，然後再登入應用程式。
 
 使用已停用的單一登入模式：
 
 - 如果您尚未準備好將此應用程式與 Azure AD 單一登入整合，或
 - 如果您在測試應用程式的其他層面，或
-- 作為不需要使用者進行驗證之內部部署應用程式的一層安全性。 停用之後，使用者需要進行驗證。 
+- 作為不需要使用者進行驗證之內部部署應用程式的一層安全性。 停用之後，使用者需要進行驗證。
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>整合式 Windows 驗證 (IWA) SSO
 
 [應用程式 Proxy](application-proxy.md) 會對使用[整合式 Windows 驗證 (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 的應用程式，或宣告感知應用程式提供單一登入 (SSO)。 如果您的應用程式使用 IWA，則應用程式 Proxy 會使用 Kerberos 限制委派 (KCD) 來驗證應用程式。 對於信任 Azure Active Directory 的宣告感知應用程式，因為使用者已由 Azure AD 驗證，所以可以使用單一登入。
 
-選擇整合式 Windows 驗證單一登入模式：
+選擇 整合式 Windows 驗證單一登入模式，以提供單一登入進行驗證的內部部署應用程式使用 IWA。
 
-- 對使用 IWA 驗證的內部部署應用程式提供單一登入。 
-
-為內部部署應用程式設定 IWA，請參閱[適用於單一登入使用應用程式 Proxy 之應用程式的 Kerberos 限制委派](application-proxy-configure-single-sign-on-with-kcd.md)。 
+為內部部署應用程式設定 IWA，請參閱[適用於單一登入使用應用程式 Proxy 之應用程式的 Kerberos 限制委派](application-proxy-configure-single-sign-on-with-kcd.md)。
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>使用 KCD 單一登入的運作方式
 此圖表說明使用者存取採用 IWA 之內部部署應用程式時的流程。
 
-![Microsoft AAD 驗證流程圖](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Microsoft Azure AD 驗證流程圖](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. 使用者輸入 URL，以透過應用程式 Proxy 來存取在內部部署應用程式。
-2. 「應用程式 Proxy」將要求重新導向至 Azure AD 驗證服務，以進行預先驗證。 此時，Azure AD 會套用任何適用的驗證和授權原則，例如多重要素驗證。 若使用者通過驗證，Azure AD 會建立權杖並將它傳送給使用者。
-3. 使用者將權杖傳遞給「應用程式 Proxy」。
-4. 應用程式 Proxy 驗證權杖，並從權杖擷取使用者主體名稱 (UPN)。 它接著透過雙重驗證安全通道，將要求、UPN 和服務主體名稱 (SPN) 傳送到連接器。
-5. 連接器會使用內部部署 AD 中，模擬使用者取得 Kerberos 權杖給應用程式中的 Kerberos 限制委派 (KCD) 交涉。
-6. Active Directory 會將應用程式的 Kerberos 權杖傳送至連接器。
-7. 連接器會使用從 AD 接收的 Kerberos 權杖，將原始要求傳送至應用程式伺服器。
-8. 應用程式會將回應傳送至連接器，然後再傳回至應用程式 Proxy 服務，最後再傳回給使用者。
+1. 「應用程式 Proxy」將要求重新導向至 Azure AD 驗證服務，以進行預先驗證。 此時，Azure AD 會套用任何適用的驗證和授權原則，例如多重要素驗證。 若使用者通過驗證，Azure AD 會建立權杖並將它傳送給使用者。
+1. 使用者將權杖傳遞給「應用程式 Proxy」。
+1. 應用程式 Proxy 驗證權杖，並從權杖擷取使用者主體名稱 (UPN)。 它接著透過雙重驗證安全通道，將要求、UPN 和服務主體名稱 (SPN) 傳送到連接器。
+1. 連接器會使用內部部署 AD 中，模擬使用者取得 Kerberos 權杖給應用程式中的 Kerberos 限制委派 (KCD) 交涉。
+1. Active Directory 會將應用程式的 Kerberos 權杖傳送至連接器。
+1. 連接器會使用從 AD 接收的 Kerberos 權杖，將原始要求傳送至應用程式伺服器。
+1. 應用程式會將回應傳送至連接器，然後再傳回至應用程式 Proxy 服務，最後再傳回給使用者。
 
 ## <a name="header-based-sso"></a>標頭式 SSO
 
-標頭式單一登入適用於使用 HTTP 標頭進行驗證的應用程式。 此登入方法會使用名為 PingAccess 的協力廠商驗證服務。 使用者只需要向 Azure AD 驗證。 
+標頭式單一登入適用於使用 HTTP 標頭進行驗證的應用程式。 此登入方法會使用名為 PingAccess 的協力廠商驗證服務。 使用者只需要向 Azure AD 驗證。
 
-選擇標頭式單一登入的時機：
+應用程式 Proxy 和 PingAccess 設定應用程式時，請選擇標頭式單一登入。
 
-- 已為應用程式設定應用程式 Proxy 和 PingAccess
-
-若要設定標頭式驗證，請參閱[適用於使用應用程式 Proxy 之單一登入的標頭式驗證](application-proxy-configure-single-sign-on-with-ping-access.md)。 
+若要設定標頭式驗證，請參閱[適用於使用應用程式 Proxy 之單一登入的標頭式驗證](application-proxy-configure-single-sign-on-with-ping-access.md)。
 
 ### <a name="what-is-pingaccess-for-azure-ad"></a>什麼是 Azure AD 的 PingAccess？
 
@@ -183,15 +181,13 @@ ms.locfileid: "67190277"
 
 ### <a name="how-do-i-get-a-license-for-pingaccess"></a>如何取得 PingAccess 的授權？
 
-這種情況是透過 Azure AD 和 PingAccess 之間的合作關係提供，因此您會需要這兩種服務的授權。 不過，Azure AD Premium 訂用帳戶所包含的基本 PingAccess 授權最多可涵蓋 20 個應用程式。 如果您需要發佈 20 個以上的標頭應用程式，可以從 PingAccess 取得額外的授權。 
+這種情況是透過 Azure AD 和 PingAccess 之間的合作關係提供，因此您會需要這兩種服務的授權。 不過，Azure AD Premium 訂用帳戶所包含的基本 PingAccess 授權最多可涵蓋 20 個應用程式。 如果您需要發佈 20 個以上的標頭應用程式，可以從 PingAccess 取得額外的授權。
 
 如需詳細資訊，請參閱 [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)。
 
-
 ## <a name="related-articles"></a>相關文章
-* [整合 SaaS 應用程式與 Azure Active Directory 的教學課程](../saas-apps/tutorial-list.md)
-* [設定單一登入的教學課程](configure-single-sign-on-portal.md)
-* [管理應用程式存取簡介](what-is-access-management.md)
-* 下載連結：[單一登入部署計劃](https://aka.ms/SSODeploymentPlan) \(英文\)。
 
-
+- [整合 SaaS 應用程式與 Azure Active Directory 的教學課程](../saas-apps/tutorial-list.md)
+- [設定單一登入的教學課程](configure-single-sign-on-portal.md)
+- [管理應用程式存取簡介](what-is-access-management.md)
+- 下載連結：[單一登入部署計劃](https://aka.ms/SSODeploymentPlan)

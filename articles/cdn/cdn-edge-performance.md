@@ -7,24 +7,24 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61069925"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593907"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>在 Microsoft Azure CDN 中分析邊緣節點效能
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 邊緣效能分析詳細提供 CDN 的資訊流量和頻寬使用量。 這項資訊可用來產生趨勢統計資料，讓您深入了解您的資產如何放入快取中和傳遞到您的用戶端。 這進而可讓您產生策略來設法最佳化內容傳遞，以及決定應該解決什麼問題以充分利用 CDN。 如此一來，不僅能夠改善資料傳遞的效能，還能夠減少 CDN 成本。
 
 > [!NOTE]
@@ -147,7 +147,7 @@ ms.locfileid: "61069925"
    
     邊緣節點分析報告畫面隨即顯示。
 
-| 報告 | 描述 |
+| 報表 | 描述 |
 | --- | --- |
 | 每日摘要 |可讓您檢視一段指定期間內的每日流量趨勢。 此圖形上的每個橫條都代表特定日期。 橫條大小表示那一天發生的點擊總數。 |
 | 每小時摘要 |可讓您檢視一段指定期間內的每小時流量趨勢。 此圖形上的每個橫條都代表特定日期的單一小時。 橫條大小表示那一小時發生的點擊總數。 |
@@ -183,7 +183,7 @@ ms.locfileid: "61069925"
 | 502 錯誤 |包含的橫條圖可讓您檢視導致「502 錯誤的閘道」回應碼的前 10 名要求。 當伺服器和 HTTP Proxy 之間發生 HTTP 通訊協定失敗時，就會發生「502 錯誤的閘道」回應碼。 就我們的 CDN 而言，「502 錯誤的閘道」回應碼通常發生於客戶原始伺服器傳回無效回應給邊緣伺服器的情況。 無法剖析或不完整的回應就是無效。 |
 | 5xx 錯誤 |包含的橫條圖可讓您檢視導致 500 系列回應碼的前 10 名要求。  這份報告中排除「502 錯誤的閘道」和「504 閘道逾時」回應碼。 |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure CDN 概觀](cdn-overview.md)
 * [Microsoft Azure CDN 中的即時統計資料](cdn-real-time-stats.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)

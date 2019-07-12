@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763134"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620848"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -33,7 +33,7 @@ ms.locfileid: "60763134"
 
 為了在 Twitter 上即時找出熱門話題，公司需要即時分析重要話題的推文數量和情感。 換言之，他們需要以該社交媒體摘要為基礎的情感分析分析引擎。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在本教學課程中，您將會透過用戶端應用程式來連線到 Twitter，並尋找具有特定主題標籤 (可設定) 的推文。 若要執行應用程式並使用 Azure 串流分析來分析推文，您必須具備下列項目：
 
 * Azure 訂用帳戶
@@ -67,7 +67,7 @@ ms.locfileid: "60763134"
 
     ![建立新事件中樞的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 
 ### <a name="grant-access-to-the-event-hub"></a>授權存取事件中樞
@@ -85,7 +85,7 @@ ms.locfileid: "60763134"
 
     ![建立新事件中樞存取原則的刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  按一下頁面底部的 [新增]  。
+4.  按一下 [建立]  。
 
 5.  部署原則之後，在共用存取原則清單中按一下此原則。
 
@@ -206,7 +206,7 @@ ms.locfileid: "60763134"
 
     ![建立新的串流分析作業](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. 按一下頁面底部的 [新增]  。
+3. 按一下 [建立]  。
 
     即可建立作業，入口網站會顯示作業詳細資料。
 
@@ -227,14 +227,14 @@ ms.locfileid: "60763134"
 
      ![建立串流分析作業的新輸入](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. 按一下頁面底部的 [新增]  。
+3. 按一下 [建立]  。
 
 
 ## <a name="specify-the-job-query"></a>指定作業查詢
 
-串流分析支援說明轉換的簡單、宣告式查詢模型。 若要深入了解語言，請參閱 [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)。  本教學課程可協助您撰寫以及測試數個 Twitter 資料查詢。
+串流分析支援說明轉換的簡單、宣告式查詢模型。 若要深入了解語言，請參閱 [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)。  本教學課程可協助您撰寫以及測試數個 Twitter 資料查詢。
 
-為了比較提及不同話題的次數，您可以使用[輪轉視窗](https://msdn.microsoft.com/library/azure/dn835055.aspx)，依話題每隔五秒取得一次提及次數。
+為了比較提及不同話題的次數，您可以使用[輪轉視窗](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)，依話題每隔五秒取得一次提及次數。
 
 1. 關閉 [輸入]  刀鋒視窗 (如果尚未關閉)。
 
@@ -266,13 +266,13 @@ ms.locfileid: "60763134"
 
     如果您不是使用 `TwitterStream` 作為輸入的別名，請在查詢中以您的別名取代 `TwitterStream`。  
 
-    此查詢會使用 **TIMESTAMP BY** 關鍵字，在裝載中指定一個暫時運算時會用到的時間戳記欄位。 如果未指定這個欄位，則會使用每個事件到達事件中樞的時間，執行時間範圍設定作業。 若要深入了解，請參閱[串流分析查詢參考 (英文)](https://msdn.microsoft.com/library/azure/dn834998.aspx) 中的＜到達時間與應用程式時間之比較 (英文)＞一節。
+    此查詢會使用 **TIMESTAMP BY** 關鍵字，在裝載中指定一個暫時運算時會用到的時間戳記欄位。 如果未指定這個欄位，則會使用每個事件到達事件中樞的時間，執行時間範圍設定作業。 若要深入了解，請參閱[串流分析查詢參考 (英文)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 中的＜到達時間與應用程式時間之比較 (英文)＞一節。
 
     此查詢也可以使用 **System.Timestamp** 屬性存取每個視窗結束時的時間戳記。
 
 5. 按一下 [ **測試**]。 這時會針對您已取樣的資料執行查詢。
     
-6. 按一下 [檔案]  。 這會將查詢儲存在串流分析作業中。 (不會儲存範例資料。)
+6. 按一下 [儲存]  。 這會將查詢儲存在串流分析作業中。 (不會儲存範例資料。)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>使用資料流中的不同欄位進行實驗 
@@ -312,7 +312,7 @@ ms.locfileid: "60763134"
     
      ![串流分析作業的 [新輸出] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. 按一下頁面底部的 [新增]  。 
+4. 按一下 [建立]  。 
 
     Azure 會建立儲存體帳戶，並自動產生金鑰。 
 
@@ -348,7 +348,7 @@ ms.locfileid: "60763134"
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>建立另一個查詢來識別熱門話題
 
-另一個可用來了解 Twitter 情緒的查詢是根據[滑動視窗](https://msdn.microsoft.com/library/azure/dn835051.aspx)。 若要識別熱門話題，您需要找出在指定的時間內提及次數超過臨界值的話題。
+另一個可用來了解 Twitter 情緒的查詢是根據[滑動視窗](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)。 若要識別熱門話題，您需要找出在指定的時間內提及次數超過臨界值的話題。
 
 基於本教學課程的目的，您將會找出過去 5 秒內提及次數超過 20 次的話題。
 
@@ -365,7 +365,7 @@ ms.locfileid: "60763134"
     HAVING COUNT(*) > 20
     ```
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 5. 請確定 TwitterWpfClient 應用程式正在執行。 
 
@@ -379,5 +379,5 @@ ms.locfileid: "60763134"
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

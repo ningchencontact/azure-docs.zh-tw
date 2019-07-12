@@ -109,6 +109,6 @@ ms.locfileid: "60295188"
 
 ![補救](./media/flows/160.png "補救")
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
 

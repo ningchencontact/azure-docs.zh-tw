@@ -106,7 +106,7 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-列出執行中的模組。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
+列出執行中的模組。 新安裝之後，您應該會看到執行是唯一的模組**edgeAgent**。 之後您[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)，您會看到其他人。 
 
 ```powershell
 iotedge list

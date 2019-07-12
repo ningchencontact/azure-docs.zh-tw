@@ -950,7 +950,7 @@ else {
 #### <a name="triggers"></a>觸發程序
 
 * 在下`typeProperties`，兩個屬性會進行參數化。 第一個是`maxConcurrency`、 具有預設值，指定和型別會是`string`。 它具有預設的參數名稱的`<entityName>_properties_typeProperties_maxConcurrency`。
-* `recurrence`屬性也已參數化。 在其下方該層級的所有屬性會都指定為字串，預設值和參數名稱與參數化。 例外狀況是`interval`屬性，這是參數化為數字 類型，並為參數名稱後面加上`<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq`屬性的字串作業，且已參數化做為字串。 不過，`freq`屬性已參數化，沒有預設值。 名稱會縮短，並在後面加上。 例如： `<entityName>_freq`。
+* `recurrence`屬性也已參數化。 在其下方該層級的所有屬性會都指定為字串，預設值和參數名稱與參數化。 例外狀況是`interval`屬性，這是參數化為數字 類型，並為參數名稱後面加上`<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq`屬性的字串作業，且已參數化做為字串。 不過，`freq`屬性已參數化，沒有預設值。 名稱會縮短，並在後面加上。 例如： `<entityName>_freq` 。
 
 #### <a name="linkedservices"></a>LinkedServices
 

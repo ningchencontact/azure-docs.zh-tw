@@ -135,7 +135,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 所產生的第一個復原點會具有完整複本。 所有後續復原點則具有差異變更。
 
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>增長復原點的保留週期是否會增加儲存體成本？
-是。 如果您將保留週期從 24 小時增加到 72 小時，Site Recovery 將把復原點再多儲存 48 小時。 增加的時間將產生儲存體費用。 例如，如果單一復原點有 10 GB 的差異變更，而每 GB 的成本為每個月 $0.16 美元，則每個月就會有 $1.6 * 48 美元的額外費用。
+是的。 如果您將保留週期從 24 小時增加到 72 小時，Site Recovery 將把復原點再多儲存 48 小時。 增加的時間將產生儲存體費用。 例如，如果單一復原點有 10 GB 的差異變更，而每 GB 的成本為每個月 $0.16 美元，則每個月就會有 $1.6 * 48 美元的額外費用。
 
 ## <a name="multi-vm-consistency"></a>多 VM 一致性
 
@@ -184,7 +184,7 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 [最新 (最低 RPO)]  選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>**最新 (最低 RPO)** 復原點對容錯移轉 RTO 是否有影響？
-是。 Site Recovery 會在容錯移轉前處理所有待處理的資料，因此與其他選項相比，此選項具有較高的復原時間目標 (RTO)。
+是的。 Site Recovery 會在容錯移轉前處理所有待處理的資料，因此與其他選項相比，此選項具有較高的復原時間目標 (RTO)。
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>復原點中的**最新處理**選項是什麼意思？
 [最近處理]  選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]  。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
@@ -222,7 +222,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ## <a name="reprotection-and-failback"></a>重新保護和容錯回復
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>從主要區域容錯移轉至災害復原區域後，DR 區域中的 VM 是否會自動受到保護？
-沒有。 當您將 Azure VM 從一個區域[容錯移轉](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)至另一個區域時，VM 會在 DR 區域中以未受保護的狀態啟動。 若要將 VM 容錯回復到到主要區域，您必須[重新保護](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)次要區域中的 VM。
+資料分割 當您將 Azure VM 從一個區域[容錯移轉](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)至另一個區域時，VM 會在 DR 區域中以未受保護的狀態啟動。 若要將 VM 容錯回復到到主要區域，您必須[重新保護](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)次要區域中的 VM。
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>進行重新保護時，Site Recovery 是否會從次要區域將完整的資料複寫到主要區域？
 這需視情況而定。 例如，如果來源區域 VM 存在，便只會同步來源磁碟與目標磁碟之間的變更。 Site Recovery 會藉由比較磁碟來計算出差異，然後才傳輸資料。 此程序通常需要幾小時的時間。 如需有關在重新保護期間會發生之情況的詳細資訊，請參閱[重新保護已容錯移轉到主要區域的 Azure VM]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)。

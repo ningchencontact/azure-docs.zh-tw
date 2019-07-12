@@ -6,12 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 4c6ccce493ffb25d7a2237e0d98a2b71b35c92c1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410235"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620980"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>部署和設定使用 Azure PowerShell 的 Azure 防火牆
 
@@ -46,7 +47,7 @@ ms.locfileid: "65410235"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此程序需要您在本機執行 PowerShell。 您必須已安裝 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 驗證 PowerShell 版本之後，請執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
@@ -222,7 +223,7 @@ $NIC | Set-AzNetworkInterface
 
 1. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，然後登入。 在這裡，開啟 遠端桌面連線**Srv 工作**私用 IP 位址和登入。
 
-3. 在  **SRV 工作**、 開啟 PowerShell 視窗並執行下列命令：
+3. 開啟 PowerShell 視窗並執行下列命令：  。
 
    ```
    nslookup www.google.com
@@ -241,7 +242,7 @@ $NIC | Set-AzNetworkInterface
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Www.google.com 要求，應該會成功，且 www.microsoft.com 要求應該會失敗。 這示範了您的防火牆規則，如預期般運作。
+   www.google.com 要求，應該會成功，且 www.microsoft.com 要求應該會失敗。 這示範了您的防火牆規則，如預期般運作。
 
 因此，現在您已確認防火牆規則正在運作：
 

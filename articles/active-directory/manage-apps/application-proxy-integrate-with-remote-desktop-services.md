@@ -132,8 +132,8 @@ ms.locfileid: "67108472"
 預先驗證流程的安全性優點多於通道流程。 使用預先驗證中，您可以使用 Azure AD 驗證功能，例如單一登入、 條件式存取和雙步驟驗證為您的內部部署資源。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
-1. 在 [Publish the RD host endpoint] [發佈 RD 主機端點](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 **通道**。
-2. 在 [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy)(將 RDS 流量導向應用程式 Proxy) 中，完全略過步驟 8。
+1. 在 [[Publish the RD host endpoint] \(發佈 RD 主機端點)](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 [通道]  。
+2. 在 [[Direct RDS traffic to Application Proxy] \(將 RDS 流量導向應用程式 Proxy)](#direct-rds-traffic-to-application-proxy) 中，完全略過步驟 8。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -109,7 +109,7 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>問：Log Analytics 是否有內部部署版本？
 
-答：沒有。 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
+答：資料分割 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
 

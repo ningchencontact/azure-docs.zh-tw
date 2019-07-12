@@ -66,7 +66,7 @@ ms.locfileid: "65969072"
     ![分組時可用標記的第二個清單範例](./media/understanding-cost-reports/groups-tags02.png)
 
     在成本配置報告中，標記型群組類別中的群組可能包括：
-      - 標記
+      - Tags
       - 資源群組標記
       - Cloudyn 成本實體標記
       - 成本配置用途的訂用帳戶標記類別
@@ -74,7 +74,7 @@ ms.locfileid: "65969072"
    範例可能包括：
    - 成本中心
    - department
-   - Application
+   - 應用程式
    - 環境
    - 成本代碼
 

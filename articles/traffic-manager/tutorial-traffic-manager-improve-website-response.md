@@ -34,7 +34,7 @@ ms.locfileid: "66258365"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要查看流量管理員的運作，本教學課程會要求您部署下列項目：
 
@@ -141,11 +141,11 @@ ms.locfileid: "66258365"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [效能]  路由方法。                                       |
-    | 訂用帳戶            | 選取您的訂用帳戶。                          |
-    | 資源群組          | 選取的資源群組*myResourceGroupTM1*。 |
-    | 位置                | 選取 [美國東部]  。 這項設定是指資源群組的位置，完全不影響將部署到全球的流量管理員設定檔。                              |
+    | Subscription            | 選取您的訂用帳戶。                          |
+    | Resource group          | 選取的資源群組*myResourceGroupTM1*。 |
+    | Location                | 選取 [美國東部]  。 這項設定是指資源群組的位置，完全不影響將部署到全球的流量管理員設定檔。                              |
     |
 
     ![建立流量管理員設定檔](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -160,8 +160,8 @@ ms.locfileid: "66258365"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 類型                    | Azure 端點                                   |
-    | Name           | myEastUSEndpoint                                        |
+    | type                    | Azure 端點                                   |
+    | 名稱           | myEastUSEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源]  中，選取名為 *myIISVMEastUS-ip* 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |        |           |

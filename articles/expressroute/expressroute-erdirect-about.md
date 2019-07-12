@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367623"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807485"
 ---
 # <a name="about-expressroute-direct"></a>關於 ExpressRoute Direct
 
-ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位置，直接連線至 Microsoft 的全球網路。 ExpressRoute Direct 提供雙向 100-Gbps 連線，且支援大規模主動/主動連線。
+ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位置，直接連線至 Microsoft 的全球網路。 ExpressRoute 直接提供雙重 100 Gbps 或 10 Gbps 連線能力，可支援大規模的主動/主動連線。
 
 ExpressRoute Direct 提供的主要功能包括但不限於：
 
@@ -38,9 +38,9 @@ ExpressRoute Direct 提供的主要功能包括但不限於：
 
 | **使用服務提供者的 ExpressRoute** | **ExpressRoute Direct** | 
 | --- | --- |
-| 利用服務提供者，可快速登入並連線至現有的基礎結構 | 需要 100-Gbps 的基礎結構且完整管理每一層
+| 利用服務提供者，可快速登入並連線至現有的基礎結構 | 需要 100 Gbps/10 Gbps 基礎結構和完整管理的所有層級
 | 與數百個提供者整合，包括乙太網路和 MPLS | 法定產業和大規模資料擷取具有直接/專用容量 |
-| 從 50 Mbps 到 10 Gbps 的線路 SKU | 客戶可以選取下列線路 SKU 的組合：5 Gbps、10 Gbps、40 Gbps、100 Gbps，上限為總共 200 Gbps
+| 從 50 Mbps 到 10 Gbps 的線路 SKU | 客戶可以直接選取下列的 Sku 上 100 Gbps ExpressRoute 線路的組合： <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> 客戶可以直接選取下列的 Sku 上 10 Gbps ExpressRoute 線路的組合：<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | 適用於單一租用戶 | 適用於單一租用戶/雲端服務提供者/多個業務單位
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 線路
@@ -53,7 +53,28 @@ Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連
 
 ## <a name="circuit-skus"></a>線路 SKU
 
-ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨量資料服務的案例。 ExpressRoute Direct 的 ExpressRoute 線路現在也支援 **40 Gbps** 與 **100 Gbps** 的線路 SKU。 實體連接埠配對只有 **100 Gbps**，而且可擁有多個頻寬為 5 Gbps、10 Gbps、40 Gbps、100 Gbps 而最多至 200 Gbps 的多個虛擬線路的任意組合。 
+ExpressRoute Direct 支援將大量資料擷取至 Azure 儲存體與其他巨量資料服務的案例。 ExpressRoute 線路上 100 Gbps ExpressRoute 直接現在也支援**40 Gbps**並**100 Gbps**線路的 Sku。 實體連接埠組合**100 或 10 Gbps**只可以有多個虛擬電路。 線路大小：
+
+| **100 Gbps ExpressRoute Direct** | **10 Gbps ExpressRoute Direct** | 
+| --- | --- |
+| **訂閱頻寬**:200 Gbps | **訂閱頻寬**:20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+## <a name="technical-requirements"></a>技術需求
+
+* Microsoft Enterprise Edge (MSEE) 路由器介面：
+    * 雙重 10 或 100 Gb 乙太網路連接埠只會跨路由器配對
+    * 單一模式 LR 光纖連線
+    * IPv4 和 IPv6
+    * IP MTU 1500 個位元組
+
+* 交換器/路由器層 2/3 層連線能力：
+    * 必須支援 1 802.1Q (Dot1Q) 標記或兩個標記 (QinQ) 802.1Q 標記封裝
+    * Ethertype = 0x8100
+    * 必須新增的是外部的 VLAN 標記 (STAG) 依據 Microsoft-所指定 VLAN ID*僅適用於 QinQ*
+    * 必須支援多個 BGP 工作階段 (Vlan) 每個連接埠和裝置
+    * IPv4 和 IPv6 連線能力。 *適用於 IPv6 將會不建立任何額外的子介面。IPv6 位址將會新增至現有的子介面*。 
+    * 選用：[雙向轉送偵測 (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd)支援，這預設上所有的私用對等互連在 ExpressRoute 線路上設定
 
 ## <a name="vlan-tagging"></a>VLAN 標記
 

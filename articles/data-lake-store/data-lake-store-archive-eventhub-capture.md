@@ -22,11 +22,11 @@ ms.locfileid: "60879462"
 
 了解如何使用 Azure Data Lake Storage Gen1 來擷取 Azure 事件中樞所收到的資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* **Azure Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)。
+* **Azure Data Lake Storage Gen1 帳戶**。 如需有關如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)。
 
 *  **事件中樞命名空間**。 如需相關指示，請參閱[建立事件中樞命名空間](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)。 請確定 Data Lake Storage Gen1 帳戶和事件中樞命名空間位於相同的 Azure 訂用帳戶中。
 
@@ -80,7 +80,7 @@ ms.locfileid: "60879462"
 
     ![為 Data Lake Storage Gen1 資料夾指派權限](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "為 Data Lake Storage Gen1 資料夾指派權限")
     
-    按一下 [確定]  。 
+    按一下 [確定 **Deploying Office Solutions**]。 
 
 ## <a name="configure-event-hubs-to-capture-data-to-data-lake-storage-gen1"></a>設定事件中樞，以將資料擷取到 Data Lake Storage Gen1
 
@@ -104,7 +104,7 @@ ms.locfileid: "60879462"
 
     e. 將 [擷取檔案名稱格式範例]  保留為預設值。 此選項會掌管在擷取資料夾下建立的資料夾結構。
 
-    f. 按一下頁面底部的 [新增]  。
+    f. 按一下 [建立]  。
 
 ## <a name="test-the-setup"></a>測試設定
 
@@ -122,6 +122,6 @@ ms.locfileid: "60879462"
 一旦資料位於 Data Lake Storage Gen1，您就可以執行分析作業來處理資料並進行大量運算。 請參閱 [USQL Avro 範例](https://github.com/Azure/usql/tree/master/Examples/AvroExamples)，以了解如何使用 Azure Data Lake Analytics 來執行此動作。
   
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 * [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 7/8/2019
 ms.author: raiye
-ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c3cd0e07e207a8b5ae1c07d39c8829a531c743
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743021"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721135"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
-提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」  客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
+提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您設定角色來使用「自動化」  客體 OS 更新，如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述，則不一定要閱讀此頁面。
 
 > [!IMPORTANT]
 > 此頁面適用於客體作業系統上執行的雲端服務 Web 角色和背景工作角色。 不適用  於 IaaS 虛擬機器。
@@ -39,9 +39,12 @@ ms.locfileid: "66743021"
 >
 >
 
-不確定如何更新客體作業系統嗎？ 請查看[這裡][cloud updates]。
+不確定如何更新客體作業系統嗎？ 請檢查[這][cloud updates]出。
 
 ## <a name="news-updates"></a>新聞更新
+
+###### <a name="july-8-2019"></a>**2019 年 7 月 8日日**
+6 月客體 OS 已發行。
 
 ###### <a name="june-6-2019"></a>**2019 年 6 月 6日日**
 5 月份客體作業系統已發行。
@@ -78,10 +81,10 @@ ms.locfileid: "66743021"
 ## <a name="family-6-releases"></a>系列 6 版次
 **Windows Server 2019**
 
-安裝的 .NET Framework：3.5、4.7.2
+安裝的 .NET Framework：3.5, 4.7.2, 4.8
 
 > [!NOTE]
-> 您可以從[這裡][Windows Azure SDK]下載 Windows Azure SDK for .NET - 3.0。
+> Windows Azure SDK for.NET-3.0 可下載[此處][Windows Azure SDK]。
 >
 >安裝步驟：
 >1. 請先解除安裝任何舊版的 MicrosoftAzureAuthoringTools*.msi
@@ -95,8 +98,9 @@ ms.locfileid: "66743021"
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-6.8_201906-01 |2019 年 7 月 8日日 |Post 6.10 |
 | WA-GUEST-OS-6.7_201905-01 |2019 年 6 月 6日日 |Post 6.9 |
-| WA-GUEST-OS-6.6_201904-01 |2019 5 月 7日日 |Post 6.8 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |2019 5 月 7日日 |2019 年 7 月 8日日 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日日 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |2019 年 3 月 12日 |2019 5 月 7日日 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |2019 年 2 月 5 日 |2019 年 3 月 26 日 |
@@ -106,7 +110,7 @@ ms.locfileid: "66743021"
 ## <a name="family-5-releases"></a>系列 5 版次
 **Windows Server 2016**
 
-安裝的 .NET Framework：3.5、4.6.2
+安裝的 .NET Framework：3.5, 4.6.2, 4.7.2, 4.8
 
 > [!NOTE]
 > 作業系統系列 5 的 RDP 密碼至少需要 10 個字元。
@@ -115,8 +119,9 @@ ms.locfileid: "66743021"
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-5.32_201906-01 |2019 年 7 月 8日日 |Post 5.34 |
 | WA-GUEST-OS-5.31_201905-01 |2019 年 6 月 6日日 |Post 5.33 |
-| WA-GUEST-OS-5.30_201904-01 |2019 5 月 7日日 |Post 5.32 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |2019 5 月 7日日 |2019 年 7 月 8日日 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日日 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |2019 年 3 月 12日 |2019 5 月 7日日 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |2019 年 2 月 5 日 |2019 年 3 月 26 日 |
@@ -128,12 +133,13 @@ ms.locfileid: "66743021"
 ## <a name="family-4-releases"></a>系列 4 版次
 **Windows Server 2012 R2**
 
-安裝的 .NET Framework：3.5、4.5.1
+安裝的 .NET Framework：3.5, 4.5.1, 4.5.2
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-4.67_201906-01 |2019 年 7 月 8日日 |Post 4.69 |
 | WA-GUEST-OS-4.66_201905-01 |2019 年 6 月 6日日 |Post 4.68 |
-| WA-GUEST-OS-4.65_201904-01 |2019 5 月 7日日 |Post 4.67 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |2019 5 月 7日日 |2019 年 7 月 8日日 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日日 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |2019 年 3 月 12日 |2019 5 月 7日日 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |2019 年 2 月 5 日 |2019 年 3 月 26 日 |
@@ -149,8 +155,9 @@ ms.locfileid: "66743021"
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |6 月 67 2019 |Post 3.75 |
-| WA-GUEST-OS-3.72_201904-01 |2019 5 月 7日日 |Post 3.74 |
+| WA-GUEST-OS-3.74_201906-01 |2019 年 7 月 8日日 |Post 3.76 |
+| WA-GUEST-OS-3.73_201905-01 |2019 年 6 月 6日日 |Post 3.75 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |2019 5 月 7日日 |2019 年 7 月 8日日 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日日 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |2019 年 3 月 12日 |2019 5 月 7日日 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |2019 年 2 月 5 日 |2019 年 3 月 26 日 |
@@ -162,12 +169,13 @@ ms.locfileid: "66743021"
 ## <a name="family-2-releases"></a>系列 2 版次
 **Windows Server 2008 R2 SP1**
 
-安裝的 .NET Framework：3.5 (包含 2.0 和 3.0)
+安裝的 .NET Framework：3.5 （包括 2.0 和 3.0） 4.5
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-2.87_201906-01 |2019 年 7 月 8日日 |Post 2.89 |
 | WA-GUEST-OS-2.86_201905-01 |2019 年 6 月 6日日 |Post 2.88 b |
-| WA-GUEST-OS-2.85_201904-01 |2019 5 月 7日日 |Post 2.87 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |2019 5 月 7日日 |2019 年 7 月 8日日 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日日 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |2019 年 3 月 12日 |2019 5 月 7日日 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |2019 年 2 月 5 日 |2019 年 3 月 26 日 |
@@ -177,10 +185,10 @@ ms.locfileid: "66743021"
 |~~WA-GUEST-OS-2.78_201809-01~~ |2018 年 10 月 12 日 |2018 年 12 月 14 日 |
 
 ## <a name="msrc-patch-updates"></a>MSRC 修補程式更新
-[這裡][patches]提供每月客體 OS 版次隨附的修補程式清單。
+會提供每月的客體 OS 版次隨附的修補程式的清單[此處][patches]。
 
 ## <a name="sdk-support"></a>SDK 支援
-雖然 [Azure SDK 的淘汰原則][retire policy sdk]指出只支援 2.2 以上的版本，但特定客體 OS 系列仍允許您使用更舊的版本。 您應該一律使用最新版本的支援 SDK。
+即使[適用於 Azure SDK 的淘汰原則][retire policy sdk]表示，只有 2.2 以上的版本支援的特定客體 OS 系列可讓您使用較早版本。 您應該一律使用最新版本的支援 SDK。
 
 | 客體 OS 系列 | 相容的 SDK 版本 |
 | --- | --- |
@@ -196,7 +204,7 @@ ms.locfileid: "66743021"
 
 **停用**日期和**到期**日期之間的時間範圍，提供一個緩衝區，讓您可以輕鬆從一個客體 OS 轉換到到較新的客體 OS。 如果您使用「自動化」  作為客體 OS，則一律會是最新版本，不必擔心過期問題。
 
-當**到期**日期已過，任何仍在使用該客體 OS 的雲端服務將會遭到停止、刪除或強制升級。 您可以從[這裡][retirepolicy]閱讀更多有關淘汰原則的資訊。
+當**到期**日期已過，任何仍在使用該客體 OS 的雲端服務將會遭到停止、刪除或強制升級。 您可以閱讀更多有關淘汰原則[此處][retirepolicy]。
 
 ## <a name="guest-os-family-version-explanation"></a>客體 OS 系列版本說明
 客體作業系統系列以 Microsoft Windows Server 的發行版本為基礎。 客體作業系統是指執行 Azure 雲端服務的基礎作業系統。 每一個客體作業系統都有系列、版本和版次號碼。
@@ -204,7 +212,7 @@ ms.locfileid: "66743021"
 * **Guest OS family**  
   是客體 OS 所根據的 Windows Server 作業系統版次。 例如，「系列 3」  以 Windows Server 2012 為基礎。
 * **客體 OS 版本**  
-  客體 OS 系列映像特定，加上新客體 OS 版本產生當天可用的相關 [Microsoft Security Response Center (MSRC)][msrc] 修補程式。 不一定包含所有修補程式。
+  客體 OS 系列映像特定，加上相關[Microsoft Security Response Center (MSRC)][msrc]在新的客體 OS 版本產生的當天可用的修補程式。 不一定包含所有修補程式。
 
     編號從 0 開始，每增加一組新的更新就加 1。 必要時才會顯示尾端的零。 亦即，2.10 版是與 2.1 版不同且更新的版本。
 * **客體 OS 版次**  
@@ -225,12 +233,12 @@ Microsoft Azure 正持續發行更新。 客體作業系統只是這過程中的
 
 新版次的客體作業系統發行時，需要一段時間才會完全傳播到整個 Azure。 當服務更新到新的客體作業系統時，它們會重新啟動，讓更新網域生效。 設為「自動」更新的服務會最先取得一個版次。 更新之後，您在 Azure 入口網站中會看到您的服務列出新的客體作業系統版本。 此期間可能再度發行版次。 某些版本的部署期間可能很長，而且在官方發行日期之後，可能經過許多個星期都還不會進行自動升級重新啟動。 當客體作業系統推出時，您可以從入口網站或組態檔中明確地選擇該版本。
 
-如需有關重新啟動的大量實用資訊，以及客體和主機 OS 更新的更多技術細節線索，請參閱標題為[角色執行個體因作業系統升級而重新啟動 (英文)][restarts] 的 MSDN 部落格文章。
+大量的重新啟動與客體和主機 OS 更新的詳細資訊技術細節線索的重要資訊，請參閱 MSDN 部落格文章[角色執行個體重新啟動因作業系統升級而][restarts]。
 
-如果您手動更新客體 OS，請參閱[客體 OS 淘汰原則][retirepolicy]以取得詳細資訊。
+如果您手動更新客體 OS，請參閱[客體 OS 淘汰原則][retirepolicy]如需詳細資訊。
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>客體 OS 支援能力和淘汰原則
-如需客體 OS 可支援性和淘汰原則的說明，請參閱[這裡][retirepolicy]。
+客體 OS 可支援性和淘汰原則[此處][retirepolicy]。
 
 [cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [客體 OS 更新 RSS 摘要]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml

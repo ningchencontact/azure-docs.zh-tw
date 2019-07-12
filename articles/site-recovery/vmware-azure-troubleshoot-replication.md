@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ed04c21fc5f3aecb91483dbd1eb7ca5fbf47c3e9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491680"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805969"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 
@@ -133,7 +133,63 @@ Site recovery[處理序伺服器](vmware-physical-azure-config-process-server-ov
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>錯誤 ID 78144-沒有最近的 'XXX' 分鐘內為 vm 可用的應用程式一致復原點
 
+以下列出一些最常見的問題
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>原因 1：中的已知問題 SQL server 2008/2008 R2 
+**如何修正**:沒有已知的問題，與 SQL server 2008/2008 R2。 請參閱這篇知識庫文章[Azure Site Recovery 代理程式或其他非元件 VSS 備份裝載 SQL Server 2008 R2 的伺服器失敗](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>原因 2：在裝載具有 AUTO_CLOSE 資料庫使用 SQL Server 執行個體的任何版本的伺服器上的 azure Site Recovery 作業失敗 
+**如何修正**:請參閱 Kb[文章](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>原因 3：在 SQL Server 2016 和 2017年的已知的問題
+**如何修正**:請參閱 Kb[文章](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### <a name="more-causes-due-to-vss-related-issues"></a>因為 VSS 的詳細原因相關的問題：
+
+若要進一步疑難排解，請檢查來源電腦，以取得失敗的確切的錯誤程式碼上的檔案：
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+如何在檔案中找出錯誤？
+在編輯器中開啟 vacp.log 檔案搜尋字串"vacpError 」
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+在上述範例中**2147754994**是告訴您有關失敗，如下所示的錯誤程式碼
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 寫入器不會安裝-錯誤 2147221164 
+
+*如何修正*:若要產生應用程式一致性標記，Azure Site Recovery 會使用 Microsoft 磁碟區陰影複製服務 (VSS)。 它會安裝 VSS 提供者進行作業應用程式一致性快照集。 此 VSS 提供者會安裝為服務。 如果未安裝 VSS 提供者服務，應用程式一致性快照集建立失敗與錯誤識別碼 0x80040154 「 類別未登錄 」。 </br>
+請參閱[VSS 寫入器安裝疑難排解文章](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 寫入器已停用-錯誤 2147943458
+
+**如何修正**:若要產生應用程式一致性標記，Azure Site Recovery 會使用 Microsoft 磁碟區陰影複製服務 (VSS)。 它會安裝 VSS 提供者進行作業應用程式一致性快照集。 此 VSS 提供者會安裝為服務。 如果 VSS 提供者服務已停用，應用程式一致性快照集建立失敗與錯誤識別碼 「 指定的服務已停用和不能是 started(0x80070422) 」。 </br>
+
+- VSS 已停用，
+    - 請確認 VSS 提供者服務的啟動類型設為**自動**。
+    - 重新啟動下列服務：
+        - VSS 服務
+        - Azure Site Recovery VSS 提供者
+        - VDS 服務
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS 提供者 NOT_REGISTERED 錯誤 2147754756
+
+**如何修正**:若要產生應用程式一致性標記，Azure Site Recovery 會使用 Microsoft 磁碟區陰影複製服務 (VSS)。 檢查與否，是否要安裝 Azure Site Recovery VSS 提供者服務。 </br>
+
+- 重試安裝 「 提供者使用下列命令：
+- 解除安裝現有的提供者：C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- 重新安裝：C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+請確認 VSS 提供者服務的啟動類型設為**自動**。
+    - 重新啟動下列服務：
+        - VSS 服務
+        - Azure Site Recovery VSS 提供者
+        - VDS 服務
 
 ## <a name="next-steps"></a>後續步驟
 

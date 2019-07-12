@@ -4,7 +4,7 @@ description: 了解如何在您的 Azure 環境中備份及復原 Oracle Databas
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60566679"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707726"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫
 
@@ -30,7 +30,7 @@ ms.locfileid: "60566679"
 
 ## <a name="prepare-the-environment"></a>準備環境
 
-### <a name="step-1-prerequisites"></a>步驟 1：必要條件
+### <a name="step-1-prerequisites"></a>步驟 1：先決條件
 
 *   若要執行備份和復原程序，您必須先建立具有已安裝 Oracle Database 12c 執行個體的 Linux VM。 您用來建立 VM 的 Marketplace 映像名為 Oracle:Oracle-Database-Ee:12.1.0.2:latest  。
 

@@ -111,7 +111,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
 
 > [!NOTE]
-> 若要指定要使用的節點數目上限，您會通常設定`node_count`的節點數目。 目前沒有 (04/04/2019) 的錯誤會讓這無法運作。 因應措施，使用`amlcompute._cluster_max_node_count`執行組態的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5`。
+> 若要指定要使用的節點數目上限，您會通常設定`node_count`的節點數目。 目前沒有 (04/04/2019) 的錯誤會讓這無法運作。 因應措施，使用`amlcompute._cluster_max_node_count`執行組態的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。

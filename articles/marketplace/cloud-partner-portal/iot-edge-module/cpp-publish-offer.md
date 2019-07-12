@@ -28,7 +28,7 @@ ms.locfileid: "64942054"
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **發佈步驟**           | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept>    | **說明**                                                            |
+|  **發佈步驟**           | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept>    | **描述**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 檢查必要條件         | 15 分鐘   | 檢查供應項目資訊和供應項目設定。                        |
 | 認證                  | 2 週 | 供應項目將由 Azure 認證團隊負責分析。 此步驟會掃描病毒、 惡意程式碼，並檢查安全合規性和安全性問題。 它也會確認此 IoT Edge 模組供應項目是否符合所有的資格條件 (請參閱[先決條件](./cpp-prerequisites.md)及[準備您的技術資產](./cpp-create-technical-assets.md))。 若發現問題，將提供意見反應。 |

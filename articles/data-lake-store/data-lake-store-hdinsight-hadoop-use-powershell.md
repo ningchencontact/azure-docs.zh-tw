@@ -49,7 +49,7 @@ ms.locfileid: "66161403"
 * 建立具有針對 Data Lake Storage Gen1 之驗證的 HDInsight 叢集
 * 在叢集上執行測試工作
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -269,7 +269,7 @@ ms.locfileid: "66161403"
 
 您也可以使用 `hdfs dfs -put` 命令，將一些檔案上傳至 Data Lake Storage Gen1，然後使用 `hdfs dfs -ls` 來確認是否成功上傳檔案。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [入口網站：建立 HDInsight 叢集以使用 Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

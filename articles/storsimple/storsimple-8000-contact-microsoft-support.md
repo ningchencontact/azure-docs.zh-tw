@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
-ms.author: alkohli;
-ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: alkohli
+ms.openlocfilehash: 5394feff80c1df8b7a6cf7f6e6ea56678f575823
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606857"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612515"
 ---
 # <a name="contact-microsoft-support"></a>連絡 Microsoft 支援服務
 
@@ -45,7 +45,7 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
    1. 從 [問題類型]  下拉式清單中，選取 [技術]  。
    2. 自動會選擇目前的 [訂用帳戶]  、[服務]  類型和 [資源]  \(StorSimple 裝置管理員服務)。 
    3. 如果您的訂用帳戶有多個相關聯的方案，請從下拉式清單選取**支援方案**。 您必須已付費購買支援方案，才能啟用技術支援。
-   4. 单击“下一步”  。
+   4. 按一下 [下一步]  。
 
        ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -57,7 +57,7 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
     4. 提供問題開始日期與時間。
     5. 在 [檔案上傳]  中，按一下資料夾圖示，即可瀏覽至您的支援封裝。
     6. 勾選 [共用診斷資訊]  。
-    7. 单击“下一步”  。
+    7. 按一下 [下一步]  。
 
        ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
@@ -65,7 +65,7 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
 
    1. 在 [連絡人選項]  中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
    2. 連絡人的資訊，請提供姓名、 電子郵件、 選用連絡、 國家/地區。 選取 [儲存連絡人變更以供未來的支援要求使用]  核取方塊。
-   3. 按一下頁面底部的 [新增]  。
+   3. 按一下 [建立]  。
    
        ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 

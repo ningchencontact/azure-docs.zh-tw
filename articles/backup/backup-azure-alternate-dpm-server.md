@@ -6,14 +6,14 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650760"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705219"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>從 Azure 備份伺服器復原資料
 您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 要這麼做的程序就是整合到 Azure 備份伺服器管理主控台，且類似於其他 Azure 備份元件的復原工作流程。
@@ -80,24 +80,16 @@ ms.locfileid: "60650760"
     ![清除外部 DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>疑難排解錯誤訊息
-| 沒有。 | 錯誤訊息 | 疑難排解步驟 |
+| 資料分割 | 錯誤訊息 | 疑難排解步驟 |
 |:---:|:--- |:--- |
 | 1. |保存庫認證所指定的保存庫中未登錄此伺服器。 |**原因：** 如果選取的保存庫認證檔案不屬於與所嘗試復原之 Azure 備份伺服器關聯的復原服務保存庫，就會出現此錯誤。 <br> **解決方案：** 從已登錄 Azure 備份伺服器的復原服務保存庫下載保存庫認證檔。 |
-| 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向復原服務保存庫登錄，或伺服器尚未上傳中繼資料，或選取的伺服器不是 Azure 備份伺服器 (也稱為 Windows Server 或 Windows 用戶端)。 <br> **解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。 <br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
+| 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向復原服務保存庫中，或伺服器有尚未上傳中繼資料，或選取的伺服器不是 Azure 備份伺服器 （使用 Windows Server 或 Windows 用戶端）。 <br> **解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。 <br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
 | 3. |此保存庫未登錄其他 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向嘗試復原的保存庫登錄。<br>**解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。<br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
 | 4. |與下列伺服器關聯的複雜密碼不符合提供的加密複雜密碼： **\<伺服器名稱 >** |**原因：** 在加密來自要復原之 Azure 備份伺服器的資料過程中使用的加密複雜密碼，與所提供的加密複雜密碼不符。 代理程式無法解密資料。 因此復原失敗。<br>**解決方案：** 請提供與要復原資料的 Azure 備份伺服器關聯且完全相同的加密複雜密碼。 |
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="next-steps"></a>後續步驟
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>為什麼不能在安裝 UR7 和最新的 Azure 備份代理程式之後，從另一部 DPM 伺服器新增外部 DPM 伺服器？
+閱讀其他常見問題集：
 
-針對資料來源已在雲端受保護 (藉由使用比「更新彙總套件 7」舊的更新彙總套件進行保護) 的 DPM 伺服器，您必須在安裝 UR7 和最新的 Azure 備份代理程式之後至少等候一天，再開始「新增外部 DPM 伺服器」  。 需要一天的時間才能將 DPM 保護群組的中繼資料上傳至 Azure。 保護群組中繼資料第一次會透過夜間作業上傳。
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Microsoft Azure 復原服務代理程式所需的最低版本是什麼？
-
-啟用這項功能所需的 Microsoft Azure 復原服務代理程式或 Azure 備份代理程式的最低版本是 2.0.8719.0。  若要檢視代理程式的版本：開啟 [控制台] **>** [所有控制台項目] **>** [程式和功能] **>** [Microsoft Azure 復原服務代理程式]。 如果版本低於 2.0.8719.0，請下載及安裝[最新的 Azure 備份代理程式](https://go.microsoft.com/fwLink/?LinkID=288905)。
-
-![清除外部 DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>後續步驟：
-•    [Azure 備份常見問題集](backup-azure-backup-faq.md)
+- [常見的問題](backup-azure-vm-backup-faq.md)有關 Azure VM 備份
+- 「Azure 備份」代理程式的相關[常見問題](backup-azure-file-folder-backup-faq.md)

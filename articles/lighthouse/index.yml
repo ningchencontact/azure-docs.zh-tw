@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Lighthouse 文件
+metadata:
+  title: Azure Lighthouse 文件
+  description: 了解如何大規模管理客戶資源
+  author: JnHs
+  manager: carmonm
+  ms.service: lighthouse
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2019
+  ms.author: jenhayes
+abstract:
+  description: Azure Lighthouse 可讓服務提供者在單一控制平面中，以較高的自動性、較大的規模和加強的治理性，檢視和管理所有客戶的 Azure。
+sections:
+  - title: 概念
+    items:
+      - type: paragraph
+        text: 了解 Azure Lighthouse 的主要層面。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="concepts/azure-delegated-resource-management">Azure 委派的資源管理</a>
+          - html: <a href="concepts/cross-tenant-management-experience">跨租用戶管理體驗</a>
+          - html: <a href="concepts/managed-services-offers">Azure Marketplace 中的受控服務供應項目</a>
+          - html: <a href="concepts/recommended-security-practices.md">建議的安全性作法</a>
+          - html: <a href="concepts/cloud-solution-provider.md">雲端解決方案提供者方案考量</a>
+  - title: 使用說明指南
+    items:
+      - type: paragraph
+        text: 了解如何讓客戶在 Azure 委派的資源管中上線，以及如何管理他們的資源。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="how-to/onboard-customer">讓客戶在 Azure 委派的資源管理中上線</a>
+          - html: <a href="how-to/publish-managed-services-offers">將受控服務供應項目發佈到 Azure Marketplace</a>
+          - html: <a href="how-to/view-manage-customers">檢視和管理客戶和委派的資源</a>
+          - html: <a href="how-to/view-manage-service-providers">檢視和管理服務提供者</a>
+  - title: 範例
+    items:
+      - type: paragraph
+        text: 檢閱可用的範例和範本，協助您使用 Azure Lighthouse。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="samples/index">範例索引</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK for .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">適用於 .NET 的 Azure SDK (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure SDK for Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure SDK for Python (PyPi)</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">API 參考</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>'

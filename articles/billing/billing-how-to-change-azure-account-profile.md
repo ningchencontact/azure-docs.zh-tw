@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850772"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724093"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>變更您的 Azure 帳戶的設定檔資訊
 
@@ -87,10 +87,16 @@ Microsoft 會使用中使用者的設定檔，而不是帳戶管理員，以傳�
 1. 移至[要求表單](https://account.microsoft.com/profile/permissions-link-request)提交要求，使用您的設定檔電子郵件地址。 您會收到連結，以更新您的喜好設定的電子郵件。
 2. 選取連結以開啟**管理的通訊的權限**頁面。 此頁面會顯示您的電子郵件地址選擇加入的行銷資訊類型。 清除您想要選擇退出，，然後選取 任何主題**儲存**。
 
-
 ![管理通訊的權限頁面的範例](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 當您選擇退出行銷通訊時，您仍然收到服務通知，根據您的帳戶。
+
+## <a name="change-the-subscription-name"></a>變更訂用帳戶名稱
+
+1. 登入[Azure 入口網站](https://portal.azure.com)，選取**訂用帳戶**從左的窗格中，然後選取您想要重新命名訂用帳戶。
+1. 選取 **概觀**，然後選取**重新命名**從命令列。
+    ![重新命名 Azure 訂用帳戶的範例](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. 您已變更名稱之後，請選取**儲存**。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 

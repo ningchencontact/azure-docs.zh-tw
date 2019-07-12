@@ -28,13 +28,13 @@ Azure SQL Database 可讓您輕鬆地購買一個完全受控的平台，以符�
 
 不同的購買模型可供不同的 Azure SQL Database 部署模型：
 
-- [Azure SQL Database](sql-database-technical-overview.md) 中的[單一資料庫](sql-database-single-databases-manage.md)與[彈性集區](sql-database-elastic-pool.md)部署選項會提供 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和 [V 核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+- [Azure SQL Database](sql-database-technical-overview.md) 中的[單一資料庫](sql-database-single-databases-manage.md)與[彈性集區](sql-database-elastic-pool.md)部署選項會提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 - [受管理的執行個體](sql-database-managed-instance.md)Azure SQL Database 中的部署選項只提供[以 vCore 為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 - [超大規模的服務層](sql-database-service-tier-hyperscale.md)適用於使用單一資料庫[以 vCore 為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 下列資料表和圖表會比較和對照以 vCore 為基礎和以 DTU 為基礎的購買模型：
 
-|**購買模型**|**說明**|**適用對象**|
+|**購買模型**|**描述**|**適用對象**|
 |---|---|---|
 |以 DTU 為基礎的模型|此模型根據計算、 儲存體和 I/O 資源的配套量值。 在單一資料庫的 Dtu 和彈性集區的彈性資料庫交易單位 (Edtu) 表示計算大小。 如需 Dtu 和 Edtu 的詳細資訊，請參閱[什麼是 Dtu 和 Edtu？](sql-database-purchase-models.md#dtu-based-purchasing-model)。|最適合客戶，想要簡單、 預先設定資源選項。|
 |以虛擬核心為基礎的模型|此模型可讓您獨立地選擇計算和儲存體資源。 以虛擬核心為基礎的購買模型也可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以節省成本。|適合重視彈性、控制力和透明度的客戶。|
@@ -136,7 +136,7 @@ Dtu 是最有助於了解配置給在不同計算大小和服務層的 Azure SQL
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>我是否需要採取應用程式離線，從以 DTU 為基礎的服務層轉換成虛擬核心為基礎的服務層？
 
-沒有。 您不需要讓應用程式離線。 新的服務層會提供類似於現有的處理序，將資料庫從標準升級至 premium 服務層和利用其他方式的簡單線上轉換方法。 您可以使用 Azure 入口網站、 PowerShell、 Azure CLI、 T-SQL、 或 REST API，來啟動這項轉換。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
+資料分割 您不需要讓應用程式離線。 新的服務層會提供類似於現有的處理序，將資料庫從標準升級至 premium 服務層和利用其他方式的簡單線上轉換方法。 您可以使用 Azure 入口網站、 PowerShell、 Azure CLI、 T-SQL、 或 REST API，來啟動這項轉換。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>可以將轉換的資料庫從以 vCore 為基礎的購買模型中的服務層以 DTU 為基礎的購買模型中的服務層？
 

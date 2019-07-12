@@ -58,7 +58,7 @@ Azure 監視器為基礎[常見的監視資料平台](data-platform.md)包含[�
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory 稽核記錄
 [Azure Active Directory 報告](../../active-directory/reports-monitoring/overview-reports.md)包含在特定租用戶內所進行登入活動的歷程記錄，以及所做變更的稽核線索。 
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄檔 | 設定要收集透過其他監視資料來分析的 Azure 監視器中的 Azure AD 記錄檔。 | [整合 Azure 監視器記錄檔 （預覽） 中的 Azure AD 記錄檔](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure 儲存體 | Azure AD 將記錄匯出至 Azure 儲存體進行封存。 | [教學課程：封存到 Azure 儲存體帳戶 （預覽） 的 Azure AD 記錄檔](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
@@ -74,7 +74,7 @@ Azure 監視器為基礎[常見的監視資料平台](data-platform.md)包含[�
 ### <a name="azure-activity-log"></a>Azure 活動記錄 
 [Azure 活動記錄檔](activity-logs-overview.md)包含服務健全狀況記錄，以及在您的 Azure 訂用帳戶中的資源所做的組態變更的記錄。 所有 Azure 資源都會有活動記錄，也代表了資源的_外部_檢視。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|
 | 活動記錄檔 | 活動記錄檔會收集到自己的資料存放區，您可以檢視從 Azure 監視器 功能表，或使用建立活動記錄警示。 | [查詢活動記錄，以在 Azure 入口網站](activity-log-view.md#azure-portal) |
 | Azure 監視器記錄檔 | 設定 Azure 監視器的記錄檔收集活動記錄分析與其他監視資料。 | [收集並分析 Azure 活動記錄中 Azure 監視器中的 Log Analytics 工作區](activity-log-collect.md) |
@@ -84,7 +84,7 @@ Azure 監視器為基礎[常見的監視資料平台](data-platform.md)包含[�
 ### <a name="azure-service-health"></a>Azure 服務健康狀態
 [Azure 服務健康狀態](../../service-health/service-health-overview.md)提供您有關應用程式和資源依賴的訂用帳戶中，Azure 服務健康狀態的資訊。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | 活動記錄檔<br>Azure 監視器記錄檔 | 服務健全狀況記錄會儲存在 Azure 活動記錄，因此您可以在 Azure 入口網站中檢視它們，或執行任何其他您可以使用活動記錄檔執行的活動。 | [使用 Azure 入口網站檢視服務健康情況通知](service-notifications.md) |
 
@@ -98,7 +98,7 @@ Azure 監視器為基礎[常見的監視資料平台](data-platform.md)包含[�
 ### <a name="platform-metrics"></a>平台計量 
 大部分的 Azure 服務會傳送[平台計量](data-platform-metrics.md)以反映其效能和直接與計量資料庫的作業。 特定[計量會因為各種類型的資源而異](metrics-supported.md)。 
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器計量 | 平台計量會寫入至 Azure 監視器計量資料庫進行任何設定。 從計量瀏覽器的存取平台計量。  | [開始使用 Azure 計量瀏覽器](metrics-getting-started.md)<br>[支援 Azure 監視器的計量](metrics-supported.md) |
 | Azure 監視器記錄檔 | 使用 Log Analytics 的趨勢和其他分析，複製記錄檔的平台計量。 | [Azure 診斷直達 Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
@@ -109,7 +109,7 @@ Azure 監視器為基礎[常見的監視資料平台](data-platform.md)包含[�
 
 設定需求與診斷記錄的內容會因資源類型，並不是所有服務尚未都建立診斷記錄檔。 請參閱[Azure 診斷記錄支援服務、 結構描述和類別](diagnostic-logs-schema.md)如需有關每個服務以及詳細的設定程序的連結。 如果服務未列在本文中，然後該服務目前不寫入診斷記錄檔。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄檔 | 傳送至 Azure 監視器記錄檔的診斷記錄與其他收集的記錄資料的分析。 某些資源可以撰寫直接與 Azure 監視器，而其他項目寫入至儲存體帳戶之前要匯入 Log Analytics 工作區。 | [Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄](diagnostic-logs-stream-log-store.md)<br>[使用 Azure 入口網站，以從 Azure 儲存體收集記錄檔](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
 | 儲存體 | 傳送診斷記錄封存至 Azure 儲存體。 | [封存 Azure 診斷記錄](archive-diagnostic-logs.md) |
@@ -123,7 +123,7 @@ Azure、其他雲端和內部部署中的計算資源具有要監視的客體作
 ### <a name="azure-diagnostic-extension"></a>Azure 診斷擴充功能
 針對 Azure 虛擬機器可讓您啟用 Azure 診斷擴充功能來收集記錄和計量從客體作業系統的 Azure 計算資源，包括 Azure 雲端服務 （傳統） 的 Web 和背景工作角色，虛擬機器的虛擬機器擴展集和 Service Fabric。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | 儲存體 | 當您啟用診斷擴充功能時，它會寫入預設儲存體帳戶。 | [在 Azure 儲存體中儲存和檢視診斷資料](diagnostics-extension-to-storage.md) |
 | Azure 監視器計量 | 當您設定診斷延伸模組，以收集效能計數器時，它們會寫入 Azure 監視器計量資料庫。 | [傳送至 Azure 監視器計量的客體 OS 度量儲存為 Windows 虛擬機器中使用 Resource Manager 範本](collect-custom-metrics-guestos-resource-manager-vm.md) |
@@ -133,7 +133,7 @@ Azure、其他雲端和內部部署中的計算資源具有要監視的客體作
 ### <a name="log-analytics-agent"></a>Log Analytics 代理程式 
 安裝完整的監視和管理您的 Windows 或 Linux 虛擬機器的 Log Analytics 代理程式。 虛擬機器可以在 Azure、其他雲端或內部部署中執行。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄檔 | Log Analytics 代理程式會連線到 Azure 直接或透過 System Center Operations Manager 監視，並可讓您從您設定的資料來源，或從監視解決方案，以提供額外的深入了解應用程式收集資料在虛擬機器上執行。 | [Azure 監視器中的代理程式資料來源](agent-data-sources.md)<br>[Operations Manager 連線到 Azure 監視器](om-agents.md) |
 
@@ -141,7 +141,7 @@ Azure、其他雲端和內部部署中的計算資源具有要監視的客體作
 ### <a name="azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器 
 [適用於 Vm 的 azure 監視器](../insights/vminsights-overview.md)提供自訂的監視體驗的虛擬機器提供核心 Azure 監視器功能，包括服務狀態和 VM 健康狀態以外的功能。 它需要整合與 Log Analytics 代理程式以收集虛擬機器和外部處理序的相依性上執行的處理序的相關探索到的資料相依性代理程式在 Windows 和 Linux 虛擬機器上。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄檔 | 儲存資料的相關程序和相依性代理程式上。 | [使用 Azure 監視器的 Vm （預覽） 了解應用程式元件的對應](../insights/vminsights-maps.md) |
 | VM 儲存體 | 適用於 Vm 的 azure 監視器會將健全狀況狀態資訊儲存在自訂位置。 這是只能夠在 Azure 入口網站中除了適用於 Vm 的 Azure 監視器[Azure 資源健康狀態 REST API](/rest/api/resourcehealth/)。 | [了解 Azure 虛擬機器的健全狀況](../insights/vminsights-health.md)<br>[Azure 資源健康狀態 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
@@ -157,7 +157,7 @@ Azure 監視器中監視的詳細的應用程式是使用[Application Insights](
 ### <a name="application-data"></a>應用程式資料
 當您藉由安裝檢測套件，針對應用程式啟用 Application Insights 時，它會收集與應用程式效能及作業相關的計量和記錄。 Application Insights 會將所收集的資料儲存在其他資料來源所使用的相同 Azure 監視器資料平台。 它包含廣泛的工具來分析此資料，但您也可以分析它與使用計量瀏覽器和 Log Analytics 等工具的其他來源的資料。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄檔 | 操作包括頁面檢視、 應用程式的要求、 例外狀況，以及追蹤您的應用程式的詳細資料。 | [分析 Azure 監視器中的記錄資料](../log-query/log-query-overview.md) |
 |                    | 遙測相互關聯來支援應用程式對應的應用程式元件之間的相依性資訊。 | [在 Application Insights 的遙測相互關聯](../app/correlation.md) <br> [應用程式對應](../app/app-map.md) |
@@ -173,7 +173,7 @@ Azure 監視器中監視的詳細的應用程式是使用[Application Insights](
 
 ### <a name="monitoring-solutions"></a>監視解決方案
 
-| 目的地 | 描述 | 參考
+| 目的地 | 描述 | 參考資料
 |:---|:---|:---|
 | Azure 監視器記錄檔 | 監視解決方案收集資料到 Azure 監視器記錄檔，它可能使用的查詢語言分析或[檢視](view-designer.md)一般包含在方案中。 | [資料收集詳細資料監視在 Azure 中的解決方案](../insights/solutions-inventory.md) |
 
@@ -181,7 +181,7 @@ Azure 監視器中監視的詳細的應用程式是使用[Application Insights](
 ### <a name="azure-monitor-for-containers"></a>適用於容器的 azure 監視器
 [適用於容器的 azure 監視器](../insights/container-insights-overview.md)提供自訂的監視體驗，如[Azure Kubernetes Service (AKS)](/azure/aks/)。 它會收集有關下表中說明這些資源的其他資料。
 
-| 目的地 | 描述 | 參考 |
+| 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|
 | Azure 監視器記錄檔 | AKS 包括清查、 記錄和事件的監視資料存放區。 以充分利用其分析功能，在入口網站中，度量資料也會儲存在記錄檔中。 | [使用適用於容器的 Azure 監視器來了解 AKS 叢集效能](../insights/container-insights-analyze.md) |
 | Azure 監視器計量 | 計量資料會儲存在磁碟機的視覺效果和警示的計量資料庫。 | [在 計量瀏覽器中檢視容器計量](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
@@ -195,7 +195,7 @@ Azure 監視器中監視的詳細的應用程式是使用[Application Insights](
 
 ![自訂集合](media/data-sources/custom.png)
 
-| 目的地 | 方法 | 描述 | 參考 |
+| 目的地 | 方法 | 描述 | 參考資料 |
 |:---|:---|:---|:---|
 | Azure 監視器記錄檔 | 資料收集器 API | 收集記錄資料從任何 REST 用戶端並儲存在 Log Analytics 工作區。 | [將記錄資料傳送至 Azure 監視器與 「 HTTP 資料收集器 API （公開預覽）](data-collector-api.md) |
 | Azure 監視器計量 | 自訂計量 API | 從任何 REST 用戶端和 Azure 監視器計量資料庫中的存放區中收集計量資料。 | [使用 REST API，將自訂度量以進行 Azure 資源傳送至 Azure 監視器計量存放區](metrics-store-custom-rest-api.md) |
@@ -204,7 +204,7 @@ Azure 監視器中監視的詳細的應用程式是使用[Application Insights](
 ## <a name="other-services"></a>其他服務
 在 Azure 中的其他服務會將資料寫入 Azure 監視器的資料平台。 這可讓您分析資料，這些服務所收集的 Azure 監視器所收集的資料，並運用相同的分析和視覺效果工具。
 
-| 服務 | 目的地 | 描述 | 參考 |
+| 服務 | 目的地 | 描述 | 參考資料 |
 |:---|:---|:---|:---|
 | [Azure 資訊安全中心](/azure/security-center/) | Azure 監視器記錄檔 | Azure 資訊安全中心會儲存在 Log Analytics 工作區可讓它與其他 Azure 監視器所收集的記錄資料進行分析所收集安全性資料。  | [Azure 資訊安全中心的資料收集](../../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](/azure/sentinel/) | Azure 監視器記錄檔 | Azure 的 Sentinel 儲存它會收集 Log Analytics 工作區可讓它與其他 Azure 監視器所收集的記錄資料進行分析的不同資料來源的資料。  | [連接資料來源](/azure/sentinel/quickstart-onboard) |

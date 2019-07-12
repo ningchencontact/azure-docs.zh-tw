@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481131"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656654"
 ---
 # <a name="back-up-an-sap-hana-database"></a>備份 SAP HANA 資料庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481131"
 
 **支援** | **詳細資料**
 --- | ---
-**支援的地區** | 澳大利亞東南部、 澳大利亞東部 <br> 巴西南部 <br> 加拿大中部、 加拿大東部 <br> 東南亞、 東亞 <br> 美國東部、 美國東部 2、 美國中西部、 美國西部、 美國西部 2、 North Central US、 美國中部、 美國中南部<br> 印度中部、 印度南部 <br> 日本東部、日本西部<br> 南韓中部、南韓南部 <br> 北歐、西歐 <br> 英國南部、 英國西部
+**支援的地區** | 澳大利亞東南部、 澳大利亞東部 <br> 巴西南部 <br> 加拿大中部、 加拿大東部 <br> 東南亞、 東亞 <br> 美國東部、 美國東部 2、 美國中西部、 美國西部、 美國西部 2、 North Central US、 美國中部、 美國中南部<br> 印度中部、 印度南部 <br> 日本東部、日本西部<br> 南韓中部、南韓南部 <br> 北歐、西歐 <br> 英國南部、 英國西部
 **支援的 VM 作業系統** | SLES 12 SP2 或 SP3。
 **支援的 HANA 版本** | 在 HANA 上的 SDC 1.x，MDC HANA 上 2.x < = SPS03
 
@@ -41,7 +41,7 @@ ms.locfileid: "67481131"
   - 若要建立新的原則，請在保存庫中按一下**原則** > **備份原則** >  **+ 新增** > **中的 SAP HANAAzure VM**，並指定原則設定。
   - 若要指派不同的原則，在執行資料庫的 vm 屬性中按一下目前的原則名稱。 接著，在**備份原則**頁面，您可以選取要用於備份不同的原則。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 請確定您在設定備份之前，執行下列動作：
 

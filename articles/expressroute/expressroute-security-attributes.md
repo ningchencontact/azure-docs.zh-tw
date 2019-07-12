@@ -51,8 +51,8 @@ Azure 服務的各個層面都整合了安全性。 這篇文章說明內建於 
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | Microsoft (GWM) （控制器），閘道服務帳戶Just-in-time (JIT) 存取進行開發和 OP. |
-| 授權|  是 |Microsoft (GWM) （控制器），閘道服務帳戶Just-in-time (JIT) 存取進行開發和 OP. |
+| 驗證| 是 | Microsoft (GWM) （控制器），閘道服務帳戶Just-in-time (JIT) 存取進行開發和 OP. |
+| Authorization|  是 |Microsoft (GWM) （控制器），閘道服務帳戶Just-in-time (JIT) 存取進行開發和 OP. |
 
 
 ## <a name="audit-trail"></a>稽核線索

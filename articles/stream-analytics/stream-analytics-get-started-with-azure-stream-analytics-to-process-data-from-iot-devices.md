@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a1d5e5a15a2af7db5b6256a6a0c5f19f0e7cf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077719"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620987"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>開始使用 Azure 串流分析來處理 IoT 裝置的資料
 
 在本教學課程中，您將了解如何建立串流處理邏輯，以從物聯網 (IoT) 裝置收集資料。 我們將使用真實世界的物聯網 (IoT) 使用案例以示範如何快速且經濟地建置您的解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 * 範例查詢和資料檔案可從 [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 Contoso 是一家工業自動化空間的公司，他們已完全自動化其製造程序。 這家製造廠的機械裝置具有感應器，可以發出即時資料串流。 在此案例中，生產現場經理想要取得感應器資料的即時深入資訊，來尋找模式並且對其採取動作。 我們將對感應器資料使用串流分析查詢語言 (SAQL)，以從內送資料串流中找出感興趣的模式。
 
@@ -102,14 +102,14 @@ Contoso 是一家工業自動化空間的公司，他們已完全自動化其製
 
 ![30 秒篩選查詢](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-如您所見，現在結果只包含 245 個資料列，以及平均溫度高於 100 的感應器名稱。 此查詢會依據 **dspl** 分組事件串流，dspl 是感應器名稱，而**輪轉視窗**為 30 秒。 暫時查詢必須指明我們要如何讓時間前進。 使用 **TIMESTAMP BY** 子句，我們已指定 **OUTPUTTIME** 資料行來將時間與所有暫時計算相關聯。 如需詳細資訊，請閱讀有關[時間管理](https://msdn.microsoft.com/library/azure/mt582045.aspx)和[時間範圍函式](https://msdn.microsoft.com/library/azure/dn835019.aspx)的 MSDN 文章。
+如您所見，現在結果只包含 245 個資料列，以及平均溫度高於 100 的感應器名稱。 此查詢會依據 **dspl** 分組事件串流，dspl 是感應器名稱，而**輪轉視窗**為 30 秒。 暫時查詢必須指明我們要如何讓時間前進。 使用 **TIMESTAMP BY** 子句，我們已指定 **OUTPUTTIME** 資料行來將時間與所有暫時計算相關聯。 如需詳細資訊，請閱讀有關[時間管理](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics)和[時間範圍函式](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)的 MSDN 文章。
 
 ### <a name="query-detect-absence-of-events"></a>查詢：偵測不存在的事件
 我們要如何撰寫查詢來尋找輸入不足事件？ 讓我們找出上次感應器在傳送資料後，但是接下來 5 秒鐘未傳送事件的情形。 查詢位於 AbsenceOfEvent.txt 檔案中。
 
 ![偵測不存在的事件](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-此處，我們對相同的資料串流使用 **LEFT OUTER** 聯結 (自我聯結)。 對於 **INNER** 聯結，只會在找到相符項目時傳回結果。  對於 **LEFT OUTER** 聯結，如果聯結左側的事件不相符，則會針對右側的所有資料行傳回具有 NULL 的資料列。 這項技術對於尋找不存在的事件很有用。 如需 [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) 的詳細資訊，請參閱我們的 MSDN 文件。
+此處，我們對相同的資料串流使用 **LEFT OUTER** 聯結 (自我聯結)。 對於 **INNER** 聯結，只會在找到相符項目時傳回結果。  對於 **LEFT OUTER** 聯結，如果聯結左側的事件不相符，則會針對右側的所有資料行傳回具有 NULL 的資料列。 這項技術對於尋找不存在的事件很有用。 如需 [JOIN](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) 的詳細資訊，請參閱我們的 MSDN 文件。
 
 ## <a name="conclusion"></a>結論
 本教學課程的目的在於示範如何撰寫不同的串流分析查詢語言查詢，並在瀏覽器中查看結果。 但是，這只是剛開始。 您還可以使用串流分析執行更多功能。 串流分析支援各種輸入和輸出，並甚至可以使用 Azure Machine Learning 中的函式，使其成為分析資料串流的健全工具。 您可以使用我們的[學習地圖](https://docs.microsoft.com/azure/stream-analytics/)開始深入探索串流分析。 如需如何撰寫查詢的詳細資訊，請閱讀有關[常見查詢模式](stream-analytics-stream-analytics-query-patterns.md)的文章。

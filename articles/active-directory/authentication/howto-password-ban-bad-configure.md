@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742298"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798195"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>設定自訂禁用密碼清單
 
@@ -29,7 +29,7 @@ ms.locfileid: "66742298"
 1. 登入[Azure 入口網站](https://portal.azure.com)並瀏覽至**Azure Active Directory**，**驗證方法**，然後**密碼保護**。
 1. 將 [強制使用自訂清單]  選項設定為 [是]  。
 1. 在 [自訂禁用密碼清單]  中新增字串，每行一個字串
-   * 自訂禁用密碼清單最多可以包含 1000 個字組。
+   * 自訂的禁用的密碼清單可以包含多達 1000 個的詞彙。
    * 自訂禁用密碼清單不會區分大小寫。
    * 自訂禁用密碼清單會考量常見字元替代。
       * 範例："o" 和 "0"，或是 "a" 和 "\@"
@@ -39,6 +39,9 @@ ms.locfileid: "66742298"
 > [!NOTE]
 > 可能需要數小時才會套用自訂禁用密碼清單的更新。
 
+> [!NOTE]
+> 自訂的禁用的密碼清單僅限於具有最多 1000年條款。 它不是封鎖的密碼的極大型清單。 若要充分利用自訂的禁用的密碼清單的權益，Microsoft 建議您先檢閱並了解的預定的設計和自訂的禁用的密碼清單的使用方式 (請參閱[自訂禁用密碼清單](concept-password-ban-bad.md#custom-banned-password-list))，並也密碼評估演算法 (請參閱[如何評估密碼](concept-password-ban-bad.md#how-are-passwords-evaluated))。
+
 ![在 Azure 入口網站中的 [驗證方法] 下修改自訂禁用密碼清單](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>運作方式
@@ -47,9 +50,10 @@ ms.locfileid: "66742298"
 
 ## <a name="what-do-users-see"></a>使用者看到的內容
 
-當使用者嘗試將密碼重設為會禁用的密碼時，便會看到下列錯誤訊息：
+當使用者嘗試重設為項目會被禁用的密碼時，他們會看到下列錯誤訊息之一：
 
-不幸的是，您的密碼包含單字、片語或模式，可輕易猜到您的密碼。 請使用不同的密碼再試一次。
+* 不幸的是，您的密碼包含單字、片語或模式，可輕易猜到您的密碼。 請使用不同的密碼再試一次。
+* 不幸的是，您無法使用該密碼，因為它包含文字或字元已被封鎖您的系統管理員。 請使用不同的密碼再試一次。
 
 ## <a name="next-steps"></a>後續步驟
 

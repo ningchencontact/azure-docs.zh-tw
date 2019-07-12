@@ -23,7 +23,7 @@ Docker 會新增到應用程式可攜性和隔離。 比方說，您可以匯出
 
 本教學課程會安裝**Windows 2016 Datacenter with Containers**從 Azure Marketplace 的虛擬機器 (VM)。 包含此 VM **Docker 18.09.0**。 下列步驟會示範如何將容器部署、 執行它，並使用 3270 模擬器連線到該。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請參閱這些必要條件：
 
@@ -166,7 +166,7 @@ Docker 會新增到應用程式可攜性和隔離。 比方說，您可以匯出
 
      ![Enterprise Server 管理主控台](media/container-010.png)
 
-就這麼簡單！ 現在您正在執行，及管理 Docker 容器中的 CICS 應用程式。
+就這麼容易！ 現在您正在執行，及管理 Docker 容器中的 CICS 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787292"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812824"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>長期函式中的 HTTP API (Azure Functions)
 
@@ -45,12 +45,13 @@ ms.locfileid: "65787292"
 這些範例函式會產生下列 JSON 回應資料。 所有欄位的資料類型是 `string`。
 
 | 欄位                   |描述                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |協調流程執行個體的識別碼。 |
-| **`statusQueryGetUri`** |協調流程執行個體的狀態 URL。 |
-| **`sendEventPostUri`**  |協調流程執行個體的「引發事件」URL。 |
-| **`terminatePostUri`**  |協調流程執行個體的「終止」URL。 |
-| **`rewindPostUri`**     |協調流程執行個體的「倒轉」URL。 |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |協調流程執行個體的識別碼。 |
+| **`statusQueryGetUri`**     |協調流程執行個體的狀態 URL。 |
+| **`sendEventPostUri`**      |協調流程執行個體的「引發事件」URL。 |
+| **`terminatePostUri`**      |協調流程執行個體的「終止」URL。 |
+| **`purgeHistoryDeleteUri`** |[清除歷程記錄] 協調流程執行個體的 URL。 |
+| **`rewindPostUri`**         |（預覽）協調流程執行個體的 「 倒轉 」 URL。 |
 
 以下是範例回應：
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -154,14 +156,14 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200** 和 **HTTP 202** 案例的回應承載是 JSON 物件，具有下列欄位：
 
-| 欄位                 | 数据类型 | 描述 |
+| 欄位                 | 資料類型 | 描述 |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | 字串    | 執行個體的執行階段狀態。 值包括 [執行中]  、[擱置]  、[失敗]  、[已取消]  、[終止]  、[已完成]  。 |
+| **`runtimeStatus`**   | string    | 執行個體的執行階段狀態。 值包括 [執行中]  、[擱置]  、[失敗]  、[已取消]  、[終止]  、[已完成]  。 |
 | **`input`**           | JSON      | JSON 資料，用來初始化執行個體。 這個欄位為 `null`，如果 `showInput` 查詢字串參數設定為 `false`。|
 | **`customStatus`**    | JSON      | 用於自訂協調流程狀態的 JSON 資料。 如果未設定，欄位會是 `null`。 |
 | **`output`**          | JSON      | 執行個體的 JSON 輸出。 如果執行個體不是已完成狀態，則這個欄位是 `null`。 |
-| **`createdTime`**     | 字串    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
-| **`lastUpdatedTime`** | 字串    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
+| **`createdTime`**     | string    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
+| **`lastUpdatedTime`** | string    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
 | **`historyEvents`**   | JSON      | 包含協調流程執行歷程記錄的 JSON 陣列。 這個欄位為 `null`，除非 `showHistory` 查詢字串參數設定為 `true`。 |
 
 以下是範例回應承載，其中包含協調流程執行歷程記錄和活動輸出 (針對可讀性格式化)：
@@ -371,7 +373,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 回應承載**HTTP 200**案例是具有下列欄位的 JSON 物件：
 
-| 欄位                  | 数据类型 | 描述 |
+| 欄位                  | 資料類型 | 描述 |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | 刪除的執行個體數目。 單一執行個體案例中，這個值應該一律是`1`。 |
 
@@ -433,7 +435,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 回應承載**HTTP 200**案例是具有下列欄位的 JSON 物件：
 
-| 欄位                   | 数据类型 | 描述 |
+| 欄位                   | 資料類型 | 描述 |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | 刪除的執行個體數目。 |
 
@@ -529,7 +531,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 | 欄位             | 參數類型  | 描述 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
-| **`reason`**      | 查詢字串    | 選用。 終止協調流程執行個體的原因。 |
+| **`reason`**      | 查詢字串    | 選擇性。 終止協調流程執行個體的原因。 |
 
 #### <a name="response"></a>Response
 
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 此 API 的回應不包含任何內容。
 
-## <a name="rewind-instance-preview"></a>倒轉執行個體 (預覽)
+### <a name="rewind-instance-preview"></a>倒轉執行個體 (預覽)
 
 藉由重新執行最近失敗的作業，將失敗的協調流程執行個體還原為執行中狀態。
 
-### <a name="request"></a>要求
+#### <a name="request"></a>要求
 
 如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
@@ -578,9 +580,9 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 | 欄位             | 參數類型  | 描述 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
-| **`reason`**      | 查詢字串    | 選用。 倒轉協調流程執行個體的原因。 |
+| **`reason`**      | 查詢字串    | 選擇性。 倒轉協調流程執行個體的原因。 |
 
-### <a name="response"></a>Response
+#### <a name="response"></a>Response
 
 可以傳回幾個可能的狀態字碼值。
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 此 API 的回應不包含任何內容。
+
+### <a name="signal-entity-preview"></a>訊號實體 （預覽）
+
+傳送單向作業訊息給[長期實體](durable-functions-types-features-overview.md#entity-functions)。 如果實體不存在，它將會自動建立。
+
+#### <a name="request"></a>要求
+
+HTTP 要求的格式，如下所示 （為了清楚起見顯示多行）：
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
+
+| 欄位             | 參數類型  | 描述 |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | 實體的類型。 |
+| **`entityKey`**   | URL             | 實體的唯一名稱。 |
+| **`op`**          | 查詢字串    | 選擇性。 叫用的使用者定義作業名稱。 |
+| **`{content}`**   | 要求內容 | JSON 格式的事件裝載。 |
+
+以下是範例要求會傳送使用者定義 「 新增 」 訊息來`Counter`名為實體`steps`。 訊息的內容是值`5`。 如果實體不存在，它將這項要求所建立：
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Response
+
+這項作業有幾個可能的回應：
+
+* **HTTP 202 (已接受)** ：訊號的作業已接受以進行非同步處理。
+* **HTTP 400 (不正確的要求)** ：要求內容不是類型`application/json`、 不是有效的 JSON，或具有無效`entityKey`值。
+* **HTTP 404 (找不到)** ：指定`entityType`找不到。
+
+成功的 HTTP 要求不包含在回應中的任何內容。 失敗的 HTTP 要求可能會包含 JSON 格式的錯誤回應內容中的資訊。
+
+### <a name="query-entity-preview"></a>查詢實體 （預覽）
+
+取得指定之實體的狀態。
+
+#### <a name="request"></a>要求
+
+HTTP 要求的格式，如下所示 （為了清楚起見顯示多行）：
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Response
+
+這項作業會有兩個可能的回應：
+
+* **HTTP 200 (確定)** ：指定的實體存在。
+* **HTTP 404 (找不到)** ：找不到指定的實體。
+
+成功的回應包含 JSON 序列化狀態的實體做為其內容。
+
+#### <a name="example"></a>範例
+以下是取得現有狀態的 HTTP 要求的範例`Counter`名為實體`steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+如果`Counter`實體只包含數個步驟中儲存`currentValue` 欄位中，回應內容可能如下所示 （針對可讀性格式化）：
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

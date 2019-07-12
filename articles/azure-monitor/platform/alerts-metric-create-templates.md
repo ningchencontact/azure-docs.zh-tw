@@ -24,7 +24,7 @@ ms.locfileid: "65978858"
 > [!IMPORTANT]
 > 建立資源類型之計量警示的資源範本：Azure Log Analytics 工作區 (例如 `Microsoft.OperationalInsights/workspaces`)，需要其他步驟。 如需詳細資訊，請參閱[記錄的計量警示 - 資源範本](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)上的文章。
 
-基本步骤如下所示：
+基本步驟如下：
 
 1. 使用下列範本之一，作為描述如何建立警示的 JSON 檔案。
 2. 編輯和使用 JSON 形式的對應參數檔案以自訂警示

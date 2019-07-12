@@ -6,16 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
+ms.reviewer: peterlu
 ms.date: 06/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e070b80f86cb6c8b1d9e7575e19022b5cb08f340
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9d405b454d755e0c848e9422c8d4cf6e7c505b68
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165561"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840056"
 ---
 # <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>定型，並向 Azure Machine Learning 服務的規模的 Keras 模型
 
@@ -25,7 +26,7 @@ Keras 是高層級類神經網路能夠執行其他熱門 DNN 架構的頂端的
 
 不論您正在開發從頭 Keras 模型，或是您要將現有的模型帶到雲端，Azure Machine Learning 服務可協助您建置可實際執行的模型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在這兩個環境上執行此程式碼：
 

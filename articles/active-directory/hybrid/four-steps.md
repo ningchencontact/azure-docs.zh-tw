@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b5e8ab63c1784ff073c7ba38cd4a6319db43c5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452731"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655934"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>四個步驟來搭配 Azure Active Directory 的增強式身分識別基礎
 
@@ -147,7 +147,7 @@ MFA[登入報告](https://docs.microsoft.com/azure/active-directory/authenticati
 
 ### <a name="self-service-app-management"></a>自助應用程式管理
 
-您的使用者可以自行探索應用程式從存取面板之前，您必須啟用[自助式應用程式存取](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access)您想要允許使用者自行探索，並要求的任何應用程式存取權。 自助應用程式存取是適合用來允許使用者自行探索應用程式，並可選擇讓商務群組核准這些應用程式的存取。 您可以讓商務群組來管理指派給這些使用者的認證[密碼單一登入應用程式](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-the-application-for-password-single-sign-on)直接從他們的存取面板。
+您的使用者可以自行探索應用程式從存取面板之前，您必須啟用[自助式應用程式存取](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access)您想要允許使用者自行探索，並要求的任何應用程式存取權。 自助應用程式存取是適合用來允許使用者自行探索應用程式，並可選擇讓商務群組核准這些應用程式的存取。 您可以讓商務群組來管理指派給這些使用者的認證[密碼單一登入應用程式](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app)直接從他們的存取面板。
 
 ### <a name="self-service-group-management"></a>自助式群組管理
 

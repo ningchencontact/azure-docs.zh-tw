@@ -36,7 +36,7 @@ ms.locfileid: "67108665"
 
 ## <a name="configure-a-custom-domain"></a>設定自訂網域
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 設定自訂網域之前，請確定您已備妥下列需求： 
 - [新增至 Azure Active Directory 的已驗證網域](../fundamentals/add-custom-domain.md)。

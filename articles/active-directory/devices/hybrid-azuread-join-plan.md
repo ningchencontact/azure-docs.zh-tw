@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509602"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655967"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -87,7 +87,7 @@ ms.locfileid: "67509602"
 
 如果您依賴在虛擬機器 (VM) 快照集來建立其他 Vm，請確定該快照集不是來自已向 Azure AD 混合式 Azure AD join 的 VM。
 
-如果您已加入網域的 Windows 10 裝置已向租用戶[註冊 Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices)，我們強烈建議您先移除該狀態，再啟用混合式 Azure AD Join。 自 Windows 10 1809 版起，我們已進行下列變更以避免這種雙重狀態：
+如果您已加入網域的 Windows 10 裝置已向租用戶[註冊 Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad)，我們強烈建議您先移除該狀態，再啟用混合式 Azure AD Join。 自 Windows 10 1809 版起，我們已進行下列變更以避免這種雙重狀態：
 
 - 在裝置加入混合式 Azure AD 之後，就會自動移除任何現有的 Azure AD 註冊狀態。
 - 您可以防止您加入的網域的裝置 Azure AD 註冊加入此登錄機碼-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin，「 BlockAADWorkplaceJoin"= dword: 00000001。

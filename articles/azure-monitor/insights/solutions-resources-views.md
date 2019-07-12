@@ -35,7 +35,7 @@ ms.locfileid: "60596637"
 ## <a name="prerequisites"></a>必要條件
 本文假設您已經熟悉如何[建立管理解決方案](solutions-creating.md)和方案檔的結構。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 若要在管理解決方案中納入檢視，您可在[方案檔](solutions-creating.md)中建立其**資源**。  說明檢視詳細組態的 JSON 通常很複雜，典型方案作者無法以手動方式建立。  最常見的方法是使用[檢視設計工具](../../azure-monitor/platform/view-designer.md)建立檢視、加以匯出，然後將其詳細組態新增至方案。
 
 將檢視新增至方案的基本步驟如下所示。  下列各節會進一步詳細說明每個步驟。

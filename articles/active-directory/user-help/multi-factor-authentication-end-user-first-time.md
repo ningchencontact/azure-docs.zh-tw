@@ -30,7 +30,7 @@ ms.locfileid: "65230056"
 
 當貴公司支援人員要求您開始使用雙步驟驗證時，您會看到一個畫面，指出 [系統管理員已要求您為這個帳戶設定額外的安全性驗證]  ：
 
-![設定](./media/multi-factor-authentication-end-user-first-time/first.png)
+![安裝程式](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 若要開始使用，請選取 [立即設定]  。
 
@@ -80,13 +80,13 @@ ms.locfileid: "65230056"
 1. 選取 [手動輸入帳戶]  按鈕。  
 2. 輸入顯示條碼的同一頁所提供的代碼和 URL。 此資料會填入行動裝置應用程式上的 [代碼]  和 [URL]  方塊中。
 
-    ![設定](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
+    ![安裝程式](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. 當啟用完成時，請選取 [連絡我]  。 此步驟會將通知或驗證碼傳送到您的手機。 選取 [驗證]  。
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>使用行動電話做為連絡方式
 1. 從下拉式清單中選取**驗證電話**。  
 
-    ![設定](./media/multi-factor-authentication-end-user-first-time/phone.png)  
+    ![安裝程式](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. 從下拉式清單中，選擇您的國家/地區，並輸入您的行動電話號碼。
 3. 選取您想要用於行動電話的方法 - 簡訊或電話。
 4. 選取 [與我連絡]  以確認您的電話號碼。 根據您選取的模式，我們會傳送文字或撥打電話給您。 遵循螢幕上提供的指示，然後選取 [確認]  。
@@ -97,7 +97,7 @@ ms.locfileid: "65230056"
 ## <a name="use-your-office-phone-as-the-contact-method"></a>使用辦公室電話做為連絡方式
 1. 從下拉式清單中選取**辦公室電話**  
 
-    ![設定](./media/multi-factor-authentication-end-user-first-time/office.png)  
+    ![安裝程式](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. 會自動將您的公司連絡人資訊填入電話號碼方塊。 如果號碼錯誤或遺失，請要求系統管理員進行變更。
 3. 選取 [與我連絡]  以確認您的電話號碼，我們會撥打您的號碼。 遵循螢幕上提供的指示，然後選取 [確認]  。
 4. 此時，系統會提示您設定非瀏覽器應用程式的應用程式密碼，例如 Outlook 2010 或更舊版本，或是 Apple 裝置上的原生電子郵件應用程式。 這是因為某些應用程式不支援雙步驟驗證。 如果您不使用這些應用程式，按一下 [完成]  ，並略過其餘的步驟。

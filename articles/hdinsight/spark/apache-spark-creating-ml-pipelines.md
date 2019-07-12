@@ -128,6 +128,6 @@ only showing top 20 rows
 
 `model` 物件現在可以用來進行預測。 如需此機器學習服務應用程式的完整範例，以及執行的逐步指示，請參閱[在 Azure HDInsight 上建立 Apache Spark 機器學習服務應用程式](apache-spark-ipython-notebook-machine-learning.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [在 Azure 上使用 Scala 與 Apache Spark 的資料科學](../../machine-learning/team-data-science-process/scala-walkthrough.md)

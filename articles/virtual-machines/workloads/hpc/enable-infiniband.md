@@ -4,7 +4,7 @@ description: 了解如何啟用與 SR-IOV InfiniBand。
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,27 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537654"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797532"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>啟用與 SR-IOV 的 InfiniBand
-
 
 設定您的自訂 VM 映像使用 InfiniBand (IB) 的最簡單且建議的方式是將 InfiniBandDriverLinux 或 InfiniBandDriverWindows VM 擴充功能新增至您的部署。
 了解如何使用這些 VM 延伸模組[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances)和[Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-若要手動設定需 SR-IOV 的 InfiniBand 已啟用虛擬機器 （目前 HB 和 HC 系列），請遵循下列步驟。 上述步驟只適用於 RHEL/CentOS。 適用於 Ubuntu （16.04 和 18.04） 及 SLES （12 SP4 和 15），收件匣驅動程式會正常運作。 對於 Ubuntu， 
-
+若要手動設定需 SR-IOV 的 InfiniBand 已啟用虛擬機器 （目前 HB 和 HC 系列），請遵循下列步驟。 上述步驟只適用於 RHEL/CentOS。 適用於 Ubuntu （16.04 和 18.04） 及 SLES （12 SP4 和 15），收件匣驅動程式會正常運作。
 
 ## <a name="manually-install-ofed"></a>手動安裝 OFED
 
 安裝最新的 MLNX_OFED 驅動程式從 ConnectX-5 [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26)。
 
 RHEL/centos （例如，以下為 7.6）：
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++

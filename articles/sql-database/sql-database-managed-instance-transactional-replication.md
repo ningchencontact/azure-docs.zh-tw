@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147714"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696196"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
@@ -30,7 +30,7 @@ ms.locfileid: "67147714"
 - 讓數個散發資料庫處於同步狀態。
 - 藉由持續發佈變更，將資料庫從 SQL Server 或受控執行個體移轉到其他資料庫。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 下圖顯示異動複寫中的主要元件：  
 
@@ -50,7 +50,7 @@ ms.locfileid: "67147714"
 
 **訂閱者**是執行個體或伺服器，它會接收所收到的發行者所做的變更。 訂閱者可以是 Azure SQL Database 或 SQL Server 資料庫中的單一、集區和執行個體資料庫。 單一或集區資料庫上的訂閱者必須設定為發送訂閱者。 
 
-| 角色 | 單一和集區資料庫 | 執行個體資料庫 |
+| Role | 單一和集區資料庫 | 執行個體資料庫 |
 | :----| :------------- | :--------------- |
 | **發行者** | 否 | 是 | 
 | **散發者** | 否 | 是|
@@ -79,7 +79,7 @@ ms.locfileid: "67147714"
   > - 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。
   
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>執行個體的資料庫和內部部署系統的可支援性對照表
-  实例数据库的复制可支持性矩阵与本地 SQL Server 的相同。 
+  資料庫執行個體是相同的 SQL Server 內部部署複寫可支援性對照表。 
   
   | **發行者**   | **散發者** | **訂閱者** |
 | :------------   | :-------------- | :------------- |
@@ -94,11 +94,11 @@ ms.locfileid: "67147714"
 
 - 連線會在複寫參與者之間使用 SQL 驗證。 
 - 與工作目錄共用且用於複寫的 Azure 儲存體帳戶。 
-- 需要在托管实例子网的安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。 
+- 必須在存取 Azure 檔案共用的受控執行個體子網路的安全性規則中開啟連接埠 445 (TCP 輸出)。 
 - 如果發行者/散發者是在受控執行個體上且訂閱者在內部部署中，則需要開啟連接埠 1433 (TCP 輸出)。
 
   >[!NOTE]
-  > 当分发服务器为实例数据库且订阅服务器位于本地时，如果阻止出站网络安全组 (NSG) 端口 445，则会在连接到 Azure 存储文件时遇到错误 53。 [更新 vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) 以解决此问题。 
+  > 連接到 Azure 儲存體檔案，輸出網路安全性 (nsg) 連接埠 445 遭到封鎖時散發者是執行個體的資料庫和訂閱者是在內部部署環境時，您可能會遇到錯誤 53。 [更新 vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)若要解決此問題。 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
 
@@ -139,13 +139,13 @@ ms.locfileid: "67147714"
 
 ## <a name="next-steps"></a>後續步驟
 
-1. [為受控執行個體設定異動複寫](replication-with-sql-database-managed-instance.md)。 
+1. [設定兩個受管理的執行個體之間的複寫](replication-with-sql-database-managed-instance.md)。 
 1. [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)。
 1. [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 `N'azuresqldbdns.database.windows.net`)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。 )
 
 
 
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>另請參閱  
 
 - [複寫至 SQL Database](replication-to-sql-database.md)
 - [複寫至受控執行個體](replication-with-sql-database-managed-instance.md)

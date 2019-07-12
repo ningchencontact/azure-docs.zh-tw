@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C 中的[使用者流程](active-directory-b
 
 Azure AD B2C 目前僅支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 身分識別提供者的存取權杖，其中包括 [Facebook](active-directory-b2c-setup-fb-app.md) 和 [Google](active-directory-b2c-setup-goog-app.md)。 對於所有其他識別提供者，宣告會傳回空白。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您的應用程式必須使用 [v2 使用者流程](user-flow-versions.md)。
 - 您的自訂原則是使用 OAuth 2.0 識別提供者設定。

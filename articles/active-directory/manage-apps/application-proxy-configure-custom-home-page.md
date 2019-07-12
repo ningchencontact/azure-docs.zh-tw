@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51596e4db8999de5089748e40f9b24bd46c84e56
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66233756"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807840"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
@@ -36,8 +36,8 @@ ms.locfileid: "66233756"
 - 預設外部 URL 是`https://ExpenseApp-contoso.msappproxy.net`，這並不需要外部使用者登入頁面。
 - 您想要設定`https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`為首頁 URL 相反的因此外部使用者會看到登入頁面第一次。
 
->[!NOTE]
->當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](../user-help/my-apps-portal-end-user-access.md)和 [Office 365 應用程式啟動器](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)。
+> [!NOTE]
+> 當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](../user-help/my-apps-portal-end-user-access.md)和 [Office 365 應用程式啟動器](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -56,22 +56,22 @@ ms.locfileid: "66233756"
 若要變更您的應用程式，透過 Azure AD 入口網站的首頁 URL，請遵循下列步驟：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 選取  **Azure Active Directory**，然後**應用程式註冊**。 已註冊的應用程式清單隨即出現。
-3. 從清單中選擇您的應用程式。 顯示已註冊的應用程式的詳細資料頁面隨即出現。
-4. 底下**管理**，選取**商標**。
-5. 更新**首頁 URL**使用新路徑。
+1. 選取  **Azure Active Directory**，然後**應用程式註冊**。 已註冊的應用程式清單隨即出現。
+1. 從清單中選擇您的應用程式。 顯示已註冊的應用程式的詳細資料頁面隨即出現。
+1. 底下**管理**，選取**商標**。
+1. 更新**首頁 URL**使用新路徑。
 
    ![顯示 [首頁 URL] 欄位為已註冊的應用程式的商標設定頁面](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
- 
-6. 選取 [ **儲存**]。
+
+1. 選取 [ **儲存**]。
 
 ## <a name="change-the-home-page-with-powershell"></a>使用 PowerShell 變更首頁
 
 若要設定使用 PowerShell 的應用程式的首頁上，您需要：
 
 1. 安裝 Azure AD PowerShell 模組。
-2. 尋找應用程式的 ObjectId 值。
-3. 更新應用程式的首頁 URL，使用 PowerShell 命令。
+1. 尋找應用程式的 ObjectId 值。
+1. 更新應用程式的首頁 URL，使用 PowerShell 命令。
 
 ### <a name="install-the-azure-ad-powershell-module"></a>安裝 Azure AD PowerShell 模組
 
@@ -87,7 +87,7 @@ ms.locfileid: "66233756"
 
     若您以非系統管理員身分執行此命令，請使用 `-scope currentuser` 選項。
 
-2. 在安裝期間，選取 [Y]  以從 Nuget.org 安裝兩個套件。兩個套件都是必要套件。
+1. 在安裝期間，選取 [Y]  以從 Nuget.org 安裝兩個套件。兩個套件都是必要套件。
 
 ### <a name="find-the-objectid-of-the-app"></a>尋找應用程式的 ObjectId
 
@@ -99,13 +99,13 @@ ms.locfileid: "66233756"
    Import-Module AzureAD
    ```
 
-2. 以租用戶系統管理員身分登入 Azure AD 模組。
+1. 以租用戶系統管理員身分登入 Azure AD 模組。
 
    ```powershell
    Connect-AzureAD
    ```
 
-3. 尋找應用程式。 此範例使用 PowerShell 透過應用程式的顯示名稱搜尋來尋找 ObjectId `SharePoint`。
+1. 尋找應用程式。 此範例使用 PowerShell 透過應用程式的顯示名稱搜尋來尋找 ObjectId `SharePoint`。
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -135,31 +135,31 @@ ms.locfileid: "66233756"
    $objguid = "8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4"
    ```
 
-2. 請確認您有正確的應用程式，方法是執行下列命令。 輸出應該是您在上一節中看到的輸出完全相同 ([尋找應用程式的 ObjectId](#find-the-objectid-of-the-app))。
+1. 請確認您有正確的應用程式，方法是執行下列命令。 輸出應該是您在上一節中看到的輸出完全相同 ([尋找應用程式的 ObjectId](#find-the-objectid-of-the-app))。
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
    ```
 
-3. 建立空白應用程式物件以存放您要進行的變更。
+1. 建立空白應用程式物件以存放您要進行的變更。
 
    ```powershell
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-4. 將首頁 URL 設定為您想要的值。 此值必須是已發佈應用程式的子網域路徑。 例如，如果您將首頁 URL 從 `https://sharepoint-iddemo.msappproxy.net/` 變更為 `https://sharepoint-iddemo.msappproxy.net/hybrid/`，則應用程式使用者會直接前往自訂首頁。
+1. 將首頁 URL 設定為您想要的值。 此值必須是已發佈應用程式的子網域路徑。 例如，如果您將首頁 URL 從 `https://sharepoint-iddemo.msappproxy.net/` 變更為 `https://sharepoint-iddemo.msappproxy.net/hybrid/`，則應用程式使用者會直接前往自訂首頁。
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
    ```
 
-5. 請首頁上的更新。
+1. 請首頁上的更新。
 
    ```powershell
    Set-AzureADApplication -ObjectId $objguid -Homepage $homepage
    ```
 
-6. 若要確認變更成功，請從步驟 2 再次執行下列命令。
+1. 若要確認變更成功，請從步驟 2 再次執行下列命令。
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
@@ -173,10 +173,10 @@ ms.locfileid: "66233756"
    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
-7. 重新啟動應用程式，以確認首頁上顯示為第一個畫面中，如預期般運作。
+1. 重新啟動應用程式，以確認首頁上顯示為第一個畫面中，如預期般運作。
 
->[!NOTE]
->您對應用程式所做的任何變更都可能會重設首頁 URL。 如果您的首頁 URL 重設，請重複本節中的步驟重新設定。
+> [!NOTE]
+> 您對應用程式所做的任何變更都可能會重設首頁 URL。 如果您的首頁 URL 重設，請重複本節中的步驟重新設定。
 
 ## <a name="next-steps"></a>後續步驟
 

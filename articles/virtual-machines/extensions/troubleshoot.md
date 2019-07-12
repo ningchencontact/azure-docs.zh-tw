@@ -4,7 +4,7 @@ description: 了解如何針對 Azure Windows VM 擴充功能的失敗進行疑�
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2b85e9a156d0e6264ec39282b803118963cbbbb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62107239"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706653"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>針對 Azure Windows VM 擴充功能的失敗進行疑難排解
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -62,7 +62,7 @@ Azure PowerShell：
 ## <a name="troubleshooting-extension-failures"></a>針對擴充功能失敗進行疑難排解
 ### <a name="rerun-the-extension-on-the-vm"></a>在 VM 上重新執行擴充功能
 如果您使用自訂指令碼擴充功能在 VM 上執行指令碼，有時候可能會遇到雖然成功建立了 VM 但指令碼卻失敗的錯誤。 在這樣的情況下，若要從此錯誤中復原，建議您移除延伸模組並再次重新執行範本。
-注意：未來將增強這項功能，以移除對解除安裝延伸模組的需求。
+注意:未來將增強這項功能，以移除對解除安裝延伸模組的需求。
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>從 Azure PowerShell 移除擴充功能
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"

@@ -58,6 +58,6 @@ ms.locfileid: "67109301"
 ## <a name="next-steps"></a>後續步驟
 [定義混合式身分識別採用策略](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

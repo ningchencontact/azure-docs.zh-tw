@@ -252,7 +252,7 @@ ms.locfileid: "65784286"
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |機械屬性。 使用者的國家/地區
-上也提供本文中使用的原始碼。 用於授權指派。 |
+。 用於授權指派。 |
 | userPrincipalName |X | | |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |
 | wWWHomePage |X |X | | |
 

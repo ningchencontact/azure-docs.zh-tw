@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235813"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797712"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
@@ -28,10 +28,11 @@ ms.locfileid: "66235813"
 
 請了解可將 IoT Central 連線至其他服務 (例如行動裝置和 Microsoft Teams 等) 的[這些 Microsoft Flow 範本](https://aka.ms/iotcentralflowtemplates)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 隨用隨付應用程式
-- 可登入 Flow 的 Microsoft 的個人、公司或學校帳戶 ([深入了解 Microsoft Flow 計劃](https://aka.ms/microsoftflowplans))
+- 若要使用 Microsoft Flow 的 Microsoft 個人或公司或學校帳戶 ([深入了解 Microsoft Flow 計劃](https://aka.ms/microsoftflowplans))
+- 若要使用 Azure IoT Central 連接器工作或學校帳戶
 
 ## <a name="trigger-a-workflow"></a>觸發程序工作流程
 
@@ -45,7 +46,12 @@ ms.locfileid: "66235813"
 
     ![可用的 Microsoft Flow 範本](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. 系統會提示您登入您選擇的範本中的連接器。 連接器會登入之後，您將登陸在設計工具來建立您的工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
+1. 系統會提示您登入您選擇的範本中的連接器。 
+
+    > [!NOTE]
+    > 若要使用 Azure IoT Central 的連接器，您必須登入使用 Azure Active Directory 帳戶 （公司或學校帳戶）。 個人的帳戶，例如abc@outlook.com或abc@live.com不支援的 Azure IoT Central 的連接器。
+
+    一旦您已登入的連接器，您將登陸在設計工具來建立您的工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
 
 1. 您可以自訂工作流程自訂動作並加入新的動作所傳遞的資訊。 在此範例中，動作是 **通知-傳送行動通知**。 您可以納入 IoT Central 規則中的「動態內容」  ，將裝置名稱和時間戳記等重要資訊傳至您的通知。
 

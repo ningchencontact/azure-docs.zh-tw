@@ -4,7 +4,7 @@ description: 使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409604"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709002"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
 
@@ -251,30 +251,30 @@ ms.locfileid: "65409604"
 
 若要準備 Azure 基礎架構，請完成下列步驟：
 
-* [準備架構範本 1、2 和 3 的基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]。
+* [準備架構範本 1、 2 和 3 的基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]。
 
 * [建立 Azure 虛擬網路][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]。
 
-* [設定必要的 DNS IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]。
+* [設定所需的 DNS IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]。
 
 * [設定 SAP 虛擬機器的靜態 IP 位址][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]。
 
-* [為 Azure 內部負載平衡器設定靜態 IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]。
+* [Azure 內部負載平衡器設定靜態 IP 位址][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]。
 
-* [設定 Azure 內部負載平衡器的預設 ASCS/SCS 負載平衡規則][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]。
+* [Azure 內部負載平衡器規則設為預設值 ASCS/SCS 負載平衡][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]。
 
-* [ 變更 Azure 內部負載平衡器的 ASCS/SCS 預設負載平衡規則][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]。
+* [變更平衡規則的 Azure 內部負載平衡器的 ASCS/SCS 預設負載][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]。
 
-* [將 Windows 虛擬機器新增至網域][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]。
+* [將 Windows 虛擬機器加入網域][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]。
 
 * [在 SAP ASCS/SCS 執行個體的兩個叢集節點上新增登錄項目][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]。
 
-* 使用 Windows Server 2016 時，建議您設定 [Azure 雲端見證][deploy-cloud-witness]。
+* 當您使用 Windows Server 2016 時，我們建議您設定[Azure 雲端見證][deploy-cloud-witness]。
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>手動部署向外延展檔案伺服器叢集 
 
-您可藉由執行下列程式碼，以手動方式部署 Microsoft 向外延展檔案伺服器叢集，如 [Azure 中的儲存空間直接存取][ms-blog-s2d-in-azure]部落格所述：  
+您可以在 Microsoft 向外延展檔案伺服器叢集以手動方式部署，部落格中所述[儲存空間直接存取在 Azure 中][ms-blog-s2d-in-azure]，藉由執行下列程式碼：  
 
 
 ```powershell
@@ -319,7 +319,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ### <a name="use-managed-disks"></a>使用受控磁碟
 
-在 [GitHub][arm-sofs-s2d-managed-disks] 上可取得使用儲存空間直接存取 (S2D) 和 Azure 受控磁碟部署向外延展檔案伺服器的 Azure Resource Manager 範本。
+部署向外延展檔案伺服器與儲存空間直接存取 」 和 「 Azure 受控磁碟的 Azure Resource Manager 範本位於[GitHub][arm-sofs-s2d-managed-disks]。
 
 建議您使用受控磁碟。
 
@@ -335,7 +335,7 @@ _**圖 1**:使用受控磁碟的向外延展檔案伺服器資源管理員範本
 
 ### <a name="use-unmanaged-disks"></a>使用非受控磁碟
 
-在 [GitHub][arm-sofs-s2d-non-managed-disks] 上可取得使用儲存空間直接存取 (S2D) 和 Azure 非受控磁碟部署向外延展檔案伺服器的 Azure Resource Manager 範本。
+部署向外延展檔案伺服器與儲存空間直接存取 Azure 非受控磁碟的 Azure Resource Manager 範本位於[GitHub][arm-sofs-s2d-non-managed-disks]。
 
 ![圖 2：如需不含受控磁碟的向外延展檔案伺服器的 Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
 
@@ -345,7 +345,7 @@ _**圖 2**:如需不含受控磁碟的向外延展檔案伺服器的 Azure Resou
 
 ## <a name="adjust-cluster-timeout-settings"></a>調整叢集逾時設定
 
-已成功安裝在 Windows 向外延展檔案伺服器叢集之後，調整 Azure 中的條件的容錯移轉偵測的逾時臨界值。 需要變更的參數記載於[調整容錯移轉叢集網路閥值][tuning-failover-cluster-network-thresholds]中。 假設您叢集的 Vm 位於相同的子網路，請為這些值來變更下列參數：
+已成功安裝在 Windows 向外延展檔案伺服器叢集之後，調整 Azure 中的條件的容錯移轉偵測的逾時臨界值。 若要變更的參數記載於[調整容錯移轉叢集網路閥值][tuning-failover-cluster-network-thresholds]。 假設您叢集的 Vm 位於相同的子網路，請為這些值來變更下列參數：
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
@@ -355,4 +355,4 @@ _**圖 2**:如需不含受控磁碟的向外延展檔案伺服器的 Azure Resou
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性][sap-high-availability-installation-wsfc-file-share]
+* [SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性][sap-high-availability-installation-wsfc-file-share]

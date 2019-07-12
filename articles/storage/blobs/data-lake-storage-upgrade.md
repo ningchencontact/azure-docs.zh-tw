@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d5bf318a86e989ce66bffbd2aa72638ea477ab1
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730543"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673913"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
 
@@ -220,9 +220,9 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 | 策略                       | 工具                                                                                                             | 優點                                                                                                                             | 考量                                                                                                                                                                                                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **隨即轉移**                 | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2-from-gen1) | 受控雲端服務                                                                                                                | 僅複製資料。 目前無法複製 ACL。                                                                                                                                                                                                                                                                      |
+| **隨即轉移**                 | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2-from-gen1) | 受控雲端服務                                                                                                                | 可以透過 目前複製資料和 Acl。                                                                                                                                                                                                                                                                      |
 |                                    | [Distcp](https://hadoop.apache.org/docs/r1.2.1/distcp.html)                                                           | 知名 Hadoop 提供的工具權限，亦即可利用此工具複製 ACL                                                   | 需要可同時連線到 Data Lake Storage Gen1 和 Gen2 的叢集。                                                                                                                                                                                   |
-| **一次性複製和累加式複製** | Azure Data Factory                                                                                                    | 受控雲端服務                                                                                                                | 若要在 ADF 中支援累加式複製，必須以時間序列的方式組織資料。 累加式複製之間的最短間隔為 [15 分鐘](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger)。 如果間隔較短，ADF 便無法運作。 目前無法複製 ACL。 |
+| **一次性複製和累加式複製** | Azure Data Factory                                                                                                    | 受控雲端服務                                                                                                                | 可以透過 目前複製資料和 Acl。 若要在 ADF 中支援累加式複製，必須以時間序列的方式組織資料。 累加式複製之間的最短間隔為 [15 分鐘](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger)。 |
 | **平行採用**              | [WANdisco](https://docs.wandisco.com/bigdata/wdfusion/adls/)                                                           | 支援一致複寫：如果使用已連線到 Azure Data Lake Storage 的純 Hadoop 環境，則支援雙向複寫 | 如果未使用純 Hadoop 環境，則複寫可能延遲。                                                                                                                                                                                                                                                  |
 
 請注意，有第三方可處理 Data Lake Storage Gen1 至 Data Lake Storage Gen2 升級，而不需使用上述資料/中繼資料複製工具 (例如：[Cloudera](https://blog.cloudera.com/blog/2017/08/use-amazon-s3-with-cloudera-bdr/))。 他們提供執行資料移轉及工作負載移轉的「一站式」體驗。 您可能必須針對其生態系統以外的任何工具，執行頻外升級。

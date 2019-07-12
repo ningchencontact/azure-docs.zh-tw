@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343761"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-sap-hana-connector.md)
 > * [目前的版本](connector-sap-hana.md)
 
@@ -39,14 +39,14 @@ ms.locfileid: "60343761"
 > [!NOTE]
 > 若要將資料複製**到** SAP HANA 資料存放區，請使用一般 ODBC 連接器。 如需詳細資料，請參閱 [SAP HANA 接收器](connector-odbc.md#sap-hana-sink)。 請注意，SAP HANA 連接器和 ODBC 連接器的已連接服務具有不同的類型，因此無法重複使用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用這個 SAP HANA 接收器，您必須：
 
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 - 在 Integration Runtime 電腦上安裝 SAP HANA ODBC 驅動程式。 您可以從 [SAP 軟體下載中心](https://support.sap.com/swdc)下載 SAP Hana ODBC 驅動程式。 使用關鍵字 **SAP HANA CLIENT for Windows** 搜尋。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -65,7 +65,7 @@ ms.locfileid: "60343761"
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -95,7 +95,7 @@ ms.locfileid: "60343761"
 
 若要從 SAP HANA 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 針對 RelationalTable 類型的 SAP HANA 資料集，不支援任何類型特定的屬性。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -124,7 +124,7 @@ ms.locfileid: "60343761"
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -162,23 +162,23 @@ ms.locfileid: "60343761"
 
 | SAP HANA 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ALPHANUM | String |
+| ALPHANUM | 字串 |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| BOOLEAN | Byte |
+| Boolean | Byte |
 | CLOB | Byte[] |
-| 日期 | Datetime |
-| DECIMAL | Decimal |
-| DOUBLE | Single |
+| DATE | DateTime |
+| Decimal | Decimal |
+| Double | Single |
 | INT | Int32 |
-| NVARCHAR | String |
+| NVARCHAR | 字串 |
 | REAL | Single |
-| SECONDDATE | Datetime |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIMESTAMP | Datetime |
+| TIMESTAMP | DateTime |
 | TINYINT | Byte |
-| VARCHAR | String |
+| VARCHAR | 字串 |
 
 ## <a name="known-limitations"></a>已知限制
 

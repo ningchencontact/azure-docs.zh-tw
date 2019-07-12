@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d25ef00adc307bae57da2c04d4472874f8d67bcd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67475951"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796090"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Azure 的自訂資源提供者概觀
 
@@ -125,6 +125,7 @@ POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pr
 
 在本文中，您會了解自訂提供者。 請移至下一篇文章，以建立自訂提供者。
 
-- [教學課程：建立 Azure 自訂資源提供者和部署自訂的資源](./create-custom-provider.md)
+- [快速入門：建立 Azure 自訂資源提供者和部署自訂的資源](./create-custom-provider.md)
+- [教學課程：在 Azure 中建立自訂動作和資源](./tutorial-custom-providers-101.md)
 - [如何：將自訂動作加入至 Azure 的 REST API](./custom-providers-action-endpoint-how-to.md)
 - [如何：將自訂資源新增至 Azure 的 REST API](./custom-providers-resources-endpoint-how-to.md)

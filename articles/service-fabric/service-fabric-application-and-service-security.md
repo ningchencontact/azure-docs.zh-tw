@@ -31,14 +31,14 @@ ms.locfileid: "66302230"
 ## <a name="authentication-and-authorization"></a>驗證和授權
 通常需要將服務所公開的資源和 API 限制為適用於特定信任的使用者或用戶端。 驗證是可靠地查明使用者身分識別的程序。  授權是讓 API 或服務可供某些已驗證使用者使用 (其他使用者無法使用) 的程序。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 進行 API 層級信任決策的第一個步驟是驗證。 驗證是可靠地查明使用者身分識別的程序。  在微服務案例中，驗證通常會集中處理。 如果您使用 API 閘道，您可以[將驗證卸載](/azure/architecture/patterns/gateway-offloading)至閘道。 如果您使用此方法，請確定可以直接與個別服務連線 (不需要 API 閘道)，除非設立了額外的安全性來驗證訊息是否來自閘道。
 
 如果可以直接存取服務，則驗證服務 (例如 Azure Active Directory 或專用驗證微服務) 會作為安全性權杖服務 (STS)，可用來驗證使用者。 信任決策會在服務與安全性權杖或 Cookie 之間共用。 
 
 針對 ASP.NET Core，[驗證使用者](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要機制是 ASP.NET Core 身分識別成員資格系統。 ASP.NET Core 身分識別會將使用者資訊 (包括登入資訊、角色及宣告) 儲存在由開發人員設定的資料存放區中。 ASP.NET Core 身分識別支援雙因素驗證。  也支援外部驗證提供者，讓使用者可以登入使用來自 Microsoft、 Google、 Facebook 或 Twitter 等提供者的現有驗證程序。
 
-### <a name="authorization"></a>授權
+### <a name="authorization"></a>Authorization
 驗證之後，服務需要授權使用者存取權，或判斷使用者可以執行哪些作業。 這個程序允許服務讓 API 可供某些已驗證的使用者使用，而不是所有使用者都可使用。 授權與驗證彼此獨立且互不影響，後者是查明使用者是誰的程序。 驗證可為目前使用者建立一或多個身分識別。
 
 [ASP.NET Core 授權](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)可以根據使用者的角色或根據自訂原則來進行，其中包含檢查宣告或其他啟發學習法。

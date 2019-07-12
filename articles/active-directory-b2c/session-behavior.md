@@ -58,7 +58,7 @@ Azure AD B2C 支援以 [OpenID Connect 驗證通訊協定](active-directory-b2c-
 
     ![設定工作階段行為](./media/session-behavior/session-behavior.png)
     
-8. 按一下 [檔案]  。
+8. 按一下 [儲存]  。
 
 
 

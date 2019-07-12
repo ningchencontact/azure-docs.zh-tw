@@ -1,12 +1,14 @@
 - name: 高效能運算文件
   items:
     - name: 概觀
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      items:
+        - name: H 系列虛擬機器適用的 HPC
+          href: overview.md
     - name: 組態
       items:
         - name: 針對 Linux 進行最佳化
           href: configure.md
-        - name: 啟用 Infiniband
+        - name: 啟用 InfiniBand
           href: enable-infiniband.md
     - name: 設定 MPI
       href: setup-mpi.md

@@ -15,14 +15,14 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf665362e2d20f26c17e8a4ae9da29fc30cb47ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481282"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807689"
 ---
-# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>作法：部署 Internet Explorer 使用群組原則的存取面板延伸模組
+# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>HOW TO：部署 Internet Explorer 使用群組原則的存取面板延伸模組
 
 本教學課程示範如何使用群組原則，在您的使用者電腦上遠端安裝 Internet Explorer 的存取面板延伸模組。 需要登入使用 [密碼單一登入](what-is-single-sign-on.md#password-based-sso)設定的應用程式的 Internet Explorer 使用者，都需要此延伸模組。
 
@@ -30,7 +30,7 @@ ms.locfileid: "67481282"
 
 存取面板延伸模組也可供 [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) 和 [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) 使用，兩者都不需要系統管理員權限即可安裝。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您已設定了 [Active Directory 網域服務](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)，並且已將使用者的電腦加入網域。
 * 您必須擁有「編輯設定」權限，才能編輯群組原則物件 (GPO)。 根據預設，下列安全性群組的成員擁有此權限：網域系統管理員、企業系統管理員及群組原則建立者擁有者。 [深入了解。](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
@@ -43,9 +43,11 @@ ms.locfileid: "67481282"
 1. 在 [伺服器管理員]  視窗中，移至 [檔案和存放服務]  。
 
     ![開啟檔案和存放服務](./media/deploy-access-panel-browser-extension/files-services.png)
+
 1. 移至 [共用]  索引標籤。然後按一下 [工作]   > [新增共用...] 
 
-    ![開啟檔案和存放服務](./media/deploy-access-panel-browser-extension/shares.png)
+    ![螢幕擷取畫面顯示從 [工作] 畫面中尋找新的共用位置](./media/deploy-access-panel-browser-extension/shares.png)
+
 1. 完成 [新增共用精靈]  並設定權限以確保可以從您的使用者電腦存取該精靈。 [深入了解共用。](https://technet.microsoft.com/library/cc753175.aspx)
 1. 下載下列 Microsoft Windows 安裝程式套件 (.msi file)：[Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 1. 將安裝程式套件複製到共用上想要的位置。
@@ -80,13 +82,14 @@ ms.locfileid: "67481282"
 
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
+
 1. 以滑鼠右鍵按一下 [軟體安裝]  ，然後選取 [新增]   > [套件...] 
 1. 移至共用資料夾 (此資料夾包含來自[步驟 1：建立發佈點](#step-1-create-the-distribution-point)的安裝程式套件)，選取 .msi 檔案，然後按一下 [開啟]  。
 
    > [!IMPORTANT]
    > 如果共用位於相同的伺服器上，確認您是透過網路檔案路徑存取此 .msi，，而不是本機檔案路徑。
 
-    ![從共用資料夾中選取安裝套件。](./media/deploy-access-panel-browser-extension/select-package.png)
+    ![選取 共用資料夾中的 安裝套件](./media/deploy-access-panel-browser-extension/select-package.png)
 
 1. 在 [部署軟體]  提示中，針對您的部署方法選取 [已指派]  。 然後按一下 [確定]  。
 
@@ -100,6 +103,7 @@ ms.locfileid: "67481282"
 
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+
 1. 以滑鼠右鍵按一下 [附加元件清單]  ，然後選取 [編輯]  。
 
     ![以滑鼠右鍵按一下 「 附加元件清單 」，然後選取 [編輯]](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
@@ -111,8 +115,8 @@ ms.locfileid: "67481282"
 1. 在 [顯示內容]  視窗中，執行下列步驟：
 
    1. 對於第一個資料行 ([值名稱]  欄位)，複製和貼上以下類別識別碼：`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. 對於第二個資料行 ([值]  欄位)，輸入下列值：`1`
-   3. 按一下 [確定]  關閉 [顯示內容]  視窗。
+   1. 對於第二個資料行 ([值]  欄位)，輸入下列值：`1`
+   1. 按一下 [確定]  關閉 [顯示內容]  視窗。
 
       ![填妥上一個步驟中指定的值](./media/deploy-access-panel-browser-extension/show-contents.png)
 
@@ -160,7 +164,7 @@ ms.locfileid: "67481282"
 1. 重新開機之後，開啟 **Internet Explorer**。 在視窗的右上角按一下 [工具]  的齒輪圖示，然後選取 [管理附加元件]  。
 1. 在 [管理附加元件]  視窗中，確認 [存取面板擴充功能]  已安裝且其 [狀態]  已設為 [已啟用]  。
 
-   ![確認存取面板延伸模組已安裝並啟用。](./media/deploy-access-panel-browser-extension/verify-install.png)
+   ![確認 存取面板延伸模組已安裝並啟用](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="learn-more"></a>深入了解
 

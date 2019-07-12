@@ -29,7 +29,7 @@ ms.locfileid: "67076822"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用自動儲存體組態設定，您的虛擬機器需具備下列特性︰
 
@@ -125,7 +125,7 @@ Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 | --- | --- |
 | 等量大小 |256 KB (資料倉儲)；64 KB (交易式) |
 | 磁碟大小 |每個磁碟 1 TB |
-| 快取 |閱讀 |
+| 快取 |讀取 |
 | 配置大小 |64 KB NTFS 配置單位大小 |
 | 立即檔案初始化 |Enabled |
 | 在記憶體中鎖定頁面 |Enabled |

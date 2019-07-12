@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.
 | HttpBinding | 否 | 繫結至存取權杖和宣告權杖端點的預期 HTTP。 可能的值：`GET` 或 `POST`。  |
 | ValidTokenIssuerPrefixes | 否 | 此金鑰可在使用多租戶識別提供者 (例如 Azure Active Directory) 時，用於登入每個租用戶。 |
 | UsePolicyInRedirectUri | 否 | 表明在建構重新導向 URI 時，是否使用原則。 在設定識別提供者中的應用程式時，需要指定重新導向 URI。 重新導向 URI 會指向 Azure AD B2C，`https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com 可能會隨著 your-tenant-name.b2clogin.com 而變更)。  如果指定 `false`，則需要為每個使用的原則新增重新導向 URI。 例如： `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp` 。 |
-| MarkAsFailureOnStatusCode5xx | 否 | 表明如果 Http 狀態碼在 5xx 範圍內，是否應該將外部服務的要求標記為失敗。 預設值為 `false`。 |
+| MarkAsFailureOnStatusCode5xx | 否 | 表明如果 Http 狀態碼在 5xx 範圍內，是否應該將外部服務的要求標記為失敗。 預設為 `false`。 |
 | DiscoverMetadataByTokenIssuer | 否 | 表明是否應該使用 JWT 權杖中的簽發者探索 OIDC 中繼資料。 |
 
 ## <a name="cryptographic-keys"></a>密碼編譯金鑰

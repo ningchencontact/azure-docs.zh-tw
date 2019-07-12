@@ -50,7 +50,7 @@ Azure Data Lake Storage Gen1 是公用網際網路 IP 位址上執行的 PaaS �
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>使用 ExpressRoute 從受限制的 VM 啟用連線
 設定 ExpressRoute 電路時，內部部署伺服器可以透過公用對等互連來存取 Data Lake Storage Gen1。 如需針對公用互連設定 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
 * [保護儲存在 Azure Data Lake Storage Gen1 中的資料](data-lake-store-security-overview.md)
 

@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/25/2019
+ms.date: 07/09/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e6eb449f4e7a8dcd6c4547162a575d21f303f83
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67132997"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712426"
 ---
 ### <a name="what-is-expressroute-direct"></a>什麼是 ExpressRoute Direct？
 
-ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對等互連位置，都直接連線至 Microsoft 全球網路的能力。 ExpressRoute Direct 提供雙向 100 Gbps 連線，且支援大規模主動/主動連線。 
+ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對等互連位置，都直接連線至 Microsoft 全球網路的能力。 ExpressRoute 直接提供雙重 100 或 10 Gbps 連線能力，可支援大規模的主動/主動連線。 
 
 ### <a name="how-do-customers-connect-to-expressroute-direct"></a>客戶如何連線至 ExpressRoute Direct？ 
 
@@ -28,22 +28,28 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 可用的連接埠將會是動態的，且將可透過 PowerShell 來檢視容量。 位置包括如下，且根據可用性可能會有所變更  ：
 
 * 阿姆斯特丹
+* 阿姆斯特丹2
+* 奧克蘭 
 * 芝加哥
-* 華盛頓
-* 達拉斯 
+* 達拉斯
+* 都柏林
 * 香港特別行政區
 * 倫敦
 * 洛杉磯
+* 墨爾本
 * New York City
-* 巴黎
 * 伯斯
-* 多倫多
 * San Antonio
 * Seattle
 * 首爾
 * 矽谷
-* 新加坡 
+* 新加坡 2 
 * 雪梨
+* 台北
+* 東京
+* 多倫多
+* 華盛頓
+* 華盛頓特區2
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute Direct 的 SLA 為何？
 
@@ -51,7 +57,7 @@ ExpressRoute Direct 會利用相同的[企業級 ExpressRoute](https://azure.mic
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>客戶應針對哪些案例考慮使用 ExpressRoute Direct？  
 
-ExpressRoute Direct 提供客戶直接與 Microsoft 全球骨幹配對的 100 Gbps 連接埠。 能為客戶提供絕佳好處的案例包括：大規模資料擷取、針對受嚴格規範市場的物理隔離和高載案例 (例如轉譯) 的專用容量。 
+ExpressRoute 直接提供直接的 100 或 10 Gbps 的連接埠組客戶到 Microsoft 的全球骨幹。 能為客戶提供絕佳好處的案例包括：大規模資料擷取、針對受嚴格規範市場的物理隔離和高載案例 (例如轉譯) 的專用容量。 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>ExpressRoute Direct 的計費模型為何？ 
 

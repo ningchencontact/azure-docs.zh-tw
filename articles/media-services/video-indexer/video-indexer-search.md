@@ -54,6 +54,6 @@ ms.locfileid: "65799100"
 - [使用影片索引器 REST API 處理內容](video-indexer-use-apis.md)
 - [將視覺介面控件內嵌到應用程式](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [影片索引子概觀](video-indexer-overview.md)

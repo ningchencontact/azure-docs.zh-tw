@@ -32,7 +32,7 @@ Service Fabric 可靠磁碟會提供磁碟區來用於本機讀取，並在 Serv
 
 `counterService` 會定期從檔案讀取計數器的值、增加該值並將其寫回檔案。 儲存檔案的資料夾會裝載在由 Service Fabric 可靠磁碟支援的磁碟區中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成此工作。 若要依照本文的指示使用 Azure CLI，請確認 `az --version` 至少傳回 `azure-cli (2.0.43)`。  請依照下列[指示](service-fabric-mesh-howto-setup-cli.md)安裝 (或更新) Azure Service Fabric Mesh CLI 擴充功能模組。
 

@@ -30,6 +30,8 @@
       items:
         - name: 伺服器層級 IP 防火牆規則
           href: sql-database-server-level-firewall-rule.md
+        - name: 在受控執行個體中設定公用端點
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: 用戶端 VM 連線至受控執行個體
           href: sql-database-managed-instance-configure-vm.md
         - name: 點對站連線至受控執行個體
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: 連線應用程式
           href: sql-database-managed-instance-connect-app.md
-        - name: 設定公用端點
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: 載入和移動資料
       items:
         - name: 在 Azure 內複製資料庫

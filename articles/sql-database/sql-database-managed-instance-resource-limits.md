@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447808"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707012"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>概觀 Azure SQL Database 受控執行個體的資源限制
 
@@ -28,7 +28,7 @@ ms.locfileid: "67447808"
 
 ## <a name="instance-level-resource-limits"></a>執行個體層級的資源限制
 
-受控執行個體具有特性和取決於基礎的基礎結構和架構的資源限制。 這些限制取決於硬體世代和服務層。
+受控執行個體具有特性和取決於基礎的基礎結構和架構的資源限制。 這些限制取決於硬體世代和服務層級。
 
 ### <a name="hardware-generation-characteristics"></a>硬體世代特性
 
@@ -37,11 +37,11 @@ Azure SQL Database 受控執行個體可以在兩個世代的硬體上部署：G
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，快速 NVMe SSD，虛擬核心 = 1 LP (超執行緒) |
-| 虛擬核心 | 8 個、16 個、24 個虛擬核心 | 4、 8、 16、 24、 32、 40、 64、 80 的 v 核心 |
-| 記憶體 （記憶體/核心比例） | 每個虛擬核心 7GB | 每個虛擬核心 5.1 GB |
+| 虛擬核心數目 | 8 個、16 個、24 個虛擬核心 | 4、 8、 16、 24、 32、 40、 64、 80 的 v 核心 |
+| 最大記憶體 （記憶體/核心比例） | 每個虛擬核心 7GB<br/>新增更多虛擬核心，以取得更多的記憶體。 | 每個虛擬核心 5.1 GB<br/>新增更多虛擬核心，以取得更多的記憶體。 |
 | 最大記憶體內部 OLTP 記憶體 | 執行個體限制：每個虛擬核心 3 GB<br/>資料庫的限制：<br/> -8 個核心：每個資料庫的 8 GB<br/> -16 個核心：每個資料庫的 20 GB<br/> -24 個核心：每個資料庫的高過 36 GB | 執行個體限制：每個虛擬核心 2.5 GB<br/>資料庫的限制：<br/> -8 個核心：每個資料庫的 13 GB<br/> -16 個核心：每個資料庫 32 GB |
-| 最大執行個體儲存體 （一般用途） |  8 TB | 8 TB |
-| 執行個體的儲存體上限 （商務關鍵） | 1 TB | 1 TB、2 TB 或 4 TB，視核心數目而定 |
+| 最大執行個體保留儲存體 （一般用途） |  8 TB | 8 TB |
+| 最大執行個體保留儲存體 （商務關鍵） | 1 TB | 1 TB、2 TB 或 4 TB，視核心數目而定 |
 
 > [!IMPORTANT]
 > 新的第 4 代資料庫不再支援 AustraliaEast 區域中。
@@ -53,16 +53,16 @@ Azure SQL Database 受控執行個體可以在兩個世代的硬體上部署：G
 | **功能** | **一般用途** | **商務關鍵性** |
 | --- | --- | --- |
 | 虛擬核心數目\* | 第 4 代：8、16、24<br/>第 5 代：4, 8, 16, 24, 32, 40, 64, 80 | 第 4 代：8、16、24、32 <br/> 第 5 代：4, 8, 16, 24, 32, 40, 64, 80 |
-| 記憶體 | 第 4 代：56 GB-168 GB (7 GB/vCore)<br/>第 5 代：40.8 GB-408 GB (5.1 GB/vCore) | 第 4 代：56 GB-168 GB (7 GB/vCore)<br/>第 5 代：40.8 GB-408 GB (5.1 GB/vCore) |
-| 執行個體儲存體大小上限 | -4 個 Vcore （僅第 5 代） 2 TB<br/>如需其他大小的 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>-1 TB 的 4、 8、 16 個 Vcore<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
-| 每個資料庫的儲存體上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
+| 最大記憶體 | 第 4 代：56 GB-168 GB (7 GB/vCore)<br/>第 5 代：40.8 GB-408 GB (5.1 GB/vCore)<br/>新增更多虛擬核心，以取得更多的記憶體。 | 第 4 代：56 GB-168 GB (7 GB/vCore)<br/>第 5 代：40.8 GB-408 GB (5.1 GB/vCore)<br/>新增更多虛擬核心，以取得更多的記憶體。 |
+| 最大執行個體保留儲存體大小 | -4 個 Vcore （僅第 5 代） 2 TB<br/>如需其他大小的 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>-1 TB 的 4、 8、 16 個 Vcore<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
+| 資料庫大小上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
-| 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
-| 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K （1375年/虛擬核心） |
-| 記錄輸送量 | 每個虛擬核心 3 MB/秒<br/>最大 22 MB/s 每個執行個體 | 4 MB/s 每個虛擬核心<br/>最大 48 MB/s 每個執行個體|
-| 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
-| IO 延遲 (大約) | 5-10 毫秒 | 1-2 毫秒 |
-| 最大 tempDB 大小 | 192 - 1920 GB (每個虛擬核心 24 GB) | 沒有限制 - 受到執行個體儲存體大小上限的限制 |
+| 每個執行個體的資料庫檔案的最大數目 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
+| 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[增加檔案大小，以取得更多 IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K （1375年/虛擬核心）<br/>新增更多虛擬核心，以取得更佳的 IO 效能。 |
+| 記錄寫入輸送量限制 | 每個虛擬核心 3 MB/秒<br/>最大 22 MB/s 每個執行個體 | 4 MB/s 每個虛擬核心<br/>最大 48 MB/s 每個執行個體|
+| 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[增加檔案大小，以取得更佳的 IO 效能](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| 儲存體 IO 延遲 （大約） | 5-10 毫秒 | 1-2 毫秒 |
+| 最大 tempDB 大小 | 192 - 1920 GB (每個虛擬核心 24 GB)<br/>新增更多虛擬核心，以取得更多的 TempDB 空間。 | 最大執行個體儲存體大小限制。 TempDB 記錄檔大小是目前僅適用於 24 GB/虛擬核心。 |
 | 工作階段數上限 | 30000 | 30000 |
 
 > [!NOTE]
@@ -126,7 +126,7 @@ Azure SQL Database 受控執行個體可以在兩個世代的硬體上部署：G
 
      ![問題類型配額](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. 单击“下一步”  。
+3. 按一下 [下一步]  。
 4. 在 [**問題] 索引標籤**新支援要求：
    - 針對 [嚴重性]  ，選取問題的嚴重性層級。
    - 針對 [詳細資料]  ，提供關於問題的其他資訊，包括錯誤訊息在內。
@@ -140,9 +140,9 @@ Azure SQL Database 受控執行個體可以在兩個世代的硬體上部署：G
      > - 所需的每個服務層之後配額的現有子網路中的虛擬核心，數目增加 （如果有任何現有的子網路需要展開。
      > - （如果您要部署新的子網路中的 managed 執行個體），需要新的子網路數目和每個新的子網路內的服務層的虛擬核心總數。
 
-5. 单击“下一步”  。
+5. 按一下 [下一步]  。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 ## <a name="next-steps"></a>後續步驟
 

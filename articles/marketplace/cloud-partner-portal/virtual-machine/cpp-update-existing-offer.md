@@ -6,13 +6,13 @@ author: v-miclar
 ms.service: marketplace
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: Ankit.Sud
-ms.openlocfilehash: 4a75d706d55512201786b2b74376047ff75380a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: ansud
+ms.openlocfilehash: e6099caf949d93abf8c665f61cd9b91d545dd0f4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938127"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612545"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>更新 Azure Marketplace 中的現有虛擬機器供應項目
 
@@ -128,7 +128,7 @@ ms.locfileid: "64938127"
 
 4.  如果您已在 1x1 GUI 中設定價格，則可直接在 UI 中變更價格。 如果您是以匯入/匯出試算表的方式設定價格，則只能以匯入/匯出功能來降低價格。
 
-3.  按一下 [檔案]  。
+3.  按一下 [儲存]  。
 
 4.  按一下 [發佈]  啟動工作流程，以發佈您的變更。
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 進階 RS 服務層淘汰 | Microsoft Docs
-description: 進階 RS 服務層已進入淘汰階段，支援也將終止 - 請參閱移轉選項。
+title: Azure SQL Database 進階 RS 服務層級淘汰 | Microsoft Docs
+description: 進階 RS 服務層級已進入淘汰階段，支援也將終止 - 請參閱移轉選項。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -19,15 +19,15 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790417"
 ---
-# <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層 (預覽狀態) 進入淘汰階段 - 移轉選項
+# <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層級 (預覽狀態) 進入淘汰階段 - 移轉選項
 
-2018 年 2 月，Microsoft 宣佈 Azure SQL Database 中的進階 RS 服務層不再發行供一般使用，並自 2019 年 1 月 31 日起停止支援。 停止支援的期限已延後至 2019 年 6 月 30 日。 這篇文章說明從進階 RS 服務層移轉至另一個服務層的選項。 2019 年 6 月 30 日後，Microsoft 會自動將進階 RS 資料庫移轉到最符合進階 RS 資料庫效能需求的一般可用服務層。
+2018 年 2 月，Microsoft 宣佈 Azure SQL Database 中的進階 RS 服務層級不再發行供一般使用，並自 2019 年 1 月 31 日起停止支援。 停止支援的期限已延後至 2019 年 6 月 30 日。 這篇文章說明從進階 RS 服務層級移轉至另一個服務層級的選項。 2019 年 6 月 30 日後，Microsoft 會自動將進階 RS 資料庫移轉到最符合進階 RS 資料庫效能需求的一般可用服務層級。
 
 以下的移轉目的地與定價選項適用於進階 RS 客戶：
 
-- 虛擬核心服務層
+- 虛擬核心服務層級
 
-  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層。 這兩個服務層可供一般使用。 以 vCore 為基礎的購買模型也提供**超大規模**配合視您的工作負載需求自動調整每個資料庫最多 100 TB 的服務層。 超大規模的服務層提供相當於[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
+  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層級。 這兩個服務層級可供一般使用。 以 vCore 為基礎的購買模型也提供**超大規模**配合視您的工作負載需求自動調整每個資料庫最多 100 TB 的服務層。 超大規模資料庫的服務層提供相當於[以 DTU 為基礎購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
 - 開發/測試定價
 
   [開發/測試定價](https://azure.microsoft.com/pricing/dev-test/)可讓 Visual Studio 訂用帳戶省下高達 55% 的隨附授權費率。
@@ -35,16 +35,16 @@ ms.locfileid: "65790417"
 
   [Azure Hybrid Benefit 及保留容量定價](https://azure.microsoft.com/pricing/details/sql-database/)可省下高達 80% 的隨附授權費率。 如需有關這些選項的詳細資訊，請參閱[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 和 [Azure SQL Database 保留的容量](sql-database-reserved-capacity.md)。
 
-## <a name="act-now-to-migrate-your-premium-rs-databases-to-alternative-sql-database-service-tiers"></a>立即採取行動將您的進階 RS 資料庫移轉至替代的 SQL Database 服務層
+## <a name="act-now-to-migrate-your-premium-rs-databases-to-alternative-sql-database-service-tiers"></a>立即採取行動將您的進階 RS 資料庫移轉至替代的 SQL Database 服務層級
 
 請參閱本文的指導方針，及我們的定價與說明文件，來判定您進階 RS 工作負載的正確移轉目的地。
 
 ## <a name="migrate-compute-intensive-workloads-and-save"></a>移轉計算密集型的工作負載與節省
 
-對於計算密集型的進階 RS 工作負載，建議移轉至我們供一般使用的以虛擬核心為基礎一般用途服務層，並藉由使用 SQL Server 適用的 Azure Hybrid Benefit 與保留的容量供應項目，省下更多的隨附授權費率。 如果您要維持以 DTU 為基礎購買選項，可將計算密集型進階 RS 資料庫移轉至標準服務層，與進階 RS 一般可用性定價相比，這仍可以節省費用 (如果已移至一般可用性)。
+對於計算密集型的進階 RS 工作負載，建議移轉至我們供一般使用的以虛擬核心為基礎一般用途服務層級，並藉由使用 SQL Server 適用的 Azure Hybrid Benefit 與保留的容量供應項目，省下更多的隨附授權費率。 如果您要維持以 DTU 為基礎購買選項，可將計算密集型進階 RS 資料庫移轉至標準服務層級，與進階 RS 一般可用性定價相比，這仍可以節省費用 (如果已移至一般可用性)。
 
 > [!WARNING]
-> 將您的進階 RS 工作負載移轉至以 DTU 為基礎進階服務層，會增加目前進階 RS 定價的月費。 建議您考量使用具有 Azure Hybrid Benefit 與保留容量定價的超大規模資料庫或業務關鍵層，以保持類似或低於進階 RS 的費用。
+> 將您的進階 RS 工作負載移轉至以 DTU 為基礎進階服務層級，會增加目前進階 RS 定價的月費。 建議您考量使用具有 Azure Hybrid Benefit 與保留容量定價的超大規模資料庫或業務關鍵層，以保持類似或低於進階 RS 的費用。
 
 ### <a name="premium-rs-databases"></a>進階 RS 資料庫
 
@@ -84,15 +84,15 @@ ms.locfileid: "65790417"
 
 ## <a name="take-advantage-of-our-new-offers"></a>利用我們的新優惠
 
-我們在以虛擬核心為基礎購買模型中的服務層符合優惠資格，可讓您省下 80% 的隨附授權定價。 將 SQL Server Standard 或 Enterprise 版授權搭配有效的軟體保證使用，可透過 [SQL Server 適用的 Azure Hybrid Benefit ](https://azure.microsoft.com/pricing/hybrid-benefit/)省下 55% 的隨附授權定價。 您可以將 Hybrid Benefit 搭配 [Azure SQL Database 保留容量](sql-database-reserved-capacity.md)定價使用，當您將承諾提前到一或三年期時，可節省達 80%。  立即從 Azure 入口網站啟用這兩項權益。
+我們在以虛擬核心為基礎購買模型中的服務層級符合優惠資格，可讓您省下 80% 的隨附授權定價。 將 SQL Server Standard 或 Enterprise 版授權搭配有效的軟體保證使用，可透過 [SQL Server 適用的 Azure Hybrid Benefit ](https://azure.microsoft.com/pricing/hybrid-benefit/)省下 55% 的隨附授權定價。 您可以將 Hybrid Benefit 搭配 [Azure SQL Database 保留容量](sql-database-reserved-capacity.md)定價使用，當您將承諾提前到一或三年期時，可節省達 80%。  立即從 Azure 入口網站啟用這兩項權益。
 
 如果您有任何有關此變更的問題或疑慮，或如果您需要移轉方面的協助，請連絡 [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
-## <a name="migration-from-a-premium-rs-service-tier-to-a-service-tier-in-either-the-dtu-or-the-vcore-model"></a>從進階 RS 服務層移轉至 DTU 或虛擬核心模型中的服務層
+## <a name="migration-from-a-premium-rs-service-tier-to-a-service-tier-in-either-the-dtu-or-the-vcore-model"></a>從進階 RS 服務層級移轉至 DTU 或虛擬核心模型中的服務層級
 
 ### <a name="migration-of-a-database"></a>資料庫移轉
 
-將資料庫從進階 RS 服務層移轉至 DTU 或 vCore 模型中的服務層，類似在進階 RS 服務層的服務層之間升級或降級。
+將資料庫從進階 RS 服務層級移轉至 DTU 或虛擬核心模型中的服務層級，類似在進階 RS 服務層級的之間升級或降級。
 
 ### <a name="using-database-copy-to-convert-a-premium-rs-database-to-a-dtu-based-or-vcore-based-database"></a>使用資料庫複製將進階 RS 資料庫轉換成以 DTU 為基礎或以 vCore 為基礎的資料庫
 

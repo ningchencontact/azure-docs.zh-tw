@@ -86,7 +86,7 @@ Get-AzLog -ResourceGroup 'myrg1'
 Get-AzLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-获取特定调用方的所有日志项︰
+取得包含特定呼叫者的所有記錄檔項目︰
 
 ```powershell
 Get-AzLog -Caller 'myname@company.com'
@@ -101,7 +101,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` 支援其他許多參數。 如需詳細資訊，請參閱 `Get-AzLog` 參考。
 
 > [!NOTE]
-> `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxEvents** 參數可讓您查詢超過 15 天的前 N 個事件。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。
+> `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxRecords**參數可讓您查詢的前 n 個事件，超過 15 天。 若要存取 15 天前的事件，請使用 REST API 或 SDK (使用 SDK 的 C# 範例)。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。
 > 
 > 
 
@@ -154,7 +154,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | --- | --- |
 | 名稱 |simpletestdiskwrite |
 | 此警示規則的位置 |East US |
-| resourceGroup |montest |
+| ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | 所建立警示的 MetricName |所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
@@ -279,7 +279,7 @@ Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceG
 Get-AzLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
-可以使用 `Get-AzAutoScaleHistory` cmdlet 来检索自动缩放历史记录。
+您可以使用 `Get-AzAutoScaleHistory` Cmdlet 擷取自動調整歷程記錄。
 
 ```powershell
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
@@ -312,7 +312,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ## <a name="manage-log-profiles-for-activity-log"></a>管理活動記錄檔的記錄檔設定檔
 您可以建立*記錄檔設定檔*，並將資料從活動記錄檔匯出至儲存體帳戶，而且您可以為其設定資料保留期。 或者，您也可以將資料串流至事件中樞。 此功能目前處於預覽狀態，而且每個訂用帳戶只能建立一個記錄檔設定檔。 您可以使用下列 Cmdlet 搭配您目前的訂用帳戶來建立和管理記錄檔設定檔。 您也可以選擇特定的訂用帳戶。 PowerShell 預設為目前的訂用帳戶，但是您隨時可以使用 `Set-AzContext`加以變更。 您可以設定活動記錄檔，將資料路由至任何儲存體帳戶或該訂用帳戶內的事件中樞。 資料會以 JSON 格式的 Blob 檔案寫入。
 
-### <a name="get-a-log-profile"></a>获取日志配置文件
+### <a name="get-a-log-profile"></a>取得記錄檔設定檔
 若要擷取現有的記錄檔設定檔，請使用 `Get-AzLogProfile` Cmdlet。
 
 ### <a name="add-a-log-profile-without-data-retention"></a>新增沒有資料保留期的記錄檔設定檔
@@ -320,7 +320,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
-### <a name="remove-a-log-profile"></a>删除日志配置文件
+### <a name="remove-a-log-profile"></a>移除記錄檔設定檔
 ```powershell
 Remove-AzLogProfile -name my_log_profile_s1
 ```

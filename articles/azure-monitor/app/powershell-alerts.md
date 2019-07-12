@@ -132,10 +132,10 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 | remoteDependencyFailed |[相依性](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request、<br/>requestFailed |[伺服器要求](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
-## <a name="webhooks"></a>Webhook
+## <a name="webhooks"></a>webhooks
 您可以[自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)。 Azure 會在出現警示時呼叫您選擇的網址。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [用來設定 Application Insights 的指令碼](powershell-script-create-resource.md)
 * [從範本建立 Application Insights 和 Web 測試資源](powershell.md)
 * [自動化 Microsoft Azure 診斷與 Application Insights 的耦合](powershell-azure-diagnostics.md)

@@ -45,7 +45,7 @@ ms.locfileid: "60911417"
 
 如果您建立一個 NSG，請依照[管理網路安全性群組](../virtual-network/manage-network-security-group.md)中的步驟，建立 NSG 並設定安全性規則。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 本文說明了如何實作資訊安全中心建議的針對子網路或虛擬機器「啟用網路安全性群組」。 若要深入了解啟用 NSG，請參閱下列項目：
 
 * [什麼是網路安全性群組 (NSG)？](../virtual-network/security-overview.md)

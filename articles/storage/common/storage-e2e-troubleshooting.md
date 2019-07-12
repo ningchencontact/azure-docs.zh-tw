@@ -27,12 +27,12 @@ ms.locfileid: "65154230"
 本教學課程提供端對端疑難排解案例的實際操作探勘。 如需針對 Azure 儲存體應用程式進行疑難排解的深度概念性指南，請參閱 [監控、診斷和疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>對 Azure 儲存體應用程式進行疑難排解的工具
-若要使用 Microsoft Azure 儲存體進行用戶端應用程式的疑難排解，您可以使用一些工具組合來判斷何時發生問題和問題的可能原因。 这些工具包括：
+若要使用 Microsoft Azure 儲存體進行用戶端應用程式的疑難排解，您可以使用一些工具組合來判斷何時發生問題和問題的可能原因。 這些工具包括：
 
 * **Azure Storage Analytics**。 [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) 提供 Azure 儲存體的度量和記錄。
 
   * **儲存體度量** 可追蹤儲存體帳戶的交易度量和容量度量。 您可以使用度量，判斷如何根據各種不同的量值來執行您的應用程式。 如需 Storage Analytics 追蹤的度量類型詳細資訊，請參閱 [Storage Analytics 度量資料表結構描述](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 。
-  * **儲存體記錄** 可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄檔。 記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。 如需 Storage Analytics 寫入記錄的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄格式](/rest/api/storageservices/Storage-Analytics-Log-Format)。
+  * **儲存體記錄**可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄。 記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。 如需 Storage Analytics 寫入記錄的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄格式](/rest/api/storageservices/Storage-Analytics-Log-Format)。
 
 * **Azure 入口網站**。 您可以在 [Azure 入口網站](https://portal.azure.com)中設定儲存體帳戶的計量和記錄。 您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
 
@@ -40,7 +40,7 @@ ms.locfileid: "65154230"
 * **AzCopy**。 Azure 儲存體的伺服器記錄會儲存為 Blob，因此您可以使用 AzCopy，將記錄 Blob 複製到本機目錄，以便使用 Microsoft Message Analyzer 分析。 如需 AzCopy 的詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。
 * **Microsoft Message Analyzer**。 Message Analyzer 是一種可取用記錄檔並以視覺化格式顯示記錄檔資料的工具，讓您輕鬆地篩選、搜尋記錄檔資料並分組為實用的資料集，以便用來分析錯誤和效能問題。 如需 Message Analyzer 的詳細資訊，請參閱 [Microsoft Message Analyzer 操作指南](https://technet.microsoft.com/library/jj649776.aspx)。
 
-## <a name="about-the-sample-scenario"></a>关于示例情景
+## <a name="about-the-sample-scenario"></a>關於範例案例
 在本教學課程中，我們將檢驗一個案例，其中的 Azure 儲存體度量表示應用程式呼叫 Azure 儲存體的成功率很低。 低百分比成功速率計量 (在 [Azure 入口網站](https://portal.azure.com)和計量資料表中顯示為 **PercentSuccess**) 會追蹤成功的作業，但是會傳回大於 299 的 HTTP 狀態碼。 在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors**的交易狀態記錄下來。 如需低成功百分比度量的詳細資訊，請參閱 [度量顯示低 PercentSuccess 或分析記錄檔項目的交易狀態為 ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)。
 
 Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功能的一部分。 但是在某些情況下，這些錯誤表示您可能可以最佳化您的用戶端應用程式，以改善效能。
@@ -231,7 +231,7 @@ Azure 儲存體用戶端程式庫會自動為每一項要求產生唯一的用�
 
 1. 找出 [分析方格] 中的 **StatusCode** 資料行，以滑鼠右鍵按一下資料行標題，並選取 [群組]  。
 2. 接著，在 **ClientRequestId** 資料行上進行分組。 您會看到分析方格中的資料現在依狀態碼和用戶端要求識別碼排列。
-3. 显示“视图筛选器”工具窗口（如果尚未显示）。 在工具列功能區中，選取 [工具視窗]  ，然後選取 [檢視篩選條件]  。
+3. 如果 [檢視篩選條件] 工具視窗尚未顯示，請予以顯示 。 在工具列功能區中，選取 [工具視窗]  ，然後選取 [檢視篩選條件]  。
 4. 若要篩選記錄檔資料而僅顯示 400 範圍的錯誤，請將下列篩選準則加入至 [檢視篩選條件]  視窗，然後按一下 [套用]  ：
 
     ```   
@@ -298,22 +298,22 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 ## <a name="analyze-other-types-of-storage-errors"></a>分析其他類型的儲存體錯誤
 您現已熟悉使用 Message Analyzer 來分析記錄檔資料，便可利用檢視版面配置、色彩規則及搜尋/篩選功能，分析其他類型的錯誤。 下表列出一些您可能會遇到的問題以及您可用來尋找問題的篩選準則。 如需建構篩選條件與 Message Analyzer 篩選語言的詳細資訊，請參閱 [篩選訊息資料](https://technet.microsoft.com/library/jj819365.aspx)。
 
-| 若要調查... | 使用筛选器表达式… | 運算式套用到記錄檔 (用戶端、伺服器、網路、全部) |
+| 若要調查... | 使用篩選運算式… | 運算式套用到記錄檔 (用戶端、伺服器、網路、全部) |
 | --- | --- | --- |
 | 佇列上未預期的訊息傳遞延遲 |AzureStorageClientDotNetV4.Description 包含「正在重試失敗的作業」。 |用戶端 |
 | PercentThrottlingError 的 HTTP 增加 |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |網路 |
-| PercentTimeoutError 提升 |HTTP.Response.StatusCode   == 500 |網路 |
-| PercentTimeoutError 提升（全部） |*StatusCode   == 500 |全部 |
+| PercentTimeoutError 增加 |HTTP.Response.StatusCode   == 500 |網路 |
+| PercentTimeoutError 增加 (全部) |*StatusCode   == 500 |全部 |
 | PercentNetworkError 增加 |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |用戶端 |
 | HTTP 403 (禁止) 訊息 |HTTP.Response.StatusCode   == 403 |網路 |
-| HTTP 404（未找到）消息 |HTTP.Response.StatusCode   == 404 |網路 |
+| HTTP 404 (找不到) 訊息 |HTTP.Response.StatusCode   == 404 |網路 |
 | 404 (全部) |*StatusCode   == 404 |全部 |
 | 共用存取簽章 (SAS) 授權問題 |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |網路 |
-| HTTP 409（冲突）消息 |HTTP.Response.StatusCode   == 409 |網路 |
+| HTTP 409 (衝突) 訊息 |HTTP.Response.StatusCode   == 409 |網路 |
 | 409 (全部) |*StatusCode   == 409 |全部 |
 | 低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業 |AzureStorageLog.RequestStatus ==   "ClientOtherError" |伺服器 |
 | Nagle 警告 |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) 和 (AzureStorageLog.RequestPacketSize <1460) 和 (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |伺服器 |
-| 服务器和网络日志中的时间范围 |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |伺服器、網路 |
+| 伺服器和網路記錄中的時間範圍 |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |伺服器、網路 |
 | 伺服器記錄中的時間範圍 |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 和 AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |伺服器 |
 
 ## <a name="next-steps"></a>後續步驟

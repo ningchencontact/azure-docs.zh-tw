@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: db1074046adc52ad859a325c2b875da84dbdb0cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514062"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701372"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
@@ -20,7 +20,7 @@ ms.locfileid: "67514062"
 
 ![在合作夥伴中心上的商業 Marketplace 儀表板](./media/new-offer-overview.png)
 
-選取 +**建立新的...** 按鈕，然後選取**軟體即服務**功能表項目。 
+選取 +**新供應項目...** 按鈕，然後選取**軟體即服務**功能表項目。 
 
 如果您選取其中一個其他供應項目類型，您將會重新導向至較舊[Cloud Partner 入口網站](https://cloudpartner.azure.com/)。  唯一的 SaaS 供應項目可在合作夥伴中心商業 Marketplace 入口網站中這一次。 
 
@@ -31,13 +31,14 @@ ms.locfileid: "67514062"
 ![[新增供應項目] 對話方塊](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>供應項目識別碼和名稱
+## <a name="offer-id-and-alias"></a>供應項目識別碼和別名
 
-- **供應項目識別碼**：在您的帳戶中建立每個優惠的唯一識別碼。 此識別碼會顯示在 marketplace 供應項目與 Azure Resource Manager 範本 （如果適用） 的 URL 位址中的客戶。 供應項目 ID 必須是小寫字母、 英數字元 （包括連字號和底線，但沒有空格）。 這是限制為 50 個字元，而且無法更新您選取之後建立。  
+- **供應項目識別碼**：在您的帳戶中的每個優惠的唯一識別碼。 此識別碼會顯示在 marketplace 供應項目與 Azure Resource Manager 範本 （如果適用） 的 URL 位址中的客戶。 供應項目 ID 必須是小寫字母、 英數字元 （包括連字號和底線，但沒有空格）。 這會限制為 50 個字元，且無法變更選取後*建立*。  
 範例： 測試供應項目 1
 <br>產生的 URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **供應項目名稱**：SaaS 應用程式供應項目，在發行集、 公告和網站一致的官方名稱。  此名稱可能 trademarked。  提供名稱不能包含空白字元，emoji （除非它們是商標或著作權符號），而且必須是限制為 50 個字元。
+- **別名提供**:用來參考合作夥伴中心入口網站中的供應項目名稱。 此名稱將不會用於在 marketplace 中，而且不同於*優惠名稱*以及其他會向客戶顯示的值。 選取之後，就無法變更此值*建立*。
+
 <br>範例：測試供應項目 1&#8482;
 
 選取 [建立]  。  **提供概觀**頁面已經為此供應項目。  
@@ -115,8 +116,8 @@ ms.locfileid: "67514062"
 ##### <a name="get-it-now-free"></a>立即取得 （免費）
 藉由提供有效的 URL （http 或 https 開頭），他們可以存取您的應用程式的免費列出您的優惠給客戶。  例如：`https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>免費試用
-列出您的供應項目，免費試用的客戶提供有效的 URL （http 或 https 開頭），他們可以存取您的應用程式。  例如：`https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>免費試用版 （清單）
+提供有效的 URL （http 或 https 開頭），他們可以存取您的應用程式，以列出您供應項目向客戶提供的免費試用版連結。  例如： `https://contoso.com/trial/saas-app` 。 列出免費的試用版供應項目會建立，受管理及設定您的服務，並執行不具有訂用帳戶由 Microsoft 管理。
 
 ##### <a name="contact-me"></a>與我連絡
 連接您的客戶關係管理 (CRM) 系統，以收集客戶的連絡資訊。 將要求的客戶，才能共用其資訊的權限。 這些客戶詳細資料，以及供應項目名稱、 識別碼和 marketplace 來源他們找到您的供應項目，將會傳送到您已設定的 CRM 系統。 如需有關如何設定您的 CRM 的詳細資訊，請參閱 < [Connect 潛在客戶管理](#connect-lead-management)。 
@@ -169,7 +170,7 @@ ms.locfileid: "67514062"
 
 請記得**儲存**再繼續進行下一節 ！
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 **屬性** 索引標籤會要求您定義的類別和產業用來分組您的供應項目上的市集供應項目和您的應用程式版本支援的法律合約。 
 
 選取 **儲存**完成這些欄位之後。 
@@ -204,6 +205,9 @@ ms.locfileid: "67514062"
 ## <a name="offer-listing"></a>供應項目清單
 
 列出索引標籤會顯示您的供應項目可使用的語言 （和市場） 供應項目，英文 （美國） 目前是唯一可用的位置。 此外，此頁面會顯示特定語言的清單和已加入該日期/時間的狀態。 您必須定義 marketplace 詳細資料 （提供項目名稱、 描述、 搜尋詞彙等） 為每個語言 / 市場。
+
+> [!NOTE]
+> 列出內容 （例如，供應項目描述、 文件、 螢幕擷取畫面、 條款和隱私權原則） 的供應項目不需要是英文，只要供應項目描述開頭的片語，「 這個應用程式僅適用於 [非英文語言]。 」 它也是提供可接受*有用的連結 URL*提供內容時所用的供應項目列出內容以外的語言。
 
 ### <a name="offer-listings"></a>供應項目清單
 
@@ -268,9 +272,9 @@ ms.locfileid: "67514062"
 
 - **連線 webhook** （必要）：針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：SaaS 的訂用帳戶已經無效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統位置中，最簡單的組態是 HTTP 端點的邏輯應用程式會接聽任何事件張貼到它，並適當地處理它們 (例如 https:\//prod-1westus.logic.azure.com:443/work)。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
-- **Azure AD 租用戶識別碼**（必要）：在 Azure 入口網站中，我們需要您[建立 Azure Active Directory (AD) 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，讓我們能驗證我們的兩個服務之間的連線位於已驗證的通訊。 若要尋找[租用戶識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id)，請移至您的 Azure Active Directory，然後選取**屬性**，然後尋找**目錄識別碼**數字 （例如，列出50c464d3-4930-494c-963c-1e951d15360e)。
+- **Azure AD 租用戶識別碼**（必要）：在 Azure 入口網站中，我們需要您[建立 Azure Active Directory (AD) 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，讓我們能驗證我們的兩個服務之間的連線位於已驗證的通訊。 若要尋找[租用戶識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)，請移至您的 Azure Active Directory，然後選取**屬性**，然後尋找**目錄識別碼**數字 （例如，列出50c464d3-4930-494c-963c-1e951d15360e)。
 
-- **Azure AD 應用程式識別碼**（必要）：您也需要您[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)和驗證金鑰。 若要取得這些值，請移至您的 Azure Active Directory，然後選取**應用程式註冊**，然後尋找**APPLICATION-ID**列出 (例如 50c464d3-4930-494c-963c-1e951d15360e) 的數目。 若要尋找的驗證金鑰，請前往**設定**，然後選取**金鑰**。 您必須提供描述和持續時間，然後會提供數字值。
+- **Azure AD 應用程式識別碼**（必要）：您也需要您[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)和驗證金鑰。 若要取得這些值，請移至您的 Azure Active Directory，然後選取**應用程式註冊**，然後尋找**APPLICATION-ID**列出 (例如 50c464d3-4930-494c-963c-1e951d15360e) 的數目。 若要尋找的驗證金鑰，請前往**設定**，然後選取**金鑰**。 您必須提供描述和持續時間，然後會提供數字值。
 
  請注意，Azure 應用程式識別碼關聯至您的發行者識別碼，因此請確定相同的應用程式識別碼會在您所有的供應項目。
 
@@ -306,6 +310,22 @@ ms.locfileid: "67514062"
 #### <a name="plan-pricing-and-availability"></a>方案價格與可用性
 
 **價格與可用性** 索引標籤可讓您設定此方案將可在市場所需的營收模型、 價格和計費的詞彙。 此外，您可以指定是否要將方案設為顯示給所有人，或是只適用於特定客戶 （私用對象）。
+
+##### <a name="enabling-free-trials"></a>啟用免費試用版
+
+透過商業 marketplace SaaS 供應項目可讓您透過 Microsoft 銷售時，提供一個月免費試用版。 所有計費模型和除了計量付費方案的條款，支援免費試用版。 此選項可讓客戶有低障礙的免費存取一個月份的項目。  如果您選擇啟用您的供應項目內的計劃的免費試用版，客戶將無法轉換成付費的訂用帳戶，在初始的一個月期結束前。  在此期間，客戶購買您的供應項目可以試用任何有啟用免費試用版的支援方案，並轉換它們。  轉換成付費的訂用帳戶會在期限結束時自動完成的。
+
+>[!Note]
+>如果客戶選擇將轉換的方案沒有免費的試用版，會發生轉換，但免費試用立即將會遺失。  此外，一旦客戶開始付費方案，它們可以不會再取得免費試用版相同訂用帳戶一次，即使它們轉換成支援免費試用版的 SKU。
+
+讓您設定免費的試用版可供您的供應項目中的每個計劃。 只要瀏覽至的價格與可用性，每個供應項目，並核取方塊以允許一個月試用。
+
+![一個月免費試用版的核取方塊](./media/free-trial-enable.png)
+
+若要取得目前參與免費試用的訂用帳戶的客戶的詳細資訊，請使用新的 API 屬性`isFreeTrial`，這會標示為 true 或 false。 請參閱[SaaS 取得訂用帳戶 API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription)如需詳細資訊。
+
+>[!Note]
+>利用 marketplace 計量服務的方案不支援免費試用版。
 
 #### <a name="markets"></a>市場
 
@@ -434,13 +454,13 @@ Microsoft 可以移除所裝載及維護服務佈建和部署使用這種類型�
 
 - **Azure 訂用帳戶識別碼**（需要 Azure Resource Manager 與 Logic apps）：輸入要授與對資源使用狀況報告和計費的 Azure 帳戶服務的存取權的訂用帳戶識別碼。 我們建議您考慮[建立個別的 Azure 訂用帳戶](https://docs.microsoft.com/azure/billing/billing-create-subscription)来用於試用產品，如果您還沒有。 您可以尋找您的 Azure 訂用帳戶 ID 登入[Azure 入口網站](https://portal.azure.com/)並瀏覽至**訂用帳戶**的左側功能表的索引標籤。 選取 [] 索引標籤會顯示您的訂用帳戶識別碼 (例如"a83645ac-1234年-5ab6-6789-1h234g764ghty")。
 
-- **Azure AD 租用戶識別碼**（必要）：輸入您 Azure Active Directory (AD)[租用戶識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取 [Active Directory] 索引標籤的左側功能表中，選取**屬性**，然後尋找**目錄識別碼**列出數目 （例如：50c464d3-4930-494c-963c-1e951d15360e)。 您也可以查看使用您的網域名稱 URL，在貴組織的租用戶識別碼： [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com)。
+- **Azure AD 租用戶識別碼**（必要）：輸入您 Azure Active Directory (AD)[租用戶識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取 [Active Directory] 索引標籤的左側功能表中，選取**屬性**，然後尋找**目錄識別碼**列出數目 （例如：50c464d3-4930-494c-963c-1e951d15360e)。 您也可以查看使用您的網域名稱 URL，在貴組織的租用戶識別碼： [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com)。
 
 - **Azure AD 租用戶名稱**（Dynamic 365 所需）：輸入您 Azure Active Directory (AD) 的名稱。 若要尋找此名稱，請登入[Azure 入口網站](https://portal.azure.com/)，右上角您的租用戶名稱將會列在您的帳戶名稱。
 
-- **Azure AD 應用程式識別碼**（必要）：輸入您 Azure Active Directory (AD)[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取 [Active Directory] 索引標籤的左側功能表中，選取**應用程式註冊**，然後尋找**應用程式識別碼**數目列出 (例如 50c464d3-4930-494c-963c-1e951d15360e)。
+- **Azure AD 應用程式識別碼**（必要）：輸入您 Azure Active Directory (AD)[應用程式識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)。 若要尋找此識別碼，請登入[Azure 入口網站](https://portal.azure.com/)，選取 [Active Directory] 索引標籤的左側功能表中，選取**應用程式註冊**，然後尋找**應用程式識別碼**數目列出 (例如 50c464d3-4930-494c-963c-1e951d15360e)。
 
-- **Azure AD 應用程式的用戶端祕密**（必要）：輸入您的 Azure AD 應用程式[用戶端祕密](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)。 若要尋找此值，請登入[Azure 入口網站](https://portal.azure.com/)。 選取 [ **Azure Active Directory** ] 索引標籤的左側功能表中，選取**應用程式註冊**，然後選取您的測試磁碟機應用程式。 接下來，選取**憑證和祕密**，選取**新的用戶端祕密**，輸入描述，選取**永不**下**Expires**，然後選擇**新增**。 請務必複製此值。 （請勿離開頁面之前這樣做，否則就無法再行存取的值。）
+- **Azure AD 應用程式的用戶端祕密**（必要）：輸入您的 Azure AD 應用程式[用戶端祕密](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)。 若要尋找此值，請登入[Azure 入口網站](https://portal.azure.com/)。 選取 [ **Azure Active Directory** ] 索引標籤的左側功能表中，選取**應用程式註冊**，然後選取您的測試磁碟機應用程式。 接下來，選取**憑證和祕密**，選取**新的用戶端祕密**，輸入描述，選取**永不**下**Expires**，然後選擇**新增**。 請務必複製此值。 （請勿離開頁面之前這樣做，否則就無法再行存取的值。）
 
 請記得**儲存**再繼續進行下一節 ！
 

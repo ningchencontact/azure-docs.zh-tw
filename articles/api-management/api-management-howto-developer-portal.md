@@ -26,7 +26,7 @@ ms.locfileid: "66743571"
 
 ![新的 API 管理開發人員入口網站](media/api-management-howto-developer-portal/cover.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
 - 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱[匯入和發佈](import-and-publish.md)。

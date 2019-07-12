@@ -39,7 +39,7 @@ az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "e
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>頁首
+## <a name="header"></a>標頭
 
 在要求中，包含名為 `aeg-sas-key` 的標頭值，其中包含用於驗證的金鑰。
 

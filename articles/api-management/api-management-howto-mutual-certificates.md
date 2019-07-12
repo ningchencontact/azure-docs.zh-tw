@@ -43,7 +43,7 @@ API 管理可讓您使用用戶端憑證來保護對 API 後端服務的存取�
 3. 按一下 [+新增]  按鈕。  
     ![新增用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
 4. 瀏覽憑證，並提供其識別碼和密碼。  
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 
 > [!NOTE]
 > 憑證必須是 **.pfx** 格式。 可接受自我簽署憑證。
@@ -72,7 +72,7 @@ API 管理可讓您使用用戶端憑證來保護對 API 後端服務的存取�
 3. 將 [閘道認證]  變更為 [用戶端憑證]  ，並從下拉式清單中選取您的憑證。  
     ![啟用用戶端憑證](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. 按一下 [檔案]  。 
+4. 按一下 [儲存]  。 
 
 > [!WARNING]
 > 此變更將立即生效，且該 API 之作業的呼叫將使用憑證以在後端伺服器上進行驗證。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8de1d27d92ac57f478b7615144dba166f420d27
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511352"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807218"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -70,7 +70,7 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 
 | Key | 值 |
 | --- | ----- |
-| username | leadiocl@outlook.com |
+| userName | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
@@ -135,6 +135,8 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> 在建立時透過 Graph API 的使用者，應用程式必須有"openid"、"offline_access 」，以及從 Microsoft Graph 的 「 設定檔 」 權限。
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>使用您慣用的原生 SDK 或 App-Auth 進行實作
 

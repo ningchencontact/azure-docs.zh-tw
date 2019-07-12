@@ -285,7 +285,7 @@
           href: online-backup-and-restore.md
         - name: 法規遵循
           href: compliance.md
-    - name: 資源限制
+    - name: 服務配額
       href: concepts-limits.md
 - name: Cassandra、MongoDB 及其他 API
   expanded: true
@@ -632,6 +632,8 @@
           href: key-value-store-cost.md
     - name: 疑難排解
       items:
+        - name: 針對查詢效能進行疑難排解
+          href: troubleshoot-query-performance.md
         - name: 針對 Java 非同步 SDK 進行疑難排解
           href: troubleshoot-java-async-sdk.md
         - name: 針對 .NET SDK 進行疑難排解

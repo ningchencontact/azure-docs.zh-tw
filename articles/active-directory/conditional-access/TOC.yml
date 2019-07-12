@@ -44,7 +44,7 @@
       items:
         - name: 管理員需要進行 MFA
           href: howto-baseline-protect-administrators.md
-        - name: 終端使用者保護
+        - name: 使用者保護
           href: howto-baseline-protect-end-users.md
         - name: 封鎖舊式驗證
           href: howto-baseline-protect-legacy-auth.md
@@ -52,22 +52,22 @@
           href: howto-baseline-protect-azure.md
     - name: 封鎖舊式驗證
       href: block-legacy-authentication.md
-    - name: 遷移傳統原則
-      href: policy-migration.md
-    - name: 登入頻率和瀏覽器持續性控制項
-      href: howto-conditional-access-session-lifetime.md
+    - name: MFA 註冊的條件式存取
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 需要已核准的用戶端應用程式
       href: app-based-conditional-access.md
     - name: 需要應用程式保護原則
       href: app-protection-based-conditional-access.md
     - name: 需要受控裝置
       href: require-managed-devices.md
-    - name: 需要受信任的網路進行 MFA 註冊
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 需要 MFA 以便嘗試從不受信任的網路存取
       href: untrusted-networks.md
     - name: 需要使用規定
       href: terms-of-use.md
+    - name: 登入頻率和瀏覽器持續性控制項
+      href: howto-conditional-access-session-lifetime.md
+    - name: 遷移傳統原則
+      href: policy-migration.md
 - name: 參考
   items:
     - name: 技術參考

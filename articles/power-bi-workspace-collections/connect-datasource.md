@@ -2,18 +2,18 @@
 title: 在 Power BI 工作區集合中連線到資料來源 | Microsoft Docs
 description: 了解如何在 Power BI 工作區集合中連線到資料來源。
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 721458c5725e912d801b307ac05f3fde0776580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ce666a017c1e5ac25b11fe1c22cdb37746f75df
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708752"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669145"
 ---
 # <a name="connect-to-a-data-source"></a>連接到資料來源
 
@@ -65,7 +65,7 @@ ms.locfileid: "64708752"
 ## <a name="directquery-and-measures"></a>DirectQuery 和量值
 為確保傳送至基礎資料來源的查詢都有可接受的效能，所以將限制加諸於量值之上。 使用 **Power BI Desktop** 時，進階使用者可以選擇 [檔案] > [選項和設定] > [選項]  ，選擇略過這項限制。 在 [選項]  對話方塊中選擇 [DirectQuery]  ，並選取選項 [允許在 DirectQuery 模式中量值不受限制]  。 選取該選項後，即可使用對量值有效的任何 DAX 運算式。 不過，使用者必須知道，當資料匯入時，某些執行得很好的運算式在 **DirectQuery** 模式中可能會造成後端來源的查詢變慢。 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 * [開始使用 Microsoft Power BI 工作區集合](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)

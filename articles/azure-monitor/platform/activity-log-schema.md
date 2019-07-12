@@ -122,11 +122,11 @@ ms.locfileid: "66244944"
 | eventName | 管理事件的易記名稱。 |
 | category | 一律 「 系統管理 」 |
 | httpRequest |描述 HTTP 要求的 blob。 通常包括 “clientRequestId”、“clientIpAddress”和 “method” (HTTP 方法。 例如，PUT)。 |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
+| level |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |受影響資源的資源群組的名稱。 |
 | resourceProviderName |受影響資源的資源提供者的名稱。 |
 | resourceType | 系統管理的事件受影響資源的類型。 |
-| ResourceId |受影響資源的資源識別碼。 |
+| resourceId |受影響資源的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
@@ -264,14 +264,14 @@ ms.locfileid: "66244944"
 | description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
 | category | 一律為 "ResourceHealth" |
-| eventTimestamp |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」、「告知性」與「詳細資訊」 |
+| eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| level |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」、「告知性」與「詳細資訊」 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | resourceGroupName |包含資源的資源群組名稱。 |
 | resourceProviderName |一律為 "Microsoft.Resourcehealth/healthevent/action"。 |
 | resourceType | 受資源健康情況事件影響的資源類型。 |
-| ResourceId | 受影響資源之資源識別碼的名稱。 |
+| resourceId | 受影響資源之資源識別碼的名稱。 |
 | status |描述健康情況事件狀態的字串。 值可以是：「作用中」、「已解決」、「進行中」、「已更新」。 |
 | 子狀態 | 針對警示通常為 null。 |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
@@ -359,10 +359,10 @@ ms.locfileid: "66244944"
 | description |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
 | category | Alwayson [警示] |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
+| level |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |如果為計量警示，這是受影響資源的資源群組名稱。 針對其他警示類型，這是包含警示本身的資源群組名稱。 |
 | resourceProviderName |如果為計量警示，這是受影響資源的資源提供者名稱。 針對其他警示類型，這是警示本身的資源提供者名稱。 |
-| ResourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
+| resourceId | 如果為計量警示，這是受影響資源的資源識別碼名稱。 針對其他警示類型，這是警示資源本身的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
@@ -468,10 +468,10 @@ ms.locfileid: "66244944"
 | correlationId | 字串格式的 GUID。 |
 | description |自動調整事件的靜態文字描述。 |
 | eventDataId |自動調整事件的唯一識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
+| level |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |自動調整設定的資源群組名稱。 |
 | resourceProviderName |自動調整設定的資源提供者名稱。 |
-| ResourceId |自動調整設定的資源識別碼。 |
+| resourceId |自動調整設定的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
@@ -559,11 +559,11 @@ ms.locfileid: "66244944"
 | eventName |安全性事件的易記名稱。 |
 | category | 一律是 「 安全性 」 |
 | id |安全性事件的唯一資源識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
+| level |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
 | resourceGroupName |資源的資源群組名稱。 |
 | resourceProviderName |「Azure 資訊安全中心」的資源提供者名稱。 一律為 "Microsoft.Security"。 |
 | resourceType |產生安全性事件的資源類型，例如˙ "Microsoft.Security/locations/alerts" |
-| ResourceId |安全性警示的資源識別碼。 |
+| resourceId |安全性警示的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 這些屬性會依安全性警示類型的不同而有所不同。 如需來自「資訊安全中心」之警示類型的描述，請參閱[這個頁面](../../security-center/security-center-alerts-type.md)。 |
@@ -639,12 +639,12 @@ ms.locfileid: "66244944"
 | eventDataId | 建議事件的唯一識別碼。 |
 | category | 一律為 "Recommendation" |
 | id |建議事件的唯一資源識別碼。 |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
+| level |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
 | operationName |作業名稱。  一律為 "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |資源的資源群組名稱。 |
 | resourceProviderName |此建議適用之資源的資源提供者名稱，例如 "MICROSOFT.COMPUTE" |
 | resourceType |此建議適用之資源的資源類型名稱，例如 "MICROSOFT.COMPUTE/virtualmachines" |
-| ResourceId |建議適用之資源的資源識別碼 |
+| resourceId |建議適用之資源的資源識別碼 |
 | status | 一律為 "Active" |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
@@ -752,15 +752,15 @@ ms.locfileid: "66244944"
 | eventDataId | 事件的唯一識別碼。 |
 | eventName | 「BeginRequest」或「EndRequest」。 「BeginRequest」用於延遲的 auditIfNotExists 和 deployIfNotExists 評估，以及當 deployIfNotExists 效果開始範本部署時。 所有其他的作業都會傳回「EndRequest」。 |
 | category | 將活動記錄事件宣告為屬於「Policy」。 |
-| eventTimestamp | 处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
+| eventTimestamp | 處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
 | id | 特定資源上事件的唯一識別碼。 |
-| 層級 | 事件的層級。 Audit 會使用「Warning」，Deny 會使用「Error」。 auditIfNotExists 或 deployIfNotExists 錯誤會根據嚴重性產生「Warning」或「Error」。 所有其他的原則事件會使用「Informational」。 |
+| level | 事件的層級。 Audit 會使用「Warning」，Deny 會使用「Error」。 auditIfNotExists 或 deployIfNotExists 錯誤會根據嚴重性產生「Warning」或「Error」。 所有其他的原則事件會使用「Informational」。 |
 | operationId | 對應至單一作業的事件共用的 GUID。 |
 | operationName | 作業的名稱，且直接與「原則」效果相互關聯。 |
 | resourceGroupName | 所評估資源的資源群組名稱。 |
 | resourceProviderName | 所評估資源的資源提供者名稱。 |
 | resourceType | 針對新的資源，這是正在評估的類型。 針對現有的資源，會傳回「Microsoft.Resources/checkPolicyCompliance」。 |
-| ResourceId | 所評估資源的資源識別碼。 |
+| resourceId | 所評估資源的資源識別碼。 |
 | status | 描述「原則」評估結果狀態的字串。 大部分的「原則」評估會傳回「Succeeded」，但 Deny 效果會傳回「Failed」。 auditIfNotExists 或 deployIfNotExists 中的錯誤也會傳回「Failed」。 |
 | 子狀態 | 「原則」事件的這個欄位是空白的。 |
 | submissionTimestamp | 當事件變成可供查詢時的時間戳記。 |
@@ -778,7 +778,7 @@ ms.locfileid: "66244944"
 | 診斷記錄結構描述屬性 | 活動記錄 REST API 結構描述屬性 | 注意 |
 | --- | --- | --- |
 | time | eventTimestamp |  |
-| ResourceId | ResourceId | subscriptionId、resourceType、resourceGroupName 全都推斷自 resourceId。 |
+| resourceId | resourceId | subscriptionId、resourceType、resourceGroupName 全都推斷自 resourceId。 |
 | operationName | operationName.value |  |
 | category | 作業名稱部分 | 作業類型分類："Write"/"Delete"/"Action" |
 | resultType | status.value | |
@@ -790,7 +790,7 @@ ms.locfileid: "66244944"
 | 身分識別 | 宣告和授權屬性 |  |
 | Level | Level |  |
 | location | N/A | 處理事件所在的位置。 *這不是資源的位置，而是處理事件的位置。此屬性將會在之後的更新中移除。* |
-| properties | properties.eventProperties |  |
+| 屬性 | properties.eventProperties |  |
 | properties.eventCategory | category | 如果 properties.eventCategory 不存在，則類別為 "Administrative" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |

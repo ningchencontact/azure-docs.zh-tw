@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137068"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720021"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -30,7 +30,7 @@ ms.locfileid: "66137068"
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>如果我想要移動 App Service 資源，有應該注意的限制嗎？
 
-如果您打算將 App Service 資源移至新的資源群組或訂用帳戶，有一些要注意的限制。 如需詳細資訊，請參閱 [App Service 限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)。
+如果您打算將 App Service 資源移至新的資源群組或訂用帳戶，有一些要注意的限制。 如需詳細資訊，請參閱 [App Service 限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)。
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>如何針對 Web 應用程式使用自訂網域名稱？
 
@@ -56,11 +56,11 @@ ms.locfileid: "66137068"
 
 目前，Azure Application Insights 並不支援移動作業。 如果您的原始資源群組包含 Application Insights 資源，則您無法移動該資源。 如果您在嘗試移動 App Service 應用程式時包含 Application Insights 資源，則整個移動作業會失敗。 不過，Application Insights 和 App Service 方案不需要位於與應用程式相同的資源群組，應用程式就能正確運作。
 
-如需詳細資訊，請參閱 [App Service 限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)。
+如需詳細資訊，請參閱 [App Service 限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)。
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>可以在哪裡尋找指引檢查清單及深入了解資源移動作業？
 
-[App Service 限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)說明如何將資源移至新的訂用帳戶或相同訂用帳戶中新的資源群組。 您可以取得資源移動檢查清單的相關資訊、深入了解哪些服務支援移動作業，以及深入了解 App Service 限制與其他主題。
+[App Service 限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)說明如何將資源移至新的訂用帳戶或相同訂用帳戶中新的資源群組。 您可以取得資源移動檢查清單的相關資訊、深入了解哪些服務支援移動作業，以及深入了解 App Service 限制與其他主題。
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>如何設定 Web 應用程式的伺服器時區？
 

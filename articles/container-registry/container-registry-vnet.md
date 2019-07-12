@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514390"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806600"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure container registry 使用 Azure 虛擬網路或防火牆規則限制存取
 
@@ -34,11 +34,19 @@ ms.locfileid: "67514390"
 
 * 每個登錄最多 100 個虛擬網路規則，可支援。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 若要使用 Azure CLI 本文中，Azure CLI 版本 2.0.58 中的步驟，或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 * 如果您還沒有容器登錄庫，建立一個 (需要 Premium SKU) 和推播範例映像時，例如`hello-world`從 Docker Hub。 例如，使用[Azure 入口網站][quickstart-portal]or the [Azure CLI][quickstart-cli]建立登錄庫。 
+
+* 如果您想要限制虛擬網路使用不同的 Azure 訂用帳戶中的登錄存取，您需要註冊該訂用帳戶中的 Azure Container Registry 的資源提供者。 例如:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>關於 container registry 的網路規則
 

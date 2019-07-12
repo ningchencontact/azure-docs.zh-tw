@@ -51,8 +51,8 @@ ms.locfileid: "66003062"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |
-| 授權| 是 | 透過 SFRP 對呼叫進行身分識別與存取管理 (IAM)。 直接呼叫叢集端點可支援兩種角色：使用者和管理員。客戶可將 API 對應至任一角色。 |
+| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |
+| Authorization| 是 | 透過 SFRP 對呼叫進行身分識別與存取管理 (IAM)。 直接呼叫叢集端點可支援兩種角色：使用者和管理員。客戶可將 API 對應至任一角色。 |
 
 
 ## <a name="audit-trail"></a>稽核線索

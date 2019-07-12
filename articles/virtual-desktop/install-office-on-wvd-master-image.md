@@ -4,15 +4,15 @@ description: 如何安裝及自訂 Windows 虛擬桌面預覽母片映像至 Azu
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 6d2bb7efdd5567da377e1e15fec4935b7d4a3a6f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0e89d37011ccdfc3acdace5b45faa8e9a64e4d3e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444122"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620472"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>在主要 VHD 映像上安裝 Office
 
@@ -23,7 +23,7 @@ ms.locfileid: "67444122"
 本文也假設您有更高的存取在 VM 上是否已在 Azure 或 HYPER-V 管理員中佈建。 如果沒有，請參閱[提高管理所有的 Azure 訂用帳戶和管理群組的存取權限](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)。
 
 >[!NOTE]
->這些指示是針對適用於您的組織現有的程序的 Windows 虛擬桌面預覽專屬組態。
+>這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面預覽版特定設定。
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>將 Office 安裝在共用的電腦啟用模式
 

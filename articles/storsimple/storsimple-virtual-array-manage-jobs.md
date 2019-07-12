@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60302475"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務來檢視 StorSimple Virtual Array 的作業
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [作業]  刀鋒視窗提供單一中央入口網站，可檢視和管理已連接至 StorSimple 裝置管理員服務的虛擬陣列上啟動的作業。 您可以針對多個虛擬裝置，檢視執行中、完成和失敗的作業。 結果會以表格式格式呈現。
 
 ![[作業] 刀鋒視窗](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)

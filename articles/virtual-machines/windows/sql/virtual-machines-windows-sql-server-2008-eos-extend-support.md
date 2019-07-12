@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304214"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607128"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>擴充 SQL Server 2008 和 SQL Server 2008 R2 與 Azure 的支援
 
@@ -43,7 +43,7 @@ SQL Server 2008 和 SQL Server 2008 R2 兩者即將[支援 (EOS) 生命週期結
 ## <a name="licensing"></a>授權
 隨用隨付的 SQL Server 2008 r2 部署可以轉換成[Azure Hybrid Benefit (適 AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/)。
 
-若要轉換隨用隨付軟體保證 (SA) 基礎的授權，客戶應該向 SQL VM[資源提供者](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)。 一旦向 SQL VM 的資源提供者，SQL 授權型別會互換適 AHB 與隨用隨付。
+若要轉換隨用隨付軟體保證 (SA) 基礎的授權，客戶應該向 SQL VM[資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)。 一旦向 SQL VM 的資源提供者，SQL 授權型別會互換適 AHB 與隨用隨付。
 
 Azure VM 上自行安裝的 SQL Server 2008 或 SQL Server 2008 R2 執行個體可以與 SQL 資源提供者註冊，並將其授權類型轉換成隨用隨付。
 
@@ -69,7 +69,7 @@ EOS 上的 SQL Server Azure VM 的災害復原解決方案如下所示：
 - **Azure Site Recovery**：您可以在區域和透過 Azure Site Recovery 複寫的區域之間複寫 VM。 SQL Server 需要應用程式一致快照，以確保發生災害時復原。 Azure Site Recovery 會提供最小值 1 小時 RPO 和 2 個小時 + SQL Server 復原時間 RTO 的 EOS SQL Server DR。
 
 ## <a name="security-patching"></a>安全性修補
-與 SQL 註冊 SQL Server VM 之後，將透過 Microsoft Update 管道傳遞適用於 SQL Server Vm 的延伸的安全性更新[資源提供者](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)。 手動或自動，可能是您可以下載修補程式。
+與 SQL 註冊 SQL Server VM 之後，將透過 Microsoft Update 管道傳遞適用於 SQL Server Vm 的延伸的安全性更新[資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)。 手動或自動，可能是您可以下載修補程式。
 
 **Automated patching** 。 自動修補可讓 Azure 自動修補 SQL Server 和作業系統。 如果已安裝 SQL IaaS 延伸模組，您可以指定一週、 時間和維護期間的持續時間的日期。 Azure 會在此維護期間執行修補。 維護期間排程會使用 VM 地區設定做為時間。  如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動修補](virtual-machines-windows-sql-automated-patching.md)。
 

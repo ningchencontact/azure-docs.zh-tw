@@ -2,18 +2,18 @@
 title: Azure Kubernetes Service (AKS) 的常見問題集
 description: 尋找一些 Azure Kubernetes Service (AKS) 的相關常見問題的解答。
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560441"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672766"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -62,30 +62,28 @@ Azure 會自動套用至您在夜間排程上的叢集中的 Linux 節點的安�
 每個 AKS 部署皆跨越兩個資源群組：
 
 1. 您建立第一個資源群組。 此群組僅包含 Kubernetes 服務資源。 AKS 資源提供者會在部署期間，自動建立第二個資源群組。 舉例來說，第二個資源群組*MC_myResourceGroup_myAKSCluster_eastus*。 如需如何指定的名稱，此第二個資源群組的資訊，請參閱下一節。
-1. 第二個資源群組，例如*MC_myResourceGroup_myAKSCluster_eastus*，包含所有與叢集相關聯的基礎結構資源。 這些資源包括 Kubernetes 節點 VM、虛擬網路和儲存體。 此資源群組的目的是為了簡化資源清除。
+1. 第二個資源群組，稱為*節點的資源群組*，包含所有與叢集相關聯的基礎結構資源。 這些資源包括 Kubernetes 節點 VM、虛擬網路和儲存體。 根據預設，節點資源群組具有的名稱，例如*MC_myResourceGroup_myAKSCluster_eastus*。 AKS 會自動刪除節點資源時刪除叢集，因此它應該只用於共用叢集的生命週期的資源。
 
-如果您建立您的 AKS 叢集搭配使用的資源，例如儲存體帳戶或保留公用 IP 位址，將它們放在自動產生的資源群組中。
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>可以提供自己的 AKS 節點的資源群組的名稱嗎？
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>提供我自己 AKS 基礎結構資源群組的名稱？
-
-是。 根據預設，AKS 資源提供者會自動建立次要的資源群組 (例如*MC_myResourceGroup_myAKSCluster_eastus*) 在部署期間。 為了符合公司原則，您可以提供您自己的名稱，此受管理的叢集 (*MC_* ) 的資源群組。
+是的。 根據預設，AKS 將名稱節點資源群組*MC_clustername_resourcegroupname_location*，但您也可以提供您自己的名稱。
 
 若要指定您自己的資源群組名稱，請安裝[aks 預覽][aks-preview-cli]Azure CLI 擴充功能版本*0.3.2*或更新版本。 當您使用建立 AKS 叢集時[az aks 建立][az-aks-create]命令，使用 *-節點資源群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][aks-rm-template]來部署 AKS 叢集，您可以利用定義的資源群組名稱*nodeResourceGroup*屬性。
 
 * 次要的資源群組會自動建立您自己的訂用帳戶中的 Azure 資源提供者。
 * 只有在建立叢集時，您可以指定自訂的資源群組名稱。
 
-當您使用*MC_* 資源群組，請記住，您不能：
+當您使用的節點資源群組時，請記住，您不能：
 
-* 指定的現有資源群組*MC_* 群組。
-* 指定不同的訂用帳戶，如*MC_* 資源群組。
-* 變更*MC_* 在建立叢集之後，資源群組名稱。
-* 指定在受管理的資源名稱*MC_* 資源群組。
-* 修改或刪除的受管理資源內的標記*MC_* 資源群組。 （請參閱下一節中的其他資訊）。
+* 指定現有的資源群組 節點的資源群組。
+* 指定節點資源群組的不同訂用帳戶。
+* 在建立叢集之後，請變更節點的資源群組名稱。
+* 指定節點的資源群組內的 managed 資源的名稱。
+* 修改或刪除的節點資源群組內的 managed 資源的標記。 （請參閱下一節中的其他資訊）。
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>可以修改標記與 AKS 資源 MC_ 資源群組中的其他內容嗎？
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>可以修改標記與 AKS 節點資源群組中資源的其他內容嗎？
 
-如果您修改或刪除 Azure 建立的標記和其他資源屬性*MC_* 資源群組中，您可以取得非預期的結果，例如縮放比例和升級的錯誤。 AKS 可讓您建立和修改自訂標籤。 您可以建立或修改自訂標籤，例如，若要將指派商務單位或成本中心。 藉由修改資源*MC_* 在 AKS 叢集中，您會中斷服務等級目標 (SLO)。 如需詳細資訊，請參閱[沒有 AKS 提供服務等級協定？](#does-aks-offer-a-service-level-agreement)
+如果您修改或刪除 Azure 建立的標記和其他資源屬性的節點資源群組中，您可以取得非預期的結果，例如縮放比例和升級的錯誤。 AKS 可讓您建立和修改自訂標籤。 您可以建立或修改自訂標籤，例如，若要將指派商務單位或成本中心。 藉由修改在 AKS 叢集中節點的資源群組下的資源，您可以中斷服務等級目標 (SLO)。 如需詳細資訊，請參閱[沒有 AKS 提供服務等級協定？](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS 支援哪些 Kubernetes 許可控制器？ 是否可以新增或移除許可控制器？
 

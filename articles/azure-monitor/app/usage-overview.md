@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba29688958ee11aa9906a820f7a3d2bf41223743
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783405"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798171"
 ---
 # <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
@@ -132,11 +132,11 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
 在 Application Insights 入口網站中，將資料依屬性值篩選並分割，以便比較不同版本。
 
-若要這樣做，[請設定遙測初始設定式](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer)：
+若要這樣做，[請設定遙測初始設定式](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)：
+
+**ASP.NET 應用程式**
 
 ```csharp
-
-
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
@@ -155,8 +155,24 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
+         .Add(new MyTelemetryInitializer());
     }
+```
+
+**ASP.NET Core 應用程式**
+
+> [!NOTE]
+> 將使用的初始設定式`ApplicationInsights.config`或使用`TelemetryConfiguration.Active`不適用於 ASP.NET Core 應用程式。 
+
+針對[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)應用程式，加入新`TelemetryInitializer`，即可將它新增至相依性插入容器，如下所示。 這在完成`ConfigureServices`方法的程式`Startup.cs`類別。
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 所有新的 TelemetryClients 都會自動新增您指定的屬性值。 個別的遙測事件可以覆寫預設值。

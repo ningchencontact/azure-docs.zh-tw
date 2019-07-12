@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465700"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625984"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -152,14 +152,19 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 ### <a name="windows"></a>Windows
 
-若要安裝 Istio`istioctl`用戶端在二進位**Powershell**-根據的 shell Windows，請使用下列命令。 這些命令複製`istioctl`用戶端二進位 Istio 資料夾並將它透過永久提供您`PATH`。 您不需要提高權限 （系統管理員） 權限，才能執行這些命令。
+若要安裝 Istio`istioctl`用戶端在二進位**Powershell**-根據的 shell Windows，請使用下列命令。 這些命令複製`istioctl`用戶端二進位 Istio 資料夾，然後將它提供立即 （在目前的殼層中） 和永久 （跨 shell 重新啟動） 透過您`PATH`。 您不需要提高權限 （系統管理員） 權限，才能執行這些命令，而且您不需要重新啟動您的殼層。
 
 ```powershell
+# Copy istioctl.exe to C:\Istio
 cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Istio\", "User")
+
+# Add C:\Istio to PATH. 
+# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
+$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
+[environment]::SetEnvironmentVariable("PATH", $PATH)
 ```
 
 現在移至下一節[安裝在 AKS 上的 Istio Crd](#install-the-istio-crds-on-aks)。

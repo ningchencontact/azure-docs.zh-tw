@@ -47,7 +47,7 @@ Azure 記錄整合服務會在執行 Windows Server 2008 R2 或更新版本 (Win
 
 執行 Azure 記錄整合服務的實體或虛擬機器需要網路連線至 Azure 公用雲端。 本文提供所需設定的詳細資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure 記錄整合安裝至少需要下列項目︰
 

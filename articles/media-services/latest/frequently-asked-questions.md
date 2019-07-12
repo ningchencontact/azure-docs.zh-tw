@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556277"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703901"
 ---
-# <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure 媒體服務 v3 常見問題集
+# <a name="media-services-v3-frequently-asked-questions"></a>媒體服務 v3 常見問題集
 
 本文提供 Azure 媒體服務 (AMS) v3 常見問題集的解答。
 
-## <a name="v3-apis"></a>v3 API
+## <a name="general"></a>一般
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>哪些 Azure 角色可以在 Azure 媒體服務資源上執行動作？ 
 
@@ -45,6 +45,10 @@ ms.locfileid: "65556277"
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>哪些功能尚無法使用 Azure 媒體服務 v3 中？
 
 如需詳細資訊，請參閱 <<c0> [ 功能對於 v2 Api 間距](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)。
+
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>訂用帳戶之間移動媒體服務帳戶的程序為何？  
+
+如需詳細資訊，請參閱 <<c0> [ 訂用帳戶之間移動媒體服務帳戶](media-services-account-concept.md)。
 
 ## <a name="live-streaming"></a>即時串流 
 
@@ -72,7 +76,7 @@ ms.locfileid: "65556277"
 
 使用 Azure 媒體服務 Api 來設定授權/金鑰傳遞和加密您的資產 (如中所示[本例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs))。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [內容保護概觀](content-protection-overview.md)
 - [設計具有存取控制的多重 DRM 內容保護系統](design-multi-drm-system-with-access-control.md)

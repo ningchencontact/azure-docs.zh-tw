@@ -47,11 +47,11 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您訂用帳戶的目錄，以確定您使用的是包含 Azure 訂用帳戶的目錄。 此租用戶不是您的 Azure AD B2C 租用戶。
 3. 選擇 Azure 入口網站左上角的 [建立資源]  ，然後搜尋並選取 [Application Insights]  。
-4. 按一下頁面底部的 [新增]  。
+4. 按一下 [建立]  。
 5. 輸入資源的 [名稱]  。
 6. 針對 [應用程式類型]  ，選取 [ASP.NET Web 應用程式]  。
 7. 針對 [資源群組]  ，選取現有的群組或輸入新群組的名稱。
-8. 按一下頁面底部的 [新增]  。
+8. 按一下 [建立]  。
 4. 建立 Application Insights 資源後，開啟資源、展開 [基本資訊]  ，並複製檢測金鑰。
 
 ![Application Insights 概觀與檢測金鑰](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
@@ -109,7 +109,7 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 
 技術設定檔可視為是 Azure AD B2C 身分識別體驗架構中的功能。 此資料表會定義技術設定檔，用來開啟工作階段並張貼事件。
 
-| 技術設定檔 | Task |
+| 技術設定檔 | 工作 |
 | ----------------- | -----|
 | AzureInsights-Common | 建立要包含於所有 Azure-Insights 技術設定檔中的一組通用參數。 | 
 | AzureInsights-SignInRequest | 收到登入要求之後，建立含有一組宣告的 "SignIn" 事件。 | 

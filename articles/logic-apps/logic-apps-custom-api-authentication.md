@@ -188,16 +188,16 @@ ms.locfileid: "66167332"
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| 元素 | 必要項 | 說明 | 
+| 項目 | 必要項 | 描述 | 
 | ------- | -------- | ----------- | 
-| tenant | 有 | Azure AD 租用戶的 GUID | 
-| audience | 有 | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
-| clientId | 有 | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
-| secret | 有 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
-| type | 有 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
+| tenant | 是 | Azure AD 租用戶的 GUID | 
+| audience | 是 | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
+| clientId | 是 | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
+| secret | 是 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
+| type | 是 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
 |||| 
 
-例如：
+例如:
 
 ``` json
 {
@@ -234,11 +234,11 @@ ms.locfileid: "66167332"
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| 元素 | 必要項 | 說明 | 
+| 元素 | 必要項 | 描述 | 
 | ------- | -------- | ----------- | 
-| type | 有 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
-| password | 有 | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
-| pfx | 有 | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
+| type | 是 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
+| password | 是 | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
+| pfx | 是 | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
 |||| 
 
 <a name="basic"></a>
@@ -249,13 +249,13 @@ ms.locfileid: "66167332"
 
 在 [授權]  區段中，納入這一行：
 
-`{"type": "basic", "username": "username", "password": "password"}` 。
+`{"type": "basic", "username": "username", "password": "password"}`.
 
-| 元素 | 必要項 | 說明 | 
+| 元素 | 必要項 | 描述 | 
 | ------- | -------- | ----------- | 
-| type | 有 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
-| username | 有 | 您想要用來進行驗證的使用者名稱 | 
-| password | 有 | 您想要用來進行驗證的密碼 | 
+| type | 是 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
+| userName | 是 | 您想要用來進行驗證的使用者名稱 | 
+| password | 是 | 您想要用來進行驗證的密碼 | 
 |||| 
 
 <a name="azure-ad-code"></a>

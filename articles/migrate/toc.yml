@@ -3,45 +3,97 @@
 - name: 概觀
   items:
     - name: 關於 Azure Migrate
-      href: migrate-overview.md
+      href: migrate-services-overview.md
+    - name: 新功能
+      href: whats-new.md
 - name: 教學課程
   items:
-    - name: 探索和評定 VMware VM
-      href: tutorial-assessment-vmware.md
+    - name: VMware VM 評估及移轉
+      items:
+        - name: 準備VMware 以進行評估及移轉
+          href: tutorial-prepare-vmware.md
+        - name: 存取 VMware VM 以進行移轉
+          href: tutorial-assess-vmware.md
+        - name: 遷移 VMware VM
+          items:
+            - name: 有關 VMware VM 適用的移轉選項
+              href: server-migrate-overview.md
+            - name: 使用無代理程式移轉來遷移 VMware VM
+              href: tutorial-migrate-vmware.md
+            - name: 使用代理程式移轉來遷移 VMware VM
+              href: tutorial-migrate-vmware-agent.md
+    - name: Hyper-V 評量及移轉
+      items:
+        - name: 準備 Hyper-V以進行評量及移轉
+          href: tutorial-prepare-hyper-v.md
+        - name: 存取 Hyper-V VMs以進行移轉
+          href: tutorial-assess-hyper-v.md
+        - name: 遷移 Hyper-V VM
+          href: tutorial-migrate-hyper-v.md
+    - name: 遷移實體伺服器和虛擬機器
+      href: tutorial-migrate-physical-virtual-machines.md
 - name: 概念
   items:
-    - name: 關於收集器
-      href: concepts-collector.md
-    - name: 收集器版本升級
-      href: concepts-collector-upgrade.md
+    - name: 常見問題
+      href: resources-faq.md
+    - name: 支援矩陣
+      items:
+        - name: Azure Migrate 的支援矩陣
+          href: migrate-support-matrix.md
+        - name: VMware 評量和移轉的支援矩陣
+          href: migrate-support-matrix-vmware.md
+        - name: Hyper-V 評量和移轉的支援矩陣
+          href: migrate-support-matrix-hyper-v.md
+    - name: Hyper-V 移轉架構
+      href: hyper-v-migration-architecture.md
+    - name: 代理程式移轉架構
+      href: agent-based-migration-architecture.md
+    - name: Azure Migrate 設備
+      href: migrate-appliance.md
+    - name: Azure Migrate 複寫設備
+      href: migrate-replication-appliance.md
+    - name: 評量的最佳做法
+      href: best-practices-assessment.md
     - name: 評量計算
       href: concepts-assessment-calculation.md
-    - name: 關於相依性視覺效果
+    - name: 相依性視覺效果
       href: concepts-dependency-visualization.md
 - name: 使用說明指南
   items:
     - name: 移轉 examples-Contoso 系列
       href: contoso-migration-overview.md
-    - name: 探索及評定大型環境
-      href: how-to-scale-assessment.md
-    - name: 群組機器
-      href: how-to-create-a-group.md
-    - name: 使用機器相依性的群組機器
-      href: how-to-create-group-machine-dependencies.md
-    - name: 使用群組相依性調整群組
-      href: how-to-create-group-dependencies.md
+    - name: 部署設備以進行 VMware 評量/移轉 (無代理程式)
+      href: how-to-set-up-appliance-vmware.md
+    - name: 部署設備以進行 Hyper-V 評量/移轉
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: 第一次使用請新增評量/移轉工具
+      href: how-to-add-tool-first-time.md
+    - name: 新增評量工具
+      href: how-to-assess.md
+    - name: 新增移轉工具
+      href: how-to-migrate.md
+    - name: 分組機器以進行評量
+      items:
+        - name: 建立群組
+          href: how-to-create-a-group.md
+        - name: 使用機器相依性的群組機器
+          href: how-to-create-group-machine-dependencies.md
+        - name: 使用群組相依性調整群組
+          href: how-to-create-group-dependencies.md
     - name: 自訂評量
       href: how-to-modify-assessment.md
-    - name: 評量之後移轉機器
-      href: how-to-get-migration-tool.md
-    - name: 自動移轉大量的 VM
-      href: how-to-migrate-at-scale.md
+    - name: 大規模評量及移轉
+      items:
+        - name: 評估大量的 VMware VM
+          href: scale-vmware-assessment.md
+        - name: 評估大量的 Hyper-V VM
+          href: scale-hyper-v-assessment.md
+        - name: 自動移轉大量的 VM
+          href: how-to-migrate-at-scale.md
     - name: 為 Azure Migrate 疑難排解
       href: troubleshooting-general.md
 - name: 資源
   items:
-    - name: 常見問題集
-      href: resources-faq.md
     - name: 雲端採用架構中的移轉
       href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST API

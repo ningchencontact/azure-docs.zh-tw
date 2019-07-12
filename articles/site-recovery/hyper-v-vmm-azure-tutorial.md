@@ -64,7 +64,7 @@ ms.locfileid: "66398144"
 1. 在 **準備基礎結構**，選取**來源**。
 2. 在 **準備來源**，選取 **+ VMM**將 VMM 伺服器。 在 [新增伺服器]  中，檢查 [System Center VMM 伺服器]  是否出現在 [伺服器類型]  中。
 3. 下載 Microsoft Azure Site Recovery 提供者的安裝程式。
-4. 下載存放庫註冊金鑰。 當您執行 Provider 安裝程式時，您會需要此金鑰。 該金鑰在產生後會維持 5 天有效。
+4. 下載保存庫註冊金鑰。 當您執行 Provider 安裝程式時，您會需要此金鑰。 該金鑰在產生後會維持 5 天有效。
 5. 下載 Microsoft Azure 復原服務代理程式安裝程式。
 
     ![下載提供者、 註冊金鑰，以及代理程式](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)

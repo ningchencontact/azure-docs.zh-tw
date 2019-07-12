@@ -2,18 +2,18 @@
 title: Azure 至 Azure 複寫問題和錯誤的 Azure Site Recovery 疑難排解 | Microsoft Docs
 description: 對於複寫 Azure 虛擬機器進行嚴重損壞修復時發生的錯誤和問題進行疑難排解
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
-ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796435"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798565"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -101,7 +101,7 @@ ms.locfileid: "65796435"
 
       ``# ls -l | grep Baltimore``
 
-    - 輸出
+    - Output
 
       ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
       -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
@@ -110,7 +110,7 @@ ms.locfileid: "65796435"
 
       ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
 
-    - 輸出
+    - Output
 
       ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
       lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
@@ -119,7 +119,7 @@ ms.locfileid: "65796435"
 
       ``# ls -l | grep DigiCert_Global_Root``
 
-    - 輸出
+    - Output
 
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
@@ -143,7 +143,7 @@ ms.locfileid: "65796435"
 
       ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
 
-    - 輸出
+    - Output
 
       ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
       -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
@@ -156,7 +156,7 @@ ms.locfileid: "65796435"
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>問題 1：無法向 Site Recovery 註冊 Azure 虛擬機器 (151195) </br>
 - **可能的原因** </br>
-  - 因 DNS 解析失敗而無法建立與 Site Recovery 端點之間的連線。
+  - Site Recovery 端點，因為 DNS 解析失敗而無法建立連線。
   - 此問題經常會在您已將虛擬機器容錯移轉，但 DR 區域無法連線到 DNS 伺服器的情況下進行重新保護的期間發生。
 
 - **解決方案**
@@ -175,7 +175,7 @@ ms.locfileid: "65796435"
       - 如果未來將新的位址新增至 Azure Active Directory (AAD)，您必須建立新的 NSG 規則。
 
 > [!NOTE]
-> 如果虛擬機器位於後方**標準**內部負載平衡器，然後它就不能存取 O365 Ip 也就是 根據預設 login.micorsoftonline.com。 請將它變更為**基本**內部負載平衡器類型，或建立出繫結的存取，如中所述[文章](https://aka.ms/lboutboundrulescli)。
+> 如果虛擬機器位於後方**標準**內部負載平衡器，然後它就不能存取 O365 Ip 也就是 根據預設 login.microsoftonline.com。 請將它變更為**基本**內部負載平衡器類型，或建立出繫結的存取，如中所述[文章](https://aka.ms/lboutboundrulescli)。
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>問題 3：Site Recovery 設定失敗 (151197)
 - **可能的原因** </br>
@@ -187,23 +187,23 @@ ms.locfileid: "65796435"
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>問題 4：A2A 複寫失敗時的網路流量會透過內部部署 proxy 伺服器 (151072)
 - **可能的原因** </br>
-  - 自訂 Proxy 設定無效，且 ASR 行動服務代理程式未自動偵測到 IE 的 Proxy 設定
+  - 自訂 proxy 設定無效，而且 Azure Site Recovery 行動服務代理程式沒有自動偵測 proxy 設定，從 IE
 
 
 - **解決方案**
   1. 行動服務代理程式偵測到 IE 的 Proxy 設定 (在 Windows 上) 和 /etc/environment (在 Linux 上)。
-  2. 如果您只想要為 ASR 行動服務設定 Proxy，則可在 ProxyInfo.conf 中提供 Proxy 詳細資料，該檔案位於：</br>
+  2. 如果您想要設定 Azure Site Recovery 行動服務的 proxy，您可以提供 proxy 詳細資料位於 ProxyInfo.conf 中：</br>
      - ``/usr/local/InMage/config/`` (在 ***Linux*** 上)
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` (在 ***Windows*** 上)
   3. ProxyInfo.conf 應該要有下列 INI 格式的 Proxy 設定。</br>
                 [proxy] </br>
                 Address=http://1.2.3.4 </br>
                 Port=567 </br>
-  4. ASR 行動服務代理程式僅支援***未驗證的 Proxy***。
+  4. Azure Site Recovery 行動服務代理程式僅支援***未驗證的 proxy***。
 
 
 ### <a name="fix-the-problem"></a>修正問題
-若要將[所需的 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需的 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入白名單中，請依照[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)中的步驟進行。
+若要允許[所需的 Url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls)或[所需 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)，請依照下列中的步驟[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>在機器中找不到磁碟 (錯誤碼 150039)
 
@@ -232,17 +232,42 @@ ms.locfileid: "65796435"
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. 若要關閉此警告。 移至 複寫的項目 > VM > 按一下 解除警示，在 概觀 區段下。
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>無法查看 「 啟用複寫 」 中的選取範圍的 Azure VM 或資源群組
 
- **原因 1：資源群組和來源虛擬機器位於不同的位置** <br>
-Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應該位於相同的位置。 如果情況不是這樣，那麼在保護期間您就無法尋找虛擬機器。 因應措施，您可以啟用複寫，從 VM 而不是復原服務保存庫。 移至 Sourece VM > 屬性 > 嚴重損壞修復並啟用複寫。
 
-**原因 2：資源群組不在選取的訂用帳戶中** <br>
-如果資源群組不是指定的訂用帳戶的一部分，則可能無法在保護時尋找該資源組。 請確定資源群組屬於正在使用的訂用帳戶。
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>移除虛擬機器從保存庫已完成，但資訊 （錯誤碼 150225）
+保護虛擬機器時，Azure Site Recovery 會建立一些連結來源虛擬機器上。 當您移除保護，或停用複寫時，Azure Site Recovery 會移除這些連結清除作業的一部分。 如果虛擬機器有資源鎖定作業取得完成的資訊。 它會告訴已從復原服務保存庫移除虛擬機器，但某些過時的連結無法清除來源機器。
 
- **原因 3：過時的設定** <br>
-如果您未看見想要啟用來進行複寫的 VM，可能是因為 Azure VM 上保留了過時的 Site Recovery 設定。 在下列情況中，Azure VM 可能保留過時的組態：
+如果您根本不打算在未來再次保護此虛擬機器，您可以忽略這個警告。 不過，如果您必須稍後保護此虛擬機器然後您應該清除連結，如下列步驟中所述。 
 
+**如果您沒有進行全新然後：**
+
+1.  在啟用從復原服務保存庫中的進行複寫的時間內，將不會列出虛擬機器。 
+2.  如果您嘗試保護的 VM，透過**虛擬機器 > 設定 > 災害復原**它將會失敗，發生錯誤 「*無法啟用複寫，因為現有的過時的資源連結，在 VM*".
+
+
+### <a name="fix-the-problem"></a>修正問題
+
+>[!NOTE]
+>
+>Azure Site Recovery 不會刪除來源虛擬機器，或同時執行下列步驟以任何方式影響它。
+>
+
+1. 移除 VM 或 VM 中的鎖定資源群組。 例如: 下列 VM 名稱"MoveDemo"會有需要刪除資源鎖定。
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 下載指令碼[移除過時的 Azure Site Recovery 設定](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+3. 執行指令碼*Cleanup-stale-asr-config-Azure-VM.ps1*。
+4. 提供訂用帳戶識別碼、 VM 資源群組和 VM 名稱做為參數。
+5. 如果要求的 Azure 認證，請提供，並檢查執行指令碼時，取得無任何錯誤。 
+
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>無法啟用複寫，因為 VM （錯誤碼 150226） 上的現有過時的資源連結
+
+**原因：虛擬機器已從先前的 Site Recovery 保護設定過時**
+
+在下列情況中，Azure VM 可能保留過時的組態：
+
+- 您使用 Site Recovery 啟用 Azure VM 的複寫，然後再停用複寫，但**來源 VM 具有資源鎖定**。
 - 您使用 Site Recovery 啟用 Azure VM 的複寫，然後刪除 Site Recovery 保存庫，但是並未明確停用 VM 上的複寫。
 - 您使用 Site Recovery 啟用 Azure VM 的複寫，然後刪除包含 Site Recovery 保存庫的資源群組，但是並未明確停用 VM 上的複寫。
 
@@ -250,9 +275,52 @@ Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應
 
 >[!NOTE]
 >
->請務必在使用下列指令碼之前，先更新 ""AzureRM.Resources"" 模組。
+>Azure Site Recovery 不會刪除來源虛擬機器，或同時執行下列步驟以任何方式影響它。
 
-您可以使用[移除過時 ASR 組態指令碼](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)，並移除 Azure VM 上的過時 Site Recovery 組態。 在移除過時的設定之後，您應該就能看到該 VM。
+
+1. 移除 VM 或 VM 中的鎖定資源群組中，如果有的話。 *例如：* 下列 VM 名稱"MoveDemo"會有需要刪除資源鎖定。
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 下載指令碼[移除過時的 Azure Site Recovery 設定](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+3. 執行指令碼*Cleanup-stale-asr-config-Azure-VM.ps1*。
+4. 提供訂用帳戶識別碼、 VM 資源群組和 VM 名稱做為參數。
+5. 如果要求的 Azure 認證，請提供，並檢查執行指令碼時，取得無任何錯誤。  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>無法查看 「 啟用複寫 」 中的選取範圍的 Azure VM 或資源群組
+
+ **原因 1：資源群組和來源虛擬機器位於不同的位置**
+ 
+Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應該位於相同的位置。 如果不是這樣然後您就無法保護期間找到的虛擬機器或資源群組。 
+
+**因應措施**，您可以啟用複寫，從 VM 而不是復原服務保存庫。 移至來源 VM > 屬性 > 嚴重損壞修復並啟用複寫。
+
+**原因 2：資源群組不在選取的訂用帳戶中**
+
+如果資源群組不是指定的訂用帳戶的一部分，則可能無法在保護時尋找該資源組。 請確定資源群組屬於正在使用的訂用帳戶。
+
+ **原因 3：過時的設定**
+ 
+如果您未看見想要啟用來進行複寫的 VM，可能是因為 Azure VM 上保留了過時的 Site Recovery 設定。 在下列情況中，Azure VM 可能保留過時的組態：
+
+- 您使用 Site Recovery 啟用 Azure VM 的複寫，然後刪除 Site Recovery 保存庫，但是並未明確停用 VM 上的複寫。
+- 您使用 Site Recovery 啟用 Azure VM 的複寫，然後刪除包含 Site Recovery 保存庫的資源群組，但是並未明確停用 VM 上的複寫。
+
+- 您使用 Site Recovery 啟用 Azure VM 的複寫，然後再停用複寫，但來源 VM 有資源鎖定。
+
+### <a name="fix-the-problem"></a>修正問題
+
+> [!NOTE]
+>
+> 請務必在使用下列指令碼之前，先更新 ""AzureRM.Resources"" 模組。 Azure Site Recovery 不會刪除來源虛擬機器，或同時執行下列步驟以任何方式影響它。
+>
+
+1. 移除 VM 或 VM 中的鎖定資源群組中，如果有的話。 *例如：* 下列 VM 名稱"MoveDemo"會有需要刪除資源鎖定。
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 下載指令碼[移除過時的設定](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+3. 執行指令碼*Cleanup-stale-asr-config-Azure-VM.ps1*。
+4. 提供訂用帳戶識別碼、 VM 資源群組和 VM 名稱做為參數。
+5. 如果要求的 Azure 認證，請提供，並檢查執行指令碼時，取得無任何錯誤。
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>無法選取虛擬機器進行保護
  **原因 1：虛擬機器在失敗或沒有回應的狀態下安裝了某些延伸模組** <br>
@@ -294,7 +362,7 @@ Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應
 
 **錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
-151025<br></br>**訊息**：無法安裝站台復原擴充功能 | - 停用「COM+ 系統應用程式」服務。</br></br>- 停用「磁碟區陰影複製」服務。| 將「COM+ 系統應用程式」和「磁碟區陰影複製」服務設為自動或手動啟動模式。
+151025<br></br>**訊息**：無法安裝 site Recovery 延伸模組 | - 停用「COM+ 系統應用程式」服務。</br></br>- 停用「磁碟區陰影複製」服務。| 將「COM+ 系統應用程式」和「磁碟區陰影複製」服務設為自動或手動啟動模式。
 
 ### <a name="fix-the-problem"></a>修正問題
 
@@ -362,8 +430,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 
