@@ -849,6 +849,6 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 

@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347083"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>使用 API 管理來管理 Machine Learning Studio Web 服務
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本指南示範如何快速開始使用 API 管理，來管理您的 Azure Machine Learning Studio Web 服務。
 
 ## <a name="what-is-azure-api-management"></a>什麼是 Azure API 管理？
@@ -38,12 +38,12 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [+ 建立資源]  。
 3. 在搜尋方塊中，輸入 [API 管理]，然後選取 [API 管理] 資源。
-4. 按一下頁面底部的 [新增]  。
+4. 按一下 [建立]  。
 5. [名稱]  值將用來建立唯一的 URL (此範例使用 "demoazureml")。
 6. 針對您的服務執行個體，選取 [訂用帳戶]  、[資源群組]  和 [位置]  。
 7. 指定 [組織名稱]  的值 (此範例使用 "demoazureml")。
 8. 輸入您的 [系統管理員電子郵件]  - 此電子郵件將用於自 API 管理系統傳送通知。
-9. 按一下頁面底部的 [新增]  。
+9. 按一下 [建立]  。
 
 新服務建立作業最多可能需要花費 30 分鐘的時間。
 
@@ -66,7 +66,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 4. 輸入 [Web API URL 尾碼]。 此尾碼會成為 URL 的結尾，客戶將使用該 URL 將要求傳送至服務執行個體 (此範例使用 "azureml-demo")。
 5. 對於 [Web API URL 配置]  ，選取 [HTTPS]  。
 6. 對於 [產品]  ，選取 [入門]  。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 
 ## <a name="add-the-operations"></a>加入作業
@@ -103,7 +103,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 3. 對於 [URL 範本]  ，輸入 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"。
 4. 輸入 [顯示名稱]  \(此範例使用「BES 提交」)。
 5. 按一下左側的 [回應]   > [新增]  ，然後選取 [200 確定]  。
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 ### <a name="start-a-batch-execution-job"></a>啟動批次執行工作
 
@@ -112,7 +112,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 3. 對於 [HTTP 指令動詞]  中，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"。
 4. 輸入 [顯示名稱]  \(此範例使用「BES 啟動」)。
 6. 按一下左側的 [回應]   > [新增]  ，然後選取 [200 確定]  。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>取得批次執行工作的狀態或結果
 
@@ -121,7 +121,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 3. 對於 [URL 範本]  ，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
 4. 輸入 [顯示名稱]  \(此範例使用「BES 狀態」)。
 6. 按一下左側的 [回應]   > [新增]  ，然後選取 [200 確定]  。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 ### <a name="delete-a-batch-execution-job"></a>刪除批次執行工作
 
@@ -130,7 +130,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 3. 對於 [URL 範本]  ，輸入 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"。
 4. 輸入 [顯示名稱]  \(此範例使用「BES 刪除」)。
 5. 按一下左側的 [回應]   > [新增]  ，然後選取 [200 確定]  。
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>從開發人員入口網站呼叫作業
 

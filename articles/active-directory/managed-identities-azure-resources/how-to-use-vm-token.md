@@ -30,7 +30,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 本文提供各種取得權杖的程式碼和指令碼，以及處理權杖到期和 HTTP 錯誤等重要主題的指引。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 > [!IMPORTANT]
 > - Azure 資源受控識別的安全性界限是一直都在使用的資源。 所有在虛擬機器上執行的程式碼/指令碼，都可以針對其上提供的任何受控識別要求及擷取權杖。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 用戶端應用程式可以要求用於存取指定資源的 Azure 資源受控識別：[僅限應用程式的存取權杖](../develop/developer-glossary.md#access-token)。 此權杖是[以 Azure 資源受控識別服務原則為基礎](overview.md#how-does-it-work)。 因此，用戶端不需要自行註冊就能取得本身服務主體下的存取權杖。 權杖在[需要用戶端認證的服務對服務呼叫](../develop/v1-oauth2-client-creds-grant-flow.md)中適合作為持有人權杖。
 
@@ -70,7 +70,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| 元素 | 描述 |
+| 項目 | 描述 |
 | ------- | ----------- |
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | 適用於 Instance Metadata Service 的 Azure 資源受控識別端點。 |
@@ -88,7 +88,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| 元素 | 描述 |
+| 項目 | 描述 |
 | ------- | ----------- |
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
 | `http://localhost:50342/oauth2/token` | Azure 資源受控識別端點，其中 50342 是預設連接埠且可設定。 |
@@ -115,7 +115,7 @@ Content-Type: application/json
 
 | 元素 | 描述 |
 | ------- | ----------- |
-| `access_token` | 请求的访问令牌。 呼叫受保護的 REST API 時，權杖會內嵌在 `Authorization` 要求標頭欄位中成為「持有人」權杖，以允許 API 驗證呼叫端。 | 
+| `access_token` | 所要求的存取權杖。 呼叫受保護的 REST API 時，權杖會內嵌在 `Authorization` 要求標頭欄位中成為「持有人」權杖，以允許 API 驗證呼叫端。 | 
 | `refresh_token` | 並未由 Azure 資源受控識別使用。 |
 | `expires_in` | 存取權杖從發行到過期之前持續有效的秒數。 在權杖的 `iat` 宣告中可找到發行時間。 |
 | `expires_on` | 存取權杖到期的時間範圍。 日期以 "1970-01-01T0:0:0Z UTC" 起算的秒數表示 (對應至權杖的 `exp` 宣告)。 |
@@ -348,7 +348,7 @@ echo The managed identities for Azure resources access token is $access_token
 - 由於 Azure 資源受控識別子系統快取中沒有權杖而發生快取遺漏
 - 快取的權杖已過期
 
-## <a name="error-handling"></a>错误处理。
+## <a name="error-handling"></a>錯誤處理
 
 Azure 資源受控識別端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx 錯誤) 來發出錯誤通知：
 
@@ -371,7 +371,7 @@ Azure 資源受控識別端點會透過 HTTP 回應訊息標頭的狀態碼欄�
 
 本節會說明可能的錯誤回應。 「200 確定」狀態是成功的回應，而且存取權杖會包含在回應主體 JSON 中 (在 access_token 元素中)。
 
-| 狀態碼 | Error | 錯誤說明 | 解決方法 |
+| status code | 錯誤 | 錯誤說明 | 方案 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 不正確的要求 | invalid_resource | AADSTS50001：在名為 \<TENANT-ID\>  的租用戶中找不到名為 \<URI\>  的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能會將驗證要求傳送至錯誤的租用戶。\ | (僅限 Linux) |
 | 400 不正確的要求 | bad_request_102 | 未指定必要的中繼資料標頭 | 要求中遺漏 `Metadata` 要求標頭欄位，或欄位的格式不正確。 值必須指定為 `true` (全部小寫)。 相關範例請參閱前一節 REST 中的「範例要求」。|

@@ -24,7 +24,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > Microsoft Azure 復原服務 (MARS) 代理程式的離線備份程序與 System Center DPM 和 Azure 備份伺服器有所區別。 如需透過 MARS 代理程式使用離線備份的詳細資訊，請參閱[本文章](backup-azure-backup-import-export.md)。 針對使用「Azure 備份」代理程式來執行的「系統狀態」備份，不支援「離線備份」。
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 透過 Azure 備份的離線植入功能和 Azure 匯入/匯出，可以簡單地使用磁碟將資料離線上傳至 Azure。 「離線備份」程序涉及下列步驟：
 
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > * 使用 System Center Data Protection Manager (SC DPM) 來備份所有工作負載和檔案
 > * 使用「Microsoft Azure 備份伺服器」來備份所有工作負載和檔案 <br/>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 起始「離線備份」工作流程之前，請先確定已符合下列先決條件
 * 已建立[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)。 若要建立保存庫，請參閱[這篇文章](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)中的步驟
 * 已在 Windows Server/Windows 用戶端 (依據適用情況) 上安裝「Azure 備份」代理程式、「Azure 備份伺服器」或 SC DPM，並已向「復原服務保存庫」註冊該電腦。 請確定只使用[最新版的 Azure 備份](https://go.microsoft.com/fwlink/?linkid=229525)。

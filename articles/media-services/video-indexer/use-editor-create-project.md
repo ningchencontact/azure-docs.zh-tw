@@ -130,7 +130,7 @@ ms.locfileid: "65518145"
 
     這會帶您前往您用來建立新專案的同一個頁面。 不同於新的專案中，您會看到視訊，您已開始編輯之前的時間戳記 insights 區段。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [影片索引子概觀](video-indexer-overview.md)
 

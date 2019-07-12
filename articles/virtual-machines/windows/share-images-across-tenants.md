@@ -3,19 +3,19 @@ title: 在 Azure 中的租用戶之間共用資源庫映像 |Microsoft Docs
 description: 了解如何使用共用映像資源庫的 Azure 租用戶之間共用的 VM 映像。
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: 5b3c4e5380c65b2ab6c736e7fabe1813fe32afc2
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c26abe948fa415c780d543c615c34af2091cfbc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466493"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709167"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>在 Azure 租用戶之間共用資源庫的 VM 映像
 

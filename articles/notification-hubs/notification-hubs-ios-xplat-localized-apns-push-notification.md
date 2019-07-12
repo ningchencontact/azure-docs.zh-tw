@@ -42,7 +42,7 @@ ms.locfileid: "66428450"
 > * 從 .NET 主控台應用程式傳送當地語系化的範本通知
 > * 從裝置傳送當地語系化的範本通知
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 在[使用通知中樞傳送即時新聞]中，您已建置使用**標記**來訂閱不同即時新聞類別通知的應用程式。 但有許多應用程式是以多個市場為目標的，因此需要當地語系化。 這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。 本教學課程會說明如何使用通知中樞的**範本**功能，輕鬆地傳遞已當地語系化的即時新聞通知。
 
@@ -71,7 +71,7 @@ ms.locfileid: "66428450"
 
 如需範本的詳細資訊，請參閱[範本](notification-hubs-templates-cross-platform-push-messages.md)一文。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 完成[將通知推送至特定的 iOS 裝置](notification-hubs-ios-xplat-segmented-apns-push-notification.md)教學課程並具備該教學課程中的程式碼，因為本教學課程是以該程式碼為基礎。
 * Visual Studio 2019 是選擇性的。

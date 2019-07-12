@@ -26,7 +26,7 @@ ms.locfileid: "66418236"
 
 本文說明如何部署.NET Core 主控台應用程式的 WebJobs。 若要部署.NET Framework 主控台應用程式的 Webjob，請參閱[WebJobs 為.NET Framework 主控台應用程式](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps)。 如果您有興趣使用 WebJobs SDK 版本 2.x，只支援.NET Framework，請參閱[開發使用 Visual Studio-Azure App Service 和部署 Webjob](webjobs-dotnet-deploy-vs.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [安裝 Visual Studio 2019](/visualstudio/install/)具有**Azure 開發**工作負載。 如果您已有 Visual Studio 但沒有該工作負載，請選取 [工具] > [取得工具和功能]  來新增該工作負載。
 
@@ -344,7 +344,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 如果 [應用程式設定]  方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
 
-   |Name  |值  |
+   |名稱  |值  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {檢測金鑰} |
 

@@ -120,7 +120,7 @@ ms.locfileid: "60565521"
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
 /Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。
-/Silent| 選用。 指定是否要以無訊息模式執行安裝程式。
+/Silent| 選擇性。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
 **設定** | **詳細資料**
@@ -158,7 +158,7 @@ ms.locfileid: "60565521"
 -r | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 -d | 選擇性參數。 指定行動服務安裝位置：/usr/local/ASR。
 -v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。
--q | 選用。 指定是否要以無訊息模式執行安裝程式。
+-q | 選擇性。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
 **設定** | **詳細資料**

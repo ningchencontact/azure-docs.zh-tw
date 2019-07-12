@@ -3,16 +3,15 @@ title: Azure Data Factory 對應資料流程結構描述漂移
 description: 透過結構描述漂移在 Azure Data Factory 中建置復原性資料流程
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61261872"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722877"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>對應資料流程結構描述漂移
 
@@ -34,7 +33,7 @@ ms.locfileid: "61261872"
 
 * 在您選取此選項後，每次執行資料流程時都會從您的來源讀取所有傳入欄位，而這些欄位會通過整個流程送至接收。
 
-* 請務必使用「自動對應」來對應「接收轉換」中的所有新欄位，以便選取所有新欄位並置入您的目的地：
+* 請務必使用 「 自動對應 」 對應 「 接收 」 轉換中的所有新欄位，讓所有新欄位取得挑選向上和向下進入您的目的地。
 
 <img src="media/data-flow/automap.png" width="400">
 

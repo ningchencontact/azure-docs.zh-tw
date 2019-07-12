@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787803"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605682"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>範例 2-迴歸：預測價格，並比較演算法
 
@@ -96,3 +96,4 @@ ms.locfileid: "65787803"
 - [範例 3-分類：預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
 - [範例 4-分類：預測信用風險 （成本機密）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [範例 5-分類：預測客戶流失](ui-sample-classification-predict-churn.md)
+- [範例 6-分類：預測航班誤點](ui-sample-classification-predict-flight-delay.md)

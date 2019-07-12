@@ -31,7 +31,7 @@ ms.locfileid: "67053038"
 
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>從 Microsoft AppSource取得 [Azure IoT Central 的 Power BI 解決方案](https://aka.ms/iotcentralpowerbisolutiontemplate)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 設定解決方案需要下列項目：
 - Azure 訂用帳戶的存取權
 - 使用[連續資料匯出](howto-export-data.md)從 IoT Central 應用程式匯出的資料。 我們建議您開啟量測、裝置和裝置範本串流，以充分利用 Power BI 儀表板。

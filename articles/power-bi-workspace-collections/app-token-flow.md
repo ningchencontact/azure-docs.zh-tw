@@ -4,16 +4,16 @@ description: 使用 Power BI 工作區集合驗證和授權。
 services: power-bi-workspace-collections
 author: rkarlin
 ms.author: rkarlin
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707115"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672495"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
 
@@ -140,13 +140,13 @@ Body
 
 ### <a name="operations-and-scopes"></a>作業和範圍
 
-|作業|目標資源|權杖權限|
+|運算|目標資源|權杖權限|
 |---|---|---|
 |根據資料集建立新的報告 (在記憶體內部)。|Dataset|Dataset.Read|
 |根據資料集建立新的報告並儲存報告 (在記憶體內部)。|Dataset|* Dataset.Read<br>* Workspace.Report.Create|
-|檢視和瀏覽/編輯現有報告 (在記憶體內部)。 Report.Read 暗指 Dataset.Read。 Report.Read 不允許儲存編輯。|報告|Report.Read|
-|編輯並儲存現有報告。|報告|Report.ReadWrite|
-|儲存報告複本 (另存新檔)。|報告|* Report.Read<br>* Workspace.Report.Copy|
+|檢視和瀏覽/編輯現有報告 (在記憶體內部)。 Report.Read 暗指 Dataset.Read。 Report.Read 不允許儲存編輯。|報表|Report.Read|
+|編輯並儲存現有報告。|報表|Report.ReadWrite|
+|儲存報告複本 (另存新檔)。|報表|* Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>以下是流程的運作方式
 1. 將 API 金鑰複製到您的應用程式。 您可以在 **Azure 入口網站**取得金鑰。
@@ -172,7 +172,7 @@ Body
 
 ![應用程式內嵌的報告範例](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [開始使用 Microsoft Power BI 工作區集合範例](get-started-sample.md)  

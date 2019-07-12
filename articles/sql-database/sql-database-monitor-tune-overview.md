@@ -39,12 +39,12 @@ Azure SQL Database**提供建議，可協助您疑難排解並修正潛在的效
 
 您有下列選項可以用來針對資料庫效能進行監視和疑難排解：
 
-- 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Database]  、選取資料庫，然後使用監視圖表尋找接近其上限的資源。 默认情况下将显示 DTU 消耗量。 按一下 [編輯]  來變更所顯示的時間範圍和值。
+- 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Database]  、選取資料庫，然後使用監視圖表尋找接近其上限的資源。 預設會顯示 DTU 耗用量。 按一下 [編輯]  來變更所顯示的時間範圍和值。
 - SQL Server Management Studio 之類的工具可讓您提供許多有用的報表喜歡[績效儀表板](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017)，您可以監視資源使用率，並識別熱門資源取用查詢，或[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)您可以在其中識別效能迴歸查詢。
 - 使用[查詢效能深入解析](sql-database-query-performance.md) [Azure 入口網站](https://portal.azure.com)中找出花費最多資源的查詢。 這項功能僅適用於單一資料庫和彈性集區。
 - 使用 [SQL Database Advisor](sql-database-advisor-portal.md) 來檢視建立和卸除索引、參數化查詢，以及修正結構描述問題的建議。 這項功能僅適用於單一資料庫和彈性集區。
 - 使用 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) 來自動監視您的資料庫效能。 在偵測到效能問題之後，系統就會產生包含問題詳細資料和「根本原因分析」(RCA) 的診斷記錄。 在可能的情況下會提供效能改進建議。
-- [啟用自動調整](sql-database-automatic-tuning-enable.md)並讓 Azure SQL Database 自動修正發現的效能問題。
+- [啟用自動調整](sql-database-automatic-tuning-enable.md)並讓 Azure SQL 資料庫自動修正發現的效能問題。
 - 使用[動態管理檢視 (DMV)](sql-database-monitoring-with-dmvs.md)、[擴充的事件](sql-database-xevent-db-diff-from-svr.md)和[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)，更深入了解如何進行效能問題的疑難排解。
 
 > [!TIP]
@@ -225,7 +225,7 @@ ORDER BY count (distinct p.query_id) DESC
 
 ## <a name="improving-database-performance-with-more-resources"></a>使用更多資源提升資料庫效能
 
-最後，如果沒有可改善資料庫效能的可操作項目，您可以變更 Azure SQL Database 中可用的資源數量。 您可以隨時變更單一資料庫的 [DTU 服務層](sql-database-service-tiers-dtu.md)或增加彈性集區的 eDTU。 或者，如果您使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，便可以變更服務層或增加配置給資料庫的資源。
+最後，如果沒有可改善資料庫效能的可操作項目，您可以變更 Azure SQL Database 中可用的資源數量。 您可以隨時變更單一資料庫的 [DTU 服務層級](sql-database-service-tiers-dtu.md)或增加彈性集區的 eDTU。 或者，如果您使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，便可以變更服務層或增加配置給資料庫的資源。
 
 1. 若是單一資料庫，您可以視需要[變更服務層級](sql-database-single-database-scale.md)或[計算資源](sql-database-single-database-scale.md)以提升資料庫效能。
 2. 若是多個資料庫，請考慮使用[彈性集區](sql-database-elastic-pool-guidance.md)來自動調整資源。
@@ -238,4 +238,4 @@ ORDER BY count (distinct p.query_id) DESC
 
 - 若要在 Azure SQL Database 中啟用自動調整，並讓自動調整功能完全管理您的工作負載，請參閱[啟用自動調整](sql-database-automatic-tuning-enable.md)。
 - 若要使用手動調整，您可以檢閱 [Azure 入口網站中的調整建議](sql-database-advisor-portal.md)並手動套用可改善查詢效能的建議。
-- 變更 [Azure SQL Database 服務層](sql-database-performance-guidance.md)來變更資料庫中可用的資源
+- 變更 [Azure SQL Database 服務層級](sql-database-performance-guidance.md)來變更資料庫中可用的資源

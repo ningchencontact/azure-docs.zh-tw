@@ -41,7 +41,7 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 >
 >
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 檔案系統物件的權限為 [讀取]  、[寫入]  和 [執行]  ，這些權限可以用於下表所示的檔案和資料夾：
 
@@ -59,7 +59,7 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 讀取 + 寫入 + 執行 |
 | 5            | `R-X`        | 讀取 + 執行         |
-| 4            | `R--`        | 閱讀                   |
+| 4            | `R--`        | 讀取                   |
 | 0            | `---`        | 沒有權限         |
 
 
@@ -71,15 +71,15 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 以下是一些常見的案例，可協助您了解在 Data Lake Storage Gen1 帳戶上執行某些作業所需的權限。
 
-| 作業 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 運算 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
-| 閱讀      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| 讀取      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 附加至 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | 建立    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| 列出      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| 列出      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| 列出      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -250,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>我必須啟用 ACL 的支援嗎？
 
-沒有。 Data Lake Storage Gen1 帳戶一律會啟用透過 ACL 的存取控制。
+資料分割 Data Lake Storage Gen1 帳戶一律會啟用透過 ACL 的存取控制。
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>若要以遞迴方式刪除資料夾與其內容，需要哪些權限？
 
@@ -297,6 +297,6 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 * [Ubuntu 上的 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux 上使用存取控制清單的 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)

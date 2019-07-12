@@ -115,7 +115,7 @@ ms.locfileid: "60453536"
 
 #### <a name="currently-not-supported"></a>目前不支援
 
-* Views 
+* 檢視 
 * 包含複合索引鍵的任何資料表
 * 資料表中的巢狀物件類型
  

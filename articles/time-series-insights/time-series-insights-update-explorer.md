@@ -21,7 +21,7 @@ ms.locfileid: "66399866"
 
 本文件說明的使用者介面和使用者體驗功能和介面 Azure 時間序列深入解析預覽版[示範 web 應用程式](https://insights.timeseries.azure.com/preview/demo)。 具體來說，它還會討論的配置裝載的範例，介面的自訂選項，以及瀏覽提供示範。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始使用 Azure 時間序列深入解析預覽版總管 中，您必須：
 
@@ -203,7 +203,7 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 
 **Where**：使用 where 子句來快速篩選事件，所使用的運算元集如下表所示。 如果透過選取運算元進行搜尋，述詞會依據該搜尋自動更新。 支援的運算元類型包括：
 
-| 作業 | 支援的類型   | 注意 |
+| 運算 | 支援的類型   | 注意 |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double、DateTime、TimeSpan | |
 | `=`, `!=`, `<>` | String、Bool、Double、DateTime、TimeSpan、NULL |

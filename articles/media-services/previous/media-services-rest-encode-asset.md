@@ -29,7 +29,7 @@ ms.locfileid: "60640067"
 >
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。 數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或是太大而使您客戶的裝置無法正確顯示。 編碼是壓縮視訊和音訊，好讓客戶能檢視您的媒體的程序。
 
@@ -279,5 +279,5 @@ ms.locfileid: "60640067"
 ## <a name="next-steps"></a>後續步驟
 現在您已了解如何建立作業來為資產編碼，請參閱[如何使用媒體服務檢查作業進度](media-services-rest-check-job-progress.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [取得媒體處理器](media-services-rest-get-media-processor.md)

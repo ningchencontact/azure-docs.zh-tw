@@ -102,12 +102,12 @@ Azure IoT Central 應用程式中使用**Device Explorer**頁面，即可加入�
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 風扇速度    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 
-| 類型            | Display name | 欄位名稱 | 数据类型 |
+| type            | Display name | 欄位名稱 | 資料類型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
-| Text            | 位置     | location   | N/A       |
+| Text            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>後續步驟
 

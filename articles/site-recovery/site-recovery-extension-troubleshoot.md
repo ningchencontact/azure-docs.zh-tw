@@ -58,7 +58,7 @@ ms.locfileid: "61280666"
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代理程式將有助於取得最新版本。 也有助於重新開始與服務通訊。
 
 1. 判斷「Windows Azure 客體代理程式服務」是否在 VM 服務 (services.msc) 中執行。 嘗試重新啟動「Windows Azure 客體代理程式服務」。    
@@ -72,7 +72,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM 中安裝的代理程式已過時 (適用於 Linux VM)
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 針對 Linux VM，與代理程式或擴充功能相關的多數失敗是由於會影響過時 VM 代理程式的問題所造成。 若要對此問題進行疑難排解，請遵循下列一般方針：
 
 1. 請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md)的指示。
@@ -95,7 +95,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 ### <a name="the-site-recovery-extension-fails-to-update-or-load"></a>Site Recovery 延伸模組無法更新或載入
 如果延伸模組狀態為 'Empty' (空白)、'NotReady' (未就緒) 或 'Transitioning' (正在轉換)。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 將延伸模組解除安裝，並再次重新啟動作業。
 

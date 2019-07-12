@@ -55,9 +55,9 @@ ms.locfileid: "66297567"
 
    ![設定間隔和頻率](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | 屬性 | 必要項 | JSON 名稱 | 類型 | 描述 |
+   | 屬性 | 必要項 | JSON 名稱 | type | 描述 |
    |----------|----------|-----------|------|-------------|
-   | **間隔** | 是 | interval | Integer | 描述工作流程根據 frequency 多久執行一次的正整數。 以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 |
+   | **間隔** | 是 | interval | 整數 | 描述工作流程根據 frequency 多久執行一次的正整數。 以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 |
    | **頻率** | 是 | frequency | 字串 | 用於週期的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** |
    ||||||
 
@@ -66,10 +66,10 @@ ms.locfileid: "66297567"
 
    ![進階排程選項](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | 屬性 | 必要項 | JSON 名稱 | 類型 | 描述 |
+   | 屬性 | 必要項 | JSON 名稱 | type | 描述 |
    |----------|----------|-----------|------|-------------|
    | **時區** | 否 | timeZone | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 選取您要套用的時區。 |
-   | **開始時間** | 否 | startTime | 字串 | 提供開始日期和時間，格式如下： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>若要在 2017 年 9 月 18 日下午 2:00，比方說，然後指定"2017年-09-18T14:00:00"，然後選取 太平洋標準時間時區。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**附註：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 [*我可以使用開始日期和時間的方式有哪些？* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **開始時間** | 否 | startTime | 字串 | 提供開始日期和時間，格式如下： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>若要在 2017 年 9 月 18 日下午 2:00，比方說，然後指定"2017年-09-18T14:00:00"，然後選取 太平洋標準時間時區。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 [*我可以使用開始日期和時間的方式有哪些？* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **在這幾天內** | 否 | weekDays | 字串或字串陣列 | 如果您選取 [週]，可以選取想要在哪一天或哪幾天執行工作流程：**星期一**、**星期二**、**星期三**、**星期四**、**星期五**、**星期六**和**星期日** |
    | **在這幾小時內** | 否 | hours | 整數或整數陣列 | 如果您選取 [天] 或 [週] 時，您可以選取一個或多個整數從 0 到 23 之間做為您想要執行工作流程一天的小時。 <p><p>比方說，如果您指定"10"、"12"及"14"，您取得上午 10 點、 下午 12 點及的小時、 日的下午 2 點，但一天的分鐘會根據計算的週期開始時。 若要設定的當日分鐘，指定的值**在這幾分鐘內**屬性。 |
    | **在這幾分鐘內** | 否 | minutes | 整數或整數陣列 | 如果您選取 [天] 或 [週]，可以選取從 0 到 59 的一或多個整數，來表示想要在小時的哪幾個分鐘執行工作流程。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 |

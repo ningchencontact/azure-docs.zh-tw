@@ -108,7 +108,7 @@ ms.locfileid: "66305063"
 針對事件格線結構描述中的事件，請使用下列值作為索引鍵：
 
 * Id
-* 話題
+* 主題
 * Subject
 * EventType
 * DataVersion
@@ -117,7 +117,7 @@ ms.locfileid: "66305063"
 針對雲端事件結構描述中的事件，請使用下列值作為索引鍵：
 
 * EventId
-* source
+* Source
 * EventType
 * EventTypeVersion
 * 事件資料 (例如 Data.key1)
@@ -129,7 +129,7 @@ ms.locfileid: "66305063"
 值可以是：
 
 * number
-* 字串
+* string
 * boolean
 * array
 

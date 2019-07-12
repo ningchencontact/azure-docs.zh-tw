@@ -28,7 +28,7 @@ ms.locfileid: "60878795"
 
 如果您有可存取 Azure Data Lake Storage Gen1 的 HDInsight 叢集，就可以使用 Distcp 之類的 Hadoop 生態系統工具，將**送至/來自** HDInsight 叢集儲存體 (WASB) 的資料複製到支援 Data Lake Storage Gen1 的帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Storage Gen1 帳戶**。 如需建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
@@ -40,13 +40,13 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
 
 1. 從您的桌上型電腦，使用 SSH 連線到叢集。 請參閱 [連線至以 Linux 為基礎的 HDInsight 叢集](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。 從 SSH 提示字元執行命令。
 
-2. 確認您是否可存取 Azure 儲存體 Blob (WASB)。 執行以下命令：
+2. 確認您是否可存取 Azure 儲存體 Blob (WASB)。 執行下列命令：
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
     輸出應會提供儲存體 blob 中的內容清單。
 
-3. 同樣地，請確認您是否可從叢集存取 Data Lake Storage Gen1 帳戶。 執行以下命令：
+3. 同樣地，請確認您是否可從叢集存取 Data Lake Storage Gen1 帳戶。 執行下列命令：
 
         hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/
 
@@ -110,7 +110,7 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
  
 * 如果您從 Azure Blob 儲存體帳戶複製，Blob 儲存體端可能會節流複製作業。 這會降低複製作業的效能。 若要深入了解 Azure Blob 儲存體的限制，請參閱 [Azure 訂用帳戶和服務限制](../azure-subscription-service-limits.md)中的 Azure 儲存體限制。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

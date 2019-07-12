@@ -24,7 +24,7 @@ ms.locfileid: "66128442"
 
 本文說明 RequestDisallowedByPolicy 錯誤的原因，其中也會提供此錯誤的解決方案。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 部署期間，您可能會收到 **RequestDisallowedByPolicy** 錯誤，阻止您建立資源。 下列範例顯示錯誤：
 
@@ -59,7 +59,7 @@ ms.locfileid: "66128442"
 az policy definition show --name regionPolicyAssignment
 ```
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 對於安全性或合規性，您的訂用帳戶管理員可能會指派原則來限制資源的部署方式。 例如，您的訂用帳戶可能有一個原則，會阻止建立公用 IP 位址、網路安全性群組、使用者定義的路由或路由表。 **徵狀**一節中的錯誤訊息會顯示原則的名稱。
 若要解決這個問題，請檢閱資源原則，並決定如何部署符合那些原則的資源。

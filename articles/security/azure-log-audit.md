@@ -164,7 +164,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 
 * [使用 Azure Resource Manager 範本建立具有監視和診斷的 Windows 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-### <a name="storage-analytics"></a>存储分析
+### <a name="storage-analytics"></a>儲存體分析
 
 [Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)會記錄並提供儲存體帳戶的度量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。 儲存體分析記錄適用於 [Azure Blob、Azure 佇列及 Azure 資料表儲存體服務](https://docs.microsoft.com/azure/storage/storage-introduction)。 儲存體分析會記錄對儲存體服務之成功和失敗要求的詳細資訊。
 
@@ -328,7 +328,7 @@ Azure 監視器的中心記錄檔是裝載於 Azure 的 Log Analytics 工作區�
 
 * 使用指令碼來收集並再將資料公佈至 Azure 監視器記錄檔 （空白資料格表和未列出的服務）
 
-| 服務 | 資源類型 | 記錄 | 度量 | 解決方法 |
+| 服務 | 資源類型 | 記錄 | 度量 | 方案 |
 | :------ | :------------ | :--- | :------ | :------- |
 |Azure 應用程式閘道| Microsoft.Network/<br>applicationGateways|  診斷|診斷|    [Azure 應用程式](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)[閘道分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     連接器|  連接器|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [ 連接器 (預覽) (英文)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
@@ -349,7 +349,7 @@ Azure 監視器的中心記錄檔是裝載於 Azure 的 Log Analytics 工作區�
 |搜尋服務|   Microsoft.Search/<br>searchServices|    診斷|    診斷||
 |服務匯流排命名空間| Microsoft.ServiceBus/<br>namespaces|    診斷|診斷|    [服務匯流排分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       儲存體||    [Service Fabric Analytics (Service Fabric 分析) (預覽)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
-|SQL (v12)| Microsoft.Sql/<br>servers/<br>資料庫||       診斷||
+|SQL (v12)| Microsoft.Sql/<br>servers/<br>databases||       診斷||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
 |儲存體|||         指令碼| [Azure 儲存體分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Azure 虛擬機器|    Microsoft.Compute/<br>virtualMachines|  分機|  分機||

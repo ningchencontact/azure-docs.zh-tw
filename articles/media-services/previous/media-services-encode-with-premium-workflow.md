@@ -28,7 +28,7 @@ ms.locfileid: "61463888"
 
 如有進階編碼器的問題，請傳送電子郵件到 mepd@microsoft.com。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處理器。 此處理器為高階隨選工作流程提供先進的編碼功能。
 
 以下主題說明 **Media Encoder Premium Workflow**的相關詳細資料：

@@ -26,7 +26,7 @@ ms.locfileid: "66258192"
 技術需求包含下列項目︰
 
 *   如需 Azure Resource Manager 的詳細資訊，請參閱[了解 Azure Resource Manager 範本的結構和語法](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)。 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 
-* Azure 快速入門範本。<br> 如需詳細資訊，請參閱
+* Azure 快速入門範本。<br> 如需詳細資訊，請參閱：
 
   * [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。 透過 Azure Resource Manager，利用社群貢獻的範本部署 Azure 資源，協助您完成更多的工作。 Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 您只需要使用一個範本，就能部署多項服務及其相依項目。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
   * [GitHub：Azure Resource Manager 快速入門範本](https://github.com/azure/azure-quickstart-templates)。 此報告包含由社群所提供所有目前可用的 Azure Resource Manager 範本。 在 https://azure.microsoft.com/documentation/templates/ 中維護了可搜尋的範本索引。

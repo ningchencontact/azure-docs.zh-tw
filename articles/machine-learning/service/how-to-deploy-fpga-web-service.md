@@ -30,7 +30,7 @@ ms.locfileid: "67074983"
   - SSD-VGG
 
 Fpga 可在這些 Azure 區域中：
-  - 美國東部
+  - East US
   - 東南亞
   - 西歐
   - 美國西部 2

@@ -69,7 +69,7 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 ```
 
 
-| 欄位 | 強制 | 一組固定值 | 注意 |
+| 欄位 | Mandatory | 一組固定值 | 注意 |
 |:--- |:--- |:--- |:--- |
 | status |Y |Activated、Resolved |以您設定的條件為基礎的警示狀態。 |
 | context |Y | |警示內容。 |
@@ -93,7 +93,7 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 | resourceId |Y | |受影響資源的資源識別碼。 |
 | resourceRegion |Y | |受影響資源的區域或位置。 |
 | portalLink |Y | |入口網站資源摘要頁面的直接連結。 |
-| properties |N |選用 |一組索引鍵/值組，具有事件的詳細資料。 例如： `Dictionary<String, String>`。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。 另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)。 |
+| properties |N |選擇性 |一組索引鍵/值組，具有事件的詳細資料。 例如： `Dictionary<String, String>` 。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。 另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)。 |
 
 > [!NOTE]
 > 您只能使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) \(英文\) 來設定 **properties**欄位。

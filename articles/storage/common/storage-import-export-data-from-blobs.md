@@ -18,7 +18,7 @@ ms.locfileid: "65209631"
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
 本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在建立匯出作業來轉送 Azure Blob 儲存體中的資料之前，請仔細檢閱並完成此服務的下列必要條件清單。 您必須：
 
@@ -128,7 +128,7 @@ ms.locfileid: "65209631"
 此「選擇性」  步驟可協助您判斷匯出作業所需的磁碟機數目。 執行此步驟的 Windows 系統必須執行[受支援的 OS 版本](storage-import-export-requirements.md#supported-operating-systems)。
 
 1. 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 
-2. 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
+2. 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1` 。
 3. 以系統管理權限開啟 PowerShell 或命令列視窗。 若要將目錄變更為解壓縮的資料夾，請執行下列命令：
     
     `cd C:\WaImportExportV1`
@@ -141,7 +141,7 @@ ms.locfileid: "65209631"
     
     |命令列參數|描述|  
     |--------------------------|-----------------|  
-    |**/logdir:**|選用。 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄目錄。|  
+    |**/logdir:**|選擇性。 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄目錄。|  
     |**/sn:**|必要。 匯出作業的儲存體帳戶名稱。|  
     |**/sk:**|如果未指定容器 SAS 時，才是必要參數。 匯出作業之儲存體帳戶的帳戶金鑰。|  
     |**/csas:**|如果未指定儲存體帳戶金鑰時，才是必要參數。 容器 SAS，可供列出要在匯出作業中匯出的 blob。|  
@@ -193,9 +193,9 @@ Number of drives needed:        3
 
 下表顯示有效 Blob 路徑範例：
    
-   | 选择器 | Blob 路徑 | 描述 |
+   | 選取器 | Blob 路徑 | 描述 |
    | --- | --- | --- |
-   | 开头为 |/ |匯出儲存體帳戶中的所有 Blob |
+   | 開頭為 |/ |匯出儲存體帳戶中的所有 Blob |
    | 開頭為 |/$root/ |匯出根容器中的所有 Blob |
    | 開頭為 |/book |匯出任何容器中以首碼 **book** |
    | 開頭為 |/music/ |匯出容器 **music** |

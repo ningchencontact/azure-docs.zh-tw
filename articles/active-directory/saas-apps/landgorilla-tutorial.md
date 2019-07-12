@@ -35,7 +35,7 @@ ms.locfileid: "65987903"
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Land Gorilla Client 整合，您需要下列項目：
 
@@ -178,7 +178,7 @@ ms.locfileid: "65987903"
 
     c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增]  。 
+    d. 按一下 [建立]  。 
 
 ### <a name="creating-a-land-gorilla-test-user"></a>建立 Land Gorilla 測試使用者
 

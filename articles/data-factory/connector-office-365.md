@@ -35,7 +35,7 @@ ADF Office 365 連接器和 Microsoft Graph 資料的可讓在不同類型的資
 >- 請確定用於複製活動的 Azure Integration Runtime 地區以及目的地與 Office 365 租用戶使用者的信箱所在區域相同。 若要了解如何判斷 Azure IR 位置，請參閱[這裡](concepts-integration-runtime.md#integration-runtime-location)。 如需支援的 Office 區域和對應的 Azure 區域清單，請參閱[以下資料表](https://docs.microsoft.com/graph/data-connect-datasets#regions)。
 >- 服務主體驗證是唯一的驗證機制，支援 Azure Blob 儲存體、 Azure Data Lake 儲存體 Gen1 和 Azure Data Lake 儲存體 Gen2 做為目的地存放區。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要將資料從 Office 365 複製到 Azure，您必須完成下列必要步驟：
 
@@ -57,7 +57,7 @@ ADF Office 365 連接器和 Microsoft Graph 資料的可讓在不同類型的資
 
 如果建立 ADF 作為受控應用程式的一部分，並且對管理資源群組內的資源進行 Azure 原則指派，則 ADF 會檢查每個複製活動執行，以確定原則指派已強制執行。 請參閱[這裡](https://docs.microsoft.com/graph/data-connect-policies#policies)取得支援的原則清單。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 >[!TIP]
 >如需使用 Office 365 連接器的逐步解說，請參閱[從 Office 365 載入資料](load-office-365-data.md)文章。
@@ -91,7 +91,7 @@ ADF Office 365 連接器和 Microsoft Graph 資料的可讓在不同類型的資
 >- 如果您是企業開發人員，負責針對自己組織使用的 Office 365 資料開發應用程式，則您應該對這兩個屬性提供相同的租用戶識別碼，也就是貴組織的 AAD 租用戶識別碼。
 >- 如果您是為客戶開發應用程式的 ISV 開發人員，則 office365TenantId 將會是您客戶的 (應用程式安裝程式) AAD 租用戶識別碼，而 servicePrincipalTenantId 將為貴公司的 AAD 租用戶識別碼。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -334,7 +334,7 @@ ADF Office 365 連接器和 Microsoft Graph 資料的可讓在不同類型的資
 
 若要從 Office 365 複製資料，請將複製活動中的來源類型設定為 **Office365Source**。 複製活動的 **source** 區段中不支援其他屬性。
 
-**範例：**
+**範例:**
 
 ```json
 "activities": [

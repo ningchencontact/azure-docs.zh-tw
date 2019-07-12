@@ -11,7 +11,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67079635"
 ---
-| 数据类型 | 允許在 lambda 運算式中使用的功能 `any` | 允許在 lambda 運算式中使用的功能 `all` |
+| 資料類型 | 允許在 lambda 運算式中使用的功能 `any` | 允許在 lambda 運算式中使用的功能 `all` |
 |---|---|---|
 | `Collection(Edm.ComplexType)` | 以外的所有內容`search.ismatch`和 `search.ismatchscoring` | 相同 |
 | `Collection(Edm.String)` | 比較`eq`或 `search.in` <br/><br/> 結合使用的子運算式 `or` | 比較`ne`或 `not search.in()` <br/><br/> 結合使用的子運算式 `and` |

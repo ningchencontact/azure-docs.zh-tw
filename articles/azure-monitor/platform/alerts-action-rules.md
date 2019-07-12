@@ -1,41 +1,45 @@
 ---
 title: Azure 監視器會發出警示的動作規則
-description: 了解動作規則是什麼，以及如何設定和管理方式。
+description: 了解 Azure 監視器中的動作規則是什麼，以及如何設定和管理方式。
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.subservice: alerts
+ms.openlocfilehash: df069ee398ea2937f03765b10576061b5e541390
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310371"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656728"
 ---
 # <a name="action-rules-preview"></a>動作規則 （預覽）
 
-動作規則可讓您在任何 Resource Manager 範圍 （訂用帳戶、 資源群組或資源） 定義動作 （或隱藏項目之動作）。 它們有各種不同的篩選器可讓您縮小至您想要在處理的警示執行個體的特定子集。 
+動作規則可協助您定義或隱藏任何的 Azure Resource Manager 範圍 （Azure 訂用帳戶、 資源群組或目標資源） 的動作。 它們具有各種的篩選條件，協助您縮小警示執行個體的特定子集，您想要處理的。
 
 ## <a name="why-and-when-should-you-use-action-rules"></a>為何和何時應該使用動作規則？
 
 ### <a name="suppression-of-alerts"></a>警示的隱藏項目
 
-通常有許多案例，其中會有用來抑制警示，以隱藏項目在非上班時間範圍從隱藏項目計劃的維護期間所產生的通知。 比方說，負責 'ContosoVM' 團隊想要隱藏的警示通知即將推出的週末，因為 'ContosoVM' 正在進行規劃的維護。 雖然可以停用每個警示規則，以手動方式設定上 'ContosoVM' （和重新啟用它張貼維護），它不是簡單的體驗。 動作規則可讓您能夠彈性地設定隱藏項目定義大規模的警示歸併。 回到前一個範例，小組現在可以定義會抑制所有的警示通知週末的 'ContosoVM' 上的一項動作規則。
+有許多情況下，可抑制警示產生通知。 這些案例範圍從計劃的維護期間的隱藏項目到隱藏在非營業時間的項目。 例如，負責 team **ContosoVM**想要在即將推出的週末，抑制警示通知，因為**ContosoVM**正在進行規劃的維護。 
+
+雖然小組可以停用每個警示規則上設定**ContosoVM**手動 （並維護之後再次加以啟用），它不是簡單的程序。 動作規則可協助您定義能夠彈性地設定的一段歸併的警示歸併功能，大規模。 在上述範例中，小組可以在定義一項動作的規則**ContosoVM**可隱藏週末的所有警示的通知。
 
 
 ### <a name="actions-at-scale"></a>大規模的動作
 
-警示規則可讓您定義的觸發程序時，會產生警示的動作群組，雖然客戶通常通常會在其作業的範圍都具有一般的動作群組。 例如，小組負責的資源群組 'ContosoRG' 將可能會定義相同的動作群組 'ContosoRG' 中定義的所有警示規則。 動作規則可讓您簡化這個程序可讓您定義動作大規模的情況下，如此可針對已設定的領域上產生任何警示觸發的動作群組。 回到前一個範例，小組現在可以定義 'ContosoRG' 將會觸發相同的動作群組，其內所產生的所有警示的上一個動作規則。
+警示規則可協助您定義的觸發程序時，會產生警示的動作群組，雖然客戶經常會有通用的動作群組跨越其範圍的作業。 例如，小組負責的資源群組**ContosoRG**可能會定義相同的動作群組內定義的所有警示規則**ContosoRG**。 
+
+動作規則可協助您簡化這個程序。 藉由定義大規模的動作，可針對已設定的領域產生任何警示觸發的動作群組。 在上述範例中，小組可以在定義一項動作的規則**ContosoRG**就會觸發相同的動作群組，其內所產生的所有警示。
 
 > [!NOTE]
-> 動作規則目前不適用於服務健康情況警示。
+> 目前動作規則不適用於 Azure 服務健康情況警示。
 
 ## <a name="configuring-an-action-rule"></a>設定動作規則
 
-您可以存取此功能，方法是選取**管理動作**從登陸頁面，在 Azure 監視器中的警示。 然後選取**動作的規則 （預覽）** 。 您可以存取它們，方法是選取**動作的規則 （預覽）** 警示的登陸頁面的儀表板。
+您可以存取此功能，方法是選取**管理動作**從**警示**Azure 監視器中的登陸頁面。 然後，選取**動作的規則 （預覽）** 。 您可以存取的規則，方法是選取**動作的規則 （預覽）** 警示的登陸頁面的儀表板。
 
 ![從 Azure 監視器登陸頁面的動作規則](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -43,48 +47,48 @@ ms.locfileid: "67310371"
 
 ![加入新的 「 動作 」 規則](media/alerts-action-rules/action-rules-new-rule.png)
 
-或者，您也可以選擇設定警示規則時建立動作規則。
+或者，您可以建立 「 動作 」 規則，而您要設定警示規則。
 
 ![加入新的 「 動作 」 規則](media/alerts-action-rules/action-rules-alert-rule.png)
 
-現在，您應該會看到開啟動作的規則建立流程。 設定下列項目： 
+現在，您應該會看到建立動作規則的 [流程] 頁面。 設定下列項目： 
 
 ![新的動作規則建立流程](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
 ### <a name="scope"></a>`Scope`
 
-第一次選擇的範圍，也就是目標資源、 資源群組或訂用帳戶。 您也可以進行多重選取 （在單一訂用帳戶中） 上述任一種的組合。 
+第一次選擇的範圍 （Azure 訂用帳戶、 資源群組或目標資源）。 您可以也選取多個在單一訂用帳戶範圍的組合。
 
 ![動作規則範圍](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
 ### <a name="filter-criteria"></a>篩選準則
 
-此外，您就可以進一步縮小到特定的警示上定義的範圍子集來定義篩選器。 
+此外，您可以定義篩選來縮小它們到警示的特定子集。 
 
 可用的篩選器如下： 
 
-* **嚴重性**：選取一或多個警示的嚴重性。 嚴重性 = Sev1 表示動作的規則是適用於具有 Sev1 嚴重性的所有警示。
-* **監視服務**:原始的監視服務為基礎的篩選條件。 這也是多重選取。 例如，監視服務 ="Application Insights"表示動作的規則是適用於所有 「 Application Insights 」 型警示。
-* **資源類型**:根據特定的資源類型進行篩選。 這也是多重選取。 例如，資源類型 = 動作規則是適用於所有虛擬機器的 「 虛擬機器 」 表示。
-* **警示規則識別碼**:可讓您篩選特定的警示規則，使用 Resource Manager 識別碼的警示規則。
-* **監視條件**:為監視條件篩選警示的執行個體 「 引發 」 或 「 已解決 」。
-* **描述**：Regex 比對中定義的警示規則的描述。
-* **警示的內容 （裝載）** :RegEx 的比對內[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)警示執行個體的欄位。
+* **嚴重性**：要選取一或多個警示的嚴重性的選項。 **嚴重性 = Sev1**表示動作的規則是適用於所有的警示設定為 Sev1。
+* **監視服務**:根據原始的監視服務篩選條件。 此篩選條件也是多重選取。 例如，**監視服務 ="Application Insights"** 表示動作的規則是適用於所有 Application Insights 為基礎的警示。
+* **資源類型**:依據特定的資源類型的篩選條件。 此篩選條件也是多重選取。 例如，**資源類型 = 「 虛擬機器 」** 表示動作的規則是適用於所有虛擬機器。
+* **警示規則識別碼**:若要使用 Resource Manager 識別碼的警示規則來篩選特定的警示規則選項。
+* **監視條件**:警示的執行個體使用的篩選條件**引發**或**Resolved**做為監視條件。
+* **描述**：（規則運算式） 的 regex 相符項目會定義針對描述，定義警示規則的一部分的字串相符項目。 例如，**描述包含 'prod'** 會比對包含字串"prod"的所有警示描述中。
+* **警示內容 （裝載）** :Regex 相符項目定義對警示的承載的警示內容欄位的字串相符。 例如，**警示內容 （裝載） 包含 ' 電腦-01'** 會比對所有的警示，其裝載包含字串"電腦-01。 」
 
-這些篩選器套用至另一部一起使用。 例如，如果我在設定 '資源類型' = ' 虛擬機器 和 嚴重性 = 'Sev0'，則我已經在我的 Vm 上篩選 'Sev0' 的所有警示。 
+這些篩選會套用與另一個搭配使用。 比方說，如果您設定**資源類型 '= 虛擬機器**並**嚴重性' = Sev0**，然後您篩選所有**Sev0**只在 Vm 上的警示。 
 
 ![動作的規則篩選器](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
 ### <a name="suppression-or-action-group-configuration"></a>隱藏項目 」 或 「 動作群組設定
 
-接下來設定警示歸併或動作群組支援的動作規則。 您無法選擇兩者。 組態會比對先前定義的範圍和篩選條件的所有警示執行個體上。
+接下來，設定警示歸併或動作群組支援的動作規則。 您無法選擇兩者。 組態會比對先前定義的範圍和篩選條件的所有警示執行個體上。
 
 #### <a name="suppression"></a>隱藏項目
 
-如果您選取**歸併**，設定動作和通知的歸併的持續時間。 選擇下列其中一項：
+如果您選取**歸併**，設定動作和通知的歸併的持續時間。 選擇下列其中一個選項：
 * **從現在開始 （一律）** :無限期地隱藏所有通知。
 * **在排定的時間**:隱藏已繫結的持續時間內的通知。
-* **使用循環**:隱藏週期性排程，可以是每日、 每週或每月。
+* **使用循環**:隱藏週期性的每日、 每週或每月排程的通知。
 
 ![動作規則隱藏項目](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
@@ -95,121 +99,123 @@ ms.locfileid: "67310371"
 > [!NOTE]
 > 您可以只有一個動作群組關聯的動作規則中。
 
-![規則動作的動作群組](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
+![加入或建立新的動作規則選取動作群組](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
 
 ### <a name="action-rule-details"></a>動作規則詳細資料
 
-最後，設定執行規則的下列詳細資料
+最後，設定執行規則的下列詳細資料：
 * 名稱
-* 它會儲存所在的資源群組
+* 在其中儲存的資源群組
 * 描述 
 
 ## <a name="example-scenarios"></a>範例案例
 
 ### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>案例 1：根據嚴重性的警示的隱藏項目
 
-Contoso 想要隱藏其訂用帳戶內 'ContosoSub' 每個週末的所有 Vm 上的所有 Sev4 警示的通知。
+Contoso 想要隱藏在訂用帳戶內的所有 Vm 上的所有 Sev4 警示通知**ContosoSub**每周末。
 
-**解決方案：** 建立動作規則
-* Scope = 'ContosoSub'
+**解決方案：** 建立動作規則：
+* Scope = **ContosoSub**
 * 篩選器
-    * 嚴重性 = 'Sev4'
-    * 資源類型 = 「 虛擬機器 」
-* 使用循環的隱藏項目設定為每週，且 '星期六' 和 '星期日' 檢查
+    * 嚴重性 = **Sev4**
+    * 資源類型 =**虛擬機器**
+* 隱藏項目具有設定為每週、 週期和**星期六**並**星期日**檢查
 
 ### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>案例 2：隱藏項目之警示的內容 （裝載） 為基礎的警示
 
-Contoso 想要隱藏所有記錄檔針對 ' 電腦-01' 產生的警示的通知中 'ContosoSub' 無限期地，它正在進行維護。
+Contoso 想要隱藏通知的所有記錄檔針對產生的警示**電腦-01**中**ContosoSub**無限期地因為它正在進行維護。
 
-**解決方案：** 建立動作規則
-* Scope = 'ContosoSub'
+**解決方案：** 建立動作規則：
+* Scope = **ContosoSub**
 * 篩選器
-    * Monitor Service = 'Log Analytics'
-    * 警示的內容 （裝載） 包含 ' 電腦-01'
-* 隱藏項目設定為 ' 即日起 （永遠） '
+    * Monitor Service = **Log Analytics**
+    * 警示內容 （裝載） 包含**電腦-01**
+* 隱藏項目設定為**即日起 （一律）**
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>案例 3：在資源群組定義的動作群組
 
-Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)，但想要定義專為從其資源群組 'ContosoRG' 產生的警示觸發的動作。
+Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)。 但它想要定義專為產生的資源群組的警示，觸發程序的動作**ContosoRG**。
 
-**解決方案：** 建立動作規則
-* Scope = 'ContosoRG'
+**解決方案：** 建立動作規則：
+* Scope = **ContosoRG**
 * 沒有篩選器
-* 設定為 'ContosoActionGroup' 的動作群組
+* 動作群組設定為**ContosoActionGroup**
 
 > [!NOTE]
-> **動作規則中定義的動作群組和警示規則分別作用，與任何重複**。 在上述的案例，如果沒有動作群組中定義的警示規則，就會觸發搭配動作規則中所定義的動作群組。 
+> *動作規則中定義的動作群組和警示規則會在沒有重複資料刪除獨立地運作。* 中所述的案例更早版本，如果動作群組都定義為警示的規則，就會觸發搭配動作規則中所定義的動作群組。 
 
 ## <a name="managing-your-action-rules"></a>管理您的動作規則
 
-您可以檢視和管理您動作的規則，從清單檢視，如下所示。
+您可以檢視並管理您動作的規則，從清單檢視：
 
 ![動作的規則清單檢視](media/alerts-action-rules/action-rules-list-view.png)
 
-從這裡開始，您可以大規模的啟用/停用/刪除動作規則選取旁邊的核取方塊。 按一下任何動作的規則會開啟其 [設定] 頁面中，可讓您更新其定義，並啟用/停用它。
+從這裡開始，您可以啟用、 停用，或刪除動作規則大規模旁邊的核取方塊。 當您選取的動作的規則時，其組態 頁面隨即開啟。 頁面可協助您更新動作規則的定義，以及啟用或停用它。
 
 ## <a name="best-practices"></a>最佳作法
 
-記錄警示以建立['的結果數目'](alerts-unified-log.md)選項產生**單一警示的執行個體**使用整個搜尋結果 （這可能是在多部電腦為例）。 在此案例中，如果 「 動作 」 規則會使用 「 警示內容 （裝載） 」 篩選器，它將會執行警示的執行個體上，只要沒有相符項目。 在案例 2 中先前所述，如果產生的記錄警示的搜尋結果同時包含 '電腦-01' 和' 電腦-02'、 整個通知隱藏 （也就是沒有產生 ' 電腦-02' 完全沒有通知）。
+記錄您使用建立的警示[結果數目](alerts-unified-log.md)選項使用整個搜尋結果 （這可能會跨越多部電腦） 來產生單一的警示執行個體。 在此案例中，如果使用 「 動作 」 規則**警示內容 （裝載）** 篩選條件，它會在警示的執行個體上，只要沒有相符項目。 案例 2 中先前所述，如果產生的記錄警示的搜尋結果同時包含這兩者**電腦-01**並**電腦-02**，隱藏整個的通知。 沒有通知的產生**電腦-02**完全。
 
 ![動作的規則與記錄警示 （結果數目）](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-最佳運用記錄警示動作的規則，我們建議您建立與記錄警示['計量測量'](alerts-unified-log.md)選項。 使用此選項，個別警示的執行個體產生根據定義的群組欄位。 則在案例 2 中，個別警示的執行個體產生 '電腦-01' 和' 電腦-02'。 與動作規則案例所述的情況下，' 電腦-02' 的通知會引發如往常繼續時，將會隱藏只 ' 電腦-01' 的通知。
+若要最適合搭配動作規則的記錄警示，建立與記錄警示[計量測量](alerts-unified-log.md)選項。 此選項時，根據其定義的群組欄位會產生個別警示的執行個體。 然後，在案例 2 中，個別警示的執行個體產生**電腦-01**並**電腦-02**。 因為動作規則所述的案例中，針對通知**電腦-01**隱藏。 通知**電腦-02**引發如往常繼續。
 
 ![動作的規則與記錄警示 （結果數目）](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
 ## <a name="faq"></a>常見問題集
 
-* 問： 在設定執行規則時，我想要查看所有可能的重疊動作都規則，因此我要避免重複的通知。 是否可以這麼做？
+### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>我要設定的動作的規則，而我想要使避免重複的通知，請參閱所有可能的重疊動作規則。 它是這麼做？
 
-    A. 一旦您在設定執行規則時定義範圍，您可以看到一份動作規則 （如果有的話），在相同範圍重疊。 此重疊可以是下列其中一個選項的其中一個：
-    * 完全相符：比方說，您正在定義動作規則和重疊的動作規則是在相同的訂用帳戶中。
-    * 子集：例如，您正在定義的動作規則是訂用帳戶，和重疊的動作規則所在的訂用帳戶內的資源群組。
-    * 超集：比方說，您會定義動作規則所在資源群組，和重疊的動作規則所在的訂用帳戶包含的資源群組。
-    * 交集：比方說，您會定義動作規則位於 'VM1' 和 'VM2'，和重疊的動作規則位於 'VM2' 和 'VM3'。
+當您設定動作的規則，定義領域後，您可以看到一份動作規則 （如果有的話），在相同範圍重疊。 此重疊可以是下列其中一個選項的其中一個：
 
-    ![重疊的動作規則](media/alerts-action-rules/action-rules-overlapping.png)
+* 完全相符：比方說，您定義的動作規則和重疊的動作規則是在相同的訂用帳戶中。
+* 子集：例如，您定義的動作規則是訂用帳戶，和重疊的動作規則所在的訂用帳戶內的資源群組。
+* 超集：例如，您定義的動作規則位於資源群組，和重疊的動作規則所在的訂用帳戶包含的資源群組。
+* 交集：比方說，您定義的動作規則位於**VM1**並**VM2**，且重疊的動作規則上**VM2**並**VM3**。
 
-* 問： 時設定的警示規則，它可以知道是否有已定義動作的規則，可能會依據我在定義的警示規則？
+![重疊的動作規則](media/alerts-action-rules/action-rules-overlapping.png)
 
-    A. 一旦定義警示規則的目標資源，您可以看到處理在相同的範圍 （如果有的話） 按一下 [檢視設定動作] '動作' 區段下的動作規則的清單。 這份清單會填入該範圍的下列案例為基礎：
-    * 完全相符：比方說，您要定義警示規則和動作規則是在相同的訂用帳戶。
-    * 子集：例如，您正在定義的警示規則是訂用帳戶，而動作規則所在的訂用帳戶內的資源群組。
-    * 超集：比方說，您要定義警示規則位於資源群組，和動作規則所在的訂用帳戶包含的資源群組。
-    * 交集：例如，'VM1' 和 'VM2'，位於您要定義警示規則和動作規則位於 'VM2' 和 'VM3'。
+### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>我要設定的警示規則，而是，可能會知道是否有已定義動作的規則，可能會依據我在定義的警示規則？
+
+警示規則定義之目標資源之後，您可以看到處理相同的範圍 （如果有的話） 所選取的動作規則的清單**設定動作 檢視**下方**動作**區段。 這份清單會填入基礎範圍在下列案例：
+
+* 完全相符：比方說，您定義的警示規則和動作規則是在相同的訂用帳戶中。
+* 子集：例如，您定義的警示規則是訂用帳戶，而動作規則所在的訂用帳戶內的資源群組。
+* 超集：比方說，您定義的警示規則位於資源群組和動作規則所在的訂用帳戶包含的資源群組。
+* 交集：比方說，您定義的警示規則是在**VM1**並**VM2**，而且動作規則位於**VM2**和**VM3**。
     
-    ![重疊的動作規則](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
+![重疊的動作規則](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
-* 問： 我是否可以看到已隱藏動作規則的警示？
+### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>我是否可以看到已隱藏動作規則的警示？
 
-    A. 在 [警示清單頁面](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances)，沒有額外的資料行，可以選擇呼叫 「 隱藏項目狀態 」。 如果已抑制警示執行個體的通知，它會顯示在清單中的該狀態。
+在 [警示清單頁面](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances)，您可以選擇額外的資料行，呼叫**隱藏項目狀態**。 如果已抑制警示執行個體的通知，它會顯示在清單中的該狀態。
 
-    ![隱藏的警示執行個體](media/alerts-action-rules/action-rules-suppressed-alerts.png)
+![隱藏的警示執行個體](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
-* 問： 如果沒有動作規則動作群組，並隱藏項目與另一個使用相同範圍中，會發生什麼事？
+### <a name="if-theres-an-action-rule-with-an-action-group-and-another-with-suppression-active-on-the-same-scope-what-happens"></a>如果沒有動作規則動作群組，並隱藏項目與另一個使用相同範圍中，會發生什麼事？
 
-    A. **一律隱藏項目會優先使用在相同範圍**。
+一律隱藏項目會優先使用在相同範圍。
 
-* 問： 如果我有兩個單獨的動作規則中監視的資源發生什麼事？ 取得一或兩個通知？ 例如 'VM2' 在此案例中：
+### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>如果我有兩個不同的動作規則中監視的資源，會發生什麼事？ 取得一或兩個通知？ 例如， **VM2**在下列案例：
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
+      "action rule AR1 defined for VM1 and VM2 with action group AG1
+      action rule AR2 defined for VM2 and VM3 with action group AG1"
 
-    A. 針對 'VM1' 和 'VM3' 上的每個警示，不會一次觸發動作群組 'AG1'。 在 'VM2' 上的每個警示的動作群組 'AG1' 就會觸發兩次 (**動作規則無法刪除重複動作**)。 
+在 VM1 和 VM3 的每個警示的動作群組 AG1 不會一次觸發。 在每個警示**VM2**，AG1 就會觸發兩次，因為動作規則不重複資料刪除動作的動作群組。 
 
-* 問： 如果我有兩個單獨的動作規則中監視的資源，而其中一個呼叫的動作，而另一個用於隱藏項目，會發生什麼事？ 例如，'VM2' 在此案例中：
+### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>如果我有兩個單獨的動作規則中監視的資源，而其中一個呼叫的動作，而另一個用於隱藏項目，會發生什麼事？ 例如， **VM2**在下列案例：
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with suppression
+      "action rule AR1 defined for VM1 and VM2 with action group AG1 
+      action rule AR2 defined for VM2 and VM3 with suppression"
 
-    A. 針對 'VM1' 上的每個警示，不會一次觸發動作群組 'AG1'。 將隱藏動作和 'VM2' 和 'VM3' 上的每個警示的通知。 
+為 VM1 上每個警示，不會一次觸發動作群組 AG1。 將隱藏動作和 VM2 和 VM3 上的每個警示的通知。 
 
-* 問： 如果我有警示規則和動作規則定義的相同資源呼叫不同的動作群組發生什麼事？ 例如，在此案例中的 ' VM1':
+### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>如果我有警示規則和動作規則定義的相同資源呼叫不同的動作群組發生什麼事？ 例如， **VM1**在下列案例：
 
-      alert rule  'rule1' on          'VM1' with action group 'AG2'
-      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
+      "alert rule rule1 on VM1 with action group AG2
+      action rule AR1 defined for VM1 with action group AG1" 
  
-    A. 針對 'VM1' 上的每個警示，不會一次觸發動作群組 'AG1'。 每當觸發警示的規則 'rule1' 時，它也會觸發 'AG2' 此外。 **動作規則中定義的動作群組和警示規則分別作用，與任何重複**。 
+為 VM1 上每個警示，不會一次觸發動作群組 AG1。 每當觸發 「 規則 1 」 的警示規則時，它也會觸發 AG2 此外。 動作規則中定義的動作群組和警示規則會在沒有重複資料刪除獨立地運作。 
 
 ## <a name="next-steps"></a>後續步驟
 

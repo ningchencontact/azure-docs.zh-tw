@@ -27,7 +27,7 @@ ms.locfileid: "60245730"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理與 Azure AD 的 AD FS 信任
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure AD Connect 可以管理內部部署 Active Directory Federation Service (AD FS) 與 Azure AD 之間的同盟。 本文提供下列內容的概觀：
 

@@ -39,7 +39,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationName                  | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDescription           | nvarchar(255) | yes         | 應用程式的說明 |
 | ApplicationDisplayName           | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled               | bit           | 否          | 識別應用程式目前是否啟用<br /> **附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled               | bit           | 否          | 識別應用程式目前是否啟用<br /> **注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | UploadedDtTm                     | datetime2(7)  | 否          | 合約上傳的日期和時間 |
 | UploadedByUserId                 | int           | 否          | 應用程式上傳者的使用者識別碼 |
 | UploadedByUserExternalId         | nvarchar(255) | 否          | 應用程式上傳者的使用者外部識別碼。 根據預設，此識別碼會是從協會 Azure Active Directory 的使用者。                                                                                                |
@@ -129,7 +129,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                            | int            | 否          | 應用程式的唯一識別碼 |
 | ApplicationName                          | nvarchar (50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName                   | nvarchar (255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled                       | bit            | 否          | 識別應用程式目前是否啟用。<br /> **附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。  |
+| ApplicationEnabled                       | bit            | 否          | 識別應用程式目前是否啟用。<br /> **注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。  |
 | WorkflowId                               | int            | 否          | 與合約相關聯的工作流程唯一識別碼 |
 | WorkflowName                             | nvarchar(50)   | 否          | 與合約相關聯的工作流程名稱 |
 | WorkflowDisplayName                      | nvarchar(255)  | 否          | 與合約相關聯且要在使用者介面中顯示的工作流程名稱 |
@@ -223,7 +223,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                      | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName                    | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName             | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。                      |
+| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。<br />**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。                      |
 | WorkflowId                         | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                       | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName                | nvarchar(255) | 否          | 要在使用者介面中顯示的工作流程名稱 |
@@ -237,7 +237,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ContractDeployedByUserLastName     | nvarchar(255) | 是         | 合約部署者的使用者姓氏 |
 | ContractDeployedByUserExternalId   | nvarchar(255) | 否          | 合約部署者的使用者外部識別碼。 根據預設，此識別碼是 guid，代表其協會 Azure Active Directory 中的身分識別 |
 | ContractDeployedByUserEmailAddress | nvarchar(255) | 是         | 合約部署者的使用者電子郵件地址 |
-| WorkflowPropertyId                 | int           |             | 工作流程屬性的唯一識別碼 |
+| WorkflowPropertyId                 | ssNoversion           |             | 工作流程屬性的唯一識別碼 |
 | WorkflowPropertyDataTypeId         | int           | 否          | 屬性之資料類型的識別碼 |
 | WorkflowPropertyDataTypeName       | nvarchar(50)  | 否          | 屬性之資料類型的名稱 |
 | WorkflowPropertyName               | nvarchar(50)  | 否          | 工作流程屬性的名稱 |
@@ -263,7 +263,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                      | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName                    | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName             | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。<br />**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | WorkflowId                         | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                       | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName                | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
@@ -371,7 +371,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName              | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName       | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。<br />**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | WorkflowId                   | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                 | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName          | nvarchar(255) | 否          | 要在使用者介面中為工作流程顯示的名稱 |
@@ -398,7 +398,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName              | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName       | nvarchar(255) | 否          | 應用程式的說明 |
-| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。<br />**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | WorkflowId                   | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                 | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName          | nvarchar(255) | 否          | 要在使用者介面中為工作流程顯示的名稱 |

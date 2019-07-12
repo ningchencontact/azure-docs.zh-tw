@@ -4,7 +4,7 @@ description: 了解如何安裝和設定 Linux 代理程式 (waagent)，來管�
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59a0cdd29e50501f023faf323948a400f325df0b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800223"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706176"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解與使用 Azure Linux 代理程式
 
@@ -67,7 +67,7 @@ Microsoft Azure Linux 代理程式 (waagent) 管理 Linux 與 FreeBSD 佈建，�
 資訊經由兩個管道從平台流向代理程式：
 
 * 在 IaaS 部署中，開機時連接的 DVD。 此 DVD 包含 OVF 相容組態檔，內含實際 SSH 金鑰組以外的所有佈建資訊。
-* 用于获取部署和拓扑配置的一个公开 REST API 的 TCP 终结点。
+* TCP 端點，公開可用來取得部署和拓撲組態的 REST API。
 
 ## <a name="requirements"></a>需求
 下列系統已經過測試，且已知可與 Azure Linux 代理程式一同運作：
@@ -86,7 +86,7 @@ Microsoft Azure Linux 代理程式 (waagent) 管理 Linux 與 FreeBSD 佈建，�
 * SLES 11 SP3+
 * Oracle Linux 6.4+
 
-其他受支持的系统：
+其他支援的系統：
 
 * FreeBSD 10+ (Azure Linux 代理程式 v2.0.10+)
 
@@ -95,13 +95,13 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 * Python 2.6+
 * OpenSSL 1.0+
 * OpenSSH 5.3+
-* 文件系统实用程序：sfdisk、fdisk、mkfs、parted
+* 檔案系統公用程式：sfdisk、fdisk、mkfs、parted
 * 密碼工具：chpasswd、sudo
 * 文字處理工具：sed、grep
 * 網路工具：ip-route
 * 掛接 UDF 檔案系統的核心支援。
 
-## <a name="installation"></a>安装
+## <a name="installation"></a>安裝
 安裝和升級 Azure Linux 代理程式時，建議使用散發套件的封裝儲存機制所提供的 RPM 或 DEB 封裝來安裝。 所有[認可的散發套件提供者](../linux/endorsed-distros.md)都會將 Azure Linux 代理程式套件整合於本身的映像和儲存機制中。
 
 如需了解進階安裝選項，例如從來源安裝或安裝到自訂的位置或前置詞，請參閱 [GitHub 上 Azure Linux 代理程式存放庫](https://github.com/Azure/WALinuxAgent)中的文件。
@@ -168,7 +168,7 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 Type: Boolean  
 Default: y
 ```
-這可讓使用者啟用或停用代理程式的佈建功能。 有效值為 "y" 或 "n"。 如果禁用预配，则会保留映像中的 SSH 主机和用户密钥，并忽略 Azure 预配 API 中指定的所有配置。
+這可讓使用者啟用或停用代理程式的佈建功能。 有效值為 "y" 或 "n"。 如果停用佈建，則會保留映像檔中的 SSH 主機金鑰和使用者金鑰，並忽略 Azure 佈建 API 中指定的任何組態。
 
 > [!NOTE]
 > 針對使用 cloud-init 執行佈建工作的 Ubuntu 雲端映像，`Provisioning.Enabled` 參數的預設值為 "n"。

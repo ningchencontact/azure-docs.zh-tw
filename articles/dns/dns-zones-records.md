@@ -111,7 +111,7 @@ DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相
 
 ## <a name="tags-and-metadata"></a>標記和中繼資料
 
-### <a name="tags"></a>標記
+### <a name="tags"></a>Tags
 
 標記是名稱-值組的清單，由 Azure Resource Manager 用來標示資源。  Azure Resource Manager 會使用標記來啟用 Azure 帳單篩選過的檢視，也可讓您設定標記需要的原則。 如需標記的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
 
@@ -131,7 +131,7 @@ Azure DNS 使用 Etag 以安全地處理相同資源的並行變更。 Etag 和 
 
 在 Azure DNS REST API 層級上是使用 HTTP 標頭指定 Etag。  下表提供它們的行為：
 
-| 頁首 | 行為 |
+| 標頭 | 行為 |
 | --- | --- |
 | None |PUT 一定成功 (沒有 Etag 檢查) |
 | If-match \<etag> |唯有當資源存在且 Etag 符合時，PUT 才會成功 |

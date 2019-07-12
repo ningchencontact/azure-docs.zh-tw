@@ -39,7 +39,7 @@ ms.locfileid: "66511338"
 
     ![設定權杖存留期](./media/configure-tokens/token-lifetime.png)
 
-8. 按一下 [檔案]  。
+8. 按一下 [儲存]  。
 
 ## <a name="configure-token-compatibility"></a>設定權杖相容性
 
@@ -50,7 +50,7 @@ ms.locfileid: "66511338"
 
     ![設定權杖相容性](./media/configure-tokens/token-compatibility.png)
 
-5. 按一下 [檔案]  。
+5. 按一下 [儲存]  。
 
 ## <a name="next-steps"></a>後續步驟
 

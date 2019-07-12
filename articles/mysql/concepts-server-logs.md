@@ -43,14 +43,14 @@ ms.locfileid: "67062411"
 如需慢速查詢記錄參數的完整描述，請參閱 MySQL [慢速查詢記錄文件](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
 ## <a name="diagnostic-logs"></a>診斷記錄
-適用於 MySQL 的 Azure 資料庫會與 Azure 監視器診斷記錄整合。 在 MySQL 服务器上启用慢查询日志后，可以选择将它们发送到 Azure Monitor 日志、事件中心或 Azure 存储。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
+適用於 MySQL 的 Azure 資料庫會與 Azure 監視器診斷記錄整合。 一旦您已將 MySQL 伺服器上啟用慢速查詢記錄，您可以選擇將它們發出給 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
 
 > [!IMPORTANT]
-> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
+> 此診斷功能的伺服器記錄檔僅適用於一般用途和記憶體最佳化[定價層](concepts-pricing-tiers.md)。
 
 下表描述每個記錄的內容。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 
-| **屬性** | **說明** |
+| **屬性** | **描述** |
 |---|---|
 | `TenantId` | 您的租用戶識別碼 |
 | `SourceSystem` | `Azure` |

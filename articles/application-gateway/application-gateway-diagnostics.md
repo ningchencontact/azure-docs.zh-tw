@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048709"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655397"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -155,13 +155,13 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="access-log"></a>存取記錄檔
 
-只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 数据存储在启用日志记录时指定的存储帐户中。 應用程式閘道的每次存取會以 JSON 格式記錄，v1 的下列範例所示：
+只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每次存取會以 JSON 格式記錄，v1 的下列範例所示：
 
 |值  |描述  |
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
-|clientPort     | 请求的起始端口。       |
+|clientPort     | 要求的原始連接埠。       |
 |httpMethod     | 要求使用的 HTTP 方法。       |
 |requestUri     | 接收之要求的 URI。        |
 |RequestQuery     | **Server-routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
@@ -201,7 +201,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |---------|---------|
 |instanceId     | 處理要求的應用程式閘道執行個體。        |
 |clientIP     | 要求的原始 IP。        |
-|clientPort     | 请求的起始端口。       |
+|clientPort     | 要求的原始連接埠。       |
 |httpMethod     | 要求使用的 HTTP 方法。       |
 |requestUri     | 接收之要求的 URI。        |
 |RequestQuery     | **Server-routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
@@ -237,7 +237,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
@@ -287,22 +287,22 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="firewall-log"></a>防火牆記錄檔
 
-只有當您如上述步驟所述，在每個應用程式閘道上啟用防火牆記錄，才會產生防火牆記錄。 此記錄也需要在應用程式閘道上設定該 Web 應用程式防火牆。 数据存储在启用日志记录时指定的存储帐户中。 會記錄下列資料：
+只有當您如上述步驟所述，在每個應用程式閘道上啟用防火牆記錄，才會產生防火牆記錄。 此記錄也需要在應用程式閘道上設定該 Web 應用程式防火牆。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 會記錄下列資料：
 
 
 |值  |描述  |
 |---------|---------|
-|instanceId     | 將產生此應用程式閘道執行個體的防火牆資料。 对于多实例应用程序网关，一个实例对应于一行。         |
+|instanceId     | 將產生此應用程式閘道執行個體的防火牆資料。 應用程式閘道若有多個執行個體，則是一個執行個體一行資料。         |
 |clientIp     |   要求的原始 IP。      |
 |clientPort     |  要求的原始連接埠。       |
 |requestUri     | 接收之要求的 URL。       |
 |ruleSetType     | 規則集類型。 可用的值是 OWASP。        |
 |ruleSetVersion     | 規則集版本。 可用值為 2.2.9 和 3.0。     |
 |ruleId     | 觸發事件的規則識別碼。        |
-|Message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
-|action     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
+|message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
+|動作     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
 |site     | 將產生此網站的記錄。 目前只列出 Global，因為規則為全域。|
-|詳細資料     | 觸發事件的詳細資料。        |
+|details     | 觸發事件的詳細資料。        |
 |details.message     | 規則的描述。        |
 |details.data     | 在符合規則之要求中找到的特定資料。         |
 |details.file     | 包含規則的組態檔。        |
@@ -345,7 +345,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>檢視及分析存取、效能和防火牆記錄
 
-[Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)可以從您的 Blob 儲存體帳戶收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
+[Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)可以從您的 Blob 儲存體帳戶收集計數器和事件記錄。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
 您也可以連接到儲存體帳戶並擷取存取和效能記錄的 JSON 記錄項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
 

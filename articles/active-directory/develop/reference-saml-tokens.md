@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 會在處理每個驗證流程時發出數種�
 ## <a name="claims-in-saml-tokens"></a>SAML 權杖中的宣告
 
 > [!div class="mx-codeBreakAll"]
-> | Name | 對等的 JWT 宣告 | 描述 | 範例 |
+> | 名稱 | 對等的 JWT 宣告 | 描述 | 範例 |
 > | --- | --- | --- | ------------|
 > |對象 | `aud` |權杖的預定接收者。 接收權杖的應用程式必須確認對象值正確無誤，並拒絕任何適用於不同對象的權杖。 | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | 驗證時刻 | |記錄驗證發生的日期和時間。 | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 

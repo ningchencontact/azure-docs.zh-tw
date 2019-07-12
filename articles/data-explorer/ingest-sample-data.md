@@ -21,7 +21,7 @@ ms.locfileid: "60759263"
 > [!NOTE]
 > 如果您已完成下列文章，就會有這項資料：[快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [測試叢集和資料庫](create-cluster-database-portal.md)
 

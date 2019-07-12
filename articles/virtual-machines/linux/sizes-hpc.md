@@ -4,7 +4,7 @@ description: 列出 Azure 中可用的不同 Linux 高效能運算虛擬機器�
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 847f25d9be1a8654bbc0435d7874acb0ff793304
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069989"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695589"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>高效能運算的虛擬機器大小
 
@@ -56,7 +56,15 @@ Azure Marketplace 有許多 Linux 散發套件支援 RDMA 連線能力：
   "typeHandlerVersion": "1.0",
   } 
   ```
- 
+  
+  下列命令中現有的 VM 擴展集的所有處理支援 RDMA 之 Vm 上安裝最新版本 1.0 InfiniBandDriverLinux 擴充功能*myVMSS*部署在資源群組中名為*myResourceGroup*:
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
   > [!NOTE]
   > 在 CentOS 型 HPC 映像上， **yum** 組態檔中已停用核心更新。 這是因為 Linux RDMA 驅動程式以 RPM 封裝中，散發，而且如果更新核心，驅動程式更新可能無法運作。
   >
@@ -82,6 +90,8 @@ Azure 提供數個選項來建立 Linux HPC VM 的叢集，而這些 VM 可以�
 * **虛擬機器** - 在相同的可用性設定組中部署支援 RDMA 的 HPC VM (當您使用 Azure Resource Manager 部署模型時)。 如果您使用傳統部署模型，請將 VM 部署在相同的雲端服務中。 
 
 * **虛擬機器擴展集**-在虛擬機器擴展集，請確定您限制為單一放置群組部署。 例如，在 Resource Manager 範本中，將 `singlePlacementGroup` 屬性設定為 `true`。 
+
+* **在虛擬機器之間的 MPI** -如果 MPI 通訊如果虛擬機器 (Vm) 之間所需確保 Vm 會在相同的可用性設定組，或相同的虛擬機器擴展集。
 
 * **Azure CycleCloud** - 在 [Azure CycleCloud](/azure/cyclecloud/) 中建立 HPC 叢集，以在 Linux 節點上執行 MPI 作業。
 

@@ -37,6 +37,6 @@ ms.locfileid: "65068968"
 ## <a name="next-steps"></a>後續步驟
 考慮在 [Azure 入口網站](howto-configure-server-parameters-using-portal.md)中或使用 [Azure CLI](howto-configure-server-parameters-using-cli.md) 來設定 `pg_stat_statements.track = NONE`。
 
-如需詳細資訊，請參閱 
+如需詳細資訊，請參閱： 
 - [查詢存放區使用案例](concepts-query-store-scenarios.md) 
 - [查詢存放區最佳做法](concepts-query-store-best-practices.md) 
