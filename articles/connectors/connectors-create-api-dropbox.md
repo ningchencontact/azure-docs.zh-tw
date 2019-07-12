@@ -23,7 +23,7 @@ ms.locfileid: "60312534"
 
 本文說明如何從邏輯應用程式，連接到 Dropbox，然後新增 Dropbox**當檔案建立時**觸發程序，Dropbox**使用路徑取得檔案內容**動作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 

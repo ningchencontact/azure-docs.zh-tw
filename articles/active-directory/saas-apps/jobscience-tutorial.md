@@ -34,7 +34,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Jobscience 整合，您需要下列項目：
 
@@ -174,9 +174,9 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     g. 在 [識別提供者登入 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL]  值。
 
-    h.如果该值不存在，请单击“添加行”。 在 [識別提供者登出 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
+    h. 在 [識別提供者登出 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
 
-    i. 按一下 [檔案]  。
+    i. 按一下 [儲存]  。
 
 1. 在 [系統管理員]  區段的左方導覽窗格中，按一下 [網域管理]  展開相關的區段，然後按一下 [我的網域]  來開啟 [我的網域]  頁面。 
     
@@ -229,7 +229,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="creating-a-jobscience-test-user"></a>建立 Jobscience 測試使用者
 
@@ -268,7 +268,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
    f. 在 [暱稱]  文字方塊中，輸入使用者的暱稱，例如 Simon。
 
-   g. 按一下 [檔案]  。
+   g. 按一下 [儲存]  。
 
     
 > [!NOTE]

@@ -21,11 +21,11 @@ ms.locfileid: "60784702"
 本文列出關於 Azure Databricks 的最常見問題。 其中也會列出您在使用 Databricks 時可能遇到的一些常見問題。 如需詳細資訊，請參閱[何謂 Azure Databricks](what-is-azure-databricks.md)。 
 
 ## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>可以使用 Azure Key Vault 來儲存金鑰/祕密以使用於 Azure Databricks 嗎？
-是。 您可以使用 Azure Key Vault 來儲存金鑰/祕密，以便搭配 Azure Databricks 使用。 如需詳細資訊，請參閱 [Azure Key Vault 支援的範圍](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss)。
+是的。 您可以使用 Azure Key Vault 來儲存金鑰/祕密，以便搭配 Azure Databricks 使用。 如需詳細資訊，請參閱 [Azure Key Vault 支援的範圍](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss)。
 
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>我可以將 Azure 虛擬網路與 Databricks 搭配使用嗎？
-是。 您可以將 Azure 虛擬網路 (VNET) 與 Azure Databricks 搭配使用。 如需詳細資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)。
+是的。 您可以將 Azure 虛擬網路 (VNET) 與 Azure Databricks 搭配使用。 如需詳細資訊，請參閱[在 Azure 虛擬網路中部署 Azure Databricks](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)。
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>我如何從筆記本中存取 Azure Data Lake Store？ 
 
@@ -46,7 +46,7 @@ ms.locfileid: "60784702"
 
 「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。 (程式碼：MissingSubscriptionRegistration)"
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 1. 依序選取 [訂用帳戶]  、您所使用的訂用帳戶及 [資源提供者]  。 
@@ -59,7 +59,7 @@ ms.locfileid: "60784702"
 
 「您的帳戶 {email} 在 Azure 入口網站的 Databricks 工作區資源中沒有「擁有者」或「參與者」角色。 如果您是租用戶中的來賓使用者，也會發生此錯誤。 請向系統管理員申請授予存取權，或將您直接新增為 Databricks 工作區中的使用者。」 
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 以下是此問題的幾種解決方案：
 
@@ -80,7 +80,7 @@ ms.locfileid: "60784702"
 
 ### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>問題：您的帳戶 {email} 並未在 Databricks 中註冊 
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]  。
 
@@ -90,7 +90,7 @@ ms.locfileid: "60784702"
 
 「 雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。 Azure 錯誤碼：PublicIPCountLimitReached。 Azure 錯誤訊息：無法建立 60 個以上的公用 IP 位址，此訂用帳戶在此區域。 」
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇**配額**作為**問題類型**，和**網路：ARM**作為**配額類型**。 在 [詳細資料]  中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
 
@@ -101,7 +101,7 @@ Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您�
 「 雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。
 Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳戶未註冊為使用命名空間 'Microsoft.Compute'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。」
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 1. 依序選取 [訂用帳戶]  、您所使用的訂用帳戶及 [資源提供者]  。 
@@ -115,7 +115,7 @@ Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳
 
 Azure Databricks 會與 Azure Active Directory 整合。 您可藉由指定 Azure AD 的使用者，在 Azure Databricks 內設定權限 (例如，在筆記型電腦或叢集上)。 若要讓 Azure Databricks 能夠列出來自您 Azure AD 的使用者名稱，它需要讀取該資訊的權限以及給予同意。 如果尚未取得同意，您就會看到錯誤。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 以全域管理員身分登入 Azure 入口網站。 針對 Azure Active Directory，移至 [使用者設定]  索引標籤，並確定已將 [使用者可同意應用程式代表自己存取公司資料]  設為 [是]  。
 

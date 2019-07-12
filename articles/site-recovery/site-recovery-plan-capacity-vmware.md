@@ -92,7 +92,7 @@ CPU | 記憶體 | 快取磁碟大小 | 資料變更率 | 受保護的機器
 
     ![[Azure 備份內容] 對話方塊的螢幕擷取畫面](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-您也可以使用 [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) Cmdlet 來設定節流。 以下是範例：
+您也可以使用 [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) Cmdlet 來設定節流。 以下為範例：
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday

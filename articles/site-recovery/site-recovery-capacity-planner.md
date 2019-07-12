@@ -78,7 +78,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
    * **所需的額外處理序伺服器數目**：顯示除了預設在組態伺服器上執行的處理序伺服器，是否需要額外的處理序伺服器。
    * **來源上的 100% 其他儲存體**：顯示來源位置中是否需要其他儲存體。
 
-      ![輸出](./media/site-recovery-capacity-planner/output.png)
+      ![Output](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>執行詳細規劃
 
@@ -104,7 +104,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
    g. 在 [每日資料變更率 (%)]  中，指定來源伺服器的每日資料變更率。
 
-   h.如果该值不存在，请单击“添加行”。 在 [對應 Azure VM 大小]  中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動執行此動作，則選取 [計算 IaaS VM]  。 如果您輸入手動設定，然後選取 [計算 IaaS VM]  ，則手動設定可能會遭到覆寫。 計算程序會自動識別最符合的 Azure VM 大小。
+   h. 在 [對應 Azure VM 大小]  中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動執行此動作，則選取 [計算 IaaS VM]  。 如果您輸入手動設定，然後選取 [計算 IaaS VM]  ，則手動設定可能會遭到覆寫。 計算程序會自動識別最符合的 Azure VM 大小。
 
    ![工作負載限定性條件工作表](./media/site-recovery-capacity-planner/workload-qualification.png)
 

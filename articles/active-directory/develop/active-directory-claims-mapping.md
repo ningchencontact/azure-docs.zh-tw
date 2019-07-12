@@ -20,7 +20,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546194"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>作法：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>HOW TO：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
 > [!NOTE]
 > 這項功能會取代目前透過入口網站提供的[宣告自訂](active-directory-saml-claims-customization.md)。 在同一應用程式中，如果自訂宣告的方法不止本文詳述的 Graph/PowerShell 方法，還包括入口網站，則對應用程式發出的權杖將會忽略入口網站中的設定。 透過本文詳述的方法所進行的設定將不會反映在入口網站中。
@@ -44,7 +44,7 @@ ms.locfileid: "65546194"
 
 有些宣告集界定了自己在權杖中的使用方式和使用時機。
 
-| 宣告集 | 說明 |
+| 宣告集 | 描述 |
 |---|---|
 | 核心宣告集 | 無論原則為何，都存在於每個權杖中。 這些宣告也都將被視為受限制的宣告，無法予以修改。 |
 | 基本宣告集 | 包含會根據預設向權杖發出的宣告 (除了核心宣告集以外)。 您可以使用宣告對應原則，省略或修改基本宣告。 |
@@ -81,7 +81,7 @@ ms.locfileid: "65546194"
 | azpacr |
 | c_hash |
 | ca_enf |
-| cc |
+| 副本 |
 | cert_token_use |
 | client_id |
 | cloud_graph_host_name |
@@ -157,7 +157,7 @@ ms.locfileid: "65546194"
 | refreshtoken |
 | request_nonce |
 | resource |
-| role |
+| 角色 |
 | roles |
 | scope |
 | scp |
@@ -177,7 +177,7 @@ ms.locfileid: "65546194"
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| userName |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,11 +284,11 @@ ms.locfileid: "65546194"
 
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
 
-| `Source` | ID | 說明 |
+| Source | id | 描述 |
 |-----|-----|-----|
 | 使用者 | surname | 姓氏 |
 | 使用者 | givenname | 名字 |
-| 使用者 | displayname | 显示名称 |
+| 使用者 | displayname | 顯示名稱 |
 | 使用者 | objectid | ObjectID |
 | 使用者 | mail | 電子郵件地址 |
 | 使用者 | userprincipalname | 使用者主體名稱 |
@@ -319,15 +319,15 @@ ms.locfileid: "65546194"
 | 使用者 | extensionattribute14 | 擴充屬性 14 |
 | 使用者 | extensionattribute15 | 擴充屬性 15 |
 | 使用者 | othermail | 其他郵件 |
-| 使用者 | country | 国家/地区 |
+| 使用者 | country | Country |
 | 使用者 | city | City |
 | 使用者 | state | State |
 | 使用者 | jobtitle | 職稱 |
 | 使用者 | employeeid | 員工識別碼 |
 | 使用者 | facsimiletelephonenumber | 傳真電話號碼 |
-| application, resource, audience | displayname | 顯示名稱 |
+| application, resource, audience | displayName | 顯示名稱 |
 | application, resource, audience | objected | ObjectID |
-| application、resource、audience | 标记 | 服務主體標籤 |
+| application, resource, audience | tags | 服務主體標籤 |
 | 公司 | tenantcountry | 租用戶的國家/地區 |
 
 **TransformationID：** 只有在來源元素設定為「轉換」時，才必須提供 TransformationID 元素。
@@ -358,9 +358,9 @@ ms.locfileid: "65546194"
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：轉換方法和預期的輸入和輸出
 
-|TransformationMethod|預期的輸入|預期的輸出|說明|
+|TransformationMethod|預期的輸入|預期的輸出|描述|
 |-----|-----|-----|-----|
-|联接|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
+|Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 \@ 符號，原始輸入字串會以現狀傳回。|
 
 **InputClaims：** 使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
@@ -384,7 +384,7 @@ ms.locfileid: "65546194"
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允許作為 SAML NameID 資料來源的屬性
 
-|`Source`|ID|說明|
+|Source|id|描述|
 |-----|-----|-----|
 | 使用者 | mail|電子郵件地址|
 | 使用者 | userprincipalname|使用者主體名稱|
@@ -411,7 +411,7 @@ ms.locfileid: "65546194"
 | TransformationMethod | 限制 |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| 加入 | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
+| Join | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 
@@ -429,14 +429,14 @@ ms.locfileid: "65546194"
 
 在 Azure AD 中，當您可以為特定的服務主體自訂權杖中所發出的宣告時，許多案例便可能實現。 在本節中，我們將逐步解說一些常見案例，以協助您掌握如何使用宣告對應原則類型。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 在下列範例中，您會為服務主體建立、更新、連結和刪除原則。 如果您是 Azure AD 的新手，建議您[先了解如何取得 Azure AD 租用戶](quickstart-create-new-tenant.md)，然後再參考範例繼續操作。
 
 若要開始使用，請執行下列步驟：
 
 1. 下載最新的 [Azure AD PowerShell 模組公開預覽版本](https://www.powershellgallery.com/packages/AzureADPreview)。
-1. 執行 Connect 命令以登入您的 Azure AD 管理帳戶。 每次启动新会话都需要运行此命令。
+1. 執行 Connect 命令以登入您的 Azure AD 管理帳戶。 您每次啟動新的工作階段時執行此命令。
 
    ``` powershell
    Connect-AzureAD -Confirm
@@ -462,7 +462,7 @@ ms.locfileid: "65546194"
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。
+1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
@@ -486,7 +486,7 @@ ms.locfileid: "65546194"
       ``` powershell  
       Get-AzureADPolicy
       ```
-1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
@@ -510,7 +510,7 @@ ms.locfileid: "65546194"
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰ 
      
@@ -518,6 +518,6 @@ ms.locfileid: "65546194"
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 若要了解如何自訂在 SAML 權杖中，透過 Azure 入口網站發出的宣告，請參閱[How to:自訂的企業應用程式在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)

@@ -96,7 +96,7 @@ For Windows eclipse:支援的 TmaxSoft 開發平台<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 規劃消費組合所需的軟體，並完成所有手動的程序的幾天。
 
@@ -108,7 +108,7 @@ For Windows eclipse:支援的 TmaxSoft 開發平台<br/>
 
 - 如果沒有的話，請取得 Azure 訂用帳戶。 您也可以建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)開始之前。
 
-- 選用。 設定站對站 VPN 通道或要允許使用者在組織中的 Azure VM 會限制存取的 jumpbox。 此步驟並非必要，但最佳的作法是。
+- 選擇性。 設定站對站 VPN 通道或要允許使用者在組織中的 Azure VM 會限制存取的 jumpbox。 此步驟並非必要，但最佳的作法是。
 
 ## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>設定 OpenFrame 和 Tibero Azure 上的 VM
 
@@ -1359,7 +1359,7 @@ JEUS （Java 企業使用者解決方案） 提供 OpenFrame web 應用程式伺
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. 可选  。 建立簡單的關機和開機 JEUS 元件的別名：
+11. *選擇性*。 建立簡單的關機和開機 JEUS 元件的別名：
 
      ```     
      # JEUS alias

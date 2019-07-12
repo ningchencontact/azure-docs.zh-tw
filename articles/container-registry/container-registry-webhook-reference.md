@@ -40,7 +40,7 @@ ms.locfileid: "61331336"
 
 ### <a name="push-event-payload"></a>推送事件裝載
 
-|元素|類型|描述|
+|元素|type|描述|
 |-------------|----------|-----------|
 |`id`|字串|Webhook 事件的識別碼。|
 |`timestamp`|Datetime|Webhook 事件觸發的時間。|
@@ -50,7 +50,7 @@ ms.locfileid: "61331336"
 
 ### <a name="target"></a>target
 
-|元素|類型|描述|
+|元素|type|描述|
 |------------------|----------|-----------|
 |`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。 與長度欄位相同。|
@@ -61,7 +61,7 @@ ms.locfileid: "61331336"
 
 ### <a name="request"></a>request
 
-|元素|類型|描述|
+|元素|type|描述|
 |------------------|----------|-----------|
 |`id`|字串|起始事件之要求的識別碼。|
 |`host`|字串|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
@@ -104,7 +104,7 @@ Helm 圖表會推送至儲存機制時觸發的 Webhook。
 
 ### <a name="chart-push-event-payload"></a>圖表推送事件裝載
 
-|元素|類型|描述|
+|項目|type|描述|
 |-------------|----------|-----------|
 |`id`|字串|Webhook 事件的識別碼。|
 |`timestamp`|Datetime|Webhook 事件觸發的時間。|
@@ -113,15 +113,15 @@ Helm 圖表會推送至儲存機制時觸發的 Webhook。
 
 ### <a name="helm_target"></a>target
 
-|元素|類型|描述|
+|項目|type|描述|
 |------------------|----------|-----------|
 |`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。|
 |`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
 |`repository`|字串|存放庫名稱。|
 |`tag`|字串|圖表的標記名稱。|
-|`name`|字串|图表名称。|
-|`version`|字串|图表版本。|
+|`name`|字串|圖表名稱。|
+|`version`|字串|圖表的版本。|
 
 ### <a name="payload-example-chart-push-event"></a>承載範例： 圖表推送事件
 
@@ -154,7 +154,7 @@ Webhook 觸發時的映像儲存機制，或刪除資訊清單。 刪除標記�
 
 ### <a name="delete-event-payload"></a>刪除事件裝載
 
-|元素|類型|描述|
+|元素|type|描述|
 |-------------|----------|-----------|
 |`id`|字串|Webhook 事件的識別碼。|
 |`timestamp`|Datetime|Webhook 事件觸發的時間。|
@@ -164,7 +164,7 @@ Webhook 觸發時的映像儲存機制，或刪除資訊清單。 刪除標記�
 
 ### <a name="delete_target"></a> 目標
 
-|元素|類型|描述|
+|元素|type|描述|
 |------------------|----------|-----------|
 |`mediaType`|字串|參考物件的 MIME 類型。|
 |`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
@@ -172,7 +172,7 @@ Webhook 觸發時的映像儲存機制，或刪除資訊清單。 刪除標記�
 
 ### <a name="delete_request"></a> 要求
 
-|元素|類型|描述|
+|元素|type|描述|
 |------------------|----------|-----------|
 |`id`|字串|起始事件之要求的識別碼。|
 |`host`|字串|登錄執行個體的外部可存取主機名稱，如內送要求上的 HTTP 主機標頭所指定。|
@@ -216,7 +216,7 @@ Helm 圖表或儲存機制刪除時觸發的 Webhook。
 
 ### <a name="chart-delete-event-payload"></a>圖表刪除事件裝載
 
-|元素|類型|描述|
+|元素|type|描述|
 |-------------|----------|-----------|
 |`id`|字串|Webhook 事件的識別碼。|
 |`timestamp`|Datetime|Webhook 事件觸發的時間。|
@@ -225,15 +225,15 @@ Helm 圖表或儲存機制刪除時觸發的 Webhook。
 
 ### <a name="chart_delete_target"></a> 目標
 
-|元素|類型|描述|
+|項目|type|描述|
 |------------------|----------|-----------|
 |`mediaType`|字串|參考物件的 MIME 類型。|
 |`size`|Int32|內容的位元組數目。|
 |`digest`|字串|如 Registry V2 HTTP API 規格所定義的內容摘要。|
 |`repository`|字串|存放庫名稱。|
 |`tag`|字串|圖表的標記名稱。|
-|`name`|字串|图表名称。|
-|`version`|字串|图表版本。|
+|`name`|字串|圖表名稱。|
+|`version`|字串|圖表的版本。|
 
 ### <a name="payload-example-chart-delete-event"></a>承載範例： 圖表刪除事件
 

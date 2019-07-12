@@ -30,7 +30,7 @@ ms.locfileid: "62130597"
 
 App Service 環境 (ASE) 功能是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE功能基本上會在您的 Azure 虛擬網路 (VNet) 中部署 Azure App Service。 若要更深入了解 App Service Environment 所提供的功能，請閱讀[什麼是 App Service Environment][WhatisASE] 文件。 如果您不了解在 VNet 中操作的優點，請閱讀 [Azure 虛擬網路常見問題集][virtualnetwork]。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 ASE 可以使用網際網路可存取的端點或您 Vnet 中的 IP 位址加以部署。 為了將 IP 位址設定為 VNet 位址，您必須搭配內部負載平衡器 (ILB) 來部署您的 ASE。 當您的 ASE 是使用 ILB 設定時，您要提供：
 
 * 您自己的網域或子網域。 為了能順利進行，本文件假設是子網域，但是您還是可以設定。 
@@ -130,7 +130,7 @@ ILB ASE 可讓您的應用程式與網路隔離。 app 無法透過網際網路�
     *.scm ftp 發佈 
 
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 若要開始使用 App Service Environment，請參閱 [App Service Environment 簡介][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

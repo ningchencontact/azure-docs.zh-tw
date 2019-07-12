@@ -36,7 +36,7 @@ ms.locfileid: "64918843"
 4. 移至 [控制台] -> [程式] -> [程式和功能]，將 Azure AD Connect 解除安裝。  選取 Microsoft Azure AD Connect 並按一下最上方的 [解除安裝]。
 5. 在遠端 SQL Server 上，開啟 SQL Server Management Studio。
 6. 在 [資料庫] 上，按一下滑鼠右鍵並選取 [連結]。
-7. 在 [連結資料庫]  畫面上，按一下 [新增]  並瀏覽至 ADSync.mdf 檔案。  按一下 [確定]  。
+7. 在 [連結資料庫]  畫面上，按一下 [新增]  並瀏覽至 ADSync.mdf 檔案。  按一下 [確定 **Deploying Office Solutions**]。
    ![附加資料庫](media/how-to-connect-install-move-db/move2.png)
 
 8. 連結資料庫之後，請回到 Azure AD Connect 伺服器並安裝 Azure AD Connect。
@@ -60,7 +60,7 @@ ms.locfileid: "64918843"
     ![歡迎使用](./media/how-to-connect-install-move-db/db7.png)
  
  
-16. 一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 单击“下一步”  。
+16. 一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 按一下 [下一步]  。
     ![歡迎使用](./media/how-to-connect-install-move-db/db8.png)
  
  

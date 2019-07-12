@@ -1,5 +1,5 @@
 ---
-title: Azure 服务总线诊断日志 | Microsoft 文档
+title: Azure 服務匯流排診斷記錄 | Microsoft Docs
 description: 了解如何為 Azure 中的「服務匯流排」設定診斷記錄。
 keywords: ''
 documentationcenter: .net
@@ -25,7 +25,7 @@ ms.locfileid: "60714102"
 # <a name="service-bus-diagnostic-logs"></a>服務匯流排診斷記錄
 
 您可以檢視「Azure 服務匯流排」的兩種記錄：
-* **[活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)** 。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
+* **[活動記錄](../azure-monitor/platform/activity-logs-overview.md)** 。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
 * **[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)** 。 您可以設定診斷記錄，以取得在工作內所發生之所有事件的更詳細資訊。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="turn-on-diagnostic-logs"></a>開啟診斷記錄
@@ -67,13 +67,13 @@ ms.locfileid: "60714102"
 名稱 | 描述
 ------- | -------
 ActivityId | 用於追蹤的內部識別碼
-EventName | 操作名称           
-ResourceId | Azure Resource Manager 資源識別碼
-SubscriptionId | 订阅 ID
+EventName | 作業名稱           
+resourceId | Azure Resource Manager 資源識別碼
+SubscriptionId | 訂用帳戶識別碼
 EventTimeString | 作業時間
 EventProperties | 作業屬性
 狀態 | 作業狀態
-呼叫者 | 作業呼叫者 (Azure 入口網站或管理用戶端)
+Caller | 作業呼叫者 (Azure 入口網站或管理用戶端)
 category | OperationalLogs
 
 以下是作業記錄 JSON 字串的範例：

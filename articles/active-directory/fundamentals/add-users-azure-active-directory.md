@@ -39,7 +39,7 @@ ms.locfileid: "60247721"
 
    - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
 
-   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
+   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com 。
     
        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
 

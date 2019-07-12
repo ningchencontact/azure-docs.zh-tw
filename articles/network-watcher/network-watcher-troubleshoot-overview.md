@@ -49,7 +49,7 @@ ms.locfileid: "64684252"
 
 ### <a name="gateway"></a>閘道器
 
-| 錯誤類型 | 原因 | 記錄檔|
+| 錯誤類型 | `Reason` | 記錄檔|
 |---|---|---|
 | NoFault | 未偵測到任何錯誤時 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建 |否|
@@ -64,7 +64,7 @@ ms.locfileid: "64684252"
 
 ### <a name="connection"></a>連線
 
-| 錯誤類型 | 原因 | 記錄檔|
+| 錯誤類型 | `Reason` | 記錄檔|
 |---|---|---|
 | NoFault | 未偵測到任何錯誤時 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建 |否|

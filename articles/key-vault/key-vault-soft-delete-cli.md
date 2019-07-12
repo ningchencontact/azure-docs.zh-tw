@@ -21,7 +21,7 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 - 可復原的 Key Vault 刪除支援
 - 支援可復原的金鑰保存庫物件刪除；金鑰、密碼和憑證
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure CLI - 如果您沒有為環境進行此設定，請參閱[使用 Azure CLI 管理 Key Vault](key-vault-manage-with-cli2.md)。
 
@@ -31,9 +31,9 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 
 Key Vault 作業透過角色型存取控制 (RBAC) 權限來分別管理，如下所示：
 
-| 作業 | 描述 | 使用者權限 |
+| 運算 | 描述 | 使用者權限 |
 |:--|:--|:--|
-|列出|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
+|List|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
 |復原|還原已刪除的金鑰保存庫。|Microsoft.KeyVault/vaults/write|
 |清除|永久移除已刪除的金鑰保存庫和其所有內容。|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -132,7 +132,7 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 就像金鑰保存庫，已刪除的金鑰、祕密或憑證仍會維持已刪除狀態長達 90 天，除非加以復原或清除。
 
-#### <a name="keys"></a>金鑰
+#### <a name="keys"></a>按鍵
 
 若要復原虛刪除的金鑰：
 

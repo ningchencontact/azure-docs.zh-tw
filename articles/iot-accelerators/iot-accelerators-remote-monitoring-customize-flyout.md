@@ -24,7 +24,7 @@ ms.locfileid: "61447109"
 
 本文中的飛出視窗範例會顯示在有格線的頁面上，[在遠端監視解決方案加速器 Web UI 中新增自訂格線](iot-accelerators-remote-monitoring-customize-grid.md)操作方式文章會說明如何新增。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本操作指南中的部署，您必須在本機開發機器上安裝下列軟體：
 

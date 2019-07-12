@@ -26,7 +26,7 @@ ms.locfileid: "65228177"
 
 **問：Azure Multi-Factor Authentication Server 如何處理使用者資料？**
 
-使用 Multi-Factor Authentication Server，使用者資料只會儲存在內部部署伺服器。 云中不会持久存储任何用户数据。 使用者執行雙步驟驗證時，Multi-Factor Authentication Server 會將資料傳送到 Azure Multi-Factor Authentication 雲端服務以供驗證。 Multi-Factor Authentication Server 與 Multi-Factor Authentication 雲端服務之間的通訊會透過傳出連接埠 443，使用安全通訊端層 (SSL) 或傳輸層安全性 (TLS) 通訊。
+使用 Multi-Factor Authentication Server，使用者資料只會儲存在內部部署伺服器。 雲端中不會儲存任何持續性的使用者資料。 使用者執行雙步驟驗證時，Multi-Factor Authentication Server 會將資料傳送到 Azure Multi-Factor Authentication 雲端服務以供驗證。 Multi-Factor Authentication Server 與 Multi-Factor Authentication 雲端服務之間的通訊會透過傳出連接埠 443，使用安全通訊端層 (SSL) 或傳輸層安全性 (TLS) 通訊。
 
 驗證要求傳送至雲端服務時，會收集資料以用於驗證和使用方式報告。 雙步驟驗證記錄中包含的資料欄位如下：
 
@@ -125,7 +125,7 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 
 您可以將使用者引導至[終端使用者疑難排解指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
 
-**问：如果我的使用者無法登入他們的帳戶，我該怎麼做？**
+**問：如果我的使用者無法登入他們的帳戶，我該怎麼做？**
 
 您可以讓使用者再次進行註冊程序，以重設使用者的帳戶。 深入了解 [在雲端使用 Azure Multi-Factor Authentication 管理使用者和裝置設定](howto-mfa-userdevicesettings.md)。
 
@@ -144,15 +144,15 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 >
 > 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在新式驗證可執行適用於 Office 2013 年 3 月 2015年或更新版本更新任何客戶。 如需詳細資訊，請參閱部落格文章[更新的 Office 365 新式驗證](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
 
-**问：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
+**問：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 
 因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包含目的地國家/地區、 行動電話業者及訊號強度。
 
-如果您的使用者時常無法收到簡訊，請告訴他們改用行動裝置應用程式或撥打電話的方式。 移动应用可以同时通过手机网络和 Wi-Fi 连接接收通知。 此外，即使裝置收不到訊號，行動應用程式可以產生驗證碼。 Microsoft 驗證器應用程式適用於 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[IOS](https://go.microsoft.com/fwlink/?Linkid=825073)和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
+如果您的使用者時常無法收到簡訊，請告訴他們改用行動裝置應用程式或撥打電話的方式。 行動應用程式可以透過行動數據和 Wi-Fi 連接接收通知。 此外，即使裝置收不到訊號，行動應用程式可以產生驗證碼。 Microsoft 驗證器應用程式適用於 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[IOS](https://go.microsoft.com/fwlink/?Linkid=825073)和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
 如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向簡訊更可靠且可防止使用者不會產生全域簡訊費用從另一個國家/地區傳送的簡訊回覆。
 
-**问：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
+**問：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
 
 在某些情況下是可以的。 
 
@@ -202,16 +202,16 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 
 ## <a name="errors"></a>Errors
 
-**问：如果使用者在使用行動應用程式通知時，看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
+**問：如果使用者在使用行動應用程式通知時，看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
 
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰
 
 1. 移至 [您的 Azure 入口網站設定檔](https://account.activedirectory.windowsazure.com/profile/) ，並使用您的組織帳戶登入。
 2. 選取 [其他安全性驗證]  。
-3. 从移动应用中删除现有帐户。
+3. 將現有帳戶從行動應用程式移除。
 4. 按一下 [設定]  ，然後依照指示來重新設定行動應用程式。
 
-**问：如果使用者在登入非瀏覽器應用程式時看到 0x800434D4L 錯誤訊息，應該怎麼辦？**
+**問：如果使用者在登入非瀏覽器應用程式時看到 0x800434D4L 錯誤訊息，應該怎麼辦？**
 
 當您嘗試登入非瀏覽器應用程式 (安裝於本機電腦) 時，發生 0x800434D4L 錯誤，無法使用需要雙步驟驗證的帳戶。
 

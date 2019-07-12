@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61077438"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>使用 StorSimple Snapshot Manager 來檢視和管理磁碟區
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 您可以使用 StorSimple Snapshot Manager 的 [磁碟區]  節點 (在 [範圍]  窗格上)，選取磁碟區並檢視其相關資訊。 磁碟區會呈現為對應至主機所掛接磁碟區的磁碟機。 [磁碟區]  節點會顯示 StorSimple 所支援的本機磁碟區和磁碟區類型，包括透過使用 iSCSI 及裝置探索到的磁碟區。 
 
 如需支援之磁碟區的詳細資訊，請移至《 [支援多個磁碟區類型](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types)》。
@@ -93,7 +93,7 @@ ms.locfileid: "61077438"
    
    | 結果資料行 | 描述 |
    |:--- |:--- |
-   |  Name |[名稱]  資料行包含已指派至每個已探索到之磁碟區的磁碟機代號。 |
+   |  名稱 |[名稱]  資料行包含已指派至每個已探索到之磁碟區的磁碟機代號。 |
    |  裝置 |[裝置]  資料行包含已連接到主機電腦之裝置的 IP 位址。 |
    |  裝置磁碟區名稱 |[裝置磁碟區名稱]  資料行包含所選磁碟區所屬之裝置磁碟區的名稱。 這是 Azure 入口網站中針對該特定磁碟區定義的磁碟區名稱。 |
    |  存取路徑 |[存取路徑]  資料行會顯示磁碟區的存取路徑。 這是可在主機電腦上存取磁碟區的磁碟機代號或掛接點。 |
@@ -158,7 +158,7 @@ ms.locfileid: "61077438"
 * 步驟 1：使用 [磁碟管理] 來建立動態鏡像磁碟區。 
 * 步驟 2：使用 StorSimple Snapshot Manager 來設定備份。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始之前：
 
 * 確定已正確設定 StorSimple 裝置和主機電腦。 如需詳細資訊，請移至 [部署內部部署 StorSimple 裝置](storsimple-8000-deployment-walkthrough-u2.md)。

@@ -24,7 +24,7 @@ ms.locfileid: "60313585"
 本文說明如何建置邏輯應用程式，以在每次 Dynamics 365 中建立了新的潛在客戶記錄時，便在 Dynamics 365 建立工作。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 

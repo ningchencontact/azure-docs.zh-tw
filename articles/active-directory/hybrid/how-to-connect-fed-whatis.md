@@ -29,12 +29,12 @@ Azure Active Directory (Azure AD) Connect 可讓您使用內部部署 Active Dir
 本主題是 Azure AD Connect 同盟相關功能的主要資訊來源。 它會列出所有相關的主題連結。 如需 Azure AD Connect 的連結，請參閱 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。
 
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect：同盟主題
-| 話題 | 涵蓋內容和閱讀時機 |
+| 主題 | 涵蓋內容和閱讀時機 |
 |:--- |:--- |
 | **Azure AD Connect 使用者登入選項** | |
 | [了解使用者登入選項](plan-connect-user-signin.md) |了解各種使用者登入選項及其如何影響 Azure 登入使用者體驗。 |
 | **使用 Azure AD Connect 安裝 AD FS** | |
-| [先決條件](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |請查看透過 Azure AD Connect 成功安裝 AD FS 安裝的必要條件。 |
+| [必要條件](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |請查看透過 Azure AD Connect 成功安裝 AD FS 安裝的必要條件。 |
 | [設定 AD FS 伺服器陣列](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |使用 Azure AD Connect 安裝新的 AD FS 伺服器陣列。 |
 | [使用替代登入識別碼與 Azure AD 建立同盟](how-to-connect-fed-management.md#alternateid) | 使用替代登入識別碼設定同盟  |
 | **修改 AD FS 組態** | |

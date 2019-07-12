@@ -25,7 +25,7 @@ ms.locfileid: "60736117"
 ## <a name="hostname-not-routing-to-backend-and-returns-400-status-code"></a>主機名稱無法路由傳送至後端並傳回 400 狀態碼
 
 
-### <a name="symptom"></a>徵狀
+### <a name="symptom"></a>徵兆
 - 您已建立 Front Door，但前端主機的要求會傳回 HTTP 400 狀態碼。
 
   - 您已建立從自訂網域到您所設定前端主機的 DNS 對應。 不過，將要求傳送至自訂網域主機名稱會傳回 HTTP 400 狀態碼，而且似乎不會路由傳送至您已設定的後端。
@@ -38,7 +38,7 @@ ms.locfileid: "60736117"
 
 ## <a name="request-to-frontend-hostname-returns-404-status-code"></a>對前端主機名稱的要求會傳回 404 狀態碼
 
-### <a name="symptom"></a>徵狀
+### <a name="symptom"></a>徵兆
 - 您已建立 Front Door，並設定了前端主機、至少有一個後端的後端集區，以及可將前端主機連到後端集區的路由規則。 將要求傳送至已設定的前端主機時，您的內容似乎無法使用，因為傳回了 HTTP 404 狀態碼。
 
 ### <a name="cause"></a>原因

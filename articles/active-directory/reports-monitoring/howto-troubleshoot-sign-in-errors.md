@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286573"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>作法：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>HOW TO：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
 
 Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可讓您找到組織中有關應用程式存取管理問題的答案，包括：
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 
 此外，登入報告也可協助您對組織中使用者的登入失敗進行疑難排解。 在本指南中，您會了解如何從登入報告中將失敗的登入隔離出來，並藉此了解失敗的根本原因。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要：
 

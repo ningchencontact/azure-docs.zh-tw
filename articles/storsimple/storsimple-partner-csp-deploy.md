@@ -23,13 +23,13 @@ ms.locfileid: "60629849"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>部署適用於雲端解決方案提供者方案的 StorSimple Virtual Array
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 雲端解決方案提供者 (CSP) 合作夥伴可以為客戶部署 StorSimple Virtual Array。 CSP 合作夥伴可以建立 StorSimple 裝置管理員服務。 然後，此服務可用來部署及管理 StorSimple Virtual Array，以及相關聯的共用、磁碟區和備份。
 
 本文說明 CSP 合作夥伴如何新增客戶，或將新的訂用帳戶新增至現有的客戶，然後建立服務在 CSP 中部署 StorSimple Virtual Array。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定︰
 

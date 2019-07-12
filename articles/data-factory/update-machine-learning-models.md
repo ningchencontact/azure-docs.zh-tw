@@ -22,7 +22,7 @@ ms.locfileid: "60335468"
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 本文用來補充說明主要的 Azure Data Factory - Azure Machine Learning 整合文章：[使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線](transform-data-using-machine-learning.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 進行 Azure Machine Learning 模型的實作程序時，需要定型並儲存您的模型。 接著，使用它來建立預測性 Web 服務。 接著才能在網站、儀表板及行動應用程式取用 Web 服務。
 
 您使用 Machine Learning 建立的模型通常不是靜態。 因為當有新資料或 API 取用者有自己的資料時，模型就必須重新定型。 如需如何在 Azure Machine Learning 中重新定型模型的詳細資料，請參閱[重新定型 Machine Learning 模型](../machine-learning/machine-learning-retrain-machine-learning-model.md)。

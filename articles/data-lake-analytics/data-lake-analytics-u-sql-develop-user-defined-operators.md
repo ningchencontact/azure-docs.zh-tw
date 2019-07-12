@@ -23,7 +23,7 @@ ms.locfileid: "60813805"
 **建立和提交 U-SQL 工作**
 
 1. 從 Visual Studio 中，選取 [檔案] > [新增] > [專案] > [U-SQL 專案]  。
-2. 按一下 [確定]  。 Visual Studio 會建立具有 Script.usql 檔案的解決方案。
+2. 按一下 [確定 **Deploying Office Solutions**]。 Visual Studio 會建立具有 Script.usql 檔案的解決方案。
 3. 在 [方案總管]  中展開 Script.usql，然後按兩下 **Script.usql.cs**。
 4. 將下列程式碼貼到檔案中：
 
@@ -123,6 +123,6 @@ ms.locfileid: "60813805"
 1. 從 [伺服器總管]  依序展開 [Azure]  、[Data Lake Analytics]  、您的 Data Lake Analytics 帳戶、[儲存體帳戶]  ，以滑鼠右鍵按一下 [預設儲存體]，然後按一下 [總管]  。
 2. 展開範例、展開輸出，然後按兩下 [Drivers.csv]  。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [使用使用者程式碼延伸 U-SQL 運算式](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 應用程式](data-lake-analytics-data-lake-tools-get-started.md)

@@ -28,8 +28,8 @@ ms.locfileid: "60295138"
 當組織正在設計他們的混合式身分識別解決方案時，也可以利用這個機會，針對他們正規劃來讓使用者使用的資源檢閱存取需求。 您可以橫跨下列這四種身分識別要件來存取資料：
 
 * 系統管理
-* Authentication
-* 授權
+* 驗證
+* Authorization
 * 稽核
 
 後續小節將更詳細說明驗證與授權，系統管理和稽核則是混合式身分識別生命週期的一部分。 如需這些功能的詳細資訊，請參閱 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) 。
@@ -81,6 +81,6 @@ ms.locfileid: "60295138"
 ## <a name="next-steps"></a>後續步驟
 [判斷事件因應需求](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

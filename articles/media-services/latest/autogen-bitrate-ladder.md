@@ -23,7 +23,7 @@ ms.locfileid: "60733312"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>使用自動產生的位元速率階梯進行編碼
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明如何使用媒體服務的標準編碼器並根據輸入解析度和位元速率，以自動產生的位元速率階梯，進行視訊的編碼。 這種內建的編碼器設定或預設，永遠不能超過輸入解析度和位元速率。 例如，如果輸入是 720p 3 Mbps，則輸出會維持在最多 720p，且速率啟動低於 3 Mbps。
 
@@ -33,7 +33,7 @@ ms.locfileid: "60733312"
 
 如需此預設的應用範例，請參閱[串流處理檔案](stream-files-dotnet-quickstart.md)。
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 本節顯示三個由媒體服務編碼器產生的輸出視訊層範例，它們進行編碼時都是利用 **AdaptiveStreaming** 預設。 在所有情況下，輸出包含純音訊 MP4 檔案，以 128 kbps 編碼的立體聲。
 

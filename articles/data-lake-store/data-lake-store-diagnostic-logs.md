@@ -50,7 +50,7 @@ ms.locfileid: "60878685"
      
    * 指定要取得稽核記錄、要求記錄或兩者。
    * 指定的資料的保留天數。 只有在您使用 Azure 儲存體帳戶來封存記錄資料時，才適用保留期。
-   * 按一下 [檔案]  。
+   * 按一下 [儲存]  。
 
 一旦您啟用了診斷設定，即可在 [診斷記錄]  索引標籤中查看記錄。
 
@@ -113,10 +113,10 @@ ms.locfileid: "60878685"
     }
 
 #### <a name="request-log-schema"></a>要求記錄的結構描述
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
-| 分析 |字串 |記錄的時間戳記 (UTC 時間) |
-| ResourceId |字串 |作業發生之資源的識別碼 |
+| time |字串 |記錄的時間戳記 (UTC 時間) |
+| resourceId |字串 |作業發生之資源的識別碼 |
 | category |字串 |記錄類別。 例如， **要求**。 |
 | operationName |字串 |記錄的作業名稱。 例如，getfilestatus。 |
 | resultType |字串 |作業的狀態。例如，200。 |
@@ -126,11 +126,11 @@ ms.locfileid: "60878685"
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="request-log-properties-schema"></a>要求記錄屬性結構描述
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
-| Path |字串 |執行作業的所在路徑 |
-| RequestContentLength |int |HTTP 要求的內容長度 |
+| `Path` |字串 |執行作業的所在路徑 |
+| RequestContentLength |ssNoversion |HTTP 要求的內容長度 |
 | ClientRequestId |字串 |可唯一識別此要求的識別碼 |
 | StartTime |字串 |伺服器接收到要求的時間 |
 | EndTime |字串 |伺服器傳送回應的時間 |
@@ -160,10 +160,10 @@ ms.locfileid: "60878685"
     }
 
 #### <a name="audit-log-schema"></a>稽核記錄的結構描述
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
-| 分析 |字串 |記錄的時間戳記 (UTC 時間) |
-| ResourceId |字串 |作業發生之資源的識別碼 |
+| time |字串 |記錄的時間戳記 (UTC 時間) |
+| resourceId |字串 |作業發生之資源的識別碼 |
 | category |字串 |記錄類別。 例如， **稽核**。 |
 | operationName |字串 |記錄的作業名稱。 例如，getfilestatus。 |
 | resultType |字串 |作業的狀態。例如，200。 |
@@ -173,7 +173,7 @@ ms.locfileid: "60878685"
 | properties |JSON |如需詳細資料，請參閱下文 |
 
 #### <a name="audit-log-properties-schema"></a>稽核記錄屬性結構描述
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | StreamName |字串 |執行作業的所在路徑 |
 
@@ -189,7 +189,7 @@ search *
 
 Azure Data Lake Storage Gen1 會提供有關如何處理和分析記錄資料的範例。 您可以在 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) 找到範例。 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 

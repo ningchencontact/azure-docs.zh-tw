@@ -24,7 +24,7 @@ ms.locfileid: "64721703"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 系列的系統有何限制？
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 提供您的資料中心的擴充性和彈性儲存體。 不過，當您規劃、部署及操作您的 StorSimple 方案時，有一些限制應該謹記在心。 下表描述這些限制，並且提供一些建議，讓您可以充分利用您的 StorSimple 方案。
 

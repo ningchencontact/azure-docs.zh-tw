@@ -125,7 +125,7 @@ ms.locfileid: "60628144"
 
 下表列出您在設定叢集時所需的憑證：
 
-| **CertificateInformation 設定** | **說明** |
+| **CertificateInformation 設定** | **描述** |
 | --- | --- |
 | ClusterCertificate |測試環境建議使用。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用兩個不同的憑證 (主要和次要) 進行更新。 在 Thumbprint 區段中設定主要憑證的指紋，以及在 ThumbprintSecondary 變數中設定次要憑證的指紋。 |
 | ClusterCertificateCommonNames |生產環境建議使用。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用一或兩個叢集憑證通用名稱。 CertificateIssuerThumbprint 會對應至此憑證的簽發者指紋。 如果您使用多個具有同一個通用名稱的憑證，則可指定多個簽發者指紋。|

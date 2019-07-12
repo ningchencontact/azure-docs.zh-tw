@@ -268,7 +268,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | Name | 提供名稱  | 例如，*In from AD – User UserType* |
+    | 名稱 | 提供名稱  | 例如，*In from AD – User UserType* |
     | 描述 | 提供描述  |  |
     | 連線系統 | 選取內部部署 AD 連接器  |  |
     | 連線系統物件類型 | **使用者** |  |
@@ -286,13 +286,13 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 6. 移至 [轉換]  索引標籤，並實作所需的轉換規則。 例如，您已將未使用的內部部署 AD 屬性 (例如 extensionAttribute1) 指定為 UserType 的來源屬性，因此可以實作直接屬性流程：
 
-    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | Source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     | 直接 | UserType | extensionAttribute1 | 未核取 | Update |
 
     在另一個範例中，您要從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 AD UserPrincipalName 屬性是以 <em>@partners.fabrikam123.org</em> 網域部分作為結尾，您就需要以 Guest 身分來同步處理所有使用者。您可以實作如下所示的運算式：
 
-    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | Source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     | 運算是 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | 未核取 | Update |
 
@@ -329,7 +329,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 6. 移至 [轉換]  索引標籤，並實作下列轉換規則︰
 
-    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | Source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     | 直接 | UserType | UserType | 未核取 | Update |
 

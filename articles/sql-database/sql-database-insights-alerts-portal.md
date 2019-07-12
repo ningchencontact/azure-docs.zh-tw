@@ -21,7 +21,7 @@ ms.locfileid: "61035924"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文說明如何使用 Azure 入口網站設定 Azure SQL Database 和資料倉儲警示。 當某些計量 (例如，資料庫大小或 CPU 使用量) 閾值時，警示可傳送電子郵件給您或呼叫 Webhook。 本文也提供設定警示期間的最佳做法。    
 
 > [!IMPORTANT]
@@ -32,18 +32,18 @@ ms.locfileid: "61035924"
 * **計量值** - 當指定的計量值超出您在任一方向指派的臨界值時會觸發警示。 也就是說，當先符合條件而之後該條件不再符合時，兩方面皆會觸發。    
 * **活動記錄檔事件** - 警示可觸發*每一個*事件，或是僅在發生特定事件數目時才觸發。
 
-可以配置警报以在其触发时执行以下操作：
+您可以在警示觸發時，設定警示執行下列動作︰
 
-* 向服务管理员和共同管理员发送电子邮件通知
+* 傳送電子郵件給服務管理員和共同管理員
 * 傳送電子郵件至您指定的其他電子郵件
-* 调用 Webhook
+* 呼叫 webhook
 
 您可以透過下列方式設定和取得有關警示規則的資訊
 
-* [Azure 门户](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure 入口網站](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [命令行接口 (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [命令列介面 (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 入口網站建立計量的警示規則
 1. 在 [入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取。
@@ -65,11 +65,11 @@ ms.locfileid: "61035924"
 
 在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
-## <a name="managing-your-alerts"></a>管理警报
+## <a name="managing-your-alerts"></a>管理警示
 一旦建立警示，您可以選取警示，並且︰
 
 * 檢視圖表，其中顯示計量臨界值與前一天的實際值。
-* 编辑或删除其。
+* 編輯或刪除警示。
 * 如果您想要暫時停止或恢復接收警示的通知，可以**停用**或**啟用**警示。
 
 
@@ -77,42 +77,42 @@ ms.locfileid: "61035924"
 
 | 資源類型 | 度量名稱 | 易記名稱 | 彙總類型 | 警示時間間隔下限|
 | --- | --- | --- | --- | --- |
-| SQL Database | cpu_percent | CPU 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | log_write_percent | 記錄 IO 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | dtu_consumption_percent | DTU 百分比 | 平均值 | 5 分鐘 |
-| SQL Database | 儲存體 | 数据库总大小 | 最大值 | 30 分钟 |
+| SQL Database | cpu_percent | CPU 百分比 | Average | 5 分鐘 |
+| SQL Database | physical_data_read_percent | 資料 IO 百分比 | Average | 5 分鐘 |
+| SQL Database | log_write_percent | 記錄 IO 百分比 | Average | 5 分鐘 |
+| SQL Database | dtu_consumption_percent | DTU 百分比 | Average | 5 分鐘 |
+| SQL Database | 儲存體 | 資料庫大小總計 | 最大值 | 30 分鐘 |
 | SQL Database | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
-| SQL 数据库 | connection_failed | 失败的连接数 | 總計 | 10 分鐘 |
+| SQL Database | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
 | SQL Database | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
 | SQL Database | 死結 | 死結 | 總計 | 10 分鐘 |
-| SQL Database | storage_percent | 資料庫大小百分比 | 最大值 | 30 分钟 |
-| SQL Database | xtp_storage_percent | In-Memory OLTP 存储百分比（预览） | 平均值 | 5 分鐘 |
-| SQL Database | workers_percent | 背景工作角色百分比 | 平均值 | 5 分鐘 |
-| SQL Database | sessions_percent | 工作階段百分比 | 平均值 | 5 分鐘 |
-| SQL Database | dtu_limit | DTU 限制 | 平均值 | 5 分鐘 |
-| SQL Database | dtu_used | 已使用 DTU | 平均值 | 5 分鐘 |
+| SQL Database | storage_percent | 資料庫大小百分比 | 最大值 | 30 分鐘 |
+| SQL Database | xtp_storage_percent | 記憶體中 OLTP 儲存體百分比 (預覽) | Average | 5 分鐘 |
+| SQL Database | workers_percent | 背景工作角色百分比 | Average | 5 分鐘 |
+| SQL Database | sessions_percent | 工作階段百分比 | Average | 5 分鐘 |
+| SQL Database | dtu_limit | DTU 限制 | Average | 5 分鐘 |
+| SQL Database | dtu_used | 已使用 DTU | Average | 5 分鐘 |
 ||||||
-| 彈性集區 | cpu_percent | CPU 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | log_write_percent | 記錄 IO 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | dtu_consumption_percent | DTU 百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | storage_percent | 儲存體百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | workers_percent | 背景工作角色百分比 | 平均值 | 10 分鐘 |
-| 彈性集區 | eDTU_limit | eDTU 限制 | 平均值 | 10 分鐘 |
-| 彈性集區 | storage_limit | 儲存體限制 | 平均值 | 10 分鐘 |
-| 彈性集區 | eDTU_used | 已使用 eDTU | 平均值 | 10 分鐘 |
-| 彈性集區 | storage_used | 已用的存储量 | 平均值 | 10 分鐘 |
+| 彈性集區 | cpu_percent | CPU 百分比 | Average | 10 分鐘 |
+| 彈性集區 | physical_data_read_percent | 資料 IO 百分比 | Average | 10 分鐘 |
+| 彈性集區 | log_write_percent | 記錄 IO 百分比 | Average | 10 分鐘 |
+| 彈性集區 | dtu_consumption_percent | DTU 百分比 | Average | 10 分鐘 |
+| 彈性集區 | storage_percent | 儲存體百分比 | Average | 10 分鐘 |
+| 彈性集區 | workers_percent | 背景工作角色百分比 | Average | 10 分鐘 |
+| 彈性集區 | eDTU_limit | eDTU 限制 | Average | 10 分鐘 |
+| 彈性集區 | storage_limit | 儲存體限制 | Average | 10 分鐘 |
+| 彈性集區 | eDTU_used | 已使用 eDTU | Average | 10 分鐘 |
+| 彈性集區 | storage_used | 已使用儲存體 | Average | 10 分鐘 |
 ||||||               
-| SQL 資料倉儲 | cpu_percent | CPU 百分比 | 平均值 | 10 分鐘 |
-| SQL 資料倉儲 | physical_data_read_percent | 資料 IO 百分比 | 平均值 | 10 分鐘 |
+| SQL 資料倉儲 | cpu_percent | CPU 百分比 | Average | 10 分鐘 |
+| SQL 資料倉儲 | physical_data_read_percent | 資料 IO 百分比 | Average | 10 分鐘 |
 | SQL 資料倉儲 | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
-| SQL 資料倉儲 | connection_failed | 失败的连接数 | 總計 | 10 分鐘 |
+| SQL 資料倉儲 | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | service_level_objective | 資料庫的服務層 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | dwu_limit | dwu 限制 | 最大值 | 10 分鐘 |
-| SQL 資料倉儲 | dwu_consumption_percent | DWU 百分比 | 平均值 | 10 分鐘 |
-| SQL 資料倉儲 | dwu_used | 已用的 DWU | 平均值 | 10 分鐘 |
+| SQL 資料倉儲 | dwu_consumption_percent | DWU 百分比 | Average | 10 分鐘 |
+| SQL 資料倉儲 | dwu_used | 已使用 DWU | Average | 10 分鐘 |
 ||||||
 
 

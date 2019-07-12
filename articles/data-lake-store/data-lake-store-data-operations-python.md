@@ -29,7 +29,7 @@ ms.locfileid: "60878812"
 
 在本文中，您會了解如何使用 Python SDK 在 Azure Data Lake Storage Gen1 上執行檔案系統作業。 如需有關如何使用 Python 在 Data Lake Storage Gen1 上執行帳戶管理作業的指示，請參閱[使用 Python 在 Data Lake Storage Gen1 上進行帳戶管理作業](data-lake-store-get-started-python.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Python**。 您可以從[這裡](https://www.python.org/downloads/)下載 Python。 本文使用 Python 3.6.2。
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. 將變更儲存至 mysample.py。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 在本節中，我們會討論向 Azure AD 進行驗證的各種方式。 可用的選項如下︰
 
@@ -129,7 +129,7 @@ pip install azure-datalake-store
 ## <a name="next-steps"></a>後續步驟
 * [使用 Python 在 Data Lake Storage Gen1 上進行帳戶管理作業](data-lake-store-get-started-python.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [Azure Data Lake Storage Gen1 Python (檔案系統) 參考](https://azure-datalake-store.readthedocs.io/en/latest)
 * [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)

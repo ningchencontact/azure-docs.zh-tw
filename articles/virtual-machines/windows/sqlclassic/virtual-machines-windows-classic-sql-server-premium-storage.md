@@ -25,7 +25,7 @@ ms.locfileid: "60582949"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [Azure 進階 SSD](../disks-types.md) 是新一代儲存體，可提供低延遲和高輸送量 IO。 它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 

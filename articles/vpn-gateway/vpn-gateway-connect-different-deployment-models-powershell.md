@@ -96,7 +96,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**範例：**
+**範例:**
 
     <VirtualNetworkSites>
       <VirtualNetworkSite name="ClassicVNet" Location="West US">

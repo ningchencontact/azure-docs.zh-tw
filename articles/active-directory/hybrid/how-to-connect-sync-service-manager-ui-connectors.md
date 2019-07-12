@@ -34,7 +34,7 @@ ms.locfileid: "60384109"
 | 動作 | 註解 |
 | --- | --- |
 | 建立 |請勿使用。 若要連接到其他的 AD 樹系，請使用安裝精靈。 |
-| properties |用於網域和 OU 篩選。 |
+| 屬性 |用於網域和 OU 篩選。 |
 | [刪除](#delete) |用來刪除連接器空間中的資料或刪除與樹系的連接。 |
 | [更新執行設定檔](#configure-run-profiles) |除了網域篩選以外，不會在此處進行任何設定。 您可以使用此動作來查看已設定的執行設定檔。 |
 | 執行 |用來啟動設定檔的一次性執行。 |
@@ -45,7 +45,7 @@ ms.locfileid: "60384109"
 | 重新整理結構描述 |重新整理快取的結構描述。 最好是改為在安裝精靈中使用此選項，因為其也會更新同步處理規則。 |
 | [搜尋連接器空間](#search-connector-space) |用來尋找物件，以及在整個系統中追隨物件及其資料。 |
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>DELETE
 刪除動作適用於兩個不同的用途。  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 

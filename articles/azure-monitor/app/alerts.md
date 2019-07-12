@@ -180,7 +180,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * [使用 PowerShell 自動設定警示](../../azure-monitor/app/powershell-alerts.md)
 * [使用 Webhook 自動回應警示](../../azure-monitor/platform/alerts-webhooks.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)
 * [自動化設定警示](../../azure-monitor/app/powershell-alerts.md)
 * [主動診斷](../../azure-monitor/app/proactive-diagnostics.md) 

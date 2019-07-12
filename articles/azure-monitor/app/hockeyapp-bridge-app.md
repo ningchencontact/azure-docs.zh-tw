@@ -51,7 +51,7 @@ HockeyApp 橋接器欄位隨即出現。
 
 ![等候資料的 Application Insights 資源](./media/hockeyapp-bridge-app/04.png)
 
-就這麼簡單！ 從現在開始在 HockeyApp 檢測的應用程式中收集的自訂和追蹤資料，也可供您在 Application Insights 的分析和連續匯出功能中使用。
+就這麼容易！ 從現在開始在 HockeyApp 檢測的應用程式中收集的自訂和追蹤資料，也可供您在 Application Insights 的分析和連續匯出功能中使用。
 
 讓我們簡短地回顧一下您現在可以使用的功能。
 

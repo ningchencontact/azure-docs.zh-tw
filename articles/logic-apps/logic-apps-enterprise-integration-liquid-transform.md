@@ -22,7 +22,7 @@ ms.locfileid: "61467449"
 
 您可以在邏輯應用程式中執行 Liquid 轉換之前，您必須先定義 JSON 對 JSON 的對應，對應的 Liquid 範本和存放區與整合帳戶中。 本文會示範如何建立及使用此 Liquid 範本或對應。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以[開始使用免費 Azure 帳戶](https://azure.microsoft.com/free/)。 或者，請[註冊隨用隨付訂用帳戶](https://azure.microsoft.com/pricing/purchase-options/)。
 
@@ -68,7 +68,7 @@ ms.locfileid: "61467449"
 
 4. 選擇 [新增]  ，並提供該對應的以下詳細資料：
 
-   | 屬性 | Value | 描述 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------|
    | **名稱** | JsonToJsonTemplate | 對應的名稱，在此範例中是 "JsonToJsonTemplate" | 
    | **對應類型** | **liquid** | 對應的類型。 對於 JSON 到 JSON 的轉換，請選取 [Liquid]  。 | 

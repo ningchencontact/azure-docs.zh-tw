@@ -29,7 +29,7 @@ ms.locfileid: "60833034"
 
 如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/) ，然後按一下 **取得支援**。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 當您瀏覽至應用程式時，傳回 HTTP「502 不正確的閘道」錯誤或 HTTP「503 服務無法使用」錯誤。
 
 ## <a name="cause"></a>原因
@@ -67,7 +67,7 @@ ms.locfileid: "60833034"
 
 ![監視應用程式，以解決 502 不正確的閘道和 503 服務無法使用的 HTTP 錯誤](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [監視 Azure App Service 中的應用程式](web-sites-monitor.md)
 * [接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)

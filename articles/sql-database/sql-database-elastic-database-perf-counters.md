@@ -66,7 +66,7 @@ ms.locfileid: "61475689"
 * 建立效能類別和計數器應該僅在建立 ShardMapManager 物件之前執行一次。 每次執行命令 CreatePerformanceCategoryAndCounters() 都會清除先前的計數器 (遺失所有執行個體報告的資料)，並建立新的計數器。  
 * 每個程序都會建立效能計數器執行個體。 任何應用程式當機或從快取移除分區對應都會導致刪除效能計數器執行個體。  
 
-### <a name="see-also"></a>請參閱
+### <a name="see-also"></a>另請參閱
 
 [彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)  
 

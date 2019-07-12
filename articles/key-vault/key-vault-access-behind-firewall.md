@@ -32,7 +32,7 @@ ms.locfileid: "64689950"
 
 三項功能 (驗證、管理和資料平面存取) 的所有金鑰保存庫流量都會透過 HTTPS︰連接埠 443 傳送。 不過，偶爾會有 CRL 的 HTTP (連接埠 80) 流量。 支援 OCSP 的用戶端不應該觸達 CRL，但可能偶爾會觸達 [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)。  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 金鑰保存庫用戶端應用程式必須存取 Azure Active Directory 端點以便驗證。 使用的端點取決於 Azure AD 租用戶組態、主體類型 (使用者主體或服務主體) 和帳戶類型 (例如 Microsoft 帳戶，或是公司帳戶或學校帳戶)。  
 

@@ -28,14 +28,14 @@ ms.locfileid: "62128869"
 > 這篇文章是關於 App Service 環境 v1。 有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 > 
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE 功能基本上會將 Azure App Service 部署到客戶的虛擬網路中。 若要更深入了解 App Service Environment 所提供的功能，請閱讀[什麼是 App Service Environment][WhatisASE] 文件。
 
 ### <a name="before-you-create-your-ase"></a>建立 ASE 之前
 務必注意您無法變更的項目。 建立後，您無法變更 ASE 的相關層面是：
 
-* 位置
-* 訂用帳戶
+* Location
+* Subscription
 * 資源群組
 * 使用的 VNet
 * 使用的子網路 
@@ -74,7 +74,7 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 
 有其他無法自訂的相依性，例如資料庫和儲存體。 這些都是由 Azure 處理並由系統隨附。 系統儲存體對於整個 App Service 環境最多可支援 500 GB，且 Azure 會根據系統規模的需要來調整資料庫。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 若要開始使用 App Service 環境 v1，請參閱 [App Service 環境 v1 簡介][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

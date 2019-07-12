@@ -38,7 +38,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 
 ### <a name="c-sdk"></a>C SDK
 
-| 作業系統                  | Arch | 編譯器             | TLS 程式庫       |
+| OS                  | Arch | 編譯器             | TLS 程式庫       |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl - 1.0.2g |
 | Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
@@ -50,7 +50,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 
 ### <a name="python-sdk"></a>Python SDK
 
-| 作業系統                  | Arch | 編譯器   | TLS 程式庫 |
+| OS                  | Arch | 編譯器   | TLS 程式庫 |
 |---------------------|------|------------|-------------|
 | Windows Server 2016 | x86  | Python 2.7 | openssl     |
 | Windows Server 2016 | x64  | Python 2.7 | openssl     |
@@ -62,7 +62,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 
 ### <a name="net-sdk"></a>.NET SDK
 
-| 作業系統                  | Arch | 架構            | 標準          |
+| OS                  | Arch | 架構            | 標準          |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
 | Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2.0 |
@@ -71,14 +71,14 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-| 作業系統                                           | Arch | 節點版本 |
+| OS                                           | Arch | 節點版本 |
 |----------------------------------------------|------|--------------|
 | Ubuntu 16.04 LTS (使用節點 6 Docker 映像) | X64  | 節點 6       |
 | Windows Server 2016                          | X64  | 節點 6       |
 
 ### <a name="java-sdk"></a>Java SDK
 
-| 作業系統                  | Arch | Java 版本 |
+| OS                  | Arch | Java 版本 |
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |

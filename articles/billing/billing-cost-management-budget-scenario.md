@@ -277,8 +277,8 @@ ms.locfileid: "60617120"
 4.  新增並確認下列項目：
     - 動作群組名稱
     - 簡短名稱
-    - 訂用帳戶
-    - 資源群組
+    - Subscription
+    - Resource group
 
     ![Azure - 邏輯應用程式 - [新增動作群組]](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 

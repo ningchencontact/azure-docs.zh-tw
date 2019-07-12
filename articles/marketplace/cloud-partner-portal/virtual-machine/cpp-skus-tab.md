@@ -37,7 +37,7 @@ ms.locfileid: "65799954"
 
 <!-- TD: I took a new screenshot, and the fields differ somewhat from description in the VM Pub Guide.  Needs review. -->
 
-|  **欄位**       |     **說明**                                                          |
+|  **欄位**       |     **描述**                                                          |
 |  ---------       |     ---------------                                                          |
 |  *SKU 設定*   |    |
 | **SKU ID\***       | 此 SKU 的識別碼。  此名稱的長度上限為 50 個字元，由小寫英數字元或連字號 (-) 組成，但不能以連字號結尾。  發佈供應項目之後，即無法進行修改。  |
@@ -56,7 +56,7 @@ ms.locfileid: "65799954"
 | **選取作業系統類型** | 特定廠商或指定的作業系統版本。 |
 | **OS 好記名稱\*** | 要向客戶顯示的作業系統名稱。  |
 | **建議的 VM 大小\*** | 允許從標準化清單選取最多六種建議的虛擬機器大小。  這份清單會傳送到 Azure 入口網站和 Microsoft 市集。  潛在客戶無效 （適用於該客戶訂用帳戶、 區域、 區域等） 這份清單中的第一個 VM 大小設定為預設值。  使用者可以變更這個大小，為方案映像與任何相容性。 | 
-| **開啟連接埠**| 要對 SKU 開啟的連接埠，以及支援的通訊協定。  這些設定必須符合您幫解決方案虛擬機器網路所設定的虛擬網路。 這些設定會在虛擬機器部署期間生效。 不過，您可在發佈 SKU 後修改連接埠設定。 如需詳細資訊，請參閱[如何使用 Azure 入口網站開啟虛擬機器的連接埠](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)。 <br/>下列的預設網路對應會新增至所有虛擬機器。 &emsp; Windows:3389]-> [3389 TCP、 5986]-> [5986 TCP;&emsp; Linux:22-&GT; 22，TCP (SSH)。 |
+| **開啟連接埠**| 要對 SKU 開啟的連接埠，以及支援的通訊協定。  這些設定必須符合您幫解決方案虛擬機器網路所設定的虛擬網路。 這些設定會在虛擬機器部署期間生效。 不過，您可在發佈 SKU 後修改連接埠設定。 如需詳細資訊，請參閱[如何使用 Azure 入口網站開啟虛擬機器的連接埠](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)。 <br/>下列的預設網路對應會新增至所有虛擬機器。 &emsp; Windows:3389]-> [3389 TCP、 5986]-> [5986 TCP;&emsp; Linux:22-> 22，TCP (SSH)。 |
 | **磁碟版本**  | 依磁碟版本號碼和磁碟 URL 指定的關聯解決方案虛擬機器。 磁碟版本必須採用[語意版本](https://semver.org/)格式：`<major>.<minor>.<patch>`。  URL 是針對作業系統 VHD 建立的共用存取簽章 URI。  雖然每個 SKU 最多可加入八個磁碟版本，但在 Azure Marketplace 中僅會顯示 SKU 的最高磁碟版本號碼。 僅可透過 API 查看其他版本。  <!--TD: Add more specific link to API --> <br/> 可至 [新的資料磁碟]  Accordion 區段，在虛擬機器上附加最多 15 個資料磁碟。  一旦您發佈具有虛擬機器版本和關聯資料磁碟的 SKU，即無法修改此設定。  若新增更多虛擬機器版本至 SKU，則新增的版本所支援的資料磁碟數目必須相同。 <br/> 如果您尚未建立以 Azure 為基礎的 VM 映像，則可稍後再更新此欄位。  如需建立關聯虛擬機器資源的相關資訊，請參閱[建立虛擬機器技術資產](./cpp-create-technical-assets.md) (英文)。  
 |  |  |
 

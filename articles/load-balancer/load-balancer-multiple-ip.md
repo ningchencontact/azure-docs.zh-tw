@@ -42,7 +42,7 @@ ms.locfileid: "60591690"
 - Azure Load Balancer 用來公開兩個前端 IP 位址 (每個網站一個)。 前端 IP 位址用於將流量分散至每個網站的各自 IP 組態。
 - 前端 IP 位址和後端集區 IP 位址使用相同的連接埠號碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 我們的案例假設您有一個名為 **contosofabrikam** 的資源群組，其設定如下︰
 

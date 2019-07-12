@@ -29,7 +29,7 @@ ms.locfileid: "62121318"
 | **Azure Data Factory** | <ul><li>[在內部部署 SQL Server 連線至 Azure Data Factory 時使用資料管理閘道](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[確定前往 Identity Server 的所有流量都是透過 HTTPS 連線](#identity-https)</li></ul> |
 | **Web 應用程式** | <ul><li>[驗證用來驗證 SSL、TLS 及 DTLS 連線的 X.509 憑證](#x509-ssltls)</li><li>[在 Azure App Service 中設定自訂網域的 SSL 憑證](#ssl-appservice)</li><li>[強制所有前往 Azure App Service 的流量透過 HTTPS 連線來進行](#appservice-https)</li><li>[啟用 HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
-| **資料庫** | <ul><li>[啟用 SQL Server 連線加密和憑證驗證](#sqlserver-validation)</li><li>[強制加密與 SQL Server 的通訊](#encrypted-sqlserver)</li></ul> |
+| **[資料庫備份]** | <ul><li>[啟用 SQL Server 連線加密和憑證驗證](#sqlserver-validation)</li><li>[強制加密與 SQL Server 的通訊](#encrypted-sqlserver)</li></ul> |
 | **Azure 儲存體** | <ul><li>[確定對 Azure 儲存體的通訊是透過 HTTPS](#comm-storage)</li><li>[如果無法啟用 HTTPS，則在下載 Blob 之後驗證 MD5 雜湊](#md5-https)</li><li>[使用 SMB 3.0 相容用戶端來確保要傳輸到 Azure 檔案共用的資料會加密](#smb-shares)</li></ul> |
 | **行動用戶端** | <ul><li>[實作憑證釘選](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[啟用 HTTPS - 安全傳輸通道](#https-transport)</li><li>[WCF：將訊息安全性保護層級設定為 EncryptAndSign](#message-protection)</li><li>[WCF：使用最低權限帳戶來執行 WCF 服務](#least-account-wcf)</li></ul> |

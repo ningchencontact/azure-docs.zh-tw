@@ -31,7 +31,7 @@ ms.locfileid: "60776991"
 
 警示管理解決方案可協助您分析 Log Analytics 儲存機制中的所有警示。  這些警示可能來自各種來源，包括[由 Log Analytics 所建立](../../azure-monitor/platform/alerts-overview.md)或[從 Nagios 或 Zabbix 匯入](../../azure-monitor/learn/quick-collect-linux-computer.md)的來源。 此解決方案也會從所有[連線的 System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)匯入警示。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 此解決方案將會使用 Log Analytics 中類型為**警示**的所有記錄，因此您必須執行收集這些記錄所需的所有設定。
 
 - 針對 Log Analytics 警示，[建立警示規則](../../azure-monitor/platform/alerts-overview.md)，以直接在儲存機制中建立警示記錄。
@@ -89,7 +89,7 @@ ms.locfileid: "60776991"
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 類型 |*警示* |
+| type |*警示* |
 | SourceSystem |*OpsManager* |
 | AlertContext |造成產生警示的資料項目的詳細資料 (XML 格式)。 |
 | AlertDescription |警示的詳細描述。 |

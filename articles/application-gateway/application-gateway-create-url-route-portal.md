@@ -57,9 +57,9 @@ ms.locfileid: "66135435"
 5. 按一下 [選擇虛擬網路]  ，按一下 [新建]  ，然後針對虛擬網路輸入這些值：
 
    - myVNet  - 作為虛擬網路的名稱。
-   - 10\.0.0.0/16  - 作為虛擬網路位址空間。
+   - 10.0.0.0/16  - 作為虛擬網路位址空間。
    - myAGSubnet  - 作為子網路名稱。
-   - 10\.0.0.0/24  - 作為子網路位址空間。
+   - 10.0.0.0/24  - 作為子網路位址空間。
 
      ![建立虛擬網路](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "66135435"
     - *Azure123456!* 作為密碼。
     - 選取 [使用現有的]  ，然後選取 [myResourceGroupAG]  。
 
-4. 按一下 [確定]  。
+4. 按一下 [確定 **Deploying Office Solutions**]。
 5. 選取 [DS1_V2]  作為虛擬機器的大小，然後按一下 [選取]  。
 6. 確定您已選取 [myVNet]  作為虛擬網路，而且子網路是 [myBackendSubnet]  。 
 7. 按一下 [停用]  來停用開機診斷。
@@ -127,17 +127,17 @@ ms.locfileid: "66135435"
 
     ![新增後端伺服器](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 5. 依序按一下 [後端集區]  和 [新增]  。
 6. 輸入 imagesBackendPool  的名稱，並使用 [新增目標]  來新增 myVM2  。
-7. 按一下 [確定]  。
+7. 按一下 [確定 **Deploying Office Solutions**]。
 8. 再次按一下 [新增]  ，以 videoBackendPool  名稱新增另一個後端集區，並將 myVM3  新增給該後端集區。
 
 ## <a name="create-a-backend-listener"></a>建立後端接聽程式
 
 1. 按一下 [接聽程式]  ，然後按一下 [基本]  。
 2. 依序輸入 myBackendListener  作為名稱、myFrontendPort  作為前端連接埠的名稱，以及 8080  作為接聽程式的通訊埠。
-3. 按一下 [確定]  。
+3. 按一下 [確定 **Deploying Office Solutions**]。
 
 ## <a name="create-a-path-based-routing-rule"></a>建立路徑型路由規則
 

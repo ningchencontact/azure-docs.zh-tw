@@ -54,7 +54,7 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 從 UI 或命令提示字元解除安裝。
 
 - **從 UI**：在機器的 [控制台] 中，選取 [程式集]  。 選取 [Microsoft Azure Site Recovery 行動服務/主要目標伺服器]   > [解除安裝]  。
-- **從命令提示字元**：以機器上的系統管理員身分開啟命令提示字元視窗。 執行以下命令： 
+- **從命令提示字元**：以機器上的系統管理員身分開啟命令提示字元視窗。 執行下列命令： 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
@@ -62,7 +62,7 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 ### <a name="on-a-linux-machine"></a>在 Linux 機器上
 1. 在 Linux 機器上，以 **root** 使用者身分登入。
 2. 在終端機中，移至 /user/local/ASR。
-3. 執行以下命令：
+3. 執行下列命令：
     ```
     uninstall.sh -Y
 

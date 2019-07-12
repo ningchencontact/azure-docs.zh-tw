@@ -37,7 +37,7 @@ ms.locfileid: "60813445"
    3. **資源群組**：要在其中建立帳戶的 Azure 資源群組。 
    4. **位置**：Data Lake Analytics 帳戶的 Azure 資料中心。 
    5. **Data Lake Store**：Data Lake Analytics 帳戶所要使用的預設存放區。 Azure Data Lake Store 帳戶和 Data Lake Analytics 帳戶必須位於相同位置。
-4. 按一下頁面底部的 [新增]  。 
+4. 按一下 [建立]  。 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>刪除 Data Lake Analytics 帳戶
 

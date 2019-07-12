@@ -34,7 +34,7 @@ ms.locfileid: "60362283"
 **日期**：2015 年 12 月 16 日上午 11:19:36 </br>
 **事件識別碼**：7022 </br>
 **工作類別**：None </br>
-**層級**：Error </br>
+**層級**：錯誤 </br>
 **關鍵字**：傳統</br>
 **使用者**：N/A </br>
 **電腦**：myvm.cosotos.com</br>
@@ -53,7 +53,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 > [!NOTE]
 > 本文僅適用於 DHCP 用戶端服務而非 DHCP 伺服器。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 
@@ -77,7 +77,7 @@ VM 上的 DHCP 用戶端服務並未執行。
     嘗試連線至 VM 並查看問題是否已解決。
 5. 如果服務未啟動，請根據您收到的錯誤訊息，使用下列適當的解決方法：
 
-    | Error  |  解決方法 |
+    | 錯誤  |  方案 |
     |---|---|
     | 5- 拒絕存取  | 請參閱 [DHCP 用戶端服務因為拒絕存取錯誤而停止](#dhcp-client-service-is-stopped-because-of-an-access-denied-error)。  |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | 請參閱 [DHCP 用戶端服務當機或停止回應](#dhcp-client-service-crashes-or-hangs)。  |
@@ -89,7 +89,7 @@ VM 上的 DHCP 用戶端服務並未執行。
     | 1070 - ERROR_SERVICE_START_HANG  | 請參閱 [DHCP 用戶端服務當機或停止回應](#dhcp-client-service-crashes-or-hangs)。  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | 請參閱 [DHCP 用戶端已停用](#dhcp-client-service-is-disabled)。  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | 請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。  |
-    |1053 | 请[联系支持人员](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解决问题。  |
+    |1053 | 請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。  |
 
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP 用戶端服務因為拒絕存取錯誤而停止
@@ -124,7 +124,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 
     1. [將資料磁碟連結至 VM](../windows/attach-managed-disk-portal.md
 )。
-    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。 將字母取代為適當的正確值。
+    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\` 。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。 將字母取代為適當的正確值。
     3. 將資料磁碟機中斷連結，並連結到作用中且已安裝處理序監視的 VM。
 
 6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依 [結果] 是 [拒絕存取]來篩選，如下列螢幕擷取畫面中所示 **：**

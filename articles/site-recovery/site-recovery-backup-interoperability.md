@@ -19,7 +19,7 @@ ms.locfileid: "61035746"
 
 本文摘要說明使用的支援[Site Recovery 服務](site-recovery-overview.md)連同[Azure 備份服務](https://docs.microsoft.com/azure/backup/backup-overview)。
 
-**Action** | **Site Recovery 支援** | **詳細資料**
+**動作** | **Site Recovery 支援** | **詳細資料**
 --- | --- | ---
 **將服務部署在一起** | 支援 | 服務互通性，可以一起設定。
 **檔案備份/還原** | 支援 | 當備份和複寫啟用 VM 的備份，在還原來源端的 Vm 或一組 Vm 上的檔案會沒有問題。 複寫會如往常般繼續並沒有變更的複寫健康情況。

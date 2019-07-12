@@ -96,10 +96,10 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 
 以下是要求的輸出詳細資料。
 
-| 屬性名稱 | 数据类型 | 描述 |
+| 屬性名稱 | 資料類型 | 描述 |
 | --- | --- | --- |
-| headers |物件 |要求標頭 |
-| body |物件 |要求物件 |
+| headers |object |要求標頭 |
+| 本文 |object |要求物件 |
 
 #### <a name="response-action"></a>回應動作
 以下是 HTTP 回應動作的輸入欄位。 標示 * 代表必要欄位。
@@ -108,7 +108,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 | --- | --- | --- |
 | 狀態碼 * |statusCode |HTTP 狀態碼 |
 | headers |headers |要包含的任何回應標頭的 JSON 物件 |
-| body |body |回應本文 |
+| 本文 |body |回應本文 |
 
 ## <a name="next-steps"></a>後續步驟
 立即試用平台和 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。

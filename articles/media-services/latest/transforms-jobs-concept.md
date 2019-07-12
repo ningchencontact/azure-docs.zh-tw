@@ -22,7 +22,7 @@ ms.locfileid: "65550936"
 
 本主題提供有關的詳細資料[轉換](https://docs.microsoft.com/rest/api/media/transforms)並[作業](https://docs.microsoft.com/rest/api/media/jobs)，並說明這些實體之間的關聯性。 
 
-## <a name="overview"></a>概觀 
+## <a name="overview"></a>總覽 
 
 ### <a name="transformsjobs-workflow"></a>轉換/作業的工作流程
 
@@ -109,7 +109,7 @@ ms.locfileid: "65550936"
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 * [篩選、 排序、 分頁的媒體服務實體](entities-overview.md)

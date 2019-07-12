@@ -110,7 +110,7 @@ Always Encrypted 可將擁有資料 (且可加以檢視) 的人員與管理資�
 
 Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的電腦存取 SQL 資料庫，請務必確認您的用戶端電腦防火牆允許 TCP 連接埠 1433 上的連出 TCP 通訊。 如果其他應用程式不需要連入連線，請在 TCP 通訊埠 1433 上封鎖它們。
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>驗證
 
 「驗證」是指連線到資料庫時如何證明身分識別。 SQL Database 支援兩種驗證類型：
 
@@ -125,7 +125,7 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
   - 您可以使用外部 (Azure AD) 群組來管理資料庫權限。
   - 它可以透過啟用整合式 Windows 驗證和 Azure AD 支援的其他形式驗證來減少密碼儲存需求。
 
-#### <a name="authorization"></a>授權
+#### <a name="authorization"></a>Authorization
 
 [授權](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)是指使用者可在 Azure SQL 資料庫內執行的動作。 它是由您使用者帳戶的資料庫[角色成員資格](https://msdn.microsoft.com/library/ms189121)和[物件層級權限](https://msdn.microsoft.com/library/ms191291.aspx)來控制的。 授權是決定主體可存取哪些安全性實體資源，以及可對這些資源執行哪些作業的程序。
 
@@ -229,7 +229,7 @@ Azure Marketplace 將 Microsoft Azure 合作夥伴生態系統結合成整合的
 
 ## <a name="next-steps"></a>後續步驟
 
-- [保護 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
+- [保護 Azure SQL 資料庫](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)
 - [Azure 資訊安全中心和 Azure SQL Database 服務](https://docs.microsoft.com/azure/security-center/security-center-sql-database)
 - [SQL Database 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [改善 SQL 資料庫效能](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial)

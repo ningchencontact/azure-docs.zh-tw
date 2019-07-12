@@ -24,7 +24,7 @@ ms.locfileid: "60236687"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure DevTest Labs 是建立快速、 簡易且高效的開發/測試環境的方法。 它可讓您管理成本、 快速佈建 Vm，並減少浪費。  有內建在 Azure 入口網站中的功能，讓您在自動啟動，並在特定時間停止實驗室中設定 Vm。 
 
 不過，在某些情況下，您可能想要自動化啟動和停止的 Vm，從 PowerShell/CLI 指令碼。 它可讓您的開始和停止個別的機器，在任何時間，而不是在特定時間的一些彈性。 以下是一些在哪一個執行這些工作，藉由使用指令碼會有幫助的情況。

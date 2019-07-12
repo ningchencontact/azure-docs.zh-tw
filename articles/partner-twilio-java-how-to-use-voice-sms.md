@@ -42,12 +42,12 @@ API 採用 Twilio 動詞。例如， **&lt;Say&gt;** 動詞指示 Twilio 在通�
 
 以下是 Twilio 動詞清單。
 
-* **&lt;撥打&gt;** ：使撥號者接通另一支電話。
+* **&lt;Dial&gt;** ：使撥號者接通另一支電話。
 * **&lt;Gather&gt;** ：收集電話按鍵上輸入的號碼。
 * **&lt;Hangup&gt;** ：結束通話。
 * **&lt;Play&gt;** ：播放音訊檔案。
 * **&lt;佇列&gt;** ：新增至呼叫端佇列。
-* **&lt;暫停&gt;** ：靜候一段指定的秒數。
+* **&lt;Pause&gt;** ：靜候一段指定的秒數。
 * **&lt;Record&gt;** ：錄製來電者的語音並傳回含有錄音之檔案的 URL。
 * **&lt;Redirect&gt;** ：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
 * **&lt;拒絕&gt;** ：拒絕 Twilio 號碼的來電而不計費。

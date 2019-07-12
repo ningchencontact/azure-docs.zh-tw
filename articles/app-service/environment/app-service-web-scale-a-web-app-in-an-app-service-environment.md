@@ -65,7 +65,7 @@ ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的�
 > 
 > 
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 若要開始使用 App Service 環境，請參閱[如何建立 App Service 環境][HowtoCreateASE]
 
 <!--Image references-->

@@ -30,7 +30,7 @@ ms.locfileid: "65148326"
 * 高度和寬度 AVC 內容上的所有值必須都是 4 的倍數。
 * Azure 媒體服務 v3 中所有的編碼位元速率是每秒位元。 這是我們使用千位元/秒為單位的 v2 Api 與預設值不同。 比方說，如果 （kb/秒） 指定在 v2 中的位元速率為 128，v3 中它會設 128000 （位元/秒）。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 [建立媒體服務帳戶](create-account-cli-how-to.md)
 

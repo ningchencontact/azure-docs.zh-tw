@@ -62,7 +62,7 @@ ms.locfileid: "66002017"
 1.  在 Cloudyn 入口網站中，按一下右上角的 [設定]  並選取 [雲端帳戶]  。
 2.  在 [Microsoft Azure 帳戶] 索引標籤中，尋找具有 [未啟動]  訂用帳戶的帳戶。
 3.  在未啟動之帳戶的右邊，按一下類似鉛筆的 [編輯]  符號。
-4.  系統會自動偵測您的租用戶識別碼和速率識別碼。 单击“下一步”  。
+4.  系統會自動偵測您的租用戶識別碼和速率識別碼。 按一下 [下一步]  。
 5.  系統會將您重新導向至 Azure 入口網站。 登入入口網站，並授權 Cloudyn Collector 存取您的 Azure 資料。
 6.  接下來，系統會將您重新導向至 Cloudyn Accounts 管理頁面，而且您的訂用帳戶會更新為**作用中**帳戶狀態。 它會顯示綠色核取記號。
 7.  如果您沒有看到一或多個訂用帳戶有綠色核取記號，這表示您沒有建立訂用帳戶之讀取器應用程式 (CloudynCollector) 的權限。 具有訂用帳戶較高權限的使用者必須重複步驟 3 和 4。  
@@ -154,8 +154,8 @@ Cloudyn 有下列資料重新整理時間軸：
 
 ## <a name="is-cloudyn-agent-based"></a>Cloudyn 是否以代理程式為基礎？
 
-沒有。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
+資料分割 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>每份 Cloudyn 報告是否能顯示超過一個 AD 租用戶的資料？
 
-是。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-and-manage-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。
+是的。 您可以針對您所擁有的每個 AD 租用戶[建立相對應的雲端帳戶實體](tutorial-user-access.md#create-and-manage-entities)。 如此一來，您便可以檢視所有的 Azure AD 租用戶資料，以及其他雲端平台提供者 (包括 Amazon Web Services 和 Google Cloud Platform)。

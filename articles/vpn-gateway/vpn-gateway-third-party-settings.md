@@ -33,7 +33,7 @@ ms.locfileid: "60457097"
 
 下表列出數個常見裝置和相關說明：
 
-|Products    |參考                                                |
+|產品    |參考資料                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[適用於 Azure VPN 上 Cisco ASA 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco) \(英文\)   |
 |Cisco ISR  |[適用於 Azure VPN 上 Cisco ISR 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco) \(英文\)   |

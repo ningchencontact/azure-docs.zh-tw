@@ -17,7 +17,7 @@ ms.locfileid: "60585949"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的 PaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov/) 為美國政府層面的計劃，能為雲端產品與服務提供安全評估、授權及持續監視的標準方法。 此 Azure 安全性和合規性藍圖提供如何實行 Microsoft Azure 平台即服務 (PaaS) 架構的指引，以協助實作部分 FedRAMP 高階控制項。 此解決方案提供一般參考架構的 Azure 資源部署和設定指引、示範客戶可符合特定安全性和合規性需求的方式，並且作為客戶在 Azure 上建置及設定其自有解決方案的基礎。
 
@@ -35,7 +35,7 @@ ms.locfileid: "60585949"
 - Azure Active Directory
 - Azure 金鑰保存庫
 - Azure SQL Database
-- 应用程序网关
+- 應用程式閘道
     - (1) Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP 3.0

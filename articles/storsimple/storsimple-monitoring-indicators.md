@@ -24,7 +24,7 @@ ms.locfileid: "60630563"
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>使用 StorSimple 監視指示器來管理您的裝置
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控模組和 StorSimple 裝置上的整體狀態。 監控指示器位於裝置主要機箱與 EBOD 機箱的硬體元件上。 監控指示器可以是 LED 或有聲警報器。
 
 有三種 LED 狀態可用來指出模組的狀態：綠色、綠色不停閃爍到變紅琥珀色，或紅琥珀色。  

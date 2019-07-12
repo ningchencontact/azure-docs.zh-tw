@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632414"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的電源和冷卻模組
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供應器和冷卻風扇，是透過主要及 EBOD 機箱控制。 每個機箱只有一個認證的 PCM 模型。 764 W PCM 是認證的主要機箱， 580 W PCM 是認證的 EBOD 機箱。 雖然主要機箱和 EBOD 機箱的 PCM 不同，更換程序完全相同。
 
 本教學課程說明如何：

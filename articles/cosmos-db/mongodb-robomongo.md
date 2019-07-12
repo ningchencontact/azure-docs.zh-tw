@@ -26,7 +26,7 @@ ms.locfileid: "61372495"
 
 1. 使用[這裡](connect-mongodb-account.md)的指示，擷取由 Azure Cosmos DB API MongoDB 為您的 Cosmos 帳戶設定的連線資訊。
 
-    ![連接字串 刀鋒視窗的螢幕擷取畫面](./media/mongodb-robomongo/connectionstringblade.png)
+    ![[連接字串] 刀鋒視窗的螢幕擷取畫面](./media/mongodb-robomongo/connectionstringblade.png)
 2. 執行 *Robomongo.exe*
 
 3. 按一下 [檔案]  下的 [連接] 按鈕來管理您的連接。 然後，按一下 [MongoDB 連接]  視窗中的 [建立]  ，將會開啟 [連接設定]  視窗。

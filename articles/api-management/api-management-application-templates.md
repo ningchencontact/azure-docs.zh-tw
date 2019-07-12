@@ -79,11 +79,11 @@ ms.locfileid: "60657891"
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |--------------|----------|-----------------|  
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
 |`Applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者可看見的應用程式。|  
-|`CategoryName`|字串|應用程式的類別。|  
+|`CategoryName`|string|應用程式的類別。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

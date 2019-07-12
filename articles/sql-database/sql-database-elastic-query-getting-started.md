@@ -27,12 +27,12 @@ ms.locfileid: "60556224"
 
 若要了解查詢所需的 SQL 物件，請參閱 [跨水平分割資料庫查詢](sql-database-elastic-query-horizontal-partitioning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用範例應用程式建立分區對應管理員
-在此处，用户将创建分片映射管理器以及多个分片，并将数据插入分片。 若您的分區設定中已有分區資料，則可以略過下列步驟並移至下一節。
+在這裡，您將建立分區對應管理員以及數個分區，接著插入資料至分區。 若您的分區設定中已有分區資料，則可以略過下列步驟並移至下一節。
 
 1. 建置並執行 **彈性資料庫工具入門** 範例應用程式。 遵循步驟，直到[下載及執行範例應用程式](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)小節的步驟 7。 在步驟 7 結束時，您會看到下列的命令提示字元：
 
@@ -61,7 +61,7 @@ ms.locfileid: "60556224"
 這些是用來連接到分區對應管理員和分區：
 
 1. 在 Visual Studio 中開啟 SQL Server Management Studio 或 SQL Server Data Tools
-2. 连接到 ElasticDBQuery 数据库，并执行以下 T-SQL 命令：
+2. 連接至 ElasticDBQuery 資料庫，並執行下列 T-SQL 命令：
 
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
@@ -105,7 +105,7 @@ ms.locfileid: "60556224"
 
 您會注意到查詢會從所有分區彙總結果，並提供下列輸出：
 
-![输出详细信息][4]
+![輸出詳細資料][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>匯入彈性資料庫查詢結果到 Excel
  您可以從查詢的結果匯入到 Excel 檔案。

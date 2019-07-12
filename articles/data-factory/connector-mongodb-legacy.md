@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400469"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-on-premises-mongodb-connector.md)
 > * [目前的版本](connector-mongodb.md)
 
@@ -38,11 +38,11 @@ ms.locfileid: "61400469"
 - MongoDB **2.4、2.6、3.0、3.2、3.4、3.6 版**。
 - 使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證來複製資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 MongoDB 驅動程式，因此從 MongoDB 複製資料時，您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,14 +59,14 @@ ms.locfileid: "61400469"
 | port |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 27017) |
 | databaseName |您想要存取之 MongoDB 資料庫的名稱。 |是 |
 | authenticationType | 用來連線到 MongoDB 資料庫的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 |是 |
-| username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
+| userName |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 (如果使用基本驗證)。 |
-| authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |沒有。 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
+| authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |資料分割 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
 | allowSelfSignedServerCert | 指定是否允許來自伺服器的自我簽署憑證。 預設值為 False。  | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -100,7 +100,7 @@ ms.locfileid: "61400469"
 | type | 資料集的類型屬性必須設定為：**MongoDbCollection** | 是 |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -131,7 +131,7 @@ ms.locfileid: "61400469"
 | type | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | 是 |
 | query |使用自訂的 SQL-92 查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中 "collectionName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -178,12 +178,12 @@ Azure Data Factory 服務會使用 MongoDB 集合中**最新的 100 份文件**�
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| date |DateTime |
+| Date |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |字串 |
-| 字串 |字串 |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |以 "_" 作為巢狀分隔符號來重新標準化為壓平合併資料行 |
 

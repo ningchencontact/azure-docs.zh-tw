@@ -23,7 +23,7 @@ ms.locfileid: "61289601"
 
 要求上的查詢參數可用來設定搜尋作業的範圍，接著如果欄位未提供與您想要傳遞之搜尋體驗相容的內容，則可調整所有這類欄位的結果。
 
-| 參數 | 目的 |
+| 參數 | 用途 |
 |-----------|--------------|
 | **searchFields** | 限制只對具名欄位清單進行全文檢索搜尋。 |
 | **$select** | 調整回應，只包含您指定的欄位。 預設會傳回所有可擷取的欄位。 **$Select** 參數可讓您選擇要傳回哪些欄位。 |
@@ -62,7 +62,7 @@ parameters =
 > [!Note]
 > 雖然查詢中沒有 $filter 引數，但這個使用案例與篩選概念具有強烈的關聯性，因此，我們將它作為篩選案例。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)

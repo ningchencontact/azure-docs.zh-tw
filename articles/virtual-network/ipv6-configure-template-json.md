@@ -107,7 +107,7 @@ ms.locfileid: "62130874"
             }
 ```
 
-## <a name="optional-configuration"></a>選擇性組態
+## <a name="optional-configuration"></a>選用設定
 
 ### <a name="ipv6-internet-access-for-the-virtual-network"></a>虛擬網路的 IPv6 網際網路存取
 

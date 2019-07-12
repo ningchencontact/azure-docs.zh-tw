@@ -17,7 +17,7 @@ ms.locfileid: "60609250"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI dss 的 IaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此「Azure 安全性與合規性藍圖」針對適用於持卡人資料收集、儲存及擷取的支付卡產業資料安全標準 (PCI DSS 3.2) 符合規範基礎結構即服務 (IaaS) 環境，提供部署指導方針。 它會演示常見參考架構，並且示範如何在安全且相容的多層式環境中，正確處理信用卡資料 (包含信用卡號碼、到期日和驗證資料)。 此藍圖會說明端對端解決方案，以符合組織需要雲端方法來減少部署負擔和成本的需求。
 

@@ -90,7 +90,7 @@ Money 新增至財務承諾交換和退款如果原始的購買已使用其中�
     - [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
     - [管理 Azure 中的保留](billing-manage-reserved-vm-instance.md)
     - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
-    - [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+    - [了解隨用隨付訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
     - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
     - [Windows 軟體的成本不包括在保留項目內](billing-reserved-instance-windows-software-costs.md)
     - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](/partner-center/azure-reservations)

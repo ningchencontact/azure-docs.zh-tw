@@ -17,7 +17,7 @@ ms.locfileid: "60610172"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia Protected 的 IaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 此 Azure 安全性與合規性藍圖提供基礎結構即服務 (IaaS) 環境部署的指導方針，以用於收集、儲存及擷取符合澳洲政府資訊安全性手冊 (ISM) 規範 (由澳洲國防情報局 (ASD) 所編纂) 的 AU-PROTECTED 政府資料。 此藍圖顯示一般參考架構，並有助於示範如何在安全且符合規範的多層環境中處理敏感性政府資料。
 
 此參考架構、實作指南與威脅模型提供一個基礎，讓客戶進行其自己的規劃與系統認證程序，協助客戶以符合 ASD 規範的方式將工作負載部署到 Azure。 客戶可能會選擇實作 Azure VPN 閘道或 ExpressRoute 以使用同盟服務，並將內部部署資源與 Azure 資源整合。 客戶必須考慮使用內部部署資源的安全性意涵。 必須進行額外設定才能符合所有需求，因為它們可能會根據每個客戶的實作特性而不同。

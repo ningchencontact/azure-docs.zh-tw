@@ -121,7 +121,7 @@ DR 總成本是根據兩個不同的狀態來分類的：複寫和 DR 演練。
 
     g. **OS 類型**
 
-    h.如果该值不存在，请单击“添加行”。 **資料備援**
+    h. **資料備援**
 
     i. **Azure Hybrid Use Benefit**
 
@@ -167,7 +167,7 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|Currency|名稱||Currency|Name||Currency|Name|
+|Currency|名稱||Currency|名稱||Currency|名稱|
 |---|---|---|---|---|---|---|---|
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||DKK|丹麥克朗 (kr)|

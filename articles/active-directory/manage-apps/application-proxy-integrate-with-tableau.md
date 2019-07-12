@@ -60,7 +60,7 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 
 5. 使用新應用程式的相關資訊填寫必要的欄位。 使用下列指導方針設定︰ 
 
-    - **內部 URL**：此應用程式應該具有就是 Tableau URL 本身的內部 URL。 例如： `https://adventure-works.tableau.com`。 
+    - **內部 URL**：此應用程式應該具有就是 Tableau URL 本身的內部 URL。 例如： `https://adventure-works.tableau.com` 。 
 
     - **預先驗證方法**：Azure Active Directory (建議使用但非必要)。 
 

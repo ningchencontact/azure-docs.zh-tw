@@ -24,7 +24,7 @@ ms.locfileid: "64722883"
 
 Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個程序稱為_串流處理_。 使用 .NET 應用程式時，資料會在 STDIN 上傳遞至應用程式，而應用程式會在 STDOUT 上傳回結果。 為了在 STDIN 和 STDOUT 讀取和寫入，您可以從主控台應用程式使用 `Console.ReadLine()` 和 `Console.WriteLine()`。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 熟悉如何撰寫和建置以 .NET Framework 4.5 為目標的 C# 程式碼。
 
@@ -213,7 +213,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 ## <a name="run-an-apache-pig-job"></a>執行 Apache Pig 工作
 
-1. 使用 SSH 連線到 HDInsight 叢集。 例如： `ssh sshuser@mycluster-ssh.azurehdinsight.net`。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. 使用 SSH 連線到 HDInsight 叢集。 例如： `ssh sshuser@mycluster-ssh.azurehdinsight.net` 。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. 使用下列其中一個命令來啟動 Pig 命令列：
 

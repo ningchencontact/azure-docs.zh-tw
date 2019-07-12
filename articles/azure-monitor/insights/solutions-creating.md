@@ -59,7 +59,7 @@ ms.locfileid: "60595819"
 
 如果您的解決方案需要外部功能以對警示做出回應，您可以使用 [Webhook 回應](../../azure-monitor/platform/alerts-metric.md)。  這可讓您呼叫外部 Web 服務，以從警示傳送資訊。
 
-### <a name="views"></a>Views
+### <a name="views"></a>檢視
 Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中的資料。  每個解決方案通常會有一個檢視，這個檢視具有[圖格](../../azure-monitor/platform/view-designer-tiles.md)，並且會顯示在使用者的主要儀表板上。  檢視可以包含任意數目的[視覺效果部分](../../azure-monitor/platform/view-designer-parts.md)，以便為使用者提供不同的視覺效果來呈現收集到的資料。
 
 您可以[使用檢視設計工具來建立自訂檢視](../../azure-monitor/platform/view-designer.md)，並於稍後匯出以納入解決方案檔中。  

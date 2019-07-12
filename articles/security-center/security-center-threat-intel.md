@@ -102,7 +102,7 @@ ms.locfileid: "64574338"
 - DNS 事件 (Type=DnsEvents)
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在這篇文章中，您已學會如何使用資訊安全中心的威脅情報，可協助您識別可疑的活動。 如要深入了解資訊安全中心，請參閱下列文章：
 
 * [在 Azure 資訊安全中心管理和回應安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

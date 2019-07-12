@@ -26,7 +26,7 @@ ms.locfileid: "60657592"
 
 本文將逐步引導您在 Azure 入口網站中建立訂用帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要採取本文中的步驟，必要條件如下：
 

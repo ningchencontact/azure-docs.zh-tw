@@ -26,7 +26,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 > [!NOTE]
 > 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 和 `EventHubName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列必要條件：
 
@@ -81,7 +81,7 @@ npm install @azure/event-processor-host
 3. 在上述程式碼中輸入的連接字串和事件中樞的名稱
 4. 然後執行命令`node send.js`在命令提示字元執行此檔案中。 這會將 100 個事件傳送至事件中樞
 
-恭喜！ 您現在已傳送事件至事件中樞。
+恭喜您！ 您現在已傳送事件至事件中樞。
 
 
 ## <a name="receive-events"></a>接收事件
@@ -122,7 +122,7 @@ npm install @azure/event-processor-host
 3. 在上述程式碼中，輸入連接字串和事件中樞的名稱。
 4. 然後執行命令`node receive.js`在命令提示字元執行此檔案中。 這會從事件中樞內的預設取用者群組的資料分割的其中一個接收事件
 
-恭喜！ 您現在已從事件中樞收到事件。
+恭喜您！ 您現在已從事件中樞收到事件。
 
 ## <a name="receive-events-using-event-processor-host"></a>使用事件處理器主機接收事件
 
@@ -172,12 +172,12 @@ npm install @azure/event-processor-host
 3. 在上述的程式碼，以及連接字串中輸入的連接字串和事件中樞的名稱，Azure Blob 儲存體
 4. 然後執行命令`node receiveAll.js`在命令提示字元執行此檔案中。
 
-恭喜！ 您現在已使用事件處理器主機從事件中樞收到事件。 這會接收來自事件中樞內的預設取用者群組的所有資料分割的事件
+恭喜您！ 您現在已使用事件處理器主機從事件中樞收到事件。 這會接收來自事件中樞內的預設取用者群組的所有資料分割的事件
 
 ## <a name="next-steps"></a>後續步驟
 請閱讀下列文章：
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [功能與 Azure 事件中樞中的術語](event-hubs-features.md)
+- [Azure 事件中樞的功能與術語](event-hubs-features.md)
 - [事件中樞常見問題集](event-hubs-faq.md)
 - 請參閱適用於其他 Node.js 範例[事件中樞](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples)並[Event Processor Host](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-processor-host/samples) GitHub 上

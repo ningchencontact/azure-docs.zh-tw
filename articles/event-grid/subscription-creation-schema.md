@@ -33,21 +33,21 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
  
 ## <a name="event-subscription-properties"></a>事件訂用帳戶屬性
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
-| destination | 物件 | 定義端點的物件。 |
-| filter | 物件 | 篩選事件類型的選擇性欄位。 |
+| destination | object | 定義端點的物件。 |
+| filter | object | 篩選事件類型的選擇性欄位。 |
 
 ### <a name="destination-object"></a>目的地物件
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | endpointType | string | 訂用帳戶的端點類型 (webhook/HTTP、事件中樞或佇列)。 | 
 | endpointUrl | string | 此事件訂用帳戶中事件的目的地 URL。 | 
 
 ### <a name="filter-object"></a>篩選物件
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | 事件訊息中的事件類型完全符合這些事件類型名稱其中之一時，即會符合。 事件名稱不符合事件來源的已註冊事件類型名稱時，會引發錯誤。 預設會符合所有事件類型。 |
 | subjectBeginsWith | string | 事件訊息中對主體欄位的前置詞符合篩選。 預設值或空字串會符合全部。 | 

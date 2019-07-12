@@ -25,7 +25,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 > [!NOTE]
 > 如果您沒有 Azure 帳戶，就需要申請一個。 請 [在此處註冊免費試用](../active-directory/fundamentals/sign-up-organization.md)。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 在此案例中，您將了解如何使用 Azure 入口網站來建立應用程式閘道。
 

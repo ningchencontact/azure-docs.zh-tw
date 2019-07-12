@@ -28,7 +28,7 @@ ms.locfileid: "65602930"
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經：
 
 * 建立 Azure 儲存體帳戶。 如需指示，請參閱 [建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)

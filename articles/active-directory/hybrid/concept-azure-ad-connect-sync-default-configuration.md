@@ -60,7 +60,7 @@ ms.locfileid: "60246070"
   * 非萬用群組 (不會對使用者套用，但因舊版因素而存在)
   * 信箱計劃
   * 探索信箱
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 請不要同步處理任何複寫犧牲者物件。
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 請不要同步處理任何複寫犧牲者物件。
 
 適用的屬性規則如下：
 
@@ -79,12 +79,12 @@ ms.locfileid: "60246070"
 * 連絡人必須擁有郵件功能。 這會使用下列規則來驗證：
   * `IsPresent([proxyAddresses]) = True)`。 必須填入 proxyAddresses 屬性。
   * 可在 proxyAddresses 屬性或郵件屬性中找到主要電子郵件地址。 存在的 \@ 可用來證實內容是電子郵件地址。 下列其中一個規則必須評估為 True。
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` 。 是否有含有 "SMTP:" 的項目，如果有，是否可在字串中找到 \@？
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 。 是否已填入郵件屬性，如果是，是否可在字串中找到 \@？
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. 是否有含有 "SMTP:" 的項目，如果有，是否可在字串中找到 \@？
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. 是否已填入郵件屬性，如果是，是否可在字串中找到 \@？
 
 下列連絡人物件 **不會** 同步處理至 Azure AD：
 
-* `IsPresent([isCriticalSystemObject])` 。 請確定沒有標記為重要的連絡人物件進行同步處理。 不應該是任何使用預設組態的項目。
+* `IsPresent([isCriticalSystemObject])`. 請確定沒有標記為重要的連絡人物件進行同步處理。 不應該是任何使用預設組態的項目。
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`。
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`。 這些物件無法在 Exchange Online 中運作。
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`。 請不要同步處理任何複寫犧牲者物件。
@@ -95,15 +95,15 @@ ms.locfileid: "60246070"
 * 擁有的成員必須少於 50,000 個。 此計數為內部部署群組中的成員數目。
   * 如果在第一次開始同步處理之前擁有較多成員，則不會同步處理群組。
   * 如果成員數目在它最初建立之後有所成長，在達到 50,000 個成員時，它會停止同步處理，直到成員資格計數再次低於 50,000。
-  * 注意：Azure AD 也會強制執行 50,000 個成員資格計數。 您無法同步處理具有更多個成員的群組，即使您修改或移除此規則亦然。
+  * 注意:Azure AD 也會強制執行 50,000 個成員資格計數。 您無法同步處理具有更多個成員的群組，即使您修改或移除此規則亦然。
 * 如果群組是 **通訊群組**，則也必須擁有郵件功能。 請參閱 [連絡人現成可用的規則](#contact-out-of-box-rules) ，以了解強制執行此規則的情形。
 
 下列群組物件 **不會** 同步處理至 Azure AD：
 
-* `IsPresent([isCriticalSystemObject])` 。 請確定 Active Directory 中多項現成可用的物件 (例如內建的系統管理員群組) 不會同步處理。
+* `IsPresent([isCriticalSystemObject])`. 請確定 Active Directory 中多項現成可用的物件 (例如內建的系統管理員群組) 不會同步處理。
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`。 DirSync 所使用的舊版群組。
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`。 角色群組。
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 請不要同步處理任何複寫犧牲者物件。
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 請不要同步處理任何複寫犧牲者物件。
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal 現成可用的規則
 FSP 會聯結至 Metaverse 中的「任何」(\*) 物件。 實際上，此聯結只會針對使用者和安全性群組執行。 此組態可確保跨樹系成員資格會進行解析，並正確地顯示在 Azure AD 中。
@@ -220,7 +220,7 @@ NULL
 ### <a name="putting-it-all-together"></a>總整理
 我們現在對同步處理規則已有足夠的認識，而能夠了解組態如何在不同的同步處理規則下運作。 如果您觀察某個使用者以及提供給 Metaverse 的屬性，則會以下列順序套用規則：
 
-| Name | 註解 |
+| 名稱 | 註解 |
 |:--- |:--- |
 | In from AD - User Join |聯結連接器空間物件與 Metaverse 的規則。 |
 | In from AD – UserAccount Enabled |登入 Azure AD 和 Office 365 所需的屬性。 我們想從已啟用的帳戶取得這些屬性。 |

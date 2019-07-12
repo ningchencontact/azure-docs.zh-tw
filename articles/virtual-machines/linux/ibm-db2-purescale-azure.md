@@ -26,7 +26,7 @@ ms.locfileid: "60543000"
 
 IBM DB2 pureScale 環境提供適用於 Azure 的資料庫叢集，可在 Linux 作業系統上提供高可用性與延展性。 本文顯示在 Azure 上執行 DB2 pureScale 的架構。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 企業長久以來都使用關聯式資料庫管理系統 (RDBMS) 平台來滿足其線上交易處理 (OLTP) 需求。 如今，有許多企業都已將其大型主機型資料庫環境移轉到 Azure 做為延伸處理能力、降低成本及維持穩定之作業成本結構的方式。
 

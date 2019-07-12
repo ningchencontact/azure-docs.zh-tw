@@ -97,18 +97,18 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 
 ### <a name="mandatory-inbound-security-rules"></a>必要輸入安全性規則
 
-| 名稱       |Port                        |Protocol|source           |目的地|動作|
+| 名稱       |Port                        |Protocol|Source           |目的地|動作|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|管理  |9000、9003、1438、1440、1452|TCP     |任意              |MI SUBNET  |允許 |
-|mi_subnet   |任意                         |任意     |MI SUBNET        |MI SUBNET  |允許 |
-|health_probe|任意                         |任意     |AzureLoadBalancer|MI SUBNET  |允許 |
+|管理  |9000、9003、1438、1440、1452|TCP     |Any              |MI SUBNET  |允許 |
+|mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |允許 |
+|health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |允許 |
 
 ### <a name="mandatory-outbound-security-rules"></a>必要輸出安全性規則
 
-| Name       |Port          |Protocol|source           |目的地|動作|
+| 名稱       |Port          |Protocol|Source           |目的地|動作|
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |80、443、12000|TCP     |MI SUBNET        |AzureCloud |允許 |
-|mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允許 |
+|mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |允許 |
 
 > [!IMPORTANT]
 > 請確定只有一個輸入的規則連接埠 9000，9003，1438年、 1440年、 1452年和一個輸出的規則，用於連接埠 80、 443、 12000。 受控執行個體佈建透過 Azure Resource Manager 部署將會失敗，如果輸入和輸出規則針對每個連接埠分別設定。 如果這些連接埠位在不同的規則，部署將會失敗，錯誤碼 `VnetSubnetConflictWithIntendedPolicy`
@@ -122,7 +122,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 
 ### <a name="user-defined-routes"></a>使用者定義的路由
 
-|Name|位址首碼|下一個躍點|
+|名稱|位址首碼|下一個躍點|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|虛擬網路|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

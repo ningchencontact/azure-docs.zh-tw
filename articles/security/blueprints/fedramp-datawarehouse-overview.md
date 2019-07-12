@@ -17,7 +17,7 @@ ms.locfileid: "60586000"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure 安全性與合規性藍圖：FedRAMP 自動化的資料倉儲
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [聯邦風險與授權管理計畫 (FedRAMP)](https://www.fedramp.gov/) 為美國政府層面的計劃，能為雲端產品與服務提供安全評估、授權及持續監視的標準方法。 此 Azure 安全性和合規性藍圖提供如何實行 Microsoft Azure 資料倉儲架構的指引，以協助實作 FedRAMP 高階控制項的子集。 此解決方案可為一般參考架構提供 Azure 資源部署和組態指引，其中所示範的方式除了能讓客戶滿足特定的安全性和合規性需求外，也能為客戶提供基礎，讓他們在 Azure 上建置並設定自有的資料倉儲解決方案。
 

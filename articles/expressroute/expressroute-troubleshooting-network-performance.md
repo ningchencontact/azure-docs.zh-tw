@@ -16,7 +16,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883257"
 ---
 # <a name="troubleshooting-network-performance"></a>網路效能疑難排解
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure 提供穩定且快速的方式，從您的內部部署網路連線到 Azure。 大型和小型的客戶可以成功使用站對站 VPN 和 ExpressRoute 等方法，在 Azure 中經營其業務。 但是當效能不符合您預期的情況或先前的經驗時，會發生什麼事？ 本文件可協助您將測試方式標準化，並為您的特定環境制訂基準。
 
 本文件說明如何在兩部主機之間輕鬆且一致地測試網路延遲和頻寬。 本文件也針對查看 Azure 網路的方式提供一些建議，並協助您隔離問題點。 討論的 PowerShell 指令碼和工具在網路上 (要測試之連結的任一端) 需要有兩部主機。 一部主機必須是 Windows 伺服器或桌面，另一部主機則可以是 Windows 或 Linux。 
@@ -179,14 +179,14 @@ AzureCT PowerShell 模組有兩個構成要素，分別是[可用性測試][Avai
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>位置|Azure<br/>區域|預估<br/>距離 (公里)|Latency|1 個工作階段<br/>頻寬|最大值<br/>頻寬|
+|ExpressRoute<br/>Location|Azure<br/>區域|預估<br/>距離 (公里)|Latency|1 個工作階段<br/>頻寬|最大值<br/>頻寬|
 | Seattle | 美國西部 2        |    191 公里 |   5 毫秒 | 262.0 Mbits/秒 |  3.74 Gbits/秒 |
 | Seattle | 美國西部          |  1,094 公里 |  18 毫秒 |  82.3 Mbits/秒 |  3.70 Gbits/秒 |
 | Seattle | 美國中部       |  2,357 公里 |  40 毫秒 |  38.8 Mbits/秒 |  2.55 Gbits/秒 |
 | Seattle | 美國中南部 |  2,877 公里 |  51 毫秒 |  30.6 Mbits/秒 |  2.49 Gbits/秒 |
 | Seattle | 美國中北部 |  2,792 公里 |  55 毫秒 |  27.7 Mbits/秒 |  2.19 Gbits/秒 |
 | Seattle | 美國東部 2        |  3,769 公里 |  73 毫秒 |  21.3 Mbits/秒 |  1.79 Gbits/秒 |
-| Seattle | 美國東部          |  3,699 公里 |  74 毫秒 |  21.1 Mbits/秒 |  1.78 Gbits/秒 |
+| Seattle | East US          |  3,699 公里 |  74 毫秒 |  21.1 Mbits/秒 |  1.78 Gbits/秒 |
 | Seattle | 日本東部       |  7,705 公里 | 106 毫秒 |  14.6 Mbits/秒 |  1.22 Gbits/秒 |
 | Seattle | 英國南部         |  7,708 公里 | 146 毫秒 |  10.6 Mbits/秒 |   896 Mbits/秒 |
 | Seattle | 西歐      |  7,834 公里 | 153 毫秒 |  10.2 Mbits/秒 |   761 Mbits/秒 |

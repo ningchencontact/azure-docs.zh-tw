@@ -23,7 +23,7 @@ ms.locfileid: "60576181"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>使用 StorSimple 診斷工具針對 8000 系列裝置問題進行疑難排解
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 診斷工具可診斷 StorSimple 裝置的系統、效能、網路和硬體元件健全狀況的相關問題。 診斷工具可用在各種情況。 這些情況包括工作負載規劃、部署 StorSimple 裝置、評估網路環境，以及判斷作業裝置的效能。 本文提供診斷工具的概觀，並說明如何使用此工具來診斷 StorSimple 裝置。
 
@@ -434,7 +434,7 @@ Controller0>
 | CisAgentVersion         | StorSimple 裝置上執行的 Ci 代理程式版本。 此代理程式可協助與 Azure 中執行的 StorSimple Manager 服務進行通訊。|
 | MdsAgentVersion         | 與 StorSimple 裝置上執行的 Mds 代理程式相對應的版本。 此代理程式會將資料移至的監視與診斷服務 (MDS)。|
 | Lsisas2Version          | 與 StorSimple 裝置上的 LSI 驅動程式相對應的版本。|
-| 容量                | 裝置的總容量 (以位元組為單位)。|
+| Capacity                | 裝置的總容量 (以位元組為單位)。|
 | RemoteManagementMode    | 指出是否可以透過 Windows PowerShell 介面從遠端管理裝置。 |
 | FipsMode                | 指出您的裝置上是否啟用美國聯邦資訊處理標準 (FIPS) 模式。 FIPS 140 標準定義核准美國聯邦政府電腦系統所使用的密碼編譯演算法來保護機密資料。 如果是執行 Update 4 或更新版本的裝置，預設會啟用 FIPS 模式。 |
 

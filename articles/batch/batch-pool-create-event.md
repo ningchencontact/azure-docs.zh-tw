@@ -65,14 +65,14 @@ ms.locfileid: "60776502"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|元素名稱|類型|注意|
+|元素名稱|type|注意|
 |------------------|----------|-----------|
 |osFamily|字串|安裝在集區中虛擬機器上的 Azure 客體 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** – OS 系列 2，相當於 Windows Server 2008 R2 SP1。<br /><br /> **3** – OS 系列 3，相當於 Windows Server 2012。<br /><br /> **4** – OS 系列 4，相當於Windows Server 2012 R2。<br /><br /> 如需詳細資訊，請參閱[客體 ​OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
 |targetOSVersion|字串|安裝在集區中虛擬機器上的 Azure 客體 OS 版本。<br /><br /> 預設值為 **\*** 用於指定所指定系列的最新作業系統版本。<br /><br /> 如需其他允許的值，請參閱[客體 OS 發佈新聞](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|元素名稱|類型|注意|
+|元素名稱|type|注意|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|複雜類型|指定要使用的平台或 Marketplace 映像的相關資訊。|
 |nodeAgentSKUId|字串|佈建在計算節點上的 Batch 節點代理程式其 SKU。|
@@ -80,7 +80,7 @@ ms.locfileid: "60776502"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|元素名稱|類型|注意|
+|元素名稱|type|注意|
 |------------------|----------|-----------|
 |publisher|字串|映像的發行者。|
 |供應項目|字串|映像的供應項目。|
@@ -89,12 +89,12 @@ ms.locfileid: "60776502"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|元素名稱|類型|注意|
+|元素名稱|type|注意|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|Boolean|指出是否已針對自動更新啟用虛擬機器。 如果未指定此屬性，則預設值為 true。|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|元素名稱|類型|注意|
+|元素名稱|type|注意|
 |------------------|--------------|----------|
 |subnetId|字串|指定建立集區的計算節點所在的子網路其資源識別碼。|

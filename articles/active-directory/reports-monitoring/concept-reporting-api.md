@@ -34,7 +34,7 @@ Azure Active Directory 會向您提供各種[報告](overview-reports.md)，內�
 
 如果您遇到問題，請參閱[如何取得 Azure Active Directory 支援](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要存取報告 API (不論是否需要使用者介入)，您需要：
 

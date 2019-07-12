@@ -87,7 +87,7 @@ NOT 運算子是負號。 例如，`wifi –luxury` 會搜尋含有 `wifi` 一�
 > [!NOTE]  
 >  雖然逸出可讓語彙基元結合為整體，但文字分析可能會根據分析模式加以分割。 如需詳細資訊，請參閱[語言支援 (Azure 搜尋服務 REST API)](index-add-language-analyzers.md)。  
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 + [搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene 查詢語法](query-lucene-syntax.md)

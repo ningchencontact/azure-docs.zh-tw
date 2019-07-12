@@ -36,7 +36,7 @@ ms.locfileid: "62097924"
 
 如需傳統部署模型的詳細資訊，請參閱 [Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態](../azure-resource-manager/resource-manager-deployment-model.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您已安裝 Azure PowerShell，其必須是 Azure PowerShell 1.0.0 或更新的版本。 您可以在 Azure PowerShell 命令提示字元下使用這個命令來檢查已安裝的 Azure PowerShell 版本。
 
     Get-Module Az | format-table version
@@ -125,7 +125,7 @@ ms.locfileid: "62097924"
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>用於 Azure Cache for Redis PowerShell 的屬性
 下表為使用 Azure PowerShell 建立和管理 Azure Cache for Redis 執行個體時常用參數的屬性和說明。
 
-| 參數 | 描述 | 預設值 |
+| 參數 | 描述 | 預設 |
 | --- | --- | --- |
 | Name |快取的名稱 | |
 | Location |快取的位置 | |

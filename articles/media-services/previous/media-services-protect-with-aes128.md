@@ -16,7 +16,7 @@ ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557169"

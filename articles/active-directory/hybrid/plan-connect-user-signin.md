@@ -68,7 +68,7 @@ Azure AD 支援下列驗證方法：
 此外，您也可以針對公司網路中已加入網域的電腦上使用者啟用單一登入。 在使用單一登入的情況下，已啟用的使用者只需輸入使用者名稱，即可安全地存取雲端資源。
 ![傳遞驗證](./media/plan-connect-user-signin/pta.png)
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 - [傳遞驗證](how-to-connect-pta.md)
 - [單一登入](how-to-connect-sso.md)
 

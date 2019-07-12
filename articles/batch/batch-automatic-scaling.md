@@ -126,7 +126,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 * double
 * doubleVec
 * doubleVecList
-* 字串
+* string
 * timestamp：timestamp 是包含下列成員的複合結構：
 
   * 年
@@ -152,7 +152,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ## <a name="operations"></a>作業
 上一節列出的類型允許這些作業。
 
-| 作業 | 支援的運算子 | 結果類型 |
+| 運算 | 支援的運算子 | 結果類型 |
 | --- | --- | --- |
 | double 運算子  double |+、-、*、/ |double |
 | double 運算子  timeinterval |* |timeinterval |
@@ -176,7 +176,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ## <a name="functions"></a>函式
 這些預先定義的 **函式** 可供您用來定義自動調整公式。
 
-| 函式 | 傳回類型 | 描述 |
+| 函數 | 傳回類型 | 描述 |
 | --- | --- | --- |
 | avg(doubleVecList) |double |傳回 doubleVecList 中所有值的平均值。 |
 | len(doubleVecList) |double |傳回 doubleVecList 建立的向量的長度。 |
@@ -632,7 +632,7 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>範例 4︰設定初始集區大小
+### <a name="example-4-setting-an-initial-pool-size"></a>範例 4：設定初始集區大小
 此範例顯示的 C# 程式碼片段具有自動調整公式，其在初始期間將集區大小設為指定的節點數目。 然後在初始期間經過之後，再根據執行中和作用中的工作數目來調整集區大小。
 
 下列程式碼片段中的公式：

@@ -98,7 +98,7 @@ ms.locfileid: "60473061"
 
 至於試用 Office 365 訂用帳戶過期時會發生的情況 (不含付費合作夥伴/CSP、Enterprise 合約或大量授權)，請見下表。 如需有關 Office 365 資料保留和訂用帳戶生命週期的詳細資訊，請參閱 <<c0>  [ 我的 Office 365 商務訂用帳戶結束時，我的資料和存取會發生什麼事？](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)。
 
-產品狀態 | 資料 | 資料存取權
+產品狀態 | Data | 資料存取權
 ------------- | ---- | --------------
 有效 (試用 30 天) | 資料可供全體存取 | 使用者可以自助註冊的產品、 檔案或應用程式的一般存取<br>系統管理員有一般 Microsoft 365 系統管理中心和資源的存取
 Deleted | 刪除的資料 | 使用者無法存取自助註冊的產品、 檔案或應用程式<br>系統管理員可以存取 Microsoft 365 系統管理中心購買及管理其他訂用帳戶

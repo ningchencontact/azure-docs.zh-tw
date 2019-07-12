@@ -29,7 +29,7 @@ ms.locfileid: "61466667"
 
 說明如何使用 Azure 媒體服務 REST API 來完成各項工作的文章中，都會使用此環境和集合。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在某些 AMS REST 教學課程中所示範的 REST API。 
 

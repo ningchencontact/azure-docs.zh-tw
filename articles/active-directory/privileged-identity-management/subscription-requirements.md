@@ -28,7 +28,7 @@ ms.locfileid: "60437451"
 
 若要使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，目錄必須具有有效的授權。 此外，也必須指派授權給管理員和相關的使用者。 本文說明使用 PIM 的授權需求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用 PIM，目錄必須具有下列其中一個付費或試用授權：
 

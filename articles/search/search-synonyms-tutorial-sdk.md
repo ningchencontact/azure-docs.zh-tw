@@ -33,7 +33,7 @@ ms.locfileid: "65025161"
 > [!NOTE]
 > 同義字可由以程式設計的方式，而不是在入口網站。 如果 Azure 入口網站的同義字支援對您很有用，請在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供您的意見反應
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 教學課程包含下列需求︰
 
@@ -42,7 +42,7 @@ ms.locfileid: "65025161"
 * [Microsoft.Azure.Search .NET 程式庫](https://aka.ms/search-sdk)
 * [如何從 .NET 應用程式使用 Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 之前與之後查詢會示範同義字的值。 在此範例中，使用範例應用程式可執行查詢並傳回範例索引的結果。 範例應用程式會建立名為 "hotels" 並已填入兩份文件的小型索引。 此應用程式會使用未出現在索引中的詞彙和詞句來執行搜尋查詢，啟用同義字功能，然後再次發出相同的搜尋。 下列程式碼示範整體流程。
 

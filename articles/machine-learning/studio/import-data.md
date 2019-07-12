@@ -68,7 +68,7 @@ Studio 可辨識下列資料類型：
 * 整數
 * Double
 * Boolean
-* DateTime
+* Datetime
 * TimeSpan
 
 Studio 使用名為***資料表格***的內部資料類型以在模組之間傳遞資料。 您可以使用[轉換為資料集][convert-to-dataset]模組，明確地將資料轉換為「資料表格」格式。

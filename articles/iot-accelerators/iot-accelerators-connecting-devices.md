@@ -25,7 +25,7 @@ ms.locfileid: "61450208"
 
 如果您偏好模擬裝置，請參閱[建立及測試新模擬裝置](iot-accelerators-remote-monitoring-create-simulated-device.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本操作指南中的步驟，請遵循[設定 Windows 開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment)中的步驟，將必要的開發工具和程式庫新增至 Windows 電腦。
 

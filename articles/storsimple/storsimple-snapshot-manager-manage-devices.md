@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682495"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>使用 StorSimple Snapshot Manager 來連接和管理 StorSimple 裝置
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 您可以使用 StorSimple Snapshot Manager [ **範圍** ] 窗格中的節點，來確認已匯入的 StorSimple 裝置資料，並重新整理已連接的儲存體裝置。 此外，當您按一下 [裝置]  節點時，也可以在 [結果]  窗格中看到已連接的裝置清單和對應的狀態資訊。
 
 ![連接的裝置](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
@@ -33,7 +33,7 @@ ms.locfileid: "64682495"
 
 | 結果資料行 | 描述 |
 |:--- |:--- |
-| Name |Azure 傳統入口網站中設定的裝置名稱 |
+| 名稱 |Azure 傳統入口網站中設定的裝置名稱 |
 | 模型 |裝置的型號 |
 | Version |裝置上安裝的軟體版本 |
 | 狀態 |裝置是否可用 |

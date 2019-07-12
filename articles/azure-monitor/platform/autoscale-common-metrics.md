@@ -56,10 +56,10 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Processor(_Total)\% Processor Time |Percent |
 | \Processor(_Total)\% Privileged Time |Percent |
 | \Processor(_Total)\% User Time |Percent |
-| \Processor Information(_Total)\Processor Frequency |計數 |
-| \System\Processes |計數 |
-| \Process(_Total)\Thread Count |計數 |
-| \Process(_Total)\Handle Count |計數 |
+| \Processor Information(_Total)\Processor Frequency |Count |
+| \System\Processes |Count |
+| \Process(_Total)\Thread Count |Count |
+| \Process(_Total)\Handle Count |Count |
 | \Memory\% Committed Bytes In Use |Percent |
 | \Memory\Available Bytes |位元組 |
 | \Memory\Committed Bytes |位元組 |
@@ -75,11 +75,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\Disk Bytes/sec |每秒位元組 |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |每秒位元組 |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |每秒位元組 |
-| \PhysicalDisk(_Total)\Avg.磁碟佇列長度 |計數 |
-| \PhysicalDisk(_Total)\Avg.磁碟讀取佇列長度 |計數 |
-| \PhysicalDisk(_Total)\Avg.磁碟寫入佇列長度 |計數 |
+| \PhysicalDisk(_Total)\Avg.磁碟佇列長度 |Count |
+| \PhysicalDisk(_Total)\Avg.磁碟讀取佇列長度 |Count |
+| \PhysicalDisk(_Total)\Avg.磁碟寫入佇列長度 |Count |
 | \LogicalDisk(_Total)\% Free Space |Percent |
-| \LogicalDisk(_Total)\Free Megabytes |計數 |
+| \LogicalDisk(_Total)\Free Megabytes |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>客體 OS 度量 Linux VM
 當您在 Azure 中建立 VM 時，根據預設會使用診斷擴充來啟用診斷。
@@ -123,15 +123,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |秒 |
 | \PhysicalDisk\AverageWriteTime |秒 |
 | \PhysicalDisk\AverageTransferTime |秒 |
-| \PhysicalDisk\AverageDiskQueueLength |計數 |
+| \PhysicalDisk\AverageDiskQueueLength |Count |
 | \NetworkInterface\BytesTransmitted |位元組 |
 | \NetworkInterface\BytesReceived |位元組 |
-| \NetworkInterface\PacketsTransmitted |計數 |
-| \NetworkInterface\PacketsReceived |計數 |
+| \NetworkInterface\PacketsTransmitted |Count |
+| \NetworkInterface\PacketsReceived |Count |
 | \NetworkInterface\BytesTotal |位元組 |
-| \NetworkInterface\TotalRxErrors |計數 |
-| \NetworkInterface\TotalTxErrors |計數 |
-| \NetworkInterface\TotalCollisions |計數 |
+| \NetworkInterface\TotalRxErrors |Count |
+| \NetworkInterface\TotalTxErrors |Count |
+| \NetworkInterface\TotalCollisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>常用的 Web (伺服器陣列) 度量
 您也可以根據常用的 Web 伺服器度量 (如 Http 佇列長度) 執行自動調整。 它的計量名稱是 **HttpQueueLength**。  下一節會列出可用的伺服器陣列 (Web Apps) 度量。
@@ -149,8 +149,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | --- | --- |
 | CpuPercentage |Percent |
 | MemoryPercentage |Percent |
-| DiskQueueLength |計數 |
-| HttpQueueLength |計數 |
+| DiskQueueLength |Count |
+| HttpQueueLength |Count |
 | BytesReceived |位元組 |
 | BytesSent |位元組 |
 

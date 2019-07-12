@@ -51,7 +51,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>Response
 
-|名稱  |類型  |描述  |
+|名稱  |type  |描述  |
 |---------|---------|---------|
 |200 確定     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | [確定]        |
 

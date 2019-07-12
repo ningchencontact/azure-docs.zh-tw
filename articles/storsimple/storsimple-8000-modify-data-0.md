@@ -23,7 +23,7 @@ ms.locfileid: "60631578"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>修改 StorSimple 8000 系列裝置上的 DATA 0 網路介面設定
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft Azure StorSimple 裝置有 6 個網路介面，從 DATA 0 至 DATA 5。 DATA 0 介面一律透過 Windows PowerShell 介面或序列主控台設定，且已自動啟用雲端功能。 請注意，您無法透過 Azure 入口網站設定 DATA 0 網路介面。
 

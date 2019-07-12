@@ -31,18 +31,18 @@ ms.locfileid: "64711922"
 
 藉由使用 Azure 生態系統內的網路監看員、警示及函式，您可以使用資料和工具主動回應以解決網路中的問題。
 
-![案例][scenario]
+![狀況][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 最新版的 [Azure PowerShell](/powershell/azure/install-Az-ps)。
 * 網路監看員的現有執行個體。 如果您還沒有，請[建立網路監看員執行個體](network-watcher-create.md)。
 * 在含有 [Windows 擴充功能](../virtual-machines/windows/extensions-nwa.md)或 [Linux 虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)的網路監看員所在區域中的現有虛擬機器。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 在此範例中，您的 VM 將傳送比平常還要多的 TCP 區段，而且您想要收到警示。 此處使用 TCP 區段做為範例，但您可以使用任何警示條件。
 
@@ -92,7 +92,7 @@ ms.locfileid: "64711922"
     |---|---|---|
     |**案例**|實驗性|案例類型|
     |**函式命名**|AlertPacketCapturePowerShell|函式的名稱|
-    |**授權層級**|函式|函式的授權層級|
+    |**授權層級**|函數|函式的授權層級|
 
 ![函式範例][functions1]
 
@@ -149,7 +149,7 @@ ms.locfileid: "64711922"
 
     ![PowerShell 檔案][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 若要使用 PowerShell Cmdlet，您必須進行驗證。 您可以在函數應用程式中設定驗證。 若要設定驗證，您必須設定環境變數，並將加密金鑰檔案上傳至函數應用程式。
 
@@ -347,7 +347,7 @@ $Encryptedpassword
   |**設定** | **值** | **詳細資料** |
   |---|---|---|
   |**名稱**|TCP_Segments_Sent_Exceeded|警示規則的名稱。|
-  |**說明**|傳送的 TCP 區段超出閾值|警示規則的描述。|
+  |**描述**|傳送的 TCP 區段超出閾值|警示規則的描述。|
   |**計量**|傳送的 TCP 區段| 用以觸發警示的計量。 |
   |**Condition**|大於| 評估計量所用的條件。|
   |**閾值**|100| 觸發警示的計量值。 此值應該設為您環境的有效值。|

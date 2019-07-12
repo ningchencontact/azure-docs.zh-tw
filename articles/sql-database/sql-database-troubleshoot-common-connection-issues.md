@@ -21,7 +21,7 @@ ms.locfileid: "60331429"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>針對 Azure SQL Database 連線問題進行疑難排解
 
-連線到 Azure SQL Database 失敗時，您會收到 [錯誤訊息](sql-database-develop-error-messages.md)。 本文是一个集中介绍对 Azure SQL 数据库连接问题进行故障排除的主题。 本文除了介紹連線問題的[常見原因](#cause)，還推薦可協助您識別問題的[疑難排解工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，以及提供疑難排解步驟來解決[暫時性錯誤](#troubleshoot-transient-errors)和[持續性或非暫時性錯誤](#troubleshoot-persistent-errors)。 
+連線到 Azure SQL Database 失敗時，您會收到 [錯誤訊息](sql-database-develop-error-messages.md)。 本文是集中式主題，可協助您針對 Azure SQL Database 連線問題進行疑難排解。 本文除了介紹連線問題的[常見原因](#cause)，還推薦可協助您識別問題的[疑難排解工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，以及提供疑難排解步驟來解決[暫時性錯誤](#troubleshoot-transient-errors)和[持續性或非暫時性錯誤](#troubleshoot-persistent-errors)。 
 
 如果您遇到連線問題，請嘗試本文中所述的疑難排解步驟。
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "60331429"
 
 ## <a name="troubleshoot-transient-errors"></a>針對暫時性錯誤進行疑難排解
 
-当应用程序连接到 Azure SQL 数据库时，你会收到以下错误消息：
+當應用程式連接到 Azure SQL 資料庫時，您會收到下列錯誤訊息︰
 
 ```
 Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
@@ -76,7 +76,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 * 使用者錯誤︰例如，輸入錯誤的連線參數，例如連接字串中的伺服器名稱。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解決永久性連線問題的步驟
-1. 设置[防火墙规则](sql-database-configure-firewall-settings.md)以允许客户端 IP 地址。 對於臨時測試用途，請設定防火牆規則並使用 0.0.0.0 做為起始 IP 位址範圍，並使用 255.255.255.255 做為結束 IP 位址範圍。 這樣會開放伺服器供所有 IP 位址存取。 若這樣可解決您的連線問題，請移除此規則並針對已適當限制的 IP 位址或位址範圍建立防火牆規則。 
+1. 設定 [防火牆規則](sql-database-configure-firewall-settings.md) 允許用戶端 IP 位址。 對於臨時測試用途，請設定防火牆規則並使用 0.0.0.0 做為起始 IP 位址範圍，並使用 255.255.255.255 做為結束 IP 位址範圍。 這樣會開放伺服器供所有 IP 位址存取。 若這樣可解決您的連線問題，請移除此規則並針對已適當限制的 IP 位址或位址範圍建立防火牆規則。 
 2. 在用戶端與網際網路之間的所有防火牆上，請確定開放連接埠 1433 供輸出連線使用。 檢閱[設定 Windows 防火牆以允許 SQL Server 存取](https://msdn.microsoft.com/library/cc646023.aspx)與[混合式身分識別所需的連接埠與通訊協定 (英文)](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) 以取得有關必須針對 Azure Active Directory 驗證開放之其他連接埠的其他詳細資訊。
 3. 請確認您的連接字串和其他連線設定。 請參閱 [連線能力問題主題](sql-database-connectivity-issues.md#connections-to-sql-database)中的「連接字串」一節。
 4. 檢查儀表板中的服務健全狀況。 如果您認為沒有區域性停電，請參閱 [從中斷復原](sql-database-disaster-recovery.md) 以了解復原到新區域的步驟。
@@ -88,5 +88,5 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 ## <a name="additional-resources"></a>其他資源
 * [SQL Database 開發概觀](sql-database-develop-overview.md)
 * [一般暫時性錯誤處理指引](../best-practices-retry-general.md)
-* [SQL 数据库和 SQL Server 的连接库](sql-database-libraries.md)
+* [SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md)
 

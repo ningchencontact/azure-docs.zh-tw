@@ -63,7 +63,7 @@ Azure 地圖服務 Web SDK 支援下列行動瀏覽器：
 
 ## <a name="Target-Legacy-Browsers"></a>目標的舊版瀏覽器
 
-您可能想要為目標，不支援 WebGL 或，僅受限於支援較舊的瀏覽器。 在此情況下，我們建議您使用 Azure Maps 服務，搭配開放原始碼對應控制項，如同[破爛](https://leafletjs.com/)。 以下是範例：
+您可能想要為目標，不支援 WebGL 或，僅受限於支援較舊的瀏覽器。 在此情況下，我們建議您使用 Azure Maps 服務，搭配開放原始碼對應控制項，如同[破爛](https://leafletjs.com/)。 以下為範例：
 
 <br/>
 

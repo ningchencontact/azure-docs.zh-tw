@@ -24,7 +24,7 @@ ms.locfileid: "62123800"
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務管理 StorSimple Virtual Array
 ![安裝程序流程](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文描述 StorSimple 裝置管理員服務介面，包括如何連接它和各種可用的選項，並提供可以透過此 UI 執行的特定工作流程的連結。
 
 閱讀本文之後，您將了解如何：

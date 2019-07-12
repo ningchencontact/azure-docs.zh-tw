@@ -264,7 +264,7 @@ Azure AD 無法識別 HTTP 要求中 URL 參數內的 SAML 要求。 如果應�
 
 6.  選取您要設為單一登入的應用程式。
 
-7.  在應用程式載入後，開啟 [基本 SAML 組態]  。 在 **回覆 URL (判斷提示取用者服務 URL)** ，由系統建立刪除未使用 或 預設回覆 Url。 例如： `https://127.0.0.1:444/applications/default.aspx`。
+7.  在應用程式載入後，開啟 [基本 SAML 組態]  。 在 **回覆 URL (判斷提示取用者服務 URL)** ，由系統建立刪除未使用 或 預設回覆 Url。 例如： `https://127.0.0.1:444/applications/default.aspx` 。
 
 
 

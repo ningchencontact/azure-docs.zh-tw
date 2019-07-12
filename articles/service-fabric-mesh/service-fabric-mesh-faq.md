@@ -32,7 +32,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>核心和 RAM 數目是否有配額限制？
 
-是。 每個訂用帳戶的配額如下：
+是的。 每個訂用帳戶的配額如下：
 
 - 應用程式數目：5
 - 每個應用程式的核心數目：12

@@ -25,7 +25,7 @@ ms.locfileid: "61454485"
 
 如果您偏好模擬裝置，請參閱[建立及測試新模擬裝置](iot-accelerators-remote-monitoring-create-simulated-device.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此操作指南中的步驟，您需要執行 Ubuntu 版本 15.04 或更新版本的裝置。 繼續之前，請先[設定 Linux 開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) \(英文\)。
 

@@ -30,10 +30,10 @@ ms.locfileid: "61478550"
 </Metadata>  
 ```
   
-|XML 元素|類型|描述|  
+|XML 元素|type|描述|  
 |-----------------|----------|-----------------|  
 |`Metadata`|根元素|中繼資料檔案的根項目。|  
-|`metadata-name`|字串|選用。 XML 元素可指定 blob 的中繼資料名稱，而其值可指定中繼資料設定的值。|  
+|`metadata-name`|字串|選擇性。 XML 元素可指定 blob 的中繼資料名稱，而其值可指定中繼資料設定的值。|  
   
 ## <a name="properties-file-format"></a>屬性檔案格式  
 屬性檔案的格式如下所示：  
@@ -52,17 +52,17 @@ ms.locfileid: "61478550"
 </Properties>  
 ```
   
-|XML 元素|類型|描述|  
+|XML 元素|type|描述|  
 |-----------------|----------|-----------------|  
 |`Properties`|根元素|屬性檔案的根元素。|  
-|`Last-Modified`|字串|選用。 Blob 上次修改時間。 僅限匯出作業。|  
-|`Etag`|字串|選用。 Blob 的 ETag 值。 僅限匯出作業。|  
-|`Content-Length`|字串|選用。 Blob 大小 (以位元組為單位)。 僅限匯出作業。|  
-|`Content-Type`|字串|選用。 Blob 的內容類型。|  
-|`Content-MD5`|字串|選用。 Blob 的 MD5 雜湊。|  
-|`Content-Encoding`|字串|選用。 Blob 的內容編碼。|  
-|`Content-Language`|字串|選用。 Blob 的內容語言。|  
-|`Cache-Control`|字串|選用。 Blob 的快取控制字串。|  
+|`Last-Modified`|字串|選擇性。 Blob 上次修改時間。 僅限匯出作業。|  
+|`Etag`|字串|選擇性。 Blob 的 ETag 值。 僅限匯出作業。|  
+|`Content-Length`|字串|選擇性。 Blob 大小 (以位元組為單位)。 僅限匯出作業。|  
+|`Content-Type`|字串|選擇性。 Blob 的內容類型。|  
+|`Content-MD5`|字串|選擇性。 Blob 的 MD5 雜湊。|  
+|`Content-Encoding`|字串|選擇性。 Blob 的內容編碼。|  
+|`Content-Language`|字串|選擇性。 Blob 的內容語言。|  
+|`Cache-Control`|字串|選擇性。 Blob 的快取控制字串。|  
 
 ## <a name="next-steps"></a>後續步驟
 

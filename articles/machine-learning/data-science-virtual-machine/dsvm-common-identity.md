@@ -59,7 +59,7 @@ Azure AD DS 可透過在 Azure 上提供完全受控的服務，讓您輕鬆地�
     
    g. 在 [使用者]  中，選取 [建立]  。
     
-   h.如果该值不存在，请单击“添加行”。 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
+   h. 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
 
 1. 建立 Azure AD DS 執行個體。 請依照[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)一文 (工作 1 到 5) 中的指示進行操作。 請務必更新 Active Directory 中現有的使用者密碼，以便同步 Azure AD DS 中的密碼。 也請務必將 DNS 新增至 Azure AD DS，如上文的工作 4 所述。 
 

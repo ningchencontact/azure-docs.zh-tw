@@ -24,7 +24,7 @@ ms.locfileid: "64938706"
 
 快速入門 Azure VM 部署範本，可以線上檔案 [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json) 的形式取得。  該範本包含下列參數：
 
-|  **參數**        |   **說明**                                 |
+|  **參數**        |   **描述**                                 |
 |  -------------        |   ---------------                                 |
 | newStorageAccountName | 儲存體帳戶的名稱                       |
 | dnsNameForPublicIP    | 公用 IP 的 DNS 名稱。 必須是小寫字母。    |

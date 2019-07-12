@@ -23,7 +23,7 @@ ms.locfileid: "61481897"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>停用及刪除 StorSimple 裝置
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明如何停用及刪除已連線至 StorSimple 裝置管理員服務的 StorSimple 裝置。 本文中的指導僅適用於包含 StorSimple 雲端設備的 StorSimple 8000 系列裝置。 如果您使用 StorSimple Virtual Array，請移至[停用及刪除 StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md)。
 

@@ -166,8 +166,8 @@ module.exports = async function(context, instanceId) {
 * **`id` (必要)** ：協調流程執行個體的識別碼。
 * **`show-input` (選用)** ：如果設定為`true`，回應會包含此函式的輸入。 預設值為 `false`。
 * **`show-output` (選用)** ：如果設定為`true`，回應會包含函式的輸出。 預設值為 `false`。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 下列命令會擷取 0ab8c55a66644d68a3a8b220b12d209c 的 協調流程執行個體識別碼的執行個體的狀態 （包括輸入和輸出）。 它會假設您正在`func`命令從函式應用程式的根目錄：
 
@@ -178,8 +178,8 @@ func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-inp
 您可以使用`durable get-history`命令來擷取協調流程執行個體的歷程記錄。 它需要以下參數：
 
 * **`id` (必要)** ：協調流程執行個體的識別碼。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定在 host.json 中，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定在 host.json 中，使用 durableTask:HubName。
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
@@ -229,8 +229,8 @@ module.exports = async function(context, req) {
 
 * **`top` (選用)** ：這個命令支援分頁。 此參數會對應至每個要求擷取的執行個體數目。 預設值為 10。
 * **`continuation-token` (選用)** ：指出頁面或區段的執行個體來擷取權杖。 每個 `get-instances` 執行都會將權杖傳回給下一組執行個體。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 ```bash
 func durable get-instances
@@ -299,8 +299,8 @@ module.exports = async function(context, req) {
 * **`runtime-status` (選用)** ：擷取特定狀態 （例如，執行或完成） 的執行個體。 可以提供多個狀態 (以空格分隔)。
 * **`top` (選用)** ：每個要求擷取的執行個體數目。 預設值為 10。
 * **`continuation-token` (選用)** ：指出頁面或區段的執行個體來擷取權杖。 每個 `get-instances` 執行都會將權杖傳回給下一組執行個體。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 如果您未提供任何篩選器 (`created-after`， `created-before`，或`runtime-status`)，此命令只會擷取`top`執行個體，而不考慮到執行階段狀態] 或 [建立時間。
 
@@ -349,8 +349,8 @@ module.exports = async function(context, instanceId) {
 
 * **`id` (必要)** ：要終止的協調流程執行個體的識別碼。
 * **`reason` (選用)** ：終止的原因。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 下列命令會終止協調流程的執行個體識別碼 0ab8c55a66644d68a3a8b220b12d209c:
 
@@ -404,10 +404,10 @@ module.exports = async function(context, instanceId) {
 您可以也會引發事件，以協調流程執行個體直接使用[Azure Functions Core Tools](../functions-run-local.md) `durable raise-event`命令。 它需要以下參數：
 
 * **`id` (必要)** ：協調流程執行個體的識別碼。
-* **`event-name` (選用)** ：所要引發事件的名稱。 預設值為 `$"Event_{RandomGUID}"`。
+* **`event-name` (選用)** ：所要引發事件的名稱。 預設為 `$"Event_{RandomGUID}"`。
 * **`event-data` (選用)** ：要傳送至協調流程執行個體的資料。 這可以是 JSON 檔案的路徑，或您可以直接在命令列上提供的資料。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -577,8 +577,8 @@ module.exports = async function(context, instanceId) {
 
 * **`id` (必要)** ：協調流程執行個體的識別碼。
 * **`reason` (選用)** ：倒轉協調流程執行個體的原因。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
@@ -631,8 +631,8 @@ public static Task Run(
 * **`created-after` (選用)** ：清除這個日期/時間 (UTC) 之後所建立執行個體的記錄。 可接受 ISO 8601 格式的日期時間。
 * **`created-before` (選用)** ：清除這個日期/時間 (UTC) 之前所建立執行個體的記錄。 可接受 ISO 8601 格式的日期時間。
 * **`runtime-status` (選用)** ：清除時 （例如，執行或完成） 的特定狀態的執行個體的記錄。 可以提供多個狀態 (以空格分隔)。
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 下列命令會刪除所有失敗的執行個體建立之前 2018 年 11 月 14 日下午 7:35 (UTC) 的歷程記錄。
 
@@ -644,8 +644,8 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 使用[Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub`命令時，您可以刪除所有與特定的工作中樞相關聯的儲存體成品。 這包括 Azure 儲存體資料表、佇列和 Blob。 此命令有兩個參數：
 
-* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設值為 `AzureWebJobsStorage`。
-* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設值為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
+* **`connection-string-setting` (選用)** ：應用程式設定的名稱，包含要使用的儲存體連接字串。 預設為 `AzureWebJobsStorage`。
+* **`task-hub-name` (選用)** ：若要使用 Durable Functions 工作中樞的名稱。 預設為 `DurableFunctionsHub`。 它也可以設定[host.json](durable-functions-bindings.md#host-json)，使用 durableTask:HubName。
 
 下列命令會刪除所有相關聯的 Azure 儲存體資料`UserTest`工作中樞。
 

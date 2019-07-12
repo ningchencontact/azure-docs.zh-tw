@@ -27,12 +27,12 @@ ms.locfileid: "61075242"
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小與計算大小
 
-針對 SQL Database 彈性集區，下表顯示每個服務層與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
+針對 SQL Database 彈性集區，下表顯示每個服務層級與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
 > [!IMPORTANT]
-> 有关缩放指南和注意事项，请参阅[缩放弹性池](sql-database-elastic-pool-scale.md)
+> 調整指引和考量，請參閱[調整彈性集區](sql-database-elastic-pool-scale.md)
 > [!NOTE]
-> 根據 DTU 和服務層，彈性集區中個別資料庫的資源限制通常與集區外部之單一資料庫的資源限制相同。 例如，S2 資料庫的並行背景工作數上限是 120 個背景工作。 因此，如果集區中每個資料庫的最大 DTU 是 50 DTU (這相當於 S2)，標準集區中的資料庫最大並行背景工作數上限也會是 120 個背景工作。
+> 根據 DTU 和服務層級，彈性集區中個別資料庫的資源限制通常與集區外部之單一資料庫的資源限制相同。 例如，S2 資料庫的並行背景工作數上限是 120 個背景工作。 因此，如果集區中每個資料庫的最大 DTU 是 50 DTU (這相當於 S2)，標準集區中的資料庫最大並行背景工作數上限也會是 120 個背景工作。
 
 ### <a name="basic-elastic-pool-limits"></a>基本彈性集區限制
 
@@ -88,7 +88,7 @@ ms.locfileid: "61075242"
 | 每個集區的記憶體內部 OLTP 儲存體上限 (GB) | 1 | 2 | 4 | 10 | 12 |
 | 每個集區的最大 DB 數 | 50 | 100 | 100 | 100 | 100 |
 | 每個集區的並行背景工作 (要求) 數上限 | 200 | 400 | 800 | 1600 | 2400 |
-| 每个池的最大并发会话数 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| 每集區並行工作階段數上限 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | 每資料庫的 eDTU 下限 | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 |
 | 每資料庫的 eDTU 上限 | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
 | 每個資料庫的儲存體上限 (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |

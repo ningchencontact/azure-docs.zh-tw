@@ -35,7 +35,7 @@ Azure 媒體服務支援在具備 DRM 保護的情況下離線下載/播放。 �
 - [適用於 iOS 的離線 FairPlay 串流](media-services-protect-hls-with-offline-fairplay.md)
 - [適用於 Android 的離線 Widevine 串流](offline-widevine-for-android.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本節提供一些離線模式播放的背景資訊，尤其是開發該技術的原因：
 

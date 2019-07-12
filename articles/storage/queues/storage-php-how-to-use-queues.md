@@ -22,7 +22,7 @@ ms.locfileid: "65951207"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是透過[適用於 PHP 的 Azure 儲存體用戶端程式庫][download]的類別所撰寫。 所涵蓋的案例包括插入、查看、取得和刪除佇列訊息，以及建立和刪除佇列。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]

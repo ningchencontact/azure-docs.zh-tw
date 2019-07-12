@@ -93,7 +93,7 @@ import logging, getpass, pprint, uuid, time
 
 請執行此指令碼以確認可將模組匯入。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>使用快顯視窗進行互動式使用者驗證
 

@@ -82,7 +82,7 @@ ms.locfileid: "61471876"
 
     下表列出內容中每個變數的名稱和描述。
 
-    | **變數名稱** | **說明** |
+    | **變數名稱** | **描述** |
     | --- | --- |
     | RecoveryPlanName |正在執行之方案的名稱。 此變數可協助您根據復原方案名稱，而採取不同的動作。 您也可以重複使用指令碼。 |
     | FailoverType |指定容錯移轉是測試、已計劃，還是未計劃。 |
@@ -93,7 +93,7 @@ ms.locfileid: "61471876"
     | SubscriptionId |建立 VM 的 Azure 訂用帳戶識別碼。 |
     | RoleName |正在復原之 Azure VM 的名稱。 |
     | CloudServiceName |在其下建立 VM 的 Azure 雲端服務名稱。 |
-    | resourceGroupName|在其下建立 VM 的 Azure 資源群組名稱。 |
+    | ResourceGroupName|在其下建立 VM 的 Azure 資源群組名稱。 |
     | RecoveryPointId|VM 復原時間的時間戳記。 |
 
 * 確定自動化帳戶具有下列模組：

@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508391"
 ---
 # <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 下列清單包含重要的研發/測試實驗室概念和定義：
 
 ## <a name="labs"></a>實驗室

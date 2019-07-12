@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629283"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0.2 和 0.1 版本資訊
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 下列版本資訊指出 Microsoft Azure StorSimple Virtual Array 更新的重大未決問題和已解決問題。 (Microsoft Azure StorSimple Virtual Array 也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置。) 
 
 版本資訊會持續更新，並在發現需要提出因應措施的重大問題時有所增補。 部署 StorSimple 虛擬裝置之前，請仔細檢閱版本資訊中所含的資訊。
@@ -54,7 +54,7 @@ Update 0.1 包含下列的錯誤修復和改善。
 ## <a name="issues-fixed-in-the-update-01"></a>Update 0.1 中修正的問題
 下表提供本版已修正問題的摘要。
 
-| 沒有。 | 功能 | 問題 |
+| 資料分割 | 功能 | 問題 |
 | --- | --- | --- |
 | 1 |VMDK |過去在某些 VMware 版本中，OS 磁碟視為疏鬆，從而導致警示並會中斷正常作業。 本版已修正這個問題。 |
 | 2 |iSCSI 伺服器 |在上個版本中，使用者需要為 StorSimple 虛擬裝置每個已啟用的網路介面指定閘道器。 本版已變更這種行為，所以使用者必須為所有已啟用的網路介面設定至少一個閘道器。 |

@@ -26,7 +26,7 @@ ms.locfileid: "64719822"
 > [!NOTE] 
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptom"></a>徵狀 
+## <a name="symptom"></a>徵兆 
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.md)中的開機螢幕擷取畫面時，您在藍色畫面中看到下列其中一個錯誤訊息：
 

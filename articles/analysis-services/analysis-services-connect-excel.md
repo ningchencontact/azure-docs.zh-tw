@@ -41,7 +41,7 @@ ms.locfileid: "61023243"
     ![從 Excel 選取模型來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [用戶端程式庫](analysis-services-data-providers.md)   
 [管理您的伺服器](analysis-services-manage.md)     

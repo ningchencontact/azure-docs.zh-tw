@@ -23,7 +23,7 @@ ms.locfileid: "64922891"
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Configuration Manager 連線至 Azure 監視器
 您可以將 System Center Configuration Manager 環境連接到 Azure 監視器來同步處理裝置集合資料，並參考 Azure 監視器和 Azure 自動化中的這些集合。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure 監視器支援 System Center Configuration Manager 最新分支，1606年版和更高版本。  
 

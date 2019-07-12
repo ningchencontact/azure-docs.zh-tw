@@ -23,7 +23,7 @@ ms.locfileid: "60935752"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>適用於 Azure Active Directory 的 Atlassian Jira 和 Confluence 管理員指南
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsoft Azure AD 客戶使用工作或學校帳戶登入 Atlassian Jira 和 Confluence 伺服器架構的產品。 它會實作以 SAML 2.0 為基礎的 SSO。
 
@@ -53,7 +53,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 * 從公司網路外部也可以使用 Jira 或 Confluence。
 * 外掛程式只能在內部部署版本的 Jira 和 Confluence 中運作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 安裝外掛程式之前，請注意下列資訊：
 
@@ -180,7 +180,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>此外掛程式可否在雲端版本上運作？
 
-沒有。 此外掛程式僅支援內部部署版本的 Jira 和 Confluence。
+資料分割 此外掛程式僅支援內部部署版本的 Jira 和 Confluence。
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>此外掛程式支援哪些 Jira 和 Confluence 版本？
 
@@ -224,7 +224,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>此外掛程式是否可與 Azure AD 以外的 IdP 搭配運作？
 
-沒有。 它只能與 Azure AD 搭配運作。
+資料分割 它只能與 Azure AD 搭配運作。
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>此外掛程式可以與哪個版本的 SAML 搭配運作？
 
@@ -232,12 +232,12 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>此外掛程式會進行使用者佈建嗎？
 
-沒有。 此外掛程式只提供以 SAML 2.0 為基礎的 SSO。 必須在使用 SSO 登入之前，於應用程式中佈建使用者。
+資料分割 此外掛程式只提供以 SAML 2.0 為基礎的 SSO。 必須在使用 SSO 登入之前，於應用程式中佈建使用者。
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>此外掛程式支援叢集版本的 Jira 和 Confluence 嗎？
 
-沒有。 此外掛程式與內部部署版本的 Jira 和 Confluence 搭配使用。
+資料分割 此外掛程式與內部部署版本的 Jira 和 Confluence 搭配使用。
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>此外掛程式能與 HTTP 版本的 Jira 和 Confluence 搭配使用嗎？
 
-沒有。 此外掛程式只能與已啟用 HTTPS 的安裝搭配運作。
+資料分割 此外掛程式只能與已啟用 HTTPS 的安裝搭配運作。

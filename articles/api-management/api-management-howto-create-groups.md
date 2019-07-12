@@ -38,7 +38,7 @@ API 管理具有下列不可變的系統群組：
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成這篇文章中的工作：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
 

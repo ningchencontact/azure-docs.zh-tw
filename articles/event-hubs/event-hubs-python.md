@@ -31,7 +31,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 - [從事件中樞接收事件](#receive-events-from-event-hubs)
 - 從 Azure 儲存體讀取已擷取的事件資料。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 依照下列其中一個快速入門來建立事件中樞：[Azure 入口網站](event-hubs-create.md)、[Azure CLI](event-hubs-quickstart-cli.md)、[Azure PowerShell](event-hubs-quickstart-powershell.md)、[Azure Resource Manager 範本](event-hubs-resource-manager-namespace-event-hub.md)。 
 - 在機器上安裝 Python 3.4 或更新版本。
 

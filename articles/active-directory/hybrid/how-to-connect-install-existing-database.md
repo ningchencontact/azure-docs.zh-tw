@@ -81,7 +81,7 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 A
    ![歡迎使用](./media/how-to-connect-install-existing-database/db7.png)
  
  
-1. 一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 单击“下一步”  。
+1. 一旦提供認證後，紅色十字圖示會取代為綠色勾號圖示。 按一下 [下一步]  。
    ![歡迎使用](./media/how-to-connect-install-existing-database/db8.png)
  
  

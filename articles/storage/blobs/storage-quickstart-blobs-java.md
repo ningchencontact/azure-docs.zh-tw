@@ -23,7 +23,7 @@ ms.locfileid: "65154406"
 > [!TIP]
 > 適用於 Java 的最新 Azure 儲存體用戶端程式庫版本是 v10。 Microsoft 建議您盡可能使用最新版的用戶端程式庫。 若要開始使用 v10，請參閱[快速入門：使用 Java Storage SDK V10 上傳、下載及列出 Blob](storage-quickstart-blobs-java-v10.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

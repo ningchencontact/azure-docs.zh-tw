@@ -24,7 +24,7 @@ ms.locfileid: "60630263"
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>使用 Web UI 來管理 StorSimple Virtual Array
 ![安裝程序流程](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文中的教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置)。 本文將說明一些可以在 StorSimple Virtual Array 執行的複雜工作流程和管理工作。 您可以使用 StorSimple Manager 服務 UI (又稱為入口網站 UI) 和裝置的本機 Web UI 來管理 StorSimple Virtual Array。 本文著重於可使用 Web UI 執行的工作。
 
 本文包含下列教學課程：
@@ -84,7 +84,7 @@ ms.locfileid: "60630263"
 2. 按一下頁面底部的 [關閉]  。
    
     ![裝置關閉 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. 會出現警告，指出關閉裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示 ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png)上也提供本文中使用的原始碼。
+3. 會出現警告，指出關閉裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示 ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png)。
    
     ![裝置關閉警告](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -99,7 +99,7 @@ ms.locfileid: "60630263"
 2. 按一下頁面底部的 [重新啟動]  。
    
     ![裝置重新啟動](./media/storsimple-ova-web-ui-admin/image36.png)
-3. 會出現警告，指出重新啟動裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示 ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png)上也提供本文中使用的原始碼。
+3. 會出現警告，指出重新啟動裝置將中斷已在進行的任何 IO，因而導致停機。 按一下核取圖示 ![核取圖示](./media/storsimple-ova-web-ui-admin/image3.png)。
    
     ![重新啟動警告](./media/storsimple-ova-web-ui-admin/image37.png)
    

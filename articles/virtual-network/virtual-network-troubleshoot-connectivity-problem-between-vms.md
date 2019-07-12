@@ -27,7 +27,7 @@ ms.locfileid: "61036248"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 某個 Azure VM 無法連線至另一個 Azure VM。
 

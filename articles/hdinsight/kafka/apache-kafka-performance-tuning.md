@@ -38,7 +38,7 @@ Apache Kafka 的效能會有兩個主要部分 – 輸送量和延遲。 輸送�
 
 下列各節將強調一些最重要的組態屬性，來最佳化您的 Kafka 產生者的效能。 所有的組態屬性的詳細說明，請參閱 <<c0> [ 生產者組態上的 Apache Kafka 文件](https://kafka.apache.org/documentation/#producerconfigs)。
 
-### <a name="batch-size"></a>批大小
+### <a name="batch-size"></a>批次大小
 
 Apache Kafka 產生者組合的訊息 （稱為批次） 會當做一個單位傳送至儲存在單一儲存體磁碟分割中的群組。 批次大小表示必須要有該群組傳送之前的位元組數目。 增加`batch.size`參數可以增加輸送量，因為它可以減少額外負荷與網路 IO 要求的處理。 承擔的負載增加的批次大小可能會增加產生者等待批次才能備妥 Kafka 傳送延遲。 負載量大時，建議您增加批次大小，以改善輸送量和延遲。
 

@@ -22,7 +22,7 @@ ms.locfileid: "65209698"
 
 下表提供我們的範例儲存機制和每個範例所涵蓋案例的概觀。 按一下連結即可檢視 GitHub 中對應的範例程式碼。
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">端點</th><th style="font-size:110%">案例</th><th style="font-size:110%">範例程式碼</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">端點</th><th style="font-size:110%">狀況</th><th style="font-size:110%">範例程式碼</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>附加 Blob</td> 

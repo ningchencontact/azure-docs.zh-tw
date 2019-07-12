@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319542"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 本機固定磁碟區︰常見問題集 (FAQ)
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 以下是在建立 StorSimple 本機固定磁碟區、將階層式磁碟區轉換成本機固定磁碟區 (反之亦然)，或備份及還原本機固定磁碟區時，您可能會有的問題和解答。
 
 問題和解答可分為下列幾個類別：

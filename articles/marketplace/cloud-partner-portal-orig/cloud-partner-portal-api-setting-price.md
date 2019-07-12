@@ -128,7 +128,7 @@ ms.locfileid: "64935744"
 | HU         | 匈牙利              | HUF               |
 | IS         | 冰島              | ISK               |
 | IN         | 印度                | INR               |
-| ID         | 印尼            | IDR               |
+| id         | 印尼            | IDR               |
 | IE         | 愛爾蘭              | 歐元               |
 | IL         | 以色列               | ILS               |
 | IT         | 義大利                | 歐元               |
