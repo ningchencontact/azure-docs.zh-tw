@@ -35,7 +35,7 @@ ms.locfileid: "67075740"
 
 自動修補相依於 [SQL Server IaaS 代理程式擴充](virtual-machines-windows-sql-server-agent-extension.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用自動修補，請考慮下列必要條件︰
 
 **作業系統**：

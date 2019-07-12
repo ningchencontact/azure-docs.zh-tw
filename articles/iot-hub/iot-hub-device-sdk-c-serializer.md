@@ -64,17 +64,17 @@ END_NAMESPACE(WeatherStation);
 
 利用 **序列化程式** 程式庫建立的模型支援下列資料類型：
 
-| 類型 | 描述 |
+| type | 描述 |
 | --- | --- |
 | double |雙精確度浮點數 |
-| int |32 位元整數 |
+| ssNoversion |32 位元整數 |
 | float |單精確度浮點數 |
 | long |長整數 |
 | int8\_t |8 位元整數 |
 | int16\_t |16 位元整數 |
 | int32\_t |32 位元整數 |
 | int64\_t |64 位元整數 |
-| 布林 |boolean |
+| bool |boolean |
 | ascii\_char\_ptr |ASCII 字串 |
 | EDM\_DATE\_TIME\_OFFSET |日期時間位移 |
 | EDM\_GUID |GUID |

@@ -4,15 +4,15 @@ description: 如何從網頁瀏覽器連線到 Windows 虛擬桌面預覽。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f6bb7c414c38eaa605d259195218c461ddb0ca7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65834020"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620171"
 ---
 # <a name="connect-from-a-web-browser"></a>從網頁瀏覽器連線
 
@@ -25,7 +25,7 @@ Web 用戶端可讓您存取您的 Windows 虛擬桌面預覽資源從網頁瀏�
 
 任何支援 HTML5 的瀏覽器應該可行，我們正式支援下列作業系統和瀏覽器。
 
-| [瀏覽器]           | 支援的 OS                     | 注意               |
+| Browser           | 支援的 OS                     | 注意               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

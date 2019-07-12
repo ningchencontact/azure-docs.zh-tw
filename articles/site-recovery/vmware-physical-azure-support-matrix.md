@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/07/2019
 ms.author: raynew
-ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 1d54f2847f7c37631374653bf291aadf091f3328
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491651"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805941"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -83,15 +83,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **支援的版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-14.04 LTS | [9.24][9.25 UR]  | 3.13.0-169-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-146-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1042-azure 4.15.0-1023-azure |
+14.04 LTS | [9.26][9.26 UR]| 3.13.0-170-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-148-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1045-azure 4.15.0-1023-azure |
+14.04 LTS | [9.25][9.25 UR]  | 3.13.0-169-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-146-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1042-azure 4.15.0-1023-azure |
 14.04 LTS | [9.24][9.24 UR] | 3.13.0-167-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-143-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1040-azure 4.15.0-1023-azure |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-165-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-142-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1037-azure 4.15.0-1023-azure |
-14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic 至 3.13.0-164-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1036-azure |
 |||
+16.04 LTS | [9.26][9.26 UR] | 4.4.0-148-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-50-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1045-azure 4.15.0-1012-azure|
 16.04 LTS | [9.25][9.25 UR] | 4.4.0-146-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-48-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1042-azure 4.15.0-1012-azure|
 16.04 LTS | [9.24][9.24 UR] | 4.4.0-143-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-46-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1040-azure 4.15.0-1012-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-142-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-45-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1037-azure 4.15.0-1012-azure|
-16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-43-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1036-azure|
 
 ### <a name="debian-kernel-versions"></a>Debian 核心版本
 
@@ -108,10 +108,10 @@ Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR]， [9.24][9.24 UR] | 3.16.0-4-amd64 �
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.26][9.26 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> 若要 3.12.74-60.64.110-default SP1(LTSS) 3.12.74-60.64.45-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.109-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.178-94.91-default SP3 4.4.73-5-default</br></br>若要 4.4.178-4.28-azure SP3 4.4.138-4.7-azure</br></br>若要 4.12.14-95.16-default SP4 4.12.14-94.41-default</br>若要 4.12.14-6.9-azure SP4 4.12.14-6.3-azure |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.25][9.25 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.104-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.176-94.88-default SP3 4.4.73-5-default</br></br>若要 4.4.176-4.25-azure SP3 4.4.138-4.7-azure</br></br>若要 4.12.14-95.13-default SP4 4.12.14-94.41-default</br>若要 4.12.14-6.9-azure SP4 4.12.14-6.3-azure |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.24][9.24 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.175-94.79-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.23][9.23 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.69-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 檔案系統/客體儲存體
@@ -132,7 +132,7 @@ BTRFS | 從支援 BTRFS[更新彙總套件 34](https://support.microsoft.com/hel
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
 
-**Action** | **詳細資料**
+**動作** | **詳細資料**
 --- | ---
 在複寫的 VM 上調整磁碟大小 | 支援。
 在複寫的 VM 上新增磁碟 | 不支援。<br/> 停用 VM 的複寫、 新增磁碟，然後再重新啟用複寫。
@@ -142,15 +142,15 @@ BTRFS | 從支援 BTRFS[更新彙總套件 34](https://support.microsoft.com/hel
 **元件** | **支援**
 --- | ---
 主機網路 NIC 小組 | 支援 VMware VM。 <br/><br/>不支援實體機器複寫。
-主機網路 VLAN | 是。
-主機網路 IPv4 | 是。
-主機網路 IPv6 | 沒有。
-客體/伺服器網路 NIC 小組 | 沒有。
-客體/伺服器網路 IPv4 | 是。
-客體/伺服器網路 IPv6 | 沒有。
-客體/伺服器網路靜態 IP (Windows) | 是。
-客體/伺服器網路靜態 IP (Linux) | 是。 <br/><br/>VM 設定為在容錯回復時使用 DHCP。
-客體/伺服器網路多重 NIC | 是。
+主機網路 VLAN | 是的。
+主機網路 IPv4 | 是的。
+主機網路 IPv6 | 資料分割
+客體/伺服器網路 NIC 小組 | 資料分割
+客體/伺服器網路 IPv4 | 是的。
+客體/伺服器網路 IPv6 | 資料分割
+客體/伺服器網路靜態 IP (Windows) | 是的。
+客體/伺服器網路靜態 IP (Linux) | 是的。 <br/><br/>VM 設定為在容錯回復時使用 DHCP。
+客體/伺服器網路多重 NIC | 是的。
 
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM 網路 (容錯移轉後)
@@ -193,8 +193,8 @@ Docker 磁碟設定 | 否
 客體/伺服器 熱新增/移除磁碟 | 否
 客體/伺服器 - 排除磁碟 | 是
 客體/伺服器多重路徑 (MPIO) | 否
-客體/伺服器 GPT 磁碟分割 | 從支援五個資料分割[更新彙總套件 37](https://support.microsoft.com/help/4508614/) （行動服務版本 9.25） 及更新版本。 四個支援先前。
-客體/伺服器 EFI/UEFI 開機 | -當您執行行動服務版本 9.13 或更新版本支援。<br/> -移轉 VMware Vm 或實體伺服器執行 Windows Server 2012 或更新版本支援至 Azure。<br/> -您只可以將 Vm 複寫進行移轉。 不支援容錯回復至內部部署。<br/> -只支援 NTFS 與不支援安全的 UEFI 開機類型。 <br/> 磁碟磁區大小應該是 512 個位元組，每個實體磁區。
+客體/伺服器 GPT 磁碟分割 | 從支援五個資料分割[更新彙總套件 37](https://support.microsoft.com/help/4508614/) （行動服務版本 9.25） 及更新版本。 先前只支援四個。
+客體/伺服器 EFI/UEFI 開機 | -當您執行行動服務版本 9.13 或更新版本支援。<br/> -移轉 VMware Vm 或實體伺服器執行 Windows Server 2012 或更新版本支援至 Azure。<br/> -您只可以將 Vm 複寫進行移轉。 不支援容錯回復至內部部署。<br/> -只支援 NTFS <br/> -不支援安全的 UEFI 開機類型。 <br/> 磁碟磁區大小應該是 512 個位元組，每個實體磁區。
 
 ## <a name="replication-channels"></a>複寫通道
 
@@ -217,7 +217,7 @@ Docker 磁碟設定 | 否
 -待用加密 (SSE)| 是
 進階儲存體 | 是
 匯入/匯出服務 | 否
-適用於 Vnet 的 azure 儲存體防火牆 | 是。<br/> 在 目標儲存體/快取儲存體帳戶 （用來儲存複寫資料） 上設定。
+適用於 Vnet 的 azure 儲存體防火牆 | 是的。<br/> 在 目標儲存體/快取儲存體帳戶 （用來儲存複寫資料） 上設定。
 一般用途 v2 儲存體帳戶 （經常性存取與非經常性存取層） | 是 （成本是相較於 V1 的 v2 較高的交易）
 
 ## <a name="azure-compute"></a>Azure 計算
@@ -276,7 +276,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 ## <a name="vault-tasks"></a>保存庫工作
 
-**Action** | **支援**
+**動作** | **支援**
 --- | ---
 在資源群組間移動保存庫 | 否
 移動保存庫內及跨訂用帳戶 | 否
@@ -286,7 +286,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 ## <a name="obtain-latest-components"></a>取得最新的元件
 
-**名稱** | **說明** | **詳細資料**
+**名稱** | **描述** | **詳細資料**
 --- | --- | ---
 組態伺服器 | 安裝在內部。<br/> 協調內部部署 VMware 伺服器或實體機器，與 Azure 之間的通訊。 | - [深入了解](vmware-physical-azure-config-process-server-overview.md)組態伺服器。<br/> - [深入了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)升級至最新版本。<br/> - [深入了解](vmware-azure-deploy-configuration-server.md)設定組態伺服器。 
 處理序伺服器 | 預設會安裝在組態伺服器上。<br/> 接收複寫資料、 以快取、 壓縮和加密進行最佳化，並將它傳送至 Azure。<br/> 隨著部署規模擴大，您可以新增額外的處理序伺服器，以處理更大的磁碟區的複寫流量。 | - [深入了解](vmware-physical-azure-config-process-server-overview.md)處理序伺服器。<br/> - [深入了解](vmware-azure-manage-process-server.md#upgrade-a-process-server)升級至最新版本。<br/> - [深入了解](vmware-physical-large-deployment.md#set-up-a-process-server)設定向外延展處理序伺服器。
@@ -297,6 +297,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 ## <a name="next-steps"></a>後續步驟
 [了解如何](tutorial-prepare-azure.md)準備 Azure 的 VMware VM 災害復原。
 
+[9.26 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.25 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.24 UR]: https://support.microsoft.com/en-in/help/4503156
 [9.23 UR]: https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery

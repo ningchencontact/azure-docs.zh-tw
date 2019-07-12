@@ -41,8 +41,8 @@ ms.locfileid: "66493763"
 | department | [https://ea.azure.com](https://ea.azure.com/) | 部門管理員 | 啟用 **DA 檢視費用** | 連結至部門的註冊帳戶所含的所有訂用帳戶 |
 | 註冊帳戶<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 帳戶擁有者 | 啟用 **AO 檢視費用** | 註冊帳戶中的所有訂用帳戶 |
 | 管理群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 管理群組下的所有訂用帳戶 |
-| 訂用帳戶 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |
-| 資源群組 | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 資源群組中的所有資源 |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 訂用帳戶中的所有資源/資源群組 |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | 成本管理讀者 (或讀者) | 啟用 **AO 檢視費用** | 資源群組中的所有資源 |
 
 <sup>1</sup> 帳單帳戶也稱為「Enterprise 合約」或「註冊」。
 
@@ -62,7 +62,7 @@ ms.locfileid: "66493763"
 
 - Azure 帳戶
 - 管理群組
-- 資源群組
+- Resource group
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>在 EA 入口網站中啟用對成本的存取權
 
@@ -140,7 +140,7 @@ ms.locfileid: "66493763"
 7. 在 [角色]  底下，選取 [成本管理讀者]  。
 8. 在 [存取權指派對象為]  底下，選取 [Azure AD 使用者、群組或應用程式]  。
 9. 若要指派存取權，搜尋並選取使用者。
-10. 按一下 [檔案]  。  
+10. 按一下 [儲存]  。  
     ![管理群組的 [新增權限] 方塊中的範例資訊](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>指派訂用帳戶範圍存取權
@@ -155,7 +155,7 @@ ms.locfileid: "66493763"
 6. 在 [角色]  底下，選取 [成本管理讀者]  。
 7. 在 [存取權指派對象為]  底下，選取 [Azure AD 使用者、群組或應用程式]  。
 8. 若要指派存取權，搜尋並選取使用者。
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 ## <a name="assign-resource-group-scope-access"></a>指派資源群組範圍存取權
 
@@ -169,7 +169,7 @@ ms.locfileid: "66493763"
 6. 在 [角色]  底下，選取 [成本管理讀者]  。
 7. 在 [存取權指派對象為]  底下，選取 [Azure AD 使用者、群組或應用程式]  。
 8. 若要指派存取權，搜尋並選取使用者。
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 ## <a name="cross-tenant-authentication-issues"></a>跨租用戶驗證問題
 

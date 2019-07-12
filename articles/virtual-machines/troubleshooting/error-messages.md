@@ -4,7 +4,7 @@ description: 了解當您在 Azure 中佈建及管理虛擬機器時，會遇到
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711198"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695317"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解當您在 Azure 中管理虛擬機器時，常見的錯誤訊息
 
@@ -195,7 +195,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  TargetDiskBlobAlreadyExists  |  由於目標映像 blob {0} 已存在，且未設定覆寫 VHD blob 的旗標，因此擷取作業無法繼續。 請刪除 blob 或設定覆寫 VHD blob 的旗標，然後重試。  |
 |  TargetDiskBlobAlreadyExists  |  因為目標映像 blob {0} 有作用中的租用，所以擷取作業無法繼續。   |
 |  TargetDiskBlobAlreadyExists  |  Blob {0} 已存在。 請提供其他 blob URI 做為磁碟 '{1}' 的目標。  |
-|  TooManyVMRedeploymentRequests  |  VM '{0}' 或此 VM 的相同可用性設定組內的其他 VM 已收到過多部署要求。 请稍后重试。  |
+|  TooManyVMRedeploymentRequests  |  VM '{0}' 或此 VM 的相同可用性設定組內的其他 VM 已收到過多部署要求。 請稍後重試。  |
 |  VHDSizeInvalid  |  對於具有 blob {2} 的磁碟 '{1}'，指定的磁碟大小值 {0} 無效。 磁碟大小必須介於 {3} 和 {4} 之間。  |
 |  VMAgentStatusCommunicationError  |  VM '{0}' 未回報 VM 代理程式或擴充的狀態。 請確認 VM 上有執行中的 VM 代理程式，並可對外建立Azure 儲存體的連線。  |
 |  VMArtifactRepositoryInternalError  |  與構件存放庫通訊以擷取 VM 構件詳細資料時發生錯誤。  |
@@ -210,7 +210,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  VMMarketplaceInvalidInput  |  購買資訊不符。 無法從 Marketplace 映像部署。 作業系統磁碟名稱是 {0}。  |
 |  VMMarketplaceInvalidInput  |  要求中必須有方案資訊，才能從 Marketplace 映像建立虛擬機器。 作業系統磁碟名稱是 {0}。  |
 |  VMNotFound  |  找不到 VM '{0}'。  |
-|  VMRedeploymentFailed  |  因為發生內部錯誤，VM '{0}' 重新部署失敗。 请稍后重试。  |
+|  VMRedeploymentFailed  |  因為發生內部錯誤，VM '{0}' 重新部署失敗。 請稍後重試。  |
 |  VMRedeploymentTimedOut  |  未在分配的時間內完成 VM '{0}' 的重新部署。 可能在後來某個時候成功完成。 不然，您可以重試要求。  |
 |  VMStartTimedOut  |  VM '{0}' 未在分配的時間內啟動。 VM 仍可能成功啟動。 請稍後再檢查啟動狀態。  |
 

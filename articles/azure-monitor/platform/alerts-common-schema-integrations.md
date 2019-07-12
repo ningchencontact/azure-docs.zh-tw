@@ -19,12 +19,12 @@ ms.locfileid: "66734897"
 
 這篇文章會示範如何建立邏輯應用程式，運用常見的警示結構描述來處理所有警示。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)提供標準化、 可延伸的 JSON 結構描述所有您不同警示類型。 常見的警示結構描述是利用程式設計的方式 – 透過 webhook、 runbook 以及邏輯應用程式時最有用的。 在本文中，我們會示範如何撰寫單一邏輯應用程式，來處理所有警示。 相同的原則可以套用至其他以程式設計的方式。 這篇文章中所述的邏輯應用程式會建立定義完善的變數，如['基本' 欄位](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)，，同時描述如何處理[警示類型](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)特定邏輯。
 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 本文假設讀者已熟悉 
 * 設定警示規則 ([公制](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric)，[記錄](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)，[活動記錄檔](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))

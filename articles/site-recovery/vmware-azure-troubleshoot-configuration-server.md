@@ -191,7 +191,7 @@ ms.locfileid: "60725562"
 若要解決此問題，請登入 Azure 入口網站並執行下列其中一項：
 
 - 在 AAD 中要求應用程式開發人員角色。 如需應用程式開發人員角色的詳細資訊，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
-- 在 AAD 中確認 [使用者可以建立應用程式]  旗標設為 true  。 如需詳細資訊，請參閱[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+- 在 AAD 中確認 [使用者可以建立應用程式]  旗標設為 true  。 如需詳細資訊，請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>處理序伺服器/主要目標無法與組態伺服器通訊 
 

@@ -38,7 +38,7 @@ ms.locfileid: "60232749"
 > 
 > 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [Azure 服務組態結構描述 (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
 [Azure 虛擬網路組態結構描述](https://go.microsoft.com/fwlink/?LinkId=248093)

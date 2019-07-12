@@ -36,7 +36,7 @@ ms.locfileid: "60822396"
 4. 使用 Python 指令碼，將資料傳送到事件中樞。
 5. 使用另一個 Python 指令碼，讀取擷取的檔案並加以處理。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Python 2.7.x
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。

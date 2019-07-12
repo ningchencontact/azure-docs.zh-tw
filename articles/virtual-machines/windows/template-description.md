@@ -4,7 +4,7 @@ description: 進一步了解在 Azure Resource Manager 範本中定義虛擬機�
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707274"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710294"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
@@ -375,7 +375,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 ],
 ```
 
-## <a name="extensions"></a>擴充功能
+## <a name="extensions"></a>延伸模組
 
 雖然[擴充功能](extensions-features.md)是不同的資源，它們會緊密繫結至 VM。 擴充功能可新增為 VM 的子資源或不同的資源。 範例會示範要新增至 VM 的[診斷擴充功能](extensions-diagnostics-template.md)：
 

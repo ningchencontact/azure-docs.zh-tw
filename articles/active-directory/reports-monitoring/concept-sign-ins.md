@@ -97,7 +97,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 若要將報告的資料縮小至您適用的層級，您可以使用下列預設欄位篩選登入資料︰
 
 - 使用者
-- Application
+- 應用程式
 - 登入狀態
 - 條件式存取
 - Date
@@ -194,9 +194,9 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - 使用者
 - 使用者名稱
 - 應用程式識別碼
-- Application
+- 應用程式
 - 用戶端
-- 位置
+- Location
 - IP 位址
 - Date
 - 需要 MFA

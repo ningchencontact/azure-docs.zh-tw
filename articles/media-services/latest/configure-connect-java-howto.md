@@ -26,7 +26,7 @@ ms.locfileid: "66480265"
 
 在本文中，Visual Studio Code 用來開發範例應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 請遵循[使用 Visual Studio Code 的撰寫 Java](https://code.visualstudio.com/docs/java/java-tutorial)安裝：
 
@@ -116,7 +116,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    ```
 1. 執行應用程式。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [媒體服務概念](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)

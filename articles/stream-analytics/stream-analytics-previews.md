@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 587304968cdf3a3763e47b9f8b614fe67aebf534
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393679"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798039"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -23,7 +23,10 @@ ms.locfileid: "66393679"
 
 下列功能目前處於公開預覽狀態。 您目前可以利用這些功能，但請勿將其用於生產環境。
 
-### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Azure Stream Analytics （發行 2019 年） 的 visual Studio Code
+### <a name="one-click-integration-with-event-hubs"></a>與事件中樞的單鍵整合 
+透過這項整合，您現在可以將內送的資料視覺化，並開始撰寫一個按一下 Stream Analytics 查詢，從事件中樞入口網站。 準備您的查詢之後，您將能夠內容中按幾下滑鼠，並開始取得即時深入解析。 這會大幅降低開發即時分析解決方案的成本與時間。 您可以在[這裡](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics)取得文件。
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>適用於 Azure 串流分析的 Visual Studio Code
 
 Azure 串流分析作業可以在 Visual Studio Code 中撰寫。 請參閱我們[VS Code 使用者入門教學課程](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)。
 
@@ -49,19 +52,13 @@ Azure 串流分析的 Visual Studio 工具加強了本機測試功能，讓您�
 
 ## <a name="other-previews"></a>其他預覽
 
-下列功能也可在預覽中。
+下列功能也可在要求上的預覽。
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#在 IoT Edge 部署和雲端 (Announced 2019 年) 的 Azure Stream Analytics 的自訂還原序列化程式
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud"></a>C#還原為 IoT Edge 部署和雲端上的 Azure Stream Analytics 的自訂序列化程式
 
 開發人員可以實作自訂的反序列化程式，在C#還原序列化 Azure Stream Analytics 收到的事件。 可以還原序列化的格式範例包括 Parquet、Protobuf、XML 或任何二進位格式。 註冊此預覽版[此處](https://aka.ms/asapreview1)。
 
-### <a name="parquet-output-announced-may-2019"></a>Parquet 輸出 （宣布 2019 年）
-Parquet 是啟用有效率的巨量資料處理的單欄式格式。 藉由輸出 Parquet 格式在 data lake 中的資料，可以利用 Azure Stream analytics power 大規模串流 ETL 和執行批次處理、 定型機器學習服務演算法或上將歷程記錄資料執行互動式查詢。 註冊此預覽版[此處](https://aka.ms/asapreview1)。
-
-### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>與事件中樞 (Announced 2019 年) 的一種單鍵整合 
-透過這項整合，您現在可以將內送的資料視覺化，並開始撰寫一個按一下 Stream Analytics 查詢，從事件中樞入口網站。 準備您的查詢之後，您將能夠內容中按幾下滑鼠，並開始取得即時深入解析。 這會大幅降低開發即時分析解決方案的成本與時間。 註冊此預覽版[此處](https://aka.ms/asapreview1)。
-
-### <a name="support-for-azure-stack-announced-may-2019"></a>適用於 Azure Stack （宣布 2019 年） 的支援
+### <a name="support-for-azure-stack"></a>適用於 Azure Stack 的支援
 Azure IoT Edge 執行階段上啟用這項功能會利用自訂的 Azure Stack 功能，例如本機輸入的原生支援，並將輸出 （例如事件中樞，IoT 中樞、 Blob 儲存體） 的 Azure Stack 上執行。 這項新整合可讓您建置可以分析您的資料產生的位置、 降低延遲，並最大化 insights 接近的混合式架構。
 註冊此預覽版[此處](https://aka.ms/asapreview1)。
 

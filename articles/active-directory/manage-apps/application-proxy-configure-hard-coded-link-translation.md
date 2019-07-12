@@ -100,7 +100,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 * link
 * menuitem
 * meta
-* 物件
+* object
 * script
 * source
 * 追蹤

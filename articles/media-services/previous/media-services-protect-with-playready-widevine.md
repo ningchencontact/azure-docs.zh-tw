@@ -16,7 +16,7 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 23c4d5ee5ac1de9522cbf89a6de39578cf65347e
 ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67073571"
@@ -27,7 +27,7 @@ ms.locfileid: "67073571"
 > 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。   > 任何新的特色或功能會被新增至媒體服務 v2。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 >   
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
  您可以使用媒體服務來傳遞受到 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/) 保護的 MPEG-DASH、Smooth Streaming 和 HTTP 即時串流 (HLS) 串流。 您也可傳遞包含 Widevine DRM 授權的加密 DASH 資料流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。 您可以使用[媒體服務 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從 3.5.1 版開始) 或 REST API 設定 AssetDeliveryConfiguration，以使用 Widevine。
 
@@ -612,7 +612,7 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [使用具有多重 DRM 及存取控制的 CENC](media-services-cenc-with-multidrm-access-control.md)
 * [使用媒體服務設定 Widevine 套件](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)

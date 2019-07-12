@@ -51,7 +51,7 @@ Azure SQL Database 僅支援一組認證。 若要在此條件約束內完成這
 -   變更不同階段的認證 (例如，*credentials1* 適用於設定，*credentials2* 適用於持續)。  
 -   變更認證的權限 (也就是在設定同步處理後變更權限)。
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 ### <a name="database-considerations-and-constraints"></a> 資料庫考量與限制
 
@@ -194,14 +194,14 @@ SQL 資料同步提供基本資料庫自動佈建。
 
 在某些情況下，向用戶端代理程式取消註冊資料庫可能會導致同步處理失敗。
 
-#### <a name="scenario"></a>案例
+#### <a name="scenario"></a>狀況
 
 1. 同步群組 A 係使用 SQL Database 執行個體和內部部署 SQL Server 資料庫建立，其與本機代理程式 1 建立關聯。
 2. 相同的內部部署資料庫已向本機代理程式 2 註冊 (此代理程式並未與任何同步群組建立關聯)。
 3. 從本機代理程式 2 取消註冊內部部署資料庫，會移除內部部署資料庫之同步群組 A 的追蹤和中繼資料表。
 4. 同步群組 A 作業失敗，並發生此錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 若要避免這種情況發生，請勿向一個以上的代理程式註冊資料庫。
 
@@ -226,7 +226,7 @@ SQL 資料同步提供基本資料庫自動佈建。
 -   設定資料同步
     - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](sql-database-get-started-sql-data-sync.md)
     - 透過 PowerShell
-        -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 在多個 Azure SQL 資料庫之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   監視 - [使用 Azure 監視器記錄監視 SQL 資料同步](sql-database-sync-monitor-oms.md)

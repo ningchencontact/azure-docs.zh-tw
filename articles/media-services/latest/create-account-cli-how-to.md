@@ -50,7 +50,7 @@ az account set --subscription mySubscriptionId
 * [串流處理檔案](stream-files-dotnet-quickstart.md)
 * [將次要的儲存體附加至媒體服務帳戶](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

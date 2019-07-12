@@ -38,7 +38,7 @@ Azure 的大門是可高度擴充且全域散發的應用程式和內容傳遞�
 
 ## <a name="does-azure-waf-support-ipv6"></a>Azure WAF 是否支援 IPv6？
 
-是。 您可以設定 IPv4 和 IPv6 IP 限制。
+是的。 您可以設定 IPv4 和 IPv6 IP 限制。
 
 ## <a name="how-up-to-date-are-the-managed-rule-sets"></a>如何保持最新狀態是受管理的規則集？
 

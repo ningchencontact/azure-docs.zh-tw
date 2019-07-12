@@ -16,7 +16,7 @@ ms.locfileid: "61442661"
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 若要深入了解如何保護 IoT 解決方案加速器所建立的方案，請參閱[保護 IoT 部署](iot-security-deployment.md)。
 

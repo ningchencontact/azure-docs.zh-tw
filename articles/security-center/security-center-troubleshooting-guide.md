@@ -57,7 +57,7 @@ ms.locfileid: "60912014"
 在電腦上安裝 Microsoft Monitoring Agent 時，有兩個可產生不同結果的安裝案例。 支援的案例如下：
 
 * **資訊安全中心自動安裝的代理程式**：在此案例中，您能夠在兩個位置 (資訊安全中心和記錄搜尋) 檢視警示。 您會收到電子郵件通知，這些通知會寄送至在資源所屬訂用帳戶的安全性原則中設定的電子郵件地址。
-上也提供本文中使用的原始碼。
+。
 * **手動安裝於 Azure 中 VM 上的代理程式**：在此案例中，如果您使用在 2017 年 2 月之前下載並手動安裝的代理程式，唯有依據工作區所屬的訂用帳戶篩選，您才能夠在資訊安全中心入口網站中檢視警示。 在您依據資源所屬的訂用帳戶篩選時，您將無法看到任何警示。 您會收到電子郵件通知，這些通知會寄送至在工作區所屬訂用帳戶的安全性原則中設定的電子郵件地址。
 
 >[!NOTE]
@@ -123,7 +123,7 @@ ms.locfileid: "60912014"
 ![Microsoft 支援服務](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何在「Azure 資訊安全中心」設定安全性原則。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md) — 了解如何規劃及了解採用 Azure 資訊安全中心的設計考量。

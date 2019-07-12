@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824179"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839070"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-on-premises-mongodb-connector.md)
 > * [第 2 版 (目前的版本)](../connector-mongodb.md)
 
@@ -33,7 +33,7 @@ ms.locfileid: "60824179"
 
 您可以將資料從內部部署的 MongoDB 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 MongoDB 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 MongoDB 資料存放區。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果是能夠連接到您內部部署 MongoDB 資料庫的 Azure Data Factory 服務，您就必須安裝下列元件：
 
 - 支援的 MongoDB 版本為︰2.4、2.6、3.0、3.2、3.4 和 3.6。
@@ -44,12 +44,12 @@ ms.locfileid: "60824179"
     > [!NOTE]
     > 即使 MongoDB 是裝載在 Azure IaaS VM 中，您還是需要使用閘道與其連接。 如果您正嘗試連接到裝載於雲端中的 MongoDB 執行個體，您也可以在 IaaS VM 中安裝閘道器執行個體。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 MongoDB 資料存放區移動資料。
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -70,12 +70,12 @@ ms.locfileid: "60824179"
 | server |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
 | port |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |選用，預設值︰27017 |
 | authenticationType |基本或匿名。 |是 |
-| username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
+| userName |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 |是 (如果使用基本驗證)。 |
 | authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |選用 (如果使用基本驗證)。 預設值︰使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
 | databaseName |您想要存取之 MongoDB 資料庫的名稱。 |是 |
 | gatewayName |存取資料存放區之閘道的名稱。 |是 |
-| encryptedCredential |由閘道加密的認證。 |選用 |
+| encryptedCredential |由閘道加密的認證。 |選擇性 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -100,7 +100,7 @@ ms.locfileid: "60824179"
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON 範例：從 MongoDB 複製資料到 Azure Blob
-此範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 它示範如何將資料從內部部署的 MongoDB 複製到「Azure Blob 儲存體」。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
+此範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 它示範如何將資料從內部部署的 MongoDB 複製到「Azure Blob 儲存體」。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
 
 此範例具有下列 Data Factory 實體：
 
@@ -297,12 +297,12 @@ Azure Data Factory 服務會使用 MongoDB 集合中最新的 100 份文件，�
 | --- | --- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| date |DateTime |
+| Date |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |字串 |
-| 字串 |字串 |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |以「_」做為巢狀分隔符號來重新標準化為壓平合併的資料行 |
 

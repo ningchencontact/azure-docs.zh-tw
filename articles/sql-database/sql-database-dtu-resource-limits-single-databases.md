@@ -27,12 +27,12 @@ ms.locfileid: "65762671"
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>單一資料庫：儲存體大小與計算大小
 
-下表顯示單一資料庫在每個服務層和計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
+下表顯示單一資料庫在每個服務層級和計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
 
 > [!IMPORTANT]
-> 有关缩放指南和注意事项，请参阅[缩放单一数据库](sql-database-single-database-scale.md)
+> 調整指引和考量，請參閱[調整單一資料庫](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>基本服務層
+### <a name="basic-service-tier"></a>基本服務層級
 
 | **計算大小** | **基本** |
 | :--- | --: |
@@ -44,7 +44,7 @@ ms.locfileid: "65762671"
 | 並行工作階段數上限 | 300 |
 |||
 
-### <a name="standard-service-tier"></a>標準服務層
+### <a name="standard-service-tier"></a>標準服務層級
 
 | **計算大小** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
@@ -52,11 +52,11 @@ ms.locfileid: "65762671"
 | 內含儲存體 (GB) | 250 | 250 | 250 | 250 |
 | 最大儲存體選擇 (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | OLTP 記憶體內部儲存體上限 (GB) | N/A | N/A | N/A | N/A |
-| 最大并发工作线程数（请求数）| 60 | 90 | 120 | 200 |
+| 並行背景工作 (要求) 數上限| 60 | 90 | 120 | 200 |
 | 並行工作階段數上限 |600 | 900 | 1200 | 2400 |
 ||||||
 
-### <a name="standard-service-tier-continued"></a>標準服務層 (續)
+### <a name="standard-service-tier-continued"></a>標準服務層級 (續)
 
 | **計算大小** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
@@ -68,7 +68,7 @@ ms.locfileid: "65762671"
 | 並行工作階段數上限 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>高階服務層
+### <a name="premium-service-tier"></a>高階服務層級
 
 | **計算大小** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|

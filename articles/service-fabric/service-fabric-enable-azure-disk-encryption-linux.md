@@ -45,7 +45,7 @@ ms.locfileid: "66258770"
 
 虛擬機器擴展集的磁碟加密預覽需要自我登錄。 請使用下列步驟：
 
-1. 執行以下命令： 
+1. 執行下列命令： 
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
@@ -65,7 +65,7 @@ ms.locfileid: "66258770"
 3. 安裝最新版[從 Azure PowerShell 的 Azure SDK](https://github.com/Azure/azure-powershell/releases)版本。 以下是虛擬機器擴展集來啟用 Azure 磁碟加密 cmdlet ([設定](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) 加密，擷取 ([取得](/powershell/module/az.compute/get-azvmssvmdiskencryption)) 加密狀態] 和 [移除 ([停用](/powershell/module/az.compute/disable-azvmssdiskencryption))在標尺上的加密設定執行個體。
 
 
-| 命令 | Version |  source  |
+| 命令 | Version |  Source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 或更新版本 | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 或更新版本 | Az.Compute |

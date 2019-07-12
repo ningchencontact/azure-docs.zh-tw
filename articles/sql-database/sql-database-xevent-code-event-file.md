@@ -39,7 +39,7 @@ ms.locfileid: "65233785"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -462,7 +462,7 @@ GO
 ```
 
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 一 **\<事件 >** 項目隨即會顯示一個 UPDATE 陳述式。
 
@@ -532,7 +532,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 如需 Azure 儲存體服務中帳戶和容器的詳細資訊，請參閱：
 
-* [如何從 .NET 使用 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [命名和參考容器、Blob 及中繼資料](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [使用根容器](https://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [第 1 課：在 Azure 容器上建立預存的存取原則和共用存取簽章](https://msdn.microsoft.com/library/dn466430.aspx)

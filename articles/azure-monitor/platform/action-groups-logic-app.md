@@ -19,7 +19,7 @@ ms.locfileid: "66389567"
 
 本文示範如何設定及觸發邏輯應用程式，以在引發警示時於 Microsoft Teams 中建立交談。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure 監視器警示會在觸發時呼叫[動作群組](../../azure-monitor/platform/action-groups.md)。 動作群組可讓您觸發一個或多個動作，以通知他人發生警示並一併進行修復。
 
 一般的程序如下：

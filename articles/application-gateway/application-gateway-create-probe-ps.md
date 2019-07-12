@@ -94,7 +94,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -
 
 您先設定所有組態項目，再建立應用程式閘道。 下列範例會建立應用程式閘道資源所需的組態項目。
 
-| **元件** | **說明** |
+| **元件** | **描述** |
 |---|---|
 | **閘道 IP 設定** | 應用程式閘道的 IP 設定。|
 | **後端集區** | 這是應用程式伺服器的 IP 位址、FQDN 或 NIC 的集區，此應用程式伺服器負責裝載 Web 應用程式|

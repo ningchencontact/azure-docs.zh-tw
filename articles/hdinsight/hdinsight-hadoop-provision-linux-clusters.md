@@ -50,7 +50,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 * [資源群組名稱](#resource-group-name)
 * [叢集類型和設定](#cluster-types) 
 * 叢集登入和 SSH 使用者名稱
-* [位置](#location)
+* [Location](#location)
 
 ## <a name="resource-group-name"></a>資源群組名稱
 
@@ -154,7 +154,7 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
 每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
 
-| 類型 | 節點 | 圖表 |
+| type | 節點 | 圖表 |
 | --- | --- | --- |
 | Hadoop |前端節點 (2)、 背景工作角色節點 （1 +） |![HDInsight Hadoop 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |前端伺服器 (2)、區域伺服器 (1+)、主要/Zookeeper 節點 (3) |![HDInsight HBase 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

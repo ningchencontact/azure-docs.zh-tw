@@ -23,7 +23,7 @@ ms.locfileid: "65412860"
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>使用 Azure 實驗室服務在共用的映像庫
 本文說明如何老師/實驗室系統管理員可以在其中儲存範本的虛擬機器映像，才能由其他人重複使用。 這些映像會儲存在 Azure 中[共用的映像庫](../../virtual-machines/windows/shared-image-galleries.md)。 第一個步驟中，為實驗室系統管理員會將現有的共用的映像庫附加至實驗室帳戶。 一旦附加共用映像庫時，實驗室的實驗室帳戶中建立可以儲存共用的映像庫映像。 其他老師可以選取此映像來建立它們的類別範本的共用的映像庫。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 所建立的共用映像資源庫[Azure PowerShell](../../virtual-machines/windows/shared-images.md)或是[Azure CLI](../../virtual-machines/linux/shared-images.md)。
 - 您在實驗室帳戶中附加的共用的映像庫。 如需逐步指示，請參閱 <<c0> [ 如何附加或卸離共用映像庫](how-to-attach-detach-shared-image-gallery.md)。
 

@@ -46,7 +46,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 文章
 * [Azure 資訊安全中心規劃和操作指南](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
-影片
+視訊
 * [使用資訊安全中心進行混合式雲端工作負載保護](https://mva.microsoft.com/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=X4WqTA3jE_1106218965)
 
 ### <a name="onboarding-computers-to-security-center"></a>將電腦上架到資訊安全中心
@@ -57,7 +57,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 文章
 * [上架到 Azure 資訊安全中心標準版以增強安全性](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
 
-影片
+視訊
 * [Azure 資訊安全中心混合式資源 - 概觀](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>使用資訊安全中心緩和安全性問題
@@ -73,7 +73,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 * [保護 Azure 資訊安全中心內的 Azure SQL 服務和資料](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-影片   
+視訊   
 * [使用 Azure 資訊安全中心緩和安全性問題](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>可供進行事件回應的資訊安全中心

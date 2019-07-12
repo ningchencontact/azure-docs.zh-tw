@@ -43,7 +43,7 @@ ms.locfileid: "60703975"
 
    ![加密狀態][4]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 本文說明了如何實作資訊安全中心建議的「啟用透明資料加密」。 如要深入了解 SQL TDE，請參閱下列主題：
 
 * [Azure SQL Database 的透明資料加密](https://msdn.microsoft.com/library/dn948096)

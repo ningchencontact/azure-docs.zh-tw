@@ -2,24 +2,25 @@
 title: IoT 裝置調查指南預覽的 azure 資訊安全中心 |Microsoft Docs
 description: 此作法指南說明如何使用 IoT 的 Azure 資訊安全中心調查可疑的 IoT 裝置，使用 Log Analytics。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192663"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618128"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>調查可疑的 IoT 裝置
 
@@ -45,7 +46,7 @@ ms.locfileid: "65192663"
 1. 開啟 IoT 中樞， 
 1. 底下**安全性**，按一下**概觀**，然後選取**設定**。
 1. 變更 Log Analytics 工作區的組態詳細資料。 
-1. 按一下 [檔案]  。 
+1. 按一下 [儲存]  。 
 
 下列組態，執行下列步驟來存取儲存在 Log Analytics 工作區中的資料：
 

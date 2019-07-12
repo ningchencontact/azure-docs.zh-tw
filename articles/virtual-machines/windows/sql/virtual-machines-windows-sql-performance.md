@@ -25,7 +25,7 @@ ms.locfileid: "67076917"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能指導方針
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文提供在「Microsoft Azure 虛擬機器」中最佳化 SQL Server 效能的指引。 在 Azure 虛擬機器中執行 SQL Server 時，我們建議您繼續使用相同的資料庫效能微調選項，這些選項適用於內部部署伺服器環境中的 SQL Server。 不過，公用雲端中關聯式資料庫的效能優劣取決於許多因素，例如虛擬機器的大小和資料磁碟的組態。
 
@@ -42,7 +42,7 @@ ms.locfileid: "67076917"
 | --- | --- |
 | [VM 大小](#vm-size-guidance) | SQL Enterprise 版的 - [DS3_v2](../sizes-general.md) 或更高版本。<br/><br/> SQL Standard 和 Web 版的 - [DS2_v2](../sizes-general.md) 或更高版本。 |
 | [儲存體](#storage-guidance) | - 使用[進階 SSD](../disks-types.md)。 標準儲存體只建議用於開發/測試。<br/><br/> - 將[儲存體帳戶](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/> * 停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/common/storage-redundancy.md) (異地複寫)。 |
-| [磁碟](#disks-guidance) | - 使用至少 2 個 [P30 磁碟](../disks-types.md#premium-ssd) (1 個用於記錄檔，另 1 個用於資料檔案，包括 TempDB)。 對於需要 ~ 50,000 IOPS 的工作負載，請考慮使用 Ultra SSD。 <br/><br/> - 避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/> - 啟用裝載資料檔案和 TempDB 資料檔案的磁碟上的 [讀取快取] 功能。<br/><br/> - 不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。  **重要说明**：變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務。<br/><br/> - 分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/> - 以文件上記載的配置大小格式化。 <br/><br/> - 將 TempDB 置於任務關鍵性 SQL Server 工作負載的本機 SSD 上 (在選擇正確的 VM 大小之後)。 |
+| [磁碟](#disks-guidance) | - 使用至少 2 個 [P30 磁碟](../disks-types.md#premium-ssd) (1 個用於記錄檔，另 1 個用於資料檔案，包括 TempDB)。 對於需要 ~ 50,000 IOPS 的工作負載，請考慮使用 Ultra SSD。 <br/><br/> - 避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/> - 啟用裝載資料檔案和 TempDB 資料檔案的磁碟上的 [讀取快取] 功能。<br/><br/> - 不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。  **重要**：變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務。<br/><br/> - 分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/> - 以文件上記載的配置大小格式化。 <br/><br/> - 將 TempDB 置於任務關鍵性 SQL Server 工作負載的本機 SSD 上 (在選擇正確的 VM 大小之後)。 |
 | [I/O](#io-guidance) |- 啟用 [資料庫頁面壓縮] 功能　。<br/><br/> - 針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/> - 限制資料庫的 [自動成長] 功能。<br/><br/> - 停用資料庫的 [自動壓縮] 功能。<br/><br/> - 將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/> - 將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/> - 設定預設備份和資料庫檔案位置。<br/><br/> - 啟用鎖定的頁面。<br/><br/> - 套用 SQL Server 效能修正程式。 |
 | [特定功能](#feature-specific-guidance) | - 直接備份至 Blob 儲存體。 |
 

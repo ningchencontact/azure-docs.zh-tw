@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2019
+ms.openlocfilehash: c19ec06ce353d653086fa693dde975a55f51f823
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364432"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839261"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>將資料複寫到適用於 MariaDB 的 Azure Database
 
@@ -37,7 +37,6 @@ ms.locfileid: "61364432"
 
 ### <a name="other"></a>其他
 - 資料輸入複寫只適用於一般用途和記憶體最佳化定價層。
-- 不支援全域交易識別碼 (GTID)。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[設定資料輸入複寫](howto-data-in-replication.md)。

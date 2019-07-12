@@ -86,7 +86,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 TDSP 提供管理共用分析和儲存體基礎結構的建議，例如：
 
 - 儲存資料集的雲端檔案系統 
-- 資料庫
+- databases
 - 巨量資料 (Hadoop 或 Spark) 叢集 
 - 機器學習服務 
 

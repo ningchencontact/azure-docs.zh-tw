@@ -31,7 +31,7 @@ ms.locfileid: "66117821"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 下圖顯示使用 ExpressRoute 從客戶網路連至 Microsoft 網路的邏輯連線。
 [![1]][1]
 

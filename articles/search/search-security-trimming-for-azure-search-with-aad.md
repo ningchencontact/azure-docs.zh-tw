@@ -31,7 +31,7 @@ ms.locfileid: "61282200"
 > [!NOTE]
 > 本文中的範例程式碼片段是以 C# 撰寫。 您可以 [在 GitHub](https://aka.ms/search-dotnet-howto)找到完整的原始程式碼。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您在 Azure 搜尋服務中的索引必須有[安全性欄位](search-security-trimming-for-azure-search.md)，才能儲存具有文件讀取權限的群組識別清單。 此使用案例會假設安全性實體項目 (例如個人的大學應用程式) 與指定可存取該項目之人員 (許可人員) 的安全性欄位之間的一對一對應。
 
@@ -187,7 +187,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 在本逐步解說中，您已了解使用 AAD 登入來篩選 Azure 搜尋服務結果中文件的技術，從而調整文件不符合要求中提供之篩選條件的結果。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [使用 Azure 搜尋服務篩選來進行身分識別型存取控制](search-security-trimming-for-azure-search.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)

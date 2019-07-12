@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435749"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696085"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -31,7 +31,7 @@ ms.locfileid: "67435749"
 
 ## <a name="storage-account-support"></a>儲存體帳戶支援
 
-生命週期管理原則適用於一般用途 v2 (GPv2) 帳戶和 Blob 儲存體帳戶。 在 Azure 入口網站中，您可以升級至 GPv2 帳戶的現有一般用途 (GPv1) 帳戶。 如需有關儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)。  
+生命週期管理原則可用於一般用途 v2 (GPv2) 帳戶、 Blob 儲存體帳戶和進階區塊 Blob 儲存體帳戶。 在 Azure 入口網站中，您可以升級至 GPv2 帳戶的現有一般用途 (GPv1) 帳戶。 如需有關儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)。  
 
 ## <a name="pricing"></a>價格
 
@@ -39,7 +39,7 @@ ms.locfileid: "67435749"
 
 ## <a name="regional-availability"></a>區域可用性
 
-生命週期管理功能可在所有全域 Azure 區域中。
+生命週期管理功能可在所有的全域 Azure 和 Azure Government 區域中。
 
 ## <a name="add-or-remove-a-policy"></a>新增或移除原則
 

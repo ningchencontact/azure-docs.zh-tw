@@ -39,11 +39,11 @@ ms.locfileid: "64727592"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 訂用帳戶               | 選取您的訂用帳戶。    |    
-    | 資源群組         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
+    | Subscription               | 選取您的訂用帳戶。    |    
+    | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
     | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
-    | 類型          | 選取 [公用]  。                                        |
+    | type          | 選取 [公用]  。                                        |
     | SKU           | 選取 [基本]  。                          |
     | 公用 IP 位址 | 選取 [建立新的]  。 |
     | 公用 IP 位址名稱              | *MyPublicIP*   |

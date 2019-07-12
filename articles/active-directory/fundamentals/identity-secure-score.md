@@ -107,7 +107,7 @@ ms.locfileid: "65988703"
 [Microsoft 安全分數](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)包含五個不同的控制項和分數分類：
 
 - 身分識別
-- 資料
+- Data
 - 裝置
 - 基礎結構
 - 應用程式

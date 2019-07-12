@@ -34,7 +34,7 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 SecureW2 JoinNow Connector 整合，您需要下列項目：
 
@@ -155,7 +155,7 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>建立 SecureW2 JoinNow Connector 測試使用者
 

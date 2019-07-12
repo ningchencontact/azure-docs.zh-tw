@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4f982f6265d1c8cab2ae666b9d6e2e33beb5064
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596643"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672930"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>在 Azure 中建立管理解決方案的最佳做法 (預覽)
 > [!NOTE]
@@ -38,7 +38,7 @@ ms.locfileid: "60596643"
 - 在您的解決方案中包含 [IngestionAPI 模組 (英文)](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5)，以供將資料寫入 Log Analytics 存放庫的 Runbook 使用。  將解決方案設定為[參考](solutions-solution-file.md#solution-resource)此資源，讓它在移除解決方案後仍能保留。  這可讓多個解決方案共用模組。
 - 使用[自動化變數](../../automation/automation-schedules.md)來將值提供給使用者於稍後可能會想要變更的解決方案。  即使解決方案已設定為包含變數，其值仍可以變更。
 
-## <a name="views"></a>Views
+## <a name="views"></a>檢視
 - 所有的解決方案都應該包含會在使用者的入口網站中顯示的單一檢視。  檢視可以包含多個[視覺效果組件](../../azure-monitor/platform/view-designer-parts.md)，以說明不同的資料集。
 - 將[資料流程驗證](../../azure-monitor/platform/view-designer-tiles.md)訊息新增至解決方案中的任何檢視，以指示使用者關於需要設定以收集必要資料的資料來源資訊。
 - 將解決方案設定為[包含](solutions-solution-file.md#solution-resource)該檢視，讓檢視會隨著解決方案一起移除。

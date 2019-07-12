@@ -27,7 +27,7 @@ ms.locfileid: "60362113"
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。 如需其他有關使用 Azure 資料表儲存體的一般資訊，請參閱 [以 .NET 開始使用 Azure 資料表儲存體](../storage/storage-dotnet-how-to-use-tables.md)。
 
-若要開始，請先在儲存體帳戶中建立 Azure 資料表。 本文章將接著示範如何以 C# 建立資料表，以及如何執行基本的資料表作業，例如新增、修改、讀取和移除資料表項目。  程式碼使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 有关 ASP.NET 的详细信息，请参阅 [ASP.NET](https://www.asp.net)。
+若要開始，請先在儲存體帳戶中建立 Azure 資料表。 本文章將接著示範如何以 C# 建立資料表，以及如何執行基本的資料表作業，例如新增、修改、讀取和移除資料表項目。  程式碼使用適用於 .NET 的 Azure 儲存體用戶端程式庫。 如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](https://www.asp.net)。
 
 某些 Azure 儲存體 API 是非同步的，本文章中的程式碼假設我們正在使用非同步方法。 如需詳細資訊，請參閱[非同步程式設計](https://docs.microsoft.com/dotnet/csharp/async)。
 

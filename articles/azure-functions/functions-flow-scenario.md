@@ -38,7 +38,7 @@ ms.locfileid: "65787679"
 
 [!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 使用中的 [Microsoft Flow 帳戶](https://flow.microsoft.com/documentation/sign-up-sign-in/)，其登入認證與您的 Azure 帳戶相同。 
 + SharePoint，您可用來作為此流程的資料來源。 如果您還沒有 SharePoint，請註冊 [Office 365 試用版](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1)。
@@ -47,7 +47,7 @@ ms.locfileid: "65787679"
 ## <a name="create-a-sharepoint-list"></a>建立 SharePoint 清單
 首先，建立一個您用來作為流程資料來源的清單。 清單具有下列資料行。
 
-| 清單資料行     | 数据类型           | 注意                                    |
+| 清單資料行     | 資料類型           | 注意                                    |
 |-----------------|---------------------|------------------------------------------|
 | **標題**           | 單行文字 | 渦輪機的名稱                      |
 | **LastServiceDate** | Date                |                                          |

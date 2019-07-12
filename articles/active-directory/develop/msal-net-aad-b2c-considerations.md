@@ -40,7 +40,7 @@ ms.locfileid: "67052342"
 - `tenant` Azure AD B2C 租用戶的名稱 
 - `policyName` 要套用 (例如"b2c_1_susi"的符號-/-註冊) 的原則名稱。
 
-從 Azure AD B2C 的目前指導方針是使用`b2clogin.com`為授權單位。 例如： `$"https://{your-tenant-name}.b2clogin.com/tfp/{your-tenant-ID}/{policyname}"`。 如需詳細資訊，請參閱此[文件](/azure/active-directory-b2c/b2clogin)。
+從 Azure AD B2C 的目前指導方針是使用`b2clogin.com`為授權單位。 例如： `$"https://{your-tenant-name}.b2clogin.com/tfp/{your-tenant-ID}/{policyname}"` 。 如需詳細資訊，請參閱此[文件](/azure/active-directory-b2c/b2clogin)。
 
 ## <a name="instantiating-the-application"></a>具現化應用程式
 

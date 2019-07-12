@@ -60,7 +60,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 * 加拿大中部
 * 美國中西部
-* 美國東部
+* East US
 * 美國東部 2
 * 美國中北部
 * 美國中南部
@@ -87,7 +87,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
 * 美國中西部
-* 美國東部
+* East US
 * 美國東部 2
 * 美國中南部
 * 美國西部
@@ -112,7 +112,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 您的帳戶必須是下列 Azure [內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)的成員之一：
 
-|部署模型   | 角色                   |
+|部署模型   | Role                   |
 |---------          |---------               |
 |Resource Manager   | 擁有者                  |
 |                   | 參與者            |

@@ -19,7 +19,7 @@ ms.locfileid: "66236524"
 
 了解如何連線 Azure HDInsight 中的 Apache Spark 叢集與 Azure SQL 資料庫，然後將資料讀取、寫入和串流到 SQL 資料庫中。 本文中的指示使用 [Jupyter Notebook](https://jupyter.org/) 執行 Scala 程式碼片段。 不過，您可以在 Scala 或 Python 中建立獨立應用程式，並執行相同的工作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure HDInsight Spark 叢集**。  請依照[在 HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)中的指示操作。
 
@@ -35,7 +35,7 @@ ms.locfileid: "66236524"
 
 首先請建立與 Spark 叢集相關聯的 [Jupyter Notebook](https://jupyter.org/)。 您可以使用此 Notebook 執行本文中使用的程式碼片段。 
 
-1. 从 [Azure 门户网站](https://portal.azure.com/)打开群集。
+1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。
 1. 在右側選取 [叢集儀表板]  下方的 **Jupyter Notebook**。  如果您沒有看到**叢集儀表板**，選取**概觀**從左側功能表中。 出現提示時，輸入叢集的系統管理員認證。
 
     ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")

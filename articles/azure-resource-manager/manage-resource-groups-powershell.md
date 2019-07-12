@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 3d6a102b794ca9c43e1dd18f923f6ce224596499
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 5197358e3bd8a3052fbf71cafc2f1e3acda46b26
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296252"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721139"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Resource Manager 資源群組
 
@@ -89,7 +89,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>移至另一個資源群組或訂用帳戶
 
-您可以移動的資源群組中，另一個資源群組。 如需詳細資訊，請參閱 [將資源移動到新的資源群組或訂用帳戶](./resource-group-move-resources.md#move-resources)。
+您可以移動的資源群組中，另一個資源群組。 如需詳細資訊，請參閱 [將資源移動到新的資源群組或訂用帳戶](./resource-group-move-resources.md)。
 
 ## <a name="lock-resource-groups"></a>鎖定資源群組
 

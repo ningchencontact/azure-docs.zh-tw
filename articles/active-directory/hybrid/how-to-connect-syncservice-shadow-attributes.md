@@ -74,6 +74,6 @@ ProxyCalc 可能需要一些時間來處理使用者的變更，並且與 Azure 
 ### <a name="quarantined-attribute-values"></a>隔離的屬性值
 有重複的屬性值時，也會使用陰影屬性。 如需詳細資訊，請參閱[重複屬性恢復功能](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

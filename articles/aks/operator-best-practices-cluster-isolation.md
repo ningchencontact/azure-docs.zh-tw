@@ -2,17 +2,17 @@
 title: 操作員最佳做法 - Azure Kubernetes Services (AKS) 中的叢集隔離
 description: 了解叢集操作員在 Azure Kubernetes Service (AKS) 中進行隔離時的最佳做法
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465274"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614922"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中隔離叢集的最佳做法
 
@@ -26,19 +26,19 @@ ms.locfileid: "60465274"
 
 ## <a name="design-clusters-for-multi-tenancy"></a>設計多租用戶的叢集
 
-Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工作負載。 其目標應該是要提供以每個小組所需資源為範圍的最少權限數目。 Kubernetes 中的[命名空間][k8s-namespaces]會建立邏輯隔離界限。 其他的 Kubernetes 功能和隔離與多租用戶考量包括下列領域：
+Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工作負載。 其目標應該是要提供以每個小組所需資源為範圍的最少權限數目。 A[命名空間][k8s-namespaces]在 Kubernetes 中建立邏輯隔離界限。 其他的 Kubernetes 功能和隔離與多租用戶考量包括下列領域：
 
-* **排程**包含使用基本功能，例如資源配額和 Pod 中斷預算。 如需這些功能的詳細資訊，請參閱 [AKS 中基本排程器功能的最佳做法][aks-best-practices-scheduler]。
-  * 更進階的排程器功能包括污點和容差、節點選取器，以及節點和 Pod 的親和性或反親和性。 如需這些功能的詳細資訊，請參閱 [AKS 中進階排程器功能的最佳做法][aks-best-practices-advanced-scheduler]。
+* **排程**包含使用基本功能，例如資源配額和 Pod 中斷預算。 如需這些功能的詳細資訊，請參閱[AKS 中的基本的排程器功能的最佳做法][aks-best-practices-scheduler]。
+  * 更進階的排程器功能包括污點和容差、節點選取器，以及節點和 Pod 的親和性或反親和性。 如需這些功能的詳細資訊，請參閱[AKS 中的進階排程器功能的最佳做法][aks-best-practices-advanced-scheduler]。
 * **網路**包含使用網路原則來控制流入和流出 Pod 的流量。
-* **驗證和授權**包含角色型存取控制 (RBAC) 及 Azure Active Directory (AD) 整合的使用者、Pod 身分識別和 Azure Key Vault 中的祕密。 如需這些功能的詳細資訊，請參閱 [AKS 中驗證和授權的最佳做法][aks-best-practices-identity]。
+* **驗證和授權**包含角色型存取控制 (RBAC) 及 Azure Active Directory (AD) 整合的使用者、Pod 身分識別和 Azure Key Vault 中的祕密。 如需這些功能的詳細資訊，請參閱[AKS 中驗證和授權的最佳做法][aks-best-practices-identity]。
 * **容器**包含 Pod 安全性原則、Pod 資訊安全內容、掃描映像和執行階段的弱點。 另外還包含使用 App Armor 或 Seccomp (安全運算) 來限制容器對基礎節點的存取。
 
 ## <a name="logically-isolate-clusters"></a>以邏輯方式隔離叢集
 
 **最佳做法指引** - 使用邏輯隔離來區隔小組和專案。 請嘗試盡量減少為了隔離小組或應用程式而部署的實體 AKS 叢集數量。
 
-若使用邏輯隔離，單一 AKS 叢集將可用於多個工作負載、小組或環境。 Kubernetes [命名空間][k8s-namespaces]會形成工作負載和資源的邏輯隔離界限。
+若使用邏輯隔離，單一 AKS 叢集將可用於多個工作負載、小組或環境。 Kubernetes[命名空間][k8s-namespaces]形成工作負載和資源的邏輯隔離界限。
 
 ![AKS 中 Kubernetes 叢集的邏輯隔離](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
@@ -58,10 +58,10 @@ Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工
 
 ## <a name="next-steps"></a>後續步驟
 
-本文著重於叢集隔離。 如需 AKS 中叢集作業的詳細資訊，請參閱下列最佳做法：
+本文著重於叢集隔離。 如需 AKS 中叢集作業的相關詳細資訊，請參閱下列最佳作法：
 
-* [Kubernetes 排程器的基本功能][aks-best-practices-scheduler]
-* [Kubernetes 排程器的進階功能][aks-best-practices-advanced-scheduler]
+* [基本的 Kubernetes 排程器功能][aks-best-practices-scheduler]
+* [進階的 Kubernetes 排程器功能][aks-best-practices-advanced-scheduler]
 * [驗證和授權][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

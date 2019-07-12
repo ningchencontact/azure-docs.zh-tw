@@ -189,7 +189,7 @@ Media Services SDK for .NET (3.5.3) 的最新版本包含 Google Widevine 相關
 ### <a name="azure-sdk-for-php"></a>Azure SDK for PHP
 Azure SDK 小組已發佈新版的 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) 套件，其中包含媒體服務的更新與新功能。 特別是，Media Services SDK for PHP 現在支援最新的[內容保護](media-services-content-protection-overview.md)功能。 這些功能是採用 AES 和 DRM (PlayReady 與 Widevine)，並選擇性使用權杖限制的動態加密。 它也支援調整 [編碼單位](media-services-dotnet-encoding-units.md)大小。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * 以下[程式碼範例](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可協助您快速上手：
   * **vodworkflow_aes.php**：此 PHP 檔案說明如何使用 AES-128 動態加密和金鑰傳遞服務。 其內容以[使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)中說明的 .NET 範例為基礎。
@@ -228,7 +228,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](https://github.com/Azure/
 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
-* 現在已有適用於 Java 0.8.0 版本的媒體服務 SDK 和新範例可供使用。 如需詳細資訊，請參閱
+* 現在已有適用於 Java 0.8.0 版本的媒體服務 SDK 和新範例可供使用。 如需詳細資訊，請參閱：
     
 * Azure 媒體播放器已更新而具有多重音訊串流支援。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
 

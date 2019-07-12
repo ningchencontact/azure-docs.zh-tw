@@ -51,8 +51,8 @@ ms.locfileid: "66001468"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | Azure Active Directory 中，共用金鑰、 共用存取權杖。 |
-| 授權| 是 | 支援透過 RBAC、 POSIX Acl 中和 SAS 權杖的授權 |
+| 驗證| 是 | Azure Active Directory 中，共用金鑰、 共用存取權杖。 |
+| Authorization| 是 | 支援透過 RBAC、 POSIX Acl 中和 SAS 權杖的授權 |
 
 
 ## <a name="audit-trail"></a>稽核線索

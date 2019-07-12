@@ -30,7 +30,7 @@ Helm 包含兩個元件︰
 
 * Tiller  是在 Kubernetes 叢集執行的伺服器，管理 Kubernetes 應用程式的生命週期 
  
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 在 Azure Container Service 中[建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)
 

@@ -47,7 +47,7 @@ ms.locfileid: "61023569"
 1. 建立與您伺服器上模型即時連線的 Power BI Desktop 檔案。
 2. 在 [Power BI](https://powerbi.microsoft.com) 中，按一下 [取得資料]   > [檔案]  ，然後尋找並選取您的 .pbix 檔案。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [連接到 Azure Analysis Services](analysis-services-connect.md)   
 [用戶端程式庫](analysis-services-data-providers.md)
 

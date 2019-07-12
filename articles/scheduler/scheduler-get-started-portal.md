@@ -49,7 +49,7 @@ ms.locfileid: "60531921"
 
    | 屬性 | 範例值 | 描述 |
    |----------|---------------|-------------| 
-   | **Action** | **Http** | 要執行的動作類型 | 
+   | **動作** | **Http** | 要執行的動作類型 | 
    | **方法** | **Get** | 要呼叫的方法 | 
    | **URL** | **https://www.microsoft.com** | 目的地 URL | 
    |||| 
@@ -93,7 +93,7 @@ ms.locfileid: "60531921"
 
 <a name="properties"></a>
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 
 若要檢視描述工作管理中繼資料的唯讀屬性，請選取 [屬性]  。
 

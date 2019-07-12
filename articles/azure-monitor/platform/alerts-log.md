@@ -17,7 +17,7 @@ ms.locfileid: "66427443"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文會示範如何使用 Azure 入口網站內的警示介面來設定記錄警示。 警示規則的定義分成三個部分：
 - 目標：要監視的特定 Azure 資源
 - 準則：訊號中所示且會觸發動作的特定條件或邏輯

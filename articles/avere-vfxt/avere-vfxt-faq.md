@@ -25,7 +25,7 @@ Avere vFXT for Azure 是高效能的檔案系統，可快取 Azure 計算中的�
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT 是儲存體解決方案嗎？
 
-沒有。 Avere vFXT 是連接至儲存體環境的檔案系統「快取」  ，例如 EMC 或 NetApp NAS 或 Azure Blob 容器。 Avere vFXT 可簡化用戶端的資料要求，並快取提供的資料，長時間大規模地改善效能。 Avere vFXT 本身不會儲存資料。 它沒有背後所儲存資料量的相關資訊。
+資料分割 Avere vFXT 是連接至儲存體環境的檔案系統「快取」  ，例如 EMC 或 NetApp NAS 或 Azure Blob 容器。 Avere vFXT 可簡化用戶端的資料要求，並快取提供的資料，長時間大規模地改善效能。 Avere vFXT 本身不會儲存資料。 它沒有背後所儲存資料量的相關資訊。
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT 是階層處理解決方案嗎？
 
@@ -106,7 +106,7 @@ Avere vFXT 叢集可以小至三個虛擬機器，或大至 24 個節點。 如�
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>Avere vFXT 環境可以自動調整規模嗎？
 
-沒有。 您可以上下調整叢集大小，但新增或移除叢集節點的步驟須手動進行。
+資料分割 您可以上下調整叢集大小，但新增或移除叢集節點的步驟須手動進行。
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Avere vFXT 叢集可以執行為虛擬機器擴展集嗎？
 
@@ -122,11 +122,11 @@ Avere vFXT 不支援部署虛擬機器擴展集。 數個內建的可用性支�
 
 ### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Avere vFXT VM 計數會佔用我的計算配額嗎？
 
-是。 請確定要支援叢集的區域中有足夠的配額。  
+是的。 請確定要支援叢集的區域中有足夠的配額。  
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>可以在不同的可用性區域中執行 Avere vFXT 叢集機器嗎？
 
-沒有。 Avere vFXT 中之高可用性模型目前不支援位於不同可用性區域中的個別 Avere vFXT 叢集成員。
+資料分割 Avere vFXT 中之高可用性模型目前不支援位於不同可用性區域中的個別 Avere vFXT 叢集成員。
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>可以複製 Avere vFXT 虛擬機器嗎？
 
@@ -177,7 +177,7 @@ Avere vFXT for Azure 目前不支援本機 SSD。 用於 Avere vFXT 的磁碟必
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT 需要自己的子網路嗎？
 
-是。 Avere vFXT 嚴格作為高可用性 (HA) 叢集執行，並要求操作的多個 IP 位址。 如果叢集位於自己的子網路中，您要避免 IP 位址發生衝突，這可能會造成安裝和一般操作發生問題。 只要 IP 位址沒有重疊，叢集的子網路可以位於現有的虛擬網路內。
+是的。 Avere vFXT 嚴格作為高可用性 (HA) 叢集執行，並要求操作的多個 IP 位址。 如果叢集位於自己的子網路中，您要避免 IP 位址發生衝突，這可能會造成安裝和一般操作發生問題。 只要 IP 位址沒有重疊，叢集的子網路可以位於現有的虛擬網路內。
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>可以在 InfiniBand 上執行 Avere vFXT 嗎？
 
@@ -254,7 +254,7 @@ Avere vFXT 不支援私用物件儲存體。
 
 ### <a name="can-i-use-archive-blob-storage"></a>可以使用封存 Blob 儲存體嗎？
 
-沒有。 封存儲存體的服務等級協定 (SLA) 與 Avere vFXT 系統的即時目錄和檔案存取需求不相容。 
+資料分割 封存儲存體的服務等級協定 (SLA) 與 Avere vFXT 系統的即時目錄和檔案存取需求不相容。 
 
 ### <a name="can-i-use-cool-blob-storage"></a>可以使用非經常性儲存層的 Blob 儲存體嗎？
 

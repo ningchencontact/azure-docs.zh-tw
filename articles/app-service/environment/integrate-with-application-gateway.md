@@ -40,7 +40,7 @@ Azure 應用程式閘道是一個虛擬設備，可提供第 7 層負載平衡�
 * 將應用程式設定為採用自訂網域名稱。
 * 編輯指向應用程式閘道的公用 DNS 主機名稱。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 為了整合應用程式閘道與 ILB App Service Environment，您需要：
 

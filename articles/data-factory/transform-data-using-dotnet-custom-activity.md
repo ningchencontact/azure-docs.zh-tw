@@ -20,7 +20,7 @@ ms.locfileid: "67062122"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-use-custom-activities.md)
 > * [目前的版本](transform-data-using-dotnet-custom-activity.md)
 
@@ -342,7 +342,7 @@ Activity Error section:
 |定義自訂邏輯的方式      |提供可執行檔      |藉由實作.NET DLL      |
 |自訂邏輯的執行環境      |Windows 或 Linux      |Windows (.NET Framework 4.5.2)      |
 |執行指令碼      |支援直接執行指令碼 (例如，Windows VM 上的 "cmd /c echo hello world")      |需要實作.NET DLL 中      |
-|需要資料集      |選用      |需要資料集來鏈結活動並傳遞資訊      |
+|需要資料集      |選擇性      |需要資料集來鏈結活動並傳遞資訊      |
 |將來自活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects (LinkedServices 和資料集) 和 ExtendedProperties (自訂屬性)      |透過 ExtendedProperties (自訂屬性)、輸入和輸出資料集      |
 |擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過.NET SDK (.NET Frame 4.5.2)      |
 |記錄      |直接寫入 STDOUT      |實作.NET DLL 中的記錄器      |

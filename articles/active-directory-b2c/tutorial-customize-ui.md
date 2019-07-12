@@ -30,7 +30,7 @@ ms.locfileid: "66512089"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [建立使用者流程](tutorial-create-user-flows.md)，讓使用者註冊並登入您的應用程式。
 
@@ -62,7 +62,7 @@ ms.locfileid: "66512089"
  瀏覽器中的 Azure AD B2C 程式碼會使用最新且標準的方法，從使用者流程中的指定 URL 載入自訂內容。 跨來源資源共用 (CORS) 可允許從其他網域要求網頁上受限制的資源。
 
 1. 在功能表中，選取 [CORS]  。
-2. 針對 [允許的來源]  ，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com`。 輸入您的租用戶名稱時，必須全部使用小寫字母。
+2. 針對 [允許的來源]  ，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com` 。 輸入您的租用戶名稱時，必須全部使用小寫字母。
 3. 針對 [允許的方法]  ，選取 `GET` 和 `OPTIONS`。
 4. 針對 [允許的標頭]  ，輸入星號 (*)。
 5. 針對 [公開的標頭]  ，輸入星號 (*)。
@@ -70,13 +70,13 @@ ms.locfileid: "66512089"
 
     ![啟用 CORS](./media/tutorial-customize-ui/enable-cors.png)
 
-5. 按一下 [檔案]  。
+5. 按一下 [儲存]  。
 
 ### <a name="create-the-customization-files"></a>建立自訂檔案
 
-若要自訂註冊體驗的 UI，您可以從建立簡單的 HTML 和 CSS 檔案開始。 您可以透過任何方式設定 HTML，但其中必須有識別碼為 `api` 的 **div** 元素。 例如： `<div id="api"></div>`。 當頁面顯示時，Azure AD B2C 會將元素插入 `api` 容器。
+若要自訂註冊體驗的 UI，您可以從建立簡單的 HTML 和 CSS 檔案開始。 您可以透過任何方式設定 HTML，但其中必須有識別碼為 `api` 的 **div** 元素。 例如： `<div id="api"></div>` 。 當頁面顯示時，Azure AD B2C 會將元素插入 `api` 容器。
 
-1. 在本機資料夾中建立下列檔案，並確定您已將 `your-storage-account` 變更為儲存體帳戶名稱，以及將 `your-container` 變更為您建立的容器名稱。 例如： `https://store1.blob.core.windows.net/b2c/style.css`。
+1. 在本機資料夾中建立下列檔案，並確定您已將 `your-storage-account` 變更為儲存體帳戶名稱，以及將 `your-container` 變更為您建立的容器名稱。 例如： `https://store1.blob.core.windows.net/b2c/style.css` 。
 
     ```html
     <!DOCTYPE html>

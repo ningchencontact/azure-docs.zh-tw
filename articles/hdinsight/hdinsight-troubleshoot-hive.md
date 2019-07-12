@@ -170,7 +170,7 @@ ms.locfileid: "64712489"
 [使用 SSH 連線到 HDInsight 叢集](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>另请参阅
+### <a name="see-also"></a>另請參閱
 [使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)
 
 

@@ -27,7 +27,7 @@ ms.locfileid: "60714484"
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-恭喜！ 您現已建立服務匯流排訊息命名空間。
+恭喜您！ 您現已建立服務匯流排訊息命名空間。
 
 ## <a name="next-steps"></a>後續步驟
 

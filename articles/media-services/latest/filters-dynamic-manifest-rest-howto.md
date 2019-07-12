@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 447116267e53f8c4df1e882ca30c6a2e906d314c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76e6e1595cb8bf49dbbc82c3cae5de80ea718aeb
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114300"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786460"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>使用媒體服務 REST API 建立篩選器
 
@@ -97,7 +97,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 篩選器已建立。
 
-如需詳細資訊，請參閱 [建立或更新](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate) \(英文\)。 此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter)。
+如需詳細資訊，請參閱 [建立或更新](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate) \(英文\)。 此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter)。
 
 ## <a name="create-asset-filters"></a>建立資產篩選器  
 
@@ -115,7 +115,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 資產篩選器已建立。
 
-如需有關如何建立或更新資產篩選器的詳細資訊，請參閱[建立或更新](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate) \(英文\)。 此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter)。 
+如需有關如何建立或更新資產篩選器的詳細資訊，請參閱[建立或更新](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate) \(英文\)。 此外，也請參閱[篩選器的 JSON 範例](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter)。 
 
 ## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
 

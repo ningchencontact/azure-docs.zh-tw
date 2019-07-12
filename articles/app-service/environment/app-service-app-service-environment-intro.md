@@ -27,7 +27,7 @@ ms.locfileid: "62130733"
 > [!NOTE]
 > 這篇文章是關於 App Service 環境 v1。  有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 App Service 環境是 [Azure App Service](../overview.md) 的[進階][PremiumTier]服務方案選項，提供完全隔離的專用環境，能夠極為安全地執行 Azure App Service 應用程式，包括 Web Apps、Mobile Apps 和 API Apps。  
 
@@ -78,7 +78,7 @@ App Service Environment 可以是具有公用 IP 位址的網際網路對向，�
 
 如需 App Service Environment 如何搭配虛擬網路和內部部署網路使用的詳細資訊，請參閱下列文章：[網路架構][NetworkArchitectureOverview]、[控制輸入流量][ControllingInboundTraffic]和[安全地連接到後端][SecurelyConnectingToBackends]。 
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 若要開始使用 App Service 環境，請參閱[如何建立 App Service 環境][HowToCreateAnAppServiceEnvironment]
 

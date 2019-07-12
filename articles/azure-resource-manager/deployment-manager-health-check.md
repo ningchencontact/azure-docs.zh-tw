@@ -6,14 +6,14 @@ documentationcenter: na
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/08/19
+ms.date: 05/08/2019
 ms.author: jgao
-ms.openlocfilehash: 4c2c38754b2051a4f61249f623f60f21e9690f5e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0c6d32f06e30bd85c12967ce4b15a053bb505ab7
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206617"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594312"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>導入健康情況整合首度發行至 Azure 部署管理員 （公開預覽）
 

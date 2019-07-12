@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708699"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703910"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -198,7 +198,7 @@ nbf   / exp  範圍外尚未生效和過期的金鑰，將會用於**解密**、
 
 對於由 Key Vault 管理的金鑰，其存取控制是在 Key Vault 層級上提供的，Key Vault 則是用來作為金鑰的容器。 在相同 Key Vault 中，金鑰的存取控制原則與秘密的存取控制原則並不相同。 使用者可建立一或多個保存庫來保存秘密，且必須維護適當區分和管理秘密的案例。 金鑰的存取控制獨立於秘密的存取控制。  
 
-您可以在保存庫上的金鑰存取控制項目中授與下列權限 (以每個使用者 / 服務主體為基礎)。 這些權限密切地對映金鑰物件上所允許的作業：  
+您可以在保存庫上的金鑰存取控制項目中授與下列權限 (以每個使用者 / 服務主體為基礎)。 這些權限密集地鏡像上的索引鍵物件所允許的作業。  至服務主體金鑰保存庫中的存取權授與一次的作業，而它會保留所有的 Azure 訂用帳戶相同。 您可以使用它來部署多個您想要的憑證。 
 
 - 金鑰管理作業的權限
   - *get*：讀取金鑰的公開部分及其屬性
@@ -330,7 +330,7 @@ Key Vault 憑證具有下列屬性：
 > [!Note] 
 > 如果 Key Vault 憑證到期，其可定址金鑰和秘密將變得無法使用。  
 
-#### <a name="tags"></a>標記
+#### <a name="tags"></a>Tags
 
  用戶端指定的金鑰值組字典，類似於金鑰與秘密中的標記。  
 
@@ -473,8 +473,7 @@ Key Vault 可管理 Azure 儲存體帳戶金鑰：
 
 如需詳細資訊，請參閱 [Key Vault REST API 參考中的儲存體帳戶作業](/rest/api/keyvault)。 如需建立權限的相關資訊，請參閱[保存庫 - 建立或更新](/rest/api/keyvault/vaults/createorupdate)和[保存庫 - 更新存取原則](/rest/api/keyvault/vaults/updateaccesspolicy)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 - [驗證、要求和回應](authentication-requests-and-responses.md)
-- [Key Vault 版本](key-vault-versions.md)
 - [Key Vault 開發人員指南](/azure/key-vault/key-vault-developers-guide)

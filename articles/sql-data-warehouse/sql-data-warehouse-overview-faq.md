@@ -73,7 +73,7 @@ A. 針對 SQL 資料倉儲，我們目前在 Visual Studio 中不支援資料庫
 
 問： SQL 資料倉儲是否支援 REST API？
 
-A. 是。 大部分可以搭配 SQL Database 使用的 REST 功能也可搭配 SQL 資料倉儲使用。 您可以在 REST 文件頁面或 [MSDN] 內找到 API 資訊。
+A. 是的。 大部分可以搭配 SQL Database 使用的 REST 功能也可搭配 SQL 資料倉儲使用。 您可以在 REST 文件頁面或 [MSDN] 內找到 API 資訊。
 
 
 ## <a name="loading"></a>載入

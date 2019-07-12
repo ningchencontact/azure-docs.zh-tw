@@ -34,12 +34,12 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 * 轉寄客戶查詢
 * 透過電子郵件從您的應用程式傳送通知
 
-如需詳細資訊，請參閱 <https://sendgrid.com>。
+如需詳細資訊，請參閱<https://sendgrid.com>。
 
 ## <a name="create-a-sendgrid-account"></a>建立 SendGrid 帳戶
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="how-to-use-the-javaxmail-libraries"></a>作法：使用 javax.mail 程式庫
+## <a name="how-to-use-the-javaxmail-libraries"></a>HOW TO：使用 javax.mail 程式庫
 取得 javax.mail 程式庫，例如從 <https://www.oracle.com/technetwork/java/javamail> 取得並將其匯入您的程式碼。 使用 javax.mail 程式庫來傳送採用 SMTP 之電子郵件的高層級程序就是執行下列動作：
 
 1. 指定 SMTP 值 (包括 SMTP 伺服器)，對 SendGrid 而言是 smtp.sendgrid.net。
@@ -83,7 +83,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 3. 建立郵件並指派 [收件者]  、[寄件者]  、[主旨]  和內容值。 這會顯示[How To:建立電子郵件](#how-to-create-an-email)一節。
 4. 透過 *javax.mail.Transport* 物件傳送郵件。 這會顯示在 [How To:傳送電子郵件] [# how to-傳送-的-電子郵件] 一節。
 
-## <a name="how-to-create-an-email"></a>作法：建立電子郵件
+## <a name="how-to-create-an-email"></a>HOW TO：建立電子郵件
 下列程式碼顯示如何指定電子郵件的值。
 
     MimeMessage message = new MimeMessage(mailSession);
@@ -104,7 +104,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="how-to-send-an-email"></a>作法：傳送電子郵件
+## <a name="how-to-send-an-email"></a>HOW TO：傳送電子郵件
 下列程式碼顯示如何傳送電子郵件。
 
     Transport transport = mailSession.getTransport();
@@ -115,7 +115,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
     // Close the connection.
     transport.close();
 
-## <a name="how-to-add-an-attachment"></a>作法：新增附件
+## <a name="how-to-add-an-attachment"></a>HOW TO：新增附件
 下列程式碼顯示如何新增附件。
 
     // Local file name and path.
@@ -130,7 +130,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>作法：使用篩選器來啟用頁尾、 追蹤和分析
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>HOW TO：使用篩選器來啟用頁尾、 追蹤和分析
 SendGrid 運用「篩選器」  提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。 如需完整的篩選器清單，請參閱[篩選器設定][Filter Settings]。
 
 * 下列程式碼顯示如何插入頁尾篩選器，以使 HTML 文字出現在傳送之電子郵件的底部。
@@ -157,7 +157,7 @@ SendGrid 運用「篩選器」  提供其他電子郵件功能。 這些設定�
           {\"settings\":
           {\"enable\":1}}}}");
 
-## <a name="how-to-update-email-properties"></a>作法：更新電子郵件屬性
+## <a name="how-to-update-email-properties"></a>HOW TO：更新電子郵件屬性
 某些電子郵件屬性可使用 **set Property** 進行覆寫，或使用 **add Property** 進行附加。
 
 例如，若要指定 **ReplyTo** 地址，請使用下列程式碼：
@@ -173,7 +173,7 @@ SendGrid 運用「篩選器」  提供其他電子郵件功能。 這些設定�
     message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
-## <a name="how-to-use-additional-sendgrid-services"></a>作法：使用其他 SendGrid 服務
+## <a name="how-to-use-additional-sendgrid-services"></a>HOW TO：使用其他 SendGrid 服務
 SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。 如需完整詳細資料，請參閱 [SendGrid API 文件][SendGrid API documentation]。
 
 ## <a name="next-steps"></a>後續步驟

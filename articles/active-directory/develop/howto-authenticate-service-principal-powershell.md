@@ -23,7 +23,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540402"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>作法：使用 Azure PowerShell 建立具有憑證的服務主體
+# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>HOW TO：使用 Azure PowerShell 建立具有憑證的服務主體
 
 當您有 App 或指令碼需要存取資源時，可以設定 App 的身分識別，並使用 App 自己的認證進行驗證。 此身分識別就是所謂的服務主體。 這種方法可讓您︰
 

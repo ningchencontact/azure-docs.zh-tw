@@ -26,7 +26,7 @@ VPN 閘道連線可讓您在 Azure 內的虛擬網路和內部部署 IT 基礎�
 >
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 VPN 閘道連線涉及下列元件：
 
@@ -102,7 +102,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 
     下列畫面顯示此範例的輸出：
 
-    ![輸出](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+    ![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 5. (選用) 如果要保留測試結果，請執行此命令：
 

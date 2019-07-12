@@ -39,7 +39,7 @@ ms.locfileid: "64720785"
 
 此案例假設您已依照[建立網路監看員](network-watcher-create.md)中的步驟建立網路監看員。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 本文涵蓋的案例會擷取指定虛擬機器之已設定且有效的安全性規則。
 

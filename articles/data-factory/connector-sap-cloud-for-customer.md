@@ -29,7 +29,7 @@ ms.locfileid: "60578703"
 
 具體而言，此連接器可讓 Azure Data Factory 從 SAP Cloud for Customer 來回複製資料，其中包括 SAP Cloud for Sales、SAP Cloud for Service 及 SAP Cloud for Social Engagement 解決方案。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -43,14 +43,14 @@ ms.locfileid: "60578703"
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapCloudForCustomer**。 | 是 |
 | url | SAP C4C OData 服務的 URL。 | 是 |
-| username | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
+| userName | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
 | password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
 >若要將資料複製到 SAP Cloud for Customer，請以您 SAP Cloud for Customer 附近的位置明確[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並在已連結的服務中產生關聯，如下列範例所示：
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -84,7 +84,7 @@ ms.locfileid: "60578703"
 | type | 資料集的類型屬性必須設定為：**SapCloudForCustomerResource** |是 |
 | path | 指定 SAP C4C OData 實體的路徑。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -117,7 +117,7 @@ ms.locfileid: "60578703"
 
 取得特定日之資料的範例查詢：`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -156,10 +156,10 @@ ms.locfileid: "60578703"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapCloudForCustomerSink**  | 是 |
-| writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 沒有。 預設值為 “Insert”。 |
-| writeBatchSize | 寫入作業的批次大小。 要取得最佳效能的批次大小可能會隨著資料表或伺服器而有所不同。 | 沒有。 預設值為 10。 |
+| writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 資料分割 預設值為 “Insert”。 |
+| writeBatchSize | 寫入作業的批次大小。 要取得最佳效能的批次大小可能會隨著資料表或伺服器而有所不同。 | 資料分割 預設值為 10。 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

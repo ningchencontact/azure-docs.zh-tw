@@ -4,7 +4,7 @@ description: Azure 計算中的節流錯誤、重試和輪詢。
 services: virtual-machines
 documentationcenter: ''
 author: changov
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9e0f2620bf6ff163207fc16ee24a327936ec4bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233777"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709206"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>對 API 節流錯誤進行疑難排解 
 
@@ -32,7 +32,7 @@ Azure 計算要求可在訂用帳戶上和個別區域中受到節流，以利�
 
 ## <a name="call-rate-informational-response-headers"></a>呼叫率資訊回應標頭 
 
-| 頁首                            | 值格式                           | 範例                               | 描述                                                                                                                                                                                               |
+| 標頭                            | 值格式                           | 範例                               | 描述                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 涵蓋資源貯體或作業群組 (包括此要求的目標) 的節流原則剩餘的 API 呼叫計數                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | 此 HTTP 要求計入適用原則限制的呼叫計數。 此值通常是 1。 對於批次要求 (例如，用來調整虛擬機器擴展集)，則可能計入多個計數。 |

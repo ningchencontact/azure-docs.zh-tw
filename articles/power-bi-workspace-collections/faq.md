@@ -2,18 +2,18 @@
 title: Power BI 工作區集合常見問題集
 description: Power BI 工作區集合相關的常見問題。
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b737c7753ce374d0360738e37d83609d1db995b1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701575"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672412"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作區集合常見問題集
 
@@ -68,11 +68,11 @@ Azure 入口網站會針對您的訂用帳戶提供已經執行多少轉譯/報�
 
 ## <a name="i-have-an-azure-subscription-can-i-use-power-bi-workspace-collections-using-my-existing-subscription"></a>我有 Azure 訂用帳戶。 我可以利用現有的訂用帳戶來使用 Power BI 工作區集合嗎？
 
-是。 您可以使用現有的 Azure 訂用帳戶來佈建及使用 Microsoft Power BI 工作區集合服務。
+是的。 您可以使用現有的 Azure 訂用帳戶來佈建及使用 Microsoft Power BI 工作區集合服務。
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>我的應用程式的使用者是否需要 Power BI 授權？
 
-沒有。 您應用程式的使用者不需購買個別的 Power BI 訂用帳戶，就能存取應用程式內資料視覺效果。 在 Power BI 工作區集合模型中，應用程式提供者需透過 Azure 使用計量來為服務付費。 請參閱[定價和授權頁面](https://go.microsoft.com/fwlink/?LinkId=760527)。
+資料分割 您應用程式的使用者不需購買個別的 Power BI 訂用帳戶，就能存取應用程式內資料視覺效果。 在 Power BI 工作區集合模型中，應用程式提供者需透過 Azure 使用計量來為服務付費。 請參閱[定價和授權頁面](https://go.microsoft.com/fwlink/?LinkId=760527)。
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>如何使用 Power BI 工作區集合來執行使用者驗證工作？
 
@@ -98,7 +98,7 @@ Power BI 工作區集合服務會使用應用程式權杖進行驗證和授權�
 
 您現在就可以免費開始使用！ 如果您有 Azure 訂用帳戶，現在就可以直接從 Azure 入口網站佈建 Power BI 工作區集合。 您也可以建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 在您佈建 Power BI 工作區集合服務之後，就能輕鬆地直接使用 Power BI REST API，或使用 [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472) \(英文\) 上提供的開發人員 SDK。 也有提供範例說明如何使用開發人員 SDK。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [什麼是 Microsoft Power BI 工作區集合](what-are-power-bi-workspace-collections.md)
 [開始使用 Microsoft Power BI 工作區集合](get-started.md)

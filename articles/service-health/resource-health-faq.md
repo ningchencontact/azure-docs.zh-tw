@@ -80,10 +80,10 @@ ms.locfileid: "64924453"
 否，健康情況資訊適用於可透過資源健康狀態提供的所有資源類型。 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>我們是否需要為我的組織啟用資源健康狀態？
-沒有。  不需進行任何安裝，即可在 Azure 入口網站內存取 Azure 資源健康狀態。
+資料分割  不需進行任何安裝，即可在 Azure 入口網站內存取 Azure 資源健康狀態。
 
 ## <a name="is-resource-health-available-free-of-charge"></a>是否可免費使用資源健康狀態？
-是。  Azure 資源健康狀態是免費的。
+是的。  Azure 資源健康狀態是免費的。
 
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>資源健康狀態所提供的建議有哪些？
 根據健康狀態，資源健康狀態會為您提供建議，旨在讓您減少疑難排解所花費的時間。 針對可用的資源，建議著重於如何解決客戶會發生的最常見問題。 如果資源是因為 Azure 未規劃事件而無法使用，則會著重於在復原程序期間以及之後協助您。 

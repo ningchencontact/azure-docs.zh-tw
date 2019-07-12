@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b73edd10521b23fb4befbe4fe7d9f0c7b496de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3edfdca16141726ea591c8473528fc23ee076c53
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204307"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620612"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>將資料連接，從 Azure 資訊保護
 
@@ -30,7 +31,7 @@ ms.locfileid: "65204307"
 您可以從串流記錄[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)到 Azure Sentinel 只要按一下。 Azure 資訊保護可協助保護您的資料，無論是儲存在雲端或內部部署基礎結構和控制項，並協助保護電子郵件、 文件和您的公司外部共用的敏感性資料。 從簡易的分類到內嵌的標籤和權限，加強資料保護隨時都與 Azure 資訊保護。 當您連接 Azure 資訊保護到 Azure Sentinel，您的資料流的所有警示從 Azure 資訊保護至 Azure 的 Sentinel。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 使用全域管理員、 安全性系統管理員或資訊的保護權限的使用者
 
@@ -49,7 +50,7 @@ ms.locfileid: "65204307"
 
 4. 選取您已部署至 Azure 的 Sentinel 的工作區。 
 
-5. 按一下 [確定]  。
+5. 按一下 [確定 **Deploying Office Solutions**]。
 
 6. 若要使用 Log Analytics 中的 Azure Information Protection 的警示相關的結構描述，搜尋**InformationProtectionLogs_CL**。
 

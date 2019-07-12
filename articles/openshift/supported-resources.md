@@ -36,7 +36,7 @@ ms.locfileid: "66306209"
 
 Azure Red Hat OpenShift 的 REST API 支援下列的計算節點大小：
 
-|大小|vCPU|RAM|
+|Size|vCPU|RAM|
 |-|-|-|
 |標準 D4s v3 系列|4|16 GB|
 |標準 D8s v3 系列|8|32 GB|
@@ -56,7 +56,7 @@ Azure Red Hat OpenShift 的 REST API 支援下列的計算節點大小：
 
 下列的主要 / 基礎結構節點大小會受到 Azure Red Hat OpenShift 的 REST API:
 
-|大小|vCPU|RAM|
+|Size|vCPU|RAM|
 |-|-|-|
 |標準 D4s v3 系列|4|16 GB|
 |標準 D8s v3 系列|8|32 GB|

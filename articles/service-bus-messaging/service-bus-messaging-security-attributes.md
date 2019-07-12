@@ -51,8 +51,8 @@ ms.locfileid: "66003118"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 透過管理[Azure Active Directory 受控服務識別](service-bus-managed-service-identity.md); 請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。|
-| 授權| 是 | 支援透過授權[RBAC](service-bus-role-based-access-control.md) （預覽） 和 SAS 權杖，請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。 |
+| 驗證| 是 | 透過管理[Azure Active Directory 受控服務識別](service-bus-managed-service-identity.md); 請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。|
+| Authorization| 是 | 支援透過授權[RBAC](service-bus-role-based-access-control.md) （預覽） 和 SAS 權杖，請參閱[服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)。 |
 
 
 

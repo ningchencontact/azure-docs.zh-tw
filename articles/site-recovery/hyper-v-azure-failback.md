@@ -19,7 +19,7 @@ ms.locfileid: "60552411"
 
 本文說明如何容錯回復 Site Recovery 所保護的 Hyper-V 虛擬機器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. 請確定您已閱讀[不同類型容錯回復](concepts-types-of-failback.md)的相關詳細資料和對應的須知。
 1. 請確定主要網站 VMM 伺服器或 Hyper-V 主機伺服器已連線至 Azure。
 2. 您應該已在虛擬機器上執行**認可**。

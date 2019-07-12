@@ -34,7 +34,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
 如果您想要知道與 Azure AD 整合的 SaaS 應用程式詳細資訊，請參閱： 什麼是搭配 [Azure Active Directory](../manage-apps/what-is-single-sign-on.md) 的應用程式存取和單一登入？
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 ScaleX Enterprise 整合，您需要下列項目：
 
@@ -181,7 +181,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
     
     g. 請勾選下列核取方塊：請勾選下列核取方塊︰[已啟用]、[加密 NameID] 和 [簽署 AuthnRequests]  。
 
-    h.如果该值不存在，请单击“添加行”。 按一下 [更新 SSO 設定]  將設定儲存。
+    h. 按一下 [更新 SSO 設定]  將設定儲存。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式]  區段新增此應用程式之後，只要按一下 [單一登入]  索引標籤，即可透過底部的 [組態]  區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -216,7 +216,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="creating-a-scalex-enterprise-test-user"></a>建立 ScaleX Enterprise 測試使用者
 

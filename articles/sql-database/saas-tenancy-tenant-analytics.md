@@ -63,9 +63,9 @@ ms.locfileid: "66240875"
 
 了解每個租用戶如何使用服務來探索選項，讓服務創造營收並且改善服務以協助租用戶更成功。 本教學課程提供可以從租用戶資料收集之深入解析種類的基本範例。
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，請確定符合下列必要條件：
 
@@ -175,13 +175,13 @@ ms.locfileid: "66240875"
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 [ **連接**]。  
+5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 **[連接]** 。  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. 在分析資料庫底下的 [導覽]  窗格中，選取星狀結構描述資料表：fact_Tickets dim_Events、dim_Venues、dim_Customers 和 dim_Dates。 然後選取 [載入]  。 
 
-恭喜！ 您已成功將資料載入 Power BI。 現在您可以開始探索有趣的視覺效果，協助您深入解析您的租用戶。 接下來您會逐步了解分析如何讓您將資料驅動的建議提供給 Wingtip 票證業務小組。 建議可協助最佳化商務模型和客戶體驗。
+恭喜您！ 您已成功將資料載入 Power BI。 現在您可以開始探索有趣的視覺效果，協助您深入解析您的租用戶。 接下來您會逐步了解分析如何讓您將資料驅動的建議提供給 Wingtip 票證業務小組。 建議可協助最佳化商務模型和客戶體驗。
 
 您會從分析票證銷售資料來查看跨地點之使用方式的變化來開始。 在 Power BI 中選取下列選項，以依據每個地點銷售的票證總數，繪製橫條圖。 由於票證產生器中的隨機變化，您的結果可能會不同。
  
@@ -227,7 +227,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > - 使用預先定義的星狀結構描述資料表部署租用戶分析資料庫
@@ -236,7 +236,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 > - 查詢分析資料庫 
 > - 使用適用於資料視覺效果的 Power BI 來觀察租用戶資料的趨勢 
 
-恭喜！
+恭喜您！
 
 ## <a name="additional-resources"></a>其他資源
 

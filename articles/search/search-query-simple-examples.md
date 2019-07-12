@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485367"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653515"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>使用 Azure 搜尋服務中的 「 簡單 」 的搜尋語法的查詢範例
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>範例 3：篩選查詢
 
-[篩選語法](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)是您可搭配**搜尋**使用或單獨使用的 OData 運算式。 獨立的篩選條件 (不含搜尋參數) 在篩選運算式能夠完全限定相關文件時，將有其效用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分 (所有分數均為 1)，也沒有排名。 請注意，搜尋字串是空的。
+[篩選語法](https://docs.microsoft.com/azure/search/search-query-odata-filter)是您可搭配**搜尋**使用或單獨使用的 OData 運算式。 獨立的篩選條件 (不含搜尋參數) 在篩選運算式能夠完全限定相關文件時，將有其效用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分 (所有分數均為 1)，也沒有排名。 請注意，搜尋字串是空的。
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-如需此函式的詳細資訊，請參閱[「篩選範例」中的 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
+如需此函式的詳細資訊，請參閱[「篩選範例」中的 search.ismatch](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples)。
 
 ## <a name="example-4-range-filters"></a>範例 4：範圍篩選
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>範例 5：地區搜尋
 
-此範例索引包含具有經度和緯度座標的 geo_location 欄位。 這個範例會使用 [geo.distance 函式](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)，以篩選起始點周圍以至您提供的任意距離 (以公里為單位) 內的文件。 您可以調整查詢 (4) 中的最後一個值，以縮小或放大查詢的介面區。
+此範例索引包含具有經度和緯度座標的 geo_location 欄位。 這個範例會使用 [geo.distance 函式](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples)，以篩選起始點周圍以至您提供的任意距離 (以公里為單位) 內的文件。 您可以調整查詢 (4) 中的最後一個值，以縮小或放大查詢的介面區。
 
 下列範例採用 POST 格式以便閱讀：
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: zhiweiw
+ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c64f9f835393c5ad2bf6022e4a274e8e2eeb1830
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7d080c4ffe25f480689832ee8c32ecc89cc16a69
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60349856"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702623"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect Health 警示目錄 
 
@@ -91,7 +91,7 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。 Azure AD Conn
 | Netlogon 服務未執行 | 此 DC 上將無法使用登入要求、註冊、驗證，也無法尋找網域控制站。 | 在受影響的網域控制站上執行 '<b>net start netlogon</b>' | 
 | W32Time 服務並未執行 | 若停止 Windows 時間服務，將無法同步處理日期與時間。 若停用此服務，任何明確依存於其的服務將無法啟動。 | 在受影響的網域控制站上執行 '<b>net start win32Time</b>' | 
 | ADWS 服務並未執行 | 如果已停止或停用 Active Directory Web 服務，則用戶端應用程式 (如 Active Directory PowerShell) 將會無法存取或管理這部伺服器上以本機方式執行的任何目錄服務執行個體。 | 在受影響的網域控制站上執行 '<b>net start adws</b>' | 
-| 根 PDC 並未從 NTP 伺服器進行同步 | 如果沒有將 PDC 設定為與外部或內部時間來源進行同步，PDC 模擬器會使用其內部時鐘，且會以本身作為樹系的可靠時間來源。 若 PDC 本身的時間不正確，所有電腦的時間設定都會不正確。 | 在受影響的網域控制站上，開啟命令提示字元。 停止時間服務：net stop w32time</li> <li>設定外部時間來源： <br> <i>w32tm \/config \/manualpeerlist: time.windows.com \/syncfromflags:manual \/reliable:yes </i></br><br>注意：請將 time.windows.com 替換為所需的外部時間來源位址。 啟動時間服務： <br> <i>net start w32time </i></br> | 
+| 根 PDC 並未從 NTP 伺服器進行同步 | 如果沒有將 PDC 設定為與外部或內部時間來源進行同步，PDC 模擬器會使用其內部時鐘，且會以本身作為樹系的可靠時間來源。 若 PDC 本身的時間不正確，所有電腦的時間設定都會不正確。 | 在受影響的網域控制站上，開啟命令提示字元。 停止時間服務：net stop w32time</li> <li>設定外部時間來源： <br> <i>w32tm \/config \/manualpeerlist: time.windows.com \/syncfromflags:manual \/reliable:yes </i></br><br>注意:請將 time.windows.com 替換為所需的外部時間來源位址。 啟動時間服務： <br> <i>net start w32time </i></br> | 
 | 網域控制站隔離中 | 此網域控制站未連線到任何其他運作中的網域控制站。 可能是因為組態不正確所致。 因此，目前未使用此 DC，且不會對任何網域控制站彼此進行複寫。 | 啟用輸入及輸出複寫：在受影響的網域控制站上執行 '<b>repadmin /options ServerName -DISABLE_INBOUND_REPL</b>'。 在受影響的網域控制站上執行 '<b>repadmin /options ServerName -DISABLE_OUTBOUND_REPL</b>'。 建立與其他網域控制站的新複寫連線：<ol type="1"><li>開啟 [Active Directory 網站及服務]：在 [開始] 功能表上指向 [系統管理工具]，然後按一下 [Active Directory 網站及服務]。 </li><li>在 [主控台] 樹狀結構中，依序展開 [網站] 及此 DC 所屬的網站。 </li><li>展開伺服器容器以顯示伺服器清單。 </li><li>展開此 DC 的伺服器物件。 </li><li>以滑鼠右鍵按一下 NTDS 設定物件，然後按一下 [新增 Active Directory 網域服務連線...]。 </li><li>從清單中選取伺服器，然後按一下 [確定]。</li></ol><a href="https://support.microsoft.com/kb/230306 ">如何將孤立網域從 Active Directory 移除</a> \(英文\)。 |
 | 輸出複寫為停用 | 若 DC 的輸出複寫為停用，將無法散發任何源自於其的變更。 | 若要在受影響的網域控制站上啟用輸出複寫，請遵循下列步驟進行：依序按一下 [開始]、[執行] 並輸入 cmd，然後按一下 [確定]。 鍵入下列文字，再按 ENTER 鍵：<br><i>repadmin /options -DISABLE_OUTBOUND_REPL </i> | 
 | 輸入複寫為停用 | 若 DC 的輸入複寫為停用，將不具最新資訊。 此情況可能會導致登入失敗。 | 若要在受影響的網域控制站上啟用輸入複寫，請遵循下列步驟進行：依序按一下 [開始]、[執行] 並輸入 cmd，然後按一下 [確定]。 鍵入下列文字，再按 ENTER 鍵：<br><i>repadmin /options -DISABLE_INBOUND_REPL</i> </br> | 

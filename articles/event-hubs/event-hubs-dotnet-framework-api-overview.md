@@ -48,7 +48,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>DELETE
 
 ```csharp
 await namespaceManager.DeleteEventHubAsync("event hub name");

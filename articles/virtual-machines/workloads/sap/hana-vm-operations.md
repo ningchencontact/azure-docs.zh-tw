@@ -30,7 +30,7 @@ ms.locfileid: "67077648"
 - [SAP 安裝指南](https://service.sap.com/instguides)
 - [SAP 附註](https://sservice.sap.com/notes)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用本指南，您需要下列 Azure 元件的基本知識：
 
 - [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -242,7 +242,7 @@ SAP HANA 相應放大的 VM 節點基本設定看起來像這樣：
 SAP BW 或 S4HANA 不支援 SAP HANA Dynamic Tiering 2.0。 主要使用案例現在為原生 HANA 應用程式。
 
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 
 下圖提供有關 Microsoft Azure 上的 DT 2.0 支援概觀。 必須遵循一組必要需求，才能符合正式憑證：
 

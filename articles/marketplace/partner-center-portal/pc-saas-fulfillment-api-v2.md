@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ecee1669c29d7b298741f9e5521de03da6dd7e3b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331643"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701145"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行第 2 版的 Api 
 
@@ -87,7 +87,7 @@ Azure 的 SaaS 管理整個生命週期的 SaaS 訂用帳戶購買。 它使用 
 | `offerId`                | 每個優惠的唯一字串識別項 (例如:"offer1 」)。  |
 | `planId`                 | 每個計劃/SKU 的唯一字串識別項 (例如: 「 銀級 」)。 |
 | `operationId`            | 針對特定作業的 GUID 識別碼。  |
-|  `action`                | 可能是正在執行的資源上的動作`subscribe`， `unsubscribe`， `suspend`， `reinstate`，或`changePlan`， `changeQuantity`， `transfer`。  |
+|  `action`                | 可能是正在執行的資源上的動作`unsubscribe`， `suspend`， `reinstate`，或`changePlan`， `changeQuantity`， `transfer`。  |
 |   |   |
 
 全域唯一識別碼 ([Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) 是通常自動產生的 128 位元 （32-十六進位） 數字。 
@@ -112,7 +112,7 @@ Azure 的 SaaS 管理整個生命週期的 SaaS 訂用帳戶購買。 它使用 
 |  x-ms-requestid    |  用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，其中會產生並提供回應標頭中。 |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  authorization     |  [取得 JSON web 權杖 (JWT) 持有人權杖](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)。 |
-|  x-ms-marketplace-token  |  在 URL 中，當使用者重新導向至 SaaS 合作夥伴的網站從 Azure 中的語彙基元的查詢參數 (例如： `https://contoso.com/signup?token=..`)。 *附註：* URL 解碼後才能使用它的瀏覽器中的權杖值。  |
+|  x-ms-marketplace-token  |  在 URL 中，當使用者重新導向至 SaaS 合作夥伴的網站從 Azure 中的語彙基元的查詢參數 (例如： `https://contoso.com/signup?token=..`)。 *注意：* URL 解碼後才能使用它的瀏覽器中的權杖值。  |
 
 *回應碼：*
 
@@ -199,10 +199,16 @@ SaaS 的訂用帳戶將解析的不透明的語彙基元。 回應內文：
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -271,7 +277,13 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
+        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
+          "term": { //This gives the free trial term start and end date
+            "startDate": "2019-05-31",
+            "endDate": "2019-06-29",
+            "termUnit": "P1M"
+        },
 }
 ```
 
@@ -537,7 +549,7 @@ Request Body:
 
 取消訂閱，然後刪除指定的訂用帳戶。
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>DELETE<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
 
 *查詢參數：*
 
@@ -794,7 +806,6 @@ Response body:
 }
 ```
 其中的動作可以是下列其中之一： 
-- `subscribe` （當資源已啟用）
 - `unsubscribe` （當資源已刪除）
 - `changePlan` （當變更計劃作業已完成）
 - `changeQuantity` （當變更數量作業已完成）

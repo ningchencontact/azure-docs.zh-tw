@@ -113,7 +113,7 @@ Azure 儲存體會收集舊計量值、加以彙總並儲存在相同儲存體�
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>新的計量資料是否預設儲存在相同的儲存體帳戶中？
 
-沒有。 若要將計量資料封存至儲存體帳戶，請使用 [Azure 監視器診斷設定 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。
+資料分割 若要將計量資料封存至儲存體帳戶，請使用 [Azure 監視器診斷設定 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。
 
 ## <a name="next-steps"></a>後續步驟
 

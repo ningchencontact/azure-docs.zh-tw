@@ -22,7 +22,7 @@ ms.locfileid: "65597203"
 
 比方說，如果您設定靜態的結果，適用於 Outlook 365 傳送郵件的動作，Logic Apps 引擎只會傳回模擬 （mock） 的資料，您指定為靜態的結果，而不是呼叫 Outlook 和傳送電子郵件。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
@@ -137,7 +137,7 @@ ms.locfileid: "65597203"
 
    ![停用靜態的結果](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 
 如需此設定基準的工作流程定義中的詳細資訊，請參閱[靜態結果-工作流程定義語言結構描述參考](../logic-apps/logic-apps-workflow-definition-language.md#static-results)和[runtimeConfiguration.staticResult-執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 

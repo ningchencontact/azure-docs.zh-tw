@@ -220,11 +220,11 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 ### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>我的反向 DNS 記錄會從網際網路解析嗎？
 
-是。 在您為 Azure 服務設定反向 DNS 屬性之後，Azure 會管理所有必要的 DNS 委派和 DNS 區域，以確保反向 DNS 記錄可以為所有網際網路使用者解析。
+是的。 在您為 Azure 服務設定反向 DNS 屬性之後，Azure 會管理所有必要的 DNS 委派和 DNS 區域，以確保反向 DNS 記錄可以為所有網際網路使用者解析。
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>我的 Azure 服務有沒有建立預設的反向 DNS 記錄？
 
-沒有。 反向 DNS 是選用的功能。 如果您選擇不設定，則不會建立任何預設反向 DNS 記錄。
+資料分割 反向 DNS 是選用的功能。 如果您選擇不設定，則不會建立任何預設反向 DNS 記錄。
 
 ### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>完整網域名稱 (FQDN) 的格式為何？
 
@@ -236,15 +236,15 @@ FQDN 是以正向順序指定，且必須以點結束 (例如，"app1.contoso.co
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Azure App Service 可以設定反向 DNS 嗎？
 
-沒有。 目前不支援 Azure App Service 反向 DNS。
+資料分割 目前不支援 Azure App Service 反向 DNS。
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Azure 服務可以設定多個反向 DNS 記錄嗎？
 
-沒有。 Azure 雲端服務或 PublicIpAddress，Azure 只支援一筆反向 DNS 記錄。
+資料分割 Azure 雲端服務或 PublicIpAddress，Azure 只支援一筆反向 DNS 記錄。
 
 ### <a name="can-i-configure-reverse-dns-for-ipv6-publicipaddress-resources"></a>IPv6 PublicIpAddress 資源可以設定反向 DNS嗎？
 
-沒有。 Azure 目前只支援 IPv4 PublicIpAddress 資源和雲端服務的反向 DNS。
+資料分割 Azure 目前只支援 IPv4 PublicIpAddress 資源和雲端服務的反向 DNS。
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>我可以從我的 Azure 計算服務將電子郵件傳送至外部網域嗎？
 

@@ -24,7 +24,7 @@ ms.locfileid: "66479258"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Log Analytics 工作區**。 您可以想像此工作區的唯一 Azure 監視器記錄環境，有它自己的資料存放庫、 資料來源和解決方案。 如需指示，請參閱[建立 Log Analytics 工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)。
 

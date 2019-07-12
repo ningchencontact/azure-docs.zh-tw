@@ -76,14 +76,14 @@ ms.locfileid: "60822305"
 TaskName | 失敗工作的描述。
 ActivityId | 用於追蹤的內部識別碼。
 trackingId | 用於追蹤的內部識別碼。
-ResourceId | Azure Resource Manager 資源識別碼。
+resourceId | Azure Resource Manager 資源識別碼。
 eventHub | 事件中樞完整名稱 (包括命名空間名稱)。
 partitionId | 要寫入的事件中樞資料分割。
 archiveStep | ArchiveFlushWriter
 startTime | 失敗開始時間。
 failures | 發生失敗的次數。
 durationInSeconds | 失敗持續時間。
-Message | 錯誤訊息。
+message | 錯誤訊息。
 category | ArchiveLogs
 
 下列程式碼是封存記錄 JSON 字串的範例：
@@ -113,12 +113,12 @@ category | ArchiveLogs
 ------- | -------
 ActivityId | 用於追蹤目的的內部識別碼。
 EventName | 作業名稱。  
-ResourceId | Azure Resource Manager 資源識別碼。
+resourceId | Azure Resource Manager 資源識別碼。
 SubscriptionId | 訂用帳戶 ID。
 EventTimeString | 作業時間。
 EventProperties | 作業屬性。
 狀態 | 作業狀態。
-呼叫者 | 作業呼叫者 (Azure 入口網站或管理用戶端)。
+Caller | 作業呼叫者 (Azure 入口網站或管理用戶端)。
 category | OperationalLogs
 
 下列程式碼是作業記錄 JSON 字串的範例：
@@ -141,4 +141,4 @@ Example:
 ## <a name="next-steps"></a>後續步驟
 * [事件中樞簡介](event-hubs-what-is-event-hubs.md)
 * [事件中樞 API 概觀](event-hubs-api-overview.md)
-* [事件中心入门](event-hubs-dotnet-standard-getstarted-send.md)
+* [開始使用事件中心](event-hubs-dotnet-standard-getstarted-send.md)

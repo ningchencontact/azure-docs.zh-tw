@@ -120,7 +120,7 @@ ms.locfileid: "60254621"
 ```
 
 
-## <a name="remove-diagnostics-extension"></a>删除诊断扩展
+## <a name="remove-diagnostics-extension"></a>移除診斷延伸模組
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -136,7 +136,7 @@ ms.locfileid: "60254621"
 ```
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [使用 Application Insights 監視 Azure 雲端服務應用程式](../../azure-monitor/app/cloudservices.md)
 * [將 Azure 診斷傳送至 Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [自動化設定警示](powershell-alerts.md)

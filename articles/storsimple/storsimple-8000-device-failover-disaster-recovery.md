@@ -23,7 +23,7 @@ ms.locfileid: "60576323"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>StorSimple 8000 系列裝置的容錯移轉和災害復原
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明 StorSimple 8000 系列裝置的裝置容錯移轉功能，以及發生災害時，如何使用此功能來復原 StorSimple 裝置。 StorSimple 會使用裝置容錯移轉將資料從資料中心的來源裝置移轉至另一個目標裝置。 本文中的指導方針適用於 StorSimple 8000 系列實體裝置和執行軟體版本 Update 3 和更新版本的雲端設備。
 

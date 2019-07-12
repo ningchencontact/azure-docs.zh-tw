@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 67263df319063cdf21dadea257dcab05ba0d5f7b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543783"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840007"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>定型，並向 Azure Machine Learning 服務的規模 TensorFlow 模型
 
@@ -25,7 +25,7 @@ TensorFlow 是開放原始碼運算架構，通常用來建立深度類神經網
 
 您正在開發從頭 TensorFlow 模型，還是您要採用[現有的模型](how-to-deploy-existing-model.md)到雲端，Azure Machine Learning 服務如何協助您建置可實際執行的模型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在這兩個環境上執行此程式碼：
 

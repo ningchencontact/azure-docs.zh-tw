@@ -170,9 +170,9 @@ SELECT
 
 您針對 Azure 儲存體容器產生的 SAS 權杖必須指定權限的 **rwl** 。 **rwl** 值會提供下列權限：
 
-- 閱讀
-- 撰寫
-- 列出
+- 讀取
+- 寫入
+- List
 
 ## <a name="performance-considerations"></a>效能考量
 

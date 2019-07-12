@@ -27,7 +27,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 本教學課程示範如何建立.NET Framework 主控台應用程式中的C#若要傳送事件，以從事件中樞接收事件。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您需要下列必要條件：
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com)。

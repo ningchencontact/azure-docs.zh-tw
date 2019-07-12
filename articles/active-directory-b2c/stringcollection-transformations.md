@@ -27,9 +27,9 @@ ms.locfileid: "66512444"
 
 將字串宣告新增至新的 stringCollection 宣告。 
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | 字串 | 要新增至輸出宣告的 ClaimType。 |
+| InputClaim | item | string | 要新增至輸出宣告的 ClaimType。 |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
 | OutputClaim | collection | stringCollection | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
@@ -61,10 +61,10 @@ ms.locfileid: "66512444"
 
 將字串參數新增至新的 stringCollection 宣告。 
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
-| InputParameter | item | 字串 | 要新增至輸出宣告的值。 |
+| InputParameter | item | string | 要新增至輸出宣告的值。 |
 | OutputClaim | collection | stringCollection | 叫用此 ClaimsTransformation 之後將產生的 ClaimType。 |
 
 使用此宣告轉換來將字串值新增至新的或現有的 stringCollection。 下列範例會將常數的電子郵件地址 (admin@contoso.com) 新增至 **otherMails** 宣告。 
@@ -96,10 +96,10 @@ ms.locfileid: "66512444"
 
 從提供的字串集合中取得第一個項目。 
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | 宣告轉換用來取得項目的 ClaimType。 |
-| OutputClaim | extractedItem | 字串 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |
+| OutputClaim | extractedItem | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |
 
 下列範例會讀取 **otherMails** 宣告，並將第一個項目傳回到 **email** 宣告。 
 

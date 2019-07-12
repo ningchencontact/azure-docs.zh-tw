@@ -92,7 +92,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 
 4. 在指令碼於中斷點停止執行之後，按 F11 來逐步執行程式碼。
 
-   ![Debugging](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![偵錯](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 

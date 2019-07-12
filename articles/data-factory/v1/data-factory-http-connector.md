@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318473"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839285"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 HTTP 來源的資料
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-http-connector.md)
 > * [第 2 版 (目前的版本)](../connector-http.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Azure Data Factory 服務，請參閱[第 2 版中的 HTTP 連接器](../connector-http.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Azure Data Factory 服務，請參閱[第 2 版中的 HTTP 連接器](../connector-http.md)。
 
 
 本文概述如何使用 Azure Data Factory 中的複製活動，將內部部署或雲端 HTTP 端點中的資料移動到支援的接收資料存放區。 本文的建置是根據[使用複製活動來移動資料](data-factory-data-movement-activities.md)，該文會提供使用複製活動來移動資料的一般概觀。 本文也會列出複製活動所支援作為來源和接收的資料存放區。
@@ -45,7 +45,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 - 若要建立管線，最簡單的方式就是使用「資料複製」精靈。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 或 **REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 如需將資料從 HTTP 來源複製到 Azure Blob 儲存體的 JSON 範例，請參閱 [JSON 範例](#json-examples)。
+- 您也可以使用下列工具來建立管線： **Visual Studio**， **Azure PowerShell**，則**Azure Resource Manager 範本**，則 **.NET API**，則**REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 如需將資料從 HTTP 來源複製到 Azure Blob 儲存體的 JSON 範例，請參閱 [JSON 範例](#json-examples)。
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 
@@ -231,7 +231,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 ## <a name="json-examples"></a>JSON 範例
 
-以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。 這些範例示範如何將資料從 HTTP 來源複製到 Azure Blob 儲存體。 不過，您可以使用 Azure Data Factory 中的「複製活動」，將資料從任何來源「直接」  複製到[所支援的](data-factory-data-movement-activities.md#supported-data-stores-and-formats)任何接收。
+下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例示範如何將資料從 HTTP 來源複製到 Azure Blob 儲存體。 不過，您可以使用 Azure Data Factory 中的「複製活動」，將資料從任何來源「直接」  複製到[所支援的](data-factory-data-movement-activities.md#supported-data-stores-and-formats)任何接收。
 
 **範例：將資料從 HTTP 來源複製到 Azure Blob 儲存體**
 

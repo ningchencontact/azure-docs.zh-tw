@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441351"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672562"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中樞裝置串流 (預覽)
 
@@ -82,7 +82,7 @@ IoT 中樞裝置串流提供下列優點：
 
 ![「 裝置資料流端點 」](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-或者，端點資訊也可以使用 Azure CLI 從中樞的屬性區段 (具體而言為 `property.hostname` 和 `property.deviceStreams` 索引鍵) 擷取。
+或者，端點擷取的資訊可以明確地說，在中樞的屬性區段中，使用 Azure CLI`property.hostname`和`property.deviceStreams`索引鍵。
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>

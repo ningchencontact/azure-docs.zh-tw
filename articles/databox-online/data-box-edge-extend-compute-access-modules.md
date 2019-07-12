@@ -27,7 +27,7 @@ ms.locfileid: "65917231"
 
 在本教學課程中，您將使用 web 伺服器應用程式模組，以示範的案例。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，您將需要：
 

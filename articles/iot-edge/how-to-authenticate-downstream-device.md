@@ -16,7 +16,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67082387"
 ---
-# <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>驗證至 Azure IoT 中樞的下游裝置
+# <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>在 Azure IoT 中樞中驗證下游裝置
 
 在透明閘道案例中，（有時稱為分葉裝置的子系） 的下游裝置會需要像任何其他裝置在 IoT 中樞的身分識別。 本文將逐步引導完成驗證下游裝置到 IoT 中樞的選項，並接著示範如何宣告的閘道連線。
 

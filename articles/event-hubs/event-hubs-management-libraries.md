@@ -27,7 +27,7 @@ ms.locfileid: "60746653"
 * 建立、更新、刪除事件中樞
 * 建立、更新、刪除取用者群組
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始使用事件中樞管理程式庫，您必須使用 Azure Active Directory (AAD) 來驗證。 AAD 會要求您以提供 Azure 資源存取權的服務主體來進行驗證。 如需建立服務主體的詳細資訊，請參閱以下其中一篇文章：  
 

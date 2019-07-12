@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543812"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838497"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio Code 的 Azure IoT Tools 來傳送和接收裝置與 IoT 中樞之間的訊息
 
@@ -56,7 +56,7 @@ ms.locfileid: "67543812"
 5. 在幾秒鐘的時間內，裝置清單會顯示在 [Azure IoT Hub Devices]  \(Azure IoT 中樞裝置\) 索引標籤中。
 
    > [!Note]
-   > 您也可以選擇 [設定 IoT 中樞連接字串]  來完成設定。 在快顯視窗中，輸入與您的 IoT 裝置連線的 IoT 中樞所使用的連接字串。
+   > 您也可以選擇 [設定 IoT 中樞連接字串]  來完成設定。 請輸入**iothubowner**原則為您的 IoT 裝置連線到快顯視窗中的 IoT 中樞的連接字串。
 
 ## <a name="monitor-device-to-cloud-messages"></a>監視裝置到雲端的訊息
 

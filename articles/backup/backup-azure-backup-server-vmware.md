@@ -290,7 +290,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 1. 在 [選取群組成員]  中 > 選取您要備份的 VM (或 VM 資料夾)。 然後按 [下一步]  。
 
     - 當您選取資料夾時，也會選取該資料夾內的 VM 或資料夾以進行備份。 您可以將不想備份的資料夾或 VM 取消選取。
-1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這確保不會為 VM 建立重複的復原點。 上也提供本文中使用的原始碼。
+1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這確保不會為 VM 建立重複的復原點。 。
 
      ![選擇群組成員](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 

@@ -23,7 +23,7 @@ ms.locfileid: "65979318"
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您已符合下列必要條件：
 

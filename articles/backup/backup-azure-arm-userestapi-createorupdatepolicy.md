@@ -50,10 +50,10 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 例如，若要建立 Azure VM 備份的原則，以下是要求本文的元件。
 
-|名稱  |必要項  |類型  |描述  |
+|名稱  |必要項  |type  |描述  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
-|标记     |         | Object        |  資源標籤       |
+|tags     |         | Object        |  資源標籤       |
 
 如需要求本文中的完整定義清單，請參閱[備份原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)。
 
@@ -158,7 +158,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |描述  |
+|名稱  |type  |描述  |
 |---------|---------|---------|
 |200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  [確定]       |
 |202 已接受     |         |     已接受    |

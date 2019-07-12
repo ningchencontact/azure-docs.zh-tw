@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3c547fbc09aeb034df5b7ed579639e1ff4bc0b4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069443"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705793"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 的存取限制 #
 
@@ -98,7 +98,7 @@ ms.locfileid: "67069443"
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>以程式設計方式管理存取限制規則 ##
 
-目前沒有任何 PowerShell 或 CLI 適用於新的存取限制功能，但您可以手動設定值，與應用程式組態在 Resource Manager 上執行 PUT 作業。 例如，您可以使用 resources.azure.com，並編輯 ipSecurityRestrictions 區塊來新增必要的 JSON。
+目前沒有任何 PowerShell 或 CLI 適用於新的存取限制功能，但您可以手動設定值，與[Azure REST API](https://docs.microsoft.com/rest/api/azure/)上的應用程式組態在 Resource Manager 中的 PUT 作業。 例如，您可以使用 resources.azure.com，並編輯 ipSecurityRestrictions 區塊來新增必要的 JSON。
 
 您可以在資源管理員中的以下位置找到此資訊：
 
@@ -106,15 +106,19 @@ management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource
 
 先前的 JSON 語法範例為：
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## <a name="function-app-ip-restrictions"></a>函式應用程式 IP 限制
 

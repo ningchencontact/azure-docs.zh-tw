@@ -81,7 +81,7 @@ ms.locfileid: "60373647"
 
 我們可連結至相關聯的官方參考文件 (如果有的話)。
 
-| 角色 | 在資源群組中 |
+| Role | 在資源群組中 |
 | --- | --- |
 | [擁有者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |可以變更任何項目，包括使用者存取。 |
 | [參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |可以編輯任何項目，包括所有資源。 |

@@ -171,5 +171,5 @@ Azure AD 中還有其他可在事件回應調查期間使用的重要內建報�
 ## <a name="next-steps"></a>後續步驟
 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)

@@ -28,8 +28,8 @@ ms.locfileid: "66511710"
 5. 輸入應用程式的名稱。 例如，*webapi1*。
 6. 針對 [包含 Web 應用程式/Web API]  和 [允許隱含流程]  ，選取 [是]  。
 7. 針對**回覆 URL**，請輸入 Azure AD B2C 應傳回您的應用程式所要求任何權杖的端點。 在您的生產應用程式，您可能會設定回覆 URL 值例如`https://localhost:44332`。 基於測試目的，設定回覆 URL 為`https://jwt.ms`。
-8. 針對**應用程式識別碼 URI**，請輸入您的 Web API 所使用的識別碼。 系統會為您產生包含網域的完整識別碼 URI。 例如： `https://contosotenant.onmicrosoft.com/api`。
-9. 按一下頁面底部的 [新增]  。
+8. 針對**應用程式識別碼 URI**，請輸入您的 Web API 所使用的識別碼。 系統會為您產生包含網域的完整識別碼 URI。 例如： `https://contosotenant.onmicrosoft.com/api` 。
+9. 按一下 [建立]  。
 10. 在 [屬性] 頁面上，記錄您會在設定 Web 應用程式時使用的應用程式識別碼。
 
 ## <a name="configure-scopes"></a>設定範圍
@@ -40,7 +40,7 @@ ms.locfileid: "66511710"
 2. 選取 [發佈的範圍]  。
 3. 針對 [範圍]  ，輸入 `Read`，以及輸入 `Read access to the application` 作為描述。
 4. 針對 [範圍]  ，輸入 `Write`，以及輸入 `Write access to the application` 作為描述。
-5. 按一下 [檔案]  。
+5. 按一下 [儲存]  。
 
 發佈的範圍可以用來為用戶端應用程式授與對 Web API 的權限。
 

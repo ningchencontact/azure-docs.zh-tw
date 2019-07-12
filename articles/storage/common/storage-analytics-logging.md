@@ -48,7 +48,7 @@ ms.locfileid: "65204969"
 - 用戶端和伺服器的逾時錯誤
 - 失敗的 GET 要求，錯誤碼為 304 (未修改)
 
-  系統不會記錄所有其他失敗的匿名要求。 [存储分析记录的操作和状态消息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)及[存储分析日志格式](/rest/api/storageservices/storage-analytics-log-format)主题中提供了所记录数据的完整列表。
+  系統不會記錄所有其他失敗的匿名要求。 記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)及[儲存體分析記錄檔格式](/rest/api/storageservices/storage-analytics-log-format)主題中。
 
 ## <a name="how-logs-are-stored"></a>記錄的儲存方式
 
@@ -94,7 +94,7 @@ ms.locfileid: "65204969"
 |`MM`|兩位數的月份，記錄檔。 例如：`07`|
 |`DD`|記錄檔的兩位數的日期。 例如：`31`|
 |`hh`|兩位數的小時開始時間的記錄，指出在 24 小時制 UTC 格式。 例如：`18`|
-|`mm`|兩位數數字，指出之開始分鐘的記錄檔。 **附註：** 在目前的儲存體分析版本中不支援此值和其值一律為`00`。|
+|`mm`|兩位數數字，指出之開始分鐘的記錄檔。 **注意：** 在目前的儲存體分析版本中不支援此值和其值一律為`00`。|
 |`<counter>`|以零起始的六位數計數器，表示在一小時內針對儲存體服務產生的記錄檔 Blob 數目。 此計數器會在開始`000000`。 例如：`000001`|
 
  以下是結合上述範例的完整範例記錄檔名稱：

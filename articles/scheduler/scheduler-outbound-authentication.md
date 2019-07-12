@@ -164,7 +164,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 使用 `Basic` 模型新增驗證時，請在要求主體中指定這些額外元素。
 
-| 元素 | 必要項 | 描述 |
+| 項目 | 必要項 | 描述 |
 |---------|----------|-------------|
 | **authentication** (父元素) | 用於使用基本驗證的驗證物件 | 
 | **type** | 是 | 驗證類型。 若為基本驗證，值為 `Basic`。 | 
@@ -296,7 +296,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 當傳送具有驗證資訊的要求時，回應包含下列驗證元素。
 
-| 元素 | 描述 |
+| 項目 | 描述 |
 |---------|-------------|
 | **authentication** (父元素) | 用於使用 ActiveDirectoryOAuth 驗證的驗證物件 |
 | **type** | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
@@ -403,7 +403,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)

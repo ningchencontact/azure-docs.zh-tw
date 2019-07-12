@@ -27,7 +27,7 @@ ms.locfileid: "61448389"
 1. 設定裝置模擬以使用新的 Docker 映像
 1. 使用新的映像執行模擬
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本操作指南中的步驟，您需要：
 

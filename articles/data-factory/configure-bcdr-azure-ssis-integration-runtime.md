@@ -40,7 +40,7 @@ ms.locfileid: "66399231"
 
 - SQL Database 伺服器不是  使用虛擬網路服務端點規則來設定的。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 發生容錯移轉時，Azure-SSIS IR 不會察覺。 Azure-SSIS IR 會自動連線到容錯移轉群組的新主要伺服器。
 
@@ -60,7 +60,7 @@ ms.locfileid: "66399231"
 
 - 資料庫伺服器是使用虛擬網路所設定的 SQL Database 受控執行個體。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 發生容錯移轉時，您必須執行下列動作：
 
@@ -72,7 +72,7 @@ ms.locfileid: "66399231"
 
 下列各節會更詳細地說明這些步驟。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 - 請確定您已針對 Azure SQL Database 伺服器啟用災害復原，以免服器在同一時間發生中斷。 如需詳細資訊，請參閱[使用 Azure SQL Database 的商務持續性概觀](../sql-database/sql-database-business-continuity.md)。
 
@@ -105,7 +105,7 @@ ms.locfileid: "66399231"
 
 ADF 或 AZURE-SSIS 整合執行階段發生災害時目前的區域中，您可以讓您使用新的 Azure SSIS IR，新的區域中的 SSISDB 會保留。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 - 如果您在目前的區域中使用虛擬網路，那麼您需要在新區域中使用另一個虛擬網路來與 Azure SSIS 整合執行階段連線。 如需詳細資訊，請參閱[將 Azure-SSIS 整合執行階段加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
 

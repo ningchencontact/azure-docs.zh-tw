@@ -19,7 +19,7 @@ ms.locfileid: "65969173"
 
 ## <a name="sql-core-api"></a>SQL (Core) API
 
-|**範本**|**說明**|
+|**範本**|**描述**|
 |---| ---|
 |[建立 Azure Cosmos 帳戶、 資料庫、 容器](manage-sql-with-resource-manager.md#create-resource) | 此範本會建立兩個區域中透過啟用多個主要 （核心） 的 SQL API 帳戶。 Azure Cosmos 帳戶會有兩個容器的共用資料庫層級的輸送量。 |
 |[更新資料庫的輸送量 （RU/秒）](manage-sql-with-resource-manager.md#database-ru-update) | 此範本會更新資料庫中 （核心） 的 SQL API 帳戶的輸送量。 |
@@ -43,7 +43,7 @@ ms.locfileid: "65969173"
 
 ## <a name="gremlin-api"></a>Gremlin API
 
-|**範本**|**說明**|
+|**範本**|**描述**|
 |---| ---|
 |[建立 Azure Cosmos 帳戶、 資料庫、 圖形](manage-gremlin-with-resource-manager.md#create-resource) | 此範本會建立兩個區域中透過啟用多個主要的 Gremlin API 帳戶。 Azure Cosmos 帳戶會有兩個共用資料庫層級輸送量的圖表。 |
 |[更新資料庫的輸送量 （RU/秒）](manage-gremlin-with-resource-manager.md#database-ru-update) | 此範本會更新資料庫中的 Gremlin API 帳戶的輸送量。 |
@@ -51,7 +51,7 @@ ms.locfileid: "65969173"
 
 ## <a name="table-api"></a>資料表 API
 
-|**範本**|**說明**|
+|**範本**|**描述**|
 |---| ---|
 |[建立 Azure Cosmos 帳戶資料表](manage-table-with-resource-manager.md#create-resource) | 此範本會建立兩個區域中的資料表 API 帳戶，透過多個主要啟用。 Azure Cosmos 帳戶會有單一資料表。 |
 |[更新資料表的輸送量 （RU/秒）](manage-table-with-resource-manager.md#table-ru-update) | 此範本會更新資料表 API 帳戶中的資料表的輸送量。 |

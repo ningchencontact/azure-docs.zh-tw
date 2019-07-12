@@ -59,7 +59,7 @@ Get-AzLocation | select Location, DisplayName
 
 下表顯示針對德國雲端傳回的位置。
 
-|位置 | DisplayName |
+|Location | DisplayName |
 |----|----|
 | germanycentral | 德國中部|
 | germanynortheast | 德國東北部 | 
@@ -81,7 +81,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 此命令會傳回下列結果。
 
-| Name| StorageEndpointSuffix|
+| 名稱| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -98,7 +98,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 |屬性名稱|值|
 |----|----|
-| Name | AzureGermanCloud |
+| 名稱 | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

@@ -26,11 +26,11 @@ ms.locfileid: "65833091"
 
 了解所有您要建置的 web 應用程式與 Microsoft 身分識別平台，讓登入 」 使用者。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 如果您想要建立您第一個可攜式 (ASP.NET Core) web 應用程式用來登入使用者，請遵循本快速入門：
 
@@ -42,7 +42,7 @@ ms.locfileid: "65833091"
 > [!div class="nextstepaction"]
 > [快速入門：ASP.NET web 應用程式登入使用者](quickstart-v2-aspnet-webapp.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 您將驗證新增至您的 web 應用程式，以便它可以登入使用者。 新增驗證可讓您的 web 應用程式，以存取有限的設定檔資訊，並執行個體來自訂您提供給其使用者的體驗。 Web 應用程式進行驗證的網頁瀏覽器中的使用者。 在此案例中，Web 應用程式會引導使用者的瀏覽器，將他們登入 Azure AD。 Azure AD 會透過使用者的瀏覽器傳回登入回應，其中包含關於安全性權杖中的使用者宣告。 登入使用者運用[Open ID Connect](./v2-protocols-oidc.md)本身簡化中介軟體為使用標準通訊協定[程式庫](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps)。
 

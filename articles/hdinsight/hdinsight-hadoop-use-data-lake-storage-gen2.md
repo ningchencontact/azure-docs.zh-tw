@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd639ae7e05309ab4528eb460ce38550db4cffe1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427399"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670767"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 
@@ -72,31 +72,40 @@ Data Lake 儲存體 Gen2 可從幾乎所有的 Azure HDInsight 叢集類型的�
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>使用 Data Lake 儲存體 Gen2，透過 Azure CLI 建立叢集
 
-您可以[下載範例範本檔案](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json)並[下載範例參數檔](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)。 之前使用範本時，取代字串`<SUBSCRIPTION_ID>`並提供您實際的 Azure 訂用帳戶識別碼。 此外，取代字串`<PASSWORD>`具有您所選的密碼，可以設定兩個登入到您的叢集，您將使用的密碼和 SSH 密碼。
+您可以[下載範例範本檔案](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json)並[下載範例參數檔](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)。 之前使用的範本和 Azure CLI 下列程式碼片段，請以正確的值取代下列預留位置：
+
+| Placeholder | 描述 |
+|---|---|
+| `<SUBSCRIPTION_ID>` | 您的 Azure 訂用帳戶識別碼 |
+| `<RESOURCEGROUPNAME>` | 您想要建立的新叢集和儲存體帳戶資源群組。 |
+| `<MANAGEDIDENTITYNAME>` | 將您的 Azure Data Lake 儲存體 Gen2 帳戶上指定權限的受管理身分識別名稱。 |
+| `<STORAGEACCOUNTNAME>` | 將會建立新 Azure Data Lake 儲存體 Gen2 帳戶。 |
+| `<CLUSTERNAME>` | 您的 HDInsight 叢集名稱。 |
+| `<PASSWORD>` | 您選擇的密碼用於登入叢集使用 SSH 和 Ambari 儀表板。 |
 
 下列程式碼片段會執行下列的初始步驟：
 
 1. 登入您的 Azure 帳戶。
 1. 設定作用中的訂用帳戶的建立作業將會完成。
-1. 建立新的資源群組，名為新的部署活動`hdinsight-deployment-rg`。
-1. 建立使用者指派給受控身分識別名為`test-hdinsight-msi`。
+1. 建立新的資源群組，新的部署活動。 
+1. 建立使用者指派的受控身分識別。
 1. 將 Azure CLI 來使用 Data Lake 儲存體 Gen2 功能延伸模組。
-1. 建立新的 Data Lake 儲存體 Gen2 帳戶名為`hdinsightadlsgen2`，使用`--hierarchical-namespace true`旗標。
+1. 使用建立新的 Data Lake 儲存體 Gen2 帳戶`--hierarchical-namespace true`旗標。 
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <SUBSCRIPTION_ID>
 
 # Create resource group
-az group create --name hdinsight-deployment-rg --location eastus
+az group create --name <RESOURCEGROUPNAME> --location eastus
 
 # Create managed identity
-az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+az identity create -g <RESOURCEGROUPNAME> -n <MANAGEDIDENTITYNAME>
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 \
-    --resource-group hdinsight-deployment-rg \
+az storage account create --name <STORAGEACCOUNTNAME> \
+    --resource-group <RESOURCEGROUPNAME> \
     --location eastus --sku Standard_LRS \
     --kind StorageV2 --hierarchical-namespace true
 ```
@@ -107,7 +116,7 @@ az storage account create --name hdinsightadlsgen2 \
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
-    --resource-group hdinsight-deployment-rg \
+    --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```

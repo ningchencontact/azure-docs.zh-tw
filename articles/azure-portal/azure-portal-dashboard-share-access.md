@@ -34,7 +34,7 @@ ms.locfileid: "60551929"
 ## <a name="understanding-access-control-for-dashboards"></a>了解儀表板的存取控制
 若使用角色型存取控制 (RBAC)，您可以將使用者指派給三個不同範圍層級的角色︰
 
-* 訂用帳戶
+* subscription
 * 資源群組
 * resource
 

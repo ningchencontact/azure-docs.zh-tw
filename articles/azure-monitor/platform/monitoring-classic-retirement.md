@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: fb7821b07e68459cb3d76812a12e85387b9f0f52
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 28dba8af059e24040abb254dd4ecd8e336d8221d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295110"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594289"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -40,7 +40,7 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 - **Application Insights 平台計量** - 可提供來自 Application Insights 產品的熱門預建計量。 如需詳細資訊，請參閱這篇關於使用[新 Azure 監視器上的 Application Insights 平台計量](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)的文章。
 - **Application Insights 可用性和 Web 測試** - 可讓您能夠評估 Web 應用程式或伺服器的回應能力和可用性。 如需詳細資訊，請參閱這篇關於使用[新 Azure 監視器上的 Application Insights 可用性測試和警示](../../azure-monitor/app/monitor-web-app-availability.md)的文章。
 - **Application Insights 自訂計量** - 可讓您定義和發出自己的監視和警示計量。 如需詳細資訊，請參閱這篇關於使用[新 Azure 監視器上的 Application Insights 自訂計量](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)的文章。
-- **Application Insights 失敗異常 (智慧偵測的一部分)** - 可在 Web 應用程式的失敗 HTTP 要求或相依性呼叫比率異常增加時，以幾乎即時的方式自動通知您。 屬於新 Azure 監視器一部分的 Application Insights 失敗異常 (智慧偵測的一部分) 即將推出，因為其推出時間是在未來幾個月，所以我們將會在下一版更新此文件和連結。
+- **Application Insights 失敗異常 (智慧偵測的一部分)** - 可在 Web 應用程式的失敗 HTTP 要求或相依性呼叫比率異常增加時，以幾乎即時的方式自動通知您。 如需詳細資訊，請參閱這篇文章上使用[智慧型偵測-失敗異常](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics)。
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>其他 Azure 資源的整合計量和警示
 

@@ -4,7 +4,7 @@ description: 如何透過 Azure CLI，在建立期間使用 cloud-init 在 Linux
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729812"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671706"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>使用 cloud-init 在 Linux 虛擬機器上設定分頁檔
 本文會示範如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各種 Linux 發行套件上設定分頁檔。 傳統上是由 Linux 代理程式 (WALA) 根據發行套件的需求來設定分頁檔。  本文將概述在佈建期間，使用 cloud-init 依需求建置分頁檔的流程。  如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)

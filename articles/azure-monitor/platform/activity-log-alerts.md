@@ -17,7 +17,7 @@ ms.locfileid: "66244976"
 ---
 # <a name="alerts-on-activity-log"></a>活動記錄警示 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 活動記錄警示是發生符合警示中指定條件的新活動記錄事件時所啟動的警示。 它們是 Azure 資源，因此可以使用 Azure Resource Manager 範本來加以建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 然後將說明如何使用 Azure 入口網站來設定活動記錄事件的警示。 如需有關使用方式的詳細資訊，請參閱[建立和管理活動記錄警示](alerts-activity-log.md)。
 
 > [!NOTE]

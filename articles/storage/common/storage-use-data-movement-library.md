@@ -19,7 +19,7 @@ ms.locfileid: "65790082"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程式庫，設計用來提供 Azure 儲存體 Blob 和檔案的高效能上傳、下載及複製。 這個程式庫是支援 [AzCopy](../storage-use-azcopy.md) 的核心資料移動架構。 資料移動程式庫可提供傳統的 [.NET Azure 儲存體用戶端程式庫](../blobs/storage-dotnet-how-to-use-blobs.md)中並未提供的簡便方法。 這包括設定平行作業數目、追蹤傳輸進度、輕鬆繼續已取消的傳輸等等。
 
 此程式庫也會使用 .NET Core，這表示您在建置適用於 Windows、Linux 和 macOS 的 .NET 應用程式時可以使用它。 若要深入了解 .NET Core，請參閱 [.NET Core 文件 (英文)](https://dotnet.github.io/)。 這個程式庫也適用於 Windows 的傳統 .NET 架構應用程式。
@@ -43,7 +43,7 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 >
 >
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 1. 瀏覽 [.NET Core 安裝指南](https://www.microsoft.com/net/core)以安裝 .NET Core。 選取環境時，請選擇命令列選項。
 2. 從命令列為專案建立目錄。 瀏覽到此目錄中，然後輸入 `dotnet new console -o <sample-project-name>` 以建立 C# 主控台專案。

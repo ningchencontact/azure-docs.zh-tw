@@ -232,11 +232,11 @@ Azure 會自動路由傳送 Azure 子網路、虛擬網路及內部部署網路�
 * Azure CLI：[az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)<br>
 * PowerShell：[Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要針對路由表與路由執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-| 動作                                                          |   Name                                                  |
+| 動作                                                          |   名稱                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   讀取路由表                                    |
 | Microsoft.Network/routeTables/write                             |   建立或更新路由表                        |

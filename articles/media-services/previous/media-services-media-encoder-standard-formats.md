@@ -111,7 +111,7 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [透過 Azure Media Services 編碼的隨選內容](media-services-encode-asset.md)
 
 [如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)

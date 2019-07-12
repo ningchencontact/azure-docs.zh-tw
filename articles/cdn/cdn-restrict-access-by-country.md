@@ -7,23 +7,23 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869576"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593418"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>依國家/地區限制 Azure CDN 內容
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 當使用者要求內容時，不論使用者是在什麼位置提出這項要求，依預設系統都會提供內容。 不過，在某些情況下，您可能想要依國家/地區限制您內容的存取。 具有*地區篩選*功能，您可以建立規則上的特定路徑上您的 CDN 端點，以允許或封鎖選取的國家/地區的內容。
 
 > [!IMPORTANT]

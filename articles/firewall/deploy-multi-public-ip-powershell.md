@@ -5,72 +5,31 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/2/2019
+ms.date: 7/10/2019
 ms.author: victorh
-ms.openlocfilehash: a5a53766df3338bb36913b589ebda970de55ec94
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ce47612f18ee64caa3a053001deb5448f7c27bfd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491925"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703990"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>部署多個公用 IP 位址使用 Azure PowerShell 的 Azure 防火牆
 
 > [!IMPORTANT]
-> 具有多個公用 IP 位址的 azure 防火牆目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 具有多個公用 IP 位址的 azure 防火牆是可透過 Azure PowerShell、 Azure CLI、 REST 和範本。 入口網站使用者介面以累加的方式，新增至區域，並可在所有區域中首度發行完成時。
 
 您可以部署使用最多 100 個公用 IP 位址的 Azure 防火牆。
 
 這項功能適用於下列案例：
 
-- **DNAT** -您可以將多個標準連接埠執行個體轉譯到後端伺服器。 例如，如果您有兩個公用 IP 位址，您可以轉譯這兩個 IP 位址的 TCP 連接埠 3389 (RDP)。
-- **SNAT** -其他連接埠可供連出 SNAT 連線，降低潛在的 SNAT 連接埠耗盡。 此時，Azure 防火牆會隨機選擇的來源公用 IP 位址將用於連線。 如果您有任何下游的篩選條件，就在您網路上，您需要允許您的防火牆與相關聯的所有公用 IP 位址。
+- **DNAT** - 您可以將多個標準連接埠執行個體轉譯到後端伺服器。 例如，如果您有兩個公用 IP 位址，您可以為這兩個 IP 位址轉譯 TCP 通訊埠 3389 (RDP)。
+- **SNAT** - 其他連接埠可用於輸出 SNAT 連線，降低 SNAT 連接埠耗盡的可能性。 目前，Azure 防火牆會隨機選取來源公用 IP 位址以用於連線。 如果您的網路上有任何下游篩選，則您必須允許與防火牆相關聯的所有公用 IP 位址。
 
-下列 Azure PowerShell 範例顯示如何新增、 移除和設定 Azure 防火牆的公用 IP 位址。
+下列 Azure PowerShell 範例示範如何設定、 新增和移除 Azure 防火牆的公用 IP 位址。
 
 > [!NOTE]
-> 公開預覽期間，如果您新增或移除公用 IP 位址執行的防火牆，現有的輸入的連線，使用 DNAT 規則可能無法運作 40 120 秒。 您無法移除指派給防火牆，除非防火牆已解除配置或已刪除的第一個公用 IP 位址。
-
-## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>將公用 IP 位址新增至現有的防火牆
-
-在此範例中，公用 IP 位址*azFwPublicIp1*為附加至防火牆。
-
-```azurepowershell
-$pip = New-AzPublicIpAddress `
-  -Name "azFwPublicIp1" `
-  -ResourceGroupName "rg" `
-  -Sku "Standard" `
-  -Location "centralus" `
-  -AllocationMethod Static
-
-$azFw = Get-AzFirewall `
-  -Name "AzureFirewall" `
-  -ResourceGroupName "rg"
-
-$azFw.AddPublicIpAddress($pip)
-
-$azFw | Set-AzFirewall
-```
-
-## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>移除現有的防火牆中的公用 IP 位址
-
-在此範例中，公用 IP 位址*azFwPublicIp1*為從防火牆中斷連結。
-
-```azurepowershell
-$pip = Get-AzPublicIpAddress `
-  -Name "azFwPublicIp1" `
-  -ResourceGroupName "rg"
-
-$azFw = Get-AzFirewall `
-  -Name "AzureFirewall" `
-  -ResourceGroupName "rg"
-
-$azFw.RemovePublicIpAddress($pip)
-
-$azFw | Set-AzFirewall
-```
+> 您無法從 Azure 防火牆公用 IP 位址組態頁面中移除第一個 ipConfiguration。 如果您想要修改的 IP 位址，您可以使用 Azure PowerShell。
 
 ## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>建立具有兩個或多個公用 IP 位址的防火牆
 
@@ -103,6 +62,45 @@ New-AzFirewall `
   -Location centralus `
   -VirtualNetwork $vnet `
   -PublicIpAddress @($pip1, $pip2)
+```
+
+## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>將公用 IP 位址新增至現有的防火牆
+
+在此範例中，公用 IP 位址*azFwPublicIp1*附加至防火牆。
+
+```azurepowershell
+$pip = New-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg" `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+
+$azFw.AddPublicIpAddress($pip)
+
+$azFw | Set-AzFirewall
+```
+
+## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>移除現有的防火牆中的公用 IP 位址
+
+在此範例中，公用 IP 位址*azFwPublicIp1*是從防火牆中斷連結。
+
+```azurepowershell
+$pip = Get-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg"
+
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+
+$azFw.RemovePublicIpAddress($pip)
+
+$azFw | Set-AzFirewall
 ```
 
 ## <a name="next-steps"></a>後續步驟

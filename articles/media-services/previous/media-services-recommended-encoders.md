@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332647"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840118"
 ---
 # <a name="recommended-on-premises-encoders"></a>建議的內部部署編碼器
 使用 Azure 媒體服務進行即時串流時，您可以指定想讓通道接收輸入資料流的方式。 如果您選擇使用搭配即時編碼通道在內部部署編碼器，您的編碼器應該會推送高品質單一位元速率資料流作為輸出。 如果您選擇使用搭配傳遞通道在內部部署編碼器，您的編碼器應該會推送多位元速率資料流作為輸出所有所需的輸出品質。 如需詳細資訊，請參閱 <<c0> [ 上使用的即時串流的內部部署編碼器](media-services-live-streaming-with-onprem-encoders.md)。
@@ -54,7 +54,7 @@ Azure 媒體服務建議使用下列其中一種具有多位元速率分散式 M
 4. 建立已發行的即時事件
 5. 將您的即時編碼器執行約 10 分鐘的時間
 6. 停止即時事件
-7. 建立、啟動串流端點，使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在步驟 6 之前的即時工作階段期間透過預覽 URL 觀看和驗證)
+7. 建立、啟動串流端點，使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在步驟 6 之前的即時工作階段期間透過預覽 URL 觀看和驗證)
 8. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本
 9. 於建立每個範例之後，重設通道狀態
 10. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/不同的編碼速度) 重複步驟 3 到步驟 9
@@ -66,7 +66,7 @@ Azure 媒體服務建議使用下列其中一種具有多位元速率分散式 M
 4. 建立已發行的即時事件
 5. 將您的即時編碼器執行約 10 分鐘的時間
 6. 停止即時事件
-7. 建立、啟動串流端點，使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在步驟 6 之前的即時工作階段期間透過預覽 URL 觀看和驗證)
+7. 建立、啟動串流端點，使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer)等播放程式來觀看已封存的資產，以確保所有品質層級的播放沒有可見問題 (或者，在步驟 6 之前的即時工作階段期間透過預覽 URL 觀看和驗證)
 8. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本
 9. 於建立每個範例之後，重設通道狀態
 10. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號/字幕/各種編碼速度) 重複步驟 3 到步驟 9
@@ -77,7 +77,7 @@ Azure 媒體服務建議使用下列其中一種具有多位元速率分散式 M
 3. 設定您的編碼器以推送多位元速率即時資料流。
 4. 建立已發行的即時事件
 5. 將您的即時編碼器執行一週或更久的時間
-6. 使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題
+6. 使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題
 7. 停止即時事件
 8. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本
 

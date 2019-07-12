@@ -24,7 +24,7 @@ ms.locfileid: "64938603"
 <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **發佈步驟**           | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept>    | **說明**                                                            |
+|  **發佈步驟**           | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept>    | **描述**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 檢查必要條件         | 15 分鐘   | 檢查供應項目資訊和供應項目設定。                        |
 | 檢查試用產品 (選擇性) | 2 小時 | 如果已選取啟用試用產品，Microsoft 會透過選取區域，檢查試用產品設定、部署及複寫作業。 |

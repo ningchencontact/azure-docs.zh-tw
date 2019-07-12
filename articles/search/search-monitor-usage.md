@@ -58,7 +58,7 @@ ms.locfileid: "66755069"
 
 下表將儲存記錄與透過 Application Insights 新增服務作業和查詢工作負載之深入監視的選項做比較。
 
-| 資源 | 用於 |
+| Resource | 用於 |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 記錄的事件和查詢度量，根據下列結構描述與您的應用程式中的使用者事件相互關聯。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
 | [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 記錄的事件和查詢度量，根據下列結構描述。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Azure 監視器記錄檔](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -111,42 +111,42 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>記錄檔結構描述
 包含您搜尋服務流量記錄的 Blob 會結構化，如本節所述。 每個 Blob 都有一個名為**記錄**的根物件，其中包含記錄物件的陣列。 每個 Blob 都包含在同一小時內發生之所有作業的記錄。
 
-| Name | 類型 | 範例 | 注意 |
+| 名稱 | type | 範例 | 注意 |
 | --- | --- | --- | --- |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
-| operationName |字串 |"Query.Search" |作業的名稱 |
-| operationVersion |字串 |"2019-05-06" |使用的 api-version |
-| category |字串 |"OperationLogs" |常數 |
-| resultType |字串 |"Success" |可能的值：成功或失敗 |
-| resultSignature |int |200 |HTTP 結果碼 |
-| durationMS |int |50 |作業的持續時間 (以毫秒為單位) |
-| properties |物件 |請參閱下表 |包含作業特定資料的物件 |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
+| operationName |string |"Query.Search" |作業的名稱 |
+| operationVersion |string |"2019-05-06" |使用的 api-version |
+| category |string |"OperationLogs" |常數 |
+| resultType |string |"Success" |可能的值：成功或失敗 |
+| resultSignature |ssNoversion |200 |HTTP 結果碼 |
+| durationMS |ssNoversion |50 |作業的持續時間 (以毫秒為單位) |
+| properties |object |請參閱下表 |包含作業特定資料的物件 |
 
 **屬性結構描述**
 
-| Name | 類型 | 範例 | 注意 |
+| 名稱 | type | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 描述 |字串 |"GET /indexes('content')/docs" |作業的端點 |
-| 查詢 |字串 |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
-| 文件 |int |42 |處理的文件數目 |
-| IndexName |字串 |"testindex" |與作業相關聯的索引名稱 |
+| 描述 |string |"GET /indexes('content')/docs" |作業的端點 |
+| 查詢 |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
+| 文件 |ssNoversion |42 |處理的文件數目 |
+| IndexName |string |"testindex" |與作業相關聯的索引名稱 |
 
 ## <a name="metrics-schema"></a>度量結構描述
 
 針對查詢要求，會擷取計量。
 
-| Name | 類型 | 範例 | 注意 |
+| 名稱 | type | 範例 | 注意 |
 | --- | --- | --- | --- |
-| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
-| metricName |字串 |"Latency" |度量的名稱 |
-| 分析 |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| average |int |64 |度量時間間隔中原始範例的平均值 |
-| minimum |int |37 |度量時間間隔中原始範例的最小值 |
-| maximum |int |78 |度量時間間隔中原始範例的最大值 |
-| total |int |258 |度量時間間隔中原始範例的總和值 |
-| count |int |4 |用來產生度量的原始樣本數 |
-| timegrain |字串 |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
+| metricName |string |"Latency" |度量的名稱 |
+| 分析 |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| average |ssNoversion |64 |度量時間間隔中原始範例的平均值 |
+| minimum |ssNoversion |37 |度量時間間隔中原始範例的最小值 |
+| maximum |ssNoversion |78 |度量時間間隔中原始範例的最大值 |
+| total |ssNoversion |258 |度量時間間隔中原始範例的總和值 |
+| count |ssNoversion |4 |用來產生度量的原始樣本數 |
+| timegrain |string |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
 
 每隔一分鐘就會回報所有計量。 每個度量會顯示每分鐘的最小值、最大值和平均值。
 

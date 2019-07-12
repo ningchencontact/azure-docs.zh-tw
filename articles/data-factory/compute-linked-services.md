@@ -23,7 +23,7 @@ ms.locfileid: "66480440"
 
 下表列出 Data Factory 支援的計算環境以及可在環境上執行的活動。 
 
-| 計算環境                                          | 活動                                                   |
+| 計算環境                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [隨選 HDInsight 叢集](#azure-hdinsight-on-demand-linked-service)或[您自己的 HDInsight 叢集](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md)、[Pig](transform-data-using-hadoop-pig.md)、[Spark](transform-data-using-spark.md)、[MapReduce](transform-data-using-hadoop-map-reduce.md)、[Hadoop 串流](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [自訂](transform-data-using-dotnet-custom-activity.md)     |
@@ -95,12 +95,12 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 >
 > 
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性                     | 描述                              | 必要項 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | type 屬性應設為 **HDInsightOnDemand**。 | 是      |
 | clusterSize                  | 叢集中的背景工作/資料節點數。 HDInsight 叢集會利用您為此屬性指定的 2 個前端節點以及背景工作節點數目來建立。 節點大小為具有 4 個核心的 Standard_D3，因此 4 個背景工作節點的叢集需要 24 個核心 (4\*4 = 16 個核心用於背景工作節點，加上 2\*4 = 8 個核心用於前端節點)。 如需詳細資料，請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。 | 是      |
-| 預設容器            | 隨選叢集用於儲存及處理資料的 Azure 儲存體連結服務。 建立 HDInsight 叢集的區域和這個 Azure 儲存體帳戶的區域相同。 Azure HDInsight 對您在其支援的每個 Azure 區域中可使用的核心總數有所限制。 請確定 Azure 區域有足夠的核心配額，以符合所需的 clusterSize。 如需詳細資料，請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。<p>目前，您無法建立使用 Azure Data Lake Store 做為儲存體的隨選 HDInsight 叢集。 如果您想要在 Azure Data Lake Store 中儲存 HDInsight 處理的結果資料，可使用複製活動將 Azure Blob 儲存體的資料複製到 Azure Data Lake Store。 </p> | 是      |
+| linkedServiceName            | 隨選叢集用於儲存及處理資料的 Azure 儲存體連結服務。 建立 HDInsight 叢集的區域和這個 Azure 儲存體帳戶的區域相同。 Azure HDInsight 對您在其支援的每個 Azure 區域中可使用的核心總數有所限制。 請確定 Azure 區域有足夠的核心配額，以符合所需的 clusterSize。 如需詳細資料，請參閱[使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。<p>目前，您無法建立使用 Azure Data Lake Store 做為儲存體的隨選 HDInsight 叢集。 如果您想要在 Azure Data Lake Store 中儲存 HDInsight 處理的結果資料，可使用複製活動將 Azure Blob 儲存體的資料複製到 Azure Data Lake Store。 </p> | 是      |
 | clusterResourceGroup         | 在此資源群組中將建立 HDInsight 叢集。 | 是      |
 | timetolive                   | 隨選 HDInsight 叢集允許的閒置時間。 指定在活動執行完成後，如果叢集中沒有其他作用中的作業，隨選 HDInsight 叢集要保持運作多久。 最小的允許值為 5 分鐘 (00:05:00)。<br/><br/>例如，如果活動執行花費 6 分鐘，而 timetolive 設為 5 分鐘，叢集會在處理活動執行的 6 分鐘期間之後保持運作 5 分鐘。 如果 6 分鐘期間內執行另一個活動，則會由相同叢集來處理。<br/><br/>建立隨選 HDInsight 叢集是昂貴的作業 (可能需要一段時間)，因此請視需要使用這項設定，重複使用隨選 HDInsight 叢集以改善 Data Factory 的效能。<br/><br/>如果您將 timetolive 值設為 0，叢集會在活動執行完成後立即刪除。 不過，如果您設定較高的值，叢集可能會保持閒置，以便您登入進行一些疑難排解，但是可能會導致高成本。 因此，請務必根據您的需求設定適當的值。<br/><br/>如果適當地設定 timetolive 屬性值，則多個管線可以共用隨選 HDInsight 叢集的執行個體。 | 是      |
 | clusterType                  | 將建立的 HDInsight 叢集類型。 允許的值為「hadoop」和「spark」。 若未指定，則預設值為 hadoop。 無法隨選建立已啟用企業安全性套件的叢集，請改用[現有叢集/攜帶您自己的計算](#azure-hdinsight-linked-service)。 | 否       |
@@ -283,12 +283,12 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
   }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性          | 描述                                                  | 必要項 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | type 屬性應設為 **HDInsight**。            | 是      |
 | clusterUri        | HDInsight 叢集的 URI。                            | 是      |
-| username          | 指定要用來連接到現有 HDInsight 叢集的使用者名稱。 | 是      |
+| userName          | 指定要用來連接到現有 HDInsight 叢集的使用者名稱。 | 是      |
 | password          | 指定使用者帳戶的密碼。                       | 是      |
 | linkedServiceName | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p> | 是      |
 | isEspEnabled      | 如果 HDInsight 叢集已啟用[企業安全性套件](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)，請指定 '*true*'。 預設值為 ’false’  。 | 否       |
@@ -343,7 +343,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ```
 
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | type 屬性應設為 **AzureBatch**。 | 是      |
@@ -379,10 +379,10 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性               | 描述                              | 必要項                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| 類型                   | type 屬性應設為：**AzureML**。 | 是                                      |
+| type                   | type 屬性應設為：**AzureML**。 | 是                                      |
 | mlEndpoint             | 批次評分 URL。                   | 是                                      |
 | apiKey                 | 已發佈的工作區模型的 API。     | 是                                      |
 | updateResourceEndpoint | Azure ML Web 服務端點 (用以藉由定型模型檔案更新預測性 Web 服務) 的更新資源 URL | 否                                       |
@@ -421,7 +421,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 
 | 屬性             | 描述                              | 必要項                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -481,7 +481,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 
 | 屬性             | 描述                              | 必要項                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |

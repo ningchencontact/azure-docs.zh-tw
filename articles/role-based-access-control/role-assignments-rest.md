@@ -38,11 +38,11 @@ ms.locfileid: "66472742"
 
 1. 在 URI 中，將 *{scope}* 取代為要列出角色指派的範圍。
 
-    | `Scope` | 類型 |
+    | `Scope` | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 訂用帳戶 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
     
        
      > [!NOTE]
@@ -81,11 +81,11 @@ ms.locfileid: "66472742"
     
 1. 在 URI 中，將 *{scope}* 取代為角色指派的範圍。
 
-    | `Scope` | 類型 |
+    | `Scope` | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 訂用帳戶 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 
@@ -109,11 +109,11 @@ ms.locfileid: "66472742"
 
 1. 在 URI 中，將 *{scope}* 取代為要移除角色指派的範圍。
 
-    | `Scope` | 類型 |
+    | `Scope` | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 訂用帳戶 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 

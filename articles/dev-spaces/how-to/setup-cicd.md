@@ -7,15 +7,15 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
-manager: yuvalm
+manager: gwallace
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
-ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60687264"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704074"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>使用 CI/CD 搭配 Azure Dev Spaces
 
@@ -25,7 +25,7 @@ ms.locfileid: "60687264"
 
 雖然此文章將引導您使用 Azure DevOps，但相同的概念適用於 Jenkins、TeamCity 等 CI/CD 系統。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [啟用 Azure Dev Spaces 的 Azure Kubernetes Service (AKS) 叢集](../get-started-netcore.md)
 * [已安裝 Azure Dev Spaces CLI](upgrade-tools.md)
 * [Azure DevOps 組織與專案](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -79,7 +79,7 @@ _dev_ 空間將始終包含存放庫的最新狀態 (即基線)，以便開發�
 1. 選取選項以建立**新增**建置管線。
 1. 選取  **GitHub**做為來源，向授權您的 GitHub 帳戶有必要，然後選取_azds_updates_分支版本的開發人員空間範例應用程式存放庫的分支。
 1. 選取 **組態即程式碼**，或**YAML**，為您的範本。
-1. 現在，您將看到建置管線的組態頁面。 如前文所述的特定語言的路徑來瀏覽**YAML 檔案路徑**使用 **...**  按鈕。 例如： `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`。
+1. 現在，您將看到建置管線的組態頁面。 如前文所述的特定語言的路徑來瀏覽**YAML 檔案路徑**使用 **...**  按鈕。 例如： `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml` 。
 1. 移至**變數** 索引標籤。
 1. 手動將 _dockerId_ 新增為變數，該變數是 [Azure Container Registry 系統管理員帳戶](../../container-registry/container-registry-authentication.md#admin-account)的使用者名稱。 (如文章先決條件中所述)
 1. 手動將 _dockerPassword_ 新增為變數，該變數是 [Azure Container Registry 系統管理員帳戶](../../container-registry/container-registry-authentication.md#admin-account)的密碼。 基於安全性考量，請務必將 _dockerPassword_ 指定為祕密 (藉由選取鎖頭圖示)。
@@ -121,7 +121,7 @@ _dev_ 空間將始終包含存放庫的最新狀態 (即基線)，以便開發�
 1. 按一下右上方的 [儲存]  ，然後按一下 [確定]  。
 1. 按一下 [+ 發行]  ([儲存] 按鈕旁邊)，然後按一下 [建立發行]  。
 1. 底下**成品**，確認已選取 從您組建管線的最新組建。
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 自動化發行處理程序將立即開始，將 *mywebapi* 和 *webfrontend* 圖表部署至 _dev_ 最上層空間中的 Kubernetes 叢集。 您可以監視您的版本，Azure DevOps web 入口網站上的進度：
 

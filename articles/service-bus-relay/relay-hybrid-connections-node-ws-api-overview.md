@@ -23,7 +23,7 @@ ms.locfileid: "64699385"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連線 Node API 概觀
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Azure 轉送混合式連線的 Node 封裝建置於並擴充 ['ws'](https://www.npmjs.com/package/ws) NPM 封裝。 此封裝重新匯出該基本封裝的所有匯出，並新增新的匯出，可啟用與 Azure 轉送服務混合式連線功能整合。 
 

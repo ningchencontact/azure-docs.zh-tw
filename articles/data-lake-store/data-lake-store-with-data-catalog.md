@@ -22,7 +22,7 @@ ms.locfileid: "60196490"
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>在 Azure 資料目錄中從 Azure Data Lake Storage Gen1 註冊資料
 在此文章中，您將了解如何使用 Azure 資料目錄來整合 Azure Data Lake Storage Gen1，使您的資料與資料目錄整合，讓使用者可在組織中進行搜尋。 如需編目資料的詳細資訊，請參閱 [Azure 資料目錄](../data-catalog/data-catalog-what-is-data-catalog.md)。 若要了解您可以使用資料目錄的案例，請參閱 [Azure 資料目錄常見案例](../data-catalog/data-catalog-common-scenarios.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -77,7 +77,7 @@ ms.locfileid: "60196490"
     * [註釋資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
     * [記錄資料目錄中的資料來源](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [註釋資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
 * [記錄資料目錄中的資料來源](../data-catalog/data-catalog-how-to-documentation.md)
 * [將 Data Lake Storage Gen1 與其他 Azure 服務整合](data-lake-store-integrate-with-other-services.md)

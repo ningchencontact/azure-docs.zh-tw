@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7fe5a4f5a5d1d254918f1b4f997acfb9cf67a75b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5ea7ec41ccc721e8eafda56aa7463505ba089845
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272452"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827814"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的 application Insights
 
@@ -35,7 +35,7 @@ ms.locfileid: "67272452"
 * **裝載平台**:Azure App Service、 Azure VM、 Docker、 Azure Kubernetes Service (AKS) 等等的 Web Apps 功能。
 * **IDE**:Visual Studio、 VS Code 中或命令列。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 正常運作的 ASP.NET Core 應用程式。 如果您要建立 ASP.NET Core 應用程式，請遵循這[ASP.NET Core 教學課程](https://docs.microsoft.com/aspnet/core/getting-started/)。
 - 有效的 Application Insights 檢測金鑰。 此金鑰，才能將任何遙測傳送至 Application Insights。 如果您要建立新的 Application Insights 資源，以取得檢測金鑰，請參閱[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)。
@@ -177,7 +177,7 @@ ms.locfileid: "67272452"
 您可以自訂 Application Insights SDK for ASP.NET Core 以變更預設組態。 Application Insights ASP.NET SDK 的應用程式的使用者可能很熟悉變更所使用的組態`ApplicationInsights.config`或藉由修改`TelemetryConfiguration.Active`。 您變更不同的 ASP.NET Core 的組態。 新增應用程式的 ASP.NET Core SDK 和設定使用內建的 ASP.NET Core[相依性插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)。 進行中幾乎所有的組態變更`ConfigureServices()`方法的程式`Startup.cs`類別，除非有向。 下列各節提供詳細的資訊。
 
 > [!NOTE]
-> 在 ASP.NET Core 應用程式變更組態，藉由修改`TelemetryConfiguration.Active`不建議。
+> 在 ASP.NET Core 應用程式變更組態，藉由修改`TelemetryConfiguration.Active`不受支援。
 
 ### <a name="using-applicationinsightsserviceoptions"></a>使用 ApplicationInsightsServiceOptions
 
@@ -314,6 +314,23 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+### <a name="disable-telemetry-dynamically"></a>以動態方式停用遙測
+
+如果您想要停用遙測，有條件地以動態的方式，您可能可以解決`TelemetryConfiguration`與您的程式碼中的任何位置的 ASP.NET Core 相依性插入容器執行個體，並設定`DisableTelemetry`在其上的旗標。
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
+    }
+```
+
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>如何追蹤不會自動收集的遙測？
@@ -364,7 +381,7 @@ public class HomeController : Controller
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>啟用 Application Insights 監視使用狀態監視器等工具？
 
-沒有。 [狀態監視器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)並[狀態監視器 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)目前支援 ASP.NET 4.x 只。
+資料分割 [狀態監視器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)並[狀態監視器 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)目前支援 ASP.NET 4.x 只。
 
 ### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Application Insights 會自動啟用我的 ASP.NET Core 2.0 應用程式嗎？
 
@@ -372,7 +389,7 @@ public class HomeController : Controller
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>如果我在 Linux 中執行我的應用程式，都支援所有功能？
 
-是。 SDK 的功能支援是相同的所有平台，但有下列例外狀況：
+是的。 SDK 的功能支援是相同的所有平台，但有下列例外狀況：
 
 * 只有 Windows 才支援效能計數器。
 * 即使`ServerTelemetryChannel`已啟用預設的情況下，如果應用程式正在執行 Linux 或 MacOS，通道不會自動建立暫時保留遙測，如果網路有問題的本機儲存體資料夾。 由於此限制，當有暫時性的網路或伺服器問題時，會遺失遙測。 若要解決此問題，請設定通道的本機資料夾：
@@ -397,7 +414,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 [讀取和貢獻程式碼](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 - 簽出到這個外部逐步視訊[使用.NET Core 和 Visual Studio 中設定 Application Insights](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)從零開始。
 - 簽出到這個外部逐步視訊[使用.NET Core 和 Visual Studio Code 中設定 Application Insights](https://youtu.be/ygGt84GDync)從零開始。
@@ -408,3 +425,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [設定快照集集合](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)以查看擲回例外狀況時原始程式碼和變數的狀態。
 * [使用 API](../../azure-monitor/app/api-custom-events-metrics.md)來傳送您自己的事件和度量資訊。 您的應用程式效能和使用方式的詳細檢視。
 * 使用[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)持續從世界各地檢查您的應用程式。
+* [ASP.NET Core 中的相依性插入](https://docs.microsoft.com/aspnet/fundamentals/dependency-injection)

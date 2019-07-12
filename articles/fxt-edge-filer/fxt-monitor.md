@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543053"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827449"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>監視 Azure FXT 邊緣篩選硬體狀態
 
@@ -44,9 +44,9 @@ Azure FXT 邊緣篩選混合式儲存體快取系統有多個可協助系統管�
 
 磁碟機 (3) 的右邊會標示為的磁碟機容量及其他資訊。
 
-磁碟機數字會列印在磁碟機之間的空間。 在 Azure FXT 邊緣篩選中，磁碟機 0 是左上方的磁碟機，而磁碟機 1 是正下方。 編號會繼續在此模式中。 
+磁碟機與磁碟機之間的空間會印有磁碟機編號。 在 Azure FXT Edge Filer 中，磁碟機 0 是左上方的磁碟機，磁碟機 1 則在磁碟機 0 的正下方。 編號會繼續在此模式中。 
 
-![一個硬碟機擴充插槽中 FXT 底座，顯示磁碟機數字和容量的標籤的相片](media/fxt-drives-photo.png)
+![FXT 底座中某個硬碟機擴充插槽的相片，其中顯示了磁碟機編號和容量標籤](media/fxt-drives-photo.png)
 
 ## <a name="left-control-panel"></a>左的控制台
 
@@ -58,7 +58,7 @@ Azure FXT 邊緣篩選混合式儲存體快取系統有多個可協助系統管�
 
 左邊的狀態指示器顯示實心琥珀色燈光在該系統中是否發生錯誤。 下表描述錯誤的可能原因和解決方案。 
 
-如果您仍有錯誤，嘗試這些解決方案之後，請連絡支援服務取得協助。 
+如果這些解決方案中，在嘗試之後仍有錯誤[連絡支援人員](fxt-support-ticket.md)取得協助。 
 
 | 圖示 | 描述 | 錯誤狀況 | 可能的解決方案 |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Azure FXT 邊緣篩選混合式儲存體快取系統有多個可協助系統管�
 |-------------------------------------------|-----------------------------------------------|
 | 藍色實線 | 正常的作業： 系統會開啟運作正常，且系統識別碼模式不是作用中。 <br/>如果您想要切換至 [系統識別碼模式，請按系統健康狀態和 ID] 按鈕。 |
 | 閃爍藍色 | 系統識別碼模式才有作用。 如果您想要切換至 系統健康情況的模式，請按系統健康狀態和系統 ID 按鈕。 |
-| Solid 琥珀色 | 系統會在保全的模式。 如果問題持續發生，請連絡 Microsoft 客戶服務及支援。 |
+| Solid 琥珀色 | 系統會在保全的模式。 如果問題持續發生，請[請連絡 Microsoft 客戶服務及支援](fxt-support-ticket.md)。 |
 | 閃爍琥珀色 | 系統錯誤。 檢查系統事件記錄檔中特定的錯誤訊息。 如需系統韌體和監視系統元件的代理程式所產生的事件和錯誤訊息資訊，請參閱 qrl.dell.com 的錯誤程式碼查詢頁面。 |
 
 

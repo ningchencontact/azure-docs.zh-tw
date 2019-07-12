@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808946"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606981"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure 監視器資料平台
 
@@ -70,9 +70,9 @@ Azure 監視器中的分散式的追蹤已啟用[Application Insights SDK](../ap
 | 屬性  | 度量 | 記錄 |
 |:---|:---|:---|
 | 優點 | 輕量且能夠幾近即時的案例，例如警示。 適用於快速偵測問題。 | 利用豐富的分析查詢語言。 適用於深入分析及找出根本原因。 |
-| 資料 | 僅限數字值 | 文字或數值資料 |
+| Data | 僅限數字值 | 文字或數值資料 |
 | Structure | 屬性包括取樣時間、 受監視的資源、 一個數字值的標準集合。 某些度量資訊會包含進一步定義多個維度。 | 唯一一組屬性視記錄檔類型而定。 |
-| 集合 | 收集在定期間隔。 | 可能偶而會收集事件觸發程序建立的記錄。 |
+| Collection | 收集在定期間隔。 | 可能偶而會收集事件觸發程序建立的記錄。 |
 | 在 Azure 入口網站中檢視 | 計量瀏覽器 | Log Analytics |
 | 包含資料來源 | 從 Azure 資源收集的平台計量。<br>Application insights 監視應用程式。<br>應用程式或 API 所定義的自訂。 | 應用程式和診斷記錄檔。<br>監視解決方案。<br>代理程式和 VM 擴充功能。<br>應用程式的要求和例外狀況。<br>Azure 資訊安全中心。<br>資料收集器 API。 |
 

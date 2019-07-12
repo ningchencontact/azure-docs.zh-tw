@@ -3,8 +3,8 @@ title: 在 Azure AD 權限管理 （預覽）-Azure Active Directory 中的委�
 description: 深入了解您可以指派給委派 Azure Active Directory 權限管理工作的角色。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191495"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798643"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>委派工作，在 Azure AD 權限管理 （預覽）
 
@@ -64,7 +64,7 @@ ms.locfileid: "67191495"
 
 權利管理具有下列權限管理專用的角色。
 
-| 角色 | 描述 |
+| Role | 描述 |
 | --- | --- |
 | 類別目錄的建立者 | 建立及管理目錄。 通常是 IT 系統管理員不是全域管理員或資源集合的資源擁有者。 會自動建立目錄的人員會成為類別目錄的第一個類別目錄擁有者，而且可以加入額外的類別目錄的擁有者。 |
 | 目錄擁有者 | 編輯及管理現有的目錄。 通常是 IT 系統管理員或資源擁有者或指定目錄的擁有者的使用者。 |
@@ -77,14 +77,14 @@ ms.locfileid: "67191495"
 
 下表列出這些角色可以執行的工作。
 
-| Task | 類別目錄的建立者 | 目錄擁有者 | 存取封裝管理員 | 核准者 |
+| 工作 | 類別目錄的建立者 | 目錄擁有者 | 存取封裝管理員 | 核准者 |
 | --- | :---: | :---: | :---: | :---: |
 | [建立新的目錄](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
 | [將資源新增到目錄](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
 | [編輯類別目錄](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [刪除類別目錄](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [將類別目錄的擁有者或存取封裝管理員新增至目錄](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [在目錄中建立新的存取封裝](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [在目錄中建立新的存取封裝](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [管理存取套件中的資源角色](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [指定誰可以要求存取套件](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [直接將使用者指派給存取套件](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -130,7 +130,7 @@ ms.locfileid: "67191495"
 
 1. 按一下 [選取]  。
 
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
 
 ## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>新增目錄擁有者或存取套件管理員
 

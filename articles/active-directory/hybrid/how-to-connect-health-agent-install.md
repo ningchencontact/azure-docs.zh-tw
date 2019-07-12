@@ -312,7 +312,7 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 您有下列選項來設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
 
 > [!NOTE]
-> 所有的 Azure AD Connect Health 代理程式服務都必須重新啟動，才會更新 Proxy 設定。 執行以下命令：<br />
+> 所有的 Azure AD Connect Health 代理程式服務都必須重新啟動，才會更新 Proxy 設定。 執行下列命令：<br />
 > Restart-Service AdHealth*
 >
 >
@@ -383,4 +383,4 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 * [使用 Azure AD Connect Health 進行同步處理](how-to-connect-health-sync.md)
 * [在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)
 * [Azure AD Connect Health 常見問題集](reference-connect-health-faq.md)
-* [Azure AD Connect Health 版本历史记录](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 版本歷程記錄](reference-connect-health-version-history.md)

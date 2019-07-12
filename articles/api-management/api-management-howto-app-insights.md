@@ -24,7 +24,7 @@ ms.locfileid: "66241852"
 
 「Azure API 管理」可與 Azure Application Insights 輕鬆整合，Azure Application Insights 是一項延伸服務，可供 Web 開發人員在多個平台上建置和管理應用程式。 本指南會逐步解說此整合的每個步驟，並說明降低「API 管理」服務執行個體效能影響的策略。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依照本指南進行操作，您必須具備「Azure API 管理」執行個體。 如果您沒有該執行個體，請先完成此[教學課程](get-started-create-service-instance.md)。
 
@@ -37,7 +37,7 @@ ms.locfileid: "66241852"
 2. 按一下 [+ 新增]  。  
     ![App Insights 建立](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. 填入表單。 選擇 [一般]  作為 [應用程式類型]  。
-4. 按一下頁面底部的 [新增]  。
+4. 按一下 [建立]  。
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>在 Azure Application Insights 與 Azure API 管理服務執行個體之間建立連線
 
@@ -46,7 +46,7 @@ ms.locfileid: "66241852"
 3. 按一下 [+ 新增]  。  
     ![App Insights 記錄器](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. 選取先前建立的 **Application Insights** 執行個體，然後提供簡短描述。
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 6. 您剛建立了一個含有檢測金鑰的 Azure Application Insights 記錄器。 它現在應該會出現在清單中。  
     ![App Insights 記錄器](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
@@ -64,7 +64,7 @@ ms.locfileid: "66241852"
 6. 選取 [啟用]  方塊。
 7. 從 [目的地]  下拉式清單中，選取已連結的記錄器。
 8. 輸入 **100** 作為 [取樣 (%)]  ，然後勾選 [一律記錄錯誤]  核取方塊。
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 > [!WARNING]
 > 覆寫 [本文的前幾個位元組]  欄位中的預設值 **0**，可能會大幅降低您 API 的效能。
@@ -117,7 +117,7 @@ Azure Application Insights 會接收：
 
 將要求和回應的標頭與本文略過而不進行記錄，對於緩和效能問題也有正面影響。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
 >

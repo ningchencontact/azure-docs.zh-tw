@@ -37,7 +37,7 @@ Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將�
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 記錄整合軟體是否為免費？
 
-是。 Azure 記錄整合軟體不需任何費用。
+是的。 Azure 記錄整合軟體不需任何費用。
 
 ## <a name="where-is-azure-log-integration-available"></a>哪裡有提供 Azure 記錄整合？
 
@@ -49,7 +49,7 @@ Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將�
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>如何分辨 Azure 記錄整合記錄來自哪一個訂用帳戶？
 
-在稽核記錄位於 **AzureResourcemanagerJson** 目錄的案例中，訂用帳戶識別碼是在記錄名稱中。 這也適用於 **AzureSecurityCenterJson** 資料夾中的記錄。 例如︰
+在稽核記錄位於 **AzureResourcemanagerJson** 目錄的案例中，訂用帳戶識別碼是在記錄名稱中。 這也適用於 **AzureSecurityCenterJson** 資料夾中的記錄。 例如:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 

@@ -26,7 +26,7 @@ ms.locfileid: "60813410"
 * 在左窗格中，於 [入門]  中按一下 [範例指令碼] 
 * 按一下 [安裝 U-SQL 擴充程式]  ，然後按一下 [確定] 
 
-## <a name="overview"></a>概觀 
+## <a name="overview"></a>總覽 
 
 U-SQL 的 Python 擴充可讓開發人員進行大量的 Python 程式碼平行執行。 以下範例說明基本概念：
 
@@ -100,7 +100,7 @@ U-SQL 的 Python 擴充可讓開發人員進行大量的 Python 程式碼平行�
 ### <a name="input-and-output-size-limitations"></a>輸入和輸出的大小限制
 指派給每個頂點的記憶體數量皆有上限。 目前，該限制為 6 GB 用於 AU。 因為輸入和輸出資料框架必須存在於Python 程式碼的記憶體中，輸入和輸出的大小總和不能超過 6 GB。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
 * [使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 * [針對 Azure 資料湖分析工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)

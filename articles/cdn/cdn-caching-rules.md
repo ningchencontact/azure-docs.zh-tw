@@ -6,19 +6,19 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4ab3ca32f229e92ae6bae5906c6c70593e9f9d3
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679146"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594045"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>使用快取規則來控制 Azure CDN 快取行為
 
@@ -113,7 +113,7 @@ ms.locfileid: "60679146"
 > - 若為**來自 Verizon 的標準 Azure CDN** 設定檔，則通常會在 10 分鐘內完成傳播。  
 >
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [快取如何運作](cdn-how-caching-works.md)
 - [教學課程：設定 Azure CDN 快取規則](cdn-caching-rules-tutorial.md)

@@ -39,7 +39,7 @@ ms.locfileid: "60626636"
 > [!NOTE]
 > 如需詳細資訊，請參閱[權限](#device-provisioning-service-permissions)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 Azure IoT 中樞裝置佈建服務可根據共用存取原則驗證權杖，以授與端點的存取權。 安全性認證 (例如對稱金鑰) 決不會在網路上傳送。
 
@@ -79,7 +79,7 @@ SharedAccessSignature sr =
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串，格式為： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。|
 | {expiry} |從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |
-| {URL-encoded-resourceURI} | 小寫資源 URI 的小寫 URL 編碼。 可使用此權杖存取之端點的 URI 前置詞 (依區段)，開頭為 IoT 裝置佈建服務的主機名稱 (無通訊協定)。 例如： `mydps.azure-devices-provisioning.net`。 |
+| {URL-encoded-resourceURI} | 小寫資源 URI 的小寫 URL 編碼。 可使用此權杖存取之端點的 URI 前置詞 (依區段)，開頭為 IoT 裝置佈建服務的主機名稱 (無通訊協定)。 例如： `mydps.azure-devices-provisioning.net` 。 |
 | {policyName} |此權杖所參考的共用存取原則名稱。 |
 
 **前置詞的注意事項**︰URI 前置詞是依區段 (而不是依字元) 計算。 例如，`/a/b` 是 `/a/b/c` 的前置詞，而不是 `/a/bc` 的前置詞。

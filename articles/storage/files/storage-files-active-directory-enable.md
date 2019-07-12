@@ -5,14 +5,14 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 07/05/2019
 ms.author: rogarana
-ms.openlocfilehash: 80d871bdc17c3f93e113b08201d6c53f29bfeff0
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: cd4c952caa336f2602d3c30e0db3e10ebee59cb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295605"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696130"
 ---
 # <a name="enable-azure-active-directory-domain-service-authentication-over-smb-for-azure-files-preview"></a>透過 SMB 中啟用 Azure Active Directory 網域服務驗證，Azure 檔案 （預覽）
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -22,20 +22,20 @@ ms.locfileid: "67295605"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>工作流程概觀
-為 Azure 檔案啟用「透過 SMB 進行 Azure AD 驗證」之前，請確認您已正確設定 Azure AD 與 Azure 儲存體環境。 建議您逐步進行[必要條件](#prerequisites)，以確定您已執行所有必要步驟。 
+SMB 上啟用 Azure AD DS 驗證適用於 Azure 檔案之前，請確認您的 Azure AD 和 Azure 儲存體環境已正確設定。 建議您逐步進行[必要條件](#prerequisites)，以確定您已執行所有必要步驟。 
 
 接著，遵循下列步驟，授與對 Azure AD 認證之 Azure 檔案資源的存取權： 
 
-1. 為您的儲存體帳戶啟用「透過 SMB 進行 Azure AD 驗證」，以使用相關聯的 Azure AD Domain Services 部署註冊儲存體帳戶。
+1. 透過 SMB 儲存體帳戶向儲存體帳戶相關聯的 Azure AD Domain Services 部署中啟用 Azure AD DS 的驗證。
 2. 將共用的存取權限指派至 Azure AD 身分識別 (使用者、群組或服務主體)。
 3. 透過 SMB 為目錄和檔案設定 NTFS 權限。
 4. 從已加入網域的虛擬機器中裝載 Azure 檔案共用。
 
-下圖說明針對 Azure 檔案啟用「透過 SMB 進行 Azure AD 驗證」的端對端工作流程。 
+下圖說明透過 SMB 中啟用 Azure AD DS 驗證，Azure 檔案的端對端工作流程。 
 
 ![此圖顯示針對 Azure 檔案使用「透過 SMB 進行 Azure AD 驗證」的工作流程](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 針對 Azure 檔案服務啟用透過 SMB 進行 Azure AD 驗證之前，請確定您已完成下列必要條件：
 
@@ -56,7 +56,7 @@ ms.locfileid: "67295605"
     若要使用虛擬機器的 Azure AD 認證存取檔案共用，您的虛擬機器網域必須加入至 Azure AD Domain Services。 如需如何加入虛擬機器網域的詳細資訊，請參閱[將 Windows Server 虛擬機器加入受控網域](../../active-directory-domain-services/join-windows-vm.md)。
 
     > [!NOTE]
-    > 只有在 Windows 7 或 Windows Server 2008 R2 以上的作業系統版本上執行之 Azure 虛擬機器，才支援對 Azure 檔案使用「透過 SMB 進行 Azure AD 驗證」。
+    > 透過 SMB 使用 Azure 檔案的 azure AD DS 驗證只支援 Windows 7 或 Windows Server 2008 R2 以上作業系統版本上執行的 Azure Vm。
 
 4.  **選取或建立 Azure 檔案共用。**
 
@@ -67,15 +67,15 @@ ms.locfileid: "67295605"
 
     若要驗證是否已正確設定虛擬機器和檔案共用，請嘗試使用儲存體帳戶金鑰裝載檔案共用。 如需詳細資料，請參閱[裝載 Azure 檔案共用並在 Windows 中存取共用](storage-how-to-use-files-windows.md)。
 
-## <a name="enable-azure-ad-authentication-for-your-account"></a>針對您的帳戶啟用 Azure AD 驗證
+## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>啟用 Azure AD DS 驗證您的帳戶
 
-若要針對 Azure 檔案服務啟用透過 SMB 進行 Azure AD 驗證，您可以使用 Azure 入口網站、PowerShell 或 Azure CLI，在 2018 年 9 月 24 日之後建立的儲存體帳戶中設定一個屬性。 設定此屬性會將儲存體帳戶註冊到關聯的 Azure AD Domain Services 部署。 接著，會針對儲存體帳戶中所有新的和現有的檔案共用啟用「透過 SMB 進行 Azure AD 驗證」。 
+若要啟用 SMB 上的 Azure AD DS 驗證，Azure 檔案，您可以設定屬性在 2018 年 9 月 24 日之後建立的儲存體帳戶上使用 Azure 入口網站、 Azure PowerShell 或 Azure CLI。 設定此屬性會將儲存體帳戶註冊到關聯的 Azure AD Domain Services 部署。 然後透過 SMB 的 azure AD DS 驗證已啟用儲存體帳戶中的所有新的和現有的檔案共用。 
 
-請記住，只有在將 Azure AD Domain Services 成功部署至您的 Azure AD 租用戶之後，才可以啟用「透過 SMB 進行 Azure AD 驗證」。 如需詳細資訊，請參閱[必要條件](#prerequisites)。
+請記住，您可以啟用 Azure AD DS 驗證透過 SMB 在您已成功部署至 Azure AD 租用戶的 Azure AD Domain Services 之後，才。 如需詳細資訊，請參閱[必要條件](#prerequisites)。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要使用 [Azure 入口網站](https://portal.azure.com)來啟用透過 SMB 進行 Azure AD 驗證，請遵循下列步驟：
+若要啟用 Azure AD DS 驗證優於 SMB [Azure 入口網站](https://portal.azure.com)，請遵循下列步驟：
 
 1. 在 Azure 入口網站中，瀏覽至您現有的儲存體帳戶，或[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
 2. 在 [設定]  區段中，選取 [組態]  。
@@ -87,13 +87,13 @@ ms.locfileid: "67295605"
   
 ### <a name="powershell"></a>PowerShell  
 
-若要從 Azure PowerShell 啟用透過 SMB 進行 Azure AD 驗證，請先安裝具有 Azure AD 支援的 `Az.Storage` 模組預覽組建。 如需如何安裝 PowerShell 的詳細資訊，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)：
+若要透過 SMB 使用 Azure PowerShell 啟用 Azure AD DS 驗證：首先，安裝最新的 Az 模組 （2.4 或更新版本） 或 Az.Storage 模組 （1.5 或更新版本）。如需有關如何安裝 PowerShell 的詳細資訊，請參閱 <<c0> [ 使用 PowerShellGet 的 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
 ```powershell
 Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-接著，建立新的儲存體帳戶，然後呼叫 [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount)，並將 **EnableAzureFilesAadIntegrationForSMB** 參數設定為 **true**。 在以下範例中，請記得以您自己的值取代預留位置值。
+接下來，建立新的儲存體帳戶，然後呼叫[組 AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount)並設定**EnableAzureActiveDirectoryDomainServicesForFile**參數**true**。 在以下範例中，請記得以您自己的值取代預留位置值。 (如果您使用先前的 Preview 模組，功能啟用的參數是**EnableAzureFilesAadIntegrationForSMB**。)
 
 ```powershell
 # Create a new storage account
@@ -102,8 +102,17 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Location "<azure-region>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
-    -EnableAzureFilesAadIntegrationForSMB $true
+    -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```
+若要啟用這項功能，在現有的儲存體帳戶上，使用下列命令：
+
+```powershell
+# Update a storage account
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
+    -Name "<storage-account-name>" `
+    -EnableAzureActiveDirectoryDomainServicesForFile $true
+```
+
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -122,98 +131,36 @@ az storage account create -n <storage-account-name> -g <resource-group-name> --f
 
 ## <a name="assign-access-permissions-to-an-identity"></a>將存取權限指派給身分識別 
 
-若要使用 Azure AD 認證存取 Azure 檔案資源，身分識別 (使用者、群組或服務主體) 必須具有共用層級的必要權限。 本節中的指引示範如何將檔案共用的讀取、寫入或刪除權限指派給身分識別。
+若要使用 Azure AD 認證存取 Azure 檔案資源，身分識別 (使用者、群組或服務主體) 必須具有共用層級的必要權限。 此程序類似於指定 Windows 共用權限，您可以從中指定給定之使用者對檔案共用的存取類型。 本節中的指引示範如何將檔案共用的讀取、寫入或刪除權限指派給身分識別。
+
+我們引進了兩個共用層級權限授與使用者的 Azure 內建角色：儲存檔案資料 SMB 共用讀取器和儲存體檔案資料的 SMB 共用參與者。 
+
+- **儲存體檔案資料的 SMB 共用讀者**允許讀取存取 Azure 儲存體檔案共用中的透過 SMB
+- **儲存體檔案資料的 SMB 共用參與者**允許讀取、 寫入和刪除存取 Azure 儲存體檔案共用中透過 SMB
 
 > [!IMPORTANT]
 > 完整管理控制檔案共用 (包括將角色指派給身分識別的能力) 需要使用儲存體帳戶金鑰。 Azure AD 認證不支援管理控制。 
 
-### <a name="define-a-custom-role"></a>定義自訂角色
+您可以使用 Azure 入口網站、 PowerShell 或 Azure CLI，將指派給使用者的 Azure AD 身分識別的內建的角色，授與共用層級權限。 
 
-若要授與共用層級權限，請定義自訂的 RBAC 角色，並將其指派給身分識別，將其範圍設定為特定檔案共用。 此程序類似於指定 Windows 共用權限，您可以從中指定給定之使用者對檔案共用的存取類型。  
+#### <a name="azure-portal"></a>Azure 入口網站
+將 RBAC 角色指派給 Azure AD 身分識別，使用[Azure 入口網站](https://portal.azure.com)，請遵循下列步驟：
 
-下列各節顯示的範本為檔案共用提供讀取或變更權限。 若要定義自訂角色，請建立 JSON 檔案，並將適當的範本複製到該檔案。 如需定義自訂 RBAC 角色的詳細資訊，請參閱 [Azure 中的自訂角色](../../role-based-access-control/custom-roles.md)。
-
-**適用於共用層級變更權限的角色定義**  
-以下自訂角色範本提供共用層級變更權限，並授與身分識別的讀取、寫入和刪除存取的共用權限。
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
-  "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action"
-  ],
-  "AssignableScopes": [
-        "/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-**適用於共用層級讀取權限的角色定義**  
-以下自訂角色範本提供共用層級讀取權限，並授與身分識別的讀取存取的共用權限。
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share over SMB",
-  "Actions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "DataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "AssignableScopes": [
-        "/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-### <a name="create-the-custom-role"></a>建立自訂角色
-
-若要建立自訂角色，請使用 Azure PowerShell 或 Azure CLI。 
+1. 在 Azure 入口網站中，瀏覽至您的檔案共用，或[Azure 檔案服務中建立檔案共用](storage-how-to-create-file-share.md)。
+2. 選取 [存取控制 (IAM)]  。
+3. 選取**新增角色指派**
+4. 在 **新增的角色指派**刀鋒視窗中，選取適當的內建角色 （儲存體檔案資料的 SMB 共用參與者中的 儲存體檔案資料 SMB 共用讀取器），從**角色**下拉式清單中。 保持**存取權指派給**為預設值：「 Azure AD 使用者、 群組或服務主體 」，並選取 依姓名或電子郵件地址 Azure AD 身分識別的目標。 
+5. 最後，選取**儲存**來完成角色指派作業。
 
 #### <a name="powershell"></a>PowerShell
 
-下列 PowerShell 命令會根據其中一個範例範本來建立自訂角色。
-
-```powershell
-#Create a custom role based on the sample template above
-New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
-```
-
-#### <a name="cli"></a>CLI 
-
-下列 Azure CLI 命令會根據其中一個範例範本來建立自訂角色。
-
-```azurecli-interactive
-#Create a custom role based on the sample templates above
-az role definition create --role-definition "<Custom-role-def-JSON-path>"
-```
-
-### <a name="assign-the-custom-role-to-the-target-identity"></a>將自訂角色指派給目標身分識別
-
-接下來，使用 PowerShell 或 Azure CLI，將自訂角色指派給 Azure AD 身分識別。 
-
-#### <a name="powershell"></a>PowerShell
-
-下列 PowerShell 命令示範如何列出可用的自訂角色，然後根據登入名稱來將自訂的角色指派給 Azure AD 身分識別。 如需使用 PowerShell 指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 和 Azure PowerShell 管理存取](../../role-based-access-control/role-assignments-powershell.md)。
+下列 PowerShell 命令示範如何將 RBAC 角色指派給 Azure AD 身分識別，以登入名稱為基礎。 如需使用 PowerShell 指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 和 Azure PowerShell 管理存取](../../role-based-access-control/role-assignments-powershell.md)。
 
 執行下列範例指令碼時，請記得使用您自己的值來取代預留位置值 (包含括弧)。
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
@@ -222,15 +169,13 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-下列 CLI 2.0 命令示範如何列出可用的自訂角色，然後根據登入名稱來將自訂的角色指派給 Azure AD 身分識別。 如需使用 Azure CLI 指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 和 Azure CLI 管理存取](../../role-based-access-control/role-assignments-cli.md)。 
+下列的 CLI 2.0 命令會顯示如何將 RBAC 角色指派給 Azure AD 身分識別，以登入名稱為基礎。 如需使用 Azure CLI 指派 RBAC 角色的詳細資訊，請參閱[使用 RBAC 和 Azure CLI 管理存取](../../role-based-access-control/role-assignments-cli.md)。 
 
 執行下列範例指令碼時，請記得使用您自己的值來取代預留位置值 (包含括弧)。
 
 ```azurecli-interactive
-#List the custom roles
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
-#Assign the custom role to the target identity
-az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+#Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
+az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## <a name="configure-ntfs-permissions-over-smb"></a>透過 SMB 設定 NTFS 權限 

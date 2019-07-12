@@ -46,11 +46,11 @@ ms.locfileid: "67065708"
 適用於 MariaDB 的 azure 資料庫與 Azure 監視器的診斷記錄檔整合。 一旦您啟用慢速查詢記錄 MariaDB 伺服器上，您可以選擇將它們發出給 Azure 監視器記錄檔、 事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
 
 > [!IMPORTANT]
-> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
+> 此診斷功能的伺服器記錄檔僅適用於一般用途和記憶體最佳化[定價層](concepts-pricing-tiers.md)。
 
 下表描述每個記錄的內容。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 
-| **屬性** | **說明** |
+| **屬性** | **描述** |
 |---|---|
 | `TenantId` | 您的租用戶識別碼 |
 | `SourceSystem` | `Azure` |

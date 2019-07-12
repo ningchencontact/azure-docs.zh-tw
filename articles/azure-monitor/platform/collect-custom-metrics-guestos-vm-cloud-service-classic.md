@@ -27,7 +27,7 @@ ms.locfileid: "66129482"
 
 本文中所述的程序僅適用於 Azure 雲端服務中的效能計數器。 不適合用於其他自訂計量。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](~/articles/billing/billing-add-change-azure-subscription-administrator.md)。 
 

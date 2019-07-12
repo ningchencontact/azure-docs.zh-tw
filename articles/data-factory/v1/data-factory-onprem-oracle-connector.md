@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462378"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839941"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到內部部署 Oracle 或複製其中的資料
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-onprem-oracle-connector.md)
 > * [第 2 版 (目前的版本)](../connector-oracle.md)
 
@@ -83,7 +83,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 若要建立管線，最簡單的方式就是使用複製精靈。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用資料複製精靈建立管線的快速逐步解說。
 
-您也可以使用下列其中一個工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 或 **REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具之一，來建立管線：**Visual Studio**， **Azure PowerShell**，則**Azure Resource Manager 範本**，則 **.NET API**，或有**REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需完成下列步驟以建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -187,7 +187,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>將資料複製到 Oracle 資料庫以及複製其中資料的 JSON 範例
 
-以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。 這些範例示範如何將資料複製到 Oracle 資料庫和 Azure Blob 儲存體，或複製其中的資料。 不過，您可以使用 Azure Data Factory 中的複製活動，將資料複製到[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何接收端。
+下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例示範如何將資料複製到 Oracle 資料庫和 Azure Blob 儲存體，或複製其中的資料。 不過，您可以使用 Azure Data Factory 中的複製活動，將資料複製到[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何接收端。
 
 **範例：將資料從 Oracle 複製到 Azure Blob 儲存體**
 
@@ -599,26 +599,26 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(使用 Microsoft 驅動程式時，僅在 Oracle 10g 和更新版本上提供支援) |
-| CHAR |String |
-| CLOB |String |
+| CHAR |字串 |
+| CLOB |字串 |
 | DATE |DateTime |
 | FLOAT |Decimal，String (如果精確度 > 28) |
 | INTEGER |Decimal，String (如果精確度 > 28) |
 | 間隔年至月 |Int32 |
 | 間隔日至秒鐘 |時間範圍 |
-| 長 |String |
-| 長 RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| 長 |字串 |
+| LONG RAW |Byte[] |
+| NCHAR |字串 |
+| NCLOB |字串 |
 | NUMBER |Decimal，String (如果精確度 > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |字串 |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |字串 |
 | TIMESTAMP |DateTime |
 | 本地時區的時間戳記 |Datetime |
 | 時區的時間戳記 |Datetime |
 | 不帶正負號的整數 |Number |
-| VARCHAR2 |String |
+| VARCHAR2 |字串 |
 | XML |字串 |
 
 > [!NOTE]

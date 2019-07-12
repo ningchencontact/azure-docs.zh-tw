@@ -20,7 +20,7 @@ ms.locfileid: "60201540"
 > [!NOTE]
 > 在 Azure Government 中無法使用相依性視覺效果功能。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度信賴的群組。 使用相依性視覺效果，您可以檢視機器的網路相依性，並找出有必要一起移轉到 Azure 的相關機器。 當您並不完全了解構成應用程式和需要一起移轉到 Azure 的機器時，此功能會很實用。
 

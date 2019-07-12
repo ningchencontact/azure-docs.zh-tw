@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) 可讓應用程式使用自己的認證進行�
 ## <a name="assertion-format"></a>判斷提示格式
 若要計算判斷提示，您可以使用本身所選語言中的眾多 [JSON Web 權杖](https://jwt.ms/)程式庫之一。 權杖所承載的資訊如下︰
 
-### <a name="header"></a>頁首
+### <a name="header"></a>標頭
 
 | 參數 |  備註 |
 | --- | --- |

@@ -44,10 +44,10 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
     |設定        |值                                              |
     |---------      |---------                                          |
-    |Name           | myDdosProtectionPlan                              |
-    |訂用帳戶   | 選取您的訂用帳戶。                         |
-    |資源群組 | 選取 [新建]  ，然後輸入 *myResourceGroup* |
-    |位置       | 美國東部                                           |
+    |名稱           | myDdosProtectionPlan                              |
+    |Subscription   | 選取您的訂用帳戶。                         |
+    |Resource group | 選取 [新建]  ，然後輸入 *myResourceGroup* |
+    |Location       | East US                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>為新虛擬網路啟用 DDoS
 
@@ -58,9 +58,9 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
     | 設定         | 值                                                        |
     | ---------       | ---------                                                    |
     | 名稱            | myVirtualNetwork                                             |
-    | 訂用帳戶    | 選取您的訂用帳戶。                                    |
-    | 資源群組  | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
-    | 位置        | 美國東部                                                      |
+    | Subscription    | 選取您的訂用帳戶。                                    |
+    | Resource group  | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
+    | Location        | East US                                                      |
     | DDoS 保護 | 選取 [標準]  ，然後在 [DDoS 保護]  底下，選取 [myDdosProtectionPlan]  。 您所選取的計劃可以與虛擬網路位於相同或不同的訂用帳戶中，但兩個訂用帳戶必須都與同一個 Azure Active Directory 租用戶關聯。|
 
 已為虛擬網路啟用「標準 DDoS」時，您無法將虛擬網路移到另一個資源群組或訂用帳戶。 如果您需要移動已啟用「標準 DDoS」的虛擬網路，請先將「標準 DDoS」停用，移動虛擬網路，然後再啟用「標準 DDoS」。 移動之後，就會重設虛擬網路中所有受保護公用 IP 位址的自動調整原則閾值。
@@ -98,10 +98,10 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
     |設定                  |值                                                                                               |
     |---------                |---------                                                                                           |
-    |Name                     | myDdosAlert                                                                                        |
-    |訂用帳戶             | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
-    |資源群組           | 選取包含您想要接收警示之公用 IP 位址的資源群組。      |
-    |資源                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
+    |名稱                     | myDdosAlert                                                                                        |
+    |Subscription             | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
+    |Resource group           | 選取包含您想要接收警示之公用 IP 位址的資源群組。      |
+    |Resource                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
     |計量                   | 是否正遭受 DDoS 攻擊                                                                            |
     |閾值                | 1 - **1** 表示您正遭受攻擊。 **0** 表示您並未遭受攻擊。                         |
     |期間                   | 選取您選擇的任何值。                                                                   |
@@ -217,7 +217,7 @@ Azure 資訊安全中心提供一份[安全性警示](/azure/security-center/sec
 
 警示包含低於攻擊、 地理和威脅情報資訊，以及補救步驟的公用 IP 位址的一般資訊。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要使用 DDoS 保護計劃，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 

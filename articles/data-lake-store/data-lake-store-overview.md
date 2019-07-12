@@ -60,7 +60,7 @@ Data Lake 儲存體 Gen1 會使用 Azure Active Directory (Azure AD) 驗證和�
 
 | 功能 | 描述 |
 | --- | --- |
-| Authentication |Data Lake 儲存體 Gen1 與 Azure AD 整合進行身分識別和存取管理儲存在 Data Lake 儲存體 Gen1 中的所有資料。 因為整合，所以資料湖儲存體 Gen1 優點，從所有 Azure AD 功能，例如多重要素驗證、 條件式存取、 角色型存取控制、 應用程式使用量監視、 安全性監視和警示等等。 Data Lake Storage Gen1 支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱[Data Lake 儲存體 Gen1 驗證](data-lakes-store-authentication-using-azure-active-directory.md)。|
+| 驗證 |Data Lake 儲存體 Gen1 與 Azure AD 整合進行身分識別和存取管理儲存在 Data Lake 儲存體 Gen1 中的所有資料。 因為整合，所以資料湖儲存體 Gen1 優點，從所有 Azure AD 功能，例如多重要素驗證、 條件式存取、 角色型存取控制、 應用程式使用量監視、 安全性監視和警示等等。 Data Lake Storage Gen1 支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱[Data Lake 儲存體 Gen1 驗證](data-lakes-store-authentication-using-azure-active-directory.md)。|
 | 存取控制 |Data Lake Storage Gen1 透過支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 您可以啟用的根資料夾、 子資料夾和個別檔案的 Acl。 如需有關 Acl 的 Data Lake 儲存體 Gen1 內容中的運作方式的詳細資訊，請參閱 < [Data Lake 儲存體 Gen1 中的存取控制](data-lake-store-access-control.md)。 |
 | 加密 |Data Lake 儲存體 Gen1 也提供儲存在帳戶中的資料加密。 您會在建立 Data Lake Storage Gen1 帳戶時指定加密設定。 您可以選擇將資料加密，或選擇不使用加密。 如需詳細資訊，請參閱 [Data Lake Storage Gen1 的加密](data-lake-store-encryption.md)。 如需有關如何提供加密相關組態的指示，請參閱[開始使用 Data Lake 儲存體 Gen1 使用 Azure 入口網站](data-lake-store-get-started-portal.md)。 |
 

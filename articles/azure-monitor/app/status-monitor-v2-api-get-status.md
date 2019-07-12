@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e579db587d5f56aecd60f584ea4805dd4ac1bf98
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514315"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718366"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>狀態監視器 v2 API:Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v040-alpha"></a>狀態監視器 v2 API:Get-ApplicationInsightsMonitoringStatus (v0.4.0-alpha)
 
 本文說明的 cmdlet 時的成員[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
 
@@ -30,25 +30,71 @@ ms.locfileid: "66514315"
 
 ## <a name="description"></a>描述
 
-正在使用的 PowerShell 模組，可讓疑難排解。
+此 cmdlet 會提供狀態監視器的相關的疑難排解資訊。
+若要調查的監視狀態的 PowerShell 模組的版本並檢查執行中處理序，請使用這個指令程式。
 此 cmdlet 會報告版本資訊，以及監視所需的金鑰檔案的相關資訊。
-其他參數會提供額外的報告，監視的狀態。
 
 > [!IMPORTANT] 
 > 此 cmdlet 需要系統管理員權限的 PowerShell 工作階段。
 
 ## <a name="examples"></a>範例
 
+### <a name="example-application-status"></a>範例：應用程式狀態
 
-### <a name="example-basic-information"></a>範例：基本資訊
-
-執行`Get-ApplicationInsightsMonitoringStatus`來顯示目前模組的相關資訊：
+執行命令`Get-ApplicationInsightsMonitoringStatus`來顯示網站的監視狀態。
 
 ```
-PS C:\> Get-ApplicationInsightsMonitoringStatus
+Machine Identifier:
+PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
+Machine Identifier:
+811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
+
+IIS Websites:
+
+SiteName               : Default Web Site
+ApplicationPoolName    : DefaultAppPool
+SiteId                 : 1
+SiteState              : Stopped
+
+SiteName               : DemoWebApp111
+ApplicationPoolName    : DemoWebApp111
+SiteId                 : 2
+SiteState              : Started
+ProcessId              : not found
+
+SiteName               : DemoWebApp222
+ApplicationPoolName    : DemoWebApp222
+SiteId                 : 3
+SiteState              : Started
+ProcessId              : 2024
+Instrumented           : true
+InstrumentationKey     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123
+
+SiteName               : DemoWebApp333
+ApplicationPoolName    : DemoWebApp333
+SiteId                 : 4
+SiteState              : Started
+ProcessId              : 5184
+AppAlreadyInstrumented : true
+```
+
+在此範例中，
+- **電腦識別碼**是匿名的識別碼，用來唯一識別您的伺服器。 如果您建立支援要求，我們需要這個識別碼，以尋找您的伺服器記錄檔。
+- **預設的網站**在 IIS 中已停止
+- **DemoWebApp111**在 IIS 中，已啟動，但未收到任何要求。 此報告會顯示沒有執行的處理序 (ProcessId： 找不到)。
+- **DemoWebApp222**正在執行，而且正受到監視 (已經過檢測： true)。 根據使用者的設定，檢測金鑰 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 符合此站台。
+- **DemoWebApp333**已經過手動檢測使用 Application Insights SDK。 狀態監視器會偵測到 SDK，而不會監視此站台。
+
+
+### <a name="example-powershell-module-information"></a>範例：PowerShell 模組資訊
+
+執行命令`Get-ApplicationInsightsMonitoringStatus -PowerShellModule`來顯示目前模組的相關資訊：
+
+```
+PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
 
 PowerShell Module version:
-0.2.2-alpha
+0.4.0-alpha
 
 Application Insights SDK version:
 2.9.0.3872
@@ -60,21 +106,38 @@ PowerShell Module Directory:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\PowerShell
 
 Runtime Paths:
-ParentDirectory: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content Exists: False
-ConfigurationPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\applicationInsights.ikey.config Exists: True
-ManagedHttpModuleHelperPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll Exists: True
-RedfieldIISModulePath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll Exists: True
-InstrumentationEngine86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll Exists: True
-InstrumentationEngine64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll Exists: True
-InstrumentationEngineExtensionHost86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll Exists: True
-InstrumentationEngineExtensionHost64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll Exists: True
-InstrumentationEngineExtensionConfig86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
+ParentDirectory (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content
 
+ConfigurationPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 
-Machine Identifier:
-0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+ManagedHttpModuleHelperPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll
+
+RedfieldIISModulePath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
+
+InstrumentationEngine86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll
+
+InstrumentationEngine64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll
+
+InstrumentationEngineExtensionHost86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll
+
+InstrumentationEngineExtensionHost64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
+
+InstrumentationEngineExtensionConfig86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config
+
+InstrumentationEngineExtensionConfig64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config
+
+ApplicationInsightsSdkPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
 ### <a name="example-runtime-status"></a>範例：執行階段狀態
@@ -119,14 +182,18 @@ listdlls64.exe -accepteula w3wp
 
 ### <a name="no-parameters"></a>（無參數）
 
-根據預設，此 cmdlet 會報告的版本號碼和監視所需的 Dll 的路徑。
+根據預設，此 cmdlet 會報告 web 應用程式的監視的狀態。
+若要檢閱如果已成功檢測您的應用程式中使用此選項。
+您也可以檢閱其檢測金鑰已對應到您的網站。
 
+
+### <a name="-powershellmodule"></a>-PowerShellModule
+**選擇性**。 您可以使用此參數可以報告的版本號碼和監視所需的 Dll 的路徑。
 如果您需要識別的任何 DLL，包括應用程式的 application Insights SDK 的版本，請使用此選項。
-
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-可选  。 您可以使用這個參數來報告是否正在執行 IIS。
+**選擇性**。 您可以使用此切換為 IIS 是否正在執行的報表。
 它也會下載必要的 Dll 會載入到 IIS 執行階段判斷的外部工具。
 
 
@@ -138,7 +205,7 @@ listdlls64.exe -accepteula w3wp
 
 ### <a name="-force"></a>-Force
 
-可选  。 只能與 InspectProcess 搭配使用。 使用此參數以略過使用者前出現提示時下載額外的工具。
+**選擇性**。 只能與 InspectProcess 搭配使用。 使用此參數以略過使用者前出現提示時下載額外的工具。
 
 
 ## <a name="next-steps"></a>後續步驟

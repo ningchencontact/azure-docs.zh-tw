@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d91507ad2cb271b23b588ef7da88e6e6712915b1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627381"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593572"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>在 Azure CDN 端點上預先載入資產
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -66,7 +66,7 @@ ms.locfileid: "60627381"
 > 
 > 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [清除 Azure CDN 端點](cdn-purge-endpoint.md)
 * [Azure CDN REST API 參考：預先載入端點上的內容](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Azure CDN REST API 參考：從端點清除內容](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

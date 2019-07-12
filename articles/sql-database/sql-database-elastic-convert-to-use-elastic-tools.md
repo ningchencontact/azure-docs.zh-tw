@@ -22,7 +22,7 @@ ms.locfileid: "61075160"
 # <a name="migrate-existing-databases-to-scale-out"></a>將現有的資料庫移轉到相應放大的資料庫
 使用 Azure SQL Database 資料庫工具 (例如 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md))，輕鬆地管理現有相應放大的分區化資料庫。 請先轉換現有的資料庫，才能使用[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 若要移轉現有的分區化資料庫︰ 
 
 1. 準備 [分區對應管理員資料庫](sql-database-elastic-scale-shard-map-management.md)。
@@ -30,7 +30,7 @@ ms.locfileid: "61075160"
 3. 準備個別分區。  
 4. 將對應新增至分區對應。
 
-您可以使用 [.NET Framework 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)或在 [Azure SQL DB - 彈性資料庫工具指令碼](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)中找到的 PowerShell 指令碼，來實作這些技巧。 以下示例使用 PowerShell 脚本。
+您可以使用 [.NET Framework 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)或在 [Azure SQL DB - 彈性資料庫工具指令碼](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)中找到的 PowerShell 指令碼，來實作這些技巧。 以下範例會使用 PowerShell 指令碼。
 
 如需 ShardMapManager 的詳細資訊，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。 如需彈性資料庫工具的概觀，請參閱 [彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)。
 

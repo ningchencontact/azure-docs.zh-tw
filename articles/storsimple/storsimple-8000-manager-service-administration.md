@@ -23,7 +23,7 @@ ms.locfileid: "60723301"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>使用 StorSimple 裝置管理員服務管理 StorSimple 裝置
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文描述 StorSimple 裝置管理員服務介面，包括如何與其連接、各種可用選項，以及可以透過此 UI 執行的特定工作流程連結。 本指南適用於以下兩者；StorSimple 實體裝置和雲端設備。
 
@@ -63,7 +63,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 | 有關儲存體帳戶</br>新增儲存體帳戶</br>編輯儲存體帳戶</br>刪除儲存體帳戶</br>替換儲存體帳戶的金鑰 |[管理儲存體帳戶](storsimple-8000-manage-storage-accounts.md) |
 | 關於頻寬範本</br>新增頻寬範本</br>編輯頻寬範本</br>刪除頻寬範本</br>使用預設頻寬範本</br>建立在指定時間啟動的全天頻寬範本 |[管理頻寬範本](storsimple-8000-manage-bandwidth-templates.md) |
 | 關於存取控制記錄</br>建立存取控制記錄</br>編輯存取控制記錄</br>刪除存取控制記錄 |[管理存取控制記錄](storsimple-8000-manage-acrs.md) |
-| 檢視工作詳細資料</br>取消作业 |[管理工作](storsimple-8000-manage-jobs-u2.md) |
+| 檢視工作詳細資料</br>取消工作 |[管理工作](storsimple-8000-manage-jobs-u2.md) |
 | 接收警示通知</br>管理警示</br>檢閱警示 |[檢視和管理 StorSimple 警示](storsimple-8000-manage-alerts.md) |
 | 建立監視圖表 |[監視您的 StorSimple 裝置](storsimple-monitor-device.md) |
 | 新增磁碟區容器</br>修改磁碟區容器</br>刪除磁碟區容器 |[管理磁碟區容器](storsimple-8000-manage-volume-containers.md) |

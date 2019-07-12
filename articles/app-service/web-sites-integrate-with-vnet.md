@@ -11,37 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/09/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 940163d01e562d5a7d9107e8d893ba981fa0f84a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147294"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795931"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
-本文件說明 Azure App Service 虛擬網路整合功能，以及如何設定中的應用程式[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。  
+本文件說明 Azure App Service 虛擬網路整合功能，以及如何設定中的應用程式[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 [Azure 虛擬網路][VNETOverview](Vnet) 可讓您在非網際網路可路由網路中放置許多 Azure 資源。  
 
-Azure App Service 具有兩種形式。 
+Azure App Service 具有兩個變化。 
 
 1. 支援全系列價格方案 (除隔離式方案以外) 的多租用戶系統
 2. App Service Environment (ASE)，它會部署到您的 VNet，並支援隔離 」 定價方案的應用程式
 
-此文件會透過兩個 VNet 整合功能，這是多租用戶 App Service 中使用。 如果您的應用程式位於 [App Service 環境][ASEintro]，則它已經在 VNet 中，並且不需要使用 VNet 整合功能來觸達相同 VNet 中的資源。 如需所有 App Service 網路功能的詳細資訊，請閱讀[網路功能的 App Service](networking-features.md)
+此文件會透過兩個 VNet 整合功能，這是多租用戶 App Service 中使用。 如果您的應用程式處於[App Service Environment][ASEintro]，則它已經在 VNet 中並不需要使用 VNet 整合功能來觸達相同 VNet 中的資源。 如需所有 App Service 網路功能的詳細資訊，請閱讀[網路功能的 App Service](networking-features.md)
 
 有兩種形式的 VNet 整合功能
 
 1. 一種版本可與相同區域中 Vnet 整合。 這種形式的功能需要在相同區域中的 VNet 子網路。 這項功能仍處於預覽狀態，但支援的 Windows 應用程式的生產工作負載有一些注意事項如下所示。
-2. 另一個版本可與其他區域中的 Vnet 或傳統 Vnet 的整合。 此版本的功能需要虛擬網路閘道部署到您的 VNet。 這是點對站 VPN 基礎功能。
+2. 另一個版本可與其他區域中的 Vnet 或傳統 Vnet 的整合。 此版本的功能需要虛擬網路閘道部署到您的 VNet。 這是與點對站 VPN 為基礎的特徵，並僅支援 Windows 應用程式。
 
 應用程式一次只能使用一種形式的 VNet 整合功能。 問題會是您應該使用哪一項功能。 您可以使用許多項目。 雖然是明確的差異：
 
-| 問題  | 解決方法 | 
+| 問題  | 方案 | 
 |----------|----------|
 | 相同區域中想要連線到 RFC 1918 位址 10.0.0.0/8、 172.16.0.0/12 （192.168.0.0/16） | 區域 VNet 整合 |
-| 想要連線到傳統 VNet 或另一個區域中的 VNet | 需要閘道的 VNet 整合 |
+| 想要達到傳統 VNet 或另一個區域中的 VNet 中的資源 | 需要閘道的 VNet 整合 |
 | 想要透過 ExpressRoute 連線 RFC 1918 端點 | 區域 VNet 整合 |
 | 想要連線到服務端點之間的資源 | 區域 VNet 整合 |
 
@@ -78,12 +78,14 @@ VNet 整合不支援的事項包括：
 * 您無法跨全域對等互連連線觸達資源
 * 您不能設定從您的應用程式進入 VNet 的流量路由
 * 此功能才可從較新的 App Service 縮放單位來支援 PremiumV2 App Service 方案。
+* 整合子網路僅適用於只有一個 App Service 方案
 * 此功能無法使用隔離式的方案的應用程式服務環境中的應用程式
-* 此功能需要使用 Resource Manager VNet 中至少 32 個位址的未使用的子網路。
+* 此功能需要未使用/27 使用 32 個位址或更大，在 Resource Manager VNet 子網路
 * 應用程式和 VNet 必須位於相同的區域
-* 一個位址用於一個 App Service 方案執行個體。 因為子網路大小在指派之後就無法變更，所以請使用超過最大規模大小的子網路。 建議的大小為具有 32 個位址的 /27，因為這會容納擴充為 20 個執行個體的 App Service 方案。
 * 您無法刪除具有整合式應用程式的 VNet。 您必須先移除整合 
 * 您可以只有一個區域 VNet 整合，每個 App Service 方案。 在相同的 App Service 方案中的多個應用程式可以使用相同的 VNet。 
+
+一個位址用於一個 App Service 方案執行個體。 如果您調整您的應用程式 5 個執行個體，這是使用 5 個位址。 由於指派之後，就無法變更子網路大小，您必須使用大到足以容納您的應用程式可能會碰到任何小數位數的子網路。 使用 32 個位址/27，原本會容納進階 App Service 方案調整為 20 個執行個體為建議的大小。
 
 此功能為預覽狀態，也適用於 Linux。 若要使用 Resource Manager VNet 位於相同區域中的 VNet 整合功能：
 
@@ -101,11 +103,15 @@ VNet 整合不支援的事項包括：
 
 若要中斷您應用程式與 VNet 的連線，請選取 [中斷連線]  。 這會重新啟動 Web 應用程式。 
 
-新的 VNet 整合功能可讓您使用服務端點。  若要在應用程式中使用服務端點，請使用新的 VNet 整合連線到選取的 VNet，然後在您用於整合的子網路上設定服務端點。 
 
 #### <a name="web-app-for-containers"></a>適用於容器的 Web 應用程式
 
 如果您使用 Linux 上的 App Service 與內建映像，區域的 VNet 整合功能的運作而不需要額外的變更。 如果您使用適用於容器的 Web 應用程式，您需要修改您的 docker 映像，才能使用 VNet 整合。 在您的 docker 映像，使用連接埠環境變數作為主要的 web 伺服器的接聽連接埠，而不是使用硬式編碼的連接埠號碼。 在容器啟動時，會自動連接埠環境變數設定 App Service 平台。
+
+### <a name="service-endpoints"></a>服務端點
+
+新的 VNet 整合功能可讓您使用服務端點。  若要在應用程式中使用服務端點，請使用新的 VNet 整合連線到選取的 VNet，然後在您用於整合的子網路上設定服務端點。 
+
 
 ### <a name="how-vnet-integration-works"></a>VNet 整合的運作方式
 
@@ -113,7 +119,7 @@ VNet 整合不支援的事項包括：
 
 ![VNet 整合](media/web-sites-integrate-with-vnet/vnet-integration.png)
 
-啟用 VNet 整合時，您的應用程式仍能如往常一樣的相同管道網際網路的輸出呼叫。 應用程式屬性入口網站中所列的輸出位址仍是您的應用程式所使用的位址。 變更您的應用程式為何對服務端點保護的服務，或 RFC 1918 位址會進入您的 VNet。 
+啟用 VNet 整合時，您的應用程式仍能如往常一樣的相同管道網際網路的輸出呼叫。 應用程式屬性入口網站中所列的輸出位址仍是您的應用程式所使用的位址。 變更您的應用程式是什麼，到保護服務或 RFC 1918 位址的服務端點的呼叫會進入您的 VNet。 
 
 此功能僅支援每個背景工作的一個虛擬介面。  每個背景工作的一個虛擬介面表示每個 App Service 方案的一個區域 VNet 整合。 所有相同的 App Service 方案中的應用程式可以使用相同的 VNet 整合，但如果您需要應用程式連接至其他 VNet 時，您必須建立另一個 App Service 方案。 使用的虛擬介面不是客戶可以直接存取的資源。
 
@@ -136,7 +142,7 @@ VNet 整合不支援的事項包括：
 * 透過 ExpressRoute 存取資源 
 * 跨服務端點存取資源 
 
-### <a name="getting-started"></a>開始使用
+### <a name="getting-started"></a>使用者入門
 
 在將 Web 應用程式連接至虛擬網路之前，請留意以下事項：
 
@@ -149,11 +155,11 @@ VNet 整合不支援的事項包括：
 如果您已設定點對站位址的閘道，則可以略過設定與應用程序的 VNet 整合。  
 若要建立閘道：
 
-1. 在您的 VNet 中[建立閘道子網路][creategatewaysubnet]。  
+1. [建立閘道子網路][creategatewaysubnet]VNet 中。  
 
 1. [建立 VPN 閘道][creategateway]。 選取路由式 VPN 類型。
 
-1. [將點設定為網站位址][setp2saddresses]。 如果閘道不在基本 SKU 中，則必須在點對站組態中停用 IKEV2，而且必須選取 SSTP。 位址空間必須是在 RFC 1918 位址區塊、 10.0.0.0/8、 172.16.0.0/12、 192.168.0.0/16
+1. [設定點站台位址][setp2saddresses]。 如果閘道不在基本 SKU 中，則必須在點對站組態中停用 IKEV2，而且必須選取 SSTP。 位址空間必須是在 RFC 1918 位址區塊、 10.0.0.0/8、 172.16.0.0/12、 192.168.0.0/16
 
 如果您只是建立虛擬網路閘道使用與應用程式服務的 VNet 整合，則您不需要上傳憑證。 建立閘道可能需要 30 分鐘。 在佈建閘道之前，您將無法將應用程式與 VNet 整合。 
 
@@ -217,7 +223,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 沒有任何連線到您的 VNet，以及在內部部署區域的 VNet 整合功能所需的其他組態。 您只需要將 VNet 連線至內部部署使用 ExpressRoute 或站對站 VPN。 
 
 > [!NOTE]
-> VNet 整合功能不會與具有 ExpressRoute 閘道的 VNet 整合的應用程式時，需要閘道。 即使是在[共存模式][VPNERCoex]中設定 ExpressRoute 閘道，VNet 整合仍無法運作。 如果您需要存取資源，透過 ExpressRoute 連線，則您可以使用區域的 VNet 整合功能或[App Service Environment][ASE]，在您的 VNet 中執行。 
+> VNet 整合功能不會與具有 ExpressRoute 閘道的 VNet 整合的應用程式時，需要閘道。 即使已在中設定 ExpressRoute 閘道器[共存模式][VPNERCoex] the VNet Integration doesn't work. If you need to access resources through an ExpressRoute connection, then you can use the regional VNet Integration feature or an [App Service Environment][ASE]，在您的 VNet 中執行。 
 > 
 > 
 
@@ -236,16 +242,16 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 
 有三個相關的費用，以使用所需的閘道 VNet 整合功能：
 
-* ASP 的定價層費用-而您的應用程式必須在標準、 進階或 PremiumV2 App Service 方案。 如需有關這些成本的更多詳細資料，請參閱這裡：[App Service 價格][ASPricing]。 
-* 資料傳輸成本有會資料輸出費用，即使 VNet 位於相同的資料中心。 [資料傳輸定價詳細資料][DataPricing]中會說明這些費用。 
-* VPN 閘道器成本-這裡是所需的點對站 VPN 將 VNet 閘道的成本。 如需詳細資訊，請參閱 [VPN 閘道定價][VNETPricing]頁面。
+* ASP 的定價層費用-而您的應用程式必須在標準、 進階或 PremiumV2 App Service 方案。 如需有關這些成本的更多詳細資料，請參閱這裡：[App Service 定價][ASPricing]。 
+* 資料傳輸成本有會資料輸出費用，即使 VNet 位於相同的資料中心。 這些費用是所述[資料傳輸定價詳細資料][DataPricing]。 
+* VPN 閘道器成本-這裡是所需的點對站 VPN 將 VNet 閘道的成本。 詳細資料位於[VPN 閘道定價][VNETPricing]頁面。
 
 
 ## <a name="troubleshooting"></a>疑難排解
 儘管功能易於設定，這不表示您的體驗不會遇到問題。 如果您在存取所需端點時遇到問題，有一些公用程式，您可以用來從應用程式主控台測試連線功能。 有兩個您可以使用的主控台。 一個是 Kudu 主控台，另一個則是 Azure 入口網站中的主控台。 若要從您的應用程式觸達 Kudu 主控台，請移至 [工具] -> [Kudu]。 這與移至 [sitename].scm.azurewebsites.net 相同。 開啟之後，請移至 [偵錯主控台] 索引標籤。若要前往 Azure 入口網站裝載的主控台，請從您的應用程式移至 [工具] -> [主控台]。 
 
 #### <a name="tools"></a>工具
-由於安全性限制，工具 **ping**、**nslookup** 和 **tracert** 無法透過主控台運作。 為了填滿此空隙，已加入兩個不同的工具。 為了測試 DNS 功能，已加入名為 nameresolver.exe的工具。 語法為：
+由於安全性限制，工具 **ping**、**nslookup** 和 **tracert** 無法透過主控台運作。 為了填滿此空隙，已加入兩個不同的工具。 為了測試 DNS 功能，已加入名為 nameresolver.exe的工具。 其語法為：
 
     nameresolver.exe hostname [optional: DNS Server]
 
@@ -289,7 +295,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 
 其他偵錯步驟包括：
 
-* 連線至 VNet 中的 VM，並嘗試從該處連接資源 host:port。 若要測試 TCP 存取，請使用 PowerShell 命令 **test-netconnection**。 語法為：
+* 連線至 VNet 中的 VM，並嘗試從該處連接資源 host:port。 若要測試 TCP 存取，請使用 PowerShell 命令 **test-netconnection**。 其語法為：
 
       test-netconnection hostname [optional: -Port]
 

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074631"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785466"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>呼叫 web Api-的 web 應用程式呼叫 web API
 
@@ -28,7 +28,18 @@ ms.locfileid: "65074631"
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-以下是簡化的程式碼的動作`HomeController`。 此程式碼取得權杖來呼叫 Microsoft Graph。 已新增這個時間程式碼，示範如何呼叫 Microsoft Graph 為 REST API。
+以下是簡化的程式碼的動作`HomeController`。 此程式碼取得權杖來呼叫 Microsoft Graph。 已新增這個時間程式碼，示範如何呼叫 Microsoft Graph 為 REST API。 Graph API 的 URL 中提供`appsettings.json`檔案，並在名為的變數中讀取`webOptions`:
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

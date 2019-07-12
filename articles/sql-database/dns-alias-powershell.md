@@ -38,7 +38,7 @@ ms.locfileid: "65797710"
 
 - 伺服器字串範例：`any-unique-alias-name.database.windows.net`。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您想要執行本文中提供的 PowerShell 示範指令碼，則適用下列必要條件：
 

@@ -26,7 +26,7 @@ ms.locfileid: "67120204"
 
 適用於 VM 的 Azure 監視器對應功能會從 Microsoft Dependency Agent 取得其資料。 適用於 Linux 的 Azure VM 的相依性代理程式虛擬機器擴充功能是發行，並由 Microsoft 支援。 Azure 虛擬機器上安裝相依性代理程式擴充功能。 本文件詳述支援的平台、 組態和適用於 Linux 的 Azure VM 的相依性代理程式虛擬機器擴充功能的部署選項。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 

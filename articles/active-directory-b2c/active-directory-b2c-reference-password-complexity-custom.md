@@ -23,7 +23,7 @@ ms.locfileid: "66509149"
 
 在 Azure Active Directory (Azure AD) B2C 中，您可以針對使用者在建立帳戶時所提供的密碼設定複雜度需求。 根據預設，Azure AD B2C 是使用**強式**密碼。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼複雜度。 此外，您也可以在[使用者流程](active-directory-b2c-reference-password-complexity.md)中設定密碼複雜度。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成[在 Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 

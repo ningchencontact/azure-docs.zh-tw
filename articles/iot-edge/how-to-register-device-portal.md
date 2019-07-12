@@ -22,7 +22,7 @@ ms.locfileid: "66495348"
 
 本文說明如何使用 Azure 入口網站註冊新的 IoT Edge 裝置。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 可用的標準[IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)您 Azure 訂用帳戶中。
 

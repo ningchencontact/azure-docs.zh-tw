@@ -81,7 +81,7 @@ Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料
 
 提供的 Demo-PerformanceMonitoringAndManagement.ps1  指令碼會模擬對所有租用戶資料庫執行的工作負載。 使用其中一個可用的負載案例產生負載：
 
-| 示範 | 案例 |
+| 示範 | 狀況 |
 |:--|:--|
 | 2 | 產生一般強度負載 (大約 40 個 DTU) |
 | 3 | 每個資料庫產生時間更長、更頻繁高載的負載|

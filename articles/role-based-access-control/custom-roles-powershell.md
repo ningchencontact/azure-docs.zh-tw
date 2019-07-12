@@ -29,7 +29,7 @@ ms.locfileid: "66158458"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要建立自訂角色，您需要：
 

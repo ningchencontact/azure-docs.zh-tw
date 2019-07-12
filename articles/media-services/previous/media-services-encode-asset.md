@@ -16,7 +16,7 @@ ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464176"
@@ -70,11 +70,11 @@ Media Encoder Standard 使用 [這裡](https://go.microsoft.com/fwlink/?linkid=6
 ### <a name="create-overlays"></a>建立疊加層
 如需相關資訊，請參閱 [如何使用媒體編碼器標準建立覆疊](media-services-advanced-encoding-with-mes.md#overlay)。
 
-### <a name="see-also"></a>請參閱
+### <a name="see-also"></a>另請參閱
 [媒體服務部落格](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>媒體編碼器高階工作流程
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 [介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>使用方式

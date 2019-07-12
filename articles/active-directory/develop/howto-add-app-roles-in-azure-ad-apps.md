@@ -24,7 +24,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299151"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>作法：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>HOW TO：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
 角色型存取控制 (RBAC) 是一個熱門的機制，可在應用程式中強制授權。 使用 RBAC 時，系統管理員會將權限授與給角色，而非授與個別使用者或群組。 系統管理員可以接著將角色指派給不同的使用者和群組，控制誰可以存取哪些內容和功能。
 

@@ -17,7 +17,7 @@ ms.locfileid: "60610140"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia PROTECTED 的 PaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此 Azure 安全性與合規性藍圖提供平台即服務 (PaaS) 環境部署的指導方針，以用於收集、儲存及擷取符合澳洲政府資訊安全性手冊 (ISM) 規範 (由澳洲國防情報局 (ASD) 所編纂) 的 AU-PROTECTED 政府資料。 此藍圖顯示一般參考架構，並有助於示範如何在安全且符合規範的多層環境中處理敏感性政府資料。
 
@@ -42,7 +42,7 @@ ms.locfileid: "60610140"
 
 此解決方案會使用下列 Azure 服務。 進一步詳細資訊位於[部署架構](#deployment-architecture)一節。
 
-- 应用程序网关
+- 應用程式閘道
     - Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP

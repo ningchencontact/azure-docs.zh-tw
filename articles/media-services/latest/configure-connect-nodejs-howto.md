@@ -51,7 +51,7 @@ ms.locfileid: "60733125"
 
 必須指定下列套件：
 
-|封裝|描述|
+|套件|描述|
 |---|---|
 |`azure-arm-mediaservices`|Azure 媒體服務 SDK。 <br/>若要確定您使用最新的 Azure 媒體服務封裝，請檢查[NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)。|
 |`azure-storage`|儲存體 SDK。 檔案上傳到資產時，會使用它。|
@@ -120,7 +120,7 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [媒體服務概念](concepts-overview.md)
 - [NPM 安裝 azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

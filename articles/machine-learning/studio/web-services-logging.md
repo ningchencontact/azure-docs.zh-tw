@@ -45,7 +45,7 @@ ms.locfileid: "60345590"
 
    ![選取記錄等級](./media/web-services-logging/enable-logging.png)
 
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 7. 對於傳統 Web 服務，請建立 **ml-診斷**容器。
 

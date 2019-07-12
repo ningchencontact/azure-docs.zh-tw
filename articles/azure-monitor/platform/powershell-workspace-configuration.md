@@ -38,7 +38,7 @@ ms.locfileid: "65907876"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 這些範例可使用版本 1.0.0 或更新版本的 Az.OperationalInsights 模組。
 
 

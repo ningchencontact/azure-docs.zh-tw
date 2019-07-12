@@ -24,7 +24,7 @@ ms.locfileid: "61409170"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>在 StorSimple Virtual Array 上安裝更新 - Azure 入口網站
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明透過本機 Web UI 和透過 Azure 入口網站，在 StorSimple Virtual Array 上安裝更新時所需的步驟。 您需要套用軟體更新或 Hotfix，以便讓您的 StorSimple Virtual Array 保持在最新狀態。 
 

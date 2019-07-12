@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399327"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806412"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>在 Power BI 中使用匯入的查詢將資料視覺化
 
@@ -22,7 +22,7 @@ Azure 資料總管提供三個選項以便連線到 Power BI 中的資料：使�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要下列項目完成這篇文章：
 
@@ -82,4 +82,4 @@ Azure 資料總管提供三個選項以便連線到 Power BI 中的資料：使�
 
 ## <a name="next-steps"></a>後續步驟
 
-[在 Power BI 中使用匯入的查詢將資料視覺化](power-bi-sql-query.md)
+[適用於 Power BI 中使用 Azure Data Explorer 連接器將資料視覺化](power-bi-connector.md)

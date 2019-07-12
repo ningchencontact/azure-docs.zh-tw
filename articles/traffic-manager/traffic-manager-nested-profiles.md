@@ -75,7 +75,7 @@ ms.locfileid: "67071145"
 
 您可以對所有區域重複此模式。 將父設定檔中的三個端點全部取代為三個子設定檔，每個都提供容錯移轉優先順序。
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4︰控制相同區域中多個端點之間的「效能」流量路由
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4：控制相同區域中多個端點之間的「效能」流量路由
 
 假設在設定檔中使用「效能」流量路由方法，而此設定檔在特定區域有多個端點。 根據預設，導向該區域的流量會平均分散至該區域中所有可用的端點。
 
@@ -85,7 +85,7 @@ ms.locfileid: "67071145"
 
 ![搭配自訂區域內流量分配的「效能」流量路由][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>範例 5︰每個端點的監視設定
+## <a name="example-5-per-endpoint-monitoring-settings"></a>範例 5：每個端點的監視設定
 
 假設您使用流量管理員，順暢地將流量從傳統內部部署網站移轉至裝載於 Azure 中的新雲端網站。 對於舊版的網站，您想要使用首頁 URI 來監視網站健康狀態。 但對於新的雲端網站，您實作一個包含額外檢查的自訂監視頁面 (路徑 '/monitor.aspx')。
 

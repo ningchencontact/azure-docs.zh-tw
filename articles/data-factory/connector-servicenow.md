@@ -29,7 +29,7 @@ ms.locfileid: "60203409"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -44,7 +44,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 類型屬性必須設定為：**ServiceNow** | 是 |
 | endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | 是 |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值包括：**Basic**、**OAuth2** | 是 |
-| username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
+| userName | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
 | password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
 | clientSecret | 用於 OAuth2 驗證的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
@@ -52,7 +52,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -121,7 +121,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 `SELECT col_value FROM Actual.alm_asset`OR  
 `SELECT col_display_value FROM Display.alm_asset`
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

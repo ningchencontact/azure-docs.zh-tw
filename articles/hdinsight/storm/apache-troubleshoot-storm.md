@@ -147,5 +147,5 @@ Storm 背景工作節點執行下列服務：
  
 範例：/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>另请参阅
+### <a name="see-also"></a>另請參閱
 [使用 Azure HDInsight 進行疑難排解](../../hdinsight/hdinsight-troubleshoot-guide.md)

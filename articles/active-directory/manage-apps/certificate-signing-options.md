@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1baf4af41fd5dcb6723b6ee2827ae91b43b072d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780954"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807710"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>在 Azure Active Directory 中，針對資源庫應用程式使用 SAML 權杖中的進階憑證簽署選項
 
@@ -57,27 +57,21 @@ Azure AD 支援兩種簽署演算法或安全雜湊演算法 (Sha)，來簽署 S
 1. 在左側窗格中，選取 [企業應用程式]  。 在您的帳戶中的企業應用程式清單隨即出現。
 1. 選取應用程式。 應用程式的 [概觀] 頁面隨即出現。
 
-   ![應用程式 [概觀] 頁面](./media/certificate-signing-options/application-overview-page.png)
+   ![範例：應用程式 [概觀] 頁面](./media/certificate-signing-options/application-overview-page.png)
 
 接下來，變更憑證簽署該應用程式在 SAML 權杖中的選項：
 
 1. 在 應用程式的 概觀 頁面的左窗格中，選取**單一登入**。
+1. 如果**設定設定單一登入與 SAML-Preview**頁面出現時，請移至步驟 5。
+1. 如果**選取 單一登入方法**頁面就不會出現，請選取**變更單一登入模式**以顯示該頁面。
+1. 在 **選取 單一登入方法**頁面上，選取**SAML**如果有的話。 (如果**SAML**不是，應用程式不支援 SAML、，因此您可以忽略此程序和文件的其餘部分。)
+1. 在 **設定設定單一登入與 SAML-Preview**頁面上，尋找**SAML 簽署憑證**標題並選取**編輯**圖示 （鉛筆）。 **SAML 簽署憑證**頁面隨即出現。
 
-2. 如果**設定設定單一登入與 SAML-Preview**頁面出現時，請移至步驟 5。
+   ![範例：SAML 簽署憑證 頁面](./media/certificate-signing-options/saml-signing-page.png)
 
-3. 如果**選取 單一登入方法**頁面就不會出現，請選取**變更單一登入模式**以顯示該頁面。
-
-4. 在 **選取 單一登入方法**頁面上，選取**SAML**如果有的話。 (如果**SAML**不是，應用程式不支援 SAML、，因此您可以忽略此程序和文件的其餘部分。)
-
-5. 在 **設定設定單一登入與 SAML-Preview**頁面上，尋找**SAML 簽署憑證**標題並選取**編輯**圖示 （鉛筆）。 **SAML 簽署憑證**頁面隨即出現。
-
-   ![SAML 簽署頁面](./media/certificate-signing-options/saml-signing-page.png)
-
-6. 在 **簽署選項**下拉式清單中，選擇**簽署 SAML 回應**，**簽署 SAML 判斷提示**，或**簽署 SAML 回應及判斷提示**。 這些選項的說明出現在此文章中稍早[憑證簽署選項](#certificate-signing-options)。
-
-7. 在 **簽署演算法**下拉式清單中，選擇**sha-1**或**SHA-256**。 這些選項的說明出現在此文章中稍早[憑證簽署演算法](#certificate-signing-algorithms)一節。
-
-8. 如果您滿意您的選擇時，選取**儲存**套用新的 SAML 簽署憑證的設定。 否則，請選取**X**捨棄所做的變更。
+1. 在 **簽署選項**下拉式清單中，選擇**簽署 SAML 回應**，**簽署 SAML 判斷提示**，或**簽署 SAML 回應及判斷提示**。 這些選項的說明出現在此文章中稍早[憑證簽署選項](#certificate-signing-options)。
+1. 在 **簽署演算法**下拉式清單中，選擇**sha-1**或**SHA-256**。 這些選項的說明出現在此文章中稍早[憑證簽署演算法](#certificate-signing-algorithms)一節。
+1. 如果您滿意您的選擇時，選取**儲存**套用新的 SAML 簽署憑證的設定。 否則，請選取**X**捨棄所做的變更。
 
 ## <a name="next-steps"></a>後續步驟
 

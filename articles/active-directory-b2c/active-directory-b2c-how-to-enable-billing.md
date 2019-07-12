@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510134"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835429"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>將 Azure 訂用帳戶連結至 Azure Active Directory B2C 租用戶
 
@@ -45,9 +45,9 @@ Azure AD B2C 支援 Azure 雲端解決方案提供者 (CSP) 訂用帳戶。 針�
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>在 Azure Marketplace 中尋找 Azure AD B2C
 
-按一下 [建立資源]  按鈕。 在 [搜尋 Marketplace]  欄位中，輸入 `B2C`。
+按一下 [建立資源]  按鈕。 在 **搜尋 Marketplace**欄位中，輸入`Active Directory B2C`。
 
-![在 [搜尋 Marketplace] 欄位中新增醒目提示的按鈕和 Azure AD B2C 文字](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![入口網站螢幕擷取畫面使用 Active Directory B2C' 在 Marketplace 搜尋](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 在結果清單中選取 [Azure AD B2C]  。
 
@@ -67,7 +67,7 @@ Azure AD B2C 支援 Azure 雲端解決方案提供者 (CSP) 訂用帳戶。 針�
 
 選取資源群組和資源群組位置。 這裡的選取項目對於 AD B2C 租用戶位置、效能或計費狀態沒有任何影響。
 
-![建立 B2C 資源](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![在 Azure 入口網站中 Azure AD B2C 資源建立頁面](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>管理 Azure AD B2C 租用戶資源
 
@@ -80,7 +80,15 @@ Azure AD B2C 支援 Azure 雲端解決方案提供者 (CSP) 訂用帳戶。 針�
 - 提交支援要求
 - 將 Azure AD B2C 租用戶資源移至另一個 Azure 訂用帳戶，或另一個資源群組。
 
-![B2C 資源設定](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![在 Azure 入口網站中的 B2C 資源設定頁面](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>變更計費訂用帳戶的 Azure AD B2C 租用戶
+
+如果來源和目的地訂用帳戶存在於相同的 Azure Active Directory 租用戶內，azure AD B2C 租用戶可以移至另一個訂用帳戶。
+
+若要了解如何將 Azure 資源，例如 Azure AD B2C 租用戶移到另一個訂用帳戶，請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
+
+起始在移動之前，請務必閱讀整篇文章，以全面了解這類移動的需求與限制。 移動資源的指示，除了它包含重要的資訊，例如移動前檢查清單，以及如何驗證移動作業。
 
 ## <a name="known-issues"></a>已知問題
 

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579920"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594169"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>開始使用 Azure CDN 開發
 > [!div class="op_single_selector"]
@@ -155,7 +155,7 @@ ms.locfileid: "60579920"
 
 現在已撰寫了程式的基本結構，我們應該建立 `Main` 方法所呼叫的方法。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 在可以使用 Azure CDN 管理庫之前，需要先驗證服務主體，並取得驗證權杖。  這個方法會使用 ADAL 來擷取權杖。
 
 ```csharp

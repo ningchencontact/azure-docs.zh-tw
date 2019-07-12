@@ -26,7 +26,7 @@ ms.locfileid: "60246448"
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解宣告式佈建
 本主題說明 Azure AD Connect 中的組態模型。 此模型稱為宣告式佈建，它可讓您輕鬆地進行組態變更。 本主題中所述的許多項目都是進階的，而且在大部分客戶案例中並非必要。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 宣告式佈建正在處理來自來源連接的目錄中的物件，並決定應如何將物件和屬性從來源轉換到目標。 物件會在同步處理管線中進行處理，而輸入和輸出規則的管線都相同。 輸入規則是從連接器空間至 Metaverse，而輸出規則是從 Metaverse 至連接器空間。
 
 ![同步處理管線](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
@@ -53,7 +53,7 @@ ms.locfileid: "60246448"
 
 範圍模組支援下列作業。
 
-| 作業 | 描述 |
+| 運算 | 描述 |
 | --- | --- |
 | EQUAL、NOTEQUAL |評估此值是否等於屬性值的字串比較。 若為多重值屬性，請參閱 ISIN 和 ISNOTIN。 |
 | LESSTHAN、LESSTHAN_OR_EQUAL |評估此值是否小於屬性值的字串比較。 |
@@ -128,7 +128,7 @@ ms.locfileid: "60246448"
 
 ### <a name="importedvalue"></a>ImportedValue
 函式 ImportedValue 與其他所有函式都不同，其屬性名稱必須以引號 (而非方括號) 括住：  
-`ImportedValue("proxyAddresses")` 。
+`ImportedValue("proxyAddresses")`.
 
 通常在同步處理期間，屬性會使用預期的值，即使它尚未匯出或在匯出期間 (「協定塔的頂端」) 收到錯誤。 輸入同步處理會假設尚未到達已連接目錄的屬性最後還是會到達。 在某些情況下，請務必只同步處理已連接目錄所確認的值 (「全像圖和差異匯入協定塔」)。
 

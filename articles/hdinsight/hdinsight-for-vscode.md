@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: aadfae9a7b74986fd0ac8857669dd3ccaf62af1f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ebc41fc74d24708a177bf554029df8384c49df05
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166200"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657242"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -21,7 +21,7 @@ ms.locfileid: "67166200"
 Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，包括 Windows、Linux 和 macOS。 您可在下面找到不同平台的必要條件。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目才能完成本文中的步驟：
 
@@ -304,20 +304,20 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
     | name | description | type | 
     | :- | :- | :- | 
     | file | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
-    | proxyUser | 要在執行作業時模擬的使用者 | 字串 | 
-    | className | 應用程式 Java/Spark 主要類別 | 字串 |
+    | proxyUser | 要在執行作業時模擬的使用者 | string | 
+    | className | 應用程式 Java/Spark 主要類別 | string |
     | args | 應用程式的命令列引數 | 字串的清單 | 
     | jars | 要在此工作階段中使用的 jar | 字串清單 | 
     | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
     | files | 要在此工作階段中使用的檔案 | 字串清單 |
-    | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
-    | driverCores | 要用於驅動程式處理序的核心數量 | int |
+    | driverMemory | 要用於驅動程式處理序的記憶體數量 | string |
+    | driverCores | 要用於驅動程式處理序的核心數量 | ssNoversion |
     | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | string |
-    | executorCores | 每個執行程式所要使用的核心數量 | int |
-    | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
+    | executorCores | 每個執行程式所要使用的核心數量 | ssNoversion |
+    | numExecutors | 要為此工作階段啟動的執行程式數量 | ssNoversion |
     | archives | 要在此工作階段中使用的封存 | 字串清單 |
-    | queue | 所提交到的 YARN 佇列名稱 | 字串 |
-    | name | 此工作階段的名稱 | 字串 |
+    | queue | 所提交到的 YARN 佇列名稱 | string |
+    | name | 此工作階段的名稱 | string |
     | conf | Spark 組態屬性 | key=val 的對應 |
 
     回應本文   
@@ -325,8 +325,8 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
     | name | description | type | 
     | :- | :- | :- | 
-    | id | 工作階段識別碼 | int | 
-    | appId | 此工作階段的應用程式識別碼 |  String |
+    | id | 工作階段識別碼 | ssNoversion | 
+    | appId | 此工作階段的應用程式識別碼 |  字串 |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
     | log | 記錄行 | 字串的清單 |
     | state |   批次狀態 | string |
@@ -436,7 +436,7 @@ HDInsight for Visual Studio Code 支援下列功能︰
 
 > [!NOTE]
 > 
->您可以從 Azure 入口網站取得儲存體帳戶的存取金鑰。 如需資訊，請參閱[檢視及複製存取金鑰](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys)。
+>您可以從 Azure 入口網站取得儲存體帳戶的存取金鑰。 如需資訊，請參閱[檢視及複製存取金鑰](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys)。
 
 ## <a name="unlink-cluster"></a>取消連結叢集
 

@@ -21,7 +21,7 @@ ms.locfileid: "64720052"
 
 本文說明如何使用 Azure 事件中樞連接器，從邏輯應用程式內部監視和管理傳送至 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)的事件。 這樣一來，您就可以建立邏輯應用程式，來自動執行從事件中樞檢查、傳送和接收事件的工作和工作流程。 如需連接器專屬的技術資訊，請參閱[Azure 事件中樞連接器參考](https://docs.microsoft.com/connectors/eventhubs/)</a>。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
@@ -80,7 +80,7 @@ ms.locfileid: "64720052"
    | 屬性 | 必要項 | 描述 |
    |----------|----------|-------------|
    | **事件中樞名稱** | 是 | 您想要監視的事件中樞名稱 |
-   | **內容類型** | 否 | 事件的內容類型。 預設值為 `application/octet-stream`。 |
+   | **內容類型** | 否 | 事件的內容類型。 預設為 `application/octet-stream`。 |
    | **取用者群組名稱** | 否 | [的事件中樞取用者群組名稱](../event-hubs/event-hubs-features.md#consumer-groups)用來讀取事件。 若未指定，就會使用預設取用者群組。 |
    | **最大事件計數** | 否 | 最大事件數目。 觸發程序傳回的事件數目會介於 1 到這個屬性指定的數目之間。 |
    | **間隔** | 是 | 正整數，描述工作流程的執行頻率為基礎的頻率 |

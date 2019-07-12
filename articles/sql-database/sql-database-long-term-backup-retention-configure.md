@@ -79,7 +79,7 @@ ms.locfileid: "66164414"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 下列各節說明如何使用 PowerShell 來設定長期備份保留、檢視 Azure SQL 儲存體中的備份，以及從 Azure SQL 儲存體中的備份還原。
 
@@ -93,11 +93,11 @@ ms.locfileid: "66164414"
 
 如果需要更加細微的控制，您可以建立自訂 RBAC 角色，並在**訂用帳戶**範圍中指派它們。 
 
-对于 **Get-AzSqlDatabaseLongTermRetentionBackup** 和 **Restore-AzSqlDatabase**，角色需要具有以下权限：
+針對**Get AzSqlDatabaseLongTermRetentionBackup**並**還原 AzSqlDatabase**角色必須具有下列權限：
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
  
-对于 **Remove-AzSqlDatabaseLongTermRetentionBackup**，角色需要具有以下权限：
+針對**移除 AzSqlDatabaseLongTermRetentionBackup**角色必須具有下列權限：
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -192,5 +192,5 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解服务生成的自动备份，请参阅 [自动备份](sql-database-automated-backups.md)
+- 若要深入了解服務產生的自動備份，請參閱[自動備份](sql-database-automated-backups.md)
 - 若要深入了解長期備份保留，請參閱[長期備份保留](sql-database-long-term-retention.md)

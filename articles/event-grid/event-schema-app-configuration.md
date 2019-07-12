@@ -16,7 +16,7 @@ ms.locfileid: "66735777"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure 應用程式設定的 azure Event Grid 事件結構描述
 
-這篇文章提供 Azure 應用程式設定事件的屬性和結構描述。 如需事件結構描述的簡介，請參閱 [Azure 事件格線事件結構描述](event-schema.md)。
+這篇文章提供 Azure 應用程式設定事件的屬性和結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
 如需範例指令碼和教學課程的清單，請參閱 < [Azure 應用程式設定事件來源](event-sources.md#app-configuration)。
 
@@ -73,24 +73,24 @@ Azure 應用程式組態會發出下列事件類型：
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
-| data | 物件 | 應用程式設定事件資料。 |
+| data | object | 應用程式設定事件資料。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
 | metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
-| 索引鍵 | 字串 | 已修改或刪除機碼值的索引鍵。 |
-| label | 字串 | 標籤，如果有的話，索引鍵-值的已修改或刪除。 |
-| etag | 字串 | 針對`KeyValueModified`新的索引鍵 / 值的 etag。 針對`KeyValueDeleted`已刪除的金鑰值的 etag。 |
+| key | string | 已修改或刪除機碼值的索引鍵。 |
+| label | string | 標籤，如果有的話，索引鍵-值的已修改或刪除。 |
+| etag | string | 針對`KeyValueModified`新的索引鍵 / 值的 etag。 針對`KeyValueDeleted`已刪除的金鑰值的 etag。 |
  
 ## <a name="next-steps"></a>後續步驟
 

@@ -134,7 +134,7 @@ ms.locfileid: "64719833"
 
 ### <a name="common-errors"></a>常見錯誤
 
-**錯誤碼** | **訊息** | **詳細資料**
+**錯誤碼** | **Message** | **詳細資料**
 --- | --- | ---
 **0x800700EA** | 「Hyper-V 無法產生虛擬機器的 VSS 快照集：有更多可用的資料。 (0x800700EA)。 如果備份作業正在進行中，VSS 快照集可能無法產生。<br/><br/> 虛擬機器的複寫作業失敗：有更多可用的資料。」 | 檢查您的 VM 是否已啟用動態磁碟。 不支援此做法。
 **0x80070032** | 「Hyper-V 磁碟區陰影複製要求者無法連線至虛擬機器 <./VMname>，因為版本不符合 Hyper-V 所預期的版本」 | 檢查是否已安裝最新的 Windows 更新。<br/><br/> [升級](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)至最新版的 Integration Services。

@@ -70,7 +70,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | 要剖析其 VM 之 vCenter Server/vSphere ESXi 主機的完整網域名稱或 IP 位址。|
 | -User | 用於連線至 vCenter Server/vSphere ESXi 主機的使用者名稱。 使用者必須至少具備唯讀存取權限。|
-| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的虛擬機器名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的虛擬機器名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 檔案包含下列 VM︰<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 |-NoOfMinutesToProfile|要執行分析的分鐘數。 最小值為 30 分鐘。|
 |-NoOfHoursToProfile|要執行分析的時數。|
 | -NoOfDaysToProfile | 要執行分析的天數。 建議您執行分析 7 天以上，以確保觀察到指定期間內您環境中的工作負載模式，並用來提供精確的建議。 |
@@ -158,7 +158,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-Port|(選用) 要連線到 vCenter/ESXi 主機的連接埠號碼。 預設連接埠為 443。|
 |-Protocol|(選用) 指定用來連線至 vCenter 的通訊協定 ('http' 或 'https')。 預設通訊協定為 https。|
 | -DesiredRPO | (選用) 以分鐘為單位的所需復原點目標。 預設值是 15 分鐘。|
-| -Bandwidth | 以 Mbps 为单位的带宽。 此參數用來計算指定的頻寬可達成的 RPO。 |
+| -Bandwidth | 頻寬 (以 Mbps 為單位)。 此參數用來計算指定的頻寬可達成的 RPO。 |
 | -StartDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的開始日期和時間。 StartDate  必須與 EndDate  一起指定。 若已指定 StartDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -EndDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的結束日期和時間。 EndDate  必須與 StartDate  一起指定。 若已指定 EndDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -GrowthFactor | (選用) 以百分比表示的成長因子。 預設值為 30%。 |
@@ -249,11 +249,11 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 
-## <a name="get-throughput"></a>获取吞吐量
+## <a name="get-throughput"></a>取得輸送量
 
 若要預估 Site Recovery 在複寫期間可以達成的輸送量 (從內部部署至 Azure)，請以 GetThroughput 模式執行工具。 此工具會計算來自工具執行所在伺服器的輸送量。 在理想情況下，此伺服器是以組態伺服器調整大小指南為基礎。 如果您已在內部部署環境部署 Site Recovery 基礎結構元件，請在組態伺服器上執行此工具。
 
-開啟命令列主控台，然後移至 Site Recovery 部署規劃工具資料夾。 结合以下参数运行 ASRDeploymentPlanner.exe。
+開啟命令列主控台，然後移至 Site Recovery 部署規劃工具資料夾。 使用下列參數執行 ASRDeploymentPlanner.exe。
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 

@@ -53,7 +53,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 - 暫時暫停備份
 - 備份的保留管理 (即將推出)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * Fabric 6.4 版或更新版本的 Service Fabric 叢集。 如需下載所需套件的步驟，請參閱這篇[文章](service-fabric-cluster-creation-for-windows-server.md)。
 * 用於加密祕密 (連線至儲存體以儲存備份時所需) 的 X.509 憑證。 若要了解如何取得或建立自我簽署的 X.509 憑證，請參閱這篇[文章](service-fabric-windows-cluster-x509-security.md)。
 

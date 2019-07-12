@@ -26,11 +26,11 @@ ms.locfileid: "65075396"
 
 了解所有您要建置 web API 呼叫 web Api。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此案例中，呼叫 web Api、 受保護的 web API 建置上的 「 保護 web API 」 案例。 若要深入了解這個基本案例，請參閱[受保護的 Web API-案例](scenario-protected-web-api-overview.md)第一次。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 - -不會在下圖表示-用戶端 （web、 桌面、 行動、 或單一頁面應用程式） 呼叫受保護的 web API，並提供其 「 授權 」 Http 標頭中的 JWT 持有人權杖。
 - 受保護的 web API 驗證權杖，並使用 MSAL`AcquireTokenOnBehalfOf`方法來要求 （來自 Azure AD) 另一個權杖，讓它可以本身，第二個代表呼叫 web API （名為下游 web API） 的使用者。

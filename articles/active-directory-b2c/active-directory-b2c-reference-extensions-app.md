@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/06/2017
+ms.date: 09/06/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9fbceee8fb0e565df668406f09df27272318dd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d38d8d791c6b932d8a28a898f2e2b80caff7ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509473"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654060"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C：擴充功能應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "66509473"
 1. 針對您需要還原已刪除應用程式的 Azure AD B2C 目錄，以全域系統管理員身分登入站台。 此全域系統管理員必須有類似下列的電子郵件地址：`username@{yourTenant}.onmicrosoft.com`。
 1. 針對 URL `https://graph.windows.net/myorganization/deletedApplications` 發出 HTTP GET，其中 api-version=1.6。 此作業會列出過去 30 天內所有已刪除的應用程式。
 1. 在名稱開頭為 'b2c-extension-app' 的清單中尋找應用程式，並複製其 `objectid` 屬性值。
-1. 針對 URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore` 發出 HTTP POST。 從上一個步驟將 URL 的 `{OBJECTID}` 部分取代為 `objectid`。 
+1. 針對 URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore` 發出 HTTP POST。 從上一個步驟將 URL 的 `{OBJECTID}` 部分取代為 `objectid`。
 
 您現在應該能夠在 Azure 入口網站中[看到還原的應用程式](#verifying-that-the-extensions-app-is-present)。
 

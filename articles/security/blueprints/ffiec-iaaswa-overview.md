@@ -17,7 +17,7 @@ ms.locfileid: "60585762"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：適用於符合 FFIEC 金融服務的 IaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此「Azure 安全性與合規性藍圖」提供指導方針，部署適用於受聯邦金融機構審查委員會 (FFIEC) 規範的財務資料收集、儲存及擷取基礎結構即服務 (IaaS) 環境。
 

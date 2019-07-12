@@ -672,7 +672,7 @@ Azure Functions 會實作 `INameResolver`，以從應用程式設定取得值，
 
 如果您需要執行一些工作，在您的函式，才能使用的繫結屬性，例如`Queue`， `Blob`，或`Table`，您可以使用`IBinder`介面。
 
-下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 输出队列名称由函数正文中的代码设置。
+下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 輸出佇列名稱會由函數主體中的程式碼設定。
 
 ```cs
 public static void CreateQueueMessage(
@@ -803,7 +803,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs)以實作分散式鎖定。 使用單一租用 blob 位於`azure-webjobs-host`容器中的`AzureWebJobsStorage`路徑 「 鎖定 」 下的儲存體帳戶。 例如，稍早所示第一個 `ProcessImage` 範例的租用二進位大型物件路徑可以是 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`。 所有路徑皆包含 JobHost 識別碼，在此個案中為 061851c758f04938a4426aa9ab3869c0。
 
-## <a name="async-functions"></a>异步函数
+## <a name="async-functions"></a>Async 函數
 
 如需如何以程式碼非同步函式的資訊，請參閱[Azure Functions 文件](../azure-functions/functions-dotnet-class-library.md#async)。
 
@@ -833,13 +833,13 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 
 `ILogger` 執行個體建立的每個記錄皆有相關聯的 `Category` 和 `Level`。 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) 列舉型別，且整數代碼表示相對的重要性：
 
-|LogLevel    |代碼|
+|LogLevel    |程式碼|
 |------------|---|
 |追蹤       | 0 |
 |偵錯       | 1 |
 |資訊 | 2 |
 |警告     | 3 |
-|Error       | 4 |
+|錯誤       | 4 |
 |重要    | 5 |
 |None        | 6 |
 

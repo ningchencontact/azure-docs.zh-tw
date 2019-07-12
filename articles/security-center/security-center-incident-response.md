@@ -42,7 +42,7 @@ ms.locfileid: "60908140"
 
 接下來的案例示範如何在安全性事件的偵測、評估和回應階段善用資訊安全中心。 在資訊安全中心內，[安全性事件](security-center-incident.md)是符合[攻擊鏈](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/)模式之資源的所有警示彙總。 事件會出現在 [[安全性警示](security-center-managing-and-responding-alerts.md)] 圖格和刀鋒視窗中。 事件會顯示相關警示的清單，以讓您取得所引發的每個警示的詳細資訊。 資訊安全中心也會呈現獨立安全性警示，這類警示也可用來追蹤可疑的活動。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 Contoso 最近將一些內部部署資源移轉至 Azure，包括一些以虛擬機器為基礎的商務營運工作負載和 SQL Database。 Contoso 的核心電腦安全性事件回應小組 (CSIRT) 目前因為尚未整合與其目前事件回應工具的安全性情報，而無法順利調查安全性問題。 缺乏此種整合會在偵測階段帶來問題 (太多誤判)，也會在評估和診斷階段造成問題。 在此移轉過程中，他們決定選擇加入資訊安全中心，以協助他們解決這個問題。
 
 此移轉的第一個階段會在所有資源上架並解決資訊安全中心的所有安全性建議後完成。 Contoso CSIRT 是處理電腦安全性事件的焦點。 該小組是由一群負責處理任何安全性事件的人員所組成。 小組成員已清楚定義職責，以確保涵蓋所有的回應區域。

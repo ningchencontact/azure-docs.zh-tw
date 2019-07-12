@@ -1,21 +1,20 @@
 ---
-title: 使用 TensorBoard 和 Azure 機器學習服務實驗以視覺化方式檢視
+title: 使用 TensorBoard 將實驗視覺化
+titleSuffix: Azure Machine Learning service
 description: 啟動 TensorBoard 來視覺化實驗執行歷程記錄，並找出潛在的超參數微調和重新訓練的部分。
 services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: article
 author: maxluk
 ms.author: maxluk
-ms.reviewer: nibaccam
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: babd4cdf8b7ed9e04b4bd975d840688b27439c4f
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: fde2b6d1d298e89227951c376d584452fbff2679
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560860"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707054"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>以視覺化方式檢視實驗執行和使用 TensorBoard 和 Azure Machine Learning 的計量
 
@@ -28,7 +27,7 @@ ms.locfileid: "67560860"
 
 + 用於不原生輸出 TensorBoard 可取用的檔案，例如像是 scikit-learn 或 Azure Machine Learning 實驗的實驗[`export_to_tensorboard()`方法](#export)TensorBoard 記錄在記錄檔匯出執行歷程記錄，並啟動從該處 TensorBoard。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 若要啟動 TensorBoard 並檢視您的實驗執行歷程記錄，您的實驗必須先前已啟用記錄功能以追蹤其度量和效能。  
 

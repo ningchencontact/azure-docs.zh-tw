@@ -7,22 +7,22 @@ author: mdgattuso
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65909673"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593534"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>清除 Azure CDN 端點
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期。  資產的 TTL 到期之後，當用戶端從邊緣節點要求資產時，邊緣節點會建立資產新的更新的複本以服務用戶端的要求並儲存重新整理快取。
 
 若要確定使用者一律會取得最新的資產複本，最佳作法是為每個更新設定資產版本，然後將它們發佈為新的 URL。  CDN 會立即為下一個用戶端要求擷取新的資產。  有時您可能想要清除所有邊緣節點的快取內容，並強制它們全部擷取新的更新的資產。  可能是因為您的 Web 應用程式更新，或快速更新包含不正確資訊的資產。
@@ -73,7 +73,7 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
 > 
 > 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [在 Azure CDN 端點上預先載入資產](cdn-preload-endpoint.md)
 * [Azure CDN REST API 參考資料 - 清除或預先載入端點](/rest/api/cdn/endpoints)
 

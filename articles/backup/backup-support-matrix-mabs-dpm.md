@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204178"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594266"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>使用 Microsoft Azure 備份伺服器或 System Center DPM 備份的支援矩陣
 
@@ -55,7 +55,7 @@ DPM 和 MABS 皆提供備份多種不同應用程式和伺服器與用戶端作�
 
 **案例** | **代理程式** | **Location**
 --- | --- | ---
-**備份內部部署機器/工作負載** | 您想要備份的機器上，執行 DPM/MABS 保護代理程式。<br/><br/> DPM/MABS 伺服器上的 MARS 代理程式 」。 | DPM/MABS 必須執行在內部部署環境。
+**備份內部部署機器/工作負載** | 您想要備份的機器上，執行 DPM/MABS 保護代理程式。<br/><br/> DPM/MABS 伺服器上的 MARS 代理程式 」。<br/> 啟用這項功能所需的 Microsoft Azure 復原服務代理程式或 Azure 備份代理程式的最低版本是 2.0.8719.0。  | DPM/MABS 必須執行在內部部署環境。
 **Azure VM/工作負載的備份** | 受保護的電腦上的 DPM/MABS 保護代理程式。<br/><br/> DPM/MABS 伺服器上的 MARS 代理程式 」。 | DPM/MABS 必須在 Azure VM 上執行。
 
 ## <a name="supported-deployments"></a>支援的部署
@@ -152,7 +152,7 @@ DPM 伺服器/MABS 需要存取下列 URL：
 - MBS 備份會儲存在復原檔案系統 (ReFS) 磁碟上。
 - MBS 使用 ReFS 區塊複製備份更快速和更有效率地使用儲存空間。
 - 當您新增到本機 DPM/MABS 存放集區的磁碟區時，您會設定它們使用磁碟機代號。 隨後，您可以在不同的磁碟區上設定工作負載儲存體。
-- 當您建立用來將資料備份至 DPM/MABS 的保護群組時，您可以選取所要使用的磁碟機。 比方說，您可能會儲存備份的 SQL 或其他高 IOPS 工作負載的高效能磁碟機，並儲存備份的頻率較低的效能磁碟機上的工作負載。
+- 當您建立用來將資料備份至 DPM/MABS 的保護群組時，您可以選取所要使用的磁碟機。 比方說，您可能會儲存備份的 SQL 或高效能磁碟機上的其他高 IOPS 工作負載，並儲存備份的頻率較低的效能磁碟機上的工作負載。
 
 
 ## <a name="supported-backups-to-mabs"></a>MABS 支援的備份
@@ -206,7 +206,7 @@ DPM 伺服器/MABS 需要存取下列 URL：
 **VMware VM：vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3、v2 <br/><br/> DPM 2012 R2 需要 System Center 更新彙總套件 1 <br/><br/>內部部署。 | 備份 Csv、 NFS 和 SAN 儲存體中的 VMware Vm。<br/><br/> 復原整個 VM。<br/><br/> Windows/Linux 備份。<br/><br/> 檔案/資料夾的項目層級復原 (僅適用於 Windows)。<br/><br/> 不支援 VMware vApps。<br/><br/> Linux VM 的復原會對整個機器執行。
 
 
-- 請注意，備份的 DPM/MABS 的叢集工作負載應該與 DPM/MABS 位於相同網域或子/信任的網域。
+- 備份的 DPM/MABS 的叢集工作負載應該位在與 DPM/MABS 相同的網域或子/信任的網域。
 - 您可以使用 NTLM/憑證驗證，在不受信任的網域或工作群組中備份資料。
 
 

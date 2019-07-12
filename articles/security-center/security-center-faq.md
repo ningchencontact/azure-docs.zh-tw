@@ -47,7 +47,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>我要如何追蹤在我的組織執行 Azure 資訊安全中心的定價層變更
 因為 Azure 訂用帳戶可能會有多個系統管理員權限才能變更定價層，則使用者可能想要知道執行定價層變更的人員。 若要使用的可以使用 Azure 活動記錄檔。 請進一步參閱指示[這裡](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../role-based-access-control/built-in-roles.md)。
 
 資訊安全中心會評估資源的組態，以識別安全性問題與弱點。 在「資訊安全中心」中，當您獲指派為資源所屬的訂用帳戶或資源群組「擁有者」、「參與者」或「讀取者」角色時，您只會看到與資源相關的項目。
@@ -58,7 +58,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集 (VMSS)、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>我的 Azure 監視器記錄檔，資訊安全中心所建立之工作區付費？
-沒有。 資訊安全中心所建立的工作區雖然設定以每節點計費的 Azure 監視器記錄檔不會造成 Azure 監視器記錄檔的費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
+資料分割 資訊安全中心所建立的工作區雖然設定以每節點計費的 Azure 監視器記錄檔不會造成 Azure 監視器記錄檔的費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
 
 - **免費層** – 資訊安全中心在預設工作區啟用 'SecurityCenterFree' 解決方案。 免費層不須付費。
 - **標準層** – 資訊安全中心在預設工作區啟用 'Security' 解決方案。
@@ -327,7 +327,7 @@ Azure 資訊安全中心能辨識透過 Azure 擴充功能安裝的反惡意程�
 「資訊安全中心」通常會每小時掃描一次是否有新資料，並相應地重新整理建議。 
 
 > [!NOTE]
-> 從 2017 年 6 月初開始，資訊安全中心會使用 Microsoft Monitoring Agent 來收集和儲存資料。 如需詳細資訊，請參閱 [Azure 資訊安全中心平台移轉](security-center-platform-migration.md)。 本文章中的資訊說明轉換至 Microsoft Monitoring Agent 後的資訊安全中心功能。
+> 從 2017 年 6 月初開始，資訊安全中心會使用 Microsoft Monitoring Agent 來收集和儲存資料。 如需詳細資訊，請參閱 [Azure 資訊安全中心平台移轉](security-center-platform-migration.md)。 本文中的資訊說明轉換至 Microsoft Monitoring Agent 後的資訊安全中心功能。
 >
 >
 

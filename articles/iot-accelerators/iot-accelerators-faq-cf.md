@@ -82,7 +82,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
-    * 运行 `./startsimulation`。
+    * 執行 `./startsimulation`。
 
 ### <a name="how-do-i-update-the-simulation-in-the-vm"></a>如何更新虛擬機器中的模擬？
 

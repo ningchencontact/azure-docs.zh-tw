@@ -24,7 +24,7 @@ ms.locfileid: "60321678"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的硬體元件
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 硬體元件更換教學課程將說明 Microsoft Azure StorSimple 8000 系列裝置的硬體元件，以及取下並更換這些元件所需的步驟。 本文說明安全圖示、提供詳細教學課程的重點，並列出可替換的元件。
 
 > [!IMPORTANT]

@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720726"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>在連接至 Microsoft Azure StorSimple Virtual Array 的 StorSimple 裝置管理員中使用服務摘要刀鋒視窗
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 針對連接至服務的 StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置，或簡稱虛擬裝置)，StorSimple 裝置管理員的服務摘要刀鋒視窗提供摘要檢視，並醒目提示需要系統管理員注意的裝置。 本教學課程介紹服務摘要刀鋒視窗、說明內容和功能，並描述您可以從這個刀鋒視窗執行的工作。
 
 ![服務儀表板](./media/storsimple-virtual-array-service-summary/service-blade.png)

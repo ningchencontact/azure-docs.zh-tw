@@ -33,13 +33,13 @@ ms.locfileid: "60723403"
 
 您可以利用 [cheetah](https://github.com/wunderlist/cheetah)、[sql-cli](https://www.npmjs.com/package/sql-cli)、[VS Code](https://code.visualstudio.com/) 等開放原始碼工具。 此外，Azure SQL Database 使用 [Visual Studio](https://www.visualstudio.com/downloads/) 和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) 等 Microsoft 工具。 您也可以使用 Azure 入口網站、PowerShell 和 REST API 協助您獲得額外生產力。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 Azure SQL Database 的存取受到登入及防火牆的保護。 Azure SQL Database 支援 SQL Server 及 [Azure Active Directory (AAD) 驗證](sql-database-aad-authentication.md) 的使用者和登入。 AAD 登入僅適用於受控執行個體。 
 
 深入了解[管理資料庫存取和登入](sql-database-manage-logins.md)。
 
-## <a name="connections"></a>連線
+## <a name="connections"></a>連接
 
 在您的用戶端連線邏輯中，將預設的逾時覆寫為 30 秒。 預設 15 秒對於依賴網際網路的連線而言太短。
 

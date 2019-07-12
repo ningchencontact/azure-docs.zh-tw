@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67564410"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827064"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -210,10 +210,20 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |西歐     |LRS|否         |
 |美國西部 2     |LRS、 ZRS|否         |
 
+為了協助我們排定新的區域和功能的優先順序，請填妥這[問卷](https://aka.ms/azurefilesatscalesurvey)。
 
 ### <a name="steps-to-onboard"></a>要上架的步驟
 
-若要註冊您的訂用帳戶，以較大的檔案共用預覽，請執行下列 PowerShell 命令：
+若要註冊您的訂用帳戶，以較大的檔案共用預覽，您需要使用 Azure PowerShell。 您可以使用[Azure Cloud Shell](https://shell.azure.com/) ，或安裝[本機 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0)執行下列 PowerShell 命令：
+
+首先，請確定已選取您想要在預覽版中註冊的訂用帳戶：
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+接著，註冊預覽版，並使用下列命令：
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage

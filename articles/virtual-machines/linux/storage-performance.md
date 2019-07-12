@@ -3,7 +3,7 @@ title: Azure 的 Lsv2 系列虛擬機器儲存體上的效能最佳化 |Microsof
 description: 了解如何將您的解決方案 Lsv2 系列虛擬機器上的效能最佳化。
 services: virtual-machines-linux
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 7be86c8934b8766217f9fca432327d254204f0c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26c474419a096741f544eb21cff3837afd8a60dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738939"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708675"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 系列虛擬機器上的效能最佳化
 

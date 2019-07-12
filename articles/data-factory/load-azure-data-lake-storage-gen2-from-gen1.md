@@ -156,7 +156,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 因
 
 您可以控制的並行讀取 Data Lake 儲存體 Gen1 中的資料和將資料寫入至 Data Lake 儲存體 Gen2 的 Data Factory 複製作業。 如此一來，您可以管理該存放裝置 I/O，避免在移轉期間影響一般商務工作，在 Data Lake 儲存體 Gen1 上的使用。
 
-### <a name="permissions"></a>權限 
+### <a name="permissions"></a>Permissions 
 
 在 Data Factory [Data Lake 儲存體 Gen1 連接器](connector-azure-data-lake-store.md)支援服務主體和受管理的身分識別，為 Azure 資源驗證。 [Data Lake 儲存體 Gen2 連接器](connector-azure-data-lake-storage.md)支援帳戶金鑰、 服務主體和為 Azure 資源驗證的受管理身分識別。 若要讓 Data Factory 能夠瀏覽並將所有檔案都複製或存取控制清單 (Acl) 您需要最高足夠權限授與您提供來存取、 讀取或寫入的所有檔案和設定的 Acl，如果您選擇的帳戶。 在移轉期間，授與其的超級使用者 」 或 「 擁有者角色。 
 

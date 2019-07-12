@@ -26,7 +26,7 @@ ms.locfileid: "65074886"
 
 在此案例中，我們將告訴您如何公開 web API，以及如何加以保護，讓只有經過驗證的使用者可以存取 API。 您會想要啟用已驗證的使用者具有工作和學校帳戶或個人的 Microsoft 個人帳戶使用您的 web API。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 

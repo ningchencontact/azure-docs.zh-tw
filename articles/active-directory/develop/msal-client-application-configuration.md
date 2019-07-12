@@ -30,8 +30,8 @@ ms.locfileid: "66430802"
 
 - 註冊選項，包括：
     - [授權單位](#authority)(身分識別提供者所組成[執行個體](#cloud-instance)並登入[觀眾](#application-audience)應用程式，和租用戶識別碼)。
-    - 用戶端識別碼：
-    - [重新導向 URI：](#redirect-uri)
+    - [用戶端識別碼](#client-id)。
+    - [重新導向 URI](#redirect-uri)。
     - [用戶端祕密](#client-secret)（針對機密用戶端應用程式）。
 - [記錄選項](#logging)，包括記錄層級、 控制項的個人資料，以及使用程式庫元件的名稱。
 
@@ -50,10 +50,10 @@ ms.locfileid: "66430802"
 授權單位可以是：
 - Azure AD 雲端授權單位。
 - Azure AD B2C 的授權單位。 請參閱[B2C 細節](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics)。
-- Active Directory 同盟服務 (AD FS)。 請參閱[ADFS 支援](https://aka.ms/msal-net-adfs-support)。
+- Active Directory Federation Services (ADFS) 授權單位。 請參閱[ADFS 支援](https://aka.ms/msal-net-adfs-support)。
 
 Azure AD 雲端授權單位 」 包含兩個部分：
-- *識別提供者識別碼*
+- 身分識別提供者*執行個體*
 - 在登入時*觀眾*應用程式
 
 執行個體和對象可串連，並在提供做為授權單位 URL。 在之前的版本 MSAL.NET MSAL 3。*x*，您必須撰寫您自己的授權單位，根據您想要的目標和登入對象的雲端。  下圖顯示如何將授權單位 URL 由所組成：
@@ -80,7 +80,7 @@ MSAL.NET 將會擲回明確的例外狀況，如果兩個`Instance`和`AzureClou
   - 單一租用戶應用程式的 GUID （您的 Azure AD 執行個體的識別碼），
   - 您的 Azure AD 執行個體 （也適用於單一租用戶應用程式） 相關聯的網域名稱
 - 其中一個為租用戶識別碼來取代 Azure AD 授權單位的對象列舉這些預留位置：
-    - 多租用戶應用程式
+    - `organizations` 多租用戶的應用程式
     - `consumers` 使用者只能使用他們的個人帳戶登入
     - `common` 讓使用者使用他們的工作和學校帳戶或其個人的 Microsoft 帳戶登入
 
@@ -89,7 +89,7 @@ MSAL 將會擲回有意義的例外狀況，如果您指定的 Azure AD 授權�
 如果您未指定的對象，您的應用程式將目標 Azure AD 和個人 Microsoft 帳戶做為對象。 (也就是它的行為與看`common`所指定。)
 
 ### <a name="effective-audience"></a>有效的對象
-有效的對象，您的應用程式將會是您在您的應用程式中設定的對象和對象的應用程式註冊中指定的最小值 （如果沒有交集）。 事實上，[應用程式註冊](https://aka.ms/appregistrations)體驗可讓您指定應用程式的對象 （支援的帳戶類型）。 如需詳細資訊，請參閱[快速入門：使用 Microsoft 身分識別平台來註冊應用程式
+有效的對象，您的應用程式將會是您在您的應用程式中設定的對象和對象的應用程式註冊中指定的最小值 （如果沒有交集）。 事實上，[應用程式註冊](https://aka.ms/appregistrations)體驗可讓您指定應用程式的對象 （支援的帳戶類型）。 如需詳細資訊，請參閱[快速入門：註冊應用程式與 Microsoft 身分識別平台](quickstart-register-app.md)。
 
 目前，以取得登入的使用者只有在個人 Microsoft 帳戶應用程式的唯一方法是設定這兩個：
 - 若要設定的應用程式註冊對象`Work and school accounts and personal accounts`。

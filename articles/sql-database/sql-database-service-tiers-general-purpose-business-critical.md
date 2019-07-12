@@ -19,9 +19,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431338"
 ---
-# <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 服務層
+# <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 服務層級
 
-Azure SQL Database 是以會進行調整的雲端環境，以確保 99.99%可用性，即使被基礎結構失敗的 SQL Server database engine 架構為基礎。 Azure SQL Database，各有不同的架構模型中，會使用三個服務層。 這些服務層為：
+Azure SQL Database 是以會進行調整的雲端環境，以確保 99.99%可用性，即使被基礎結構失敗的 SQL Server database engine 架構為基礎。 Azure SQL Database，各有不同的架構模型中，會使用三個服務層。 這些服務層級為：
 
 - [一般用途](sql-database-service-tier-general-purpose.md)，可用於大部分的泛型的工作負載。
 - [商務關鍵性](sql-database-service-tier-business-critical.md)，這專為低延遲工作負載，具有一個可讀取的複本。

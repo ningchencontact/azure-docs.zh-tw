@@ -5,38 +5,16 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173950"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673260"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
-
-這篇文章提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以使用這份文件所提供的指示，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。 為了說明指導方針，在這整份文件中，我們以進階儲存體上執行的 SQL Server 為範例。
-
-雖然我們在本文中說明儲存體層的效能案例，但您必須將應用程式層最佳化。 例如，如果您在 Azure 進階儲存體上裝載 SharePoint 伺服器陣列，您可以使用本文件的 SQL Server 範例將資料庫伺服器最佳化。 此外，也要將 SharePoint 伺服器陣列的 Web 伺服器和應用程式伺服器最佳化，才能發揮最高效能。
-
-關於在 Azure 進階儲存體上將應用程式效能最佳化方面，本文有助於回答以下常見的問題。
-
-* 如何衡量應用程式效能？  
-* 為什麼看不到預期的高效能？  
-* 哪些因素會影響進階儲存體上的應用程式效能？  
-* 這些因素如何影響進階儲存體上的應用程式效能？  
-* 如何最佳化 IOPS、頻寬和延遲？  
-
-我們特別針對進階儲存體提供這些指導方針，因為進階儲存體上執行的工作負載非常重視效能。 我們在適當的地方都提供範例。 針對在具有標準儲存體磁碟的 IaaS VM 上執行的應用程式，您也可以運用這些指導方針。
-
-> [!NOTE]
-> 有時候，看似磁碟效能問題的情況，其實是網路瓶頸。 在這些情況下，您應該將您的[網路效能](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)最佳化。
-> 如果您的 VM 支援加速網路，您應確實加以啟用。 如果未啟用，您可以對 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 和 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 上已部署的 VM 加以啟用。
-
-開始之前，如果您不熟悉進階儲存體，請先閱讀[為 IaaS 虛擬機器選取 Azure 磁碟類型](../articles/virtual-machines/windows/disks-types.md) \(英文\) 和[標準儲存體帳戶的 Azure 儲存體延展性和效能目標](../articles/storage/common/storage-scalability-targets.md)。
-
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
 我們使用效能指標來評估應用程式執行是否順暢，例如，應用程式多快處理使用者要求、應用程式在每個要求中處理多少資料、應用程式在一段特定時間內處理多少要求、使用者提交要求之後必須等候少久才獲得回應。 這些效能指標的技術性術語包括 IOPS、輸送量或頻寬及延遲。
@@ -413,4 +391,4 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
 
 * [Azure 虛擬機器中的 SQL Server 效能最佳作法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

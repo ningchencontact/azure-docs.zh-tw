@@ -140,7 +140,7 @@ NuGet 封裝會安裝必要的組件，並會修改 web.config 或 app.config，
 ## <a name="use-the-trace-api-directly"></a>直接使用追蹤 API
 您可以直接呼叫 Application Insights 追蹤 API。 記錄配接器會使用此 API。
 
-例如︰
+例如:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");

@@ -120,7 +120,7 @@ ms.locfileid: "66387181"
 以下幾篇是非常好的 Telegraf、InfluxDB、Prometheus 和 Docker 使用方式參考文章
  - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04) (如何在 Ubuntu 16.04 上使用刻度堆疊監視系統計量)
 
- - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/) (Docker 主機、容器和容器化服務的監控解決方案)
+ - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/) (Docker 主機、容器和容器化服務的監視解決方案)
 
 以下是完整的 Grafana 儀表板映像，具有來自 Azure 監視器和 Application Insights 的計量。
 ![Grafana 範例計量](media/grafana-plugin/grafana8.png)

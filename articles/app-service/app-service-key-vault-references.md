@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397817"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705705"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
 
@@ -38,6 +38,8 @@ ms.locfileid: "66397817"
    > Key Vault 參考目前只支援系統指派的受控識別。 您無法使用使用者指派的識別。
 
 1. 針對您稍早建立的應用程式識別碼，建立 [Key Vault 中的存取原則](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies)。 在此原則上啟用 "Get" 祕密權限。 請勿設定「授權的應用程式」或 `applicationId` 設定，因為這與受控識別不相容。
+
+    存取權授與應用程式金鑰保存庫中的身分識別是一次的作業，而它會保留所有的 Azure 訂用帳戶相同。 您可以使用它來部署多個您想要的憑證。 
 
 ## <a name="reference-syntax"></a>參考語法
 

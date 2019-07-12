@@ -41,7 +41,7 @@ ms.locfileid: "61424721"
 3. 在工作區上，選取 [記錄 (傳統)\]  。  
 4. 在 [記錄搜尋] 頁面中，執行記錄搜尋。  
 5. 從記錄搜尋結果中，按一下其中一個欄位左邊的省略符號，然後從快顯視窗中，選取 [對...採取動作]  。<br><br> ![從搜尋結果中選取採取動作](./media/take-action/log-search-takeaction-menuoption.png) 
-6. 選取 [執行 Runbook]  ，並選取要執行的 Runbook。  您可以在連結至記錄 Log Analytics 工作區的自動化帳戶中選取任何 Runbook。  請注意：
+6. 選取 [執行 Runbook]  ，並選取要執行的 Runbook。  您可以在連結至記錄 Log Analytics 工作區的自動化帳戶中選取任何 Runbook。  請注意下列事項：
 
     * Runbook 是依標籤來組織。
     * 從搜尋結果的欄位中，可直接選取 Runbook 輸入參數值。  出現的下拉式清單會顯示結果中所有可供選取的欄位。  

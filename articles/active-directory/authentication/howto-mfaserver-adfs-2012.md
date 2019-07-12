@@ -51,8 +51,8 @@ ms.locfileid: "67057436"
 
    ![從 MFA Server 主控台安裝 ADFS 配接器](./media/howto-mfaserver-adfs-2012/server.png)
 
-5. 如果顯示 [Active Directory] 視窗，這代表兩件事情。 您的電腦已加入網域，而且用於保護 AD FS 配接器與 Multi-Factor Authentication 服務間通訊的 Active Directory 組態尚未完成。 按 [下一步]  自動完成此設定，或選取 [略過自動 Active Directory 設定並手動進行設定]  核取方塊。 单击“下一步”  。
-6. 如果顯示 [本機群組] 視窗，這代表兩件事情。 您的電腦未加入網域，而且用於保護 AD FS 配接器與 Multi-Factor Authentication 服務間通訊的本機群組組態尚未完成。 按 [下一步]  自動完成此設定，或選取 [略過自動本機群組設定並手動進行設定]  核取方塊。 单击“下一步”  。
+5. 如果顯示 [Active Directory] 視窗，這代表兩件事情。 您的電腦已加入網域，而且用於保護 AD FS 配接器與 Multi-Factor Authentication 服務間通訊的 Active Directory 組態尚未完成。 按 [下一步]  自動完成此設定，或選取 [略過自動 Active Directory 設定並手動進行設定]  核取方塊。 按一下 [下一步]  。
+6. 如果顯示 [本機群組] 視窗，這代表兩件事情。 您的電腦未加入網域，而且用於保護 AD FS 配接器與 Multi-Factor Authentication 服務間通訊的本機群組組態尚未完成。 按 [下一步]  自動完成此設定，或選取 [略過自動本機群組設定並手動進行設定]  核取方塊。 按一下 [下一步]  。
 7. 在安裝精靈中按 [下一步]  。 Azure Multi-Factor Authentication Server 會建立 PhoneFactor Admins 群組並將 AD FS 服務帳戶加入至 PhoneFactor Admins 群組。
 8. 在 [啟動安裝程式]  頁面上，按 [下一步]  。
 9. 在 Multi-Factor Authentication AD FS 配接器安裝程式中，按 [下一步]  。

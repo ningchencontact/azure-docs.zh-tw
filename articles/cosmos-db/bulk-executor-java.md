@@ -22,7 +22,7 @@ ms.locfileid: "66257206"
 
 目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .NET 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。  
 
@@ -105,7 +105,7 @@ ms.locfileid: "66257206"
 
    importAll 方法可接受下列參數：
  
-   |**參數**  |**說明**  |
+   |**參數**  |**描述**  |
    |---------|---------|
    |isUpsert    |   啟用文件更新插入的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。  |
    |disableAutomaticIdGeneration     |   停用自動產生識別碼的旗標。 預設會設定為 true。   |
@@ -171,7 +171,7 @@ ms.locfileid: "66257206"
 
    updateAll 方法可接受下列參數：
 
-   |**參數** |**說明** |
+   |**參數** |**描述** |
    |---------|---------|
    |maxConcurrencyPerPartitionRange   |  每個分割區索引鍵範圍的最大並行程度。 預設值為 20。  |
  

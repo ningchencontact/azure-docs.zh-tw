@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165584"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672595"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>預存程序、觸發程序和使用者定義函式
 
@@ -37,7 +37,7 @@ Azure Cosmos DB 提供 JavaScript 的語言整合式、交易式執行。 在 Az
 * **封裝：** 預存程序可以用來將邏輯群組在一個位置。 封裝會在資料上方新增抽象層，讓您能夠發展您的應用程式，而不會動到資料。 當資料無結構描述，且您不需要管理直接在應用程式中新增的其他邏輯時，這個抽象層是很有幫助的。 這個抽象層讓您得以透過指令碼簡化存取來確保資料安全。
 
 > [!TIP]
-> 預存程序最適合頻繁寫入的作業。 當決定在何處使用預存程序時，盡可能將最大量的寫入封裝，進而最佳化。 一般而言，預存程序不是執行大量讀取作業最有效率的方法，因此使用預存程序來批次處理大量要傳回給用戶端的讀取，並不會產生所需的優點。
+> 預存程序是最適合用於作業是寫入繁重，而且需要跨資料分割索引鍵值的交易。 在決定是否要使用預存程序，精簡封裝寫入可能的最大數量。 一般而言，預存程序不是最有效率的方法，以執行大量的讀取或查詢作業，因此使用預存程序來讀取與傳回給用戶端的批次大的數字將不會產生所需的權益。 為了達到最佳效能，您應該在用戶端，使用 Cosmos SDK，完成這些大量讀取作業。 
 
 ## <a name="transactions"></a>交易
 

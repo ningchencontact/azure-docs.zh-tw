@@ -23,7 +23,7 @@ ms.locfileid: "65799895"
 
 Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效能，還能降低您的資料庫成本。 
 
-## <a name="when-to-use-in-memory-technologies"></a>何时使用内存中技术
+## <a name="when-to-use-in-memory-technologies"></a>使用中記憶體內部技術的時機
 
 您可以藉由使用 Azure SQL Database 中的記憶體內部技術，來達成各種工作負載的效能改善：
 
@@ -33,7 +33,7 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 記憶體內部技術可以改善這些工作負載的效能，方法是使用基礎硬體上可用的查詢原生編譯或進階處理 (例如，批次處理和 SIMD 指令)，將應該處理的資料保留到記憶體中。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure SQL Database 擁有下列記憶體內部技術︰
 - [記憶體內部 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)  可增加每秒交易數量並減少交易處理的延遲。 受益於記憶體內部 OLTP 的案例包括︰高輸送量的交易處理 (例如股票交易和網路遊戲)、從事件或 IoT 裝置擷取資料、快取、資料載入，以及暫存資料表和資料表變數等案例。
@@ -70,11 +70,11 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 - 您將了解如何管理在不同定價層之間移動採用這些技術的資料庫。
 - 您將看到兩個範例，其分別示範如何在 Azure SQL Database 中使用記憶體內部 OLTP 以及資料行存放區索引。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [記憶體內部 OLTP 概觀和使用案例](https://msdn.microsoft.com/library/mt774593.aspx) (包括客戶案例研究參考和入門資訊)
 - [記憶體內部 OLTP 的文件](https://msdn.microsoft.com/library/dn133186.aspx)
-- [列存储索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
+- [資料行存放區索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
 - 混合式交易/分析處理 (HTAP)，也稱為[即時作業分析](https://msdn.microsoft.com/library/dn817827.aspx)
 
 ## <a name="in-memory-oltp"></a>記憶體內部 OLTP
@@ -83,7 +83,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 - **記憶體最佳化資料列存放區**格式，其中每個資料列為不同的記憶體物件。 這是針對高效能 OLTP 工作負載進行最佳化的傳統記憶體內部 OLTP 格式。 有兩種類型的記憶體最佳化資料表，可用於記憶體最佳化資料列存放區格式：
   - 「持久性資料表」  (SCHEMA_AND_DATA)，其中置於記憶體內的資料列會在伺服器重新啟動後予以保留。 這類型的資料表行為類似於傳統資料列存放區資料表，但具有記憶體內部最佳化的額外好處。
-  - 非持久性表 (SCHEMA_ONLY)：重启后不保留行。  這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
+  - *非持久性資料表*(SCHEMA_ONLY) 其中的資料列是不保留重新啟動之後。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
 - **記憶體最佳化資料行存放區**格式，其中的資料會組織成單欄式格式。 此結構設計用於 HTAP 案例，在此案例中，您需要在執行 OLTP 工作負載的相同資料結構上執行分析查詢。
 
 > [!Note]
@@ -116,7 +116,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 下列項目計入記憶體內部 OLTP 儲存體容量上限︰
 
 - 記憶體最佳化資料表和資料表變數中的作用中使用者資料列。 請注意，舊資料列版本不計入上限。
-- 内存优化表中的索引。
+- 記憶體最佳化資料表上的索引。
 - ALTER TABLE 作業的作業負荷。
 
 如果您達到上限，則會收到超出配額錯誤，並再也無法插入或更新資料。 為避免此錯誤，您可以刪除資料或增加資料庫或集區的定價層。
@@ -130,7 +130,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 - 將資料庫的 `Max-eDTU` 或 `MaxvCore` 設定為低於整個集區的 eDTU 或虛擬核心計數。 此最大值會將集區中任何資料庫的記憶體內部 OLTP 儲存體使用量上限，限制為對應到 eDTU 計數的大小。
 - 設定大於 0 的 `Min-eDTU` 或 `MinvCore`。 此最小值可確保集區中的每個資料庫，都能擁有與所設定 `Min-eDTU` 或 `vCore` 相對應的可用記憶體內部 OLTP 儲存體數量。
 
-### <a name="changing-service-tiers-of-databases-that-use-in-memory-oltp-technologies"></a>變更使用記憶體內部 OLTP 技術之資料庫的服務層
+### <a name="changing-service-tiers-of-databases-that-use-in-memory-oltp-technologies"></a>變更使用記憶體內部 OLTP 技術之資料庫的服務層級
 
 您一律可將資料庫或執行個體升級至較高的層，例如從一般用途升級至業務關鍵 (或從標準升級至進階)。 可用的功能和資源只會增加。
 
@@ -168,7 +168,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 當您使用非叢集資料行存放區索引時，基底資料表仍然會以傳統資料列存放區格式儲存。 因此，節省的儲存空間沒有像使用叢集資料行存放區索引時那樣大。 不過，如果您以單一資料行存放區索引來取代部分的傳統非叢集索引，整體來說仍可節省資料表的儲存體使用量。
 
-### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>變更包含資料行存放區索引之資料庫的服務層
+### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>變更包含資料行存放區索引之資料庫的服務層級
 
 如果您的目標層低於 S3，可能無法*將單一資料庫降級到基本或標準*。 只有在業務關鍵層/進階定價層和標準層、S3 及更高的層才支援資料行存放區索引，基本層則不支援。 當您將資料庫降級至不支援的層級時，資料行存放區索引將變成無法使用。 系統會維持您的資料行存放區索引，但它不會再利用索引。 如果您之後再升級為支援的層級，系統會立即重新利用您的資料行存放區索引。
 
@@ -200,7 +200,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ### <a name="application-design"></a>應用程式設計
 
 - [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
-- [在现有的 Azure SQL 应用程序中使用内存中 OLTP](sql-database-in-memory-oltp-migration.md)
+- [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
 
 ### <a name="tools"></a>工具
 

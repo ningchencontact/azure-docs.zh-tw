@@ -102,6 +102,6 @@ Azure Active Directory 為數千個 SaaS 應用程式和內部部署 Web 應用�
 > 
 > 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

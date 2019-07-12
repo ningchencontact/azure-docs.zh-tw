@@ -23,7 +23,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824760"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>作法：設定 Azure AD SAML 權杖加密 (預覽)
+# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>HOW TO：設定 Azure AD SAML 權杖加密 (預覽)
 
 > [!NOTE]
 > 權杖加密是 Azure Active Directory (Azure AD) 的高級功能。 若要深入了解 Azure AD 版本、功能及定價，請參閱 [Azure AD 定價](https://azure.microsoft.com/pricing/details/active-directory/)。

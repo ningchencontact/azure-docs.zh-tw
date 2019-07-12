@@ -20,7 +20,7 @@ ms.locfileid: "64939389"
 
 了解在微調 Map Reduce 作業效能時應考量的因素。 本文將探討各種效能微調指導方針。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Storage Gen2 帳戶**。 如需如何建立帳戶的指示，請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](data-lake-storage-quickstart-create-account.md)。

@@ -77,7 +77,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 
 另提供 [CentOS](linux-dsvm-intro.md) 映像，其中包含許多與 Ubuntu 映像相同的工具。 亦提供 [Windows](provision-vm.md) 映像。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須先具有 Azure 訂用帳戶，才可以建立 Linux 適用的資料科學虛擬機器。 若要取得訂用帳戶，請參閱[取得 Azure 免費試用](https://azure.microsoft.com/free/)。
 
@@ -383,7 +383,7 @@ Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部
 
 ### <a name="machine-learning-tools"></a>機器學習工具
 
-VM 隨附一些已預先編譯且預先安裝在本機上的機器學習工具和演算法。 其中包含：
+VM 隨附一些已預先編譯且預先安裝在本機上的機器學習工具和演算法。 它們包括：
 
 * **Vowpal Wabbit**：快速線上學習演算法。
 * **xgboost**：提供最佳化推進式決策樹演算法的工具。

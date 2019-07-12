@@ -18,7 +18,7 @@ ms.locfileid: "65209418"
 
 Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖定義搭配使用，藍圖成品。 Resource Manager 範本的成品支援完整的 Resource Manager 函式，除了透過藍圖參數取得動態值使用。
 
-不支援下列案函式：
+支援下列功能：
 
 - [artifacts](#artifacts)
 - [concat](#concat)
@@ -27,7 +27,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 - [resourceGroups](#resourcegroups)
 - [subscription](#subscription)
 
-## <a name="artifacts"></a>artifacts
+## <a name="artifacts"></a>成品
 
 `artifacts(artifactName)`
 
@@ -35,7 +35,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | type | 描述 |
 |:--- |:--- |:--- |:--- |
 | artifactName |是 |string |藍圖成品的名稱。 |
 
@@ -61,7 +61,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>成品 - Resource Manager 範本
+#### <a name="resource-manager-template-artifact"></a>Resource Manager 範本的成品
 
 **輸出**傳回物件的屬性是在 Resource Manager 範本中定義和部署作業所傳回。
 
@@ -107,11 +107,11 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 擷取資料的一些範例_myTemplateArtifact_範例：
 
-| 運算是 | 類型 | 值 |
+| 運算是 | type | 值 |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | first |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | string | 任何字串值 |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | 「 我的字串值" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
@@ -124,10 +124,10 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | type | 描述 |
 |:--- |:--- |:--- |:--- |
 | string1 |是 |string |串連的第一個值。 |
-| 其他引數 |否 |string |串連的其他值 (循序順序)。 |
+| 其他引數 |否 |string |額外的值串連的循序順序 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -149,7 +149,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | type | 描述 |
 |:--- |:--- |:--- |:--- |
 | parameterName |是 |string |要傳回的參數名稱。 |
 
@@ -221,7 +221,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 此 Azure blueprint （藍圖） 函式不同於 Azure Resource Manager 範本函式。 `resourceGroup()`函式不能在訂用帳戶層級成品或藍圖定義。 它只能在屬於資源群組成品的藍圖成品。
 
-`resourceGroup()` 函式的常見用法是在和資源群組相同的位置中建立資源。
+常見用法`resourceGroup()`函式是在資源群組成品的相同位置中建立資源。
 
 ### <a name="example"></a>範例
 
@@ -270,7 +270,7 @@ Azure 藍圖提供製作藍圖定義更動態的函式。 這些函式與藍圖�
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | type | 描述 |
 |:--- |:--- |:--- |:--- |
 | placeholderName |是 |string |要傳回之資源群組成品的預留位置名稱。 |
 

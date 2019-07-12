@@ -41,7 +41,7 @@ ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使�
 每當發現上述的任何問題，都會在 AADConnect 精靈中顯示相關的錯誤訊息：
 
 
-![Error](media/how-to-connect-adconnectivitytools/error1.png)
+![錯誤](media/how-to-connect-adconnectivitytools/error1.png)
 
 例如，當我們嘗試在 [連線您的目錄]  畫面上新增目錄時，Azure AD Connect 需要加以驗證，並預期能夠透過連接埠 389 和網域控制站通訊。  如果不行，就會看到上述螢幕擷取畫面所示的錯誤。  
 

@@ -35,7 +35,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 > [!NOTE]
 > 目前不支援夥伴帳戶。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,13 +49,13 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Concur** | 是 |
 | clientId | Concur 應用程式管理所提供的應用程式 client_id。  | 是 |
-| username | 您用來存取 Concur 服務的使用者名稱。  | 是 |
+| userName | 您用來存取 Concur 服務的使用者名稱。  | 是 |
 | password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -115,7 +115,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 複製活動來源的類型屬性必須設定為：**ConcurSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Opportunities where Id = xxx "` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

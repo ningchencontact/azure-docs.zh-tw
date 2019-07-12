@@ -23,7 +23,7 @@ ms.locfileid: "62117319"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>部署和管理 Azure 中的 StorSimple 雲端設備 (Update 3 和更新版本)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 8000 系列雲端設備是 Microsoft Azure StorSimple 解決方案提供的另一項功能。 StorSimple 雲端設備會在 Microsoft Azure 虛擬網路中的虛擬機器上執行，您可以使用它將主機上的資料進行備份和複製。
 
@@ -62,7 +62,7 @@ StorSimple 雲端設備是純軟體的 StorSimple 版本，在 Microsoft Azure �
 
 |  | 實體裝置 | 雲端設備 |
 | --- | --- | --- |
-| **位置** |位於資料中心。 |在 Azure 中執行。 |
+| **Location** |位於資料中心。 |在 Azure 中執行。 |
 | **網路介面** |有六個網路介面：DATA 0 到 DATA 5。 |只有一個網路介面：DATA 0。 |
 | **註冊** |在初始設定步驟期間註冊。 |註冊是個別的工作。 |
 | **服務資料加密金鑰** |在實體裝置上重新產生金鑰，然後以新的金鑰更新雲端設備。 |無法從雲端設備重新產生。 |

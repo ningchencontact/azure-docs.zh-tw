@@ -69,9 +69,9 @@ Microsoft 建議您使用 RBAC 來管理對資源的存取。 不過，如果您
 
 * [什麼是角色型存取控制 (RBAC)？](../role-based-access-control/overview.md)
 * [了解 Azure 中的不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [操作說明：將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [如何：將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 联系支持人员
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

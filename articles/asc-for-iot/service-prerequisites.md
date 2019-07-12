@@ -2,24 +2,25 @@
 title: 如需 IoT 必要條件預覽的 azure 資訊安全中心 |Microsoft Docs
 description: 若要開始使用 Azure 資訊安全中心的 IoT 服務必要條件所需的一切細節。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 790cbcb7-1340-4cc1-9509-7b262e7c3181
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 198459887ff19b16e897b2a8dde55bca1217c8ac
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192598"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616441"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>如需 IoT 必要條件的 azure 資訊安全中心
 

@@ -4,7 +4,7 @@ description: 目前 Azure 平台上 SAP 設定和認證的更新清單。
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e64e2386611060b1393a330695a4729fe9490e54
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797449"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709987"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>於 Microsoft Azure 上執行的 SAP 認證和設定
 
@@ -62,7 +62,7 @@ Microsoft Azure 已獲認證可用於下列 SAP 產品，因此具備 Microsoft 
 
 | SAP 產品 | 客體作業系統 | RDBMS | 虛擬機器類型 |
 | --- | --- | --- | --- |
-| SAP Business One on SQL Server | Windows  | SQL Server | 所有 NetWeaver 認證的 VM 類型<br /> [SAP 附註編號 928839](https://launchpad.support.sap.com/#/notes/928839) |
+| SAP Business One on SQL Server | Windows  | [SQL Server] | 所有 NetWeaver 認證的 VM 類型<br /> [SAP 附註編號 928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BPC 10.01 MS SP08 | Windows 和 Linux | | 所有 NetWeaver 認證的 VM 類型<br /> SAP 附註編號 2451795 |
 | SAP Business Objects BI 平台 | Windows 和 Linux | | SAP 附註編號 2145537 |
 | SAP Data Services 4.2 | | | SAP 附註編號 2288344 |

@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784946"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785564"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web 應用程式呼叫 web Api-程式碼組態
 
@@ -44,7 +44,7 @@ ms.locfileid: "65784946"
 
 在 ASP.NET Core 中發生`Startup.cs`檔案。 您會想要訂閱`OnAuthorizationCodeReceived`開啟識別碼連線事件，並從這個事件中，呼叫 MSAL。NET 的方法`AcquireTokenFromAuthorizationCode`具有將儲存在權杖快取、 存取權杖要求的範圍，以及將用來重新整理存取權杖，它即將到期日時，或取得代表相同的使用者權杖的重新整理權杖的效果但不同的資源。
 
-下列程式碼中的註解會協助您了解一些棘手層面編排 MSAL.NET 和 ASP.NET Core
+下列程式碼中的註解會協助您了解編排 MSAL.NET 和 ASP.NET Core 的某些複雜層面。 將提供完整的詳細資料[ASP.NET Core Web 應用程式增量教學課程，第 2 章](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -151,9 +151,7 @@ private void ConfigureAuth(IAppBuilder app)
   Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
   TokenValidationParameters = new TokenValidationParameters
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
+   NameClaimType = "name",
   },
   Notifications = new OpenIdConnectAuthenticationNotifications()
   {

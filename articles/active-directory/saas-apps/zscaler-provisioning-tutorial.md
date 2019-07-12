@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 3ea502477cc5b380c99a183d9270c2b2e94375a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: dd8335442cd370e0478c029a927c71e26fe6ef1b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67049201"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672863"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Zscaler
 
@@ -32,7 +32,7 @@ ms.locfileid: "67049201"
 
 > 此連接器目前為公開預覽版。 如需有關 Microsoft Azure 的一般使用規定預覽功能的詳細資訊，請參閱 <<c0> [ 補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -124,7 +124,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Zscaler 佈建](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Zscaler**。
 

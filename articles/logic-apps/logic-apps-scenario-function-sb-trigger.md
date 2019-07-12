@@ -21,7 +21,7 @@ ms.locfileid: "66494909"
 
 您可以使用[Azure Functions](../azure-functions/functions-overview.md)觸發邏輯應用程式，當您需要部署長時間執行的接聽程式或工作。 例如，您可以在其中建立 Azure 函式，可在接聽[Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)排入佇列，並立即引發邏輯應用程式成為推送觸發程序。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "66494909"
 
    如果您不熟悉 logic apps，請檢閱[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-1. 在搜尋方塊中，輸入 "http request"。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 请求时**
+1. 在搜尋方塊中，輸入 "http request"。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時**
 
    ![選取觸發程序](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797617"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707094"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 基於安全考量，IoT Edge 精靈會針對連線至 edgeHub 的所有模組強制執行處理序識別。 它會確認模組傳送的所有訊息都來自該模組的主要處理序識別碼。 如果傳送訊息之模組的來源處理序識別碼與最初確立的識別碼不同，它就會發出 404 錯誤訊息來拒絕該訊息。
 
 ### <a name="resolution"></a>解決方案
+從 version:1.0.7 版開始，已獲授權連線的所有模組的處理程序。 如果升級至 version:1.0.7 不可行，請完成下列步驟。 如需詳細資訊，請參閱 < [version:1.0.7 發行 changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1)。
+
 請確定自訂 IoT Edge 模組一律使用相同的處理序識別碼將訊息傳送給 edgeHub。 比方說，請務必`ENTRYPOINT`而非`CMD`命令，是在 Docker 檔案中，因為`CMD`將會導致其中一個處理序模組的識別碼和 bash 命令執行的主要程式，而另一個處理序識別碼`ENTRYPOINT`會導致單一處理序識別碼。
 
 
@@ -380,7 +382,7 @@ Azure IoT Edge 可讓從內部部署伺服器到 Azure 雲端使用支援的 IoT
 
 位置`daemon.json`適用於您平台的正確位置： 
 
-| 平台 | 位置 |
+| 平台 | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | 使用 Windows 容器的 Windows 主機 | `C:\ProgramData\iotedge-moby\config` |

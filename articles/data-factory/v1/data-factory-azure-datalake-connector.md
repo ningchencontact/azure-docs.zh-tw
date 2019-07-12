@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d8637a2711c0301d9e9f409e169ed04fb3d65783
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567345"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839534"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>使用 Data Factory 從 Data Lake Storage Gen1 來回複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-azure-datalake-connector.md)
 > * [第 2 版 (目前的版本)](../connector-azure-data-lake-store.md)
 
@@ -54,7 +54,7 @@ Data Lake Store 連接器支援這些驗證類型：
 
 建立管線的最簡單方式就是使用「複製精靈」  。 如需使用「複製精靈」建立管線的教學課程，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -208,12 +208,12 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 2. 確定您至少將 Data Lake 帳戶上的 [讀取者]  角色授與使用者或服務主體。 以下是做法：
 
-    1. 移至 Azure 入口網站 -> 您的 Data Lake Store 帳戶
+    1. 移至 Azure 入口網站]-> [Data Lake Store 帳戶
     2. 按一下 Data Lake Store 刀鋒視窗上的 [存取控制 (IAM)] 
     3. 按一下 [新增角色指派] 
     4. 將 [角色]  設定為 [讀取者]  ，然後選取您用來執行複製的使用者或服務主體來授與存取權
 
-3. 如果您不想將 [讀取者]  角色授與使用者或服務主體，替代方案是在複製活動中使用您 Data Lake Store 的位置來[明確指定執行位置](data-factory-data-movement-activities.md#global)。 範例：
+3. 如果您不想要授與**讀者**到使用者或服務主體，替代的角色是[明確指定的執行位置](data-factory-data-movement-activities.md#global)複製活動，以您的 Data Lake Store 的位置中。 範例：
 
     ```json
     {
@@ -307,7 +307,7 @@ AzureDataLakeStoreSink  支援 [typeProperties]  區段中的下列屬性：
 如需詳細資料，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md)一文。
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>從 Data Lake Store 來回複製資料的 JSON 範例
-下列範例提供範例 JSON 定義。 您可以使用這些範例定義，透過使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線。 這些範例會示範如何從 Data Lake Store 與 Azure Blob 儲存體來回複製資料。 不過，您可以將資料從任何來源_直接_複製到任何支援的接收器。 如需詳細資訊，請參閱[使用複製活動來移動資料](data-factory-data-movement-activities.md)中的＜支援的資料存放區和格式＞一節。
+下列範例提供範例 JSON 定義。 您可以使用這些範例定義來建立管線，使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例會示範如何從 Data Lake Store 與 Azure Blob 儲存體來回複製資料。 不過，您可以將資料從任何來源_直接_複製到任何支援的接收器。 如需詳細資訊，請參閱[使用複製活動來移動資料](data-factory-data-movement-activities.md)中的＜支援的資料存放區和格式＞一節。
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>範例：將資料從 Azure Blob 儲存體複製到 Azure Data Lake Store
 本節中的範例程式碼顯示︰

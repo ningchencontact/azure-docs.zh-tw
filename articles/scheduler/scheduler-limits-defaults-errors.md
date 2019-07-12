@@ -34,7 +34,7 @@ ms.locfileid: "64713733"
 * Azure 訂用帳戶、作業集合和作業識別碼 
 * 要求所嘗試的作業類型
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)

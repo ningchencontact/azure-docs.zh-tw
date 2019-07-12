@@ -49,7 +49,7 @@ Visual Studio Code 的 Azure IoT Edge 擴充功能提供針對程式設計語言
 
 除了 IoT Edge 擴充功能之外，您可能也會發現它在安裝用於開發的其他擴充功能時很有幫助。 例如，您可以使用[適用於 Visual Studio Code 的 Docker 支援](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)來管理映像、容器和登錄。 此外，所有主要支援的語言都有適用於 Visual Studio Code 的擴充功能，可在您開發模組時提供協助。 
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 某些語言和服務的模組範本具備使用 Visual Studio Code 在開發電腦上建置專案資料夾所需的必要條件。
 
