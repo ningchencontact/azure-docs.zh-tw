@@ -40,7 +40,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 | 參數名稱     | 描述 |
 |--------------------|-------------|
-| 類別    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`、`"Quantity"`、`"Datetime"`、`"URL"`、`"Email"`。 如果未提供任何類別，則會傳回所有類型。|
+| categories    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`、`"Quantity"`、`"Datetime"`、`"URL"`、`"Email"`。 如果未提供任何類別，則會傳回所有類型。|
 |defaultLanguageCode |  輸入文字的語言代碼。 支援下列語言：`de, en, es, fr, it`|
 |minimumPrecision | 未使用。 保留供未來使用。 |
 |includeTypelessEntities | 設定為 True 時，如果文字包含已知的實體，但無法分類為其中一個受支援的類別，則會作為 `"entities"` 複雜輸出欄位的一部分傳回。 
@@ -51,7 +51,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 | 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
-| languageCode  | 選用。 預設值為 `"en"`。  |
+| languageCode  | 選擇性。 預設值為 `"en"`。  |
 | text          | 要分析的文字。          |
 
 ## <a name="skill-outputs"></a>技能輸出
@@ -194,7 +194,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 ## <a name="error-cases"></a>錯誤案例
 如果文件的語言程式碼不受支援，則會傳回錯誤，且不會擷取任何實體。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

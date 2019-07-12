@@ -101,7 +101,7 @@ ms.locfileid: "65978534"
 3. 按一下 [下載 ZIP]  ，並儲存檔案。
 4. 以滑鼠右鍵按一下 **WingtipTicketsSaaS-MultiTenantDb-master.zip** 檔案，然後選取 [屬性]  。
 5. 在 [一般]  索引標籤上，選取 [解除封鎖]  ，然後按一下 [套用]  。
-6. 按一下 [確定]  。
+6. 按一下 [確定 **Deploying Office Solutions**]。
 7. 將檔案解壓縮。
 
 指令碼位於 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* 資料夾中。

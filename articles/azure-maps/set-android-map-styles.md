@@ -20,7 +20,7 @@ ms.locfileid: "64870968"
 本文將說明兩種方式可設定使用 Azure 地圖服務的 Android SDK 的地圖樣式。 Azure 地圖服務具有六個不同的地圖樣式，可以選擇。 如需有關支援的地圖樣式的詳細資訊，請參閱[支援 Azure Maps 的地圖樣式](./supported-map-styles.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成這篇文章中的程序，必須先安裝[Azure 地圖服務的 Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library)載入對應。
 

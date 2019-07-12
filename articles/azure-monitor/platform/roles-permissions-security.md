@@ -48,7 +48,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 > 
 > 
 
-### <a name="monitoring-contributor"></a>监视参与者
+### <a name="monitoring-contributor"></a>監視參與者
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受控服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
@@ -71,7 +71,7 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>監視權限和自訂的 RBAC 角色
 如果上述的內建角色不符合您團隊的確切需求，您可以使用更精確的權限 [建立自訂的 RBAC 角色](../../role-based-access-control/custom-roles.md) 。 以下是一般 Azure 監視器 RBAC 作業及其說明。
 
-| 作業 | 描述 |
+| 運算 | 描述 |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |讀取/寫入/刪除動作群組。 |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |讀取/寫入/刪除活動記錄警示。 |

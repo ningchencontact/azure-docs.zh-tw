@@ -87,6 +87,6 @@ ms.locfileid: "64918782"
 ## <a name="next-steps"></a>後續步驟
  [判斷內容管理需求](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

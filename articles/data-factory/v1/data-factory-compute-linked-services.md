@@ -120,7 +120,7 @@ Data Factory 可自動建立以 Windows 為基礎或以 Linux 為基礎的隨選
 >
 > 
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性                     | 描述                              | 必要項 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | 將 type 屬性設定為 **HDInsightOnDemand**。 | 是      |
@@ -256,12 +256,12 @@ Data Factory 可自動建立以 Windows 為基礎或以 Linux 為基礎的隨選
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 將 type 屬性設定為 **HDInsight**。 | 是      |
 | clusterUri        | HDInsight 叢集的 URI。        | 是      |
-| username          | 要用來連線到現有 HDInsight 叢集的使用者帳戶名稱。 | 是      |
+| userName          | 要用來連線到現有 HDInsight 叢集的使用者帳戶名稱。 | 是      |
 | password          | 使用者帳戶的密碼。   | 是      |
 | linkedServiceName | 參照 HDInsight 叢集所使用之 Blob 儲存體的儲存體連結服務名稱。 <p>您目前無法針對此屬性指定 Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive 或 Pig 指令碼存取 Data Lake Store 中的資料。 </p> | 是      |
 
@@ -304,7 +304,7 @@ Data Factory 可自動建立以 Windows 為基礎或以 Linux 為基礎的隨選
 "batchUri": "https://eastus.batch.azure.com",
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性          | 描述                              | 必要項 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 將 type 屬性設定為 **AzureBatch**。 | 是      |
@@ -331,10 +331,10 @@ Data Factory 可自動建立以 Windows 為基礎或以 Linux 為基礎的隨選
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 | 屬性   | 描述                              | 必要項 |
 | ---------- | ---------------------------------------- | -------- |
-| 類型       | 將 type 屬性設定為 **AzureML**。 | 是      |
+| type       | 將 type 屬性設定為 **AzureML**。 | 是      |
 | mlEndpoint | 批次評分 URL。                   | 是      |
 | apiKey     | 已發佈的工作區模型的 API。     | 是      |
 

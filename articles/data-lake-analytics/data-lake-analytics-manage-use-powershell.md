@@ -21,7 +21,7 @@ ms.locfileid: "66156419"
 
 本文說明如何使用 Azure PowerShell 來管理 Azure Data Lake Analytics 帳戶、資料來源、使用者和作業。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -287,7 +287,7 @@ Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
 
-### <a name="cancel-a-job"></a>取消作业
+### <a name="cancel-a-job"></a>取消工作
 
 ```powershell
 Stop-AdlJob -Account $adla -JobID $jobID

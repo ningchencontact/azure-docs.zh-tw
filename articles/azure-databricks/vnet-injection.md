@@ -37,7 +37,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 部署至 Azure Databricks 工作區的虛擬網路必須符合下列需求：
 
-### <a name="location"></a>位置
+### <a name="location"></a>Location
 
 虛擬網路必須位於與 Azure Databricks 工作區相同的位置。
 
@@ -61,7 +61,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 本節說明如何在 Azure 入口網站中建立 Azure Databricks 工作區，並將它部署在您自己現有的虛擬網路中。 Azure Databricks 會更新虛擬網路有兩個新的子網路和網路安全性群組，使用您所提供的 CIDR 範圍時，允許清單的輸入和輸出的子網路的流量，並將工作區部署到已更新的虛擬網路。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須擁有要用來將部署在 Azure Databricks 工作區的虛擬網路。 您可以使用現有的虛擬網路，或建立新的連線，但虛擬網路必須位於與您打算建立 Azure Databricks 工作區相同的區域。 需要虛擬網路之間/16/24 的 CIDR 範圍。
 
@@ -121,7 +121,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 如果您不要使用[Azure 入口網站](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal)或是[Azure Resource Manager 範本](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced)若要建立您的網路安全性群組，您必須手動加入白名單下列流量子網路上。
 
-|Direction|Protocol|source|來源連接埠|目的地|目的地連接埠|
+|Direction|Protocol|Source|來源連接埠|目的地|目的地連接埠|
 |---------|--------|------|-----------|-----------|----------------|
 |輸入|\*|VirtualNetwork|\*|\*|\*|
 |輸入|\*|控制平面 NAT IP|\*|\*|22|
@@ -135,7 +135,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 |Azure Databricks 區域|服務|公用 IP|
 |-----------------------|-------|---------|
-|美國東部|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|East US|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |美國東部 2|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |美國中北部|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |美國中部|控制平面 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|

@@ -26,7 +26,7 @@ ms.locfileid: "60702772"
 [受控執行個體稽核](sql-database-managed-instance.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
 
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
-- 啟用及推動遵循法規標準，但不保證符合法規。 有关支持标准符合性的 Azure 程序的详细信息，请参阅 [Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，可以从中找到 SQL 数据库符合性认证的最新列表。
+- 啟用及推動遵循法規標準，但不保證符合法規。 如需有關 Azure 程式支援標準法規的請參閱 < [Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>設定將伺服器的稽核儲存至 Azure 儲存體
 
@@ -172,7 +172,7 @@ ms.locfileid: "60702772"
 
 5. 選取的稽核事件-事件中樞、 Azure 監視器記錄檔，或兩者的目的地。 為每個目標設定必要的參數 (例如 Log Analytics 工作區)。
 
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
     ![設定診斷設定](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -242,7 +242,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing.md)。
-- 有关支持标准符合性的 Azure 程序的详细信息，请参阅 [Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，可以从中找到 SQL 数据库符合性认证的最新列表。
+- 如需有關 Azure 程式支援標準法規的請參閱 < [Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 <!--Image references-->
 

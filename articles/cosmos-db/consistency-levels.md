@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954369"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839829"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性層級
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 會提供全方位 SLA，保證 100% 的讀取要求都將符合
 
   限定過期提供全域訂單總數，但「過期期間」內的除外。 在區域內，過期期間內外都有單純的讀取保證存在。 強式一致性會有相同的語意與限定過期所提供。 過期期間等於零。 限定過期也稱為時間延遲的線性化能力。 當用戶端執行時接受寫入區域內讀取的作業時，提供限定的過期一致性的保證會完全相同的強式一致性的保證。
 
-- **工作階段**：保證讀取會實踐一致前置詞 (假設單一「寫入器」工作階段)、單純讀取、單純寫入、讀取您的寫入，和讀取後接寫入的保證。 工作階段一致性的範圍會限制在用戶端工作階段。
+- **工作階段**：在單一用戶端工作階段內保證會讀取接受一致前置詞 （假設單一的 「 寫入器 」 工作階段）、 單純讀取、 單純寫入、 讀取您的寫入，並如下所示讀取寫入的保證。 執行寫入的工作階段之外的用戶端將會看到最終一致性。
 
 - **一致前置詞**：傳回的更新會包含所有更新的部分前置詞 (沒有間隔)。 一致前置詞一致性層級保證讀取永遠不會看到的順序寫入。
 

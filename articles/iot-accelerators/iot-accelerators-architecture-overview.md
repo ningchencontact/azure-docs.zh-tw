@@ -22,7 +22,7 @@ ms.locfileid: "67067919"
 
 開放原始碼[遠端監視](iot-accelerators-remote-monitoring-sample-walkthrough.md)和[連線的處理站](iot-accelerators-connected-factory-features.md)解決方案加速器會遵循許多參考架構建議。 您可以使用該解決方案加速器作為您專屬 IoT 解決方案的起點，或是作為學習工具。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 參考架構說明 IoT 解決方案的項目，例如技術原則、Azure IoT 服務的組合和裝置。 該架構也提供實作技術的建議。
 

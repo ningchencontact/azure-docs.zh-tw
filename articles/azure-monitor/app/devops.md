@@ -159,7 +159,7 @@ Visual Studio 和 Eclipse 提供工具，可為您正在開發的專案設定正
 * [價格](../../azure-monitor/app/pricing.md) - 您可以開始免費使用，當您處於低用量期間可繼續使用。
 
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 

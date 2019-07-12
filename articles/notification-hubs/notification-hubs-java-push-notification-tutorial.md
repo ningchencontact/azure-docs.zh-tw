@@ -51,7 +51,7 @@ SDK 目前支援：
 
     mvn package
 
-## <a name="code"></a>代碼
+## <a name="code"></a>程式碼
 
 ### <a name="notification-hub-cruds"></a>通知中樞 CRUD
 

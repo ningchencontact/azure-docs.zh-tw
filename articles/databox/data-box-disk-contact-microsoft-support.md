@@ -36,7 +36,7 @@ ms.locfileid: "66240137"
     2. 選擇您的**訂用帳戶**。
     3. 在 [服務]  底下，勾選 [所有服務]  。 從下拉式清單中，選取**Data Box**。 
     4. 指定您的**支援方案**。
-    5. 单击“下一步”  。
+    5. 按一下 [下一步]  。
 
         ![基本概念](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "66240137"
     5. 提供問題開始日期與時間。
     6. 在 [檔案上傳]  中，按一下資料夾圖示以瀏覽至任何其他您想要上傳的檔案。
     7. 勾選 [共用診斷資訊]  。
-    8. 单击“下一步”  。
+    8. 按一下 [下一步]  。
 
        ![問題](./media/data-box-disk-contact-microsoft-support/data-box-disk-support2.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "66240137"
 
    1. 在 [連絡人選項]  中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
    2. 在 **連絡人資訊**，提供您的名稱、 電子郵件、 選用連絡、 國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用]  。
-   3. 按一下頁面底部的 [新增]  。
+   3. 按一下 [建立]  。
    
        ![連絡人資訊](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 

@@ -2,24 +2,25 @@
 title: IoT 預覽的 Azure 資訊安全中心的安全性警示指南 |Microsoft Docs
 description: 了解安全性警示和 IoT 功能和服務使用 Azure 資訊安全中心建議的補救措施。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6168278a51cf5a73fec0387ab61f46e201d158f9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200763"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616951"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>IoT 安全性警示的 azure 資訊安全中心
 
@@ -37,7 +38,7 @@ IoT 的 azure 資訊安全中心 (ASC) 會持續分析您的 IoT 解決方案使
 
 ## <a name="built-in-alerts-for-iot-devices"></a>IoT 裝置的內建警示
 
-| Severity | Name                                                   | 資料來源 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Severity | 名稱                                                   | 資料來源 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 高     | 成功的本機登入                                 | 代理程式       | 偵測到成功的本機裝置登入                                                                                                                                                                                                                                                                                                                                                                                         |
 | 高     | 成功的暴力                                  | 代理程式       | 偵測到多個登入失敗嘗試，後面接著成功的登入。 裝置會發生了成功的暴力密碼破解攻擊。                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +82,7 @@ IoT 的 azure 資訊安全中心 (ASC) 會持續分析您的 IoT 解決方案使
 
 ## <a name="built-in-alerts-for-iot-hub"></a>IoT 中樞的內建警示
 
-| Severity | Name                                                                         | 描述                                                                                                                                                                                                                                                                                                                            |
+| Severity | 名稱                                                                         | 描述                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 中   | 新的憑證新增至 IoT 中樞                                    |新的憑證，新增至 IoT 中樞。 如果這個加法的目的不是已獲授權的合作對象，它可能表示惡意活動。                                                                                                                                                                                                    |
 | 中   | 從 IoT 中樞已刪除憑證                                    | 從 IoT 中樞已刪除的憑證。 如果此動作不是已獲授權的合作對象，它可能表示惡意活動。                                                                                                                                                                                                |
@@ -91,7 +92,7 @@ IoT 的 azure 資訊安全中心 (ASC) 會持續分析您的 IoT 解決方案使
 | 低      | 嘗試從 IoT 中樞偵測到刪除診斷設定       | 嘗試刪除偵測到 「 IoT 中樞的診斷設定。 診斷設定可讓您重新建立活動記錄來進行調查，當發生安全性事件或遭到入侵您的網路。 如果此動作不是已獲授權的合作對象，它可能表示惡意活動。       |
 |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [概觀](overview.md)
 - [存取您的安全性資料](how-to-security-data-access.md)

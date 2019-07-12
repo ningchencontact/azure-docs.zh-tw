@@ -51,7 +51,7 @@ mstsc /v:<Server>[:<Port>] /admin
 - 已在環境中安裝遠端桌面授權。 有可用的 CAL，但並未正確設定它們。
 - 遠端桌面授權具有 CAL，且已經啟動。 不過，一些關於遠端桌面授權伺服器的其他問題會導致它無法在環境中提供授權。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 若要解決此問題，請[備份 OS 磁碟](../windows/snapshot-copy-managed-disk.md)並遵循下列步驟：
 

@@ -27,9 +27,9 @@ ms.locfileid: "66510992"
 
 檢查 **inputClaim** 是否存在，並據以將 **outputClaim** 設定為 True 或 False。
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |任意 | 必須驗證其存在的輸入宣告。 |
+| InputClaim | inputClaim |Any | 必須驗證其存在的輸入宣告。 |
 | OutputClaim | outputClaim | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
 使用此宣告轉換來檢查某個宣告是否存在或包含任何值。 傳回值是布林值，會指出宣告是否存在。 下列範例會檢查電子郵件地址是否存在。
@@ -56,12 +56,12 @@ ms.locfileid: "66510992"
 
 使用 salt 和祕密，針對提供的純文字進行雜湊處理。
 
-| Item | TransformationClaimType | 数据类型 | 注意 |
+| Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | plaintext | 字串 | 要加密的輸入宣告 |
-| InputClaim | salt | 字串 | Salt 參數。 您可以使用 `CreateRandomString` 宣告轉換來建立隨機值。 |
-| InputParameter | randomizerSecret | 字串 | 指向現有的 Azure AD B2C **原則金鑰**。 建立新金鑰：在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]  。 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]  。 選取 [新增]  。 針對 [選項]  ，選取 [手動]  。 提供名稱 (可能會自動新增前置詞 B2C_1A_)。 在 [祕密] 方塊中，輸入任何您想要使用的祕密，例如 1234567890。 針對 [金鑰使用方法] 選取 [祕密]  。 選取 [建立]  。 |
-| OutputClaim | 雜湊 | 字串 | 叫用此宣告轉換之後所產生的 ClaimType。 設定於 `plaintext` inputClaim 中的宣告。 |
+| InputClaim | plaintext | string | 要加密的輸入宣告 |
+| InputClaim | salt | string | Salt 參數。 您可以使用 `CreateRandomString` 宣告轉換來建立隨機值。 |
+| InputParameter | randomizerSecret | string | 指向現有的 Azure AD B2C **原則金鑰**。 建立新金鑰：在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]  。 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]  。 選取 [新增]  。 針對 [選項]  ，選取 [手動]  。 提供名稱 (可能會自動新增前置詞 B2C_1A_)。 在 [祕密] 方塊中，輸入任何您想要使用的祕密，例如 1234567890。 針對 [金鑰使用方法] 選取 [祕密]  。 選取 [建立]  。 |
+| OutputClaim | 雜湊 | string | 叫用此宣告轉換之後所產生的 ClaimType。 設定於 `plaintext` inputClaim 中的宣告。 |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

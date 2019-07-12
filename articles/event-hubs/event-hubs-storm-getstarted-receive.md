@@ -28,7 +28,7 @@ ms.locfileid: "60343407"
 
 如需事件中樞接收模式的詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 快速入門中，您開始之前**建立事件中樞命名空間和事件中樞**。 使用[Azure 入口網站](https://portal.azure.com)建立類型為事件中樞的命名空間，並取得您的應用程式與事件中樞進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 
 
 ## <a name="create-project-and-add-code"></a>建立專案並新增程式碼

@@ -23,7 +23,7 @@ ms.locfileid: "60711761"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本逐步解說假設您已[使用 Azure Container Service 建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)。
 
 同時也假設您已經安裝 `az` Azure cli 和 `kubectl` 工具。
@@ -126,4 +126,4 @@ $ kubectl create -f oms-daemonset.yaml
   - 執行 ```kubectl create -f omsagent-ds-secrets.yaml``` 以建立您的 omsagent daemon-set
 
 ### <a name="conclusion"></a>結論
-就這麼簡單！ 幾分鐘後，您應該可以看到資料流向您的 Log Analytics 儀表板。
+就這麼容易！ 幾分鐘後，您應該可以看到資料流向您的 Log Analytics 儀表板。

@@ -33,7 +33,7 @@ ms.locfileid: "65024358"
 >[!NOTE]
 > 本文件未多加說明擷取主體識別碼的流程。 您應從身分識別服務提供者處取得主體識別碼。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假定您已具有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)、[Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-create-service-portal)和 [Azure 搜尋索引](https://docs.microsoft.com/azure/search/search-create-index-portal)。  
 
@@ -154,7 +154,7 @@ api-key: [admin or query key]
 
 以此作法，可根據使用者身分識別與 Azure 搜尋服務 `search.in()` 函式來篩選結果。 您可以使用此函式將在提出要求的使用者，要比對每個目標文件相關聯的主體識別碼的主體識別項。 處理搜尋要求時，`search.in` 函式會篩選出沒有任何使用者主體具備讀取權限的搜尋結果。 主體識別碼可代表安全性群組、角色等等，甚至可代表使用者的專屬身分識別。
  
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [使用 Azure 搜尋服務篩選來進行 Active Directory 身分識別型存取控制](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure 搜尋服務中的篩選條件](search-filters.md)

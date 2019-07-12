@@ -40,7 +40,7 @@ ms.locfileid: "60538797"
 
 從設計工具產生的中繼資料檔案之後，您會新增到整合帳戶在 Azure 中的該檔案。 如此一來，邏輯應用程式可以存取您的應用程式中繼資料時加入 3270 連接器動作。 連接器讀取中繼資料檔從您的整合帳戶，會處理透過 3270 畫面中，瀏覽及動態呈現 3270 連接器動作的參數。 然後，您就可以提供資料至主應用程式和連接器會將結果傳回您的邏輯應用程式。 這樣一來，您可以使用 Azure、 Microsoft 和其他應用程式、 服務和 Azure Logic Apps 支援的系統整合您的舊版應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 

@@ -62,7 +62,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ### <a name="unmount-clouddrive"></a>卸載 clouddrive
 您可以隨時將掛接至 Cloud Shell 的檔案共用卸載。 因為 Cloud Shell 需要使用掛接的檔案共用，所以系統會在下一個工作階段提示您建立和掛接另一個檔案共用。
 
-1. 运行 `clouddrive unmount`。
+1. 執行 `clouddrive unmount`。
 2. 了解並確認提示。
 
 除非手動刪除，否則您的檔案共用將會繼續存在。 Cloud Shell 在後續的工作階段中將不再搜尋此檔案共用。 若要檢視更多詳細資料，請執行 `clouddrive unmount -h`，如下所示：
@@ -102,7 +102,7 @@ justin@Azure:~$
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-注意：如果您需要在檔案中定義函式，並從 PowerShell Cmdlet 中呼叫，則必須包含點運算子。 例如： .\MyFunctions.ps1
+注意:如果您需要在檔案中定義函式，並從 PowerShell Cmdlet 中呼叫，則必須包含點運算子。 例如： .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>後續步驟
 [Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>

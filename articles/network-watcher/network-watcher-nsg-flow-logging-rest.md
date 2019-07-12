@@ -40,7 +40,7 @@ ms.locfileid: "64688036"
 > [!Important]
 > 針對網路監看員 REST API 呼叫，要求 URI 中的資源群組名稱是包含網路監看員的資源群組，而非您要執行診斷動作的資源。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 本文章涵蓋的案例會示範如何使用 REST API 啟用、停用以及查詢流程記錄。 若要深入了解網路安全性群組流程記錄，請造訪[網路安全性群組流程記錄 - 概觀](network-watcher-nsg-flow-logging-overview.md)。
 

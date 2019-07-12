@@ -181,8 +181,8 @@ ms.locfileid: "60366751"
    [![31]][31]
 9. 檢視 IP 篩選清單。  IP 篩選器清單的組態 **azure-onpremises-HTTP8080** 會對符合下列準則的所有流量觸發加密程序：
 
-   * 10\.0.1.0/24 (Azure Subnet2) 中的任何來源位址
-   * 10\.2.27.0/25 (內部部署子網路) 中的任何目的地位址
+   * 10.0.1.0/24 (Azure Subnet2) 中的任何來源位址
+   * 10.2.27.0/25 (內部部署子網路) 中的任何目的地位址
    * TCP 通訊協定
    * 目的地連接埠 8080
 
@@ -255,7 +255,7 @@ ms.locfileid: "60366751"
 7. Windows 支援四種不同類型的驗證：Kerberos、憑證、NTLMv2 及預先共用金鑰。 由於我們使用已加入網域的主機，請選取 [Active Directory 預設值 (Kerberos V5 通訊協定)]  ，然後按 [下一步]  。
 
    [![47]][47]
-8. 新的原則會建立安全性規則：**azure-onpremises-HTTP8080**。 按一下 [確定]  。
+8. 新的原則會建立安全性規則：**azure-onpremises-HTTP8080**。 按一下 [確定 **Deploying Office Solutions**]。
 
    [![48]][48]
 

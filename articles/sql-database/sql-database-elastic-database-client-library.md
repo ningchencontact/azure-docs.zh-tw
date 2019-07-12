@@ -32,7 +32,7 @@ ms.locfileid: "66234115"
 
 1. [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)
 2. [彈性資料庫功能](sql-database-elastic-scale-introduction.md)
-3. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
+3. [分區對應管理](sql-database-elastic-scale-shard-map-management.md)
 4. [將現有的資料庫移轉到相應放大的資料庫](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)
 6. [多分區查詢](sql-database-elastic-scale-multishard-querying.md)

@@ -32,7 +32,7 @@ ms.locfileid: "60749235"
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-恭喜！ 您現已建立轉送命名空間。
+恭喜您！ 您現已建立轉送命名空間。
 
 ## <a name="next-steps"></a>後續步驟
 

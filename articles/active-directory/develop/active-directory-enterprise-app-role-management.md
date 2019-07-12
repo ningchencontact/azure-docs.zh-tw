@@ -23,11 +23,11 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544661"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>HOW TO：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
 藉由使用 Azure Active Directory (Azure AD)，您可以針對在授權應用程式之後所收到回應權杖中的角色宣告，自訂其宣告類型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 具有目錄設定的 Azure AD 訂用帳戶。
 - 已啟用單一登入 (SSO) 的訂用帳戶。 您必須設定與您應用程式搭配運作的 SSO。
@@ -99,7 +99,7 @@ ms.locfileid: "65544661"
       > [!Note]
       > 如果您使用自訂應用程式 (而非 Azure Marketplace 應用程式)，您會看到兩個預設角色：使用者和 msiam_access。 如果是 Marketplace 應用程式，則 msiam_access 會是唯一的預設角色。 您不需要在預設角色中進行任何變更。
 
-    h.如果该值不存在，请单击“添加行”。 為應用程式產生新角色。
+    h. 為應用程式產生新角色。
 
       下列 JSON 是 **appRoles** 物件的範例。 請建立類似的物件，以新增應用程式所需的角色。
 

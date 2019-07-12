@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08aebf698a7a00729a0e37b57cb15938853e4185
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 8c1251056ad816af664f95abcd18d50ceca4619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501627"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835272"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 
@@ -27,7 +27,7 @@ ms.locfileid: "67501627"
 
 如需詳細資訊，請參閱[ASP.NET Web API 中的基本驗證](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成[將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中](active-directory-b2c-custom-rest-api-netfw.md)文章的步驟。
 
@@ -76,12 +76,12 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 2. 在 [名稱]  方塊中，輸入 **ClientAuthMiddleware.cs**。
 
-   ![建立新的 C# 類別](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
+   ![建立新C#類別在 Visual Studio 中的 [加入新項目] 對話方塊](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
 3. 開啟 App_Start\ClientAuthMiddleware.cs  檔案，並以下列程式碼取代檔案內容：
 
     ```csharp
-    
+
     using Microsoft.Owin;
     using System;
     using System.Collections.Generic;
@@ -91,7 +91,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     using System.Text;
     using System.Threading.Tasks;
     using System.Web;
-    
+
     namespace Contoso.AADB2C.API
     {
         /// <summary>
@@ -101,12 +101,12 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
         {
             private static readonly string ClientID = ConfigurationManager.AppSettings["WebApp:ClientId"];
             private static readonly string ClientSecret = ConfigurationManager.AppSettings["WebApp:ClientSecret"];
-    
+
             /// <summary>
             /// Gets or sets the next owin middleware
             /// </summary>
             private Func<IDictionary<string, object>, Task> Next { get; set; }
-    
+
             /// <summary>
             /// Initializes a new instance of the <see cref="ClientAuthMiddleware"/> class.
             /// </summary>
@@ -115,7 +115,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
             {
                 this.Next = next;
             }
-    
+
             /// <summary>
             /// Invoke client authentication middleware during each request.
             /// </summary>
@@ -125,7 +125,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
             {
                 // Get wrapper class for the environment
                 var context = new OwinContext(environment);
-    
+
                 // Check whether the authorization header is available. This contains the credentials.
                 var authzValue = context.Request.Headers.Get("Authorization");
                 if (string.IsNullOrEmpty(authzValue) || !authzValue.StartsWith("Basic ", StringComparison.OrdinalIgnoreCase))
@@ -133,21 +133,21 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
                     // Process next middleware
                     return Next(environment);
                 }
-    
+
                 // Get credentials
                 var creds = authzValue.Substring("Basic ".Length).Trim();
                 string clientId;
                 string clientSecret;
-    
+
                 if (RetrieveCreds(creds, out clientId, out clientSecret))
                 {
                     // Set transaction authenticated as client
                     context.Request.User = new GenericPrincipal(new GenericIdentity(clientId, "client"), new string[] { "client" });
                 }
-    
+
                 return Next(environment);
             }
-    
+
             /// <summary>
             /// Retrieve credentials from header
             /// </summary>
@@ -159,7 +159,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
             {
                 string pair;
                 clientId = clientSecret = string.Empty;
-    
+
                 try
                 {
                     pair = Encoding.UTF8.GetString(Convert.FromBase64String(credentials));
@@ -172,16 +172,16 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
                 {
                     return false;
                 }
-    
+
                 var ix = pair.IndexOf(':');
                 if (ix == -1)
                 {
                     return false;
                 }
-    
+
                 clientId = pair.Substring(0, ix);
                 clientSecret = pair.Substring(ix + 1);
-    
+
                 // Return whether credentials are valid
                 return (string.Compare(clientId, ClientAuthMiddleware.ClientID) == 0 &&
                     string.Compare(clientSecret, ClientAuthMiddleware.ClientSecret) == 0);
@@ -195,14 +195,14 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 將名為 `Startup.cs` 的 OWIN 啟動類別新增至 API。 方法如下：
 1. 在專案上按一下滑鼠右鍵，選取 [新增]   > [新增項目]  ，然後搜尋 **OWIN**。
 
-   ![新增 OWIN 啟動類別](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
+   ![在 Visual Studio 中的 [加入新項目] 對話方塊建立 OWIN 啟動類別](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
 
 2. 開啟 Startup.cs  檔案，並以下列程式碼取代檔案內容：
 
     ```csharp
     using Microsoft.Owin;
     using Owin;
-    
+
     [assembly: OwinStartup(typeof(Contoso.AADB2C.API.Startup))]
     namespace Contoso.AADB2C.API
     {
@@ -241,7 +241,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 4. 針對 [選項]  ，選取 [手動]  。
 
-5. 針對 [名稱]  ，輸入 **B2cRestClientId**。  
+5. 針對 [名稱]  ，輸入 **B2cRestClientId**。
     可能會自動新增前置詞 B2C_1A_  。
 
 6. 在 [密碼]  方塊中，輸入您先前定義的應用程式識別碼。
@@ -262,7 +262,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 4. 針對 [選項]  ，選取 [手動]  。
 
-5. 針對 [名稱]  ，輸入 **B2cRestClientSecret**。  
+5. 針對 [名稱]  ，輸入 **B2cRestClientSecret**。
     可能會自動新增前置詞 B2C_1A_  。
 
 6. 在 [密碼]  方塊中，輸入您先前定義的應用程式密碼。
@@ -297,8 +297,8 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
     在新增程式碼片段之後，您的技術設定檔看起來應該類似下列 XML 程式碼：
-    
-    ![新增基本驗證 XML 元素](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
+
+    ![將基本驗證的 XML 項目新增至 TechnicalProfile](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>步驟 5：將原則上傳至您的租用戶
 
@@ -323,12 +323,12 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
 
-3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。  
+3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。
     Azure AD B2C 會在視窗頂端顯示錯誤訊息。
 
-    ![測試您的身分識別 API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![測試您的身分識別 API 中的指定名稱的輸入的驗證](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。  
+4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。
     Azure AD B2C 會註冊使用者，然後將會員號碼傳送至您的應用程式。 記下此範例中的數字：
 
     ```

@@ -24,7 +24,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540179"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>作法：將您的應用程式限制為僅供一組使用者存取
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>HOW TO：將您的應用程式限制為僅供一組使用者存取
 
 根據預設，在 Azure Active Directory (Azure AD) 租用戶中註冊的應用程式可供成功通過驗證的所有租用戶使用者使用。
 

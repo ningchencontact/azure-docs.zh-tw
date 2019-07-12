@@ -46,7 +46,7 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
 
 連接程序當中，從 Azure 虛擬機器的連接會被重新導向到每個背景工作角色的唯一 IP 位址和連接埠。 連接埠號碼的範圍從 11000 到 11999。 如需 TCP 連接埠的詳細資訊，請參閱[適用於 ADO.NET 4.5 的 1433 以外的連接埠](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)。
 
-有关 SQL 数据库中的防火墙规则的详细信息，请参阅 [SQL 数据库防火墙规则](../sql-database/sql-database-firewall-configure.md)。
+如需 SQL Database 中防火牆規則的詳細資訊，請參閱 [SQL Database 防火牆規則](../sql-database/sql-database-firewall-configure.md)。
 
 > [!Note]
 > 除了 IP 規則，防火牆會管理虛擬網路規則。 虛擬網路規則是以虛擬網路服務端點為基礎。 在某些情況下，相較於 IP 規則，最好使用虛擬網路規則。 若要深入了解，請參閱 [Azure SQL Database 的虛擬網路服務端點和規則](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md)。
@@ -71,7 +71,7 @@ SQL Database 支援兩種類型的驗證，SQL Server 驗證和 Azure AD 驗證�
 
 - 自行管理強式認證。
 - 保護連接字串中的認證。
-- (可能) 保護透過網路從 Web 伺服器傳遞至資料庫的認證。 如需詳細資訊，請參閱[操作說明：使用 ASP.NET 2.0 中的 SQL 驗證連線到 SQL Server](/previous-versions/msp-n-p/ff648340(v=pandp.10))。
+- (可能) 保護透過網路從 Web 伺服器傳遞至資料庫的認證。 如需詳細資訊，請參閱[如何：使用 ASP.NET 2.0 中的 SQL 驗證連線到 SQL Server](/previous-versions/msp-n-p/ff648340(v=pandp.10))。
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD) 驗證*
 Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Database 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的機制。 您可以使用 Azure AD 驗證，在單一中央位置管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。

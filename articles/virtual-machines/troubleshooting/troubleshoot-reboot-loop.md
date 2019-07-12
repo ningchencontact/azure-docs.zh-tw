@@ -23,7 +23,7 @@ ms.locfileid: "65472300"
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 的 Windows 重新開機迴圈
 本文說明您在 Microsoft Azure 中的 Windows 虛擬機器 (VM) 上可能會遇到的重新開機迴圈。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 當您使用[開機診斷](./boot-diagnostics.md)取得 VM 的螢幕擷取畫面時，您發現虛擬機器正在開機，但開機程序中斷，並從頭開始。
 
@@ -49,7 +49,7 @@ ms.locfileid: "65472300"
 
 這可能是檔案系統損毀所致。 不過，我們很難診斷並找出導致作業系統損毀的變更。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 若要解決此問題，請[備份 OS 磁碟](../windows/snapshot-copy-managed-disk.md)，並[將 OS 磁碟連結至救援 VM](../windows/troubleshoot-recovery-disks-portal.md)，然後據以執行解決方案選項，或逐一嘗試每個解決方案。
 

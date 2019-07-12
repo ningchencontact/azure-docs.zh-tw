@@ -28,7 +28,7 @@ ms.locfileid: "65988359"
 
 在本教學課程，了解如何撰寫 Nodejs 程式以傳送和接收來自服務匯流排佇列，以使用新的訊息[ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus)封裝。 此套件會使用速度就越快[AMQP 1.0 通訊協定](service-bus-amqp-overview.md)而較舊[azure sb](https://www.npmjs.com/package/azure-sb)用封裝[服務匯流排 REST 執行階段 Api](/rest/api/servicebus/service-bus-runtime-rest)。 範例是以 JavaScript 撰寫的。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 - 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。 請記下您的服務匯流排執行個體和您所建立的佇列名稱的連接字串。 在範例中，我們將使用這些值。
 
@@ -87,7 +87,7 @@ npm install @azure/service-bus
 3. 在上述程式碼中，輸入連接字串和您的佇列名稱。
 4. 然後執行命令`node send.js`在命令提示字元執行此檔案中。
 
-恭喜！ 您只會傳送至服務匯流排佇列的訊息。
+恭喜您！ 您只會傳送至服務匯流排佇列的訊息。
 
 訊息有一些標準的屬性，例如`label`和`messageId`傳送時，您可以設定。 如果您想要設定的任何自訂屬性，使用`userProperties`，這是可以保留您的自訂資料的索引鍵 / 值組的 json 物件。
 
@@ -128,7 +128,7 @@ npm install @azure/service-bus
 3. 在上述程式碼中，輸入連接字串和您的佇列名稱。
 4. 然後執行命令`node receiveMessages.js`在命令提示字元執行此檔案中。
 
-恭喜！ 您只會收到來自服務匯流排佇列的訊息。
+恭喜您！ 您只會收到來自服務匯流排佇列的訊息。
 
 [CreateReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-)方法接受`ReceiveMode`這是具有值的列舉[ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations)並[PeekLock](message-transfers-locks-settlement.md#settling-receive-operations)。 請記得[結清您的訊息](message-transfers-locks-settlement.md#settling-receive-operations)如果您使用`PeekLock`模式下使用任一`complete()`， `abandon()`， `defer()`，或`deadletter()`訊息上的方法。
 

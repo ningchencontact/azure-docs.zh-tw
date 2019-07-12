@@ -23,7 +23,7 @@ ms.locfileid: "65151012"
 
 若要準備所傳遞的內容[調適性位元速率串流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，視訊必須編碼在多重位元速率 （高到低）。 為了確保正常降級的品質、 位元速率降低，因此是影片的解析度。 這會導致所謂的編碼階梯 – 解析度和位元速率; 的資料表請參閱媒體服務[內建的編碼預設](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Netflix 發行之後，興趣不只一個-預設值-調整-all-影片方法將會增加其[部落格](https://medium.com/netflix-techblog/per-title-encode-optimization-7e99442b62a2)在 2015 年 12 月。 從那時起，感知內容的編碼方式的多個方案已發行到 marketplace 中;請參閱[這篇文章](https://www.streamingmedia.com/Articles/Editorial/Featured-Articles/Buyers-Guide-to-Per-Title-Encoding-130676.aspx)的概觀。 其概念是視訊的內容的要注意，若要自訂或微調個別的複雜度來編碼的階梯。 每個解決方式，在沒有位元速率超過此增加任何品質不 perceptive – 編碼器會在這個最佳位元速率值。 下一個層級的最佳化是選取的內容為基礎的解決方式 – PowerPoint 簡報的影片，例如未受益於以下 720p 的進行。 此外，編碼器可以負責以最佳化每個擷取畫面影片中的設定。 所述的 Netflix[這類方法](https://medium.com/netflix-techblog/optimized-shot-based-encodes-now-streaming-4b9464204830)在 2018 年。
 

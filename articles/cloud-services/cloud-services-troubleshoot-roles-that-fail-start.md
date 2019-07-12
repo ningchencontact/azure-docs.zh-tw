@@ -30,7 +30,7 @@ ms.locfileid: "60653345"
 ## <a name="missing-dlls-or-dependencies"></a>遺失 Dll 或相依性
 角色沒有回應，以及角色在 [正在初始化]  、[忙碌]  和 [正在停止]  狀態之間循環，有可能是因為遺失 DLL 或組件所致。
 
-DLL 或程序集缺失的症状可能为：
+遺失 DLL 或組件的徵狀可能是：
 
 * 您的角色執行個體在 [正在初始化]  、[忙碌]  及 [正在停止]  狀態之間循環。
 * 您的角色執行個體已進入 [就緒]  狀態，但當您瀏覽至 Web 應用程式時，發現頁面並未顯示。
@@ -40,7 +40,7 @@ DLL 或程序集缺失的症状可能为：
 ## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>診斷 Web 角色中遺失 DLL 的問題
 當您瀏覽至在 Web 角色中部署的網站時，瀏覽器顯示如下的伺服器錯誤，表示可能遺失 DLL。
 
-!['/' 应用程序中出现服务器错误。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+!['/' 應用程式中有伺服器錯誤。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>關閉自訂錯誤以診斷問題
 設定 Web 角色的 web.config 以將自訂錯誤模式設為關閉，並重新部署服務，可以檢視更完整的錯誤資訊。
@@ -78,7 +78,7 @@ DLL 或程序集缺失的症状可能为：
 * Description:目前 web 要求執行期間發生未處理的例外狀況。 請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
 * 例外狀況詳細資料：System.IO.FIleNotFoundException:無法載入檔案或組件 ' Microsoft.WindowsAzure.StorageClient，version=1.1.0.0，Culture = neutral，PublicKeyToken = 31bf856ad364e35' 或其中一個相依性。 系統找不到指定的檔案。
 
-例如︰
+例如:
 
 !['/' 應用程式中有明確的伺服器錯誤。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
@@ -114,7 +114,7 @@ DLL 或程序集缺失的症状可能为：
 ## <a name="address-missing-dlls-and-assemblies"></a>解決遺失 Dll 和組件的問題
 若要解決遺失 DLL 和組件錯誤，請遵循下列步驟：
 
-1. 在 Visual Studio 中開啟解決方案。
+1. 在 Visual Studio 中開啟方案。
 2. 在 [方案總管]  中，開啟 [參考]  資料夾。
 3. 按一下錯誤中識別的組件。
 4. 在 [屬性]  窗格中找出 [複製本機]  屬性，並將值設為 **True**。

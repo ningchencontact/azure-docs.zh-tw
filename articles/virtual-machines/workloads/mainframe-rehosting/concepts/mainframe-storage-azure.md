@@ -51,7 +51,7 @@ Azure 儲存體是當作[Azure 磁碟](/azure/virtual-machines/windows/managed-d
 
 <table>
 <thead>
-    <tr><th>類型</th><th>描述</th><th>當您想要實現下列目標時，即可使用：</th></tr>
+    <tr><th>type</th><th>描述</th><th>當您想要實現下列目標時，即可使用：</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure 檔案
@@ -94,7 +94,7 @@ Azure 儲存體是當作[Azure 磁碟](/azure/virtual-machines/windows/managed-d
 
 Ssd 提供在 Azure 上的最高的儲存體效能。 （在撰寫本文件） 有下列選項：
 
-| 類型         | 大小           | IOPS                  |
+| type         | Size           | IOPS                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | 4 GB 到 64 TB  | 以 160,000 1,200 個 IOPS |
 | 進階 SSD  | 32 GB 到 32 TB | 12 到 15,000 位 IOPS     |

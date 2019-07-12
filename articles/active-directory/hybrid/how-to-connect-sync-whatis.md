@@ -31,7 +31,7 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 同步服務包含兩個元件：內部部署的 **Azure AD Connect 同步**元件，以及 Azure AD 中的服務端，稱為 **Azure AD Connect 同步服務**。
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 同步處理主題
-| 話題 | 涵蓋內容和讀取時機 |
+| 主題 | 涵蓋內容和讀取時機 |
 | --- | --- |
 | **Azure AD Connect 同步處理基本概念** | |
 | [了解架構](concept-azure-ad-connect-sync-architecture.md) |適合於不熟悉同步處理引擎並想要深入了解所用架構和詞彙的人員。 |

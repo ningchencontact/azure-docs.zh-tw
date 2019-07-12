@@ -34,7 +34,7 @@ ms.locfileid: "60478503"
 * [變更 SA 密碼](#password)
 * [設定遠端連線](#remote)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 

@@ -59,7 +59,7 @@ ms.locfileid: "60517256"
 
 | 動作類型 | 輸出格式 |
 | ----------- | -------------- |
-| 電子郵件       | 標準的 IoT 中心電子郵件範本 |
+| Email       | 標準的 IoT 中心電子郵件範本 |
 | sms         | Azure IoT Central 警示: ${applicationName}-"${ruleName}"在"${deviceName}"${triggerDate} ${triggerTime} 觸發 |
 | 語音       | Azure 的 I.O.T Central 警示： 應用程式 ${applicationName} 中的規則"${ruleName}"裝置"${deviceName}"${triggerDate} {triggerTime}，在觸發 |
 | Webhook     | {"schemaId 」:「 AzureIoTCentralRuleWebhook"，"data": {[規則的 webhook 承載](#payload)}} |

@@ -25,7 +25,7 @@ ms.locfileid: "66256631"
 
 在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 這項功能可讓您實驗和偵錯，或使用不多的使用者監視網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要將 Application Insights 新增至您的 ASP.NET 網站，您必須：
 
 - 安裝[for Windows 的 Visual Studio 2019](https://www.visualstudio.com/downloads/)加上下列工作負載：
@@ -113,7 +113,7 @@ Application Insights 設定畫面：
 
 ## <a name="land"></a> 您全都準備好了
 
-恭喜！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
+恭喜您！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
 
 接收您應用程式遙測的 Azure 資源會由檢測金鑰  識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
 
@@ -123,7 +123,7 @@ Application Insights 設定畫面：
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本。 然後，將您的變更合併至新版本中。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 * 關於如何[使用 .NET 應用程式從零開始設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA) 的外部逐步說明影片。
 

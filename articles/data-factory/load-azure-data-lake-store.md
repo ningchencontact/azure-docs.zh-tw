@@ -36,7 +36,7 @@ Azure Data Factory 可針對將資料載入到 Data Lake Storage Gen1 的作業�
 > [!NOTE]
 > 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Data Lake Storage Gen1 或從該處複製資料](connector-azure-data-lake-store.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 * Data Lake 儲存體 Gen1 帳戶：如果您沒有 Data Lake 儲存體 Gen1 帳戶，請參閱中的指示[建立資料湖儲存體 Gen1 帳戶](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account)。

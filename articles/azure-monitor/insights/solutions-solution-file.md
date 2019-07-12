@@ -83,7 +83,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 >
 >
 
-| 參數 | 類型 | 描述 |
+| 參數 | type | 描述 |
 |:--- |:--- |:--- |
 | accountName |string |Azure 自動化帳戶名稱。 |
 | pricingTier |string |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
@@ -208,7 +208,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 ### <a name="dependencies"></a>相依性
 解決方案資源在解決方案中的每隔一個資源上須有[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)，因為必須先存在相依性，才能建立解決方案。  您可以在 **dependsOn** 項目中針對每個資源新增一個項目。
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 解決方案資源具有下表中的屬性。  這包括由定義解決方案安裝後如何管理資源的解決方案所參考及包含的資源。  解決方案中的每個資源應列在 **referencedResources** 或 **containedResources** 屬性中。
 
 | 屬性 | 描述 |

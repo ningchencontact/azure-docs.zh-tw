@@ -19,7 +19,7 @@ ms.locfileid: "61447007"
 
 本操作指南會示範如何部署遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以部署解決方案 azureiotsolutions.com，在使用 web 型 UI，以了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)快速入門。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器，您需要一個有效的 Azure 訂用帳戶。
 
@@ -68,7 +68,7 @@ pcs login
 
 基本部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
-| 計數 | 資源                       | 類型         | 用於 |
+| Count | Resource                       | type         | 用於 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/) | 標準 D1 V2  | 裝載微服務 |
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                  | S1 – 標準層 | 裝置管理與通訊 |
@@ -89,7 +89,7 @@ pcs login
 
 標準部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
-| 計數 | 資源                                     | SKU / 大小      | 用於 |
+| Count | Resource                                     | SKU / 大小      | 用於 |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 使用完全受控 Kubernetes 容器協調流程服務，預設為 3 個代理程式|
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                     | S2 – 標準層 | 裝置管理、命令和控制 |

@@ -46,7 +46,7 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 > 
 > 
 
-**先決條件**
+**必要條件**
 
 * 您需要 Azure 訂用帳戶。 您可以在[這裡](https://azure.microsoft.com/free/)註冊免費試用。
 * 如需在 Azure 入口網站上佈建資料科學虛擬機器的指示，請參閱[建立虛擬機器](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)。
@@ -155,7 +155,7 @@ IrisPredictor(3,2,3,4)
 
 以下是可用來安裝、建置、發佈和取用模型作為 Azure Machine Learning Web 服務的程序和程式碼片段。
 
-#### <a name="setup"></a>設定
+#### <a name="setup"></a>安裝程式
 
 * 在主目錄下名為 ```.azureml``` 的目錄下建立 settings.json 檔案，並輸入來自 Azure Machine Learning 工作區的參數：
 

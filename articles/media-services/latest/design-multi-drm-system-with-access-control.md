@@ -23,7 +23,7 @@ ms.locfileid: "60734083"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>設計具有存取控制的多重 DRM 內容保護系統 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 設計及建置適用於 Over-The-Pop (OTT) 或線上串流解決方案的數位版權管理 (DRM) 子系統是一項複雜的工作。 操作員/線上視訊提供者通常會將這個工作外包給專門的 DRM 服務提供者。 這份文件的目標是要呈現 OTT 或線上串流解決方案中端對端 DRM 子系統的參考設計和參考實作。
 
@@ -233,7 +233,7 @@ DRM 子系統可能包含下列元件：
 
 * 將權限新增至應用程式的 Azure AD 中 (在應用程式的 [設定]  索引標籤)。 每個應用程式皆需要權限 (本機和已部署版本)。
 
-    ![權限](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![Permissions](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
 * 當您設定動態 CENC 保護時，請使用正確的簽發者。
 

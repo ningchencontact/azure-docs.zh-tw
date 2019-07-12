@@ -19,7 +19,7 @@ ms.locfileid: "60894006"
 
 此文章詳細說明如何從 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) 上的 Spark 使用 Azure Cosmos DB Cassandra API。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [佈建 Azure Cosmos DB Cassandra API 帳戶](create-cassandra-dotnet.md#create-a-database-account)
 

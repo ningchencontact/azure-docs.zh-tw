@@ -23,7 +23,7 @@ ms.locfileid: "61408473"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>在連接至 Microsoft Azure StorSimple Virtual Array 的 StorSimple 裝置管理員中使用裝置摘要刀鋒視窗
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 對於已向給定 StorSimple 裝置管理員註冊的 StorSimple Virtual Array，StorSimple 裝置管理員的裝置刀鋒視窗提供摘要檢視，並醒目提示需要系統管理員注意的裝置問題。 本教學課程介紹裝置摘要刀鋒視窗、說明內容和功能，並描述您可以從這個刀鋒視窗執行的工作。
 

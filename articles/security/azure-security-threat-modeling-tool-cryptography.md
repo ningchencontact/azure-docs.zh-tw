@@ -26,7 +26,7 @@ ms.locfileid: "62121201"
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式** | <ul><li>[只使用核准的對稱區塊編碼器和金鑰長度](#cipher-length)</li><li>[針對對稱編碼器使用核准的區塊編碼器模式和初始化向量](#vector-ciphers)</li><li>[使用核准的非對稱演算法、金鑰長度和填補](#padding)</li><li>[使用核准的亂數產生器](#numgen)</li><li>[請勿使用對稱串流編碼器](#stream-ciphers)</li><li>[使用核准的 MAC/HMAC/索引雜湊演算法](#mac-hash)</li><li>[只使用核准的密碼編譯雜湊函式](#hash-functions)</li></ul> |
-| **資料庫** | <ul><li>[使用增強式加密演算法來加密資料庫中的資料](#strong-db)</li><li>[SSIS 套件應予以加密和數位簽章](#ssis-signed)</li><li>[在重要的資料庫安全性實體中新增數位簽章](#securables-db)</li><li>[使用 SQL Server EKM 來保護加密金鑰](#ekm-keys)</li><li>[如果不應對資料庫引擎顯示加密金鑰，請使用 AlwaysEncrypted 功能](#keys-engine)</li></ul> |
+| **[資料庫備份]** | <ul><li>[使用增強式加密演算法來加密資料庫中的資料](#strong-db)</li><li>[SSIS 套件應予以加密和數位簽章](#ssis-signed)</li><li>[在重要的資料庫安全性實體中新增數位簽章](#securables-db)</li><li>[使用 SQL Server EKM 來保護加密金鑰](#ekm-keys)</li><li>[如果不應對資料庫引擎顯示加密金鑰，請使用 AlwaysEncrypted 功能](#keys-engine)</li></ul> |
 | **IoT 裝置** | <ul><li>[在 IoT 裝置上安全地儲存密碼編譯金鑰](#keys-iot)</li></ul> | 
 | **IoT 雲端閘道** | <ul><li>[產生長度足夠的隨機對稱金鑰以向 IoT 中樞進行驗證](#random-hub)</li></ul> | 
 | **Dynamics CRM 行動用戶端** | <ul><li>[確定已備妥需要使用 PIN 並允許遠端抹除的裝置管理原則](#pin-remote)</li></ul> | 

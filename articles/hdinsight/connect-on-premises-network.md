@@ -24,7 +24,7 @@ ms.locfileid: "60537824"
 * 設定網路安全性群組來限制網際網路存取 HDInsight。
 * HDInsight 在虛擬網路上提供的連接埠。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 若要允許聯結網路中的 HDInsight 和資源依名稱進行通訊，您必須執行下列動作：
 
@@ -42,7 +42,7 @@ ms.locfileid: "60537824"
 
 ![圖表說明如何解決本文件所使用之設定中的 DNS 要求](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md)。
 * 如果使用 PowerShell，您必須[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
@@ -71,10 +71,10 @@ ms.locfileid: "60537824"
 
 3. 在 [基本]  索引標籤中，輸入下列資訊：  
   
-    | 欄位 | Value |
+    | 欄位 | 值 |
     | --- | --- |
-    |訂用帳戶 |選取適當的訂用帳戶。|
-    |資源群組 |選取包含先前建立之虛擬網路的資源群組。|
+    |Subscription |選取適當的訂用帳戶。|
+    |Resource group |選取包含先前建立之虛擬網路的資源群組。|
     |虛擬機器名稱 | 輸入此虛擬機器的易記名稱。 此範例使用 **DNSProxy**。|
     |區域 | 選取與先前建立之虛擬網路相同的區域。  並非所有 VM 大小在所有區域都可供使用。  |
     |可用性選項 |  選取所需的可用性層級。  Azure 提供各種選項以管理應用程式的可用性和復原。  建立解決方案的架構，以在「可用性區域」或「可用性設定組」中使用複寫的虛擬機器來保護您的應用程式和資料避免發生資料中心中斷，並維護事件。 此範例使用 [不需要基礎結構備援]  。 |
@@ -93,7 +93,7 @@ ms.locfileid: "60537824"
     | 欄位 | 值 |
     | --- | --- |
     |虛擬網路 | 選取您先前建立的虛擬網路。|
-    |子網路 | 為您稍早建立的虛擬網路選取預設子網路。 請__勿__選取 VPN 閘道使用的子網路。|
+    |Subnet | 為您稍早建立的虛擬網路選取預設子網路。 請__勿__選取 VPN 閘道使用的子網路。|
     |公用 IP | 使用自動填入值。  |
 
     ![虛擬網路設定](./media/connect-on-premises-network/virtual-network-settings.png)

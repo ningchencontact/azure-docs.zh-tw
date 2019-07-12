@@ -21,7 +21,7 @@ Azure Cosmos DB 會提供 Azure Cosmos DB 中的一般管理案例中的內建�
 
 以下是 Azure Cosmos DB 所支援的內建角色：
 
-|**內建角色**  |**說明**  |
+|**內建角色**  |**描述**  |
 |---------|---------|
 |[DocumentDB 帳戶參與者](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)   | 可以管理 Azure Cosmos DB 帳戶。  |
 |[Cosmos DB 帳戶讀者](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)  | 可以讀取 Azure Cosmos DB 帳戶資料。        |

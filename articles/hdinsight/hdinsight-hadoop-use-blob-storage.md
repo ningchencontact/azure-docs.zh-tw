@@ -45,13 +45,13 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 儲存架構
 下圖提供使用 Azure 儲存體之 HDInsight 儲存架構的摘要檢視：
 
-![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
+![Hadoop 叢集會使用 HDFS API 來存取和儲存 Blob 儲存體中的結構化和非結構化資料。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight 儲存體架構")
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可使用完整 URI 來存取此檔案系統，例如：
 
     hdfs://<namenodehost>/<path>
 
-此外，HDInsight 也能讓您存取儲存在 Azure 儲存體中的資料。 語法為：
+此外，HDInsight 也能讓您存取儲存在 Azure 儲存體中的資料。 其語法為：
 
     wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -70,7 +70,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 
 多個 WebHCat 工作 (包括 Apache Hive、MapReduce、Apache Hadoop 資料流和 Apache Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。 (目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。如需詳細資訊，請參閱 [在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
-Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組來儲存資料，沒有目錄階層。 不过，可在键名称中使用斜杠字符 (/)，使其看起来像存储在目录结构中的文件。 例如，Blob 的機碼可能是 *input/log1.txt*。 實際上， *input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
+Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組來儲存資料，沒有目錄階層。 但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。 例如，Blob 的機碼可能是 *input/log1.txt*。 實際上， *input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
 ## <a id="benefits"></a>Azure 儲存體的優點
 您可以將計算叢集建立到靠近 Azure 區域中，高速網路，可讓有效率內的儲存體帳戶資源的方式降低不共置計算叢集和儲存體資源的隱含的效能成本計算節點來存取 Azure 儲存體內的資料。
@@ -92,14 +92,14 @@ Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組�
 > [!NOTE]  
 > 大部分 HDFS 命令 (例如，`ls`、`copyFromLocal` 和 `mkdir`) 仍可正常運作。 只有原生 HDFS 實作 (稱為 DFS) 的特定命令 (例如 `fschk` 和 `dfsadmin`) 才會在 Azure 儲存體上出現不同的行為。
 
-## <a name="address-files-in-azure-storage"></a>确定 Azure 存储中文件的地址
+## <a name="address-files-in-azure-storage"></a>定址 Azure 儲存體中的檔案
 從 HDInsight 存取 Azure 儲存體中的檔案的 URI 配置如下：
 
 ```config
 wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
-URI 配置提供未加密存取 (使用 wasb:  首碼) 和 SSL 加密存取 (使用 wasbs  )。 建议尽量使用 *wasbs* ，即使在访问位于同一 Azure 区域内的数据时也是如此。
+URI 配置提供未加密存取 (使用 wasb:  首碼) 和 SSL 加密存取 (使用 wasbs  )。 建議盡可能使用 wasbs  ，即使存取 Azure 中相同區域內的資料也一樣。
 
 `<BlobStorageContainerName>`可識別 Azure 儲存體中的 blob 容器名稱。
 `<StorageAccountName>`可識別 Azure 儲存體帳戶名稱。 需要使用完整網域名稱 (FQDN)。
@@ -155,7 +155,7 @@ Microsoft 提供下列工具，可使用 Azure 儲存體：
 
 在本文中，您已了解如何搭配 HDInsight 使用 HDFS 相容的 Azure 儲存體。 這可讓您建立可調整、長期封存的資料取得解決方案，並利用 HDInsight 來揭開儲存的結構化和非結構化資料內的資訊。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [開始使用 Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)

@@ -196,7 +196,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 5. 重新啟動您的伺服器。
 6. 移至**預設網站**，並在 [繫結]  下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [影片：Windows 10 中的 HTTP/2：瀏覽器、應用程式和 Web 伺服器](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -212,7 +212,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 
 如需詳細資訊，請參閱 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>如何實作雲端服務的角色型存取？
 雲端服務不支援角色型存取控制 (RBAC) 模型，因為它不是以 Azure Resource Manager 為基礎的服務。

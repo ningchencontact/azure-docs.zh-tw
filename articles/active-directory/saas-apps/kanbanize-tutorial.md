@@ -34,7 +34,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 Azure AD 與 Kanbanize 整合，您需要下列項目：
 
@@ -171,7 +171,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 
     g. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容 (不含開始和結束標記)，然後貼到 **** [Idp X.509 Certificate] \(Idp X.509 憑證\) 方塊中。
 
-    h.如果该值不存在，请单击“添加行”。 勾選 [使用 SSO 和 Kanbanize 啟用登入]  。
+    h. 勾選 [使用 SSO 和 Kanbanize 啟用登入]  。
     
     i. 按一下 [儲存設定]  。
 
@@ -205,7 +205,7 @@ Kanbanize 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="create-a-kanbanize-test-user"></a>建立 Kanbanize 測試使用者
 

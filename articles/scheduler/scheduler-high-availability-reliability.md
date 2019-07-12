@@ -70,7 +70,7 @@ Azure 排程器可讓您設定重試原則。 如果作業失敗，則根據預�
 
 若要了解如何設定替代端點，請參閱 [errorAction](scheduler-concepts-terms.md#error-action)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [概念、術語及實體階層](scheduler-concepts-terms.md)

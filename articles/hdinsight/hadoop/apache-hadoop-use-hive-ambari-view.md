@@ -21,7 +21,7 @@ ms.locfileid: "64719575"
 
 了解如何使用 Apache Ambari Hive 檢視執行 Hive 查詢。 Hive 檢視可讓您從網頁瀏覽器編寫、最佳化及執行 Hive 查詢。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 在 HDInsight 上 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 * 網頁瀏覽器
@@ -150,7 +150,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-您接著可以在查詢中使用 UDF。 例如： `SELECT myawesomeudf(name) FROM people;`。
+您接著可以在查詢中使用 UDF。 例如： `SELECT myawesomeudf(name) FROM people;` 。
 
 如需在 HDInsight 上搭配 Hive 使用 UDF 的詳細資訊，請參閱下列文章：
 

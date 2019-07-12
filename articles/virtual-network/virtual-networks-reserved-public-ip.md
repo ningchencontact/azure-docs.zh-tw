@@ -39,7 +39,7 @@ ms.locfileid: "60789072"
 
 ## <a name="faqs"></a>常見問題集
 - 我是否可以針對所有 Azure 服務都使用保留的 IP？
-    沒有。 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
+    資料分割 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
 - 我可以有多少保留的 IP？
     如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 - 保留的 IP 是否會收取費用？
@@ -47,7 +47,7 @@ ms.locfileid: "60789072"
 - 我該如何保留 IP 位址？
     您可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 入口網站](https://portal.azure.com)，在 Azure 區域中保留 IP 位址。 保留的 IP 位址會與您的訂用帳戶關聯。
 - 我是否可以將保留的 IP 位址與同質群組型 VNet 搭配使用？
-    沒有。 保留的 IP 僅在區域 VNet 才受支援。 與同質群組關聯的 VNet 不支援保留的 IP。 如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)一文。
+    資料分割 保留的 IP 僅在區域 VNet 才受支援。 與同質群組關聯的 VNet 不支援保留的 IP。 如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)一文。
 
 ## <a name="manage-reserved-vips"></a>管理保留的 VIP
 

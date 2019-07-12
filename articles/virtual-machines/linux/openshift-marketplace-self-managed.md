@@ -68,9 +68,9 @@ ms.locfileid: "65233091"
 |-----------------------|-----------------|
 | VM 系統管理員使用者名稱 | 若要在所有 VM 執行個體上建立的系統管理員使用者 |
 | SSH 公開金鑰系統管理使用者 | 用來登入 VM 的 SSH 公用金鑰不能有複雜密碼 |
-| 訂用帳戶 | 若要將叢集部署到 azure 訂用帳戶 |
+| Subscription | 若要將叢集部署到 azure 訂用帳戶 |
 | 資源群組 | 建立新的資源群組，或選取現有的空白資源群組的叢集資源 |
-| 位置 | 若要將叢集部署到 azure 區域 |
+| Location | 若要將叢集部署到 azure 區域 |
 
    ![提供基本概念刀鋒視窗](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

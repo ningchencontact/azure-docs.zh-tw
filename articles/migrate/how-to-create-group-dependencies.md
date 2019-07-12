@@ -61,7 +61,7 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 2. 在 [歡迎]  頁面中按 [下一步]  。 在 [授權條款]  頁面上，按一下 [我同意]  以接受授權。
 3. 在 [目的地資料夾]  中，保留或修改預設的安裝資料夾 > [下一步]  。
 4. 在 [代理程式安裝選項]  中，選取 [Azure Log Analytics]   > [下一步]  。
-5. 按一下 [新增]  以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 单击“下一步”  。
+5. 按一下 [新增]  以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按一下 [下一步]  。
 
 您可以從命令列或使用 System Center Configuration Manager 等自動化的方法來安裝代理程式。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
 

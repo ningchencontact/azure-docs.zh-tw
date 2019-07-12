@@ -27,7 +27,7 @@ ms.locfileid: "66508152"
 2. 選取 [Create an app]  \(建立應用程式\)。
 3. 輸入**應用程式名稱**和**應用程式說明**。
 4. 在 [Website URL]  \(網站 URL\) 中，輸入 `https://your-tenant.b2clogin.com`。 以您的租用戶名稱取代 `your-tenant`。 例如： https://contosob2c.b2clogin.com 。
-5. 在 [回呼 URL]  中輸入 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`。 將 `your-tenant` 取代為您的租用戶名稱，並將 `your-user-flow-Id` 取代為您的使用者流程識別碼。 例如： `b2c_1A_signup_signin_twitter`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。
+5. 在 [回呼 URL]  中輸入 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`。 將 `your-tenant` 取代為您的租用戶名稱，並將 `your-user-flow-Id` 取代為您的使用者流程識別碼。 例如： `b2c_1A_signup_signin_twitter` 。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。
 6. 在頁面底部，閱讀並接受條款，然後選取 [Create]  \(建立\)。
 7. 在 [App details]  \(應用程式詳細資料\) 頁面上，選取 [Edit] \(編輯\) > [Edit details] \(編輯詳細資料\)  、核取 [Enable Sign in with Twitter]  \(使用 Twitter 啟用登入\) 的方塊，然後選取 [Save]  \(儲存\)。
 8. 選取 [Keys and tokens]  \(金鑰和權杖\)，並記錄**取用者 API 金鑰**和**取用者 API 祕密金鑰**的值，以供稍後使用。

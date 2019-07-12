@@ -34,11 +34,11 @@ ms.locfileid: "60322245"
 
 ## <a name="key-delivery-log-schema"></a>金鑰傳遞記錄結構描述
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 
 這些屬性專屬於金鑰傳遞記錄結構描述。
 
-|Name|描述|
+|名稱|描述|
 |---|---|
 |keyId|要求的索引鍵識別碼。|
 |keyType|可能是下列其中一個值：「 清除 」 （不加密）、"FairPlay 」、 「 PlayReady"或者"Widevine 」。|

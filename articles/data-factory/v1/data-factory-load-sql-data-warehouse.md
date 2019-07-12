@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a653648f3ae4b40e0bfe2c6f168cfb890bcc59
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825212"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839097"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
@@ -41,7 +41,7 @@ ms.locfileid: "60825212"
 > [!NOTE]
 >  如需從 Azure SQL 資料倉儲來回移動資料之 Data Factory 功能的一般資訊，請參閱[使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料](data-factory-azure-sql-data-warehouse-connector.md)一文。
 >
-> 您也可以使用 Azure 入口網站、Visual Studio、PowerShell 等來建置管線。請參閱[教學課程：將資料從 Azure Blob 複製到 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ，以取得快速逐步解說，其中包含如何使用 Azure Data Factory 中複製活動的逐步指示。  
+> 您也可以建置使用 Visual Studio、 PowerShell 等的管線。請參閱[教學課程：將資料從 Azure Blob 複製到 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ，以取得快速逐步解說，其中包含如何使用 Azure Data Factory 中複製活動的逐步指示。  
 >
 >
 
@@ -124,7 +124,7 @@ ms.locfileid: "60825212"
       2. 選取 [建立新的]  以輸入資源群組的名稱。
    4. 選取 Data Factory 的 [位置]  。
    5. 選取刀鋒視窗底部的 [釘選到儀表板]  核取方塊。  
-   6. 按一下頁面底部的 [新增]  。
+   6. 按一下 [建立]  。
 4. 建立完成之後，您會看到 [Data Factory]  刀鋒視窗，如下圖所示：
 
    ![Data Factory 首頁](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -142,7 +142,7 @@ ms.locfileid: "60825212"
 
 1. 輸入 **CopyFromBlobToAzureSqlDataWarehouse** 作為 [工作名稱] 
 2. 選取 [立即執行一次]  選項。   
-3. 单击“下一步”  。  
+3. 按一下 [下一步]  。  
 
     ![複製精靈 - 屬性頁面](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -184,7 +184,7 @@ ms.locfileid: "60825212"
 
 ## <a name="step-4-performance-settings"></a>步驟 4：效能設定
 
-預設會核取 [允許 Polybase]  。  单击“下一步”  。
+預設會核取 [允許 Polybase]  。  按一下 [下一步]  。
 
 ![複製精靈 - 結構描述對應頁面](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

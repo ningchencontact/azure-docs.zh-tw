@@ -34,7 +34,7 @@ ms.locfileid: "61463260"
 
 本教學課程將逐步引導您使用 Azure 入口網站建立針對即時通行傳遞設定的 **通道** 。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 需要有下列項目，才能完成教學課程：
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
@@ -111,7 +111,7 @@ ms.locfileid: "61463260"
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
 2. 在 [設定]  視窗中，按一下 [即時視訊串流]  。 
    
-    ![開始使用](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+    ![使用者入門](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     [即時視訊串流]  視窗隨即出現。
 3. 按一下 [快速建立]  ，使用 RTMP 內嵌通訊協定建立即時通行通道。
@@ -125,7 +125,7 @@ ms.locfileid: "61463260"
 1. 選取您要新增事件的通道。
 2. 按下 [即時事件]  按鈕。
 
-![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![Event - 事件](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>取得內嵌 URL
 建立通道之後，即可取得您提供給即時編碼器的內嵌 URL。 編碼器會使用這些 URL 來輸入即時串流。

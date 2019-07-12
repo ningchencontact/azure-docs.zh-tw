@@ -26,7 +26,7 @@ ms.locfileid: "64572381"
 * 製作[反向地址搜尋](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)來搜尋街道地址
 * 用於交叉街道搜尋[搜尋地址反向交叉街道 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理 Azure 地圖服務帳戶和金鑰](how-to-manage-account-keys.md)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "64572381"
     |---------------|------------------------------------------------|
     | HTTP 方法 | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | 授權 | 無授權 |
+    | Authorization | 無授權 |
 
     URL 路徑中的 **Json** 屬性會判斷回應格式。 您在整篇文章中使用 json，以方便使用並提升可讀性。 您可以在[地圖服務功能性 API 參考](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)的＜取得搜尋模糊＞  定義中找到可用的回應格式。
 
@@ -102,7 +102,7 @@ ms.locfileid: "64572381"
     |---------------|------------------------------------------------|
     | HTTP 方法 | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | 授權 | 無授權 |
+    | Authorization | 無授權 |
 
 3. 按一下 [Params]  ，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
@@ -143,7 +143,7 @@ ms.locfileid: "64572381"
     |---------------|------------------------------------------------|
     | HTTP 方法 | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | 授權 | 無授權 |
+    | Authorization | 無授權 |
   
 3. 按一下 [Params]  ，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   
@@ -203,7 +203,7 @@ ms.locfileid: "64572381"
     |---------------|------------------------------------------------|
     | HTTP 方法 | GET |
     | 要求 URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | 授權 | 無授權 |
+    | Authorization | 無授權 |
   
 3. 按一下 [Params]  ，然後輸入下列金鑰 / 值組來作為要求 URL 中的查詢或路徑參數：
   

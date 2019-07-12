@@ -29,7 +29,7 @@ ms.locfileid: "60254071"
 
 當您將自訂計量傳送至 Azure 監視器時，報告的每個資料點或值都必須包含下列資訊。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 若要將自訂計量提交至 Azure 監視器，提交計量的實體在要求的 **Bearer** 標頭中需要有效的 Azure Active Directory (Azure AD) 權杖。 支援取得有效持有人權杖的方式有好幾種：
 1. [Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 對 Azure 資源本身 (例如 VM) 提供身分識別。 受控服務識別 (MSI) 的設計訴求是要提供資源執行特定作業的權限。 例如，允許資源發出本身相關的計量。 也可以在其他資源上授與資源 (或其 MSI) 的「監視計量發行者」  權限。 透過此權限，MSI 也可以發出其他資源的計量。
 2. [Azure AD 服務主體](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)。 在此案例中，可以將權限指派給 Azure AD 應用程式或服務，以發出 Azure 資源的相關計量。
@@ -60,7 +60,7 @@ ms.locfileid: "60254071"
 ### <a name="namespace"></a>命名空間
 命名空間是將類似計量分類或分組的方法。 您可以使用命名空間，將收集不同見解或效能指標的計量群組隔離。 比方說，您可能有稱為 **ContosoMemoryMetrics** 的命名空間，可追蹤用來分析應用程式的記憶體使用計量。 另一個稱為 **ContosoAppTransaction** 的命名空間可能會追蹤應用程式中有關使用者交易的所有計量。
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 **名稱**是要報告的計量名稱。 通常名稱的描述就足以協助識別所測量的項目。 舉例來說，可測量指定 VM 上所用記憶體位元組數目的計量。 其計量名稱可能為「使用中的記憶體位元組」  。
 
 ### <a name="dimension-keys"></a>維度索引鍵
@@ -170,7 +170,7 @@ Azure 監視器會儲存一分鐘資料粒度間隔內的所有計量。 我們�
 
 |Azure 區域|區域端點前置詞|
 |---|---|
-|美國東部| https:\//eastus.monitoring.azure.com/ |
+|East US| https:\//eastus.monitoring.azure.com/ |
 |美國中南部| https:\//southcentralus.monitoring.azure.com/ |
 |美國中西部| https:\//westcentralus.monitoring.azure.com/ |
 |美國西部 2| https:\//westus2.monitoring.azure.com/ |

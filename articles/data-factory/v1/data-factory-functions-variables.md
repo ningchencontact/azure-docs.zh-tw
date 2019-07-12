@@ -78,13 +78,13 @@ ms.locfileid: "60486510"
 ### <a name="functions"></a>函式
 下表列出 Azure Data Factory 中的所有函式：
 
-| Category | 函式 | 參數 | 描述 |
+| Category | 函數 | 參數 | 描述 |
 | --- | --- | --- | --- |
 | Time |AddHours(X,Y) |X：Datetime <br/><br/>Y：int |將 Y 小時新增至指定時間 X。 <br/><br/>範例：`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Time |AddMinutes(X,Y) |X：Datetime <br/><br/>Y：int |將 Y 分鐘新增至 X。<br/><br/>範例： `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
 | Time |StartOfHour(X) |X：Datetime |取得 X 之小時元件代表的小時開始時間。 <br/><br/>範例： `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X：Datetime<br/><br/>Y：int |將 Y 天數新增至 X。 <br/><br/>範例：9/15/2013 12:00:00 PM + 2 天 = 9/17/2013 12:00:00 PM。<br/><br/>您也可以藉由將 Y 指定為負數來減去天。<br/><br/>範例： `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths(X,Y) |X：Datetime<br/><br/>Y：int |將 Y 月數新增至 X。<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM` 。<br/><br/>您也可以藉由將 Y 指定為負數來減去月份。<br/><br/>範例：`9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddMonths(X,Y) |X：Datetime<br/><br/>Y：int |將 Y 月數新增至 X。<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>您也可以藉由將 Y 指定為負數來減去月份。<br/><br/>範例：`9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Date |AddQuarters(X,Y) |X：Datetime <br/><br/>Y：int |將 Y * 3 個月新增至 X。<br/><br/>範例： `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
 | Date |AddWeeks(X,Y) |X：Datetime<br/><br/>Y：int |將 Y * 7 天新增至 X<br/><br/>範例：9/15/2013 12:00:00 PM + 1 週 = 9/22/2013 12:00:00 PM<br/><br/>您也可以藉由將 Y 指定為負數來減去週。<br/><br/>範例： `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
 | Date |AddYears(X,Y) |X：Datetime<br/><br/>Y：int |將 Y 年新增至 X。<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>您也可以藉由將 Y 指定為負數來減去年。<br/><br/>範例： `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |

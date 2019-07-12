@@ -21,7 +21,7 @@ ms.locfileid: "60747569"
 
 了解哪些功能可協助您管理和監視 Azure SQL 資料倉儲。 下列文章特別說明如何將資料倉儲的效能和使用方式最佳化。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 * [深入了解計算管理和彈性][manage compute]
 * [了解 Azure 入口網站中可取得哪些計量和記錄][resource utilization]

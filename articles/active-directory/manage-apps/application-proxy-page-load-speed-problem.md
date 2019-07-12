@@ -27,7 +27,7 @@ ms.locfileid: "65782638"
 
 本文協助您了解為何 Azure AD 應用程式 Proxy 應用程式的載入時間可能很長。 以及說明如何才能解決此問題。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 雖然您的應用程式可以運作，但可能會遭遇長時間延遲。 您可以對網路拓撲進行調整，以提升速度。 若要評估不同的拓樸，請參閱[網路考量文件](application-proxy-network-topology.md)。
 
 除了網路拓撲，目前沒有進一步的效能微調建議。 隨著應用程式 Proxy 服務擴展，可能會來到實體上更接近的資料中心。 更接近的鄰近位置可能對延遲有所幫助。 如需 Azure 資料中心清單，請參閱[延遲測試頁面](http://www.azurespeed.com/Azure/Latency)。 

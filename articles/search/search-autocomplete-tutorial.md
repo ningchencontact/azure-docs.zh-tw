@@ -38,7 +38,7 @@ ms.locfileid: "66426918"
 > * 在C#，在 HomeController.cs 中定義的建議和自動完成動作
 > * 在 JavaScript 中，呼叫 REST Api 直接提供相同的功能
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure 搜尋服務是針對此練習中選擇性的因為解決方案會使用即時沙箱服務裝載的已備妥的為 NYCJobs 示範索引也一樣。 如果您想要在您自己的搜尋服務上執行這個範例，請參閱[設定 NYC 工作索引](#configure-app)如需相關指示。
 

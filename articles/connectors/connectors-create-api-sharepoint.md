@@ -37,7 +37,7 @@ ms.locfileid: "60450738"
 您可以使用觸發程序，從 SharePoint 收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用動作，在 SharePoint 中執行工作。 您也可以讓其他動作使用 SharePoint 動作的輸出。 例如，如果您定期從 SharePoint 擷取檔案，可以使用 Slack 連接器將訊息傳送給您的小組。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 

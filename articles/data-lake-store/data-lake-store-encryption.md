@@ -57,10 +57,10 @@ Data Lake Storage Gen1 提供兩種管理主要加密金鑰 (MEK) 模式。 現�
 |儲存資料的方式|一律在儲存之前加密。|一律在儲存之前加密。|
 |主要加密金鑰的儲存位置|Key Vault|Key Vault|
 |任何加密金鑰是否會完全儲存在 Key Vault 外部？ |否|否|
-|Key Vault 是否可以擷取 MEK？|沒有。 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|沒有。 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|
+|Key Vault 是否可以擷取 MEK？|資料分割 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|資料分割 MEK 儲存於 Key Vault 之後，就只能用來加密和解密。|
 |誰擁有 Key Vault 執行個體和 MEK？|Data Lake Storage Gen1 服務|您擁有 Key Vault 執行個體，其屬於您自己的 Azure 訂用帳戶。 Key Vault 中的 MEK 可以由軟體或硬體管理。|
-|您是否可以撤銷 Data Lake Storage Gen1 服務對於 MEK 的存取權？|否|是。 您可以管理 Key Vault 中的存取控制清單，並移除 Data Lake Storage Gen1 服務的服務識別存取控制項目。|
-|您是否可以永久刪除 MEK？|否|是。 如果您從 Key Vault 中刪除 MEK，任何人 (包含 Data Lake Storage Gen1 服務) 都無法將 Data Lake Storage Gen1 帳戶中的資料解密。 <br><br> 如果從 Key Vault 中刪除 MEK 之前，您已明確進行備份，即可還原 MEK，進而復原資料。 不過，如果從 Key Vault 中刪除 MEK 之前，您尚未進行備份，則 Data Lake Storage Gen1 帳戶中的資料之後就永遠無法解密。|
+|您是否可以撤銷 Data Lake Storage Gen1 服務對於 MEK 的存取權？|否|是的。 您可以管理 Key Vault 中的存取控制清單，並移除 Data Lake Storage Gen1 服務的服務識別存取控制項目。|
+|您是否可以永久刪除 MEK？|否|是的。 如果您從 Key Vault 中刪除 MEK，任何人 (包含 Data Lake Storage Gen1 服務) 都無法將 Data Lake Storage Gen1 帳戶中的資料解密。 <br><br> 如果從 Key Vault 中刪除 MEK 之前，您已明確進行備份，即可還原 MEK，進而復原資料。 不過，如果從 Key Vault 中刪除 MEK 之前，您尚未進行備份，則 Data Lake Storage Gen1 帳戶中的資料之後就永遠無法解密。|
 
 
 除了誰負責管理 MEK 及其所在 Key Vault 執行個體的這項差異，這兩種模式的其餘設計都相同。
@@ -74,7 +74,7 @@ Data Lake Storage Gen1 提供兩種管理主要加密金鑰 (MEK) 模式。 現�
 
 資料加密設計使用三種金鑰類型。 下表提供摘要：
 
-| Key                   | 縮寫 | 相關聯的項目 | 儲存位置                             | 類型       | 注意                                                                                                   |
+| Key                   | 縮寫 | 相關聯的項目 | 儲存位置                             | type       | 注意                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | 主要加密金鑰 | MEK          | Data Lake Storage Gen1 帳戶 | Key Vault                              | 非對稱 | 它可由 Data Lake Storage Gen1 或您管理。                                                              |
 | 資料加密金鑰   | DEK          | Data Lake Storage Gen1 帳戶 | 永續性儲存體，由 Data Lake Storage Gen1 服務管理 | 對稱  | DEK 是由 MEK 加密。 已加密的 DEK 會儲存在持續性媒體上。 |
@@ -107,7 +107,7 @@ Data Lake Storage Gen1 提供兩種管理主要加密金鑰 (MEK) 模式。 現�
 
 當您使用客戶受控的金鑰時，您可以輪替 MEK。 若要了解如何使用客戶管理的金鑰來設定 Data Lake Storage Gen1 帳戶，請參閱[開始使用](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 當您設定 Data Lake Storage Gen1 帳戶時，您已選擇使用自己的金鑰。 建立帳戶之後，就無法變更此選項。 下列步驟假設您使用客戶管理的金鑰 (也就是，您已從 Key Vault 中選擇自己的金鑰)。
 

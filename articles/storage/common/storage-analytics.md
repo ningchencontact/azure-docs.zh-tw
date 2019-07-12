@@ -17,9 +17,9 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153912"
 ---
-# <a name="storage-analytics"></a>存储分析
+# <a name="storage-analytics"></a>儲存體分析
 
-Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。 可以使用此数据为存储帐户跟踪请求、分析使用趋势和诊断问题。
+Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。
 
 若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 您可以從[Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱 <<c0> [ 監視儲存體帳戶在 Azure 入口網站中的](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用[設定 Blob 服務屬性](/rest/api/storageservices/set-blob-service-properties)，[設定佇列服務屬性](/rest/api/storageservices/set-queue-service-properties)，[設定表格服務屬性](/rest/api/storageservices/set-table-service-properties)，和[設定檔案服務屬性](/rest/api/storageservices/Get-File-Service-Properties)每個服務啟用儲存體分析的作業。
 
@@ -31,9 +31,9 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 ## <a name="billing-for-storage-analytics"></a>儲存體分析計費
 
-所有度量数据是由存储帐户服务写入的。 因此，儲存體分析所執行的每個寫入作業都會列入計費。 此外，度量資料所使用的儲存體數量也會列入計費。
+所有的度量資料都是由儲存體帳戶的服務所寫入。 因此，儲存體分析所執行的每個寫入作業都會列入計費。 此外，度量資料所使用的儲存體數量也會列入計費。
 
-存储分析执行的以下操作都是计费的：
+儲存體分析所執行的下列動作會列入計費：
 
 * 建立 Blob 以用於記錄的要求。
 * 針對度量建立資料表實體的要求。

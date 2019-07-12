@@ -32,7 +32,7 @@ Business One 支援兩種不同的資料庫：
 
 關於 SQL Server 的基本部署考量如 [SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide)中所述。 SAP HANA 的考量則會在本文中提及。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用本指南，您需要下列 Azure 元件的基本知識：
 
 - [Windows 上的 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)

@@ -23,13 +23,13 @@ ms.locfileid: "65785506"
 
 [將您的資料庫從 SQL Server 移轉](sql-database-single-database-migrate.md)至 Azure SQL Server 時，您可能會發現您的資料庫必須先進行一些再造，才能移轉 SQL Server。 本文章提供一些指引，以協助您執行此再造作業，以及了解為何必須執行再造的基礎原因。 若要偵測不相容性，請使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部分 Transact-SQL 功能。 例如，資料類型、運算子、字串、算術、邏輯及資料指標函式等核心 SQL 元件在 SQL Server 與 SQL Database 中都以相同的方式運作。 不過，DDL (資料定義語言) 和 DML (資料操作語言) 元素中有幾個 T-SQL 差異導致對 T-SQL 陳述式和查詢僅提供部分支援 (將在本文章中稍後探討)。
 
 此外，還有一些功能和語法完全不受支援，因為 Azure SQL Database 的設計目的是要將功能隔離，讓它們不與 master 資料庫和作業系統相依。 因此，大多數伺服器層級活動都不適用於 SQL Database。 如果它們設定伺服器層級選項、作業系統元件或指定檔案系統組態，便無法使用 T-SQL 陳述式和選項。 當需要這類功能時，通常會從 SQL Database 或從另一個 Azure 功能或服務以其他方式提供適合的替代方案。
 
-例如，高可用性會使用類似 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)的技術來建置到 Azure SQL Database 中。 SQL 数据库不支持与可用性组相关的 T-SQL 语句，也不支持与 Always On 可用性组相关的动态管理视图。
+例如，高可用性會使用類似 [Always On 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)的技術來建置到 Azure SQL Database 中。 SQL Database 不支援與可用性群組相關的 T-SQL 陳述式，也不支援與「Always On 可用性群組」相關的動態管理檢視。
 
 如需 SQL Database 所支援和不支援的功能清單，請參閱 [Azure SQL Database 功能比較](sql-database-features.md)。 此頁面上的清單可補充該指引和功能文章，並將焦點放在 Transact-SQL 陳述式。
 
@@ -49,7 +49,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 - 相關的連線：端點狀態。 SQL Database 不支援 Windows 驗證，但支援類似的 Azure Active Directory 驗證。 某些驗證類型需要最新的 SSMS 版本。 如需詳細資訊，請參閱 [使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)。
 - 使用三個或四個組件名稱跨資料庫查詢。 (使用[彈性資料庫查詢](sql-database-elastic-query-overview.md)支援跨資料庫唯讀查詢。)
 - 跨資料庫擁有權鏈結，`TRUSTWORTHY` 設定
-- `EXECUTE AS LOGIN` 改用“EXECUTE AS USER”。
+- `EXECUTE AS LOGIN` 請改用 'EXECUTE AS USER'。
 - 除了可延伸金鑰管理之外還支援加密
 - 事件服務：事件、事件通知、查詢通知
 - 檔案位置：與資料庫檔案位置、大小和資料庫檔案 (由 Microsoft Azure 自動管理) 相關的語法。

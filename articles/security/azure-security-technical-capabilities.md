@@ -140,7 +140,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 - 視需要啟用 Office 365 和 Intune 等 Microsoft Online Services 的 "just-in-time" 系統管理存取權限
 
-- 获取有关管理员访问历史记录以及管理员分配更改的报告
+- 取得有關系統管理員存取記錄與系統管理員指派變更的報告
 
 - 取得有關特殊權限角色存取的警示
 
@@ -193,7 +193,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 > [!Note]
 > 不只是「應用程式資料」或「PII」，而是所有與應用程式相關的資料，包括帳戶的中繼資料 (訂用帳戶對應、合約資訊、PII)。
 
-請細想您使用了哪些存放區來儲存資料。 例如︰
+請細想您使用了哪些存放區來儲存資料。 例如:
 
 - 外部儲存體 (例如，SQL Azure、Document DB、HDInsights、Data Lake 等)
 
@@ -247,7 +247,7 @@ PaaS v1 目前不支援 Azure 磁碟加密。 因此，您必須使用應用程�
 
 對於在內部部署基礎結構與 Azure 之間移動的資料，您應該考慮適當的防護措施，例如 HTTPS 或 VPN。
 
-对于需要从位于本地的多个工作站安全访问 Azure 的组织而言，请使用 [Azure 站点到站点 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create)。
+對於需要從位於內部部署的多個工作站安全存取 Azure 的組織而言，請使用 [Azure 站對站 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create)。
 
 對於需要從位於內部部署的一個工作站安全存取 Azure 的組織而言，請使用[點對站 VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create)。
 
@@ -283,7 +283,7 @@ Azure 負責保護您的應用程式執行所在的基礎結構和平台，而�
 ### <a name="web-application-firewall"></a>Web 應用程式防火牆
 [Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 是一項[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。
 
-Web 應用程式防火牆會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。 Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
+Web 應用程式防火牆會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。 Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
 Web 應用程式防火牆防禦的一些常見 Web 弱點包括︰
 
@@ -291,11 +291,11 @@ Web 應用程式防火牆防禦的一些常見 Web 弱點包括︰
 
 - 跨網站指令碼保護
 
-- 常见 Web 攻击保护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含攻击
+- 常見 Web 攻擊保護，例如命令插入式攻擊、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
 
 - 防範 HTTP 通訊協定違規
 
-- 防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
+- 防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
 
 - 防範 Bot、編目程式和掃描器
 
@@ -387,7 +387,7 @@ Microsoft 開發了[雲端服務審查評鑑檢查表](https://aka.ms/cloudcheck
 
 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 方案，以及對網路安全性威脅型態的深層認知。
 
-### <a name="microsoft-azure-monitor"></a>Microsoft Azure 監視器
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
 [Azure 監視器](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)是混合式雲端 IT 管理解決方案。 單獨使用或擴充您現有的 System Center 部署、 Azure 監視器記錄檔提供您的最大的彈性和控制雲端為基礎的管理基礎結構。
 
@@ -471,13 +471,13 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 - 來自 Docker 或 Azure 的**主機診斷**。
 
-- 來自您應用程式的**診斷追蹤記錄檔** - 讓您使追蹤事件與要求相互關聯。
+- 來自您應用程式的**診斷追蹤記錄** - 讓您使追蹤事件與要求相互關聯。
 
 - 您在用戶端或伺服器程式碼中自行撰寫的**自訂事件和計量**，可追蹤商業事件，例如售出的項目或獲勝的遊戲。
 
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 可讓您將方案中的資源做為群組使用。
 
-您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
+您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。
 
 **使用 Resource Manager 的優點**
 

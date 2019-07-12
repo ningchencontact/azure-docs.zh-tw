@@ -98,7 +98,7 @@ _Blob2.json_
 > [!NOTE]
 > 所使用的方法`AzureSearch_DocumentKey`確保唯一性，每個擷取的實體可能有所變更，因此您不應依賴它的值符合您的應用程式需求。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務中的索引子](search-indexer-overview.md)
 + [使用 Azure 搜尋服務編製 Azure Blob 儲存體的索引](search-howto-index-json-blobs.md)

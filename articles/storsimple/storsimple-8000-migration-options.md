@@ -102,7 +102,7 @@ A. StorSimple 5000-7000 系列使用者可根據其所處的情境，選擇下�
 
 ### <a name="q-is-migration-to-other-storage-solutions-supported"></a>問： 是否支援移轉至其他儲存體解決方案？
 
-A. 是。 使用資料的主機複本移轉至其他儲存體解決方案，是可行的。
+A. 是的。 使用資料的主機複本移轉至其他儲存體解決方案，是可行的。
 
 ### <a name="q-is-migration-supported-by-microsoft"></a>問： Microsoft 是否支援移轉？ 
 

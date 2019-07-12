@@ -27,7 +27,7 @@ ms.locfileid: "60386171"
 > [!NOTE] 
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 您在工作階段期間遇到間歇性的 RDP 連線中斷問題。 您一開始可以連線到 VM，但之後連線就斷了。
 
@@ -35,7 +35,7 @@ ms.locfileid: "60386171"
 
 如果 RDP 接聽程式的設定不正確，就可能發生此問題。 一般而言，此問題會發生在使用自訂映像的 VM 上。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在遵循下列步驟之前，[請擷取受影響虛擬機器作業系統磁碟的快照集](../windows/snapshot-copy-managed-disk.md)作為備份。 
 

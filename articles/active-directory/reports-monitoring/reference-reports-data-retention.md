@@ -66,7 +66,7 @@ ms.locfileid: "65781050"
 
 **活動報告**    
 
-| 報告                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 報表                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | 稽核記錄             | 7 天        |  7 天        | 30 天             | 30 天             |
 | 登入               | N/A           |  N/A           | 30 天             | 30 天             |
@@ -76,7 +76,7 @@ ms.locfileid: "65781050"
 
 **安全性訊號**
 
-| 報告         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 報表         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
 | 有風險的使用者  | 7 天        | 7 天         | 30 天             | 90 天             |
 | 有風險的登入 | 7 天        | 7 天         |  30 天            | 90 天             |

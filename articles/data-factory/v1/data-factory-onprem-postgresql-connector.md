@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461998"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839919"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-onprem-postgresql-connector.md)
 > * [第 2 版 (目前的版本)](../connector-postgresql.md)
 
@@ -45,12 +45,11 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
 若要讓資料管理閘道連線至 PostgreSQL 資料庫，請在與資料管理閘道相同的系統上，安裝 [PostgreSQL 的 Ngpsql 資料提供者](https://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 和 3.1.9 之間的版本。 支援 PostgreSQL 版本 7.4 和以上版本。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 PostgreSQL 資料存放區移動資料。
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 - 您也可以使用下列工具來建立管線：
-  - Azure 入口網站
   - Visual Studio
   - Azure PowerShell
   - Azure Resource Manager 範本
@@ -79,7 +78,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | database |PostgreSQL 資料庫的名稱。 |是 |
 | schema |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
 | authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
-| username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
+| userName |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 PostgreSQL 資料庫的閘道器名稱。 |是 |
 
@@ -106,12 +105,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢中以 `""` (雙引號) 括住它們。
 
-**範例：**
+**範例:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON 範例：從 PostgreSQL 複製資料到 Azure Blob
-此範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 這些範例示範如何將資料從 PostgreSQL 資料庫複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
+此範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例示範如何將資料從 PostgreSQL 資料庫複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
 
 > [!IMPORTANT]
 > 此範例提供 JSON 程式碼片段。 其中並不包含建立 Data Factory 的逐步指示。 如需逐步指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。
@@ -306,12 +305,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 | PostgreSQL 資料庫類型 | PostgresSQL 別名 | .NET Framework 類型 |
 | --- | --- | --- |
-| abstime | |DateTime |
+| abstime | |Datetime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[]、String |
 | 位元不同 [ (n) ] |varbit |Byte[]、String |
-| boolean |布林 |Boolean |
+| boolean |bool |Boolean |
 | 方塊 | |Byte[]、String |
 | bytea | |Byte[]、String |
 | character [(n)] |char [(n)] |字串 |
@@ -319,7 +318,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | cid | |字串 |
 | cidr | |字串 |
 | 圓形 | |Byte[]、String |
-| date | |DateTime |
+| date | |Datetime |
 | daterange | |字串 |
 | 雙精度 |float8 |Double |
 | inet | |Byte[]、String |

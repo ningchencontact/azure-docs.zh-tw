@@ -23,7 +23,7 @@ ms.locfileid: "67123288"
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>管理 Azure 實驗室服務中的教室實驗室 
 本文說明如何建立和刪除教室實驗室。 它也示範如何檢視實驗室帳戶中的所有教室實驗室。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要在實驗室帳戶中設定教室實驗室，您必須是實驗室帳戶中 [實驗室建立者]  角色的成員。 您用來建立實驗室帳戶的帳戶會自動新增至此角色。 實驗室擁有者可以使用下列文章中的步驟，將其他使用者新增至「實驗室建立者」角色：[將使用者新增至實驗室建立者角色](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)。
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室
@@ -37,7 +37,7 @@ ms.locfileid: "67123288"
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. 在 [選取虛擬機器規格]  頁面上，執行下列步驟：
-    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]  。 目前，**小型**，**中型**，**媒體 （虛擬化）** ，**大型**，並**GPU**大小允許的。 如需詳細資訊，請參閱 < [VM 大小](#vm-sizes)一節。
+    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]  。 目前只允許 [小]  、[中]  、[中 (虛擬化)]  、[大]  及 [GPU]  大小。 如需詳細資訊，請參閱 < [VM 大小](#vm-sizes)一節。
     1. 選取您要在其中建立 VM 的 [區域]  。 
     1. 選取要用來在實驗室中建立 VM 的 [VM 映像]  。 如果您選取 Linux 映像，您會看到可啟用遠端桌面連接的選項。 如需詳細資料，請參閱[啟用 Linux 遠端桌面連線](how-to-enable-remote-desktop-linux.md)。
     1. 選取 [下一步]  。
@@ -63,7 +63,7 @@ ms.locfileid: "67123288"
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 以下是本教學課程中的選擇性步驟： 
     2. 選取 [連線]  以連線至範本 VM。 如果是 Linux 範本 VM，您可選擇是否要使用 SSH 或 RDP 連線 (若已啟用 RDP)。
-    1. 選取 **重設密碼**vm 重設密碼。 
+    1. 選取 [重設密碼]  以重設 VM 的密碼。 
     1. 在您的範本 VM 上安裝並設定軟體。 
     1. **停止** VM。  
     1. 輸入範本的 [描述] 
@@ -91,7 +91,7 @@ ms.locfileid: "67123288"
 
 ### <a name="vm-sizes"></a>VM 大小  
 
-| 大小 | 核心 | RAM | 描述 | 
+| Size | 核心 | RAM | 描述 | 
 | ---- | ----- | --- | ----------- | 
 | 小型 | 2 | 3.5 GB | 此大小是最適合用於小型至中型資料庫開啟網頁瀏覽器，低流量網頁伺服器的命令列。 |
 | 中 | 4 | 7 GB | 此大小最適合用於關聯式資料庫、 記憶體中快取及分析 | 

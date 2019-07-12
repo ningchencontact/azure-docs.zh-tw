@@ -554,7 +554,7 @@ Azure Blob 儲存體中資料上傳所在容器的名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 ##### <a name="xml-source"></a>XML 來源
@@ -596,7 +596,7 @@ Azure Blob 儲存體中資料上傳所在容器的名稱。
 |屬性|值|
 |---|---|
 |內容|1 個屬性|
-|name|Path|
+|name|`Path`|
 
 ### <a name="xml-source"></a>XML 來源
 ```xml
@@ -611,12 +611,12 @@ Azure Blob 儲存體中資料上傳所在容器的名稱。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="path"></a>Path
+#### <a name="path"></a>`Path`
 檔案共用的路徑。 格式：file:[]
 
 |屬性|值|
 |---|---|
-|name|Path|
+|name|`Path`|
 |type|xs:string|
 |use|必要|
 
@@ -870,7 +870,7 @@ ApplicationInstance 和 ServicePackage 文件中版本設定區段的屬性群�
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 ##### <a name="xml-source"></a>XML 來源

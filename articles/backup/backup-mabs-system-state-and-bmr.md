@@ -96,7 +96,7 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 
 ## <a name="before-you-begin"></a>開始之前
 
-1.  **部署 Azure 備份伺服器**。 請確認您是否已正確地部署備份伺服器。 如需詳細資訊，請參閱
+1.  **部署 Azure 備份伺服器**。 請確認您是否已正確地部署備份伺服器。 如需詳細資訊，請參閱：
     * [Azure 備份伺服器的系統需求](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [備份伺服器保護對照表](backup-mabs-protection-matrix.md)
 

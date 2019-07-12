@@ -94,7 +94,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 您的問題是否與缺少特性或功能相關？ 請在 [User Voice 網站](https://feedback.azure.com/forums/263029-azure-search)上要求此功能。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
  [StackOverflow：Azure 搜尋服務](https://stackoverflow.com/questions/tagged/azure-search)   
  [全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)  

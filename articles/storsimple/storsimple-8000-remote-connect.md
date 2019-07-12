@@ -24,7 +24,7 @@ ms.locfileid: "60631736"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>遠端連線至 StorSimple 8000 系列裝置
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 您可以透過 Windows PowerShell，從遠端連線到您的裝置。 當您以這種方式連線時，不會看到功能表。 (只有當您使用裝置上的序列主控台進行連線時，才會看到功能表)。使用 Windows PowerShell 遠端連線到特定的 Runspace。 您也可以指定顯示語言。
 

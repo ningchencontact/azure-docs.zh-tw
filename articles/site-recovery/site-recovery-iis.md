@@ -26,7 +26,7 @@ ms.locfileid: "66480305"
 
 本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 來保護以 Internet Information Services (IIS) 為基礎的 Web 應用程式。 本文涵蓋將三層式 IIS 型 Web 應用程式複寫至 Azure 的最佳做法、如何進行災害復原演練，以及如何將應用程式容錯移轉至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，請確定您了解如何執行下列工作：
 
@@ -58,7 +58,7 @@ IIS 型 Web 應用程式通常會遵循下列其中一個部署模式︰
 
 ### <a name="source-and-target"></a>來源與目標
 
-案例 | 至次要網站 | 至 Azure
+狀況 | 至次要網站 | 至 Azure
 --- | --- | ---
 Hyper-V | 是 | 是
 VMware | 是 | 是

@@ -24,7 +24,7 @@ ms.locfileid: "60312022"
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>建立環境與 Azure DevTest Labs 中的獨立 Service Fabric 叢集
 本文章提供有關如何使用獨立的 Service Fabric 叢集，在 Azure DevTest Labs 中建立環境的資訊。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 DevTest Labs Azure Resource Management 範本所定義，可以建立獨立的測試環境。 這些環境包含兩個的 IaaS 資源，例如虛擬機器和 PaaS 資源，例如 Service Fabric。 DevTest Labs 可讓您管理在環境中的虛擬機器提供命令，以控制虛擬機器。 這些命令可讓您能夠啟動或停止虛擬機器上的排程。 同樣地，DevTest Labs 也有助於您管理在環境中的 Service Fabric 叢集。 您可以啟動或停止 Service Fabric 叢集的環境中，以手動方式或透過排程。
 
 ## <a name="create-a-service-fabric-cluster"></a>建立 Service Fabric 叢集
@@ -49,7 +49,7 @@ DevTest Labs Azure Resource Management 範本所定義，可以建立獨立的�
     5. 針對**憑證**，Base64 編碼字串形式輸入您的憑證資訊。 若要建立的憑證，請執行下列步驟：
         1. 下載**建立 ClusterCertificate.ps1**檔案[Git 儲存機制](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster)。 或者，複製您的電腦上的存放庫。 
         2. 啟動 **PowerShell**。 
-        3. 執行**ps1**檔案中，使用命令`.\Create-ClusterCertificate.ps1`。 您會看到文字檔案，您需要填寫與憑證相關的欄位，在此頁面上的資訊在記事本中開啟。 上也提供本文中使用的原始碼。 
+        3. 執行**ps1**檔案中，使用命令`.\Create-ClusterCertificate.ps1`。 您會看到文字檔案，您需要填寫與憑證相關的欄位，在此頁面上的資訊在記事本中開啟。 。 
     6. 請輸入**憑證密碼**。
     7. 指定**指紋**為您的憑證。
     8. 選取 **新增**上**Configure Settings**頁面。 

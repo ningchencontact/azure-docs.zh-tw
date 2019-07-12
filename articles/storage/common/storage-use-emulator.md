@@ -165,7 +165,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 ### <a name="command-line-syntax"></a>命令列語法
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
-### <a name="options"></a>選項
+### <a name="options"></a>選項。
 若要檢視選項清單，請在命令提示字元輸入 `/help` 。
 
 | 選項 | 描述 | 命令 | 引數 |

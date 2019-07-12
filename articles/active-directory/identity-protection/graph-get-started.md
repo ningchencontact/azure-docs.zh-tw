@@ -86,7 +86,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
    
     c. 在 [登入 URL]  文字方塊中，輸入 `http://localhost`。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
 
 4. 若要開啟 [設定]  頁面，請在應用程式清單中，按一下新建立的應用程式註冊。 
 
@@ -143,7 +143,7 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
     
     b. 在 [持續時間]  中選取 [1 年]  。
 
-    c. 按一下 [檔案]  。
+    c. 按一下 [儲存]  。
    
     d. 複製金鑰值，然後將它貼到安全的位置。   
    

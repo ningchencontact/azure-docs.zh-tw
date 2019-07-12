@@ -198,7 +198,7 @@ ms.locfileid: "65411380"
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [編碼錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 - [Azure 媒體服務概念](concepts-overview.md)

@@ -26,7 +26,7 @@ ms.locfileid: "60683867"
 > [!TIP]
 > 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」  。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
@@ -180,7 +180,7 @@ ms.locfileid: "60683867"
    | 屬性 | 值 |
    | -------- | ----- |
    | **間隔** | 1 | 
-   | **頻率** | 天 |
+   | **頻率** | Day |
    | **在這幾小時內** | 8 |
    ||| 
 
@@ -193,10 +193,10 @@ ms.locfileid: "60683867"
 
    ![設定變數屬性](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 屬性 | Value | 描述 |
+   | 屬性 | 值 | 描述 |
    | -------- | ----- | ----------- |
    | **名稱** | 限制 | 變數的名稱 | 
-   | **類型** | Integer | 變數的資料類型 | 
+   | **型別** | 整數 | 變數的資料類型 | 
    | **值** | 0 | 變數的起始值 | 
    |||| 
 
@@ -234,10 +234,10 @@ ms.locfileid: "60683867"
 
       ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | 屬性 | Value | 描述 |
+      | 屬性 | 值 | 描述 |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
-      | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
+      | **Subject** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
       | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
       |||| 
 

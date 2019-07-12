@@ -20,7 +20,7 @@ ms.locfileid: "60790805"
 
 您也可以依喜好使用 [Azure PowerShell](delegate-subdomain-ps.md) 委派子網域。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要委派 Azure DNS 子網域，必須先將您的公用網域委派給 Azure DNS。 如需如何設定名稱伺服器以便進行委派的指示，請參閱[將網域委派給 Azure DNS](./dns-delegate-domain-azure-dns.md)。 一旦將您的網域委派給您的 Azure DNS 區域之後，就能夠委派子網域。
 
@@ -36,7 +36,7 @@ ms.locfileid: "60790805"
 3. 選取 [建立]  。
 4. 在 [建立 DNS 區域]  窗格中，在 [名稱]  文字方塊中輸入 **engineering.contoso.com**。
 5. 選取您區域的資源群組。 您可能想要使用同一個資源群組作為上層區域以同時維持類似的資源。
-6. 按一下頁面底部的 [新增]  。
+6. 按一下 [建立]  。
 7. 部署成功後，請移至新的區域。
 
 ## <a name="note-the-name-servers"></a>記下名稱伺服器

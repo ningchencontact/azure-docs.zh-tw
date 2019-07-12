@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190715"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳作法
+# <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳做法
 這篇文章描述資料安全性和加密最佳的作法。
 
 最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 隨著時間變更的意見和技術，這篇文章會更新以反映這些變更以規則為基礎。

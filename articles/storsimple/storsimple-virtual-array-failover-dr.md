@@ -24,7 +24,7 @@ ms.locfileid: "61409539"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>透過 Azure 入口網站進行 StorSimple Virtual Array 的災害復原和裝置容錯移轉
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文說明 Microsoft Azure StorSimple Virtual Array 的災害復原，包括容錯移轉至另一個虛擬陣列的詳細步驟。 容錯移轉可讓您將資料從資料中心的「來源」  裝置移至「目標」  裝置。 目標裝置可能位於相同或不同的地理位置。 裝置容錯移轉適用於整個裝置。 在容錯移轉期間，來源裝置的雲端資料會將擁有權變更為目標裝置雲端資料。
 
 本文僅適用於 StorSimple Virtual Array。 若要容錯移轉 8000 系列裝置，請參閱 [StorSimple 裝置的裝置容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。

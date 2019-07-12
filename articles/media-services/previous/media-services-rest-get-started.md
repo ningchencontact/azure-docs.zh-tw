@@ -16,7 +16,7 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 76eae5fa049ed1fbf7195277613867aca63c1082
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867624"
@@ -332,7 +332,7 @@ SAS URL 具有下列格式：
 一旦設定 AccessPolicy 與 Locator，就會使用「Azure 儲存體 REST API」將實際檔案上傳到 Azure Blob 儲存體容器。 您必須將檔案以區塊 Blob 形式上傳。 「Azure 媒體服務」不支援分頁 Blob。  
 
 > [!NOTE]
-> 您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。 例如： `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`。
+> 您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。 例如： `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?` 。
 >
 >
 
@@ -817,7 +817,7 @@ MPEG DASH 的串流 URL 具有下列格式：
 設定 AccessPolicy 與 Locator 之後，您可以使用 Azure 儲存體 REST API 下載檔案。  
 
 > [!NOTE]
-> 您必須將要下載的檔案名稱新增到前一節中所收到的 Locator **Path** 值。 例如： https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。
+> 您必須將要下載的檔案名稱新增到前一節中所收到的 Locator **Path** 值。 例如： https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 。 . 。
 
 如需使用 Azure 儲存體 blob 的詳細資訊，請參閱 [Blob 服務 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 

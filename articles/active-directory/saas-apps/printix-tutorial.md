@@ -184,7 +184,7 @@ Printix 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="creating-a-printix-test-user"></a>建立 Printix 測試使用者
 

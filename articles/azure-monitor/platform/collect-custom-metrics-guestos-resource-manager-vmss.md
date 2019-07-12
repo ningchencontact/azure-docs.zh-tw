@@ -25,7 +25,7 @@ ms.locfileid: "66129613"
 
 如果您剛開始使用 Resource Manager 範本，請了解[範本部署](../../azure-resource-manager/resource-group-overview.md)與其結構和語法。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) 註冊您的訂用帳戶。 
 
@@ -245,7 +245,7 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 為要部署的 VM 建立新的資源群組。 執行以下命令： 
+1. 為要部署的 VM 建立新的資源群組。 執行下列命令： 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 

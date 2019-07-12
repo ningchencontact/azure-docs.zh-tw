@@ -17,7 +17,7 @@ ms.locfileid: "60609611"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：適用於 FFIEC 金融服務的 PaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此「Azure 安全性與合規性藍圖自動化」針對適用於受聯邦金融機構審查委員會 (FFIEC) 規範的財務資料收集、儲存及擷取平台即服務 (PaaS) 環境，提供部署指導方針。 此解決方案將一般參考架構的 Azure 資源部署和設定自動化，其中示範的方式讓客戶能符合特定的安全性和合規性需求，並且作為客戶在 Azure 上建置及設定他們自己的解決方案之基礎。 解決方案會實作 FFIEC 手冊要求的子集。 如需 FFIEC 要求和此解決方案的詳細資訊，請參閱[合規性文件](#compliance-documentation)一節。
 
@@ -49,7 +49,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
-- 应用程序网关
+- 應用程式閘道
     - Web 應用程式防火牆
         - 防火牆模式：防止
         - 規則集：OWASP

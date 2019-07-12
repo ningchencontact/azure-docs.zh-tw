@@ -17,7 +17,7 @@ ms.locfileid: "60609057"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-analytics-for-uk-nhs"></a>Azure 安全性與合規性藍圖：英國 NHS 的資料分析
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此 Azure 安全性與合規性藍圖提供資料分析解決方案的參考架構和指導方針，適用於醫療保健資料的收集、儲存、分析和擷取。 此解決方案會示範客戶可如何遵守《[雲端安全性最佳做法指南](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide)》中提供的指導方針，此指南是由英國 (UK) 衛生和社會照護部門 (DHSC) 的夥伴 [NHS Digital](https://digital.nhs.uk/) 所發佈。 《雲端安全性最佳做法指南》的基礎是英國國家網路安全中心 (NCSC) 所發佈的 14 個[雲端安全性準則](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)。
 

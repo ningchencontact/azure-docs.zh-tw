@@ -30,7 +30,7 @@ ms.locfileid: "60236042"
 
 在本文中，我們會說明如何使用這兩種方法來設定診斷。
 
-基本步骤如下所示：
+基本步驟如下：
 
 1. 建立一個描述如何建立資源的 JSON 檔案做為範本，然後啟用診斷功能。
 2. [使用任何部署方法部署範本](../../azure-resource-manager/resource-group-template-deploy.md)。
@@ -116,7 +116,7 @@ ms.locfileid: "60236042"
     ]
     ```
 
-诊断设置的属性 blob 遵循 [此文所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 新增 `metrics` 屬性可讓您同時傳送資源計量到這些相同的輸出，但前提是[資源支援 Azure 監視器計量](../../azure-monitor/platform/metrics-supported.md)。
+診斷設定的屬性 blob 遵循 [這篇文章中所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 新增 `metrics` 屬性可讓您同時傳送資源計量到這些相同的輸出，但前提是[資源支援 Azure 監視器計量](../../azure-monitor/platform/metrics-supported.md)。
 
 以下的完整範例會建立邏輯應用程式，並開啟串流至事件中樞和儲存體帳戶中的儲存體。
 
@@ -266,7 +266,7 @@ ms.locfileid: "60236042"
 在 [本文件中](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中會說明整個程序，包括範例。
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解 Azure 診斷記錄檔](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [將 Azure 診斷記錄檔串流至事件中樞](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+* [深入了解 Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [將 Azure 診斷記錄串流至事件中樞](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 
 

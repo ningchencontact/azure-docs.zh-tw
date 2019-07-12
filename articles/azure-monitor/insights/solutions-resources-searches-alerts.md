@@ -1,6 +1,6 @@
 ---
-title: 管理解決方案中儲存的搜尋和警示 | Microsoft Docs
-description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋和警示，讓它們能夠包含於管理解決方案中。
+title: 管理解決方案中儲存的搜尋 |Microsoft Docs
+description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何定義儲存在 Resource Manager 範本中的搜尋，讓它們可以包含於管理解決方案的 Log Analytics。
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -33,7 +33,7 @@ ms.locfileid: "62104815"
 > [!NOTE]
 > 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](solutions-creating.md)所述。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已經熟悉如何[建立管理解決方案](solutions-creating.md)，以及 [Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
@@ -188,7 +188,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 元素名稱 | 必要項 | description |
 |:--|:--|:--|
 | 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| Value | 是 | 要比較結果的值。 |
+| 值 | 是 | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
@@ -200,7 +200,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 |:--|:--|:--|
 | TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
 | 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| Value | 是 | 必須符合準則以觸發警示的次數。 |
+| 值 | 是 | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
@@ -269,7 +269,7 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
     }
 下表會說明 Webhook 動作資源的屬性。
 
-| 元素名稱 | 必要項 | 說明 |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
 | type | 是 | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
 | name | 是 | 動作的顯示名稱。 這不會顯示在主控台中。 |

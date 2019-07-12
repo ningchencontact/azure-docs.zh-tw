@@ -56,7 +56,7 @@ ms.locfileid: "60631323"
     
    5. 若要在儀表板上取得此服務的連結，請選取 [釘選到儀表板]  。
     
-   6. 按一下頁面底部的 [新增]  。
+   6. 按一下 [建立]  。
 
       ![建立 StorSimple 資料管理員服務 3](./media/storsimple-data-manager-ui/create-service-4.png)
 

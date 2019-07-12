@@ -470,7 +470,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [使用 Azure CLI 搭配 Azure 儲存體](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [針對 Azure 檔案服務問題進行疑難排解](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>參考
+### <a name="reference"></a>參考資料
 * [Storage Client Library for .NET 參考資料](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [檔案服務 REST API 參考](https://msdn.microsoft.com/library/azure/dn167006.aspx)
 

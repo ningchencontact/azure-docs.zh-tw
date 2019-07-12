@@ -23,7 +23,7 @@ ms.locfileid: "61247238"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自訂媒體編碼器標準預設  
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文章說明如何透過使用自訂預設的媒體編碼器標準 (MES) 執行進階編碼。 本文章使用 .NET 建立編碼工作與執行此工作的作業。  
 
@@ -264,7 +264,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [如何使用 CLI，使用自訂的轉換進行編碼](../latest/custom-preset-cli-howto.md)
 - [使用媒體服務 v3 編碼](../latest/encoding-concept.md)

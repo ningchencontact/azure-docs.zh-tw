@@ -154,7 +154,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
   > 
   > **開始使用**：[針對 Linux 上的 App Service 使用自訂 Docker 映像](../../app-service/containers/quickstart-docker-go.md)。
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>驗證
 
 重要的不只是知道誰正在使用您的應用程式，還可以防止未經授權的資源存取。 Azure 提供數種方式，以驗證應用程式用戶端。
 
@@ -291,7 +291,7 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
   > **使用時機**：當您以程式設計方式管理 Azure 資源或授與應用程式的存取權時。 如需詳細資訊，請參閱[建立 Active Directory 應用程式和服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
-#### <a name="tags"></a>標記
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager 可讓您將自訂標記指派給個別資源。 當您需要組織資源以進行計費或監視時，標記 (即鍵值組) 可能特別有用。 標記提供一種方法來追蹤多個資源群組的資源。 您可以使用 REST API、Azure CLI 或 PowerShell，以程式設計方式在入口網站中於 Azure Resource Manager 範本中指派標記。 您可以將多個標記指派給每個資源。 若要深入了解，請參閱[使用標記來組織 Azure 資源](../../resource-group-using-tags.md)。
 

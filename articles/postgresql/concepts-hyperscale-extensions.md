@@ -45,7 +45,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 ### <a name="functions-extensions"></a>函數擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 自動遞增欄位的函式。 |
 > | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | 提供方法來計算地球表面上的大圓距離。 |
@@ -67,7 +67,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 ### <a name="full-text-search-extensions"></a>全文檢索搜尋擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 提供整數的文字搜尋字典範本。 |
 > | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 擴充的同義資料表處理的文字搜尋字典範本。 |
@@ -76,7 +76,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 ### <a name="index-types-extensions"></a>索引類型擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [bloom](https://www.postgresql.org/docs/current/bloom.html) | Bloom 存取方法的簽章檔案以基底索引。 |
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 提供範例 GIN 運算子類別，可針對特定資料類型實作類似 B 型樹狀結構的行為。 |
@@ -85,14 +85,14 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 ### <a name="language-extensions"></a>語言擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可載入的程序性語言。 |
 
 ### <a name="hyperscale-extensions"></a>超大規模擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 分散式資料庫。 |
 > | shard\_rebalancer | 安全地重新平衡在發生節點新增或移除伺服器群組中的資料。 |
@@ -100,7 +100,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 ### <a name="miscellaneous-extensions"></a>其他擴充功能
 
 > [!div class="mx-tableFixed"]
-> | **擴充功能** | **說明** |
+> | **擴充功能** | **描述** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | 適用於 PostgreSQL 的系統管理功能。 |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 用於驗證的關聯完整性函式。 |

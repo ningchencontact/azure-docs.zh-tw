@@ -101,7 +101,7 @@ ms.locfileid: "62098026"
 
 * 在應用程式中安裝 Application Insights SDK。 針對下列項目深入了解：[Java Web 應用程式](../../azure-monitor/app/java-get-started.md)、[Windows Web 應用程式](../../azure-monitor/app/asp-net.md)。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

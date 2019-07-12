@@ -114,7 +114,7 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 - [了解 VM 保留折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解如何套用 SUSE Linux Enterprise 軟體方案折扣](billing-understand-suse-reservation-charges.md)
 - [了解其他保留折扣的套用方式](billing-understand-reservation-charges.md)
-- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解隨用隨付訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [Windows 軟體的成本不包括在保留項目內](billing-reserved-instance-windows-software-costs.md)
 - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -23,7 +23,7 @@ ms.locfileid: "67069387"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
-## <a name="overview"></a>概觀 ##
+## <a name="overview"></a>總覽 ##
 
  Azure [App Service Environment][Intro] 是將 Azure App Service 部署到您 Azure 虛擬網路 (VNet) 中子網路的一種部署。 App Service Environment (ASE) 有二種部署類型：
 
@@ -119,7 +119,7 @@ ASE 會出與以下連接埠的網際網路可存取位址：
 -   函式
 -   記錄資料流
 -   Kudu
--   擴充功能
+-   延伸模組
 -   處理序總管
 -   主控台
 
@@ -129,7 +129,7 @@ ASE 會出與以下連接埠的網際網路可存取位址：
 
 ## <a name="ase-ip-addresses"></a>ASE IP 位址 ##
 
-ASE 有一些 IP 位址需要注意。 如下：
+ASE 有一些 IP 位址需要注意。 其中包括：
 
 - **公用連入 IP 位址**：用於「外部 ASE」中的應用程式流量，以及「外部 ASE」和 ILB ASE 中的管理流量。
 - **連出公用 IP**：用來作為 ASE 連出連線離開 VNet 時的「來源」IP (不會透過 VPN 往下路由傳送)。

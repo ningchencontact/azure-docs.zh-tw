@@ -36,7 +36,7 @@ ms.locfileid: "65792846"
 > * 在 Azure 入口網站中建立預算
 > * 編輯預算
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 預算功能支援各種不同的 Azure 帳戶類型。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 若要檢視預算，您至少需要 Azure 帳戶的讀取存取。
 
@@ -117,7 +117,7 @@ ms.locfileid: "65792846"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算

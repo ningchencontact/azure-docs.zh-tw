@@ -23,13 +23,13 @@ ms.locfileid: "60713634"
 
 本文說明如何使用 Azure DNS 中的反向區域，以及建立反向 DNS (PTR) 記錄進行 SMTP Banner 檢查。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 如果您在 Microsoft Azure 中裝載 SMTP 伺服器，從遠端郵件伺服器傳送或接收郵件時，可能會收到下列錯誤訊息：
 
 **554：沒有 PTR 記錄**
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 對於 Azure 中的虛擬 IP 位址，反向記錄建立在 Microsoft 擁有的網域區域中，而不是自訂網域區域。
 

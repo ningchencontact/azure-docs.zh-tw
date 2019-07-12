@@ -32,7 +32,7 @@ ms.locfileid: "60508893"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -50,7 +50,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | catalog | 對伺服器之所有要求的目錄內容。  | 是 |
 | port | Presto 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8080。  | 否 |
 | authenticationType | 用來連線到 Presto 伺服器的驗證機制。 <br/>允許的值包括：**Anonymous**、**LDAP** | 是 |
-| username | 用來連線到 Presto 伺服器的使用者名稱。  | 否 |
+| userName | 用來連線到 Presto 伺服器的使用者名稱。  | 否 |
 | password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有在自我裝載 IR 上使用 SSL 時，才能設定這個屬性。 預設值為隨 IR 安裝的 cacerts.pem 檔案。  | 否 |
@@ -59,7 +59,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | allowSelfSignedServerCert | 指定是否允許來自伺服器的自我簽署憑證。 預設值為 False。  | 否 |
 | timeZoneID | 連線所使用的本機時區。 這個選項的有效值均指定於 IANA 時區資料庫中。 預設值為系統時區。  | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -123,7 +123,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 複製活動來源的類型屬性必須設定為：**PrestoSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

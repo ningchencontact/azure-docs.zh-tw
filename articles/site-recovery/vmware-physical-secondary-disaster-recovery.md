@@ -57,7 +57,7 @@ Azure Site Recovery 將持續創新，以 Azure 作為災害復原站台，為 V
 **支援矩陣** | [按一下這裡以取得詳細資訊](./vmware-physical-azure-support-matrix.md)|[下載 ASR Scout 相容矩陣](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本教學課程：
 
 - [檢閱](vmware-physical-secondary-support-matrix.md)所有元件的支援需求。

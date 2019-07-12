@@ -23,7 +23,7 @@ ms.locfileid: "62128833"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的儲存體帳戶認證
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 在 StorSimple Virtual Array 的 StorSimple 裝置管理員服務刀鋒視窗中，[設定]  區段會顯示可在 StorSimple Manager 服務中建立的全域服務參數。 這些參數可以套用到與該服務連線的所有裝置，還包括：
 
 * 儲存體帳戶認證

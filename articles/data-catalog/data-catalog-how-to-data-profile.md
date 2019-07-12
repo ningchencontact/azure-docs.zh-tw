@@ -83,6 +83,6 @@ ms.locfileid: "61001684"
 ## <a name="summary"></a>總結
 資料分析可提供關於註冊資料資產的統計資料和資訊，以協助您判斷資料是否適合用來解決商務問題。 加上註解和記載資料來源後，資料設定檔可以讓使用者更深入了解資料。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [如何註冊資料來源](data-catalog-how-to-register.md)
 * [開始使用 Azure 資料目錄](data-catalog-get-started.md)

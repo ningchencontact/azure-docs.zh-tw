@@ -43,7 +43,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 | 參數名稱     | 描述 |
 |--------------------|-------------|
-| 類別    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`。 如果未提供任何類別，則會傳回所有類型。|
+| categories    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`。 如果未提供任何類別，則會傳回所有類型。|
 |defaultLanguageCode |  輸入文字的語言代碼。 支援下列語言：`de, en, es, fr, it`|
 | minimumPrecision  | 介於 0 和 1 之間的數字。 如果精確度低於此值，則不會傳回實體。 預設值為 0。|
 
@@ -51,7 +51,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 | 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
-| languageCode  | 選用。 預設值為 `"en"`。  |
+| languageCode  | 選擇性。 預設值為 `"en"`。  |
 | text          | 要分析的文字。          |
 
 ## <a name="skill-outputs"></a>技能輸出
@@ -156,7 +156,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 ## <a name="error-cases"></a>錯誤案例
 如果文件的語言程式碼不受支援，則會傳回錯誤，且不會擷取任何實體。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

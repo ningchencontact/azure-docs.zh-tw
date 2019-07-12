@@ -159,8 +159,8 @@ ms.locfileid: "60285189"
 | CorrelationId | 用戶端傳遞的選擇性 GUID。 此值能協助將用戶端作業和伺服器端作業相互關聯，當您在追蹤跨服務的記錄時它會很有用。 |
 | 身分識別 | 當您發出要求時，來自出示之權杖的身分識別。 它可以是使用者帳戶、系統帳戶或服務主體。 |
 | Level | 提供訊息的類型。 針對稽核，它一律是 *Informational*。 |
-| 位置 | 提供登入活動的位置。 |
-| properties | 列出與登入相關的所有屬性。如需詳細資訊，請參閱 [Microsoft 圖形 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)。 此結構描述使用與登入資源相同的屬性名稱，以提高可讀性。
+| Location | 提供登入活動的位置。 |
+| 屬性 | 列出與登入相關的所有屬性。如需詳細資訊，請參閱 [Microsoft 圖形 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)。 此結構描述使用與登入資源相同的屬性名稱，以提高可讀性。
 
 ## <a name="next-steps"></a>後續步驟
 

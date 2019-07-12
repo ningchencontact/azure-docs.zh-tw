@@ -27,7 +27,7 @@ ms.locfileid: "66743436"
 * Stream IoT Central 應用程式使用的遙測*連續資料匯出*。
 * 建立 Azure Databricks 環境分析並繪製的裝置遙測資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此操作指南中的步驟，您必須具備有效的 Azure 訂用帳戶。
 
@@ -45,11 +45,11 @@ ms.locfileid: "66743436"
 | URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
 | 目錄 | Azure Active Directory 租用戶 |
 | Azure 訂用帳戶 | 您的 Azure 訂用帳戶 |
-| 區域 | 美國東部 |
+| 區域 | East US |
 
 範例和螢幕擷取畫面，在此發行項使用**美國東部**區域。 選擇靠近您的位置，並確定您在相同的區域中建立的所有資源。
 
-### <a name="resource-group"></a>資源群組
+### <a name="resource-group"></a>Resource group
 
 使用[Azure 入口網站來建立資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)稱為**IoTCentralAnalysis**以包含您所建立的其他資源。 在您的 IoT Central 應用程式的相同位置中建立您的 Azure 資源。
 
@@ -61,9 +61,9 @@ ms.locfileid: "66743436"
 | ------- | ----- |
 | 名稱    | 選擇您的命名空間名稱 |
 | 定價層 | 基本 |
-| 訂用帳戶 | 您的訂用帳戶 |
-| 資源群組 | IoTCentralAnalysis |
-| 位置 | 美國東部 |
+| Subscription | 您的訂用帳戶 |
+| Resource group | IoTCentralAnalysis |
+| Location | East US |
 | 輸送量單位 | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 工作區
@@ -73,9 +73,9 @@ ms.locfileid: "66743436"
 | 設定 | 值 |
 | ------- | ----- |
 | 工作區名稱    | 選擇您的工作區名稱 |
-| 訂用帳戶 | 您的訂用帳戶 |
-| 資源群組 | IoTCentralAnalysis |
-| 位置 | 美國東部 |
+| Subscription | 您的訂用帳戶 |
+| Resource group | IoTCentralAnalysis |
+| Location | East US |
 | 定價層 | 標準 |
 
 當您已建立必要的資源，您**IoTCentralAnalysis**資源群組看起來像下列螢幕擷取畫面：
@@ -110,7 +110,7 @@ ms.locfileid: "66743436"
     | Enabled | 另一 |
     | 事件中樞命名空間 | 事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 度量 | 另一 |
+    | 量測 | 另一 |
     | 裝置 | 關閉 |
     | 裝置範本 | 關閉 |
 

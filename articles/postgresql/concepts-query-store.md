@@ -73,7 +73,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 以下是如何查詢存放區中的等候統計資料，以更多深入了解工作負載的一些範例：
 
-| **觀測** | **Action** |
+| **觀測** | **動作** |
 |---|---|
 |高鎖定等候數 | 查看受影響查詢的查詢文字，並找出目標實體。 查看查詢存放區，針對經常執行和/或持續時間很長的實體，尋找修改同一實體的其他查詢。 找出這些查詢之後，請考慮變更應用程式邏輯，改善並行存取，或使用限制較少的隔離等級。|
 | 高緩衝區 IO 等候數 | 在查詢存放區中尋找實體讀取次數高的查詢。 如果與高 IO 等候數的查詢相符，請考慮對基礎實體引進索引，以執行搜尋，而不是掃描。 這可將查詢的 IO 額外負荷降到最低。 請在入口網站檢查伺服器的**效能建議**，以查看是否有此伺服器的索引建議，可供將查詢最佳化。|
@@ -84,7 +84,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 下列選項可用於設定查詢存放區參數。
 
-| **參數** | **說明** | **預設值** | **Range**|
+| **參數** | **描述** | **預設值** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 設定追蹤哪些陳述式。 | None | none、top、all |
 | pg_qs.max_query_text_length | 設定可以儲存的最大查詢長度。 較長的查詢會遭截斷。 | 6000 | 100 - 10K |
@@ -93,7 +93,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 下列選項特別適用於等候統計資料。
 
-| **參數** | **說明** | **預設值** | **Range**|
+| **參數** | **描述** | **預設值** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 設定追蹤等候統計資料的哪些陳述式。 | None | none、all|
 | Pgms_wait_sampling.history_period | 設定以毫秒為單位的等候事件取樣頻率。 | 100 | 1-600000 |
@@ -112,7 +112,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystoreqsview"></a>query_store.qs_view
 此檢視會傳回查詢存放區中的所有資料。 不同的資料庫識別碼、使用者識別碼及查詢識別碼都會自成一資料列。 
 
-|**名稱**   |**類型** | **參考**  | **說明**|
+|**名稱**   |**型別** | **參考**  | **描述**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | 來自 runtime_stats_entries 資料表的識別碼|
 |user_id    |oid    |pg_authid.oid  |執行陳述式的使用者物件識別 (OID)|
@@ -145,7 +145,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 此檢視會傳回查詢存放區中的查詢文字資料。 不同的 query_text 都會自成一資料列。
 
-|**名稱**|  **類型**|   **說明**|
+|**名稱**|  **型別**|   **描述**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 資料表識別碼|
 |query_sql_text |Varchar(10000)     |代表性陳述式的文字。 結構相同的不同查詢會群集在一起；此文字就式叢集中第一個查詢的文字。|
@@ -153,14 +153,14 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 此檢視會傳回查詢存放區中的等候事件資料。 不同的資料庫識別碼、使用者識別碼、查詢識別碼及事件都會自成一資料列。
 
-|**名稱**|  **類型**|   **參考**| **說明**|
+|**名稱**|  **型別**|   **參考**| **描述**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |執行陳述式的使用者物件識別 (OID)|
 |db_id  |oid    |pg_database.oid    |在其中執行陳述式的資料庫物件識別 (OID)|
 |query_id   |bigint     ||從陳述式的剖析樹狀結構計算的內部雜湊碼|
 |event_type |text       ||後端等候中事件的類型|
 |事件  |text       ||如果後端目前正在等候，為該等候事件的名稱|
-|calls  |Integer        ||擷取到相同事件的次數|
+|calls  |整數        ||擷取到相同事件的次數|
 
 
 ### <a name="functions"></a>函式

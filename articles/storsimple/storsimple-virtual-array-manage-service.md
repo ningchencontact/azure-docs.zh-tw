@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "62116942"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>部署 StorSimple Virtual Array 的 StorSimple 裝置管理員服務
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多個 StorSimple 裝置。 建立服務之後，您可以使用服務從在瀏覽器中執行的 Microsoft Azure 入口網站管理這些裝置。 這可讓您從單一集中位置監視所有連接至 StorSimple 裝置管理員服務的裝置，因而將管理負擔降到最低。
 

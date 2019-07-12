@@ -135,7 +135,7 @@ ms.locfileid: "65153623"
 1. 確定 [狀態]  已設為 [開啟]  ，然後選取要為其啟用記錄的 [服務]  。
 
     ![在 Azure 入口網站中設定記錄。](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
 
 診斷記錄會儲存在儲存體帳戶中名為 *$logs* 的 Blob 容器內。 若要檢視記錄資料，您可以使用 [Microsoft 儲存體總管](https://storageexplorer.com)之類的儲存體總管，或使用儲存體用戶端程式庫或 PowerShell 以程式設計方式進行檢視。
 

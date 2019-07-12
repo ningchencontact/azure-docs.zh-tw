@@ -28,7 +28,7 @@ ms.locfileid: "64712661"
 
 NSG 可讓您針對流入和流出 VM 的流量，控制流量的類型。 您可以將 NSG 關聯至 Azure 虛擬網路中的子網路、附加至 VM 的網路介面，或是上述兩者。 套用至網路介面的有效安全性規則，乃是針對網路介面及該網路介面所在子網路關聯的 NSG，存在其中的規則彙總。 不同 NSG 中的規則有時會互相衝突，並影響 VM 的網路連線能力。 您可以從 VM 網路介面上套用的 NSG 中檢視所有的有效安全性規則。 如果您不熟悉虛擬網路、網路介面或 NSG 概念，請參閱[虛擬網路概觀](virtual-networks-overview.md)、[網路介面](virtual-network-network-interface.md)及[網路安全性群組概觀](security-overview.md)。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 您嘗試從網際網路透過連接埠 80 連線到 VM，但連線失敗。 若要判斷為何無法從網際網路存取連接埠 80，您可以使用 Azure [入口網站](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 或 [Azure CLI](#diagnose-using-azure-cli) 來檢視網路介面的有效安全性規則。
 
@@ -170,14 +170,14 @@ az vm show \
 
 | 屬性                | 值                                                                              |
 |---------                |---------                                                                           |
-| source                  | 任意                                                                                |
-| 來源連接埠範圍      | 任意                                                                                |
+| Source                  | Any                                                                                |
+| Source port ranges      | Any                                                                                |
 | 目的地             | VM 的 IP 位址、IP 位址範圍，或是子網路中的所有位址。 |
 | 目的地連接埠範圍 | 80                                                                                 |
 | Protocol                | TCP                                                                                |
 | 動作                  | 允許                                                                              |
 | 優先順序                | 100                                                                                |
-| Name                    | Allow-HTTP-All                                                                     |
+| 名稱                    | Allow-HTTP-All                                                                     |
 
 當您建立規則之後，系統就會允許從網際網路經由連接埠 80 進行輸入，因為該規則的優先順序高於名為 *DenyAllInBound* 且會拒絕該流量的預設安全性規則。 了解如何[建立安全性規則](manage-network-security-group.md#create-a-security-rule)。 如果有不同的 NSG 同時關聯至網路介面和子網路，您就必須在那兩個 NSG 中建立相同的規則。
 

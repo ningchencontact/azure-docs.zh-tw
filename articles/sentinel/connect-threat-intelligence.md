@@ -34,7 +34,7 @@ ms.locfileid: "65233757"
 > [!NOTE]
 > 您可以輸入自訂的威脅指標 Azure Sentinel 警示規則、 儀表板和追捕案例中使用藉由整合[Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators)實體或使用[Microsoft圖形安全性整合威脅智慧平台](https://aka.ms/graphsecuritytips)。
 
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 
 - 以全域系統管理員或安全性系統管理員權限的使用者 
 
@@ -46,7 +46,7 @@ ms.locfileid: "65233757"
 
 2. 在 Azure Sentinel，選取**資料連接器**，然後按一下**威脅情報**圖格。
 
-3. 按一下 [ **連接**]。 
+3. 按一下 **[連接]** 。 
 
 4. 若要使用 Log Analytics 中的相關的結構描述，如威脅情報摘要，搜尋**ThreatIntelligenceIndicator**。 
 
@@ -55,5 +55,5 @@ ms.locfileid: "65233757"
 
 本文件中，您已了解如何在您的威脅情報提供者連線到 Azure 的 Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章。
 
-- 若要開始使用 Azure Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊 [免費試用](https://azure.microsoft.com/free/)。
+- 若要開始使用 Azure Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/free/)。
 - 了解如何[將資料上架到 Azure Sentinel](quickstart-onboard.md)，並[掌握您的資料和潛在威脅](quickstart-get-visibility.md)。

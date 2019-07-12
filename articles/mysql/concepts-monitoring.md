@@ -24,18 +24,18 @@ ms.locfileid: "67062431"
 
 |計量|計量顯示名稱|單位|描述|
 |---|---|---|---|
-|cpu_percent|CPU 百分比|百分比|使用中的 CPU 百分比。|
-|memory_percent|記憶體百分比|百分比|使用中記憶體的百分比。|
-|io_consumption_percent|IO 百分比|百分比|使用中 IO 的百分比。|
-|storage_percent|儲存體百分比|百分比|使用的儲存體佔伺服器最大值的百分比。|
+|cpu_percent|CPU 百分比|Percent|使用中的 CPU 百分比。|
+|memory_percent|記憶體百分比|Percent|使用中記憶體的百分比。|
+|io_consumption_percent|IO 百分比|Percent|使用中 IO 的百分比。|
+|storage_percent|儲存體百分比|Percent|使用的儲存體佔伺服器最大值的百分比。|
 |storage_used|已使用儲存體|位元組|使用中的儲存體數量。 此服務所使用的儲存體可能包括資料庫檔案、交易記錄和伺服器記錄。|
-|serverlog_storage_percent|伺服器記錄儲存體百分比|百分比|使用的伺服器記錄儲存體佔伺服器記錄儲存體上限的百分比。|
+|serverlog_storage_percent|伺服器記錄儲存體百分比|Percent|使用的伺服器記錄儲存體佔伺服器記錄儲存體上限的百分比。|
 |serverlog_storage_usage|使用的伺服器記錄儲存體|位元組|使用中的伺服器記錄儲存體數量。|
 |serverlog_storage_limit|伺服器記錄儲存體限制|位元組|此伺服器的伺服器記錄儲存體上限。|
 |storage_limit|儲存體限制|位元組|此伺服器的儲存體上限。|
-|active_connections|作用中的連線|計數|伺服器的使用中連線數量。|
-|connections_failed|失敗的連線|計數|伺服器的失敗連線數量。|
-|seconds_behind_master|複寫延遲 (秒)|計數|複本伺服器與主要伺服器相較下延遲的秒數。|
+|active_connections|作用中的連線|Count|伺服器的使用中連線數量。|
+|connections_failed|失敗的連線|Count|伺服器的失敗連線數量。|
+|seconds_behind_master|複寫延遲 (秒)|Count|複本伺服器與主要伺服器相較下延遲的秒數。|
 |network_bytes_egress|Network Out|位元組|跨作用中連線的網路輸出。|
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|

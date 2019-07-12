@@ -2,18 +2,18 @@
 title: 開始使用 Microsoft Power BI 工作區集合
 description: Power BI 工作區集合是一項 Azure 服務，可讓應用程式開發人員將互動式 Power BI 報告加入至自己的應用程式。
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3381166e40f6d9586306e351b5f3ea77cc2ad8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685175"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669132"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>開始使用 Microsoft Power BI 工作區集合
 
@@ -107,7 +107,7 @@ ms.locfileid: "64685175"
 
 您可以使用 JavaScript API，直接在應用程式中從資料集建立報告。 如需詳細資訊，請參閱[在 Power BI 工作區集合中從資料集建立新的報告](create-report-from-dataset.md)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 [開始使用範例](get-started-sample.md)  
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  

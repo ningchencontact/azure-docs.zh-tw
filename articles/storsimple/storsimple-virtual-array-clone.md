@@ -23,7 +23,7 @@ ms.locfileid: "60580790"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>從 StorSimple Virtual Array 的備份複製
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文逐步說明如何複製 Microsoft Azure StorSimple Virtual Array 上的共用或磁碟區的備份組。 複製的備份用來復原已刪除或遺失的檔案。 本文也包含如何在設定為檔案伺服器的 StorSimple Virtual Array 上執行項目層級復原的詳細步驟。
 
@@ -57,7 +57,7 @@ ms.locfileid: "60580790"
    
    e.    指派此共用的系統管理員。 複製完成後，您可以透過 [檔案總管] 修改共用內容。
    
-   f.    按一下 [確定]  。
+   f.    按一下 [確定 **Deploying Office Solutions**]。
    
    ![複製備份](./media/storsimple-virtual-array-clone/cloneshare6.png)
 

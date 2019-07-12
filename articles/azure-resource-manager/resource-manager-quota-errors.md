@@ -26,7 +26,7 @@ ms.locfileid: "60390147"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 如果您部署的範本會建立超過 Azure 配額的資源，您會看到類似以下的部署錯誤：
 
@@ -60,7 +60,7 @@ please delete some resources of this type before creating a new one.
 az vm list-usage --location "South Central US"
 ```
 
-返回：
+它會傳回：
 
 ```azurecli
 [
@@ -84,7 +84,7 @@ az vm list-usage --location "South Central US"
 Get-AzVMUsage -Location "South Central US"
 ```
 
-返回：
+它會傳回：
 
 ```powershell
 Name                             Current Value Limit  Unit
@@ -94,7 +94,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 若要要求增加配額，請移至入口網站並提出支援問題。 請在支援問題中，要求提高您要部署的區域的配額。
 

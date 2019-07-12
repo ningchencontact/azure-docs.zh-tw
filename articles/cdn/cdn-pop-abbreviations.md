@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
-ms.openlocfilehash: 3de7f36228bba4cfc84e17dd056683a1a76df684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 488f7bc4cb715e9cdb99b7a7c79407b9bbc0d29c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869621"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593603"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>依縮寫排列的 Azure CDN POP 位置
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "64869621"
 
 本文會針對**來自 Verizon 的 Azure CDN** 列出 POP 位置，並依 POP 縮寫排序。
 
-縮寫 | 位置 | 區域
+縮寫 | Location | 區域
 | --- | --- | --- |
 AGA | 美國喬治亞州亞特蘭大 | 北美洲：美國東岸
 AGB | 美國喬治亞州亞特蘭大 | 北美洲：美國東岸

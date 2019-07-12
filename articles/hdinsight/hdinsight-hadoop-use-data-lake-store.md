@@ -239,7 +239,7 @@ Invoke-AzResourceAction `
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何搭配 HDInsight 使用 HDFS 相容的 Azure Data Lake Storage Gen1。 這可讓您建立可調整、長期封存的資料取得解決方案，並利用 HDInsight 來揭開儲存的結構化和非結構化資料內的資訊。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)

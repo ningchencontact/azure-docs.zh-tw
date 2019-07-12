@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: cd9e5e27-fdd4-4717-8924-be4c1c430f23
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a418bb318654752eaf48ffbdd05b80cabb487ece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e75c9003103e267e864a98c7ee5c1bef2176bae
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65207555"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612413"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>從 Microsoft Cloud App Security 連線資料 
 
@@ -29,7 +30,7 @@ ms.locfileid: "65207555"
 
 您可以從串流記錄[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)到 Azure Sentinel 只要按一下。 此連線可讓您串流處理至 Azure 的 Sentinel 的從 Cloud App Security 警示。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 以全域系統管理員或安全性系統管理員權限的使用者
 
@@ -41,7 +42,7 @@ ms.locfileid: "65207555"
 
 1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Cloud App Security**圖格。
 
-2. 按一下 [ **連接**]。
+2. 按一下 **[連接]** 。
 
 3. 若要使用 Log Analytics 中的 Cloud App Security 警示相關的結構描述，搜尋**SecurityAlert**。
 
