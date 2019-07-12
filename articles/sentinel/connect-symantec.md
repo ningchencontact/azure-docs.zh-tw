@@ -1,43 +1,44 @@
 ---
-title: Symantec ICDX 資料連接至 Azure 的 Sentinel 預覽 |Microsoft Docs
-description: 了解如何將 Symantec ICDX 資料連接至 Azure 的 Sentinel。
+title: Symantec ICDx 資料連接至 Azure 的 Sentinel 預覽 |Microsoft Docs
+description: 了解如何將 Symantec ICDx 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244352"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673744"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>連接您的 Symantec ICDX 應用裝置 
+# <a name="connect-your-symantec-icdx-appliance"></a>連接您的 Symantec ICDx 應用裝置 
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Symantec ICDX 連接器可讓您輕鬆地連接所有您 Symantec 安全性解決方案記錄您 Azure Sentinel，來檢視儀表板、 建立自訂警示，以及改善調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。 Symantec ICDX 與 Azure Sentinel 之間的整合會使用 REST API。
+Symantec ICDx 連接器可讓您輕鬆地連接所有您 Symantec 安全性解決方案記錄您 Azure Sentinel，來檢視儀表板、 建立自訂警示，以及改善調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。 Symantec ICDx 與 Azure Sentinel 之間的整合會使用 REST API。
 
 
 > [!NOTE]
 > 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
 
-## <a name="configure-and-connect-symantec-icdx"></a>設定及連接 Symantec ICDX 
+## <a name="configure-and-connect-symantec-icdx"></a>設定及連接 Symantec ICDx 
 
-Symantec ICDX 整合和記錄檔將直接匯出至 Azure 的 Sentinel。
+Symantec ICDx 整合和記錄檔將直接匯出至 Azure 的 Sentinel。
 
-1. 開啟 ICDX 管理主控台，將 Microsoft Azure Sentinel (Log Analytics) 轉寄站。
+1. 開啟 ICDx 管理主控台，將 Microsoft Azure Sentinel (Log Analytics) 轉寄站。
 2. ICDx 導覽列中，按一下 **組態**。 
 3. 在頂端**組態**畫面上，按一下**轉寄站**。
 4. 底下**轉寄站**，旁邊 Microsoft Azure Sentinel (Log Analytics)，按一下 **新增**。 
@@ -66,7 +67,7 @@ Symantec ICDX 整合和記錄檔將直接匯出至 Azure 的 Sentinel。
     - **自訂記錄檔名稱**:輸入 Microsoft Azure 入口網站 Log Analytics 工作區中您會將事件轉送的自訂記錄檔名稱。 預設為 SymantecICDx。 這是必填欄位。
 8. 按一下 *儲存*來完成轉寄站設定。 
 9. 若要啟動轉寄站，底下**選項**，按一下**詳細**，然後**啟動**。
-10. 若要使用 Log Analytics 中的 Symantec ICDX 事件相關的結構描述，搜尋**SymantecICDX_CL**。
+10. 若要使用 Log Analytics 中的 Symantec ICDx 事件相關的結構描述，搜尋**SymantecICDx_CL**。
 
 
 ## <a name="validate-connectivity"></a>驗證連線能力
@@ -76,7 +77,7 @@ Symantec ICDX 整合和記錄檔將直接匯出至 Azure 的 Sentinel。
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Symantec ICDX。 若要深入了解 Azure Sentinel，請參閱下列文章：
+在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Symantec ICDx。 若要深入了解 Azure Sentinel，請參閱下列文章：
 - 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
 - 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
 

@@ -4,7 +4,7 @@ description: SAP Hana on Azure (大型執行個體) 的支援案例及其架構�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3699764cbcad2446067daff9f19e801cad299c47
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477638"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707286"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 大型執行個體的支援案例
 本文件說明 HANA 大型執行個體 (HLI) 的支援案例以及其架構詳細資料。
@@ -40,7 +40,7 @@ ms.locfileid: "60477638"
 - 多重 SID：已設定多個執行個體的系統。 也稱為 MCOS 環境。
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列清單涵蓋了案例及其設定詳細資料。 
 
 衍生的架構設計完全來自基礎結構觀點，您必須諮詢 SAP 或您的實作夥伴以進行 HANA 部署。 如果未列出您的案例，請連絡 Microsoft 帳戶小組以檢閱架構並為您提供解決方案。

@@ -1,6 +1,6 @@
 ---
-title: 将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
-description: 本文演示如何将 Desired State Configuration (DSC) 报表数据从 Azure Automation State Configuration 发送到 Azure Monitor 日志，以便为用户提供附加见解和管理信息。
+title: 將轉送到 Azure 監視器記錄檔中報告資料的 Azure 自動化狀態設定
+description: 這篇文章會示範如何傳送 Desired State Configuration (DSC) 報告從 Azure 自動化狀態設定 Azure 監視器記錄檔中的資料以提供額外的深入解析和管理。
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -16,12 +16,12 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "67054706"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
+# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>將轉送到 Azure 監視器記錄檔中報告資料的 Azure 自動化狀態設定
 
 Azure 自動化狀態設定將保留 30 天的節點狀態資料。
 如果您想要保留這項資料更長的時間，您可以將節點狀態資料傳送給您的 Log Analytics 工作區中。
 節點以及節點組態中個別 DSC 資源的合規性狀態會顯示在 Azure 入口網站中或使用 PowerShell 顯示。
-可以使用 Azure Monitor 日志进行以下操作：
+您可以使用 Azure 監視器記錄檔：
 
 - 取得受控節點與個別資源的合規性資訊
 - 根據合規性狀態觸發電子郵件或警示
@@ -33,16 +33,16 @@ Azure 自動化狀態設定將保留 30 天的節點狀態資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要开始将 Automation State Configuration 报表发送到 Azure Monitor 日志，需要准备：
+若要開始將您的自動化狀態設定報告傳送至 Azure 監視器記錄檔，您需要：
 
 - 2016 年 11 月或更新版本的 [Azure PowerShell](/powershell/azure/overview) (v2.3.0)。
 - Azure 自動化帳戶。 如需詳細資訊，請參閱[開始使用 Azure 自動化](automation-offering-get-started.md)。
-- 提供 [自動化與控制]  服務供應項目的 Log Analytics 工作區。 有关详细信息，请参阅 [Azure Monitor 日志入门](../log-analytics/log-analytics-get-started.md)。
+- 提供 [自動化與控制]  服務供應項目的 Log Analytics 工作區。 如需詳細資訊，請參閱 <<c0> [ 開始使用 Azure 監視器記錄](../log-analytics/log-analytics-get-started.md)。
 - 至少一個 Azure Automation State Configuration 節點。 如需詳細資訊，請參閱[將機器上架交由 Azure Automation State Configuration 管理](automation-dsc-onboarding.md)
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>设置与 Azure Monitor 日志的集成
+## <a name="set-up-integration-with-azure-monitor-logs"></a>設定與 Azure 監視器記錄檔整合
 
-若要开始将数据从 Azure Automation DSC 导入到 Azure Monitor 日志，请完成以下步骤：
+若要開始從 Azure Automation DSC 將資料匯入至 Azure 監視器記錄檔，請完成下列步驟：
 
 1. 在 PowerShell 中登入您的 Azure 帳戶。 請參閱[使用 Azure PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
 1. 執行下列 PowerShell 命令以取得自動化帳戶的 _ResourceId_：(如有多個自動化帳戶，請選擇您想要設定的帳戶 _ResourceID_)。
@@ -65,7 +65,7 @@ Azure 自動化狀態設定將保留 30 天的節點狀態資料。
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
    ```
 
-若要停止将数据从 Azure Automation State Configuration 导入到 Azure Monitor 日志，请运行以下 PowerShell 命令：
+如果您想要停止將資料匯入 Azure 自動化狀態設定從 Azure 監視器記錄檔，請執行下列 PowerShell 命令：
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
@@ -73,7 +73,7 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="view-the-state-configuration-logs"></a>檢視 State Configuration 記錄
 
-为 Automation State Configuration 数据设置与 Azure Monitor 日志的集成后，“日志搜索”  按钮会出现在自动化帐户的“DSC 节点”  边栏选项卡上。 按一下 [記錄搜尋]  按鈕以檢視 DSC 節點資料的記錄。
+設定與 Azure 監視器記錄檔整合為您的自動化狀態組態資料之後,**記錄檔搜尋** 按鈕會出現在**DSC 節點**刀鋒視窗中，您的自動化帳戶。 按一下 [記錄搜尋]  按鈕以檢視 DSC 節點資料的記錄。
 
 ![記錄搜尋按鈕](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -83,7 +83,7 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 按一下清單中的每項作業可查看該作業的資料。
 
-还可以通过在 Azure Monitor 日志中进行搜索来查看日志。
+您也可以在 Azure 監視器記錄檔中搜尋，以檢視記錄檔。
 請參閱[使用記錄搜尋尋找資料](../log-analytics/log-analytics-log-searches.md)。
 鍵入下列查詢來尋找 State Configuration 記錄：`Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
@@ -95,19 +95,19 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 若要建立警示規則，首先針對應叫用警示的 State Configuration 報告記錄，建立記錄檔搜尋。 按一下 [+ 新增警示規則]  按鈕，以建立並設定警示規則。
 
-1. 在“Log Analytics 工作区概述”页中，单击“日志”  。
+1. 從 Log Analytics 工作區的 [概觀] 頁面中，按一下**記錄檔**。
 1. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`。
 
    如果您已將來自多個自動化帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或自動化帳戶來將警示分組。  
    自動化帳戶名稱可以衍生自 DscNodeStatusData 搜尋的 [資源] 欄位。  
-1. 若要開啟 [建立規則]  畫面，按一下頁面頂端的 [+ 新增警示規則]  。 有关警报配置选项的详细信息，请参阅[创建警报规则](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。
+1. 若要開啟 [建立規則]  畫面，按一下頁面頂端的 [+ 新增警示規則]  。 如需有關設定警示選項的詳細資訊，請參閱[建立警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>在所有節點間尋找失敗的 DSC 資源
 
-使用 Azure Monitor 日志的一个优点是，可以在节点中搜索失败的检查。
+使用 Azure 監視器記錄檔的優點之一是，您可以搜尋失敗的檢查節點之間。
 尋找所有失敗的 DSC 資源執行個體。
 
-1. 在“Log Analytics 工作区概述”页中，单击“日志”  。
+1. 從 Log Analytics 工作區的 [概觀] 頁面中，按一下**記錄檔**。
 1. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`。
 
 ### <a name="view-historical-dsc-node-status"></a>檢視歷程記錄 DSC 節點狀態
@@ -119,9 +119,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 這會顯示一段時間的節點狀態圖表。
 
-## <a name="azure-monitor-logs-records"></a>Azure Monitor 日志记录
+## <a name="azure-monitor-logs-records"></a>Azure 監視器記錄檔記錄
 
-来自 Azure 自动化的诊断将在 Azure Monitor 日志中创建两种类别的记录。
+來自 Azure 自動化的診斷會在 Azure 監視器記錄檔中建立兩種記錄類別。
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -145,7 +145,7 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 | ReportStartTime_t |報表開始的日期和時間。 |
 | ReportEndTime_t |報表完成的日期和時間。 |
 | NumberOfResources_d |在節點套用的設定中呼叫的 DSC 資源數目。 |
-| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure  。 |
+| SourceSystem | Azure 監視器的記錄檔收集到的資料。 針對 Azure 診斷，一律為 Azure  。 |
 | ResourceId |指定 Azure 自動化帳戶。 |
 | ResultDescription | 此作業的描述。 |
 | SubscriptionId | 自動化帳戶的 Azure 訂用帳戶識別碼 (GUID)。 |
@@ -176,7 +176,7 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 | ErrorCode_s | 資源失敗時的錯誤代碼。 |
 | ErrorMessage_s |資源失敗時的錯誤訊息。 |
 | DscResourceDuration_d |DSC 資源執行的時間，以秒為單位。 |
-| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure  。 |
+| SourceSystem | Azure 監視器的記錄檔收集到的資料。 針對 Azure 診斷，一律為 Azure  。 |
 | ResourceId |指定 Azure 自動化帳戶。 |
 | ResultDescription | 此作業的描述。 |
 | SubscriptionId | 自動化帳戶的 Azure 訂用帳戶識別碼 (GUID)。 |
@@ -187,12 +187,12 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="summary"></a>總結
 
-将 Automation State Configuration 数据发送到 Azure Monitor 日志后，可以通过以下操作更好地了解 Automation State Configuration 节点的状态：
+您可以將自動化狀態組態資料傳送至 Azure 監視器記錄檔，以取得進一步了解您的自動化狀態組態節點的狀態：
 
 - 設定警示，在發生問題時通知您
 - 使用自訂檢視和搜尋查詢，以視覺化方式檢視您的 Runbook 結果、Runbook 作業狀態，以及其他相關的關鍵指標或計量。  
 
-Azure Monitor 日志可以更直观地显示 Automation State Configuration 数据的运行情况，并且有助于更快地解决事件。
+Azure 監視器記錄檔會提供更高的操作可見性，您的自動化狀態設定資料，並可更快速地協助處理事件。
 
 ## <a name="next-steps"></a>後續步驟
 

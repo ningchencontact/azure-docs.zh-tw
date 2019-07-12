@@ -25,7 +25,7 @@ ms.locfileid: "60684735"
 > [!TIP]
 > 若要根據不同的特定值執行不同步驟，可改為使用 [*Switch 陳述式*](../logic-apps/logic-apps-control-flow-switch-statement.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 

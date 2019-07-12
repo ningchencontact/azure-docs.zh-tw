@@ -39,7 +39,7 @@ ms.locfileid: "67062232"
 
 1. 雲端服務使用內部部署資料來源的加密認證建立查詢。 查詢接著傳送至佇列供閘道處理。
 2. 閘道雲端服務會分析該查詢，並將要求推送至 [Azure 服務匯流排](https://azure.microsoft.com/documentation/services/service-bus/)。
-3. 本地数据网关会针对挂起的请求轮询 Azure 服务总线。
+3. 內部部署資料閘道會輪詢 Azure 服務匯流排是否有待處理的要求。
 4. 閘道收到查詢、解密認證，並使用這些認證連接至資料來源。
 5. 閘道將查詢傳送至資料來源執行。
 6. 結果會從資料來源傳送回閘道，然後再到雲端服務和您的伺服器。
@@ -61,7 +61,7 @@ ms.locfileid: "67062232"
 
 以下是閘道使用的完整網域名稱。
 
-| 域名 | 輸出連接埠 | 描述 |
+| 網域名稱 | 輸出連接埠 | 描述 |
 | --- | --- | --- |
 | *.powerbi.com |80 |用於下載安裝程式的 HTTP。 |
 | *.powerbi.com |443 |HTTPS |
@@ -72,11 +72,11 @@ ms.locfileid: "67062232"
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |在 Power BI 服务无法访问网关时用于测试 Internet 连接。 |
+| *.msftncsi.com |443 |如果 Power BI 服務無法連接至閘道，則用來測試網際網路連線能力。 |
 | *.microsoftonline-p.com |443 |用於驗證 (視設定而定)。 |
 
 ### <a name="force-https"></a>強制使用 Azure 服務匯流排進行 HTTPS 通訊
-您可以強制閘道使用 HTTPS 取代直接 TCP 來與 Azure 服務匯流排通訊；但這樣會大幅降低效能。 若要修改 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 文件，可将值从 `AutoDetect` 更改为 `Https`。 這個檔案通常位於 *C:\Program Files\On-premises data gateway*。
+您可以強制閘道使用 HTTPS 取代直接 TCP 來與 Azure 服務匯流排通訊；但這樣會大幅降低效能。 您可以修改 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 檔案，方法是將值從 `AutoDetect` 變更為 `Https`。 這個檔案通常位於 *C:\Program Files\On-premises data gateway*。
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -94,10 +94,10 @@ ms.locfileid: "67062232"
 ### <a name="general"></a>一般
 
 **問**：我在雲端中的資料來源 (例如 Azure SQL Database) 是否需要閘道？ <br/>
-**答**：沒有。 只有在連線至內部部署資料來源時才需要閘道。
+**答**：資料分割 只有在連線至內部部署資料來源時才需要閘道。
 
 **問**：閘道必須安裝在與資料來源相同的電腦上嗎？ <br/>
-**答**：沒有。 閘道只要能夠連接至伺服器即可，通常在相同網路上。
+**答**：資料分割 閘道只要能夠連接至伺服器即可，通常在相同網路上。
 
 <a name="why-azure-work-school-account"></a>
 
@@ -118,7 +118,7 @@ ms.locfileid: "67062232"
 **答**：結果會透過 Azure 服務匯流排傳送。
 
 **問**：是否有任何從雲端至閘道的輸入連線？ <br/>
-**答**：沒有。 閘道使用連至 Azure 服務匯流排的輸出連接。
+**答**：資料分割 閘道使用連至 Azure 服務匯流排的輸出連接。
 
 **問**：如果我封鎖輸出連線會如何？ 我需要開啟什麼嗎？ <br/>
 **答**：查看閘道使用的連接埠和主機。
@@ -127,7 +127,7 @@ ms.locfileid: "67062232"
 **答**：在「服務」中，閘道稱為「內部部署資料閘道服務」。
 
 **問**：閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
-**答**：沒有。 Windows 服務必須要有有效的 Windows 帳戶。 根據預設，此服務會使用服務 SID，NT SERVICE\PBIEgwService 執行。
+**答**：資料分割 Windows 服務必須要有有效的 Windows 帳戶。 根據預設，此服務會使用服務 SID，NT SERVICE\PBIEgwService 執行。
 
 **問**：如何接管閘道？ <br/>
 **答**：若要接管閘道 (在 [控制台] > [程式集] 中執行 [設定/變更])，您必須在 Azure 中是該閘道資源的「擁有者」且具備修復金鑰。 您可以在 [存取控制] 中設定閘道資源「擁有者」。

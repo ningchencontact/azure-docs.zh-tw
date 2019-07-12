@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331967"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705209"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
 
@@ -35,7 +35,7 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 適用於 Azure NetApp 檔案目前不支援下列功能︰ 
 
-* 網路安全性群組 (Nsg) 子網路上
+* 網路安全性群組 (Nsg) 套用至委派的子網路
 * 使用者定義路由 (Udr) 和 Azure NetApp 檔案的子網路的下一個躍點
 * Azure NetApp 檔案介面上的 azure 原則 （例如，自訂命名原則）
 * Azure NetApp 檔案流量的負載平衡器
@@ -99,7 +99,7 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 如果您有額外的 Vnet，需要存取彼此的資源位於相同區域時，可以使用連線的 Vnet [VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)以啟用透過 Azure 基礎結構的安全連線。 
 
-在上圖中，請考慮 VNet 2 和 3 的 VNet。 如果必須連接到 VM 2 和磁碟區 2，VM 1 或 VM 2 需要連接到 VM 1] 或 [磁碟區 1，您就必須啟用 VNet 對等互連 VNet 2 和 VNet 3 之間。 
+在上圖中，請考慮 VNet 2 和 3 的 VNet。 如果 VM 2 需要連線到 VM 3 或磁碟區 2 或 VM 3 需要連接到 VM 2 或磁碟區 1，您就必須啟用 VNet 對等互連 VNet 2 和 VNet 3 之間。 
 
 此外，請考慮 VNet 2 中，對等互連 VNet 1 和 2 的 VNet 對等互連 VNet 相同的區域中的 3 的案例。 將資源從 VNet 1 可以連線至 VNet 2 中的資源，但它無法連線到 VNet 3 中的資源除非 VNet 1 和 3 的 VNet 對等互連。 
 
@@ -111,17 +111,17 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 ![混合式網路功能環境](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-在混合式案例中，從內部部署資料中心的應用程式會需要在 Azure 中資源的存取權。  這是您想要將您的資料中心延伸至 Azure，還是您想要使用 Azure 的原生服務或災害復原。 請參閱[VPN 閘道規劃選項](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)有關如何連接到透過站對站 VPN 或 ExpressRoute 在 Azure 中部署資源的多個內部資源。
+在混合式案例中，從內部部署資料中心的應用程式會需要在 Azure 中資源的存取權。  這是您想要將您的資料中心延伸至 Azure，還是您想要使用 Azure 的原生服務或災害復原。 請參閱[VPN 閘道規劃選項](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)如需有關如何連接到透過站對站 VPN 或 ExpressRoute 在 Azure 中部署資源的多個內部資源資訊。
 
 在混合式中樞輪輻拓撲中，中樞 VNet，在 Azure 中作為中心點，對您的內部部署網路的連線。 輪輻 Vnet 對等互連的中樞，並可用於隔離工作負載。
 
-根據組態。 中樞和支點中的資源，您可以從內部部署連線資源。
+根據組態，您可以連接內部部署資源的中樞和支點中的資源。
 
 在如上所示的拓撲，在內部部署網路連線至中樞 VNet，在 Azure 中，並有 2 個輪輻 Vnet 位於相同的區域與中樞 VNet 進行對等互連。  在此案例中，支援 Azure NetApp 檔案磁碟區的連線能力選項如下所示：
 
-* VM 1 和 VM 2 的內部部署資源可以透過連線到磁碟區 1 在中樞站台對站 VPN 或 Expressroute。 
+* VM 1 和 VM 2 的內部部署資源可以透過連線到磁碟區 1 在中樞站台對站 VPN 或 ExpressRoute 線路。 
 * VM 1 和 VM 2 的內部部署資源可以透過站對站 VPN 和區域 Vnet 對等互連連線到磁碟區 2 或磁碟區 3。
-* VM 3，在中樞 VNet 可以連接到輪輻 VNet 1 中的 2 的磁碟區和磁碟區 3 輪輻 VNet 2 中。
+* VM 3 在中樞 VNet 可連接到磁碟區 2 在輪輻 VNet 1 和磁碟區 3 輪輻 VNet 2 中。
 * 從輪輻 VNet 1 VM 4 和 5 輪輻 VNet 2 VM 可以中樞 VNet 中連接到磁碟區 1。
 
 輪輻 VNet 2 中，輪輻 VNet 1 中的 VM 4 無法連線到磁碟區 3。 此外，在支點中的 VM 5 VNet2 無法連線到磁碟區 2 輪輻 VNet 1 中。 這是因為未對等互連輪輻 Vnet 並_透過 VNet 對等互連不支援傳輸路由_。

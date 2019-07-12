@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: eb8c98df0f015244adf06a9b57f2223509f1f081
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc39cc09259c1ae681e1fee070777575e2788323
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827834"
 ---
-# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-account"></a>從 Azure Cosmos 帳戶存取金鑰的 Azure AD 身分識別的憑證型驗證
+# <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>從 Azure Cosmos DB 帳戶存取金鑰的 Azure AD 身分識別的憑證型驗證
 
-憑證型驗證可讓用戶端應用程式使用 Azure Active Directory (Azure AD) 進行驗證，以用戶端憑證。 您可以執行憑證型驗證，您需要身分識別，例如內部部署機器或虛擬機器，在 Azure 中的電腦上。 您的應用程式然後可以讀取 Azure Cosmo DB 的索引鍵，而不需要直接在應用程式中的索引鍵。 本文說明如何建立範例 Azure AD 應用程式、 設定它以進行憑證型驗證、 登入 Azure 中使用新的應用程式身分識別，，然後從您的 Azure Cosmos 帳戶時擷取的金鑰。 本文使用 Azure PowerShell 來設定身分識別，並提供C#範例應用程式，驗證，並從您的 Azure Cosmos 帳戶存取金鑰。  
+憑證型驗證可讓用戶端應用程式使用 Azure Active Directory (Azure AD) 進行驗證，以用戶端憑證。 您可以執行憑證型驗證，您需要身分識別，例如內部部署機器或虛擬機器，在 Azure 中的電腦上。 您的應用程式然後可以讀取 Azure Cosmos DB 金鑰，而不需要直接在應用程式中的索引鍵。 本文說明如何建立範例 Azure AD 應用程式、 設定它以進行憑證型驗證、 登入 Azure 中使用新的應用程式身分識別，，然後從您的 Azure Cosmos 帳戶時擷取的金鑰。 本文使用 Azure PowerShell 來設定身分識別，並提供C#範例應用程式，驗證，並從您的 Azure Cosmos 帳戶存取金鑰。  
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -26,7 +26,7 @@ ms.locfileid: "67082959"
 
 ## <a name="register-an-app-in-azure-ad"></a>在 Azure AD 中註冊應用程式
 
-在此步驟中，您將在您的 Azure AD 帳戶中註冊範例 web 應用程式。 此應用程式是稍後會用來讀取您的 Azure Cosmos 帳戶中的索引鍵。 若要註冊應用程式中使用下列步驟： 
+在此步驟中，您將在您的 Azure AD 帳戶中註冊範例 web 應用程式。 此應用程式是稍後會用來讀取您的 Azure Cosmos DB 帳戶中的索引鍵。 若要註冊應用程式中使用下列步驟： 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 

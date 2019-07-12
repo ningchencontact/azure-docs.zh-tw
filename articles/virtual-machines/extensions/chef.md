@@ -4,7 +4,7 @@ description: 使用 Chef VM Extension，將 Chef Client 部署至虛擬機器。
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800276"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706094"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Chef VM Extension
 
 Chef 軟體是適用於 Linux 和 Windows 的 DevOps 自動化平台，而 Windows 同時啟用實體和虛擬伺服器組態的管理。 Chef VM Extension 是可以在虛擬機器上啟用 Chef 的擴充功能。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -68,8 +68,8 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ### <a name="core-property-values"></a>核心屬性值
 
-| Name | 值 / 範例 | 資料類型
-| ---- | ---- | ---- 
+| 名稱 | 值 / 範例 | 資料類型
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | string |
@@ -77,7 +77,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ### <a name="settings"></a>設定
 
-| 名稱 | 值 / 範例 | 数据类型 | 必要項？
+| 名稱 | 值 / 範例 | 資料類型 | 必要項？
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
@@ -85,9 +85,9 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ### <a name="protected-settings"></a>受保護的設定
 
-| Name | 範例 | 数据类型 | 必要項？
+| 名稱 | 範例 | 資料類型 | 必要項？
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 字串 | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings
@@ -105,7 +105,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 可以使用範本來部署一或多部虛擬機器、安裝 Chef Client、連線至 Chef Server 以及在伺服器上執行初始設定，如同[執行清單](https://docs.chef.io/run_lists.html)所定義
 
-在 [Azure 快速啟動資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)上可找到包含 Chef VM Extension 的 Resource Manager 範本範例。
+包含 Chef VM 延伸模組的範例 Resource Manager 範本可在[Azure 快速入門資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)。
 
 虛擬機器擴充功能的 JSON 設定可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 設定的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-manager-template-child-resource.md)。
 

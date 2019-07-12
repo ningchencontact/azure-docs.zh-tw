@@ -7,25 +7,25 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472165"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593400"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>使用權杖驗證保護 Azure CDN 資產
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 權杖驗證是一種機制，可讓您防止「Azure 內容傳遞網路」(CDN) 將資產提供給未經授權的用戶端。 執行權杖驗證通常是為了防止內容「熱連結」(hotlinking)  ，在熱連結中，不同的網站 (例如留言板) 會在未經許可的情況下使用您的資產。 熱連結會影響您的內容傳遞成本。 藉由在 CDN 上啟用權杖驗證，就會由 CDN 邊緣伺服器先驗證要求之後，再由 CDN 傳遞內容。 
 
@@ -114,7 +114,7 @@ ms.locfileid: "66472165"
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>輸入值`/pictures/`:只會要求包含`/pictures/`允許的路徑。 例如： `http://www.mydomain.com/pictures/city/strasbourg.png`。</li>
+      >       <li>輸入值`/pictures/`:只會要求包含`/pictures/`允許的路徑。 例如： `http://www.mydomain.com/pictures/city/strasbourg.png` 。</li>
       >       <li>輸入值`/pictures/city/strasbourg.png`:允許只有這個特定的路徑和資產的要求。</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ ms.locfileid: "66472165"
 
    7. 選取 [加密]  來產生權杖。
 
-      權杖產生之後，會顯示在 [產生的權杖]  方塊中。 若要使用此權杖，將它以查詢字串的形式，附加在 URL 路徑中檔案的結尾。 例如： `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`。
+      權杖產生之後，會顯示在 [產生的權杖]  方塊中。 若要使用此權杖，將它以查詢字串的形式，附加在 URL 路徑中檔案的結尾。 例如： `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b` 。
         
    8. 視需要使用解密工具來測試您的權杖，使您能夠檢視權杖的參數。 將權杖值貼到 [Token to Decrypt] \(要解密的權杖\)  方塊中。 從 [要解密的金鑰]  清單中選取要使用的加密金鑰，然後選取 [解密]  。
 

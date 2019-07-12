@@ -27,7 +27,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 本文所述的流程僅適用於執行 Windows 作業系統的傳統虛擬機器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 
 

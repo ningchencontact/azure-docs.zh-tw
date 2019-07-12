@@ -40,7 +40,7 @@ Azure Active Directory 的安全性模組，可供整合檢視會影響組織身
 ### <a name="credentials"></a>認證
 包含識別碼以及用來取得存取本機和網路資源之識別證明的資訊。 認證範例包括使用者名稱和密碼、智慧卡和憑證。
 
-### <a name="event"></a>Event
+### <a name="event"></a>Event - 事件
 Azure Active Directory 中的活動記錄。
 
 ### <a name="false-positive-risk-event"></a>誤判 (風險事件)
@@ -163,6 +163,6 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 ### <a name="vulnerability"></a>弱點
 Azure Active Directory 中的組態或狀況，此組態或狀況會使目錄容易受到入侵或威脅的影響。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

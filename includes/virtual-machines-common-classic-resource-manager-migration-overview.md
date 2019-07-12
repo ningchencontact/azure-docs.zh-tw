@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173953"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671308"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)
 本文會說明如何將 IaaS 資源從傳統部署模型遷移至 Resource Manager 部署模型，並詳述如何使用虛擬網路站對站閘道，從並存於訂用帳戶中的兩個部署模型連線到資源。 您可以進一步了解 [Azure Resource Manager 功能和優點](../articles/azure-resource-manager/resource-group-overview.md)。 
@@ -107,7 +107,7 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 | 計算 | 未關聯的虛擬機器磁碟。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
 | 計算 | 虛擬機器映像。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
 | 網路 | 端點 ACL。 | 移除端點 ACL，然後重試移轉。 |
-| 網路 | 应用程序网关 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
+| 網路 | 應用程式閘道 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
 | 網路 | 使用 VNet 對等互連的虛擬網路。 | 將虛擬網路移轉至 Resource Manager，然後對等互連。 深入了解 [VNet 對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。 |
 
 ### <a name="unsupported-configurations"></a>不支援的組態

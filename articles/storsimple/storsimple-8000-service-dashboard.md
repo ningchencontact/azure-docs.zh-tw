@@ -23,7 +23,7 @@ ms.locfileid: "60632926"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>使用 StorSimple 8000 系列裝置的 [服務摘要] 刀鋒視窗
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員的 [服務摘要] 刀鋒視窗提供連線至 StorSimple 裝置管理員服務之所有裝置的摘要檢視，並強調顯示需要系統管理員注意的裝置。 本教學課程介紹 [服務摘要] 刀鋒視窗、說明儀表板內容和功能，並描述您可以從這個頁面執行的工作。
 

@@ -16,7 +16,7 @@ ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463781"
@@ -26,7 +26,7 @@ ms.locfileid: "61463781"
 > [!NOTE]
 > 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 在 Azure 媒體服務中，通道  代表處理即時串流內容的管線。 通道會以兩種方式之一收到即時輸入串流：
 
 * 內部部署即時編碼器會將多位元速率 RTMP 或 Smooth Streaming (分散式 MP4) 串流傳送到未啟用執行媒體服務即時編碼的通道。 內嵌的串流會通過通道，而不需任何進一步處理。 此方法稱為 *傳遞*。 即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。 媒體服務會將串流傳遞給要求的客戶。

@@ -4,7 +4,7 @@ description: 了解如何針對共用映像資源庫的問題進行疑難排解�
 services: virtual-machine-windows
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 5e8ff00090b3556eadceb3a64423736d8c876dca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57befcf33def189520829c4ee85468b53aae4a7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150274"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708535"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>針對共用映像資源庫進行疑難排解
 

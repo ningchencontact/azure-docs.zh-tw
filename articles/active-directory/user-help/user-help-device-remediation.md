@@ -50,7 +50,7 @@ ms.locfileid: "60473771"
 ![與您是否在網路上相關的錯誤訊息](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>若要檢查您的裝置是否已加入您的網路
-1. 使用您的公司或學校帳戶，登入 Windows。 例如： alain@contoso.com。
+1. 使用您的公司或學校帳戶，登入 Windows。 例如： alain@contoso.com 。
 
 2. 透過虛擬私人網路 (VPN) 或 DirectAccess 連線到貴組織的網路。
 

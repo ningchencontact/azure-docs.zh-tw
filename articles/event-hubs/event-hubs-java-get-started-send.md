@@ -26,7 +26,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 > [!NOTE]
 > 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 和 `EventHubName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列必要條件：
 
@@ -138,7 +138,7 @@ public class SimpleSend {
 
 建置並執行程式，然後確定沒有任何錯誤。
 
-恭喜！ 您現在已將傳送訊息到事件中樞。
+恭喜您！ 您現在已將傳送訊息到事件中樞。
 
 ### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>附錄：如何將訊息路由傳送至事件中樞分割區
 
@@ -425,6 +425,6 @@ com.microsoft.azure.eventprocessorhost.EventProcessorHost 類別可為您提供�
 請閱讀下列文章： 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [功能與 Azure 事件中樞中的術語](event-hubs-features.md)
+- [Azure 事件中樞的功能與術語](event-hubs-features.md)
 - [事件中樞常見問題集](event-hubs-faq.md)
 

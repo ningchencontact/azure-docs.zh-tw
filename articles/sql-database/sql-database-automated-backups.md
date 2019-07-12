@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460672"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813058"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -54,7 +54,7 @@ SQL Database 使用 SQL Server 技術來建立[完整備份](https://docs.micros
 
 ## <a name="how-long-are-backups-kept"></a>備份會保留多久的時間
 
-視購買模型和服務層而定，每個 SQL Database 的預設備份保留週期會介於 7 到 35 天。 可以在 SQL 数据库服务器上更新数据库的备份保持期。 如需詳細資訊，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
+視購買模型和服務層而定，每個 SQL Database 的預設備份保留週期會介於 7 到 35 天。 您可以更新 SQL Database 伺服器上的資料庫的備份保留期限。 如需詳細資訊，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
 
 如果您刪除資料庫，則 SQL Database 會以保存線上資料庫備份的相同方式保存備份。 例如，如果您刪除保留期間為七天的基本資料庫，則為期四天的備份還會再儲存三天。
 
@@ -78,13 +78,13 @@ SQL Database 使用 SQL Server 技術來建立[完整備份](https://docs.micros
 如果您使用[虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是**七個**（單一、 集區，及執行個體的資料庫）。 針對所有 Azure SQL 資料庫 (單一、集區和執行個體資料庫)，您可以[將備份保留期限變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
 > [!WARNING]
-> 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
+> 如果您減少目前的保留期限，已不再提供所有現有的備份超過新的保留期限。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
 
 ## <a name="how-often-do-backups-happen"></a>備份發生頻率為何
 
 ### <a name="backups-for-point-in-time-restore"></a>時間點還原的備份
 
-SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 在完成首次完整备份后，在后台以静默方式自动计划和管理所有后续备份。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。 您無法變更或停用備份作業。 
+SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 第一次完整備份之後，將會自動排程進一步的備份，並在背景中以無訊息方式管理。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。 您無法變更或停用備份作業。 
 
 PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護
 
@@ -109,7 +109,11 @@ PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../stora
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Microsoft 如何確保備份完整性
 
-Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，進行自動資料庫備份的還原測試。 一旦還原，資料庫也會收到使用 DBCC CHECKDB 的完整性檢查。 在完整性檢查期間找到的任何問題都會對工程小組發出警示。 如需有關 Azure SQL Database 中資料完整性的詳細資訊，請參閱 [Azure SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
+依據進行中，Azure SQL Database 自動工程小組測試的自動的資料庫備份的還原資料庫中放置的邏輯伺服器和彈性集區 （這不適用於受控執行個體）。 在時間點還原時的資料庫也會收到使用 DBCC CHECKDB 的完整性檢查。
+
+受管理的執行個體採用自動使用的初始備份`CHECKSUM`使用原生還原的資料庫`RESTORE`命令或移轉完成後，資料移轉服務。
+
+在完整性檢查期間找到的任何問題都會對工程小組發出警示。 如需有關 Azure SQL Database 中資料完整性的詳細資訊，請參閱 [Azure SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>自動化備份對合規性的影響為何
 
@@ -140,7 +144,7 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
@@ -187,4 +191,4 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 - 若要使用 Azure 入口網站還原至某個時間點，請參閱[使用 Azure 入口網站將資料庫還原至時間點](sql-database-recovery-using-backups.md)。
 - 若要使用 PowerShell 還原至某個時間點，請參閱[使用 PowerShell 將資料庫還原至時間點](scripts/sql-database-restore-database-powershell.md)。
 - 若要使用 Azure 入口網站在 Azure Blob 儲存體中設定、管理自動備份的長期保留及從該保留還原，請參閱[使用 Azure 入口網站來管理長期備份保留 (英文)](sql-database-long-term-backup-retention-configure.md)。
-- 若要使用 PowerShell 在 Azure Blob 存储中配置和管理自动备份的长期保留，并从中进行还原，请参阅[使用 PowerShell 管理长期备份保留](sql-database-long-term-backup-retention-configure.md)。
+- 若要設定、 管理及從長期保留期還原自動使用 PowerShell 的 Azure Blob 儲存體中的備份，請參閱 <<c0> [ 管理使用 PowerShell 的長期備份保留](sql-database-long-term-backup-retention-configure.md)。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436616"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709545"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -82,6 +82,11 @@ ms.locfileid: "67436616"
 * **AzureBackup*** (僅限 Resource Manager):這個標籤代表 AzureBackup 服務的位址首碼。 如果您指定*AzureBackup*的值，允許或拒絕 AzureBackup 流量。 此標記有相依性**儲存體**並**AzureActiveDirectory**標記。輸出安全性規則，建議您使用此標記。 
 * **AzureActiveDirectoryDomainServices*** (僅限 Resource Manager):這個標籤代表 Azure Active Directory Domain Services 專用部署的管理流量的位址首碼。 如果您指定*AzureActiveDirectoryDomainServices*的值，允許或拒絕 AzureActiveDirectoryDomainServices 流量。 此標籤建議的輸入/輸出安全性規則。  
 * **SqlManagement*** (僅限 Resource Manager):這個標籤代表 sql 管理流量的位址首碼專用的部署。 如果您指定*SqlManagement*的值，允許或拒絕 SqlManagement 流量。 此標籤建議的輸入/輸出安全性規則。 
+* **CognitiveServicesManagement** (僅限 Resource Manager):這個標籤代表認知服務的位址首碼的流量。 如果您指定*CognitiveServicesManagement*的值，允許或拒絕 CognitiveServicesManagement 流量。 輸出安全性規則，建議您使用此標記。  
+* **Dynamics365ForMarketingEmail** (僅限 Resource Manager):這個標籤代表 Dynamics 365 的 「 行銷電子郵件服務的位址首碼。 如果您指定*Dynamics365ForMarketingEmail*的值，允許或拒絕 Dynamics365ForMarketingEmail 流量。 如果您只想允許特定存取 Dynamics365ForMarketingEmail[地區](https://azure.microsoft.com/regions)，您可以以下列格式 Dynamics365ForMarketingEmail 指定地區。 [區域名稱]。
+* **AzurePlatformDNS** (僅限 Resource Manager):這個標籤代表 DNS，這是基本的基礎結構服務。 如果您指定*AzurePlatformDNS*的值，您可以停用預設[Azure 平台考量](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)dns。 請採取謹慎使用這個標記。 使用此標記之前，建議您測試。 
+* **AzurePlatformIMDS** (僅限 Resource Manager):這個標籤代表 IMDS 的基本基礎結構服務。 如果您指定*AzurePlatformIMDS*的值，您可以停用預設[Azure 平台考量](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)IMDS 的。 請採取謹慎使用這個標記。 使用此標記之前，建議您測試。 
+* **AzurePlatformLKM** (僅限 Resource Manager):這個標籤代表 Windows 授權或金鑰管理服務。 如果您指定*AzurePlatformLKM*的值，您可以停用預設[Azure 平台考量](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)授權。 請採取謹慎使用這個標記。 使用此標記之前，建議您測試。 
 
 > [!NOTE]
 > Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 
@@ -105,19 +110,19 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|優先順序|source|來源連接埠|目的地|目的地連接埠|Protocol|Access|
+|優先順序|Source|來源連接埠|目的地|目的地連接埠|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|全部|允許|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|優先順序|source|來源連接埠|目的地|目的地連接埠|Protocol|Access|
+|優先順序|Source|來源連接埠|目的地|目的地連接埠|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|全部|允許|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|優先順序|source|來源連接埠|目的地|目的地連接埠|Protocol|Access|
+|優先順序|Source|來源連接埠|目的地|目的地連接埠|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|全部|拒絕|
 
@@ -125,19 +130,19 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|優先順序|source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
+|優先順序|Source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 全部 | 允許 |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|優先順序|source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
+|優先順序|Source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | 全部 | 允許 |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|優先順序|source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
+|優先順序|Source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 全部 | 拒絕 |
 
@@ -157,7 +162,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 需要此規則才能讓流量從網際網路流向 Web 伺服器。 因為來自網際網路的輸入流量會遭到 [DenyAllInbound](#denyallinbound) 預設安全性規則拒絕，而 AsgLogic  或 AsgDb  應用程式安全性群組則不需要其他規則。
 
-|優先順序|source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
+|優先順序|Source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | 允許 |
 
@@ -165,7 +170,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 由於 [AllowVNetInBound](#allowvnetinbound) 預設安全性規則允許相同虛擬網路中各資源之間的所有通訊，因此需要此規則才能拒絕來自所有資源的流量。
 
-|優先順序|source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
+|優先順序|Source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 全部 | 拒絕 |
 
@@ -173,7 +178,7 @@ Azure 會在您建立的每個網路安全性群組中，建立下列預設規�
 
 此規則會允許流量從 AsgLogic  應用程式安全性群組流向 AsgDb  應用程式安全性群組。 此規則的優先順序高於 Deny-Database-All  規則的優先順序。 如此一來，此規則會在 Deny-Database-All  規則之前進行處理，因此系統會允許來自 AsgLogic  應用程式安全性群組的流量，但所有其他流量仍會遭到封鎖。
 
-|優先順序|source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
+|優先順序|Source|來源連接埠| 目的地 | 目的地連接埠 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | 允許 |
 

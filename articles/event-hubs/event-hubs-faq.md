@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476126"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797006"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -83,7 +83,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 記下中傳回的 IP 位址`Non-authoritative answer`。 此 IP 位址是靜態的。 它會變更的唯一點的時間是如果您還原至不同的叢集中的命名空間。
+2. 記下中傳回的 IP 位址`Non-authoritative answer`。 它會變更的唯一點的時間是如果您還原至不同的叢集中的命名空間。
 
 如果您的命名空間中使用區域備援，您需要執行一些額外步驟： 
 
@@ -115,7 +115,7 @@ bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.p
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
-注意：如果 sasl.jaas.config 不是您架構中支援的設定，請尋找用來設定 SASL 使用者名稱和密碼的設定，並改用那些設定。 將使用者名稱設定為 $ConnectionString，並將密碼設定為您的事件中樞連接字串。
+注意:如果 sasl.jaas.config 不是您架構中支援的設定，請尋找用來設定 SASL 使用者名稱和密碼的設定，並改用那些設定。 將使用者名稱設定為 $ConnectionString，並將密碼設定為您的事件中樞連接字串。
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>適用於已啟用 Kafka 之事件中樞的訊息/事件大小為何？
 針對已啟用 Kafka 的事件中樞所允許的訊息大小上限為 1 MB。
@@ -214,7 +214,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>代理連線費用適用於事件中樞嗎？
 
-只有在使用 AMQP 通訊協定時才需要支付連線費用。 使用 HTTP 发送事件没有连接费用，无论发送系统或设备的数量是多少。 如果您打算使用 AMQP (例如，為了實現更有效率的事件串流，或針對 IoT 命令和控制案例啟用雙向通訊)，請參閱[事件中樞定價資訊](https://azure.microsoft.com/pricing/details/event-hubs/)分頁，以取得關於每個服務層級中包含多少個連線的詳細資訊。
+只有在使用 AMQP 通訊協定時才需要支付連線費用。 不論傳送系統或裝置的數目多寡，使用 HTTP 來傳送事件不需要支付連線費用。 如果您打算使用 AMQP (例如，為了實現更有效率的事件串流，或針對 IoT 命令和控制案例啟用雙向通訊)，請參閱[事件中樞定價資訊](https://azure.microsoft.com/pricing/details/event-hubs/)分頁，以取得關於每個服務層級中包含多少個連線的詳細資訊。
 
 ### <a name="how-is-event-hubs-capture-billed"></a>事件中樞擷取如何計費？
 

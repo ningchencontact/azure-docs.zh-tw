@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518971"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607141"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure SQL VM CLI 來設定 Azure VM 上的 SQL Server Always On 可用性群組
 這篇文章說明如何使用[Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/)部署在 Windows 容錯移轉叢集 (WSFC)，並將 SQL Server Vm 加入至叢集，以及建立內部負載平衡器和 Always On 可用性群組接聽程式。  Always On 可用性群組的實際的部署仍然是以手動方式透過 SQL Server Management Studio (SSMS)。 
@@ -28,11 +28,11 @@ ms.locfileid: "65518971"
 若要自動化的 Always On 可用性群組使用 Azure SQL VM CLI 安裝程式，您必須已經具備下列必要條件： 
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 - 具有網域控制站的資源群組。 
-- 一或多個網域[Azure 執行 SQL Server 2016 （或更新版本） Enterprise edition 中的 Vm](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)中*相同的可用性設定組或不同的可用性區域*已經經過[註冊與 SQL VM 的資源提供者](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)。  
+- 一或多個網域[Azure 執行 SQL Server 2016 （或更新版本） Enterprise edition 中的 Vm](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)中*相同的可用性設定組或不同的可用性區域*已經經過[註冊與 SQL VM 的資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)。  
 - [Azure CLI](/cli/azure/install-azure-cli)。 
 - 兩個可用 （未由任何實體） IP 位址、 一個內部負載平衡器，另一個可用性群組相同的子網路內的可用性群組接聽程式。 如果正在使用現有的負載平衡器，則只有一個可用的 IP 位址需要可用性群組接聽程式。 
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 下列帳戶所需權限設定 Always On 可用性群組使用 Azure SQL VM CLI。 
 
 - 現有的網域使用者帳戶網域中具有建立電腦物件的權限。  例如，網域系統管理員帳戶通常會有足夠的權限 (例如：account@domain.com)。 _此帳戶也應該屬於建立叢集的每個 VM 上的本機系統管理員群組一部分。_

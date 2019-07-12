@@ -1,7 +1,7 @@
 ---
 title: 部署疑難排解指南
 titleSuffix: Azure Machine Learning service
-description: 了解如何解決、 解決問題，並針對搭配 AKS 和使用 Azure Machine Learning 服務的 ACI 常見的 Docker 部署錯誤進行疑難排解。
+description: 了解如何因應措施、 解決問題，以及疑難排解常見的 Docker 部署錯誤，Azure Kubernetes 服務與使用 Azure Machine Learning 服務的 Azure 容器執行個體。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 05/02/2018
+ms.date: 07/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0f4b024d717c08df3514df057abf89d55be1dc9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075000"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707045"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>針對 Azure Machine Learning 服務 AKS 和 ACI 部署進行疑難排解
+# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Machine Learning 服務的 Azure Kubernetes Service 和 Azure 容器執行個體部署進行疑難排解
 
 了解如何因應措施或解決常見的 Docker 部署錯誤，Azure Container Instances (ACI) 與 Azure Kubernetes Service (AKS) 使用 Azure Machine Learning 服務。
 
@@ -314,6 +314,214 @@ Azure Kubernetes 服務部署支援自動調整功能，可允許加入以支援
 
 如需設定的詳細資訊`autoscale_target_utilization`， `autoscale_max_replicas`，並`autoscale_min_replicas`，請參閱[AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py)模組參考。
 
+
+## <a name="advanced-debugging"></a>進階偵錯
+
+在某些情況下，您可能需要以互動方式偵錯您的模型部署中包含的 Python 程式碼。 例如，如果項目指令碼執行失敗，而且無法判斷原因的其他記錄。 藉由使用 Visual Studio Code 和 Python Tools for Visual Studio (PTVSD）)，您可以附加至 Docker 容器內執行的程式碼。
+
+> [!IMPORTANT]
+> 這個方法的偵錯無法運作時使用`Model.deploy()`和`LocalWebservice.deploy_configuration`来部署模型在本機。 相反地，您必須建立映像使用[ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)類別。 
+>
+> 本機 web 服務部署需要使用您的本機系統上的 Docker 安裝。 必須先執行 docker，您將本機 web 服務部署。 如需安裝和使用 Docker 的詳細資訊，請參閱[ https://www.docker.com/ ](https://www.docker.com/)。
+
+### <a name="configure-development-environment"></a>設定開發環境
+
+1. 若要在您本機的 VS Code 開發環境上安裝 Python Tools for Visual Studio (PTVSD）)，使用下列命令：
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    如需有關使用使用 VS Code 的 PTVSD 的詳細資訊，請參閱[遠端偵錯](https://code.visualstudio.com/docs/python/debugging#_remote-debugging)。
+
+1. 若要設定 VS Code 的 Docker 映像與通訊，請建立新的偵錯組態：
+
+    1. 從 VS Code 中，選取__偵錯__功能表，然後選取__開啟 設定__。 名為的檔案__launch.json__隨即開啟。
+
+    1. 在  __launch.json__檔案中，尋找包含`"configurations": [`，和它的後面插入下列文字：
+
+        ```json
+        {
+            "name": "Azure Machine Learning service: Docker Debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/var/azureml-app"
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > 如果在 [設定] 區段中已經有其他項目，新增逗號 （，） 您插入的程式碼之後。
+
+        本章節將附加至 Docker 容器中，使用連接埠 5678。
+
+    1. 儲存__launch.json__檔案。
+
+### <a name="create-an-image-that-includes-ptvsd"></a>建立包含 PTVSD 的映像
+
+1. 修改您的部署，將 conda 環境，使其包含 PTVSD。 下列範例示範如何將使用`pip_packages`參數：
+
+    ```python
+    from azureml.core.conda_dependencies import CondaDependencies 
+    
+    # Usually a good idea to choose specific version numbers
+    # so training is made on same packages as scoring
+    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
+                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
+                                 pip_packages = ['azureml-defaults==1.0.17', 'ptvsd'])
+    
+    with open("myenv.yml","w") as f:
+        f.write(myenv.serialize_to_string())
+    ```
+
+1. 若要啟動 PTVSD 並等候連接，在服務啟動時，頂端新增下列程式`score.py`檔案：
+
+    ```python
+    import ptvsd
+    # Allows other computers to attach to ptvsd on this IP address and port.
+    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
+    ptvsd.wait_for_attach(timeout = 30)
+    print("Debugger attached...")
+    ```
+
+1. 偵錯期間，您可能想要對映像中的檔案中的變更，而不必重新建立它。 若要安裝 Docker 映像中的文字編輯器 (vim)，建立新的文字檔案，名為`Dockerfile.steps`並使用下列做為檔案的內容：
+
+    ```text
+    RUN apt-get update && apt-get -y install vim
+    ```
+
+    文字編輯器，可讓您修改的檔案來測試變更，而不需要建立新的映像的 docker 映像。
+
+1. 若要建立會使用映像`Dockerfile.steps`檔案，請使用`docker_file`建立映像時的參數。 下列範例示範如何執行這項操作：
+
+    > [!NOTE]
+    > 這個範例假設`ws`指向您的 Azure Machine Learning 工作區，而且`model`是正在部署的模型。 `myenv.yml`檔案包含在步驟 1 中建立 conda 相依性。
+
+    ```python
+    from azureml.core.image import Image, ContainerImage
+    image_config = ContainerImage.image_configuration(runtime= "python",
+                                 execution_script="score.py",
+                                 conda_file="myenv.yml",
+                                 docker_file="Dockerfile.steps")
+
+    image = Image.create(name = "myimage",
+                     models = [model],
+                     image_config = image_config, 
+                     workspace = ws)
+    # Print the location of the image in the repository
+    print(image.image_location)
+    ```
+
+一旦建立映像之後，會顯示在登錄中的映像位置。 位置為類似下列文字：
+
+```text
+myregistry.azurecr.io/myimage:1
+```
+
+此文字範例中，登錄名稱是`myregistry`且名為映像`myimage`。 映像版本是`1`。
+
+### <a name="download-the-image"></a>下載映像
+
+1. 開啟命令提示字元、 終端機中或其他殼層，並使用下列[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)命令來驗證 Azure 訂用帳戶，其中包含您的 Azure Machine Learning 工作區：
+
+    ```azurecli
+    az login
+    ```
+
+1. 若要驗證至 Azure Container Registry (ACR)，其中包含您的映像，使用下列命令。 取代`myregistry`與其中一個時，傳回已註冊的映像：
+
+    ```azurecli
+    az acr login --name myregistry
+    ```
+
+1. 若要下載映像至您本機的 Docker，使用下列命令。 取代`myimagepath`位置時，傳回已註冊的映像：
+
+    ```bash
+    docker pull myimagepath
+    ```
+
+    映像路徑應該類似於`myregistry.azurecr.io/myimage:1`。 其中`myregistry`是您的登錄`myimage`是您的映像和`1`是映像版本。
+
+    > [!TIP]
+    > 來自上一個步驟的驗證非永久。 如果您等待足夠的時間之間驗證命令和 [提取] 命令，您會收到驗證失敗。 如果發生這種情況，重新驗證。
+
+    完成下載所花費的時間取決於您的網際網路連線的速度。 此程序期間，會顯示下載狀態。 下載完成之後，您可以使用`docker images`命令，確認已下載。
+
+1. 為了讓您更輕鬆地使用映像，使用下列命令來新增標記。 取代`myimagepath`與步驟 2 中的位置值。
+
+    ```bash
+    docker tag myimagepath debug:1
+    ```
+
+    針對其餘的步驟中，您可以參考本機映像作為`debug:1`而不是完整的映像的路徑值。
+
+### <a name="debug-the-service"></a>偵錯服務
+
+> [!TIP]
+> 如果您設定中的 PTVSD 連接的逾時`score.py`檔案中，您必須連接 VS Code 偵錯工作階段逾時到期前。 啟動 VS Code 中，開啟本機副本`score.py`、 設定中斷點，並已準備就緒之前使用本節中的步驟。
+>
+> 如需有關偵錯，並設定中斷點的詳細資訊，請參閱 <<c0> [ 偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
+
+1. 若要開始使用的映像的 Docker 容器，使用下列命令：
+
+    ```bash
+    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
+    ```
+
+1. 若要附加至 PTVSD 的 VS Code，在容器內，開啟 VS Code 並使用索引鍵或選取 F5__偵錯__。 出現提示時，選取__Azure Machine Learning 服務：Docker 偵錯__組態。 您也可以從提要欄位中，選取 偵錯 圖示__Azure Machine Learning 服務：Docker 偵錯__的偵錯 下拉式功能表，然後使用綠色箭頭來附加偵錯工具中的項目。
+
+    ![偵錯圖示、 開始偵錯 按鈕和組態選取器](media/how-to-troubleshoot-deployment/start-debugging.png)
+
+到目前為止，VS Code 會連接到 PTVSD，在 Docker 容器內，而且您在先前設定的中斷點處停止。 您現在可以逐步執行程式碼執行、 檢視變數，依此類推。
+
+如需有關如何使用 VS Code 偵錯 Python 的詳細資訊，請參閱[偵錯您的 Python 程式碼](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019)。
+
+<a id="editfiles"></a>
+### <a name="modify-the-container-files"></a>修改容器的檔案
+
+若要變更映像中的檔案，您可以將附加至執行中的容器，並執行 bash 殼層。 從該處，您可以使用 vim 編輯檔案：
+
+1. 若要連接到執行中的容器，並啟動容器中的 bash 殼層，使用下列命令：
+
+    ```bash
+    docker exec -it debug /bin/bash
+    ```
+
+1. 若要尋找服務所使用的檔案，使用下列命令從 bash 殼層中的容器中：
+
+    ```bash
+    cd /var/azureml-app
+    ```
+
+    從這裡開始，您可以使用 vim 編輯`score.py`檔案。 如需有關使用 vim 的詳細資訊，請參閱[使用 Vim 編輯器](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html)。
+
+1. 容器的變更通常不會保存。 若要儲存任何變更，再結束 shell，請使用下列命令，啟動 上個步驟中 (也就是在另一個介面中):
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    此命令會建立新的映像，名為`debug:2`，其中包含您的編輯。
+
+    > [!TIP]
+    > 您必須停止目前的容器，並開始使用新的版本，變更才會生效。
+
+1. 請務必保持您對容器中的檔案同步使用 VS 程式碼會使用本機檔案的變更。 否則，偵錯工具體驗將無法正常運作。
+
+### <a name="stop-the-container"></a>停止容器
+
+若要停止容器，請使用下列命令：
+
+```bash
+docker stop debug
+```
 
 ## <a name="next-steps"></a>後續步驟
 

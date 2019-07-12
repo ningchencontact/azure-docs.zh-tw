@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe253feca6a22ee0177082e178f897c5b634bb3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d35c4f410c29bba7848dde53d206cdd2ccd980ca
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61257184"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836159"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>使用 Azure Data Factory 從 SFTP 伺服器移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-sftp-connector.md)
 > * [第 2 版 (目前的版本)](../connector-sftp.md)
 
@@ -39,12 +39,12 @@ ms.locfileid: "61257184"
 
 從內部部署 SFTP 伺服器複製資料時，您需要在內部部署環境/Azure VM 中安裝資料管理閘道。 如需資料管理閘的詳細資料，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。 請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解設定和使用閘道的逐步指示。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以建立內含複製活動的管線，使用不同的工具/API 將資料移出 SFTP 來源。
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 如需將資料從 SFTP 伺服器複製到 Azure Blob 儲存體的 JSON 範例，請參閱本文的 [JSON 範例：將資料從 SFTP 伺服器複製到 Azure Blob](#json-example-copy-data-from-sftp-server-to-azure-blob) 一節。
+- 您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 如需將資料從 SFTP 伺服器複製到 Azure Blob 儲存體的 JSON 範例，請參閱本文的 [JSON 範例：將資料從 SFTP 伺服器複製到 Azure Blob](#json-example-copy-data-from-sftp-server-to-azure-blob) 一節。
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 FTP 連結服務專屬 JSON 元素的說明。
@@ -55,10 +55,10 @@ ms.locfileid: "61257184"
 | host | SFTP 伺服器的名稱或 IP 位址。 |是 |
 | port |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
 | authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
-| skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 沒有。 預設值：false |
+| skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 資料分割 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
 | gatewayName |要連線至內部部署 SFTP 伺服器的資料管理閘道名稱。 | 如果從內部部署 SFTP 伺服器複製資料，則為 [是]。 |
-| encryptedCredential | 用來存取 SFTP 伺服器的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中指定基本驗證 (使用者名稱 + 密碼) 或 SshPublicKey 驗證 (使用者名稱 + 私密金鑰路徑或內容) 時自動產生。 | 沒有。 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
+| encryptedCredential | 用來存取 SFTP 伺服器的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中指定基本驗證 (使用者名稱 + 密碼) 或 SshPublicKey 驗證 (使用者名稱 + 私密金鑰路徑或內容) 時自動產生。 | 資料分割 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
 
 ### <a name="using-basic-authentication"></a>使用基本驗證
 
@@ -66,7 +66,7 @@ ms.locfileid: "61257184"
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| username | 可存取 SFTP 伺服器的使用者。 |是 |
+| userName | 可存取 SFTP 伺服器的使用者。 |是 |
 | password | 使用者 (使用者名稱) 的密碼。 | 是 |
 
 #### <a name="example-basic-authentication"></a>範例：基本驗證
@@ -116,7 +116,7 @@ ms.locfileid: "61257184"
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| username |可存取 SFTP 伺服器的使用者 |是 |
+| userName |可存取 SFTP 伺服器的使用者 |是 |
 | privateKeyPath | 指定閘道可以存取之私密金鑰檔案的絕對路徑。 | 指定 `privateKeyPath` 或 `privateKeyContent`。 <br><br> 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
 | privateKeyContent | 私密金鑰內容的序列化字串。 複製精靈可以讀取私密金鑰檔案，並自動解壓縮私密金鑰內容。 如果您使用任何其他工具/SDK，請改為使用 privateKeyPath 屬性。 | 指定 `privateKeyPath` 或 `privateKeyContent`。 |
 | passPhrase | 如果金鑰檔案受到複雜密碼保護，請指定複雜密碼/密碼以將私密金鑰解密。 | 如果私密金鑰檔案受到複雜密碼保護，則為 [是]。 |
@@ -225,7 +225,7 @@ ms.locfileid: "61257184"
 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md)文章以了解詳細資訊。
 
 ## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON 範例：將資料從 SFTP 伺服器複製到 Azure Blob
-下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 這些範例示範如何將資料從 SFTP 來源複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源 **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
+下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例示範如何將資料從 SFTP 來源複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源 **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
 
 > [!IMPORTANT]
 > 此範例提供 JSON 程式碼片段。 其中並不包含建立 Data Factory 的逐步指示。 如需逐步指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。

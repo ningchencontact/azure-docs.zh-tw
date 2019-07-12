@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232655"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706981"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
 
@@ -77,7 +77,7 @@ ms.locfileid: "65232655"
 
 - **資料庫取代**
 
-  如果還原的資料庫要做為原始資料庫的替代品，您應該指定 orinal 資料庫的計算大小和服務層級。 您可以重新命名原始資料庫並讓原來的名稱使用的已還原的資料庫[ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 命令。
+  如果還原的資料庫要做為原始資料庫的替代品，您應該指定原始資料庫的計算大小和服務層級。 您可以重新命名原始資料庫並讓原來的名稱使用的已還原的資料庫[ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 命令。
 
 - **資料復原**
 
@@ -124,7 +124,7 @@ ms.locfileid: "65232655"
 目前不支援異地次要資料庫上的時間點復原。 只有在主要資料庫上才可進行時間點復原。 如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 異地還原是最基本的災害復原解決方案-SQL Database 中可用。 它會依賴自動建立異地複寫備份的 RPO = 1 小時和 12 小時的預估的復原時間。 它並不保證目標區域，必須在區域 ourage 之後還原資料庫，因為有可能會有清晰的增加需求的容量。 對於非商務關鍵應用程式使用相對較小的資料庫，異地還原會是適當的災害復原解決方案。 Busniess 重要應用程式，使用大型資料庫，且必須確保商務持續性，您應該使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。 它提供較低的 RPO 和 RTO，，而且一律保證容量。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> 異地還原是最基本的災害復原解決方案-SQL Database 中可用。 它會依賴自動建立異地複寫備份的 RPO = 1 小時和 12 小時的預估的復原時間。 它並不保證目標區域，必須在區域 ourage 之後還原資料庫，因為有可能會有清晰的增加需求的容量。 對於非商務關鍵應用程式使用相對較小的資料庫，異地還原會是適當的災害復原解決方案。 業務關鍵應用程式，使用大型資料庫，且必須確保商務持續性，您應該使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。 它提供較低的 RPO 和 RTO，，而且一律保證容量。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 入口網站進行異地還原
 
@@ -141,7 +141,7 @@ ms.locfileid: "65232655"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 - 若要還原的獨立或集區的資料庫，請參閱[還原 AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)。
 

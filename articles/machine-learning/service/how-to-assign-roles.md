@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341107"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797667"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理 Azure Machine Learning 工作區的存取權
 
@@ -26,7 +26,7 @@ ms.locfileid: "67341107"
 
 Azure Machine Learning 工作區是 Azure 資源。 如同其他 Azure 資源，建立新的 Azure Machine Learning 工作區時，它是三個預設角色。 您可以將使用者新增至工作區，並將它們指派給其中一個內建的角色。
 
-| 角色 | 存取層級 |
+| Role | 存取層級 |
 | --- | --- |
 | **讀取者** | 在工作區的唯讀狀態動作。 讀者可以列出及檢視在工作區中的資產，但無法建立或更新這些資產。 |
 | **參與者** | 檢視、 建立、 編輯或刪除 （如果適用） 工作區中的資產。 比方說，參與者可以建立實驗、 建立或附加的計算叢集、 提交執行，以及部署 web 服務。 |

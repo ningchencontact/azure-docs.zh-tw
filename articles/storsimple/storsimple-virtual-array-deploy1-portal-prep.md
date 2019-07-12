@@ -25,7 +25,7 @@ ms.locfileid: "62127135"
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器 (使用 Resource Manager 模型) 的佈署教學課程，而這是該系列的第一篇文章。 本文章說明在佈建虛擬陣列之前，要建立並設定 StorSimple 裝置管理員服務所需的準備工作。 本文章也連結到部署設定檢查清單及設定必要條件。
 
@@ -55,7 +55,7 @@ ms.locfileid: "62127135"
 * 下載 [StorSimple Virtual Array 檔案伺服器的設定檢查清單](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)。
 * 下載 [StorSimple Virtual Array iSCSI 伺服器的設定檢查清單](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 我們在此提供 StorSimple 裝置管理員服務、StorSimple Virtual Array 及資料中心網路的設定必要條件。
 

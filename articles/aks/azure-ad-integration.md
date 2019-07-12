@@ -2,17 +2,17 @@
 title: 整合 Azure Active Directory 與 Azure Kubernetes Service
 description: 如何建立 Azure Active Directory 啟用 Azure Kubernetes Service (AKS) 叢集
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
-ms.author: iainfou
-ms.openlocfilehash: db166c82e39e9184528fde67ff868229cf9b1d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 80137023643630e8472a70fcca6cb656aeba7123
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061118"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616379"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -39,7 +39,7 @@ Azure AD 驗證會提供給具備 OpenID Connect 的 AKS 叢集。 OpenID Connec
 
 在 Kubernetes 叢集中，webhook 權杖驗證來驗證權杖。 Webhook 權杖驗證已設定並當作 AKS 叢集的一部分管理。
 
-如需有關 webhook 權杖驗證的詳細資訊，請參閱 < [Webhook 權杖驗證][ kubernetes-webhook] Kubernetes 文件中的一節。
+如需有關 webhook 權杖驗證的詳細資訊，請參閱 < [Webhook 權杖驗證][kubernetes-webhook]Kubernetes 文件中的一節。
 
 若要提供 AKS 叢集中的 Azure AD 驗證，會建立兩個 Azure AD 應用程式。 第一個應用程式是伺服器元件，提供使用者驗證。 第二個應用程式是適用於驗證的 CLI 會提示您時，會使用用戶端元件。 此用戶端應用程式會將伺服器應用程式用於實際的驗證的用戶端所提供的認證。
 
@@ -152,13 +152,13 @@ Azure AD 驗證會提供給具備 OpenID Connect 的 AKS 叢集。 OpenID Connec
 
 ## <a name="deploy-the-aks-cluster"></a>部署 AKS 叢集
 
-使用 [az group create][az-group-create] 命令來建立 AKS 叢集的資源群組。
+使用[az 群組建立][az-group-create]命令來建立 AKS 叢集的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-使用[az aks 建立][ az-aks-create]命令來部署 AKS 叢集。 接下來，將下列範例命令中的值。 使用您在建立伺服器應用程式識別碼、 應用程式密碼、 用戶端應用程式識別碼和租用戶識別碼的 Azure AD 應用程式時收集到的值
+使用[az aks 建立][az-aks-create]命令來部署 AKS 叢集。 接下來，將下列範例命令中的值。 使用您在建立伺服器應用程式識別碼、 應用程式密碼、 用戶端應用程式識別碼和租用戶識別碼的 Azure AD 應用程式時收集到的值
 
 ```azurecli
 az aks create \
@@ -175,9 +175,9 @@ AKS 叢集需要幾分鐘的時間建立。
 
 ## <a name="create-an-rbac-binding"></a>建立 RBAC 繫結
 
-您可以使用 Azure Active Directory 帳戶與 AKS 叢集之前，您必須建立角色繫結或叢集角色繫結。 角色定義的權限授與，並繫結將它們套用至所需的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
+您可以使用 Azure Active Directory 帳戶與 AKS 叢集之前，您必須建立角色繫結或叢集角色繫結。 角色定義的權限授與，並繫結將它們套用至所需的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱 <<c0> [ 使用 RBAC 授權][rbac-authorization]。
 
-首先，使用[az aks get-credentials 來取得認證][ az-aks-get-credentials]命令搭配`--admin`登入具有系統管理員存取叢集的引數。
+首先，使用[az aks get-credentials 來取得認證][az-aks-get-credentials]命令搭配`--admin`登入具有系統管理員存取叢集的引數。
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -187,7 +187,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ad
 
 - 如果使用者您授與 RBAC 繫結是在相同的 Azure AD 租用戶中，指派權限的使用者主體名稱 (UPN) 為基礎。 移至步驟來建立 ClusterRoleBinding YAML 資訊清單。
 
-- 如果使用者是在不同的 Azure AD 租用戶、 查詢，並使用**objectId**屬性改為。 如有需要請使用來取得必要的使用者帳戶的 objectId [az ad 使用者 show] [ az-ad-user-show]命令。 提供必要的帳戶使用者主體名稱 (UPN):
+- 如果使用者是在不同的 Azure AD 租用戶、 查詢，並使用**objectId**屬性改為。 如有需要請使用來取得必要的使用者帳戶的 objectId [az ad 使用者顯示][az-ad-user-show]命令。 提供必要的帳戶使用者主體名稱 (UPN):
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
@@ -210,7 +210,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-藉由套用繫結[kubectl 套用][ kubectl-apply]命令，在下列範例所示：
+藉由套用繫結[kubectl 套用][kubectl-apply]命令，在下列範例所示：
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
@@ -235,17 +235,17 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-藉由套用繫結[kubectl 套用][ kubectl-apply]命令，在下列範例所示：
+藉由套用繫結[kubectl 套用][kubectl-apply]命令，在下列範例所示：
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
 ```
 
-如需有關使用 RBAC 保護 Kubernetes 叢集的詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
+如需有關保護 Kubernetes 叢集中使用 RBAC 的詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
 
 ## <a name="access-the-cluster-with-azure-ad"></a>存取叢集與 Azure AD
 
-使用提取的非系統管理使用者的內容[az aks get-credentials 來取得認證][ az-aks-get-credentials]命令。
+使用提取的非系統管理使用者的內容[az aks get-credentials 來取得認證][az-aks-get-credentials]命令。
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

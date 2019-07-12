@@ -70,7 +70,7 @@ Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與�
 
 Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制項，以保護 Azure AD、Azure 和其他 Microsoft Online Services 中資源的存取權限。  在 just-in-time 存取和角色變更警示由 Azure AD PIM，除了多重要素驗證和條件式存取的功能，請提供一組完整的治理控制項，可協助保護公司資源 （目錄中，Office 365 和 Azure 資源角色）。 如同其他形式的存取權，組織可以使用存取權檢閱，對具有系統管理員角色的所有使用者設定週期性存取權重新確認。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 雖然沒有完美的解決方案或每位客戶的建議，下列組態會提供 Microsoft 建議您的基準原則的遵循的指南，以確保更安全且更有生產力的工作力。
 

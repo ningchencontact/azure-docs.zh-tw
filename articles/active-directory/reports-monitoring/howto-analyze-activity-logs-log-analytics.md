@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4145ea2162cdd56deb8bbdcfa81d5a90a2ed9382
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438163"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611562"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>分析 Azure AD 活動記錄與 Azure 監視器記錄檔
 
@@ -32,7 +32,7 @@ ms.locfileid: "60438163"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要繼續，您需要：
 
@@ -109,4 +109,4 @@ AuditLogs
 
 * [開始使用 Azure 監視器記錄中的查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [在 Azure 入口網站中建立和管理警示群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)
+* [安裝與使用適用於 Azure Active Directory 的記錄分析檢視](howto-install-use-log-analytics-views.md)

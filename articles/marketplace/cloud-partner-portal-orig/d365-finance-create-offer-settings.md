@@ -35,7 +35,7 @@ ms.locfileid: "64934914"
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
 
-### <a name="name"></a>Name
+### <a name="name"></a>名稱
 
 這是您應用程式/供應項目的顯示名稱，將會顯示在 Microsoft [AppSource](https://appsource.microsoft.com/) 中。 它最多不能超過 50 個字元。
 
