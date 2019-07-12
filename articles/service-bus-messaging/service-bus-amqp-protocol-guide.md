@@ -212,8 +212,8 @@ AMQP 1.0 規格會定義稱為「已接收」  的進一步處置狀態稱，其
 
 | 欄位名稱 | 使用量 | API 名稱 |
 | --- | --- | --- |
-| 持久 |- |- |
-| 優先順序 |- |- |
+| durable |- |- |
+| priority |- |- |
 | ttl |此訊息的存留時間 |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
