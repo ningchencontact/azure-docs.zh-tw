@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a98a98eea1b5c2824c1c54169c5c71456f3a2a64
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118879"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704779"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell Cmdlet 管理 Batch 資源
 
@@ -125,12 +125,12 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 ### <a name="create-a-batch-pool"></a>建立 Batch 集區
 
-建立或更新 Batch 集區時，請為計算節點上的作業系統選取雲端服務設定或虛擬機器設定 (請參閱 [Batch 功能概觀](batch-api-basics.md#pool))。 如果您指定雲端服務設定，則會使用其中一個 [Azure 客體 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)來製作計算節點的映像。 如果您指定虛擬機器設定，則可以指定 [Azure 虛擬機器 Marketplace][vm_marketplace] 所列的其中一個支援的 Linux 或 Windows VM 映像，或提供您已準備的自訂映像。
+建立或更新 Batch 集區時，請為計算節點上的作業系統選取雲端服務設定或虛擬機器設定 (請參閱 [Batch 功能概觀](batch-api-basics.md#pool))。 如果您指定雲端服務設定，則會使用其中一個 [Azure 客體 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)來製作計算節點的映像。 如果您指定的虛擬機器組態，您可以指定其中一個支援的 Linux 或 Windows VM 映像中所列[Azure 虛擬機器 Marketplace][vm_marketplace]，或提供您已備妥的自訂映像。
 
 當您執行 **New-AzBatchPool** 時，請將作業系統設定傳入 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 物件中。 例如，下列程式碼片段會使用虛擬機器組態中的 Standard_A1 計算節點建立 Batch 集區，並以 Ubuntu Server 18.04-LTS 製作映像。 在此，**VirtualMachineConfiguration** 參數會將 $configuration  變數指定為 PSVirtualMachineConfiguration 物件。 **BatchContext** 參數會將先前定義的變數 $context  指定為 BatchAccountContext 物件。
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
 

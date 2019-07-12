@@ -27,11 +27,11 @@ ms.locfileid: "65075876"
 
 了解所有您要建置精靈應用程式呼叫 web Api。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 您的應用程式可以取得權杖來呼叫 web API 代表本身 （不代表使用者）。 這個案例是適用於精靈應用程式。 它使用標準的 OAuth 2.0[用戶端認證](v2-oauth2-client-creds-grant-flow.md)授與。
 

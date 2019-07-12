@@ -60,16 +60,16 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 | 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-| ListenerConnections-Success (預覽) | 指定時段內，接聽程式成功連接到 Azure 轉送的數目。 <br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerConnections-ClientError (預覽)|指定時段內，接聽程式連線發生的用戶端錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerConnections-ServerError (預覽)|指定時段內，接聽程式連線發生的伺服器錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-Success (預覽)|指定時段內，寄件者成功連線的數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-ClientError (預覽)|指定時段內，寄件者連線發生的用戶端錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-ServerError (預覽)|指定時段內，寄件者連線發生的伺服器錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerConnections-TotalRequests (預覽)|指定時段內，接聽程式連線的總數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-TotalRequests (預覽)|指定時段內，寄件者發出的連線要求。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ActiveConnections (預覽)|指定時段內，作用中的連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ActiveListeners (預覽)|指定時段內，作用中的接聽程式數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+| ListenerConnections-Success (預覽) | 指定時段內，接聽程式成功連接到 Azure 轉送的數目。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerConnections-ClientError (預覽)|指定時段內，接聽程式連線發生的用戶端錯誤數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerConnections-ServerError (預覽)|指定時段內，接聽程式連線發生的伺服器錯誤數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-Success (預覽)|指定時段內，寄件者成功連線的數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-ClientError (預覽)|指定時段內，寄件者連線發生的用戶端錯誤數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-ServerError (預覽)|指定時段內，寄件者連線發生的伺服器錯誤數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerConnections-TotalRequests (預覽)|指定時段內，接聽程式連線的總數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-TotalRequests (預覽)|指定時段內，寄件者發出的連線要求。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ActiveConnections (預覽)|指定時段內，作用中的連線數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ActiveListeners (預覽)|指定時段內，作用中的接聽程式數目。<br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 維度：EntityName|
 |ListenerDisconnects (預覽)|指定時段內，中斷連線的接聽程式數目。<br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 |SenderDisconnects (預覽)|指定時段內，中斷連線的寄件者數目。<br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 

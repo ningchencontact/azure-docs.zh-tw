@@ -30,7 +30,7 @@ ms.locfileid: "65603553"
 > [!NOTE]
 > 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 和 `EventHubName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com)。
 - [.NET Core Visual Studio 2015 或 2017 工具](https://www.microsoft.com/net/core)。 
@@ -368,7 +368,7 @@ ms.locfileid: "65603553"
 請閱讀下列文章：
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [功能與 Azure 事件中樞中的術語](event-hubs-features.md)
+- [Azure 事件中樞的功能與術語](event-hubs-features.md)
 - [事件中樞常見問題集](event-hubs-faq.md)
 
 

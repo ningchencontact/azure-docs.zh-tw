@@ -16,7 +16,7 @@ ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232560"
@@ -28,7 +28,7 @@ ms.locfileid: "61232560"
 > 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS 使用 PlayReady 與 Widevine DRM 動態加密的資料流。 PlayReady 授權來自媒體服務 PlayReady 授權伺服器，Widevine 授權則來自 **castLabs** 授權伺服器。
 

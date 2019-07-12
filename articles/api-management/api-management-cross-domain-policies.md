@@ -54,7 +54,7 @@ ms.locfileid: "67071945"
 
 ### <a name="elements"></a>元素
 
-|Name|描述|必要項|
+|名稱|描述|必要項|
 |----------|-----------------|--------------|
 |cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|
 
@@ -123,7 +123,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|預設值|
+|名稱|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
 |cors|根元素。|是|N/A|
 |allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|是|N/A|
@@ -136,7 +136,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="attributes"></a>屬性
 
-|Name|描述|必要項|預設值|
+|名稱|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|false|
 |preflight-result-max-age|事前回應中的 `Access-Control-Max-Age` 標頭會設定為這個屬性的值，並影響使用者代理程式是否能夠快取事前回應。|否|0|
@@ -174,7 +174,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="attributes"></a>屬性
 
-|Name|描述|必要項|預設值|
+|名稱|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|是|N/A|
 

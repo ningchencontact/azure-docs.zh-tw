@@ -31,7 +31,7 @@ ms.locfileid: "61217149"
 > 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 > [!IMPORTANT]
 > 請務必檢閱[概觀](media-services-scale-media-processing-overview.md)，以取得調整媒體處理的詳細資訊。
 > 

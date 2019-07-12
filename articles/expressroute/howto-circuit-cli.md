@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837805"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657077"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路
 
@@ -23,9 +24,10 @@ ms.locfileid: "60837805"
 > * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 範本](expressroute-howto-circuit-resource-manager-template.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -117,7 +119,7 @@ az network express-route list-service-providers
 
 請檢查回應以查看是否列出您的連線提供者。 記下下列資訊，當您建立線路時將會用到：
 
-* Name
+* 名稱
 * PeeringLocations
 * BandwidthsOffered
 
@@ -127,8 +129,8 @@ az network express-route list-service-providers
 
 > [!IMPORTANT]
 > ExpressRoute 線路會從發出服務金鑰時開始收費。 在連線提供者準備好佈建線路之後，再執行這項作業。
-> 
-> 
+>
+>
 
 若您還沒有資源群組，您必須在建立 ExpressRoute 線路之前建立一個。 您可以藉由使用下列命令來建立資源群組：
 
@@ -136,7 +138,7 @@ az network express-route list-service-providers
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-以下示範如何透過矽谷的 Equinix 建立 200-Mbps ExpressRoute 線路。 如果您使用不同的提供者和不同的設定，請在您提出要求時替換成該資訊。 
+以下示範如何透過矽谷的 Equinix 建立 200-Mbps ExpressRoute 線路。 如果您使用不同的提供者和不同的設定，請在您提出要求時替換成該資訊。
 
 請確定您指定正確的 SKU 層和 SKU 系列：
 
@@ -267,8 +269,8 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 > [!IMPORTANT]
 > 這些指示只適用於由提供第 2 層連線服務的服務提供者所建立的線路。 如果您使用的服務提供者是提供受控第 3 層服務 (通常是 IP VPN，如 MPLS)，您的連線提供者會為您設定和管理路由。
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8.將虛擬網路連結到 ExpressRoute 線路
 
@@ -279,7 +281,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 您可以修改 ExpressRoute 線路的某些屬性，而不會影響連線。 您可以進行下列變更，而不會有停機時間：
 
 * 您可以啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
-* 只要連接埠有可用的容量，您就可以增加 ExpressRoute 線路的頻寬。 但是，不支援將線路的頻寬降級。 
+* 只要連接埠有可用的容量，您就可以增加 ExpressRoute 線路的頻寬。 但是，不支援將線路的頻寬降級。
 * 您可以將計量方案從 [已計量資料] 變更為 [無限制資料]。 但是，不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
 * 您可以啟用和停用 [允許傳統作業]  。
 
@@ -299,8 +301,8 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 > [!IMPORTANT]
 > 如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
-> 
-> 
+>
+>
 
 停用 ExpressRoute 進階附加元件之前，請了解下列準則：
 

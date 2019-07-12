@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711453"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-odbc-connector.md)
 > * [目前的版本](connector-odbc.md)
 
@@ -32,14 +32,14 @@ ms.locfileid: "60711453"
 
 具體而言，這個 ODBC 連接器支援使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證，從**任何 ODBC 相容的資料存放區**複製資料或將資料複製到該處。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用這個 ODBC 連接器，您必須：
 
 - 設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 - 安裝適用於 Integration Runtime 電腦上資料存放區的 ODBC 驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -154,7 +154,7 @@ ms.locfileid: "60711453"
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -200,7 +200,7 @@ ms.locfileid: "60711453"
 > [!NOTE]
 > 針對 "writeBatchSize"，如果未設定 (自動偵測)，複製活動會先偵測驅動程式是否支援批次作業，如果支援，就將它設定為 10000，如果不支援，則將它設定為 1。 如果您將此值明確設定為 0 以外的值，複製作業會採用該值，並於驅動程式不支援批次作業時，在執行階段發生失敗。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

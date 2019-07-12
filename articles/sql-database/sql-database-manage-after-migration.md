@@ -40,7 +40,7 @@ ms.locfileid: "66357320"
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
 
-在  [Azure 入口網站](https://portal.azure.com/)，您可以監視個別資料庫的使用率選取您的資料庫，然後按一下**監視**圖表。 如此會帶出您可變更的 [度量]  視窗，只要按一下 [編輯圖表]  按鈕即可。 添加以下指标：
+在  [Azure 入口網站](https://portal.azure.com/)，您可以監視個別資料庫的使用率選取您的資料庫，然後按一下**監視**圖表。 如此會帶出您可變更的 [度量]  視窗，只要按一下 [編輯圖表]  按鈕即可。 新增下列度量：
 
 - CPU 百分比
 - DTU 百分比
@@ -51,7 +51,7 @@ ms.locfileid: "66357320"
 
 ![資料庫效能的服務層監視。](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
-还可针对性能指标配置警报。 按一下 [度量]  視窗中的 [新增警示]  按鈕。 按照向导说明来配置警报。 您可以選擇在度量超出或低於特定臨界值時發出警示。
+您也可以在效能度量中設定警示。 按一下 [度量]  視窗中的 [新增警示]  按鈕。 遵循精靈的指示以設定警示。 您可以選擇在度量超出或低於特定臨界值時發出警示。
 
 例如，如果您預期資料庫中的工作負載會成長，可以選擇設定電子郵件警示，以便在資料庫的任何效能度量達到 80% 時收到警示。 您可以使用此警示作為早期警告，協助您判斷何時需要切換至更高的計算大小。
 
@@ -199,7 +199,7 @@ TDE 有雙重金鑰階層 – 每個使用者資料庫中的資料是由對稱 A
 
 根據預設，為了方便起見，透明資料加密的主要金鑰是由 SQL Database 服務管理。 如果您的組織想要控管主要金鑰，有一個選項可將 Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md) 當作金鑰存放區。 使用 Azure Key Vault，您的組織即可取得金鑰佈建、輪替和權限控制權。 [輪替或切換 TDE 主索引鍵的類型](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation)很快速，因為它只會將 DEK 重新加密。 若為區隔安全性與資料管理之間角色的組織，安全性管理員可以為 Azure Key Vault 中的 TDE 主要金鑰佈建金鑰內容，並將 Azure Key Vault 金鑰識別碼提供給資料庫管理員，以便用於在伺服器上進行待用資料加密。 Key Vault 的設計能使得 Microsoft 無法看見或擷取您的加密金鑰。 您也可以因此集中管理組織的金鑰。
 
-#### <a name="always-encrypted"></a>一律加密
+#### <a name="always-encrypted"></a>永遠加密
 
 Always Encrypted 中也有[雙重金鑰階層](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) - 敏感性資料的資料行是由 AES 256 資料行加密金鑰 (CEK) 加密，接著由資料行主要金鑰 (CMK) 加密。 針對 Always Encrypted 提供的用戶端驅動程式沒有 CMK 長度限制。 CEK 的加密值會儲存在資料庫中，而 CMK 會儲存在受信任的金鑰存放區中，例如 Windows 憑證存放區、Azure Key Vault 或硬體安全性模組。
 
@@ -222,7 +222,7 @@ Always Encrypted 中也有[雙重金鑰階層](/sql/relational-databases/securit
 Express Route 也可讓您高載至所購買的頻寬限制最多 2 倍，不額外收費。 您也可以使用 Express Route 設定跨區域連線。 若要查看 ER 連線提供者的清單，請參閱：[Express Route 合作夥伴和對等互連位置](../expressroute/expressroute-locations.md)。 下列文章更詳細說明 Express Route：
 
 - [Express Route 簡介](../expressroute/expressroute-introduction.md)
-- [先決條件](../expressroute/expressroute-prerequisites.md)
+- [必要條件](../expressroute/expressroute-prerequisites.md)
 - [工作流程](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database 是否符合任何法規需求，以及這對於自己組織的合規性有何幫助
@@ -273,9 +273,9 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 #### <a name="dynamic-management-views"></a>動態管理檢視
 
-可以查询 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 动态管理视图，以返回最近一个小时的资源使用统计信息历史记录，也可以查询 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系统目录视图，返回过去 14 天的历史记录。
+您可以查詢 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 動態管理檢視，以傳回過去一小時的資源耗用量統計資料歷程記錄，而查詢 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系統目錄檢視，可傳回過去 14 天的歷程記錄。
 
-#### <a name="query-performance-insight"></a>Query Performance Insight
+#### <a name="query-performance-insight"></a>查詢效能深入解析
 
 [查詢效能深入解析](sql-database-query-performance.md)可讓您針對特定的資料庫，查看前幾名資源耗用查詢和長時間執行查詢的歷程記錄。 您可以依資源使用量、期間和執行頻率快速識別排名最前面的查詢。 您可以追蹤查詢並偵測迴歸。 這項功能需要啟用[查詢存放區](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)，而且對資料庫有作用。
 

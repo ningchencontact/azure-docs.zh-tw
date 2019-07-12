@@ -20,7 +20,7 @@ ms.locfileid: "66393142"
 
 了解如何在虛擬機器上從 Hortonworks 安裝 Apache Hadoop 沙箱，以了解 Hadoop 生態系統。 沙箱提供本機開發環境，讓您了解 Hadoop、Hadoop 分散式檔案系統 (HDFS)，以及作業提交。 熟悉 Hadoop 之後，您就可以開始在 Azure 中使用 Hadoop 建立 HDInsight 叢集。 有關如何開始使用的詳細資訊，請參閱 [開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [Oracle VirtualBox](https://www.virtualbox.org/)。 請從[這裡](https://www.virtualbox.org/wiki/Downloads)下載並安裝。
 
 

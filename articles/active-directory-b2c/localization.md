@@ -86,7 +86,7 @@ ms.locfileid: "66510589"
 
 **LocalizedCollections** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | 支援語言清單。 |
 
@@ -102,7 +102,7 @@ ms.locfileid: "66510589"
 
 **LocalizedCollection** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | Item | 0:n | 定義在使用者介面中可供使用者選取的某個宣告選項，例如下拉式清單中的值。 |
 
@@ -222,7 +222,7 @@ ms.locfileid: "66510589"
 
 每個 **LocalizedResources** 元素包含所有必要的 **LocalizedStrings** 元素，其中有多個 **LocalizedString** 元素和 **LocalizedCollections** 元素，以及多個 **LocalizedCollection** 元素。  下列範例會新增註冊頁面英文當地語系化： 
 
-注意：此範例會參考 `Gender` 和 `City` 宣告類型。 若要使用此範例，請務必定義這些宣告。 如需詳細資訊，請參閱 [ClaimsSchema](claimsschema.md)。
+注意:此範例會參考 `Gender` 和 `City` 宣告類型。 若要使用此範例，請務必定義這些宣告。 如需詳細資訊，請參閱 [ClaimsSchema](claimsschema.md)。
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">

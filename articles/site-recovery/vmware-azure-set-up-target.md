@@ -19,7 +19,7 @@ ms.locfileid: "60723773"
 
 此文章將說明如何準備您的目標 Azure 環境，以開始將 VMware 虛擬機器或實體伺服器複寫至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設：
 - 您已經在 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")上建立復原服務保存庫以保護您的來源機器

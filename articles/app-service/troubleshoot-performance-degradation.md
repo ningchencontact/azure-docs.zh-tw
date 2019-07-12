@@ -29,7 +29,7 @@ ms.locfileid: "62128444"
 
 如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/) ，然後按一下 **取得支援**。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 當您瀏覽應用程式時，頁面載入緩慢且有時候會逾時。
 
 ## <a name="cause"></a>原因
@@ -68,7 +68,7 @@ ms.locfileid: "62128444"
 
 ![監視應用程式效能](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [監視 Azure App Service 中的應用程式](web-sites-monitor.md)
 * [接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)

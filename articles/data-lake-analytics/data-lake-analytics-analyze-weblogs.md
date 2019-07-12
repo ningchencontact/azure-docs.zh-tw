@@ -168,7 +168,7 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。 若要深入了解 U-SQL，請
 3. 按兩下 **UnsuccessfulResponses.log**。
 4. 您也可以按兩下工作的圖形檢視內的輸出檔，直接瀏覽至輸出。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要使用不同的工具開始使用資料湖分析，請參閱：
 
 * [使用 Azure 入口網站開始使用 Data Lake Analytics](data-lake-analytics-get-started-portal.md)

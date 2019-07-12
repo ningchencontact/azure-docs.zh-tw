@@ -186,7 +186,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 ### <a name="set-up-logs-and-diagnostics"></a>設定記錄與診斷
 
-在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-IoTEdgeLog` 查詢精靈記錄。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
+在 Linux 上的 IoT Edge 服務精靈做為日誌記錄驅動程式的預設值。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-IoTEdgeLog` 查詢精靈記錄。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -212,7 +212,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 新增 （或附加） 這項資訊至檔案，名為`daemon.json`，並將它用於您的裝置平台的正確位置。
 
-| 平台 | 位置 |
+| 平台 | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -221,7 +221,7 @@ Container 引擎必須重新啟動，變更才會生效。
 
 **選項：調整每個容器模組的記錄檔設定**
 
-您可以在執行**createOptions**的每個模組。 例如︰
+您可以在執行**createOptions**的每個模組。 例如:
 
     "createOptions": {
         "HostConfig": {

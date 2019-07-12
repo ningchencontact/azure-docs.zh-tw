@@ -29,7 +29,7 @@ ms.locfileid: "60818511"
 
 在下列步驟中，您會建立[機器學習管線](concept-ml-pipelines.md)來註冊預先定型的電腦視覺模型 ([Inception-V3](https://arxiv.org/abs/1512.00567) \(英文\))。 然後使用預先定型的模型，對可在 Azure Blob 儲存體帳戶中取得的影像進行批次評分。 這些用於計分的影像均為來自 [ImageNet](http://image-net.org/) \(英文\) 資料集的未標記影像。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 

@@ -4,7 +4,7 @@ description: 如何使用 Visual Studio 訂用帳戶權益，在 Azure 中部署
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd97b07416526d71d5bee9bc198eb0d912e1c55
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61403052"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719148"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>在 Azure 中使用 Windows 用戶端進行開發/測試案例
 假設您有適當的 Visual Studio (先前稱為 MSDN) 訂閱，您可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 企業版(x64) 進行開發/測試案例。 這篇文章概述在 Azure 中執行 Windows 7、Windows 8.1、Windows 10 企業版和使用下列「Azure 資源庫」映像的資格需求。

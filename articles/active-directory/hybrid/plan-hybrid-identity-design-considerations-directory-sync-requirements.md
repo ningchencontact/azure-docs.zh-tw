@@ -75,6 +75,6 @@ ms.locfileid: "60381155"
 ## <a name="next-steps"></a>後續步驟
 [判斷多重要素驗證需求](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

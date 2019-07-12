@@ -59,7 +59,7 @@ Azure 的網路原則伺服器 (NPS) 擴充功能可讓客戶使用 Azure 以雲
 1. 安裝擴充功能的 NPS 伺服器會將 RD CAP 原則的 RADIUS Access-Accept 訊息傳送至遠端桌面閘道伺服器。
 1. 使用者便取得透過 RD 閘道存取要求之網路資源的權限。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本節會詳述在整合 Azure MFA 與遠端桌面閘道之前所需具備的必要條件。 開始之前，您必須先具備下列必要條件。  
 

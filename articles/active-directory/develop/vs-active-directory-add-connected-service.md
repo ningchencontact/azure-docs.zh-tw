@@ -29,7 +29,7 @@ ms.locfileid: "65414015"
 
 目前，Active Directory 連線服務不支援 ASP.NET Core 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 帳戶：如果您沒有 Azure 帳戶，您可以[申請免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)，或是[啟用您的 Visual Studio 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)。
 - **Visual Studio 2015** 或更新版本。 [立即下載 Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。

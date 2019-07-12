@@ -86,7 +86,7 @@ ms.locfileid: "60880439"
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. 在 `ViewController.h` 中，在匯入陳述式後面新增以下的 `#define`。 將 `<Enter Your Backend Endpoint>` 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。 例如： `http://your_backend.azurewebsites.net`。
+4. 在 `ViewController.h` 中，在匯入陳述式後面新增以下的 `#define`。 將 `<Enter Your Backend Endpoint>` 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。 例如： `http://your_backend.azurewebsites.net` 。
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

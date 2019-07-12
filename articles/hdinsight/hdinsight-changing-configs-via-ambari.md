@@ -326,7 +326,7 @@ Pig 會將 UDF 需要的 JAR 檔案複製到分散式快取，以供工作節點
 
 1. 若要啟用，請將 `pig.user.cache.enabled` 設定為 true。 預設值為 false。
 
-1. 若要設定快取 jar 的基底路徑，請將 `pig.user.cache.location` 設定為基底路徑。 預設值為 `/tmp`。
+1. 若要設定快取 jar 的基底路徑，請將 `pig.user.cache.location` 設定為基底路徑。 預設為 `/tmp`。
 
 
 ### <a name="optimize-performance-with-memory-settings"></a>使用記憶體設定將效能最佳化

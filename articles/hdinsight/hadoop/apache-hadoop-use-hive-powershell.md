@@ -23,7 +23,7 @@ ms.locfileid: "67078385"
 > [!NOTE]  
 > 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。 如需此範例中使用的 HiveQL 的相關資訊，請參閱 [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -57,7 +57,7 @@ ms.locfileid: "66015615"
 | 運算子 （如何彙總的度量值比較根據臨界值） | **context.condition.operator** | **data.context.condition.operator** |
 | 閾值 | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
 | 度量值 | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| 订阅 ID | **context.subscriptionId** | **data.context.subscriptionId** |
+| 訂用帳戶識別碼 | **context.subscriptionId** | **data.context.subscriptionId** |
 | 受影響資源的資源群組 | **context.resourceGroup** | **data.context.resourceGroup** |
 | 受影響資源的名稱 | **context.resourceName** | **data.context.resourceName** |
 | 受影響的資源類型 | **context.resourceType** | **data.context.resourceType** |

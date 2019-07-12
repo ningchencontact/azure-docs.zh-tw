@@ -60,13 +60,13 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
-- 訂用帳戶
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- 資源群組
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview

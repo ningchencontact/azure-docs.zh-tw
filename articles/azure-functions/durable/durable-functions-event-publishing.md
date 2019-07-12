@@ -251,7 +251,7 @@ namespace LifeCycleEventSpike
 下列清單說明生命週期事件結構描述︰
 
 * **`id`** ：事件格線事件的唯一識別碼。
-* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}` 。 `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
+* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
 * **`data`** ：Durable Functions 專屬參數。
   * **`hubName`** ：[TaskHub](durable-functions-task-hubs.md) 名稱。
   * **`functionName`** ：協調器函式名稱。

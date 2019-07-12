@@ -116,7 +116,7 @@ ms.locfileid: "61217154"
 > 
 > 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [媒體服務管理錯誤代碼](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>後續步驟

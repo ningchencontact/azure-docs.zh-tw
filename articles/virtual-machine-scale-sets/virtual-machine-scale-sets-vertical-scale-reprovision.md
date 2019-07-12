@@ -93,7 +93,7 @@ ms.locfileid: "60803508"
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>使用執行身分功能來建立 Azure 自動化帳戶
-您需要做的第一件事是建立 Azure 自動化帳戶，以此帳戶裝載用來調整虛擬機器擴展集執行個體的 Runbook。 最近，[Azure 自動化](https://azure.microsoft.com/services/automation/)引進了「執行身分帳戶」功能，此功能可設定服務主體以便代表使用者自動執行 Runbook。 如需詳細資訊，請參閱
+您需要做的第一件事是建立 Azure 自動化帳戶，以此帳戶裝載用來調整虛擬機器擴展集執行個體的 Runbook。 最近，[Azure 自動化](https://azure.microsoft.com/services/automation/)引進了「執行身分帳戶」功能，此功能可設定服務主體以便代表使用者自動執行 Runbook。 如需詳細資訊，請參閱：
 
 * [使用 Azure 執行身分帳戶驗證 Runbook](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -103,7 +103,7 @@ Azure 自動化 Runbook 資源庫已發佈垂直調整虛擬機器擴展集所�
 
 * [Azure 自動化的 Runbook 和模組資源庫](../automation/automation-runbook-gallery.md)
 
-從 Runbooks 功能表選擇 [瀏覽資源庫] 選項︰
+從 [Runbooks] 功能表選擇 [瀏覽資源庫] 選項︰
 
 ![要匯入的 Runbook][runbooks]
 

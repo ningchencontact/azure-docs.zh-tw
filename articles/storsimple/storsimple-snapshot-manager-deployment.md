@@ -23,7 +23,7 @@ ms.locfileid: "61077410"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>部署 StorSimple Snapshot Manager MMC 嵌入式管理單元
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 StorSimple Snapshot Manager 是 Microsoft Management Console (MMC) 嵌入式管理單元，可在 Microsoft Azure StorSimple 環境中簡化資料保護和備份管理。 利用 StorSimple Snapshot Manager，您可以管理 Microsoft Azure StorSimple 內部部署和雲端儲存體，就好像是完全整合的儲存系統，並藉此簡化備份和還原程序並降低成本。 
 
 本教學課程描述組態需求，以及安裝、移除及升級 StorSimple Snapshot Manager 的程序。

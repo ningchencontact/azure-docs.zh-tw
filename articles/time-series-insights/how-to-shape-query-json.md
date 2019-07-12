@@ -20,7 +20,7 @@ ms.locfileid: "66244466"
 
 本文章提供有關如何將 Azure Time Series Insights 查詢的效率最大化的 JSON 圖形的指引。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>了解最佳做法成形以符合您的儲存體需求的 JSON。</br>
 

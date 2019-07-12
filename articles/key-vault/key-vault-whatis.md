@@ -53,7 +53,7 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 
     ![如何管理的身分識別，用於 Azure 資源的工時的圖表](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 若要執行任何作業，使用金鑰保存庫，您需要向它。 有三種方式可向 Key Vault:
 
 - [適用於 Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)：當您部署 Azure 中的虛擬機器上的應用程式時，您可以指派到可存取金鑰保存庫的虛擬機器的身分識別。 您也可以指派的身分識別[其他 Azure 資源](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 此方法的優點是應用程式或服務不管理第一個祕密的旋轉角度。 Azure 會自動輪換身分識別。 我們建議最佳做法是使用此方法。 
@@ -65,7 +65,7 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 
 使用下表將有助於瞭解金鑰保存庫可以如何協助達到開發人員和安全性系統管理員的需求。
 
-| 角色 | 問題陳述 | Azure 金鑰保存庫已解決問題 |
+| Role | 問題陳述 | Azure 金鑰保存庫已解決問題 |
 | --- | --- | --- |
 | Azure 應用程式的開發人員 |「 我想要撰寫使用金鑰進行簽署和加密的 Azure 應用程式。 但我希望這些金鑰會與我的應用程式分開的因此，此解決方案便適用於地理區域分散的應用程式。 <br/><br/>我希望這些金鑰和密碼會受到保護，但我可以不用自己撰寫程式碼。 我也希望從我的應用程式就可以輕鬆使用這些金鑰和密碼，並得到最佳效能。」 |√ 金鑰會儲存在保存庫中，並且視需要由 URI 叫用。<br/><br/> √ Azure 使用會業界標準演算法、金鑰長度和硬體安全性模組保護金鑰。<br/><br/> √ 金鑰會在與應用程式位於相同 Azure 資料中心的 HSM 中處理。 此方法會比金鑰位於不同位置 (例如內部部署) 提供更高的可靠性並減少延遲。 |
 | 軟體即服務 (SaaS) 的開發人員 |「對於客戶之租用戶的金鑰和密碼，我不想承擔任何實際或潛在法律責任。 <br/><br/>我希望客戶擁有並自行管理金鑰，這樣我就可以將全部精力集中在我的專長上，也就是提供核心軟體功能。」 |√ 客戶可以將他們自己的金鑰匯入 Azure 並加以管理。 當 SaaS 應用程式需要使用客戶的金鑰執行加密編譯作業時，Key Vault 會代表應用程式的這些作業。 應用程式不會看到客戶的金鑰。 |

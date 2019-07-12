@@ -192,7 +192,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 azure-mobile-apps Node.js Server SDK 提供將儲存在 Azure SQL Database 中的資料表公開為 Web API 的機制。 提供的作業有五種：
 
-| 作業 | 描述 |
+| 運算 | 描述 |
 | --- | --- |
 | GET /tables/*tablename* |取得資料表中的所有記錄。 |
 | GET /tables/*tablename*/:id |取得資料表中的特定記錄。 |
@@ -300,7 +300,7 @@ Mobile Apps Node.js SDK 會使用 [mssql Node.js 套件] 來建立及使用 SQL 
 
    g. 選取 [確定]  。 在快顯對話方塊中選取 [確定]  。
 
-   h.如果该值不存在，请单击“添加行”。 在樹狀結構功能表中，選取 [SQL Server 服務]  。
+   h. 在樹狀結構功能表中，選取 [SQL Server 服務]  。
 
    i. 以滑鼠右鍵按一下 [SQL Server (SQLEXPRESS)]  ，然後選取 [重新啟動]  。
 
@@ -372,7 +372,7 @@ azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對�
 
 | 應用程式設定 | azureMobile.js 設定 | 描述 | 有效值 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |應用程式的名稱 |字串 |
+| **MS_MobileAppName** |name |應用程式的名稱 |string |
 | **MS_MobileLoggingLevel** |logging.level |要記錄的訊息的最小記錄層級 |error、warning、info、verbose、debug、silly |
 | **MS_DebugMode** |debug |啟用或停用偵錯模式 |true、false |
 | **MS_TableSchema** |data.schema |SQL 資料表的預設結構描述名稱 |字串 (預設值：dbo) |

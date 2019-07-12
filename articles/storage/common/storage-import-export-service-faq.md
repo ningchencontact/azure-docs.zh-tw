@@ -28,39 +28,39 @@ ms.locfileid: "61478567"
 
 ### <a name="can-i-copy-azure-file-storage-using-the-azure-importexport-service"></a>我可以使用 Azure 匯入/匯出服務複製 Azure 檔案儲存體嗎？
 
-是。 Azure 匯入/匯出服務支援匯入至 Azure 檔案儲存體。 目前不支援 Azure 檔案匯出。
+是的。 Azure 匯入/匯出服務支援匯入至 Azure 檔案儲存體。 目前不支援 Azure 檔案匯出。
 
 ### <a name="is-the-azure-importexport-service-available-for-csp-subscriptions"></a>Azure 匯入/匯出服務可用於 CSP 訂用帳戶嗎？
 
-是。 Azure 匯入/匯出服務支援雲端解決方案提供者 (CSP) 的訂用帳戶。
+是的。 Azure 匯入/匯出服務支援雲端解決方案提供者 (CSP) 的訂用帳戶。
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>我可以使用 Azure 匯入/匯出服務將 PST 信箱及 SharePoint 資料複製到 O365 嗎？
 
-是。 如需詳細資訊，請移至[將 PST 檔案或 SharePoint 資料匯入至 Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx)。
+是的。 如需詳細資訊，請移至[將 PST 檔案或 SharePoint 資料匯入至 Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx)。
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>可以使用 Azure 匯入/匯出服務，將我的離線備份複製到 Azure 備份服務嗎？
 
-是。 如需詳細資訊，請移至 [Azure 備份中的離線備份工作流程](../../backup/backup-azure-backup-import-export.md)。
+是的。 如需詳細資訊，請移至 [Azure 備份中的離線備份工作流程](../../backup/backup-azure-backup-import-export.md)。
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>我可以為了匯入/匯出作業向 Microsoft 購買磁碟機嗎？
 
-沒有。 您必須寄送自己的磁碟機來進行匯入和匯出作業。
+資料分割 您必須寄送自己的磁碟機來進行匯入和匯出作業。
 
 
 ## <a name="preparing-disks-for-importexport"></a>準備匯入/匯出要用的磁碟
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>我可以略過匯入作業的磁碟機準備步驟嗎？ 我可以在不進行複製的情況下準備磁碟機嗎？
 
-沒有。 用來匯入資料的任何磁碟機，都必須使用 Azure WAImportExport 工具備妥。 並使用此工具將資料複製到磁碟機。
+資料分割 用來匯入資料的任何磁碟機，都必須使用 Azure WAImportExport 工具備妥。 並使用此工具將資料複製到磁碟機。
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>我需要在建立匯出作業時執行任何磁碟準備工作嗎？
 
-沒有。 但建議先執行一些前置檢查。 若要確認所需的磁碟數目，請使用 WAImportExport 工具的 PreviewExport 命令。 如需詳細資訊，請參閱 [Previewing Drive Usage for an Export Job (預覽匯出作業的磁碟機使用量)](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 此命令可根據您要使用的磁碟機大小，協助您預覽所選 Blob 的磁碟機使用情況。 也請確認您可以對為了匯出作業而寄送的硬碟進行讀取和寫入。
+資料分割 但建議先執行一些前置檢查。 若要確認所需的磁碟數目，請使用 WAImportExport 工具的 PreviewExport 命令。 如需詳細資訊，請參閱 [Previewing Drive Usage for an Export Job (預覽匯出作業的磁碟機使用量)](https://msdn.microsoft.com/library/azure/dn722414.aspx)。 此命令可根據您要使用的磁碟機大小，協助您預覽所選 Blob 的磁碟機使用情況。 也請確認您可以對為了匯出作業而寄送的硬碟進行讀取和寫入。
 
 ## <a name="importexport-jobs"></a>匯入/匯出作業
 
 ### <a name="can-i-cancel-my-job"></a>我可以取消作業嗎？
-是。 您可以在作業狀態為 [建立中]  或 [運送中]  時取消作業。 如果在這些階段以外，即無法取消作業，而且作業會繼續進行到最後一個階段。
+是的。 您可以在作業狀態為 [建立中]  或 [運送中]  時取消作業。 如果在這些階段以外，即無法取消作業，而且作業會繼續進行到最後一個階段。
 
 ### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>我可以在 Azure 入口網站中檢視已完成作業的狀態多久？
 您最多可以檢視之前 90 天內已完成作業的狀態。 已完成的作業會在 90 天後刪除。
@@ -117,7 +117,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>服務會在退回磁碟機前進行格式化嗎？
 
-沒有。 所有磁碟機都使用 BitLocker 加密。
+資料分割 所有磁碟機都使用 BitLocker 加密。
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>如何存取這個服務所匯入的資料？
 
@@ -132,7 +132,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 視情況而定。 準備磁碟機時，您可以使用資料集 CSV 檔案中名為 /Disposition:<rename|no-overwrite|overwrite> 的欄位，指定是否應該覆寫目的地檔案還是予以忽略。 根據預設，服務將為新檔案重新命名，而不會覆寫現有的 Blob 或檔案。
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 工具與 32 位元作業系統相容嗎？
-沒有。 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 如需可支援作業系統的完整清單，請移至[支援的作業系統](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。 
+資料分割 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 如需可支援作業系統的完整清單，請移至[支援的作業系統](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 匯入/匯出所支援的最大區塊 Blob 和分頁 Blob 大小是多少？

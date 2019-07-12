@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender
-ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mahender, yevbronsh
+ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136995"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827867"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -46,7 +46,7 @@ ms.locfileid: "66136995"
 
 3. 選取 [受控身分識別]  。
 
-4. 在 [系統指派]  索引標籤內，將 [狀態]  切換為 [開啟]  。 按一下 [檔案]  。
+4. 在 [系統指派]  索引標籤內，將 [狀態]  切換為 [開啟]  。 按一下 [儲存]  。
 
 ![App Service 中的受控身分識別](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -276,6 +276,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 若要深入了解 Microsoft.Azure.Services.AppAuthentication 和它公開的作業，請參閱 [Microsoft.Azure.Services.AppAuthentication 參考]與[採用 MSI 的 App Service 和 KeyVault .NET 範例](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)。
 
+
+### <a name="using-the-azure-sdk-for-java"></a>使用 Azure SDK for Java
+
+對於 Java 應用程式和函式，才能使用受控身分識別的最簡單方式是透過[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)。 本節示範如何在您的程式碼中開始使用程式庫。
+
+1. 將參考加入[Azure SDK 程式庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure)。 Maven 專案中，您可以加入此程式碼片段`dependencies`專案的 POM 檔案的區段：
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. 使用`AppServiceMSICredentials`物件進行驗證。 此範例顯示如何這項機制可用於使用 Azure 金鑰保存庫：
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
+
 ### <a name="using-the-rest-protocol"></a>使用 REST 通訊協定
 
 採用受控身分識別的應用程式有兩個已定義的環境變數：
@@ -289,14 +317,14 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 > |-----|-----|-----|
 > |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
-> |secret|頁首|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
+> |secret|標頭|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
 > |clientid|查詢|(選擇性) 要使用之使用者指派的身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|
 
 成功的 200 OK 回應包括含以下屬性的 JSON 本文：
 
 > |屬性名稱|描述|
 > |-------------|----------|
-> |access_token|请求的访问令牌。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
+> |access_token|所要求的存取權杖。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
 > |expires_on|存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。|
 > |resource|接收端 Web 服務的應用程式識別碼 URI。|
 > |token_type|表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。|

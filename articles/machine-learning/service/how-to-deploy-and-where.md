@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: fb23e61142a639420d74c08e5a9a41324acab18b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514262"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706290"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -31,7 +31,7 @@ ms.locfileid: "67514262"
 
 如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 服務來管理、部署及監視模型](concept-model-management-and-deployment.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 模型。 如果您不需要定型的模型，您可以使用模型 & 相依性檔案中提供[本教學課程](https://aka.ms/azml-deploy-cloud)。
 
@@ -332,12 +332,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 下列各節示範如何建立部署組態，並接著使用它來部署 web 服務。
 
 ### <a name="optional-profile-your-model"></a>選用：分析您的模型
-在部署之前即服務模型，您可以分析以判斷最佳的 CPU 和記憶體需求。 您可以執行您的模型使用 SDK 或 CLI 設定檔。
+在部署之前即服務模型，您可以分析以判斷最佳的 CPU 和記憶體需求，使用 SDK 或 CLI。  模型的分析結果的形式發出`Run`物件。 完整詳細資料[模型設定檔結構描述可在 API 文件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-如需詳細資訊，您可以查看我們 SDK 文件： https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-執行物件的形式發出模型分析的結果。
-模型的設定檔結構描述的詳細資訊可以在這裡找到： https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+深入了解[如何分析您的模型使用 SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## <a name="deploy-to-target"></a>部署到目標
 
@@ -356,9 +353,27 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 + **使用 CLI**
 
+    若要使用 CLI 進行部署，使用下列命令。 取代`mymodel:1`具有名稱和版本的已註冊的模型：
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    中的項目`deploymentconfig.json`文件引導模式的參數[LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py)。 下表描述的 JSON 文件中的實體和方法的參數之間的對應：
+
+    | JSON 實體 | 方法參數 | 描述 |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | 計算目標。 值必須是本機， `local`。 |
+    | `port` | `port` | 本機連接埠上公開服務的 HTTP 端點。 |
+
+    下列 JSON 是使用 CLI 的使用範例部署組態：
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure 容器執行個體 （研發/測試）
 
@@ -379,10 +394,44 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 + **使用 CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    若要使用 CLI 進行部署，使用下列命令。 取代`mymodel:1`具有名稱和版本的已註冊的模型。 取代`myservice`與提供給此服務名稱：
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    中的項目`deploymentconfig.json`文件引導模式的參數[AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py)。 下表描述的 JSON 文件中的實體和方法的參數之間的對應：
+
+    | JSON 實體 | 方法參數 | 描述 |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | 計算目標。 ACI，值必須是`ACI`。 |
+    | `containerResourceRequirements` | NA | 包含 CPU 和記憶體配置容器的組態項目。 |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | 為此 web 服務所配置的 CPU 核心數目。 預設值， `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | （以 gb 為單位） 的記憶體數量配置給此 web 服務。 預設值， `0.5` |
+    | `location` | `location` | 若要部署到此 web 服務的 Azure 區域。 如果未指定將使用位置的工作區。 在 可用的區域上的更多詳細資料可以在這裡找到：[ACI 區域](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | 是否要啟用此 web 服務驗證。 預設為 False |
+    | `sslEnabled` | `ssl_enabled` | 是否要啟用 SSL，此 web 服務。 預設為 False。 |
+    | `appInsightsEnabled` | `enable_app_insights` | 是否要啟用 AppInsights 針對此 web 服務。 預設為 False |
+    | `sslCertificate` | `ssl_cert_pem_file` | 如果 SSL 已啟用所需的憑證檔案 |
+    | `sslKey` | `ssl_key_pem_file` | 如果 SSL 已啟用所需的金鑰檔 |
+    | `cname` | `ssl_cname` | Cname 如果啟用 SSL |
+    | `dnsNameLabel` | `dns_name_label` | 評分端點 dns 名稱標籤。 如果未指定唯一的 dns 名稱標籤將會產生評分端點。 |
+
+    下列 JSON 是使用 CLI 的使用範例部署組態：
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **使用 VS Code**
 
@@ -414,9 +463,71 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 + **使用 CLI**
 
+    若要使用 CLI 進行部署，使用下列命令。 取代`myaks`AKS 同名的計算目標。 取代`mymodel:1`具有名稱和版本的已註冊的模型。 取代`myservice`與提供給此服務名稱：
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    中的項目`deploymentconfig.json`文件引導模式的參數[AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)。 下表描述的 JSON 文件中的實體和方法的參數之間的對應：
+
+    | JSON 實體 | 方法參數 | 描述 |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | 計算目標。 AKS，值必須是`aks`。 |
+    | `autoScaler` | NA | 包含自動調整規模的組態項目。 請參閱 autoscaler 表格。 |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | 是否要啟用 web 服務的自動調整。 如果`numReplicas`  =  `0`， `True`; 否則`False`。 |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | 最小數目的容器時要使用自動調整這個 web 服務。 預設值， `1`。 |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | 容器時要使用的最大數目自動調整這個 web 服務。 預設值， `10`。 |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | 自動調整程式嘗試的頻率來調整此 web 服務。 預設值， `1`。 |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | 目標使用率 （以滿分為 100 的百分比表示），自動調整程式應該嘗試維護這個 web 服務。 預設值， `70`。 |
+    | `dataCollection` | NA | 包含資料集合的組態項目。 |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | 是否要啟用 web 服務的模型資料收集。 預設值， `False`。 |
+    | `authEnabled` | `auth_enabled` | 是否要啟用 web 服務的驗證。 預設值， `True`。 |
+    | `containerResourceRequirements` | NA | 包含 CPU 和記憶體配置容器的組態項目。 |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | 為此 web 服務所配置的 CPU 核心數目。 預設值， `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | （以 gb 為單位） 的記憶體數量配置給此 web 服務。 預設值， `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | 是否要啟用 web 服務的 Application Insights 記錄。 預設值， `False`。 |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | 若要強制執行評分 web 服務呼叫的逾時。 預設值， `60000`。 |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | 此 web 服務針對每個節點最大的並行要求。 預設值， `1`。 |
+    | `maxQueueWaitMs` | `max_request_wait_time` | 要求都會保留在三個 503 之前的佇列 （以毫秒為單位） 的最大時間就會傳回錯誤。 預設值， `500`。 |
+    | `numReplicas` | `num_replicas` | 配置為此 web 服務的容器數目。 沒有預設值。 如果未設定此參數，預設會啟用自動調整程式。 |
+    | `keys` | NA | 包含索引鍵的組態項目。 |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | 若要使用此 web 服務的主要驗證金鑰 |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | 若要使用此 web 服務的次要驗證金鑰 |
+    | `gpuCores` | `gpu_cores` | 配置給此 Webservice 的 GPU 核心數目。 預設值為 1。 |
+    | `livenessProbeRequirements` | NA | 包含作用探查需求的組態項目。 |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | 頻率 （以秒為單位） 進行的探測。 預設為 10 秒。 最小值為 1。 |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | 容器啟動之前起始作用探查之後的秒數。 預設值為 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | 探測逾時之前的秒數。預設值為 2 秒。 最小值為 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | 探測才能算是成功之後有失敗的最小連續成功。 預設值為 1。 最小值為 1。 |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | 當啟動 Pod，而且探測失敗時，Kubernetes 會嘗試放棄之前 failureThreshold 時間。 預設值是 3。 最小值為 1。 |
+    | `namespace` | `namespace` | Web 服務部署到 Kubernetes 命名空間。 最多 63 個小寫英數字元 ('a'-'z'、 '0'-'9') 和連字號 ('-') 字元。 第一個和最後一個字元不能連字號。 |
+
+    下列 JSON 是使用 CLI 的使用範例部署組態：
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **使用 VS Code**
 

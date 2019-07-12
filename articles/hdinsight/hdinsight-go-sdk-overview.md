@@ -16,13 +16,13 @@ ms.locfileid: "65466211"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go （預覽）
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 HDInsight SDK for Go 提供類別和函式可讓您管理您的 HDInsight 叢集。 它包含用來建立、刪除、更新、列出、調整大小、執行指令碼動作、監視、取得 HDInsight 叢集屬性的作業，和其他多種作業。
 
 > [!NOTE]  
 >此 SDK 的 GoDoc 參考資料也可以在[這裡取得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 一個 Azure 帳戶。 如果您沒有帳戶，請[取得免費試用帳戶](https://azure.microsoft.com/free/)。
 * [Go](https://golang.org/dl/)。
@@ -31,7 +31,7 @@ HDInsight SDK for Go 提供類別和函式可讓您管理您的 HDInsight 叢集
 
 從您的 GOPATH 位置，執行 `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 SDK 必須先使用您的 Azure 訂用帳戶進行驗證。  請依照下列範例建立服務主體，並使用它來驗證。 此動作完成後，您會有 `ClustersClient` 的執行個體，其中包含許多可用來執行管理作業的函式 (概述於下列各節中)。
 

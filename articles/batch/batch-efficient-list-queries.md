@@ -74,7 +74,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 * 多個運算式可以透過邏輯運算子 `and` 和 `or` 結合。
 * 此範例篩選字串只會列出執行中「轉譯」工作： `(state eq 'running') and startswith(id, 'renderTask')`。
 
-### <a name="select"></a>选择
+### <a name="select"></a>Select
 選取字串限制每個項目傳回的屬性值。 指定屬性名稱的清單，而且查詢結果中只有針對項目傳回的那些屬性值。
 
 * 選取字串由屬性名稱的逗號分隔清單組成。 您可以針對查詢的實體類型指定任何屬性。
@@ -179,7 +179,7 @@ List<CloudPool> testPools =
 ## <a name="example-construct-a-filter-string"></a>範例：建構篩選字串
 建構 [ODATADetailLevel.FilterClause][odata_filter] 的篩選字串時，請參閱「篩選字串的對應」下方的資料表，找出與您想要執行的清單作業相對應的 REST API 文件頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可篩選的屬性及其支援的運算子。 假設您想要擷取結束碼不為零的所有作業，[與作業相關聯的清單作業][rest_list_tasks]中的這一列指定適用的屬性字串和允許的運算子：
 
-| 屬性 | 允許的作業 | 類型 |
+| 屬性 | 允許的作業 | type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ List<CloudPool> testPools =
 ## <a name="example-construct-a-select-string"></a>範例：建構選取字串
 如果要建構 [ODATADetailLevel.SelectClause][odata_select]，請參閱「選取字串的對應」下方的資料表，瀏覽至與您要列出的實體類型相對應的 REST API 頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可選取的屬性及其支援的運算子。 假設您只想要擷取清單中每個作業的識別碼和命令列，您可以在[取得作業的相關資訊][rest_get_task]中的適當資料表找到這幾列：
 
-| 屬性 | 類型 | 注意 |
+| 屬性 | type | 注意 |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

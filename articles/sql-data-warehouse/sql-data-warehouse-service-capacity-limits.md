@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/14/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8f4412861eeaf2cbec360b13c0fe75e99d4fc1d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514688"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839636"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 資料倉儲容量限制
 Azure SQL 資料倉儲各種元件的最大允許值。
@@ -25,7 +25,7 @@ Azure SQL 資料倉儲各種元件的最大允許值。
 |:--- |:--- |:--- |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |單一 SQL 資料倉儲的最大 DWU | Gen1：DW6000<br></br>Gen2：DW30000c |
 | [資料倉儲單位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每一部伺服器的預設 DTU |54,000<br></br>每個 SQL Server (例如 myserver.database.windows.net) 的 DTU 配額為 54,000，最多允許 DW6000c。 此配額僅是安全限制。 您可以藉由[建立支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，並選取「配額」  做為要求類型來增加配額。  若要計算 DTU 需求，將所需的總 DWU 乘以 7.5，或將所需的總 cDWU 乘以 9.0。 例如:<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>您可以在入口網站的 [SQL Server] 選項中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 |
-| 資料庫連接 |最大並行開啟工作階段 |1024<br/><br/>同時開啟的工作階段數目會因所選 DWU。 DWU600c 和更新版本，支援最多 1024年個開啟的工作階段。 DWU500c 和支援最大並行的開啟工作階段限制為 512。 請注意，可同時執行的查詢數目有所限制。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
+| 資料庫連接 |最大並行開啟工作階段 |1024<br/><br/>同時開啟的工作階段數目會因所選 DWU。 DWU600c 和更新版本，支援最多 1024年個開啟的工作階段。 DWU500c 和下面，支援最大並行的開啟工作階段限制為 512。 請注意，可同時執行的查詢數目有所限制。 超過並行存取限制時，要求會進入內部佇列以等待處理。 |
 | 資料庫連接 |準備陳述式的最大記憶體 |20 MB |
 | [工作負載管理](resource-classes-for-workload-management.md) |並行查詢上限 |128<br/><br/> SQL 資料倉儲可以執行最多 128 並行查詢和佇列剩餘查詢。<br/><br/>將使用者指派給較高的資源類別，或在 SQL 資料倉儲的[資料倉儲單位](memory-and-concurrency-limits.md)設定較低時，並行查詢的數目會減少。 系統總是會允許某些查詢 (例如 DMV 查詢) 執行，而不影響並行查詢限制。 如需並行查詢執行的詳細資訊，請參閱[並行最大值](memory-and-concurrency-limits.md#concurrency-maximums)一文。 |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB 上限 |每一 DW100 399 GB。 因此在 DWU1000，tempdb 大小為 3.99 TB。 |

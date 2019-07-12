@@ -200,7 +200,7 @@ ms.locfileid: "61414926"
 您現在必須連接至您在上一個步驟所建立的一或多個共用。 請在連接至 StorSimple Virtual Array 的 Windows Server 主機上執行這些步驟。
 
 #### <a name="to-connect-to-the-share"></a>如何連線至共用
-1. 按下 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 鍵，然後在 [執行] 視窗中，指定 &#92;&#92;&lt;檔案伺服器名稱&gt;  做為路徑，「檔案伺服器名稱」  要換成您指派給檔案伺服器的裝置名稱。 按一下 [確定]  。
+1. 按下 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 鍵，然後在 [執行] 視窗中，指定 &#92;&#92;&lt;檔案伺服器名稱&gt;  做為路徑，「檔案伺服器名稱」  要換成您指派給檔案伺服器的裝置名稱。 按一下 [確定 **Deploying Office Solutions**]。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. 這會開啟 [檔案總管]。 您應該會看到所建立的共用以資料夾形式呈現。 選取並按兩下某個共用 (資料夾)，就能檢視該共用的內容。

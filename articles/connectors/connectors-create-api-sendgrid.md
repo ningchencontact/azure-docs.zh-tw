@@ -31,7 +31,7 @@ ms.locfileid: "62105729"
 此連接器只提供動作，因此若要啟動邏輯應用程式，請選取個別觸發程序，例如「週期」  觸發程序。 例如，如果您要定期地在清單中新增收件者，則可藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，來傳送關於收件者和清單的電子郵件。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 

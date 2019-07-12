@@ -18,7 +18,7 @@ ms.locfileid: "60609718"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 **Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 提供 Azure PaaS 解決方案的統包部署，以示範如何安全地內嵌、儲存、分析、互動、識別與部署解決方案與健康情況資料，同時能夠滿足業界合規性需求。該藍圖有助於加速資料受管制之客戶採用及使用雲端。**
 
@@ -30,7 +30,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 此解決方案的設計旨在使用以快速醫療保健互通性資源 (FHIR，一種以電子方式交換醫療保健資訊的全球標準) 格式化的範例資料集，並以安全方式加以儲存。 然後客戶可以使用 Azure Machine Learning Studio 充分利用功能強大的商業智慧工具和分析，以檢閱針對範例資料所做的預測。 作為 Azure Machine Learning Studio 可協助的實驗種類範例，藍圖包含了範例資料集、指令碼，以及用來預測病患待在醫院設施之時間的工具。 
 
-此藍圖旨在做為模組化基礎，讓客戶調整其特定需求，進而開發新的 Azure Machine Learning 實驗以解決臨床及操作上的使用案例。 其設計是在部署時既安全且符合規範；不過，客戶必須負責正確設定角色並實作任何修改。 請注意：
+此藍圖旨在做為模組化基礎，讓客戶調整其特定需求，進而開發新的 Azure Machine Learning 實驗以解決臨床及操作上的使用案例。 其設計是在部署時既安全且符合規範；不過，客戶必須負責正確設定角色並實作任何修改。 請注意下列事項：
 
 -   此藍圖提供了一個基準，可協助客戶在 HITRUST 和 HIPAA 環境中使用 Microsoft Azure。
 
@@ -80,7 +80,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 -   自訂角色指派：N/A
 
--   範圍：訂用帳戶
+-   範圍：Subscription
 
 ### <a name="database-analyst"></a>資料庫分析師
 
@@ -132,7 +132,7 @@ CMIO 是橫跨醫療保健組織內的資訊/技術和醫護專業的人。 其�
 
 -   自訂角色指派：N/A
 
--   範圍：訂用帳戶
+-   範圍：Subscription
 
 ## <a name="example-use-case"></a>使用案例範例
 

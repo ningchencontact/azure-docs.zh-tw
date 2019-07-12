@@ -23,7 +23,7 @@ ms.locfileid: "60506532"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多個 StorSimple 裝置。 建立服務之後，可使用該服務，從單一集中位置來管理所有連接至 StorSimple 裝置管理員服務的裝置，因而將管理負擔降到最低。
 
@@ -187,7 +187,7 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>執行 Update 5.0 之前版本的裝置上支援的作業
 Azure 入口網站僅支援執行 Update 5.0 和更新版本的 StorSimple 裝置。 對執行舊版本的裝置的支援有限。 移轉至 Azure 入口網站之後，請使用下表了解執行 Update 5.0 之前版本的裝置可支援哪些作業。
 
-| 作業                                                                                                                       | 支援      |
+| 運算                                                                                                                       | 支援      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | 註冊裝置                                                                                                               | 是            |
 | 設定裝置設定，例如一般設定、網路設定和安全性設定                                                                | 是            |

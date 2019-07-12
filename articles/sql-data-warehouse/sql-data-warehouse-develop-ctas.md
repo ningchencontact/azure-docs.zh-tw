@@ -345,7 +345,7 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-請注意：
+請注意下列事項：
 
 * 您可以使用轉型或轉換。
 * 您可以使用 ISNULL、 不是 COALESCE，來強制可 null 性。 請參閱下列附註。

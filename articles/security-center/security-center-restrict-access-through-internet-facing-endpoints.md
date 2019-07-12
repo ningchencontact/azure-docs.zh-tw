@@ -52,7 +52,7 @@ ms.locfileid: "60906380"
 
    ![編輯輸入規則][6]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 本文說明了如何實作資訊安全中心建議的「限制透過網際網路面向端點的存取」。 若要深入了解啟用 NSG 與規則，請參閱下列項目：
 
 * [什麼是網路安全性群組 (NSG)？](../virtual-network/security-overview.md)

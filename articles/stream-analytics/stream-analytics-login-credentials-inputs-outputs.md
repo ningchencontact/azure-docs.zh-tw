@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d5ff0d33780362752b07361de5320707b402a3a2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: aad6f237a37ce4782e2c103a7a14e0a3951093de
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329884"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612353"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>針對串流分析作業的輸入和輸出替換登入認證
 
@@ -85,5 +85,5 @@ ms.locfileid: "67329884"
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

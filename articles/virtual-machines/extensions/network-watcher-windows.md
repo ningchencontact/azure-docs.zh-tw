@@ -24,14 +24,14 @@ ms.locfileid: "60743321"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>適用於 Windows 的網路監看員代理程式虛擬機器擴充功能
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [Azure 網路監看員](../../network-watcher/network-watcher-monitoring-overview.md)是網路效能的監視、診斷和分析服務，可讓您監視 Azure 網路。 依需求擷取網路流量及 Azure 虛擬機器上的其他進階功能，都需要網路監看員代理程式虛擬機器擴充功能。
 
 
 本文件會詳述適用於 Windows 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。 安裝代理程式不會讓虛擬機器中斷或需要重新開機。 您可以將延伸模組部署到您部署的虛擬機器中。 若虛擬機器是由 Azure 服務所部署，請檢查服務文件以判斷它是否允許在虛擬機器中安裝延伸模組。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 

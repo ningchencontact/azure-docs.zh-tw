@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 672706c97a423819dd26941e0b6e22affa9c2bb8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: e38f8a923daa210d8aa5b56631e5f8157d4b3f70
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329845"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620872"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>在服務更新期間確保串流分析工作可靠性
 
@@ -35,5 +35,5 @@ ms.locfileid: "67329845"
 * [串流分析介紹](stream-analytics-introduction.md)
 * [開始使用串流分析](stream-analytics-real-time-fraud-detection.md)
 * [調整串流分析作業](stream-analytics-scale-jobs.md)
-* [串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [串流分析查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

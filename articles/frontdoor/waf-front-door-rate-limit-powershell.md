@@ -24,7 +24,7 @@ Azure web 應用程式防火牆 (WAF) 速率限制規則的 Azure 大門會控�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始設定速率限制原則之前，請設定您的 PowerShell 環境，並建立前端設定檔。
 ### <a name="set-up-your-powershell-environment"></a>設定 PowerShell 環境
 Azure PowerShell 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 模型來管理 Azure 資源。 

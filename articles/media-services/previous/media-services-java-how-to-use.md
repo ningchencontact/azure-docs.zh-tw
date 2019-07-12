@@ -36,7 +36,7 @@ ms.locfileid: "64869029"
 * 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 目前的 [Azure 媒體服務 Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>作法：匯入 Azure 媒體服務 Java 用戶端 SDK 套件
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>HOW TO：匯入 Azure 媒體服務 Java 用戶端 SDK 套件
 
 若要開始使用適用 Java 的媒體服務 SDK，請從 [Azure 媒體服務 Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)，將參考新增至 `azure-media` 套件的目前版本 (0.9.8)
 
@@ -50,7 +50,7 @@ ms.locfileid: "64869029"
 >[!NOTE]
 >您可以在我們的 [GitHub 存放庫](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)中找到 Azure 媒體服務 Java SDK 的原始程式碼。 請確定切換至 0.9 分支，而不是主要分支。 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>作法：使用 Azure 媒體服務搭配 Java
+## <a name="how-to-use-azure-media-services-with-java"></a>HOW TO：使用 Azure 媒體服務搭配 Java
 
 >[!NOTE]
 >建立媒體服務帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中]  狀態。

@@ -8,18 +8,19 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366312"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657311"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 範本](expressroute-howto-circuit-resource-manager-template.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
@@ -78,8 +79,8 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 > [!IMPORTANT]
 > ExpressRoute 線路會從發出服務金鑰時開始收費。 請確定在連線提供者準備好佈建線路之後，再執行這項作業。
-> 
-> 
+>
+>
 
 回應包含服務金鑰。 您可以執行下列命令來取得所有參數的詳細描述：
 
@@ -208,8 +209,8 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 > [!IMPORTANT]
 > 這些指示只適用於由提供第 2 層連線服務的服務提供者所建立的線路。 如果您使用的服務提供者是提供受控第 3 層服務 (通常是 IP VPN，如 MPLS)，您的連線提供者會為您設定和管理路由。
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8.將虛擬網路連結到 ExpressRoute 線路
 接下來，將虛擬網路連結到 ExpressRoute 線路。 當使用 Resource Manager 部署模型時，使用[將虛擬網路連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)文章。
@@ -291,7 +292,7 @@ get-help get-azurededicatedcircuit -detailed
 您可以執行下列工作，而無需中途停機：
 
 * 啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
-* 只要連接埠有可用的容量，就增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。 
+* 只要連接埠有可用的容量，就增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。
 * 將計量方案從 [計量付費] 變更為 [無限制]。 不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
 * 您可以啟用和停用 [允許傳統作業]  。
 
@@ -314,8 +315,8 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>停用 ExpressRoute 進階附加元件
 > [!IMPORTANT]
 > 如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
-> 
-> 
+>
+>
 
 請注意下列資訊︰
 
@@ -341,7 +342,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 > 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果該位置已無額外的容量，您無法升級線路。
 >
 > 降低 ExpressRoute 線路的頻寬時必須中斷運作。 頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
-> 
+>
 
 一旦決定需要的大小後，可以使用下列命令來重新調整線路大小。
 
@@ -369,7 +370,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>控制對傳統和 Resource Manager 環境的存取
-請檢閱 [將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](expressroute-howto-move-arm.md)中的指示。  
+請檢閱 [將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](expressroute-howto-move-arm.md)中的指示。
 
 ## <a name="delete"></a>取消佈建和刪除 ExpressRoute 線路
 請注意下列資訊︰

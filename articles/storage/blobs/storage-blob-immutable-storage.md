@@ -20,7 +20,7 @@ ms.locfileid: "66492762"
 
 不可變的儲存體，Azure Blob 儲存體可讓使用者將業務關鍵的資料物件儲存在蠕蟲 （一次寫入、 讀取許多） 狀態。 此狀態讓資料在使用者指定的間隔內不可清除，也不可修改。 Blob 物件建立和讀取，但不是修改或刪除，在保留間隔期間。 一般目的 v2 及所有 Azure 區域中的 Blob 儲存體帳戶會啟用不可變的儲存體。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 不可變的儲存體可協助醫療保健組織、 金融機構，以及相關的產業-特別是訊息代理程式經銷商組織安全地儲存資料。 它也可以運用在任何案例中保護重要資料，避免修改或刪除。 
 
@@ -60,7 +60,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 若為新的 Blob，有效保留期限等於使用者指定的保留間隔。 因為使用者可以延長保留間隔，所以固定儲存體會使用使用者所指定保留間隔的最新值，計算有效的保留期限。
 
 > [!TIP]
-> **範例：** 使用者建立以時間為基礎的保留原則，其保留間隔為五年。
+> **範例:** 使用者建立以時間為基礎的保留原則，其保留間隔為五年。
 >
 > 在該容器中，現有的 blob _testblob1_，建立前一年。 有效的保留期限_testblob1_是四年的時間。
 >
@@ -76,7 +76,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 下表顯示會針對不同固定案例停用的 Blob 作業類型。 如需詳細資訊，請參閱 [Azure Blob 服務 API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)文件。
 
-|案例  |Blob 狀態  |不允許 Blob 作業  |
+|狀況  |Blob 狀態  |不允許 Blob 作業  |
 |---------|---------|---------|
 |Blob 上的有效保留間隔尚未過期及/或已設定合法保存     |固定：防刪與防寫保護         | 放置 Blob<sup>1</sup>，將區塊放<sup>1</sup>、 放置區塊清單<sup>1</sup>、 刪除容器中，刪除 Blob，設定 Blob 中繼資料，請將頁面中，設定 Blob 屬性 」、 「 快照集 Blob、 「 累加複製 Blob附加區塊         |
 |Blob 上的有效保留間隔已過期     |僅限防寫保護 (允許刪除作業)         |放置 Blob<sup>1</sup>、放置區塊<sup>1</sup>、放置區塊清單<sup>1</sup>、設定 Blob 中繼資料、放置分頁、設定 Blob 屬性、快照集 Blob、累加複製 Blob、附加區塊         |
@@ -103,7 +103,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 使用這項功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 不可變的儲存體是只適用於一般用途 v2 和 Blob 儲存體帳戶。 這些帳戶必須透過管理[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 如需有關升級現有的一般用途 v1 儲存體帳戶，請參閱[儲存體帳戶升級](../common/storage-account-upgrade.md)。
 
 最新版本[Azure 入口網站](https://portal.azure.com)， [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，並[Azure PowerShell](https://github.com/Azure/azure-powershell/releases)支援 Azure Blob 儲存體的不可變的儲存體。 [用戶端程式庫支援](#client-libraries)也會提供。
@@ -171,7 +171,7 @@ Az.Storage 模組支援不可變的儲存體。  若要啟用此功能，請依�
 
 **您可以提供蠕蟲合規性文的件嗎？**
 
-是。 文件合規性，Microsoft 保留領先業界的獨立評定公司專門記錄管理與資訊監管，Cohasset 產生關聯，來評估 Azure 不可變的 Blob 儲存體和其遵守特定的需求金融服務產業中。 Cohasset 驗證 Azure 不變的 Blob 儲存體，用來保留時間為基礎的 Blob，蠕蟲處於時符合 CFTC 規則 1.31(c)-(d)、 FINRA 規則 4511，和 SEC Rule 17a-4 相關的儲存體需求。 Microsoft 會針對這組規則，因為它們代表記錄保留金融機構的全域最精準的指引。 Cohasset 報表位於[Microsoft 服務信任中心](https://aka.ms/AzureWormStorage)。 若要向 Microsoft 要求的證明字母，有關蠕蟲合規性，請連絡 Azure 支援。
+是的。 文件合規性，Microsoft 保留領先業界的獨立評定公司專門記錄管理與資訊監管，Cohasset 產生關聯，來評估 Azure 不可變的 Blob 儲存體和其遵守特定的需求金融服務產業中。 Cohasset 驗證 Azure 不變的 Blob 儲存體，用來保留時間為基礎的 Blob，蠕蟲處於時符合 CFTC 規則 1.31(c)-(d)、 FINRA 規則 4511，和 SEC Rule 17a-4 相關的儲存體需求。 Microsoft 會針對這組規則，因為它們代表記錄保留金融機構的全域最精準的指引。 Cohasset 報表位於[Microsoft 服務信任中心](https://aka.ms/AzureWormStorage)。 若要向 Microsoft 要求的證明字母，有關蠕蟲合規性，請連絡 Azure 支援。
 
 **此功能只適用於區塊 Blob，或者也適用於分頁和附加 Blob？**
 
@@ -211,11 +211,11 @@ Az.Storage 模組支援不可變的儲存體。  若要啟用此功能，請依�
 
 **您是否提供試用此功能的試用版或寬限期？**
 
-是。 第一次建立以時間為基礎的保留原則時，它是在*解除鎖定*狀態。 在此狀態中，您可以對保留間隔進行任何所需的變更，例如增加或減少保留間隔，甚至刪除原則。 鎖定原則之後，會保持鎖定狀態，直到保留間隔到期為止。 此鎖定的原則可防止刪除和修改的保留間隔。 我們強烈建議僅將「未鎖定」  狀態使用於試用目的，並且在 24 小時期間內鎖定原則。 這些做法可協助您符合 SEC 17a-4(f) 和其他法規。
+是的。 第一次建立以時間為基礎的保留原則時，它是在*解除鎖定*狀態。 在此狀態中，您可以對保留間隔進行任何所需的變更，例如增加或減少保留間隔，甚至刪除原則。 鎖定原則之後，會保持鎖定狀態，直到保留間隔到期為止。 此鎖定的原則可防止刪除和修改的保留間隔。 我們強烈建議僅將「未鎖定」  狀態使用於試用目的，並且在 24 小時期間內鎖定原則。 這些做法可協助您符合 SEC 17a-4(f) 和其他法規。
 
 **我可以使用虛刪除與不可變的 blob 原則嗎？**
 
-是。 [Azure Blob 儲存體的虛刪除](storage-blob-soft-delete.md)適用於儲存體帳戶，不論適用法務保存措施或以時間為基礎的保留原則內的所有容器。 我們建議先套用任何不可變的蠕蟲原則，並確認啟用虛刪除額外的保護。 
+是的。 [Azure Blob 儲存體的虛刪除](storage-blob-soft-delete.md)適用於儲存體帳戶，不論適用法務保存措施或以時間為基礎的保留原則內的所有容器。 我們建議先套用任何不可變的蠕蟲原則，並確認啟用虛刪除額外的保護。 
 
 **此功能可使用的？**
 

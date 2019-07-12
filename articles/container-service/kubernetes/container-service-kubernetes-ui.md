@@ -23,7 +23,7 @@ ms.locfileid: "60309605"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本逐步解說假設您已[使用 Azure Container Service 建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)。
 
 
@@ -49,7 +49,7 @@ $ kubectl version
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 ### <a name="connect-to-the-web-ui"></a>連接至 Web UI
 您可以藉由執行下列操作啟動 Kubernetes Web UI：

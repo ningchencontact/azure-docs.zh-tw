@@ -20,7 +20,7 @@ ms.locfileid: "64704934"
 
 HDInsight 叢集提供兩個前端節點，可提升執行中 Apache Hadoop 服務和作業的可用性與可靠性。
 
-Hadoop 藉由在叢集中的多個節點間複寫服務和資料，以達到高可用性和可靠性。 不過 Hadoop 的標準散佈功能通常只能有一個前端節點。 单个头节点发生任何中断都可能导致群集停止工作。 HDInsight 提供兩個前端節點，以改善 Hadoop 的可用性和可靠性。
+Hadoop 藉由在叢集中的多個節點間複寫服務和資料，以達到高可用性和可靠性。 不過 Hadoop 的標準散佈功能通常只能有一個前端節點。 任何單一前端節點的中斷情況都可能導致叢集停止運作。 HDInsight 提供兩個前端節點，以改善 Hadoop 的可用性和可靠性。
 
 ## <a name="availability-and-reliability-of-nodes"></a>節點的可用性和可靠性
 
@@ -153,7 +153,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 您可以選取每個服務來檢視其詳細資訊。
 
-雖然 [服務] 頁面會提供資訊之狀態和每個服務的組態，但並不提供該服務正在哪些前端節點上執行的資訊。 若要查看此信息，请使用页面顶部的“主机”  链接。 此頁面會顯示叢集內的主機，包括前端節點在內。
+雖然 [服務] 頁面會提供資訊之狀態和每個服務的組態，但並不提供該服務正在哪些前端節點上執行的資訊。 若要檢視這項資訊，請使用在頁面頂端的 [主機]  連結。 此頁面會顯示叢集內的主機，包括前端節點在內。
 
 ![主機清單](./media/hdinsight-high-availability-linux/hosts.png)
 
@@ -202,7 +202,7 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 #### <a name="service-components"></a>服務元件
 
-服務可能包含您想要個別檢查狀態的元件。 例如，HDFS 包含 NameNode 元件。 若要查看有关组件的信息，请使用以下命令：
+服務可能包含您想要個別檢查狀態的元件。 例如，HDFS 包含 NameNode 元件。 若要檢視在元件上的資訊，該命令為：
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
@@ -224,7 +224,7 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 類似於使用 SSH 用戶端，當連接到叢集時，您必須提供 SSH 的使用者帳戶名稱和叢集的 SSH 位址。 例如： `sftp username@mycluster-ssh.azurehdinsight.net`。 出現提示時，請提供帳戶密碼或使用 `-i` 參數提供公開金鑰。
 
-建立连接后，会出现 `sftp>` 提示符。 您可以從該提示變更目錄、上傳和下載檔案。 例如：下列命令會將目錄變更至 **/var/log/hadoop/hdfs** 目錄，然後在目錄中下載所有檔案。
+連線之後，您會看到 `sftp>` 提示。 您可以從該提示變更目錄、上傳和下載檔案。 例如：下列命令會將目錄變更至 **/var/log/hadoop/hdfs** 目錄，然後在目錄中下載所有檔案。
 
     cd /var/log/hadoop/hdfs
     get *
@@ -243,7 +243,7 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 ![使用快速連結檢視記錄](./media/hdinsight-high-availability-linux/viewlogs.png)
 
-## <a name="how-to-configure-the-node-size"></a>如何配置节点大小
+## <a name="how-to-configure-the-node-size"></a>如何設定節點大小
 
 只能在叢集建立期間選取節點的大小。 您可以在 [HDInsight 價格頁面](https://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單。
 

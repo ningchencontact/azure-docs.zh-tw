@@ -4,7 +4,7 @@ description: 將 Stackify Retrace Linux 代理程式部署在 Linux 虛擬機器
 services: virtual-machines-linux
 documentationcenter: ''
 author: darinhoward
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3232dc3862cffb67d396b3ec2333fdc28dbb65
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620595"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706647"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 代理程式擴充功能
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Stackify 提供可追蹤您應用程式詳細資料的產品，幫助您快速找到問題並修正。 對於開發人員小組而言，Retrace 是適用於多重環境、完全整合且效能強大的應用程式， 結合了每個開發小組都需要的多種工具。
 

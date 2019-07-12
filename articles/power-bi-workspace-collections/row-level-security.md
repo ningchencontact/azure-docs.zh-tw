@@ -2,18 +2,18 @@
 title: Power BI 工作區集合的資料列層級安全性
 description: 詳述 Power BI 工作區集合的資料列層級安全性
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a26cc7573abb970dc58c6f7c327dfbc659cb646
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715210"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672488"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 工作區集合的資料列層級安全性
 
@@ -111,7 +111,7 @@ to
 
 ![在應用程式中顯示的報表](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [資料列層級安全性 (RLS) 與 Power](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  

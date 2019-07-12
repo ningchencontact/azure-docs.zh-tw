@@ -19,12 +19,12 @@ ms.locfileid: "64686636"
 
 了解如何建立能配合 Apache Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例中的 Java UDF 會將文字字串的資料表轉換成全部小寫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 在 HDInsight 上 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 * [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)
 * 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
-* [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)您叢集的主要儲存體。 這會是 wasb: / / Azure 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
+* 您叢集主要儲存體的 [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 這會是 wasb: / / Azure 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
 * 文字編輯器或 Java IDE
 

@@ -89,7 +89,7 @@ ms.locfileid: "61440932"
 
    ![在 Azure 中建立串流分析作業](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
@@ -105,7 +105,7 @@ ms.locfileid: "61440932"
 
    ![在 Azure 中將輸入新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
@@ -124,7 +124,7 @@ ms.locfileid: "61440932"
 
    ![在 Azure 中將輸出新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>將功能新增至串流分析作業，以呼叫您所部署的 Web 服務
 
@@ -143,7 +143,7 @@ ms.locfileid: "61440932"
 
    ![在 Azure 中將功能新增至串流分析作業](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
@@ -163,7 +163,7 @@ ms.locfileid: "61440932"
 
    使用作業的輸出別名取代 `[YourOutputAlias]`。
 
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
 
 ### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 

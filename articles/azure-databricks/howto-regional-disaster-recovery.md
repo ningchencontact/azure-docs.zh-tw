@@ -90,7 +90,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
    > [!NOTE]
    > 程式庫不會在此步驟中複製，因為基礎 API 不支援這些程式庫。
 
-   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py`。
+   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py` 。
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
    下列提供的指令碼會列印新舊叢集識別碼的對應，其稍後會使用於作業移轉 (適用於設定為使用現有叢集的作業)。
 
-   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py`。
+   將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py` 。
 
    ```python
    from subprocess import call, check_output

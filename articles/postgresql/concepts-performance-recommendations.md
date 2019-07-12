@@ -19,7 +19,7 @@ ms.locfileid: "65068853"
 
 [效能建議] 功能會分析您的資料庫，以建立自訂的建議，以改善效能。 若要產生的建議，分析會探討各種資料庫特性，包括結構描述。 啟用[查詢存放區](concepts-query-store.md)您充分利用 [效能建議] 功能的伺服器上。 實作任何效能建議後，您應該測試來評估這些變更的影響效能。 
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 需要**擁有者**或**參與者**權限，才能使用 [效能建議] 功能執行分析。
 
 ## <a name="performance-recommendations"></a>效能建議

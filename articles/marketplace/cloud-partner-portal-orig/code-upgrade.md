@@ -19,7 +19,7 @@ ms.locfileid: "64935292"
 
 此文章說明如何將 Microsoft Dynamics 365 for Operations 平台版本升級至最新的平台版本。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft Dynamics 365 for Operations 平台是由下列元件所組成：
 
@@ -29,6 +29,6 @@ Dynamics 365 for Operations 平台二進位檔，例如應用程式物件伺服�
 2. 應用程式基礎
 3. 測試基本資訊
 
-**重要说明**：若要移至最新的 Dynamics 365 作業平台，作業實作您 Dynamics 365 不能有任何自訂項目 (overlayering) 的任何屬於平台的 AOT 封裝。 此限制是在平台更新 3 引進的，因此可以對平台進行無縫式的持續更新。 如果您在早於平台更新 3 的平台上執行，請參閱此文章末的＜從舊版組建升級到平台更新 3＞一節。
+**重要**：若要移至最新的 Dynamics 365 作業平台，作業實作您 Dynamics 365 不能有任何自訂項目 (overlayering) 的任何屬於平台的 AOT 封裝。 此限制是在平台更新 3 引進的，因此可以對平台進行無縫式的持續更新。 如果您在早於平台更新 3 的平台上執行，請參閱此文章末的＜從舊版組建升級到平台更新 3＞一節。
 
 如需程式碼升級的詳細資訊，請參閱[此處](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update)。

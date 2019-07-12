@@ -49,7 +49,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 
 1. 按一下左側的 [Core Filer] \(核心檔案管理工具\)   > [Manage Core Filers] \(管理核心檔案管理工具\)  。
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
    ![新增核心檔案管理工具頁面的螢幕擷取畫面，其中游標置於 [建立] 按鈕上](media/avere-vfxt-add-core-filer-start.png)
 
@@ -123,7 +123,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
    | Credential name (認證名稱) | 任何描述性的名稱 |
    | 服務類型 | (選取 [Azure Storage Access Key] \(Azure 儲存體存取金鑰\)) |
    | 租用戶 | 儲存體帳戶名稱 |
-   | 訂用帳戶 | 訂用帳戶識別碼 |
+   | Subscription | 訂用帳戶識別碼 |
    | Storage Access Key (儲存體存取金鑰) | Azure 儲存體帳戶金鑰 (在上一個步驟中所複製) | 
 
    按一下 [提交]  。
@@ -144,7 +144,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
    * 將 [Bucket contents] \(貯體內容\)  設定為 [Empty] \(空白\) 
    * 將 [Certificate verification] \(憑證驗證\)  變更為 [Disabled] \(已停用\) 
    * 將 [Compression mode] \(壓縮模式\)  變更為 [None] \(無\)   
-   * 单击“下一步”  。
+   * 按一下 [下一步]  。
    * 在第四頁上，於 [Bucket name] \(貯體名稱\)  中將容器名稱輸入為 *storage_account_name*/*container_name*。
    * 視需要將 [Encryption type] \(加密類型\)  設定為 [None] \(無\)  。  「Azure 儲存體」預設會經過加密。
    * 按一下 [Add Filer] \(新增檔案管理工具\)  。
@@ -169,7 +169,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 * 提供以 / (斜線) 開頭的命名空間路徑，例如 ``/avere/data``。
 * 選擇您的核心檔案管理工具。
 * 選擇核心檔案管理工具匯出項。
-* 单击“下一步”  。
+* 按一下 [下一步]  。
 
   ![已完成連接點、核心檔案管理工具及匯出項欄位的 [Add new junction] \(新增連接點\) 頁面螢幕擷取畫面](media/avere-vfxt-add-junction.png)
 

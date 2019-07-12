@@ -121,7 +121,7 @@ ms.locfileid: "60365504"
 
    ![基本頁面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. 在 [設定]  頁面中選取 [虛擬網路閘道]  ，並選取 [兌換授權]  核取方塊。
-6. 輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [確定]  。
+6. 輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [確定 **Deploying Office Solutions**]。
 
    ![設定頁面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. 在 [摘要]  頁面中檢閱資訊，然後按一下 [確定]  。

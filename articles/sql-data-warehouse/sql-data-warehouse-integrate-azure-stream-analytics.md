@@ -22,7 +22,7 @@ Azure 串流分析是完全受控的服務，可用來對雲端中的串流資�
 
 在本文中，您將了解如何使用「Azure SQL 資料倉儲」資料庫作為「串流分析」工作的輸出接收器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 首先，執行[開始使用 Azure 串流分析][Get started using Azure Stream Analytics]教學課程中的下列步驟。  
 
 1. 建立事件中樞輸入

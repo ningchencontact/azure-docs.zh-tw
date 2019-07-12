@@ -33,7 +33,7 @@ ms.locfileid: "60395142"
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1.  建立 **Blob 儲存體帳戶**，以及要作為**接收端**的容器 `sinkdata`。 請記下**儲存體帳戶名稱**、**容器名稱**和**存取金鑰**，因為後續在此範本中將會加以參考。
 

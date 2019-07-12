@@ -37,7 +37,7 @@ ms.locfileid: "65544465"
 *   SAP 應用程式伺服器 
 *   SAP 訊息伺服器
 *   SharePoint Server
-*   SQL Server
+*   [SQL Server]
 *   Teradata
 
 如需如何使用閘道與其他服務的資訊，請參閱下列文章：
@@ -49,7 +49,7 @@ ms.locfileid: "65544465"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 具有 [Azure 訂用帳戶](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)的[公司或學校帳戶](../active-directory/fundamentals/sign-up-organization.md) 
 
@@ -418,7 +418,7 @@ TcpTestSucceeded       : True
 
 以下是您可以找到各種記錄的其他位置：
 
-| 記錄類型 | 位置 | 
+| 記錄類型 | Location | 
 |----------|----------| 
 | **安裝程式記錄** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **組態記錄** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log | 

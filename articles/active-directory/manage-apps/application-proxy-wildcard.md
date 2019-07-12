@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481276"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827999"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式
 
@@ -45,13 +45,15 @@ ms.locfileid: "67481276"
 
 > http(s)://*.\<domain\>
 
-例如： `http(s)://*.adventure-works.com` 。 雖然內部和外部 URL 可以使用不同網域，讓它們使用相同網域是最佳做法。 發行應用程式時，如果其中一個 URL 沒有萬用字元，您會看到錯誤。
+例如： `http(s)://*.adventure-works.com` 。
+
+雖然內部和外部 URL 可以使用不同網域，讓它們使用相同網域是最佳做法。 發行應用程式時，如果其中一個 URL 沒有萬用字元，您會看到錯誤。
 
 如果您有其他應用程式使用不同組態設定，您必須將這些例外狀況發行為個別應用程式，以覆寫萬用字元的預設設定。 不含萬用字元的應用程式不一定優先於萬用字元應用程式。 從設定觀點來看，這些「只是」一般應用程式。
 
 建立萬用字元應用程式是根據可用於所有其他應用程式的相同[應用程式發行流程](application-proxy-add-on-premises-application.md)。 唯一的差別是您在 URL (也可能在 SSO 設定) 中包含萬用字元。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要開始，請確定您符合這些需求。
 
@@ -60,7 +62,7 @@ ms.locfileid: "67481276"
 雖然[自訂網域](application-proxy-configure-custom-domain.md)對於所有其他應用程式是選擇性的，它們是萬用字元應用程式的必要條件。 建立自訂網域需要您：
 
 1. 建立在 Azure 中已驗證的網域。
-2. 將 SSL 憑證以 PFX 格式上傳至您的應用程式 Proxy。
+1. 將 SSL 憑證以 PFX 格式上傳至您的應用程式 Proxy。
 
 您應該考慮使用萬用字元憑證，以符合您打算建立的應用程式。 或者，您也可以使用僅列出特定應用程式的憑證。 在此情況下，只有憑證中列出的應用程式可透過此萬用字元應用程式存取。
 
@@ -82,11 +84,11 @@ ms.locfileid: "67481276"
 
 針對萬用字元應用程式，**內部 URL** 必須格式化為 `http(s)://*.<domain>`。
 
-![對於內部 URL，請使用格式 http （s）:/ / *。 < 網域 >](./media/application-proxy-wildcard/22.png)
+![對於內部 URL，請使用格式 http （s）:/ / *。\<網域 >](./media/application-proxy-wildcard/22.png)
 
 在設定**外部 URL** 時，您必須使用下列格式：`https://*.<custom domain>`
 
-![對於外部 URL，請使用格式 https://*.<custom 網域 >](./media/application-proxy-wildcard/21.png)
+![對於外部 URL，請使用格式 https://*。\<自訂網域 >](./media/application-proxy-wildcard/21.png)
 
 其他位置的萬用字元、多個萬用字元或其他 regex 字串不受支援，而且會導致錯誤。
 
@@ -95,11 +97,11 @@ ms.locfileid: "67481276"
 您可以從萬用字元應用程式排除應用程式，方法是
 
 - 將例外應用程式發行為一般應用程式
-- 只針對特定應用程式透過您的 DNS 設定啟用萬用字元  
+- 只針對特定應用程式透過您的 DNS 設定啟用萬用字元
 
 將應用程式發行為一般應用程式是從萬用字元排除應用程式的慣用方法。 您應該在萬用字元應用程式之前發行已排除的應用程式，以確保您的例外從一開始就強制執行。 最特定的應用程式一律有最高的優先順序 – 發行為 `budgets.finance.adventure-works.com` 的應用程式優先順序高於應用程式 `*.finance.adventure-works.com`，後者優先順序則再高於應用程式 `*.adventure-works.com`。
 
-您也可以限制萬用字元透過您的 DNS 管理僅適用於特定應用程式。 最佳做法是您應該建立 CNAME 項目，其中包含萬用字元並且符合您已設定之外部 URL 的格式。 不過，您可以改為將特定應用程式 URL 指向萬用字元。 例如，並非 `*.adventure-works.com`，而是將 `hr.adventure-works.com`、`expenses.adventure-works.com` 和 `travel.adventure-works.com individually` 指向 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`。 
+您也可以限制萬用字元透過您的 DNS 管理僅適用於特定應用程式。 最佳做法是您應該建立 CNAME 項目，其中包含萬用字元並且符合您已設定之外部 URL 的格式。 不過，您可以改為將特定應用程式 URL 指向萬用字元。 例如，並非 `*.adventure-works.com`，而是將 `hr.adventure-works.com`、`expenses.adventure-works.com` 和 `travel.adventure-works.com individually` 指向 `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`。
 
 如果您使用此選項，您也需要另一個 CNAME 項目值 `AppId.domain`，例如 `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`，也指向相同的位置。 您可以在萬用字元應用程式的應用程式屬性分頁上找到 **AppId**：
 
@@ -110,7 +112,7 @@ ms.locfileid: "67481276"
 萬用字元應用程式在 [MyApps 面板](https://myapps.microsoft.com)中僅以一個圖格表示。 此圖格預設會隱藏。 若要顯示圖格並讓使用者登陸在特定分頁上：
 
 1. 請遵循[設定首頁 URL](application-proxy-configure-custom-home-page.md) 的指導方針。
-2. 在應用程式屬性分頁上將 [顯示應用程式]  設為 **true**。
+1. 在應用程式屬性分頁上將 [顯示應用程式]  設為 **true**。
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos 限制委派
 

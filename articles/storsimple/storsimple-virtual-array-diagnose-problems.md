@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61408405"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務來針對 StorSimple Virtual Array 進行疑難排解
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員在服務摘要刀鋒視窗內提供 [診斷並解決問題]  設定，並醒目提示虛擬陣列可能經常發生的一些問題，以及如何解決。 本教學課程介紹 StorSimple 裝置管理員服務內提供的自助式疑難排解功能。
 

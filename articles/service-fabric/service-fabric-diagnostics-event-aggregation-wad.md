@@ -28,7 +28,7 @@ ms.locfileid: "60393252"
 >
 >
 
-當您執行 Azure Service Fabric 叢集時，最好從中央位置的所有節點收集記錄。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
+當您執行 Azure Service Fabric 叢集時，最好從中央位置的所有節點收集記錄。 將記錄集中在中央位置，可協助您分析並針對叢集或該叢集中執行之應用程式與服務的問題進行疑難排解。
 
 上傳和收集記錄的其中一種方式就是使用「Windows Azure 診斷 (WAD)」延伸模組，此延伸模組可將記錄上傳到「Azure 儲存體」，也可以選擇將記錄傳送至 Azure Application Insights 或「事件中樞」。 您也可以使用外部處理序讀取儲存體中的事件，例如將它們放在分析平台產品[Azure 監視器記錄](../log-analytics/log-analytics-service-fabric.md)或其他記錄剖析解決方案。
 
@@ -273,7 +273,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 
 若要更新診斷以從新的 EventSource 通道 (代表您將要部署的新應用程式) 收集記錄，請執行先前所述的相同步驟，以針對現有叢集設定診斷。
 
-在使用 `New-AzResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 在 Visual Studio 產生的 ServiceEventSource.cs 檔案中，事件來源的名稱定義為程式碼的一部分。
+在您使用 `New-AzResourceGroupDeployment` PowerShell 命令套用組態更新之前，請先更新 template.json 檔案中的 `EtwEventSourceProviderConfiguration` 區段，以新增 EventSource 通道的項目。 在 Visual Studio 產生的 ServiceEventSource.cs 檔案中，事件來源的名稱定義為程式碼的一部分。
 
 例如，如果您的事件資源名稱是 My-Eventsource，新增下列程式碼以將來自 My-Eventsource 的事件置於名稱為 MyDestinationTableName 的資料表中。
 

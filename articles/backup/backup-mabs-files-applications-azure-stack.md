@@ -51,13 +51,13 @@ ms.locfileid: "60848649"
 
     Microsoft 建議將所有共用保護原則的資料置於一個保護群組中。 如需規劃和部署保護群組的完整資訊，請參閱 System Center DPM 文章：[部署保護群組](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
 
-4. 在 [選取資料保護方式]  畫面中，鍵入保護群組的名稱。 選取 [我想要使用下列項目進行短期保護：]  和 [我想要線上保護]  的核取方塊。 单击“下一步”  。
+4. 在 [選取資料保護方式]  畫面中，鍵入保護群組的名稱。 選取 [我想要使用下列項目進行短期保護：]  和 [我想要線上保護]  的核取方塊。 按一下 [下一步]  。
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     若要選取 [我想要線上保護]  ，您必須先選取 [我想要使用下列項目進行短期保護：  磁碟]。 Azure 備份伺服器不會保護至磁帶，因此磁碟是進行短期保護的唯一選擇。
 
-5. 在 [指定短期目標]  畫面上，選擇保留儲存至磁碟之復原點的時間長度，以及儲存增量備份的時機。 单击“下一步”  。
+5. 在 [指定短期目標]  畫面上，選擇保留儲存至磁碟之復原點的時間長度，以及儲存增量備份的時機。 按一下 [下一步]  。
 
     > [!IMPORTANT]
     > 您**不應該**將作業復原 (備份) 資料保留在 Azure 備份伺服器連結的磁碟上超過五天。
@@ -133,7 +133,7 @@ ms.locfileid: "60848649"
 2. 按一下備份基礎結構。
 3. 檢視備份管理伺服器。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 如需使用 Azure 備份伺服器保護其他工作負載的資訊，請參閱下列文章：
 - [備份 SharePoint 伺服器陣列](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [備份 SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

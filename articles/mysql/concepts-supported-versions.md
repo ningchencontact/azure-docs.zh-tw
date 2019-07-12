@@ -25,13 +25,13 @@ MySQL 會使用 X.Y.Z 命名配置。 X 是主要版本，Y 是次要版本，�
 
 Bug 修正版本：5.6.42
 
-要详细了解 MySQL 5.6.42 中的改进和修复，请参阅 MySQL [发行说明](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html)。
+請參閱 MySQL[版本資訊](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html)若要深入了解增強功能和修正 MySQL 5.6.42 中的。
 
 ## <a name="mysql-version-57"></a>MySQL 5.7 版
 
 Bug 修正版本：5.7.24
 
-要了解 MySQL 5.7.24 中的改进和修复，请参阅 MySQL [发行说明](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html)。
+請參閱 MySQL[版本資訊](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html)若要了解增強功能和修正 MySQL 5.7.24 中。
 
 > [!NOTE]
 > 在服務中，會使用閘道將連線重新導向到伺服器執行個體。 建立連線之後，MySQL 用戶端會顯示閘道中設定的 MySQL 的版本，而非 MySQL 伺服器執行個體上執行的實際版本。 若要判斷您的 MySQL 伺服器執行個體的版本，請在 MySQL 提示字元命令下使用 `SELECT VERSION();` 命令。

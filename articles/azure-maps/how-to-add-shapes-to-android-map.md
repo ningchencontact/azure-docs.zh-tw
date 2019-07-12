@@ -19,7 +19,7 @@ ms.locfileid: "64870998"
 
 本文說明如何呈現在使用 Azure 地圖服務的 Android SDK 的地圖上的圖形。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成這篇文章中的程序，必須先安裝[Azure 地圖服務的 Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library)載入對應。
 

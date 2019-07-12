@@ -82,7 +82,7 @@ VNet 對等互連和全域 VNet 對等互連支援閘道傳輸。 只有當閘�
 
 若要深入了解需求和限制，請參閱[虛擬網路對等互連需求和限制](virtual-network-manage-peering.md#requirements-and-constraints)。 若要了解您可為虛擬網路建立之對等互連數目的限制，請參閱 [Azure 網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要了解建立虛擬網路對等互連所需的權限，請閱讀[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
 
@@ -96,7 +96,7 @@ VNet 對等互連和全域 VNet 對等互連支援閘道傳輸。 只有當閘�
 
 * 虛擬網路對等互連是建立於虛擬網路之間，而這兩個虛擬網路是透過存在於相同或不同訂用帳戶中的相同或不同部署模型所建立。 完成下列其中一個案例的教學課程：
 
-    |Azure 部署模型             | 訂用帳戶  |
+    |Azure 部署模型             | Subscription  |
     |---------                          |---------|
     |兩者皆使用 Resource Manager              |[相同](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[不同](create-peering-different-subscriptions.md)|

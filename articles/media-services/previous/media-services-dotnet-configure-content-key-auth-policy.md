@@ -24,7 +24,7 @@ ms.locfileid: "61230265"
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
  您可以使用 Azure 媒體服務來傳遞受到進階加密標準 (AES) 保護的 MPEG DASH、Smooth Streaming 和 HTTP Live Streaming (HLS) 串流，方法是使用 128 位元加密金鑰或 [PlayReady 數位版權管理 (DRM)](https://www.microsoft.com/playready/overview/)。 使用媒體服務，您還可以傳遞使用 Widevine DRM 加密的 DASH 串流。 PlayReady 和 Widevine 是依照一般加密 (ISO/IEC 23001-7 CENC) 規格加密。
 
 媒體服務也提供金鑰/授權傳遞服務，用戶端可以從該處取得 AES 金鑰或 PlayReady/Widevine 授權，以便播放加密的內容。

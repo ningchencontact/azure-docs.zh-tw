@@ -236,8 +236,8 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |---------------|-----------------|  
 |`Name`|必要。 這是評分設定檔的名稱。 它會遵循欄位的相同命名慣例。 它必須以字母開頭，且不可包含點、冒號或 @ 符號，而且開頭不可以是片語 'azureSearch' (區分大小寫)。|  
 |`Text`|包含「權數」屬性。|  
-|`Weights`|選用。 指定欄位名稱和相對權數的名稱值組。 相對權數必須是正整數或浮點數。 最大值為 int32.MaxValue。<br /><br /> 您可以指定不含對應權數的欄位名稱。 權數可用來指出某欄位相對於其他欄位的重要性。|  
-|`Functions`|選用。 評分函式只能套用至可篩選的欄位。|  
+|`Weights`|選擇性。 指定欄位名稱和相對權數的名稱值組。 相對權數必須是正整數或浮點數。 最大值為 int32.MaxValue。<br /><br /> 您可以指定不含對應權數的欄位名稱。 權數可用來指出某欄位相對於其他欄位的重要性。|  
+|`Functions`|選擇性。 評分函式只能套用至可篩選的欄位。|  
 |`Type`|計分函數的必要項目。 指出要使用的函數類型。 有效值包括量級、有效性、距離和標記。 您可以在每個評分設定檔中包含多個函數。 函數名稱必須是小寫。|  
 |`Boost`|計分函數的必要項目。 做為原始分數之乘數的正數。 此值不可等於 1。|  
 |`Fieldname`|計分函數的必要項目。 計分函數只能套用至屬於索引的欄位集合、並且可篩選的欄位。 此外，每個函式類型都有額外的限制 (有效性與日期時間欄位搭配使用，量級與整數或雙精確度浮點數欄位搭配，距離與位置欄位搭配)。 每個函數定義只能指定一個欄位。 例如，若要在相同的設定檔中使用量級兩次，您必須包含兩個定義量級，每個欄位各一個。|  
@@ -253,7 +253,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 |`distance` &#124; `boostingDistance`|以公里為單位，設定與提升範圍結束處的參考位置相隔的距離。|  
 |`tag`|標記計分函數可用來根據文件和搜尋查詢中的標記，對文件的分數產生影響。 將會提升擁有與搜尋查詢共通之標記的文件。 搜尋查詢的標記是以每個搜尋要求中的評分參數形式提供 (使用 `scoringParameterquery` 字串選項)。|  
 |`tag` &#124; `tagsParameter`|傳入查詢中用來指定特定要求之標記的參數。 `scoringParameter` 是查詢參數。 如需查詢參數的說明，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。|  
-|`functionAggregation`|選用。 只有在已指定函數時才會套用。 有效值包括：sum (預設值)、average、minimum、maximum 和 firstMatching。 搜尋分數是從多個變數 (包含多個函式) 計算的單一值。 此屬性可指出所有函式如何結合為後續會套用至基準文件分數的單一彙總提升。 基準分數的基礎是從文件和搜尋查詢計算出來的 [tf-idf](http://www.tfidf.com/) 值。|  
+|`functionAggregation`|選擇性。 只有在已指定函數時才會套用。 有效值包括：sum (預設值)、average、minimum、maximum 和 firstMatching。 搜尋分數是從多個變數 (包含多個函式) 計算的單一值。 此屬性可指出所有函式如何結合為後續會套用至基準文件分數的單一彙總提升。 基準分數的基礎是從文件和搜尋查詢計算出來的 [tf-idf](http://www.tfidf.com/) 值。|  
 |`defaultScoringProfile`|執行搜尋要求時如果未指定評分設定檔，則會使用預設評分 (僅使用 [tf-idf](http://www.tfidf.com/))。<br /><br /> 預設的評分設定檔名稱可在此處設定，使 Azure 搜尋服務在搜尋要求中未指定特定的設定檔時使用該設定檔。|  
 
 ##  <a name="bkmk_interpolation"></a>設定插補  
@@ -284,7 +284,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  如需更多範例，請參閱 [XML 結構描述：資料類型 (W3.org 網站)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)。  
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
  [Azure 搜尋服務 REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure 搜尋服務 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

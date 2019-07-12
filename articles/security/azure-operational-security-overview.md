@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586844"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653413"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
@@ -47,7 +47,7 @@ IT 作業小組負責管理資料中心基礎結構、應用程式和資料，�
 
 Azure 備份提供元件，讓您可以下載並部署於適當的電腦或伺服器上，或是雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份元件 (無論您要保護的是內部部署或雲端中的資料) 都可用來將資料備份至 Azure 中的 Azure 復原服務保存庫。 
 
-如需詳細資訊，請參閱 [Azure 備份元件表格](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)。
+如需詳細資訊，請參閱 [Azure 備份元件表格](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)。
 
 ### <a name="site-recovery"></a>Site Recovery
 

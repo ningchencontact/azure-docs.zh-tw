@@ -127,7 +127,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|確定要移除應用程式嗎?|  
 |WebDevelopersAppNotPublished|未發佈|  
@@ -135,7 +135,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
 |WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|名稱|  
 |WebDevelopersAppTableStateHeader|狀況|  
-|WebDevelopersEditLink|Edit|  
+|WebDevelopersEditLink|編輯|  
 |WebDevelopersRegisterAppLink|註冊應用程式|  
 |WebDevelopersRemoveLink|移除|  
 |WebDevelopersSubmitLink|提交|  
@@ -143,13 +143,13 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |WebApplicationsHeader|[應用程式]|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |NoItemsToDisplay|找不到結果。|  
 |GeneralExceptionMessage|某些項目不正確。 可能是暫時性的問題或有錯誤。 請再試一次。|  
@@ -160,7 +160,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |ButtonLabelCancel|取消|  
 |ButtonLabelSave|儲存|  
@@ -184,7 +184,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="Documentation"></a> Documentation  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|無效的標頭 '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|無效的要求 URL|  
@@ -350,7 +350,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|問題|  
 |WebIssuesNoActiveSubscriptions|您沒有作用中的訂用帳戶。 您必須訂閱產品才會回報問題。|  
@@ -398,7 +398,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |PageTitleProducts|Products|  
   
@@ -433,7 +433,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
 |ValidationErrorEmailInvalid|電子郵件地址無效|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|電子郵件為必填欄位。|  
-|WebAuthenticationErrorNoticeHeader|Error|  
+|WebAuthenticationErrorNoticeHeader|錯誤|  
 |WebAuthenticationFieldLengthErrorMessage|{0} 的長度上限是 {1}|  
 |TextboxLabelEmailFirstName|名字|  
 |ValidationErrorFirstNameRequired|名字為必填欄位。|  
@@ -508,7 +508,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|忘記密碼了嗎?|  
 |WebAuthenticationIfAdministrator|如果您是系統管理員，您必須登入 `<a href="{0}"\>here</a\>`。|  
@@ -520,7 +520,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |PageTitleSignup|註冊|  
 |WebAuthenticationAlreadyAMember|已經是會員嗎?|  
@@ -542,7 +542,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
 |ButtonLabelRenewSubscription|續訂|  
 |WebDevelopersSubscriptionRequested|已於 {0} 要求|  
 |WebDevelopersSubscriptionRequestedState|已要求|  
-|WebDevelopersSubscriptionTableNameHeader|Name|  
+|WebDevelopersSubscriptionTableNameHeader|名稱|  
 |WebDevelopersSubscriptionTableStateHeader|狀態|  
 |WebDevelopersUsageStatisticsLink|分析報告|  
 |WebDevelopersYourSubscriptions|您的訂用帳戶|  
@@ -553,7 +553,7 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|想要關閉您的帳戶嗎?|  
 |PageTitleDeveloperProfile|設定檔|  
@@ -564,14 +564,14 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|更新設定檔|  
 |PageTitleUpdateProfile|變更帳戶資訊|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Name|Text|  
+|名稱|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|變更帳戶資訊|  
 |ButtonLabelChangePassword|變更密碼|  

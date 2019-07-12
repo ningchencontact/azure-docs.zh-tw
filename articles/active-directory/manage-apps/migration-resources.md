@@ -23,7 +23,7 @@ ms.locfileid: "67108221"
 
 協助您將應用程式存取權限和驗證移轉至 Azure Active Directory (Azure AD) 的資源。 完成這份簡短的問卷調查 (https://aka.ms/AppsMigrationFeedback) ) 以提供有關將應用程式遷移至 Azure AD 體驗的相關意見反應 (包括移轉的封鎖程式、需要的工具 / 指引，或保留您內部部署 IDP 的原因)。 
 
-| 資源  | 描述  |
+| Resource  | 描述  |
 |:-----------|:-------------|
 |[將您的應用程式移轉至 Azure AD](https://aka.ms/migrateapps/whitepaper) \(英文\) | 此白皮書提供移轉的優點，並以下列四個清楚描述的階段，說明如何規劃移轉：探索、分類、移轉和持續管理。 您將會透過逐步引導，了解如何思考流程，並將您的專案細分成便於取用的片段。 此文件全篇都有在過程中可協助您的重要資源連結。 |
 |[解決方案指南：從 Active Directory 同盟服務 (AD FS) 將應用程式移轉到 Azure AD](https://aka.ms/migrateapps/adfssolutionguide) \(英文\) | 此解決方案指南將以比移轉白皮書中更概略的說明方式，引導您完成相同的規劃四階段，並執行應用程式移轉專案。 在本指南中，您將了解如何將那些階段，套用至從 Active Directory 同盟服務 (AD FS) 移動應用程式到 Azure AD 的特定目標。|

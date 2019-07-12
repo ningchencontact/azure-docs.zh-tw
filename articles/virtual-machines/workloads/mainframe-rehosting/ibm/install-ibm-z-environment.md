@@ -4,16 +4,19 @@ description: 在 Azure 虛擬機器 (VM) 基礎結構上部署 IBM Z 開發和�
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad02ec75dab4cb6971d0467899d80f5f745fd94b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859336"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621303"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>在 Azure 上安裝 IBM zD & T 開發/測試環境
 
@@ -35,7 +38,7 @@ Azure 和 Azure Stack 支援下列版本：
 
 這篇文章會示範如何設定 Z 開發和測試環境 (zD & T) 在 Azure 上的 Enterprise Edition。 然後您可以使用 zD & T Enterprise Edition web 伺服器來建立和管理在 Azure 上的 Z 環境。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!NOTE]
 > IBM 讓 zD T Enterprise Edition 安裝在僅限開發/測試環境 —*不*生產環境。

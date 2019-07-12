@@ -41,7 +41,7 @@ ms.locfileid: "65786121"
 
 [!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 + 使用中的 [PowerApps 帳戶](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps)，其登入認證與您的 Azure 帳戶相同。 
 + Excel 以及要作為應用程式資料來源的 [Excel 範例檔案](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)。
@@ -209,7 +209,7 @@ ms.locfileid: "65786121"
 ## <a name="run-the-app"></a>執行應用程式
 您有一個完整的應用程式！ 現在可以執行並查看函式呼叫的運作狀況。
 
-1. 在 PowerApps Studio 的右上角，按一下 [執行] 按鈕： ![執行應用程式按鈕](media/functions-powerapps-scenario/f5-arrow-sm.png)上也提供本文中使用的原始碼。
+1. 在 PowerApps Studio 的右上角，按一下 [執行] 按鈕： ![執行應用程式按鈕](media/functions-powerapps-scenario/f5-arrow-sm.png)。
 
 1. 選取 [需要維修]  的值為 [`Yes`] 的渦輪機，然後按一下 [計算成本]  按鈕。 您應該會看到如下圖所示的結果。
 

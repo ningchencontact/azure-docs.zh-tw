@@ -21,7 +21,7 @@ ms.locfileid: "60814571"
 
 在本文件中，您會了解如何使用 SQL Server Integration Services (SSIS) 來協調及建立 U-SQL 作業。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [適用於 Integration Services 的 Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) 能提供 [Azure Data Lake Analytics 工作](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)和 [Azure Data Lake Analytics 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)，以協助連線至 Azure Data Lake Analytics 服務。 若要使用此工作，請務必安裝：
 

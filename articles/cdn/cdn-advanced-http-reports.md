@@ -7,22 +7,22 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867025"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594098"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>使用 Azure CDN 進階 HTTP 報告分析使用量統計資料
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文件說明 Microsoft Azure CDN 中的進階 HTTP 報告。 這些報告提供有關 CDN 活動的詳細資訊。
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -199,7 +199,7 @@ ms.locfileid: "64867025"
 
 在橫條圖正下方，將列出前 250 名要求的資產的下列資訊：相對路徑 (包括檔案名稱)、導致「404 找不到」狀態碼的要求數、要求資產的總次數、以及導致「404 找不到」狀態碼的要求百分比。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure CDN 概觀](cdn-overview.md)
 * [Microsoft Azure CDN 中的即時統計資料](cdn-real-time-stats.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)

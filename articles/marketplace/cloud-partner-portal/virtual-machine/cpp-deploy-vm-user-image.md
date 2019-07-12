@@ -24,14 +24,14 @@ ms.locfileid: "64938250"
 
 將適用於 [VHD 部署](cpp-deploy-json-template.md)的 Azure Resource Manager 範本複製到名為 `VHDtoImage.json` 的本機檔案。  編輯此檔案以提供下列參數值。 
 
-|  **參數**             |   **說明**                                                              |
+|  **參數**             |   **描述**                                                              |
 |  -------------             |   ---------------                                                              |
-| resourceGroupName          | 現有的 Azure 資源群組名稱。  通常會使用與您金鑰保存庫相關聯的相同 RG  |
+| ResourceGroupName          | 現有的 Azure 資源群組名稱。  通常會使用與您金鑰保存庫相關聯的相同 RG  |
 | TemplateFile               | 檔案 `VHDtoImage.json` 的完整路徑名稱                                    |
 | userStorageAccountName     | 儲存體帳戶的名稱                                                    |
 | sNameForPublicIP           | 公用 IP 的 DNS 名稱。 必須是小寫                                  |
 | subscriptionId             | Azure 訂用帳戶識別碼                                                  |
-| 位置                   | 資源群組的標準 Azure 地理位置                       |
+| Location                   | 資源群組的標準 Azure 地理位置                       |
 | vmName                     | 虛擬機器的名稱                                                    |
 | vaultName                  | 金鑰保存庫的名稱                                                          |
 | vaultResourceGroup         | 金鑰保存庫的資源群組

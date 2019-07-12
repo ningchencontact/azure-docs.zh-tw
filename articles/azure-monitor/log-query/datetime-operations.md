@@ -153,7 +153,7 @@ Event
 
 ## <a name="related-functions"></a>相關函式
 
-| Category | 函式 |
+| Category | 函數 |
 |:---|:---|
 | 轉換資料類型 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 將值四捨五入為間隔大小 | [bin](/azure/kusto/query/binfunction) |

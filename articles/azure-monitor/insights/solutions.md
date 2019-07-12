@@ -41,7 +41,7 @@ ms.locfileid: "62110152"
 1. 使用畫面頂端的下拉式清單方塊，來變更針對圖格所使用的工作區或時間範圍。
 1. 按一下解決方案的圖格以開啟其檢視，其中包含所收集資料的更詳細分析。
 
-![概觀](media/solutions/overview.png)
+![總覽](media/solutions/overview.png)
 
 監視解決方案可以包含多種的 Azure 資源，而您可以檢視解決方案隨附的任何資源，就像任何其他資源一樣。 例如，解決方案中包含的任何記錄查詢都會列在 [查詢總管](../log-query/get-started-portal.md#load-queries) 中的 [解決方案查詢]  下方。您在使用[記錄查詢](../log-query/log-query-overview.md) 執行臨機操作分析時，使用那些查詢。
 

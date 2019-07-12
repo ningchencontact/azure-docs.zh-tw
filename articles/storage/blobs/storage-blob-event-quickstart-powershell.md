@@ -27,7 +27,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可以使用 A
 
 ![檢視結果](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7925f3aef4123fddd3a96c6e62971b881ae4cbc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9dfa6af4fb13018051c06783e5ae2bc3f49c0da
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021867"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672097"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>內容擴充的預先定義技能 (Azure 搜尋服務)
 
@@ -45,9 +45,9 @@ ms.locfileid: "65021867"
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | 可藉由將 HTTP 呼叫發到自訂 Web API 來擴充認知搜尋管線 |
 
 
-如需建立[自訂技能](cognitive-search-custom-skill-web-api.md)的指引，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例：建立自訂技能](cognitive-search-create-custom-skill-example.md)。
+如需建立指引[自訂技能](cognitive-search-custom-skill-web-api.md)，請參閱[如何定義自訂介面](cognitive-search-custom-skill-interface.md)和[範例：建立自訂的技能，認知搜尋](cognitive-search-create-custom-skill-example.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [自訂技能介面定義](cognitive-search-custom-skill-interface.md)

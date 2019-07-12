@@ -35,7 +35,7 @@ ms.locfileid: "62123394"
 > * 裝載及執行 REST 型 WCF 服務
 > * 執行及測試服務
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列必要條件：
 

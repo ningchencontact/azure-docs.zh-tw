@@ -24,7 +24,7 @@ Azure 時間序列深入解析是完全受管理的分析、儲存及視覺化�
 > [!NOTE]
 > Azure China 雲端目前不提供時間序列見解。 Azure China 雲端中新的遠端監視解決方案加速器部署，將 Cosmos DB 用於所有儲存體。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此操作說明，您必須已部署遠端監視解決方案：
 
@@ -60,15 +60,15 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | 設定 | 值 |
     | ------- | ----- |
     | 環境名稱 | 下列螢幕擷取畫面會使用名稱 **contorosrmtsi**。 當您完成此步驟時，請選擇您自己的唯一名稱。 |
-    | 訂用帳戶 | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
-    | 資源群組 | **使用現有項目**。 選取現有遠端監視資源群組的名稱。 |
-    | 位置 | 我們使用**美國東部**。 如果可能的話，請在與遠端監視解決方案相同的區域中建立環境。 |
+    | Subscription | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
+    | Resource group | **使用現有項目**。 選取現有遠端監視資源群組的名稱。 |
+    | Location | 我們使用**美國東部**。 如果可能的話，請在與遠端監視解決方案相同的區域中建立環境。 |
     | SKU |**S1** |
     | Capacity | **1** |
 
     ![建立時間序列深入解析](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. 按一下頁面底部的 [新增]  。 可能需要一點時間來建立環境。
+1. 按一下 [建立]  。 可能需要一點時間來建立環境。
 
 ## <a name="create-event-source"></a>建立事件來源
 
@@ -89,7 +89,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | 設定 | 值 |
     | ------- | ----- |
     | 事件來源名稱 | 下列螢幕擷取畫面會使用名稱 **contosorm-iot-hub**。 當您完成此步驟時，請使用您自己的唯一名稱。 |
-    | 來源 | **IoT 中心** |
+    | Source | **IoT 中心** |
     | 匯入選項 | **從可用的訂用帳戶使用 IoT 中樞** |
     | 訂用帳戶識別碼 | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
     | IoT 中樞名稱 | **contosorma57a6**。 從您的遠端監視解決方案使用 IoT 中樞的名稱。 |
@@ -101,7 +101,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
     ![建立事件來源](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 ## <a name="configure-the-data-access-policy"></a>設定資料存取原則
 

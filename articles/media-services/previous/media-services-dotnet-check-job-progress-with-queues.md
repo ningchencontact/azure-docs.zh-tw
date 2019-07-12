@@ -71,7 +71,7 @@ ms.locfileid: "64868112"
 2. 建立新的資料夾 (資料夾可在本機磁碟機上任意處)，並複製您想要編碼和串流處理或漸進式下載的 .mp4 檔案。 在此範例中，使用 "C:\Media" 路徑。
 3. 新增 **System.Runtime.Serialization** 程式庫的參考。
 
-### <a name="code"></a>代碼
+### <a name="code"></a>程式碼
 
 ```csharp
 using System;

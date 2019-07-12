@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699431"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio 分析客戶流失
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文提供使用 Azure Machine Learning Studio 建置客戶流失分析專案的參考實作。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 對於以機器學習建立的模型，我們也衡量其正確性，同時評定進一步開發的方向。  
 
 ### <a name="acknowledgements"></a>通知

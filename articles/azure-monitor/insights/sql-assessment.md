@@ -92,7 +92,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
    > 執行身分帳戶類型必須是 Windows。 執行身分帳戶也必須屬於裝載 SQL Server 執行個體的所有 Windows 伺服器上的本機系統管理員群組。
    >
    >
-5. 按一下 [檔案]  。
+5. 按一下 [儲存]  。
 6. 修改，然後在每個 SQL Server 執行個體上執行下列 T-SQL 範例，授與執行身分帳戶所需的最小權限以執行 SQL 健康情況檢查。 不過，如果執行身分帳戶已是 SQL Server 執行個體上 sysadmin 伺服器角色的一部分，您就不需要這樣做。
 
 ```

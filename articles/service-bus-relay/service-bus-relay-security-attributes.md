@@ -50,8 +50,8 @@ ms.locfileid: "66000157"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 透過 SAS。 |
-| 授權|  是 | 透過 SAS。 |
+| 驗證| 是 | 透過 SAS。 |
+| Authorization|  是 | 透過 SAS。 |
 
 
 ## <a name="audit-trail"></a>稽核線索

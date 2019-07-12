@@ -2,17 +2,17 @@
 title: 概念 - Azure Kubernetes Service (AKS) 中的儲存體
 description: 了解 Azure Kubernetes Service (AKS) 中的儲存體，包括磁碟區、永續性磁碟區、儲存體類別和宣告
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466785"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615815"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式適用的儲存體選項
 
@@ -125,10 +125,10 @@ spec:
 
 若要了解如何建立使用 Azure 磁碟或 Azure 檔案的動態和靜態磁碟區，請參閱下列操作說明文章：
 
-- [建立使用 Azure 磁碟的靜態磁碟區][aks-static-disks]
-- [建立使用 Azure 檔案的靜態磁碟區][aks-static-files]
+- [建立靜態的磁碟區，使用 Azure 磁碟][aks-static-disks]
+- [建立靜態的磁碟區，使用 Azure 檔案][aks-static-files]
 - [建立使用 Azure 磁碟的動態磁碟區][aks-dynamic-disks]
-- [建立使用 Azure 檔案的動態磁碟區][aks-dynamic-files]
+- [建立動態磁碟區使用 Azure 檔案][aks-dynamic-files]
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 

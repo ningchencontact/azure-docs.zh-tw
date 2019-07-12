@@ -58,7 +58,7 @@ Azure 搜尋服務會使用 [Apache Lucene 標準分析器 (標準 Lucene)](http
 
 不允許將 **analyzer** 或 **indexAnalyzer** 指派給已實際建立的欄位。 如果上述任何一項不清楚，請檢閱下表中的明細，以了解哪些動作需要重建和原因。
  
- | 案例 | 影響 | 步驟 |
+ | 狀況 | 影響 | 步驟 |
  |----------|--------|-------|
  | 新增欄位 | 最低限度 | 若在結構描述中尚未具有欄位，則由於在索引中尚未實際存有欄位，因此不會執行欄位修訂。 您可以使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)將新欄位新增至現有索引，以及使用 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 來填入資料。|
  | 將 **analyzer** 或 **indexAnalyzer** 新增至現有已編製索引的欄位。 | [重建](search-howto-reindex.md) | 該欄位的反向索引必須從頭重新編製，且必須重新編製這些欄位的內容索引。 <br/> <br/>針對正在開發中的索引，[刪除](https://docs.microsoft.com/rest/api/searchservice/delete-index)和[建立](https://docs.microsoft.com/rest/api/searchservice/create-index)索引以挑選新的欄位定義。 <br/> <br/>對於生產環境中的索引，您可建立新欄位以提供修改過的定義，然後開始使用它取代舊的定義，藉此延遲重建。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)來合併新欄位，以及使用 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 來填入資料。 稍後，您可以清除索引以移除過時的欄位，當作規劃索引服務的一部分。 |
@@ -345,7 +345,7 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 + [設定自訂分析器](index-add-custom-analyzers.md)以進行最少的處理，或是在個別欄位上進行特殊的處理。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
  [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

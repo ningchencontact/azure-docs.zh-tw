@@ -58,7 +58,7 @@ ms.locfileid: "65601581"
 
 Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代理程式，取決於 Log Analytics 代理程式，以連線至 Azure 監視器。 這表示，伺服器必須先安裝 Log Analytics 代理程式，並設定 Dependency Agent。 下表描述 Wire Data 解決方案支援的連線來源。
 
-| **連線的來源** | **支援** | **說明** |
+| **連線的來源** | **支援** | **描述** |
 | --- | --- | --- |
 | Windows 代理程式 | 是 | Wire Data 會分析並收集來自 Windows 代理程式電腦的資料。 <br><br> 除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/agent-windows.md)以外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)。 |
 | Linux 代理程式 | 是 | Wire Data 會分析並收集來自 Linux 代理程式電腦的資料。<br><br> 除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)。 |
@@ -80,7 +80,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 如果您的 Windows 或 Linux 電腦無法直接連線到服務中，您需要設定 Log Analytics 代理程式連接至使用 Log Analytics 閘道的 Azure 監視。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=52666)下載 Log Analytics 閘道。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 需要[洞察力與分析](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing)解決方案供應項目。
 - 如果您使用舊版 Wire Data 解決方案，則必須先將它移除。 不過，您仍然可以在 Wire Data 2.0 和記錄搜尋中使用透過原始 Wire Data 解決方案擷取的所有資料。
@@ -160,7 +160,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 ### <a name="dependency-agent-downloads"></a>Dependency Agent 下載
 
-| 檔案 | 作業系統 | 版本 | SHA-256 |
+| 檔案 | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -197,7 +197,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 InstallDependencyAgent-Windows.exe /?
 
-| **旗標** | **說明** |
+| **旗標** | **描述** |
 | --- | --- |
 | <code>/?</code> | 取得命令列選項的清單。 |
 | <code>/S</code> | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -230,7 +230,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 相依性代理程式的檔案位於下列目錄：
 
-| **檔案** | **位置** |
+| **檔案** | **Location** |
 | --- | --- |
 | 核心檔案 | /opt/microsoft/dependency-agent |
 | 記錄檔 | /var/opt/microsoft/dependency-agent/log |
@@ -358,7 +358,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 在 Azure 入口網站 Log Analytics 工作區的 [概觀]  頁面中，按一下 [Wire Data 2.0]  磚以開啟 [Wire Data] 儀表板。 此儀表板包含下表中的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 您可以按一下刀鋒視窗底部的 [查看全部]  ，或按一下刀鋒視窗標頭，以執行記錄搜尋來傳回所有記錄。
 
-| **刀鋒視窗** | **說明** |
+| **刀鋒視窗** | **描述** |
 | --- | --- |
 | 擷取網路流量的代理程式數 | 顯示擷取網路流量的代理程式數，並列出擷取最多流量的前 10 部電腦。 按一下此數字可執行記錄搜尋，以搜尋 <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>。 按一下清單中的電腦可執行記錄搜尋，以傳回擷取的位元組總數。 |
 | 區域子網路數 | 顯示代理程式探索到的區域子網路數。  按一下此數字可執行記錄搜尋，以搜尋 <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code>，其中列出所有子網路及透過每個子網路傳送的位元組數目。 按一下清單中的子網路可執行記錄搜尋，以傳回透過子網路傳送的位元組總數。 |
@@ -421,4 +421,4 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="next-steps"></a>後續步驟
 
-- [搜尋記錄檔](../../azure-monitor/log-query/log-query-overview.md) 以檢視詳細的連線資料搜尋記錄。
+- [搜尋記錄](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的連線資料搜尋記錄。

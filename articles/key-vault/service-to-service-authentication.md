@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566232"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796106"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -209,11 +209,16 @@ az account list
 
 1. 取代`{KeyVaultCertificateSecretIdentifier}`憑證識別碼與此連接字串中：
 
-```
-RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
-```
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+    ```
 
-如果您的金鑰保存庫執行個體呼叫 「 myKeyVault"，您建立了稱為 'myCert' 的憑證是憑證識別碼`https://myKeyVault.vault.azure.net/secrets/myCert`，而且連接字串會是`RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`。
+    如果金鑰保存庫執行個體呼叫 「 myKeyVault"，並建立稱為 'myCert' 的憑證，會使用憑證識別碼：
+
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
+    ```
+
 
 ## <a name="connection-string-support"></a>連接字串支援
 
@@ -223,7 +228,7 @@ RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertifi
 
 支援下列選項：
 
-| 連接字串選項 | 案例 | 註解|
+| 連接字串選項 | 狀況 | 註解|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | 本機開發 | AzureServiceTokenProvider 會使用 AzureCli 來取得權杖。 |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | 本機開發 | AzureServiceTokenProvider 會使用 Visual Studio 來取得權杖。 |

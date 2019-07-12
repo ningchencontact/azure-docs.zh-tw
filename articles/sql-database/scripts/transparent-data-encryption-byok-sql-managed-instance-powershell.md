@@ -23,7 +23,7 @@ ms.locfileid: "66729170"
 
 此 PowerShell 指令碼範例會設定 Azure SQL 受控執行個體，使用 Azure Key vault 金鑰在攜帶您自己的金鑰 （預覽） 案例中的透明資料加密 (TDE)。 若要深入了解具有「攜帶您自己的金鑰」(BYOK) 支援的 TDE，請參閱[將 TDE 攜帶您自己的金鑰用於 Azure SQL](../transparent-data-encryption-byok-azure-sql.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 現有的 「 受控執行個體 」。 請參閱[使用 PowerShell 建立 Azure SQL Database 受控執行個體](sql-database-create-configure-managed-instance-powershell.md)。
 

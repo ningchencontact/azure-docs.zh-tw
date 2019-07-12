@@ -74,7 +74,7 @@ ms.locfileid: "66152951"
 
 下表提供與輪轉視窗觸發程序之週期和排程相關的主要 JSON 元素的概要概觀：
 
-| JSON 元素 | 描述 | 類型 | 允許的值 | 必要項 |
+| JSON 元素 | 描述 | type | 允許的值 | 必要項 |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | 觸發程序的類型。 類型是固定的值 "TumblingWindowTrigger"。 | 字串 | "TumblingWindowTrigger" | 是 |
 | **runtimeState** | 觸發程序執行時間的目前狀態。<br/>**注意**：這個元素是 \<readOnly>。 | 字串 | "Started"、"Stopped"、"Disabled" | 是 |

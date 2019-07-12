@@ -25,11 +25,11 @@ ms.locfileid: "61270189"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
-本文对 [Azure App Service Web 应用功能](https://azure.microsoft.com/services/app-service/web/)开源技术常见问题 (FAQ) 进行了解答。
+針對 [Azure App Service 的 Web Apps 功能](https://azure.microsoft.com/services/app-service/web/)之中的開放原始碼技術相關問題，本文提供常見問題集的解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何启用 PHP 日志记录以便对 PHP 问题进行故障排除？
+## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何開啟 PHP 記錄進行 PHP 問題的疑難排解？
 
 若要開啟 PHP 記錄：
 

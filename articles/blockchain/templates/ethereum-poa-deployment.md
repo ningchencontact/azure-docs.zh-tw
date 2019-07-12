@@ -21,7 +21,7 @@ ms.locfileid: "66126485"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [此解決方案](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium)的設計訴求是，讓您以最低限度的 Azure 和以太坊知識，更輕鬆地部署、設定和控管多成員的聯盟權威證明以太坊網路。
 
 透過少數使用者輸入及 Azure 入口網站中的一鍵部署，每個成員都可以使用 Microsoft Azure 計算、網路和儲存體服務，在全球各地佈建網路應用。 每個成員的網路應用都會包含一組負載平衡的交易節點，讓應用程式或使用者可與其互動而提交以太坊交易。
@@ -216,9 +216,9 @@ VM 使用者名稱|每個所部署 VM 的管理員使用者名稱 (僅限英數�
 驗證類型|用來向虛擬機器驗證的方法。|密碼或 SSH 公開金鑰|密碼
 密碼 (驗證類型 = 密碼)|每個所部署虛擬機器的管理員帳戶密碼。  密碼必須包含下列其中 3 項要求：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。 所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼。|12-72 個字元|NA
 SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰。||NA
-訂用帳戶|要對其部署聯盟網路的訂用帳戶||NA
+Subscription|要對其部署聯盟網路的訂用帳戶||NA
 資源群組|要對其部署聯盟網路的資源群組。||NA
-位置|資源群組的 Azure 區域。||NA
+Location|資源群組的 Azure 區域。||NA
 
 範例部署如下所示：![基本刀鋒視窗](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -758,7 +758,7 @@ Truffle 具有可用來對智慧合約進行偵錯的本機開發網路。 您�
 
 -   同位檢查技術的教學課程 - <https://github.com/paritytech/pwasm-tutorial>
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 
 ### <a name="faq"></a>常見問題集
 

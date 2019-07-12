@@ -39,7 +39,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
-| -ServerListFile | 包含要分析之虛擬機器的伺服器清單檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案應在每一行包含下列其中一項：<ul><li>Hyper-V 主機名稱或 IP 位址</li><li>Hyper-V 叢集名稱或 IP 位址</li></ul><br>**範例：** ServerList.txt 包含下列伺服器︰<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | 包含要分析之虛擬機器的伺服器清單檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案應在每一行包含下列其中一項：<ul><li>Hyper-V 主機名稱或 IP 位址</li><li>Hyper-V 叢集名稱或 IP 位址</li></ul><br>**範例:** ServerList.txt 包含下列伺服器︰<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(選用) 用來儲存此作業期間所產生之資料的通用命名慣例 (UNC) 或本機目錄路徑。 如果未指定名稱，目前路徑下名為 'ProfiledData' 的目錄將會作為預設目錄。|
 |-OutputFile| (選用) 從 Hyper-V 伺服器擷取的 VM 清單儲存所在的檔案。 如果未提及名稱，則詳細資料會儲存在 VMList.txt。  在移除不需要分析的 VM 之後，使用此檔案開始分析。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
@@ -89,7 +89,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |---|---|
 | -Operation | StartProfiling |
 | -User | 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。|
-| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例:** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|執行分析的分鐘數。 最小值為 30 分鐘。|
 |-NoOfHoursToProfile|執行分析的時數。|
 |-NoOfDaysToProfile |執行分析的天數。 我們建議您執行分析長達 7 天以上。 該期間有助於確保觀察到指定期間內，您環境中的工作負載模式，並用來提供精確的建議。|
@@ -170,7 +170,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | 參數名稱 | 描述 |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | 包含已分析虛擬機器清單 (將為其產生報告) 的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | 包含已分析虛擬機器清單 (將為其產生報告) 的檔案。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例:** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|虛擬化類型 (VMware 或 Hyper-V)。|
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 | -User | (選用) 要連線到 Hyper-V 主機或 Hyper-V 叢集的使用者名稱。 使用者必須具有系統管理權限。 使用者名稱和密碼會用來擷取虛擬機器的最新設定資訊 (如磁碟數目、核心數目、NIC 數目等)，以使用於報告中。 如未提供此值，則會使用分析期間收集的設定資訊。|
@@ -282,7 +282,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Directory|(選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 | -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
 | -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > **儲存體帳戶** > *儲存體帳戶名稱* > **設定** > **存取金鑰** > **Key1** 。|
-| -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例:** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列其中一個值：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。|
 
 ### <a name="example"></a>範例

@@ -26,7 +26,7 @@ ms.locfileid: "66236867"
 如果您有現有的客戶裝載的 「 彈性資料庫作業，移轉 cmdlet 的版本中，指令碼可供輕鬆移轉至最新版本。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 升級版本的彈性資料庫作業具有一組新的 PowerShell Cmdlet，可以在移轉期間使用。 這些新的 Cmdlet 會將您所有的現有作業認證、目標 (包括資料庫、伺服器、自訂集合)、作業觸發程序、作業排程、作業內容及作業傳輸至新的彈性資料庫代理程式。
 
@@ -93,7 +93,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 既然已初始化舊的和新的彈性作業 Cmdlet，請將認證、目標及作業移轉至新的「作業資料庫」  。
 
-### <a name="setup"></a>設定
+### <a name="setup"></a>安裝程式
 
 ```powershell
 $ErrorActionPreference = "Stop";

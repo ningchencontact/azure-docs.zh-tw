@@ -24,7 +24,7 @@ ms.locfileid: "66237645"
 
 「時間序列深入解析」支援下列資源：
 
-   | 資源 | 描述 |
+   | Resource | 描述 |
    | --- | --- |
    | 環境 | Time Series Insights 環境是事件從事件訊息代理程式讀取、 儲存，而且可供查詢的邏輯群組。 如需詳細資訊，請參閱[規劃您的 Azure Time Series Insights 環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |

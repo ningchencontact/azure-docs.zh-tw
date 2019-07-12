@@ -25,7 +25,7 @@ ms.locfileid: "61221739"
 ![圖表 - 開發和生產的 CI 和 CD 分支](./media/how-to-ci-cd/cd.png)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure Repos 存放庫。 如果您沒有存放庫，可以[在專案中建立新的 Git 存放庫](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) \(英文\)。
 * 已認可並推送至您存放庫的 IoT Edge 解決方案。 若要建立用於測試本文的新範例解決方案，請遵循[在 Visual Studio Code 中針對模組進行開發與偵錯](how-to-vs-code-develop-module.md)，或[在 Visual Studio Code 中對 C# 模組進行開發與偵錯](how-to-visual-studio-develop-csharp-module.md)中的步驟。
@@ -103,7 +103,7 @@ ms.locfileid: "61221739"
 
    如果您有多個容器登錄可裝載您的模組映像，您需要複製此工作、選取不同的容器登錄，然後使用進階設定中的 [略過模組]  ，略過不適用於此特定登錄的映像。
 
-8. 選取 [發行組建成品]  工作來編輯它。 提供由建置工作所產生之部署檔案的檔案路徑。 將 [要發行的路徑]  值設定為符合您在建置模組工作中設定的輸出變數。 例如： `$(edge.DEPLOYMENT_FILE_PATH)`。 將其他的值保留預設值。 
+8. 選取 [發行組建成品]  工作來編輯它。 提供由建置工作所產生之部署檔案的檔案路徑。 將 [要發行的路徑]  值設定為符合您在建置模組工作中設定的輸出變數。 例如： `$(edge.DEPLOYMENT_FILE_PATH)` 。 將其他的值保留預設值。 
 
 9. 開啟 [觸發程序]  索引標籤，然後核取 [啟用持續整合]  方塊。 請確定已納入包含程式碼的分支。
 

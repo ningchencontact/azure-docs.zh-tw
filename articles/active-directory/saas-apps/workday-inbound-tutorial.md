@@ -26,7 +26,7 @@ ms.locfileid: "65827300"
 
 本教學課程的目的是要說明的步驟，您需要執行背景工作設定檔從 Workday 匯入到 Active Directory 與 Azure Active Directory，和選擇性回寫至 Workday 的使用者名稱的電子郵件地址。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [Azure Active Directory 使用者佈建服務](../manage-apps/user-provisioning.md)與 [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 整合以佈建使用者帳戶。 Azure AD 使用此連接啟用下列使用者佈建工作流程：
 
@@ -69,7 +69,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * **授權 HR 資料流程 – 從 Workday 到內部部署 Active Directory：** 在此流程中，人員事件 (例如新雇用、調動、解雇) 會先發生在雲端 Workday HR 租用戶，然後事件資料會透過 Azure AD 和佈建代理程式流入內部部署 Active Directory。 視事件而定，它可能會在 AD 中產生建立/更新/啟用/停用作業。
 * **電子郵件和使用者名稱回寫的流程-從 workday 的內部部署 Active Directory:** 一旦完成 Active Directory 中建立帳戶，它會與 Azure AD 透過 Azure AD Connect 同步處理和電子郵件和使用者名稱的屬性可以寫回至 Workday。
 
-![概觀](./media/workday-inbound-tutorial/wd_overview.png)
+![總覽](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>端對端使用者資料流程
 
@@ -87,7 +87,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 本節涵蓋下列規劃層面：
 
-* [先決條件](#prerequisites)
+* [必要條件](#prerequisites)
 * [選取要部署的佈建連接器應用程式](#selecting-provisioning-connector-apps-to-deploy)
 * [Azure AD Connect 佈建代理程式的部署規劃](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [與多個 Active Directory 網域整合](#integrating-with-multiple-active-directory-domains)
@@ -152,8 +152,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 |   |   |
 | - | - |
-| 沒有。 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
-| 沒有。 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 1 |
+| 資料分割 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
+| 資料分割 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 1 |
 
   ![案例 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 |   |   |
 | - | - |
-| 沒有。 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
-| 沒有。 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
+| 資料分割 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
+| 資料分割 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
 
   ![案例 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 |   |   |
 | - | - |
-| 沒有。 內部部署環境部署的代理程式數目 | 每一不相鄰的 AD 樹系 3 個 |
-| 沒有。 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
+| 資料分割 內部部署環境部署的代理程式數目 | 每一不相鄰的 AD 樹系 3 個 |
+| 資料分割 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
 
   ![案例 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -307,7 +307,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 6. 針對其餘的各個安全性原則重複前述的步驟 3-5：
 
-   | 作業 | 網域安全性原則 |
+   | 運算 | 網域安全性原則 |
    | ---------- | ---------- |
    | Get 和 Put | 人員資料：公用人員報告 |
    | Get 和 Put | 人員資料：工作連絡人資訊 |
@@ -539,8 +539,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 | **SelectUniqueValue (加入 ("\@"，加入 ("。"， \[FirstName\]， \[LastName\])，"contoso.com")，加入 (「\@"，加入 ("。"、 Mid (\[FirstName\]，1，1(）， \[LastName\])，"contoso.com")，加入 (「\@"，加入 (」。 「、 Mid (\[FirstName\]、 1、 2)， \[LastName\])，"contoso.com"))**   | userPrincipalName     |     | 僅於建立時寫入 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         僅於建立時寫入 |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 建立 + 更新 |
-| **名字**   | givenName       |     |    建立 + 更新 |
-| **姓氏**   |   sn   |     |  建立 + 更新 |
+| **FirstName**   | givenName       |     |    建立 + 更新 |
+| **LastName**   |   sn   |     |  建立 + 更新 |
 | **PreferredNameData**  |  displayName |     |   建立 + 更新 |
 | **Company**         | company   |     |  建立 + 更新 |
 | **SupervisoryOrganization**  | department  |     |  建立 + 更新 |
@@ -722,7 +722,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 1. 在 [佈建]  索引標籤中，將 [佈建狀態]  設定為 [開啟]  。
 
-2. 按一下 [檔案]  。
+2. 按一下 [儲存]  。
 
 3. 此作業會啟動初始同步，所需花費的時數會視 Workday 租用戶中的使用者人數而定。 
 
@@ -1052,7 +1052,7 @@ SelectUniqueValue(
 
 * 登入 Windows Server 機器佈建代理程式的部署位置
 * 開啟「Windows Server 事件檢視器」  傳統型應用程式。
-* 選取 [Windows 記錄檔 > 應用程式]  。
+* 選取 [Windows 記錄 &gt; 應用程式]  。
 * 使用 [篩選目前的記錄]  選項來檢視記錄在 [AAD.Connect.ProvisioningAgent]  來源底下的所有事件，並指定 "-5" 篩選條件來排除「事件識別碼」為 "5" 的事件，如下所示。
 
   ![Windows 事件檢視器](media/workday-inbound-tutorial/wd_event_viewer_01.png))

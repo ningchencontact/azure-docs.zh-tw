@@ -21,7 +21,7 @@ ms.locfileid: "60761687"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>使用彈性資料庫工具進行多分區查詢
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 使用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)，您可以建立分區化資料庫解決方案。 **多分區查詢**用於資料收集/報告等工作，這些工作需要跨越數個分區執行查詢。 (這與在單一分區上執行所有工作的[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)相反。)
 

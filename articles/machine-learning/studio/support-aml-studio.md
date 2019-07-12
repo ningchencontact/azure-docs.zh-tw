@@ -39,6 +39,6 @@ ms.locfileid: "60502080"
 
 + **使用者論壇**：在 [MSDN 上的 Azure Machine Learning Studio 支援論壇](https://aka.ms/aml-forum-studio)中提出問題、回答問題，以及與其他使用者交流。
 
-+ **Stack Overflow** \(英文\)：造訪 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) 上標籤為 "Azure-Machine-Learning" 的 Azure Machine Learning 社群。
++ **Stack Overflow**：造訪 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) 上標籤為 "Azure-Machine-Learning" 的 Azure Machine Learning 社群。
 
 + 在我們的 [Azure Machine Learning 意見反應通道](https://feedback.azure.com/forums/257792-machine-learning) \(英文\) 中**分享產品建議**和功能要求。 若要分享您想法，請選取每篇文章底部的 [產品意見反應]  按鈕。

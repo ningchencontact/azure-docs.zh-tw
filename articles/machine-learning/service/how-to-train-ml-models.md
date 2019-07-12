@@ -2,8 +2,8 @@
 title: 使用估算程式將 ML 模型定型
 titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 服務 Estimator 類別，執行單一節點與分散式傳統機器學習與深度學習模型的定型
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 85be0abb9437a648135fe852e357596c8ff91dc3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075023"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840102"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 
@@ -107,7 +107,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 上面的程式碼公開下列新參數給 `Estimator` 建構函式：
 
-參數 | 描述 | 預設值
+參數 | 描述 | 預設
 --|--|--
 `custom_docker_base_image`| 您要使用的映像名稱。 只提供公用 Docker 存放庫 (在此案例中是 Docker Hub) 中可用的映像。 若要使用來自私人 Docker 存放庫的映像，請改為使用建構函式的 `environment_definition` 參數。 [請參閱範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)。 | `None`
 `node_count`| 用於定型作業的節點數目。 | `1`

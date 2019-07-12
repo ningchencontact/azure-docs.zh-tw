@@ -85,7 +85,7 @@ Microsoft Connector for Informix 可將 Logic Apps 連接至 IBM Informix 資料
 | server |必要。 接受代表 TCP/IP 位址或別名的字串值，其採用 IPv4 或 IPv6 格式，後面接著 (以冒號分隔) TCP/IP 連接埠編號。 |
 | database |必要。 接受代表 DRDA 關聯式資料庫名稱 (RDBNAM) 的字串值。 Informix 會接受 128 位元組的字串 (資料庫稱為 IBM Informix 資料庫的名稱 (dbname))。 |
 | 驗證 |選用。 接受清單項目值 (基本或 Windows (kerberos))。 |
-| username |必要。 接受字串值。 |
+| userName |必要。 接受字串值。 |
 | password |必要。 接受字串值。 |
 | gateway |必要。 接受清單項目值，該值代表對儲存群組內的 Logic Apps 定義的內部部署資料閘道。 |
 

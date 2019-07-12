@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 01/08/2019
-ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/10/2019
+ms.openlocfilehash: 06004f766cb8e9b12c2353bbe5e432e77df03cee
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165338"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797691"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>安全地執行實驗和在 Azure 虛擬網路內的推斷
 
@@ -23,7 +23,7 @@ ms.locfileid: "67165338"
 
 Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 計算資源 (計算目標) 用於定型和部署模型。 這些計算目標可建立在虛擬網路內部。 例如，您可以使用 Microsoft 資料科學虛擬機器來定型模型，然後將模型部署到 Azure Kubernetes Service (AKS)。 如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文件假設您已熟悉 Azure 虛擬網路和 IP 網路一般。 本文也假設您已建立的虛擬網路和子網路，以使用您的計算資源。 如果您不熟悉 Azure 虛擬網路，請閱讀下列文章以了解服務：
 

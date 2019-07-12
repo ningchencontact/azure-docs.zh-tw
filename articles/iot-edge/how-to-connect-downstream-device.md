@@ -106,7 +106,7 @@ sudo update-ca-certificates
 
 * 您複製並儲存在下游裝置上某個位置之根 CA 憑證的完整路徑。
 
-    例如： `<path>/azure-iot-test-only.root.ca.cert.pem`。 
+    例如： `<path>/azure-iot-test-only.root.ca.cert.pem` 。 
 
 ### <a name="nodejs"></a>NodeJS
 

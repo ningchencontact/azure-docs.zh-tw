@@ -29,7 +29,7 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 > * 觸發監看員
 > * 檢查輸出
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成此教學課程，需要有下列項目：
 
@@ -142,7 +142,7 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 匯入監看員 Runbook

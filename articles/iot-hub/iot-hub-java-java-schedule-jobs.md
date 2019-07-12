@@ -51,7 +51,7 @@ ms.locfileid: "64572455"
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 

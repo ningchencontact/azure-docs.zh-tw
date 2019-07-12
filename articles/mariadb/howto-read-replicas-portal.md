@@ -20,7 +20,7 @@ ms.locfileid: "67079024"
 > [!IMPORTANT]
 > 相同的區域讀取複本目前處於公開預覽狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [適用於 MariaDB 伺服器的 Azure 資料庫](quickstart-create-mariadb-server-database-using-azure-portal.md)，用以作為主要伺服器。
 

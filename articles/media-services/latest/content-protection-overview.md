@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 140e6c338d12732d1e41ccd9dabef1de7d5cf8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee65aa5753d9967022ca91a66433b11761b73a32
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068854"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835803"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>內容保護與動態加密
 
@@ -73,7 +73,7 @@ ms.locfileid: "67068854"
   
      您可以使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
 
-     若要測試 AES 或 CENC (Widevine 和/或 PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html) \(英文\)。 務必按一下 [進階選項] 並檢查您的加密選項。
+     若要測試 AES 或 CENC (Widevine 和/或 PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer) \(英文\)。 務必按一下 [進階選項] 並檢查您的加密選項。
 
      如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](https://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 
     
@@ -136,7 +136,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 常見的瀏覽器都支援下列的 DRM 用戶端：
 
-|[瀏覽器]|加密|
+|Browser|加密|
 |---|---|
 |Chrome|Widevine|
 |Edge, IE 11|PlayReady|
@@ -203,7 +203,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 如果您收到`MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`錯誤，請確定您指定的資料流的適當原則。
 
-如果您收到錯誤訊息結尾`_NOT_SPECIFIED_IN_URL`，請確定您在 URL 中指定的加密格式。 例如： `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
+如果您收到錯誤訊息結尾`_NOT_SPECIFIED_IN_URL`，請確定您在 URL 中指定的加密格式。 例如： `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` 。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 

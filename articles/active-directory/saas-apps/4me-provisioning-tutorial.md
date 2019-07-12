@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: zchia
-ms.openlocfilehash: 0cfd760eb9d631bf6ab098afef0ef9b66c92cfa6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e2e7c27d8cfa79bc7a8f8462def4d46e598cb508
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67168151"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595085"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 4me
 
@@ -122,7 +122,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 4me**。
 

@@ -36,7 +36,7 @@ ms.locfileid: "64707154"
 
 此案例假設您已依照[建立網路監看員](network-watcher-create.md)中的步驟建立網路監看員。 此案例也假設已有具有有效虛擬機器的資源群組可供使用。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 本文章涵蓋的案例會取得虛擬機器的安全性群組檢視。
 

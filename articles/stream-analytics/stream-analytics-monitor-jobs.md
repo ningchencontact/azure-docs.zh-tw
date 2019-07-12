@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302909"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612260"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以程式設計方式來建立串流分析工作監視
 
 本文示範如何為串流分析工作啟用監視。 透過 REST API、Azure SDK 或 PowerShell 建立的串流分析作業預設不會啟用監視。 您可以在 Azure 入口網站中前往該作業的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。 串流分析工作的監視資料將會顯示在 Azure 入口網站的 [計量] 區域中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始此程序之前，您必須具有下列必要條件：
 
@@ -178,5 +178,5 @@ ms.locfileid: "66302909"
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

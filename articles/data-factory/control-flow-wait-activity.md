@@ -41,7 +41,7 @@ ms.locfileid: "60764746"
 -------- | ----------- | -------------- | --------
 name | `Wait` 活動的名稱。 | 字串 | 是
 type | 必須設為 **Wait**。 | 字串 | 是
-waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | Integer | 是
+waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | 整數 | 是
 
 ## <a name="example"></a>範例
 

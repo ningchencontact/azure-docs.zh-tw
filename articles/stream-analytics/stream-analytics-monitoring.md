@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 54ff94cad3034e3679e57e5596ca13f3430cbbb3
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a4fc6db300a24d483e88efe668645d2cdb62496b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340566"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612268"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
@@ -66,5 +66,5 @@ Azure 入口網站呈現關鍵效能計量，可用來監視和疑難排解您�
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

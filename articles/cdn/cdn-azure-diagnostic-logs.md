@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66126278"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594216"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -191,13 +191,13 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 |值|描述|
 |-------|---------|
-|订阅 ID    |使用 GUID 格式的 Azure 訂用帳戶識別碼。|
+|訂用帳戶識別碼    |使用 GUID 格式的 Azure 訂用帳戶識別碼。|
 |資源群組名稱 |CDN 資源所屬資源群組的名稱。|
 |設定檔名稱 |CDN 設定檔名稱|
 |端點名稱 |CDN 端點名稱|
 |Year|  四位數的年份表示法，例如 2017|
 |月| 兩位數的月份表示法。 01 = 一月...12 =十二月|
-|天|   兩位數的當月日期表示法|
+|Day|   兩位數的當月日期表示法|
 |PT1H.json| 儲存分析資料的實際 JSON 檔案|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>將 Core Analytics 資料匯出至 CSV 檔案

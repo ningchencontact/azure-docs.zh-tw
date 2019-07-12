@@ -23,7 +23,7 @@ ms.locfileid: "67053081"
 
 您可以在 Microsoft Flow 中使用 IoT Central 連接器。 Azure Logic Apps 和 Microsoft Flow 皆為設計工具優先的整合服務，但目標對象稍有不同。 Flow 能為所有辦公室員工提供建置自己所需之商務工作流程的能力。 Logic Apps 能為 IT 專業人員提供建置連線資料所需之整合功能的能力。 您可以在[這裡](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs)比較 Flow 和 Logic Apps。 在[這裡](howto-add-microsoft-flow.md)了解如何在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 隨用隨付應用程式
 - 用來建立及管理邏輯應用程式的 Azure 帳戶和訂用帳戶

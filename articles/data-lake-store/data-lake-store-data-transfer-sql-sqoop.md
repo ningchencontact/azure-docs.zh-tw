@@ -94,7 +94,7 @@ HDInsight 叢集已有可用的 Sqoop 套件。 如果您已設定 HDInsight 叢
 
         sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-1. 請確認資料已被傳輸至 Data Lake Storage Gen1 帳戶。 執行以下命令：
+1. 請確認資料已被傳輸至 Data Lake Storage Gen1 帳戶。 執行下列命令：
 
         hdfs dfs -ls adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/
 
@@ -137,7 +137,7 @@ HDInsight 叢集已有可用的 Sqoop 套件。 如果您已設定 HDInsight 叢
 
 關於 Sqoop 作業將資料複製到 Data Lake Storage Gen1 時的效能調整，請參閱 [Sqoop 效能文件](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

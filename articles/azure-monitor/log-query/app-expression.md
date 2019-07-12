@@ -39,7 +39,7 @@ ms.locfileid: "60589239"
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的應用程式名稱 (也稱為「元件名稱」) | app("fabrikamapp") |
 | 完整名稱 | 使用下列形式的應用程式完整名稱："subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
-| ID | 應用程式的 GUID | app("988ba129-363e-4415-8fe7-8cbab5447518") |
+| id | 應用程式的 GUID | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Azure 資源識別碼 | Azure 資源的識別碼 |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 

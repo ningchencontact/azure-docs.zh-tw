@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228436"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 FTP 伺服器複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 >
 > * [第 1 版](v1/data-factory-ftp-connector.md)
 > * [目前的版本](connector-ftp.md)
@@ -134,7 +134,7 @@ ms.locfileid: "65228436"
 > [!NOTE]
 > **FileShare**下一節中所述的 Parquet] / [文字格式的類型資料集仍可作為-適用於回溯相容性的複製/查閱/GetMetadata 活動。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -179,7 +179,7 @@ ms.locfileid: "65228436"
 >[!NOTE]
 >如果您使用 "fileFilter" 屬性於檔案篩選，雖然仍舊支援，不過會建議您之後使用加入 "fileName" 的新篩選功能。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -229,12 +229,12 @@ ms.locfileid: "65228436"
 | modifiedDatetimeStart    | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
 | useBinaryTransfer        | 指定是否要使用二進位傳輸模式的 FTP 存放區。 值對二進位模式為真 (預設值)，對 ASCII 則為假。 | 否                                            |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 無                                            |
+| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否                                            |
 
 > [!NOTE]
 > Parquet/分隔的文字格式，如**FileSystemSource**類型下一節中所述的複製活動來源仍可作為-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -285,7 +285,7 @@ ms.locfileid: "65228436"
 | recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

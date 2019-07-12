@@ -44,7 +44,7 @@ ms.locfileid: "64686124"
 
 如需支援的閘道類型清單，請瀏覽[支援的閘道類型](network-watcher-troubleshoot-overview.md#supported-gateway-types)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 網路監看員疑難排解可讓您針對虛擬網路閘道和連線所發生的問題進行疑難排解。 要求進行資源疑難排解時會查詢並檢查記錄。 檢查完成時，就會傳回結果。 疑難排解 API 要求是執行時間很長的要求，可能需要幾分鐘的時間才會傳回結果。 記錄會儲存在儲存體帳戶的容器中。
 

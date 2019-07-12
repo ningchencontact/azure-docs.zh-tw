@@ -27,7 +27,7 @@ ms.locfileid: "60522508"
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您尚未佈建 Azure-SSIS IR，請遵循[教學課程](tutorial-create-azure-ssis-runtime-portal.md)中的指示加以佈建。 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>建立和排程會啟動和/或停止 Azure-SSIS IR 的 ADF 管線
@@ -69,7 +69,7 @@ ms.locfileid: "60522508"
 6. 針對 [版本]  ，選取 [V2]  。
 7. 針對 [位置]  ，從下拉式清單中選取其中一個支援用來建立 ADF 的位置。
 8. 選取 [釘選到儀表板]  。     
-9. 按一下頁面底部的 [新增]  。
+9. 按一下 [建立]  。
 10. 在 Azure 儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
@@ -114,7 +114,7 @@ ms.locfileid: "60522508"
     1. 針對 [角色]  ，選取 [參與者]  。 
     2. 在 [存取權指派對象為]  中，選取 [Azure AD 使用者、群組或服務主體]  。 
     3. 在 [選取]  中，搜尋您的 ADF 名稱並加以選取。 
-    4. 按一下 [檔案]  。
+    4. 按一下 [儲存]  。
     
    ![ADF 受控識別角色指派](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 

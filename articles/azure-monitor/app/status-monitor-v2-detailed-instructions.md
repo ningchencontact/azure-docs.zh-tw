@@ -47,7 +47,7 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 )。
 - 命令： `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`。
 - 選擇性參數：
-    - `-Force` 。 會略過確認提示。
+    - `-Force`. 會略過確認提示。
 
 **錯誤的範例**
 
@@ -97,8 +97,8 @@ SerializationVersion           1.1.0.1
     - 參考：[Install-packageprovider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6)。
     - 命令： `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`。
     - 選擇性參數：
-        - `-Proxy` 。 指定 proxy 伺服器要求。
-        - `-Force` 。 會略過確認提示。
+        - `-Proxy`. 指定 proxy 伺服器要求。
+        - `-Force`. 會略過確認提示。
     
     如果未設定 NuGet，您會收到這項提示：
         
@@ -115,7 +115,7 @@ SerializationVersion           1.1.0.1
     - 參考：[Set-psrepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6)。
     - 命令： `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`。
     - 選擇性參數：
-        - `-Proxy` 。 指定 proxy 伺服器要求。
+        - `-Proxy`. 指定 proxy 伺服器要求。
 
     如果 PowerShell 資源庫不受信任，您會收到這項提示：
 
@@ -132,8 +132,8 @@ SerializationVersion           1.1.0.1
     - 參考：[安裝 PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)。
     - 命令： `Install-Module -Name PowerShellGet`。
     - 選擇性參數：
-        - `-Proxy` 。 指定 proxy 伺服器要求。
-        - `-Force` 。 會略過 「 已安裝 」 的警告，並安裝最新版本。
+        - `-Proxy`. 指定 proxy 伺服器要求。
+        - `-Force`. 會略過 「 已安裝 」 的警告，並安裝最新版本。
 
     如果您不使用 PowerShellGet 的最新版本，您會收到此錯誤：
     
@@ -156,10 +156,10 @@ SerializationVersion           1.1.0.1
     - 參考：[Install-module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6)。
     - 命令： `Install-Module -Name Az.ApplicationMonitor`。
     - 選擇性參數：
-        - `-Proxy` 。 指定 proxy 伺服器要求。
-        - `-AllowPrerelease` 。 允許的 alpha 和 beta 版本的安裝。
-        - `-AcceptLicense` 。 會略過 「 接受授權 」 的提示字元
-        - `-Force` 。 會略過 「 不受信任的存放庫 」 警告。
+        - `-Proxy`. 指定 proxy 伺服器要求。
+        - `-AllowPrerelease`. 允許的 alpha 和 beta 版本的安裝。
+        - `-AcceptLicense`. 會略過 「 接受授權 」 的提示字元
+        - `-Force`. 會略過 「 不受信任的存放庫 」 警告。
 
 ## <a name="download-and-install-the-module-manually-offline-option"></a>手動下載並安裝模組 （offline 選項）
 

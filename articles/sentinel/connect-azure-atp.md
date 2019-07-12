@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f0d86a62c59df5bebd34137d0903fcaa7014573d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77f745f92133f4f43cd2a65f2b69ded1eff9e8ed
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204263"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620621"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>將資料從 Azure 進階威脅防護 (ATP) 的連接
 
@@ -44,7 +45,7 @@ ms.locfileid: "65204263"
 
 1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure ATP**圖格。
 
-2. 按一下 [ **連接**]。
+2. 按一下 **[連接]** 。
 
 6. 若要使用 Log Analytics 中的 Azure ATP 警示相關的結構描述，搜尋**SecurityAlert**。
 

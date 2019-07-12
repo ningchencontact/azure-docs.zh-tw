@@ -35,6 +35,6 @@ ms.locfileid: "60320443"
  
 * [設定 Azure 匯入/匯出工具](../storage-import-export-tool-setup-v1.md)   
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)   
+* [利用複製記錄檔檢閱作業狀態](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [修復匯入作業](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [修復匯出作業](../storage-import-export-tool-repairing-an-export-job-v1.md)

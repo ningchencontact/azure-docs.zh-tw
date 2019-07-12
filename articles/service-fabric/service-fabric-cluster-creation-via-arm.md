@@ -37,7 +37,7 @@ ms.locfileid: "64925863"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 在本文中使用 Service Fabric RM Powershell 或 Azure CLI 模組來部署叢集：
 
 * [Azure PowerShell 4.1 和更新版本][azure-powershell]

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082712"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607215"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>管理使用 Azure 入口網站在 Azure 中的 SQL Server Vm
 
@@ -33,7 +33,7 @@ ms.locfileid: "67082712"
 ## <a name="remarks"></a>備註
 
 - **SQL 虛擬機器**資源是建議的方法，來檢視和管理 SQL Server Vm。 不過，目前**SQL 虛擬機器**資源，不支援的管理[結束支援 (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm。 若要管理針對 EOS SQL Server Vm 的設定，請使用已被取代[SQL Server 組態 索引標籤](#access-sql-server-configuration-tab)改。 
-- **SQL 虛擬機器**資源只會提供給 SQL Server Vm 已[向 SQL VM 的資源提供者](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider)。 
+- **SQL 虛擬機器**資源只會提供給 SQL Server Vm 已[向 SQL VM 的資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)。 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>存取 SQL 虛擬機器資源
@@ -60,7 +60,7 @@ ms.locfileid: "67082712"
   > **SQL 虛擬機器**資源為專用的 SQL Server 設定。 選取名稱中的 VM**虛擬機器**欄位，以瀏覽至特定的 vm，但不限於 SQL Server 的設定。 
 
 ## <a name="access-sql-server-configuration-tab"></a>存取 SQL Server 組態 索引標籤
-SQL Server 組態 索引標籤已被取代。 在此階段中，它是唯一的方法，來管理[結束支援 (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm 和 SQL Server Vm 尚未[向 SQL VM 的資源提供者](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider)。
+SQL Server 組態 索引標籤已被取代。 在此階段中，它是唯一的方法，來管理[結束支援 (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm 和 SQL Server Vm 尚未[向 SQL VM 的資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)。
 
 若要存取已被取代的 SQL server 組態 索引標籤，您必須瀏覽至**虛擬機器**資源。 若要這樣做，請執行下列動作：
 

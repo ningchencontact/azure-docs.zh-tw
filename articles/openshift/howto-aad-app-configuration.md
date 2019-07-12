@@ -3,18 +3,18 @@ title: Azure Active Directory for Azure 的 Red Hat OpenShift 的整合 |Microso
 description: 了解如何建立用於測試 Microsoft Azure 的 Red Hat OpenShift 叢集上的應用程式的 Azure AD 安全性群組和使用者。
 author: jimzim
 ms.author: jzim
-ms.service: openshift
+ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 00609905d09f8d414660c21805c6efca5eb30843
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67458708"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669390"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory for Azure 的 Red Hat OpenShift 的整合
 
@@ -90,7 +90,7 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 
 如需有關建立新的 Azure AD 應用程式，請參閱[註冊應用程式與 Azure Active Directory v1.0 端點](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)。
 
-## <a name="add-api-permissions"></a>新增 API 的權限
+## <a name="add-api-permissions"></a>新增 API 權限
 
 1. 在 **管理**區段中，按一下**API 的權限**。
 2. 按一下 **新增權限**，然後選取**Azure Active Directory Graph**然後**委派的權限**

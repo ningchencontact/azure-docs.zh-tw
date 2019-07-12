@@ -68,7 +68,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 請考慮一個情境，您想要知道您的 Web 架構應用程式何時向使用者回應程式碼 500 (亦即) 內部伺服器錯誤。 您可以建立詳細資料如下的警示規則：  
 
 - **查詢：** 要求 | 其中 resultCode =="500"<br>
-- **時間週期：** 30 分钟<br>
+- **時間週期：** 30 分鐘<br>
 - **警示頻率：** 5 分鐘<br>
 - **閾值：** 大於 0<br>
 
@@ -99,7 +99,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 假設您想要在任何電腦於過去 30 分鐘內發生三次處理器使用率超過 90% 時收到警示。  您可以建立詳細資料如下的警示規則：  
 
 - **查詢：** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
-- **時間週期：** 30 分钟<br>
+- **時間週期：** 30 分鐘<br>
 - **警示頻率：** 5 分鐘<br>
 - **警示邏輯 - 條件和閾值：** 大於 90<br>
 - **群組欄位 (開啟彙總)：** Computer

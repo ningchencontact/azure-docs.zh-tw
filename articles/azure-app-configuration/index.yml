@@ -67,6 +67,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">啟用 ASP.NET Core 中的動態組態</a>
+          - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-dotnet-core">啟用 .NET Core 應用程式中的動態組態</a>
           - html: <a href="/azure/azure-app-configuration/use-feature-flags-dotnet-core">在 .NET Core 應用程式中使用功能旗標</a>
           - html: <a href="/azure/azure-app-configuration/manage-feature-flags">編輯功能旗標</a>
           - html: <a href="/azure/azure-app-configuration/integrate-ci-cd-pipeline">與 CI/CD 管線整合</a>

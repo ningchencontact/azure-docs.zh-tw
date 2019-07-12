@@ -80,7 +80,7 @@ P20 進階作業集合提供與 P10 進階作業集合相同的功能，但也�
 
   排程器服務會根據標準或進階的作用中作業集合數目，加以計費。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)

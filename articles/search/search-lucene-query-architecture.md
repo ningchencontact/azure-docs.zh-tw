@@ -393,7 +393,7 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 
 + [設定自訂分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)以進行最少的處理，或是在特定欄位上進行特殊的處理。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

@@ -81,7 +81,7 @@ Azure 排程器支援多個作業類型：
 
 作業也包含系統提供的資料，例如已排定的下一次作業執行時間。 作業的程式碼定義是採用 JavaScript 物件標記法 (JSON) 格式的物件，其中包含以下元素：
 
-| 元素 | 必要項 | 描述 | 
+| 項目 | 必要項 | 描述 | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | 否 | 包含時區位移的作業開始時間，格式為 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | 是 | 主要動作的詳細資料，其中可包括 **errorAction** 物件 | 
@@ -147,7 +147,7 @@ Azure 排程器支援多個作業類型：
 
 <a name="action"></a>
 
-## <a name="action"></a>action
+## <a name="action"></a>動作
 
 排程器作業會根據指定的排程來執行主要**動作**。 排程器支援 HTTP、儲存體佇列、服務匯流排佇列和服務匯流排主題動作。 如果主要**動作**失敗，排程器可以執行次要的 [**errorAction**](#erroraction) 來處理錯誤。 **action** 物件會描述以下元素：
 
@@ -319,7 +319,7 @@ Azure 排程器支援多個作業類型：
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [概念、術語及實體階層](scheduler-concepts-terms.md)

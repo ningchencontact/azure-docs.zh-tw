@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938421"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654041"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>設定 Azure 裝載的虛擬機器
 
@@ -66,7 +66,7 @@ Windoes 作業系統磁碟是使用 [sysprep 工具](https://docs.microsoft.com/
 > [!WARNING]
 >  由於系統可能會自動執行更新，因此一旦執行了 sysprep，請在執行部署前關閉虛擬機器。  關閉動作可避免後續的更新對 VHD 作業系統或是已安裝的服務進行執行個體特定的變更。
 
-如需執行 sysprep 的詳細資訊，請參閱[將一般化 VHD 的步驟](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+如需執行 sysprep 的詳細資訊，請參閱[將一般化 VHD 的步驟](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 

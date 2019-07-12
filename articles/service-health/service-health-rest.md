@@ -39,7 +39,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| Name | 描述 |
+| 名稱 | 描述 |
 | :--- | :---------- |
 | subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
 | api-version | 要用於要求的 API 版本。<br /><br /> 本文件涵蓋 api-version `2015-04-01`，內含於上述 URL 中。  |

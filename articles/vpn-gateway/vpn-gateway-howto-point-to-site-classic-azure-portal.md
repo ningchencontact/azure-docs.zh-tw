@@ -43,7 +43,7 @@ ms.locfileid: "60845386"
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 點對站憑證驗證連線需要下列先決條件：
 

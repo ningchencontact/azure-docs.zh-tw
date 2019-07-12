@@ -8,19 +8,19 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2af6d499bafb0e00b31d0379baac6a390bd6ca3f
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812758"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626243"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>使用 Azure CLI 開始使用 Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 本文說明如何使用 Azure CLI 命令列介面，來建立 Azure Data Lake Analytics 帳戶、提交 U-SQL 作業和目錄。 此作業可讀取定位字元分隔值 (TSV) 檔案，並將該檔案轉換為逗點分隔值 (CSV) 檔案。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 在開始之前，您需要下列項目：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -108,7 +108,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics 也可存取 Azure Blob 儲存體。  若要將資料上傳至 Azure Blob 儲存體，請參閱 [使用 Azure CLI 搭配 Azure 儲存體](../storage/common/storage-azure-cli.md)。
 
 ## <a name="submit-data-lake-analytics-jobs"></a>提交 Data Lake Analytics 工作
-Data Lake Analytics 工作是以 U-SQL 語言撰寫。 若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 語言參考](https://go.microsoft.com/fwlink/?LinkId=691348)。
+Data Lake Analytics 工作是以 U-SQL 語言撰寫。 若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 語言參考](https://docs.microsoft.com/u-sql/)。
 
 **建立 Data Lake Analytics 工作指令碼**
 
@@ -131,7 +131,7 @@ OUTPUT @a
 
 除非您將來源檔案複製到其他位置，否則請勿修改這兩個路徑。  Data Lake Analytics 會建立輸出資料夾 (若尚未建立)。
 
-使用儲存在預設 Data Lake Store 帳戶中檔案的相對路徑，是比較容易的方法。 您也可以使用絕對路徑。  例如︰
+使用儲存在預設 Data Lake Store 帳戶中檔案的相對路徑，是比較容易的方法。 您也可以使用絕對路徑。  例如:
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -156,7 +156,7 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-例如︰
+例如:
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -187,7 +187,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-例如︰
+例如:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

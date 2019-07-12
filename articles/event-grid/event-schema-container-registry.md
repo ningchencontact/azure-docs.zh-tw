@@ -155,30 +155,30 @@ Azure Container Registry 會發出下列事件類型：
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
-| data | 物件 | blob 儲存體帳戶。 |
+| data | object | blob 儲存體帳戶。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
 | metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | id | string | 事件識別碼。 |
 | timestamp | string | 事件發生的時間。 |
-| action | string | 包含所提供事件的動作。 |
-| target | 物件 | 事件的目標。 |
-| request | 物件 | 產生事件的要求。 |
+| 動作 | string | 包含所提供事件的動作。 |
+| target | object | 事件的目標。 |
+| request | object | 產生事件的要求。 |
 
 target 物件具有下列屬性：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | mediaType | string | 參考物件的 MIME 類型。 |
 | size | integer | 內容的位元組數目。 與長度欄位相同。 |
@@ -186,12 +186,12 @@ target 物件具有下列屬性：
 | length | integer | 內容的位元組數目。 [與大小相同] 欄位。 |
 | repository | string | 存放庫名稱。 |
 | tag | string | 標籤名稱。 |
-| name | string | 图表名称。 |
-| version | string | 图表版本。 |
+| name | string | 圖表名稱。 |
+| version | string | 圖表的版本。 |
 
 request 物件具有下列屬性：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | id | string | 起始事件之要求的識別碼。 |
 | addr | string | 用戶端連線 (用於起始事件) 的 IP 或主機名稱，也可能是連接埠。 在標準 http 要求中，此值是 RemoteAddr。 |

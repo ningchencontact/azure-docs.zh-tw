@@ -23,7 +23,7 @@ ms.locfileid: "60630645"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 資料管理員解決方案概觀
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft Azure StorSimple 使用雲端儲存體作為內部部署解決方案的擴充功能，並且會跨內部部署儲存體和雲端自動將資料分層。 資料儲存在雲端時會採用已啟用重複資料刪除功能的壓縮格式，以獲得最大效率並降低成本。 當資料以 StorSimple 格式儲存時，無法立即供您要使用的其他雲端應用程式取用。
 
@@ -48,7 +48,7 @@ StorSimple 資料管理員服務可從 StorSimple 8000 系列的內部部署裝�
 StorSimple 資料管理員適用於下列 7 個區域：
 
  - 東南亞
- - 美國東部
+ - East US
  - 美國西部
  - 美國西部 2
  - 美國中西部

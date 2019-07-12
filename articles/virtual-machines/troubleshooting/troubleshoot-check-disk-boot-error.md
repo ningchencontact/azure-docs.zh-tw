@@ -27,7 +27,7 @@ ms.locfileid: "60594810"
 > [!NOTE] 
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptom"></a>徵狀 
+## <a name="symptom"></a>徵兆 
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](boot-diagnostics.md)中的開機螢幕擷取畫面時，您會看見「檢查磁碟」處理序 (chkdsk.exe) 正在執行，並顯示以下其中一個訊息：
 
@@ -38,7 +38,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](boot-diagnostics.md)
 
 如果在檔案系統中發現 NTFS 錯誤，則 Windows 會在下一次重新啟動時檢查與修復磁碟的一致性。 這通常發生在虛擬機器有任何未預期的重新啟動，或如果虛擬機器關機處理序突然中斷時。
 
-## <a name="solution"></a>解決方法 
+## <a name="solution"></a>方案 
 
 在「檢查磁碟」處理序完成時，Windows 將正常開機。 如果虛擬機器卡在「檢查磁碟」處理序，請嘗試在虛擬機器離線時執行「磁碟檢查」：
 1.  擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。

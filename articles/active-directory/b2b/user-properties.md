@@ -68,7 +68,7 @@ ms.locfileid: "65768159"
   > [!NOTE]
   > UserType 與使用者登入的方式、使用者的目錄角色等等無關。 此屬性只是表示使用者與主機組織的關聯性，並可讓組織強制執行此屬性的相依原則。
 
-### <a name="source"></a>source
+### <a name="source"></a>Source
 此屬性指出使用者的登入方式。
 
 - 受邀使用者：此使用者已受邀請，但尚未兌換邀請。
@@ -101,7 +101,7 @@ ms.locfileid: "65768159"
 ![顯示在 使用者設定外部的使用者選項的螢幕擷取畫面](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>能否在 Exchange 全域通訊清單中顯示來賓使用者？
-是。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 讓其顯示。 如需詳細資訊，請參閱[管理 Office 365 群組中的來賓存取](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq) \(機器翻譯\) 中的＜能否在全域通訊清單中顯示來賓物件？＞  。 
+是的。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 讓其顯示。 如需詳細資訊，請參閱[管理 Office 365 群組中的來賓存取](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq) \(機器翻譯\) 中的＜能否在全域通訊清單中顯示來賓物件？＞  。 
 
 ## <a name="next-steps"></a>後續步驟
 

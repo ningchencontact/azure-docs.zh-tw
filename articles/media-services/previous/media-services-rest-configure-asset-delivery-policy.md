@@ -145,7 +145,7 @@ MPEG DASH
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 資產傳遞原則
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>建立 EnvelopeEncryption 類型的內容金鑰，並將它連結到資產
-當指定 DynamicEnvelopeEncryption 傳遞原則時，您必須將資產連結到 EnvelopeEncryption 類型的內容金鑰。 如需詳細資訊，請參閱[建立內容金鑰](media-services-rest-create-contentkey.md)。
+當指定 DynamicEnvelopeEncryption 傳遞原則時，您必須將資產連結到 EnvelopeEncryption 類型的內容金鑰。 如需詳細資訊，請參閱：[建立內容金鑰](media-services-rest-create-contentkey.md)。
 
 ### <a id="get_delivery_url"></a>取得傳遞 URL
 針對前一個步驟中建立的內容金鑰的指定傳遞方法，取得傳遞 URL。 用戶端會使用傳回的 URL 要求 AES 金鑰或 PlayReady 授權，以便播放受保護的內容。
@@ -231,7 +231,7 @@ MPEG DASH
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 資產傳遞原則
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>建立 CommonEncryption 類型的內容金鑰，並將它連結到資產
-當指定 DynamicCommonEncryption 傳遞原則時，您必須將資產連結到 CommonEncryption 類型的內容金鑰。 如需詳細資訊，請參閱[建立內容金鑰](media-services-rest-create-contentkey.md)。
+當指定 DynamicCommonEncryption 傳遞原則時，您必須將資產連結到 CommonEncryption 類型的內容金鑰。 如需詳細資訊，請參閱：[建立內容金鑰](media-services-rest-create-contentkey.md)。
 
 ### <a name="get-delivery-url"></a>取得傳遞 URL
 針對前一個步驟中建立的內容金鑰的 PlayReady 傳遞方法，取得傳遞 URL。 用戶端會使用傳回的 URL 要求 PlayReady 授權，以便播放受保護的內容。 如需詳細資訊，請參閱 [取得傳遞 URL](#get_delivery_url)。

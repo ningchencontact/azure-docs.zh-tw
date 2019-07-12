@@ -4,7 +4,7 @@ description: 了解適合用來在 Azure 中部署範例基礎結構的關鍵設
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ff98079c6156783442078546a4783a367863057
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60540370"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722600"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>適用於 Windows VM 的範例 Azure 基礎結構逐步解說
 本文將逐步解說建置範例應用程式基礎結構的方法。 我們會詳述設計簡單線上商店基礎結構的方式，此線上商店能將所有命名慣例、可用性設定組、虛擬網路及負載平衡器的指導方針和決定集合在一起，並實際部署您的虛擬機器 (VM)。

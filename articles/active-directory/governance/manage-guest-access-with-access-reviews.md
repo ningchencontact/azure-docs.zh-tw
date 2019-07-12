@@ -33,7 +33,7 @@ ms.locfileid: "66472909"
 > [!NOTE]
 > 本文件著重於檢閱來賓使用者的存取權。 如果您想檢閱所有使用者的存取權 (不只來賓)，請參閱[使用存取權檢閱管理使用者存取權](manage-user-access-with-access-reviews.md)。 若您想要檢閱使用者的系統管理角色 (例如全域系統管理員) 成員資格，請參閱[在 Azure AD Privileged Identity Management 中開始存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure AD Premium P2
 

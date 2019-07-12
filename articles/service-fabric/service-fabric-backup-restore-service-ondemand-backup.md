@@ -28,7 +28,7 @@ ms.locfileid: "65413944"
 Azure Service Fabric 具有用來[定期備份資料](service-fabric-backuprestoreservice-quickstart-azurecluster.md)及依照需求備份資料的功能。 隨選備份很實用，因為可防範由於基礎服務或其環境中的計劃性變更所造成的資料遺失  /資料損毀  。
 
 在您手動觸發服務或服務環境作業之前，隨選備份功能對於擷取服務狀態很有幫助。 例如，如果您在升級或降級服務時變更了服務二進位檔。 在此情況下，隨選備份可協助防範由應用程式程式碼錯誤 (bug) 造成的資料損毀。
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 設定電話安裝 Microsoft.ServiceFabric.Powershell.Http 模組 [預覽]。
 

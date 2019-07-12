@@ -164,7 +164,7 @@ ms.locfileid: "60531817"
 | **minutes** |作業在該小時的第幾分鐘執行。 |整數陣列。 |
 | **hours** |作業在該日的第幾小時執行。 |整數陣列。 |
 | **weekDays** |作業在該週的第幾天執行。 只能搭配 weekly 頻率指定。 |包含任何下列值的陣列 (最大的陣列大小為 7)：<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />不區分大小寫。 |
-| **monthlyOccurrences** |決定將在當月哪幾天執行工作。 只能搭配 monthly 頻率指定。 |**monthlyOccurrences** 物件的陣列：<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 是作業在當週的第幾天執行。 例如， *{Sunday}* 是當月的每個星期日。 必要。<br /><br />**occurrence** 是當月期間的第幾天發生。 例如， *{Sunday, -1}* 是當月的最後一個星期日。 選用。 |
+| **monthlyOccurrences** |決定將在當月哪幾天執行工作。 只能搭配 monthly 頻率指定。 |**monthlyOccurrences** 物件的陣列：<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** 是作業在當週的第幾天執行。 例如， *{Sunday}* 是當月的每個星期日。 必要。<br /><br />**occurrence** 是當月期間的第幾天發生。 例如， *{Sunday, -1}* 是當月的最後一個星期日。 選擇性。 |
 | **monthDays** |作業將在當月的哪一日執行。 只能搭配 monthly 頻率指定。 |包含下列值的陣列：<br />- <= -1 且 >= -31 的任何值<br />- >= 1 且 <= 31 的任何值|
 
 ## <a name="examples-recurrence-schedules"></a>範例：週期排程
@@ -207,7 +207,7 @@ ms.locfileid: "60531817"
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |在月份中最後一個星期五每隔 15 分鐘執行一次。 |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |在每個月第三個星期三的上午 5:15、上午 5:45、下午 5:15 及下午 5:45 執行。 |
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [什麼是 Azure 排程器？](scheduler-intro.md)
 * [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)

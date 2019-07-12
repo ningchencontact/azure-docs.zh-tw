@@ -104,7 +104,7 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 * 在美國、歐洲或東南亞。 建立新的 Application Insights 時，您可以選取位置。 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>這是否表示我的應用程式必須裝載在美國、歐洲或東南亞？
-* 沒有。 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
+* 資料分割 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
 
 ## <a name="how-secure-is-my-data"></a>我的資料有多安全？
 Application Insights 是一項 Azure 服務。 如需安全性原則的相關說明，請參閱[ Azure 安全性、隱私權及法規遵循白皮書](https://go.microsoft.com/fwlink/?linkid=392408)。

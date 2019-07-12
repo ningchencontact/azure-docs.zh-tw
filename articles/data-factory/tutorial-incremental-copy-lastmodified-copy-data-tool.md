@@ -36,7 +36,7 @@ ms.locfileid: "65519138"
 > * 使用複製資料工具建立管線。
 > * 監視管線和活動執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 * **Azure 儲存體帳戶**：使用 Blob 儲存體作為_來源_並_接收_資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。

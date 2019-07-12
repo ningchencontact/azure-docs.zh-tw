@@ -52,7 +52,7 @@ MySQL 驗證檔案儲存在 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysq
 |:--|:--|
 | Port | 代表 MySQL 執行個體目前正在接聽的連接埠。 連接埠 0 指定後面的屬性用於預設執行個體。 |
 | 繫結位址| 目前的 MySQL 繫結位址。 |
-| username| 用來監視 MySQL 伺服器執行個體的 MySQL 使用者。 |
+| userName| 用來監視 MySQL 伺服器執行個體的 MySQL 使用者。 |
 | Base64 編碼的密碼| MySQL 監視使用者的密碼，以 Base64 編碼。 |
 | AutoUpdate| 指定在升級 MySQL OMI 提供者時，是否重新掃描 my.cnf 檔案中的變更，並覆寫 MySQL OMI 驗證檔案。 |
 
@@ -77,7 +77,7 @@ MySQL OMI 驗證檔案可以定義預設執行個體和連接埠號碼，讓您�
 
 下表提供使用 mycimprovauth 語法的詳細資料。
 
-| 作業 | 範例 | 描述
+| 運算 | 範例 | 描述
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | 設定是否在重新啟動或更新時自動更新驗證檔案。 |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | 在 MySQL OMI 驗證檔案中設定預設執行個體。<br>應以純文字輸入 password 欄位 - MySQL OMI 驗證檔案中的密碼將會以 Base 64 編碼。 |

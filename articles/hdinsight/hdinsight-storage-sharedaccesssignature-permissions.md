@@ -25,7 +25,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 > [!WARNING]  
 > HDInsight 必須有叢集預設儲存體的完整存取權。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。
 
@@ -41,7 +41,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 * 如果使用C#，Visual Studio 必須是 2013年或更高版本。
 
-* [URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)儲存體帳戶。 這會是`wasb://`Azure 儲存體而言`abfs://`針對 Azure Data Lake 儲存體 Gen2 或`adl://`針對 Azure Data Lake 儲存體 Gen1。 如果 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是`wasbs://`或是`abfss://`分別另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+* [URI 配置](./hdinsight-hadoop-linux-information.md#URI-and-scheme)儲存體帳戶。 `wasb://` 適用於 Azure 儲存體，`abfs://` 適用於 Azure Data Lake Storage Gen2 或 `adl://` 適用於 Azure Data Lake Storage Gen1。 如果針對 Azure 儲存體或 Data Lake Storage Gen2 已啟用安全傳輸，則 URI 分別會是 `wasbs://` 或 `abfss://`。另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
 
 * 要加入至共用存取簽章的現有 HDInsight 叢集。 如果沒有，您可以使用 Azure PowerShell 建立叢集，並在叢集建立期間新增共用存取簽章。
 
@@ -207,7 +207,7 @@ Set-AzStorageblobcontent `
 
 ### <a name="using-c"></a>使用 C#
 
-1. 在 Visual Studio 中開啟解決方案。
+1. 在 Visual Studio 中開啟方案。
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下**SASExample**專案，然後選取**屬性**。
 

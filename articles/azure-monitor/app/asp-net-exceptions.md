@@ -482,7 +482,7 @@ Add the attribute to the service implementations:
 
 這與 Application Insights 入口網站執行 TrackException 報告計數算得的「例外狀況」計數不同。 取樣間隔不同，且 SDK 不會針對所有已處理與未處理的例外狀況傳送 TrackException 報告。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 

@@ -66,7 +66,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 ## <a name="custom-datetime-path-patterns"></a>自訂日期時間路徑模式
 
-自訂日期時間路徑模式可讓您指定與 Hive 串流慣例一致的輸出格式，讓 Azure 串流分析得以將資料傳送至 Azure HDInsight 和 Azure Databricks 以進行下游處理。 自訂日期時間路徑模式可以使用您 Blob 輸出 [路徑前置詞] 欄位中的 `datetime` 關鍵字，輕易地實作。 例如： `{datetime:yyyy}`。
+自訂日期時間路徑模式可讓您指定與 Hive 串流慣例一致的輸出格式，讓 Azure 串流分析得以將資料傳送至 Azure HDInsight 和 Azure Databricks 以進行下游處理。 自訂日期時間路徑模式可以使用您 Blob 輸出 [路徑前置詞] 欄位中的 `datetime` 關鍵字，輕易地實作。 例如： `{datetime:yyyy}` 。
 
 ### <a name="supported-tokens"></a>支援的權杖
 
@@ -104,7 +104,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 Blob 儲存體的自訂路徑模式可與 Hive 串流慣例一起使用，該慣例預期資料夾以資料夾名稱中的 `column=` 標示。
 
-例如： `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`。
+例如： `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}` 。
 
 自訂輸出可以免除改變資料表及手動將分割新增至 Azure 串流分析與 Hive 之間連接埠資料的麻煩。 相反地，許多資料夾可以使用以下方式自動新增：
 

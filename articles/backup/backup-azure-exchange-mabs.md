@@ -18,7 +18,7 @@ ms.locfileid: "60641432"
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 Exchange Server 備份至 Azure
 本文說明如何設定 Microsoft Azure 備份伺服器 (MABS)，以將 Microsoft Exchange Server 備份至 Azure。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 繼續之前，請確定已[安裝並備妥](backup-azure-microsoft-azure-backup.md) Azure 備份伺服器。
 
 ## <a name="mabs-protection-agent"></a>MABS 保護代理程式
@@ -47,7 +47,7 @@ ms.locfileid: "60641432"
 
    * 我想要使用磁碟進行短期保護。
    * 我想要線上保護。
-6. 单击“下一步”  。
+6. 按一下 [下一步]  。
 7. 如果您想要檢查 Exchange Server 資料庫的完整性，請選取 [執行 Eseutil 以檢查資料完整性]  選項。
 
     選取此選項之後，將會在 MABS 上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
@@ -57,7 +57,7 @@ ms.locfileid: "60641432"
    > ![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 单击“下一步”  。
+8. 按一下 [下一步]  。
 9. 選取用於 [複製備份]  的資料庫，然後按 [下一步]  。
 
    > [!NOTE]

@@ -49,7 +49,7 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，皆使用此工具組。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 ### <a name="scenarios"></a>案例
 

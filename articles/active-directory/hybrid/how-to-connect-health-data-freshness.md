@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: zhiweiw
+ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ffd783ec41b1b0c4a11ee426648c1e36fbbbf75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c5bc2ea76c558e47eaa5f297ebe36a629aa5754
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60349884"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702634"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>健康情況服務的資料並非最新警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure AD Connect Health 會定期監視的內部部署機器上的代理程式會將資料上傳至 Azure AD Connect Health 服務。 如果服務不會收到來自代理程式的資料，入口網站會顯示的資訊將會過時。 若要反白顯示問題，服務將會引發**健全狀況服務資料不是最新狀態**警示。 當服務在過去兩個小時內未收到完整的資料時，會產生此警示。  
 
@@ -40,7 +40,7 @@ Azure AD Connect Health 會定期監視的內部部署機器上的代理程式�
  
 下表會將服務類型對應至相對應的所需的資料類型：
 
-| 服務類型 | 代理程式 （Windows 服務名稱） | 目的 | 產生的資料類型  |
+| 服務類型 | 代理程式 （Windows 服務名稱） | 用途 | 產生的資料類型  |
 | --- | --- | --- | --- |  
 | Azure AD Connect （同步） | Azure AD Connect Health Sync Insights 服務 | 收集 AAD Connect 特有的資訊 （連接器、 同步處理規則） | - AadSyncService-SynchronizationRules <br />  - AadSyncService-Connectors <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring 服務 | AAD Connect 特定效能計數器、 ETW 追蹤、 檔案收集 | 效能計數器 |

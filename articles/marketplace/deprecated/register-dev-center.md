@@ -182,7 +182,7 @@ ms.locfileid: "66258965"
   > 若未在開發人員中心帳戶中填寫稅務和銀行資訊，則無法發佈交易供應項目。  如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](https://docs.microsoft.com/azure/marketplace/register-dev-center)。
 
 * **我是否可以變更開發人員中心 Microsoft 登入帳戶？**
-  > 沒有。 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。
+  > 資料分割 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。
 
 * **如果有開發人員中心註冊的相關問題，應於何處連絡支援人員？**
   若要存取支援，請參閱 Windows 開發人員支援頁面：[developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)。 

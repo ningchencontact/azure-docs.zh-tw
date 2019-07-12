@@ -42,7 +42,7 @@ ms.locfileid: "66417346"
 >如同其他 Azure 服務，Machine Learning 也有其相關的特定限制和配額。 [深入了解配額及如何要求更多配額。](how-to-manage-quotas.md)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 ## <a name="portal"></a> Azure 入口網站

@@ -23,7 +23,7 @@ ms.locfileid: "60390863"
 
 範本擴充功能是一種小型的應用程式，可對 Azure 資源提供部署後的社及自動化工作。 最常見的是虛擬機器擴充功能。 請參閱[虛擬機器擴充功能和功能 (Windows)](../virtual-machines/extensions/features-windows.md) 與[虛擬機器擴充功能和功能 (Linux)](../virtual-machines/extensions/features-linux.md)。
 
-## <a name="extensions"></a>擴充功能
+## <a name="extensions"></a>延伸模組
 
 現有的擴充功能有：
 

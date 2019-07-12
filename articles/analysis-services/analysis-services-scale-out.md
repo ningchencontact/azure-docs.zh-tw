@@ -108,7 +108,7 @@ ms.locfileid: "65192332"
 會傳回狀態碼：
 
 
-|代碼  |描述  |
+|程式碼  |描述  |
 |---------|---------|
 |-1     |  無效       |
 |0     | 複寫        |
@@ -133,7 +133,7 @@ ms.locfileid: "65192332"
 
 若要進一步了解，請參閱[Az.AnalysisServices 模組搭配使用服務主體](analysis-services-service-principal.md#azmodule)。
 
-## <a name="connections"></a>連線
+## <a name="connections"></a>連接
 
 在伺服器的 [概觀] 頁面中，有兩個伺服器名稱。 如果您還沒有為伺服器設定擴充，則這兩個伺服器名稱會以相同方式運作。 一旦設定了伺服器擴充，即必須根據連線類型指定適當的伺服器名稱。 
 

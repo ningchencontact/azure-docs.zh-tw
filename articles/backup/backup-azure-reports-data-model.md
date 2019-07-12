@@ -27,7 +27,7 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="alert"></a>警示
 下表提供基本欄位和各種警示相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |整數 |所選時段內建立的警示數目 |
 | %ActiveAlertsCreatedInPeriod |百分比 |所選時段內作用中警示的百分比 |
@@ -37,32 +37,32 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | AlertStatus |Text |警示狀態 (例如，作用中) |
 | AlertType |Text |所產生的警示類型 (例如，備份) |
 | AlertUniqueId |Text |所產生警示的唯一識別碼 |
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |十進位數字 |所選時段內的警示解析平均時間 (以分鐘為單位) |
 | EntityState |Text |警示物件的目前狀態 (例如，作用中、已刪除) |
 
 ### <a name="backup-item"></a>備份項目
 下表提供基本欄位和各種備份項目相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #BackupItems |整數 |備份項目數目 |
 | #UnprotectedBackupItems |整數 |已停止保護或已設定要備份卻未開始備份的備份項目數目|
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | BackupItemFriendlyName |Text |備份項目的易記名稱 |
 | BackupItemId |Text |備份項目識別碼 |
 | BackupItemName |Text |備份項目名稱 |
 | BackupItemType |Text |備份項目類型 (例如，VM、FileFolder) |
 | EntityState |Text |備份項目物件的目前狀態 (例如，作用中、已刪除) |
-| LastBackupDateTime |日期/時間 |所選備份項目的最後一次備份時間 |
+| LastBackupDateTime |Date/Time |所選備份項目的最後一次備份時間 |
 | LastBackupState |Text |所選備份項目的最後一次備份狀態 (例如，成功、失敗) |
-| LastSuccessfulBackupDateTime |日期/時間 |所選備份項目最後一次成功備份的時間 |
+| LastSuccessfulBackupDateTime |Date/Time |所選備份項目最後一次成功備份的時間 |
 | ProtectionState |Text |備份項目的目前保護狀態 (例如，受保護、ProtectionStopped) |
 
 ### <a name="calendar"></a>行事曆
 下表提供行事曆相關欄位的詳細資料。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | Date |Date |所選用於篩選資料的日期 |
 | DateKey |Text |每個日期項目的唯一索引鍵 |
@@ -79,12 +79,12 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="job"></a>工作 (Job)
 下表提供基本欄位和各種作業相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |整數 |所選時段內建立的作業數目 |
 | %FailuresForJobsCreatedInPeriod |百分比 |所選時段內整體作業失敗百分比 |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |十進位數字 |在所選時段內建立的**備份**作業中，其傳輸之資料 (以 MB 為單位) 的第 80 個百分位數值 |
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | AvgBackupDurationInMinsForJobsCreatedInPeriod |十進位數字 |所選時段內建立之**備份作業已完成者**的平均完成時間 (以分鐘為單位) |
 | AvgRestoreDurationInMinsForJobsCreatedInPeriod |十進位數字 |所選時段內建立之**還原作業已完成者**的平均完成時間 (以分鐘為單位) |
 | BackupStorageDestination |Text |備份儲存體的目的地 (例如，雲端、磁碟)  |
@@ -99,11 +99,11 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="policy"></a>原則
 下表提供基本欄位和各種原則相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #Policies |整數 |系統中存在的備份原則數目 |
 | #PoliciesInUse |整數 |目前正用於設定備份的原則數目 |
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | BackupDaysOfTheWeek |Text |一週中已排定要備份的日期 |
 | BackupFrequency |Text |備份的執行頻率 (例如，每日、每週) |
 | BackupTimes |Text |排定要備份的日期和時間 |
@@ -133,10 +133,10 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="protected-server"></a>受保護的伺服器
 下表提供基本欄位和各種受保護伺服器相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #ProtectedServers |整數 |受保護的伺服器數目 |
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | AzureBackupAgentOSType |Text |Azure 備份代理程式的 OS 類型 |
 | AzureBackupAgentOSVersion |Text |Azure 備份代理程式的 OS 版本 |
 | AzureBackupAgentUpdateDate |Text |代理程式備份代理程式的更新日期 |
@@ -152,10 +152,10 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="storage"></a>儲存體
 下表提供基本欄位和各種儲存體相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #ProtectedInstances |十進位數字 |用於在帳單中計算前端儲存體的受保護執行個體數目，在計算時會以所選時間內的最後數值為依據 |
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | CloudStorageInMB |十進位數字 |備份所使用的雲端備份儲存體，在計算時會以所選時間內的最後數值為依據 |
 | EntityState |Text |物件的目前狀態 (例如，作用中、已刪除) |
 | LastUpdatedDate |Date |所選資料列的上次更新日期 |
@@ -163,7 +163,7 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="time"></a>Time
 下表提供時間相關欄位的詳細資料。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | 小時 |Time |一天當中的時間 (小時) (例如，1:00:00 PM) |
 | HourNumber |十進位數字 |一天當中的小時數 (例如，13.00) |
@@ -175,10 +175,10 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ### <a name="vault"></a>保存庫
 下表提供基本欄位和各種保存庫相關欄位的彙總。
 
-| 欄位 | 数据类型 | 描述 |
+| 欄位 | 資料類型 | 描述 |
 | --- | --- | --- |
 | #Vaults |整數 |保存庫數目 |
-| AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
+| AsOnDateTime |Date/Time |所選資料列的最新重新整理時間 |
 | AzureDataCenter |Text |保存庫所在的資料中心 |
 | EntityState |Text |保存庫物件的目前狀態 (例如，作用中、已刪除) |
 | StorageReplicationType |Text |保存庫的儲存體複寫類型 (例如，GeoRedundant) |

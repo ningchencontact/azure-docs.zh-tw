@@ -97,6 +97,6 @@ categories.count = sum;
 > [!TIP]
 > 傳回的 Facet 數目會影響到查詢速度。 若要支援非常大型的分類集，請考慮新增可 Facet 的 **Edm.String** 欄位來存放每份文件的最上層分類值。 然後，運用前述的相同技巧，但僅在使用者展開最上層節點時執行集合 Facet 查詢 (依根分類欄位篩選)。 或者，如果不需要 100% 回收，請將 Facet 計數縮減至合理的數目，並確定 Facet 項目依計數排序。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化](search-example-adventureworks-modeling.md)

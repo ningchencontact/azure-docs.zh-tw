@@ -29,7 +29,7 @@ ms.locfileid: "60198170"
 
 本文提供有關如何使用 Azure 入口網站執行上述工作的詳細指示。 如需 Data Lake Storage Gen1 如何在帳戶和資料層級實作安全性的深入資訊，請參閱 [Azure Data Lake Storage Gen1 安全性](data-lake-store-security-overview.md)。 如需如何在 Data Lake Storage Gen1 中實作 ACL 的深入資訊，請參閱 [Data Lake Storage Gen1 中的存取控制概觀](data-lake-store-access-control.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -74,7 +74,7 @@ ms.locfileid: "60198170"
    
     ![新增安全性群組](./media/data-lake-store-secure-data/adl.add.user.2.png "新增安全性群組")
    
-5. 按一下 [檔案]  。 您會看見新增的安全性群組，如下所示。
+5. 按一下 [儲存]  。 您會看見新增的安全性群組，如下所示。
    
     ![已新增的安全性群組](./media/data-lake-store-secure-data/adl.add.user.3.png "已新增的安全性群組")
 
@@ -147,7 +147,7 @@ Data Lake Storage Gen1 可讓您進一步在網路層級鎖定資料存放區的
    
     ![將權限指派至群組](./media/data-lake-store-secure-data/adl.remove.acl.png "將權限指派至群組")
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
 * [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

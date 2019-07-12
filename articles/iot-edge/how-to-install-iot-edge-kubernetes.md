@@ -33,7 +33,7 @@ Edge 部署的每個元件的範圍限定到特定裝置，讓您可以共用相
 
 ## <a name="install-locally-for-a-quick-test-environment"></a>快速的測試環境的本機安裝
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * Kubernetes 1.10 或更新版本。 如果您沒有現有的叢集設定，您可以使用[Minikube](https://kubernetes.io/docs/setup/minikube/)針對本機叢集環境。 
 

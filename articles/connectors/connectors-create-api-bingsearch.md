@@ -56,13 +56,13 @@ ms.locfileid: "60952543"
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
    | Search Query | 是 | <*search-words*> | 輸入您要使用的搜尋關鍵字。 |
-   | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
-   | 安全搜尋 | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
-   | 計數 | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
+   | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
+   | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
+   | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
    | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
-   例如︰
+   例如:
 
    ![設定觸發程序](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -107,9 +107,9 @@ ms.locfileid: "60952543"
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
    | Search Query | 是 | <*search-expression*> | 輸入查詢觸發程序結果的運算式。 您可以從動態內容清單中的欄位選取，或使用運算式產生器建立運算式。 |
-   | 市場 | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
-   | 安全搜尋 | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
-   | 計數 | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
+   | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
+   | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
+   | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
    | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
@@ -158,7 +158,7 @@ ms.locfileid: "60952543"
    | API 金鑰 | 是 | <*API-key*> | 您稍早取得的 Bing 搜尋 API 金鑰。 如果您沒有金鑰，請立即取得 [API 金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)。 |  
    |||||  
 
-   例如︰
+   例如:
 
    ![建立連線](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

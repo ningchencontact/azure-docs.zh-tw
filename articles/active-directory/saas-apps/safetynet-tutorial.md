@@ -162,7 +162,7 @@ ms.locfileid: "62104666"
 
     c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增]  。
+    d. 按一下 [建立]  。
  
 ### <a name="create-a-safetynet-test-user"></a>建立 SafetyNet 測試使用者
 

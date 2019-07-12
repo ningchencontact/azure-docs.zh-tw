@@ -80,20 +80,20 @@ ms.locfileid: "60561756"
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
-| data | 物件 | blob 儲存體帳戶。 |
+| data | object | blob 儲存體帳戶。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
 | metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | -------- | ---- | ----------- |
 | namespaceName | string | 資源所在的服務匯流排命名空間。 |
 | requestUri | string | 要發出此事件的特定佇列或訂用帳戶 URI。 |

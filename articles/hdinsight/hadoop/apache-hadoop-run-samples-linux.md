@@ -22,7 +22,7 @@ ms.locfileid: "64706658"
 
 了解如何執行隨附於 HDInsight 上 Apache Hadoop 的 MapReduce 範例。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 

@@ -27,7 +27,7 @@ ms.locfileid: "65147015"
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本指南假設您已了解 Azure 儲存體的基本概念。 而且假設您可以滿足針對 Azure 和儲存體服務所指定的帳戶建立需求。
 
 ### <a name="accounts"></a>帳戶

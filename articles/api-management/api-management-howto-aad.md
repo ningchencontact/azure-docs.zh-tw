@@ -24,7 +24,7 @@ ms.locfileid: "65956297"
 
 本文說明如何讓使用者能夠從 Azure Active Directory (Azure AD) 來存取開發人員入口網站。 本指南也說明如何新增包含 Azure AD 使用者的外部群組來管理使用者。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
 - 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱[匯入和發佈](import-and-publish.md)。
@@ -34,7 +34,7 @@ ms.locfileid: "65956297"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>使用 Azure AD 來授權開發人員帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 选择 ![箭號](./media/api-management-howto-aad/arrow.png)上也提供本文中使用的原始碼。
+2. Select ![箭號](./media/api-management-howto-aad/arrow.png)。
 3. 在搜尋方塊中，輸入 **api**。
 4. 選取 [API 管理服務]  。
 5. 選取 API 管理服務執行個體。

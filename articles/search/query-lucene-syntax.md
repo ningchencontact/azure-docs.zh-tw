@@ -168,7 +168,7 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 >  您無法使用 * 或 ? 符號做為搜尋的第一個字元。  
 >  對萬用字元搜尋查詢不會執行文字分析。 在查詢時，萬用字元查詢字詞將會與搜尋索引中已分析的字詞進行比對，並進行擴充。
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 + [搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [篩選和排序的 OData 運算式語法](query-odata-filter-orderby-syntax.md)   

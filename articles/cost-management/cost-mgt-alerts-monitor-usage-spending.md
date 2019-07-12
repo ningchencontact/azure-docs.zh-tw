@@ -67,6 +67,6 @@ ms.locfileid: "66002098"
 
 ![顯示關閉並重新啟動選項的範例影像](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - 如果您尚未建立預算或設定預算的警示條件，請完成[建立和管理預算](tutorial-acm-create-budgets.md)教學課程。

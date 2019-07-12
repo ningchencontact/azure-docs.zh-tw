@@ -35,7 +35,7 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

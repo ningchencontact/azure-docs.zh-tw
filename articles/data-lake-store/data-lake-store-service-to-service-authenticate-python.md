@@ -30,7 +30,7 @@ ms.locfileid: "60195720"
 在本文中，您會了解如何使用 Python 向 Azure Data Lake Storage Gen1 進行服務對服務驗證。 如須使用 Python 向 Data Lake Storage Gen1 進行使用者驗證，請參閱[使用 Python 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-python.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Python**。 您可以從[這裡](https://www.python.org/downloads/)下載 Python。 本文使用 Python 3.6.2。
 

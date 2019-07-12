@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60324075"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593417"
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -137,7 +137,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 | --- | --- |
 | Start | Azure CDN 可以開始存取 Blob 檔案的時間。 由於時鐘誤差 (當時鐘訊號針對不同元件在不同時間抵達時) 的緣故，因此如果您想要讓資產立即可供使用，請選擇提早 15 分鐘的時間。 |
 | End | 之後 Azure CDN 即無法再存取 Blob 檔案的時間。 Azure CDN 上先前快取的檔案仍然可供存取。 若要控制檔案到期時間，請在 Azure CDN 安全性權杖上設定適當的到期時間或清除資產。 |
-| 允許的 IP 位址 | 選用。 如果您使用**來自 Verizon 的 Azure CDN**，您可以將此參數設定為[來自 Verizon 的 Azure CDN Edge Server IP 範圍](/azure/cdn/cdn-pop-list-api) \(英文\) 中定義的範圍。 如果您使用**來自 Akamai 的 Azure CDN**，則無法設定 IP 範圍參數，因為 IP 位址並非靜態。|
+| 允許的 IP 位址 | 選擇性。 如果您使用**來自 Verizon 的 Azure CDN**，您可以將此參數設定為[來自 Verizon 的 Azure CDN Edge Server IP 範圍](/azure/cdn/cdn-pop-list-api) \(英文\) 中定義的範圍。 如果您使用**來自 Akamai 的 Azure CDN**，則無法設定 IP 範圍參數，因為 IP 位址並非靜態。|
 | 允許的通訊協定 | 針對使用帳戶 SAS 來提出之要求允許的通訊協定。 建議使用 HTTPS 設定。|
 
 ## <a name="next-steps"></a>後續步驟

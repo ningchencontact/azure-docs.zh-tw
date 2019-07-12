@@ -53,7 +53,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [用戶端程式庫](analysis-services-data-providers.md)   
 [從 Power BI Desktop 連線](analysis-services-connect-pbi.md)

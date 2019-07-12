@@ -62,7 +62,7 @@ ms.locfileid: "67116575"
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Name  | 更換為 | 範例 |
+    | 名稱  | 更換為 | 範例 |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | 您的租用戶或組織的名稱 | `microsoft` |
 

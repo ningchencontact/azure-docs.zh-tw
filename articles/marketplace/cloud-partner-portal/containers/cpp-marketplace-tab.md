@@ -18,7 +18,7 @@ ms.locfileid: "64942641"
 
 在 [新增供應項目]  頁面的 [Marketplace]  索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 將您的行銷專屬內容加入至 [概觀]  區段。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 在本區段中，可以輸入 Azure Marketplace Offer 的一般資訊。  欄位名稱上附加的星號 (*) 表示此為必填欄位。
 

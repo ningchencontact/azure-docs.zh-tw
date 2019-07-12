@@ -2,18 +2,18 @@
 title: 在 Azure Kubernetes Service (AKS) 叢集中執行 Virtual Kubelet
 description: 了解如何將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用，以在 Azure Container 執行個體上執行 Linux 和 Windows 容器。
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: f18992be353d2d6cc739412d98ccd97d5e78d4c7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475419"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613865"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -22,21 +22,21 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 使用 Azure 容器執行個體的 Virtual Kubelet 提供者時，Linux 和 Windows 容器都可以在容器執行個體上排程，宛如標準 Kubernetes 節點一樣。 此組態可讓您善用 Kubernetes 功能，以及容器執行個體的管理價值和成本效益。
 
 > [!NOTE]
-> AKS 現已內建支援排程 ACI (稱為*虛擬節點*) 上的容器。 這些虛擬節點目前支援 Linux 容器執行個體。 如果您需要排程 Windows 容器執行個體，您可以繼續使用 Virtual Kubelet。 否則，您應該使用虛擬節點，而不是如本文所述的手動 Virtual Kubelet 指示。 您可以使用 [Azure CLI][virtual-nodes-cli] 或 [Azure 入口網站][virtual-nodes-portal]，開始使用虛擬節點。
+> AKS 現已內建支援排程 ACI (稱為*虛擬節點*) 上的容器。 這些虛擬節點目前支援 Linux 容器執行個體。 如果您需要排程 Windows 容器執行個體，您可以繼續使用 Virtual Kubelet。 否則，您應該使用虛擬節點，而不是如本文所述的手動 Virtual Kubelet 指示。 您可以開始使用的虛擬節點[Azure CLI][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal]。
 >
-> Virtual Kubelet 是實驗性開放原始碼專案，應該如此使用。 若要參與、提報問題，以及深入了解 Virtual Kubelet，請參閱[Virtual Kubelet GitHub 專案][vk-github]。
+> Virtual Kubelet 是實驗性開放原始碼專案，應該如此使用。 若要參與編輯，檔案的問題，並閱讀更多關於 virtual kubelet，請參閱[Virtual Kubelet GitHub 專案][vk-github]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
+本文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
 您也需要 Azure CLI 版本**2.0.65**或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-若要安裝 Virtual Kubelet，安裝和設定[Helm] [ aks-helm] AKS 叢集中。 請確定您 Tiller 正在[設定為搭配 Kubernetes RBAC](#for-rbac-enabled-clusters)，如有需要。
+若要安裝 Virtual Kubelet，安裝和設定[Helm][aks-helm] AKS 叢集中。 請確定您 Tiller 正在[設定為搭配 Kubernetes RBAC](#for-rbac-enabled-clusters)，如有需要。
 
 ### <a name="register-container-instances-feature-provider"></a>註冊容器執行個體功能提供者
 
-如果先前未使用 Azure 容器執行個體 (ACI) 服務，請與您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
+如果先前未使用 Azure 容器執行個體 (ACI) 服務，請與您的訂用帳戶註冊服務提供者。 您可以檢查 ACI 提供者註冊使用的狀態[az 提供者清單][az-provider-list]命令，如下列範例所示：
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -50,7 +50,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-如果提供者顯示為 *NotRegistered*，請使用 [az provider register][az-provider-register] 來註冊提供者，如以下範例所示：
+如果提供者會顯示成*NotRegistered*，註冊使用的提供者[az provider register][az-provider-register]如下列範例所示：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -58,7 +58,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
 
-如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 [Helm 角色型存取控制][helm-rbac]。 若要建立服務帳戶和角色繫結，請建立名為 *rbac-virtual-kubelet.yaml* 的檔案，並貼上下列定義：
+如果已啟用 RBAC 的 AKS 叢集，您必須建立服務帳戶和角色繫結，以與 Tiller 搭配使用。 如需詳細資訊，請參閱 < [Helm 角色型存取控制][helm-rbac]。 若要建立服務帳戶和角色繫結，請建立名為 *rbac-virtual-kubelet.yaml* 的檔案，並貼上下列定義：
 
 ```yaml
 apiVersion: v1
@@ -81,7 +81,7 @@ subjects:
     namespace: kube-system
 ```
 
-使用 [kubectl apply][kubectl-apply] 套用服務帳戶和繫結，並指定您的 *rbac-virtual-kubelet.yaml* 檔案，如下列範例所示：
+套用的服務帳戶，並繫結[kubectl 套用][kubectl-apply]並指定您*rbac 虛擬 kubelet.yaml*檔案，如下列範例所示：
 
 ```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -99,7 +99,7 @@ helm init --service-account tiller
 
 ## <a name="installation"></a>安裝
 
-使用 [az aks install-connector][aks-install-connector] 命令來安裝 Virtual Kubelet。 下列範例可部署 Linux 與 Windows 連接器。
+使用[az aks 安裝連接器][aks-install-connector]命令來安裝 Virtual Kubelet。 下列範例可部署 Linux 與 Windows 連接器。
 
 ```azurecli-interactive
 az aks install-connector \
@@ -109,7 +109,7 @@ az aks install-connector \
     --os-type Both
 ```
 
-這些引數可供[az aks 安裝連接器][ aks-install-connector]命令。
+這些引數可供[az aks 安裝連接器][aks-install-connector]命令。
 
 | 引數： | 描述 | 必要項 |
 |---|---|:---:|
@@ -126,7 +126,7 @@ az aks install-connector \
 
 ## <a name="validate-virtual-kubelet"></a>驗證 Virtual Kubelet
 
-若要驗證已安裝 Virtual Kubelet，傳回一份使用 Kubernetes 節點[kubectl 取得節點][ kubectl-get]命令：
+若要驗證已安裝 Virtual Kubelet，傳回一份使用 Kubernetes 節點[kubectl 取得節點][kubectl-get]命令：
 
 ```console
 $ kubectl get nodes
@@ -139,7 +139,7 @@ virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-
 
 ## <a name="run-linux-container"></a>執行 Linux 容器
 
-建立名為 `virtual-kubelet-linux.yaml` 的檔案，然後將下列 YAML 複製進來。 請注意 [nodeSelector][node-selector] 和 [toleration][toleration] 用於在節點上排定容器。
+建立名為 `virtual-kubelet-linux.yaml` 的檔案，然後將下列 YAML 複製進來。 請注意， [nodeSelector][node-selector] and [toleration][toleration]來排定在節點上的容器。
 
 ```yaml
 apiVersion: apps/v1
@@ -172,13 +172,13 @@ spec:
         effect: NoSchedule
 ```
 
-使用 [kubectl create][kubectl-create] 命令來執行應用程式。
+執行應用程式[kubectl 建立][kubectl-create]命令。
 
 ```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
-使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`aci-helloworld` pod 已排定在 `virtual-kubelet-virtual-kubelet-linux` 節點上。
+使用[kubectl get pods][kubectl-get]命令搭配`-o wide`輸出一份與排程的節點的 pod 的引數。 請注意，`aci-helloworld` pod 已排定在 `virtual-kubelet-virtual-kubelet-linux` 節點上。
 
 ```console
 $ kubectl get pods -o wide
@@ -189,7 +189,7 @@ aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.14
 
 ## <a name="run-windows-container"></a>執行 Windows 容器
 
-建立名為 `virtual-kubelet-windows.yaml` 的檔案，然後將下列 YAML 複製進來。 請注意 [nodeSelector][node-selector] 和 [toleration][toleration] 用於在節點上排定容器。
+建立名為 `virtual-kubelet-windows.yaml` 的檔案，然後將下列 YAML 複製進來。 請注意， [nodeSelector][node-selector] and [toleration][toleration]來排定在節點上的容器。
 
 ```yaml
 apiVersion: apps/v1
@@ -222,13 +222,13 @@ spec:
         effect: NoSchedule
 ```
 
-使用 [kubectl create][kubectl-create] 命令來執行應用程式。
+執行應用程式[kubectl 建立][kubectl-create]命令。
 
 ```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`nanoserver-iis` pod 已排定在 `virtual-kubelet-virtual-kubelet-windows` 節點上。
+使用[kubectl get pods][kubectl-get]命令搭配`-o wide`輸出一份與排程的節點的 pod 的引數。 請注意，`nanoserver-iis` pod 已排定在 `virtual-kubelet-virtual-kubelet-windows` 節點上。
 
 ```console
 $ kubectl get pods -o wide
@@ -239,7 +239,7 @@ nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.14
 
 ## <a name="remove-virtual-kubelet"></a>移除 Virtual Kubelet
 
-使用 [az aks remove-connector][aks-remove-connector] 命令來移除 Virtual Kubelet。 以連接器、AKS 叢集和 AKS 叢集資源群組的名稱取代引數值。
+使用[az aks 移除連接器][aks-remove-connector]命令來移除 Virtual Kubelet。 以連接器、AKS 叢集和 AKS 叢集資源群組的名稱取代引數值。
 
 ```azurecli-interactive
 az aks remove-connector \
@@ -254,9 +254,9 @@ az aks remove-connector \
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解使用 Virtual Kubelet 時可能會遇到的問題，請參閱[已知異常和因應措施][vk-troubleshooting]。 若要回報有關 Virtual Kubelet 的問題，[請提出 GitHub 問題][vk-issues]。
+使用 Virtual Kubelet 可能的問題，請參閱 <<c0> [ 已知 quirks 和因應措施][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues]。
 
-在 [Virtual Kubelet GitHub 專案][vk-github]中深入了解 Virtual Kubelet。
+深入了解在 Virtual Kubelet [Virtual Kubelet GitHub 專案][vk-github]。
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

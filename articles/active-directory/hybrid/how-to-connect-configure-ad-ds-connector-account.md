@@ -22,7 +22,7 @@ ms.locfileid: "64918517"
 
 組建 1.1.880.0 (2018 年 8 月發行) 導入了名為 [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) 的 PowerShell 模組，其中包含一個 Cmdlet 集合，可協助您為 Azure AD Connect 部署設定正確的 Active Directory 權限。 
 
-## <a name="overview"></a>概觀 
+## <a name="overview"></a>總覽 
 下列 PowerShell Cmdlet 可用來針對每個您選擇在 Azure AD Connect 中啟用的功能，設定 AD DS 連接器帳戶的 Active Directory 權限。 若要防止發生任何問題，只要您想要使用自訂網域帳戶安裝 Azure AD Connect 以連線到您的樹系，即應事先備妥 Active Directory 權限。 此 ADSyncConfig 模組也可在 Azure AD Connect 部署之後用來設定權限。
 
 ![ad ds 帳戶的概觀](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
@@ -32,7 +32,7 @@ ms.locfileid: "64918517"
 ### <a name="permissions-summary"></a>權限摘要 
 下表提供 AD 物件所需權限的摘要： 
 
-| 功能 | 權限 |
+| 功能 | Permissions |
 | --- | --- |
 | ms-DS-ConsistencyGuid 功能 |ms-DS-ConsistencyGuid 屬性 (詳情記載於[設計概念 - 使用 ms-DS-ConsistencyGuid 來作為 sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)) 的寫入權限。 | 
 | 密碼雜湊同步處理 |<li>複寫目錄變更</li>  <li>複寫目錄變更 (全部) |
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 此 Cmdlet 會設定下列權限： 
  
 
-|類型 |名稱 |Access |套用至| 
+|type |名稱 |Access |套用至| 
 |-----|-----|-----|-----|
 |允許 |AD DS 連接器帳戶 |讀取所有屬性 |子系裝置物件| 
 |允許 |AD DS 連接器帳戶|讀取所有屬性 |子系 InetOrgPerson 物件| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 此 Cmdlet 會設定下列權限： 
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許|AD DS 連接器帳戶|讀取/寫入屬性|子系使用者物件|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 此 Cmdlet 會設定下列權限： 
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許 |AD DS 連接器帳戶 |複寫目錄變更 |僅限此物件 (網域根)| 
 |允許 |AD DS 連接器帳戶 |複寫所有目錄變更 |僅限此物件 (網域根)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 此 Cmdlet 會設定下列權限： 
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許 |AD DS 連接器帳戶 |重設密碼 |子系使用者物件| 
 |允許 |AD DS 連接器帳戶 |寫入 lockoutTime 屬性 |子系使用者物件| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 此 Cmdlet 會設定下列權限： 
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許 |AD DS 連接器帳戶 |一般讀取/寫入 |物件類型群組和子物件的所有屬性| 
 |允許 |AD DS 連接器帳戶 |建立/刪除子物件 |物件類型群組和子物件的所有屬性| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 此 Cmdlet 會設定下列權限：  
  
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許 |AD DS 連接器帳戶 |讀取/寫入所有屬性 |子系使用者物件| 
 |允許 |AD DS 連接器帳戶 |讀取/寫入所有屬性 |子系 InetOrgPerson 物件| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 此 Cmdlet 會設定下列權限： 
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許 |AD DS 連接器帳戶 |讀取所有屬性 |子系 PublicFolder 物件| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 此 Cmdlet 會設定下列權限： 
 
-|類型 |名稱 |Access |套用至|
+|type |名稱 |Access |套用至|
 |-----|-----|-----|-----| 
 |允許 |系統 |完全控制 |此物件 
 |允許 |企業系統管理員 |完全控制 |此物件 

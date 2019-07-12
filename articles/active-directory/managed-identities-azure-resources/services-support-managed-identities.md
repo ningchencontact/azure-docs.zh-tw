@@ -3,19 +3,19 @@ title: 支援適用於 Azure 資源的受控識別 Azure 服務
 description: 支援 Azure 資源和 Azure AD 驗證受控識別的服務清單
 services: active-directory
 author: MarkusVi
-ms.author: priyamo
+ms.author: markvi
 ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c67f1dad55d5d8710a997394e247793943cd21
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ca461f3be740c3b0bac18795991bb721a5305240
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293509"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611544"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 

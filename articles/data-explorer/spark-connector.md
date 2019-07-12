@@ -26,7 +26,7 @@ Azure 資料總管 Spark 連接器[開放原始碼專案](https://github.com/Azu
 > [!NOTE]
 > 雖然下列範例的一些參考[Azure Databricks](https://docs.azuredatabricks.net/) Spark 叢集時，Azure 資料總管 Spark 連接器不會在 Databricks 或任何其他 Spark 通訊的直接相依性。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [建立 Azure 資料總管叢集與資料庫](/azure/data-explorer/create-cluster-database-portal) 
 * 建立 Spark 叢集
@@ -101,7 +101,7 @@ mvn clean install
 
     ![確認已安裝的程式庫](media/spark-connector/db-libraries-view.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 Azure 資料總管 Spark 連接器可讓您使用 Azure Active Directory (Azure AD) 驗證[Azure AD 應用程式](#azure-ad-application-authentication)， [Azure AD 存取權杖](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token)，[裝置驗證](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) （適用於非生產案例中），或是[Azure 金鑰保存庫](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault)。 使用者必須安裝 azure 金鑰保存庫的套件，並提供應用程式認證，才能存取金鑰保存庫資源。
 
@@ -109,7 +109,7 @@ Azure 資料總管 Spark 連接器可讓您使用 Azure Active Directory (Azure 
 
 大部分的簡單且常見的驗證方法。 Azure 資料總管 Spark 連接器使用方式建議使用這個方法。
 
-|properties  |描述  |
+|屬性  |描述  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Azure AD 應用程式 （用戶端） 識別碼。      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Azure AD 驗證授權單位。 Azure AD 目錄 （租用戶） 識別碼。        |

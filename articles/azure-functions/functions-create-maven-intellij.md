@@ -14,7 +14,7 @@ ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342172"

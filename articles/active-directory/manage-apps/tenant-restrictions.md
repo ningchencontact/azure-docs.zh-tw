@@ -60,7 +60,7 @@ ms.locfileid: "65824389"
 
 下列組態，才能啟用 透過 proxy 基礎結構的租用戶限制。 本指導方針是通用的，因此如需了解特定的實作步驟，您應該參考您 Proxy 廠商的文件。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 - Proxy 必須要能夠執行 SSL 攔截、HTTP 標頭插入，以及使用 FQDN/URL 來篩選目的地。
 
@@ -118,7 +118,7 @@ ms.locfileid: "65824389"
 - **IP 位址**
 - **用戶端**
 - **使用者名稱**
-- **位置**
+- **Location**
 - **目標租用戶識別碼**
 
 ## <a name="office-365-support"></a>Office 365 支援

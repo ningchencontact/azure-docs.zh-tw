@@ -34,7 +34,7 @@ ms.locfileid: "62122758"
      a. 按一下 [管理註冊]  ，然後選取 [註冊群組]  索引標籤。  
      b. 按一下位於頂端的 [新增]  按鈕。  
      c. 當 [新增註冊群組] 面板出現時，請輸入註冊清單項目的資訊。  需要 [群組名稱]  。 此外，針對 [憑證類型]  ，請選取「CA 或中繼」，並上傳裝置群組的根 [主要憑證]  。  
-     d. 按一下 [檔案]  。 在成功建立註冊群組後，您應該會看到群組名稱出現在 [註冊群組]  索引標籤底下。  
+     d. 按一下 [儲存]  。 在成功建立註冊群組後，您應該會看到群組名稱出現在 [註冊群組]  索引標籤底下。  
 
      [![在入口網站中的註冊群組](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
@@ -49,7 +49,7 @@ ms.locfileid: "62122758"
        a. 按一下 [管理註冊]  ，然後選取 [個別註冊]  索引標籤。  
        b. 按一下位於頂端的 [新增]  按鈕。   
        c. 當 [新增註冊] 面板出現時，請輸入註冊清單項目的資訊。 請先選取裝置的證明 [機制]  (X.509 或 TPM)。 X.509 證明會要求您上傳裝置的分葉 [主要憑證]  。 TPM 會要求您輸入裝置的 [證明金鑰]  和 [註冊識別碼]  。  
-       d. 按一下 [檔案]  。 在成功建立註冊群組後，您應該會看到裝置出現在 [個別註冊]  索引標籤底下。  
+       d. 按一下 [儲存]  。 在成功建立註冊群組後，您應該會看到裝置出現在 [個別註冊]  索引標籤底下。  
 
        [![入口網站中的個別註冊](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

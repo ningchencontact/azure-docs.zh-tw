@@ -31,7 +31,7 @@ ms.locfileid: "60318998"
 
 您無法經由任何其他連接埠對 Azure 中的 VM 進行 RDP 連線或任何其他類型的連線，因為 VM 中的網路介面已停用。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 

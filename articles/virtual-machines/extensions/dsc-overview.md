@@ -27,13 +27,13 @@ ms.locfileid: "66515898"
 
 「Azure VM 代理程式」和相關的延伸模組是 Microsoft Azure 基礎結構服務的一部分。 VM 延伸模組是可延伸 VM 功能及簡化各種 VM 管理作業的軟體元件。
 
-Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到 [Azure Automation State Configuration (DSC) 服务](../../automation/automation-dsc-overview.md)。
-该服务带来的[好处](/powershell/dsc/metaconfig#pull-service)包括：持续管理 VM 的配置，并与其他操作工具（例如 Azure 监视）集成。
-使用扩展将 VM 注册到该服务可以提供一个甚至可跨 Azure 订阅工作的灵活解决方案。
+Azure Desired State Configuration (DSC) 擴充功能是將 VM 啟動到主要使用案例[Azure 自動化狀態組態 (DSC) 服務](../../automation/automation-dsc-overview.md)。
+此服務會提供[優點](/powershell/dsc/metaconfig#pull-service)，包括持續管理 VM 設定和其他操作工具，例如 「 Azure 監視的整合。
+註冊服務的 VM 使用擴充功能提供彈性的解決方案，甚至是適用於 Azure 訂用帳戶。
 
 您可以脫離 Automation DSC 服務來單獨使用 DSC 延伸模組。
-但是，这只会将配置推送到 VM。
-系统不会提供持续的报告，只能在 VM 本地执行此类操作。
+不過，這只會將組態推送到 VM。
+使用的而不在 VM 本機沒有進行中的報告。
 
 本文提供兩種案例的相關資訊：使用 DSC 延伸模組來進行「自動化」上線，以及藉由使用 Azure SDK 來使用 DSC 延伸模組作為工具，以將設定指派給 VM。
 
@@ -66,15 +66,15 @@ Azure DSC 延伸模組會使用「Azure VM 代理程式」架構來傳遞、套�
 
 Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure Automation DSC 服務時使用。 指令碼參數會對齊[本機設定管理員](/powershell/dsc/metaconfig)的可設定屬性。 如需了解指令碼參數，請參閱[採用 Azure Resource Manager 範本的預期狀態設定延伸模組](dsc-template.md)中的[預設設定指令碼](dsc-template.md#default-configuration-script)。 如需完整的指令碼，請參閱 [GitHub 中的 Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)。
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>有关注册到 Azure Automation State Configuration (DSC) 服务的信息
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>向 Azure 自動化狀態組態 (DSC) 服務的資訊
 
-使用 DSC 扩展将节点注册到 State Configuration 服务时，需要提供三个值。
+當使用 DSC 擴充功能註冊狀態設定服務的節點，三個值必須提供。
 
-- RegistrationUrl - Azure 自动化帐户的 https 地址
-- RegistrationKey - 用于将节点注册到服务的共享机密
-- NodeConfigurationName - 从服务中提取的，用于配置服务器角色的节点配置 (MOF) 的名称
+- RegistrationUrl-Azure 自動化帳戶的 https 位址
+- RegistrationKey-共用密碼，用來向服務註冊節點
+- NodeConfigurationName-的節點組態 (MOF) 提取從設定伺服器角色服務的名稱
 
-可以在 [Azure 门户](../../automation/automation-dsc-onboarding.md#azure-portal)中或者使用 PowerShell 查看此信息。
+這項資訊可以示[Azure 入口網站](../../automation/automation-dsc-onboarding.md#azure-portal)或者您可以使用 PowerShell。
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -82,8 +82,8 @@ Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure
 ```
 
 節點組態名稱，請確定 Azure 狀態組態中存在的節點組態。  如果不存在，延伸模組部署便會傳回失敗。  也請確定您使用名稱*節點設定*並沒有組態。
-配置在用于[编译节点配置（MOF 文件）](https://docs.microsoft.com/azure/automation/automation-dsc-compile)的脚本中定义。
-该名称始终为 Configuration 后接句点 `.` 以及 `localhost` 或特定计算机名。
+使用指令碼中定義的組態[編譯節點組態 （MOF 檔案）](https://docs.microsoft.com/azure/automation/automation-dsc-compile)。
+名稱一律為後面接著句號的組態`.`以及`localhost`或特定的電腦名稱。
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 範本中的 DSC 延伸模組
 
@@ -146,9 +146,9 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-可以使用 Azure CLI 将 DSC 扩展部署到现有的虚拟机。
+Azure CLI 可用來將 DSC 延伸模組部署到現有的虛擬機器。
 
-对于运行 Windows 的虚拟机：
+執行 Windows 虛擬機器：
 
 ```azurecli
 az vm extension set \
@@ -160,7 +160,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-对于运行 Linux 的虚拟机：
+針對執行 Linux 的虛擬機器：
 
 ```azurecli
 az vm extension set \

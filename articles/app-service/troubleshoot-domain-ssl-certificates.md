@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136183"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718278"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -35,7 +35,7 @@ ms.locfileid: "66136183"
 
 ### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>您無法對應用程式新增 SSL 憑證繫結 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 當您新增 SSL 繫結時，收到下列錯誤訊息：
 
@@ -45,7 +45,7 @@ ms.locfileid: "66136183"
 
 多個應用程式之間，如果有多個基於相同 IP 位址的 IP 為主 SSL 繫結，可能會發生此問題。 例如，應用程式 A 的以 IP 為主 SSL 使用舊憑證。 應用程式 B 的以 IP 為主 SSL 使用同一個 IP 位址的新憑證。 當您更新使用新憑證的應用程式 SSL 繫結時，由於另一個應用程式也使用相同的 IP 位址，因此更新會失敗，而且會出現這個錯誤。 
 
-#### <a name="solution"></a>解決方法 
+#### <a name="solution"></a>方案 
 
 若要修正問題，請使用下列其中一種方法：
 
@@ -54,7 +54,7 @@ ms.locfileid: "66136183"
 
 ### <a name="you-cant-delete-a-certificate"></a>您無法刪除憑證 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 當您嘗試刪除憑證時，收到下列錯誤訊息：
 
@@ -64,13 +64,13 @@ ms.locfileid: "66136183"
 
 如果有另一個應用程式使用憑證，可能會出現這個問題。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 從應用程式移除該憑證的 SSL 繫結。 接著再嘗試刪除憑證。 如果您仍然無法刪除憑證，請清除網際網路瀏覽器快取，然後在新的瀏覽器視窗中重新開啟 Azure 入口網站。 接著再嘗試刪除憑證。
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>您無法購買 App Service 憑證 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 您無法從 Azure 入口網站購買 [Azure App Service 憑證](./web-sites-purchase-ssl-web-site.md)。
 
 #### <a name="cause-and-solution"></a>原因和解決方案
@@ -103,7 +103,7 @@ ms.locfileid: "66136183"
 
 ### <a name="a-custom-domain-returns-a-404-error"></a>自訂網域傳回 404 錯誤 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 當您使用自訂網域名稱瀏覽至往暫時，收到以下錯誤訊息：
 
@@ -131,18 +131,18 @@ ms.locfileid: "66136183"
 
 ### <a name="you-cant-add-a-subdomain"></a>您無法新增子網域 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 您無法將新主機名稱新增至應用程式來指派子網域。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 - 請洽詢訂用帳戶管理員，確認您擁有將主機名稱新增至應用程式的權限。
 - 如果您需要更多的子網域時，我們建議您變更網域裝載到 Azure 網域名稱服務 (DNS)。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
 
 ### <a name="dns-cant-be-resolved"></a>無法解析 DNS
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 您收到下列錯誤訊息：
 
@@ -154,31 +154,31 @@ ms.locfileid: "66136183"
 - 存留時間 (TTL) 期間尚未到期。 請檢查網域的 DNS 組態以判斷 TTL 值，然後等待期間到期。
 - DNS 組態不正確。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 - 等候 48 小時讓該問題自行解決。
 - 如果您可以變更 DNS 組態中的 TTL 設定，請將值變更為 5 分鐘，看看是否能解決問題。
 - 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 如果情況並非如此，請設定 A 記錄來更正應用程式的 IP 位址。
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>您必須還原已刪除的網域 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 您的網域不再顯示於 Azure 入口網站中。
 
 #### <a name="cause"></a>原因 
 訂用帳戶的擁有者可能已意外刪除網域。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 (請務必在搜尋方塊內輸入完全相同的網域名稱。)您將不需要再支付這個網域的費用。 如果超過七天已刪除網域，請連絡[Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)還原網域的相關說明。
 
 ## <a name="domain-problems"></a>網域問題
 
 ### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>您買到錯誤網域的 SSL 憑證
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 您買到錯誤網域的 App Service 憑證。 您無法更新憑證以使用正確網域。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 刪除憑證，然後再購買新憑證。
 
@@ -186,14 +186,14 @@ ms.locfileid: "66136183"
 
 ### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>App Service 憑證已更新，不過應用程式顯示舊憑證 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 App Service 憑證已更新，不過使用 App Service 憑證的應用程式仍然使用舊憑證。 此外，您收到必須使用 HTTPS 通訊協定的警告。
 
 #### <a name="cause"></a>原因 
 Azure App Service 會每隔八小時執行一次背景作業，如果憑證資源發生變更，便會進行同步處理。 當您輪替或更新憑證時，有時候應用程式仍會擷取舊憑證，而非更新後的憑證。 這是因為同步處理憑證資源的作業尚未執行。 
  
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 
 您可以強制同步處理憑證：
 
@@ -203,10 +203,10 @@ Azure App Service 會每隔八小時執行一次背景作業，如果憑證資�
 
 ### <a name="domain-verification-is-not-working"></a>網域驗證無法運作 
 
-#### <a name="symptom"></a>徵狀 
+#### <a name="symptom"></a>徵兆 
 App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證]  時，程序會失敗。
 
-#### <a name="solution"></a>解決方法
+#### <a name="solution"></a>方案
 新增 TXT 記錄來手動驗證網域：
  
 1.  前往主控網域名稱的網域名稱服務 (DNS) 提供者。
@@ -229,7 +229,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 ### <a name="you-cant-purchase-a-domain"></a>您無法購買網域
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 您無法在 Azure 入口網站中購買 App Service 網域。
 
 #### <a name="cause-and-solution"></a>原因和解決方案
@@ -252,7 +252,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>您無法將主機名稱新增至應用程式 
 
-#### <a name="symptom"></a>徵狀
+#### <a name="symptom"></a>徵兆
 
 當您新增主機名稱時，程序無法驗證及確認網域。
 
@@ -313,7 +313,7 @@ App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。
 
 **可以使用另一個 Azure App Service 應用程式中的網域中 我的訂用帳戶嗎？**
 
-是。 當您存取 Azure 入口網站中的 [自訂網域及 SSL] 刀鋒視窗時，您會看到您已購買的網域。 您可以設定您的應用程式使用任何這些網域。
+是的。 當您存取 Azure 入口網站中的 [自訂網域及 SSL] 刀鋒視窗時，您會看到您已購買的網域。 您可以設定您的應用程式使用任何這些網域。
 
 **可以將傳輸網域從一個訂用帳戶到另一個訂用帳戶嗎？**
 
@@ -325,7 +325,6 @@ App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。
 
 **可移與自訂網域的 web 應用程式到另一個訂用帳戶，或從 App Service Environment v1 至 V2？**
 
-是，您可以移動您的 web 應用程式跨訂用帳戶。 請依照下列中的指導方針[如何將資源移入 Azure](../azure-resource-manager/resource-group-move-resources.md)。 移動 web 應用程式時，有一些限制。 如需詳細資訊，請參閱 <<c0> [ 移動 App Service 資源的限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-)。
+是，您可以移動您的 web 應用程式跨訂用帳戶。 請依照下列中的指導方針[如何將資源移入 Azure](../azure-resource-manager/resource-group-move-resources.md)。 移動 web 應用程式時，有一些限制。 如需詳細資訊，請參閱 <<c0> [ 移動 App Service 資源的限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)。
 
 移動後的 web 應用程式，設定自訂網域中的定義域的主機名稱繫結，也應該保持相同。 若要設定的主機名稱繫結，不需要任何額外的步驟。

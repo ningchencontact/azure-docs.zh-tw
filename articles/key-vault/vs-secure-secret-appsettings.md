@@ -18,7 +18,7 @@ ms.locfileid: "65506431"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文說明如何安全地儲存 Azure 應用程式的秘密應用程式組態設定。
 
 過去，所有 Web 應用程式組態設定都會儲存在組態檔中，例如 Web.config。此做法會導致將祕密設定 (例如雲端認證) 簽入至公用原始檔控制系統 (例如 GitHub)。 同時，也可能會因為變更原始程式碼和重新設定開發設定所需的額外負荷，而難以遵循安全性最佳作法。

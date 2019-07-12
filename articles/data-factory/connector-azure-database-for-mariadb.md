@@ -29,7 +29,7 @@ ms.locfileid: "60387879"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | connectionString | 連接字串，用於連線到適用於 MariaDB 的 Azure 資料庫。 您可以從 Azure 入口網站 -> 適用於 MariaDB 的 Azure 資料庫 -> 連接字串 -> ADO.NET 中找到它。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `pwd` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -135,7 +135,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 複製活動來源的類型屬性必須設定為：**MariaDBSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

@@ -19,7 +19,7 @@ ms.locfileid: "64707820"
 
 在本文中，您將了解如何使用 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI、Spark UI 和 Spark 歷程記錄伺服器，對 HDInsight 叢集上執行的 [Apache Spark](https://spark.apache.org/) 作業進行追蹤和偵錯。 我們會使用 Spark 叢集中可用的 Notebook 啟動 Spark 作業，**機器學習服務︰使用 MLLib 對食物檢查資料進行預測分析**。 您可以使用下列步驟來追蹤您使用任何其他方法提交的應用程式，例如，**spark-submit**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須滿足以下條件：
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
@@ -96,8 +96,8 @@ ms.locfileid: "64707820"
    
     ![啟動 Spark 歷程記錄伺服器](./media/apache-spark-job-debugging/view-completed-applications.png)
 
-## <a name="see-also"></a>請參閱
-*  [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+## <a name="see-also"></a>另請參閱
+*  [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 *  [使用擴充的 Spark 歷程記錄伺服器進行 Apache Spark 作業偵錯](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師

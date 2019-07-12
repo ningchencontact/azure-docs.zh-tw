@@ -34,7 +34,7 @@ ms.locfileid: "60534054"
     ![一律使用閘道屬性](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [連線至內部部署資料來源](analysis-services-gateway.md)   
 [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)   
 [Azure 虛擬網路 (VNET)](../virtual-network/virtual-networks-overview.md)   

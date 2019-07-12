@@ -59,7 +59,7 @@ ms.locfileid: "60946556"
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (版本 2.0.0 或更新版本)
 * [適用於 Visual Studio Code 的 C# (由 OmniSharp 驅動) VS Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)，需要該擴充功能才能針對 C# 服務進行偵錯。 您可以藉由在 VS Code 中的 [活動列]  按一下[擴充功能] 圖示並搜尋擴充功能來安裝，或者從 VS Code 市集安裝。
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 1. 開啟 VS Code。
 2. 按一下 VS Code 左側 [活動列]  上的 [擴充功能] 圖示。 搜尋 "Service Fabric"。 針對 Service Fabric Reliable Services 擴充功能按一下 [安裝]  。

@@ -17,7 +17,7 @@ ms.locfileid: "66473458"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) 是 Azure Blob 儲存體的虛擬檔案系統驅動程式。 Blobfuse 可讓您透過 Linux 檔案系統存取您儲存體帳戶中現有的區塊 Blob 資料。 使用正斜線 '/' 做為分隔符號，Blobfuse 會使用虛擬目錄配置。  
 
 本指南示範如何使用 Blobfuse，以及如何在 Linux 上掛接 Blob 儲存體容器並存取資料。 若要深入了解 Blobfuse，請閱讀 [Blobfuse 存放庫](https://github.com/Azure/azure-storage-fuse)中的詳細資料。

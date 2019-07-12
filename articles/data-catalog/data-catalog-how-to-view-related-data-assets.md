@@ -20,7 +20,7 @@ ms.locfileid: "61000098"
 ## <a name="supported-data-sources"></a>支援的資料來源 
 當您從下列資料來源註冊資料資產時，「Azure 資料目錄」會自動註冊與所選資料資產之間聯結關聯性相關的中繼資料。 
 
-- SQL Server
+- [SQL Server]
 - Azure SQL Database
 - MySQL
 - Oracle

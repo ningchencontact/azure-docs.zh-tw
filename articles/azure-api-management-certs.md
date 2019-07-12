@@ -33,7 +33,7 @@ ms.locfileid: "60742908"
 
 您也可以使用 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 驗證用於自動化用途的用戶端程式碼。
 
-**附註：** 您必須是訂用帳戶共同管理員來執行任何管理憑證 下的作業。 [進一步了解](https://go.microsoft.com/fwlink/?linkid=849300)如何從新版 Azure 入口網站新增或移除共同管理員 
+**注意：** 您必須是訂用帳戶共同管理員來執行任何管理憑證 下的作業。 [進一步了解](https://go.microsoft.com/fwlink/?linkid=849300)如何從新版 Azure 入口網站新增或移除共同管理員 
 
 ## <a name="upload-a-management-certificate"></a>上傳管理憑證
 一旦建立管理憑證 (僅包含公開金鑰的 .cer 檔案) 之後，您就可以將其上傳到入口網站。 入口網站提供憑證時，具有符合的憑證 (私密金鑰) 的任何人都可以透過管理 API 連線，並存取相關聯訂用帳戶的資源。

@@ -73,7 +73,7 @@ ms.locfileid: "65550476"
 
 IoT 中樞會強制執行其他操作限制：
 
-| 作業 | 限制 |
+| 運算 | 限制 |
 | --------- | ----- |
 | 裝置 | 您可以連接到單一 IoT 中樞的裝置數目上限是 1,000,000。 若要增加此限制的唯一方法是連絡[Microsoft 支援服務](https://azure.microsoft.com/support/options/)。| 
 | 檔案上傳 URI | 10,000 SAS Uri 可以儲存體帳戶一次。 <br/> 10 個 SAS URI/裝置可以一次用盡。 |

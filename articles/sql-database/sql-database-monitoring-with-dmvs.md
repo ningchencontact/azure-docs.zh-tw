@@ -31,7 +31,7 @@ SQL Database 部分支援動態管理檢視的三個類別目錄：
 
 如需動態管理檢視的詳細資訊，請參閱《SQL Server 線上叢書》中的 [動態管理檢視和函數 (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 在 SQL Database 中，查詢動態管理檢視需要 **VIEW DATABASE STATE** 權限。 **VIEW DATABASE STATE** 權限會傳回目前資料庫中所有物件的相關資訊。
 若要授與 **VIEW DATABASE STATE** 權限給特定的資料庫使用者，請執行下列查詢：
@@ -733,6 +733,6 @@ ORDER BY start_time DESC
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [SQL Database 簡介](sql-database-technical-overview.md)

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
+ms.date: 04/13/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d1580931a94b58e772f9f11cb7b9948216e9063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf0e928ae05e723902d41a340aebf4f5781fde5
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509881"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654117"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>切換至您的 Azure AD B2C 租用戶
 
@@ -36,7 +36,7 @@ Azure 入口網站會重新整理。  現在您已在您的 Azure AD B2C 租用�
 1. 在左側導覽中按一下 [瀏覽]  。
 1. 按一下 [所有服務]  ，然後在左導覽窗格中搜尋 `Azure AD B2C`。  (若要釘選到左側的「開始面板」，請按一下 Azure AD B2C 左邊的星形)
 1. 按一下 [Azure AD B2C]  以存取 B2C 功能窗格。
-   
+
     ![螢幕擷取畫面的瀏覽至 B2C 功能窗格](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]

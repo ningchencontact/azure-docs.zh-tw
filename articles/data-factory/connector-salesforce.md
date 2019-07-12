@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546534"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-salesforce-connector.md)
 > * [目前的版本](connector-salesforce.md)
 
@@ -37,7 +37,7 @@ ms.locfileid: "60546534"
 
 Salesforce 連接器已內建的 Salesforce REST/大量 API，之上[v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)複製資料並[v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)複製資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 必須在 Salesforce 中啟用 API 權限。 如需詳細資訊，請參閱[在 Salesforce 中透過權限集啟用 API 存取權](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)。
 
@@ -64,7 +64,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 |:--- |:--- |:--- |
 | type |type 屬性必須設為 **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
-| username |指定使用者帳戶的使用者名稱。 |是 |
+| userName |指定使用者帳戶的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設及取得安全性權杖的指示，請參閱[取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有整合執行階段，則對於來源而言為「否」；對於接收而言為「是」 |
@@ -148,7 +148,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ![Data Factory Salesforce 連線的 API 名稱](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -193,7 +193,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ![Data Factory Salesforce 連線的 API 名稱清單](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -300,7 +300,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>在 DateTime 資料行上使用 where 子句來擷取資料
 
-指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如︰
+指定 SOQL 或 SQL 查詢時，請注意 DateTime 格式差異。 例如:
 
 * **SOQL 範例**：`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 範例**`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
@@ -319,7 +319,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
-| 日期/時間 |DateTime |
+| Date/Time |DateTime |
 | Email |String |
 | Id |String |
 | Lookup Relationship |String |

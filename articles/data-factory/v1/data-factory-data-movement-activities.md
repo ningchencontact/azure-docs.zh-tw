@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486910"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839326"
 ---
 # <a name="move-data-by-using-copy-activity"></a>使用複製活動來移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-data-movement-activities.md)
 > * [第 2 版 (目前的版本)](../copy-activity-overview.md)
 
 > [!NOTE]
 > 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的複製活動](../copy-activity-overview.md)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 在 Azure Data Factory 中，您可以使用「複製活動」在內部部署與雲端資料存放區之間複製資料。 複製資料之後，可以將它進一步轉換及進行分析。 您也可以使用「複製活動」來發佈商業智慧 (BI) 及應用程式使用情況的轉換和分析結果。
 
 ![複製活動的角色](media/data-factory-data-movement-activities/copy-activity.png)
@@ -95,7 +95,7 @@ Azure Data Factory 只在美國西部、美國東部和北歐區域提供使用�
 
 | 目的地資料存放區的地理位置 | 目的地資料存放區的區域 | 用於資料移動的區域 |
 |:--- |:--- |:--- |
-| 美國 | 美國東部 | 美國東部 |
+| 美國 | East US | East US |
 | &nbsp; | 美國東部 2 | 美國東部 2 |
 | &nbsp; | 美國中部 | 美國中部 |
 | &nbsp; | 美國中北部 | 美國中北部 |
@@ -138,7 +138,7 @@ Azure Data Factory 只在美國西部、美國東部和北歐區域提供使用�
 「Data Factory 複製精靈」可協助您建立具有「複製活動」的管線。 此管線可讓您在「不需要」為連結服務、資料集及管線「撰寫 JSON」  定義的情況下，將資料從支援的來源複製到目的地。 如需有關此精靈的詳細資料，請參閱 [Data Factory 複製精靈](data-factory-copy-wizard.md) 。  
 
 ### <a name="by-using-json-scripts"></a>透過使用 JSON 指令碼
-您可以使用 Azure 入口網站中的「Data Factory 編輯器」、Visual Studio 或 Azure PowerShell 來建立管線的 JSON 定義 (透過使用「複製活動」)。 然後，您可以部署它以在 Data Factory 中建立管線。 請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)，以取得含有逐步指示的教學課程。    
+您可以使用 Visual Studio 中或 Azure PowerShell 中的 Data Factory 編輯器來建立管線的 JSON 定義 （透過使用複製活動）。 然後，您可以部署它以在 Data Factory 中建立管線。 請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)，以取得含有逐步指示的教學課程。    
 
 JSON 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。 活動的 `typeProperties` 區段中可用的屬性會因每個活動類型的不同而有所不同。
 

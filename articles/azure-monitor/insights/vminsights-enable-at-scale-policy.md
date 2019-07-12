@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: fda79a7ea361a6b44798d18b79ffd763055087a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122642"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594454"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>使用 Azure 原則的 Vm （預覽） 來啟用 Azure 監視器
 
@@ -56,7 +56,7 @@ ms.locfileid: "67122642"
 ### <a name="what-information-is-available-on-this-page"></a>哪些資訊是可由此頁面取得？
 下表提供原則的涵蓋範圍 頁面，以及如何解譯它所展示的資訊的細目。
 
-| 函式 | 描述 | 
+| 函數 | 描述 | 
 |----------|-------------| 
 | **範圍** | 管理群組和訂用帳戶或管理群組階層中向下鑽研的能力繼承存取權。|
 | **角色** | 您的範圍，可能是讀取器、 擁有者或參與者的角色。 在某些情況下，它可能會出現空白，表示您可能必須存取的訂用帳戶，但不是到管理群組其所屬項目。 其他資料行中的資訊會根據您的角色而有所不同。 角色會負責判斷您所見的資料和指派原則或計劃 （擁有者）、 編輯，或檢視合規性方面，您可以執行的動作的索引鍵。 |
@@ -82,35 +82,35 @@ ms.locfileid: "67122642"
 
 Azure VM 的原則定義詳列於下表。
 
-|Name |描述 |類型 |
+|名稱 |描述 |type |
 |-----|------------|-----|
-|[預覽]：啟用適用於 VM 的 Azure 監視器 |啟用 Azure 監視器中的虛擬機器指定的範圍 （管理群組、 訂用帳戶或資源群組）。 請使用 Log Analytics 工作區作為參數。 |方案 |
-|[預覽]：稽核相依性代理程式部署 – VM 映像 (OS) 未列出 |如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式會回報為不相容的 Vm。 |原則 |
-|[預覽]：Audit Log Analytics 代理程式部署 – VM 映像 (OS) 未列出 |如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式會回報為不相容的 Vm。 |原則 |
-|[預覽]：部署適用於 Linux Vm 的相依性代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Linux Vm 的相依性代理程式。 |原則 |
-|[預覽]：部署適用於 Windows Vm 的相依性代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Windows Vm 的相依性代理程式。 |原則 |
-|[預覽]：部署適用於 Linux Vm 的 Log Analytics 代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Linux Vm 的 Log Analytics 代理程式。 |原則 |
-|[預覽]：部署適用於 Windows Vm 的 Log Analytics 代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Windows Vm 的 Log Analytics 代理程式。 |原則 |
+|\[預覽\]：啟用適用於 VM 的 Azure 監視器 |啟用 Azure 監視器中的虛擬機器指定的範圍 （管理群組、 訂用帳戶或資源群組）。 請使用 Log Analytics 工作區作為參數。 |方案 |
+|\[預覽\]：稽核相依性代理程式部署 – VM 映像 (OS) 未列出 |如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式會回報為不相容的 Vm。 |原則 |
+|\[預覽\]：Audit Log Analytics 代理程式部署 – VM 映像 (OS) 未列出 |如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式會回報為不相容的 Vm。 |原則 |
+|\[預覽\]：部署適用於 Linux Vm 的相依性代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Linux Vm 的相依性代理程式。 |原則 |
+|\[預覽\]：部署適用於 Windows Vm 的相依性代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Windows Vm 的相依性代理程式。 |原則 |
+|\[預覽\]：部署適用於 Linux Vm 的 Log Analytics 代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Linux Vm 的 Log Analytics 代理程式。 |原則 |
+|\[預覽\]：部署適用於 Windows Vm 的 Log Analytics 代理程式 |如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式，請部署適用於 Windows Vm 的 Log Analytics 代理程式。 |原則 |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>原則的 Azure 虛擬機器擴展集
 
 下表詳列的 Azure 虛擬機器擴展集的原則定義。
 
-|Name |描述 |類型 |
+|名稱 |描述 |type |
 |-----|------------|-----|
-|[預覽]：啟用虛擬機器擴展集的 Azure 監視器 |啟用 Azure 監視器 （管理群組、 訂用帳戶或資源群組） 的指定範圍中的虛擬機器擴展集。 請使用 Log Analytics 工作區作為參數。 注意：如果擴展集的升級原則設定為手動，呼叫升級擴充功能套用至集合中的所有 Vm。 在 CLI 中，這是 az vmss update-執行個體。 |方案 |
-|[預覽]：稽核相依性代理程式部署在虛擬機器擴展集 – VM 映像 (OS) 未列出 |報告虛擬機器擴展集為不相容，如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式。 |原則 |
-|[預覽]：Audit Log Analytics 代理程式部署在虛擬機器擴展集 – VM 映像 (OS) 未列出 |報告虛擬機器擴展集為不相容，如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式。 |原則 |
-|[預覽]：部署 Linux 虛擬機器擴展集的相依性代理程式 |部署適用於 Linux 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的相依性代理程式。 |原則 |
-|[預覽]：部署 Windows 虛擬機器擴展集的相依性代理程式 |部署的 Windows 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的相依性代理程式。 |原則 |
-|[預覽]：部署 Linux 虛擬機器擴展集的 Log Analytics 代理程式 |部署適用於 Linux 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的 Log Analytics 代理程式。 |原則 |
-|[預覽]：部署 Windows 虛擬機器擴展集的 Log Analytics 代理程式 |部署的 Windows 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的 Log Analytics 代理程式。 |原則 |
+|\[預覽\]：啟用虛擬機器擴展集的 Azure 監視器 |啟用 Azure 監視器 （管理群組、 訂用帳戶或資源群組） 的指定範圍中的虛擬機器擴展集。 請使用 Log Analytics 工作區作為參數。 注意:如果擴展集的升級原則設定為手動，呼叫升級擴充功能套用至集合中的所有 Vm。 在 CLI 中，這是 az vmss update-執行個體。 |方案 |
+|\[預覽\]：稽核相依性代理程式部署在虛擬機器擴展集 – VM 映像 (OS) 未列出 |報告虛擬機器擴展集為不相容，如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式。 |原則 |
+|\[預覽\]：Audit Log Analytics 代理程式部署在虛擬機器擴展集 – VM 映像 (OS) 未列出 |報告虛擬機器擴展集為不相容，如果清單中未定義的 VM 映像 (OS)，而且未安裝代理程式。 |原則 |
+|\[預覽\]：部署 Linux 虛擬機器擴展集的相依性代理程式 |部署適用於 Linux 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的相依性代理程式。 |原則 |
+|\[預覽\]：部署 Windows 虛擬機器擴展集的相依性代理程式 |部署的 Windows 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的相依性代理程式。 |原則 |
+|\[預覽\]：部署 Linux 虛擬機器擴展集的 Log Analytics 代理程式 |部署適用於 Linux 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的 Log Analytics 代理程式。 |原則 |
+|\[預覽\]：部署 Windows 虛擬機器擴展集的 Log Analytics 代理程式 |部署的 Windows 虛擬機器擴展集，如果 VM 映像 (OS) 定義在清單中，而且未安裝代理程式的 Log Analytics 代理程式。 |原則 |
 
 獨立原則 (未包含在計畫中) 如下所述：
 
-|Name |描述 |類型 |
+|名稱 |描述 |type |
 |-----|------------|-----|
-|[預覽]：Audit Log Analytics 工作區的 VM – 報告不相符 |如果他們未記錄到原則或方案指派中指定的 Log Analytics 工作區，報告為不相容 Vm。 |原則 |
+|\[預覽\]：Audit Log Analytics 工作區的 VM – 報告不相符 |如果他們未記錄到原則或方案指派中指定的 Log Analytics 工作區，報告為不相容 Vm。 |原則 |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>指派 Azure 監視器計畫
 若要建立原則指派，從**Vm 原則涵蓋範圍的 Azure 監視器**頁面上，請遵循下列步驟。 若要了解如何完成這些步驟，請參閱 [從 Azure 入口網站建立原則指派](../../governance/policy/assign-policy-portal.md)。
@@ -166,7 +166,7 @@ Azure VM 的原則定義詳列於下表。
 | **未啟動** | 已新增新的指派。 |
 | **Lock** | 您沒有足夠的權限到管理群組。<sup>1</sup> | 
 | 空白  | 沒有 Vm 存在，或未指派的原則。 | 
-| **Action** | 指派原則或編輯指派。 | 
+| **動作** | 指派原則或編輯指派。 | 
 
 <sup>1</sup>如果您沒有管理群組的存取權，要求以存取擁有者。 或者，檢視合規性及管理透過子管理群組或訂用帳戶的指派。
 
@@ -180,19 +180,19 @@ Azure VM 的原則定義詳列於下表。
 
 * Log Analytics 代理程式 」 或 「 相依性代理程式就不會部署。  
     此對於包含現有 VM 的範圍來說是典型案例。 若要減少這種情況，將部署必要的代理程式所[建立補救工作](../../governance/policy/how-to/remediate-resources.md)不符合規範的原則。  
-    - [預覽]: Deploy Dependency agent for Linux VMs
-    - [預覽]: Deploy Dependency agent for Windows VMs
-    - [預覽]: Deploy Log Analytics agent for Linux VMs
-    - [預覽]: Deploy Log Analytics agent for Windows VMs
+    - \[預覽\]：部署適用於 Linux Vm 的相依性代理程式
+    - \[預覽\]：部署適用於 Windows Vm 的相依性代理程式
+    - \[預覽\]：部署適用於 Linux Vm 的 Log Analytics 代理程式
+    - \[預覽\]：部署適用於 Windows Vm 的 Log Analytics 代理程式
 
 * VM 映像 (OS) 不被識別原則定義中。  
     部署原則的準則僅包含從已知 Azure VM 映像部署的 VM。 請參閱文件以了解 VM OS 是否受到支援。 如果不受支援，請複製部署原則，並加以更新/修改，使映像符合規範。  
-    - [預覽]：稽核相依性代理程式部署 – VM 映像 (OS) 未列出
-    - [預覽]：Audit Log Analytics 代理程式部署 – VM 映像 (OS) 未列出
+    - \[預覽\]：稽核相依性代理程式部署 – VM 映像 (OS) 未列出
+    - \[預覽\]：Audit Log Analytics 代理程式部署 – VM 映像 (OS) 未列出
 
 * VM 未登入指定的 Log Analytics 工作區。  
     計畫範圍內的部分 VM 可以登入未在原則指派中指定的 Log Analytics 工作區。 此原則是以找出哪些 Vm 要回報不符合規範的工作區的工具。  
-    - [預覽]: Audit Log Analytics workspace for VM – Report mismatch
+    - \[預覽\]：Audit Log Analytics 工作區的 VM – 報告不相符
 
 ## <a name="edit-an-initiative-assignment"></a>編輯方案指派
 

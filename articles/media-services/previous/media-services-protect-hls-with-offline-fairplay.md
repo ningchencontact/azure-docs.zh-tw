@@ -205,7 +205,7 @@ func requestApplicationCertificate() throws -> Data {
 
 - **為何在離線模式期間只播放音訊，但不會播放影片呢？** 這個行為似乎是範例應用程式的設計使然。 當離線模式期間存在替代曲目時 (HLS 便是如此)，iOS 10 和 iOS 11 都預設為播放替代曲目。為了彌補 FPS 離線模式的這項行為，請從串流中移除替代曲目。 若要對媒體服務執行此操作，請新增動態資訊清單篩選條件 "audio-only=false"。 換言之，HLS URL 的結尾是 .ism/manifest(format=m3u8-aapl,audio-only=false)。 
 - **當我新增 audio-only=false 之後，為什麼它在離線模式期間仍舊只播放音訊，而不會播放影片呢？** 系統可能會根據內容傳遞網路 (CDN) 快取索引鍵設計來快取內容。 所以，請清除快取。
-- **除了 iOS 10，iOS 11 也支援 FPS 離線模式嗎？** 是。 iOS 10 和 iOS 11 均可支援 FPS 離線模式。
+- **除了 iOS 10，iOS 11 也支援 FPS 離線模式嗎？** 是的。 iOS 10 和 iOS 11 均可支援 FPS 離線模式。
 - **為什麼我在 FPS Server SDK 中找不到《Offline Playback with FairPlay Streaming and HTTP Live Streaming》(使用 FairPlay 串流和 HTTP 即時串流進行離線播放) 文件呢？** 從 FPS Server SDK 第 4 版開始，此文件已合併至《FairPlay Streaming Programming Guide》(FairPlay 串流程式設計指南)。
 - **在以下適用於 FPS 離線模式的 API 中，最後一個參數代表什麼？** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`

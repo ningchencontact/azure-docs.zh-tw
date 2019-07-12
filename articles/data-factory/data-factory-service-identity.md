@@ -24,7 +24,7 @@ ms.locfileid: "66153442"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 在建立資料處理站時，就可以建立受控身分識別以及建立 factory。 受管理的身分識別是向 Azure Active Directory，在 managed 應用程式，並代表這個特定的 data factory。
 

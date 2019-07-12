@@ -27,7 +27,7 @@ ms.locfileid: "60443767"
 > [!NOTE] 
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
  Windows 虛擬機器未啟動。 當您查看[開機診斷](../troubleshooting/boot-diagnostics.md)視窗中的螢幕擷取畫面時，您發現啟動作業停滯於更新程序中。 下列範例顯示您可能收到的訊息：
 
@@ -39,7 +39,7 @@ ms.locfileid: "60443767"
 - 套用更新作業 ##### (共 ##### 項) 時發生嚴重錯誤 <錯誤碼> ($$...)
 
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 執行更新程序可能需要一些時間，視要更新或回復的更新數而定。 請將 VM 保持在此狀態 8 小時。 如果 VM 在這段期間後仍處於此狀態，請從 Azure 入口網站重新啟動 VM，並確認是否正常啟動。 如果此步驟無法解決問題，請嘗試下列解決方案。
 

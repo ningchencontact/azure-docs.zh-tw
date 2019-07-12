@@ -13,22 +13,22 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.subservice: manage-apps
+ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97b54d57a13f0f2b47633a25f1a44efdfa17d11a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783296"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595066"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 應用程式 Proxy：版本發行歷程記錄
 本文列出的版本和 Azure Active Directory (Azure AD) 應用程式 Proxy 的已發行的功能。 Azure AD 小組會定期以新特性和功能更新應用程式 Proxy。 發行新版本時，會自動更新應用程式 Proxy 連接器。
 
 以下是一份相關資源：
 
-資源 |  詳細資料
+Resource |  詳細資料
 --------- | --------- |
 如何啟用應用程式 Proxy | 啟用應用程式 Proxy 並安裝並註冊連接器的必要條件所述這[教學課程](application-proxy-add-on-premises-application.md)。
 了解 Azure AD 應用程式 Proxy 連接器 | 深入了解[連接器管理](application-proxy-connectors.md)以及連接器[自動升級](application-proxy-connectors.md#automatic-updates)。

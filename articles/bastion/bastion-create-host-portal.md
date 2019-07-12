@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477871"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594280"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>建立 Azure 防禦主機 （預覽）
 
@@ -57,7 +57,7 @@ ms.locfileid: "67477871"
     * **子網路**：在您部署新的防禦主機資源的虛擬網路子網路。 您必須建立使用的名稱值的子網路**AzureBastionSubnet**。 此值可讓 Azure 知道要部署防禦資源的子網路。 這是不同的閘道子網路。 我們強烈建議您在至少/27 或更大的子網路時使用 （/ 27、 / 26，依此類推）。 建立**AzureBastionSubnet**而不需要的任何網路安全性群組，將路由資料表或委派。
     * **公用 IP 位址**：將 （透過連接埠 443） 存取 RDP/SSH 所在的防禦資源的公用 IP。 建立新的公用 IP，或使用現有的帳戶。 公用 IP 位址必須位於與您所建立的防禦資源相同的區域。
     * **公用 IP 位址名稱**：公用 IP 位址資源的名稱。
-    * **公用 IP 位址 SKU**:預設會將預先填入**標準**。
+    * **公用 IP 位址 SKU**:預設會將預先填入**標準**。 Azure 的防禦使用/支援僅標準公用 IP SKU。
     * **指派**:預設會將預先填入**靜態**。
 
 1. 當您完成指定的設定時，按一下**檢閱 + 建立**。 這會驗證值。 一旦通過驗證，您可以開始建立程序。

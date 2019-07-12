@@ -40,7 +40,7 @@ Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於 mac
 
 * **Azure CLI** - 如需相關指示，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 此文章使用較簡單的驗證方法搭配 Data Lake Storage Gen1，其中您會以使用者身分登入。 Data Lake Storage Gen1 帳戶和檔案系統的存取層級則由已登入使用者的存取層級所控管。 不過，還有其他方法可向 Data Lake Storage Gen1 進行驗證：**使用者驗證**或**服務對服務驗證**。 如需有關如何驗證的指示和詳細資訊，請參閱[使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)或[服務對服務驗證](data-lake-store-authenticate-using-active-directory.md)。
 

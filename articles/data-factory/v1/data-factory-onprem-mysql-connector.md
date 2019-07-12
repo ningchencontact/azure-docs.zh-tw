@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823941"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839013"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-onprem-mysql-connector.md)
 > * [第 2 版 (目前的版本)](../connector-mysql.md)
 
@@ -47,11 +47,11 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 > [!TIP]
 > 如果您遇到錯誤「驗證失敗，因為遠端合作對象已關閉傳輸串流」，請考慮將 MySQL 連接器/Net 更新為更高版本。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。 
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -73,7 +73,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | database |MySQL 資料庫的名稱。 |是 |
 | schema |在資料庫中的結構描述名稱。 |否 |
 | authenticationType |用來連接到 MySQL 資料庫的驗證類型。 可能的值為：`Basic`。 |是 |
-| username |指定要連線到 MySQL 資料庫的使用者名稱。 |是 |
+| userName |指定要連線到 MySQL 資料庫的使用者名稱。 |是 |
 | password |指定您所指定使用者帳戶的密碼。 |是 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 MySQL 資料庫的閘道器名稱。 |是 |
 
@@ -99,7 +99,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON 範例：從 MySQL 複製資料到 Azure Blob
-此範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 它示範如何將資料從內部部署的 MySQL 資料庫複製到「Azure Blob 儲存體」。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
+此範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 它示範如何將資料從內部部署的 MySQL 資料庫複製到「Azure Blob 儲存體」。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
 
 > [!IMPORTANT]
 > 此範例提供 JSON 程式碼片段。 其中並不包含建立 Data Factory 的逐步指示。 如需逐步指示，請參閱 [在內部部署位置和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文。
@@ -307,15 +307,15 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | blob |Byte[] |
 | bool |Boolean |
 | char |String |
-| date |DateTime |
-| Datetime |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
 | decimal |Decimal |
 | 雙精度 |Double |
 | double |Double |
 | 列舉 |String |
-| float |Single |
+| FLOAT |Single |
 | 不帶正負號的 int |Int64 |
-| int |Int32 |
+| ssNoversion |Int32 |
 | 不帶正負號的整數 |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
@@ -333,7 +333,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | smallint |Int16 |
 | text |String |
 | time |TimeSpan |
-| timestamp |DateTime |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | 不帶正負號的 tinyint |Int16 |
 | tinyint |Int16 |

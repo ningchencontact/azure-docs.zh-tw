@@ -22,7 +22,7 @@ ms.locfileid: "61074384"
 
 本文提供使用 Azure Desired State Configuration 的逐步指南。 如果您不想遵循本主題中所述的步驟，但想要已經設定好的範例環境，可以使用下列 Resource Manager 範本：[Azure 自動化受控節點範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration)。 此範本會設定完整的 Azure Automation State Configuration 環境，包括由 Azure Automation State Configuration 管理的 Azure VM。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本文中的範例，需要有下列項目：
 

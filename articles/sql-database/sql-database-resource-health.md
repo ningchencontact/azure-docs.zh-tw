@@ -21,11 +21,11 @@ ms.locfileid: "61482985"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 SQL Database 的[資源健康情況](../service-health/resource-health-overview.md#getting-started)可協助您進行診斷，並在 Azure 問題影響您的資源時取得支援。 它會通知您資源的目前及過去的健康狀態，並協助您解決問題。 資源健康狀態會在您需要解決 Azure 服務問題時提供技術支援。
 
-![概觀](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
+![總覽](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>健康情況檢查
 

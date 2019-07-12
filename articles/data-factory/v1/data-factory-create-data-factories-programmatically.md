@@ -22,15 +22,15 @@ ms.locfileid: "60487277"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>使用 Azure Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[複製活動教學課程](../quickstart-create-data-factory-dot-net.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[複製活動教學課程](../quickstart-create-data-factory-dot-net.md)。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 您可以使用 Data Factory .NET SDK，以程式設計方式建立、監視及管理 Azure Data Factory 本文包含指導您建立範例 .NET 主控台應用程式的逐步解說，此應用程式將會建立並監視 Data Factory。 
 
 > [!NOTE]
 > 這篇文章並未涵蓋所有的 Data Factory .NET API。 如需適用於 Data Factory 之 .NET API 的完整文件，請參閱 [Data Factory .NET API 參考](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ ms.locfileid: "60487277"
 您應會從這些步驟取得下列四個值︰
 
 * 租用戶識別碼
-* 订阅 ID
+* 訂用帳戶識別碼
 * 應用程式識別碼
 * 密碼 (在第一個命令中指定)
 

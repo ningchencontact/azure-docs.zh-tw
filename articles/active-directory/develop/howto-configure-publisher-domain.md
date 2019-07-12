@@ -24,7 +24,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540225"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>作法：設定應用程式的發行者網域 （預覽）
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>HOW TO：設定應用程式的發行者網域 （預覽）
 
 應用程式的發行者網域上，會顯示給使用者[應用程式的同意提示](application-consent-experience.md)，讓使用者知道正在傳送他們的資訊。 多租用戶註冊的應用程式在 2019 5 月 21 日之後沒有發行者網域的形式出現**未經驗證**。 多租用戶應用程式都支援單一組織的目錄; 外部帳戶的應用程式例如，支援所有的 Azure AD 帳戶，或支援所有的 Azure AD 帳戶和個人 Microsoft 帳戶。
 

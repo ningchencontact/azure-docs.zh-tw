@@ -28,7 +28,7 @@ IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache S
 
 使用 IO 快取時，您不需要對您的 Spark 作業進行任何變更，就可以看到效能改進。 當停用 IO 快取時，此 Spark 程式碼可從遠端 Azure Blob 儲存體讀取資料：`spark.read.load('wasbs:///myfolder/data.parquet').count()`。 當啟用 IO 快取時，相同的程式碼會讓應用程式透過 IO 快取進行快取讀取。 在後續的讀取作業中，會從本機 SSD 讀取資料。 HDInsight 叢集上的背景工作角色節點是本機連結的專屬 SSD 磁碟機。 HDInsight IO 快取使用這些本機 SSD 來進行快取，這樣可提供最低層級的延遲並讓頻寬最佳化。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure HDInsight 3.6+ Spark 叢集中使用 IO 快取，這些叢集執行 Apache Spark 2.3。  若要啟用 IO 快取，請執行下列動作：
 

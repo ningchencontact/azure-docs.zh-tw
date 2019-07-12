@@ -34,7 +34,7 @@ Azure SQL Database 服務唯有透過 TCP 通訊埠 1433 才能使用。 若要�
 
 連接程序當中，從 Azure 虛擬機器的連接會被重新導向到不同的 IP 位址和連接埠，針對每個背景工作角色都是唯一。 連接埠號碼的範圍從 11000 到 11999。 如需 TCP 連接埠的詳細資訊，請參閱[適用於 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 SQL Database 支援兩種驗證類型：
 
@@ -51,7 +51,7 @@ SQL Database 支援兩種驗證類型：
 
 最佳作法是，您的應用程式應該使用專用帳戶進行驗證，因為萬一應用程式的程式碼容易受到 SQL 插入式攻擊，您就可以限制授與應用程式的權限，並降低惡意活動的風險。 建議的方法是建立[自主資料庫使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)，讓您的應用程式直接與資料庫進行驗證。 
 
-## <a name="authorization"></a>授權
+## <a name="authorization"></a>Authorization
 
 授權是指使用者可以在 Azure SQL Database 內執行的動作，這是由使用者帳戶的資料庫[角色成員資格](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles)和[物件層級權限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)所控制。 最好的作法是，您應該授與使用者所需的最低權限。 您所連線的伺服器管理員帳戶是 db_owner 的成員，有權限在資料庫中執行任何動作。 請儲存此帳戶，以便部署結構描述升級及其他管理作業。 請使用具更多有限權限的 "ApplicationUser" 帳戶，從應用程式連線到具應用程式所需之最低權限的資料庫。 如需詳細資訊，請參閱[管理登入](sql-database-manage-logins.md)。
 

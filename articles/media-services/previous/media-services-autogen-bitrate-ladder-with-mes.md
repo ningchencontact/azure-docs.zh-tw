@@ -22,7 +22,7 @@ ms.locfileid: "61224339"
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure 媒體編碼器標準自動產生位元速率階梯  
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文章說明如何使用媒體編碼器標準 (MES) 根據解析度和位元速率自動產生輸入位元速率階梯 (位元速率解析組)。 自動產生的預設值絕對不會超過輸入解析度和位元速率。 例如，如果輸入是 720p 3 Mbps，則輸出會維持在最多 720p，且速率啟動低於 3 Mbps。
 
@@ -208,6 +208,6 @@ namespace AdaptiveStreamingMESPresest
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [媒體服務編碼概觀](media-services-encode-asset.md)
 

@@ -22,7 +22,7 @@ Azure Cosmos DB 實作常見的 NoSQL 資料庫，包括 MongoDB 有線通訊協
 
 ## <a name="common-errors-and-solutions"></a>常見的錯誤和解決方案
 
-| Error               | 代碼  | 描述  | 解決方法  |
+| 錯誤               | 程式碼  | 描述  | 方案  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮調整指派給容器或一組的容器，從 Azure 入口網站的輸送量，或您可以重試此作業。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 範例： `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |

@@ -87,7 +87,7 @@ Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄�
 
 1. 選取 **概觀**以在 Azure 入口網站中開啟 log analytics 解決方案。
 
-   ![概觀](media/saas-dbpertenant-log-analytics/click-overview.png)
+   ![總覽](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > 解決方案可能需要幾分鐘的時間才會變成作用中。 

@@ -79,7 +79,7 @@ Azure 媒體服務 (AMS) 可讓您存取其服務的遙測/計量資料。 目�
 PartitionKey|{帳戶識別碼} _ {實體識別碼}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>帳戶識別碼包含在分割區索引鍵中，以簡化多個媒體服務帳戶寫入同一儲存體帳戶的工作流程。
 RowKey|{到午夜的秒數}_{隨機值}|01688_00199<br/><br/>資料列索引鍵以到午夜的秒數開始，以允許磁碟分割內的前 n 個樣式查詢。 如需詳細資訊，請參閱[本篇文章](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern)。 
 Timestamp|日期/時間|Azure 資料表中的自動時間戳記 2016-09-09T22:43:42.241Z
-類型|提供遙測資料之實體的類型|頻道/串流端點/封存<br/><br/>事件類型只是字串值。
+type|提供遙測資料之實體的類型|頻道/串流端點/封存<br/><br/>事件類型只是字串值。
 名稱|遙測事件的名稱|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|遙測事件發生時間 (UTC)|2016-09-09T22:42:36.924Z<br/><br/>觀察的時間由傳送遙測資料的實體提供 (例如頻道)。 元件之間可能有時間同步問題，因此這個值是近似值
 ServiceID|{服務識別碼}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -100,8 +100,8 @@ ServiceID|{服務識別碼}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Azure 資料表中的自動時間戳記 2016-09-09T22:43:42.241Z
-類型|類型|StreamingEndpoint
-Name|Name|StreamingEndpointRequestLog
+type|type|StreamingEndpoint
+名稱|名稱|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|服務識別碼|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|端點的主機名稱|builddemoserver.origin.mediaservices.windows.net
@@ -119,8 +119,8 @@ E2ELatency|平均端對端延遲|250
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Azure 資料表中的自動時間戳記 2016-09-09T22:43:42.241Z
-類型|類型|通道
-Name|Name|ChannelHeartbeat
+type|type|通道
+名稱|名稱|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|服務識別碼|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|曲目視訊/音訊/文字的類型|視訊/音訊
@@ -144,8 +144,8 @@ Healthy|如果下列條件成立則為 True <br/>overlapCount、 <br/>Discontinu
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Azure 資料表中的自動時間戳記 2016-09-09T22:43:42.241Z
-類型|類型|封存
-Name|名稱|ArchiveHeartbeat
+type|type|封存
+名稱|名稱|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|服務識別碼|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|程式 URL|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism

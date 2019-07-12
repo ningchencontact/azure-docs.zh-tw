@@ -31,7 +31,7 @@ ms.locfileid: "60437591"
 
 Azure Active Directory (Azure AD) 的 Power BI 內容套件包含預先建置的報告，可協助您了解使用者採用及使用 Azure AD 功能的情形。 這可讓您使用 Power BI 的豐富視覺效果體驗，來深入了解目錄中的所有活動。 您也可以建立自己的儀表板，並與組織中的任何人共用。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要 Azure AD Premium (P1/P2) 授權才能使用內容套件。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
 
@@ -59,7 +59,7 @@ Azure AD Power BI 內容套件中包含下列報告。 這些報告包含**過�
 
 - 使用者名稱
 - IP 位址
-- 位置 
+- Location 
 - 登入狀態 
 
 **SSPR 漏斗圖**：此報告可協助您了解 SSPR 工具在組織內的使用情形。 您可以檢視透過 SSPR 工具嘗試進行密碼重設的次數，以及成功重設的次數。 您也可以更深入地了解密碼重設失敗事件，並了解發生特定錯誤的原因。 

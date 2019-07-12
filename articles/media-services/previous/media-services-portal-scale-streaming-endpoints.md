@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463104"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>透過 Azure 入口網站調整串流端點
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 > [!NOTE]
 > 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 

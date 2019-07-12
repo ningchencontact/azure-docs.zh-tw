@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557703"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Web 資料表複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-web-table-connector.md)
 > * [目前的版本](connector-web-table.md)
 
@@ -38,11 +38,11 @@ ms.locfileid: "60557703"
 
 具體而言，這個 Web 資料表連接器支援**從 HTML 頁面擷取資料表內容**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用此 Web 資料表連接器，您需要設定「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,7 +59,7 @@ ms.locfileid: "60557703"
 | authenticationType | 允許的值為：**Anonymous**。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -87,10 +87,10 @@ ms.locfileid: "60557703"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**WebTable** | 是 |
-| path |包含資料表之資源的相對 URL。 |沒有。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| path |包含資料表之資源的相對 URL。 |資料分割 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -117,7 +117,7 @@ ms.locfileid: "60557703"
 
 若要從 Web 資料表複製資料，請將複製活動中的來源類型設定為 **WebSource**，不支援任何其他屬性。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

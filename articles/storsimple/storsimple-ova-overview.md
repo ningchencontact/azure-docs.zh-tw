@@ -23,7 +23,7 @@ ms.locfileid: "60630275"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple Virtual Array 簡介
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft Azure StorSimple Virtual Array 是一個整合式儲存體解決方案，可管理 Hypervisor 中執行之內部部署虛擬陣列與 Microsoft Azure 雲端儲存體之間的儲存體工作。 虛擬陣列是一個有效率、符合成本效益且易於管理的檔案伺服器或 iSCSI 伺服器解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。 虛擬陣列特別適合不常存取之封存資料的儲存體。
 
@@ -74,7 +74,7 @@ StorSimple 會在數分鐘內將使用者和伺服器連接到 Azure 儲存體�
 
 下表顯示所支援 StorSimple 工作負載的摘要。
 
-|案例     |工作負載     |支援      |限制               | 適用版本|
+|狀況     |工作負載     |支援      |限制               | 適用版本|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |遠端辦公室/分公司 (ROBO)  |檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
 |雲端封存  |封存檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
@@ -87,7 +87,7 @@ StorSimple Virtual Array 最適合不常存取的資料。 雖然虛擬陣列具
 
 StorSimple Virtual Array 不適合需要高可用性的工作負載。 虛擬陣列是安裝軟體更新時會遇到停機時間的單一節點裝置。 系統管理員應該規劃每年 3-4 次 30 分鐘的維護期間。
 
-## <a name="workflows"></a>工作流程
+## <a name="workflows"></a>Workflows
 
 StorSimple Virtual Array 特別適用於下列工作流程：
 

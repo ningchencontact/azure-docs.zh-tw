@@ -16,12 +16,12 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 1e8bd60eab5853b121b9c08622914b9c62449f8f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
-ms.translationtype: HT
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618760"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836721"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -56,7 +56,7 @@ Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用
 
 ### <a name="user-claims"></a>使用者宣告
 
-在所有語言架構中，App Service 都會將使用者的宣告插入要求標頭內以供程式碼使用。 在 ASP.NET 4.6 應用程式中，App Service 會使用已驗證的使用者宣告填入 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)，因此您可以遵循標準的 .NET 程式碼模式，包括 `[Authorize]` 屬性。 同樣地，在 PHP 應用程式中，App Service 會填入 `_SERVER['REMOTE_USER']` 變數。
+在所有語言架構中，App Service 都會將使用者的宣告插入要求標頭內以供程式碼使用。 在 ASP.NET 4.6 應用程式中，App Service 會使用已驗證的使用者宣告填入 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)，因此您可以遵循標準的 .NET 程式碼模式，包括 `[Authorize]` 屬性。 同樣地，在 PHP 應用程式中，App Service 會填入 `_SERVER['REMOTE_USER']` 變數。 針對 Java 應用程式，會宣告[可以從 Tomcat servlet 存取](containers/configure-language-java.md#authenticate-users)。
 
 在 [Azure Functions](../azure-functions/functions-overview.md) 中，系統不會針對 .NET 程式碼將 `ClaimsPrincipal.Current` 序列化，不過您仍可以在要求標頭中找到使用者宣告。
 

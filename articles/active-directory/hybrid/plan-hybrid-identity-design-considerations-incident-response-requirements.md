@@ -67,6 +67,6 @@ ms.locfileid: "67109284"
 ## <a name="next-steps"></a>後續步驟
 [定義資料保護策略](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -30,7 +30,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 您想要使用 FortiGate 作為內部部署 VPN 閘道，在 Azure 和內部部署環境之間設定站對站連線。 為了實現此案例，您需要進行下列設定︰
 
@@ -81,7 +81,7 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 
 ### <a name="gateway"></a>閘道器
 
-| 錯誤類型 | 原因 | 記錄檔|
+| 錯誤類型 | `Reason` | 記錄檔|
 |---|---|---|
 | NoFault | 未偵測到任何錯誤時。 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
@@ -96,7 +96,7 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 
 ### <a name="connection"></a>連線
 
-| 錯誤類型 | 原因 | 記錄檔|
+| 錯誤類型 | `Reason` | 記錄檔|
 |---|---|---|
 | NoFault | 未偵測到任何錯誤時。 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建。 |否|
@@ -107,7 +107,7 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」。 |否|
 | ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
 | ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
-| Authentication | 預先共用的金鑰不相符。 | 是|
+| 驗證 | 預先共用的金鑰不相符。 | 是|
 | PeerReachability | 無法連線到對等閘道。 | 是|
 | IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
 | WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |是|

@@ -78,7 +78,7 @@ HDInsight 中的 Apache Spark 叢集包含可與 Jupyter Notebook 搭配使用�
 
 如果您遇到必須使用只適用於 Linux 之工具或技術的情況，請考慮下列選項︰
 
-* **在 Windows 10 上 Ubuntu 的 bash**在 Windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 請參閱[Linux 安裝指南適用於 Windows 10 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10)如需安裝步驟。  其他[Unix shell](https://www.gnu.org/software/bash/)正常運作。
+* **在 Windows 10 上 Ubuntu 的 bash**在 Windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 如需安裝步驟，請參閱 [Windows 10 適用於 Linux 的 Windows 子系統的安裝指南](https://docs.microsoft.com/windows/wsl/install-win10)。  其他 [Unix 殼層](https://www.gnu.org/software/bash/)也可正常運作。
 * **Docker for Windows** 可供存取許多以 Linux 為基礎的工具，並可以直接從 Windows 執行。 例如，您可以使用 Docker 直接從 Windows 執行 Hive 適用的 Beeline 用戶端。 您也可以使用 Docker 來執行本機 Jupyter Notebook，並從遠端連線到 HDInsight 上的 Spark。 [開始使用 Docker for Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 可讓您透過 SSH 連線，以圖形方式瀏覽叢集檔案系統。
 

@@ -27,7 +27,7 @@ C SDK 是以 apt-get、NuGet 和 MBED 的套件形式提供。 若要以受限�
 
 為受限裝置建置 C SDK。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 遵循此 [C SDK 設定指南](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)，準備您的開發環境以供建置 C SDK。 在您開始進行使用 cmake 建置的步驟之前，您可以叫用 cmake 旗標來移除未使用的功能。
 

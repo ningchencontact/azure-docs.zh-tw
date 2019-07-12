@@ -27,7 +27,7 @@ ms.locfileid: "60901020"
 
 使用此相依性呼叫所起始之命令的名稱。 基數值低。 範例為預存程序名稱和 URL 路徑範本。
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 相依性呼叫執行個體的識別碼。 用來與此相依性呼叫的對應要求遙測項目相互關聯。 如需詳細資訊，請參閱[相互關聯](../../azure-monitor/app/correlation.md)頁面。
 
@@ -35,7 +35,7 @@ ms.locfileid: "60901020"
 
 此相依性呼叫所起始的命令。 範例為搭配所有查詢參數的 SQL 陳述式和 HTTP URL。
 
-## <a name="type"></a>類型
+## <a name="type"></a>type
 
 相依性類型名稱。 相依性邏輯群組和其他欄位 (如 commandName 和 resultCode) 解譯的基數值較低。 範例為 SQL、Azure 資料表和 HTTP。
 

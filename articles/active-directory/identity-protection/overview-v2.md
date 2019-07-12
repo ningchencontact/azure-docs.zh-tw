@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108892"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673015"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>什麼是 Azure Active Directory Identity Protection (已改版)？
 
@@ -119,7 +119,7 @@ Identity Protection 以兩種類型的風險為基礎：
 
 ## <a name="how-identity-protection-detects-risk"></a>Identity Protection 偵測風險的方式  
 
-Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的包括在登入期間即時偵測到的訊號，以及與使用者及其登入活動有關的非即時訊號。 Identity Protection 會使用這項資料，在使用者每次進行驗證時計算即時登入風險，並判斷每個使用者的整體使用者風險層級。 Identity Protection 可讓您設定 Identity Protection 使用者風險和登入風險原則，以自動這些風險偵測採取相關動作。  
+Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的包括在登入期間即時偵測到的訊號，以及與使用者及其登入活動有關的非即時訊號。 使用這項資料，Identity Protection 會計算即時的登入風險使用者的驗證，以及判斷整體使用者風險層級的每個使用者每次。 Identity Protection 可讓您設定 Identity Protection 使用者風險和登入風險原則，以自動這些風險偵測採取相關動作。  
 
  
 
@@ -194,7 +194,7 @@ Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的�
 
 Identity Protection 支援 Azure AD 中的 3 種角色，以平衡與您的部署有關的管理活動： 
 
-| 角色 | 可以執行 | 無法執行 |
+| Role | 可以執行 | 無法執行 |
 | --- | --- | --- |
 | 全域管理員 | 完整存取 Identity Protection、將 Identity Protection 上架 | |
 | 安全性系統管理員 | 完整存取 Identity Protection | 將 Identity Protection 上架、重設使用者密碼 |

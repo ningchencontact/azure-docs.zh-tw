@@ -26,7 +26,7 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 必須提供可用的網域名稱，如此才能裝載於 Azure DNS 進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
 
@@ -43,9 +43,9 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 使用下表的設定資訊，在您的資源群組中建立兩個 Web App Service 方案。 如需建立 App Service 方案的詳細資訊，請參閱[管理 Azure 中的 App Service 方案](../app-service/app-service-plan-manage.md)。
 
 
-|Name  |作業系統  |位置  |定價層  |
+|名稱  |作業系統  |Location  |定價層  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|美國東部|開發/測試 D1-共用|
+|ASP-01     |Windows|East US|開發/測試 D1-共用|
 |ASP-02     |Windows|美國中部|開發/測試 D1-共用|
 
 ## <a name="create-app-services"></a>建立應用程式服務
@@ -55,10 +55,10 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 1. 在 Azure 入口網站頁面左上角，按一下 [建立資源]  。
 2. 在搜尋列中輸入 **Web 應用程式**，然後按 Enter 鍵。
 3. 按一下 [Web 應用程式]  。
-4. 按一下頁面底部的 [新增]  。
+4. 按一下 [建立]  。
 5. 接受預設值，並使用下表來設定這兩個 Web 應用程式：
 
-   |Name<br>(在 .azurewebsites.net 內必須是唯一的)|資源群組 |App Service 方案/位置
+   |名稱<br>(在 .azurewebsites.net 內必須是唯一的)|資源群組 |App Service 方案/位置
    |---------|---------|---------|
    |App-01|使用現有項目<br>選取您的資源群組|ASP-01(美國東部)|
    |App-02|使用現有項目<br>選取您的資源群組|ASP-02(美國中部)|
@@ -87,9 +87,9 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 3. 按一下 [新增]  。
 4. 使用下表來設定端點：
 
-   |類型  |Name  |目標  |位置  |自訂標題設定|
+   |type  |名稱  |目標  |Location  |自訂標題設定|
    |---------|---------|---------|---------|---------|
-   |外部端點     |End-01|您針對 App-01 記錄的 IP 位址|美國東部|host:\<您針對 App-01 記錄的 URL\><br>範例：**host:app-01.azurewebsites.net**|
+   |外部端點     |End-01|您針對 App-01 記錄的 IP 位址|East US|host:\<您針對 App-01 記錄的 URL\><br>範例：**host:app-01.azurewebsites.net**|
    |外部端點     |End-02|您針對 App-02 記錄的 IP 位址|美國中部|host:\<您針對 App-02 記錄的 URL\><br>範例：**host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>建立 DNS 區域
@@ -104,7 +104,7 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 2. 按一下 [記錄集]  。
 3. 使用下表來新增記錄集：
 
-   |Name  |類型  |別名記錄集  |別名類型  |Azure 資源|
+   |名稱  |type  |別名記錄集  |別名類型  |Azure 資源|
    |---------|---------|---------|---------|-----|
    |@     |A|是|Azure 資源|流量管理員 - 您的設定檔|
 

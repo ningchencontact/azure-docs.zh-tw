@@ -25,7 +25,7 @@ ms.locfileid: "66257228"
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 > [!TIP]
 > 雖然本教學課程沒有假設您先前已有使用 Azure Resource Manager 範本或 JSON 的經驗，但是，如果您需要修改參考的範本或部署選項，還是需要每個領域的知識。
 > 
@@ -115,7 +115,7 @@ ms.locfileid: "66257228"
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>後續步驟
-恭喜！ 您已使用 Azure Resource Manager 範本部署了 Azure Cosmos DB、App Service Web 應用程式及範例 Web 應用程式。
+恭喜您！ 您已使用 Azure Resource Manager 範本部署了 Azure Cosmos DB、App Service Web 應用程式及範例 Web 應用程式。
 
 * 若要深入了解 Azure Cosmos DB，請按一下[這裡](https://azure.microsoft.com/services/cosmos-db/)。
 * 若要深入了解 Azure App Service Web Apps，請按一下 [這裡](https://go.microsoft.com/fwlink/?LinkId=325362)。

@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441442"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720426"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -37,7 +37,7 @@ HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過
 
 總括而言，您必須設定一個具備下列條件的環境：
 
-- Active Directory 網域 (由 Azure AD DS 管理)。
+- Active Directory 網域 (由 Azure AD DS 管理)。 **網域名稱必須是 39 個字元或更少能夠使用 Azure HDInsight。**
 - 在 Azure AD DS 中啟用安全 LDAP (LDAPS)。
 - Azure AD DS 虛擬網路和 HDInsight 虛擬網路兩者之間有適當的網路連線能力 (如果您選擇將兩者的虛擬網路分開)。 HDInsight 虛擬網路內的 VM 應可透過虛擬網路對等互連來看到 Azure AD DS。 如果 HDInsight 和 Azure AD DS 部署在相同的虛擬網路中，則會自動提供連線，而無須採取進一步的動作。
 

@@ -23,7 +23,7 @@ ms.locfileid: "62126744"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 5
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本教學課程說明如何透過 Azure 入口網站及使用 Hotfix 方法，在執行舊軟體版本的 StorSimple 裝置上安裝 Update 5。 當您嘗試在執行 Update 3 之前版本的裝置上安裝 Update 5 時，會使用 Hotfix 方法。 當閘道器是在 StorSimple 裝置之 DATA 0 以外的網路介面上設定的，且您要嘗試從 Update 1 之前的軟體版本更新時，也會使用 Hotfix 方法。
 

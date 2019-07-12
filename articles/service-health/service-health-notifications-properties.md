@@ -36,7 +36,7 @@ Azure 會發佈服務健康情況通知，其中包含您訂用帳戶下資源�
 correlationId | 通常是字串格式的 GUID。 屬於相同動作的事件通常會共用同一個 correlationId。
 eventDataId | 事件的唯一識別碼。
 eventName | 事件的標題。
-層級 | 事件的層級
+level | 事件的層級
 resourceProviderName | 受影響資源的資源提供者名稱。
 resourceType| 受影響資源的資源類型。
 子狀態 | 通常是對應 REST 呼叫的 HTTP 狀態碼，但也可以包含其他描述子狀態的字串。 例如: 正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)，以及閘道逾時 (HTTP 狀態碼:504)。
@@ -46,7 +46,7 @@ subscriptionId | 記錄此事件的 Azure 訂用帳戶。
 status | 字串，描述作業的狀態。 以下為一些常用的值：**已啟動**、**進行中**、**成功**、**失敗**、**使用中**和**已解決**。
 operationName | 作業的名稱。
 category | 此屬性一律為 **ServiceHealth**。
-ResourceId | 受影響資源的資源識別碼。
+resourceId | 受影響資源的資源識別碼。
 Properties.title | 此通訊的當地語系化標題。 預設語言為英文。
 Properties.communication | 與 HTML 標記通訊的詳細資料 (已當地語系化)。 預設語言為英文。
 Properties.incidentType | 下列其中一個值：**ActionRequired**、**Informational**、**Incident**、**Maintenance** 或 **Security**。

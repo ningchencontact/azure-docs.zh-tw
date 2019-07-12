@@ -225,7 +225,7 @@ AMQP 1.0 規格會定義稱為「已接收」  的進一步處置狀態稱，其
 | message-id |應用程式為此訊息定義的自由格式識別碼。 用於重複偵測。 |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |應用程式定義的使用者識別碼，服務匯流排無法加以解譯。 |無法透過服務匯流排 API 存取。 |
 | to |應用程式定義的目的地識別碼，服務匯流排無法加以解譯。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| 主旨 |應用程式定義的訊息用途識別碼，服務匯流排無法加以解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |應用程式定義的訊息用途識別碼，服務匯流排無法加以解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |應用程式定義的回覆路徑指示器，服務匯流排無法加以解譯。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |應用程式定義的相互關聯識別碼，服務匯流排無法加以解譯。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Content-Type |應用程式為內文定義的內容類型識別碼，服務匯流排無法加以解譯。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -283,7 +283,7 @@ AMQP 1.0 規格會定義稱為「已接收」  的進一步處置狀態稱，其
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| | 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。 <br/>交易式工作<br/>其他連結上<br/> 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。 |
+| | 。 . 。 <br/>交易式工作<br/>其他連結上<br/> 。 . 。 |
 | transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)** )}| ------> |  |
 | | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()** )|
 
@@ -359,11 +359,11 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 
 要求訊息具有下列應用程式屬性︰
 
-| Key | 選用 | 值類型 | 值內容 |
+| Key | 選擇性 | 值類型 | 值內容 |
 | --- | --- | --- | --- |
-| operation |否 |字串 |**put-token** |
-| type |否 |字串 |正在放置的權杖類型。 |
-| name |否 |字串 |套用權杖的「對象」。 |
+| operation |否 |string |**put-token** |
+| type |否 |string |正在放置的權杖類型。 |
+| name |否 |string |套用權杖的「對象」。 |
 | expiration |是 |timestamp |權杖的到期時間。 |
 
 *name* 屬性會識別應與權杖相關聯的實體。 在服務匯流排中，這是佇列或主題/訂用帳戶的路徑。 *type* 屬性會識別權杖類型︰
@@ -378,10 +378,10 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 
 回覆訊息具有下列 *application-properties* 值
 
-| Key | 選用 | 值類型 | 值內容 |
+| Key | 選擇性 | 值類型 | 值內容 |
 | --- | --- | --- | --- |
-| status-code |否 |int |HTTP 回應碼 **[RFC2616]** 。 |
-| status-description |是 |字串 |狀態的描述。 |
+| status-code |否 |ssNoversion |HTTP 回應碼 **[RFC2616]** 。 |
+| status-description |是 |string |狀態的描述。 |
 
 用戶端可以針對傳訊基礎結構中的任何實體重複呼叫 *put-token*。 權杖的範圍為目前用戶端且錨點為目前連線，這表示伺服器會在連線捨棄時捨棄所有保留的權杖。
 
@@ -399,7 +399,7 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 
 使用這項功能，您可建立傳送者並建立 `via-entity` 的連結。 建立連結時，系統會傳遞其他資訊，以在此連結上建立訊息/傳輸的真正目的地。 一旦連結成功，在此連結上傳送的所有訊息都會透過 *via-entity* 自動轉寄到 *destination-entity*。 
 
-> 注意：建立這個連結之前，必須對 via-entity  和 destination-entity  執行驗證。
+> 注意:建立這個連結之前，必須對 via-entity  和 destination-entity  執行驗證。
 
 | 用戶端 | | 服務匯流排 |
 | --- | --- | --- |

@@ -142,7 +142,7 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-JSON_VALUE 函數會從儲存在 Data 資料行的 JSON 文字中擷取值。 此函数使用类似于 JavaScript 的路径来引用要提取的 JSON 文本中的值。 所擷取的值可以在 SQL 查詢的任何部分中使用。
+JSON_VALUE 函數會從儲存在 Data 資料行的 JSON 文字中擷取值。 此函數會使用類似 JavaScript 的路徑來參考所要擷取的 JSON 文字中的值。 所擷取的值可以在 SQL 查詢的任何部分中使用。
 
 JSON_QUERY 函數類似於 JSON_VALUE。 與 JSON_VALUE 不同，此函數會擷取複雜的子物件，例如置於 JSON 文字中的陣列或物件。
 

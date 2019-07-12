@@ -110,7 +110,7 @@ ms.locfileid: "66152623"
 ### <a name="nsg"></a> 網路安全性群組
 如果您需要在 Azure-SSIS 整合執行階段所使用的子網路上實作網路安全性群組 (NSG)，請允許通過下列連接埠的輸入/輸出流量： 
 
-| Direction | 傳輸通訊協定 | source | 來源連接埠範圍 | 目的地 | 目的地連接埠範圍 | 註解 |
+| Direction | 傳輸通訊協定 | Source | 來源連接埠範圍 | 目的地 | 目的地連接埠範圍 | 註解 |
 |---|---|---|---|---|---|---|
 | 輸入 | TCP | AzureCloud<br/>(或較大的範圍，例如網際網路) | * | VirtualNetwork | 29876、29877 (如果您將 IR 加入 Azure Resource Manager 虛擬網路) <br/><br/>10100、20100、30100 (如果您將 IR 加入傳統虛擬網路)| Data Factory 服務會使用這些連接埠與虛擬網路中的 Azure SSIS 整合執行階段節點進行通訊。 <br/><br/> 無論您是否有建立子網路層級的 NSG，Data Factory 一律會在連結至 Azure-SSIS IR 主控虛擬機器的網路介面卡 (NIC) 的層級上設定 NSG。 該 NIC 層級的 NSG 僅允許來自指定連接埠上 Data Factory IP 位址的輸入流量。 即使您在子網路層級上對網際網路流量開啟這些連接埠，只要流量不是來自 Data Factory 的 IP 位址，就會在 NIC 層級上遭到封鎖。 |
 | 輸出 | TCP | VirtualNetwork | * | AzureCloud<br/>(或較大的範圍，例如網際網路) | 443 | 虛擬網路中的 Azure-SSIS 整合執行階段節點會使用此連接埠來存取 Azure 服務，例如 Azure 儲存體和 Azure 事件中樞。 |

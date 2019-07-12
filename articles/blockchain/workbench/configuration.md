@@ -35,7 +35,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 * 允許將每個動作初始化的使用者角色
 * 代表程式碼檔案中商務邏輯的智慧合約
 
-## <a name="application"></a>Application
+## <a name="application"></a>應用程式
 
 區塊鏈應用程式包含組態中繼資料、工作流程，以及可在應用程式中採取行動或參與的使用者角色。
 
@@ -60,25 +60,25 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 | Description | 工作流程的說明。 | 否 | 255 |
 | Initiators | [ApplicationRoles](#application-roles) 的集合。 對已獲授權可在工作流程中建立合約的使用者所指派的角色。 | 是 | |
 | StartState | 工作流程初始狀態的名稱。 | 是 | |
-| properties | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | 是 | |
+| 屬性 | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | 是 | |
 | 建構函式 | 定義用於建立工作流程執行個體的輸入參數。 | 是 | |
 | 函式 | 可在工作流程中執行的[函式](#functions)集合。 | 是 | |
 | 狀態 | 工作流程[狀態](#states)的集合。 | 是 | |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
-## <a name="type"></a>類型
+## <a name="type"></a>type
 
 支援的資料類型。
 
-| 類型 | Description |
+| type | Description |
 |-------|-------------|
 | 位址  | 區塊鏈位址類型，例如「合約」  或「使用者」  。 |
 | array    | 類型為整數、布林、金額、或時間的單一層級陣列。 陣列可以是靜態或動態。 使用 **ElementType** 指定陣列中元素的資料類型。 請參閱[組態範例](#example-configuration-of-type-array)。 |
-| 布林     | 布林值資料類型。 |
+| bool     | 布林值資料類型。 |
 | 合約 | 合約類型的位址。 |
 | 列舉     | 列舉的具名值組。 使用列舉類型時，您也可以指定一份 EnumValues 清單。 每個值的上限為 255 個字元。 有效值的字元包括大小寫字母 (A-Z、a-z) 和數字 (0-9)。 請參閱 [Solidity 中的組態範例和用法](#example-configuration-of-type-enum)。 |
-| int      | 整數資料類型。 |
+| ssNoversion      | 整數資料類型。 |
 | money    | 金額資料類型。 |
 | state    | 工作流程狀態。 |
 | string  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
@@ -330,7 +330,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 | AllowedInstanceRoles | 參與或指定於智慧合約中、允許起始轉換的使用者角色清單。 執行個體角色會定義在工作流程的**屬性**中。 AllowedInstanceRoles 代表參與智慧合約執行個體的使用者。 AllowedInstanceRoles 可讓您對合約執行個體中的使用者角色限制採取動作。  例如，如果您只想讓建立合約的使用者 (InstanceOwner) 可以執行終止作業，而不是讓角色類型 (Owner) 中的所有使用者可這麼做，您可以在 AllowedRoles 中指定該角色。 | 否 |
 | DisplayName | 轉換的易記顯示名稱。 | 是 |
 | Description | 轉換的說明。 | 否 |
-| 函式 | 要起始轉換的函式名稱。 | 是 |
+| 函數 | 要起始轉換的函式名稱。 | 是 |
 | NextStates | 成功轉換之後下一個可能狀態的集合。 | 是 |
 
 ### <a name="transitions-example"></a>轉換範例

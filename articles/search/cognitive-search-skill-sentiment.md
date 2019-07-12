@@ -120,7 +120,7 @@ Microsoft.Skills.Text.SentimentSkill
 ## <a name="error-cases"></a>錯誤案例
 如果不支援語言，則會產生錯誤，並且不會傳回情感分數。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

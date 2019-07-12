@@ -40,7 +40,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 -   Azure-SSIS IR 上目前不支援系統管理共用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

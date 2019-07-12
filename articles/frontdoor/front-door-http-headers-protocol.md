@@ -33,7 +33,7 @@ ms.locfileid: "60736630"
 
 除非移除，因為限制，前端服務會包含從傳入要求的標頭。 前端也會加入下列標頭：
 
-| 頁首  | 範例和描述 |
+| 標頭  | 範例和描述 |
 | ------------- | ------------- |
 | Via |  透過：1.1 Azure </br> 前端將用戶端的 HTTP 版本，後面接著*Azure*做為 Via 標頭的值。 這表示用戶端的 HTTP 版本但該大門中繼的收件者的用戶端與後端之間的要求。  |
 | X-Azure-ClientIP | X-Azure-ClientIP:127.0.0.1 </br> 表示正在處理的要求相關聯的用戶端 IP 位址。 比方說，來自 proxy 的要求可能會將 X-轉送標頭來指出原始呼叫端的 IP 位址。 |
@@ -48,7 +48,7 @@ ms.locfileid: "60736630"
 
 從後端傳送至前端的任何標頭也傳遞給用戶端時。 以下是從前端傳送至用戶端的標頭。
 
-| 頁首  | 範例 |
+| 標頭  | 範例 |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X Azure 參考：0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> 這是唯一的參考字串，可識別由 Front Door 提供服務的要求。 這是很重要的疑難排解，因為它用來存取記錄檔中搜尋。|
 

@@ -28,7 +28,7 @@ ms.locfileid: "66155161"
 1. 建立連結的整合執行階段。
 1. 撤銷共用。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -21,7 +21,7 @@ ms.locfileid: "65509969"
 
 本文示範如何取得 Azure Blockchain Workbench 資料庫的詳細資料。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 使用 Blockchain Workbench SQL DB 中的資料庫檢視可提供應用程式、工作流程與智慧合約執行的相關資訊。 開發人員可以在使用如 Microsoft Excel、Power BI、Visual Studio 及 SQL Server Management Studio 等工具時運用此資訊。
 

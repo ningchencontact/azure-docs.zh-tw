@@ -31,7 +31,7 @@ ms.locfileid: "62105575"
 
 您可以使用觸發程序，從服務匯流排收到回應，並且讓輸出可供邏輯應用程式中的其他動作使用。 您也可以讓其他動作使用服務匯流排動作的輸出。 如果您是服務匯流排和 Logic Apps 的新手，請檢閱[什麼是 Azure 服務匯流排？](../service-bus-messaging/service-bus-messaging-overview.md) 以及[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 

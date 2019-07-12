@@ -1,6 +1,6 @@
 ---
 title: 在向外延展的雲端資料庫之間移動資料 | Microsoft Docs
-description: 介绍如何使用弹性数据库 API 通过自托管服务来操作分片和移动数据。
+description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -25,7 +25,7 @@ ms.locfileid: "66123359"
 
 分割合併工具執行的方式如同 Azure Web 服務。 系統管理員或開發人員使用工具在不同的資料庫 (分區) 之間移動 Shardlet (分區的資料)。 此工具會使用分區對應管理來維護服務中繼資料資料庫，並確保一致的對應。
 
-![概觀][1]
+![總覽][1]
 
 ## <a name="download"></a>下載
 
@@ -36,7 +36,7 @@ ms.locfileid: "66123359"
 1. [彈性資料庫分割合併工具教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 2. [Split-Merge 安全性設定](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [分割合併安全性考量](sql-database-elastic-scale-split-merge-security-configuration.md)
-4. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
+4. [分區對應管理](sql-database-elastic-scale-shard-map-management.md)
 5. [轉換現有的資料庫以使用彈性資料庫工具](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [彈性資料庫功能概觀](sql-database-elastic-scale-introduction.md)
 7. [彈性資料庫工具字彙](sql-database-elastic-scale-glossary.md)
@@ -218,7 +218,7 @@ ms.locfileid: "66123359"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 針對 NuGet 封裝所提供的 Web 和背景工作角色，若要使用診斷組態啟用監視和診斷，請使用 Azure PowerShell 執行下列命令：
 

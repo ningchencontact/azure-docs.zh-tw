@@ -41,7 +41,7 @@ ms.locfileid: "65780346"
 > [!div class="checklist"]
 > * 在 API 管理中新增外部快取
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要：
 
@@ -72,7 +72,7 @@ ms.locfileid: "65780346"
 3. 按一下 [+新增]  按鈕。
 4. 在 [快取執行個體]  下拉式欄位中選取您的快取。
 5. 選取 **預設**，或指定所需的區域中**使用從**下拉式清單中的欄位。
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>新增裝載於目前 Azure 訂用帳戶或整體 Azure 外的 Azure Redis 快取
 
@@ -82,7 +82,7 @@ ms.locfileid: "65780346"
 4. 在 [快取執行個體]  下拉式欄位中選取 [自訂]  。
 5. 選取 **預設**，或指定所需的區域中**使用從**下拉式清單中的欄位。
 6. 在 [連接字串]  欄位中提供您的「Azure Redis 快取」連接字串。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 ## <a name="use-the-external-cache"></a>使用外部快取
 

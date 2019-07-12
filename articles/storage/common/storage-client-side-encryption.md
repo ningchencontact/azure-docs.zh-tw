@@ -19,7 +19,7 @@ ms.locfileid: "65911932"
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [Azure Storage Client Library for.NET](/dotnet/api/overview/azure/storage/client)支援用戶端應用程式內的資料加密再上傳至 Azure 儲存體，並在下載至用戶端時解密資料。 程式庫也支援與 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/) 整合，以進行儲存體帳戶金鑰管理。
 
 如需引導您進行使用用戶端加密和 Azure 金鑰保存庫來加密 Blob 的逐步教學課程，請參閱 [在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)。

@@ -4,7 +4,7 @@ description: 如何執行容錯移轉至災害復原站台的 SAP HANA on Azure 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7d4f6216b4a57796ab5c0296713316dd97c47a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6454c82e3d9c73d1b5a4b2224abf1ab63a798355
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64987896"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709637"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>災害復原容錯移轉程序
 
@@ -53,7 +53,7 @@ ms.locfileid: "64987896"
 1. 關閉 HANA 您正在執行的 HANA 大型執行個體的災害復原單位上的非生產執行個體。 已預先安裝休眠的 HANA 生產執行個體。
 1. 確定沒有任何 SAP HANA 程序處於執行狀態。 使用下列命令進行這項檢查：
 
-      `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList` 。
+      `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`.
 
       您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
 1. 決定要讓災害復原網站還原到哪個快照集名稱或 SAP HANA 備份識別碼。 在真實的災害復原案例中，此快照集通常會是最新的快照集。 如果您需要復原遺失的資料，請挑選較早的快照集。

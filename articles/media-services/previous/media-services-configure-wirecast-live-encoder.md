@@ -33,7 +33,7 @@ ms.locfileid: "61232038"
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。 此工具只會在 Windows 電腦上執行。 如果您是用 Mac 或 Linux，請使用 Azure 入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
@@ -91,7 +91,7 @@ ms.locfileid: "61232038"
 2. 瀏覽至 [輸出]  索引標籤，並選取 [輸出設定...]  以設定輸出。
 
     請確定 [輸出目的地]  已設為 [RTMP Server]  。
-3. 按一下 [確定]  。
+3. 按一下 [確定 **Deploying Office Solutions**]。
 4. 在 [設定] 頁面上，將 [目的地]  欄位設為 [Azure 媒體服務]  。
 
     編碼設定檔已預先選取為 [Azure H.264 720p 16:9 (1280x720)]  。 若要自訂這些設定，請選取下拉式清單右邊的齒輪圖示，然後選擇 [新增預設]  。

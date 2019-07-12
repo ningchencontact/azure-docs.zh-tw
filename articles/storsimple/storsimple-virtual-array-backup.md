@@ -24,7 +24,7 @@ ms.locfileid: "60581232"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>備份 StorSimple Virtual Array 上的共用或磁碟區
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，可設定為檔案伺服器或 iSCSI 伺服器。 虛擬陣列可讓使用者為裝置上的所有共用或磁碟區建立排程備份和手動備份。 設為檔案伺服器時，也可進行項目層級的復原。 本教學課程說明如何建立排程備份和手動備份，以及執行項目層級復原來還原虛擬陣列上已刪除的檔案。
 
@@ -58,7 +58,7 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
    
     ![瀏覽至備份原則](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 ### <a name="take-a-manual-backup"></a>進行手動備份
 
@@ -90,7 +90,7 @@ StorSimple Virtual Array 有預設的備份原則會在每日特定時間 (22:30
    
     ![已完成的備份](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
-## <a name="view-existing-backups"></a>檢視現有的備份
+## <a name="view-existing-backups"></a>檢視現有備份
 若要檢視現有備份，請在 Azure 入口網站中執行下列步驟。
 
 #### <a name="to-view-existing-backups"></a>檢視現有備份

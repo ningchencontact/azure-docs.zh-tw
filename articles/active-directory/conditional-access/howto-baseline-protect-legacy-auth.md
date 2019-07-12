@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560929"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655716"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>基準原則：區塊舊有的驗證 （預覽）
 
@@ -25,9 +25,9 @@ ms.locfileid: "67560929"
 * 舊版 Office 用戶端未使用新式驗證 （例如，Office 2010 用戶端）
 * 使用舊版的郵件通訊協定，例如 IMAP/smtp/pop3 任何用戶端
 
-現在，所有危及登入嘗試的大部份是舊有的驗證。 舊有的驗證不支援多重要素驗證 (MFA)。 即使您有在您的目錄上啟用的 MFA 原則，不良執行者可以使用舊版的通訊協定進行驗證，並略過 MFA。
+現在，所有危及登入嘗試大多來自舊有的驗證。 舊有的驗證不支援多重要素驗證 (MFA)。 即使您有在您的目錄上啟用的 MFA 原則，不良執行者可以使用舊版的通訊協定進行驗證，並略過 MFA。
 
-若要從惡意的驗證要求所做的舊版通訊協定保護您的帳戶，最好是一起封鎖這些嘗試。 若要讓您更輕鬆地封鎖舊版通訊協定所做的所有登入要求，我們會建立僅具有基準原則。
+若要從惡意的驗證要求所做的舊版通訊協定保護您的帳戶，最好是完全封鎖這些嘗試。 為了讓您更輕鬆地保護您的環境，我們會建立區塊舊有的驗證此基準原則。
 
 **區塊舊有的驗證**已[基準原則](concept-baseline-protection.md)封鎖舊版通訊協定從進行的所有驗證要求。 已成功登入的所有使用者，就必須使用新式驗證。 其他的基準原則一起使用，所有來自舊版通訊協定的要求將遭到封鎖和所有使用者都都需要 mfa 時所需。 此原則不會封鎖 Exchange ActiveSync。
 
@@ -78,13 +78,13 @@ SharePoint Online 啟用新式驗證的預設值。 對於在 2017 年 8 月 1 �
 
 若要避免透過商務用 Skype 的舊有的驗證要求，就必須啟用新式驗證 skype for Business Online。 對於在 2017 年 8 月 1 日之後建立的目錄預設會啟用商務用 Skype 的新式驗證。
 
-若要啟用在商務用 Skype 的新式驗證，我們建議您轉換至 Microsoft Teams，而預設支援新式驗證。 不過，如果您是 tr 無法在這個階段，您必須啟用新式驗證 skype for Business Online，讓 Skype for Business 用戶端會開始使用新式驗證。 請遵循下列文章中的步驟[Skype 支援新式驗證的商務拓撲](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported)，如需啟用商務用 skype 的新式驗證的步驟。
+我們建議您轉換至 Microsoft Teams，而預設支援新式驗證。 不過，如果您無法將這一次移轉，您必須啟用新式驗證 skype for Business Online，讓 Skype for Business 用戶端可讓您開始使用新式驗證。 遵循這篇文章中的步驟[Skype 支援新式驗證的商務拓撲](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported)，若要啟用新式驗證的商務用 Skype。
 
-除了啟用新式驗證 skype for Business Online，我們建議新式驗證啟用 Exchange Online 啟用新式驗證的商務用 Skype。 此程序可協助您同步處理的新式驗證的 Exchange Online 和商務用 Skype online 狀態，而且，會造成多個登入提示 skype for Business 用戶端。
+除了啟用新式驗證 skype for Business Online，我們建議您啟用商務用 Skype 的新式驗證時，啟用 Exchange online 的新式驗證。 此程序可協助您同步處理的新式驗證的 Exchange Online 和商務用 Skype online 狀態，而且，會造成多個登入提示 skype for Business 用戶端。
 
 ### <a name="step-5-using-mobile-devices"></a>步驟 5：使用行動裝置
 
-在您的行動裝置上的應用程式必須封鎖以及舊版驗證。 我們建議使用 Outlook mobile。 Outlook Mobile 預設支援新式驗證，並將滿足其他 MFA 基準保護原則。
+在您的行動裝置上的應用程式必須封鎖以及舊版驗證。 我們建議使用 Outlook mobile。 Outlook 行動裝置的預設支援新式驗證，並將滿足其他 MFA 基準保護原則。
 
 若要使用原生 iOS 郵件用戶端，您必須執行 iOS 版本 11.0 或更新版本，以確定郵件用戶端已更新為封鎖舊有的驗證。
 
@@ -92,9 +92,10 @@ SharePoint Online 啟用新式驗證的預設值。 對於在 2017 年 8 月 1 �
 
 如果您是使用企業內部部署 Exchange Server 內部部署和 Skype 的混合式客戶時，這兩項服務必須更新，才能啟用新式驗證。 當混合式環境中使用新式驗證，您仍要驗證使用者內部部署。 授權其存取資源 （檔案或電子郵件） 變更故事。
 
-您可以開始啟用新式驗證內部部署之前，先確定您符合 theIf 符合需求，您現在可以準備啟用新式驗證內部部署。
+啟用新式驗證內部部署之前，請務必確定您符合必要條件。
+您現在可以準備啟用新式驗證內部部署。
 
-啟用新式驗證的步驟請參閱下列文章：
+啟用新式驗證的步驟，請參閱下列文章：
 
 * [如何設定 Exchange Server 內部部署使用混合式新式驗證](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [如何以新式驗證 (ADAL) 使用商務用 Skype](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
@@ -113,7 +114,7 @@ SharePoint Online 啟用新式驗證的預設值。 對於在 2017 年 8 月 1 �
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [條件式存取基準保護原則](concept-baseline-protection.md)
 * [可保護身分識別基礎結構的五個步驟](../../security/azure-ad-secure-steps.md)

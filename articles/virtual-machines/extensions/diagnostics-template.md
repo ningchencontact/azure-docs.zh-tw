@@ -4,7 +4,7 @@ description: 使用 Azure Resource Manager 範本來建立新的 Windows 虛擬�
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800008"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706763"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷
 Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提供監視和診斷功能。 您可以將擴充功能納入為 Azure Resource Manager 範本的一部分，在虛擬機器上啟用這些功能。 請參閱 [使用 VM 延伸模組編寫 Azure 資源管理員範本](../windows/template-description.md#extensions) ，以取得將任何延伸模組納入為虛擬機器範本一部分的詳細資訊。 本文描述如何將 Azure 診斷延伸模組新增至 Windows 虛擬機器範本。  
@@ -63,7 +63,7 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 ]
 ```
 
-另一個常見的慣例是在範本的根資源節點新增擴充功能組態，而不是在虛擬機器的資源節點底下定義。 使用這個方法時，您必須以「名稱」  和「類型」  值明確指定擴充功能與虛擬機器之間的階層式關係。 例如︰ 
+另一個常見的慣例是在範本的根資源節點新增擴充功能組態，而不是在虛擬機器的資源節點底下定義。 使用這個方法時，您必須以「名稱」  和「類型」  值明確指定擴充功能與虛擬機器之間的階層式關係。 例如: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",

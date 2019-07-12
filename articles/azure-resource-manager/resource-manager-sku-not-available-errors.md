@@ -26,7 +26,7 @@ ms.locfileid: "60390733"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 在部署資源 (通常是虛擬機器) 時，您可能會收到下列錯誤碼和錯誤訊息︰
 

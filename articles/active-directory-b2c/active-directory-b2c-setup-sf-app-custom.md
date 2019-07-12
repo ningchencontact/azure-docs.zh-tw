@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者 | Microsoft Docs
+title: 在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者
 description: 在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者。
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508310"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654183"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者
 
@@ -31,11 +31,11 @@ ms.locfileid: "66508310"
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>將 Salesforce 設定為識別提供者
 
-1. [登入 Salesforce](https://login.salesforce.com/)。 
+1. [登入 Salesforce](https://login.salesforce.com/)。
 2. 在左側功能表的 [設定]  下，展開 [身分識別]  ，然後選取 [識別提供者]  。
 3. 選取 [啟用識別提供者]  。
-4. 在 [選取憑證]  下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 您可以使用預設憑證。 
-5. 按一下 [檔案]  。 
+4. 在 [選取憑證]  下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 您可以使用預設憑證。
+5. 按一下 [儲存]  。
 
 ### <a name="create-a-connected-app-in-salesforce"></a>在 Salesforce 中建立連線應用程式
 
@@ -49,7 +49,7 @@ ms.locfileid: "66508310"
       ```
 
 6. 在 [ACS URL]  欄位中，輸入下列 URL。 請確保使用 Azure AD B2C 租戶的名稱替換 `your-tenant` 的值。
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -90,17 +90,17 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]  。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]  。
 5. 選取 [原則金鑰]  ，然後選取 [新增]  。
 6. 針對 [選項]  選擇 `Upload`。
 7. 輸入原則的 [名稱]  。 例如，SAMLSigningCert。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
-8. 瀏覽並選取您所建立的 B2CSigningCert.pfx 憑證。 
+8. 瀏覽並選取您所建立的 B2CSigningCert.pfx 憑證。
 9. 輸入憑證的 [密碼]  。
-3. 按一下頁面底部的 [新增]  。
+3. 按一下 [建立]  。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
-如果想要讓使用者使用 Salesforce 帳戶進行登入，您必須將該帳戶定義為 Azure AD B2C 能夠透過端點與之通訊的宣告提供者。 此端點會提供一組宣告，由 Azure AD B2C 用來確認特定使用者已驗證。 
+如果想要讓使用者使用 Salesforce 帳戶進行登入，您必須將該帳戶定義為 Azure AD B2C 能夠透過端點與之通訊的宣告提供者。 此端點會提供一組宣告，由 Azure AD B2C 用來確認特定使用者已驗證。
 
 您可以藉由將 Salesforce 帳戶新增至原則擴充檔中的 **ClaimsProviders** 元素，將其定義成宣告提供者。
 
@@ -166,7 +166,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInSalesforce`。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInSalesforce` 。
 
 ### <a name="display-the-button"></a>顯示按鈕
 
@@ -189,8 +189,8 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `LinkedIn-OAUTH`。
+
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `LinkedIn-OAUTH` 。
 
 3. 儲存 TrustFrameworkExtensions.xml  檔案，並再次上傳它以供驗證。
 
@@ -204,14 +204,14 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 4. 選取 [應用程式]  ，然後選取 [新增]  。
 5. 輸入應用程式的名稱，例如 testapp1  。
 6. 針對 [Web 應用程式 / Web API]  ，選取 `Yes`，然後y在 [回覆 URL]  欄位輸入 `https://jwt.ms`。
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖:
 
 1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInSalesforce.xml*。
-2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInSalesforce`。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInSalesforce` 。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如：`http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignInSalesforce) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。

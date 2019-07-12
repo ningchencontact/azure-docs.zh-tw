@@ -53,7 +53,7 @@ Linux 診斷擴充功能可協助使用者監視在 Microsoft Azure 上執行的
 
 * **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您的電腦上[設定 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
-* Wget 命令，如果您沒有：运行 `sudo apt-get install wget`。
+* Wget 命令，如果您沒有：執行 `sudo apt-get install wget`。
 * 現有的 Azure 訂用帳戶與其中現有的儲存體帳戶以儲存資料。
 * 支援的 Linux 散發套件清單位於 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -167,7 +167,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 
 此選擇性區段會定義額外的目的地，讓擴充功能可將收集到的資訊傳送到該目的地。 "sink" 陣列包含每個額外資料接收的物件。 "type" 屬性可決定物件中的其他屬性。
 
-元素 | 值
+項目 | 值
 ------- | -----
 name | 用來在擴充功能組態中的其他位置參考此接收的字串。
 type | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
@@ -271,7 +271,7 @@ sampleRateInSeconds | (選擇性) 原始 (未彙總) 計量集合之間的預設
 
 元素 | 值
 ------- | -----
-ResourceId | VM 所屬之 VM 或虛擬機器擴展集的 Azure Resource Manager 資源 ID。 如果在組態中使用任何的 JsonBlob 接收，則亦須指定此設定。
+resourceId | VM 所屬之 VM 或虛擬機器擴展集的 Azure Resource Manager 資源 ID。 如果在組態中使用任何的 JsonBlob 接收，則亦須指定此設定。
 scheduledTransferPeriod | 系統會計算彙總計量的頻率並傳輸至 Azure 計量 (以 IS 8601 時間間隔表示)。 最小傳輸期間為 60 秒，亦即 PT1M。 您必須指定至少一個 scheduledTransferPeriod。
 
 系統每隔 15 秒或以為計數器明確定義的採樣速率收集在 performanceCounters 區段中指定的計量樣本。 如果顯示多個 scheduledTransferPeriod 頻率 (如範例所述)，則會獨立計算每個彙總。

@@ -65,7 +65,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 * 在容錯移轉時建立 VM 時，VM 將連接的 Azure 虛擬網路。 Azure 虛擬網路所在的區域必須與 Site Recovery 執行的區域相同。
 * 用來儲存複寫記錄的 Azure 標準儲存體帳戶。 這可以是和所要移轉之 VM 磁碟相同的儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 了解上一節的相關移轉案例元件。
 * 了解 [Site Recovery 中的容錯移轉](../../site-recovery/site-recovery-failover.md)中的容錯移轉，以規劃停機時間。

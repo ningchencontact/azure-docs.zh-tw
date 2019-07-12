@@ -24,7 +24,7 @@ ms.locfileid: "62127857"
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>StorSimple Virtual Array 有何限制？
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 當您規劃、部署和操作 Microsoft Azure StorSimple Virtual Array 時，請考慮這些限制。 下表描述虛擬裝置的這些限制。
 
 ## <a name="storsimple-virtual-array-limits"></a>StorSimple Virtual Array 限制

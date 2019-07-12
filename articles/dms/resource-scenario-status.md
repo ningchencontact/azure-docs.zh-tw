@@ -39,15 +39,15 @@ Azure 資料庫移轉服務的設計可同時支援不同的移轉案例 （來�
 ### <a name="offline-one-time-migration-support"></a>離線 (單次) 移轉支援
 下表顯示適用於離線移轉的「Azure 資料庫移轉服務」支援。
 
-| 目標  | source | 支援 | 狀態 |
+| 目標  | Source | 支援 | 狀態 |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
+| **Azure SQL DB** | [SQL Server] | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+| **Azure SQL DB MI** | [SQL Server] | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **Azure SQL VM** | SQL Server | ✔ | GA |
+| **Azure SQL VM** | [SQL Server] | ✔ | GA |
 |   | Oracle |   |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | 公開預覽版 |
 | **適用於 MySQL 的 Azure DB** | MySQL |   |   |
@@ -58,15 +58,15 @@ Azure 資料庫移轉服務的設計可同時支援不同的移轉案例 （來�
 ### <a name="online-continuous-sync-migration-support"></a>線上 (持續同步) 移轉支援
 下表顯示適用於線上移轉的「Azure 資料庫移轉服務」支援。
 
-| 目標  | source | 支援 | 狀態 |
+| 目標  | Source | 支援 | 狀態 |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Azure SQL DB** | SQL Server | ✔ | GA |
+| **Azure SQL DB** | [SQL Server] | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle |  |  |
-| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+| **Azure SQL DB MI** | [SQL Server] | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle | ✔ | 個人預覽版 |
-| **Azure SQL VM** | SQL Server |   |   |
+| **Azure SQL VM** | [SQL Server] |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | 公開預覽版 |
 | **適用於 MySQL 的 Azure DB** | MySQL | ✔ | GA |

@@ -365,7 +365,7 @@ foreach($labVM in $labVMs)
 
 ### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>如何確保開發和測試虛擬機器無法連線到公用網際網路？ 是否有任何可用來設定網路設定的建議模式？
 
-是。 有兩個需要考慮的層面：輸入和輸出流量。
+是的。 有兩個需要考慮的層面：輸入和輸出流量。
 
 - **輸入流量**-如果虛擬機器沒有公用 IP 位址，則無法透過網際網路連線。 常見的方法是確定訂用帳戶層級原則已設定，使得沒有任何使用者可以建立公用 IP 位址。
 - **輸出流量**– 如果您想要防止直接存取公用網際網路的虛擬機器，並強制流量通過公司的防火牆，則您可以路由傳送流量內部透過 express route 或 VPN，藉由強制路由。

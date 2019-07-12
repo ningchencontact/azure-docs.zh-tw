@@ -277,13 +277,13 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>結構描述預設值、限制及範例
 
-| JSON 屬性 | 類型 | 必要項 | 預設值 | 有效值 | 範例 |
+| JSON 屬性 | type | 必要項 | 預設值 | 有效值 | 範例 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | 字串 | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | 物件 | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | 否 | 1 | 1 到 1000 | `"interval":10` |
-| **endTime** | 字串 | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | 物件 | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | string | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 屬性
 下表說明 **startTime** 屬性如何控制觸發程序執行：

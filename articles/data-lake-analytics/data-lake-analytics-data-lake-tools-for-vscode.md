@@ -22,7 +22,7 @@ ms.locfileid: "60508892"
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure Data Lake Tools for VS Code 支援 Windows、Linux 與 macOS。 U-SQL 本機執行與本機偵錯僅適用於 Windows。
 

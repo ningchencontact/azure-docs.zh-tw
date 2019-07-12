@@ -51,7 +51,7 @@ Azure Site Recovery 會以一致方式將資料從來源區域複寫到災害復
 進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
 進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MB/秒 | 每個磁碟 842 GB
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 Azure Site Recovery 的資料變更率限制是以磁碟類型為基礎。 若要知道此問題為重複發生或暫時發生，請尋找受影響虛擬機器的資料變更率。 移至來源虛擬機器，在 [監視]  底下尋找計量，並新增如此螢幕擷取畫面所示的計量：
 
 ![尋找資料變更率的三步驟程序](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)

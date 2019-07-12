@@ -29,7 +29,7 @@ ms.locfileid: "65967965"
 - 作業系統安全性組態的建議事項會在 48 小時內更新
 - 端點保護問題的建議會在 8 小時內更新
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 此案例示範如何使用資訊安全中心，透過監控資訊安全中心建議並採取動作，以協助降低發生安全性事件的機會。 此案例使用虛構公司 Contoso，以及資訊安全中心[規劃與操作指南](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)中出現的角色。 在此案例中，我們著重於下列人物的角色：
 
 ![案例角色](./media/security-center-using-recommendations/scenario-roles.png)

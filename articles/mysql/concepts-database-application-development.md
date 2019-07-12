@@ -33,7 +33,7 @@ ms.locfileid: "60615643"
 ## <a name="security"></a>安全性
 適用於 MySQL 的 Azure 資料庫提供資源，以便在 MySQL 資料庫上限制存取、保護資料、設定使用者和角色，以及監視活動。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 適用於 MySQL 的 Azure 資料庫支援使用者與登入的伺服器驗證。
 
 ## <a name="resiliency"></a>災害復原

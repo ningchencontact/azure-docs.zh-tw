@@ -29,7 +29,7 @@ ms.locfileid: "65806382"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 資料路徑會經由網際網路嗎？  
 
-沒有。 NFS 資料路徑就不會經過網際網路。 Azure 的 NetApp 檔案是一種 Azure 的原生服務，部署到 Azure 虛擬網路 (VNet) 服務可使用的。 Azure 的 NetApp 檔案會使用委派的子網路，並佈建的網路介面，直接在 VNet 上。 
+資料分割 NFS 資料路徑就不會經過網際網路。 Azure 的 NetApp 檔案是一種 Azure 的原生服務，部署到 Azure 虛擬網路 (VNet) 服務可使用的。 Azure 的 NetApp 檔案會使用委派的子網路，並佈建的網路介面，直接在 VNet 上。 
 
 請參閱[指導方針適用於 Azure NetApp 檔案的網路規劃](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)如需詳細資訊。  
 
@@ -150,7 +150,7 @@ Azure 的 NetApp 檔案提供容量集區和磁碟區使用量計量。 您也�
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>可以管理透過 Azure 儲存體總管的 Azure NetApp 檔案嗎？
 
-沒有。 Azure 儲存體總管不支援 azure NetApp 檔案。
+資料分割 Azure 儲存體總管不支援 azure NetApp 檔案。
 
 ## <a name="data-migration-and-protection-faqs"></a>資料移轉和保護的常見問題集
 
@@ -184,11 +184,11 @@ NetApp 提供基礎的 SaaS 解決方案， [NetApp 雲端同步](https://cloud.
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>使用 Azure 資料箱支援已移轉？
 
-沒有。 Azure 資料箱不目前支援 Azure NetApp 檔案。 
+資料分割 Azure 資料箱不目前支援 Azure NetApp 檔案。 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>使用 Azure 匯入/匯出服務支援會移轉嗎？
 
-沒有。 Azure 匯入/匯出服務不目前支援 Azure NetApp 檔案。
+資料分割 Azure 匯入/匯出服務不目前支援 Azure NetApp 檔案。
 
 ## <a name="next-steps"></a>後續步驟  
 

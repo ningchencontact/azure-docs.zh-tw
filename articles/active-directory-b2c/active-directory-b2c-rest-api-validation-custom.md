@@ -36,7 +36,7 @@ IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 與 AP
 
 我們可以驗證使用者在設定檔編輯中所提供的名稱不在排除清單中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 - 要互動的 REST API 端點。 針對這個逐步解說，我們設定了名為 [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) 的示範網站，其中含有一個 REST API 服務。

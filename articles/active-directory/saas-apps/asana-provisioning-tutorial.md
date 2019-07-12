@@ -27,7 +27,7 @@ ms.locfileid: "65964216"
 
 本教學課程旨在說明您需要在 Asana 和 Azure Active Directory (Azure AD) 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Asana。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 

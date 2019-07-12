@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f2115ee14b58030f695c9410870615f03d353cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df59766ce38ac81568570cd6544ee28808ff8249
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734955"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807019"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>疑難排解狀態監視 v2
 
@@ -98,15 +98,16 @@ HttpModule 無法插入此共用的設定。
 執行命令`Get-Command -Module Az.ApplicationMonitor`以取得可用的命令：
 
 ```
-Command type     Name                                               Version    Source
+CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Disable-ApplicationInsightsMonitoring              0.2.1      Az.ApplicationMonitor
-Cmdlet          Disable-InstrumentationEngine                      0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-ApplicationInsightsMonitoring               0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-InstrumentationEngine                       0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.2.1      Az.ApplicationMonitor
-Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
+Cmdlet          Disable-ApplicationInsightsMonitoring              0.4.0      Az.ApplicationMonitor
+Cmdlet          Disable-InstrumentationEngine                      0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-ApplicationInsightsMonitoring               0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-InstrumentationEngine                       0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.4.0      Az.ApplicationMonitor
+Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>判斷目前的狀態監視器 v2 模組版本
@@ -130,7 +131,7 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.2.1      Az
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>使用 PerfView 來收集 ETW 記錄檔
 
-#### <a name="setup"></a>設定
+#### <a name="setup"></a>安裝程式
 
 1. 下載 PerfView.exe 和從 PerfView64.exe [GitHub](https://github.com/Microsoft/perfview/releases)。
 2. 啟動 PerfView64.exe。

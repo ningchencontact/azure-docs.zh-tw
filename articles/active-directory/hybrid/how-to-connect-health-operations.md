@@ -102,7 +102,7 @@ Azure AD Connect Health 的[角色型存取控制 (RBAC)](../../role-based-acces
 ### <a name="roles"></a>角色
 Azure AD Connect Health 支援下列內建角色：
 
-| 角色 | 權限 |
+| Role | Permissions |
 | --- | --- |
 | 擁有者 |擁有者可以在 Azure AD Connect Health 內「管理存取」  (例如將角色指派給使用者或群組)、「檢視入口網站中的所有資訊」  (例如檢視警示)，以及「變更設定」  (例如電子郵件通知)。 <br>預設會指派此角色給 Azure AD 全域管理員，而且無法變更。 |
 | 參與者 |參與者可以在 Azure AD Connect Health 內「檢視入口網站中的所有資訊」  (例如檢視警示)，以及「變更設定」  (例如電子郵件通知)。 |

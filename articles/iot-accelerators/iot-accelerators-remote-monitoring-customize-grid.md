@@ -24,7 +24,7 @@ ms.locfileid: "61447092"
 
 本文中的方格範例會顯示來自服務的資料，而[在遠端監視解決方案加速器 Web UI 中新增自訂服務](iot-accelerators-remote-monitoring-customize-service.md)操作說明文章會說明新增方式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本操作指南中的部署，您必須在本機開發機器上安裝下列軟體：
 

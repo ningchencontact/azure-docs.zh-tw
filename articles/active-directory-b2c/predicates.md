@@ -10,32 +10,32 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512956"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835636"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Predicates** 和 **PredicateValidations** 元素可讓您執行驗證程序，以確保只能在您的 Azure Active Directory (Azure AD) B2C 租用戶中輸入正確格式的資料。  
+**Predicates** 和 **PredicateValidations** 元素可讓您執行驗證程序，以確保只能在您的 Azure Active Directory (Azure AD) B2C 租用戶中輸入正確格式的資料。
 
-下圖顯示元素之間的關聯性：  
+下圖顯示元素之間的關聯性：
 
-![述詞](./media/predicates/predicates.png)
+![此圖顯示述詞和述詞驗證的關聯性](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>述詞  
+## <a name="predicates"></a>述詞
 
 **Predicate** 元素會定義基本驗證來檢查宣告類型的值，並傳回 `true` 或 `false`。 您可以使用指定的 **Method** 元素及與該方法相關聯的一組 **Parameter** 元素來完成驗證。 例如，述詞可以檢查字串宣告值的長度是否介於所指定 Minimum 和 Maximum 參數的範圍內，或者字串宣告值是否包含字元集。 **UserHelpText** 元素會在檢查失敗時，為使用者提供錯誤訊息。 **UserHelpText** 元素的值可以使用[語言自訂](localization.md)進行當地語系化。
 
 **Predicates** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | 述詞清單。 | 
+| Predicate | 1:n | 述詞清單。 |
 
 **Predicate** 元素包含下列屬性：
 
@@ -46,16 +46,16 @@ ms.locfileid: "66512956"
 
 **Predicate** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 檢查失敗時提供給使用者的錯誤訊息。 此字串可以使用[語言自訂](localization.md)進行當地語系化。 |
-| 參數 | 1:1 | 適用於字串驗證方法類型的參數。 | 
+| 參數 | 1:1 | 適用於字串驗證方法類型的參數。 |
 
 **Parameters** 元素包含下列元素：
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| 參數 | 1:n | 適用於字串驗證方法類型的參數。 | 
+| 參數 | 1:n | 適用於字串驗證方法類型的參數。 |
 
 **Parameter** 元素包含下列屬性：
 
@@ -108,7 +108,7 @@ ms.locfileid: "66512956"
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 當述詞定義驗證以針對宣告類型進行檢查時，**PredicateValidations** 會群組一組述詞，以形成可套用至宣告類型的使用者輸入驗證。 每個 **PredicateValidation** 元素均包含一組 **PredicateGroup** 元素，其中包含一組指向 **Predicate** 的 **PredicateReference** 元素。 若要通過驗證，宣告的值應該在所有的 **PredicateGroup** 下方，使用它們的 **PredicateReference** 元素組來傳遞任何述詞的所有測試。
 
@@ -134,7 +134,7 @@ ms.locfileid: "66512956"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | 述詞驗證清單。 | 
+| PredicateValidation | 1:n | 述詞驗證清單。 |
 
 **PredicateValidation** 元素包含下列屬性：
 
@@ -146,13 +146,13 @@ ms.locfileid: "66512956"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | 述詞群組清單。 | 
+| PredicateGroups | 1:n | 述詞群組清單。 |
 
 **PredicateGroups** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | 述詞清單。 | 
+| PredicateGroup | 1:n | 述詞清單。 |
 
 **PredicateGroup** 元素包含下列屬性：
 
@@ -164,8 +164,8 @@ ms.locfileid: "66512956"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  述詞的說明，有助於使用者了解他們應輸入的值。 | 
-| PredicateReferences | 1:n | 述詞參考清單。 | 
+| UserHelpText | 1:1 |  述詞的說明，有助於使用者了解他們應輸入的值。 |
+| PredicateReferences | 1:n | 述詞參考清單。 |
 
 **PredicateReferences** 元素包含下列屬性：
 
@@ -177,7 +177,7 @@ ms.locfileid: "66512956"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | 對述詞的參考。 | 
+| PredicateReference | 1:n | 對述詞的參考。 |
 
 **PredicateReference** 元素包含下列屬性：
 
@@ -188,7 +188,7 @@ ms.locfileid: "66512956"
 
 ## <a name="configure-password-complexity"></a>設定密碼複雜度
 
-利用 **Predicates** 和 **PredicateValidationsInput**，您可以控制使用者在建立帳戶時所提供密碼的複雜度需求。 根據預設，Azure AD B2C 會使用強式密碼。 Azure AD B2C 也支援組態選項，可控制客戶可以使用的密碼複雜度。 您可以使用這些述詞元素來定義密碼複雜度： 
+利用 **Predicates** 和 **PredicateValidationsInput**，您可以控制使用者在建立帳戶時所提供密碼的複雜度需求。 根據預設，Azure AD B2C 會使用強式密碼。 Azure AD B2C 也支援組態選項，可控制客戶可以使用的密碼複雜度。 您可以使用這些述詞元素來定義密碼複雜度：
 
 - 使用 `IsLengthRange` 方法的 **IsLengthBetween8And64**，驗證密碼長度必須介於 8 到 64 個字元之間。
 - 使用 `IncludesCharacters` 方法的 **Lowercase**，驗證密碼包含小寫字母。
@@ -348,7 +348,7 @@ ms.locfileid: "66512956"
 
 以下顯示當 Azure AD B2C 顯示錯誤訊息時組織元素的方式：
 
-![述詞處理程序](./media/predicates/predicates-pass.png)
+![述詞和 PredicateGroup 密碼複雜度範例的圖表](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>設定日期範圍
 
@@ -382,8 +382,8 @@ ms.locfileid: "66512956"
 </PredicateValidations>
 ```
 
-在您的宣告類型中，新增 **PredicateValidationReference** 元素，並將識別碼指定為 `CustomDateRange`。 
-    
+在您的宣告類型中，新增 **PredicateValidationReference** 元素，並將識別碼指定為 `CustomDateRange`。
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

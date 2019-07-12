@@ -25,7 +25,7 @@ Azure 監視器可藉由提供全方位的解決方案，以便收集、分析�
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 下圖提供 Azure 監視器的高階檢視。 圖表的中間是計量和記錄的資料存放區，而這兩者是 Azure 監視器所用資料的兩個基本類型。 左邊的[監視資料來源](platform/data-sources.md)會填入這些[資料存放區](platform/data-platform.md)。 右邊是 Azure 監視器對此收集資料執行的不同功能，例如分析、警示及串流處理至外部系統。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -114,7 +114,7 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 
 ![儀表板](media/overview/dashboard.png)
 
-### <a name="views"></a>Views
+### <a name="views"></a>檢視
 [[檢視]](../log-analytics/log-analytics-view-designer.md) 會以視覺化方式在 Azure 監視器中呈現記錄資料。  每個檢視都包含單一圖格，該圖格可向下切入至視覺效果的組合，例如長條圖和折線圖 (摘要重要資料的清單除外)。  監視解決方案包含可摘要特定應用程式資料的檢視，而且您可以建立自己的檢視，以呈現來自任何記錄查詢的資料。 如何 Azure 監視器中的其他元素，可以將檢視新增至 Azure 儀表板。
 
 ![檢視](media/overview/view.png)

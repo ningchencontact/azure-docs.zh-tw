@@ -26,7 +26,7 @@ ms.locfileid: "65076296"
 
 了解如何在 Microsoft 身分識別平台上建置的 web 應用程式登入的使用者，以及呼叫 web Api，代表已登入的使用者。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "65076296"
 > [!div class="nextstepaction"]
 > [Web 應用程式登入使用者](scenario-web-app-sign-user-overview.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 您可以將驗證加入您的 Web 應用程式，因此可以在使用者登入，並呼叫 web API 代表登入的使用者。
 
