@@ -2,17 +2,17 @@
 title: 運算子最佳做法 - Azure Kubernetes Services (AKS) 中的進階排程器功能
 description: 了解叢集運算子在 Azure Kubernetes Service (AKS) 中使用進階排程器功能 (如污點和容差、節點選取器和親和性，或 Inter-pod 親和性和反親和性) 的最佳作法
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055626"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614867"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
@@ -73,7 +73,7 @@ spec:
 
 套用污點時，請與應用程式開發人員和擁有者合作，以允許他們在部署中定義必要的容差。
 
-如需污點和容差的相關詳細資訊，請參閱[套用污點和容差][k8s-taints-tolerations]。
+Taints 和 tolerations 相關的詳細資訊，請參閱[套用 taints 和 tolerations][k8s-taints-tolerations]。
 
 如需如何使用 AKS 中的多個節點集區的詳細資訊，請參閱[建立及管理在 AKS 叢集中多個節點的集區][use-multiple-node-pools]。
 
@@ -130,7 +130,7 @@ spec:
 
 當您使用這些排程器選項時，請與應用程式開發人員和擁有者一起使用，以允許他們正確定義其 pod 規範。
 
-如需使用節點選取器的詳細資訊，請參閱[將 Pod 指派給節點][k8s-node-selector]。
+如需使用節點選取器的詳細資訊，請參閱 <<c0> [ 指派給節點的 Pod][k8s-node-selector]。
 
 ### <a name="node-affinity"></a>節點親和性
 
@@ -166,7 +166,7 @@ spec:
 
 設定的 *IgnoredDuringExecution* 部分指出如果節點標籤發生變更，則不應從節點中刪除該 pod。 Kubernetes 排程器僅對正在排程的新 pod，而不是已在節點上排程的 pod 使用更新的節點標籤。
 
-如需詳細資訊，請參閱[親和性和反親和性][k8s-affinity]。
+如需詳細資訊，請參閱 <<c0> [ 親和性和反親和性][k8s-affinity]。
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Inter-pod 親和性和反親和性
 
@@ -179,13 +179,13 @@ Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-這個範例比使用節點選取器或節點親和性更複雜。 透過該部署，您可以控制 Kubernetes 在節點上排程 pod 的方式，並可以邏輯方式隔離資源。 如需此 Web 應用程式使用 Azure Cache for Redis 範例的完整範例，請參閱[在相同的節點上共置 Pod][k8s-pod-affinity]。
+這個範例比使用節點選取器或節點親和性更複雜。 透過該部署，您可以控制 Kubernetes 在節點上排程 pod 的方式，並可以邏輯方式隔離資源。 例如 Redis Azure 快取與此 web 應用程式的完整範例，請參閱[共置在相同節點上的 pod][k8s-pod-affinity]。
 
 ## <a name="next-steps"></a>後續步驟
 
 這篇文章著重於 Kubernetes 排程器的進階功能。 如需 AKS 中叢集作業的相關詳細資訊，請參閱下列最佳作法：
 
-* [多租用戶和叢集隔離][aks-best-practices-scheduler]
+* [多租用戶和叢集的隔離][aks-best-practices-scheduler]
 * [基本的 Kubernetes 排程器功能][aks-best-practices-scheduler]
 * [驗證和授權][aks-best-practices-identity]
 

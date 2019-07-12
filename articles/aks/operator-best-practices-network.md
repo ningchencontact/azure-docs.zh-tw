@@ -2,17 +2,17 @@
 title: 操作員最佳做法 - Azure Kubernetes Services (AKS) 中的網路連線
 description: 了解叢集操作員在 Azure Kubernetes Service (AKS) 中使用虛擬網路資源和進行連線時的最佳做法
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65192225"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614758"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路連線和安全性最佳做法
 
@@ -32,8 +32,8 @@ ms.locfileid: "65192225"
 
 虛擬網路會提供存取您應用程式的基本連線能力給 AKS 節點和客戶。 將 AKS 叢集部署到虛擬網路有兩種不同的方式：
 
-* **Kubenet 網路功能** - Azure 會在叢集部署好之後管理虛擬網路資源，並使用 [kubenet][kubenet] Kubernetes 外掛程式。
-* **Azure CNI 網路功能** - 部署到現有的虛擬網路中，並使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。 Pod 會收到可路由到其他網路服務或內部部署資源的個別 IP。
+* **網路 Kubenet** -Azure 管理的虛擬網路資源的叢集部署，並使用[kubenet][kubenet] Kubernetes 外掛程式。
+* **Azure CNI 網路**-部署到現有的虛擬網路，並使用[Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。 Pod 會收到可路由到其他網路服務或內部部署資源的個別 IP。
 
 容器網路介面 (CNI) 是一個「廠商中立」通訊協定，可讓容器執行階段對網路提供者提出要求。 Azure CNI 會將 IP 位址指派給 Pod 和節點，並在您連線至現有 Azure 虛擬網路時提供 IP 位址管理 (IPAM) 功能。 每個節點和 Pod 資源都會收到 Azure 虛擬網路中的 IP 位址，並且不需要使用額外路由來與其他資源或服務通訊。
 
@@ -45,11 +45,11 @@ ms.locfileid: "65192225"
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-如需有關 AKS 服務主體委派的詳細資訊，請參閱[委派其他 Azure 資源的存取權][sp-delegation]。
+如需有關 AKS 服務主體委派的詳細資訊，請參閱[存取權委派給其他 Azure 資源][sp-delegation]。
 
 當每個節點和 Pod 收到自己的 IP 位址時，請規劃 AKS 子網路的位址範圍。 子網路必須夠大，才能為您部署的每個節點、Pod 和網路資源提供 IP 位址。 每個 AKS 叢集必須放在自己的子網路中。 若要在 Azure 中允許對內部部署或對等互連網路進行連線，請不要使用與現有網路資源重疊的 IP 位址範圍。 Kubenet 和 Azure CNI 網路功能都有預設每個節點可執行的 Pod 數目限制。 若要處理相應增加事件或叢集升級，您也需要其他可在所指派子網路中使用的 IP 位址。 這個額外的位址空間是特別重要，如果您將使用 Windows Server 容器 （目前處於預覽 AKS 中），因為這些節點的集區需要升級至套用最新的安全性修補程式。 如需有關 Windows 伺服器節點的詳細資訊，請參閱[升級 AKS 中的節點集區][nodepool-upgrade]。
 
-若要計算所需的 IP 位址，請參閱[在 AKS 中設定 Azure CNI 網路功能][advanced-networking]。
+若要計算的 IP 位址有需要，請參閱[AKS 中的設定 Azure CNI 網路][advanced-networking]。
 
 ### <a name="kubenet-networking"></a>Kubenet 網路功能
 
@@ -58,7 +58,7 @@ ms.locfileid: "65192225"
 * 節點和 Pod 放置於不同的 IP 子網路。 使用者定義路由 (UDR) 和 IP 轉送會用來路由 Pod 和節點之間的流量。 這個額外的路由會降低網路效能。
 * 連線至現有內部部署網路或與其他 Azure 虛擬網路對等互連可能會很複雜。
 
-Kubenet 適用於小型的開發或測試工作負載，因為您不需要從 AKS 叢集分別建立虛擬網路和子網路。 使用 Kubenet 網路功能部署的簡單 AKS 叢集適用於流量低的簡易網站，或用於將工作負載隨即轉移到容器中。 您應對大部分的生產環境部署規劃並使用 Azure CNI 網路功能。 您也可以[使用 Kubenet 設定自己的 IP 位址範圍和虛擬網路][aks-configure-kubenet-networking]。
+Kubenet 適用於小型的開發或測試工作負載，因為您不需要從 AKS 叢集分別建立虛擬網路和子網路。 使用 Kubenet 網路功能部署的簡單 AKS 叢集適用於流量低的簡易網站，或用於將工作負載隨即轉移到容器中。 您應對大部分的生產環境部署規劃並使用 Azure CNI 網路功能。 您也可以[設定您自己的 IP 位址範圍和虛擬網路使用 kubenet][aks-configure-kubenet-networking]。
 
 ## <a name="distribute-ingress-traffic"></a>分配輸入流量
 
@@ -99,28 +99,28 @@ spec:
          servicePort: 80
 ```
 
-輸入控制器是在 AKS 節點上執行的精靈，可監控傳入要求。 接著，流量會根據輸入資源中所定義的規則來分配。 最常見的輸入控制器是以 [NGINX] 為基礎。 AKS 不會限制您使用特定控制器，因此您可以使用 [Contour][contour]、[HAProxy][haproxy] 或 [Traefik][traefik] 等其他控制器。
+輸入控制器是在 AKS 節點上執行的精靈，可監控傳入要求。 接著，流量會根據輸入資源中所定義的規則來分配。 最常見的輸入控制器是以 [NGINX] 為基礎。 AKS 並不會限制您特定的控制站，因此您可以使用其他控制站，例如[Contour][contour], [HAProxy][haproxy]，或[Traefik][traefik]。
 
 輸入控制器必須在 Linux 節點上排程。 Windows Server （目前在 AKS 中的預覽） 的節點不應該執行輸入控制器。 您可以使用 YAML 資訊清單或 Helm 圖表部署中的節點選取器，指出，在以 Linux 為基礎的節點上執行的資源。 如需詳細資訊，請參閱 <<c0> [ 使用 AKS 中排程 pod 的所在位置的節點選取器，來控制][concepts-node-selectors]。
 
 有許多適用輸入的案例，包括下列的使用說明指南：
 
 * [建立具有外部網路連線的基本輸入控制器][aks-ingress-basic]
-* [建立使用內部私人網路和 IP 位址的輸入控制器][aks-ingress-internal]
-* [建立使用自有 TLS 憑證的輸入控制器][aks-ingress-own-tls]
-* 建立輸入控制器，其使用 Let's Encrypt 自動產生[具有動態公用 IP][aks-ingress-tls] 或[具有靜態公用 IP 位址][aks-ingress-static-tls]的 TLS 憑證
+* [建立會使用內部的私人網路和 IP 位址輸入控制器][aks-ingress-internal]
+* [建立輸入控制器，會使用您自己的 TLS 憑證][aks-ingress-own-tls]
+* 建立輸入控制器用來自動產生的 TLS 憑證的 let 's Encrypt[具有動態公用 IP 位址][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>使用 Web 應用程式防火牆 (WAF) 來保護流量
 
-**最佳做法指引** - 若要掃描傳入的流量以查看是否有潛在攻擊，請使用 Web 應用程式防火牆 (WAF)，例如，[適用於 Azure 的 Barracuda WAF][barracuda-waf] 或 Azure 應用程式閘道。 這些更進階的網路資源也可以路由流量，並非僅限 HTTP 和 HTTPS 連線或是基本 SSL 終止。
+**最佳作法指引**-若要掃描潛在攻擊的連入流量，請使用 web 應用程式防火牆 (WAF)，例如[Barracuda WAF for Azure][barracuda-waf]或 Azure 應用程式閘道。 這些更進階的網路資源也可以路由流量，並非僅限 HTTP 和 HTTPS 連線或是基本 SSL 終止。
 
 將流量分散到服務和應用程式的輸入控制器通常是您 AKS 叢集中的 Kubernetes 資源。 控制器會以精靈形式執行於 AKS 節點上，並取用一些節點的資源，例如 CPU、記憶體和網路頻寬。 在較大型的環境中，您通常會想要卸載一些此流量路由或 TLS 終止至 AKS 叢集外部的網路資源。 並且想掃描傳入的流量以查看是否有潛在攻擊。
 
 ![Azure 應用程式閘道等 Web 應用程式防火牆 (WAF) 可以保護並分散您 AKS 叢集的流量](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Web 應用程式防火牆 (WAF) 會藉由篩選傳入流量來提供額外一層安全性。 Open Web Application Security Project (OWASP) 會提供一組規則來監看是否有跨網站指令碼或 Cookie 篡改等攻擊。 [Azure 應用程式閘道][ app-gateway] （目前為預覽狀態在 AKS 中的） 是可以與 AKS 叢集，以提供這些安全性功能，才能將流量到達您的 AKS 叢集與應用程式整合 WAF。 其他第三方解決方案也會執行這些功能，因此您可以在指定產品中繼續使用現有的投資或專業技術。
+Web 應用程式防火牆 (WAF) 會藉由篩選傳入流量來提供額外一層安全性。 Open Web Application Security Project (OWASP) 會提供一組規則來監看是否有跨網站指令碼或 Cookie 篡改等攻擊。 [Azure 應用程式閘道][app-gateway]（目前為預覽狀態在 AKS 中的） 是可以與 AKS 叢集，以提供這些安全性功能，才能將流量到達您的 AKS 叢集與應用程式整合 WAF。 其他第三方解決方案也會執行這些功能，因此您可以在指定產品中繼續使用現有的投資或專業技術。
 
-負載平衡器或輸入資源會繼續在您的 AKS 叢集執行，以進一步精簡流量分配。 您可以使用資源定義，將應用程式閘道當作輸入控制器來集中管理。 若要開始使用，[請建立應用程式閘道輸入控制器][app-gateway-ingress]。
+負載平衡器或輸入資源會繼續在您的 AKS 叢集執行，以進一步精簡流量分配。 您可以使用資源定義，將應用程式閘道當作輸入控制器來集中管理。 若要開始，[建立應用程式閘道輸入控制器][app-gateway-ingress]。
 
 ## <a name="control-traffic-flow-with-network-policies"></a>使用網路原則控制流量流程
 
@@ -148,7 +148,7 @@ spec:
           app: frontend
 ```
 
-若要開始使用原則，請參閱[使用 Azure Kubernetes Service (AKS) 中的網路原則保護 Pod 之間的流量][use-network-policies]。
+若要開始使用原則，請參閱[保護使用網路原則的 Azure Kubernetes Service (AKS) 中的 pod 之間的流量][use-network-policies]。
 
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>透過防禦主機安全地連線到節點
 
@@ -158,11 +158,11 @@ AKS 中的大部分作業都可使用 Azure 管理工具或透過 Kubernetes API
 
 ![使用防禦主機或跳躍箱 (jump box) 連線到 AKS 節點](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-防禦主機的管理網路也應該受到保護。 使用 [Azure ExpressRoute][expressroute] 或 [VPN 閘道][vpn-gateway]來連線到內部部署網路，並使用網路安全性群組來控制存取。
+防禦主機的管理網路也應該受到保護。 使用[Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway]連接到內部部署網路，並使用網路安全性群組控制存取。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文著重於網路連線和安全性。 若要深入了解 Kubernetes 中的網路基本概念，請參閱 [Azure Kubernetes Service (AKS) 中應用程式的網路概念][aks-concepts-network]
+本文著重於網路連線和安全性。 如需有關在 Kubernetes 中的網路基本概念的詳細資訊，請參閱[網路的 Azure Kubernetes Service (AKS) 中的應用程式概念][aks-concepts-network]
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

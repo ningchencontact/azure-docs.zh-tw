@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c69382ee0bec5586fc247cd0e568f5f48f0eda08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244493"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588591"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>將資料從 Azure Data Lake 儲存體載入 SQL 資料倉儲
 若要將資料從 Azure Data Lake 儲存體載入 Azure SQL 資料倉儲使用 PolyBase 外部資料表。 雖然您可以在 Data Lake 儲存體中儲存的資料執行臨機操作查詢，我們建議將資料匯入 SQL 資料倉儲，為了達到最佳效能。

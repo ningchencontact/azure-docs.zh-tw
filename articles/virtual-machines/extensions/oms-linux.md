@@ -4,7 +4,7 @@ description: 使用虛擬機器擴充功能在 Linux 虛擬機器上部署 Log A
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/01/2019
 ms.author: roiyz
-ms.openlocfilehash: 2c16e4c105a69d0d48d0b161db2caa390837bf26
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d8192a3b6ff732481a4d48f6e188b4bb3989cda
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514546"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705939"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>適用於 Linux 的 azure 監視虛擬機器擴充功能
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視、 警示和警示補救功能。 Microsoft 已發佈和支援適用於 Linux 的 Log Analytics 代理程式虛擬機器擴充功能。 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Log Analytics 工作區中註冊虛擬機器。 本文件詳述支援的平台、 組態和適用於 Linux 的 Azure 監視虛擬機器擴充功能的部署選項。
 
@@ -33,13 +33,13 @@ Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視、 警�
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
 可以針對這類 Linux 散發套件執行 Log Analytics 代理程式擴充功能。
 
-| 配送映像 | Version |
+| 配送映像 | 版本 |
 |---|---|
 | CentOS Linux | 6 (x86/x64) 和 7 (x64) |
 | Amazon Linux | 2017.09 (x64) | 

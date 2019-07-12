@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 媒體服務進行雲端上傳和儲存 | Microsoft Docs
-description: 本文提供雲端上傳和儲存體的概念。
+title: 使用 Azure 媒體服務帳戶的 azure 儲存體帳戶 |Microsoft Docs
+description: 建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的名稱。 指定的儲存體帳戶會附加到您的媒體服務帳戶。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439113"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619304"
 ---
-# <a name="cloud-upload-and-storage"></a>雲端上傳和儲存體
+# <a name="azure-storage-accounts"></a>Azure 儲存體帳戶
 
 若要在 Azure 中開始管理、加密、編碼、分析和串流處理媒體內容，您需要建立媒體服務帳戶。 建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的名稱。 指定的儲存體帳戶會附加到您的媒體服務帳戶。 
 
@@ -58,7 +58,7 @@ ms.locfileid: "67439113"
 
 以下是可能會導致媒體服務帳戶無法存取附加儲存體帳戶的主要情況。 
 
-|問題|解決方法|
+|問題|方案|
 |---|---|
 |媒體服務帳戶或附加儲存體帳戶已移轉至個別的訂用帳戶中。 |移轉媒體服務帳戶或儲存體帳戶，讓帳戶全都位於同一個訂用帳戶中。 |
 |媒體服務帳戶使用的是不同訂用帳戶中的附加儲存體帳戶，因為其是受到支援的早期媒體服務帳戶。 所有的早期媒體服務帳戶均已轉換為最新的 Azure Resources Manager (ARM) 帳戶，而且會出現中斷連線的狀態。 |移轉媒體服務帳戶或儲存體帳戶，讓帳戶全都位於同一個訂用帳戶中。|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705841"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569358"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure 資訊安全中心的偵測功能
 本文件討論 Azure 資訊安全中心的進階偵測功能，協助您識別以您的 Microsoft Azure 資源 (Windows 與 Linux) 為目標的作用中威脅，並提供您快速回應所需的深入見解。
@@ -34,7 +34,7 @@ ms.locfileid: "60705841"
 
 回應時，組織通常會部署各種點解決方案，而這類解決方案會藉由尋找已知的攻擊簽章，進而著重於防禦企業周邊或端點。 這些解決方案通常會產生大量的低精確度警示，其需要資訊安全分析師進行分級和調查。 大部分的組織沒有回應這些警示所需的時間和專業知識 – 這麼多警示尚未解決。  同時，攻擊者的方法已經演變，可以破壞許多以簽章為基礎的防禦措施以及 [適應雲端環境](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/)。 需要新的方法，才能更快速地找出新興威脅並加速偵測和回應。
 
-## <a name="how-azure-security-center-detects-and-responds-to-threats"></a>Azure 資訊安全中心偵測及回應威脅的方式
+## Azure 資訊安全中心會偵測及回應威脅的方式 <a name="asc-detects"></a>
 Microsoft 資訊安全研究人員會持續監視威脅。 他們可以存取從 Microsoft 在雲端和內部部署中的全域支援取得的一組廣泛遙測。 這組包羅萬象的資料集，可讓 Microsoft 探索其內部部署消費性和企業產品及其線上服務的新攻擊模式和趨勢。 因此，資訊安全中心可以在攻擊者發行新的和日益複雜的攻擊時，快速地更新其偵測演算法。 這種方法可協助您跟上瞬息萬變的威脅環境。
 
 資訊安全中心威脅偵測的運作方式如下：從您的 Azure 資源、網路及已連線的協力廠商解決方案自動收集安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 資訊安全中心的安全性警示會排定優先順序，並提供如何補救威脅的建議。
@@ -78,7 +78,7 @@ Azure 資訊安全中心設有資訊安全研究和資料科學小組，負責�
 
 結合上述努力終於獲得全新及改善的偵測功能，您因而立即受惠 – 不需採取任何的動作。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何使用 Azure 資訊安全中心的偵測功能。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)

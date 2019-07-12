@@ -3,17 +3,17 @@ title: 常見問題集-CloudSimple VMware 方案
 description: Azure CloudSimple VMware 解決方案的常見問題集
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 05/24/19
+ms.date: 05/24/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8cc6cf834c54ca25c12a6d66675e4290fd66136
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e187a4a75a27e206a632388f1e20a94da032eb08
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165823"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595351"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>關於 VMware CloudSimple 方案常見問題集
 
@@ -131,7 +131,7 @@ CloudSimple 提供兩種主機類型：
 提供 CloudSimple**全快閃 VMware 的 vSAN 儲存體**與每個私人雲端。 每個 vSphere 會建立與自己 vSAN 資料存放區。 如需詳細資訊，請參閱 <<c0> [ 私人雲端之 VMware 元件-vSAN 的儲存體](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage)。
 
 **是支援的資料加密？**
-是。 您可以設定的 vSAN 存放裝置使用金鑰管理伺服器 (KMS)，也就是在內部部署私人雲端或在 Azure 上的 vSAN 上儲存的資料加密。
+是的。 您可以設定的 vSAN 存放裝置使用金鑰管理伺服器 (KMS)，也就是在內部部署私人雲端或在 Azure 上的 vSAN 上儲存的資料加密。
 
 **如何處理失敗的磁碟？**
 

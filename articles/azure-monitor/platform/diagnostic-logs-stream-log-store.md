@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e8e6276a38f06b5c6ebb24c89f3733b9fd7220f7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303696"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612832"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄
 
@@ -58,7 +58,7 @@ Log Analytics 工作區並不一定要與發出記錄的資源位於相同的訂
 
    ![新增診斷設定 - 現有的設定](media/diagnostic-logs-stream-log-store/diagnostic-settings-configure.png)
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該工作區。 可能會有 15 分鐘的時間之間時就會發出事件，以及當它出現在 Log Analytics 中的位置。
 
@@ -99,6 +99,30 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢診斷記錄檔記錄管理解決方案，在 [AzureDiagnostics] 資料表的一部分。 另外還有[數個適用於 Azure 資源的監視解決方案](../../azure-monitor/insights/solutions.md)取得即時深入解析記錄資料傳送至 「 Azure 監視器，您可以安裝。
 
+### <a name="examples"></a>範例
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
+
 ## <a name="azure-diagnostics-vs-resource-specific"></a>Azure 診斷與特定資源  
 一旦 Log Analytics 目的地啟用 Azure 診斷組態中，有兩個不同的方式，資料會顯示在您的工作區：  
 - **Azure 診斷**-這是由大多數 Azure 服務目前使用的舊方法。 在此模式中，所有指向指定的工作區的任何診斷設定中的資料將會得到_AzureDiagnostics_資料表。 
@@ -109,7 +133,7 @@ Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢�
 
     [AzureDiagnostics] 資料表會以特定範例資料，如下所示，看起來：  
 
-    | ResourceProvider | 類別 | 具有使用 | b | C | D | E | F | G | H | I |
+    | ResourceProvider | 分類 | A | B | C | D | E | F | G | H | I |
     | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
     | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
     | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
@@ -124,7 +148,7 @@ Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢�
     在上述範例中，這會導致所建立的三個資料表： 
     - 表格_AuditLogs_ ，如下所示：
 
-        | ResourceProvider | 類別 | 具有使用 | b | C |
+        | ResourceProvider | 分類 | A | B | C |
         | -- | -- | -- | -- | -- |
         | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
         | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
@@ -132,7 +156,7 @@ Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢�
 
     - 表格_ErrorLogs_ ，如下所示：  
 
-        | ResourceProvider | Category | D | E | F |
+        | ResourceProvider | 分類 | D | E | F |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
         | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
@@ -140,7 +164,7 @@ Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢�
 
     - 表格_DataFlowLogs_ ，如下所示：  
 
-        | ResourceProvider | Category | G | H | I |
+        | ResourceProvider | 分類 | G | H | I |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
         | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
@@ -178,5 +202,5 @@ Azure Data Factory，因為一組非常詳細的記錄檔，而是特別會受�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解 Azure 診斷記錄檔](diagnostic-logs-overview.md)
+* [深入了解 Azure 診斷記錄](diagnostic-logs-overview.md)
 

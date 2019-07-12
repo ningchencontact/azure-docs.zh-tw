@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9a5a2d92f70c411c46ebb4efb35e17e9b0c477ca
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173990"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671212"
 ---
 1. 安裝 dapl、rdmacm、ibverbs 及 mlx4
 
@@ -44,7 +44,7 @@ ms.locfileid: "67173990"
  
    只支援 Intel MPI 5.x 執行階段。
  
-   如需安裝步驟，請參閱 [Intel MPI Library 安裝指南](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) \(英文\)。
+   如需安裝步驟，請參閱 [Intel MPI Library 安裝指南](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html) \(英文\)。
 
 5. 針對非根、非偵錯工具的處理程序啟用 ptrace (必須為最新版 Intel MPI 執行)。
  

@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063271"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612892"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>教學課程： 整合 Azure 虛擬網路中的函式
 
@@ -37,7 +38,7 @@ ms.locfileid: "67063271"
 
 在 「 進階 」 方案中執行的函式會將相同的裝載功能，為 web 應用程式在 Azure App Service，其中包括 VNet 整合功能。 若要深入了解 VNet 整合，包括疑難排解和進階組態，請參閱[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中，務必了解 IP 位址和子網路 >。 您可以開始[涵蓋基本位址和子網路的這篇文章](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics)。 許多更多的文章與影片都可在線上。
 
@@ -68,7 +69,7 @@ ms.locfileid: "67063271"
     | **訂用帳戶** | 您的訂用帳戶 | 您的資源建立所在的訂用帳戶。 | 
     | **[資源群組](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | 選擇`myResourceGroup`，或您建立與您的函式應用程式的資源群組。 函式應用程式中，WordPress 的 VM，使用相同的資源群組和主控方案可讓您更輕鬆地清除資源，當您完成本教學課程。 |
     | **虛擬機器名稱** | VNET-Wordpress | VM 名稱必須是唯一的資源群組中 |
-    | **[區域](https://azure.microsoft.com/regions/)** | （歐洲）西歐 | 選擇您附近或接近函式會存取 VM 的區域。 |
+    | **[區域](https://azure.microsoft.com/regions/)** | (歐洲) 西歐 | 選擇您附近或接近函式會存取 VM 的區域。 |
     | **大小** | B1s | 選擇**變更大小**，然後選取 B1s 標準映像，其具有 1 個 vCPU 和 1 GB 的記憶體。 |
     | **驗證類型** | 密碼 | 若要使用密碼驗證，您也必須指定**使用者名稱**，安全**密碼**，然後**確認密碼**。 本教學課程中，您不需要登入 VM 除非您需要進行疑難排解。 |
 
@@ -121,7 +122,7 @@ ms.locfileid: "67063271"
 
     ![定義函式應用程式的虛擬網路](./media/functions-create-vnet/networking-3.png)
 
-    | 設定      | 建議值  | 描述      |
+    | 設定      | 建議值  | 說明      |
     | ------------ | ---------------- | ---------------- |
     | **虛擬網路** | MyResourceGroup-vnet | 此虛擬網路是您稍早建立的一個。 |
     | **子網路** | 建立新的子網路 | 在您的函式應用程式使用的虛擬網路中建立子網路。 VNet 整合必須設定為使用空白的子網路中。 它並不重要，您的函式會使用您的 VM 的不同子網路。 虛擬網路會自動將路由兩個子網路之間的流量。 |

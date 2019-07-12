@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff3c57c31526119ab81225a1c70b163173be937
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514434"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657879"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 訂用帳戶的帳單擁有權轉移給另一個帳戶
 
@@ -38,7 +38,7 @@ ms.locfileid: "67514434"
 
 1. 選取 **訂用帳戶**左側窗格中。 根據您的存取權，您可能需要選取計費的範圍，然後選取**訂用帳戶**或是**Azure 訂用帳戶**。
 
-1. 選取 **傳輸到其他帳戶**您想要傳輸的訂用帳戶。 
+1. 選取 **轉移帳單擁有權**您想要傳輸的訂用帳戶。 
 
    ![選取訂用帳戶轉移](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 
@@ -109,7 +109,7 @@ Visual Studio 和 Microsoft 合作夥伴網路訂用帳戶有與其相關聯的�
 - [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p/)  
 - [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/) 
 - [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
+- [Visual Studio 企業版](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
@@ -193,7 +193,7 @@ Visual Studio 和 Microsoft 合作夥伴網路訂用帳戶有與其相關聯的�
 
 ### <a name="can-i-use-a-different-payment-method"></a>我可以使用不同的付款方法嗎？
 
-是。 同時接受轉移要求，您可以選取現有的付款方式，連結到您的帳戶，或加入新的付款方式。
+是的。 同時接受轉移要求，您可以選取現有的付款方式，連結到您的帳戶，或加入新的付款方式。
 
 ## <a name="troubleshooting"></a>疑難排解
 

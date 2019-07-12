@@ -190,10 +190,10 @@ Write-host "`nScript completed" -ForegroundColor Green
     |屬性  |值  |
     |---------|---------|
     |Name | 輸入資料處理站的名稱。 此名稱必須是全域唯一的。|
-    |訂用帳戶 | 選取 Azure 訂用帳戶。 |
-    |資源群組 | 選取 [使用現有的]  ，然後選取您使用 PowerShell 指令碼建立的資源群組。 |
+    |Subscription | 選取 Azure 訂用帳戶。 |
+    |Resource group | 選取 [使用現有的]  ，然後選取您使用 PowerShell 指令碼建立的資源群組。 |
     |版本 | 保持為 **V2**。 |
-    |位置 | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部]  。 |
+    |Location | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部]  。 |
 
     ![使用 Azure 入口網站建立 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "使用 Azure 入口網站建立 Azure Data Factory")
 
@@ -260,7 +260,7 @@ Write-host "`nScript completed" -ForegroundColor Green
     | 服務主體識別碼 | 提供您在必要條件中建立的 Azure Active Directory 服務主體應用程式識別碼。 |
     | 服務主體金鑰 | 提供 Azure Active Directory 服務主體的驗證金鑰。 |
     | 叢集名稱前置詞 | 提供值以作為資料處理站所建立全部叢集類型的前置詞。 |
-    |訂用帳戶 |從下拉式清單中選取訂用帳戶。|
+    |Subscription |從下拉式清單中選取訂用帳戶。|
     | 選取資源群組 | 選取您稍早使用 PowerShell 指令碼所建立的資源群組。|
     |選取區域 | 從下拉式清單中選取區域。|
     | 作業系統類型/叢集 SSH 使用者名稱 | 輸入 SSH 使用者名稱，通常是 `sshuser`。 |

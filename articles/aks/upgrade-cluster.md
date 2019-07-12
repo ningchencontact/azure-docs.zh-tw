@@ -2,17 +2,17 @@
 title: 升級 Azure Kubernetes Service (AKS) 叢集
 description: 了解如何升級 Azure Kubernetes Service (AKS) 叢集
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 2cadd4b33cb52307599ce1e83eee8370ef9850fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: dd88b5a044fe495da374178be8774f45bdd30f61
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692770"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614055"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升級 Azure Kubernetes Service (AKS) 叢集
 
@@ -26,7 +26,7 @@ AKS 叢集使用多個節點的集區或 Windows Server 的節點 （包括目�
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>檢查可用的 AKS 叢集升級
 
-若要檢查哪些 Kubernetes 版本可用於您的叢集，請使用 [az aks get-upgrades][az-aks-get-upgrades] 命令。 下列範例會在名為 *myResourceGroup* 的資源群組中，查看名為 *myAKSCluster* 的叢集的可用升級：
+若要檢查哪些 Kubernetes 版本可供您的叢集，請使用[az aks get-升級][az-aks-get-upgrades]命令。 下列範例會在名為 *myResourceGroup* 的資源群組中，查看名為 *myAKSCluster* 的叢集的可用升級：
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
@@ -47,7 +47,7 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>升級 AKS 叢集
 
-透過適用於您的 AKS 叢集的可用版本清單，使用 [az aks upgrade][az-aks-upgrade] 命令進行升級。 在升級過程中，AKS 將新節點新增至叢集來執行指定的 Kubernetes 版本，然後仔細[cordon 和清空後][ kubernetes-drain]其中一個要執行的中斷情況降到舊的節點應用程式。 確認新的節點做為執行中的應用程式 pod 時，就會刪除舊的節點。 要等到升級叢集中所有節點之後，就會重複此程序。
+為您的 AKS 叢集的可用版本清單，請使用[az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain]其中一個可執行應用程式的中斷情況降到舊的節點。 確認新的節點做為執行中的應用程式 pod 時，就會刪除舊的節點。 要等到升級叢集中所有節點之後，就會重複此程序。
 
 下列範例會將叢集升級到版本*1.12.8*:
 
@@ -57,7 +57,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 叢集升級需要幾分鐘的時間，具體取決於您擁有多少節點。
 
-若要確認升級是否成功，請使用 [az aks show][az-aks-show] 命令：
+若要確認升級是否成功，請使用[az aks 顯示][az-aks-show]命令：
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table

@@ -2,17 +2,17 @@
 title: 在 Azure Kubernetes Service (AKS) 中使用入口網站建立虛擬節點
 description: 了解如何使用 Azure 入口網站建立使用虛擬節點執行 Pod 的 Azure Kubernetes Service (AKS) 叢集。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742802"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613834"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>在 Azure 入口網站中建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
@@ -24,7 +24,7 @@ ms.locfileid: "66742802"
 
 虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」  網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」  網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
 
-如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
+如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以檢查 ACI 提供者註冊使用的狀態[az 提供者清單][az-provider-list]命令，如下列範例所示：
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -106,7 +106,7 @@ Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中�
 
 若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]  。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
-若要設定 `kubectl` 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 下列範例會針對 myResourceGroup  資源群組中的叢集名稱 myAKSCluster  取得認證：
+使用[az aks get-credentials 來取得認證][az-aks-get-credentials]命令來設定`kubectl`來連線到 Kubernetes 叢集。 下列範例會針對 myResourceGroup  資源群組中的叢集名稱 myAKSCluster  取得認證：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>部署範例應用程式
 
-在 Azure Cloud Shell 中，建立名為 `virtual-node.yaml` 的檔案，然後將下列 YAML 複製進來。 若要在節點上排定容器，需定義 [nodeSelector][node-selector] 和 [toleration][toleration]。 這些設定會允許 Pod 在虛擬節點上進行排程，並確認該功能已成功啟用。
+在 Azure Cloud Shell 中，建立名為 `virtual-node.yaml` 的檔案，然後將下列 YAML 複製進來。 若要排程在節點上的容器[nodeSelector][node-selector] and [toleration][toleration]所定義。 這些設定會允許 Pod 在虛擬節點上進行排程，並確認該功能已成功啟用。
 
 ```yaml
 apiVersion: apps/v1
@@ -163,13 +163,13 @@ spec:
         effect: NoSchedule
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令來執行應用程式。
+執行應用程式[kubectl 套用][kubectl-apply]命令。
 
 ```azurecli-interactive
 kubectl apply -f virtual-node.yaml
 ```
 
-使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出 Pod 清單和排定的節點。 請注意，`virtual-node-helloworld` pod 已排定在 `virtual-node-linux` 節點上。
+使用[kubectl get pods][kubectl-get]命令搭配`-o wide`輸出的 pod 和排程的節點清單的引數。 請注意，`virtual-node-helloworld` pod 已排定在 `virtual-node-linux` 節點上。
 
 ```
 $ kubectl get pods -o wide
@@ -181,7 +181,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Pod 會從 Azure 虛擬網路的子網路 (為搭配使用虛擬節點而委派) 獲派內部 IP 位址。
 
 > [!NOTE]
-> 如果您使用儲存在 Azure Container Registry 中的映像，請[設定並使用 Kubernetes 祕密][acr-aks-secrets]。 虛擬節點的目前限制是，您無法使用整合式的 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
+> 如果您使用儲存在 Azure Container Registry 的映像[設定，並使用 Kubernetes 祕密][acr-aks-secrets]。 虛擬節點的目前限制是，您無法使用整合式的 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
 
 ## <a name="test-the-virtual-node-pod"></a>測試虛擬節點 Pod
 
@@ -219,12 +219,12 @@ $ curl -L 10.241.0.4
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，Pod 已在虛擬節點上進行排程，並獲派私人的內部 IP 位址。 您可以改為建立服務部署，並透過負載平衡器或輸入控制器將流量路由到您的 Pod。 如需詳細資訊，請參閱[在 AKS 中建立基本的輸入控制器][aks-basic-ingress]。
+在本文中，Pod 已在虛擬節點上進行排程，並獲派私人的內部 IP 位址。 您可以改為建立服務部署，並透過負載平衡器或輸入控制器將流量路由到您的 Pod。 如需詳細資訊，請參閱 < [AKS 中建立基本的輸入控制器][aks-basic-ingress]。
 
 虛擬節點是 AKS 中調整解決方案的一個元件。 如需有關調整解決方案的詳細資訊，請參閱下列文章：
 
-- [使用 Kubernetes 水平 Pod 自動調整程式][aks-hpa]
-- [使用 Kubernetes 叢集自動調整程式][aks-cluster-autoscaler]
+- [使用 Kubernetes 水平 pod 自動調整程式][aks-hpa]
+- [使用 Kubernetes 叢集中自動調整程式][aks-cluster-autoscaler]
 - [針對虛擬節點檢查自動調整範例][virtual-node-autoscale]
 - [深入的了解 Virtual Kubelet 開放原始碼程式庫][virtual-kubelet-repo]
 

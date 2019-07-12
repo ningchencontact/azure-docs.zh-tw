@@ -3,16 +3,16 @@ title: 來自 Verizon Premium 的 azure CDN 規則引擎功能 |Microsoft Docs
 description: Azure CDN from Verizon Premium 的參考文件規則引擎功能。
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443481"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593233"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>來自 Verizon Premium 規則引擎功能的 azure CDN
 
@@ -24,7 +24,7 @@ ms.locfileid: "67443481"
 
 這些功能是設計來控制內容的存取權。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [拒絕存取 (403)](#deny-access-403) | 判斷所有要求是否已遭拒絕且含有 [403 禁止] 回應。
 [權杖驗證](#token-auth) | 判斷是否將權杖型驗證套用到要求。
@@ -36,7 +36,7 @@ ms.locfileid: "67443481"
 
 這些功能是設計來自訂快取內容的時機和方法。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [頻寬參數](#bandwidth-parameters) | 判斷是否使用頻寬節流設定參數 (例如 ec_rate 和 ec_prebuf)。
 [頻寬節流設定](#bandwidth-throttling) | 針對存在點 (POP) 所提供的回應進行頻寬節流。
@@ -66,7 +66,7 @@ ms.locfileid: "67443481"
 
 這項功能設計用來提供規則內的其他資訊。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [Comment](#comment) | 能夠在規則中新增附註。
 
@@ -74,7 +74,7 @@ ms.locfileid: "67443481"
 
 這些功能是設計來新增、修改或刪除要求或回應的標頭。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [Age 回應標頭](#age-response-header) | 判斷 Age 回應標頭是否包含於傳送給要求者的回應中。
 [偵錯快取回應標頭](#debug-cache-response-headers) | 判斷回應是否會包含於 X-EC-Debug 回應標頭中，其會在快取原則上提供要求資產的相關資訊。
@@ -86,7 +86,7 @@ ms.locfileid: "67443481"
 
 這些功能是設計來自訂儲存於原始記錄檔中的資料。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [自訂記錄欄位 1](#custom-log-field-1) | 判斷要指派給原始記錄檔中自訂記錄欄位的格式和內容。
 [記錄查詢字串](#log-query-string) | 判斷查詢字串以及 URL 是否會一起儲存於存取記錄中。
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能是設計來控制 CDN 與原始伺服器通訊的方式。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [最大 Keep-Alive 要求數目](#maximum-keep-alive-requests) | 判斷在關閉 Keep-Alive 連線之前，適用於該連線的最大要求數目。
 [Proxy 特殊標頭](#proxy-special-headers) | 定義從 POP 轉送到原始伺服器的一組 CDN 特定要求標頭。
@@ -149,7 +149,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能可為進階使用者提供進階功能。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [可快取的 HTTP 方法](#cacheable-http-methods) | 判斷可在網路上快取的其他 HTTP 方法組。
 [可快取的要求主體大小](#cacheable-request-body-size) | 定義用以判斷是否可快取 POST 回應的臨界值。
@@ -159,7 +159,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 這些功能可讓要求重新導向至不同的 URL 或重寫為不同的 URL。
 
-名稱 | 目的
+名稱 | 用途
 -----|--------
 [遵循重新導向](#follow-redirects) | 判斷要求是否可以重新導向至定義於客戶原始伺服器所傳回之位置標頭中的主機名稱。
 [URL 重新導向](#url-redirect) | 透過位置標頭將要求重新導向。
@@ -211,7 +211,7 @@ Enabled|允許 POP 接受頻寬節流設定要求。
 
 您必須定義下列這兩個選項，才能正確設定頻寬節流設定。
 
-選項|描述
+選項|說明
 --|--
 每秒 KB 數|將此選項設定為可能用來傳遞回應的最大頻寬 (每秒 KB 數)。
 Prebuf 秒|將此選項設定為 POP 在頻寬進行節流前所等候的秒數。 這段不受頻寬限制之期間的用意是防止媒體播放器因為頻寬節流設定而遇到間斷或緩衝處理問題。
@@ -320,7 +320,7 @@ Enabled|導致將所有要求都直接導向至原始伺服器，即使先前已
 - 指定一或多個查詢字串參數名稱，然後以單一空格分隔每個參數名稱。
 - 此功能會判斷要在快取索引鍵中包含查詢字串參數或從中排除。 下表提供每個選項的其他資訊。
 
-類型|描述
+type|描述
 --|--
  包含|  指出應該在快取索引鍵中包含每個指定的參數。 系統會針對每個要求產生唯一的快取索引鍵，其中包含此功能中所定義之查詢字串參數的唯一值。
  全部包含  |指出會針對每個包含唯一查詢字串的資產要求建立唯一的快取索引鍵。 通常不建議使用此類型的設定，因為它可能會導致一小部分的快取命中數。 快取命中數過低會使原始伺服器的負載增加，因為它必須提供更多的要求。 這個組態會複製 [查詢字串快取] 頁面上名為「unique-cache」的快取行為。
@@ -456,7 +456,7 @@ Enabled|還原預設行為。 預設行為是強制 POP 在背景從原始伺服
 - 用戶端 IP 位址
 - Cookie 參數
 - Cookie 參數 Regex
-- 国家/地区
+- Country
 - 裝置
 - Microsoft Edge Cname
 - 轉介網域
@@ -547,7 +547,7 @@ application/javascript|Javascript
 
 `X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
-**範例：**
+**範例:**
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
@@ -588,7 +588,7 @@ Enabled|偵錯快取回應標頭的要求將傳回包含 X-EC-Debug 標頭的回
 - 用戶端 IP 位址
 - Cookie 參數
 - Cookie 參數 Regex
-- 国家/地区
+- Country
 - 裝置
 - 邊緣 Cname
 - 轉介網域
@@ -715,7 +715,7 @@ Enabled|要求可重新導向。
 - 用戶端 IP 位址
 - Cookie 參數
 - Cookie 參數 Regex
-- 国家/地区
+- Country
 - 裝置
 - 邊緣 Cname
 - 轉介網域
@@ -799,7 +799,7 @@ Enabled|允許將 HTTP 用戶端的 no-cache 要求轉送給原始伺服器，�
 - 用戶端 IP 位址
 - Cookie 參數
 - Cookie 參數 Regex
-- 国家/地区
+- Country
 - 裝置
 - 邊緣 Cname
 - 轉介網域
@@ -867,7 +867,7 @@ Enabled|防止 POP 使用「416 無法滿足的要求範圍」狀態碼來回應
 - 用戶端 IP 位址
 - Cookie 參數
 - Cookie 參數 Regex
-- 国家/地区
+- Country
 - 裝置
 - 邊緣 Cname
 - 轉介網域
@@ -938,7 +938,7 @@ Enabled|在存取記錄中記錄 URL 時，允許儲存查詢字串。 如果 UR
 -|-|-
 Append|指定的值會新增至現有要求標頭值的結尾。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**要求標頭值 (規則引擎)：**<br/>Value2 <br/>**新的要求標頭值：** <br/>Value1Value2
 覆寫|要求標頭值將會設定為指定的值。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**要求標頭值 (規則引擎)：**<br/>Value2<br/>**新的要求標頭值：**<br/> Value2 <br/>
-Delete|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端要求標頭設定：**<br/>刪除指定的要求標頭。<br/>**結果︰**<br/>指定的要求標頭將不會轉送到原始伺服器。
+DELETE|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端要求標頭設定：**<br/>刪除指定的要求標頭。<br/>**結果︰**<br/>指定的要求標頭將不會轉送到原始伺服器。
 
 重要資訊：
 
@@ -974,11 +974,11 @@ Delete|刪除指定的要求標頭。|**要求標頭值 (用戶端)：**<br/>Val
 
 您可以在回應標頭上執行下列其中一個動作：
 
-選項|描述|範例
+選項|說明|範例
 -|-|-
 Append|指定的值會新增至現有回應標頭值的結尾。|**回應標頭值 (用戶端)：**<br />Value1<br/>**回應標頭值 (規則引擎)：**<br/>Value2<br/>**新的回應標頭值：**<br/>Value1Value2
 覆寫|回應標頭值將會設定為指定的值。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**回應標頭值 (規則引擎)：**<br/>Value2 <br/>**新的回應標頭值：**<br/>Value2 <br/>
-Delete|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端回應標頭設定：**<br/>刪除指定的回應標頭。<br/>**結果︰**<br/>指定的回應標頭將不會轉送給要求者。
+DELETE|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**<br/>Value1<br/>**修改用戶端回應標頭設定：**<br/>刪除指定的回應標頭。<br/>**結果︰**<br/>指定的回應標頭將不會轉送給要求者。
 
 重要資訊：
 
@@ -995,7 +995,7 @@ Delete|刪除指定的回應標頭。|**回應標頭值 (用戶端)：**<br/>Val
     - content-encoding
     - content-length
     - content-range
-    - date
+    - 日期
     - server
     - trailer
     - transfer-encoding
@@ -1065,7 +1065,7 @@ Enabled|要求可以產生部分快取的內容。
 - X-Midgress
 - X-Gateway-List
 - X-EC-Name
-- Host
+- 主機
 
 **預設行為：** 所有的 CDN 特定要求標頭會轉送到原始伺服器。
 
@@ -1240,7 +1240,7 @@ URL 重新導向只適用於 3xx 回應碼。
 
 [選用標頭值] 選項支援英數字元、引號和空格。
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>驗證
 
 此功能支援的功能可在針對權杖型驗證所保護的內容回應未經授權的要求時包含 WWW-Authenticate 標頭。 如果您的設定中已將 WWW-Authenticate 標頭設為「basic」，則會提示未經授權的使用者提供帳戶認證。
 
@@ -1314,7 +1314,7 @@ Enabled|[值] 選項會定義應透過其定義權杖的查詢字串參數名稱
 
 選項|描述
 -|-
-代碼|選取將傳回給要求者的回應碼。
+程式碼|選取將傳回給要求者的回應碼。
 來源與模式| 這些設定會定義要求 URI 模式，此模式會識別可能要重新導向的要求類型。 只會重新導向 URL 符合下列這兩個準則的要求： <br/> <br/> **來源 （或內容存取點）：** 選取識別原始伺服器的相對路徑。 此路徑是 /XXXX/  區段和您的端點名稱。 <br/><br/> **來源 （模式）：** 必須定義依相對路徑識別要求的模式。 這個規則運算式模式必須定義一個路徑，該路徑會在先前選取的內容存取點 (請參閱上述內容) 之後直接啟動。 <br/> - 確定先前定義的要求 URI 準則 (亦即，[來源與模式]) 不會與針對此功能所定義的任何比對條件相衝突。 <br/> - 指定模式；如果您是使用空白值作為模式，所有字串都會相符。
 目的地| 定義要將上述要求重新導向至其中的 URL。 <br/><br/> 使用下列方式來動態建構此 URL： <br/> - 規則運算式模式 <br/>- [HTTP 變數](cdn-http-variables.md) <br/><br/> 使用 $_n_，將擷取自來源模式的值替代至目的地模式，其中_n_ 可依擷取的順序來識別值。 例如，$1 表示擷取自來源模式的第一個值，而 $2 代表第二個值。 <br/>
 

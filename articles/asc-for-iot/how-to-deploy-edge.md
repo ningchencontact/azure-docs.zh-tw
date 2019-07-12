@@ -2,24 +2,25 @@
 title: 部署 Azure 資訊安全中心的 IoT Edge 模組 |Microsoft Docs
 description: 深入了解如何部署 Azure 資訊安全中心的 IoT Edge 上的 IoT 安全性代理程式。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49ed4c6515f8fb63c3331b05e1bb29b13985e6b3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254300"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618328"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>部署您的 IoT Edge 裝置上的安全性模組
 
@@ -37,7 +38,7 @@ ms.locfileid: "66254300"
 
 使用下列步驟來部署 IoT Edge 適用的 IoT 安全性模組 ASC。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 - 在您的 IoT 中樞，請確定您的裝置[註冊為 IoT Edge 裝置](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)。
 
@@ -103,7 +104,7 @@ ms.locfileid: "66254300"
       }
       ```
 
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
 1. 捲動至底部的索引標籤，然後選取**進行進階 Edge 執行階段設定**。
    
    >[!Note]
@@ -130,9 +131,9 @@ ms.locfileid: "66254300"
     }
     ```
       
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
    
-1. 单击“下一步”  。
+1. 按一下 [下一步]  。
 
 #### <a name="step-2-specify-routes"></a>步驟 2：指定路由 
 

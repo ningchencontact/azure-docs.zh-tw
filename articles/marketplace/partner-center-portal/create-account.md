@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0c78cbcc06de3a18f2127693a7c1b24c075e297
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f861a05bd369fb279ab82e230cad307a3569967e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806232"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619379"
 ---
 # <a name="how-to-create-a-commercial-marketplace-account-in-partner-center"></a>如何在合作夥伴中心建立商業的 Marketplace 帳戶
 
@@ -27,7 +27,7 @@ ms.locfileid: "65806232"
 
 如果您已在中的帳戶[Cloud Partner 入口網站 (CPP)](https://cloudpartner.azure.com) ，具有已移轉到合作夥伴中心，您不需要建立新的帳戶。 請參閱[發行者移轉自 CPP](#publishers-migrated-from-cpp)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要建立合作夥伴中心帳戶，請確定您已：
 

@@ -2,17 +2,17 @@
 title: 檢視 Azure Kubernetes Service (AKS) 控制器記錄
 description: 了解如何在 Azure Kubernetes Service (AKS) 中啟用並檢視 Kubernetes 主要節點的記錄
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497264"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613929"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
@@ -20,11 +20,11 @@ ms.locfileid: "66497264"
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文需要您的 Azure 帳戶中有正在執行的現有 AKS 叢集。 若您沒有 AKS 叢集，請使用 [Azure CLI][cli-quickstart] 或 [Azure 入口網站][portal-quickstart]建立一個。 Azure 監視器記錄可同時搭配已啟用 RBAC 和未啟用 RBAC 的 AKS 叢集運作。
+本文需要您的 Azure 帳戶中有正在執行的現有 AKS 叢集。 如果您還沒有 AKS 叢集，建立一個使用[Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]。 Azure 監視器記錄可同時搭配已啟用 RBAC 和未啟用 RBAC 的 AKS 叢集運作。
 
 ## <a name="enable-diagnostics-logs"></a>啟用診斷記錄
 
-為了協助從多個來源收集並檢閱資料，Azure 監視器記錄提供能針對您的環境提供見解的查詢語言和分析引擎。 工作區可用來收集並分析資料，並可與其他 Azure 服務 (例如 Application Insights 和資訊安全中心) 整合。 若要使用不同的平台來分析記錄，您可以選擇將診斷記錄傳送至 Azure 儲存體帳戶或事件中樞。 如需詳細資訊，請參閱[何謂 Azure 監視器記錄][log-analytics-overview]。
+為了協助從多個來源收集並檢閱資料，Azure 監視器記錄提供能針對您的環境提供見解的查詢語言和分析引擎。 工作區可用來收集並分析資料，並可與其他 Azure 服務 (例如 Application Insights 和資訊安全中心) 整合。 若要使用不同的平台來分析記錄，您可以選擇將診斷記錄傳送至 Azure 儲存體帳戶或事件中樞。 如需詳細資訊，請參閱 <<c0> [ 什麼是 Azure 監視器記錄檔？][log-analytics-overview]。
 
 Azure 監視器記錄檔會啟用，並在 Azure 入口網站中管理。 若要在 AKS 叢集中啟用 Kubernetes 主要元件的記錄收集，請在網頁瀏覽器中開啟 Azure 入口網站並完成下列步驟：
 
@@ -37,15 +37,15 @@ Azure 監視器記錄檔會啟用，並在 Azure 入口網站中管理。 若要
 1. 準備好後，請選取 [儲存]  以啟用所選取記錄的收集。
 
 > [!NOTE]
-> AKS 只會針對在訂用帳戶上啟用功能旗標後所建立或升級的叢集，擷取其稽核記錄。 若要註冊 AKSAuditLog  功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
+> AKS 只會針對在訂用帳戶上啟用功能旗標後所建立或升級的叢集，擷取其稽核記錄。 若要註冊*AKSAuditLog*功能旗標，請使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> 等候狀態顯示 Registered  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+> 等候狀態顯示 Registered  。 您可以檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
-> 註冊好時，使用 [az provider register][az-provider-register] 命令重新整理 AKS 資源提供者的註冊：
+> 準備好時，重新整理使用 AKS 資源提供者註冊[az provider register][az-provider-register]命令：
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
@@ -77,7 +77,7 @@ spec:
     - containerPort: 80
 ```
 
-使用 [kubectl create][kubectl-create] 命令建立 Pod 並指定您的 YAML 檔案，如下列範例所示：
+建立與 pod [kubectl 建立][kubectl-create]命令並指定您的 YAML 檔案，如下列範例所示：
 
 ```
 $ kubectl create -f nginx.yaml
@@ -114,7 +114,7 @@ AzureDiagnostics
 
 若要檢視其他記錄，您可以更新查詢以將 *Category* 名稱變更為 *kube-controller-manager* 或 *kube-scheduler* (視您所啟用的其他記錄而定)。 您可以接著使用額外的 *where* 陳述式來精簡您想要查詢的事件。
 
-如需查詢及篩選記錄資料之方式的詳細資訊，請參閱[檢視或分析以記錄分析記錄搜尋所收集的資料][analyze-log-analytics]。
+如需有關如何查詢及篩選您的記錄資料的詳細資訊，請參閱 <<c0> [ 檢視或分析以 log analytics 記錄搜尋所收集的資料][analyze-log-analytics]。
 
 ## <a name="log-event-schema"></a>記錄事件結構描述
 
@@ -124,7 +124,7 @@ AzureDiagnostics
 |--------------------------|-------------|
 | *resourceId*             | 產生記錄的 Azure 資源 |
 | *time*                   | 上傳記錄的時間戳記 |
-| *類別*               | 產生記錄之容器/元件的名稱 |
+| *category*               | 產生記錄之容器/元件的名稱 |
 | *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *properties.log*         | 來自元件之記錄的全文 |
 | *properties.stream*      | *stderr* 或 *stdout* |
@@ -133,7 +133,7 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何在 AKS 叢集中啟用並檢閱 Kubernetes 主要元件的記錄。 若要進行進一步的監視及疑難排解，您也可以[檢視 Kubelet 記錄][kubelet-logs]及[啟用 SSH 節點存取][aks-ssh]。
+在本文中，您已了解如何在 AKS 叢集中啟用並檢閱 Kubernetes 主要元件的記錄。 若要監視和採取進一步的疑難排解，您也可以[檢視 Kubelet 記錄][kubelet-logs] and [enable SSH node access][aks-ssh]。
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

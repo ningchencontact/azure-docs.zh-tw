@@ -2,24 +2,25 @@
 title: 什麼是 IoT 預覽的 Azure 資訊安全中心 |Microsoft Docs
 description: 了解 Azure 資訊安全中心的 IoT 功能和服務。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e454d3be536d908003ad9163a44089eb3a5eb99
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192501"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618051"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>簡介 Azure 資訊安全中心的 IoT
 
@@ -41,15 +42,15 @@ IoT 的 azure 資訊安全中心 (ASC) 執行的工作負載在邊緣，內部�
 
 ### <a name="unified-visibility-and-control"></a>統一的可見性和控制
 
-取得整合式的安全性檢視所有您在內部部署和雲端工作負載，包括您的 Azure IoT 解決方案。 自動探索和新裝置上線並在您的工作負載 （分葉裝置、 Edge 裝置，IOT 中樞），以確保合規性套用安全性原則，安全性標準。
+可讓您統一檢視跨內部部署和雲端所有工作負載的安全性，包括 Azure IoT 解決方案。 自動探索新的裝置以進行上線，並將安全性原則套用至所有工作負載 (分葉裝置、 Edge 裝置、IOT 中樞)，以確保符合安全性標準。
 
 ### <a name="adaptive-threat-prevention"></a>調適性威脅防護
 
-使用 iot ASC 以持續監視機器、 網路和 Azure 服務，包括您的 Azure IoT 解決方案 edge 裝置的應用程式的安全性。 您可以選擇使用來自數百個內建安全性評定或建立您自己的 IoT 中樞的儀表板中央的 ASC 中。 最佳化您的安全性設定，並改善您的安全性分數可操作的建議與跨虛擬機器、 網路、 應用程式和資料。 透過新加入的 IoT 功能，您現在可以降低受攻擊面，為您的 Azure IoT 解決方案，並可以被入侵之前修正問題。
+使用 iot ASC 以持續監視機器、 網路和 Azure 服務，包括您的 Azure IoT 解決方案 edge 裝置的應用程式的安全性。 您可以選擇使用來自數百個內建安全性評定或建立您自己的 IoT 中樞的儀表板中央的 ASC 中。 使用針對虛擬機器、網路、應用程式和資料的建議動作，將您的安全性設定最佳化，並提升您的安全分數。 現在，您可以使用新增的 IoT 功能，減少 Azure IoT 解決方案的受攻擊面，並在遭到惡意探索前補救問題。
 
 ### <a name="intelligent-threat-detection-and-response"></a>智慧型威脅偵測和回應
 
-使用進階的分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。 內建行為分析和機器學習服務識別攻擊和零時差惡意探索。 監視您的 IoT 解決方案，傳入攻擊和缺口後的活動。 簡化裝置的調查與補救互動式的工具與內容相關威脅情報。
+使用進階的分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。 內建行為分析和機器學習服務識別攻擊和零時差惡意探索。 監控您的 IoT 解決方案，以偵測外來攻擊與入侵後活動。 簡化裝置的調查與補救互動式的工具與內容相關威脅情報。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,24 +2,25 @@
 title: 了解 IoT 的 Azure 資訊安全中心的成本預覽 |Microsoft Docs
 description: 深入了解 IoT 和控制它們與 Azure 資訊安全中心相關聯的成本。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198329"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618445"
 ---
 # <a name="pricing-and-associated-costs"></a>定價和相關成本
 
@@ -82,7 +83,7 @@ Iot 的 ASC 有兩種類型的相關聯的成本，並不屬於直接定價：
 | | 在詳細資料[警示](concept-security-alerts.md)並[建議](concept-recommendations.md)調查未提供 |
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - 存取您[未經處理的安全性資料](how-to-security-data-access.md)
 - [調查裝置](how-to-investigate-device.md)

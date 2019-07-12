@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
-ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15f17ac6556c4ff731372dc7f738d0f58bdc3e31
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60323546"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593305"
 ---
 # <a name="custom-reports-from-verizon"></a>來自 Verizon 的自訂報告
 
@@ -68,7 +68,7 @@ Edge CNAMES 自訂報告提供已啟用自訂報告記錄之 Edge CNAMEs 的命�
 
 ## <a name="edge-cnames-custom-report-fields"></a>Edge CNAMES 自訂報告欄位
 
-| 欄位                     | 描述   |
+| 欄位                     | 說明   |
 |---------------------------|---------------|
 | 2xx                       | 指出產生 2xx HTTP 狀態碼 (例如 200 OK) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 |
 | 3xx                       | 指出產生 3xx HTTP 狀態碼 (例如 302 已找到或 304 未修改) 之 Edge CNAME 的要求總數或已傳輸資料 (MB)。 |

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789408"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605763"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>範例 3-分類：預測信用風險
 
@@ -27,7 +27,7 @@ ms.locfileid: "65789408"
 
 ![實驗的圖形](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "65789408"
 
 [範例 4-分類：信用風險預測 （成本敏感）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)提供進階的實驗，可以解決這項實驗中相同的問題。 它會顯示如何執行_成本敏感_使用分類**執行 Python 指令碼**模組，並比較兩個二進位的分類演算法的效能。 如果您想要深入了解如何建置分類實驗，請參閱。
 
-## <a name="data"></a>資料
+## <a name="data"></a>Data
 
 我們從 UC Irvine 存放庫使用德國信用卡資料集。
 資料集包含 1,000 範例，其中含有 20 個功能和 1 個標籤。 每個範例代表個人。 這些功能包括數值和分類特徵。 請參閱[UCI 網站](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)意義的分類功能。 最後一個資料行是標籤，表示信用風險，且其只有兩個可能的值： 高信用風險 = 2，而低信用風險 = 1。
@@ -78,3 +78,4 @@ ms.locfileid: "65789408"
 - [範例 2-迴歸：比較針對汽車價格預測演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [範例 4-分類：預測信用風險 （成本機密）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [範例 5-分類：預測客戶流失](ui-sample-classification-predict-churn.md)
+- [範例 6-分類：預測航班誤點](ui-sample-classification-predict-flight-delay.md)

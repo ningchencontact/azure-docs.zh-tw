@@ -3,17 +3,17 @@ title: 快速入門-建立私用雲端上的 VMware VM
 description: 描述如何建立和 VMware VM CloudSimple 私用雲端
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/03/19
+ms.date: 06/03/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 217154578ad11755cd658ff3b106cfbe266277ab
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154619"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595692"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>建立私用雲端上的 VMware 虛擬機器
 
@@ -115,7 +115,7 @@ CloudSimple 指派預設的 vCenter 使用者帳戶具有使用者名稱 **cloud
 
 應用程式和私用雲端環境中執行的工作負載需要名稱解析和查閱和 IP 位址指派的 DHCP 服務。 適當的 DHCP 和 DNS 基礎結構，才能提供這些服務。 您可以在 vCenter 來提供這些服務以您的私用雲端環境中設定虛擬機器。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * VLAN 設定分散式的連接埠群組
 

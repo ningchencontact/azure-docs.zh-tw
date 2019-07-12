@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240101"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606116"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -21,11 +21,11 @@ ms.locfileid: "66240101"
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)和[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)，再完成本文章中描述的步驟。
 
 ## <a name="prerequisites"></a>必要條件
-* Azure 檔案共用相同的區域中您想要部署 Azure 檔案同步。如需詳細資訊，請參閱
+* Azure 檔案共用相同的區域中您想要部署 Azure 檔案同步。如需詳細資訊，請參閱：
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - [建立檔案共用](storage-how-to-create-file-share.md)以取得如何建立檔案共用的逐步說明。
 * 至少有一個 Windows Server 或 Windows Server 叢集的受支援執行個體，以與 Azure 檔案同步進行同步處理。如需 Windows Server 受支援版本的詳細資訊，請參閱[與 Windows Server 的互通性](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)。
-* Az PowerShell 模組可用 PowerShell 5.1 或 PowerShell 6 +。 您可以在任何支援的系統，但一律必須直接在您要註冊的 Windows 伺服器執行個體上執行伺服器註冊 cmdlet，包括非 Windows 系統上，Azure 檔案同步使用 Az PowerShell 模組。 在 Windows Server 2012 R2，您可以確認您至少執行 PowerShell 5.1。\*藉由查看的值**PSVersion**屬性 **$PSVersionTable**物件：
+* Az PowerShell 模組可用 PowerShell 5.1 或 PowerShell 6 +。 您可以上任何支援的系統，包括非 Windows 系統，但伺服器註冊 cmdlet 必須一律是 Windows Server 執行個體上執行您的 Azure 檔案同步使用 Az PowerShell 模組會註冊 （這可以直接或透過 PowerShell遠端處理）。 在 Windows Server 2012 R2，您可以確認您至少執行 PowerShell 5.1。\*藉由查看的值**PSVersion**屬性 **$PSVersionTable**物件：
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ ms.locfileid: "66240101"
     > 如果您打算使用 [伺服器註冊] UI 中，而不是直接從 PowerShell 註冊，您必須使用 PowerShell 5.1。
 
 * 如果您選擇要使用 PowerShell 5.1，請確定在已安裝最低.NET 4.7.2。 深入了解[.NET Framework 版本和相依性](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies)您系統上。
-* Az PowerShell 模組，可依照此處的指示進行安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 
-* 目前已安裝獨立於 Az 模組 Az.StorageSync 模組：
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > 如果您要在 Windows Server Core 上安裝.NET 4.7.2+，您必須安裝`quiet`和`norestart`旗標，否則安裝將會失敗。 例如，如果在安裝.NET 4.8，命令看起來會如下所示：
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* Az PowerShell 模組，可依照此處的指示進行安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
+     
+    > [!Note]  
+    > 當您安裝的 Az PowerShell 模組時，現在會自動安裝 Az.StorageSync 模組。
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>準備 Windows Server 以搭配 Azure 檔案同步使用
 針對要與 Azure 檔案同步搭配使用的每個伺服器 (包括容錯移轉叢集中的每個伺服器節點)，停用 [Internet Explorer 增強式安全性設定]  。 此動作只需要在初始伺服器註冊時執行。 您可以在註冊伺服器後重新啟用它。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+> [!Note]  
+> 如果您要部署 Windows Server Core 上的 Azure 檔案同步，您可以略過此步驟。
+
 1. 開啟 [伺服器管理員]。
 2. 按一下 [本機伺服器]  ：  
     ![位於伺服器管理員 UI 左側的 [本機伺服器]](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ ms.locfileid: "66240101"
 若要停用 [Internet Explorer 增強式安全性設定]，請從提升權限的 PowerShell 工作階段中執行下列命令：
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 取代 **< Az_Region >** ， **< RG_Name >** ，並 **< my_storage_sync_service >** 使用您自己的值，然後使用下列的命令數 」 來建立及部署儲存體同步服務：
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into

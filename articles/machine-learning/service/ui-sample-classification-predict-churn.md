@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785828"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606147"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>範例 5-分類：預測客戶流失、 appetency，和向上銷售 
 
@@ -29,7 +29,7 @@ ms.locfileid: "65785828"
 
 ![實驗圖形](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "65785828"
 
     ![開啟實驗](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>資料
+## <a name="data"></a>Data
 
 我們使用這項實驗的資料是來自 KDD Cup 2009。 資料集有 50,000 個資料列和 230 特徵資料行。 工作是要預測客戶流失、 appetency，和向上銷售的客戶使用這些功能。 如需詳細資料和工作的詳細資訊，請參閱[KDD 網站](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)。
 
@@ -79,3 +79,4 @@ ms.locfileid: "65785828"
 - [範例 2-迴歸：比較針對汽車價格預測演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [範例 3-分類：預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
 - [範例 4-分類：預測信用風險 （成本機密）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [範例 6-分類：預測航班誤點](ui-sample-classification-predict-flight-delay.md)

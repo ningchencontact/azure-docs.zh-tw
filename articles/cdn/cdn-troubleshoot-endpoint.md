@@ -7,26 +7,26 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b665c2f72f50b2d72fd625b49c4212785ab3301d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60323632"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593267"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>針對傳回 404 狀態碼的 Azure CDN 端點進行疑難排解
 本文可讓您針對傳回 404 HTTP 回應狀態碼的 Azure 內容傳遞網路 (CDN) 端點問題進行疑難排解。
 
 如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 您已建立 CDN 設定檔和端點，但您的內容似乎無法在 CDN 上使用。 嘗試透過 CDN URL 存取內容的使用者收到 HTTP 404 狀態碼。 
 
 ## <a name="cause"></a>原因

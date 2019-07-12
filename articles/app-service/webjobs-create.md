@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.author: glenga
+ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f4689e7d8d5af1aba2f31aac0359494a3a259f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60833402"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613387"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 WebJobs 是一項 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 功能，可讓您在與 Web 應用程式、API 應用程式或行動應用程式相同的內容中執行程式或指令碼。 使用 WebJob 不會產生額外的費用。
 
 > [!IMPORTANT]
@@ -158,7 +159,7 @@ when making changes in one don't forget the other two.
 
    ![新增 WebJob 分頁](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | 設定      | 範例值   | 描述  |
+   | 設定      | 範例值   | 說明  |
    | ------------ | ----------------- | ------------ |
    | **名稱** | myScheduledWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。 |
    | **檔案上傳** | ConsoleApp.zip | .zip  檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |

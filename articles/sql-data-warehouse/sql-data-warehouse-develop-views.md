@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873616"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595507"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的檢視
 在 Azure SQL 資料倉儲中使用 T-SQL 檢視開發解決方案的秘訣。 
@@ -23,12 +23,18 @@ ms.locfileid: "65873616"
 ## <a name="why-use-views"></a>為何要使用檢視？
 檢視能以許多不同的方式使用，提升您的方案品質。  本文特別強調幾個範例，說明如何以檢視來豐富您的解決方案，以及需要考量的限制。
 
+
+> [!IMPORTANT]
+> 請參閱在新的具體化的檢視語法[建立具體化檢視 AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)。  如需詳細資訊，請參閱 <<c0> [ 版本資訊](/azure/sql-data-warehouse/release-notes-10-0-10106-0)。
+>
+
+
 > [!NOTE]
 > 本文中不會討論 CREATE VIEW 的語法。 如需詳細資訊，請參閱 [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) 文件。
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>架構抽象概念
+
 常見的應用程式模式就是在載入資料時，使用後面接著物件重新命名模式的 CREATE TABLE AS SELECT (CTAS) 來重建資料表。
 
 下列範例會將新的日期記錄加入至日期維度。 請注意新的資料表 DimDate_New 最初是如何建立，然後重新命名，以取代原始版本的資料表。

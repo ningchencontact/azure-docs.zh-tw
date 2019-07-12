@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234194"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626110"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure 監視器記錄資料匯入至 Power BI
 
@@ -27,13 +27,13 @@ ms.locfileid: "65234194"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>概觀
-若要匯入資料[Log Analytics 工作區](manage-access.md)在匯入 Power BI 的 Azure 監視器，您會建立為基礎的 Power BI 中的資料集[記錄查詢](../log-query/log-query-overview.md)Azure 監視器中。  每次資料集重新整理時，就會執行查詢。  然後，您即可使用資料集中的資料建立 Power BI 報表。  若要在 Power BI 中建立資料集，您必須從 Log Analytics 將您的查詢匯出到 [Power Query (M) 語言](https://msdn.microsoft.com/library/mt807488.aspx)。  接著可以用它在 Power BI Desktop 中建立查詢，然後將它發佈至 Power BI 做為資料集。  以下將詳細說明此流程。
+## <a name="overview"></a>總覽
+若要匯入資料[Log Analytics 工作區](manage-access.md)在匯入 Power BI 的 Azure 監視器，您會建立為基礎的 Power BI 中的資料集[記錄查詢](../log-query/log-query-overview.md)Azure 監視器中。  每次資料集重新整理時，就會執行查詢。  然後，您即可使用資料集中的資料建立 Power BI 報表。  若要在 Power BI 中建立資料集，您必須從 Log Analytics 將您的查詢匯出到 [Power Query (M) 語言](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)。  接著可以用它在 Power BI Desktop 中建立查詢，然後將它發佈至 Power BI 做為資料集。  以下將詳細說明此流程。
 
 ![Log Analytics 到 Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>匯出查詢
-建立著手[記錄檔查詢](../log-query/log-query-overview.md)傳回您想要填入 Power BI 資料集的資料。  您接著可以將該查詢匯出到可以由 Power BI Desktop 使用的 [Power Query (M) 語言](https://msdn.microsoft.com/library/mt807488.aspx)。
+建立著手[記錄檔查詢](../log-query/log-query-overview.md)傳回您想要填入 Power BI 資料集的資料。  您接著可以將該查詢匯出到可以由 Power BI Desktop 使用的 [Power Query (M) 語言](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)。
 
 1. [Log Analytics 中建立記錄檔查詢](../log-query/get-started-portal.md)來擷取您的資料集的資料。
 2. 選取 **匯出** > **Power BI 查詢 (M)** 。  這會將查詢匯出到文字檔，稱為**PowerBIQuery.txt**。 

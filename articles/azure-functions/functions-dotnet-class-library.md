@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30c97eed5f28631bd2583cbda75df5755ffe2e34
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872792"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626103"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -50,7 +50,7 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您需要[
  | - host.json
 ```
 
-此目錄會部署至 Azure 中的函數應用程式。 Functions 執行階段[版本 2.x](functions-versions.md) 中所需之繫結延伸模組會[以 NuGet 封裝形式新增至專案](./functions-bindings-register.md#c-class-library-with-visual-studio-2019)。
+此目錄會部署至 Azure 中的函數應用程式。 Functions 執行階段[版本 2.x](functions-versions.md) 中所需之繫結延伸模組會[以 NuGet 封裝形式新增至專案](./functions-bindings-register.md#vs)。
 
 > [!IMPORTANT]
 > 建置流程會為每個函式都建立 function.json  檔案。 這個 function.json  檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要了解如何停用函式，請參閱[如何停用函式](disable-function.md#functions-2x---c-class-libraries)。
@@ -133,7 +133,7 @@ public static class BindingExpressionsExample
 
 此檔案的目的是提供資訊給縮放控制器，以用於[使用情況方案的縮放決策](functions-scale.md#how-the-consumption-and-premium-plans-work)。 因此，檔案只會有觸發程序資訊，而不會有輸入或輸出繫結。
 
-產生的 *function.json* 檔案包含 `configurationSource` 屬性 (property)，指示執行階段使用 .NET 屬性 (attribute) 屬性進行繫結，而不是使用 *function.json* 設定。 以下是範例：
+產生的 *function.json* 檔案包含 `configurationSource` 屬性 (property)，指示執行階段使用 .NET 屬性 (attribute) 屬性進行繫結，而不是使用 *function.json* 設定。 以下為範例：
 
 ```json
 {

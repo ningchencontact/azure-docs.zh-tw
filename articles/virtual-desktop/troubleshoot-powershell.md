@@ -4,15 +4,15 @@ description: 如何設定 Windows 虛擬桌面的租用戶環境時，針對使�
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: ad32f7ff883812830dbcf2ed900c4034bd90abfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06b955365ffc7c0a1dff93db95932d8696293e9f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927503"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605251"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows 虛擬桌面 PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "64927503"
 
 此區段會列出 PowerShell 命令，通常用於設定 Windows 虛擬桌面時，並提供解決在使用它們時可能發生之問題的方法。
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Error:新增 RdsAppGroupUser 命令-指定的 UserPrincipalName 已指派給指定的主應用程式集區中的 RemoteApp 應用程式群組
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>錯誤：新增 RdsAppGroupUser 命令-指定的 UserPrincipalName 已指派給指定的主應用程式集區中的 RemoteApp 應用程式群組
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -36,7 +36,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **修正：** 如果使用者需要遠端應用程式和遠端桌面，建立不同的主應用程式集區，或授與使用者存取將會允許任何應用程式使用工作階段主機 VM 的遠端桌面。
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Error:新增 RdsAppGroupUser 命令-指定的 UserPrincipalName 並不存在於與遠端桌面的租用戶相關聯的 Azure Active Directory
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>錯誤：新增 RdsAppGroupUser 命令-指定的 UserPrincipalName 並不存在於與遠端桌面的租用戶相關聯的 Azure Active Directory
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
@@ -50,7 +50,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 - 使用者不受限於企業對消費者 (B2C) 或企業對企業 (B2B) 的商務。
 - Windows 虛擬桌面的租用戶會連結到正確的 Azure Active Directory。
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Error:Get-RdsDiagnosticActivities-若要查詢的管理服務使用者未獲授權
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>錯誤：Get-RdsDiagnosticActivities-若要查詢的管理服務使用者未獲授權
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
@@ -60,7 +60,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **修正：** 發出 Get-RdsDiagnosticActivities 與-TenantName <TenantName>。
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Error:Get-RdsDiagnosticActivities-若要查詢的管理服務的使用者未獲授權
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>錯誤：Get-RdsDiagnosticActivities-若要查詢的管理服務的使用者未獲授權
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
@@ -70,7 +70,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **修正：** -部署參數僅供部署系統管理員。 這些系統管理員通常是遠端桌面服務/Windows 虛擬桌面小組的成員。 取代為部署參數與-TenantName <TenantName>。
 
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Error:新 RdsRoleAssignment-若要查詢的管理服務的使用者未獲授權
+### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>錯誤：新 RdsRoleAssignment-若要查詢的管理服務的使用者未獲授權
 
 **原因 1：** 租用戶上，所使用的帳戶不具有遠端桌面服務擁有者權限。
 

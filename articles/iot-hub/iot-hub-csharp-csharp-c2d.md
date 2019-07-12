@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864454"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621893"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 
@@ -22,29 +22,29 @@ ms.locfileid: "65864454"
 
 ## <a name="introduction"></a>簡介
 
-Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)說明了如何建立 IoT 中樞、在其中佈建裝置身分識別，以及編寫裝置應用程式，以傳送裝置到雲端的訊息。
+Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)快速入門示範如何建立 IoT 中樞、 佈建裝置識別，以及編寫裝置應用程式，以傳送裝置到雲端訊息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-本教學課程是以快速入門[將遙測從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)為基礎而建置的。說明如何執行下列步驟：
+本教學課程是根據[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)。 說明如何執行下列步驟：
 
 * 從您的解決方案後端，透過 IoT 中樞將雲端到裝置訊息傳送給單一裝置。
 
 * 接收裝置上的雲端到裝置訊息。
 
-* 從您的解決方案後端，要求確認收到從 IoT 中樞傳送到裝置的訊息 (「意見反應」  )。
+* 從您的解決方案後端，要求傳遞通知 (*意見反應*) 從 IoT 中樞傳送至裝置的訊息。
 
 您可以在[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)中，找到有關雲端到裝置訊息的詳細資訊。
 
 在本教學課程結束時，您可以執行兩個.NET 主控台應用程式。
 
-* **SimulatedDevice** 是在[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)中建立的應用程式修改版本，可連線到您的 IoT 中樞，並接收雲端到裝置的訊息。
+* **SimulatedDevice**，在建立應用程式的修改的版本[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)，可連接到您的 IoT 中樞，並接收雲端到裝置訊息。
 
-* **SendCloudToDevice**會透過 IoT 中樞，將雲端到裝置訊息傳送到裝置應用程式，然後接收其傳遞通知。
+* **SendCloudToDevice**，這將雲端到裝置訊息傳送至裝置應用程式，透過 IoT 中樞，然後接收其傳遞通知。
 
 > [!NOTE]
 > IoT 中樞會透過 [Azure IoT 裝置 SDK](iot-hub-devguide-sdks.md) 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連線至 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 中樞開發人員指南](iot-hub-devguide.md)。
-> 
+>
 
 若要完成此教學課程，您需要下列項目：
 
@@ -54,7 +54,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 ## <a name="receive-messages-in-the-device-app"></a>在裝置應用程式中接收訊息
 
-在本節中，您將修改在[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)中建立的裝置應用程式，以接收來自 IoT 中樞的雲端到裝置訊息。
+在本節中，您會修改您在中建立裝置應用程式[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)以接收來自 IoT 中樞雲端到裝置訊息。
 
 1. 在 Visual Studio 的 **SimulatedDevice** 專案中，將下列方法新增 [程式]  類別。
 
@@ -138,7 +138,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. 將下列方法新增至 **Program** 類別。 裝置名稱設為所使用定義中的裝置時[將遙測從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md).
+6. 將下列方法新增至 **Program** 類別。 裝置名稱設為哪些您定義時，使用中的裝置[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)。
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    }
    ```
 
-   這個方法會將新的雲端到裝置訊息傳送給識別碼為 `myFirstDevice`的裝置。 只有在您修改了在[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)中使用的參數時，才要變更此參數。
+   這個方法會將新的雲端到裝置訊息傳送給識別碼為 `myFirstDevice`的裝置。 變更此參數只有當您修改使用中時，才[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)。
 
 7. 最後，將下列幾行新增到 **Main** 方法中。
 
@@ -165,13 +165,13 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 8. 從 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案...]  。選取 [多個啟始專案]  ，然後同時針對 **ReadDeviceToCloudMessages**、**SimulatedDevice** 以及 **SendCloudToDevice** 選取 [啟動]  動作。
 
-9. 按 **F5**。 三個應用程式應該全部都會啟動。 選取 [SendCloudToDevice]  視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
+9. 請按 **F5**。 三個應用程式應該全部都會啟動。 選取 [SendCloudToDevice]  視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
 
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>接收傳遞意見反應
 
-您可以向「IoT 中樞」要求每個雲端到裝置訊息的傳遞 (或到期) 通知。 這個選項可讓解決方案後端輕鬆地通知重試或補償邏輯。 如需有關雲端到裝置意見反應的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
+就可以要求傳遞 （或到期） 通知以從 IoT 中樞的每個雲端到裝置訊息。 這個選項可讓解決方案後端輕鬆地通知重試或補償邏輯。 如需有關雲端到裝置意見反應的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
 
 在本節中，您會修改 **SendCloudToDevice** 應用程式以要求意見反應，然後從 IoT 中樞接收意見反應。
 
@@ -217,7 +217,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)文章所建議，實作重試原則 (例如指數型輪詢)。
+> 為了簡單起見，本教學課程中並未實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)文章所建議，實作重試原則 (例如指數型輪詢)。
 >
 
 ## <a name="next-steps"></a>後續步驟

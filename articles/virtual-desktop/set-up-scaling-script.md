@@ -4,15 +4,15 @@ description: 描述如何設定 Windows 虛擬桌面預覽工作階段主機的�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755141"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620424"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
@@ -20,7 +20,7 @@ ms.locfileid: "66755141"
 
 本文章會使用簡單的調整指令碼來自動調整 Windows 虛擬桌面環境中的 工作階段主機的虛擬機器。 若要深入了解調整指令碼的運作方式，請參閱[調整指令碼的運作方式](#how-the-scaling-script-works)一節。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您用來執行指令碼的環境必須具有下列動作：
 
@@ -66,7 +66,7 @@ ms.locfileid: "66755141"
     ```
     
 3. 開啟編輯 窗格和負載**函式 PSStoredCredentials.ps1**檔案。
-4. 运行以下 cmdlet：
+4. 執行下列 Cmdlet：
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
@@ -75,13 +75,13 @@ ms.locfileid: "66755141"
     例如， **Set-variable-名稱 KeyPath-全域範圍-值"c:\\調整 HostPool1"**
 5. 執行**新增 StoredCredential KeyPath \$KeyPath** cmdlet。 出現提示時，輸入您的 Windows 虛擬桌面認證查詢的主應用程式集區的權限 (主應用程式集區中指定**config.xml**)。
     - 如果您使用不同的服務主體或標準帳戶，執行**新增 StoredCredential KeyPath \$KeyPath**一旦針對每個帳戶，來建立本機儲存認證的 cmdlet。
-6. 執行**Get StoredCredentials-清單**，確認已成功建立認證。
+6. 執行**Get StoredCredential-清單**，確認已成功建立認證。
 
 ### <a name="configure-the-configxml-file"></a>設定 config.xml 檔案
 
 要更新調整指令碼設定在 config.xml 中的下列欄位中輸入相關的值：
 
-| 欄位                     | 描述                    |
+| 欄位                     | 說明                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 將工作階段主機的 Vm 執行所在的訂用帳戶相關聯的 azure AD 租用戶識別碼     |
 | AADApplicationId              | 服務主體的應用程式識別碼                                                       |

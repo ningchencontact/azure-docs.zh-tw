@@ -5,17 +5,17 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 05/28/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299715"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67622087"
 ---
-| 資源 | 預設值/最大限制 |
+| Resource | 預設值/最大限制 |
 | --- | --- |
 | 每個訂用帳戶的 ExpressRoute 電路 |10 |
 | 每個訂用帳戶，使用 Azure Resource Manager 區域的 ExpressRoute 線路 |10 |
@@ -42,4 +42,4 @@ ms.locfileid: "66299715"
 | 40 Gbps* |10 |100 |
 | 100 Gbps* |10 |100 |
 
-\* 只有 ExpressRoute Direct
+**只有 100 Gbps ExpressRoute Direct*

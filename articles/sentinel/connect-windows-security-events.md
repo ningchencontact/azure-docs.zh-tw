@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 36d38aa82b4f0ec8d7d9ef6ebb1145b1fcc334df
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190578"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673770"
 ---
 # <a name="connect-windows-security-events"></a>連線 Windows 安全性事件 
 
@@ -30,10 +31,10 @@ ms.locfileid: "67190578"
 您可以串流處理來自連接到您 Azure Sentinel 的工作區之 Windows 伺服器的所有安全性事件。 此連線可讓您檢視儀表板、 建立自訂警示，以及改善的調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。  您可以選取所要串流處理事件：
 
 - **所有事件**-所有的 Windows 安全性及 AppLocker 事件。
-- **常見**-一組標準的稽核事件。 在此集合中包含的完整使用者稽核記錄。 例如，這個集合包含使用者登入和使用者登出活動 (事件識別碼 4634)。 納入了各種稽核動作，例如安全性群組變更、主要網域控制站 Kerberos 作業，以及業界組織建議的其他事件。
+- **常見**-一組標準的稽核事件。 在此集合中包含的完整使用者稽核記錄。 比方說，這個集合所包含的使用者登入和登出事件 （事件識別碼 4634） 的使用者。 納入了各種稽核動作，例如安全性群組變更、主要網域控制站 Kerberos 作業，以及業界組織建議的其他事件。
 
 「一般」集合包含的事件相當少，因為選擇一般集合而非其他事件的主要動機在於降低數量，且不篩選出特定事件。
-- **最小**位較少的可能指出潛在的威脅的事件。 藉由啟用此選項，您無法擁有完整的稽核線索。  這個集合所涵蓋可能表示發生成功入侵的事件和極低的磁碟區的重要事件。 例如，這個集合包含使用者成功和失敗的登入活動 (事件識別碼 4624、4625)，不過不包含對於稽核而言相當重要但對於偵測而言沒有意義而且數量相對多的登出活動。 這個集合的大部分資料量是登入事件和流程建立事件 (事件識別碼 4688)。
+- **最小**位較少的可能指出潛在的威脅的事件。 藉由啟用此選項，您無法擁有完整的稽核線索。  這個集合所涵蓋可能表示發生成功入侵的事件和極低的磁碟區的重要事件。 比方說，這個集合包含使用者成功和失敗登入 （事件識別碼 4624、 4625），但它不包含登出很重要的稽核，但不是偵測才有意義且其相對高的磁碟區的資訊。 大部分的資料量，這個集合是登入事件和處理程序建立事件 （事件識別碼 4688）。
 - **無**-沒有安全性或 AppLocker 事件。
 
 > [!NOTE]

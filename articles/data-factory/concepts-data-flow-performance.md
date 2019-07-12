@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190608"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569034"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料的流程效能及微調指南
 
@@ -127,7 +127,18 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 * 選擇這個常用的選項時，請記住這點。 如果您要結合至單一輸出檔案資料分割的許多大型的原始程式檔，您可以執行叢集節點的資源不足。
 * 若要避免耗盡計算節點的資源，您可以在 ADF，會針對效能進行最佳化，保留預設值或明確的資料分割配置，然後再新增 會合併所有組件的管線中後續的複製活動檔案從輸出資料夾複製到新的單一檔案。 基本上，這項技術會分隔檔案合併 」 轉換的動作，並達到相同結果與設為 「 輸出至單一檔案 」。
 
+### <a name="looping-through-file-lists"></a>循環使用檔案清單
+
+在大部分情況下，在 ADF 中的資料流程會執行管線，以允許資料流量的來源轉換來反覆查看多個檔案從更佳。 換句話說，最好使用萬用字元，或在您的來源資料中的檔案清單流程，逐一查看在管線中，呼叫每個反覆運算上的 執行資料流程中使用 ForEach 檔案的大型清單。 資料流程的程序會更快速執行，藉由使用內部資料流進行迴圈。
+
+比方說，如果我有一份資料檔案從 2019 年 7 月，我想要在 Blob 儲存體中的資料夾中處理時，它會是更好的效能從您的管線呼叫一次執行資料流程的活動，並使用萬用字元，在您的來源，就像這樣:
+
+```DateFiles/*_201907*.txt```
+
+這會優於查閱，以對 Blob 存放區，然後會跨所有相符的檔案執行資料流程的活動內搭配使用 ForEach 逐一查看管線中執行。
+
 ## <a name="next-steps"></a>後續步驟
+
 請參閱其他資料流程的文章與效能相關：
 
 - [資料流程最佳化 索引標籤](concepts-data-flow-optimize-tab.md)

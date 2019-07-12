@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536819"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595167"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>作法：提供給您的 Azure AD 應用程式的選擇性宣告
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>HOW TO：提供給您的 Azure AD 應用程式的選擇性宣告
 
 應用程式開發人員可以在他們的 Azure AD 應用程式中使用選擇性宣告來指定他們想要傳送至其應用程式的權杖中宣告。 
 
@@ -54,7 +54,7 @@ ms.locfileid: "67536819"
 
 **表 2: v1.0 與 v2.0 選擇性宣告集**
 
-| 名稱                       |  描述   | 權杖類型 | 使用者類型 | 注意  |
+| 名稱                       |  說明   | 權杖類型 | 使用者類型 | 附註  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 上次驗證使用者的時間。 請參閱 OpenID Connect 規格。| JWT        |           |  |
 | `tenant_region_scope`      | 資源租用戶的區域 | JWT        |           | |
@@ -83,7 +83,7 @@ ms.locfileid: "67536819"
 
 **表 3： 僅限 v2.0 選擇性宣告**
 
-| JWT 宣告     | 名稱                            | 描述                                | 注意 |
+| JWT 宣告     | 名稱                            | 描述                                | 附註 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 位址                      | 用戶端的登入來源 IP 位址。   |       |
 | `onprem_sid`  | 內部部署安全性識別碼 |                                             |       |
@@ -101,7 +101,7 @@ ms.locfileid: "67536819"
 
 **表 4：用來設定選擇性宣告的值**
 
-| 屬性名稱  | 額外屬性名稱 | 描述 |
+| 屬性名稱  | 額外屬性名稱 | 說明 |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | 可同時用於 SAML 和 JWT 回應，以及用於 v1.0 和 v2.0 權杖。 |
 |                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如： `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -168,7 +168,7 @@ ms.locfileid: "67536819"
 
 **表 5：OptionalClaims 類型屬性**
 
-| 名稱        | 類型                       | 描述                                           |
+| 名稱        | type                       | 描述                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 集合 (OptionalClaim) | 在 JWT 識別碼權杖中傳回的選擇性宣告。 |
 | `accessToken` | 集合 (OptionalClaim) | 在 JWT 存取權杖中傳回的選擇性宣告。 |
@@ -181,7 +181,7 @@ ms.locfileid: "67536819"
 
 **表 6：OptionalClaim 類型屬性**
 
-| 名稱                 | 類型                    | 描述                                                                                                                                                                                                                                                                                                   |
+| 名稱                 | type                    | 描述                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 選擇性宣告的名稱。                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 宣告的來源 (目錄物件)。 有來自延伸模組屬性的預先定義宣告和使用者定義宣告。 如果來源值為 null，宣告便是預先定義的選擇性宣告。 如果來源值為 user，名稱屬性中的值即為來自使用者物件的延伸模組屬性。 |
@@ -193,7 +193,7 @@ ms.locfileid: "67536819"
 
 > [!Note]
 > - 目錄結構描述延伸模組是 Azure AD 專用功能，讓自訂延伸模組和 MSA 使用者如果您的應用程式資訊清單要求登入您的應用程式，這些擴充功能將不會傳回。
-> - Azure AD 的選擇性宣告只會使用 Azure AD 延伸模組，無法運作的 Microsoft Graph 目錄擴充功能搭配運作。 這兩個 Api 需要`Directory.ReadWriteAll`權限，只可以由系統管理員同意。
+> - Azure AD 的選擇性宣告只會使用 Azure AD 延伸模組並不適用於 Microsoft Graph 目錄擴充功能。 這兩個 Api 需要`Directory.ReadWriteAll`權限，只可以由系統管理員同意。
 
 ### <a name="directory-extension-formatting"></a>格式設定的目錄延伸模組
 
@@ -303,7 +303,7 @@ ms.locfileid: "67536819"
 -   您可以修改應用程式資訊清單。 下列範例會使用這個方法來執行設定。 請先閱讀介紹資訊清單的[了解 Azure AD 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)文件。
 -   您也可以撰寫使用[圖形 API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)來更新您應用程式的應用程式。 「圖形 API」參考指南中的[實體和複雜類型參考](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) \(英文\) 可協助您設定選擇性宣告。
 
-**範例：** 在以下範例中，您將修改應用程式的資訊清單，以將宣告新增至要用於應用程式的存取權杖、識別碼權杖及 SAML 權杖中。
+**範例:** 在以下範例中，您將修改應用程式的資訊清單，以將宣告新增至要用於應用程式的存取權杖、識別碼權杖及 SAML 權杖中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 驗證後，在頁面右上角選取您的 Azure AD 租用戶。

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 9f4d3ff6fa02369c0e4a01949cc686b842a63a12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: glenga
+ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: e66a2ffa6578ed0c9eb5eb19659adf9ba253bbeb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808477"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613365"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
@@ -88,7 +89,7 @@ ms.locfileid: "66808477"
 
 ![Diagram showing WebJob project linking to web project](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 如果您是使用 Visual Studio 2015，請安裝 [Azure SDK for .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/)。
 
@@ -236,7 +237,7 @@ WebJobs 會使用相同的 CRON 運算式排程為在 Azure Functions 計時器�
 
 WebJobs 支援下列設定：
 
-| **設定** | **類型**  | **說明** |
+| **設定** | **型別**  | **描述** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | 全部 | 可讓工作就地執行而不第一次複製到暫存資料夾。 若要進一步了解，請參閱[WebJobs 工作目錄](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)。 |
 | `is_singleton` | 連續 | 只執行 Webjob 時相應放大的單一執行個體。若要進一步了解，請參閱[設定為 singleton 的連續工作](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)。 |

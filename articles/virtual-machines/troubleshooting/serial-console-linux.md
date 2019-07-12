@@ -4,7 +4,7 @@ description: Azure 虛擬機器和虛擬機器擴展集的雙向序列主控台�
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: f3fa646fcca99d5762f480b3fd12c5e249eabaf8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137215"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710570"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure 適用於 Linux 的序列主控台
 
@@ -106,7 +106,7 @@ Oracle Linux        | 預設啟用的序列主控台存取。
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>存取序列主控台的常見案例
 
-案例          | 序列主控台中的動作
+情節          | 序列主控台中的動作
 :------------------|:-----------------------------------------
 損毀的 *FSTAB* 檔案 | 按下 **Enter** 鍵以繼續，並使用文字編輯器來修正 *FSTAB* 檔案。 您可能必須在單一使用者模式下，才能進行此操作。 如需詳細資訊，請參閱 > 一節序列主控台[如何修正 fstab 問題](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)並[使用序列主控台存取 GRUB 和單一使用者模式](serial-console-grub-single-user-mode.md)。
 不正確的防火牆規則 |  如果您已設定 iptables 來封鎖 SSH 連線，您可以使用序列主控台而不需要 SSH 互動與您的 VM。 更多詳細資料，請參閱[iptables 相關自定義 man 頁面](https://linux.die.net/man/8/iptables)。<br>同樣地，如果您的 firewalld 封鎖 SSH 存取，您可以透過序列主控台存取虛擬機器，並重新設定 firewalld。 更多詳細資料可在[firewalld 文件](https://firewalld.org/documentation/)。
@@ -177,7 +177,7 @@ SSH 組態問題 | 存取序列主控台，然後變更設定。 序列主控台
 > [!CAUTION]
 > 這表示中斷連線的使用者將不會被登出。（透過 SIGHUP 或類似的機制） 強制在中斷連線時登出的功能仍然正在規劃中。 就 Windows 而言，在特殊系統管理主控台 (SAC) 中會啟用自動逾時，不過，針對 Linux，您則可以設定終端機逾時設定。 為此，請在您用以登入主控台之使用者的 *.bash_profile* 或 *.profile* 檔案中新增 `export TMOUT=600`。 此設定將在 10 分鐘後逾時。
 
-## <a name="accessibility"></a>協助工具
+## <a name="accessibility"></a>協助工具選項
 存取範圍是 Azure 的序列主控台的焦點。 為此，我們已確認序列主控台完全可供存取。
 
 ### <a name="keyboard-navigation"></a>鍵盤導覽
@@ -219,7 +219,7 @@ A. 在 https://aka.ms/serialconsolefeedback 建立 GitHub 問題來提供意見�
 
 **問：序列主控台是否支援複製/貼上？**
 
-A. 是。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
+A. 是的。 請使用 **Ctrl**+**Shift**+**C** 與 **Ctrl**+**Shift**+**V** 來針對終端機進行複製及貼上。
 
 **問：我是否可以使用序列主控台，而不使用 SSH 連線？**
 
@@ -246,7 +246,7 @@ A. 是 ！ 請參閱[虛擬機器擴展集的序列主控台](#serial-console-fo
 
 **問：如果我設定我的 VM 或虛擬機器擴展集使用 SSH 金鑰驗證時，我仍然可以使用序列主控台連接到我 VM/虛擬機器擴展集執行個體嗎？**
 
-A. 是。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼]  並使用這些認證登入序列主控台來執行此操作。
+A. 是的。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼]  並使用這些認證登入序列主控台來執行此操作。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用序列主控台來[存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)。

@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596619"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612599"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-本教學課程是以[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-node-node-c2d.md)教學課程中的程式碼來建置，示範如何使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)將檔案上傳至 [Azure Blob 儲存體](../storage/index.yml)。 本教學課程說明如何：
+本教學課程中的程式碼是根據[傳送使用 IoT 中樞的雲端到裝置訊息](iot-hub-node-node-c2d.md)教學課程，以示範如何使用[檔案上傳功能的 IoT 中樞](iot-hub-devguide-file-upload.md)若要將檔案上傳[Azure blob儲存體](../storage/index.yml)。 本教學課程說明如何：
 
-- 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
-- 
-- 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
+* 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 
-[開始使用 IoT 中樞](quickstart-send-telemetry-node.md)教學課程示範「IoT 中樞」的基本裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
+* 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-*  包含映像的大型檔案
-*  影片
-*  取樣高頻率的震動資料
-*  某種經前置處理過的資料。
+[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-node.md)快速入門示範的 IoT 中樞基本的裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
+
+* 包含映像的大型檔案
+* 影片
+* 取樣高頻率的震動資料
+* 某種經前置處理過的資料。
 
 這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/introduction.md) 或 [Hadoop](../hdinsight/index.yml) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
 
@@ -216,6 +216,8 @@ node SimulatedDevice.js
 
 在本教學課程中，您已學到如何使用 IoT 中樞的檔案上傳功能來簡化從裝置上傳檔案。 您可以利用下列文章繼續探索 IoT 中樞功能和案例：
 
-*  [以程式設計方式建立 IoT 中樞](iot-hub-rm-template-powershell.md)
-*  [C SDK 簡介](iot-hub-device-sdk-c-intro.md)
-*  [Azure IoT SDK](iot-hub-devguide-sdks.md)
+* [以程式設計方式建立 IoT 中樞](iot-hub-rm-template-powershell.md)
+
+* [C SDK 簡介](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)

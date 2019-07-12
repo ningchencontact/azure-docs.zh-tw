@@ -2,24 +2,25 @@
 title: IoT 預覽的 Azure 資訊安全中心的驗證方法 |Microsoft Docs
 description: 了解可用的不同驗證方法時使用 Azure 資訊安全中心的 IoT 服務。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 634d1aedfaf868766e3c1bf97373b9c310885835
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198408"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618347"
 ---
 # <a name="security-agent-authentication-methods"></a>安全性代理程式驗證方法 
 
@@ -61,7 +62,7 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 下表會記錄這些引數。
 
 
-|參數|描述|選項|
+|參數|說明|選項。|
 |---------|---------------|---------------|
 |**身分識別**|驗證模式| **模組**或**裝置**|
 |**type**|驗證類型|**SymmetricKey**或**SelfSignedCertificate**|
@@ -111,7 +112,7 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 - [安全性代理程式概觀](security-agent-architecture.md)
 - [部署安全性代理程式](how-to-deploy-agent.md)
 - [存取未經處理的安全性資料](how-to-security-data-access.md)

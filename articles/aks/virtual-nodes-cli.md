@@ -2,17 +2,17 @@
 title: 在 Azure Kubernetes Service (AKS) 中使用 Azure CLI 建立虛擬節點
 description: 了解如何使用 Azure CLI 建立使用虛擬節點執行 Pod 的 Azure Kubernetes Service (AKS) 叢集。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742794"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613790"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>使用 Azure CLI 建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
@@ -24,7 +24,7 @@ ms.locfileid: "66742794"
 
 虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」  網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」  網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
 
-如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
+如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以檢查 ACI 提供者註冊使用的狀態[az 提供者清單][az-provider-list]命令，如下列範例所示：
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-如果提供者顯示為 *NotRegistered*，請使用 [az provider register][az-provider-register] 來註冊提供者，如以下範例所示：
+如果提供者會顯示成*NotRegistered*，註冊使用的提供者[az provider register][az-provider-register]如下列範例所示：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-現在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令為虛擬節點建立其他子網路。 下列範例會建立名為 myVirtualNodeSubnet  且位址首碼為 10.241.0.0/16  的子網路。
+現在，建立針對虛擬節點，使用額外的子[az vnet 子網路建立][az-network-vnet-subnet-create]命令。 下列範例會建立名為 myVirtualNodeSubnet  且位址首碼為 10.241.0.0/16  的子網路。
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -138,13 +138,13 @@ az ad sp create-for-rbac --skip-assignment
 
 若要允許叢集使用及管理虛擬網路，您必須對 AKS 服務主體授與正確權限，使其可以使用網路資源。
 
-首先，使用 [az network vnet show][az-network-vnet-show] 取得虛擬網路資源識別碼：
+首先，取得虛擬網路資源識別碼使用[az 網路 vnet show][az-network-vnet-show]:
 
 ```azurecli-interactive
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-若要授與 AKS 叢集使用虛擬網路的正確存取權，請使用 [az role assignment create][az-role-assignment-create] 命令建立角色指派。 以在前兩個步驟中蒐集的值取代 `<appId` 和 `<vnetId>`。
+若要授與 AKS 叢集，以將虛擬網路的正確存取權，請使用下列方法建立角色指派[az 角色指派建立][az-role-assignment-create]命令。 以在前兩個步驟中蒐集的值取代 `<appId` 和 `<vnetId>`。
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -152,7 +152,7 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-您必須將 AKS 叢集部署到上一個步驟所建立的 AKS 子網路。 請使用 [az network vnet subnet show][az-network-vnet-subnet-show] 取得這個子網路的識別碼：
+您必須將 AKS 叢集部署到上一個步驟所建立的 AKS 子網路。 取得此子網路使用的識別碼[az 網路的 vnet 子網路顯示][az-network-vnet-subnet-show]:
 
 ```azurecli-interactive
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
@@ -178,7 +178,7 @@ az aks create \
 
 ## <a name="enable-virtual-nodes-addon"></a>啟用虛擬節點附加元件
 
-若要啟用虛擬節點，請立即使用 [az aks enable-addons][az-aks-enable-addons] 命令。 下列範例會使用上一個步驟所建立的子網路，其名稱為 myVirtualNodeSubnet  ：
+若要啟用虛擬節點，請現在使用[az aks 啟用附加元件][az-aks-enable-addons]命令。 下列範例會使用上一個步驟所建立的子網路，其名稱為 myVirtualNodeSubnet  ：
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -190,7 +190,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
-若要設定 `kubectl` 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此步驟會下載憑證並設定 Kubernetes CLI 以供使用。
+若要設定 `kubectl` 以連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此步驟會下載憑證並設定 Kubernetes CLI 以供使用。
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>部署範例應用程式
 
-建立名為 `virtual-node.yaml` 的檔案，然後將下列 YAML 複製進來。 若要在節點上排定容器，需定義 [nodeSelector][node-selector] 和 [toleration][toleration]。
+建立名為 `virtual-node.yaml` 的檔案，然後將下列 YAML 複製進來。 若要排程在節點上的容器[nodeSelector][node-selector] and [toleration][toleration]所定義。
 
 ```yaml
 apiVersion: apps/v1
@@ -247,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令來執行應用程式。
+執行應用程式[kubectl 套用][kubectl-apply]命令。
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出 Pod 清單和排定的節點。 請注意，`aci-helloworld` pod 已排定在 `virtual-node-aci-linux` 節點上。
+使用[kubectl get pods][kubectl-get]命令搭配`-o wide`輸出的 pod 和排程的節點清單的引數。 請注意，`aci-helloworld` pod 已排定在 `virtual-node-aci-linux` 節點上。
 
 ```
 $ kubectl get pods -o wide
@@ -265,7 +265,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod 會從 Azure 虛擬網路的子網路 (為搭配使用虛擬節點而委派) 獲派內部 IP 位址。
 
 > [!NOTE]
-> 如果您使用儲存在 Azure Container Registry 中的映像，請[設定並使用 Kubernetes 祕密][acr-aks-secrets]。 虛擬節點的目前限制是，您無法使用整合式的 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
+> 如果您使用儲存在 Azure Container Registry 的映像[設定，並使用 Kubernetes 祕密][acr-aks-secrets]。 虛擬節點的目前限制是，您無法使用整合式的 Azure AD 服務主體驗證。 如果您未使用祕密，已在虛擬節點上排程的 Pod 就無法啟動並會回報錯誤 `HTTP response status code 400 error code "InaccessibleImage"`。
 
 ## <a name="test-the-virtual-node-pod"></a>測試虛擬節點 Pod
 
@@ -303,7 +303,7 @@ $ curl -L 10.241.0.4
 
 ## <a name="remove-virtual-nodes"></a>移除虛擬節點
 
-如果您不想再使用虛擬節點，則可以使用 [az aks disable-addons][az aks disable-addons] 命令來予以停用。 
+如果您不再想要使用的虛擬節點，您可以停用它們使用[az aks 停用附加元件][az aks disable-addons]命令。 
 
 首先，刪除虛擬節點上執行的 helloworld pod:
 
@@ -347,12 +347,12 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，Pod 已在虛擬節點上進行排程，並獲派私人的內部 IP 位址。 您可以改為建立服務部署，並透過負載平衡器或輸入控制器將流量路由到您的 Pod。 如需詳細資訊，請參閱[在 AKS 中建立基本的輸入控制器][aks-basic-ingress]。
+在本文中，Pod 已在虛擬節點上進行排程，並獲派私人的內部 IP 位址。 您可以改為建立服務部署，並透過負載平衡器或輸入控制器將流量路由到您的 Pod。 如需詳細資訊，請參閱 < [AKS 中建立基本的輸入控制器][aks-basic-ingress]。
 
 虛擬節點往往是 AKS 中調整解決方案的一個元件。 如需有關調整解決方案的詳細資訊，請參閱下列文章：
 
-- [使用 Kubernetes 水平 Pod 自動調整程式][aks-hpa]
-- [使用 Kubernetes 叢集自動調整程式][aks-cluster-autoscaler]
+- [使用 Kubernetes 水平 pod 自動調整程式][aks-hpa]
+- [使用 Kubernetes 叢集中自動調整程式][aks-cluster-autoscaler]
 - [針對虛擬節點檢查自動調整範例][virtual-node-autoscale]
 - [深入的了解 Virtual Kubelet 開放原始碼程式庫][virtual-kubelet-repo]
 

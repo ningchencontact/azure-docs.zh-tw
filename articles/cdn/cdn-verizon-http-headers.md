@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479760"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593254"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 Verizon 專屬 HTTP 標頭
 
@@ -33,7 +33,7 @@ ms.locfileid: "66479760"
 
 下表說明可由 Verizon CDN POP 在要求中新增的標頭：
 
-要求標頭 | 描述 | 範例
+要求標頭 | 說明 | 範例
 ---------------|-------------|--------
 [Via](#via-request-header) | 識別已將要求透過 Proxy 處理至原始伺服器的 POP 伺服器。 | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | 表示要求者的 IP 位址。| 10.10.10.10
@@ -54,7 +54,7 @@ X-EC- _&lt;name&gt;_ | 開頭為 X-EC  的要求標頭 (例如，X-EC-Tag、[X-E
 
 - 平台：表示要求內容的平台。 下列程式碼適用於此欄位： 
 
-    代碼 | 平台
+    程式碼 | 平台
     -----|---------
     ECAcc | HTTP Large
     ECS   | HTTP Small

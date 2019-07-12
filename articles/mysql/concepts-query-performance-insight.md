@@ -3,15 +3,15 @@ title: 適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 description: 本文說明適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析功能
 author: ajlam
 ms.author: andrela
-ms.service: MySQL
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8f142933ebf955cbe3aa119f42779109fb6ef7db
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461762"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589078"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 
@@ -34,11 +34,11 @@ ms.locfileid: "67461762"
 - 了解查詢的等候本質。
 - 資源等候和資源爭用所在的了解趨勢
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 **擁有者** 或是 **參與者** 檢視中查詢效能深入解析的查詢的文字所需的權限。 **讀取器** 可以檢視圖表和資料表，但不是查詢文字。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 資料函式的查詢效能深入解析，必須存在於 [查詢存放區](concepts-query-store.md)。
 

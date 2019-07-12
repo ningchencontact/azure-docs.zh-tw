@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: b791d74c2b3e94465a1903299d5db0b281ec9355
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4a4196aa601fc8da79da3962faec026eff5ec87
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053321"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625066"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用串流分析來處理從 Application Insights 匯出的資料
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)是處理[從 Application Insights 匯出](export-telemetry.md)之資料的理想工具。 串流分析可以從各種來源提取資料。 它可以轉換和篩選資料，然後將它路由傳送至各種接收。
@@ -148,7 +148,7 @@ ms.locfileid: "67053321"
 
 * export-input 是我們提供給串流輸入的別名
 * pbi-output 是我們所定義的輸出別名
-* 我們會使用 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) \(英文\)，因為事件名稱是在巢狀 JSON 陣列中。 然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。 [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 子句會依照一分鐘的時間間隔來將元素分組。
+* 我們會使用 [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) \(英文\)，因為事件名稱是在巢狀 JSON 陣列中。 然後 Select 會取用事件名稱，以及時間週期內具有該名稱之執行個體數目的計數。 [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 子句會依照一分鐘的時間間隔來將元素分組。
 
 ### <a name="query-to-display-metric-values"></a>顯示度量值的查詢
 ```SQL
@@ -213,7 +213,7 @@ ms.locfileid: "67053321"
 ## <a name="no-data"></a>沒有資料？
 * 請檢查是否正確 [設定日期格式](#set-path-prefix-pattern) ：YYYY-MM-DD (含連接號)。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 Noam Ben Zeev 示範如何使用串流分析來處理匯出的資料。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]

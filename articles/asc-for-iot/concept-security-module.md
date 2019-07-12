@@ -2,24 +2,25 @@
 title: 了解 Azure 資訊安全中心的 IoT 安全性模組對應項的結果預覽 |Microsoft Docs
 description: 深入了解安全性模組對應項以及如何使用 Azure 資訊安全中心的 IoT 的概念。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: de0f21fbd847ff801308523f48e9d0c8a91880fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f964fd2b121c6232081673666f5babb160e1721
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198398"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618301"
 ---
 # <a name="security-module"></a>安全性模組
 
@@ -46,7 +47,7 @@ Iot 的 ASC 會維護每個裝置在服務中的安全性模組對應項。
 請參閱[建立安全性模組對應項](quickstart-create-security-twin.md)並[設定安全性代理程式](how-to-agent-configuration.md)以了解如何建立、 自訂和設定的對應項。 請參閱[了解模組對應項](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)若要深入了解在 IoT 中樞模組對應項的概念。 
  
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 - [ASC IoT preview](overview.md)
 - [部署安全性代理程式](how-to-deploy-agent.md)
 - [安全性代理程式驗證方法](concept-security-agent-authentication-methods.md)

@@ -3,16 +3,16 @@ title: 來自 Verizon Premium 的 azure CDN 規則引擎條件運算式 |Microso
 description: Azure CDN from Verizon Premium 的參考文件規則引擎比對條件和功能。
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: c6e49e6fbc0c541ce9a8cd903eb313d61413257c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f790e37ae876c0640d55ebfb51abb43c6a705f04
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481530"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593230"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>來自 Verizon Premium 規則引擎條件運算式的 azure CDN
 
@@ -20,7 +20,7 @@ ms.locfileid: "66481530"
 
 規則的第一個部分是條件運算式。
 
-條件運算式 | 描述
+條件運算式 | 說明
 -----------------------|-------------
 IF | IF 運算式永遠是規則中第一個陳述式的一部分。 像所有其他條件運算式一樣，此 IF 陳述式必須與符合項目相關聯。 如果沒有其他的條件式運算式定義，此種比對會判斷一組功能可能會套用至要求之前必須符合的準則。
 AND IF | AND IF 運算式只能在下列類型的條件運算式之後新增︰IF、AND IF。 它表示針對初始 IF 陳述式有必須符合的另一個條件。

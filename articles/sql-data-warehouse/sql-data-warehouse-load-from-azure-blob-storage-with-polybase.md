@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244487"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595510"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>將 Contoso 零售資料載入 Azure SQL 資料倉儲
 
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2.設定資料格式
-資料將會以文字檔儲存在 Azure Blob 儲存體中，每個欄位都會以分隔符號分隔。 在 SSMS 中，執行下列[CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT]命令，以指定的資料格式的文字檔中。 Contoso 資料為未壓縮且以直立線符號分隔。
+資料將會以文字檔儲存在 Azure Blob 儲存體中，每個欄位都會以分隔符號分隔。 在 SSMS 中，執行下列[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]命令，以指定的資料格式的文字檔中。 Contoso 資料為未壓縮且以直立線符號分隔。
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 將資料載入新資料表
-若要從 Azure blob 儲存體的資料載入至資料倉儲資料表中，使用[CREATE TABLE AS SELECT & Amp;#40;transact-SQL&AMP;#41;] [ CREATE TABLE AS SELECT (Transact-SQL)]陳述式。 使用 CTAS 的載入會利用您已建立的強型別外部資料表。 若要將資料載入至新的資料表，使用其中一個[CTAS] [ CTAS]每個資料表的陳述式。 
+若要從 Azure blob 儲存體的資料載入至資料倉儲資料表中，使用[CREATE TABLE AS SELECT & Amp;#40;transact-SQL&AMP;#41;][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS]每個資料表的陳述式。 
  
 CTAS 建立新的資料表，並將選取陳述式的結果填入該資料表。 CTAS 定義新資料表，以使它擁有和選取陳述式之結果相同的資料行和資料類型。 如果您選取外部資料表上的所有資料行，則新資料表將會是外部資料表中資料行和資料類型的複本。
 
@@ -276,12 +276,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-如需維護資料行存放區索引的詳細資訊，請參閱[管理資料行存放區索引][manage columnstore indexes]一文。
+如需維護資料行存放區索引的詳細資訊，請參閱 [管理資料行存放區索引][manage columnstore indexes] 一文。
 
 ## <a name="6-optimize-statistics"></a>6.最佳化統計資料
 最好的方式是在載入後立刻建立單一資料行統計資料。 如果您知道特定資料行不會查詢述詞中，您可以直接這些資料行建立統計資料。 如果您在每個資料行上建立單一資料行統計資料，可能需要很長的時間，若要重建所有統計資料。 
 
-如果您決定要在每個資料表的每個資料行上建立單一資料行統計資料，您可以使用[統計資料][statistics]一文中的預存程序程式碼範例 `prc_sqldw_create_stats`。
+如果您決定要在每個資料表的每個資料行上建立單一資料行統計資料，便可以使用[統計資料][statistics]一文中的預存程序程式碼範例 `prc_sqldw_create_stats`。
 
 下列範例為建立統計資料的好起點。 它會在維度資料表中的每個資料行上，以及在事實資料表中的每個聯結資料行上建立單一資料行統計資料。 您之後隨時可以將單一或多個資料行統計資料新增到其他事實資料表資料行上。
 

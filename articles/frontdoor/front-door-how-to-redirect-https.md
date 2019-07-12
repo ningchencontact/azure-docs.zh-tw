@@ -3,16 +3,16 @@ title: 建立具有 HTTP 的大門，到使用 Azure 入口網站的 HTTPS 重�
 description: 了解如何使用從 HTTP 重新導向至使用 Azure 入口網站的 HTTPS 的流量建立前端。
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: a07b19c49630cc925e719aaa1d46476a1edc58f5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332807"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67601964"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>建立具有 HTTP 的大門，到使用 Azure 入口網站的 HTTPS 重新導向
 

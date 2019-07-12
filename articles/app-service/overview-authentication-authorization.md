@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 1e8bd60eab5853b121b9c08622914b9c62449f8f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835567"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618760"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -90,7 +91,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-當您利用上述其中一個提供者啟用驗證和授權時，其登入端點即可用來驗證使用者，以及用來驗證提供者的驗證權杖。 您可以輕鬆地為使用者提供任何數目的上述登入選項。 您也可以整合其他識別提供者或[您自己的自訂身分識別解決方案][custom-auth]。
+當您利用上述其中一個提供者啟用驗證和授權時，其登入端點即可用來驗證使用者，以及用來驗證提供者的驗證權杖。 您可以輕鬆地為使用者提供任何數目的上述登入選項。 您也可以整合其他識別提供者或[自己的自訂身分識別解決方案][custom-auth]。
 
 ## <a name="authentication-flow"></a>驗證流程
 
@@ -150,12 +151,12 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 提供者專屬的使用說明指南：
 
-* [如何設定 App 使用 Azure Active Directory 登入][AAD]
-* [如何設定 App 使用 Facebook 登入][Facebook]
-* [如何設定 App 使用 Google 登入][Google]
-* [如何設定 App 使用 Microsoft 帳戶登入][MSA]
-* [如何設定 App 使用 Twitter 登入][Twitter]
-* [操作說明：針對應用程式使用自訂驗證][custom-auth]
+* [如何設定您的 App 以使用 Azure Active Directory 登入][AAD]
+* [如何設定 App 以使用 Facebook 登入][Facebook]
+* [如何設定 App 以使用 Google 登入][Google]
+* [如何設定 App 以使用 Microsoft 帳戶登入][MSA]
+* [如何設定 App 以使用 Twitter 登入][Twitter]
+* [如何：針對應用程式使用自訂驗證][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

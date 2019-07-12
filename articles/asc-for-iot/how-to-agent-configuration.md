@@ -2,24 +2,25 @@
 title: 設定 IoT 代理程式預覽的 Azure 資訊安全中心 |Microsoft Docs
 description: 了解如何設定 IoT 與 Azure 資訊安全中心使用的代理程式。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198449"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618269"
 ---
 # <a name="tutorial-configure-security-agents"></a>教學課程：設定安全性代理程式
 
@@ -95,7 +96,7 @@ IoT 安全性代理程式的每個 ASC 與相關屬性位於內所需的屬性 �
     }, 
     ```
 
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
 
 ### <a name="using-a-default-value"></a>使用預設值
 
@@ -118,7 +119,7 @@ IoT 安全性代理程式的每個 ASC 與相關屬性位於內所需的屬性 �
 
 ### <a name="supported-security-events"></a>支援的安全性事件
 
-|事件名稱| PropertyName | 預設值| 快照集事件| 詳細資料狀態  |
+|事件名稱| PropertyName | Default Value| 快照集事件| 詳細資料狀態  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |[診斷] 事件|eventPriorityDiagnostic| 關閉| False| 代理程式相關的診斷事件。 使用這個事件的詳細資訊記錄。| 
 |組態錯誤 |eventPriorityConfigurationError |低 |False |代理程式無法剖析設定。 請確認針對結構描述的組態。| 

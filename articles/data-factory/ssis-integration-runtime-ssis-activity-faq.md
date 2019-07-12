@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537635"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621846"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>針對 SSIS 整合執行階段中的封裝執行進行疑難排解
 
@@ -57,11 +57,33 @@ ms.locfileid: "67537635"
 
 在舊版 SQL Server Management Studio (SSMS) 中的已知的問題會造成這個錯誤。 如果封裝包含在其中使用 SSMS 來進行部署的電腦未安裝自訂元件 （例如，SSIS 的 Azure Feature Pack 或協力廠商元件） 時，SSMS 將會移除元件，並會造成錯誤。 升級[SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)已修正此問題的最新版本。
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>錯誤訊息: 「 SSIS 執行程式結束代碼： 並顯示-1073741819。 」
+
+* 可能的原因和建議的動作：
+  * 此錯誤可能是因為 Excel 來源和目的地的限制中，當多個 Excel 來源或目的地會以平行方式執行多執行緒中。 您可以藉由這項限制變更您的 Excel 元件，依序執行，或將它們分成不同的套件和觸發程序，透過 「 執行封裝工作 」 ExecuteOutOfProcess 屬性設定為 [True] 的因應措施。
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>錯誤訊息：「 沒有足夠的空間磁碟上 」
 
 此錯誤表示在 SSIS integration runtime 節點的本機磁碟用完。 檢查您的套件或自訂安裝程式是否正耗用大量磁碟空間：
 * 如果磁碟由您的套件，它將會釋出了封裝執行完成之後。
 * 如果磁碟由您的自訂安裝，將需要停止 SSIS 整合執行階段中，修改您的指令碼，並重新啟動 integration runtime。 整個 Azure blob 容器，您所指定的自訂安裝程式將會複製到 SSIS integration runtime 節點，因此請檢查是否有任何不必要的內容，在該容器。
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>錯誤訊息：「 無法從 master 擷取資源。 Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException:程式碼： 300004。 描述： 載入檔案 」 * * * 「 失敗。 」
+
+* 可能的原因和建議的動作：
+  * 如果專案、 封裝或組態檔不能存取您在 SSIS 活動中提供套件的存取認證，如果 SSIS 活動在執行封裝，從檔案系統 （封裝檔案或專案檔），會發生此錯誤
+    * 如果您使用 Azure 檔案：
+      * 檔案路徑的開頭應\\ \\\<儲存體帳戶名稱\>。 file.core.windows.net\\\<檔案共用路徑\>
+      * 網域應與 「 Azure 」
+      * 使用者名稱應該是\<儲存體帳戶名稱\>
+      * 密碼應為\<儲存體存取金鑰\>
+    * 如果您使用內部部署檔案，請檢查如果 VNet、 封裝的存取認證和權限已正確設定，讓您的 Azure SSIS 整合執行階段可以存取您的內部部署檔案共用
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>錯誤訊息：「 檔案名稱 '...'中所指定的連接無效。 」
+
+* 可能的原因和建議的動作：
+  * 指定無效的檔案名稱
+  * 請確定您使用 FQDN （完整網域名稱） 而不短時間中您的連接管理員
 
 ### <a name="error-message-cannot-open-file-"></a>錯誤訊息：「 無法開啟檔案 '...' 」
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173964"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673261"
 ---
 *準備快取*  
 設有「唯讀」主機快取的磁碟能夠提供高於磁碟限制的 IOPS。 若要從主機快取獲得這種最高的讀取效能，您必須先準備此磁碟的快取。 如此可確保效能評定工具在 CacheReads 磁碟區上推動的讀取 IO 實際上是命中快取，而非直接觸及磁碟。 快取命中會讓已啟用快取的單一磁碟產生更多 IOPS。
@@ -25,7 +25,7 @@ ms.locfileid: "67173964"
 
 ### <a name="iometer"></a>Iometer
 
-[下載 Iometer 工具](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) 。
+[下載 Iometer 工具](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) 。
 
 #### <a name="test-file"></a>測試檔案
 
@@ -62,18 +62,18 @@ ms.locfileid: "67173964"
 
 1. 使用如下所示的值建立兩個存取規格
 
-   | Name | 要求大小 | 隨機 % | 讀取 % |
+   | 名稱 | 要求大小 | 隨機 % | 讀取 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. 執行 Iometer 測試，使用下列參數初始化快取磁碟。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的 [執行階段] 期間設為 2 小時。
 
-   | 案例 | 目標磁碟區 | Name | Duration |
+   | 情節 | 目標磁碟區 | 名稱 | Duration |
    | --- | --- | --- | --- |
    | 初始化快取磁碟 |CacheReads |RandomWrites\_1MB |2 小時 |
 1. 執行 Iometer 測試，使用下列參數來準備快取。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的 [執行階段] 期間設為 2 小時。
 
-   | 案例 | 目標磁碟區 | Name | 持續時間 |
+   | 情節 | 目標磁碟區 | 名稱 | 持續時間 |
    | --- | --- | --- | --- |
    | 準備快取磁碟 |CacheReads |RandomReads\_1MB |2 小時 |
 

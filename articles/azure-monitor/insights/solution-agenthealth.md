@@ -7,18 +7,18 @@ author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9e27e224e42bf3f65fadcac22210fda314445fa
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571146"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665990"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure 監視器中的代理程式健全狀況解決方案
 Azure 中的代理程式健全狀況解決方案可協助您了解，針對所有直接向 Log Analytics 工作區，在 Azure 監視器中報告的代理程式或 System Center Operations Manager 管理群組的連線是 Azure 監視器，而這是沒有回應，正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
@@ -55,7 +55,7 @@ Azure 中的代理程式健全狀況解決方案可協助您了解，針對所�
 
 按一下 [代理程式健全狀況]  圖格，以開啟 [代理程式健全狀況]  儀表板。  此儀表板包含下表中的資料行。 每個資料行依計數列出前十個事件，這幾個事件符合該資料行中指定時間範圍的準則。 您可以選取每個資料行右下角的 [查看全部]  ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
-| 欄 | 描述 |
+| 「資料行」 | 描述 |
 |--------|-------------|
 | 不同時間的代理程式計數 | Linux 和 Windows 代理程式為期七天的代理程式計數趨勢。|
 | 沒有回應的代理程式計數 | 在過去 24 小時內尚未傳送活動訊號的代理程式清單。|

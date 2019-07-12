@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sumeet.mittal
-ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sumi
+ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61033895"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595373"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
 
@@ -182,7 +182,7 @@ __Azure 儲存體__：WestCentralUS、 WestUS2、 NorthCentralUS、 SouthCentral
 
 服務端點原則會強制執行下列限制： 
 
- |資源 | 預設限制 |
+ |Resource | 預設限制 |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |

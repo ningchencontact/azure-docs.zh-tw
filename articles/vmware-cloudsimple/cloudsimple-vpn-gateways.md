@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332041"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695226"
 ---
 # <a name="vpn-gateways-overview"></a>VPN 閘道概觀
 
@@ -43,8 +43,6 @@ VPN 閘道可讓您從內部部署私人雲端，在使用服務，與您的私�
 > 1078 位元組或較低，您必須將 TCP MSS。 或如果您的 VPN 裝置不支援 MSS 固定，您可以另外設定 MTU 1118 位元組的通道介面上改為。 
 
 ### <a name="cryptographic-parameters"></a>密碼編譯參數
-
-站對站 VPN 連線會使用下列的預設密碼編譯參數，建立安全連線。  當您建立從內部部署 VPN 裝置的連線時，必須符合參數。
 
 站對站 VPN 連線會使用下列的預設密碼編譯參數，建立安全連線。  當您建立從內部部署 VPN 裝置的連線時，使用任何您的內部部署 VPN 閘道支援下列參數。
 

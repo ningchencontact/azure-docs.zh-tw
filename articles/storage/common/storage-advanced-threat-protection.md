@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153979"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621967"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
@@ -111,7 +111,7 @@ Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，�
 
 ### <a name="anomalous-access-pattern-alerts"></a>異常存取模式的警示
 
-* **從不尋常的位置存取**:儲存體帳戶的存取模式變更時，會觸發此警示。 例如，有人從不尋常的地理位置存取了儲存體帳戶時。
+* **從不尋常的位置存取**:當有人從不尋常的地理位置存取儲存體帳戶時，會觸發此警示。
 可能的原因：
    * 攻擊者存取您的儲存體帳戶
    * 合法使用者存取您的儲存體帳戶從新的位置
@@ -120,10 +120,16 @@ Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，�
    * 攻擊者存取您使用新的應用程式的儲存體帳戶。
    * 合法的使用者用新的應用程式/瀏覽器來存取儲存體帳戶。
 
-* **匿名存取**:此警示表示儲存體帳戶的存取模式中的變更。 例如，此帳戶已以匿名方式存取 （也就是說，沒有任何驗證），這是未預期的最新的存取模式，此帳戶上比較。
+* **匿名存取**:此警示表示此帳戶已以匿名方式存取 （也就是說，沒有任何驗證），這是未預期的最新的存取模式，此帳戶上比較。
 可能的原因：
    * 攻擊者程式碼利用到容器的公用讀取權限。
    * 合法的使用者或應用程式已使用容器的公用讀取權限。
+
+* **Tor 異常**:此警示表示此帳戶具有已順利存取從 Tor (匿名的 proxy) 的使用中的結束節點就所謂的 IP 位址。 此警示的嚴重性會考慮用驗證類型 （如果有的話），以及這是否第一個案例中的這類存取權。
+可能的原因：
+   * 攻擊者存取您的儲存體帳戶使用 Tor。
+   * 合法的使用者存取您的儲存體帳戶使用 Tor。
+
 
 ### <a name="anomalous-extractupload-alerts"></a>異常的擷取/上傳的警示
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7098d805b0e3f1527587fc3411cd4c3b234b057
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c3ee05096b0bfd071ea569105973097ce9727b07
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540380"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604533"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>使用自訂原則在 Azure Active Directory B2C 中選取頁面合約
 
@@ -79,7 +79,7 @@ ms.locfileid: "67540380"
   - 此程式碼現在只會採用的輸入的欄位中輸入最多六 （6） 個字元
   - 頁面將會自動嘗試確認輸入 6 位數代碼，而不需要按一下任一按鈕時所輸入的程式碼
   - 如果程式碼是錯誤的輸入的欄位則會自動清除
-  - 後三 （3） 嘗試使用不正確的程式碼，B2C 會將錯誤結果傳回給服務
+  - 後三 （3） 嘗試使用不正確的程式碼，B2C 會將錯誤結果傳回給信賴憑證者的合作對象
   - 協助工具修正程式
   - 預設 CSS 移除
 - 自我判斷提示的頁面 (selfasserted)

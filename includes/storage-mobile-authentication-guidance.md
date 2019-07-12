@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173658"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673263"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>設定您的應用程式以存取 Azure 儲存體
 有兩種方式可驗證您的應用程式對儲存體服務的存取權：
@@ -38,11 +38,11 @@ ms.locfileid: "67173658"
 
 ### <a name="shared-access-signatures-sas"></a>共用存取簽章 (SAS)
 對於行動應用程式，對 Azure 儲存體服務驗證用戶端所提要求的建議方法是使用共用存取簽章 (SAS)。 SAS 可讓您授與對資源的用戶端存取權一段指定的時間，且限定於指定的權限集。
-身為儲存體帳戶擁有者，您必須產生 SAS 供您行動用戶端取用。 為了產生 SAS，您可能會想要撰寫個別的服務，以產生會分送給用戶端的 SAS。 針對測試目的，您可以使用 [Microsoft Azure 儲存體總管](http://storageexplorer.com)或 [Azure 入口網站](https://portal.azure.com)來產生 SAS。 當您建立 SAS 時，您可以指定 SAS 有效的時間間隔，和 SAS 授與給用戶端的權限。
+身為儲存體帳戶擁有者，您必須產生 SAS 供您行動用戶端取用。 為了產生 SAS，您可能會想要撰寫個別的服務，以產生會分送給用戶端的 SAS。 針對測試目的，您可以使用 [Microsoft Azure 儲存體總管](https://storageexplorer.com)或 [Azure 入口網站](https://portal.azure.com)來產生 SAS。 當您建立 SAS 時，您可以指定 SAS 有效的時間間隔，和 SAS 授與給用戶端的權限。
 
 下列範例示範如何使用 Microsoft Azure 儲存體總管來產生 SAS。
 
-1. 如果您還沒有這麼做， [請安裝 Microsoft Azure 儲存體總管](http://storageexplorer.com)
+1. 如果您還沒有這麼做， [請安裝 Microsoft Azure 儲存體總管](https://storageexplorer.com)
 2. 連線至您的訂用帳戶。
 3. 按一下 [儲存體帳戶]，並按一下左下方的 [動作] 索引標籤。 按一下 [取得共用存取簽章]，以產生您 SAS 的連接字串。
 4. 以下是 SAS 連接字串的範例，會針對儲存體帳戶的 Blob 服務，授予對服務、容器和物件層級的讀取與寫入權限。

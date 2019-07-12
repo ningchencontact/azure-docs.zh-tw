@@ -7,30 +7,30 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335680"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593469"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN 中的即時警示
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文件說明 Microsoft Azure CDN 中的即時警示。 這項功能可針對 CDN 設定檔中端點的效能提供即時通知。  您可以根據以下狀況設定電子郵件或 HTTP 警示︰
 
 * 頻寬
 * 狀態碼
 * 快取狀態
-* 連線
+* 連接
 
 ## <a name="creating-a-real-time-alert"></a>建立即時警示
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽到您的 CDN 設定檔。

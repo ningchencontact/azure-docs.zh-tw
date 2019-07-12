@@ -5,7 +5,7 @@ services: active-directory
 manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory  
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,16 +16,16 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fcdf75586de9621bd0e42cba6fa9c80e5d30817
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244636"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595204"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文說明您如何使用 Azure AD Connect 來更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證。 即使選取的使用者登入方法不是 AD FS，您也可以使用 Azure AD Connect 工具輕鬆地更新 AD FS 伺服器陣列的 SSL 憑證。
 
 只要 3 個簡單步驟，即可跨所有同盟和 Web 應用程式 Proxy (WAP) 伺服器，執行 AD FS 之 SSL 憑證的完整更新作業︰
@@ -36,7 +36,7 @@ ms.locfileid: "60244636"
 >[!NOTE]
 >若要深入了解 AD FS 所使用的憑證，請參閱[了解 AD FS 所使用的憑證](https://technet.microsoft.com/library/cc730660.aspx)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **AD FS 伺服器陣列**：請確定您的 AD FS 伺服器陣列是 Windows Server 2012 R2 型或更新版本。
 * **Azure AD Connect**：請確定 Azure AD Connect 的版本為 1.1.553.0 或更新版本。 您會使用工作「更新 AD FS SSL 憑證」  。
@@ -99,7 +99,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 
 * **可以使用新的 SSL 憑證更新我的伺服器陣列伺服器子集嗎？**
 
-    是。 您永遠可以再次執行工作「更新 SSL 憑證」  來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器]  頁面上，您可以依「SSL 到期日」  來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
+    是的。 您永遠可以再次執行工作「更新 SSL 憑證」  來更新其餘的伺服器。 在 [選取要進行 SSL 憑證更新的伺服器]  頁面上，您可以依「SSL 到期日」  來排序伺服器清單，以便輕鬆地存取尚未更新的伺服器。
 
 * **我在上一次執行中移除了伺服器，但它仍然顯示為離線，並且列在 [AD FS 伺服器] 頁面。為何即使在移除後，離線的伺服器還在？**
 

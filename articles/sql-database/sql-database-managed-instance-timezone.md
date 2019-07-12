@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016383"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657981"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL Database 受控執行個體的時區
 
@@ -30,7 +30,9 @@ T-SQL 的功能，例如[getdate （)](https://docs.microsoft.com/sql/t-sql/func
 
 ## <a name="supported-time-zones"></a>支援的時區
 
-一組支援的時區被繼承自基礎作業系統的受管理的執行個體。 它會定期更新以取得新時區的定義，並反映至現有的變更。 
+一組支援的時區被繼承自基礎作業系統的受管理的執行個體。 它會定期更新以取得新時區的定義，並反映至現有的變更。
+
+[變更原則，日光節約時間/時區](https://aka.ms/time)保證從 2010 轉寄的歷程記錄的精確度。
 
 支援的時區名稱的清單透過公開[sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)系統檢視表。
 
@@ -43,7 +45,7 @@ T-SQL 的功能，例如[getdate （)](https://docs.microsoft.com/sql/t-sql/func
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>設定在 Azure 入口網站的時區
 
-當您輸入參數的新執行個體時，請從支援的時區清單中選取時區。 
+當您輸入參數的新執行個體時，請從支援的時區清單中選取時區。
   
 ![在執行個體建立期間設定的時區](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ T-SQL 的功能，例如[getdate （)](https://docs.microsoft.com/sql/t-sql/func
 
 ### <a name="point-in-time-restore"></a>還原時間點
 
-當您執行時間點還原時，若要還原的時間會解譯為 UTC 時間。 此設定可避免因日光節約時間和其潛在變更的任何模稜兩可。
+<del>當您執行時間點還原時，若要還原的時間會解譯為 UTC 時間。 此設定可避免因日光節約時間和其潛在變更的任何模稜兩可。<del>
+
+ >[!WARNING]
+  > 目前的行為並不符合上述陳述式，並將還原至時間解譯根據自動資料庫備份會從擷取的來源受控執行個體的時區。 我們正努力修正此行為，以指定的點解譯為 UTC 時間的時間。 請參閱[已知問題](sql-database-managed-instance-timezone.md#known-issues)如需詳細資訊。
 
 ### <a name="auto-failover-groups"></a>自動容錯移轉群組
 
@@ -95,6 +100,21 @@ T-SQL 的功能，例如[getdate （)](https://docs.microsoft.com/sql/t-sql/func
 
 - 無法變更現有的受控執行個體的時區。
 - 從 SQL Server Agent 作業啟動的外部處理序沒有觀察執行個體的時區。
+
+## <a name="known-issues"></a>已知問題
+
+當時間點還原 (PITR) 執行作業時，若要還原的時間會根據設定，自動資料庫備份，從受管理的執行個體上，即使入口網站頁面的 PITR 建議時間會解譯為 UTC 的時區解譯。
+
+範例：
+
+假設其中自動備份會從該執行個體設有美加東部標準時間 (UTC-5) 的時區。
+入口網站頁面的時間點還原，建議您選擇要還原的時間是 UTC 時間：
+
+![使用入口網站的當地時間的 PITR](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+不過，若要還原的時間實際上解譯為美加東部標準時間，而且在此特定範例資料庫將會還原到 9 的上午美加東部標準時間，並不是 UTC 時間的狀態。
+
+如果您想要以 UTC 時間的時間點還原至特定點時，首先計算的來源執行個體的時區中對等的時間，並使用該入口網站或 PowerShell/CLI 指令碼中的時間。
 
 ## <a name="list-of-supported-time-zones"></a>支援的時區清單
 
@@ -239,7 +259,7 @@ T-SQL 的功能，例如[getdate （)](https://docs.microsoft.com/sql/t-sql/func
 | 薩摩亞標準時間 | (UTC+13:00) 薩摩亞 |
 | 來因群島標準時間 | (UTC+14:00) 刻里提瑪斯島 |
 
-## <a name="see-also"></a>請參閱 
+## <a name="see-also"></a>另請參閱 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

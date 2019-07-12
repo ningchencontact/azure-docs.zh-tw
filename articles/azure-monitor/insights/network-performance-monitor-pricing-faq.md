@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
-ms.author: ajaycode
-ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: agummadi
+ms.openlocfilehash: 68e84d8ac82d5cdd52bf92df858730315514c17c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401403"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612843"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 網路效能監控的定價變更
 
@@ -38,7 +38,7 @@ ms.locfileid: "60401403"
 
 NPM 的計費基礎是兩個元件的使用量和耗用量：
 * **節點**：所有綜合交易均來自於節點且結束於節點。 節點也稱為代理程式或 Microsoft Monitoring Agent。
-* **資料**：各種網路測試的結果會儲存在 Log Analytics 工作區。
+* **Data**：各種網路測試的結果會儲存在 Log Analytics 工作區。
 
 在舊的模型中，帳單的計算方式是根據節點的數目和所產生的資料量。 
 
@@ -55,7 +55,7 @@ NPM 中的效能監控功能現在是根據下列組合計費：
 
 **我有兩個子網路 (A 和 B)，且每個子網路上有數個代理程式。效能監控會監控子網路 A 上所有代理程式到子網路 B 上所有代理程式的連線。是否會根據子網路間的連線數目向我收費？**
 
-沒有。 為了計費目的，從子網路 A 到子網路 B 的所有連線會群組在一起成為一個子網路連結， 而會向您收取單一連線的費用。 效能監控會持續監控每個子網路上各種代理程式之間的連線。
+資料分割 為了計費目的，從子網路 A 到子網路 B 的所有連線會群組在一起成為一個子網路連結， 而會向您收取單一連線的費用。 效能監控會持續監控每個子網路上各種代理程式之間的連線。
 
 **監視子網路連結的成本為何？**
 

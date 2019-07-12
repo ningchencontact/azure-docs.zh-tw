@@ -2,17 +2,17 @@
 title: 使用 Azure Kubernetes Service (AKS) 中的叢集自動調整程式
 description: 了解如何使用叢集自動調整程式，根據 Azure Kubernetes Service (AKS) 叢集中的應用程式需求，自動調整叢集。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 3ce080871ff2a38efcc75f6ff6b584af14014879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491563"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666010"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整以符合應用程式需求在 Azure Kubernetes Service (AKS) 叢集
 
@@ -100,7 +100,7 @@ az provider register --namespace Microsoft.ContainerService
 如果您需要建立 AKS 叢集，請使用[az aks 建立][az-aks-create]命令。 指定符合或高於上一節[開始之前](#before-you-begin)所述之最低版本號碼的 *--kubernetes-version*。 若要啟用和設定叢集自動調整程式，請使用 *--enable-cluster-autoscaler* 參數，並指定節點 *--min-count* 和 *--max-count*。
 
 > [!IMPORTANT]
-> 叢集自動調整程式是一項 Kubernetes 元件。 雖然 AKS 叢集會將虛擬機器擴展集用於節點，但請勿手動在 Azure 入口網站中或使用 Azure CLI 啟用或編輯擴展集自動調整的設定。 請讓 Kubernetes 叢集自動調整程式管理所需的調整設定。 如需詳細資訊，請參閱[是否可以修改 MC_ 資源群組中 AKS 資源？](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
+> 叢集自動調整程式是一項 Kubernetes 元件。 雖然 AKS 叢集會將虛擬機器擴展集用於節點，但請勿手動在 Azure 入口網站中或使用 Azure CLI 啟用或編輯擴展集自動調整的設定。 請讓 Kubernetes 叢集自動調整程式管理所需的調整設定。 如需詳細資訊，請參閱[我可以修改節點的資源群組中的 AKS 資源嗎？](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
 以下範例透過啟用虛擬機器擴展集和叢集自動調整程式來建立 AKS 叢集，並使用最少 *1* 個和最多 *3* 個節點：
 

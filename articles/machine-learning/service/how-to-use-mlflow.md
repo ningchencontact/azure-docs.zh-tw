@@ -11,16 +11,16 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461656"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657969"
 ---
 # <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>MLflow 搭配 Azure Machine Learning 服務 （預覽）
 
-這篇文章示範如何使用 MLflow 的追蹤 URI 和記錄 API，以下合稱也稱為 MLflow 追蹤，Azure Machine Learning 服務，可追蹤及記錄您的實驗計量和中的成品與您[Azure Machine Learning服務工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace)。 如果您已經使用 MLflow 追蹤為您的實驗，工作區會提供集中式、 安全且可擴充的位置來儲存訓練計量和模型。
+這篇文章示範如何使用 MLflow 的追蹤 URI 和記錄 API，以下合稱也稱為 MLflow 追蹤，Azure Machine Learning 服務，可追蹤及記錄您的實驗計量和中的成品與您[Azure Machine Learning服務工作區](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)。 如果您已經使用 MLflow 追蹤為您的實驗，工作區會提供集中式、 安全且可擴充的位置來儲存訓練計量和模型。
 
 [MLflow](https://www.mlflow.org)是用於管理您的機器學習服務實驗生命週期的開放原始碼程式庫。 [MLFlow 追蹤](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)是元件的記錄，並追蹤您的訓練執行計量的 MLflow 和模型成品是否會在本機執行您的實驗虛擬機器上，或在遠端計算叢集。
 ![使用 azure machine learning 圖表 mlflow](media/how-to-use-mlflow/mlflow-diagram.png)
@@ -41,7 +41,7 @@ ms.locfileid: "67461656"
 | 管理計算   |   | ✓ | ✓  | ✓ |
 | 部署模型    |   | ✓ |   ✓ | ✓ |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [安裝 MLflow。](https://mlflow.org/docs/latest/quickstart.html)
 * [您的本機電腦上安裝 Azure Machine Learning Python SDK，並建立 Azure Machine Learning 工作區](setup-create-workspace.md#sdk)。 SDK 會提供如 MLflow 來存取您的工作區的連線。

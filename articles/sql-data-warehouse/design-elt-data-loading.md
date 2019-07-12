@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242251"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595594"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的 PolyBase 資料載入策略
 
@@ -55,25 +55,25 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
-|          int          |                             int                              |
+|          ssNoversion          |                             ssNoversion                              |
 |        bigint         |                            bigint                            |
 |        boolean        |                             bit                              |
 |        double         |                            float                             |
 |         float         |                             real                             |
 |        double         |                            money                             |
-|        double         |                          smallmoney                          |
-|        字串         |                            nchar                             |
-|        字串         |                           nvarchar                           |
-|        字串         |                             char                             |
-|        字串         |                           varchar                            |
+|        double         |                          SMALLMONEY                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
+|       timestamp       |                             日期                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
-|       timestamp       |                           Datetime                           |
+|       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       date        | 1） 當做 int 載入並轉換成日期 </br> 2)[使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
+|       日期        | 1） 當做 int 載入並轉換成日期 </br> 2)[使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
 |        decimal        | [使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2.讓資料登陸到 Azure Blob 儲存體或 Azure Data Lake Store

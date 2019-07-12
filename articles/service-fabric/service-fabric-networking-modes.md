@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926138"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621940"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -203,8 +203,8 @@ ms.locfileid: "64926138"
    |設定 |值 | |
    | --- | --- | --- |
    |優先順序 |2000 | |
-   |Name |Custom_Dns  | |
-   |source |VirtualNetwork | |
+   |名稱 |Custom_Dns  | |
+   |Source |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |
    |動作 | 允許  | |

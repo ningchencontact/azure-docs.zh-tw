@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9cd1be26f6832fffb86dfefd0d93d9dbb393c0f0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 68d0f4f85bc8879191784f038c74fafc40c422b7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303884"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604675"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -254,7 +254,7 @@ PerItemErrorCount: 1006.
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 檔案在同步期間有所變更，因此需要再次同步。 | 不需要任何動作。 |
 
 #### <a name="handling-unsupported-characters"></a>處理不支援的字元
-如果**FileSyncErrorsReport.ps1** PowerShell 指令碼會示範不支援的字元 （錯誤碼 0x8007007b） 所造成的失敗，您應該移除或重新命名錯誤從個別的檔案名稱的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。 [評估工具](storage-sync-files-planning.md#evaluation-tool)可用來識別不受支援的字元。
+如果**FileSyncErrorsReport.ps1** PowerShell 指令碼會示範不支援的字元 （錯誤碼 0x8007007b） 所造成的失敗，您應該移除或重新命名錯誤從個別的檔案名稱的字元。 由於這些字元大多沒有標準的視覺編碼，PowerShell 可能會將這些字元列印為問號或空的矩形。 [評估工具](storage-sync-files-planning.md#evaluation-cmdlet)可用來識別不受支援的字元。
 
 下表列出 Azure 檔案同步尚不支援的所有 Unicode 字元。
 
@@ -877,7 +877,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 5. 重現問題。 完成時，輸入 **D**。
 6. 含有記錄和追蹤檔案的 .zip 檔案將會儲存在指定的輸出目錄中。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 - [監視 Azure 檔案同步](storage-sync-files-monitoring.md)
 - [Azure 檔案服務常見問題集](storage-files-faq.md)
 - [針對 Windows 中的 Azure 檔案服務問題進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)

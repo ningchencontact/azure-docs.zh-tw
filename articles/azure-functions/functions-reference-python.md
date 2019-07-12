@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14594e95efe94fe38502dc6269627158c42a04be
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341999"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622362"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -227,7 +227,7 @@ def main(req):
 
 其他的記錄方法可讓您在不同追蹤層級寫入主控台記錄中︰
 
-| 方法                 | 描述                                |
+| 方法                 | 說明                                |
 | ---------------------- | ------------------------------------------ |
 | logging.**critical(_message_)**   | 在根記錄器上寫入層級為 CRITICAL (重大) 的訊息。  |
 | logging.**error(_message_)**   | 在根記錄器上寫入層級為 ERROR (錯誤) 的訊息。    |
@@ -336,28 +336,66 @@ func azure functionapp publish <app name> --build-native-deps
 
 ## <a name="unit-testing"></a>單元測試
 
-以 Python 撰寫的函式可以像其他的 Python 程式碼，使用標準的測試架構測試。 對於大部分的繫結，就可以建立從適當的類別的執行個體來建立模擬 （mock） 的輸入的物件`azure.functions`封裝。
+以 Python 撰寫的函式可以像其他的 Python 程式碼，使用標準的測試架構測試。 對於大部分的繫結，就可以建立從適當的類別的執行個體來建立模擬 （mock） 的輸入的物件`azure.functions`封裝。 由於[ `azure.functions` ](https://pypi.org/project/azure-functions/)封裝不是立即可用，請務必將它透過安裝程式`requirements.txt`檔案中所述[Python 版本和套件管理](#python-version-and-package-management)上一節。
 
 例如，以下是 HTTP 觸發函式的模擬 （mock） 測試：
 
-```python
-# myapp/__init__.py
-import azure.functions as func
-import logging
-
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
-
-    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
+```json
+{
+  "scriptFile": "httpfunc.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
 ```
 
 ```python
-# myapp/test_func.py
+# myapp/httpfunc.py
+import azure.functions as func
+import logging
+
+def my_function(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}")
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             status_code=400
+        )
+```
+
+```python
+# myapp/test_httpfunc.py
 import unittest
 
 import azure.functions as func
-from . import my_function
+from httpfunc import my_function
 
 
 class TestFunction(unittest.TestCase):
@@ -366,7 +404,7 @@ class TestFunction(unittest.TestCase):
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function',
+            url='/api/HttpTrigger',
             params={'name': 'Test'})
 
         # Call the function.
@@ -375,7 +413,7 @@ class TestFunction(unittest.TestCase):
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            'Hello, Test!',
+            b'Hello Test',
         )
 ```
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509544"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622401"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
 
@@ -48,7 +48,7 @@ ms.locfileid: "67509544"
 
 下列小節描述 [裝置範本]  頁面上的每個索引標籤。
 
-## <a name="measurements"></a>度量
+## <a name="measurements"></a>量測
 
 量測是來自裝置的資料。 您可以在裝置範本中新增多個量測，以符合裝置的功能。
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>設定
 
-設定可控制裝置。 它們可讓操作員對裝置提供輸入。 您可以在裝置範本中新增多個設定，這些設定會在 [設定]  索引標籤上顯示為圖格供操作員使用。 您可以新增許多種設定：數字、文字、日期、切換、挑選清單及區段標籤。
+設定可控制裝置。 它們可讓操作員對裝置提供輸入。 您可以在裝置範本中新增多個設定，這些設定會在 [設定]  索引標籤上顯示為圖格供操作員使用。 您可以將許多類型的設定： 數字、 文字、 日期、 切換和 [區段] 標籤。
 
 設定的狀態可為三者其中之一。 裝置會回報下列狀態。
 
@@ -170,7 +170,7 @@ assetloc: {
 
 選取 [儲存]  之後，[風扇速度]  設定會顯示為圖格。 操作員可以使用 [Device Explorer]  頁面上的設定來變更裝置的風扇速度。
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 
 屬性是固定的裝置位置和序號等裝置與相關聯的中繼資料。 在裝置範本中新增多個屬性之後，這些屬性會在 [屬性]  索引標籤上顯示為圖格。屬性具有類型，例如數字、 文字、 日期、 切換、 裝置屬性、 標籤或固定的位置。 當他們建立的裝置，以及他們可以隨時編輯這些值，運算子會指定屬性的值。 裝置屬性是唯讀的，而且會從裝置傳送至應用程式。 操作員無法變更裝置的內容。 當實際的裝置連線時，[裝置屬性] 圖格會更新應用程式中。
 
@@ -223,7 +223,7 @@ assetloc: {
    - **以地址新增位置**
    - **以座標新增位置**
 
-4. 選取 [ **儲存**]。 操作員可以在 [Device Explorer]  中更新位置值。
+4. 選取 [儲存]  。 操作員可以在 [Device Explorer]  中更新位置值。
 
 #### <a name="add-location-as-a-device-property"></a>將位置新增為裝置屬性
 
@@ -294,7 +294,7 @@ assetloc: {
 
    ![含標題和屬性詳細資料的 [設定地圖] 表單](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-1. 選取 [ **儲存**]。 地圖圖格現在會顯示您選取的位置。
+1. 選取 [儲存]  。 地圖圖格現在會顯示您選取的位置。
 
 您可以調整地圖底圖。 當運算子檢視的儀表板**Device Explorer**，所有儀表板圖格，您已設定，包括位置地圖會顯示。
 

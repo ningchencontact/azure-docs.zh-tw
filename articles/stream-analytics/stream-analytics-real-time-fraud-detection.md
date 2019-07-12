@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076227"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621830"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐欺偵測
 
@@ -32,7 +32,7 @@ ms.locfileid: "67076227"
 
 電信公司有大量的資料都是來電。 該公司想要即時偵測詐騙電話，以便通知客戶或針對特定號碼停止服務。 有一種 SIM 詐騙牽涉到同一身分識別大約在同一時間從不同地理位置撥來很多通電話。 若要偵測這種類型的詐騙，公司需要檢查來電記錄並尋找特定模式，在此情況下，進行的呼叫也會同時在不同的國家/地區。 任何歸類到此類別的電話記錄會寫入儲存體，以進一步分析。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在本教學課程中，您會透過用戶端應用程式來產生範例通話中繼資料，以模擬通話資料。 該應用程式會產生一些很像是詐騙電話的記錄。 
 
@@ -75,7 +75,7 @@ ms.locfileid: "67076227"
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授權存取事件中樞並取得連接字串
 
@@ -92,7 +92,7 @@ ms.locfileid: "67076227"
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.  按一下頁面底部的 [新增]  。
+4.  按一下 [建立]  。
 
 5.  部署原則之後，在共用存取原則清單中按一下此原則。
 
@@ -172,7 +172,7 @@ ms.locfileid: "67076227"
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. 按一下頁面底部的 [新增]  。
+3. 按一下 [建立]  。
 
     即可建立作業，入口網站會顯示作業詳細資料。 但還沒有開始運作，您必須先設定作業，作業才能啟動。
 
@@ -197,7 +197,7 @@ ms.locfileid: "67076227"
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. 按一下頁面底部的 [新增]  。
+4. 按一下 [建立]  。
 
 ## <a name="create-queries-to-transform-real-time-data"></a>建立查詢來轉換即時資料
 
@@ -207,7 +207,7 @@ ms.locfileid: "67076227"
 
 您在此處建立的查詢只是在螢幕上顯示轉換後的資料。 在稍後一節中，您將設定輸出接收，並設定查詢將轉換後的資料寫入該接收。
 
-若要深入了解語言，請參閱 [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/dn834998.aspx)。
+若要深入了解語言，請參閱 [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)。
 
 ### <a name="get-sample-data-for-testing-queries"></a>取得範例資料來測試查詢
 
@@ -289,11 +289,11 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    此查詢在 `FROM` 子句中使用 `Timestamp By` 關鍵字，以指定使用輸入資料流中的哪個時間戳記欄位來定義輪轉視窗。 在此案例中，視窗會將每一筆記錄的資料依 `CallRecTime` 欄位分段。 (如果未指定欄位，則時間範圍作業會使用每個事件抵達事件中樞的時間。 請參閱[串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)中的＜抵達時間與應用時間的比較＞。 
+    此查詢在 `FROM` 子句中使用 `Timestamp By` 關鍵字，以指定使用輸入資料流中的哪個時間戳記欄位來定義輪轉視窗。 在此案例中，視窗會將每一筆記錄的資料依 `CallRecTime` 欄位分段。 (如果未指定欄位，則時間範圍作業會使用每個事件抵達事件中樞的時間。 請參閱[串流分析查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)中的＜抵達時間與應用時間的比較＞。 
 
     投影包含 `System.Timestamp`，它會傳回每個視窗結尾的時間戳記。 
 
-    若要指定您想要使用輪轉視窗，您使用[TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx)函式中`GROUP BY`子句。 在此函式中，您可以指定時間單位 (從一微秒到一天即可) 和視窗大小 (單位數量)。 在此範例中，輪轉視窗包含 5 秒的間隔，因此您會取得計數依國家/地區每隔 5 秒的呼叫。
+    若要指定您想要使用輪轉視窗，您使用[TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)函式中`GROUP BY`子句。 在此函式中，您可以指定時間單位 (從一微秒到一天即可) 和視窗大小 (單位數量)。 在此範例中，輪轉視窗包含 5 秒的間隔，因此您會取得計數依國家/地區每隔 5 秒的呼叫。
 
 2. 再按一次 [測試]  。 在結果中，可看見 **WindowEnd** 底下的時間戳記是以 5 秒為增量單位。
 
@@ -365,7 +365,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. 按一下 [檔案]  。 
+5. 按一下 [儲存]  。 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>啟動串流分析作業
@@ -418,5 +418,5 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

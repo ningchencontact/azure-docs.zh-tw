@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275477"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603617"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 （預覽）
 
@@ -166,7 +166,7 @@ Autoresume 和 autopause 無伺服器資料庫的延遲通常是為了 autopause
    |參數|值選擇|預設值|
    |---|---|---|---|
    |虛擬核心下限|{0.5, 1, 2, 4} 中未超過最大虛擬核心數的任一項|0.5 個虛擬核心|
-   |自動暫停延遲|最低：360 分鐘 (6 小時)<br>最大值：10080 分鐘 (7 天)<br>增量：60 Minuten<br>停用自動暫停：-1|360 分鐘|
+   |自動暫停延遲|最低：60 分鐘 （1 小時）<br>最大值：10080 分鐘 (7 天)<br>增量：60 Minuten<br>停用自動暫停：-1|60 Minuten|
 
 > [!NOTE]
 > 目前不支援使用 T-SQL 將現有資料庫移到無伺服器中或變更其計算大小，但可以透過 Azure 入口網站或 PowerShell 進行。
@@ -255,7 +255,7 @@ Set-AzSqlDatabase
 
 下表列出用於監視無伺服器資料庫的應用程式封裝和使用者集區的資源使用量的計量：
 
-|實體|計量|描述|Units|
+|實體|計量|說明|Units|
 |---|---|---|---|
 |應用程式套件|app_cpu_percent|應用程式所使用的虛擬核心百分比，相對於應用程式所允許的最大虛擬核心數。|百分比|
 |應用程式套件|app_cpu_billed|在報告期間內針對應用程式計費的計算數量。 在這段期間所支付的金額為此計量與虛擬核心單價的乘積。 <br><br>彙總一段時間內每秒使用的最大 CPU 與記憶體，即可判斷此計量的值。 如果使用的數量小於依照最小虛擬核心數與最小記憶體所設定的最小佈建數量，就會收取最小佈建數量的費用。 為了比較 CPU 與記憶體以供計費用途，記憶體會依每個虛擬核心 3 GB 重新調整記憶體量，藉此規範成虛擬核心單位。|虛擬核心秒數|

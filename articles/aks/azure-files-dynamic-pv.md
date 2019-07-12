@@ -2,33 +2,33 @@
 title: 在 Azure Kubernetes Service (AKS) 中以動態方式建立適用於多個 Pod 的檔案磁碟區
 description: 了解如何透過 Azure 檔案服務以動態方式建立永續性磁碟區，以搭配 Azure Kubernetes Service (AKS) 中的多個平行 Pod 使用
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061092"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665977"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 檔案服務的永續性磁碟區
 
-永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 如果有多個 Pod 需要並行存取相同的儲存體磁碟區，您可以透過[伺服器訊息區 (SMB) 通訊協定][smb-overview]來使用 Azure 檔案服務進行連線。 本文會示範如何在 Azure Kubernetes Service (AKS) 叢集中以動態方式建立 Azure 檔案共用，以供多個 Pod 使用。
+永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 如果多個 pod 需要相同的儲存體磁碟區的並行存取，您可以使用連線來使用 Azure 檔案[伺服器訊息區塊 (SMB) 通訊協定][smb-overview]。 本文會示範如何在 Azure Kubernetes Service (AKS) 叢集中以動態方式建立 Azure 檔案共用，以供多個 Pod 使用。
 
 如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 < [AKS 中的應用程式的儲存體選項][concepts-storage]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 AKS 快速入門[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
 
 您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-a-storage-class"></a>建立儲存體類別
 
-儲存體類別可用來定義 Azure 檔案共用的建立方式。 將在 *_MC* 資源群組中自動建立儲存體帳戶，以便與儲存體類別搭配使用以保存 Azure 檔案共用。 為 *skuName* 選擇下列 [Azure 儲存體備援][storage-skus]：
+儲存體類別可用來定義 Azure 檔案共用的建立方式。 在中自動建立儲存體帳戶[節點的資源群組][node-resource-group]for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus]如*skuName*:
 
 * *Standard_LRS* - 標準本地備援儲存體 (LRS)
 * *Standard_GRS* - 標準異地備援儲存體 (GRS)
@@ -37,9 +37,9 @@ ms.locfileid: "67061092"
 > [!NOTE]
 > Azure 檔案服務在 AKS 叢集中執行 Kubernetes 1.13 或更高版本支援進階儲存體。
 
-如需有關適用於 Azure 檔案服務的 Kubernetes 儲存體類別詳細資訊，請參閱 [Kubernetes 儲存體類別][kubernetes-storage-classes]。
+如需有關 Kubernetes 儲存體類別適用於 Azure 檔案，請參閱[Kubernetes 儲存體類別][kubernetes-storage-classes]。
 
-建立名為 `azure-file-sc.yaml` 的檔案，然後將下列資訊清單範例複製進來。 如需 mountOptions  的詳細資訊，請參閱[掛接選項][mount-options]一節。
+建立名為 `azure-file-sc.yaml` 的檔案，然後將下列資訊清單範例複製進來。 如需詳細資訊*mountOptions*，請參閱[掛接選項][mount-options]一節。
 
 ```yaml
 kind: StorageClass
@@ -56,7 +56,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令來建立儲存體類別：
+建立儲存體類別[kubectl 套用][kubectl-apply]命令：
 
 ```console
 kubectl apply -f azure-file-sc.yaml
@@ -64,7 +64,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-cluster-role-and-binding"></a>建立叢集角色和繫結
 
-AKS 叢集使用 Kubernetes 角色型存取控制 (RBAC) 來限制可以執行的動作。 「角色」  會定義要授與的權限，而「繫結」  會將角色套用至需要的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱[使用 RBAC 授權][kubernetes-rbac]。
+AKS 叢集使用 Kubernetes 角色型存取控制 (RBAC) 來限制可以執行的動作。 「角色」  會定義要授與的權限，而「繫結」  會將角色套用至需要的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱 <<c0> [ 使用 RBAC 授權][kubernetes-rbac]。
 
 若要允許 Azure 平台建立必要的儲存體資源，請建立 *ClusterRole* 和 *ClusterRoleBinding*。 建立名為 `azure-pvc-roles.yaml` 的檔案，然後將下列 YAML 複製進來：
 
@@ -93,7 +93,7 @@ subjects:
   namespace: kube-system
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令指派權限：
+指派權限[kubectl 套用][kubectl-apply]命令：
 
 ```console
 kubectl apply -f azure-pvc-roles.yaml
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>建立永續性磁碟區宣告
 
-永續性磁碟區宣告 (PVC) 會使用儲存體類別物件，以動態方式佈建 Azure 檔案共用。 下列 YAML 可用來建立具有 ReadWriteMany  存取權，且大小為 5GB  的永續性磁碟區宣告。 如需有關存取模式的詳細資訊，請參閱 [Kubernetes 永續性磁碟區][access-modes]文件。
+永續性磁碟區宣告 (PVC) 會使用儲存體類別物件，以動態方式佈建 Azure 檔案共用。 下列 YAML 可用來建立具有 ReadWriteMany  存取權，且大小為 5GB  的永續性磁碟區宣告。 如需有關存取模式的詳細資訊，請參閱 < [Kubernetes 永續性磁碟區][access-modes]文件。
 
 現在，建立名為 `azure-file-pvc.yaml` 的檔案，然後將下列 YAML 複製進來。 請確定 storageClassName  與最後一個步驟中建立的儲存體類別相符。
 
@@ -119,13 +119,13 @@ spec:
       storage: 5Gi
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令來建立永續性磁碟區宣告：
+建立的永續性磁碟區宣告[kubectl 套用][kubectl-apply]命令：
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-完成之後，便會建立檔案共用。 此外，也會建立 Kubernetes 祕密，其中包含連線資訊和認證。 您可以使用 [kubectl get][kubectl-get] 命令來檢視 PVC 狀態：
+完成之後，便會建立檔案共用。 此外，也會建立 Kubernetes 祕密，其中包含連線資訊和認證。 您可以使用[kubectl get][kubectl-get]命令來檢視 PVC 的狀態：
 
 ```console
 $ kubectl get pvc azurefile
@@ -165,7 +165,7 @@ spec:
         claimName: azurefile
 ```
 
-使用 [kubectl apply][kubectl-apply] 命令來建立 Pod。
+建立與 pod [kubectl 套用][kubectl-apply]命令。
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -223,7 +223,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-如果您是使用 1.8.0-1.8.4 版的叢集，可將 runAsUser  值設定為 0  來指定資訊安全內容。 如需關於 Pod 資訊安全內容的詳細資訊，請參閱[設定資訊安全內容][kubernetes-security-context]。
+如果您是使用 1.8.0-1.8.4 版的叢集，可將 runAsUser  值設定為 0  來指定資訊安全內容。 如需有關 Pod 安全性內容的詳細資訊，請參閱[設定安全性內容][kubernetes-security-context]。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -264,3 +264,4 @@ parameters:
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

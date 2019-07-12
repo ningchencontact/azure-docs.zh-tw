@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447721"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657523"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>將資料複製到使用 Azure Data Factory 的 Azure 資料總管 
 
@@ -50,7 +50,7 @@ Azure Data Factory 資料載入 Azure 資料總管產生下列好處：
     | **訂用帳戶** | 選取用來在其中建立資料處理站的 Azure 訂用帳戶。 |
     | **資源群組** | 選取 **新建**，然後輸入新的資源群組的名稱。 選取 **使用現有**，如果您有現有的資源群組。 |
     | **版本** | 選取 [V2]  |
-    | **位置** | 選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可以是其他位置或地區。 |
+    | **Location** | 選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可以是其他位置或地區。 |
     | | |
 
 1. 若要監視的建立程序工具列上選取通知。 建立完成之後，請移至您所建立的資料處理站。 **Data Factory**首頁隨即開啟。
@@ -141,7 +141,7 @@ Azure 資料總管新增連結的服務會建立以複製到 Azure 資料總管�
     * 選取 **完成**完成連結的服務建立。
 
     > [!NOTE]
-    > 服務主體由 Azure Data Factory 來存取 Azure 資料總管服務。 服務主體[建立 Azure Active Directory (Azure AD) 服務主體](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad)。 請勿使用**Azure Key Vault**方法。
+    > 服務主體由 Azure Data Factory 來存取 Azure 資料總管服務。 服務主體[建立 Azure Active Directory (Azure AD) 服務主體](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal)。 請勿使用**Azure Key Vault**方法。
 
 1. **目的地資料存放區**隨即開啟。 您所建立的 Azure 資料總管資料連接是可供使用。 選取 [**下一步]** 來設定連線。
 

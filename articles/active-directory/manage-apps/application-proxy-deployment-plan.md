@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108474"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625538"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>規劃 Azure AD 應用程式 Proxy 部署
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 
 下一節提供廣泛的檢視，計劃會設定以進行有效率的部署經驗的項目索引鍵。 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 您必須符合下列必要條件再開始您的實作。 您可以看到的詳細資訊，設定您的環境，包括這些先決條件後，在此[教學課程](application-proxy-add-on-premises-application.md)。
 
@@ -70,7 +70,8 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 
 * **公開憑證**:如果您使用自訂網域名稱，您必須購買非 Microsoft 受信任的憑證授權單位所核發的公開憑證。 根據您組織的需求，取得憑證，則可能需要一些時間，並建議開始程序盡越好。 Azure 應用程式 Proxy 支援 standard、[萬用字元](application-proxy-wildcard.md)，或 SAN 為基礎的憑證。
 
-* **網域需求**:單一登入以使用 Kerberos 限制委派 (KCD) 您發佈應用程式需要將連接器主機已為所發佈的應用程式相同的 AD 網域加入網域。 如需本主題的詳細資訊，請參閱[進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)使用應用程式 Proxy。 連接器服務的本機系統內容中執行，並不應該設定為使用自訂身分識別。
+* **網域需求**:單一登入以使用 Kerberos 限制委派 (KCD) 您發佈應用程式需要執行連接器的伺服器與執行應用程式的伺服器是已加入網域且屬於相同的網域或信任網域。
+如需本主題的詳細資訊，請參閱[進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)使用應用程式 Proxy。 連接器服務的本機系統內容中執行，並不應該設定為使用自訂身分識別。
 
 * **Url 的 DNS 記錄**
 
@@ -120,7 +121,7 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 
 * 系統管理員可以定義和監視的 指派使用者給透過應用程式 Proxy 發佈的應用程式生命週期。
 
-**安全性**
+**Security**
 
 * 只有使用者指派給應用程式，透過群組成員資格，或個別可以存取這些應用程式。
 

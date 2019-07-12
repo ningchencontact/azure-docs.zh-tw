@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: e20667c0414f551a545e66b84da31c873c96dc48
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461855"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589027"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教學課程：將資料載入到 Azure SQL 資料倉儲
 
@@ -56,7 +56,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰   
 
-   | 設定 | 建議值 | 描述 | 
+   | 設定 | 建議值 | 說明 | 
    | ------- | --------------- | ----------- | 
    | **資料庫名稱** | SampleDW | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -119,7 +119,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 4.  若要將目前的 IP 位址新增至新的防火牆規則，按一下工具列上的 [新增用戶端 IP]  。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-5. 按一下 [檔案]  。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+5. 按一下 [儲存]  。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
 6. 依序按一下 [確定]  ，然後關閉 [防火牆設定]  頁面。
 
@@ -150,13 +150,13 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 例如，**sample-svr.database.windows.net** 是完整的伺服器名稱。 |
-    | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
+    | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
     | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時指定的帳戶。 |
     | 密碼 | 伺服器系統管理員帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
 
     ![連接到伺服器](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. 按一下 [ **連接**]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
+4. 按一下 **[連接]** 。 [物件總管] 視窗隨即在 SSMS 中開啟。 
 
 5. 在 [物件總管] 中，展開 [資料庫]  。 然後展開 [系統資料庫]  和 [主要資料庫]  來檢視主要資料庫中的物件。  依序展開**SampleDW**若要檢視您的新資料庫中的物件。
 
@@ -207,7 +207,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 2. 輸入完整伺服器名稱，以及輸入 **LoaderRC60** 作為登入。  輸入您 LoaderRC60 的密碼。
 
-3. 按一下 [ **連接**]。
+3. 按一下 **[連接]** 。
 
 4. 您的連線就緒時，會在 [物件總管] 中看到兩個伺服器連線。 一個是以 ServerAdmin 連線，另一個是以 LoaderRC60 連線。
 

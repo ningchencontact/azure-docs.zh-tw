@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591335"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604556"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure 快速入門範本來設定 Azure VM 上的 SQL Server Always On 可用性群組
 本文說明如何使用 Azure 快速入門範本，以半自動化的方式為 Azure 中的 SQL Server 虛擬機器部署 Always On 可用性群組設定。 此程序中會使用兩個 Azure 快速入門範本。 
@@ -34,14 +34,14 @@ ms.locfileid: "60591335"
 可用性群組設定的其他部分必須手動完成，例如建立可用性群組，以及建立內部負載平衡器。 本文提供自動和手動步驟的順序。
  
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 若要使用快速入門範本自動設定 Always On 可用性群組，您必須已具備下列必要項目： 
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 - 具有網域控制站的資源群組。 
-- [Azure 中一或多個執行 SQL Server 2016 (或更新版本) Enterprise Edition 的 VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)，且這些 VM 必須已加入網域，並且位於已[向 SQL VM 資源提供者註冊](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)的相同可用性設定組或可用性區域中。  
+- [Azure 中一或多個執行 SQL Server 2016 (或更新版本) Enterprise Edition 的 VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)，且這些 VM 必須已加入網域，並且位於已[向 SQL VM 資源提供者註冊](virtual-machines-windows-sql-register-with-resource-provider.md)的相同可用性設定組或可用性區域中。  
 - 兩個可用 （未由任何實體） IP 位址、 一個內部負載平衡器，另一個可用性群組相同的子網路內的可用性群組接聽程式。 如果正在使用現有的負載平衡器，則被需要只能有一個可用的 IP 位址。  
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 設定 Always On 可用性群組使用 Azure 快速入門範本所需的下列權限︰ 
 
 - 現有的網域使用者帳戶網域中具有建立電腦物件的權限。  例如，網域系統管理員帳戶通常會有足夠的權限 (例如：account@domain.com)。 _此帳戶也應該屬於建立叢集的每個 VM 上的本機系統管理員群組一部分。_
@@ -98,14 +98,14 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
    | 設定 | 值 |
    | --- | --- |
    | **名稱** |代表負載平衡器的文字名稱。 例如 **sqlLB**。 |
-   | **類型** |**內部**：大部分的實作都會使用內部負載平衡器，這可讓相同虛擬網路內的應用程式連線到可用性群組。  </br> **外部**：可讓應用程式透過公用網際網路連線來連線到可用性群組。 |
+   | **型別** |**內部**：大部分的實作都會使用內部負載平衡器，這可讓相同虛擬網路內的應用程式連線到可用性群組。  </br> **外部**：可讓應用程式透過公用網際網路連線來連線到可用性群組。 |
    | **虛擬網路** | 選取 SQL Server 執行個體所在的虛擬網路。 |
    | **子網路** | 選取 SQL Server 執行個體所在的子網路。 |
    | **IP 位址指派** |**靜態** |
    | **私人 IP 位址** | 從子網路指定可用的 IP 位址。 |
    | **訂用帳戶** |如果您有多個訂用帳戶，此欄位才會出現。 選取您想要與此資源相關聯的訂用帳戶。 通常是與可用性群組的所有資源相同的訂用帳戶。 |
    | **資源群組** |選取 SQL Server 執行個體所在的資源群組。 |
-   | **位置** |選取 SQL Server 執行個體所在的 Azure 位置。 |
+   | **Location** |選取 SQL Server 執行個體所在的 Azure 位置。 |
    | &nbsp; | &nbsp; |
 
 6. 選取 [建立]  。 
@@ -190,7 +190,7 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 
     ![空白的使用者帳戶表示缺少 UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. 填寫 [使用者登入名稱]  以符合使用者的名稱，並且從下拉式清單中選取正確的網域。 
+5. 填寫**使用者登入名稱**以符合使用者的名稱，然後從下拉式清單中選取適當的網域。 
 6. 選取 [套用]  儲存變更，並選取 [確定]  關閉對話方塊。 
 
    進行這些變更後，請嘗試再次部署 Azure 快速入門範本。 

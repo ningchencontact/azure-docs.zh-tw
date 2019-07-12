@@ -1,18 +1,19 @@
 ---
 title: 如何搜尋有效率地使用 Azure 地圖服務搜尋服務 |Microsoft Docs
 description: 了解如何使用搜尋服務中使用 Azure 地圖服務搜尋服務的最佳作法
+author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c4347eb0f89c17a285aaa4b51760300b9c89aa7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205613"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617869"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>若要使用 Azure 地圖服務搜尋服務的最佳作法
 
@@ -24,7 +25,7 @@ Azure 地圖服務[搜尋服務](https://docs.microsoft.com/rest/api/maps/search
 * 讀取的地址搜尋回應結構
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要對地圖服務 API 進行呼叫，您需要有地圖服務帳戶和金鑰。 如需建立帳戶和擷取金鑰的相關資訊，請參閱[如何管理 Azure 地圖服務帳戶和金鑰](how-to-manage-account-keys.md)。
 

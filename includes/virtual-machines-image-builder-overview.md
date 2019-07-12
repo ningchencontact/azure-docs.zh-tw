@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509817"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659768"
 ---
 標準化的虛擬機器 (VM) 映像可讓組織移轉至雲端，並確保在部署中的一致性。 映像通常包含預先定義的安全性和組態設定和必要的軟體。 設定您自己的映像處理管線需要的時間、 基礎結構和安裝程式，但使用 Azure VM 映像產生器，只是提供描述您的映像的簡單設定、 提交至服務，和建置，並散發映像。
  
@@ -55,7 +55,7 @@ AIB 將支援 RHEL ISO 的做為來源：
 - RHEL 7.4
 - RHEL 7.5
 
-不支援 RHEL 7.6，但正在測試。
+RHEL 7.6 Iso 不支援，但進行測試。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -76,7 +76,7 @@ Azure 映像產生器是完全受控的 Azure 服務均可存取 Azure 資源提
 1. 在建立映像，映像產生器會將映像會根據的範本，然後刪除 IT_ 中的其他資源\<DestinationResourceGroup > _\<TemplateName > 針對建立的資源群組程序。
 
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要允許發佈至其中一個受管理的映像或共用映像庫映像的 Azure VM 映像產生器，您必須提供 「 Azure 虛擬機器映像產生器 」 服務的 「 參與者 」 權限 (應用程式識別碼： cf32a0cc-373c-47c9-9156-0db11f6a6dfc) 上的資源群組。 
 

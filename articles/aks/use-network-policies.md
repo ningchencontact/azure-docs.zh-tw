@@ -2,17 +2,17 @@
 title: 在 Azure Kubernetes Service (AKS) 中使用網路原則來保護 Pod
 description: 了解如何保護 Azure Kubernetes Service (AKS) 中使用 Kubernetes 網路原則流入和流出 pod 流動的流量
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230005"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613959"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用網路原則來保護 Pod 之間的流量
 
@@ -29,7 +29,7 @@ ms.locfileid: "65230005"
 > 
 > 如果您想要繼續使用現有的測試叢集使用網路原則，在預覽期間，將叢集升級到新的 Kubernetes 版本 「 最新的 GA 版本，然後將下列 YAML 資訊清單，以修正損毀的計量伺服器和 Kubernetes 部署儀表板。 此修正程式，才需要使用 Calico 網路原則引擎的叢集。
 >
-> 安全性最佳作法[檢閱此 YAML 資訊清單的內容][ calico-aks-cleanup]若要了解什麼部署到 AKS 叢集。
+> 安全性最佳作法[檢閱此 YAML 資訊清單的內容][calico-aks-cleanup]若要了解什麼部署到 AKS 叢集。
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -62,7 +62,7 @@ Azure 提供兩種方式來實作網路原則。 當您建立 AKS 叢集時，�
 | 支援的平台                      | Linux                      | Linux                       |
 | 支援網路功能選項             | Azure CNI                  | Azure CNI                   |
 | Kubernetes 規格的合規性 | 支援的所有原則類型 |  支援的所有原則類型 |
-| 其他功能                      | None                       | 擴充原則模型，其中包含全域網路原則、 全域網路設定，以及主應用程式端點。 如需有關使用`calicoctl`CLI 來管理這些擴充功能，請參閱[calicoctl 使用者參考][calicoctl]。 |
+| 其他功能                      | 無                       | 擴充原則模型，其中包含全域網路原則、 全域網路設定，以及主應用程式端點。 如需有關使用`calicoctl`CLI 來管理這些擴充功能，請參閱[calicoctl 使用者參考][calicoctl]。 |
 | 支援                                  | Azure 支援和工程小組支援 | Calico 社群支援。 如需有關其他的付費支援的詳細資訊，請參閱[專案 Calico 支援選項][calico-support]。 |
 | 記錄                                  | 規則已新增 / 刪除 iptables 相關自定義中會記錄下每個主機上 */var/log/azure-npm.log* | 如需詳細資訊，請參閱[Calico 元件記錄檔][calico-logs] |
 
@@ -76,7 +76,7 @@ Azure 提供兩種方式來實作網路原則。 當您建立 AKS 叢集時，�
 
 首先，讓我們建立的 AKS 叢集，支援網路原則。 只有在叢集建立時，才可以啟用網路原則功能。 您無法在現有的 AKS 叢集上啟用網路原則。
 
-若要使用網路原則與 AKS 叢集，您必須使用[Azure CNI 外掛程式][ azure-cni]並定義您自己的虛擬網路和子網路。 如需有關如何規劃出必要子網路範圍的詳細資訊，請參閱[設定進階網路][use-advanced-networking]。
+若要使用網路原則與 AKS 叢集，您必須使用[Azure CNI 外掛程式][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]。
 
 下列範例指令碼：
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-建立叢集需要幾分鐘的時間。 備妥叢集時，設定`kubectl`若要使用連線到 Kubernetes 叢集[az aks get-credentials 來取得認證][ az-aks-get-credentials]命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用：
+建立叢集需要幾分鐘的時間。 備妥叢集時，設定`kubectl`若要使用連線到 Kubernetes 叢集[az aks get-credentials 來取得認證][az-aks-get-credentials]命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-使用網路原則套用所[kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+使用網路原則套用所[kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > 此網路原則針對輸入規則使用 *namespaceSelector* 和 *podSelector* 元素。 YAML 語法，請務必輸入規則是加總。 在此範例中，兩個元素都必須與要套用的輸入規則相符。 Kubernetes 版本早於*1.12*未正確解譯這些項目及限制的網路流量，如您所預期。 如需有關此行為的詳細資訊，請參閱[行為的選取器來回][policy-rules]。
 
-使用更新的網路原則套用所[kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+使用更新的網路原則套用所[kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 在更複雜的範例中，您可以像定義多個輸入規則， *namespaceSelector* ，然後*podSelector*。
 
-使用更新的網路原則套用所[kubectl 套用][ kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
+使用更新的網路原則套用所[kubectl 套用][kubectl-apply]命令並指定您的 YAML 資訊清單的名稱：
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在本文中，我們會建立兩個命名空間，並套用的網路原則。 若要清除這些資源，請使用[kubectl 刪除][ kubectl-delete]命令並指定資源名稱：
+在本文中，我們會建立兩個命名空間，並套用的網路原則。 若要清除這些資源，請使用[kubectl 刪除][kubectl-delete]命令並指定資源名稱：
 
 ```console
 kubectl delete namespace production
