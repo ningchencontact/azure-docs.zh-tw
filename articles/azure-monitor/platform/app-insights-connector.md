@@ -56,7 +56,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 | [SCOM 管理群組](../../azure-monitor/platform/om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](collect-azure-metrics-logs.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 若要存取 Application Insights Connector 資訊，您必須具有 Azure 訂用帳戶
 - 您必須至少有一個已設定的 Application Insights 資源。
@@ -67,7 +67,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
 2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務]  來開啟 Application Insights。 然後，搜尋 Application Insights。 
 3. 在 [訂用帳戶]  之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [名稱]  之下，選取一或多個應用程式。
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 大約 30 分鐘內，資料就會變成可用，而且 Application Insights 圖格資料會更新，如下圖所示：
 
@@ -183,7 +183,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 屬性 | 描述 |
 | --- | --- |
-| 類型 | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 記錄的時間 |
 | ApplicationId | Application Insights 應用程式的檢測金鑰 |
@@ -192,7 +192,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 用戶端裝置 |
 | ScreenResolution |   |
 | Continent | 要求的起源洲 |
-| 国家/地区 | 要求的起源國家/地區 |
+| Country | 要求的起源國家/地區 |
 | Province | 要求的起源省、州或地區設定 |
 | City | 要求的起源城市或鄉鎮 |
 | isSynthetic | 指出要求是由使用者或自動化方法建立。 True = 使用者產生，或 false = 自動化方法 |
@@ -232,7 +232,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>例外狀況專屬欄位
 
-| 類型 | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 例外狀況 |
 | ExceptionType | 例外狀況的類型 |
@@ -251,7 +251,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 屬性 | 描述 |
 | --- | --- |
-| 類型 | ApplicationInsights |
+| type | ApplicationInsights |
 | TelemetryType | 要求 |
 | ResponseCode | 傳送至用戶端的 HTTP 回應 |
 | RequestSuccess | 指出成功或失敗。 True 或 False。 |

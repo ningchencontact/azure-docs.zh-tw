@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e7e2048c70cab48ca81b3ebd6bd06779a7bdaeb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
-ms.translationtype: HT
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595665"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839672"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教學課程：將紐約計程車資料載入 Azure SQL 資料倉儲
 
@@ -56,7 +56,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 3. 在 SQL 資料倉儲表單中填寫下列資訊︰   
 
-   | 設定 | 建議值 | 說明 | 
+   | 設定 | 建議值 | 描述 | 
    | ------- | --------------- | ----------- | 
    | **資料庫名稱** | mySampleDataWarehouse | 如需有效的資料庫名稱，請參閱[資料庫識別碼](/sql/relational-databases/databases/database-identifiers)。 | 
    | **訂用帳戶** | 您的訂用帳戶  | 如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
@@ -146,7 +146,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 2. 在 [連接到伺服器]  對話方塊中，輸入下列資訊：
 
-    | 設定      | 建議值 | 說明 | 
+    | 設定      | 建議值 | 描述 | 
     | ------------ | --------------- | ----------- | 
     | 伺服器類型 | 資料庫引擎 | 這是必要值 |
     | 伺服器名稱 | 完整伺服器名稱 | 名稱應該類似這樣︰**mynewserver-20180430.database.windows.net**。 |
@@ -603,7 +603,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
         
    1. 以一般方式使用[外部資料表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)查詢。
 
-請參考下列 [文件] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) 如果您想要設定虛擬網路服務端點，SQL 資料倉儲。 
+請參考下列[文件](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)如果您想要設定虛擬網路服務端點，SQL 資料倉儲。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -22,7 +22,7 @@ ms.locfileid: "60460979"
 
 本文說明身為合作夥伴的您如何針對多租用戶 VMware 複寫案例，透過 CSP 建立和管理租用戶訂用帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要設定 VMware 複寫，您需要執行下列作業：
 

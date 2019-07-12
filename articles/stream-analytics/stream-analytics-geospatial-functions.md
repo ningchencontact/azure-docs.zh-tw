@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479978"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620921"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>串流分析地理空間函式簡介
 
@@ -54,7 +54,7 @@ FROM input
 
  {"type" :"LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-若要深入了解，請瀏覽 [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) 參考。
+若要深入了解，請瀏覽 [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) 參考。
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +81,7 @@ FROM input
   
  {"type" :"Point", "coordinates" : [20.2321, -87.33]}  
 
-若要深入了解，請瀏覽 [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) 參考。
+若要深入了解，請瀏覽 [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) 參考。
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,7 +108,7 @@ FROM input
  
  {"type" :"Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-若要深入了解，請瀏覽 [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) 參考。
+若要深入了解，請瀏覽 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 參考。
 
 
 ## <a name="stdistance"></a>ST_DISTANCE
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-若要深入了解，請瀏覽 [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) 參考。
+若要深入了解，請瀏覽 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 參考。
 
 ## <a name="stoverlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 函式會比較兩個多邊形。 如果多邊形重疊，函數會傳回 1。 如果多邊形未重疊，則函數會傳回 0。 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-若要深入了解，請瀏覽 [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) 參考。
+若要深入了解，請瀏覽 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 參考。
 
 ## <a name="stintersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 函式會比較兩個 LineString。 如果 LineString 相交，函式會傳回 1。 如果 LineString 未相交，則函式會傳回 0。
@@ -169,7 +169,7 @@ FROM input
   
  0  
 
-若要深入了解，請瀏覽 [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) 參考。
+若要深入了解，請瀏覽 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 參考。
 
 ## <a name="stwithin"></a>ST_WITHIN
 `ST_WITHIN` 函式可判斷某個點或多邊形是否在某個多邊形內。 如果該多邊形包含點或多邊形，函式會傳回 1。 如果點或多邊形未在所宣告的多邊形內，則函式會傳回 0。
@@ -195,12 +195,12 @@ FROM input
   
  1  
 
-若要深入了解，請瀏覽 [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) 參考。
+若要深入了解，請瀏覽 [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) 參考。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486578"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836331"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 FTP 伺服器移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-ftp-connector.md)
 > * [第 2 版 (目前的版本)](../connector-ftp.md)
 
@@ -45,7 +45,7 @@ ms.locfileid: "60486578"
 
 建立管線的最簡單方式就是使用「資料處理站複製精靈」  。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Visual Studio**， **PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -63,12 +63,12 @@ ms.locfileid: "60486578"
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 FTP 連結服務專屬的 JSON 元素說明。
 
-| 屬性 | 描述 | 必要項 | 預設值 |
+| 屬性 | 描述 | 必要項 | 預設 |
 | --- | --- | --- | --- |
 | type |設定為 FtpServer。 |是 |&nbsp; |
 | host |指定 FTP 伺服器的名稱或 IP 位址。 |是 |&nbsp; |
 | authenticationType |指定驗證類型。 |是 |基本或匿名 |
-| username |指定擁有 FTP 伺服器存取權限的使用者。 |否 |&nbsp; |
+| userName |指定擁有 FTP 伺服器存取權限的使用者。 |否 |&nbsp; |
 | password |指定使用者 (使用者名稱) 的密碼。 |否 |&nbsp; |
 | encryptedCredential |指定用來存取 FTP 伺服器的加密認證。 |否 |&nbsp; |
 | gatewayName |指定資料管理閘道中連結至內部部署 FTP 伺服器的閘道器名稱。 |否 |&nbsp; |
@@ -211,7 +211,7 @@ ms.locfileid: "60486578"
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON 範例：將資料從 FTP 伺服器複製至 Azure Blob
 此範例示範如何將資料從 FTP 伺服器複製至 Azure Blob 儲存體。 不過，您可以使用資料處理站中的複製活動，把資料直接複製到 [支援的資料存放區及格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)一文中所述的任何接收器。
 
-以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。
+下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)，或[PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * [FtpServer](#linked-service-properties) 類型的連結服務
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)類型的連結服務

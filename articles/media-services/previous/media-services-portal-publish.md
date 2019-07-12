@@ -16,7 +16,7 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61127842"
@@ -29,7 +29,7 @@ ms.locfileid: "61127842"
 > 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 > [!NOTE]
 > 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 > 

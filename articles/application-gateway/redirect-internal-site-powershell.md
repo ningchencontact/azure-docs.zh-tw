@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: c887c5ea72a64828749bfc62756e59a8a22ea9df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e29966473a467ddf9d7e683a9d198ca692eab338
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729643"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785752"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有內部重新導向的應用程式閘道
 
@@ -296,11 +296,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如， http://www.contoso.com 。
+在瀏覽器的網址列中輸入您的網域名稱。 例如，http\:/ / www.contoso.com。
 
 ![在應用程式閘道中測試 contoso 網站](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-將位址變更為您其他的網域，例如 http://www.contoso.org ，您應該會看到流量已重新導向回到 www 的接聽程式\. contoso.com。
+將位址變更為您其他的網域，例如 http\:/ / www.contoso.org，您應該會看到流量已重新導向回到 www 的接聽程式\.contoso.com。
 
 ## <a name="next-steps"></a>後續步驟
 

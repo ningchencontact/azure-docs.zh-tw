@@ -90,7 +90,7 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 > [!IMPORTANT]
 >  雖然大部分的清除作業可能速度會比 SLA，完成**型式的清除作業完成的 SLA 在 30 天設定**由於大量使用的資料平台影響。 這是自動化程序;沒有任何方法來要求更快速處理作業。
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>DELETE
 
 > [!WARNING]
 > Log Analytics 中的刪除動作具有破壞性，且將無法復原！ 進行這方面的作業時請格外小心。
@@ -104,7 +104,7 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 #### <a name="log-data"></a>記錄資料
 
 * [POST 清除](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 採用物件來指定要刪除的資料參數，並傳回參考 GUID 
-* GET 清除狀態 - POST 清除呼叫會傳回 'x-ms-status-location' 標頭，其中包含可供您呼叫的 URL，以便判斷清除 API 的狀態。 例如︰
+* GET 清除狀態 - POST 清除呼叫會傳回 'x-ms-status-location' 標頭，其中包含可供您呼叫的 URL，以便判斷清除 API 的狀態。 例如:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -116,7 +116,7 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 #### <a name="application-data"></a>應用程式資料
 
 * [POST 清除](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 採用物件來指定要刪除的資料參數，並傳回參考 GUID
-* GET 清除狀態 - POST 清除呼叫會傳回 'x-ms-status-location' 標頭，其中包含可供您呼叫的 URL，以便判斷清除 API 的狀態。 例如︰
+* GET 清除狀態 - POST 清除呼叫會傳回 'x-ms-status-location' 標頭，其中包含可供您呼叫的 URL，以便判斷清除 API 的狀態。 例如:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

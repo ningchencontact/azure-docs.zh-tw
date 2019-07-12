@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3eb16034cc6507944ca7bebb59893e0d72a6f4c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 399f6724b8948c8e507bc50622a4fb65b2262491
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322578"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653947"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>從本機檔案建立工作輸入
 
@@ -27,7 +27,7 @@ ms.locfileid: "60322578"
 下列程式碼說明如何建立一個輸入資產，並將它當作工作的輸入。 CreateInputAsset 函式會執行下列動作：
 
 * 建立資產
-* 取得資產[儲存體容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)的 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+* 取得資產[儲存體容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)的 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 * 使用 SAS URL，將檔案上傳至儲存體中的容器
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

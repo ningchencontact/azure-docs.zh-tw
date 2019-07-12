@@ -20,13 +20,13 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788663"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-create-pipelines.md)
 > * [目前的版本](concepts-pipelines-activities.md)
 
 本文協助您了解 Azure Data Factory 中的管線和活動，並使用這些項目來為您的資料移動和資料處理案例建構端對端的資料導向工作流程。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 資料處理站可以有一或多個管線。 管線是一起執行某個工作的活動所組成的邏輯群組。 例如，管道可能包含一組活動，先是內嵌和清除記錄資料，然後在 HDInsight 叢集上啟動 Spark 作業來分析記錄資料。 優點在於管道可讓您統一管理活動，而不是個別管理每個活動。 例如，您可以部署管線並為其排程，而非獨立地對每個活動進行這些工作。
 
 管線中的活動會定義要在資料上執行的動作。 例如，您可以使用複製活動將資料從內部部署 SQL Server 複製到「Azure Blob 儲存體」。 接著，使用在 Azure HDInsight 叢集上執行 Hive 指令碼的 Hive 活動，來處理/轉換來自 Blob 儲存體的資料以產生輸出資料。 最後，使用第二個複製活動將輸出資料複製到 Azure SQL 資料倉儲，以在該處建置商業智慧 (BI) 報表解決方案。
@@ -94,11 +94,11 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 }
 ```
 
-Tag | 描述 | 類型 | 必要項
+Tag | 描述 | type | 必要項
 --- | ----------- | ---- | --------
 name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | String | 是
 description | 指定說明管線用途的文字。 | String | 否
-活動 | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | Array | 是
+activities | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | Array | 是
 parameters | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | List | 否
 
 ## <a name="activity-json"></a>活動 JSON
@@ -170,10 +170,10 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 
 JSON 名稱 | 描述 | 允許的值 | 必要項
 --------- | ----------- | -------------- | --------
-timeout | 指定活動執行的逾時。 | Timespan | 沒有。 預設逾時為 7 天。
-retry | 重試次數上限 | 整數 | 沒有。 預設值為 0
-retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 沒有。 預設值為 20 秒
-secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | Boolean | 沒有。 預設值為 false。
+timeout | 指定活動執行的逾時。 | Timespan | 資料分割 預設逾時為 7 天。
+retry | 重試次數上限 | 整數 | 資料分割 預設值為 0
+retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 資料分割 預設值為 30 秒
+secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | Boolean | 資料分割 預設值為 false。
 
 ### <a name="control-activity"></a>控制活動
 控制活動具有下列最上層結構：

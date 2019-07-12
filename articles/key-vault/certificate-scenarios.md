@@ -125,6 +125,6 @@ ms.locfileid: "66427850"
 
   (5) - 應用程式合併 CA 的 X509 憑證，來完成新憑證建立。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 - [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)

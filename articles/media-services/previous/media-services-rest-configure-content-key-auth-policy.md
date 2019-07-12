@@ -24,7 +24,7 @@ ms.locfileid: "60598431"
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
  您可以使用 Azure 媒體服務傳遞使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady 或 Widevine 數位版權管理 (DRM) 所動態加密的內容。 媒體服務也提供服務，可傳遞金鑰和 PlayReady/Widevine 授權給授權用戶端。
 
 如果您想要使用媒體服務加密資產，則需要建立加密金鑰 (CommonEncryption 或 EnvelopeEncryption) 與資產的關聯。 如需詳細資訊，請參閱[使用 REST 建立內容金鑰](media-services-rest-create-contentkey.md)。 您也需要為金鑰設定授權原則 (如本文所述)。

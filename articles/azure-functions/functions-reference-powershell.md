@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442170"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706407"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 開發人員指南
 
@@ -81,7 +82,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 屬性   | 描述                                     | 類型     |
+| 屬性   | 描述                                     | type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | 時，以 utc 格式，此函式已觸發        | Datetime |
 | MethodName | 已觸發的函式名稱     | string   |
@@ -133,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 以下是有效的參數呼叫`Push-OutputBinding`:
 
-| 名稱 | 類型 | 位置 | 描述 |
+| 名稱 | type | 位置 | 描述 |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | 您要設定輸出繫結的名稱。 |
+| **`-Name`** | 字串 | 1 | 您要設定輸出繫結的名稱。 |
 | **`-Value`** | Object | 2 | 輸出繫結的值要設定，其可接受來自管線 ByValue。 |
 | **`-Clobber`** | SwitchParameter | 已命名 | （選擇性）指定時，會強制設為指定的輸出繫結的值。 | 
 
@@ -240,7 +241,7 @@ MyQueue                        myData
 
 | 記錄層級的函式 | 記錄 cmdlet |
 | ------------- | -------------- |
-| Error | **`Write-Error`** |
+| 錯誤 | **`Write-Error`** |
 | 警告 | **`Write-Warning`**  | 
 | 資訊 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 資訊 | 寫入_資訊_層級記錄。 |
 | 偵錯 | **`Write-Debug`** |
@@ -285,7 +286,7 @@ Azure Functions 可讓您定義的臨界值層級，讓您輕鬆地控制方式�
 * 雜湊表
 * string
 * byte[]
-* int
+* ssNoversion
 * double
 * HttpRequestContext
 * HttpResponseContext
@@ -302,7 +303,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 傳遞至指令碼的要求物件是型別的`HttpRequestContext`，其具有下列屬性：
 
-| 屬性  | 描述                                                    | 類型                      |
+| 屬性  | 描述                                                    | type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 包含要求本文的物件。 `Body` 會序列化為以資料為依據的最佳類型。 比方說，如果資料是 JSON，它會傳入做為雜湊表。 如果資料是字串，它傳入做為字串。 | object |
 | **`Headers`** | 字典，包含要求標頭。                | Dictionary<string,string><sup>*</sup> |
@@ -317,7 +318,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 您應該傳回的回應物件是型別的`HttpResponseContext`，其具有下列屬性：
 
-| 屬性      | 描述                                                 | 類型                      |
+| 屬性      | 描述                                                 | type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 包含回應本文的物件。           | object                    |
 | **`ContentType`** | 簡短的指針的回應內容類型設定。 | string                    |

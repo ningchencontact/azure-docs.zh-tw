@@ -180,7 +180,7 @@ Azure 提供許多機制，可在將資料從一個位置移至另一個位置�
 
 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI，來設定虛擬網路的站對站 VPN 連線。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 [在 Azure 入口網站中建立站對站連線](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

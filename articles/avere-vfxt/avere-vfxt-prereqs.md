@@ -34,7 +34,7 @@ ms.locfileid: "60409230"
 
 有一些因應措施案例可讓非擁有者來建立 Azure 叢集 Avere vFTX。 這些案例包括限制資源，以及將其他的角色指派給建立者。 在這兩種情況下，訂用帳戶擁有者也必須[接受 Avere vFXT 軟體合約](#accept-software-terms)事先。 
 
-| 案例 | 限制 | 若要建立 Avere vFXT 叢集所需的存取權角色 | 
+| 狀況 | 限制 | 若要建立 Avere vFXT 叢集所需的存取權角色 | 
 |----------|--------|-------|
 | 資源群組系統管理員 | 資源群組內，則必須建立虛擬網路、 叢集控制器和叢集節點 | [使用者存取系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)並[參與者](../role-based-access-control/built-in-roles.md#contributor)角色，都只限於目標資源群組 | 
 | 外部的 vnet | 叢集節點與叢集控制站會建立資源群組內，但使用不同的資源群組中的現有虛擬網路 | （1)[使用者存取系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)並[參與者](../role-based-access-control/built-in-roles.md#contributor)限於 vFXT 資源群組，以及 (2) 的角色[虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，[使用者存取權系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)，並[Avere 參與者](../role-based-access-control/built-in-roles.md#avere-contributor)VNET 資源群組範圍內的角色。 |

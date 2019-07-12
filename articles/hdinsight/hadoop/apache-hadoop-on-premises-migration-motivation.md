@@ -21,7 +21,7 @@ ms.locfileid: "67058569"
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>為什麼要遷移到 Azure HDInsight
 
-Azure HDInsight 是 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 包含最熱門的開放原始碼架構，例如：
+Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 包含最熱門的開放原始碼架構，例如：
 
 - Apache Hadoop
 - Apache Spark
@@ -128,7 +128,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快
 |Spark 串流作業|5 個作業 -- 每 3 分鐘||
 |結構化串流作業|5 個工作 -- 每分鐘||
 |ML 模型定型作業|2 個工作 -- 每週一次||
-|程式設計語言|Python、Scala、Java||
+|程式語言：|Python、Scala、Java||
 |指令碼|殼層、Python||
 |**主題**：**資料**|||
 |資料來源|一般檔案、Json、Kafka、RDBMS||
@@ -137,10 +137,10 @@ Azure HDInsight 是 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快
 |資料目的地|HDFS、RDBMS、Kafka、MPP ||
 |**主題**：**中繼資料**|||
 |Hive DB 類型|Mysql、Postgres||
-|沒有。 Hive 中繼存放區數目|2||
-|沒有。 Hive 資料表數目|100||
-|沒有。 Ranger 原則數目|20||
-|沒有。 Oozie 工作流程數目|100||
+|資料分割 Hive 中繼存放區數目|2||
+|資料分割 Hive 資料表數目|100||
+|資料分割 Ranger 原則數目|20||
+|資料分割 Oozie 工作流程數目|100||
 |**主題**：**調整**|||
 |包含複寫的資料磁碟區|100 TB||
 |每日擷取量|50 GB||
@@ -152,11 +152,11 @@ Azure HDInsight 是 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快
 |磁碟空間使用量|75%||
 |平均網路使用量 %|25%
 |**主題**：**人員**|||
-|沒有。 系統管理員數目|2||
-|沒有。 開發人員數目|10||
-|沒有。 使用者數目|100||
+|資料分割 系統管理員數目|2||
+|資料分割 開發人員數目|10||
+|資料分割 使用者數目|100||
 |技術|Hadoop、Spark||
-|沒有。 移轉工作的可用資源數目|2||
+|資料分割 移轉工作的可用資源數目|2||
 |**主題**：**限制**|||
 |目前的限制|高延遲||
 |目前的挑戰|並行處理的問題||
@@ -180,7 +180,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快
 |私人且受保護的資料管線？|是||
 |是否使用網域加入叢集 (ESP)？|     是||
 |是否將內部部署 AD 同步處理至雲端？|     是||
-|沒有。 要同步處理的 AD 使用者數目？|          100||
+|資料分割 要同步處理的 AD 使用者數目？|          100||
 |是否將密碼同步套雲端？|    是||
 |僅雲端使用者？|                 是||
 |是否需要 MFA？|                       否|| 

@@ -38,6 +38,6 @@ ms.locfileid: "60878880"
 | [Apache Spark](https://spark.apache.org/) |HDInsight 3.4、3.5 和 3.6 |
 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
 

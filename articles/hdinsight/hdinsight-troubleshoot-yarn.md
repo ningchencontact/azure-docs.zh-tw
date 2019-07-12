@@ -25,7 +25,7 @@ ms.locfileid: "67072007"
 
 在本例中，兩個現有的佇列 (**預設**和 **thriftsvr**) 都從 50% 的容量變更為 25% 的容量，讓新的佇列 (spark) 有 50% 的容量。
 
-| 佇列 | 容量 | 最大容量 |
+| 佇列 | Capacity | 最大容量 |
 | --- | --- | --- |
 | 預設值 | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -135,5 +135,5 @@ ms.locfileid: "67072007"
 - [Apache Hadoop YARN 概念與應用程式](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 
-### <a name="see-also"></a>另请参阅
+### <a name="see-also"></a>另請參閱
 [使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)

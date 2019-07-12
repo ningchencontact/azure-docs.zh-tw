@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329616"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620811"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -157,7 +157,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
 
 **Output2**：
 
-| 請確定 | Time | 計數 |
+| 請確定 | Time | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -422,7 +422,7 @@ GROUP BY
 
 **輸入**：  
 
-| 使用者 | 功能 | Event | Time |
+| 使用者 | 功能 | Event - 事件 | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
@@ -632,7 +632,7 @@ WHERE
 
 **輸出**：
 
-| TollID | 計數 |
+| TollID | Count |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -660,7 +660,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸入**：  
 
-| deviceId | Time | 屬性 | Value |
+| deviceId | Time | 屬性 | 值 |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
@@ -712,12 +712,12 @@ Azure Stream Ananlytics 查詢 langugae 可以擴充以 JavaScript 撰寫的自�
 
 ## <a name="get-help"></a>取得說明
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -36,7 +36,7 @@ ms.locfileid: "61419998"
 * 建立資料庫資料表並將資料行加密。
 * 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 針對本教學課程，您將需要：
 
@@ -110,7 +110,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 **SSN** 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 **BirthDate** 資料行將使用不支援操作的隨機加密。
 
-將 **SSN** 資料行的 [加密類型]  設定為 [決定性]  ，並將 **BirthDate** 資料行設定為 [隨機化]  。 单击“下一步”  。
+將 **SSN** 資料行的 [加密類型]  設定為 [決定性]  ，並將 **BirthDate** 資料行設定為 [隨機化]  。 按一下 [下一步]  。
 
 ![加密資料行](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -120,7 +120,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 確認已選取 [Windows 憑證存放區]  ，然後按 [下一步]  。
 
-![主密钥配置](./media/sql-database-always-encrypted/master-key-configuration.png)
+![主要金鑰組態](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 ### <a name="validation"></a>驗證
 
@@ -138,7 +138,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 * 建立 CMK。
 * 建立 CEK。
-* 配置了所选列的加密。 **Patients** 資料表目前沒有任何資料，但在所選資料行中的所有現有資料現在都已加密。
+* 設定選取的資料行以進行加密。 **Patients** 資料表目前沒有任何資料，但在所選資料行中的所有現有資料現在都已加密。
 
 您可以確認 SSMS 中是否已建立金鑰，方法是移至 [Clinic]   >  [安全性]   >  [一律加密的金鑰]  。 您現在可以看到精靈為您產生的新金鑰。
 
@@ -147,7 +147,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 既然已設定好「一律加密」，您現在即可建置會在加密資料行上執行「插入」  和「選取」  動作的應用程式。 若要成功執行範例應用程式，您必須在您執行「一律加密」精靈的相同電腦上執行範例應用程式。 若要在另一部電腦上執行該應用程式，就必須將您的「一律加密」憑證部署到執行用戶端應用程式的電腦上。  
 
 > [!IMPORTANT]
-> 傳送純文字資料至具有 [一律加密] 資料行的伺服器時，您的應用程式必須使用 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 物件。 在不使用 SqlParameter 对象的情况下传递文本值会导致异常。
+> 傳送純文字資料至具有 [一律加密] 資料行的伺服器時，您的應用程式必須使用 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 物件。 在不使用 SqlParameter 物件的情況下傳遞常值會導致例外狀況。
 
 1. 開啟 Visual Studio，建立新的 C# 主控台應用程式。 請確定您的專案設定為 **.NET Framework 4.6** 或更新版本。
 2. 將專案命名為 **AlwaysEncryptedConsoleApp**，並按一下 [確定]  。
@@ -191,7 +191,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 * 將資料插入加密資料行。
 * 在加密資料行中篩選特定值來選取記錄。
 
-以下列程式碼取代 **Program.cs** 的內容。 從 Azure 入口網站，針對 Main 方法上一行中的全域 connectionString 變數，使用有效的連接字串來取代其連接字串。 这是需要对此代码进行的唯一更改。
+以下列程式碼取代 **Program.cs** 的內容。 從 Azure 入口網站，針對 Main 方法上一行中的全域 connectionString 變數，使用有效的連接字串來取代其連接字串。 這是此程式碼唯一需要進行的變更。
 
 執行應用程式以查看「一律加密」的運作情況。
 
@@ -499,7 +499,7 @@ namespace AlwaysEncryptedConsoleApp
 }
 ```
 
-## <a name="verify-that-the-data-is-encrypted"></a>确保数据已加密
+## <a name="verify-that-the-data-is-encrypted"></a>確認資料已加密
 
 您可以透過使用 SSMS 來查詢 **Patients** 資料，快速檢查伺服器上的實際資料是否已加密。 (使用尚未啟用資料行加密設定的目前連線)。
 
@@ -517,7 +517,7 @@ namespace AlwaysEncryptedConsoleApp
 2. 按一下 [連接]   >  [資料庫引擎]  以開啟 [連接到伺服器]  視窗，然後按一下 [選項]  。
 3. 按一下 [其他連接參數]  並輸入 **Column Encryption Setting=enabled**。
 
-    ![新建控制台应用程序](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
+    ![新的主控台應用程式](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 4. 在 **Clinic** 資料庫上執行下列查詢。
 
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;

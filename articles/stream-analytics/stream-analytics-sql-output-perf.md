@@ -3,18 +3,18 @@ title: Azure 串流分析輸出至 Azure SQL Database
 description: 了解從 Azure 串流分析將資料輸出至 Azure SQL Database，達到更高的寫入輸送速率。
 services: stream-analytics
 author: chetanmsft
-ms.author: chetanmsft
+ms.author: chetang
 manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: ac58bbbc252d66620ad410bffa805b75ec3042d4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: e0775bff1e7bdeeaf2c544fd815c2ce3bf129eae
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341758"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620864"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure 串流分析輸出至 Azure SQL Database
 

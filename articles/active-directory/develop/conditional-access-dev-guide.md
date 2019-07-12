@@ -175,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 若要試用此情節，請參閱我們的 [JS SPA 代理者程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)。 此程式碼範例會使用條件式存取原則和 web API 註冊，讓您稍早向 JS SPA 來示範此案例。 它會示範如何正確處理宣告挑戰，並取得可用於您 Web API 的存取權杖。 或者，查看一般 [Angular.js 程式碼範例](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)，以取得 Angular SPA 的指引
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * 若要深入了解功能，請參閱 [Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
 * 如需更多的 Azure AD 程式碼範例，請參閱[程式碼範例的 Github 存放庫](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)。

@@ -41,7 +41,7 @@ ms.locfileid: "65228269"
 - **針對複製活動執行：** ：物件作業的 `s3:GetObject` 與 `s3:GetObjectVersion`。
 - **針對 Data Factory GUI 撰寫**：如果要進行測試連線和瀏覽檔案路徑等作業，則另外需要「貯體作業」權限的 `s3:ListAllMyBuckets` 和 `s3:ListBucket`/`s3:GetBucketLocation`。 如果您不想要授與這些權限，請跳過已連結的服務建立頁面中的測試連線，然後直接在資料集設定中指定路徑。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
@@ -101,7 +101,7 @@ ms.locfileid: "65228269"
 > [!NOTE]
 > **AmazonS3Object**下一節中所述的 Parquet] / [文字格式的類型資料集仍可作為-適用於回溯相容性的複製/查閱/GetMetadata 活動。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -199,12 +199,12 @@ ms.locfileid: "65228269"
 | wildcardFileName         | 在指定的貯體 + folderPath/wildcardFolderPath 篩選來源檔案的萬用字元在檔名。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | [是] 如果`fileName`中的資料集和`prefix`未指定 |
 | modifiedDatetimeStart    | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                                          |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                                          |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 無                                                          |
+| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否                                                          |
 
 > [!NOTE]
 > Parquet/分隔的文字格式，如**FileSystemSource**類型下一節中所述的複製活動來源仍可作為-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -255,7 +255,7 @@ ms.locfileid: "65228269"
 | recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

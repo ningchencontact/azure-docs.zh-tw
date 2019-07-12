@@ -22,7 +22,7 @@ ms.locfileid: "60872324"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>適用於 APNS 的權杖型 (HTTP/2) 驗證
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明如何將新的 APNS HTTP/2 通訊協定與權杖型驗證搭配使用。
 

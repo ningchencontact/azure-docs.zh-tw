@@ -36,7 +36,7 @@ ms.locfileid: "60694332"
 * 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。
 * 需有 ALTER ANY EXTERNAL DATA SOURCE 權限，才能參考基礎資料來源。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 這些陳述式可在彈性查詢資料庫中建立分區化資料層的中繼資料表示法。
 
@@ -211,7 +211,7 @@ sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠
 * 如需彈性查詢的概觀，請參閱[彈性查詢概觀](sql-database-elastic-query-overview.md)。
 * 若要開始撰寫程式碼，請參閱 [開始使用跨資料庫查詢 (垂直資料分割)](sql-database-elastic-query-getting-started-vertical.md)。
 * 如需垂直資料分割之資料的語法和範例查詢，請參閱[查詢垂直資料分割的資料](sql-database-elastic-query-vertical-partitioning.md)
-* 有关水平分区（分片）的教程，请参阅[弹性查询入门 - 水平分区（分片）](sql-database-elastic-query-getting-started.md)。
+* 如需水平資料分割 (分區化) 教學課程，請參閱[開始使用彈性查詢進行水平資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
 * 如需會在單一遠端 Azure SQL Database 或一組在水平資料分割配置中作為分區之資料庫上執行 Transact-SQL 陳述式的預存程序，請參閱 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)。
 
 <!--Image references-->

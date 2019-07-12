@@ -54,7 +54,7 @@ ms.locfileid: "67071543"
 
    ![新增診斷設定 - 現有的設定](media/archive-diagnostic-logs/diagnostic-settings-configure.png)
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且每次產生新的事件資料，都會將診斷記錄封存至該儲存體帳戶。
 
@@ -68,7 +68,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 
 | 屬性 | 必要項 | 描述 |
 | --- | --- | --- |
-| resourceId |是 |要设置诊断设置的资源的资源 ID。 |
+| resourceId |是 |要對其設定診斷設定之資源的資源識別碼。 |
 | StorageAccountId |否 |資源識別碼，診斷記錄應該要儲存至此儲存體帳戶。 |
 | Category |否 |要啟用之記錄類別的逗號分隔清單。 |
 | Enabled |是 |布林值，表示要對資源啟用還是停用診斷。 |
@@ -144,9 +144,9 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234
 
 | 元素名稱 | 描述 |
 | --- | --- |
-| time |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
+| time |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
 | resourceId |受影響資源的資源識別碼。 |
-| operationName |操作的名称。 |
+| operationName |作業名稱。 |
 | category |事件的記錄類別。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
 

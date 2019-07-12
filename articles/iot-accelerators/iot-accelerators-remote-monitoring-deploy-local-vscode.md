@@ -21,7 +21,7 @@ ms.locfileid: "66730179"
 
 本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您可了解如何在 Visual Studio Code 中執行微服務。 本機微服務部署會使用下列雲端服務：IoT 中樞、Cosmos DB、Azure 串流分析，以及 Azure 時間序列深入解析。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 

@@ -49,6 +49,6 @@ ms.locfileid: "60295121"
 * [Microsoft System Center Configuration Manager 部落格](https://blogs.technet.com/b/configurationmgr/)
 * [Microsoft System Center Configuration Manager Team 部落格](https://blogs.technet.com/b/configmgrteam/)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

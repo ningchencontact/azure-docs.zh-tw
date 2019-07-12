@@ -49,7 +49,7 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
     - 啟動節點代理程式 NTService。
     - 監視節點代理程式 NTService。
 - **節點代理程式 NTService**：在較高層級權限 (系統) 執行的 Windows NT 服務。 相比之下，節點代理程式服務和協調器服務則是在較低層級權限 (網路服務) 執行。 此服務會負責執行下列所有叢集節點上的 Windows Update 作業：
-    - 在节点上禁用自动 Windows 更新。
+    - 將節點上的自動 Windows Update 停用。
     - 根據使用者提供的原則下載並安裝 Windows Update。
     - 在 Windows Update 安裝後重新啟動機器。
     - 將 Windows Update 的結果上傳至協調器服務。
@@ -58,7 +58,7 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
 > [!NOTE]
 > 修補程式協調流程應用程式是使用 Service Fabric 的修復管理器系統服務，將節點停用或啟用以及執行健康情況檢查。 修補程式協調流程應用程式所建立的修復工作會追蹤每個節點的 Windows Update 進度。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!NOTE]
 > 所需的最低.NET framework 版本為 4.6。
@@ -147,18 +147,18 @@ Windows 自動更新可能導致可用性遺失，因為可以在同一個時間
 
 您可以設定修補程式協調流程應用程式的行為以符合您的需求。 在應用程式建立或更新期間傳入應用程式參數，將預設值加以覆寫。 在 `Start-ServiceFabricApplicationUpgrade` 或 `New-ServiceFabricApplication` Cmdlet 中指定 `ApplicationParameter`，即可提供應用程式參數。
 
-|**參數**        |**類型**                          | **詳細資料**|
+|**參數**        |**型別**                          | **詳細資料**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Windows Update 結果的最大數目，應加以快取。 <br>預設值為 3000，是基於以下假設： <br> - 節點數目 20。 <br> - 每個月在節點上發生的更新數目為 5。 <br> - 每個作業的結果數目可為 10。 <br> - 過去 3 個月的結果皆加以儲存。 |
-|TaskApprovalPolicy   |例舉 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調器服務在 Service Fabric 叢集節點中用來安裝 Windows 更新的原則。<br>                         允许值包括： <br>                                                           <b>NodeWise</b>。 一次只會在一個節點上安裝 Windows Update。 <br>                                                           <b>UpgradeDomainWise</b>。 一次只會在一個升級網域上安裝 Windows Update。 (最多，屬於升級網域的所有節點都可以進行 Windows Update。)<br> 請參閱[常見問題集](#frequently-asked-questions)一節，以了解如何決定最適合您叢集的原則。
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調器服務在 Service Fabric 叢集節點中用來安裝 Windows 更新的原則。<br>                         允許的值包括： <br>                                                           <b>NodeWise</b>。 一次只會在一個節點上安裝 Windows Update。 <br>                                                           <b>UpgradeDomainWise</b>。 一次只會在一個升級網域上安裝 Windows Update。 (最多，屬於升級網域的所有節點都可以進行 Windows Update。)<br> 請參閱[常見問題集](#frequently-asked-questions)一節，以了解如何決定最適合您叢集的原則。
 |LogsDiskQuotaInMB   |long  <br> (預設值：1024)               |修補程式協調流程應用程式記錄的大小上限 (以 MB 為單位)，可在節點上本機保留。
-| WUQuery               | 字串<br>(預設值："IsInstalled=0")                | 用以取得 Windows 更新的查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
-| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (預設值：False)                 | 使用此旗標可控制所應下載並安裝的更新。 允許下列值 <br>true - 只安裝 Windows 作業系統的更新。<br>false - 在電腦上安裝所有可用的更新。          |
+| WUQuery               | string<br>(預設值："IsInstalled=0")                | 用以取得 Windows 更新的查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
+| InstallWindowsOSOnlyUpdates | Boolean <br> (預設值：False)                 | 使用此旗標可控制所應下載並安裝的更新。 允許下列值 <br>true - 只安裝 Windows 作業系統的更新。<br>false - 在電腦上安裝所有可用的更新。          |
 | WUOperationTimeOutInMinutes | Int <br>(預設值：90)                   | 指定任何 Windows Update 作業的逾時 (搜尋或下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
 | WURescheduleCount     | Int <br> (預設值：5)                  | 如果作業持續失敗，服務會將 Windows Update 重新排程的次數上限。          |
 | WURescheduleTimeInMinutes | Int <br>(預設值：30) | 如果作業持續失敗，服務會將 Windows Update 重新排程的時間間隔。 |
 | WUFrequency           | 以逗號分隔的字串 (預設值︰"Weekly, Wednesday, 7:00:00")     | 安裝 Windows Update 的頻率。 格式與可能的值如下： <br>-   Monthly, DD, HH:MM:SS，例如 Monthly, 5,12:22:32。<br>欄位 DD (天) 所允許的值為 1 到 28 範圍內的數字和「最後」。 <br> -   Weekly, DAY, HH:MM:SS，例如 Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如 Daily, 12:22:32。  <br> -  None 表示不應該進行 Windows Update。  <br><br> 請注意，時間會採用 UTC 格式。|
-| AcceptWindowsUpdateEula | BOOLEAN <br>(預設值︰true) | 藉由設定這個旗標，應用程式會代表電腦的擁有者接受 Windows Update 的使用者授權合約 (EULA)。              |
+| AcceptWindowsUpdateEula | Boolean <br>(預設值︰true) | 藉由設定這個旗標，應用程式會代表電腦的擁有者接受 Windows Update 的使用者授權合約 (EULA)。              |
 
 > [!TIP]
 > 如果需要 Windows Update 立即發生，請將 `WUFrequency` 設定為相對於應用程式部署的時間。 例如，假設您的測試叢集有五個節點，計劃於大約下午 5:00 UTC 部署應用程式。 如果您假設應用程式的升級或部署最多會花費 30 分鐘的時間，則將 WUFrequency 設定為 "Daily, 17:30:00"
@@ -378,7 +378,7 @@ A. 修補一個節點可能需要幾分鐘 (例如：[Windows Defender 定義更
 A. 修補整個叢集所需的時間取決於下列因素：
 
 - 修補一個節點所需的時間。
-- 協調器服務的原則。 - 預設原則 `NodeWise` 一次只會修補一個節點，這樣比 `UpgradeDomainWise` 慢。 例如︰如果節點需要約 1 個小時來修補，若要修補 20 個節點 (節點類型相同) 的叢集，其中具有 5 個升級網域，每個網域包含 4 個節點。
+- 協調器服務的原則。 - 預設原則 `NodeWise` 一次只會修補一個節點，這樣比 `UpgradeDomainWise` 慢。 例如: 如果節點需要約 1 個小時來修補，若要修補 20 個節點 (節點類型相同) 的叢集，其中具有 5 個升級網域，每個網域包含 4 個節點。
     - 如果原則是 `NodeWise`，則需要約 20 個小時來修補整個叢集
     - 如果原則是 `UpgradeDomainWise`，則需要約 5 個小時
 - 叢集負載 - 每個修補作業都必須將客戶工作負載重新放置到叢集中的其他可用節點。 正在進行修補的節點屆時會處於[停用](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling)狀態。 如果正在執行的叢集接近尖峰負載，則停用程序需要更長的時間。 因此，在如此充滿壓力的條件下，整體修補程序可能會變慢。

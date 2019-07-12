@@ -4,17 +4,17 @@ description: 本指南可協助中大型組織內的 CEO、CIO、CISO、首席�
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449258"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786701"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -94,7 +94,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 Windows hello 企業版有[當您使用密碼雜湊同步處理的特定需求](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)。 [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)需要佈建使用者以公司認證在受控網域中的密碼雜湊同步處理。
 
-    需要使用密碼雜湊同步處理的多重要素驗證，必須使用 Azure AD 多重要素驗證的組織或[條件式存取的自訂控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls)。 這些組織無法使用同盟所仰賴的協力廠商或內部部署多重要素驗證方法。
+    需要使用密碼雜湊同步處理的多重要素驗證，必須使用 Azure AD 多重要素驗證的組織或[條件式存取的自訂控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)。 這些組織無法使用同盟所仰賴的協力廠商或內部部署多重要素驗證方法。
 
 > [!NOTE]
 > Azure AD 條件式存取需要[Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/)授權。
@@ -118,7 +118,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **進階案例**。 傳遞驗證會在登入時強制執行內部部署帳戶原則。 例如，當內部部署使用者帳戶狀態為停用、遭到鎖定、[密碼過期](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication)或是在允許使用者登入的時間之外登入時，系統會拒絕您的存取。 
 
-    需要多重要素驗證搭配傳遞驗證，必須使用 Azure Multi-factor Authentication (MFA) 的組織或[條件式存取的自訂控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls)。 這些組織不能使用依賴同盟協力廠商或內部部署多重要素驗證方法。 無論您是否選擇了傳遞驗證，都需要部署密碼雜湊同步處理，才能使用進階功能。 例如 Identity Protection 的認證外洩報表。
+    需要多重要素驗證搭配傳遞驗證，必須使用 Azure Multi-factor Authentication (MFA) 的組織或[條件式存取的自訂控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)。 這些組織不能使用依賴同盟協力廠商或內部部署多重要素驗證方法。 無論您是否選擇了傳遞驗證，都需要部署密碼雜湊同步處理，才能使用進階功能。 例如 Identity Protection 的認證外洩報表。
 
 * **商務持續性**。 我們建議您部署兩個額外的傳遞驗證代理程式。 它們是 Azure AD Connect 伺服器上第一個代理程式以外的額外項目。 這種額外部署可確保驗證要求的高可用性。 當您部署三個代理程式時，其中一個代理程式仍可在另一個代理程式關閉以進行維護時失敗。 
 

@@ -8,19 +8,19 @@ writer: zchia
 manager: beatrizd
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: zchia
-ms.openlocfilehash: 2117f481d213c14f8feeb23eb8af3670db81cab4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: jeedes
+ms.openlocfilehash: c1656e6cc0c690e5a2bccfd2efab02aa843875b8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276635"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672897"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Proxyclick
 
@@ -31,7 +31,7 @@ ms.locfileid: "67276635"
 >
 > 此連接器目前為公開預覽版。 如需有關 Microsoft Azure 的一般使用規定預覽功能的詳細資訊，請參閱 <<c0> [ 補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
@@ -136,7 +136,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Proxyclick**。
 

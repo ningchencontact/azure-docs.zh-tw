@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508337"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621019"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析
  
@@ -81,7 +81,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 4. 在 [IoT Edge 設定]  功能表中設定儲存體容器資訊。
 
 5. 設定選擇性設定
-    1. **事件順序**。 您可以在入口網站中設定順序錯亂的事件。 您可以在[這裡](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)取得文件。
+    1. **事件順序**。 您可以在入口網站中設定順序錯亂的事件。 您可以在[這裡](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)取得文件。
     2. **地區設定**。 設定國際化格式。
 
 

@@ -35,11 +35,11 @@ ms.locfileid: "60567286"
 
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中更新機器學習模型](../update-machine-learning-models.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中更新機器學習模型](../update-machine-learning-models.md)。
 
 本文用來補充說明主要的 Azure Data Factory - Azure Machine Learning 整合文章：[使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線](data-factory-azure-ml-batch-execution-activity.md)。 如果您尚未檢閱主要文件，請在閱讀這篇文章之前先這麼做。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 經過一段時間，必須使用新的輸入資料集重新訓練 Azure ML 評分實驗中的預測模型。 完成重新訓練之後，您想要使用已重新訓練的 ML 模型來更新評分 Web 服務。 透過 Web 服務啟用重新訓練和更新 Azure ML 模型的一般步驟如下：
 
 1. 在 [Azure ML Studio](https://studio.azureml.net)中建立實驗。

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761820"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621034"
 ---
 # <a name="troubleshoot-input-connections"></a>針對輸入連線進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "60761820"
         
     針對各個輸入使用 [**範例資料**](stream-analytics-sample-data-input.md) 按鈕，並下載輸入範例資料。
         
-    檢查範例資料以了解資料形式︰結構描述和[資料類型](https://msdn.microsoft.com/library/azure/dn835065.aspx)。
+    檢查範例資料以了解資料形式︰結構描述和[資料類型](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)。
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>格式不正確的輸入事件導致還原序列化錯誤 
 當串流分析作業的輸入資料流包含格式不正確的訊息時，就會導致還原序列化問題。 例如，格式錯誤的訊息可能是在 JSON 物件中遺漏括號或遺漏大括號所導致，或是時間欄位中不正確的時間戳記格式所導致。 
@@ -138,12 +138,12 @@ FROM data
 
 ## <a name="get-help"></a>取得說明
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

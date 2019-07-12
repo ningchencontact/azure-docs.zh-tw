@@ -106,7 +106,7 @@ ms.locfileid: "60681804"
    
    * 必要  ：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
 
-   * *選用*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
+   * *選擇性*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
 
      根據預設，引擎每隔 20 秒會進行檢查。 若要指定不同的間隔，請包括 `retry-after` 標頭，以及下一次輪詢之前的秒數。
 

@@ -4,7 +4,7 @@ description: Azure IaaS 中 Linux 虛擬機器的名稱解析案例 (包括提�
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9ff8ca8ce35c8698fc67fa8588eed4228230068
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127084"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668484"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虛擬機器的 DNS 名稱解析選項
 Azure 預設會提供單一虛擬網路中所有虛擬機器的 DNS 名稱解析。 您可以在 Azure 託管的虛擬機器上設定專屬 DNS 服務，以實作專屬 DNS 名稱解析解決方案。 下列案例應該可協助您選擇哪一種適合您的情況。

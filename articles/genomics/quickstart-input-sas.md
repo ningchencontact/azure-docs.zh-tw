@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781164"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657107"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>使用 SAS (而非儲存體帳戶金鑰) 將工作流程提交到 Microsoft Genomics 
 
@@ -58,7 +58,7 @@ ms.locfileid: "60781164"
 
 ### <a name="set-up-create-a-sas-programmatically"></a>設定：以程式設計方式建立的 SAS
 
-若要使用 Azure 儲存體 SDK 建立 SAS，請參閱數種語言的現有文件 (包括 [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob)、[Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) 和 [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage))。 
+若要使用 Azure 儲存體 SDK 建立 SAS，請參閱數種語言的現有文件 (包括 [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)、[Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) 和 [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage))。 
 
 若要在不使用 SDK 的情況下建立 SAS，可以直接建構 SAS 查詢字串，包括驗證 SAS 所需的所有資訊。 這些[指示](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas)詳細說明 SAS 查詢字串的元件，以及如何建構它。 如這些[指示](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples)所述，使用 blob/容器驗證資訊，藉由產生 HMAC 來建立必要的 SAS 簽章。
 

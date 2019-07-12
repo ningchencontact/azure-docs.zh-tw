@@ -8,19 +8,19 @@ writer: zhchia
 manager: beatrizd-msft
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
-ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: f168e2746afa278880ad7ceb21f78666151d5aa1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692227"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672714"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Atlassian Cloud
 
@@ -123,7 +123,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. 按一下 [檔案]  。
+9. 按一下 [儲存]  。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Atlassian Cloud**。
 

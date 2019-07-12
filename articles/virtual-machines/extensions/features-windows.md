@@ -4,7 +4,7 @@ description: 了解哪些擴充功能適用於 Azure 虛擬機器，並依它們
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd64b54b1a30080d7942a754bc0c0c72c59f88
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160257"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705994"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>適用於 Windows 的虛擬機器擴充功能和功能
 
@@ -31,14 +31,14 @@ Azure 虛擬機器 (VM) 擴充功能是小型的應用程式，可在 Azure 虛�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="use-cases-and-samples"></a>用例和示例
+## <a name="use-cases-and-samples"></a>使用案例和範例
 
 有數個不同的 Azure VM 擴充功能可供使用，各有特定使用案例。 部分範例包括：
 
 - 使用適用於 Windows 的 DSC 擴充功能將 PowerShell 預期狀態設定套用至 VM。 如需詳細資訊，請參閱 [Azure 期望狀態組態擴充功能簡介](dsc-overview.md)。
 - 使用 Microsoft 監視代理程式虛擬機器擴充功能來設定虛擬機器的監視。 如需詳細資訊，請參閱 <<c0> [ 連線至 Azure 監視器記錄的 Azure Vm](../../log-analytics/log-analytics-azure-vm-extension.md)。
 - 使用 Chef 設定 Azure VM。 如需詳細資訊，請參閱[使用 Chef 自動化 Azure VM 部署](../windows/chef-automation.md)。
-- 使用 Datadog 副檔名設定 Azure 基礎結構的監視。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
+- 使用 Datadog 副檔名設定 Azure 基礎結構的監視。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 
 
 除了處理序特定擴充功能，自訂指令碼延伸模組適用於 Windows 和 Linux 虛擬機器。 適用於 Windows 的自訂指令碼擴充功能允許在 VM 上執行任何 PowerShell 指令碼。 自訂指令碼對於設計需要超過原生 Azure 工具可提供之設定的 Azure 部署很有用。 如需詳細資訊，請參閱 [Windows VM 自訂指令碼擴充功能](custom-script-windows.md)。
@@ -260,7 +260,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 有可用的更新時，只有在擴充功能有所變更和其他虛擬機器模型已變更時，才會在虛擬機器上安裝更新：
 
 - 資料磁碟
-- 擴充功能
+- 延伸模組
 - 開機診斷容器
 - 客體作業系統祕密
 - VM 大小
@@ -418,12 +418,12 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. 選擇**解除安裝**。
 
 ## <a name="common-vm-extensions-reference"></a>常見的 VM 擴充功能參考
-| 扩展名称 | 描述 | 詳細資訊 |
+| 擴充功能名稱 | 描述 | 詳細資訊 |
 | --- | --- | --- |
-| 适用于 Windows 的自定义脚本扩展 |對「Azure 虛擬機器」執行指令碼 |[适用于 Windows 的自定义脚本扩展](custom-script-windows.md) |
-| Windows 的 DSC 延伸模組 |PowerShell DSC (預期狀態設定) 擴充功能 |[适用于 Windows 的 DSC 扩展](dsc-overview.md) |
-| Azure 診斷擴充功能 |管理「Azure 診斷」 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM 存取擴充功能 |管理用户和凭据 |[適用於 Linux 的 VM 存取擴充功能](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Windows 的自訂指令碼延伸模組 |對「Azure 虛擬機器」執行指令碼 |[Windows 的自訂指令碼延伸模組](custom-script-windows.md) |
+| Windows 的 DSC 延伸模組 |PowerShell DSC (預期狀態設定) 擴充功能 |[適用於 Windows 的 DSC 擴充功能](dsc-overview.md) |
+| Azure 診斷擴充功能 |管理「Azure 診斷」 |[Azure 診斷擴充功能](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure VM 存取擴充功能 |管理使用者和認證 |[適用於 Linux 的 VM 存取擴充功能](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>後續步驟
 

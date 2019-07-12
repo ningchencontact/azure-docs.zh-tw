@@ -121,4 +121,4 @@ ms.locfileid: "60245314"
 * [使用 Azure AD Connect Health 來搭配 AD FS](how-to-connect-health-adfs.md)
 * [在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)
 * [Azure AD Connect Health 常見問題集](reference-connect-health-faq.md)
-* [Azure AD Connect Health 版本历史记录](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 版本歷程記錄](reference-connect-health-version-history.md)

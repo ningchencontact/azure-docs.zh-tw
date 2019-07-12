@@ -29,7 +29,7 @@ ms.locfileid: "66508624"
 4. 請輸入 [名稱]  、[描述]  ，以及 [隱私權注意事項 URL]  ，然後按一下 [儲存]  。 隱私權注意事項是您要提供給使用者之隱私權資訊的管理頁面。
 5. 在 [Web 設定]  區段中，複製 [用戶端識別碼]  的值。 選取 [顯示密碼]  以取得用戶端密碼，然後複製該密碼。 您必須使用這兩個值，將 Amazon 帳戶設為租用戶中的識別提供者。 **用戶端密碼** 是重要的安全性認證。
 6. 在 [Web 設定]  區段中，選取 [編輯]  ，然後在 [允許的 JavaScript 原始來源]  中，輸入 `https://your-tenant-name.b2clogin.com`，並在 [允許的傳回 URL]  中，輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>將 Amazon 帳戶設為識別提供者
 

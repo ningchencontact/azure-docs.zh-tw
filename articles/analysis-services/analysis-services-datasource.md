@@ -50,7 +50,7 @@ ms.locfileid: "66142552"
 
 |資料來源 | 記憶體內部提供者 | DirectQuery 提供者 |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| [SQL Server] |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 資料倉儲 |SQL Server Native Client 11.0、Microsoft OLE DB Provider for SQL Server、.NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle | OLE DB Provider for Oracle，Oracle Data Provider for.NET |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata、Teradata Data Provider for .NET |Teradata Data Provider for .NET |

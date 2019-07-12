@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e4e32aef97d406fa47a2ccfe8cddb12b97ff088
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56b74e6a9f1d83798b557c48eb78242d70e85dfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414982"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612638"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
@@ -51,7 +51,7 @@ Azure AD 自助式密碼重設會依使用者授權來維持合規性，而組�
 * [Azure Active Directory 功能和功用](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 企業版](https://www.microsoft.com/microsoft-365/enterprise)
-* [Microsoft 365 Business 服務描述](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
+* [Microsoft 365 Business 服務描述](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>啟用以群組或使用者為基礎的授權
 

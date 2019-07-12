@@ -23,7 +23,7 @@ ms.locfileid: "61408576"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>在 StorSimple Virtual Array 上安裝 Update 1.1
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文說明透過本機 Web UI 和透過 Azure 入口網站在 StorSimple Virtual Array 上安裝 Update 1.1 時所需的步驟。
 

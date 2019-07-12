@@ -4,7 +4,7 @@ description: 如何設定要與 Azure Resource Manager 虛擬機器搭配使用�
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: e9d2b518af50aaec43bc7075e51829e80cdeddf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 671d825300581796320542e09b8c9c4562097eb0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016137"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722565"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>為 Azure Resource Manager 中的虛擬機器設定金鑰保存庫
 

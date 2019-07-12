@@ -4,7 +4,7 @@ description: 將應用程式部署到 Azure 上的 Cloud Foundry
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388472"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668355"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>將第一個應用程式部署到 Microsoft Azure 上的 Cloud Foundry
 
@@ -31,16 +31,16 @@ ms.locfileid: "60388472"
 
 有幾個選項可以用來在 Azure 上建立 Cloud Foundry 環境：
 
-- 使用 Azure Marketplace 中的 [Pivotal Cloud Foundry 供應項目][pcf-azuremarketplace]以建立標準環境，其中包含 PCF OPS Manager 和 Azure Service Broker。 您可以在 Pivotal 文件中找到部署市集供應項目的[完整指示][pcf-azuremarketplace-pivotaldocs]。
-- 建立自訂的環境，方法是[手動部署 Pivotal Cloud Foundry][pcf-custom]。
-- [直接部署開放原始碼 Cloud Foundry 套件][oss-cf-bosh]，方法是設定 [BOSH](https://bosh.io) 導向器，這是一個 VM，它會協調 Cloud Foundry 環境的部署。
+- 使用[Pivotal Cloud Foundry 供應項目][pcf-azuremarketplace]in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs]部署市集優惠 Pivotal 文件中。
+- 建立自訂的環境，由[手動部署 Pivotal Cloud Foundry][pcf-custom]。
+- [直接部署開放原始碼 Cloud Foundry 套件][oss-cf-bosh]藉由設定[BOSH](https://bosh.io)總監，協調 Cloud Foundry 環境的部署的 VM。
 
 > [!IMPORTANT] 
 > 如果您正在從 Azure Marketplace 部署 PCF，請記下存取 Pivotal Apps Manager 所需的 SYSTEMDOMAINURL 和管理員認證，這兩個項目都在市集部署指南中提及。 需要這兩個項目才能完成本教學課程。 對於市集部署，SYSTEMDOMAINURL 的形式為 https://system.*ip-address*.cf.pcfazure.com。
 
 ## <a name="connect-to-the-cloud-controller"></a>連線至 Cloud Controller
 
-Cloud Controller 是到 Cloud Foundry 環境以部署和管理應用程式的主要進入點。 核心 Cloud Controller API (CCAPI) 是 REST API，但是可以透過各種工具存取。 在此情況下，我們透過 [Cloud Foundry CLI][cf-cli] 與它互動。 您可以在 Linux、MacOS 或 Windows 上安裝 CLI，但是如果您完全不想要安裝，它可以預先安裝在 [Azure Cloud Shell][cloudshell-docs]。
+Cloud Controller 是到 Cloud Foundry 環境以部署和管理應用程式的主要進入點。 核心 Cloud Controller API (CCAPI) 是 REST API，但是可以透過各種工具存取。 在此情況下，互動並透過[Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs]。
 
 若要登入，請在您從市集部署取得的 SYSTEMDOMAINURL 前面加上 `api`。 由於預設部署使用自我簽署憑證，您也應該包含 `skip-ssl-validation` 參數。
 
@@ -73,7 +73,7 @@ cf target -o testorg -s dev
 現在，當您部署應用程式時，會自動在新的組織和空間中建立。 若要確認目前在新的組織/空間中沒有應用程式，請再次輸入 `cf apps`。
 
 > [!NOTE] 
-> 如需組織和空間以及它們如何用於角色型存取控制 (RBAC) 的詳細資訊，請參閱[Cloud Foundry 文件][cf-orgs-spaces-docs]。
+> 如需有關組織和空間以及它們如何使用角色型存取控制 (RBAC) 的詳細資訊，請參閱 < [Cloud Foundry 文件][cf-orgs-spaces-docs]。
 
 ## <a name="deploy-an-application"></a>部署應用程式
 
@@ -113,7 +113,7 @@ cf push
 ![Hello Spring Cloud 的預設 UI][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> 若要深入了解 `cf push` 期間會發生什麼狀況，請參閱 Cloud Foundry 文件中的[應用程式如何暫存][cf-push-docs]。
+> 若要深入了解時會發生什麼事`cf push`，請參閱 <<c2> [ 應用程式如何暫存][cf-push-docs]Cloud Foundry 文件中。
 
 ## <a name="view-application-logs"></a>檢視應用程式記錄
 
@@ -145,8 +145,8 @@ cf scale -i 2 hello-spring-cloud
 ## <a name="next-steps"></a>後續步驟
 
 - [閱讀 Cloud Foundry 文件][cloudfoundry-docs]
-- [設定適用於 Cloud Foundry 的 Azure DevOps Services 外掛程式][vsts-plugin]
-- [設定適用於 Cloud Foundry 的 Microsoft Log Analytics Nozzle][loganalytics-nozzle]
+- [設定用於 Cloud Foundry 的 Azure DevOps 服務外掛程式][vsts-plugin]
+- [設定用於 Cloud Foundry 的 Microsoft Log Analytics Nozzle][loganalytics-nozzle]
 
 <!-- LINKS -->
 

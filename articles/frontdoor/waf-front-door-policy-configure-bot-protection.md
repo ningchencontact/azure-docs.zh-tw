@@ -25,7 +25,7 @@ WAF 擔任來自已知惡意 IP 位址的要求中的自訂動作時，可以啟
 > [!IMPORTANT]
 > Bot 保護規則集目前處於公開預覽狀態，並提供預覽服務等級協定。 可能不支援特定功能，或可能已經限制功能。  如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 建立基本的 WAF 原則中所述的指示大門[使用 Azure 入口網站建立 WAF 原則的 Azure 大門](waf-front-door-create-portal.md)。
 

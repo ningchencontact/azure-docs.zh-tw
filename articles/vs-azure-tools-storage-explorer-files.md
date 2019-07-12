@@ -25,7 +25,7 @@ ms.locfileid: "60456606"
 
 Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，在雲端中提供檔案共用功能的服務。 SMB 2.1 和 SMB 3.0 皆受到支援。 使用 Azure 檔案儲存體時，您可以快速地將依賴檔案共用功能的舊式應用程式移轉至 Azure，而不必浪費成本來重新撰寫程式。 您可以使用檔案儲存體向全球公開資料，或私下儲存應用程式資料。 在本文中，您將學習如何使用儲存體總管來使用檔案共用和檔案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
@@ -89,7 +89,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 1. 以滑鼠右鍵按一下您想要刪除的檔案共用，從內容功能表中，選取 [刪除]  。 您也可以按 [刪除]  以刪除目前選取的檔案共用。
 
-    ![Delete](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![DELETE](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. 選取確認對話方塊上的 [是]  。
     

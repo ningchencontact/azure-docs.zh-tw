@@ -4,7 +4,7 @@ description: 使用 Azure 傳統 CLI 在 Azure 上建立 Linux VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a757e156d48eb27a9e4d9b38cb08d5417f1e35b6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473734"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671081"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 Linux VM
 
@@ -67,7 +67,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 * VM 名稱
 * 位置 (`westus` 或 `westeurope` 都是不錯的預設值)
 * Linux (讓 Azure 知道您要的作業系統)
-* username
+* userName
 
 下列範例會指定所有值，因此不會有進一步的提示。 只要您有 ssh-rsa 格式公開金鑰檔案的 `~/.ssh/id_rsa.pub`，它就會如預期運作：
 

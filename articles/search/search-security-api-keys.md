@@ -95,7 +95,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 > [!Note]
 > 針對搜尋結果的身分識別型存取，您可以建立安全性篩選，依身分識別修剪結果、移除要求者不應具備存取權的文件。 如需詳細資訊，請參閱[安全性篩選](search-security-trimming-for-azure-search.md)和[使用 Active Directory 保護安全](search-security-trimming-for-azure-search-with-aad.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務中的角色型存取控制](search-security-rbac.md)
 + [使用 Powershell 管理](search-manage-powershell.md) 

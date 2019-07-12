@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388857"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666265"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -31,10 +31,6 @@ ms.locfileid: "66388857"
 
 ## <a name="devicetable"></a>已經驗證的 VPN 裝置及裝置設定指南
 
-> [!NOTE]
-> 設定站對站連線時，您的 VPN 裝置需要公開的 IPv4 IP 位址。
->
-
 我們已與裝置廠商合作驗證一組標準 VPN 裝置。 在以下清單的裝置系列中，所有裝置應該都能與 VPN 閘道搭配運作。 請參閱[關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md#vpntype)，了解您要設定的 VPN 閘道解決方案使用的 VPN 類型 (原則式或路由式)。
 
 為了協助設定您的 VPN 裝置，請參閱對應到適當裝置系列的連結。 會以最佳方式來提供組態指示的連結。 如需 VPN 裝置的支援，請連絡裝置製造商。
@@ -48,6 +44,7 @@ ms.locfileid: "66388857"
 | Check Point |Security Gateway |R80.10 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2\*) |支援 |[設定指南\*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |原則式︰IOS 15.1<br>路由式：IOS 15.2 |支援 |支援 |
+| Cisco | CSR | 路由式：IOS-XE 16.10 | | [組態指令碼](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |原則式︰IOS 15.0<br>路由式*：IOS 15.1 |支援 |支援 |
 | Cisco |Meraki |N/A |不相容 |不相容 |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |

@@ -4,15 +4,15 @@ description: 如何使用 Azure Resource Manager 範本建立 Windows 虛擬桌�
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc61aede6e650bce62768b7a97f8640affd594f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523973"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620494"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立主機集區
 
@@ -20,7 +20,7 @@ ms.locfileid: "65523973"
 
 請遵循本節中的指示使用 Microsoft 所提供的 Azure Resource Manager 範本建立 Windows 虛擬桌面租用戶的主應用程式集區。 這篇文章會告訴您如何建立主應用程式集區中 Windows 虛擬桌面、 與 Vm 建立的資源群組中的 Azure 訂用帳戶、 將這些 Vm 加入 AD 網域，以及向 Windows 虛擬桌面的 Vm。
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>您需要執行的 Azure Resource Manager 範本
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>執行 Azure Resource Manager 範本需要什麼
 
 請確定您知道下列事項再執行 Azure Resource Manager 範本：
 
@@ -40,11 +40,11 @@ ms.locfileid: "65523973"
 
 如果您要部署雲端解決方案提供者的訂用帳戶，請遵循下列步驟來部署至 Azure:
 
-1. 向下捲動並以滑鼠右鍵按一下**部署至 Azure**，然後選取**複製連結位置**。
-2. 開啟 [記事本] 之類的文字編輯器，並貼上那里的連結。
+1. 向下捲動並以滑鼠右鍵按一下 [部署至 Azure]  ，然後選取 [複製連結位置]  。
+2. 開啟文字編輯器 (例如 [記事本])，並在該處貼上連結。
 3. 後面"https://portal.azure.com/ 「 雜湊標記 （#） 之前輸入 at 符號 (@) 後面加上租用戶網域名稱。 以下是您應該使用的格式範例： https://portal.azure.com/@Contoso.onmicrosoft.com#create/ 。
-4. 具有雲端解決方案提供者訂用帳戶的系統管理員/參與者權限的使用者身分登入 Azure 入口網站。
-5. 貼上您複製到文字編輯器，在網址列的連結。
+4. 以具有「雲端解決方案提供者」訂用帳戶系統管理員/參與者權限的使用者身分登入 Azure 入口網站。
+5. 將您之前複製到文字編輯器的連結貼到網址列。
 
 如需有關哪些參數中，您應該輸入您的案例的指引，請參閱 Windows 虛擬桌面[讀我檔案](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md)。 讀我檔案也會更新最新的變更。
 

@@ -108,8 +108,8 @@ ms.locfileid: "67080547"
 
 如果 `-AllowPrerelease` 參數無法使用，請使用下列步驟：
 
-1. 运行 `Install-Module PowerShellGet -Force`。
-1. 运行 `Update-Module PowerShellGet`。
+1. 執行 `Install-Module PowerShellGet -Force`。
+1. 執行 `Update-Module PowerShellGet`。
 1. 關閉 PowerShell 主控台。
 1. 以系統管理員身分，重新啟動 PowerShell。
 1. 安裝模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。

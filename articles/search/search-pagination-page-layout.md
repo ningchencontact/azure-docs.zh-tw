@@ -104,7 +104,7 @@ ms.locfileid: "67068835"
 
 如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 - [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice)
 - [索引作業](https://docs.microsoft.com/rest/api/searchservice/Index-operations)

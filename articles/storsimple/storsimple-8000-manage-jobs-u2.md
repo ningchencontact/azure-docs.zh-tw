@@ -23,7 +23,7 @@ ms.locfileid: "64720686"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>使用 StorSimple 裝置管理員服務來檢視和管理作業 (Update 3 和更新版本)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [作業]  刀鋒視窗提供單一中央入口網站，可針對連接到 StorSimple 裝置管理員服務的裝置，檢視及管理在裝置上啟動的作業。 您可以針對多個裝置，檢視已排程、執行中、完成、已取消和失敗的工作。 結果會以表格式格式呈現。
 
 ![[作業] 刀鋒視窗](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
@@ -49,7 +49,7 @@ ms.locfileid: "64720686"
 您可以在此頁面上執行下列工作相關的動作：
 
 * 檢視工作詳細資料
-* 取消作业
+* 取消工作
 
 ## <a name="view-job-details"></a>檢視工作詳細資料
 執行下列步驟來檢視任何工作的詳細資料。
@@ -69,7 +69,7 @@ ms.locfileid: "64720686"
    
     ![工作詳細資料](./media/storsimple-8000-manage-jobs-u2/jobs4.png)
 
-## <a name="cancel-a-job"></a>取消作业
+## <a name="cancel-a-job"></a>取消工作
 執行下列步驟來取消執行中工作。
 
 > [!NOTE]

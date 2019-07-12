@@ -60,7 +60,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 | clientSecret | 用來產生重新整理權杖之應用程式的祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | refreshToken | 從 Google 取得的重新整理權杖，用來授權存取 BigQuery。 了解如何從[取得 OAuth 2.0 存取權杖](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) \(英文\) 和[這個社群部落格](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59) \(英文\) 取得權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -97,7 +97,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有當您在自我裝載 Integration Runtime 使用 SSL 時，才能設定這個屬性。 預設值為隨整合執行階段安裝的 cacerts.pem 檔案。  | 否 |
 | useSystemTrustStore | 指定是否使用來自系統信任存放區或來自指定 .pem 檔案的 CA 憑證。 預設值為 **false**。  | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -159,7 +159,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 | type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

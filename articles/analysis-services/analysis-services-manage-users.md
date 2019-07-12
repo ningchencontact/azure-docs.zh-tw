@@ -23,7 +23,7 @@ Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/a
 
 ![Azure Analysis Services 驗證架構](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 所有用戶端應用程式和工具會使用一或多個 Analysis Services [用戶端程式庫](analysis-services-data-providers.md) (AMO、MSOLAP、ADOMD) 連線到伺服器。 
 

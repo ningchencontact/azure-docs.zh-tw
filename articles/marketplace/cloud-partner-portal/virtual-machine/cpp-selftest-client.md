@@ -64,11 +64,11 @@ Request body:    The Request body parameters should use the following JSON forma
 
 |      欄位         |    描述    |
 |  ---------------   |  ---------------  |
-|  授權     |  "Bearer xxxx-xxxx-xxxx-xxxxx" 字串包含可使用 PowerShell 建立的 Azure Active Directory (AD) 用戶端權杖。          |
+|  Authorization     |  "Bearer xxxx-xxxx-xxxx-xxxxx" 字串包含可使用 PowerShell 建立的 Azure Active Directory (AD) 用戶端權杖。          |
 |  DNS 名稱           |  要測試的 VM 所具備的 DNS 名稱    |
 |  使用者              |  用來登入 VM 的使用者名稱         |
 |  密碼          |  用來登入 VM 的密碼          |
-|  作業系統                |  VM 的作業系統：`Linux` 或 `Windows`          |
+|  OS                |  VM 的作業系統：`Linux` 或 `Windows`          |
 |  PortNo            |  連線至 VM 的開放連接埠號碼。 連接埠號碼是通常是 `22` (適用於 Linux) 和 `5986` (適用於 Windows)。          |
 |  |  |
 

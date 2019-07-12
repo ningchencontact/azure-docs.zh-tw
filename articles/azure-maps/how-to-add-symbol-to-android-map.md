@@ -19,7 +19,7 @@ ms.locfileid: "64871073"
 
 這篇文章會示範如何將點從資料來源的資料呈現為符號圖層上使用 Azure 地圖服務的 Android SDK 的對應。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完全遵循這篇文章中的步驟，您需要安裝[Azure 地圖服務的 Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library)載入對應。
 

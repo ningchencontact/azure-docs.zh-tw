@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: 3d6210fa215792fc7ff049eb597df5905926c193
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706597"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670884"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Zscaler One
 
@@ -31,7 +31,7 @@ ms.locfileid: "64706597"
 >
 > 此連接器是目前以預覽形式提供。 如需有關 Microsoft Azure 的一般使用規定預覽功能的詳細資訊，請參閱 <<c0> [ 使用 Microsoft Azure 預覽補充規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中所述的案例假設您有：
 

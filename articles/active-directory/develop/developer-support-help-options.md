@@ -62,7 +62,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 開發人員社�
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 在提出問題時使用下列其中一個標記，以協助社群更快速地識別和回答您的問題：
 
-|元件/區域  | 標記 |
+|元件/區域  | Tags |
 |---------|---------|
 | ADAL 程式庫 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 程式庫     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

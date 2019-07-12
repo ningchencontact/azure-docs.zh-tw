@@ -52,11 +52,11 @@ Log Analytics 工作區中的所有資料都會以具有特定記錄類型的記
 | 參數 | 描述 |
 |:--- |:--- |
 | CustomerID |Log Analytics 工作區的唯一識別碼。 |
-| 資源 |API 資源名稱︰/api/logs。 |
+| Resource |API 資源名稱︰/api/logs。 |
 | API 版本 |要使用於這個要求的 API 版本。 目前是 2016-04-01。 |
 
 ### <a name="request-headers"></a>要求標頭
-| 頁首 | 描述 |
+| 標頭 | 描述 |
 |:--- |:--- |
 | Authorization |授權簽章。 本文稍後會說明如何建立 HMAC-SHA256 標頭。 |
 | Log-Type |指定正在提交的資料記錄類型。 此參數的大小上限是 100 個字元。 |
@@ -64,7 +64,7 @@ Log Analytics 工作區中的所有資料都會以具有特定記錄類型的記
 | x-ms-AzureResourceId | 應相關聯的 Azure 資源資料的資源識別碼。 這會填入[_ResourceId](log-standard-properties.md#_resourceid)屬性，並可讓要納入資料[資源中心](manage-access.md#access-modes)查詢。 如果未指定此欄位，資料將不會包含在資源為主的查詢中。 |
 | time-generated-field | 資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
-## <a name="authorization"></a>授權
+## <a name="authorization"></a>Authorization
 任何對於 Azure 監視器 HTTP 資料收集器 API 的要求都必須包含授權標頭。 若要驗證要求，您必須使用提出要求之工作區的主要或次要金鑰來簽署要求。 然後，將該簽章當作要求的一部分傳遞。   
 
 授權標頭的格式如下︰
@@ -187,7 +187,7 @@ HTTP 狀態碼 200 表示已經接受要求且正在處理。 這表示作業已
 
 下表列出服務可能傳回的一整組狀態碼︰
 
-| 代碼 | 狀態 | 錯誤碼 | 描述 |
+| 程式碼 | 狀態 | 錯誤碼 | 描述 |
 |:--- |:--- |:--- |:--- |
 | 200 |[確定] | |已順利接受要求。 |
 | 400 |不正確的要求 |InactiveCustomer |已關閉工作區。 |

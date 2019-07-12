@@ -27,7 +27,7 @@ ms.locfileid: "65150024"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您必須先確實執行下列步驟，才可開始對儲存體帳戶執行帳戶容錯移轉：
 

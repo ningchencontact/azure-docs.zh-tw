@@ -24,7 +24,7 @@ ms.locfileid: "60319508"
 
 本文將說明當您對 Azure 中的 Windows 虛擬機器 (VM) 建立遠端桌面通訊協定 (RDP) 連線時，可能會遇到的一般錯誤。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 當您對 Azure 中的 Windows VM 進行 RDP 連線時，您可能會收到下列的一般錯誤訊息：
 
@@ -59,7 +59,7 @@ ms.locfileid: "60319508"
 
 RDP 接聽程式的設定不正確。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 若要解決這個問題，請[備份作業系統磁碟](../windows/snapshot-copy-managed-disk.md)，並[將作業系統磁碟連結至救援 VM](troubleshoot-recovery-disks-portal-windows.md)，然後遵循步驟。
 
@@ -242,6 +242,6 @@ RDP 接聽程式的設定不正確。
 
 如需詳細資訊，請參閱 [Azure VM 中的遠端桌面時常斷線](troubleshoot-rdp-intermittent-connectivity.md)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 联系支持人员
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

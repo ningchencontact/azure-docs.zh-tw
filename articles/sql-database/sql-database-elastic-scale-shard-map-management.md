@@ -29,7 +29,7 @@ ms.locfileid: "60332268"
 
 ## <a name="shard-maps-and-shard-mappings"></a>分區對應和分區對應方式
 
-對於每個分區，您必須選取要建立的分區對應類型。 选择取决于数据库架构：
+對於每個分區，您必須選取要建立的分區對應類型。 請依據資料庫結構進行選擇︰
 
 1. 每個資料庫的單一租用戶  
 2. 每個資料庫的多個租用戶 (兩種類型)︰
@@ -70,7 +70,7 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 **分區**包含 **Shardlet**，Shardlet 至分區的對應是由分區對應所維護。 **清單分區對應** 是個別索引鍵值 (識別 Shardlet) 與資料庫 (做為分區) 之間的關聯。  **清單對應** 十分明確，而且不同的索引鍵值可以對應到相同資料庫。 例如，索引鍵值 1 對應到 Database A，而索引鍵值 3 和 6 都會對應到 Database B。
 
-| Key | 分片位置 |
+| Key | 分區位置 |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -217,9 +217,9 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 若要管理分區對應 (加入或變更分區、分區對應 (shard map)、分區對應 (shard mapping) 等等)，您必須使用**在 GSM 資料庫和每一個作為分區的資料庫上擁有讀取/寫入權限的認證**，以具現化 **ShardMapManager**。 這些認證必須允許在輸入或變更分區對應資訊時，能夠在 GSM 和 LSM 中寫入資料表，也必須允許在新的分區上建立 LSM 資料表。  
 
-请参阅[用于访问弹性数据库客户端库的凭据](sql-database-elastic-scale-manage-credentials.md)。
+請參閱 [用來存取彈性資料庫用戶端程式庫的認證](sql-database-elastic-scale-manage-credentials.md)。
 
-### <a name="only-metadata-affected"></a>仅元数据受影响
+### <a name="only-metadata-affected"></a>只影響中繼資料
 
 用來填入或變更 **ShardMapManager** 資料的方法不會改變分區本身中儲存的使用者資料。 比方說，**CreateShard**、**DeleteShard**、**UpdateMapping** 等方法只會影響分區對應中繼資料。 它們不會移除、新增或改變分區中所包含的使用者資料。 相反地，這些方法是設計來搭配其他作業一起使用，例如，您可能執行這些作業來建立或移除實際的資料庫，或將資料列從一個分區移至另一個分區，以重新平衡分區化環境。  (彈性資料庫工具隨附的**分割合併**工具會使用這些 API，以及協調分區之間實際的資料移動。)請參閱[使用彈性資料庫分割合併工具來縮放](sql-database-elastic-scale-overview-split-and-merge.md)。
 

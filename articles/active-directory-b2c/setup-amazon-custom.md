@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1fcac4bcfb5cd37ddf8b351514c8f4f1622367c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b58aad8a5cb71744aca9baaa3a27d4d1efe8e2
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512568"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655264"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Amazon 帳戶進行登入
 
@@ -23,7 +23,7 @@ ms.locfileid: "66512568"
 
 本文說明如何在 Azure Active Directory (Azure AD) B2C 中藉由使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 Amazon 帳戶登入。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - 如果您還沒有 Amazon 帳戶，請至 [https://www.amazon.com/](https://www.amazon.com/) 建立帳戶。
@@ -38,7 +38,7 @@ ms.locfileid: "66512568"
 4. 請輸入 [名稱]  、[描述]  ，以及 [隱私權注意事項 URL]  ，然後按一下 [儲存]  。 隱私權注意事項是您要提供給使用者之隱私權資訊的管理頁面。
 5. 在 [Web 設定]  區段中，複製 [用戶端識別碼]  的值。 選取 [顯示密碼]  以取得用戶端密碼，然後複製該密碼。 您必須使用這兩個值，將 Amazon 帳戶設為租用戶中的識別提供者。 **用戶端密碼** 是重要的安全性認證。
 6. 在 [Web 設定]  區段中，選取 [編輯]  ，然後在 [允許的 JavaScript 原始來源]  中，輸入 `https://your-tenant-name.b2clogin.com`，並在 [允許的傳回 URL]  中，輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，仍請在輸入租用戶名稱時，全部使用小寫字母。
-7. 按一下 [檔案]  。
+7. 按一下 [儲存]  。
 
 ## <a name="create-a-policy-key"></a>建立原則金鑰
 
@@ -47,24 +47,24 @@ ms.locfileid: "66512568"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]  。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]  。
 5. 選取 [原則金鑰]  ，然後選取 [新增]  。
 6. 針對 [選項]  選擇 `Manual`。
-7. 輸入原則金鑰的 [名稱]  。 例如： `AmazonSecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+7. 輸入原則金鑰的 [名稱]  。 例如： `AmazonSecret` 。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 在 [祕密]  中，輸入您先前記錄的用戶端密碼。
 9. 針對 [金鑰使用方法]  ，選取 `Signature`。
-10. 按一下頁面底部的 [新增]  。
+10. 按一下 [建立]  。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
-如果想要讓使用者使用 Amazon 帳戶進行登入，您必須將該帳戶定義成 Azure AD B2C 能夠透過端點與之通訊的宣告提供者。 此端點會提供一組宣告，由 Azure AD B2C 用來確認特定使用者已驗證。 
+如果想要讓使用者使用 Amazon 帳戶進行登入，您必須將該帳戶定義成 Azure AD B2C 能夠透過端點與之通訊的宣告提供者。 此端點會提供一組宣告，由 Azure AD B2C 用來確認特定使用者已驗證。
 
 您可以藉由將 Amazon 帳戶新增至原則擴充檔中的 **ClaimsProviders** 元素，將其定義成宣告提供者。
 
 
 1. 開啟 *TrustFrameworkExtensions.xml*。
 2. 尋找 **ClaimsProviders** 元素。 如果不存在，請在根元素下新增。
-3. 新增新的 **ClaimsProvider**，如下所示：  
+3. 新增新的 **ClaimsProvider**，如下所示：
 
     ```xml
     <ClaimsProvider>
@@ -124,7 +124,7 @@ ms.locfileid: "66512568"
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInAmazon`。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInAmazon` 。
 
 ### <a name="display-the-button"></a>顯示按鈕
 
@@ -147,8 +147,8 @@ ms.locfileid: "66512568"
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
-    
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `Amazon-OAuth`。
+
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `Amazon-OAuth` 。
 
 3. 儲存 TrustFrameworkExtensions.xml  檔案，並再次上傳它以供驗證。
 
@@ -162,14 +162,14 @@ ms.locfileid: "66512568"
 4. 選取 [應用程式]  ，然後選取 [新增]  。
 5. 輸入應用程式的名稱，例如 testapp1  。
 6. 針對 [Web 應用程式 / Web API]  ，選取 `Yes`，然後y在 [回覆 URL]  欄位輸入 `https://jwt.ms`。
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml  複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInAmazon.xml  。
-2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInAmazon`。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInAmazon` 。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如，`http://contoso.com/B2C_1A_signup_signin_amazon`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignAmazon) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。

@@ -105,7 +105,7 @@ ms.locfileid: "66242625"
 
     當您選取儲存體帳戶時，可選擇性地設定保留原則。 如果您未指定保留天數，資料的保留期限會是儲存體帳戶的存留期間。
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
     ![Batch 診斷](media/batch-diagnostics/diagnostics-portal.png)
 

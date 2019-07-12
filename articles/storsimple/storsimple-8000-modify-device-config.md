@@ -23,7 +23,7 @@ ms.locfileid: "60632067"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>使用 StorSimple 裝置管理員服務來修改 StorSimple 裝置組態
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 入口網站之 [設定]  刀鋒視窗中的 [裝置設定]  區段包含所有裝置參數，可讓您重新設定 StorSimple 裝置管理員服務所管理的 StorSimple 裝置。 本教學課程說明如何使用 [設定]  刀鋒視窗來執行下列裝置層級的工作：
 

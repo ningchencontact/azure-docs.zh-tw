@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 5da09d705246ffd5002a1a21daab2266525f579e
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 3d478c2421066c8347622f9064c479bb8255b112
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357504"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621740"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>調整 Stream Analytics 作業使用 Azure Machine Learning Studio 函式
 
@@ -90,7 +90,7 @@ ms.locfileid: "67357504"
 
 讓我們看看每個批次大小調整使用下列的延遲度量：
 
-| Latency | 批大小 |
+| Latency | 批次大小 |
 | --- | --- |
 | 200 毫秒 | 1000 個事件批次或以下版本 |
 | 250 毫秒 | 5,000 事件批次 |
@@ -145,5 +145,5 @@ ms.locfileid: "67357504"
 
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

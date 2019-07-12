@@ -224,7 +224,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
 
 根據預設，您可以在 ExpressRoute Direct 資源所在的訂用帳戶中建立 10 個線路。 支援人員可以增加此數目。 您則負責追蹤已佈建和已使用的頻寬。 已佈建的頻寬是 ExpressRoute Direct 資源上所有線路的頻寬總和，而已使用的頻寬則是基礎實體介面的實際使用量。
 
-ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 它們是：40Gbps 和 100Gbps。
+ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 這些是：40Gbps 和 100Gbps。
 
 **SkuTier**可以是本機、 Standard 或 Premium。
 

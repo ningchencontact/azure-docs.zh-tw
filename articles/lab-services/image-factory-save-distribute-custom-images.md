@@ -22,7 +22,7 @@ ms.locfileid: "60622596"
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>儲存自訂映像並散發至多個實驗室
 這篇文章涵蓋了可讓您以儲存從已建立的虛擬機器 (Vm) 的自訂映像的步驟。 其中也涵蓋如何散發組織中其他 DevTest Labs 自訂映像。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 下列項目應該已經準備就緒：
 
 - 映像處理站，在 Azure DevTest Labs 的實驗室。

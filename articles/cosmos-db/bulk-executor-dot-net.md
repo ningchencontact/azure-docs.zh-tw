@@ -22,7 +22,7 @@ ms.locfileid: "66257226"
 
 目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .NET 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您還沒有安裝 Visual Studio 2019，您可以下載並使用[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
 
@@ -100,7 +100,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    ```
    **BulkImportAsync 方法可接受下列參數：**
    
-   |**參數**  |**說明** |
+   |**參數**  |**描述** |
    |---------|---------|
    |enableUpsert    |   若要啟用更新插入文件的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。 預設會設定為 false。      |
    |disableAutomaticIdGeneration    |    停用自動產生識別碼的旗標。 預設會設定為 true。     |
@@ -110,7 +110,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
    **大量匯入回應物件定義**大量匯入 API 呼叫的結果包含下列屬性：
 
-   |**參數**  |**說明**  |
+   |**參數**  |**描述**  |
    |---------|---------|
    |NumberOfDocumentsImported (long)   |  在提供給大量匯入 API 呼叫的文件中，成功匯入的文件總數。       |
    |TotalRequestUnitsConsumed (double)   |   大量匯入 API 呼叫取用的要求單位 (RU) 總數。      |
@@ -151,7 +151,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    ```  
    **BulkUpdateAsync 方法可接受下列參數：**
 
-   |**參數**  |**說明** |
+   |**參數**  |**描述** |
    |---------|---------|
    |maxConcurrencyPerPartitionKeyRange    |   每個資料分割索引鍵範圍的最大並行程度，若設定為 Null，程式庫會使用預設值 20。   |
    |maxInMemorySortingBatchSize    |    從更新項目列舉程式提取的最大更新項目數，也就是在每個階段中傳遞至 API 呼叫的最大更新項目數，針對大量更新之前的記憶體內前置處理排序階段，若設定為 Null，程式庫將會使用預設值 min(updateItems.count, 1000000)。     |
@@ -159,7 +159,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
    **大量更新回應物件定義**大量更新 API 呼叫的結果包含下列屬性：
 
-   |**參數**  |**說明** |
+   |**參數**  |**描述** |
    |---------|---------|
    |NumberOfDocumentsUpdated (long)    |   在提供給大量更新 API 呼叫的文件中，成功更新的文件總數。      |
    |TotalRequestUnitsConsumed (double)   |    大量更新 API 呼叫取用的要求單位 (RU) 總數。    |

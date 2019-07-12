@@ -30,7 +30,7 @@ ms.locfileid: "60877549"
 
 了解如何利用 Azure 入口網站，建立使用 Azure Data Lake Storage Gen1 帳戶作為預設儲存體或其他儲存體的 HDInsight 叢集。 即使其他儲存體是 HDInsight 叢集的選用項目，還是建議將您的商務資料儲存在其他儲存體帳戶中。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 開始本教學課程之前，確保您已符合下列需求：
 
 * **Azure 訂用帳戶**。 請移至[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -205,7 +205,7 @@ ms.locfileid: "60877549"
 ### <a name="use-data-lake-storage-gen1-in-a-storm-topology"></a>在 Storm 拓撲中使用 Data Lake Storage Gen1
 您可以使用 Data Lake Storage Gen1 帳戶從 Storm 拓撲寫入資料。 如需有關如何達到這種情況的指示，請參閱[搭配使用 Azure Data Lake Storage Gen1 與 HDInsight 上的 Apache Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell：建立 HDInsight 叢集以使用 Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173797"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659767"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>所有的 Azure VPN 閘道 SKU 上是否都支援 BGP？
 否，Azure **VpnGw1** **VpnGw2** **VpnGw3** **Standard** 和 **HighPerformance** VPN 閘道支援 BGP。 **基本** SKU。
@@ -54,7 +54,7 @@ Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
 我們最多支援 4000 個前置詞。 如果前置詞數目超過此限制，則會捨棄 BGP 工作階段。
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>可以公告 Azure VPN 閘道的預設路由 (0.0.0.0/0) 嗎？
-是。
+是的。
 
 請注意，這會強制所有 VNet 輸出流量流向您的內部部署站台，而且會阻礙 VNet VM 直接接受來自網際網路的公用通訊，例如從網際網路到 VM 的 RDP 或 SSH。
 
@@ -82,10 +82,10 @@ Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
 是，但是主動-主動組態中必須有至少一個虛擬網路閘道。
 
 ### <a name="can-i-use-bgp-for-s2s-vpn-in-an-expressroutes2s-vpn-co-existence-configuration"></a>我可以在 ExpressRoute/S2S VPN 共存組態中使用適用於 S2S VPN 的 BGP 嗎？
-是。 
+是的。 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN 閘道會對 BGP 對等互連 IP 使用什麼位址？
-Azure VPN 閘道會配置針對虛擬網路定義的 GatewaySubnet 範圍的單一 IP 位址。 根據預設，它是範圍的最後第二個位址。 例如，如果您的 GatewaySubnet 是 10.12.255.0/27，範圍從 10.12.255.0 到 10.12.255.31，則 Azure VPN 閘道上的 BGP 對等互連 IP 位址會是 10.12.255.30。 當您列出 Azure VPN 閘道器資訊時，可以找到這項資訊。
+Azure VPN 閘道會從作用中-待命 VPN 閘道的 GatewaySubnet 範圍或主動-主動 VPN 閘道的兩個 IP 位址配置的單一 IP 位址。 您可以取得實際的 BGP IP 位址配置使用 PowerShell (Get-AzVirtualNetworkGateway，尋找"bgpPeeringAddress 」 屬性)，或在 Azure 入口網站中 （在 [閘道組態] 頁面上的 「 設定 BGP ASN 」 屬性）。
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>我的 VPN 裝置上的 BGP 對等互連 IP 位址有哪些需求？
 您內部部署 BGP 對等互連位址 **不得** 與您的 VPN 裝置的公用 IP 位址相同。 在 VPN 裝置上針對 BGP 對等互連 IP 使用不同的 IP 位址。 它可以是指派給裝置上的回送介面的位址，但請注意，它不能是 APIPA (169.254.x.x) 位址。 在代表位置的對應本機網路閘道中指定這個位址。

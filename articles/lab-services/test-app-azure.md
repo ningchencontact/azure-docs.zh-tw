@@ -24,7 +24,7 @@ ms.locfileid: "65872446"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 1. [建立 Azure 訂用帳戶](https://azure.microsoft.com/free/) (如果您還沒有的話)，然後登入 [Azure 入口網站](https://portal.azure.com)。
 2. 遵循[這篇文章](devtest-lab-create-lab.md)中的指示，使用 Azure DevTest Labs 建立實驗室。 將實驗室釘選至儀表板，以便下次登入時可以輕鬆找到它。 Azure DevTest Labs 可讓您藉由減少浪費並控制成本，在 Azure 內快速建立資源。 若要深入了解 DevTest Labs，請參閱[概觀](devtest-lab-overview.md)。 
 3. 遵循[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)一文中的指示，在實驗室的資源群組中建立 Azure 儲存體帳戶。 在 [建立儲存體帳戶]  頁面上，針對 [資源群組]  選取 [使用現有的]  ，然後選取 [實驗室的資源群組]  。 

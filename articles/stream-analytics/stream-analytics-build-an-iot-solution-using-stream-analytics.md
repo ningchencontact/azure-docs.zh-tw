@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443683"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620513"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
@@ -164,7 +164,7 @@ ms.locfileid: "67443683"
 
    為了解釋查詢的意圖，我們假設您需要計算進入某個收費亭的車輛數目。 因為高速公路的收費亭會有川流不息的車輛進入，所以這些進入事件就類似於永不間斷的串流。 若要將串流量化，您必須定義要量測的「期間」。 我們來將問題進一步精簡為「每三分鐘有多少車輛進入收費亭？」 這通常稱為輪轉計數。
 
-   如您所見，Azure 串流分析會使用類似 SQL 的查詢語言，並新增幾個擴充功能來指定和時間有關的查詢層面。  如需詳細資料，請參閱[時間管理](https://msdn.microsoft.com/library/azure/mt582045.aspx)，以及查詢中所用的[時段](https://msdn.microsoft.com/library/azure/dn835019.aspx)建構。
+   如您所見，Azure 串流分析會使用類似 SQL 的查詢語言，並新增幾個擴充功能來指定和時間有關的查詢層面。  如需詳細資料，請參閱[時間管理](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics)，以及查詢中所用的[時段](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)建構。
 
 3. 檢查 TollApp 範例作業的輸入。 目前的查詢只會使用 EntryStream 輸入。
    - **EntryStream** 輸入是事件中樞連線，會將代表高速公路上每次有一輛車進入收費亭的資料排入佇列。 屬於範例一部分的 Web 應用程式會建立事件，且該資料會在這個事件中樞內排入佇列。 請注意，此輸入會在串流查詢的 FROM 子句中加以查詢。

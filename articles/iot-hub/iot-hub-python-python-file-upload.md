@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23b0a2ac8e0264ddc1592479759cc8398d9ef5f8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441271"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621272"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -26,7 +26,7 @@ ms.locfileid: "61441271"
 
 * 使用 Python 用戶端透過 IoT 中樞上傳檔案。
 
-[將遙測傳送至 IoT 中樞](quickstart-send-telemetry-python.md)快速入門會示範「IoT 中樞」的基本裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
+[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-python.md)快速入門示範的 IoT 中樞基本的裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
 
 > [!NOTE]
 > IoT 中樞 Python SDK 目前僅支援上傳諸如 **.txt** 檔案等以字元為基礎的檔案。

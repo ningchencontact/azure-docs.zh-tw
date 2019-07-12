@@ -20,7 +20,7 @@ ms.locfileid: "60239190"
 # <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>在 Azure 入口網站中設定通知中樞的 Google Firebase 雲端通訊 (FCM) 設定
 這篇文章會示範如何使用 Azure 入口網站設定 Azure 通知中樞的 Google Firebase 雲端通訊 (FCM) 設定。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 如果您尚未建立通知中樞，立即建立一個。 如需詳細資訊，請參閱[在 Azure 入口網站中建立 Azure 通知中樞](create-notification-hub-portal.md)。 
 
 ## <a name="configure-google-firebase-cloud-messaging-fcm"></a>設定 Google Firebase 雲端通訊 (FCM)

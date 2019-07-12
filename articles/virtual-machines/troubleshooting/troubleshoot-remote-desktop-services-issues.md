@@ -25,7 +25,7 @@ ms.locfileid: "60318876"
 本文說明如何針對在遠端桌面服務 (或 TermService) 未啟動或無法啟動的問題，以及連線到 Azure 虛擬機器 (VM) 的問題進行疑難排解。
 
 > [!NOTE]  
-> Azure 建立和處理資源的部署模型有兩種：[Azure 资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
+> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager 和傳統模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
 
 ## <a name="symptoms"></a>徵兆
 
@@ -37,12 +37,12 @@ ms.locfileid: "60318876"
 
 - 您使用事件檢視器從遠端檢視 VM 中的事件記錄。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
 
-    **日志名称**：    系統 </br>
+    **記錄檔名稱**：    系統 </br>
     **來源**：      服務控制管理員 </br>
     **日期**：        2017 年 12 月 16 日上午 11:19:36</br>
-    **事件 ID**：    7022</br>
+    **事件識別碼**：    7022</br>
     **工作類別**：None</br>
-    **層級**：       Error</br>
+    **層級**：       錯誤</br>
     **關鍵字**：    傳統</br>
     **使用者**：        N/A</br>
     **電腦**：vm.contoso.com</br>
@@ -60,7 +60,7 @@ ms.locfileid: "60318876"
 - TermService 服務損毀或沒有回應。 
 - TermService 未啟動因為設定不正確。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 若要對此問題進行疑難排解，請使用序列主控台。 或者，藉由將 VM 的 OS 磁碟連結至復原 VM，進行[離線修復 VM](#repair-the-vm-offline)。
 
@@ -97,7 +97,7 @@ ms.locfileid: "60318876"
    ```
 8. 如果服務無法啟動，請根據您所收到的錯誤訊息來遵循解決方案：
 
-    |  Error |  建議 |
+    |  錯誤 |  建議 |
     |---|---|
     |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termservice-service-is-stopped-because-of-an-access-denied-problem)。 |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |請參閱 [TermService 服務已停用](#termservice-service-is-disabled)。  |  
@@ -146,7 +146,7 @@ ms.locfileid: "60318876"
 
     1. [將資料磁碟連結至 VM](../windows/attach-managed-disk-portal.md
 )。
-    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
+    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\` 。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
     3. 將資料磁碟機中斷連結，並連結到作用中且已安裝處理序監視的 VM。
 
 6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依 [結果] 是 [拒絕存取]來篩選，如下列螢幕擷取畫面中所示 **：**

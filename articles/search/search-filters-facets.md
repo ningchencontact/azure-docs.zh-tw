@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88171487fd180931d4659390f0db3c8619fb2d62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597384"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653462"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>如何在 Azure 搜尋服務中建置 Facet 篩選條件 
 
@@ -82,7 +82,7 @@ Facet 可透過單一值欄位以及集合來計算。 最適合在多面向導�
 
 ## <a name="build-and-load-an-index"></a>建置和載入索引
 
-有個中繼 (且可能明顯) 的步驟是，您必須先[建立並填入索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index)，之後才能編寫查詢。 我們基於完整性而在這裡提及此步驟。 判斷索引是否可用的方法之一是在[入口網站](https://portal.azure.com)中檢查索引清單。
+有個中繼 (且可能明顯) 的步驟是，您必須先[建立並填入索引](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index)，之後才能編寫查詢。 我們基於完整性而在這裡提及此步驟。 判斷索引是否可用的方法之一是在[入口網站](https://portal.azure.com)中檢查索引清單。
 
 ## <a name="add-facet-filters-to-a-query"></a>將 Facet 篩選條件新增至查詢
 
@@ -122,7 +122,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
 
 儘管這是一個常見使用案例，但並不是多面向導覽目前預設提供的功能。 需要靜態 Facet 的開發人員通常可藉由發出兩個篩選查詢來解決限制：一個將範圍設為結果，另一個則基於導覽目的用來建立靜態的 Facet 清單。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)

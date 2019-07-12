@@ -50,11 +50,11 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 雖然您可以對特定主機類型 (例如「Azure 容器執行個體」) 進行實驗，但完成後，您可能會想要刪除該容器執行個體。 不過，您也可能會想要保留已推送到 Azure Container Registry 的映像集合。 藉由將登錄放在它自己的資源群組中，即可將刪除容器執行個體資源群組時意外刪除該登錄中映像集合的風險降到最低。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 向 Azure Container Registry 進行驗證時，有兩種主要的案例：個人驗證和服務 (或「遠端控制」) 驗證。 下表提供這些案例的簡要概觀，以及各個案例的建議驗證方法。
 
-| 類型 | 範例案例 | 建議的方法 |
+| type | 範例案例 | 建議的方法 |
 |---|---|---|
 | 個人身分識別 | 將映像提取至其開發電腦或從該電腦提取映像的開發人員。 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | 遠端控制/服務身分識別 | 未直接涉及使用者的組建和部署管線。 | [服務主體](container-registry-authentication.md#service-principal) |
