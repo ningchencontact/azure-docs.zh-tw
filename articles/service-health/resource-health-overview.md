@@ -84,7 +84,7 @@ ms.locfileid: "67067206"
 
 ![過去兩週的資源健康狀態事件清單](./media/resource-health-overview/history-blade.png)
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 若要開啟一個資源的資源健康狀態：
 

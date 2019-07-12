@@ -17,7 +17,7 @@ ms.locfileid: "60609550"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI DSS 的分析
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 此「Azure 安全性與合規性藍圖」提供在 Azure 中部署資料分析架構的指引，並協助符合支付卡產業資料安全標準 (PCI DSS 3.2) 的要求。 它會演示常見參考架構，並且示範如何在安全且相容的多層式環境中，正確處理信用卡資料 (包含信用卡號碼、到期日和驗證資料)。 這個藍圖會示範客戶可以達成特定安全性與合規性要求的方式，並作為基礎讓客戶能在 Azure 中建置並設定自己的資料分析解決方案。
 
@@ -27,7 +27,7 @@ ms.locfileid: "60609550"
 
 ## <a name="architecture-diagram-and-components"></a>架構圖表與元件
 
-此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 此參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
+此「Azure 安全性與合規性藍圖」提供分析平台，客戶可以在其中建置自己的分析工具。 參考架構概要說明了一般使用案例，其中客戶會透過 SQL/資料管理員執行大量資料匯入，或透過操作使用者更新操作資料，來輸入資料。 這兩個工作流程皆需要結合 Azure Functions，才可將資料匯入 Azure SQL Database。 客戶必須透過 Azure 入口網站來設定 Azure Functions，以處理專屬於每個客戶分析需求的匯入工作。
 
 Azure 為客戶提供各種報告和分析服務。 此解決方案結合 Azure Machine Learning 服務與 Azure SQL Database，可透過更聰明的模型，來快速瀏覽資料及傳遞更快的結果。 Azure Machine Learning 透過探索資料集之間的新關係，來加快查詢速度。 一旦透過數個統計函數來訓練模型之後，最多可以讓其他 7 個 (若包括客戶伺服器則是總計 8 個) 查詢集區與相同的表格式模型同步，以分散查詢工作負載並縮短回應時間。
 
