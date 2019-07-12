@@ -50,7 +50,7 @@ ms.locfileid: "60473642"
 
     ![醒目提示連線選項的存取公司或學校資源畫面](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. 在 [新增公司或學校帳戶]  畫面中，輸入您公司或學校帳戶的電子郵件地址，然後選取 [下一步]  。 例如： alain@contoso.com。
+3. 在 [新增公司或學校帳戶]  畫面中，輸入您公司或學校帳戶的電子郵件地址，然後選取 [下一步]  。 例如： alain@contoso.com 。
 
 4. 登入您的公司或學校帳戶，然後選取 [登入]  。
 

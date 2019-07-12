@@ -37,7 +37,7 @@ Azure Data Lake 和串流分析工具包含兩項 Azure 服務、Azure Data Lake
 >    - [針對 Visual Studio 2013 和 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Visual Studio**：支援 Express 以外的所有版本。
     * Visual Studio 2017

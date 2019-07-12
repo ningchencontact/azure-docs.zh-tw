@@ -81,7 +81,7 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 | about | 帳戶 | 系統管理 | api | 部落格 | 教室 |
 | 內容 | 儀表板 | 瀏覽 | faq | help | html |
 | home | 入口 | 圖書館 | 管理 | new | Notebook |
-| Notebook | pdf | preview | 定價 | 設定檔 | 搜尋 |
+| Notebook | pdf | preview | 定價 | profile | 搜尋 |
 | status | 支援 | test | | | |
 
 如果您嘗試使用其中一個這些字專案識別碼**建立新的專案**並**專案設定**快顯視窗指出，「 媒體櫃識別碼是保留的識別項。 」

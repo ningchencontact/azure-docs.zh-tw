@@ -43,7 +43,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 * 名為的 Hive 資料表`hivesampletable`，會參考此資料檔案位於`/hive/warehouse/hivesampletable`。 此資料表包含某些行動裝置資料。
   
-  | 欄位 | 数据类型 |
+  | 欄位 | 資料類型 |
   | --- | --- |
   | clientid |string |
   | querytime |string |
@@ -76,11 +76,11 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 2. 輸入下列屬性：
 
-    |欄位 |Value |
+    |欄位 |值 |
     |---|---|
-    |訂用帳戶 |從下拉式清單中選取您的 Azure 訂用帳戶。|
-    |資源群組 |從下拉式清單中，選取您的資源群組，或建立新的帳戶|
-    |位置 |從下拉式清單中選取的區域。|
+    |Subscription |從下拉式清單中選取您的 Azure 訂用帳戶。|
+    |Resource group |從下拉式清單中，選取您的資源群組，或建立新的帳戶|
+    |Location |從下拉式清單中選取區域。|
     |叢集名稱 |輸入 Hadoop 叢集的名稱。 使用僅小寫字母。|
     |叢集登入使用者名稱 |將預先填入的值保持`admin`。|
     |叢集登入密碼 |輸入密碼。|
@@ -88,10 +88,10 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
     |Ssh 密碼 |輸入密碼。|
     |Sql 系統管理員登入 |將預先填入的值保持`sqluser`。|
     |Sql 管理員密碼 |輸入密碼。|
-    |_artifacts 位置 | 使用默认值（除非想要在其他位置使用自己的 bacpac 文件）。|
+    |_artifacts 位置 | 除非您想要使用您自己的 bacpac 檔案，在不同位置，請使用預設值。|
     |_artifacts 位置 Sas 權杖 |保留空白。|
-    |Bacpac 檔案名稱 |使用默认值（除非想要使用自己的 bacpac 文件）。|
-    |位置 |使用預設值。|
+    |Bacpac 檔案名稱 |除非您想要使用您自己的 bacpac 檔案，請使用預設值。|
+    |Location |使用預設值。|
 
     Azure SQL 伺服器名稱會是`<ClusterName>dbserver`。 資料庫名稱會是`<ClusterName>db`。 預設儲存體帳戶名稱會是`e6qhezrh2pdqu`。
 

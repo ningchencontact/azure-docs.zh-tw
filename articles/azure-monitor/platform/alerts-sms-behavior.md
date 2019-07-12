@@ -16,7 +16,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60346292"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>動作群組中的 SMS 警示行為
-## <a name="overview"></a>概觀 ##
+## <a name="overview"></a>總覽 ##
 動作群組可讓您設定動作清單。 定義警示時會使用這些群組；確保觸發警示時，特定動作群組可以收到通知。 SMS 是其中一個支援的動作；SMS 通知示支援雙向通訊。 使用者可以回應 SMS 以便：
 
 - **取消訂閱警示：** 使用者可取消訂閱所有動作群組或單一動作群組的所有 SMS 警示。

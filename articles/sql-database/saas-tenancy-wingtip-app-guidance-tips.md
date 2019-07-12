@@ -35,7 +35,7 @@ ms.locfileid: "60326254"
 3. 按一下 [下載 zip]  ，並儲存檔案。
 4. 請以滑鼠右鍵按一下 zip 檔案，然後選取 [屬性]  。 ZIP 檔案會對應至存放庫名稱。 (例如 _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. 在 [一般]  索引標籤上，選取 [解除封鎖]  。
-6. 按一下 [確定]  。
+6. 按一下 [確定 **Deploying Office Solutions**]。
 7. 將檔案解壓縮。
 
 指令碼檔案位於 ..\\學習模組  資料夾中。

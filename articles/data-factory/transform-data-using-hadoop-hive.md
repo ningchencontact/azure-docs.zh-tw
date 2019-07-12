@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848082"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop Hive 活動轉換資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-hive-activity.md)
 > * [目前的版本](transform-data-using-hadoop-hive.md)
 

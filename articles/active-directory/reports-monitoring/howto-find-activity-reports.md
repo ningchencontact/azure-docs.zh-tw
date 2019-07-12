@@ -33,7 +33,7 @@ ms.locfileid: "60438266"
 2. 從右上角選取您的目錄，然後從左側導覽窗格中選取 [Azure Active Directory]  刀鋒視窗。
 3. 您可以從 [Azure Active Directory] 刀鋒視窗的 [活動]  區段中選取 [稽核記錄]  。 
 
-    ![稽核記錄檔](./media/howto-find-activity-reports/482.png "稽核記錄檔")
+    ![稽核記錄](./media/howto-find-activity-reports/482.png "稽核記錄")
 
 稽核記錄報告會彙總下列報告：
 
@@ -55,7 +55,7 @@ ms.locfileid: "60438266"
 - 全部
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- 驗證
 - Authorization
 - 連絡人
 - 裝置
@@ -171,7 +171,7 @@ ms.locfileid: "60438266"
 
 動作不會立即出現在活動記錄中。 下表列舉出我們活動記錄的延遲數據。 
 
-| 報告 | &nbsp; | 延遲 (P95) | 延遲 (P99) |
+| 報表 | &nbsp; | 延遲 (P95) | 延遲 (P99) |
 |--------|--------|---------------|---------------|
 | 目錄稽核 | &nbsp; | 2 分鐘 | 5 分鐘 |
 | 登入活動 | &nbsp; | 2 分鐘 | 5 分鐘 | 
@@ -192,7 +192,7 @@ ms.locfileid: "60438266"
 
 動作不會立即出現在活動記錄中。 下表列舉出我們活動記錄的延遲數據。 
 
-| 報告 | &nbsp; | 延遲 (P95) | 延遲 (P99) |
+| 報表 | &nbsp; | 延遲 (P95) | 延遲 (P99) |
 |--------|--------|---------------|---------------|
 | 目錄稽核 | &nbsp; | 2 分鐘 | 5 分鐘 |
 | 登入活動 | &nbsp; | 2 分鐘 | 5 分鐘 | 
@@ -213,7 +213,7 @@ ms.locfileid: "60438266"
 
 視您的授權而定，Azure Active Directory 動作會儲存下列期間的活動報告︰
 
-| 報告           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| 報表           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | 目錄稽核  | &nbsp; |   7 天     | 30 天             | 30 天             |
 | 登入活動 | &nbsp; | 無法使用。 您可以從個別使用者設定檔刀鋒視窗中存取您自己 7 天內的登入資料 | 30 天 | 30 天             |

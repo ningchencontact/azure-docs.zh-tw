@@ -28,7 +28,7 @@ ms.locfileid: "60761951"
 > 
 > 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 媒體處理器是一項元件，可處理特定處理視訊或音訊工作，例如編碼、格式轉換、加密或解密媒體內容。 提交至媒體服務的所有工作都需要媒體處理器，才能編碼、加密或轉換視訊或音訊內容。 
 
 ## <a name="azure-media-processors"></a>Azure 媒體處理器 

@@ -28,7 +28,7 @@ ms.locfileid: "60453922"
 
 本教學課程會逐步解說在 Azure 自動化中建立和排程 Runbook 以將資料寫入 Log Analytics 的程序。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 此案例要求您在 Azure 訂用帳戶中設定以下資源。 兩者都可以是免費帳戶。
 
 - [Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。
@@ -65,8 +65,8 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 
 | 屬性 | 工作區識別碼值 | 工作區索引鍵值 |
 |:--|:--|:--|
-| Name | WorkspaceId | WorkspaceKey |
-| 類型 | 字串 | 字串 |
+| 名稱 | WorkspaceId | WorkspaceKey |
+| type | 字串 | 字串 |
 | 值 | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
 | 已加密 | 否 | 是 |
 
@@ -168,7 +168,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 
 1. 在 Runbook 的內容中，選取 [Runbook 設定]  下的 [記錄和追蹤]  。
 2. 將 [記錄詳細記錄]  的設定變更為 [開啟]  。
-3. 按一下 [檔案]  。
+3. 按一下 [儲存]  。
 
 ## <a name="8-schedule-runbook"></a>8.排程 Runbook
 啟動 Runbook 以收集監視資料的最常見方式，是將其排程為自動執行。 作法是[在 Azure 自動化中建立排程](../../automation/automation-schedules.md)，並將它連結至 Runbook。

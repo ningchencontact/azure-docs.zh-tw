@@ -34,7 +34,7 @@ ms.locfileid: "60824213"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 MapReduce 活動來轉換資料](../transform-data-using-hadoop-map-reduce.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 MapReduce 活動來轉換資料](../transform-data-using-hadoop-map-reduce.md)。
 
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight MapReduce 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 Windows/Linux 架構 HDInsight 叢集上執行 MapReduce 程式。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
@@ -246,7 +246,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [Hive 活動](data-factory-hive-activity.md)
 * [Pig 活動](data-factory-pig-activity.md)
 * [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)

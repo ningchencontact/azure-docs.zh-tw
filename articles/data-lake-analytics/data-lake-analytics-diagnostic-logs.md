@@ -125,10 +125,10 @@ ms.locfileid: "60616484"
 
 #### <a name="request-log-schema"></a>要求記錄的結構描述
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
-| 分析 |字串 |記錄的時間戳記 (UTC 時間) |
-| ResourceId |字串 |執行作業所在資源的識別碼 |
+| time |字串 |記錄的時間戳記 (UTC 時間) |
+| resourceId |字串 |執行作業所在資源的識別碼 |
 | category |字串 |記錄類別。 例如， **要求**。 |
 | operationName |字串 |記錄的作業名稱。 例如，GetAggregatedJobHistory。 |
 | resultType |字串 |作業的狀態。例如，200。 |
@@ -139,11 +139,11 @@ ms.locfileid: "60616484"
 
 #### <a name="request-log-properties-schema"></a>要求記錄屬性結構描述
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | HttpMethod |字串 |作業使用的 HTTP 方法。 例如，GET。 |
-| Path |字串 |執行作業的所在路徑 |
-| RequestContentLength |int |HTTP 要求的內容長度 |
+| `Path` |字串 |執行作業的所在路徑 |
+| RequestContentLength |ssNoversion |HTTP 要求的內容長度 |
 | ClientRequestId |字串 |可唯一識別此要求的識別碼 |
 | StartTime |字串 |伺服器接收到要求的時間 |
 | EndTime |字串 |伺服器傳送回應的時間 |
@@ -177,15 +177,15 @@ ms.locfileid: "60616484"
 
 #### <a name="audit-log-schema"></a>稽核記錄的結構描述
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
-| 分析 |字串 |記錄的時間戳記 (UTC 時間) |
-| ResourceId |字串 |執行作業所在資源的識別碼 |
+| time |字串 |記錄的時間戳記 (UTC 時間) |
+| resourceId |字串 |執行作業所在資源的識別碼 |
 | category |字串 |記錄類別。 例如， **稽核**。 |
 | operationName |字串 |記錄的作業名稱。 例如，JobSubmitted。 |
 | resultType |字串 |作業狀態 (operationName) 的子狀態。 |
 | resultSignature |字串 |作業狀態 (operationName) 的其他詳細資料。 |
-| 身分識別 |字串 |要求作業的使用者。 例如： susan@contoso.com。 |
+| 身分識別 |字串 |要求作業的使用者。 例如： susan@contoso.com 。 |
 | properties |JSON |請參閱下一節 (稽核記錄檔屬性結構描述) 以取得詳細資訊 |
 
 > [!NOTE]
@@ -195,7 +195,7 @@ ms.locfileid: "60616484"
 
 #### <a name="audit-log-properties-schema"></a>稽核記錄屬性結構描述
 
-| 名稱 | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | --- | --- | --- |
 | JobId |字串 |指派給作業的識別碼 |
 | JobName |字串 |為作業提供的名稱 |

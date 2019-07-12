@@ -53,7 +53,7 @@ ms.locfileid: "64937883"
 ## <a name="non-transact-listings"></a>非交易清單  
 本章節說明所有不使用交易清單類型的供應項目類型。 
 
-### <a name="list"></a>列出  
+### <a name="list"></a>List  
 「清單」清單類型包括下列在市集店面上的「供應項目」類型。  
 
 | 供應項目類型 | 店面 | 詳細資料 |  
@@ -96,7 +96,7 @@ ms.locfileid: "64937883"
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
-| 免費試用期與試用版體驗 | 客戶可以在限時內免費使用您的應用程式。<br /><br />客戶不需要支付任何供應項目或應用程式的授權或訂閱費用。 客戶不需要支付基本 Microsoft 第一方產品或服務的費用。 所有試用版選項都會部署到您的 Azure 訂用帳戶。 您可完全控制成本最佳化和管理。<br /><br />您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。<ul> <li>若要開始建立試用產品的程序，請傳送電子郵件給 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com)。</li> </ul>注意：Azure Marketplace SaaS 試用版體驗必須允許客戶以其工作認證來登入。<ul> <li>如需詳細資訊，請瀏覽＜AppSource 試用體驗＞一節：[docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。</li> </ul> |  
+| 免費試用期與試用版體驗 | 客戶可以在限時內免費使用您的應用程式。<br /><br />客戶不需要支付任何供應項目或應用程式的授權或訂閱費用。 客戶不需要支付基本 Microsoft 第一方產品或服務的費用。 所有試用版選項都會部署到您的 Azure 訂用帳戶。 您可完全控制成本最佳化和管理。<br /><br />您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。<ul> <li>若要開始建立試用產品的程序，請傳送電子郵件給 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com)。</li> </ul>注意:Azure Marketplace SaaS 試用版體驗必須允許客戶以其工作認證來登入。<ul> <li>如需詳細資訊，請瀏覽＜AppSource 試用體驗＞一節：[docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。</li> </ul> |  
 | 輕鬆設定、立即可用的解決方案 | 應用程式的設定和安全必須既簡單又快速。 |  
 | 可用性 / 執行時間 | SaaS 應用程式或平台的執行時間必須至少達到 99.9%。 |  
 | Azure Active Directory | 您的供應項目必須允許 Azure Active Directory (Azure AD) 同盟單一登入 (SSO) (Azure AD 同盟 SSO) 並啟用同意功能。 |  

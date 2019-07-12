@@ -31,7 +31,7 @@ ms.locfileid: "60243524"
 ## <a name="before-you-begin"></a>開始之前
 若要使用這項功能，您需要了解其中有數個移動組件，且每個組件都可能牽涉到組織中的不同系統管理員。  下表摘要說明在使用這項功能部署 Azure AD Connect 時的個別角色及其各自的責任。
 
-|角色|描述|
+|Role|描述|
 |-----|-----|
 |網域或樹系 AD 系統管理員|建立可供 Azure AD Connect 用來執行同步處理服務的網域層級服務帳戶。  如需服務帳戶的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md)。
 |SQL 系統管理員|建立 ADSync 資料庫，並對 Azure AD Connect 系統管理員以及網域/樹系系統管理員所建立的服務帳戶授與登入 + dbo 存取權。|
@@ -51,7 +51,7 @@ Azure AD Connect 系統管理員|安裝 Azure AD Connect，並在自訂安裝期
    - SQL 登入 
    - **資料庫擁有者 (dbo)** 權限。
  
-   ![權限](./media/how-to-connect-install-sql-delegation/sql3a.png)
+   ![Permissions](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
    >[!NOTE]
    >Azure AD Connect 不支援具有巢狀成員資格的登入。  這表示您的 Azure AD Connect 系統管理員帳戶和網域服務帳戶必須被授與 dbo 權限的登入連結。  它只是不能指派給 dbo 權限的登入群組的成員。

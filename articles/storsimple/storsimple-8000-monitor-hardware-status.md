@@ -23,7 +23,7 @@ ms.locfileid: "60632799"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple 裝置管理員服務監視硬體元件和狀態
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文描述內部部署 StorSimple 8000 系列裝置中的各種實體和邏輯元件。 也會說明如何使用 StorSimple 裝置管理員服務中的 [狀態與硬體健康狀態]  刀鋒視窗監視裝置元件狀態。
 
 [狀態與硬體健康狀態]  刀鋒視窗會顯示所有 StorSimple 裝置元件的硬體狀態。
@@ -79,7 +79,7 @@ ms.locfileid: "60632799"
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>StorSimple 裝置之主要機箱的元件清單
 下表摘要列出您內部部署 StorSimple 裝置之主要機箱 (在 8100 和 8600 中皆為贈品) 中包含的實體和邏輯元件。
 
-| 元件 | 模組 | 類型 | 位置 | 現場可更換單位 (FRU)？ | 描述 |
+| 元件 | 模組 | type | Location | 現場可更換單位 (FRU)？ | 描述 |
 | --- | --- | --- | --- | --- | --- |
 | 插槽 [0-11] 中的磁碟機 |磁碟機 |實體 |共用 |是 |主要機箱中的每個 SSD 或 HDD 磁碟機都表示為一行。 |
 | 周圍溫度感應器 |機箱 |實體 |共用 |否 |測量底座內溫度。 |
@@ -120,7 +120,7 @@ ms.locfileid: "60632799"
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple 裝置之 EBOD 機箱的元件清單
 下表摘要列出您內部部署 StorSimple 裝置之 EBOD 機箱 (只在 8600 機型中為贈品) 中包含的實體和邏輯元件。
 
-| 元件 | 模組 | 類型 | 位置 | FRU？ | 描述 |
+| 元件 | 模組 | type | Location | FRU？ | 描述 |
 | --- | --- | --- | --- | --- | --- |
 | 插槽 [0-11] 中的磁碟機 |磁碟機 |實體 |共用 |是 |EBOD 機箱前方的每個 HDD 磁碟機都表示為一行。 |
 | 周圍溫度感應器 |機箱 |實體 |共用 |否 |測量底座內溫度。 |

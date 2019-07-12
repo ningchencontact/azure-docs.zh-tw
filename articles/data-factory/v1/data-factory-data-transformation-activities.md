@@ -31,7 +31,7 @@ ms.locfileid: "60486595"
 > * [資料湖分析 U-SQL](data-factory-usql-activity.md)
 > * [.NET 自訂](data-factory-use-custom-activities.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 > [!NOTE]
 > 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的資料轉換活動](../transform-data.md)。
 

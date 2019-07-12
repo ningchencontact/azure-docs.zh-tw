@@ -22,7 +22,7 @@ ms.locfileid: "60361966"
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文說明如何在您使用 Visual Studio 的 [新增連接的服務]  對話方塊建立或參考雲端服務專案中的 Azure 儲存體帳戶之後，開始在 Visual Studio 中使用 Azure 表格儲存體。 [ **新增連接的服務** ] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。

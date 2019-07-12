@@ -17,7 +17,7 @@ ms.locfileid: "60608845"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure 安全性與合規性藍圖 - 適用於 NIST SP 800-171 的資料分析
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 [NIST 特刊 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) 提供的指引適用於保護位於非聯邦資訊系統與組織中的受管控非機密資訊 (CUI)。 NIST SP 800-171 建立 14 組安全性需求，以供保護 CUI 的機密性。
 
 此「Azure 安全性與合規性藍圖」提供指引，協助客戶在 Azure 中部署資料分析架構，以實作部分的 NIST SP 800-171 控制項。 此解決方案示範客戶可以符合特定安全性和合規性需求的方式。 客戶在 Azure 中建置並設定自己的資料分析解決方案時，也可以之為基礎。

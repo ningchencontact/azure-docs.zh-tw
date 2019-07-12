@@ -24,7 +24,7 @@ ms.locfileid: "60302675"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員服務中的警示功能可讓您即時檢閱並清除 StorSimple Virtual Array 的相關警示。 您可以使用 [服務摘要]  刀鋒視窗上的警示，集中監視您的 StorSimple Virtual Array 和整個 Microsoft Azure StorSimple 解決方案的健康狀態。
 
@@ -128,40 +128,40 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗中，可讓您快速概覽
 
 ### <a name="cloud-connectivity-alerts"></a>雲端連線能力警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
+| 警示文字 | Event - 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 裝置 <裝置名稱  > 未連接至雲端。 |指定的裝置無法連接至雲端。 |無法連接至雲端。 這可能是下列其中一個原因所造成：<ul><li>您的裝置上的網路設定可能有問題。</li><li>儲存體帳戶認證可能有問題。</li></ul>如需有關針對連線問題進行疑難排解的詳細資訊，請移至裝置的[本機 Web UI](storsimple-ova-web-ui-admin.md)。 |
 
 ### <a name="configuration-alerts"></a>組態警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
+| 警示文字 | Event - 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 不支援的內部部署虛擬裝置組態。 |效能變慢。 |目前的組態可能會導致效能降低。 請確定您的伺服器符合最低組態需求。 如需詳細資訊，請參閱 [StorSimple Virtual Array 需求](storsimple-ova-system-requirements.md)。 |
 | <裝置名稱  \> 上的佈建磁碟空間即將用盡。 |磁碟空間警告。 |佈建磁碟空間偏低。 若要釋放空間，請考慮將工作負載移到另一個磁碟區或共用或刪除資料。 |
 
 ### <a name="job-failure-alerts"></a>作業失敗警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
+| 警示文字 | Event - 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 無法完成 <裝置名稱  \> 的備份。 |備份作業失敗。 |無法建立備份。 請考慮採用下列其中一項︰<ul><li>連線問題可能導致備份作業無法順利完成。 確定沒有連線問題。 如需有關針對連線問題進行疑難排解的詳細資訊，請移至您的虛擬裝置的[本機 Web UI](storsimple-ova-web-ui-admin.md)。</li><li>您已達到可用的儲存體限制。 若要釋放空間，請考慮刪除任何不再需要的備份。</li></ul> 解決問題、清除警示，然後重試作業。 |
 | 無法完成 <裝置名稱  \> 的複製。 |複製作業失敗。 |無法建立複製。 請考慮採用下列其中一項︰<ul><li>您的備份清單可能無效。 重新整理清單，以便確認它仍然有效。</li><li>連線問題可能導致複製作業無法順利完成。 確定沒有連線問題。</li><li>您已達到可用的儲存體限制。 若要釋放空間，請考慮刪除任何不再需要的備份。</li></ul>解決問題、清除警示，然後重試作業。 |
 
 ### <a name="networking-alerts"></a>網路警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
+| 警示文字 | Event - 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 無法連線到驗證服務。 |資料路徑錯誤 |無法連線到用來驗證的 URL。 請確定您的防火牆規則有包含為 StorSimple 裝置指定的 URL 模式。 如需有關 Azure 入口網站之 URL 模式的詳細資訊，請參閱 [StorSimple Virtual Array 網路需求](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules)。|
 
 ### <a name="performance-alerts"></a>效能警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
+| 警示文字 | Event - 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 您遇到資料傳輸的非預期延遲 |慢速資料傳輸。 |當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務這麼做是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需疑難排解 Azure 儲存體帳戶問題的詳細資訊，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體的問題](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)。 |
 | <裝置名稱  \> 上的本機保留磁碟空間即將用盡。 |回應時間變慢。 |在本機裝置上為 <裝置名稱  \> 佈建的總大小中，有 10% 為保留空間，而該保留空間即將用盡。 <裝置名稱  \> 的工作負載產生較高的變換率，或您最近可能曾經移轉過大量的資料。 這可能會導致效能降低。 請考慮使用下列其中一個方法來解決這個問題：<ul><li>增加此裝置的雲端頻寬。</li><li>降低工作負載或將工作負載移到另一個磁碟區或共用。</li></ul> |
 
 ### <a name="security-alerts"></a>安全性警示
 
-| 警示文字 | Event | 詳細資訊 / 建議的動作 |
+| 警示文字 | Event - 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | <裝置名稱  \> 的密碼即將於 <數字  \> 天後到期。 |密碼警告。 |您的密碼即將於 <數字  \> 天後到期。 請考慮變更您的密碼。 如需詳細資訊，請參閱[變更 StorSimple Virtual Array 裝置系統管理員密碼](storsimple-virtual-array-change-device-admin-password.md)。 |
 

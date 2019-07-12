@@ -24,7 +24,7 @@ ms.locfileid: "60531004"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 系列裝置的 Update 1.2 版本資訊
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 下列版本資訊說明 StorSimple 8000 系列 Update 1.2 的新功能，並識別未決的重要問題。 當中也包含此版本中隨附之 StorSimple 軟體、驅動程式與磁碟韌體更新的清單。 
 
 Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 或 Update 0.3 軟體的 StorSimple 裝置。 如果您的裝置是執行 Update 1 或 Update 1.1，就無法使用 Update 1.2。 如果您的裝置是執行 Release (GA)，請 [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md) 協助您安裝此更新。
@@ -64,7 +64,7 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 ## <a name="issues-fixed-in-update-12"></a>在 Update 1.2 中修正的問題
 下表提供 Update 1.2、1.1 及 1 中已修正問題的摘要。    
 
-| 沒有。 | 功能 | 問題 | 在 Update 中修正的問題 | 適用於實體裝置 | 適用於虛擬裝置 |
+| 資料分割 | 功能 | 問題 | 在 Update 中修正的問題 | 適用於實體裝置 | 適用於虛擬裝置 |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell for StorSimple |當使用者從遠端使用 Windows PowerShell for StorSimple 存取 StorSimple 裝置，然後再啟動安裝精靈時，只要輸入 Data 0 IP，就會當機。 這個 Bug 現在已在 Update 1 中修正。 |Update 1 |是 |是 |
 | 2 |恢復出廠預設值 |在某些情況下，當您執行原廠重設 StorSimple 裝置卡住，並顯示此訊息：**重設為原廠值 （階段 8） 的進度**。 如果正在進行 Cmdlet 時，按 CTRL+C，就會發生這種情況。 這個 Bug 現在已修正。 |Update 1 |是 |否 |
@@ -82,7 +82,7 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 ## <a name="known-issues-in-update-12"></a>Update 1.2 中的已知問題
 下表提供此版本的已知問題摘要。
 
-| 沒有。 | 功能 | 問題 | 註解/因應措施 | 適用於實體裝置 | 適用於虛擬裝置 |
+| 資料分割 | 功能 | 問題 | 註解/因應措施 | 適用於實體裝置 | 適用於虛擬裝置 |
 | --- | --- | --- | --- | --- | --- |
 | 1 |磁碟仲裁 |在罕見情況下，如果 8600 裝置的 EBOD 機箱中大部分的磁碟都已中斷連線，而導致沒有磁碟仲裁，那麼將會使存放集區離線。 即使已重新連接磁碟時，它依然會保持離線。 |您必須重新啟動裝置。 如果問題持續發生， 請連絡 Microsoft 支援以進行後續步驟。 |是 |否 |
 | 2 |不正確的控制器識別碼 |進行控制器更換時，控制器 0 可能顯示為控制器 1。 在控制器更換期間從對等節點載入影像時，控制器識別碼一開始可能會顯示為對等控制器的識別碼。 在罕見情況下，可能會在系統重新開機後出現這種行為。 |因此，使用者不需要採取任何動作。 控制器更換完成之後，會自行解決這種情況。 |是 |否 |

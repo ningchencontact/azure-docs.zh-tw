@@ -163,7 +163,7 @@ IoT 裝置可以使用不同的通訊協定來連線。 模擬可讓您使用 **
 * 二進位 - 使用 base64 序列化
 * Text
 * Boolean
-* Integer
+* 整數
 * Double
 * Datetime
 

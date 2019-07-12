@@ -168,13 +168,13 @@ Data Factory 中的連結服務，有兩個用途：
 是，參數會是第一級最上層概念在 Data Factory 中。 您可定義管線層級的參數並傳遞引數，同時依需求或使用觸發程序來執行管線執行。  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>可以定義管線參數的預設值嗎？ 
-是。 您可以定義管線中參數的預設值。 
+是的。 您可以定義管線中參數的預設值。 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>管線中的活動可否取用傳遞給管線執行的引數？ 
-是。 管線內的每個活動皆可使用 `@parameter` 建構，來取用傳遞給管線執行的參數值。 
+是的。 管線內的每個活動皆可使用 `@parameter` 建構，來取用傳遞給管線執行的參數值。 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>可以在另一個活動中取用活動輸出屬性？ 
-是。 可以使用 `@activity` 建構在後續活動中取用活動輸出。
+是的。 可以使用 `@activity` 建構在後續活動中取用活動輸出。
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>如何正常處理活動輸出中的 Null 值？ 
 您可以在運算式中使用 `@coalesce` 建構來正常處理 Null 值。 
@@ -192,7 +192,7 @@ Data Factory 中的連結服務，有兩個用途：
 
 ### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>我是否可以移轉我的私人預覽工廠到 Data Factory V2？
 
-是。 [請依照下列指示](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)。
+是的。 [請依照下列指示](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)。
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>我需要協助疑難排解資料的流程邏輯。 若要取得說明提供是否需要哪些資訊？
 

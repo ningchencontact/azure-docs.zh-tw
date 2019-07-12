@@ -104,12 +104,12 @@ Azure SQL Database 訂閱不支援下列選項：
 
 ## <a name="examples"></a>範例
 
-建立發行集和發送訂閱。 如需詳細資訊，請參閱
+建立發行集和發送訂閱。 如需詳細資訊，請參閱：
   
 - [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 **N'azuresqldbdns.database.windows.net'** )，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。  
+- [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 **N'azuresqldbdns.database.windows.net'** )，並使用 Azure SQL 資料庫名稱作為目的地資料庫 (例如 **AdventureWorks**)。  
 
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>另請參閱  
 
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)
 - [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

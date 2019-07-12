@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/21/2019
-ms.openlocfilehash: a33eb98525ea857ee52ad2fffa5937207504909d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2ec45b67367198c14fc9d03cdb659a51aed8a504
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720493"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67841527"
 ---
 1. 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
@@ -24,7 +24,7 @@ ms.locfileid: "67720493"
 
    ![在 Azure 入口網站中建立資源](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
 
-1. 在搜尋列中輸入 **Machine Learning**。 選取 **Machine Learning Service 工作區**的搜尋結果。
+1. 若要使用搜尋列，請選取 **Machine Learning 服務工作區**。
 
    ![搜尋工作區](./media/aml-create-in-portal/allservices-search.png)
 
@@ -34,20 +34,16 @@ ms.locfileid: "67720493"
 
 1. 在 [ML 服務工作區]  窗格中，設定您的工作區。
 
+    ![建立工作區](./media/aml-create-in-portal/workspace-create-main-tab.png)
+
    欄位|說明
    ---|---
    工作區名稱 |輸入可識別您工作區的唯一名稱。 在此範例中，我們使用 **docs-ws**。 名稱必須是整個資源群組中唯一的。 請使用可輕鬆回想並且與其他人建立的工作區有所區別的名稱。  
-   訂用帳戶 |選取您要使用的 Azure 訂用帳戶。
-   資源群組 | 在您的訂用帳戶中使用現有的資源群組，或輸入名稱來建立新的資源群組。 資源群組會保留 Azure 方案的相關資源。 在此範例中，我們使用 **docs-aml**。 
-   位置 | 選取最接近您的使用者與資料資源的位置。 此位置是建立工作區的所在位置。
+   Subscription |選取您要使用的 Azure 訂用帳戶。
+   Resource group | 在您的訂用帳戶中使用現有的資源群組，或輸入名稱來建立新的資源群組。 資源群組會保留 Azure 方案的相關資源。 在此範例中，我們使用 **docs-aml**。 
+   Location | 選取最接近您的使用者與資料資源的位置。 此位置是建立工作區的所在位置。
 
-1. 若要開始執行建立程序，請選取 [檢閱 + 建立]  。
-
-    ![建立工作區](./media/aml-create-in-portal/workspace-create-main-tab.png)
-
-1. 檢閱工作區設定。 如果正確，請選取 [建立]  。 建立工作區可能需要一些時間。
-
-1. 若要檢查部署狀態，請選取工具列上的通知圖示 (鈴鐺)  。
+1. 檢閱工作區設定，並選取 [建立]  。 建立工作區可能需要一些時間。
 
 1. 程序完成後，會出現部署成功訊息。 它也會出現在通知區段中。 若要檢視新的工作區，選取 [前往資源]  。
 

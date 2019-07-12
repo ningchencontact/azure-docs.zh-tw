@@ -31,7 +31,7 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 > 
 > 
 
-## <a name="replicator-security-configuration"></a>复制器安全配置
+## <a name="replicator-security-configuration"></a>複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
 依預設，空白的安全性組態區段會妨礙複寫安全性。
 
@@ -42,7 +42,7 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>复制器配置
+## <a name="replicator-configuration"></a>複寫器組態
 複寫器組態會設定負責讓動作項目狀態提供者狀態高度可靠的複寫器。
 預設組態由 Visual Studio 範本所產生，且應該已經足夠。 本節說明可用於微調複寫器的其他組態。
 
@@ -61,7 +61,7 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 
 ## <a name="store-configuration"></a>存放區組態
 存放區組態用於設定本機存放區以用來保存正在複寫的狀態。
-默认配置由 Visual Studio 模板生成，并应已足够。 本節將討論其他可用來微調本機存放區的組態。
+預設組態由 Visual Studio 範本所產生，且應該已經足夠。 本節將討論其他可用來微調本機存放區的組態。
 
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceLocalStoreConfig
@@ -96,5 +96,5 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 ```
 ## <a name="remarks"></a>備註
 BatchAcknowledgementInterval 參數會控制複寫延遲性。 值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。
-BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。 这直接转换为事务提交的延迟。
+BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。 這會直接轉換成交易認可的延遲。
 

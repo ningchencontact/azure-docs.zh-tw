@@ -36,7 +36,7 @@ ms.locfileid: "60946526"
 
 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) 中傳回的一些常見 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 錯誤：
 
-| Error | 條件 |
+| 錯誤 | 條件 |
 | --- |:--- |
 | CommunicationError |通訊錯誤導致作業失敗，請重試作業。 |
 | InvalidCredentialType |認證類型無效。 |

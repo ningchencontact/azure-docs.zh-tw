@@ -118,7 +118,7 @@ echo "URI resource: " . $call->uri . "<br />";
 
 如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [如何在 PHP 中透過 Twilio 使用語音和簡訊功能](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

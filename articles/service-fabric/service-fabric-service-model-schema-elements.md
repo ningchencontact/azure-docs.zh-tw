@@ -104,7 +104,7 @@ ms.locfileid: "60837601"
 |type|[AppInstanceDefinitionType](service-fabric-service-model-schema-complex-types.md#appinstancedefinitiontype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|全域|
-|name|Application|
+|name|應用程式|
 
 ### <a name="xml-source"></a>XML 來源
 ```xml
@@ -564,11 +564,11 @@ ApplicationPackage 代表節點所需之已設定版本的應用程式資訊。
 ```
 ### <a name="content-element-details"></a>內容元素詳細資料
 
-#### <a name="capacity"></a>容量
+#### <a name="capacity"></a>Capacity
 
 |屬性|值|
 |---|---|
-|name|容量|
+|name|Capacity|
 |type|[KeyValuePairType](service-fabric-service-model-schema-complex-types.md#keyvaluepairtype-complextype)|
 |minOccurs|0|
 |maxOccurs|無限制|
@@ -581,7 +581,7 @@ ApplicationPackage 代表節點所需之已設定版本的應用程式資訊。
 |type|[KeyValuePairType](service-fabric-service-model-schema-complex-types.md#keyvaluepairtype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|在 Capacities 項目區域中|
-|name|容量|
+|name|Capacity|
 |minOccurs|0|
 |maxOccurs|無限制|
 
@@ -2296,11 +2296,11 @@ ApplicationPackage 代表節點所需之已設定版本的應用程式資訊。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -2932,11 +2932,11 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -2950,11 +2950,11 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 
 ### <a name="content-element-details"></a>內容元素詳細資料
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>屬性
 
 |屬性|值|
 |---|---|
-|name|properties|
+|name|屬性|
 |type|[ServiceTypeExtensionPolicyPropertiesType](service-fabric-service-model-schema-complex-types.md#servicetypeextensionpolicypropertiestype-complextype)|
 |minOccurs|0|
 
@@ -3072,7 +3072,7 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 |type|[ExtensionsType](service-fabric-service-model-schema-complex-types.md#extensionstype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|全域|
-|name|擴充功能|
+|name|延伸模組|
 
 ### <a name="xml-source"></a>XML 來源
 ```xml
@@ -3347,7 +3347,7 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 本機群組帳戶的名稱。 名稱前面會加上應用程式識別碼。
 
 |屬性|值|
@@ -4274,11 +4274,11 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="path"></a>Path
+#### <a name="path"></a>`Path`
 
 |屬性|值|
 |---|---|
-|name|Path|
+|name|`Path`|
 |type|xs:string|
 |use|選用|
 
@@ -4537,7 +4537,7 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。
 |type|匿名 complexType|
 |內容|1 個元素，0 個屬性|
 |已定義|在 [StatefulServiceGroupType complexType](service-fabric-service-model-schema-complex-types.md#statefulservicegrouptype-complextype) 區域中|
-|name|成員|
+|name|Members|
 |minOccurs|1|
 |maxOccurs|1|
 
@@ -4576,7 +4576,7 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。
 |type|匿名 complexType|
 |內容|1 個元素，0 個屬性|
 |已定義|在 [StatelessServiceGroupType complexType](service-fabric-service-model-schema-complex-types.md#statelessservicegrouptype-complextype) 區域中|
-|name|成員|
+|name|Members|
 |minOccurs|1|
 |maxOccurs|1|
 
@@ -5129,12 +5129,12 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 NodeType 的名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -5526,7 +5526,7 @@ NodeType 的名稱
 |type|xs:boolean|
 |預設值|false|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 
                       This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
                       If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
@@ -5535,7 +5535,7 @@ NodeType 的名稱
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |type|xs:string|
 |use|選用|
 
@@ -5576,7 +5576,7 @@ NodeType 的名稱
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
@@ -5610,11 +5610,11 @@ NodeType 的名稱
 |type|xs:boolean|
 |預設值|false|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |type|xs:string|
 |use|選用|
 
@@ -5776,12 +5776,12 @@ NodeType 的名稱
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 分割區的名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 
@@ -5824,7 +5824,7 @@ NodeType 的名稱
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
@@ -5857,11 +5857,11 @@ NodeType 的名稱
 
 ### <a name="content-element-details"></a>內容元素詳細資料
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>屬性
 
 |屬性|值|
 |---|---|
-|name|properties|
+|name|屬性|
 |type|[ServiceTypeExtensionPolicyPropertiesType](service-fabric-service-model-schema-complex-types.md#servicetypeextensionpolicypropertiestype-complextype)|
 |minOccurs|0|
 
@@ -6037,7 +6037,7 @@ NodeType 的名稱
 |type|[ServiceTypeExtensionPolicyPropertiesType](service-fabric-service-model-schema-complex-types.md#servicetypeextensionpolicypropertiestype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|在 PersistencePolicy 項目、EvictionPolicy 項目區域中|
-|name|properties|
+|name|屬性|
 |minOccurs|0|
 
 ### <a name="xml-source"></a>XML 來源
@@ -6091,7 +6091,7 @@ NodeType 的名稱
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
@@ -6304,7 +6304,7 @@ NodeType 的名稱
 |type|[AzureRoleType](service-fabric-service-model-schema-complex-types.md#azureroletype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|在 Roles 項目區域中|
-|name|角色|
+|name|Role|
 |maxOccurs|無限制|
 
 ### <a name="xml-source"></a>XML 來源
@@ -6322,7 +6322,7 @@ NodeType 的名稱
 |type|[BlackbirdRoleType](service-fabric-service-model-schema-complex-types.md#blackbirdroletype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|在 Roles 項目區域中|
-|name|角色|
+|name|Role|
 |minOccurs|1|
 |maxOccurs|無限制|
 
@@ -6341,7 +6341,7 @@ NodeType 的名稱
 |type|[PaaSRoleType](service-fabric-service-model-schema-complex-types.md#paasroletype-complextype)|
 |內容|0 個元素，0 個屬性|
 |已定義|在 Roles 項目區域中|
-|name|角色|
+|name|Role|
 |maxOccurs|無限制|
 
 ### <a name="xml-source"></a>XML 來源
@@ -6375,11 +6375,11 @@ NodeType 的名稱
 ```
 ### <a name="content-element-details"></a>內容元素詳細資料
 
-#### <a name="role"></a>角色
+#### <a name="role"></a>Role
 
 |屬性|值|
 |---|---|
-|name|角色|
+|name|Role|
 |type|[BlackbirdRoleType](service-fabric-service-model-schema-complex-types.md#blackbirdroletype-complextype)|
 |minOccurs|1|
 |maxOccurs|無限制|
@@ -6408,11 +6408,11 @@ NodeType 的名稱
 ```
 ### <a name="content-element-details"></a>內容元素詳細資料
 
-#### <a name="role"></a>角色
+#### <a name="role"></a>Role
 
 |屬性|值|
 |---|---|
-|name|角色|
+|name|Role|
 |type|[PaaSRoleType](service-fabric-service-model-schema-complex-types.md#paasroletype-complextype)|
 |maxOccurs|無限制|
 
@@ -6440,11 +6440,11 @@ NodeType 的名稱
 ```
 ### <a name="content-element-details"></a>內容元素詳細資料
 
-#### <a name="role"></a>角色
+#### <a name="role"></a>Role
 
 |屬性|值|
 |---|---|
-|name|角色|
+|name|Role|
 |type|[AzureRoleType](service-fabric-service-model-schema-complex-types.md#azureroletype-complextype)|
 |maxOccurs|無限制|
 
@@ -6605,12 +6605,12 @@ NodeType 的名稱
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 Settings.xml 檔案中要覆寫的區段名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 ### <a name="content-element-details"></a>內容元素詳細資料
@@ -6671,11 +6671,11 @@ Settings.xml 檔案中要覆寫的區段名稱。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -6840,7 +6840,7 @@ Settings.xml 檔案中要覆寫的區段名稱。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 服務名稱，用來構成完整應用程式名稱 URI。 服務的完整名稱 URI 會是：fabric:/ApplicationName/ServiceName。
 
 |屬性|值|
@@ -7109,7 +7109,7 @@ URI 形式的其他服務名稱。 例如 "fabric:/otherApplication/parentServic
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -7425,7 +7425,7 @@ ServicePackage 代表已設定版本的部署和啟用單位。 ServicePackage �
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
@@ -7648,12 +7648,12 @@ ServicePackage 代表已設定版本的部署和啟用單位。 ServicePackage �
 |---|---|
 |name|DomainName|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 InvalidDomain 可讓您指定特定的容錯網域對此工作負載是無效的。 RequiredDomain 要求所有的複本都出現在指定的網域中。 您可以指定多個所需的網域。 PreferredPrimaryDomain 指定主要複本的慣用容錯網域。 在跨越地理區域的叢集中非常有用，其中您使用其他位置進行備援，但希望主要複本可以放置在特定位置，來為傳輸到主要複本的作業提供較低的延遲。 RequiredDomainDistribution 指定複本需要被分配到可用的容錯網域。 NonPartiallyPlace 控制當無法放置所有服務複本時，是否將部分放置服務複本。
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |use|必要|
 
 
@@ -7714,12 +7714,12 @@ InvalidDomain 可讓您指定特定的容錯網域對此工作負載是無效的
 |---|---|
 |name|DomainName|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 InvalidDomain 可讓您指定特定的容錯網域對此工作負載是無效的。 RequiredDomain 要求所有的複本都出現在指定的網域中。 您可以指定多個所需的網域。 PreferredPrimaryDomain 指定主要複本的慣用容錯網域。 在跨越地理區域的叢集中非常有用，其中您使用其他位置進行備援，但希望主要複本可以放置在特定位置，來為傳輸到主要複本的作業提供較低的延遲。 RequiredDomainDistribution 指定複本需要被分配到可用的容錯網域。 NonPartiallyPlace 控制當無法放置所有服務複本時，是否將部分放置服務複本。 
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |use|必要|
 
 
@@ -8311,7 +8311,7 @@ InvalidDomain 可讓您指定特定的容錯網域對此工作負載是無效的
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 系統群組的名稱。
 
 |屬性|值|
@@ -8345,11 +8345,11 @@ InvalidDomain 可讓您指定特定的容錯網域對此工作負載是無效的
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -8626,12 +8626,12 @@ InvalidDomain 可讓您指定特定的容錯網域對此工作負載是無效的
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 使用者帳戶的名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 

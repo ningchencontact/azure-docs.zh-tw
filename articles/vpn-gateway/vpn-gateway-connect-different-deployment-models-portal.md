@@ -79,7 +79,7 @@ SKU = VpnGw1 <br>
 | 虛擬網路 | 位址空間 | 區域 | 連接至區域網路站台 |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |美國西部 | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |美國東部 |ClassicVNetLocal (10.0.0.0/24) |
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>第 1 節 - 進行傳統 VNet 設定
 
@@ -178,7 +178,7 @@ SKU = VpnGw1 <br>
 | 虛擬網路 | 位址空間 | 區域 | 連接至區域網路站台 |閘道公用 IP 位址|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |美國西部 | RMVNetLocal (192.168.0.0/16) |指派給 ClassicVNet 閘道的公用 IP 位址|
-| RMVNet | (192.168.0.0/16) |美國東部 |ClassicVNetLocal (10.0.0.0/24) |指派給 RMVNet 閘道的公用 IP 位址。|
+| RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |指派給 RMVNet 閘道的公用 IP 位址。|
 
 區域網路閘道會指定與您的傳統 VNet 及其虛擬網路閘道相關聯之位址範圍和公用 IP 位址。 如果您執行這些步驟作為練習，請參考範例值。
 

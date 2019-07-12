@@ -17,7 +17,7 @@ ms.locfileid: "60609480"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
  本文提供指引和自動化指令碼，以提供適合處理許多在英國已歸類為 OFFICIAL 之工作負載的 Microsoft Azure 三層式 Web 型架構。
 

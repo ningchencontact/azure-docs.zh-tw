@@ -41,7 +41,7 @@ ms.locfileid: "62109343"
 
      ![建立新的 Studio 工作區](./media/create-workspace/create-new-workspace.png)
 
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 
 > [!NOTE]
 > Machine Learning Studio 依賴您提供的 Azure 儲存體帳戶，才能在執行工作流程時儲存中繼資料。 建立工作區之後，如果儲存體帳戶遭到刪除，或存取金鑰變更，工作區會停止運作，並且該工作區中的所有實驗將會失敗。

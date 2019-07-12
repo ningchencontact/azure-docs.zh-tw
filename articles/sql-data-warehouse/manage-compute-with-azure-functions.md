@@ -31,7 +31,7 @@ ms.locfileid: "61083772"
 - 您的 SQL DW 執行個體所在的邏輯伺服器名稱
 - 您的 SQL DW 執行個體名稱
 - Azure Active Directory 的租用戶識別碼 (目錄識別碼)
-- 订阅 ID 
+- 訂用帳戶識別碼 
 - 服務主體的應用程式識別碼
 - 服務主體祕密金鑰
 
@@ -144,7 +144,7 @@ ms.locfileid: "61083772"
 
 每天上午 8 點相應增加至 DW600，在下午 8 點相應減少至 DW200。
 
-| 函式  | 排程     | 作業                                |
+| 函數  | 排程     | 運算                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -153,7 +153,7 @@ ms.locfileid: "61083772"
 
 每天上午 8 點相應增加至 DW1000、在下午 4 點一度相應減少至 DW600，並在下午 10 點相應減少至 DW200。
 
-| 函式  | 排程     | 作業                                |
+| 函數  | 排程     | 運算                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -163,7 +163,7 @@ ms.locfileid: "61083772"
 
 在工作日的上午 8 點相應增加至 DW1000，在下午 4 點一度相應減少至 DW600。 在星期五晚上 11 點暫停，在星期一上午 7 點繼續。
 
-| 函式  | 排程       | 作業                                |
+| 函數  | 排程       | 運算                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

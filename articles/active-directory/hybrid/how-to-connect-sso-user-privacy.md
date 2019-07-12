@@ -27,7 +27,7 @@ ms.locfileid: "60242112"
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 
 Azure AD 無縫 SSO 會建立下列記錄類型，其中可以包含個人資料： 

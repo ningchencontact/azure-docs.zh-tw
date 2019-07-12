@@ -26,7 +26,7 @@ ms.locfileid: "64935873"
 | --------------- | ------- |
 | **電腦信任邊界** | <ul><li>[確保設定正確的 ACL 以將未經授權的存取限制於裝置上的資料](#acl-restricted-access)</li><li>[確保敏感性使用者特有應用程式內容會儲存在使用者設定檔目錄中](#sensitive-directory)</li><li>[確保已部署的應用程式是以最低權限執行](#deployed-privileges)</li></ul> |
 | **Web 應用程式** | <ul><li>[在處理商務邏輯流程時強制執行循序步驟順序](#sequential-logic)</li><li>[實作速率限制機制以防止列舉](#rate-enumeration)</li><li>[確保施行適當的授權並遵循最低權限的原則](#principle-least-privilege)</li><li>[商務邏輯和資源存取授權決策不應以傳入的要求參數為基礎](#logic-request-parameters)</li><li>[確保無法透過強迫瀏覽來列舉或存取內容和資源](#enumerable-browsing)</li></ul> |
-| **資料庫** | <ul><li>[確保使用最低權限的帳戶連線到資料庫伺服器](#privileged-server)</li><li>[實作資料列層級安全性 RLS，以防止租用戶存取彼此的資料](#rls-tenants)</li><li>[系統管理員角色只能具備有效的必要使用者](#sysadmin-users)</li></ul> |
+| **[資料庫備份]** | <ul><li>[確保使用最低權限的帳戶連線到資料庫伺服器](#privileged-server)</li><li>[實作資料列層級安全性 RLS，以防止租用戶存取彼此的資料](#rls-tenants)</li><li>[系統管理員角色只能具備有效的必要使用者](#sysadmin-users)</li></ul> |
 | **IoT 雲端閘道** | <ul><li>[使用最低權限的權杖連線到雲端閘道](#cloud-least-privileged)</li></ul> |
 | **Azure 事件中樞** | <ul><li>[使用僅限傳送權限 SAS 金鑰來產生裝置權杖](#sendonly-sas)</li><li>[請勿使用可供直接存取事件中樞的存取權杖](#access-tokens-hub)</li><li>[使用具有所需最低權限的 SAS 金鑰來連線到事件中樞](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[盡可能使用資源權杖來連線到 Azure Cosmos DB](#resource-docdb)</li></ul> |

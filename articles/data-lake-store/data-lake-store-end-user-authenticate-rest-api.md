@@ -29,7 +29,7 @@ ms.locfileid: "60877817"
 
 在本文中，您會了解如何使用 REST API 向 Azure Data Lake Storage Gen1 驗證終端使用者。 如需使用 REST API 向 Data Lake Storage Gen1 進行服務對服務驗證，請參閱[使用 REST API 向 Data Lake Storage Gen1 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-rest-api.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 

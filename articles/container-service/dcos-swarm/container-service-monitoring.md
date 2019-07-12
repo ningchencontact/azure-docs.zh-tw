@@ -22,7 +22,7 @@ ms.locfileid: "60508058"
 
 本文中，我們會將 Datadog 代理程式部署到 Azure 容器服務叢集中的所有代理程式節點。 您將需要 Datadog 帳戶以進行這項設定。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 [部署](container-service-deployment.md)和[連接](../container-service-connect.md) Azure Container Service 所設定的叢集。 瀏覽 [Marathon UI](container-service-mesos-marathon-ui.md)。 移至 [https://datadoghq.com](https://datadoghq.com) 以設定 Datadog 帳戶。 
 
 ## <a name="datadog"></a>Datadog

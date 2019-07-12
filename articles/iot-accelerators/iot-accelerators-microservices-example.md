@@ -29,7 +29,7 @@ ms.locfileid: "61447580"
 > * 提取新的 Docker 映像
 > * 將變更視覺化 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 為了依循本教學課程進行操作，您需要：
 

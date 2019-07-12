@@ -28,11 +28,11 @@ ms.locfileid: "60318930"
 > [!NOTE] 
 > Azure 有兩種用來建立和使用資源的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 建議您對新部署使用 Resource Manager 部署模型，而不是傳統部署模型。 
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 您無法對 Azure 中的 VM 建立 RDP 連線，因為網路安全性群組中未開啟 RDP 連接埠。
 
-## <a name="solution"></a>解決方法 
+## <a name="solution"></a>方案 
 
 當您建立新 VM 時，根據預設，系統會封鎖所有來自網際網路的流量。 
 
@@ -47,8 +47,8 @@ ms.locfileid: "60318930"
     **名稱**：Port_3389 </br>
     **連接埠**：3389 </br>
     **通訊協定**：TCP </br>
-    **來源**：任意 </br>
-    **目的地**：任意 </br>
+    **來源**：Any </br>
+    **目的地**：Any </br>
     **動作**：允許 </br>
 
 如果您指定來源 IP 位址，此設定會只允許來自特定 IP 位址或 IP 位址範圍的流量連線至 VM。 請確定您用來啟動 RDP 工作階段的電腦在該範圍內。

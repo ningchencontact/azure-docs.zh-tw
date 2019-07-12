@@ -19,7 +19,7 @@ ms.locfileid: "60741329"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>災難復原和異地複寫
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 在 Durable Functions 中，所有狀態會保存於 Azure 儲存體中。 [工作中樞](durable-functions-task-hubs.md)是協調流程所使用之 Azure 儲存體資源的邏輯容器。 協調器和活動函式必須屬於相同的工作中樞，才能彼此互動。
 所述的案例會提議部署選項，以在災難復原活動期間提升可用性和將停機時間降至最低。

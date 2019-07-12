@@ -28,7 +28,7 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 
 
 
-## <a name="overview"></a>概觀 
+## <a name="overview"></a>總覽 
 
 將訓練實驗轉換為預測實驗包含三個步驟：
 

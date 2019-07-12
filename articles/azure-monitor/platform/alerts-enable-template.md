@@ -24,7 +24,7 @@ ms.locfileid: "60776434"
 >
 
 
-基本步骤如下所示：
+基本步驟如下：
 
 1. 建立一個描述如何建立警示的 JSON 檔案做為範本。
 2. [使用任何部署方法部署範本](../../azure-resource-manager/resource-group-template-deploy.md)。

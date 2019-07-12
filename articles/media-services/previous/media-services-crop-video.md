@@ -15,7 +15,7 @@ ms.date: 03/18/2019
 ms.author: anilmur;juliako;
 ms.openlocfilehash: 9a81050fca935f688f2ff58cb04a148bf676f04b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217147"

@@ -55,9 +55,9 @@ ms.locfileid: "64708785"
   
 ### <a name="attributes"></a>屬性  
   
-|Name|描述|必要項|預設值|  
+|名稱|描述|必要項|預設|  
 |----------|-----------------|--------------|-------------|  
-|username|指定「基本驗證」認證的使用者名稱。|是|N/A|  
+|userName|指定「基本驗證」認證的使用者名稱。|是|N/A|  
 |password|指定「基本驗證」認證的密碼。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
@@ -89,13 +89,13 @@ ms.locfileid: "64708785"
 
 ### <a name="elements"></a>元素  
   
-|Name|描述|必要項|  
+|名稱|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-certificate|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|Name|描述|必要項|預設值|  
+|名稱|描述|必要項|預設|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|用戶端憑證的指紋。|請`thumbprint`或`certificate-id`必須存在。|N/A|  
 |certificate-id|憑證資源名稱。|請`thumbprint`或`certificate-id`必須存在。|N/A|  
@@ -130,7 +130,7 @@ ms.locfileid: "64708785"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|描述|必要項|預設值|  
+|名稱|描述|必要項|預設|  
 |----------|-----------------|--------------|-------------|  
 |resource|字串。 目標中的 web API （受保護的資源） Azure Active Directory 應用程式識別碼 URI。|是|N/A|  
 |output-token-variable-name|字串。 將會收到權杖的值，做為物件類型的內容變數名稱`string`。|否|N/A|  

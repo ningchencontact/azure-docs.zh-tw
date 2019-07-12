@@ -25,7 +25,7 @@ ms.locfileid: "61466590"
 
 本主題討論使用 Azure 媒體服務的 DRM 子系統混合式設計。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 媒體服務提供下列三個 DRM 系統支援：
 

@@ -23,7 +23,7 @@ ms.locfileid: "60632598"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>使用 StorSimple 裝置管理員服務來管理儲存體帳戶認證
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 StorSimple 裝置管理員服務的刀鋒視窗中，[設定]  區段會顯示所有可在 StorSimple 裝置管理員服務中建立的全域服務參數。 這些參數可以套用到與該服務連線的所有裝置，還包括：
 

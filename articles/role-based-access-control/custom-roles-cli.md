@@ -27,7 +27,7 @@ ms.locfileid: "62118768"
 
 如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：建立使用 Azure CLI 的 Azure 資源的自訂角色](tutorial-custom-role-cli.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要建立自訂角色，您需要：
 

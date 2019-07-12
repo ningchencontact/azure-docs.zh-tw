@@ -29,7 +29,7 @@ Azure 虛擬機器擴充功能可提供多種功能，例如部署後的設定�
 
 本文詳細說明如何對要為虛擬機器擴展集中的 VM 執行個體設定的擴充功能進行排序。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本文假設您已熟悉以下各項：
 -   Azure 虛擬機器[延伸模組](../virtual-machines/extensions/overview.md)
 -   [修改](virtual-machine-scale-sets-upgrade-scale-set.md)虛擬機器擴展集

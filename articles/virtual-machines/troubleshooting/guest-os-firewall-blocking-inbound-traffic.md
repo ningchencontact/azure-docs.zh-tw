@@ -41,7 +41,7 @@ ms.locfileid: "60711550"
 
 ![防火牆設定](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在按照下列步驟進行之前，請先擷取受影響虛擬機器系統磁碟的快照集作為備份。 如需詳細資訊，請參閱 [擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 

@@ -22,7 +22,7 @@ ms.locfileid: "60617702"
 
 本文說明如何使用以 Azure .NET SDK 所撰寫的應用程式，來管理 Azure Data Lake Analytics 帳戶、資料來源、使用者和作業。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **已安裝 Visual Studio 2015、Visual Studio 2013 更新 4，或具有 Visual C++ 的 Visual Studio 2012**。
 * **Microsoft Azure SDK for .NET 2.5 版或更新版本**。  使用 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)來進行安裝。
@@ -30,7 +30,7 @@ ms.locfileid: "60617702"
 
 ### <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
-|封裝|Version|
+|套件|Version|
 |-------|-------|
 |[Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
 |[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
@@ -57,7 +57,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 您有多個可登入 Azure Data Lake Analytics 的選項。 下列程式碼片段說明使用快顯視窗進行互動式使用者驗證的驗證範例。
 

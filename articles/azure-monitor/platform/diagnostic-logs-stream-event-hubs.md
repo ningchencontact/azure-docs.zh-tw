@@ -37,7 +37,7 @@ ms.locfileid: "60237742"
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **建置自訂遙測及記錄平台** – 如果您已有自建遙測平台或正好在考慮建置一個，事件中樞所具備的高度可調整的發佈訂閱特質可讓您靈活擷取診斷記錄檔。 [請參閱此處的 Dan Rosanova 指南，以在全球級別的遙測平台中使用事件中樞](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)。
+* **建置自訂遙測及記錄平台** – 如果您已有自建遙測平台或正好在考慮建置一個，事件中樞所具備的高度可調整的發佈訂閱特質可讓您靈活擷取診斷記錄。 [請參閱此處的 Dan Rosanova 指南，以在全球級別的遙測平台中使用事件中樞](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)。
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>啟用診斷記錄的串流
 
@@ -77,7 +77,7 @@ ms.locfileid: "60237742"
 
    選取的命名空間將會是事件中樞的建立所在 (如果這是您第一次的串流診斷記錄) 或串流處理的目的地 (如果已存在將該記錄分類串流至此命名空間的資源)，而原則會定義串流機制擁有的權限。 目前，將事件串流到中樞需要管理、傳送和接聽的權限。 您可以在入口網站的 [設定] 索引標籤下，為您的命名空間建立或修改事件中樞命名空間共用存取原則。 若要更新其中一個診斷設定，用戶端必須擁有事件中樞授權規則的 ListKey 權限。 您也可以選擇性地指定事件中樞名稱。 如果您指定事件中樞名稱，記錄便會路由至該事件中樞，而非路由至每個記錄類別所新建的事件中樞。
 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該事件中樞。
 
@@ -184,9 +184,9 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 | 記錄數 |此承載中的所有記錄事件的陣列。 |
 | time |事件發生的時間。 |
 | category |此事件的記錄檔分類。 |
-| ResourceId |產生此事件之資源的資源識別碼。 |
+| resourceId |產生此事件之資源的資源識別碼。 |
 | operationName |作業名稱。 |
-| 層級 |選用。 表示記錄事件層級。 |
+| level |選擇性。 表示記錄事件層級。 |
 | properties |事件的屬性。 |
 
 您可以在[這裡](diagnostic-logs-overview.md)檢視支援串流至事件中樞的所有資源提供者清單。
@@ -197,7 +197,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure 監視器來串流 Azure Active Directory 記錄檔](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [深入了解 Azure 診斷記錄檔](diagnostic-logs-overview.md)
+* [使用 Azure 監視器來串流 Azure Active Directory 記錄](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [深入了解 Azure 診斷記錄](diagnostic-logs-overview.md)
 * [開始使用事件中心](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
