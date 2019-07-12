@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133806"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712473"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>啟用並部署 Azure 的強力 Ssd （預覽）
 
@@ -33,7 +33,7 @@ CLI：`az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].lo
 
 保留**區域**值，它代表您的可用性區域，且您需要它才能部署強力的 SSD。
 
-|ResourceType  |名稱  |位置  |區域  |限制  |功能  |值  |
+|ResourceType  |名稱  |Location  |區域  |限制  |功能  |值  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ CLI：`az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].lo
 取代或設定 **$vmname**， **$rgname**， **$diskname**， **$location**， **$password**， **$user**變數，以您自己的值。 設定 **$zone**您所得的可用性區域的值[這篇文章的啟動](#determine-your-availability-zone)。 然後執行下列 CLI 命令建立的強力的啟用的 VM:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>建立使用 CLI 的強力 SSD

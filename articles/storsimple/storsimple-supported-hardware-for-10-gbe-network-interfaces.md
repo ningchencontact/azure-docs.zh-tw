@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726956"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>10 GbE 網路介面在 StorSimple 裝置上支援的硬體
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文章提供補充使用 Microsoft Azure StorSimple 裝置的補充硬體之相關資訊。
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>已經過 Microsoft 測試的裝置清單
@@ -34,7 +34,7 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>纜線
-| S. 沒有。 | 請確定 | 模型 |
+| S. 資料分割 | 請確定 | 模型 |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +42,7 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>交換器
-| 序 沒有。 | 請確定 | 模型 |
+| 序 資料分割 | 請確定 | 模型 |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |

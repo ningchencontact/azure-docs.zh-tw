@@ -35,7 +35,7 @@ ms.locfileid: "66428106"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 執行下列項目的開發電腦︰
   * Visual Studio 2015 或 Visual Studio 2019。
@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>建立映像
-執行 `docker build` 命令來建立可執行 Web 應用程式的映像。 開啟 PowerShell 視窗，然後瀏覽至包含 Dockerfile 的目錄。 執行以下命令：
+執行 `docker build` 命令來建立可執行 Web 應用程式的映像。 開啟 PowerShell 視窗，然後瀏覽至包含 Dockerfile 的目錄。 執行下列命令：
 
 ```
 docker build -t helloworldapp .
@@ -458,7 +458,7 @@ V6.4 的最新的重新整理版本開始，您可以指定 docker HEALTHCHECK �
 
 在 [連線端點]  中，輸入叢集的管理端點。 例如，"containercluster.westus2.cloudapp.azure.com:19000"。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在叢集的 [概觀] 索引標籤中找到用戶端連線端點。
 
-按一下 [發佈]  。
+按一下 [發行]  。
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一個 Web 型工具，可檢查和管理 Service Fabric 叢集中的應用程式與節點。 開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ 然後遵循應用程式部署。 此應用程式會進行部署，但在叢集節點中下載映像之前 (視映像大小而定，這可能需要一些時間) 會處於錯誤狀態︰![錯誤][1]
 

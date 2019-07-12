@@ -24,7 +24,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244865"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 為了讓 Azure Active Directory (Azure AD) 與 Active Directory Federation Services (AD FS) 之間能夠成功地同盟，AD FS 用來向 Azure AD 簽署安全性權杖的憑證應該符合 Azure AD 中所設定的憑證。 任何不相符都可能導致信任受損。 Azure AD 會確保這項資訊在您部署 AD FS 和 Web 應用程式 Proxy (適用於外部網路存取) 時保持同步。
 
 本文提供您其他資訊，以便在下列情況時管理權杖簽署憑證，並讓憑證與 Azure AD 保持同步︰

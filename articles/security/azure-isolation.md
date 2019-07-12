@@ -23,7 +23,7 @@ ms.locfileid: "66147646"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 為了協助目前和潛在的 Azure 客戶了解和利用可在 Azure 平台上和周圍取得的各種安全性相關功能，Microsoft 開發了一系列的技術白皮書、安全性概觀、最佳作法及檢查清單。
 主題範圍兼具廣度與深度，並會定期更新。 本文件是該系列的一部分，以下的＜摘要＞一節將會摘要說明。
 

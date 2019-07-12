@@ -37,10 +37,10 @@ ms.locfileid: "60244529"
 3. 在 [歡迎] 畫面上，選取同意授權條款的方塊，然後按一下 [繼續]  。  
 4. 在 [快速設定] 畫面上，按一下 [ **使用快速設定**]。  
    ![歡迎使用 Azure AD Connect](./media/how-to-connect-install-express/express.png)
-5. 在 [連接到 Azure AD] 畫面上，輸入您的 Azure AD 的全域系統管理員使用者名稱和密碼。 单击“下一步”  。  
-   ![连接到 Azure AD](./media/how-to-connect-install-express/connectaad.png)  
+5. 在 [連接到 Azure AD] 畫面上，輸入您的 Azure AD 的全域系統管理員使用者名稱和密碼。 按一下 [下一步]  。  
+   ![連接至 Azure AD](./media/how-to-connect-install-express/connectaad.png)  
    如果您收到錯誤訊息，而且有連線問題，請參閱[針對連線問題進行疑難排解](tshoot-connect-connectivity.md)。
-6. 在 [連接到 AD DS] 畫面上輸入企業系統管理員帳戶的使用者名稱和密碼。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\administrator 或 fabrikam.com\administrator。 单击“下一步”  。  
+6. 在 [連接到 AD DS] 畫面上輸入企業系統管理員帳戶的使用者名稱和密碼。 您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\administrator 或 fabrikam.com\administrator。 按一下 [下一步]  。  
    ![連線到 AD DS](./media/how-to-connect-install-express/connectad.png)
 7. 只有在未完成[必要條件](how-to-connect-install-prerequisites.md)中的[驗證網域](../active-directory-domains-add-azure-portal.md)時，才會顯示 [[**Azure AD 登入組態**](plan-connect-user-signin.md#azure-ad-sign-in-configuration)] 頁面。
    ![未驗證的網域](./media/how-to-connect-install-express/unverifieddomain.png)  
@@ -71,7 +71,7 @@ ms.locfileid: "60244529"
 
 ## <a name="related-documentation"></a>相關文件
 
-| 話題 | 連結 |
+| 主題 | 連結 |
 | --- | --- |
 | Azure AD Connect 概觀 | [整合您的內部部署目錄與 Azure Active Directory](whatis-hybrid-identity.md)
 | 使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md) |

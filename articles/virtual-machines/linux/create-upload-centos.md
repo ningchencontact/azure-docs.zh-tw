@@ -4,7 +4,7 @@ description: 了解如何建立及上傳包含 CentOS 型 Linux 作業系統的 
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 89dbdeb02e603602155b3b8b04294aaa757b6b11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c7c3a31b36705e90cec9775806e8d1c8bf5cebe
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241461"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668029"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>準備適用於 Azure 的 CentOS 型虛擬機器
 
@@ -30,7 +30,7 @@ ms.locfileid: "66241461"
 * [準備適用於 Azure 的 CentOS 7.0+ 虛擬機器](#centos-70)
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文假設您已將 CentOS (或類似的衍生物件) Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](https://technet.microsoft.com/library/hh846766.aspx)。
 

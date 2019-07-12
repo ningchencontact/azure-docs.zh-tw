@@ -47,9 +47,9 @@ ms.locfileid: "65952691"
 
    |設定|必要項？|詳細資料|
    |---|---|---|
-   |訂用帳戶|是|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
+   |Subscription|是|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
    |資源群組|是|所在的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)可以與您想要與公用 IP 位址建立關聯的資源相同或不同。|
-   |Name|是|名稱必須是您選取的資源群組中唯一的名稱。|
+   |名稱|是|名稱必須是您選取的資源群組中唯一的名稱。|
    |區域|是|必須與您從範圍指派位址的公用 IP 位址存在於相同[區域](https://azure.microsoft.com/regions)。|
    |首碼大小|是| 您需要的首碼大小。 /28 或 16 個 IP 位址為預設值。
 
@@ -70,7 +70,7 @@ ms.locfileid: "65952691"
 
    |設定|必要項？|詳細資料|
    |---|---|---|
-   |Name|是|公用 IP 位址名稱在您選取的資源群組中必須是唯一。|
+   |名稱|是|公用 IP 位址名稱在您選取的資源群組中必須是唯一。|
    |閒置逾時 (分鐘)|否|不需依賴用戶端傳送保持連線訊息，讓 TCP 或 HTTP 連線保持開啟的分鐘數。 |
    |DNS 名稱標籤|否|在您建立名稱的 Azure 區域 (跨越所有訂用帳戶和所有客戶) 中必須是唯一。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱，以建立完整的 DNS 名稱。如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
 
@@ -96,11 +96,11 @@ ms.locfileid: "65952691"
 |CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) 可列出公用 IP 位址、[az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) 可顯示設定；[az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) 可進行更新；[az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) 可進行刪除|
 |PowerShell|[取得 AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix)擷取的公用 IP 位址物件，並檢視其設定中，[組 AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix)更新設定;[移除 AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix)刪除|
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要針對公用 IP 位址首碼執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-| 動作                                                            | Name                                                           |
+| 動作                                                            | 名稱                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | 讀取公用 IP 位址首碼                                |
 | Microsoft.Network/publicIPPrefixes/write                          | 建立或更新公用 IP 位址首碼                    |

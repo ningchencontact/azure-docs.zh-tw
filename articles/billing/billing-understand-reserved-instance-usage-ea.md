@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490389"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798164"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>取得 Enterprise 合約的保留項目成本與使用量
 
@@ -40,7 +40,7 @@ Marketplace 費用將會合併使用情況資料。 您檢視第一次的合作�
 
 比較兩個資料集：
 
-| 資料 | 實際的成本資料集 | 分攤的成本資料集 |
+| Data | 實際的成本資料集 | 分攤的成本資料集 |
 | --- | --- | --- |
 | 保留購買 | 在此檢視中可用。<br><br>  若要取得此資料篩選 ChargeType =&quot;採購&quot;。 <br><br> 請參閱 ReservationID 或 ReservationName 知道需要付費的是哪一個保留項目。  | 此檢視不適用。 <br><br> 分攤的資料中，不提供採購成本。 |
 | EffectivePrice | 取得保留折扣的使用量為零的值。 | 這個值是每小時按比例成本有保留折扣的使用方式的保留項目。 |
@@ -119,9 +119,9 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 您可以於其他組織的計費保留項目使用的訂用帳戶、 資源群組或標記。 分攤的成本資料提供保留區的使用量，在下列資料類型的貨幣的值：
 
 - 資源 （例如 VM)
-- 資源群組
-- 標記
-- 訂用帳戶
+- Resource group
+- Tags
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>取得混合的費率計費功能
 
@@ -139,17 +139,17 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 2. 取得保留成本。 總和_成本_以取得您支付保留執行個體的貨幣值的值。 它包含使用和未使用的保留成本。
 3. 減去保留成本估計的隨用隨付成本，來取得預估的節約效益。
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>保留購買和在 Azure 的成本分析分攤
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>保留購買 」 與 「 分攤成本分析
 
-保留執行個體成本位於[Azure 的成本分析預覽模式](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis)。 根據預設，成本資料檢視會是實際成本。 您可以切換到 分攤成本。 以下是範例。
+保留成本可用於[成本分析](https://aka.ms/costanalysis)。 根據預設，成本分析顯示**實際成本**，這是成本在您的帳單上的顯示方式。 若要檢視細分，並使用權益的資源相關聯的保留購買，請切換到**分攤成本**:
 
 ![範例，示範如何在 成本分析中選取 分攤的成本](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-套用篩選以查看您的費用依保留項目或費用的型別。 群組保留區名稱，以查看依保留項目細分的成本。
+分組看一下的 break 的使用方式、 購買商品及退款; 收費類型或如細項保留項目和隨選成本的保留項目。 請記得查看實際的成本時，您會看到只保留成本是購買，但成本將會配置給使用 benfit，查看 分攤成本時的個別資源。 您也會看到新**UnusedReservation**時查看分攤成本收費類型。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -160,5 +160,5 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 - [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
 - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
-- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [了解隨用隨付訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
 - [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)

@@ -23,7 +23,7 @@ ms.locfileid: "60505944"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>管理 StorSimple 裝置控制器
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本教學課程描述可在 StorSimple 裝置控制器上執行的不同作業。 StorSimple 裝置中的控制器在主動-被動組態中是備援 (對等) 控制器。 在指定的時間中，只能有一個控制器在主動模式，並處理所有磁碟和網路作業。 另一個控制器處於被動模式。 如果主動控制器故障，被動控制器會自動變成主動。
 

@@ -11,7 +11,7 @@ ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 64accb70561d4c0282b3ee45935d955dba1c67c4
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66474546"
@@ -54,8 +54,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | |
-| 授權| 是 | |
+| 驗證| 是 | |
+| Authorization| 是 | |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -103,8 +103,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 客戶可以建置自動整合的 App Service 上的應用程式[Azure Active Directory (Azure AD)](../active-directory/index.yml)以及其他 OAuth 相容的身分識別提供者，請參閱[中驗證和授權Azure App Service](../app-service/overview-authentication-authorization.md)。 管理 App Service 的資產的存取，所有的存取會受到驗證的 Azure AD 主體和 Azure Resource Manager RBAC 角色的組合。 |
-| 授權| 是 | 管理 App Service 的資產的存取，所有的存取會受到驗證的 Azure AD 主體和 Azure Resource Manager RBAC 角色的組合。  |
+| 驗證| 是 | 客戶可以建置自動整合的 App Service 上的應用程式[Azure Active Directory (Azure AD)](../active-directory/index.yml)以及其他 OAuth 相容的身分識別提供者，請參閱[中驗證和授權Azure App Service](../app-service/overview-authentication-authorization.md)。 管理 App Service 的資產的存取，所有的存取會受到驗證的 Azure AD 主體和 Azure Resource Manager RBAC 角色的組合。 |
+| Authorization| 是 | 管理 App Service 的資產的存取，所有的存取會受到驗證的 Azure AD 主體和 Azure Resource Manager RBAC 角色的組合。  |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -152,8 +152,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | [Azure Active Directory](/azure/active-directory)基礎。|
-| 授權| 是 | |
+| 驗證| 是 | [Azure Active Directory](/azure/active-directory)基礎。|
+| Authorization| 是 | |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -201,8 +201,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |
-| 授權| 是 | 會使用建立客戶和內建的 RBAC 角色。 請參閱 < 使用角色型存取控制來管理 Azure 備份的復原點 （/azure/backup/備份-rbac-rs-保存庫） 如需詳細資訊。 |
+| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |
+| Authorization| 是 | 會使用建立客戶和內建的 RBAC 角色。 請參閱 < 使用角色型存取控制來管理 Azure 備份的復原點 （/azure/backup/備份-rbac-rs-保存庫） 如需詳細資訊。 |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -250,8 +250,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |
-| 授權| 是 | 使用 Key Vault 存取原則。 |
+| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |
+| Authorization| 是 | 使用 Key Vault 存取原則。 |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -299,8 +299,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 透過管理[Azure Active Directory 受控服務識別](../service-bus-messaging/service-bus-managed-service-identity.md); 請參閱[服務匯流排驗證和授權](../service-bus-messaging/service-bus-authentication-and-authorization.md)。|
-| 授權| 是 | 支援透過授權[RBAC](../service-bus-messaging/service-bus-role-based-access-control.md) （預覽） 和 SAS 權杖，請參閱[服務匯流排驗證和授權](../service-bus-messaging/service-bus-authentication-and-authorization.md)。 |
+| 驗證| 是 | 透過管理[Azure Active Directory 受控服務識別](../service-bus-messaging/service-bus-managed-service-identity.md); 請參閱[服務匯流排驗證和授權](../service-bus-messaging/service-bus-authentication-and-authorization.md)。|
+| Authorization| 是 | 支援透過授權[RBAC](../service-bus-messaging/service-bus-role-based-access-control.md) （預覽） 和 SAS 權杖，請參閱[服務匯流排驗證和授權](../service-bus-messaging/service-bus-authentication-and-authorization.md)。 |
 
 ### <a name="audit-trail"></a>稽核線索
 
@@ -346,8 +346,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 透過 SAS。 |
-| 授權|  是 | 透過 SAS。 |
+| 驗證| 是 | 透過 SAS。 |
+| Authorization|  是 | 透過 SAS。 |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -395,8 +395,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |
-| 授權| 是 | 透過 SFRP 對呼叫進行身分識別與存取管理 (IAM)。 直接呼叫叢集端點可支援兩種角色：使用者和管理員。客戶可將 API 對應至任一角色。 |
+| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |
+| Authorization| 是 | 透過 SFRP 對呼叫進行身分識別與存取管理 (IAM)。 直接呼叫叢集端點可支援兩種角色：使用者和管理員。客戶可將 API 對應至任一角色。 |
 
 ### <a name="audit-trail"></a>稽核線索
 
@@ -443,8 +443,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | Azure Active Directory。 |
-| 授權| 是 |  |
+| 驗證| 是 | Azure Active Directory。 |
+| Authorization| 是 |  |
 
 
 ### <a name="audit-trail"></a>稽核線索
@@ -499,8 +499,8 @@ ms.locfileid: "66474546"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | Azure Active Directory 中，共用金鑰、 共用存取權杖。 |
-| 授權| 是 | 支援透過 RBAC、 POSIX Acl 中和 SAS 權杖的授權 |
+| 驗證| 是 | Azure Active Directory 中，共用金鑰、 共用存取權杖。 |
+| Authorization| 是 | 支援透過 RBAC、 POSIX Acl 中和 SAS 權杖的授權 |
 
 
 ### <a name="audit-trail"></a>稽核線索

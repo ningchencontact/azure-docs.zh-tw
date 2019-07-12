@@ -43,7 +43,7 @@ ms.locfileid: "60790021"
 > * 實作 WCF 用戶端
 > * 執行應用程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本教學課程，您需要下列必要條件：
 
@@ -68,7 +68,7 @@ ms.locfileid: "60790021"
 
 3. 安裝服務匯流排 NuGet 套件。 此套件會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。 服務匯流排會使用 WCF 的許多物件和屬性來定義服務合約。
 
-    在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 套件]  。按一下 [瀏覽] 索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 確定已在 [版本]  方塊中選取此專案名稱。 按一下 [安裝]  並接受使用條款。
+    在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 套件]  。按一下 [瀏覽]  索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 確定已在 [版本]  方塊中選取此專案名稱。 按一下 [安裝]  並接受使用條款。
 
     ![服務匯流排套件][3]
 4. 在 [方案總管] 中，按兩下 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
@@ -427,7 +427,7 @@ namespace Microsoft.ServiceBus.Samples
 
    1. 在方案總管中含有服務的相同方案中，以滑鼠右鍵按一下目前的方案 (而非專案)，然後按一下 [加入]  。 然後按一下 [新增專案]  。
    2. 在 [新增專案]  對話方塊中，按一下 [Visual C#]  \(如果 **Visual C#** 未出現，請在 [其他語言]  下尋找)，選取 [主控台應用程式 (.NET Framework)]  範本，並將它命名為 **EchoClient**。
-   3. 按一下 [確定]  。
+   3. 按一下 [確定 **Deploying Office Solutions**]。
       <br />
 2. 在 [方案總管] 中，按兩下 **EchoClient** 專案中的 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
 3. 將命名空間名稱從 `EchoClient` 的預設名稱變更為 `Microsoft.ServiceBus.Samples`。

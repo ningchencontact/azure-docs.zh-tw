@@ -32,7 +32,7 @@ ms.locfileid: "60837261"
 | list | 取得在 Service Fabric 叢集中建立的 Compose 部署清單。 |
 | remove | 從叢集刪除現有的 Service Fabric Compose 部署。 |
 | status | 取得 Service Fabric Compose 部署的相關資訊。 |
-| 升級 | 開始升級 Service Fabric 叢集中的 Compose 部署。 |
+| upgrade | 開始升級 Service Fabric 叢集中的 Compose 部署。 |
 | upgrade-rollback | 可開始復原 Service Fabric 叢集中的 Compose 部署升級。 |
 | upgrade-status | 取得在此 Service Fabric Compose 部署上執行的最新升級詳細資料。 |
 

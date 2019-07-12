@@ -43,7 +43,7 @@ ms.locfileid: "62121755"
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始使用 Azure 資訊安全中心，您將需要知道並考慮下列項目︰
 
 * 您需要 Microsoft Azure 訂用帳戶。 請參閱[安全性中心價格](https://azure.microsoft.com/pricing/details/security-center/)，以深入了解資訊安全中心的免費和標準層。
@@ -96,7 +96,7 @@ ms.locfileid: "62121755"
 
 選取一個安全性警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 安全性警示會依[類型](security-center-alerts-type.md)及日期區分。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。

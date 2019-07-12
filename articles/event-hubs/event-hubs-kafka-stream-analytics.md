@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60747991"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626178"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>使用串流分析處理適用於事件中樞的 Apache Kafka 
 本文說明如何將資料串流至啟用的 Kafka 事件中樞，以及使用 Azure 串流分析處理該資料。 本文將逐步引導您完成下列步驟： 
@@ -30,7 +30,7 @@ ms.locfileid: "60747991"
 當您使用事件中樞所公開的 Kafka 端點時，您不需要變更您的通訊協定用戶端或執行自己的叢集。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。 和更新版本。 
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本快速入門，請確定您具備下列必要條件︰
 
@@ -55,7 +55,7 @@ ms.locfileid: "60747991"
     4. 選取您要在其中建立事件中樞命名空間的**訂用帳戶**。 
     5. 建立新的**資源群組**，或選取現有的資源群組。 
     6. 選取**位置**。 
-    7. 按一下頁面底部的 [新增]  。
+    7. 按一下 [建立]  。
     
         ![建立命名空間](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
 4. 在**通知訊息**中，選取**資源群組名稱**。 
@@ -144,7 +144,7 @@ ms.locfileid: "60747991"
     2. 選取您的 **Azure 訂用帳戶**。
     3. 選取您稍早建立的**事件中樞命名空間**。 
     4. 針對**事件中樞**選取 **test**。 
-    5. 選取 [ **儲存**]。 
+    5. 選取 [儲存]  。 
 
         ![事件中樞輸入組態](./media/event-hubs-kafka-stream-analytics/event-hub-input-configuration.png)
 
@@ -157,13 +157,13 @@ ms.locfileid: "60747991"
     2. 選取您的 Azure **訂用帳戶**。 
     3. 選取您的 **Azure 儲存體帳戶**。 
     4. 輸入**容器名稱**，該容器會儲存串流分析查詢的輸出資料。
-    5. 選取 [ **儲存**]。
+    5. 選取 [儲存]  。
 
         ![Blob 儲存體輸出組態](./media/event-hubs-kafka-stream-analytics/output-blob-settings.png)
  
 
 ### <a name="define-a-query"></a>定義查詢
-在串流分析作業安裝程式讀取傳入資料流之後，下一個步驟是建立轉換以即時分析資料。 您可使用[串流分析查詢語言](https://msdn.microsoft.com/library/dn834998.aspx)來定義轉換查詢。 在本逐步解說中，您會定義可通過資料的查詢，而不需執行任何轉換。
+在串流分析作業安裝程式讀取傳入資料流之後，下一個步驟是建立轉換以即時分析資料。 您可使用[串流分析查詢語言](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)來定義轉換查詢。 在本逐步解說中，您會定義可通過資料的查詢，而不需執行任何轉換。
 
 1. 選取 [查詢]  。
 2. 在查詢視窗中，以您稍早建立的輸出別名取代 `[YourOutputAlias]`。

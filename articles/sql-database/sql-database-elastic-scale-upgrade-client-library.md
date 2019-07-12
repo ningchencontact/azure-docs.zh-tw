@@ -37,7 +37,7 @@ ms.locfileid: "60335044"
 * (Visual Studio 2013) 在左邊面板中，選取 [更新]  ，然後在視窗中顯示的 [Azure SQL Database Elastic Scale 用戶端程式庫]  套件上選取 [更新]  按鈕。
 * (Visual Studio 2015) 設定篩選方塊為 [可升級]  。 選取要更新的套件，然後按一下 [更新]  按鈕。
 * (Visual Studio 2017) 在對話方塊頂端，選取 [更新]  。 選取要更新的套件，然後按一下 [更新]  按鈕。
-* 生成并部署。
+* 建置並部署。
 
 **2.升級您的指令碼。** 如果您是使用 **PowerShell** 指令碼來管理分區，請[下載新的程式庫版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)並將它複製到您從中執行指令碼的目錄。
 
@@ -70,11 +70,11 @@ ms.locfileid: "60335044"
 
 這些中繼資料升級技巧可以套用多次且不會造成損害。 例如，如果較舊的用戶端版本在您已經更新之後意外建立分區，您可以在所有分區上再次執行升級，以確保您的整個基礎結構都擁有最新的中繼資料版本。
 
-**附註：** 至今發佈的新版本用戶端程式庫可以繼續和 Azure SQL DB 上的舊版分區對應管理員中繼資料搭配使用，反之亦然。   但是，若要使用最新用戶端中的部分新功能，則必須升級中繼資料。   請注意，中繼資料升級將不會影響任何使用者資料或應用程式特定資料，只會影響分區對應管理員所建立及使用的物件。  而且應用程式會繼續透過上述的升級順序運作。
+**注意：** 至今發佈的新版本用戶端程式庫可以繼續和 Azure SQL DB 上的舊版分區對應管理員中繼資料搭配使用，反之亦然。   但是，若要使用最新用戶端中的部分新功能，則必須升級中繼資料。   請注意，中繼資料升級將不會影響任何使用者資料或應用程式特定資料，只會影響分區對應管理員所建立及使用的物件。  而且應用程式會繼續透過上述的升級順序運作。
 
 ## <a name="elastic-database-client-version-history"></a>彈性資料庫用戶端版本歷程記錄
 
-有关版本历史记录，请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
+如需版本歷程記錄，請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

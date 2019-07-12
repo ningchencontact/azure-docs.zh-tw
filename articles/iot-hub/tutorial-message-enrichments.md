@@ -69,7 +69,7 @@ ms.locfileid: "66259070"
 
 以下是指令碼所建立的資源。 **豐富**表示資源的類訊息。 **原始**表示資源不豐富的訊息。
 
-| Name | 值 |
+| 名稱 | 值 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 容器名稱 | 原始  |
@@ -250,7 +250,7 @@ az iot hub route create \
 
 2. 將 ContosoStorageEndpointEnriched 端點清單中的這些值。
 
-   | Name | 值 | 端點 （下拉式清單中） |
+   | 名稱 | 值 | 端點 （下拉式清單中） |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | 裝置位置 | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |

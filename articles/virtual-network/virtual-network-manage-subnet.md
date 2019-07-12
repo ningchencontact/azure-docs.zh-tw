@@ -95,11 +95,11 @@ ms.locfileid: "64693311"
 - Azure CLI：[az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell：[Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要針對子網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派下表所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|動作                                                                   |   Name                                       |
+|動作                                                                   |   名稱                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   讀取虛擬網路子網路              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   建立或更新虛擬網路子網路  |

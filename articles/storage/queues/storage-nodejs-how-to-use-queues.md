@@ -22,7 +22,7 @@ ms.locfileid: "65142704"
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本指南示範如何使用 Microsoft Azure 佇列服務執行常見案例。 這些範例使用 Node.js API 撰寫。 所涵蓋的案例包括「插入」  、「查看」  、「取得」  和「刪除」  佇列訊息，以及「建立和刪除佇列」  。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 若要從佇列中清除所有訊息但不要刪除，請使用 **clearMessages**。
 
-## <a name="how-to-work-with-shared-access-signatures"></a>作法：使用共用存取簽章
+## <a name="how-to-work-with-shared-access-signatures"></a>HOW TO：使用共用存取簽章
 共用存取簽章 (SAS) 可安全地提供對佇列的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。 SAS 通常用來提供對佇列的有限存取，例如允許行動應用程式提交訊息。
 
 信任的應用程式 (例如雲端型服務) 會使用 **QueueService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式。 例如行動應用程式。 SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。

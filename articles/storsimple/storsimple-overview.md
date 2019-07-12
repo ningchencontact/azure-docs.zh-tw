@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630165"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 系列：混合式雲端存放解決方案
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 歡迎使用 Microsoft Azure StorSimple，StorSimple 是一個整合式儲存體解決方案，可管理內部部署裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。 StorSimple 是一個有效率、符合成本效益且易於管理的存放區域網路 (SAN) 解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。 它使用專屬的 StorSimple 8000 系列裝置、與雲端服務整合以及提供一組管理工具，提供所有企業儲存體 (包括雲端儲存體) 的整體檢視。 (發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。 如果您使用 StorSimple 5000/7000 系列裝置，請至 [StorSimple 說明](http://onlinehelp.storsimple.com/))。
 
 StorSimple 使用 [儲存體分層](#automatic-storage-tiering) 管理各種儲存媒體中儲存的資料。 目前的工作集是以內部部署的方式儲存在固態硬碟 (SSD) 中，較不常使用的資料會儲存於硬碟機 (HDD)，而封存資料則會推送到雲端。 此外，StorSimple 使用重複資料刪除和壓縮來減少資料使用的儲存體數量。 如需詳細資訊，請至 [重複資料刪除和壓縮](#deduplication-and-compression)。 如需 StorSimple 8000 系列文件中使用的其他主要詞彙和概念定義，請至這篇文章的結尾的 [StorSimple 詞彙](#storsimple-terminology) 。
@@ -205,7 +205,7 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 ## <a name="storsimple-workload-summary"></a>StorSimple 工作負載摘要
 下表顯示所支援 StorSimple 工作負載的摘要。
 
-| 案例 | 工作負載 | 支援 | 限制 | Version |
+| 狀況 | 工作負載 | 支援 | 限制 | Version |
 | --- | --- | --- | --- | --- |
 | 共同作業 |檔案共用 |是 | |所有版本 |
 | 共同作業 |分散式檔案共用 |是 | |所有版本 |
@@ -232,7 +232,7 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 
 以下是 StorSimple 支援的基礎結構元件清單。
 
-| 案例 | 工作負載 | 支援 | 限制 | Version |
+| 狀況 | 工作負載 | 支援 | 限制 | Version |
 | --- | --- | --- | --- | --- |
 | 一般 |ExpressRoute |是 | |所有版本 |
 | 一般 |DataCore FC |是* |使用 DataCore SANsymphony 時支援 |所有版本 |

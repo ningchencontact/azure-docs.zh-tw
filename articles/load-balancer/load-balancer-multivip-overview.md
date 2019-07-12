@@ -113,8 +113,8 @@ Azure Load Balancer 提供在多個前端重複使用前端連接埠的彈性，
 
 | 規則 | 前端 | 對應至後端集區 |
 | --- | --- | --- |
-| 1 |![規則](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 (在 VM1 和 VM2 中) |
-| 2 |![規則](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 (在 VM1 和 VM2 中) |
+| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 (在 VM1 和 VM2 中) |
+| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 (在 VM1 和 VM2 中) |
 
 下表顯示負載平衡器的完整對應︰
 

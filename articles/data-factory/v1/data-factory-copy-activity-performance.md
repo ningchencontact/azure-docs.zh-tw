@@ -22,7 +22,7 @@ ms.locfileid: "60488155"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-copy-activity-performance.md)
 > * [第 2 版 (目前的版本)](../copy-activity-performance.md)
 
@@ -264,7 +264,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
      * [分段複製](#staged-copy)
      * [資料管理閘道延展性](data-factory-data-management-gateway-high-availability-scalability.md)
    * [資料管理閘道](#considerations-for-data-management-gateway)
-   * [來源](#considerations-for-the-source)
+   * [Source](#considerations-for-the-source)
    * [接收](#considerations-for-the-sink)
    * [序列化和還原序列化](#considerations-for-serialization-and-deserialization)
    * [壓縮](#considerations-for-compression)
@@ -414,7 +414,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 ![案例 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>參考
+## <a name="reference"></a>參考資料
 以下是幾個支援的資料存放區所適用的效能監視及調整參考：
 
 * Azure 儲存體 (包括 Blob 儲存體和資料表儲存體)：[Azure 儲存體的擴充性目標](../../storage/common/storage-scalability-targets.md)和 [Azure 儲存體效能和擴充性檢查清單](../../storage/common/storage-performance-checklist.md)

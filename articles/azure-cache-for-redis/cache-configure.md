@@ -70,7 +70,7 @@ ms.locfileid: "60554361"
     * [新的支援要求](#new-support-request)
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 **概觀**提供您快取的基本資訊，例如名稱、連接埠、定價層，以及選取的快取度量。
 
@@ -82,7 +82,7 @@ ms.locfileid: "60554361"
 
 **存取控制 (IAM)** 區段提供 Azure 入口網站中對於角色型存取控制 (RBAC) 的支援。 此設定可協助組織簡單而精準地符合其存取管理需求。 如需詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 
-### <a name="tags"></a>標記
+### <a name="tags"></a>Tags
 
 [標記]  區段有助於您組織資源。 如需詳細資訊，請參閱 [使用標記組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
 
@@ -286,7 +286,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 > 
 > 
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>屬性
 按一下 [屬性]  以檢視快取的相關資訊，包括快取端點和連接埠。
 
 ![Azure Redis 快取屬性](./media/cache-configure/redis-cache-properties.png)
@@ -359,7 +359,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-platform-metrics.md)，而後刪除。 若要保存您的快取計量超過 30 天，按一下 [診斷]  以[設定用來儲存快取診斷的儲存體帳戶](cache-how-to-monitor.md#export-cache-metrics)。
 
 >[!NOTE]
->除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Azure Monitor 日志](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
+>除了封存至儲存體快取計量，您也可以[串流至事件中樞，或將它們傳送至 Azure 監視器記錄](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 >
 >
 

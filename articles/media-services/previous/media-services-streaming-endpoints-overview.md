@@ -16,7 +16,7 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573033"
@@ -50,7 +50,7 @@ Azure 媒體服務已將下列屬性新增至串流端點實體：**CdnProvider*
 從媒體服務的 2017 年 1 月版本開始，將會提供兩種串流類型︰**標準**（預覽） 和**Premium**。 這些類型是串流端點 "2.0" 版的一部分。
 
 
-|類型|描述|
+|type|描述|
 |--------|--------|  
 |**標準**|預設為串流端點**標準**類型，可以藉由調整串流單位變更為進階類型。|
 |**高級** |這個選項適用於需要更大規模或控制的專業案例。 移至**Premium**藉由調整串流單位的型別。<br/>專用的串流端點位於隔離的環境，並不會競用資源。|
@@ -75,7 +75,7 @@ Azure 媒體服務已將下列屬性新增至串流端點實體：**CdnProvider*
 
 ### <a name="versions"></a>版本
 
-|類型|StreamingEndpointVersion|ScaleUnits|CDN|計費|
+|type|StreamingEndpointVersion|ScaleUnits|CDN|計費|
 |--------------|----------|-----------------|-----------------|-----------------|
 |傳統|1.0|0|NA|免費|
 |標準串流端點 （預覽）|2.0|0|是|付費|

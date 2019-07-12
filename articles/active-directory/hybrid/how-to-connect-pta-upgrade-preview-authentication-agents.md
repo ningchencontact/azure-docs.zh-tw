@@ -26,7 +26,7 @@ ms.locfileid: "60386738"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 傳遞驗證：升級預覽驗證代理程式
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本文適用於透過預覽版使用 Azure AD 傳遞驗證的客戶。 我們最近已將驗證代理程式軟體升級 (及改版)。 您需要 _手動_ 升級在內部部署伺服器上安裝的預覽驗證代理程式。 此手動升級只是一次性動作。 驗證代理程式的所有未來更新都是自動的。 升級的原因如下所示：
 

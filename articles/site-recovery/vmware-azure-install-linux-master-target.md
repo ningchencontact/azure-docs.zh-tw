@@ -24,12 +24,12 @@ ms.locfileid: "66479994"
 > 從主要目標伺服器的 9.10.0 版本開始，最新的主要目標伺服器只能安裝在 Ubuntu 16.04 伺服器上。 CentOS6.6 伺服器上不允許安裝新的主要目標。 不過，您可以使用 9.10.0 版本繼續升級舊的主要目標伺服器。
 > 不支援 LVM 上的主要目標伺服器。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文提供如何安裝 Linux 主要目標的指示。
 
 在本文末尾或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) 中張貼意見或問題。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 若要選擇要在其中部署主要目標的主機，請確定容錯回復的目的地是現有內部部署虛擬機器還是新的虛擬機器。 
     * 若是現有虛擬機器，主要目標的主機應該要能存取虛擬機器的資料存放區。

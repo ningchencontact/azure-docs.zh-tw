@@ -12,7 +12,7 @@ ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510931"
@@ -27,7 +27,7 @@ ms.locfileid: "66510931"
 
 下列識別碼均可用於識別碼為 `api.signuporsignin` 的內容定義。
 
-| ID | 預設值 |
+| id | 預設值 |
 | -- | ------------- |
 | **local_intro_email** | 使用您的現有帳戶登入 |
 | **logonIdentifier_email** | 電子郵件地址 |
@@ -81,7 +81,7 @@ ms.locfileid: "66510931"
 
 ## <a name="sign-up-or-sign-in-error-messages"></a>註冊或登入錯誤訊息
 
-| ID | 預設值 |
+| id | 預設值 |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | 您的密碼不正確。 |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 找不到您的帳戶。 |
@@ -95,10 +95,10 @@ ms.locfileid: "66510931"
 
 以下是適用於識別碼為 `api.localaccountsignup` 之內容定義的識別碼，或任何開頭為 `api.selfasserted` 之內容定義的識別碼，例如 `api.selfasserted.profileupdate` 和 `api.localaccountpasswordreset`。
 
-| ID | 預設值 |
+| id | 預設值 |
 | -- | ------------- |
 | **ver_sent** | 已將驗證碼傳送至： |
-| **ver_but_default** | 預設值 |
+| **ver_but_default** | 預設 |
 | **cancel_message** | 使用者已取消輸入自動判斷的資訊 |
 | **preloader_alt** | 請稍候 |
 | **ver_but_send** | 傳送驗證碼 |
@@ -122,7 +122,7 @@ ms.locfileid: "66510931"
 | **ver_but_verify** | 驗證碼 |
 | **alert_no** | 否 |
 | **ver_info_msg** | 驗證碼已經傳送到您的收件匣。 請將其複製到下方輸入方塊。 |
-| **day** | 天 |
+| **day** | Day |
 | **ver_fail_throttled** | 驗證此電子郵件地址時有過多要求。 請稍候，然後再試一次。 |
 | **helplink_text** | 這是什麼？ |
 | **ver_fail_retry** | 該驗證碼不正確。 請再試一次。 |
@@ -134,7 +134,7 @@ ms.locfileid: "66510931"
 
 ## <a name="sign-up-and-self-asserted-pages-error-messages"></a>註冊和自我判斷頁面錯誤訊息
 
-| ID | 預設值 |
+| id | 預設值 |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | 已存在具有所指定識別碼的使用者。 請選擇不同的識別碼。 |
 | **UserMessageIfClaimNotVerified** | 宣告未驗證: {0} |
@@ -157,7 +157,7 @@ ms.locfileid: "66510931"
 
 以下為適用於識別碼為 `api.phonefactor` 之內容定義的識別碼。 
 
-| ID | 預設值 |
+| id | 預設值 |
 | -- | ------------- |
 | **button_verify** | 撥電話給我 |
 | **country_code_label** | 國碼 (地區碼) |

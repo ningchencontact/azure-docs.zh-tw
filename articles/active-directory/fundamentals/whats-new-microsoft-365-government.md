@@ -51,7 +51,7 @@ Microsoft 365 Government 雲端執行個體，也就是適用於使用下列服�
 
 下表顯示的端點，讓所有客戶：
 
-| Name | 端點詳細資料 |
+| 名稱 | 端點詳細資料 |
 |------|------------------|
 | 入口網站 |Microsoft Azure 政府服務： https://portal.azure.us<p>Microsoft 365 Government – GCC 高： https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
 | Azure Active Directory 授權端點 | https://login.microsoftonline.us |

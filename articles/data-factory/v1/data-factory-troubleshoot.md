@@ -14,12 +14,12 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002939"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836167"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
@@ -119,14 +119,14 @@ Failed to create cluster. Exception: Unable to complete the cluster create opera
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>使用 Azure 入口網站進行疑難排解
 ### <a name="using-portal-blades"></a>使用入口網站刀鋒視窗
-請參閱 [監視管線](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) 以取得步驟。
+請參閱 [監視管線](data-factory-monitor-manage-pipelines.md) 以取得步驟。
 
 ### <a name="using-monitor-and-manage-app"></a>使用監視及管理應用程式
 如需詳細資訊，請參閱 [使用監視及管理應用程式，來監視及管理 Data Factory 管線](data-factory-monitor-manage-app.md) 。
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>使用 Azure PowerShell 進行疑難排解
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>使用 Azure PowerShell 對錯誤進行疑難排解
-如需詳細資料，請參閱 [使用 Azure PowerShell 監視 Data Factory 管線](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) 。
+如需詳細資料，請參閱 [使用 Azure PowerShell 監視 Data Factory 管線](data-factory-monitor-manage-pipelines.md) 。
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

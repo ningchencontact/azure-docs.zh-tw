@@ -70,7 +70,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ![系統管理員結構][3]
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 
 若要建立新的使用者，您必須具有資料庫中的 `ALTER ANY USER` 權限。 任何資料庫使用者皆可授與 `ALTER ANY USER` 權限。 `ALTER ANY USER` 權限的擁有者還包括伺服器系統管理員帳戶、具備資料庫之 `CONTROL ON DATABASE` 或 `ALTER ON DATABASE` 權限的資料庫使用者，以及 `db_owner` 資料庫角色的成員。
 
@@ -153,7 +153,7 @@ Azure AD 伺服器主體 (登入) (**公開預覽**) 支援下列驗證方法：
 - 如需資料庫主體的詳細資訊，請參閱[主體](https://msdn.microsoft.com/library/ms181127.aspx)。
 - 如需資料庫角色的詳細資訊，請參閱[資料庫角色](https://msdn.microsoft.com/library/ms189121.aspx)。
 - 如需建立適用於受控執行個體之 Azure AD 伺服器主體 (登入) 的語法，請參閱 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)。
-- 有关 SQL 数据库中的防火墙规则的详细信息，请参阅 [SQL 数据库防火墙规则](sql-database-firewall-configure.md)。
+- 如需 SQL Database 中防火牆規則的詳細資訊，請參閱 [SQL Database 防火牆規則](sql-database-firewall-configure.md)。
 
 <!--Image references-->
 

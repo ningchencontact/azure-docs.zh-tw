@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228562"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到檔案系統或從該處複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-onprem-file-system-connector.md)
 > * [目前的版本](connector-file-system.md)
 
@@ -40,11 +40,11 @@ ms.locfileid: "65228562"
 - 使用 **Windows** 驗證來複製檔案。
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析/產生檔案。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要從不可公開存取的檔案系統複製資料，或將資料複製到該處，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -64,15 +64,15 @@ ms.locfileid: "65228562"
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>範例連結服務和資料集定義
 
-| 案例 | 已連結服務定義中的 "host" | 資料集定義中的 "folderPath" |
+| 狀況 | 已連結服務定義中的 "host" | 資料集定義中的 "folderPath" |
 |:--- |:--- |:--- |
 | Integration Runtime 電腦上的本機資料夾： <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |JSON 中：`D:\\`<br/>UI 上：`D:\` |JSON 中：`.\\` 或 `folder\\subfolder`<br>UI 上：`.\` 或 `folder\subfolder` |
-| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\* |JSON 中：`\\\\myserver\\share`<br/>UI 上：`\\myserver\share` |JSON 中：`.\\` 或 `folder\\subfolder`<br/>UI 上：`.\` 或 `folder\subfolder` |
+| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\\* |JSON 中：`\\\\myserver\\share`<br/>UI 上：`\\myserver\share` |JSON 中：`.\\` 或 `folder\\subfolder`<br/>UI 上：`.\` 或 `folder\subfolder` |
 
 >[!NOTE]
 >透過 UI 撰寫時，您不需要像透過 JSON 那樣輸入雙反斜線 (`\\`) 來逸出，只需指定單一反斜線。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -115,7 +115,7 @@ ms.locfileid: "65228562"
 > [!NOTE]
 > **FileShare**下一節中所述的 Parquet] / [文字格式的類型資料集仍可作為-用於複製/查閱/GetMetadata 活動進行回溯相容性，但它不適用於對應資料流程。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -161,7 +161,7 @@ ms.locfileid: "65228562"
 >[!NOTE]
 >如果您使用 "fileFilter" 屬性於檔案篩選，雖然仍舊支援，不過會建議您之後使用加入 "fileName" 的新篩選功能。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -212,12 +212,12 @@ ms.locfileid: "65228562"
 | wildcardFileName         | 在給定篩選來源檔案 folderPath/wildcardFolderPath 萬用字元在檔名。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。  如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | [是] 如果`fileName`未指定資料集中 |
 | modifiedDatetimeStart    | 檔案篩選會根據以下屬性：上次修改時間。 如果檔案的上次修改時間在 `modifiedDatetimeStart` 與 `modifiedDatetimeEnd` 之間的時間範圍內，系統就會選取該檔案。 此時間會以 "2018-12-01T05:00:00Z" 格式套用至 UTC 時區。 <br> 屬性可以是 NULL，這意謂著不會在資料集套用任何檔案屬性篩選。  當 `modifiedDatetimeStart` 具有日期時間值，但 `modifiedDatetimeEnd` 為 NULL 時，意謂著系統將會選取上次更新時間屬性大於或等於此日期時間值的檔案。  當 `modifiedDatetimeEnd` 具有日期時間值，但 `modifiedDatetimeStart` 為 NULL 時，則意謂著系統將會選取上次更新時間屬性小於此日期時間值的檔案。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
-| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 無                                            |
+| maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否                                            |
 
 > [!NOTE]
 > Parquet/分隔的文字格式，如**FileSystemSource**類型下一節中所述的複製活動來源仍可作為-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -265,10 +265,10 @@ ms.locfileid: "65228562"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
-| 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
+| recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -318,7 +318,7 @@ ms.locfileid: "65228562"
 > [!NOTE]
 > Parquet/分隔的文字格式，如**FileSystemSink**為仍然支援類型下一節中所述的複製活動接收器-是為了回溯相容性。 若要使用這個新的模型，從現在開始，建議您，並撰寫 UI 的 ADF 已切換為產生這些新的類型。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -363,7 +363,7 @@ ms.locfileid: "65228562"
 | copyBehavior | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 | 否 |
 | maxConcurrentConnections | 同時連接到儲存體存放區的連線數目。 只有在您想要限制資料存放區的並行連接時，才指定。 | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

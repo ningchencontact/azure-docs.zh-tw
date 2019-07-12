@@ -33,11 +33,11 @@ ms.locfileid: "64706110"
 > [!IMPORTANT]
 > 移轉的憑證僅適用於還原受 TDE 保護的資料庫。 即將完成還原之後，已移轉的憑證取得取代由不同的保護裝置，受服務管理憑證或非對稱金鑰從 key vault，視您在執行個體設定透明資料加密的類型而定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
