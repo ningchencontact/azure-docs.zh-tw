@@ -20,7 +20,7 @@ ms.locfileid: "60713041"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-在本文中，我們會示範如何部署 [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) 代理程式，監視 Azure Container Service 中 Kubernetes 叢集的所有節點和容器。 您需要 CoScale 帳戶以進行這項設定。 
+在本文中，我們會示範如何部署 [CoScale](https://web.archive.org/web/20180317071550/https://www.coscale.com/) 代理程式，監視 Azure Container Service 中 Kubernetes 叢集的所有節點和容器。 您需要 CoScale 帳戶以進行這項設定。 
 
 
 ## <a name="about-coscale"></a>關於 CoScale 
@@ -32,9 +32,9 @@ CoScale 是監視平台，收集數個協調流程平台上所有容器的計量
 如本文所示，您可以在 Kubernetes 叢集上安裝代理程式，將 CoScale 當成 SaaS 解決方案執行。 如果您想要在現場保留資料，CoScale 也提供內部部署安裝。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-您需要先[建立 CoScale 帳戶](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial)。
+您需要先[建立 CoScale 帳戶](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial)。
 
 本逐步解說假設您已[使用 Azure Container Service 建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)。
 
@@ -72,7 +72,7 @@ az acs kubernetes install-cli
 
 ![啟動 CoScale 代理程式](./media/container-service-kubernetes-coscale/agent_script.png)
 
-就這麼簡單！ 當代理程式啟動並執行之後，幾分鐘之內您應該會在主控台中看到資料。 請瀏覽[代理程式頁面](https://app.coscale.com/)查看叢集摘要，執行其他設定步驟並查看儀表板，例如 **Kubernetes 叢集概觀**。
+就這麼容易！ 當代理程式啟動並執行之後，幾分鐘之內您應該會在主控台中看到資料。 請瀏覽[代理程式頁面](https://app.coscale.com/)查看叢集摘要，執行其他設定步驟並查看儀表板，例如 **Kubernetes 叢集概觀**。
 
 ![Kubernetes 叢集概觀](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 
@@ -81,5 +81,5 @@ CoScale 代理程式會自動部署在叢集中的新機器上。 新版本發�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 CoScale 監視解決方案的詳細資訊，請參閱 [CoScale 文件](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/)和[部落格](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog)。 
+如需 CoScale 監視解決方案的詳細資訊，請參閱 [CoScale 文件](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/)和[部落格](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog)。 
 

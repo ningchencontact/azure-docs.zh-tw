@@ -11,27 +11,31 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 7cf54b79fac87905117e321574571890c59315e6
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070417"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827071"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
 在此文章中，您將了解用來將 SQL Server 2005 或更新版本執行個體移轉到 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的方法。 如需移轉至單一資料庫或彈性集區的相關資訊，請參閱[移轉至單一或集區資料庫](sql-database-cloud-migrate.md)。 如需從其他平台移轉的移轉資訊，請參閱 [Azure 資料庫移轉指南](https://datamigration.microsoft.com/) \(英文\)。
 
+> [!NOTE]
+> 如果您想要快速啟動並試用受控執行個體，您可能想要前往[快速入門指南](/sql-database-managed-instance-quickstart-guide.md)而不是此頁面。 
+
 概括而言，資料庫移轉程序看起來像這樣：
 
 ![移轉程序](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [評估受控執行個體的相容性](#assess-managed-instance-compatibility)
-- [選擇應用程式連線選項](sql-database-managed-instance-connect-app.md)
-- [部署到最佳大小的受控執行個體](#deploy-to-an-optimally-sized-managed-instance)
-- [選取移轉方法並進行移轉](#select-migration-method-and-migrate)
-- [監視應用程式](#monitor-applications)
+- [評估受控執行個體的相容性](#assess-managed-instance-compatibility)，您應該確定沒有封鎖的問題會妨礙您的移轉。
+  - 這個步驟也包含建立[效能基準線](#create-performance-baseline)來判斷您的來源 SQL Server 執行個體上的資源使用狀況。 如果您想要 o，則需要此步驟中部署適當大小的受控執行個體，並確認在移轉之後的效能不會受到影響。
+- [選擇 應用程式連線能力選項](sql-database-managed-instance-connect-app.md)
+- [部署到最佳大小的受控執行個體](#deploy-to-an-optimally-sized-managed-instance)您將在其中選擇技術的特性 （虛擬核心數目、 記憶體數量） 和效能層級業務關鍵 （一般用途） 的受控執行個體。
+- [選取移轉方法，並移轉](#select-migration-method-and-migrate)您用來移轉使用離線移轉 （原生備份/還原、 database importe/匯出）] 或 [線上 （[交易式複寫中的 [資料移轉服務） 的移轉資料庫。
+- [監視應用程式](#monitor-applications)以確保您預期的效能。
 
 > [!NOTE]
 > 若要將個別資料庫遷移至單一資料庫或彈性集區，請參閱[將 SQL Server 資料庫遷移至 Azure SQL Database](sql-database-single-database-migrate.md)。
@@ -58,7 +62,11 @@ ms.locfileid: "67070417"
 
 ### <a name="create-performance-baseline"></a>建立效能基準
 
-如果您需要比較您的受控執行個體與原始工作負載的 SQL Server 上執行的工作負載的效能，您必須建立要用於比較效能基準線。 您必須在您的 SQL Server 執行個體量值的參數包括： 
+如果您需要比較您的受控執行個體與原始工作負載的 SQL Server 上執行的工作負載的效能，您必須建立要用於比較效能基準線。 
+
+效能基準線是一組參數，例如平均/最大 CPU 使用量、 平均/最大磁碟 IO 延遲、 輸送量、 IOPS、 平均/最大頁面存留時間期望值，平均 tempdb 的大小上限。 您想要在移轉之後，有類似或變得更好的參數，因此請務必測量並記錄這些參數的基準值。 除了系統參數，您必須選取一組代表性的查詢或最重要的查詢，在您的工作負載和量值最小/平均/最大持續期間，所選查詢的 CPU 使用量。 這些值會讓您比較您的來源 SQL Server 上執行的受控執行個體的原始值的工作負載的效能。
+
+您必須在您的 SQL Server 執行個體量值的參數包括： 
 - [監視 SQL Server 執行個體上的 CPU 使用量](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131)並記錄平均值，並達到 CPU 使用率的尖峰。
 - [監視您的 SQL Server 執行個體上的記憶體使用量](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage)，並判斷不同的元件，例如緩衝集區所使用的記憶體數量計劃快取中，資料行存放區集區[記憶體內部 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)，依此類推。此外，您應該會發現 Page Life Expectancy memory 效能計數器的平均值和尖峰的值。
 - 監視來源 SQL Server 執行個體使用的磁碟 IO 使用量[sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)檢視或[效能計數器](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage)。
@@ -72,9 +80,10 @@ ms.locfileid: "67070417"
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>部署到最佳大小的受控執行個體
 
 受控執行個體專為打算移至雲端的內部工作負載量身訂做。 它引進[新的購買模型](sql-database-service-tiers-vcore.md)，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目與 IO 頻寬來調整這些工作負載大小。 受控執行個體的購買模型是以虛擬核心 (vCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。 一些一般指導方針，以幫助您選擇的正確服務層和特性如下所示：
-- [監視 SQL Server 執行個體上的 CPU 使用量](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131)和核取多少計算您目前使用 （使用動態管理檢視、 SQL Server Management Studio 或其他監視工具） 的能力。 您可以佈建受控執行個體符合您使用 SQL Server，注意，CPU 特性可能需要進行調整以符合需要的核心數目[受控執行個體安裝所在的 VM 特性](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics)。
-- 請檢查您的 SQL Server 執行個體上的可用記憶體數量，然後選擇[服務層有相符的記憶體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics)。 它會有用來測量來判斷 SQL Server 執行個體上的頁面存留時間期望值[您需要額外的記憶體](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)。
-- 量值一般用途和業務關鍵服務層之間進行選擇的檔案子系統的 IO 的延遲。
+- 根據您可以佈建受控執行個體符合您使用 SQL Server 的核心數目的 CPU 使用量的基準，需要記住該 CPU 特性可能需要進行調整以符合[受控執行個體所在的 VM 特性安裝](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)。
+- 根據基準記憶體使用量選擇[服務層有相符的記憶體](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)。 因此您必須選取具有相符的記憶體 （例如 5.1 GB/虛擬核心第 5 代中） 的虛擬核心數量的受控執行個體，就無法直接選擇的記憶體數量。 
+- 根據基準 IO 延遲檔案子系統的一般用途 （大於 5 毫秒的延遲） 和業務關鍵服務層之間進行選擇 (延遲不超過 3 毫秒)。
+- 根據基準輸送量預先配置的資料大小，或記錄檔，以取得預期的 IO 效能。
 
 您可以選擇計算和儲存體資源，在部署時間以及之後進行變更，且不會造成您的應用程式使用的停機時間[Azure 入口網站](sql-database-scale-resources.md):
 
@@ -169,6 +178,13 @@ ms.locfileid: "67070417"
 進行變更的參數，或升級服務層，直到您取得符合您需求的工作負載效能，同時回歸到最適合的設定。
 
 ### <a name="monitor-performance"></a>監視效能
+
+受控執行個體提供許多進階的工具，可監視和疑難排解，以及您應該使用它們來監視您的執行個體的效能。 某些參數，您想要監視是：
+- 若要判斷執行個體上的 CPU 使用量會佈建的虛擬核心的數目是您的工作負載的正確相符項目。
+- 若要判斷您受控執行個體上的頁面存留時間期望值[您需要額外的記憶體](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)。
+- 等候統計資料，像是`INSTANCE_LOG_GOVERNOR`或`PAGEIOLATCH`，會告訴您有儲存體 IO 問題，特別是在您可能需要預先配置檔案，以便取得更佳的 IO 效能的一般用途層上。
+
+## <a name="leverage-advanced-paas-features"></a>利用進階的 PaaS 功能
 
 一旦您是在完全受控的平台上，而且您已驗證的工作負載效能會比 SQL Server 工作負載效能，需要 SQL Database 服務的一部分自動提供的優點。 
 

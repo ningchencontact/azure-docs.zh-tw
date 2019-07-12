@@ -52,11 +52,11 @@ ms.locfileid: "67060955"
 
     |設定|值|
     |---|---|
-    |Name|myIISVMEastUS|
+    |名稱|myIISVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |資源群組| 選取 [新增]  ，然後輸入 myResourceGroupTM1  。|
-    |位置| 選取 [美國東部]  。|
+    |Resource group| 選取 [新增]  ，然後輸入 myResourceGroupTM1  。|
+    |Location| 選取 [美國東部]  。|
     |||
 
 4. 在 [選擇大小]  底下選取虛擬機器大小。
@@ -75,8 +75,8 @@ ms.locfileid: "67060955"
 
     |設定|值|
     |---|---|
-    |資源群組 | 選取 [新增]  ，然後輸入「myResourceGroupTM2」 |
-    |位置|西歐|
+    |Resource group | 選取 [新增]  ，然後輸入「myResourceGroupTM2」 |
+    |Location|西歐|
     |虛擬機器名稱 | myIISVMWEurope|
     |虛擬網路 | 選取 [虛擬網路]  ，在 [建立虛擬網路]  中，針對 [名稱]  輸入 *myVNet2*，針對子網路輸入 *mySubnet*。|
     |||
@@ -138,10 +138,10 @@ ms.locfileid: "67060955"
 
     |設定|值|
     |---|---|
-    |Name|myVMEastUS|
+    |名稱|myVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |資源群組| 選取 [現有]  ，然後選取 [myResourceGroupTM1]  。|
+    |Resource group| 選取 [現有]  ，然後選取 [myResourceGroupTM1]  。|
     |||
 
 4. 在 [選擇大小]  底下選取虛擬機器大小。
@@ -161,7 +161,7 @@ ms.locfileid: "67060955"
     |設定|值|
     |---|---|
     |虛擬機器名稱 | *myVMWEurope*|
-    |資源群組 | 選取 [現有]  ，然後輸入 *myResourceGroupTM2*|
+    |Resource group | 選取 [現有]  ，然後輸入 *myResourceGroupTM2*|
     |虛擬網路 | 選取 [虛擬網路]  ，在 [建立虛擬網路]  中，對 [名稱]  輸入 *myVNet4*，而對 [子網路] 則輸入 *mySubnet4*。|
     |||
 
@@ -177,8 +177,8 @@ ms.locfileid: "67060955"
     | ---                     | ---                                                |
     | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [子網路]  路由方法。                                       |
-    | 訂用帳戶            | 選取您的訂用帳戶。                          |
-    | 資源群組          | 選取 [現有]  ，然後輸入 *myResourceGroupTM1*。 |
+    | Subscription            | 選取您的訂用帳戶。                          |
+    | Resource group          | 選取 [現有]  ，然後輸入 *myResourceGroupTM1*。 |
     | |                              |
     |
 
@@ -194,8 +194,8 @@ ms.locfileid: "67060955"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 類型                    | Azure 端點                                   |
-    | Name           | myTestWebSiteEndpoint                                        |
+    | type                    | Azure 端點                                   |
+    | 名稱           | myTestWebSiteEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源]  中，選取名為 *myIISVMEastUS-ip* 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  子網路路由設定    |   新增 *myVMEastUS* 測試 VM 的 IP 位址。 任何來自此 VM 的使用者查詢都會導向至 *myTestWebSiteEndpoint*。    |

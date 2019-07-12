@@ -358,7 +358,7 @@ Windows 和 Oracle Linux 是 Oracle 和 Azure 上的 SAP 唯一支援的作業�
 
 我們強烈建議使用 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)。 我們也強烈建議針對 Oracle Database 部署使用[進階 SSD](../../windows/disks-types.md)。
 
-Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱
+Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱：
 
 - [Microsoft Azure 檔案服務簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -449,7 +449,7 @@ Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 
 
 我們非常建議使用 [Azure 受控磁碟](../../windows/managed-disks-overview.md)。 我們也非常建議針對 Oracle Database 部署使用 [Azure 進階 SSD](../../windows/disks-types.md)。
 
-Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱下列： 
+Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔案服務)。 如需詳細資訊，請參閱下列內容： 
 
 - [Microsoft Azure 檔案服務簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 

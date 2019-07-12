@@ -32,7 +32,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 3. 選取 Smooth Streaming 資料流
 4. 選取 Smooth Streaming 曲目
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 > [!NOTE]
 > Windows 市集 8.1 版和更早版本的專案在 Visual Studio 2017 不受支援。  如需詳細資訊，請參閱 [Visual Studio 2017 平台目標及相容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
 
@@ -70,8 +70,8 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
     | --- | --- |
     | 範本群組 |已安裝/範本/Visual C#/Windows 市集 |
     | 範本 |空白應用程式 (XAML) |
-    | Name |SSPlayer |
-    | 位置 |C:\SSTutorials |
+    | 名稱 |SSPlayer |
+    | Location |C:\SSTutorials |
     | 方案名稱 |SSPlayer |
     | 為方案建立目錄 |(已選取) |
 
@@ -85,7 +85,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
     | 名稱 | 值 |
     | --- | --- |
     | 參考群組 |Windows/延伸 |
-    | 參考 |選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package |
+    | 參考資料 |選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package |
 
 1. 按一下 [確定]  。 
 

@@ -352,7 +352,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 * 已拒絕 SELECT 權限
   * [Microsoft][ODBC SQL Server Driver][SQL Server] SELECT 權限在物件 'log_shipping_primary_databases'、資料庫 'msdb'、結構描述 'dbo' 上遭拒。 [SOAPFaultException]  
   SELECT 權限在物件 'log_shipping_primary_databases'、資料庫 'msdb'、結構描述 'dbo' 上遭拒。
-  * 解決方法  
+  * 方案  
     確定 *NT AUTHORITY\SYSTEM* 可以存取 SQL Server。 請參閱 SAP 附註 [2562184]
 
 
@@ -362,79 +362,79 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 請參閱記錄檢視器  
     com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException：識別碼為 'RuntimeHDBConnectionValidator' 的驗證程式發生例外狀況 (驗證：'VALIDATION_HDB_USERSTORE')：無法擷取 hdbuserstore  
     HANA 使用者存放區不在正確的位置
-  * 解決方法  
+  * 方案  
     確定 /usr/sap/AH1/hdbclient/install/installation.ini 正確無誤
 
 ### <a name="errors-and-warnings-during-a-system-copy"></a>系統複製 (copy) 期間的錯誤和警告
 
 * 驗證系統佈建步驟時發生錯誤
   * 原因：com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
-  * 解決方法  
+  * 方案  
     備份來源 HANA 系統中的所有資料庫
 
 * 資料庫執行個體的系統複製(copy) 步驟「啟動」 
   * 主機代理程式作業 '000D3A282BC91EE8A1D76CF1F92E2944' 失敗 (OperationException。 FaultCode：'127'，訊息：「命令執行失敗。 ：[Microsoft][ODBC SQL Server Driver][SQL Server]使用者沒有更改資料庫 'AS2' 的全線，此資料庫不存在，或此資料庫不是處於允許存取檢查的狀態。」)
-  * 解決方法  
+  * 方案  
     確定 *NT AUTHORITY\SYSTEM* 可以存取 SQL Server。 請參閱 SAP 附註 [2562184]
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>系統複製 (clone) 期間的錯誤和警告
 
 * 嘗試在應用程式伺服器或 ASCS 的「強制註冊和啟動執行個體代理程式」  步驟中註冊執行個體代理程式時發生錯誤
   * 嘗試註冊執行個體代理程式時發生錯誤。 (RemoteException：「無法從設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 載入執行個體資料：無法存取設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'：沒有這類檔案或目錄。」)
-  * 解決方法  
+  * 方案  
    確定在 ASCS/SCS 上的 sapmnt 共用具有 SAP_AS1_GlobalAdmin 的完整存取權
 
 * 「啟用複製 (clone) 的啟動保護」  步驟發生錯誤
   * 無法開啟檔案 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 原因：沒有這類檔案或目錄
-  * 解決方法  
+  * 方案  
     應用程式伺服器的電腦帳戶需要設定檔的寫入權限
 
 ### <a name="errors-and-warnings-during-create-system-replication"></a>建立系統複寫期間的錯誤和警告
 
 * 按一下 [建立系統複寫] 時發生例外狀況
   * 原因：com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException   Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
-  * 解決方法  
+  * 方案  
     測試 sapacext 是否可以 `<hanasid`>adm 身分執行
 
 * 未在儲存體步驟中啟用完整複製時發生錯誤
   * 報告路徑 IStorageCopyData.storageVolumeCopyList:1 和欄位 targetStorageSystemId 的內容屬性訊息時發生錯誤
-  * 解決方法  
+  * 方案  
     忽略步驟中的警告並再試一次。 此問題將會在 SAP LaMa 的新支援套件/修補程式中修正。
 
 ### <a name="errors-and-warnings-during-relocate"></a>重新配置期間的錯誤和警告
 
 * nfs reexports 不允許使用路徑 '/usr/sap/AH1'。
   * 如需詳細資料，請查看 SAP 附註 [2628497]。
-  * 解決方法  
+  * 方案  
     將 ASCS 匯出新增至 ASCS HostAgent 設定檔。 請參閱 SAP 附註 [2628497]
 
 * 重新配置 ASCS 時未實作函式
   * 命令輸出：exportfs: host:/usr/sap/AX1：未實作函式
-  * 解決方法  
+  * 方案  
     確定 NFS 伺服器服務已在重新放置目標虛擬機器上啟用
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>應用程式伺服器安裝期間的錯誤和警告
 
 * 執行 SAPinst 步驟時發生錯誤：getProfileDir
   * 錯誤：(此步驟所回報的最後一個錯誤：在模型呼叫中攔截到 ESAPinstException：步驟 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' 的驗證程式回報了一項錯誤：節點 \\\as1-ascs\sapmnt\AS1\SYS\profile 不存在。 以互動模式啟動 SAPinst 來解決此問題)
-  * 解決方法  
+  * 方案  
     確定 SWPM 是以具有設定檔存取權的使用者執行。 在應用程式伺服器安裝精靈中可以設定此使用者
 
 * 執行 SAPinst 步驟時發生錯誤：askUnicode
   * 錯誤：(此步驟所回報的最後一個錯誤：在模型呼叫中攔截到 ESAPinstException：步驟 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' 的驗證程式回報了一項錯誤：以互動模式啟動 SAPinst 來解決此問題)
-  * 解決方法  
+  * 方案  
     如果您使用最新的 SAP 核心，SWPM 便無法再使用 ASCS 的郵件伺服器來判斷系統是否為 unicode 系統。 如需詳細資訊，請參閱 SAP 附註 [2445033]。  
     此問題將會在 SAP LaMa 的新支援套件/修補程式中修正。  
     在 SAP 系統的預設設定檔中設定設定檔參數 OS_UNICODE=uc，以解決此問題。
 
 * 執行 SAPinst 步驟時發生錯誤：dCheckGivenServer
   * 執行 SAPinst 步驟時發生錯誤：dCheckGivenServer" version="1.0" 錯誤：(此步驟所回報的最後一個錯誤：\<p> 使用者已取消安裝。 \</p>
-  * 解決方法  
+  * 方案  
     確定 SWPM 是以具有設定檔存取權的使用者執行。 在應用程式伺服器安裝精靈中可以設定此使用者
 
 * 執行 SAPinst 步驟時發生錯誤：checkClient
   * 執行 SAPinst 步驟時發生錯誤：checkClient" version="1.0" 錯誤：(此步驟所回報的最後一個錯誤：\<p> 使用者已取消安裝。 \</p>)
-  * 解決方法  
+  * 方案  
     確定您要安裝應用程式伺服器的虛擬機器上已安裝 Microsoft ODBC Driver for SQL Server
 
 * 執行 SAPinst 步驟時發生錯誤：copyScripts
@@ -452,7 +452,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   syxxcfstrm.cpp:265:CSyFileStreamImpl::open()  
   syxxcfstrm2.cpp:58:CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
   syxxcfstrm2.cpp:456:CSyFileStream2Impl::open()
-  * 解決方法  
+  * 方案  
     確定 SWPM 是以具有設定檔存取權的使用者執行。 在應用程式伺服器安裝精靈中可以設定此使用者
 
 * 執行 SAPinst 步驟時發生錯誤：askPasswords
@@ -471,7 +471,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   iaxxcaccount.cpp:1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
   iaxxbaccount.cpp:430:CIaOsAccount::validatePasswordPolicy_impl()  
   synxcaccmg.cpp:297:ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
-  * 解決方法  
+  * 方案  
     務必在步驟 *Isolation* 中新增主機規則，以允許從 VM 至網域控制站的通訊
 
 ## <a name="next-steps"></a>後續步驟

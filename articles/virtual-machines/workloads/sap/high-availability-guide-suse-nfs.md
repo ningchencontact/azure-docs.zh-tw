@@ -4,7 +4,7 @@ description: 適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925731"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707218"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性
 
@@ -52,7 +52,7 @@ ms.locfileid: "64925731"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 本文說明如何部署虛擬機器、設定虛擬機器、安裝叢集架構，以及安裝可用來儲存高可用性 SAP 系統之共用資料的高可用性 NFS 伺服器。
-本指南說明如何設定供兩個 SAP 系統 (NW1 和 NW2) 使用的高可用性 NFS 伺服器。 範例中資源 (例如虛擬機器、虛擬網路) 的名稱是假設您已使用資源前置詞為 **prod**的 [SAP 檔案伺服器範本][template-file-server]。
+本指南說明如何設定供兩個 SAP 系統 (NW1 和 NW2) 使用的高可用性 NFS 伺服器。 在範例中的資源 （例如虛擬機器、 虛擬網路） 的名稱會假設您已使用[SAP 檔案伺服器範本][template-file-server]使用資源前置詞**prod**。
 
 請先閱讀下列 SAP Note 和文件
 
@@ -71,15 +71,15 @@ ms.locfileid: "64925731"
 * SAP Note [1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
-* [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP on Linux 的 Azure 虛擬機器部署 (本文)][deployment-guide]
-* [適用於 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
-* [SUSE Linux Enterprise 高可用性擴充 12 SP3 最佳做法指南][sles-hae-guides]
+* [Azure 虛擬機器規劃和實作適用於 SAP on Linux][planning-guide]
+* [適用於 SAP on Linux （本文） 的 azure 虛擬機器部署][deployment-guide]
+* [適用於 SAP on Linux 的 azure 虛擬機器 DBMS 部署][dbms-guide]
+* [SUSE Linux Enterprise 高可用性延伸模組 12 SP3 最佳做法指南][sles-hae-guides]
   * 搭配 DRBD 與 Pacemaker 的高可用性 NFS 儲存體
-* [適用於 SAP Applications 12 SP3 的 SUSE Linux Enterprise Server 最佳做法指南][sles-for-sap-bp]
-* [SUSE 高可用性擴充 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
+* [SUSE Linux Enterprise Server，適用於 SAP 應用程式 12 SP3 最佳做法指南][sles-for-sap-bp]
+* [高可用性延伸模組 SUSE 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 為了實現高可用性，SAP NetWeaver 需要使用 NFS 伺服器。 NFS 伺服器會設定於不同叢集中，並可供多個 SAP 系統使用。
 
@@ -110,7 +110,7 @@ NFS 伺服器會針對每個使用此 NFS 伺服器的 SAP 系統，使用專用
 Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 的映像，讓您可用來部署新的虛擬機器。
 您可以使用 GitHub 上的其中一個快速入門範本來部署所有必要資源。 範本會部署虛擬機器、負載平衡器、可用性設定組等。請遵循下列步驟來部署範本：
 
-1. 在 Azure 入口網站中開啟 [SAP 檔案伺服器範本][template-file-server]   
+1. 開啟[SAP 檔案伺服器範本][template-file-server]在 Azure 入口網站   
 1. 輸入下列參數
    1. 資源前置詞  
       輸入您想要使用的前置詞。 該值會作為所部署之資源的前置詞。
@@ -539,8 +539,8 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 ## <a name="next-steps"></a>後續步驟
 
 * [安裝 SAP ASCS 和資料庫](high-availability-guide-suse.md)
-* [適用於 SAP 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP 的 Azure 虛擬機器部署][deployment-guide]
-* [適用於 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
+* [Azure 虛擬機器規劃和實作適用於 SAP][planning-guide]
+* [適用於 SAP 的 azure 虛擬機器部署][deployment-guide]
+* [適用於 SAP 的 azure 虛擬機器 DBMS 部署][dbms-guide]
 * 若要了解如何建立高可用性並為 Azure 上的 SAP HANA 規劃災害復原，請參閱 [Azure 上的 SAP HANA (大型執行個體) 高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
-* 若要了解如何建立高可用性並為 Azure VM 上的 SAP HANA 規劃災害復原，請參閱 [Azure 虛擬機器 (VM) 上 SAP HANA 的高可用性][sap-hana-ha]
+* 若要了解如何建立高可用性和災害復原的 SAP HANA 的 Azure Vm 上的計劃，請參閱[SAP HANA 的高可用性 Azure 虛擬機器 (Vm) 上][sap-hana-ha]

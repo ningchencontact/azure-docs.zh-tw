@@ -4,7 +4,7 @@ description: 在 Azure 虛擬機器 (VM) 上，建立 SAP HANA 的高可用性�
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922139"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709110"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux 上 Azure VM 的 SAP HANA 高可用性
 
@@ -53,7 +53,7 @@ SAP HANA 複寫包含一個主要節點以及至少一個次要節點。 對主�
 
 請先閱讀下列 SAP Note 和文件：
 
-* SAP 说明 [1928533]，其中包含：
+* SAP Note [1928533]，其中包含：
   * SAP 軟體部署支援的 Azure VM 大小清單。
   * Azure VM 大小的重要容量資訊。
   * 支援的 SAP 軟體，以及作業系統 (OS) 與資料庫組合。
@@ -61,14 +61,14 @@ SAP HANA 複寫包含一個主要節點以及至少一個次要節點。 對主�
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
 * SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
-* SAP 说明 [2178632] 包含为 Azure 中的 SAP 报告的所有监控指标的详细信息。
+* SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
-* [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP on Linux 的 Azure 虛擬機器部署 (本文)][deployment-guide]
-* [適用於 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
+* [Azure 虛擬機器規劃和實作適用於 SAP on Linux][planning-guide]
+* [適用於 SAP on Linux （本文） 的 azure 虛擬機器部署][deployment-guide]
+* [適用於 SAP on Linux 的 azure 虛擬機器 DBMS 部署][dbms-guide]
 * [Pacemaker 叢集中的 SAP HANA 系統複寫](https://access.redhat.com/articles/3004101)
 * 一般 RHEL 文件
   * [高可用性附加元件概觀](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -79,7 +79,7 @@ SAP HANA 複寫包含一個主要節點以及至少一個次要節點。 對主�
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
   * [在 Red Hat Enterprise Linux 上安裝 SAP HANA 以用於 Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 為了達到高可用性，SAP HANA 會安裝在兩個虛擬機器上。 資料會使用「HANA 系統複寫」進行複寫。
 
@@ -101,7 +101,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 您可以使用 GitHub 上的其中一個快速入門範本來部署所有必要資源。 範本會部署虛擬機器、負載平衡器、可用性設定組等。
 若要部署範本，請遵循下列步驟：
 
-1. 在 Azure 入口網站上開啟[資料庫範本][template-multisid-db]。
+1. 開啟[資料庫範本][template-multisid-db]在 Azure 入口網站。
 1. 輸入下列參數：
     * **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
     * **OS 類型**：選取一個 Linux 發行版本。 在此範例中，請選取 [RHEL 7]  。
@@ -181,7 +181,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
    1. 選取 [確定]  。
    1. 針對連接埠 3**03**41 和 3**03**42 重複這些步驟。
 
-如需 SAP Hana 必要連接埠的詳細資訊，請參閱 [SAP Hana 租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6)指南的[連線到租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)章節或 [SAP Note 2388694][2388694]。
+多個 SAP hana 必要的連接埠的相關資訊，請參閱本章[租用戶資料庫的連線](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html)中[SAP HANA 租用戶資料庫](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6)指南或[SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
 > 不會啟用 TCP 放置 Azure 負載平衡器後方的 Azure Vm 上的時間戳記。 啟用 TCP 加上時間戳記將會造成失敗的健康狀態探查。 設定參數**net.ipv4.tcp_timestamps**要**0**。 如需詳細資訊，請參閱[負載平衡器健康情況探查](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)。
@@ -335,7 +335,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[A]** 升級 SAP 主機代理程式。
 
-   從 [SAP 軟體中心 (英文)][sap-swcenter] 下載最新的 SAP 主機代理程式封存檔，然後執行下列命令來升級代理程式。 取代封存檔的路徑以指向您所下載的檔案：
+   下載從最新的 SAP 主機代理程式封存檔[SAP 軟體中心][sap-swcenter]並執行下列命令來升級代理程式。 取代封存檔的路徑以指向您所下載的檔案：
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -730,7 +730,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>後續步驟
 
-* [適用於 SAP 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP 的 Azure 虛擬機器部署][deployment-guide]
-* [適用於 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
+* [Azure 虛擬機器規劃和實作適用於 SAP][planning-guide]
+* [適用於 SAP 的 azure 虛擬機器部署][deployment-guide]
+* [適用於 SAP 的 azure 虛擬機器 DBMS 部署][dbms-guide]
 * 若要了解如何建立高可用性並為 Azure 上的 SAP HANA 規劃災害復原，請參閱 [Azure 上的 SAP HANA (大型執行個體) 高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。

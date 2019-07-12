@@ -44,7 +44,7 @@ ms.locfileid: "65992156"
 
 請先閱讀下列 SAP Note 和文件：
 
-* SAP 说明 [1928533]，其中包含：
+* SAP Note [1928533]，其中包含：
   * SAP 軟體部署支援的 Azure VM 大小清單。
   * Azure VM 大小的重要容量資訊。
   * 支援的 SAP 軟體，以及作業系統 (OS) 與資料庫組合。
@@ -52,7 +52,7 @@ ms.locfileid: "65992156"
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
 * SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
-* SAP 说明 [2178632] 包含为 Azure 中的 SAP 报告的所有监控指标的详细信息。
+* SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。

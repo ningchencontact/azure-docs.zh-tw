@@ -25,7 +25,7 @@ ms.locfileid: "67078231"
 > [!NOTE]  
 > 在此文件中建立的 Storm 拓樸範例完整版位於 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)
 

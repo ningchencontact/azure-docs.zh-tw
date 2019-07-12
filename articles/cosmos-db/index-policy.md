@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163733"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722545"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中編製索引原則
 
@@ -74,6 +74,8 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 - 路徑規則包含的字元： 英數字元及 _ （底線），您不需要逸出路徑字串周圍雙引號括住 （例如，"/ 路徑 /？"）。 針對與其他特殊字元的路徑，您需要逸出周圍雙引號括住路徑字串 (例如，"/\"路徑 abc\"/？")。 如果您希望特殊字元，在您的路徑，您可以逸出每個路徑，基於安全性考量。 在功能上它不進行任何差異，如果逸出每個路徑與只是具有特殊字元。
 
+- 系統屬性"etag"排除編製索引，根據預設，除非 etag 加入至包含路徑編製索引。
+
 請參閱[本節](how-to-manage-indexing-policy.md#indexing-policy-examples)編製索引原則範例。
 
 ## <a name="composite-indexes"></a>複合索引
@@ -117,7 +119,7 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 ## <a name="indexing-policies-and-ttl"></a>索引編製原則與 TTL
 
-[-存留時間 (TTL) 功能](time-to-live.md)需要編製索引設為 [開啟] 容器中的 作用。 這表示：
+[-存留時間 (TTL) 功能](time-to-live.md)需要編製索引設為 [開啟] 容器中的 [作用。 這表示：
 
 - 不可能啟用編製索引模式設為 無的其中一個容器上的 TTL
 - 您不可能的索引編製模式設定為 無在容器上啟用 TTL 的位置。

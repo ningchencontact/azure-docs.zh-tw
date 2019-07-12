@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8fcf4afa5a363d355f627be95dd7fe8131203ac
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357738"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797961"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性
 
@@ -66,7 +66,7 @@ ms.locfileid: "66357738"
 請先閱讀下列 SAP Note 和文件：
 
 * [Azure 的 NetApp 檔案文件][anf-azure-doc] 
-* SAP 说明 [1928533]，其中包含：  
+* SAP Note [1928533]，其中包含：  
   * SAP 軟體部署支援的 Azure VM 大小清單
   * Azure VM 大小的重要容量資訊
   * 支援的 SAP 軟體，以及作業系統 (OS) 與資料庫組合
@@ -80,14 +80,14 @@ ms.locfileid: "66357738"
 * SAP Note [1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
-* [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [在 Linux 上為 SAP 進行 Azure 虛擬機器部署][deployment-guide]
-* [適用於 SAP on Linux 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
-* [SUSE SAP HA 最佳做法指南][suse-ha-guide] 此指南包含設定內部部署 Netweaver HA 和 SAP HANA 系統複寫的所有必要資訊。 請使用這些指南作為一般基準。 它們提供更詳細的資訊。
-* [SUSE 高可用性擴充 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
+* [Azure 虛擬機器規劃和實作適用於 SAP on Linux][planning-guide]
+* [適用於 SAP on Linux 的 azure 虛擬機器部署][deployment-guide]
+* [適用於 SAP on Linux 的 azure 虛擬機器 DBMS 部署][dbms-guide]
+* [SUSE SAP HA 最佳做法指南][suse-ha-guide]指南包含所有必要的資訊來設定 Netweaver HA 和 SAP HANA 系統複寫內部部署。 請使用這些指南作為一般基準。 它們提供更詳細的資訊。
+* [高可用性延伸模組 SUSE 12 SP3 版本資訊][suse-ha-12sp3-relnotes]
 * [Microsoft Azure 上使用 Azure NetApp 檔案 NetApp SAP 應用程式][anf-sap-applications-azure]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 SAP Netweaver 的中央服務的高 availability(HA) 需要共用存放裝置。
 為了達到此目標 SUSE Linux 上目前則需要建立個別的高可用性 NFS 叢集。 
@@ -106,7 +106,7 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 ### <a name="ascs"></a>(A)SCS
 
 * 前端組態
-  * 10\.1.1.20 的 IP 位址
+  * 10.1.1.20 的 IP 位址
 * 後端組態
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
@@ -123,7 +123,7 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 ### <a name="ers"></a>ERS
 
 * 前端組態
-  * 10\.1.1.21 的 IP 位址
+  * 10.1.1.21 的 IP 位址
 * 後端組態
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
@@ -426,7 +426,6 @@ Azure 的 NetApp 檔案位於數個[Azure 區域](https://azure.microsoft.com/gl
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
@@ -549,7 +548,7 @@ Azure 的 NetApp 檔案位於數個[Azure 區域](https://azure.microsoft.com/gl
 
 6. **[A]** 設定保持運作
 
-   SAP NetWeaver 應用程式伺服器和 ASCS/SCS 之間的通訊是透過軟體負載平衡器來路由傳送。 在逾時時間 (可設定) 過後，負載平衡器就會將非作用中的連線中斷。 為防止這個情況，您需要在 SAP NetWeaver ASCS/SCS 設定檔中設定參數，並變更 Linux 系統設定。 如需詳細資訊，請閱讀 [SAP Note 1410736][1410736]。
+   SAP NetWeaver 應用程式伺服器和 ASCS/SCS 之間的通訊是透過軟體負載平衡器來路由傳送。 在逾時時間 (可設定) 過後，負載平衡器就會將非作用中的連線中斷。 為防止這個情況，您需要在 SAP NetWeaver ASCS/SCS 設定檔中設定參數，並變更 Linux 系統設定。 讀取[SAP Note 1410736][1410736]如需詳細資訊。
 
    ASCS/SCS 設定檔參數 enque/encni/set_so_keepalive 已在最後一個步驟中新增。
 
@@ -788,7 +787,7 @@ Azure 的 NetApp 檔案位於數個[Azure 區域](https://azure.microsoft.com/gl
 
 ## <a name="install-database"></a>安裝資料庫
 
-在此範例中，SAP NetWeaver 安裝在 SAP Hana 上。 您可以針對此安裝使用每個支援的資料庫。 如需如何在 Azure 中安裝 SAP Hana 的詳細資訊，請參閱 [Azure 虛擬機器 (VM) 上的 SAP Hana 高可用性][sap-hana-ha]。 如需支援的資料庫清單，請參閱 [SAP Note 1928533][1928533]。
+在此範例中，SAP NetWeaver 安裝在 SAP Hana 上。 您可以針對此安裝使用每個支援的資料庫。 如需有關如何在 Azure 中安裝 SAP HANA 的詳細資訊，請參閱 < [SAP HANA 的高可用性 Azure 虛擬機器 (Vm) 上][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533]。
 
 * 執行 SAP 資料庫執行個體安裝
 
@@ -967,6 +966,9 @@ Azure 的 NetApp 檔案位於數個[Azure 區域](https://azure.microsoft.com/gl
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    測試完成之後的資源狀態：
@@ -1296,9 +1298,9 @@ Azure 的 NetApp 檔案位於數個[Azure 區域](https://azure.microsoft.com/gl
 
 ## <a name="next-steps"></a>後續步驟
 
-* [適用於 SAP 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP 的 Azure 虛擬機器部署][deployment-guide]
-* [適用於 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
+* [Azure 虛擬機器規劃和實作適用於 SAP][planning-guide]
+* [適用於 SAP 的 azure 虛擬機器部署][deployment-guide]
+* [適用於 SAP 的 azure 虛擬機器 DBMS 部署][dbms-guide]
 * 若要了解如何建立高可用性和災害復原的 SAP 的計畫 
 * HANA on Azure （大型執行個體），請參閱[SAP HANA （大型執行個體） 上的高可用性和災害復原 Azure](hana-overview-high-availability-disaster-recovery.md)。
-* 若要了解如何建立高可用性並為 Azure VM 上的 SAP HANA 規劃災害復原，請參閱 [Azure 虛擬機器 (VM) 上 SAP HANA 的高可用性][sap-hana-ha]
+* 若要了解如何建立高可用性和災害復原的 SAP HANA 的 Azure Vm 上的計劃，請參閱[SAP HANA 的高可用性 Azure 虛擬機器 (Vm) 上][sap-hana-ha]

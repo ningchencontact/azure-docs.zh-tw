@@ -360,7 +360,7 @@ IBM Db2 for LUW 上 Microsoft Azure 虛擬機器服務上的 SAP 支援 Db2 版�
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 Db2 儲存路徑，您必須指定實體磁碟磁區大小為 512 KB。 使用 Windows 儲存集區時，您必須透過命令列介面，使用參數 `-LogicalSectorSizeDefault`，以手動方式建立儲存集區。 如需詳細資訊，請參閱 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
+如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 Db2 儲存路徑，您必須指定實體磁碟磁區大小為 512 KB。 使用 Windows 儲存集區時，您必須透過命令列介面，使用參數 `-LogicalSectorSizeDefault`，以手動方式建立儲存集區。 如需詳細資訊，請參閱<https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
 
 和「Azure 進階儲存體」相比之下，使用 Azure 寫入加速器時，會有諸多因素造成寫入交易記錄的延遲時間被縮短。 因此，您應該部署 Azure 寫入加速器的表單適用於 Db2 交易記錄磁碟區 VHD。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)文件。
 

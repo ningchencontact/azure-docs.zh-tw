@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: e7fbadb8233ebc3ee54ee18a273447969be26b1f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f46239e524796dbdcaa6e9720e9cc8ecc3e31368
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806752"
+ms.locfileid: "67839725"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -5840,11 +5840,6 @@ Azure 服務和功能導覽 </a>
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#media">媒體</a>
-                        <ul id="media" class="cardsA">
                             <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">

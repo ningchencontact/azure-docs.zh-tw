@@ -32,7 +32,7 @@ Microsoft Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資�
 
 除了 IP 規則，防火牆也會管理「虛擬網路規則」  。 虛擬網路規則是以虛擬網路服務端點為基礎。 在某些情況下，相較於 IP 規則，最好使用虛擬網路規則。 若要深入了解，請參閱 [Azure SQL Database 的虛擬網路服務端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 一開始，SQL Database 防火牆會封鎖對您 Azure SQL Server 的所有存取。 若要存取資料庫伺服器，您必須指定一或多個伺服器層級 IP 防火牆規則，啟用您的 Azure SQL Server 存取。 使用 IP 防火牆規則指定允許網際網路的哪些 IP 位址範圍，以及 Azure 應用程式是否可以嘗試連線到 Azure SQL Server。
 
@@ -73,9 +73,9 @@ Microsoft 建議在可行時使用資料庫層級 IP 防火牆規則增強安全
 > [!NOTE]
 > 若要從您的本機電腦存取 Azure SQL Database，請確定您的網路和本機電腦上的防火牆允許 TCP 連接埠 1433 上的傳出通訊。
 
-### <a name="connecting-from-azure"></a>从 Azure 连接
+### <a name="connecting-from-azure"></a>從 Azure 連線
 
-若要允许来自 Azure 的应用程序连接到 Azure SQL Server，则必须启用 Azure 连接。 當 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會確認是否允許 Azure 連線。 開始和結束位址等於 0.0.0.0 的防火牆設定表示允許 Azure 連線。 如果不允許連線嘗試，要求就不會到達 Azure SQL Database 伺服器。
+若要允許應用程式從 Azure 連接到您的 Azure SQL Server，必須啟用 Azure 連接。 當 Azure 的應用程式嘗試連線到您的資料庫伺服器時，防火牆會確認是否允許 Azure 連線。 開始和結束位址等於 0.0.0.0 的防火牆設定表示允許 Azure 連線。 如果不允許連線嘗試，要求就不會到達 Azure SQL Database 伺服器。
 
 > [!IMPORTANT]
 > 這個選項會設定防火牆，以允許所有來自 Azure 的連線，包括來自其他客戶訂用帳戶的連線。 選取這個選項時，請確定您的登入和使用者權限會限制為只有授權的使用者才能存取。
@@ -151,7 +151,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
 
 | Cmdlet | Level | 描述 |
 | --- | --- | --- |
@@ -177,7 +177,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|伺服器|建立伺服器 IP 防火牆規則|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|伺服器|列出伺服器上的 IP 防火牆規則|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|伺服器|顯示 IP 防火牆規則的詳細資料|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|伺服器|顯示 IP 防火牆規則詳細的資料|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|伺服器|更新 IP 防火牆規則|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|伺服器|刪除 IP 防火牆規則|
 
@@ -218,7 +218,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 此選項取決於您的需求和環境。 伺服器層級 IP 防火牆規則可能會比較容易設定，但是指令碼可以設定資料庫層級的規則。 即使您使用伺服器層級 IP 防火牆規則，還是可能需要稽核資料庫層級 IP 防火牆規則，以查看具備資料庫 `CONTROL` 權限的使用者是否已建立資料庫層級 IP 防火牆規則。
 
 問： 我是否可以混合使用伺服器層級和資料庫層級的 IP 防火牆規則？
-是。 部分使用者 (例如系統管理員) 可能需要伺服器層級 IP 防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級 IP 防火牆規則。
+是的。 部分使用者 (例如系統管理員) 可能需要伺服器層級 IP 防火牆規則。 其他使用者 (例如資料庫應用程式的使用者) 可能需要資料庫層級 IP 防火牆規則。
 
 ## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
 
@@ -244,7 +244,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
   如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
   
-  - 向 Internet 服务提供商 (ISP) 请求获取分配给访问 Azure SQL 数据库服务器的客户端计算机的 IP 地址范围，然后将此 IP 地址范围添加为 IP 防火墙规则。
+  - 詢問您的網際網路服務提供者 (ISP) 指派至存取 Azure SQL Database 伺服器，用戶端電腦的 IP 位址範圍，然後將 IP 位址範圍新增為 IP 防火牆規則。
   - 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為 IP 防火牆規則。
 
 ## <a name="next-steps"></a>後續步驟

@@ -46,7 +46,7 @@ ms.locfileid: "60749031"
 
 下表列出傳訊例外狀況類型及其原因。 同時列出您可以採取來解決例外狀況的建議動作。
 
-| **例外狀況類型** | **說明** | **建議動作** | **自動或立即重試附註** |
+| **例外狀況類型** | **描述** | **建議動作** | **自動或立即重試附註** |
 | --- | --- | --- | --- |
 | [逾時](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |伺服器未在 [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout)控制的指定時間內回應要求的作業。 伺服器可能已完成要求的作業。 這可能是由於網路或其他基礎結構延遲所導致。 |檢查系統狀態的一致性，然後視需要重試。 請參閱 [TimeoutException](#timeoutexception)。 |在某些情況下，重試也許有幫助；將重試邏輯新增至程式碼。 |
 | [作業無效](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |不允許在伺服器或服務內執行要求的使用者作業。 如需詳細資訊，請參閱例外狀況訊息。 |檢查程式碼和文件。 確定要求的作業有效。 |重試將無助益。 |

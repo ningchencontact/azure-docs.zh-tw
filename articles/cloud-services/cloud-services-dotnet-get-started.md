@@ -23,7 +23,7 @@ ms.locfileid: "65595184"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程示範如何建立具有 ASP.NET MVC 前端的多層式 .NET 應用程式，並將它部署到 [Azure 雲端服務](cloud-services-choose-me.md)。 應用程式會使用 [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100))、[Azure Blob 服務](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 佇列服務](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 您可以從 MSDN Code Gallery [下載 Visual Studio 專案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 。
 
 本教學課程將示範如何在本機建置並執行應用程式、如何將應用程式部署至 Azure 並且在雲端執行，以及如何從頭建置應用程式。 之後，如果需要，也可以自從頭建置應用程式開始，然後執行測試和部署步驟。
@@ -46,7 +46,7 @@ ms.locfileid: "65595184"
 * 如何上傳檔案並將檔案儲存在 Azure Blob 服務。
 * 如何將 Azure 佇列服務用於層級之間的通訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程假設您了解 [Azure 雲端服務的基本概念](cloud-services-choose-me.md)，例如「Web 角色」  和「背景工作角色」  術語。  同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。 範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
 
 您不需 Azure 訂用帳戶即可在本機執行應用程式，但需要訂用帳戶才能將應用程式部署至雲端。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)或是[申請免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)。
@@ -75,7 +75,7 @@ ms.locfileid: "65595184"
 1. 下載並解壓縮 [已完成的方案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)(英文)。
 2. 啟動 Visual Studio。
 3. 從 [檔案]  功能表中，選擇 [開啟專案]  ，導覽至方案的下載位置，然後開啟方案檔。
-4. 按 CTRL+SHIFT+B 生成解决方案。
+4. 按 CTRL+SHIFT+B 建置解決方案。
 
     根據預設，Visual Studio 會自動還原未包含在 *.zip* 檔案中的 NuGet 封裝內容。 如果套件未還原，請移至 [管理方案的 NuGet 套件]  對話方塊，然後按一下右上方的 [還原]  按鈕來手動安裝。
 5. 在 [方案總管]  中，確定已選取 **ContosoAdsCloudService** 作為啟動專案。
@@ -109,7 +109,7 @@ ms.locfileid: "65595184"
 
 * 建立 Azure 雲端服務。
 * 建立 Azure SQL 資料庫。
-* 创建 Azure 存储帐户。
+* 建立 Azure 儲存體帳戶。
 * 將方案設定為在 Azure 中執行時使用 Azure SQL 資料庫。
 * 將方案設定為在 Azure 中執行時使用 Azure 儲存體帳戶。
 * 將專案部署至 Azure 雲端服務。
@@ -128,7 +128,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 5. 選擇您要部署應用程式的區域。
 
     此欄位會指定將託管您的雲端服務的資料中心。 針對生產應用程式，您應該選擇距離客戶最近的區域。 針對此教學課程，請選擇離您最近的區域。
-5. 按一下頁面底部的 [新增]  。
+5. 按一下 [建立]  。
 
     在下面的影像中，已建立 URL 為 CSvccontosoads.cloudapp.net 的雲端服務。
 
@@ -157,7 +157,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 9. 對新的伺服器按一下 [選取]  。
 
     ![新的 SQL Database 伺服器](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. 按一下頁面底部的 [新增]  。
+10. 按一下 [建立]  。
 
 ### <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源。
@@ -180,9 +180,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
     當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。 資料中心內的頻寬則是免費的。
 
     Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。 本教學課程不會使用同質群組。 如需詳細資訊，請參閱 [如何在 Azure 中建立同質群組](/previous-versions/azure/reference/gg715317(v=azure.100))(英文)。
-7. 按一下頁面底部的 [新增]  。
+7. 按一下 [建立]  。
 
-    ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
+    ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
     在影像中，已建立 URL 為 `csvccontosoads.core.windows.net`的儲存體帳戶。
 
@@ -216,11 +216,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 3. 在 *Web.Release.config* 轉換檔中，刪除 `{connectionstring}`，並將 Azure 入口網站中的 ADO.NET 連接字串貼至其位置。
 4. 將您貼入 *Web.Release.config* 轉換檔的連接字串中的 `{your_password_here}` 替換成您為新的 SQL 資料庫建立的密碼。
 5. 儲存檔案。  
-6. 选择并复制连接字符串，供在以下步骤中配置辅助角色项目的使用（不带周围的引号）。
+6. 選取並複製連接字串 (不含含括的引號)，在以下設定背景工作角色專案的步驟中將會使用該資訊。
 7. 在 [方案總管]  中，於雲端服務中的 [角色]  下，以滑鼠右鍵按一下 **ContosoAdsWorker**，然後按一下 [屬性]  。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
-8. 单击“设置”选项卡。 
+8. 按一下 [設定]  索引標籤。
 9. 將 [服務組態]  變更為 [雲端]  。
 10. 針對  設定選取 [值]  欄位，`ContosoAdsDbConnectionString`然後將您從教學課程前一節複製的連接字串貼上。
 
@@ -233,7 +233,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 1. 在 [方案總管]  中，於 **ContosoAdsCloudService** 專案的 [角色]  下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下 [屬性]  。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. 按一下 [設定]  索引標籤。在“服务配置”下拉列表框中，选择“云”。  
+2. 按一下 [設定]  索引標籤。在 [服務組態] 下拉式方塊中，選取 [雲端]  。
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. 選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 ( **...** ) 按鈕。 按一下省略符號按鈕，開啟 [ **建立儲存體帳戶連接字串** ] 對話方塊。
@@ -287,7 +287,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
    ![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
 2. 在 [發佈 Azure 應用程式]  精靈的 [登入]  步驟中，按 [下一步]  。
 
-    ![登录步骤](./media/cloud-services-dotnet-get-started/pubsignin.png)
+    ![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)
 3. 在精靈的 [設定]  步驟中，按 [下一步]  。
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
@@ -295,7 +295,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
     [ **進階** ] 索引標籤中的預設設定適用於本教學課程。 如需進階索引標籤的詳細資訊，請參閱 [發行 Azure 應用程式精靈](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard)。
 4. 在 [摘要]  步驟中，按一下 [發佈]  。
 
-    ![摘要步骤](./media/cloud-services-dotnet-get-started/pubsummary.png)
+    ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
    [ **Azure 活動記錄檔** ] 視窗即會在 Visual Studio 中開啟。
 5. 按一下向右箭頭圖示以展開部署詳細資料。
@@ -392,7 +392,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 8. 繼續在 [ **ContosoAdsWorker [Role]** ] 屬性視窗中，加入另一個連接字串：
 
    * 名稱：ContosoAdsDbConnectionString
-   * 輸入：String
+   * 輸入：字串
    * 值：貼上用於 Web 角色專案的相同連接字串。 (下列範例適用於 Visual Studio 2013。 如果您複製此範例且您是使用 Visual Studio 2015 或更新版本，請記得變更資料來源。)
 
        ```
@@ -483,7 +483,7 @@ public class ContosoAdsContext : DbContext
 }
 ```
 
-類別含兩個建構函式。 第一個是由 Web 專案所使用，指定儲存在 Web.config 檔案的連接字串名稱。 第二個建構函式可讓您傳入背景工作角色專案使用的實際連接字串，因為它沒有 Web.config 檔案。 之前看到存储此连接字符串的位置，稍后会看到在实例化 DbContext 类时代码如何检索连接字符串。
+類別含兩個建構函式。 第一個是由 Web 專案所使用，指定儲存在 Web.config 檔案的連接字串名稱。 第二個建構函式可讓您傳入背景工作角色專案使用的實際連接字串，因為它沒有 Web.config 檔案。 您稍早已看見儲存此連接字串的位置，之後您會看到程式碼如何在具現化 DbContext 類別時擷取連接字串。
 
 ### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 自 `Application_Start` 方法呼叫的程式碼會建立 images  Blob 容器和 images  佇列 (如果尚不存在)。 這可確保每當您開始使用新儲存體帳戶或開始在新電腦上使用儲存體模擬器時，將自動建立所需的 Blob 容器和佇列。
@@ -648,7 +648,7 @@ Create.cshtml  和 Edit.cshtml  檔案可指定表單編碼，供控制器取得
 @using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 ```
 
-`<input>` 元素通知浏览器提供文件选择对话框。
+`<input>` 元素告知瀏覽器提供檔案選取對話方塊。
 
 ```razor
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
@@ -700,7 +700,7 @@ public override void Run()
 }
 ```
 
-在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。 如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。 Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。 当他回来时，他的监督费用超过了度假费用。
+在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。 如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。 Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。 當他回到工作崗位時，因為他疏忽所造成的代價比度假費用還高。
 
 有時佇列訊息的內容會造成處理錯誤。 這稱為 *有害訊息*，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。  因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
 
@@ -765,7 +765,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 ## <a name="next-steps"></a>後續步驟
 Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 例如，它不會實作[相依性插入](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)或[存放庫和工作單位模式](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)、不會[使用介面來記錄](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)、不會使用 [EF Code First 移轉](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)來管理資料模型變更或 [EF 連線復原](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)來管理暫時性網路錯誤等等。
 
-下面是演示更实际编码方法的一些云服务示例应用程序，从不太复杂到更复杂排列：
+以下是可示範更多真實世界程式碼編寫作法的一些雲端服務範例應用程式，依較不複雜到較複雜的順序列出：
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
 * [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 介紹 Azure 儲存體資料表以及 Blob 和佇列。 根據舊版的 Azure SDK for .NET，將需要一些修改，以使用目前的版本。
@@ -778,5 +778,5 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 
 * [Azure 雲端服務第 1 部分：簡介](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
-* [Azure 存储](https://docs.microsoft.com/azure/storage/)
+* [Azure 儲存體](https://docs.microsoft.com/azure/storage/)
 * [如何選擇雲端服務提供者](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
