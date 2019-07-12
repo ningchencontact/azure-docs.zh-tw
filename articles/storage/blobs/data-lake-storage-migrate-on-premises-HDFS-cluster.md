@@ -7,13 +7,13 @@ ms.service: storage
 ms.date: 06/11/2019
 ms.author: normesta
 ms.topic: article
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 65ef586d74297e692160dc075dead2f0b1d973b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 4445a8566c04d30cfb8743cbd33623f2e23f0dde
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116962"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595404"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>使用 Azure 資料箱來將資料從內部部署 HDFS 存放區移轉到 Azure 儲存體
 
@@ -27,7 +27,7 @@ ms.locfileid: "67116962"
 > * 將裝置寄回給 Microsoft。
 > * 移動資料至 Data Lake 儲存體 Gen2。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要下列步驟來完成移轉。
 
@@ -345,7 +345,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 在您計劃用來起始 DistCp 作業在內部部署 Hadoop 叢集上，建立檔案，指定您想要排除的目錄清單。
 
-以下是範例：
+以下為範例：
 
 ```
 .*ranger/audit.*

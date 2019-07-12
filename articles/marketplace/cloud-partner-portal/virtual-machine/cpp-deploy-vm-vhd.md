@@ -63,8 +63,8 @@ VM 部署完成後，您便可準備開始[認證您的 VM 映像](./cpp-certify
    | 管理員使用者名稱             | 新 VM 系統管理員帳戶的使用者名稱                                  |
    | 管理員密碼              | 新 VM 管理員帳戶密碼                                  |
    | OS 類型                     | VM 作業系統：`Windows` \| `Linux`                                    |
-   | 订阅 ID             | 讓選取的訂用帳戶取得安全性建議                                      |
-   | 位置                    | 部署的地理位置                                        |
+   | 訂用帳戶識別碼             | 讓選取的訂用帳戶取得安全性建議                                      |
+   | Location                    | 部署的地理位置                                        |
    | VM 大小                     | [Azure VM 大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)，例如`Standard_A2` |
    | 公用 IP 位址      | 您的公用 IP 位址名稱                                               |
    | 虛擬機器名稱                     | 新 VM 名稱                                                           |

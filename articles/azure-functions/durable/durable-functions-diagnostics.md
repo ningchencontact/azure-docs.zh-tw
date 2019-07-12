@@ -37,7 +37,7 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」  ，可讓您�
 * **functionName**：協調器或活動函式的名稱。
 * **functionType**：函式的類型，例如**協調器**或**活動**。
 * **instanceId**：協調流程執行個體的唯一識別碼。
-* **state**：執行個體的生命週期執行狀態。 有效值包括：
+* **state**：執行個體的生命週期執行狀態。 有效值包含：
   * **已排程**：函式已排程執行，但是尚未開始執行。
   * **已啟動**：函式已開始執行，但是尚未等候或已完成。
   * **等候**：協調器已排程一些工作，並且正在等候完成。
@@ -312,7 +312,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 > [!WARNING]
 > 自訂狀態承載僅限為 16 KB 的 UTF-16 JSON 文字，因為它必須符合 Azure 資料表儲存體資料行的大小。 如果您需要較大的承載，可以使用外部儲存體。
 
-## <a name="debugging"></a>Debugging
+## <a name="debugging"></a>偵錯
 
 Azure Functions 支援直接偵錯函式程式碼，相同支援適用於長期函式，無論是在 Azure 中或在本機執行。 不過，在偵錯時有一些要注意的行為：
 

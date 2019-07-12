@@ -31,7 +31,7 @@ ms.locfileid: "67109532"
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>設定 Azure AD Connect 中的裝置選項
 
-1.  執行 Azure AD Connect。 在 [其他工作]  頁面中，選取 [設定裝置選項]  。  单击“下一步”  。
+1.  執行 Azure AD Connect。 在 [其他工作]  頁面中，選取 [設定裝置選項]  。  按一下 [下一步]  。
     ![設定裝置選項](./media/how-to-connect-device-options/deviceoptions.png) 
 
     [概觀]  頁面顯示詳細資料。

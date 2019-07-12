@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309108"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-sap-business-warehouse-connector.md)
 > * [目前的版本](connector-sap-business-warehouse.md)
 
@@ -48,7 +48,7 @@ ms.locfileid: "60309108"
 >- 所有從 NetWeaver RFC SDK 解壓縮的所有相依性程式庫都位於 %windir%\system32 資料夾中。 其中通常包含 icudt34.dll、icuin34.dll、icuuc34.dll、libicudecnumber.dll、librfc32.dll、libsapucum.dll、sapcrypto.dll、sapcryto_old.dll、sapnwrfc.dll。
 >- 用來連線至 SAP 伺服器所需的連接埠會在自我裝載的 IR 機器上啟用，這通常是連接埠 3300 和 3201。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -68,7 +68,7 @@ ms.locfileid: "60309108"
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -99,7 +99,7 @@ ms.locfileid: "60309108"
 
 若要從 SAP BW 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 針對 RelationalTable 類型的 SAP BW 資料集，不支援任何類型特定的屬性。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -128,7 +128,7 @@ ms.locfileid: "60309108"
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | 是 |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -184,7 +184,7 @@ ms.locfileid: "60309108"
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| 單位 | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

@@ -23,7 +23,7 @@ ms.locfileid: "61257497"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
-> [!div class="op_single_selector" title1="資料轉換活動"]
+> [!div class="op_single_selector" title1="轉換活動"]
 > * [Hive 活動](data-factory-hive-activity.md)
 > * [Pig 活動](data-factory-pig-activity.md)
 > * [MapReduce 活動](data-factory-map-reduce.md)
@@ -347,7 +347,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 
 請在 HDInsight 已連結服務所參考的 Blob 儲存體中，建立下列資料夾結構。 然後，將相依檔案上傳至根資料夾中 **entryFilePath** 所代表的適當子資料夾。 例如，將 Python 檔案上傳至根資料夾的 [pyFiles] 子資料夾，將 jar 檔案上傳至 [jars] 子資料夾。 在執行階段，Data Factory 服務會預期 Blob 儲存體中有下列資料夾結構︰ 
 
-| Path | 描述 | 必要項 | 類型 |
+| `Path` | 描述 | 必要項 | type |
 | ---- | ----------- | -------- | ---- |
 | 。 | Spark 作業在儲存體已連結服務中的根路徑。 | 是 | 資料夾 |
 | &lt;使用者定義&gt; | 指向 Spark 作業之輸入檔案的路徑。 | 是 | 檔案 |

@@ -54,7 +54,7 @@ ms.locfileid: "60831090"
 
 **502 - 網頁伺服器做為閘道或 Proxy 伺服器時收到無效的回應。**
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 當您未使用主機名稱來存取 HTTPS 網站時，後端伺服器會傳回預設網站上已設定的憑證，以防 SNI 已停用。 對於 ILB ASE，預設憑證來自 ILB 憑證。 如果沒有針對 ILB 設定的憑證，則憑證來自 ASE 應用程式憑證。
 
@@ -70,6 +70,6 @@ ms.locfileid: "60831090"
 
 若要減少額外負荷，您可以上傳 HTTP 設定中的 ILB 憑證，以進行探查路徑工作。 (此步驟只適用於加入允許清單。 不會用於 SSL 通訊。)若要擷取 ILB 憑證，您可以從瀏覽器使用 HTTPS 上的 IP 位址來存取 ILB，然後以 Base-64 編碼的 CER 格式匯出 SSL 憑證，並上傳個別 HTTP 設定上的憑證。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 联系支持人员
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

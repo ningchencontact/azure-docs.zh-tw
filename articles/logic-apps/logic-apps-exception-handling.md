@@ -29,12 +29,12 @@ ms.locfileid: "60996573"
 
 以下是重試原則的類型： 
 
-| 類型 | 描述 | 
+| type | 描述 | 
 |------|-------------| 
 | **預設值** | 此原則會以*指數漸增*的間隔 (依 7.5 秒調整，但限制在 5 到 45 秒之間) 傳送最多 4 次重試。 | 
 | **指數間隔**  | 此原則會先等待選自指數成長範圍內的隨機間隔時間，再傳送下一個要求。 | 
 | **固定間隔**  | 此原則會先等待指定的間隔時間，再傳送下一個要求。 | 
-| **None**  | 不重新傳送要求。 | 
+| **無**  | 不重新傳送要求。 | 
 ||| 
 
 如需有關重試原則限制的資訊，請參閱 [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md#request-limits)。 
@@ -71,7 +71,7 @@ ms.locfileid: "60996573"
 
 *必要*
 
-| 值 | 類型 | 描述 |
+| 值 | type | 描述 |
 |-------|------|-------------|
 | <retry-policy-type  > | String | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
 | <retry-interval  > | String | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
@@ -80,7 +80,7 @@ ms.locfileid: "60996573"
 
 *選擇性*
 
-| 值 | 類型 | 描述 |
+| 值 | type | 描述 |
 |-------|------|-------------|
 | <minimum-interval  > | String | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <maximum-interval  > | String | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
@@ -90,7 +90,7 @@ ms.locfileid: "60996573"
 
 <a name="default-retry"></a>
 
-### <a name="default"></a>預設值
+### <a name="default"></a>預設
 
 若您未指定重試原則，則動作會使用預設原則 (實際上就是[指數間隔原則](#exponential-interval))，此原則會以指數漸增間隔 (以 7.5 秒作調整) 傳送最多四次重試。 間隔的最小值與最大值為 5 秒和 45 秒。 
 

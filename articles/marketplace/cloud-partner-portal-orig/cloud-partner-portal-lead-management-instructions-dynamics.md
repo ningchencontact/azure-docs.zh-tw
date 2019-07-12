@@ -18,7 +18,7 @@ ms.locfileid: "64935787"
 
 此文章說明如何設定 Dynamics CRM Online 以處理銷售潛在客戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列使用者權限才能完成此文章中的步驟：
 - 您必須是 Dynamics CRM Online 執行個體上的系統管理員，才能安裝解決方案。

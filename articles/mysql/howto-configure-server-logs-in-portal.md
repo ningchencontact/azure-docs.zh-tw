@@ -17,7 +17,7 @@ ms.locfileid: "67052728"
 
 您可以設定、 列出及下載[Azure Database for MySQL 慢速查詢記錄](concepts-server-logs.md)從 Azure 入口網站。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本作法指南，您需要︰
 - [適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-portal.md)
 

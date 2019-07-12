@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ef40ce0987d44c968b120d7d4b142cc95d7eaf30
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8e01815cee0d6e39f6f773e9838b2a8b60638ab1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294841"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672306"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
 
@@ -48,10 +48,14 @@ Azure 磁碟加密是適用於符合這些最低記憶體需求的虛擬機器�
 
 ### <a name="windows"></a>Windows
 
-- Windows Server 版本：Windows Server 2008 R2、 Windows Server 2012、 Windows Server 2012 R2、 Windows Server 2016、 Windows Server 2012 R2 Server Core 和 Windows Server 2016 Server core。
-針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 從 Windows Update 以選用更新適用於 Windows Server 2008 R2 x64 型系統 (KB2901983) 的 Microsoft.NET Framework 4.5.2 中安裝它。
-- Windows Server 2012 R2 Core 和 Windows Server 2016 Core 支援 Azure 磁碟加密一旦 bdehdcfg 元件安裝在 VM 上。
-- Windows 用戶端版本：Windows 8 用戶端和 Windows 10 用戶端。
+- Windows 用戶端：Windows 8 和更新版本。
+- Windows Server：Windows Server 2008 R2 和更新版本。  
+ 
+> [!NOTE]
+> Windows Server 2008 R2 需要.NET Framework 4.5 安裝加密;安裝從 Windows Update 以選用更新適用於 Windows Server 2008 R2 x64 型系統的 Microsoft.NET Framework 4.5.2 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983))。  
+>  
+> Windows Server 2012 R2 Core 和 Windows Server 2016 Core 需要加密的 VM 上安裝的 bdehdcfg 元件。
+
 
 ### <a name="linux"></a>Linux 
 
@@ -110,7 +114,7 @@ Azure 磁碟加密是適用於符合這些最低記憶體需求的虛擬機器�
 
 
 **群組原則：**
- - Azure 磁碟加密解決方案對 Windows IaaS VM 使用 BitLocker 外部金鑰保護裝置。 對於加入網域的 VM，請勿推送任何會強制使用 TPM 保護裝置的群組原則。 如需關於「在不含相容 TPM 的情形下允許使用 BitLocker」的群組原則相關資訊，請參閱 [BitLocker 群組原則參考文件](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)。
+ - Azure 磁碟加密解決方案對 Windows IaaS VM 使用 BitLocker 外部金鑰保護裝置。 對於加入網域的 VM，請勿推送任何會強制使用 TPM 保護裝置的群組原則。 如需關於「在不含相容 TPM 的情形下允許使用 BitLocker」的群組原則相關資訊，請參閱 [BitLocker 群組原則參考文件](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)。
 
 -  具有自訂群組原則之已加入網域虛擬機器上的 BitLocker 原則必須包含下列設定：[設定使用者存放裝置的 BitLocker 修復資訊-> 允許 256 位元修復金鑰](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。
 
@@ -292,7 +296,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 1. 選取金鑰保存庫，移至 [存取原則]  ，然後**按一下以顯示進階存取原則**。
 2. 選取標示為**為磁碟區加密啟用對 Azure 磁碟加密的存取**的方塊。
 3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取]  及/或 [為範本部署啟用對 Azure Resource Manager 的存取]  。 
-4. 按一下 [檔案]  。
+4. 按一下 [儲存]  。
 
     ![Azure 金鑰保存庫進階存取原則](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 

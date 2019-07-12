@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7aedb0804626d1204121568904763bec5e83e858
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514034"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786258"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -25,7 +25,70 @@ ms.locfileid: "67514034"
 
 若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
 
+## <a name="2019-07-09"></a>2019-07-09
 
+### <a name="visual-interface"></a>視覺化介面
++ **預覽功能**
+  + 加入視覺介面中的 [執行 R 指令碼] 模組。
+
+### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning SDK for Python v1.0.48
+
++ **新功能**
+  + **azureml-opendatasets**
+    + **azureml-contrib-opendatasets**目前為可用**azureml opendatasets**。 舊的封裝也可以運作，但我們建議您將使用**azureml opendatasets**往後的更豐富的功能與改良功能。
+    + 這個新的套件可讓您註冊為 AML 工作區中的資料集的 開啟資料集，並利用任何資料集所提供的功能。
+    + 它也包含現有的功能，例如使用開啟的資料集當做 Pandas/SPARK 資料框架，以及聯結天氣等某些資料集的位置。
+
++ **預覽功能**
+    + HyperDriveConfig 現在可以接受的管線物件做為支援使用管線的超參數微調的參數。
+
++ **Bug 修正和增強功能**
+  + **azureml-train-automl**
+    + 已修正遺失的轉換後的資料行類型的相關錯誤。
+    + 修正 bug，以允許 y_query 是包含無 (s) 開頭的物件類型。 
+    + 即使常數分數，仍然不必要地成長產生的集團集團選取程序中，已修正的問題。
+    + 設定為 whitelist_models 與 blacklist_models AutoMLStep 中修正的問題。
+    + 已修正問題，防止前置處理 AutoML 會有在 Azure ML 管線環境中使用時的使用方式。
+  + **azureml-opendatasets**
+    + 移動的 azureml-contrib-opendatasets 到 azureml opendatasets。
+    + 允許開啟的資料集類別註冊到 AML 工作區，並順暢地運用 AML 資料集的功能。
+    + 改善的 NoaaIsdWeather 大幅擴充非 SPARK 版本中的效能。
+  + **azureml-explain-model**
+    + Interpretability 物件的有更新的線上文件。
+    + 新增模擬說明 batch_size 時 include_local 進行串流處理來改善執行時間 DecisionTreeExplainableModel 的批次中的全域說明 = False。
+    + 已修正此問題其中`explanation.expected_values`會在它有時傳回浮點數，而不是浮點數的清單。
+    + 已新增的預期值，以模仿說明中的輸出 automl 說明模型文件庫。
+    + 若要取得未經處理的功能重要性提供轉換引數時，請修正排列功能重要性。
+    + 新增模擬說明 batch_size 時 include_local 進行串流處理來改善 DecisionTreeExplainableModel 模型 explainability 程式庫執行時間的批次中的全域說明 = False。
+  + **azureml-core**
+    + 新增附加 DBFS AzureML CLI 中的資料存放區的能力。
+    + 如果要建立空的資料夾的位置與資料存放區上傳修正的問題`target_path`開始使用`/`。
+    + 已啟用的兩個資料集的詳細比較。
+    + 刪除模型和映像現在會提供擷取上游物件相依於這些，如果刪除失敗，因為上游的相依性的詳細資訊。
+    + 未使用的 RunConfiguration 設定 auto_prepare_environment 中已被取代。
+  + **azureml-mlflow**
+    + 遠端執行中使用 azureml.mlflow 提高的資源使用率。
+    + 改善的 azureml mlflow 套件文件。
+    + 已修正問題，其中 mlflow.log_artifacts("my_dir") 會儲存在 「 my_dir/成品-路徑 」 而不是 「 成品路徑 」 的成品。
+  + **azureml-dataprep**
+    + 資料流程物件現在可以反覆產生一連串的記錄。
+    + 已修正的問題所在`Dataflow.read_pandas_dataframe`會失敗時`in_memory`引數設定為 True。
+    + 改進處理的 pandas 資料框架，搭配非字串資料行索引。
+    + 公開`set_diagnostics_collection()`允許以程式設計方式啟用/停用遙測收集。
+    + 加入臨界數值和 bottomValues 彙總。
+  + **azureml-pipeline-core**
+    + 管線的所有步驟的參數 hash_paths 已被取代，未來將會移除。 依預設內容 source_directory 會雜湊 （除了列在 .amlignore 或.gitignore 檔案）
+    + 繼續改善的模組以及 ModuleStep 支援計算類型特定模組，以準備 RunConfiguration 整合和進一步的變更來解除鎖定其在管線中的使用方式。
+  + **azureml-pipeline-steps**
+    + AzureBatchStep:輸入/輸出方面改良的說明文件。
+    + AzureBatchStep:您可以變更 delete_batch_job_after_finish 預設值為 true。
+  + **azureml-train-core**
+    + 現在接受字串，作為自動化超參數微調的計算目標。
+    + 未使用的 RunConfiguration 設定 auto_prepare_environment 中已被取代。
+    + 已取代的參數`conda_dependencies_file_path`並`pip_requirements_file_path`的益處`conda_dependencies_file`和`pip_requirements_file`分別。
+  + **azureml-opendatasets**
+    + 改善 NoaaIsdWeather 大幅擴充非 SPARK 版本中的效能。
+    
 ## <a name="2019-07-01"></a>2019-07-01
 
 ### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning 資料準備 SDK v1.1.7
@@ -257,7 +320,7 @@ Azure 機器學習服務 SDK for Python v1.0.30 發行。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning 資料準備 SDK v1.1.2
 
-注意：資料準備 Python SDK 將不會再安裝`numpy`和`pandas`封裝。 請參閱[更新的安裝指示](https://aka.ms/aml-data-prep-installation)。
+注意:資料準備 Python SDK 將不會再安裝`numpy`和`pandas`封裝。 請參閱[更新的安裝指示](https://aka.ms/aml-data-prep-installation)。
 
 + **新功能**
   + 您現在可以使用樞紐轉換。
@@ -358,7 +421,7 @@ Azure 機器學習服務 SDK for Python v1.0.30 發行。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning 資料準備 SDK v1.0.16
 
-+ **Bug 修复**
++ **Bug 修正**
   + 修正服務主體驗證問題所造成的 API 變更。
 
 ## <a name="2019-02-25"></a>2019-02-25

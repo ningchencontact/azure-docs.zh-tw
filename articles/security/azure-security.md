@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610532"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 我們知道安全性是雲端中的首要工作和其重要性，因為您可在其中找到精確且及時的 Azure 安全性資訊。 針對您的應用程式和服務使用 Azure 的最佳原因之一是可以利用它的各種安全性工具和功能。 這些工具和功能可協助您在安全的 Azure 平台上建立安全的解決方案。 Microsoft Azure 提供客戶資料的機密性、完整性和可用性，同時也能釐清責任。
 
 為了協助您從客戶和 Microsoft 作業的觀點深入了解如何在 Microsoft Azure 內實作一組安全性控制，因而編寫了本技術白皮書＜Azure 安全性簡介＞來提供可透過 Microsoft Azure 取得之安全性的完整介紹。
@@ -99,7 +99,7 @@ Application Insights 會建立圖表和資料表為您顯示多種資訊，例�
 
 Azure 監視器記錄檔可以是一個有用的工具，在鑑識和其他安全性分析工具可讓您快速搜尋大量的安全性相關的項目與彈性查詢方法。 此外，在內部[可以匯出到 Azure 防火牆和 proxy 記錄檔，並且可供分析使用 Azure 監視器記錄檔。](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
-### <a name="azure-advisor"></a>Azure 建議程式
+### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) 是個人化雲端顧問，可協助您將 Azure 部署最佳化。 它會分析您的資源及用量遙測， 接著會建議解決方案，以協助改善資源的[效能](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations)、[安全性](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)及[高可用性](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations)，同時尋找[降低整體 Azure 費用](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations)的機會。 Azure Advisor 提供安全性建議，讓您能夠大幅改善您部署於 Azure 中之解決方案的整體安全性狀態。 這些建議均取自 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)所執行的安全性分析。
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
@@ -175,7 +175,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 -   [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
 
-### <a name="storage-analytics"></a>存储分析
+### <a name="storage-analytics"></a>儲存體分析
 [Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)會執行記錄，並提供儲存體帳戶的計量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。 儲存體分析會記錄對儲存體服務之成功和失敗要求的詳細資訊。 這項資訊可用來監視個別要求，並診斷儲存體服務的問題。 系統會以最佳方式來記錄要求。 系統將記錄下列類型的驗證要求：
 -   成功的要求。
 
@@ -239,10 +239,10 @@ Microsoft Azure [ExpressRoute](https://docs.microsoft.com/azure/expressroute/exp
 ExpressRoute 連接不會經過公用網際網路，因此可視為比 VPN 型解決方案更安全。 相較於一般網際網路連線，這可讓 ExpressRoute 連線提供更可靠、更快速、延遲更短和更安全的連線。
 
 
-### <a name="application-gateway"></a>应用程序网关
+### <a name="application-gateway"></a>應用程式閘道
 Microsoft [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)會以服務形式提供[應用程式傳遞控制器 (ADC) (英文)](https://en.wikipedia.org/wiki/Application_delivery_controller)，為您的應用程式提供各種第 7 層負載平衡功能。
 
-![应用程序网关](./media/azure-security/azure-security-fig2.png)
+![應用程式閘道](./media/azure-security/azure-security-fig2.png)
 
 它會將 CPU 密集 SSL 終止卸載至應用程式閘道 (亦稱為「SSL 卸載」或「SSL 橋接」)，讓您能夠將 Web 伺服陣列的產能最佳化。 它也提供其他第 7 層路由功能，包括循環配置傳入流量、以 Cookie 為基礎的工作階段同質性、URL 路徑型路由，以及在單一應用程式閘道背後代管多個網站的能力。 Azure 應用程式閘道是第 7 層負載平衡器。
 
@@ -255,13 +255,13 @@ Web 應用程式防火牆是 [Azure 應用程式閘道](https://docs.microsoft.c
 
 ![Web 應用程式防火牆](./media/azure-security/azure-security-fig1.png)
 
--   SQL 注入保护
+-   SQL 插入式攻擊保護
 
 -   常見 Web 攻擊保護，例如命令插入式攻擊、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
 
 -   防範 HTTP 通訊協定違規
 
--   防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
+-   防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
 
 -   防範 Bot、編目程式和掃描器
 
@@ -276,7 +276,7 @@ Microsoft [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manag
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 可為您的應用程式提供高可用性和網路效能。 這是 Layer 4 (TCP、UDP) 負載平衡器，可將連入流量分配到負載平衡集中所定義服務的狀況良好執行個體。 Azure Load Balancer 可以設定為：
 
--   对传入到虚拟机的 Internet 流量进行负载均衡。 這個組態稱為 [網際網路面向的負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)。
+-   對虛擬機器的連入網際網路流量進行負載平衡。 這個組態稱為 [網際網路面向的負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)。
 
 -   平衡虛擬網路中的虛擬機器之間、雲端服務中的虛擬機器之間，或內部部署電腦與跨單位部署虛擬網路中的虛擬機器之間的流量負載。 這個組態稱為 [內部負載平衡](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)。 
 

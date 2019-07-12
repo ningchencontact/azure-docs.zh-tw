@@ -76,7 +76,7 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 
 您現在可以直接在應用程式中編輯現有報表或建立新報表，而不必使用 Power BI Desktop。 這需要工作區內已存在資料集。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [常見的 Microsoft Power BI 工作區集合案例](scenarios.md)  
 [開始使用 Microsoft Power BI 工作區集合](get-started.md)  

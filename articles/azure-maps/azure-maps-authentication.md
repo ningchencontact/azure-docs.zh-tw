@@ -3,18 +3,18 @@ title: 向 Azure 地圖服務驗證 | Microsoft Docs
 description: 進行驗證以使用 Azure 地圖服務。
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393667"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838046"
 ---
 # <a name="authentication-with-azure-maps"></a>向 Azure 地圖服務驗證
 
@@ -31,7 +31,7 @@ Azure 地圖服務支援兩種用來驗證要求的方式：共用金鑰和 Azur
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>使用 Azure Active Directory 進行驗證 (預覽)
 
-Azure 地圖服務現在提供 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 整合，以驗證 Azure 地圖服務的要求。 Azure AD 會提供以識別為基礎的驗證 (包括[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview))，以授與使用者層級或應用程式層級的 Azure 地圖服務資源存取權。 後續幾節可協助您了解 Azure 地圖服務與 Azure AD 整合的概念和元件。
+Azure 地圖服務現在提供 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 整合，以驗證 Azure 地圖服務的要求。 Azure AD 提供身分識別為基礎的驗證，包括[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)，以授與使用者層級、 群組層級和應用程式層級存取 Azure 地圖服務資源。 後續幾節可協助您了解 Azure 地圖服務與 Azure AD 整合的概念和元件。
 
 ## <a name="authentication-with-oauth-access-tokens"></a>使用 OAuth 存取權杖進行驗證
 
@@ -57,7 +57,7 @@ https://login.microsoftonline.com
 | 要求標頭    |    值    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| 授權     | Bearer eyJ0e….HNIVN |
+| Authorization     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` 是以 Azure 地圖服務帳戶為基礎的 GUID，其顯示在 Azure 地圖服務的驗證頁面上。
@@ -75,9 +75,9 @@ Authorization: Bearer eyJ0e….HNIVN
 
 ## <a name="control-access-with-rbac"></a>使用 RBAC 控制存取權
 
-Azure AD 可讓您使用 RBAC 來控制安全資源的存取權。 在建立 Azure 地圖服務帳戶，且在 Azure AD 租用戶內註冊 Azure 地圖服務 Azure AD 應用程式之後，您可以在 Azure 地圖服務帳戶入口網站頁面上設定使用者、應用程式或 Azure 資源的 RBAC。
+Azure AD 可讓您使用 RBAC 來控制安全資源的存取權。 建立您的 Azure 地圖服務帳戶後，當您在 Azure AD 租用戶內註冊您的 Azure 地圖服務的 Azure AD 應用程式時，您可以設定使用者、 群組、 應用程式或 Azure Maps 帳戶入口網站頁面上的 Azure 資源的 RBAC。
 
-Azure 地圖服務可透過 Azure 資源的受控識別，支援個別 Azure AD 使用者、應用程式或 Azure 服務的讀取存取控制。
+Azure 地圖服務支援的讀取權限控制的個別 Azure AD 使用者、 群組、 應用程式和適用於 Azure 資源的 Azure 服務透過 「 受管理的身分識別。
 
 ![Azure 地圖服務資料讀者 (預覽)](./media/azure-maps-authentication/concept.png)
 

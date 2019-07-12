@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417709"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798717"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
@@ -25,20 +25,31 @@ ms.locfileid: "66417709"
 
 新功能正在推出到所有區域，請同時部署至您的執行個體和功能可用性的最新 Azure SQL DW 版本資訊的版本。 若要檢查您的 Azure SQL DW 版本，連接到您的資料倉儲透過 SQL Server Management Studio (SSMS)，並執行`SELECT @@VERSION AS 'SQL Data Warehouse';`返回目前版本的 Azure SQL DW。
 
-範例輸出︰![SQL 資料倉儲版本](./media/release-notes/sql_data_warehouse_version.png)
+範例輸出︰
+
+![SQL 資料倉儲版本](./media/release-notes/sql_data_warehouse_version.png)
 
 使用辨識，以確認哪些版本的日期已套用至您的 Azure SQL DW。
+
+## <a name="july-2019"></a>2019 年 7 月
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+|**具體化的檢視 （預覽）**|具體化檢視保存從檢視定義查詢傳回的資料，並且會自動更新為基礎的資料表中的資料變更。 它可以改善複雜的查詢 （通常與聯結和彙總的查詢） 的效能，同時提供簡單的維護作業。 如需詳細資訊，請參閱： </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Azure SQL 資料倉儲中支援的 T-SQL 陳述式](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援： </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**結果集的快取 （預覽）**|DBCC 命令會新增管理先前所宣布的結果設定快取。 如需詳細資訊，請參閱： </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> 另請參閱中的新 result_set_cache 資料行[sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)示範在執行的查詢使用結果時，設定快取。|
+|**排序叢集資料行存放區索引 （預覽）**|新的資料行、 column_store_order_ordinal，加入[sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest)來識別已排序的叢集資料行存放區索引中的資料行的順序。|
 
 ## <a name="may-2019"></a>2019 年 5 月
 
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
-|**動態資料遮罩 （預覽）**|動態資料遮罩 (DDM) 亂上即時在查詢結果中，根據您定義的遮罩規則，您在資料倉儲中的機密資料以防止未經授權的存取。 如需詳細資訊，請參閱 < [SQL Database 動態資料遮罩](/azure/sql-database/sql-database-dynamic-data-masking-get-started)。|
-|**工作負載重要性現已正式推出**|工作負載管理分類和重要性提供的功能來影響查詢的執行的順序。 如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/> -[工作負載管理概念](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**動態資料遮罩 （預覽）**|動態資料遮罩 (DDM) 可防止其他人未經授權存取您資料倉儲中的敏感性資料，做法是根據您定義的遮罩規則，即時在查詢結果中混淆這項資料。 如需詳細資訊，請參閱 < [SQL Database 動態資料遮罩](/azure/sql-database/sql-database-dynamic-data-masking-get-started)。|
+|**工作負載重要性現已正式推出**|工作負載管理分類和重要性可讓您影響查詢的執行順序。 如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/> -[工作負載管理概念](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援： </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON 函式**|商務分析師現在可以使用熟悉的 T-SQL 語言來查詢及管理文件格式化為 JSON 資料，在 Azure 資料倉儲中使用下列的新 JSON 函式：</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
-|**結果集的快取 （預覽）**|結果集快取，可讓商務分析師之減少時間-深入解析和報告使用者立即查詢回應時間。 如需詳細資訊，請參閱</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 選項 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [設定結果集快取 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 陳述式 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases & Amp;#40;transact-SQL&AMP;#41](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
-|**排序叢集資料行存放區索引 （預覽）**|資料行存放區是儲存及有效率地查詢大量資料的關鍵推動者。 每個資料表，它將內送資料分成資料列群組和每個資料行的資料列群組形式在磁碟上的區段。  排序叢集資料行存放區索引進一步最佳化查詢執行啟用有效率的區段刪除。   如需詳細資訊，請參閱</br> -  [CREATE TABLE （Azure SQL 資料倉儲）](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
+|**結果集的快取 （預覽）**|結果集快取，可讓商務分析師之減少時間-深入解析和報告使用者立即查詢回應時間。 如需詳細資訊，請參閱：</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 選項 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [設定結果集快取 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 陳述式 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases & Amp;#40;transact-SQL&AMP;#41](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**排序叢集資料行存放區索引 （預覽）**|資料行存放區對於儲存及有效率地查詢大量資料至關重要。 針對每個資料表，它會將傳入的資料分割成資料列群組，而且資料列群組的每個資料行會構成磁碟上的一個分割。  已排序叢集資料行存放區索引透過有效率地刪除分割，進一步將查詢執行最佳化。   如需詳細資訊，請參閱：</br> -  [CREATE TABLE （Azure SQL 資料倉儲）](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="march-2019"></a>2019 年 3 月
 

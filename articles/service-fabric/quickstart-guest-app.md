@@ -25,7 +25,7 @@ ms.locfileid: "66428226"
 
 本快速入門可協助您將現有的應用程式 (在此範例中為 Node.js) 部署到在 Azure 上執行的 Service Fabric 叢集。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您已 [設定開發環境](service-fabric-get-started.md)。 其中包括安裝 Service Fabric SDK 及 Visual Studio 2019 或 2015年。
 
@@ -126,7 +126,7 @@ Visual Studio 會建立應用程式專案和動作項目服務專案，並在 [�
 
 首先，開啟 Azure 入口網站並尋找您的 Service Fabric 服務。
 
-請檢查服務位址的 [概觀] 刀鋒視窗。 使用 [用戶端連線端點]  屬性中的網域名稱。 例如： `http://mysvcfab1.westus2.cloudapp.azure.com`。
+請檢查服務位址的 [概觀] 刀鋒視窗。 使用 [用戶端連線端點]  屬性中的網域名稱。 例如： `http://mysvcfab1.westus2.cloudapp.azure.com` 。
 
 ![Azure 入口網站上的 Service Fabric 概觀刀鋒視窗][overview]
 

@@ -23,7 +23,7 @@ ms.locfileid: "65967534"
 
 如果您想要在本機電腦上執行 IDE 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 

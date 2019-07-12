@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509657"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786304"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Linux Java 應用程式
 
@@ -133,7 +133,7 @@ az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --s
 
 調整應用程式堆積設定時，請檢閱 App Service 方案詳細資料，並考慮多個應用程式和部署位置需求以尋找最佳的記憶體配置。
 
-如果您要部署的 JAR 應用程式，其應該為*app.jar* ，讓內建的映像可以正確地識別您的應用程式。 （Maven 外掛程式執行此重新命名自動）。如果您不想重新命名以 JAR *app.jar*，您可以上傳的命令執行 JAR 的殼層指令碼。 貼在此指令碼的完整路徑[啟動檔案](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file)入口網站的組態中的文字方塊。
+如果您要部署的 JAR 應用程式，其應該為*app.jar* ，讓內建的映像可以正確地識別您的應用程式。 （Maven 外掛程式執行此重新命名自動）。如果您不想重新命名以 JAR *app.jar*，您可以上傳的命令執行 JAR 的殼層指令碼。 貼在此指令碼的完整路徑[啟動檔案](app-service-linux-faq.md#built-in-images)入口網站的組態中的文字方塊。
 
 ### <a name="turn-on-web-sockets"></a>開啟 Web 通訊端
 
@@ -170,6 +170,10 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 ### <a name="adjust-startup-timeout"></a>調整啟動逾時
 
 如果您的 Java 應用程式特別大時，您應該增加啟動時間限制。 若要這樣做，請建立 應用程式設定，`WEBSITES_CONTAINER_START_TIME_LIMIT`並將它設定為應用程式服務應該逾時前等候的秒數。最大值是`1800`秒。
+
+### <a name="pre-compile-jsp-files"></a>先行編譯 JSP 檔案
+
+若要改善 Tomcat 應用程式的效能，您可以部署至 App Service 之前編譯 JSP 檔案。 您可以使用[的 Maven 外掛程式](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html)Apache 投擲，或使用此提供[Ant 組建檔案](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation)。
 
 ## <a name="secure-applications"></a>保護應用程式
 
@@ -290,7 +294,7 @@ App Service Linux 要求路由傳送連入連接埠 80，讓您的應用程式�
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [下載](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [下載](https://dev.mysql.com/downloads/connector/j/) (請選取 [Platform Independent] \(不受平台影響\)) |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [下載](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| [SQL Server] | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [下載](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
 若要設定 Tomcat，以使用 Java Database Connectivity (JDBC) 或 Java 持續性 API (JPA)，先自訂`CATALINA_OPTS`會讀取在 Tomcat 在啟動時的環境變數。 請透過 [App Service Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)中的應用程式設定來設定這些值：
 

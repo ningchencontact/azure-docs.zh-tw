@@ -38,7 +38,7 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 
 - **Azure AD 連接器帳戶**：用來在 Azure AD 中寫入資訊
 
-除了這三個用來執行 Azure AD Connect 的帳戶，您另外還需要下列帳戶以便安裝 Azure AD Connect。  它們是：
+除了這三個用來執行 Azure AD Connect 的帳戶，您另外還需要下列帳戶以便安裝 Azure AD Connect。  這些是：
 
 - **本機系統管理員帳戶**：安裝 Azure AD Connect 且在機器上具有本機系統管理員權限的系統管理員。
 
@@ -129,7 +129,7 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 
 您需要的權限取決於您啟用的選用功能。 如果您有多個網域，則必須對樹系中的所有網域授與權限。 如果您未啟用任何一項功能，預設的 **網域使用者** 權限就已足夠。
 
-| 功能 | 權限 |
+| 功能 | Permissions |
 | --- | --- |
 | ms-DS-ConsistencyGuid 功能 |ms-DS-ConsistencyGuid 屬性 (詳情記載於[設計概念 - 使用 ms-DS-ConsistencyGuid 來作為 sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)) 的寫入權限。 | 
 | 密碼雜湊同步處理 |<li>複寫目錄變更</li>  <li>複寫目錄變更 (全部) |
@@ -248,7 +248,7 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 ## <a name="related-documentation"></a>相關文件
 如果您尚未閱讀有關[整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md) 的文件，下表提供相關主題的連結。
 
-|話題 |連結|  
+|主題 |連結|  
 | --- | --- |
 |下載 Azure AD Connect | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](how-to-connect-install-express.md)|

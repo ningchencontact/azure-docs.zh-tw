@@ -126,7 +126,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | Name | 提供名稱  | 例如，“In from AD – User preferredDataLocation” |
+    | 名稱 | 提供名稱  | 例如，“In from AD – User preferredDataLocation” |
     | 描述 | *提供自訂描述* |  |
     | 連線系統 | 挑選內部部署 Active Directory 連接器  |  |
     | 連線系統物件類型 | **使用者** |  |
@@ -137,7 +137,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 5. 讓 [範圍篩選器]  保持空白，以便包含所有物件。 您可能需要根據 Azure AD Connect 部署來調整範圍篩選器。
 6. 移至 [轉換]  索引標籤，並實作下列轉換規則︰
 
-    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | Source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     |直接 | preferredDataLocation | 挑選來源屬性 | 未核取 | Update |
 
@@ -155,7 +155,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | ----- | ------ | --- |
-    | Name | 提供名稱  | 例如，“Out to Azure AD – User preferredDataLocation” |
+    | 名稱 | 提供名稱  | 例如，“Out to Azure AD – User preferredDataLocation” |
     | 描述 | 提供描述  ||
     | 連線系統 | 選取 Azure AD 連接器  ||
     | 連線系統物件類型 | **使用者** ||
@@ -174,7 +174,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 6. 移至 [轉換]  索引標籤，並實作下列轉換規則︰
 
-    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | Source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     | 直接 | preferredDataLocation | preferredDataLocation | 未核取 | Update |
 

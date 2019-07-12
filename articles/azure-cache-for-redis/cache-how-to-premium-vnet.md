@@ -110,7 +110,7 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 - 其中的三個連接埠會將流量路由至提供 Azure 儲存體與 Azure DNS 的 Azure 端點。
 - 剩餘的連接埠有數種範圍，且適用於內部 Redis 子網域通訊。 內部 Redis 子網域通訊不需要子網路 NSG 規則。
 
-| 連接埠 | Direction | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
+| 連接埠 | Direction | 傳輸通訊協定 | 用途 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80、443 |輸出 |TCP |Azure 儲存體/PKI 上 Redis 的相依項目 (網際網路) | (Redis 子網路) |* |
 | 53 |輸出 |TCP/UDP |DNS 上 Redis 的相依項目 (網際網路/VNet) | (Redis 子網路) | 168.63.129.16 和 169.254.169.254 <sup>1</sup>和 子網路的任何自訂 DNS 伺服器<sup>3</sup> |
@@ -129,7 +129,7 @@ Azure Cache for Redis 裝載在 VNet 時，會使用下表中的連接埠。
 
 有八項輸入連接埠範圍需求。 在這些範圍的輸入要求如下：從相同 VNET 中裝載的其他服務輸入，或是 Redis 子網路內部通訊。
 
-| 連接埠 | Direction | 傳輸通訊協定 | 目的 | 本機 IP | 遠端 IP |
+| 連接埠 | Direction | 傳輸通訊協定 | 用途 | 本機 IP | 遠端 IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |輸入 |TCP |對 Redis 進行的用戶端通訊，Azure 負載平衡 | (Redis 子網路) | (Redis 子網路)，虛擬網路，Azure Load Balancer <sup>2</sup> |
 | 8443 |輸入 |TCP |Redis 內部通訊 | (Redis 子網路) |(Redis 子網路) |

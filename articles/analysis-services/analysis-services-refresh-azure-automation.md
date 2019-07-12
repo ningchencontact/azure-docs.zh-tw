@@ -22,7 +22,7 @@ ms.locfileid: "66357006"
 
 在本文稍後會提供範例為 PowerShell Runbook，可示範如何重新整理模型。  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 所有呼叫必須使用有效的 Azure Active Directory (OAuth 2) 權杖進行都驗證。  這篇文章中的範例會使用服務主體 (SPN)，來向 Azure Analysis Services。
 
@@ -45,7 +45,7 @@ ms.locfileid: "66357006"
  
     ![匯入模組](./media/analysis-services-refresh-azure-automation/2.png)
 
-4. 按一下 [確定]  。
+4. 按一下 [確定 **Deploying Office Solutions**]。
  
 ### <a name="create-a-service-principal-spn"></a>建立服務主體 (SPN)
 
@@ -106,7 +106,7 @@ Azure Analysis Services 模型重新整理排程為基礎的觸發程序，就�
 
     ![設定排程](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. 按一下頁面底部的 [新增]  。
+3. 按一下 [建立]  。
 
 4. 填入排程參數。 這些會在每次觸發 Runbook。 **WEBHOOKDATA**參數應為空白時透過排程執行。
 

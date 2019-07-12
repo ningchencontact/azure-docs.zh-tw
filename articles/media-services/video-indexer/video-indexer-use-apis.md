@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [影片索引子概觀](video-indexer-overview.md)
 - [區域](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

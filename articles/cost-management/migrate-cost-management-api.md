@@ -50,7 +50,7 @@ MCA Api 和新的整合可讓您：
 
 EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD 驗證。
 
-| 目的 | EA API | MCA API |
+| 用途 | EA API | MCA API |
 | --- | --- | --- |
 | 餘額與信用額度 | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | Microsoft.Billing/billingAccounts/billingProfiles/availableBalanceussae |
 | 使用方式 (JSON) | [/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails)<sup>1</sup> |
@@ -66,7 +66,7 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 
 下列 Api 可用於 MCA 計費帳戶：
 
-| 目的 | Microsoft 的客戶合約 (MCA) API |
+| 用途 | Microsoft 的客戶合約 (MCA) API |
 | --- | --- |
 | 計費帳戶<sup>2</sup> | Microsoft.Billing/billingAccounts |
 | 帳單設定檔<sup>2</sup> | Microsoft.Billing/billingAccounts/billingProfiles |
@@ -78,7 +78,7 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 
 如果您使用任何現有的 EA Api 時，您需要將其更新為支援 MCA 計費帳戶。 下表顯示整合的其他變更：
 
-| 目的 | 舊的供應項目 | 新的供應項目 |
+| 用途 | 舊的供應項目 | 新的供應項目 |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure 成本管理](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | [Microsoft 使用深入解析](/power-bi/desktop-connect-azure-consumption-insights)內容套件和連接器 | [Microsoft Azure 耗用量 Insights Power BI 應用程式](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview)和[Azure Consumption Insights 連接器](/power-bi/desktop-connect-azure-consumption-insights) |
@@ -126,12 +126,12 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 
 使用方式詳細資料 API 中，如同所有的成本管理 Api，可在多個範圍。 開立發票的成本，因為您通常會收到註冊層級，用於計費的設定檔範圍。  如需成本管理範圍的詳細資訊，請參閱[了解及使用範圍](understand-work-scopes.md)。
 
-| 類型 | 識別碼格式 |
+| type | 識別碼格式 |
 | --- | --- |
 | 計費帳戶 | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | 帳單設定檔 | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
-| 訂用帳戶 | `/subscriptions/{subscriptionId}` |
-| 資源群組 | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| Subscription | `/subscriptions/{subscriptionId}` |
+| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
 您可以使用下列查詢字串參數來更新任何程式碼。
 
@@ -174,50 +174,50 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 | --- | --- | --- |
 | AccountId | N/A | 未追蹤的訂用帳戶建立者。 使用 invoiceSectionId （如同 departmentId）。 |
 | AccountNameAccountOwnerId 和 AccountOwnerEmail | N/A | 未追蹤的訂用帳戶建立者。 使用 invoiceSectionName （如同 departmentName）。 |
-| 其他資訊 | additionalInfo | &nbsp;  |
+| AdditionalInfo | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | 請注意，這些屬性相反。 如果 isAzureCreditEnabled 為 true，ChargesBilledSeparately 會是 false。 |
 | ConsumedQuantity | quantity | &nbsp; |
-| 已使用的服務 | consumedService | 確切的字串值可能會不同。 |
+| ConsumedService | consumedService | 確切的字串值可能會不同。 |
 | ConsumedServiceId | None | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
 | 日期和 usageStartDate | date | &nbsp;  |
-| 天 | None | 剖析日期的日期。 |
+| Day | None | 剖析日期的日期。 |
 | DepartmentId | invoiceSectionId | 確切的值不同。 |
 | DepartmentName | invoiceSectionName | 確切的字串值可能會不同。 如有需要請設定發票區段，以符合部門。 |
 | ExtendedCost 和成本 | costInBillingCurrency | &nbsp;  |
-| InstanceId | ResourceId | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
 | 週期性費用 | None | &nbsp;  |
-| 位置 | location | &nbsp;  |
-| 計量類別目錄 | meterCategory | 確切的字串值可能會不同。 |
+| Location | location | &nbsp;  |
+| MeterCategory | meterCategory | 確切的字串值可能會不同。 |
 | 計量識別碼 | meterId | 確切的字串值不同。 |
-| 計量名稱 | meterName | 確切的字串值可能會不同。 |
-| 計量地區 | meterRegion | 確切的字串值可能會不同。 |
-| 計量子類別目錄 | meterSubCategory | 確切的字串值可能會不同。 |
+| MeterName | meterName | 確切的字串值可能會不同。 |
+| MeterRegion | meterRegion | 確切的字串值可能會不同。 |
+| MeterSubCategory | meterSubCategory | 確切的字串值可能會不同。 |
 | 月 | None | 剖析日期的月份。 |
 | 供應項目名稱 | None | 使用 publisherName 和 productOrderName。 |
 | OfferId | None | &nbsp;  |
 | 訂單號碼 | None | &nbsp;  |
 | PartNumber | None | 使用 meterId 和 productOrderName 來唯一識別價格。 |
 | 計劃名稱 | productOrderName | &nbsp;  |
-| Products | Products |   |
+| 產品 | 產品 |   |
 | ProductId | productId | 確切的字串值不同。 |
 | 發行者名稱 | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | 確切的字串值不同。 |
-| 資源位置 | resourceLocation | &nbsp;  |
+| ResourceLocation | resourceLocation | &nbsp;  |
 | ResourceLocationId | None | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
 | ServiceAdministratorId | N/A | &nbsp;  |
-| 服務資訊 1 | serviceInfo1 | &nbsp;  |
-| 服務資訊 2 | serviceInfo2 | &nbsp;  |
+| ServiceInfo1 | serviceInfo1 | &nbsp;  |
+| ServiceInfo2 | serviceInfo2 | &nbsp;  |
 | ServiceName | meterCategory | 確切的字串值可能會不同。 |
 | ServiceTier | meterSubCategory | 確切的字串值可能會不同。 |
 | StoreServiceIdentifier | N/A | &nbsp;  |
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| 標記 | 标记 | Tags 屬性適用於根物件，而不要巢狀的屬性的屬性。 |
-| 測量單位 | unitOfMeasure | 確切的字串值不同。 |
+| Tags | tags | Tags 屬性適用於根物件，而不要巢狀的屬性的屬性。 |
+| UnitOfMeasure | unitOfMeasure | 確切的字串值不同。 |
 | usageEndDate | date | &nbsp;  |
 | Year | None | 剖析日期的年份。 |
 | （新） | billingCurrency | 使用費用的貨幣。 |
@@ -347,7 +347,7 @@ OData-EntityId: {operationId}
 
 ```
 
-請另一個 GET 呼叫的位置。 直到作業完成或失敗狀態的 GET 呼叫的回應都是相同的。 完成時，GET 呼叫位置的回應會傳回下載 URL。 就如同在同一時間執行作業。 以下是範例：
+請另一個 GET 呼叫的位置。 直到作業完成或失敗狀態的 GET 呼叫的回應都是相同的。 完成時，GET 呼叫位置的回應會傳回下載 URL。 就如同在同一時間執行作業。 以下為範例：
 
 ```
 HTTP Status 200

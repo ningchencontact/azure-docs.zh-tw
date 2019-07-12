@@ -150,7 +150,7 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 
     ![終止 App2](./media/apache-spark-resource-manager/kill-app2.png "終止 App2")
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師

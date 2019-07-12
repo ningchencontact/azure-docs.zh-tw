@@ -17,7 +17,7 @@ ms.locfileid: "64872569"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

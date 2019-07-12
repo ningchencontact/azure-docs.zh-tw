@@ -229,7 +229,7 @@ Azure Functions 支援在單一應用程式執行個體中同時執行多個函�
 
 下表顯示先前所述案例的預期「最大」  輸送量數字。 「執行個體」是指在 Azure App Service 中單一小型 ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM 上執行之協調器函式的單一執行個體。 在所有情況下，假設已啟用[擴充工作階段](#orchestrator-function-replay)。 實際結果可能會因函式程式碼所執行的 CPU 或 I/O 工作而有所不同。
 
-| 案例 | 最大輸送量 |
+| 狀況 | 最大輸送量 |
 |-|-|
 | 循序活動執行 | 每個執行個體每秒 5 個活動 |
 | 平行活動執行 (展開傳送) | 每個執行個體每秒 100 個活動 |

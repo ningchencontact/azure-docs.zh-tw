@@ -30,7 +30,7 @@ ms.locfileid: "60683612"
 
 請務必讓批次接收者和批次傳送者共用相同的 Azure 訂用帳戶和  Azure 區域。 如果未共用，您就無法在建立批次傳送者時選取批次接收者，原因是兩者並無法看到彼此。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要遵循此範例，您需要這些項目：
 
@@ -50,7 +50,7 @@ ms.locfileid: "60683612"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 中，使用下列名稱來建立一個邏輯應用程式："BatchReceiver" 
 
-2. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 选择此触发器：**批次訊息**
+2. 在 Logic Apps 設計工具中，新增**次**觸發程序，它會啟動您的邏輯應用程式工作流程。 在搜尋方塊中，輸入 "batch" 作為篩選條件。 選取此觸發程序：**批次訊息**
 
    ![新增 [批次訊息] 觸發程序](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "60683612"
    | **發行準則** | 僅適用於 [內嵌]  批次模式，可選取在處理每個批次之前要先符合的準則： <p>- **以訊息計數為依據**：根據批次所收集的訊息數目來發行批次。 <br>- **以大小為依據**：根據批次收集的所有訊息大小總計 (以位元組為單位) 來發行批次。 <br>- **排程**：根據週期性排程 (其可指定間隔和頻率) 來發行批次。 在進階選項中，您也可以選取時區並提供開始日期和時間。 <br>- **全選**：使用所有指定的準則。 | 
    | **訊息計數** | 要在批次中收集的訊息數目，例如 10 則訊息。 批次的限制為 8,000 則訊息。 | 
    | **批次大小** | 要在批次中收集的大小總計 (以位元組為單)，例如 10 MB。 批次的大小限制為 80 MB。 | 
-   | **排程** | 批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘會無條件進位至 1 分鐘。 若要指定時區或開始日期和時間，請選擇 [顯示進階選項]  。 | 
+   | **[排程]** | 批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘會無條件進位至 1 分鐘。 若要指定時區或開始日期和時間，請選擇 [顯示進階選項]  。 | 
    ||| 
 
    > [!NOTE]
@@ -88,9 +88,9 @@ ms.locfileid: "60683612"
       如果您有 Gmail 帳戶，請選取 Gmail 連接器。 
       此範例使用 Office 365 Outlook。 
 
-   3. 选择以下操作：**傳送電子郵件 - <電子郵件提供者  >**
+   3. 選取此動作：**傳送電子郵件 - <電子郵件提供者  >**
 
-      例如︰
+      例如:
 
       ![為您的電子郵件提供者選取「傳送電子郵件」動作](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -137,7 +137,7 @@ ms.locfileid: "60683612"
 1. 建立具有此名稱的另一個邏輯應用程式："BatchSender"
 
    1. 在搜尋方塊中，輸入 "recurrence" 作為篩選條件。 
-   选择此触发器：**定期 - 计划**
+   選取此觸發程序：**週期 - 排程**
 
       ![新增「定期 - 排程」觸發程序](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -163,15 +163,15 @@ ms.locfileid: "60683612"
       > 
       > 如果您使用 Visual Studio，而且您未看到任何可選取的批次接收者，請確認您已將批次接收者部署至 Azure。 如果您尚未這麼做，請了解如何[將批次接收者邏輯應用程式部署至 Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)。 
 
-   4. 选择以下操作：**Batch_messages - <*your-batch-receiver*>**
+   4. 選取此動作：**Batch_messages - <*your-batch-receiver*>**
 
-      ![选择以下操作："Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![選取此動作："Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. 設定批次傳送者的屬性：
 
    | 屬性 | 描述 | 
    |----------|-------------| 
-   | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要说明**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
+   | **批次名稱** | 接收者邏輯應用程式所定義的批次名稱，在本例中為 "TestBatch" <p>**重要**：批次名稱會在執行階段驗證，而且必須符合接收者邏輯應用程式所指定的名稱。 變更批次名稱會導致批次傳送者失敗。 | 
    | **訊息內容** | 您要傳送的訊息內容 | 
    ||| 
 

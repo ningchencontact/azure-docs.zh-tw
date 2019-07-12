@@ -46,7 +46,7 @@ ms.locfileid: "60430276"
 7. 叢集上的 Docker Swarm 模式提取最新版本的映像 
 8. 使用 Docker 堆疊部署應用程式的最新版本 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始進行本教學課程之前，您需要完成下列工作：
 

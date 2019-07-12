@@ -124,7 +124,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 Cosmos DB 權限資源會與 Cosmos DB 使用者相關聯。  每位使用者都包含零個或多個 Cosmos DB 權限。  當使用者嘗試存取特定的應用程式資源時，權限資源會提供使用者所需的安全性權杖存取權。
 權限資源可能提供兩種可用的存取等級：
 
@@ -183,7 +183,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 4. 在 [存取權指派對象為]  方塊中，選取 [Azure AD 使用者、群組或應用程式]  。
 5. 選取目錄中您要為其授與存取權的使用者、群組或應用程式。  您可以依顯示名稱、電子郵件地址或物件識別碼來搜尋目錄。
     選取的使用者、群組或應用程式會出現在選取的成員清單中。
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 實體現在已可讀取 Azure Cosmos DB 資源。
 

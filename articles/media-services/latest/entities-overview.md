@@ -141,7 +141,7 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 下表說明這些選項如何套用至[內容金鑰原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)屬性： 
 
-|Name|Filter|順序|
+|名稱|Filter|順序|
 |---|---|---|
 |id|||
 |name|eq、ne、ge、le、gt、lt|遞增和遞減|
@@ -176,7 +176,7 @@ while (currentPage.NextPageLink != null)
 
 下表說明這些選項如何套用至[作業](https://docs.microsoft.com/rest/api/media/jobs)屬性： 
 
-| Name    | Filter                        | 順序 |
+| 名稱    | Filter                        | 順序 |
 |---------|-------------------------------|-------|
 | name                    | eq            | 遞增和遞減|
 | properties.state        | eq、ne        |                         |
@@ -223,7 +223,7 @@ while (!exit);
 
 下表顯示這些選項可如何套用至 StreamingLocator 屬性： 
 
-|Name|Filter|順序|
+|名稱|Filter|順序|
 |---|---|---|
 |id |||
 |name|eq、ne、ge、le、gt、lt|遞增和遞減|

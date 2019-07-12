@@ -23,7 +23,7 @@ ms.locfileid: "66137074"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -36,7 +36,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 
 Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在下列位置：
 
-| 記錄類型 | 資源類型 | 位置 |
+| 記錄類型 | 資源類型 | Location |
 | --- | --- | --- |
 | IIS 記錄 |虛擬機器 <br> Web 角色 <br> 背景工作角色 |wad-iis-logfiles (Blob 儲存體) |
 | syslog |虛擬機器 |LinuxsyslogVer2v0 (表格儲存體) |
@@ -71,7 +71,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
    3. 按一下 [診斷]  。
    4. 將 [狀態]  設為 [開啟]  。
    5. 選取您想要收集的每個診斷記錄。
-   6. 按一下 [確定]  。
+   6. 按一下 [確定 **Deploying Office Solutions**]。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中針對 IIS 記錄檔和事件集合啟用 Azure 診斷
 
@@ -200,6 +200,6 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 針對支援的 Azure 服務[收集 Azure 服務的記錄檔與計量](collect-azure-metrics-logs.md)。
+* 針對支援的 Azure 服務[收集 Azure 服務的記錄與計量](collect-azure-metrics-logs.md)。
 * [啟用解決方案](../../azure-monitor/insights/solutions.md) 以提供資料的深入見解。
 * [使用搜尋查詢](../../azure-monitor/log-query/log-query-overview.md) 以分析資料。

@@ -20,7 +20,7 @@ ms.locfileid: "67076417"
 
 此程序將逐步引導您逐步完成使用 Azure CLI 建立您的第一個私人 DNS 區域和記錄。
 
-DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  這些稱為*連結*虛擬網路。 啟用自動註冊程序時，Azure DNS 也會更新區域記錄每次虛擬機器建立時，變更其 ' 的 IP 位址，或刪除。
+DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  這稱為「連結」  虛擬網路。 啟用自動註冊時，Azure DNS 也會在每次建立虛擬機器時更新區域記錄，變更其 IP 位址，或者在刪除虛擬機器時更新。
 
 在此程序中，您將了解如何：
 
@@ -146,7 +146,7 @@ az network private-dns record-set list \
 您可以使用 Ping 命令來測試名稱解析。 因此，請在兩部虛擬機器上設定防火牆，以允許輸入的 ICMP 封包。
 
 1. 連線至 myVM01，然後以系統管理員權限開啟 Windows PowerShell 視窗。
-2. 執行以下命令：
+2. 執行下列命令：
 
    ```powershell
    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4

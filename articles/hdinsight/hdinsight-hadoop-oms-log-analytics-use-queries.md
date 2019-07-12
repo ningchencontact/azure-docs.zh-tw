@@ -25,7 +25,7 @@ ms.locfileid: "64714694"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您必須已設定 HDInsight 叢集使用 Azure 監視器記錄檔，並且加入監視解決方案，以工作區的 HDInsight 叢集特定 Azure 監視器記錄檔。 如需相關指示，請參閱 <<c0> [ 搭配 HDInsight 叢集會使用 Azure 監視器記錄](hdinsight-hadoop-oms-log-analytics-tutorial.md)。
 
@@ -122,7 +122,7 @@ ms.locfileid: "64714694"
 
 如需詳細資訊，請參閱[使用 Azure 監視器建立、檢視及管理計量警示](../azure-monitor/platform/alerts-metric.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [使用 Azure 監視器中的檢視表設計工具建立自訂檢視](../azure-monitor/platform/view-designer.md)
 * [建立、 檢視及管理使用 Azure 監視器計量警示](../azure-monitor/platform/alerts-metric.md)

@@ -49,7 +49,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 | 參數  | 描述 | 必要項 |
 |---------|---------|----|
 | SubscriptionID | 用來建立或找到所有資源的 SubscriptionID。 | 是 |
-| resourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
+| ResourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
 | OutputDirectory | 用來建立輸出 .ZIP 檔案的路徑。 如果未指定，則會預設為目前的目錄。 | 否 |
 | LookbackHours | 提取遙測資料時要使用的小時數。 預設值為 24 小時。 最大值為 90 小時 | 否 |
 | OmsSubscriptionId | 部署 Azure 監視器的記錄位置的訂用帳戶識別碼。 如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔，只傳遞此參數。| 否 |

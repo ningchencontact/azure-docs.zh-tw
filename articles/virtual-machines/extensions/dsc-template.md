@@ -178,7 +178,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 
 ## <a name="details"></a>詳細資料
 
-| 屬性名稱 | 類型 | 描述 |
+| 屬性名稱 | type | 描述 |
 | --- | --- | --- |
 | settings.wmfVersion |string |指定應該安裝在您 VM 上的 Windows Management Framework (WMF) 版本。 將此屬性設定為 **latest** 會安裝最新版的 WMF。 此屬性目前只有下列可能值： **4.0**、**5.0**、**5.1**, 與**latest**。 這些可能的值可能會更新。 預設值為 **latest**。 |
 | settings.configuration.url |string |指定要從中下載 DSC 設定 .zip 檔案的 URL 位置。 如果所提供的 URL 需要 SAS 權杖才能存取，請將 **protectedSettings.configurationUrlSasToken** 屬性設定為您 SAS 權杖的值。 如果已定義 **settings.configuration.script** 或 **settings.configuration.function**，就需要這個屬性。 如果沒有為這些屬性指定值，延伸模組就會呼叫預設設定指令碼來設定「位置設定管理員」(LCM) 中繼資料，而應該提供引數。 |
@@ -197,7 +197,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 如需有關下列值的詳細資訊，請參閱[本機設定管理員基本設定](/powershell/dsc/metaconfig#basic-settings)。
 您可以使用 DSC 延伸模組預設設定指令碼來設定的 LCM 屬性僅限下表所列的屬性。
 
-| 屬性名稱 | 類型 | 描述 |
+| 屬性名稱 | type | 描述 |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |必要屬性。 指定節點向「Azure 自動化」服務註冊時，用來作為 PowerShell 認證物件密碼的金鑰。 針對「自動化」帳戶使用 **listkeys** 方法，即可自動探索此值。  查看[範例](#example-using-referenced-azure-automation-registration-values)。 |
 | settings.configurationArguments.RegistrationUrl |string |必要屬性。 指定節點嘗試進行註冊之「自動化」端點的 URL。 針對「自動化」帳戶使用**reference** 方法，即可自動探索此值。 |

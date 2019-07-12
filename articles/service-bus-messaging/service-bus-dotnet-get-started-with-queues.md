@@ -25,7 +25,7 @@ ms.locfileid: "65991775"
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 在本教學課程中，您可以建立.NET Core 主控台應用程式，以傳送和接收來自服務匯流排佇列的訊息。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
 2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
@@ -389,7 +389,7 @@ ms.locfileid: "65991775"
    
     ![佇列長度][queue-message-receive]
 
-恭喜！ 您現已建立佇列、將一組訊息傳送至該佇列，以及從相同佇列接收這些訊息。
+恭喜您！ 您現已建立佇列、將一組訊息傳送至該佇列，以及從相同佇列接收這些訊息。
 
 > [!NOTE]
 > 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 

@@ -89,7 +89,7 @@ SSO 管理類別是使用技術設定檔的 `<UseTechnicalProfileForSessionManag
 
 技術設定檔中有兩個中繼資料項目：
 
-| Item | 預設值 | 可能的值 | 描述
+| Item | Default Value | 可能的值 | 描述
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | 指出應該儲存工作階段索引的提供者。 |
 | RegisterServiceProviders | true | true/false | 指出提供者應該註冊所有已發行判斷提示的 SAML 服務提供者。 |

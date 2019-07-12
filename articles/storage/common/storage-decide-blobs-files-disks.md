@@ -37,12 +37,12 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 |-|-|-|  
 |**屬性**|**Azure Blob**|**Azure 檔案**|  
 |持久性選項|LRS、ZRS、GRS、RA-GRS|LRS、ZRS、GRS|  
-|協助工具|REST API|REST API<br /><br /> SMB 2.1 和 SMB 3.0 (標準檔案系統 API)|  
+|協助工具選項|REST API|REST API<br /><br /> SMB 2.1 和 SMB 3.0 (標準檔案系統 API)|  
 |連線能力|REST API -- 全球|REST API - 全球<br /><br /> SMB 2.1 -- 區域內<br /><br /> SMB 3.0 -- 全球|  
 |端點|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |目錄|一般命名空間|真實目錄物件|  
 |名稱區分大小寫|區分大小寫|不區分大小寫，但保留大小寫|  
-|容量|最高可達 2 PiB 的帳戶限制 |5 TiB 的檔案共用|  
+|Capacity|最高可達 2 PiB 的帳戶限制 |5 TiB 的檔案共用|  
 |Throughput|每個區塊 Blob 最高可達每秒 60 MiB|每個共用最高可達每秒 60 MiB|  
 |物件大小|每個區塊 Blob 最高約可達 4.75 TiB|每個檔案最高可達 1 TiB|  
 |計費的容量|根據寫入的位元組|根據檔案大小|  
@@ -60,7 +60,7 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 |`Scope`|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
 |快照與複製|是|是|  
 |組態|在啟動虛擬機器時連線|在虛擬機器啟動之後連線|  
-|Authentication|內建|使用 net use 設定|  
+|驗證|內建|使用 net use 設定|  
 |使用 REST 存取|無法存取 VHD 內的檔案|可以存取儲存在共用中的檔案|  
 |大小上限|32 TiB 的磁碟|5 TiB 的檔案共用和 1 TiB 的共用內檔案|  
 |最大 IOps|20,000 IOps|1000 IOps|  

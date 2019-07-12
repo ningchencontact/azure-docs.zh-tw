@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071353"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812901"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>長期函式模式和技術的概念 (Azure Functions)
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>模式 #6:彙總工具 （預覽）
+### <a name="aggregator"></a>模式 #6:彙總工具 （預覽）
 
 第六個的模式是經過一段時間的事件資料彙總為單一的可定址*實體*。 在此模式中，彙總的資料可能來自於多個來源、 可能會在批次的方式來傳遞，或可能可透過長時間長的時間散佈。 彙總工具可能需要採取動作的事件資料到達時，以及外部用戶端可能需要查詢的彙總的資料。
 
@@ -385,27 +385,46 @@ module.exports = async function (context) {
 使用[長期實體函式](durable-functions-preview.md#entity-functions)，可以實作此模式，輕鬆地為單一函式。
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+持久的實體也可以建模為.NET 類別。 如果作業的清單將變得很大，而且如果它是大部分是靜態，這非常有用。 下列範例是相等的實作`Counter`使用.NET 類別和方法的實體。
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-同樣地，用戶端可以查詢的實體函式上使用方法的狀態`orchestrationClient`繫結。
+動態產生的 proxy 也可供訊號實體型別安全的方式。 除了發出訊號，用戶端也可以查詢的實體函式上使用方法的狀態和`orchestrationClient`繫結。
 
 > [!NOTE]
 > 實體函式目前只會用於[Durable Functions 2.0 預覽](durable-functions-preview.md)。

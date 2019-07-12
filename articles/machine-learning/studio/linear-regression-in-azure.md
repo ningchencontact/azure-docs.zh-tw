@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861081"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786678"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>將分析從 Excel 遷移至 Azure Machine Learning Studio
 
@@ -45,8 +45,8 @@ ms.locfileid: "60861081"
 
 1. 將資料集以 csv 檔案 (非常小的檔案) 的形式上傳到 Studio
 2. 建立新的實驗，並使用[選取資料集中的資料行][select-columns]模組來選取 Excel 中所使用的相同資料特徵 
-3. 使用[資料分割][split]模組 (與「相對運算式」  模式)，將資料分割成完全如同 Excel 中產生的相同訓練資料集 
-4. 使用[線性迴歸][linear-regression]模組進行實驗 (只使用預設選項)、記載，並將結果與我們的 Excel 迴歸模型相互比較
+3. 使用[資料分割][split]模組 (與*相對運算式*模式) 將資料分割成相同的訓練資料集，如同產生在 Excel 中 
+4. 實驗[線性迴歸][linear-regression]模組 （只有預設選項）、 記載，並比較結果與我們 Excel 迴歸模型
 
 ### <a name="review-initial-results"></a>檢閱初步結果
 最初，Excel 模型效能明顯勝過 Studio 模型： 
@@ -61,7 +61,7 @@ ms.locfileid: "60861081"
 
 當我們向 Machine Learning 小組的開發人員和資料科學家執行我們的程序和結果時，他們快速提供一些實用的秘訣。 
 
-* 當您在 Studio 中使用[線性迴歸][linear-regression]模組時，我們提供兩種方法：
+* 當您使用[線性迴歸][linear-regression]在 Studio 中的模組，會提供兩種方法：
   * 線上梯度下降：可能比較適合較大規模的問題
   * 普通最小平方：這是大多數人聽到線性迴歸時會想到的方法。 對於小型資料集，一般最小平方是較佳的選擇。
 * 考慮調整 L2 正規化加權參數，以改善效能。 它預設設定為 0.001，但對我們的小型資料集，請將它設定為 0.005 以改善效能。 
@@ -109,9 +109,9 @@ ms.locfileid: "60861081"
 ![範本 Excel 活頁簿連接到已部署的 web 服務](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>最佳化及進一步實驗
-現在我們已具備 Excel 模型的基準，我們可以進行最佳化 Machine Learning 線性迴歸模型。 我們使用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組，改善我們選取的初始資料元素，有助於我們的效能提升達到平均絕對誤差 4.6%。 為未來的專案中，我們將使用此功能，無法我們節省數週中逐一查看資料屬性，以找出正確的功能，可用於模型化。 
+現在我們已具備 Excel 模型的基準，我們可以進行最佳化 Machine Learning 線性迴歸模型。 我們使用模組[篩選為基礎的特徵選取][filter-based-feature-selection]來改善我們選取初始資料的項目，有助於我們 4.6%的效能提升達到平均絕對誤差。 為未來的專案中，我們將使用此功能，無法我們節省數週中逐一查看資料屬性，以找出正確的功能，可用於模型化。 
 
-接下來，我們打算在實驗中納入其他演算法來比較效能，例如 [Bayesian][bayesian-linear-regression]或[推進式決策樹][boosted-decision-tree-regression]。 
+接下來我們計劃要納入其他演算法，例如[Bayesian][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression]在我們的實驗，來比較效能。 
 
 如果您想要實驗迴歸，「能量效益迴歸」範例資料集即是可用來嘗試的良好的資料集，其中包含多個數值屬性。 資料集是在 Studio 中的範例資料集的一部分提供。 您可以使用各種不同的學習模組，來預測加熱負載或冷卻負載。 下列圖表是針對目標變數冷卻負載預測的能源效率資料集所學習不同的迴歸的效能比較： 
 
@@ -123,9 +123,9 @@ ms.locfileid: "60861081"
 | 線性迴歸 (一般最小平方) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>重要心得
-我們從並行執行 Excel 迴歸與 Studio 實驗中學到很多。 我們在 Excel 中建立基準模型，並與使用 Machine Learning [線性迴歸][linear-regression]的模型相互比較，幫助我們了解 Studio，同時也發現有機會改善資料的選取和模型效能。 
+我們從並行執行 Excel 迴歸與 Studio 實驗中學到很多。 在 Excel 中建立基準模型，並比較使用機器學習服務模型[線性迴歸][linear-regression]幫助我們了解 Studio 中，同時也發現有機會改善資料選取項目和模型效能。 
 
-我們也發現，最好使用[以篩選為基礎的特徵選取][filter-based-feature-selection]來加速未來的預測專案。 將特徵選取項目套用到您的資料，即可在 Studio 中建立改良的模型，以獲得更好的整體效能。 
+我們也發現，最好使用[篩選為基礎的特徵選取][filter-based-feature-selection]來加速未來的預測專案。 將特徵選取項目套用到您的資料，即可在 Studio 中建立改良的模型，以獲得更好的整體效能。 
 
 能夠從 Studio 傳送預測性的分析預測至 Excel 可大幅增加成功將結果提供給廣泛的商業使用者對象的能力。 
 
@@ -133,7 +133,7 @@ ms.locfileid: "60861081"
 以下是一些可幫助您處理迴歸的資源： 
 
 * Excel 中的迴歸。 如果您從未嘗試過使用 Excel 進行迴歸，此教學課程可讓您輕鬆地完成：[https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* 迴歸與預測。 Tyler Chessman 撰寫部落格文章，說明如何在 Excel 中執行時間序列預測，其中包含初學者適用的良好線性迴歸描述。 [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* 迴歸與預測。 Tyler Chessman 撰寫部落格文章，說明如何在 Excel 中執行時間序列預測，其中包含初學者適用的良好線性迴歸描述。 [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * 普通最小平方線性迴歸：缺點、問題和陷阱。 如需迴歸的簡介與討論：[https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

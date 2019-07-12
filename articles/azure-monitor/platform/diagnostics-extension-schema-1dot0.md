@@ -101,10 +101,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：
 
-|屬性  |類型   |必要項| 預設值 | 描述|  
+|屬性  |type   |必要項| 預設 | 描述|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|duration|選用 | PT1M| 指定診斷監視器輪詢診斷組態變更的間隔。|  
-|**overallQuotaInMB**|unsignedInt|選用| 4000 MB。 如果您提供值，該值不能超過此數量 |針對所有記錄緩衝區配置的檔案系統儲存體總數量。|  
+|**configurationChangePollInterval**|duration|選擇性 | PT1M| 指定診斷監視器輪詢診斷組態變更的間隔。|  
+|**overallQuotaInMB**|unsignedInt|選擇性| 4000 MB。 如果您提供值，該值不能超過此數量 |針對所有記錄緩衝區配置的檔案系統儲存體總數量。|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs 元素  
 針對基本診斷基礎結構所產生的記錄定義緩衝區組態。
@@ -113,11 +113,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------|----|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|字串|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferLogLevelFilter**|string|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="logs-element"></a>Logs 元素  
  定義基本 Azure 記錄的緩衝區組態。
@@ -126,11 +126,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|字串|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferLogLevelFilter**|string|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="directories-element"></a>Directories 元素  
 定義您可以定義之檔案式記錄的緩衝區組態。
@@ -140,10 +140,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  定義損毀傾印目錄。
@@ -152,10 +152,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
-|**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
+|**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs 元素  
  定義失敗的要求記錄目錄。
@@ -164,10 +164,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
-|**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
+|**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ##  <a name="iislogs-element"></a>IISLogs 元素  
  定義 IIS 記錄目錄。
@@ -176,10 +176,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
-|**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
+|**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ## <a name="datasources-element"></a>DataSources 元素  
  定義零或多個額外的記錄目錄。
@@ -193,10 +193,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**container**|字串|要傳輸目錄內容的容器名稱。|  
-|**directoryQuotaInMB**|unsignedInt|選用。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
+|**container**|string|要傳輸目錄內容的容器名稱。|  
+|**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
 
 ## <a name="absolute-element"></a>Absolute 元素  
  搭配選擇性環境變數展開來定義要監視之目錄的絕對路徑。
@@ -205,9 +205,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**path**|字串|必要。 要監視之目錄的絕對路徑。|  
+|**path**|string|必要。 要監視之目錄的絕對路徑。|  
 |**expandEnvironment**|boolean|必要。 如果設定為 **true**，就會展開路徑中的環境變數。|  
 
 ## <a name="localresource-element"></a>LocalResource 元素  
@@ -217,10 +217,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**name**|字串|必要。 包含要監視之目錄的本機資源名稱。|  
-|**relativePath**|字串|必要。 相對於要監視之本機資源的路徑。|  
+|**name**|string|必要。 包含要監視之目錄的本機資源名稱。|  
+|**relativePath**|string|必要。 相對於要監視之本機資源的路徑。|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  定義要收集之效能計數器的路徑。
@@ -230,10 +230,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 元素  
  定義要收集的效能計數器。
@@ -242,9 +242,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  屬性：  
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|字串|必要。 要收集之效能計數器的路徑。|  
+|**counterSpecifier**|string|必要。 要收集之效能計數器的路徑。|  
 |**sampleRate**|duration|必要。 應收集效能計數器的頻率。|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
@@ -254,11 +254,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
   屬性：
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|選用。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferLogLevelFilter**|字串|選用。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|duration|選用。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
+|**scheduledTransferLogLevelFilter**|string|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
+|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="datasource-element"></a>DataSource 元素  
  定義要監視的事件記錄。
@@ -267,7 +267,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  屬性：
 
-|屬性|類型|描述|  
+|屬性|type|描述|  
 |---------------|----------|-----------------|  
-|**name**|字串|必要。 指定要收集之記錄的 XPath 運算式。|  
+|**name**|string|必要。 指定要收集之記錄的 XPath 運算式。|  
 

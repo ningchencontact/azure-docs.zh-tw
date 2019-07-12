@@ -33,12 +33,12 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```
 ### <a name="uri-parameters"></a>URI 參數
 
-|Name  |在  |必要項 |類型 |描述 |
+|名稱  |在  |必要項 |type |描述 |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   字串      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
-|resourceGroupName     |     path    | True        |  字串       |   資源群組的名稱。     |
-|loadBalancerName     |  path       |      True   |    字串     |    負載平衡器的名稱。    |
-|api-version    |   query     |  True       |     字串    |  用戶端 API 版本。      |
+|subscriptionId   |  path       |  True       |   string      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
+|resourceGroupName     |     path    | True        |  string       |   資源群組的名稱。     |
+|loadBalancerName     |  path       |      True   |    string     |    負載平衡器的名稱。    |
+|api-version    |   query     |  True       |     string    |  用戶端 API 版本。      |
 
 
 
@@ -46,9 +46,9 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
 
 唯一必要的參數是 `location`。 如果您未定義 *SKU* 版本，預設會建立基本負載平衡器。  使用[選擇性參數](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)來自訂負載平衡器。
 
-| Name | 類型 | 描述 |
+| 名稱 | type | 描述 |
 | :--- | :--- | :---------- |
-| location | 字串 | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
+| location | string | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>範例：建立及更新基本負載平衡器

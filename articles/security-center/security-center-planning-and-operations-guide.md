@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966851"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706245"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
@@ -87,21 +87,21 @@ ms.locfileid: "65966851"
 
 **Jeff (工作負載擁有者)**
 
-* 資源群組擁有者/共同作業者
+* 資源群組擁有者/參與者
 
 **David (IT 安全性)**
 
-* 訂用帳戶擁有者/共同作業者或安全性管理員
+* 訂用帳戶擁有者/參與者或安全性管理員
 
 **Judy (安全性作業)**
 
 * 可檢視警示的訂用帳戶讀取者或安全性讀取者
-* 可解除警示的訂用帳戶擁有者/共同作業者的安全性管理員
+* 訂用帳戶擁有者/參與者或安全性系統管理員才能解除警示
 
 **Sam (安全性分析師)**
 
 * 可檢視警示的訂用帳戶讀取者
-* 可解除警示的訂用帳戶擁有者/共同作業者
+* 訂用帳戶擁有者/參與者可解除警示
 * 可能需要存取工作區
 
 需要考量的其他重要資訊︰

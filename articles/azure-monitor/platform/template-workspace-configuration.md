@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441622"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827784"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>管理 Log Analytics 工作區中使用 Azure Resource Manager 範本
 
@@ -40,26 +40,19 @@ ms.locfileid: "67441622"
 本文提供範例範本，示範您可以透過範本執行的一些設定。
 
 ## <a name="api-versions"></a>API 版本
+
 下表列出此範例中使用的資源 API 版本。
 
-| 資源 | 資源類型 | API 版本 |
+| Resource | 資源類型 | API 版本 |
 |:---|:---|:---|
 | 工作區   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2015-03-20 |
 | 資料來源 | datasources   | 2015-11-01-preview |
-| 解決方法    | solutions     | 2015-11-01-preview |
+| 方案    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>建立 Log Analytics 工作區
-下列範例會從您的本機電腦使用範本建立工作區。 JSON 範本會設定為只提示您輸入工作區的名稱，並針對您環境中可能作為標準組態使用的其他參數，指定預設值。  
 
-下列參數會設定預設值：
-
-* 位置 - 預設為美國東部
-* SKU - 預設為在 2018 年 4 月定價模型中發行的全新每 GB 定價層
-
-> [!NOTE]
->如果在已選擇加入 2018 年 4 月全新定價模型的訂用帳戶中建立或設定 Log Analytics 工作區，則唯一有效的 Log Analytics 定價層是 **PerGB2018**。  
->如果您可能有一些採用 [2018 年 4 月前定價模型](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model)的訂用帳戶，您可以指定 **Standalone** 定價層，這對於採用 2018 年 4 月前定價模型的訂用帳戶和採用新定價的訂用帳戶都適用。 針對已採用新定價模型之訂用帳戶中的工作區，定價層將會設定為 **PerGB2018**。 
+下列範例會從您的本機電腦使用範本建立工作區。 顯示 JSON 範本，被設定為只需要提供名稱和新的工作區 （例如定價層和保留的其他工作區參數中使用的預設值） 的位置。  
 
 ### <a name="create-and-deploy-template"></a>建立和部署範本
 
@@ -79,26 +72,35 @@ ms.locfileid: "67441622"
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ ms.locfileid: "67441622"
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ ms.locfileid: "67441622"
        ]
     }
     ```
-2. 編輯範本以符合您的需求。  檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
+
+2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
 3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json  。
-4. 您已準備好部署此範本。 您可使用 PowerShell 或命令列來建立工作區。
+4. 您已準備好部署此範本。 您可以使用 PowerShell 或命令列來建立工作區中，命令中指定的工作區名稱和位置。
 
    * 對於 PowerShell，從包含範本的資料夾使用下列命令：
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * 對於命令列，從包含範本的資料夾使用下列命令：
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 部署需要幾分鐘的時間才能完成。 完成後，您會看到類似下列包含結果的訊息：<br><br> ![部署完成時的範例結果](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>設定 Log Analytics 工作區
+
 下列範例範本說明如何：
 
 1. 將方案加入至工作區
@@ -161,19 +162,21 @@ ms.locfileid: "67441622"
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ ms.locfileid: "67441622"
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ ms.locfileid: "67441622"
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ ms.locfileid: "67441622"
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ ms.locfileid: "67441622"
 
 ```
 ### <a name="deploying-the-sample-template"></a>部署範例範本
+
 部署範例範本：
 
 1. 儲存檔案中附隨的範例，例如 `azuredeploy.json` 
@@ -510,17 +544,20 @@ ms.locfileid: "67441622"
 3. 使用 PowerShell或命令列來部署範本
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>命令列
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>範例 Azure Resource Manager 範本
+
 Azure 快速入門範本庫中有數個 Log Analytics 的範本，包括︰
 
 * [部署執行 Windows 和 Log Analytics VM 擴充功能的虛擬機器](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ Azure 快速入門範本庫中有數個 Log Analytics 的範本，包括︰
 * [將現有的儲存體帳戶新增至 Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>後續步驟
+
 * [使用 Resource Manager 範本將 Windows 代理程式部署到 Azure VM](../../virtual-machines/extensions/oms-windows.md)。
+
 * [使用 Resource Manager 範本將 Linux 代理程式部署到 Azure VM](../../virtual-machines/extensions/oms-linux.md)。

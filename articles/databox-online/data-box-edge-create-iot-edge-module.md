@@ -40,7 +40,7 @@ ms.locfileid: "64680885"
 
 一旦檔案位於雲端共用之後，它就會自動上傳至您的 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，請確定您擁有：
 
@@ -63,7 +63,7 @@ ms.locfileid: "64680885"
 Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 雲端中所提供的兩個熱門 Docker 登錄服務為 Azure Container Registry 和 Docker Hub。 本文使用 Container Registry。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-2. 選取 [建立資源] > [容器] > [Container Registry]  。 按一下頁面底部的 [新增]  。
+2. 選取 [建立資源] > [容器] > [Container Registry]  。 按一下 [建立]  。
 3. 提供：
 
    1. Azure 內唯一的**登錄名稱**，其中包含 5 到 50 個英數字元。

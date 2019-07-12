@@ -73,7 +73,7 @@ ms.locfileid: "65812547"
 7. 選取 [新增]  即可自動傳送邀請給來賓使用者。 在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 自助應用程式管理需要由全域系統管理員和 Azure AD 系統管理員進行一些初始設定。 在此設定過程中，您將會設定應用程式來進行自助服務，並將群組指派給應用程式擁有者可管理的應用程式。 您也可以設定群組以允許每個人都可要求成員資格，但需要群組擁有者的核准 (深入了解[自助群組管理](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management))。 
 

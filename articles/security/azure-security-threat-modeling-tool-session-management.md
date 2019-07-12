@@ -21,7 +21,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611696"
 ---
-# <a name="security-frame-session-management"></a>安全性框架：工作階段管理
+# <a name="security-frame-session-management"></a>安全框架︰工作階段管理
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[在使用 Azure AD 時以 ADAL 方法實作適當的登出](#logout-adal)</li></ul> |

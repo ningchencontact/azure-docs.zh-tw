@@ -24,7 +24,7 @@ ms.locfileid: "66241277"
 > 
 > 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要逐步執行本教學課程，您需要：
 
 * 預先載入 AdventureWorksDW 資料庫的 SQL 資料倉儲。 若要佈建資料倉儲，請參閱[建立 SQL 資料倉儲](create-data-warehouse-portal.md)並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[載入 WideWorldImportersDW](load-data-wideworldimportersdw.md)。

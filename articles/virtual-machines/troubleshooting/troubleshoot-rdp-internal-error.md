@@ -43,7 +43,7 @@ ms.locfileid: "60319423"
 - TLS 通訊協定已停用。
 - 憑證損毀或過期。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 

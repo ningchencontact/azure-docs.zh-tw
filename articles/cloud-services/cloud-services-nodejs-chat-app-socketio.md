@@ -29,7 +29,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 
 ![A browser window displaying the service hosted on Azure][completed-app]  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 請確定已安裝下列產品及版本，以順利完成本文中的範例：
 
 * 安裝 [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)

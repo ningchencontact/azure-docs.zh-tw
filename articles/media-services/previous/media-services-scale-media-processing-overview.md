@@ -23,7 +23,7 @@ ms.locfileid: "64707404"
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀 
 此頁面提供調整媒體處理的方式及原因的概觀。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 媒體服務帳戶是與保留單元類型相關聯，後者決定媒體處理工作的速度。 您可以選擇下列的保留單元類型：**S1**、**S2** 或 **S3**。 例如，在執行相同編碼作業的前提下，使用 **S2** 保留單元類型的速度會比 **S1** 類型快。 如需詳細資訊，請參閱 [保留單元類型](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/)。
 
 除了指定保留單元類型之外，您還可以指定使用保留單元來佈建帳戶。 佈建的保留單元數目可決定指定帳戶中可同時處理的媒體工作數目。 例如，如果帳戶有五個保留單元，則只要有工作需要處理，就會同時執行五個媒體工作。 剩餘的工作會在佇列中等待，當執行中的工作完成時，就循序地挑選來處理。 如果帳戶未佈建任何保留單元，則會循序地挑選工作。 在此情況下，一件工作完成與下一件工作開始之間的等待時間，視系統中的資源可用性而定。
@@ -31,7 +31,7 @@ ms.locfileid: "64707404"
 ## <a name="choosing-between-different-reserved-unit-types"></a>選擇不同的保留單元類型
 下表可協助您在不同編碼速度之間進行選擇時做出決定。 它也針對[可供您下載的影片](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)提供幾個基準測試案例來執行您自己的測試：
 
-|RU 類型|案例|[7 分鐘 1080p 視訊](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)的結果範例|
+|RU 類型|狀況|[7 分鐘 1080p 視訊](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)的結果範例|
 |---|---|---|
 | **S1**|單一位元速率編碼。 <br/>在 SD或如下解決方法的檔案、對時間不敏感、低成本。|要使用 「 H264 單一位元速率 SD 16x9"的單一位元速率 SD 解析 MP4 檔案編碼方式需要大約 7 分鐘。|
 | **S2**|單一位元速率和多重位元速率編碼。<br/>SD 和 HD 編碼的一般使用方式。|編碼與 「 H264 單一位元速率 720p 」 預設值會花大約 6 分鐘的時間。<br/><br/>編碼與 「 H264 多重位元速率 720p 」 預設值會花大約 12 分鐘的時間。|

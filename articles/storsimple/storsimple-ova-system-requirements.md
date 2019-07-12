@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629300"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文章說明 Microsoft Azure StorSimple Virtual Array 以及針對儲存體用戶端存取陣列的重要系統需求。 建議您先仔細檢閱資訊，再部署 StorSimple 系統，然後在部署和後續作業期間，必要時回顧參考。
 
 系統需求包括：

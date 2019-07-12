@@ -23,7 +23,7 @@ ms.locfileid: "66734316"
 若要轉譯自訂圖釘、 標籤和幾何覆疊，您可以使用 Postman 應用程式。 您可以使用 Azure Maps[資料服務 Api](https://docs.microsoft.com/rest/api/maps/data)來儲存及呈現重疊。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="create-an-azure-maps-account"></a>建立 Azure 地圖服務帳戶
 

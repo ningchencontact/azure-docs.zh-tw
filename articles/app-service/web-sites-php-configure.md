@@ -27,7 +27,7 @@ ms.locfileid: "65408896"
 
 本指南示範如何為 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web 應用程式、行動後端和 API 應用程式設定內建的 PHP 執行階段，提供自訂的 PHP 執行階段，以及啟用延伸模組。 若要使用 App Service，請註冊 [免費試用]。 若要充分利用本指南，您應該先在 App Service 中建立 PHP 應用程式。
 
-## <a name="how-to-change-the-built-in-php-version"></a>作法：變更內建 PHP 版本
+## <a name="how-to-change-the-built-in-php-version"></a>HOW TO：變更內建 PHP 版本
 
 當您建立 App Service 應用程式時，預設會安裝 PHP 5.6 並立即可供使用。 若要查看可用的修訂版、其預設組態及啟用的擴充，最好的方法是部署呼叫 [phpinfo()] 函數的指令碼。
 
@@ -75,7 +75,7 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>作法：變更內建 PHP 設定
+## <a name="how-to-change-the-built-in-php-configurations"></a>HOW TO：變更內建 PHP 設定
 
 對於任一個內建的 PHP 執行階段，您可以遵循下列步驟來變更任何組態選項。 (如需 php.ini 指示詞的資訊，請參閱 [php.ini 指示詞的清單](英文))。
 
@@ -106,7 +106,7 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
         wincache.maxfilesize=512
 1. 若要重新載入變更，請重新啟動應用程式。
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>作法：在預設 PHP 執行階段中啟用延伸模組
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>HOW TO：在預設 PHP 執行階段中啟用延伸模組
 
 如同上一個小節所述，若要查看預設 PHP 版本、其預設組態及啟用的擴充，最好的方法是部署呼叫 [phpinfo()]函數的指令碼。 若要啟用其他延伸模組，請依照下列步驟執行：
 
@@ -135,7 +135,7 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 
 Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟用多個擴充功能，請針對應用程式設定值包含以逗號分隔的 `.dll` 檔案清單。
 
-## <a name="how-to-use-a-custom-php-runtime"></a>作法：使用自訂 PHP 執行階段
+## <a name="how-to-use-a-custom-php-runtime"></a>HOW TO：使用自訂 PHP 執行階段
 
 除了預設的 PHP 執行階段之外，App Service 也可以使用您提供的 PHP 執行階段來執行 PHP 指令碼。 您提供的執行階段可以由也是您提供的 `php.ini` 檔案加以設定。 若要使用自訂 PHP 執行階段搭配 App Service，請遵循下列步驟。
 
@@ -152,7 +152,7 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟�
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>作法：在 Azure 中啟用編輯器自動化
+## <a name="how-to-enable-composer-automation-in-azure"></a>HOW TO：在 Azure 中啟用編輯器自動化
 
 App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執行任何操作。 如果您使用 [Git 部署](deploy-local-git.md)，您可以透過啟用「編輯器」擴充功能，在 `git push` 期間啟用 composer.json 處理。
 

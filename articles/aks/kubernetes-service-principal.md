@@ -2,21 +2,21 @@
 title: Azure Kubernetes Services (AKS) 的服務主體
 description: 為 Azure Kubernetes Service (AKS) 中的叢集建立及管理 Azure Active Directory 服務主體
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: iainfou
-ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066797"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615117"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
-為了與 Azure API 互動，AKS 叢集需要 [Azure Active Directory (AD) 服務主體][aad-service-principal]。 需要服務主體才能動態建立及管理其他 Azure 資源，例如 Azure 負載平衡器或容器登錄 (ACR)。
+若要使用 Azure Api 互動，AKS 叢集需要[Azure Active Directory (AD) 服務主體][aad-service-principal]。 需要服務主體才能動態建立及管理其他 Azure 資源，例如 Azure 負載平衡器或容器登錄 (ACR)。
 
 此文章說明如何為您的 AKS 叢集建立及管理服務主體。
 
@@ -30,7 +30,7 @@ ms.locfileid: "67066797"
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自動建立並使用服務主體
 
-當您在 Azure 中或使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集時，Azure 可以自動產生服務主體。
+當您建立 AKS 叢集在 Azure 入口網站或使用[az aks 建立][az-aks-create]命令時，Azure 可以自動產生服務主體。
 
 在下列 Azure CLI 範例中，未指定服務主體。 在此案例中，Azure CLI 會為 AKS 叢集建立服務主體。 若要成功完成此作業，您的 Azure 帳戶必須有建立服務主體的適當權限。
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ## <a name="manually-create-a-service-principal"></a>手動建立服務主體
 
-若要手動使用 Azure CLI 建立服務主體，請使用 [az ad sp create-for-rbac][az-ad-sp-create] 命令。 在下列範例中，`--skip-assignment` 參數會防止指派任何額外的預設指派：
+若要以手動方式使用 Azure CLI 建立服務主體，請使用[az ad sp 建立-針對-rbac][az-ad-sp-create]命令。 在下列範例中，`--skip-assignment` 參數會防止指派任何額外的預設指派：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -60,7 +60,7 @@ az ad sp create-for-rbac --skip-assignment
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>為 AKS 叢集指定服務主體
 
-若要在使用 [az aks create][az-aks-create] 命令建立 AKS 叢集時使用現有的服務主體，請使用 `--service-principal` 與 `--client-secret` 參數以從 [az ad sp create-for-rbac][az-ad-sp-create] 命令的輸出指定 `appId` 與 `password`：
+若要使用現有的服務主體，當您建立 AKS 叢集使用[az aks 建立][az-aks-create]命令，使用`--service-principal`並`--client-secret`參數來指定`appId`和`password`從的輸出[az ad sp 建立-針對-rbac][az-ad-sp-create]命令：
 
 ```azurecli-interactive
 az aks create \
@@ -81,7 +81,7 @@ az aks create \
 
 AKS 叢集的服務主體可用來存取其他資源。 例如，如果您想要部署您的 AKS 叢集到現有的 Azure 虛擬網路子網路或連線至 Azure Container Registry (ACR)，您要委派給服務主體的這些資源的存取權。
 
-若要委派權限，使用下列方法建立角色指派[az 角色指派建立][ az-role-assignment-create]命令。 指派`appId`給特定的範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
+若要委派權限，使用下列方法建立角色指派[az 角色指派建立][az-role-assignment-create]命令。 指派`appId`給特定的範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -93,29 +93,29 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」  角色。 如需詳細步驟，請參閱[對 AKS 授與 ACR 的存取權][aks-to-acr]。
+如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」  角色。 如需詳細步驟，請參閱 <<c0> [ 授與 AKS 存取 ACR][aks-to-acr]。
 
 ### <a name="networking"></a>網路功能
 
 您可以使用進階網路功能，其中虛擬網路和子網路或公用 IP 位址都在另一個資源群組中。 指派下列一組角色權限：
 
-- 建立[自訂角色][rbac-custom-role]，然後定義下列角色權限：
+- 建立[自訂角色][rbac-custom-role]並定義下列角色權限：
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
   - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-- 或是，指派虛擬網路內子網路上的內建[網路參與者][rbac-network-contributor]角色
+- 或者，您也可以指派[網路參與者][rbac-network-contributor]虛擬網路內的子網路上的內建角色
 
 ### <a name="storage"></a>儲存體
 
 您可能需要存取另一個資源群組中的現有磁碟資源。 指派下列一組角色權限：
 
-- 建立[自訂角色][rbac-custom-role]，然後定義下列角色權限：
+- 建立[自訂角色][rbac-custom-role]並定義下列角色權限：
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- 或是，指派資源群組上的內建[儲存體帳戶參與者][rbac-storage-contributor]角色
+- 或者，您也可以指派[儲存體帳戶參與者][rbac-storage-contributor]資源群組上的內建角色
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -126,13 +126,13 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 當使用 AKS 與 Azure AD 服務主體時，請記住下列考量。
 
 - Kubernetes 的服務主體是叢集組態的一部分。 不過，請勿使用身分識別來部署叢集。
-- 根據預設，服務主體認證的有效期為一年。 您可以[更新或替換服務主體認證][ update-credentials]在任何時間。
+- 根據預設，服務主體認證的有效期為一年。 您可以[更新或替換服務主體認證][update-credentials]在任何時間。
 - 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如： *https://www.contoso.org/example* )。 應用程式的 URL 不一定是實際端點。
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
 - 在 Kubernetes 叢集中的代理程式節點 Vm，服務主體認證會儲存在檔案中 `/etc/kubernetes/azure.json`
-- 當您使用 [az aks create][az-aks-create] 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/aksServicePrincipal.json` 檔案。
-- 當您刪除使用 [az aks create][az-aks-create] 建立的叢集時，不會刪除自動建立的服務主體。
-    - 若要刪除服務主體，請查詢您的叢集 servicePrincipalProfile.clientId  ，然後使用 [az ad app delete][az-ad-app-delete] 來刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
+- 當您使用[az aks 建立][az-aks-create]服務主體認證會寫入檔案的命令自動產生服務主體`~/.azure/aksServicePrincipal.json`用來執行命令之電腦上。
+- 當您刪除所建立的 AKS 叢集[az aks 建立][az-aks-create]，不會刪除自動建立服務主體。
+    - 若要刪除的服務主體，請查詢您的叢集*servicePrincipalProfile.clientId* ，然後再刪除具有[az ad app delete][az-ad-app-delete]。 請將下列資源群組和叢集名稱更換為您自己的值：
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -140,7 +140,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ## <a name="troubleshoot"></a>疑難排解
 
-Azure CLI，AKS 叢集中的服務主體認證會快取。 如果這些認證已過期，您會遇到部署 AKS 叢集時發生錯誤。 下列的錯誤訊息時執行[az aks 建立][ az-aks-create]可能表示發生問題的快取的服務主體認證：
+Azure CLI，AKS 叢集中的服務主體認證會快取。 如果這些認證已過期，您會遇到部署 AKS 叢集時發生錯誤。 下列的錯誤訊息時執行[az aks 建立][az-aks-create]可能表示發生問題的快取的服務主體認證：
 
 ```console
 Operation failed with status: 'Bad Request'.

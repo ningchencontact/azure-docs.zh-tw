@@ -22,7 +22,7 @@ ms.locfileid: "62128291"
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>在 Visual Studio 中設定和使用儲存體模擬器
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 Azure SDK 開發環境包含儲存體模擬器，這是一個公用程式，可在本機開發電腦上模擬 Azure 提供的 blob、佇列和資料表服務。 如果您要建置雲端服務來採用 Azure 儲存體服務，或撰寫任何外部應用程式來呼叫儲存體服務，您可以在本機利用儲存體模擬器來測試您的程式碼。 Azure Tools for Microsoft Visual Studio 已將儲存體模擬器的管理整合到 Visual Studio 中。 Azure Tools 會在第一次使用儲存體模擬器資料庫時初始化、當您從 Visual Studio 執行或偵錯程式碼時啟動儲存體模擬器服務，並以唯讀方式透過 [Azure 儲存體總管] 存取儲存體模擬器資料。
 
 如需儲存體模擬器的詳細資訊，包括系統需求和自訂組態指示，請參閱 [使用 Azure 儲存體模擬器進行開發和測試](storage/common/storage-use-emulator.md)。

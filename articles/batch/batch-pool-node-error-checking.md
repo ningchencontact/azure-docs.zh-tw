@@ -56,7 +56,7 @@ ms.locfileid: "66357767"
 
 [集區調整大小完成事件](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)會擷取所有評估的相關資訊。
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>DELETE
 
 當您刪除包含節點的集區時，Batch 會先刪除節點。 然後它會刪除集區物件本身。 刪除這些節點可能需要幾分鐘的時間。
 

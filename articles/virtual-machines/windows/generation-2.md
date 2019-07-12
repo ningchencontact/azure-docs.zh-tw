@@ -4,7 +4,7 @@ description: 第 2 代 vm 的 Azure 支援的概觀
 services: virtual-machines-windows
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: d8991a6e3137953aae18b91f9cc19e81f0440c75
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 7abc1b7cd3be775af03aeaf558f631060cc6f81c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151206"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722722"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>支援的層代 2 部 Vm （預覽） 在 Azure 上
 
@@ -41,7 +41,7 @@ ms.locfileid: "67151206"
 * [Dsv2 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series)和[Dsv3 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
-* [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#gs-series)
+* [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [Ls 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series)和[Lsv2 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Mv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 
@@ -115,10 +115,10 @@ Azure 目前不支援的一些功能，內部部署 HYPER-V 支援第 2 代 vm�
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 * **會產生 2 個 Vm 可在所有 Azure 區域？**  
-    是。 但並非全部[第 2 代 VM 大小](#generation-2-vm-sizes)都是在每個區域。 產生的 VM 大小的可用性取決於 2 個 VM 的可用性。
+    是的。 但並非全部[第 2 代 VM 大小](#generation-2-vm-sizes)都是在每個區域。 產生的 VM 大小的可用性取決於 2 個 VM 的可用性。
 
 * **是否有價格之間的差異層代 1 和層代 2 部 Vm？**  
-   沒有。
+   資料分割
 
 * **如何增加，作業系統磁碟大小？**  
   OS 磁碟大於 2 TB 是新手第 2 代 Vm。 根據預設，作業系統磁碟是小於 2 TB，第 2 代 vm。 您可以增加磁碟大小最多 4 TB 的建議。 使用 Azure CLI 或 Azure 入口網站來增加的 OS 磁碟大小。 如需如何以程式設計方式擴充磁碟資訊，請參閱[調整磁碟大小](expand-os-disk.md)。
@@ -134,13 +134,13 @@ Azure 目前不支援的一些功能，內部部署 HYPER-V 支援第 2 代 vm�
   您可能會看到大於 2 TB 的 OS 磁碟的警告。 此警告不適用於第 2 代 Vm。 不過，大於 4 TB 的 OS 磁碟大小是*不建議這樣做。*
 
 * **執行層代 2 的 Vm 支援加速網路？**  
-    是。 如需詳細資訊，請參閱 <<c0> [ 建立具有加速網路的 VM](../../virtual-network/create-vm-accelerated-networking-cli.md)。
+    是的。 如需詳細資訊，請參閱 <<c0> [ 建立具有加速網路的 VM](../../virtual-network/create-vm-accelerated-networking-cli.md)。
 
 * **是否支援第 2 代 VHDX？**  
     否，第 2 代 Vm 支援只 VHD。
 
 * **第 2 代 Vm 支援 Azure 強力的磁碟儲存體？**  
-    是。
+    是的。
 
 * **我可以移轉的 VM 從層代 1 到層代 2 嗎？**  
     否，您無法在建立後變更 VM 世代。 如果您需要在 VM 層代之間切換，建立新的 VM 不同的層代。

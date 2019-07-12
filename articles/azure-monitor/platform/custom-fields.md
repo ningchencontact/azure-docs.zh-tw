@@ -27,7 +27,7 @@ ms.locfileid: "61461735"
 
 **自訂欄位**Azure 監視功能可讓您新增自己的可搜尋欄位來擴充您的 Log Analytics 工作區中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
 
-![概觀](media/custom-fields/overview.png)
+![總覽](media/custom-fields/overview.png)
 
 例如，以下範例記錄在事件描述中埋藏了有用的資料。 將此資料擷取到個別的屬性，並提供排序和篩選等動作。
 

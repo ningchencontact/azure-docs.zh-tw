@@ -110,7 +110,7 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 * [從範本建立 Application Insights 和 Web 測試資源](powershell.md)
 * [Set 使用 PowerShell 設定 Azure 診斷的監視](powershell-azure-diagnostics.md) 
 * [使用 PowerShell 設定警示](powershell-alerts.md)

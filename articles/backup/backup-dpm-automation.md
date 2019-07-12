@@ -133,7 +133,7 @@ MARSAgentInstaller.exe /?
 
 可用的選項包括：
 
-| 選項 | 詳細資料 | 預設值 |
+| 選項 | 詳細資料 | 預設 |
 | --- | --- | --- |
 | /q |無訊息安裝 |- |
 | /p:"location" |Azure 備份代理程式的安裝資料夾路徑。 |C:\Program Files\Microsoft Azure Recovery Services Agent |

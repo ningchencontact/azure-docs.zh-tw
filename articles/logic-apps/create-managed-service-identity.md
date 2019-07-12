@@ -59,7 +59,7 @@ ms.locfileid: "65416141"
 
    ![適用於物件識別碼的 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 屬性 | Value | 描述 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------| 
    | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) | 
    ||| 
@@ -111,7 +111,7 @@ ms.locfileid: "65416141"
 }
 ```
 
-| 屬性 | Value | 描述 | 
+| 屬性 | 值 | 描述 | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
 | tenantId  | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 

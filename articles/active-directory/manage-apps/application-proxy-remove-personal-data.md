@@ -15,19 +15,19 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebb2a38e520c988ee7ca9a234aadd6ae2de4f0cb
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65782976"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807759"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>移除 Azure Active Directory 應用程式 Proxy 的個人資料  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>移除 Azure Active Directory 應用程式 Proxy 的個人資料
 
-Azure Active Directory 應用程式 Proxy 需要您在裝置上安裝連接器，這表示您的裝置上可能會有個人資料。 本文提供如何刪除該個人資料來改善隱私權的步驟。 
-
+Azure Active Directory 應用程式 Proxy 需要您在裝置上安裝連接器，這表示您的裝置上可能會有個人資料。 本文提供如何刪除該個人資料來改善隱私權的步驟。
 
 ## <a name="where-is-the-personal-data"></a>個人資料在哪裡？
+
 應用程式 Proxy 可能將個人資料寫入下列記錄類型：
 
 - 連接器事件記錄
@@ -52,36 +52,33 @@ Azure Active Directory 應用程式 Proxy 需要您在裝置上安裝連接器�
 
 ### <a name="view-or-export-specific-data"></a>檢視或匯出特定資料
 
-若要檢視或匯出特定資料，請在每個連接器事件記錄中搜尋相關項目。 記錄位於 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`。 
+若要檢視或匯出特定資料，請在每個連接器事件記錄中搜尋相關項目。 記錄位於 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`。
 
 由於記錄是文字檔，因此您可以使用 [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) 來搜尋與使用者相關的文字項目。  
 
-若要尋找個人資料，請搜尋 UserID 的記錄檔。 
+若要尋找個人資料，請搜尋 UserID 的記錄檔。
 
 若要尋找使用 Kerberos 限制委派之應用程式所記錄的個人資料，請搜尋使用者名稱類型的這些元件：
 
 - 內部部署使用者主體名稱
 - 使用者主體名稱的使用者名稱部分
 - 內部部署使用者主體名稱的使用者名稱部分
-- 內部部署安全性帳戶管理員 (SAM) 帳戶名稱 
-
+- 內部部署安全性帳戶管理員 (SAM) 帳戶名稱
 
 ### <a name="delete-specific-data"></a>刪除特定資料
 
 若要刪除特定資料：
 
 1. 重新啟動 Microsoft Azure AD 應用程式 Proxy 連接器服務來產生新的記錄檔。 新的記錄檔可讓您刪除或修改舊的記錄檔。 
-2. 請遵循前述的[檢視或匯出特定資料](#view-or-export-specific-data)程序來尋找必須刪除的資訊。 搜尋所有連接器記錄。
-3. 刪除相關記錄檔，或選擇性地刪除包含個人資料的欄位。 如果您不再需要舊的記錄檔，您也可以全部加以刪除。
+1. 請遵循前述的[檢視或匯出特定資料](#view-or-export-specific-data)程序來尋找必須刪除的資訊。 搜尋所有連接器記錄。
+1. 刪除相關記錄檔，或選擇性地刪除包含個人資料的欄位。 如果您不再需要舊的記錄檔，您也可以全部加以刪除。
 
 ### <a name="turn-off-connector-logs"></a>關閉連接器記錄
 
-確保連接器記錄不會包含個人資料的一個選項是關閉記錄產生。 若要停止產生連接器記錄，請從 `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config` 移除下列醒目提示行。 
+確保連接器記錄不會包含個人資料的一個選項是關閉記錄產生。 若要停止產生連接器記錄，請從 `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config` 移除下列醒目提示行。
 
-![組態](./media/application-proxy-remove-personal-data/01.png)
-
+![顯示反白顯示的程式碼，以移除的程式碼片段](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 如需應用程式 Proxy 的概觀，請參閱[如何為內部部署應用程式提供安全的遠端存取](application-proxy.md)。
-

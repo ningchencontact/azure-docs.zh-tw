@@ -55,7 +55,7 @@ Azure Machine Learning Studio Web 服務上的作業可以傳回下列錯誤碼�
 | InvalidBlobExtension | Blob 參考︰{0} 的副檔名無效或遺漏。 此輸出類型支援的副檔名為："{1}"。 |
 | InvalidInputNames | 在要求中指定的服務輸入名稱無效：{0}。 請將輸入資料對應至正確的服務輸入，然後再試一次。 |
 | InvalidOutputOverrideName | 無效的輸出覆寫名稱︰{0}。 服務沒有使用此名稱的輸出節點。 請傳入要覆寫的正確輸出節點名稱 (需區分大小寫)。 |
-| InvalidQueryParameter | 無效的查詢參數 '{0}'。 {1} |
+| InvalidQueryParameter | 無效的查詢參數 '{0}'。 [https://doi.org/10.13012/J8PN93H8]({1}) |
 | MissingInputBlobInformation | Azure 儲存體 Blob 資訊遺失。 提供有效的連接字串和相對路徑或 URI，然後再試一次。 |
 | MissingJobId | 未提供作業識別碼。 第一次提交作業時會傳回作業識別碼。 確認作業識別碼正確無誤，然後再試一次。 |
 | MissingKeys | 未提供任何金鑰，或未提供其中一個主要或次要金鑰。 |

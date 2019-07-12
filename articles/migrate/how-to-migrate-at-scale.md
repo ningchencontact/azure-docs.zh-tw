@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60597120"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808030"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>使用 Azure Site Recovery 大規模移轉 VM
 
-本文會協助您了解使用 Azure Site Recovery 以指令碼遷移大量 VM 的程序。 您可以在 GitHub 上的 [Azure PowerShell 範例](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery)存放庫下載這些指令碼。 指令碼可用來將 VMware、 AWS、 GCP Vm 和實體伺服器移轉至 Azure 和支援的移轉至受控磁碟。 如果您以實體伺服器的形式來遷移 VM，您也可以使用這些程式碼來遷移 Hyper-V VM。 指令碼會利用[這裡](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell)記載的 Azure Site Recovery PowerShell。
+這篇文章可協助您了解如何使用指令碼來移轉大量的 Vm 使用 Azure Site Recovery。 您可以在 GitHub 上的 [Azure PowerShell 範例](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery)存放庫下載這些指令碼。 指令碼可用來將 VMware、 AWS、 GCP Vm 和實體伺服器移轉至 Azure 中的受控磁碟。 如果您以實體伺服器的形式來遷移 VM，您也可以使用這些程式碼來遷移 Hyper-V VM。 利用 Azure Site Recovery PowerShell 指令碼會記載[此處](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell)。
 
 ## <a name="current-limitations"></a>目前的限制：
 - 支援指定靜態 IP 位址僅適用於目標 VM 的主要 NIC
@@ -23,7 +23,7 @@ ms.locfileid: "60597120"
 
 ## <a name="how-does-it-work"></a>運作方式
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始之前，您需要執行下列步驟：
 - 確定 Site Recovery 保存庫是在 Azure 訂用帳戶中建立
 - 確定組態伺服器和處理序伺服器安裝在來源環境，且保存庫可以探索環境
@@ -50,7 +50,7 @@ ms.locfileid: "60597120"
 ### <a name="script-execution"></a>指令碼執行
 CSV 準備就緒之後，您可以執行下列步驟來執行內部部署 VM 的移轉：
 
-**步驟 #** | **指令碼名稱** | **說明**
+**步驟 #** | **指令碼名稱** | **描述**
 --- | --- | ---
 1 | asr_startmigration.ps1 | 針對 CSV 中列出的所有 VM 啟用複寫，指令碼會建立 CSV 輸出，其中具有每部 VM 的作業詳細資料
 2 | asr_replicationstatus.ps1 | 檢查複寫的狀態，指令碼會建立 CSV，其中具有每部 VM 的狀態

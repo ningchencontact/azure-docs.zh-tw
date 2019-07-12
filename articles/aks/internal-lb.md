@@ -2,17 +2,17 @@
 title: 在 Azure Kubernetes Service (AKS) 中建立內部負載平衡器
 description: 了解如何建立和使用內部負載平衡器，透過 Azure Kubernetes Service (AKS) 公開您的服務。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: 50a2161be4ee70f7ae5c8baa3816eb9f9943a5d2
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.author: mlearned
+ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358012"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615143"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>搭配 Azure Kubernetes Service (AKS) 使用內部負載平衡器
 

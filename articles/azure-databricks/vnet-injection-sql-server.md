@@ -28,7 +28,7 @@ ms.locfileid: "60770541"
 > * Microsoft SQL Server 安裝於 Linux docker 容器
 > * 查詢從 Databricks notebook 中使用 JDBC 的 SQL Server
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 建立[Databricks 工作區中的虛擬網路](quickstart-create-databricks-workspace-vnet-injection.md)。
 
@@ -64,14 +64,14 @@ ms.locfileid: "60770541"
     
     |設定|建議值|描述|
     |-------|---------------|-----------|
-    |source|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
+    |Source|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
     |來源 IP 位址|< 您的公用 ip\>|輸入您的公用 IP 位址。 您可以找到您的公用 IP 位址，請造訪[bing.com](https://www.bing.com/)並搜尋 **「 我的 IP 」** 。|
-    |來源連接埠範圍|*|允許從任何連接埠的流量。|
+    |Source port ranges|*|允許從任何連接埠的流量。|
     |目的地|IP 位址|IP 位址會指定該特定來源 IP 位址將允許或拒絕此規則的連出流量。|
     |目的地 IP 位址|< 您的 vm 公用 ip\>|輸入您的虛擬機器的公用 IP 位址。 您可以找到這**概觀**您的虛擬機器的頁面。|
     |目的地連接埠範圍|22|開啟 SSH 連接埠 22。|
     |優先順序|290|指定規則的優先順序。|
-    |Name|ssh-databricks-tutorial-vm|指定規則的名稱。|
+    |名稱|ssh-databricks-tutorial-vm|指定規則的名稱。|
 
 
     ![新增連接埠 22 的輸入的安全性規則](./media/vnet-injection-sql-server/open-port.png)
@@ -80,14 +80,14 @@ ms.locfileid: "60770541"
 
     |設定|建議值|描述|
     |-------|---------------|-----------|
-    |source|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
+    |Source|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
     |來源 IP 位址|10.179.0.0/16|輸入您的虛擬網路的位址範圍。|
-    |來源連接埠範圍|*|允許從任何連接埠的流量。|
+    |Source port ranges|*|允許從任何連接埠的流量。|
     |目的地|IP 位址|IP 位址會指定該特定來源 IP 位址將允許或拒絕此規則的連出流量。|
     |目的地 IP 位址|< 您的 vm 公用 ip\>|輸入您的虛擬機器的公用 IP 位址。 您可以找到這**概觀**您的虛擬機器的頁面。|
     |目的地連接埠範圍|1433|開啟 SQL Server 連接埠 22。|
     |優先順序|300|指定規則的優先順序。|
-    |Name|sql-databricks-tutorial-vm|指定規則的名稱。|
+    |名稱|sql-databricks-tutorial-vm|指定規則的名稱。|
 
     ![新增通訊埠 1433年的輸入的安全性規則](./media/vnet-injection-sql-server/open-port2.png)
 

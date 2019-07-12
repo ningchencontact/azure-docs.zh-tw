@@ -24,7 +24,7 @@ ms.locfileid: "60733091"
 
 這篇文章說明如何連接到 Azure 媒體服務 v3 Python SDK 中使用服務主體的登入方法。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 下載從 Python [python.org](https://www.python.org/downloads/)
 - 請務必設定`PATH`環境變數

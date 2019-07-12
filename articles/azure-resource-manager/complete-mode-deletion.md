@@ -250,7 +250,7 @@ ms.locfileid: "64712982"
 | 資源類型 | 完整模式刪除 |
 | ------------- | ----------- |
 | edgenodes | 否 | 
-| 設定檔 | 是 | 
+| profiles | 是 | 
 | profiles/endpoints | 是 | 
 | profiles/endpoints/customdomains | 否 | 
 | profiles/endpoints/origins | 否 | 
@@ -368,7 +368,7 @@ ms.locfileid: "64712982"
 | ReservationRecommendations | 否 | 
 | ReservationSummaries | 否 | 
 | ReservationTransactions | 否 | 
-| 標記 | 否 | 
+| Tags | 否 | 
 | 詞彙 | 否 | 
 | UsageDetails | 否 | 
 

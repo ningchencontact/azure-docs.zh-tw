@@ -23,7 +23,7 @@ ms.locfileid: "60699450"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>使用 StorSimple 裝置管理員服務管理 StorSimple 頻寬範本
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 頻寬範本可讓您設定多個日期時間排程的網路頻寬使用量，以將 StorSimple 裝置的資料分層至雲端。
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147074"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805716"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>使用 Azure 資料箱磁碟中的驗證問題進行疑難排解的記錄檔
 
@@ -90,8 +90,8 @@ ms.locfileid: "67147074"
 | `InvalidBlobNameFormat` | 檔案路徑不會對應至在雲端根據命名慣例的 Azure Blob 中的有效 blob 路徑。|重新命名檔案，使其符合[Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。 重試驗證。 |
 | `InvalidFileNameFormat` | 檔案路徑不會對應至有效的檔案路徑，在雲端根據命名慣例的 Azure 檔案中。 |重新命名檔案，使其符合[Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。 重試驗證。 |
 | `InvalidDiskNameFormat` | 檔案路徑不會對應至 Azure 受控磁碟的命名慣例根據雲端中有效的磁碟名稱。 |重新命名檔案，使其符合[Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。 重試驗證。       |
-| `NotPartOfFileShare` | 無法上傳的上傳路徑不是有效的檔案。 檔案上傳至 Azure 檔案服務中的資料夾。   | 移除錯誤中的檔案，並將這些檔案上傳至預先建立的資料夾。 重試驗證。 |
-| `NonVhdFileNotSupportedForManagedDisk` | 無法為受控磁碟上傳非 VHD 檔案。 |請移除-VHD 檔案，因為不支援這些。 重試驗證。 |
+| `NotPartOfFileShare` | 檔案上傳路徑無效。 檔案上傳至 Azure 檔案服務中的資料夾。   | 移除錯誤中的檔案，並將這些檔案上傳至預先建立的資料夾。 重試驗證。 |
+| `NonVhdFileNotSupportedForManagedDisk` | 無法為受控磁碟上傳非 VHD 檔案。 |移除-VHD 檔案從`ManagedDisk`資料夾，因為不支援或移動這些檔案，以`PageBlob`資料夾。 重試驗證。 |
 
 
 ## <a name="next-steps"></a>後續步驟

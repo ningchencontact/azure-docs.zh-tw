@@ -4,7 +4,7 @@ description: 了解如何在 SAP ASCS/SCS 執行個體的 Windows 容錯移轉�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1a7d3d3a8f66cfbb3ed649ac645520f39cbb1e4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714351"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709003"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>在 Azure 中的 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟上安裝 SAP NetWeaver HA
 
@@ -153,9 +153,9 @@ ms.locfileid: "60714351"
 
 在開始安裝之前，請檢閱這些文章：
 
-* [架構指南：使用叢集共用磁碟於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-shared-disk]
+* [架構指南：藉由使用叢集共用的磁碟於 Windows 容錯移轉叢集上叢集 SAP ASCS/SCS 執行個體][sap-high-availability-guide-wsfc-shared-disk]
 
-* [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用磁碟，為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [藉由使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和共用的磁碟為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
 
 由於設定視使用的 DBMS 系統而異，因此我們不會在本文中說明 DBMS 設定。 我們會假設 DBMS 在高可用性方面的疑慮已藉由不同 DBMS 廠商為 Azure 提供的功能支援而獲得解決。 範例包括適用於 SQL Server 的 Always On 或資料庫鏡像，以及適用於 Oracle 資料庫的 Oracle Data Guard。 在本文使用的案例中，我們不對 DBMS 加入更多保護。
 
@@ -211,7 +211,7 @@ ms.locfileid: "60714351"
    * **Java 系統**：**SCS** 執行個體號碼 **01**
    * **ABAP + Java 系統**：**ASCS** 執行個體號碼 **00** 和 **SCS** 執行個體號碼 **01**
 
-   如果 ABAP ASCS 執行個體要使用 00 以外的執行個體編號，且 Java SCS 執行個體使用 01 以外的執行個體編號，首先，變更 Azure 內部負載平衡器預設負載平衡規則。 如需詳細資訊，請參閱[變更 Azure 內部負載平衡器的 ASCS/SCS 預設負載平衡規則][sap-ha-guide-8.9]。
+   如果 ABAP ASCS 執行個體要使用 00 以外的執行個體編號，且 Java SCS 執行個體使用 01 以外的執行個體編號，首先，變更 Azure 內部負載平衡器預設負載平衡規則。 如需詳細資訊，請參閱 <<c0> [ 變更平衡規則的 Azure 內部負載平衡器的 ASCS/SCS 預設負載][sap-ha-guide-8.9]。
 
 接下來幾個步驟並未在標準 SAP 安裝文件中說明。
 
@@ -222,7 +222,7 @@ ms.locfileid: "60714351"
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> 修改 ASCS/SCS 執行個體的 SAP 設定檔
 
-首先，新增新的設定檔參數。 此設定檔參數可避免 SAP 工作程序與加入佇列伺服器之間的連線在閒置時間太長時關閉。 我們在本文中的[在 SAP ASCS/SCS 執行個體的兩個叢集節點上都新增登錄項目][sap-ha-guide-8.11]中提到問題案例。 在該部分，我們也介紹了對一些基本 TCP/IP 連線參數所做的兩項變更。 在第二個步驟中，您必須設定讓加入佇列伺服器傳送 `keep_alive` 訊號，如此連線才不會達到 Azure 內部負載平衡器的閒置臨界值。
+首先，新增新的設定檔參數。 此設定檔參數可避免 SAP 工作程序與加入佇列伺服器之間的連線在閒置時間太長時關閉。 我們提到問題案例中的[SAP ASCS/SCS 執行個體的兩個叢集節點上新增登錄項目][sap-ha-guide-8.11]。 在該部分，我們也介紹了對一些基本 TCP/IP 連線參數所做的兩項變更。 在第二個步驟中，您必須設定讓加入佇列伺服器傳送 `keep_alive` 訊號，如此連線才不會達到 Azure 內部負載平衡器的閒置臨界值。
 
 若要修改 ASCS/SCS 執行個體的 SAP 設定檔：
 

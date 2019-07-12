@@ -67,6 +67,6 @@ ms.locfileid: "64918449"
 ## <a name="next-steps"></a>後續步驟
 [判斷存取控制需求](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

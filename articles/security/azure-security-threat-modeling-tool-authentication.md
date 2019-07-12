@@ -26,7 +26,7 @@ ms.locfileid: "65951722"
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式**    | <ul><li>[考慮使用標準驗證機制來驗證 Web 應用程式](#standard-authn-web-app)</li><li>[應用程式必須安全地處理失敗的驗證案例](#handle-failed-authn)</li><li>[啟用升級或調適性驗證](#step-up-adaptive-authn)</li><li>[確保已適當地鎖定系統管理介面](#admin-interface-lockdown)</li><li>[安全地實作忘記密碼功能](#forgot-pword-fxn)</li><li>[確保已實作密碼和帳戶原則](#pword-account-policy)</li><li>[實作控制項以避免列舉使用者名稱](#controls-username-enum)</li></ul> |
-| **資料庫** | <ul><li>[可能的話，使用 Windows 驗證連線到 SQL Server](#win-authn-sql)</li><li>[可能的話，使用 Azure Active Directory 驗證連線到 SQL Database](#aad-authn-sql)</li><li>[使用 SQL 驗證模式時，確保在 SQL Server 上強制執行帳戶和密碼原則](#authn-account-pword)</li><li>[請勿在自主資料庫中使用 SQL 驗證](#autn-contained-db)</li></ul> |
+| **[資料庫備份]** | <ul><li>[可能的話，使用 Windows 驗證連線到 SQL Server](#win-authn-sql)</li><li>[可能的話，使用 Azure Active Directory 驗證連線到 SQL Database](#aad-authn-sql)</li><li>[使用 SQL 驗證模式時，確保在 SQL Server 上強制執行帳戶和密碼原則](#authn-account-pword)</li><li>[請勿在自主資料庫中使用 SQL 驗證](#autn-contained-db)</li></ul> |
 | **Azure 事件中樞** | <ul><li>[使用採用 SaS 權杖的每一裝置驗證認證](#authn-sas-tokens)</li></ul> |
 | **Azure 信任邊界** | <ul><li>[啟用 Azure 系統管理員適用的 Azure Multi-Factor Authentication](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric 信任邊界** | <ul><li>[限制 Service Fabric 叢集的匿名存取](#anon-access-cluster)</li><li>[確保 Service Fabric 的用戶端對節點憑證不同於節點對節點憑證](#fabric-cn-nn)</li><li>[使用 AAD 來向 Service Fabric 叢集驗證用戶端對](#aad-client-fabric)</li><li>[確保從經過核准的憑證授權單位 (CA) 取得 Service Fabric 憑證](#fabric-cert-ca)</li></ul> |

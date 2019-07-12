@@ -57,7 +57,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -113,7 +113,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -171,7 +171,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -222,7 +222,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -275,7 +275,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |
@@ -331,7 +331,7 @@ ms.locfileid: "60845761"
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | type | 描述 |
 | --- | --- | --- |
 | senderPartnerName | String | X12 訊息傳送者的夥伴名稱。 (選用) |
 | receiverPartnerName | String | X12 訊息接收者的夥伴名稱。 (選用) |

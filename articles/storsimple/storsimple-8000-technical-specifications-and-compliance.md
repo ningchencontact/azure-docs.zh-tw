@@ -23,7 +23,7 @@ ms.locfileid: "65606930"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>適用於 StorSimple 裝置的技術規格和相容性
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft Azure StorSimple 裝置的硬體元件會遵循本文中概述的技術規格與法規標準。 技術規格描述電源與冷卻模組 (PCM)、磁碟機、儲存體容量及機箱。 相容性資訊則涵蓋國際標準、安全性和排放量，以及連接纜線等資訊。
 
@@ -41,7 +41,7 @@ EBOD 機箱使用 580 W PCM，而主要機箱會使用 764 W PCM。 下表列出
 | 最大瞬間電流 |20 A |20 A |
 | 功率因素校正 |> 95% 額定輸入電壓 |> 95% 額定輸入電壓 |
 | 諧波 |符合 EN61000-3-2 |符合 EN61000-3-2 |
-| 輸出 |5V 待機電壓 \@ 2.0 A |5V 待機電壓 \@ 2.7 A |
+| Output |5V 待機電壓 \@ 2.0 A |5V 待機電壓 \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
 | 隨插即用 |是 |是 |

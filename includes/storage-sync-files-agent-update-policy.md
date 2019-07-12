@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 57ba55ce284030a4103077553b0dcfce01a93678
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b8812b1fca6a72a69f06a6c0278da8ee4d4c852
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125746"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67841410"
 ---
 Azure 檔案同步代理程式會定期更新，以新增功能和解決問題。 建議您設定 Microsoft Update，以取得 Azure 檔案同步代理程式的最新更新。
 
@@ -31,7 +31,7 @@ Azure 檔案同步代理程式會定期更新，以新增功能和解決問題�
 #### <a name="automatic-agent-lifecycle-management"></a>自動代理程式生命週期管理
 代理程式 」 第 6 版，檔案同步小組已引進了代理程式自動升級功能。 您可以選取其中一個模式，並指定伺服器上的維護期間，應嘗試升級。 這項功能可協助您藉由提供 guardrail，避免從過期的代理程式的代理程式的生命週期管理，或是以不費吹灰之力，保持目前設定。
 1. **預設設定**會嘗試避免從過期的代理程式。 內的代理程式的已發佈的到期日的 21 天，該代理程式會嘗試自行升級。 就會開始升級每週一次之前到期，並在選取的維護期間的 21 天內嘗試。 **此選項不會不需要採取一般的 Microsoft Update 修補程式。**
-2. （選擇性） 選取的代理程式將會自動升級本身為新的代理程式版本 （目前不適用於叢集伺服器）。 此更新將會發生在所選的維護期間，並允許您的伺服器，才會受益於新的功能和增強功能，只要它們已公開上市。 這是主要代理程式版本，以及定期更新修補程式到您的伺服器會提供建議、 煩惱設定。 每個發行的代理程式是 GA 品質。 如果您選取此選項時，Microsoft 將飛行的最新的代理程式版本給您。 叢集的伺服器會排除。 測試完成後，代理程式也會提供[Microsoft 下載中心](https://go.microsoft.com/fwlink/?linkid=858257)aka.ms/AFS/agent。
+2. （選擇性） 選取的代理程式將會自動升級本身為新的代理程式版本 （目前不適用於叢集伺服器）。 此更新將會發生在所選的維護期間，並允許您的伺服器，才會受益於新的功能和增強功能，只要它們已公開上市。 這是主要代理程式版本，以及定期更新修補程式到您的伺服器會提供建議、 煩惱設定。 每個發行的代理程式是 GA 品質。 即使您選取時自動更新新的版本會變成可用的選項，您可能不會提供更新版本的後面。 新的代理程式一開始提供給少數的伺服器，然後我們會逐漸擴充供應項目。 測試完成後，代理程式也會變成可透過 Microsoft Update 取得並[Microsoft 下載中心](https://go.microsoft.com/fwlink/?linkid=858257)。
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>代理程式生命週期和變更管理保證
 Azure 檔案同步處理是雲端服務，會持續介紹新功能和增強功能。 這表示特定的 Azure 檔案同步代理程式版本只會支援一段有限的時間。 若要簡化您的部署，下列規則保證您有足夠的時間和通知，可容納代理程式更新/升級您的變更管理程序：

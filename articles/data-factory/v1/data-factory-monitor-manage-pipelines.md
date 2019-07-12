@@ -180,7 +180,7 @@ Data Factory 內的資料集狀態轉換流程如下：等候中 -> 進行中/�
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-例如︰
+例如:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +191,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-例如︰
+例如:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -224,7 +224,7 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   例如︰
+   例如:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -238,7 +238,7 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    例如︰
+    例如:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -292,7 +292,7 @@ Azure Data Factory 提供了許多功能供您使用 Azure 入口網站和 Azure
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 您可以使用重新執行失敗**組 AzDataFactorySliceStatus** cmdlet。 請參閱[組 AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus)的語法和 cmdlet 的其他詳細資料。
 
-**範例：**
+**範例:**
 
 下列範例把 Azure Data Factory 'WikiADF' 中 'DAWikiAggregatedData' 資料表的所有配量狀態都設為 'Waiting'。
 

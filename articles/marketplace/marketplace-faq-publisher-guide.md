@@ -35,7 +35,7 @@ Azure Marketplace 適用於對商業 IT 軟體和服務感興趣的 IT 專業人
 Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和服務，其建置目的是為了擴充 Azure 產品和服務。 此解決方案目錄跨越數個類別，包括 (但不限於)：
 
 * 基本作業系統
-* 資料庫
+* databases
 * security
 * 身分識別
 * 網路功能
@@ -156,7 +156,7 @@ Azure 訂用帳戶會包含在發行者的獨立軟體廠商 (ISV) 解決方案�
 
 **我需要登記付款方式 (例如信用卡) 才能部署免費層或自備授權 (BYOL) 供應項目嗎？**
 
-沒有。 部署免費層或 BYOL 供應項目無需付款方式。 不過，免費試用供應項目則需要付款方式。 包含**立即取得**或是**免費試用軟體**按鈕的清單項目會部署到選取的 Azure 訂用帳戶中。  這些清單項目會使用所選帳戶已註冊的付款方法來計費。 Azure 使用費用會與軟體授權費用分開計費。
+資料分割 部署免費層或 BYOL 供應項目無需付款方式。 不過，免費試用供應項目則需要付款方式。 包含**立即取得**或是**免費試用軟體**按鈕的清單項目會部署到選取的 Azure 訂用帳戶中。  這些清單項目會使用所選帳戶已註冊的付款方法來計費。 Azure 使用費用會與軟體授權費用分開計費。
 
 **如果間接 Enterprise 合約 (EA) 客戶對於在 Azure Marketplace 上販售的供應項目有定價方面的問題，該與誰連絡？**
 
@@ -172,7 +172,7 @@ Azure 訂用帳戶會包含在發行者的獨立軟體廠商 (ISV) 解決方案�
 
 **大量授權折扣適用於 Azure Marketplace 購買嗎？**
 
-沒有。 擁有 Azure Marketplace 所列解決方案的發行者可以設定價格。  標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
+資料分割 擁有 Azure Marketplace 所列解決方案的發行者可以設定價格。  標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
 
 **我如何支付這些訂閱？我的 Azure Marketplace 購買會出現在 Azure 帳單上，還是會有另外的帳單？**
 
@@ -210,7 +210,7 @@ MOSP- [Microsoft 線上訂閱方案](https://azure.microsoft.com/support/legal/s
 
 **我是否可將帳戶上的 Azure 訂用帳戶點數或預付金用於所需的 Azure 產品與服務，以執行 Azure Marketplace 供應項目？**
 
-是。 Azure 訂用帳戶點數或您帳戶上的預付金都可用於 Azure 產品和 Azure Marketplace 供應項目。 例如，您可以將 Azure 預付金使用於 Azure Marketplace 中的虛擬機器供應項目的「價格」部分。 然而，Azure 訂用帳戶點數及預付金只適用於 Azure 虛擬機器上執行的特定 Marketplace 發行者軟體 (「軟體價格」)。
+是的。 Azure 訂用帳戶點數或您帳戶上的預付金都可用於 Azure 產品和 Azure Marketplace 供應項目。 例如，您可以將 Azure 預付金使用於 Azure Marketplace 中的虛擬機器供應項目的「價格」部分。 然而，Azure 訂用帳戶點數及預付金只適用於 Azure 虛擬機器上執行的特定 Marketplace 發行者軟體 (「軟體價格」)。
 
 **如何得知我已經使用多少 Azure Marketplace 購買？**
 
@@ -234,7 +234,7 @@ MOSP- [Microsoft 線上訂閱方案](https://azure.microsoft.com/support/legal/s
 
 **Azure Marketplace 有支援論壇嗎？**
 
-是。 請瀏覽 [Azure Marketplace 論壇](https://social.msdn.microsoft.com/Forums/home?forum=DataMarket)以取得社群支援。
+是的。 請瀏覽 [Azure Marketplace 論壇](https://social.msdn.microsoft.com/Forums/home?forum=DataMarket)以取得社群支援。
 
 **如果我對 Azure Marketplace 上銷售的合作夥伴解決方案有定價或條款方面的疑問，該與誰連絡？**
 
@@ -463,7 +463,7 @@ Azure Marketplace 是適用於 IT 專業人員和開發人員的市集，可讓�
 
 **如何從 Azure Marketplace 購買產品？**
 
-您可以透過[網路店面](https://azuremarketplace.microsoft.com/marketplace/)、在 [Microsoft Azure 管理入口網站](https://portal.azure.com/)中或透過 [Azure Marketplace 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 來尋找 Azure Marketplace 供應項目。 登入 Azure Marketplace 後，您就可以探索及購買 Microsoft 與合作夥伴解決方案。 注意：預付點數和其他形式的預付金不適用於軟體授權費用。  它們可用來支付相關聯的 Azure 使用費用。 列於 [Azure 預付金](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)的項目除外。
+您可以透過[網路店面](https://azuremarketplace.microsoft.com/marketplace/)、在 [Microsoft Azure 管理入口網站](https://portal.azure.com/)中或透過 [Azure Marketplace 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 來尋找 Azure Marketplace 供應項目。 登入 Azure Marketplace 後，您就可以探索及購買 Microsoft 與合作夥伴解決方案。 注意:預付點數和其他形式的預付金不適用於軟體授權費用。  它們可用來支付相關聯的 Azure 使用費用。 列於 [Azure 預付金](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)的項目除外。
 
 **如果不小心刪除 Azure Marketplace 購買項目，可以「復原」該動作嗎？**
 
@@ -549,7 +549,7 @@ Azure Marketplace 支援 141 購買從地理位置，客戶的帳單地址所定
 
 **我需要登記付款方式 (例如信用卡) 才能部署免費層或自備授權 (BYOL) 供應項目嗎？**
 
-沒有。 部署免費層或 BYOL 供應項目無需付款方式。 不過，免費試用供應項目則需要付款方式。
+資料分割 部署免費層或 BYOL 供應項目無需付款方式。 不過，免費試用供應項目則需要付款方式。
 
 含有 [立即取得] 或 [免費軟體試用] 按鈕的陳列商品會部署到您的 Azure 訂用帳戶，並使用您的帳戶已註冊的付款方式來計費。 Azure 使用費用會與軟體授權費用分開計費。
 
@@ -563,7 +563,7 @@ Azure Marketplace 支援 141 購買從地理位置，客戶的帳單地址所定
 
 **我可以使用 Microsoft 大量授權/Enterprise 合約從 Azure Marketplace 購買嗎？**
 
-是。 Enterprise 合約 (EA) 客戶可從 Azure Marketplace 購買應用程式和服務。 擁有應用程式和服務的獨立軟體廠商 (ISV) 會設定其定價。 因此，標準 Microsoft 大量授權折扣不適用於 Azure Marketplace 供應項目。
+是的。 Enterprise 合約 (EA) 客戶可從 Azure Marketplace 購買應用程式和服務。 擁有應用程式和服務的獨立軟體廠商 (ISV) 會設定其定價。 因此，標準 Microsoft 大量授權折扣不適用於 Azure Marketplace 供應項目。
 
 **我可以運用帳戶上的 Azure 訂用帳戶點數或預付金來購買 Azure Marketplace 供應項目嗎？**
 
@@ -571,7 +571,7 @@ Azure Marketplace 支援 141 購買從地理位置，客戶的帳單地址所定
 
 **大量授權折扣適用於 Azure Marketplace 購買嗎？**
 
-沒有。 擁有 Azure Marketplace 所列解決方案的 ISV 可以設定價格。 標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
+資料分割 擁有 Azure Marketplace 所列解決方案的 ISV 可以設定價格。 標準 Microsoft 大量授權合約折扣不適用於 Azure Marketplace 購買。
 
 **我如何支付這些訂閱？我的 Azure Marketplace 購買會出現在 Azure 帳單上，還是會有另外的帳單？**
 
@@ -585,7 +585,7 @@ Enterprise 合約 (EA) 客戶將透過其 EA 支付費用。 此處列出的特�
 
 MOSP 或 Microsoft 線上訂閱方案 (亦即 Web Direct) 客戶可以在 Azure [計費入口網站](https://azure.microsoft.com/)的 [Marketplace] 功能表下檢視 Marketplace 訂閱詳細資料。 從 Marketplace 購買虛擬機器的客戶，可以在 [Microsoft Azure 管理入口網站](https://portal.azure.com/)中檢視預估的應計費用。
 
-Enterprise 合約 (EA) 客戶可以在企業版入口網站帳單和帳戶管理檢視的 [Azure Marketplace] 索引標籤中，檢視 Marketplace 訂閱詳細資料。 注意：間接 EA 客戶只能查看供應項目和使用量資訊。 企業入口網站並不提供定價詳細資料。
+Enterprise 合約 (EA) 客戶可以在企業版入口網站帳單和帳戶管理檢視的 [Azure Marketplace] 索引標籤中，檢視 Marketplace 訂閱詳細資料。 注意:間接 EA 客戶只能查看供應項目和使用量資訊。 企業入口網站並不提供定價詳細資料。
 
 **如何取消 Azure VM 的 Azure Marketplace 附加元件？**
 
@@ -609,7 +609,7 @@ Enterprise 合約 (EA) 客戶可以在企業版入口網站帳單和帳戶管理
 
 **我是否可將帳戶上的 Azure 訂用帳戶點數或預付金用於所需的 Azure 產品與服務，以執行 Azure Marketplace 供應項目？**
 
-是。 Azure 訂用帳戶點數或您帳戶上的預付金都可用於 Azure 產品和 Azure Marketplace 供應項目。 例如，您可以將 Azure 預付金使用於 Azure Marketplace 中的虛擬機器供應項目的「價格」部分。 然而，Azure 訂用帳戶點數及預付金只適用於 Azure 虛擬機器上執行的特定軟體價格。
+是的。 Azure 訂用帳戶點數或您帳戶上的預付金都可用於 Azure 產品和 Azure Marketplace 供應項目。 例如，您可以將 Azure 預付金使用於 Azure Marketplace 中的虛擬機器供應項目的「價格」部分。 然而，Azure 訂用帳戶點數及預付金只適用於 Azure 虛擬機器上執行的特定軟體價格。
 
 **如何得知我已經使用多少 Azure Marketplace 購買？**
 

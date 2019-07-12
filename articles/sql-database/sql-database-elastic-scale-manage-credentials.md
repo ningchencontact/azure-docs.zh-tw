@@ -73,7 +73,7 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 與系統管理員認證情況相同，請勿使用 "username@server" 格式的值。 請改為只使用 "username"。  另請注意，連接字串不包含伺服器名稱和資料庫名稱。 這是因為 **OpenConnectionForKey** 呼叫會以索引鍵作為基礎，自動將連線導向正確的分區。 因此，不會提供資料庫名稱和伺服器名稱。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [管理 Azure SQL Database 中的資料庫和登入](sql-database-manage-logins.md)
 

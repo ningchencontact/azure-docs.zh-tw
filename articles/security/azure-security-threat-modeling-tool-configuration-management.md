@@ -25,7 +25,7 @@ ms.locfileid: "60610716"
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式** | <ul><li>[實作內容安全性原則 (CSP)，並停用內嵌 javascript](#csp-js)</li><li>[啟用瀏覽器的 XSS 篩選器](#xss-filter)</li><li>[ASP.NET 應用程式必須在部署前停用追蹤和偵錯](#trace-deploy)</li><li>[僅從信任的來源存取第三方 javascript](#js-trusted)</li><li>[確保已驗證的 ASP.NET 頁面納入 UI 偽裝或點擊劫持防禦功能](#ui-defenses)</li><li>[確保在 ASP.NET Web 應用程式上啟用 CORS 的情況下只允許信任的原始來源](#cors-aspnet)</li><li>[在 ASP.NET 頁面上啟用 ValidateRequest 屬性](#validate-aspnet)</li><li>[使用在本機裝載的最新 JavaScript 程式庫版本](#local-js)</li><li>[停用自動 MIME 探查](#mime-sniff)</li><li>[移除 Windows Azure 網站上的標準伺服器標頭以避免記錄特徵](#standard-finger)</li></ul> |
-| **資料庫** | <ul><li>[設定用於 Database Engine 存取的 Windows 防火牆](#firewall-db)</li></ul> |
+| **[資料庫備份]** | <ul><li>[設定用於 Database Engine 存取的 Windows 防火牆](#firewall-db)</li></ul> |
 | **Web API** | <ul><li>[確保在 ASP.NET Web API 上啟用 CORS 的情況下只允許信任的原始來源](#cors-api)</li><li>[加密包含敏感性資料的 Web API 組態檔區段](#config-sensitive)</li></ul> |
 | **IoT 裝置** | <ul><li>[確保使用強式認證保護所有系統管理介面](#admin-strong)</li><li>[確保無法在裝置上執行不明的程式碼](#unknown-exe)</li><li>[使用 Bitlocker 將 IoT 裝置的 OS 和其他磁碟分割加密](#partition-iot)</li><li>[確保在裝置上只啟用最少的服務/功能](#min-enable)</li></ul> |
 | **IoT 現場閘道** | <ul><li>[使用 Bitlocker 將 IoT 現場閘道的 OS 和其他磁碟分割加密](#field-bit-locker)</li><li>[確保在安裝期間變更現場閘道的預設登入認證](#default-change)</li></ul> |
@@ -75,7 +75,7 @@ Example: var str="alert(1)"; eval(str);
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [XSS 防護篩選器](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
-| **步驟** | <p>X-XSS-Protection 回應標頭設定可控制瀏覽器的跨網站指令碼篩選器。 此回應標頭可以有下列值︰</p><ul><li>`0:` 這會停用篩選器</li><li>`1: Filter enabled` 如果偵測到跨網站指令碼攻擊，為了停止攻擊，瀏覽器將會淨化頁面</li><li>`1: mode=block : Filter enabled` 。 偵測到 XSS 攻擊時，瀏覽器不會呈現網頁呈現，而非淨化頁面</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled` 。 瀏覽器將會淨化頁面並報告違規情形。</li></ul><p>這是一項 Chromium 功能，其利用 CSP 違規報告將詳細資料傳送至您所選的 URI。 最後 2 個選項會被視為安全值。</p>|
+| **步驟** | <p>X-XSS-Protection 回應標頭設定可控制瀏覽器的跨網站指令碼篩選器。 此回應標頭可以有下列值︰</p><ul><li>`0:` 這會停用篩選器</li><li>`1: Filter enabled` 如果偵測到跨網站指令碼攻擊，為了停止攻擊，瀏覽器將會淨化頁面</li><li>`1: mode=block : Filter enabled`. 偵測到 XSS 攻擊時，瀏覽器不會呈現網頁呈現，而非淨化頁面</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 瀏覽器將會淨化頁面並報告違規情形。</li></ul><p>這是一項 Chromium 功能，其利用 CSP 違規報告將詳細資料傳送至您所選的 URI。 最後 2 個選項會被視為安全值。</p>|
 
 ## <a id="trace-deploy"></a>ASP.NET 應用程式必須在部署前停用追蹤和偵錯
 

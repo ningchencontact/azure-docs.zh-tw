@@ -63,8 +63,8 @@ ms.locfileid: "62130308"
 | 屬性 | 描述 |
 | --------- | ----------- |
 |serviceName|必要。 雲端服務的名稱。 這裡指定的名稱必須符合在服務定義檔中指定的名稱。|
-|osFamily|選用。 指定將在雲端服務中角色執行個體上執行的客體 OS。 如需支援之客體 OS 版本的詳細資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)。<br /><br /> 如果您未包含 `osFamily` 值，且未將 `osVersion` 屬性設定為特定客體 OS 版本，則會使用預設值 1。|
-|osVersion|選用。 指定將在雲端服務中角色執行個體上執行的客體 OS 版本。 如需客體 OS 版本的詳細資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)。<br /><br /> 您可以指定客體 OS 應自動升級為最新版本。 若要這樣做，請將 `osVersion` 屬性的值設定為 `*`。 當設定為 `*` 時，會使用指定 OS 系列的最新版本客體 OS 來部署角色執行個體，並且在新版本的客體 OS 發行時自動升級。<br /><br /> 若要手動指定特定版本，請使用 `Configuration String`，位於 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)之**未來、目前和轉換客體 OS 版本**區段的資料表中。<br /><br /> `osVersion` 屬性的預設值為 `*`。|
-|schemaVersion|選用。 指定服務組態結構描述的版本。 如果已並行安裝一個以上的 SDK 版本，結構描述版本就可讓 Visual Studio 選取要用於結構描述驗證的正確 SDK 工具。 如需結構描述和版本相容性的詳細資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)|
+|osFamily|選擇性。 指定將在雲端服務中角色執行個體上執行的客體 OS。 如需支援之客體 OS 版本的詳細資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)。<br /><br /> 如果您未包含 `osFamily` 值，且未將 `osVersion` 屬性設定為特定客體 OS 版本，則會使用預設值 1。|
+|osVersion|選擇性。 指定將在雲端服務中角色執行個體上執行的客體 OS 版本。 如需客體 OS 版本的詳細資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)。<br /><br /> 您可以指定客體 OS 應自動升級為最新版本。 若要這樣做，請將 `osVersion` 屬性的值設定為 `*`。 當設定為 `*` 時，會使用指定 OS 系列的最新版本客體 OS 來部署角色執行個體，並且在新版本的客體 OS 發行時自動升級。<br /><br /> 若要手動指定特定版本，請使用 `Configuration String`，位於 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)之**未來、目前和轉換客體 OS 版本**區段的資料表中。<br /><br /> `osVersion` 屬性的預設值為 `*`。|
+|schemaVersion|選擇性。 指定服務組態結構描述的版本。 如果已並行安裝一個以上的 SDK 版本，結構描述版本就可讓 Visual Studio 選取要用於結構描述驗證的正確 SDK 工具。 如需結構描述和版本相容性的詳細資訊，請參閱 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)|
 
 服務組態檔必須包含一個 `ServiceConfiguration` 元素。 `ServiceConfiguration` 元素可能包含任意數目的 `Role` 元素，以及零或 1 個 `NetworkConfiguration` 元素。

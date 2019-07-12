@@ -88,7 +88,7 @@ Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉�
 > [!NOTE]
 > 您也可透過 REST API 取用安全性建議。 如需詳細資訊，請參閱[安全性資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心管理和保護資料。 若要深入了解 Azure 資訊安全中心，請參閱：
 
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md) — 了解如何規劃及了解採用 Azure 資訊安全中心的設計考量。

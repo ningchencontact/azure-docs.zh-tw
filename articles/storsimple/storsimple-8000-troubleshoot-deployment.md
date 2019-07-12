@@ -22,7 +22,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715226"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 裝置部署問題的疑難排解
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文提供對於 Microsoft Azure StorSimple 部署很有幫助的疑難排解指引。 文中將說明常見問題、可能原因和建議的步驟，可協助您解決在設定 StorSimple 時可能遇到的問題。 
 
 此資訊適用於 StorSimple 8000 系列實體裝置和 StorSimple 雲端設備。
@@ -69,7 +69,7 @@ ms.locfileid: "64715226"
 * 註冊裝置。
 
 ## <a name="errors-during-the-required-network-settings"></a>所需的網路設定期間發生錯誤
-| 沒有。 | 錯誤訊息 | 可能的原因 | 建議的動作 |
+| 資料分割 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard:此命令只能在樹系中執行作用中控制器上。 |設定是在被動控制站上執行。 |從主動控制器執行這個命令。 如需詳細資訊，請參閱 [識別裝置上的主動控制器](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)。 |
 | 2 |Invoke-HcsSetupWizard:裝置未就緒。 |在 DATA 0 上發生網路連線問題。 |檢查 DATA 0 上的實體網路連線。 |
@@ -103,7 +103,7 @@ ms.locfileid: "64715226"
 
 在設定裝置系統管理員和 StorSimple Snapshot Manager 密碼時，可能會遇到下列一或多個錯誤。
 
-| 沒有。 | 錯誤訊息 | 建議的動作 |
+| 資料分割 | 錯誤訊息 | 建議的動作 |
 | --- | --- | --- |
 | 1 |密碼超過最大長度。 |您的裝置系統管理員密碼長度必須介於 8 到 15 個字元。 |
 | 2 |密碼不符合所需的長度。 |您的裝置系統管理員密碼長度必須介於 8 到 15 個字元。|
@@ -126,7 +126,7 @@ ms.locfileid: "64715226"
 ## <a name="errors-during-device-registration"></a>裝置註冊期間發生錯誤
 您使用在 Microsoft Azure 中執行的 StorSimple 裝置管理員服務來註冊裝置。 您可能會在裝置註冊期間遇到下列一或多個問題。
 
-| 沒有。 | 錯誤訊息 | 可能的原因 | 建議的動作 |
+| 資料分割 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 | --- | --- | --- | --- |
 | 1 |錯誤 350027:無法註冊裝置的 StorSimple 裝置管理員。 | |等候幾分鐘的時間，然後再次嘗試操作。 如果問題持續發生， 請 [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。 |
 | 2 |錯誤 350013:註冊裝置發生錯誤。 這可能是因為服務註冊金鑰不正確而引發。 | |請使用正確的服務註冊金鑰再次註冊裝置。 如需詳細資訊，請參閱 [取得服務註冊金鑰](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -139,7 +139,7 @@ ms.locfileid: "64715226"
 | 9 |警告：無法啟動裝置。 您的設定裝置系統管理員和 StorSimple Snapshot Manager 密碼尚未變更。 |如果註冊失敗，裝置系統管理員和 StorSimple Snapshot Manager 密碼就不會變更。 | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>適用於疑難排解 StorSimple 部署的工具
-StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。 其中包含：
+StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。 它們包括：
 
 * 支援封裝和裝置記錄。
 * 專為疑難排解而設計的 Cmdlet。

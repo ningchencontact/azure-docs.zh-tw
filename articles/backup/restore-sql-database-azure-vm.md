@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242385"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704867"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>在 Azure VM 上還原 SQL Server 資料庫
 
@@ -29,7 +29,7 @@ Azure 備份可以還原，如下所示執行 Azure Vm 的 SQL Server 資料庫�
 - 將特定的完整或差異備份還原至特定復原點還原。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您將資料庫還原之前，請注意下列各項：
 
@@ -156,7 +156,7 @@ Azure 備份可以還原，如下所示執行 Azure Vm 的 SQL Server 資料庫�
 
 ### <a name="restore-databases-with-large-number-of-files"></a>使用大量的檔案還原資料庫
 
-如果資料庫中檔案的字串總大小大於[特定的限制](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path)，Azure 備份會儲存在不同的 pit 元件中資料庫檔案的清單，您無法在還原期間設定的目標還原路徑作業。 檔案將改為還原到 SQL 的預設路徑。
+如果資料庫中檔案的字串總大小大於[特定的限制](backup-sql-server-azure-troubleshoot.md#size-limit-for-files)，Azure 備份會儲存在不同的 pit 元件中資料庫檔案的清單，您無法在還原期間設定的目標還原路徑作業。 檔案將改為還原到 SQL 的預設路徑。
 
   ![使用大型檔案中還原資料庫](./media/backup-azure-sql-database/restore-large-files.jpg)
 

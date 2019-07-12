@@ -63,7 +63,7 @@ ms.locfileid: "60684402"
 
    ![提供合約詳細資料](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | 屬性 | 描述 |
+   | 屬性 | Description |
    | --- | --- |
    | 名稱 |合約的名稱 |
    | 合約類型 | 應該是 EDIFACT |

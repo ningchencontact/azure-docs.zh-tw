@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
-ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 383282aedd83f8f3e673444354bf17fdbf3f453c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202861"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798961"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -30,17 +30,17 @@ ms.locfileid: "67202861"
 
 Azure 會自動建立系統路由，並將路由指派給虛擬網路中的每個子網路。 您無法建立系統路由，也無法移除系統路由，但是您可以使用[自訂路由](#custom-routes)覆寫某些系統路由。 當您使用特定 Azure 功能時，Azure 會為每個子網路建立預設的系統路由，並將其他[選擇性預設路由](#optional-default-routes)新增至特定子網路或每個子網路。
 
-### <a name="default"></a>預設值
+### <a name="default"></a>預設
 
 每個路由會包含位址首碼和下一個躍點類型。 當流量離開子網路並傳送至具有路由位址首碼的 IP 位址時，包含該首碼的路由就是 Azure 使用的路由。 了解有多個路由都包含相同或重疊的首碼時，[Azure 如何選取路由](#how-azure-selects-a-route)。 每次建立虛擬網路時，Azure 會在虛擬網路內自動為每個子網路建立下列預設系統路由：
 
-|source |位址首碼                                        |下一個躍點類型  |
+|Source |位址首碼                                        |下一個躍點類型  |
 |-------|---------                                               |---------      |
-|預設值|虛擬網路獨有                           |虛擬網路|
-|預設值|0.0.0.0/0                                               |Internet       |
-|預設值|10.0.0.0/8                                              |None           |
-|預設值|192.168.0.0/16                                          |None           |
-|預設值|100.64.0.0/10                                           |None           |
+|預設|虛擬網路獨有                           |虛擬網路|
+|預設|0.0.0.0/0                                               |Internet       |
+|預設|10.0.0.0/8                                              |None           |
+|預設|192.168.0.0/16                                          |None           |
+|預設|100.64.0.0/10                                           |None           |
 
 上表列出的下一個躍點類型，代表 Azure 如何路由上述位址首碼指定的流量。 下一個躍點類型的說明如下：
 
@@ -57,11 +57,11 @@ Azure 會自動建立系統路由，並將路由指派給虛擬網路中的每�
 
 Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只有當您啟用這些功能時才會新增。 根據不同功能，Azure 會將選擇性預設路徑新增至該虛擬網路內的特定子網路，或新增至一個虛擬網路內的所有子網路。 當您啟用不同功能時，Azure 可能會新增的其他系統路由和下一個躍點類型如下：
 
-|source                 |位址首碼                       |下一個躍點類型|虛擬網路中新增路由的子網路|
+|Source                 |位址首碼                       |下一個躍點類型|虛擬網路中新增路由的子網路|
 |-----                  |----                                   |---------                    |--------|
-|預設值                |虛擬網路獨有，例如：10.1.0.0/16|VNet 對等互連                 |全部|
+|預設                |虛擬網路獨有，例如：10.1.0.0/16|VNet 對等互連                 |全部|
 |虛擬網路閘道|透過 BGP 從內部部署公佈的首碼，或在本機網路閘道中設定的首碼     |虛擬網路閘道      |全部|
-|預設值                |多個                               |VirtualNetworkServiceEndpoint|僅限服務端點已啟用的子網路。|
+|預設                |多個                               |VirtualNetworkServiceEndpoint|僅限服務端點已啟用的子網路。|
 
 * **虛擬網路 (VNet) 對等互連**：當您在兩個虛擬網路間建立虛擬網路對等互連時，系統會在每個建立對等連線的虛擬網路位址空間中，為每個位址範圍新增路由。 深入了解[虛擬網路對等互連](virtual-network-peering-overview.md)。<br>
 * **虛擬網路閘道**：將虛擬網路閘道新增到虛擬網路時，系統會新增一個或多個下一個躍點類型列為「虛擬網路閘道」  的路由。 來源也是*虛擬網路閘道*，因為閘道會將路由新增至子網路。 如果您的內部部署網路閘道會交換邊界閘道協定 ([BGP](#border-gateway-protocol)) 路由與 Azure 虛擬網路閘道，則系統會針對每個從內部部署網路閘道散佈的每個路由新增路由。 建議您盡可能將內部部署路由彙總至最大的位址範圍，那麼散佈至 Azure 虛擬網路閘道的路由就會最少。 您可以散佈至 Azure 虛擬網路閘道的路由數目有限。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)。<br>
@@ -98,7 +98,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
 
 您無法在使用者定義路由中指定 **VNet 對等互連**或 **VirtualNetworkServiceEndpoint** 作為下一個躍點類型。 當您設定虛擬網路對等互連或服務端點時，具有 **VNet 對等互連**或 **VirtualNetworkServiceEndpoint** 下一個躍點類型的路由只可由 Azure 建立。
 
-## <a name="next-hop-types-across-azure-tools"></a>**Azure 工具間的下一個躍點類型**
+## <a name="next-hop-types-across-azure-tools"></a>Azure 工具間的下一個躍點類型
 
 下一個躍點類型的顯示和參照名稱在 Azure 入口網站和命令列工具之間是不同的，以及在 Azure Resource Manager 和傳統部署模型之間也不同。 下表列出的名稱可用來參照使用不同工具和[部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的每種下一個躍點類型：
 
@@ -139,9 +139,9 @@ ER 與 VPN 閘道路由傳播，可以透過使用路由表上的屬性來在子
 例如，路由表包含下列路由：
 
 
-|source   |位址首碼  |下一個躍點類型           |
+|Source   |位址首碼  |下一個躍點類型           |
 |---------|---------         |-------                 |
-|預設值  | 0.0.0.0/0        |Internet                |
+|預設  | 0.0.0.0/0        |Internet                |
 |使用者     | 0.0.0.0/0        |虛擬網路閘道 |
 
 當流量的目的地 IP 位址不在路由表中任何其他路由的位址首碼內時，Azure 會選取具有**使用者**來源的路由，因為使用者定義路由的優先順序高於系統預設路由。
@@ -209,19 +209,19 @@ ER 與 VPN 閘道路由傳播，可以透過使用路由表上的屬性來在子
 
 圖片中的 Subnet1 路由表  包含下列路由：
 
-|ID  |source |State  |位址首碼    |下一個躍點類型          |下一個躍點 IP 位址|使用者定義路由名稱| 
+|id  |Source |State  |位址首碼    |下一個躍點類型          |下一個躍點 IP 位址|使用者定義路由名稱| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |預設值|無效|10.0.0.0/16         |虛擬網路        |                   |              |
+|1   |預設|無效|10.0.0.0/16         |虛擬網路        |                   |              |
 |2   |使用者   |Active |10.0.0.0/16         |虛擬設備      |10.0.100.4         |Within-VNet1  |
 |3   |使用者   |Active |10.0.0.0/24         |虛擬網路        |                   |Within-Subnet1|
-|4   |預設值|無效|10.1.0.0/16         |VNet 對等互連           |                   |              |
-|5   |預設值|無效|10.2.0.0/16         |VNet 對等互連           |                   |              |
+|4   |預設|無效|10.1.0.0/16         |VNet 對等互連           |                   |              |
+|5   |預設|無效|10.2.0.0/16         |VNet 對等互連           |                   |              |
 |6   |使用者   |Active |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
 |7   |使用者   |Active |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
-|8   |預設值|無效|10.10.0.0/16        |虛擬網路閘道|[X.X.X.X]          |              |
+|8   |預設|無效|10.10.0.0/16        |虛擬網路閘道|[X.X.X.X]          |              |
 |9   |使用者   |Active |10.10.0.0/16        |虛擬設備      |10.0.100.4         |To-On-Prem    |
-|10  |預設值|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |預設值|無效|0.0.0.0/0           |Internet               |                   |              |
+|10  |預設|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|11  |預設|無效|0.0.0.0/0           |Internet               |                   |              |
 |12  |使用者   |Active |0.0.0.0/0           |虛擬設備      |10.0.100.4         |Default-NVA   |
 
 每個路由 ID 的說明如下：
@@ -243,16 +243,16 @@ ER 與 VPN 閘道路由傳播，可以透過使用路由表上的屬性來在子
 
 圖片中的 Subnet2 路由表  包含下列路由：
 
-|source  |State  |位址首碼    |下一個躍點類型             |下一個躍點 IP 位址|
+|Source  |State  |位址首碼    |下一個躍點類型             |下一個躍點 IP 位址|
 |------- |-------|------              |-------                   |--------           
-|預設值 |Active |10.0.0.0/16         |虛擬網路           |                   |
-|預設值 |Active |10.1.0.0/16         |VNet 對等互連              |                   |
-|預設值 |Active |10.2.0.0/16         |VNet 對等互連              |                   |
-|預設值 |Active |10.10.0.0/16        |虛擬網路閘道   |[X.X.X.X]          |
-|預設值 |Active |0.0.0.0/0           |Internet                  |                   |
-|預設值 |Active |10.0.0.0/8          |None                      |                   |
-|預設值 |Active |100.64.0.0/10       |None                      |                   |
-|預設值 |Active |192.168.0.0/16      |None                      |                   |
+|預設 |Active |10.0.0.0/16         |虛擬網路           |                   |
+|預設 |Active |10.1.0.0/16         |VNet 對等互連              |                   |
+|預設 |Active |10.2.0.0/16         |VNet 對等互連              |                   |
+|預設 |Active |10.10.0.0/16        |虛擬網路閘道   |[X.X.X.X]          |
+|預設 |Active |0.0.0.0/0           |Internet                  |                   |
+|預設 |Active |10.0.0.0/8          |None                      |                   |
+|預設 |Active |100.64.0.0/10       |None                      |                   |
+|預設 |Active |192.168.0.0/16      |None                      |                   |
 
 Subnet2  的路由表包含所有 Azure 建立的預設路由和選擇性 VNet 對等互連與虛擬網路閘道選擇性路由。 當閘道和對等互連新增至虛擬網路時，Azure 就會將選擇性路由新增至虛擬網路中的所有子網路。 Azure 會移除從 10.0.0.0/8/8、 192.168.0.0/16，以及 100.64.0.0/10 位址首碼的路由*Subnet1*路由表新增至使用者定義的路由，0.0.0.0/0 位址首碼時*Subnet1*.  
 

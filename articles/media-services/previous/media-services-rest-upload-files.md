@@ -100,7 +100,7 @@ ms.locfileid: "66752883"
 
 ## <a name="create-an-access-policy-with-write-permission"></a>建立具有寫入權限的存取原則
 
-### <a name="overview"></a>概觀 
+### <a name="overview"></a>總覽 
 
 >[!NOTE]
 >對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[本篇文章](media-services-dotnet-manage-entities.md#limit-access-policies)。
@@ -118,7 +118,7 @@ ms.locfileid: "66752883"
 
 ## <a name="create-an-asset"></a>建立資產
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 
 [資產](https://docs.microsoft.com/rest/api/media/operations/asset)是媒體服務中多種類型或物件集的容器，包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式字幕檔案。 在 REST API 中，建立資產必須傳送 POST 要求給媒體服務，並將關於您資產的任何屬性資訊放在要求主體中。
 
@@ -139,7 +139,7 @@ ms.locfileid: "66752883"
 
 ## <a name="create-a-sas-locator-and-create-the-upload-url"></a>建立 SAS 定位器並建立上傳 URL
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 
 一旦設定 AccessPolicy 與 Locator，實際檔案會使用 Azure 儲存體 REST API 上傳至 Azure Blob 儲存容器。 您必須將檔案以區塊 Blob 形式上傳。 「Azure 媒體服務」不支援分頁 Blob。  
 
@@ -170,7 +170,7 @@ SAS URL 具有下列格式：
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>使用上傳 URL 將檔案上傳至 blob 儲存體
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 
 現在您已經有了上傳 URL，您需要直接使用 Azure Blob API 來撰寫一些程式碼，將您的檔案上傳至 SAS 容器。 如需詳細資訊，請參閱下列文章：
 

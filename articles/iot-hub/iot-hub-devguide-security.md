@@ -37,7 +37,7 @@ ms.locfileid: "60400590"
 
 * **IoT 中樞層級的共用存取原則**。 共用存取原則可以授與上面所列[權限](#iot-hub-permissions)的任意組合。 您可以使用 [IoT 中樞資源 REST API](/rest/api/iothub/iothubresource)，或使用 [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI，以程式設計方式在 [Azure 入口網站](https://portal.azure.com)中定義原則。 新建立的 IoT 中樞有下列預設原則︰
   
-  | 共用的存取原則 | 權限 |
+  | 共用的存取原則 | Permissions |
   | -------------------- | ----------- |
   | iothubowner | 所有權限 |
   | service | **ServiceConnect** 權限 |
@@ -57,7 +57,7 @@ ms.locfileid: "60400590"
 > [!NOTE]
 > 如需詳細資訊，請參閱[權限](#iot-hub-permissions)。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 Azure IoT 中樞可根據共用存取原則和身分識別登錄安全性認證驗證權杖，以授與端點的存取權。
 

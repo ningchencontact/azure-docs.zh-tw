@@ -16,7 +16,7 @@ ms.locfileid: "66729667"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘道會在應用程式閘道終止 SSL 連線。 閘道接著會對流量套用路由規則、重新加密封包，並根據所定義的路由規則將封包轉送至適當的後端伺服器。 任何來自 Web 伺服器的回應都會經歷相同的程序而回到使用者端。
 
@@ -27,7 +27,7 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 ![案例影像][scenario]
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 在此案例中，您將了解如何使用 PowerShell 來建立使用端對端 SSL 的應用程式閘道。
 

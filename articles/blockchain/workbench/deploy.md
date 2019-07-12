@@ -79,9 +79,9 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
     | SSH | 使用開頭為 **ssh-rsa** 的單行格式 RSA 公開金鑰，或使用多行 PEM 格式。 您可以在 Linux 和 OS X 上使用 `ssh-keygen` 來產生 SSH 金鑰，或在 Windows 上使用 PuTTYGen 產生。 如需 SSH 金鑰的詳細資訊，請參閱[如何在 Azure 上對 Windows 使用 SSH 金鑰](../../virtual-machines/linux/ssh-from-windows.md)。 |
     | 資料庫和區塊鏈密碼 | 指定要用來存取在部署過程中建立之資料庫的密碼。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和 semicolumn(;) |
     | 部署區域 | 指定 Blockchain Workbench 資源的部署位置。 為獲得最佳可用性，此位置應符合**位置**設定。 |
-    | 訂用帳戶 | 指定要用於部署的 Azure 訂用帳戶。 |
+    | Subscription | 指定要用於部署的 Azure 訂用帳戶。 |
     | 資源群組 | 選取 [新建]  以建立新的資源群組，並指定唯一的資源群組名稱。 |
-    | 位置 | 指定要部署架構的區域。 |
+    | Location | 指定要部署架構的區域。 |
 
 7. 選取 [確定]  ，以完成基本設定組態區段。
 
@@ -96,7 +96,7 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
     | 設定 | 描述  |
     |---------|--------------|
     | Azure 區塊鏈 Service 定價層 | 選擇**基本**或是**標準**用於 Blockchain Workbench 的 Azure 區塊鏈服務層 |
-    | Azure Active Directory 設定 | 選擇 [稍後再新增]  。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
+    | Azure Active Directory 設定 | 選擇 [稍後再新增]  。</br>注意:如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
     | VM 選取項目 | 選取慣用的儲存體效能與您的區塊鏈網路的 VM 大小。 如果您使用服務額度較低的訂用帳戶 (例如，Azure 免費層)，請選擇較小規模的 VM (例如，標準 DS1 v2)  。 |
 
     **使用現有項目**：
@@ -115,7 +115,7 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
      | 設定 | 描述  |
      |---------|--------------|
      | 以太坊 RPC 端點 | 提供現有 PoA 區塊鏈網路的 RPC 端點。 端點會以 https:// 或 http:// 開頭，並以連接埠號碼結尾。 例如： `http<s>://<network-url>:<port>` |
-     | Azure Active Directory 設定 | 選擇 [稍後再新增]  。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
+     | Azure Active Directory 設定 | 選擇 [稍後再新增]  。</br>注意:如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
      | VM 選取項目 | 選取慣用的儲存體效能與您的區塊鏈網路的 VM 大小。 如果您使用服務額度較低的訂用帳戶 (例如，Azure 免費層)，請選擇較小規模的 VM (例如，標準 DS1 v2)  。 |
 
 9. 選取 [確定]  以完成進階設定。
@@ -200,7 +200,7 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 
     |設定  | 值  |
     |---------|---------|
-    |Name | `Blockchain API` |
+    |名稱 | `Blockchain API` |
     |應用程式類型 |Web 應用程式/API|
     |登入 URL | `https://blockchainapi` |
 

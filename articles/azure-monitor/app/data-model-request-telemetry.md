@@ -25,7 +25,7 @@ ms.locfileid: "60900508"
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
-## <a name="name"></a>Name
+## <a name="name"></a>名稱
 
 要求的名稱代表處理要求所採用的程式碼路徑。 較低的基數值可使群組要求更妥善。 針對 HTTP 要求，它代表 HTTP 方法和 URL 路徑範本，例如無實際 `id` 值的 `GET /values/{id}`。
 
@@ -33,19 +33,19 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 最大長度：1024 個字元
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 要求呼叫執行個體的識別碼。 用於要求和其他遙測項目之間的相互關聯。 識別碼必須是全域唯一的。 如需詳細資訊，請參閱[相互關聯](../../azure-monitor/app/correlation.md)頁面。
 
 最大長度：128 個字元
 
-## <a name="url"></a>Url
+## <a name="url"></a>url
 
 包含所有查詢字串參數的要求 URL。
 
 最大長度：2048 個字元
 
-## <a name="source"></a>source
+## <a name="source"></a>Source
 
 要求的來源。 範例包括呼叫端的檢測金鑰或呼叫端的 IP 位址。 如需詳細資訊，請參閱[相互關聯](../../azure-monitor/app/correlation.md)頁面。
 

@@ -18,7 +18,7 @@ ms.locfileid: "66676874"
 
 伺服器達到配置的儲存體限制時，會將伺服器標示為唯讀。 不過，如果您啟用儲存體自動成長，伺服器儲存體增加來容納不斷成長的資料。 針對具有小於 100 GB 佈建儲存體的伺服器，佈建的儲存體大小會增加 5 GB 的可用儲存體未達 1 GB 或 10%的已佈建的儲存體的較大者為。 針對具有超過 100GB 的佈建的儲存體的伺服器，佈建的儲存體大小會增加 5%，低於佈建儲存體大小的 5%的可用儲存空間時。 所指定的最大儲存體限制[此處](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage)套用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要完成本操作說明指南，您需要：
 - [MariaDB 伺服器的 Azure 資料庫](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 

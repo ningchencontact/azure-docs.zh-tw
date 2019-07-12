@@ -26,7 +26,7 @@ ms.locfileid: "64730499"
 
 在本文中，您將了解如何藉由檢視對虛擬機器 (VM) 中的網路介面而言有效的路由，對來診斷路由問題。 Azure 會為每個虛擬網路子網路建立數個預設路由。 您可以在路由表中定義路由，並建立該路由表與子網路的關聯，以覆寫 Azure 的預設路由。 您所建立的路由、Azure 的預設路由和任何路由的組合若透過邊界閘道協定 (BGP) 經由 Azure VPN 閘道 (如果您的虛擬網路連線至內部部署網路) 從您的內部部署網路進行傳播，對子網路中的所有網路介面而言都將是有效路由。 如果您不熟悉虛擬網路、網路介面或路由概念，請參閱[虛擬網路概觀](virtual-networks-overview.md)、[網路介面](virtual-network-network-interface.md)及[路由概觀](virtual-networks-udr-overview.md)。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 
 您嘗試連線至 VM，但連線失敗。 若要判斷為何無法連線至 VM，您可以使用 Azure [入口網站](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 或 [Azure CLI](#diagnose-using-azure-cli) 來檢視網路介面的有效路由。
 

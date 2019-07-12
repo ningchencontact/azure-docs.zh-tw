@@ -30,7 +30,7 @@ ms.locfileid: "66241668"
 * 正在使用 API 管理執行個體發佈的 API
 * Azure AD 租用戶
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 以下為步驟概述：
 

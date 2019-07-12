@@ -23,7 +23,7 @@ ms.locfileid: "61488626"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>在 Government 入口網站中部署您的內部部署 StorSimple 裝置
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 歡迎使用 Microsoft Azure StorSimple 裝置部署。 這些部署教學課程適用於 Azure Government 入口網站中執行 Update 3 軟體或更新版本的 StorSimple 8000 系列。 這一系列的教學課程包含 StorSimple 裝置的設定檢查清單、設定必要條件的清單，以及詳細的設定步驟。
 
 這些教學課程中的資訊均假設您已經檢閱安全性預防措施，並已打開 StorSimple 裝置包裝、裝上機架並接好纜線。 如果您仍然需要執行這些工作，請從檢閱 [安全性預防措施](storsimple-safety.md)開始。 請遵循裝置特定的指示打開包裝、掛接機架和佈線您的裝置。

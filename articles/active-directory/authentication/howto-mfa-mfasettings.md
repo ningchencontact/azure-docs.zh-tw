@@ -347,7 +347,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 3. 選取 [多重要素驗證]  。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]  。
 5. 在 [服務設定]  頁面的 [驗證選項]  下，選取/取消選取要提供給使用者的方法。
-6. 按一下 [檔案]  。
+6. 按一下 [儲存]  。
 
 其他的驗證方法使用方式詳細資料，可在[驗證的方法](concept-authentication-methods.md)一文中找到。
 

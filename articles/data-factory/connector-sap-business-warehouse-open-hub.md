@@ -65,7 +65,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 適當的差異處理它不是允許將要求從不同的 DTPs Id 在相同資料表中，開啟的中樞。 因此，您必須建立一個以上的 DTP 的每個開啟中樞目的地 」 (OHD)。 當需要從同一個 InfoProvider 完整和差異的擷取，您應該建立兩個 OHDs 相同 InfoProvider。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用此 SAP Business Warehouse Open Hub 連接器，您必須：
 
@@ -82,7 +82,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 - 勾選 [技術金鑰] 選項，將 SAP Open Hub Destination 類型建立為 [資料庫資料表]  。  此外也建議您將 [從資料表中刪除資料] 保留為未勾選，但這並非必要動作。 利用 DTP (直接執行或整合到現有的程序鏈結中) 將資料從您所選擇的來源物件 (例如 Cube) 移至 Open Hub Destination 資料表。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 > [!TIP]
 >
@@ -102,12 +102,12 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 | server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
-| 語言 | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
+| language | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -148,7 +148,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 >[!TIP]
 >如果您的 Open Hub 資料表僅包含單一要求識別碼所產生的資料 (例如，您一律執行完整負載並覆寫資料表中的現有資料，或您只在測試時執行 DTP 一次)，請務必取消勾選 "excludeLastRequest" 選項，以複製資料。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -174,7 +174,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 若要從 SAP BW Open Hub 複製資料，請將複製活動中的來源類型設為 **SapOpenHubSource**。 沒有其他特定類型的屬性將複製活動中所需**來源**一節。
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

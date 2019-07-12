@@ -2,18 +2,18 @@
 title: 常見的 Microsoft Power BI 工作區集合案例
 description: Microsoft Power BI Embedded 常見案例
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: cc298eb8757ec4b3aa968c0790b72e24cc3d1143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8339e35af80d6c5a7af34e270704b100ffcad98b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699525"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672408"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>常見的 Power BI 工作區集合情節
 
@@ -28,7 +28,7 @@ Power BI 工作區集合著重於將大部分的現有 Power BI API 功能公開
 * 建置客戶面向應用程式的獨立軟體廠商和客戶，可以使用 **Power BI 工作區集合**服務和 Power BI SDK 來內嵌互動式報告。 若要了解做法，請參閱[開始使用 Microsoft Power BI 工作區集合](get-started.md)。
 * 身為開發人員，您可以使用 Power BI 視覺化架構來建立可在專屬應用程式中使用的自訂視覺化。 請參閱 [使用自訂視覺效果擴充 Power BI](https://powerbi.microsoft.com/custom-visuals/)。
 
-### <a name="see-also"></a>另请参阅
+### <a name="see-also"></a>另請參閱
 
 * [開始使用 Microsoft Power BI 工作區集合](get-started.md)
 * [開始使用範例](get-started-sample.md)

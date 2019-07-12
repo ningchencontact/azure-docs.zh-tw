@@ -4,7 +4,7 @@ description: 深入了解 HC 系列 VM 大小，在 Azure 中的預覽支援。
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809868"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797568"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 系列虛擬機器概觀
 
@@ -31,7 +31,7 @@ HC 伺服器實際上是 2 * 24 個核心 Intel Xeon Platinum 8168 Cpu 48 的實
 
 VM 對此一無所知 pCores 0-1 與 24 – 25 未提供給它。 因此，它會公開每個 vNUMA 如同它原本就有 22 個核心。
 
-Intel Xeon 白金級、 金級和銀級 Cpu 也介紹內的通訊和外部的內建 2D 網狀結構網路 CPU 通訊端。 我們強烈建議提供最佳效能和一致性釘選的程序。 釘選程序將 HC 系列 Vm 上運作，因為基礎矽晶圓為開端公開為-是要在客體 VM。 更多的 Intel Xeon SP 架構： https://bit.ly/2RCYkiE
+Intel Xeon 白金級、 金級和銀級 Cpu 也介紹內的通訊和外部的內建 2D 網狀結構網路 CPU 通訊端。 我們強烈建議提供最佳效能和一致性釘選的程序。 釘選程序將 HC 系列 Vm 上運作，因為基礎矽晶圓為開端公開為-是要在客體 VM。 若要進一步了解，請參閱[Intel Xeon SP 架構](https://bit.ly/2RCYkiE)。
 
 下圖顯示核心的隔離保留 Azure Hypervisor 和 HC 系列 VM。
 

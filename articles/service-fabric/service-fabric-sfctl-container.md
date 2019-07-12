@@ -29,7 +29,7 @@ ms.locfileid: "60837298"
 |命令|描述|
 | --- | --- |
 | invoke-api | 針對指定程式碼封裝，叫用 Service Fabric 節點上所部署容器的容器 API。 |
-| 記錄 | 針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。 |
+| logs | 針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。 |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
 針對指定程式碼封裝，叫用 Service Fabric 節點上所部署容器的容器 API。

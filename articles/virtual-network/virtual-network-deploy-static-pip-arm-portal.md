@@ -41,9 +41,9 @@ ms.locfileid: "64692414"
     |名稱|myVM|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-    |訂用帳戶| 選取您的訂用帳戶。|
-    |資源群組| 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
-    |位置| 選取 [美國東部] |
+    |Subscription| 選取您的訂用帳戶。|
+    |Resource group| 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
+    |Location| 選取 [美國東部] |
 
 4. 選取 VM 的大小，然後選取 [選取]  。
 5. 在 [設定]  之下，選取 [公用 IP 位址]  。

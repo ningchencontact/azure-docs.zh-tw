@@ -24,7 +24,7 @@ ms.locfileid: "66479043"
 
 本文說明如何建立基本的 Azure web 應用程式防火牆 (WAF) 原則，並將它套用至前端的主機在 Azure 大門。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 請遵循[快速入門：建立 Front Door 設定檔](quickstart-create-front-door.md)中所述的指示來建立 Front Door 設定檔。 
 
@@ -37,8 +37,8 @@ ms.locfileid: "66479043"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 訂用帳戶            |選取您的大門訂用帳戶名稱。|
-    | 資源群組          |選取您的大門資源群組名稱。|
+    | Subscription            |選取您的大門訂用帳戶名稱。|
+    | Resource group          |選取您的大門資源群組名稱。|
     | 原則名稱             |輸入您的 WAF 原則的唯一名稱。|
 
    ![建立 WAF 原則](./media/waf-front-door-create-portal/basic.png)

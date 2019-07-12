@@ -26,7 +26,7 @@ ms.locfileid: "66150433"
 
 [Azure 儲存體帳戶](/azure/storage/storage-create-storage-account)會使用包含帳戶名稱和金鑰的認證。 該金鑰是由系統自動產生，且比單純作為「密碼」的密碼編譯金鑰還具有更多功能。 Key Vault 可透過將這些儲存體帳戶金鑰儲存為 [Key Vault 祕密](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets)來管理它們。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Key Vault 受控儲存體帳戶功能會代表您執行數個管理功能：
 

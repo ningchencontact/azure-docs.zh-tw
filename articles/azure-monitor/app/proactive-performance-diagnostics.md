@@ -43,7 +43,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 
 ## <a name="how-do-i-fix-it"></a>如何修正問題？
 
-通知會包含診斷資訊。 以下是範例：
+通知會包含診斷資訊。 以下為範例：
 
 
 ![以下是伺服器回應時間降低偵測的範例](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -69,7 +69,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 ## <a name="faq"></a>常見問題集
 
 * *Microsoft 人員會看到我的資料嗎？*
-  * 沒有。 服務完全是自動的。 只有您會收到通知。 您的資料是 [不公開的](../../azure-monitor/app/data-retention-privacy.md)。
+  * 資料分割 服務完全是自動的。 只有您會收到通知。 您的資料是 [不公開的](../../azure-monitor/app/data-retention-privacy.md)。
 * *你們會分析 Application Insights 收集的所有資料嗎？*
   * 目前尚未。 我們目前會分析要求回應時間、相依性回應時間和頁面載入時間。 我們後續的未來展望中將有其他計量的分析。
 
@@ -85,7 +85,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 
   * 我們每天都會根據前一天的遙測執行分析 (UTC 時區中全天)。
 * *那麼，這可以取代[計量警示](../../azure-monitor/app/alerts.md)嗎？*
-  * 沒有。  我們不保證能偵測到您可能認為異常的每項行為。
+  * 資料分割  我們不保證能偵測到您可能認為異常的每項行為。
 
 
 * 如果我完全不回應通知，是否會收到提醒？ 

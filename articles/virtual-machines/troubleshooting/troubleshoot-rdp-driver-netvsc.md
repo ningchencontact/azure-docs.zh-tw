@@ -35,7 +35,7 @@ ms.locfileid: "60362249"
 若安裝之 netvsc.sys 系統檔案的版本是 **10.0.14393.594** 或 **10.0.15063.0**，則可能會發生此問題。 這些版本的 netvsc.sys 可能會使得系統無法與 Azure 平台互動。
 
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 在遵循下列步驟之前，請先[擷取受影響 VM 的系統磁碟快照集作為備份](../windows/snapshot-copy-managed-disk.md)。 若要針對此問題進行疑難排解，請使用「序列主控台」，或透過將 VM 的系統磁碟連結至復原 VM，以[修復離線 VM](#repair-the-vm-offline)。
 

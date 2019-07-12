@@ -37,7 +37,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **有兩個檔案共用，位在相同區域的相同儲存體帳戶上，在這兩者間複製資料是否收取費用？**
 
-沒有。 此流程不會收取費用。
+資料分割 此流程不會收取費用。
 
 **如何將我的整個儲存體帳戶備份到其他儲存體帳戶？**
 
@@ -193,7 +193,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **將儲存體帳戶的複寫從異地備援儲存體變更為本地備援儲存體是否有任何必要條件？**
 
-沒有。 
+資料分割 
 
 **如何存取 Azure 檔案備援儲存體？**
 

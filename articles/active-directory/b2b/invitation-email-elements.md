@@ -53,7 +53,7 @@ ms.locfileid: "65768360"
 
   ![顯示邀請者的邀請簡稱顯示螢幕擷取畫面](media/invitation-email-elements/inviters-initials.png)
 
-### <a name="body"></a>body
+### <a name="body"></a>本文
 內文包含[邀請來賓使用者到目錄、群組或應用程式](add-users-administrator.md) 或[使用邀請 API](customize-invitation-api.md) 時，邀請者所撰寫的訊息。 因為它是文字區域，所以不會基於安全考量處理 HTML 標記。
 
   ![顯示邀請電子郵件的本文螢幕擷取畫面](media/invitation-email-elements/invitation-email-body.png)

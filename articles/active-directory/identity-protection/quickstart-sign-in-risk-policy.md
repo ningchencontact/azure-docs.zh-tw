@@ -37,7 +37,7 @@ ms.locfileid: "67108811"
 
 
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要完成本教學課程中的案例，您需要：
 
@@ -61,7 +61,7 @@ ms.locfileid: "67108811"
 2. 登出。 
 
 
-## <a name="create-your-conditional-access-policy"></a>建立您的條件式存取原則 
+## <a name="create-your-conditional-access-policy"></a>建立條件式存取原則 
 
 本快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險事件。 此風險事件的風險等級是「中」。 若要回應此風險事件，您可以將登入風險條件設定為「中」。 
 
@@ -110,9 +110,9 @@ ms.locfileid: "67108811"
 14. 在 [原則] 頁面上，按一下 [儲存]  。  
 
 
-## <a name="test-your-conditional-access-policy"></a>測試您的條件式存取原則
+## <a name="test-your-conditional-access-policy"></a>測試條件式存取原則
 
-若要測試您的原則，請嘗試使用 Tor 瀏覽器以 **Alan Charon** 身分登入 [Azure 入口網站](https://portal.azure.com)。 您的登入嘗試應該會封鎖您的條件式存取原則。
+若要測試您的原則，請嘗試使用 Tor 瀏覽器以 **Alan Charon** 身分登入 [Azure 入口網站](https://portal.azure.com)。 您的登入嘗試應該會遭到條件式存取原則封鎖。
 
 ![Multi-Factor Authentication](./media/quickstart-sign-in-risk-policy/203.png)
 

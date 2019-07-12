@@ -25,7 +25,7 @@ ms.locfileid: "60584982"
 
 ## <a name="elastic-database-tools-for-java"></a>適用於 Java 的彈性資料庫工具
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * Java Developer Kit (JDK) 1.8 版或更新版本
 * [Maven](https://maven.apache.org/download.cgi)
@@ -57,7 +57,7 @@ ms.locfileid: "60584982"
 
     ![進度 - Java][5]
     
-恭喜！ 您已使用彈性資料庫工具，在 Azure SQL Database 上成功建置並執行您的第一個分區化應用程式。 請使用 Visual Studio 或 SQL Server Management Studio 連接到您的 SQL 資料庫，以快速瀏覽範例所建立的分區。 您會看見範例所建立的新範例分區資料庫和分區對應管理員資料庫。 
+恭喜您！ 您已使用彈性資料庫工具，在 Azure SQL Database 上成功建置並執行您的第一個分區化應用程式。 請使用 Visual Studio 或 SQL Server Management Studio 連接到您的 SQL 資料庫，以快速瀏覽範例所建立的分區。 您會看見範例所建立的新範例分區資料庫和分區對應管理員資料庫。 
 
 若要將用戶端程式庫加入您自己的 Maven 專案中，請在您的 POM 檔案中加入下列相依性：
 
@@ -71,7 +71,7 @@ ms.locfileid: "60584982"
 
 ## <a name="elastic-database-tools-for-net"></a>適用於 .NET 的彈性資料庫工具
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * 含 C# 的 Visual Studio 2012 或更新版本。 請在 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)上下載免費版本。
 * NuGet 2.7 或更新版本。 若要取得最新版本，請參閱[安裝 NuGet](https://docs.nuget.org/docs/start-here/installing-nuget)。
@@ -94,7 +94,7 @@ ms.locfileid: "60584982"
    
     ![Progress][4]
 
-恭喜！ 您已使用彈性資料庫工具，在 SQL Database 上成功建置並執行您的第一個分區化應用程式。 請使用 Visual Studio 或 SQL Server Management Studio 連接到您的 SQL 資料庫，以快速瀏覽範例所建立的分區。 您會看見範例所建立的新範例分區資料庫和分區對應管理員資料庫。
+恭喜您！ 您已使用彈性資料庫工具，在 SQL Database 上成功建置並執行您的第一個分區化應用程式。 請使用 Visual Studio 或 SQL Server Management Studio 連接到您的 SQL 資料庫，以快速瀏覽範例所建立的分區。 您會看見範例所建立的新範例分區資料庫和分區對應管理員資料庫。
 
 > [!IMPORTANT]
 > 建議您一律使用最新版的 Management Studio，如此就能與 Azure 及 SQL Database 更新保持同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。

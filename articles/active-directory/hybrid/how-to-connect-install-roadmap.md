@@ -29,7 +29,7 @@ ms.locfileid: "67109457"
 
 您可以在 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?LinkId=615771)下載 Azure AD Connect。
 
-| 解決方法 | 案例 |
+| 方案 | 狀況 |
 | --- | --- |
 | 開始之前 - [硬體和必要條件](how-to-connect-install-prerequisites.md) |<li>開始安裝 Azure AD Connect 之前所應完成的步驟。</li> |
 | [快速設定](how-to-connect-install-express.md) |<li>如果您有單一樹系 AD，則這是建議使用的選項。</li> <li>使用密碼同步處理以相同的密碼進行使用者登入。</li> |
@@ -40,18 +40,18 @@ ms.locfileid: "67109457"
 [安裝後](how-to-connect-post-installation.md) ，您應該確認它是依照預期方式運作，並將授權指派給使用者。
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>安裝 Azure AD Connect 的後續步驟
-|話題 |連結|  
+|主題 |連結|  
 | --- | --- |
 |下載 Azure AD Connect | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](./how-to-connect-install-express.md)|
 |使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
 |從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](./how-to-dirsync-upgrade-get-started.md)|
-|安裝後 | [驗證安裝和指派授權 ](how-to-connect-post-installation.md)|
+|安裝後 | [驗證安裝和指派授權](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>深入了解安裝 Azure AD Connect
 您也想要準備 [操作](how-to-connect-sync-operations.md) 考量。 您可以準備一個待命伺服器，以便在[災害](how-to-connect-sync-staging-server.md#disaster-recovery)發生時輕鬆地進行容錯移轉。 如果您打算進行頻繁的組態變更，則應該規劃 [預備模式](how-to-connect-sync-staging-server.md) 伺服器。
 
-|話題 |連結|  
+|主題 |連結|  
 | --- | --- |
 |支援的拓撲 | [Azure AD Connect 的拓撲](plan-connect-topologies.md)|
 |設計概念 | [Azure AD Connect 的設計概念](plan-connect-design-concepts.md)|
@@ -68,14 +68,14 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 
 [密碼回寫](../authentication/quickstart-sspr.md) 將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
 
-[裝置回寫](how-to-connect-device-writeback.md) 將可讓 Azure AD 中註冊的裝置寫回至內部部署 Active Directory，以便可以使用該裝置進行條件式存取。
+[裝置回寫](how-to-connect-device-writeback.md)將允許裝置寫回至內部部署 Active Directory 以便用於條件式存取的 Azure AD 中註冊。
 
 [防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md) 功能預設為開啟，它會保護您的雲端目錄，避免同時進行多次刪除。 根據預設，它每回允許 500 次刪除。 您可以根據您組織的大小來變更此設定。
 
 [自動升級](how-to-connect-install-automatic-upgrade.md) ，而且會確保您的 Azure AD Connect 永遠保持最新版本。
 
 ### <a name="next-steps-to-configure-sync-features"></a>設定同步處理功能的後續步驟
-|話題 |連結|  
+|主題 |連結|  
 | --- | --- |
 |設定篩選 | [Azure AD Connect 同步：設定篩選](how-to-connect-sync-configure-filtering.md)|
 |密碼雜湊同步處理 | [密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)|
@@ -95,7 +95,7 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 同步處理中的組態模型稱為 [宣告式佈建](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)。 進階屬性流程會使用 [函式](reference-connect-sync-functions-reference.md) 來表示屬性轉換。 您可以使用 Azure AD Connect 隨附的工具來查看整個組態。 如果您需要進行組態變更，請務必遵循 [最佳作法](how-to-connect-sync-best-practices-changing-default-configuration.md) ，以便更輕鬆地採用新版本。
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>自訂 Azure AD Connect 同步處理的後續步驟。
-|話題 |連結|  
+|主題 |連結|  
 | --- | --- |
 |所有 Azure AD Connect 同步處理文章 | [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)|
 |技術概念 | [Azure AD Connect 同步：技術概念](how-to-connect-sync-technical-concepts.md)|
@@ -119,7 +119,7 @@ ADFS 可以設定為支援 [多個網域](how-to-connect-install-multiple-domain
 如果您的 ADFS 伺服器尚未設定為自動從 Azure AD 更新憑證，或如果您使用非 ADFS 解決方案，則當您必須 [更新憑證](how-to-connect-fed-o365-certs.md)時您將會收到通知。
 
 ### <a name="next-steps-to-configure-federation-features"></a>設定同盟功能的後續步驟
-|話題 |連結|  
+|主題 |連結|  
 | --- | --- |
 |AD FS 的所有發行項 | [Azure AD Connect 和同盟](how-to-connect-fed-whatis.md)|
 |設定 ADFS 與子網域 | [與 Azure AD 同盟的多網域支援](how-to-connect-install-multiple-domains.md)|

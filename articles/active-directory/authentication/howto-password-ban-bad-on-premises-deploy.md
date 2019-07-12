@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293022"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785535"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -44,7 +44,7 @@ ms.locfileid: "67293022"
    > Proxy 服務部署會部署 Azure AD 密碼保護，即使網域控制站可能會有輸出直接的網際網路連線能力是強制性需求。 
    >
 * 安裝 Azure AD 密碼保護 Proxy 服務的所有機器都必須都有安裝的.NET 4.7。
-  完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
+  完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
 * 所有的機器，包括網域控制站，取得安裝的 Azure AD 密碼保護元件必須安裝的通用 C 執行階段。 您可以確定您已從 Windows Update 的所有更新，以取得執行階段。 或者，您可以將它取得特定 OS 的更新程式封裝中。 如需詳細資訊，請參閱 <<c0> [ 在 Windows 中的通用 C 執行階段更新](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)。
 * 網路連線之間必須存在每個網域中的至少一個網域控制站和至少一部伺服器裝載的密碼保護的 proxy 服務。 此連線必須允許存取 RPC 端點對應程式連接埠 135 和 RPC 伺服器連接埠上的 proxy 服務的網域控制站。 根據預設，RPC 伺服器連接埠是動態的 RPC 連接埠，但將它設定為[使用靜態連接埠](#static)。
 * 裝載 proxy 服務的所有機器都必須都具有下列端點的網路存取：
@@ -96,7 +96,7 @@ ms.locfileid: "67293022"
 
    * 若要檢查服務正在執行，請使用下列 PowerShell 命令：
 
-      `Get-Service AzureADPasswordProtectionProxy | fl` 。
+      `Get-Service AzureADPasswordProtectionProxy | fl`.
 
      結果應該會顯示**狀態**為"Running"。
 

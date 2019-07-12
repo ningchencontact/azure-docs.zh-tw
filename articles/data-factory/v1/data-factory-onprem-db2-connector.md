@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824009"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839024"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>使用 Azure Data Factory 複製活動從 DB2 移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-onprem-db2-connector.md)
 > * [第 2 版 (目前的版本)](../connector-db2.md)
 
@@ -33,7 +33,7 @@ ms.locfileid: "60824009"
 
 資料處理站目前僅支援資料從 DB2 資料庫移至[支援的接收資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 不支援資料從其他資料存放區移至 DB2 資料庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 資料處理站支援使用[資料管理閘道](data-factory-data-management-gateway.md)連接至內部部署 DB2 資料庫。 如需有關設定閘道資料管線來移動資料的逐步指示，請參閱[將資料從內部部署移到雲端](data-factory-move-data-between-onprem-and-cloud.md)一文。
 
 即使 DB2 裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以在資料存放區所在的 IaaS VM 上安裝閘道。 如果閘道可以連線到資料庫，您可以在不同的 VM 上安裝閘道。
@@ -60,11 +60,11 @@ ms.locfileid: "60824009"
 > - DB2 for i (AS400)：進行複製活動之前，讓進階使用者建立一般使用者的集合。 若要建立集合，請使用命令：`create collection <username>`
 > - DB2 for z/OS or LUW：使用高權限帳戶 -- 具有套件授權單位與 BIND、BINDADD、GRANT EXECUTE TO PUBLIC 權限的進階使用者 -- 執行一次複製。 在複製期間，會自動建立所需的套件。 之後，您可以切換至一般使用者，來執行後續的複製。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具和 API，建立內含複製活動的管線，以從內部部署的 DB2 資料存放區移動資料： 
 
 - 建立管線的最簡單方式就是使用「Azure Data Factory 複製精靈」。 如需使用複製精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。 
-- 您也可以使工具來建立管線，包括 Azure 入口網站、Visual Studio、Azure PowerShell、Azure Resource Manager 範本、.NET API 及 REST API。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 您也可以使用工具來建立管線，包括 Visual Studio、 Azure PowerShell、 Azure Resource Manager 範本、.NET API 和 REST API。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -112,7 +112,7 @@ ms.locfileid: "60824009"
 > 結構描述和資料表名稱會區分大小寫。 在查詢陳述式中，使用 "" (雙引號) 括住屬性名稱。
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 範例：從 DB2 複製資料到 Azure Blob 儲存體
-此範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 此範例示範如何將資料從 DB2 資料庫複製到 Blob 儲存體。 不過，可以使用 Azure Data Factory 複製活動，將資料複製到[任何支援的資料存放區接收類型](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。
+此範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)，或[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 此範例示範如何將資料從 DB2 資料庫複製到 Blob 儲存體。 不過，可以使用 Azure Data Factory 複製活動，將資料複製到[任何支援的資料存放區接收類型](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。
 
 範例有下列 Data Factory 實體：
 
@@ -309,7 +309,7 @@ ms.locfileid: "60824009"
 | DB2 資料庫類型 | .NET Framework 類型 |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| 整數 |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -317,7 +317,7 @@ ms.locfileid: "60824009"
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |DateTime |
+| Date |Datetime |
 | Time |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
@@ -335,7 +335,7 @@ ms.locfileid: "60824009"
 | Blob |Byte[] |
 | DbClob |字串 |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| 整數 |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -343,7 +343,7 @@ ms.locfileid: "60824009"
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Date |DateTime |
+| Date |Datetime |
 | Time |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |

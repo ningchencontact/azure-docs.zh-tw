@@ -18,7 +18,7 @@ ms.locfileid: "66494533"
 
 [Logstash](https://www.elastic.co/products/logstash) 是開放原始碼的伺服器端資料處理管線，可同時從許多來源擷取資料、轉換資料，然後將資料傳送至您最愛的「隱藏」。 在本文中，您將該資料傳送至 Azure [資料總管] 中，這是記錄檔和遙測資料的快速又可高度擴充的資料探勘服務。 您將先在測試叢集中建立資料表和資料對應，然後指示 Logstash 將資料傳送至資料表，並驗證結果。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 * Azure 資料總管[測試叢集和資料庫](create-cluster-database-portal.md)

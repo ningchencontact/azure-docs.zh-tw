@@ -46,7 +46,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 
 在 Azure PHP 應用程式中使用 SendGrid 並不需要特殊的組態或程式碼。 SendGrid 是一項服務，因此可以透過雲端應用程式來存取，和透過內部部署應用程式來存取的方式相同。
 
-## <a name="how-to-send-an-email"></a>作法：傳送電子郵件
+## <a name="how-to-send-an-email"></a>HOW TO：傳送電子郵件
 
 您可以使用 SendGrid 提供的 SMTP 或 Web API 傳送電子郵件。
 
@@ -161,7 +161,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 
 SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞可以交換使用。
 
-## <a name="how-to-add-an-attachment"></a>作法：新增附件
+## <a name="how-to-add-an-attachment"></a>HOW TO：新增附件
 
 ### <a name="smtp-api"></a>SMTP API
 
@@ -296,7 +296,7 @@ SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>作法：使用篩選條件來啟用頁尾、追蹤和分析
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>HOW TO：使用篩選條件來啟用頁尾、追蹤和分析
 
 SendGrid 運用「篩選器」  提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。
 

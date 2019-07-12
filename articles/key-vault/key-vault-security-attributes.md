@@ -50,8 +50,8 @@ ms.locfileid: "66000185"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Authentication| 是 | 驗證會透過 Azure Active Directory 進行。 |
-| 授權| 是 | 使用 Key Vault 存取原則。 |
+| 驗證| 是 | 驗證會透過 Azure Active Directory 進行。 |
+| Authorization| 是 | 使用 Key Vault 存取原則。 |
 
 
 ## <a name="audit-trail"></a>稽核線索

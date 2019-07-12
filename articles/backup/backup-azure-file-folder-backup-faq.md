@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514442"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705084"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>將檔案和資料夾備份的相關常見問題
 
@@ -44,10 +44,10 @@ ms.locfileid: "67514442"
 [了解更多](backup-support-matrix-mars-agent.md#supported-file-types-for-backup)有關檔案和資料夾備份支援的類型。
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>我是否可以使用 MARS 代理程式來備份 Azure VM 上的檔案和資料夾？  
-是。 Azure 備份提供 VM 層級備份 Azure vm 使用 Azure VM 代理程式的 VM 擴充功能。 如果您想要在客體 Windows 作業系統，以在 VM 上備份檔案和資料夾，您可以安裝 MARS 代理程式，若要這麼做。
+是的。 Azure 備份提供 VM 層級備份 Azure vm 使用 Azure VM 代理程式的 VM 擴充功能。 如果您想要在客體 Windows 作業系統，以在 VM 上備份檔案和資料夾，您可以安裝 MARS 代理程式，若要這麼做。
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>可以使用 MARS 代理程式來備份檔案和資料夾上的暫存儲存體的 Azure vm 嗎？
-是。 安裝 MARS 代理程式，並備份檔案和資料夾在客體 Windows 作業系統上的暫時儲存體。
+是的。 安裝 MARS 代理程式，並備份檔案和資料夾在客體 Windows 作業系統上的暫時儲存體。
 
 - 備份工作失敗時抹除暫存儲存體資料。
 - 如果刪除暫存儲存體資料，您只能還原到非揮發性儲存體。
@@ -57,7 +57,7 @@ ms.locfileid: "67514442"
 備份資料會傳送至保存庫註冊伺服器的資料中心。 變更資料中心的最簡單方式是解除安裝並重新安裝代理程式，然後註冊新的保存庫的機器，您需要的區域中。
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>會的 MARS 代理程式支援 Windows Server 2012 重複資料刪除？
-是。 MARS 代理程式會將重複資料刪除的資料轉換成一般資料中，準備備份作業時。 然後最佳化備份的資料、 加密資料，並接著傳送到保存庫的 加密的資料。
+是的。 MARS 代理程式會將重複資料刪除的資料轉換成一般資料中，準備備份作業時。 然後最佳化備份的資料、 加密資料，並接著傳送到保存庫的 加密的資料。
 
 ## <a name="manage-backups"></a>管理備份
 
@@ -88,9 +88,19 @@ MARS 代理程式依存於 NTFS，並允許[支援的字元](/windows/desktop/Fi
 快取資料夾的大小可決定您正在備份的資料量。
 - 快取資料夾的磁碟區應該等於備份資料總大小至少 5-10%的可用空間。
 - 如果磁碟區有可用空間低於 5%，增加磁碟區的大小，或將快取資料夾移至具有足夠空間的磁碟區。
-- 如果您備份 Windows 系統狀態時，您會需要額外 30-35 GB 的可用空間中包含的快取資料夾的磁碟區
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>如何變更的 MARS 代理程式的快取位置？
+- 如果您備份 Windows 系統狀態時，您會需要額外 30-35 GB 的可用空間中包含的快取資料夾的磁碟區。
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>如何檢查 [scratch] 資料夾是否有效且可存取？
+
+1. 根據預設，[scratch] 資料夾是位於 `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. 請確定 [scratch] 資料夾位置的路徑比對的值如下所示的登錄金鑰項目：
+
+  | 登錄路徑 | 登錄金鑰 | 值 |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*「新的快取資料夾位置」* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*「新的快取資料夾位置」* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>如何變更的 MARS 代理程式的快取位置？
 
 1. 若要停止備份引擎已提升權限命令提示字元中執行下列命令：
 

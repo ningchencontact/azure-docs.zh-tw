@@ -56,7 +56,7 @@ ms.locfileid: "65825248"
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>我在使用應用程式 Proxy 代理程式連接器時遇到問題
   下列文件可協助您解決此類別的一些最常見問題。
-  * [我遇到問題，安裝應用程式 Proxy 代理程式連接器](application-proxy-connector-installation-problem.md)
+  * [我在安裝應用程式 Proxy 代理程式連接器時遇到問題](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>後續步驟
 [如何為內部部署應用程式提供安全的遠端存取](application-proxy.md)

@@ -23,7 +23,7 @@ ms.locfileid: "64715270"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>在 StorSimple Snapshot Manager 使用 MMC 功能表動作
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 在 StorSimple Snapshot Manager 中，您會看到下列所有動作列在 [ **動作** ] 窗格的所有動作功能表和變化上。
 
 * 檢視
@@ -87,7 +87,7 @@ ms.locfileid: "64715270"
    1. 在 [ **檔案名稱** ] 方塊中，輸入 CSV 檔案的名稱，或按一下箭頭以從下拉式清單中選取。
    2. 在 [ **存檔類型** ] 方塊中，按一下箭號，從下拉式清單中選取檔案類型。
    3. 若只儲存選取的項目，請選取資料列，然後按一下 [ **只儲存選取的列** ] 核取方塊。 若要儲存所有匯出的清單，請清除 [ **只儲存選取的列** ] 核取方塊。
-   4. 按一下 [檔案]  。
+   4. 按一下 [儲存]  。
       
       ![將清單匯出成逗號分隔值檔案](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

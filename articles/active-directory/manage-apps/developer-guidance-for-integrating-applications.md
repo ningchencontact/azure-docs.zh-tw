@@ -23,7 +23,7 @@ ms.locfileid: "67108291"
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>開發適用於 Azure Active Directory 的企業營運應用程式
 本指南提供開發適用於 Azure Active Directory (AD) 的企業營運 (LoB) 應用程式的概觀。適用對象為 Active Directory/Office 365 全域系統管理員。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 建置整合 Azure AD 的應用程式，可讓您組織的使用者使用 Office 365 單一登入。 將應用程式置於 Azure AD 中可讓您掌控應用程式設定的驗證原則。 若要深入了解條件式存取，以及如何保護應用程式與多重要素驗證 (MFA)，請參閱[設定存取規則](../conditional-access/app-based-mfa.md)。
 
 註冊應用程式以使用 Azure Active Directory。 註冊應用程式意謂著開發人員可以使用 Azure AD 來驗證使用者，以及要求對使用者資源 (例如電子郵件、行事曆及文件) 的存取權。

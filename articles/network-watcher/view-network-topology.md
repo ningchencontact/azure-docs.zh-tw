@@ -136,7 +136,7 @@ ms.locfileid: "64682044"
 | 內含項目       | 虛擬網路包含子網路。 子網路包含網路介面。                            |
 | 相關聯        | 網路介面與 VM 相關聯。 與網路介面相關聯的公用 IP 位址。 |
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>屬性
 
 在拓撲中傳回的所有資源都具有下列屬性：
 

@@ -23,7 +23,7 @@ ms.locfileid: "60723330"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>從備份組還原 StorSimple 磁碟區
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本教學課程說明在 StorSimple 8000 系列裝置上使用現有的備份組執行的還原作業。 使用 [備份類別目錄]  刀鋒視窗可從本機或雲端備份還原磁碟區。 [備份類別目錄]  刀鋒視窗顯示在產生手動或自動備份時建立的所有備份組。 當資料在背景下載時，從備份組進行的還原作業會立即讓磁碟區連線。
 

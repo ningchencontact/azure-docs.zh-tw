@@ -23,7 +23,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130784"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>如何控制 App Service 環境的輸入流量
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 您可以在  Azure Resource Manager 虛擬網路**或**傳統部署模型[虛擬網路][virtualnetwork]中建立 App Service Environment。  建立 APP Service 環境時，可以定義新的虛擬網路和新的子網路。  或者亦可在先前既存的虛擬網路和既存的子網路中建立 APP Service 環境。  在 2016 年 6 月所進行的變更之後，ASE 也可以部署到使用公用位址範圍或 RFC1918 位址空間 (也就是私人位址) 的虛擬網路。  如需有關建立 App Service Environment 的詳細資訊，請參閱[如何建立 App Service Environment][HowToCreateAnAppServiceEnvironment]。
 
 App Service 環境必須一律建立於子網路中，因為子網路可提供網路界限以便用來鎖定上游裝置和服務背後的輸入流量，因此只接受來自特定上游 IP 位址的 HTTP 和 HTTPS 流量。
@@ -60,7 +60,7 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
 ## <a name="creating-a-network-security-group"></a>建立網路安全性群組
 如需有關網路安全性群組如何運作的完整詳細資料，請參閱下列[資訊][NetworkSecurityGroups]。  下面的「Azure 服務管理」範例說明網路安全性群組的重點，其中是將焦點放在設定網路安全群組並套用到包含 App Service Environment 的子網路。
 
-**附註：** 您可以使用 [Azure 入口網站](https://portal.azure.com)以圖形方式設定網路安全性群組，或透過 Azure PowerShell 進行設定。
+**注意：** 您可以使用 [Azure 入口網站](https://portal.azure.com)以圖形方式設定網路安全性群組，或透過 Azure PowerShell 進行設定。
 
 網路安全性群組首次會建立為與訂用帳戶相關聯的獨立實體。 由於網路安全性群組建立於 Azure 區域，所以請確保網路安全性群組建立於與 App Service 環境相同的區域中。
 
@@ -117,7 +117,7 @@ App Service 環境需要針對虛擬網路設定的有效 DNS 基礎結構。  �
 
 當 ASE 上的 app 設定為使用 IP-SSL 時，外部客戶將不會看到且不需要擔心特殊連接埠配對對應。  應用程式流量會正常流向設定的 IP-SSL 位址。  將流量路由到包含 ASE 的子網路時，在路由流量最後階段期間，特殊連接埠組合的轉譯會於內部自動發生。 
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 若要開始使用 App Service Environment，請參閱 [App Service Environment 簡介][IntroToAppServiceEnvironment]
 
 如需有關將應用程式安全地從 App Service Environment 連接到後端資源的詳細資料，請參閱[安全地從 App Service Environment 連接到後端資源][SecurelyConnecttoBackend]

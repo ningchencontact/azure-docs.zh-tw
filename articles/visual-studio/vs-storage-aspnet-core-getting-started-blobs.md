@@ -33,7 +33,7 @@ Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Bl
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 

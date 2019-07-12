@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153558"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-azure-table-connector.md)
 > * [目前的版本](connector-azure-table-storage.md)
 
@@ -55,7 +55,7 @@ ms.locfileid: "66153558"
 >[!NOTE]
 >如果您使用 "AzureStorage" 類型連結服務，它仍會如現狀般受到支援，但建議您從現在開始使用這個新的 "AzureTableStorage" 連結服務類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -130,7 +130,7 @@ ms.locfileid: "66153558"
 >[!NOTE]
 >如果您使用 "AzureStorage" 類型連結服務，它仍會如現狀般受到支援，但建議您從現在開始使用這個新的 "AzureTableStorage" 連結服務類型。
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -197,7 +197,7 @@ ms.locfileid: "66153558"
 | type | 資料集的 type 屬性必須設定為 **AzureTable**。 |是 |
 | tableName |資料表儲存體資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -269,7 +269,7 @@ ms.locfileid: "66153558"
 | writeBatchSize |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
 | writeBatchTimeout |在達到 WriteBatchSize 或 writeBatchTimeout 時將資料插入 Azure 資料表中。<br/>允許的值為時間範圍。 範例是 "00:20:00" (20 分鐘)。 |否 (預設值為 90 秒，儲存體用戶端的預設逾時) |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[
@@ -333,13 +333,13 @@ ms.locfileid: "66153558"
 | Azure 資料表資料類型 | Data Factory 過渡期資料類型 | 詳細資料 |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
-| Edm.Boolean |布林 |布林值。 |
-| Edm.DateTime |DateTime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜開始。 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
+| Edm.Boolean |bool |布林值。 |
+| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜開始。 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
 | Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |Guid |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |
 | Edm.Int64 |Int64 |64 位元的整數。 |
-| Edm.String |字串 |UTF 16 編碼值。 字串值最大可達 64 KB。 |
+| Edm.String |String |UTF 16 編碼值。 字串值最大可達 64 KB。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Data Factory 中的複製活動所支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

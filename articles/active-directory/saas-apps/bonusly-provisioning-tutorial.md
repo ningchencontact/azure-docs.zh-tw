@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-wingf-msft
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8368fc5369ee6cd93bbf472d4904cd647d66058d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60282056"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673029"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>教學課程：設定 Bonusly 來自動佈建使用者
 
@@ -30,7 +30,7 @@ ms.locfileid: "60282056"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -128,7 +128,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Bonusly 佈建](./media/bonusly-provisioning-tutorial/EmailNotification.png)
 
-10. 按一下 [檔案]  。
+10. 按一下 [儲存]  。
 
 11. 在 [對應]  區段中，選取 [同步處理 Azure Active Directory 使用者至 Bonusly]  。
 

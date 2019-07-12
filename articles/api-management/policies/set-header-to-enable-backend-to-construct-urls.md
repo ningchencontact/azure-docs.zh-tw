@@ -24,7 +24,7 @@ ms.locfileid: "60859489"
 
 本文會說明 Azure API 管理原則範例，示範如何在輸入要求中新增 Forwarded 標頭，以允許後端 API 建構適當的 URL。 若要設定或編輯原則程式碼，請依照[設定或編輯原則](../set-edit-policies.md)中所述的步驟執行。 若要查看其他範例，請參閱[原則範例](../policy-samples.md)。
 
-## <a name="code"></a>代碼
+## <a name="code"></a>程式碼
 
 將程式碼貼至 [輸入]  區塊。
 

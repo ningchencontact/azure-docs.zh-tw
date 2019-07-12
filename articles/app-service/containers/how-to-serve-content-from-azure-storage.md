@@ -7,19 +7,19 @@ ms.service: app-service
 ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
-ms.author: msangapu-msft
-ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.author: msangapu
+ms.openlocfilehash: 15cb31a3157b034089b1518a4e70eeb93ecc449e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484410"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617104"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
 
 本指南說明如何使用 [Azure 儲存體](/azure/storage/common/storage-introduction) 在 Linux 上的 App Service 中提供靜態內容。 好處包括受保護的內容、內容可攜性、可存取多個應用程式，以及多個傳輸方法。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 現有的 Web 應用程式 (Linux 上的 App Service 或適用於容器的 Web 應用程式)。
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 或更新版本)。

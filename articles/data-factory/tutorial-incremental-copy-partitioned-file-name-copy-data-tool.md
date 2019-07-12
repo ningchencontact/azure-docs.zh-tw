@@ -156,7 +156,7 @@ ms.locfileid: "61098484"
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. 单击“下一步”  。
+    c. 按一下 [下一步]  。
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. 在 [設定]  頁面上，選取 [下一步]  。 

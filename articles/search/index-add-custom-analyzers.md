@@ -32,7 +32,7 @@ ms.locfileid: "66242806"
 
  您可以定義多個自訂分析器來變更篩選器的組合，但是每個欄位只能針對索引分析使用一個分析器、針對搜尋分析使用一個分析器。 如需自訂分析器的相關說明，請參閱[自訂分析器範例](search-analyzers.md#Custom-analyzer-example)。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
  簡單地說，[全文檢索搜尋引擎](search-lucene-query-architecture.md)是處理和儲存文件的角色，而目的是要達到有效率的查詢和擷取。 概括而言，這一切包括從文件中擷取重要的字組、將其放在索引中，然後使用索引來尋找符合指定查詢中字組的文件。 從文件和搜尋查詢中擷取文字的程序稱為「語彙分析」  。 執行語彙分析的元件稱為「分析器」  。
 
@@ -213,16 +213,16 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
-|選項|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|type|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
+|選項。|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
 
 #### <a name="custom-analyzers"></a>自訂分析器
 
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
+|type|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
 |CharFilters|設定為[字元篩選器](#char-filters-reference)表格內其中一個預先定義的字元篩選器，或設定為索引定義中指定的自訂字元篩選器。|  
 |權杖化工具|必要。 設定為下方 [Token 化工具](#Tokenizers) 表格內其中一個預先定義的 Token 化工具或設定為索引定義中指定的自訂 Token 化工具。|  
 |語彙基元篩選器|設定為[語彙基元篩選器](#TokenFilters)表格內其中一個預先定義的語彙基元篩選器，或設定為索引定義中指定的自訂語彙基元篩選器。|  
@@ -239,8 +239,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#char-filters-reference)表格中的 **char_filter_type** 資料行。|  
-|選項|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
+|type|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#char-filters-reference)表格中的 **char_filter_type** 資料行。|  
+|選項。|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
 
 ### <a name="tokenizers"></a>Tokenizers
 
@@ -252,8 +252,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
-|選項|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
+|type|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
+|選項。|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
 
 ### <a name="token-filters"></a>權杖篩選器
 
@@ -262,9 +262,9 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
-|選項|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
+|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|type|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
+|選項。|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
 
 <a name="PropertyReference"></a>  
 
@@ -373,7 +373,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[stemmer_override](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|任何可透過字典進行詞幹分析的字詞都會標示為關鍵字，這樣可避免鏈結底部的詞幹分析。 必須放在任何詞幹分析篩選器之前。<br /><br /> **選項**<br /><br /> rules (類型：字串陣列) - 使用下列格式的詞幹分析規則："字組 = > 詞幹"，例如 "ran => run"。 預設值是空白清單。  必要。|  
 |[stopwords](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|從語彙基元資料流移除停用字詞。 根據預設，篩選器會使用預先定義的停用字詞清單 (適用於英文)。<br /><br /> **選項**<br /><br /> stopwords (類型：字串陣列) - 停用字詞清單。 如果指定 stopwordsList，則無法指定此項目。<br /><br /> stopwordsList (類型：字串) - 停用字詞的預先定義清單。 如果指定 stopwords，則無法指定此項目。 允許的值包括："arabic"、"armenian"、"basque"、"brazilian", "bulgarian"、"catalan"、"czech"、"danish"、"dutch"、"english"、"finnish"、"french"、"galician"、"german"、"greek"、"hindi"、"hungarian"、"indonesian"、"irish"、"italian"、"latvian"、"norwegian"、"persian"、"portuguese"、"romanian"、"russian"、"sorani"、"spanish"、"swedish"、"thai"、"turkish"，預設值："english"。 如果指定 stopwords，則無法指定此項目。 <br /><br /> ignoreCase (類型：bool) - 如果為 true，則會先將所有字組改為小寫。 預設值為 false。<br /><br /> removeTrailing (類型：bool) - 如果為 true，若最後一個搜尋字詞是停用字詞，則會略過。 預設值是 true。
 |[synonym](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|比對語彙基元資料流中的單一或多個同義字。<br /><br /> **選項**<br /><br /> synonyms (類型：字串陣列) - 必要。 下列兩種格式之一的同義字清單：<br /><br /> -incredible, unbelievable, fabulous => amazing - 在 => 符號左邊的所有字詞都可由該符號右邊的所有字詞取代。<br /><br /> -incredible, unbelievable, fabulous, amazing - 以逗號分隔的對等字組清單。 設定 expand 選項來變更此清單的解譯方式。<br /><br /> ignoreCase (類型：bool) - 將輸入的大小寫摺疊以用於比對。 預設值為 false。<br /><br /> expand (類型：bool) - 如果為 true，則同義字清單中的所有字組 (如果不使用 => 標記) 都可互相對應。 <br />下列清單：incredible, unbelievable, fabulous, amazing 同等於：incredible, unbelievable, fabulous, amazing => incredible, unbelievable, fabulous, amazing<br /><br />如果為 false，下列清單：incredible, unbelievable, fabulous, amazing 同等於：incredible, unbelievable, fabulous, amazing => incredible。|  
-|[修剪](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/TrimFilter.html)|(有選項時才需套用類型)  |修剪語彙基元的開頭及結尾空白字元。 |  
+|[trim](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/TrimFilter.html)|(有選項時才需套用類型)  |修剪語彙基元的開頭及結尾空白字元。 |  
 |[truncate](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/TruncateTokenFilter.html)|TruncateTokenFilter|將字詞截斷至特定長度。<br /><br /> **選項**<br /><br /> length (類型：int) - 預設值：300，最大值：300。 必要。|  
 |[unique](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/RemoveDuplicatesTokenFilter.html)|UniqueTokenFilter|篩選出與前一個語彙基元使用相同文字的語彙基元。<br /><br /> **選項**<br /><br /> onlyOnSamePosition (類型：bool) - 如果設定，則只會移除相同位置上的重複項目。 預設值是 true。|  
 |[uppercase](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/UpperCaseFilter.html)|(有選項時才需套用類型)  |將語彙基元文字標準化為大寫。 |  
@@ -382,7 +382,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
  <sup>1</sup> 語彙基元篩選器類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "ArabicNormalizationTokenFilter" 實際上會指定為 "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter"。  為縮短表格寬度，我們已移除前置詞，但請務必將其包含在您的程式碼中。  
 
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
  [Azure 搜尋服務 REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [Azure 搜尋服務中的分析器 > 範例](search-analyzers.md#examples)    
  [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  

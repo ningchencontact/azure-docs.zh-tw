@@ -71,7 +71,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>執行 npm 啟動
 
-若要開始您的應用程式使用`npm start`，您只需要確定`start`指令碼位於*package.json*檔案。 例如︰
+若要開始您的應用程式使用`npm start`，您只需要確定`start`指令碼位於*package.json*檔案。 例如:
 
 ```json
 {
@@ -119,7 +119,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 您可以偵錯 Node.js 應用程式從遠端在[Visual Studio Code](https://code.visualstudio.com/)如果您將它設定為[使用 PM2 執行](#run-with-pm2)，但當您執行使用 *。 config.js、 *.yml，或 *.yaml*。
 
-在大部分情況下，額外就不需要設定您的應用程式。 如果您的應用程式會執行*process.json*檔案 （預設或自訂），它必須要有`script`JSON 根目錄中的屬性。 例如︰
+在大部分情況下，額外就不需要設定您的應用程式。 如果您的應用程式會執行*process.json*檔案 （預設或自訂），它必須要有`script`JSON 根目錄中的屬性。 例如:
 
 ```json
 {
@@ -147,7 +147,7 @@ process.env.NODE_ENV
 
 根據預設，Kudu 執行`npm install --production`時它會辨識部署 Node.js 應用程式。 如果您的應用程式需要任何受歡迎的自動化工具，例如 Grunt、 Bower 或 Gulp，您必須提供[自訂部署指令碼](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)執行它。
 
-若要啟用您的存放庫，才能執行這些工具，您需要將它們新增至中的相依性*package.json。* 例如︰
+若要啟用您的存放庫，才能執行這些工具，您需要將它們新增至中的相依性*package.json。* 例如:
 
 ```json
 "dependencies": {
@@ -226,7 +226,7 @@ fi
 
 在 App Service 中，[SSL 終止](https://wikipedia.org/wiki/TLS_termination_proxy)會在網路負載平衡器上發生，因此所有的 HTTPS 要求都會以未加密 HTTP 要求的形式進入您的應用程式。 如果您的應用程式邏輯需要檢查使用者要求是否有加密，請檢查 `X-Forwarded-Proto` 標頭。
 
-熱門的 Web 架構可讓您在標準的應用程式模式中存取 `X-Forwarded-*` 資訊。 在  [Express](https://expressjs.com/)，您可以使用[信任 proxy](https://expressjs.com/guide/behind-proxies.html)。 例如︰
+熱門的 Web 架構可讓您在標準的應用程式模式中存取 `X-Forwarded-*` 資訊。 在  [Express](https://expressjs.com/)，您可以使用[信任 proxy](https://expressjs.com/guide/behind-proxies.html)。 例如:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -249,7 +249,7 @@ if (req.secure) {
 當可運作的 Node.js 應用程式在 App Service 中的行為不同，或發生錯誤時，請嘗試下列方法：
 
 - [存取記錄資料流](#access-diagnostic-logs)。
-- 在生產模式中，在本機測試應用程式。 App Service 在生產模式中執行您的 Node.js 應用程式，因此您必須先確定您的專案運作如預期般在生產模式在本機中。 例如︰
+- 在生產模式中，在本機測試應用程式。 App Service 在生產模式中執行您的 Node.js 應用程式，因此您必須先確定您的專案運作如預期般在生產模式在本機中。 例如:
     - 取決於您*package.json*，不同的封裝可能會安裝用於實際執行模式 (`dependencies`與`devDependencies`)。
     - 某些 web 架構可能部署在生產模式中有不同的靜態檔案。
     - 在生產模式中執行時，某些 web 架構可能會使用自訂的啟動指令碼。

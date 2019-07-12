@@ -44,7 +44,7 @@ Azure 透過一系列的 [Azure SDK](https://azure.microsoft.com/downloads) 來�
 | Java   | [從 Azure 資源的受控識別啟用的虛擬機器管理儲存體](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [建立已啟用系統指派受控識別的虛擬機器](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [建立已啟用系統指派受控識別的虛擬機器](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| 拼音   | [建立已啟用系統指派身分識別的 Azure VM](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| Ruby   | [建立已啟用系統指派身分識別的 Azure VM](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>後續步驟
 

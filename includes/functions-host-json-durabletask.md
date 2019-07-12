@@ -4,17 +4,17 @@ description: 包含檔案
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 497552edaad2a35d58bc8b3f05533afcc5f399e2
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 2e30184c7273fad2f9bc8adb34834ee14840733b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568305"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608116"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的組態設定。
 
@@ -45,7 +45,7 @@ ms.locfileid: "67568305"
 
 工作中樞名稱必須以字母開頭，且只包含字母和數字。 如果未指定，函式應用程式的預設工作中樞名稱是 **DurableFunctionsHub**。 如需詳細資訊，請參閱[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)。
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|替代[工作中樞](../articles/azure-functions/durable-functions-task-hubs.md)名稱可用來彼此隔離多個 Durable Functions 應用程式，即使它們使用相同的儲存體後端。|
 |controlQueueBatchSize|32|要從控制佇列中一次提取的訊息數。|

@@ -121,7 +121,7 @@ IoT 中心可讓主要案例就是 oem 大量製造裝置可以連線到 IoT Cen
     - **X.509 憑證中：** 產生您使用的根或中繼憑證，您新增至您的 IoT Central 應用程式的裝置之分葉憑證。 請務必使用小寫**裝置識別碼**為分葉憑證的 CNAME。 針對測試用途，使用這[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來產生裝置憑證。
     - **SAS：** 使用此[命令列工具](https://www.npmjs.com/package/dps-keygen)來產生裝置的 SAS 金鑰。 使用群組**主索引鍵**從上一個步驟。 裝置識別碼必須是小寫。
 
-      若要安裝[金鑰產生器公用程式](https://github.com/Azure/dps-keygen)，執行下列命令：
+      若要安裝 [金鑰產生器公用程式](https://github.com/Azure/dps-keygen)，請執行下列命令：
 
       ```cmd/sh
       npm i -g dps-keygen

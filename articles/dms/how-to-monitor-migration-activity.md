@@ -36,7 +36,7 @@ ms.locfileid: "60532744"
     <tr>
       <th class="x-hidden-focus"><strong>欄位名稱</strong></th>
       <th><strong>欄位子狀態</strong></th>
-      <th><strong>說明</strong></th>
+      <th><strong>描述</strong></th>
     </tr>
   </thead>
   <tbody>

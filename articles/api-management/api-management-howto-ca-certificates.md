@@ -48,7 +48,7 @@ Azure API 管理可允許在信任根存放區和中繼憑證存放區內的機�
 
     ![新增 CA 憑證](media/api-management-howto-ca-certificates/02.png)  
 
-5. 按一下 [檔案]  。 這項作業可能需要幾分鐘的時間。
+5. 按一下 [儲存]  。 這項作業可能需要幾分鐘的時間。
 
     ![新增 CA 憑證](media/api-management-howto-ca-certificates/03.png)  
 

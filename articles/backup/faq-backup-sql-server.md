@@ -7,13 +7,13 @@ manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sachdevaswati
-ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijayts
+ms.openlocfilehash: b5e6b1b07f986228eef66e2e92fb9ac3caef32fa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700178"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704829"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>在 Azure VM 備份執行的 SQL Server 資料庫的相關常見問題集
 
@@ -43,7 +43,7 @@ ms.locfileid: "64700178"
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>我可以控制在 SQL server 上，執行多少並行備份嗎？
 
-是。 您可以限制備份原則的執行速率，以儘量降低對 SQL Server 執行個體的影響。 變更設定：
+是的。 您可以限制備份原則的執行速率，以儘量降低對 SQL Server 執行個體的影響。 變更設定：
 1. SQL Server 執行個體中*C:\Program Files\Azure 工作負載 Backup\bin*資料夾中，建立*ExtensionSettingsOverrides.json*檔案。
 2. 在  *ExtensionSettingsOverrides.json*檔案中，變更**DefaultBackupTasksThreshold**設為較低的值 (例如，5)。 <br>
   `{"DefaultBackupTasksThreshold": 5}`
@@ -59,13 +59,13 @@ ms.locfileid: "64700178"
 根據 SQL 限制，您可以執行複製僅完整備份在次要複本上不過，不允許完整備份。
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>我可以保護可用性群組內部部署嗎？
-沒有。 Azure 備份可保護在 Azure 中執行的 SQL Server 資料庫。 如果 Azure 與內部部署電腦之間分散在可用性群組 (AG)，只有當主要複本在 Azure 中執行時，才可保護 AG。 此外，Azure 備份可保護與復原服務保存庫相同的 Azure 區域中執行的節點。
+資料分割 Azure 備份可保護在 Azure 中執行的 SQL Server 資料庫。 如果 Azure 與內部部署電腦之間分散在可用性群組 (AG)，只有當主要複本在 Azure 中執行時，才可保護 AG。 此外，Azure 備份可保護與復原服務保存庫相同的 Azure 區域中執行的節點。
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>可以保護可用性群組跨區域嗎？
 Azure 備份復原服務保存庫可以偵測並保護與保存庫位於相同區域中的所有節點。 如果您 SQL Server Always On 可用性群組跨越多個 Azure 區域，設定具有主要節點的區域的備份。 「Azure 備份」可以依據您的備份喜好設定，偵測並保護可用性群組中的所有資料庫。 備份喜好設定不符合時，備份失敗，而且您看見失敗警示。
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>成功的備份作業是否會建立警示？
-沒有。 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。 入口網站警示的詳細的行為會記載[此處](backup-azure-monitoring-built-in-monitor.md)。 不過，如果您想要執行具有警示即使針對成功的作業，您可以使用[使用 Azure 監視器監視](backup-azure-monitoring-use-azuremonitor.md)。
+資料分割 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。 入口網站警示的詳細的行為會記載[此處](backup-azure-monitoring-built-in-monitor.md)。 不過，如果您想要執行具有警示即使針對成功的作業，您可以使用[使用 Azure 監視器監視](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>我是否可以看到備份作業 功能表中的排程備份工作？
 **備份作業**功能表只會顯示 ad 臨機操作備份工作。 用於排程工作[使用 Azure 監視器監視](backup-azure-monitoring-use-azuremonitor.md)。

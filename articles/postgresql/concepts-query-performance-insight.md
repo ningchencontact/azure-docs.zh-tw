@@ -19,10 +19,10 @@ ms.locfileid: "65067549"
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
 
-## <a name="permissions"></a>權限
+## <a name="permissions"></a>Permissions
 需要**擁有者**或**參與者**權限，才能檢視查詢效能深入解析中的查詢文字。 **讀者**可以檢視圖表與資料表，但無法檢視查詢文字。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 資料必須存在於[查詢存放區](concepts-query-store.md)中，查詢效能深入解析才能運作。
 
 ## <a name="viewing-performance-insights"></a>檢視效能深入解析

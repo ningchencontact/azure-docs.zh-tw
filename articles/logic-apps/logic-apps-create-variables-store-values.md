@@ -35,7 +35,7 @@ ms.locfileid: "61004431"
 
 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要依照本文進行操作，以下是您需要的項目：
 

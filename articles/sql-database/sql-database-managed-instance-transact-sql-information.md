@@ -10,14 +10,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b0e10ce48088853090958dca9d8c1fad20780e7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070346"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723252"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -93,7 +93,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 - 一種新語法`TO URL`是前提是您可用來指定 Azure Blob 儲存體容器的 URL 位置`.xel`檔案會放置。
 - 語法`TO FILE`不支援，因為受控執行個體無法存取 Windows 檔案共用。
 
-如需詳細資訊，請參閱 
+如需詳細資訊，請參閱： 
 
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -217,7 +217,7 @@ WITH PRIVATE KEY (<private_key_options>)
 ### <a name="database-options"></a>資料庫選項
 
 - 不支援多個記錄檔。
-- 「一般用途」服務層中不支援記憶體內部物件。 
+- 「一般用途」服務層級中不支援記憶體內部物件。 
 - 沒有限制為每個一般用途執行個體，這表示每個資料庫的 280 個檔案最多 280 個檔案。 一般用途層中的資料和記錄檔都會計入這項限制中。 [業務關鍵層支援每個資料庫的 32,767 檔案](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 - 資料庫不能包含 filestream 資料檔案群組。 還原會失敗，如果.bak 包含`FILESTREAM`資料。 
 - 每個檔案都位於 Azure Blob 儲存體中。 每個檔案的 IO 和輸送量均取決於每個個別檔案的大小。
@@ -293,13 +293,13 @@ WITH PRIVATE KEY (<private_key_options>)
   - SQL Server Analysis Services 不支援。
 - 部分支援通知。
 - 支援電子郵件通知，不過需要您設定 Database Mail 設定檔。 SQL Server 代理程式可以使用只有一個 Database Mail 設定檔，並必須呼叫`AzureManagedInstance_dbmail_profile`。 
-  - 不支援呼叫器。 
+  - 不支援呼叫器。
   - 不支援 NetSend。
   - 目前尚不支援警示。
-  - 不支援的 proxy。 
+  - 不支援的 proxy。
 - 不支援 EventLog。
 
-下列功能目前不支援，但將在未來啟用：
+目前不支援下列 SQL 代理程式的功能：
 
 - Proxy
 - 在閒置的 CPU 上排程工作
@@ -398,7 +398,13 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 
 ### <a name="replication"></a>複寫
 
-複寫可用於受控執行個體的公開預覽版。 如需複寫的資訊，請參閱[SQL Server 複寫](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)。
+[異動複寫](sql-database-managed-instance-transactional-replication.md)適用於公開預覽版的受控執行個體，具有某些條件約束：
+- 所有類型的複寫參與者 （發行者、 散發者、 提取訂閱者和推送訂閱者） 可以都放在受控執行個體，但發行者和散發者不能都放在不同的執行個體。
+- 支援交易式、 快照和雙向複寫類型。 不支援合併式複寫、 對等項目-複寫和可更新的訂閱。
+- 受控執行個體可以與 SQL Server 的新版本進行通訊。 請參閱支援的版本[此處](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)。
+- 異動複寫有一些[額外的網路需求](sql-database-managed-instance-transactional-replication.md#requirements)。
+
+如需設定複寫的資訊，請參閱[複寫教學課程](replication-with-sql-database-managed-instance.md)。
 
 ### <a name="restore-statement"></a>RESTORE 陳述式 
 
@@ -459,7 +465,7 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 
 ## <a name="Environment"></a>環境的條件約束
 
-### <a name="subnet"></a>子網路
+### <a name="subnet"></a>Subnet
 - 在 保留供您受控執行個體的子網路中，您不能放置任何其他資源 （例如虛擬機器）。 將這些資源放在其他子網路。
 - 子網路必須有足夠數目的可用[IP 位址](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 最小值會是 16，而建議是將在至少 32 個 IP 位址子網路中。
 - [服務端點不能與受管理的執行個體子網路相關聯](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 請確定當您建立虛擬網路服務端點選項已停用。
@@ -486,7 +492,7 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 
 ### <a name="tempdb-size"></a>TEMPDB 大小
 
-檔案大小上限的`tempdb`不能大於 24 GB，每個一般用途層上的核心。 最大值`tempdb`業務關鍵層上的大小會限制執行個體儲存體大小。 `tempdb`資料庫一律會分割成 12 個資料檔案。 無法變更每個檔案最大，而且無法加入新檔案`tempdb`。 有些查詢可能會傳回錯誤，如果他們需要 24 GB 以上每個核心在`tempdb`。 `tempdb` 一定會重新建立為空的資料庫執行個體啟動或容錯移轉和任何變更時建立在`tempdb`將不予保留。 
+檔案大小上限的`tempdb`不能大於 24 GB，每個一般用途層上的核心。 最大值`tempdb`業務關鍵層上的大小會限制執行個體儲存體大小。 `tempdb` 記錄檔大小會限制為 120 GB，同時在一般用途和業務關鍵層上。 `tempdb`資料庫一律會分割成 12 個資料檔案。 無法變更每個檔案最大，而且無法加入新檔案`tempdb`。 有些查詢可能會傳回錯誤，如果他們需要 24 GB 以上每個核心在`tempdb`則會產生 120 GB 以上的記錄檔。 `tempdb` 當空的資料庫執行個體啟動時或容錯移轉和任何變更時對進行中，會永遠重新建立`tempdb`將不予保留。 
 
 ### <a name="cant-restore-contained-database"></a>無法還原自主的資料庫
 
@@ -585,6 +591,11 @@ CLR 模組放在受管理的執行個體和連結的伺服器或分散式的查�
 您無法執行`BACKUP DATABASE ... WITH COPY_ONLY`資料庫加密的受控服務的透明資料加密 (TDE)。 服務管理的 TDE 會強制加密與內部 TDE 金鑰備份。 無法匯出金鑰，所以您無法還原備份。
 
 **因應措施：** 使用自動備份 」 和 「 時間點還原，或使用[客戶管理 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)改。 您也可以停用資料庫加密。
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>還原時間點會依循來源執行個體上設定的時區時間
+
+目前時間點還原會解譯要還原至下列來源執行個體的時區而是由下列的 UTC 時間。
+請檢查[已知問題的受控執行個體時區](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues)如需詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

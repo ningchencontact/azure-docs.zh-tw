@@ -29,7 +29,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始之前，您需要下列必要條件：
 

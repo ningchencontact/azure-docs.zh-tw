@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: jaredr80
-ms.openlocfilehash: bda5fb8a267fae3309c73678465693e1fef9b838
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 21d06dfaecb0448194355f13978483779a2ff6be
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565949"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805689"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -79,7 +79,7 @@ ms.locfileid: "67565949"
 | **阿姆斯特丹** | Equinix | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
 | **阿姆斯特丹2** | Interxion | 西歐 | CenturyLink Cloud Connect、 DE CIX、 Interxion、 Vodafone |
 | **亞特蘭大** | Equinix | n/a | Equinix、Megaport |
-| **奧克蘭** | Vocus | n/a | Devoli、 Megaport |
+| **奧克蘭** | Vocus | n/a | Devoli，Kordia、 Megaport |
 | **斧山** |LG CNS | 南韓南部 | LG CNS |
 | **坎培拉** | CDC | 澳大利亞中部 | CDC |
 | **坎培拉2** | CDC | 澳大利亞中部 2| CDC |
@@ -93,7 +93,7 @@ ms.locfileid: "67565949"
 | **Dubai2** | du datamena | 阿拉伯聯合大公國北部 | du datamena Orixcom |
 | **都柏林** | Equinix | 北歐 | Colt、eir、Equinix、Interxion、Megaport |
 | **法蘭克福** | Interxion | n/a | DE-CIX、 Interxion |
-| **中國香港特別行政區** | Equinix | 東亞 | Aryaka Networks、 British Telecom、 CenturyLink Cloud Connect、 首席 Telecom、 China Telecom Global、 Equinix、 Megaport、 NTT Communications、 Orange、 PCCW Global Limited、 Tata Communications、 Verizon |
+| **中國香港特別行政區** | Equinix | 東亞 | Aryaka Networks、 British Telecom、 CenturyLink Cloud Connect、 首席 Telecom、 China Telecom Global、 Equinix、 Megaport、 NTT Communications、 Orange、 PCCW Global Limited、 Tata Communications、 Telia 電信業者、 Verizon |
 | **約翰尼斯堡** | Teraco | 南非北部 | British Telecom、 Internet Solutions-Cloud Connect、 Liquid Telecom、 Teraco |
 | **吉隆坡** | TIME dotCom | n/a | TIME dotCom |
 | **拉斯維加斯** | 參數 | n/a | CenturyLink Cloud Connect、Megaport |
@@ -108,7 +108,7 @@ ms.locfileid: "67565949"
 | **孟買2** | Airtel | 印度西部 | Airtel、Sify、Vodafone Idea |
 | **紐約** | Equinix | n/a | CenturyLink Cloud Connect、 Coresite、 Equinix、 InterCloud、 Megaport、 封包、 Zayo |
 | **Newport(Wales)** | 新一代資料 | 英國西部 | British Telecom、 Colt、 Level 3 Communications、 新一代資料 |
-| **大阪** | Equinix | 日本西部 | Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
+| **大阪** | Equinix | 日本西部 | Colt、 Equinix、 Internet Initiative Japan Inc.-IIJ、 NTT Communications、 NTT SmartConnect、 Softbank |
 | **巴黎** | Interxion | 法國中部 | CenturyLink Cloud Connect、 Colt、 Equinix、 Intercloud、 Interxion、 Orange、 Telia 電信業者、 Zayo |
 | **伯斯** | NEXTDC | n/a | Megaport、 NextDC |
 | **魁北克市** | 4Degrees | 加拿大東部 | Bell Canada、Megaport |
@@ -126,7 +126,7 @@ ms.locfileid: "67565949"
 | **多倫多** | Cologix | 加拿大中部 | At&t netbond、 Bell Canada、 CenturyLink Cloud Connect、 Cologix、 Equinix、 IX 觸達 Megaport、 Telus、 Verizon、 Zayo |
 | **華盛頓** | Equinix | 美國東部、 美國東部 2 | Aryaka Networks、 AT At&t NetBond、 British Telecom、 CenturyLink Cloud Connect、 Cologix、 Comcast、 Coresite、 Equinix、 Internet2、 InterCloud、 Level 3 Communications、 Megaport、 Neutrona Networks、 NTT Communications、 Orange、 PacketFabric、 衝刺 （sprint）、 Tata通訊、 Telia 電信業者、 Verizon、 Zayo |
 | **華盛頓特區2** | Coresite | 美國東部、 美國東部 2 |Coresite | 
-| **Zurich** | Interxion | n/a | Interxion |
+| **Zurich** | Interxion | n/a | Intercloud、 Interxion |
 
  **+** 表示即將推出
 
@@ -142,7 +142,7 @@ ms.locfileid: "67565949"
 | **聖安東尼奧** | CenturyLink Cloud Connect、Megaport |
 | **矽谷** | Equinix、LLevel 3 Communications、Verizon |
 | **Seattle** | Equinix、Megaport |
-| **華盛頓** |At&t NetBond、 Equinix、 Level 3 Communications、 Megaport、 Verizon |
+| **華盛頓** |AT At&t NetBond、 CenturyLink Cloud Connect、 Equinix、 Level 3 Communications、 Megaport、 Verizon |
 
 ### <a name="china"></a>中國
 | **Location** | **服務提供者** |

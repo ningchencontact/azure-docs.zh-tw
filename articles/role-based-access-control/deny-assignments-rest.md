@@ -29,7 +29,7 @@ ms.locfileid: "67118293"
 > [!NOTE]
 > 您無法直接建立您自己拒絕指派。 如有關拒絕建立指派，請參閱 <<c0> [ 拒絕指派](deny-assignments.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要取得拒絕指派的相關資訊，您必須具備：
 
@@ -45,11 +45,11 @@ ms.locfileid: "67118293"
 
 1. 在 URI 中，將 *{scope}* 取代為您想要列出拒絕指派的範圍。
 
-    | `Scope` | 類型 |
+    | `Scope` | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 訂用帳戶 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{deny-assignment-id}* 取代為您想要擷取的拒絕指派識別碼。
 
@@ -69,11 +69,11 @@ ms.locfileid: "67118293"
 
 1. 在 URI 中，將 *{scope}* 取代為您想要列出拒絕指派的範圍。
 
-    | `Scope` | 類型 |
+    | `Scope` | type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 訂用帳戶 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 將 *{filter}* 取代為您想要套用來篩選拒絕指派清單的條件。
 
