@@ -27,11 +27,11 @@ ms.locfileid: "67111220"
 
 了解所有您需要知道建置行動應用程式呼叫 web Api。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 建立第一個行動應用程式，並試試我們的快速入門 ！
 
@@ -42,7 +42,7 @@ ms.locfileid: "67111220"
 >
 > [快速入門：取得權杖，然後從 Xamarin iOS 和 Android 應用程式呼叫 Microsoft Graph API](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 個人化、 順暢的使用者體驗是不可或缺的行動裝置應用程式。  Microsoft 身分識別平台可讓行動裝置開發人員建立適用於 iOS 和 Android 的使用者經驗。 登入 Azure Active Directory (Azure AD) 使用者、 個人的 Microsoft 帳戶使用者和 Azure AD B2C 使用者並取得權杖以呼叫 web API，其代表您的應用程式。 若要實作這些流程，我們將使用 Microsoft Authentication Library (MSAL)，它會實作的業界標準[OAuth2.0 授權碼流程](v2-oauth2-auth-code-flow.md)。
 

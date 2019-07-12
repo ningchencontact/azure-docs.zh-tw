@@ -44,13 +44,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 以下是用來建立要求本文的常用定義：
 
-|名稱  |必要項  |類型  |描述  |
+|名稱  |必要項  |type  |描述  |
 |---------|---------|---------|---------|
 |eTag     |         |   字串      |  選擇性 eTag       |
 |location     |  true       |字串         |   資源位置      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  保存庫的屬性       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    識別每個 Azure 資源的唯一系統識別碼     |
-|标记     |         | Object        |     資源標籤    |
+|tags     |         | Object        |     資源標籤    |
 
 請注意，保存庫名稱和資源群組名稱會在 PUT URI 中提供。 要求本文會定義位置。
 
@@ -72,7 +72,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 建立或更新復原服務保存庫的作業會有兩個成功的回應：
 
-|Name  |類型  |描述  |
+|名稱  |type  |描述  |
 |---------|---------|---------|
 |200 確定     |   [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | [確定]        |
 |201 Created     | [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   建立時間      |

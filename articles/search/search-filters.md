@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b5d198506473c598f058c881f781a06e191df88
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062380"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653430"
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜尋服務中的篩選條件 
 
@@ -97,7 +97,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>篩選的使用模式
 
-下列範例將說明數個篩選條件案例的使用模式。 如需更多概念，請參閱 [OData 運算式語法 > 範例](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) \(英文\) 。
+下列範例將說明數個篩選條件案例的使用模式。 如需更多概念，請參閱 [OData 運算式語法 > 範例](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) \(英文\) 。
 
 + 獨立的 **$filter** (不含查詢字串)，在篩選條件運算式能夠完全限定為感興趣的文件時很有用。 沒有查詢字串，就沒有語彙或語言分析、沒有計分且沒有排名。 請注意，搜尋字串是只星號，這表示 「 比對所有文件 」。
 
@@ -195,9 +195,9 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-若要使用更多範例，請參閱 [OData 篩選條件運算式語法 > 範例](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) \(英文\)。
+若要使用更多範例，請參閱 [OData 篩選條件運算式語法 > 範例](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples) \(英文\)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 + [全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)
 + [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

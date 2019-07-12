@@ -32,7 +32,7 @@ ms.locfileid: "65779659"
 
 本主題說明如何使用 Azure CLI 建立 Azure AD 應用程式和服務主體，以及取得必要的值來存取 Azure 媒體服務資源。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 [建立媒體服務帳戶](create-account-cli-how-to.md)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "65779659"
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [調整媒體保留單元 - CLI](media-reserved-units-cli-how-to.md)
 - [建立媒體服務帳戶 - CLI](create-account-cli-how-to.md) 

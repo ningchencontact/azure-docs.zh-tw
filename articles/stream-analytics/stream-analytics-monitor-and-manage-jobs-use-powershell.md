@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148423"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612308"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>透過 Azure PowerShell Cmdlet 監視和管理串流分析工作
 了解如何透過執行基本串流分析工作的 Azure PowerShell Cmdlet 及 PowerShell 指令碼，來監視及管理串流分析的資源。
@@ -228,7 +228,7 @@ Get-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-C
 
 如果您指定 –Force 參數，並指定現有的輸入名稱，則不經過確認就會取代輸入。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸入 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-input] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立輸入 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
 
 **範例 1**
 
@@ -287,7 +287,7 @@ New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US
 
 如果您指定 –Force 參數，並指定現有的工作名稱，則不經過確認就會取代工作定義。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立串流分析作業][msdn-rest-api-create-stream-analytics-job]一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立 Stream Analytics 作業][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
 
 **範例 1**
 
@@ -330,7 +330,7 @@ New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US �
 
 如果您指定 –Force 參數，並指定現有的輸出名稱，則不經過確認就會取代輸出。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸出 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-output] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立輸出 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
 
 **範例 1**
 
@@ -373,7 +373,7 @@ New-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-U
 
 如果您指定 –Force 參數，並指定現有的轉換名稱，則不經過確認就會取代轉換。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[串流分析管理 REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立轉換 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-transformation] 一節。
+如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立轉換 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
 
 **範例 1**
 
@@ -550,7 +550,7 @@ Test-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

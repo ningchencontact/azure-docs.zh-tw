@@ -25,7 +25,7 @@ ms.locfileid: "62125435"
 
 本文提供在 [Python Tools for Visual Studio][Python Tools for Visual Studio] 中使用 Python Web 和背景工作角色的概觀。 學習如何使用 Visual Studio 來建立和部署使用 Python 的基本雲端服務。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] 或  
@@ -74,7 +74,7 @@ Azure 提供三種用以執行應用程式的計算模型：[Azure App Service �
 
 安裝指令碼的主要問題是其未安裝 python。 首先，在 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 檔案中定義兩個[啟動工作](cloud-services-startup-tasks.md)。 第一個工作 (**PrepPython.ps1**) 會下載並安裝 Python 執行階段。 第二個工作 (**PipInstaller.ps1**) 會執行 pip 以安裝您可能具有的任何相依項目。
 
-下列指令碼是針對 Python 3.5 而撰寫。 要使用 2.x 版 Python，请针对两个启动任务以及运行时任务将 **PYTHON2** 变量文件设置为 **on**：`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
+下列指令碼是針對 Python 3.5 而撰寫。 如果您想要使用 2.x 版的 python，請針對兩個啟動工作以及執行階段工作將 **PYTHON2** 變數檔案設定為 [on]  ︰`<Variable name="PYTHON2" value="<mark>on</mark>" />`。
 
 ```xml
 <Startup>

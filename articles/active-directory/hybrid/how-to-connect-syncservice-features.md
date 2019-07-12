@@ -112,7 +112,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 啟用這項功能之後，現有的 userPrincipalName 值會保持不變。 下次 userPrincipalName 屬性的內部部署變更時，使用者的一般差異同步處理即會更新 UPN。  
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

@@ -36,8 +36,8 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | 參數 | 描述 |
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源建立所在的資源群組名稱。 |
-| **name** | 可識別 Azure 區塊鏈服務區塊鏈成員的唯一名稱。 用於公開端點位址的名稱。 例如： `myblockchainmember.blockchain.azure.com`。 |
-| **location** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus`。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
+| **name** | 可識別 Azure 區塊鏈服務區塊鏈成員的唯一名稱。 用於公開端點位址的名稱。 例如： `myblockchainmember.blockchain.azure.com` 。 |
+| **location** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus` 。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
 | **password** | 成員帳戶密碼。 成員帳戶密碼會用來對使用基本驗證的區塊鏈成員公用端點進行驗證。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和 semicolumn(;)|
 | **protocol** | 公開預覽支援仲裁。 |
 | **consortium** | 要加入或建立的聯盟名稱。 |
@@ -73,7 +73,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **resource-group** | Azure 區塊鏈服務資源建立所在的資源群組名稱。 |
 | **name** | 也包含新的交易節點名稱的 Azure 區塊鏈 Service 區塊鏈成員名稱。 |
-| **location** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus`。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
+| **location** | 區塊鏈成員建立所在的 Azure 區域。 例如： `eastus` 。 選擇最靠近您的使用者或其他 Azure 應用程式的位置。 |
 | **password** | 異動節點的密碼。 密碼必須符合下列四個需求的三種： 長度必須介於 12 和 72 個字元、 1 個小寫字元、 1 個大寫字元、 1 個數字和 1 個特殊字元不是數字 sign(#)、 百分比 （%）、 逗號 （，）、 star(*)，反引號(\`)，按兩下 quote(")、 單引號、 破折號 （-） 和分號 （;）。 |
 | **ruleName** | 列入白名單 IP 位址範圍的規則名稱。 防火牆規則的選擇性參數。 |
 | **startIpAddress** | 列入白名單 IP 位址範圍的開頭。 防火牆規則的選擇性參數。 |
@@ -189,7 +189,7 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 | **assignee** | Azure AD 使用者識別碼。 例如： `user@contoso.com` |
 | scope  | 角色指派的範圍。 可以是區塊鏈成員交易 節點。 |
 
-**範例：**
+**範例:**
 
 節點到區塊鏈的 Azure AD 使用者的存取權授與**成員**:
 
@@ -200,7 +200,7 @@ az role assignment create \
   --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**範例：**
+**範例:**
 
 節點到區塊鏈的 Azure AD 使用者的存取權授與**異動節點**:
 
@@ -222,7 +222,7 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 | **assignee-object-id** | Azure AD 群組識別碼或應用程式識別碼。 |
 | scope  | 角色指派的範圍。 可以是區塊鏈成員交易 節點。 |
 
-**範例：**
+**範例:**
 
 節點存取權授與**應用程式角色**
 

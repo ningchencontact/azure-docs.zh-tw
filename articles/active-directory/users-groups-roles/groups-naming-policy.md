@@ -198,7 +198,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>移除命名原則
 
-### <a name="remove-the-naming-policy-using-azure-portal"></a>移除命名的原則，使用 Azure 入口網站
+### <a name="remove-the-naming-policy-using-azure-portal"></a>使用 Azure 入口網站移除命名原則
 
 1. 在 [命名原則]  頁面上，選取 [刪除原則]  。
 1. 確認刪除之後，命名原則就會遭到移除，包括所有前置詞後置詞命名原則以及任何自訂封鎖字組。

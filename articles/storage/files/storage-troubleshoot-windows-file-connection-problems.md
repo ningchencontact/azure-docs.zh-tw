@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1241a6ee5a49504619c377fa3f7006320def14ec
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480316"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805913"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
 本文列出當您從 Windows 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 除了本文中的疑難排解步驟之外，您也可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  來確保 Windows 用戶端環境具備正確的先決條件。 AzFileDiagnostics 會自動偵測本文中提及的大部分徵兆，並協助設定您的環境以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此資訊，當中有提供步驟來協助您解決連線/對應/掛接 Azure 檔案共用的問題。
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>掛接 Azure 檔案共用時發生錯誤 5
 
 您嘗試掛接檔案共用時，可能會收到下列錯誤：
@@ -108,7 +108,6 @@ Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用 REST API 以儲存體總管/Powershell 等工具
 Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 443 (標準 tcp)，適用於 REST 存取。 有各種工具，使用 REST API 撰寫可讓豐富的 UI 體驗。 [儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中一個。 [下載並安裝儲存體總管](https://azure.microsoft.com/features/storage-explorer/)並連接到您備份 Azure 檔案的檔案共用。 您也可以使用[PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell)這也使用者 REST API。
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
 
 如果用戶端上已啟用 NTLMv1 通訊，就會發生系統錯誤 53 或系統錯誤 87。 Azure 檔案僅支援 NTLMv2 驗證。 啟用 NTLMv1 會使用戶端變得較不安全。 因此，Azure 檔案服務會封鎖通訊。 
@@ -132,9 +131,16 @@ Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 4
 
 當您到達同時開啟的控制代碼上限時 (此為針對掛接檔案共用之電腦上的檔案所允許的上限)，即會發生錯誤 1816。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 關閉一些控制代碼以減少同時開啟的控制代碼數，然後再試一次。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+
+若要檢視檔案共用、 目錄或檔案的開啟控制代碼，請使用[Get AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet。  
+
+若要關閉檔案共用、 目錄或檔案的開啟控制代碼，請使用[關閉 AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet。
+
+> [!Note]  
+> Az PowerShell 模組版本 2.4 或更新版本中包含的 Get AzStorageFileHandle 和關閉 AzStorageFileHandle cmdlet。 若要安裝最新的 Az PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>「 授權失敗 」 錯誤時瀏覽至入口網站中的 Azure 檔案共用
@@ -155,6 +161,23 @@ Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 4
 ### <a name="solution-for-cause-2"></a>原因 2 的解決方案
 
 確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為 [允許來自所有網路的存取]  。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>無法刪除檔案或目錄中的 Azure 檔案共用
+
+### <a name="cause"></a>原因
+如果檔案或目錄已開啟的控制代碼，通常就會發生此問題。 
+
+### <a name="solution"></a>方案
+
+如果 SMB 用戶端已關閉所有開啟的控制代碼，而且問題持續發生，執行下列作業：
+
+- 使用[Get AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet，以檢視開啟的控制代碼。
+
+- 使用[關閉 AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet 來關閉開啟的控制代碼。 
+
+> [!Note]  
+> Az PowerShell 模組版本 2.4 或更新版本中包含的 Get AzStorageFileHandle 和關閉 AzStorageFileHandle cmdlet。 若要安裝最新的 Az PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>從 Windows 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
@@ -183,7 +206,7 @@ Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 4
 > 自 2015 年 12 月起，Azure Marketplace 中的 Windows Server 2012 R2 映像預設已安裝 Hotfix KB3114025。
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>[我的電腦]  中沒有任何含磁碟機代號的資料夾
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>在 我的電腦 」 或 「 本機 」 中的磁碟機代號沒有資料夾
 
 如果您以系統管理員身分使用 net use 對應 Azure 檔案共用，該共用似乎就會遺失。
 
@@ -191,7 +214,7 @@ Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 4
 
 根據預設，Windows 檔案總管不會以系統管理員身分執行。 如果您從系統管理命令提示字元執行 net use，就是以系統管理員身分對應網路磁碟機。 因為對應的磁碟機是以使用者為中心，如果磁碟機掛接在不同的使用者帳戶下，登入的使用者帳戶不會顯示此磁碟機。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 從非系統管理員命令掛接共用。 或者，您可以依照[此 TechNet 主題](https://technet.microsoft.com/library/ee844140.aspx)設定 **EnableLinkedConnections** 登錄值。
 
 <a id="netuse"></a>
@@ -201,7 +224,7 @@ Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 4
 
 Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者帳戶名稱開頭為斜線，磁碟機對應將會失敗。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 您可以使用下列其中一種方式來解決這個問題：
 
@@ -222,7 +245,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 磁碟機是按每個使用者掛接。 如果您的應用程式或服務正在與掛接磁碟機之帳戶不同的使用者帳戶下執行，應用程式將不會看到該磁碟機。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 使用下列其中一個解決方案：
 
@@ -263,7 +286,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 如果用戶端機器上沒有足夠的快取可供大型目錄使用時，就會發生此問題。
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 若要解決此問題，請調整 **DirectoryCacheEntrySizeMax** 登錄值，以允許在用戶端機器快取較大型的目錄清單：
 
@@ -280,7 +303,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 當儲存體帳戶之相關訂用帳戶的 AAD 租用戶上未建立 [AAD 網域服務 (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)，而您嘗試在該儲存體帳戶上[為 Azure 檔案儲存體啟用 Azure Active Directory (AAD) 驗證](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)時，發生 AadDsTenantNotFound 錯誤。  
 
-### <a name="solution"></a>解決方法
+### <a name="solution"></a>方案
 
 在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
 

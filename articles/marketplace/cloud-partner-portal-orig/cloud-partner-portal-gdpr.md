@@ -7,17 +7,17 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935413"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786477"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cloud Partner 入口網站 GDPR 合規性
 ====================================
 
-[一般資料保護規定 (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm) 是歐盟 (EU) 所制定的資料保護與隱私權法律。 GDPR 會針對提供商品和服務給 EU 居民，或收集和分析 EU 居民相關資料的公司、政府機關、非營利組織及其他組織，強制施行規則。
+[一般資料保護規定 (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) 是歐盟 (EU) 所制定的資料保護和隱私權法律。 GDPR 會針對提供商品和服務給 EU 居民，或收集和分析 EU 居民相關資料的公司、政府機關、非營利組織及其他組織，強制施行規則。
 
 Cloud Partner 入口網站提供有關處理客戶資料的詳細資訊，以及用來保護客戶資料的安全性措施。 此資訊可透過其產品內體驗來存取。
 

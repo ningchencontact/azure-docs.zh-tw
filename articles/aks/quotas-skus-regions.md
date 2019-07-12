@@ -2,17 +2,17 @@
 title: 配額、 Sku 和區域可用性的 Azure Kubernetes Service (AKS)
 description: 深入了解預設配額、 限制的節點 VM SKU 大小和區域可用性的 Azure Kubernetes Service (AKS)。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
-ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 318846cddecdf020e2e751d3a0b9e05fc83bba73
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65901449"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614541"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>配額、 虛擬機器的大小限制和區域可用性的 Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ ms.locfileid: "65901449"
 
 ## <a name="next-steps"></a>後續步驟
 
-某些預設限制和配額可以增加。 如果您的資源可支援增加，要求透過增加[Azure 支援要求][ azure-support] (如**問題類型**，選取**配額**).
+某些預設限制和配額可以增加。 如果您的資源可支援增加，要求透過增加[Azure 支援要求][azure-support](如**問題類型**，選取**配額**)。
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261846"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-amazon-redshift-connector.md)
 > * [目前的版本](connector-amazon-redshift.md)
 
@@ -36,12 +36,12 @@ ms.locfileid: "61261846"
 > [!TIP]
 > 在 Redshift 中複製大量資料時，若想獲得最佳效能，請考慮透過 Amazon S3 使用內建的 Redshift UNLOAD。 如需詳細資料，請參閱「[使用 UNLOAD 複製 Amazon Redshift 中的資料](#use-unload-to-copy-data-from-amazon-redshift)」章節。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您要使用[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 將資料複製到內部部署資料存放區，請將 Amazon Redshift 叢集的存取權授與 Integration Runtime (使用電腦的 IP 位址)。 如需相關指示，請參閱 [授權存取叢集](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 。
 * 如果您要將資料複製到 Azure 資料存放區，請參閱 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) 以取得 Azure 資料中心所使用的計算 IP 位址和 SQL 範圍。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -57,11 +57,11 @@ ms.locfileid: "61261846"
 | server |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
 | database |Amazon Redshift 資料庫的名稱。 |是 |
-| username |可存取資料庫之使用者的名稱。 |是 |
+| userName |可存取資料庫之使用者的名稱。 |是 |
 | password |使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -210,16 +210,16 @@ ms.locfileid: "61261846"
 | Amazon Redshift 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |String |
+| Boolean |String |
 | CHAR |String |
-| DATE |Datetime |
-| DECIMAL |Decimal |
+| DATE |DateTime |
+| Decimal |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
 | TEXT |String |
-| TIMESTAMP |DateTime |
+| TIMESTAMP |Datetime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>後續步驟

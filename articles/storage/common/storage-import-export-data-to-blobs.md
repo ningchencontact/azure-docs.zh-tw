@@ -19,7 +19,7 @@ ms.locfileid: "66808594"
 
 本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地將大量資料匯入 Azure Blob 儲存體。 若要將資料匯入到 Azure Blob，服務會要求您將包含資料的加密磁碟機寄送到 Azure 資料中心。  
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在建立匯入作業來將資料傳入 Azure Blob 儲存體之前，請仔細檢閱並完成此服務的下列必要條件清單。 您必須：
 
@@ -30,7 +30,7 @@ ms.locfileid: "66808594"
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。 
 - 在 Windows 系統上啟用 BitLocker。 請參閱[如何啟用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
-- 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
+- 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1` 。
 - 擁有 FedEx/DHL 帳戶。 如果您想要使用非 FedEx/DHL 貨運公司，請連絡 Azure 資料方塊作業小組`adbops@microsoft.com`。  
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
     - 產生匯出作業的追蹤號碼。
@@ -70,7 +70,7 @@ ms.locfileid: "66808594"
     |/id:     |工作階段識別碼。 針對命令的每個執行個體使用唯一的工作階段號碼。      |
     |/t:     |要寄送之磁碟的磁碟機代號。 例如，磁碟機 `D`。         |
     |/bk:     |磁碟機的 BitLocker 金鑰。 其數字密碼來自 `manage-bde -protectors -get D:` 的輸出      |
-    |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\`。         |
+    |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\` 。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱。         |
     |/blobtype:     |此選項會指定您要匯入之資料的 blob 的類型。 若為區塊 blob，則`BlockBlob`分頁 blob，則為`PagaBlob`。         |
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |

@@ -23,7 +23,7 @@ ms.locfileid: "60637837"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>在 Azure 入口網站中，使用 StorSimple 裝置管理員服務來複製磁碟區
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 本教學課程說明如何透過 [備份類別目錄]  刀鋒視窗使用備份組來複製個別磁碟區。 它也會說明「暫時性」  與「永久」  複製之間的差異。 本教學課程中的指導適用於執行 Update 3 或更新版本的所有 StorSimple 8000 系列裝置。
 

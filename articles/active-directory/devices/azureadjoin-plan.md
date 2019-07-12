@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482136"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666152"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>作法：規劃 Azure AD 聯結實作
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>HOW TO：規劃 Azure AD 聯結實作
 
 Azure AD Join 可讓您直接將裝置加入 Azure AD，而不需要加入內部部署 Active Directory，同時讓您的使用者保有生產力和安全性。 Azure AD Join 在大規模和限域的部署中都符合企業需求。   
 
@@ -70,7 +70,7 @@ Azure AD Join 在受控和同盟環境中均可運作。
 - **WS-Fed：** 必須使用此通訊協定，才能將裝置加入 Azure AD。
 - **WS-Trust：** 必須使用此通訊協定，才能登入已加入 Azure AD 的裝置。 
 
-如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 Web 登入目前為僅供預覽的功能。
+如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 目前 web 登入是一項預覽功能，不建議用於生產環境部署。
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>智慧卡和憑證型驗證
 

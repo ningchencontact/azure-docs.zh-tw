@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 186324e6a93f90fd04323074e5dc883e3e271725
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b6787134707273a76290adb723a9bc9012252ebd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478988"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807046"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v031-alpha"></a>狀態監視器 v2 API:Start-ApplicationInsightsMonitoringTrace (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v040-alpha"></a>狀態監視器 v2 API:Start-ApplicationInsightsMonitoringTrace (v0.4.0-alpha)
 
 本文說明的 cmdlet 時的成員[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
 

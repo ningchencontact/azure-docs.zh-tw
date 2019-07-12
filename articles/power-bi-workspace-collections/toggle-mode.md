@@ -2,18 +2,18 @@
 title: 為 Power BI 工作區集合中的報告切換檢視和編輯模式 | Microsoft Docs
 description: 了解如何為 Power BI 工作區集合內的報告切換檢視和編輯模式。
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: cab5d067387fcffe4f62b94e06960afe47d5f00c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 327f2fdcd4d1bc9e71e3aabb3541c6fd30f02811
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702678"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672359"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>為 Power BI 工作區集合中的報告切換檢視和編輯模式
 
@@ -111,7 +111,7 @@ report.switchMode("edit");
 
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [開始使用範例](get-started-sample.md)  
 [內嵌報告](embed-report.md)  

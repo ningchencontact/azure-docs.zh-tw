@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09fd569ebfe8bc7f287eeb2a0b830399250c3a7a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611328"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701503"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Pig 活動轉換資料
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -220,7 +220,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [Hive 活動](data-factory-hive-activity.md)
 * [MapReduce 活動](data-factory-map-reduce.md)
 * [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)

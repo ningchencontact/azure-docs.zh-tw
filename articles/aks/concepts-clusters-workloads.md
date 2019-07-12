@@ -2,17 +2,17 @@
 title: Concepts - Azure Kubernetes Services (AKS) 的 Kubernetes 基本概念
 description: 了解 Kubernetes 的基本叢集和工作負載元件，及其與 Azure Kubernetes Service (AKS) 中的功能有何關聯
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514536"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616010"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -54,9 +54,9 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 此受管理的叢集主機可讓您表示您不需要設定元件，例如高可用性*etcd*存放區，但這也表示您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure 監視器記錄檢閱叢集主機記錄。
 
-如果您需要以特定方式設定叢集主機，或需要直接加以存取，您可以使用 [aks-engine][aks-engine] 自行部署 Kubernetes 叢集。
+如果您需要以特定方式設定叢集主機，或需要直接存取權，您可以部署您的 Kubernetes 叢集使用[aks 引擎][aks-engine]。
 
-如需相關聯的最佳作法，請參閱[的叢集安全性與 AKS 中的升級最佳做法][operator-best-practices-cluster-security]。
+如需相關聯的最佳作法，請參閱[的叢集安全性與 AKS 中的升級最佳作法][operator-best-practices-cluster-security]。
 
 ## <a name="nodes-and-node-pools"></a>節點和節點集區
 
@@ -72,7 +72,7 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 在 AKS，叢集中節點的 VM 映像目前依據 Ubuntu Linux 或 Windows Server 2019。 當您建立 AKS 叢集或相應增加節點數目時，Azure 平台即會依據您要求的數目建立 VM，並加以設定。 沒有為您執行任何手動組態。 代理程式節點計費作為標準的虛擬機器，因此您需要的 VM 大小的任何折扣您使用 (包括[Azure 保留的項目][reservation-discounts]) 會自動套用。
 
-如果您需要使用不同的主機 OS、容器執行階段或要納入自訂套件，您可以使用 [aks-engine][aks-engine] 自行部署 Kubernetes 叢集。 上游 `aks-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如，如果您想要使用白鯨以外的容器執行階段，您可以使用`aks-engine`若要設定及部署 Kubernetes 叢集，以符合您當前的需求。
+如果您需要使用不同的主機 OS，容器執行階段，或包含自訂的套件，您可以部署您的 Kubernetes 叢集使用[aks 引擎][aks-engine]。 上游 `aks-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如，如果您想要使用白鯨以外的容器執行階段，您可以使用`aks-engine`若要設定及部署 Kubernetes 叢集，以符合您當前的需求。
 
 ### <a name="resource-reservations"></a>資源保留
 
@@ -83,7 +83,7 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 保留這些資源代表應用程式可用的 CPU 和記憶體數量，看起來可能會小於節點本身所含的資源數量。 如果由於所執行的應用程式數量導致資源受限，則所保留的這些資源可確保仍有 CPU 和記憶體可供核心 Kubernetes 元件使用。 無法變更的資源保留項目。
 
-例如︰
+例如:
 
 - **標準 DS2 v2** 節點大小包含 2 個 vCPU 和 7 GiB 記憶體
     - 7 GiB 記憶體的 20% = 1.4 GiB
@@ -132,7 +132,7 @@ Kubernetes 會使用 *Pod* 執行您的應用程式執行個體。 一個 Pod �
 
 當您建立 Pod 時，您可以定義*資源限制*以要求特定數量的 CPU 或記憶體資源。 Kubernetes 排程器會嘗試將 Pod 排程在具有可用資源的節點上執行，以符合要求。 您也可以指定資源上限，以防止指定的 Pod 在基礎節點上耗用太多計算資源。 最佳做法是為所有 Pod 加上資源限制，以協助 Kubernetes 排程器了解哪些是必要且可供使用的資源。
 
-如需詳細資訊，請參閱 [Kubernetes Pod][kubernetes-pods] 和 [Kubernetes Pod 生命週期][kubernetes-pod-lifecycle]。
+如需詳細資訊，請參閱 < [Kubernetes pod][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle]。
 
 Pod 是邏輯資源，但應用程式工作負載執行的所在之處是容器。 Pod 通常是暫時性、可處置的資源，且個別排程的 Pod 會無法獲益於 Kubernetes 所提供的一些高可用性和備援功能。 實際上，Pod 通常會由 Kubernetes *控制器*部署及管理，例如「部署控制器」。
 
@@ -179,17 +179,17 @@ spec:
 
 您也可以在 YAML 資訊清單中納入負載平衡器之類的服務，以建立更複雜的應用程式。
 
-如需詳細資訊，請參閱 [Kubernetes 部署][kubernetes-deployments]。
+如需詳細資訊，請參閱 < [Kubernetes 部署][kubernetes-deployments]。
 
 ### <a name="package-management-with-helm"></a>使用 Helm 管理套件
 
-[Helm][helm] 是在 Kubernetes 中管理應用程式的常見方法。 您可以建置和使用現有的公用 Helm *圖表*，其中包含封裝版的應用程式程式碼，和用來部署資源的 Kubernetes YAML 資訊清單。 這些 Helm 圖表可儲存於本機，或通常儲存在遠端存放庫中，例如 [Azure Container Registry Helm 圖表存放庫][acr-helm]。
+管理應用程式在 Kubernetes 中的常見方法是使用[Helm][helm]。 您可以建置和使用現有的公用 Helm *圖表*，其中包含封裝版的應用程式程式碼，和用來部署資源的 Kubernetes YAML 資訊清單。 這些 Helm 圖表可以儲存在本機，或通常在遠端儲存機制，例如[Azure 容器登錄的 Helm 圖表存放庫][acr-helm]。
 
-若要使用 Helm，請在您的 Kubernetes 叢集中安裝名為 *Tiller* 的伺服器元件。 Tiller 會管理安裝在叢集內的圖表。 Helm 用戶端本身會安裝在您的本機電腦上，或可在 [Azure Cloud Shell][azure-cloud-shell] 內使用。 您可以使用用戶端搜尋或建立 Helm 圖表，然後將其安裝至 Kubernetes 叢集。
+若要使用 Helm，請在您的 Kubernetes 叢集中安裝名為 *Tiller* 的伺服器元件。 Tiller 會管理安裝在叢集內的圖表。 Helm 用戶端本身安裝在本機電腦上，或可用於[Azure Cloud Shell][azure-cloud-shell]。 您可以使用用戶端搜尋或建立 Helm 圖表，然後將其安裝至 Kubernetes 叢集。
 
 ![Helm 包含可在 Kubernetes 叢集內建立資源的用戶端元件和伺服器端 Tiller 元件](media/concepts-clusters-workloads/use-helm.png)
 
-如需詳細資訊，請參閱[在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式][aks-helm]。
+如需詳細資訊，請參閱 <<c0> [ 安裝 Helm Azure Kubernetes Service (AKS) 中具有應用程式][aks-helm]。
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSet 和 Daemonset
 
@@ -206,7 +206,7 @@ spec:
 
 您可以使用 `kind: StatefulSet` 定義 YAML 格式的應用程式，隨後再由 StatefulSet 控制器處理必要複本的部署和管理。 資料會寫入至 Azure 受控磁碟或 Azure 檔案所提供的永續性儲存體。 透過 StatefulSet，即使在 StatefulSet 刪除後，基礎的永續性儲存體仍將保存。
 
-如需詳細資訊，請參閱 [Kubernetes StatefulSet][kubernetes-statefulsets]。
+如需詳細資訊，請參閱 < [Kubernetes StatefulSets][kubernetes-statefulsets]。
 
 StatefulSet 中的複本可在 AKS 叢集中任何可用的節點上排程及執行。 如果您必須確定每個節點都至少要執行您集合中的一個 Pod，您可以改用 DaemonSet。
 
@@ -218,7 +218,7 @@ DaemonSet 控制器可及早在叢集啟動程序執行時，在預設 Kubernete
 
 和 StatefulSet 相同，DaemonSet 也可使用 `kind: DaemonSet` 定義為 YAML 定義的一部分。
 
-如需詳細資訊，請參閱 [Kubernetes DaemonSet][kubernetes-daemonset]。
+如需詳細資訊，請參閱 < [Kubernetes Daemonset][kubernetes-daemonset]。
 
 > [!NOTE]
 > 如果使用[虛擬節點附加元件](virtual-nodes-cli.md#enable-virtual-nodes-addon)，Daemonset 不會建立在虛擬節點上的 pod。
@@ -235,7 +235,7 @@ Kubernetes 資源 (例如 Pod 和部署) 會依邏輯分組到*命名空間*中�
 - *kube-system* - 此命名空間是核心資源的所在之處，例如 DNS 和 Proxy 之類的網路功能，或是 Kubernetes 儀表板。 您通常不會將自己的應用程式部署到此命名空間中。
 - *kube-public* - 此命名空間通常不會使用，但可用於要在整個叢集中顯示，並且可供任何使用者檢視的資源。
 
-如需詳細資訊，請參閱 [Kubernetes 命名空間][kubernetes-namespaces]。
+如需詳細資訊，請參閱 < [Kubernetes 命名空間][kubernetes-namespaces]。
 
 ## <a name="next-steps"></a>後續步驟
 

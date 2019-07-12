@@ -135,4 +135,4 @@ ms.locfileid: "65963445"
 ![已選取節點屬性的拓撲圖](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>後續步驟
-[搜尋記錄檔](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的網路效能資料記錄。
+[搜尋記錄](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的網路效能資料記錄。

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540275"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807239"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
 
@@ -56,19 +56,19 @@ ms.locfileid: "65540275"
 
 ## <a name="appsource-trial-experiences"></a>AppSource 試用體驗
 
-### <a name="free-trial-customer-led-trial-experience"></a>免費試用 (客戶導向的試用體驗) 
+### <a name="free-trial-customer-led-trial-experience"></a>免費試用 (客戶導向的試用體驗)
 
-客戶導向的試用是 AppSource 建議的體驗，因為它可讓您單鍵存取至您的應用程式。 這項體驗看起來如下圖：<br/><br/>
+客戶導向的試用是 AppSource 建議的體驗，因為它可讓您單鍵存取至您的應用程式。 下列範例會顯示這項體驗的外觀：
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>使用者會在 AppSource 網站中尋找您的應用程式</li><li>選取 [免費試用] 選項</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource 將使用者重新導向至網站中的 URL</li><li>您的網站會自動啟動<i>單一登入</i>流程 (在頁面載入時)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>使用者已重新導向至 Microsoft 登入頁面</li><li>使用者提供認證以登入</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>使用者會在 AppSource 網站中尋找您的應用程式</li><li>選取 [免費試用] 選項</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource 將使用者重新導向至網站中的 URL</li><li>您的網站會自動啟動<i>單一登入</i>流程 (在頁面載入時)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>使用者已重新導向至 Microsoft 登入頁面</li><li>使用者提供認證以登入</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>使用者同意您的應用程式</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>登入完成，而且使用者已重新導向回到您的網站</li><li>使用者啟動免費試用</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>使用者同意您的應用程式</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>登入完成，而且使用者已重新導向回到您的網站</li><li>使用者啟動免費試用</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -79,20 +79,20 @@ ms.locfileid: "65540275"
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>使用者會在 AppSource 網站中尋找您的應用程式</li><li>選取 [與我連絡] 選項</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>將連絡人資訊填入表單</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>使用者會在 AppSource 網站中尋找您的應用程式</li><li>選取 [與我連絡] 選項</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>將連絡人資訊填入表單</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
             <td>您會收到使用者資訊</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
             <td>設定環境</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
             <td>連絡使用者試用資訊</td>
         </tr>
         </table><br/><br/>
@@ -100,9 +100,9 @@ ms.locfileid: "65540275"
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>使用者存取您的應用程式，並完成單一登入流程</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>使用者同意您的應用程式</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>登入完成，而且使用者已重新導向回到您的網站</li><li>使用者啟動免費試用</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>使用者存取您的應用程式，並完成單一登入流程</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>使用者同意您的應用程式</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>登入完成，而且使用者已重新導向回到您的網站</li><li>使用者啟動免費試用</li></ul></td>
    
 </tr>
 </table>
@@ -110,16 +110,15 @@ ms.locfileid: "65540275"
 ### <a name="more-information"></a>詳細資訊
 
 如需 AppSource 試用體驗的詳細資訊，請參閱[這段影片](https://aka.ms/trialexperienceforwebapps)。 
- 
+
 ## <a name="next-steps"></a>後續步驟
 
 - 如需建置支援 Azure AD 登入之應用程式的詳細資訊，請參閱 [Azure AD 的驗證案例](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)。
 - 如需如何列出 AppSource 中的 SaaS 應用程式的資訊，請參閱 [AppSource 合作夥伴資訊](https://appsource.microsoft.com/partners)
 
-
 ## <a name="get-support"></a>取得支援
 
-對於 Azure AD 整合，我們使用 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) \(英文\) 搭配社群來提供支援。 
+對於 Azure AD 整合，我們使用 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) \(英文\) 搭配社群來提供支援。
 
 我們強烈建議您先在 Stack Overflow 上詢問您的問題，並瀏覽現有的問題，以查看先前是否有人已提出您的問題。 請確定您的問題或意見已標記 [`[azure-active-directory]` 和 `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)。
 
@@ -131,6 +130,5 @@ ms.locfileid: "65540275"
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
-
 
 <!--Image references-->

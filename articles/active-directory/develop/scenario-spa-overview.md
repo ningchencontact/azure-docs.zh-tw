@@ -30,14 +30,14 @@ ms.locfileid: "65076356"
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 您可以依照下列快速入門中的 JavaScript SPA 建立第一個應用程式：
 
 > [!div class="nextstepaction"]
 > [快速入門：單一頁面應用程式](./quickstart-v2-javascript.md)
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 許多現代的 web 應用程式會建置為使用 JavaScript 或 Angular、 Vue.js 和 React.js 等 SPA 架構撰寫的用戶端單一頁面應用程式。 這些應用程式會在網頁瀏覽器中執行，而且擁有不同的驗證特性，比傳統的伺服器端 web 應用程式。 Microsoft 身分識別平台可讓使用者登入，並取得權杖來存取後端服務或 web Api 使用的單一頁面應用程式[OAuth 2.0 隱含流程](./v2-oauth2-implicit-grant-flow.md)。 隱含流程可讓應用程式取得識別碼權杖來代表已驗證的使用者，也存取呼叫受保護的 Api 所需的權杖。
 

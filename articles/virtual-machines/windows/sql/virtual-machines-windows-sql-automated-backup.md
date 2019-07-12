@@ -32,7 +32,7 @@ ms.locfileid: "67075831"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用自動備份，請考慮下列必要條件︰
 
 **作業系統**：

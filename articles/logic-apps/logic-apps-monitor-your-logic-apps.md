@@ -35,7 +35,7 @@ ms.locfileid: "61323915"
 
 2. 選取邏輯應用程式，然後選擇 [概觀]  。
 
-   Azure 入口網站會顯示邏輯應用程式的執行歷程記錄和觸發程序歷程記錄。 例如︰
+   Azure 入口網站會顯示邏輯應用程式的執行歷程記錄和觸發程序歷程記錄。 例如:
 
    ![邏輯應用程式執行歷程記錄和觸發程序歷程記錄](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "61323915"
 
 3. 若要檢視特定執行的步驟，請在 [執行歷程記錄]  下選取該執行。 
 
-   監視檢視會顯示該執行中的每個步驟。 例如︰
+   監視檢視會顯示該執行中的每個步驟。 例如:
 
    ![特定執行的動作](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "61323915"
 
    例如，您可以取得執行的**相互關聯識別碼**，在您使用 [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic) 時可能需要此識別碼。
 
-5. 若要取得特定步驟的詳細資料，請選擇該步驟。 您現在可以檢閱詳細資料，例如輸入、輸出以及該步驟所發生的任何錯誤。 例如︰
+5. 若要取得特定步驟的詳細資料，請選擇該步驟。 您現在可以檢閱詳細資料，例如輸入、輸出以及該步驟所發生的任何錯誤。 例如:
 
    ![步驟詳細資料](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -160,7 +160,7 @@ Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程�
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如︰
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如:
 
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)

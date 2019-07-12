@@ -63,12 +63,12 @@ ms.locfileid: "60837584"
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 即將建立之應用程式的名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -1075,7 +1075,7 @@ ApplicationPackage 代表節點所需之已設定版本的應用程式資訊。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 叢集的名稱。
 
 |屬性|值|
@@ -1253,12 +1253,12 @@ ApplicationPackage 代表節點所需之已設定版本的應用程式資訊。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 服務資訊清單中包含要覆寫之設定的組態套件名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 ### <a name="content-element-details"></a>內容元素詳細資料
@@ -1319,7 +1319,7 @@ ApplicationPackage 代表節點所需之已設定版本的應用程式資訊。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 #### <a name="sectionname"></a>SectionName
@@ -1543,7 +1543,7 @@ X509 憑證的指紋。
 |type|xs:boolean|
 |預設值|false|
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 特定憑證資訊的識別碼。 此名稱會用來設定容器中的環境變數。
 
 |屬性|值|
@@ -1987,11 +1987,11 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -2230,12 +2230,12 @@ NetworkType。 目前支援的類型為 "Open" 和 "Isolated"。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="source"></a>source
+#### <a name="source"></a>Source
 來源資料夾可以是裝載容器或永續性遠端存放區之 VM 中的資料夾。
 
 |屬性|值|
 |---|---|
-|name|source|
+|name|Source|
 |use|必要|
 
 #### <a name="destination"></a>目的地
@@ -2850,7 +2850,7 @@ Azure 檔案服務磁碟區外掛程式的驅動程式名稱為 "sfazurefile"。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -2872,7 +2872,7 @@ Azure 檔案服務磁碟區外掛程式的驅動程式名稱為 "sfazurefile"。
 |use|選用|
 |預設值|false|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 
               This value defines the protection of the value of the attribute. It may be SecretsStoreRef/Encrypted/PlainText.
               If set to SecretsStoreRef, the value references a secret stored encrypted in the cluster's SecureStore, which is de-referenced and decrypted upon activation.
@@ -2881,7 +2881,7 @@ Azure 檔案服務磁碟區外掛程式的驅動程式名稱為 "sfazurefile"。
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |type|xs:string|
 |use|選用|
 |預設值|純文字|
@@ -2989,11 +2989,11 @@ X509 憑證的指紋。
 |name|X509FindValue|
 |use|必要|
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|選用|
 
@@ -3049,12 +3049,12 @@ X509 憑證的指紋。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 要複寫的端點名稱。 字串。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 #### <a name="port"></a>Port
@@ -3074,12 +3074,12 @@ X509 憑證的指紋。
 |type|xs:string|
 |use|選用|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 端點的類型。 複寫服務資訊清單中的值。 輸入端點可用來對外界公開連接埠，內部端點則用於應用程式間的通訊。
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |type|xs:string|
 |use|選用|
 
@@ -3190,7 +3190,7 @@ URI 配置。 複寫服務資訊清單中的值。 例如 "http"、"https" 或 "
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 端點的名稱。
 
 |屬性|值|
@@ -3207,12 +3207,12 @@ URI 配置。 複寫服務資訊清單中的值。 例如 "http"、"https" 或 "
 |use|選用|
 |預設值|tcp|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 端點的類型。  輸入端點可用來對外界公開連接埠，內部端點則用於應用程式間的通訊。
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |use|選用|
 |預設值|內部|
 
@@ -3446,7 +3446,7 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 環境變數的名稱。
 
 |屬性|值|
@@ -3461,11 +3461,11 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 |---|---|
 |name|值|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |type|xs:string|
 |use|選用|
 
@@ -3529,7 +3529,7 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 |---|---|
 |name|值|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 
           The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
           If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
@@ -3538,7 +3538,7 @@ EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有�
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |use|選用|
 |預設值|純文字|
 
@@ -3822,7 +3822,7 @@ X509 憑證的存放區名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|選用|
 
@@ -4784,7 +4784,7 @@ NodeTypes 區段中定義的節點類型名稱。
 ```
 ### <a name="attribute-details"></a>屬性詳細資料
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 叢集內之計量的唯一識別碼 (從叢集資源管理員的觀點來看)。
 
 |屬性|值|
@@ -5312,7 +5312,7 @@ LogicalDirectory 的路徑。
 |---|---|
 |name|Email|
 
-#### <a name="type"></a>類型
+#### <a name="type"></a>type
 
           This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
           If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
@@ -5321,7 +5321,7 @@ LogicalDirectory 的路徑。
 
 |屬性|值|
 |---|---|
-|name|類型|
+|name|type|
 |type|xs:string|
 |use|選用|
 
@@ -5798,7 +5798,7 @@ Setup 是服務資訊清單中宣告的 SetupEntryPoint，即具有特殊權限�
 |屬性|值|
 |---|---|
 |name|GrantRights|
-|預設值|閱讀|
+|預設值|讀取|
 
 #### <a name="resourcetype"></a>ResourceType
 服務資訊清單的資源區段中定義的資源類型。 「端點」或「憑證」。
@@ -6251,12 +6251,12 @@ Setup 是服務資訊清單中宣告的 SetupEntryPoint，即具有特殊權限�
 |name|ServiceTypeName|
 |use|必要|
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>名稱
 服務群組成員相對於服務群組名稱的名稱。
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |use|必要|
 
 ### <a name="content-element-details"></a>內容元素詳細資料
@@ -6382,7 +6382,7 @@ Setup 是服務資訊清單中宣告的 SetupEntryPoint，即具有特殊權限�
 
 |屬性|值|
 |---|---|
-|ref|擴充功能|
+|ref|延伸模組|
 |minOccurs|0|
 
 ## <a name="servicemanifestimportpoliciestype-complextype"></a>ServiceManifestImportPoliciesType complexType
@@ -6927,7 +6927,7 @@ ServicePackage 代表已設定版本的部署和啟用單位。 ServicePackage �
 
 |屬性|值|
 |---|---|
-|name|Name|
+|name|名稱|
 |type|xs:string|
 |use|必要|
 
@@ -7530,7 +7530,7 @@ ServiceManifest 檔案的總和檢查碼值。
 
 |屬性|值|
 |---|---|
-|ref|擴充功能|
+|ref|延伸模組|
 |minOccurs|0|
 
 ## <a name="servicetypestype-complextype"></a>ServiceTypesType complexType

@@ -7,24 +7,24 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334558"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593499"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN 中的即時統計資料
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本文件說明 Microsoft Azure CDN 中的即時統計資料。  在將內容傳遞給您的用戶端時，這項功能會提供即時資料 (例如頻寬、快取狀態和並行連線) 給您的 CDN 設定檔。 這可讓您隨時連續監視服務的健全狀況，包括上線事件。
 
 可用圖表如下︰
@@ -84,7 +84,7 @@ HTTP 狀態碼的清單會顯示於圖表正上方。 此清單表示每個可�
 
 您可以暫時隱藏特定狀態碼的記錄資料。  從圖表正下方的圖例中，按一下您想要隱藏的狀態碼。 狀態碼將會立即從圖表中隱藏。 再次按一下該狀態碼將導致該選項再次顯示。
 
-## <a name="connections"></a>連線
+## <a name="connections"></a>連接
 ![連線圖表](./media/cdn-real-time-stats/cdn-connections.png)
 
 此圖表會指出已為 Edge Server 建立的連線數。 通過 CDN 的每個資產要求都會導致建立一個連線。

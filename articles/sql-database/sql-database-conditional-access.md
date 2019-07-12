@@ -28,7 +28,7 @@ Azure [SQL Database](sql-database-technical-overview.md)，[受控執行個體](
 
 下列步驟示範如何將 SQL Database 設定為強制執行條件式存取原則。  
 
-## <a name="prerequisites"></a>必要條件  
+## <a name="prerequisites"></a>先決條件  
 - 您必須將 SQL Database 或 SQL 資料倉儲設定為支援 Azure Active Directory 驗證。 如需特定步驟，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)。  
 - 啟用多重要素驗證時，您必須在支援的工具進行連線，例如最新的 SSMS。 如需詳細資訊，請參閱[設定適用於 SQL Server Management Studio 的 Azure SQL Database 多重要素驗證](sql-database-ssms-mfa-authentication-configure.md)。  
 

@@ -23,13 +23,13 @@ ms.locfileid: "62110480"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。 佇列儲存體可針對應用程式元件間的通訊，提供非同步傳訊，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。 佇列儲存體也支援管理非同步工作並建置處理工作流程。
 
 本教學課程說明如何使用 Azure 佇列儲存體實體撰寫一些常見案例的 ASP.NET 程式碼。 這些案例包括一般工作，例如建立 Azure 佇列，以及新增、修改、讀取和移除佇列訊息。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)

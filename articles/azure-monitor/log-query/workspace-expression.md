@@ -37,7 +37,7 @@ ms.locfileid: "60785671"
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的工作區名稱 (也稱為「元件名稱」) | workspace("contosoretail") |
 | 完整名稱 | 使用下列形式的工作區完整名稱："subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| ID | 工作區的 GUID | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| id | 工作區的 GUID | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Azure 資源識別碼 | Azure 資源的識別碼 | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 

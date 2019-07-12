@@ -7,19 +7,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 5f351dd7fddb4c15b28954eccf8ada3bfc14dbca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.subservice: alerts
+ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447658"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594371"
 ---
 # <a name="common-alert-schema-definitions"></a>常見的警示結構描述定義
 
 這篇文章說明[常見的警示的結構描述定義](https://aka.ms/commonAlertSchemaDocs)的 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 任何警示的執行個體描述**受影響的資源**並**警示原因的**，和這些執行個體以通用的結構描述，下列各節中所述：
 * **Essentials**:一組**標準化欄位**，在所有的警示類型，描述通用**哪項資源**警示是以及其他一般警示中繼資料 （例如嚴重性或描述）。 

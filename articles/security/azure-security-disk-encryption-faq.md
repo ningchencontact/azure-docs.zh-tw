@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294918"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653390"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -33,6 +33,10 @@ Azure 磁碟加密 GA 支援 Azure Resource Manager 範本、Azure PowerShell �
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>如何開始使用 Azure 磁碟加密？
 
 若要開始使用，請參閱 [Azure 磁碟加密概觀](azure-security-disk-encryption-overview.md)。
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>哪些 VM 大小和作業系統支援 Azure 磁碟加密？
+
+[Azure 磁碟加密先決條件](azure-security-disk-encryption-prerequisites.md)發行項清單[VM 大小](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes)並[VM 作業系統](azure-security-disk-encryption-prerequisites.md#supported-operating-systems)支援 Azure 磁碟加密。
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>是否可以使用 Azure 磁碟加密來加密開機和資料磁碟區？
 
@@ -74,7 +78,7 @@ Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決�
 Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決條件](azure-security-disk-encryption-prerequisites-aad.md)，以建立 Azure Active Directory 應用程式、建立新的金鑰保存庫，或針對磁碟加密存取設定現有的金鑰保存庫，從而啟用加密並保護祕密和金鑰。 如需金鑰加密金鑰支援案例的詳細資訊，請參閱 [Azure 磁碟加密概觀](azure-security-disk-encryption-overview.md)。
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>是否仍支援使用 Azure AD 應用程式 (舊版) 來進行 Azure 磁碟加密？
-是。 仍支援使用 Azure AD 應用程式來進行磁碟加密。 不過，在加密新的 VM 時，建議您使用新的方法，而不要使用 Azure AD 應用程式來加密。 
+是的。 仍支援使用 Azure AD 應用程式來進行磁碟加密。 不過，在加密新的 VM 時，建議您使用新的方法，而不要使用 Azure AD 應用程式來加密。 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>是否可以將使用 Azure AD 應用程式加密的 VM，遷移至未使用 Azure AD 應用程式的加密？
   目前沒有直接的移轉途徑，可將使用 Azure AD 應用程式加密的機器移轉至未使用 Azure AD 應用程式的加密。 此外，也沒有直接的途徑可從未使用 Azure AD 應用程式的加密移轉至使用 AD 應用程式的加密。 

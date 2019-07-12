@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7fcff6fa4dcea1af15efa2cb4ed3a743c9c402
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610747"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836123"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 移動資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-onprem-teradata-connector.md)
 > * [第 2 版 (目前的版本)](../connector-teradata.md)
 
@@ -43,11 +43,11 @@ ms.locfileid: "60610747"
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
 若要讓資料管理閘道連接至 Teradata 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [Teradata 的 .NET 資料提供者](https://go.microsoft.com/fwlink/?LinkId=278886)版本 14 或以上版本。 支援 Teradata 版本 12 和以上版本。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+- 您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -67,7 +67,7 @@ ms.locfileid: "60610747"
 | type |類型屬性必須設定為：**OnPremisesTeradata** |是 |
 | server |Teradata 伺服器的名稱。 |是 |
 | authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
-| username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
+| userName |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 Teradata 資料庫的閘道器名稱。 |是 |
 
@@ -88,7 +88,7 @@ ms.locfileid: "60610747"
 | query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |是 |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 範例：從 Teradata 複製資料到 Azure Blob
-下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 這些範例示範如何將資料從 Teradata 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
+下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 這些範例示範如何將資料從 Teradata 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。
 
 此範例具有下列 Data Factory 實體：
 
@@ -300,10 +300,10 @@ ms.locfileid: "60610747"
 | Integer |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Date |DateTime |
+| Date |Datetime |
 | Time |TimeSpan |
 | 時區的時間 |String |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |

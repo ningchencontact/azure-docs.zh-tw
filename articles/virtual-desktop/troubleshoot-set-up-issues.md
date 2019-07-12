@@ -4,15 +4,15 @@ description: 如何疑難排解及解決租用戶和主應用程式集區的問�
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ec4e0ffd87c0ef73a551416d8a8cc672f095483
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523337"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786722"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
@@ -118,6 +118,17 @@ Windows 虛擬桌面 – 佈建的主應用程式集區範本也可以從 Azure 
 **原因 2：** 未解析的網域名稱。
 
 **2 的修正：** 請參閱 Vm 未加入網域的 「 網域名稱未解析 」 錯誤[工作階段主機 VM 設定](troubleshoot-vm-configuration.md)。
+
+
+### <a name="error-your-deployment-failedunauthorized"></a>Error:部署 failed...\Unauthorized
+
+```Error
+{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
+```
+
+**原因：** 您使用的訂用帳戶是一種類型，無法存取所需的功能，客戶嘗試部署的區域中。 例如，MSDN，免費或教育版訂用帳戶可以顯示這個錯誤。
+
+**修正：** 將您的訂用帳戶類型或區域變更為可存取所需的功能。
 
 ### <a name="error-vmextensionprovisioningerror"></a>Error:VMExtensionProvisioningError
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591536"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607289"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -37,7 +37,7 @@ ms.locfileid: "60591536"
 - 每部虛擬機器有兩個以上的資料磁碟。
 - S2D 會同步處理資料磁碟上的資料，並將已同步處理的儲存體當做儲存體集區使用。
 - 儲存體集區會向容錯移轉提供叢集共用磁碟區 (CSV)。
-- SQL Server FCI 群集角色为数据驱动器使用 CSV。
+- SQL Server FCI 叢集角色會針對資料硬碟使用 CSV。
 - 保留 SQL Server FCI IP 位址的 Azure Load Balancer。
 - 保留所有資源的 Azure 可用性設定組。
 
@@ -54,7 +54,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 使用 PAYG 授權時，在 Azure 虛擬機器上，SQL Server 的容錯移轉叢集執行個體 (FCI) 會產生所有 FCI 節點的費用，包括被動節點。 如需詳細資訊，請參閱 [SQL Server Enterprise 虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)。 
 
-至於有簽訂軟體保證 Enterprise 合約的客戶，每個作用中的節點有權使用一個免費的被動 FCI 節點。 若要利用 Azure 的這項優點，可使用 BYOL VM 映像，然後在 FCI 的主動和被動節點上使用相同的授權。 如需詳細資訊，請參閱 [Enterprise 合約](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)。
+至於有簽訂軟體保證 Enterprise 合約的客戶，每個作用中的節點有權使用一個免費的被動 FCI 節點。 若要利用 Azure 的這項優點，可使用 BYOL VM 映像，然後在 FCI 的主動和被動節點上使用相同的授權。 如需詳細資訊，請參閱 [Enterprise 合約](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)。
 
 若要比較 Azure 虛擬機器上 SQL Server 的 PAYG 和 BYOL 授權，請參閱[開始使用 SQL VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
 
@@ -74,7 +74,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - [Windows 叢集技術](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 容錯移轉叢集執行個體](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)。
 
-一个重要的差别在于，在 Azure IaaS VM 来宾故障转移群集上，我们建议每个服务器（群集节点）使用一个 NIC 和一个子网。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
+一個重要的差異是，在 Azure IaaS VM 客體容錯移轉叢集上，建議每個伺服器 （叢集節點） 和單一子網路的單一 NIC。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
 
 此外，您也應對下列技術有大概了解：
 
@@ -92,10 +92,10 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 - Azure 虛擬機器上的 Windows 網域。
 - 擁有在 Azure 虛擬機器中建立物件之權限的帳戶。
 - Azure 虛擬網路和子網路，且具有足夠 IP 位址空間以容納下列元件：
-   - 两台虚拟机。
+   - 兩部虛擬機器。
    - 容錯移轉叢集的 IP 位址。
    - 每個 FCI 上一個 IP 位址。
-- 在 Azure 网络中配置的、指向域控制器的 DNS。
+- 設定 Azure 網路上的 DNS，並指向網域控制站。
 
 備妥這些先決條件後，便可繼續建置您的容錯移轉叢集。 第一步是建立虛擬機器。
 
@@ -111,7 +111,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
    - 在 Azure 入口網站中，按一下 **+** 以開啟 Azure Marketplace。 搜尋 [可用性設定組]  。
    - 按一下 [可用性設定組]  。
-   - 按一下頁面底部的 [新增]  。
+   - 按一下 [建立]  。
    - 在 [建立可用性設定組]  刀鋒視窗中，設定下列值︰
       - **名稱**：可用性設定組的名稱。
       - 訂用帳戶  ：您的 Azure 訂用帳戶。
@@ -158,7 +158,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 1. Azure 建立虛擬機器後，請透過 RDP 連接至每部虛擬機器。
 
-   首次透過 RDP 連接至虛擬機器時，電腦會詢問您是否允許此電腦在網路上可供搜尋。 单击 **“是”** 。
+   首次透過 RDP 連接至虛擬機器時，電腦會詢問您是否允許此電腦在網路上可供搜尋。 按一下 [ **是**]。
 
 1. 若您正在使用其中一個 SQL Server 型虛擬機器映像，請移除 SQL Server 執行個體。
 
@@ -175,9 +175,9 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
    在每部虛擬機器上，開啟 Windows 防火牆上的下列連接埠。
 
-   | 目的 | TCP 端口 | 注意
+   | 用途 | TCP 連接埠 | 注意
    | ------ | ------ | ------
-   | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
+   | [SQL Server] | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  
 
 1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../disks-types.md)。
@@ -202,7 +202,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 下一步是透過 S2D 設定容錯移轉叢集。 在此步驟中，您將執行下列子步驟：
 
-1. 添加 Windows 故障转移群集功能
+1. 新增 Windows 容錯移轉叢集功能
 1. 驗證叢集
 1. 建立容錯移轉叢集
 1. 建立雲端見證
@@ -239,19 +239,19 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 1. 在 [伺服器管理員]  中，按一下 [工具]  ，然後按一下 [容錯移轉叢集管理員]  。
 1. 在 [容錯移轉叢集管理員]  中，按一下 [動作]  ，然後按一下 [驗證設定...]  。
-1. 单击“资源组名称”  的 Azure 数据工厂。
+1. 按一下 [下一步]  。
 1. 在 [選取伺服器或叢集] 中  ，輸入這兩部虛擬機器的名稱。
-1. 在 [測試選項]  中，選擇 [僅執行我選取的測試]  。 单击“下一步”  。
+1. 在 [測試選項]  中，選擇 [僅執行我選取的測試]  。 按一下 [下一步]  。
 1. 在 [測試選取範圍] 中  ，選取**儲存體**以外的所有測試。 請參閱下圖︰
 
    ![驗證測試](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. 单击“下一步”  。
+1. 按一下 [下一步]  。
 1. 在 [確認] 中，  ，按一下 [下一步]  。
 
 [驗證設定精靈]  會執行驗證測試。
 
-若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
+若要透過 PowerShell 驗證叢集，請在其中一部虛擬機器上，執行下列來自系統管理員 PowerShell 工作階段的指令碼。
 
    ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
@@ -259,12 +259,12 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 驗證叢集後，請建立容錯移轉叢集。
 
-### <a name="create-the-failover-cluster"></a>创建故障转移群集
+### <a name="create-the-failover-cluster"></a>建立容錯移轉叢集
 
 本指南會參考[建立容錯移轉叢集](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)。
 
 若要建立容錯移轉叢集，您需要：
-- 成为群集节点的虚拟机的名称。
+- 成為叢集節點的虛擬機器名稱。
 - 容錯移轉叢集的名稱
 - 容錯移轉叢集的 IP 位址。 您可以使用與叢集節點一樣，沒有在 Azure 虛擬網路和子網路上用過的 IP 位址。
 
@@ -322,11 +322,11 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 設定容錯移轉叢集與所有叢集元件 (包括儲存體) 後，您可以建立 SQL Server FCI。
 
-1. 使用 RDP 连接到第一个虚拟机。
+1. 透過 RDP 連接至第一部虛擬機器。
 
 1. 在**容錯移轉叢集管理員**中，請確認所有叢集核心資源皆位於第一部虛擬機器中。 如有必要，請將所有資源移至此虛擬機器。
 
-1. 找出安裝媒體。 若虛擬機器是使用其中一個 Azure Marketplace 映像，則媒體會位於 `C:\SQLServer_<version number>_Full`。 单击“设置”  。
+1. 找出安裝媒體。 若虛擬機器是使用其中一個 Azure Marketplace 映像，則媒體會位於 `C:\SQLServer_<version number>_Full`。 按一下 [設定]  。
 
 1. 在 [SQL Server 安裝中心]  中，按一下 [安裝]  。
 
@@ -361,7 +361,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 1. 按一下 [+ 新增]  。 在 Marketplace 內搜尋 [負載平衡器]  。 按一下 [負載平衡器]  。
 
-1. 按一下頁面底部的 [新增]  。
+1. 按一下 [建立]  。
 
 1. 使用下列項目設定負載平衡器：
 
@@ -491,7 +491,7 @@ Azure 虛擬機器支援 Windows Server 2019 上的 Microsoft 分散式交易協
 - 叢集 MSDTC 資源無法設定為使用共用儲存體。 若在 Windows Server 2016 上建立 MSDTC 資源，即使有共用儲存體存在，系統也不會顯示任何可用的共用儲存體。 Windows Server 2019 中已修正此問題。
 - 基本負載平衡器不會處理 RPC 連接埠。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 [透過遠端桌面 (Azure) 設定 S2D](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

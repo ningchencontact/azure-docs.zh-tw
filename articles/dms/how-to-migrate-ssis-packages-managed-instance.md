@@ -32,7 +32,7 @@ ms.locfileid: "67083180"
 > * 評估來源 SSIS 專案/套件。
 > * 將 SSIS 專案/套件遷移至 Azure。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成這些步驟，您需要：
 

@@ -213,6 +213,6 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 ## <a name="next-steps"></a>後續步驟
 [判斷資料保護需求](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -25,7 +25,7 @@ ms.locfileid: "65464634"
 > 同樣地，當您開啟連續資料匯出時，只會取得從該時刻起的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須是 IoT Central 應用程式中的系統管理員
 
@@ -99,7 +99,7 @@ ms.locfileid: "65464634"
 - 裝置：{container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - 裝置範本：{container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
-### <a name="measurements"></a>度量
+### <a name="measurements"></a>量測
 
 匯出的度量資料包含 IoT Central 在該時間期間從所有裝置收到的所有新訊息。 匯出之檔案所使用的格式與 [IoT 中樞訊息路由](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
 

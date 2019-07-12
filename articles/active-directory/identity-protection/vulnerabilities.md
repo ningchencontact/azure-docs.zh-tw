@@ -61,6 +61,6 @@ IT 人員多半不知道其組織中的所有雲端應用程式。 您應該不�
 
 如需詳細資訊，請參閱 [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

@@ -5,38 +5,38 @@ services: functions
 author: cgillum
 manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7101519aa4a87995dac3a7f11046eed84a2c09b6
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596071"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812769"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 預覽 (Azure Functions)
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 和 [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。 如果您已經熟悉如何使用 Durable Functions，請參閱[概觀文件](durable-functions-overview.md)。
 
-Durable Functions 是 Azure Functions 的 GA （正式推出） 功能，但也包含數個目前處於公開預覽狀態的子功能。 本文章說明新發行的預覽功能，並進入詳細資料，在它們的運作方式，以及如何開始使用它們。
+Durable Functions 1.x 是 Azure Functions 的 GA （正式推出） 功能，但也包含數個目前處於公開預覽狀態的子功能。 本文章說明新發行的預覽功能，並進入詳細資料，在它們的運作方式，以及如何開始使用它們。
 
 > [!NOTE]
-> 這些預覽功能是 Durable Functions 2.0 版本中，也就是目前的一部分**alpha 品質版本**具有幾項重大變更。 與版本的形式在 nuget.org 上可以找到 Azure Functions 長期延伸模組套件建置**2.0.0-alpha**。 這些組建並不適合任何生產工作負載，及後續版本可能包含其他的重大變更。
+> 這些預覽功能是 Durable Functions 2.0 版本中，也就是目前的一部分**預覽品質版本**具有幾項重大變更。 與版本的形式在 nuget.org 上可以找到 Azure Functions 長期延伸模組套件建置**2.0.0-betaX**。 這些組建不適用於生產工作負載，及後續版本可能包含其他的重大變更。
 
 ## <a name="breaking-changes"></a>重大變更
 
 在 Durable Functions 2.0 導入幾項重大變更。 現有的應用程式不應該為無須變更程式碼與 Durable Functions 2.0 相容。 此區段會列出的一些變更：
 
-### <a name="dropping-net-framework-support"></a>卸除之.NET Framework 支援
-
-已卸除 Durable Functions 2.0 的.NET Framework，因此 Functions 1.0） 的支援。 主要的原因是要啟用非 Windows 參與者，輕鬆地建置及測試它們從 macOS 和 Linux 平台進行 Durable Functions 的變更。 次要的原因是為了協助鼓勵開發人員將移至最新版本的 Azure Functions 執行階段。
-
 ### <a name="hostjson-schema"></a>Host.json 結構描述
 
-下列程式碼片段說明 host.json 的新結構描述。 要注意的主要變更是新`"storageProvider"`區段中，而`"azureStorage"`區段底下。 這項變更為了支援[替代儲存體提供者](durable-functions-preview.md#alternate-storage-providers)。
+下列程式碼片段說明 host.json 的新結構描述。 要注意的主要變更是新的各小節：
+
+* `"storageProvider"` (和`"azureStorage"`子區段) 的儲存體專屬的組態
+* `"tracking"` 追蹤和記錄組態
+* `"notifications"` (和`"eventGrid"`子區段) 的事件格線通知設定
 
 ```json
 {
@@ -56,19 +56,25 @@ Durable Functions 是 Azure Functions 的 GA （正式推出） 功能，但也�
           "maxQueuePollingInterval": <hh:mm:ss?>
         }
       },
+      "tracking": {
+        "traceInputsAndOutputs": <bool?>,
+        "traceReplayEvents": <bool?>,
+      },
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": <string?>,
+          "keySettingName": <string?>,
+          "publishRetryCount": <string?>,
+          "publishRetryInterval": <hh:mm:ss?>,
+          "publishRetryHttpStatus": <int[]?>,
+          "publishEventTypes": <string[]?>,
+        }
+      },
       "maxConcurrentActivityFunctions": <int?>,
       "maxConcurrentOrchestratorFunctions": <int?>,
-      "traceInputAndOutputs": <bool?>,
-      "eventGridTopicEndpoint": <string?>,
-      "eventGridKeySettingName": <string?>,
-      "eventGridPublishRetryCount": <string?>,
-      "eventGridPublishRetryInterval": <hh:mm:ss?>,
-      "eventGridPublishRetryHttpStatus": <int[]?>,
-      "eventgridPublishEventTypes": <string[]?>,
-      "customLifeCycleNotificationHelperType"
       "extendedSessionsEnabled": <bool?>,
       "extendedSessionIdleTimeoutInSeconds": <int?>,
-      "logReplayEvents": <bool?>
+      "customLifeCycleNotificationHelperType": <string?>
   }
 }
 ```
@@ -93,27 +99,27 @@ Durable Functions 所支援的各種 「 內容 」 物件具有適合在單元�
 
 實體函式定義作業讀取及更新小片段狀態，稱為*長期實體*。 協調器函式，例如實體函式函式是特殊的觸發程序型別*實體的觸發程序*。 不同協調器函式中，於實體函式沒有任何特定的程式碼條件約束。 實體函式也會管理狀態明確而不是以隱含方式代表透過控制流程的狀態。
 
-下列程式碼是簡單實體函式定義的範例*計數器*實體。 此函式定義三項作業， `add`， `subtract`，並`reset`，每個的整數值，它更新`currentValue`。
+### <a name="net-programing-models"></a>.NET 程式設計模型
+
+有兩種選擇性的程式設計模型撰寫長期的實體。 下列程式碼是簡單的範例*計數器*實作為標準函式的實體。 此函式會定義三個*operations*， `add`， `reset`，和`get`，每個狀態整數，其操作的`currentValue`。
 
 ```csharp
 [FunctionName("Counter")]
-public static async Task Counter(
-    [EntityTrigger] IDurableEntityContext ctx)
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
@@ -121,16 +127,38 @@ public static async Task Counter(
 }
 ```
 
+此模型最適合用於簡單的實體實作或有一組動態作業的實作。 不過，還有類別型程式設計模型可用於實體都是靜態的但有更複雜的實作。 下列範例是相等的實作`Counter`使用.NET 類別和方法的實體。
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+由程式撰寫模型類別為基礎的模型大致[Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/)。 在此模型中，實體類型定義為.NET 類別。 每個類別的方法是可供外部用戶端叫用作業。 不同於 Orleans，不過，.NET 介面是選擇性的。 先前*計數器*範例未使用的介面，但仍會叫用它透過其他函式，或是透過 HTTP API 呼叫。
+
 實體*執行個體*唯一的識別碼，透過存取*實體識別碼*。 實體識別碼是只需一組字串可唯一識別實體執行個體。 其中包括：
 
-1. **實體名稱**： 識別之實體類型 （例如，「 計數器 」） 的名稱
-2. **實體索引鍵**： 字串可唯一識別相同的名稱 (例如，GUID) 的所有其他實體之間的實體
+* **實體名稱**： 識別之實體類型 （例如，「 計數器 」） 的名稱。
+* **實體索引鍵**： 字串可唯一識別相同的名稱 (例如，GUID) 的所有其他實體之間的實體。
 
 例如，*計數器*實體函式可能會用於將保留在製作線上遊戲的分數。 遊戲的每個執行個體必須是唯一的實體識別碼、 這類`@Counter@Game1`， `@Counter@Game2`，依此類推。
 
 ### <a name="comparison-with-virtual-actors"></a>比較虛擬動作項目
 
-持久的實體設計經常會受到[動作項目模型](https://en.wikipedia.org/wiki/Actor_model)。 如果您已熟悉使用動作項目，持久的實體的基本概念應該很熟悉。 特別是，持久的實體是類似[虛擬動作項目](https://research.microsoft.com/en-us/projects/orleans/)在許多方面：
+持久的實體設計經常會受到[動作項目模型](https://en.wikipedia.org/wiki/Actor_model)。 如果您已熟悉使用動作項目，持久的實體的基本概念應該很熟悉。 特別是，持久的實體是類似[虛擬動作項目](https://research.microsoft.com/projects/orleans/)在許多方面：
 
 * 持久的實體會透過定址*實體識別碼*。
 * 持久的實體作業依序執行，一次一個，為了避免競爭情形。
@@ -139,23 +167,22 @@ public static async Task Counter(
 
 有一些重要的差異，不過，值得注意的是：
 
-* 持久的實體會模型化為純虛擬函式。 這項設計是從代表動作項目使用類別、 屬性和方法的特定語言的支援大部分物件導向的架構不同。
 * 持久的實體排列優先順序*持久性*透過*延遲*，因此可能不適合有嚴格的延遲需求的應用程式。
 * 實體之間傳送的訊息會傳遞可靠且順序。
 * 持久的實體可以永久性協調流程搭配使用，而且可做為分散式鎖定，本文稍後所述。
 * 在實體中的要求/回應模式是限制為協調流程。 實體對實體的通訊，被允許只有單向訊息 （也稱為 「 發出訊號 」），原始的動作項目模型。 此行為可避免分散式的死結。
 
-### <a name="durable-entity-apis"></a>持久的實體 Api
+### <a name="durable-entity-net-apis"></a>長期實體.NET Api
 
 實體支援牽涉到多個 Api。 第一，沒有新的 API 來定義實體的函式，如上所示，它會指定在實體上叫用作業時應該發生的事情。 此外，用戶端和協調流程的現有 Api 已更新使用與實體互動的新功能。
 
-### <a name="implementing-entity-operations"></a>實作實體作業
+#### <a name="implementing-entity-operations"></a>實作實體作業
 
 實體上的作業執行可以在內容物件上呼叫這些成員 (`IDurableEntityContext`在.NET 中):
 
 * **OperationName**： 取得作業的名稱。
-* **GetInput\<T >** ： 取得作業的輸入。
-* **GetState\<T >** ： 取得實體的目前狀態。
+* **GetInput\<Converter<tinput >** ： 取得作業的輸入。
+* **GetState\<TState >** ： 取得實體的目前狀態。
 * **SetState**： 更新實體的狀態。
 * **SignalEntity**： 傳送單向訊息至實體。
 * **自助**： 取得實體的識別碼。
@@ -168,24 +195,90 @@ public static async Task Counter(
 * 作業可以呼叫外部的 I/O，使用同步或非同步 Api （我們建議使用只有非同步的）。
 * 作業可能不具決定性。 比方說，它會安全地呼叫`DateTime.UtcNow`，`Guid.NewGuid()`或`new Random()`。
 
-### <a name="accessing-entities-from-clients"></a>從用戶端存取實體
+#### <a name="accessing-entities-from-clients"></a>從用戶端存取實體
 
 持久的實體，可以從一般的函式，透過叫用`orchestrationClient`繫結 (`IDurableOrchestrationClient`在.NET 中)。 支援下列方法：
 
 * **ReadEntityStateAsync\<T >** ： 讀取實體的狀態。
 * **SignalEntityAsync**： 將單向訊息傳送至實體，並等候它要加入佇列。
+* **SignalEntityAsync\<T >** ： 相同`SignalEntityAsync`會使用產生的 proxy 物件的型別，但`T`。
 
-這些方法會設定效能優先順序高於一致性：`ReadEntityStateAsync`可以過時的值，傳回和`SignalEntityAsync`可以傳回之前完成此作業。 相反地，（如下所述），從協調流程呼叫的實體是強式一致的。
+先前`SignalEntityAsync`呼叫都需要指定名稱之實體作業`string`之作業的裝載和`object`。 下列範例程式碼是此模式的範例：
 
-### <a name="accessing-entities-from-orchestrations"></a>從協調流程中存取實體
+```csharp
+EntityId id = // ...
+object amount = 5;
+context.SignalEntityAsync(id, "Add", amount);
+```
 
-協調流程可以存取使用的內容物件的實體。 他們可以選擇之間單向通訊 （射後不理） 和雙向通訊 （要求和回應）。 個別的方法
+它也可產生類型安全存取的 proxy 物件。 若要產生的型別安全 proxy，實體類型必須實作的介面。 例如，假設`Counter`先前所述的實體實作`ICounter`介面，定義如下：
+
+```csharp
+public interface ICounter
+{
+    void Add(int amount);
+    void Reset();
+    int Get();
+}
+
+public class Counter : ICounter
+{
+    // ...
+}
+```
+
+接著可以使用用戶端程式碼`SignalEntityAsync<T>`並指定`ICounter`所產生的型別安全 proxy 型別參數的介面。 這種使用型別安全 proxy 是以下列程式碼範例所示：
+
+```csharp
+[FunctionName("UserDeleteAvailable")]
+public static async Task AddValueClient(
+    [QueueTrigger("my-queue")] string message,
+    [OrchestrationClient] IDurableOrchestrationClient client)
+{
+    int amount = int.Parse(message);
+    var target = new EntityId(nameof(Counter), "MyCounter");
+    await client.SignalEntityAsync<ICounter>(target, proxy => proxy.Add(amount));
+}
+```
+
+在上述範例中，`proxy`參數是動態產生的執行個體的`ICounter`，這在內部轉換來呼叫`Add`（不具類型） 的對等呼叫`SignalEntityAsync`。
+
+> [!NOTE]
+> 請務必注意`ReadEntityStateAsync`並`SignalEntityAsync`方法`IDurableOrchestrationClient`優先順序高於一致性的效能。 `ReadEntityStateAsync` 可以傳回過時的值，和`SignalEntityAsync`可以傳回之前完成此作業。
+
+#### <a name="accessing-entities-from-orchestrations"></a>從協調流程中存取實體
+
+協調流程可以存取使用的實體`IDurableOrchestrationContext`物件。 他們可以選擇之間單向通訊 （射後不理） 和雙向通訊 （要求和回應）。 個別的方法如下：
 
 * **SignalEntity**： 傳送單向訊息至實體。
 * **CallEntityAsync**： 將訊息傳送至實體，並等候回應，指出作業已完成。
 * **CallEntityAsync\<T >** ： 將訊息傳送至實體，並等候回應，包含結果的型別 t。
 
 使用時的雙向通訊，作業執行期間擲回任何例外狀況也會傳輸回到呼叫的協調流程，並重新擲回。 相反地，當使用單一事件-fire-and-forget，例外狀況是未觀察到。
+
+型別安全存取，協調流程函式可以產生介面為基礎的 proxy。 `CreateEntityProxy`擴充方法可以用於此目的：
+
+```csharp
+public interface IAsyncCounter
+{
+    Task AddAsync(int amount);
+    Task ResetAsync();
+    Task<int> GetAsync();
+}
+
+[FunctionName("CounterOrchestration)]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    // ...
+    IAsyncCounter proxy = context.CreateEntityProxy<IAsyncCounter>("MyCounter");
+    await proxy.AddAsync(5);
+    int newValue = await proxy.GetAsync();
+    // ...
+}
+```
+
+在上述範例中，"counter"實體已存在於它會實作假設`IAsyncCounter`介面。 協調流程無法再使用`IAsyncCounter`類型定義來產生 proxy 型別，以同步方式與實體互動。
 
 ### <a name="locking-entities-from-orchestrations"></a>鎖定的實體，從協調流程
 
@@ -282,4 +375,4 @@ public static async Task RunOrchestrator(
 `connectionStringName`必須參考應用程式設定或環境變數的名稱。 該應用程式設定或環境變數應該包含 Redis 連接字串值的形式*伺服器： 連接埠*。 比方說，`localhost:6379`用於連接到本機的 Redis 叢集。
 
 > [!NOTE]
-> Redis 提供者目前為實驗性，而且僅支援單一節點上執行的函式應用程式。
+> Redis 提供者目前為實驗性，而且僅支援單一節點上執行的函式應用程式。 不保證，Redis 提供者會不斷正式運作，以及可能會在未來版本中移除。

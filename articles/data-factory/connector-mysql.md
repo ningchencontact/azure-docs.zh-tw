@@ -20,7 +20,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "61370697"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 複製資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-onprem-mysql-connector.md)
 > * [目前的版本](connector-mysql.md)
 
@@ -32,13 +32,13 @@ ms.locfileid: "61370697"
 
 具體而言，這個 MySQL 連接器支援 MySQL **5.6 和 5.7 版**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如果您的 MySQL 資料庫無法公開存取，則必須設定自我裝載 Integration Runtime。 若要了解自我裝載整合執行階段，請參閱[自我裝載整合執行階段](create-self-hosted-integration-runtime.md)一文。 Integration Runtime 從 3.7 版開始提供內建的 MySQL 驅動程式，因此您不需要手動安裝任何驅動程式。
 
 針對 3.7 版以前的自我裝載 IR 版本，您必須在 Integration Runtime 電腦上安裝 [MySQL 連接器/適用於 Microsoft Windows 的 Net](https://dev.mysql.com/downloads/connector/net/)，版本為 6.6.5 與 6.10.7 之間的版本。 這個 32 位元驅動程式可與 64 位元 IR 相容。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -56,12 +56,12 @@ ms.locfileid: "61370697"
 
 一般的連接字串為 `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`。 您可以根據您的案例設定更多屬性：
 
-| 屬性 | 描述 | 選項 | 必要項 |
+| 屬性 | 描述 | 選項。 | 必要項 |
 |:--- |:--- |:--- |:--- |
 | SSLMode | 此選項指定驅動程式在連接到 MySQL 時，是否會使用 SSL 加密及驗證。 例如 `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(預設)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | 否 |
 | UseSystemTrustStore | 此選項指定是否使用來自系統信任存放區或來自指定 PEM 檔案的 CA 憑證。 例如 `UseSystemTrustStore=<0/1>;`| 啟用 (1) / 停用 (0) **(預設)** | 否 |
 
-**範例：**
+**範例:**
 
 ```json
 {
@@ -178,7 +178,7 @@ ms.locfileid: "61370697"
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
-**範例：**
+**範例:**
 
 ```json
 "activities":[

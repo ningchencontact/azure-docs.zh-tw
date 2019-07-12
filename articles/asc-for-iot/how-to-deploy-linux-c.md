@@ -2,24 +2,25 @@
 title: 安裝和部署 Azure 資訊安全中心的 IoT 代理程式預覽的 Linux C 代理程式的指南 |Microsoft Docs
 description: 了解如何在 32 位元和 64 位元的 Linux 上安裝 Azure 資訊安全中心，IoT 代理程式。
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 3ccf2aec-106a-4d2c-8079-5f3e8f2afdcb
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 49ebb5932e1e918330625fd0df98811873dd5cd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f5b98060486e6c55bb1702386cd5438f558254b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200646"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616853"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>部署 IoT C 為基礎的安全性代理程式，適用於 Linux 的 Azure 資訊安全中心
 
@@ -36,7 +37,7 @@ ms.locfileid: "65200646"
 > * 解除安裝代理程式
 > * 疑難排解 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 如需其他平台和代理程式版本，請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
 

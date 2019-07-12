@@ -4,7 +4,7 @@ description: 了解如何針對在 Azure 上的 HPC 設定 MPI 的設定。
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441639"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797502"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>設定 Message Passing Interface for HPC
 
@@ -126,7 +126,7 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 
 ## <a name="osu-mpi-benchmarks"></a>OSU MPI 基準測試
 
-[下載 OSU MPI 基準測試][ http://mvapich.cse.ohio-state.edu/benchmarks/ ](http://mvapich.cse.ohio-state.edu/benchmarks/)和解壓縮。
+[下載 OSU MPI 基準測試](http://mvapich.cse.ohio-state.edu/benchmarks/)和解壓縮。
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ MPI 基準測試受到`mpi/`資料夾。
 
 ## <a name="discover-partition-keys"></a>探索資料分割索引鍵
 
-探索資料分割索引鍵 （p-索引鍵） 與其他 Vm 通訊。
+探索資料分割索引鍵 （p-索引鍵） 與相同的租用戶 （可用性設定組或 VM 擴展集） 內的其他 Vm 通訊。
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 使用預設 (0x7fff) 資料分割索引鍵以外的磁碟分割。 UCX 需要 p 鍵來清除 MSB。 例如，設定 UCX_IB_PKEY 0x800b 的 0x000b 為。
 
+也請注意，只要租用戶 （AVSet 或 VMSS） 存在，PKEYs 維持不變。 即使節點位於 新增/刪除，也是如此。 新的租用戶取得不同 PKEYs。
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>設定 mpi 的使用者限制
 
 設定 MPI 的使用者限制。
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

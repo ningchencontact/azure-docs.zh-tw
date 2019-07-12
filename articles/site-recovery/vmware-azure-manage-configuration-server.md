@@ -183,7 +183,7 @@ ms.locfileid: "66171730"
 
 ### <a name="parameters"></a>參數
 
-|參數名稱| 類型 | 描述| 值|
+|參數名稱| type | 描述| 值|
 |-|-|-|-|
 | /ServerMode|必要項|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
 |/InstallLocation|必要項|安裝元件的資料夾| 電腦上的任何資料夾|
@@ -193,12 +193,12 @@ ms.locfileid: "66171730"
 |/PSIP|必要項|要用於複寫資料傳輸的 NIC IP 位址| 任何有效的 IP 位址|
 |/CSIP|必要項|接聽組態伺服器的 NIC IP 位址| 任何有效的 IP 位址|
 |/PassphraseFilePath|必要項|複雜密碼檔案的位置完整路徑|有效的檔案路徑|
-|/BypassProxy|選用|指定組態伺服器不使用 Proxy 連接至 Azure|若要這樣做，請從 Venu 取得此值|
-|/ProxySettingsFilePath|選用|Proxy 設定 (預設的 Proxy 需要驗證或自訂的 Proxy)|此檔案應該具備如下所指定的格式|
-|DataTransferSecurePort|選用|要用於複寫資料的 PSIP 上的連接埠號碼| 有效的連接埠號碼 (預設值是 9433)|
-|/SkipSpaceCheck|選用|略過快取磁碟的空間檢查| |
+|/BypassProxy|選擇性|指定組態伺服器不使用 Proxy 連接至 Azure|若要這樣做，請從 Venu 取得此值|
+|/ProxySettingsFilePath|選擇性|Proxy 設定 (預設的 Proxy 需要驗證或自訂的 Proxy)|此檔案應該具備如下所指定的格式|
+|DataTransferSecurePort|選擇性|要用於複寫資料的 PSIP 上的連接埠號碼| 有效的連接埠號碼 (預設值是 9433)|
+|/SkipSpaceCheck|選擇性|略過快取磁碟的空間檢查| |
 |/AcceptThirdpartyEULA|必要項|旗標表示接受協力廠商使用者授權合約| |
-|/ShowThirdpartyEULA|選用|顯示協力廠商使用者授權合約。 如果提供作為輸入，則會忽略所有其他參數| |
+|/ShowThirdpartyEULA|選擇性|顯示協力廠商使用者授權合約。 如果提供作為輸入，則會忽略所有其他參數| |
 
 
 

@@ -18,7 +18,7 @@ ms.locfileid: "66499080"
 
  [Tableau](https://www.tableau.com/)是商業智慧的視覺效果分析平台。 若要從連線到 Azure 資料總管 Tableau 並匯入資料，從範例的叢集中，使用 SQL Server 開放式資料庫連接 (ODBC) 驅動程式。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您需要下列項目完成這篇文章：
 

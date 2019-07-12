@@ -24,7 +24,7 @@ ms.locfileid: "66511684"
 使用 b2clogin.com 可提供額外的優點，例如：
 
 - Microsoft 服務在 Cookie 標頭中所耗用的空間會縮小。
-- 您的 URL 不再包含對 Microsoft 的參考。 例如： `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`。
+- 您的 URL 不再包含對 Microsoft 的參考。 例如： `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp` 。
 
 >[!NOTE]
 > 您可以使用租用戶名稱和租用戶的 GUID，如下所示：

@@ -63,7 +63,7 @@ Azure Logic Apps 提供[預先建置的邏輯應用程式的 Azure Resource Mana
 
 1. 下載最新[邏輯應用程式範本建立者](https://github.com/jeffhollan/LogicAppTemplateCreator/releases)。
 
-1. 將此資料夾解壓縮至您的 PowerShell 模組資料夾 (通常是 `%UserProfile%\Documents\WindowsPowerShell\Modules`)。
+1. 將解壓縮的資料夾，在 PowerShell 模組資料夾中，通常是`%UserProfile%\Documents\WindowsPowerShell\Modules`。
 
 ### <a name="generate-logic-app-template---powershell"></a>產生邏輯應用程式範本-PowerShell
 
@@ -138,7 +138,7 @@ Azure Logic Apps 提供[預先建置的邏輯應用程式的 Azure Resource Mana
 
 ### <a name="reference-dependent-resources"></a>參考相依的資源
 
-當您想要邏輯應用程式參考相依的資源時，您可以在邏輯應用程式部署範本中使用 [Azure Resource Manager 範本函式](../azure-resource-manager/resource-group-template-functions.md)。 例如，假設您想要邏輯應用程式來參考 Azure 函式或整合帳戶與合作夥伴、 協議，和您想要與邏輯應用程式一起部署的其他成品的定義。
+如果您的邏輯應用程式需要相依資源的參考，您可以使用[Azure Resource Manager 範本函式](../azure-resource-manager/resource-group-template-functions.md)邏輯應用程式的部署範本中。 例如，假設您想要邏輯應用程式來參考 Azure 函式或整合帳戶與合作夥伴、 協議，和您想要與邏輯應用程式一起部署的其他成品的定義。
 您可以使用 Resource Manager 範本函式，例如`parameters`， `variables`， `resourceId`， `concat`，依此類推。
 
 以下是範例顯示如何藉由定義這些參數來取代 Azure 函式的資源識別碼：
@@ -170,13 +170,13 @@ Azure Logic Apps 提供[預先建置的邏輯應用程式的 Azure Resource Mana
 
 ## <a name="add-logic-app-to-resource-group-project"></a>將邏輯應用程式新增至資源群組專案
 
-如果您有現有的資源群組專案，可以在 [JSON 大綱] 視窗中將邏輯應用程式新增至該專案。 您也可以您先前建立的應用程式共同新增另一個邏輯應用程式。
+如果您有現有的 Azure 資源群組專案時，可以透過 [JSON 大綱] 視窗將邏輯應用程式新增至該專案。 您也可以您先前建立的應用程式共同新增另一個邏輯應用程式。
 
 1. 在方案總管中開啟 `<template>.json` 檔案。
 
 2. 從**檢視**功能表上，選取**其他 Windows** > **JSON 大綱**。
 
-3. 若要將資源新增至範本檔案，按一下 [JSON 大綱] 視窗頂端的 [新增資源]  。 或在 [JSON 大綱] 視窗中，以滑鼠右鍵按一下 [資源]  ，然後選取 [新增資源]  。
+3. 將資源新增至範本檔案中，選擇**加入資源**頂端的 [JSON 大綱] 視窗。 或在 [JSON 大綱] 視窗中，以滑鼠右鍵按一下 [資源]  ，然後選取 [新增資源]  。
 
    ![[JSON 大綱] 視窗](./media/logic-apps-create-deploy-template/jsonoutline.png)
 
@@ -191,4 +191,4 @@ Azure Logic Apps 提供[預先建置的邏輯應用程式的 Azure Resource Mana
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> 部署邏輯應用程式範本
+> [部署邏輯應用程式範本](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)

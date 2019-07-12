@@ -4,7 +4,7 @@ description: 列出 Azure 中可用的不同 Linux 虛擬機器記憶體最佳�
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 keywords: VM 隔離,隔離的 VM,隔離,隔離的
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/16/2019
 ms.author: jonbeck
-ms.openlocfilehash: 3201183bbd012340575ee2c117b4b2083ceea711
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdcfe2f78177dba7810c668d280f4f3f5127deb7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832154"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708831"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>記憶體最佳化的虛擬機器大小
 

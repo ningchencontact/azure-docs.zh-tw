@@ -64,7 +64,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 ### <a name="site-recovery-support"></a>Site Recovery 支援
 由於 Site Recovery 複寫無法以應用程式驗證，下列建議應該適用於下列案例。
 
-| source    |至次要網站    |至 Azure
+| Source    |至次要網站    |至 Azure
 |---------|---------|---------|
 |Azure| -|是|
 |Hyper-V|   是 |是

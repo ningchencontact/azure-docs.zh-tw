@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 821143d39f8a4c06501ee38ef598a9d06d267d72
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273109"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807200"
 ---
 # <a name="authentication-flows"></a>驗證流程
 
@@ -166,7 +166,7 @@ IWA 支援同盟的使用者，這表示使用者在 Active Directory 中建立�
 
 IWA 不會略過多重要素驗證。 如果已設定多重要素驗證，IWA 可能會失敗，是否需要 multi-factor authentication 挑戰。 多重要素驗證需要使用者互動。
 
-您未控制當身分識別提供者要求執行的雙因素驗證。 租用戶系統管理員會執行。 一般而言，雙因素驗證是必要，當您登入來自不同國家/地區，當您在不透過 VPN 連線到公司網路，有時甚至是當您透過 VPN 連線。 Azure AD 會使用 AI，持續了解是否需要雙因素驗證。 如果 IWA 失敗，您應該改為使用使用者提示 (https://aka.ms/msal-net-interactive) 。
+您未控制當身分識別提供者要求執行的雙因素驗證。 租用戶系統管理員會執行。 一般而言，雙因素驗證是必要，當您登入來自不同國家/地區，當您在不透過 VPN 連線到公司網路，有時甚至是當您透過 VPN 連線。 Azure AD 會使用 AI，持續了解是否需要雙因素驗證。 如果 IWA 失敗，您應該會切換回 [互動式使用者提示] (#interactive)。
 
 授權單位時傳入建構公用用戶端應用程式必須是下列其中一項：
 - 租用戶 (的表單`https://login.microsoftonline.com/{tenant}/`其中`tenant`是任一個 guid，代表租用戶識別碼或租用戶相關聯的網域)。

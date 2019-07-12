@@ -26,7 +26,7 @@ ms.locfileid: "66244705"
 
 針對與整合帳戶和成品 (例如對應) 的限制，請參閱 [Azure Logic Apps 的限制與設定資訊](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 

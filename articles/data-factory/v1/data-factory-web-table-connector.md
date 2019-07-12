@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b84e49bac35ef8fc9a6c8c7ca90bfd6048dc1c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61250467"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839600"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 Web 資料表的資料
-> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-web-table-connector.md)
 > * [第 2 版 (目前的版本)](../connector-web-table.md)
 
@@ -35,7 +35,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 > [!IMPORTANT]
 > 此 Web 連接器目前只支援從 HTML 網頁擷取資料表內容。 若要從 HTTP/s 端點擷取資料，請改用 [HTTP 連接器](data-factory-http-connector.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用此 Web 資料表連接器，您需要設定自我裝載 Integration Runtime (也稱為 Data Management Gateway)，並在接收連結服務中設定 `gatewayName` 屬性。 例如，若要從 Web 資料表複製至 Azure Blob 儲存體，請設定 Azure 儲存體連結的服務，如下所示：
 
@@ -52,11 +52,11 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 }
 ```
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。 
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -74,7 +74,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**Web** |是 |
-| Url |Web 來源的 URL |是 |
+| url |Web 來源的 URL |是 |
 | authenticationType |匿名。 |是 |
 
 ### <a name="using-anonymous-authentication"></a>使用匿名驗證
@@ -102,10 +102,10 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type |資料集的類型。 必須設定為 **WebTable** |是 |
-| path |包含資料表之資源的相對 URL。 |沒有。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| path |包含資料表之資源的相對 URL。 |資料分割 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
-**範例：**
+**範例:**
 
 ```json
 {

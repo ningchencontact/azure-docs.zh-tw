@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235092"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626392"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 
@@ -61,13 +61,13 @@ DSVM 中包含下列工具：
 
 DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包含 R、Python、SQL 與 C#。 Visual Studio 提供容易使用的整合式開發環境 (IDE) 來開發和測試您的程式碼。 Azure SDK 包含在 VM 中，以便您使用 Microsoft 雲端平台上的各種服務來建置應用程式。
 
-這個資料科學 VM 映像沒有任何軟體費用。 您只需支付 Azure 使用費用。 費用取決於您佈建的虛擬機器大小。 計算費用的詳細資訊位於[資料科學虛擬機器](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice)頁面的 [定價詳細資料]  一節中。
+這個資料科學 VM 映像沒有任何軟體費用。 您只需支付 Azure 使用費用。 費用取決於您佈建的虛擬機器大小。 計算費用的詳細資訊位於[資料科學虛擬機器](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)頁面的 [定價詳細資料]  一節中。
 
 ### <a name="other-dsvm-versions"></a>其他 DSVM 版本
 
 * [Ubuntu](dsvm-ubuntu-intro.md) 映像。 其中有許多類似 DSVM 的工具，以及一些其他的深度學習架構。
 * [Linux CentOS](linux-dsvm-intro.md) 映像。
-* 資料科學虛擬機器的 [Windows Server 2012 版本](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)。 有一些工具僅適用於 Windows Server 2016 版。 除此之外，本文也適用於 Windows Server 2012 版本。
+* 資料科學虛擬機器的 [Windows Server 2012 版本](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows)。 有一些工具僅適用於 Windows Server 2016 版。 除此之外，本文也適用於 Windows Server 2012 版本。
 
 ## <a name="prerequisite"></a>必要條件
 

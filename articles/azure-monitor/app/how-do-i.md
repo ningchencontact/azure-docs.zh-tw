@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902026"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795518"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -137,16 +137,25 @@ ms.locfileid: "60902026"
 ## <a name="disable-telemetry"></a>停用遙測
 若要從伺服器 **動態停止和開始** 收集及傳輸遙測資料：
 
-```
+### <a name="aspnet-classic-applications"></a>ASP.NET 傳統應用程式
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>其他應用程式
+不建議使用`TelemetryConfiguration.Active`主控台或 ASP.NET Core 應用程式上的單一物件。
+如果您建立`TelemetryConfiguration`執行個體單獨設定`DisableTelemetry`至`true`。
 
+您可以針對 ASP.NET Core 應用程式存取`TelemetryConfiguration`執行個體[ASP.NET Core 的相依性插入](/aspnet/core/fundamentals/dependency-injection/)。 請參閱 詳細資料請參閱[ASP.NET Core 應用程式的 application Insights](../../azure-monitor/app/asp-net-core.md)文章。
 
-若要 **停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md)中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+## <a name="disable-selected-standard-collectors"></a>停用選取的標準收集器
+您可以停用 （例如，效能計數器、 HTTP 要求或相依性） 的標準收集器
+
+* **ASP.NET 應用程式**-刪除或標記為註解中的相關行[ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core 應用程式**-請依照下列中的遙測模組設定選項[ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>檢視系統效能計數器
 您可以在計量總管中顯示的計量資訊是一組系統效能計數器。 有一個預先定義且標題為 **伺服器** 的刀鋒視窗會顯示它們其中幾個。

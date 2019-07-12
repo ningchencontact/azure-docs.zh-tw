@@ -4,7 +4,7 @@ description: 了解如何在 Azure 中使用檔案共用於 Windows 容錯移轉
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936149"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709064"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -216,7 +216,7 @@ Windows Server 容錯移轉叢集是 Windows 中高可用性 SAP ASCS/SCS 安裝
 ## <a name="prerequisites"></a>必要條件
 在開始本文所述的工作之前，請檢閱此文章：
 
-* [SAP NetWeaver 的 Azure 虛擬機器高可用性架構和案例][sap-high-availability-architecture-scenarios]
+* [SAP NetWeaver 的 azure 的虛擬機器高可用性架構和案例][sap-high-availability-architecture-scenarios]
 
 > [!IMPORTANT]
 > 針對 SAP NetWeaver 7.40 (和更新版本)，包含 SAP 核心 7.49 (和更新版本)，支援使用檔案共用進行 SAP ASCS/SCS 執行個體叢集處理。
@@ -310,12 +310,12 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 * 您必須使用 Azure 進階磁碟。
 * 建議您使用 Azure 受控磁碟。
 * 建議您使用復原檔案系統 (ReFS) 格式化磁碟區。
-    * 如需詳細資訊，請參閱 [SAP 附註 1869038 - ReFs 檔案系統的 SAP 支援][1869038]以及＜在儲存空間直接存取中規劃磁碟區＞一文的[選擇檔案系統][planning-volumes-s2d-choosing-filesystem]章節。
-    * 請確定您有安裝 [Microsoft KB4025334 累積更新][kb4025334]。
+    * 如需詳細資訊，請參閱 < [SAP 附註 1869038-ReFs 檔案系統的 SAP 支援][1869038]and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem]文章規劃磁碟區的儲存空間直接存取的章節。
+    * 要確定您已安裝[Microsoft KB4025334 累積更新][kb4025334]。
 * 您可以使用 DS 系列或 DSv2 系列 Azure VM 大小。
 * 若要讓 VM 之間具備良好的網路效能，供儲存空間直接存取磁碟同步之用，請使用至少具有「高」網路頻寬的 VM 類型。
-    如需詳細資訊，請參閱 [DSv2 系列][dv2-series]和 [DS 系列][ds-series]規格。
-* 建議您在儲存體集區中保留一些未配置的容量。 在儲存體集區中保留一些未配置的容量，可在磁碟機故障時，讓磁碟區空間「就地」修復。 這可改善資料安全性和效能。  如需詳細資訊，請參閱[選擇磁碟區大小][choosing-the-size-of-volumes-s2d]。
+    如需詳細資訊，請參閱 < [DSv2 系列][dv2-series]and [DS-Series][ds-series]規格。
+* 建議您在儲存體集區中保留一些未配置的容量。 在儲存體集區中保留一些未配置的容量，可在磁碟機故障時，讓磁碟區空間「就地」修復。 這可改善資料安全性和效能。  如需詳細資訊，請參閱 <<c0> [ 選擇磁碟區大小][choosing-the-size-of-volumes-s2d]。
 * 向外延展檔案共用 Azure VM 必須在其自己的 Azure 可用性設定組中部署。
 * 您不需要為向外延展檔案共用網路名稱 (例如 \<SAP 全域主機\>) 設定 Azure 內部負載平衡器。 這是針對 SAP ASCS/SCS 執行個體的 \<ASCS/SCS 虛擬主機名稱\> 或針對 DBMS 進行。 向外延展檔案共用會在所有叢集節點之間向外延展負載。 \<SAP 全域主機\> 會對所有叢集節點使用本機 IP 位址。
 
@@ -323,7 +323,7 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 > [!IMPORTANT]
 > 您無法為指向 \<SAP 全域主機\> 的 SAPMNT 檔案共用重新命名。 SAP 僅支援共用名稱 "sapmnt"。
 >
-> 如需詳細資訊，請參閱 [SAP 附註 2492395 - 是否可變更共用名稱 sapmnt？][2492395]
+> 如需詳細資訊，請參閱[SAP 附註 2492395-可以變更共用名稱 sapmnt？][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>在兩個叢集中設定 SAP ASCS/SCS 執行個體和向外延展檔案共用
 
@@ -356,8 +356,8 @@ _**圖 5：** 在兩個叢集中部署的 SAP ASCS/SCS 執行個體和向外延�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
-* [在 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver HA][sap-high-availability-installation-wsfc-shared-disk]
-* [在 Azure 中針對 UDP 儲存體部署兩個節點的儲存空間直接存取向外延展檔案伺服器][deploy-sofs-s2d-in-azure]
+* [藉由使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP HA 準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
+* [SAP NetWeaver HA 上安裝 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用][sap-high-availability-installation-wsfc-shared-disk]
+* [部署在 Azure 中的 UDP 儲存體的兩個節點儲存空間直接存取向外延展檔案伺服器][deploy-sofs-s2d-in-azure]
 * [Windows Server 2016 中的儲存空間直接存取][s2d-in-win-2016]
-* [深入探討：儲存空間直接存取中的磁碟區][deep-dive-volumes-in-s2d]
+* [深入探討：儲存空間的磁碟區直接][deep-dive-volumes-in-s2d]

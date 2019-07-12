@@ -188,7 +188,7 @@ ms.locfileid: "60422634"
 
 如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]
 * [新增憑證至 Java CA 憑證存放區][add_ca_cert]
 

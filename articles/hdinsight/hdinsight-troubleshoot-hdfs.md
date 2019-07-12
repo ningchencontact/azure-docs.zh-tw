@@ -226,5 +226,5 @@ HDInsight 叢集已相應減少為極少數節點。 此節點數目低於或接
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
 
-### <a name="see-also"></a>另请参阅
+### <a name="see-also"></a>另請參閱
 [使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)

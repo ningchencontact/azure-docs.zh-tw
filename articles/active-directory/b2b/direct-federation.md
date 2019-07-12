@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544344"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797929"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>搭配 AD FS 與來賓使用者 （預覽） 的協力廠商提供者的直接同盟
 |     |
@@ -62,8 +62,8 @@ ms.locfileid: "67544344"
 ### <a name="signing-certificate-renewal"></a>簽署的憑證更新
 如果您的身分識別提供者設定中指定的中繼資料 URL，Azure AD 會自動更新簽署憑證到期時。 不過，如果憑證在到期時間之前旋轉因為任何原因，或如果您未提供中繼資料 URL，Azure AD 將無法更新它。 在此情況下，您必須手動更新簽署憑證。
 ## <a name="frequently-asked-questions"></a>常見問題集
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>我可以設定具有非受控 （電子郵件驗證） 的租用戶的直接同盟嗎？ 
-是。 如果已驗證網域和租用戶尚未經過[管理員接管](../users-groups-roles/domains-admin-takeover.md)，您可以設定直接聯盟。 在使用者兌換的 B2B 邀請，或執行使用目前不存在的網域的 Azure ad 的自助式註冊時，會建立未受管理，或以電子郵件驗證的租用戶。 您可以直接與這些網域的同盟設定。 如果您嘗試建立直接同盟使用 DNS 驗證網域時，在 Azure 入口網站中或透過 PowerShell，您會看到錯誤。
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>我可以設定與網域，存在 （電子郵件驗證） 非受控租用戶的直接同盟嗎？ 
+是的。 如果已驗證網域和租用戶尚未經過[管理員接管](../users-groups-roles/domains-admin-takeover.md)，您可以設定直接聯盟。 在使用者兌換的 B2B 邀請，或執行使用目前不存在的網域的 Azure ad 的自助式註冊時，會建立未受管理，或以電子郵件驗證的租用戶。 您可以直接與這些網域的同盟設定。 如果您嘗試建立直接同盟使用 DNS 驗證網域時，在 Azure 入口網站中或透過 PowerShell，您會看到錯誤。
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>如果同時啟用直接同盟和電子郵件單次密碼驗證，哪一種方法的優先順序較高？
 與夥伴組織建立直接同盟時，它的優先順序高於新的來賓使用者，來自該組織的電子郵件單次密碼驗證。 如果來賓使用者兌換邀請使用單次密碼驗證，然後再設定直接聯盟，它們會繼續使用單次密碼驗證。 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>由於部分已同步處理的租用戶 direct 位址的同盟登入問題？
@@ -158,7 +158,7 @@ Azure AD B2B 可以設定為與特定需求使用 Ws-fed 通訊協定，如下�
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>若要使用 PowerShell 的 Azure AD 中設定直接同盟
 
 1. 安裝最新版的 Azure AD PowerShell for Graph 模組 ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview))。 (如果您需要詳細的步驟，新增來賓使用者的快速入門包含一節[安裝最新的 AzureADPreview 模組](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)。) 
-2. 執行以下命令： 
+2. 執行下列命令： 
    ```powershell
    Connect-AzureAD
    ```
@@ -201,7 +201,7 @@ Azure AD B2B 可以設定為與特定需求使用 Ws-fed 通訊協定，如下�
 
 若要使用 PowerShell 移除直接同盟身分識別提供者：
 1. 安裝最新版的 Azure AD PowerShell for Graph 模組 ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview))。
-2. 執行以下命令： 
+2. 執行下列命令： 
    ```powershell
    Connect-AzureAD
    ```

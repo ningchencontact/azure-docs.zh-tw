@@ -32,7 +32,7 @@ ms.locfileid: "65413721"
 - **資料遺失的情況**：服務意外刪除或損毀。 例如，系統管理員錯誤地刪除服務。
 - **資料損毀的情況**：服務中的錯誤 (bug) 造成資料損毀。 例如，當服務程式碼升級而將錯誤資料寫入「可靠的集合」時，就可能發生資料損毀。 在這種情況下，可能必須將程式碼和資料還原成先前的狀態。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 若要觸發還原，必須對叢集啟用還原「錯誤分析服務 (FAS)」  。
 - 「備份還原服務 (BRS)」  已建立備份。
@@ -315,7 +315,7 @@ $restoreResponse | Format-List
 
 ## <a name="automatic-restore"></a>自動還原
 
-您可針對「自動還原」  設定 Service Fabric 叢集中可靠具狀態服務和 Reliable Actors 分割區。 在備份原則中，將 `AutoRestore` 設定為「true」  。 啟用「自動還原」  後，即可在回報資料遺失時，自動從最新分割區的備份還原資料。 如需詳細資訊，請參閱
+您可針對「自動還原」  設定 Service Fabric 叢集中可靠具狀態服務和 Reliable Actors 分割區。 在備份原則中，將 `AutoRestore` 設定為「true」  。 啟用「自動還原」  後，即可在回報資料遺失時，自動從最新分割區的備份還原資料。 如需詳細資訊，請參閱：
 
 - [備份原則中的自動還原啟用](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [RestorePartition API 參考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

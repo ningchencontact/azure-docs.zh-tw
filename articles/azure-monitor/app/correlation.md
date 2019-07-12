@@ -51,7 +51,7 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 在結果中，請注意，所有遙測項目都共用 `operation_Id` 這個根。 從此頁面發出 Ajax 呼叫時，系統會將新的唯一識別碼 (`qJSXU`) 指派給相依性遙測，並使用 pageView 的識別碼作為 `operation_ParentId`。 接著，伺服器要求會使用 Ajax 識別碼作為 `operation_ParentId`。
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock 頁面                |              | STYz               | STYz         |
 | 相依性 | GET /Home/Stock           | qJSXU        | STYz               | STYz         |

@@ -138,7 +138,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-返回：
+它會傳回：
 
 ```powershell
 batchAccounts
@@ -155,7 +155,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-返回：
+它會傳回：
 
 ```powershell
 2017-05-01
@@ -173,7 +173,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-返回：
+它會傳回：
 
 ```powershell
 West Europe
@@ -238,7 +238,7 @@ az provider show --namespace Microsoft.Batch
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-返回：
+它會傳回：
 
 ```azurecli
 Result
@@ -257,7 +257,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-返回：
+它會傳回：
 
 ```azurecli
 Result
@@ -277,7 +277,7 @@ Result
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-返回：
+它會傳回：
 
 ```azurecli
 Result

@@ -4,7 +4,7 @@ description: '說明如何為 Windows VM 變更磁碟機代號，讓您能夠使
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12986068a761b92611c557a0dfcf08905283b8bd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844194"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719247"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>使用 D: 磁碟機作為 Windows VM 上的資料磁碟機
 如果您的應用程式需要使用 D 磁碟機來儲存資料，請遵循下列指示，使用不同的磁碟機代號來代表暫存磁碟。 切勿使用暫存磁碟儲存需要保留的資料。

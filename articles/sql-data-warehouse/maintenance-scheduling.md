@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab6efb858cc86495c687055ce3049cfc0cca7433
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075313"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807903"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用維護排程管理服務更新和維護
 
@@ -34,6 +34,9 @@ ms.locfileid: "61075313"
 服務健康狀態通知與資源健康狀態檢查監視器的整合，可讓客戶隨時掌握即將進行的維護活動。 新的自動化會利用 Azure 監視器。 您可以決定您想要收到即將進行維護事件通知的方式。 也請決定哪一個自動化流程可協助您管理停機時間，並將對您作業的影響降至最低。
 
 24 小時制提前通知之前所有的維護事件，但目前的例外狀況的 DW400c 和較低層級。 若要將執行個體的停機時間降至最低，先確定資料倉儲在您選擇的維護期間之前沒有長時間執行的交易。 維護開始時，將取消所有作用中的工作階段。 非認可的交易將會回復，而且您的資料倉儲將會遇到的連線短暫中斷。 您將在資料倉儲上的維護完成之後，立即收到通知。
+
+> [!NOTE]
+> 萬一我們需要將時間關鍵的更新部署時，進階的通知時間可能會大幅減少。
 
 如果您收到維護將進行的預先通知，但 SQL 資料倉儲無法在這段期間內執行維護，則您將收到取消通知。 之後，維護將會在下一個排程維護期間繼續。
 

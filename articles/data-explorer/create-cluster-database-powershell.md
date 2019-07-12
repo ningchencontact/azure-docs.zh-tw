@@ -26,7 +26,7 @@ ms.locfileid: "66497333"
 
 Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您使用 Powershell 建立叢集和資料庫。 您可以使用 [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 在 Windows 和 Linux 上或在 [Azure Cloud Shell](../cloud-shell/overview.md) 中執行 PowerShell Cmdlet 和指令碼，以建立及設定 Azure 資料總管叢集與資料庫。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -67,9 +67,9 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
-   | Name | *mykustocluster* | 所需的叢集名稱。|
+   | 名稱 | *mykustocluster* | 所需的叢集名稱。|
    | SKU | *D13_v2* | 將用於叢集的 SKU。 |
-   | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
+   | ResourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
     有其他選擇性參數可供您使用，例如叢集的容量。
 
@@ -93,7 +93,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
    |---|---|---|
    | ClusterName | *mykustocluster* | 將在其中建立資料庫的叢集名稱。|
    | 名稱 | *mykustodatabase* | 您的資料庫名稱。|
-   | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
+   | ResourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
    | SoftDeletePeriod | *3650:00:00:00* | 將保留資料以供查詢的時間長度。 |
    | HotCachePeriod | *3650:00:00:00* | 資料將保留在快取中的時間長度。 |
 

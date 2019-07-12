@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: alkohli;
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604233"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621046"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>針對匯入/匯出作業開啟支援票證
 
@@ -40,7 +40,7 @@ ms.locfileid: "65604233"
         - 如果您選擇 [Blob]  ，請選取 [資源]  、[容器名稱]  (選擇性) 及 [支援方案]  。
             ![選擇 [Blob]](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - 如果您選擇 [檔案]  ，請選取 [資源]  、[檔案共用名稱]  (選擇性) 及[ 支援方案]  。![選擇 [檔案]](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. 单击“下一步”  。
+    4. 按一下 [下一步]  。
 
 3. 在 [新增支援要求]  中，選取 [步驟 2 問題]  。 在 [問題]  中，執行下列步驟：
     
@@ -51,7 +51,7 @@ ms.locfileid: "65604233"
     5. 提供問題開始日期與時間。
     6. 在 [檔案上傳]  中，按一下資料夾圖示以瀏覽至任何其他您想要上傳的檔案。
     7. 勾選 [共用診斷資訊]  。
-    8. 单击“下一步”  。
+    8. 按一下 [下一步]  。
 
        ![問題](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "65604233"
 
    1. 在 [連絡人選項]  中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
    2. 連絡人的資訊，請提供姓名、 電子郵件、 選用連絡、 國家/地區。 選取 [儲存連絡人變更，以供後續支援要求使用]  核取方塊。
-   3. 按一下頁面底部的 [新增]  。
+   3. 按一下 [建立]  。
    
        ![連絡人資訊](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 

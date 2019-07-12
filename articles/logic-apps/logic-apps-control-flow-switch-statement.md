@@ -70,7 +70,7 @@ ms.locfileid: "60683085"
    |--------|--------------------|--------|
    | 案例 1 | **核准** | 新增 Outlook **傳送電子郵件**動作，只在核准者選取**核准**時傳送 RSS 項目的詳細資料。 |
    | 案例 2 | **拒絕** | 新增 Outlook **傳送電子郵件**動作，通知其他核准者 RSS 項目遭到拒絕。 |
-   | 預設值 | None | 不需採取任何動作。 在此範例中，[預設]  案例為空白，因為 **SelectedOption** 只有兩個選項。 |
+   | 預設 | None | 不需採取任何動作。 在此範例中，[預設]  案例為空白，因為 **SelectedOption** 只有兩個選項。 |
    |||
 
    ![已完成 Switch 陳述式](./media/logic-apps-control-flow-switch-statement/finished-switch.png)

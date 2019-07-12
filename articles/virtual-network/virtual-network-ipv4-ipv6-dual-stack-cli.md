@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: 12fbf2ae5387ac0a9350cc203f4a6f2587c8dafe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e591bdf2ff0b6493f092d666d02c2614c907700
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130869"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798969"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>部署 Azure 虛擬網路-CLI （預覽） 中的 IPv6 雙重堆疊應用程式
 
@@ -33,7 +33,7 @@ ms.locfileid: "62130869"
 
 如果您決定安裝，而改為在本機使用 Azure CLI，本快速入門需要您使用 Azure CLI 2.0.49 版或更新版本。 若要尋找您安裝的版本，請執行 `az --version`。 如需安裝或升級的資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要使用 IPv6 的 Azure 虛擬網路功能，您必須設定您的訂用帳戶使用 Azure PowerShell，如下所示：
 
 ```azurecli
@@ -166,7 +166,7 @@ az network lb rule create \
 --backend-pool-name dsLbBackEndPool_v4
 
 
-az network lb rule create \ 
+az network lb rule create \
 --lb-name dsLB  \
 --name dsLBrule_v6  \
 --resource-group DsResourceGroup01 \

@@ -68,7 +68,7 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
    * **位置**：輸入位置。
    * **定價層**：選取 [確定]  以完成。
 
-有关详细信息，请参阅 [Azure Monitor 日志入门](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)。
+如需詳細資訊，請參閱 <<c0> [ 開始使用 Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)。
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>透過來自 Azure Marketplace 的監視範本建立 Log Analytics 工作區：
 
@@ -101,7 +101,7 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>透過 CF CLI 以管理員身分登入 CF 部署
 
-執行以下命令：
+執行下列命令：
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -125,7 +125,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>下載最新版本的 Log Analytics Nozzle
 
-執行以下命令：
+執行下列命令：
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -156,7 +156,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>從開發電腦推送應用程式
 
-確認您在 oms-log-analytics-firehose-nozzle 資料夾下。 執行以下命令：
+確認您在 oms-log-analytics-firehose-nozzle 資料夾下。 執行下列命令：
 ```
 cf push
 ```

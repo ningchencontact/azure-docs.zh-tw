@@ -2,17 +2,17 @@
 title: 概念 - Azure Kubernetes Service (AKS) 中的存取與身分識別
 description: 深入了解 Azure Kubernetes Service (AKS) 中的存取與身分識別，包括 Azure Active Directory 整合、Kubernetes 角色型存取控制 (RBAC) 及角色和繫結。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467036"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615855"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的存取與身分識別選項
 
@@ -32,7 +32,7 @@ Kubernetes 的其中一個主要使用者類型是「服務帳戶」  。 服務
 
 一般使用者帳戶會允許系統管理人員或開發人員適用的傳統存取，而不只是允許服務和程序的存取。 Kubernetes 本身不提供一般使用者帳戶和密碼的儲存位置的身分識別管理解決方案。 而是將外部身分識別解決方案整合到 Kubernetes。 對 AKS 叢集而言，此整合的身分識別解決方案就是 Azure Active Directory。
 
-如需有關 Kubernetes 中身分識別選項的詳細資訊，請參閱 [Kubernetes 驗證][kubernetes-authentication]。
+如需有關在 Kubernetes 中的身分識別選項的詳細資訊，請參閱[Kubernetes 驗證][kubernetes-authentication]。
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 整合
 
@@ -40,20 +40,20 @@ AKS 叢集的安全性可以透過整合的 Azure Active Directory (AD) 來加�
 
 ![整合 Azure Active Directory 與 AKS 叢集](media/concepts-identity/aad-integration.png)
 
-透過與 Azure AD 整合的 AKS 叢集，您可以允許使用者或群組存取命名空間內或叢集上的 Kubernetes 資源。 若要取得 `kubectl` 設定內容，使用者可執行 [az aks get-credentials][az-aks-get-credentials] 命令。 當使用者之後透過 `kubectl` 與 AKS 叢集互動時，系統會提示他們使用其 Azure AD 認證登入。 此方法可對使用者帳戶管理和密碼認證提供單一來源。 使用者只能存取叢集系統管理員所定義的資源。
+透過與 Azure AD 整合的 AKS 叢集，您可以允許使用者或群組存取命名空間內或叢集上的 Kubernetes 資源。 若要取得`kubectl`使用者可以執行的組態內容[az aks get-credentials 來取得認證][az-aks-get-credentials]命令。 當使用者之後透過 `kubectl` 與 AKS 叢集互動時，系統會提示他們使用其 Azure AD 認證登入。 此方法可對使用者帳戶管理和密碼認證提供單一來源。 使用者只能存取叢集系統管理員所定義的資源。
 
-AKS 叢集中的 Azure AD 驗證會使用 OpenID Connect (在 OAuth 2.0 通訊協定上方建置的身分識別層)。 OAuth 2.0 會定義取得及使用存取權杖的機制，以存取受保護的資源，而 OpenID Connect 會實作驗證，以作為 OAuth 2.0 授權程序的延伸模組。 如需 OpenID Connect 的詳細資訊，請參閱 [OpenID Connect 文件][openid-connect]。 若要驗證透過 OpenID Connect 從 Azure AD 取得的驗證權杖，AKS 叢集會使用 Kubernetes Webhook 權杖驗證。 如需詳細資訊，請參閱 [Webhook 權杖驗證文件][webhook-token-docs]。
+AKS 叢集中的 Azure AD 驗證會使用 OpenID Connect (在 OAuth 2.0 通訊協定上方建置的身分識別層)。 OAuth 2.0 會定義取得及使用存取權杖的機制，以存取受保護的資源，而 OpenID Connect 會實作驗證，以作為 OAuth 2.0 授權程序的延伸模組。 如需有關 OpenID Connect 的詳細資訊，請參閱[Open ID Connect 文件][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs]。
 
 ## <a name="role-based-access-controls-rbac"></a>角色型存取控制 (RBAC)
 
 若要更細微地篩選使用者可以執行的動作，Kubernetes 會使用角色型存取控制 (RBAC)。 此控制機制可讓您指派權限給使用者或使用者群組，以執行像是建立或修改資源，或檢視執行中應用程式工作負載的記錄等動作。 這些權限可以只限於單一命名空間，或授與給整個 AKS 叢集。 透過 Kubernetes RBAC，您可以建立「角色」  來定義權限，然後藉由「角色繫結」  將這些角色指派給使用者。
 
-如需詳細資訊，請參閱[使用 RBAC 授權][kubernetes-rbac]。
+如需詳細資訊，請參閱 <<c0> [ 使用 RBAC 授權][kubernetes-rbac]。
 
 ### <a name="azure-role-based-access-controls-rbac"></a>Azure 角色型存取控制 (RBAC)
 另一個控制資源存取的機制是 Azure 角色型存取控制 (RBAC)。 Kubernetes RBAC 會用於處理您 AKS 叢集內的資源，而 Azure RBAC 會用於處理您 Azure 訂用帳戶內的資源。 透過 Azure RBAC，您可以建立「角色定義」  來概述要套用的權限。 接著，使用者或群組會在特定「範圍」  中獲派此角色定義，此範圍可能是個別的資源、資源群組或訂用帳戶。
 
-如需詳細資訊，請參閱[何謂 Azure RBAC？][azure-rbac]
+如需詳細資訊，請參閱[什麼是 Azure RBAC？][azure-rbac]
 
 ## <a name="roles-and-clusterroles"></a>Roles 和 ClusterRoles
 

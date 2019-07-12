@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ae6f19ea9a04aa6b2547fa031dbb09d03b887c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e99dacbe7ae0f42919616e04e60bf4f21b9bd985
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509433"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835373"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-您可以為 Azure Active Directory (Azure AD) B2C 中的 Web 和原生應用程式啟用「讓我保持登入 (KMSI)」功能。 此功能會授與讓使用者回到應用程式，而不需要重新輸入使用者名稱和密碼提示的存取權。 當使用者登出時，即會撤銷此存取權。 
+您可以為 Azure Active Directory (Azure AD) B2C 中的 Web 和原生應用程式啟用「讓我保持登入 (KMSI)」功能。 此功能會授與讓使用者回到應用程式，而不需要重新輸入使用者名稱和密碼提示的存取權。 當使用者登出時，即會撤銷此存取權。
 
-使用者應該不要在公用電腦上啟用此選項。 
+使用者應該不要在公用電腦上啟用此選項。
 
-![啟用讓我保持登入](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![註冊登入頁面範例顯示保持登入 核取方塊](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 已設定為允許本機帳戶註冊和登入的 Azure AD B2C 租用戶。 如果您還沒有租用戶，可以使用以下文件中的步驟來建立一個：[教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)。
 
-## <a name="add-a-content-definition-element"></a>新增內容定義元素 
+## <a name="add-a-content-definition-element"></a>新增內容定義元素
 
-在擴充檔案的 **BuildingBlocks** 元素底下，新增 **ContentDefinitions** 元素。 
+在擴充檔案的 **BuildingBlocks** 元素底下，新增 **ContentDefinitions** 元素。
 
 1. 在 **ContentDefinitions** 元素底下，新增識別碼為 `api.signuporsigninwithkmsi` 的 **ContentDefinition** 元素。
-2. 在 **ContentDefinition** 元素底下，新增 **LoadUri**、**RecoveryUri** 和 **DataUri** 元素。 **DataUri** 元素的 `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` 值是機器可識別的識別碼，會在登入頁面中帶出 KMSI 核取方塊。 請勿變更此值。 
+2. 在 **ContentDefinition** 元素底下，新增 **LoadUri**、**RecoveryUri** 和 **DataUri** 元素。 **DataUri** 元素的 `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` 值是機器可識別的識別碼，會在登入頁面中帶出 KMSI 核取方塊。 請勿變更此值。
 
     ```XML
     <BuildingBlocks>
@@ -50,15 +50,15 @@ ms.locfileid: "66509433"
           </Metadata>
         </ContentDefinition>
       </ContentDefinitions>
-    </BuildingBlocks>                       
+    </BuildingBlocks>
     ```
 
-## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>新增本機帳戶的登入宣告提供者  
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>新增本機帳戶的登入宣告提供者
 
 您可以使用原則擴充檔案中的 **ClaimsProvider** 元素，將本機帳戶登入定義為宣告提供者：
 
-1. 從您的工作目錄中開啟 TrustFrameworkExtensions.xml  檔案。 
-2. 尋找 **ClaimsProviders** 元素。 如果該元素不存在，請在根項目下新增。 [入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)包含本機帳戶登入宣告提供者。 
+1. 從您的工作目錄中開啟 TrustFrameworkExtensions.xml  檔案。
+2. 尋找 **ClaimsProviders** 元素。 如果該元素不存在，請在根項目下新增。 [入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)包含本機帳戶登入宣告提供者。
 3. 以 **DisplayName** 和 **TechnicalProfile** 來新增 **ClaimsProvider** 元素，如下列範例所示：
 
     ```XML
@@ -96,14 +96,14 @@ ms.locfileid: "66509433"
 
 ## <a name="create-a-kmsi-enabled-user-journey"></a>建立已啟用 KMSI 的使用者旅程圖
 
-將本機帳戶的登入宣告提供者新增至使用者旅程圖。 
+將本機帳戶的登入宣告提供者新增至使用者旅程圖。
 
 1. 開啟原則的基底檔案。 例如，TrustFrameworkBase.xml  。
 2. 尋找 **UserJourneys** 元素，並將使用 `SignUpOrSignIn` 識別碼的 **UserJourney** 元素內容整個複製。
 3. 開啟擴充檔案。 例如，TrustFrameworkExtensions.xml  ，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素，以作為 **UserJourneys** 元素的子項目。
-5. 變更新使用者旅程圖的識別碼值。 例如： `SignUpOrSignInWithKmsi`。
-6. 最後，在第一個協調流程步驟中，將 **ContentDefinitionReferenceId** 的值變更為 `api.signuporsigninwithkmsi`。 設定此值會啟用使用者旅程圖中的核取方塊。 
+5. 變更新使用者旅程圖的識別碼值。 例如： `SignUpOrSignInWithKmsi` 。
+6. 最後，在第一個協調流程步驟中，將 **ContentDefinitionReferenceId** 的值變更為 `api.signuporsigninwithkmsi`。 設定此值會啟用使用者旅程圖中的核取方塊。
 7. 儲存並上傳擴充檔案，並確保所有驗證都成功。
 
     ```XML
@@ -147,13 +147,13 @@ ms.locfileid: "66509433"
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml  檔案複本，然後重新命名。 例如，SignUpOrSignInWithKmsi.xml  。
-2. 開啟新檔案，並以唯一值更新 **TrustFrameworkPolicy** 的 **PolicyId** 屬性。 這是您原則的名稱。 例如： `SignUpOrSignInWithKmsi`。
-3. 變更 **DefaultUserJourney** 元素的 **ReferenceId** 屬性，以符合您建立的新使用者旅程圖識別碼。 例如： `SignUpOrSignInWithKmsi`。
+2. 開啟新檔案，並以唯一值更新 **TrustFrameworkPolicy** 的 **PolicyId** 屬性。 這是您原則的名稱。 例如： `SignUpOrSignInWithKmsi` 。
+3. 變更 **DefaultUserJourney** 元素的 **ReferenceId** 屬性，以符合您建立的新使用者旅程圖識別碼。 例如： `SignUpOrSignInWithKmsi` 。
 
-    已使用 **UserJourneyBehaviors** 元素設定 KMSI，並以 **SingleSignOn**、**SessionExpiryType** 和 **SessionExpiryInSeconds** 作為其第一個子元素。 **KeepAliveInDays** 屬性會控制使用者保持登入的時間長度。 在下列範例中，KMSI 工作階段會在 `7` 天後自動到期，而不論使用者執行無訊息驗證的頻率為何。 將 **KeepAliveInDays** 值設定為 `0` 會關閉 KMSI 功能。 根據預設，此值為 `0`。 如果 **SessionExpiryType** 的值是 `Rolling`，那麼，每當使用者執行無訊息驗證，KMSI 工作階段即會延長 `7` 天。  如果選取 `Rolling`，您應該將天數保留為最小值。 
+    已使用 **UserJourneyBehaviors** 元素設定 KMSI，並以 **SingleSignOn**、**SessionExpiryType** 和 **SessionExpiryInSeconds** 作為其第一個子元素。 **KeepAliveInDays** 屬性會控制使用者保持登入的時間長度。 在下列範例中，KMSI 工作階段會在 `7` 天後自動到期，而不論使用者執行無訊息驗證的頻率為何。 將 **KeepAliveInDays** 值設定為 `0` 會關閉 KMSI 功能。 根據預設，此值為 `0`。 如果 **SessionExpiryType** 的值是 `Rolling`，那麼，每當使用者執行無訊息驗證，KMSI 工作階段即會延長 `7` 天。  如果選取 `Rolling`，您應該將天數保留為最小值。
 
-    **SessionExpiryInSeconds** 的值代表 SSO 工作階段的到期時間。 這會由 Azure AD B2C 在內部使用，以檢查 KMSI 的工作階段是否已過期。 **KeepAliveInDays** 值會決定 Web 瀏覽器中 SSO cookie 的「到期時間」/「最大存留期」值。 不同於 **SessionExpiryInSeconds**，**KeepAliveInDays** 會用來防止在瀏覽器關閉時清除 cookie。 使用者只能在 SSO 工作階段的 cookie 存在時 (這會由 **KeepAliveInDays** 控制)，以及尚未過期時 (這會由 **SessionExpiryInSeconds** 控制)，才能進行無訊息登入。 
-    
+    **SessionExpiryInSeconds** 的值代表 SSO 工作階段的到期時間。 這會由 Azure AD B2C 在內部使用，以檢查 KMSI 的工作階段是否已過期。 **KeepAliveInDays** 值會決定 Web 瀏覽器中 SSO cookie 的「到期時間」/「最大存留期」值。 不同於 **SessionExpiryInSeconds**，**KeepAliveInDays** 會用來防止在瀏覽器關閉時清除 cookie。 使用者只能在 SSO 工作階段的 cookie 存在時 (這會由 **KeepAliveInDays** 控制)，以及尚未過期時 (這會由 **SessionExpiryInSeconds** 控制)，才能進行無訊息登入。
+
     如果使用者未在註冊和登入頁面上啟用**讓我保持登入**，則工作階段會在超過 **SessionExpiryInSeconds** 指定的時間之後過期，或在關閉瀏覽器之後過期。 如果使用者啟用**讓我保持登入**，**KeepAliveInDays** 的值會覆寫 **SessionExpiryInSeconds** 的值，並指定工作階段到期時間。 即使使用者關閉瀏覽器後再將其重新開啟，只要是在 **KeepAliveInDays** 的時間內，他們還是可以自動登入。 我們建議您將 **SessionExpiryInSeconds** 的值設為短時間 (1200 秒)，而 **KeepAliveInDays** 可以設為相對的長時間 (7 天)，如下列範例所示：
 
     ```XML

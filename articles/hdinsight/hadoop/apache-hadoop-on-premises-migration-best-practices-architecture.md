@@ -105,7 +105,7 @@ HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 
 - 定期備份自訂中繼存放區。
 - 將中繼存放區與 HDInsight 叢集保存在相同區域。
 - 監視中繼存放區的效能和使用 Azure SQL Database 監視工具 中的，例如 Azure 入口網站或 Azure 監視器記錄檔的可用性。
-- 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如： `ANALYZE TABLE [table_name] COMPUTE STATISTICS`。
+- 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如： `ANALYZE TABLE [table_name] COMPUTE STATISTICS` 。
 
 ## <a name="best-practices-for-different-workloads"></a>不同工作負載的最佳做法
 

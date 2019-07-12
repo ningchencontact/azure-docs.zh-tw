@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 833a22635c1d53dce9086aa3e11220d5868a302c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: af215c80148010d526c951e7a5128d6e4622b1cd
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471984"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625573"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -61,7 +61,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 在 6 月 2019年中，我們已新增這些 22 的新應用程式具有同盟支援新增至應用程式庫：
 
-[Azure AD SAML Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial)， [Otsuka Shokai （大塚商会）](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial)， [ANAQUA](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial)， [Azure 的 VPN 用戶端](https://portal.azure.com/)， [ExpenseIn](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial)， [協助程式協助程式](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial)， [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial)， [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial)， [Mercedes Benz 車內 Office](https://me.secure.mercedes-benz.com/)， [Skore](https://app.justskore.it/)， [Oracle 雲端基礎結構主控台](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial)， [CyberArk SAML 驗證](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial)， [Scrible Edu](https://www.scrible.com/sign-in/#/create-account)， [PandaDoc](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial)， [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial)， [Proptimise OS](https://proptimise.co.uk/property-software/)， [Vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial)，行銷，Oracle Access Manager for Oracle E-business Suite，Oracle IDCS Oracle 零售的 Oracle Access Manager 的E-business Suite，Oracle IDCS peoplesoft、 Oracle IDCS JD Edwards 的
+[Azure AD SAML Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial)， [Otsuka Shokai （大塚商会）](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial)， [ANAQUA](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial)， [Azure 的 VPN 用戶端](https://portal.azure.com/)， [ExpenseIn](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial)， [協助程式協助程式](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial)， [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial)， [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial)， [Mercedes Benz 車內 Office](https://me.secure.mercedes-benz.com/)， [Skore](https://app.justskore.it/)， [Oracle 雲端基礎結構主控台](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial)， [CyberArk SAML 驗證](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial)， [Scrible Edu](https://www.scrible.com/sign-in/#/create-account)， [PandaDoc](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial)， [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial)， [Proptimise OS](https://proptimise.co.uk/software/)， [Vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial)，行銷，Oracle Access Manager for Oracle E-business Suite，Oracle IDCS Oracle 零售的 Oracle Access Manager 的E-business Suite，Oracle IDCS peoplesoft、 Oracle IDCS JD Edwards 的
 
 如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
 
@@ -615,7 +615,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ## <a name="february-2019"></a>2019 年 2 月
 
-### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>可設定的 Azure AD SAML 權杖加密 (公開預覽) 
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>可設定的 Azure AD SAML 權杖加密 （公開預覽） 
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
@@ -627,7 +627,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱建立群組或應用程式的存取權檢閱
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>建立群組或使用 Azure AD 存取權檢閱的應用程式的存取權檢閱
 
 **類型：** 新功能  
 **服務類別：** 存取權檢閱  
@@ -639,7 +639,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 應用程式庫推出新的同盟應用程式 - 2019 年 2 月
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>新同盟應用程式可在 Azure AD 應用程式庫 2019 年 2 月
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
@@ -653,7 +653,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="enhanced-combined-mfasspr-registration"></a>增強的合併 MFA/SSPR 註冊
+### <a name="enhanced-combined-mfasspr-registration"></a>增強合併的 MFA/SSPR 註冊
 
 **類型：** 已變更的功能  
 **服務類別：** 自助式密碼重設  
@@ -681,7 +681,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="updated-policy-management-experience-for-user-flows"></a>更新的使用者流程原則管理體驗
+### <a name="updated-policy-management-experience-for-user-flows"></a>使用者流程的已更新的原則管理體驗
 
 **類型：** 已變更的功能  
 **服務類別：** B2C - 消費者身分識別管理  
@@ -695,7 +695,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>選擇 Azure AD B2C 所提供的特定網頁元素版本
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>選擇 Azure AD B2C 所提供的特定頁面項目版本
 
 **類型：** 新功能  
 **服務類別：** B2C - 消費者身分識別管理  
@@ -707,7 +707,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>可設定的終端使用者密碼需求 B2C (GA)
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>可設定使用者密碼需求的 B2C 運作 (GA)
 
 **類型：** 新功能  
 **服務類別：** B2C - 消費者身分識別管理  
@@ -719,7 +719,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 ---
 
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>自訂品牌化驗證體驗的新預設範本
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>新的預設範本，以自訂品牌的驗證體驗
 
 **類型：** 新功能  
 **服務類別：** B2C - 消費者身分識別管理  

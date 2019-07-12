@@ -34,7 +34,7 @@ PIM 針對 Azure AD 和 Azure 資源角色傳送的電子郵件具有下列寄�
 - 電子郵件地址： **azure noreply\@microsoft.com**
 - 顯示名稱：Microsoft Azure
 
-這些電子郵件的主旨行中包含 **PIM** 前置詞。 以下是範例：
+這些電子郵件的主旨行中包含 **PIM** 前置詞。 以下為範例：
 
 - PIM：Alain Charon 已獲永久指派「備份讀者」角色
 

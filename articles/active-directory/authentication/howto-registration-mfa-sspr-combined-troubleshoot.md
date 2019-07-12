@@ -49,13 +49,13 @@ ms.locfileid: "60414611"
 
 ## <a name="troubleshooting-interrupt-mode"></a>疑難排解中斷模式
 
-| 徵狀 | 疑難排解步驟 |
+| 徵兆 | 疑難排解步驟 |
 | --- | --- |
 | 我沒看到我預計看見的方法。 | 1.檢查使用者是否有 Azure AD 系統管理員角色。 如果是，檢視的 SSPR 系統管理員原則差異。 <br> 2.判斷使用者是否因為強制 Multi-factor Authentication 註冊或 SSPR 註冊強制中斷。 請參閱[流程圖](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md#combined-registration-modes)」 結合註冊模式 」 下若要判斷應顯示哪些方法。 <br> 3.判斷多重要素驗證或 SSPR 原則最近已變更。 最新變更時，可能需要一些時間才能傳播更新的原則。|
 
 ## <a name="troubleshooting-manage-mode"></a>疑難排解管理模式
 
-| 徵狀 | 疑難排解步驟 |
+| 徵兆 | 疑難排解步驟 |
 | --- | --- |
 | 我沒有新增的特定方法的選項。 | 1.判斷方法是否已啟用多重要素驗證或 sspr。 <br> 2.如果已啟用的方法，再次儲存原則，並等候 1-2 小時再測試一次。 <br> 3.如果已啟用的方法，請確定使用者沒有已設定允許他們設定該方法的最大數目。|
 
@@ -73,7 +73,7 @@ ms.locfileid: "60414611"
 
 請依照下列步驟可協助您復原使用者群組。
 
-#### <a name="prerequisites"></a>必要條件
+#### <a name="prerequisites"></a>先決條件
 
 1. 安裝適當的 Azure AD PowerShell 模組。 在 PowerShell 視窗中，執行下列命令來安裝模組：
 

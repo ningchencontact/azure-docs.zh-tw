@@ -64,7 +64,7 @@ ms.locfileid: "65190279"
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>建立使用加速網路的 Azure Windows VM
 ## <a name="portal-creation"></a>建立入口網站
 雖然這篇文章提供具有加速網路，使用 Azure Powershell 建立虛擬機器的步驟，您也可以[使用 Azure 入口網站建立虛擬機器](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 在中建立虛擬機器，在入口網站時**建立虛擬機器**刀鋒視窗中，選擇**網路** 索引標籤。在此索引標籤中，沒有適合**加速網路**。  如果您已選擇[支援的作業系統](#supported-operating-systems)並[VM 大小](#supported-vm-instances)，此選項便會自動填入為 [開啟]。  如果沒有，則會填入加速網路的 「 關閉 」 選項，並授與使用者為什麼它不會啟用的原因。   
-* *附註：* 可以透過入口網站中啟用僅支援的作業系統。  如果您使用自訂映像，而且您的映像支援加速網路，請建立您的 VM 使用 CLI 或 Powershell。 
+* *注意：* 可以透過入口網站中啟用僅支援的作業系統。  如果您使用自訂映像，而且您的映像支援加速網路，請建立您的 VM 使用 CLI 或 Powershell。 
 
 建立虛擬機器之後，您可以確認加速網路會啟用的下列已啟用加速網路的 [確認] 的指示進行。
 

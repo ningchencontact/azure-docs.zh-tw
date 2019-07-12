@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735012"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785813"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -149,6 +149,16 @@ ms.locfileid: "66735012"
 | [使用 Event Grid 回應 Azure 應用程式設定事件](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 使用 Event Grid 整合 Azure 應用程式組態的概觀。 |
 | [快速入門： 將 Azure 應用程式組態事件路由至自訂的 web 端點，使用 Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 示範如何使用 Azure CLI 將 Azure 應用程式設定的事件傳送到 WebHook。 |
 | [事件結構描述](event-schema-app-configuration.md) | 在 Azure 應用程式設定事件會顯示欄位。 |
+
+## <a name="azure-signalr"></a>Azure SignalR
+訂閱 Azure SignalR 服務回應對用戶端連接事件的事件。
+
+|標題 | 描述 |
+|---------|---------|
+| [使用 Event Grid 回應 Azure SignalR 服務事件](../azure-signalr/signalr-concept-event-grid-integration.md) | 使用 Event Grid 整合 Azure SignalR 服務的概觀。 |
+| [如何將 Azure SignalR 服務事件傳送至 Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | 示範如何將 Azure SignalR 服務事件傳送至應用程式透過 Event Grid。 |
+| [事件結構描述](event-schema-azure-signalr.md) | Azure SignalR 服務事件中會顯示欄位。 |
+
 
 
 ## <a name="next-steps"></a>後續步驟

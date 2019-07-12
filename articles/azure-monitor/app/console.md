@@ -13,28 +13,30 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 602cd9696271931babad9aa962638c5b646c80ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901836"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795455"
 ---
 # <a name="application-insights-for-net-console-applications"></a>適用於 .NET 主控台應用程式的 Application Insights
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可讓您監視 Web 應用程式的可用性、效能和使用情況。
 
 您需要 [Microsoft Azure](https://azure.com) 的訂用帳戶。 使用 Microsoft 帳戶登入，此帳戶可能是您針對 Windows、Xbox Live 或其他 Microsoft 雲端服務所擁有的帳戶。 您的小組可能已有 Azuare 組織訂用帳戶：請洽詢擁有者將您的 Microsoft 帳戶新增至其中。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
-* 在 [Azure 入口網站](https://portal.azure.com)中，建立 [Application Insights 資源](../../azure-monitor/app/create-new-resource.md )。 針對應用程式類型，選擇 [一般]  。
+* 在 [Azure 入口網站](https://portal.azure.com)中，建立 [Application Insights 資源](../../azure-monitor/app/create-new-resource.md)。 針對應用程式類型，選擇 [一般]  。
 * 取得檢測金鑰的副本。 在您建立之新資源的 [基本資訊]  下拉式清單中尋找金鑰。 
 * 安裝最新的 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) \(英文\) 封裝。
 * 在程式碼中設定檢測金鑰，然後再追蹤任何遙測 (或設定 APPINSIGHTS_INSTRUMENTATIONKEY 環境變數)。 在那之後，您應該能夠手動追蹤遙測，並在 Azure 入口網站上看到它
 
 ```csharp
-TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
-var telemetryClient = new TelemetryClient();
+// you may use different options to create configuration as shown later in this article
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+configuration.InstrumentationKey = " *your key* ";
+var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
@@ -46,7 +48,6 @@ telemetryClient.TrackTrace("Hello World!");
 > 參考 **ApplicationInsights.config** 的指示僅適用於目標為 .NET Framework 的應用程式，不適用於 .NET Core 應用程式。
 
 ### <a name="using-config-file"></a>使用設定檔
-
 根據預設，Application Insights SDK 會在建立 `TelemetryConfiguration` 時，於工作目錄中尋找 `ApplicationInsights.config` 檔案
 
 ```csharp
@@ -94,6 +95,8 @@ var telemetryClient = new TelemetryClient(configuration);
 ```
 
 ### <a name="configuring-telemetry-collection-from-code"></a>從程式碼設定遙測集合
+> [!NOTE]
+> 在.NET Core 上不支援讀取組態檔。 您可以考慮使用[Application Insights SDK for ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 
 * 在應用程式啟動期間，建立並設定 `DependencyTrackingTelemetryModule` 執行個體；它必須是單一的，而且必須針對應用程式存留期加以保留。
 
@@ -118,14 +121,18 @@ module.Initialize(configuration);
 * 新增一般遙測初始設定式
 
 ```csharp
-// stamps telemetry with correlation identifiers
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-
 // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* 針對 .NET Framework Windows 應用程式，您可能也會安裝效能計數器收集器模組並加以初始化，如[這裡](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/) \(英文\) 所述
+如果您建立設定與純`TelemetryConfiguration()`建構函式，您需要另外啟用相互關聯的支援。 **不需要**如果您從檔案讀取設定，使用`TelemetryConfiguration.CreateDefault()`或`TelemetryConfiguration.Active`。
+
+```csharp
+configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+```
+
+* 您也可以安裝和初始化效能計數器收集器模組，如所述[這裡](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+
 
 #### <a name="full-example"></a>完整範例
 
@@ -142,10 +149,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            TelemetryConfiguration configuration = TelemetryConfiguration.Active;
+            TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 
             configuration.InstrumentationKey = "removed";
-            configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
             var telemetryClient = new TelemetryClient();

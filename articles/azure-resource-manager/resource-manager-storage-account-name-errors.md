@@ -24,7 +24,7 @@ ms.locfileid: "64716399"
 
 本文描述當部署儲存體帳戶時，可能會遇到的命名錯誤。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 如果您的儲存體帳戶名稱包含禁止的字元，您會收到如下的錯誤：
 
@@ -47,7 +47,7 @@ Message=The storage account named mystorage is already taken.
 
 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能使用數字和小寫字母。 名稱必須是唯一的。
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 請確定儲存體帳戶名稱是唯一的。 您可以將您的命名慣例與 [uniqueString](resource-group-template-functions-string.md#uniquestring) 函式的結果串連，以建立一個唯一名稱。
 

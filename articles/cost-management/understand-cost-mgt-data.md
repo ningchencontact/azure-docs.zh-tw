@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 44b95c92f51ca9782fca492f3dec3142087ecc91
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490154"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797009"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -25,38 +25,47 @@ ms.locfileid: "67490154"
 
 ## <a name="supported-microsoft-azure-offers"></a>支援的 Microsoft Azure 優惠
 
-下列資訊會顯示目前支援[Microsoft Azure 提供](https://azure.microsoft.com/support/legal/offer-details/)Azure 成本管理。 您簽署的協議的 Azure 供應項目會決定您擁有 Azure 訂用帳戶的類型。
+下列資訊顯示 Azure 成本管理中目前支援的 [Microsoft Azure 供應項目](https://azure.microsoft.com/support/legal/offer-details/)。 Azure 供應項目是您 Azure 訂用帳戶的類型。 在上啟動的成本管理中的資料可**從可用資料**日期。 如果訂用帳戶變更供應項目，將無法使用的供應項目變更日期之前的成本。 
+
+| **分類**  | **供應項目名稱** | **Quota ID** | **供應項目號碼** | **從可用的資料** |
+| --- | --- | --- | --- | --- |
+| **Azure Germany** | [Azure 德國隨用隨付](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P | 2018 年 10 月 2 日<sup>2</sup> |
+| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014 年<sup>1</sup> |
+| **Enterprise 合約 (EA)** | Enterprise 開發/測試                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014 年<sup>1</sup> |
+| **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 年<sup>1</sup> |
+| **Microsoft 客戶合約** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | Mar 2019<sup>3</sup> |
+| **Microsoft 客戶合約** | [Microsoft Azure 開發/測試的計劃](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Mar 2019<sup>3</sup> |
+| **Microsoft Developer Network (MSDN)** | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | [Azure 學生版](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2018 年 10 月 2 日<sup>2</sup> |
+| **隨用隨付** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P、MS-AZR-0122P - MS-AZR-0125P、MS-AZR-0128P - MS-AZR-0130P | 2018 年 10 月 2 日<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2018 年 10 月 2 日<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2018 年 10 月 2 日<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2018 年 10 月 2 日<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2018 年 10 月 2 日<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2018 年 10 月 2 日<sup>2</sup> |
+
+_<sup>**1** </sup>對於在 2014 年之前的資料，請瀏覽[Azure 企業版入口網站](https://ea.azure.com)。_
+
+_<sup>**2** </sup> 2018 年 10 月 2 日之前的資料瀏覽[Azure 帳戶中心](https://account.azure.com/subscriptions)。_
+
+_<sup>**3** </sup> Microsoft 客戶合約在 2019 年 5 月開始，並沒有任何歷程記錄資料，此點之前。_
+
+_<sup>**4** </sup>歷程記錄資料點數為基礎和預先付費訂用帳戶可能不符合您的發票。請參閱[歷程記錄資料可能不符合發票](#historical-data-might-not-match-invoice)如下。_
+
+下表顯示尚不支援的供應項目。
 
 | Category  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
 | --- | --- | --- | --- |
-| **Azure Germany** | [Azure 德國預付型方案](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
-| **Enterprise 合約 (EA)** | Enterprise 開發/測試                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
-| **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsoft 客戶合約** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
-| **Microsoft 客戶合約** | [Microsoft Azure 開發/測試的計劃](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
-| **Microsoft Developer Network (MSDN)** | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
-| **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
-| **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
-| **隨用隨付** | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
-| **隨用隨付** | [免費試用版](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
-| **隨用隨付** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **隨用隨付** | [Azure 學生版](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **隨用隨付** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P、MS-AZR-0122P - MS-AZR-0125P、MS-AZR-0128P - MS-AZR-0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio 企業版](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
-
-下表顯示不支援的成本管理的 Azure 供應項目。
-
-| Category  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
-| --- | --- | --- | --- |
+| **Azure Germany** | [Azure 德國隨用隨付](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **雲端解決方案提供者 (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **雲端解決方案提供者 (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **雲端解決方案提供者 (CSP)** | CSP 中適用於 Microsoft Cloud Germany 的 Azure Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **隨用隨付**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **隨用隨付**                 | Azure 學生入門版 | DreamSpark_2015-02-01 | MS-AZR-0144P |
 | **隨用隨付**                 | [Microsoft Azure 贊助](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **支援方案** | 標準支援                    | Default_2014-09-01 | MS-AZR-0041P |
 | **支援方案** | 專業指導支援         | Default_2014-09-01 | MS-AZR-0042P |
@@ -65,8 +74,6 @@ ms.locfileid: "67490154"
 | **支援方案** | Azure Government 標準支援   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
 | **支援方案** | Azure Government 專業指導支援 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **支援方案** | Azure Government 開發人員支援  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
-
-隨用隨付的客戶，MSDN 和 Visual Studio 提供類別，從 2018 年 10 月 02 的成本管理中取得的資料。 若要存取您的訂用帳戶在 2018 年 10 月 02 日之前的資料，您可以使用[Azure 帳戶中心](https://account.azure.com/subscriptions)若要下載您的使用量詳細資料的 CSV 檔案中，或者您可以使用[使用情況詳細資料 API](/rest/api/consumption/usagedetails)。
 
 ## <a name="determine-your-offer-type"></a>判斷您的供應項目類型
 如果您未看到訂用帳戶的資料，而您想要確認訂用帳戶是否屬於支援的供應項目，您可以驗證您的訂用帳戶是否受支援。 若要驗證 Azure 訂用帳戶是否受支援，請登入 [Azure 入口網站](https://portal.azure.com)。 然後，在左側功能表窗格中選取 [所有服務]  。 在服務清單中，選取 [訂用帳戶]  。 在訂用帳戶清單功能表中，按一下您要確認的的訂用帳戶。 您的訂用帳戶會顯示在 [概觀] 索引標籤上，您會看到 [供應項目]  和 [供應項目識別碼]  。 下圖說明一個範例。
@@ -81,23 +88,24 @@ ms.locfileid: "67490154"
 
 | **包含** | **未包含** |
 | --- | --- |
-| Azure 服務使用量<sup>1</sup> | 保留購買 – 如需詳細資訊，請參閱[適用於 Azure 保留自動化的 API](../billing/billing-reservation-apis.md)。 |
-| Marketplace 供應項目使用方式<sup>2</sup> | Marketplace 購買 – 如需詳細資訊，請參閱[第三方服務費用](../billing/billing-understand-your-azure-marketplace-charges.md)。 |
-|   | 支援費用 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
-|   | 稅金 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
-|   | 點數 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
+| Azure 服務使用量<sup>5</sup>        | 支援費用 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
+| Marketplace 供應項目使用方式<sup>6</sup> | 稅金 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
+| Marketplace 購買<sup>6</sup>      | 點數 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
+| 保留購買<sup>7</sup>      |  |
 
-<sup>1</sup> Azure 服務使用量以保留和議定價格為基礎。
+_<sup>**5** </sup> azure 服務使用量為基礎的保留項目和交涉價格。_
 
-<sup>2</sup> marketplace 供應項目使用方式不適用於隨用隨付、 MSDN、 與 Visual Studio 提供這一次。
+_<sup>**6** </sup> marketplace 使用方式與購買項目沒有可用的隨用隨付、 MSDN 和 Visual Studio 提供這一次。_
+
+_<sup>**7** </sup>保留購買項目僅適用於 Enterprise 合約 (EA) 帳戶在這個階段。_
 
 **Metadata**
 
 | **包含** | **未包含** |
 | --- | --- |
-| 資源標記<sup>3</sup> | 資源群組標記 |
+| 資源標記<sup>8</sup> | 資源群組標記 |
 
-<sup>3</sup>資源標記使用方式，就會發出每個服務會套用，而且無法追溯至歷程記錄的使用方式。
+_<sup>**8** </sup>資源標記使用方式，就會發出每個服務會套用，而且無法追溯至歷程記錄的使用方式。_
 
 ## <a name="rated-usage-data-refresh-schedule"></a>評比使用量資料重新整理排程
 
@@ -131,21 +139,13 @@ Enterprise 合約 (EA) 訂用帳戶 – 如果計費月份在 3 月 31 日結束
 
 歷程記錄資料點數為基礎和預先付費供應項目可能不符合您的發票。 某些 Azure 隨用隨付、 MSDN 及 Visual Studio 提供了可以擁有的 Azure 信用額度和進階的付款套用到發票。 不過，在成本管理中所顯示的歷程記錄資料根據您的預估的耗用量費用只。 成本的管理歷程記錄資料不包含付款與信用額度。 如此一來，使用下列供應項目所顯示的歷程記錄資料可能不符合完全與您的發票。
 
--   MS-AZR-0029P
--   MS-AZR-0064P
--   MS-AZR-0170P
--   MS-AZR-0062P
--   MS-AZR-0123P
--   MS-AZR-0129P
--   MS-AZR-0044P
--   MS-AZR-0128P
--   MS-AZR-0120P
--   MS-AZR-0125P
--   MS-AZR-0059P
--   MS-AZR-0063P
--   MS-AZR-0060P
--   MS-AZR-0111P
+- Azure 學生版 (MS-AZR-0170 P)
+- Azure in Open (MS-AZR-0111 P)
+- Azure Pass (MS-AZR-0120 P、 MS-AZR-0123 P、 MS-AZR-0125 P、 MS-AZR-0128 P、 MS-AZR-0129 P)
+- 免費試用版 (MS-AZR-0044 P)
+- MSDN (MS-AZR-0062P)
+- Visual Studio (MS-AZR-0029 P、 MS-AZR-0059 P、 MS-AZR-0060 P、 MS-AZR-0063 P、 MS-AZR-0064 P)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - 如果您尚未完成成本管理的第一個快速入門，請在[開始分析成本](quick-acm-cost-analysis.md)閱讀它。

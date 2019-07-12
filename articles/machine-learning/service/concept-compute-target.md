@@ -1,39 +1,39 @@
 ---
-title: 計算目標
+title: 計算目標： 定型和部署模型的位置
 titleSuffix: Azure Machine Learning service
-description: 計算目標可讓您指定您執行您的定型指令碼或主機服務部署的計算資源。 此位置可能是您的本機或雲端式計算資源。
+description: 定義您想要用來定型或部署您使用 Azure Machine Learning 服務的模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/30/2019
-ms.openlocfilehash: 42c0f5460a63b781aafdd43410761e2d7b17944d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: a7944b284a9c1c0424af54874554d05d49ad4b20
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755346"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806033"
 ---
-#  <a name="what-is-a-compute-target-in-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務中的計算目標？ 
+#  <a name="what-are-compute-targets-in-azure-machine-learning-service"></a>在 Azure Machine Learning 服務中的計算目標為何？ 
 
-計算目標可讓您指定您執行您的定型指令碼或主機服務部署的計算資源。 此位置可能是您的本機或雲端式計算資源。
+A**計算目標**是指定的計算資源環境您其中執行訓練指令碼或主機服務部署。 此位置可能是您的本機或雲端式計算資源。 使用計算目標方便您之後變更您的計算環境，而不必變更程式碼。  
 
-計算目標，讓您輕鬆變更計算環境，而不需要變更您的程式碼。  典型的模型開發生命週期中：
-
-* 開始開發/測試少量的資料。 在這個階段，我們建議使用本機環境。 例如，您的本機電腦或雲端式虛擬機器。
-* 相應增加您的訓練，在較大的資料集，或執行分散式訓練課程使用其中一種[訓練目標](#train)。  
-* 將部署至數個 web 主控的環境中，或使用其中一種的 IoT 裝置[部署目標](#deploy)。
+在一般模型開發生命週期中，您可能會：
+1. 開始開發和實驗上少量的資料。 在這個階段，我們建議您的本機環境 （本機電腦或雲端為基礎的 VM） 作為計算目標。 
+2. 相應增加為較大的資料，或不要散發使用其中一種訓練[訓練的計算目標](#train)。  
+3. 準備您的模型之後，將它部署至 web 主控的環境或使用其中一種將 IoT 裝置[部署的計算目標](#deploy)。
 
 您使用的計算目標的計算資源會附加至[工作區](concept-workspace.md)。 計算的工作區的使用者會共用在本機電腦以外的資源。
 
-## <a name="train"></a> 訓練目標
+## <a name="train"></a> 定型的計算目標
 
-Azure Machine Learning 服務有不同的支援跨不同的計算資源。  您也可以附加您自己的計算資源，不過支援的各種情節可能會有所不同，詳述如下：
+Azure Machine Learning 服務有不同的支援跨不同的計算資源。  您也可以附加您自己的計算資源，雖然支援各種案例而有所不同。
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
+深入了解[設定和使用計算目標進行模型定型](how-to-set-up-training-targets.md)。
 
 ## <a name="deploy"></a>部署目標
 
@@ -41,12 +41,12 @@ Azure Machine Learning 服務有不同的支援跨不同的計算資源。  您�
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
+了解[何處以及如何將模型部署到計算目標](how-to-deploy-and-where.md)。
 
-## <a name="managed-compute"></a>受控的運算
+<a name="amlcompute"></a>
+## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning 計算 (managed)
 
 建立受控的計算資源，並由 Azure Machine Learning 服務來管理。 此計算被最適合機器學習工作負載。 Azure Machine Learning 計算是自 2019 5 月 30 日起僅受控的計算。 其他受管理的計算資源可能在未來新增。
-
-### <a name="amlcompute"></a> Azure Machine Learning 計算
 
 訓練和批次推斷 （預覽），您可以使用 Azure Machine Learning 計算。  與此計算資源中，您必須：
 
@@ -55,19 +55,14 @@ Azure Machine Learning 服務有不同的支援跨不同的計算資源。  您�
 * 自動的叢集管理和作業排程 
 * 同時支援 CPU 和 GPU 資源
 
-您可以使用下列其中一項來建立 Azure Machine Learning 計算執行個體：
-
-* Azure 入口網站
-* Azure Machine Learning SDK
-* Azure CLI
-
-所有其他計算資源必須建立工作區外，並接著附加到它。
+您可以在 Azure 入口網站，使用 SDK，或使用 CLI 建立 Azure Machine Learning 計算執行個體。 建立時自動是您的工作區，不同於其他種類的計算目標的一部分。
 
 ## <a name="unmanaged-compute"></a>非受控的計算
 
-非受控的計算資源*不*受 Azure Machine Learning 服務。 您建立這種類型的外部 Azure Machine Learning 計算，然後將它附加至您的工作區。 非受控的計算資源可能需要額外的步驟，讓您以維護或改善的機器學習工作負載的效能。
+非受控的計算目標會在*不*受 Azure Machine Learning 服務。 您建立這種類型的外部 Azure Machine Learning 計算目標，然後將它附加至您的工作區。 非受控的計算資源可能需要額外的步驟，讓您以維護或改善的機器學習工作負載的效能。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定用於定型模型的計算目標](how-to-set-up-training-targets.md)
-* [部署與 Azure Machine Learning 服務的模型](how-to-deploy-and-where.md)
+了解如何：
+* [設定計算目標，來訓練模型](how-to-set-up-training-targets.md)
+* [將模型部署到計算目標](how-to-deploy-and-where.md)

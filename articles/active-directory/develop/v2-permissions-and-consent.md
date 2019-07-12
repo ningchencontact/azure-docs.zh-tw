@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482150"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702698"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>權限及同意 Microsoft 身分識別平台端點中
 
@@ -167,7 +167,8 @@ Microsoft 生態系統中的某些高特權權限可以設定為「受系統管�
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>若要設定的靜態要求的權限的應用程式清單
 
 1. 移至您的應用程式[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗，或[建立應用程式](quickstart-register-app.md)如果您還沒有這麼做。
-2. 找出 [Microsoft Graph 權限]  區段，然後新增您應用程式所需的權限。
+2. 找出**API 的權限**區段，然後按一下 API 權限中的 新增權限。
+3. 選取  **Microsoft Graph**從可用的 Api 清單，然後加入您的應用程式所需的權限。
 3. [儲存]  應用程式註冊。
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>建議使用：將使用者登入您的應用程式

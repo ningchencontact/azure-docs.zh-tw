@@ -66,7 +66,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 
 將它們新增至 JSON 範本做為 *Properties* 節點的子系，與 *MachineLearningWorkspace* 節點位於相同層級。
 
-以下是範例：
+以下為範例：
 
     "StorageAccount": {
             "name": "YourStorageAccountName",

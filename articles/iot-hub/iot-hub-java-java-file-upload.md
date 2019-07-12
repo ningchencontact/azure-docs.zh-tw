@@ -9,24 +9,24 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399074"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620104"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-本教學課程是以[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-java-java-c2d.md)教學課程中的程式碼來建置，示範如何使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)將檔案上傳至 [Azure Blob 儲存體](../storage/index.yml)。 本教學課程說明如何：
+本教學課程中的程式碼是根據[傳送使用 IoT 中樞的雲端到裝置訊息](iot-hub-java-java-c2d.md)教學課程，以示範如何使用[檔案上傳功能的 IoT 中樞](iot-hub-devguide-file-upload.md)若要將檔案上傳[Azure blob儲存體](../storage/index.yml)。 本教學課程說明如何：
 
 * 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 
 * 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[將遙測資料傳送到 IoT 中樞 (Java)](quickstart-send-telemetry-java.md) 和[使用 IoT 中樞傳送雲端到裝置訊息 (Java)](iot-hub-java-java-c2d.md) 兩篇文章，會示範 IoT 中樞基本的裝置到雲端和雲端到裝置傳訊功能。 [使用 IoT 中樞設定訊息路由](tutorial-routing.md)教學課程說明了能在 Azure Blob 儲存體中，可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
+[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-java.md)快速入門並[將與 IoT 中樞的雲端到裝置訊息傳送](iot-hub-java-java-c2d.md)教學課程說明的 IoT 基本裝置到雲端和雲端到裝置傳訊功能中樞。 [使用 IoT 中樞設定訊息路由](tutorial-routing.md)教學課程說明了能在 Azure Blob 儲存體中，可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
 
 * 包含映像的大型檔案
 * 影片
@@ -37,7 +37,7 @@ ms.locfileid: "60399074"
 
 在本教學課程結尾，您將執行兩個 Java 主控台應用程式：
 
-* **simulated-device**，此為 [使用 IoT 中樞傳送雲端到裝置訊息] 教學課程中建立的應用程式修改版本。 此應用程式可以使用 IoT 中樞提供的 SAS URI，將檔案上傳到儲存體。
+* **模擬裝置**，在 [使用 IoT 中樞傳送雲端到裝置訊息] 教學課程中建立的應用程式的修改的版本。 此應用程式可以使用 IoT 中樞提供的 SAS URI，將檔案上傳到儲存體。
 
 * **read-file-upload-notification**，它會接收來自 IoT 中樞的檔案上傳通知。
 
@@ -56,7 +56,7 @@ ms.locfileid: "60399074"
 
 ## <a name="upload-a-file-from-a-device-app"></a>從裝置應用程式上傳檔案
 
-在本節中，您會修改在[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-java-java-c2d.md)中建立的裝置應用程式，將檔案上傳到 IoT 中樞。
+在本節中，您會修改您在中建立裝置應用程式[使用 IoT 中樞的雲端到裝置訊息傳送](iot-hub-java-java-c2d.md)將檔案上傳到 IoT 中樞。
 
 1. 將映像檔複製到 `simulated-device` 資料夾，並重新命名為 `myimage.png`。
 
@@ -265,7 +265,9 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 在本教學課程中，您已學到如何使用 IoT 中樞的檔案上傳功能來簡化從裝置上傳檔案。 您可以利用下列文章繼續探索 IoT 中樞功能和案例：
 
 * [以程式設計方式建立 IoT 中樞](iot-hub-rm-template-powershell.md)
+
 * [C SDK 簡介](iot-hub-device-sdk-c-intro.md)
+
 * [Azure IoT SDK](iot-hub-devguide-sdks.md)
 
 若要進一步探索 IoT 中樞的功能，請參閱︰

@@ -27,7 +27,7 @@ Azure 監視器為基礎[的資料平台](data-platform.md)的[記錄檔](data-p
 
 下表識別不同的監視在 Azure 中的資料傳送的位置和不同的方法，來進行存取。
 
-| 位置 | 描述 | 存取方法 |
+| Location | 描述 | 存取方法 |
 |:---|:---|:---|:--|
 | Azure 監視器計量 | 時間序列資料庫適合用於分析時間戳記資料。 | [Metrics Explorer](metrics-getting-started.md)<br>[Azure 監視器計量 API](/rest/api/monitor/metrics) |
 | Azure 監視器記錄檔    | 記錄分析工作區為基礎的 Azure 資料總管可提供功能強大的分析引擎和豐富查詢語言。 | [Log Analytics](../log-query/portals.md)<br>[Log Analytics API](https://dev.loganalytics.io/)<br>[Application Insights API](https://dev.applicationinsights.io/reference/get-query) |

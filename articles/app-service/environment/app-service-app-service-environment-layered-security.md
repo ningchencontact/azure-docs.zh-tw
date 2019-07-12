@@ -23,7 +23,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130682"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>實作具有 App Service 環境的多層式安全性架構。
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 由於 App Service 環境提供部署至虛擬網路的隔離執行階段環境，因此開發人員能夠建立多層式安全性架構，針對每個實體應用程式層提供不同層級的網路存取。
 
 常見的需求之一，是要隱藏對 API 後端的一般網際網路存取，而只允許由上游 Web 應用程式呼叫 API。  [網路安全性群組 (NSG)][NetworkSecurityGroups] 可用於包含 App Service 環境的子網路，用以限制對 API 應用程式的公用存取。

@@ -84,7 +84,7 @@ ms.locfileid: "64721162"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>如何使用 Jupyter Notebook 在叢集上設定 Apache Spark 應用程式？
 
@@ -98,7 +98,7 @@ ms.locfileid: "64721162"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>如何使用 Apache Livy 在叢集上設定 Apache Spark 應用程式？
@@ -115,7 +115,7 @@ ms.locfileid: "64721162"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>如何使用 spark-submit 在叢集上設定 Apache Spark 應用程式？
 
@@ -131,7 +131,7 @@ ms.locfileid: "64721162"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>造成 Apache Spark 應用程式 OutofMemoryError 例外狀況的原因為何？
@@ -216,8 +216,8 @@ java.lang.OutOfMemoryError
 ### <a name="additional-reading"></a>其他閱讀資料
 
 - [Apache Spark 記憶體管理概觀](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Apache Spark 應用程式)
+- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Apache Spark 應用程式)
 
 
-### <a name="see-also"></a>另请参阅
+### <a name="see-also"></a>另請參閱
 [使用 Azure HDInsight 進行疑難排解](../../hdinsight/hdinsight-troubleshoot-guide.md)

@@ -48,7 +48,7 @@ Cloud Foundry 作為雲端原生應用程式平台，是設計成具備[四層�
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
 Azure Load Balancer 是第 4 層負載平衡器。 它用來散發的負載平衡集合中的服務執行個體之間的流量。 標準版除了基本版功能之外，還提供[進階功能](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)。 例如 1. 後端集區的 VM 數上限從 100 個提高到 1000 個。  2. 端點現在可支援多個可用性設定組，而不是單一可用性設定組。  3. 其他功能，例如 HA 連接埠、 更豐富的監視資料，等等。 如果您要移動到 Azure 可用性區域，標準 load balancer 是必要的。 針對新的部署，建議您從 Azure Standard Load Balancer 開始著手。 
 
-## <a name="3-authentication"></a>3.Authentication 
+## <a name="3-authentication"></a>3.驗證 
 [Cloud Foundry 使用者帳戶和驗證](https://docs.cloudfoundry.org/concepts/architecture/uaa.html)是 CF 及其各種元件的中央身分識別管理服務。 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 預設會使用 UAA 來進行 Cloud Foundry 驗證。 UAA 作為進階選項也支援 Azure AD 作為外部使用者存放區。 Azure AD 使用者可以使用其 LDAP 身分識別來存取 Cloud Foundry，而無需 Cloud Foundry 帳戶。 請依照這些步驟[在 PCF 中設定適用於 UAA 的 Azure AD](https://docs.pivotal.io/p-identity/1-6/azure/index.html)(英文\)。
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4.Cloud Foundry 執行階段系統的資料儲存體

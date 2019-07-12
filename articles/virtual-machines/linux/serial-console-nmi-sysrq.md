@@ -4,7 +4,7 @@ description: 在 Azure 虛擬機器中使用適用於 SysRq 和 NMI 呼叫的序
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87db223465c0d6680b8d60807bf90afc81e52554
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542640"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708333"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>使用適用於 SysRq 和 NMI 呼叫的序列主控台
 
@@ -52,7 +52,7 @@ echo "1" >/proc/sys/kernel/sysrq
 ### <a name="command-keys"></a>命令鍵 
 來自上述的 SysRq 系統管理指南：
 
-|命令| 函式
+|命令| 函數
 | ------| ----------- |
 |``b``  |   將立即重新啟動系統，並且不會同步或取消掛接磁碟。
 |``c``  |   將執行 NULL 指標取值 (Dereference) 引起的系統損壞。 如有設定，將會採用損毀傾印 (crashdump)。

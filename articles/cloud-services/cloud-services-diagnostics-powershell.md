@@ -21,11 +21,11 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539237"
 ---
-# <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 云服务中启用诊断
+# <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 雲端服務中啟用診斷
 您可以使用 Azure 診斷延伸模組，從雲端服務收集診斷資料 (例如應用程式記錄、效能計數器等)。 本文描述如何使用 PowerShell 啟用雲端服務的 Azure 診斷延伸模組。  如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>啟用診斷延伸模組做為部署雲端服務的一部分
-此方法適用於可以啟用診斷延伸模組做為雲端服務佈署一部分的連續整合類型案例。 在建立新的雲端服務部署時，您還可以啟用診斷擴充功能，藉由傳入*ExtensionConfiguration*參數來[New-azuredeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet。 *ExtensionConfiguration* 参数取值为可使用 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet 创建的诊断配置数组。
+此方法適用於可以啟用診斷延伸模組做為雲端服務佈署一部分的連續整合類型案例。 在建立新的雲端服務部署時，您還可以啟用診斷擴充功能，藉由傳入*ExtensionConfiguration*參數來[New-azuredeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet。 *ExtensionConfiguration* 參數接受以 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) Cmdlet 建立的診斷組態陣列。
 
 下列範例示範如何為某個雲端服務 (其中的 WebRole 和 WorkerRole 各自擁有不同的診斷組態) 啟用診斷。
 
@@ -85,7 +85,7 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online 使用類似的方法，自動部署具有診斷延伸模組的雲端服務。 有关完整示例，请参阅 [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) 。
+Visual Studio Online 使用類似的方法，自動部署具有診斷延伸模組的雲端服務。 請參閱 [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) 來取得完整的範例。
 
 如果您未在診斷組態中指定 `StorageAccount`，則需要將 *StorageAccountName* 參數傳入 Cmdlet。 如果已指定 *StorageAccountName* 參數，則 Cmdlet 一定會使用在此參數中指定的儲存體帳戶，而非在診斷組態檔中指定的儲存體帳戶。
 
@@ -112,14 +112,14 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name
 ```
 
-## <a name="get-current-diagnostics-extension-configuration"></a>获取当前诊断扩展配置
+## <a name="get-current-diagnostics-extension-configuration"></a>取得目前的診斷延伸模組組態
 使用 [Get AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) Cmdlet 取得雲端服務目前的診斷組態。
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-## <a name="remove-diagnostics-extension"></a>删除诊断扩展
+## <a name="remove-diagnostics-extension"></a>移除診斷延伸模組
 若要關閉雲端服務上的診斷，您可以使用[Remove-azureservicediagnosticsextension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet。
 
 ```powershell

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508575"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839790"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 會以透明方式，在與 Cosmos 帳戶相關聯的所有 Azur
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>發生區域中斷時使用 Cosmos DB 的高可用性
 
-區域性中斷時不是很常見，和 Azure Cosmos DB 可確保您的資料庫是 alwayson 高可用性。 下列詳細資料會擷取 Cosmos DB 行為在中斷期間，根據您的 Cosmos 帳戶設定：
+區域性中斷並不罕見，Azure Cosmos DB 可確保您的資料庫永遠具有高度可用性。 下列詳細資料會擷取 Cosmos DB 行為在中斷期間，根據您的 Cosmos 帳戶設定：
 
 - 使用 Cosmos DB，將寫入作業認可至用戶端之前，資料會由接受寫入作業之區域內的複本仲裁進行永久認可。
 
@@ -93,7 +93,8 @@ Azure Cosmos DB 是全域散發的多重主機資料庫服務在區域中斷期�
 |Throughput    |  X RU/s 佈建輸送量      |  X RU/s 佈建輸送量       |  2x RU/s 佈建的輸送量 <br/><br/> 此組態模式需要兩倍的輸送量，相較於單一區域具有可用性區域因為有兩個區域的數量。   |
 
 > [!NOTE] 
-> 若要啟用可用性區域支援，Azure Cosmos DB 帳戶必須具有多重-主機/多區域寫入已啟用。 
+> 若要啟用可用性區域支援多區域 Azure Cosmos 帳戶，帳戶必須具有已啟用的多重主機寫入。
+
 
 將區域新增至新的或現有的 Azure Cosmos 帳戶時，您可以啟用區域備援。 目前，您可以只啟用區域備援藉由使用 Azure 入口網站、 PowerShell 和 Azure Resource Manager 範本。 若要啟用您的 Azure Cosmos 帳戶的區域備援，您應該設定`isZoneRedundant`旗標設為`true`的特定位置。 您可以設定此旗標，在 [位置] 屬性。 例如，下列 powershell 程式碼片段可讓 「 東南亞 」 區域的區域備援：
 

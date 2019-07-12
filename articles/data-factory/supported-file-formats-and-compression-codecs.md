@@ -227,7 +227,7 @@ ms.locfileid: "66165949"
 
 而且想要使用下列格式，將它複製到 Azure SQL 資料表，請同時從物件和陣列擷取資料︰
 
-| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -359,7 +359,7 @@ ms.locfileid: "66165949"
 
 如果您在 SQL Database 中有下列資料表︰
 
-| ID | order_date | order_price | order_by |
+| id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -461,7 +461,7 @@ ms.locfileid: "66165949"
 | Double | Double | N/A | N/A |
 | Decimal | Binary | Decimal | Decimal |
 | 字串 | Binary | Utf8 | Utf8 |
-| DateTime | Int96 | N/A | N/A |
+| Datetime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
 | ByteArray | Binary | N/A | N/A |
@@ -511,7 +511,7 @@ ms.locfileid: "66165949"
 | Double | Double |
 | Decimal | Decimal |
 | 字串 | 字串 |
-| DateTime | Timestamp |
+| Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |

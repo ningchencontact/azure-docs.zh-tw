@@ -49,7 +49,7 @@ ms.locfileid: "65761938"
 }
 ```
 
-| **組態設定** | **說明** |
+| **組態設定** | **描述** |
 | --- | --- |
 | ClusterCredentialType |設定為 *Windows* 可為節點對節點通訊啟用 Windows 安全性。  | 
 | ServerCredentialType |設定為 [Windows]  可為用戶端對節點通訊啟用 Windows 安全性。 |
@@ -102,7 +102,7 @@ ms.locfileid: "65761938"
 }
 ```
 
-| **組態設定** | **說明** |
+| **組態設定** | **描述** |
 | --- | --- |
 | ClusterCredentialType |設定為 *Windows* 可為節點對節點通訊啟用 Windows 安全性。  |
 | ServerCredentialType |設定為 [Windows]  可為用戶端對節點通訊啟用 Windows 安全性。 |

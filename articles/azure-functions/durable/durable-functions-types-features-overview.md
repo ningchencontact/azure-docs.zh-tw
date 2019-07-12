@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731105"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812836"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>長期函式型別和功能 (Azure Functions)
 
@@ -27,7 +27,7 @@ Durable Functions 也是的延伸模組[Azure Functions](../functions-overview.m
 
 ## <a name="types-of-durable-functions"></a>長期函式類型
 
-您可以在 Azure Functions 中使用三種永久性函式類型： 活動、 orchestrator 和用戶端。
+您可以在 Azure Functions 中使用四個永久性函式類型： 活動、 orchestrator、 實體和用戶端。
 
 ### <a name="activity-functions"></a>活動函式
 
@@ -43,7 +43,7 @@ Durable Functions 也是的延伸模組[Azure Functions](../functions-overview.m
 
 ### <a name="orchestrator-functions"></a>協調器函式
 
-協調器函式會說明如何執行動作，以及執行動作的順序。 協調器函式說明中的程式碼的協調流程 (C#或 JavaScript) 中所示[Durable Functions 模式和技術概念](durable-functions-concepts.md)。 協調流程可以有許多不同類型的動作，包括[活動函式](#activity-functions)，[子協調流程](#sub-orchestrations)，[等待外部事件](#external-events)，以及[計時器](#durable-timers)。 
+協調器函式會說明如何執行動作，以及執行動作的順序。 協調器函式說明中的程式碼的協調流程 (C#或 JavaScript) 中所示[Durable Functions 模式和技術概念](durable-functions-concepts.md)。 協調流程可以有許多不同類型的動作，包括[活動函式](#activity-functions)，[子協調流程](#sub-orchestrations)，[等待外部事件](#external-events)，以及[計時器](#durable-timers)。 協調器函式也可以與互動[實體函式](#entity-functions)。
 
 協調器函式必須由[協調流程觸發程序](durable-functions-bindings.md#orchestration-triggers)觸發。
 
@@ -51,11 +51,18 @@ Durable Functions 也是的延伸模組[Azure Functions](../functions-overview.m
 
 如需詳細資訊和範例，請參閱[協調流程觸發程序](durable-functions-bindings.md#orchestration-triggers)。
 
+###  <a name="entity-functions"></a>實體函式 （預覽）
+
+實體函式定義作業讀取及更新小片段狀態，稱為*長期實體*。 協調器函式，例如實體函式函式是特殊的觸發程序型別*實體的觸發程序*。 不同協調器函式中，於實體函式沒有任何特定的程式碼條件約束。 實體函式也會管理狀態明確而不是以隱含方式代表透過控制流程的狀態。
+
+> [!NOTE]
+> 實體函式和相關的功能才可用在 Durable Functions 2.0 及更新版本。
+
+如需有關實體函式的詳細資訊，請參閱[實體函式](durable-functions-preview.md#entity-functions)預覽功能文件。
+
 ### <a name="client-functions"></a>用戶端函式
 
-用戶端函式會建立新的執行個體的協調流程的觸發函式。 用戶端函式會建立 Durable Functions 協調流程執行個體的進入點。 您可以觸發用戶端函式，從任何來源 （HTTP、 佇列、 事件資料流）。 您可以在任何應用程式支援的語言撰寫的用戶端函式。 
-
-用戶端函式也有[協調流程用戶端](durable-functions-bindings.md#orchestration-client)繫結。 用戶端函式可用來建立和管理永久性協調流程繫結協調流程用戶端。 
+用戶端函式會觸發的函式，建立及管理協調流程和實體的執行個體。 它們實際上是 Durable Functions 與互動的進入點。 您可以觸發用戶端函式，從任何來源 (HTTP、 佇列、 事件資料流等。)。 用戶端函式會使用[繫結的協調流程用戶端](durable-functions-bindings.md#orchestration-client)來建立和管理永久性協調流程和實體。
 
 用戶端函式的最基本範例是 HTTP 觸發的函式會啟動協調器函式，然後傳回 核取狀態回應。 如需範例，請參閱[HTTP API URL 探索](durable-functions-http-api.md#http-api-url-discovery)。
 
@@ -83,7 +90,7 @@ Durable Functions 也是的延伸模組[Azure Functions](../functions-overview.m
 
 如需詳細資訊和範例，請參閱[外部事件](durable-functions-external-events.md)。
 
-### <a name="error-handling"></a>错误处理。
+### <a name="error-handling"></a>錯誤處理
 
 您可以使用程式碼來實作 Durable Functions 協調流程。 您可以使用程式設計語言的錯誤處理功能。 模式，例如`try` / `catch`協調流程中的工作。 
 

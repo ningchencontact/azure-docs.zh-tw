@@ -16,7 +16,7 @@ ms.locfileid: "60626543"
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要深入了解如何保護 IoT 解決方案加速器所建立的方案，請參閱[保護 IoT 部署](iot-security-deployment.md)。
 
 請到 IoT 中樞開發人員指南中，參閱[控制 IoT 中樞的存取權](../iot-hub/iot-hub-devguide-security.md)所介紹的 IoT 中樞安全性。

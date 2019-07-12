@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd35af6ead2d734fa68b85b199aac219daf8dcd9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514418"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807164"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>狀態監視器 v2 API:停用 InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-instrumentationengine-v040-alpha"></a>狀態監視器 v2 API:停用 InstrumentationEngine (v0.4.0-alpha)
 
 本文說明的 cmdlet 時的成員[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
 
@@ -46,7 +46,7 @@ PS C:\> Disable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **常見的參數。** 您可以使用這個參數，輸出的詳細的記錄。
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>已成功停用檢測引擎的範例輸出

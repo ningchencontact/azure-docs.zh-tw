@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
-ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912224"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626159"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 6 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 6 月導入的新功能和變更。 
@@ -91,7 +91,7 @@ Central Standard Time             -05:00               1
 
 ## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Auto Stats 作業會顯示在 sys.dm_pdw_exec_requests (行為變更)
 
-隨著[自動建立統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)的推出，Azure SQL 資料倉儲將產生統計資料以最佳化查詢執行。 2018 年 6 月版新增監控何時自動產生統計資料的功能，只要執行任何 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 作業，就會將記錄新增至 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 檢視中。
+隨著[自動建立統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)的推出，Azure SQL 資料倉儲將產生統計資料以最佳化查詢執行。 2018 年 6 月版新增監控何時自動產生統計資料的功能，只要執行任何 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 作業，就會將記錄新增至 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 檢視中。
 
 ```sql
 SELECT
@@ -111,23 +111,23 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>後續步驟
-現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
+既然您已稍微了解 SQL 資料倉儲，了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary]很有幫助您遇到新術語。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [博客]
+* [部落格]
 * [功能要求]
-* [视频]
+* [影片]
 * [客戶諮詢小組部落格]
 * [Stack Overflow 論壇]
 * [Twitter]
 
 
-[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

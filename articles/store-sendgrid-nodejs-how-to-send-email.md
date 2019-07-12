@@ -59,7 +59,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 SendGrid 模組會匯出 **SendGrid** 和 **Email** 函數。
 **SendGrid** 負責透過 Web API 傳送電子郵件，而 **Email** 則負責封裝電子郵件訊息。
 
-## <a name="how-to-create-an-email"></a>作法：建立電子郵件
+## <a name="how-to-create-an-email"></a>HOW TO：建立電子郵件
 
 使用 SendGrid 模組建立電子郵件訊息涉及先使用 Email 函數建立電子郵件訊息，再使用 SendGrid 函數傳送該電子郵件訊息。 以下是使用 Email 函數建立新訊息的範例：
 
@@ -82,7 +82,7 @@ html: This is a sample <b>HTML<b> email message.
 
 如需有關 Email 函數所支援之所有屬性的詳細資訊，請參閱 [sendgrid-nodejs][sendgrid-nodejs]。
 
-## <a name="how-to-send-an-email"></a>作法：傳送電子郵件
+## <a name="how-to-send-an-email"></a>HOW TO：傳送電子郵件
 
 使用 Email 函數建立電子郵件訊息之後，您可以使用 SendGrid 所提供的 Web API 進行傳送。 
 
@@ -108,7 +108,7 @@ sendgrid.send(email, function(err, json){
 > ```
 >
 
-## <a name="how-to-add-an-attachment"></a>作法：新增附件
+## <a name="how-to-add-an-attachment"></a>HOW TO：新增附件
 您可以透過在 **files** 屬性中指定檔案名稱和路徑，將附件新增至訊息中。 下列範例示範如何傳送附件：
 
 ```javascript
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>作法：使用篩選來啟用頁尾和追蹤
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>HOW TO：使用篩選來啟用頁尾和追蹤
 
 SendGrid 提供了運用篩選器的其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。 如需完整的篩選器清單，請參閱[篩選器設定][Filter Settings]。
 
@@ -186,7 +186,7 @@ email.setFilters({
 sendgrid.send(email);
 ```
 
-## <a name="how-to-update-email-properties"></a>作法：更新電子郵件屬性
+## <a name="how-to-update-email-properties"></a>HOW TO：更新電子郵件屬性
 
 某些電子郵件屬性可使用 **setProperty** 進行覆寫，或使用 **addProperty** 進行附加。 例如，您可以使用下列方式新增其他收件者：
 
@@ -203,7 +203,7 @@ email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 如需詳細資訊，請參閱 [sendgrid-nodejs][sendgrid-nodejs]。
 
-## <a name="how-to-use-additional-sendgrid-services"></a>作法：使用其他 SendGrid 服務
+## <a name="how-to-use-additional-sendgrid-services"></a>HOW TO：使用其他 SendGrid 服務
 
 SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。 如需完整詳細資料，請參閱 [SendGrid API 文件][SendGrid API documentation]。
 

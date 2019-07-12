@@ -27,7 +27,7 @@ ms.locfileid: "60371221"
 
 嘗試登入 [Azure 入口網站](https://portal.azure.com/)或 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)時，您可能會收到「找不到訂用帳戶」錯誤訊息。 本文會提供此問題的解決方案。
 
-## <a name="symptom"></a>徵狀
+## <a name="symptom"></a>徵兆
 
 當您嘗試登入 [Azure 入口網站](https://portal.azure.com/)或 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)時，您看到下列錯誤訊息：「找不到訂用帳戶」。
 
@@ -35,7 +35,7 @@ ms.locfileid: "60371221"
 
 如果您選取錯誤的目錄或帳戶沒有足夠的權限，就會發生此問題。 
 
-## <a name="solution"></a>解決方法
+## <a name="solution"></a>方案
 
 ### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>案例 1：在 [Azure 入口網站](https://portal.azure.com)中收到錯誤訊息
 

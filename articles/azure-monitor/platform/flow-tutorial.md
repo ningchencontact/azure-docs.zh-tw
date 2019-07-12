@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396519"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807041"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>使用 Microsoft Flow 的連接器自動化 Azure 監視器記錄流程
 [Microsoft Flow](https://ms.flow.microsoft.com) 可讓您使用數百個動作建立各種不同服務的自動化工作流程。 從一個動作的輸出可用來作為另一個動作的輸入，讓您建立不同服務之間的整合。  適用於 Microsoft Flow 的 Azure Log Analytics 連接器可讓您建立工作流程，包含 Azure 監視器中的 Log Analytics 工作區之中的記錄搜尋所擷取的資料。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-例如，您可以使用 Microsoft Flow，從 Office 365 在電子郵件通知中使用 Azure 監視器記錄資料、在 Azure DevOps 中建立 Bug 或張貼 Slack 訊息。  您可以使用簡易排程或從連接的服務中的某個動作觸發工作流程，例如收到郵件或推文時。  
+例如，您可以使用 Microsoft Flow，從 Office 365 電子郵件通知中使用 Azure 監視器記錄資料、 建立 Azure DevOps 中的 bug 或張貼 Slack 訊息。  您可以使用簡易排程或從連接的服務中的某個動作觸發工作流程，例如收到郵件或推文時。  
 
 這篇文章中的教學課程會示範如何建立流程，自動透過電子郵件傳送 Azure 監視器記錄查詢結果，這只是如何在 Microsoft Flow 中使用 Log Analytics 連接器的一個範例。 
 

@@ -26,7 +26,7 @@ ms.locfileid: "60322544"
 
 您開始開發之前，請檢閱[使用媒體服務 v3 Api 進行開發](media-services-apis-overview.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源群組名稱和「媒體服務」帳戶名稱。 
 - 取得所需資訊來[存取 API](access-api-cli-how-to.md)
@@ -91,7 +91,7 @@ ms.locfileid: "60322544"
 
     ![取得 AAD 權杖](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [將檔案上傳至媒體服務帳戶 - REST](upload-files-rest-how-to.md)
 - [使用媒體服務建立篩選 - REST](filters-dynamic-manifest-rest-howto.md)

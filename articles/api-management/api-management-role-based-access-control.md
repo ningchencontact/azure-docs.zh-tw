@@ -33,7 +33,7 @@ API 管理目前提供三個內建角色，不久之後會再新增兩個角色�
 
 下表提供內建角色的簡短描述。 您可以使用 Azure 入口網站或其他工具 (包括 Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)、[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 和 [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)) 指派這些角色。 如需如何指派內建角色的詳細資料，請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)。
 
-| 角色          | 讀取權限<sup>[1]</sup> | 寫入權限<sup>[2]</sup> | 服務建立、刪除、調整規模、VPN 及自訂網域設定 | 存取舊版發行者入口網站 | 描述
+| Role          | 讀取權限<sup>[1]</sup> | 寫入權限<sup>[2]</sup> | 服務建立、刪除、調整規模、VPN 及自訂網域設定 | 存取舊版發行者入口網站 | 描述
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | Azure API 管理服務參與者 | ✓ | ✓ | ✓ | ✓ | 進階使用者。 具有 API 管理服務及實體 (例如 API 和原則) 的完整 CRUD 存取。 具有舊版發行者入口網站的存取權限。 |
 | Azure API 管理服務讀者 | ✓ | | || 具有 API 管理服務及實體的唯讀權限。 |
@@ -71,7 +71,7 @@ New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionNa
 
 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)一文包含可在 API 管理層級上授與的權限清單。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]

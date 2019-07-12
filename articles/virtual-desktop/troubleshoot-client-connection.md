@@ -4,15 +4,15 @@ description: 如何解決問題，當您設定 Windows 虛擬桌面的租用戶�
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7a6daa791e44227fd146c9c328a939560ebb3b1
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833562"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605303"
 ---
 # <a name="remote-desktop-client-connections"></a>遠端桌面用戶端連線
 

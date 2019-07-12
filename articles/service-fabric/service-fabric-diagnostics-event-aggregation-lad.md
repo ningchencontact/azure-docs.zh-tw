@@ -53,4 +53,4 @@ Service Fabric 會透過 [LTTng](https://lttng.org) 發出少數的現成記錄�
 ## <a name="next-steps"></a>後續步驟
 
 1. 若要更仔細了解您在進行問題的疑難排解時應該調查哪些事件，請參閱 [LTTng 文件](https://lttng.org/docs)和[使用 LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)。
-2. [設定 Log Analytics 代理程式](service-fabric-diagnostics-event-analysis-oms.md)以幫助收集度量、監視部署在您的叢集上的容器，以及視覺化您的記錄檔 
+2. [設定 Log Analytics 代理程式](service-fabric-diagnostics-event-analysis-oms.md)以幫助收集度量、監視部署在您的叢集上的容器，以及視覺化您的記錄 

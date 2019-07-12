@@ -122,7 +122,7 @@ ms.locfileid: "64943413"
 針對受控應用程式，您必須設定授權和原則設定。
 
 
-#### <a name="authorization"></a>授權
+#### <a name="authorization"></a>Authorization
 
 將使用者、群組或應用程式的 Azure Active Directory 識別碼，新增至您要向其授與受控資源群組的存取權。 授與的權限由角色定義識別碼所指示。可能的擁有者、 參與者或任何自訂角色。
 

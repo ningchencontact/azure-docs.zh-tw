@@ -9,33 +9,20 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d36a2c6379a95cc67a55c2cc266ced94b4a0179a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792624"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672222"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics:常見問題
 
 本文會列出關於 Microsoft Genomics 的最常見疑問。 如需有關 Microsoft Genomics 服務的詳細資訊，請參閱[什麼是 Microsoft Genomics？](overview-what-is-genomics.md)。 如需有關疑難排解的詳細資訊，請參閱[疑難排解指南](troubleshooting-guide-genomics.md)。 
 
-## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>什麼是 Microsoft Genomics 服務 GATK 4 特惠服務？
-直到 2019 年 6 月 30 日，Microsoft Genomics 服務提供與 GATK4 20 的 WGS 執行，不需要收費。 若要參與這項優惠活動，請在[這裡](https://aka.ms/msgatk4)註冊。 
 
-### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>執行 Microsoft Genomics 服務 GATK4 特惠服務時可能會遇到哪些常見問題
-以下列出您可能會遇到的常見錯誤和建議的解決方案：
-
-| **訊息**                                                                                                                                                                                    | **原因**                                                                                                    | **解決方案**                                                                                                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 您的帳戶未啟用 `gatk4-promo`。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | 您嘗試以尚未啟用的 Microsoft Genomics 服務來執行 GATK4 工作流程。       | 請造訪[這裡](https://aka.ms/msgatk4)以啟用您的帳戶。 請注意，試用版到期 2019 年 6 月 30 日。 在此日期之後，您將無法啟用帳戶參與特惠執行。 |
-| 感謝您試用`gatk4-promo`。您的試用期已結束。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | GATK4 試用版已於年底 (日曆年度) 到期，您將嘗試叫用 `gatk4-promo` process_name。  | 請將 process_name 參數切換為 `gatk4`，而不是 `gatk4-promo`。 這是官方 gatk4 版本，如果您使用此參數，工作流程將需計費。                                         |
-| 感謝您試用 `gatk4-promo`。您已用完所有執行配額。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | 您的 20 個 GATK4 特惠執行全部都已成功提交。                               | 若要提交任何新的 gatk4 執行，請將 process_name 引數設為 `gatk4`，而不是 `gatk4-promo`。 使用此參數時，您的工作流程將需計費。                                                          |        
-
-
-## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>是否可在未註冊 GATK4 特惠服務的情況下，在 Microsoft Genomics 中執行 GATK4 工作流程？
-是，請在 Microsoft Genomics 服務的 config.txt 檔案中，將 process_name 指定為 `gatk4`。 請注意，您將需依固定費率的付費，且您的 Microsoft Genomics 帳戶將不適用 20 次的免費執行。
-
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>如何在 Microsoft Genomics 執行 GATK4 工作流程？
+在 Microsoft Genomics 服務的 config.txt 檔案中，指定要 process_name `gatk4`。 請注意，您將享有一般的計費費率。
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>什麼是適用於 Microsoft Genomics 的 SLA？
@@ -74,7 +61,7 @@ Microsoft Genomics 是根據每個工作流程所處理的 Gb 數來計費。 �
 
 支援以下參考：
 
- |參考              | `-pa/--process-args` 的值 |
+ |參考資料              | `-pa/--process-args` 的值 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

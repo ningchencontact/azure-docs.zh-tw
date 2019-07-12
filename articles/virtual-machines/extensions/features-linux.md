@@ -4,7 +4,7 @@ description: 了解哪些擴充功能適用於 Azure 虛擬機器，並依它們
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f22da9eabc6f539ef37009f565f073b9de89319
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721145"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706748"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>適用於 Linux 的虛擬機器擴充功能和功能
 
@@ -28,7 +28,7 @@ Azure 虛擬機器 (VM) 擴充功能是小型的應用程式，可在 Azure 虛�
 
 本文提供虛擬機器擴充功能概觀、使用 Azure 虛擬機器擴充功能的必要條件，以及如何偵測、管理和移除虛擬機器擴充功能的指引。 因為有許多可用的虛擬機器擴充功能，且每項功能的設定可能都盡不相同，因此本文所提供的是通用資訊。 可以在每份個別擴充功能專用的文件中找到擴充功能特定的詳細資料。
 
-## <a name="use-cases-and-samples"></a>用例和示例
+## <a name="use-cases-and-samples"></a>使用案例和範例
 
 有數個不同的 Azure VM 擴充功能可供使用，各有特定使用案例。 部分範例包括：
 
@@ -222,7 +222,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 有可用的更新時，只有在擴充功能有所變更和其他虛擬機器模型已變更時，才會在虛擬機器上安裝更新：
 
 - 資料磁碟
-- 擴充功能
+- 延伸模組
 - 開機診斷容器
 - 客體作業系統祕密
 - VM 大小
@@ -406,9 +406,9 @@ az vm extension delete \
 
 | 擴充功能名稱 | 描述 | 詳細資訊 |
 | --- | --- | --- |
-| Linux 的自訂指令碼擴充功能 |對「Azure 虛擬機器」執行指令碼 |[适用于 Linux 的自定义脚本扩展](custom-script-linux.md) |
-| VM 存取擴充功能 |重新取得對「Azure 虛擬機器」的存取權 |[VM 访问扩展](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Azure 診斷擴充功能 |管理 Azure 诊断 |[Azure 診斷擴充功能](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Linux 的自訂指令碼擴充功能 |對「Azure 虛擬機器」執行指令碼 |[Linux 的自訂指令碼擴充功能](custom-script-linux.md) |
+| VM 存取擴充功能 |重新取得對「Azure 虛擬機器」的存取權 |[VM 存取擴充功能](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
+| Azure 診斷擴充功能 |管理「Azure 診斷」 |[Azure 診斷擴充功能](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 存取擴充功能 |管理使用者和認證 |[適用於 Linux 的 VM 存取擴充功能](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>後續步驟

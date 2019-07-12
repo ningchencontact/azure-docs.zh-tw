@@ -23,7 +23,7 @@ ms.locfileid: "60576850"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的磁碟機
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程說明如何取下和更換 Microsoft Azure StorSimple 裝置上無法運作或故障的硬碟。 若要取下磁碟機，您必須：
 
 * 打開防拆鎖

@@ -142,7 +142,7 @@ ms.locfileid: "60347647"
 
 當您從舊版升級 Azure AD Connect 時，您可能會在升級開始時遇到下列錯誤 
 
-![Error](./media/how-to-upgrade-previous-version/error1.png)
+![錯誤](./media/how-to-upgrade-previous-version/error1.png)
 
 因為識別碼為 b891884f-051e-4a83-95af-2544101c9083 的 Azure Active Directory 連接器不存在於目前的 Azure AD Connect 設定中，所以發生此錯誤。 若要確認情況就是這樣，請開啟 PowerShell 視窗，並執行 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
