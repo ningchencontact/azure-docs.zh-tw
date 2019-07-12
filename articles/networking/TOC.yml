@@ -126,6 +126,8 @@
   items:
     - name: 作者範本
       href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: 提供者
+      href: networking-partners-msp.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 社群範本

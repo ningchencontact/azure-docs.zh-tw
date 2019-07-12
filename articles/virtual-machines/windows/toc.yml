@@ -132,6 +132,8 @@
       href: backup-recovery.md
     - name: 基礎結構範例
       href: infrastructure-example.md
+    - name: 安全性屬性
+      href: virtual-machines-windows-security-attributes.md
 - name: 使用說明指南
   items:
     - name: 建立 VM

@@ -254,7 +254,7 @@
         - name: 處理長時間執行的作業
           href: media-services-dotnet-long-operations.md
         - name: 分散式 MP4 即時內嵌規格
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: 開始使用
           href: media-services-azure-media-clipper-getting-started.md
         - name: 載入影片
@@ -458,11 +458,11 @@
     - name: 規格
       items:
         - name: 即時內嵌 - 分散式 MP4 即時內嵌規格
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: 即時內嵌 - 即時資料流中的已逾時中繼資料訊號
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: 資源
   items:
     - name: Azure 媒體服務社群
