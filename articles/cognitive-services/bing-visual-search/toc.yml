@@ -58,7 +58,8 @@
     - name: 使用權杖取得深入解析
       href: use-insights-token.md
     - name: 調整大小和裁剪縮圖
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: 使用影像深入解析權杖搜尋影像
       href: tutorial-visual-search-insights-token.md
     - name: 建立單頁 Web 應用程式
