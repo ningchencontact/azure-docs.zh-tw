@@ -213,7 +213,7 @@ ms.locfileid: "62107069"
 |屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |categoryFilter|n/a|指定依類別的篩選| 
-|defaultLevel|資訊|針對 `categoryLevels` 陣列中未指定的任何類別，會將這個層級和以上層級的記錄傳送至 Application Insights。| 
+|defaultLevel|Information|針對 `categoryLevels` 陣列中未指定的任何類別，會將這個層級和以上層級的記錄傳送至 Application Insights。| 
 |categoryLevels|n/a|一個類別陣列，指定針對每個類別傳送至 Application Insights 的最小記錄層級。 這裡指定的類別控制所有開頭為相同值的類別，但會優先使用較長的值。 在上述範例 *host.json* 檔案中，所有開頭為 "Host.Aggregator" 的類別都會記錄在 `Information` 層級。 所有開頭為 "Host" 的其他類別 (例如 "Host.Executor") 都會記錄於 `Error` 層級。| 
 
 ## <a name="queues"></a>queues
