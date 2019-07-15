@@ -443,6 +443,13 @@
           href: ./partner-center-portal/offer-creation-checklist.md
         - name: 建立 SaaS 供應項目
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS 計量帳單
+          href: ./partner-center-portal/saas-metered-billing.md
+          items:
+            - name: Marketplace 計量服務 API - 常見問題集
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+            - name: Marketplace 計量服務 API
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
         - name: SaaS 履行 API
           href: ./partner-center-portal/pc-saas-fulfillment-apis.md
           items:
@@ -452,6 +459,8 @@
               href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
             - name: SaaS 履行 API v1 (已淘汰)
               href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+            - name: SaaS 履行 API - 常見問題集
+              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
     - name: 發佈狀態
       href: ./partner-center-portal/publishing-status.md
     - name: 更新現有供應項目

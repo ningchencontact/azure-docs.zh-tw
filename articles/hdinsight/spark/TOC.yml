@@ -22,6 +22,8 @@
       href: apache-spark-load-data-run-query.md
     - name: 使用 IntelliJ 執行 Apache Spark 查詢
       href: apache-spark-intellij-tool-plugin.md
+    - name: 在 IntelliJ 中的 Spark 作業偵錯失敗 (預覽)
+      href: apache-spark-intellij-tool-failure-debug.md
     - name: 使用 BI 工具分析資料
       href: apache-spark-use-bi-tools.md
     - name: 執行串流作業

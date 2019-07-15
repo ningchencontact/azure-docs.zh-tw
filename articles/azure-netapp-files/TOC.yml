@@ -45,8 +45,10 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: 將子網路委派至 Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: 建立適用於 Azure NetApp Files 的磁碟區
+    - name: 建立適用於 Azure NetApp Files 的 NFS 磁碟區
       href: azure-netapp-files-create-volumes.md
+    - name: 建立適用於 Azure NetApp Files 的 SMB 磁碟區
+      href: azure-netapp-files-create-volumes-smb.md
     - name: 設定 NFS 磁碟區的匯出原則
       href: azure-netapp-files-configure-export-policy.md
     - name: 管理磁碟區

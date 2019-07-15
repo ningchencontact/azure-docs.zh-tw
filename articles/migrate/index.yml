@@ -14,13 +14,30 @@ metadata:
   ms.date: 11/22/2017
   ms.author: raynew
 abstract:
-  description: Azure Migrate 可協助您探索及評定內部部署機器是否適合移轉至 Azure，並提供可執行 Azure VM 的尺寸及成本預估。
+  description: Azure Migrate 可協助您遷移至 Azure 雲端。 Azure Migrate 提供集中式中樞，可追蹤探索、評量和內部部署工作負載及雲端虛擬機器移轉。 中樞提供 Azure Migrate 工具進行評量和移轉，同時提供來自獨立軟體廠商 (ISV) 的整合工具。
 sections:
   - title: 逐步教學課程
     items:
       - type: paragraph
-        text: 了解如何評定 VMware VM 以移轉至 Azure
+        text: 了解如何評定 VMware VM 並將其遷移至 Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-vmware">準備 VMware VM 以進行評量並移轉至 Azure</a>
+          - html: <a href="tutorial-assess-vmware">評定 VMware VM 以移轉至 Azure</a>
+          - html: <a href="tutorial-migrate-vmware">使用無代理程式移轉將 VMware VM 遷移至 Azure</a>
+          - html: <a href="tutorial-migrate-vmware-agent">使用代理程式移轉將 VMware VM 遷移至 Azure</a>
+      - type: paragraph
+        text: 了解如何評定 Hyper-V VM 並將其遷移至 Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-hyper-v">準備 Hyper-V VM 以進行評量並移轉至 Azure</a>
+          - html: <a href="tutorial-assess-hyper-v">評定 Hyper-V VM 以移轉至 Azure</a>
+          - html: <a href="tutorial-migrate-hyper-v">將 Hyper-V VM 遷移至 Azure</a>
+      - type: paragraph
+        text: 了解如何將實體伺服器、虛擬機器和雲端虛擬機器遷移至 Azure
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial-assessment-vmware">探索及評定內部部署 VMware VM</a>
+          - html: <a href="tutorial-migrate-physical-virtual-machines">將實體或虛擬伺服器遷移至 Azure</a>

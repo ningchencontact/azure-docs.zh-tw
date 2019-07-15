@@ -126,6 +126,8 @@
           href: virtual-kubelet.md
         - name: 使用叢集自動調整程式 (預覽)
           href: cluster-autoscaler.md
+        - name: 可用性區域 (預覽)
+          href: availability-zones.md
         - name: 使用多個節點集區 (預覽)
           href: use-multiple-node-pools.md
         - name: 使用 Terraform 部署 AKS
@@ -315,6 +317,8 @@
         - name: Azure DevOps 專案
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
+        - name: 部署中心啟動器
+          href: deployment-center-launcher.md
     - name: 疑難排解
       items:
         - name: 常見問題

@@ -58,7 +58,7 @@
           href: howto-power-bi-content-pack.md
         - name: 設定報告 API 的必要條件
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: 如何使用 Azure 監視器活頁簿
+        - name: 如何使用 Azure AD 活頁簿
           href: howto-use-azure-monitor-workbooks.md
     - name: 監視
       items:
@@ -87,6 +87,8 @@
 - name: 參考
   expanded: true
   items:
+    - name: 適用於報表的 Azure AD PowerShell Cmdlet
+      href: reference-powershell-reporting.md
     - name: 稽核記錄 API 參考
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: 登入記錄 API 參考

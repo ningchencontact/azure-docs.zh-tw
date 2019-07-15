@@ -29,6 +29,8 @@
   items:
     - name: 啟用 ASP.NET Core 中的動態組態
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: 啟用 .NET Core 應用程式中的動態組態
+      href: enable-dynamic-configuration-dotnet-core.md
     - name: 在 .NET Core 應用程式中使用功能旗標
       href: use-feature-flags-dotnet-core.md
     - name: 管理功能旗標

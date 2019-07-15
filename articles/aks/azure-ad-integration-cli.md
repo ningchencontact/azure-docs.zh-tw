@@ -62,7 +62,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-現在建立伺服器應用程式中使用的服務主體[az ad sp 建立][az-ad-sp-create]command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset]命令，並將指派給名為的變數*serverApplicationSecret*使用其中一種下列步驟：
+現在建立伺服器應用程式中使用的服務主體[az ad sp 建立][az-ad-sp-create] command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset]命令，並將指派給名為的變數*serverApplicationSecret*使用其中一種下列步驟：
 
 ```azurecli-interactive
 # Create a service principal for the Azure AD application
