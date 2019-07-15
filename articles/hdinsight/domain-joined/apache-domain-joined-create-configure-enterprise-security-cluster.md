@@ -309,8 +309,8 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | 目的地 | Any |
         | Destination port range | 636 |
         | Protocol | Any |
-        | 動作 | 允許 |
-        | 優先順序 | \<所需的數目\> |
+        | Action | 允許 |
+        | Priority | \<所需的數目\> |
         | 名稱 | Port_LDAP_636 |
 
     ![輸入的安全性規則](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
