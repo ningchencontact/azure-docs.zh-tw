@@ -4,21 +4,20 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399214"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707190"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>快速入門：使用 Azure Dev Spaces (Visual Studio) 在 Kubernetes 上使用 .NET Core 進行開發
 
@@ -94,7 +93,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-在上述範例中，公用 URL 是 http://webfrontend.1234567890abcdef1234.eus.azds.io/。 瀏覽至您服務的公用 URL，並與您開發人員空間中執行的服務互動。
+在上述範例中，公用 URL 是 http://webfrontend.1234567890abcdef1234.eus.azds.io/ 。 瀏覽至您服務的公用 URL，並與您開發人員空間中執行的服務互動。
 
 此程序可能已停用針對您服務的公用存取。 若要啟用公用存取，您可以更新[*values.yaml* 中的輸入值][ingress-update]。
 

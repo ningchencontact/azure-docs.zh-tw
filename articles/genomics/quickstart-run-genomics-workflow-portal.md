@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261684"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670755"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -87,14 +87,14 @@ pip install msgen
 
 
 ### <a name="test-the-microsoft-genomics-client"></a>測試 Microsoft Genomics 用戶端
-若要測試 Microsoft Genomics 用戶端，請從 Genomics 帳戶下載設定檔。 按一下左上方的 [所有服務]、進行篩選，然後選取 Genomics 帳戶，即可瀏覽至 Genomics 帳戶。
+若要測試 Microsoft Genomics 用戶端，請從 Genomics 帳戶下載設定檔。 按一下左上方的 [所有服務]  、進行篩選，然後選取 Genomics 帳戶，即可瀏覽至 Genomics 帳戶。
 
 
 ![Azure 入口網站上 Microsoft Genomics 的篩選條件](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Azure 入口網站上 Microsoft Genomics 的篩選條件")
 
 
 
-選取您剛建立的 Genomics 帳戶，瀏覽至 [存取金鑰]，並下載設定檔。
+選取您剛建立的 Genomics 帳戶，瀏覽至 [存取金鑰]  ，並下載設定檔。
 
 ![從 Microsoft Genomics 下載設定檔](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "從 Microsoft Genomics 下載設定檔")
 
@@ -146,13 +146,13 @@ Microsoft Genomics 服務預期會使用配對的結束讀取作為輸入檔案�
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>使用 Python 用戶端透過 Microsoft Genomics 服務執行工作流程 
 
 若要透過 Microsoft Genomics 服務來執行工作流程，可編輯 config.txt 檔案來指定您資料的輸入和輸出儲存體容器。
-開啟您從 Genomics 帳戶下載的 config.txt 檔案。 您必須指定的小節包括您的訂用帳戶金鑰，以及底部的六個項目、儲存體帳戶名稱、輸入和輸出的金鑰與容器名稱。 您可以在入口網站中瀏覽至儲存體帳戶的 [存取金鑰]，或直接從 Azure 儲存體總管找到這項資訊。  
+開啟您從 Genomics 帳戶下載的 config.txt 檔案。 您必須指定的小節包括您的訂用帳戶金鑰，以及底部的六個項目、儲存體帳戶名稱、輸入和輸出的金鑰與容器名稱。 您可以在入口網站中瀏覽至儲存體帳戶的 [存取金鑰]  ，或直接從 Azure 儲存體總管找到這項資訊。  
 
 
 ![Genomics 設定](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 設定")
 
 
-如果您想要執行 GATK4，請將 `process_name` 參數設定為 gatk4 或 gatk4-promo。 如需有關 GATK4 促銷活動的詳細資訊，請瀏覽[此頁面](https://aka.ms/msgatk4)。
+如果您想要執行 GATK4，請將 `process_name` 參數設定為 `gatk4`。
 
 根據預設，Genomics 服務會輸出 VCF 檔案。 如果您想要 gVCF 輸出而不是 VCF 輸出 (相當於 GATK 3.x 中的 `-emitRefConfidence` 及 GATK 4.x 中的 `emit-ref-confidence`)，請將 `emit_ref_confidence` 參數新增至您的 `config.txt`，並將其設定為 `gvcf`，如上圖所示。  若要變更回 VCF 輸出，請從 `config.txt` 檔案中移除此參數，或將 `emit_ref_confidence` 參數設定為 `none`。 
 

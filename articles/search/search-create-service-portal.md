@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485627"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706801"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
-Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗的獨立資源。 雖然 Azure 搜尋服務可與其他 Azure 服務輕易整合，但您也可以單獨使用、將其與網路伺服器上的應用程式搭配使用，或與其他雲端平台上執行的軟體搭配使用。
+Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗的獨立資源。 雖然 Azure 搜尋服務可與其他 Azure 服務輕易整合，但您也可以將它當做單獨元件使用、將其與網路伺服器上的應用程式整合，或與其他雲端平台上執行的軟體搭配使用。
 
 在本文中，請了解如何在 [Azure 入口網站](https://portal.azure.com/)中建立 Azure 搜尋服務資源。
 
@@ -73,10 +73,10 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 如果您要依其他 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 提供的資料編製索引，建議您在相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
 
-如果您使用認知服務 AI 擴充資料，請在與認知服務資源所在之相同的區域中建立服務。 服務必須位於相同位置，方可使用 AI 擴充資料。
+如果您使用認知服務 AI 擴充資料，請在與認知服務資源所在之相同的區域中建立服務。 *將 Azure 搜尋服務與認知服務共置於相同區域中是 AI 擴充的一項需求*。
 
 > [!Note]
-> 新的服務目前無法在印度中部使用。 對於已在印度中部提供的服務，您可以無限制地相應增加，且您的服務在該區域中受到完整的支援。 此區域的限制是暫時性的，我們將在此附註不再適用時加以移除。
+> 新的服務目前無法在印度中部使用。 對於已在印度中部提供的服務，您可以無限制地相應增加，且您的服務在該區域中受到完整的支援。 此區域的限制是暫時的且僅限於新的服務。 當限制不再適用時，我們將移除此注意事項。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
 
@@ -88,27 +88,29 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ## <a name="create-your-service"></a>建立您的服務
 
-請記得將您的服務釘選到儀表板，以方便在登入時存取。
+輸入所需的輸入以建立服務。 
 
-![釘選到儀表板](./media/search-create-service-portal/new-service3.png "將資源釘選到儀表板以便存取")
+![檢閱並建立服務](./media/search-create-service-portal/new-service3.png "檢閱並建立服務")
+
+您的服務會在幾分鐘內部署，而您可透過 Azure 通知進行監視。 請考慮將服務釘選在儀表板上，以便日後存取。
+
+![監視及釘選服務](./media/search-create-service-portal/monitor-notifications.png "監視及釘選服務")
 
 ## <a name="get-a-key-and-url-endpoint"></a>取得金鑰和 URL 端點
 
-除了少數例外狀況以外，使用新服務時，您需要提供 URL 端點和授權 API 金鑰。 快速入門、教學課程 (例如[探索 Azure 搜尋服務 REST API (Postman)](search-get-started-postman.md) 和[如何從 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md))、範例和自訂程式碼全都需要端點和金鑰，才能在特定資源上執行。
+除非您使用入口網站，否則在存取新服務時，您需要提供 URL 端點和授權 API 金鑰。
 
 1. 在服務概觀頁面中，找出並複製頁面右側的 URL 端點。
 
-   ![包含 URL 端點的服務概觀頁面](./media/search-create-service-portal/url-endpoint.png "URL 端點和其他服務詳細資料")
-
 2. 在左側導覽窗格中選取 [金鑰]  ，然後複製任一系統管理員金鑰 (它們是相等的)。 在您的服務上建立、更新及刪除物件時，需要系統管理員 API 金鑰。
 
-   ![顯示主要和次要金鑰的金鑰頁面](./media/search-create-service-portal/admin-api-keys.png "可供授權的系統管理員 API 金鑰")
+   ![包含 URL 端點的服務概觀頁面](./media/search-create-service-portal/get-url-key.png "URL 端點和其他服務詳細資料")
 
-入口網站工作不需要端點和金鑰。 入口網站已透過系統管理員權限連結至您的 Azure 搜尋服務資源。 如需入口網站教學課程，請開始使用[教學課程：Azure 搜尋服務中的匯入、索引和查詢](search-get-started-portal.md)。
+入口網站工作不需要端點和金鑰。 入口網站已透過系統管理員權限連結至您的 Azure 搜尋服務資源。 如需入口網站逐步解說，請從[快速入門：在入口網站中建立 Azure 搜尋服務索引](search-get-started-portal.md)著手。
 
 ## <a name="scale-your-service"></a>調整您的服務
 
-可能需要幾分鐘的時間來建立服務 (視層級而定，15 分鐘或更多)。 佈建完您的服務之後，您可以調整它以符合您的需求。 由於您為「Azure 搜尋服務」選擇了「標準」層，因此您可以在兩個維度調整服務︰複本和資料分割。 如果您選擇的是「基本」層，則只能新增複本。 如果您佈建的是免費服務，則無法進行調整。
+佈建完您的服務之後，您可以調整它以符合您的需求。 如果您為 Azure 搜尋服務選擇了「標準」層，即可在兩個維度調整服務︰複本和資料分割。 如果您選擇的是「基本」層，則只能新增複本。 如果您佈建的是免費服務，則無法進行調整。
 
 「資料分割」允許您的服務儲存及搜尋更多文件。
 
@@ -126,7 +128,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 ![新增容量](./media/search-create-service-portal/settings-scale.png "透過複本和分割區新增容量")
 
 > [!Note]
-> 關於單一服務中允許的搜尋單位總數 (複本 * 分割區 = 搜尋單位總數)，每一層各有不同的[限制](search-limits-quotas-capacity.md)。
+> 每個分割區的儲存體和速度均以更高的層次增加。 如需詳細資訊，請參閱[容量和限制](search-limits-quotas-capacity.md)。
 
 ## <a name="when-to-add-a-second-service"></a>新增第二個服務的時機
 
@@ -148,4 +150,4 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 佈建 Azure 搜尋服務之後，您可以繼續在入口網站中建立第一個索引。
 
 > [!div class="nextstepaction"]
-> [教學課程：在入口網站中匯入資料、編製索引並執行查詢](search-get-started-portal.md)
+> [快速入門：在入口網站中建立 Azure 搜尋服務索引](search-get-started-portal.md)

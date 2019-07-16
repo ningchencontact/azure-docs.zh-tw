@@ -2,18 +2,18 @@
 title: 快速入門 - 建立 Azure Kubernetes Service (AKS) 叢集
 description: 了解如何使用 Azure Resource Manager 範本快速建立 Kubernetes 叢集以及在 Azure Kubernetes Service (AKS) 中部署應用程式
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 524eb97a2c865a14800cf503edd7f506151521bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e7cc9b63768385e4665e330b2b02a884b84c2188
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920215"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615392"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -104,7 +104,7 @@ az ad sp create-for-rbac --skip-assignment
 az aks install-cli
 ```
 
-若要設定 `kubectl` 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用。
+若要設定 `kubectl` 以連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用。
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -127,7 +127,7 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 
 ## <a name="run-the-application"></a>執行應用程式
 
-Kubernetes 資訊清單檔會定義所需的叢集狀態，例如要執行哪些容器映像。 在本教學課程中，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 此資訊清單包含兩個 [Kubernetes 部署][kubernetes-deployment]：一個適用於範例 Azure 投票 Python 應用程式，而另一個適用於 Redis 執行個體。 還會建立兩個 [Kubernetes 服務][kubernetes-service]：內部服務用於 Redis 執行個體，而外部服務用於從網際網路存取 Azure 投票應用程式。
+Kubernetes 資訊清單檔會定義所需的叢集狀態，例如要執行哪些容器映像。 在本教學課程中，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 此資訊清單還會建立兩個 [Kubernetes 部署][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service]：內部服務用於 Redis 執行個體，而外部服務用於從網際網路存取 Azure 投票應用程式。
 
 > [!TIP]
 > 在本快速入門中，您會以手動方式建立應用程式資訊清單，並將其部署至 AKS 叢集。 在更貼近現實的案例中，您可以使用 [Azure Dev Spaces][azure-dev-spaces] 快速地逐一查看程式碼，並直接在 AKS 叢集中進行偵錯。 您可以跨作業系統平台和開發環境來使用 Dev Spaces，並與小組中的其他人一起工作。
@@ -270,7 +270,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> 當您刪除叢集時，不會移除 AKS 叢集所使用的 Azure Active Directory 服務主體。 如需有關如何移除服務主體的步驟，請參閱[AKS 服務主體的考量和刪除][sp-delete]。
+> 當您刪除叢集時，不會移除 AKS 叢集所使用的 Azure Active Directory 服務主體。 如需有關如何移除服務主體的步驟，請參閱 [AKS 服務主體的考量和刪除][sp-delete]。
 
 ## <a name="get-the-code"></a>取得程式碼
 

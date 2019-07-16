@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Azure Cosmos DB 取得輸送量 （RU/秒） 的資料表 API
-description: Azure PowerShell 指令碼-Azure Cosmos DB 取得輸送量 （RU/秒） 的資料表 API
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 取得資料表 API 的輸送量 (RU/秒)
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 取得資料表 API 的輸送量 (RU/秒)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 41bc70bc391214ce831f600bc4fbdc7fad944094
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: d34a9e679ee6c1b65111817197a98555be13cf1d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566774"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67601952"
 ---
-# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>取得資料表中的輸送量 （RU/秒），適用於 Azure Cosmos DB 資料表 API
+# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>取得 Azure Cosmos DB 資料表的輸送量 (RU/秒) - 資料表 API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

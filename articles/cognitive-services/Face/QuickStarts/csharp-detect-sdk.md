@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630710"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606767"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入門：使用 Face .NET SDK 偵測影像中的臉部
 
@@ -32,13 +32,13 @@ ms.locfileid: "58630710"
 
 1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將其命名為 **FaceDetection**。 
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
-1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]。 按一下 [瀏覽] 索引標籤，並選取 [包含發行前版本]；然後尋找並安裝下列套件：
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]  。 按一下 [瀏覽]  索引標籤，並選取 [包含發行前版本]  ；然後尋找並安裝下列套件：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-1. 請確定您已為專案的所有 NuGet 套件安裝最新版本。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]。 按一下 [更新] 索引標籤，然後安裝所出現套件的最新版本。
+1. 請確定您已為專案的所有 NuGet 套件安裝最新版本。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]  。 按一下 [更新]  索引標籤，然後安裝所出現套件的最新版本。
 
 ## <a name="add-face-detection-code"></a>新增臉部偵測程式碼
 
-開啟新專案的 Program.cs 檔案。 在這裡，您將新增載入影像及偵測臉部所需的程式碼。
+開啟新專案的 Program.cs  檔案。 在這裡，您將新增載入影像及偵測臉部所需的程式碼。
 
 ### <a name="include-namespaces"></a>包含命名空間
 
@@ -48,7 +48,7 @@ ms.locfileid: "58630710"
 
 ### <a name="add-essential-fields"></a>新增必要欄位
 
-使用下列欄位新增 [程式] 類別。 這項資料會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `faceEndpoint` 字串，使其包含正確的區域識別碼。 您也需要為指向實際影像檔的路徑設定 `localImagePath` 及/或 `remoteImageUrl` 值。
+使用下列欄位新增 [程式]  類別。 這項資料會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `faceEndpoint` 字串，使其包含正確的區域識別碼。 您也需要為指向實際影像檔的路徑設定 `localImagePath` 及/或 `remoteImageUrl` 值。
 
 `faceAttributes` 欄位只是特定屬性類型的陣列。 其用於指定要對偵測到的臉部擷取哪些資訊。
 
@@ -66,7 +66,7 @@ ms.locfileid: "58630710"
 
 ### <a name="detect-faces"></a>偵測臉部
 
-將下列方法新增至 **Program** 類別。 這將會使用 Face 服務用戶端偵測遠端影像中的臉部 (以 URL 進行參照)。 請注意，此方法會使用 `faceAttributes` 欄位 &mdash; 新增至 `faceList` 的 **DetectedFace** 物件將具有指定屬性 (在此案例中是年齡和性別)。
+將下列方法新增至 **Program** 類別。 這將會使用 Face 服務用戶端偵測遠端影像中的臉部 (以 URL 進行參照)。 此方法會使用 `faceAttributes` 欄位 &mdash; 新增至 `faceList` 的 **DetectedFace** 物件將具有指定屬性 (在此案例中是年齡和性別)。
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 

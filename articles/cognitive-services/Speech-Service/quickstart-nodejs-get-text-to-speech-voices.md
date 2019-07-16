@@ -1,27 +1,27 @@
 ---
-title: 快速入門：列出文字轉換語音的語音，Node.js-語音服務
+title: 快速入門：列出文字轉語音的語音，Node.js - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將了解如何使用 Node.js 的區域/端點取得標準和類神經語音的完整清單。 清單會傳回為 JSON，而語音可用性會因區域而異。
+description: 在本快速入門中，您將了解如何使用 Node.js 為區域/端點取得標準和類神經語音的完整清單。 清單會傳回為 JSON，而語音可用性會因區域而異。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: d64f59b6b4439d79d64ee92cf23676ab1275c45a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067567"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603007"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>快速入門：取得文字轉換語音的語音使用 Node.js 的清單
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>快速入門：使用 Node.js 取得文字轉語音的語音清單
 
-在本快速入門中，您將了解如何使用 Node.js 的區域/端點取得標準和類神經語音的完整清單。 清單會傳回為 JSON，而語音可用性會因區域而異。 如需支援的區域的清單，請參閱 <<c0> [ 區域](regions.md)。
+在本快速入門中，您將了解如何使用 Node.js 為區域/端點取得標準和類神經語音的完整清單。 清單會傳回為 JSON，而語音可用性會因區域而異。 如需支援區域的清單，請參閱[區域](regions.md)。
 
-本快速入門需要[Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)與語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](get-started.md)來取得訂用帳戶金鑰。
+本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](get-started.md)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -48,9 +48,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>取得存取權杖
 
-文字轉語音 REST API 需要存取權杖來進行驗證。 若要取得存取權杖，則必須進行交換。 此函式會交換語音服務的訂用帳戶金鑰的存取權杖使用`issueToken`端點。
+文字轉語音 REST API 需要存取權杖來進行驗證。 若要取得存取權杖，則必須進行交換。 此函式會使用 `issueToken` 端點，以語音服務訂用帳戶金鑰交換存取權杖。
 
-這個範例假設您的語音服務訂用帳戶是在美國西部區域中。 如果您使用不同的區域，請更新 `uri` 的值。 如需完整清單，請參閱[區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)。
+這個範例假設您的語音服務訂用帳戶是在美國西部區域。 如果您使用不同的區域，請更新 `uri` 的值。 如需完整清單，請參閱[區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)。
 
 請將下列程式碼複製到您的專案中：
 
@@ -71,13 +71,13 @@ function getAccessToken(subscriptionKey) {
 > [!NOTE]
 > 如需驗證的詳細資訊，請參閱[使用存取權杖進行驗證](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)。
 
-在下一步 區段中，我們將建立函式，來取得語音的清單，並將 JSON 輸出儲存至檔案。
+在下一節中，我們將建立函式來取得語音清單，並將 JSON 輸出儲存至檔案。
 
 ## <a name="make-a-request-and-save-the-response"></a>提出要求並儲存回應
 
-在此您要建置要求，並儲存傳回語音的清單中。 此範例假設您會使用美國西部端點。 如果您的資源註冊至不同區域，請務必更新 `uri`。 如需詳細資訊，請參閱 <<c0> [ 語音服務區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)。
+在此，您要建置要求並儲存傳回語音的清單。 此範例假設您會使用美國西部端點。 如果您的資源註冊至不同區域，請務必更新 `uri`。 如需詳細資訊，請參閱[語音服務區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)。
 
-接下來，新增必要的標頭的要求。 最後，您會對服務提出要求。 如果要求成功，而且會傳回狀態碼 200，回應會寫入至檔案。
+接下來，為要求新增必要的標頭。 最後，您會對服務提出要求。 如果要求成功，且傳回狀態碼 200，則回應會寫入檔案。
 
 ```javascript
 function textToSpeech(accessToken) {
@@ -104,9 +104,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>組合在一起
 
-就快要完成了。 最後一個步驟是建立非同步函式。 此函式會讀取環境變數中的訂用帳戶金鑰，取得權杖，等候要求完成，然後寫入至檔案的 JSON 回應。
+就快要完成了。 最後一個步驟是建立非同步函式。 此函式會讀取環境變數中的訂用帳戶金鑰、取得權杖、等待要求完成，然後將 JSON 回應寫入至檔案。
 
-如果您不熟悉的環境變數，或想要測試與您的訂用帳戶金鑰硬式編碼為字串，取代`process.env.SPEECH_SERVICE_KEY`使用您的訂用帳戶金鑰，做為字串。
+如果您不熟悉環境變數，或想要使用硬式編碼為字串的訂用帳戶金鑰進行測試，請以您的訂用帳戶金鑰作為字串取代 `process.env.SPEECH_SERVICE_KEY`。
 
 ```javascript
 // Use async and await to get the token before attempting
@@ -148,7 +148,7 @@ node get-voices.js
 > [!div class="nextstepaction"]
 > [探索 GitHub 上的 Node.js 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS) \(英文\)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [建立自訂語音調](how-to-customize-voice-font.md)

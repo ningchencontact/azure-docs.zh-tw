@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Azure Cosmos DB 建立 Cassandra API keyspace 和資料表
-description: Azure PowerShell 指令碼-Azure Cosmos DB 建立 Cassandra API keyspace 和資料表
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 Cassandra API Kyspace 和資料表
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 Cassandra API Kyspace 和資料表
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: ab654699fb040b5e3f966b3514f97436c27ca6e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 1427640519936bab907c7159b4e88e723bac57fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247015"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602567"
 ---
-# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>適用於 Azure Cosmos DB Cassandra API 建立的 keyspace 和資料表
+# <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>建立 Azure Cosmos DB Kyspace 和資料表 - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

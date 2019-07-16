@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Cassandra API 的 Azure Cosmos DB Update RU/秒
-description: Azure PowerShell 指令碼-Cassandra API 的 Azure Cosmos DB Update RU/秒
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 Cassandra API 的 RU/秒
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 Cassandra API 的 RU/秒
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 05ff4379c0a5d5436525f25bd755a7fce46d8121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 9df7884d56acf47d3bb7bdcf7679631713cf2725
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247915"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602532"
 ---
-# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>適用於 Azure Cosmos DB Cassandra API 更新 RU/秒的 keyspace 或資料表
+# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>更新 Azure Cosmos DB Kyspace 或資料表的 RU/秒 - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

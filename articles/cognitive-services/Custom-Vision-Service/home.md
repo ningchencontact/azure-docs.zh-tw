@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350462"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605150"
 ---
 # <a name="what-is-azure-custom-vision"></a>什麼是 Azure 自訂視覺服務？
 
@@ -31,9 +31,9 @@ Azure 自訂視覺是一項認知服務，可讓您建置、部署和改善自�
 
 ### <a name="optimization"></a>最佳化
 
-自訂視覺服務經過最佳化，可快速辨識影像之間的主要差異。 如此，您只需要少量資料即可開始建立模型的原型。 一般而言，每個標籤 50 個影像是不錯的起點。 但這表示服務並未具備偵測影像中些微差異的最佳效能 (例如，在品保案例中偵測出微小的裂縫或凹痕)。
+自訂視覺服務已經過最佳化，可快速辨識影像之間的差異，因此您可以少量的資料開始建立您的模型原型。 一般而言，每個標籤 50 個影像是不錯的起點。 不過，此服務並未具備偵測影像中些微差異的最佳效能 (例如，在品保案例中偵測出微小的裂縫或凹痕)。
 
-此外，您可以從數種不同針對特定題材內容的影像進行最佳化的自訂視覺演算法中擇一使用&mdash;例如，地標或零售項目。 如需其詳細資訊，請參閱[建置分類器](getting-started-build-a-classifier.md)指南。
+此外，您可以從數種不同針對特定題材內容的影像進行最佳化的自訂視覺演算法中擇一使用&mdash;例如，地標或零售項目。 如需詳細資訊，請參閱[建置分類器](getting-started-build-a-classifier.md)指南。
 
 ## <a name="what-it-includes"></a>包含內容
 

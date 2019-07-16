@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191137"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608104"
 ---
 ### <a name="preview"></a>如何參與公開預覽？
 
@@ -56,3 +56,7 @@ ms.locfileid: "67191137"
 ### <a name="previewbill"></a>定價 - 加入此預覽版本需要付費嗎？
 
 在公開預覽期間您只需支付部分費用。 不過，您的部署不會連結任何 SLA。 如需詳細資訊，請參閱[價格頁面](https://aka.ms/BastionHostPricing)。
+
+### <a name="previewbill"></a>為何在 Bastion 工作階段開始之前，收到「您的工作階段已過期」錯誤訊息？
+
+您應該只能從 Azure 入口網站起始工作階段。 登入 Azure 入口網站並再次開始您的工作階段。 如果您直接從另一個瀏覽器工作階段或索引標籤移至 URL，則預計會發生此錯誤。 這有助於確保您的工作階段更加安全，而且只能透過 Azure 入口網站存取工作階段。

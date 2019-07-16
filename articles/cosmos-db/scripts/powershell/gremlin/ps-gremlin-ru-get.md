@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Azure Cosmos DB 取得輸送量 （RU/秒） 的 Gremlin API
-description: Azure PowerShell 指令碼-Azure Cosmos DB 取得輸送量 （RU/秒） 的 Gremlin API
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 Gremlin API 的輸送量 (RU/秒)
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 Gremlin API 的輸送量 (RU/秒)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 303bd36149e2a3000ecbf724970b9a43965763fe
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 81dbe0731bd3390ff3777dc21f78c86f535e5bb7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566839"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602447"
 ---
-# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>取得資料庫或圖形的輸送量 （RU/秒），適用於 Azure Cosmos DB Gremlin API
+# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>取得 Azure Cosmos DB 資料庫或圖表的輸送量 (RU/秒) - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

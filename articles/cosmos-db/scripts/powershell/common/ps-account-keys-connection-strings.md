@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-帳戶金鑰和連接字串的 Azure Cosmos 帳戶的作業
-description: Azure PowerShell 指令碼範例-Azure Cosmos 帳戶的帳戶金鑰和連接字串作業
+title: Azure PowerShell 指令碼 - Azure Cosmos 帳戶的帳戶金鑰和連接字串作業
+description: Azure PowerShell 指令碼範例 - Azure Cosmos 帳戶的帳戶金鑰和連接字串作業
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247855"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602500"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>連接字串和帳戶金鑰的作業使用 PowerShell 的 Azure Cosmos 帳戶
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 的 Azure Cosmos 帳戶的連接字串和帳戶金鑰作業
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "66247855"
 
 ## <a name="sample-script"></a>範例指令碼
 
-此範例需要存在於資源群組和帳戶。 使用現有的 PowerShell 來建立範例，以佈建帳戶時，第一次。
+此範例需要資源群組和帳戶存在。 使用現有的 PowerShell 建立範例，以便先佈建帳戶。
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 
@@ -40,7 +40,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 命令 | 注意 |
 |---|---|
 |**Azure 資源**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 叫用資源的動作。 |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 對資源叫用動作。 |
 |**Azure 資源群組**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 |||

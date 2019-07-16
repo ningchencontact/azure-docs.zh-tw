@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af303544be7b4e7686105b7d57a71c33c0a6a314
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 55fa5ffbfe8cdb266340df1a407968d542b36c1a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009031"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605995"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 cURL 來產生縮圖
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>快速入門：使用電腦視覺 REST API 和 cURL 產生縮圖
 
 在此快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可指定所需高度和寬度，其可與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別關注區域，並產生該區域周圍的裁剪座標。
 
@@ -59,7 +59,7 @@ ms.locfileid: "60009031"
 1. 開啟命令提示字元視窗。
 1. 將文字編輯器中的命令貼到命令提示字元視窗中，然後執行該命令。
 
-    ```console
+    ```bash
     curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 

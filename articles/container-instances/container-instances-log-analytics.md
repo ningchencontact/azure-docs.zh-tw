@@ -1,24 +1,24 @@
 ---
 title: 使用 Azure 監視器記錄的容器執行個體記錄
-description: 了解如何將容器輸出 (STDOUT 與 STDERR) 傳送至 Azure 監視器記錄。
+description: 了解如何將來自 Azure 容器執行個體的記錄傳送至 Azure 監視器記錄。
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/17/2018
+ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cab0bc4d2d0491c70a1d2f11f3a5d5d831ade6cf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879699"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722634"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>使用 Azure 監視器記錄的容器執行個體記錄
 
 Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源儲存及查詢記錄資料，對於內部部署資源與其他雲端中的資源，也可執行這些作業。 Azure 容器執行個體包含將資料傳送至 Azure 監視器記錄的內建支援。
 
-若要將容器執行個體資料傳送至 Azure 監視器記錄，您必須使用 Azure CLI (或 Cloud Shell) 和 YAML 檔案建立容器群組。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
+若要將容器執行個體資料傳送至 Azure 監視器記錄，您必須在建立容器群組時，指定 Log Analytics 工作區識別碼和工作區金鑰。 以下幾節將說明如何建立已啟用記錄的容器群組，以及如何查詢記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 若要取得記錄分析工作區識別碼和主要金鑰：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [設定] 下，選取 [進階設定]
-1. 選取 [連線的來源] > [Windows 伺服器] (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
+1. 在 [設定]  下，選取 [進階設定] 
+1. 選取 [連線的來源]   > [Windows 伺服器]  (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
 1. 記下：
    * **工作區識別碼**
    * **主要金鑰**
@@ -66,7 +66,7 @@ az container create \
 如果您想要使用 YAML 部署容器群組，請使用此方法。 下列 YAML 會定義具有單一容器的容器群組。 請將 YAML 複製到新檔案中，然後將 `LOG_ANALYTICS_WORKSPACE_ID` 和 `LOG_ANALYTICS_WORKSPACE_KEY` 取代為您在先前的步驟中取得的值。 將檔案儲存為 **deploy-aci.yaml**。
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -90,7 +90,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-接下來，執行下列命令以部署容器群組；請將 `myResourceGroup` 取代為您訂用帳戶中的資源群組 (或先建立名為 "myResourceGroup" 的資源群組)：
+接下來，執行下列命令以部署容器群組。 請將 `myResourceGroup` 取代為您訂用帳戶中的資源群組 (或先建立名為 "myResourceGroup" 的資源群組)：
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -100,12 +100,14 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>檢視 Azure 監視器記錄中的記錄
 
-在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要檢視容器群組的記錄，請開啟 Log Analytics 工作區，然後：
+在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要檢視容器群組的記錄：
 
-1. 在 [OMS 工作區] 概觀中，選取 [記錄搜尋]。 OMS 工作區現在稱為 Log Analytics 工作區。  
-1. 在 [再多試一些查詢] 下，選取 [所有收集的資料] 連結
+1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
+1. 在 [一般]  之下，選取 [記錄]   
+1. 執行下列查詢：`search *`
+1. 選取 [執行] 
 
-您應該會看到 `search *` 查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行] 按鈕重新執行查詢。 根據預設，記錄項目會顯示在 [清單] 檢視中 -- 選取 [資料表] 可查看簡略格式的記錄檔項目。 接著，您可以展開資料列來查看個別記錄項目的內容。
+您應該會看到 `search *` 查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行]  按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表]  格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
 
 ![Azure 入口網站中的記錄搜尋結果][log-search-01]
 
@@ -115,7 +117,7 @@ Azure 監視器記錄包含涵蓋範圍廣大的[查詢語言][query_lang]，可
 
 Azure 容器執行個體記錄代理程式會將項目傳送至 Log Analytics 工作區中的 `ContainerInstanceLog_CL` 資料表。 查詢的基本結構是一個來源資料表 (`ContainerInstanceLog_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
 
-若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中 (在 [顯示舊版語言轉換器] 下方)，然後選取 [執行] 按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
+若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中 (在 [顯示舊版語言轉換器] 下方)，然後選取 [執行]  按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
 
 ```query
 ContainerInstanceLog_CL

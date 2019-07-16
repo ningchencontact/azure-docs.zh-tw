@@ -2,18 +2,18 @@
 title: 介紹 Azure Kubernetes Service
 description: 了解 Azure Kubernetes Service 的功能與優點，以在 Azure 中部署及管理容器型應用程式。
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073820"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615169"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Azure Kubernetes Service (AKS) 可讓您輕鬆地在 Azure 中部署受控 Kuber
 
 如需 Kubernetes 基本概念的詳細資訊，請參閱 [AKS 的 Kubernetes 核心概念][concepts-clusters-workloads]。
 
-若要開始使用，請在 [Azure 入口網站][aks-portal]中或使用 [Azure CLI][aks-cli] 來完成 AKS 快速入門。
+若要開始使用，請在 [Azure 入口網站][aks-portal]中or [with the Azure CLI][aks-cli]完成 AKS 快速入門。
 
 ## <a name="access-security-and-monitoring"></a>存取、安全性和監視
 
@@ -57,7 +57,7 @@ AKS 節點是在 Azure 虛擬機器上執行的。 您可以將儲存體連接�
 
 Azure Kubernetes Service 提供多個 Kubernetes 版本。 當 AKS 有新版本可用時，您可以使用 Azure 入口網站或 Azure CLI 來升級您的叢集。 在升級過程中，會將節點仔細地隔離並清空，將中斷執行中應用程式的情況降到最低。
 
-若要深入了解生命週期的版本，請參閱 [AKS 中支援的 Kubernetes 版本][aks-supported versions]。 如需如何升級的步驟，請參閱[升級 Azure Kubernetes Service (AKS) 叢集][aks-upgrade]。
+若要深入了解生命週期的版本，請參閱 [AKS 中支援的 Kubernetes 版本][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade]。
 
 ### <a name="gpu-enabled-nodes"></a>已啟用 GPU 的節點
 
@@ -71,7 +71,7 @@ AKS 支援建立已啟用 GPU 的節點集區。 Azure 目前提供單一或多�
 
 如需詳細資訊，請參閱 [AKS 中的應用程式適用的儲存體選項][concepts-storage]。
 
-開始以 [Azure 磁碟][azure-disk]或 [Azure 檔案儲存體][azure-files]來使用動態永續性磁碟區。
+開始以 [Azure 磁碟][azure-disk] or [Azure Files][azure-files]使用動態永續性磁碟區。
 
 ## <a name="virtual-networks-and-ingress"></a>虛擬網路與輸入
 

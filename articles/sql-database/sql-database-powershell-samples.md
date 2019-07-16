@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 03bec71cca445d580605c1b0f4705e619933000a
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: cee93538706b8a886e2468e8ef9bf0d9b504e2c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729123"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696167"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure PowerShell 範例
 
@@ -40,10 +40,9 @@ Azure SQL Database 可讓您使用 Azure PowerShell 來設定資料庫、執行�
 |**設定異地複寫和容錯移轉**||
 | [使用作用中異地複寫設定單一資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會為單一 Azure SQL 資料庫 設定作用中異地複寫，並將其容錯移轉到次要複本。 |
 | [使用作用中異地複寫設定集區資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會為 SQL 彈性集區中的 Azure SQL 資料庫設定作用中異地複寫，並將其容錯移轉到次要複本。 |
-| [設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會為 Azure SQL Database 伺服器執行個體設定容錯移轉群組，並將資料庫新增到容錯移轉群組，然後將其容錯移轉到次要伺服器。 |
 |**調整單一資料庫和彈性集區**||
 | [調整單一資料庫](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會監視 Azure SQL 資料庫的效能計量，並將其調整為較高的計算大小，然後對其中一個效能計量建立警示規則。 |
-| [調整彈性集區](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會監視 Azure SQL Database 彈性集區的效能計量，並將其調整為較高的計算大小，然後對其中一個效能計量建立警示規則。  |
+| [調整彈性集區](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會監視 Azure SQL Database 彈性集區的效能計量，並將其調整為較高的計算大小，然後對其中一個效能計量建立警示規則。 |
 | **稽核與威脅偵測** |
 | [設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會設定 Azure SQL 資料庫的稽核與威脅偵測原則。 |
 | **還原、複製和匯入資料庫**||
@@ -67,6 +66,7 @@ Azure SQL Database 可讓您使用 Azure PowerShell 來設定資料庫、執行�
 |**建立及設定受控執行個體**||
 | [建立和管理受控執行個體](scripts/sql-database-create-configure-managed-instance-powershell.md) | 此 PowerShell 指令碼說明如何使用 Azure PowerShell 建立和管理受控執行個體 |
 | [使用 Azure Resource Manager 範本建立及管理受控執行個體](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼說明如何使用 Azure PowerShell 和 Azure Resource Manager 範本建立及管理受控執行個體。|
+| [將資料庫還原到另一個地理區域中的 受控執行個體](scripts/sql-managed-instance-restore-geo-backup.md) | 此 PowerShell 指令碼會製作一個資料庫的備份，並將它還原到另一個區域。 這稱為異地還原災害復原案例。 |
 | **設定透明資料加密 (TDE)**||
 | [從 Azure Key Vault 使用自己的金鑰管理受控執行個體中的透明資料加密](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會使用來自 Azure Key Vault 的金鑰，在Azure SQL 受控執行個體的「攜帶您自己的金鑰」案例中設定透明資料加密 (TDE)。|
 |||

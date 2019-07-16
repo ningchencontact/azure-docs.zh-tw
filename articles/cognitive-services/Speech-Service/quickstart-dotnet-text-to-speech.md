@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5db2a1eebd5b2184ceff8793cb51f4e95b9dea38
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 1dd54adeffab80d4334d8f08733cfd6603f673d3
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067595"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606324"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入門：使用 .NET Core 將文字轉換為語音
 
 在本快速入門中，您將了解如何使用 .NET Core 和文字轉換語音 REST API，將文字轉換為語音。 本指南中的範例文字已結構化為[語音合成標記語言 (SSML)](speech-synthesis-markup.md)，這可讓您選擇回應的語音和語言。
 
-本快速入門需要[Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)與語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
+本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>建立用於權杖交換的類別
 
-文字轉換語音 REST API 需要存取權杖進行驗證。 若要取得存取權杖，則必須進行交換。 此範例會交換語音服務的訂用帳戶金鑰的存取權杖使用`issueToken`端點。
+文字轉換語音 REST API 需要存取權杖進行驗證。 若要取得存取權杖，則必須進行交換。 此範例會使用 `issueToken` 端點，以語音服務訂用帳戶金鑰交換存取權杖。
 
-這個範例假設您的語音服務訂用帳戶是在美國西部區域中。 如果您使用不同的區域，請更新 `FetchTokenUri` 的值。 如需完整清單，請參閱[區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)。
+這個範例假設您的語音服務訂用帳戶是在美國西部區域。 如果您使用不同的區域，請更新 `FetchTokenUri` 的值。 如需完整清單，請參閱[區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)。
 
 ```csharp
 public class Authentication
@@ -234,7 +234,7 @@ dotnet run
 > [!div class="nextstepaction"]
 > [在 GitHub 上探索 .NET 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore) \(英文\)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [建立自訂語音調](how-to-customize-voice-font.md)

@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Azure Cosmos DB 建立 Gremlin API 資料庫和圖形
-description: Azure PowerShell 指令碼-Azure Cosmos DB 建立 Gremlin API 資料庫和圖形
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 Gremlin API 資料庫和集合
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 建立 Gremlin API 資料庫和集合
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9b4fecc7648d1fe19c28599be7ef2c0b5dcab423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 92af72609aa4f6261dfbd41ae07ddacd4275ab39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247810"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602465"
 ---
-# <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>適用於 Azure Cosmos DB Gremlin API 建立資料庫和圖形
+# <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>建立 Azure Cosmos DB 資料庫和圖形 - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

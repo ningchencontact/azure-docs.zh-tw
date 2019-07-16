@@ -4,7 +4,7 @@ description: 在本快速入門中，您將了解如何使用 Azure 入口網站
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 693f9144d1cb454b0a9dd98b5ae63938abd7d26d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f491a160e0f4f72f072dc43c46571f96dd19a297
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420399"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671032"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Linux 虛擬機器
 
@@ -57,29 +57,29 @@ cat ~/.ssh/id_rsa.pub
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
-1. 選擇 Azure 入口網站左上角的 [建立資源]。
+1. 選擇 Azure 入口網站左上角的 [建立資源]  。
 
-1. 在 Azure Marketplace 資源清單上方的搜尋方塊中，依 Canonical 搜尋並選取**Ubuntu Server 16.04 LTS**，然後選擇 [建立]。
+1. 在 Azure Marketplace 資源清單上方的搜尋方塊中，依 Canonical 搜尋並選取**Ubuntu Server 16.04 LTS**，然後選擇 [建立]  。
 
-1. 在 [基本資料] 索引標籤中的 [專案詳細資料] 底下，確認已選取正確的訂用帳戶，然後在 [資源群組] 下方選擇 [新建]。 在快顯視窗中輸入 *myResourceGroup* 作為資源群組的名稱，然後選擇 [確定]。 
+1. 在 [基本資料]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶，然後在 [資源群組]  下方選擇 [新建]  。 在快顯視窗中輸入 *myResourceGroup* 作為資源群組的名稱，然後選擇 [確定]  。 
 
     ![為您的 VM 建立新的資源群組](./media/quick-create-portal/project-details.png)
 
-1. 在 [執行個體詳細資料] 底下，輸入 myVM 作為 [虛擬機器名稱]，然後選擇 [美國東部] 作為您的 [區域]。 其他部分保留預設值。
+1. 在 [執行個體詳細資料]  底下，輸入 myVM  作為 [虛擬機器名稱]  ，然後選擇 [美國東部]  作為您的 [區域]  。 其他部分保留預設值。
 
     ![執行個體詳細資料區段](./media/quick-create-portal/instance-details.png)
 
-1. 在 [系統管理員帳戶] 下方選取 [SSH 公開金鑰]，輸入您的使用者名稱，然後將您的公開金鑰貼到文字方塊中。 請移除公開金鑰中的任何前置或尾端的空白字元。
+1. 在 [系統管理員帳戶]  下方選取 [SSH 公開金鑰]  ，輸入您的使用者名稱，然後將您的公開金鑰貼到文字方塊中。 請移除公開金鑰中的任何前置或尾端的空白字元。
 
     ![系統管理員帳戶](./media/quick-create-portal/administrator-account.png)
 
-1. 在 [輸入連接埠規則] > [公用輸入連接埠] 下方，選擇 [允許選取的連接埠]，然後從下拉式清單中選取 [SSH (22)] 和 [HTTP (80)]。 
+1. 在 [輸入連接埠規則]   > [公用輸入連接埠]  下方，選擇 [允許選取的連接埠]  ，然後從下拉式清單中選取 [SSH (22)]  和 [HTTP (80)]  。 
 
     ![開啟 RDP 和 HTTP 的連接埠](./media/quick-create-portal/inbound-port-rules.png)
 
-1. 保留其餘預設值，然後在頁面底部選取 [檢閱 + 建立] 按鈕。
+1. 保留其餘預設值，然後在頁面底部選取 [檢閱 + 建立]  按鈕。
 
-1. 在 [建立虛擬機器] 頁面上，您可以看到即將建立的 VM 詳細資料。 準備完成後，請選取 [建立]。
+1. 在 [建立虛擬機器]  頁面上，您可以看到即將建立的 VM 詳細資料。 準備完成後，請選取 [建立]  。
 
 可能需要幾分鐘的時間才能部署好 VM。 部署完成時，請前往下一節。
 
@@ -88,11 +88,11 @@ cat ~/.ssh/id_rsa.pub
 
 建立與 VM 的 SSH 連線。
 
-1. 在 VM 的 [概觀] 頁面上選取 [連線] 按鈕。 
+1. 在 VM 的 [概觀] 頁面上選取 [連線]  按鈕。 
 
     ![入口網站 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. 在 [連線至虛擬機器] 頁面中，維持預設選項，以便使用 IP 位址透過連接埠 22 進行連線。 在**使用 VM 本機帳戶登入**中，會顯示連線命令。 按一下按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容：
+2. 在 [連線至虛擬機器]  頁面中，維持預設選項，以便使用 IP 位址透過連接埠 22 進行連線。 在**使用 VM 本機帳戶登入**中，會顯示連線命令。 按一下按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容：
 
     ```bash
     ssh azureuser@10.111.12.123
@@ -120,7 +120,7 @@ sudo apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，選取 [刪除]，然後確認要刪除的資源群組名稱。
+若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱。
 
 ## <a name="next-steps"></a>後續步驟
 

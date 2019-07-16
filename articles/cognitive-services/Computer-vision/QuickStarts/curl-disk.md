@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f76b61d3cc39f8ae35e1bf03316e7618b7136380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 80d3478a684ef2fa686ac33b8492ec91be11ac6f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003780"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605969"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 cURL 分析本機影像
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-curl"></a>快速入門：使用電腦視覺 REST API 和 cURL 分析本機影像
 
 在本快速入門中，您將使用電腦視覺的 REST API，來分析本機儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
 
@@ -37,12 +37,12 @@ ms.locfileid: "60003780"
 1. 視需要在命令中進行下列變更：
     1. 將 `<subscriptionKey>` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將要求 URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) 取代為 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 方法的端點 URL。
-    1. 將 `<localImage>` 的值取代為要分析之影像的完整路徑和檔案名稱。 例如： `@C:/Pictures/ImageToAnalyze.jpg`。
+    1. 將 `<localImage>` 的值取代為要分析之影像的完整路徑和檔案名稱。 例如： `@C:/Pictures/ImageToAnalyze.jpg` 。
     1. (選擇性) 將要求 URL (`language=en`) 的語言參數變更為使用不同的支援語言。
 1. 開啟命令提示字元視窗。
 1. 將文字編輯器中的命令貼到命令提示字元視窗中，然後執行該命令。
 
-```console
+```bash
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
@@ -105,10 +105,6 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: applic
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>清除資源
-
-不再需要時，請關閉命令提示字元視窗和文字編輯器。
 
 ## <a name="next-steps"></a>後續步驟
 

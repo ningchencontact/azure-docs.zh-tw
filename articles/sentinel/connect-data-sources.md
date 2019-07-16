@@ -7,20 +7,21 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921932"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673838"
 ---
 # <a name="connect-data-sources"></a>連線資料來源
 
@@ -32,7 +33,18 @@ ms.locfileid: "65921932"
 
 若要將 Azure Sentinel 上架，必須先連線到資料來源。 Azure Sentinel 隨附多種適用於 Microsoft 解決方案的連接器，現成可用且提供即時整合，包括 Microsoft 威脅防護解決方案與 Microsoft 365 來源，例如 Office 365、Azure AD、Azure ATP 和 Microsoft Cloud App Security 等等。 此外，還有適用於非 Microsoft 解決方案的內建連接器，用於連線至更廣泛的安全性生態系統。 您也可以使用常見事件格式 (Syslog 或 REST API) 來連線資料來源與 Azure Sentinel。  
 
-![資料收集器](./media/collect-data/collect-data-page.png)
+1. 在功能表上，選取 [資料連接器]  。 此頁面可讓您查看 Azure Sentinel 提供的連接器完整清單及其狀態。 選取您想要連線的連接器，然後選取 [開啟連接器頁面]  。 
+
+   ![資料收集器](./media/collect-data/collect-data-page.png)
+
+1. 在特定連接器頁面上，確定您已符合所有必要條件，並遵循指示將資料連線到 Azure Sentinel。 可能需要一些時間，記錄才能開始與 Azure Sentinel 同步處理。 連線之後，您會在 [接收的資料]  圖表中看見資料摘要，以及資料類型的連線狀態。
+
+   ![連接收集器](./media/collect-data/opened-connector-page.png)
+  
+1. 按一下 [後續步驟]  索引標籤，以取得 Azure Sentinel 針對特定資料類型提供的立即可用內容清單。
+
+   ![資料收集器](./media/collect-data/data-insights.png)
+ 
 
 ## <a name="data-connection-methods"></a>資料連線方法
 

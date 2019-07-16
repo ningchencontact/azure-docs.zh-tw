@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5915aa522fe06b432ca036553c7dd7da63836c9e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3ae1b1ba289957187d31f48e4adb1f1d80c7c068
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995110"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606017"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 C# 來產生縮圖
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-c"></a>快速入門：使用電腦視覺 REST API 和 C# 產生縮圖
 
 在此快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別關注區域，並根據該區域產生裁剪座標。
 
@@ -35,9 +35,9 @@ ms.locfileid: "59995110"
 
 1. 在 Visual Studio 中，使用 Visual C# 主控台應用程式範本建立新的 Visual Studio 解決方案。
 1. 安裝 Newtonsoft.Json NuGet 套件。
-    1. 在功能表中，按一下 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
-    1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中鍵入 "Newtonsoft.Json"。
-    1. 顯示時選取 [Newtonsoft.Json]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
+    1. 在功能表中，按一下 [工具]  ，選取 [NuGet 套件管理員]  ，然後選取 [管理解決方案的 NuGet 套件]  。
+    1. 按一下 [瀏覽]  索引標籤，然後在 [搜尋]  方塊中鍵入 "Newtonsoft.Json"。
+    1. 顯示時選取 [Newtonsoft.Json]  ，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]  。
 1. 將 `Program.cs` 中的程式碼取代為下列程式碼，然後視需要在程式碼中進行下列變更：
     1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法的端點 URL。
@@ -212,10 +212,6 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
   Expires: -1
 }
 ```
-
-## <a name="clean-up-resources"></a>清除資源
-
-不再需要 Visual Studio 解決方案時，請將它刪除。 若要這樣做，請開啟檔案總管、瀏覽到您在其中建立 Visual Studio 解決方案的資料夾，然後刪除該資料夾。
 
 ## <a name="next-steps"></a>後續步驟
 

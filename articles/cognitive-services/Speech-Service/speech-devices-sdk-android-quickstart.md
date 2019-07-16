@@ -1,51 +1,51 @@
 ---
-title: 快速入門：Android-語音服務上執行的語音裝置 SDK
+title: 快速入門：在 Android 上執行語音裝置 SDK - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 先決條件與指示開始使用 Android 的語音裝置 SDK。
+description: 開始使用 Android 語音裝置 SDK 的先決條件和指示。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 7eea978456ed565f8fc58647dc548d1a7bc76b27
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072382"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606369"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>快速入門：在 Android 上執行語音裝置 SDK 範例應用程式
 
-在本快速入門中，您將了解如何建置具備語音功能的產品，或使用它作為使用語音裝置 SDK for Android[交談文字記錄](conversation-transcription-service.md)裝置。
+在本快速入門中，您將了解如何使用適用於 Android 的語音裝置 SDK 建置具備語音功能的產品，或使用它作為[交談轉譯](conversation-transcription-service.md)裝置。
 
-本指南會要求[Azure 認知服務](get-started.md)與語音服務資源的帳戶。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
+本指南需要 [Azure 認知服務帳戶](get-started.md)和語音服務資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
 
 範例應用程式的原始程式碼包含在「語音裝置 SDK」中。 您也可以[在 GitHub 上取得](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)該原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
-開始使用語音裝置 SDK 之前，您將需要：
+開始使用語音裝置 SDK 之前，您需要：
 
-* 請遵循所提供的指示您[開發套件](get-speech-devices-sdk.md)裝置上的乘冪。
+* 請遵循[開發套件](get-speech-devices-sdk.md)隨附的指示來開啟裝置電源。
 
-* 下載最新版[語音裝置 SDK](https://aka.ms/sdsdk-download)，並解壓縮至您的工作目錄.zip。
+* 下載最新版的[語音裝置 SDK](https://aka.ms/sdsdk-download)，並將 .zip 擷取至您的工作目錄。
    > [!NOTE]
-   > Android-範例-Release.zip 檔案包含 Android 範例應用程式，並在本快速入門假設應用程式會解壓縮至 C:\SDSDK\Android-Sample-Release
+   > Android-Sample-Release.zip 檔案包含 Android 範例應用程式，而本快速入門假設應用程式會解壓縮至 C:\SDSDK\Android-Sample-Release
 
-* 若要取得[語音服務的 Azure 訂用帳戶金鑰](get-started.md)
+* 取得[適用於語音服務的 Azure 訂用帳戶金鑰](get-started.md)
 
-* 如果您打算使用交談文字記錄必須使用[循環的麥克風裝置](get-speech-devices-sdk.md)，這項功能目前僅適用於 「 EN-US 」 和 「 ZH-CN 」 區域中，"centralus"和"eastasia 」 中。 您必須在其中一個區域，以使用交談文字記錄語音索引鍵。
+* 如果您打算使用交談轉譯，則必須使用[環形麥克風裝置](get-speech-devices-sdk.md)，這項功能目前僅適用於 “centralus” 和 “eastasia” 區域的 "en-US" 和 "zh-CN"。 您在其中一個區域中必須具有語音金鑰，才能使用交談轉譯。
 
-* 如果您打算使用語音服務，以從使用者談話中識別出意圖 （或動作） 時，您將需要[Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription)訂用帳戶。 若要深入了解 LUIS 和意圖辨識，請參閱[辨識語音意圖，有了 LUIS， C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)。
+* 如果您打算使用語音服務來識別使用者語句中的意圖 (或動作)，您將需要 [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 訂用帳戶。 若要深入了解 LUIS 和意圖辨識，請參閱[使用 LUIS (C#) 辨識語音意圖](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)。
 
     您可以[建立簡單 LUIS 模型](https://docs.microsoft.com/azure/cognitive-services/luis/)，或使用簡單 LUIS 模型 LUIS-example.json。 您可以從[語音裝置 SDK 下載網站](https://aka.ms/sdsdk-luis)取得範例 LUIS 模型。 若要將您模型的 JSON 檔案上傳到 [LUIS 入口網站](https://www.luis.ai/home)，請選取 [Import new app] \(匯入新應用程式\)  ，然後選取 JSON 檔案。
 
 * 在您的電腦上安裝 [Android Studio](https://developer.android.com/studio/) 和 [Vysor](https://vysor.io/download/)。
 
-## <a name="set-up-the-device"></a>將裝置設定
+## <a name="set-up-the-device"></a>設定裝置
 
 1. 在您的電腦上啟動 Vysor。
 
@@ -72,7 +72,7 @@ ms.locfileid: "67072382"
 
 ## <a name="run-the-sample-application"></a>執行範例應用程式
 
-若要驗證您的開發套件安裝程式，建置並安裝範例應用程式：
+若要驗證您的開發套件設定，請建置並安裝範例應用程式：
 
 1. 啟動 Android Studio。
 
@@ -82,9 +82,9 @@ ms.locfileid: "67072382"
 
 1. 前往 C:\SDSDK\Android-Sample-Release\example。 選取 [OK] \(確定\)  以開啟範例專案。
 
-1. 新增您的語音訂用帳戶金鑰的原始程式碼。 如果您想要試用意圖辨識，請一併新增您的 [Language Understanding 服務](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)訂用帳戶金鑰和應用程式識別碼。
+1. 將您的語音訂用帳戶金鑰加入至原始程式碼中。 如果您想要試用意圖辨識，請一併新增您的 [Language Understanding 服務](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)訂用帳戶金鑰和應用程式識別碼。
 
-   語音和 LUIS，您的資訊會進入 MainActivity.java:
+   若為語音和 LUIS，您的資訊會進入 MainActivity.java：
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ ms.locfileid: "67072382"
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    如果您使用交談文字記錄，conversation.java 中也需要您的語音索引鍵和區域資訊：
+    如果您使用交談轉譯，conversation.java 中也需要有您的語音金鑰和區域資訊：
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -107,10 +107,10 @@ ms.locfileid: "67072382"
    > [!TIP]
    > 您也可以[建立自訂的喚醒字](speech-devices-sdk-create-kws.md)。
 
-    若要使用新的線上醒機字，更新中的下列兩行`MainActivity.java`，並將網路喚醒 word 封裝複製到您的應用程式。 例如，若要使用網路喚醒 word 封裝 kws 喚醒詞彙 'Machine'-machine.zip:
+    若要使用新的喚醒字，請更新 `MainActivity.java` 中的下列兩行，並將喚醒字套件複製到您的應用程式。 例如，若要使用來自喚醒字套件 ws-machine.zip 的喚醒字 'Machine'：
 
-   * 網路喚醒 word 將套件複製到資料夾"C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\ 」。
-   * 更新`MainActivity.java`關鍵字和封裝名稱：
+   * 將喚醒字套件複製到 “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\” 資料夾中。
+   * 以關鍵字和套件名稱更新 `MainActivity.java`：
 
      ```java
      private static final String Keyword = "Machine";
@@ -145,24 +145,24 @@ ms.locfileid: "67072382"
 
    ![「語音裝置 SDK」範例應用程式和選項](media/speech-devices-sdk/qsg-8.png)
 
-1. 請嘗試新的交談文字記錄示範。 啟動與 '開始的工作階段' 謄寫。 根據預設，每個人都是來賓。 不過，如果您有參與者的語音簽章它們可以放入檔案`/video/participants.properties`在裝置上。 若要產生的語音簽章，看看[Ip-pbx 交談 (SDK)](how-to-use-conversation-transcription-service.md)。
+1. 嘗試新的交談轉譯示範。 透過 [啟動工作階段] 開始轉譯。 根據預設，每個人都是來賓。 不過，如果您有參與者的語音簽章，可以將其放入裝置上的 `/video/participants.properties` 檔案中。 若要產生語音簽章，請查看[轉譯交談 (SDK)](how-to-use-conversation-transcription-service.md)。
 
-   ![示範交談文字記錄應用程式](media/speech-devices-sdk/qsg-15.png)
+   ![示範交談轉譯應用程式](media/speech-devices-sdk/qsg-15.png)
 
 1. 進行實驗！
 
 ## <a name="troubleshooting"></a>疑難排解
 
-   如果您無法連線到語音裝置。 命令提示字元 視窗中，輸入下列命令。 它會傳回裝置的清單：
+   如果您無法連線到語音裝置。 在命令提示字元視窗中輸入下列命令。 這會傳回裝置清單：
 
    ```powershell
     adb devices
    ```
 
    > [!NOTE]
-   > 此命令會使用 Android Debug Bridge， `adb.exe`，這是 Android Studio 中安裝的一部分。 此工具位於 C:\Users\[使用者名稱]\AppData\Local\Android\Sdk\platform-tools。 您可以將此目錄新增至您的路徑，以便更方便地叫用 `adb`。 否則，您必須在叫用 `adb` 的每個命令中指定 adb.exe 的完整安裝路徑。
+   > 此命令會使用 Android Debug Bridge `adb.exe`，它是 Android Studio 安裝的一部分。 此工具位於 C:\Users\[使用者名稱]\AppData\Local\Android\Sdk\platform-tools。 您可以將此目錄新增至您的路徑，以便更方便地叫用 `adb`。 否則，您必須在叫用 `adb` 的每個命令中指定 adb.exe 的完整安裝路徑。
    >
-   > 如果您看到錯誤`no devices/emulators found`然後檢查您的 USB 纜線已連接，並確定使用的是高品質的纜線。
+   > 如果您看到 `no devices/emulators found` 錯誤，請確認您已接好 USB 纜線並確保使用高品質的纜線。
    >
 
 ## <a name="next-steps"></a>後續步驟
