@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8f3a1dadaddb423a83f4c3691a4b5747a5196d2a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022103"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795340"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>快速入門：使用 Azure 搜尋服務中的認知技能，建立 AI 索引管線
 
@@ -22,7 +22,7 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 許多認知服務資源，例如 [OCR](cognitive-search-skill-ocr.md)、[語言偵測](cognitive-search-skill-language-detection.md)和[實體辨識](cognitive-search-skill-entity-recognition.md)等等，都可連結到編製索引程序。 認知服務的 AI 演算法用來尋找來源資料中的模式、特徵和特性，傳回結構和文字內容，這些資訊可用於以 Azure 搜尋服務為基礎的全文檢索搜尋解決方案。
 
-在此快速入門中，您會先在 [Azure 入口網站中](https://portal.azure.com)建立擴充管線，然後再撰寫單一行程式碼：
+在本快速入門中，您會先在 [Azure 入口網站中](https://portal.azure.com)建立擴充管線，然後再撰寫單一行程式碼：
 
 > [!div class="checklist"]
 > * 從使用 Azure blob 儲存體中的範例資料開始
@@ -30,22 +30,22 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 > * 執行精靈 (會偵測人員、位置和組織的實體技能)
 > * 使用[**搜尋總管**](search-explorer.md)來查詢擴充的資料
 
-此快速入門雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要每天多次執行此快速入門，請使用較小的檔案集，如此才能在限制內完成多次執行。
+本快速入門雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要每天多次執行此快速入門，請使用較小的檔案集，如此才能在限制內完成多次執行。
 
 > [!NOTE]
 > 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+> 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價如 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所描述。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此快速入門的免費服務。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
-[認知服務](https://azure.microsoft.com/services/cognitive-services/)會提供 AI。 此快速入門包含指定管線時新增這些內嵌資源的步驟。 您不需要事先設定帳戶。
+[認知服務](https://azure.microsoft.com/services/cognitive-services/)會提供 AI。 本快速入門包含指定管線時新增這些內嵌資源的步驟。 您不需要事先設定帳戶。
 
-需使用 Azure 服務來提供索引管線的輸入。 您可以使用任何由 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源，除了 Azure 表格儲存體以外，其不支援 AI 索引編製。 此快速入門會使用 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)作為來源資料檔案的容器。 
+需使用 Azure 服務來提供索引管線的輸入。 您可以使用任何由 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源，除了 Azure 表格儲存體以外，其不支援 AI 索引編製。 本快速入門會使用 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)作為來源資料檔案的容器。 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
 
@@ -53,19 +53,19 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 1. [註冊 Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)、建立儲存體帳戶、開啟 Blob 服務頁面，以及建立容器。  在 Azure 搜尋服務的所在區域中建立儲存體帳戶。
 
-1. 在您建立的 容器中，按一下 [上傳] 以上傳您在上一步中下載的範例檔案。
+1. 在您建立的 容器中，按一下 [上傳]  以上傳您在上一步中下載的範例檔案。
 
    ![Azure Blob 儲存體中的來源檔案](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>建立擴充管線
 
-返回 Azure 搜尋服務儀表板頁面，按一下命令列上的 [匯入資料]，以四個步驟來設定認知擴充。
+返回 Azure 搜尋服務儀表板頁面，按一下命令列上的 [匯入資料]  ，以四個步驟來設定認知擴充。
 
   ![匯入資料命令](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1-create-a-data-source"></a>步驟 1：建立資料來源
 
-在 [連線到您的資料] 中，選擇 [Azure Blob 儲存體]，選取您建立的帳戶和容器。 指定資料來源的名稱，其餘部分則使用預設值。 
+在 [連線到您的資料]  中，選擇 [Azure Blob 儲存體]  ，選取您建立的帳戶和容器。 指定資料來源的名稱，其餘部分則使用預設值。 
 
   ![Azure Blob 組態](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
@@ -77,11 +77,11 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 接著，將擴充步驟新增至管線。 如果您沒有認知服務資源，可以註冊免費版，其可提供您每天 20 筆交易。 範例資料包含 14 個檔案，因此您一旦執行此精靈，就幾乎用盡每日配置。
 
-1. 展開 [附加認知服務] 以檢視認知服務 API 的資源處理選項。 針對此教學課程的目的，您可以使用**免費**資源。
+1. 展開 [附加認知服務]  以檢視認知服務 API 的資源處理選項。 針對本教學課程的目的，您可以使用**免費**資源。
 
    ![附加認知服務](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
-2. 展開 [新增擴充] 然後選取可執行自然語言處理的技能。 針對此快速入門，請選擇適用於人員、組織和位置的實體辨識。
+2. 展開 [新增擴充]  然後選取可執行自然語言處理的技能。 針對本快速入們，請選擇適用於人員、組織和位置的實體辨識。
 
    ![附加認知服務](media/cognitive-search-quickstart-blob/skillset.png)
 
@@ -98,21 +98,21 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 此精靈通常可以推斷預設索引。 在此步驟中，您可以檢視所產生的索引結構描述，也可能會修改任何設定。 以下是針對示範 Blob 資料集所建立的預設索引。
 
-在此快速入門中，精靈會妥善地設定好合理的預設值： 
+在本快速入門中，精靈會妥善地設定好合理的預設值： 
 
-+ 預設名稱是以資料來源類型為基礎的 azureblob-index。 
++ 預設名稱是以資料來源類型為基礎的 azureblob-index  。 
 
 + 預設欄位是以原始來源資料欄位 (`content`)，以及認知管線所建立的輸出欄位 (`people`、`organizations` 和 `locations`) 為基礎。 從中繼資料與資料取樣可推斷預設資料類型。
 
 + 預設索引鍵是 *metadata_storage_path* (此欄位包含唯一值)。
 
-+ 這些欄位的預設屬性為 [可擷取] 和 [可搜尋]。 「可搜尋」表示可搜尋到某個欄位。 「可擷取」表示它可以在結果中傳回。 精靈假設您希望這些欄位為可擷取並可搜尋，因為您是透過技能集來建立欄位。
++ 這些欄位的預設屬性為 [可擷取]  和 [可搜尋]  。 「可搜尋」  表示可搜尋到某個欄位。 「可擷取」  表示它可以在結果中傳回。 精靈假設您希望這些欄位為可擷取並可搜尋，因為您是透過技能集來建立欄位。
 
   ![索引欄位](media/cognitive-search-quickstart-blob/index-fields.png)
 
-請注意，依 `content` 欄位顯示的 [可擷取] 屬性上的刪除線和問號。 在大量文字的 Blob 文件中，`content` 欄位包含檔案主體，有可能遇到數千行。 如果您需要將檔案內容傳遞給用戶端程式碼，請確定 [可擷取] 保持已選取狀態。 否則，如果擷取的元素 (`people`、`organizations` 和 `locations`) 足以符合您的目的，請考慮清除 `content` 上的這個屬性。
+請注意，依 `content` 欄位顯示的 [可擷取]  屬性上的刪除線和問號。 在大量文字的 Blob 文件中，`content` 欄位包含檔案主體，有可能遇到數千行。 如果您需要將檔案內容傳遞給用戶端程式碼，請確定 [可擷取]  保持已選取狀態。 否則，如果擷取的元素 (`people`、`organizations` 和 `locations`) 足以符合您的目的，請考慮清除 `content` 上的這個屬性。
 
-將欄位標示為 [可擷取] 不表示該欄位「必須」出現在搜尋結果中。 您可以使用 **$select** 查詢參數來指定要包含的欄位，精確地控制搜尋結果組合。 對於大量文字的欄位 (如`content`)，**$select** 參數可讓您將可管理的搜尋結果提供給您應用程式的人類使用者，同時確保用戶端程式碼可透過 [可擷取] 屬性存取其所需的所有資訊。
+將欄位標示為 [可擷取]  不表示該欄位「必須」  出現在搜尋結果中。 您可以使用 **$select** 查詢參數來指定要包含的欄位，精確地控制搜尋結果組合。 對於大量文字的欄位 (如`content`)， **$select** 參數可讓您將可管理的搜尋結果提供給您應用程式的人類使用者，同時確保用戶端程式碼可透過 [可擷取]  屬性存取其所需的所有資訊。
   
 繼續進行下一頁。
 
@@ -122,15 +122,15 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 索引子是會驅動索引編製程序的高階資源。 它會指定資料來源名稱、目標索引和執行頻率。 **匯入資料**精靈最終結果一定是您可以重複執行的索引子。
 
-在 [索引子] 頁面上，您可以接受預設名稱，並使用 [執行一次] 排程選項來立即執行它。 
+在 [索引子]  頁面上，您可以接受預設名稱，並使用 [執行一次]  排程選項來立即執行它。 
 
   ![索引子定義](media/cognitive-search-quickstart-blob/indexer-def.png)
 
-按一下 [提交] 以建立並同時執行索引子。
+按一下 [提交]  以建立並同時執行索引子。
 
 ## <a name="monitor-indexing"></a>監視編製索引
 
-擴充步驟需要比一般文字索引更長的時間來完成。 精靈應該會在 [概觀] 頁面中開啟索引子清單，方便您追蹤進度。 若要自行瀏覽，請移至 [概觀] 頁面，然後按一下 [索引子]。
+擴充步驟需要比一般文字索引更長的時間來完成。 精靈應該會在 [概觀] 頁面中開啟索引子清單，方便您追蹤進度。 若要自行瀏覽，請移至 [概觀] 頁面，然後按一下 [索引子]  。
 
 因為 JPG 和 PNG 檔是影像檔案，而我們在此管線中省略了 OCR 技能，因此會發生警告。 您也可以找到截斷通知。 Azure 搜尋服務在免費層的擷取限制為 32,000 個字元。
 
@@ -142,9 +142,9 @@ Azure 搜尋服務會與[認知服務](https://azure.microsoft.com/services/cogn
 
 建立索引之後，您可以提交查詢以從索引中傳回文件。 在入口網站中，使用**搜尋總管**來執行查詢並檢視結果。 
 
-1. 在搜尋服務儀表板頁面上，按一下命令列上的 [搜尋總管]。
+1. 在搜尋服務儀表板頁面上，按一下命令列上的 [搜尋總管]  。
 
-1. 選取頂端的 [變更索引] 以選取您建立的索引。
+1. 選取頂端的 [變更索引]  以選取您建立的索引。
 
 1. 輸入搜尋字串以查詢索引，例如 `search=Microsoft&searchFields=organizations`。
 
@@ -156,9 +156,9 @@ CTRL-F 也可協助您判斷指定的結果集中有多少文件。 針對 Azure
 
 ## <a name="takeaways"></a>重要心得
 
-您現在已完成第一個擴充的認知索引編製練習。 此快速入門的目的是要介紹重要概念，並透過精靈引導您完成步驟，讓您可以使用自己的資料，快速完成認知搜尋解決方案的原型。
+您現在已完成第一個擴充的認知索引編製練習。 本快速入門的目的是要介紹重要概念，並透過精靈引導您完成步驟，讓您可以使用自己的資料，快速完成認知搜尋解決方案的原型。
 
-我們希望您了解的一些重要概念包括 Azure 資料來源上的相依性。 認知搜尋擴充會受到索引子的約束，而索引子專屬於 Azure 與來源。 雖然此快速入門使用 Azure Blob 儲存體，但您也可使用其他 Azure 資料來源。 如需詳細資訊，請參閱 [Azure 搜尋服務中的索引子](search-indexer-overview.md)。
+我們希望您了解的一些重要概念包括 Azure 資料來源上的相依性。 認知搜尋擴充會受到索引子的約束，而索引子專屬於 Azure 與來源。 雖然本快速入門使用 Azure Blob 儲存體，但您也可使用其他 Azure 資料來源。 如需詳細資訊，請參閱 [Azure 搜尋服務中的索引子](search-indexer-overview.md)。
 
 另一個重要概念是，技能是透過輸入欄位來運作。 在入口網站中，您必須為所有技能選擇單一來源欄位。 在程式碼中，輸入可以是其他欄位或上游技能的輸出。
 
@@ -166,19 +166,21 @@ CTRL-F 也可協助您判斷指定的結果集中有多少文件。 針對 Azure
 
 最後，您已了解可透過查詢索引來檢視結果。 結果就是 Azure 搜尋服務提供的功能是可搜尋的索引，您可以使用[簡單](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)或[完全展開的查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)來進行查詢。 包含擴充欄位的索引都彼此類似。 如果您想要加入標準或[自訂分析器](search-analyzers.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[同義字](search-synonyms.md)、[多面向篩選](search-filters-facets.md)、地理搜尋，或任何其他 Azure 搜尋功能，您完全可以這麼做。
 
-## <a name="clean-up-resources"></a>清除資源
+## <a name="clean-up"></a>清除
 
-如果您的探索已結束，最快速的清除方式是刪除包含 Azure 搜尋服務和 Azure Blob 服務的資源群組。  
+使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
-如果您將這兩個服務放在相同群組中，現在刪除資源群組表示永久刪除其中所有內容，包括服務與您為此練習建立的任何已儲存內容。 在入口網站中，資源群組名稱位在每個服務的 [概觀] 頁面上。
+您可以使用左導覽窗格中的 [所有資源]  或 [資源群組]  連結，在入口網站中尋找和管理資源。
+
+如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。 
 
 ## <a name="next-steps"></a>後續步驟
 
 根據您佈建認知服務資源的方式，您可以使用不同技能和來源資料欄位重新執行精靈，來實驗索引編製和擴充。 若要重複步驟，請刪除索引和索引子，然後以新的選項組合來重新建立索引子。
 
-+ 在 [概觀] > [索引] 中，選取您建立的索引，然後按一下 [刪除]。
++ 在 [概觀]   > [索引]  中，選取您建立的索引，然後按一下 [刪除]  。
 
-+ 在 [概觀] 中，連按兩下 [索引子] 磚。 找到您建立的索引子，並將它刪除。
++ 在 [概觀]  中，連按兩下 [索引子]  磚。 找到您建立的索引子，並將它刪除。
 
 或者，重複使用您建立的範例資料和服務，然後在下一個教學課程中，了解如何以程式設計方式執行相同工作。 
 

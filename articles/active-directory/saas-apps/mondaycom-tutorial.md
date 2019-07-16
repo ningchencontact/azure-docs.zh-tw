@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cdc605c059857c826056fece782bbb9a9c86a15
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275790"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718492"
 ---
 # <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>教學課程：整合 monday.com 與 Azure Active Directory
 
@@ -78,7 +78,7 @@ ms.locfileid: "67275790"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態]  窗格中，如果您有服務提供者中繼資料檔案並想要設定「IDP 起始的模式」  ，請執行下列步驟：
+1. 在 [基本 SAML 組態]  窗格中，如果您有服務提供者中繼資料檔案並想要設定「IDP 起始的模式」  ，請執行下列步驟：
 
     1. 選取 [上傳中繼資料檔案]  。
 
@@ -89,7 +89,7 @@ ms.locfileid: "67275790"
        > [!Note]
        > 如果 [識別碼]  和 [回覆 URL]  值未自動填入，則請手動填入這些值。 [識別碼]  和 [回覆 URL]  相同，其值模式如下：`https://<your-domain>.monday.com/saml/saml_callback`
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<your-domain>.monday.com`
 
@@ -100,7 +100,7 @@ ms.locfileid: "67275790"
 
     ![[使用者屬性] 窗格](common/edit-attribute.png)
 
-6. 除了以上屬性外，monday.com 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
+1. 除了以上屬性外，monday.com 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
 
     | Name | 來源屬性|
     | ---------------| --------------- |
@@ -109,10 +109,6 @@ ms.locfileid: "67275790"
     | 姓氏 | user.surname |
 
     a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
-
-    ![映像](./media/mondaycom-tutorial/attribute01.png)
-
-    ![映像](common/new-attribute-details.png)
 
     b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
 
@@ -136,17 +132,25 @@ ms.locfileid: "67275790"
 
 ### <a name="configure-mondaycom"></a>設定 monday.com
 
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 monday.com。
+1. 若要自動執行 monday.com 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 移至頁面右上角的 [設定檔]  ，然後按一下 [管理員]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
 
-     ![monday.com 組態](./media/mondaycom-tutorial/configuration01.png)
+1. 將擴充功能新增至瀏覽器之後，按一下 [安裝 monday.com]  便會將您導向至 monday.com 應用程式。 請從該處提供用以登入 monday.com 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
 
-3. 選取 [安全性]  並且確定按一下 SAML 旁邊的 [開啟]  。
+    ![設定組態](common/setup-sso.png)
+
+1. 如果您想要手動設定 monday.com，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 monday.com，然後執行下列步驟：
+
+1. 移至頁面右上角的 [設定檔]  ，然後按一下 [管理員]  。
+
+    ![monday.com 組態](./media/mondaycom-tutorial/configuration01.png)
+
+1. 選取 [安全性]  並且確定按一下 SAML 旁邊的 [開啟]  。
 
     ![monday.com 組態](./media/mondaycom-tutorial/configuration02.png)
 
-4. 從您的 IDP 填寫以下詳細資料。
+1. 從您的 IDP 填寫以下詳細資料。
 
     ![monday.com 組態](./media/mondaycom-tutorial/configuration03.png)
 
@@ -155,7 +159,7 @@ ms.locfileid: "67275790"
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-在本節中，您會在 Azure 入口網站中建立名稱為 B.Simon 的測試使用者。
+在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 1. 在畫面頂端選取 [新增使用者]  。

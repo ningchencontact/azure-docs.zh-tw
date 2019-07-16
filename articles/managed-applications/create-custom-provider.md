@@ -7,20 +7,20 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 41200139ef55fa1ae441192e2d81b5228cf29bad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410212"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795322"
 ---
-# <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>教學課程：建立自訂提供者並部署自訂資源
+# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>快速入門：建立自訂提供者並部署自訂資源
 
-在本教學課程中，您要建立自己的資源提供者，並部署該資源提供者的自訂資源類型。 如需自訂提供者的詳細資訊，請參閱 [Azure Custom Providers Preview 概觀](custom-providers-overview.md)\(英文\)。
+在本快速入門中，您要建立自己的資源提供者，並部署該資源提供者的自訂資源類型。 如需自訂提供者的詳細資訊，請參閱 [Azure Custom Providers Preview 概觀](custom-providers-overview.md)\(英文\)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程中的步驟，您需要呼叫 REST 作業。 [REST 要求有各種不同的傳送方式](/rest/api/azure/)\(英文\)。 如果尚未準備好 REST 作業適用的工具，請安裝 [ARMClient](https://github.com/projectkudu/ARMClient)。 這是一種開放原始碼命令列工具，可簡化 Azure Resource Manager API 的叫用作業。
+若要完成本快速入門中的步驟，您需要呼叫 REST 作業。 [REST 要求有各種不同的傳送方式](/rest/api/azure/)\(英文\)。 如果尚未準備好 REST 作業適用的工具，請安裝 [ARMClient](https://github.com/projectkudu/ARMClient)。 這是一種開放原始碼命令列工具，可簡化 Azure Resource Manager API 的叫用作業。
 
 ## <a name="deploy-custom-provider"></a>部署自訂提供者
 
@@ -53,7 +53,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName `
 
 ## <a name="view-custom-provider-and-resource"></a>檢視自訂提供者與資源
 
-在入口網站中，自訂提供者是隱藏的資源類型。 若要確認資源提供者是否已部署，請瀏覽至資源群組。 選取 [顯示隱藏的類型] 選項。
+在入口網站中，自訂提供者是隱藏的資源類型。 若要確認資源提供者是否已部署，請瀏覽至資源群組。 選取 [顯示隱藏的類型]  選項。
 
 ![顯示隱藏的資源類型](./media/create-custom-providers/show-hidden.png)
 
@@ -122,7 +122,7 @@ armclient POST $pingURI
 
 ## <a name="create-resource-type"></a>建立資源類型
 
-若要建立自訂資源類型，您可以在範本中部署該資源。 在本教學課程過程中部署的範本內，有介紹此種方式。 您也可以傳送資源類型 的 PUT 要求。
+若要建立自訂資源類型，您可以在範本中部署該資源。 在本快速入門過程中部署的範本內，有介紹此種方式。 您也可以傳送資源類型 的 PUT 要求。
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview

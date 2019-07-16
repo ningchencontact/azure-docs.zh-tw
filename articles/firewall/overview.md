@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/26/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: da82f6c93045b38aed887860c6d5c45c93b2260b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442918"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703943"
 ---
 # <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -30,7 +30,7 @@ Azure 防火牆提供下列功能：
 
 高可用性是內建的，因此不需要額外的負載平衡器，您也不需要進行任何設定。
 
-## <a name="availability-zones-public-preview"></a>可用性區域 (公開預覽)
+## <a name="availability-zones"></a>可用性區域
 
 Azure 防火牆可在部署期間進行設定，以跨越多個可用性區域來增加可用性。 透過可用性區域，您的可用性會增加到 99.99% 運作時間。 如需詳細資訊，請參閱 Azure 防火牆[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/)。 選取兩個或多個可用性區域時，會提供 99.99% 運作時間 SLA。
 
@@ -51,7 +51,7 @@ Azure 防火牆可以隨著您的需求相應增加，以容納多變的網路�
 
 ## <a name="application-fqdn-filtering-rules"></a>應用程式 FQDN 篩選規則
 
-您可以將輸出 HTTP/S 流量限制為包含萬用字元的特殊完整網域名稱 (FQDN) 清單。 這項功能不需要 SSL 終止。
+您可以將輸出 HTTP/S 流量或 Azure SQL 流量 (預覽) 限制為包含萬用字元的特殊完整網域名稱 (FQDN) 清單。 這項功能不需要 SSL 終止。
 
 ## <a name="network-traffic-filtering-rules"></a>網路流量篩選規則
 
@@ -77,7 +77,11 @@ FQDN 標籤讓您輕鬆就能允許已知的 Azure 服務網路流量通過您�
 
 傳送到您防火牆公用 IP 位址的輸入網路流量會轉譯 (目的地網路位址轉譯)，並篩選至您虛擬網路上的私人 IP 位址。
 
-## <a name="multiple-public-ips-public-preview"></a>多個公用 IP (公開預覽)
+## <a name="multiple-public-ip-addresses"></a>多個公用 IP 位址
+
+> [!IMPORTANT]
+> 您可以透過 Azure PowerShell、Azure CLI、REST 和範本使用具有多個公用 IP 位址的 Azure 防火牆。 入口網站使用者介面會逐步新增至各個區域，且在完成推出後將可在所有區域使用。
+
 
 您可以將多個公用 IP 位址 (最多 100 個) 與您的防火牆相關聯。
 
@@ -85,9 +89,6 @@ FQDN 標籤讓您輕鬆就能允許已知的 Azure 服務網路流量通過您�
 
 - **DNAT** - 您可以將多個標準連接埠執行個體轉譯到後端伺服器。 例如，如果您有兩個公用 IP 位址，您可以為這兩個 IP 位址轉譯 TCP 通訊埠 3389 (RDP)。
 - **SNAT** - 其他連接埠可用於輸出 SNAT 連線，降低 SNAT 連接埠耗盡的可能性。 目前，Azure 防火牆會隨機選取來源公用 IP 位址以用於連線。 如果您的網路上有任何下游篩選，則您必須允許與防火牆相關聯的所有公用 IP 位址。
-
-> [!NOTE]
-> 在公開預覽期間，如果您對執行中的防火牆新增或移除公用 IP 位址，則使用 DNAT 規則的現有輸入連線可能無法運作 40 - 120 秒。 您無法移除指派給防火牆的第一個公用 IP 位址，除非防火牆已解除配置或已刪除。
 
 ## <a name="azure-monitor-logging"></a>Azure 監視器記錄
 
@@ -108,10 +109,10 @@ Azure 防火牆有下列已知問題：
 |威脅情報警示可能會遮罩處理|目的地為 80/443 的網路規則，可供輸出篩選遮罩處理設定為僅限警示模式的威脅情報警示。|使用應用程式規則建立 80/443 的輸出篩選。 或者，將威脅情報模式變更為 [警示並拒絕]  。|
 |Azure 防火牆只會使用 Azure DNS 來解析名稱|Azure 防火牆只會使用 Azure DNS 解析 FQDN。 不支援自訂的 DNS 伺服器。 對其他子網路上的 DNS 解析沒有任何影響。|我們正努力放寬這項限制。|
 |Azure 防火牆 SNAT/DNAT 不適用於私人 IP 目的地|Azure 防火牆 SNAT/DNAT 支援受限於網際網路輸出/輸入。 SNAT/DNAT 目前不適用於私人 IP 目的地。 例如，輪輻至輪輻。|這是目前的限制。|
-|無法移除第一個公用 IP 位址|您無法移除指派給防火牆的第一個公用 IP 位址，除非防火牆已解除配置或已刪除。|原先的設計就是如此。|
-|如果您新增或移除公用 IP 位址，DNAT 規則可能暫時無法運作。| 如果您對執行中的防火牆新增或移除公用 IP 位址，則使用 DNAT 規則的現有輸入連線可能無法運作 40 - 120 秒。|這是此功能公開預覽版的限制。|
+|無法移除第一個公用 IP 設定|每個 Azure 防火牆公用 IP 位址會指派給一個 *IP 設定*。  第一個 IP 設定會在防火牆部署期間指派，且通常也會包含防火牆子網路的參考 (除非透過範本部署明確做了不同的設定)。 您無法刪除此 IP 設定，因為這樣會將防火牆解除配置。 如果至少還有一個其他公用 IP 位址可供使用，您仍然可以變更或移除與此 IP 設定相關聯的公用 IP 位址。|原先的設計就是如此。|
 |可用性區域只能在部署期間進行設定。|可用性區域只能在部署期間進行設定。 在部署防火牆之後，您無法設定可用性區域。|原先的設計就是如此。|
 |輸入連線上的 SNAT|除了 DNAT，透過防火牆公用 IP 位址 (輸入) 的連線已對其中一個防火牆私人 IP 進行 SNAT 轉譯。 這項需求現在也適用於主動/主動 NVA 以確保對稱式路由。|若要保留 HTTP/S 的原始來源，請考慮使用 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 標題。 例如，在防火牆前使用 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) 等服務。 您也可以將 WAF 新增為 Azure Front Door 的一部分和防火牆鏈結。
+|SQL FQDN 篩選支援僅限於 Proxy 模式 (連接埠 1433)|針對 Azure SQL Database、Azure SQL 資料倉儲和 Azure SQL 受控執行個體：<br><br>在預覽期間，只有 Proxy 模式可支援 SQL FQDN 篩選 (連接埠 1433)。<br><br>針對 Azure SQL IaaS：<br><br>如果您使用非標準連接埠，您可以在應用程式規則中指定這些連接埠。|在重新導向模式中使用 SQL 時 (這是從 Azure 內連線時的預設值)，您可以改為使用 SQL 服務標籤作為 Azure 防火牆網路規則的一部分來篩選存取。
 
 ## <a name="next-steps"></a>後續步驟
 

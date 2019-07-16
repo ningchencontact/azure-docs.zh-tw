@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099607"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>教學課程：Azure Active Directory 與 ITRP 整合
 
@@ -153,9 +153,9 @@ ms.locfileid: "67099607"
 
     1. 選取 [啟用]  。
 
-    1. 在 [遠端登出 URL] **** 方塊中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
+    1. 在 [遠端登出 URL]  方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
 
-    1. 在 [SAML SSO URL] **** 方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
+    1. 在 [SAML SSO URL]  方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
     1. 在 [憑證指紋]  方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋]  值。
 

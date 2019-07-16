@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11bb99ada76131000f49be5a1216a1bb71fbb88a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecff60d1a1f808c4021476d136fe014175451672
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108717"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723971"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -49,8 +49,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 #### <a name="recommendations-for-the-connector-server"></a>針對連接器伺服器的建議
 
 1. 將連接器伺服器實體放在靠近應用程式伺服器的位置，以便連接器和應用程式之間能有最佳效能。 如需詳細資訊，請參閱[網路拓撲考量](application-proxy-network-topology.md)。
-
-2. 連接器伺服器和 Web 應用程式伺服器應該屬於相同的 Active Directory 網域或橫跨信任網域。 伺服器必須位於相同網域或信任網域，才能搭配使用單一登入 (SSO) 與整合式 Windows 驗證 (IWA) 和 Kerberos 限制委派 (KCD) 的需求。 如果連接器伺服器和 Web 應用程式伺服器位於不同的 Active Directory 網域，則必須使用以資源為基礎的委派才能實現單一登入。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
+1. 連接器伺服器和 Web 應用程式伺服器應該屬於相同的 Active Directory 網域或橫跨信任網域。 伺服器必須位於相同網域或信任網域，才能搭配使用單一登入 (SSO) 與整合式 Windows 驗證 (IWA) 和 Kerberos 限制委派 (KCD) 的需求。 如果連接器伺服器和 Web 應用程式伺服器位於不同的 Active Directory 網域，則必須使用以資源為基礎的委派才能實現單一登入。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
 
 #### <a name="tls-requirements"></a>TLS 需求
 
@@ -67,9 +66,9 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-2. 重新啟動伺服器。
+1. 重新啟動伺服器。
 
->[!Important] 
+> [!IMPORTANT]
 > 為了將頂級的加密提供給客戶，我們即將更新應用程式 Proxy 服務，將其限制為僅接受 TLS 1.2 通訊協定的存取。 根據客戶的整備程度，變更會逐漸推廣到只使用 TLS 1.2 通訊協定的客戶，而您不會看到這項變更的任何影響。 TLS 1.0 和 1.1 的淘汰作業將於 2019 年 8 月 31 日完成，而客戶將會收到因應這項變更的事先通知。 若要針對此變更做好準備，請確定所有用戶端-伺服器和瀏覽器-伺服器組合都已更新為使用 TLS 1.2，以保持與應用程式 Proxy 服務的連線。 其中包括使用者存取透過應用程式 Proxy 發佈的應用程式時，所使用的用戶端。 請參閱準備 [Office 365 中的 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)，以取得實用的參考和資源。
 
 ## <a name="prepare-your-on-premises-environment"></a>準備內部部署環境
@@ -78,7 +77,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 ### <a name="open-ports"></a>開啟連接埠
 
-對**輸出**流量開啟下列連接埠。 
+對**輸出**流量開啟下列連接埠。
 
    | 連接埠號碼 | 使用方式 |
    | --- | --- |
@@ -87,7 +86,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 如果您的防火牆根據原始使用者強制執行流量，也請針對來自以網路服務形式執行的 Windows 服務的流量，開啟連接埠 80 和 443。
 
-如果您已經在使用應用程式 Proxy，則可能已安裝較舊版本的連接器。 請遵循此教學課程，以安裝最新版的連接器。 早於 1.5.132.0 的版本也需要開啟下列連接埠：5671、8080、9090-9091、9350、9352、10100–10120。 
+如果您已經在使用應用程式 Proxy，則可能已安裝較舊版本的連接器。 請遵循此教學課程，以安裝最新版的連接器。 早於 1.5.132.0 的版本也需要開啟下列連接埠：5671、8080、9090-9091、9350、9352、10100–10120。
 
 ### <a name="allow-access-to-urls"></a>允許存取 URL
 
@@ -108,28 +107,27 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 若要安裝連接器：
 
 1. 以目錄 (使用應用程式 Proxy) 的應用程式管理員身分，登入 [Azure 入口網站](https://portal.azure.com/)。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com ，或該網域上的其他管理員別名。
-2. 在右上角選取您的使用者名稱。 請確認您已登入使用應用程式 Proxy 的目錄。 如果您需要變更目錄，請選取 [切換目錄]  ，然後選擇會使用應用程式 Proxy 的目錄。
-3. 在左瀏覽窗格中，選取 [Azure Active Directory]  。 
-4. 在 [管理]  底下，選取 [應用程式 Proxy]  。
-5. 選取 [下載連接器服務]  。
-    
-    ![下載連接器服務](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
+1. 在右上角選取您的使用者名稱。 請確認您已登入使用應用程式 Proxy 的目錄。 如果您需要變更目錄，請選取 [切換目錄]  ，然後選擇會使用應用程式 Proxy 的目錄。
+1. 在左瀏覽窗格中，選取 [Azure Active Directory]  。
+1. 在 [管理]  底下，選取 [應用程式 Proxy]  。
+1. 選取 [下載連接器服務]  。
 
-6. 閱讀服務條款。  當您準備好時，選取 [接受條款並下載]  。
-7. 在視窗底部選取 [執行]  以安裝連接器。 安裝精靈隨即開啟。 
-8. 請遵循精靈內的指示安裝服務。 當系統提示您向 Azure AD 租用戶的應用程式 Proxy 註冊連接器時，請提供您的應用程式管理員認證。
+    ![下載連接器服務以查看服務條款](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
+
+1. 閱讀服務條款。 當您準備好時，選取 [接受條款並下載]  。
+1. 在視窗底部選取 [執行]  以安裝連接器。 安裝精靈隨即開啟。
+1. 請遵循精靈內的指示安裝服務。 當系統提示您向 Azure AD 租用戶的應用程式 Proxy 註冊連接器時，請提供您的應用程式管理員認證。
     - 針對 Internet Explorer (IE)，如果 [IE 增強式安全性設定]  設定為 [開啟]  ，您可能不會看到註冊畫面。 若要取得存取權，請依照錯誤訊息中的指示。 請確定 [Internet Explorer 增強式安全性設定]  已設定為 [關閉]  。
 
 ### <a name="general-remarks"></a>一般備註
 
 如果您先前已安裝連接器，請重新安裝以取得最新版本。 若要查看先前發行的版本和所含變更的資訊，請參閱[應用程式 Proxy：版本發行記錄](application-proxy-release-version-history.md)。
 
-如果您選擇為內部部署應用程式準備多個 Windows 伺服器，則必須在每一部伺服器上安裝和註冊連接器。 您可以將連接器組織成連接器群組。 如需詳細資訊，請參閱[連接器群組](application-proxy-connector-groups.md)。 
+如果您選擇為內部部署應用程式準備多個 Windows 伺服器，則必須在每一部伺服器上安裝和註冊連接器。 您可以將連接器組織成連接器群組。 如需詳細資訊，請參閱[連接器群組](application-proxy-connector-groups.md)。
 
 如果您的組織使用 Proxy 伺服器連線到網際網路，您需要為它們設定應用程式 Proxy。  如需詳細資訊，請參閱[使用現有的內部部署 Proxy 伺服器](application-proxy-configure-connectors-with-proxy-servers.md)。 
 
-如需有關連接器、容量規劃以及其如何保持最新狀態的相關資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)。 
-
+如需有關連接器、容量規劃以及其如何保持最新狀態的相關資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)。
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>確認連接器的安裝和註冊是否正確
 
@@ -140,8 +138,8 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 若要確認連接器的安裝和註冊是否正確：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中登入租用戶目錄。
-2. 在左側導覽面板中，選取 [Azure Active Directory]  ，然後選取 [管理]  區段底下的 [應用程式 Proxy]  。 所有的連接器與連接器群組都會出現在此頁面上。 
-3. 檢視連接器以確認其詳細資料。 依預設，連接器應該會展開。 如果您想要檢視的連接器並未展開，請展開連接器以檢視詳細資料。 作用中的綠色標籤會指出連接器可以連線至服務。 不過，即使標籤是綠色的，仍可能會因為網路問題而讓連接器無法接收訊息。 
+1. 在左側導覽面板中，選取 [Azure Active Directory]  ，然後選取 [管理]  區段底下的 [應用程式 Proxy]  。 所有的連接器與連接器群組都會出現在此頁面上。
+1. 檢視連接器以確認其詳細資料。 依預設，連接器應該會展開。 如果您想要檢視的連接器並未展開，請展開連接器以檢視詳細資料。 作用中的綠色標籤會指出連接器可以連線至服務。 不過，即使標籤是綠色的，仍可能會因為網路問題而讓連接器無法接收訊息。
 
     ![Azure AD 應用程式 Proxy 連接器](./media/application-proxy-connectors/app-proxy-connectors.png)
 
@@ -152,23 +150,23 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 若要確認連接器的安裝和註冊是否正確：
 
 1. 按一下 [Windows]  機碼並輸入 services.msc  來開啟 Windows 服務管理員。
-2. 確認下列兩項服務的狀態是否為**執行中**。
+1. 確認下列兩項服務的狀態是否為**執行中**。
    - **Microsoft AAD 應用程式 Proxy 連接器**可啟用連線。
    - **Microsoft AAD 應用程式 Proxy 連接器更新程式**是自動更新服務。 更新程式會檢查連接器的新版本，並且視需要更新連接器。
 
      ![應用程式 Proxy 連接器服務 - 螢幕擷取畫面](./media/application-proxy-enable/app_proxy_services.png)
 
-3. 如果服務的狀態不是**執行中**，請對每個服務按一下滑鼠右鍵加以選取，然後選擇 [啟動]  。 
+1. 如果服務的狀態不是**執行中**，請對每個服務按一下滑鼠右鍵加以選取，然後選擇 [啟動]  。
 
 ## <a name="add-an-on-premises-app-to-azure-ad"></a>將內部部署應用程式新增至 Azure AD
 
 現在您已準備好環境並安裝好連接器，接下來您便可以將內部部署應用程式新增至 Azure AD。  
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，以系統管理員身分登入。
-2. 在左瀏覽窗格中，選取 [Azure Active Directory]  。
-3. 選取 [企業應用程式]  ，然後選取 [新增應用程式]  。
-4. 選取**內部部署應用程式**。  
-5. 在 [新增自己的內部部署應用程式]  區段中，提供您應用程式的下列資訊：
+1. 在左瀏覽窗格中，選取 [Azure Active Directory]  。
+1. 選取 [企業應用程式]  ，然後選取 [新增應用程式]  。
+1. 選取**內部部署應用程式**。  
+1. 在 [新增自己的內部部署應用程式]  區段中，提供您應用程式的下列資訊：
 
     | 欄位 | 說明 |
     | :---- | :---------- |
@@ -178,7 +176,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
     | **預先驗證** | 應用程式 Proxy 在給予您的應用程式存取權前，用來驗證使用者的方式。<br><br>**Azure Active Directory** - 應用程式 Proxy 會重新導向使用者以使用 Azure AD 登入，進而驗證目錄和應用程式的權限。 建議您將這個選項保持為預設值，讓您可以利用諸如條件式存取以及 Multi-Factor Authentication 等 Azure AD 安全性功能。 利用 Microsoft Cloud Application Security 監視應用程式時需要 **Azure Active Directory**。<br><br>**即時通行** - 使用者不必向 Azure AD 進行驗證即可存取應用程式。 您還是可以在後端設定驗證需求。 |
     | **連接器群組** | 連接器會處理針對應用程式的遠端存取，連接器群組可協助您依區域、網路或用途組織連接器和應用程式。 如果您尚未建立任何連接器群組，您的應用程式就會指派給 [預設]  。<br><br>如果應用程式使用 WebSocket 進行連線，群組中的所有連接器必須是 1.5.612.0 版或更新版本。|
 
-5. 如有必要，請設定 [其他設定]  。 對於大部分的應用程式，您應該在其預設狀態中保留這些設定。 
+1. 如有必要，請設定 [其他設定]  。 對於大部分的應用程式，您應該在其預設狀態中保留這些設定。 
 
     | 欄位 | 說明 |
     | :---- | :---------- |
@@ -188,8 +186,8 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
     | **使用永續性 Cookie**| 將此值的設定保留為 [否]  。 請只對無法在程序之間共用 Cookie 的應用程式使用此設定。 如需 Cookie 設定的詳細資訊，請參閱 [Azure Active Directory 中用來存取內部部署應用程式的 Cookie 設定](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)。
     | **轉譯標頭中的 URL** | 除非您的應用程式需要驗證要求中的原始主機標頭，否則請將此值保留為 [是]  。 |
     | **轉譯應用程式主體中的 URL** | 除非您有其他內部部署應用程式的硬式編碼 HTML 連結，且未使用自訂網域，否則請將此值保留為 [否]  。 如需詳細資訊，請參閱[使用應用程式 Proxy 連結轉譯](application-proxy-configure-hard-coded-link-translation.md)。<br><br>如果您打算使用 Microsoft Cloud App Security (MCAS) 監視此應用程式，請將此值設定為 [是]  。 如需詳細資訊，請參閱[使用 Microsoft Cloud App Security 與 Azure Active Directory 設定即時應用程式存取監視](application-proxy-integrate-with-microsoft-cloud-application-security.md)。 |
-   
-6. 選取 [新增]  。
+
+1. 選取 [新增]  。
 
 ## <a name="test-the-application"></a>測試應用程式
 
@@ -202,18 +200,18 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 若要新增測試使用者：
 
 1. 選取 [企業應用程式]  ，然後選取您想要測試的應用程式。
-2. 選取 [開始使用]  ，然後選取 [指派測試使用者]  。
-3. 在 [使用者和群組]  底下，選取 [新增使用者]  。
-4. 在 [新增指派]  底下，選取 [使用者和群組]  。 [使用者和群組]  區段隨即會出現。 
-5. 選擇您想要新增的帳戶。 
-6. 選擇 [選取]  ，然後選取 [指派]  。
+1. 選取 [開始使用]  ，然後選取 [指派測試使用者]  。
+1. 在 [使用者和群組]  底下，選取 [新增使用者]  。
+1. 在 [新增指派]  底下，選取 [使用者和群組]  。 [使用者和群組]  區段隨即會出現。
+1. 選擇您想要新增的帳戶。
+1. 選擇 [選取]  ，然後選取 [指派]  。
 
 ### <a name="test-the-sign-on"></a>測試登入
 
 若要測試能否登入應用程式：
 
 1. 在瀏覽器中瀏覽至您在發行步驟所設定的外部 URL。 您應會看見開始畫面。
-2. 請以您在上一節中建立的使用者身分登入。
+1. 請以您在上一節中建立的使用者身分登入。
 
 如需疑難排解，請參閱[針對應用程式 Proxy 問題和錯誤訊息進行疑難排解](application-proxy-troubleshoot.md)。
 
@@ -229,7 +227,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 > * 將內部部署應用程式新增至 Azure AD 租用戶
 > * 確認測試使用者可以使用 Azure AD 帳戶登入應用程式
 
-您可以為應用程式設定單一登入。 使用下列連結來選擇單一登入方法，以及尋找單一登入教學課程。 
+您可以為應用程式設定單一登入。 使用下列連結來選擇單一登入方法，以及尋找單一登入教學課程。
 
 > [!div class="nextstepaction"]
->[設定單一登入](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [設定單一登入](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

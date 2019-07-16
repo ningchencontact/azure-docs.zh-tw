@@ -1,26 +1,27 @@
 ---
-title: 快速入門：建立可啟動沈浸式閱讀程式的 Web 應用程式 (C#)
+title: 快速入門：使用 C# 建立可啟動沈浸式閱讀程式的 Web 應用程式
 titlesuffix: Azure Cognitive Services
-description: 在本快速入門中，您會從頭開始建置 Web 應用程式，並且新增沈浸式閱讀程式功能。
+description: 在本快速入門中，您會從頭開始建置 Web 應用程式，並且新增沈浸式閱讀程式 API 功能。
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311799"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718409"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>快速入門：建立可啟動沈浸式閱讀程式的 Web 應用程式 (C#)
 
 [沈浸式閱讀程式](https://www.onenote.com/learningtools)是經過全面設計的工具，可實作經實證的技術以改善閱讀理解程度。
 
-在本快速入門中，您會從頭開始建置 Web 應用程式，並且使用沈浸式閱讀程式 SDK 來與沈浸式閱讀程式整合。 本快速入門的完整工作範例可以在[這裡](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp)取得。
+在本快速入門中，您會從頭開始建置 Web 應用程式，並且使用沈浸式閱讀程式 SDK 來與沈浸式閱讀程式整合。 本快速入門的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp)取得。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

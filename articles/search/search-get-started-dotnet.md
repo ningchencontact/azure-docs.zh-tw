@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2019
-ms.openlocfilehash: a5cbd2036f92c27709d92d0cf415cc9837645fb8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 07/09/2019
+ms.openlocfilehash: d3236f4782cc4fd9113329f03e36515a91bad528
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485609"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798778"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>快速入門：在 C# 中使用 .NET SDK 建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ ms.locfileid: "67485609"
 > [!NOTE]
 > 為了簡單起見，本此文章中的範例程式碼使用 Azure 搜尋服務 .NET SDK 的同步方法。 不過，針對生產案例，我們建議您在您自己的應用程式中使用非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，您可以使用 `CreateAsync` 與 `DeleteAsync`，而非 `Create` 與 `Delete`。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本快速入門會使用下列服務、工具和資料。 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 的任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
-+ 您可以在此文章中找到範例索引與文件，也可以在此快速入門的 [Visual Studio 解決方案](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart)中找到。
++ 您可以在此文章中找到範例索引與文件，也可以在此快速入門的 [Visual Studio 解決方案](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart)中找到。
 
 + [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
@@ -550,13 +550,11 @@ Hotels 索引由簡單與複雜欄位組成，其中簡單欄位是 "HotelName" 
 
 ## <a name="clean-up"></a>清除
 
-索引已使用完畢而想要將其刪除時，請在 `SearchServiceClient` 上呼叫 `Indexes.Delete` 方法。
+使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
-```csharp
-serviceClient.Indexes.Delete("hotels");
-```
+您可以使用左導覽窗格中的 [所有資源]  或 [資源群組]  連結，在入口網站中尋找和管理資源。
 
-若您也已經完成搜尋服務的使用，您可以從 Azure 入口網站刪除資源。
+如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,51 +1,52 @@
 ---
-title: 建立和管理使用 PowerShell 的 Azure Cosmos DB
-description: 使用 Azure Powershell 管理您 Azure Cosmos DB 帳戶、 資料庫、 容器和輸送量。
+title: 使用 PowerShell 建立和管理 Azure Cosmos DB
+description: 使用 Azure Powershell 來管理 Azure Cosmos DB 帳戶、資料庫、容器和輸送量。
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
-ms.date: 07/03/2019
+ms.topic: sample
+ms.date: 07/09/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 40f041f1b41077824aa3141f6196901b51415c35
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: b61c7bbc06d8d265e5dd5dddd31aceadce1f623b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565925"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797047"
 ---
-# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>管理使用 PowerShell 的 Azure Cosmos DB SQL API 資源
+# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 來管理 Azure Cosmos DB SQL API 資源
 
-下列指南說明如何使用 PowerShell 指令碼和自動化管理 Azure Cosmos DB 資源，包括帳戶、 資料庫、 容器和輸送量。 管理 Azure Cosmos db 是透過 Azure Cosmos DB 資源提供者直接 AzResource cmdlet 處理。 若要檢視的所有屬性，可以使用 PowerShell 為 Azure Cosmos DB 資源提供者來管理，請參閱[Azure Cosmos DB 資源提供者結構描述](/azure/templates/microsoft.documentdb/allversions)
+下列指南說明如何使用 PowerShell 來為 Azure Cosmos DB 資源 (包括帳戶、資料庫、容器和輸送量) 編寫指令碼並將其管理工作自動化。 Azure Cosmos DB 的管理可由 Azure Cosmos DB 資源提供者直接透過 AzResource Cmdlet 來處理。 若要檢視 Azure Cosmos DB 資源提供者所有可使用 PowerShell 來管理的屬性，請參閱 [Azure Cosmos DB 資源提供者結構描述](/azure/templates/microsoft.documentdb/allversions)
 
-如需跨平台管理 Azure Cosmos DB，您可以使用[Azure CLI](manage-with-cli.md)，則[REST API][rp-rest-api]，或有[Azure 入口網站](create-sql-api-dotnet.md#create-account)。
+如需跨平台管理 Azure Cosmos DB，您可以使用 [Azure CLI](manage-with-cli.md)、[REST API][rp-rest-api] 或 [Azure 入口網站](create-sql-api-dotnet.md#create-account)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="getting-started"></a>開始使用
 
-請依照下列中的指示[如何安裝和設定 Azure PowerShell][powershell-install-configure]安裝並登入您在 Powershell 中的 Azure 帳戶。
+請遵循[如何安裝和設定 Azure PowerShell][powershell-install-configure] 的指示進行安裝，並在 PowerShell 中登入 Azure 帳戶。
 
 * 如果您想要執行下列命令但不需要使用者確認，請在命令附加 `-Force` 旗標。
 * 下列所有命令都是同步的。
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 帳戶
 
-下列各節示範如何管理 Azure Cosmos 帳戶，包括：
+下列各節會示範如何管理 Azure Cosmos 帳戶，包括：
 
 * [建立 Azure Cosmos 帳戶](#create-account)
 * [更新 Azure Cosmos 帳戶](#update-account)
+* [列出訂用帳戶中的所有 Azure Cosmos 帳戶](#list-accounts)
 * [取得 Azure Cosmos 帳戶](#get-account)
 * [刪除 Azure Cosmos 帳戶](#delete-account)
-* [Azure Cosmos 帳戶更新標籤](#update-tags)
-* [Azure Cosmos 帳戶的清單金鑰](#list-keys)
-* [重新產生 Azure Cosmos 帳戶金鑰](#regenerate-keys)
+* [更新 Azure Cosmos 帳戶的標籤](#update-tags)
+* [列出 Azure Cosmos 帳戶的金鑰](#list-keys)
+* [重新產生 Azure Cosmos 帳戶的金鑰](#regenerate-keys)
 * [列出 Azure Cosmos 帳戶的連接字串](#list-connection-strings)
 * [修改 Azure Cosmos 帳戶的容錯移轉優先順序](#modify-failover-priority)
 
 ### <a id="create-account"></a> 建立 Azure Cosmos 帳戶
 
-此命令會建立與 Azure Cosmos DB 資料庫帳戶[多個區域][distribute-data-globally]、 限定過期[一致性原則](consistency-levels.md)。
+此命令會使用[多個區域][distribute-data-globally]、限定過期的[一致性原則](consistency-levels.md)來建立 Azure Cosmos DB 資料庫帳戶。
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -76,17 +77,27 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-* `$accountName` Azure Cosmos 帳戶的名稱。 必須是小寫，接受 英數字元及 '-' 字元，且介於 3 到 31 個字元之間。
+* `$accountName` Azure Cosmos 帳戶的名稱。 必須是小寫，可接受英數字元和 '-' 字元，且介於 3 到 31 個字元之間。
 * `$location` Azure Cosmos 帳戶資源的位置。
-* `$locations` 資料庫帳戶之複本區域。 必須要有一個寫入區域，每個資料庫帳戶的容錯移轉優先順序值為 0。
+* `$locations` 資料庫帳戶的複本區域。 每個資料庫帳戶都必須有一個容錯移轉優先順序值為 0 的寫入區域。
 * `$consistencyPolicy` Azure Cosmos 帳戶的預設一致性層級。 如需詳細資訊，請參閱 [Azure Cosmos DB 的一致性層級](consistency-levels.md)。
-* `$CosmosDBProperties` 屬性值傳遞給 Cosmos DB Azure Resource Manager 提供者，佈建帳戶。
+* `$CosmosDBProperties` 傳遞至 Cosmos DB Azure Resource Manager 提供者以供佈建帳戶的屬性值。
 
-Azure Cosmos 帳戶可以設定的 IP 防火牆與虛擬網路服務結束點。 如需如何設定適用於 Azure Cosmos DB 的 IP 防火牆的詳細資訊，請參閱[設定的 IP 防火牆](how-to-configure-firewall.md)。  如需有關如何啟用適用於 Azure Cosmos DB 的服務端點的詳細資訊，請參閱 <<c0> [ 可以設定從虛擬網路存取](how-to-configure-vnet-service-endpoint.md)。
+您可以為 Azure Cosmos 帳戶設定 IP 防火牆以及虛擬網路服務端點。 如需如何為 Azure Cosmos DB 設定 IP 防火牆的相關資訊，請參閱[設定 IP 防火牆](how-to-configure-firewall.md)。  如需如何為 Azure Cosmos DB 啟用服務端點的詳細資訊，請參閱[設定從虛擬網路存取](how-to-configure-vnet-service-endpoint.md)。
+
+### <a id="list-accounts"></a> 列出訂用帳戶中的所有 Azure Cosmos 帳戶
+
+此命令可讓您列出訂用帳戶中的所有 Azure Cosmos 帳戶。
+
+```azurepowershell-interactive
+# List Azure Cosmos Accounts
+
+Get-AzResource -ResourceType Microsoft.DocumentDb/databaseAccounts | ft
+```
 
 ### <a id="get-account"></a> 取得 Azure Cosmos 帳戶的屬性
 
-此命令可讓您取得現有的 Azure Cosmos 帳戶的屬性。
+此命令可讓您取得現有 Azure Cosmos 帳戶的屬性。
 
 ```azurepowershell-interactive
 # Get the properties of an Azure Cosmos Account
@@ -101,12 +112,12 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a> 更新 Azure Cosmos 帳戶
 
-此命令可讓您更新 Azure Cosmos DB 資料庫帳戶屬性。 可更新的屬性包括：
+此命令可讓您更新 Azure Cosmos DB 資料庫帳戶屬性。 可更新的屬性如下：
 
 * 新增或移除區域
 * 變更預設的一致性原則
 * 變更容錯移轉原則
-* 變更 IP 範圍篩選器
+* 變更 IP 範圍篩選條件
 * 變更虛擬網路組態
 * 啟用多重主機
 
@@ -146,9 +157,9 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName
 ```
 
-### <a id="update-tags"></a> 更新 Azure Cosmos 帳戶的標記
+### <a id="update-tags"></a> 更新 Azure Cosmos 帳戶的標籤
 
-下列範例說明如何設定[Azure 資源標記][azure-resource-tags]Azure Cosmos 帳戶。
+下列範例說明如何設定 Azure Cosmos 帳戶的 [Azure 資源標籤][azure-resource-tags]。
 
 > [!NOTE]
 > 此命令可以透過附加 `-Tags` 旗標與對應的參數，來結合建立或更新命令。
@@ -205,7 +216,7 @@ Select-Object $keys
 
 ### <a id="regenerate-keys"></a> 重新產生帳戶金鑰
 
-Azure Cosmos 帳戶存取金鑰應該定期重新產生，才能讓連線更加安全。 主要和次要存取金鑰會指派給帳戶。 這可讓用戶端，以維持存取權，而其他重新產生。 有四種類型的索引鍵 （主要、 次要、 PrimaryReadonly 和 SecondaryReadonly） 的 Azure Cosmos 帳戶
+請定期重新產生 Azure Cosmos 帳戶的存取金鑰，以便讓連線更加安全。 您可以對帳戶指派主要和次要存取金鑰。 這可讓用戶端在重新產生其他存取金鑰時保有存取能力。 Azure Cosmos 帳戶有四種金鑰 (主要、次要、主要唯讀和次要唯讀)
 
 ```azurepowershell-interactive
 # Regenerate the primary key for an Azure Cosmos Account
@@ -224,12 +235,12 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> 修改容錯移轉優先順序
 
-對於多重區域資料庫帳戶，您可以變更所在的 Cosmos 帳戶將會升級次要讀取複本應該在寫入主要複本上進行的區域性容錯移轉順序。 當區域`failoverPriority=0`是修改過，這個命令也可用來起始測試災害復原規劃的災害復原演練。
+對於多重區域的資料庫帳戶，您可以變更當主要寫入複本發生區域性容錯移轉時，Cosmos 帳戶會用來升級次要讀取複本的順序。 修改了 `failoverPriority=0` 的區域時，這個命令也可用來起始災害復原演練以測試災害復原規劃。
 
-下列範例中，假設的帳戶具有目前的容錯移轉優先順序的 westus = 0 和 eastus = 1 和翻轉的區域。
+在下列範例中，讓帳戶假設目前的容錯移轉優先順序為 westus=0 和 eastus=1，並翻轉區域。
 
 > [!CAUTION]
-> 這項作業會觸發 Azure Cosmos 帳戶的手動容錯移轉。
+> 變更 `failoverPriority=0` 的 `locationName` 會讓 Azure Cosmos 帳戶觸發手動容錯移轉。 變更其他優先順序則不會觸發容錯移轉。
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -247,15 +258,15 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
 ```
 
-## <a name="azure-cosmos-database"></a>Azure Cosmos Database
+## <a name="azure-cosmos-database"></a>Azure Cosmos 資料庫
 
-下列各節示範如何管理 Azure Cosmos 資料庫，包括：
+下列各節會示範如何管理 Azure Cosmos 資料庫，包括：
 
 * [建立 Azure Cosmos 資料庫](#create-db)
-* [建立 Azure Cosmos 資料庫共用的輸送量](#create-db-ru)
+* [使用共用輸送量來建立 Azure Cosmos 資料庫](#create-db-ru)
 * [取得 Azure Cosmos 資料庫的輸送量](#get-db-ru)
-* [列出帳戶中的所有 Azure Cosmos 資料庫](#get-all-db)
-* [取得單一 Azure Cosmos 資料庫](#get-db)
+* [列出帳戶中的所有 Azure Cosmos 資料庫](#list-db)
+* [取得單一的 Azure Cosmos 資料庫](#get-db)
 * [刪除 Azure Cosmos 資料庫](#delete-db)
 
 ### <a id="create-db"></a>建立 Azure Cosmos 資料庫
@@ -276,7 +287,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $DataBaseProperties
 ```
 
-### <a id="create-db-ru"></a>建立 Azure Cosmos 資料庫共用的輸送量
+### <a id="create-db-ru"></a>使用共用輸送量來建立 Azure Cosmos 資料庫
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -309,7 +320,7 @@ Get-AzResource -ResourceType $databaseThroughputResourceType `
     -Name $databaseThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="get-all-db"></a>取得帳戶中的所有 Azure Cosmos 資料庫
+### <a id="list-db"></a>取得帳戶中的所有 Azure Cosmos 資料庫
 
 ```azurepowershell-interactive
 # Get all databases in an Azure Cosmos account
@@ -322,7 +333,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName  | Select-Object Properties
 ```
 
-### <a id="get-db"></a>取得單一 Azure Cosmos 資料庫
+### <a id="get-db"></a>取得單一的 Azure Cosmos 資料庫
 
 ```azurepowershell-interactive
 # Get a single database in an Azure Cosmos account
@@ -348,18 +359,19 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $resourceName
 ```
 
-## <a name="azure-cosmos-container"></a>Azure Cosmos Container
+## <a name="azure-cosmos-container"></a>Azure Cosmos 容器
 
-下列各節示範如何管理 Azure Cosmos 的容器，包括：
+下列各節會示範如何管理 Azure Cosmos 容器，包括：
 
 * [建立 Azure Cosmos 容器](#create-container)
+* [使用大型資料分割索引鍵來建立 Azure Cosmos 容器](#create-container-big-pk)
 * [取得 Azure Cosmos 容器的輸送量](#get-container-ru)
-* [建立 Azure Cosmos 容器與共用的輸送量](#create-container-ru)
-* [建立 Azure Cosmos 容器與自訂編製索引](#create-container-custom-index)
-* [建立 Azure Cosmos 容器與編製索引已關閉](#create-container-no-index)
-* [建立 Azure Cosmos 容器具有唯一的索引鍵和 TTL](#create-container-unique-key-ttl)
-* [建立 Azure Cosmos 容器與衝突解決](#create-container-lww)
-* [列出資料庫中的所有 Azure Cosmos 容器](#list-all-container)
+* [使用共用輸送量來建立 Azure Cosmos 容器](#create-container-ru)
+* [使用自訂索引編製來建立 Azure Cosmos 容器](#create-container-custom-index)
+* [建立已關閉索引編製的 Azure Cosmos 容器](#create-container-no-index)
+* [使用唯一索引鍵和 TTL 來建立 Azure Cosmos 容器](#create-container-unique-key-ttl)
+* [使用衝突解決來建立 Azure Cosmos 容器](#create-container-lww)
+* [列出資料庫中的所有 Azure Cosmos 容器](#list-containers)
 * [取得資料庫中的單一 Azure Cosmos 容器](#get-container)
 * [刪除 Azure Cosmos 容器](#delete-container)
 
@@ -389,6 +401,33 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
+### <a id="create-container-big-pk"></a>使用大型資料分割索引鍵大小來建立 Azure Cosmos 容器
+
+```azurepowershell-interactive
+# Create an Azure Cosmos container with a large partition key value (version = 2)
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$ContainerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash";
+            "version" = 2
+        }
+    };
+    "options"=@{ "Throughput"="400" }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $resourceName -PropertyObject $ContainerProperties
+```
+
 ### <a id="get-container-ru"></a>取得 Azure Cosmos 容器的輸送量
 
 ```azurepowershell-interactive
@@ -404,7 +443,7 @@ Get-AzResource -ResourceType $containerThroughputResourceType `
     -Name $containerThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="create-container-ru"></a>建立 Azure Cosmos 容器與共用的輸送量
+### <a id="create-container-ru"></a>使用共用輸送量來建立 Azure Cosmos 容器
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -429,7 +468,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties 
 ```
 
-### <a id="create-container-custom-index"></a>使用自訂索引原則中建立 Azure Cosmos 容器
+### <a id="create-container-custom-index"></a>使用自訂索引原則來建立 Azure Cosmos 容器
 
 ```azurepowershell-interactive
 # Create a container with a custom indexing policy
@@ -465,7 +504,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-no-index"></a>建立 Azure Cosmos 容器與編製索引已關閉
+### <a id="create-container-no-index"></a>建立已關閉索引編製的 Azure Cosmos 容器
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos container with no indexing
@@ -494,7 +533,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-unique-key-ttl"></a>建立 Azure Cosmos 容器唯一索引鍵原則與 TTL
+### <a id="create-container-unique-key-ttl"></a>使用唯一索引鍵原則和 TTL 來建立 Azure Cosmos 容器
 
 ```azurepowershell-interactive
 # Create a container with a unique key policy and TTL
@@ -537,9 +576,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="create-container-lww"></a>建立 Azure Cosmos 容器與衝突解決
+### <a id="create-container-lww"></a>使用衝突解決來建立 Azure Cosmos 容器
 
-若要建立使用預存程序的衝突解決原則，設定`"mode"="custom"`並設定為預存程序中，名稱的解析路徑`"conflictResolutionPath"="myResolverStoredProcedure"`。 若要寫入 ConflictsFeed 中的所有衝突，並分別控制代碼，設定`"mode"="custom"`和 `"conflictResolutionPath"=""`
+若要建立衝突解決原則以使用預存程序，請設定 `"mode"="custom"`，並將解析路徑設定為 `"conflictResolutionPath"="myResolverStoredProcedure"` 預存程序的名稱。 若要將所有衝突寫入到 ConflictsFeed 並分開處理，請設定 `"mode"="custom"` 和 `"conflictResolutionPath"=""`
 
 ```azurepowershell-interactive
 # Create container with last-writer-wins conflict resolution policy
@@ -569,7 +608,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="list-all-container"></a>列出資料庫中的所有 Azure Cosmos 容器
+### <a id="list-containers"></a>列出資料庫中的所有 Azure Cosmos 容器
 
 ```azurepowershell-interactive
 # List all Azure Cosmos containers in a database
@@ -614,10 +653,10 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 
 ## <a name="next-steps"></a>後續步驟
 
-* [所有的 PowerShell 範例](powershell-samples.md)
+* [所有 PowerShell 範例](powershell-samples.md)
 * [如何管理 Azure Cosmos 帳戶](how-to-manage-database-account.md)
 * [建立 Azure Cosmos 容器](how-to-create-container.md)
-* [設定 Azure Cosmos DB 中的 存留時間](how-to-time-to-live.md)
+* [在 Azure Cosmos DB 中設定存留時間](how-to-time-to-live.md)
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 

@@ -1,20 +1,20 @@
 ---
-title: 快速入門：在 Azure 資料總管中查詢資料
-description: 在本快速入門中，您將了解如何在 Azure 資料總管中查詢和共用資料。
+title: 快速入門：在 Azure 資料總管 Web UI 中查詢資料
+description: 在本快速入門中，您將了解如何在 Azure 資料總管 Web UI 中查詢和共用資料。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050555"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797179"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>快速入門：在 Azure 資料總管中查詢資料
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>快速入門：在 Azure 資料總管 Web UI 中查詢資料
 
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供一個讓您執行和共用查詢的 Web 應用程式。 它可在 Azure 入口網站中取得，也以獨立的 Web 應用程式的形式提供。 在本文中，您將在獨立的版本中進行作業，它能讓您連接到多個叢集以及共用深層連結到查詢。
 
@@ -36,15 +36,15 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 您必須將連線新增到至少一個叢集，才能開始執行查詢。 在此節中，您將連線新增至 Azure 資料總管中我們已設置要輔助學習的*說明叢集*，也要將連線新增到在先前快速入門中建立的測試叢集。
 
-1. 在應用程式的左上方中，選取 [新增叢集]。
+1. 在應用程式的左上方中，選取 [新增叢集]  。
 
-1. 在 [新增叢集] 對話方塊中，輸入 URI，然後選取 [新增]。
+1. 在 [新增叢集]  對話方塊中，輸入 URI，然後選取 [新增]  。
 
    您可以使用說明叢集 URI，`https://help.kusto.windows.net`。 如果您有自己的叢集，請提供您叢集的 URI。 例如，如下圖所示的 `https://mydataexplorercluster.westus.kusto.windows.net`：
 
     ![入口網站中的伺服器 URI](media/web-query-data/server-uri.png)
 
-1. 在左窗格中，您現在應該會看到 [說明] 叢集。 展開 [範例] 資料庫，以便看到您可以存取的範例資料表。
+1. 在左窗格中，您現在應該會看到 [說明]  叢集。 展開 [範例]  資料庫，以便看到您可以存取的範例資料表。
 
     ![範例資料庫](media/web-query-data/sample-databases.png)
 
@@ -52,21 +52,21 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 現在加入之前建立的測試叢集。
 
-1. 選取 [新增叢集]。
+1. 選取 [新增叢集]  。
 
-1. 在 [新增叢集] 對話方塊中，以 `https://<ClusterName>.<Region>.kusto.windows.net/` 格式輸入您的測試叢集 URL，然後選取 [新增]。
+1. 在 [新增叢集]  對話方塊中，以 `https://<ClusterName>.<Region>.kusto.windows.net/` 格式輸入您的測試叢集 URL，然後選取 [新增]  。
 
-    在下面的範例中，您會看到 [說明] 叢集和一個新的叢集 **docscluster.westus** (完整的 URL 是 `https://docscluster.westus.kusto.windows.net/`)。
+    在下面的範例中，您會看到 [說明]  叢集和一個新的叢集 **docscluster.westus** (完整的 URL 是 `https://docscluster.westus.kusto.windows.net/`)。
 
     ![測試叢集](media/web-query-data/test-cluster.png)
 
 ## <a name="run-queries"></a>執行查詢
 
-您現在可以對連線的叢集執行查詢 (假設測試叢集中已經有資料)。 我們將著重 [i說明] 叢集。
+您現在可以對連線的叢集執行查詢 (假設測試叢集中已經有資料)。 我們將著重 [i說明]  叢集。
 
-1. 在左窗格中，在 [說明]叢集下面選取 [範例] 資料庫。
+1. 在左窗格中，在 [說明]  叢集下面選取 [範例]  資料庫。
 
-1. 複製下列查詢並貼到查詢視窗中。 在視窗頂端，選取 [執行] 。
+1. 複製下列查詢並貼到查詢視窗中。 在視窗頂端，選取 [執行]  。
 
     ```Kusto
     StormEvents
@@ -97,9 +97,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     ![查詢結果集](media/web-query-data/result-set-02.png)
 
-1. 在查詢視窗頂端，選取 [召回] 。
+1. 在查詢視窗頂端，選取 [召回]  。
 
-    查詢視窗現在會顯示第一個查詢的結果，無需重新執行查詢。 通常在分析期間，您可以執行多個查詢，而 [召回] 可讓您重新瀏覽上一個查詢的結果。
+    查詢視窗現在會顯示第一個查詢的結果，無需重新執行查詢。 通常在分析期間，您可以執行多個查詢，而 [召回]  可讓您重新瀏覽上一個查詢的結果。
 
 1. 讓我們再執行一個查詢來查看不同的輸出類型。
 
@@ -151,7 +151,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     此面板的功能類似於 Excel 中的樞紐資料表的欄位清單，能讓您在格線本身執行更多分析。
 
-1. 選取 [樞紐分析表模式]，然後拖曳資料行，如下所示：[狀態] 到 [資料列群組]；[DamageProperty] 到 [值]；[EventType] 到 [資料行標籤]。  
+1. 選取 [樞紐分析表模式]  ，然後拖曳資料行，如下所示：[狀態]  到 [資料列群組]  ；[DamageProperty]  到 [值]  ；[EventType]  到 [資料行標籤]  。  
 
     ![樞紐分析表模式](media/web-query-data/pivot-mode.png)
 
@@ -167,9 +167,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在查詢視窗中，選取您所複製的第一個查詢。
 
-1. 在查詢視窗頂端，選取 [共用] 。
+1. 在查詢視窗頂端，選取 [共用]  。
 
-1. 選取 [Link, query to clipboard]。
+1. 選取 [Link, query to clipboard]  。
 
 1. 複製連結和查詢到文字檔。
 
@@ -183,13 +183,12 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 1. 在應用程式右上角，選取意見反應圖示： ![意見反應圖示](media/web-query-data/icon-feedback.png)上也提供本文中使用的原始碼。
 
-1. 輸入您的意見反應，然後選取 [提交]。
+1. 輸入您的意見反應，然後選取 [提交]  。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您並未在此快速入門中建立任何資源，但若您要從應用程式移除一或兩個叢集，請以滑鼠右鍵按一下叢集，然後選取 [移除連線]。
+您並未在此快速入門中建立任何資源，但若您要從應用程式移除一或兩個叢集，請以滑鼠右鍵按一下叢集，然後選取 [移除連線]  。
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管的查詢](write-queries.md)
+[撰寫 Azure 資料總管的查詢](write-queries.md)

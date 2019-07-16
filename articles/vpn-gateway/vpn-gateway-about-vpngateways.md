@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480044"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798985"
 ---
 # <a name="what-is-vpn-gateway"></a>什麼是 VPN 閘道？
 
@@ -51,7 +51,7 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 ## <a name="gwsku"></a>閘道 SKU
 
-建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 如需閘道 SKU 的詳細資訊，包括支援功能、實際執行環境和開發測試和設定步驟，請參閱[閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 如需閘道 SKU 的詳細資訊，包括支援功能、實際執行環境和開發測試和設定步驟，請參閱 [VPN 閘道設定 - 閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 一文。 如需舊版 SKU 的資訊，請參閱[使用舊版 SKU](vpn-gateway-about-skus-legacy.md)。
 
 ### <a name="benchmark"></a>依通道、連線和輸送量區分的閘道 SKU
 

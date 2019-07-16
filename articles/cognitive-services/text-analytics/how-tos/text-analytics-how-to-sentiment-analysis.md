@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304025"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797796"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>範例：如何使用文字分析來偵測情感
 
@@ -103,7 +103,7 @@ ms.locfileid: "67304025"
 
 下列範例顯示本文中文件集合的回應。
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +130,133 @@ ms.locfileid: "67304025"
     "errors": []
 }
 ```
+
+## <a name="sentiment-analysis-v3-public-preview"></a>情感分析 V3 公開預覽
+
+[下一版的情感分析](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9)目前為公開預覽版，在 API 文字分類和評分的精確度和精細度方面均有顯著的改善。 
+
+> [!NOTE]
+> * 情感分析 v3 要求格式以和[資料限制](../overview.md#data-limits)與前版相同。
+> * 此外，情感分析 V3： 
+>    * 目前僅支援英文。  
+>    * 會在以下區域上市：`Central US`、`Central Canada`、`East Asia` 
+
+|功能 |說明  |
+|---------|---------|
+|更高的精確度     | 在文字文件中偵測正面、中性、負面和混合情感的能力顯著優於舊版。           |
+|文件和句子層級的情感分數     | 同時偵測文件及其個別句子的情感。 如果文件包含多個句子，則會為每個句子指派情感分數。         |
+|情感類別和分數     | 現在，API 除了會傳回情感分數以外，還會傳回文字的情感分類 (`positive`、`negative`、`neutral` 和 `mixed`)。        |
+| 改善的輸出 | 現在，情感分析會同時傳回整份文字文件及其個別句子的資訊。 |
+
+### <a name="sentiment-labeling"></a>情感標籤
+
+情感分析 V3 會傳回句子和文件層級的分數和標籤 (`positive`、`negative` 和 `neutral`)。 在文件層級也可傳回 `mixed` 情感標籤 (不是分數)。 文件的情感會在彙總其句子的分數後決定。
+
+| 句子情感                                                        | 傳回的文件標籤 |
+|---------------------------------------------------------------------------|----------------|
+| 至少有一個正面的句子，且其餘句子皆為中性。 | `positive`     |
+| 至少有一個負面的句子，且其餘句子皆為中性。  | `negative`     |
+| 至少有一個負面的句子和至少一個正面的句子。         | `mixed`        |
+| 所有句子皆為中性。                                                 | `neutral`      |
+
+### <a name="sentiment-analysis-v3-example-request"></a>情感分析 V3 範例要求
+
+下列 JSON 是對新版的情感分析所提出的要求範例。 請注意，要求的格式與前版相同：
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="sentiment-analysis-v3-example-response"></a>情感分析 V3 範例回應
+
+雖然要求格式與前版相同，但回應格式則有所變更。 下列 JSON 是新版 API 的範例回應︰
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### <a name="example-c-code"></a>範例 C# 程式碼
+
+您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs) 上找到呼叫此情感分析版本的範例 C# 應用程式。
 
 ## <a name="summary"></a>總結
 

@@ -1,20 +1,21 @@
 ---
-title: 教學課程：啟動沈浸式閱讀程式 (Node.js)
+title: 教學課程：使用 Node.js 啟動沈浸式閱讀程式
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，您將建立會啟動沈浸式閱讀程式的 Node.js 應用程式。
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ac90496c950d8a563bf8794b4c1bb105b6c12232
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444070"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718368"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>教學課程：啟動沈浸式閱讀程式 (Node.js)
 

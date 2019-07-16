@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484765"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701483"
 ---
 # <a name="what-is-azure-data-box-edge"></a>什麼是 Azure 資料箱邊緣？ 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge 為具備 AI 能力的邊緣運算裝置，並具有網路�
     - 對所需的資料進行子集處理，並傳輸到雲端以進行更深入的分析。
     - 分析並對 IoT 事件做出反應。 
 
-- **推斷 Azure Machine Learning** - 透過使用 Data Box Edge，您可以執行 Machine Learning (ML) 模型，以在資料被傳送到雲端之前快速取得能用來據以採取動作的結果。 完整資料集會進行傳輸，以繼續重新定型並改善您的 ML 模型。 如需有關如何在 Databox Edge 裝置上使用 Azure ML 硬體加速模型的詳細資訊，請參閱[在 Databox Edge 上部署 Azure ML 硬體加速模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)。
+- **推斷 Azure Machine Learning** - 透過使用 Data Box Edge，您可以執行 Machine Learning (ML) 模型，以在資料被傳送到雲端之前快速取得能用來據以採取動作的結果。 完整資料集會進行傳輸，以繼續重新定型並改善您的 ML 模型。 如需有關如何在 Data Box Edge 裝置上使用 Azure ML 硬體加速模型的詳細資訊，請參閱[在 Data Box Edge 上部署 Azure ML 硬體加速模型](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server)。
 
 - **透過網路將資料傳輸到 Azure** - 使用 Data Box Edge 來輕鬆且快速地將資料傳輸到 Azure，以進行進一步的運算和分析，或用於封存目的。 
 
@@ -88,16 +88,9 @@ Data Box Edge 解決方案由 Data Box Edge 資源、Data Box Edge 實體裝置�
 
 Data Box Edge 實體裝置、Azure 資源，以及您要將資料傳輸至其中的目標儲存體帳戶，並不需要全都位於相同的區域。
 
-- **資源可用性** - 在針對此版本，下列區域提供 Data Box Edge 資源：
-    - **美國** - 美國東部
-    - **歐盟** - 西歐
-    - **亞太地區** - 東南亞
+- **資源可用性** - 如需 Data Box Edge 適用區域的完整清單，請移至[依區域提供的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 Data Box Edge 也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
     
-    Data Box Edge 也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
-    
-- **目的地儲存體帳戶** - 儲存資料的儲存體帳戶在所有 Azure 區域都可用。 
-
-    若要獲得最佳效能，儲存資料箱資料的儲存體帳戶應該要位在接近裝置所在區域的區域。 儲存體帳戶的位置若離裝置遙遠，將會導致較長的延遲時間與較緩慢的效能。 
+- **目的地儲存體帳戶** - 儲存資料的儲存體帳戶在所有 Azure 區域都可用。 若要獲得最佳效能，儲存 Data Box Edge 資料的儲存體帳戶應位於接近裝置所在區域的區域。 儲存體帳戶的位置若離裝置遙遠，將會導致較長的延遲時間與較緩慢的效能。 
 
 
 ## <a name="next-steps"></a>後續步驟

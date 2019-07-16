@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 06/24/2019
 author: roaror
 ms.author: roaror
-ms.openlocfilehash: ad302df3144787fd231166c7052ecfde268f4086
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451669"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665921"
 ---
-# <a name="use-compass-to-connect-to-your-cosmos-db-account"></a>使用 Compass 連線至您的 Cosmos DB 帳戶
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB Compass 連線至 Azure Cosmos DB 的 MongoDB 版 API 
 
 本教學課程示範在 Cosmos DB 中儲存和 (或) 管理資料時如何使用 [MongoDB Compass](https://www.mongodb.com/products/compass)。 我們使用 Azure Cosmos DB 的 MongoDB 版 API 進行此逐步解說。 簡單介紹一下，Compass 是 MongoDB 的 GUI。 它通常用來將資料視覺化、執行特定查詢，以及管理您的資料。 
 

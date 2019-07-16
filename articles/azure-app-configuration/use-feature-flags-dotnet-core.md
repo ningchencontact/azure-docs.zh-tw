@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274140"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798384"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用功能旗標
 
@@ -86,30 +86,42 @@ public class Startup
 
 建議您將功能旗標置於應用程式外，並個別加以管理。 這樣做可讓您隨時修改旗標狀態，並讓那些變更在應用程式中立即生效。 應用程式組態可讓您透過專用的入口網站 UI 在集中的位置組織和控制所有功能旗標。 應用程式組態也可透過其 .NET Core 用戶端程式庫，直接將旗標傳遞到您的應用程式。
 
-若要將 ASP.NET Core 應用程式連線至應用程式組態，最簡單的方式是透過組態提供者 `Microsoft.Extensions.Configuration.AzureAppConfiguration`。 若要使用此 NuGet 套件，請將下列程式碼新增至 Program.cs  檔案：
+若要將 ASP.NET Core 應用程式連線至應用程式組態，最簡單的方式是透過組態提供者 `Microsoft.Azure.AppConfiguration.AspNetCore`。 請依照下列步驟來使用此 NuGet 套件。
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. 開啟 *Program.cs* 檔案，並新增下列程式碼。
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-功能旗標值應該會隨著時間而變更。 根據預設，功能管理員會每隔 30 秒重新整理功能旗標值一次。 下列程式碼說明如何透過 `options.UseFeatureFlags()` 呼叫將輪詢間隔變更為 5 秒：
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. 開啟 *Startup.cs* 並更新 `Configure` 方法，以新增中介軟體，讓功能旗標值依週期性間隔重新整理，同時讓 ASP.NET Core Web 應用程式繼續接收要求。
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+功能旗標值應該會隨著時間而變更。 根據預設，功能旗標值的快取期間為 30 秒，因此在中介軟體接收要求時觸發的重新整理作業，必須要到快取的值過期後才會更新值。 下列程式碼說明如何透過 `options.UseFeatureFlags()` 呼叫將快取到期時間或輪詢間隔變更為 5分鐘。
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```

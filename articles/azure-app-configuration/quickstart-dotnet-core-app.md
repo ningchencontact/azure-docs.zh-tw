@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 0bf4aff8e0bae3e84e6383ec560dbfe67e30b994
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c42066b3ac02264ee357bac7ed3fdd360e9d5d4a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408730"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798403"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 .NET Core 應用程式
 
@@ -39,13 +39,13 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]   >  [+ 建立]  來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
     | TestApp:Settings:Message | Azure 應用程式設定的值 |
 
-    目前先讓 [標籤] 和 [內容類型] 保持空白。
+    目前先讓 [標籤]  和 [內容類型]  保持空白。
 
 ## <a name="create-a-net-core-console-app"></a>建立 .NET Core 主控台應用程式
 
@@ -53,21 +53,21 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 1. 為您的專案建立新資料夾。
 
-2. 在新的資料夾中，執行下列命令以建立新的 ASP.NET Core MVC Web 應用程式專案：
+2. 在新的資料夾中，執行下列命令以建立新的 ASP.NET Core 主控台應用程式專案：
 
         dotnet new console
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 透過執行下列命令，將參考新增至 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 套件：
+1. 透過執行下列命令，將參考新增至 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 套件：
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. 執行下列命令以還原您專案的套件：
 
         dotnet restore
 
-3. 開啟 Program.cs，並將參考新增至 .NET Core 應用程式組態提供者。
+3. 開啟 Program.cs  ，並將參考新增至 .NET Core 應用程式組態提供者。
 
     ```csharp
     using Microsoft.Extensions.Configuration;
