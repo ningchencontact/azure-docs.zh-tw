@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: 檢查叢集健康情況
           href: check-cluster-health.md
+        - name: 選取叢集虛擬機器 SKU
+          href: manage-cluster-choose-sku.md
         - name: 管理叢集的水平調整
           href: manage-cluster-horizontal-scaling.md
         - name: 管理叢集的垂直調整

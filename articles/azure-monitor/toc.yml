@@ -280,8 +280,10 @@
               href: platform/custom-fields.md
         - name: 設定應用程式
           items:
-            - name: Azure 應用程式
+            - name: Azure 裝載的應用程式
               items:
+                - name: Azure 虛擬機器和 Azure 虛擬機器擴展集
+                  href: app/azure-vm-vmss-apps.md
                 - name: Azure 應用程式服務
                   href: app/azure-web-apps.md
                 - name: Azure 雲端服務
@@ -709,8 +711,8 @@
               href: platform/metrics-getting-started.md
             - name: 計量瀏覽器進階功能
               href: platform/metrics-charts.md
-            - name: 計量圖表範例
-              href: platform/metric-chart-samples.md
+            - name: 記錄型計量
+              href: platform/app-insights-metrics.md
             - name: 針對計量圖表進行疑難排解
               href: platform/metrics-troubleshoot.md
         - name: 記錄

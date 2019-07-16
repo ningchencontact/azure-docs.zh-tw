@@ -564,6 +564,8 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: 依 LastModifiedDate 複製新檔案
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: 移動檔案
+          href: solution-template-move-files.md
         - name: 使用控制表格進行大量複製
           href: solution-template-bulk-copy-with-control-table.md
         - name: 使用控制表格進行差異複製
@@ -574,6 +576,8 @@
       items:
         - name: 活動疑難排解
           href: data-factory-troubleshoot-guide.md
+        - name: 針對 Azure-SSIS IR 管理進行疑難排解
+          href: ssis-integration-runtime-management-troubleshoot.md
         - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
           href: ssis-integration-runtime-ssis-activity-faq.md
 - name: 參考

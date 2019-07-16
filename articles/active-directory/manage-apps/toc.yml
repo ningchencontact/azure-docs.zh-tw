@@ -59,9 +59,9 @@
           href: isv-create-sso-documentation.md
         - name: 規劃單一登入部署
           href: plan-sso-deployment.md
-    - name: One Click SSO
+    - name: 單鍵 SSO
       items:
-        - name: 什麼是 One Click SSO
+        - name: 單鍵 SSO 組態
           href: one-click-sso-tutorial.md
     - name: 佈建使用者和群組
       items:

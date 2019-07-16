@@ -54,34 +54,32 @@
       href: migrate-replication-appliance.md
     - name: 評量的最佳做法
       href: best-practices-assessment.md
-    - name: 評量計算
+    - name: 評量概觀
       href: concepts-assessment-calculation.md
     - name: 相依性視覺效果
       href: concepts-dependency-visualization.md
 - name: 使用說明指南
   items:
-    - name: 移轉 examples-Contoso 系列
-      href: contoso-migration-overview.md
-    - name: 部署設備以進行 VMware 評量/移轉 (無代理程式)
+    - name: 使用先前版本
+      href: migrate-v1.md
+    - name: 部署 VMware 設備
       href: how-to-set-up-appliance-vmware.md
-    - name: 部署設備以進行 Hyper-V 評量/移轉
+    - name: 部署 Hyper-V 設備
       href: how-to-set-up-appliance-hyper-v.md
-    - name: 第一次使用請新增評量/移轉工具
+    - name: 新增工具供第一次使用
       href: how-to-add-tool-first-time.md
     - name: 新增評量工具
       href: how-to-assess.md
-    - name: 新增移轉工具
-      href: how-to-migrate.md
     - name: 分組機器以進行評量
-      items:
-        - name: 建立群組
-          href: how-to-create-a-group.md
-        - name: 使用機器相依性的群組機器
-          href: how-to-create-group-machine-dependencies.md
-        - name: 使用群組相依性調整群組
-          href: how-to-create-group-dependencies.md
+      href: how-to-create-a-group.md
+    - name: 使用相依性視覺效果將機器分組
+      href: how-to-create-group-machine-dependencies.md
+    - name: 建立評估
+      href: how-to-create-assessment.md
     - name: 自訂評量
       href: how-to-modify-assessment.md
+    - name: 新增移轉工具
+      href: how-to-migrate.md
     - name: 大規模評量及移轉
       items:
         - name: 評估大量的 VMware VM
@@ -90,6 +88,10 @@
           href: scale-hyper-v-assessment.md
         - name: 自動移轉大量的 VM
           href: how-to-migrate-at-scale.md
+    - name: 移轉 examples-Contoso 系列
+      href: contoso-migration-overview.md
+- name: 疑難排解
+  items:
     - name: 為 Azure Migrate 疑難排解
       href: troubleshooting-general.md
 - name: 資源
