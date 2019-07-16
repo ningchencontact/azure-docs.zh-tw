@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 78c64786f523aa424e8a9816e42db70e2a2997c2
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393624"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798460"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用動態設定
 
-ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料。 它可以隨時處理變更，而不會造成應用程式重新啟動。 ASP.NET Core 支援將組態設定繫結至強型別 .NET 類別。 它會使用各種 `IOptions<T>` 模式，將它們插入您的程式碼中。 這些模式其中之一 (具體而言即 `IOptionsSnapshot<T>`) 會在基礎資料變更時，自動重新載入應用程式的設定。
+ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料。 它可以隨時處理變更，而不會造成應用程式重新啟動。 ASP.NET Core 支援將組態設定繫結至強型別 .NET 類別。 它會使用各種 `IOptions<T>` 模式，將它們插入您的程式碼中。 這些模式其中之一 (具體而言即 `IOptionsSnapshot<T>`) 會在基礎資料變更時，自動重新載入應用程式的設定。 您可以將 `IOptionsSnapshot<T>` 插入應用程式中的控制器，以存取儲存在 Azure 應用程式設定中的最新設定。
 
-您可以將 `IOptionsSnapshot<T>` 插入應用程式中的控制器，以存取儲存在 Azure 應用程式設定中的最新設定。 此外，您也可以設定應用程式組態 ASP.NET Core 用戶端程式庫，以持續監視並擷取應用程式組態存放區中的任何變更。 您需定義定期的輪詢間隔。
+您也可以設定應用程式組態 ASP.NET Core 用戶端程式庫，以使用中介軟體動態重新整理一組組態設定。 只要 Web 應用程式繼續接收要求，組態設定便會繼續使用設定存放區加以更新。
+
+若要讓設定持續更新，並避免設定存放區有太多呼叫，每一項設定會使用一個快取。 在設定的快取值到期前，重新整理作業都不會更新值，即使值在設定存放區中已變更也是如此。 每個要求的預設到期時間為 30 秒，但您可以視需要加以覆寫。
 
 本教學課程會示範如何在程式碼中實作動態設定更新。 本文會以快速入門中介紹的 Web 應用程式作為基礎。 繼續進行之前，請先完成[使用應用程式設定建立 ASP.NET Core 應用程式](./quickstart-aspnet-core-app.md)。
 
@@ -45,7 +47,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 ## <a name="reload-data-from-app-configuration"></a>從應用程式設定重新載入資料
 
-1. 開啟 Program.cs  ，然後新增 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
+1. 開啟 Program.cs  ，然後更新 `CreateWebHostBuilder` 方法以新增 `config.AddAzureAppConfiguration()` 方法。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -53,19 +55,22 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
+
                 config.AddAzureAppConfiguration(options =>
+                {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .Watch("TestApp:Settings:BackgroundColor")
-                           .Watch("TestApp:Settings:FontColor")
-                           .Watch("TestApp:Settings:Message"));
+                           .ConfigureRefresh(refresh =>
+                           {
+                               refresh.Register("TestApp:Settings:BackgroundColor")
+                                      .Register("TestApp:Settings:FontColor")
+                                      .Register("TestApp:Settings:Message")
+                           });
+                }
             })
             .UseStartup<Startup>();
     ```
 
-    `.Watch` 方法中的第二個參數是 ASP.NET 用戶端程式庫查詢應用程式組態存放區的輪詢間隔。 用戶端程式庫會檢查特定的組態設定，以了解是否發生任何變更。
-    
-    > [!NOTE]
-    > `Watch` 擴充方法的預設輪詢間隔為 30 秒 (如果未指定)。
+    `ConfigureRefresh` 方法可用來指定相關設定，以用來在系統觸發重新整理作業時，使用應用程式設定存放區來更新組態資料。 若要實際觸發重新整理作業，您必須設定重新整理中介軟體，才能讓應用程式在發生任何變更時，重新整理組態資料。
 
 2. 新增 Settings.cs  檔案，以定義及實作新的 `Settings` 類別。
 
@@ -98,6 +103,21 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
     ```
+
+4. 更新 `Configure` 方法以新增中介軟體，讓已註冊要重新整理的組態設定可以進行更新，同時讓 ASP.NET Core Web 應用程式繼續接收要求。
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
+    }
+    ```
+    
+    中介軟體會使用 `Program.cs` 內的 `AddAzureAppConfiguration` 方法所指定的重新整理組態，來針對 ASP.NET Core Web 應用程式所收到的每個要求觸發重新整理。 每個要求都會觸發一個重新整理作業，而且用戶端程式庫會檢查已註冊的組態設定是否有已過期的快取值。 對於已過期的快取值，設定的值會使用應用程式設定存放區加以更新，其餘值則保持不變。
+    
+    > [!NOTE]
+    > 組態設定的預設快取到期時間為 30 秒，但可加以複寫，方法是在以引數形式傳遞至 `ConfigureRefresh` 方法的選項初始設定式上呼叫 `SetCacheExpiration` 方法。
 
 ## <a name="use-the-latest-configuration-data"></a>使用最新的設定資料
 
@@ -177,9 +197,12 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Azure 應用程式設定的值 - 現在可以即時更新了！ |
 
-6. 重新整理瀏覽器頁面，以查看新的組態設定。
+6. 重新整理瀏覽器頁面，以查看新的組態設定。 可能需要重新整理瀏覽器頁面多次，才會反映變更。
 
     ![快速入門的本機應用程式重新整理](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+    
+    > [!NOTE]
+    > 組態設定會以預設到期時間 30 秒來進行快取，因此對應用程式設定存放區中的設定所做的變更，只會在快取過期時反映在 Web 應用程式中。
 
 ## <a name="clean-up-resources"></a>清除資源
 
