@@ -64,7 +64,7 @@ Signagelive 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Signagelive**.。 
+4. 在搜尋方塊中，輸入 **Signagelive**。 
 
      ![結果清單中的 Signagelive](common/search-new-app.png)
 
