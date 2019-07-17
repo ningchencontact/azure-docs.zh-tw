@@ -68,7 +68,7 @@ Pattern.any 實體可讓您尋找自由格式的資料，其中實體的用字�
 
 1. 下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json)。
 
-1. 在 [LUIS 入口網站][](https://www.luis.ai) 的 [我的應用程式]  頁面上，將 JSON 匯入新的應用程式中。
+1. 在 [LUIS 入口網站](https://www.luis.ai) 的 [我的應用程式]  頁面上，將 JSON 匯入新的應用程式中。
 
 1. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `patt-any`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
