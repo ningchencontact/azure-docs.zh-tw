@@ -1,74 +1,74 @@
 ---
-title: 以視覺化方式檢視使用批次偵測及 Power BI 的異常
-titlesuffix: Azure Cognitive Services
-description: 使用異常偵測器 API 和 Power BI 來視覺化整個時間序列資料的異常狀況。
+title: 使用批次偵測與 Power BI 將異常狀況視覺化
+titleSuffix: Azure Cognitive Services
+description: 使用 Anomaly Detector API 與 Power BI 將整個時間序列資料的異常狀況視覺化。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: aahi
-ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 74b51d04f2706d890475c500e1e730cff75397c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827147"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721495"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>教學課程：以視覺化方式檢視使用批次偵測及 Power BI 的異常
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>教學課程：使用批次偵測與 Power BI 將異常狀況視覺化
 
-您可以使用本教學課程中尋找異常狀況，以批次的時間序列資料集內。 使用 Power BI desktop，您將 Excel 檔案、 準備資料以供異常偵測器 API，以及透過視覺化整個統計異常。
+使用本教學課程，以批次方式尋找時間序列資料集內的異常狀況。 使用 Power BI Desktop，您將取得 Excel 檔案、為 Anomaly Detector API 準備資料，以及將所有統計異常視覺化。
 
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 使用 Power BI Desktop 匯入和轉換時間序列資料集
-> * Power BI Desktop 整合進行批次異常偵測異常偵測器 API
-> * 以視覺化方式檢視您的資料，包括預期和所見的值和異常偵測界限內找到的異常狀況。
+> * 使用 Power Bi Desktop 匯入及轉換時間序列資料集
+> * 整合 Power BI Desktop 與 Anomaly Detector API 以便進行批次異常偵測
+> * 將您資料中的異常狀況視覺化，包括預期和所見的值，以及異常偵測界限。
 
 ## <a name="prerequisites"></a>必要條件
 
-* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/)，可免費。
-* Excel (.xlsx) 檔案包含時間序列資料點。 本快速入門中的範例資料都位於[GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
+* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/)(免費提供)。
+* 包含時間序列資料點的 Excel 檔案 (.xlsx)。 此快速入門的範例資料可以在 [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962) 上找到。
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
-## <a name="load-and-format-the-time-series-data"></a>載入並格式化時間序列資料
+## <a name="load-and-format-the-time-series-data"></a>載入及格式化時間序列資料
 
-若要開始使用，請開啟 Power BI Desktop 並載入時間序列資料，您已下載的必要條件。 這個 excel 檔案包含一系列的 Coordinated Universal Time (UTC) 時間戳記和值組。  
+若要開始使用，請開啟 Power BI Desktop 並載入您從必要條件下載的時間序列資料。 此 Excel 檔案包含一系列的國際標準時間 (UTC) 時間戳記和值組。  
 
 > [!NOTE]
-> Power BI 可以使用來自各種來源，例如.csv 檔案、 SQL 資料庫、 Azure blob 儲存體，及其他資料。  
+> Power BI 可以使用各種來源的資料，例如 .csv 檔案、SQL 資料庫、Azure Blob 儲存體等等。  
 
-在主要 Power BI Desktop 視窗中，按一下**首頁**功能區。 在 **外部的資料**功能區中，開啟群組**取得資料**下拉式選單，然後按一下  **Excel**。
+在 Power BI Desktop 主視窗中，按一下 [首頁]  功能區。 在功能區的 [外部資料]  群組中，開啟 [取得資料]  下拉式功能表，然後按一下 [Excel]  。
 
-![在 Power BI 中的 [取得資料] 按鈕的映像](../media/tutorials/power-bi-get-data-button.png)
+![Power BI 中的 [取得資料] 按鈕的影像](../media/tutorials/power-bi-get-data-button.png)
 
-對話方塊出現之後，請瀏覽至您下載範例.xlsx 檔案的資料夾，並加以選取。 之後**Navigator**  對話方塊出現時，按一下**Sheet1**，然後**編輯**。
+對話方塊出現之後，請瀏覽至您下載範例 .xlsx 檔案的資料夾並加以選取。 在 [導覽]  對話方塊出現後，按一下 **Sheet1**，然後按一下 [編輯]  。
 
-![Power BI 中的資料來源 「 導覽 」 畫面的映像](../media/tutorials/navigator-dialog-box.png)
+![Power BI 中資料來源 [導覽] 畫面的影像](../media/tutorials/navigator-dialog-box.png)
 
-Power BI 會將轉換的第一個資料行中的時間戳記`Date/Time`資料型別。 這些時間戳記必須轉換成文字，才能傳送到的異常偵測器 API。 如果 Power Query 編輯器不會自動開啟，請按一下**編輯查詢**常用索引標籤上。 
+Power BI 會將第一欄中的時間戳記轉換為 `Date/Time` 資料類型。 這些時間戳記必須轉換成文字，才能傳送到 Anomaly Detector API。 如果 Power Query 編輯器不會自動開啟，請按一下首頁索引標籤上的 [編輯查詢]  。 
 
-按一下 **轉換**功能區中 Power Query 編輯器中。 在 **任何資料行**群組中，開啟**資料類型：** 下拉式選單，然後選取**文字**。
+按一下 Power Query 編輯器中的 [轉換]  功能區。 在 [任何資料行]  群組中，開啟 [資料類型:]  下拉式功能表，然後選取 [文字]  。
 
-![Power BI 中的資料來源 「 導覽 」 畫面的映像](../media/tutorials/data-type-drop-down.png)
+![Power BI 中資料來源 [導覽] 畫面的影像](../media/tutorials/data-type-drop-down.png)
 
-當您取得有關變更資料行類型的通知時，請按一下**取代目前**。 之後，按一下**關閉並套用**或是**套用**中**首頁**功能區。 
+當您取得有關變更資料行類型的通知時，請按一下 [取代目前]  。 接著，按一下 [首頁]  功能區中的 [關閉並套用]  或 [套用]  。 
 
-## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>建立將資料傳送，並將回應格式化為函式
+## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>建立函式以傳送資料並將回應格式化
 
-若要設定格式及資料檔案傳送到的異常偵測器 API，您可以叫用上面建立的資料表上的查詢。 在 Power Query 編輯器中，從**首頁**功能區中，開啟**新來源**下拉功能表，然後按一下**空白查詢**。
+若要將資料檔案格式化並傳送到 Anomaly Detector API，您可以在上面建立的資料表上叫用查詢。 在 Power Query 編輯器中，從 [首頁]  功能區開啟 [新增來源]  下拉式功能表，然後選取 [空白查詢]  。
 
-請確定已選取您新的查詢，然後按一下 **進階編輯器**。 
+確定已選取您的新查詢，然後按一下 [進階編輯器]  。 
 
-![在 Power BI 中的 [進階編輯器] 按鈕的映像](../media/tutorials/advanced-editor-screen.png)
+![Power BI 中 [進階編輯器] 按鈕的影像](../media/tutorials/advanced-editor-screen.png)
 
-在 [進階編輯器]，使用下列的 Power Query M 程式碼片段從資料表擷取資料行，並將它傳送至 API。 之後，查詢會從 JSON 回應中，建立資料表，並將它傳回。 取代`apiKey`變數具有有效的異常偵測器 API 索引鍵和`endpoint`與您的端點。 您在 [進階編輯器] 中輸入查詢之後，請按一下**完成**。
+在 [進階編輯器] 內，使用下列 Power Query M 程式碼片段，從資料表擷取資料行並將它傳送至 API。 接著，查詢會從 JSON 回應建立資料表並將它傳回。 以有效的 Anomaly Detector API 金鑰取代 `apiKey` 變數，並以您的端點取代 `endpoint`。 在 [進階編輯器] 中輸入查詢之後，按一下 [完成]  。
 
 ```M
 (table as table) => let
@@ -112,67 +112,67 @@ Power BI 會將轉換的第一個資料行中的時間戳記`Date/Time`資料型
  in results
 ```
 
-叫用您的資料工作表上的查詢，方法是選取`Sheet1`如下**輸入參數**，然後按一下**Invoke**。 
+選取 [輸入參數]  下方的 `Sheet1`，然後按一下 [叫用]  ，以在您的資料工作表上叫用查詢。 
 
 ![[進階編輯器] 按鈕的影像](../media/tutorials/invoke-function-screenshot.png)
 
-## <a name="data-source-privacy-and-authentication"></a>資料來源的隱私權和驗證
+## <a name="data-source-privacy-and-authentication"></a>資料來源隱私權和驗證
 
 > [!NOTE]
-> 留意資料隱私性及存取您組織的原則。 請參閱[Power BI Desktop 隱私權等級](https://docs.microsoft.com/power-bi/desktop-privacy-levels)如需詳細資訊。
+> 請留意貴組織的資料隱私性和存取原則。 如需詳細資訊，請參閱 [Power BI Desktop 隱私權等級](https://docs.microsoft.com/power-bi/desktop-privacy-levels)。
 
-當您嘗試執行查詢，因為它會利用外部資料來源時，可能會收到一則警告訊息。 
+您在嘗試執行查詢時，可能會收到一則警告訊息，因為它會利用外部資料來源。 
 
-![顯示警告，Power BI 所建立的影像](../media/tutorials/blocked-function.png)
+![顯示 Power BI 所建立警告的影像](../media/tutorials/blocked-function.png)
 
-若要修正此問題，按一下**檔案**，並**選項和設定**。 然後按一下**選項**。 下面**目前的檔案**，選取**隱私權**，並**忽略隱私權等級，並可能會改善效能**。 
+若要修正此問題，按一下 [檔案]  ，然後按一下 [選項與設定]  。 然後按一下 [選項]  。 在 [目前檔案]  下方，選取 [隱私權]  ，然後選取 [忽略隱私權等級並可能改善效能]  。 
 
-此外，您可能會收到訊息，要求您指定您要連線到 API 的方式。
+此外，您可能會收到訊息，要求您指定連線到 API 的方式。
 
-![顯示指定的存取認證的要求的影像](../media/tutorials/edit-credentials-message.png)
+![顯示要求指定存取認證的影像](../media/tutorials/edit-credentials-message.png)
 
-若要修正此問題，按一下**編輯認證**訊息中。 對話方塊中出現之後，請選取**Anonymous**以匿名方式連線到 API。 然後按一下 [ **連接**]。 
+若要修正此問題，按一下訊息中的 [編輯認證]  。 在對話方塊出現之後，選取 [匿名]  以匿名方式連線到 API。 然後按一下 [ **連接**]。 
 
-之後，按一下**關閉並套用**中**首頁**以套用變更的功能區。
+接著，按一下 [首頁]  功能區中的 [關閉並套用]  ，或套用變更。
 
-## <a name="visualize-the-anomaly-detector-api-response"></a>以視覺化方式檢視異常偵測器 API 回應
+## <a name="visualize-the-anomaly-detector-api-response"></a>將 Anomaly Detector API 回應視覺化
 
-在主要 Power BI 畫面中，開始使用上面建立視覺化資料的查詢。 先選取**折線圖**中**視覺效果**。 然後加入時間戳記從叫用的函式的折線圖**軸**。 以滑鼠右鍵按一下它，然後選取**時間戳記**。 
+在 Power BI 主畫面中，開始使用上面建立的查詢將資料視覺化。 先選取 [視覺效果]  中的 [折線圖]  。 然後從叫用的函式，將時間戳記新增到折線圖的 [軸]  。 以滑鼠右鍵按一下它，然後選取 [時間戳記]  。 
 
-![以滑鼠右鍵按一下 時間戳記值](../media/tutorials/timestamp-right-click.png)
+![以滑鼠右鍵按一下 [時間戳記] 值。](../media/tutorials/timestamp-right-click.png)
 
-加入下列欄位從**叫用函式**圖表**值**欄位。 使用以下螢幕擷取畫面，可協助您建立您的圖表。
+從 [叫用的函式]  將下列欄位新增到圖表的 [值]  欄位。 使用以下螢幕擷取畫面，協助建立您的圖表。
 
     * 值
     * UpperMargins
     * LowerMargins
     * ExpectedValues
 
-![新的 [快速量值] 畫面的影像](../media/tutorials/chart-settings.png)
+![新快速量值畫面的影像](../media/tutorials/chart-settings.png)
 
-新增欄位之後, 按一下圖表，並調整其大小以顯示所有資料點。 您的圖表看起來類似下列螢幕擷取畫面：
+新增欄位之後，按一下圖表並調整其大小，以顯示所有的資料點。 您的圖表看起來類似以下螢幕擷取畫面：
 
-![新的 [快速量值] 畫面的影像](../media/tutorials/chart-visualization.png)
+![新快速量值畫面的影像](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>顯示異常資料點
 
-Power BI 視窗中，右邊如下**欄位** 窗格中，以滑鼠右鍵按一下**值**下**叫用函數查詢**，然後按一下**新快速量值**。
+在 Power BI 視窗的右側，[欄位]  窗格下面，以滑鼠右鍵按一下 [叫用的函式查詢]  底下的 [值]  ，然後按一下 [新快速量值]  。
 
-![新的 [快速量值] 畫面的影像](../media/tutorials/new-quick-measure.png)
+![新快速量值畫面的影像](../media/tutorials/new-quick-measure.png)
 
-在出現的畫面，選取**篩選值**的計算。 設定**基底值**至`Sum of Value`。 然後將拖曳`IsAnomaly`從**叫用函式**欄位**篩選**。 選取 `True`從**篩選**下拉式選單。
+在出現的畫面上，選取 [篩選的值]  作為計算。 將 [基底值]  設定為 `Sum of Value`。 然後將 `IsAnomaly` 從 [叫用的函式]  欄位拖曳到 [篩選條件]  。 從 [篩選條件]  下拉式功能表中選取 `True`。
 
-![新的 [快速量值] 畫面的影像](../media/tutorials/new-quick-measure-2.png)
+![新快速量值畫面的影像](../media/tutorials/new-quick-measure-2.png)
 
-按一下後**Ok**，就會`Value for True`欄位中，您的欄位清單的底部。 以滑鼠右鍵按一下它，並重新命名為**異常**。 將它加入至圖表**值**。 然後選取**格式**工具，並將 x 軸類型設定為**Categorical**。
+按一下 [確定]  之後，您的欄位清單底部會出現 `Value for True` 欄位。 以滑鼠右鍵按一下它並重新命名為 [異常]  。 將它新增至圖表的 [值]  。 然後選取 [格式]  工具，並將 X 軸類型設定為 [類別]  。
 
-![新的 [快速量值] 畫面的影像](../media/tutorials/format-x-axis.png)
+![新快速量值畫面的影像](../media/tutorials/format-x-axis.png)
 
-套用至圖表的色彩，按一下**格式**工具並**資料色彩**。 您的圖表看起來應該如下所示：
+按一下 [格式]  工具和 [資料色彩]  ，將色彩套用至圖表。 您的圖表應該如下所示：
 
-![新的 [快速量值] 畫面的影像](../media/tutorials/final-chart.png)
+![新快速量值畫面的影像](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
->[使用 Azure Databricks 的資料流異常偵測](anomaly-detection-streaming-databricks.md)
+>[使用 Azure Databricks 串流異常偵測](anomaly-detection-streaming-databricks.md)

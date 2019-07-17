@@ -1,25 +1,25 @@
 ---
 title: 快速入門：使用 Python SDK 來偵測並框出影像中的臉部
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您會建立簡單的 Python 指令碼，以使用臉部 API 來偵測並框出遠端影像中的人臉。
+description: 在此快速入門中，您會建立 Python 指令碼，以使用臉部 API 來偵測並框出遠端影像中的人臉。
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339381"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603288"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入門：建立 Python 指令碼來偵測並框出影像中的臉部
 
-在此快速入門中，您會建立簡單的 Python 指令碼 (透過 Python SDK)，以使用 Azure 臉部 API 來偵測遠端影像中的人臉。 此應用程式會顯示選取的影像，並在每個偵測到的人臉周圍繪製框架。
+在此快速入門中，您會建立 Python 指令碼 (透過 Python SDK)，以使用 Azure 臉部 API 來偵測遠端影像中的人臉。 此應用程式會顯示選取的影像，並在每個偵測到的人臉周圍繪製框架。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>偵測影像中的人臉
 
-建立名為 _FaceQuickstart.py_ 的新 Python 指令碼，並新增下列程式碼。 這是臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
+建立名為 _FaceQuickstart.py_ 的新 Python 指令碼，並新增下列程式碼。 此程式碼會處理臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
 
 此指令碼會藉由呼叫 **cognitive_face.face.detect** 方法來偵測臉部，此方法會包裝[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API，並傳回臉部清單。
 
@@ -64,11 +64,11 @@ print(faces)
 
 使用 `python FaceQuickstart.py` 命令執行應用程式。 您應該會在主控台視窗中取得文字回應，如下所示：
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-這是所偵測到臉部的清單。 清單中的每個項目都是 **dict** 執行個體，其中 `faceId` 是所偵測臉部的唯一識別碼，而 `faceRectangle` 描述所偵測臉部的位置。 
+輸出表示偵測到的臉部清單。 清單中的每個項目都是 **dict** 執行個體，其中 `faceId` 是所偵測臉部的唯一識別碼，而 `faceRectangle` 描述所偵測臉部的位置。 
 
 > [!NOTE]
 > 臉部識別碼會在 24 小時後到期；如果您想要長期保留識別碼，則必須明確地儲存臉部資料。
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-然後，在指令碼底部新增下列程式碼。 這會建立用於分析矩形座標的簡單函式，並使用 Pillow 在原始影像上繪製矩形。 然後，它會在預設的影像檢視器中顯示該影像。
+然後，在指令碼底部新增下列程式碼。 此程式碼會建立用於分析矩形座標的簡單函式，並使用 Pillow 在原始影像上繪製矩形。 然後，它會在預設的影像檢視器中顯示該影像。
 
 ```python
 # Convert width height to a point in a rectangle

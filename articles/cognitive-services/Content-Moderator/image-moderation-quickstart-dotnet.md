@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757240"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604124"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>快速入門：使用 C# 分析令人反感的影像
 
@@ -36,7 +36,7 @@ ms.locfileid: "58757240"
 
 1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將其命名為 **ImageModeration**。 
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
-1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]  ，然後尋找並安裝下列套件：
     - Microsoft.Azure.CognitiveServices.ContentModerator
     - Microsoft.Rest.ClientRuntime
     - Newtonsoft.Json
@@ -60,7 +60,7 @@ ms.locfileid: "58757240"
 
 ### <a name="set-up-input-and-output-targets"></a>設定輸入和輸出目標
 
-將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些項目會指定輸入影像內容和輸出 JSON 內容的檔案。
+將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些欄位會指定輸入影像內容和輸出 JSON 內容的檔案。
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
@@ -86,13 +86,13 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ### <a name="load-the-input-images"></a>載入輸入影像
 
-在 **Program** 類別中對 **Main** 方法新增下列程式碼。 這會設定程式，使其為輸入檔中的每個影像 URL 擷取評估資料。 接著會將此資料寫入至單一輸出檔案。
+在 **Program** 類別中對 **Main** 方法新增下列程式碼。 此程式碼會設定程式，使其為輸入檔中的每個影像 URL 擷取評估資料。 接著會將此資料寫入至單一輸出檔案。
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>執行程式
 
-程式會將 JSON 字串資料寫入至 _ModerationOutput.json_ 檔案。 本快速入門中使用的範例影像會產生下列輸出。 請注意，每個影像都會有 `ImageModeration`、`FaceDetection` 和 `TextDetection` 的三個不同區段，對應於 **EvaluateImage** 方法中的三個 API 呼叫。
+程式會將 JSON 字串資料寫入至 _ModerationOutput.json_ 檔案。 本快速入門中使用的範例影像會產生下列輸出。 每個影像都會有 `ImageModeration`、`FaceDetection` 和 `TextDetection` 的三個不同區段，對應於 **EvaluateImage** 方法中的三個 API 呼叫。
 
 ```json
 [{

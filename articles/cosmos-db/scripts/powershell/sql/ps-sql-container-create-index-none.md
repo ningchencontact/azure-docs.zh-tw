@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-建立容器，索引中的 Azure Cosmos 帳戶關閉
-description: Azure PowerShell 指令碼範例-建立容器，索引中的 Azure Cosmos 帳戶關閉
+title: Azure PowerShell 指令碼 - 在 Azure Cosmos 帳戶中建立已關閉索引編製功能的容器
+description: Azure PowerShell 指令碼範例 - 在 Azure Cosmos 帳戶中建立已關閉索引編製功能的容器
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4fc75eadd0f3ad87d313d10a9005997d46103666
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 7cec954bc85873d300a4abb96396025600e17201
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566813"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603872"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>建立容器，索引中使用 PowerShell 的 Azure Cosmos 帳戶關閉
+# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>在 Azure Cosmos 帳戶中使用 PowerShell 建立已關閉索引編製功能的容器
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

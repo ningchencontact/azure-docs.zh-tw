@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 23a850723e4f7b4df2a8fca969380156586d6aae
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9ff7dbd86efe56472b7e31b34310bcfdbbf95109
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444914"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705467"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來取得支援的語言清單
 
 在此快速入門中，您將了解如何搭配使用 Python 與翻譯工具文字 REST API 發出 GET 要求，以傳回支援的語言清單。
+
+>[!TIP]
+> 如果您想要同時查看所有程式碼，您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -70,7 +73,7 @@ headers = {
 }
 ```
 
-如果您使用認知服務多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>建立要求以取得支援的語言清單
 
@@ -196,8 +199,10 @@ python get-languages.py
 
 ## <a name="next-steps"></a>後續步驟
 
+查看 API 參考，以了解您可以使用翻譯工具文字 API 執行的所有作業。
+
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Python 範例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python) (英文)
+> [API 參考](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另請參閱
 

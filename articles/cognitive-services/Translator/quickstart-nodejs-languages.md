@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb01269d21d3b036dfff84faef1903dc082dc6f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e31f30373349d4048f9021ab8eee7f39dcf5cd57
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445048"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705514"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 和 Node.js 取得支援的語言清單
 
 在此快速入門中，您將了解如何搭配使用 Node.js 與翻譯工具文字 REST API 發出 GET 要求，以傳回支援的語言清單。
+
+>[!TIP]
+> 如果您想要同時查看所有程式碼，您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -64,7 +67,7 @@ let options = {
 };
 ```
 
-如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="make-the-request-and-print-the-response"></a>提出要求並列印回應
 
@@ -185,8 +188,10 @@ node get-languages.js
 
 ## <a name="next-steps"></a>後續步驟
 
+查看 API 參考，以了解您可以使用翻譯工具文字 API 執行的所有作業。
+
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Node.js 範例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) (英文)
+> [API 參考](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另請參閱
 

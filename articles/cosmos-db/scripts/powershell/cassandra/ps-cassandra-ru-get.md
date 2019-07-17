@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Azure Cosmos DB 取得輸送量 （RU/秒） 的 Cassandra API
-description: Azure PowerShell 指令碼-Azure Cosmos DB 取得輸送量 （RU/秒） 的 Cassandra API
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 Cassandra API 的輸送量 (RU/秒)
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 取得 Cassandra API 的輸送量 (RU/秒)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: a4871f56aa3d479342ca1bd25e521d2760451d98
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
-ms.translationtype: MT
+ms.openlocfilehash: 4aed55a0c3ae969cf9148e5bf8d6a70a3151f695
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566930"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603978"
 ---
-# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>適用於 Azure Cosmos DB Cassandra API 取得 keyspace 或資料表的輸送量 （RU/秒）
+# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>取得 Azure Cosmos DB Kyspace 或資料表的輸送量 (RU/秒) - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

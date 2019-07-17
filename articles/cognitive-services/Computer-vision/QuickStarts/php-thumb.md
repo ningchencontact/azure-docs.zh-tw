@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b9f8cd3e85d4d1497de67509dbbe3ffddb712be0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 69a7438f2daf1eb16efff7f0b4f503064afac29d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009084"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603587"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 PHP 來產生縮圖
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-php"></a>快速入門：使用電腦視覺 REST API 和 PHP 產生縮圖
 
 在此快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別關注區域，並根據該區域產生裁剪座標。
 
@@ -49,7 +49,7 @@ ms.locfileid: "60009084"
     1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 方法的端點 URL。
     1. (選擇性) 將 `imageUrl` 的值取代為要產生縮圖之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.php` 的檔案。 例如： `get-thumbnail.php`。
+1. 將程式碼儲存為副檔名為 `.php` 的檔案。 例如： `get-thumbnail.php` 。
 1. 開啟具有 PHP 支援的瀏覽器視窗。
 1. 將檔案拖放到瀏覽器視窗中。
 

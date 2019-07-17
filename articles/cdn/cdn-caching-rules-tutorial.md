@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094066"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594066"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>教學課程：設定 Azure CDN 快取規則
 
 > [!NOTE] 
-> Azure CDN 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**。 針對**來自 Verizon 的 Azure CDN Premium**，您可以使用 [管理] 入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
+> Azure CDN 快取規則僅適用於**來自 Verizon 的 Azure CDN 標準**和**來自 Akamai 的 Azure CDN 標準**。 針對**來自 Verizon 的 Azure CDN Premium**，您可以使用 [管理]  入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
  
 
 本教學課程說明如何使用 Azure 內容傳遞網路 (CDN) 快取規則，以全域及自訂條件 (例如 URL 路徑和副檔名) 的方式設定或修改預設快取到期行為。 Azure CDN 提供兩種類型的快取規則：
@@ -48,11 +48,11 @@ ms.locfileid: "49094066"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)選取 CDN 設定檔，然後選取端點。
 
-2. 在左窗格的 [設定] 下方，選取 [快取規則]。
+2. 在左窗格的 [設定] 下方，選取 [快取規則]  。
 
    ![CDN [快取規則] 按鈕](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   [快取規則] 頁面隨即出現。
+   [快取規則]  頁面隨即出現。
 
    ![CDN 快取規則頁面](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
@@ -61,11 +61,11 @@ ms.locfileid: "49094066"
 
 建立全域快取規則，如下所示：
 
-1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]。
+1. 在 [全域快取規則]  下方，將 [查詢字串快取行為]  設定為 [忽略查詢字串]  。
 
-2. 將 [快取行為] 設定為 [缺少時才設定]。
+2. 將 [快取行為]  設定為 [缺少時才設定]  。
        
-3. 針對 [快取到期期間]，在 [天數] 欄位中輸入 10。
+3. 針對 [快取到期期間]  ，在 [天數]  欄位中輸入 10。
 
     全域快取規則會影響針對端點的所有要求。 如果原始快取指示詞標頭存在 (`Cache-Control` 或 `Expires`)，此規則就會優先採用它們；否則，系統會在未指定的情況下將快取設定為 10 天。 
 
@@ -75,9 +75,9 @@ ms.locfileid: "49094066"
 
 建立自訂快取規則，如下所示：
 
-1. 在 [自訂快取規則] 下方，將 [比對條件] 設定為 [路徑]，並將 [比對值] 設定為 `/images/*.jpg`。
+1. 在 [自訂快取規則]  下方，將 [比對條件]  設定為 [路徑]  ，並將 [比對值]  設定為 `/images/*.jpg`。
     
-2. 將 [快取行為] 設定為 [覆寫]，並在 [天數] 欄位中輸入 30。
+2. 將 [快取行為]  設定為 [覆寫]  ，並在 [天數]  欄位中輸入 30。
        
     此自訂快取規則會在您端點的 `/images` 資料夾中，於任何 `.jpg` 影像檔上設定 30 天的快取持續時間。 它會覆寫由原始伺服器所傳送的任何 `Cache-Control` 或 `Expires` HTTP 標頭。
 
@@ -90,15 +90,15 @@ ms.locfileid: "49094066"
  
 1. 選取 CDN 設定檔，再針對要移除的快取規則選取端點。
 
-2. 在左窗格的 [設定] 下方，選取 [快取規則]。
+2. 在左窗格的 [設定] 下方，選取 [快取規則]  。
 
-3. 在 [全域快取規則] 下方，將 [快取行為] 設為 [未設定]。
+3. 在 [全域快取規則]  下方，將 [快取行為]  設為 [未設定]  。
  
-4. 在 [自訂快取規則] 下方，針對要刪除的規則選取旁邊的核取方塊。
+4. 在 [自訂快取規則]  下方，針對要刪除的規則選取旁邊的核取方塊。
 
-5. 選取 [刪除] 。
+5. 選取 [刪除]  。
 
-6. 在頁面上方選取 [儲存]。
+6. 在頁面上方選取 [儲存]  。
 
 
 ## <a name="next-steps"></a>後續步驟

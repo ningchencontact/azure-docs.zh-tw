@@ -1,6 +1,7 @@
 ---
 title: 教學課程：使用 Azure Databricks 對串流資料進行異常情況偵測
-description: 使用 Azure Databricks 與異常偵測器 API 來監視資料中的異常狀況。
+titleSuffix: Azure Cognitive Services
+description: 使用 Anomaly Detector API 和 Azure Databricks 來監視資料中的異常狀況。
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,16 +11,16 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080796"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721466"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行異常情況偵測
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/)是快速、 輕鬆且共同作業的 Apache Spark 架構分析服務。 異常偵測器 API 的 Azure 認知服務的組件提供監視您的時間序列資料的方式。 使用本教學課程中的資料幾近即時地串流執行異常偵測使用 Azure Databricks。 您將內嵌 twitter 資料，使用 Azure 事件中樞，並匯入到 Azure Databricks 使用 Spark 事件中樞連接器。 之後，您將使用的 API 來偵測異常行為對串流資料。 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) 是快速、簡單且共同作業的 Apache Spark 架構分析服務。 Anomaly Detector API 是 Azure 認知服務的組件，可供監視您的時間序列資料。 在本教學課程中，使用 Azure Databricks 對資料流執行近乎即時的異常偵測。 您將使用 Azure 事件中樞內嵌推文資料，並使用 Spark 事件中樞連接器將其匯入 Azure Databricks 中。 之後，您將使用 API 來偵測串流資料的異常狀況。 
 
 下圖顯示此應用程式流程：
 
@@ -33,34 +34,34 @@ ms.locfileid: "67080796"
 > * 建立 Twitter 應用程式來存取串流資料
 > * 在 Azure Databricks 中建立 Notebook
 > * 連結事件中樞與 Twitter API 的程式庫
-> * 建立異常偵測器資源，並擷取存取金鑰
+> * 建立 Anomaly Detector 資源並擷取存取金鑰
 > * 將推文傳送至事件中樞
 > * 從事件中樞讀取推文
 > * 對推文執行異常偵測
 
 > [!Note]
-> 本教學課程介紹一種方法實作的建議[解決方案架構](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/)異常偵測器 api。
+> 本教學課程介紹一種方法來對 Anomaly Detector API 實作建議的[解決方案架構](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 > [!Note]
-> 無法完成本教學課程使用免費的試用版金鑰，異常偵測器 api。 若要使用免費帳戶建立 Azure Databricks 叢集，在建立叢集之前，請先移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。
+> 使用免費的 Anomaly Detector API 試用版金鑰，便無法完成本教學課程。 若要使用免費帳戶建立 Azure Databricks 叢集，在建立叢集之前，請先移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
 - [Azure 事件中樞命名空間](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)和事件中樞。
 
-- [連接字串](../../../event-hubs/event-hubs-get-connection-string.md)存取事件中樞命名空間。 連接字串應該以類似的格式：
+- 用來存取事件中樞命名空間的[連接字串](../../../event-hubs/event-hubs-get-connection-string.md)。 連接字串的格式應類似於：
 
     `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>` 。 
 
-- 事件中樞的共用的存取原則名稱和原則金鑰。
+- 事件中樞的共用存取原則名稱和原則金鑰。
 
-請參閱 Azure 事件中樞[快速入門](../../../event-hubs/event-hubs-create.md)如需建立命名空間和事件中樞資訊。
+如需建立命名空間和事件中樞的相關資訊，請參閱 Azure 事件中樞[快速入門](../../../event-hubs/event-hubs-create.md)。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
-在本節中，您會建立 Azure Databricks 工作區中使用[Azure 入口網站](https://portal.azure.com/)。
+在本節中，您會使用 [Azure 入口網站](https://portal.azure.com/)建立 Azure Databricks 工作區。
 
 1. 在 Azure 入口網站中，選取 [建立資源]   > [分析]   > [Azure Databricks]  。
 
@@ -69,13 +70,13 @@ ms.locfileid: "67080796"
 3. 在 [Azure Databricks 服務]  下方提供下列值，以建立 Databricks 工作區：
 
 
-    |屬性  |描述  |
+    |屬性  |說明  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
     |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../../../azure-resource-manager/resource-group-overview.md)。 |
-    |**Location**     | 選取 **美國東部 2**或其中一個其他可用的區域。 請參閱[提供的 Azure 服務的區域](https://azure.microsoft.com/regions/services/)區域可用性。        |
-    |定價層      |  選擇 [標準]  或 [進階]  。 請勿選擇**試用版**。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
+    |**位置**     | 選取 [美國東部 2]  或其中一個任何其他可用的區域。 如需可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
+    |定價層      |  選擇 [標準]  或 [進階]  。 請勿選擇 [試用版]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
     選取 [建立]  。
 
@@ -85,22 +86,22 @@ ms.locfileid: "67080796"
 
 1. 在 Azure 入口網站中，移至您所建立的 Databricks 工作區，然後選取 [啟動工作區]  。
 
-2. 系統會將您重新導向至 Azure Databricks 入口網站。 從入口網站中，選取**新的叢集**。
+2. 系統會將您重新導向至 Azure Databricks 入口網站。 在入口網站中，選取 [新增叢集]  。
 
     ![Azure 上的 Databricks](../media/tutorials/databricks-on-azure.png "Azure 上的 Databricks")
 
-3. 在 **新的叢集**頁面上，提供值以建立叢集。
+3. 在 [新增叢集]  頁面中，提供一些值以建立叢集。
 
     ![在 Azure 上建立 Databricks Spark 叢集](../media/tutorials/create-databricks-spark-cluster.png "在 Azure 上建立 Databricks Spark 叢集")
 
     接受下列值以外的所有其他預設值：
 
    * 輸入叢集的名稱。
-   * 針對本文，使用 **5.2** 執行階段建立叢集。 請勿選取**5.3**執行階段。
-   * 請確定**後終止\_\_停止活動幾分鐘**核取方塊已選取。 如果不使用叢集，請終止叢集，提供持續時間 （以分鐘為單位）。
+   * 針對本文，使用 **5.2** 執行階段建立叢集。 請勿選取 **5.3** 執行階段。
+   * 請確定已選取 [在活動\_\_分鐘後終止]  核取方塊。 若未使用叢集，請提供據以終止叢集的持續時間 (以分鐘為單位)。
 
      選取 [建立叢集]  。 
-4. 叢集建立作業需要幾分鐘的時間。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
+4. 叢集建立可能需要數分鐘的時間。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
@@ -122,13 +123,13 @@ ms.locfileid: "67080796"
 
 ## <a name="attach-libraries-to-spark-cluster"></a>將程式庫連結至 Spark 叢集
 
-在本教學課程中，您會使用 Twitter API 將推文傳送至事件中樞。 您也會使用 [Apache Spark 事件中樞連接器](https://github.com/Azure/azure-event-hubs-spark)來讀取資料並將資料寫入至 Azure 事件中樞。 若要在叢集中使用這些 API，請將其作為程式庫新增至 Azure Databricks，然後讓這些 API 與您的 Spark 叢集產生關聯。 下列指示說明如何新增程式庫，以**共用**工作區中的資料夾。
+在本教學課程中，您會使用 Twitter API 將推文傳送至事件中樞。 您也會使用 [Apache Spark 事件中樞連接器](https://github.com/Azure/azure-event-hubs-spark)來讀取資料並將資料寫入至 Azure 事件中樞。 若要在叢集中使用這些 API，請將其作為程式庫新增至 Azure Databricks，然後讓這些 API 與您的 Spark 叢集產生關聯。 下列指示說明如何將程式庫新增至工作區中的 [共用]  資料夾。
 
 1. 在 Azure Databricks 工作區中，選取 [工作區]  ，然後以滑鼠右鍵按一下 [共用]  。 從快顯功能表中，選取 [建立]   > [程式庫]  。
 
    ![新增程式庫對話方塊](../media/tutorials/databricks-add-library-option.png "新增程式庫對話方塊")
 
-2. 在 [新文件庫] 頁面中，如**來源**選取**Maven**。 針對**座標**，輸入您想要新增套件的座標。 以下是本教學課程所使用之程式庫的 Maven 座標：
+2. 在 [新增程式庫] 頁面中，針對 [來源]  選取 [Maven]  。 在 [座標]  中，輸入您要新增之套件的座標。 以下是本教學課程所使用之程式庫的 Maven 座標：
 
    * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
@@ -141,43 +142,43 @@ ms.locfileid: "67080796"
 
     ![選取要新增的程式庫](../media/tutorials/select-library.png "選取要新增的程式庫")
 
-5. 如果在文件庫頁面中沒有叢集，請選取**叢集**並執行您所建立的叢集。 等到狀態顯示 'Running'，然後移至 程式庫 頁面的 上一步。
-在程式庫 頁面上，選取您要使用該媒體櫃，然後選取的叢集**安裝**。 若要順利與叢集相關聯的程式庫之後，立即變更狀態**已安裝**。
+5. 如果程式庫頁面中沒有叢集，請選取 [叢集]  並執行您所建立的叢集。 等到狀態顯示 [執行中]，然後移回程式庫頁面。
+在程式庫頁面上，選取要在其中使用程式庫的叢集，然後選取 [安裝]  。 在程式庫成功地與叢集產生關聯後，狀態會立即變更為 [已安裝]  。
 
-    ![安裝至叢集程式庫](../media/tutorials/databricks-library-attached.png "到叢集的安裝程式庫")
+    ![將程式庫安裝至叢集](../media/tutorials/databricks-library-attached.png "將程式庫安裝至叢集")
 
 6. 對 Twitter 套件 `twitter4j-core:4.0.7` 重複執行這些步驟。
 
 ## <a name="get-a-cognitive-services-access-key"></a>取得認知服務存取金鑰
 
-在本教學課程中，您可以使用[Azure 認知服務異常偵測器 Api](../overview.md)上以近乎即時的推文的串流執行異常偵測。 您使用 Api 之前，您必須在 Azure 上建立異常偵測器資源，並擷取存取金鑰，才能使用異常偵測器 Api。
+在本教學課程中，您會使用 [Azure 認知服務 Anomaly Detector API](../overview.md) 以近乎即時的方式對推文串流執行異常偵測。 在您使用此 API 之前，您必須在 Azure 上建立 Anomaly Detector 資源並擷取存取金鑰，才能使用 Anomaly Detector API。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 選取 [+ 建立資源]  。
 
-3. 在 Azure Marketplace 中，選取**AI + 機器學習服務** > **查看所有** > **認知服務-更** >  **異常偵測器**。 或者，您可以使用[此連結](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)以前往**建立**直接對話方塊。
+3. 在 Azure Marketplace 之下，選取 [AI + 機器學習服務]   > [查看全部]   > [認知服務 - 更多]   > [Anomaly Detector]  。 或者，您可以使用[此連結](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)直接前往 [建立]  對話方塊。
 
-    ![建立異常偵測器資源](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "建立異常偵測器資源")
+    ![建立 Anomaly Detector 資源](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "建立 Anomaly Detector 資源")
 
 4. 在 [建立]  對話方塊中提供下列值：
 
-    |值 |描述  |
+    |值 |說明  |
     |---------|---------|
-    |名稱     | 異常偵測器資源的名稱。        |
-    |訂用帳戶     | Azure 訂用帳戶資源相關聯。        |
-    |Location     | Azure 位置。        |
-    |定價層     | 服務的定價層。 如需有關異常偵測器定價的詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)。        |
+    |Name     | Anomaly Detector 資源的名稱。        |
+    |訂用帳戶     | 將與資源相關聯的 Azure 訂用帳戶。        |
+    |位置     | Azure 位置。        |
+    |定價層     | 服務的定價層。 如需 Anomaly Detector 定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)。        |
     |資源群組     | 指定您是要建立新的資源群組，還是選取現有資源群組。        |
 
 
      選取 [建立]  。
 
-5. 建立資源之後，從**概觀**索引標籤上，複製並儲存**端點**螢幕擷取畫面所示的 URL。 然後選取**顯示存取金鑰**。
+5. 建立資源之後，從 [概觀]  索引標籤，複製並儲存 [端點]  URL (如螢幕擷取畫面所示)。 然後選取 [顯示存取金鑰]  。
 
     ![顯示存取金鑰](../media/tutorials/cognitive-services-get-access-keys.png "顯示存取金鑰")
 
-6. 底下**金鑰**，選取複製圖示，針對您想要使用的索引鍵。 將儲存的存取金鑰。
+6. 在 [金鑰]  下，針對您要使用的金鑰選取 [複製] 圖示。 儲存存取金鑰。
 
     ![複製存取金鑰](../media/tutorials/cognitive-services-copy-access-keys.png "複製存取金鑰")
 
@@ -186,13 +187,13 @@ ms.locfileid: "67080796"
 在本節中，您會在 Databricks 工作區中建立兩個具有下列名稱的 Notebook
 
 - **SendTweetsToEventHub** - 生產者 Notebook，可供用來從 Twitter 取得推文，再將推文串流至事件中樞。
-- **AnalyzeTweetsFromEventHub** -您用來從事件中樞讀取推文和執行異常偵測的取用者 notebook。
+- **AnalyzeTweetsFromEventHub** - 取用者 Notebook，可供用來從事件中樞讀取推文並執行異常偵測。
 
-1. 在 Azure Databricks 工作區中，選取**工作區**從左窗格中。 從 [工作區]  下拉式清單選取 [建立]  ，然後選取 [Notebook]  。
+1. 在 Azure Databricks 工作區中，從左窗格選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]  ，然後選取 [Notebook]  。
 
     ![在 Databricks 中建立 Notebook](../media/tutorials/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
 
-2. 在 **建立的 Notebook**對話方塊方塊中，輸入**SendTweetsToEventHub**做為名稱，選取**Scala**作為語言，然後選取您稍早建立的 Spark 叢集。
+2. 在 [建立 Notebook]  對話方塊中，輸入 **SendTweetsToEventHub** 作為名稱，選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
     ![在 Databricks 中建立 Notebook](../media/tutorials/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
 
@@ -202,7 +203,7 @@ ms.locfileid: "67080796"
 
 ## <a name="send-tweets-to-event-hubs"></a>將推文傳送至事件中樞
 
-在 **SendTweetsToEventHub** Notebook 中貼上下列程式碼，並將預留位置取代為您稍早所建立之事件中樞命名空間和 Twitter 應用程式的值。 此 notebook 建立時間及數目的"Like"s 擷取推文加上關鍵字"Azure"，並即時將事件以串流至事件中樞。
+在 **SendTweetsToEventHub** Notebook 中貼上下列程式碼，並將預留位置取代為您稍早所建立之事件中樞命名空間和 Twitter 應用程式的值。 此 Notebook 會從具有關鍵字 "Azure" 的推文擷取建立時間和「喜歡」數目，並即時將其當作事件串流至事件中樞。
 
 ```scala
 //
@@ -299,7 +300,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-若要執行 Notebook，請按 **SHIFT + ENTER**。 您會看到如下列程式碼片段所示的輸出。 時間戳記的組合和數字"Like"s 擷取至事件中樞的輸出中的每個事件。
+若要執行 Notebook，請按 **SHIFT + ENTER**。 您會看到如下列程式碼片段所示的輸出。 輸出中的每個事件都是內嵌至事件中樞的時間戳記和「喜歡」數目組合。
 
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
@@ -322,9 +323,9 @@ pool.shutdown()
 
 ## <a name="read-tweets-from-event-hubs"></a>從事件中樞讀取推文
 
-在  **AnalyzeTweetsFromEventHub** notebook 中貼上下列程式碼，並將預留位置取代為您您稍早建立的異常偵測器資源的值。 此 Notebook 會讀取您稍早使用 **SendTweetsToEventHub** Notebook 串流至事件中樞的推文。
+在 **AnalyzeTweetsFromEventHub** Notebook 中，貼上下列程式碼，並將預留位置取代為您稍早所建立 Anomaly Detector 資源的值。 此 Notebook 會讀取您稍早使用 **SendTweetsToEventHub** Notebook 串流至事件中樞的推文。
 
-首先，撰寫用戶端呼叫異常偵測器。 
+首先，撰寫用戶端來呼叫 Anomaly Detector。 
 ```scala
 
 //
@@ -435,7 +436,7 @@ object AnomalyDetector extends Serializable {
     defined class AnomalyBatchResponse
     defined object AnomalyDetector
 
-然後準備未來使用的彙總函式。
+然後準備可供未來使用的彙總函式。
 ```scala
 //
 // User Defined Aggregation Function for Anomaly Detection
@@ -502,7 +503,7 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
     import scala.collection.immutable.ListMap
     defined class AnomalyDetectorAggregationFunction
 
-從事件中樞，以便進行異常偵測，然後載入資料。 將預留位置取代為您稍早建立 Azure 事件中樞值。
+接著從事件中樞載入資料，以便進行異常偵測。 將預留位置取代為您稍早所建立 Azure 事件中樞的值。
 
 ```scala
 //
@@ -540,8 +541,8 @@ display(msgStream)
 
 ```
 
-輸出現在會類似下列映像。 請注意您在資料表中的日期可能不同於本教學課程中的日期，因為資料是即時。
-![載入資料從事件中樞](../media/tutorials/load-data-from-eventhub.png "負載資料從事件中樞")
+輸出現在會類似下圖。 請注意，您在資料表中的日期可能不同於本教學課程中的日期，因為資料是即時的。
+![從事件中樞載入資料](../media/tutorials/load-data-from-eventhub.png "從事件中樞載入資料")
 
 您現在已使用 Apache Spark 的事件中樞連接器，以近乎即時的方式將資料從 Azure 事件中樞串流至 Azure Databricks。 如需如何使用 Spark 事件中樞連接器的詳細資訊，請參閱[連接器文件](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)。
 
@@ -549,9 +550,9 @@ display(msgStream)
 
 ## <a name="run-anomaly-detection-on-tweets"></a>對推文執行異常偵測
 
-在本節中，您可以執行異常偵測使用異常偵測器 API 收到的推文。 在本節中，您會將程式碼片段新增至相同的 **AnalyzeTweetsFromEventHub** Notebook。
+在本節中，您可以使用 Anomaly Detector API 對收到的推文執行異常偵測。 在本節中，您會將程式碼片段新增至相同的 **AnalyzeTweetsFromEventHub** Notebook。
 
-若要執行異常偵測，首先，您要依小時彙總計量的計數。
+若要執行異常偵測，首先必須依小時彙總計量計數。
 ```scala
 //
 // Aggregate Metric Count by Hour
@@ -567,7 +568,7 @@ groupStream.printSchema
 
 display(groupStream)
 ```
-輸出現在會類似下列的程式碼片段。
+輸出現在類似下列程式碼片段。
 ```
 groupTime                       average
 2019-04-23T04:00:00.000+0000    24
@@ -579,8 +580,8 @@ groupTime                       average
 
 ```
 
-然後取得差異彙總的輸出結果。 異常偵測需要較長的 [記錄] 視窗，因為我們使用差異保留歷程記錄資料，您要偵測的點。 取代"[版面配置區： 資料表名稱]"限定的差異資料表名稱 （例如，「 tweet 」） 建立。 取代"[預留位置： 檢查點的資料夾名稱]"的字串值是唯一的每次您執行此程式碼 (比方說，「 etl-從-事件中樞-20190605")。
-若要深入了解在 Azure Databricks 上的差異 Lake，請參閱[差異 Lake 指南](https://docs.azuredatabricks.net/delta/index.html)
+然後取得差異的彙總輸出結果。 因為異常偵測需要較長的歷程記錄時段，所以我們使用差異來為您要偵測的資料點保留歷程記錄資料。 以要建立的合格差異資料表名稱 (例如，"tweets") 取代 "[Placeholder: table name]"。 以您每次執行此程式碼時唯一的字串值 (例如，"etl-from-eventhub-20190605") 取代 "[Placeholder: folder name for checkpoints]"。
+若要深入了解 Azure Databricks 上的 Delta Lake，請參閱 [Delta Lake 指南](https://docs.azuredatabricks.net/delta/index.html)
 
 
 ```scala
@@ -596,7 +597,7 @@ groupStream.writeStream
 
 ```
 
-取代"[版面配置區： 資料表名稱]"具有相同的差異資料表名稱中，您已選取上面。
+以您在上面選取的相同差異資料表名稱取代 "[Placeholder: table name]"。
 ```scala
 //
 // Show Aggregate Result
@@ -623,7 +624,7 @@ groupTime                       average
 
 ```
 
-現在，彙總的時間序列資料持續被內嵌的差異。 然後您可以排程每小時的作業，以偵測異常的最新的點。 取代"[版面配置區： 資料表名稱]"具有相同的差異資料表名稱中，您已選取上面。
+現在，彙總時間序列資料會持續內嵌到差異中。 然後您可以排程每小時作業，以偵測最新資料點的異常狀況。 以您在上面選取的相同差異資料表名稱取代 "[Placeholder: table name]"。
 
 ```scala
 //
@@ -662,7 +663,7 @@ spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 val adResult = spark.sql("SELECT '" + endTime.toString + "' as datetime, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
-結果，如下所示： 
+結果如下所示： 
 
 ```
 +--------------------+-------+
@@ -672,20 +673,20 @@ adResult.show()
 +--------------------+-------+
 ```
 
-就這麼簡單！ 使用 Azure Databricks，您已成功將資料串流到 Azure 事件中樞、 取用串流資料，使用事件中樞連接器，然後對串流近乎即時的資料執行異常偵測。
-雖然在此教學課程中，資料粒度是每小時，您可以隨時變更以符合您需求的資料粒度。 
+就這麼簡單！ 您已使用 Azure Databricks 成功地以近乎即時的速度將資料串流到 Azure 事件中樞、使用事件中樞連接器取用串流資料，然後對串流資料執行異常偵測。
+雖然在本教學課程中，細微性為每小時，您可以隨時變更細微度以符合您的需求。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在本教學課程執行完後，您可以終止叢集。 若要這樣做，請在 Azure Databricks 工作區中，選取**叢集**從左窗格中。 對於您想要終止的叢集，將游標移到底下的省略符號**動作**資料行，然後選取**終止**圖示，然後選取**確認**。
+在本教學課程執行完後，您可以終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中選取 [叢集]  。 對於您想要終止的叢集，將游標移到 [動作]  資料行底下的省略符號上，然後選取 [終止]  圖示，然後選取 [確認]  。
 
 ![停止 Databricks 叢集](../media/tutorials/terminate-databricks-cluster.png "停止 Databricks 叢集")
 
-如果您不手動終止的叢集將會自動停止，提供您所選取**後終止\_\_停止活動幾分鐘**建立叢集時的核取方塊。 在這種情況下，叢集將會在停止活動達指定時間後自動停止。
+如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止]  核取方塊。 在這種情況下，叢集將會在停止活動達指定時間後自動停止。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 Azure Databricks 將資料串流到 Azure 事件中樞，然後從事件中樞即時讀取串流資料。 請前進到下一個教學課程，以了解如何呼叫異常偵測器 API，並以視覺化方式檢視使用 Power BI desktop 的異常狀況。 
+在本教學課程中，您已了解如何使用 Azure Databricks 將資料串流到 Azure 事件中樞，然後從事件中樞即時讀取串流資料。 前進到下一個教學課程，以了解如何使用 Power BI Desktop 呼叫 Anomaly Detector API，並將異常狀況視覺化。 
 
 > [!div class="nextstepaction"]
->[使用 Power BI desktop 的批次異常偵測](batch-anomaly-detection-powerbi.md)
+>[透過 Power BI Desktop 批次處理異常偵測](batch-anomaly-detection-powerbi.md)

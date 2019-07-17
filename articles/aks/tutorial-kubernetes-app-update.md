@@ -2,18 +2,18 @@
 title: Azure 上的 Kubernetes 教學課程 - 更新應用程式
 description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您將了解如何使用新版的應用程式程式碼來更新對 AKS 的現有應用程式部署。
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475508"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614385"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教學課程：更新 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -88,7 +88,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 現在，使用 [docker push][docker-push] 將映像上傳至您的登錄。 將 `<acrLoginServer>` 取代為您的 ACR 登入伺服器名稱。
 
 > [!NOTE]
-> 如果您在推送到 ACR 登錄時發生問題，請確定您仍處於登入狀態。 使用「[建立 Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry)」步驟中建立的 Azure Container Registry 名稱，執行 [az acr login][az-acr-login] 命令。 例如： `az acr login --name <azure container registry name>`。
+> 如果您在推送到 ACR 登錄時發生問題，請確定您仍處於登入狀態。 使用 [建立 Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 步驟中建立的 Azure Container Registry 名稱，執行 [az acr login][az-acr-login] 命令。 例如： `az acr login --name <azure container registry name>` 。
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

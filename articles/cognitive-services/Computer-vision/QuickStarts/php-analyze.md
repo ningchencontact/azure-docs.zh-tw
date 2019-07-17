@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 432ad21ac856f4abde26d30b8f1ef8b34cc6dc0e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f9375d3ce7c5127ed80f3f7fad93f4db8aa58b76
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995637"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604308"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 PHP 分析遠端影像
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-php"></a>快速入門：使用電腦視覺 REST API 與 PHP 分析遠端影像
 
 在此快速入門中，您將使用電腦視覺的 REST API，來分析遠端儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
 
@@ -50,7 +50,7 @@ ms.locfileid: "59995637"
     1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的端點 URL。
     1. (選擇性) 將 `imageUrl` 的值取代為您要分析之不同影像的 URL。
     1. (選擇性) 以不同的語言取代 `language` 要求參數的值。
-1. 將程式碼儲存為副檔名為 `.php` 的檔案。 例如： `analyze-image.php`。
+1. 將程式碼儲存為副檔名為 `.php` 的檔案。 例如： `analyze-image.php` 。
 1. 開啟具有 PHP 支援的瀏覽器視窗。
 1. 將檔案拖放到瀏覽器視窗中。
 

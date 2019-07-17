@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905678"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606919"
 ---
 # <a name="what-is-the-azure-face-api"></a>什麼是 Azure 臉部 API？
 
@@ -59,11 +59,11 @@ Azure 認知服務的臉部 API 提供相關的演算法，用來偵測、辨識
 
 識別 API 可用來識別對人員資料庫偵測出來的臉部。 對於相片管理軟體中的自動影像標記功能來說，此功能可能很實用。 您可以事先建立資料庫，然後隨著時間加以編輯。
 
-下圖說明資料庫 "myfriends" 的範例。 每個群組最多可包含一百萬個不同的人員物件。 每個人員物件最多可以註冊 248 張臉。
+下圖說明資料庫 `"myfriends"` 的範例。 每個群組最多可包含一百萬個不同的人員物件。 每個人員物件最多可以註冊 248 張臉。
 
 ![不同人員的網格，內含三個資料行，每個資料行有三個資料列的臉部影像](./Images/person.group.clare.jpg)
 
-資料庫建立並訓練完成後，您即可對新偵測到臉部的群組執行識別作業。 如果臉部識別為群組中的人員，則會傳回人員物件。
+建立及訓練資料庫之後，您即可對新偵測到臉部的群組執行識別作業。 如果臉部識別為群組中的人員，則會傳回人員物件。
 
 如需人員識別的詳細資訊，請參閱[臉部辨識](concepts/face-recognition.md)概念指南或[識別 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 參考文件。
 

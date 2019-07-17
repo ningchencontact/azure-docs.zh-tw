@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 7/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: db0f0ac3073687b7c1cd8ca60e459e4bb3aa03f4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606245"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626348"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
 
@@ -41,9 +41,17 @@ ms.locfileid: "65606245"
 
 ## <a name="ship-data-box-back"></a>寄回資料箱
 
-1. 請確認裝置的電源已關閉，然後移除纜線。 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
-2. 請確定出貨標籤已顯示在電子筆墨顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請與 Microsoft 支援服務連絡。 若支援人員提出建議，則您可以前往 Azure 入口網站中的 [概觀] > [下載出貨標籤]  。 下載出貨標籤並貼在裝置上。 
-3. 如果要送回裝置，請安排由 UPS 取貨。 若要排定取貨時間：
+確保裝置的資料副本完整且 [準備寄送]  執行成功。 根據您寄送裝置的區域，程序會有所不同。
+
+
+### <a name="ship-in-us-canada-europe"></a>在美國、加拿大、歐洲寄送
+
+如果在美國、加拿大或歐洲退回裝置，請執行下列步驟。
+
+1. 確定裝置的電源已關閉，然後移除纜線。 
+2. 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
+3. 請確定出貨標籤已顯示在電子筆墨顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請與 Microsoft 支援服務連絡。 若支援人員提出建議，則您可以前往 Azure 入口網站中的 [概觀] > [下載出貨標籤]  。 下載出貨標籤並貼在裝置上。 
+4. 如果要送回裝置，請安排由 UPS 取貨。 若要排定取貨時間：
 
     - 致電給當地的 UPS (國家/地區特定的免付費電話號碼)。
     - 在您的電話中提供反向出貨追蹤號碼，如 E-ink 顯示或您列印出的標籤中所示。
@@ -51,6 +59,72 @@ ms.locfileid: "65606245"
 
     除了排定取貨時間，您也可以在最接近的托運地點托運該資料箱。
 4. 一旦貨運業者收取資料箱並進行掃描，入口網站的訂單狀態會更新為 [已取貨]  。 此外，也會顯示追蹤識別碼。
+
+### <a name="ship-in-asia-pacific-region"></a>在亞太地區寄送
+
+#### <a name="ship-in-australia"></a>在澳洲寄送
+
+澳洲的 Azure 資料中心有額外的安全性通知。 所有送達的貨物都必須有預先通知。 在澳洲寄送可採取下列步驟。
+
+
+1. 保留用來寄送裝置以供退貨的原始外盒。
+2. 確保裝置的資料副本完整且 [準備寄送]  執行成功。
+3. 關閉裝置電源並移除纜線。
+4. 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
+5. 寄送電子郵件給 Quantium Solutions 要求取貨。 請參閱 Azure 入口網站上指定的服務參考號碼。 使用以下電子郵件範本：*Request for reverse shipping label with TAU code*。 務必在電子郵件中包含下列詳細資料： 
+
+    ```
+    To: Azure@quantiumsolutions.com
+    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
+    Body: 
+    - Company name：
+    - Address:
+    - Contact name:
+    - Contact number:
+    - Requested pickup date: mm/dd
+    ```
+6. Quantium Solutions 澳洲分公司會透過電子郵件將退貨運送標籤傳送給您。
+7. 列印退貨標籤並將它貼在運送外盒上。
+8. 將包裹交給承運商。
+
+如有需要，您可以寄送電子郵件到 Azure@quantiumsolutions.com 或致電 Quantium Solution Support。
+
+
+對於透過電話的訂單相關查詢：
+
+- 先傳送取貨的電子郵件。
+- 提供您手機上的訂單名稱。
+
+#### <a name="ship-in-japan"></a>在日本寄送 
+
+1. 保留用來寄送裝置以供退貨的原始外盒。
+2. 關閉裝置電源並移除纜線。
+3. 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
+4. 在理貨單上寫下貴公司名稱和地址資訊，作為您的寄件者資訊。
+5. 使用下列電子郵件範本傳送電子郵件給 Quantium Solutions。
+
+    - 如果日本郵局運費到付託運單未隨附或遺失，請在這封電子郵件註明。 Quantium Solutions (Japan) 會要求日本郵局在取貨時提供理貨單。
+    - 如果您有多個訂單，請透過電子郵件確保每件都會順利取貨。
+
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box｜Job name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+    ```
+
+3. 在預約取貨時間後，接收來自 Quantium Solutions 的電子郵件確認。 電子郵件確認也會包含運費到付理貨單的資訊。
+
+如有需要，您可以透過下列資訊連絡 Quantium Solutions 支援人員 (日文)： 
+
+- 電子郵件：Customerservice.JP@quantiumsolutions.com 
+- 電話：03-5755-0150 
+
 
 ## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
 

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 693dd25b1fdd3757cbd9c77e974c6818f59a915f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 679dd8d1216d4d4893cca15a02230f58bff2ff32
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004443"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605955"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Go 分析遠端影像
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>快速入門：使用電腦視覺 REST API 與 Go 分析遠端影像
 
 在此快速入門中，您將使用電腦視覺的 REST API，來分析遠端儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
 
@@ -38,10 +38,10 @@ ms.locfileid: "60004443"
     1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的端點 URL。
     1. (選擇性) 將 `imageUrl` 的值取代為您要分析之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.go` 的檔案。 例如： `analyze-image.go`。
+1. 將程式碼儲存為副檔名為 `.go` 的檔案。 例如： `analyze-image.go` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，執行 `go build` 命令以編譯檔案中的套件。 例如： `go build analyze-image.go`。
-1. 出現提示時，執行已編譯的套件。 例如： `analyze-image`。
+1. 出現提示時，執行 `go build` 命令以編譯檔案中的套件。 例如： `go build analyze-image.go` 。
+1. 出現提示時，執行已編譯的套件。 例如： `analyze-image` 。
 
 ```go
 package main
@@ -64,7 +64,7 @@ func main() {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     const uriBase =

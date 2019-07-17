@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-MongoDB API 的 Azure Cosmos DB Update RU/秒
-description: Azure PowerShell 指令碼-MongoDB API 的 Azure Cosmos DB Update RU/秒
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4fc8a8c8cc8e5d516ace4a1523a0d1845b6f7edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 517857116bf077814b936e5d7ecb54d841959657
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247420"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603877"
 ---
-# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>更新資料庫或適用於 Azure Cosmos DB MongoDB API 集合的 RU/秒
+# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>更新 Azure Cosmos DB 資料庫或集合的 RU/秒 - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

@@ -2,18 +2,18 @@
 title: Azure 上的 Kubernetes 教學課程 - 準備應用程式
 description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您將了解如何透過 Docker Compose 來準備和建置後續可部署至 AKS 的多容器應用程式。
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304441"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614234"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教學課程：準備 Azure Kubernetes Service (AKS) 的應用程式
 
@@ -34,7 +34,7 @@ ms.locfileid: "66304441"
 
 本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和 `docker` 命令。 如需容器基本概念的入門參考資料，請參閱[開始使用 Docker][docker-get-started]。
 
-若要完成此教學課程，您需要一個執行 Linux 容器的本機 Docker 開發環境。 Docker 提供可在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
+若要完成此教學課程，您需要一個執行 Linux 容器的本機 Docker 開發環境。 Docker 提供可在 [Mac][docker-for-mac], [Windows][docker-for-windows]或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
 
 Azure Cloud Shell 不含完成這些教學課程中各個步驟所需的 Docker 元件。 因此，我們建議使用完整的 Docker 開發環境。
 
@@ -66,7 +66,7 @@ cd azure-voting-app-redis
 docker-compose up -d
 ```
 
-完成時，使用 [docker images][docker-images] 命令來查看所建立的映像。 已下載或建立三個映像。 *azure-vote-front* 映像包含前端應用程式，並使用 `nginx-flask` 映像作為基礎映像。 `redis` 映像可用來啟動 Redis 執行個體。
+完成時，使 [docker images][docker-images] 命令來查看所建立的映像。 已下載或建立三個映像。 *azure-vote-front* 映像包含前端應用程式，並使用 `nginx-flask` 映像作為基礎映像。 `redis` 映像可用來啟動 Redis 執行個體。
 
 ```
 $ docker images

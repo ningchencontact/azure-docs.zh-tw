@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0d679bf95855232fd64403873e0aea2f24c0af19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 68764587191288200ad8f69bb8357e7e44e55fa8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000941"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605949"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Go 擷取印刷文字 (OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-with-go"></a>快速入門：使用電腦視覺 REST API 與 Go 擷取印刷文字 (OCR)
 
 在此快速入門中，您將使用電腦視覺的 REST API，利用光學字元辨識 (OCR) 來擷取影像中的印刷文字。 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，您可以偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
@@ -38,10 +38,10 @@ ms.locfileid: "60000941"
     1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
     1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法的端點 URL。
     1. (選擇性) 將 `imageUrl` 的值取代為您要分析之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.go` 的檔案。 例如： `get-printed-text.go`。
+1. 將程式碼儲存為副檔名為 `.go` 的檔案。 例如： `get-printed-text.go` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，執行 `go build` 命令以編譯檔案中的套件。 例如： `go build get-printed-text.go`。
-1. 出現提示時，執行已編譯的套件。 例如： `get-printed-text`。
+1. 出現提示時，執行 `go build` 命令以編譯檔案中的套件。 例如： `go build get-printed-text.go` 。
+1. 出現提示時，執行已編譯的套件。 例如： `get-printed-text` 。
 
 ```go
 package main
@@ -64,7 +64,7 @@ func main() {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     const uriBase =

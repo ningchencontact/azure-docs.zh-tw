@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad619a72bc66df04675cd63589c540d2adc05b0b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 71fc32fb34ae67f6d3a4de556da8b107574cc920
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996115"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603533"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-ruby-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Ruby 擷取印刷文字 (OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-ruby"></a>快速入門：使用電腦視覺 REST API 和 Ruby 擷取印刷文字 (OCR)
 
 在此快速入門中，您將使用電腦視覺的 REST API，利用光學字元辨識 (OCR) 來擷取影像中的印刷文字。 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，您可以偵測影像中的印刷文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
@@ -38,9 +38,9 @@ ms.locfileid: "59996115"
     1. 將 `<Subscription Key>` 取代為訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域，將 `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr` 取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法的端點 URL。
     1. (選擇性) 將 `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\` 取代為您要從中擷取印刷文字之不同影像的 URL。
-1. 將程式碼儲存為副檔名為 `.rb` 的檔案。 例如： `get-printed-text.rb`。
+1. 將程式碼儲存為副檔名為 `.rb` 的檔案。 例如： `get-printed-text.rb` 。
 1. 開啟命令提示字元視窗。
-1. 出現提示時，使用 `ruby` 命令執行範例。 例如： `ruby get-printed-text.rb`。
+1. 出現提示時，使用 `ruby` 命令執行範例。 例如： `ruby get-printed-text.rb` 。
 
 ```ruby
 require 'net/http'

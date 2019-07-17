@@ -1,6 +1,6 @@
 ---
 title: 將筆跡資料傳送至筆跡辨識器 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何為不同應用程式呼叫筆跡分析器 API
 services: cognitive-services
 author: erhopf
@@ -10,18 +10,18 @@ ms.subservice: ink-recognizer
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a212c7332d085c15baabef8650572162c47903d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 23431a6171f9ce4d2550ee62ac84679ce36126de
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026650"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721772"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>將筆跡資料傳送至筆跡辨識器 API 
 
 數位筆跡是指能夠數位呈現手寫和繪圖等輸入的技術。 要實現此功能，我們一般會使用數位板來擷取手寫筆等輸入裝置的移動。 由於裝置能夠繼續提供豐富的數位筆跡體驗，因此人工智慧和機器學習能夠辨識任何內容中的書寫圖形和文字。 筆跡辨識器 API 可讓您傳送筆跡筆觸並取得其相關詳細資訊。 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>筆跡辨識器 API 與 OCR 服務
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>筆跡辨識器 API 與OCR 服務
 
 筆跡辨識器 API 不會使用光學字元辨識 (OCR)。 OCR 服務會處理影像中的像素資料，以提供手寫和文字辨識。 這有時候稱為離線辨識。 相反地，筆跡辨識器 API 則需要使用輸入裝置時所擷取的數位筆跡筆觸資料。 相較於 OCR 服務，以這種方式處理數位筆跡資料會產生更精確的辨識結果。 
 

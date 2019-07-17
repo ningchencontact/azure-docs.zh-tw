@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827642"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604013"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>教學課程：辨識相機圖片中的 Azure 服務標誌
 
-在本教學課程中，您將探索在較大的案例中使用 Azure 自訂視覺的範例應用程式。 AI Visual Provision 應用程式是適用於行動平台的 Xamarin.Forms 應用程式，它可分析 Azure 服務標誌的相機相片，然後將實際的服務部署至使用者的 Azure 帳戶。 在此您將了解此應用程式如何搭配使用自訂視覺與其他元件來提供有用的端對端應用程式。 您可以自行執行整個應用程式案例，或是僅完成設定的自訂視覺部分，並大致了解應用程式如何加以運用。
+在本教學課程中，您將探索在較大的案例中使用 Azure 自訂視覺的範例應用程式。 AI Visual Provision 應用程式是適用於行動平台的 Xamarin.Forms 應用程式，它可分析 Azure 服務標誌的相機相片，然後將實際的服務部署至使用者的 Azure 帳戶。 在此您將了解此應用程式如何搭配使用自訂視覺與其他元件來提供有用的端對端應用程式。 您可以自行執行整個應用程式案例，也可以僅完成設定的自訂視覺部分，並大致了解應用程式如何加以運用。
 
 此教學課程將為您示範如何：
 
@@ -51,7 +51,7 @@ ms.locfileid: "65827642"
 
 接著，請上傳 Azure 服務標誌的影像並手動加以標記，以訓練標誌偵測演算法。 AIVisualProvision 存放庫中包含一組可供使用的訓練影像。 在網站上，選取 [訓練影像]  索引標籤上的 [新增影像]  按鈕。然後，移至存放庫的 **Documents/Images/Training_DataSet** 資料夾。 您將手動標記每個影像中的標誌，因此如果您只要測試此專案，您可以僅上傳一部分的影像。 對於您預計要使用的每個標記，至少須分別上傳 15 個執行個體。
 
-上傳訓練影像之後，請選取顯示畫面上的第一個影像。 這會開啟標記視窗。 為每個影像中的各個標誌繪製方塊並指派標記。 
+上傳訓練影像之後，請選取顯示畫面上的第一個影像。 隨即會出現標記視窗。 為每個影像中的各個標誌繪製方塊並指派標記。 
 
 ![自訂視覺網站上的標誌標記](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ ms.locfileid: "65827642"
 
 ## <a name="train-the-object-detector"></a>訓練物件偵測器
 
-在左窗格中，將 [標記]  參數設為 [已標記]  ，以顯示您的影像。 然後，選取頁面頂端的綠色按鈕，以訓練模型。 這麼做會指示演算法辨識新影像中的相同標記。 此外也會以您現有的一些影像測試模型，以產生精確度分數。
+在左窗格中，將 [標記]  參數設為 [已標記]  ，以顯示您的影像。 然後，選取頁面頂端的綠色按鈕，以訓練模型。 此演算法會訓練辨識新影像中的相同標記。 此外也會以您現有的一些影像測試模型，以產生精確度分數。
 
 ![自訂視覺網站的 [訓練影像] 索引標籤。此螢幕擷取畫面標示出訓練按鈕的部分](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>取得預測 URL
 
-模型已定型後，即可將其整合到應用程式中。 為此，您必須取得端點 URL (應用程式將查詢的模型位址) 和預測金鑰 (為應用程式授與預測要求的存取權)。 在 [效能]  索引標籤上，選取頁面頂端的 [預測 URL]  按鈕。
+模型已定型後，即可將其整合到應用程式中。 您必須取得端點 URL (應用程式將查詢的模型位址) 和預測金鑰 (為應用程式授與預測要求的存取權)。 在 [效能]  索引標籤上，選取頁面頂端的 [預測 URL]  按鈕。
 
 ![自訂視覺網站的預測 API 視窗，顯示 URL 位址和 API 金鑰](media/azure-logo-tutorial/cusvis-endpoint.png)
 

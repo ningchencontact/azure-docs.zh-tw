@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2ed1a20bf47771d927c0d58730fa0eb4471572af
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490441"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603379"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入門：使用 REST API 和 PHP 偵測影像中的人臉
 
@@ -30,7 +30,7 @@ ms.locfileid: "59490441"
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 檔案
 
-建立新的 HTML 檔案 (detectFaces.html)，並新增下列程式碼。
+建立新的 HTML 檔案 (detectFaces.html)  ，並新增下列程式碼。
 
 ```html
 <html>
@@ -43,7 +43,7 @@ ms.locfileid: "59490441"
 
 ## <a name="write-the-php-script"></a>撰寫 PHP 指令碼
 
-在文件的 `body` 元素內新增下列程式碼。 這會設定基本的使用者介面，內有 URL 欄位、[分析臉部] 按鈕、[回應] 窗格和 [影像顯示] 窗格。
+在文件的 `body` 元素內新增下列程式碼。 此程式碼會設定基本的使用者介面，內有 URL 欄位、[分析臉部]  按鈕、[回應] 窗格和 [影像顯示] 窗格。
 
 ```php
 <?php
@@ -291,4 +291,4 @@ catch (HttpException $ex)
 探索臉部 API，此 API 可用來偵測影像中的人臉、使用矩形標定臉部，以及傳回例如年齡和性別等屬性。
 
 > [!div class="nextstepaction"]
-> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (英文)

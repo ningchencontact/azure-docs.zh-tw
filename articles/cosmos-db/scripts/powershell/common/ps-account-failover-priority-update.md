@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-Azure Cosmos 帳戶變更容錯移轉優先順序
-description: Azure PowerShell 指令碼範例-Azure Cosmos 帳戶變更容錯移轉優先順序
+title: Azure PowerShell 指令碼 - 變更 Azure Cosmos 帳戶的容錯移轉優先順序
+description: Azure PowerShell 指令碼範例 - 變更 Azure Cosmos 帳戶的容錯移轉優先順序
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 785ca8941c24014fd00d8135b66cefccd99d2951
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
-ms.translationtype: MT
+ms.openlocfilehash: 0aea4e8e01b5f65be0d0ca4bb08082e058cba311
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561209"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603967"
 ---
-# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>變更 Azure Cosmos 帳戶使用 PowerShell 的容錯移轉優先順序
+# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 變更 Azure Cosmos 帳戶的容錯移轉優先順序
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 命令 | 注意 |
 |---|---|
 |**Azure 資源**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 叫用資源的動作。 |
+| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 對資源叫用動作。 |
 |**Azure 資源群組**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 |||

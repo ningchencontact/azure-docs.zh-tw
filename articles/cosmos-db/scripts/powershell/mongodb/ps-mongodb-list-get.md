@@ -1,19 +1,19 @@
 ---
-title: Azure 的 PowerShell 指令碼-Azure Cosmos DB 清單，並取得適用於 MongoDB API 的作業
-description: Azure 的 PowerShell 指令碼-Azure Cosmos DB 清單，並取得適用於 MongoDB API 的作業
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 列出及取得 MongoDB API 的作業
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 列出及取得 MongoDB API 的作業
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: af0ec094e7f77cf9c55456ce026c67a4ebae493d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: cd00166e93477dc229a25cc7a183febe4034d7bb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247435"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603909"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>清單，並取得適用於 Azure Cosmos DB MongoDB API 的資料庫和圖形
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>列出及取得 Azure Cosmos DB 資料庫和圖表 - MongoDB API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

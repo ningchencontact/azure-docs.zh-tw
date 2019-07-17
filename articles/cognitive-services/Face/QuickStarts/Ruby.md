@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312390"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603365"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>快速入門：使用 REST API 和 Ruby 偵測影像中的人臉
 
@@ -24,11 +24,11 @@ ms.locfileid: "56312390"
 ## <a name="prerequisites"></a>必要條件
 
 - 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
-- 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)。
+- 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>撰寫指令碼
 
-建立新檔案 (faceDetection.rb)，並新增下列程式碼。 這會呼叫指定影像 URL 的人臉識別 API。
+建立新檔案 (faceDetection.rb)  ，並新增下列程式碼。 此程式碼會呼叫指定影像 URL 的臉部 API。
 
 ```ruby
 require 'net/http'
@@ -74,7 +74,7 @@ puts response.body
 ruby faceDetection.rb
 ```
 
-您應該會看到所偵測到臉部資料的 JSON 字串列印至主控台。 以下是成功 JSON 回應的範例。
+您應該會看到所偵測到臉部資料的 JSON 字串列印至主控台。 以下文字是成功 JSON 回應的範例。
 
 ```json
 [

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756539"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604052"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析文字內容中的不當題材
 
@@ -34,7 +34,7 @@ ms.locfileid: "58756539"
 
 1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將其命名為 **TextModeration**。 
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
-1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]  ，然後尋找並安裝下列套件：
     - `Microsoft.Azure.CognitiveServices.ContentModerator`
     - `Microsoft.Rest.ClientRuntime`
     - `Newtonsoft.Json`
@@ -57,11 +57,11 @@ ms.locfileid: "58756539"
 
 ### <a name="set-up-input-and-output-targets"></a>設定輸入和輸出目標
 
-將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些項目會指定輸入文字內容和輸出 JSON 內容的檔案。
+將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些欄位會指定輸入文字內容和輸出 JSON 內容的檔案。
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-您必須建立 *TextFile.txt* 輸入檔，並據以更新其路徑 (相對於執行目錄的相對路徑)。 開啟 _TextFile.txt_ 並新增要仲裁的文字。 本快速入門會使用下列範例文字：
+您必須建立 *TextFile.txt* 輸入檔，並更新其路徑 (相對於執行目錄的路徑)。 開啟 _TextFile.txt_ 並新增要仲裁的文字。 本快速入門會使用下列範例文字：
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

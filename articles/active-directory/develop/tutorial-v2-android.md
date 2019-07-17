@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 07/09/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 71c6b0d4cd664b12dbd0fbd4e9423240c8dbebb3
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550581"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723809"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>從 Android 應用程式登入使用者並呼叫 Microsoft Graph
 
-在本教學課程中，您將了解如何將 Android 應用程式整合到 Microsoft 身分識別平台中。 具體來說，您的應用程式會讓使用者登入、取得存取權杖來呼叫 Microsoft Graph API，以及對 Microsoft Graph API 提出要求。  
+在本教學課程中，您將了解如何整合 Android 應用程式與 Microsoft 身分識別平台。 您的應用程式會讓使用者登入、取得存取權杖來呼叫 Microsoft Graph API，以及對 Microsoft Graph API 提出要求。  
 
 完成本指南後，您的應用程式會接受使用個人Microsoft 帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及採用 Azure Active Directory 的公司或組織所提供的公司或學校帳戶登入。
 
@@ -33,7 +33,7 @@ ms.locfileid: "67550581"
 
 ![示範本教學課程所產生的應用程式範例如何運作](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
-此範例中的應用程式將會登入使用者，並且代表他們取得資料。  這項資料會透過需要授權的受保護 API (也就是此案例中的 Microsoft Graph API) 來存取。
+此範例中的應用程式將會登入使用者，並且代表他們取得資料。  這項資料會透過需要授權的受保護 API (Microsoft Graph API) 來存取。
 
 具體而言：
 
@@ -43,7 +43,7 @@ ms.locfileid: "67550581"
 * 此存取權杖會包含在 Web API 的 HTTP 要求中。
 * 處理 Microsoft Graph 回應。
 
-此範例會使用適用於 Android 的 Microsoft 驗證程式庫 (MSAL) 來實作驗證。MSAL 會自動更新權杖、提供裝置上其他應用程式之間的 SSO 以及管理帳戶。
+此範例會使用適用於 Android 的 Microsoft 驗證程式庫 (MSAL) 來實作驗證。 MSAL 會自動更新權杖、提供裝置上其他應用程式之間的 SSO，以及管理帳戶。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -58,39 +58,37 @@ ms.locfileid: "67550581"
 |---|---|
 |[com.microsoft.identity.client (英文)](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
-## <a name="set-up-your-project"></a>設定專案
+## <a name="create-a-project"></a>建立專案
 
 此教學課程會建立新的專案。 如果您想改為下載完整的教學課程，[請下載程式碼](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>建立新專案
-
-1. 開啟 Android Studio，然後選取 [開始新的 Android Studio 專案]  。
-    - 如果 Android Studio 已開啟，請選取 [檔案]   > [新增]   > [新增專案]  。
-2. 將 [空白活動]  保留原狀，選取 [下一步]  。
-3. 命名您的應用程式，將 `Minimum API level`設定為 **API 19 或更新版本**，然後點擊 [完成]  。
-5. 在您的 `app/build.gradle` 中，將 `targetedSdkVersion`設定為 27。 
+1. 開啟 Android Studio，然後選取 [開始新的 Android Studio 專案] 
+2. 選取 [基本活動]  ，然後按 [下一步]  。
+3. 為您的應用程式命名
+4. 儲存套件名稱。 您稍後會在 Azure 入口網站中加以輸入。 
+5. 將 [最低 API 層級]  設為 [API 19]  或更高，然後按一下 [完成]  。
+6. 在專案檢視中，從下拉式清單中選擇 [專案]  以顯示來源和非來源專案檔，然後開啟 **app/build.gradle**，並將 `targetSdkVersion` 設為 `27`。
 
 ## <a name="register-your-application"></a>註冊您的應用程式
 
-如接下來兩節所述，您可以在任一種方式註冊您的應用程式。
-
-### <a name="register-your-app"></a>註冊您的應用程式
-
-1. 前往 [Azure 入口網站](https://aka.ms/MobileAppReg) > 選取 `New registration`。 
-2. 請為應用程式輸入**名稱** > `Register`。 **請勿在此階段設定重新導向 URI**。 
-3. 在 `Manage` 區段中，移至 `Authentication` > `Add a platform` > `Android`
-    - 輸入您專案的套件名稱。 如果您已下載程式碼，此值會是 `com.azuresamples.msalandroidapp`。 
-    - 輸入您的偵錯/開發簽章雜湊碼。 使用入口網站中的 KeyTool 命令來產生簽章雜湊碼。 
-4. 叫用 `Configure` 並儲存 ***MSAL 組態***，以供稍後使用。 
+1. 移至 [Azure 入口網站](https://aka.ms/MobileAppReg)
+2. 開啟 [應用程式註冊](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) 刀鋒視窗，然後按一下 [+新增註冊]  。
+3. 輸入應用程式的 [名稱]  ，然後不設定 [重新導向 URI] 而直接按一下 [註冊]  。
+4. 在顯示的窗格中，從 [管理]  區段選取 [驗證]   > [+ 新增平台]   > [Android]  。
+5. 輸入您專案的套件名稱。 如果您已下載程式碼，此值會是 `com.azuresamples.msalandroidapp`。
+6. 在 [設定 Android 應用程式]  頁面的 [簽章雜湊]  區段中，按一下 [產生開發簽章雜湊]  。 然後，複製要用於平台的 KeyTool 命令。 請注意，KeyTool.exe 會安裝為 Java Development Kit (JDK) 的一部分，且您必須也已安裝 OpenSSL 工具，才能執行 KeyTool 命令。
+7. 輸入 KeyTool 所產生的**簽章雜湊**。
+8. 按一下 `Configure` 並儲存出現在 [Android 設定]  頁面中的 [MSAL 設定]  ，以便稍後在設定應用程式時可加以輸入。  按一下 [完成]  。
 
 ## <a name="build-your-app"></a>建置您的應用程式
 
 ### <a name="configure-your-android-app"></a>設定您的 Android 應用程式
 
-1. 以滑鼠右鍵按一下 [res]   > [新增]   > [資料夾]   > [未經處理的資源資料夾] 
-2. 在 [app]   > [res]   > [raw]  中，建立稱為 `auth_config.json` 的新 JSON 檔案，並貼上您的 ***MSAL 組態***. 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
+1. 在 Android Studio 的專案窗格中，瀏覽至 **app\src\main\res**。
+2. 以滑鼠右鍵按一下 [res]  ，然後選擇 [新增]   > [目錄]  。 輸入 `raw` 作為新的目錄名稱，然後按一下 [確定]  。
+3. 在 [app]   > [src]   > res   > [raw]  中，建立名為 `auth_config.json` 的新 JSON 檔案，並貼上您先前儲存的 [MSAL 設定]。 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
    <!-- Workaround for Docs conversion bug -->
-3. 在 [app]   > [manifests]   > [AndroidManifest.xml]  中，新增下方的 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
+4. 在 [app]   > [src]   > [main]   > [AndroidManifest.xml]  中，於下方新增 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -107,21 +105,20 @@ ms.locfileid: "67550581"
     </activity>
     ```
 
-    請注意，在 **AndroidManifest.xml** 中，使用的簽章雜湊碼不能是 URL 編碼。 
+    將 `android:host=` 值取代為您在 Azure 入口網站中註冊的套件名稱。
+    將 `android:path=` 值取代為您在 Azure 入口網站中註冊的索引鍵雜湊。 簽章雜湊不應進行 URL 編碼。
 
-4. 在 **AndroidManifest.xml** 內部和 `<application>` 標記正上方，新增下列權限：
+5. 在 **AndroidManifest.xml** 內部的 `<application>` 標籤正上方，新增下列權限：
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-5. 在 `BrowserTabActivity` 中，將***套件名稱***和***簽章雜湊碼***取代為在 Azure 入口網站中註冊的值。
-
 ### <a name="create-the-apps-ui"></a>建立應用程式 UI
 
-1. 移至 [res]   > [配置]  ，然後開啟 **activity_main.xml**。
-2. 將活動配置從 `android.support.constraint.ConstraintLayout` 或其他配置變更為 `LinearLayout`。
+1. 在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [res]   > [layout]  ，然後開啟 [activity_main.xml]  ，並開啟 [文字]  檢視。
+2. 變更活動配置，例如從 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 變更為 `<androidx.coordinatorlayout.widget.LinearLayout`。
 3. 將 `android:orientation="vertical"` 屬性新增至 `LinearLayout` 節點。
 4. 將下列程式碼貼到 `LinearLayout` 節點中，並取代目前的內容：
 
@@ -178,21 +175,22 @@ ms.locfileid: "67550581"
 
 ### <a name="add-msal-to-your-project"></a>將 MSAL 新增至您的專案
 
-1. 在 Android Studio 中，選取 [Gradle 指令碼]   >  [build.gradle (模組: 應用程式)]  。
-2. 在 [相依性]  之下，貼上下列程式碼：
+1. 在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [build.gradle]  。
+2. 在 [相依性]  下方，貼上下列內容：
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.microsoft.identity.client:msal:0.3.+'
     ```
 
-### <a name="use-msal"></a>使用 MSAL 
+### <a name="use-msal"></a>使用 MSAL
 
-接下來幾節將會在 `MainAcitivty.java` 內部進行變更。 我們將逐步進行在應用程式中新增及使用 MSAL 所需的每個步驟。
+現在，請在 `MainActivity.java` 內進行變更，以在您的應用程式中新增和使用 MSAL。
+在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [java]   > [com.example.msal]  ，然後開啟 `MainActivity.java`
 
 #### <a name="required-imports"></a>必要的匯入項目
 
-在您的專案中新增下列匯入項目： 
+在 `MainActivity.java` 頂端附近新增下列匯入項目：
 
 ```java
 import android.app.Activity;
@@ -213,11 +211,11 @@ import com.microsoft.identity.client.*;
 import com.microsoft.identity.client.exception.*;
 ```
 
-#### <a name="instantiating-msal"></a>具現化 MSAL 
+#### <a name="instantiate-msal"></a>具現化 MSAL
 
-在 `MainActivity` 類別中，我們需要具現化 MSAL 及一些應用程式會執行的作業相關設定，包括們想要存取的範圍和 Web API。 
+在 `MainActivity` 類別中，我們需要具現化 MSAL 及一些應用程式會執行的作業相關設定，包括們想要存取的範圍和 Web API。
 
-複製 `MainActivity` 中的下列變數：
+複製 `MainActivity` 類別內的下列變數：
 
 ```java
 final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
@@ -233,7 +231,7 @@ private PublicClientApplication sampleApp;
 private IAuthenticationResult authResult;
 ```
 
-現在，若要具現化 MSAL，請複製 `onCreate(...)` 方法內的下列程式碼：
+將 `onCreate()` 的內容取代為下列程式碼，以具現化 MSAL：
 
 ```java
 super.onCreate(savedInstanceState);
@@ -273,19 +271,19 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 });
 ```
 
-當使用者開啟您的應用程式時，上述程式碼區塊會嘗試透過 `getAccounts(...)` 和 `acquireTokenSilentAsync(...)` (如果成功的話)，以無訊息模式來登入使用者。  在下面幾節中，我們將實作沒有已登入帳戶時的回撥處理常式。 
+當使用者開啟您的應用程式時，上述程式碼會嘗試透過 `getAccounts()` 以無訊息模式登入使用者，如果成功的話，則執行 `acquireTokenSilentAsync()`。  在下面幾節中，我們將實作沒有已登入帳戶時的回撥處理常式。
 
 #### <a name="use-msal-to-get-tokens"></a>使用 MSAL 取得權杖
 
-現在，我們可以實作應用程式的 UI 處理邏輯，並以互動方式透過 MSAL 取得權杖。 
+現在，我們可以實作應用程式的 UI 處理邏輯，並以互動方式透過 MSAL 取得權杖。
 
-MSAL 會公開兩個主要方法來取得權杖：`acquireTokenSilentAsync` 和 `acquireToken`。  
+MSAL 會公開兩個主要方法來取得權杖：`acquireTokenSilentAsync()` 和 `acquireToken()`。  
 
-如果帳戶存在，`acquireTokenSilentAsync` 會登入使用者並取得權杖，並且不會與使用者有任何互動。 如果成功，MSAL 會將權杖傳遞至應用程式，如果失敗，將會產生 `MsalUiRequiredException`。  如果產生此例外狀況，或是您想讓使用者有互動式的登入體驗 (可能會需要認證、mfa 或其他條件式存取原則，但也可能不需要)，那麼您可以使用 `acquireToken`。  
+如果帳戶存在，`acquireTokenSilentAsync()` 會登入使用者並取得權杖，並且不會與使用者有任何互動。 如果成功，MSAL 會將權杖傳遞至應用程式，如果失敗，將會產生 `MsalUiRequiredException`。  如果產生此例外狀況，或是您想讓使用者有互動式的登入體驗 (可能會需要認證、mfa 或其他條件式存取原則，但也可能不需要)，請使用 `acquireToken()`。  
 
-當 `acquireToken` 嘗試登入使用者並取得權杖時，一律會顯示 UI；不過，此方法可能會使用瀏覽器中的工作階段 Cookie 或 Microsoft 驗證器中的帳戶，以提供互動式 SSO 體驗。 
+`acquireToken()` 在嘗試登入使用者並取得權杖時，會顯示 UI。 不過，它可能會使用瀏覽器中的工作階段 Cookie 或 Microsoft 驗證器中的帳戶，以提供互動式 SSO 體驗。
 
-若要開始，請在 `MainActivity` 類別中建立下列三個 UI 方法：
+請在 `MainActivity` 類別中建立下列三個 UI 方法：
 
 ```java
 /* Set the UI for successful token acquisition data */
@@ -318,7 +316,7 @@ private void onCallGraphClicked() {
 }
 ```
 
-接下來，新增方法來取得目前的活動，並處理無訊息與互動式的回撥：
+新增下列方法以取得目前的活動，並處理無訊息與互動式的回呼：
 
 ```java
 public Activity getActivity() {
@@ -414,11 +412,12 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 
 #### <a name="use-msal-for-sign-out"></a>使用 MSAL 登出
 
-接下來，我們將加入登出應用程式的支援。 
+接著，新增登出的支援。
 
-請務必注意，使用 MSAL 登出會從此應用程式移除關於使用者的所有已知資訊，但使用者仍可在其裝置上擁有作用中的工作階段。 如果使用者嘗試再次登入，他們可能會看到互動，但可能不需要重新輸入其認證，因為裝置工作階段正在作用中。 
+> [!Important]
+> 使用 MSAL 登出會從應用程式中移除關於使用者的所有已知資訊，但使用者仍可在其裝置上擁有作用中的工作階段。 如果使用者嘗試再次登入，他們可能會看到登入 UI，但可能不需要重新輸入其認證，因為裝置工作階段仍為作用中。
 
-若要加入登出，請將下列方法複製到您的應用程式，該方法會在所有帳戶上循環，並移除這些帳戶：
+若要新增登出能力，請在 `MainActivity` 中新增下列方法。 此方法會逐一查看所有帳戶，並將其移除：
 
 ```java
 /* Clears an account's tokens from the cache.
@@ -461,16 +460,16 @@ private void onSignOutClicked() {
 
 #### <a name="call-the-microsoft-graph-api"></a>呼叫 Microsoft Graph API
 
-成功取得權杖後，我們可以對 Microsoft Graph API 提出要求。 在驗證回撥的 `onSuccess(...)` 方法內，您可以在 `AuthenticationResult` 中找到存取權杖。 若要建構已授權的要求，您的應用程式必須將存取權杖新增至 HTTP 標頭：
+在收到權杖後，我們即可對 [Microsoft Graph API](https://graph.microsoft.com) 提出要求。存取權杖會包含在驗證回呼 `onSuccess()` 方法的 `AuthenticationResult` 內。 若要建構已授權的要求，您的應用程式必須將存取權杖新增至 HTTP 標頭：
 
 | 標頭索引鍵    | value                 |
 | ------------- | --------------------- |
 | Authorization | 持有人 \<access-token> |
 
-若要在程式碼中執行該作業，請將下列兩個方法加入您的應用程式，以呼叫圖形和更新 UI： 
+在 `MainActivity` 類別中新增下列兩個方法，以呼叫圖形並更新 UI：
 
 ```java
-    /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
+/* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
 private void callGraphAPI() {
     Log.d(TAG, "Starting volley request to graph");
 
@@ -524,24 +523,22 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 
-深入了解 [Microsoft Graph API](https://graph.microsoft.com)！
-
 #### <a name="multi-account-applications"></a>多重帳戶應用程式
 
-此應用程式專為單一帳戶案例所建置。 MSAL 也支援多重帳戶案例，但需要從應用程式執行一些額外的工作。 您必須建立 UI，以協助使用者針對每個需要權杖的動作，選取想要使用的帳戶。 或者，您的應用程式可以實作啟發學習法，透過 `getAccounts(...)` 方法來選取要使用的帳戶。 
+此應用程式專為單一帳戶案例所建置。 MSAL 也支援多重帳戶案例，但需要從應用程式執行一些額外的工作。 您必須建立 UI，以協助使用者針對每個需要權杖的動作，選取想要使用的帳戶。 或者，您的應用程式可以實作啟發學習法，透過 `getAccounts()` 方法來選取要使用的帳戶。
 
 ## <a name="test-your-app"></a>測試應用程式
 
 ### <a name="run-locally"></a>在本機執行
 
-如果您已遵循上述的程式碼，請嘗試將應用程式建置及部署至測試裝置或模擬器。 您應該已能夠登入 Azure AD 或個人 Microsoft 帳戶，並取得權杖了！ 使用者登入之後，此應用程式會顯示從 Microsoft Graph `/me` 端點傳回的資料。 
+將應用程式建置及部署至測試裝置或模擬器。 您應該已能夠登入 Azure AD 或個人 Microsoft 帳戶，並取得權杖。
 
-如果您有任何問題，歡迎隨時對此文件或 MSAL 程式庫提出問題，以讓我們知曉。 
+在您登入之後，應用程式會顯示從 Microsoft Graph `/me` 端點傳回的資料。
 
-### <a name="consent-to-your-app"></a>同意您的應用程式
+### <a name="consent"></a>同意
 
-任何使用者在初次登入您的應用程式時，Microsoft 身分識別都會提示他們同意所要求的權限。  大部分使用者都能夠親自同意，但某些 Azure AD 租用戶已停用使用者同意 - 而需要系統管理員代表所有使用者來同意。  若要支援此案例，請務必在 Azure 入口網站中註冊您的應用程式範圍。
+任何使用者在初次登入您的應用程式時，Microsoft 身分識別都會提示他們同意所要求的權限。  大部分使用者都能夠親自同意，但某些 Azure AD 租用戶已停用使用者同意，而需要系統管理員代表所有使用者表示同意。 若要支援此案例，請在 Azure 入口網站中註冊您的應用程式範圍。
 
-## <a name="help-and-support"></a>說明與支援
+## <a name="get-help"></a>取得說明
 
-對於本教學課程或 Microsoft 身分識別平台有任何疑問嗎？ 請參閱[說明與支援](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)
+對於本教學課程或 Microsoft 身分識別平台若有任何問題，請瀏覽[說明與支援](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)。

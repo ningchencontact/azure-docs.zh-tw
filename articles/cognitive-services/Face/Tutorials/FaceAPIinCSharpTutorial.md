@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 6a60afc45894518f92115976876ddd50efa1e410
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 54069fbaa8ad06d257ab835ed3b170fecb76d800
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310180"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603334"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教學課程：建立 WPF 應用程式來顯示影像中的臉部資料
 
-在本教學課程中，您將了解如何使用 Azure 臉部 API，透過 .NET 用戶端 SDK 來偵測影像中的人臉，然後在 UI 中呈現該資料。 您會建立簡單的 Windows Presentation Framework (WPF) 應用程式，以偵測人臉、在每張臉孔的周圍繪出邊框，然後在狀態列中顯示該張臉孔的描述。 
+在本教學課程中，您將了解如何使用 Azure 臉部 API，透過 .NET 用戶端 SDK 來偵測影像中的人臉，然後在 UI 中呈現該資料。 您會建立 Windows Presentation Framework (WPF) 應用程式，以偵測人臉、在每張臉孔的周圍繪出邊框，然後在狀態列中顯示該張臉孔的描述。 
 
 本教學課程說明如何：
 
@@ -46,9 +46,9 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 請遵循下列步驟以建立新的 WPF 應用程式專案。
 
-1. 在 Visual Studio 中，開啟 [新增專案] 對話方塊。 依序展開 [已安裝] 和 [Visual C#]，然後選取 [WPF 應用程式 (.NET Framework)]。
-1. 將應用程式命名為 **FaceTutorial**，然後按一下 [確定]。
-1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
+1. 在 Visual Studio 中，開啟 [新增專案] 對話方塊。 依序展開 [已安裝]  和 [Visual C#]  ，然後選取 [WPF 應用程式 (.NET Framework)]  。
+1. 將應用程式命名為 **FaceTutorial**，然後按一下 [確定]  。
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]  ，然後尋找並安裝下列套件：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="add-the-initial-code"></a>新增初始程式碼
@@ -57,17 +57,17 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 ### <a name="create-the-ui"></a>建立 UI
 
-開啟 MainWindow.xaml，然後使用下列程式碼取代其中的內容&mdash;這會建立 UI 視窗。 請注意，`FacePhoto_MouseMove` 和 `BrowseButton_Click` 是會在稍後定義的事件處理常式。
+開啟 MainWindow.xaml  ，然後使用下列程式碼取代其中的內容&mdash;此程式碼會建立 UI 視窗。 `FacePhoto_MouseMove` 和 `BrowseButton_Click` 方法是會在稍後定義的事件處理常式。
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?range=1-18)]
 
 ### <a name="create-the-main-class"></a>建立主要類別
 
-開啟 MainWindow.xaml.cs，然後新增用戶端程式庫命名空間，以及其他必要的命名空間。 
+開啟 MainWindow.xaml.cs  ，然後新增用戶端程式庫命名空間，以及其他必要的命名空間。 
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-接下來，在 **MainWindow** 類別中插入下列程式碼。 這會使用訂用帳戶金鑰建立 **FaceClient** 執行個體，但您必須自行輸入。 您還必須將 `faceEndpoint` 中的區域字串設定為您訂用帳戶的正確區域 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。
+接下來，在 **MainWindow** 類別中插入下列程式碼。 此程式碼會使用訂用帳戶金鑰建立 **FaceClient** 執行個體，但您必須自行輸入。 您必須將 `faceEndpoint` 中的區域字串設定為您訂用帳戶的正確區域 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 
@@ -75,7 +75,7 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
 
-最後，在類別中新增 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 方法。 這些方法會對應至 MainWindow.xaml 中所宣告的事件處理常式。 **BrowseButton_Click** 方法會建立 **OpenFileDialog**，讓使用者可以選取 .jpg 影像。 然後，便會將影像顯示在主視窗中。 您會在稍後的步驟中插入 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 的剩餘程式碼。 也請注意 `faceList` 參考&mdash;這是 **DetectedFace** 物件的清單。 應用程式會在這裡儲存和呼叫實際的臉部資料。
+最後，在類別中新增 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 方法。 這些方法會對應至 MainWindow.xaml  中所宣告的事件處理常式。 **BrowseButton_Click** 方法會建立 **OpenFileDialog**，讓使用者可以選取 .jpg 影像。 然後，便會將影像顯示在主視窗中。 您會在稍後的步驟中插入 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 的剩餘程式碼。 也請注意 `faceList` 參考&mdash;這是 **DetectedFace** 物件的清單。 此參考是應用程式會儲存和呼叫實際臉部資料的所在。
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
 
@@ -83,7 +83,7 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 ### <a name="try-the-app"></a>試用應用程式
 
-按下功能表上的 [啟動] 來測試應用程式。 當應用程式視窗開啟時，按一下左下角的 [瀏覽]。 [檔案開啟] 對話方塊應該會隨即出現。 請從檔案系統中選取影像，並確認它有顯示在視窗中。 然後，關閉應用程式，並進入下一個步驟。
+按下功能表上的 [啟動]  來測試應用程式。 當應用程式視窗開啟時，按一下左下角的 [瀏覽]  。 [檔案開啟]  對話方塊應該會隨即出現。 請從檔案系統中選取影像，並確認它有顯示在視窗中。 然後，關閉應用程式，並進入下一個步驟。
 
 ![顯示未修改臉部影像的螢幕擷取畫面](../Images/getting-started-cs-ui.png)
 
@@ -97,7 +97,7 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 ## <a name="draw-rectangles-around-faces"></a>在臉部周圍繪製矩形
 
-接下來，您會新增程式碼以在影像中所偵測到的每個臉部周圍繪製矩形。 在 **MainWindow** 類別中，於 `FacePhoto.Source = bitmapSource` 這一行後面，將下列程式碼插入 **BrowseButton_Click** 方法的結尾。 這會將所偵測到臉部的清單從呼叫填到 **UploadAndDetectFaces** 中。 然後，它會在每個臉部的周圍繪製矩形，並在主視窗中顯示修改後的影像。
+接下來，您會新增程式碼以在影像中所偵測到的每個臉部周圍繪製矩形。 在 **MainWindow** 類別中，於 `FacePhoto.Source = bitmapSource` 這一行後面，將下列程式碼插入 **BrowseButton_Click** 方法的結尾。 此程式碼會將所偵測到臉部的清單從呼叫填到 **UploadAndDetectFaces** 中。 然後，它會在每個臉部的周圍繪製矩形，並在主視窗中顯示修改後的影像。
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=92-145)]
 

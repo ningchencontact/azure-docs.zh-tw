@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: f92d8ce8e95962558b3bdb7b4a4d8fe70c725f46
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357383"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604502"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -30,27 +30,29 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 
 | 動作 | 說明 |
 | ------ | ----------- |
-|**[標記視覺特徵](concept-tagging-images.md)**|從一組數千個可辨識的物件、生物、景象和動作，識別及標記影像中的視覺特徵。 若標記不明確或不屬於常識，API 回應會提供「提示」來釐清標記在已知設定內容中的意涵。 標記並未限定於主體 (例如前景中的人物)，而是包含周遭環境 (室內或室外)、家具、工具、植物、動物、配件和小工具等。|
+|**[標記視覺特徵](concept-tagging-images.md)**|從一組數千個可辨識的物件、生物、景象和動作，識別及標記影像中的視覺特徵。 若標記不明確或不屬於常識，API 回應會提供提示來釐清標記的內容。 標記並未限定於主體 (例如前景中的人物)，而是包含周遭環境 (室內或室外)、家具、工具、植物、動物、配件和小工具等。|
 |**[偵測物件](concept-object-detection.md)**| 物件偵測與標記功能類似，但 API 會傳回每個所套用標記的週框方塊座標。 例如，如果影像包含狗、貓或人物，「偵測」作業就會列出這些物件及其在影像中的座標。 您可以使用此功能來處理影像中物件間的進一步關聯性。 當影像中有多個相同標記的執行個體時，此功能也會讓您知道。|
 |**[偵測品牌](concept-brand-detection.md)**|從擁有數千個全球商標的資料庫中，識別影像或視訊內的商業品牌。 例如，您可以使用這項功能探索哪些品牌在社交媒體最受歡迎或在媒體產品位置中最常見。|
 |**[將影像分類](concept-categorizing-images.md)**|使用具有父/子承襲階層的[類別分類法](Category-Taxonomy.md)來識別及分類整個影像。 類別可單獨使用，或與我們新的標記模型搭配使用。<br/>目前，英文是唯一支援影像標記和分類的語言。|
 |**[說明影像](concept-describing-images.md)**|以一般人看得懂的語言，使用完整的句子產生整個影像的描述。 電腦視覺的演算法會根據在影像中識別出來的物件產生各種描述。 這些描述會個別受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。|
-|**[偵測臉部](concept-detecting-faces.md)** |偵測影像中的臉部，並提供與每個偵測到的臉部有關的資訊。 電腦視覺會針對每個偵測到的臉部傳回座標、矩形、性別和年齡。<br/>電腦視覺提供位於[臉部](/azure/cognitive-services/face/)的功能子集，且您可以使用「臉部」服務執行更詳細的分析，例如臉部識別和姿勢偵測。|
+|**[偵測臉部](concept-detecting-faces.md)** |偵測影像中的臉部，並提供與每個偵測到的臉部有關的資訊。 電腦視覺會針對每個偵測到的臉部傳回座標、矩形、性別和年齡。<br/>電腦視覺提供部分的[臉部](/azure/cognitive-services/face/)服務功能。 您可以使用臉部服務進行更詳細的分析，例如臉部識別和姿勢偵測。|
 |**[偵測影像類型](concept-detecting-image-types.md)**|偵測影像的關於特性，例如影像是否為線條繪圖，或影像為美工圖案的可能性。|
-|**[偵測特定領域內容](concept-detecting-domain-content.md)**|使用領域模型可偵測及識別影像中的特定領域內容，例如名人和地標。 例如，如果影像中包含人物，電腦視覺即可使用服務隨附的名人領域模型，判斷在影像中偵測到的人物是否和已知的名人相符。|
+|**[偵測特定領域內容](concept-detecting-domain-content.md)**|使用領域模型可偵測及識別影像中的特定領域內容，例如名人和地標。 例如，如果影像包含人物，電腦視覺即可使用名人領域模型，判斷影像中偵測到的人物是否為知名人士。|
 |**[偵測色彩配置](concept-detecting-color-schemes.md)**|分析影像中的用色方式。 電腦視覺可判斷影像是黑白還是彩色的，如果是彩色影像，則會找出主色和輔色。|
 |**[產生縮圖](concept-generating-thumbnails.md)**|分析影像的內容，為其產生適當的縮圖。 「電腦視覺」會先產生高品質的縮圖，然後分析該影像內的物件，以判斷「關注區域」  。 接著，「電腦視覺」會裁剪影像以符合關注區域的需求。 產生的縮圖可以使用與原始影像的外觀比例不同的外觀比例來呈現，視您的需求而定。|
-|**[取得關注區域](concept-generating-thumbnails.md#area-of-interest)**|分析影像的內容以傳回「關注區域」  的座標。 這與用來產生縮圖的功能相同，但「電腦視覺」會傳回該區域的週框方塊座標，而不會裁剪影像，因此呼叫端應用程式可以視需要修改原始影像。|
+|**[取得關注區域](concept-generating-thumbnails.md#area-of-interest)**|分析影像的內容以傳回「關注區域」  的座標。 「電腦視覺」會傳回該區域的週框方塊座標，而不會裁剪影像並產生縮圖，因此呼叫端應用程式可以視需要修改原始影像。|
 
 ## <a name="extract-text-from-images"></a>擷取影像中的文字
 
-您可以使用電腦視覺功能，利用[光學字元辨識 (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) 將影像中的文字擷取為機器可讀取的字元資料流。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
+您可以使用電腦視覺[閱讀 API](concept-recognizing-text.md#read-api)，將影像中列印和手寫文字擷取到電腦可讀取的字元資料流中。 讀取 API 會使用最新的模型並處理各種表層和背景上的文字，例如收據、海報、名片、信件和白板等。 目前，英文是唯一支援的語言。
 
-您也可以使用[閱讀 API](concept-recognizing-text.md#read-api)，從影像和大量文字的文件中擷取列印和手寫文字。 讀取 API 會使用已更新的模型，並處理表層和背景不同的各種物件，例如收據、海報、名片、信件和白板等。 目前，英文是唯一支援的語言。
+您也可以使用[光學字元辨識 (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API，以數種語言擷取列印的文字。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
+
+
 
 ## <a name="moderate-content-in-images"></a>調節影像中的內容
 
-您可以使用電腦視覺在影像中[偵測成人和猥褻內容](concept-detecting-adult-content.md)，並傳回兩者的信賴分數。 成人和猥褻內容偵測的篩選條件可用滑動標尺來設定，以配合您的喜好設定。
+您可以使用電腦視覺在影像中[偵測成人和猥褻內容](concept-detecting-adult-content.md)，並傳回兩者的信賴分數。 您可以在滑動標尺上設定成人和猥褻內容偵測的篩選條件，以配合您的喜好設定。
 
 ## <a name="use-containers"></a>使用容器
 

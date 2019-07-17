@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 40c9fac27f45699d4c56e57480dcfde1b0ffb64d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629923"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603397"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>快速入門：使用 Face REST API 和 C# 偵測影像中的臉部
 
@@ -35,7 +35,7 @@ ms.locfileid: "58629923"
 
 ## <a name="add-face-detection-code"></a>新增臉部偵測程式碼
 
-開啟新專案的 Program.cs 檔案。 在這裡，您將新增載入影像及偵測臉部所需的程式碼。
+開啟新專案的 Program.cs  檔案。 在這裡，您將新增載入影像及偵測臉部所需的程式碼。
 
 ### <a name="include-namespaces"></a>包含命名空間
 
@@ -77,7 +77,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>接收影像輸入
 
-對 **Program** 類別的 **Main** 方法新增下列程式碼。 這會將提示字元寫入主控台，並要求使用者輸入影像 URL。 然後呼叫另一種方法：**MakeAnalysisRequest**，以處理該位置上的影像。
+對 **Program** 類別的 **Main** 方法新增下列程式碼。 此程式碼會將提示字元寫入主控台，並要求使用者輸入影像 URL。 然後呼叫另一種方法：**MakeAnalysisRequest**，以處理該位置上的影像。
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +162,7 @@ namespace DetectFace
 
 ### <a name="process-the-input-image-data"></a>處理輸入影像資料
 
-將下列方法新增至 **Program** 類別。 這會將位於指定 URL 的影像轉換成位元組陣列。
+將下列方法新增至 **Program** 類別。 此方法會將位於指定 URL 的影像轉換成位元組陣列。
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +179,7 @@ namespace DetectFace
 
 ### <a name="parse-the-json-response"></a>剖析 JSON 回應
 
-將下列方法新增至 **Program** 類別。 這會格式化 JSON 輸入，以便閱讀。 您的應用程式會將此字串資料寫入主控台。 然後您就可以關閉類別和命名空間。
+將下列方法新增至 **Program** 類別。 此方法會格式化 JSON 輸入，以便閱讀。 您的應用程式會將此字串資料寫入主控台。 然後您就可以關閉類別和命名空間。
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.

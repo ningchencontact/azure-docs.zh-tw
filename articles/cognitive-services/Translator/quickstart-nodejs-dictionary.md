@@ -10,18 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 3fa8d57f3f94a08bc7a7530dde3ae1080f233533
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e8122c6d91f1c0815b0c41584eec2946d6a97734
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445027"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704446"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>快速入門：使用 Node.js 在雙語字典中查詢單字
 
 在本快速入門中，您將了解如何搭配使用 Node.js 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 
 本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
+
+>[!TIP]
+> 如果您想要同時查看所有程式碼，您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -92,9 +95,9 @@ let options = {
 };
 ```
 
-要驗證要求，最簡單的方式是將您的訂用帳戶金鑰以 `Ocp-Apim-Subscription-Key` 標頭的形式傳入，我們在此範例中即採用此方式。 或者，您可以將訂用帳戶金鑰替換為存取權杖，並將存取權杖連同 `Authorization` 標頭傳入，以驗證您的要求。 
+要驗證要求，最簡單的方式是將您的訂用帳戶金鑰以 `Ocp-Apim-Subscription-Key` 標頭的形式傳入，我們在此範例中即採用此方式。 或者，您可以將訂用帳戶金鑰替換為存取權杖，並將存取權杖連同 `Authorization` 標頭傳入，以驗證您的要求。
 
-如果您使用認知服務多服務訂用帳戶，您也必須在要求標題中包含 `Ocp-Apim-Subscription-Region`。 
+如果您使用認知服務多服務訂用帳戶，您也必須在要求標題中包含 `Ocp-Apim-Subscription-Region`。
 
 如需詳細資訊，請參閱[驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
@@ -155,8 +158,10 @@ node alt-translations.js
 
 ## <a name="next-steps"></a>後續步驟
 
+查看 API 參考，以了解您可以使用翻譯工具文字 API 執行的所有作業。
+
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Node.js 範例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) (英文)
+> [API 參考](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另請參閱
 

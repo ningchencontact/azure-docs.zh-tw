@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233798"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603507"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁 Facebook 文章和留言
 
@@ -44,19 +44,19 @@ ms.locfileid: "65233798"
 
 ## <a name="create-a-review-team"></a>建立檢閱小組
 
-如需有關如何註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)並建立審核小組的指示，請參閱[在 Web 上試用 Content Moderator](quick-start.md) 快速入門。 請記下 [認證] 頁面上的 [小組識別碼] 值。
+如需有關如何註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)並建立審核小組的指示，請參閱[在 Web 上試用 Content Moderator](quick-start.md) 快速入門。 請記下 [認證]  頁面上的 [小組識別碼]  值。
 
 ## <a name="configure-image-moderation-workflow"></a>設定影像仲裁工作流程
 
-請參閱[定義、測試和使用工作流程](review-tool-user-guide/workflows.md)指南來建立自訂影像工作流程。 這可讓 Content Moderator 自動檢查 Facebook 上的影像，並將部分影像傳送給檢閱工具。 請記下工作流程的**名稱**。
+請參閱[定義、測試和使用工作流程](review-tool-user-guide/workflows.md)指南來建立自訂影像工作流程。 Content Moderator 會使用此工作流程來自動檢查 Facebook 上的影像，並將部分影像傳送給檢閱工具。 請記下工作流程的**名稱**。
 
 ## <a name="configure-text-moderation-workflow"></a>設定文字仲裁工作流程
 
-同樣地，請參閱[定義、測試和使用工作流程](review-tool-user-guide/workflows.md)指南，但這次要建立自訂文字工作流程。 這可讓 Content Moderator 自動檢查文字內容。 請記下工作流程的**名稱**。
+同樣地，請參閱[定義、測試和使用工作流程](review-tool-user-guide/workflows.md)指南，但這次要建立自訂文字工作流程。 Content Moderator 會使用此工作流程來自動檢查文字內容。 請記下工作流程的**名稱**。
 
 ![設定文字工作流程](images/text-workflow-configure.PNG)
 
-使用 [執行工作流程] 按鈕來測試工作流程。
+使用 [執行工作流程]  按鈕來測試工作流程。
 
 ![測試文字工作流程](images/text-workflow-test.PNG)
 
@@ -66,7 +66,7 @@ ms.locfileid: "65233798"
 
 1. 建立「Azure 函數應用程式」，如[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal)所示。
 1. 移至新建立的「函式應用程式」。
-1. 在應用程式中，移至 [平台功能] 索引標籤，然後選取 [設定]。 在下一頁的 [應用程式設定] 區段中，選取 [新增應用程式設定] 來新增下列索引鍵/值組：
+1. 在應用程式中，移至 [平台功能]  索引標籤，然後選取 [設定]  。 在下一頁的 [應用程式設定]  區段中，選取 [新增應用程式設定]  來新增下列索引鍵/值組：
     
     | 應用程式設定名稱 | value   | 
     | -------------------- |-------------|
@@ -77,17 +77,17 @@ ms.locfileid: "65233798"
     | cm:TextWorkflow | 要在「文字」上執行之工作流程的名稱 |
     | cm:CallbackEndpoint | CMListener 函式應用程式 (稍後將在本指南中建立) 的 URL |
     | fb:VerificationToken | 您建立的祕密權杖，用來訂閱 Facebook 摘要事件 |
-    | fb:PageAccessToken | Facebook 圖形 API 存取權杖永不過期，可讓函式代表您「隱藏/刪除」文章。 您會在稍後的步驟中取得此項目。 |
+    | fb:PageAccessToken | Facebook 圖形 API 存取權杖永不過期，可讓函式代表您「隱藏/刪除」文章。 您會在稍後的步驟中取得此權杖。 |
 
-    按一下頁面頂端的 [儲存] 按鈕。
+    按一下頁面頂端的 [儲存]  按鈕。
 
-1. 返回 [平台功能] 索引標籤。使用左側窗格中的 [**+**] 按鈕來顯示 [新增函式] 窗格。 您即將建立的函式會收到來自 Facebook 的事件。
+1. 返回 [平台功能]  索引標籤。使用左側窗格中的 [ **+** ] 按鈕來顯示 [新增函式]  窗格。 您即將建立的函式會收到來自 Facebook 的事件。
 
     ![醒目提示新增函式按鈕的 Azure Functions 窗格。](images/new-function.png)
 
     1. 按一下顯示 **Http 觸發程序**的圖格。
-    1. 輸入名稱 **FBListener**。 [授權等級] 欄位應該設定為 [函式]。
-    1. 按一下頁面底部的 [新增] 。
+    1. 輸入名稱 **FBListener**。 [授權等級]  欄位應該設定為 [函式]  。
+    1. 按一下頁面底部的 [新增]  。
     1. 使用來自 **FbListener/run.csx** 的內容取代 **run.csx** 的內容
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
@@ -105,14 +105,14 @@ ms.locfileid: "65233798"
     ![Facebook 開發人員頁面](images/facebook-developer-app.png)
 
     1. 瀏覽至 [Facebook 開發人員入口網站](https://developers.facebook.com/)
-    1. 按一下 [我的應用程式]。
+    1. 按一下 [我的應用程式]  。
     1. 新增應用程式。
     1. 為其命名
-    1. 選取 [Webhook]-> [設定]
-    1. 在下拉式功能表中選取 [頁面]，然後選取 [訂閱此物件]
-    1. 提供 **FBListener Url** 作為 [回呼網址]，並提供您已在 [函數應用程式設定] 底下設定的 [驗證權杖]
-    1. 訂閱之後，向下捲動以摘要並選取 [訂閱]。
-    1. 按一下 [摘要] 資料列的 [測試] 按鈕，將測試訊息傳送至您的 FBListener Azure 函式，然後點擊 [傳送至我的伺服器] 按鈕。 您應該會看到 FBListener 正在接收要求。
+    1. 選取 [Webhook]-> [設定] 
+    1. 在下拉式功能表中選取 [頁面]  ，然後選取 [訂閱此物件] 
+    1. 提供 **FBListener Url** 作為 [回呼網址]，並提供您已在 [函數應用程式設定]  底下設定的 [驗證權杖] 
+    1. 訂閱之後，向下捲動以摘要並選取 [訂閱]  。
+    1. 按一下 [摘要]  資料列的 [測試]  按鈕，將測試訊息傳送至您的 FBListener Azure 函式，然後點擊 [傳送至我的伺服器]  按鈕。 您應該會看到 FBListener 正在接收要求。
 
 1. 建立 Facebook 頁面。
 
@@ -122,18 +122,18 @@ ms.locfileid: "65233798"
     1. 瀏覽至 [Facebook](https://www.facebook.com/bookmarks/pages)，然後建立一個**新的 Facebook 頁面**。
     1. 依照下列步驟來允許「Facebook 應用程式」存取此頁面：
         1. 瀏覽至[圖形 API 測試工具](https://developers.facebook.com/tools/explorer/)。
-        1. 選取 [應用程式]。
-        1. 選取 [粉絲專頁存取權杖]，傳送一個 **Get** 要求。
-        1. 按一下回應中的 [粉絲專頁 ID]。
+        1. 選取 [應用程式]  。
+        1. 選取 [粉絲專頁存取權杖]  ，傳送一個 **Get** 要求。
+        1. 按一下回應中的 [粉絲專頁 ID]  。
         1. 現在，將 **/subscribed_apps** 附加至 URL，然後傳送一個 **Get** (空回應) 要求。
         1. 提交一個 **Post** 要求。 您會得到像是 **success: true** 的回應。
 
 3. 建立永不過期的「圖形 API」存取權杖。
 
     1. 瀏覽至[圖形 API 測試工具](https://developers.facebook.com/tools/explorer/)。
-    2. 選取 [應用程式] 選項。
-    3. 選取 [取得用戶存取權杖] 選項。
-    4. 在 [選擇權限] 底下，選取 [manage_pages] 和 [publish_pages] 選項。
+    2. 選取 [應用程式]  選項。
+    3. 選取 [取得用戶存取權杖]  選項。
+    4. 在 [選擇權限]  底下，選取 [manage_pages]  和 [publish_pages]  選項。
     5. 我們將在下一個步驟中使用**存取權杖** (短期權杖)。
 
 4. 我們會在接下來幾個步驟中使用 Postman。
@@ -150,10 +150,10 @@ ms.locfileid: "65233798"
         | appSecret | 在這裡插入您「Facebook 應用程式」的祕密 | 
         | short_lived_token | 插入您在上一個步驟中產生的短期用戶存取權杖 |
     4. 現在，執行集合中所列的 3 個 API： 
-        1. 選取 [Generate Long-Lived Access Token] \(產生長期存取權杖\) ，然後按一下 [Send] \(傳送\)。
-        2. 選取 [Get User ID] \(取得使用者識別碼)，然後按一下 [Send] \(傳送\)。
-        3. 選取 [Get Permanent Page Access Token] \(取得永久頁面存取權杖\) ，然後按一下 [Send] \(傳送\)。
-    5. 從回應中複製 **access_token** 值，然後將其指派給 [fb:PageAccessToken] 應用程式設定。
+        1. 選取 [Generate Long-Lived Access Token] \(產生長期存取權杖\)  ，然後按一下 [Send] \(傳送\)  。
+        2. 選取 [Get User ID] \(取得使用者識別碼)  ，然後按一下 [Send] \(傳送\)  。
+        3. 選取 [Get Permanent Page Access Token] \(取得永久頁面存取權杖\)  ，然後按一下 [Send] \(傳送\)  。
+    5. 從回應中複製 **access_token** 值，然後將其指派給 [fb:PageAccessToken]  應用程式設定。
 
 此解決方案會將張貼在您 Facebook 頁面上的所有影像和文字傳送給 Content Moderator。 接著將會叫用您先前設定的工作流程。 未通過工作流程中所定義準則的內容，將會傳送至審核工具中的審核項目。 其餘內容則會自動發佈。
 

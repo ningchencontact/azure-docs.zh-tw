@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-SQL （核心） API 的 Azure Cosmos DB Update RU/秒
-description: Azure PowerShell 指令碼-SQL （核心） API 的 Azure Cosmos DB Update RU/秒
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 SQL (Core) API 的 RU/秒
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 更新 SQL (Core) API 的 RU/秒
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9558579fbdbd2185f6de650547863361ff2b80a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247330"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603826"
 ---
-# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>更新資料庫或容器的 RU/秒，適用於 Azure Cosmos DB SQL API （核心）
+# <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>更新 Azure Cosmos DB 資料庫和容器的 RU/秒 - SQL (Core) API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

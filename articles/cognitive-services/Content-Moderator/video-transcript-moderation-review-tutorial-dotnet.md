@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474692"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606937"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>教學課程：影片及文字記錄仲裁
 
@@ -37,7 +37,7 @@ ms.locfileid: "66474692"
 - 註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站，並建立自訂標記。 如果您需要此步驟的說明，請參閱[使用標記](Review-Tool-User-Guide/tags.md)。
 
     ![影片審核自訂標記的螢幕擷取畫面](images/video-tutorial-custom-tags.png)
-- 若要執行範例應用程式，您需要 Azure 帳戶、Azure 媒體服務資源、Azure Content Moderator 資源和 Azure Active Directory 認證。 如需有關如何取得這些項目的指示，請參閱[影片審核 API](video-moderation-api.md) 指南。
+- 若要執行範例應用程式，您需要 Azure 帳戶、Azure 媒體服務資源、Azure Content Moderator 資源和 Azure Active Directory 認證。 如需有關如何取得這些資源的指示，請參閱[影片審核 API](video-moderation-api.md) 指南。
 - 從 GitHub 下載[影片檢閱主控台應用程式](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp)。
 
 ## <a name="enter-credentials"></a>輸入認證
@@ -225,7 +225,7 @@ ms.locfileid: "66474692"
 > [!NOTE]
 > 主控台應用程式會使用 [Azure 媒體索引器 API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) 從已上傳視訊的音軌中產生文字記錄。結果會以 WebVTT 格式提供。 如需有關此格式的詳細資訊，請參閱 [Web 影片文字播放軌格式](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)。
 
-## <a name="create-a-the-human-in-the-loop-review"></a>建立人機互動檢閱
+## <a name="create-a-human-review"></a>建立人工審核
 
 審核程序會傳回影片中的主要畫面清單，以及其音軌的文字記錄。 下一個步驟是在 Content Moderator 審核工具中建立審核項目，以進行人工審核。 返回 `Program.cs` 中的 `ProcessVideo()` 方法，您會看到對 `CreateVideoReviewInContentModerator()` 方法的呼叫。 此方法位於 `VideoReviewAPI.cs` 中的 `videoReviewApi` 類別，如下所示。
 

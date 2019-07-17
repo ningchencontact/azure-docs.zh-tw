@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538726"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603432"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入門：使用 REST API 和 JavaScript 偵測影像中的人臉
 
@@ -28,7 +28,7 @@ ms.locfileid: "57538726"
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 檔案
 
-建立新的 HTML 檔案 (detectFaces.html)，並新增下列程式碼。
+建立新的 HTML 檔案 (detectFaces.html)  ，並新增下列程式碼。
 
 ```html
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ ms.locfileid: "57538726"
 </html>
 ```
 
-然後，在文件的 `body` 元素內新增下列程式碼。 這會設定基本的使用者介面，內有 URL 欄位、[分析臉部] 按鈕、[回應] 窗格和 [影像顯示] 窗格。
+然後，在文件的 `body` 元素內新增下列程式碼。 此程式碼會設定基本的使用者介面，內有 URL 欄位、[分析臉部]  按鈕、[回應] 窗格和 [影像顯示] 窗格。
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>撰寫 JavaScript 指令碼
 
-在文件中的 `h1` 元素正上方新增下列程式碼。 這會設定 JavaScript 程式碼來呼叫人臉識別 API。
+在文件中的 `h1` 元素正上方新增下列程式碼。 此程式碼會設定 JavaScript 程式碼來呼叫臉部 API。
 
 ```html
 <script type="text/javascript">
@@ -136,11 +136,11 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="run-the-script"></a>執行指令碼
 
-在瀏覽器中開啟 detectFaces.html。 當您按一下 [分析臉部] 按鈕時，應用程式應該會顯示來自指定 URL 的影像，並印出臉部資料的 JSON 字串。
+在瀏覽器中開啟 detectFaces.html  。 當您按一下 [分析臉部]  按鈕時，應用程式應該會顯示來自指定 URL 的影像，並印出臉部資料的 JSON 字串。
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-以下是成功 JSON 回應的範例。
+以下文字是成功 JSON 回應的範例。
 
 ```json
 [

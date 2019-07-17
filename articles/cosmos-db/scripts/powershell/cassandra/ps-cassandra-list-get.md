@@ -1,19 +1,19 @@
 ---
-title: Azure 的 PowerShell 指令碼-Azure Cosmos DB 清單，並取得 Cassandra API 作業
-description: Azure 的 PowerShell 指令碼-Azure Cosmos DB 清單，並取得 Cassandra API 作業
+title: Azure PowerShell 指令碼 - Azure Cosmos DB 列出及取得 Cassandra API 的作業
+description: Azure PowerShell 指令碼 - Azure Cosmos DB 列出及取得 Cassandra API 的作業
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e275f0e1ca90a1d9385784bebcef9c70ffe6cdcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: f426afee2ab5635cf29ee5a48a6e11e1f6d10f4e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247255"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604003"
 ---
-# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>清單，並取得適用於 Azure Cosmos DB Cassandra API 的 keyspace 和資料表
+# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>列出及取得 Azure Cosmos DB Kyspace 和資料表 - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
