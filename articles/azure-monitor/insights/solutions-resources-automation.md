@@ -242,8 +242,8 @@ Azure 自動化中的所有資源都會包含在[自動化帳戶](../../automati
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| schedule name |包含排程名稱的單一**名稱**實體。 |
-| runbook name  |包含 Runbook 名稱的單一**名稱**實體。  |
+| schedule name |包含排程名稱的單一**name**實體。 |
+| runbook name  |包含 Runbook 名稱的單一**name**實體。  |
 
 
 
