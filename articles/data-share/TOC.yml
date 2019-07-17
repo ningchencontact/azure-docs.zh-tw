@@ -33,6 +33,12 @@
       href: how-to-delete-invitation.md
     - name: 撤銷共用訂用帳戶
       href: how-to-revoke-share-subscription.md
+- name: 參考
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datashare
+    - name: REST API
+      href: /rest/api/datashare
 - name: 資源
   items:
     - name: 部落格
