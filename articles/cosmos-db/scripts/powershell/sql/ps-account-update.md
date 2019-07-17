@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 指令碼-更新 Azure Cosmos 帳戶
-description: Azure PowerShell 指令碼範例-更新已新增的區域的 Azure Cosmos 帳戶
+title: Azure PowerShell 指令碼 - 更新 Azure Cosmos 帳戶
+description: Azure PowerShell 指令碼範例 - 以新增的區域更新 Azure Cosmos 帳戶
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65078276"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602274"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>更新 Azure Cosmos 帳戶，並加入區域，使用 PowerShell
+# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帳戶及新增區域
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
