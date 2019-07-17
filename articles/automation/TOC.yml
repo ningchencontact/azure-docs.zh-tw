@@ -292,6 +292,8 @@
       displayName: 'module, import'
 - name: 跨元件案例
   items:
+    - name: 使用 SendGrid 籨 Runbook 傳送電子郵件
+      href: automation-send-email.md
     - name: Runbook 資源庫
       href: automation-runbook-gallery.md
     - name: 使用計量警示監視 Runbook
