@@ -81,8 +81,8 @@
       href: sample-v2-code.md
     - name: 概念
       items:
-        - name: 應用程式類型
-          href: v2-app-types.md
+        - name: 驗證流程和應用程式案例
+          href: authentication-flows-app-scenarios.md
         - name: 應用程式案例
           items:
             - name: 登入對象
@@ -227,6 +227,8 @@
                   href: msal-client-application-configuration.md
                 - name: 初始化應用程式 (.NET)
                   href: msal-net-initializing-client-applications.md
+                - name: 用戶端判斷提示 (.NET)
+                  href: msal-net-client-assertions.md
                 - name: 初始化應用程式 (JS)
                   href: msal-js-initializing-client-applications.md
             - name: 處理錯誤和例外狀況
@@ -267,10 +269,12 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: 已知問題 - Safari
                       href: msal-js-known-issues-safari-browser.md
-        - name: Authentication
+        - name: 驗證通訊協定
           items:
             - name: 驗證基本概念
               href: authentication-scenarios.md
+            - name: 應用程式類型和 OAuth2.0
+              href: v2-app-types.md
             - name: OAuth 2.0 和 OpenID Connect 通訊協定
               href: active-directory-v2-protocols.md
             - name: OpenID Connect

@@ -68,6 +68,10 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 遷移傳統原則
       href: policy-migration.md
+    - name: 疑難排解
+      items:
+        - name: 使用 What If 工具進行疑難排解
+          href: troubleshoot-conditional-access-what-if.md
 - name: 參考
   items:
     - name: 技術參考
