@@ -209,7 +209,7 @@ ms.locfileid: "67310475"
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
-|console|n/a| [主控台](#console)記錄設定。 |
+|console|n/a| [console](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
 
 ## <a name="console"></a>console
