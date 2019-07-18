@@ -388,18 +388,26 @@
               items:
                 - name: Web 應用程式
                   href: app/java-get-started.md
+                - name: Web 應用程式 (2.5.0-BETA)
+                  href: app/java-get-started-25-beta.md
                 - name: Docker 應用程式
                   href: app/docker.md
                 - name: 記錄追蹤
                   href: app/java-trace-logs.md
+                - name: 記錄追蹤 (2.5.0-BETA)
+                  href: app/java-trace-logs-25-beta.md
                 - name: Unix 計量
                   href: app/java-collectd.md
                 - name: 相依性
                   href: app/java-agent.md
+                - name: 相依性 (2.5.0-BETA)
+                  href: app/java-agent-25-beta.md
                 - name: 篩選遙測
                   href: app/java-filter-telemetry.md
                 - name: Micrometer Metrics
                   href: app/micrometer-java.md
+                - name: Micrometer 計量 (2.5.0-BETA)
+                  href: app/micrometer-java-25-beta.md
                 - name: 設定 Spring Boot 初始設定式應用程式
                   href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
             - name: Node.js 應用程式

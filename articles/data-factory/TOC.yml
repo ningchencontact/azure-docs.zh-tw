@@ -564,12 +564,12 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: 依 LastModifiedDate 複製新檔案
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: 從資料庫進行大量複製
+          href: solution-template-bulk-copy-with-control-table.md
+        - name: 從資料庫進行差異複製
+          href: solution-template-delta-copy-with-control-table.md
         - name: 移動檔案
           href: solution-template-move-files.md
-        - name: 使用控制表格進行大量複製
-          href: solution-template-bulk-copy-with-control-table.md
-        - name: 使用控制表格進行差異複製
-          href: solution-template-delta-copy-with-control-table.md
         - name: 使用 Databricks 轉換資料
           href: solution-template-databricks-notebook.md
     - name: 疑難排解指南

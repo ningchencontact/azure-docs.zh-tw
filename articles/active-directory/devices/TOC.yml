@@ -55,7 +55,9 @@
       items:
         - name: 針對目前與混合式 Azure AD 聯結的 Windows 裝置進行疑難排解
           href: troubleshoot-hybrid-join-windows-current.md
-        - name: 針對已與混合式 Azure AD 聯結的舊版 Windows 裝置進行疑難排解
+        - name: 針對 dsregcmd 進行疑難排解
+          href: troubleshoot-device-dsregcmd.md
+        - name: 針對混合式 Azure AD 下層 Windows 裝置進行疑難排解
           href: troubleshoot-hybrid-join-windows-legacy.md
         - name: 針對企業狀態漫遊進行疑難排解
           href: enterprise-state-roaming-troubleshooting.md

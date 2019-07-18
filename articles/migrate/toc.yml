@@ -8,7 +8,7 @@
       href: whats-new.md
 - name: 教學課程
   items:
-    - name: VMware VM 評估及移轉
+    - name: 評估和遷移 VMware VM
       items:
         - name: 準備VMware 以進行評估及移轉
           href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
               href: tutorial-migrate-vmware.md
             - name: 使用代理程式移轉來遷移 VMware VM
               href: tutorial-migrate-vmware-agent.md
-    - name: Hyper-V 評量及移轉
+    - name: 評估和遷移 Hyper-V VM
       items:
         - name: 準備 Hyper-V以進行評量及移轉
           href: tutorial-prepare-hyper-v.md
