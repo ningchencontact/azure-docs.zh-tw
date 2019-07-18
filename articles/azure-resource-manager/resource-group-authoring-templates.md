@@ -41,8 +41,8 @@ ms.locfileid: "67204367"
 | $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，使用：`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>針對訂用帳戶部署，使用：`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | apiProfile |否 | 做為資源類型的 API 版本的集合 API 版本。 若要避免在範本中指定的每個資源的 API 版本使用此值。 當您指定的 API 設定檔版本，並沒有指定的資源類型的 API 版本時，則資源管理員會使用 API 版本設定檔中定義該資源類型。<br><br>將範本部署到不同的環境，例如 Azure Stack 與全域 Azure 時，特別有幫助的 API 設定檔屬性。 使用 API 設定檔版本，藉此確定您的範本會自動使用這兩種環境中支援的版本。 如需目前的 API 設定檔版本和 API 版本設定檔中定義的資源的清單，請參閱 < [API 設定檔](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)。<br><br>如需詳細資訊，請參閱 <<c0> [ 追蹤使用 API 設定檔的版本](templates-cloud-consistency.md#track-versions-using-api-profiles)。 |
-| [參數](#parameters) |否 |執行部署以自訂資源部署時所提供的值。 |
-| [變數](#variables) |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
+| [parameters](#parameters) |否 |執行部署以自訂資源部署時所提供的值。 |
+| [variables](#variables) |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | [functions](#functions) |否 |範本中可用的使用者定義函式。 |
 | [resources](#resources) |是 |在資源群組或訂用帳戶中部署或更新的資源類型。 |
 | [outputs](#outputs) |否 |部署後傳回的值。 |
