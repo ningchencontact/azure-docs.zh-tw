@@ -237,7 +237,7 @@
         - name: 設定容器
           href: speech-container-configuration.md
           displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
-        - name: 使用內部部署
+        - name: 使用 Kubernetes 搭配 Helm
           displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
           href: speech-container-howto-on-premises.md
         - name: 使用容器執行個體
