@@ -76,7 +76,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表說明儲存的搜尋的每個屬性。
 
-| 屬性 | description |
+| 屬性 | Description |
 |:--- |:--- |
 | category | 儲存的搜尋的類別。  同一個解決方案中所有儲存的搜尋通常都會共用單一類別，因此它們會在主控台中群組在一起。 |
 | displayName | 要在入口網站中顯示之儲存的搜尋名稱。 |
@@ -121,7 +121,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
     }
 下表會說明排程資源的屬性。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | enabled       | 是 | 指定在建立警示時是否要加以啟用。 |
 | interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
@@ -174,7 +174,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表會說明警示動作資源的屬性。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | Type | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
 | Name | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
@@ -185,7 +185,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 #### <a name="threshold"></a>閾值
 此為必要區段。 它會定義警示臨界值的屬性。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | Operator | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
 | Value | 是 | 要比較結果的值。 |
@@ -196,17 +196,17 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 > [!NOTE]
 > 計量測量警示目前是處於公開預覽狀態。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
-| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 必須符合準則以觸發警示的次數。 |
+| Operator | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| Value | 是 | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
 此為選擇性區段。 如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | DurationInMinutes | 如果包含 Throttling 元素，即為 Yes | 從同一個警示規則中建立一個警示之後隱藏警示的分鐘數。 |
 
@@ -215,7 +215,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 針對將警示延伸至 Azure 的使用者 - 排程的「動作群組」詳細資料現在應該與閾值一起傳遞，才能建立警示。 必須先在動作群組內定義電子郵件詳細資料、Webhook URL、Runbook 自動化詳細資料及其他動作，才能建立警示；使用者可以在入口網站中[從 Azure 監視器建立動作群組](../../azure-monitor/platform/action-groups.md)，或使用[動作群組 - 資源範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來建立動作群組。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | AzNsNotification | 是 | Azure 動作群組的資源識別碼，其會與警示相關聯，以便在符合警示準則時採取必要動作。 |
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
@@ -231,7 +231,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 ##### <a name="emailnotification"></a>EmailNotification
  此為選擇性區段。如果您想要警示將郵件傳送給一或多位收件者，請包含此區段。
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | Recipients | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | 是 | 郵件的主旨列。 |
@@ -240,7 +240,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 ##### <a name="remediation"></a>補救
 此為選擇性區段。如果您想要讓 Runbook 啟動以回應警示，請包含此區段。 
 
-| 元素名稱 | 必要項 | description |
+| 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | RunbookName | 是 | 要啟動的 Runbook 名稱。 |
 | WebhookUri | 是 | Runbook 的 Webhook 的 Uri。 |
@@ -271,7 +271,7 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
 
 | 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| type | 是 | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
+| Type | 是 | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
 | name | 是 | 動作的顯示名稱。 這不會顯示在主控台中。 |
 | webhookUri | 是 | Webhook 的 Uri。 |
 | customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |

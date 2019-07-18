@@ -35,7 +35,7 @@ ms.locfileid: "67606647"
 
 **問：連接時，我會收到 401 錯誤，並執行任何動作的運作方式。我知道我的語音訂用帳戶金鑰無效。發生什麼情況？**
 
-**答：** 在預覽中，直接列語音會有特定限制，您可以使用的訂用帳戶。 請確定您使用**語音**（Microsoft.CognitiveServicesSpeechServices，"Speech"） 的資源並*不***認知服務**資源 (Microsoft.CognitiveServicesAllInOne，「 所有認知服務 」)。 只有[語音服務區域子集](regions.md#voice-first-virtual-assistants)目前支援直接列語音。
+**答：** 在預覽中，直接列語音會有特定限制，您可以使用的訂用帳戶。 請確定您使用**語音**（Microsoft.CognitiveServicesSpeechServices，"Speech"） 的資源並 *不* **認知服務**資源 (Microsoft.CognitiveServicesAllInOne，「 所有認知服務 」)。 只有[語音服務區域子集](regions.md#voice-first-virtual-assistants)目前支援直接列語音。
 
 ![更正訂用帳戶的直接線路語音](media/voice-first-virtual-assistants/faq-supported-subscription.png "相容的語音訂用帳戶的範例")
 
