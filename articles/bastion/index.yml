@@ -30,6 +30,6 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/bastion/bastion-create-host-portal">建立和修改 Azure Bastion 主機</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">連線至 Windows 虛擬機器</a>
-          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">連線至 Linux 虛擬機器</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-rdp">連線至 Windows 虛擬機器</a>
+          - html: <a href="/azure/bastion/bastion-connect-vm-ssh">連線至 Linux 虛擬機器</a>
           - html: <a href="/azure/bastion/bastion-faq">閱讀Azure Bastion 常見問題集</a>
