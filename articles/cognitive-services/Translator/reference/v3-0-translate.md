@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: e63670504dedf426829778e154b2d5c2b69d98a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2b08ddb4241a9af7aee31bb51d75dd82ff8255d2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435057"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839626"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：Translate
 
@@ -42,7 +42,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱<a href="./v3-0-languages.md">支援語言</a>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。</td>
+    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱<a href="./v3-0-languages.md">支援語言</a>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。 <br/><br/>使用<a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">動態字典</a>功能<code>from</code>時, 您必須使用參數, 而不是自動偵測。</td>
   </tr>
   <tr>
     <td>to</td>
@@ -54,7 +54,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 <a href="../customization.md">Custom Translator</a> 所建置的自訂系統取得翻譯。 從您的自訂轉譯器加入類別目錄識別碼<a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">專案詳細資料</a>到此參數，以使用您已部署自訂的系統。 預設值為：<code>general</code>。</td>
+    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 <a href="../customization.md">Custom Translator</a> 所建置的自訂系統取得翻譯。 將自訂翻譯<a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">專案詳細資料</a>中的分類識別碼新增至這個參數, 以使用您已部署的自訂系統。 預設值為：<code>general</code>。</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -110,7 +110,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 <code>ClientTraceId</code> 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td><em>選擇性</em>。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 <code>ClientTraceId</code> 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -213,7 +213,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>伺服器拒絕要求，因為用戶端已超過要求限制。</td>
+    <td>伺服器已拒絕要求, 因為用戶端已超過要求限制。</td>
   </tr>
   <tr>
     <td>500</td>
@@ -374,7 +374,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>動作</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>此為預設行為。 粗話會從來源傳遞到目標。<br/><br/>

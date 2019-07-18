@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c0e3ac1d53cda2afb2184b92b0fd0afd662101bb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523269"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277508"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教學課程：使用角色擷取內容相關的模式
 
@@ -64,23 +64,23 @@ ms.locfileid: "59523269"
 
 2. 將 JSON 匯入新的應用程式中。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `roles`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+3. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `roles`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
 ## <a name="create-new-entities"></a>建立新實體
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 從左側瀏覽列中，選取 [實體]。 
+2. 從左側瀏覽列中，選取 [實體]  。 
 
-3. 選取 [Create new entity] \(建立新實體\)。
+3. 選取 [Create new entity] \(建立新實體\)  。
 
 4. 在快顯視窗中，輸入 `NewEmployee` 作為**簡單**實體。
 
-5. 選取 [Create new entity] \(建立新實體\)。
+5. 選取 [Create new entity] \(建立新實體\)  。
 
 6. 在快顯視窗中，輸入 `NewEmployeeRelocation` 作為**簡單**實體。
 
-7. 從實體清單中，選取 [NewEmployeeRelocation]。 
+7. 從實體清單中，選取 [NewEmployeeRelocation]  。 
 
 8. 輸入第一個角色作為 `NewEmployeeReloOrigin`，然後選取 Enter。
 
@@ -89,13 +89,13 @@ ms.locfileid: "59523269"
 ## <a name="create-new-intent"></a>建立新意圖
 如果預先建置的 keyPhrase 實體已在開始之前移除，接著在您完成本節中的步驟之後新增回來，則在這些步驟中標示實體可能比較簡單。 
 
-1. 從左側導覽窗格中，選取 [Intents] \(意圖\)。
+1. 從左側導覽窗格中，選取 [Intents] \(意圖\)  。
 
-2. 選取 [Create new intent] \(建立新意圖\)。 
+2. 選取 [Create new intent] \(建立新意圖\)  。 
 
 3. 在快顯對話方塊中，輸入 `NewEmployeeRelocationProcess` 作為意圖名稱。
 
-4. 輸入下列範例語句，標示新實體。 實體和角色值均以粗體顯示。 若切換到 [語彙基元檢視] 能更輕鬆地標示文字，請切換到該檢視。 
+4. 輸入下列範例語句，標示新實體。 實體和角色值均以粗體顯示。 若切換到 [語彙基元檢視]  能更輕鬆地標示文字，請切換到該檢視。 
 
     當您在意圖中標示實體時並未指定實體的角色。 您稍後會在建立模式時執行該動作。 
 
@@ -224,11 +224,11 @@ ms.locfileid: "59523269"
 
 ## <a name="pattern-with-roles"></a>具有角色的模式
 
-1. 在上方瀏覽列中，選取 [建置]。
+1. 在上方瀏覽列中，選取 [建置]  。
 
-2. 在左側瀏覽列中，選取 [模式]。
+2. 在左側瀏覽列中，選取 [模式]  。
 
-3. 從 [選取意圖] 下拉式清單中，選取 [NewEmployeeRelocationProcess]。 
+3. 從 [選取意圖]  下拉式清單中，選取 [NewEmployeeRelocationProcess]  。 
 
 4. 輸入下列模式：`move {NewEmployee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}[.]`
 
@@ -237,7 +237,7 @@ ms.locfileid: "59523269"
 ## <a name="cities-phrase-list"></a>城市片語清單
 城市就像人名一樣很棘手，因為它們可以是字組與標點符號的任意組合。 區域和世界的城市都是已知的，因此 LUIS 需要城市的片語清單，才能開始學習。 
 
-1. 從左側功能表的 [改善應用程式效能] 區段中，選取 [片語清單]。 
+1. 從左側功能表的 [改善應用程式效能]  區段中，選取 [片語清單]  。 
 
 2. 將清單命名為 `Cities`，並為清單新增下列 `values`：
 
@@ -252,7 +252,7 @@ ms.locfileid: "59523269"
     |邁阿密|
     |達拉斯|
 
-    請勿新增世界上的每個城市，也不要新增區域中的每個城市。 LUIS 必須能夠從清單中推論出城市的概況。 請務必讓 [這些值是可交換的] 保持選取狀態。 此設定表示清單上的字組會被視為同義字。 
+    請勿新增世界上的每個城市，也不要新增區域中的每個城市。 LUIS 必須能夠從清單中推論出城市的概況。 請務必讓 [這些值是可交換的]  保持選取狀態。 此設定表示清單上的字組會被視為同義字。 
 
 3. 訓練和發佈應用程式。
 

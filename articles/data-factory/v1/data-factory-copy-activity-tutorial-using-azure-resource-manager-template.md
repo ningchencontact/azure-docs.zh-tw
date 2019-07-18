@@ -14,18 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f3ed7f64b817be64a332ebd65a94e588c836ae38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4d972620d03bb856f06040f0a9b2d6f53f5873b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163809"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836624"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>教學課程：使用 Azure Resource Manager 範本建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -343,17 +342,17 @@ ms.locfileid: "66163809"
 ## <a name="monitor-pipeline"></a>監視管線
 
 1. 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左功能表上的 [資料處理站]，或按一下 [所有服務]，然後按一下 [智慧 + 分析] 類別下的 [資料處理站]。
+2. 按一下左功能表上的 [資料處理站]  ，或按一下 [所有服務]  ，然後按一下 [智慧 + 分析]  類別下的 [資料處理站]  。
    
     ![Data Factory 功能表](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. 在 [資料處理站] 頁面上，搜尋並尋找您的資料處理站 (AzureBlobToAzureSQLDatabaseDF)。 
+3. 在 [資料處理站]  頁面上，搜尋並尋找您的資料處理站 (AzureBlobToAzureSQLDatabaseDF)。 
    
     ![搜尋 Data Factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
 4. 按一下您的 Azure Data Factory。 您會看到 Data Factory 的首頁。
    
     ![Data Factory 首頁](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. 請遵循[監視資料集和管線](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline)中的指示，監視您在本教學課程中建立的管線和資料集。 Visual Studio 目前不支援監視 Data Factory 管線。
-7. 當配量處於 [就緒] 狀態時，請確認資料已複製到 Azure SQL 資料庫中的 **emp** 資料表。
+6. 請遵循[監視資料集和管線](data-factory-monitor-manage-pipelines.md)中的指示，監視您在本教學課程中建立的管線和資料集。 Visual Studio 目前不支援監視 Data Factory 管線。
+7. 當配量處於 [就緒]  狀態時，請確認資料已複製到 Azure SQL 資料庫中的 **emp** 資料表。
 
 
 如需有關如何使用 Azure 入口網站刀鋒視窗來監視您在本教學課程中建立的管線和資料集的詳細資訊，請參閱 [監視資料集和管線](data-factory-monitor-manage-pipelines.md)。

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 02/20/2019
-ms.author: v-jaswel
-ms.openlocfilehash: 8a338eb6ea3dfeea2027d44487138f290f6c8803
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: nitinme
+ms.openlocfilehash: a4ea2661986272374ca7f265896d4d6cc4713dc2
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010373"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845797"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>教學課程：取得網頁上的搜尋建議
 
@@ -283,7 +283,7 @@ function bingAutosuggest(query, key) {
 
 ## <a name="display-results"></a>顯示結果
 
-在您的瀏覽器中開啟網頁。 出現提示時，輸入您的 Bing 自動建議 API 訂用帳戶金鑰。 然後在 [自動建議] 文字方塊中輸入查詢 (例如 "sail")。 當您輸入時，網頁會自動更新以顯示自動建議結果。
+在您的瀏覽器中開啟網頁。 出現提示時，輸入您的 Bing 自動建議 API 訂用帳戶金鑰。 然後在 [自動建議]  文字方塊中輸入查詢 (例如 "sail")。 當您輸入時，網頁會自動更新以顯示自動建議結果。
 
 ```json
 {

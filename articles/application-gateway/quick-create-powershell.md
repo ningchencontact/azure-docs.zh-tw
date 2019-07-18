@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1da7a2648fe8f97372f877a4e9c7894c4b2a4aed
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053347"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276567"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure PowerShell
 
@@ -34,7 +34,7 @@ ms.locfileid: "67053347"
 1. 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
 2. 若要建立與 Azure 的連線，請執行 `Login-AzAccount`。
 
-### <a name="resource-group"></a>資源群組
+### <a name="resource-group"></a>Resource group
 
 在 Azure 中，您可以將相關資源配置到資源群組。 您可以使用現有的資源群組，或建立一個新的群組。 在此範例中，您將使用 [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) Cmdlet 建立新的資源群組，如下所示： 
 
@@ -67,7 +67,8 @@ New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static
+  -Sku Standard
 ```
 ### <a name="backend-servers"></a>後端伺服器
 
@@ -197,8 +198,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
+  -Name Standard_v2 `
+  -Tier Standard_v2 `
   -Capacity 2
 New-AzApplicationGateway `
   -Name myAppGateway `

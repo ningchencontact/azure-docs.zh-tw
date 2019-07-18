@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7362bd5b4e15df516478ef4bef20d76fc46b326f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 7056d127aac8268a131d62c2b20655407e2336b2
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275373"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304062"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中樞 — 巨量資料串流平台和事件擷取服務
 Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒可接收和處理數百萬個事件。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。
@@ -29,17 +29,19 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒�
 - 封存資料
 - 交易處理
 - 使用者遙測處理
-- 裝置遙測串流 
+- 裝置遙測串流
+
+[!VIDEO https://www.youtube.com/watch?v=45wgY-VSk9I]
 
 ## <a name="why-use-event-hubs"></a>為何使用事件中樞？
 
 只有在能輕鬆地處理資料並從資料來源中獲得即時見解時，資料才顯得有價值。 事件中樞提供低延遲的分散式串流處理平台，並與 Azure 內部或外部的資料及分析服務完美整合，藉以建置完整的巨量資料管線。
 
-事件中樞代表事件管線的「大門」，在方案架構中通常稱為「事件擷取器」  。 事件擷取器是介於事件發佈者和事件取用者之間的元件或服務，它能將事件串流的生產與這些事件的取用彼此脫鉤。 事件中樞提供具有時間保留緩衝的統一串流平台，可分開處理事件產生者和事件取用者。 
+事件中樞代表事件管線的「大門」，在方案架構中通常稱為「事件擷取器」  。 事件擷取器是介於事件發佈者和事件取用者之間的元件或服務，它能將事件串流的生產與這些事件的取用彼此脫鉤。 事件中樞提供具有時間保留緩衝的統一串流平台，可分開處理事件產生者和事件取用者。
 
-下列各節會說明 Azure 事件中樞服務的主要功能： 
+下列各節會說明 Azure 事件中樞服務的主要功能：
 
-## <a name="fully-managed-paas"></a>完全受控 PaaS 
+## <a name="fully-managed-paas"></a>完全受控 PaaS
 
 事件中樞是僅需一點設定或管理成本的完全受控平台即服務 (PaaS)，因此您可將重心放在商務解決方案上。 [Apache Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)提供您無須管理、設定或執行叢集的 PaaS Kafka 體驗。
 
@@ -51,14 +53,14 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒�
 
 Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達到無伺服器架構。
 
-## <a name="scalable"></a>可調整 
+## <a name="scalable"></a>可調整
 
-透過事件中樞，您可以先使用以 MB 為單位的資料流，然後成長到 GB 或 TB。 [自動擴充](event-hubs-auto-inflate.md)功能是用來調整輸送量單位數目以符合使用量需求的多個選項之一。 
+透過事件中樞，您可以先使用以 MB 為單位的資料流，然後成長到 GB 或 TB。 [自動擴充](event-hubs-auto-inflate.md)功能是用來調整輸送量單位數目以符合使用量需求的多個選項之一。
 
 ## <a name="rich-ecosystem"></a>豐富的生態系統
 
 [Apache Kafka 生態系統的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)可讓 [Apache Kafka (1.0 版和更新版本)](https://kafka.apache.org/) 用戶端和應用程式與事件中樞通訊。 您不需要設定、配置及管理您自己的 Kafka 叢集。
- 
+
 透過適用於各種[語言 (.NET、Java、Python、Go、Node.js)](https://github.com/Azure/azure-event-hubs) 的廣大生態系統，您可以輕鬆地開始處理來自事件中樞的串流。 所有支援的用戶端語言皆提供低階整合。 生態系統也可讓您緊密整合 Azure 串流分析和 Azure Functions 等 Azure 服務，進而讓您建置無伺服器的架構。
 
 ## <a name="key-architecture-components"></a>重要架構元件
@@ -77,7 +79,7 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用事件中樞，請參閱**傳送及接收事件**教學課程： 
+若要開始使用事件中樞，請參閱**傳送及接收事件**教學課程：
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

@@ -1,7 +1,7 @@
 ---
 title: 片語清單-語音服務
 titlesuffix: Azure Cognitive Services
-description: 了解如何提供語音服務，片語清單，使用`PhraseListGrammar`以改善語音轉換文字辨識結果的物件。
+description: 瞭解如何透過使用`PhraseListGrammar`物件的片語清單來提供語音服務, 以改善語音轉換文字辨識結果。
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 158819d481c0ce245539d783f194b159b2b9edb6
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606515"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226355"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>語音轉換文字的片語清單
 
-藉由提供語音服務，片語清單，您可以改善語音辨識的精確度。 片語清單用來識別已知的片語，音訊資料，例如連絡人的名稱或特定位置中。
+藉由提供語音服務與片語清單, 您可以改善語音辨識的精確度。 片語清單可用來識別音訊資料中的已知片語, 例如人員的姓名或特定位置。
 
-例如，如果您有一個命令 「 移至 」 和可能的目的地的 「 Ward 」 可能會說出，您可以新增 「 移動 Ward"的項目。 將片語會增加機率，當 「 移動 Ward 」 也會辨識而不是"進展到 「 辨識音訊。
+例如, 如果您有一個命令「移至」, 而且可能會讀出「Ward」的目的地, 您可以新增「移至 Ward」的專案。 新增片語會增加可辨識「移至 Ward」的音訊, 而不是「移至」的可能性。
 
-單字或完整片語可以新增至片語清單。 辨識期間如果完全符合包含音訊，會使用片語清單中的項目。 如果此片語清單包含"移動至 Ward 」，以及片語擷取，在上述範例中，建置 」 移到緩慢 」，則辨識結果會是 「 緩時變移至 Ward 」。
+可以將單一單字或完整片語新增至片語清單。 辨識期間, 如果音訊中包含完全相符的專案, 則會使用片語清單中的專案。 以先前的範例為基礎, 如果片語清單包含「Move to Ward」, 而所捕捉的片語是「移至緩慢」, 則辨識結果會是「移至 Ward 緩慢」。
+
+>[!Note]
+> 目前, 片語清單僅支援英文的語音轉換文字。
 
 ## <a name="how-to-use-phrase-lists"></a>如何使用片語清單
 
-下列範例說明如何建置片語清單，使用`PhraseListGrammar`物件。
+下列範例說明如何使用`PhraseListGrammar`物件來建立片語清單。
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -65,9 +68,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> 語音服務會使用來比對語音片語清單的最大數目是 1024年片語。
+> 語音服務將用來比對語音的片語清單數目上限為1024個片語。
 
-您也可以清除相關聯的片語`PhraseListGrammar`藉由呼叫 clear （）。
+您也可以藉`PhraseListGrammar`由呼叫 clear (), 清除與相關聯的片語。
 
 ```C++
 phraselist->Clear();
@@ -90,8 +93,8 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> 若要變更`PhraseListGrammar`物件的下一步 辨識，或重新連線至語音服務之後生效。
+> `PhraseListGrammar`對物件所做的變更會在下一次辨識或重新連線到語音服務之後生效。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [語音 SDK 參考文件](speech-sdk.md)
+* [語音 SDK 參考檔](speech-sdk.md)

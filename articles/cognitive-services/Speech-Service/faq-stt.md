@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 73e53e47576b0697c0d09b386bb3e830d976dd04
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606652"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839240"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>語音轉換文字常見問題集
 
@@ -63,13 +63,13 @@ ms.locfileid: "67606652"
 
 **答**：部署「不會」自動更新。
 
-如果您已使用基準 V1.0 調整並部署模型，該部署會維持原狀。 客戶可以解除委任已部署的模型、 重新調整 使用較新版本的基準，然後重新部署。
+如果您已使用基準 V1.0 調整並部署模型，該部署會維持原狀。 客戶可以解除委任已部署的模型, 使用較新版本的基準重新調整, 然後重新部署。
 
 **問：如果我需要針對已部署模型使用的並行處理比入口網站所提供的還高，該怎麼辦？**
 
 **答**：您可以使用 20 個並行要求的增量調升模型規模。
 
-請連絡[語音支援](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text)如果您需要較高的級別。
+如果您需要更高的規模, 請聯絡[語音支援](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text)。
 
 **問：我可以在本機下載並執行模型嗎？**
 
@@ -83,7 +83,12 @@ ms.locfileid: "67606652"
 
 **答**：REST API 限制每 5 秒 25 個要求。 詳情請參閱我們的[語音轉換文字](speech-to-text.md)頁面。
 
-如果您有其他隱私權考量禁止您使用自訂語音服務，請連絡其中一個支援通道。
+**問：如何支付雙聲道音訊的費用？**
+
+**答**：如果您分別提交每個通道 (每個通道都在自己的檔案中), 則會依每個檔案的持續時間向您收費。 如果您提交單一檔案, 並將每個通道一起多工處理, 則會向您收取單一檔案持續時間的費用。
+
+> [!IMPORTANT]
+> 如果您有其他隱私權考量禁止您使用自訂語音服務，請連絡其中一個支援通道。
 
 ## <a name="importing-data"></a>匯入資料
 

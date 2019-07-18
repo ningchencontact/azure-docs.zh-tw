@@ -3,7 +3,7 @@ title: CLI 範例 - 跨越可用性區域為 VM 進行負載平衡 - Azure | Mic
 description: 此 Azure CLI 指令碼範例示範如何跨越可用性區域為 VM 的流量進行負載平衡
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: kumud
-ms.openlocfilehash: fff34f6a36f9c01b1f28b6b1f13189537d8c9060
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: fdfd1de3d20a275dbc19ed414a22ebe2a6864eeb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61321092"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273719"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Azure CLI 指令碼範例：跨越多個可用性區域為虛擬機器進行負載平衡
 

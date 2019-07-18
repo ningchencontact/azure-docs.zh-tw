@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174604"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229343"
 ---
 若要使用 Azure 入口網站建立 IoT 中樞：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 選取 [建立資源]   > [物聯網]   > [IoT 中樞]  。
 
@@ -27,8 +27,8 @@ ms.locfileid: "67174604"
 
     | 設定 | 值 |
     | ------- | ----- |
-    | 訂用帳戶 | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
-    | 資源群組 | 新建。 本教學課程使用 **tutorials-iot-hub-rg** 名稱。 |
+    | Subscription | 在下拉式清單中選取您的 Azure 訂用帳戶。 |
+    | Resource group | 新建。 本教學課程使用 **tutorials-iot-hub-rg** 名稱。 |
     | 區域 | 本教學課程使用**美國西部**。 您可以選擇最接近您所在地的區域。 |
     | Name | 下列螢幕擷取畫面會使用 **tutorials-iot-hub** 名稱。 在建立中樞時，您必須選擇您自己的唯一名稱。 |
 

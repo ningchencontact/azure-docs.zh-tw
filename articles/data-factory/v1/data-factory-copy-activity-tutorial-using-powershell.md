@@ -14,18 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bc0980360bfafcf6f0334122731c6c02ce71e18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce9566618870419e22dc9c420e77ef2ed6cd3c81
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151639"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836544"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Data Factory 管線來移動資料
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -120,7 +119,7 @@ ms.locfileid: "66151639"
     ```
 * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者或系統管理員。
 * Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
-* 您可能收到下列錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory。」 請執行下列其中一個動作，並試著重新發佈一次︰
+* 您可能收到下列錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory。」  請執行下列其中一個動作，並試著重新發佈一次︰
 
   * 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者：
 
@@ -220,13 +219,13 @@ AzureSqlLinkedService 會將 Azure SQL 資料庫連結至資料處理站。 從 
     ProvisioningState : Succeeded
     ```
 
-   確認 SQL 資料庫伺服器已開啟 [允許存取 Azure 服務] 設定。 若要確認並開啟此設定，請執行下列步驟：
+   確認 SQL 資料庫伺服器已開啟 [允許存取 Azure 服務]  設定。 若要確認並開啟此設定，請執行下列步驟：
 
     1. 登入 [Azure 入口網站](https://portal.azure.com)
-    1. 按一下左邊的 [更多服務 >]，然後按一下 [資料庫] 類別中的 [SQL Server]。
+    1. 按一下左邊的 [更多服務 >]  ，然後按一下 [資料庫]  類別中的 [SQL Server]  。
     1. 在 SQL Server 清單中選取您的伺服器。
-    1. 在 [SQL Server] 刀鋒視窗中，按一下 [顯示防火牆設定] 連結。
-    1. 在 [防火牆設定] 刀鋒視窗中，對 [允許存取 Azure 服務] 按一下 [開啟]。
+    1. 在 [SQL Server] 刀鋒視窗中，按一下 [顯示防火牆設定]  連結。
+    1. 在 [防火牆設定]  刀鋒視窗中，對 [允許存取 Azure 服務]  按一下 [開啟]  。
     1. 按一下工具列的 [儲存]  。 
 
 ## <a name="create-datasets"></a>建立資料集

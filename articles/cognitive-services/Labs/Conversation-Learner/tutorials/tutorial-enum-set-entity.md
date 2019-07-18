@@ -1,7 +1,7 @@
 ---
-title: 何時使用列舉實體和設定實體動作與對話學習模組模型-Azure 認知服務 |Microsoft Docs
+title: 何時使用列舉實體, 並使用 Conversation Learner 模型來設定實體動作-Azure 認知服務 |Microsoft Docs
 titleSuffix: Azure
-description: 了解適合搭配對話學習模組模型使用列舉實體和設定實體動作的時機。
+description: 瞭解何時適合使用列舉實體, 以及如何使用 Conversation Learner 模型來設定實體動作。
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -9,104 +9,104 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: nolachar
+ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592949"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845955"
 ---
-# <a name="when-to-use-enum-entities-and-set-entity-actions"></a>何時使用列舉實體和設定實體動作
+# <a name="when-to-use-enum-entities-and-set-entity-actions"></a>使用列舉實體和設定實體動作的時機
 
-本教學課程將說明何時應該使用列舉 (enumeration) 的實體和 SET_ENTITY 動作。
+本教學課程將說明何時應使用列舉 (列舉) 實體和 SET_ENTITY 動作。
 
 ## <a name="video"></a>視訊
 
-[![設定實體的教學課程預覽](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
+[![設定實體教學課程預覽](https://aka.ms/cl_Tutorial_v3_SetEntity_Preview)](https://aka.ms/cl_Tutorial_v3_SetEntity)
 
 
 
 ## <a name="what-is-covered"></a>涵蓋的項目
 
-本教學課程將介紹兩項新功能。 新的實體類型稱為列舉 （簡稱為列舉型別） 和新類型的動作稱為 SET_ENTITY，它可以參考其中一個列舉值，並如同名稱所暗示，請為此值設定的實體。 當您將了解以下，一起使用這些新功能，我們將說明它們是什麼，以及如何使用下列。 我們會詳細說明之前，請務必了解這些功能有助於解決哪些問題。
+本教學課程將介紹兩個新功能。 稱為 ENUM 的新實體類型 (列舉的 short) 和新的動作類型 (稱為 SET_ENTITY), 它可以參考其中一個列舉值, 顧名思義, 會將實體設定為這個值。 如下所示, 這些新功能會一起使用, 我們將在下面說明其內容和使用方式。 在我們深入探討詳細資料之前, 請務必瞭解這些功能有助於解決的問題。
 
 ![enum_entity_type.png](../media/tutorial-enum-set-entity/enum_entity_type.png)
 ![action_set_entity_type.png](../media/tutorial-enum-set-entity/action_set_entity_type.png)
 
 ## <a name="problem"></a>問題
 
-交談的單字的意義取決於內容中，有一些情況。  加上標籤的關鍵字通常被學習，而且擷取使用 language understanding 服務，但在這些情況下這些系統可能無法以了解使用加上標籤的範例。
+在某些情況下, 文字的意義取決於內容。  一般來說, 已加上標籤的關鍵字會使用語言理解服務來學習和解壓縮, 但是在這些情況下, 這些系統可能無法使用加上標籤的範例來學習。
 
-假設 overhear 近端的人員之間的交談的一部分，而您只會聽到字"Yes"。 您就無法得知已同意的 []，或確認您沒聽到這個問題，因為要求之前。 之前的疑問是內容中，會提供答案的意義。 同樣地會因為 [是] 是許多不同的問題不一樣，提供範例了解這類的常見回應[自訂定型](04-introduction-to-entities.md)實體因為然後它會了解來標示每個 「 是 」 作為該實體。
+假設您在附近的人之間 overhear 對話的一部分, 而您只聽到「是」這個字。 您不知道「是」是同意或確認的內容, 因為您沒有聽到問題之前所詢問的問題。 前面詢問的問題是內容, 這會對答案提供意義。 同樣地, 因為「是」是對許多不同問題的常見回應, 所以無法藉由提供範例來瞭解如何使用[自訂的定型](04-introduction-to-entities.md)實體, 因此它會學習將每個「是」標記為該實體。
 
 ### <a name="example"></a>範例
 
-讓我們進一步釐清與下列範例：
+讓我們進一步說明下列範例:
 
-Bot:您喜歡 Azure 認知服務嗎？
-使用者：是 Bot:您喜歡冰淇淋嗎？
+Bot您喜歡 Azure 認知服務嗎？
+使用者：是 Bot:您喜歡霜淇淋嗎？
 使用者：是
 
-在上一個教學課程中，我們探討[自訂定型](04-introduction-to-entities.md)實體和您的初始考量可能會建立名為"likesCogServices 」 實體，並加上標籤第一個"Yes"時為此實體。  不過，系統會也加上標籤，第二個"Yes"。 當我們嘗試更正"Yes"到"likesIceCream 」 的第二個標籤時，我們會再造成衝突的兩個相同的輸入 「 是 」 意義不同的項目，並會停滯。
+在先前的教學課程中, 我們探討了[自訂的定型](04-introduction-to-entities.md)實體, 而您的初步想法可能是建立名為 "likesCogServices" 的實體, 並將第一個「是」標記為此實體。  不過, 系統也會標示第二個「是」。 當我們嘗試將第二個 "Yes" 的標籤更正為 "likesIceCream" 時, 我們會建立兩個相同輸入「是」的衝突, 這表示有不同的東西, 而且會停滯。
 
-它是在這些情況下，您必須使用列舉實體和 SET_ENTITY 動作。
+在這些情況下, 您需要使用列舉實體和 SET_ENTITY 動作。
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>何時使用列舉或 SET_ENTITY 動作
+## <a name="when-to-use-enums-or-setentity-actions"></a>使用 Enum 或 SET_ENTITY 動作的時機
 
-若要了解何時使用列舉實體和 SET_ENTITY 動作中使用下列這些規則：
+請使用下列規則來瞭解何時使用列舉實體和 SET_ENTITY 動作:
 
-- 偵測或實體的設定與內容相關
-- 在固定數目的可能值 （是，並不會是兩個值）
+- 實體的偵測或設定與內容相關
+- 可能值的數目是固定的 (Yes 和 No 是兩個值)
 
-換句話說，使用這些來進行任何關閉結束的提示，例如確認問題，一定會產生 Yes 或 no。
+換句話說, 您可以使用這些資訊來進行任何關閉的提示, 例如一律會產生「是」或「否」的確認問題。
 
 > [!NOTE]
-> 我們目前有每個列舉實體最多 5 個值的限制。 每個值會使用其中一個目前 64 限制中的位置。 請參閱[cl-值-和-界限](../cl-values-and-boundaries.md)
+> 我們目前限制每個列舉實體最多有5個值。 每個值都會使用目前64限制中的其中一個位置。 請參閱[cl-值和界限](../cl-values-and-boundaries.md)
 
-範例：Bot:您的訂單是正確的？
+範例：Bot您的訂單是否正確？
 使用者：是
 
-當實體的可能值會是開放式且不固定時，您必須使用替代功能，例如[預期實體](05-expected-entity.md)。
+當實體的可能值為開放式且未修正時, 您必須使用如[預期實體](05-expected-entity.md)之類的替代功能。
 
-範例：Bot:您的姓名為何？
-使用者：Matt Bot:什麼是您最愛的色彩？
+範例：Bot你叫什麼名字？
+使用者：Matt Bot:您最愛的色彩為何？
 使用者：Silver
 
-這些提示會被視為開放式，因為它們無法回答任意值。
+這些提示會視為開放式結束, 因為它們可以使用任意值來回答。
 
 ## <a name="what"></a>何事
 
 ### <a name="enum-entities"></a>列舉實體
 
-列舉的實體會建立如同其他任何實體。 類似於 「 程式設計 」 實體，您無法為這些實體標籤文字。 相反地，它們必須透過程式碼或 SET_ENTITY 動作設定。
+建立列舉實體的方式就像其他實體一樣。 類似于「程式設計」實體, 您無法將單字標記為這些實體。 相反地, 它們必須透過程式碼或 SET_ENTITY 動作來設定。
 
 ![enum_entity_creation.png](../media/tutorial-enum-set-entity/enum_entity_creation.png)
 
-### <a name="set-entity-actions"></a>設定實體動作。
+### <a name="set-entity-actions"></a>設定實體動作
 
-如先前所述，「 設定實體 」 動作只是將實體設定為已知的列舉值。 您可以藉由建立 API 回呼的動作，並使用記憶體管理員設為值的實體來達到相同的結果。 例如 `memory.Set(entityName, entityValue)`. 不必撰寫此程式碼，並建立這些動作會變得既繁瑣又難管理-因此對話學習模組必須採取特殊動作來協助這項工作，以及使用時，自動產生這些動作。 擁有這些做為獨立的動作會保留這些不在結合其他動作或在您的機器人的程式碼撰寫的能力。
+如先前所述, 「設定實體」動作只是將實體設定為已知的列舉值。 您可以藉由建立 API 回呼動作, 並使用記憶體管理員將實體設定為值, 來達到相同的結果。 例如 `memory.Set(entityName, entityValue)`. 必須撰寫此程式碼並建立這些動作, 會變得既繁瑣又難以管理, 因此 Conversation Learner 有特殊的動作可協助執行此工作, 並在使用時自動產生這些動作。 將這些視為獨立的動作可保留撰寫這些功能的能力, 而不需要與 bot 中的其他動作或程式碼結合。
 
-- 設定參考實體的一個列舉值，因此您必須先建立列舉實體時，可以只建立動作的實體。
-- 設定實體動作是也非-await > 因為它們有沒有可見的輸出，而且需要持續追蹤使用者會看到 「 等候 」 動作。
-- 設定實體動作是固定不變，這表示您無法在建立後加以編輯的。
+- 只有在參考列舉實體的值時, 才能建立設定實體動作, 因此您必須先建立列舉實體。
+- [設定實體] 動作也是「非 await」, 因為它們沒有可見的輸出, 而且必須跟隨使用者可以看到的「等候」動作。
+- 設定實體動作是不可變的, 這表示您無法在建立之後編輯它們。
 
 ![action_set_entity_creation.png](../media/tutorial-enum-set-entity/action_set_entity_creation.png)
 
-### <a name="automatic-action-generation"></a>自動動作產生
+### <a name="automatic-action-generation"></a>自動產生動作
 
-如果列舉實體存在於您的模型，對話學習模組建立預留位置每個可能值的動作，並將其提供給在訓練期間選取。 在 選取項目，動作會自動會為您建立。
+如果模型中有列舉實體, Conversation Learner 將會為每個可能的值建立預留位置動作, 並讓它們可在定型期間選取。 選取時, 系統會自動為您建立動作。
 
-例如，如果我建立列舉實體的值"Yes"和"No":
+例如, 如果我建立一個列舉實體, 其值為 "Yes" 和 "No":
 
 ![enum_entity_order_confirmation.png](../media/tutorial-enum-set-entity/enum_entity_order_confirmation.png)
 
-即使沒有明確地建立這個新的列舉的動作中，您會看到兩個新的動作可在定型期間：
+即使未針對這個新的列舉明確建立動作, 您仍會在定型期間看到兩個可用的新動作:
 
 ![action_set_entity_sample.png](../media/tutorial-enum-set-entity/action_set_entity_sample.png)
 
 
-## <a name="create-a-bot-using-these-new-features"></a>建立使用這些新功能的機器人
+## <a name="create-a-bot-using-these-new-features"></a>使用這些新功能建立 Bot
 
 ### <a name="requirements"></a>需求
 
@@ -114,51 +114,51 @@ Bot:您喜歡 Azure 認知服務嗎？
 
     npm run tutorial-general
 
-我們將建立模擬的速食排序 bot。 它會有離散值的大小以及 drinks 薯條 (SMALL/MEDIUM/LARGE)，並確認問題使用是 / 沒有解答。 這兩個這些實體符合上述兩個規則的內容相關的答案和固定的值。
+我們將建立 bot 來模擬快速食物的順序。 對於飲料和薯條 (小型/中型/大型) 大小的離散值, 以及具有「是/否」答案的確認問題。 這兩個實體都符合與內容相關的答案和固定值的兩個規則。
 
 ### <a name="create-the-model"></a>建立模型
 
-1. 在 web UI 中，按一下 「 匯入 」
-2. 選取名為 「 教學課程-列舉-集-實體 」 教學課程
+1. 在 web UI 中, 按一下 [匯入]
+2. 選取名為「教學課程-列舉-集合-實體」的教學課程
 
-這會將您巡覽至 [模型] 管理頁面。
-請注意，模型已經包含一些列舉項目，並設定實體的動作。
+這會流覽至 [模型管理] 頁面。
+請注意, 模型已包含幾個列舉實體和設定實體動作。
 
 ### <a name="create-the-first-dialog"></a>建立第一個對話方塊
 
-1. 左方瀏覽窗格中，按一下 「 訓練對話方塊，然後按一下 「 新訓練對話方塊"按鈕。
-2. 作為中的使用者類型，「 大家好，我想要請訂購 coke 薯條"。
-3. 按一下 [分數動作] 按鈕
+1. 在左側導覽窗格中, 按一下 [訓練對話], 然後按一下 [新增訓練對話] 按鈕。
+2. 當使用者輸入時, 「嗨, 我想要訂購 coke 和薯條」。
+3. 按一下 [評分動作] 按鈕
 
-   > 使用者尚未指定飲料的大小或薯條，因此我們必須要求他們。
+   > 使用者未指定飲料或薯條的大小, 因此我們需要要求他們。
 
-4. 選取回應動作：「 何種大小喝？ 」
-5. 做為使用者類型中，「 大型 」
-6. 按一下 [分數動作] 按鈕
-7. 選取動作 SET_ENTITY-"drinkSize:大型 」
-8. 選取回應動作：「 何種大小薯條嗎？ 」
-9. 作為使用中的類型，「 嗯，讓那些在媒體。
-10. 按一下 [分數動作] 按鈕
-11. 選取動作 SET_ENTITY-"friesSize:中 」
-12. 選取回應動作：「 您要讓任何 「 調味品 」 嗎？ 」
-13. 作為使用中的類型，[是]
-14. 按一下 [分數動作] 按鈕
-15. 選取動作 SET_ENTITY-"condimentsConfirmation:[是]
-16. 選取回應動作：「 好，我有大型的飲料和中型薯條順序。 是這樣的想法正確嗎？ 」
-17. 作為使用中的類型，[是]
-18. 按一下 [分數動作] 按鈕
-19. 選取動作 SET_ENTITY-"orderConfirmation:[是]
-20. 選取回應動作：「 好，您的訂單編號是 58。 請稍候那邊。 」
+4. 選取具有回應的動作:「您喜歡什麼大小飲料？」
+5. 當使用者輸入時, 「大型」
+6. 按一下 [評分動作] 按鈕
+7. 選取 [動作] SET_ENTITY-"drinkSize:大型
+8. 選取具有回應的動作:「您喜歡什麼大小的薯條？」
+9. 做為中的「使用類型」, 請將其設為媒體。
+10. 按一下 [評分動作] 按鈕
+11. 選取 [動作] SET_ENTITY-"friesSize:中場
+12. 選取具有回應的動作:「您喜歡任何 condiments 嗎？」
+13. 作為中的使用類型, 「是」
+14. 按一下 [評分動作] 按鈕
+15. 選取 [動作] SET_ENTITY-"condimentsConfirmation:肯定
+16. 選取具有回應的動作:「好的, 我有一種大飲料和中等薯條的訂單。 這是正確的嗎？」
+17. 作為中的使用類型, 「是」
+18. 按一下 [評分動作] 按鈕
+19. 選取 [動作] SET_ENTITY-"orderConfirmation:肯定
+20. 選取具有回應的動作:「好的, 您的訂單號碼是58。 請稍候。」
 21. 按一下 [儲存] 以關閉對話方塊
 
-您剛才建立您第一次使用列舉實體和 SET_ENTITY 動作的對話方塊。 您可以讓使用者指定部分的資訊或試驗其他類型的 [關閉] 結束問題的更多的組合。
+您剛使用列舉實體和 SET_ENTITY 動作建立了第一個對話方塊。 您可以為使用者提供更多的組合來指定部分資訊, 或試驗其他類型的封閉式問題。
 
 > [!NOTE]
-> 在定型期間您會看到預留位置 SET_ENTITY 動作類似
+> 在定型期間, 您會看到 SET_ENTITY 動作的預留位置, 例如
 >
 > ![action_set_entity_training.png](../media/tutorial-enum-set-entity/action_set_entity_training.png)
 >
-> 但是，當建立對話方塊或使用部署記錄 bot 使用者將不會看到這些。
+> 但在建立記錄對話或使用已部署的 bot 時, 使用者將不會看到這些。
 
 ## <a name="next-steps"></a>後續步驟
 

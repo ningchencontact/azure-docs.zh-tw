@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: aaae84fcb7df2abfe7e78adb64c22fb19fe45f4e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606722"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226413"
 ---
 # <a name="try-speech-services-for-free"></a>免費試用語音服務
 
@@ -89,7 +89,7 @@ ms.locfileid: "67606722"
 
    * 新資源的名稱。 此名稱可協助您區分相同服務的多個訂用帳戶。
    * 選擇與新資源相關聯的 Azure 訂用帳戶來決定費用的計費方式。
-   * 選擇將使用此資源的區域。 目前，語音服務適用於東亞、北歐和美國西部區域。
+   * 選擇將使用資源的[區域](regions.md)。
    * 選擇免費或付費的定價層。 如需每一層的定價和使用量配額完整資訊，請按一下 [檢視完整定價詳細資料]  。
    * 為此語音訂用帳戶建立新的資源群組，或將該訂用帳戶指派給現有的資源群組。 資源群組可協助組織各種 Azure 訂用帳戶。
    * 為了方便未來存取您的訂用帳戶，請選取 [釘選到儀表板]  核取方塊。

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 6d72299e4350c472ef552fa6afd96e48fd1869b9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 73dba63c464ee31dd24fe0fdf97e948a5b6004fc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876959"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276277"
 ---
 # <a name="quickstart-get-intent-using-c"></a>快速入門：使用 C# 取得意圖
 
@@ -49,7 +49,7 @@ ms.locfileid: "55876959"
 
     ![在 Visual Studio 中建立新的主控台應用程式](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
-2. 在 Visual Studio 專案的 [方案總管] 中，選取 [新增參考]，然後從 [組件] 索引標籤選取 [System.Web]。
+2. 在 Visual Studio 專案的 [方案總管] 中，選取 [新增參考]  ，然後從 [組件] 索引標籤選取 [System.Web]  。
 
     ![選取 [新增參考]，然後從 [組件] 索引標籤中選取 [System.Web]](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 4c73fe170d0b2cb6f12534de2ccc43bfc7b530f0
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515858"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228191"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 
@@ -47,7 +47,7 @@ ms.locfileid: "66515858"
 
 開始進行本教學課程之前：
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [安裝 Visual Studio 2017](https://www.visualstudio.com/) 15.5 版或更新版本，其中包含 **Azure 開發**及 **ASP.NET 和 Web 開發**工作負載。
+* [安裝 Visual Studio 2019](https://www.visualstudio.com/) 15.5 版或更新版本，其中包含 **Azure 開發**及 **ASP.NET 和 Web 開發**工作負載。
 * [安裝 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>建立 ASP.NET Web API 服務成為可靠的服務

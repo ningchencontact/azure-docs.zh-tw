@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc537a631cd083da0f902fb4fcd44d47756eeba
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9bf8b4d696a3784988a92fc24de1ae6964786e07
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471751"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836396"
 ---
 # <a name="tutorial-integrate-cisco-webex-with-azure-active-directory"></a>教學課程：整合 Cisco Webex 與 Azure Active Directory
 
@@ -133,13 +133,13 @@ ms.locfileid: "67471751"
 
 2. 選取 [設定]  ，然後按一下 [驗證]  區段下方的 [修改]  。
 
-    ![設定單一登入](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![設定單一登入](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. 選取 [整合協力廠商識別提供者  (進階)]，然後移至下一個畫面。
 
 4. 在 [匯入 Idp 中繼資料]  頁面上，將 Azure AD 中繼資料檔案拖放到頁面，或使用檔案瀏覽器選項來找到並上傳 Azure AD 中繼資料檔案。 然後，選取 [需要中繼資料中憑證授權單位所簽署的憑證 (較安全)]  ，然後按 [下一步]  。
 
-    ![設定單一登入](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![設定單一登入](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. 選取 [測試 SSO 連接]  ，並在新的瀏覽器索引標籤開啟時，透過登入向 Azure AD 進行驗證。
 
@@ -182,13 +182,13 @@ ms.locfileid: "67471751"
 
 2. 按一下 [使用者]  ，然後按一下 [管理使用者]  。
    
-    ![設定單一登入](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![設定單一登入](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. 在 [管理使用者]  視窗中，選取 [手動新增或修改使用者]  ，然後按 [下一步]  。
 
 4. 選取 [名稱和電子郵件地址]  。 然後，如下填寫文字方塊︰
 
-    ![設定單一登入](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![設定單一登入](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. 在 [名字]  文字方塊中，輸入使用者的名字，例如 **B**。
 

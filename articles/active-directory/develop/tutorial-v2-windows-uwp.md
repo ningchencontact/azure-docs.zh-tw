@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784983"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276631"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
 
@@ -50,7 +50,7 @@ ms.locfileid: "65784983"
 
 ## <a name="set-up-your-project"></a>設定專案
 
-本節提供整合 Windows 傳統型 .NET 應用程式 (XAML) 與「使用 Microsoft 登入」的逐步教學說明。 然後，它會查詢需要權杖的 Web API，例如 Microsoft Graph API。
+本節提供整合 Windows 傳統型 .NET 應用程式 (XAML) 與「使用 Microsoft 登入」  的逐步教學說明。 然後，它會查詢需要權杖的 Web API，例如 Microsoft Graph API。
 
 本指南建立的應用程式會顯示查詢圖形 API 的按鈕、登出按鈕以及顯示呼叫結果的文字方塊。
 
@@ -59,17 +59,17 @@ ms.locfileid: "65784983"
 
 ### <a name="create-your-application"></a>建立您的應用程式
 
-1. 在 Visual Studio 中，選取 [檔案]  >  [新增]  >  [專案]。
-2. 在 [範本] 底下，選取 [Visual C#]。
-3. 選取 [空白應用程式] \(通用 Windows\)。
-4. 命名應用程式，然後選取 [確定]。
-5. 如果出現提示，請為 [目標] 和 [最低] 版本選取任一版本，然後選取 [確定]。
+1. 在 Visual Studio 中，選取 [檔案]   >  [新增]   >  [專案]  。
+2. 在 [範本]  底下，選取 [Visual C#]  。
+3. 選取 [空白應用程式] \(通用 Windows\)  。
+4. 命名應用程式，然後選取 [確定]  。
+5. 如果出現提示，請為 [目標]  和 [最低]  版本選取任一版本，然後選取 [確定]  。
 
     >![最低和目標版本](./media/tutorial-v2-windows-uwp/vs-minimum-target.png)
 
 ## <a name="add-microsoft-authentication-library-to-your-project"></a>將 Microsoft 驗證程式庫新增至您的專案
-1. 在 Visual Studio 中，選取 [工具]  >  [NuGet 套件管理員]  >  [套件管理員主控台]。
-2. 在 [套件管理器主控台] 視窗中，複製並貼上下列命令：
+1. 在 Visual Studio 中，選取 [工具]   >  [NuGet 套件管理員]   >  [套件管理員主控台]  。
+2. 在 [套件管理器主控台]  視窗中，複製並貼上下列命令：
 
     ```powershell
     Install-Package Microsoft.Identity.Client -IncludePrerelease
@@ -147,7 +147,7 @@ ms.locfileid: "65784983"
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -318,7 +318,7 @@ ms.locfileid: "65784983"
 
 ### <a name="more-information"></a>詳細資訊
 
-透過 **OpenID Connect** 取得的識別碼權杖也包含一小部分與使用者有關的資訊。 `DisplayBasicTokenInfo` 會顯示權杖中包含的基本資訊。 例如，使用者的顯示名稱和識別碼、權杖的到期日，以及代表存取權杖本身的字串。 如果您選取 [呼叫 Microsoft Graph API] 按鈕多次，您就會了解相同的權杖如何重複用於後續要求。 您也可以在 MSAL 決定應該要更新權杖時，看到延長的到期日。
+透過 **OpenID Connect** 取得的識別碼權杖也包含一小部分與使用者有關的資訊。 `DisplayBasicTokenInfo` 會顯示權杖中包含的基本資訊。 例如，使用者的顯示名稱和識別碼、權杖的到期日，以及代表存取權杖本身的字串。 如果您選取 [呼叫 Microsoft Graph API]  按鈕多次，您就會了解相同的權杖如何重複用於後續要求。 您也可以在 MSAL 決定應該要更新權杖時，看到延長的到期日。
 
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -327,36 +327,36 @@ ms.locfileid: "65784983"
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 如果您的帳戶在超過一個 Azure AD 租用戶中呈現，請在頁面頂端功能表的右上角選取 `Directory + Subscription`，並將您的入口網站工作階段切換到所需的 Azure AD 租用戶。
 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
-1. 選取 [新增註冊]。
-   - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `UWP-App-calling-MSGraph`。
-   - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶 (例如 Skype、Xbox、Outlook.com)]。
-   - 選取 [註冊] 以建立應用程式。
-1. 在應用程式 [概觀] 頁面上，尋找 [應用程式 (用戶端) 識別碼] 值並將它記下供稍後使用。 接著返回 Visual Studio 並開啟 **MainPage.xaml.cs**，然後用您剛註冊的應用程式識別碼取代 ClientId 的值：
-1. 在應用程式頁面清單中，選取 [驗證]。
-   1. 在「重新導向 URI」清單的 [重新導向 URI] 區段中：
-   1. 在 [型別] 欄中，選取 [公開用戶端 (行動裝置及桌上型電腦)]。
-   1. 在 [重新導向 URI] 欄中輸入 `urn:ietf:wg:oauth:2.0:oob`。
+1. 選取 [新增註冊]  。
+   - 在 [名稱]  區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `UWP-App-calling-MSGraph`。
+   - 在 [支援的帳戶類型]  區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶 (例如 Skype、Xbox、Outlook.com)]  。
+   - 選取 [註冊]  以建立應用程式。
+1. 在應用程式 [概觀]  頁面上，尋找 [應用程式 (用戶端) 識別碼]  值並將它記下供稍後使用。 接著返回 Visual Studio 並開啟 **MainPage.xaml.cs**，然後用您剛註冊的應用程式識別碼取代 ClientId 的值：
+1. 在應用程式頁面清單中，選取 [驗證]  。
+   1. 在「重新導向 URI」清單的 [重新導向 URI]  區段中：
+   1. 在 [型別]  欄中，選取 [公開用戶端 (行動裝置及桌上型電腦)]  。
+   1. 在 [重新導向 URI]  欄中輸入 `urn:ietf:wg:oauth:2.0:oob`。
 1. 選取 [ **儲存**]。
-1. 在應用程式頁面清單中，選取 [API 權限]
-   - 按一下 [新增權限] 按鈕，然後
-   - 確定已選取 [Microsoft API] 索引標籤
-   - 在 [常用的 Microsoft API] 區段中，按一下 [Microsoft Graph]
-   - 在 [委派的權限] 區段中，請確定已選取正確的權限：[User.Read]。 如有需要請使用搜尋方塊。
-   - 選取 [新增權限] 按鈕
+1. 在應用程式頁面清單中，選取 [API 權限] 
+   - 按一下 [新增權限]  按鈕，然後
+   - 確定已選取 [Microsoft API]  索引標籤
+   - 在 [常用的 Microsoft API]  區段中，按一下 [Microsoft Graph] 
+   - 在 [委派的權限]  區段中，請確定已選取正確的權限：[User.Read]  。 如有需要請使用搜尋方塊。
+   - 選取 [新增權限]  按鈕
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>啟用同盟網域上的整合式驗證 (選擇性)
 
 搭配 Azure AD 同盟網域使用時，若要啟用 Windows 整合式驗證，應用程式資訊清單必須啟用其他功能：
 
 1. 按兩下 **Package.appxmanifest**。
-2. 選取 [功能] 索引標籤，並確定已啟用下列設定：
+2. 選取 [功能]  索引標籤，並確定已啟用下列設定：
 
     - 企業驗證
     - 私人網路 (用戶端和伺服器)
     - 共用使用者憑證
 
 > [!IMPORTANT]
-> 在此範例中，預設不會設定[整合式 Windows 驗證](https://aka.ms/msal-net-iwa)。 要求 [企業驗證] 或 [共用使用者憑證] 功能的應用程式需要更高的 Windows 市集驗證層級。 此外，並非所有開發人員都需要執行更高的驗證層級。 只有當您需要具有 Azure AD 同盟網域的 Windows 整合式驗證時，才啟用此設定。
+> 在此範例中，預設不會設定[整合式 Windows 驗證](https://aka.ms/msal-net-iwa)。 要求 [企業驗證]  或 [共用使用者憑證]  功能的應用程式需要更高的 Windows 市集驗證層級。 此外，並非所有開發人員都需要執行更高的驗證層級。 只有當您需要具有 Azure AD 同盟網域的 Windows 整合式驗證時，才啟用此設定。
 
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -370,17 +370,17 @@ ms.locfileid: "65784983"
 
 ### <a name="consent"></a>同意
 
-第一次登入應用程式時，系統會顯示如下所示的類似同意畫面。 選取 [是] 以明確同意存取：
+第一次登入應用程式時，系統會顯示如下所示的類似同意畫面。 選取 [是]  以明確同意存取：
 
 ![存取同意畫面](./media/tutorial-v2-windows-uwp/consentscreen.png)
 
 ### <a name="expected-results"></a>預期的結果
 
-您會在 [API 呼叫結果] 畫面上看到由 Microsoft Graph API 呼叫傳回的使用者設定檔資訊：
+您會在 [API 呼叫結果]  畫面上看到由 Microsoft Graph API 呼叫傳回的使用者設定檔資訊：
 
 ![API 呼叫結果畫面](./media/tutorial-v2-windows-uwp/uwp-results-screen.PNG)
 
-您也會在 [權杖資訊] 方塊中，看到透過 `AcquireTokenInteractive` 或 `AcquireTokenSilent` 取得之權杖的相關基本資訊：
+您也會在 [權杖資訊]  方塊中，看到透過 `AcquireTokenInteractive` 或 `AcquireTokenSilent` 取得之權杖的相關基本資訊：
 
 |屬性  |格式  |說明 |
 |---------|---------|---------|
@@ -391,7 +391,7 @@ ms.locfileid: "65784983"
 
 Microsoft Graph API 需要 *user.read* 範圍才能讀取使用者的設定檔。 根據預設，在應用程式註冊入口網站註冊的每個應用程式中，都會自動新增此範圍。 Microsoft Graph 的其他 API 與您後端伺服器的自訂 API 一樣，需要其他範圍。 Microsoft Graph API 需要 *Calendars.Read* 範圍才能列出使用者的行事曆。
 
-為了在應用程式內容中存取使用者的行事曆，請將 Calendars.Read 委派權限新增至應用程式註冊資訊。 接著，將 *Calendars.Read* 範圍新增至 `acquireTokenSilent` 呼叫。
+為了在應用程式內容中存取使用者的行事曆，請將 Calendars.Read  委派權限新增至應用程式註冊資訊。 接著，將 *Calendars.Read* 範圍新增至 `acquireTokenSilent` 呼叫。
 
 > [!NOTE]
 > 系統可能會在您增加範圍數目時，提示使用者同意其他事項。
@@ -416,6 +416,6 @@ Microsoft Graph API 需要 *user.read* 範圍才能讀取使用者的設定檔�
 
 **原因：** 此問題是在 Windows 10 桌上型電腦上執行的 UWP 應用程式中之 Web 驗證訊息代理程式的已知限制。 它在 Windows 10 行動裝置版上會正常運作。
 
-**因應措施：** 選取 [使用其他選項登入]。 然後選取 [以您的使用者名稱和密碼登入]。 選取 [提供您的密碼]。 然後完成電話驗證程序。
+**因應措施：** 選取 [使用其他選項登入]  。 然後選取 [以您的使用者名稱和密碼登入]  。 選取 [提供您的密碼]  。 然後完成電話驗證程序。
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

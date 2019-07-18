@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64d6613a5bfb9b13500d2263d2f826d342972639
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442699"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867853"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>什麼是 Bing 影片搜尋 API？
 
@@ -27,7 +27,7 @@ Bing 影片搜尋 API 可讓您輕鬆地將影片搜尋功能新增至服務和�
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [即時建議搜尋字詞](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | 使用 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md) 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
 | [篩選及限制影片結果](concepts/get-videos.md#filtering-videos)                      | 藉由編輯查詢參數來篩選傳回的影片。                                                                                                       |
-| [裁剪縮圖及調整其大小，並加以顯示](resize-and-crop-thumbnails.md)                                                | 為 Bing 影片搜尋 API 所傳回的影片編輯及顯示縮圖預覽。                                                                                      |
+| [裁剪縮圖及調整其大小，並加以顯示](../bing-web-search/resize-and-crop-thumbnails.md)                                                | 為 Bing 影片搜尋 API 所傳回的影片編輯及顯示縮圖預覽。                                                                                      |
 | [取得發燒影片](trending-videos.md) | 搜尋來自全球的發燒影片。                                                                                                          |
 | [取得影片深入解析](video-insights.md) | 自訂搜尋以尋找全球的發燒影片。                                                                                                          |
 

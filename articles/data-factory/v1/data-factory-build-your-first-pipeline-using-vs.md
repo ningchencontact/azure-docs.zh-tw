@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164246"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836694"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>教學課程：使用 Visual Studio 建立資料處理站
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [概觀和必要條件](data-factory-build-your-first-pipeline.md)
-> * [Azure 入口網站](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
@@ -63,21 +62,21 @@ ms.locfileid: "66164246"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-1. 詳讀 [教學課程概觀](data-factory-build-your-first-pipeline.md) 一文並完成 **必要** 步驟。 您也可以選取頂端下拉式清單中的 [概觀和必要條件] 選項來切換文章。 完成必要條件之後，選取下拉式清單中的 [Visual Studio] 選項，以切換回這篇文章。
+1. 詳讀 [教學課程概觀](data-factory-build-your-first-pipeline.md) 一文並完成 **必要** 步驟。 您也可以選取頂端下拉式清單中的 [概觀和必要條件]  選項來切換文章。 完成必要條件之後，選取下拉式清單中的 [Visual Studio]  選項，以切換回這篇文章。
 2. 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 角色成員。  
 3. 您必須已在電腦上安裝下列項目：
    * Visual Studio 2013 或 Visual Studio 2015
-   * 下載 Azure SDK for Visual Studio 2013 或 Visual Studio 2015。 瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)，然後按一下 [.NET] 區段中的 [VS 2013] 或 [VS 2015]。
-   * 下載適用於 Visual Studio 的最新 Azure Data Factory 外掛程式：[VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 或 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)。 您也可以執行下列步驟來更新外掛程式：在功能表中按一下 [工具] -> [擴充功能和更新] -> [線上] -> [Visual Studio 組件庫] -> [Microsoft Azure Data Factory Tools for Visual Studio] -> [更新]。
+   * 下載 Azure SDK for Visual Studio 2013 或 Visual Studio 2015。 瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)，然後按一下 [.NET]  區段中的 [VS 2013]  或 [VS 2015]  。
+   * 下載適用於 Visual Studio 的最新 Azure Data Factory 外掛程式：[VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 或 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)。 您也可以執行下列步驟來更新外掛程式：在功能表中按一下 [工具]   -> [擴充功能和更新]   -> [線上]   -> [Visual Studio 組件庫]   -> [Microsoft Azure Data Factory Tools for Visual Studio]   -> [更新]  。
 
 現在，讓我們使用 Visual Studio 來建立 Azure Data Factory。
 
 ### <a name="create-visual-studio-project"></a>建立 Visual Studio 專案
-1. 啟動 **Visual Studio 2013** 或 **Visual Studio 2015**。 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。 您應該會看到 [新增專案]  對話方塊。  
-2. 在 [新增專案] 對話方塊中，選取 **DataFactory** 範本，然後按一下 [空白 Data Factory 專案]。   
+1. 啟動 **Visual Studio 2013** 或 **Visual Studio 2015**。 按一下 [檔案]  ，指向 [新增]  ，然後按一下 [專案]  。 您應該會看到 [新增專案]  對話方塊。  
+2. 在 [新增專案]  對話方塊中，選取 **DataFactory** 範本，然後按一下 [空白 Data Factory 專案]  。   
 
     ![[新增專案] 對話方塊](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
-3. 輸入專案的**名稱**、**位置**和**方案**的名稱，然後按一下 [確定]。
+3. 輸入專案的**名稱**、**位置**和**方案**的名稱，然後按一下 [確定]  。
 
     ![Controllers\HomeController.cs](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
@@ -92,16 +91,16 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 > 您可指定資料處理站名稱並在發佈 Data Factory 解決方案時進行設定，以建立資料處理站。
 
 #### <a name="create-azure-storage-linked-service"></a>建立 Azure 儲存體連結服務
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]，指向 [新增]，然後按一下 [新增項目]。      
-2. 在 [新增新項目] 對話方塊中，從清單選取 [Azure 儲存體連結服務]，然後按一下 [新增]。
+1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]  ，指向 [新增]  ，然後按一下 [新增項目]  。      
+2. 在 [新增新項目]  對話方塊中，從清單選取 [Azure 儲存體連結服務]  ，然後按一下 [新增]  。
     ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
 3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-account-manage.md#access-keys)中說明如何檢視、複製和重新產生儲存體存取金鑰的資訊。
     ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. 儲存 **AzureStorageLinkedService1.json** 檔案。
 
 #### <a name="create-azure-hdinsight-linked-service"></a>建立 Azure HDInsight 連結服務
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]，指向 [新增]，然後按一下 [新增項目]。
-2. 選取 [HDInsight 隨選連結服務]，然後按一下 [新增]。
+1. 以滑鼠右鍵按一下 [方案總管]  中的 [連結服務]  ，指向 [新增]  ，然後按一下 [新增項目]  。
+2. 選取 [HDInsight 隨選連結服務]  ，然後按一下 [新增]  。
 3. 使用下列 JSON 來取代 **JSON**：
 
      ```json
@@ -124,9 +123,9 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
     屬性 | 說明
     -------- | ----------- 
-    ClusterSize | 指定 HDInsight Hadoop 叢集的大小。
-    TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
-    預設容器 | 指定用來儲存 HDInsight Hadoop 產生之記錄的儲存體帳戶。 
+    clusterSize | 指定 HDInsight Hadoop 叢集的大小。
+    timeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。
+    linkedServiceName | 指定用來儲存 HDInsight Hadoop 產生之記錄的儲存體帳戶。 
 
     > [!IMPORTANT]
     > HDInsight 叢集會在您於 JSON (linkedServiceName) 指定的 Blob 儲存體中建立**預設容器**。 HDInsight 不會在刪除叢集時刪除此容器。 這是設計的行為。 在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (timeToLive)，否則每次處理配量時，就會建立 HDInsight 叢集。 此叢集會在處理完成時自動刪除。
@@ -140,8 +139,8 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 在此步驟中，您會建立資料集來代表 Hive 處理的輸入和輸出資料。 這些資料集是您稍早在本教學課程中建立的 **AzureStorageLinkedService1** 。 連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。   
 
 #### <a name="create-input-dataset"></a>建立輸入資料集
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [新增]，然後按一下 [新增項目]。
-2. 從清單中選取 [Azure Blob]，將檔案名稱變更為 **InputDataSet.json**，再按一下 [新增]。
+1. 以滑鼠右鍵按一下 [方案總管]  中的 [資料表]  ，指向 [新增]  ，然後按一下 [新增項目]  。
+2. 從清單中選取 [Azure Blob]  ，將檔案名稱變更為 **InputDataSet.json**，再按一下 [新增]  。
 3. 使用下列 JSON 程式碼片段取代編輯器中的 **JSON**：
 
     ```json
@@ -174,7 +173,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
     屬性 | 說明 |
     -------- | ----------- |
     type |類型屬性會設為 **AzureBlob**，因為資料位於 Azure Blob 儲存體。
-    預設容器 | 表示您稍早建立的 AzureStorageLinkedService1。
+    linkedServiceName | 表示您稍早建立的 AzureStorageLinkedService1。
     fileName |這是選用屬性。 如果您省略此屬性，會挑選位於 folderPath 的所有檔案。 在這種情況下，只會處理 input.log。
     type | 記錄檔為文字格式，因此我們會使用 TextFormat。 |
     columnDelimiter | 記錄檔案中的資料行會以逗號字元 (`,`) 分隔
@@ -185,8 +184,8 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 #### <a name="create-output-dataset"></a>建立輸出資料集
 現在，您會建立輸出資料集來代表 Azure Blob 儲存體中儲存的輸出資料。
 
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [新增]，然後按一下 [新增項目]。
-2. 從清單中選取 [Azure Blob]，將檔案名稱變更為 **OutputDataset.json**，再按一下 [新增]。
+1. 以滑鼠右鍵按一下 [方案總管]  中的 [資料表]  ，指向 [新增]  ，然後按一下 [新增項目]  。
+2. 從清單中選取 [Azure Blob]  ，將檔案名稱變更為 **OutputDataset.json**，再按一下 [新增]  。
 3. 使用下列 JSON 取代編輯器中的 **JSON**：
     
     ```json
@@ -219,8 +218,8 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 ### <a name="create-pipeline"></a>建立管線
 到目前為止，您已建立 Azure 儲存體連結服務，以及輸入和輸出資料集。 現在，建立具有 **HDInsightHive** 活動的管線。 Hive 活動的 **input** 會設為 **AzureBlobInput**，而 **output** 則設為 **AzureBlobOutput**。 每個月都可取得輸入資料集配量 (頻率：月，間隔：1)，而且每個月也會產生輸出配量。 
 
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [管線]，指向 [新增]，然後按一下 [新增項目]。
-2. 從清單中選取 [Hive 轉換管線]，然後按一下 [新增]。
+1. 以滑鼠右鍵按一下 [方案總管]  中的 [管線]  ，指向 [新增]  ，然後按一下 [新增項目]  。
+2. 從清單中選取 [Hive 轉換管線]  ，然後按一下 [新增]  。
 3. 使用下列程式碼片段來取代 **JSON**：
 
     > [!IMPORTANT]
@@ -288,20 +287,20 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 4. 儲存 **HiveActivity1.json** 檔案。
 
 ### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>將 partitionweblogs.hql 新增為相依性
-1. 以滑鼠右鍵按一下 [方案總管] 視窗中的 [相依性]，指向 [新增]，按一下 [現有項目]。  
-2. 瀏覽至 **C:\ADFGettingStarted**、選取 **partitionweblogs.hql** 及 **input.log** 檔案，然後按一下 [新增]。 您建立了兩個檔案，作為一部分的 [教學課程概觀](data-factory-build-your-first-pipeline.md)必要條件。
+1. 以滑鼠右鍵按一下 [方案總管]  視窗中的 [相依性]  ，指向 [新增]  ，按一下 [現有項目]  。  
+2. 瀏覽至 **C:\ADFGettingStarted**、選取 **partitionweblogs.hql** 及 **input.log** 檔案，然後按一下 [新增]  。 您建立了兩個檔案，作為一部分的 [教學課程概觀](data-factory-build-your-first-pipeline.md)必要條件。
 
 當您在下一個步驟中發佈方案時，已將 **partitionweblogs.hql** 檔案上傳到 `adfgetstarted` Blob 容器中的**指令碼**資料夾。   
 
 ### <a name="publishdeploy-data-factory-entities"></a>發佈/部署 Data Factory 實體
 在此步驟中，您會將專案中的 Data Factory 實體 (連結的服務、資料集和管線) 發佈至 Azure Data Factory 服務。 在發佈過程中，您可指定資料處理站的名稱。 
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，再按一下 [發佈] 。
-2. 如果您看到 [登入您的 Microsoft 帳戶] 對話方塊，請輸入具有 Azure 訂用帳戶的帳戶認證，然後按一下 [登入]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，再按一下 [發佈]  。
+2. 如果您看到 [登入您的 Microsoft 帳戶]  對話方塊，請輸入具有 Azure 訂用帳戶的帳戶認證，然後按一下 [登入]  。
 3. 您應該會看到下列對話方塊：
 
    ![發佈對話方塊](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-4. 在 [設定 Data Factory] 頁面中，執行下列步驟：
+4. 在 [設定 Data Factory]  頁面中，執行下列步驟：
 
     ![發佈 - 新增資料處理站設定](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
@@ -312,21 +311,21 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
         > 如果看不到任何訂用帳戶，請確定您是使用訂用帳戶的管理員或共同管理員的帳戶進行登入。
    4. 針對要建立的 Data Factory 選取 [資源群組]  。
    5. 選取 Data Factory 的 [區域]  。
-   6. 按 [下一步]，切換至 [發佈項目] 頁面。 (如果 [下一步] 按鈕已停用，請按 **TAB** 來移出 [名稱] 欄位)。
+   6. 按 [下一步]  ，切換至 [發佈項目]  頁面。 (如果 [下一步]  按鈕已停用，請按 **TAB** 來移出 [名稱] 欄位)。
 
       > [!IMPORTANT]
-      > 如果您在發佈時收到錯誤：「Data Factory 名稱 “DataFactoryUsingVS” 無法使用」，請變更名稱 (例如 yournameDataFactoryUsingVS)。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。   
-1. 在 [發佈項目] 頁面上，確認所有 Data Factory 實體都已選取，並按 [下一步] 切換至 [摘要] 頁面。
+      > 如果您在發佈時收到錯誤：「Data Factory 名稱 “DataFactoryUsingVS” 無法使用」  ，請變更名稱 (例如 yournameDataFactoryUsingVS)。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。   
+1. 在 [發佈項目]  頁面上，確認所有 Data Factory 實體都已選取，並按 [下一步]  切換至 [摘要]  頁面。
 
     ![發佈項目頁面](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
-2. 檢閱摘要，然後按 [下一步] 開始部署程序，並檢視 [部署狀態]。
+2. 檢閱摘要，然後按 [下一步]  開始部署程序，並檢視 [部署狀態]  。
 
     ![摘要頁面](media/data-factory-build-your-first-pipeline-using-vs/summary-page.png)
 3. 在 [部署狀態]  頁面上，您應該會看到部署程序的狀態。 部署完成後按一下 [完成]。
 
 需要注意的重點：
 
-- 如果您收到錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory」，請執行下列其中一項，然後嘗試再次發佈︰
+- 如果您收到錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory」  ，請執行下列其中一項，然後嘗試再次發佈︰
     - 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者。
         ```powershell   
         Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -345,13 +344,13 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
 #### <a name="monitor-pipeline-using-diagram-view"></a>使用圖表檢視監視管線
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，執行下列步驟：
-   1. 按一下 [更多服務]，然後按一下 [Data Factory]。
+   1. 按一下 [更多服務]  ，然後按一下 [Data Factory]  。
        
         ![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
    2. 從資料處理站清單中選取您的資料處理站名稱 (例如︰**DataFactoryUsingVS09152016**)。
    
        ![選取您的 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
-2. 在您 Data Factory 的首頁中，按一下 [圖表] 。
+2. 在您 Data Factory 的首頁中，按一下 [圖表]  。
 
     ![[圖表] 圖格](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
 3. 在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。
@@ -365,11 +364,11 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
     ![開啟管線檢視](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     若要瀏覽回上一個檢視，請按一下上方麵包屑導航功能表中的 [Data Factory]  。
-6. 在 [圖表檢視] 中，按兩下 [AzureBlobInput] 資料集。 確認配量為 [就緒] 狀態。 可能需要數分鐘的時間，配量才會顯示為「就緒」狀態。 如果一段時間之後還未顯示，請查看輸入檔案 (input.log) 是否放置在正確的容器 (`adfgetstarted`) 和資料夾 (`inputdata`) 中。 此外，確定輸入資料集的 **external** 屬性已設為 **true**。 
+6. 在 [圖表檢視]  中，按兩下 [AzureBlobInput]  資料集。 確認配量為 [就緒]  狀態。 可能需要數分鐘的時間，配量才會顯示為「就緒」狀態。 如果一段時間之後還未顯示，請查看輸入檔案 (input.log) 是否放置在正確的容器 (`adfgetstarted`) 和資料夾 (`inputdata`) 中。 此外，確定輸入資料集的 **external** 屬性已設為 **true**。 
 
    ![輸入配量處於就緒狀態](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. 按一下 **X** 關閉 **AzureBlobInput** 刀鋒視窗。
-8. 在 [圖表檢視] 中，按兩下 **AzureBlobOutput** 資料集。 您會看到目前正在處理的配量。
+8. 在 [圖表檢視]  中，按兩下 **AzureBlobOutput** 資料集。 您會看到目前正在處理的配量。
 
    ![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 處理完成時，您會看到配量處於 [就緒]  狀態。
@@ -384,7 +383,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 11. 按一下配量，以在 [資料配量]  刀鋒視窗中查看其詳細資料。
 
     ![資料配量詳細資料](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
-12. 按一下 [活動執行清單] 中的活動執行，以在 [活動執行詳細資料] 視窗中查看活動執行 (我們的案例中的 Hive 活動) 的詳細資料。 
+12. 按一下 [活動執行清單]  中的活動執行，以在 [活動執行詳細資料]  視窗中查看活動執行 (我們的案例中的 Hive 活動) 的詳細資料。 
   
     ![活動執行詳細資料](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
@@ -398,10 +397,10 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 1. 按一下 [監視及管理] 圖格。
 
     ![監視及管理圖格](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png)
-2. 您應該會看到 [監視及管理] 應用程式。 變更 [開始時間] 和 [結束時間] 以符合您的管線的開始 (04-01-2016 12:00 AM) 和結束時間 (04-02-2016 12:00 AM)，然後按一下 [套用]。
+2. 您應該會看到 [監視及管理] 應用程式。 變更 [開始時間]  和 [結束時間]  以符合您的管線的開始 (04-01-2016 12:00 AM) 和結束時間 (04-02-2016 12:00 AM)，然後按一下 [套用]  。
 
     ![監視及管理應用程式](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
-3. 若要查看活動時段的詳細資料，請在 [活動時段] 清單中加以選取，以查看其詳細資料。
+3. 若要查看活動時段的詳細資料，請在 [活動時段]  清單中加以選取，以查看其詳細資料。
     ![活動時段詳細資料](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
@@ -421,8 +420,8 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
 
 ## <a name="use-server-explorer-to-view-data-factories"></a>使用伺服器總管檢視 Data Factory
-1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
-2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。 如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。 輸入**密碼**，然後按一下 [登入]。 Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。 您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。
+1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]  ，然後按一下 [伺服器總管]  。
+2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。 如果您看到 [登入 Visual Studio]  ，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]  。 輸入**密碼**，然後按一下 [登入]  。 Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。 您會在 [Data Factory 工作清單]  視窗中看到這項作業的狀態。
 
     ![Server Explorer](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. 您可以在 Data Factory 上按一下滑鼠右鍵，並選取 [將 Data Factory 匯出至新的專案]  ，以便根據現有的 Data Factory 建立 Visual Studio 專案。
@@ -432,9 +431,9 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 ## <a name="update-data-factory-tools-for-visual-studio"></a>更新 Visual studio 的 Data Factory 工具
 若要更新 Visual Studio 的 Azure Data Factory 工具，請執行下列步驟：
 
-1. 按一下功能表上的 [工具]，然後選取 [擴充功能和更新]。
-2. 選取左窗格中的 [更新]，然後選取 [Visual Studio 組件庫]。
-3. 選取 [Visual Studio 的 Azure Data Factory 工具] 並按一下 [更新]。 如果您看不到此項目，代表您已經有最新版本的工具。
+1. 按一下功能表上的 [工具]  ，然後選取 [擴充功能和更新]  。
+2. 選取左窗格中的 [更新]  ，然後選取 [Visual Studio 組件庫]  。
+3. 選取 [Visual Studio 的 Azure Data Factory 工具]  並按一下 [更新]  。 如果您看不到此項目，代表您已經有最新版本的工具。
 
 ## <a name="use-configuration-files"></a>使用組態檔
 您可以在 Visual Studio 中使用組態檔，針對各個環境分別設定連結服務/資料表/管線的屬性。
@@ -457,8 +456,8 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 ### <a name="add-a-configuration-file"></a>新增組態檔
 藉由執行下列步驟來新增每個環境的組態檔：   
 
-1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]，然後按一下 [新增項目]。
-2. 從左側的已安裝範本清單中選取 [設定]、選取 [設定檔]、輸入設定檔的 [名稱]，然後按一下 [新增]。
+1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]  ，然後按一下 [新增項目]  。
+2. 從左側的已安裝範本清單中選取 [設定]  、選取 [設定檔]  、輸入設定檔的 [名稱]  ，然後按一下 [新增]  。
 
     ![新增組態檔](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. 以下列格式新增設定參數和其值：
@@ -534,13 +533,13 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 
 若要使用組態檔在 Azure Data Factory 專案中發佈實體：   
 
-1. 以滑鼠右鍵按一下 Data Factory 專案，然後按一下 [發佈] 以查看 [發佈項目] 對話方塊。
-2. 選取現有的 Data Factory，或指定值以在 [設定 Data Factory] 頁面上建立 Data Factory，然後按 [下一步]。   
-3. 在 [發佈項目] 頁面：您會看到下拉式清單，其中具有 [選取部署設定] 欄位的可用設定。
+1. 以滑鼠右鍵按一下 Data Factory 專案，然後按一下 [發佈]  以查看 [發佈項目]  對話方塊。
+2. 選取現有的 Data Factory，或指定值以在 [設定 Data Factory]  頁面上建立 Data Factory，然後按 [下一步]  。   
+3. 在 [發佈項目]  頁面：您會看到下拉式清單，其中具有 [選取部署設定]  欄位的可用設定。
 
     ![選取組態檔](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
-4. 選取您想要使用的**設定檔**，然後按 [下一步]。
-5. 確認您在 [摘要] 頁面上看到 JSON 檔案的名稱，然後按 [下一步]。
+4. 選取您想要使用的**設定檔**，然後按 [下一步]  。
+5. 確認您在 [摘要]  頁面上看到 JSON 檔案的名稱，然後按 [下一步]  。
 6. 部署作業完成後按一下 [完成]  。
 
 部署時，在將實體部署至 Azure Data Factory 服務之前，會使用組態檔的值來設定 JSON 檔案中的屬性值。   

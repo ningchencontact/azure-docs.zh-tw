@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/13/2019
+ms.date: 07/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a19a257e2b4a39d9df8777215364f9cc026f72ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: cc005ee578e938311c640f7aa19f6643e7c99900
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072057"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253894"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>如何使用搭配 C# 的 QnA Maker REST API 
 <a name="HOLTop"></a>
@@ -1570,6 +1570,6 @@ namespace QnAMaker
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API 參考](https://go.microsoft.com/fwlink/?linkid=2092179)
 
-## <a name="see-also"></a>請參閱 
+## <a name="see-also"></a>另請參閱 
 
 [QnA Maker 概觀](../Overview/overview.md)

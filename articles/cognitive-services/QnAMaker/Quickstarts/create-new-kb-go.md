@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 4831fca8a72f62d64c1977b510f039065f6cd3c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b4a399901b8bba1c97a5571d3db4ef1cbe713a6c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788572"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254204"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>快速入門：使用 Go 在 QnA Maker 中建立知識庫
 
@@ -28,7 +28,7 @@ ms.locfileid: "65788572"
 ## <a name="prerequisites"></a>必要條件
 
 * [Go 1.10.1](https://golang.org/dl/)
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理] 下方的 [金鑰]。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理]  下方的 [金鑰]  。 
 
 ## <a name="create-a-knowledge-base-go-file"></a>建立知識庫 Go 檔案
 
@@ -68,7 +68,7 @@ ms.locfileid: "65788572"
 
 ## <a name="add-function-to-create-kb"></a>新增函式以建立 KB
 
-新增下列函式，來提出要建立知識庫的 HTTP POST 要求。 _建立_**作業識別碼**會在 POST 回應標頭欄位 [位置] 中會傳回，然後在 GET 要求中作為路由的一部分。 `Ocp-Apim-Subscription-Key` 是 QnA Maker 服務金鑰，用於驗證。 
+新增下列函式，來提出要建立知識庫的 HTTP POST 要求。 _建立_**作業識別碼**會在 POST 回應標頭欄位 [位置]  中會傳回，然後在 GET 要求中作為路由的一部分。 `Ocp-Apim-Subscription-Key` 是 QnA Maker 服務金鑰，用於驗證。 
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 

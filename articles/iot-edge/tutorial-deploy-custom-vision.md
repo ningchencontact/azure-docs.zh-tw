@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433948"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850126"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -141,17 +141,9 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 1. 在 Visual Studio Code 中，選取 [檢視]   > [終端機]  以開啟 VS Code 整合式終端機。
 
-2. 在整合式終端機中，輸入下列命令來安裝 (或更新) **cookiecutter**，以便用來在 VS Code 中建立 IoT Edge Python 模組範本：
+1. 選取 [檢視]   > [命令選擇區]  ，以開啟 VS Code 命令選擇區。 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >請確定將用來安裝 cookiecutter 的目錄位於環境的 `Path` 中，如此才能從命令提示字元加以叫用。
-
-3. 選取 [檢視]   > [命令選擇區]  ，以開啟 VS Code 命令選擇區。 
-
-4. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:  新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
+1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:  新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    | 欄位 | 值 |
    | ----- | ----- |

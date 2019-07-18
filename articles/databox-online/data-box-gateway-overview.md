@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924510"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277394"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>什麼是 Azure Data Box Gateway？
 
@@ -90,12 +90,7 @@ Azure 資料箱閘道是可讓您順利將資料傳送到 Azure 的儲存體解�
 
 Data Box Gateway 實體裝置、Azure 資源，以及您要將資料轉送至其中的目標儲存體帳戶，並不需要全都位於相同的區域。
 
-- **資源可用性** - 針對此版本，在下列支援公用雲端的區域中可取得 Data Box Gateway 資源：
-    - **美國** - 美國東部
-    - **歐盟** - 西歐
-    - **亞太地區** - 東南亞
-
-    Data Box Gateway 也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
+- **資源可用性** - 如需 Data Box Edge 適用區域的完整清單，請移至[依區域提供的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox)。 Data Box Gateway 也可部署在 Azure Government 雲端中。 如需詳細資訊，請參閱[何謂 Azure Government？](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)。
 
 - **目的地儲存體帳戶** - 儲存資料的儲存體帳戶在所有 Azure 區域都可用。
 

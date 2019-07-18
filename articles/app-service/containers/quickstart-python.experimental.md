@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ea247907aebc241fb8f1b266ad55bc2fc983607f
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546318"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853981"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式 (預覽)
 
@@ -64,7 +64,7 @@ Checking connectivity... done.
 
 變更為包含範例程式碼的目錄，並執行 `az webapp up` 命令。
 
-在下列範例中，使用唯一的應用程式名稱取代 <app_name>。
+在下列範例中，使用全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`) 取代 \<app_name>  。
 
 ```bash
 cd python-docs-hello-world
@@ -151,7 +151,7 @@ az webapp up -n <app_name>
 
 移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/quickstart-python/app-service-list.png)
 

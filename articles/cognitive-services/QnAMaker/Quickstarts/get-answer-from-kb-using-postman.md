@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 24bd6731faa9788dc336db199aa9776813e7348f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7083285ac81aa8eafee8de49175e40934e5d05b4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683438"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253818"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>快速入門：使用 Postman 從知識庫取得答案
 
@@ -32,7 +32,7 @@ ms.locfileid: "59683438"
 
 ## <a name="use-production-endpoint-with-postman"></a>搭配 Postman 使用生產端點
 
-發佈知識庫時，[發佈] 頁面會顯示用來產生答案的 HTTP 要求設定。 預設檢視會顯示從 [Postman](https://www.getpostman.com) \(英文\) 產生答案所需的設定。
+發佈知識庫時，[發佈]  頁面會顯示用來產生答案的 HTTP 要求設定。 預設檢視會顯示從 [Postman](https://www.getpostman.com) \(英文\) 產生答案所需的設定。
 
 下圖中的黃色數字表示將在下列步驟中使用的名稱/值配對。
 
@@ -40,7 +40,7 @@ ms.locfileid: "59683438"
 
 若要使用 Postman 產生答案，請完成下列步驟：
 
-1. 開啟 Postman。 如果系統要求您選擇建置組塊，請選取 [基本要求] 建置組塊。 將**要求名稱**設定為 `Generate QnA Maker answer`，並將**集合**設定為 `Generate QnA Maker answers`。 如果您不想儲存至集合，請選取 [取消] 按鈕。
+1. 開啟 Postman。 如果系統要求您選擇建置組塊，請選取 [基本要求]  建置組塊。 將**要求名稱**設定為 `Generate QnA Maker answer`，並將**集合**設定為 `Generate QnA Maker answers`。 如果您不想儲存至集合，請選取 [取消]  按鈕。
 1. 在工作區中，針對 HTTP 方法選取 **POST**。
 
     [![在 Postman 中，設定 POST 方法](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
@@ -51,20 +51,20 @@ ms.locfileid: "59683438"
 
     [![在 Postman 中，設定完整 URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
-1. 選取 URL 下方的 [Headers] \(標頭\) 索引標籤，然後選取 [Bulk Edit] \(大量編輯\)。 
+1. 選取 URL 下方的 [Headers]  \(標頭\) 索引標籤，然後選取 [Bulk Edit]  \(大量編輯\)。 
 
 1. 將標頭 (影像中的 #3 和 #4) 複製到文字區域中。
 
     [![在 Postman 中，設定標頭](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
-1. 選取 [Body] \(本文\) 索引標籤。
-1. 選取 [原始] 格式，然後輸入表示問題的 JSON (影像中的 #5)。
+1. 選取 [Body]  \(本文\) 索引標籤。
+1. 選取 [原始]  格式，然後輸入表示問題的 JSON (影像中的 #5)。
 
     `{"question":"How do I programmatically update my Knowledge Base?"}`
 
     [![在 Postman 中，設定本文 JSON 值](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
-1. 選取 [Send] \(傳送\) 按鈕。
+1. 選取 [Send]  \(傳送\) 按鈕。
 1. 回應會包含答案以及可能對用戶端應用程式而言很重要的其他資訊。 
 
     [![在 Postman 中，設定本文 JSON 值](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)

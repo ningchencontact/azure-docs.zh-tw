@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66147762"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876711"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>教學課程：使用 Linux VM 和 Python 應用程式將這些秘密儲存在 Azure Key Vault 中
 
@@ -99,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 使用 `az vm create` 命令來建立 VM。
 
-下列範例會建立名為 myVM 的 VM，並新增名為 azureuser 的使用者帳戶。 `--generate-ssh-keys` 參數會自動產生 SSH 金鑰，並將它放在預設金鑰位置 (~/.ssh)。 若要改為建立一組特定金鑰，請使用 `--ssh-key-value` 選項。
+下列範例會建立名為 myVM  的 VM，並新增名為 azureuser  的使用者帳戶。 `--generate-ssh-keys` 參數會自動產生 SSH 金鑰，並將它放在預設金鑰位置 (~/.ssh  )。 若要改為建立一組特定金鑰，請使用 `--ssh-key-value` 選項。
 
 ```azurecli-interactive
 az vm create \
@@ -207,7 +207,7 @@ python Sample.py
 
 ## <a name="clean-up-resources"></a>清除資源
 
-請刪除不再需要的資源群組、虛擬機器和所有相關的資源。 若要這樣做，請選取 VM 的資源群組，然後選取 [刪除]。
+請刪除不再需要的資源群組、虛擬機器和所有相關的資源。 若要這樣做，請選取 VM 的資源群組，然後選取 [刪除]  。
 
 使用 `az keyvault delete` 命令刪除金鑰保存庫：
 

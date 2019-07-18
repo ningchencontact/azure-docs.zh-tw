@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/17/2019
 ms.author: helohr
-ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 03105232cb92a65f8c38d6d755910739a3fc4720
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476719"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305058"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>什麼是 Windows 虛擬桌面預覽版？ 
 
@@ -105,10 +105,6 @@ Windows 虛擬桌面支援下列 OS 映像：
 
 * Windows 10 企業版的多重工作階段
 * Windows Server 2016
-
-## <a name="provide-feedback"></a>提供意見反應
-
-請瀏覽 [Windows 虛擬桌面技術社群](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)，與產品小組和活躍的社群成員一起討論 Windows 虛擬桌面服務。 我們目前不採用 Windows 虛擬桌面處於預覽狀態時的支援案例。
 
 ## <a name="next-steps"></a>後續步驟
 

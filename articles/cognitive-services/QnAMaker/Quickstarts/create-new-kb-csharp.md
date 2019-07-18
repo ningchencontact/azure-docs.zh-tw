@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: c1771224c8e6ee8a9fdca3ab2fba59411ac92a27
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 130f14f1a377c6ee580b207a62fd47d9dd818dcb
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788536"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249698"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>快速入門：使用 C# 在 QnA Maker 中建立知識庫
 
@@ -30,7 +30,7 @@ ms.locfileid: "65788536"
 ## <a name="prerequisites"></a>必要條件
 
 * 最新 [**Visual Studio Community 版本**](https://www.visualstudio.com/downloads/)。
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理] 下方的 [金鑰]。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理]  下方的 [金鑰]  。 
 
 > [!NOTE] 
 > 從 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)可取得完整的解決方案檔。
@@ -113,7 +113,7 @@ ms.locfileid: "65788536"
 
 ## <a name="add-createkb-method"></a>新增 CreateKB 方法
 
-下列方法會建立 KB，並重複檢查狀態。  _建立_**作業識別碼**會在 POST 回應標頭欄位 [位置] 中會傳回，然後在 GET 要求中作為路由的一部分。 因為 KB 建立可能需要一些時間，您必須重複呼叫來檢查狀態，直到狀態為成功或失敗。 當作業成功時，會在 **resourceLocation** 中傳回 KB 識別碼。 
+下列方法會建立 KB，並重複檢查狀態。  _建立_**作業識別碼**會在 POST 回應標頭欄位 [位置]  中會傳回，然後在 GET 要求中作為路由的一部分。 因為 KB 建立可能需要一些時間，您必須重複呼叫來檢查狀態，直到狀態為成功或失敗。 當作業成功時，會在 **resourceLocation** 中傳回 KB 識別碼。 
 
 [!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
 

@@ -13,17 +13,16 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab36d475052aa71427427e1362c74abd031fa414
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146830"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839465"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>教學課程：使用 Data Factory REST API 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-build-your-first-pipeline.md)
-> * [Azure 入口網站](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
@@ -317,13 +316,13 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 請注意下列幾點：
 
-* Azure Data Factory 的名稱在全域必須是唯一的。 如果您在結果中看到錯誤：「Data factory 名稱 “FirstDataFactoryREST” 無法使用」，請執行下列步驟︰
+* Azure Data Factory 的名稱在全域必須是唯一的。 如果您在結果中看到錯誤：「Data factory 名稱 “FirstDataFactoryREST” 無法使用」  ，請執行下列步驟︰
   1. 在 **datafactory.json** 檔案中變更名稱 (例如，yournameFirstDataFactoryREST)。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。
   2. 在指派 **$cmd** 變數值的第一個命令中，以新的名稱取代 FirstDataFactoryREST 並執行命令。
   3. 執行下面兩個命令來叫用 REST API，以建立 Data Factory 和列印作業的結果。
 * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者/系統管理員
 * Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
-* 如果您收到錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory」，請執行下列其中一項，然後嘗試再次發佈︰
+* 如果您收到錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory」  ，請執行下列其中一項，然後嘗試再次發佈︰
 
   * 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者：
 
@@ -465,7 +464,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 >
 >
 
-執行 Invoke-Command 和下一個命令，直到您看到配量處於 [就緒] 狀態或 [失敗] 狀態。 當配量處於 [就緒] 狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。  建立隨選 HDInsight 叢集通常需要一些時間。
+執行 Invoke-Command 和下一個命令，直到您看到配量處於 [就緒]  狀態或 [失敗]  狀態。 當配量處於 [就緒] 狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。  建立隨選 HDInsight 叢集通常需要一些時間。
 
 ![輸出資料](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
 
@@ -474,7 +473,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 >
 >
 
-您也可以使用 Azure 入口網站來監視配量及排解任何疑難問題。 如需詳細，請參閱 [使用 Azure 入口網站監視管線](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) 。
+您也可以使用 Azure 入口網站來監視配量及排解任何疑難問題。 如需詳細，請參閱 [使用 Azure 入口網站監視管線](data-factory-monitor-manage-pipelines.md) 。
 
 ## <a name="summary"></a>總結
 在本教學課程中，您會在 HDInsight hadoop 叢集上執行 Hive 指令碼，以建立 Azure Data Factory 來處理資料。 您會在使用 Azure 入口網站中使用 Data Factory 編輯器來執行下列步驟︰

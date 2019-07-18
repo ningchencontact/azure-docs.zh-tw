@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9d273886b3add43818af80915e42b4aa7ca69a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f18fc8a18cbcf5d85b68ed40790eda36d653812
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146864"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836580"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-build-your-first-pipeline.md)
-> * [Azure 入口網站](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
@@ -164,8 +163,8 @@ ms.locfileid: "66146864"
 
    | 屬性 | 說明 |
    |:--- |:--- |
-   | ClusterSize |指定 HDInsight 叢集的大小。 |
-   | TimeToLive |指定 HDInsight 叢集在被刪除之前的閒置時間。 |
+   | clusterSize |指定 HDInsight 叢集的大小。 |
+   | timeToLive |指定 HDInsight 叢集在被刪除之前的閒置時間。 |
    | linkedServiceName |指定用來儲存 HDInsight 產生之記錄的儲存體帳戶 |
 
     請注意下列幾點：
@@ -219,7 +218,7 @@ ms.locfileid: "66146864"
    | 屬性 | 說明 |
    |:--- |:--- |
    | type |類型屬性設為 AzureBlob，因為資料位於 Azure Blob 儲存體。 |
-   | 預設容器 |表示您稍早建立的 StorageLinkedService。 |
+   | linkedServiceName |表示您稍早建立的 StorageLinkedService。 |
    | fileName |這是選用屬性。 如果您省略此屬性，會挑選位於 folderPath 的所有檔案。 在這種情況下，只會處理 input.log。 |
    | type |記錄檔為文字格式，因此我們會使用 TextFormat。 |
    | columnDelimiter |記錄檔案中的資料行會以逗號字元 (,) 分隔。 |

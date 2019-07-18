@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404088"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275814"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>快速入門：查詢預測端點與 C# .NET SDK
 
@@ -58,14 +58,14 @@ az cognitiveservices account create \
 在 Visual Studio Community 2017 中建立 .NET Core 主控台專案。
 
 1. 開啟 Visual Studio Community 2017。
-1. 從 [Visual C#] 區段建立新的專案，然後選擇 [主控台應用程式 (.NET Core)]。
-1. 輸入專案名稱 `QueryPrediction`、保留其餘預設值，然後選取 [確定]。
+1. 從 [Visual C#]  區段建立新的專案，然後選擇 [主控台應用程式 (.NET Core)]  。
+1. 輸入專案名稱 `QueryPrediction`、保留其餘預設值，然後選取 [確定]  。
     這會使用名為 **Program.cs** 的主要程式碼檔案建立簡單的專案。
 
 ## <a name="add-sdk-with-nuget"></a>使用 NuGet 新增 SDK
 
-1. 在 [方案總管] 中，選取樹狀檢視中名為 [QueryPrediction] 的專案，然後按一下滑鼠右鍵。 在功能表上，選取 [管理 NuGet 套件...]。
-1. 選取 [瀏覽]，然後輸入 `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`。 當套件資訊顯示時，選取 [安裝] 以將套件安裝至專案內。 
+1. 在 [方案總管]  中，選取樹狀檢視中名為 [QueryPrediction]  的專案，然後按一下滑鼠右鍵。 在功能表上，選取 [管理 NuGet 套件...]  。
+1. 選取 [瀏覽]  ，然後輸入 `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`。 當套件資訊顯示時，選取 [安裝]  以將套件安裝至專案內。 
 1. 在 **Program.cs** 開頭處新增 _using_ 陳述式。 請勿移除 `System` 的現有 _using_ 陳述式。 
 
 ```csharp

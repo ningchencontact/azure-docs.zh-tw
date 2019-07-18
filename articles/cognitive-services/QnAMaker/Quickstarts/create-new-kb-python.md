@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 01/24/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 9aa5b85a00de495478897ec70393f6c22ee20fc5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 27471f07438bac7f40e6047306aac7d2658ee519
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788759"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249685"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>快速入門：使用 Python 在 QnA Maker 中建立知識庫
 
@@ -61,7 +61,7 @@ ms.locfileid: "65788759"
 
 ## <a name="add-function-to-create-kb"></a>新增函式以建立 KB
 
-新增下列函式，以提出建立知識庫的 HTTP POST 要求。 此 API 呼叫會傳回 JSON 回應，其中包含標頭欄位 [位置] 的作業識別碼。 使用作業識別碼來判斷是否已成功建立 KB。 `Ocp-Apim-Subscription-Key` 是 QnA Maker 服務金鑰，用於驗證。 
+新增下列函式，以提出建立知識庫的 HTTP POST 要求。 此 API 呼叫會傳回 JSON 回應，其中包含標頭欄位 [位置]  的作業識別碼。 使用作業識別碼來判斷是否已成功建立 KB。 `Ocp-Apim-Subscription-Key` 是 QnA Maker 服務金鑰，用於驗證。 
 
 [!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 

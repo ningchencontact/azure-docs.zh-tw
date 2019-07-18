@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b655b07314d5ebc2d0cb47389988f1a89e6a56
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66133961"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304339"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure CLI
 
@@ -29,11 +29,11 @@ ms.locfileid: "66133961"
 
 如果您選擇在本機安裝和使用 CLI，請執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 **az --version**。 如需安裝或升級的相關資訊，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
-### <a name="resource-group"></a>資源群組
+### <a name="resource-group"></a>Resource group
 
 在 Azure 中，您可以將相關資源配置到資源群組。 使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。 
 
-下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroupAG  的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -60,7 +60,9 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ### <a name="backend-servers"></a>後端伺服器
@@ -147,7 +149,7 @@ az network application-gateway create \
   --location eastus \
   --resource-group myResourceGroupAG \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Enabled \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
@@ -155,13 +157,13 @@ az network application-gateway create \
   --servers "$address1" "$address2"
 ```
 
-Azure 建立應用程式閘道最多可能需要 30 分鐘。 建立之後，您可以在 [應用程式閘道] 頁面的 [設定] 區段中檢視下列設定：
+Azure 建立應用程式閘道最多可能需要 30 分鐘。 建立之後，您可以在 [應用程式閘道]  頁面的 [設定]  區段中檢視下列設定：
 
-- **appGatewayBackendPool**：位於 [後端集區] 頁面上。 它會指定所需的後端集區。
-- **appGatewayBackendHttpSettings**：位於 [HTTP 設定] 頁面上。 它會指定應用程式閘道應使用連接埠 80 和 HTTP 通訊協定進行通訊。
-- **appGatewayHttpListener**：位於 [接聽程式] 頁面上。 它會指定與 **appGatewayBackendPool** 相關聯的預設接聽程式。
-- **appGatewayFrontendIP**：位於 [前端 IP 組態] 頁面上。 它會將 *myAGPublicIPAddress* 指派給 **appGatewayHttpListener**。
-- **rule1**：位於 [規則] 頁面上。 它會指定與 **appGatewayHttpListener** 相關聯的預設路由規則。
+- **appGatewayBackendPool**：位於 [後端集區]  頁面上。 它會指定所需的後端集區。
+- **appGatewayBackendHttpSettings**：位於 [HTTP 設定]  頁面上。 它會指定應用程式閘道應使用連接埠 80 和 HTTP 通訊協定進行通訊。
+- **appGatewayHttpListener**：位於 [接聽程式]  頁面上。 它會指定與 **appGatewayBackendPool** 相關聯的預設接聽程式。
+- **appGatewayFrontendIP**：位於 [前端 IP 組態]  頁面上。 它會將 *myAGPublicIPAddress* 指派給 **appGatewayHttpListener**。
+- **rule1**：位於 [規則]  頁面上。 它會指定與 **appGatewayHttpListener** 相關聯的預設路由規則。
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 

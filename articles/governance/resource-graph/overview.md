@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4724789dd1a0893c5ef4ab112306c185f0e87da7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274374"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807436"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -28,6 +28,8 @@ Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢指定�
 > [!NOTE]
 > Azure Resource Graph 負責提供 Azure 入口網站的搜尋列、「所有資源」的全新瀏覽體驗以及用於 Azure 原則的[變更記錄](../policy/how-to/determine-non-compliance.md#change-history-preview)
 >   「視覺效果差異」。其目的是協助客戶管理大規模的環境。
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph 輔助 Resource Manager 的方式
 

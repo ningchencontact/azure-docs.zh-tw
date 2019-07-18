@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193733"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276038"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教學課程：新增通用模式範本語句格式
 
@@ -47,15 +47,15 @@ ms.locfileid: "57193733"
 
 2. 將 JSON 匯入新的應用程式中。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `patterns`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+3. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `patterns`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
 ## <a name="create-new-intents-and-their-utterances"></a>建立新意圖及其語句
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 在 [意圖] 頁面上，選取 [建立新意圖]。 
+2. 在 [意圖]  頁面上，選取 [建立新意圖]  。 
 
-3. 在快顯對話方塊方塊中輸入 `OrgChart-Manager`，然後選取 [完成]。
+3. 在快顯對話方塊方塊中輸入 `OrgChart-Manager`，然後選取 [完成]  。
 
     ![建立新的訊息快顯視窗](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
@@ -73,11 +73,11 @@ ms.locfileid: "57193733"
 
     如果是在意圖的語句 (而不是員工實體的語句) 中標示 keyPhrase 實體，也沒關係。 這兩者都可在端點的 [測試] 窗格中正確預測。 
 
-5. 在左側導覽中，選取 [意圖]。
+5. 在左側導覽中，選取 [意圖]  。
 
-6. 選取 [Create new intent] \(建立新意圖\)。 
+6. 選取 [Create new intent] \(建立新意圖\)  。 
 
-7. 在快顯對話方塊方塊中輸入 `OrgChart-Reports`，然後選取 [完成]。
+7. 在快顯對話方塊方塊中輸入 `OrgChart-Reports`，然後選取 [完成]  。
 
 8. 將語句範例新增至意圖。
 
@@ -223,11 +223,11 @@ ms.locfileid: "57193733"
 
 ## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>新增 OrgChart-Manager 意圖的模式
 
-1. 在上方功能表中，選取 [建置]。
+1. 在上方功能表中，選取 [建置]  。
 
-2. 在左導覽窗格中的 [Improve app performance] \(改善應用程式效能\) 底下，選取 [Patterns] \(模式\)。
+2. 在左導覽窗格中的 [Improve app performance] \(改善應用程式效能\)  底下，選取 [Patterns] \(模式\)  。
 
-3. 選取 [OrgChart-Manager] 意圖，然後輸入下列範本語句：
+3. 選取 [OrgChart-Manager]  意圖，然後輸入下列範本語句：
 
     |範本語句|
     |:--|
@@ -244,7 +244,7 @@ ms.locfileid: "57193733"
 
     [![為意圖輸入範本語句的螢幕擷取畫面](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. 同樣在 [模式] 頁面上，選取 [OrgChart-Reports] 意圖，然後輸入下列範本語句：
+4. 同樣在 [模式] 頁面上，選取 [OrgChart-Reports]  意圖，然後輸入下列範本語句：
 
     |範本語句|
     |:--|
@@ -387,15 +387,15 @@ ms.locfileid: "57193733"
 
 ## <a name="edit-the-existing-pattern-template-utterance"></a>編輯現有的模式範本語句
 
-1. 在 LUIS 網站上，選取頂端功能表中的 [建置]，然後在左側功能表中選取 [模式]。 
+1. 在 LUIS 網站上，選取頂端功能表中的 [建置]  ，然後在左側功能表中選取 [模式]  。 
 
-1. 搜尋現有範本語句 `Who is {Employee}['s] manager[?]`，選取右側的省略符號 (...)，然後從快顯功能表中選取 [編輯]。 
+1. 搜尋現有範本語句 `Who is {Employee}['s] manager[?]`，選取右側的省略符號 (...)，然後從快顯功能表中選取 [編輯]  。 
 
 1. 將範本語句變更為：`who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>新增模式範本語句
 
-1. 當您還在 [建置] 的 [模式] 中時，可以新增數個模式範本語句。 從意圖下拉式功能表中選取 [OrgChart Manager]，並輸入以下每個範本語句：
+1. 當您還在 [建置]  的 [模式]  中時，可以新增數個模式範本語句。 從意圖下拉式功能表中選取 [OrgChart Manager]  ，並輸入以下每個範本語句：
 
     |意圖|包含選用文字和預先建置實體的語句範例|
     |--|--|
@@ -405,11 +405,11 @@ ms.locfileid: "57193733"
 
 2. 將應用程式定型。
 
-3. 在面板頂端選取 [測試]，以開啟測試面板。 
+3. 在面板頂端選取 [測試]  ，以開啟測試面板。 
 
 4. 輸入數個測試語句，以驗證模式符合，而且意圖分數相當高。 
 
-    輸入第一個語句之後，請選取結果下方的 [檢查]，然後您就可以看到所有預測結果。 每個語句應該都有 **OrgChart-Manager** 意圖，且應該擷取 Employee 和 datetimeV2 實體的值。
+    輸入第一個語句之後，請選取結果下方的 [檢查]  ，然後您就可以看到所有預測結果。 每個語句應該都有 **OrgChart-Manager** 意圖，且應該擷取 Employee 和 datetimeV2 實體的值。
 
     |語句|
     |--|
@@ -439,7 +439,7 @@ ms.locfileid: "57193733"
 
 這會使用 **group** 圍住必要的動詞時態，以及使用選用的 `in` 和 `on` (兩者之間有 **or** 垂直線)。 
 
-1. 在 [模式] 頁面上，選取 **OrgChart-Manager** 篩選器。 藉由搜尋 `manager` 來縮小清單。 
+1. 在 [模式]  頁面上，選取 **OrgChart-Manager** 篩選器。 藉由搜尋 `manager` 來縮小清單。 
 
     ![在 OrgChart-Manager 意圖模式中搜尋 'manager' 字詞](./media/luis-tutorial-pattern/search-patterns.png)
 

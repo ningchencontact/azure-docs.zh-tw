@@ -13,18 +13,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0d67e18182d44dc640c75d982ccb40f1d22f8b41
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025754"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836602"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>教學課程：使用 Data Factory 複製精靈建立具有複製活動的管線
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -37,7 +36,7 @@ ms.locfileid: "54025754"
 
 本教學課程說明如何使用**複製精靈**，將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 
 
-Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將資料從支援的來源資料存放區複製到支援的目的地資料存放區。 因此，建議在第一個步驟中使用精靈來建立資料移動案例的範例管線。 如需作為來源和目的地支援的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。  
+Azure Data Factory 的[複製精靈]  可讓您快速建立資料管線，以將資料從支援的來源資料存放區複製到支援的目的地資料存放區。 因此，建議在第一個步驟中使用精靈來建立資料移動案例的範例管線。 如需作為來源和目的地支援的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。  
 
 本教學課程說明如何建立 Azure data factory、啟動 [複製精靈]、執行一系列的步驟，以提供有關資料擷取/移動案例的詳細資料。 當您完成精靈中的步驟時，精靈會自動建立具有複製活動的管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。
 
@@ -48,7 +47,7 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
 在此步驟中，您會使用 Azure 入口網站來建立名為 **ADFTutorialDataFactory**的 Azure Data Factory。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左上角的 [建立資源]，按一下 [資料 + 分析]，然後按一下 [Data Factory]。 
+2. 按一下左上角的 [建立資源]  ，按一下 [資料 + 分析]  ，然後按一下 [Data Factory]  。 
    
    ![新增->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. 在 [ **新增 Data Factory** ] 刀鋒視窗中：
@@ -60,90 +59,90 @@ Azure Data Factory 的[複製精靈] 可讓您快速建立資料管線，以將�
    2. 選取您的 Azure **訂用帳戶**。
    3. 針對資源群組，請執行下列其中一個步驟︰ 
       
-      - 選取 [使用現有的] 以選取現有的資源群組。
-      - 選取 [建立新的] 以輸入資源群組的名稱。
+      - 選取 [使用現有的]  以選取現有的資源群組。
+      - 選取 [建立新的]  以輸入資源群組的名稱。
           
         本教學課程的某些步驟會假設您使用名為**ADFTutorialResourceGroup** 的資源群組。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../../azure-resource-manager/resource-group-overview.md)。
-   4. 選取 Data Factory 的 [位置]。
-   5. 選取刀鋒視窗底部的 [釘選到儀表板] 核取方塊。  
-   6. 按一下頁面底部的 [新增] 。
+   4. 選取 Data Factory 的 [位置]  。
+   5. 選取刀鋒視窗底部的 [釘選到儀表板]  核取方塊。  
+   6. 按一下頁面底部的 [新增]  。
       
        ![新增 Data Factory 刀鋒視窗](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
-3. 建立完成之後，您會看到 [Data Factory] 刀鋒視窗，如下圖所示：
+3. 建立完成之後，您會看到 [Data Factory]  刀鋒視窗，如下圖所示：
    
    ![Data Factory 首頁](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>啟動複製精靈
-1. 在 Data Factory 刀鋒視窗上，按一下 [複製資料] 來啟動 [複製精靈]。 
+1. 在 Data Factory 刀鋒視窗上，按一下 [複製資料]  來啟動 [複製精靈]  。 
    
    > [!NOTE]
-   > 如果您看到網頁瀏覽器停留在「授權中...」，請停用/取消核取瀏覽器設定中的 [封鎖第三方 Cookie 和站台資料] 設定 (或) 將它保持啟用並為 **login.microsoftonline.com** 建立例外狀況，然後再次嘗試啟動精靈。
+   > 如果您看到網頁瀏覽器停留在「授權中...」，請停用/取消核取瀏覽器設定中的 [封鎖第三方 Cookie 和站台資料]  設定 (或) 將它保持啟用並為 **login.microsoftonline.com** 建立例外狀況，然後再次嘗試啟動精靈。
 2. 在 [屬性]  頁面︰
    
-   1. 輸入 **CopyFromBlobToAzureSql** 做為 [工作名稱]
+   1. 輸入 **CopyFromBlobToAzureSql** 做為 [工作名稱] 
    2. 輸入 **說明** (選擇性)。
-   3. 變更 [開始日期時間] 和 [結束日期時間]，讓結束日期設為今天，而開始日期設為五天前。  
-   4. 按 [下一步] 。  
+   3. 變更 [開始日期時間]  和 [結束日期時間]  ，讓結束日期設為今天，而開始日期設為五天前。  
+   4. 按 [下一步]  。  
       
       ![複製工具 - 屬性頁面](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. 在 [來源資料存放區] 頁面上，按一下 [Azure Blob 儲存體] 圖格。 您可以使用此頁面來指定複製工作的來源資料存放區。 
+3. 在 [來源資料存放區]  頁面上，按一下 [Azure Blob 儲存體]  圖格。 您可以使用此頁面來指定複製工作的來源資料存放區。 
    
     ![複製工具 - 來源資料儲存頁面](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 4. 在 [指定 Azure Blob 儲存體帳戶]  頁面︰
    
-   1. 輸入 **AzureStorageLinkedService** 做為 [連結服務名稱]。
-   2. 確認已針對 [帳戶選取方法] 選取 [從 Azure 訂用帳戶] 選項。
+   1. 輸入 **AzureStorageLinkedService** 做為 [連結服務名稱]  。
+   2. 確認已針對 [帳戶選取方法]  選取 [從 Azure 訂用帳戶]  選項。
    3. 選取您的 Azure **訂用帳戶**。  
-   4. 從所選訂用帳戶中可用的 Azure 儲存體帳戶清單中，選取 [Azure 儲存體帳戶]。 您也可以選擇手動輸入儲存體帳戶設定，其做法是選取 [帳戶選取方法] 的 [手動輸入] 選項，然後按 [下一步]。 
+   4. 從所選訂用帳戶中可用的 Azure 儲存體帳戶清單中，選取 [Azure 儲存體帳戶]  。 您也可以選擇手動輸入儲存體帳戶設定，其做法是選取 [帳戶選取方法]  的 [手動輸入]  選項，然後按 [下一步]  。 
       
       ![複製工具 - 指定 Azure Blob 儲存體帳戶](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 5. 在 [選擇輸入檔案或資料夾]  頁面︰
    
    1. 按兩下 **adftutorial** (資料夾)。
-   2. 選取 **emp.txt**，然後按一下 [選擇]
+   2. 選取 **emp.txt**，然後按一下 [選擇] 
       
       ![複製工具 - 選擇輸入檔案或資料夾](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-6. 在 [選擇輸入檔案或資料夾] 頁面上，按 [下一步]。 請勿選取 [二進位複本] 。 
+6. 在 [選擇輸入檔案或資料夾]  頁面上，按 [下一步]  。 請勿選取 [二進位複本]  。 
    
     ![複製工具 - 選擇輸入檔案或資料夾](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
-7. 在 [檔案格式設定] 頁面上，您會看到分隔符號以及精靈藉由剖析檔案自動偵測到的結構描述。 您也可以手動輸入複製精靈的分隔符號，以停止自動偵測或進行覆寫。 檢閱分隔符號並預覽資料之後，請按 [下一步]。 
+7. 在 [檔案格式設定]  頁面上，您會看到分隔符號以及精靈藉由剖析檔案自動偵測到的結構描述。 您也可以手動輸入複製精靈的分隔符號，以停止自動偵測或進行覆寫。 檢閱分隔符號並預覽資料之後，請按 [下一步]  。 
    
     ![複製工具 - 檔案格式設定](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
-8. 在 [目的地資料存放區] 頁面上，選取 [Azure SQL Database]，然後按 [下一步]。
+8. 在 [目的地資料存放區] 頁面上，選取 [Azure SQL Database]  ，然後按 [下一步]  。
    
     ![複製工具 - 選擇目的地存放區](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
 9. 在 [指定 Azure SQL 資料庫]  頁面︰
    
-   1. 針對 [連線名稱] 欄位輸入 **AzureSqlLinkedService**。
-   2. 確認已針對 [伺服器 / 資料庫選取方法] 選取 [從 Azure 訂用帳戶] 選項。
+   1. 針對 [連線名稱]  欄位輸入 **AzureSqlLinkedService**。
+   2. 確認已針對 [伺服器 / 資料庫選取方法]  選取 [從 Azure 訂用帳戶]  選項。
    3. 選取您的 Azure **訂用帳戶**。  
-   4. 選取 [伺服器名稱] 和 [資料庫]。
-   5. 輸入 [使用者名稱] 和 [密碼]。
-   6. 按 [下一步] 。  
+   4. 選取 [伺服器名稱]  和 [資料庫]  。
+   5. 輸入 [使用者名稱]  和 [密碼]  。
+   6. 按 [下一步]  。  
       
       ![複製工具 - 指定 Azure SQL 資料庫](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
-10. 在 [資料表對應] 頁面上，從 [目的地] 欄位的下拉式清單中選取 **emp**，按一下**向下箭號** (選擇性) 以查看結構描述及預覽資料。
+10. 在 [資料表對應]  頁面上，從 [目的地]  欄位的下拉式清單中選取 **emp**，按一下**向下箭號** (選擇性) 以查看結構描述及預覽資料。
     
      ![複製工具 - 資料表對應](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
-11. 在 [結構描述對應] 頁面上，按 [下一步]。
+11. 在 [結構描述對應]  頁面上，按 [下一步]  。
     
     ![複製工具 - 結構描述對應](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
-12. 在 [效能設定] 頁面上，按 [下一步]。 
+12. 在 [效能設定]  頁面上，按 [下一步]  。 
     
     ![複製工具 - 效能設定](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
-13. 在 [摘要] 頁面中檢閱資訊，然後按一下 [完成]。 此精靈會在 Data Factory (從您啟動複製精靈的位置) 中建立兩個連結服務、兩個資料集 (輸入和輸出)，以及一個管線。 
+13. 在 [摘要]  頁面中檢閱資訊，然後按一下 [完成]  。 此精靈會在 Data Factory (從您啟動複製精靈的位置) 中建立兩個連結服務、兩個資料集 (輸入和輸出)，以及一個管線。 
     
     ![複製工具 - 效能設定](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>啟動監視及管理應用程式
-1. 在 [部署] 頁面上，按一下連結︰`Click here to monitor copy pipeline`。
+1. 在 [部署]  頁面上，按一下連結︰`Click here to monitor copy pipeline`。
    
    ![複製工具 - 部署成功](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 2. 監視應用程式會在網頁瀏覽器中的個別索引標籤中啟動。   
    
    ![監視應用程式](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
-3. 若要查看每小時配量的最新狀態，請按一下底部 [活動時段] 清單中的 [重新整理] 按鈕。 您可看到介於管線開始與結束時間之間五天的五個活動時段。 此清單不會自動重新整理，所以您可能需要按一下 [重新整理] 數次，才能看見處於 [就緒] 狀態的所有活動時段。 
-4. 選取清單中的活動時段。 請參閱右側 [活動時段總管] 中的相關詳細資料。
+3. 若要查看每小時配量的最新狀態，請按一下底部 [活動時段]  清單中的 [重新整理]  按鈕。 您可看到介於管線開始與結束時間之間五天的五個活動時段。 此清單不會自動重新整理，所以您可能需要按一下 [重新整理] 數次，才能看見處於 [就緒] 狀態的所有活動時段。 
+4. 選取清單中的活動時段。 請參閱右側 [活動時段總管]  中的相關詳細資料。
 
     ![活動時段詳細資料](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 

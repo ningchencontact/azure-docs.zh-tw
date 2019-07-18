@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84da3ca512af30ad3b5d4fbc1182f5195366e1ae
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 9955ea434f7a0e48f2d1f81d2a1f57cc3cd67dcb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565437"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277886"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入門：自通用 Windows 平台 (UWP) 應用程式呼叫 Microsoft Graph API
 
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
-在初始的 `AcquireTokenAsync` 方法之後，使用 `AcquireTokenSilent` 方法來取得權杖以存取受保護的資源。 您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分情況下，您應該以不需要與使用者進行任何互動的方式處理權杖取得和更新作業
+在初始的 `AcquireTokenInteractive` 方法之後，使用 `AcquireTokenSilent` 方法來取得權杖以存取受保護的資源。 您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分情況下，您應該以不需要與使用者進行任何互動的方式處理權杖取得和更新作業
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

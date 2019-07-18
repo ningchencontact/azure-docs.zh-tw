@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 590ba4b7a61fa437767d99ac6b9ae3e0fa94edc3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174225"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227777"
 ---
 ## <a name="create-the-webapi-project"></a>建立 WebAPI 專案
 
@@ -158,7 +158,7 @@ ms.locfileid: "67174225"
 
 3. 選取結果清單中的 [Microsoft Azure 通知中樞]  ，然後選取 [安裝]  。 請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
 
-    此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)來新增對 Azure 通知中樞 SDK 的參考。
+    此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)來新增對 Azure 通知中樞 SDK 的參考。
 
 4. 建立新的類別檔案，代表與用來傳送通知的通知中樞間的連線。 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]  ，然後選取 [類別]  。 將新類別命名為 **Notifications.cs**，然後選取 [新增]  以產生類別。
 
@@ -170,7 +170,7 @@ ms.locfileid: "67174225"
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. 以下列程式碼取代 `Notifications` 類別定義，並以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 入口網站](http://portal.azure.com)取代) 取代兩個預留位置：
+6. 以下列程式碼取代 `Notifications` 類別定義，並以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 入口網站](https://portal.azure.com)取代) 取代兩個預留位置：
 
     ```csharp
     public class Notifications

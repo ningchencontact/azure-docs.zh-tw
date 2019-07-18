@@ -13,18 +13,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 49d6a06c2cd13c240a0843ef29fd6cc832c30384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2f4f214523d9d42761323ec02ca6dae4c20bba6
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122566"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839420"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>教學課程：使用 .NET API 建立具有複製活動的管線
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 範本](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -124,19 +123,19 @@ ms.locfileid: "66122566"
 ## <a name="walkthrough"></a>逐步介紹
 1. 使用 Visual Studio 2012/2013/2015 建立 C# .NET 主控台應用程式。
    1. 啟動 **Visual Studio** 2012/2013/2015。
-   2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
-   3. 展開 [範本]，然後選取 [Visual C#]。 在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。
+   2. 按一下 [檔案]  ，指向 [新增]  ，然後按一下 [專案]  。
+   3. 展開 [範本]  ，然後選取 [Visual C#]  。 在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。
    4. 從右邊的專案類型清單中選取 [主控台應用程式]  。
    5. 在 [名稱] 中輸入 **DataFactoryAPITestApp** 。
    6. 在 [位置] 中選取 **C:\ADFGetStarted**。
    7. 按一下 [確定]  以建立專案。
 2. 按一下 [**工具**]，指向 [**NuGet 封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
-3. 在 [Package Manager Console] 中，輸入下列命令：
+3. 在 [Package Manager Console]  中，輸入下列命令：
    1. 執行以下命令安裝 Data Factory 套件：`Install-Package Microsoft.Azure.Management.DataFactories`
    2. 執行下列命令安裝 Azure Active Directory 套件 (您在程式碼中使用 Active Directory API)︰`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. 將下列 **appSetttings** 區段新增 **App.config** 檔案。 以下協助程式方法會使用這些設定：**GetAuthorizationHeader**。
 
-    以您自己的值取代 **&lt;應用程式識別碼&gt;**、 **&lt;密碼&gt;**、 **&lt;訂用帳戶識別碼&gt;** **&lt;租用戶識別碼&gt;** 的值。
+    以您自己的值取代 **&lt;應用程式識別碼&gt;** 、 **&lt;密碼&gt;** 、 **&lt;訂用帳戶識別碼&gt;** **&lt;租用戶識別碼&gt;** 的值。
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -505,15 +504,15 @@ ms.locfileid: "66122566"
     }
     ```
 
-15. 在 [方案總管] 中展開專案 (DataFactoryAPITestApp)，以滑鼠右鍵按一下 [參考]，然後按一下 [新增參考]。 選取 **System.Configuration** 組件的核取方塊。 然後按一下 [確定]。
-16. 建置主控台應用程式。 按一下功能表上的 [建置]，再按一下 [建置方案]。
+15. 在 [方案總管] 中展開專案 (DataFactoryAPITestApp)，以滑鼠右鍵按一下 [參考]  ，然後按一下 [新增參考]  。 選取 **System.Configuration** 組件的核取方塊。 然後按一下 [確定]  。
+16. 建置主控台應用程式。 按一下功能表上的 [建置]  ，再按一下 [建置方案]  。
 17. 確認您 Azure Blob 儲存體之 **adftutorial** 容器中至少有一個檔案。 如果沒有，請在「記事本」中以下列內容建立 **Emp.txt** 檔案，然後將它上傳至 adftutorial 容器。
 
     ```
     John, Doe
     Jane, Doe
     ```
-18. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。 當您看到 [取得資料配量的執行詳細資料]，請等待數分鐘再按 **ENTER**。
+18. 按一下功能表上的 [偵錯]   -> [開始偵錯]  ，執行範例。 當您看到 [取得資料配量的執行詳細資料]  ，請等待數分鐘再按 **ENTER**。
 19. 使用 Azure 入口網站確認 Data Factory： **APITutorialFactory** 是使用下列成品所建立：
     * 連結服務：**LinkedService_AzureStorage**
     * 資料集︰**InputDataset** 和 **OutputDataset**。

@@ -1,7 +1,7 @@
 ---
-title: 容器支援
+title: 建立 Azure Kubernetes Service 叢集資源
 titleSuffix: Azure Cognitive Services
-description: 了解如何建立 azure kubernetes (AKS) 資源。
+description: 瞭解如何建立 Azure Kubernetes Service (AKS) 資源。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,43 +9,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: eb2d609c3a7dfd769c6a19854366ac5e45fddb7d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712455"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67877449"
 ---
-## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>建立 Azure Kubernetes Service (AKS) 叢集資源
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>建立 Azure Kubernetes Service 叢集資源
 
-1. 移至[建立](https://ms.portal.azure.com/#create/microsoft.aks)為 Kubernetes 服務。
+1. 移至[Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) , 然後選取 [**建立**]。
 
-1. 在 **基本概念**索引標籤上，輸入下列詳細資料：
+1. 在 [**基本**] 索引標籤上, 輸入下列資訊:
 
     |設定|值|
     |--|--|
-    |訂用帳戶|選取適當的訂用帳戶|
-    |資源群組|選取可用的資源群組|
-    |Kubernetes 叢集名稱|所需的名稱 （小寫）|
-    |區域|選取的鄰近位置|
-    |Kubernetes 版本|1.12.8 （預設值）|
-    |DNS 名稱前置詞|自動建立，但可以選擇性地覆寫|
+    |Subscription|選取適當的訂用帳戶|
+    |Resource group|選取可用的資源群組|
+    |Kubernetes 叢集名稱|輸入名稱 (小寫)|
+    |區域|選取附近的位置|
+    |Kubernetes 版本|1.12.8 (預設值)|
+    |DNS 名稱前置詞|自動建立, 但您可以覆寫|
     |節點大小|標準 DS2 v2:<br>`2 vCPUs`、 `7 GB`|
-    |節點計數|將滑桿保留為預設值|
+    |節點計數|將滑杆保持為預設值|
 
-1. 在上**擴展**索引標籤上，保留*虛擬節點*並*虛擬機器擴展集*預設值。
-1. 在 **驗證**索引標籤上，保留*服務主體*並*啟用 RBAC*預設值。
-1. 在 **網路**索引標籤上，輸入下列選擇：
+1. 在 [**調整規模**] 索引標籤上, 將 [**虛擬節點**和**虛擬機器擴展集 (預覽)** ] 設定為預設值。
+1. 在 [**驗證**] 索引標籤上, 將 [**服務主體**] 和 [**啟用 RBAC** ] 設定為預設值。
+1. 在 [**網路**功能] 索引標籤上, 輸入下列選項:
 
     |設定|值|
     |--|--|
     |HTTP 應用程式路由|否|
     |網路設定|基本|
 
-1. 在上**監視**索引標籤上，請確認*啟用容器監視*設為**是**，並將*Log Analytics 工作區*為其預設值
-1. 在 **標記**索引標籤上，現在空白的名稱/值組。
-1. 按一下 **檢閱並建立**。
-1. 通過驗證之後，請按一下**建立**。
+1. 在 [**監視**] 索引標籤上, 確定 [**啟用容器監視**] 已設定為 **[是]** , 並將 [ **Log Analytics 工作區**] 保留為預設值。
+1. 在 [**標記**] 索引標籤上, 將 [名稱/值組] 保留空白。
+1. 選取 [**審查並建立**]。
+1. 通過驗證之後, 請選取 [**建立**]。
 
 > [!NOTE]
-> 如果驗證失敗，它可能是因為*服務主體*時發生錯誤。 瀏覽回到*驗證*索引標籤，然後回到*檢閱 + 建立*驗證應該在其中執行，然後再傳遞。
+> 如果驗證失敗, 可能是因為發生「服務主體」錯誤。 返回 [**驗證**] 索引標籤, 然後返回 [**檢查 + 建立**], 其中應執行驗證, 然後傳遞。

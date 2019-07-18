@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d31a134ae15e4ddbda0cc60a741f8780fec8d12
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432697"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838106"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>比較 Azure Data Factory 與 Data Factory 第 1 版
 本文將比較 Data Factory 與 Data Factory 第 1 版。 如需 Data Factory 的指示，請參閱 [Data Factory 簡介](introduction.md)。如需 Data Factory 第 1 版的指示，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 
@@ -130,7 +130,7 @@ Azure-SSIS 整合執行階段是一個完全受管理的 Azure VM (節點) 叢�
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure 入口網站 | [是](quickstart-create-data-factory-portal.md) | [是](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure 入口網站 | [是](quickstart-create-data-factory-portal.md) | 否 |
 | Azure PowerShell | [是](quickstart-create-data-factory-powershell.md) | [是](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [是](quickstart-create-data-factory-dot-net.md) | [是](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST API | [是](quickstart-create-data-factory-rest-api.md) | [是](data-factory-build-your-first-pipeline-using-rest-api.md) |

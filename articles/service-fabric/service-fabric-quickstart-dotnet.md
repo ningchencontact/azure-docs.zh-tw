@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: azure-vs
-ms.date: 03/26/2018
+ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 02c77d1a34a4dec8732b5fa2edb4d7a55e079c28
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428074"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225203"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入門：將 .NET 可靠服務應用程式部署至 Service Fabric
 
@@ -177,7 +177,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
     執行升級期間，您仍然可以使用應用程式。 由於您有兩個服務執行個體正在叢集中執行，因此其中一些要求可能會取得應用程式的升級版本，而其他要求可能仍然會取得舊版。
 
-11. 開啟您的瀏覽器，然後瀏覽至連接埠 19080 上的叢集位址。 例如： `http://localhost:19080/`。
+11. 開啟您的瀏覽器，然後瀏覽至連接埠 19080 上的叢集位址。 例如： `http://localhost:19080/` 。
 12. 按一下樹狀檢視中的 [應用程式]  節點，然後按一下右窗格中的 [正在升級]  。 您會看到在叢集的升級網域中輪流升級的情況，請確保每個網域的狀況良好，再繼續下一步。 當網域的健康狀態通過驗證時，進度列中的升級網域即會呈現綠色。
     ![Service Fabric Explorer 中的升級檢視](./media/service-fabric-quickstart-dotnet/upgrading.png)
 

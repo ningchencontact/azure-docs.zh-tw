@@ -3,7 +3,7 @@ title: CLI 範例 - 使用 Azure CLI 進行多個網站的負載平衡 | Microso
 description: 此 Azure CLI 指令碼範例示範如何將多個網站負載平衡至相同的虛擬機器
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
-ms.openlocfilehash: 41f8a403694eec897ba4a6eb147ab71757d5caa5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: allensu
+ms.openlocfilehash: 63897da887230da74aaaddc464549e9c06ed9543
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263929"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273874"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI 指令碼範例：進行多個網站的負載平衡
 

@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 97a3d63f94ca7e60f57177703a98b60e3f6c42ec
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389159"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849194"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>如何為 Front Door 設定地區篩選 WAF 原則
 本教學課程會說明如何使用 Azure PowerShell 來建立簡單的地區篩選原則，並將此原則與現有的 Front Door 前端主機產生關聯。 此範例地區篩選原則範例會封鎖來自美國以外的所有其他國家/地區的要求。

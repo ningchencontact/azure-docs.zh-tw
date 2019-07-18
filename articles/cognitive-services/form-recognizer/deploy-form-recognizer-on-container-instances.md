@@ -1,31 +1,31 @@
 ---
-title: 執行 Azure 容器執行個體
+title: 執行 Azure 容器實例
 titleSuffix: Azure Cognitive Services
-description: 表單的辨識器容器部署到 Azure 容器執行個體，並在網頁瀏覽器中進行測試。
+description: 將表單辨識器容器部署至 Azure 容器實例, 並在網頁瀏覽器中進行測試。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 3c424465678a9989940d92910c5d288fa2fb1cab
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1fc516d309c2a51230f53e814a2dabdb774db9c2
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711874"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297720"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>將表單的辨識器容器部署至 Azure Container Instances
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>將表單辨識器容器部署至 Azure 容器實例
 
-了解如何部署認知服務[形式辨識器](form-recognizer-container-howto.md)至 Azure 的容器[Container Instances](https://docs.microsoft.com/azure/container-instances/)。 此程序示範如何為 Azure 形式辨識器資源的建立。 然後我們會討論提取相關聯的容器映像。 最後，我們反白顯示能夠練習從瀏覽器兩個協調流程。 使用容器可以轉移遠離管理基礎結構，以改為專注於應用程式開發的開發人員的注意。
+瞭解如何將認知服務[表單辨識器](form-recognizer-container-howto.md)容器部署至 Azure[容器實例](https://docs.microsoft.com/azure/container-instances/)。 此程式示範如何建立 Azure 表單辨識器資源。 然後, 我們會討論如何提取相關聯的容器映射。 最後, 我們強調了從瀏覽器執行這兩個協調流程的能力。 使用容器可以將開發人員的注意力轉移到管理基礎結構之外, 改為專注于應用程式開發。
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
-您必須先完成與提交[認知服務形式辨識器容器存取要求表單](https://aka.ms/FormRecognizerRequestAccess)要求存取至容器。 這樣也會將您註冊電腦視覺。 您不需要個別登入電腦視覺要求表單。 
+您必須先完成並提交[認知服務表單辨識器容器存取要求表單](https://aka.ms/FormRecognizerRequestAccess), 以要求容器的存取權。 這麼做也會讓您登入電腦視覺。 您不需要另外註冊電腦視覺要求表單。 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

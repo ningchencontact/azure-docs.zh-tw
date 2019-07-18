@@ -13,15 +13,15 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014925"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836304"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](data-factory-introduction.md)
 > * [第 2 版 (目前的版本)](../introduction.md)
 
@@ -42,7 +42,7 @@ ms.locfileid: "54014925"
 
 ![Data Factory 概觀](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
-Azure Data Factory 是這種案例的平台。 這是一項雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 您可以使用 Azure Data Factory 執行下列工作： 
+Azure Data Factory 是這種案例的平台。 這是一項雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換  。 您可以使用 Azure Data Factory 執行下列工作： 
 
 - 建立並排程資料驅動的工作流程 (稱為管線)，它可以從不同的資料存放區擷取資料。
 
@@ -52,7 +52,7 @@ Azure Data Factory 是這種案例的平台。 這是一項雲端式資料整合
 
 它與其說是傳統的擷取-轉換-和-載入 (ETL) 平台，還不如說是擷取並載入 (EL) 而後轉換並載入 (TL) 平台。 轉換會使用計算服務來處理資料，而不是新增衍生的資料行、計算資料列數、排序資料等等。 
 
-目前在 Azure Data Factory 中，工作流程所取用和產生的資料是時間配量資料 (每小時、每天、每週等等)。 例如，管線可以讀取輸入資料、處理資料，以及每天產生一次輸出資料。 您也可以只執行一次工作流程。  
+目前在 Azure Data Factory 中，工作流程所取用和產生的資料是時間配量資料  (每小時、每天、每週等等)。 例如，管線可以讀取輸入資料、處理資料，以及每天產生一次輸出資料。 您也可以只執行一次工作流程。  
   
 
 ## <a name="how-does-it-work"></a>運作方式 
@@ -133,7 +133,6 @@ Data Factory 只在「美國西部」、「美國東部」和「北歐」區域�
 ## <a name="get-started-with-creating-a-pipeline"></a>開始建立管線
 您可以使用上述其中一項工具或 API，在 Azure Data Factory 中建立管線： 
 
-- Azure 入口網站
 - Visual Studio
 - PowerShell
 - .NET API

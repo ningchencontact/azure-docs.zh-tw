@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bf0f74fe76ec7a83e0ce23ca83141276a677a5df
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272695"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868095"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>使用 Bing 影片搜尋 API 來搜尋影片
 
@@ -98,7 +98,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghi
 
 ## <a name="video-thumbnails"></a>影片縮圖
 
-您可以顯示 Bing 影片搜尋 API 所傳回的所有影片縮圖或影片縮圖子集。 如果您顯示子集，請提供使用者檢視其餘影片的選項。 由於 Bing API 的[使用和顯示需求](../UseAndDisplayRequirements.md)，您必須以回應中提供的順序來顯示影片。 如需調整縮圖大小的詳細資訊，請參閱[調整縮圖大小及裁切](../resize-and-crop-thumbnails.md)。 
+您可以顯示 Bing 影片搜尋 API 所傳回的所有影片縮圖或影片縮圖子集。 如果您顯示子集，請提供使用者檢視其餘影片的選項。 由於 Bing API 的[使用和顯示需求](../UseAndDisplayRequirements.md)，您必須以回應中提供的順序來顯示影片。 如需調整縮圖大小的詳細資訊，請參閱[調整縮圖大小及裁切](../../bing-web-search/resize-and-crop-thumbnails.md)。 
 
 當使用者將滑鼠停留在縮圖上時，您可以使用 [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) 來播放影片的縮圖版本。 當您顯示它時，請務必將其歸類為動態縮圖。
 

@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylestorck
-ms.openlocfilehash: 02156f6e39c213764c35e67d8af028489d265835
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: kylsto
+ms.openlocfilehash: 53df981564eb177da66b86022ecfc80b25f1c763
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616356"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296543"
 ---
-# <a name="project-acoustics-known-issues"></a>專案樂器的已知問題
+# <a name="project-acoustics-known-issues"></a>聲場專案的已知問題
 使用 Project Acoustics 的「設計人員預覽」時，您可能會遇到下列已知問題。
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>將場景重新命名時遺失聲場參數
 
-如果您重新命名為場景，所有屬於該場景的原音參數將不會自動轉移至新的場景。 它們將仍存在於舊的資產檔案不過。 請在 [Editor]  目錄內您場景檔案的旁邊尋找 **SceneName_AcousticParameters.asset** 檔案。 請將您的檔案重新命名以反映新的場景名稱。
+如果您重新命名場景, 所有屬於該場景的聲場參數都不會自動傳送至新場景。 不過, 它們仍會存在於舊的資產檔案中。 請在 [Editor]  目錄內您場景檔案的旁邊尋找 **SceneName_AcousticParameters.asset** 檔案。 請將您的檔案重新命名以反映新的場景名稱。
 
 ## <a name="unity-crashes-when-closing-project"></a>關閉專案時 Unity 當機
 
@@ -30,7 +30,7 @@ ms.locfileid: "67616356"
 
 ## <a name="deploying-to-android-from-some-unity-versions"></a>從某些 Unity 版本部署至 Android
 
-某些版本的 Unity 有 bug，以部署至 Android 的音訊的外掛程式。 請確定您未使用受到版本[這個 bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player)。
+某些版本的 Unity 有 bug, 將音訊外掛程式部署至 Android。 請確定您不是使用受[此錯誤](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player)影響的版本。
 
 ## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>我收到 'could not find metadata file System.Security.dll' (找不到中繼資料檔案 System.Security.dll) 的錯誤
 
@@ -41,8 +41,8 @@ ms.locfileid: "67616356"
 請仔細檢查您用於 Auzre 帳戶的認證是否正確、您的帳戶是否支援製作項目中所要求的節點類型，以及您的系統時鐘是否正確。
 
 ## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>取消製作會使 [製作] 索引標籤處於「正在刪除」狀態
-專案樂器會清除所有的 Azure 資源上成功完成或取消作業。 這可能需要最多 5 分鐘的時間。
+聲場專案會在成功完成或取消時, 清除作業的所有 Azure 資源。 這可能需要5分鐘的時間。
 
 ## <a name="next-steps"></a>後續步驟
-* 請嘗試[Unity](unity-quickstart.md)或是[Unreal](unreal-quickstart.md)範例內容
+* 嘗試[Unity](unity-quickstart.md)或[Unreal](unreal-quickstart.md)範例內容
 

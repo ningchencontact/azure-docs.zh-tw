@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 1e0d640c5434c27695b90ee7fd4c20a4959c24b3
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788982"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807549"
 ---
 # <a name="what-is-azure-data-share-preview"></a>什麼是 Azure Data Share Preview？
 
@@ -78,14 +78,6 @@ Azure Data Share 會利用 Azure 提供的基礎安全性來保護待用資料�
 您可以在 Azure Data Share 資源層級設定存取控制，以確保資料存取者有獲得授權。 
 
 Azure Data Share 會利用 Azure 資源的受控身分識別 (先前稱為 MSI) 來自動管理 Azure Active Directory 中的身分識別。 Azure 資源的受控身分識別可用來存取要用於資料共用的儲存體帳戶。 資料提供者與資料取用者之間不會交換認證。 如需詳細資訊，請參閱 [Azure 資源的受控身分識別頁面](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)。 
-
-## <a name="pricing"></a>價格
-
-Azure Data Share Preview 有兩個需要付費的元件。 第一個元件可用來管理資料共用。 在預覽期間，資料共用的管理功能是免費的。
-
-第二個元件可用來移動。 將資料從資料提供者的 Azure 租用戶移至資料取用者的 Azure 租用戶時，Azure Data Share 會收費。 每一次的資料集移動作業以及為了移動資料集所需使用的計算能力都需要付費。 資料集移動計算的收費依據是每一虛擬核心小時。 資料集移動計算費用則依分鐘數為比例無條件進入計費。 在預覽期間，資料集移動作業是免費的。 
-
-如需定價的詳細資訊，請瀏覽 Azure Data Share 的[定價頁面](https://azure.microsoft.com/pricing/)。
 
 ## <a name="supported-regions"></a>支援區域
 

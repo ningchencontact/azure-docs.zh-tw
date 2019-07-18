@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 0014dc0edde0eafc153b40eec06c6bd6dc8446b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 25de6fc2d752020ea47913bf6a4666735026b96f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447859"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871669"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>快速入門：使用 Golang 查詢 Azure SQL 資料庫
 
@@ -55,9 +55,9 @@ ms.locfileid: "58447859"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。
 
 ## <a name="create-golang-project-and-dependencies"></a>建立 Golang 專案和相依性
 
@@ -328,7 +328,7 @@ ms.locfileid: "58447859"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)
+- [設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database.md)
 - [適用於 Microsoft SQL Server 的 Golang 驅動程式](https://github.com/denisenkom/go-mssqldb)
 - [回報問題或發問](https://github.com/denisenkom/go-mssqldb/issues)
 

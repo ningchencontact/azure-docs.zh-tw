@@ -7,14 +7,14 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 805893d6b5756c76ebc523187e0ed75c9fe24ed9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015534"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874749"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault
 

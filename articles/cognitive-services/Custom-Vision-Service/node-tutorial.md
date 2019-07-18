@@ -8,14 +8,14 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 3c0ca2b031b96abfdb598de7ec9553ebd5f18601
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 92713fe16e482a3ed65b9593581749270b67a487
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592976"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277593"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>快速入門：使用自訂視覺 Node.js SDK 建立影像分類專案
 
@@ -30,7 +30,7 @@ ms.locfileid: "67592976"
 
 若要安裝適用於 Node.js 的自訂視覺服務 SDK，請在 PowerShell 中執行下列命令：
 
-```powershell
+```shell
 npm install @azure/cognitiveservices-customvision-training
 npm install @azure/cognitiveservices-customvision-prediction
 ```
@@ -50,8 +50,8 @@ npm install @azure/cognitiveservices-customvision-prediction
 ```javascript
 const util = require('util');
 const fs = require('fs');
-const TrainingApiClient = require("azure-cognitiveservices-customvision-training");
-const PredictionApiClient = require("azure-cognitiveservices-customvision-prediction");
+const TrainingApiClient = require("@azure/cognitiveservices-customvision-training");
+const PredictionApiClient = require("@azure/cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -76,8 +76,8 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 若要在專案中建立分類標記，請在 sample.js  結尾新增以下程式碼：
 
 ```javascript
-    const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
-    const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
+const hemlockTag = await trainer.createTag(sampleProject.id, "Hemlock");
+const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
 ### <a name="upload-and-tag-images"></a>上傳和標記影像
@@ -88,22 +88,22 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 > 您必須根據認知服務 Node.js SDK 範例專案稍早的下載位置，將 *sampleDataRoot* 變更為影像的路徑。
 
 ```javascript
-    console.log("Adding images...");
-    let fileUploadPromises = [];
+console.log("Adding images...");
+let fileUploadPromises = [];
 
-    const hemlockDir = `${sampleDataRoot}/Hemlock`;
-    const hemlockFiles = fs.readdirSync(hemlockDir);
-    hemlockFiles.forEach(file => {
-        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
-    });
+const hemlockDir = `${sampleDataRoot}/Hemlock`;
+const hemlockFiles = fs.readdirSync(hemlockDir);
+hemlockFiles.forEach(file => {
+    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${hemlockDir}/${file}`), { tagIds: [hemlockTag.id] }));
+});
 
-    const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
-    const japaneseCherryFiles = fs.readdirSync(cherryDir);
-    japaneseCherryFiles.forEach(file => {
-        fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
-    });
+const cherryDir = `${sampleDataRoot}/Japanese Cherry`;
+const japaneseCherryFiles = fs.readdirSync(cherryDir);
+japaneseCherryFiles.forEach(file => {
+    fileUploadPromises.push(trainer.createImagesFromData(sampleProject.id, fs.readFileSync(`${cherryDir}/${file}`), { tagIds: [cherryTag.id] }));
+});
 
-    await Promise.all(fileUploadPromises);
+await Promise.all(fileUploadPromises);
 ```
 
 ### <a name="train-the-classifier-and-publish"></a>訓練分類器並發佈
@@ -111,20 +111,20 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 此程式碼會在專案中建立第一個反覆項目，然後將該反覆項目發佈至預測端點。 提供給已發佈反覆項目的名稱可用來傳送預測要求。 反覆項目要等到發佈後才可在預測端點中使用。
 
 ```javascript
-    console.log("Training...");
-    let trainingIteration = await trainer.trainProject(sampleProject.id);
+console.log("Training...");
+let trainingIteration = await trainer.trainProject(sampleProject.id);
 
-    // Wait for training to complete
-    console.log("Training started...");
-    while (trainingIteration.status == "Training") {
-        console.log("Training status: " + trainingIteration.status);
-        await setTimeoutPromise(1000, null);
-        trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
-    }
+// Wait for training to complete
+console.log("Training started...");
+while (trainingIteration.status == "Training") {
     console.log("Training status: " + trainingIteration.status);
-    
-    // Publish the iteration to the end point
-    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
+    await setTimeoutPromise(1000, null);
+    trainingIteration = await trainer.getIteration(sampleProject.id, trainingIteration.id)
+}
+console.log("Training status: " + trainingIteration.status);
+
+// Publish the iteration to the end point
+await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
 ### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>取得並使用預測端點上已發佈的反覆項目
@@ -149,13 +149,13 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 
 執行 sample.js  。
 
-```powershell
+```shell
 node sample.js
 ```
 
 應用程式的輸出應該會類似下列文字：
 
-```
+```console
 Creating project...
 Adding images...
 Training...

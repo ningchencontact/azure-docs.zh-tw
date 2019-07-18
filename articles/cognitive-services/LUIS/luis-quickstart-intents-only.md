@@ -3,20 +3,20 @@ title: 預測用意
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，建立自訂應用程式來預測使用者的用意。 此應用程式不會擷取語句文字中的各種資料元素 (例如電子郵件地址或日期)，因此是最簡單的 LUIS 應用程式類型。
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123901"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277571"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>教學課程：建置 LUIS 應用程式來判斷使用者的用意
 
@@ -57,11 +57,11 @@ ms.locfileid: "66123901"
 
 ## <a name="create-intent-for-job-information"></a>建立工作資訊的意圖
 
-1. 選取 [Create new intent] \(建立新意圖\)。 輸入新的意圖名稱 `GetJobInformation`。 當使用者想要公司內職缺的相關資訊時，系統就會預測此意圖。 
+1. 選取 [Create new intent] \(建立新意圖\)  。 輸入新的意圖名稱 `GetJobInformation`。 當使用者想要公司內職缺的相關資訊時，系統就會預測此意圖。 
 
     ![Language Understanding (LUIS) [新增意圖] 對話方塊的螢幕擷取畫面](media/luis-quickstart-intents-only/create-intent.png "Language Understanding (LUIS) [新增意圖] 對話方塊的螢幕擷取畫面")
 
-1. 選取 [完成] 。
+1. 選取 [完成]  。
 
 2. 將您預期使用者會要求的數個範例語句新增至此意圖：
 
@@ -137,9 +137,9 @@ ms.locfileid: "66123901"
 
 返回 LUIS 入口網站並建立新的意圖，以判斷使用者語句是否關於應徵工作。
 
-1. 在右上方的功能表中選取 [建置]，以返回應用程式建置。
+1. 在右上方的功能表中選取 [建置]  ，以返回應用程式建置。
 
-1. 選取左功能表中的 [意圖]，以取得意圖清單。
+1. 選取左功能表中的 [意圖]  ，以取得意圖清單。
 
 1. 選取 **建立新意圖**，然後輸入名稱 `ApplyForJob`。 
 
@@ -239,7 +239,3 @@ ms.locfileid: "66123901"
 
 > [!div class="nextstepaction"]
 > [在此應用程式中新增預先建置的意圖和實體](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

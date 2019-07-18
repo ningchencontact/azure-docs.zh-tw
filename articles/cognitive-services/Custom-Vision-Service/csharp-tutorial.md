@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: anroth
-ms.openlocfilehash: fd5e46f47169705b9d19397a6b91770beab229dd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 28ea62ffa7a2b163b984c089649c1cd99d5e4556
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604065"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827561"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>快速入門：使用自訂視覺 .NET SDK 建立影像分類專案
 
@@ -71,6 +71,7 @@ ms.locfileid: "67604065"
 此程式碼會在專案中建立第一個反覆項目，然後將該反覆項目發佈至預測端點。 提供給已發佈反覆項目的名稱可用來傳送預測要求。 反覆項目要等到發佈後才可在預測端點中使用。
 
 ```csharp
+var iteration = trainingApi.TrainProject(project.Id);
 // The returned iteration will be in progress, and can be queried periodically to see when it has completed
 while (iteration.Status == "Training")
 {
