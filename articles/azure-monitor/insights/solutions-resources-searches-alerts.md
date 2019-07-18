@@ -176,9 +176,9 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要項 | description |
 |:--|:--|:--|
-| type | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
-| description | 否 | 警示的選擇性描述。 |
+| Type | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
+| Name | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| Description | 否 | 警示的選擇性描述。 |
 | Severity | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 
@@ -187,8 +187,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要項 | description |
 |:--|:--|:--|
-| 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| 值 | 是 | 要比較結果的值。 |
+| Operator | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| Value | 是 | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
