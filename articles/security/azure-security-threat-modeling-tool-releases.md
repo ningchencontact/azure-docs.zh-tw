@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: c2ef02fd4c057dbdb15632752521ae314571560b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cf9ecca59b60f93749133c98cc23c6d6815c41e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586062"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849766"
 ---
 # <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool 版本
 
@@ -36,7 +36,8 @@ Microsoft Threat Modeling Tool 目前以 Windows 免費應用程式的形式發�
 
 ## <a name="release-notes"></a>版本資訊
 
-- [Microsoft 威脅模型化工具 GA 發行版本 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) -年 4 月 9 2019年
+- [MICROSOFT THREAT MODELING TOOL GA 發行版本 7.1.60702.1](./azure-security-threat-modeling-tool-releases-71607021.md) -2 2019 年7月
+- [MICROSOFT THREAT MODELING TOOL GA 發行版本 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) -9 2019 年4月
 - [Microsoft Threat Modeling Tool GA 發行版本 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) - 2019 年 1 月 29 日
 - [Microsoft Threat Modeling Tool GA 發行版本 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - 2018 年 11 月 1 日
 - [Microsoft Threat Modeling Tool GA 發行版本 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - 2018 年 9 月 12 日

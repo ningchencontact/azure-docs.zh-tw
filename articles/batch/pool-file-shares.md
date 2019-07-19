@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 914bc11736b08dab6b334307dc188b5d153c7331
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
-ms.translationtype: MT
+ms.openlocfilehash: a76189a5624e057ef69172efd41f59ad2a364e49
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341311"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261634"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>搭配 Batch 集區使用 Azure 檔案共用
 
@@ -52,7 +52,7 @@ Batch 提供原生 API 支援，您可使用 Azure 儲存體 BLOb 讀取和寫�
 例如，在每個工作命令列中包括 `net use` 命令以裝載檔案共用。 若要裝載檔案共用，需要以下認證：
 
 * **使用者名稱**：AZURE\\\<storageaccountname\>，例如 AZURE\\*mystorageaccountname*
-* **密碼**：<StorageAccountKeyWhichEnds in==>，例如 *XXXXXXXXXXXXXXXXXXXXX==*
+* **密碼**：\<StorageAccountKeyWhichEnds in = = >, 例如*XXXXXXXXXXXXXXXXXXXXX = =*
 
 下列命令在儲存體帳戶 *mystorageaccountname* 裝載檔案共用 *myfileshare* 作為 *S:* 磁碟機：
 
@@ -129,7 +129,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 接著，執行 `mount` 命令以裝載檔案共用，藉此提供這些認證：
 
 * **使用者名稱**：\<storageaccountname\>，例如 *mystorageaccountname*
-* **密碼**：<StorageAccountKeyWhichEnds in==>，例如 *XXXXXXXXXXXXXXXXXXXXX==*
+* **密碼**：\<StorageAccountKeyWhichEnds in = = >, 例如*XXXXXXXXXXXXXXXXXXXXX = =*
 
 下列命令在 */mnt/MyAzureFileShare* 的儲存體帳戶 *mystorageaccountname* 裝載檔案共用 *myfileshare*： 
 

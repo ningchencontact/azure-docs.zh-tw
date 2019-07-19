@@ -1,5 +1,5 @@
 ---
-title: 如何設定新的多租用戶應用程式 | Microsoft Docs
+title: 設定新的多租使用者應用程式 |Microsoft Docs
 description: 了解如何將應用程式設定為多租用戶，以及多租用戶應用程式如何運作
 services: active-directory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4edaeb724da43a52c94847e19269dd65a2035f20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 75181df2223408172da245f3ae2290420814b1c6
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540496"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276590"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何設定新的多租用戶應用程式
 

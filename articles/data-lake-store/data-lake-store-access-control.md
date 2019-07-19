@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879101"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226104"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的存取控制
 
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -216,9 +216,9 @@ def access_check( user, desired_perms, path ) :
 
 ### <a name="umask"></a>umask
 
-建立檔案或資料夾時，可使用 umask 來修改子項目上的預設 ACL 設定方式。 umask 是一個在父資料夾上的 9 位元值，其中包含一個用於**擁有使用者**、**擁有群組**及**其他**的 RWX 值。
+建立檔案或資料夾時，可使用 umask 來修改子項目上的預設 ACL 設定方式。 umask 是父資料夾上的9位值, 其中包含**擁有使用者**、**擁有群組**及**其他**的 RWX 值。
 
-Azure Data Lake Storage Gen1 的 umask 是一個設定為 007 的常數值。 此值會轉譯成
+Azure Data Lake Storage Gen1 的 umask 是設定為007的常數值。 此值會轉譯成
 
 | umask 元件     | 數值形式 | 簡短形式 | 意義 |
 |---------------------|--------------|------------|---------|

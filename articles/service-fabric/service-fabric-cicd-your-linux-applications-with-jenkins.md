@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
-ms.author: saysa
-ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: b757a0a5f3ce968b396fa89d5b32c18257d620c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038687"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875090"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>使用 Jenkins 建置和部署您的 Linux 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -62,7 +62,7 @@ Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 J
 
 您可以在 Service Fabric 叢集內部或外部設定 Jenkins。 下列小節說明如何在叢集內設定它，同時又使用 Azure 儲存體帳戶來儲存容器執行個體的狀態。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 - 在 Service Fabric Linux 叢集中安裝 Docker。 Azure 中執行的 Service Fabric 叢集已經安裝 Azure。 如果您在本機執行叢集 (OneBox dev environment)，請檢查 Docker 是否已經使用 `docker info` 命令在電腦上安裝。 如果未安裝，請使用以下命令安裝：
 
    ```sh

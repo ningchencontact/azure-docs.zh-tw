@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
 ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/18/2019
 ms.locfileid: "67704925"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
@@ -31,7 +31,7 @@ ms.locfileid: "67704925"
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>原因：在電腦上的效能瓶頸
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>原因：電腦上的效能瓶頸
 所備份電腦上的瓶頸可能會造成延遲。 例如，電腦讀取或寫入磁碟的能力，或者透過網路傳送資料的可用頻寬，都可能造成瓶頸。
 
 Windows 提供了稱為 [效能監視器](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) 的內建工具，以偵測這些瓶頸。
@@ -132,7 +132,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>原因：另一個處理序或防毒軟體在干擾 Azure 備份
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>原因：干擾 Azure 備份的另一個處理常式或防毒軟體
 我們曾看過許多例子，Windows 系統中的其他處理程序會對 Azure 備份代理程式處理程序的效能造成不良影響。 例如，如果您同時使用 Azure 備份代理程式和其他程式來備份資料，或是如果防毒軟體正在執行因而鎖定了要備份的檔案，檔案有多個鎖定可能會造成爭用情形。 在此情況下，備份可能會失敗，或作業執行時間可能會比預期的還要久。
 
 此案例的最佳建議是關閉其他備份程式，以查看 Azure 備份代理程式的備份時間是否有變化。 通常只要確定多個備份作業不會在同一時間執行，就足以防止作業彼此干擾。
@@ -145,12 +145,12 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>原因：備份 Azure 虛擬機器上執行的代理程式
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>原因：在 Azure 虛擬機器上執行的備份代理程式
 如果您在 VM 上執行備份代理程式，其效能會比在實體機器上執行來得慢。 這是預期行為，因為有 IOPS 限制。  不過，您可以藉由將正在備份的資料磁碟機切換到 Azure 進階儲存體來獲得最佳效能。 我們正在努力修正此問題，未來的版本將會有這方面的修正。
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>原因：備份大量 （數百萬計） 的檔案
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>原因：備份大量 (數百萬個) 的檔案
 移動大量資料所花費的時間會比移動較少量資料更久。 在某些情況下，備份時間不僅與資料大小有關，也與檔案或資料夾的數目有關。 尤其是在備份數百萬計的小檔案 (幾位元組到幾千位元組) 時，更是如此。
 
 發生這個行為的原因是因為當您備份資料並將資料移動至 Azure 的時候，Azure 會同時分類您的檔案。 在某些罕見的案例中，目錄作業花費的時間可能比預期時間更長。

@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 055242c3118ce9d972d55cdc6a21bf623679a0c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13c870ec87fa914f74bcfc4297dbe2fcc0bea282
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242041"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875617"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>使用 Azure PowerShell 為虛擬機器擴展集建立及使用共用映像
 
@@ -48,7 +49,7 @@ ms.locfileid: "66242041"
 
 下列步驟將詳細說明如何將現有 VM 轉換成可重複使用的自訂映像，以便讓您用來建立新的 VM 執行個體。
 
-若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集的自訂映像](tutorial-use-custom-image-powershell.md)來建立一個 (如有需要)。 如果受控映像會包含資料磁碟，資料磁碟大小不得超過 1 TB。
+若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集的自訂映像](tutorial-use-custom-image-powershell.md)來建立一個 (如有需要)。 如果受控映射包含資料磁片, 資料磁片大小不能超過 1 TB。
 
 逐步完成本文之後，請視需要取代資源群組和 VM 名稱。
 
@@ -57,7 +58,7 @@ ms.locfileid: "66242041"
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>從共用映像版本建立擴展集
 
-使用 [New-AzVmss](/powershell/module/az.compute/new-azvmss) 建立虛擬機器擴展集。 下列範例會建立擴展集從新的映像版本，在*美國中南部*資料中心。 出現提示時，請為擴展集中的 VM 執行個體設定自己的系統管理認證：
+使用 [New-AzVmss](/powershell/module/az.compute/new-azvmss) 建立虛擬機器擴展集。 下列範例會從*美國中南部*資料中心的新映射版本建立擴展集。 出現提示時，請為擴展集中的 VM 執行個體設定自己的系統管理認證：
 
 
 ```azurepowershell-interactive

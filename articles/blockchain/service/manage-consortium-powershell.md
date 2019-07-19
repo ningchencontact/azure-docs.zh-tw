@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 管理 Azure 區塊鏈 Service 協會中的成員
-description: 了解如何使用 Azure PowerShell 管理 Azure 區塊鏈 Service 協會成員。
+title: 使用 Azure PowerShell 管理 Azure 區塊鏈 Service 聯盟中的成員
+description: 瞭解如何使用 Azure PowerShell 來管理 Azure 區塊鏈 Service 聯盟成員。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,50 +10,50 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 4bb72bc3fe8b85a8d2aed88e02f5f3150abb6899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f76597a91c0e22f57d1ba66ff1a16eea9002af0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493645"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250080"
 ---
-# <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>使用 PowerShell 管理 Azure 區塊鏈 Service 中的協會成員
+# <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>使用 PowerShell 管理 Azure 區塊鏈 Service 中的聯盟成員
 
-您可以使用 PowerShell 來管理您的 Azure 區塊鏈服務區塊鏈協會成員。 具有系統管理員權限的成員可以邀請、 新增、 移除及變更的區塊鏈協會中的所有參與者的角色。 具有使用者權限的成員可以檢視中的區塊鏈協會的所有參與者，並變更其成員的顯示名稱。
+您可以使用 PowerShell 來管理 Azure 區塊鏈服務的區塊鏈聯盟成員。 具有系統管理員許可權的成員可以邀請、新增、移除及變更區塊鏈聯盟中所有參與者的角色。 具有使用者權限的成員可以查看區塊鏈聯盟中的所有參與者, 並變更其成員的顯示名稱。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 使用建立區塊鏈成員[Azure 入口網站](create-member.md)。
-* 如需有關 consortia、 成員和節點的詳細資訊，請參閱[Azure 區塊鏈 Service 協會](consortium.md)。
+* 使用[Azure 入口網站](create-member.md)建立區塊鏈成員。
+* 如需有關聯盟、成員和節點的詳細資訊, 請參閱[Azure 區塊鏈 Service 聯盟](consortium.md)。
 
 ## <a name="open-azure-cloud-shell"></a>開啟 Azure Cloud Shell
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。
 
-您也可以開啟另一個瀏覽器索引標籤在 Cloud Shell 中，移至[shell.azure.com/powershell](https://shell.azure.com/powershell)。 選取 **複製**若要複製的程式碼區塊，將它貼到 Cloud Shell 中，然後選取**Enter**執行它。
+您也可以前往 [ [shell.azure.com/powershell](https://shell.azure.com/powershell)], 在另一個瀏覽器索引標籤中開啟 Cloud Shell。 選取 [**複製**] 以複製程式碼區塊, 並將其貼到 Cloud Shell 中, 然後選取**Enter**加以執行。
 
 ## <a name="install-the-powershell-module"></a>安裝 PowerShell 模組
 
-從 PowerShell Gallery 安裝 Microsoft.AzureBlockchainService.ConsortiumManagement.PS 套件。
+從 PowerShell 資源庫安裝 Microsoft.AzureBlockchainService.ConsortiumManagement.PS 套件。
 
 ```powershell-interactive
 Install-Module -Name Microsoft.AzureBlockchainService.ConsortiumManagement.PS -Scope CurrentUser
 Import-Module Microsoft.AzureBlockchainService.ConsortiumManagement.PS
 ```
 
-## <a name="set-the-information-preference"></a>將資訊喜好設定
+## <a name="set-the-information-preference"></a>設定資訊喜好設定
 
-設定資訊喜好設定變數來執行 cmdlet 時，您可以取得更多資訊。 根據預設， *$InformationPreference*設為*SilentlyContinue*。
+您可以藉由設定資訊喜好設定變數來取得執行 Cmdlet 時的詳細資訊。 根據預設, *$InformationPreference*會設定為*SilentlyContinue*。
 
-如需更詳細的 cmdlet 的詳細資訊，請在 PowerShell 中，如下所示將喜好設定：
+如需 Cmdlet 的詳細資訊, 請在 PowerShell 中設定喜好設定, 如下所示:
 
 ```powershell-interactive
 $InformationPreference = 'Continue'
 ```
 
-## <a name="establish-a-web3-connection"></a>建立 Web3 連線
+## <a name="establish-a-web3-connection"></a>建立 Web3 連接
 
-若要管理協會成員，建立您的區塊鏈服務成員端點 Web3 連接。 您可以使用此指令碼來設定全域變數來呼叫協會管理 cmdlet。
+若要管理聯盟成員, 請建立區塊鏈服務成員端點的 Web3 連接。 您可以使用此腳本來設定用於呼叫聯盟管理 Cmdlet 的全域變數。
 
 ```powershell-interactive
 $Connection = New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
@@ -61,38 +61,38 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-取代 *\<成員的帳戶密碼\>* 取代為您建立成員時，使用的成員帳戶密碼。
+將 [  *\<成員帳戶\>密碼*] 取代為您在建立成員時使用的成員帳戶密碼。
 
-在 Azure 入口網站中找到其他的值：
+在 Azure 入口網站中尋找其他值:
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 移至您的預設區塊鏈服務成員**概觀**頁面。
+1. 移至您的預設區塊鏈服務成員**總覽**頁面。
 
-    ![成員概觀](./media/manage-consortium-powershell/member-overview.png)
+    ![成員總覽](./media/manage-consortium-powershell/member-overview.png)
 
-    取代 *\<會員帳戶\>* 並 *\<RootContract 位址\>* 入口網站中的值。
+    以入口網站中的值取代 *\<[成員帳戶\>* ] 和 *\<[RootContract 位址\>* ]。
 
-1. 端點位址中，選取**交易節點**，然後選取**預設交易節點**。 預設的節點具有相同的區塊鏈成員名稱。
+1. 針對 [端點位址], 選取 [**交易節點**], 然後選取 [**預設交易] 節點**。 預設節點的名稱與區塊鏈成員相同。
 1. 選取 [連接字串]  。
 
     ![連接字串](./media/manage-consortium-powershell/connection-strings.png)
 
-    取代 *\<端點位址\>* 中的值取代**HTTPS （存取金鑰 1）** 或是**HTTPS （存取金鑰 2）** 。
+    以**HTTPs (存取金鑰 1)** 或**HTTPs (存取金鑰 2)** 的值取代 *\<端點位址\>* 。
 
-## <a name="manage-the-network-and-smart-contracts"></a>管理網路和智能合約
+## <a name="manage-the-network-and-smart-contracts"></a>管理網路和智慧合約
 
-若要連接到區塊鏈端點的智能合約負責協會管理中使用的網路和智慧合約 cmdlet。
+使用網路和智慧合約 Cmdlet, 建立負責聯盟管理的區塊鏈端點智慧合約連接。
 
 ### <a name="import-consortiummanagementcontracts"></a>Import-ConsortiumManagementContracts
 
-您可以使用這個指令程式，連接到協會管理智能合約。 這些合約用來管理和強制執行內協會成員。
+使用此 Cmdlet 來連線到聯盟管理的智慧合約。 這些合約是用來管理和強制執行聯盟中的成員。
 
 `Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>`
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| RootContractAddress | 根的協會管理智能合約的合約位址 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| RootContractAddress | 聯盟管理智慧合約的根合約位址 | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -102,14 +102,14 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 
 ### <a name="import-web3account"></a>Import-Web3Account
 
-您可以使用這個指令程式建立物件以存放遠端節點的管理帳戶的資訊。
+使用此 Cmdlet 建立物件, 以保存遠端節點管理帳戶的資訊。
 
 `Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| ManagedAccountAddress | 區塊鏈成員帳戶地址 | 是 |
-| ManagedAccountPassword | 帳戶地址密碼 | 是 |
+| ManagedAccountAddress | 區塊鏈成員帳戶位址 | 是 |
+| ManagedAccountPassword | 帳戶位址密碼 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -117,9 +117,9 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAccountPassword '<Member account password>'
 ```
 
-### <a name="new-web3connection"></a>New-Web3Connection
+### <a name="new-web3connection"></a>新增-Web3Connection
 
-您可以使用這個指令程式，連接到 RPC 結束點的異動節點。
+使用此 Cmdlet 來建立與交易節點之 RPC 端點的連接。
 
 `New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
@@ -133,21 +133,21 @@ Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAc
 New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 ```
 
-## <a name="manage-the-consortium-members"></a>管理協會成員
+## <a name="manage-the-consortium-members"></a>管理聯盟成員
 
-您可以使用 協會成員管理 cmdlet 來管理內協會成員。 可用的動作取決於您協會的角色。
+使用聯盟成員管理 Cmdlet 來管理聯盟內的成員。 可用的動作取決於您的聯盟角色。
 
 ### <a name="get-blockchainmember"></a>Get-BlockchainMember
 
-若要取得成員的詳細資訊，或列出的協會成員使用這個指令程式。
+使用此 Cmdlet 取得成員詳細資料, 或列出聯盟的成員。
 
 `Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| Name | 您想要擷取其相關詳細資料的區塊鏈服務成員的名稱。 當您輸入的名稱時，它會傳回成員的詳細資料。 當省略名稱時，它會傳回所有協會成員的清單。 | 否 |
-| Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| Name | 您想要取得詳細資料的區塊鏈服務成員名稱。 輸入名稱時, 會傳回成員的詳細資料。 當省略名稱時, 它會傳回所有聯盟成員的清單。 | 否 |
+| Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -168,16 +168,16 @@ Role           : ADMIN
 
 ### <a name="remove-blockchainmember"></a>Remove-BlockchainMember
 
-您可以使用這個指令程式，將區塊鏈成員中移除。
+使用此 Cmdlet 來移除區塊鏈成員。
 
 `Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| Name | 若要移除的成員名稱 | 是 |
-| Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Account | 取自匯入 Web3Account Web3Account 物件 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| Name | 要移除的成員名稱 | 是 |
+| Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Account | 從匯入取得的 Web3Account 物件-Web3Account | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -187,21 +187,23 @@ $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $
 
 ### <a name="set-blockchainmember"></a>Set-BlockchainMember
 
-您可以使用這個指令程式，將區塊鏈成員屬性，包括顯示名稱和協會角色。
+使用此 Cmdlet 來設定區塊鏈成員屬性, 包括顯示名稱和聯盟角色。
 
-協會系統管理員可以設定**DisplayName**並**角色**所有成員。 協會成員與使用者角色可以變更自己成員的顯示名稱。
+聯盟系統管理員可以設定所有成員的**DisplayName**和**Role** 。 具有使用者角色的聯盟成員只能變更自己成員的顯示名稱。
 
-`Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
- -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
+ -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| Name | 區塊鏈成員名稱 | 是 |
+| Name | 區塊鏈成員的名稱 | 是 |
 | DisplayName | 新的顯示名稱 | 否 |
-| AccountAddress | 帳戶地址 | 否 |
-| Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Account | 取自匯入 Web3Account Web3Account 物件 | 是 |
-| Web3Client |  取自新增 Web3Connection Web3Client 物件| 是 |
+| AccountAddress | 帳戶位址 | 否 |
+| Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Account | 從匯入取得的 Web3Account 物件-Web3Account | 是 |
+| Web3Client |  從 Web3Connection 取得的 Web3Client 物件| 是 |
 
 #### <a name="example"></a>範例
 
@@ -209,24 +211,26 @@ $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $
 $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Display name> -Web3Account $MemberAccount
 ```
 
-## <a name="manage-the-consortium-members-invitations"></a>管理協會成員的邀請
+## <a name="manage-the-consortium-members-invitations"></a>管理聯盟成員的邀請
 
-您可以使用 協會成員邀請管理 cmdlet 來管理協會成員的邀請。 可用的動作取決於您協會的角色。
+使用聯盟成員邀請管理 Cmdlet 來管理聯盟成員的邀請。 可用的動作取決於您的聯盟角色。
 
 ### <a name="new-blockchainmemberinvitation"></a>New-BlockchainMemberInvitation
 
-您可以使用這個指令程式，邀請協會的新成員。
+使用此 Cmdlet 邀請新成員加入聯盟。
 
-`New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 要邀請之成員的 azure 訂用帳戶識別碼 | 是 |
-| Role | 協會的角色。 值可以是系統管理員或使用者。 系統管理員是協會系統管理員角色。 使用者是協會成員角色。 | 是 |
-| Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Account | 取自匯入 Web3Account Web3Account 物件 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| SubscriptionId | 要邀請之成員的 Azure 訂用帳戶識別碼 | 是 |
+| Role | 聯盟角色。 值可以是 [系統管理員] 或 [使用者]。 ADMIN 是聯盟系統管理員角色。 使用者是聯盟成員角色。 | 是 |
+| Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Account | 從匯入取得的 Web3Account 物件-Web3Account | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -236,15 +240,15 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 
 ### <a name="get-blockchainmemberinvitation"></a>Get-BlockchainMemberInvitation
 
-使用這個指令程式擷取，或列出協會成員的邀請狀態。
+使用此 Cmdlet 來抓取或列出聯盟成員的邀請狀態。
 
 `Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>`
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 邀請成員的 Azure 訂用帳戶識別碼。 如果訂用帳戶識別碼是，它會傳回訂用帳戶 ID 的邀請詳細資料。 如果省略訂用帳戶識別碼，它會傳回一份所有成員邀請。 | 否 |
-| Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| SubscriptionId | 要邀請之成員的 Azure 訂用帳戶識別碼。 如果提供訂用帳戶識別碼, 它會傳回訂用帳戶識別碼的邀請詳細資料。 如果省略了訂用帳戶識別碼, 它會傳回所有成員邀請的清單。 | 否 |
+| Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -262,17 +266,19 @@ SubscriptionId                       Role CorrelationId
 
 ### <a name="remove-blockchainmemberinvitation"></a>Remove-BlockchainMemberInvitation
 
-您可以使用這個 cmdlet 來撤銷協會成員的邀請。
+使用此 Cmdlet 撤銷聯盟成員的邀請。
 
-`Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
- -Web3Client <IClient>`
+```
+Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
+ -Web3Client <IClient>
+```
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 要撤銷之成員的 azure 訂用帳戶識別碼 | 是 |
-| Members | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Account | 取自匯入 Web3Account Web3Account 物件 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| SubscriptionId | 要撤銷之成員的 Azure 訂用帳戶識別碼 | 是 |
+| Members | 從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Account | 從匯入取得的 Web3Account 物件-Web3Account | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -282,18 +288,20 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 
 ### <a name="set-blockchainmemberinvitation"></a>Set-BlockchainMemberInvitation
 
-使用此 cmdlet 來設定**角色**現有邀請。 只有協會的系統管理員可以變更的邀請。
+使用此 Cmdlet 來設定現有邀請的**角色**。 只有聯盟系統管理員可以變更邀請。
 
-`Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 要邀請之成員的 azure 訂用帳戶識別碼 | 是 |
-| Role | 新邀請的協會角色。 值可以是**使用者**或是**管理員**。 | 是 |
-| Members |  從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
-| Web3Account | 取自匯入 Web3Account Web3Account 物件 | 是 |
-| Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
+| SubscriptionId | 要邀請之成員的 Azure 訂用帳戶識別碼 | 是 |
+| Role | 邀請的新聯盟角色。 值可以是 [**使用者**] 或 [系統**管理員**]。 | 是 |
+| Members |  從匯入-ConsortiumManagementContracts 取得的成員物件 | 是 |
+| Web3Account | 從匯入取得的 Web3Account 物件-Web3Account | 是 |
+| Web3Client | 從 Web3Connection 取得的 Web3Client 物件 | 是 |
 
 #### <a name="example"></a>範例
 
@@ -303,7 +311,7 @@ $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subs
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 consortia、 成員和節點的詳細資訊，請參閱：
+如需有關聯盟、成員和節點的詳細資訊, 請參閱:
 
 > [!div class="nextstepaction"]
-> [Azure 區塊鏈服務協會](consortium.md)
+> [Azure 區塊鏈 Service 聯盟](consortium.md)

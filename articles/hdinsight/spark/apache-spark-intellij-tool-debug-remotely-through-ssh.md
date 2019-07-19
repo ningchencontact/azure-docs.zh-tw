@@ -3,18 +3,18 @@ title: 'Azure Toolkit for IntelliJ：透過 SSH 對 Spark 應用程式進行遠�
 description: 逐步指引如何使用適用於 IntelliJ 之 Azure 工具組中的 HDInsight 工具，透過 SSH 對 HDInsight 叢集上的應用程式進行遠端偵錯
 keywords: 遠端偵錯 intellij, 進行 intellij 遠端偵錯, ssh, intellij, hdinsight, 偵錯 intellij, 偵錯
 ms.service: hdinsight
-author: hrasheed
-ms.author: hrasheed-msft
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 7554f0739626520153196472a790ab672a932331
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bca6c16124f886d9df9e88e651f3f7450f51a1a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066211"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876358"
 ---
 # <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用 Azure Toolkit for IntelliJ 透過 SSH 對 HDInsight 叢集上的 Apache Spark 應用程式進行本機或遠端偵錯
 
@@ -30,19 +30,19 @@ ms.locfileid: "67066211"
 
 1. 啟動 IntelliJ IDEA，然後建立專案。 在 [新增專案]  對話方塊中，執行下列操作：
 
-   a. 選取  **Azure 的 Spark HDInsight**。 
+   a. 選取 [ **Azure Spark/HDInsight**]。 
 
    b. 根據您的喜好設定選取 Java 或 Scala 範本。 在下列選項之間進行選取：
 
-   - **Spark 專案 (Java)**
+   - **Spark 專案 (JAVA)**
 
    - **Spark 專案 (Scala)**
 
-   - **Spark 範例 (Scala) 專案**
+   - **具有範例的 Spark 專案 (Scala)**
 
-   - **以偵錯範例 (Scala) （預覽） 的失敗工作的 Spark 專案**
+   - **Spark 專案與失敗工作的調試範例 (預覽) (Scala)**
 
-     這個範例會使用**Spark 範例 (Scala) 專案**範本。
+     這個範例會使用**Spark 專案搭配範例 (Scala)** 範本。
 
    c. 在 [建置工具]  清單中，根據您的需求選取下列任一項目：
 
@@ -68,7 +68,7 @@ ms.locfileid: "67066211"
 
 1. 選取 **src** > **main \(主要\)**  > scala  以在專案中開啟您的程式碼。 此範例使用 **SparkCore_wasbloTest** 指令碼。
 
-### <a name="prerequisite-for-windows"></a>Windows 必要條件
+### <a name="prerequisite-for-windows"></a>Windows 的必要條件
 在 Windows 電腦上執行本機 Spark Scala 應用程式時，可能會發生如 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況。 發生這個例外狀況是因為 Windows 上遺失 WinUtils.exe。 
 
 若要解決這個錯誤，請[下載可執行檔](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放在 **C:\WinUtils\bin** 之類的位置。 然後，新增環境變數 **HADOOP_HOME**，並將變數的值設為 **C:\WinUtils**。
@@ -78,17 +78,17 @@ ms.locfileid: "67066211"
 1. 一旦本機執行完成，您會看到輸出檔案儲存至目前的專案總管**資料** >  **__預設__** 。
 
     ![本機執行結果](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-1. 我們的工具已在您執行本機執行和本機偵錯時自動設定預設本機執行設定。 開啟 [設定] **[Spark on HDInsight] XXX**在右上角，您可以看到 **[HDInsight 上的 Spark] XXX**之下已建立**HDInsight 上的 Apache Spark**。 切換至 [本機執行]  索引標籤。
+1. 我們的工具已在您執行本機執行和本機偵錯時自動設定預設本機執行設定。 開啟右上角的 [ **spark On hdinsight] xxx** , 您可以看到 **[spark ON hdinsight] xxx**已建立于**hdinsight 上**的 [Apache Spark]。 切換至 [本機執行]  索引標籤。
 
     ![本機執行設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
     - [環境變數](#prerequisite-for-windows)：如果您已將系統環境變數 **HADOOP_HOME** 設定為 **C:\WinUtils**，它可以自動偵測，而不需手動新增。
     - [WinUtils.exe 位置](#prerequisite-for-windows)：如果您尚未設定系統環境變數，可按一下此按鈕來尋找位置。
     - 只要選擇兩個選項之一，在 MacOS 和 Linux 上不需要它們。
-1. 您也可以在執行本機執行和本機偵錯之前手動設定。 在上述螢幕擷取畫面中，選取加號 ( **+** )。 然後選取**在 HDInsight 上的 Apache Spark**選項。 輸入 [名稱]  的資訊、要儲存的**主要類別名稱**，然後按一下本機執行按鈕。
+1. 您也可以在執行本機執行和本機偵錯之前手動設定。 在上述螢幕擷取畫面中，選取加號 ( **+** )。 然後選取 [**在 HDInsight 上 Apache Spark** ] 選項。 輸入 [名稱]  的資訊、要儲存的**主要類別名稱**，然後按一下本機執行按鈕。
 
 ### <a name="scenario-3-perform-local-debugging"></a>案例 3：執行本機偵錯
 1. 開啟 **SparkCore_wasbloTest** 指令碼，設定中斷點。
-1. 指令碼編輯器中，以滑鼠右鍵按一下，然後選取 選項**偵錯 ' [Spark on HDInsight] XXX'** 執行本機偵錯。   
+1. 以滑鼠右鍵按一下腳本編輯器, 然後選取 **[Debug ' [Spark On HDInsight] XXX]** 選項來執行本機的調試。   
 
 
 
@@ -99,14 +99,14 @@ ms.locfileid: "67066211"
 
    ![編輯設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. 在 [Run/Debug Configurations] \(執行/偵錯設定)  對話方塊中，選取加號 ( **+** )。 然後選取**在 HDInsight 上的 Apache Spark**選項。
+1. 在 [Run/Debug Configurations] \(執行/偵錯設定)  對話方塊中，選取加號 ( **+** )。 然後選取 [**在 HDInsight 上 Apache Spark** ] 選項。
 
    ![新增設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. 切換至 [在叢集中遠端執行]  索引標籤。輸入 [Name] \(名稱\)  、 **[Spark cluster] \(Spark 叢集\)** 和 [Main class name] \(主要類別名稱\)  。 然後按一下 **（遠端偵錯） 的進階的組態**。 我們的工具支援使用**執行程式**進行偵錯。 **NumExectors**，預設值為 5。 您最好不要設定高於 3。
+1. 切換至 [在叢集中遠端執行]  索引標籤。輸入 [Name] \(名稱\)  、 **[Spark cluster] \(Spark 叢集\)** 和 [Main class name] \(主要類別名稱\)  。 然後按一下 **[Advanced configuration (遠端偵錯)** ]。 我們的工具支援使用**執行程式**進行偵錯。 **NumExectors**，預設值為 5。 您最好不要設定高於 3。
 
    ![[Run/Debug Configurations] \(執行/偵錯設定\)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. 在  **（遠端偵錯） 的進階組態**部分中，選取**啟用 Spark 遠端偵錯**。 輸入 SSH 使用者名稱，然後輸入密碼或使用私密金鑰檔案。 如果您想要執行遠端偵錯，您需要設定它。 如果您只想要使用遠端執行，則不需要設定它。
+1. 在 [ **Advanced Configuration (遠端偵錯)** ] 元件中, 選取 [**啟用 Spark 遠端 debug**]。 輸入 SSH 使用者名稱，然後輸入密碼或使用私密金鑰檔案。 如果您想要執行遠端偵錯，您需要設定它。 如果您只想要使用遠端執行，則不需要設定它。
 
    ![[Enable Spark remote debug] \(啟用 Spark 遠端偵錯\)](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 

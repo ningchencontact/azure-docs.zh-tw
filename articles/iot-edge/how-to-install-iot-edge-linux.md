@@ -7,40 +7,40 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: bbab0d8d0947c18cf8e6c178d12fdbd7b335d2b6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 822efe2534d49c0995a672232107cc322e547989
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485890"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227500"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
 Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段可以部署在像 Raspberry Pi 一樣小或像工業伺服器一樣大的裝置上。 利用 IoT Edge 執行階段設定裝置之後，您就可以開始從雲端將商務邏輯部署給它。
 
-若要進一步了解，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
+若要深入瞭解, 請參閱[瞭解 Azure IoT Edge 執行時間及其架構](iot-edge-runtime.md)。
 
-本文列出您在 Ubuntu Linux x64 (Intel/AMD) 上安裝 Azure IoT Edge 執行階段的步驟 IoT Edge 裝置。 請參閱[Azure IoT Edge 支援系統](support.md#operating-systems)取得一份支援 AMD64 的作業系統。
+本文列出在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 裝置上安裝 Azure IoT Edge 執行時間的步驟。 如需支援的 AMD64 作業系統清單, 請參閱[Azure IoT Edge 支援的系統](support.md#operating-systems)。
 
 > [!NOTE]
 > Linux 軟體存放庫中的套件受限於每個套件中的授權條款 (/usr/share/doc/package-name  )。 在使用套件之前，請先閱讀授權條款。 安裝及使用套件即表示接受這些授權條款。 如果您不同意授權條款，請勿使用封裝。
 
 ## <a name="install-the-latest-version"></a>安裝最新版本
 
-若要安裝最新版的 Azure IoT Edge 服務到您的裝置上使用下列各節。 
+使用下列各節, 在您的裝置上安裝最新版本的 Azure IoT Edge 服務。 
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>註冊 Microsoft 金鑰和軟體存放庫摘要
 
-準備您的裝置之 IoT edge 執行階段安裝。
+準備您的裝置以進行 IoT Edge 執行時間安裝。
 
 
-安裝的存放庫設定。 選擇  **16.04**或是**18.04**視您的 Ubuntu 版本的程式碼片段：
+安裝存放庫設定。 選擇適用于您的 Ubuntu 版本的**16.04**或**18.04**程式碼片段:
 
 > [!NOTE]
-> 請確定您的程式碼片段從方塊中選擇正確的程式碼針對您的 Ubuntu 版本。
+> 請務必從您的 Ubuntu 版本的正確程式碼方塊中選擇程式碼片段。
 
 * 針對**Ubuntu 16.04**:
    ```bash
@@ -67,7 +67,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 ### <a name="install-the-container-runtime"></a>安裝容器執行階段
 
-Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器執行階段。 生產案例，我們建議您使用[白鯨型](https://mobyproject.org/)下面提供的引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段相容。
+Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器執行階段。 針對生產案例, 建議您使用下面提供的[Moby 型](https://mobyproject.org/)引擎。 它是 Azure IoT Edge 正式支援的唯一容器引擎。 Docker CE/EE 容器映像與 Moby 執行階段相容。
 
 執行 apt 更新。
 
@@ -87,9 +87,9 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    sudo apt-get install moby-cli
    ```
 
-#### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>請確認您的 Linux 核心的白鯨相容性
+#### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>確認您的 Linux 核心是否有 Moby 相容性
 
-許多內嵌的裝置製造商提供裝置映像，其中包含自訂的 Linux 核心可能會遺失所需的容器執行階段相容性功能。 如果您遇到問題時安裝的建議[白鯨](https://github.com/moby/moby)容器的執行階段，您可以疑難排解您 Linux 核心設定，使用[核取設定](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh)中提供的指令碼官方[白鯨 Github 存放庫](https://github.com/moby/moby)藉由在裝置上執行下列命令。
+許多內嵌裝置製造商會送出裝置映射, 其中包含可能缺少容器執行時間相容性所需功能的自訂 Linux 核心。 如果您在安裝建議的[Moby](https://github.com/moby/moby)容器執行時間時遇到問題, 您可以使用官方[Moby GitHub 存放庫](https://github.com/moby/moby)中所提供的[檢查](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh)設定腳本, 針對 Linux 核心設定進行疑難排解, 方法是在裝置上執行下列命令。
 
    ```bash
    curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
@@ -97,13 +97,13 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    ./check-config.sh
    ```
 
-這會提供詳細的輸出，其中包含白鯨執行階段所使用的核心功能的狀態。 您會想要確保所有項目底下`Generally Necessary`和`Network Drivers`可確保您的核心是與白鯨執行階段完全相容。  如果您已識別任何遺漏的功能，您可能會重建您的核心，從來源，然後選取包含相關聯的模組，在適當的核心.config 檔案中啟用它們。同樣地，如果您使用的核心組態產生器，例如 defconfig 或 menuconfig，您必須尋找及啟用個別功能，並據以重建您的核心。  一旦您已部署了新修改的核心，執行一次以確認您已識別的功能已成功啟用的核取設定指令碼。
+這會提供詳細的輸出, 其中包含 Moby 執行時間所使用之核心功能的狀態。 您會想要確定已啟用和`Generally Necessary` `Network Drivers`下的所有專案, 以確保您的核心與 Moby 執行時間完全相容。  如果您已識別出任何遺失的功能, 您可以從來源重建核心並選取相關聯的模組以包含在適當的 config.xml 中, 藉以啟用它們。同樣地, 如果您使用 defconfig 或 menuconfig 這類核心設定產生器, 您將需要尋找並啟用各自的功能, 並據以重建核心。  一旦您已部署新修改的核心, 請再次執行檢查設定腳本, 以確認已成功啟用您已識別的功能。
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>安裝 Azure IoT Edge 安全性精靈
 
-**IoT Edge 安全性精靈**提供及維護 IoT Edge 裝置上的安全性標準。 此精靈會在每次開機時啟動，並藉由啟動 IoT Edge 執行階段讓裝置進入啟動程序。
+**IoT Edge 安全性守護**程式會在 IoT Edge 裝置上提供並維護安全性標準。 此精靈會在每次開機時啟動，並藉由啟動 IoT Edge 執行階段讓裝置進入啟動程序。
 
-安裝命令也會安裝標準版本**libiothsm**尚不存在。
+安裝命令也會安裝**libiothsm**的標準版本 (如果尚未存在的話)。
 
 執行 apt 更新。
 
@@ -117,55 +117,55 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
    sudo apt-get install iotedge
    ```
 
-已成功安裝 IoT Edge 之後，輸出會提示您更新組態檔。 請依照下列中的步驟[設定 Azure IoT Edge 安全性精靈](#configure-the-azure-iot-edge-security-daemon)一節，以完成佈建您的裝置。 
+成功安裝 IoT Edge 之後, 輸出將會提示您更新設定檔。 請遵循[設定 Azure IoT Edge 安全性守護](#configure-the-azure-iot-edge-security-daemon)程式一節中的步驟, 完成布建您的裝置。 
 
 ## <a name="install-a-specific-version"></a>安裝特定版本
 
-如果您想要安裝特定版本的 Azure IoT Edge，您可以針對直接從 IoT Edge GitHub 存放庫的元件檔案。 若要取得所有 IoT Edge 的元件到您的裝置上使用下列步驟： 白鯨引擎和 CLI、 libiothsm，以及最後的 IoT Edge 安全性服務精靈。
+如果您想要安裝特定版本的 Azure IoT Edge, 可以直接從 IoT Edge GitHub 存放庫將元件檔案設為目標。 使用下列步驟, 將所有 IoT Edge 元件放在您的裝置上: Moby 引擎和 CLI、libiothsm, 最後是 IoT Edge 的安全性守護程式。
 
-1. 瀏覽至[Azure IoT Edge 釋放](https://github.com/Azure/azure-iotedge/releases)，並尋找您想要為目標的發行版本。 
+1. 流覽至[Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases), 並尋找您要設為目標的發行版本。 
 
-2. 依序展開**資產**該版本的一節。
+2. 展開該版本的 [**資產**] 區段。
 
-3. 那里可能會或可能無法在任何指定的版本中的白鯨引擎的更新。 如果您看到檔案開頭**白鯨引擎**並**白鯨 cli**，使用下列命令來更新這些元件。 如果您沒有看到 白鯨的任何檔案，而且您還沒有安裝在您的裝置上的白鯨，返回透過較舊的版本資產，直到您找出它們。 
+3. 在任何指定的版本中, Moby 引擎可能會有或不會更新。 如果您看到以**moby-engine**和**moby**為開頭的檔案, 請使用下列命令來更新這些元件。 如果您沒有看到任何 Moby 檔案, 且您的裝置上尚未安裝 Moby, 請回到較舊的版本資產, 直到您找到它們為止。 
 
-   1. 尋找**白鯨引擎**檔案符合您的 IoT Edge 裝置的架構。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。
+   1. 尋找符合 IoT Edge 裝置架構的**moby 引擎**檔案。 在 [檔案] 連結上按一下滑鼠右鍵, 並複製連結位址。
 
-   2. 使用下列命令中的已複製的連結，安裝該版本的白鯨引擎： 
+   2. 在下列命令中使用複製的連結, 安裝該版本的 Moby 引擎: 
 
       ```bash
       curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
       ```
 
-   3. 尋找**白鯨 cli**檔案符合您的 IoT Edge 裝置的架構。 白鯨 CLI 是選擇性元件，但可以在開發期間很有幫助。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。 
+   3. 尋找符合 IoT Edge 裝置架構的**moby cli**檔案。 Moby CLI 是選擇性元件, 但在開發期間可能會很有説明。 在 [檔案] 連結上按一下滑鼠右鍵, 並複製連結位址。 
 
-   4. 使用下列命令中的複製的連結，可安裝該版本的白鯨 cli: 
+   4. 在下列命令中使用複製的連結, 安裝該版本的 Moby CLI: 
 
       ```bash
       curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
       ```
 
-4. 每個版本應該為 IoT Edge 安全性精靈 」 和 「 hsmlib 的新檔案。 您可以使用下列命令來更新這些元件。 
+4. 每個版本都應該要有新的檔案, 以供 IoT Edge security daemon 和 hsmlib。 使用下列命令來更新這些元件。 
 
-   1. 尋找**libiothsm std**檔案符合您的 IoT Edge 裝置的架構。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。 
+   1. 尋找符合 IoT Edge 裝置架構的**libiothsm 標準**檔案。 在 [檔案] 連結上按一下滑鼠右鍵, 並複製連結位址。 
 
-   2. 使用下列命令中的已複製的連結，來安裝 hsmlib 版：
+   2. 在下列命令中使用複製的連結, 安裝該版本的 hsmlib:
 
       ```bash
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
    
-   3. 尋找**iotedge**檔案符合您的 IoT Edge 裝置的架構。 以滑鼠右鍵按一下 [檔案] 連結，並複製連結位址。 
+   3. 尋找符合 IoT Edge 裝置架構的**iotedge**檔案。 在 [檔案] 連結上按一下滑鼠右鍵, 並複製連結位址。 
 
-   4. 使用下列命令中的已複製的連結，安裝該版本的 IoT Edge 安全性精靈。 
+   4. 在下列命令中使用複製的連結, 安裝該版本的 IoT Edge 安全性守護程式。 
 
       ```bash
       curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
       ```
 
-已成功安裝 IoT Edge 之後，輸出會提示您更新組態檔。 請遵循下一節，以完成佈建您的裝置中的步驟。 
+成功安裝 IoT Edge 之後, 輸出將會提示您更新設定檔。 請依照下一節中的步驟完成布建您的裝置。 
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>設定 Azure IoT Edge 安全性精靈
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>設定 Azure IoT Edge 安全性守護程式
 
 設定 IoT Edge 執行階段，以連結您的實體裝置與 Azure IoT 中樞中存在的裝置身分識別。
 
@@ -183,19 +183,23 @@ Azure IoT Edge 會依賴 [OCI 相容](https://www.opencontainers.org/)的容器�
 sudo nano /etc/iotedge/config.yaml
 ```
 
-尋找佈建設定檔的區段。 取消註解**手動**佈建模式，並確定佈建模式 dps 標記為註解。以來自 IoT Edge 裝置的連接字串更新 **device_connection_string** 的值。
+尋找檔案的布建設定, 並取消批註**手動**布建設定一節。 以來自 IoT Edge 裝置的連接字串更新 **device_connection_string** 的值。 請確定已將任何其他布建區段標記為批註。
 
    ```yaml
+   # Manual provisioning configuration
    provisioning:
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
+   # DPS TPM provisioning configuration
    # provisioning:
    #   source: "dps"
    #   global_endpoint: "https://global.azure-devices-provisioning.net"
    #   scope_id: "{scope_id}"
-   #   registration_id: "{registration_id}"
-   ```
+   #   attestation:
+   #     method: "tpm"
+   #     registration_id: "{registration_id}"
+```
 
 儲存並關閉檔案。
 
@@ -209,7 +213,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>選項 2：自動佈建
 
-若要自動佈建裝置，[請設定裝置佈建服務並擷取您的裝置註冊識別碼](how-to-auto-provision-simulated-device-linux.md)。 自動佈建只適用於具有信賴平台模組 (TPM) 晶片的裝置。 例如，Raspberry Pi 裝置預設未隨附 TPM。
+若要自動佈建裝置，[請設定裝置佈建服務並擷取您的裝置註冊識別碼](how-to-auto-provision-simulated-device-linux.md)。 使用自動布建時, IoT Edge 支援數種證明機制, 但您的硬體需求也會影響您的選擇。 例如, Raspberry Pi 裝置預設不會隨附信賴平臺模組 (TPM) 晶片。
 
 開啟組態檔。
 
@@ -217,18 +221,22 @@ sudo systemctl restart iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-尋找佈建設定檔的區段。 取消註解**dps**佈建模式 」 和 「 手動 」 一節的註解。 請將 **scope_id** 和 **registration_id** 的值更新為 IoT 中樞裝置佈建服務和具有 TPM 的 IoT Edge 裝置中的值。
+尋找檔案的布建設定, 並取消批註適用于您證明機制的區段。 例如, 使用 TPM 證明時, 請將**scope_id**和**registration_id**的值更新為 IoT 中樞裝置布建服務中的值, 以及使用具有 TPM 的 IoT Edge 裝置。
 
    ```yaml
+   # Manual provisioning configuration
    # provisioning:
    #   source: "manual"
    #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
+   # DPS TPM provisioning configuration
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
      scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
+     attestation:
+       method: "tpm"
+       registration_id: "{registration_id}"
    ```
 
 儲存並關閉檔案。
@@ -243,7 +251,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
 
-如果您在上一節中使用**手動設定**步驟，IoT Edge 執行階段應會在您的裝置上成功佈建並執行。 如果您使用**自動設定**步驟，則必須完成一些額外的步驟，讓執行階段可代表您向您的 IoT 中樞註冊裝置。 下一個步驟，請參閱[建立及佈建模擬 TPM IoT Edge 裝置上的 Linux 虛擬機器](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
+如果您在上一節中使用**手動設定**步驟，IoT Edge 執行階段應會在您的裝置上成功佈建並執行。 如果您使用**自動設定**步驟，則必須完成一些額外的步驟，讓執行階段可代表您向您的 IoT 中樞註冊裝置。 如需後續步驟, 請參閱[在 Linux 虛擬機器上建立及布建模擬 TPM IoT Edge 裝置](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
 
 您可以使用以下項目，檢查 IoT Edge 精靈的狀態：
 
@@ -304,6 +312,6 @@ sudo apt-get remove --purge moby-engine
 
 現在您已佈建 IoT Edge 裝置並安裝執行階段，接下來您可以[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)。
 
-如果您有正確安裝 IoT Edge 執行階段問題，請參閱[疑難排解](troubleshoot.md)頁面。
+如果您有 IoT Edge 執行時間正確安裝的問題, 請參閱[疑難排解](troubleshoot.md)頁面。
 
 若要將現有安裝更新為最新版的 IoT Edge，請參閱[更新 IoT Edge 安全性精靈和執行階段](how-to-update-iot-edge.md)。

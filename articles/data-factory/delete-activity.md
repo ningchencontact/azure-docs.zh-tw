@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 606cab09debf760d1b101390b2a19a1a090bb4c3
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61346338"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234570"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
 
-您也可以在 Azure Data Factory 中使用刪除活動，刪除檔案或資料夾從內部部署儲存體儲存或雲端儲存體存放區。 不再需要檔案時，使用此活動來清除或封存檔案。
+您可以使用 Azure Data Factory 中的 [刪除] 活動, 從內部部署儲存體存放區或雲端存放裝置存放區刪除檔案或資料夾。 不再需要檔案時，使用此活動來清除或封存檔案。
 
 > [!WARNING]
 > 刪除的檔案或資料夾無法還原。 使用 Delete 活動來刪除檔案或資料夾時請小心謹慎。
@@ -37,7 +37,7 @@ ms.locfileid: "61346338"
 
 -   請確定您未在檔案寫入的同時刪除檔案。 
 
--   如果您想要從內部部署系統中刪除檔案或資料夾，請確定您使用版本大於 3.14 自我裝載的整合執行階段。
+-   如果您想要從內部部署系統刪除檔案或資料夾, 請確定您使用的是版本大於3.14 的自我裝載整合執行時間。
 
 ## <a name="supported-data-stores"></a>支援的資料存放區
 
@@ -86,7 +86,7 @@ ms.locfileid: "61346338"
 | maxConcurrentConnections | 同時連線到儲存體存放區以刪除資料夾或檔案的連線數。   |  資料分割 預設為 `1`。 |
 | enablelogging | 指出您是否需要記錄已刪除的資料夾或檔案名稱。 如果為 true，則您需要進一步提供儲存體帳戶來儲存記錄檔，以便您可以藉由讀取記錄檔來追蹤 Delete 活動的行為。 | 否 |
 | logStorageSettings | 僅適用於 enablelogging = true 時。<br/><br/>一組儲存體屬性，可指定您要儲存記錄檔 (包含由 Delete 活動刪除的資料夾或檔案名稱) 的位置。 | 否 |
-| linkedServiceName | 僅適用於 enablelogging = true 時。<br/><br/>連結的服務[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md#linked-service-properties)，或[Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md#linked-service-properties)儲存記錄檔包含資料夾或檔案名稱已刪除 「 刪除 」 活動。 | 否 |
+| linkedServiceName | 僅適用於 enablelogging = true 時。<br/><br/>[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)或[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)的連結服務, 用來儲存記錄檔, 其中包含由 Delete 活動刪除的資料夾或檔案名。 | 否 |
 | path | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
 
 ## <a name="monitoring"></a>監視
@@ -323,7 +323,7 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>藉由鏈結 Copy 活動與 Delete 活動來移動檔案
 
-您可以使用 「 複製活動將複製檔案，然後刪除管線中的檔案刪除活動來移動檔案。  當您想要移動多個檔案時，可以使用 GetMetadata 活動 + Filter 活動 + Foreach 活動 + Copy 活動 + Delete 活動，如下列範例所示：
+您可以使用複製活動來移動檔案, 以複製檔案, 然後按 delete 活動來刪除管線中的檔案。  當您想要移動多個檔案時，可以使用 GetMetadata 活動 + Filter 活動 + Foreach 活動 + Copy 活動 + Delete 活動，如下列範例所示：
 
 > [!NOTE]
 > 如果您想要藉由定義資料集 (只包含資料夾路徑) 然後使用複製活動和 Delete 活動來參考代表資料集的相同資料集以便移動整個資料夾，您必須非常小心。 這是因為您必須確定在複製作業與刪除作業之間，不會有新檔案抵達資料夾。  如果在您的複製活動剛剛完成複製作業但是 Delete 活動尚未開始時就有新檔案抵達資料夾，Delete 活動可能會刪除這個新抵達檔案，系統未透過刪除整個資料夾將該檔案複製到目的地。 
@@ -563,14 +563,17 @@ GetMetadata 活動使用資料集來列舉檔案清單。
     }
 }
 ```
+
+您也可以從[這裡](solution-template-move-files.md)取得用來移動檔案的範本。
+
 ## <a name="known-limitation"></a>已知的限制
 
--   刪除活動不支援的萬用字元所描述的資料夾刪除的清單。
+-   刪除活動不支援刪除萬用字元所描述的資料夾清單。
 
--   使用檔案屬性篩選條件時： modifiedDatetimeStart 和 modifiedDatetimeEnd 來選取要刪除，請務必將"fileName":"*"資料集中。
+-   使用檔案屬性篩選: modifiedDatetimeStart 和 modifiedDatetimeEnd 選取要刪除的檔案時, 請務必在資料集中設定 "fileName": "*"。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 Azure Data Factory 中移動檔案。
+深入瞭解如何在 Azure Data Factory 中移動檔案。
 
 -   [Azure Data Factory 中的複製資料工具](copy-data-tool.md)

@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca461f3be740c3b0bac18795991bb721a5305240
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611544"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261911"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -79,7 +79,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | 系統指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
 | 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
 
-使用受控身分識別與下列清單是指[Azure 藍圖](../../governance/blueprints/overview.md):
+請參閱下列清單以使用受控識別搭配[Azure 藍圖](../../governance/blueprints/overview.md):
 
 - [Azure 入口網站-藍圖指派](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [REST API-藍圖指派](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
@@ -155,7 +155,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | 系統指派 | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
 | 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
 
-請參閱下列清單來設定受管理的身分識別的 Azure 容器登錄工作 (在區域中有提供):
+請參閱下列清單以設定 Azure Container Registry 工作的受控識別 (在可用區域中):
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
@@ -165,12 +165,12 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-請參閱下列的清單，來設定存取至 Azure Resource Manager:
+請參閱下列清單, 以設定 Azure Resource Manager 的存取權:
 
-- [透過 Azure 入口網站的存取權指派](howto-assign-access-portal.md)
-- [透過 Powershell 的存取權指派](howto-assign-access-powershell.md)
-- [透過 Azure CLI 的存取權指派](howto-assign-access-CLI.md)
-- [透過 Azure Resource Manager 範本的存取權指派](../../role-based-access-control/role-assignments-template.md)
+- [透過 Azure 入口網站指派存取權](howto-assign-access-portal.md)
+- [透過 Powershell 指派存取權](howto-assign-access-powershell.md)
+- [透過 Azure CLI 指派存取權](howto-assign-access-CLI.md)
+- [透過 Azure Resource Manager 範本指派存取權](../../role-based-access-control/role-assignments-template.md)
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
@@ -228,10 +228,10 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
-| Azure 全域 | `https://storage.azure.com/` | 可用 |
-| Azure Government | `https://storage.azure.com/` | 可用 |
-| Azure Germany | `https://storage.azure.com/` | 可用 |
-| Azure China 21Vianet | `https://storage.azure.com/` | 可用 |
+| Azure 全域 | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

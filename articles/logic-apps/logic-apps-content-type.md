@@ -1,21 +1,20 @@
 ---
-title: 處理內容類型 - Azure Logic Apps | Microsoft Docs
+title: 處理內容類型-Azure Logic Apps
 description: 了解 Logic Apps 如何在設計階段與執行階段處理內容類型
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685723"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868920"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>在 Azure 邏輯應用程式中處理內容類型
 
@@ -140,15 +139,16 @@ Logic Apps 一律會在收到的 HTTP 要求或回應中保留 `Content-Type`。
 
 以下清單說明當您使用這些[函式](../logic-apps/workflow-definition-language-functions-reference.md)時，Logic Apps 如何轉換內容：
 
-* `json()`:要轉換資料 `application/json`
-* `xml()`:要轉換資料 `application/xml`
-* `binary()`:要轉換資料 `application/octet-stream`
-* `string()`:要轉換資料 `text/plain`
-* `base64()`:將內容轉換成 base64 字串
-* `base64toString()`:將 base64 編碼字串轉換 `text/plain`
-* `base64toBinary()`:將 base64 編碼字串轉換 `application/octet-stream`
-* `encodeDataUri()`:將字串編碼為 dataUri 位元組陣列
-* `decodeDataUri()`:將解碼`dataUri`的位元組陣列
+* `json()`:將資料轉換成`application/json`
+* `xml()`:將資料轉換成`application/xml`
+* `binary()`:將資料轉換成`application/octet-stream`
+* `string()`:將資料轉換成`text/plain`
+* `base64()`:將內容轉換為 base64 編碼的字串
+* `base64toString()`:將 base64 編碼的字串轉換為`text/plain`
+* `base64toBinary()`:將 base64 編碼的字串轉換為`application/octet-stream`
+* `dataUri()`:將字串轉換成資料 URI
+* `dataUriToBinary()`:將資料 URI 轉換成二進位字串
+* `dataUriToString()`:將資料 URI 轉換為字串
 
 例如，如果您收到 `Content-Type` 設定為 `application/xml` 的 HTTP 要求，例如以下內容：
 

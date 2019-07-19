@@ -1,25 +1,25 @@
 ---
-title: 呼叫、 觸發或巢狀處理具有 HTTP 端點-Azure Logic Apps 工作流程
+title: 使用 HTTP 端點呼叫、觸發或將工作流程嵌套-Azure Logic Apps
 description: 設定 HTTP 端點來呼叫、觸發或巢狀處理 Azure Logic Apps 的工作流程
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
 author: ecfan
-ms.author: klam; LADocs
+ms.author: klam
 ms.reviewer: jehollan, klam, LADocs
 manager: carmonm
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495047"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875961"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>呼叫、 觸發程序或透過 Azure Logic Apps 中的 HTTP 端點的巢狀工作流程
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 HTTP 端點呼叫、觸發或嵌套工作流程
 
 您可以在邏輯應用程式中利用原生方式公開同步的 HTTP 端點作為觸發程序，以透過 URL 來觸發或呼叫邏輯應用程式。 您也可以使用可呼叫端點的模式，以在邏輯應用程式中巢狀處理工作流程。
 
@@ -271,9 +271,9 @@ ms.locfileid: "66495047"
 
 ## <a name="q--a"></a>問答集
 
-#### <a name="q-what-about-url-security"></a>問：URL 安全性如何呢？
+#### <a name="q-what-about-url-security"></a>問：URL 安全性呢？
 
-答：Azure 會安全地產生邏輯應用程式回呼 Url，使用共用存取簽章 (SAS)。 這個簽章是以查詢參數的形式傳遞，且必須在引發您的邏輯應用程式之前先驗證。 Azure 會使用每個邏輯應用程式、觸發程序名稱以及要執行作業之秘密金鑰的唯一組合來產生簽章。 因此，除非某人具有邏輯應用程式秘密金鑰的存取權，否則他們無法產生有效的簽章。
+答：Azure 會使用共用存取簽章 (SAS) 安全地產生邏輯應用程式回呼 Url。 這個簽章是以查詢參數的形式傳遞，且必須在引發您的邏輯應用程式之前先驗證。 Azure 會使用每個邏輯應用程式、觸發程序名稱以及要執行作業之秘密金鑰的唯一組合來產生簽章。 因此，除非某人具有邏輯應用程式秘密金鑰的存取權，否則他們無法產生有效的簽章。
 
    > [!IMPORTANT]
    > 對於生產和安全系統，強烈建議直接從瀏覽器呼叫邏輯應用程式，因為：
@@ -281,18 +281,18 @@ ms.locfileid: "66495047"
    > * URL 中出現共用存取金鑰。
    > * 您由於邏輯應用程式客戶之間共用網域，而無法管理安全內容原則。
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>問：可以設定 HTTP 端點進一步嗎？
+#### <a name="q-can-i-configure-http-endpoints-further"></a>問：我可以進一步設定 HTTP 端點嗎？
 
-答：HTTP 端點是，支援更進階的組態，經由[ **API 管理**](../api-management/api-management-key-concepts.md)。 此服務也可讓您透過一致的方式管理所有 API，包括邏輯應用程式、設定自訂網域名稱、使用其他驗證方法等等，例如︰
+答：是, HTTP 端點透過[**API 管理**](../api-management/api-management-key-concepts.md)來支援更先進的設定。 此服務也可讓您透過一致的方式管理所有 API，包括邏輯應用程式、設定自訂網域名稱、使用其他驗證方法等等，例如︰
 
 * [變更要求方法](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [變更要求的 URL 區段](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * 在 [Azure 入口網站](https://portal.azure.com/ "Azure 入口網站")中設定 API 管理網域
 * 設定檢查基本驗證的原則
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>問：從 2014 年 12 月 1 日預覽版升級結構描述時變更什麼？
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>問：從2014年12月1日開始遷移架構時, 會發生什麼情況？
 
-答：以下是有關這些變更的摘要：
+答：以下是這些變更的摘要:
 
 | 2014 年 12 月 1 日預覽版 | 2016 年 6 月 1 日 |
 | --- | --- |

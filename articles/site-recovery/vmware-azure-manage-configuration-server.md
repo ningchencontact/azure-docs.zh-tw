@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171730"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250107"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
@@ -109,7 +109,7 @@ ms.locfileid: "66171730"
    ```
 
     >[!NOTE]
-    >若要從設定伺服器**提取最新憑證**以相應放大伺服器，請執行命令 *“<安裝磁碟機\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >若要將**最新的憑證**從設定伺服器提取到相應放大進程伺服器, 請執行命令 *\<"安裝 Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt*
 
 8. 最後，執行下列命令以重新啟動 obengine。
    ```
@@ -183,7 +183,7 @@ ms.locfileid: "66171730"
 
 ### <a name="parameters"></a>參數
 
-|參數名稱| type | 描述| 值|
+|參數名稱| Type | 描述| 值|
 |-|-|-|-|
 | /ServerMode|必要項|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
 |/InstallLocation|必要項|安裝元件的資料夾| 電腦上的任何資料夾|
@@ -258,7 +258,7 @@ ProxyPassword="Password"
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> 您可以使用 **-Force**中移除 AzSiteRecoveryFabric 來強制刪除組態伺服器 選項。
+> 您可以使用 AzSiteRecoveryFabric 中的 **-Force**選項來強制刪除設定伺服器。
 
 ## <a name="generate-configuration-server-passphrase"></a>產生設定伺服器複雜密碼
 

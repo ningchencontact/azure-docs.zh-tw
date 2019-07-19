@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: e4edcc0aecfbf03aff7cf9bee764522bb1c489f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716368"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249177"
 ---
 # <a name="view-service-fabric-health-reports"></a>檢視 Service Fabric 健康狀態報告
 Azure Service Fabric 導入了由健康情況實體組成的[健康情況模型](service-fabric-health-introduction.md)，系統元件和看門狗可以在其上回報所監視的本機情況。 [健康情況存放區](service-fabric-health-introduction.md#health-store) 會彙總所有健康情況資料，以判斷實體是否狀況良好。
@@ -1053,7 +1053,7 @@ ApplicationHealthStateChunks :
   * PowerShell：Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> 有些查詢會傳回已分頁的結果。 這些查詢的傳回內容是衍生自 [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1) 的清單。 如果結果不符合訊息，只會傳回頁面，且 ContinuationToken 會追蹤列舉停止之處。 繼續呼叫相同的查詢，並從先前的查詢傳入接續權杖以取得後續結果。
+> 有些查詢會傳回已分頁的結果。 這些查詢的傳回是衍生自[\<PagedList T >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)的清單。 如果結果不符合訊息，只會傳回頁面，且 ContinuationToken 會追蹤列舉停止之處。 繼續呼叫相同的查詢，並從先前的查詢傳入接續權杖以取得後續結果。
 
 ### <a name="examples"></a>範例
 以下程式碼會取得叢集中健全狀況不佳的應用程式：

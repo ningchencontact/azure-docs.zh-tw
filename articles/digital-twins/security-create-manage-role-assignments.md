@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: lyrana
+ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162160"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846648"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
@@ -39,7 +39,7 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 下表描述每個屬性：
 
-| 屬性 | 名稱 | 必要項 | type | 描述 |
+| 屬性 | 名稱 | 必要項 | Type | 描述 |
 | --- | --- | --- | --- | --- |
 | roleId | 角色定義識別碼 | 是 | 字串 | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
 | objectId | 物件識別碼 | 是 | 字串 | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
