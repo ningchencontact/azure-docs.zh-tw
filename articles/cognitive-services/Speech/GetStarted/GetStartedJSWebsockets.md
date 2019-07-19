@@ -42,7 +42,7 @@ Speech API 是「認知服務」的組件。 您可以從[認知服務訂用帳�
 
 ### <a name="open-the-sample-directly"></a>直接開啟範例
 
-如以上所述，取得訂用帳戶金鑰。 然後開啟[範例連結](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)。 這會將頁面載入您的預設瀏覽器 (使用 [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com) 來轉譯)。
+如以上所述，取得訂用帳戶金鑰。 然後開啟[範例連結](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)。 這會將頁面載入您的預設瀏覽器 使用 [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com) 來轉譯。
 
 ### <a name="open-the-sample-from-a-local-copy"></a>從本機複本開啟範例
 
