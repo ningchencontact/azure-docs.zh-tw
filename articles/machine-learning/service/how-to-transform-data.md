@@ -10,23 +10,23 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65471841"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297913"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
-在本文中，您將了解不同的方法，將轉換的資料使用`azureml-dataprep`封裝。 封裝提供了讓您輕鬆加入資料行，篩選掉不必要的資料列或資料行，並插補遺漏值的函式。 請參閱完整的參考文件[azureml dataprep 套件](https://aka.ms/data-prep-sdk)。
+在本文中, 您將瞭解使用`azureml-dataprep`封裝來轉換資料的不同方法。 封裝所提供的函式可讓您輕鬆地加入資料行、篩選不必要的資料列或資料行, 以及插補遺漏值。 請參閱[dataprep 套件](https://aka.ms/data-prep-sdk)的完整參考檔。
 
 > [!Important]
-> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 來轉換您的資料、 快照集資料和儲存已建立版本的資料集定義。 資料集是資料準備供應項目來管理 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。 如果您使用`azureml-dataprep`套件來建立資料流程，與您的轉換，而不是使用`azureml-datasets`封裝來建立資料集，您將無法供日後使用快照集或已建立版本的資料集。
+> 如果您要建立新的方案, 請嘗試使用[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)(預覽) 來轉換資料、快照集資料, 以及儲存已建立版本的資料集定義。 資料集是下一版的資料準備 SDK, 提供擴充的功能來管理 AI 解決方案中的資料集。 如果您使用此`azureml-dataprep`封裝來建立具有轉換的資料流程, 而不是`azureml-datasets`使用封裝來建立資料集, 則稍後將無法使用快照或版本資料集。
 
-此操作說明會顯示下列工作的範例：
+本操作說明顯示下列工作的範例:
 
 - 加入使用運算式的資料行
 - [插補遺漏值](#impute-missing-values)
@@ -100,9 +100,9 @@ dflow.head(3)
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
 
-第三個記錄遺漏了緯度和經度值。 若要插補那些遺漏的值，您使用[ `ImputeMissingValuesBuilder` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py)若要了解已修正的運算式。 其可使用計算出的 `MIN`、`MAX` 或 `MEAN` 值或 `CUSTOM` 值來插補資料行。 未指定 `group_by_columns` 時，會使用各群組計算出的 `MIN`、`MAX` 和 `MEAN` 按群組插補遺漏值。
+第三個記錄遺漏了緯度和經度值。 若要插補這些遺漏值, 您[`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py)可以使用來學習固定的運算式。 其可使用計算出的 `MIN`、`MAX` 或 `MEAN` 值或 `CUSTOM` 值來插補資料行。 未指定 `group_by_columns` 時，會使用各群組計算出的 `MIN`、`MAX` 和 `MEAN` 按群組插補遺漏值。
 
-請檢查`MEAN`緯度資料行使用的值[ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow)函式。 此函式接受 `group_by_columns` 參數中的資料行陣列來指定彙總層級。 `summary_columns` 參數可接受 `SummaryColumnsValue` 呼叫。 此函式呼叫會指定目前的資料行名稱、新的導出欄位名稱，以及要執行的 `SummaryFunction`。
+使用函數來檢查 [緯度] 資料行的`MEAN`值。 [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 此函式接受 `group_by_columns` 參數中的資料行陣列來指定彙總層級。 `summary_columns` 參數可接受 `SummaryColumnsValue` 呼叫。 此函式呼叫會指定目前的資料行名稱、新的導出欄位名稱，以及要執行的 `SummaryFunction`。
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
@@ -190,7 +190,7 @@ builder.preview(count=5)
 現在，從頂端將所需的資料列數目傳入到 `skip` 查看更往下的資料列。
 
 > [!NOTE]
-> Preview() 函式會略過資料列，但不是重新編號的輸出索引。 在下列範例中，資料表中的索引 0 對應到資料流程中的索引 30。
+> Preview () 函數會略過資料列, 但不會重新編號輸出索引。 在下列範例中, 資料表中的索引0會對應到資料流程中的索引30。
 
 ```python
 builder.preview(skip=30, count=5)
@@ -204,7 +204,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
 |4|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
 
-在這裡可以發現產生的程式發生了問題。 衍生程式完全根據您之前提供的範例，選擇將日期剖析為「日/月/年」，但這不是您在這裡所要的結果。 若要修正此問題，特定記錄的索引為目標並提供另一個範例中使用`add_example()`函式`builder`變數。
+在這裡可以發現產生的程式發生了問題。 衍生程式完全根據您之前提供的範例，選擇將日期剖析為「日/月/年」，但這不是您在這裡所要的結果。 若要修正此問題, 請以特定記錄索引為目標, 並提供`add_example()`在`builder`變數上使用函數的另一個範例。
 
 ```python
 builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
@@ -219,7 +219,7 @@ builder.preview(skip=30, count=5)
 |3|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
 |4|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
 
-資料列正確地處理現在 '2015 年 1 月 2 日' 為 '2015 年 1 月 2 日' 但如果您看超出索引 76 衍生的資料行，您會看到結尾的值，在衍生的資料行中有執行任何動作。
+現在, 資料列會將 ' 1/2/2015 ' 正確地處理為 ' Jan 2, 2015 ', 但如果您看不到衍生資料行的索引 76, 您會看到結尾的值在衍生的資料行中沒有任何內容。
 
 ```python
 builder.preview(skip=75, count=5)
@@ -228,8 +228,8 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|2015 年 1 月 3 日上午 6 點-8 AM|
-|1|1/3/2015 7:54|2015 年 1 月 3 日上午 6 點-8 AM|
+|0|1/3/2015 7:00|2015年1月3日 4AM-6AM-上午8點|
+|1|1/3/2015 7:54|2015年1月3日 4AM-6AM-上午8點|
 |2|1/29/2015 6:54|None|
 |3|1/29/2015 7:00|None|
 |4|1/29/2015 7:54|None|
@@ -241,13 +241,13 @@ builder.preview(skip=75, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/3/2015 7:00|2015 年 1 月 3 日上午 6 點-8 AM|
-|1|1/3/2015 7:54|2015 年 1 月 3 日上午 6 點-8 AM|
-|2|1/29/2015 6:54|2015 年 1 月 29 日上午 6 點-8 AM|
-|3|1/29/2015 7:00|2015 年 1 月 29 日上午 6 點-8 AM|
-|4|1/29/2015 7:54|2015 年 1 月 29 日上午 6 點-8 AM|
+|0|1/3/2015 7:00|2015年1月3日 4AM-6AM-上午8點|
+|1|1/3/2015 7:54|2015年1月3日 4AM-6AM-上午8點|
+|2|1/29/2015 6:54|2015年1月29日 4AM-6AM-上午8點|
+|3|1/29/2015 7:00|2015年1月29日 4AM-6AM-上午8點|
+|4|1/29/2015 7:54|2015年1月29日 4AM-6AM-上午8點|
 
- 若要查看呼叫目前的範例衍生清單`list_examples()`上產生器物件。
+ 查看產生器物件上目前範例衍生呼叫`list_examples()`的清單。
 
 ```python
 examples = builder.list_examples()
@@ -260,10 +260,10 @@ examples = builder.list_examples()
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
 
 
-在某些情況下如果您想要刪除範例不正確，您可以傳入其中一個`example_row`pandas 資料框架，或`example_id`值。 例如，如果您執行`builder.delete_example(example_id=-1)`，它會刪除第一個轉換範例。
+在某些情況下, 如果您想要刪除不正確的範例, 可以`example_row`從 pandas 資料框架或`example_id`值傳入。 例如, 如果您執行`builder.delete_example(example_id=-1)`, 它會刪除第一個轉換範例。
 
 
-呼叫`to_dataflow()`上產生器中，它會傳回資料流與所需的衍生資料行，以新增。
+在`to_dataflow()`產生器上呼叫, 它會傳回已加入所需衍生資料行的資料流程。
 
 ```python
 dflow = builder.to_dataflow()
@@ -272,9 +272,14 @@ df = dflow.to_pandas_dataframe()
 
 ## <a name="filtering"></a>Filtering
 
-SDK 包含方法[ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)並[ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py)可讓您篩選出資料行或資料列。
+SDK 包含方法[`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) , 並[`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py)可讓您篩選出資料行或資料列。
 
 ### <a name="initial-setup"></a>初始設定
+
+> [!Note]
+> 這個相同範例中的 URL 不是完整的 URL。 相反地, 它是指 blob 中的 [示範] 資料夾。 資料的完整 URL 是 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+我們在本教學課程中所做的是載入資料夾內的所有檔案, 並將結果匯總成 green_df_raw 和 yellow_df_raw。
 
 ```python
 import azureml.dataprep as dprep
@@ -293,7 +298,7 @@ dflow.head(5)
 
 ### <a name="filtering-columns"></a>篩選資料行
 
-若要篩選資料行，請使用 `drop_columns()`。 這個方法會採用要卸除的資料行清單或更複雜的引數呼叫[ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py)。
+若要篩選資料行，請使用 `drop_columns()`。 這個方法會接受要卸載的資料行清單, 或名[`ColumnSelector`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py)為的更複雜引數。
 
 #### <a name="filtering-columns-with-list-of-strings"></a>使用字串的清單篩選資料行
 
@@ -416,7 +421,7 @@ dflow.head(2)
 |0|ALABAMA|1|101710|Hale County|10171002158| |
 |1|ALABAMA|1|101710|Hale County|10171002162| |
 
-精簡資料集，並執行一些基本的轉換，包括移除資料行、 取代值，以及轉換類型。
+修剪資料集, 並執行一些基本的轉換, 包括移除資料行、取代值和轉換類型。
 
 ```python
 dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
@@ -443,7 +448,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 ### <a name="transform-partition"></a>轉換分割區
 
-使用[ `transform_partition()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow)到所有的 null 值取代為 0。 此程式碼會分區執行，而不是一次在整個資料集上執行。 也就是說，在大型資料集上，此程式碼會在執行階段處理資料時，同時逐區平行執行。
+使用[`transform_partition()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow)將所有 null 值取代為0。 此程式碼會分區執行，而不是一次在整個資料集上執行。 也就是說，在大型資料集上，此程式碼會在執行階段處理資料時，同時逐區平行執行。
 
 Python 指令碼必須定義稱為 `transform()`，且接受兩個引數 `df` 和 `index` 的函式。 `df` 引數將是包含資料分割資料的 pandas 資料框架，而 `index` 引數則是資料分割的唯一識別碼。 轉換函式可以完整編輯傳入的資料框架，但必須傳回資料框架。 Python 指令碼匯入的任何程式庫都必須存在於執行資料流程所在的環境。
 
@@ -463,7 +468,7 @@ df.head(2)
 
 ### <a name="new-script-column"></a>新的指令碼資料行
 
-您可以使用 Python 指令碼，來建立新的資料行具有國家/地區的名稱和狀態名稱，以及狀態名稱改成大寫。 若要這樣做，請使用[ `new_script_column()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow)上的資料流的方法。
+您可以使用 Python 腳本來建立新的資料行, 其中包含縣 (市) 名稱和州/省名稱, 同時也會以大寫的狀態名稱來表示。 若要這麼做, 請[`new_script_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow)在資料流程上使用方法。
 
 Python 指令碼必須定義稱為 `newvalue()`，且接受單一引數 `row` 的函式。 `row` 引數是一種 dic (`key`：資料行名稱，`val`：目前的值)，而且將會針對資料集中的每一個資料列傳遞至此函式。 此函式必須傳回要用於新資料行的值。 Python 指令碼匯入的任何程式庫都必須存在於執行資料流程所在的環境。
 
@@ -482,7 +487,7 @@ dflow.head(2)
 
 ### <a name="new-script-filter"></a>新的指令碼篩選條件
 
-建置使用 Python 運算式[ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow)來篩選資料集只有 'Hale' 不在新的資料列`county_state`資料行。 如果我們想要保留資料列，運算式會傳回 `True`，並傳回 `False` 以置放資料列。
+使用[`new_script_filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow)來建立 Python 運算式, 將資料集篩選成隻有 ' Hale ' 不在新`county_state`資料行中的資料列。 如果我們想要保留資料列，運算式會傳回 `True`，並傳回 `False` 以置放資料列。
 
 ```python
 dflow = dflow.new_script_filter("""
@@ -500,4 +505,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>後續步驟
 
-* 請參閱 Azure Machine Learning 資料準備 SDK[教學課程](tutorial-data-prep.md)如需解決的特定案例的範例
+* 如需解決特定案例的範例, 請參閱 Azure Machine Learning 資料準備 SDK[教學](tutorial-data-prep.md)課程

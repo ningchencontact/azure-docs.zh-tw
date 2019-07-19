@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531498"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302079"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>將 Azure 排程器作業移轉至 Azure Logic Apps
 
@@ -29,7 +29,7 @@ ms.locfileid: "60531498"
 
 * Azure Logic Apps 服務支援時區與日光節約時間 (DST)。
 
-若要深入了解，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md) 或者，請嘗試在此快速入門中建立第一個邏輯應用程式：[建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+若要深入了解，請參閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md) 或嘗試在本快速入門中建立您的第一個邏輯應用程式:[建立您的第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -45,7 +45,7 @@ ms.locfileid: "60531498"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，於邏輯應用程式設計工具中建立空白的邏輯應用程式。 
 
-   如需基本的步驟，請遵循[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+   如需基本步驟, 請[遵循快速入門:建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 1. 在搜尋方塊中，輸入「當 http 要求」作為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時** 
 
@@ -67,7 +67,7 @@ ms.locfileid: "60531498"
 
 1. 在觸發程序下方，選擇 [下一個步驟]  。 
 
-1. 在搜尋方塊中，輸入「延遲直到」作為篩選條件。 在動作清單下方，選取此動作：**延遲直到**
+1. 在搜尋方塊中，輸入「延遲直到」作為篩選條件。 在動作清單下方，選取此動作：**延遲到**
 
    此動作會暫停您的邏輯應用程式工作流程，直到指定的日期和時間為止。
 
@@ -79,7 +79,7 @@ ms.locfileid: "60531498"
 
    ![提供「延遲直到」詳細資料](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. 從 [200 個以上的連接器](../connectors/apis-list.md)中進行選取，以新增您想要執行的任何其他動作。 
+1. 從[數百個現成可用的連接器](../connectors/apis-list.md)中選取, 以新增您想要執行的任何其他動作。 
 
    例如，您可以包含將要求傳送至 URL 的 HTTP 動作，或使用儲存體佇列、服務匯流排佇列或服務匯流排主題的動作： 
 
@@ -129,7 +129,7 @@ ms.locfileid: "60531498"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，於邏輯應用程式設計工具中建立空白的邏輯應用程式。 
 
-   如需基本的步驟，請遵循[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+   如需基本步驟, 請[遵循快速入門:建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 1. 在搜尋方塊中，輸入 "recurrence" 作為篩選條件。 從觸發程序清單中，選取此觸發程序：**週期性** 
 
@@ -141,7 +141,7 @@ ms.locfileid: "60531498"
 
    如需進階排程選項的詳細資訊，請參閱[使用 Azure Logic Apps 建立並執行週期性工作和工作流程](../connectors/connectors-native-recurrence.md)
 
-1. 從 [200 個以上的連接器](../connectors/apis-list.md)中進行選取，以新增您想要的其他動作。 在觸發程序下方，選擇 [下一個步驟]  。 尋找並選取您想要的動作。
+1. 從[數百個現成可用](../connectors/apis-list.md)的中選取, 以新增您想要的其他動作。 在觸發程序下方，選擇 [下一個步驟]  。 尋找並選取您想要的動作。
 
    例如，您可以包含將要求傳送至 URL 的 HTTP 動作，或使用儲存體佇列、服務匯流排佇列或服務匯流排主題的動作： 
 
@@ -195,20 +195,20 @@ ms.locfileid: "60531498"
 
 <a name="retire-date"></a> 
 
-**問**：何時淘汰 Azure 排程器？ <br>
-**答**：Azure 排程器已排定於 2019 年 9 月 30 日淘汰。
+**問**：Azure 排程器何時淘汰？ <br>
+**答**：Azure 排程器排定于2019年9月30日淘汰。
 
-**問**：會發生什麼事到我的排程器工作集合和工作之後，服務會淘汰？ <br>
-**答**：所有的排程器工作集合和工作將會從系統中刪除。
+**問**：在服務淘汰之後, 我的排程器工作集合和作業會發生什麼事？ <br>
+**答**：所有排程器工作集合和工作都會從系統中刪除。
 
-**問**：我是否必須備份或移轉至 Logic Apps 的 我的排程器作業之前執行任何其他工作？ <br>
-**答**：最佳做法，務必備份您的工作。 請先檢查您所建立的邏輯應用程式均如預期般執行，然後再刪除或停用排程器作業。 
+**問**：將排程器工作遷移至 Logic Apps 之前, 我必須先備份或執行其他工作嗎？ <br>
+**答**：最佳做法是一律備份您的工作。 請先檢查您所建立的邏輯應用程式均如預期般執行，然後再刪除或停用排程器作業。 
 
-**問**：是否有一種工具，可以幫我將我的工作排程器從移轉至 Logic Apps？ <br>
-**答**：每個排程器工作是唯一的的因此沒有一體適用的工具。 不過，有各種指令碼可讓您針對需求進行修改。 如需指令碼可用性，請稍後再回來查看。
+**問**：是否有可協助我將作業從排程器遷移至 Logic Apps 的工具？ <br>
+**答**：每個排程器工作都是唯一的, 因此不會有一種大小合適的工具。 不過，有各種指令碼可讓您針對需求進行修改。 如需指令碼可用性，請稍後再回來查看。
 
-**問**：哪裡可以取得支援移轉我的排程器作業？ <br>
-**答**：以下是一些方法，以取得支援： 
+**問**：我可以在何處取得遷移排程器工作的支援？ <br>
+**答**：以下是取得支援的一些方法: 
 
 **Azure 入口網站**
 

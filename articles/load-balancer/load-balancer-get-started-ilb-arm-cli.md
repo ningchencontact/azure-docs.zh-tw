@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 來建立內部負載平衡器
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
-ms.author: kumud
-ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: e38cc4e6da574e0c3be490cf5d9cd929624343e5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475895"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275442"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>使用 Azure CLI 來建立內部負載平衡器以平衡 VM 的負載
 
@@ -60,7 +60,7 @@ ms.locfileid: "66475895"
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
 
-建立具有內部負載平衡器[建立 az 網路 lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)名為**myLoadBalancer** ，其中包含名為的前端 IP 組態**myFrontEnd**，名為後端集區**myBackEndPool**相關聯的私人 IP 位址 * * 10.0.0.7。
+使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)建立名為**myLoadBalancer**的內部 Load Balancer, 其中包含名為**myFrontEnd**的前端 IP 設定、名為**myBackEndPool**的後端集區, 與私人 IP 位址相關聯 *10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

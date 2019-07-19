@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6c8bdb27e9e976a7a490c2a824e994242378641
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671191"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278304"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -170,9 +170,9 @@ sudo reboot
 
 * **CentOS 型 7.4 HPC** - 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>在 NV 或 NVv2 系列 VM 上安裝 GRID 驅動程式
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>在 NV 或 NVv3 系列 Vm 上安裝 GRID 驅動程式
 
-若要在 NV 或 NVv2 系列 VM 上安裝 NVIDIA GRID 驅動程式，請以 SSH 連線至每個 VM，並遵循您 Linux 發行版本的步驟。 
+若要在 NV 或 NVv3 系列 Vm 上安裝 NVIDIA GRID 驅動程式, 請建立每個 VM 的 SSH 連線, 並遵循 Linux 散發套件的步驟。 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -188,8 +188,10 @@ sudo reboot
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
-3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NVv2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請建立中的檔案`/etc/modprobe.d`名為`nouveau.conf`含有下列內容：
+3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NVv2 VM 上使用 NVIDIA 驅動程式。)若要這麼做, 請使用下列`/etc/modprobe.d`內容`nouveau.conf` , 在名為的中建立檔案:
 
    ```
    blacklist nouveau
@@ -226,8 +228,15 @@ sudo reboot
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. 重新啟動 VM 並繼續確認安裝。
+   
+9. 從中`/etc/nvidia/gridd.conf`移除下列內容 (如果有的話):
+ 
+   ```
+   FeatureType=0
+   ```
+10. 重新啟動 VM 並繼續確認安裝。
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 或 Red Hat Enterprise Linux 
@@ -242,9 +251,11 @@ sudo reboot
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
-2. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NV2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請建立中的檔案`/etc/modprobe.d`名為`nouveau.conf`含有下列內容：
+2. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NV2 VM 上使用 NVIDIA 驅動程式。)若要這麼做, 請使用下列`/etc/modprobe.d`內容`nouveau.conf` , 在名為的中建立檔案:
 
    ```
    blacklist nouveau
@@ -290,8 +301,15 @@ sudo reboot
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. 重新啟動 VM 並繼續確認安裝。
+9. 從中`/etc/nvidia/gridd.conf`移除下列內容 (如果有的話):
+ 
+   ```
+   FeatureType=0
+   ```
+10. 重新啟動 VM 並繼續確認安裝。
+
 
 ### <a name="verify-driver-installation"></a>確認驅動程式安裝
 

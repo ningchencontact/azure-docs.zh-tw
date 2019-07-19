@@ -6,13 +6,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.author: rkmanda
-ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: philmea
+ms.openlocfilehash: 32caebf8ea216050427f4400102cf56ffc657b55
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60779367"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875254"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
 
@@ -32,7 +32,7 @@ ms.locfileid: "60779367"
 
 ## <a name="intra-region-ha"></a>內部區域 HA
 
-IoT 中樞服務可在絕大多數的服務層級中實作備援功能，以提供內部區域 HA。 利用這些備援功能，即可達成 [IoT 中樞服務所發佈的 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub)。 IoT 解決方案的開發人員無須執行其他工作，即可運用這些 HA 功能。 雖然 IoT 中樞提供了相當高的運作時間保證，但分散式運算平台仍可能發生暫時性的失敗。 如果您剛開始使用您的解決方案移轉至雲端，從內部部署解決方案，您的焦點需要轉而最佳化 「 失敗之間的平均時間 」 至 「 若要復原的平均時間 」。 換句話說，在混合環境中使用雲端時，應將暫時性失敗視為正常現象。 在與雲端應用程式互動的元件中必須建立適當的[重試原則](iot-hub-reliability-features-in-sdks.md)，用以處理暫時性失敗。
+IoT 中樞服務可在絕大多數的服務層級中實作備援功能，以提供內部區域 HA。 利用這些備援功能，即可達成 [IoT 中樞服務所發佈的 SLA](https://azure.microsoft.com/support/legal/sla/iot-hub)。 IoT 解決方案的開發人員無須執行其他工作，即可運用這些 HA 功能。 雖然 IoT 中樞提供了相當高的運作時間保證，但分散式運算平台仍可能發生暫時性的失敗。 如果您剛開始將解決方案從內部部署解決方案遷移至雲端, 您的重點就必須從優化「失敗之間的平均時間」轉移到「平均復原時間」。 換句話說，在混合環境中使用雲端時，應將暫時性失敗視為正常現象。 在與雲端應用程式互動的元件中必須建立適當的[重試原則](iot-hub-reliability-features-in-sdks.md)，用以處理暫時性失敗。
 
 > [!NOTE]
 > 某些 Azure 服務也可與[可用性區域 (AZ)](../availability-zones/az-overview.md) 整合，而在某個區域內提供額外的可用性層級。 IoT 中樞服務目前不支援 AZ。
@@ -64,7 +64,7 @@ IoT 中樞的容錯移轉作業完成後，從裝置和後端應用程式執行�
 >
 > - 在容錯移轉之後，透過 Event Grid 發出的事件都可透過先前設定的相同訂用帳戶來取用，只要這些 Event Grid 訂用帳戶仍然可用即可。
 >
-> - 路由傳送至 Blob 儲存體時，建議您登錄 Blob，然後逐一查看它們，以確保會讀取所有容器，而不需進行任何分割假設。 在 Microsoft 起始容錯移轉或手動容錯移轉期間可能變更分割區範圍。 若要了解如何列舉的 blob，請參閱清單[路由至 blob 儲存體](iot-hub-devguide-messages-d2c.md#azure-blob-storage)。
+> - 路由傳送至 Blob 儲存體時，建議您登錄 Blob，然後逐一查看它們，以確保會讀取所有容器，而不需進行任何分割假設。 在 Microsoft 起始的容錯移轉或手動容錯移轉期間, 資料分割範圍可能會變更。 若要瞭解如何列舉 blob 清單, 請參閱[路由至 blob 儲存體](iot-hub-devguide-messages-d2c.md#azure-blob-storage)。
 
 ### <a name="microsoft-initiated-failover"></a>Microsoft 起始的容錯移轉
 
@@ -110,14 +110,14 @@ IoT 解決方案中部署拓撲的完整處理方式不在本文討論範圍內�
 
 在較高層級上，為了使用 IoT 中樞實作區域容錯移轉模型，您必須執行下列步驟：
 
-* **次要 IoT 中樞和裝置路由邏輯**:如果主要區域服務中斷，裝置必須開始連線到您的次要區域。 由於大部分服務狀態感知的本質，解決方案的系統管理員通常會觸發區域間的容錯移轉程序。 要讓新端點與裝置通訊，同時保有程序的控制權，最佳方式是讓它們定期檢查「指引」  服務是否有目前作用中的端點。 指引服務可以是 Web 應用程式，其可藉由使用 DNS 重新導向技術複寫並保持連接 (例如使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md))。
+* **次要 IoT 中樞和裝置路由邏輯**:如果主要區域中的服務中斷, 裝置必須開始連接到您的次要區域。 由於大部分服務狀態感知的本質，解決方案的系統管理員通常會觸發區域間的容錯移轉程序。 要讓新端點與裝置通訊，同時保有程序的控制權，最佳方式是讓它們定期檢查「指引」  服務是否有目前作用中的端點。 指引服務可以是 Web 應用程式，其可藉由使用 DNS 重新導向技術複寫並保持連接 (例如使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md))。
 
    > [!NOTE]
    > IoT 中樞服務在 Azure 流量管理員中不是支援的端點類型。 建議您讓 Azure 流量管理員實作端點健康情況探查 API，而將其與建議的指引服務整合。
 
-* **身分識別登錄複寫**:若要可用，次要 IoT 中樞必須包含可以連線到解決方案的所有裝置身分識別。 解決方案應該保留裝置身分識別的異地複寫備份，並在切換裝置的作用中端點之前將其上傳至次要 IoT 中樞。 IoT 中樞的裝置身分識別匯出功能在此內容中很有用。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南 - 身分識別登錄](iot-hub-devguide-identity-registry.md)。
+* 身分**識別**登錄複寫:若要使用, 次要 IoT 中樞必須包含可連接至解決方案的所有裝置身分識別。 解決方案應該保留裝置身分識別的異地複寫備份，並在切換裝置的作用中端點之前將其上傳至次要 IoT 中樞。 IoT 中樞的裝置身分識別匯出功能在此內容中很有用。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南 - 身分識別登錄](iot-hub-devguide-identity-registry.md)。
 
-* **合併邏輯**:當主要區域再次變為可用時，所有的狀態和已建立次要網站中的資料必須移轉回主要區域。 此狀態和資料大多與裝置身分識別和應用程式中繼資料相關，必須與主要 IoT 中樞合併，也可能要與主要區域中的其他所有應用程式特定存放區合併。 
+* **合併邏輯**:當主要區域再次可供使用時, 所有在次要網站中建立的狀態和資料都必須遷移回主要區域。 此狀態和資料大多與裝置身分識別和應用程式中繼資料相關，必須與主要 IoT 中樞合併，也可能要與主要區域中的其他所有應用程式特定存放區合併。 
 
 若要簡化此步驟，您應該使用等冪作業。 等冪作業可以將副作用降到最低，不只包括來自最終一致的事件分佈的副作用，也包括來自事件的重複項目或失序傳遞的副作用。 此外，應用程式邏輯應該設計為能夠容忍潛在的不一致或稍微過期的狀態。 發生此狀況可能是因為系統需要額外的時間來根據復原點目標 (RPO) 進行療癒。
 

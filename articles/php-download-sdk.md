@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: allclark;yaqiyang
-ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yaya
+ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411582"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873888"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>下載 Azure SDK for PHP
 
@@ -34,7 +34,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 下列各節說明如何下載和安裝上述元件。
 
-本主題中的指示假設您已安裝 [PHP][install-php]。
+本主題中的指示假設您已安裝[PHP][install-php] 。
 
 > [!NOTE]
 > 您必須有 PHP 5.5 或更新版本，才能使用適用於 Azure 的 PHP 用戶端程式庫。
@@ -45,7 +45,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 適用於 Azure 的 PHP 用戶端程式庫提供了一個介面，以便從任何作業系統存取 Azure 功能，例如資料管理服務和雲端服務。 您可以透過編輯器安裝這些程式庫。
 
-如需有關如何使用適用於 Azure 的 PHP 用戶端程式庫的詳細資訊，請參閱[如何使用 Blob 服務][blob-service]、[如何使用表格服務][table-service]，和[如何使用佇列服務][queue-service]。
+如需如何使用適用于 Azure 的 PHP 用戶端程式庫的詳細資訊, 請參閱[如何使用 Blob 服務][blob-service], [How to Use the Table Service][table-service]和[如何使用佇列服務][佇列-服務]。
 
 ### <a name="install-via-composer"></a>透過編輯器安裝
 
@@ -59,7 +59,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
             }
         }
 
-3. 將 **[composer.phar][composer-phar]** 下載到專案根目錄中。
+3. 在您的專案根目錄中下載 **[composer.phar][composer-phar]** 。
 
 4. 開啟命令提示字元，在專案根目錄中執行此命令
 
@@ -69,9 +69,9 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 Azure PowerShell 是一組 PowerShell Cmdlet，可用於部署和管理 Azure 服務 (例如雲端服務和虛擬機器)。 Azure 模擬器是雲端服務和資料管理服務的模擬器，可讓您在本機測試應用程式。 只有 Windows 支援這些元件。
 
-安裝 Azure PowerShell 和 Azure 模擬器的建議方式就是使用 [Microsoft Web Platform Installer][download-wpi]。 請注意，您也可以選擇安裝其他開發元件，例如 PHP、SQL Server、適用於 SQL Server for PHP 的 Microsoft 驅動程式和 WebMatrix。
+安裝 Azure PowerShell 和 Azure 模擬器的建議方式是使用[Microsoft Web Platform Installer][download-wpi]。 請注意，您也可以選擇安裝其他開發元件，例如 PHP、SQL Server、適用於 SQL Server for PHP 的 Microsoft 驅動程式和 WebMatrix。
 
-如需有關如何使用 Azure PowerShell 的詳細資訊，請參閱[如何使用 Azure PowerShell][powershell-tools]。
+如需如何使用 Azure PowerShell 的詳細資訊, 請參閱[如何使用 Azure PowerShell][powershell-tools]。
 
 ## <a name="azure-cli"></a>Azure CLI
 

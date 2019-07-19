@@ -1,6 +1,6 @@
 ---
-title: 精靈應用程式呼叫 web Api （應用程式設定）-Microsoft 身分識別平台
-description: 了解如何建置精靈應用程式呼叫 web Api （應用程式組態）
+title: 呼叫 web Api 的 Daemon 應用程式 (應用程式設定)-Microsoft 身分識別平臺
+description: 瞭解如何建立可呼叫 web Api 的 daemon 應用程式 (應用程式設定)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -12,49 +12,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 705545fd5167087be1a001c45f58907d6ff225e8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055761"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277832"
 ---
-# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>精靈應用程式呼叫 web Api-程式碼組態
+# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 Daemon 應用程式-程式碼設定
 
-了解如何設定您的精靈應用程式呼叫 web Api 的程式碼。
+瞭解如何為可呼叫 web Api 的背景工作應用程式設定程式碼。
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>MSAL 程式庫支援精靈應用程式
+## <a name="msal-libraries-supporting-daemon-apps"></a>支援 daemon 應用程式的 MSAL 程式庫
 
-支援精靈應用程式的 Microsoft 程式庫是：
+支援 daemon 應用程式的 Microsoft 程式庫包括:
 
   MSAL 程式庫 | 描述
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 若要建置精靈應用程式支援的平台是.NET Framework 和.NET Core 的平台 （不 UWP、 Xamarin.iOS 和為這些平台 Xamarin.Android 來建置公用用戶端應用程式）
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進度-公開預覽中的程式開發
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 進度-公開預覽中的程式開發
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 建立 daemon 應用程式的支援平臺是 .NET Framework 和 .NET Core 平臺 (而不是 UWP、Xamarin 和 Xamarin, 因為這些平臺是用來建立公用用戶端應用程式)
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進行中的開發-現已公開預覽
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 進行中的開發-現已公開預覽
 
-## <a name="configuration-of-the-authority"></a>授權單位設定
+## <a name="configuration-of-the-authority"></a>設定授權單位
 
-假設精靈應用程式不使用委派的權限，但應用程式的權限，其*支援的帳戶類型*不能是*任何組織的目錄中的帳戶及個人 Microsoft 帳戶 （比方說，Skype、 Xbox、 Outlook.com)* 。 事實上，沒有任何租用戶系統管理員將 Microsoft 個人帳戶的精靈應用程式的同意授與。 您必須選擇*我的組織中的帳戶*或是*任何組織中的帳戶*。
+假設 daemon 應用程式不使用委派的許可權, 但應用程式許可權, 其*支援的帳戶類型*不能是*任何組織目錄中的帳戶, 也不能是個人 Microsoft 帳戶 (例如 Skype、Xbox、Outlook.com)* 。 事實上, 沒有租使用者系統管理員將同意授與 Microsoft 個人帳戶的 daemon 應用程式。 您必須選擇 [*我的組織中的帳戶*] 或*任何組織中的帳戶*。
 
-因此在應用程式組態中指定的授權單位應該是租用戶 ed （指定租用戶識別碼或與您組織相關聯的網域名稱）。
+因此, 在應用程式設定中指定的授權單位應該是租使用者 (指定租使用者識別碼或與您組織相關聯的功能變數名稱)。
 
-如果您是 ISV，若要提供多租用戶的工具，您可以使用`organizations`。 但請記住，您也需要為您的客戶，說明如何授與系統管理員同意。 請參閱[要求對整個租用戶的同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)如需詳細資訊。 也沒有目前限制在 MSAL，`organizations`用戶端認證是應用程式祕密 （而非憑證） 時，才允許。 請參閱[MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
+如果您是 ISV, 而且想要提供多租使用者工具, 您可以使用`organizations`。 但請記住, 您也必須向客戶說明如何授與系統管理員同意。 如需詳細資訊, 請參閱[要求整個租](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)使用者的同意。 此外, 只有當用戶端認證是應用`organizations`程式密碼 (而非憑證) 時, 才會允許 MSAL 的限制。 請參閱[MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
-## <a name="application-configuration-and-instantiation"></a>應用程式組態和具現化
+## <a name="application-configuration-and-instantiation"></a>應用程式設定和具現化
 
-在 MSAL 程式庫，用戶端認證 （密碼或憑證） 會傳遞做為參數機密用戶端應用程式建構。
+在 MSAL 程式庫中, 用戶端認證 (密碼或憑證) 會當做機密用戶端應用程式結構的參數來傳遞。
 
 > [!IMPORTANT]
-> 即使您的應用程式是主控台應用程式的精靈應用程式後，才執行為服務時，它必須是機密用戶端應用程式。
+> 即使您的應用程式是以服務方式執行的主控台應用程式, 如果它是背景程式應用程式, 則必須是機密用戶端應用程式。
 
 ### <a name="msalnet"></a>MSAL.NET
 
-新增[Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 封裝加入您的應用程式。
+將[IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 套件新增至您的應用程式。
 
 使用 MSAL.NET 命名空間
 
@@ -62,13 +62,13 @@ ms.locfileid: "67055761"
 using Microsoft.Identity.Client;
 ```
 
-精靈應用程式將會看到由 `IConfidentialClientApplication`
+Daemon 應用程式將由`IConfidentialClientApplication`
 
 ```CSharp
 IConfidentialClientApplication app;
 ```
 
-若要建置應用程式祕密的應用程式程式碼如下：
+以下是使用應用程式密碼來建立應用程式的程式碼:
 
 ```CSharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
@@ -77,7 +77,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-以下是可建置具有憑證的應用程式程式碼：
+以下是用來建立具有憑證之應用程式的程式碼:
 
 ```CSharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
@@ -86,6 +86,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
+最後, 機密用戶端應用程式也可以使用用戶端判斷提示來證明其身分識別, 而不是用戶端密碼或憑證。 [用戶端判斷](msal-net-client-assertions.md)提示中會詳細說明這個 advanced 案例
+
 
 ### <a name="msalpython"></a>MSAL.Python
 
@@ -120,4 +123,4 @@ ConfidentialClientApplication cca = ConfidentialClientApplication
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [精靈應用程式-取得應用程式的權杖](./scenario-daemon-acquire-token.md)
+> [Daemon 應用程式-取得應用程式的權杖](./scenario-daemon-acquire-token.md)

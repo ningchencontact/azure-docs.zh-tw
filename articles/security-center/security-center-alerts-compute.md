@@ -1,6 +1,6 @@
 ---
-title: 威脅偵測的雲端原生計算，Azure 資訊安全中心 |Microsoft Docs
-description: 本主題提供雲端原生計算，Azure 資訊安全中心可用的警示。 Azure 資訊安全中心。
+title: Azure 資訊安全中心中的雲端原生計算威脅偵測 |Microsoft Docs
+description: 本主題提供 Azure 資訊安全中心中可用的雲端原生計算警示。 在 Azure 資訊安全中心。
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,49 +13,49 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: bc3cb66d43e71777e06c6bd63dcff35e2ff19df8
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 14433806a28e31cef1a278e16cb69e7c9b1a2458
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571682"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295833"
 ---
-# <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>威脅偵測雲端原生的計算，Azure 資訊安全中心
+# <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>Azure 資訊安全中心中的雲端原生計算威脅偵測
 
-身為雲端提供者中，資訊安全中心會利用它對分析內部的記錄檔，並找出多個目標的攻擊方法唯一的可見性。 本主題提供適用於下列 Azure 服務的警示：
+身為雲端提供者, 資訊安全中心利用其所需的獨特可見度來分析內部記錄, 並找出多個目標的攻擊方法。 本主題提供適用于下列 Azure 服務的警示:
 
 * [Azure App Service](#app-services)
 * [容器](#azure-containers) 
 
-## Azure App Service <a name="app-services"></a>
+## Azure App Service<a name="app-services"></a>
 
-資訊安全中心會利用雲端來識別攻擊的目標客戶透過 Azure App Service 執行的應用程式的規模。 幾乎在任何新式的網路中的 web 應用程式，攻擊者會探查來尋找這些，並利用的弱點。 再路由傳送至特定環境，在 Azure 中執行的應用程式的要求會經過數個閘道，它們會在其中檢查和記錄。 然後使用此資料，來識別入侵，攻擊者，以及了解稍後將使用的新模式。
+資訊安全中心利用雲端的規模, 識別以客戶應用程式為目標執行 Azure App Service 的攻擊。 有了 web 應用程式, 在任何新式網路中, 攻擊者都會探查, 以找出這些漏洞併入侵弱點。 在路由傳送至特定環境之前, 對 Azure 中執行之應用程式的要求會經歷數個檢查和記錄它們的閘道。 接著會使用此資料來識別惡意探索、攻擊者, 以及學習稍後將使用的新模式。
 
-利用 Azure 為雲端提供者有可見性，資訊安全中心會分析來識別攻擊方法，在多個目標上的 App Service 內部記錄。 例如，廣泛的掃描和分散式的攻擊。 這種攻擊通常來自一小部分的 Ip，並展現模式的多個主機上的搜尋易受攻擊的頁面或外掛程式編目類似的端點。 這可以使用雲端來偵測，但不能從單一主機的觀點來看進行識別。
+藉由利用 Azure 做為雲端提供者的可見度, 資訊安全中心分析 App Service 內部記錄, 以識別多個目標的攻擊方法。 例如, 廣泛的掃描和分散式攻擊。 這種類型的攻擊通常來自于一小部分的 Ip, 並展現對多部主機上相似端點的編目模式, 搜尋易受攻擊的頁面或外掛程式。 這可以使用雲端偵測到, 但無法從單一主機的觀點識別。
 
-資訊安全中心也會有存取權的基礎沙箱和 Vm。 記憶體鑑識調查，以及基礎結構可以表達意涵，從新的攻擊來入侵客戶機器在現實世界中流通。 因此，資訊安全中心可以偵測攻擊很長的 web 應用程式之後遭盜用。
+資訊安全中心也可以存取基礎沙箱和 Vm。 除了記憶體的辯論外, 基礎結構也可以告訴故事, 從攻擊者的新攻擊, 到客戶電腦的危害。 因此, 資訊安全中心可以在遭到入侵之後, 偵測對 web 應用程式的攻擊。
 
 > [!div class="mx-tableFixed"]
 
-|警示|說明|
+|警示|描述|
 |---|---|
-|**偵測到的可疑 WordPress 佈景主題叫用**|Azure App Service 活動記錄檔會指出您的 App Service 資源上可能的程式碼資料隱碼攻擊活動。<br/> 可疑的活動類似於操作 WordPress 佈景主題，以支援伺服器端程式碼，接著呼叫受操控的佈景主題檔案的直接存取的 web 要求執行的活動。 這種類型的活動，曾在過去攻擊活動的一部分移轉 WordPress。|
-|**從異常偵測到的 IP 位址連線到網頁**|Azure App Service 活動記錄檔會指出敏感的 web 網頁的連線，從來源位址永遠不會連線到它之前。 這可能表示有人正嘗試暴力破解攻擊到您的 Web 應用程式管理頁面。 它也可能是合法的使用者正在使用新的 IP 位址的結果。|
-|**威脅情報中找不到連接到您 Azure App Service 的 FTP 介面的 IP**|Azure App Service FTP 記錄檔分析偵測到威脅情報摘要中找不到來源位址的連接。 這在連接期間，使用者會存取下面所列的頁面。|
-|**Web 記錄特徵偵測到**|Azure App Service 活動記錄檔指出可能 web 指紋識別您的 App Service 資源上的活動。 <br/>呼叫視力不良的 Elephant 的工具，此偵測到的可疑活動會產生關聯。 此工具指紋 web 伺服器，並嘗試偵測已安裝的應用程式和其版本。 攻擊者通常會使用探查 web 應用程式這項工具來找出弱點。|
-|**可疑的存取權可能易受攻擊偵測到的 web 網頁**|Azure App Service 活動記錄檔會指出已存取 似乎是機密的網頁。 <br/>此可疑活動，源自於其的存取模式類似於 web 掃描器的來源位址。 這種活動通常是與嘗試掃描您嘗試及取得機密或易受攻擊的 web 網頁的存取權的網路攻擊者相關聯。|
-|**上傳資料夾中的 PHP 檔案**|Azure App Service 活動記錄檔會指出項目已上傳資料夾中的可疑 PHP 頁面來存取。 <br/>這種類型的資料夾通常不包含 PHP 檔案。 這種類型的檔案存在可能表示的任意檔案上傳漏洞入侵。|
-|**嘗試在 Windows 應用程式服務上執行 Linux 命令**|App Service 的程序的分析偵測到嘗試將 Windows App Service 上執行 Linux 命令。 Web 應用程式執行此動作。 這種行為經常會看到的探索常見的 web 應用程式中的弱點行銷活動期間。|
-|**偵測到可疑的 PHP 執行**|機器記錄檔，以表示可疑 PHP 處理序正在執行。 動作包含嘗試從命令列使用 PHP 程序執行作業系統命令或 PHP 程式碼。 雖然這種行為可能是合法的在 web 應用程式中這種行為也觀察到惡意活動，例如嘗試感染網站，web 介面的使用者。|
-|**從暫存資料夾的程序執行**|App Service 的程序分析偵測到應用程式的暫存資料夾的程序的執行。 雖然這種行為可能是合法的在這種行為也觀察到惡意活動的 web 應用程式。|
-|**嘗試執行偵測到的較高權限命令**|App Service 的程序的分析偵測到嘗試執行需要較高權限的命令。 在 web 應用程式內容中，執行命令。 雖然這種行為可能是合法的在這種行為也觀察到惡意活動的 web 應用程式。|
+|**偵測到可疑的 WordPress 主題調用**|Azure App Service 活動記錄指出您 App Service 資源上可能的程式碼插入活動。<br/> 此可疑活動類似活動, 會操作 WordPress 主題以支援伺服器端程式碼的執行, 接著是直接的 web 要求, 以叫用操作的主題檔案。 過去曾看到這種類型的活動是透過 WordPress 攻擊活動的一部分。|
+|**偵測到從異常 IP 位址到網頁的連線**|[Azure App Service 活動記錄] 表示與先前從未連接過之來源位址的機密網頁連接。 這可能表示有人正嘗試對您的 Web 應用程式管理頁面進行暴力密碼破解攻擊。 這也可能是合法使用者使用新 IP 位址的結果。|
+|**在威脅情報中找到連線到您 Azure App Service FTP 介面的 IP**|Azure App Service FTP 記錄分析偵測到從威脅情報摘要中找到的來源位址連接。 在此連接期間, 使用者已存取下列頁面。|
+|**偵測到 Web 指紋**|Azure App Service 活動記錄指出您 App Service 資源上可能的 web 指紋活動。 <br/>偵測到此可疑活動與稱為「盲人大象」的工具相關聯。 工具指紋 web 伺服器, 並嘗試偵測已安裝的應用程式及其版本。 攻擊者通常會使用此工具來探查 web 應用程式, 以找出弱點。|
+|**偵測到可能有弱點之 web 網頁的可疑存取**|Azure App Service 活動記錄表示已存取看似機密的網頁。 <br/>此可疑活動源自其存取模式類似于 web 掃描器的來源位址。 這類活動通常與攻擊者嘗試掃描您的網路以嘗試存取敏感性或易受攻擊的網頁有關。|
+|**上傳資料夾中的 PHP 檔案**|Azure App Service 活動記錄指出有一些專案已存取到上傳資料夾中的可疑 PHP 頁面。 <br/>這種類型的資料夾通常不會包含 PHP 檔案。 存在此類型的檔案可能表示利用了任意檔案上傳弱點的攻擊。|
+|**嘗試在 Windows App Service 上執行 Linux 命令**|分析 App Service 處理常式偵測到嘗試在 Windows App Service 上執行 Linux 命令。 此動作正由 web 應用程式執行。 這種行為通常會在利用通用 web 應用程式中的弱點的行銷活動期間出現。|
+|**偵測到可疑的 PHP 執行**|機器記錄表示可疑的 PHP 進程正在執行。 此動作包含嘗試從命令列使用 PHP 進程執行 OS 命令或 PHP 程式碼。 雖然此行為是合法的, 但在 web 應用程式中, 這種行為也會在惡意活動中觀察到, 例如嘗試使用 web shell 來感染網站。|
+|**從暫存資料夾執行進程**|App Service 進程分析偵測到從應用程式的暫存資料夾執行進程。 雖然此行為是合法的, 但在 web 應用程式中, 這種行為也會在惡意活動中觀察到。|
+|**偵測到嘗試執行高許可權命令**|分析 App Service 處理常式偵測到嘗試執行需要高許可權的命令。 命令會在 web 應用程式內容中執行。 雖然此行為是合法的, 但在 web 應用程式中, 這種行為也會在惡意活動中觀察到。|
 
 > [!NOTE]
-> 資訊安全中心威脅偵測的 App Service 目前不是適用於 Azure government 和主權雲端區域。
+> App Service 的資訊安全中心威脅偵測目前無法在 Azure 政府和主權雲端區域中使用。
 
-如需有關 App Service 的威脅偵測警示會保護 App Service 與 Azure 資訊安全中心，請瀏覽，並檢閱如何啟用監視和保護您的應用程式服務工作負載。
+如需有關 App Service 威脅偵測警示的詳細資訊, 請造訪使用 Azure 資訊安全中心來保護 App Service, 並回顧如何啟用 App Service 工作負載的監視和保護。
 
-## 容器 <a name="azure-containers"></a>
+## 那裡<a name="azure-containers"></a>
 
-資訊安全中心會提供適用於您容器的即時威脅偵測 auditd framework 為基礎的 Linux 機器上。 警示會識別數個可疑 Docker 活動，例如特殊權限的容器在主機上，執行 Docker 容器或使用的密碼編譯採礦者內的安全殼層 (SSH) 伺服器的指示建立。 您可以使用這項資訊來快速修復安全性問題，並改善您容器的安全性。 除了 Linux 偵測資訊安全中心也會提供更特定的容器部署的分析。
+資訊安全中心在以 auditd 架構為基礎的 Linux 電腦上, 為您的容器提供即時威脅偵測。 這些警示會識別數個可疑的 Docker 活動, 例如在主機上建立具特殊許可權的容器、指示在 Docker 容器內執行的安全殼層 (SSH) 伺服器, 或使用加密採礦人員。 您可以使用這項資訊來快速修復安全性問題，並改善您容器的安全性。 除了 Linux 偵測之外, 資訊安全中心也會提供更具體的分析, 供容器部署之用。

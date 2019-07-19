@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507544"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227237"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>使用 Application Insights 在 Azure Active Directory B2C 中追蹤使用者行為
 
@@ -36,7 +36,7 @@ Azure AD B2C 中的身分識別體驗架構納入了 `Handler="Web.TPEngine.Prov
 
 Application Insights 可以使用相互關聯識別碼來記錄使用者工作階段，以此方式統一事件。 Application Insights 會在數秒內使事件和工作階段成為可用狀態，並提供許多視覺效果、匯出及分析工具。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。 本文假設您使用自訂原則入門套件。 但您不一定要使用入門套件。
 
@@ -166,7 +166,7 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 ```
 
 > [!IMPORTANT]
-> 將 `ApplicationInsights-Common` 技術設定檔中的檢測金鑰變更為 Application Insights 資源所提供的 GUID。
+> 將 `AzureInsights-Common` 技術設定檔中的檢測金鑰變更為 Application Insights 資源所提供的 GUID。
 
 ## <a name="add-the-technical-profiles-as-orchestration-steps"></a>新增技術設定檔作為協調流程步驟
 

@@ -8,13 +8,13 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: agaiha
-ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710403"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871915"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -49,7 +49,7 @@ Linux 診斷擴充功能可協助使用者監視在 Microsoft Azure 上執行的
 
 可下載組態只是範例，可修改以符合您的需求。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 * **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您的電腦上[設定 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
@@ -167,7 +167,7 @@ sinksConfig | (選擇性) 可將計量與事件傳遞至的替代目的地詳細
 
 此選擇性區段會定義額外的目的地，讓擴充功能可將收集到的資訊傳送到該目的地。 "sink" 陣列包含每個額外資料接收的物件。 "type" 屬性可決定物件中的其他屬性。
 
-項目 | 值
+元素 | 值
 ------- | -----
 name | 用來在擴充功能組態中的其他位置參考此接收的字串。
 type | 正在定義的接收類型。 決定此類型執行個體中的其他值 (若有的話)。
@@ -229,7 +229,7 @@ https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.wi
 }
 ```
 
-元素 | 值
+項目 | 值
 ------- | -----
 StorageAccount | 擴充功能寫入資料的儲存體帳戶名稱。 必須與在[保護設定](#protected-settings)中指定的名稱相同。
 mdsdHttpProxy | (選擇性) 與[受保護的設定](#protected-settings)相同。 公用值會被私用值 (若有設定) 覆寫。 將包含祕密 (例如密碼) 的 Proxy 設定設置在[受保護的設定](#protected-settings)中。
@@ -502,7 +502,7 @@ TransfersPerSecond | 每秒的讀取或寫入作業數
 
 可透過設定 `"condition": "IsAggregate=True"` 取得的所有檔案系統彙總值。 可透過設定 `"condition": 'Name="/mnt"'` 取得的特定已掛接檔案系統 (例如 "/mnt") 的值。 
 
-**附註**：如果使用 Azure 入口網站，而不 JSON，正確的條件欄位表單就是名稱 ='/ /mnt '
+**附註**：如果使用 Azure 入口網站, 而不是 JSON, 正確的條件欄位表單就是 Name = '/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>磁碟類別的內建計量
 

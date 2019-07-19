@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 73f0dc98d7d2c3e7aa77f6414cbd58e58599eae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068835"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974611"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中使用搜尋結果
 本文會講解如何實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。 發表資料或資訊到您的搜尋結果的頁面相關選項，會由傳送到 Azure 搜尋服務的[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)要求所指定。 
@@ -25,7 +25,7 @@ ms.locfileid: "67068835"
 這裡有數個包含 Web 前端介面的程式碼範例：[New York City 工作示範應用程式](https://azjobsdemo.azurewebsites.net/)和 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)。
 
 > [!NOTE]
-> 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。 為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。 如需有關要求語法的詳細資訊，請參閱[Azure 搜尋服務 rest API](https://docs.microsoft.com/rest/api/searchservice)。
+> 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。 為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。 如需要求語法的詳細資訊, 請參閱[Azure 搜尋服務服務 REST](https://docs.microsoft.com/rest/api/searchservice)。
 >
 
 ## <a name="total-hits-and-page-counts"></a>總點擊數和頁面計數
@@ -34,21 +34,21 @@ ms.locfileid: "67068835"
 
 ![][1]
 
-在 Azure 搜尋服務中，您可以使用 `$count`、`$top` 和 `$skip` 參數來傳回這些值。 下列範例會顯示總計的範例要求叫用的索引，稱為 「 線上-類別目錄 」，以傳回`@odata.count`:
+在 Azure 搜尋服務中，您可以使用 `$count`、`$top` 和 `$skip` 參數來傳回這些值。 下列範例顯示名為「線上-目錄」之索引的點擊總數範例要求, 傳回為`@odata.count`:
 
     GET /indexes/online-catalog/docs?$count=true
 
 開始在第一頁擷取文件，以 15 個為一組，同時顯示總點擊數：
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 分頁結果需要 `$top` 和 `$skip`，其中 `$top` 指定有多少項目要批次傳回，而 `$skip` 指定有多少項目要略過。 在下列範例中，每個頁面顯示下 15 個項目，表示在 `$skip` 參數中的遞增跳躍。
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>版面配置
 
@@ -56,7 +56,7 @@ ms.locfileid: "67068835"
 
  ![][2]
 
-在 Azure 搜尋服務中，您會使用`$select`並[搜尋服務 API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)來實作這項體驗。
+在 Azure 搜尋服務中, 您會`$select`使用和[搜尋 API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)來執行這項體驗。
 
 若要傳回並排版面配置的欄位子集：
 
@@ -96,7 +96,7 @@ ms.locfileid: "67068835"
 
 ## <a name="filters-at-the-page-level"></a>頁面層級的篩選器
 
-如果您的解決方案設計包含特定類型的內容 （例如，線上零售應用程式已列在頁面頂端的部門） 的專用的搜尋頁面中，您可以插入[篩選條件運算式](search-filters.md)一起**onClick**預先篩選的狀態中開啟頁面的事件。
+如果您的解決方案設計包含特定內容類型的專用搜尋頁面 (例如, 在頁面頂端列出部門的線上零售應用程式), 您可以將[篩選條件運算式](search-filters.md)與**onClick**事件一起插入至以預先篩選的狀態開啟頁面。
 
 您可以傳送篩選器，但不一定要有搜尋運算式。 例如，下列要求會篩選品牌名稱，只傳回符合該名稱的文件。
 

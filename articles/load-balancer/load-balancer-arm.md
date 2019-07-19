@@ -3,20 +3,20 @@ title: Azure Resource Manager 的 Load Balancer 支援 | Microsoft Docs
 description: 搭配使用適用於 Load Balancer 的 PowerShell 與 Azure Resource Manager。 在負載平衡器中使用範本
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 839b607b7787d51151401737848a46d7b66229dd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888973"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275479"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>搭配 Azure Load Balancer 使用 Azure Resource Manager 支援
 
@@ -30,9 +30,9 @@ Azure Resource Manager 是 Azure 中慣用的服務管理架構。 Azure Load Ba
 
 * 前端 IP 組態 - Load balancer 可以包括一或多個前端 IP 位址 (亦稱為虛擬 IP (VIP))。 這些 IP 位址做為流量的輸入。
 * 後端位址集區 - 這些是與虛擬機器網路介面卡 (NIC) 相關聯的 IP 位址，而負載會散發到那些虛擬機器網路介面卡。
-* 負載平衡規則-規則屬性會對應指定的前端 IP 和連接埠組合，以一組後端 IP 位址和連接埠 」 組合。 單一負載平衡器可以有多個負載平衡規則。 每個規則都是前端 IP 和連接埠和後端 IP 和連接埠與 Vm 相關聯的組合。
+* 負載平衡規則-規則屬性會將指定的前端 IP 和埠組合對應到一組後端 IP 位址和埠組合。 單一負載平衡器可以有多個負載平衡規則。 每個規則都是與 Vm 相關聯的前端 IP 和埠以及後端 IP 和埠的組合。
 * 探查 - 探查可讓您追蹤 VM 執行個體的健全狀況。 如果健康情況探查失敗，則 VM 執行個體不會自動進入輪替。
-* 輸入的 NAT 規則-NAT 規則定義流經前端 IP 之輸入的流量，並散發到後端 IP。
+* 輸入 NAT 規則-定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 

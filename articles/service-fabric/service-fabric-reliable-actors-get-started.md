@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726266"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225126"
 ---
 # <a name="getting-started-with-reliable-actors"></a>開始使用 Reliable Actors
 > [!div class="op_single_selector"]
@@ -28,17 +28,17 @@ ms.locfileid: "60726266"
 
 本文將逐步說明如何在 Visual Studio 中建立一個簡單的 Reliable Actor 應用程式並進行偵錯。 如需 Reliable Actors 的相關詳細資訊，請參閱 [Service Fabric Reliable Actors 簡介](service-fabric-reliable-actors-introduction.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在開始之前，請確保您的電腦上已設定 Service Fabric 開發環境 (包括 Visual Studio)。 如需詳細資訊，請參閱[如何設定開發環境](service-fabric-get-started.md)。
 
 ## <a name="create-a-new-project-in-visual-studio"></a>在 Visual Studio 中建立新專案
 
-以系統管理員身分啟動 Visual Studio 2015 或更新版本，然後建立一個新的 [Service Fabric 應用程式]  專案：
+以系統管理員身分啟動 Visual Studio 2019 或更新版本, 然後建立新的**Service Fabric 應用程式**專案:
 
 ![適用於 Visual Studio 的 Service Fabric 工具 - 新專案][1]
 
-在下一步 的對話方塊中，選擇**動作項目服務**下方 **.NET Core 2.0**並輸入服務的名稱。
+在下一個對話方塊中, 選擇 [ **.Net Core 2.0** ] 底下的 [動作專案**服務**], 然後輸入服務的名稱。
 
 ![Service Fabric 專案範本][5]
 

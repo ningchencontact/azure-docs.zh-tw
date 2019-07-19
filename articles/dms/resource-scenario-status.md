@@ -1,6 +1,6 @@
 ---
 title: 資料庫移轉案例狀態 | Microsoft Docs
-description: 深入了解支援的 Azure 資料庫移轉服務的移轉案例的狀態。
+description: 瞭解 Azure 資料庫移轉服務所支援的遷移案例狀態。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,33 +10,38 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/04/2019
-ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2019
+ms.openlocfilehash: 44ac290a471fd0099b6589f84fea604249818432
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473003"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868605"
 ---
-# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>支援的 Azure 資料庫移轉服務的移轉案例的狀態
-Azure 資料庫移轉服務的設計可同時支援不同的移轉案例 （來源/目標配對） 時，也將離線 （單次） 和線上 （持續同步處理） 的移轉作業。 經過一段時間所擴充的 Azure 資料庫移轉服務所提供的案例涵蓋範圍。 定期都會新增新的案例。 這篇文章會識別目前支援的 Azure 資料庫移轉服務和狀態 （私人預覽，公開預覽狀態或正式運作），每個案例的移轉案例。
+# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure 資料庫移轉服務所支援的遷移案例狀態
+
+Azure 資料庫移轉服務的設計, 是為了支援離線 (一次性) 和線上 (連續同步處理) 遷移的不同遷移案例 (來源/目標群組)。 Azure 資料庫移轉服務所提供的案例涵蓋範圍會隨著時間擴充。 定期都會新增新的案例。 本文會識別 Azure 資料庫移轉服務目前支援的遷移案例, 以及每個案例的狀態 (私人預覽、公開預覽或一般可用性)。
 
 ## <a name="offline-versus-online-migrations"></a>離線移轉與線上移轉之比較
-您可以使用 Azure 資料庫移轉服務，來進行離線或線上移轉。 若使用「離線」  移轉，在移轉開始的同時，應用程式也會開始停機。 若要限制停機時間移轉完成時需要移交到新的環境所需的時間，請使用*線上*移轉。 若要測試以判斷是否可接受; 停機離線移轉建議否則，請執行線上移轉。
+
+透過 Azure 資料庫移轉服務, 您可以進行離線或線上遷移。 若使用「離線」  移轉，在移轉開始的同時，應用程式也會開始停機。 若要在遷移完成時, 將停機時間限制為切換到新環境所需的時間, 請使用*線上*遷移。 建議您測試離線遷移, 以判斷停機時間是否可接受;如果沒有, 請進行線上遷移。
 
 ## <a name="migration-scenario-status"></a>移轉案例狀態
-支援的 Azure 資料庫移轉服務的移轉案例的狀態會隨時間變動。 通常，案例首次發行中**私人預覽**。 參與私人預覽需要客戶提交透過提名[DMS 預覽網站](https://aka.ms/dms-preview)。 在私人預覽之後, 案例狀態會變更為**公開預覽**。 Azure 資料庫移轉服務的使用者可以嘗試直接從使用者介面的公開預覽中的移轉案例。 無法註冊是必要的。  不過，在公開預覽中的移轉案例可能無法在所有區域中，而且可能會發生在最後發行版本之前的其他變更。 公開預覽之後，案例狀態會變更為**正式**。 公開上市 (GA) 最終版本的狀態，而功能完整且可供所有使用者存取。
+
+Azure 資料庫移轉服務所支援的遷移案例狀態會隨著時間而不同。 一般來說, 案例會先以**私人預覽**的形式發行。 參與個人預覽版需要客戶透過[DMS 預覽網站](https://aka.ms/dms-preview)提交提名。 在私人預覽之後, 案例狀態會變更為 [**公開預覽**]。 Azure 資料庫移轉服務使用者可以直接從使用者介面試用公開預覽中的遷移案例。 不需要註冊。  不過, 公開預覽中的遷移案例可能無法在所有區域使用, 而且可能會在最終版本之前進行其他變更。 公開預覽之後, 案例狀態會變更為 [**正式推出**]。 公開上市 (GA) 是最終的發行狀態, 而且功能已完整且可供所有使用者存取。
 
 ## <a name="migration-scenario-support"></a>移轉案例支援
-下表顯示使用 Azure 資料庫移轉服務時所支援的移轉案例。
+
+下表顯示使用 Azure 資料庫移轉服務時支援的遷移案例。
 
 > [!NOTE]
-> 如果下方列為支援的案例並未出現在使用者介面中，請與[資料移轉小組](mailto:datamigrationteam@microsoft.com)聯絡以了解詳細資訊。
+> 如果以下列出的案例不會出現在使用者介面中, 請洽詢[詢問 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)別名以取得其他資訊。
 
 > [!IMPORTANT]
-> 若要檢視目前支援的 Azure 資料庫移轉服務私人預覽中的所有案例，請參閱[DMS 預覽網站](https://aka.ms/dms-preview)。
+> 若要在私人預覽中查看 Azure 資料庫移轉服務目前支援的所有案例, 請參閱[DMS preview 網站](https://aka.ms/dms-preview)。
 
 ### <a name="offline-one-time-migration-support"></a>離線 (單次) 移轉支援
+
 下表顯示適用於離線移轉的「Azure 資料庫移轉服務」支援。
 
 | 目標  | Source | 支援 | 狀態 |
@@ -49,13 +54,14 @@ Azure 資料庫移轉服務的設計可同時支援不同的移轉案例 （來�
 |   | Oracle |  |   |
 | **Azure SQL VM** | [SQL Server] | ✔ | GA |
 |   | Oracle |   |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | 公開預覽版 |
+| **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **適用於 MySQL 的 Azure DB** | MySQL |   |   |
 |   | RDS MySQL |   |   |
 | **適用於 PostgreSQL 的 Azure DB** | PostgreSQL |  |
 |  | RDS PostgreSQL |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>線上 (持續同步) 移轉支援
+
 下表顯示適用於線上移轉的「Azure 資料庫移轉服務」支援。
 
 | 目標  | Source | 支援 | 狀態 |
@@ -68,7 +74,7 @@ Azure 資料庫移轉服務的設計可同時支援不同的移轉案例 （來�
 |   | Oracle | ✔ | 個人預覽版 |
 | **Azure SQL VM** | [SQL Server] |   |   |
 |   | Oracle  |  |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | 公開預覽版 |
+| **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **適用於 MySQL 的 Azure DB** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **適用於 PostgreSQL 的 Azure DB** | PostgreSQL | ✔ | GA |
@@ -76,4 +82,5 @@ Azure 資料庫移轉服務的設計可同時支援不同的移轉案例 （來�
 |   | Oracle | ✔ | 個人預覽版 |
 
 ## <a name="next-steps"></a>後續步驟
-如需的 Azure 資料庫移轉服務和區域可用性的概觀，請參閱文章[什麼是 Azure 資料庫移轉服務](dms-overview.md)。
+
+如需 Azure 資料庫移轉服務和區域可用性的總覽, 請參閱[什麼是 Azure 資料庫移轉服務](dms-overview.md)一文。

@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c98574bc3447482429d7a028c6b47197e08e2e38
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60886853"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850225"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>建置用來將其他 IoT 雲端連線至 IoT Central 的 IoT Central 裝置橋接器
 
@@ -28,7 +28,7 @@ IoT Central 裝置橋接器是 GitHub 中的開放原始碼解決方案。 您�
 -   取用方案
 -   Azure 金鑰保存庫
 
-函式應用程式是裝置橋接器的重要部分。 它可透過簡單的 Webhook 整合，從其他 IoT 平台或任何自訂平台接收 HTTP POST 要求。 我們提供了範例來說明如何連線至 Sigfox、粒子和 TTN 雲端。 如果您的平台可將 HTTP POST 要求傳送至函式應用程式，您即可輕鬆地擴充此解決方案以連線至您的自訂 IoT 雲端。
+函數應用程式是裝置橋接器的重要部分。 它可透過簡單的 Webhook 整合，從其他 IoT 平台或任何自訂平台接收 HTTP POST 要求。 我們提供了範例來說明如何連線至 Sigfox、粒子和 TTN 雲端。 如果您的平台可將 HTTP POST 要求傳送至函式應用程式，您即可輕鬆地擴充此解決方案以連線至您的自訂 IoT 雲端。
 函式應用程式可將資料轉換成 IoT Central 可接受的格式，並透過 DPS API 加以轉送。
 
 ![Azure 函式螢幕擷取畫面](media/howto-build-iotc-device-bridge/azfunctions.png)

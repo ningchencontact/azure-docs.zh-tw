@@ -1,6 +1,6 @@
 ---
-title: 在.NET Azure Functions 中使用相依性插入
-description: 了解如何使用相依性插入註冊和使用服務，在.NET 函式
+title: 在 .NET Azure Functions 中使用相依性插入
+description: 瞭解如何在 .NET 函式中使用相依性插入來註冊和使用服務
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -10,37 +10,38 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, cshoe
-ms.openlocfilehash: 781bcdc158cb362b7c46e1ba9771b6a92ebc56a8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.author: cshoe
+ms.reviewer: jehollan
+ms.openlocfilehash: 1ebb2fd77830074648a580dddad98e05e10c9c75
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479627"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850026"
 ---
-# <a name="use-dependency-injection-in-net-azure-functions"></a>在.NET Azure Functions 中使用相依性插入
+# <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用相依性插入
 
-Azure Functions 支援相依性插入 (DI) 軟體設計模式，也就是一種技術來達成[控制反轉 (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion)之間類別和其相依性。
+Azure Functions 支援相依性插入 (DI) 軟體設計模式, 這項技術可在類別及其相依性之間達成[控制反轉 (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) 。
 
-Azure Functions 建置在 ASP.NET Core 相依性插入功能之上。 要了解服務、 存留期，與設計模式[ASP.NET Core 的相依性插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)之前先在 Azure Functions 中使用 DI 功能建議應用程式。
+Azure Functions 建置於 ASP.NET Core 相依性插入功能之上。 建議在使用 Azure Functions 應用程式中的 DI 功能之前, 留意 ASP.NET Core 相依性[插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)的服務、存留期和設計模式。
 
-支援的相依性插入開始使用 Azure Functions 2.x。
+相依性插入的支援是以 Azure Functions 2.x 開始。
 
 ## <a name="prerequisites"></a>必要條件
 
-您可以使用相依性插入之前，您必須安裝下列 NuGet 封裝：
+您必須先安裝下列 NuGet 套件, 才可以使用相依性插入:
 
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft.NET.Sdk.Functions 套件](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)1.0.28 版或更新版本
+- 1\.0.28 或更新版本的[函數套件](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
-- 選用：[Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/)才需要在啟動時註冊 HttpClient
+- 選用：僅在啟動時註冊 HttpClient 時才需要[Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/)
 
 ## <a name="register-services"></a>註冊伺服器
 
-若要註冊的服務，您可以建立方法以設定，並將元件加入`IFunctionsHostBuilder`執行個體。  Azure Functions 主機建立的執行個體`IFunctionsHostBuilder`並將它直接傳入您的方法。
+若要註冊服務, 您可以建立方法來設定和新增元件至`IFunctionsHostBuilder`實例。  Azure Functions 主機會建立的實例, `IFunctionsHostBuilder`並將它直接傳遞至您的方法。
 
-若要註冊的方法，新增`FunctionsStartup`在啟動期間，使用指定的型別名稱的組件屬性。 程式碼所參考的發行前版本的而且[Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) Nuget 上。
+若要註冊方法, 請加入`FunctionsStartup`元件屬性, 以指定啟動期間所使用的型別名稱。 此外, 程式碼在 Nuget 上會參考[Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)的發行前版本。
 
 ```csharp
 using System;
@@ -70,7 +71,7 @@ namespace MyNamespace
 
 ## <a name="use-injected-dependencies"></a>使用插入的相依性
 
-ASP.NET Core 會使用建構函式插入，將您的相依性提供給您的函式。 下列範例會示範如何`IMyService`和`HttpClient`HTTP 觸發的函式中插入相依性。
+ASP.NET Core 會使用函式插入功能, 讓您的相依性可供您的函式使用。 下列範例示範如何將`IMyService`和`HttpClient`相依性插入 HTTP 觸發的函式中。
 
 ```csharp
 using System;
@@ -111,43 +112,43 @@ namespace MyNamespace
 }
 ```
 
-使用建構函式插入表示您應該使用靜態函式，如果您想要利用相依性插入。
+如果您想要利用相依性插入, 就不應該使用函式插入功能。
 
-## <a name="service-lifetimes"></a>服務生命週期
+## <a name="service-lifetimes"></a>服務存留期
 
-Azure Functions 應用程式提供做為相同的服務生命週期[ASP.NET 相依性插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)： 暫時性的範圍，與單一。
+Azure Functions 應用程式提供與 ASP.NET 相依性[插入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)相同的服務存留期: 暫時性、限定範圍和單一。
 
-在函式應用程式中，已設定領域的服務的存留期會比對函式執行存留期。 每次執行一次建立已設定領域的服務。 之後的要求，該服務在執行期間重複使用現有的服務執行個體。 單一服務的存留期會比對的主應用程式存留期，並重複使用該執行個體上的函式執行。
+在函式應用程式中, 限定範圍的服務存留期會符合函式執行存留期。 限域服務會在每次執行時建立一次。 稍後在執行期間對該服務提出的要求會重複使用現有的服務實例。 單一服務存留期會符合主機存留期, 並會在該實例上跨函數執行重複使用。
 
-單一存留期服務建議來連線和用戶端，例如`SqlConnection`， `CloudBlobClient`，或`HttpClient`執行個體。
+針對連接和用戶端 (例如`SqlConnection` `CloudBlobClient`、或`HttpClient`實例), 建議使用單一存留期服務。
 
-檢視或下載[範例的不同服務存留期](https://aka.ms/functions/di-sample)GitHub 上。
+在 GitHub 上查看或下載[不同服務存留期的範例](https://aka.ms/functions/di-sample)。
 
 ## <a name="logging-services"></a>記錄服務
 
-如果您需要自己的記錄提供者時，建議的方式是註冊`ILoggerProvider`執行個體。 Application Insights 會自動加入 Azure functions。
+如果您需要自己的記錄提供者, 建議的方式是註冊`ILoggerProvider`實例。 Application Insights 由 Azure Functions 自動新增。
 
 > [!WARNING]
-> 不要新增`AddApplicationInsightsTelemetry()`服務集合，因為它暫存器服務衝突的環境所提供的服務。
+> 請不要加入`AddApplicationInsightsTelemetry()`服務集合, 因為它會註冊與環境所提供之服務衝突的服務。
 
-## <a name="function-app-provided-services"></a>函式應用程式提供服務
+## <a name="function-app-provided-services"></a>函數應用程式提供的服務
 
-函式主機註冊許多服務。 下列服務已安全地為您的應用程式中的相依性：
+函數主機會註冊許多服務。 下列服務可安全地做為應用程式中的相依性:
 
 |服務類型|存留期|描述|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|單一|執行階段組態|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|單一|負責提供的主控件執行個體識別碼|
+|`Microsoft.Extensions.Configuration.IConfiguration`|實體|執行時間設定|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|實體|負責提供主控制項實例的識別碼|
 
-如果您想要依存於，其他服務[建立問題，並在 GitHub 上提出這些](https://github.com/azure/azure-functions-host)。
+如果您想要取得相依性的其他服務, 請[在 GitHub 上建立問題並加以提議](https://github.com/azure/azure-functions-host)。
 
 ### <a name="overriding-host-services"></a>覆寫主機服務
 
-目前不支援覆寫主機所提供的服務。  如果您想要覆寫時，服務[建立問題，並在 GitHub 上提出這些](https://github.com/azure/azure-functions-host)。
+目前不支援覆寫主機所提供的服務。  如果您想要覆寫服務, 請[在 GitHub 上建立問題並加以提議](https://github.com/azure/azure-functions-host)。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱下列資源：
 
-- [如何監視您的函式應用程式](functions-monitoring.md)
-- [Functions 的最佳作法](functions-best-practices.md)
+- [如何監視您的函數應用程式](functions-monitoring.md)
+- [函數的最佳做法](functions-best-practices.md)

@@ -1,105 +1,102 @@
 ---
-title: 評定大量 VMware Vm 移轉至 Azure，Azure Migrate |Microsoft Docs
-description: 描述如何評定要移轉至 Azure 中使用 Azure Migrate 服務大量的 VMware Vm。
+title: 使用 Azure Migrate 評定大量的 VMware Vm 以遷移至 Azure |Microsoft Docs
+description: 說明如何使用 Azure Migrate 服務, 評估大量的 VMware Vm 以遷移至 Azure。
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.author: raynew
-ms.openlocfilehash: 6102a1c59be3627b95dc1e0cb1d1d712d5832d2f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.date: 07/12/2019
+ms.author: hamusa
+ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811332"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868671"
 ---
-# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>評定要移轉至 Azure 的大量的 VMware Vm
+# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>評估大量的 VMware Vm 以遷移至 Azure
 
 
-這篇文章說明如何評定大量 (1000年 35,000) 的內部部署 VMware Vm 移轉至 Azure，使用 Azure Migrate Server 評量工具
+本文說明如何使用 Azure Migrate Server 評估工具, 評估內部部署 VMware Vm 的大量 (1000-35000) 以遷移至 Azure
 
-[Azure Migrate](migrate-services-overview.md)提供工具，可協助您探索、 評估及移轉至 Microsoft Azure 的應用程式、 基礎結構，以及工作負載的中樞。 中樞還包含 Azure Migrate 的工具和第三方獨立軟體廠商 (ISV) 供應項目。 
+[Azure Migrate](migrate-services-overview.md)提供一種工具中樞, 可協助您探索、評估和遷移應用程式、基礎結構和工作負載, 以 Microsoft Azure。 此中樞包含 Azure Migrate 工具和協力廠商獨立軟體廠商 (ISV) 產品。 
 
 在本文中，您將了解：
 > [!div class="checklist"]
-> * 規劃大規模評估。
-> * 設定 Azure 的權限，以及準備 VMware 評估。
-> * 建立 Azure Migrate 專案，並建立評估。
-> * 當您在規劃移轉，請檢閱評估。
+> * 規劃大規模的評估。
+> * 設定 Azure 許可權, 並準備 VMware 進行評估。
+> * 建立 Azure Migrate 專案, 並建立評量。
+> * 當您規劃遷移時, 請檢查評量。
 
 
 > [!NOTE]
-> 如果您想要試用的概念之前評估大規模評估數個 Vm，請依照下列我們[教學課程系列](tutorial-prepare-vmware.md)
+> 如果您想要在大規模評估之前嘗試評估一些 Vm 的概念證明, 請遵循我們的[教學課程系列](tutorial-prepare-vmware.md)
 
-## <a name="plan-for-assessment"></a>評估計劃
+## <a name="plan-for-assessment"></a>規劃評估
 
-在規劃大量的 VMware Vm 的評估時，有幾個事項来考慮：
+規劃大量 VMware Vm 的評估時, 有幾件事需要考慮:
 
-- **規劃 Azure Migrate 專案**:了解如何部署 Azure Migrate 專案。 例如，如果您的資料中心位於不同的地理位置，或您要將探索、 評定或移轉相關的中繼資料儲存在不同的地理位置，您可能需要多個專案。 
-- **規劃應用裝置**:Azure Migrate 會使用內部 Azure Migrate 設備，部署為 VMware VM，來持續探索 Vm。 設備監視環境的變更，例如新增 Vm、 磁碟或網路介面卡。 它也會其相關的中繼資料和效能資料傳送至 Azure。 您需要找出您要部署多少設備。
-- **計劃進行探索的帳戶**:Azure Migrate 應用裝置會使用到 vCenter Server 的存取帳戶，以便探索評定及移轉的 Vm。 如果您要探索超過 10,000 個 Vm，設定多個帳戶。
+- **規劃 Azure Migrate 專案**:找出如何部署 Azure Migrate 專案。 例如, 如果您的資料中心位於不同的地理位置, 或是您需要將探索、評定或遷移相關的中繼資料儲存在不同的地理位置, 您可能需要多個專案。 
+- **規劃設備**:Azure Migrate 會使用部署為 VMware VM 的內部部署 Azure Migrate 設備, 持續探索 Vm。 設備會監視環境變更, 例如新增 Vm、磁片或網路介面卡。 它也會將其相關的中繼資料和效能資料傳送至 Azure。 您必須找出需要部署的應用裝置數量。
+- **規劃帳戶以進行探索**:Azure Migrate 設備會使用可存取 vCenter Server 的帳戶, 以探索用於評估和遷移的 Vm。 如果您要探索的 Vm 超過10000個, 請設定多個帳戶。
 
 
-## <a name="planning-limits"></a>計劃限制
+## <a name="planning-limits"></a>規劃限制
  
-使用規劃本表中摘要說明的限制。
+使用此表中摘要說明的限制進行規劃。
 
 **規劃** | **限制**
 --- | --- 
-**Azure Migrate 專案** | 評估最多 35000 專案中的 Vm。
-**Azure Migrate 應用裝置** | 應用裝置只能連接到單一的 vCenter Server。<br/><br/> 只能與單一 Azure Migrate 專案相關聯的應用裝置。<br/> 設備可以探索 vCenter Server 上的最多 10,000 個 Vm。
-**Azure Migrate 評估** | 您可以評估在單一評估中的最多 35000 Vm。
+**Azure Migrate 專案** | 在專案中評估最多35000個 Vm。
+**Azure Migrate 設備** | 設備只能連接到單一 vCenter Server。<br/><br/> 設備只能與單一 Azure Migrate 專案相關聯。<br/> 設備可以在 vCenter Server 上探索最多10000部 Vm。
+**Azure Migrate 評量** | 您可以在單一評估中評估多達35000個 Vm。
 
-記住這些限制，以下是某些範例部署：
+考慮這些限制之後, 以下是一些部署範例:
 
 
-**vCenter Server** | **在伺服器上的 Vm** | **建議** | **動作**
+**vCenter Server** | **伺服器上的 Vm** | **建議** | **動作**
 ---|---|---
-一個 | < 10,000 | 一個 Azure Migrate 專案。<br/> 一個應用裝置。<br/> 一個用於探索的 vCenter 帳戶。 | 設定設備，連線到 vCenter Server 的帳戶。
-一個 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個應用裝置。<br/> 多個 vCenter 帳戶。 | 為每 10,000 的 Vm 設定設備。<br/><br/> 設定 vCenter 帳戶，並將庫存，以限制存取帳戶至小於 10000 的 Vm。<br/> 連線到 vCenter server 的帳戶的每個設備。<br/> 您可以使用不同的應用裝置探索到的電腦上分析相依性。
-多個 | < 10,000 |  一個 Azure Migrate 專案。<br/> 多個應用裝置。<br/> 一個用於探索的 vCenter 帳戶。 | 設定裝置，連線到 vCenter Server 的帳戶。<br/> 您可以使用不同的應用裝置探索到的電腦上分析相依性。
-多個 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個應用裝置。<br/> 多個 vCenter 帳戶。 | 如果 vCenter 伺服器探索 < 10000 的 Vm，設定每個 vcenter Server 的應用裝置。<br/><br/> 如果探索 vCenter Server > 10,000 Vm 設定設備每 10,000 的 Vm。<br/> 設定 vCenter 帳戶，並將庫存，以限制存取帳戶至小於 10000 的 Vm。<br/> 連線到 vCenter server 的帳戶的每個設備。<br/> 您可以使用不同的應用裝置探索到的電腦上分析相依性。
+一個 | < 10,000 | 一個 Azure Migrate 專案。<br/> 一個設備。<br/> 一個用於探索的 vCenter 帳戶。 | 設定設備, 使用帳戶連接到 vCenter Server。
+一個 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個設備。<br/> 多個 vCenter 帳戶。 | 為每個 10000 Vm 設定設備。<br/><br/> 設定 vCenter 帳戶, 並劃分清查以將帳戶的存取許可權制為少於10000個 Vm。<br/> 使用帳戶將每個設備連接到 vCenter server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
+多個 | < 10,000 |  一個 Azure Migrate 專案。<br/> 多個設備。<br/> 一個用於探索的 vCenter 帳戶。 | 設定設備, 使用帳戶連接到 vCenter Server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
+多個 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個設備。<br/> 多個 vCenter 帳戶。 | 如果 vCenter Server 探索 < 10000 Vm, 請為每個 vCenter Server 設定設備。<br/><br/> 如果 vCenter Server 探索 > 10000 Vm, 請為每個 10000 Vm 設定設備。<br/> 設定 vCenter 帳戶, 並劃分清查以將帳戶的存取許可權制為少於10000個 Vm。<br/> 使用帳戶將每個設備連接到 vCenter server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
 
 
-## <a name="plan-discovery-in-a-multi-tenant-environment"></a>在多租用戶環境中的計劃探索
+## <a name="plan-discovery-in-a-multi-tenant-environment"></a>在多租使用者環境中規劃探索
 
-如果您打算在多租用戶環境，您可以將範圍探索 vCenter Server 上。
+如果您打算使用多租使用者環境, 可以將探索範圍限定在 vCenter Server。
 
-- 您可以將應用裝置探索範圍設定 vCenter 伺服器的資料中心、 叢集或叢集，主機或主機或個別 Vm 資料夾的資料夾。
-- 如果您的環境租用戶之間共用，而且您不想要個別探索每個租用戶，您可以範圍設備用來探索 vCenter 帳戶存取。 
-    - 如果租用戶共用的主機，建立具有唯讀存取認證，屬於特定的租用戶的 vm。 
-    - 使用 Azure Migrate 設備探索這些認證。
-    - 如果 vCenter 帳戶具有 vCenter VM 資料夾層級授與存取權，azure Migrate 評估無法探索 Vm。 支援的主機和叢集的資料夾。 
+- 您可以將設備探索範圍設定為 vCenter Server 的資料中心、叢集或叢集的叢集、主機或主機或個別 Vm 的資料夾。
+- 如果您的環境在租使用者之間共用, 而您想要個別探索每個租使用者, 您可以將存取許可權定為設備用於探索的 vCenter 帳戶。 
+    - 如果租使用者共用主機, 您可能會想要依 VM 資料夾進行範圍。 如果 vCenter 帳戶具有在 vCenter VM 資料夾層級上授與的存取權, Azure Migrate 就無法探索 Vm。 如果您想要依 VM 資料夾來界定探索範圍, 可以藉由確保 vCenter 帳戶在 VM 層級指派唯讀存取權來執行此動作。 [在這裡](tutorial-assess-vmware.md#scoping-discovery)深入瞭解範圍探索。
 
-## <a name="prepare-for-assessment"></a>準備評估
+## <a name="prepare-for-assessment"></a>準備進行評估
 
-準備 Azure 和 VMware server 評定。 
+準備 Azure 和 VMware 以進行伺服器評估。 
 
-1. 請確認[VMware 支援需求和限制](migrate-support-matrix-vmware.md)。
-2. 設定您的 Azure 帳戶與 Azure Migrate 互動的權限。
-3. 準備 VMware 評估。
+1. 確認[VMware 支援需求和限制](migrate-support-matrix-vmware.md)。
+2. 設定 Azure 帳戶的許可權, 以與 Azure Migrate 進行互動。
+3. 準備 VMware 進行評估。
 
-
-請依照下列中的指示[本教學課程](tutorial-prepare-vmware.md)進行這些設定。
+請遵循[本教學](tutorial-prepare-vmware.md)課程中的指示來進行這些設定。
 
 
 ## <a name="create-a-project"></a>建立專案
 
-根據您計劃的需求，執行下列作業：
+根據您的規劃需求, 執行下列動作:
 
 1. 建立 Azure Migrate 專案。
-2. 將 Azure Migrate Server 評量工具新增至專案。
+2. 將 [Azure Migrate Server 評估工具] 新增至專案。
 
 [深入了解](how-to-add-tool-first-time.md)
 
-## <a name="create-and-review-an-assessment"></a>建立及檢閱評量
+## <a name="create-and-review-an-assessment"></a>建立和審查評量
 
-1. 建立評定 VMware Vm。
-1. 檢閱 評量，以準備進行移轉規劃。
+1. 建立 VMware Vm 的評量。
+1. 請參閱評估以準備進行遷移計畫。
 
 
-請依照下列中的指示[本教學課程](tutorial-assess-vmware.md)進行這些設定。
+請遵循[本教學](tutorial-assess-vmware.md)課程中的指示來進行這些設定。
     
 
 ## <a name="next-steps"></a>後續步驟
@@ -107,9 +104,9 @@ ms.locfileid: "67811332"
 在本文章中，您將：
  
 > [!div class="checklist"] 
-> * 調整適用於 VMware Vm 的 Azure Migrate 評估計劃
-> * 備妥 Azure 和評定 VMware
+> * 規劃調整 VMware Vm 的 Azure Migrate 評量
+> * 準備好 Azure 和 VMware 進行評估
 > * 建立 Azure Migrate 專案並執行評量
-> * 檢閱 評量，以準備移轉。
+> * 已審查評估以準備進行遷移。
 
-現在，請[了解如何](concepts-assessment-calculation.md)評量計算，以及如何[修改評估](how-to-modify-assessment.md)。
+現在,[瞭解如何](concepts-assessment-calculation.md)計算評定, 以及如何[修改評](how-to-modify-assessment.md)量。

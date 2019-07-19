@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473961"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234147"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>檢查 Azure AD Domain Services 受控網域的健康情況
 
@@ -43,10 +43,10 @@ ms.locfileid: "67473961"
 
 | 狀態 | 圖示 | 說明 |
 | --- | :----: | --- |
-| 執行中 | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | 您的受控網域執行順暢，沒有任何嚴重或警告警示。 此網域可能有資訊警示。 |
-| 需注意 (警告) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | 您的受控網域上沒有任何嚴重警示，但有一或多個需要解決的警告警示。 |
-| 需注意 (嚴重) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | 您的受控網域上有一或多個嚴重警示。 您可能也有警告和/或資訊警示。 |
-| 正在部署 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | 您的網域正在部署中。 |
+| 執行中 | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | 您的受控網域執行順暢，沒有任何嚴重或警告警示。 此網域可能有資訊警示。 |
+| 需注意 (警告) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | 您的受控網域上沒有任何嚴重警示，但有一或多個需要解決的警告警示。 |
+| 需注意 (嚴重) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | 您的受控網域上有一或多個嚴重警示。 您可能也有警告和/或資訊警示。 |
+| 正在部署 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | 您的網域正在部署中。 |
 
 ## <a name="monitors"></a>監視器
 監視器係指 Azure AD Domain Services 定期監視的受控網域層面。 讓您監視器保持在健全狀態的最佳方法，就是解決受控網域的所有作用中警示。

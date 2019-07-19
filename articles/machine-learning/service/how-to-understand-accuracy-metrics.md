@@ -1,32 +1,42 @@
 ---
-title: 定型自動化 ML 中的精確度度量
+title: 在自動化 ML 中定型精確度計量
 titleSuffix: Azure Machine Learning service
-description: 深入了解自動化的機器學習程式執行的每個的精確度度量。
+description: 瞭解每個執行的自動化機器學習服務精確度計量。
 author: j-martens
 ms.author: jmartens
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313274"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297904"
 ---
-# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>評估計量的自動 ML 中訓練精確度
+# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>使用計量評估自動化 ML 中的定型準確度
 
-有多種方式可以檢視針對每個執行的反覆項目訓練精確度標準。
+在本文中, 您將瞭解 Azure Machine Learning 中可用於自動化 ml 模型的不同計量。 
 
-* 使用[Jupyter 小工具](how-to-track-experiments.md#view-run-details)
-* 使用[`get_metrics()`函式](how-to-track-experiments.md#query-run-metrics)任何`Run`物件
-* 檢視[在 Azure 入口網站中的實驗度量](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+有多種方式可查看每次執行反復專案的定型精確度度量。
+* 使用[Jupyter widget](how-to-track-experiments.md#view-run-details)
+* 在任何`Run`物件上使用[函數`get_metrics()` ](how-to-track-experiments.md#query-run-metrics)
+* [在 Azure 入口網站中查看實驗計量](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## <a name="prerequisites"></a>先決條件
+ 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+ 
+* 使用 SDK 或 Azure 入口網站建立自動化機器學習實驗。
+ 
+    * 使用 SDK 來建立[分類模型](how-to-auto-train-remote.md)或[回歸模型](tutorial-auto-train-models.md)
+    * 藉由上傳適當的資料, 使用[Azure 入口網站](how-to-create-portal-experiments.md)來建立分類或回歸模型。
 
 ## <a name="classification-metrics"></a>分類計量
 
-下列度量資訊會儲存在分類工作的每個執行反覆項目。
+針對分類工作, 會在每次執行反復專案中儲存下列計量。
 
 |計量|描述|計算|額外的參數
 --|--|--|--|
@@ -53,7 +63,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 ## <a name="regression-and-forecasting-metrics"></a>迴歸和預測計量
 
-下列度量資訊會儲存在迴歸或預測工作的每個執行反覆項目。
+下列計量會儲存在回歸或預測工作的每次執行反復專案中。
 
 |計量|描述|計算|額外的參數
 --|--|--|--|
@@ -68,3 +78,7 @@ root_mean_squared_error|Root mean squared error (均方根誤差) 是目標與�
 normalized_root_mean_squared_error|Normalized root mean squared error (正規化均方根誤差) 是均方根誤差防以資料範圍|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|除以資料範圍|
 root_mean_squared_log_error|Root mean squared log error (均方根對數誤差) 是預期平方對數誤差的平方根|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (正規化均方根對數誤差) 是均方根對數誤差除以資料範圍|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|除以資料範圍|
+
+## <a name="next-steps"></a>後續步驟
+
+深入瞭解 Azure Machine Learning 中的[自動化 ml](concept-automated-ml.md) 。
