@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 70843c368b0446a7c0e09559fa759a3cd51912d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d570cdf32ccf0f7037fd772f71a4296904ba7921
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721229"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849081"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>使用 HDInsight 上的 Apache Kafka 確保您資料的高可用性
 
@@ -23,7 +23,7 @@ ms.locfileid: "64721229"
 
 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
 
-每個 Azure 區域有特定數目的容錯網域。 如需網域清單及其包含的容錯網域數目，請參閱[可用性設定組](../../virtual-machines/windows/regions-and-availability.md#availability-sets)文件。
+每個 Azure 區域有特定數目的容錯網域。 如需網域清單及其包含的容錯網域數目，請參閱[可用性設定組](../../virtual-machines/windows/availability.md#availability-sets)文件。
 
 > [!IMPORTANT]  
 > Kafka 不知道容錯網域。 當您在 Kafka 中建立主題時，它可將所有磁碟分割複本儲存在相同的容錯網域中。 為了解決這個問題，HDInsight 提供 [Kafka 磁碟分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。

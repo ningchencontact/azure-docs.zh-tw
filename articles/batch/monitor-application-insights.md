@@ -3,7 +3,7 @@ title: 使用 Azure Application Insights 監視 Batch | Microsoft Docs
 description: 了解如何使用 Azure Application Insights 程式庫檢測 Azure Batch .NET 應用程式。
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: .NET
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595298"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322574"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 監視 Azure Batch .NET 應用程式並進行偵錯
 
@@ -30,7 +30,7 @@ ms.locfileid: "65595298"
 > 或者，將您的 Batch 解決方案設定為顯示 Application Insights 資料，例如 Batch Explorer 中的 VM 效能計數器。 [Batch Explorer](https://github.com/Azure/BatchExplorer)是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。 如需在 Batch Explorer 中啟用 Application Insights 資料的快速步驟，請參閱 [batch-insights 存放庫](https://github.com/Azure/batch-insights)。 
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * [Visual Studio 2017 或更新版本](https://www.visualstudio.com/vs)
 
 * [Batch 帳戶和連結的 Azure 儲存體帳戶](batch-account-create-portal.md)

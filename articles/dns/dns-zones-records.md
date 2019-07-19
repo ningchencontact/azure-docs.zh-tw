@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712231"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68004462"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -59,7 +59,7 @@ Azure DNS 支援 [萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS
 ### <a name="caa-records"></a>CAA 記錄
 
 CAA 記錄可讓網域擁有者指定哪些憑證授權單位 (CA) 有權為其網域發行憑證。 這可讓 CA 避免在某些情況下誤發憑證。 CAA 記錄都有三個屬性：
-* **旗標**:這是介於 0 到 255，用以代表具有每個的特殊意義的重要旗標的整數[RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **旗標**:這是介於0到255之間的整數, 用來代表每個[RFC](https://tools.ietf.org/html/rfc6844#section-3)有特殊意義的關鍵旗標
 * **標記**：ASCII 字串，可以是下列其中一項：
     * **issue**：當您想要指定有權發行憑證 (所有類型) 的 CA 時，使用此選項
     * **issuewild**：當您想要指定有權發行憑證 (僅限 Wildcard 憑證) 的 CA 時，使用此屬性
@@ -87,6 +87,8 @@ CNAME 記錄集不能與其他具有相同名稱的記錄集共存。 例如，�
 在每個區域頂點 (名稱 = '\@') 會自動建立 SOA 記錄集，並在刪除該區域時自動將其刪除。  無法個別建立或刪除 SOA 記錄。
 
 可以修改 SOA 記錄除了 'Host' 屬性以外的所有屬性，因為依照預先設定，該屬性會參考 Azure DNS 所提供的主要名稱伺服器名稱。
+
+對區域中的記錄進行變更時, 不會自動更新 SOA 記錄中的區域序號。 如有需要, 可以藉由編輯 SOA 記錄來手動更新。
 
 ### <a name="spf-records"></a>SPF 記錄
 
@@ -134,7 +136,7 @@ Azure DNS 使用 Etag 以安全地處理相同資源的並行變更。 Etag 和 
 | 標頭 | 行為 |
 | --- | --- |
 | None |PUT 一定成功 (沒有 Etag 檢查) |
-| If-match \<etag> |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
+| If-match \<etag > |唯有當資源存在且 Etag 符合時，PUT 才會成功 |
 | If-match * |唯有當資源存在時，PUT 才會成功 |
 | If-none-match * |唯有當資源不存在時，PUT 才會成功 |
 

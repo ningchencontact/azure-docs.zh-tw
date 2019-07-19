@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60389571"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867397"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
 
@@ -28,7 +28,7 @@ ms.locfileid: "60389571"
 
 ## <a name="template-limits"></a>範本限制
 
-將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。 1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。 
+將您的範本大小限制為 4 MB, 並將每個參數檔案限制為 64 KB。 4 MB 的限制適用于已展開反復資源定義的範本最終狀態, 以及變數和參數的值。 
 
 您也受限於：
 
@@ -42,7 +42,7 @@ ms.locfileid: "60389571"
 
 ## <a name="resource-group"></a>Resource group
 
-當您將資源部署至資源群組時，資源群組會儲存有關之資源的中繼資料。 中繼資料會儲存在資源群組的位置。
+當您將資源部署至資源群組時, 資源群組會儲存資源的相關中繼資料。 中繼資料會儲存在資源群組的位置。
 
 如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
 

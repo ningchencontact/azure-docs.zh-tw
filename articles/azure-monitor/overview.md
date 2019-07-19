@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245068"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875972"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -40,7 +40,7 @@ Azure 監視器所收集的所有資料均符合下列兩個基本類型之一�
 
 ![度量](media/overview/metrics.png)
 
-可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以建立和測試使用的查詢[Log Analytics](log-query/portals.md)在 Azure 入口網站，然後將直接使用這些工具分析資料，或儲存查詢搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)。
+可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以使用 Azure 入口網站中的[Log Analytics](log-query/portals.md)來建立及測試查詢, 然後使用這些工具直接分析資料, 或儲存查詢以搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)使用。
 
 Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
 
@@ -55,11 +55,11 @@ Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中�
 - **Azure 訂用帳戶監視資料**：有關 Azure 訂用帳戶作業和管理的資料，以及有關 Azure 本身健康情況和作業的資料。 
 - **Azure 租用戶監視資料**：租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。
 
-當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  [活動記錄](platform/activity-logs-overview.md)記錄資源建立或修改的時。 [計量](platform/data-platform.md)會告訴您如何執行資源以及它所取用的資源。 
+當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  建立或修改資源時的[活動](platform/activity-logs-overview.md)記錄檔。 [計量](platform/data-platform.md)會告訴您如何執行資源以及它所取用的資源。 
 
 [啟用診斷](platform/diagnostic-logs-overview.md)並[新增代理程式](platform/agent-windows.md)來計算資源，以將您所收集的資料擴展至實際資源運作。 這會收集資源內部作業的遙測資料，並可讓您設定不同的[資料來源](platform/agent-data-sources.md)，以從 Windows 和 Linux 客體作業系統收集記錄和計量。 
 
-[將檢測套件新增至您的應用程式](app/azure-web-apps.md)，讓 Application Insights 能夠收集您應用程式的詳細資訊，包括頁面檢視、應用程式要求和例外狀況。 設定[可用性測試](app/monitor-web-app-availability.md)來模擬使用者流量，進一步確認您應用程式的可用性。
+啟用[應用程式服務應用程式](app/azure-web-apps.md)或[VM 和虛擬機器擴展集應用程式](app/azure-vm-vmss-apps.md)的監視, 以讓 Application Insights 收集有關應用程式的詳細資訊, 包括頁面流覽、應用程式要求, 以及例外. 設定[可用性測試](app/monitor-web-app-availability.md)來模擬使用者流量，進一步確認您應用程式的可用性。
 
 ### <a name="custom-sources"></a>自訂來源
 Azure 監視器可以使用[資料收集器 API](platform/data-collector-api.md)，從任何 REST 用戶端收集記錄資料。 這可讓您建立自訂監視案例，並且將監視延伸到不會透過其他來源公開遙測的資源。
@@ -130,7 +130,7 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 您通常需要整合 Azure 監視器與其他系統，以及建置自訂解決方案來使用您的監視資料。 其他 Azure 服務會與 Azure 監視器搭配運作來提供這項整合。
 
 ### <a name="event-hub"></a>事件中樞
-[Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs)是一個串流平台和事件擷取服務，可使用任何即時分析提供者或批次/儲存配接器來轉換和儲存資料。 使用事件中樞[Azure 監視資料串流](platform/stream-monitoring-data-event-hubs.md)與交易夥伴 SIEM 和監視工具。
+[Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs)是一個串流平台和事件擷取服務，可使用任何即時分析提供者或批次/儲存配接器來轉換和儲存資料。 使用事件中樞將[Azure 監視器資料串流](platform/stream-monitoring-data-event-hubs.md)至合作夥伴 SIEM 和監視工具。
 
 
 ### <a name="logic-apps"></a>Logic Apps

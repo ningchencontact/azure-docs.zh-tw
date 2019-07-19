@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473018"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227399"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步：設定 Office 365 資源的慣用資料位置
 本主題的目的在於逐步解說如何在 Azure Active Directory (Azure AD) Connect 同步處理中設定慣用資料位置的屬性。當某人在 Office 365 中使用多地理位置功能時，您可使用這個屬性來指定使用者 Office 365 資料的地理位置。 (「區域」  與「地區」  這兩個詞可交換使用。)
@@ -32,7 +32,7 @@ ms.locfileid: "66473018"
 藉由設定 **preferredDataLocation** 屬性，您可以定義使用者的地區。 您可以讓使用者的 Office 365 資源 (例如信箱和 OneDrive) 位於與使用者相同的地區，且整個組織仍有一個租用戶。
 
 > [!IMPORTANT]
-> 多地理位置目前可供至少具有 2,500 個 Office 365 服務訂用帳戶的客戶使用。 如需詳細資訊，請與您的 Microsoft 代表連絡。
+> 多地理位置目前可供至少具有 500 Office 365 服務訂閱的客戶使用。 如需詳細資訊，請與您的 Microsoft 代表連絡。
 >
 >
 
@@ -50,6 +50,8 @@ Office 365 中適用多地理位置功能的地區如下：
 | 印度 | IND |
 | 日本 | JPN |
 | 南韓 | KOR |
+| 南非 | ZAF |
+| 阿拉伯聯合大公國 | 確實 |
 | 英國 | GBR |
 | 美國 | NAM |
 
@@ -165,7 +167,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 5. 移至 [範圍篩選器]  索引標籤，並使用兩個子句來新增單一範圍篩選器群組：
 
-    | 屬性 | 運算子 | 值 |
+    | 屬性 | Operator | 值 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 使用者 |
     | cloudMastered | NOTEQUAL | True |

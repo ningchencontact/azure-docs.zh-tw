@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584602"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852592"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>規劃 Azure SQL Database 的 Azure 維護事件
 
@@ -41,7 +41,7 @@ ms.locfileid: "60584602"
 
 ## <a name="resource-health"></a>資源健全狀況
 
-若您的 SQL 資料庫發生登入失敗，請查看 [Azure 入口網站](https://portal.azure.com)中的[資源健康狀態](../service-health/resource-health-overview.md#getting-started)視窗，了解目前狀態。 [健康情況歷程記錄] 區段會包含每個事件停止運作的原因 (如果有的話)。
+若您的 SQL 資料庫發生登入失敗，請查看 [Azure 入口網站](https://portal.azure.com)中的[資源健康狀態](../service-health/resource-health-overview.md#get-started)視窗，了解目前狀態。 [健康情況歷程記錄] 區段會包含每個事件停止運作的原因 (如果有的話)。
 
 
 ## <a name="next-steps"></a>後續步驟

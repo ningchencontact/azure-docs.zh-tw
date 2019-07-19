@@ -6,15 +6,15 @@ keywords: encoding;encoders;media;編碼;編碼器;媒體
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840132"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297732"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -61,7 +61,7 @@ ms.locfileid: "67840132"
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
 
 > [!TIP]
->  如果您要串流即時事件，以多種語言 （例如，一個英文音訊資料軌及一個西班牙文音訊資料軌），您可以使用媒體 Excel 即時編碼器設定成將即時摘要傳送至傳遞的即時事件來完成。
+>  如果您要以多種語言 (例如, 一個英文音訊軌和一個西班牙文音訊播放軌) 串流處理實況活動, 您可以使用已設定的 Media Excel live 編碼器來完成這項工作, 以將即時摘要傳送至傳遞實況活動。
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>設定內部部署即時編碼器設定
 
@@ -97,7 +97,7 @@ ms.locfileid: "67840132"
 10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
 11. 將您的即時編碼器執行約 10 分鐘的時間。
 12. 停止即時事件。 
-13. 使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer)等播放程式觀看已封存的資產)，以確保所有品質層級的播放沒有可見問題。 或者，在即時工作階段期間透過預覽 URL 觀看和驗證。
+13. 使用 [Azure 媒體播放器](https://aka.ms/azuremediaplayer)等播放程式觀看已封存的資產)，以確保所有品質層級的播放沒有可見問題。 或者，在即時工作階段期間透過預覽 URL 觀看和驗證。
 14. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
 15. 於建立每個範例之後，重設即時事件狀態。
 16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號、字幕，或不同的編碼速度) 重複步驟 5 到步驟 15。
@@ -116,18 +116,18 @@ ms.locfileid: "67840132"
 10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
 11. 將您的即時編碼器執行約 10 分鐘的時間。
 12. 停止即時事件。
-13. 使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer)等播放程式觀看已封存的資產)，以確保所有品質層級的播放沒有可見問題。 或者，在即時工作階段期間透過預覽 URL 觀看和驗證。
+13. 使用 [Azure 媒體播放器](https://aka.ms/azuremediaplayer)等播放程式觀看已封存的資產)，以確保所有品質層級的播放沒有可見問題。 或者，在即時工作階段期間透過預覽 URL 觀看和驗證。
 14. 記錄資產識別碼、即時封存的已發行串流 URL，以及來自您即時編碼器的所使用設定和版本。
 15. 於建立每個範例之後，重設即時事件狀態。
 16. 針對您編碼器所支援的所有設定 (包含及不包含廣告訊號、字幕，或不同的編碼速度) 重複步驟 5 到步驟 15。
 
 ### <a name="longevity-verification"></a>使用壽命驗證
 
-除了步驟 11 外，遵循與[傳遞即時事件驗證](#pass-through-live-event-verification)中相同的其他步驟。 <br/>讓您的即時編碼器執行一週或更久，而不是 10 分鐘。 使用 [Azure 媒體播放器](http://aka.ms/azuremediaplayer)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題。
+除了步驟 11 外，遵循與[傳遞即時事件驗證](#pass-through-live-event-verification)中相同的其他步驟。 <br/>讓您的即時編碼器執行一週或更久，而不是 10 分鐘。 使用 [Azure 媒體播放器](https://aka.ms/azuremediaplayer)等播放程式不時觀看即時串流 (或已封存的資產)，以確保播放沒有可見問題。
 
 ### <a name="email-your-recorded-settings"></a>用電子郵件傳送記錄的設定
 
-最後，以電子郵件將記錄的設定和即時封存參數傳送到 amslived@microsoft.com 的 Azure 媒體服務，做為所有自我驗證檢查已通過的通知。 此外，包含任何後續動作的連絡資訊。 若有任何關於此程序的問題，請連絡 Azure 媒體服務團隊。
+最後，以電子郵件將記錄的設定和即時封存參數傳送到 amshelp@microsoft.com 的 Azure 媒體服務，做為所有自我驗證檢查已通過的通知。 此外，包含任何後續動作的連絡資訊。 若有任何關於此程序的問題，請連絡 Azure 媒體服務團隊。
 
 ## <a name="next-steps"></a>後續步驟
 

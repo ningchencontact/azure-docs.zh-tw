@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255687"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875294"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -66,8 +66,9 @@ ms.locfileid: "66255687"
                                                     <div class="cardText">
                                                         <h3>新功能</h3>
                                                         <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">適用于 Azure VM 和 Azure 虛擬機器擴展集應用程式的無程式碼監視</a><br>
                                                             <a href="./app/kubernetes.md">監視 Kubernetes 應用程式</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">IIS 應用程式的狀態監視器 v2</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">適用于 IIS 應用程式的狀態監視器 v2</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3>快速入門</h3>
@@ -146,6 +147,7 @@ ms.locfileid: "66255687"
                                                             <a href="./app/asp-net.md">深入監視組態</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">狀態監視器</a><br>
                                                             <a href="./app/azure-web-apps.md">App Service 監視</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">VM 和虛擬機器擴展集應用程式監視</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">自訂事件和計量</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">開放原始碼 .NET SDK GitHub 存放庫</a>
                                                         </p>

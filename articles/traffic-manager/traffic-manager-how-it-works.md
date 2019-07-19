@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: allensu
-ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071194"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312139"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理員的運作方式
 
@@ -69,6 +69,29 @@ Contoso Corp 開發出新的合作夥伴入口網站。 此入口網站的 URL �
 
 遞迴 DNS 服務會快取它收到的 DNS 回應。 用戶端裝置上的 DNS 解析程式也會快取結果。 快取功能會使用快取中的資料，而不查詢其他名稱伺服器，因而可以更快回應後續的 DNS 查詢。 快取持續時間取決於每一筆 DNS 記錄的「存留時間」(TTL) 屬性。 較短的值會導致快取更快到期，因此需要更多次往返於流量管理員的名稱伺服器。 較長的值表示從失敗端點引開流量會花費更長的時間。 流量管理員允許您將流量管理員 DNS 回應中使用的 TTL，設定為最低是 0 秒及最高是 2,147,483,647 秒 (符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt) 的最大範圍)，讓您選擇最能平衡應用程式需求的值。
 
+## <a name="faqs"></a>常見問題集
+
+* [流量管理員使用哪個 IP 位址？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [哪些類型的流量可以使用流量管理員路由傳送？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* [流量管理員支援「粘滯」會話嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [為什麼我在使用流量管理員時看到 HTTP 錯誤？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [使用流量管理員的效能影響為何？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [我可以搭配流量管理員使用哪些應用程式協定？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* [我可以使用具有「naked」功能變數名稱的流量管理員嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [處理 DNS 查詢時, 流量管理員考慮用戶端子網位址嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [什麼是 DNS TTL, 以及它對我的使用者有何影響？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [我可以將流量管理員回應的 TTL 設定為高或低？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [如何瞭解傳入我的設定檔的查詢量？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,7 +1,7 @@
 ---
-title: 部署具有 GPU 的推斷的模型
+title: 使用 GPU 部署模型以進行推斷
 titleSuffix: Azure Machine Learning service
-description: 這篇文章會教導您如何使用 Azure Machine Learning 服務來部署深度學習模型作為 web service.service 和分數推斷要求已啟用 GPU 功能 Tensorflow。
+description: 本文會教您如何使用 Azure Machine Learning 服務將已啟用 GPU 的 Tensorflow 深度學習模型部署為 web 服務。服務和分數推斷要求。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,41 +10,41 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/01/2019
-ms.openlocfilehash: 8086d059913cc61bff0bca31681368bea6d76777
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: eeb1bc35e0438a7e99ea5ed8284f0c8611108da0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543810"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326996"
 ---
-# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>部署推斷配備 GPU 的深度學習模型
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>使用 GPU 部署深度學習模型以進行推斷
 
-這篇文章會教導您如何使用 Azure Machine Learning 服務來部署深度學習模型作為 web 服務已啟用 GPU 功能 Tensorflow。
+本文會教您如何使用 Azure Machine Learning 服務將已啟用 GPU 的 Tensorflow 深度學習模型部署為 web 服務。
 
-將您的模型部署至 Azure Kubernetes Service (AKS) 叢集來執行已啟用 GPU 的推斷。 推斷，或模型計分，是已部署的模型，用於預測的階段。 使用 Gpu，而不可高度平行化的計算上的 Cpu 提供效能優點。
+將您的模型部署到 Azure Kubernetes Service (AKS) 叢集, 以執行已啟用 GPU 的推斷。 推斷 (或模型評分) 是已部署的模型用於預測的階段。 使用 Gpu (而不是 Cpu) 提供高度可平行計算的效能優勢。
 
-雖然這個範例會使用 TensorFlow 模型，您可以套用任何機器學習架構，可支援 Gpu 對評分檔案及環境檔案進行小變更下列步驟。 
+雖然此範例使用 TensorFlow 模型, 但您可以對評分檔案和環境檔案進行較小的變更, 以將下列步驟套用至任何支援 Gpu 的機器學習架構。 
 
 在本文中，您會執行下列步驟：
 
 * 建立已啟用 GPU 的 AKS 叢集
-* 部署 GPU Tensorflow 模型
-* 發給您已部署的模型中的範例查詢
+* 部署 Tensorflow GPU 模型
+* 對已部署的模型發出範例查詢
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 機器學習服務工作區中。
-* Python 散發套件。
+* Azure Machine Learning 服務 工作區。
+* Python 散發版本。
 * 已註冊的 Tensorflow 儲存模型。
-    * 若要了解如何註冊模型，請參閱[部署模型](../service/how-to-deploy-and-where.md#registermodel)。
+    * 若要瞭解如何註冊模型, 請參閱[部署模型](../service/how-to-deploy-and-where.md#registermodel)。
 
-您可以完成本使用說明的系列的第一部分[如何定型 TensorFlow 模型](how-to-train-tensorflow.md)，以滿足所需的必要條件。
+您可以完成本操作說明系列的第一部分,[如何訓練 TensorFlow 模型](how-to-train-tensorflow.md), 以滿足必要的必要條件。
 
-## <a name="provision-an-aks-cluster-with-gpus"></a>佈建以 Gpu AKS 叢集
+## <a name="provision-an-aks-cluster-with-gpus"></a>布建具有 Gpu 的 AKS 叢集
 
-Azure 有許多不同的 GPU 選項。 您可以使用其中任何的推斷。 請參閱[的 N 系列 Vm 清單](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series)如需完整的功能和成本解析。
+Azure 有許多不同的 GPU 選項。 您可以使用其中任何一個來進行推斷。 如需功能和成本的完整細目, 請參閱[N 系列 vm 的清單](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series)。
 
-如需有關使用 AKS 使用 Azure Machine Learning 服務的詳細資訊，請參閱[如何部署和位置](../service/how-to-deploy-and-where.md#deploy-aks)。
+如需有關使用 AKS 搭配 Azure Machine Learning 服務的詳細資訊, 請參閱[如何部署和位置](../service/how-to-deploy-and-where.md#deploy-aks)。
 
 ```Python
 # Choose a name for your cluster
@@ -52,7 +52,7 @@ aks_name = "aks-gpu"
 
 # Check to see if the cluster already exists
 try:
-    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    aks_target = ComputeTarget(workspace=ws, name=aks_name)
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
@@ -68,11 +68,11 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> Azure 會向您收費，只要 AKS 叢集中已佈建。 請務必刪除您的 AKS 叢集，當您完成時使用它。
+> 只要布建 AKS 叢集, Azure 就會向您收取費用。 當您完成 AKS 叢集時, 請務必將其刪除。
 
-## <a name="write-the-entry-script"></a>寫入項目指令碼
+## <a name="write-the-entry-script"></a>撰寫專案腳本
 
-將下列程式碼儲存至您的工作目錄為`score.py`。 此檔案分數的映像，因為它們會被傳送到您的服務。 該載入儲存的 TensorFlow 模型、 每個 POST 要求傳遞到 TensorFlow 的工作階段輸入的映像，然後傳回產生的分數。 其他推斷架構需要不同的評分檔案。
+將下列程式碼儲存到您的工作`score.py`目錄中。 此檔案會在影像傳送到您的服務時對其進行評分。 它會載入 TensorFlow 儲存的模型、將輸入影像傳遞至每個 POST 要求上的 TensorFlow 會話, 然後傳回產生的分數。 其他推斷架構則需要不同的評分檔案。
 
 ```python
 import json
@@ -101,9 +101,9 @@ def run(raw_data):
     return y_hat.tolist()
 
 ```
-## <a name="define-the-conda-environment"></a>定義的 conda 環境
+## <a name="define-the-conda-environment"></a>定義 conda 環境
 
-建立名為的 conda 環境檔案`myenv.yml`到指定的相依性服務。 請務必指定您要使用`tensorflow-gpu`達到加速的效能。
+建立名`myenv.yml`為的 conda 環境檔案, 以指定服務的相依性。 請務必指定您要使用`tensorflow-gpu`來達到加速效能。
 
 ```yaml
 name: project_environment
@@ -122,7 +122,7 @@ channels:
 
 ## <a name="define-the-gpu-inferenceconfig-class"></a>定義 GPU InferenceConfig 類別
 
-建立`InferenceConfig`啟用 Gpu 並確保 CUDA 會隨您的 Docker 映像的物件。
+建立可啟用 gpu 並確保 CUDA 與您的 Docker 映射一起安裝的物件。`InferenceConfig`
 
 ```python
 from azureml.core.model import Model
@@ -141,14 +141,14 @@ inference_config = InferenceConfig(runtime= "python",
                                    enable_gpu=True)
 ```
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 - [InferenceConfig 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)
 - [AksServiceDeploymentConfiguration 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
 
 ## <a name="deploy-the-model"></a>部署模型
 
-將模型部署到您的 AKS 叢集，並等候建立您的服務。
+將模型部署到您的 AKS 叢集, 並等候它建立您的服務。
 
 ```python
 aks_service = Model.deploy(ws,
@@ -163,13 +163,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Azure Machine Learning 服務不會將部署具有模型`InferenceConfig`預期沒有 GPU 叢集啟用 GPU 的物件。
+> Azure Machine Learning 服務不會將需要啟用 gpu `InferenceConfig`的物件, 部署到沒有 gpu 的叢集。
 
-如需詳細資訊，請參閱 <<c0> [ 模型類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)。
+如需詳細資訊, 請參閱[模型類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)。
 
-## <a name="issue-a-sample-query-to-your-model"></a>發給您的模型中的範例查詢
+## <a name="issue-a-sample-query-to-your-model"></a>對您的模型發出範例查詢
 
-將測試查詢傳送至部署的模型。 當您將 jpeg 影像傳送至模型時，它會分數映像。 下列程式碼範例會使用外部公用程式函式，載入影像。 您可以找到相關的程式碼在 pir [GitHub 上的 TensorFlow 範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py)。 
+將測試查詢傳送至已部署的模型。 當您將 jpeg 影像傳送到模型時, 它會對影像進行評分。 下列程式碼範例會使用外部公用程式函式來載入影像。 您可以在[GitHub 上的 Pir TensorFlow 範例](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py)中找到相關的程式碼。 
 
 ```python
 # Used to test your webservice
@@ -194,14 +194,14 @@ print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]
-> 若要延遲降至最低，並達到最佳輸送量，請確定您的用戶端位於相同的 Azure 區域，做為端點。 在此範例中，Api 會在美國東部 Azure 區域中建立。
+> 若要將延遲降至最低並將輸送量優化, 請確定您的用戶端位於與端點相同的 Azure 區域中。 在此範例中, Api 會建立在「美國東部」 Azure 區域中。
 
 ## <a name="clean-up-the-resources"></a>清除資源
 
-此範例使用完畢之後，請刪除您的資源。
+如果您特別針對此範例建立了 AKS 叢集, 請在完成後刪除您的資源。
 
 > [!IMPORTANT]
-> Azure 的計費，您根據部署 AKS 叢集的時間長度。 請確定它後清除完成它。
+> Azure 會根據 AKS 叢集的部署時間來計費。 完成使用之後, 請務必將它清除。
 
 ```python
 aks_service.delete()
@@ -210,6 +210,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>後續步驟
 
-* [部署模型上 FPGA](../service/how-to-deploy-fpga-web-service.md)
-* [部署與 ONNX 模型](../service/concept-onnx.md#deploy-onnx-models-in-azure)
-* [訓練的 DNN Tensorflow 模型](../service/how-to-train-tensorflow.md)
+* [在 FPGA 上部署模型](../service/how-to-deploy-fpga-web-service.md)
+* [使用 ONNX 部署模型](../service/concept-onnx.md#deploy-onnx-models-in-azure)
+* [定型 Tensorflow DNN 模型](../service/how-to-train-tensorflow.md)

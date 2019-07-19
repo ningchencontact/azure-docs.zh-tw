@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 07/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b65c7a9b6d4f025c574c2dddace6fa45b77398c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7d967f0bb0b7a811d4db7836cdbffdad91088a2c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835780"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311692"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -37,7 +37,7 @@ ms.locfileid: "67835780"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | type | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |string |資源的唯一識別碼。 |
 | apiVersion |是 |string |資源執行階段狀態的 API 版本。 一般而言，格式為 **yyyy-mm-dd**。 |
@@ -186,13 +186,13 @@ ms.locfileid: "67835780"
 
 使用資源名稱或 [resourceId 函式](#resourceid)來指定資源。 在部署所參考資源的相同範本中使用這個函式時，請使用資源名稱。
 
-如果您使用**清單**即使未部署資源，會評估資源，有條件地部署，此函式中的函式。 如果您收到錯誤**清單**函式是指不存在的資源。 使用**如果**函式，以確定正在部署資源時，才會評估函式。 請參閱[如果函式](resource-group-template-functions-logical.md#if)如果所使用的範例範本和有條件地部署資源的清單。
+如果您在有條件地部署的資源中使用**list**函式, 即使未部署資源, 也會評估該函數。 如果**list**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 list 搭配條件式部署資源的範例範本, 請參閱[if 函數](resource-group-template-functions-logical.md#if)。
 
 ### <a name="example"></a>範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)顯示如何在 outputs 區段中從儲存體帳戶傳回主要和次要金鑰。 它也會傳回儲存體帳戶的 SAS 權杖。 
 
-若要取得的 SAS 權杖，傳遞物件的到期時間。 到期時間必須是未來的時間。 此範例的用意是要示範如何使用清單函式。 一般而言，您會在資源值中使用 SAS 權杖，而非將它傳回作為輸出值。 輸出值會儲存於部署歷程記錄，並不安全。
+若要取得 SAS 權杖, 請傳遞物件以取得到期時間。 到期時間必須是未來的時間。 此範例的用意是要示範如何使用清單函式。 一般而言，您會在資源值中使用 SAS 權杖，而非將它傳回作為輸出值。 輸出值會儲存於部署歷程記錄，並不安全。
 
 ```json
 {
@@ -265,7 +265,7 @@ ms.locfileid: "67835780"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | type | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |是 |string |提供者的命名空間 |
 | resourceType |否 |string |所指定命名空間內的資源類型。 |
@@ -340,7 +340,7 @@ ms.locfileid: "67835780"
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | type | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |string |資源的名稱或唯一識別碼。 |
 | apiVersion |否 |string |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 |
@@ -354,11 +354,13 @@ ms.locfileid: "67835780"
 
 參照函數會擷取過去部署資源或是目前範本部署資源的狀態。 本文會介紹這兩個案例的範例。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 當參考先前已部署的資源時，會提供資源的資源識別碼和 API 版本。 您可以在[範本參考](/azure/templates/)中判定您資源的有效 API 版本。
 
-參考函式只能用在資源定義的屬性中，以及範本或部署的輸出區段中。 當搭配[屬性反覆運算](resource-group-create-multiple.md#property-iteration)，您可以使用 reference 函式，如`input`因為運算式指派給資源屬性。 您無法搭配使用`count`因為 reference 函式已解決之前，必須先決定計數。
+參考函式只能用在資源定義的屬性中，以及範本或部署的輸出區段中。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時, 您可以使用的參考`input`函式, 因為運算式已指派給資源屬性。 您無法將它與`count`搭配使用, 因為必須在解析參考函數之前判斷計數。
+
+您無法在[嵌套範本](resource-group-linked-templates.md#nested-template)的輸出中使用 reference 函式, 以傳回已在嵌套範本中部署的資源。 相反地, 請使用[連結的範本](resource-group-linked-templates.md#external-template-and-external-parameters)。
 
 如果在相同的範本內佈建所參考的資源且您會依其名稱 (而非資源識別碼) 來參考該資源，則可使用 reference 函式，隱含地宣告某一個資源相依於另一個資源。 您不需要同時使用 dependsOn 屬性。 所參考的資源完成部署之前不會評估函式。
 
-如果您使用**參考**即使未部署資源，會評估資源，有條件地部署，此函式中的函式。  如果您收到錯誤**參考**函式是指不存在的資源。 使用**如果**函式，以確定正在部署資源時，才會評估函式。 請參閱[如果函式](resource-group-template-functions-logical.md#if)如果所使用的範例範本和有條件地部署資源的參考。
+如果您在有條件地部署的資源中使用**reference**函式, 即使未部署資源, 也會評估該函數。  如果**reference**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本, 請參閱[if](resource-group-template-functions-logical.md#if)函式。
 
 若要查看資源類型的屬性名稱和值，請建立一個會在 outputs 區段中傳回物件的範本。 如果您有一個該類型的現有資源，您的範本就會傳回物件，而不會部署任何新資源。 
 
@@ -564,6 +566,8 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 ]
 ```
 
+您也可以使用 resourceGroup 函式, 將標記從資源群組套用至資源。 如需詳細資訊, 請參閱[從資源群組套用標記](resource-group-using-tags.md#apply-tags-from-resource-group)。
+
 ### <a name="example"></a>範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json)會傳回資源群組的屬性。
@@ -603,7 +607,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | type | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字串 (GUID 格式) |預設值為目前的訂用帳戶。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
 | resourceGroupName |否 |string |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |

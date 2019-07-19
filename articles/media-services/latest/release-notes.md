@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542541"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311798"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -34,63 +34,71 @@ ms.locfileid: "67542541"
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
 
+## <a name="july-2019"></a>2019年7月
+
+### <a name="content-protection"></a>內容保護
+
+當串流以權杖限制保護的內容時, 終端使用者必須取得在金鑰傳遞要求中傳送的權杖。 「*權杖*重新執行防護」功能可讓媒體服務客戶設定相同權杖可用來要求金鑰或授權的次數限制。 如需詳細資訊, 請參閱權杖重新執行[防護](content-protection-overview.md#token-replay-prevention)。
+
+這項功能目前適用于美國中部和美國西部。
+
 ## <a name="june-2019"></a>2019 年 6 月
 
-### <a name="video-subclipping"></a>子剪輯影片
+### <a name="video-subclipping"></a>影片子剪輯
 
-您現在可以修剪或編碼方式時，子剪輯影片[作業](https://docs.microsoft.com/rest/api/media/jobs)。 
+您現在可以在使用[作業](https://docs.microsoft.com/rest/api/media/jobs)進行編碼時, 修剪或子剪輯影片。 
 
-這項功能適用於任何[轉換](https://docs.microsoft.com/rest/api/media/transforms)所建置使用[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)預設值，或有[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)預設值。 
+這項功能適用于使用 [ [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ] 預設值或 [ [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) ] 預設建立的任何[轉換](https://docs.microsoft.com/rest/api/media/transforms)。 
 
-請參閱範例：
+請參閱範例:
 
-* [子剪輯影片，以使用.NET](subclip-video-dotnet-howto.md)
-* [子剪輯影片，以使用 REST](subclip-video-rest-howto.md)
+* [使用 .NET 子剪輯影片](subclip-video-dotnet-howto.md)
+* [使用 REST 子剪輯影片](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>2019 年 5 月
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure 媒體服務的診斷記錄和度量的監視器支援
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure 監視器媒體服務診斷記錄和計量的支援
 
-您現在可以使用 Azure 監視器來檢視由媒體服務的遙測資料 emmited。
+您現在可以使用 Azure 監視器來查看媒體服務所 emmited 的遙測資料。
 
-* 您可以使用 Azure 監視器診斷記錄來監視媒體服務金鑰傳遞端點所傳送的要求。 
-* 監視媒體服務所發出的度量[串流端點](streaming-endpoint-concept.md)。   
+* 使用 Azure 監視器診斷記錄來監視由媒體服務金鑰傳遞端點傳送的要求。 
+* 監視媒體服務[串流端點](streaming-endpoint-concept.md)所發出的計量。   
 
-如需詳細資訊，請參閱 <<c0> [ 監視媒體服務的計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
+如需詳細資訊, 請參閱[監視媒體服務計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>支援動態封裝中的多重音訊資料軌 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>動態封裝中的多音訊追蹤支援 
 
-串流處理資產有多個具有多個轉碼器和語言的音訊資料軌時[動態封裝](dynamic-packaging-overview.md)現在支援 HLS 輸出多重音訊資料軌 (第 4 版或更新版本)。
+當串流具有多個編解碼器和語言的多個音訊追蹤的資產時,[動態封裝](dynamic-packaging-overview.md)現在支援 HLS 輸出 (第4版或更高版本) 的多個音軌。
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>韓國區域配對會開啟用於媒體服務 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>韓國地區配對已開放供媒體服務 
 
-媒體服務現在會在韓國中部與韓國南部區域中上市。 
+媒體服務現于韓國中部和南韓南部地區提供。 
 
-如需詳細資訊，請參閱 <<c0> [ 雲端和區域中的媒體服務 v3 存在](azure-clouds-regions.md)。
+如需詳細資訊, 請參閱[媒體服務 v3 所在的雲端和區域](azure-clouds-regions.md)。
 
 ### <a name="performance-improvements"></a>效能改進
 
-已新增的更新，包括媒體服務的效能改進。
+已新增包含媒體服務效能改進的更新。
 
-* 對於支援處理的最大檔案大小已更新。 查看，請[配額和限制](limits-quotas-constraints.md)。
+* 已更新支援處理的檔案大小上限。 請參閱[配額和限制](limits-quotas-constraints.md)。
 * [編碼速度改進](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)。
 
 ## <a name="april-2019"></a>2019 年 4 月
 
-### <a name="new-presets"></a>新的預設值
+### <a name="new-presets"></a>新的預設
 
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)已新增至內建分析器預設值。
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)已新增至內建的編碼器預設值。 如需詳細資訊，請參閱 <<c0> [ 感知內容的編碼](cae-experimental.md)。 
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)已新增至內建的編碼器預設值。 如需詳細資訊, 請參閱[內容感知編碼](cae-experimental.md)。 
 
-## <a name="march-2019"></a>2019 年 3 月
+## <a name="march-2019"></a>2019年3月
 
-動態封裝現在支援 Dolby Atmos. 如需詳細資訊，請參閱 <<c0> [ 音訊轉碼器支援動態封裝](dynamic-packaging-overview.md#audio-codecs)。
+動態封裝現在支援杜比 Atmos。 如需詳細資訊, 請參閱[動態封裝所支援的音訊編解碼器](dynamic-packaging-overview.md#audio-codecs)。
 
-您現在可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 如需詳細資訊，請參閱 <<c0> [ 串流定位器相關聯的篩選器](filters-concept.md#associating-filters-with-streaming-locator)。
+您現在可以指定資產或帳戶篩選器的清單, 其適用于您的串流定位器。 如需詳細資訊, 請參閱[將篩選與串流定位器產生關聯](filters-concept.md#associating-filters-with-streaming-locator)。
 
 ## <a name="february-2019"></a>2019 年 2 月
 
-媒體服務 v3 現已支援在 Azure 的國家/地區雲端中。 尚未在所有雲端中提供所有功能。 如需詳細資訊，請參閱[存在 Azure 媒體服務 v3 的雲端和區域](azure-clouds-regions.md)。
+Azure 國家雲端現在支援媒體服務 v3。 尚未在所有雲端中提供所有功能。 如需詳細資訊，請參閱[存在 Azure 媒體服務 v3 的雲端和區域](azure-clouds-regions.md)。
 
 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) 事件已被新增至適用於媒體服務的 Azure 事件格線結構描述。
 
@@ -236,7 +244,7 @@ Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、�
 
 ### <a name="net-sdk"></a>.NET SDK
 
-.NET SDK 中的下列功能︰
+.NET SDK 中有下列功能:
 
 * **轉換**和**工作**，可編碼或分析媒體內容。 如需範例，請參閱[串流處理檔案](stream-files-tutorial-with-api.md)和[分析](analyze-videos-tutorial-with-api.md)。
 * **串流定位器**，用於將內容發佈及串流處理到終端使用者裝置

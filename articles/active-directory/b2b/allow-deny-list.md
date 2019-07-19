@@ -1,23 +1,23 @@
 ---
-title: 允許或封鎖邀請到特定組織-Azure Active Directory |Microsoft Docs
+title: 允許或封鎖對特定組織的邀請-Azure Active Directory |Microsoft Docs
 description: 說明系統管理員如何使用 Azure 入口網站或 PowerShell 設定存取或拒絕清單，以允許或封鎖來自特定網域的 B2B 使用者。
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113230"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233887"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 
@@ -27,8 +27,9 @@ ms.locfileid: "67113230"
 
 - 您可以建立允許清單或拒絕清單。 您無法同時設定這兩種清單。 根據預設，未列入允許清單的網域即會列於拒絕清單中，反之亦然。 
 - 您對每個組織只能建立一個原則。 您可以更新原則以包含多個網域，或者，您可以刪除原則以建立新的原則。 
+- 您可以新增至允許清單或拒絕清單的網域數目, 只受限於原則的大小。 整個原則的大小上限為 25 KB (25000 個字元), 其中包括允許清單或拒絕清單, 以及為其他功能設定的任何其他參數。
 - 此清單會在商務用 OneDrive 和 SharePoint Online 允許/封鎖清單以外獨立運作。 如果您想要在 SharePoint Online 中限制個別的檔案共用，您必須設定商務用 OneDrive 和 SharePoint Online 的允許或拒絕清單。 如需詳細資訊，請參閱[在 SharePoint Online 和商務用 OneDrive 中限制網域共用](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9)。
-- 此清單不適用於已兌換邀請的外部使用者。 清單在設定後將會強制執行。 如果使用者邀請處於擱置狀態，而且您設定了封鎖其網域的原則，則使用者兌換邀請的嘗試將會失敗。
+- 此清單不適用於已經兌換邀請的外部使用者。 清單在設定後將會強制執行。 如果使用者邀請處於擱置狀態，而且您設定了封鎖其網域的原則，則使用者兌換邀請的嘗試將會失敗。
 
 ## <a name="set-the-allow-or-deny-list-policy-in-the-portal"></a>在入口網站中設定允許或拒絕清單原則
 
@@ -157,7 +158,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>後續步驟
 
 - 如需 Azure AD B2B 的概觀，請參閱[何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
-- 條件式存取和 B2B 共同作業的相關資訊，請參閱[B2B 共同作業使用者的條件式存取](conditional-access.md)。
+- 如需條件式存取和 B2B 共同作業的相關資訊, 請參閱 B2B 共同作業[使用者的條件式存取](conditional-access.md)。
 
 
 

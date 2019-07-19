@@ -8,18 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: de712d63fa2315a85c6c0eaf392d9c17758e4999
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340203"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226188"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [非同步 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -35,42 +36,36 @@ ms.locfileid: "67340203"
 |**SDK 下載**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API 文件**|[.NET API 參考文件](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**範例**|[.NET 程式碼範例](sql-api-dotnet-samples.md)|
-|**開始使用**|[開始使用 Azure Cosmos DB .NET Core SDK 教學課程](sql-api-dotnet-core-get-started-preview.md)|
+|**開始使用**|[開始使用 Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Web 應用程式教學課程**|[使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-dotnet-application.md)|
 |**目前支援的架構**|[.NET Standard 1.6 和 .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>版本資訊
 
-Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) 類似的功能。
-
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* 用於公開預覽之 .NET SDK [3.0.0 版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) \(英文\) 的 Preview 1。
-* 目標 .NET Standard (支援 .NET Framework 4.6.1+ 和 .NET Core 2.0+)
-* 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。
-* 支援資料流。
-* 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。
+> [!NOTE]
+> 如果您使用的是 .NET Core, 請參閱最新版本3.x 的[.NET SDK](sql-api-sdk-dotnet-standard.md), 其目標為 .NET Standard。 
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* 追蹤查詢導致空頁面的競爭情形的修正
+* 修正造成空白頁面之查詢的追蹤競爭條件
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* SDK 的 System.Net.Http 版本符合所定義於 NuGet 套件
-* 增加的 LINQ 查詢的小數有效位數大小。
-* 加入新的類別 CompositePath、 CompositePathSortOrder、 SpatialSpec、 SpatialType 和 PartitionKeyDefinitionVersion
-* 已新增的 TimeToLivePropertyPath DocumentCollection 至
-* 已新增的 CompositeIndexes 和 IndexPolicy 的 SpatialIndexes
-* 新增的版本至 PartitionKeyDefinition
-* 新增無 PartitionKey
+* SDK 的系統 .Net。 Http 版本符合 NuGet 套件中定義的專案
+* 已增加 LINQ 查詢的十進位有效位數大小。
+* 已新增類別 CompositePath、CompositePathSortOrder、SpatialSpec、SpatialType 和 PartitionKeyDefinitionVersion
+* 已將 TimeToLivePropertyPath 新增至 DocumentCollection
+* 已將 CompositeIndexes 和 SpatialIndexes 新增至 IndexPolicy
+* 已將版本新增至 PartitionKeyDefinition
+* 將 None 新增至 PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * 已新增的 IdleTcpConnectionTimeout、 OpenTcpConnectionTimeout、 MaxRequestsPerTcpConnection 和 ConnectionPolicy 的 MaxTcpConnectionsPerEndpoint。
+ * 已將 IdleTcpConnectionTimeout、OpenTcpConnectionTimeout、MaxRequestsPerTcpConnection 和 MaxTcpConnectionsPerEndpoint 新增至 ConnectionPolicy。
  
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* 診斷改良功能
+* 診斷改善
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -255,11 +250,11 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.4.1](#2.4.1) |2019 年 6 月 20日日 |--- |
-| [2.4.0](#2.4.0) |2019 年 05， |--- |
-| [2.3.0](#2.3.0) |2019 年 4 月 4日日 |--- |
-| [2.2.3](#2.2.3) |2019 年 3 月 11日日 |--- |
-| [2.2.2](#2.2.2) |2019 年 2 月 6日日 |--- |
+| [2.4.1](#2.4.1) |2019年6月20日 |--- |
+| [2.4.0](#2.4.0) |2019年5月5日 |--- |
+| [2.3.0](#2.3.0) |2019年4月04日 |--- |
+| [2.2.3](#2.2.3) |2019年3月11日 |--- |
+| [2.2.2](#2.2.2) |2019年2月6日 |--- |
 | [2.2.1](#2.2.1) |2018 年 12 月 24 日 |--- |
 | [2.2.0](#2.2.0) |2018 年 12 月 7 日 |--- |
 | [2.1.3](#2.1.3) |2018 年 10 月 15 日 |--- |
@@ -289,6 +284,6 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 | [1.0.0](#1.0.0) |2016 年 12 月 21 日 |--- |
 | [0.1.0-preview](#0.1.0-preview) |2016 年 11 月 15 日 |2016 年 12 月 31 日 |
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

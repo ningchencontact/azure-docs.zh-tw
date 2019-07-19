@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d34f6c9ea014759ec2ba310786cd524ff69094af
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473348"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234086"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受控網域
 本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受控網域。
@@ -57,24 +57,25 @@ CentOS 虛擬機器已佈建在 Azure 中。 下一個工作是使用佈建 VM �
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定主機檔案
 在您的 SSH 終端機中，編輯 /etc/hosts 檔案並更新您的電腦 IP 位址和主機名稱。
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 在主機檔案中，輸入下列值：
 
-```
+```console
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
+
 在這裡，'contoso100.com' 為受控網域的 DNS 網域名稱。 'contoso-centos' 是您要加入至受控網域之 CentOS 虛擬機器的主機名稱。
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上安裝必要封裝
 接下來，在虛擬機器上安裝加入網域所需的套件。 在您的 SSH 終端機中，輸入下列命令以安裝必要的套件：
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>將 Linux 虛擬機器加入受控網域
@@ -82,7 +83,7 @@ sudo vi /etc/hosts
 
 1. 探索 AAD 網域服務受控網域。 在 SSH 終端機中輸入下列命令：
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -97,9 +98,8 @@ sudo vi /etc/hosts
     > [!TIP]
     > * 指定屬於 'AAD DC Administrators' 群組的使用者。
     > * 以大寫字母指定網域名稱，否則 kinit 會失敗。
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -107,9 +107,8 @@ sudo vi /etc/hosts
 
     > [!TIP]
     > 使用您在前面步驟中指定的相同使用者帳戶 ('kinit')。
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -120,17 +119,20 @@ sudo vi /etc/hosts
 確認電腦是否已成功加入受控網域。 使用不同的 SSH 連線來連線到加入網域的 CentOS VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
 1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 CentOS 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
 
 2. 在 SSH 終端機中輸入下列命令，以查看是否已正確初始化主目錄。
-    ```
+   
+    ```console
     pwd
     ```
 
 3. 在 SSH 終端機中輸入下列命令，以查看是否會正確解析群組成員資格。
-    ```
+    
+    ```console
     id
     ```
 

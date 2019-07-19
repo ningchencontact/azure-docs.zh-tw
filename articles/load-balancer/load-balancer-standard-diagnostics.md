@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: 使用可用的計量和健康情況資訊診斷 Azure 標準 Load Balancer。
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/03/2019
-ms.author: Kumud
-ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 07/11/2019
+ms.author: allensu
+ms.openlocfilehash: e0329f5f975b67460796bf7dd9429752549a3483
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550931"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274487"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>標準 Load Balancer 的計量和健康情況診斷
 
@@ -31,33 +31,33 @@ Azure Standard Load Balancer 公開 Azure Standard Load Balancer 會為資源提
 
 ## <a name = "MultiDimensionalMetrics"></a>多維度計量
 
-Azure Load Balancer 提供新的多維度計量，透過在 Azure 入口網站中，新的 Azure 計量，並協助您取得即時深入診斷您的負載平衡器資源。 
+Azure Load Balancer 透過 Azure 入口網站中的新 Azure 計量提供新的多維度計量, 並協助您取得負載平衡器資源的即時診斷見解。 
 
 各種標準 Load Balancer 組態提供下列計量：
 
 | 計量 | 資源類型 | 描述 | 建議的彙總 |
 | --- | --- | --- | --- |
-| 資料路徑可用性 （VIP 可用性）| 公用 Load Balancer | 標準 Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。| 平均值 |
-| 健康情況探查狀態 （DIP 可用性） |  公用和內部負載平衡器 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供負載平衡器集區中每個執行個體端點的彙總檢視，或各端點篩選過的檢視。 您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。 |  平均值 |
-| SYN (同步) 封包 |  公用 Load Balancer | 標準 Load Balancer 不會終止傳輸控制通訊協定 (TCP) 連線，也不會與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。| 平均值 |
-| SNAT 連線 |  公用 Load Balancer |標準 Load Balancer 會回報偽裝為公用 IP 位址前端的輸出流程數目。 來源網路位址轉譯 (SNAT) 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。 系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。| 平均值 |
-| 位元組計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的資料。| 平均值 |
-| 封包計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的封包。| 平均值 |
+| 資料路徑可用性 (VIP 可用性)| 公用和內部負載平衡器 | 標準 Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。| Average |
+| 健康情況探查狀態 (DIP 可用性) | 公用和內部負載平衡器 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供負載平衡器集區中每個執行個體端點的彙總檢視，或各端點篩選過的檢視。 您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。 |  Average |
+| SYN (同步) 封包 | 公用和內部負載平衡器 | 標準 Load Balancer 不會終止傳輸控制通訊協定 (TCP) 連線，也不會與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。| Average |
+| SNAT 連線 | 公用 Load Balancer |標準 Load Balancer 會回報偽裝為公用 IP 位址前端的輸出流程數目。 來源網路位址轉譯 (SNAT) 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。 系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。| Average |
+| 位元組計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的資料。| Average |
+| 封包計數器 |  公用和內部負載平衡器 | 標準 Load Balancer 會報告每個前端處理的封包。| Average |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>在 Azure 入口網站中檢視負載平衡器計量
 
-Azure 入口網站會公開 load balancer 計量，透過適用於特定資源的負載平衡器資源頁面和 [Azure 監視] 頁面的 [度量] 頁面。 
+Azure 入口網站會透過 [計量] 頁面公開負載平衡器計量, 在特定資源的負載平衡器資源頁面和 [Azure 監視器] 頁面上都有提供。 
 
 若要檢視標準 Load Balancer 資源的計量：
-1. 請移至 [計量] 頁面，並執行下列其中一項：
+1. 移至 [計量] 頁面, 然後執行下列其中一項動作:
    * 在負載平衡器資源頁面上，選取下拉式清單中的計量類型。
    * 在 Azure 監視器頁面上，選取負載平衡器資源。
 2. 設定適當的彙總類型。
 3. 選擇性設定必要的篩選和群組。
 
-    ![標準 Load balancer 的計量](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+    ![Standard Load Balancer 的計量](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-    *圖：標準 Load Balancer 的資料路徑可用性計量*
+    *圖：Standard Load Balancer 的資料路徑可用性標準*
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>透過 API 以程式設計方式擷取多維度計量
 
@@ -72,20 +72,17 @@ Azure 入口網站會公開 load balancer 計量，透過適用於特定資源�
 - 挖掘更深入的資料，了解服務部署所在的平台是否狀況良好、您的客體 OS 或應用程式執行個體是否狀況良好。
 - 找出事件是否與您的服務或基礎資料層相關。 請勿將此計量與健康情況探查狀態 (「DIP 可用性」) 搞混。
 
-若要取得標準 Load Balancer 資源的資料路徑可用性：
+若要取得 Standard Load Balancer 資源的資料路徑可用性:
 1. 確定已選取正確的負載平衡器資源。 
-2. 在 **公制**下拉式清單中，選取**資料路徑可用性**。 
+2. 在 [**度量**] 下拉式清單中, 選取 [**資料路徑可用性**]。 
 3. 在 [彙總]  下拉式清單中，選取 [平均]  。 
-4. 此外，加入篩選的前端 IP 位址或前端連接埠做為維度的所需的前端 IP 位址或前端連接埠、，然後將它們分組為所選取維度。
+4. 此外, 在前端 IP 位址或前端埠上新增篩選, 做為具有必要前端 IP 位址或前端埠的維度, 然後依選取的維度將它們分組。
 
 ![VIP 探查](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*圖：負載平衡器前端探查詳細資料*
+*圖：Load Balancer 前端探查詳細資料*
 
 計量會由作用中的頻內測量所產生。 區域內的探查服務會產生此測量的流量。 此服務會在您使用公用前端建立部署時啟動，並繼續執行到您移除前端為止。 
-
->[!NOTE]
->無法使用的內部 Load Balancer 前端資料路徑可用性 （VIP 可用性）。 
 
 系統會定期產生符合部署之前端和規則的封包。 封包會在區域中從來源周遊到主機 (後端集區中 VM 的所在位置)。 負載平衡器基礎結構會執行相同的負載平衡和轉譯作業，如同對所有其他流量所做的一樣。 這個探查是在負載平衡端點的頻內。 在探查抵達計算主機 (後端集區中狀況良好 VM 的所在位置) 之後，計算主機會針對探查服務產生回應。 您的 VM 不會看到這個流量。
 
@@ -93,7 +90,7 @@ VIP 可用性會因為下列原因而失敗：
 - 您的部署在後端集區中沒有剩餘的狀況良好 VM。 
 - 已發生基礎結構中斷。
 
-為方便診斷，您可以使用[資料路徑可用性計量搭配健康情況探查狀態](#vipavailabilityandhealthprobes)。
+基於診斷目的, 您可以使用[資料路徑可用性計量搭配健康情況探查狀態](#vipavailabilityandhealthprobes)。
 
 在大部分的情況下，請使用**平均**彙總。
 
@@ -101,9 +98,9 @@ VIP 可用性會因為下列原因而失敗：
 
 「健康情況探查狀態」計量會描述應用程式部署的健康情況，這個部署是在您設定負載平衡器健康情況探查時由您所設定。 負載平衡器使用健康情況探查的狀態來判斷新流程要傳送到哪裡。 健康情況探查源自 Azure 基礎結構的位址，在 VM 的客體 OS 內可以看到。
 
-若要取得標準 Load Balancer 資源的健康情況探查狀態：
-1. 選取 **健康情況探查狀態**計量和**Avg**彙總類型。 
-2. 必要的前端 IP 位址或連接埠 （或兩者） 上套用篩選。
+若要取得 Standard Load Balancer 資源的健康情況探查狀態:
+1. 選取具有**Avg**匯總類型的**健康情況探查狀態**度量。 
+2. 在所需的前端 IP 位址或埠 (或兩者) 上套用篩選。
 
 健康情況探查會因為下列原因而失敗：
 - 您可對未接聽、未回應或使用錯誤通訊協定的連接埠設定健康情況探查。 如果您的服務使用伺服器直接回傳 (DSR 或浮動 IP) 規則，請確定服務會接聽 NIC 之 IP 組態的 IP 位址，而且不只是接聽使用前端 IP 位址所設定的回送。
@@ -166,14 +163,10 @@ VIP 可用性會因為下列原因而失敗：
 *圖：結合資料路徑可用性和健康情況探查狀態計量*
 
 此圖表會顯示以下資訊：
-- 裝載 Vm 的基礎結構已無法使用，而是在圖表的開始處的 0%。 更新版本中，基礎結構狀況良好 Vm 都可以連線，並在後端中放置一個以上的 VM。 這項資訊會以藍色的追蹤資料路徑可用性 （VIP 可用性），也就是 100%的更新版本。 
-- 紫色的追蹤，所指示的健康情況探查狀態 （DIP 可用性），位於圖表的開始處的 0%。 線圈起來，健康情況探查狀態 （DIP 可用性） 變成狀況良好，且此時客戶部署的綠色反白顯示無法接受新的流程。
+- 裝載 Vm 的基礎結構無法使用, 且在圖表的開頭為 0%。 之後, 基礎結構狀況良好, 且 Vm 可以連線, 而且後端中有一個以上的 VM。 這項資訊是由資料路徑可用性 (VIP 可用性) 的藍色追蹤所表示, 而這是晚于 100%。 
+- 以紫色追蹤表示的健康情況探查狀態 (DIP 可用性) 在圖表的開頭為 0%。 綠色的圓形區域會反白顯示健全狀況探查狀態 (DIP 可用性) 變成狀況良好的位置, 以及客戶的部署能夠接受新流程的時間點。
 
 此圖表讓客戶可以自行針對部署進行疑難排解，不必猜測或要求支援找出是否發生其他問題。 由於設定不正確或應用程式失敗導致健康情況探查失敗，所以服務變得無法使用。
-
-### <a name = "Limitations"></a>限制
-
-VIP 可用性目前僅適用於公用前端。
 
 ## <a name = "ResourceHealth"></a>資源健康情況狀態
 
@@ -211,7 +204,7 @@ VIP 可用性目前僅適用於公用前端。
 
 ## <a name="limitations"></a>限制 
 
-- 無法使用的內部 Load Balancer 前端資料路徑可用性 （VIP 可用性）。
+- 內部 Load Balancer 前端無法使用資料路徑可用性 (VIP 可用性)。
 
 ## <a name="next-steps"></a>後續步驟
 

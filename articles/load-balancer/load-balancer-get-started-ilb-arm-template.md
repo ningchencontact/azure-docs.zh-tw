@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 了解如何使用資源管理員中的範本建立內部負載平衡器
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 339183dabf67abb43d6fc99bbe5258a39f12b14a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: f05c90948fe95f204f268d84c01e1e8773bec468
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122294"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275387"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用範本建立內部負載平衡器
 
@@ -45,7 +45,7 @@ ms.locfileid: "66122294"
 1. 如果您從未用過 Azure PowerShell，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) ，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 2. 將參數檔案下載至本機磁碟。
 3. 編輯並儲存檔案。
-4. 執行**新增 AzResourceGroupDeployment** cmdlet 來建立使用範本的資源群組。
+4. 執行**new-azresourcegroupdeployment** Cmdlet, 以使用範本建立資源群組。
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `

@@ -1,74 +1,74 @@
 ---
-title: 從 Azure IoT Central 的規則執行多個動作 |Microsoft Docs
-description: 從單一 IoT Central 規則執行多個動作，並建立可重複使用的群組，您可以從多個規則執行的動作。
+title: 從 Azure IoT Central 規則執行多個動作 |Microsoft Docs
+description: 從單一 IoT Central 規則執行多個動作, 並建立可重複使用的動作群組, 讓您可以從多個規則執行。
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/19/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d9d7b2d189c6a1533be2d1cae4989669787c3f2a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60517256"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848999"
 ---
-# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>若要從一或多個規則執行的多個動作群組
+# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>從一或多個規則將多個動作分組以執行
 
-*這篇文章適用於產生器和系統管理員。*
+*本文適用于構建者和系統管理員。*
 
-在 Azure IoT Central，您會建立規則，以符合條件時執行動作。 規則是以裝置遙測資料或事件為基礎。 例如，您可以在裝置的溫度超出臨界值時通知操作員。 這篇文章說明如何使用[Azure 監視器](../azure-monitor/overview.md)*動作群組*IoT Central 規則附加多個動作。 您可以附加多個規則動作群組。 [動作群組](../azure-monitor/platform/action-groups.md)是 Azure 訂用帳戶的擁有者所定義的通知喜好設定的集合。
+在 Azure IoT Central 中, 您會建立規則, 以在符合條件時執行動作。 規則是以裝置遙測或事件為基礎。 例如, 您可以在裝置溫度超過閾值時通知操作員。 本文說明如何使用[Azure 監視器](../azure-monitor/overview.md)*動作群組*, 將多個動作附加至 IoT Central 規則。 您可以將動作群組附加到多個規則。 [動作群組](../azure-monitor/platform/action-groups.md)是由 Azure 訂用帳戶的擁有者所定義的通知喜好設定集合。
 
 ## <a name="prerequisites"></a>必要條件
 
 - 隨用隨付應用程式
-- Azure 帳戶和訂用帳戶來建立和管理 Azure 監視器的動作群組
+- 用來建立和管理 Azure 監視器動作群組的 Azure 帳戶和訂用帳戶
 
 ## <a name="create-action-groups"></a>建立動作群組
 
-您可以[建立和管理 Azure 入口網站中的動作群組](../azure-monitor/platform/action-groups.md)或使用[Azure Resource Manager 範本](../azure-monitor/platform/action-groups-create-resource-manager-template.md)。
+您可以在 Azure 入口網站中, 或使用[Azure Resource Manager 範本](../azure-monitor/platform/action-groups-create-resource-manager-template.md)來[建立和管理動作群組](../azure-monitor/platform/action-groups.md)。
 
-動作群組可以：
+動作群組可以:
 
-- 傳送通知，例如電子郵件、 簡訊，或撥打語音電話。
-- 執行動作，例如呼叫 webhook。
+- 傳送電子郵件、SMS 或發出語音通話等通知。
+- 執行動作, 例如呼叫 webhook。
 
-下列螢幕擷取畫面顯示，傳送電子郵件和 SMS 通知或呼叫 webhook 動作群組：
+下列螢幕擷取畫面顯示傳送電子郵件和 SMS 通知並呼叫 webhook 的動作群組:
 
 ![動作群組](media/howto-use-action-groups/actiongroup.png)
 
-若要使用動作群組中的 IoT Central 的規則，動作群組必須位於相同的 Azure 訂用帳戶與 IoT Central 應用程式。
+若要在 IoT Central 規則中使用動作群組, 動作群組必須與 IoT Central 應用程式位於相同的 Azure 訂用帳戶中。
 
 ## <a name="use-an-action-group"></a>使用動作群組
 
-若要在您的 IoT Central 應用程式中使用動作群組，請先建立遙測或事件的規則。 當您將動作新增至規則時，選取**Azure 監視器的動作群組**:
+若要在 IoT Central 應用程式中使用動作群組, 請先建立遙測或事件規則。 當您將動作新增至規則時, 請選取 [ **Azure 監視器動作群組**]:
 
 ![選擇動作](media/howto-use-action-groups/chooseaction.png)
 
-選擇您的 Azure 訂用帳戶動作群組：
+從您的 Azure 訂用帳戶中選擇動作群組:
 
-![選擇 動作群組](media/howto-use-action-groups/chooseactiongroup.png)
+![選擇動作群組](media/howto-use-action-groups/chooseactiongroup.png)
 
-選取 [ **儲存**]。 動作群組現在會出現在清單中的規則觸發時執行的動作：
+選取 [ **儲存**]。 動作群組現在會出現在觸發規則時要執行的動作清單中:
 
-![儲存動作群組](media/howto-use-action-groups/savedactiongroup.png)
+![已儲存動作群組](media/howto-use-action-groups/savedactiongroup.png)
 
-下表摘要說明傳送到支援的動作類型的資訊：
+下表摘要說明傳送至支援的動作類型的資訊:
 
 | 動作類型 | 輸出格式 |
 | ----------- | -------------- |
-| Email       | 標準的 IoT 中心電子郵件範本 |
-| sms         | Azure IoT Central 警示: ${applicationName}-"${ruleName}"在"${deviceName}"${triggerDate} ${triggerTime} 觸發 |
-| 語音       | Azure 的 I.O.T Central 警示： 應用程式 ${applicationName} 中的規則"${ruleName}"裝置"${deviceName}"${triggerDate} {triggerTime}，在觸發 |
-| Webhook     | {"schemaId 」:「 AzureIoTCentralRuleWebhook"，"data": {[規則的 webhook 承載](#payload)}} |
+| Email       | 標準 IoT Central 電子郵件範本 |
+| sms         | Azure IoT Central 警示: $ {applicationName}-"$ {ruleName}" 已于 $ {triggerDate} $ {triggerTime} 于 "$ {deviceName}" 上觸發 |
+| 語音       | Azure triggerDate} $ {triggerTime}, 在應用程式 $ {applicationName} 中, 已于裝置 "$ {deviceName}" 上觸發規則 "$ {ruleName}" |
+| Webhook     | { "schemaId" :"AzureIoTCentralRuleWebhook", "data": {[一般 webhook](#payload)承載}} |
 
-下列文字是來自動作群組的範例 SMS 訊息：
+下列文字是來自動作群組的 SMS 訊息範例:
 
 `iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
 
-<a id="payload"></a> 下列 JSON 顯示 webhook 動作承載範例：
+<a id="payload"></a>下列 JSON 顯示 webhook 動作承載範例:
 
 ```json
 {
@@ -111,4 +111,4 @@ ms.locfileid: "60517256"
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何使用動作群組與規則，建議的下一個步驟是了解如何[管理您的裝置](howto-manage-devices.md)。
+既然您已瞭解如何使用動作群組搭配規則, 建議的下一個步驟是瞭解如何[管理您的裝置](howto-manage-devices.md)。

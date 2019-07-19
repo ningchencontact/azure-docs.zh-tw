@@ -1,6 +1,6 @@
 ---
-title: Web 應用程式呼叫 web Api （程式碼設定）-Microsoft 身分識別平台
-description: 了解如何建置 Web 應用程式呼叫 web Api （應用程式的程式碼組態）
+title: 呼叫 web Api 的 web 應用程式 (程式碼設定)-Microsoft 身分識別平臺
+description: 瞭解如何建立呼叫 web Api 的 Web 應用程式 (應用程式的程式碼設定)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,40 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 15c12aebccf34957db8442034ebbcd6ac7c107e1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785564"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276721"
 ---
-# <a name="web-app-that-calls-web-apis---code-configuration"></a>Web 應用程式呼叫 web Api-程式碼組態
+# <a name="web-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 web 應用程式-程式碼設定
 
-中所示[Web 應用程式登入的使用者案例](scenario-web-app-sign-user-overview.md)，假設使用者在登入委派給 Open ID connect (OIDC) 中介軟體，您想要攔截總 OIDC 程序中。 若要這麼做的方式是根據的架構不同您使用 （這裡 ASP.NET 和 ASP.NET Core），但在結束時，您將訂閱 OIDC 中介軟體的事件。 原則是：
+如[Web 應用程式登入使用者案例](scenario-web-app-sign-user-overview.md)所示, 假設登入使用者已委派給 Open ID CONNECT (OIDC) 中介軟體, 您想要在 OIDC 程式中連結。 執行此動作的方式不同于您所使用的架構 (這裡 ASP.NET 和 ASP.NET Core), 但在最後, 您會訂閱中介軟體 OIDC 事件。 原則是:
 
-- 您會讓 ASP.NET 或 ASP.NET core 要求授權碼。 透過這個 ASP.NET/ASP.NET core 將會讓使用者登入並同意，
-- 您將訂閱的授權碼接收的 Web 應用程式。
-- 當收到的驗證程式碼時，您將使用 MSAL 程式庫來兌換的程式碼，所產生的存取權杖及重新整理權杖快取中的權杖存放區。 從該處，快取可用的應用程式其他部分以無訊息方式取得其他權杖。
+- 您會讓 ASP.NET 或 ASP.NET core 要求授權碼。 藉由執行此 ASP.NET/ASP.NET 核心, 可讓使用者登入和同意,
+- 您將會訂閱 Web 應用程式接收授權碼。
+- 收到驗證碼時, 您將使用 MSAL 程式庫來兌換程式碼, 以及在權杖快取中產生的存取權杖和重新整理權杖存放區。 從該處, 快取可用於應用程式的其他部分, 以無訊息方式取得其他標記。
 
 ## <a name="libraries-supporting-web-app-scenarios"></a>支援 Web 應用程式案例的程式庫
 
-支援的 Web 應用程式的授權碼流程的程式庫是：
+支援 Web Apps 授權碼流程的程式庫包括:
 
 | MSAL 程式庫 | 描述 |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 是.NET Framework 和.NET Core 的平台，支援的平台 （不 UWP、 Xamarin.iOS 和為這些平台 Xamarin.Android 來建置公用用戶端應用程式） |
-| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進度-公開預覽中的程式開發 |
-| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 進度-公開預覽中的程式開發 |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 支援的平臺為 .NET Framework 和 .NET Core 平臺 (而不是 UWP、Xamarin 和 Xamarin, 因為這些平臺是用來建立公用用戶端應用程式) |
+| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進行中的開發-現已公開預覽 |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | 進行中的開發-現已公開預覽 |
 
-## <a name="aspnet-core-configuration"></a>ASP.NET Core 組態
+## <a name="aspnet-core-configuration"></a>ASP.NET Core 設定
 
-在 ASP.NET Core 中發生`Startup.cs`檔案。 您會想要訂閱`OnAuthorizationCodeReceived`開啟識別碼連線事件，並從這個事件中，呼叫 MSAL。NET 的方法`AcquireTokenFromAuthorizationCode`具有將儲存在權杖快取、 存取權杖要求的範圍，以及將用來重新整理存取權杖，它即將到期日時，或取得代表相同的使用者權杖的重新整理權杖的效果但不同的資源。
+在 ASP.NET Core 中, 專案會發生`Startup.cs`在檔案中。 您會想要訂閱`OnAuthorizationCodeReceived` open ID connect 事件, 而在此事件中, 請呼叫 MSAL。NET 的方法`AcquireTokenFromAuthorizationCode` , 其具有在權杖快取中儲存的效果、要求的範圍的存取權杖, 以及將在接近到期時用來重新整理存取權杖的重新整理權杖, 或代表相同的使用者取得權杖, 但適用于不同的資源。
 
-下列程式碼中的註解會協助您了解編排 MSAL.NET 和 ASP.NET Core 的某些複雜層面。 將提供完整的詳細資料[ASP.NET Core Web 應用程式增量教學課程，第 2 章](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+下列程式碼中的批註將協助您瞭解 MSAL.NET 和 ASP.NET Core 的一些棘手層面。 [ASP.NET Core Web 應用程式累加教學](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)課程中提供完整的詳細資料, 第2章
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -88,7 +88,7 @@ ms.locfileid: "67785564"
    };
 ```
 
-ASP.NET Core 中建置機密用戶端應用程式，將會使用 HttpContext 中的資訊。 此 HttpContext Web 應用程式，和登入的使用者知道 URL (在`ClaimsPrincipal`)。 它也會使用 ASP.NET Core 組態，其中包含 「 AzureAD 」 一節中，與它繫結至`_applicationOptions`資料結構。 最後，應用程式需要維護語彙基元的快取。
+在 ASP.NET Core 中, 建立機密用戶端應用程式會使用 HttpCoNtext 中的資訊。 此 HttpCoNtext 知道 Web 應用程式的 URL, 以及已登入的使用者 (在中`ClaimsPrincipal`)。 它也會使用具有 "AzureAD" 區段且系結至`_applicationOptions`資料結構的 ASP.NET Core 設定。 最後, 應用程式必須維護權杖快取。
 
 ```CSharp
 /// <summary>
@@ -128,11 +128,11 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
 }
 ```
 
-`AcquireTokenByAuthorizationCode` 真正兌換授權碼要求的 ASP.NET，並取得會新增至 MSAL.NET 使用者權杖快取的權杖。 在這裡，然後是用於 ASP.NET Core 控制器。
+`AcquireTokenByAuthorizationCode`確實贖回 ASP.NET 所要求的授權碼, 並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
 
-## <a name="aspnet-configuration"></a>ASP.NET 組態
+## <a name="aspnet-configuration"></a>ASP.NET 設定
 
-ASP.NET 處理動作的方式很類似，不同之處在於 OpenIdConnect 和訂用帳戶的組態`OnAuthorizationCodeReceived`事件發生在`App_Start\Startup.Auth.cs`檔案。 您會發現概念類似，不同之處在於您要指定在組態檔中，這是有點較少的 RedirectUri 的以下強大：
+ASP.NET 處理專案的方式類似, 不同之處在于 OpenIdConnect 的設定和`OnAuthorizationCodeReceived`事件的訂閱會`App_Start\Startup.Auth.cs`在檔案中發生。 您會發現類似的概念, 但在這裡, 您將需要在設定檔案中指定 RedirectUri, 這有點不健全:
 
 ```CSharp
 private void ConfigureAuth(IAppBuilder app)
@@ -180,18 +180,21 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
-### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>MSAL.NET 權杖快取 （核心） 的 ASP.NET Web 應用程式
+最後, 機密用戶端應用程式也可以使用用戶端憑證或用戶端判斷提示來證明其身分識別, 而不是用戶端密碼。
+使用用戶端判斷提示是一個先進的案例,[用戶端判斷](msal-net-client-assertions.md)提示中有詳細說明
 
-在 web 應用程式 （或 web Api 的事實） 的權杖快取實作是不同於傳統型應用程式權杖快取實作 (通常[檔案型](scenario-desktop-acquire-token.md#file-based-token-cache)。 它可以使用 ASP.NET/ASP.NET 核心工作階段中，或 Redis 快取，或資料庫或甚至是 Azure Blob 儲存體。 在程式碼中這個上面的程式碼片段是物件`EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`方法呼叫，後者則繫結的快取服務。 這裡已超出本指南的範圍案例，但下面提供的連結，就會發生什麼的詳細資料。
+### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>ASP.NET (核心) Web 應用程式的 MSAL.NET Token cache
+
+在 web 應用程式 (或 web Api) 中, 權杖快取的執行方式與桌面應用程式權杖快取實現不同 (通常是以檔案為[基礎](scenario-desktop-acquire-token.md#file-based-token-cache))。 它可以使用 ASP.NET/ASP.NET 核心會話、Redis 快取或資料庫, 甚至是 Azure Blob 儲存體。 在上述的程式碼片段中, 這是`EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);`方法呼叫的物件, 它會系結快取服務。 此處所發生狀況的詳細資料已超出本案例指南的範圍, 但以下提供連結。
 
 > [!IMPORTANT]
-> 非常重要的是，web 應用程式和 web Api，應該會有每位使用者 （每個帳戶） 的一個權杖快取。 您需要將每個帳戶的權杖快取序列化。
+> 值得注意的是, 對於 web 應用程式和 web Api 而言, 每個使用者都應該有一個權杖快取 (每個帳戶)。 您需要將每個帳戶的權杖快取序列化。
 
-如何使用權杖快取的 Web 應用程式和 web Api 的範例可用於[ASP.NET Core Web 應用程式教學課程](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)在階段[2-2 權杖快取](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)。 如需實作，請查看 [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 程式庫中的下列資料夾 [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) (在 [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 資料夾中)。
+在階段[2-2 權杖](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)快取中, [ASP.NET Core web 應用程式教學](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)課程中提供如何使用 web 應用程式和 web api 之權杖快取的範例。 如需實作，請查看 [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) 程式庫中的下列資料夾 [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) (在 [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 資料夾中)。
 
 ## <a name="next-steps"></a>後續步驟
 
-此時，當使用者登入權杖的動作就會儲存在權杖快取。 我們來看看如何接著會使用它的 Web 應用程式其他部分。
+此時, 當使用者登入時, 權杖會儲存在權杖快取中。 讓我們看看它如何用於 Web 應用程式的其他部分。
 
 > [!div class="nextstepaction"]
 > [登入 Web 應用程式](scenario-web-app-call-api-sign-in.md)

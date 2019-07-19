@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154774"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314797"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -50,6 +50,7 @@ ms.locfileid: "67154774"
 * 將 Application Insights SDK 加入至專案：
 
   * [ASP.NET 專案](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core 專案](../../azure-monitor/app/asp-net-core.md)
   * [Java 專案](../../azure-monitor/app/java-get-started.md)
   * [Node.js 專案](../../azure-monitor/app/nodejs.md)
   * [每個網頁中的 JavaScript](../../azure-monitor/app/javascript.md) 
@@ -153,7 +154,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 分析](analytics.md)的 `customEvents` 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackEvent(..)` 呼叫。
 
-如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的自訂事件計數，因此，您應該使用程式碼這類`customEvents | summarize sum(itemCount)`。
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得自訂事件的正確計數, 您應該使用之類`customEvents | summarize sum(itemCount)`的程式碼。
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -249,7 +250,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric 不傳送計量的慣用的方法。 您應該一律預先彙總一段時間的計量，再加以傳送。 使用其中一個 GetMetric(..) 多載來取得可供存取 SDK 預先彙總功能的計量物件。 如果您要實作您自己預先彙總的邏輯，您可以使用 trackmetric （） 方法來傳送產生的彙總。 如果您的應用程式需要每次傳送個別遙測項目 (未隨時間彙總)，則可能有事件遙測的使用案例；請參閱 TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry)。
+> ApplicationInsights. TelemetryClient. TrackMetric 不是傳送計量的慣用方法。 您應該一律預先彙總一段時間的計量，再加以傳送。 使用其中一個 GetMetric(..) 多載來取得可供存取 SDK 預先彙總功能的計量物件。 如果您要執行自己的預先匯總邏輯, 您可以使用 TrackMetric () 方法來傳送產生的匯總。 如果您的應用程式需要每次傳送個別遙測項目 (未隨時間彙總)，則可能有事件遙測的使用案例；請參閱 TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry)。
 
 Application Insights 可以將未附加至特定事件的計量繪製成圖表。 例如，您可以定期監視佇列長度。 當您使用計量時，個別測量的重要性就不如變化和趨勢，因此統計圖表很有用。
 
@@ -529,7 +530,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-大多數重要堆疊資訊已擷取到不同的變數中，但您可以拉開 `details` 結構以取得更多資訊。 由於這是動態結構，因此您應該將結果轉換成預期的類型。 例如︰
+大多數重要堆疊資訊已擷取到不同的變數中，但您可以拉開 `details` 結構以取得更多資訊。 由於這是動態結構，因此您應該將結果轉換成預期的類型。 例如:
 
 ```kusto
 exceptions
@@ -592,7 +593,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
 `message` 上的大小限制比屬性上的限制高得多。
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。  
 
-此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如︰
+此外，您可以在訊息中新增嚴重性層級。 就像其他遙測一樣，您可以新增屬性值以供協助篩選或搜尋不同的追蹤集。 例如:
 
 *C#*
 
@@ -712,7 +713,7 @@ dependencies
 
 ## <a name="flushing-data"></a>排清資料
 
-通常，SDK 會傳送完整的資料在固定時間間隔 （通常是 30 秒），或緩衝區時 （通常是 500 個項目）。 不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
+一般來說, SDK 會以固定間隔 (通常是30秒) 或每次緩衝區已滿 (通常是500專案) 傳送資料。 不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
 *C#*
 
@@ -950,7 +951,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();
@@ -1084,7 +1085,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-適用於 Node.js，您可以讓開發人員模式藉由啟用內部的記錄，透過`setInternalLogging`並設定`maxBatchSize`為 0，讓您傳送，因為它會收集的遙測。
+針對 node.js, 您可以透過啟用內部記錄`setInternalLogging` , 並將設定`maxBatchSize`為 0, 以啟用開發人員模式, 這會在收集遙測資料時立即傳送。
 
 ```js
 applicationInsights.setup("ikey")
@@ -1155,7 +1156,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值。 它們通常由標準遙測模組設定，但是您也可以自行設定它們。 例如︰
+TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳送的值。 它們通常由標準遙測模組設定，但是您也可以自行設定它們。 例如:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

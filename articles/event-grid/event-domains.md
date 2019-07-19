@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304289"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305415"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>了解用於管理事件方格主題的事件網域
 
@@ -47,7 +47,7 @@ ms.locfileid: "66304289"
 
 ### <a name="built-in-roles"></a>內建角色
 
-事件方格具有兩個內建角色定義，可使 RBAC 更容易與事件網域搭配運作。 這些角色為 **EventGrid EventSubscription 參與者 (預覽)** 和 **EventGrid EventSubscription 讀者 (預覽)** 。 您可以將這些角色指派給需要訂閱您事件網域中之主題的使用者。 您的範圍限定角色指派，使用者需訂閱的主題。
+事件方格具有兩個內建角色定義，可使 RBAC 更容易與事件網域搭配運作。 這些角色為 **EventGrid EventSubscription 參與者 (預覽)** 和 **EventGrid EventSubscription 讀者 (預覽)** 。 您可以將這些角色指派給需要訂閱您事件網域中之主題的使用者。 您可以將角色指派的範圍限定為使用者必須訂閱的主題。
 
 如需這些角色的詳細資訊，請參閱[適用於事件方格的內建角色](security-authentication.md#built-in-roles)。
 
@@ -97,18 +97,18 @@ ms.locfileid: "66304289"
 事件網域會為您處理發行到主題。 不要將事件個別發行到您所管理的每個主題，您可以改為將所有事件發行到網域端點。 事件方格負責確保會將每個事件傳送到正確的主題。
 
 ## <a name="limits-and-quotas"></a>限制和配額
-以下是限制和配額的相關事件網域：
+以下是與事件網域相關的限制和配額:
 
-- 每個事件網域 100,000 主題 
-- 每個 Azure 訂用帳戶的 100 個事件網域 
+- 100000每個事件網域的主題 
+- 每個 Azure 訂用帳戶100個事件網域 
 - 事件網域內每個主題 500 個事件訂閱
-- 50 網域範圍訂用帳戶 
-- 每秒的擷取速率 （至網域） 的 5000 個事件
+- 50網域範圍訂閱 
+- 5000每秒事件的內嵌速率 (在網域中)
 
-如果這些限制不符合您、 連絡產品小組開啟支援票證或傳送電子郵件給[ askgrid@microsoft.com ](mailto:askgrid.microsoft.com)。 
+如果這些限制不符合您的需要, 請開啟支援票證或傳送電子郵件給, 以與[askgrid@microsoft.com](mailto:askgrid@microsoft.com)產品小組聯繫。 
 
 ## <a name="pricing"></a>價格
-事件網域使用相同[作業定價](https://azure.microsoft.com/pricing/details/event-grid/)Event Grid 中的所有其他功能使用。
+事件網域會使用事件方格中所有其他功能所使用的相同[作業定價](https://azure.microsoft.com/pricing/details/event-grid/)。
 
 作業在事件網域中的運作方式，與它們在自訂主題中所做的一樣。 每個對事件網域的事件輸入都是一項作業，而每次對於事件的傳遞嘗試都是一項作業。
 

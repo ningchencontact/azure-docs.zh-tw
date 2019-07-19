@@ -7,13 +7,13 @@ manager: nunoc
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
-ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: nunoc
+ms.openlocfilehash: 1c27b85aca45f25354d6351c1a335b14cb9bc446
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937691"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297813"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace 的支援  
 以下是 Marketplace 的支援選項清單。  
@@ -22,7 +22,7 @@ ms.locfileid: "64937691"
 
 ## <a name="onboarding"></a>登入
 
-與 Microsoft 建立票證[marketplace 發行者支援人員](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)和 [快速入門] 的上架，或與 Microsoft 的問題[合作夥伴支援](https://partner.microsoft.com/support)如果您在 Microsoft 合作夥伴網路有問題。
+使用 Microsoft [marketplace 發行者支援](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)開啟票證, 以取得上線和開始使用的問題, 如果您對 Microsoft 合作夥伴網路有任何疑問, 請向 microsoft[合作夥伴支援服務](https://partner.microsoft.com/support)。
 
 ## <a name="cloud-partner-portal"></a>雲端合作夥伴入口網站  
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740907"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320681"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure 監視器的記錄檔查詢中的電腦群組
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure 監視器記錄檔查詢中的電腦群組
 Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-query-overview.md)範圍限於一組特定的電腦。  使用您所定義的查詢，或從不同來源匯入群組，將電腦填入每個群組中。  當記錄查詢包含群組時，結果就僅限於與群組中的電腦相符的記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -84,7 +84,7 @@ Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-que
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 當您設定 Azure 監視器以匯入 Configuration Manager 集合成員資格時，它會為每個集合建立電腦群組。  每 3 個小時就會擷取一次集合成員資格資訊，以便電腦群組會隨時保持最新狀態。 
 
-您必須先[將 Configuration Manager 連線至 Azure 監視器](collect-sccm.md)，才能匯入 Configuration Manager 集合。  接著，您可以在 Azure 入口網站中的 Log Analytics 工作區中設定從 [進階設定]  設定匯入。  依序選取 [電腦群組]  、[SCCM]  和 [匯入 Configuration Manager 集合成員資格]  。  不需要進一步的組態。
+您必須先[將 Configuration Manager 連線至 Azure 監視器](collect-sccm.md)，才能匯入 Configuration Manager 集合。  
 
 ![來自 SCCM 的電腦群組](media/computer-groups/configure-sccm.png)
 

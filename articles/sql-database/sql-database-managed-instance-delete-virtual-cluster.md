@@ -1,9 +1,8 @@
 ---
-title: 刪除子網路之後刪除 Azure SQL Database 受控執行個體 |Microsoft Docs
-description: 了解如何刪除 Azure 虛擬網路之後刪除 Azure SQL Database 受控執行個體。
+title: 在刪除 Azure SQL Database 受控實例之後, 刪除子網 |Microsoft Docs
+description: 瞭解如何在刪除 Azure SQL Database 受控實例之後刪除 Azure 虛擬網路。
 services: sql-database
 ms.service: sql-database
-ms.subservice: management
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,42 +11,42 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 4679ecda210fa78aad4315bc6602b67dd1795ce9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ead7ea91e172f608c5364e4d5164d2a71dbf2f5f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427980"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297631"
 ---
-# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>刪除子網路之後刪除 Azure SQL Database 受控執行個體
+# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>在刪除 Azure SQL Database 受控實例之後刪除子網
 
-本文章提供有關如何刪除最後一個 Azure SQL Database 受控執行個體位於它之後，手動刪除子網路的指導方針。
+本文提供如何在刪除其上最後一個 Azure SQL Database 受控實例之後, 手動刪除子網的指導方針。
 
-SQL Database 會使用[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture)包含已刪除受管理的執行個體。 虛擬叢集，持續 12 小時執行個體刪除後，可讓您快速建立相同的子網路中的 受管理的執行個體。 沒有免費保留空白的虛擬叢集。 在這段期間，與虛擬叢集相關聯的子網路將無法刪除。
+SQL Database 使用[虛擬叢集](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture)來包含已刪除的受控實例。 虛擬叢集會在實例刪除後的12小時內持續保存, 讓您能夠在相同的子網中快速建立受控實例。 保留空的虛擬叢集不會收費。 在這段期間，與虛擬叢集相關聯的子網路將無法刪除。
 
-如果您不想等候 12 小時，並想要立即刪除虛擬叢集和其子網路，則可以手動。 使用 Azure 入口網站或虛擬叢集 API 手動刪除虛擬叢集。
+如果您不想等待12小時, 而且想要立即刪除虛擬叢集及其子網, 您可以手動執行此動作。 使用 Azure 入口網站或虛擬叢集 API, 手動刪除虛擬叢集。
 
 > [!NOTE]
-> 虛擬叢集，應包含任何受管理的執行個體，才能成功刪除。
+> 虛擬叢集不應包含任何受控實例, 因此無法成功刪除。
 
-## <a name="delete-virtual-cluster-from-the-azure-portal"></a>從 Azure 入口網站中刪除虛擬叢集
+## <a name="delete-virtual-cluster-from-the-azure-portal"></a>從 Azure 入口網站刪除虛擬叢集
 
-若要使用 Azure 入口網站刪除虛擬叢集，請搜尋虛擬叢集資源。
+若要使用 Azure 入口網站來刪除虛擬叢集, 請搜尋虛擬叢集資源。
 
-![Azure 入口網站中，使用 [搜尋] 方塊中反白顯示的螢幕擷取畫面](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
+![Azure 入口網站的螢幕擷取畫面, 並反白顯示搜尋方塊](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-找出您想要刪除的虛擬叢集之後，選取 此資源，然後選取**刪除**。 系統會提示您確認虛擬叢集刪除。
+找到您想要刪除的虛擬叢集之後, 請選取 [此資源], 然後選取 [**刪除**]。 系統會提示您確認是否刪除虛擬叢集。
 
-![螢幕擷取畫面，在 Azure 入口網站虛擬叢集儀表板，反白顯示的刪除選項](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![[Azure 入口網站虛擬叢集] 儀表板的螢幕擷取畫面, 並反白顯示 [刪除] 選項](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Azure 入口網站的通知區域會顯示已刪除虛擬叢集的確認。 成功刪除虛擬叢集的立即釋出以便重複使用的子網路。
+[Azure 入口網站通知] 區域會顯示您確認已刪除虛擬叢集。 成功刪除虛擬叢集會立即釋放子網以供重複使用。
 
 > [!TIP]
-> 如果沒有受管理的執行個體顯示在虛擬叢集中，而且您無法刪除虛擬叢集，請確定，您不需要進行中的執行個體部署進行中。 這包括啟動和取消仍在進行中的部署。 檢閱 [部署] 索引標籤的資源群組執行個體已部署至會指出任何部署正在進行中。 在此情況下，請等候完成，刪除受管理的執行個體，然後虛擬叢集的部署。
+> 如果虛擬叢集中沒有顯示任何受控實例, 而且您無法刪除虛擬叢集, 請確定您沒有進行中的實例部署。 這包括已啟動和已取消的部署仍在進行中。 已部署實例之資源群組的 [檢查部署] 索引標籤, 會指出任何進行中的部署。 在此情況下, 等待部署完成、刪除受控實例, 然後再刪除虛擬叢集。
 
-## <a name="delete-virtual-cluster-by-using-the-api"></a>使用 API 來刪除虛擬叢集
+## <a name="delete-virtual-cluster-by-using-the-api"></a>使用 API 刪除虛擬叢集
 
-若要刪除虛擬叢集透過 API，使用指定的 URI 參數[虛擬叢集刪除方法](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)。
+若要透過 API 刪除虛擬叢集, 請使用[虛擬叢集刪除方法](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)中指定的 URI 參數。
 
 ## <a name="next-steps"></a>後續步驟
 

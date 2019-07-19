@@ -1,6 +1,6 @@
 ---
 title: 使用安全性原則 | Microsoft Docs
-description: 這篇文章說明如何使用 Azure 資訊安全中心的安全性原則。
+description: 本文說明如何在 Azure 資訊安全中心中使用安全性原則。
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/05/2019
+ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551708"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314924"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -32,7 +32,7 @@ ms.locfileid: "67551708"
 > 資訊安全中心已開始進行其與 Azure 原則的整合。 現有客戶會自動遷移至 Azure 原則中新的內建方案，而不是資訊安全中心先前的安全性原則。 除了 Azure 原則中新方案的目前狀態以外，這項變更不會影響您的資源或環境。
 
 ## <a name="what-are-security-policies"></a>什麼是安全性原則？
-安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 在 Azure 原則中，您可以為 Azure 訂用帳戶定義原則，並按照工作負載的類型或資料的機密性訂定這些原則。 例如，使用規範的資料，例如個人資料或客戶資料的應用程式可能需要較高層級的安全性比其他工作負載。 若要跨訂用帳戶或針對管理群組設定原則，請在 [Azure 原則](../governance/policy/overview.md)中設定。
+安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 在 Azure 原則中，您可以為 Azure 訂用帳戶定義原則，並按照工作負載的類型或資料的機密性訂定這些原則。 例如, 使用受規範資料的應用程式 (例如個人資料或客戶資料) 可能需要比其他工作負載更高的安全性等級。 若要跨訂用帳戶或針對管理群組設定原則，請在 [Azure 原則](../governance/policy/overview.md)中設定。
 
 您的安全性原則會推動您在 Azure 資訊安全中心中取得的安全性建議。 您可以監視它們的合規性，以幫助您識別潛在的弱點並減輕威脅。 如需如何決定哪個選項適合您的詳細資訊，請參閱[內建安全性原則](security-center-policy-definitions.md)的清單。
 
@@ -71,7 +71,7 @@ Azure 原則由下列元件組成：
    在 [原則管理]  畫面中，您可以看到管理群組、訂用帳戶和工作區數目，以及您的管理群組結構。
 
    > [!NOTE]
-   > - 資訊安全中心儀表板在 [訂用帳戶涵蓋範圍]  之下顯示的訂用帳戶數目，比在 [原則管理]  之下顯示的訂用帳戶數目還要多。 訂用帳戶涵蓋範圍會顯示標準、免費和「未涵蓋」的訂用帳戶數目。 「未涵蓋」訂用帳戶並未啟用資訊安全中心，而且不會顯示在 [原則管理]  之下。
+   > 資訊安全中心儀表板在 [訂用帳戶涵蓋範圍]  之下顯示的訂用帳戶數目，比在 [原則管理]  之下顯示的訂用帳戶數目還要多。 訂用帳戶涵蓋範圍會顯示標準、免費和「未涵蓋」的訂用帳戶數目。 「未涵蓋」訂用帳戶並未啟用資訊安全中心，而且不會顯示在 [原則管理]  之下。
    >
 
 2. 選取要檢視其原則的訂用帳戶或管理群組。
@@ -84,10 +84,10 @@ Azure 原則由下列元件組成：
    ![[原則] 畫面](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - 檢視指派的原則時，您可以看到多個指派，您可以看到每個指派如何自行設定。
+> 檢視指派的原則時，您可以看到多個指派，您可以看到每個指派如何自行設定。
 
 ## <a name="edit-security-policies"></a>編輯安全性原則
-您可以在 [Azure 原則](../governance/policy/tutorials/create-and-manage.md)內，編輯每個 Azure 訂用帳戶和管理群組的預設安全性原則。 若要修改安全性原則，您必須是該訂用帳戶或所在管理群組的擁有者、參與者或安全性系統管理員。
+您可以在 [Azure 原則](../governance/policy/tutorials/create-and-manage.md)內，編輯每個 Azure 訂用帳戶和管理群組的預設安全性原則。 若要修改安全性原則, 您必須是訂用帳戶或包含管理群組的擁有者或安全性系統管理員。
 
 如需如何編輯 Azure 原則中的安全性原則的指示，請參閱[建立和管理原則來強制執行合規性](../governance/policy/tutorials/create-and-manage.md)。
 
@@ -95,28 +95,28 @@ Azure 原則由下列元件組成：
 
 
 ## <a name="disable-security-policies"></a>停用安全性原則
-如果預設的安全性原則要產生您的環境無關的建議，您可以藉由停用傳送建議的原則定義中將它停止。
-如需建議的詳細資訊，請參閱[管理的安全性建議](security-center-recommendations.md)。
+如果預設的安全性原則正在產生與您的環境無關的建議, 您可以停用傳送建議的原則定義來停止它。
+如需有關建議的進一步資訊, 請參閱[管理安全性建議](security-center-recommendations.md)。
 
-1. 在資訊安全中心中，從**原則與合規性**區段中，按一下**安全性原則**。
+1. 在資訊安全中心中, 從 [**原則 & 相容性**] 區段中, 按一下 [**安全性原則**]。
 
    ![原則管理](./media/tutorial-security-policy/policy-management.png)
 
 2. 按一下您要停用建議的訂用帳戶或管理群組。
 
    > [!Note]
-   > 請記住，管理群組就會套用其原則至其訂用帳戶。 因此，如果您停用訂用帳戶的原則，而且訂用帳戶所屬的管理群組仍使用相同的原則，則您會繼續接收建議的原則。 仍會從管理層級套用原則，仍會產生建議。
+   > 請記住, 管理群組會將其原則套用至其訂用帳戶。 因此, 如果您停用訂用帳戶的原則, 而且訂用帳戶屬於仍使用相同原則的管理群組, 則您會繼續收到原則建議。 原則仍然會從管理層級套用, 而且仍會產生建議。
 
-1. 按一下 指派的原則。
+1. 按一下 [指派的原則]。
 
    ![停用原則](./media/tutorial-security-policy/security-policy.png)
 
-1. 在 **參數**區段中，搜尋您想要停用，建議會叫用的原則，並從下拉式清單中，選取**已停用**
+1. 在 [**參數**] 區段中, 搜尋叫用您想要停用之建議的原則, 然後從下拉式清單中選取 [**已停用**]
 
    ![停用原則](./media/tutorial-security-policy/disable-policy.png)
-1. 按一下 [檔案]  。
+1. 按一下 [儲存]  。
    > [!Note]
-   > 停用原則變更可能需要 12 小時的時間才會生效。
+   > 停用原則變更最多可能需要12小時才會生效。
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>使用 REST API 設定安全性原則
@@ -125,11 +125,11 @@ Azure 資訊安全中心與 Azure 原則的原生整合可讓您充分利用 Azu
 
 Azure 原則中的重要概念： 
 
-- A**原則定義**規則 
+- **原則定義**是一種規則 
 
-- **Initiative**是原則定義 （規則） 的集合 
+- **方案**是原則定義的集合 (規則) 
 
-- **指派**個計畫或原則的應用程式，在特定範圍內 （管理群組、 訂用帳戶） 
+- **指派**是將方案或原則應用至特定範圍 (管理群組、訂用帳戶等) 
 
 資訊安全中心有內建的方案，其中包含所有其安全性原則。 若要評估 Azure 資源上的資訊安全中心原則，您應該建立管理群組的指派，或您想要評估的訂用帳戶。  
 
@@ -145,6 +145,7 @@ Azure 原則中的重要概念：
 
 此範例將示範如何對於訂用帳戶或管理群組指派內建的資訊安全中心方案
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -169,6 +170,7 @@ Azure 原則中的重要概念：
     } 
 
     } 
+ ```
 
 此範例將示範如何對於已停用下列原則的訂用帳戶，指派內建的資訊安全中心方案： 
 
@@ -178,18 +180,18 @@ Azure 原則中的重要概念：
 
 - 端點保護 (「endpointProtectionMonitoringEffect」) 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
-    要求本文 (JSON) 
+    Request Body (JSON) 
     
     { 
     
       "properties":{ 
     
-    "displayName":"啟用 Azure 資訊安全中心監視 」， 
+    "displayName":"Enable Monitoring in Azure Security Center", 
     
-    「 中繼資料 」: { 
+    "metadata":{ 
     
     "assignedBy":"{Name}" 
     
@@ -199,23 +201,23 @@ Azure 原則中的重要概念：
     
     "parameters":{ 
     
-    「 systemUpdatesMonitoringEffect": {"value":"Disabled"}， 
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
     
-    「 systemConfigurationsMonitoringEffect": {"value":"Disabled"}， 
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
     
-    「 endpointProtectionMonitoringEffect": {"value":"Disabled"}， 
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
     
     }, 
     
      } 
     
     } 
-
+ ```
 此範例會示範如何移除指派：
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### 原則名稱參考 <a name="policy-names"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services：將 CoreOS Linux VM 加入受控網域 | Microsoft Docs
+title: Azure Active Directory Domain Services：加入 CoreOS Linux VM |Microsoft Docs
 description: 將 CoreOS Linux 虛擬機器加入 Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 93d8279c07c936d7e5ce2c7e756baadfbe4a1b0a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 78a6c5262cd6668712beac1e041fa4f25c05a724
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473299"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234072"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>將 CoreOS Linux 虛擬機器加入受控網域
 本文說明如何將 Azure 中的 CoreOS Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -59,54 +59,56 @@ CoreOS 虛擬機器已佈建在 Azure 中。 下一個工作是使用佈建 VM �
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定主機檔案
 在您的 SSH 終端機中，編輯 /etc/hosts 檔案並更新您的電腦 IP 位址和主機名稱。
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 在主機檔案中，輸入下列值：
 
-```
+```console
 127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
 ```
+
 在這裡，'contoso100.com' 為受控網域的 DNS 網域名稱。 'contoso-coreos' 是您要加入至受控網域之 CoreOS 虛擬機器的主機名稱。
 
 
 ## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定 SSSD 服務
 接著，更新 ('/ etc/sssd/sssd.conf') 中的 SSSD 設定檔以符合下列範例：
 
- ```
- [sssd]
- config_file_version = 2
- services = nss, pam
- domains = CONTOSO100.COM
+```console
+[sssd]
+config_file_version = 2
+services = nss, pam
+domains = CONTOSO100.COM
 
- [domain/CONTOSO100.COM]
- id_provider = ad
- auth_provider = ad
- chpass_provider = ad
+[domain/CONTOSO100.COM]
+id_provider = ad
+auth_provider = ad
+chpass_provider = ad
 
- ldap_uri = ldap://contoso100.com
- ldap_search_base = dc=contoso100,dc=com
- ldap_schema = rfc2307bis
- ldap_sasl_mech = GSSAPI
- ldap_user_object_class = user
- ldap_group_object_class = group
- ldap_user_home_directory = unixHomeDirectory
- ldap_user_principal = userPrincipalName
- ldap_account_expire_policy = ad
- ldap_force_upper_case_realm = true
- fallback_homedir = /home/%d/%u
+ldap_uri = ldap://contoso100.com
+ldap_search_base = dc=contoso100,dc=com
+ldap_schema = rfc2307bis
+ldap_sasl_mech = GSSAPI
+ldap_user_object_class = user
+ldap_group_object_class = group
+ldap_user_home_directory = unixHomeDirectory
+ldap_user_principal = userPrincipalName
+ldap_account_expire_policy = ad
+ldap_force_upper_case_realm = true
+fallback_homedir = /home/%d/%u
 
- krb5_server = contoso100.com
- krb5_realm = CONTOSO100.COM
- ```
+krb5_server = contoso100.com
+krb5_realm = CONTOSO100.COM
+```
+
 將 'CONTOSO100.COM' 取代為受控網域的 DNS 網域名稱。 確定您在 conf 檔案中指定大寫的網域名稱。
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>將 Linux 虛擬機器加入受控網域
 既然 Linux 虛擬機器上已安裝必要的封裝，下一個工作是將虛擬機器加入受控網域。
 
-```
+```console
 sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
 ```
 
@@ -118,26 +120,30 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 >   * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。
 
 啟動 SSSD 服務。 在 SSH 終端機中輸入下列命令：
-  ```
-  sudo systemctl start sssd.service
-  ```
+  
+```console
+sudo systemctl start sssd.service
+```
 
 
 ## <a name="verify-domain-join"></a>確認加入網域
 確認電腦是否已成功加入受控網域。 使用不同的 SSH 連線來連線到加入網域的 CoreOS VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
 1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 CoreOS 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
     ```
 
 2. 在 SSH 終端機中輸入下列命令，以查看是否已正確初始化主目錄。
-    ```
+    
+    ```console
     pwd
     ```
 
 3. 在 SSH 終端機中輸入下列命令，以查看是否會正確解析群組成員資格。
-    ```
+   
+    ```console
     id
     ```
 

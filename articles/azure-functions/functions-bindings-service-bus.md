@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480225"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254741"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
-下列 Java 函式會使用`@ServiceBusQueueTrigger`註解表單[Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)描述服務匯流排佇列觸發程序組態。 函式會抓取放置在佇列的訊息，並將它加入至記錄檔。
+下列 java 函式會使用`@ServiceBusQueueTrigger` java 函式[運行](/java/api/overview/azure/functions/runtime)時間程式庫中的注釋來描述服務匯流排佇列觸發程式的設定。 函式會抓取放在佇列上的訊息, 並將它新增至記錄。
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +162,7 @@ let Run(myQueueItem: string, log: ILogger) =
  }
 ```
 
-訊息新增至服務匯流排主題時，也會觸發 Java 函式。 下列範例會使用`@ServiceBusTopicTrigger`描述觸發程序組態的註解。
+當訊息新增至服務匯流排主題時, 也會觸發 JAVA 函式。 下列範例會使用`@ServiceBusTopicTrigger`批註來描述觸發程式設定。
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -295,7 +295,7 @@ module.exports = function(context, myQueueItem) {
 * `string` - 如果訊息是文字。
 * `byte[]` - 適用於二進位資料。
 * 自訂類型 - 如果訊息包含 JSON，Azure Functions 會嘗試將 JSON 資料還原序列化。
-* `BrokeredMessage` - 利用 [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 方法提供您還原序列化的訊息。
+* `BrokeredMessage`-提供您使用[BrokeredMessage. GetBody\<T > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)方法還原序列化的訊息。
 
 這些參數適用於 Azure Functions 版本 1.x；針對 2.x，請使用 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)，而不是使用 `BrokeredMessage`。
 
@@ -315,7 +315,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 服務匯流排觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 類別的屬性。
 
-|屬性|類型|描述|
+|屬性|Type|描述|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|傳遞數目。|
 |`DeadLetterSource`|`string`|無效信件來源。|
@@ -330,7 +330,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 |`CorrelationId`|`string`|相互關連識別碼。|
 
 > [!NOTE]
-> 目前，服務匯流排觸發程序可搭配已啟用的工作階段佇列和訂用帳戶會處於預覽狀態。 請追蹤[此項目](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458)有任何關於此的進一步更新。 
+> 目前, 服務匯流排觸發程式適用于已啟用會話的佇列和訂用帳戶。 請追蹤[此專案](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458), 以取得與此相關的任何進一步更新。 
 
 請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
 
@@ -348,7 +348,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 |
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
@@ -488,7 +488,7 @@ public String pushToQueue(
 
  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至服務匯流排佇列的函式參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
 
-Java 函式也可以寫入服務匯流排主題。 下列範例會使用`@ServiceBusTopicOutput`註解來描述輸出繫結的組態。 
+JAVA 函數也可以寫入服務匯流排主題。 下列範例會使用`@ServiceBusTopicOutput`批註來描述輸出系結的設定。 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -623,7 +623,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
-| 繫結 | 參考 |
+| 繫結 | 參考資料 |
 |---|---|
 | 服務匯流排 | [服務匯流排錯誤碼](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | 服務匯流排 | [服務匯流排限制](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
@@ -653,7 +653,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|將自動更新訊息鎖定的最大持續時間。|
 |autoComplete|true|無論觸發程序是否應立即標示為完成 (自動完成) 或等待呼叫完成處理。|

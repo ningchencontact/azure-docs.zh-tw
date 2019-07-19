@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: 使用輸出規則來定義輸出網路位址轉譯
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698437"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305588"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
@@ -84,7 +84,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
           "allocatedOutboundPorts": 10000
 
-來自輸出規則之所有前端的每個公用 IP 位址都會提供最多 51,200 個暫時連接埠，以當成 SNAT 連接埠使用。  Load Balancer 會以 8 的倍數來配置 SNAT 連接埠數目。 如果您提供的值無法與 8 整除，則會拒絕設定作業。  如果您嘗試根據公用 IP 位址數目來配置比可用 SNAT 連接埠更多的 SNAT 連接埠，則會拒絕設定作業。  比方說，如果您配置 10,000 的連接埠，每個 VM 和 7 個 Vm 在後端集區會共用單一公用 IP 位址，設定會被拒絕 （7 x 10,000 SNAT 連接埠 > 51,200 SNAT 連接埠）。  您可以將更多公用 IP 位址新增至輸出規則的前端，以啟用此情節。
+來自輸出規則之所有前端的每個公用 IP 位址都會提供最多 51,200 個暫時連接埠，以當成 SNAT 連接埠使用。  Load Balancer 會以 8 的倍數來配置 SNAT 連接埠數目。 如果您提供的值無法與 8 整除，則會拒絕設定作業。  如果您嘗試根據公用 IP 位址數目來配置比可用 SNAT 連接埠更多的 SNAT 連接埠，則會拒絕設定作業。  例如, 如果您為每個 VM 配置10000埠, 而後端集區中的7個 Vm 會共用單一公用 IP 位址, 則會拒絕設定 (7 x 10000 SNAT 埠 > 51200 SNAT 埠)。  您可以將更多公用 IP 位址新增至輸出規則的前端，以啟用此情節。
 
 您可以指定連接埠數目 0，以還原為[根據後端集區大小的自動 SNAT 連接埠配置](load-balancer-outbound-connections.md#preallocatedports)。
 
@@ -208,7 +208,7 @@ disableOutboundSNAT 參數預設為 false，這表示負載平衡規則**確實*
 - 可設定輸出閒置逾時的範圍為 4 到 120 分鐘 (240 到 7200 秒)。
 - Load Balancer 不支援輸出 NAT 的 ICMP。
 - 入口網站無法用來設定或檢視輸出規則。  請改為使用範本、REST API、Az CLI 2.0 或 PowerShell。
-- 輸出規則只能套用至主要 NIC 和主要 IP 組態。
+- 輸出規則只能套用至 NIC 的主要 IP 設定。  支援多個 Nic。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 46044c061cca24714d1a951e28cf01ca29f14a7e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707213"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228356"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -84,7 +84,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 
 在所有 **iSCSI 目標虛擬機器**上執行下列命令，為 SAP 系統所用的叢集建立 iSCSI 磁碟。 在下列範例中，會建立多個叢集的 SBD 裝置。 它會顯示如何對多個叢集使用一部 iSCSI 目標伺服器。 SBD 裝置會置於 OS 磁碟上。 確定您有足夠的空間。
 
-**`nfs`** 用來識別 NFS 叢集**ascsnw1**用來識別的 ASCS 叢集**NW1**， **dbnw1**用來識別資料庫叢集中的**NW1**， **nfs 0**並**nfs 1**是 NFS 叢集節點的主機名稱**nw1-xscs 0**和**nw1 xscs 1**是的主機名稱**NW1** ASCS 叢集節點，並**nw1-db-0**並**nw1-db-1**是叢集節點主機名稱的資料庫。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
+**`nfs`** 是用來識別 NFS 叢集、使用**ascsnw1**來識別**NW1**的 ASCS 叢集、使用**dbnw1**來識別**NW1**的資料庫叢集、 **nfs-0**和**nfs-1**是 NFS 叢集節點的主機名稱、 **nw1-xscs-0**和**nw1-xscs-1**是**nw1** ASCS 叢集節點的主機名稱, 而**nw1-db-0**和**nw1-db-1**是資料庫叢集節點的主機名稱。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   建立`softdog`組態檔
+   `softdog`建立設定檔
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -348,9 +348,9 @@ o- / ...........................................................................
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]** Configure cloud-netconfig-azure for HA Cluster
+1. **[A]** 設定適用于 HA 叢集的雲端 netconfig-azure
 
-   變更網路介面的組態檔，以防止雲端網路外掛程式移除 （Pacemaker 必須控制 VIP 指派） 的虛擬 IP 位址，如下所示。 如需詳細資訊，請參閱[SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)。 
+   變更網路介面的設定檔, 如下所示, 以防止雲端網路外掛程式移除虛擬 IP 位址 (Pacemaker 必須控制 VIP 指派)。 如需詳細資訊, 請參閱[SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)。 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -448,7 +448,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊，請參閱 <<c0> [ 適用於 Linux 的這篇文章][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]。 此外，請務必移除參數 mcastaddr。
+   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊, 請參閱or [Windows][virtual-machines-windows-maintenance][適用于 Linux 的文章][virtual-machines-linux-maintenance]。 此外，請務必移除參數 mcastaddr。
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ o- / ...........................................................................
 
 STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立服務主體。
 
-1. 移至 [https://portal.azure.com](https://portal.azure.com)
+1. 移至 <https://portal.azure.com>。
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
    移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」  。
 1. 按一下 [應用程式註冊]
-1. 按一下 [新增]
-1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http\://localhost)，然後按一下 [建立]
-1. 登入 URL 並未使用，而且可以是任何有效的 URL
-1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
-1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
+1. 按一下 [新增註冊]
+1. 輸入名稱, 選取 [僅此組織目錄中的帳戶] 
+2. 選取應用程式類型 [Web], 輸入登入 URL (例如 HTTP:\//localhost), 然後按一下 [新增]  
+   登入 URL 並未使用，而且可以是任何有效的 URL
+1. 選取 [憑證和密碼], 然後按一下 [新增用戶端密碼]
+1. 輸入新金鑰的描述, 選取 [永不過期], 然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」  )
+1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」  )
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
@@ -576,16 +577,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>適用於 Azure 的 pacemaker 設定排定的事件
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 已排程事件的 Pacemaker 設定
 
-Azure 優惠[已排定事件](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)。 排定的事件會提供透過中繼資料服務，並允許提供時間讓應用程式虛擬機器關機、 重新部署 VM 等事件做準備。資源代理程式 **[azure 事件](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 的已排定事件的監視。 如果偵測到事件，該代理程式會嘗試停止受影響的 VM 上的所有資源，並將其移至叢集中的另一個節點。 若要達到該額外的 Pacemaker 資源必須設定。 
+Azure 提供[排程的事件](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)。 排定的事件是透過中繼資料服務所提供, 並可讓應用程式針對 VM 關機、VM 重新部署等事件進行準備。資源代理程式 **[azure-](https://github.com/ClusterLabs/resource-agents/pull/1161)** 已排程 azure 事件的事件監視。 如果偵測到事件, 代理程式將會嘗試停止受影響 VM 上的所有資源, 並將其移至叢集中的另一個節點。 若要達到此目的, 必須設定額外的 Pacemaker 資源。 
 
 1. **[A]** 安裝**azure 事件**代理程式。 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]** 在 Pacemaker 中設定的資源。 
+2. **[1]** 在 Pacemaker 中設定資源。 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,17 +601,17 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > 當您將叢集放入或移出維護模式時，您會設定 azure 事件代理程式，Pacemaker 資源之後，您可能會收到警告訊息，例如：  
-     警告： cib bootstrap 選項： 未知的屬性 ' hostName_  <strong>hostname</strong>'  
-     警告： cib bootstrap 選項： 未知的屬性 ' azure events_globalPullState'  
-     警告： cib bootstrap 選項： 未知的屬性 ' hostName_ <strong>hostname</strong>'  
+   > 設定 azure 事件代理程式的 Pacemaker 資源之後, 當您將叢集放入或移出維護模式時, 您可能會收到類似下列的警告訊息:  
+     警告: cib-啟動程式-選項: 不明的屬性 ' hostName_ <strong>hostName</strong>'  
+     警告: cib-啟動程式-選項: 不明的屬性 ' azure-events_globalPullState '  
+     警告: cib-啟動程式-選項: 不明的屬性 ' hostName_ <strong>hostName</strong>'  
    > 您可以忽略這些警告訊息。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure 虛擬機器規劃和實作適用於 SAP][planning-guide]
-* [適用於 SAP 的 azure 虛擬機器部署][deployment-guide]
-* [適用於 SAP 的 azure 虛擬機器 DBMS 部署][dbms-guide]
-* [SUSE Linux Enterprise Server 上的 Azure Vm 上 nfs 的高可用性][sles-nfs-guide]
+* [適用于 SAP 的 Azure 虛擬機器規劃和執行][planning-guide]
+* [適用于 SAP 的 Azure 虛擬機器部署][deployment-guide]
+* [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
+* [SUSE Linux Enterprise Server 上 Azure Vm 上 NFS 的高可用性][sles-nfs-guide]
 * [SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性][sles-guide]
-* 若要了解如何建立高可用性和災害復原的 SAP HANA 的 Azure Vm 上的計劃，請參閱[SAP HANA 的高可用性 Azure 虛擬機器 (Vm) 上][sap-hana-ha]
+* 若要瞭解如何建立高可用性並規劃 Azure Vm 上 SAP Hana 的嚴重損壞修復, 請參閱[azure 虛擬機器 (vm) 上 SAP Hana 的高可用性][sap-hana-ha]

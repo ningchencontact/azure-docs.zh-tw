@@ -1,7 +1,7 @@
 ---
-title: Azure CLI 指令碼範例-設定 IPv6 虛擬網路端點 （預覽）
+title: Azure CLI 腳本範例-設定 IPv6 虛擬網路端點 (預覽)
 titlesuffix: Azure Virtual Network
-description: 啟用使用 Azure CLI 在 Azure 虛擬網路的 IPv6 端點
+description: 使用 Azure 虛擬網路中的 Azure CLI 啟用 IPv6 端點
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,31 +12,33 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63761455"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248892"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>設定虛擬網路指令碼範例 （預覽） 中的 IPv6 端點
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>在虛擬網路中設定 IPv6 端點腳本範例 (預覽)
 
-本文說明如何部署雙重堆疊 （IPv4 + IPv6） 中的應用程式包含具有雙重堆疊子網路，使用雙 （IPv4 + IPv6） 前端組態，具有有雙重 IP 組態的 Nic 的 Vm 負載平衡器的雙重堆疊虛擬網路的 Azure雙重的網路安全性群組規則和 「 雙重的公用 Ip。
+本文說明如何在 Azure 中部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含具有雙重堆疊子網的雙重堆疊虛擬網路、具有雙重 (IPv4 + IPv6) 前端設定的負載平衡器、具有雙 IP 設定的 Nic 的 Vm、雙重網路安全性群組規則和雙重公用 Ip。
 
 您可以從 Azure [Cloud Shell](https://shell.azure.com/bash) 或從本機的 Azure CLI 安裝來執行指令碼。 如果是在本機使用 CLI，需要執行 2.0.28 版或更新版本，方可使用該指令碼。 若要尋找已安裝的版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
-若要使用 IPv6 的 Azure 虛擬網路功能，您必須設定您訂用帳戶一次，如下所示：
+## <a name="prerequisites"></a>先決條件
+若要使用 IPv6 for Azure 虛擬網路功能, 您必須只設定訂用帳戶一次, 如下所示:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
-需要 30 分鐘才能完成功能註冊。 您可以執行下列 Azure CLI 命令來檢查您的註冊狀態：
+需要 30 分鐘才能完成功能註冊。 您可以執行下列 Azure CLI 命令來檢查註冊狀態:
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 註冊完成之後，請執行下列命令：
 

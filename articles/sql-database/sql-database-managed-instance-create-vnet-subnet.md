@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6e205c23545eb4a01ce58a8bc2b63c58200e32a
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700462"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228282"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>建立 Azure SQL Database 受控執行個體的虛擬網路
 
@@ -34,6 +34,9 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 > 請先[決定受控執行個體的子網路大小](sql-database-managed-instance-determine-size-vnet-subnet.md)，再部署第一個執行個體。 在其中放入資源後，就無法再調整子網路的大小。
 >
 > 如果您打算使用現有的虛擬網路，您需要修改該網路組態以順應您的受控執行個體。 如需詳細資訊，請參閱[針對受控執行個體修改現有的虛擬網路](sql-database-managed-instance-configure-vnet-subnet.md)。
+>
+> 建立受控實例之後, 不支援將受控實例或 VNet 移至另一個資源群組或訂用帳戶。
+
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 

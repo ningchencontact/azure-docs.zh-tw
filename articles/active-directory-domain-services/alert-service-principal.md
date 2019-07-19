@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services：針對服務主體組態進行疑難排解 | Microsoft Docs
+title: Azure Active Directory Domain Services：針對服務主體進行疑難排解 |Microsoft Docs
 description: 針對 Azure AD Domain Services 的服務主體設定進行疑難排解
 services: active-directory-ds
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 5b94fca6087da61fe10d6c80b3fe7cfb5798f2d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473909"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234130"
 ---
-# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>針對受控網域的無效服務主體組態進行疑難排解
+# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>針對 Azure Active Directory Domain Services 的無效服務主體設定進行疑難排解
 
 本文將協助您針對導致下列警示訊息的服務主體相關設定錯誤進行疑難排解：
 

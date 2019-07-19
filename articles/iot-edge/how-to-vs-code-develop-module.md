@@ -9,22 +9,22 @@ ms.author: xshi
 ms.date: 06/25/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ff40ea3fec55c77d1135bde8088b00079e6b1c44
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2d190edfac71705590135988b64ed043784125ec
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448516"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305569"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組，並對其進行偵錯
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組。 本文說明如何使用 Visual Studio Code 作為開發和偵錯模組的主要工具。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您可以使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 IoT Edge 裝置可以是另一部實體裝置。
 
-針對以 C#、Node.js 或 Java 撰寫的模組，有兩種方式可讓您在 Visual Studio Code 中對模組進行偵錯：您可以在模組容器中附加程序，或在偵錯模式中啟動模組程式碼。 用 Python 或 C 撰寫的模組需先透過 Linux amd64 容器附加至程序才能加以偵錯。
+針對以 C#、Node.js 或 Java 撰寫的模組，有兩種方式可讓您在 Visual Studio Code 中對模組進行偵錯：您可以在模組容器中附加程序，或在偵錯模式中啟動模組程式碼。 針對以 Python 或 C 撰寫的模組，只能透過在 Linux amd64 容器中將其附加至程序來進行偵錯。
 
 > [!TIP]
 > 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
@@ -43,13 +43,9 @@ ms.locfileid: "67448516"
 
 - C# (包括 Azure Functions)：[.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
-- Python：用於安裝 Python 套件的 [Python](https://www.python.org/downloads/) 和 [Pip](https://pip.pypa.io/en/stable/installing/#installation) (通常隨附於您的 Python 安裝)。 安裝 Pip 之後，請使用下列命令安裝 **Cookiecutter** 套件：
+- Python：用於安裝 Python 套件的 [Python](https://www.python.org/downloads/) 和 [Pip](https://pip.pypa.io/en/stable/installing/#installation) (通常隨附於您的 Python 安裝)。
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-
-- Node.js：[Node.js](https://nodejs.org). 您也要安裝 [Yeoman](https://www.npmjs.com/package/yo) 和 [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)。
+- Node.js：[Node.js](https://nodejs.org). 您也想要安裝 [Yeoman](https://www.npmjs.com/package/yo) 和 [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)。
 
 - Java：[Java SE 開發套件 10](https://aka.ms/azure-jdks) 和 [Maven](https://maven.apache.org/)。 您必須[設定 `JAVA_HOME` 環境變數](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)指向 JDK 安裝。
 
@@ -67,6 +63,8 @@ ms.locfileid: "67448516"
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+> [!NOTE]
+> 如果您有多個 python, 包括預先安裝的 python 2.7 (例如, 在 Ubuntu 或 macOS 上), 請確定您使用正確`pip`的`pip3`或安裝**iotedgehubdev**
 
 > [!NOTE]
 > 若要在裝置上測試模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須有一個 IoT Edge 裝置。 若要使用您的電腦作為 IoT Edge 裝置，請遵循 [Linux](quickstart-linux.md) 或 [Windows](quickstart.md) 快速入門中的步驟。 如果您在開發電腦上執行 IoT Edge 精靈，您可能必須先停止 EdgeHub 與 EdgeAgent 後，再移至下一個步驟。
@@ -81,7 +79,7 @@ ms.locfileid: "67448516"
 
    ![執行新的 IoT Edge 解決方案](./media/how-to-develop-csharp-module/new-solution.png)
 
-1. 瀏覽至要用來建立新解決方案的資料夾，然後選取 [選取資料夾]  。
+1. 瀏覽至您要建立新解決方案所在的資料夾，然後選取 [選取資料夾]  。
 
 1. 輸入解決方案的名稱。
 
@@ -99,7 +97,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 - 一個包含偵錯組態的 **.vscode** 資料夾。
 
-- 一個 **modules** 資料夾，其中包含每個模組的子資料夾。 此時，您只有一個資料夾。 但是您可以在命令選擇區中使用 [Azure IoT Edge：  新增 IoT Edge 模組] 命令來新增更多項目。
+- 一個 **modules** 資料夾，其中包含每個模組的子資料夾。  在每個模組的資料夾中, 都有一個檔案 (**模組. json**), 可控制模組的建立和部署方式。  您必須修改此檔案, 才能將模組部署容器 regristry 從 localhost 變更為遠端登入。 此時, 您只有一個模組。  但是您可以在命令選擇區中使用 [Azure IoT Edge：  新增 IoT Edge 模組] 命令來新增更多項目。
 
 - 一個 **.env** 檔案，會列出您的環境變數。 如果您的登錄是 Azure Container Registry，您會有 Azure Container Registry 使用者名稱和密碼。
 
@@ -154,7 +152,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 1. 準備環境以便根據您的開發語言需求進行偵錯、在您的模組中設定中斷點，然後選取要使用的偵錯設定：
    - **C#**
-     - 在 Visual Studio Code 整合式終端機中，將目錄變更***&lt;您的模組名稱&gt;*** 資料夾，然後再執行下列命令來建置.NET Core 應用程式。
+     - 在 Visual Studio Code 整合式終端機中, 將目錄變更為 ***&lt;您的&gt;模組名稱***資料夾, 然後執行下列命令以建立 .net Core 應用程式。
 
        ```cmd
        dotnet build
@@ -165,7 +163,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
      - 選取 [檢視] > [偵錯]  以巡覽至 Visual Studio Code 偵錯檢視。 從下拉式清單中選取偵錯設定 [ *&lt;您的模組名稱&gt;* 本機偵錯 (.NET Core)]  。
 
         > [!NOTE]
-        > 如果您的.NET Core`TargetFramework`與您的程式路徑中不一致`launch.json`，您必須手動更新中的程式路徑`launch.json`比對`TargetFramework`中您.csproj 檔案，讓該 Visual Studio 程式碼可以成功啟動它計劃。
+        > 如果您的 .net `TargetFramework` Core 與中`launch.json`的程式路徑不一致, 您必須手動更新中`launch.json`的程式路徑, 以符合 .csproj 檔案`TargetFramework`中的, 讓 Visual Studio Code 可以順利啟動此功能。程式.
 
    - **Node.js**
      - 在 Visual Studio Code 整合式終端機中，將目錄變更為 ***&lt;您的模組名稱&gt;*** 資料夾，然後執行下列命令以安裝 Node 套件
@@ -316,13 +314,13 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
   - 確定要偵錯的電腦上的模組正在執行並可供偵錯工具連結，而且可在外部存取連接埠 9229。 您可以在偵錯工具機器上開啟 `http://<target-machine-IP>:9229/json`，以驗證此操作。 此 URL 應顯示所要偵錯 Node.js 模組的相關資訊。
   
-  - 在開發電腦上開啟 Visual Studio Code，然後編輯 `launch.json`，以便 ** *&lt;您的模組名稱&gt;* 遠端偵錯 (Node.js)** 設定檔 (或者，如果模組是以 Windows 容器的形式執行，則為 ** *&lt;您的模組名稱&gt;* 遠端偵錯 (Windows 容器中的 Node.js)** 設定檔) 的位址值是所偵錯電腦的 IP。
+  - 在開發電腦上開啟 Visual Studio Code，然後編輯 `launch.json`，以便 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Node.js)** 設定檔 (或者，如果模組是以 Windows 容器的形式執行，則為 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Windows 容器中的 Node.js)** 設定檔) 的位址值是所偵錯電腦的 IP。
 
 - **Java**
 
   - 執行 `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`，對要偵錯的電腦建置 SSH 通道。
   
-  - 在您的開發電腦上開啟 Visual Studio Code 並編輯 `launch.json` 中的 ** *&lt;您的模組名稱&gt;* 遠端偵錯 (Java)** 設定檔，以便連結至目標電腦。 若要深入了解如何使用 Visual Studio Code 來編輯 `launch.json` 及偵錯 Java，請參閱[設定偵錯工具](https://code.visualstudio.com/docs/java/java-debugging#_configuration)。
+  - 在您的開發電腦上開啟 Visual Studio Code 並編輯 `launch.json` 中的 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Java)** 設定檔，以便連結至目標電腦。 若要深入了解如何使用 Visual Studio Code 來編輯 `launch.json` 及偵錯 Java，請參閱[設定偵錯工具](https://code.visualstudio.com/docs/java/java-debugging#_configuration)。
 
 - **Python**
 
@@ -330,7 +328,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
   - 在您先前插入 `main.py` 的程式碼 `ptvsd.enable_attach(('0.0.0.0', 5678))` 中，將 **0.0.0.0** 變更為要偵錯的電腦 IP 位址。 再次建置、推送及部署您的 IoT Edge 模組。
 
-  - 在您的開發電腦上開啟 Visual Studio Code，然後編輯 `launch.json`，以便 ** *&lt;您的模組名稱&gt;* 遠端偵錯 (Python)** 設定檔的 `host` 值使用目標電腦的 IP 位址，而非 `localhost`。
+  - 在您的開發電腦上開啟 Visual Studio Code，然後編輯 `launch.json`，以便 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Python)** 設定檔的 `host` 值使用目標電腦的 IP 位址，而非 `localhost`。
 
 ### <a name="debug-your-module"></a>對模組進行偵錯
 

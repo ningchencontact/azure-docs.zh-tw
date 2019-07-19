@@ -6,17 +6,17 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721108"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226807"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
-此文章列出 Azure 資源類型是否支援移動作業。 它也會提供特殊的條件，移動資源時所要考量的相關資訊。
+此文章列出 Azure 資源類型是否支援移動作業。 它也會提供移動資源時要考慮之特殊條件的相關資訊。
 
-跳到資源提供者命名空間：
+跳至資源提供者命名空間:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -202,7 +202,7 @@ ms.locfileid: "67721108"
 | automationaccounts/runbooks | 是 | 是 |
 
 > [!IMPORTANT]
-> Runbook 必須存在於相同的資源群組，做為自動化帳戶。
+> Runbook 必須存在於與自動化帳戶相同的資源群組中。
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 資源類型 | Resource group | Subscription |
@@ -263,7 +263,7 @@ ms.locfileid: "67721108"
 | redis | 是 | 是 |
 
 > [!IMPORTANT]
-> 如果 Azure 快取，Redis 執行個體已與虛擬網路中，執行個體無法移動到不同的訂用帳戶。 請參閱[虛擬網路移動限制](./move-limitations/virtual-network-move-limitations.md)。
+> 如果 Azure Cache for Redis 實例是設定為使用虛擬網路, 實例就無法移至不同的訂用帳戶。 請參閱[虛擬網路移動限制](./move-limitations/virtual-network-move-limitations.md)。
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | 資源類型 | Resource group | Subscription |
@@ -286,7 +286,7 @@ ms.locfileid: "67721108"
 | virtualmachines | 是 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 以這種情況下，傳統部署資源可以與特定作業的訂用帳戶之間移動。
+> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業, 跨訂用帳戶移動。
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | 資源類型 | Resource group | Subscription |
@@ -296,7 +296,7 @@ ms.locfileid: "67721108"
 | virtualnetworks | 否 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 以這種情況下，傳統部署資源可以與特定作業的訂用帳戶之間移動。
+> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業, 跨訂用帳戶移動。
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | 資源類型 | Resource group | Subscription |
@@ -304,7 +304,7 @@ ms.locfileid: "67721108"
 | storageaccounts | 是 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 以這種情況下，傳統部署資源可以與特定作業的訂用帳戶之間移動。
+> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業, 跨訂用帳戶移動。
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 資源類型 | Resource group | Subscription |
@@ -558,7 +558,7 @@ ms.locfileid: "67721108"
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | 資源類型 | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| 機器 | 否 | 否 |
+| 機時 | 否 | 否 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | 資源類型 | Resource group | Subscription |
@@ -588,7 +588,7 @@ ms.locfileid: "67721108"
 | workbooks | 是 | 是 |
 
 > [!IMPORTANT]
-> 請確定將移至新的訂用帳戶不能超過[訂用帳戶配額](../azure-subscription-service-limits.md#azure-monitor-limits)。
+> 請確定移至新的訂用帳戶不會超過訂用帳戶[配額](../azure-subscription-service-limits.md#azure-monitor-limits)。
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | 資源類型 | Resource group | Subscription |
@@ -608,7 +608,7 @@ ms.locfileid: "67721108"
 | vaults | 是 | 是 |
 
 > [!IMPORTANT]
-> 用於磁碟加密的金鑰保存庫無法移到相同的訂用帳戶中或跨訂用帳戶的資源群組。
+> 用於磁片加密的金鑰保存庫無法移至相同訂用帳戶中或跨訂用帳戶的資源群組。
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | 資源類型 | Resource group | Subscription |
@@ -732,7 +732,7 @@ ms.locfileid: "67721108"
 | expressrouteports | 否 | 否 |
 | frontdoors | 否 | 否 |
 | frontdoorwebapplicationfirewallpolicies | 否 | 否 |
-| loadbalancers | 是-基本 SKU<br>否-標準 SKU | 是-基本 SKU<br>否-標準 SKU |
+| loadbalancers | 是-基本 SKU<br>無標準 SKU | 是-基本 SKU<br>無標準 SKU |
 | localnetworkgateways | 是 | 是 |
 | natgateways | 是 | 是 |
 | networkintentpolicies | 是 | 是 |
@@ -748,7 +748,7 @@ ms.locfileid: "67721108"
 | privatednszones/virtualnetworklinks | 是 | 是 |
 | privateendpoints | 否 | 否 |
 | privatelinkservices | 否 | 否 |
-| publicipaddresses | 是-基本 SKU<br>否-標準 SKU | 是-基本 SKU<br>否-標準 SKU |
+| publicipaddresses | 是-基本 SKU<br>無標準 SKU | 是-基本 SKU<br>無標準 SKU |
 | publicipprefixes | 是 | 是 |
 | routefilters | 否 | 否 |
 | routetables | 是 | 是 |
@@ -779,7 +779,7 @@ ms.locfileid: "67721108"
 | workspaces | 是 | 是 |
 
 > [!IMPORTANT]
-> 請確定將移至新的訂用帳戶不能超過[訂用帳戶配額](../azure-subscription-service-limits.md#azure-monitor-limits)。
+> 請確定移至新的訂用帳戶不會超過訂用帳戶[配額](../azure-subscription-service-limits.md#azure-monitor-limits)。
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | 資源類型 | Resource group | Subscription |
@@ -824,7 +824,7 @@ ms.locfileid: "67721108"
 | vaults | 是 | 是 |
 
 > [!IMPORTANT]
-> 請參閱[復原服務移動指引](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)。
+> 請參閱復原[服務移動指引](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)。
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | 資源類型 | Resource group | Subscription |
@@ -848,7 +848,7 @@ ms.locfileid: "67721108"
 | searchservices | 是 | 是 |
 
 > [!IMPORTANT]
-> 您無法在單一作業中的不同區域中移動數個搜尋資源。 而是要在不同作業中移動它們。
+> 您無法在單一作業中移動不同區域中的數個搜尋資源。 而是要在不同作業中移動它們。
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | 資源類型 | Resource group | Subscription |
@@ -899,7 +899,7 @@ ms.locfileid: "67721108"
 | siterecoveryvault | 否 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[復原服務移動指引](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)。
+> 請參閱復原[服務移動指引](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)。
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 資源類型 | Resource group | Subscription |
@@ -913,16 +913,16 @@ ms.locfileid: "67721108"
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 資源類型 | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| instancepools | 是 | 是 |
-| managedinstances | 是 | 是 |
-| managedinstances/databases | 是 | 是 |
+| instancepools | 否 | 否 |
+| managedinstances | 否 | 否 |
+| managedinstances/databases | 否 | 否 |
 | servers | 是 | 是 |
 | servers/databases | 是 | 是 |
 | servers/elasticpools | 是 | 是 |
 | virtualclusters | 是 | 是 |
 
 > [!IMPORTANT]
-> 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
+> 資料庫和伺服器必須位於相同的資源群組中。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 資源類型 | Resource group | Subscription |
@@ -943,7 +943,7 @@ ms.locfileid: "67721108"
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | 資源類型 | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| 快取 | 否 | 否 |
+| 緩衝區 | 否 | 否 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | 資源類型 | Resource group | Subscription |
@@ -971,7 +971,7 @@ ms.locfileid: "67721108"
 | streamingjobs | 是 | 是 |
 
 > [!IMPORTANT]
-> Stream Analytics 作業無法移動執行中狀態。
+> 在執行中狀態時, 無法移動串流分析作業。
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | 資源類型 | Resource group | Subscription |
@@ -998,7 +998,7 @@ ms.locfileid: "67721108"
 ## <a name="microsofttoken"></a>Microsoft.Token
 | 資源類型 | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| 存放區 | 否 | 否 |
+| 商店 | 否 | 否 |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | 資源類型 | Resource group | Subscription |
@@ -1013,7 +1013,7 @@ ms.locfileid: "67721108"
 | account/project | 是 | 是 |
 
 > [!IMPORTANT]
-> 若要變更 Azure DevOps 的訂用帳戶，請參閱[變更用於計費的 Azure 訂用帳戶](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)。
+> 若要變更 Azure DevOps 的訂用帳戶, 請參閱[變更用於計費的 Azure 訂用](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)帳戶。
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | 資源類型 | Resource group | Subscription |

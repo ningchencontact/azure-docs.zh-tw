@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af9c072c428c486cab89288db4c9ee1c26513185
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681939"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250137"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 
@@ -112,7 +112,7 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 ![Azure 儲存體總管顯示的 Hive 查詢輸出](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2.利用 Hive 編輯器提交 Hive 查詢
-您也可以使用查詢主控台 （Hive 編輯器） 輸入格式的 URL *https:\//\<Hadoop 叢集名稱 >.azurehdinsight.net/Home/HiveEditor*在網頁瀏覽器。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
+您也可以使用查詢主控台 (Hive 編輯器), 方法是在網頁瀏覽器中輸入*HTTPs\/:/ \<Hadoop 叢集名稱 >. net/Home/HiveEditor*格式的 URL。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
 
 ### <a name="ps"></a> 3.利用 Azure PowerShell 命令提交 Hive 查詢
 您也可以使用 PowerShell 提交 Hive 查詢。 如需指示，請參閱 [使用 PowerShell 提交 Hive 工作](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)。
@@ -141,7 +141,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 * **\<資料表名稱\>** ：您想要在指定資料庫內建立之資料表的名稱。 如果您想要使用預設資料庫，可透過 *\<資料表名稱\>* 直接參考資料表，而不需要使用\<資料庫名稱\>。
 * **\<欄位分隔符號\>** ：上傳至 Hive 資料表的資料檔中分隔欄位的分隔符號。
 * **\<資料行分隔符號\>** ：用來分隔資料檔中各行的分隔符號。
-* **\<儲存體位置\>** ：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 *LOCATION\< 儲存體位置\>* ，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 *hive/warehouse/* 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 這個位置必須是叢集之預設容器的相對位置，其格式為 'wasb:///<directory 1>/'  或 'wasb:///<directory 1>/<directory 2>/'  等。執行查詢之後，系統會在預設容器內建立相對目錄。
+* **\<儲存體位置\>** ：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 *LOCATION\< 儲存體位置\>* ，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 *hive/warehouse/* 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 此位置必須以 *' wasb:///\<directory 1 >/'* 或 *'\<wasb:///directory 1 >/\<directory 2 >/'* 等格式, 參照叢集預設容器的位置。執行查詢之後，系統會在預設容器內建立相對目錄。
 * **TBLPROPERTIES("skip.header.line.count"="1")** ：如果資料檔案有標頭行，您就必須在*建立資料表*查詢的**結尾**處新增這個屬性。 否則，載入的標頭行會做為資料表的記錄。 如果資料檔不含標頭行，則可在查詢中省略此設定。
 
 ## <a name="load-data"></a>將資料載入至 Hive 資料表
@@ -149,7 +149,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<Blob 資料路徑\>** ：如果是在 HDInsight Hadoop 叢集的預設容器中的 blob 檔案上傳至 Hive 資料表 *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<在此容器中的目錄 > /\<blob 檔案名稱 >'* 。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下，  *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<容器名稱 >\<儲存體帳戶名稱 >.blob.core.windows.net/\<blob 檔案名稱 >'* 。
+* **\<Blob 資料路徑\>** ：如果要上傳至 Hive 資料表的 blob 檔案是在 HDInsight Hadoop 叢集的預設容器中, 則 *\< \> blob 資料的路徑*應該是*此容器中的 ' wasb://\<目錄格式 >/blob\<檔案名 > '* 。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下 *\<, blob 資料\>路徑*的格式應該是 *'\<wasb://container name >\<儲存體帳戶名稱 >. net/\<blob 檔案名 > '* 。
 
   > [!NOTE]
   > 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。 否則，「LOAD DATA」  查詢會失敗並提報它無法存取資料。

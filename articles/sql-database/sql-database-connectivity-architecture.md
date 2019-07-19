@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 和 SQL 資料倉儲連線架構 |Microsoft Docs
-description: 本文件說明 Azure SQL 連線架構，如資料庫連接的 Azure 內部或從 Azure 外部。
+title: Azure SQL Database 和 SQL 資料倉儲連線性架構 |Microsoft Docs
+description: 本檔說明 azure SQL 連線架構, 用於從 Azure 內或從 Azure 外部的資料庫連線。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 951481a7dd7d7a9cfd8c88f2cd8bbcaaec4df685
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537928"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320634"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -39,7 +39,7 @@ ms.locfileid: "67537928"
 
 Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定選項：
 
-- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要启用连接，客户端必须允许对区域中端口 11000-11999 的所有 Azure IP 地址而不仅仅是端口 1433 上的 Azure SQL 数据库网关 IP 地址应用出站防火墙规则，并结合[服务标记](../virtual-network/security-overview.md#service-tags)使用网络安全组 (NSG)。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
+- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要啟用連線, 用戶端必須允許在埠11000-11999 使用網路安全性群組 (NSG) 搭配[服務](../virtual-network/security-overview.md#service-tags)標籤的區域中的所有 Azure IP 位址進行輸出防火牆規則, 而不只是埠1433上的 Azure SQL Database 閘道 IP 位址。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
 - **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道 Proxy。 若要啟用連線，用戶端必須具有只允許 Azure SQL Database 閘道 IP 位址 (通常每一區域有兩個 IP 位址) 的輸出防火牆規則。 視工作負載的本質而定，選擇此模式可能會導致延遲提高和輸送量降低。 為了將延遲降到最低及將輸送量提升到最高，強烈建議您採用 `Redirect` 連線原則，而不要採用 `Proxy` 連線原則。
 - **預設值：** 除非您明確地將連線原則更改成 `Proxy` 或 `Redirect`，否則這會是所有伺服器在建立後生效的連線原則。 有效原則取決於連線源自 Azure 內部 (`Redirect`) 還是 Azure 外部 (`Proxy`)。
 
@@ -57,40 +57,46 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 閘道 IP 位址
 
-下表列出 IP 位址的閘道器區域。 若要連接到 Azure SQL Database，您需要為 （& f），允許網路流量**所有**閘道的區域。
+下表依區域列出閘道的 IP 位址。 若要連線到 Azure SQL Database, 您需要允許網路流量從該區域的**所有**閘道 &。
 
-接下來，我們會在每個區域中新增更多的閘道，並淘汰解除委任閘道 IP 位址 欄中的下表中的閘道。 更多詳細解除委任指定下列文章中的程序的詳細資訊：[Azure SQL Database 流量移轉到較新的閘道](sql-database-gateway-migration.md)
+接下來, 我們會在每個區域中新增更多閘道, 並在下表的 [解除委任的閘道 IP 位址] 欄中淘汰閘道。 如需解除委任程式的詳細資訊, 請參閱下列文章:[Azure SQL Database 流量遷移至較新的閘道](sql-database-gateway-migration.md)
 
 
-| 區域名稱          | 閘道 IP 位址 | 已解除委任的閘道 </br> IP 位址| 附註的解除委任 | 
+| 區域名稱          | 閘道 IP 位址 | 解除委任閘道 </br> IP 位址| 解除委任的注意事項 | 
 | --- | --- | --- | --- |
+| 澳大利亞中部    | 20.36.105.0 | | |
+| 澳大利亞 Central2   | 20.36.113.0 | | |
 | 澳洲東部       | 13.75.149.87, 40.79.161.1 | | |
 | 澳大利亞東南部 | 191.239.192.109, 13.73.109.251 | | |
 | 巴西南部         | 104.41.11.5        |                 | |
 | 加拿大中部       | 40.85.224.249      |                 | |
 | 加拿大東部          | 40.86.226.166      |                 | |
-| 美國中部           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | 沒有在 2019 年 9 月 1 日之後的連接 |
+| 美國中部           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | 2019年9月1日之後沒有連線 |
 | 中國東部 1         | 139.219.130.35     |                 | |
 | 中國東部 2         | 40.73.82.1         |                 | |
 | 中國北部 1        | 139.219.15.17      |                 | |
 | 中國北部 2        | 40.73.50.0         |                 | |
 | 東亞            | 191.234.2.139, 52.175.33.150 |       | |
-| 美國東部 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | 沒有在 2019 年 9 月 1 日之後的連接 |
-| 美國東部 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | 沒有在 2019 年 9 月 1 日之後的連接 |
+| 美國東部 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | 2019年9月1日之後沒有連線 |
+| 美國東部 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | 2019年9月1日之後沒有連線 |
 | 法國中部       | 40.79.137.0, 40.79.129.1 |           | |
 | 德國中部      | 51.4.144.100       |                 | |
 | 德國東北部   | 51.5.144.179       |                 | |
 | 印度中部        | 104.211.96.159     |                 | |
 | 印度南部          | 104.211.224.146    |                 | |
 | 印度西部           | 104.211.160.80     |                 | |
-| 日本東部           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | 沒有在 2019 年 9 月 1 日之後的連接 |
-| 日本西部           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | 沒有在 2019 年 9 月 1 日之後的連接 |
+| 日本東部           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | 2019年9月1日之後沒有連線 |
+| 日本西部           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | 2019年9月1日之後沒有連線 |
 | 南韓中部        | 52.231.32.42       |                 | |
 | 南韓南部          | 52.231.200.86      |                 | |
-| 美國中北部     | 23.96.178.199      | 23.98.55.75     | 沒有在 2019 年 9 月 1 日之後的連接 |
-| 北歐         | 40.113.93.91       | 191.235.193.75  | 沒有在 2019 年 9 月 1 日之後的連接 |
-| 美國中南部     | 13.66.62.124       | 23.98.162.75    | 沒有在 2019 年 9 月 1 日之後的連接 |
-| 東南亞      | 104.43.15.0        | 23.100.117.95   | 沒有在 2019 年 9 月 1 日之後的連接 |
+| 美國中北部     | 23.96.178.199      | 23.98.55.75     | 2019年9月1日之後沒有連線 |
+| 北歐         | 40.113.93.91       | 191.235.193.75  | 2019年9月1日之後沒有連線 |
+| 南非北部   | 102.133.152.0      |                 | |
+| 南非西部    | 102.133.24.0       |                 | |
+| 美國中南部     | 13.66.62.124       | 23.98.162.75    | 2019年9月1日之後沒有連線 |
+| 東南亞      | 104.43.15.0        | 23.100.117.95   | 2019年9月1日之後沒有連線 |
+| 阿拉伯聯合大公國中部          | 20.37.72.64        |                 | |
+| 阿拉伯聯合大公國北部            | 65.52.248.0        |                 | |
 | 英國南部             | 51.140.184.11      |                 | |
 | 英國西部              | 51.141.8.11        |                 | |
 | 美國中西部      | 13.78.145.25       |                 | |
@@ -110,7 +116,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 下列指令碼需要[Azure PowerShell 模組](/powershell/azure/install-az-ps)。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。 下列腳本需要[Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 下列 PowerShell 指令碼會示範如何變更連線原則。
 
@@ -133,12 +139,12 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-### <a name="azure-cli-in-a-bash-shell"></a>在 bash 殼層中的 azure CLI
+### <a name="azure-cli-in-a-bash-shell"></a>Bash shell 中的 Azure CLI
 
 > [!IMPORTANT]
 > 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-下列的 CLI 指令碼會示範如何變更在 bash 殼層中的連線原則。
+下列 CLI 腳本會示範如何在 bash shell 中變更連接原則。
 
 ```azurecli-interactive
 # Get SQL Server ID
@@ -154,12 +160,12 @@ az resource show --ids $ids
 az resource update --ids $ids --set properties.connectionType=Proxy
 ```
 
-### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI，從 Windows 命令提示字元
+### <a name="azure-cli-from-a-windows-command-prompt"></a>從 Windows 命令提示字元 Azure CLI
 
 > [!IMPORTANT]
 > 此指令碼需要 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-下列的 CLI 指令碼會示範如何從 Windows 命令提示字元中變更連線原則 （使用 Azure CLI，安裝)。
+下列 CLI 腳本顯示如何從 Windows 命令提示字元 (已安裝 Azure CLI) 變更連線原則。
 
 ```azurecli
 # Get SQL Server ID and set URI

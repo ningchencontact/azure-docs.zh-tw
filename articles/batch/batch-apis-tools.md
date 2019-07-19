@@ -3,18 +3,18 @@ title: 適用於開發人員的 API 和工具 - Azure Batch | Microsoft Docs
 description: 了解可搭配 Azure Batch 服務用來開發解決方案的 API 和工具。
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721754"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323784"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 和工具的概觀
 
@@ -31,7 +31,7 @@ ms.locfileid: "60721754"
 當您開發 Batch 解決方案時，您將在 Azure 訂用帳戶中使用下列帳戶：
 
 * **Batch 帳戶** - Azure Batch 資源 (包括集區、計算節點、作業和工作) 都與 Azure [Batch 帳戶](batch-api-basics.md#account)相關聯。 當您的應用程式對 Batch 服務提出要求時，可以使用 Azure Batch 帳戶名稱、帳戶的 URL 及存取金鑰或 Azure Active Directory 權杖，來驗證此要求。 您可以在 Azure 入口網站中或以程式設計方式[建立 Batch 帳戶](batch-account-create-portal.md)。
-* **儲存體帳戶** - Batch 內建就支援處理 [Azure 儲存體][azure_storage]中的檔案。 幾乎每個 Batch 案例都會使用 Azure Blob 儲存體，來預備工作執行的程式及其處理的資料，以及儲存其產生的輸出資料。 如需 Batch 中的儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。
+* **儲存體帳戶**-Batch 包含內建支援, 可在[Azure 儲存體][azure_storage]中使用檔案。 幾乎每個 Batch 案例都會使用 Azure Blob 儲存體，來預備工作執行的程式及其處理的資料，以及儲存其產生的輸出資料。 如需 Batch 中的儲存體帳戶選項，請參閱 [Batch 功能概觀](batch-api-basics.md#azure-storage-account)。
 
 ## <a name="batch-service-apis"></a>Batch 服務 API
 
@@ -40,7 +40,7 @@ ms.locfileid: "60721754"
 | API | API 參考資料 | 下載 | 教學課程 | 程式碼範例 | 其他資訊 |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/A |- |- | [支援的版本](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[教學課程](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [版本資訊](https://aka.ms/batch-net-dataplane-changelog) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[教學課程](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [版本資訊](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[教學課程](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [讀我檔案](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[教學課程](batch-nodejs-get-started.md) |- | [讀我檔案](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[讀我檔案][api_sample_java] | [讀我檔案](https://github.com/Azure/azure-batch-sdk-for-java)|
@@ -52,7 +52,7 @@ ms.locfileid: "60721754"
 | API | API 參考資料 | 下載 | 教學課程 | 程式碼範例 |
 | --- | --- | --- | --- | --- |
 | **Batch 管理 REST** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [教學課程](batch-management-dotnet.md) |[GitHub][api_sample_net] |
+| **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [教學課程](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Batch 管理 Python** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
 | **Batch 管理 Node.js** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
 | **Batch 管理 Java** |- |[Maven][api_java_mgmt_jar] |- |- |
@@ -60,17 +60,17 @@ ms.locfileid: "60721754"
 
 這些命令列工具可提供與 Batch 服務和 Batch 管理 API 相同的功能︰ 
 
-* [Batch PowerShell Cmdlet][batch_ps]：[Azure PowerShell](/powershell/azure/overview) 模組中的 Azure Batch Cmdlet 可讓您使用 PowerShell 來管理 Batch 資源。
+* [Batch PowerShell Cmdlet][batch_ps]:[Azure PowerShell](/powershell/azure/overview) 模組中的 Azure Batch Cmdlet 可讓您使用 PowerShell 來管理 Batch 資源。
 * [Azure CLI](/cli/azure)：Azure CLI 是一個跨平台工具組，可提供用來與許多 Azure 服務 (包括 Batch 服務和 Batch Management 服務) 互動的殼層命令。 如需搭配使用 Azure CLI 與 Batch 的詳細資訊，請參閱[使用 Azure CLI 管理 Batch 資源](batch-cli-get-started.md)。
 
 ## <a name="other-tools-for-application-development"></a>其他用於應用程式開發的工具
 
 以下是其他一些可能有助於建置及偵錯 Batch 應用程式和服務的工具︰
 
-* [Azure 入口網站][portal]：您可以在 Azure 入口網站建立、監視和刪除 Batch 集區、作業和工作。 您可以在執行作業時檢視上述和其他資源的狀態資訊，甚至從您集區中的計算節點下載檔案。 例如，您可以在進行疑難排解時下載失敗的工作 `stderr.txt`。 您也可以下載可用來登入計算節點的遠端桌面 (RDP) 檔案。
-* [Azure Batch Explorer][batch_labs]：Batch Explorer (先前稱為 BatchLabs) 是一個免費且功能豐富的獨立用戶端工具，可協助您建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。
+* [Azure 入口網站][portal]︰您可以在 Azure 入口網站建立、監視和刪除 Batch 集區、作業和工作。 您可以在執行作業時檢視上述和其他資源的狀態資訊，甚至從您集區中的計算節點下載檔案。 例如，您可以在進行疑難排解時下載失敗的工作 `stderr.txt`。 您也可以下載可用來登入計算節點的遠端桌面 (RDP) 檔案。
+* [Azure Batch Explorer][batch_labs]:Batch Explorer (先前稱為 BatchLabs) 是一個免費且功能豐富的獨立用戶端工具，可協助您建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。
 * [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard)：Batch Shipyard 這項工具可協助您在 Azure Batch 上佈建、執行和監視以容器為基礎的批次處理與 HPC 工作負載。
-* [Azure 儲存體總管][storage_explorer]：嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時另一個很實用的工具。
+* [Azure 儲存體總管][storage_explorer]:嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時另一個很實用的工具。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -81,7 +81,7 @@ ms.locfileid: "60721754"
 
 * 請參閱 [適用於開發人員的 Batch 功能概觀](batch-api-basics.md)，這是任何準備使用 Batch 的人員不可或缺的資訊。 本文包含 Batch 服務資源 (例如集區、節點、作業和工作) 的詳細資訊，以及在建置 Batch 應用程式時可使用的許多 API 功能。
 * [開始使用適用於 .NET 的 Azure Batch 程式庫](tutorial-parallel-dotnet.md) ，了解如何使用 C# 和 Batch .NET 程式庫，透過一般的批次工作流程來執行簡單的工作負載。 也會提供 [Python 版本](tutorial-parallel-python.md)和 [Node.js 教學課程](batch-nodejs-get-started.md)。
-* 下載 [GitHub 上的程式碼範例][github_samples]，看看 C# 和 Python 如何與 Batch 相互作用，以排程和處理範例工作負載。
+* 下載[GitHub 上的程式碼範例][github_samples], 瞭解C#和 Python 如何與 Batch 進行互動, 以排程和處理範例工作負載。
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

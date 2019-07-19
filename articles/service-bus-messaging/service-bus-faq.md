@@ -1,6 +1,6 @@
 ---
 title: Azure 服務匯流排常見問題集 (FAQ) | Microsoft Docs
-description: 關於 Azure 服務匯流排的一些常見問題集的解答。
+description: 回答一些關於 Azure 服務匯流排的常見問題。
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706215"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278347"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
@@ -42,51 +42,51 @@ ms.locfileid: "67706215"
 
  [Premium SKU](service-bus-premium-messaging.md) 不再支援分割的實體。 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些連接埠？ 
-您可以使用下列通訊協定與 Azure 服務匯流排，來傳送和接收訊息：
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些埠？ 
+您可以搭配使用下列通訊協定與 Azure 服務匯流排來傳送和接收訊息:
 
 - 進階訊息佇列通訊協定 (AMQP)
 - 服務匯流排傳訊通訊協定 (SBMP)
 - HTTP
 
-請參閱下列表格以取得您需要開啟通訊使用這些通訊協定，透過 Azure 事件中樞的輸出連接埠。 
+請參閱下表, 以瞭解您需要開啟的輸出埠, 以使用這些通訊協定與 Azure 事件中樞進行通訊。 
 
 | Protocol | 連接埠 | 詳細資料 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 和 5672 | 請參閱[AMQP 通訊協定指南](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 到 9354 | 請參閱[連線模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
-| HTTP、 HTTPS | 80、443 | 
+| AMQP | 5671和5672 | 請參閱[AMQP 通訊協定指南](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350到9354 | 請參閱連線[模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP、HTTPS | 80、443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>哪些 IP 位址需要列入白名單嗎？
-若要尋找您的連線正確的 IP 位址到允許清單，請遵循下列步驟：
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要列入允許清單的 IP 位址為何？
+若要針對您的連線尋找適當的 IP 位址給白名單, 請遵循下列步驟:
 
-1. 從命令提示字元中執行下列命令： 
+1. 從命令提示字元執行下列命令: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 記下中傳回的 IP 位址`Non-authoritative answer`。 此 IP 位址是靜態的。 它會變更的唯一點的時間是如果您還原至不同的叢集中的命名空間。
+2. 記下中`Non-authoritative answer`傳回的 IP 位址。 這個 IP 位址是靜態的。 只有當您將命名空間還原到不同的叢集時, 才會發生變更的唯一時間點。
 
-如果您的命名空間中使用區域備援，您需要執行一些額外步驟： 
+如果您使用命名空間的區域複本, 則需要執行一些額外的步驟: 
 
-1. 首先，您會在命名空間上執行 nslookup。
+1. 首先, 您會在命名空間上執行 nslookup。
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. 記下中的名稱**非授權的回答**區段中，也就是下列格式之一： 
+2. 記下 [**非權威式回應**] 區段中的名稱, 這是下列其中一種格式: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. 每個尾碼 s1、 s2 與 s3 取得三個可用性區域中執行的所有三個執行個體的 IP 位址與執行 nslookup 
+3. 針對每個尾碼為 s1、s2 和 s3 的程式執行 nslookup, 以取得三個可用性區域中執行之三個實例的 IP 位址。 
 
 
 ## <a name="best-practices"></a>最佳作法
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服務匯流排的最佳做法有哪些？
-請參閱[的使用服務匯流排效能改進最佳作法][Best practices for performance improvements using Service Bus]– 這篇文章說明如何在交換訊息時將效能最佳化。
+請參閱[使用服務匯流排改善效能的最佳做法][Best practices for performance improvements using Service Bus]–這篇文章說明如何在交換訊息時將效能優化。
 
 ### <a name="what-should-i-know-before-creating-entities"></a>建立實體前的須知事項為何？
 佇列和主題的下列屬性是不可變的。 在佈建實體時請將這個限制納入考量，因為若要修改這些屬性，就必須建立新的替代實體。
@@ -114,14 +114,14 @@ ms.locfileid: "67706215"
 
 ## <a name="quotas"></a>配額
 
-如需服務匯流排限制和配額的清單，請參閱 <<c0> [ 服務匯流排配額概觀][Quotas overview]。
+如需服務匯流排限制和配額的清單, 請參閱[服務匯流排配額總覽][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服務匯流排是否有任何使用量配額？
 根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 若您需要的配額比這些限制來得多，您可以隨時與客戶服務部門連絡，以了解您的需求並適當地調整這些限制。 針對服務匯流排，彙總使用量配額為每個月 50 億則訊息。
 
 雖然 Microsoft 有權停用在指定的月份內超出其使用量配額的客戶帳戶，但會傳送電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付超出配額的費用。
 
-如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的配額，以確保公平的資源使用量。 您可以找到更多詳細資料中的這些配額的相關[服務匯流排配額概觀][Quotas overview]。
+如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的配額，以確保公平的資源使用量。 您可以在[服務匯流排配額總覽][Quotas overview]中找到更多有關這些配額的詳細資料。
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>如何處理大小超過 1 MB 的訊息？
 「服務匯流排」訊息服務 (佇列和主題/訂用帳戶) 可讓應用程式傳送大小最大達 256 KB (標準層) 或 1 MB (進階層) 的訊息。 如果您要處理大小超過 1 MB 的訊息，請使用[這篇部落格文章](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) \(英文\) 中所述的宣告檢查模式。
@@ -131,10 +131,10 @@ ms.locfileid: "67706215"
 在您從訂用帳戶刪除命名空間之後，必須先等候 4 個小時的時間，才能在另一個訂用帳戶中以相同的名稱重新建立它。 否則，您可能會收到下列錯誤訊息︰`Namespace already exists`。 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure 服務匯流排 API 所產生的例外狀況有哪些，其建議的動作為何？
-如需可能的服務匯流排例外狀況的清單，請參閱 <<c0> [ 例外狀況概觀][Exceptions overview]。
+如需可能的服務匯流排例外狀況清單, 請參閱[例外狀況總覽][Exceptions overview]。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什麼是共用存取簽章，何種語言可支援產生簽章？
-共用存取簽章是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 Node.js、 PHP、 Java 和 C 中產生自有簽章\#，請參閱 <<c2> [ 共用存取簽章][Shared Access Signatures]文章。
+共用存取簽章是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 node.js、PHP、JAVA、Python 和C#中產生您自己的簽章的相關資訊, 請參閱[共用存取][Shared Access Signatures]簽章一文。
 
 ## <a name="subscription-and-namespace-management"></a>訂用帳戶和命名空間管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何將命名空間移轉到另一個 Azure 訂用帳戶？

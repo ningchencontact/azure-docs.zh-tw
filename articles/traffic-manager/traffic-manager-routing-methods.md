@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 9068cb0dad742ac6e5eeae0b3a1b801d08d4734c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071004"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320078"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理員路由方法
 
@@ -122,6 +122,28 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 - 如果查詢的來源地理區域在該設定檔中沒有對應，流量管理員會傳回 NODATA 回應。 因此，強烈建議客戶使用地理路由搭配一個端點，最好是「巢狀」類型，且子設定檔內至少有兩個端點，並指派區域**世界**。 這也可確保會處理未對應到區域的任何 IP 位址。
 
 如[流量管理員的運作方式](traffic-manager-how-it-works.md)中所述，流量管理員不會直接從用戶端接收 DNS 查詢。 相反地，DNS 查詢是來自用戶端已設定使用的遞迴 DNS 服務。 因此，用來判斷區域的 IP 位址不是用戶端的 IP 位址，而是遞迴 DNS 服務的 IP 位址。 實際上，此 IP 位址是用戶端的理想 Proxy。
+
+### <a name="faqs"></a>常見問題集
+
+* [地理路由很有用的部分使用案例有哪些？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+
+* [如何? 決定是否應該使用效能路由方法或地理路由方法？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+
+* [地理路由的流量管理員支援哪些區域？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+
+* [流量管理員如何判斷使用者從何處進行查詢？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+
+* [是否保證流量管理員可以在每個案例中正確判斷使用者的確切地理位置？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+
+* [端點必須實際位於與針對地理路由設定的相同區域中嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+
+* [我可以在未設定為執行地理路由的設定檔中, 將地理區域指派給端點嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+
+* [當我嘗試將現有設定檔的路由方法變更為地理時, 為什麼會收到錯誤？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+
+* [為什麼強烈建議客戶在啟用地理路由的設定檔下建立嵌套的設定檔, 而不是端點？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+
+* [支援此路由類型的 API 版本是否有任何限制？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name = "multivalue"></a>多值流量路由方法
 **多值**流量路由方法可讓您在單一 DNS 查詢回應中取得多個狀況良好的端點。 這可讓呼叫端在傳回之端點無回應的事件中，透過其他端點執行用戶端重試。 此模式可提高服務的可用性，且可減少透過新的 DNS 查詢來取得狀況良好端點的相關延遲。 只有在所有端點類型為「外部」且指定為 IPv4 或 IPv6 位址時，才適用多值路由方法。 當系統收到此設定檔的查詢時，會傳回所有狀況良好的端點，您可以設定回傳計數上限來限制回傳數量。

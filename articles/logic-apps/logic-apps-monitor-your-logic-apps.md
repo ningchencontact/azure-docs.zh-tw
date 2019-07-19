@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61323915"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312246"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -74,13 +74,13 @@ ms.locfileid: "61323915"
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>開啟邏輯應用程式的診斷記錄
 
-進行更豐富偵錯與執行階段詳細資料和事件，您可以設定診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 Azure 監視器是監視您的雲端和內部部署環境，協助您維護其可用性和效能的 Azure 中的服務。 
+若要使用執行時間詳細資料和事件進行更豐富的偵錯工具, 您可以使用[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)來設定診斷記錄。 Azure 監視器是 Azure 中的一項服務, 可監視您的雲端和內部部署環境, 以協助您維護其可用性和效能。 
 
 開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取邏輯應用程式。 
 
-2. 在邏輯應用程式刀鋒視窗功能表中，在**監視**，選擇**診斷** > **診斷設定**。
+2. 在 [邏輯應用程式] 分頁功能表的 [**監視**] 底下, 選擇 [**診斷** > **診斷設定**]。
 
    ![移至 [監視]、[診斷]、[診斷設定]](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "61323915"
 
    ![輸入搜尋字串](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   深入了解[如何在 Azure 監視器記錄檔中尋找資料](../log-analytics/log-analytics-log-searches.md)。
+   深入瞭解[如何在 Azure 監視器記錄中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
 5. 在結果頁面上，於左列中選擇您想要檢視的時間範圍。
 若要新增篩選來調整您的查詢，請選擇 [+新增]  。
@@ -155,7 +155,7 @@ ms.locfileid: "61323915"
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>延伸搭配使用診斷資料與其他服務的方式和位置
 
-Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
+除了 Azure 監視器記錄之外, 您還可以擴充將邏輯應用程式的診斷資料與其他 Azure 服務搭配使用的方式, 例如: 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -178,7 +178,7 @@ Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程�
 
 若要監視邏輯應用程式的特定計量或已超過閾值，請設定 [Azure 中的警示](../azure-monitor/platform/alerts-overview.md)。 了解 [Azure 中的計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
 
-若要設定警示，而不需要[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)，請遵循下列步驟。 針對更進階的警示準則和動作[設定 Azure 監視器記錄](#azure-diagnostics)太。
+若要設定不含[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)的警示, 請遵循下列步驟。 如需更多的警示準則和動作, 請同時[設定 Azure 監視器記錄](#azure-diagnostics)。
 
 1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視]  下選擇 [診斷]   > [警示規則]   > [新增警示]  ，如下所示：
 
@@ -268,6 +268,26 @@ Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程�
         "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
         "transactionId": "@action()['inputs']['body']['<content>']"
     }
+  }
+  ```
+  以下是使用 [**初始化變數**] 動作的另一個範例。 此範例會從動作的輸入新增追蹤的屬性, 其中輸入為數組, 而不是記錄。  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
   }
   ```
 

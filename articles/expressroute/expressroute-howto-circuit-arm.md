@@ -6,14 +6,15 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: ganesr;cherylmc
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657311"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846646"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -45,7 +46,7 @@ ms.locfileid: "67657311"
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2.取得支援的提供者、位置和頻寬清單
 建立 ExpressRoute 線路之前，您需要有支援的連線提供者、位置和頻寬選項的清單。
 
-PowerShell cmdlet **Get AzExpressRouteServiceProvider**會傳回此資訊，您將在稍後步驟中使用：
+PowerShell Cmdlet **AzExpressRouteServiceProvider**會傳回這項資訊, 您將在稍後的步驟中使用:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -90,7 +91,7 @@ get-help New-AzExpressRouteCircuit -detailed
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4.列出所有 ExpressRoute 循環
-若要取得您所建立之所有 ExpressRoute 線路的清單，請執行**Get AzExpressRouteCircuit**命令：
+若要取得您所建立之所有 ExpressRoute 線路的清單, 請執行**AzExpressRouteCircuit**命令:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -216,7 +217,7 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 接下來，將虛擬網路連結到 ExpressRoute 線路。 當使用 Resource Manager 部署模型時，使用[將虛擬網路連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)文章。
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>取得 ExpressRoute 線路的狀態
-您可以使用，以擷取這項資訊在任何時候**Get AzExpressRouteCircuit** cmdlet。 執行呼叫時，若未指定任何參數，將會列出所有線路。
+您可以使用**AzExpressRouteCircuit** Cmdlet 隨時取得此資訊。 執行呼叫時，若未指定任何參數，將會列出所有線路。
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit

@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sutalasi
+ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789731"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876290"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -48,10 +48,10 @@ ms.locfileid: "60789731"
 
 **URL** | **詳細資料**  
 --- | ---
-*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道所有快取儲存體帳戶為您的 Vm，您可以加入白名單的特定儲存體帳戶 Url (例如： cache1.blob.core.windows.net 和 cache2.blob.core.windows.net) 而不是 *.blob.core.windows.net
+*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道 Vm 的所有快取儲存體帳戶, 您可以將特定儲存體帳戶 Url (例如: cache1.blob.core.windows.net 和 cache2.blob.core.windows.net) 列入允許清單, 而不是 *. blob.core.windows.net
 login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL 的授權和驗證。
-*.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。 如果您的防火牆 proxy 支援 Ip，您可以使用對應 ' 站台復原 IP'。
-*.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。 如果您的防火牆 proxy 支援 Ip，您可以使用對應 ' Site Recovery 監視 IP'。
+*.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。 如果您的防火牆 proxy 支援 Ip, 您可以使用對應的「Site Recovery IP」。
+*.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。 如果您的防火牆 proxy 支援 Ip, 您可以使用對應的「Site Recovery 監視 IP」。
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 位址範圍的輸出連線能力
 
@@ -170,4 +170,4 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 ## <a name="next-steps"></a>後續步驟
 - [複寫 Azure 虛擬機器](site-recovery-azure-to-azure.md)來開始保護您的工作負載。
 - 深入了解如何針對 Azure 虛擬機器容錯移轉[保留 IP 位址](site-recovery-retain-ip-azure-vm-failover.md)。
-- 深入了解災害復原[透過 ExpressRoute 的 Azure 虛擬機器](azure-vm-disaster-recovery-with-expressroute.md)。
+- 深入瞭解[使用 ExpressRoute 進行 Azure 虛擬機器](azure-vm-disaster-recovery-with-expressroute.md)的嚴重損壞修復。

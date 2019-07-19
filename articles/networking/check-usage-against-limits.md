@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: jdial
-ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: jeconnoc
+ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425399"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872442"
 ---
 # <a name="check-resource-usage-against-limits"></a>根據限制檢查資源使用量
 
@@ -41,7 +41,7 @@ ms.locfileid: "60425399"
 
      下圖中的範例所顯示的所有網路資源，至少有一個是部署在美國東部：
 
-       ![檢視使用量資料](./media/check-usage-against-limits/view-usage.png)
+       ![查看使用量資料](./media/check-usage-against-limits/view-usage.png)
 
      您可以選取資料行標題來排序資料行。 顯示的限制是訂用帳戶的限制。 如果您要增加預設限制，請選取 [要求增加]  ，然後填寫並提交支援要求。 所有資源都有一個最大限制，分別列示在 Azure [限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中。 如果您目前的限制已經是最大值，則無法提高限制。
 
@@ -49,9 +49,9 @@ ms.locfileid: "60425399"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從您的電腦執行 PowerShell，您需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable Az`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，也需要執行 `Login-AzAccount` 來登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您從電腦執行 PowerShell, 您需要 Azure PowerShell 模組1.0.0 版或更新版本。 請在您的電腦上執行 `Get-Module -ListAvailable Az`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，也需要執行 `Login-AzAccount` 來登入 Azure。
 
-檢視您使用量與限制[Get AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)。 下列範例所取得的資源使用量中，至少有一個資源是部署在美國東部地區：
+使用[AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)來查看限制的使用量。 下列範例所取得的資源使用量中，至少有一個資源是部署在美國東部地區：
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `

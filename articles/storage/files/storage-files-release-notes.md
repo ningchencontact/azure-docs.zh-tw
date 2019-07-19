@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 7/12/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ba7b8ae5c7e68c22b83583de6cd0b84f621d4b25
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 5a2ec72f835b720e0c760069b58ef8f092aedcb2
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786657"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875839"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,13 +25,14 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| V7 發行- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 年 6 月 19日日 | [試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| 2019 年 6 月更新彙總套件- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 年 6 月 27日日 | 支援 (建議的版本) |
-| 2019 年 6 月更新彙總套件- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019 年 6 月 13日日 | 支援 |
-| 2019 年更新彙總套件- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 5 月 7日日 | 支援 |
-| V6 發行- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 年 4 月 21日日 | 支援 |
-| 2019 年 4 月更新彙總套件- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 年 4 月 4日日 | 支援 |
-| 2019 年 3 月更新彙總套件- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 年 3 月 7日日 | 支援 |
+| 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援-[試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| V7 版本- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019年6月19日 | 支援 |
+| 2019年6月更新彙總套件- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019年6月27日 | 支援 |
+| 2019年6月更新彙總套件- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019年6月13日 | 支援 |
+| 5月2019更新彙總套件- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 5 月7日 | 支援 |
+| V6 發行- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019年4月21日 | 支援 |
+| 2019年4月更新彙總套件- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019年4月4日 | 支援 |
+| 2019年3月更新彙總套件- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019年3月7日 | 支援 |
 | V5 版本 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019 年 2 月 12 日 | 支援 |
 | 2019 年 1 月更新彙總套件 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 2019 年 1 月 14 日 | 支援 |
 | 2018 年 12 月更新彙總套件 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018 年 12 月 10 日 | 支援 |
@@ -45,21 +46,30 @@ Azure 檔案同步代理程式支援下列版本：
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="agent-version-7000"></a>代理程式版本 7.0.0.0
-下列版本資訊適用於 7.0.0.0 的 Azure 檔案同步代理程式版本 （發行於 2019 年 6 月 19 日）。
+## <a name="agent-version-7100"></a>代理程式版本7.1.0。0
+下列版本資訊適用于2019年7月12日發行之 Azure 檔案同步代理程式的版本7.1.0.0。 這些注意事項是針對版本7.0.0.0 所列的版本資訊以外的資訊。
+
+此版本修正的問題清單：  
+- 在 Windows Server 2012 R2 上透過 SMB 存取或流覽伺服器端點位置的速度很慢。 
+- 在安裝 Azure 檔案同步 v6 代理程式之後增加 CPU 使用率。
+- 雲端階層處理遙測改進。
+- 針對雲端階層處理和同步處理的其他可靠性改進。
+
+## <a name="agent-version-7000"></a>代理程式版本7.0.0。0
+下列版本資訊適用于 Azure 檔案同步代理程式的版本 7.0.0.0 (2019 年6月19日發行)。
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>增強功能和已修正的問題
 
 - 支援較大的檔案共用大小
-    - 使用較大的 Azure 檔案共用的預覽，我們會增加我們支援的限制適用於檔案同步處理。 在第一個步驟中，Azure 檔案同步現在支援長度最 25 TB 和 50million 的檔案，在單一、 同步處理命名空間。 若要申請大型的檔案共用預覽，請填入此表單 https://aka.ms/azurefilesatscalesurvey 。 
-- 改善 Azure 的備份檔案層級還原
-    - 使用 Azure 備份還原個別檔案現在會偵測到並更快的同步伺服器端點。
-- 改善的雲端階層處理重新叫用 cmdlet 可靠性 
-    - 雲端階層處理重新叫用 cmdlet (叫用 StorageSyncFileRecall) 現在支援每個檔案重試計數和重試延遲，類似於 robocopy。
-- 只支援 TLS 1.2 （TLS 1.0 和 1.1 版已停用）
-    - Azure 檔案同步現已支援 TLS 1.0 和 1.1 版已停用的伺服器上只使用 TLS 1.2。 之前這項改善，如果 TLS 1.0 和 1.1 版已停用伺服器上將會失敗伺服器註冊。
-- 其他的效能和可靠性改進的同步處理和雲端階層處理
-    - 有數個可靠性和效能增強功能，在此版本中。 其中部分以改善雲端階層處理更有效率和 Azure 檔案同步整個工作在這些情況下當您有一個頻寬節流排程設定為目標。
+    - 有了較大型 Azure 檔案共用的預覽, 我們也增加了檔案同步的支援限制。 在第一個步驟中, Azure 檔案同步現在支援單一同步處理命名空間中的最多25TB 和50million 檔案。 若要申請大型檔案共用預覽, 請填寫此表單 https://aka.ms/azurefilesatscalesurvey 。 
+- 改良的 Azure 備份檔案層級還原
+    - 現在會偵測到使用 Azure 備份還原的個別檔案, 並更快地同步處理到伺服器端點。
+- 已改善雲端階層處理重新叫用 Cmdlet 的可靠性 
+    - 雲端階層處理重新叫用 Cmdlet (Invoke-StorageSyncFileRecall) 現在支援每個檔案重試計數和重試延遲, 類似于 robocopy。
+- 僅支援 TLS 1.2 (已停用 TLS 1.0 和 1.1)
+    - Azure 檔案同步現在只有在已停用 TLS 1.0 和1.1 的伺服器上, 才支援使用 TLS 1.2。 在此改善之前, 如果伺服器上已停用 TLS 1.0 和 1.1, 伺服器註冊將會失敗。
+- 同步和雲端階層處理的其他效能和可靠性改善
+    - 此版本有數個可靠性和效能改進。 其中一些目標是要讓雲端階層處理更有效率, 並在您已設定頻寬節流排程的情況下, 以更好的方式 Azure 檔案同步。
 
 ### <a name="evaluation-tool"></a>評估工具
 在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
@@ -68,7 +78,7 @@ Azure 檔案同步代理程式支援下列版本：
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
 
 - 必須以提升的 (系統管理員) 權限安裝代理程式安裝套件。
-- 代理程式不支援 Nano Server 部署選項。
+- Nano Server 部署選項不支援此代理程式。
 - 只有 Windows Server 2019、Windows Server 2016 和 Windows Server 2012 R2 可支援此代理程式。
 - 代理程式需要至少 2 GiB 的記憶體。 如果伺服器在啟用動態記憶體的虛擬機器中執行，則 VM 的記憶體應最少設定為 2048 MiB。
 - 在已將系統磁碟區資訊 (SVI) 目錄壓縮的磁碟區上，儲存體同步代理程式 (FileSyncSvc) 服務不支援其中的伺服器端點。 此設定會導致非預期的結果。
@@ -115,48 +125,48 @@ Azure 檔案同步代理程式支援下列版本：
 - 如果使用 Robocopy 將階層式檔案複製到另一個位置，則所產生的檔案不會進行階層處理。 因為 Robocopy 未正確地在複製作業中包含該屬性，所以可能設定離線屬性。
 - 使用 robocopy 複製檔案時，請使用 /MIR 選項來保留檔案的時間戳記。 這可確保較舊的檔案會比最近存取的檔案更快進行階層處理。
 
-## <a name="agent-version-6300"></a>代理程式版本 6.3.0.0
-下列版本資訊適用於 6.3.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 6 月 27 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。
+## <a name="agent-version-6300"></a>代理程式版本6.3.0。0
+下列版本資訊適用于2019年6月27日發行之 Azure 檔案同步代理程式的版本6.3.0.0。 這些注意事項是針對版本6.0.0.0 所列的版本資訊以外的資訊。
 
 此版本修正的問題清單：  
-- 存取，或瀏覽透過 SMB 的伺服器端點位置變慢上 Windows Server 2012 R2 
-- 安裝 Azure 檔案同步 v6 代理程式之後增加的 CPU 使用率
-- 雲端階層處理遙測改善
+- 在 Windows Server 2012 R2 上透過 SMB 存取或流覽伺服器端點位置的速度很慢 
+- 安裝 Azure 檔案同步 v6 代理程式後增加的 CPU 使用率
+- 雲端階層處理遙測改進
 
-## <a name="agent-version-6200"></a>代理程式版本 6.2.0.0
-下列版本資訊適用於 6.2.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 6 月 13 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。
-
-此版本修正的問題清單：  
-- 建立伺服器端點之後, 背景重新叫用會將檔案下載到伺服器時，可能發生高 CPU 使用量
-- 同步處理和雲端階層處理作業可能會失敗，錯誤 ECS_E_SERVER_CREDENTIAL_NEEDED 由於權杖的到期
-- 若要下載檔案的 URL 包含保留的字元恢復檔案可能會失敗 
-
-## <a name="agent-version-6100"></a>代理程式版本 6.1.0.0
-下列版本資訊適用於 6.1.0.0 Azure 檔案同步代理程式的發行版本於 2019 5 月 6 日。 這些是除了針對 6.0.0.0 版本列出的版本資訊。
+## <a name="agent-version-6200"></a>代理程式版本6.2.0。0
+下列版本資訊適用于2019年6月13日發行之 Azure 檔案同步代理程式的版本6.2.0.0。 這些注意事項是針對版本6.0.0.0 所列的版本資訊以外的資訊。
 
 此版本修正的問題清單：  
-- Windows Admin Center 無法顯示在具有 Azure 檔案同步代理程式版本 6.0 安裝的伺服器上的代理程式版本和伺服器端點組態。
+- 建立伺服器端點之後, 當背景召回將檔下載到伺服器時, 可能會發生高 CPU 使用量
+- 由於權杖過期, 同步和雲端階層處理作業可能會失敗併發生錯誤 ECS_E_SERVER_CREDENTIAL_NEEDED
+- 如果下載檔案的 URL 包含保留字元, 重新叫用檔案可能會失敗 
 
-## <a name="agent-version-6000"></a>代理程式版本 6.0.0.0
-下列版本資訊適用於 6.0.0.0 的 Azure 檔案同步代理程式版本 （發行於 2019 年 4 月 22 日）。
+## <a name="agent-version-6100"></a>代理程式版本6.1.0。0
+下列版本資訊適用于2019年5月6日發行之 Azure 檔案同步代理程式的版本6.1.0.0。 這些注意事項是針對版本6.0.0.0 所列的版本資訊以外的資訊。
+
+此版本修正的問題清單：  
+- Windows 系統管理中心無法在已安裝 Azure 檔案同步代理程式版本6.0 的伺服器上顯示代理程式版本和伺服器端點設定。
+
+## <a name="agent-version-6000"></a>代理程式版本6.0.0。0
+下列版本資訊適用于 Azure 檔案同步代理程式的版本 6.0.0.0 (2019 年4月22日發行)。
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>增強功能和已修正的問題
 
 - 代理程式自動更新支援
-  - 我們已聽到您的意見反應，並已新增到 Azure 檔案同步伺服器代理程式的自動更新功能。 如需詳細資訊，請參閱 < [Azure 檔案同步代理程式更新原則](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#azure-file-sync-agent-update-policy)。
-- 支援 Azure 檔案共用的 Acl
-  - Azure 檔案同步永遠支援伺服器端點之間的同步處理 Acl，但不是會對雲端端點 （Azure 檔案共用） 先前同步處理的 Acl。 此版本增加了伺服器與雲端端點之間的同步處理 Acl 的支援。
-- 平行上傳和下載伺服器端點的同步處理工作階段 
-  - 伺服器端點現在支援上傳和下載檔案，在相同的時間。 沒有其他等候下載完成這樣的檔案可以上傳至 Azure 檔案共用。 
-- 雲端階層處理的新 cmdlet，來取得磁碟區和分層的狀態
-  - 兩個新的伺服器本機 PowerShell cmdlet 現在可用來取得雲端階層處理和檔案重新叫用的資訊。 從兩個事件通道在伺服器上的記錄資訊變成可用：
-    - 取得 StorageSyncFileTieringResult 會列出所有檔案和其尚未分層的路徑和報表的原因為何。
-    - 取得 StorageSyncFileRecallResult 報告所有的檔案重新叫用事件。 它會列出每個重新叫用的檔案和它的路徑以及成功或錯誤的重新叫用。
-  - 根據預設，同時事件通道可以儲存最多各 1 MB – 您可以增加的數量擴大事件通道所報告的檔案。
-- FIPS 模式的的支援
-  - 現在，azure 檔案同步會在安裝 Azure 檔案同步代理程式的伺服器上支援啟用 FIPS 模式。
-    - 然後才啟用 FIPS 模式下，您的伺服器上，安裝 Azure 檔案同步代理程式和[PackageManagement 模組](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2)您伺服器上。 如果在伺服器上，已啟用 FIPS[手動下載](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download) [PackageManagement 模組](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2)到您的伺服器。
-- 其他可靠性改進雲端階層處理和同步處理
+  - 我們聽到了您的意見反應, 並已在 Azure 檔案同步伺服器代理程式中新增自動更新功能。 如需詳細資訊, 請參閱[Azure 檔案同步代理程式更新原則](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#azure-file-sync-agent-update-policy)。
+- 支援 Azure 檔案共用 Acl
+  - Azure 檔案同步一律支援在伺服器端點之間同步處理 Acl, 但 Acl 並未同步到雲端端點 (Azure 檔案共用)。 此版本新增了在伺服器與雲端端點之間同步 Acl 的支援。
+- 平行上傳和下載伺服器端點的同步會話 
+  - 伺服器端點現在支援同時上傳和下載檔案。 不再等候下載完成, 因此可以將檔案上傳到 Azure 檔案共用。 
+- 新的雲端階層處理 Cmdlet 可取得磁片區和階層處理狀態
+  - 現在可以使用兩個新的伺服器本機 PowerShell Cmdlet 來取得雲端階層處理和檔案重新叫用資訊。 它們可讓伺服器上的兩個事件通道記錄資訊:
+    - StorageSyncFileTieringResult 將會列出尚未階層式所有檔案及其路徑, 並根據原因來報告。
+    - StorageSyncFileRecallResult 會報告所有檔案召回事件。 它會列出每個回收的檔案及其路徑, 以及該召回的成功或錯誤。
+  - 根據預設, 這兩個事件通道可以儲存最多 1MB, 而您可以增加事件通道大小來增加報告的檔案數量。
+- FIPS 模式的支援
+  - Azure 檔案同步現在支援在已安裝 Azure 檔案同步代理程式的伺服器上啟用 FIPS 模式。
+    - 在伺服器上啟用 FIPS 模式之前, 請在您的伺服器上安裝 Azure 檔案同步 agent 和[PackageManagement 模組](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2)。 如果已在伺服器上啟用 FIPS, 請[手動](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download)將[PackageManagement 模組](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2)下載至您的伺服器。
+- 雲端階層處理和同步處理的其他可靠性改進
 
 ### <a name="evaluation-tool"></a>評估工具
 在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
@@ -165,7 +175,7 @@ Azure 檔案同步代理程式支援下列版本：
 如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
 
 - 必須以提升的 (系統管理員) 權限安裝代理程式安裝套件。
-- 代理程式不支援 Nano Server 部署選項。
+- Nano Server 部署選項不支援此代理程式。
 - 只有 Windows Server 2019、Windows Server 2016 和 Windows Server 2012 R2 可支援此代理程式。
 - 代理程式需要至少 2 GiB 的記憶體。 如果伺服器在啟用動態記憶體的虛擬機器中執行，則 VM 的記憶體應最少設定為 2048 MiB。
 - 在已將系統磁碟區資訊 (SVI) 目錄壓縮的磁碟區上，儲存體同步代理程式 (FileSyncSvc) 服務不支援其中的伺服器端點。 此設定會導致非預期的結果。
@@ -213,22 +223,22 @@ Azure 檔案同步代理程式支援下列版本：
 - 使用 robocopy 複製檔案時，請使用 /MIR 選項來保留檔案的時間戳記。 這可確保較舊的檔案會比最近存取的檔案更快進行階層處理。
 - 從 SMB 用戶端檢視檔案屬性時，因為 SMB 快取檔案中繼資料，所以離線屬性可能會顯示為不正確設定。
 
-## <a name="agent-version-5200"></a>代理程式版本 5.2.0.0
-下列版本資訊適用於 5.2.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 4 月 4 日。 這些是除了版本 5.0.2.0 所列的版本資訊。
+## <a name="agent-version-5200"></a>代理程式版本5.2.0。0
+下列版本資訊適用于2019年4月4日發行之 Azure 檔案同步代理程式的版本5.2.0.0。 這些注意事項是針對版本5.0.2.0 所列的版本資訊以外的資訊。
 
 此版本修正的問題清單：  
-- 離線的資料傳輸與資料傳輸的可靠性改進繼續功能
-- 同步處理遙測改善
+- 離線資料傳輸和資料傳輸繼續功能的可靠性改善
+- 同步遙測改善
 
-## <a name="agent-version-5100"></a>代理程式版本 5.1.0.0
-下列版本資訊適用於 5.1.0.0 Azure 檔案同步代理程式的發行版本於 2019 年 3 月 7 日。 這些是除了版本 5.0.2.0 所列的版本資訊。
+## <a name="agent-version-5100"></a>代理程式版本5.1.0。0
+下列版本資訊適用于2019年3月7日發行之 Azure 檔案同步代理程式的版本5.1.0.0。 這些注意事項是針對版本5.0.2.0 所列的版本資訊以外的資訊。
 
 此版本修正的問題清單：  
-- 檔案可能無法與錯誤 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) 同步處理，如果伺服器上失敗的變更列舉
-- 如果同步處理工作階段或檔案收到錯誤 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE) 時，同步處理會立即重試此作業
-- 檔案可能無法同步處理與錯誤 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
-- 恢復檔案時，可能會發生高記憶體使用量
-- 雲端階層處理遙測改善 
+- 如果伺服器上的變更列舉失敗, 檔案可能會無法與錯誤 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) 同步處理
+- 如果同步會話或檔案收到錯誤 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), 同步處理將立即重試此作業
+- 檔案可能無法同步, 發生錯誤 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- 重新叫用檔案時, 可能會發生高記憶體使用量
+- 雲端階層處理遙測改進 
 
 ## <a name="agent-version-5020"></a>代理程式版本 5.0.2.0
 下列版本資訊適用於 Azure 檔案同步代理程式版本 5.0.2.0 (在 2019 年 2 月 12 日發行)。
