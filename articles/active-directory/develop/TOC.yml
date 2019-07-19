@@ -81,6 +81,8 @@
       href: sample-v2-code.md
     - name: 概念
       items:
+        - name: 驗證基本概念
+          href: authentication-scenarios.md
         - name: 驗證流程和應用程式案例
           href: authentication-flows-app-scenarios.md
         - name: 應用程式案例
@@ -271,8 +273,6 @@
                       href: msal-js-known-issues-safari-browser.md
         - name: 驗證通訊協定
           items:
-            - name: 驗證基本概念
-              href: authentication-scenarios.md
             - name: 應用程式類型和 OAuth2.0
               href: v2-app-types.md
             - name: OAuth 2.0 和 OpenID Connect 通訊協定

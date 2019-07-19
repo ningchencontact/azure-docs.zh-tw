@@ -128,8 +128,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數、字串、陣列或物件 |要測試是否為 null 的第一個值。 |
-| 其他引數 |否 |整數、字串、陣列或物件 |要測試是否為 null 的其他值。 |
+| arg1 |是 |int、string、array 或 object |要測試是否為 null 的第一個值。 |
+| 其他引數 |否 |int、string、array 或 object |要測試是否為 null 的其他值。 |
 
 ### <a name="return-value"></a>傳回值
 

@@ -170,7 +170,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 ```
 
-## <a name="constructor"></a>建構函式
+## <a name="constructor"></a>Constructor
 
 定義工作流程執行個體的輸入參數。
 
@@ -203,13 +203,13 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 }
 ```
 
-## <a name="functions"></a>函式
+## <a name="functions"></a>Functions
 
 定義可在工作流程中執行的函式。
 
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 函式的唯一名稱。 對應的智慧合約必須針對適用的函式使用相同的**名稱**。 | 是 | 50 |
+| Name | 函式的唯一名稱。 對應的智慧合約必須針對適用的函式使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 函式的易記顯示名稱。 | 是 | 255 |
 | Description | 函式的說明 | 否 | 255 |
 | 參數 | 對應至函式參數的[識別碼](#identifiers)集合。 | 是 | |
@@ -251,13 +251,13 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 ```
 
-## <a name="states"></a>狀態
+## <a name="states"></a>States
 
 工作流程內唯一狀態的集合。 每個狀態都會擷取商務邏輯控制流程中的一個步驟。 
 
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | 是 | 50 |
+| Name | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 狀態的易記顯示名稱。 | 是 | 255 |
 | Description | 狀態的說明。 | 否 | 255 |
 | PercentComplete | Blockchain Workbench 使用者介面中所顯示的整數值，用來顯示商務邏輯控制流程內的進度。 | 是 | |
@@ -371,7 +371,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 應用程式角色的唯一名稱。 對應的智慧合約必須針對適用的角色使用相同的**名稱**。 系統會保留基底類型名稱。 您不能使用和[類型](#type)相同的名稱來為應用程式角色命名| 是 | 50 |
+| Name | 應用程式角色的唯一名稱。 對應的智慧合約必須針對適用的角色使用相同的**名稱**。 系統會保留基底類型名稱。 您不能使用和[類型](#type)相同的名稱來為應用程式角色命名| 是 | 50 |
 | Description | 應用程式角色的說明。 | 否 | 255 |
 
 ### <a name="application-roles-example"></a>應用程式角色範例
@@ -394,7 +394,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | 是 | 50 |
+| Name | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 屬性或參數的易記顯示名稱。 | 是 | 255 |
 | Description | 屬性或參數的說明。 | 否 | 255 |
 
