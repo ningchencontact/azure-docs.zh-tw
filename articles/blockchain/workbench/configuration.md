@@ -55,15 +55,15 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 
 | 欄位 | Description | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | 是 | 50 |
+| Name | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 工作流程的易記顯示名稱。 | 是 | 255 |
 | Description | 工作流程的說明。 | 否 | 255 |
 | Initiators | [ApplicationRoles](#application-roles) 的集合。 對已獲授權可在工作流程中建立合約的使用者所指派的角色。 | 是 | |
 | StartState | 工作流程初始狀態的名稱。 | 是 | |
-| 屬性 | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | 是 | |
-| 建構函式 | 定義用於建立工作流程執行個體的輸入參數。 | 是 | |
-| 函式 | 可在工作流程中執行的[函式](#functions)集合。 | 是 | |
-| 狀態 | 工作流程[狀態](#states)的集合。 | 是 | |
+| Properties | [identifiers](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | 是 | |
+| Constructor | 定義用於建立工作流程執行個體的輸入參數。 | 是 | |
+| Functions | 可在工作流程中執行的[functions](#functions)集合。 | 是 | |
+| States | 工作流程[states](#states)的集合。 | 是 | |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
 
