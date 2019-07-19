@@ -1,69 +1,70 @@
 ---
-title: 重新導向 URI/回覆 URL 限制事項-Microsoft 身分識別平台
-description: 回覆 Url/重新導向 Url 限制和限制
+title: 重新導向 URI/回復 URL 限制和限制-Microsoft 身分識別平臺
+description: 回復 Url/重新導向 Url 限制 & 限制
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
 ms.date: 06/29/2019
 ms.topic: article
 ms.subservice: develop
+ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07be7d0c70193fec88782fea681e33d6b4cf4b40
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e5e557d74ff0cb959b11e99391c47e91a90d17ef
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486229"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325310"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>重新導向 URI/回覆 URL 限制
 
-重新導向 URI 或回覆 URL] 是 [已成功授權，授權伺服器會將使用者傳送一次應用程式的位置，並授與的授權碼或存取權杖。 包含程式碼或權杖中重新導向 URI 或回覆 token，因此請務必您註冊應用程式註冊程序的一部分使用正確的位置。
+[重新導向 URI] 或 [回復 URL] 是指當應用程式成功授權並授與授權碼或存取權杖時, 授權伺服器會將使用者傳送至的位置。 程式碼或權杖包含在 [重新導向 URI] 或 [回復權杖] 中, 因此請務必在應用程式註冊過程中註冊正確的位置。
 
-## <a name="maximum-number-of-redirect-uris"></a>重新導向 Uri 的最大數目
+## <a name="maximum-number-of-redirect-uris"></a>重新導向 Uri 的數目上限
 
-下表顯示重新導向 Uri，當您註冊您的應用程式時，您可以新增的最大數目。 
+下表顯示當您註冊應用程式時, 可以新增的重新導向 Uri 數目上限。 
 
-| 登入的帳戶 | 重新導向 Uri 的最大數目 | 描述 |
+| 已登入的帳戶 | 重新導向 Uri 的數目上限 | 描述 |
 |--------------------------|---------------------------------|-------------|
-| Microsoft 公司或學校帳戶，在任何組織的 Azure Active Directory (Azure AD) 租用戶 | 256 | `signInAudience` 在應用程式資訊清單中的欄位會設為*AzureADMyOrg*或*AzureADMultipleOrgs* |
-| 個人 Microsoft 帳戶和工作和學校帳戶 | 100 | `signInAudience` 在應用程式資訊清單中的欄位設定為*AzureADandPersonalMicrosoftAccount* |
+| 任何組織的 Azure Active Directory (Azure AD) 租使用者中的 Microsoft 公司或學校帳戶 | 256 | `signInAudience`應用程式資訊清單中的欄位設定為*AzureADMyOrg*或*AzureADMultipleOrgs* |
+| 個人 Microsoft 帳戶和公司和學校帳戶 | 100 | `signInAudience`應用程式資訊清單中的欄位設定為*AzureADandPersonalMicrosoftAccount* |
 
-## <a name="maximum-uri-length"></a>URI 的最大長度
+## <a name="maximum-uri-length"></a>URI 長度上限
 
-您可以使用 256 個字元，最多為每個重新導向 URI，您將新增至應用程式註冊。
+針對您新增至應用程式註冊的每個重新導向 URI, 您最多可以使用256個字元。
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>在 Uri 中使用萬用字元的限制
 
-萬用字元 Uri，例如`https://*.contoso.com`，這會很方便，但應該避免。 使用萬用字元，在重新導向 URI 會有安全性顧慮。 根據 OAuth 2.0 規格 ([一節的 RFC 6749 3.1.2](https://tools.ietf.org/html/rfc6749#section-3.1.2))，重新導向端點 URI 必須是絕對 URI。 
+萬用字元 uri (例如`https://*.contoso.com`) 很方便, 但應該避免。 在重新導向 URI 中使用萬用字元會影響安全性。 根據 OAuth 2.0 規格 ([RFC 6749 的區段 3.1.2](https://tools.ietf.org/html/rfc6749#section-3.1.2)), 重新導向端點 URI 必須是絕對 uri。 
 
-Azure AD 應用程式模型不支援萬用字元 Uri 的應用程式，會設定為登入個人 Microsoft 帳戶與工作或學校帳戶。 不過，萬用字元 Uri 會允許登入工作或學校組織的 Azure AD 租用戶中的帳戶目前設定的應用程式。 
+針對設定為登入個人 Microsoft 帳戶和公司或學校帳戶的應用程式, Azure AD 應用程式模型不支援萬用字元 Uri。 不過, 已設定為立即在組織的 Azure AD 租使用者中登入公司或學校帳戶的應用程式, 允許使用萬用字元 Uri。 
  
 > [!NOTE]
-> 新[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗不允許開發人員在 UI 上將萬用字元 Uri。 新增萬用字元 URI 之應用程式的登入工作或學校帳戶只能透過應用程式資訊清單編輯器支援。 從現在開始，新的應用程式將無法在重新導向 URI 中使用萬用字元。 不過，較舊的應用程式包含萬用字元，在重新導向 Uri 會繼續運作。
+> 新的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗不允許開發人員在 UI 上新增萬用字元 uri。 只有透過應用程式資訊清單編輯器, 才支援為登入工作或學校帳戶的應用程式新增萬用字元 URI。 未來, 新的應用程式將無法在重新導向 URI 中使用萬用字元。 不過, 重新導向 Uri 中包含萬用字元的繼承應用程式將會繼續作用。
 
-如果您的案例需要多個重新導向 Uri 超過最大限制允許，而不是新增萬用字元重新導向 URI，請考慮下列方法之一。
+如果您的案例所需的重新導向 Uri 超過允許的最大限制, 而不是新增萬用字元重新導向 URI, 請考慮下列其中一種方法。
 
 ### <a name="use-a-state-parameter"></a>使用 state 參數
 
-如果您有許多子網域，而且如果您的案例會要求您驗證成功後的使用者重新導向至相同的頁面啟動的位置，請使用 state 參數可能會很有幫助。 
+如果您有一些子域, 而且如果您的案例要求您在成功驗證時將使用者重新導向至其啟動所在的相同頁面, 則使用狀態參數可能會很有説明。 
 
-在這種方法：
+這種方法:
 
-1. 建立每個處理您從授權端點接收安全性權杖的應用程式的 「 共用 」 重新導向 URI。
-1. 您的應用程式可以傳送為 state 參數中的應用程式特定的參數 （例如，產生的使用者，或任何項目像是商標資訊的子網域 URL)。 當使用狀態參數，防範 CSRF 防護，如中所指定[區段 10.12 的 RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12))。 
-1. 應用程式特有參數會包含要呈現正確的應用程式體驗的使用者，也就是，建構適當的應用程式狀態所需的所有資訊。 從狀態參數的 HTML 因此請確定您的 Azure AD 授權端點區域不會傳遞 HTML 內容中此參數。
-1. 當 Azure AD 傳送到 「 共用 」 重新導向 URI 的回應時，會傳送狀態參數傳回給應用程式。
-1. 然後應用程式可以使用值為 state 參數中判斷要進一步傳送使用者的 URL。 請確定您 CSRF 防護的驗證。
+1. 建立每個應用程式的「共用」重新導向 URI, 以處理您從授權端點接收的安全性權杖。
+1. 您的應用程式可以在 state 參數中, 傳送應用程式特定的參數 (例如, 使用者源自于的子域 URL, 或商標資訊之類的任何專案)。 使用 state 參數時, 請防範[RFC 6749 第10.12 節](https://tools.ietf.org/html/rfc6749#section-10.12)所指定的 CSRF 保護。 
+1. 應用程式特定的參數將包含應用程式為使用者呈現正確體驗所需的所有資訊, 也就是建立適當的應用程式狀態。 Azure AD 授權端點會從狀態參數中去除 HTML, 因此請確定您不會在此參數中傳遞 HTML 內容。
+1. 當 Azure AD 將回應傳送至「共用」重新導向 URI 時, 它會將狀態參數傳回給應用程式。
+1. 然後, 應用程式可以使用 state 參數中的值來決定要進一步傳送使用者的目標 URL。 請確定您已驗證是否有 CSRF 保護。
 
 > [!NOTE]
-> 此方法可讓遭到入侵的用戶端，若要修改的狀態參數，藉此將使用者重新導向至不同的 URL，也就是在傳送的其他參數[開啟重新導向程式威脅](https://tools.ietf.org/html/rfc6819#section-4.2.4)RFC 6819 中所述。 因此，用戶端也必須保護這些參數，藉由加密狀態，或其他等驗證語彙基元的重新導向 URI 中的網域名稱的方式來進行驗證。
+> 此方法可讓遭入侵的用戶端修改狀態參數中傳送的其他參數, 藉此將使用者重新導向至不同的 URL, 也就是 RFC 6819 中所述的開啟的重新導向器[威脅](https://tools.ietf.org/html/rfc6819#section-4.2.4)。 因此, 用戶端必須保護這些參數, 方法是將狀態加密, 或以其他方式進行驗證, 例如在重新導向 URI 中驗證權杖的功能變數名稱。
 
-### <a name="add-redirect-uris-to-service-principals"></a>新增重新導向 Uri 與服務主體
+### <a name="add-redirect-uris-to-service-principals"></a>將重新導向 Uri 新增至服務主體
 
-另一種方法是新增重新導向 Uri[服務主體](app-objects-and-service-principals.md#application-and-service-principal-relationship)表示在任何 Azure AD 租用戶中的應用程式註冊。 您無法使用狀態參數，或您的案例需要您將新的重新導向 Uri 新增至應用程式註冊，如您所支援的每個新租用戶時，您可以使用這種方法。 
+另一種方法是將重新導向 Uri 新增至代表您在任何 Azure AD 租使用者中註冊應用程式的[服務主體](app-objects-and-service-principals.md#application-and-service-principal-relationship)。 當您無法使用狀態參數或您的案例需要將新的重新導向 Uri 新增至您所支援之每個新租使用者的應用程式註冊時, 您可以使用此方法。 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[應用程式資訊清單](reference-app-manifest.md)
+- 瞭解[應用程式資訊清單](reference-app-manifest.md)

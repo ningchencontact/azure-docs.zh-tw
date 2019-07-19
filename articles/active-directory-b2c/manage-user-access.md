@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Active Directory B2C 中管理使用者存取 | Microsoft Docs
-description: 了解如何識別未成年使用者、 收集日期的生日及國家/地區的資料，以及取得接受使用規定的應用程式中使用 Azure AD B2C。
+description: 瞭解如何使用 Azure AD B2C 來識別未成年人、收集出生日期和國家/地區資料, 以及取得應用程式中使用規定的接受。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6aead01ec0084eb75ea385a67f7c85ea185b017a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ba36ece6b221908bfbaae58430a52b4753c2ed6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510561"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846782"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者存取
 
@@ -23,14 +23,14 @@ ms.locfileid: "66510561"
 
 - 識別未成年人並控制其對您應用程式的使用者存取。
 - 未成年人需要家長同意才可使用您的應用程式。
-- 使用者的生日及國家/地區的資料收集。
+- 正在向使用者收集出生和國家/地區資料。
 - 擷取使用規定協議並管制存取。
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 ## <a name="control-minor-access"></a>控制未成年人的存取
 
-應用程式和組織可決定是否封鎖未成年人，使其無法使用並非以他們為使用對象的應用程式和服務。 或者，應用程式和組織可決定接受未成年人並管理家長同意，而依照商務規則的指示和法規允許提供經許可的體驗。 
+應用程式和組織可決定是否封鎖未成年人，使其無法使用並非以他們為使用對象的應用程式和服務。 或者，應用程式和組織可決定接受未成年人並管理家長同意，而依照商務規則的指示和法規允許提供經許可的體驗。
 
 如果將某個使用者識別為未成年人，則您可以在 Azure AD B2C 中將使用者流程設定為三種選項之一：
 
@@ -38,7 +38,7 @@ ms.locfileid: "66510561"
 
 - **將未簽署的 JSON 權杖傳送至應用程式**：Azure AD B2C 會通知應用程式使用者屬未成年人，並提供使用者的家長同意狀態。 接著，應用程式會套用商務規則。 JSON 權杖不會對應用程式完成成功的驗證。 應用程式必須根據包含在 JSON 權杖中的宣告處理未驗證的使用者，而該權杖中可能包含**名稱**、**電子郵件**、**ageGroup** 和 **consentProvidedForMinor**。
 
-- **封鎖該使用者**：如果使用者是次要，而且未提供取得家長同意，Azure AD B2C 可以通知使用者他們所封鎖。 此時將不會簽發權杖，而會封鎖存取，且註冊作業期間不會建立使用者帳戶。 若要實作此通知，您可以提供適當的 HTML/CSS 內容頁面以通知使用者，並顯示適當選項。 應用程式不需要針對新的註冊執行進一步的動作。
+- **封鎖該使用者**：如果使用者是次要, 而且尚未提供家長同意, Azure AD B2C 可以通知使用者他們遭到封鎖。 此時將不會簽發權杖，而會封鎖存取，且註冊作業期間不會建立使用者帳戶。 若要實作此通知，您可以提供適當的 HTML/CSS 內容頁面以通知使用者，並顯示適當選項。 應用程式不需要針對新的註冊執行進一步的動作。
 
 ## <a name="get-parental-consent"></a>取得家長同意
 
@@ -48,7 +48,7 @@ ms.locfileid: "66510561"
 
 1. [Azure Active Directory 圖形 API](/previous-versions/azure/ad/graph/api/api-catalog) 作業將使用者識別為未成年人，並以未簽署的 JSON 權杖形式將使用者資料傳回至應用程式。
 
-2. 應用程式會處理 JSON 權杖，並顯示螢幕通知，需要家長同意，並要求同意的父代線上的次要。 
+2. 應用程式會處理 JSON 權杖, 並向其顯示畫面, 通知他們需要家長同意, 並要求線上家長同意。
 
 3. Azure AD B2C 會顯示登入程序，讓使用者能正常登入，並將權杖簽發給已設定為包含 **legalAgeGroupClassification = “minorWithParentalConsent”** 的應用程式。 應用程式會收集家長的電子郵件地址，並確認家長是成人。 為此，它會使用受信任的來源，例如戶政單位、授權驗證或信用卡證明。 如果驗證成功，應用程式會提示未成年人使用 Azure AD B2C 使用者流程登入。 如果拒絕同意 (例如 **legalAgeGroupClassification = “minorWithoutParentalConsent”** )，則 Azure AD B2C 會將 JSON 權杖 (不是登入資料) 傳回至應用程式以重新啟動同意程序。 使用者流程可以選擇性地自訂，讓未成年人或成人可據以按照記錄將註冊程式碼傳送至未成年人的電子郵件地址或成人的電子郵件地址，以重新取得未成年人帳戶的存取權。
 
@@ -58,11 +58,11 @@ ms.locfileid: "66510561"
 
 如需 **legalAgeGroupClassification**、**consentProvidedForMinor** 和 **ageGroup** 的詳細資訊，請參閱[使用者資源類型](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)。 如需自訂屬性的詳細資訊，請參閱[使用自訂屬性收集取用者的相關資訊](active-directory-b2c-reference-custom-attr.md)。 藉由使用 Azure AD Graph API 來處理擴充屬性時，您必須使用屬性的完整版本，例如 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*：*2011-01-01T00:00:00Z*。
 
-## <a name="gather-date-of-birth-and-countryregion-data"></a>收集日期的生日及國家/地區的資料
+## <a name="gather-date-of-birth-and-countryregion-data"></a>收集出生日期和國家/地區資料
 
-應用程式可能會仰賴 Azure AD B2C 在註冊期間收集來自所有使用者的出生日期 (DOB) 及國家/地區資訊。 如果這樣資訊尚不存在，應用程式將可在使用者下一次驗證 (登入) 時要求提供。 使用者無法繼續而不需提供其 DOB 和國家/地區資訊。 Azure AD B2C 會使用以判斷個人是否視為次要，以根據該國家/地區的法規標準資訊。 
+應用程式可能會依賴 Azure AD B2C, 在註冊期間收集所有使用者的出生日期 (DOB) 和國家/地區資訊。 如果這樣資訊尚不存在，應用程式將可在使用者下一次驗證 (登入) 時要求提供。 使用者不需提供其 DOB 和國家/地區資訊, 就無法繼續進行。 Azure AD B2C 會根據該國家/地區的法規標準, 使用此資訊來判斷個人是否視為次要。
 
-自訂的使用者流程可蒐集 DOB 和國家/地區資訊及使用 Azure AD B2C 的宣告轉換來判斷**年齡群組**並保存結果 （或直接保存 DOB 和國家/地區資訊） 中目錄。
+自訂的使用者流程可收集 DOB 和國家/地區資訊, 並使用 Azure AD B2C 的宣告轉換來判斷**ageGroup** , 並將結果保存在目錄中 (或直接保存 DOB 和國家/地區資訊)。
 
 下列步驟說明用來從使用者的出生日期計算 **ageGroup** 的邏輯：
 
@@ -74,11 +74,11 @@ ms.locfileid: "66510561"
 
     b. 比較出生日期下限與實際出生日期。 如果出生日期下限早於使用者的出生日期，則計算會傳回**未成年人**作為年齡群組的計算結果。
 
-3. 如果 **MinorNoConsentRequired** 節點存在於國家 (地區) 元素中，請使用 **MinorNoConsentRequired** 中的值重複步驟 2a 和 2b。 如果出生日期下限早於使用者的出生日期，則 2b 的輸出會傳回 **MinorNoConsentRequired**。 
+3. 如果 **MinorNoConsentRequired** 節點存在於國家 (地區) 元素中，請使用 **MinorNoConsentRequired** 中的值重複步驟 2a 和 2b。 如果出生日期下限早於使用者的出生日期，則 2b 的輸出會傳回 **MinorNoConsentRequired**。
 
 4. 如果兩項計算都未傳回 true，則計算會傳回**成人**。
 
-如果應用程式已透過其他方式，可靠地收集 DOB 或國家/地區的資料，應用程式可以使用 Graph API，若要使用此資訊來更新使用者記錄。 例如:
+如果應用程式已透過其他方法可靠地收集 DOB 或國家/地區資料, 應用程式可能會使用圖形 API 來以這項資訊更新使用者記錄。 例如:
 
 - 如果已知使用者是成人，請以**成人**值更新目錄屬性 **ageGroup**。
 - 如果已知使用者是未成年人，請以**未成年人**值更新目錄屬性 **ageGroup**，並視需要設定 **consentProvidedForMinor**。
@@ -112,11 +112,11 @@ ms.locfileid: "66510561"
 
 下圖顯示建議的使用者流程：
 
-![接受使用者流程](./media/manage-user-access/user-flow.png) 
+![顯示建議接受使用者流程的流程圖圖表](./media/manage-user-access/user-flow.png)
 
 下列範例說明宣告中以日期時間為基礎的使用規定同意：
 
-```
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="GetNewUserAgreeToTermsOfUseConsentDateTime" TransformationMethod="GetCurrentDateTime">
     <OutputClaims>
@@ -139,7 +139,7 @@ ms.locfileid: "66510561"
 
 下列範例說明宣告中以版本為基礎的使用規定同意：
 
-```
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="GetEmptyTermsOfUseConsentVersionForNewUser" TransformationMethod="CreateStringClaim">
     <InputParameters>
@@ -170,7 +170,7 @@ ms.locfileid: "66510561"
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="outputClaim" />
     </OutputClaims>
   </ClaimsTransformation>
-</ClaimsTransformations> 
+</ClaimsTransformations>
 ```
 
 ## <a name="next-steps"></a>後續步驟

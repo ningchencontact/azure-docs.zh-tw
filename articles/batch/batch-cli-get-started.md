@@ -4,7 +4,7 @@ description: 取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azu
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782545"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323722"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 雖然您只可以使用命令列選項建立大多數 Batch 資源，但有些功能需要您指定 JSON 格式的檔案 (內含資源詳細資料)。 例如，如果您想要指定啟動工作的資源檔，則必須使用 JSON 檔案。
 
-若要查看建立資源所需的 JSON 語法，請參閱 [Batch REST API 參考][rest_api]文件。 REST API 參考中的每個「新增資源類型」  主題都包含可供建立該資源的範例 JSON 指令碼。 您可以使用這些範例 JSON 指令碼作為 JSON 檔案的範本，以搭配 Azure CLI 使用。 例如，若要查看用於建立集區的 JSON 語法，請參閱[將集區新增至帳戶][rest_add_pool]。
+若要查看建立資源所需的 JSON 語法, 請參閱[批次 REST API 參考][rest_api]檔。 REST API 參考中的每個「新增資源類型」  主題都包含可供建立該資源的範例 JSON 指令碼。 您可以使用這些範例 JSON 指令碼作為 JSON 檔案的範本，以搭配 Azure CLI 使用。 例如, 若要查看用於建立集區的 JSON 語法, 請參閱[將集區新增至帳戶][rest_add_pool]。
 
 如需可指定 JSON 檔案的範例指令碼，請參閱[使用 Batch 執行作業和工作](./scripts/batch-cli-sample-run-job.md)。
 

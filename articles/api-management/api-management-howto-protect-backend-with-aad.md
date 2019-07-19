@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72cffea3e5d42210bffbdbeef94c475cc8bdebf4
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241668"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312092"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
@@ -44,15 +44,15 @@ ms.locfileid: "66241668"
 
 若要使用 Azure AD 保護 API，第一個步驟是在 Azure AD 中註冊一個應用程式來代表 API。 
 
-1. 瀏覽至[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。 
+1. 流覽至 [ [Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面。 
 
 2. 選取 [新增註冊]  。 
 
 1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊： 
     - 在 [名稱]  區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `backend-app`。 
-    - 在 **支援的帳戶類型**區段中，選取**任何組織的目錄中的帳戶**。 
+    - 在 [**支援的帳戶類型**] 區段中, 選取 [**任何組織目錄中的帳戶**]。 
 
-1. 離開**重新導向 URI**現在空的區段。
+1. 立即將 [重新**導向 URI** ] 區段保留空白。
 
 1. 選取 [註冊]  以建立應用程式。 
 
@@ -64,15 +64,15 @@ ms.locfileid: "66241668"
 
 每個呼叫 API 的用戶端應用程式也必須在 Azure AD 中註冊為應用程式。 在此範例中，範例用戶端應用程式是 API 管理開發人員入口網站中的開發人員主控台。 以下說明如何在 Azure AD 中註冊另一個應用程式，來代表開發人員主控台。
 
-1. 瀏覽至[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。 
+1. 流覽至 [ [Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)] 頁面。 
 
 1. 選取 [新增註冊]  。
 
 1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊： 
     - 在 [名稱]  區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `client-app`。 
-    - 在 **支援的帳戶類型**區段中，選取**任何組織的目錄中的帳戶**。 
+    - 在 [**支援的帳戶類型**] 區段中, 選取 [**任何組織目錄中的帳戶**]。 
 
-1. 在 **重新導向 URI**區段中，選取`Web`並輸入 URL `https://contoso5.portal.azure-api.net/signin`
+1. 在 [重新**導向 URI** ] 區段`Web`中, 選取並輸入 URL。`https://contoso5.portal.azure-api.net/signin`
 
 1. 選取 [註冊]  以建立應用程式。 
 
@@ -80,9 +80,9 @@ ms.locfileid: "66241668"
 
 現在，建立此應用程式的用戶端密碼，以供後續步驟使用。
 
-1. 從清單中的用戶端應用程式頁面，選取**憑證與祕密**，然後選取**新的用戶端祕密**。
+1. 從用戶端應用程式的頁面清單中, 選取 [**憑證 & 密碼**], 然後選取 [**新增用戶端密碼**]。
 
-2. 底下**新增用戶端祕密**，提供**描述**。 選擇金鑰應過期，然後選取**新增**。
+2. 在 [**新增用戶端密碼**] 底下, 提供**描述**。 選擇金鑰應到期的時間, 然後選取 [**新增**]。
 
 記下金鑰的值。 
 
@@ -90,17 +90,17 @@ ms.locfileid: "66241668"
 
 現在您已註冊兩個應用程式來代表 API 和開發人員主控台，您需要授與權限，允許用戶端應用程式呼叫後端應用程式。  
 
-1. 瀏覽至**應用程式註冊**。 
+1. 流覽至**應用程式註冊**。 
 
-2. 選取  `client-app`，然後在清單中的應用程式頁面中，移至**API 權限**。
+2. 選取`client-app`[], 然後在應用程式的頁面清單中, 移至 [ **API 許可權**]。
 
-3. 選取 **新增權限**。
+3. 選取 [**新增許可權**]。
 
-4. 底下**選取 API**，尋找並選取`backend-app`。
+4. 在 [**選取 API**] 底下, 尋找`backend-app`並選取。
 
-5. 底下**委派的權限**，選取適當的權限`backend-app`。
+5. 在 [**委派的許可權**] 底下, 選取`backend-app`適當的許可權。
 
-6. 選取**新增權限** 
+6. 選取 [**新增許可權**] 
 
 > [!NOTE]
 > 如果 [Azure Active Directory]  並未列在其他應用程式的權限之下，請選取 [新增]  從清單將其新增。
@@ -111,7 +111,7 @@ ms.locfileid: "66241668"
 
 在此範例中，開發人員主控台是用戶端應用程式。 下列步驟說明如何在開發人員主控台中啟用 OAuth 2.0 使用者授權。 
 
-1. 在 Azure 入口網站中，瀏覽至您的 API 管理執行個體。
+1. 在 Azure 入口網站中, 流覽至您的 API 管理實例。
 
 2. 選取 [OAuth 2.0]   > [新增]  。
 
@@ -122,9 +122,6 @@ ms.locfileid: "66241668"
 5. 針對 [授權授與類型]  ，選取 [授權碼]  。
 
 6. 指定 [授權端點 URL]  和 [權杖端點 URL]  。 從 Azure AD 租用戶中的 [端點]  頁面擷取這些值。 瀏覽至 [應用程式註冊]  頁面，然後選取 [端點]  。
-
-    >[!NOTE]
-    > 在此處使用 **v1** 端點
 
 7. 複製 [OAuth 2.0 授權端點]  並貼到 [授權端點 URL]  文字方塊中。
 

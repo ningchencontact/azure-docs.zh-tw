@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddfa93328fb3533a937cc7f0d81482b66275faf3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302674"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848955"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>準備 IoT Edge 適用的開發和測試環境
 
@@ -49,7 +49,7 @@ Visual Studio Code 的 Azure IoT Edge 擴充功能提供針對程式設計語言
 
 除了 IoT Edge 擴充功能之外，您可能也會發現它在安裝用於開發的其他擴充功能時很有幫助。 例如，您可以使用[適用於 Visual Studio Code 的 Docker 支援](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)來管理映像、容器和登錄。 此外，所有主要支援的語言都有適用於 Visual Studio Code 的擴充功能，可在您開發模組時提供協助。 
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 某些語言和服務的模組範本具備使用 Visual Studio Code 在開發電腦上建置專案資料夾所需的必要條件。
 
@@ -60,13 +60,13 @@ Visual Studio Code 的 Azure IoT Edge 擴充功能提供針對程式設計語言
 | C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE 開發套件 10](https://aka.ms/azure-jdks) <li> [設定 JAVA_HOME 環境變數](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js 模組產生器](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019年擴充功能
+### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019 延伸模組
 
-Visual Studio 的 Azure IoT Edge 工具提供的 IoT Edge 模組上建置的範本C#和 c。 
+Visual Studio 的 Azure IoT Edge 工具提供了內建于C#和 C 的 IoT Edge 模組範本。 
 
-如需詳細資訊及下載，請參閱[Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)或是[Azure IoT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)。
+如需詳細資訊和下載, 請參閱適用于[Visual Studio 2017 的 Azure IoT Edge 工具](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)或[適用于 Visual Studio 2019 的 Azure IoT Edge 工具](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)。
 
 ### <a name="iot-edge-dev-tool"></a>IoT Edge 開發人員工具
 
@@ -109,7 +109,7 @@ Azure IoT Edge 裝置容器是一種 Docker 容器，具備開發 IoT Edge 所�
 
 ### <a name="iot-edge-device-container"></a>IoT Edge 裝置容器
 
-IoT Edge 裝置容器是一個完整的 IoT Edge 裝置，可以在具有容器引擎的任何電腦上啟動。 裝置容器包含 IoT Edge 執行階段和容器引擎本身。 每個容器執行個體都是一個功能完整的自我佈建 IoT Edge 裝置。 裝置容器支援從遠端進行模組偵錯，前提是，該模組具備網路路由。 裝置容器是很好，讓您迅速建立大量的 IoT Edge 裝置可以測試規模案例或 Azure 的管線。 它也支援透過 helm 部署到 kubernetes。 
+IoT Edge 裝置容器是一個完整的 IoT Edge 裝置，可以在具有容器引擎的任何電腦上啟動。 裝置容器包含 IoT Edge 執行階段和容器引擎本身。 每個容器執行個體都是一個功能完整的自我佈建 IoT Edge 裝置。 裝置容器支援從遠端進行模組偵錯，前提是，該模組具備網路路由。 裝置容器適合用來快速建立大量的 IoT Edge 裝置, 以測試大規模的案例或 Azure Pipelines。 它也支援透過 helm 部署到 kubernetes。 
 
 如需詳細資訊，請參閱 [Azure IoT Edge 裝置容器](https://github.com/toolboc/azure-iot-edge-device-container)。
 

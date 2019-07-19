@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6634b674037b48ff9ef9690144ef5274f31a6ea8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752564"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227971"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -50,7 +50,7 @@ Azure 記錄可歸類為下列類型：
 |[Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|儲存體記錄，提供儲存體帳戶的計量資料|讓您了解追蹤要求、分析使用趨勢，以及診斷儲存體帳戶的問題。|   REST API 或[用戶端程式庫](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[網路安全性群組 (NSG) 流程記錄](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 格式，顯示每個規則的輸出和輸入流程|顯示透過網路安全性群組輸入和輸出 IP 流量的相關資訊。|[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|記錄、例外狀況及自訂診斷|   提供多個平台上的 Web 開發人員所適用的應用程式效能監控 (APM) 服務。| REST API、[Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|處理資料 / 安全性警示|    Azure 資訊安全中心警示、 Azure 監視器記錄檔警示|    提供安全性資訊和警示。|  REST API、JSON|
+|處理資料 / 安全性警示|    Azure 資訊安全中心警示, Azure 監視器記錄警示|    提供安全性資訊和警示。|  REST API、JSON|
 
 ### <a name="activity-logs"></a>活動記錄
 
@@ -78,7 +78,7 @@ Azure 記錄可歸類為下列類型：
 
 * 透過 PowerShell Cmdlet、Azure CLI 或 REST API 查詢活動記錄。
 
-* 匯出活動記錄與記錄設定檔，以[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)。
+* 將具有記錄設定檔的活動記錄匯出至[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)。
 
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或[事件中樞命名空間](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)。 進行此設定的人員必須具有這兩個訂用帳戶的適當[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 存取權。
 
@@ -96,15 +96,15 @@ Azure 診斷記錄提供多個組態選項，例如 Azure 入口網站、PowerSh
 
 * [將診斷記錄串流至事件中樞](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs)，以供第三方服務或自訂的分析解決方案 (如 [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)) 擷取。
 
-* 分析它們[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)。
+* 使用[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)來分析它們。
 
 **支援的服務、診斷記錄的結構描述，以及每個資源類型支援的記錄分類**
 
 
 | 服務 | 結構描述與文件 | 資源類型 | Category |
 | ------- | ------------- | ------------- | -------- |
-|Azure Load Balancer| [負載平衡器 （預覽） 的 azure 監視器記錄檔](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
-|網路安全性群組|[網路安全性群組的 azure 監視器記錄檔](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
+|Azure Load Balancer| [Load Balancer 的 Azure 監視器記錄 (預覽)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
+|網路安全性群組|[網路安全性群組的 Azure 監視器記錄](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
 |Azure 應用程式閘道|[應用程式閘道的診斷記錄功能](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure 金鑰保存庫|[金鑰保存庫記錄](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure 搜尋服務|[啟用和使用搜尋流量分析](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
@@ -112,7 +112,7 @@ Azure 診斷記錄提供多個組態選項，例如 Azure 入口網站、PowerSh
 |Azure Data Lake Analytics|[存取 Data Lake Store 的診斷記錄](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|稽核<br>Requests|
 |Azure Logic Apps|[Logic Apps B2B 自訂追蹤結構描述](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Azure Batch 診斷記錄](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure 自動化|[Azure 自動化的 azure 監視器記錄檔](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
+|Azure 自動化|[Azure 自動化的 Azure 監視器記錄](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure 事件中心|[事件中樞診斷記錄](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
 |Azure 串流分析|[作業診斷記錄](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|執行<br>編寫|
 |Azure 服務匯流排|[服務匯流排診斷記錄](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
@@ -139,7 +139,7 @@ Azure Active Directory (Azure AD) 包括使用者目錄的安全性、活動和�
 
 這些報告的資料對您的應用程式 (例如安全性資訊與事件管理 (SIEM) 系統、稽核和商業智慧工具) 非常有用。 Azure AD 報告 API 透過一組以 REST 為基礎的 API 提供資料的程式設計方式存取。 您可以從各種程式設計語言和工具呼叫這些 [API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started)。
 
-Azure AD 稽核報告中的事件會保留 180 天。
+Azure AD Audit 報告中的事件保留時間會根據與租使用者相關聯的授權類型而有所不同7-90 天。 
 
 > [!Note]
 > 如需報告保留的詳細資訊，請參閱 [Azure AD 報告保留原則](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-retention)。
@@ -216,7 +216,7 @@ Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二�
 
 **診斷記錄**
 
-建立網路資源和登入儲存體帳戶，並傳送至事件中樞或 Azure 監視器記錄檔定期和自發地事件。 這些記錄可讓您深入了解資源的健全狀況。 他們可以檢視 Power BI 和 Azure 監視器的記錄檔等工具中。 若要了解如何檢視診斷記錄檔，請參閱[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)。
+定期和自發的事件是由網路資源所建立並已登入儲存體帳戶, 並會傳送到事件中樞或 Azure 監視器記錄。 這些記錄可讓您深入了解資源的健全狀況。 您可以在 Power BI 和 Azure 監視器記錄之類的工具中查看它們。 若要瞭解如何查看診斷記錄, 請參閱[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)。
 
 ![診斷記錄](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -302,31 +302,31 @@ Azure 資訊安全中心威脅偵測的運作方式如下：從您的 Azure 資�
 
 * **異常偵測**：使用統計分析來建置歷程基準。 它會對偏離已確立基準 (符合潛在攻擊向量) 的情況提出警示。
 
-許多安全性作業和事件回應小組依賴 SIEM 方案對安全性警示進行分級和調查做為起點。 利用 Azure 記錄整合，您可以將資訊安全中心警示和虛擬機器安全性事件，收集 Azure 診斷和稽核記錄，與您的 Azure 監視器記錄檔或 SIEM 方案以接近即時的方式同步。
+許多安全性作業和事件回應小組依賴 SIEM 方案對安全性警示進行分級和調查做為起點。 使用 Azure 記錄整合, 您可以近乎即時地同步處理 Azure 診斷和 audit 記錄所收集的資訊安全中心警示和虛擬機器安全性事件, 以及您的 Azure 監視器記錄或 SIEM 解決方案。
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-Azure 監視器記錄檔是可協助您收集和分析資料，由您的雲端中的資源所產生，並在內部部署環境的 Azure 中的服務。 它可讓您在所有工作負載和伺服器之間 (無論其實體位置為何)，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入資訊。
+Azure 監視器記錄是 Azure 中的一項服務, 可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。 它可讓您在所有工作負載和伺服器之間 (無論其實體位置為何)，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入資訊。
 
 ![Azure 監視器記錄圖表](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Azure 監視器的中心記錄檔是裝載於 Azure 的 Log Analytics 工作區。 Azure 監視器記錄檔會收集從連接的來源工作區中的資料，藉由設定資料來源，以及將解決方案新增至您的訂用帳戶。 資料來源和解決方案會各自建立不同的記錄類型，各有其自己的屬性集。 不過，在工作區的查詢中仍可一起分析來源和解決方案。 此功能可讓您使用相同的工具和方法，來處理由各種來源收集的各種資料。
+Azure 監視器記錄的中心是 Log Analytics 工作區, 其裝載于 Azure 中。 Azure 監視器記錄會藉由設定資料來源並將解決方案新增至您的訂用帳戶, 從連線的來源收集工作區中的資料。 資料來源和解決方案會各自建立不同的記錄類型，各有其自己的屬性集。 不過，在工作區的查詢中仍可一起分析來源和解決方案。 此功能可讓您使用相同的工具和方法，來處理由各種來源收集的各種資料。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-連接的來源是電腦及其他資源產生由 Azure 監視器記錄檔收集的資料。 來源可以包括安裝在直接連線的 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 和 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) 電腦上的代理程式，或[已連線的 System Center Operations Manager 管理群組](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)中的代理程式。 Azure 監視器記錄檔也可以收集的資料[Azure 儲存體帳戶](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)。
+已連線的來源是電腦和其他資源, 可產生 Azure 監視器記錄所收集的資料。 來源可以包括安裝在直接連線的 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) 和 [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) 電腦上的代理程式，或[已連線的 System Center Operations Manager 管理群組](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)中的代理程式。 Azure 監視器記錄也可以從[Azure 儲存體帳戶](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)收集資料。
 
 [資料來源](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) 是從每個已連線來源收集的各種資料。 除了 [IIS 記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs)和[自訂文字記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs)等來源，來源還包括來自 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) 和 Linux 代理程式的事件和[效能資料](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)。 您設定想要收集的每個資料來源，組態會自動傳遞到每一個已連接的來源。
 
 有四種方法可[收集 Azure 服務的記錄和計量](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)：
 
-* Azure 診斷直達 Azure 監視器記錄檔 (**診斷**下表中)
+* Azure 診斷直接 Azure 監視器記錄 (下表中的**診斷**)
 
-* Azure 監視器的 Azure 儲存體的 azure 診斷記錄 (**儲存體**下表中)
+* Azure 診斷到 Azure 儲存體來 Azure 監視器記錄 (下表中的**儲存體**)
 
 * Azure 服務的連接器 (下表中的**連接器**)
 
-* 使用指令碼來收集並再將資料公佈至 Azure 監視器記錄檔 （空白資料格表和未列出的服務）
+* 要收集並將資料張貼到 Azure 監視器記錄檔中的腳本 (下表中的空白儲存格, 以及未列出的服務)
 
 | 服務 | 資源類型 | 記錄 | 度量 | 方案 |
 | :------ | :------------ | :--- | :------ | :------- |
@@ -371,7 +371,7 @@ Azure 監視器的中心記錄檔是裝載於 Azure 的 Log Analytics 工作區�
 
 記錄整合目前支援整合 Azure 活動記錄、您的 Azure 訂用帳戶中 Windows 虛擬機器的 Windows 事件記錄、Azure 資訊安全中心警示、Azure 診斷記錄及 Azure AD 稽核記錄。
 
-| 記錄類型 | Azure 監視器記錄支援的 JSON （Splunk、 ArcSight 和 IBM QRadar） |
+| 記錄類型 | 支援 JSON 的 Azure 監視器記錄 (Splunk、ArcSight 和 IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
 |Azure AD 稽核記錄|   是|
 |活動記錄| 是|
@@ -387,7 +387,7 @@ SIEM 的整合案例：
 
 * [Azure 記錄整合常見問題集](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq)：本文提供 Azure 記錄整合的相關問題解答。
 
-* [以 Azure 記錄整合來整合資訊安全中心警示](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)：這篇文章討論如何同步處理資訊安全中心警示，Azure 診斷記錄所收集的虛擬機器安全性事件，並使用您的 Azure 監視器記錄檔或 SIEM 方案的 Azure 稽核記錄。
+* [以 Azure 記錄整合來整合資訊安全中心警示](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)：本文討論如何同步處理資訊安全中心警示、Azure 診斷記錄所收集的虛擬機器安全性事件, 以及您的 Azure 監視器記錄或 SIEM 解決方案的 Azure audit 記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

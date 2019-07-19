@@ -1,6 +1,6 @@
 ---
-title: 登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的問題 | Microsoft Docs
-description: 討論問題範圍，為疑難排解登入針對密碼單一登入所設定 Azure AD 資源庫應用程式相關問題提供指引
+title: 在存取面板中使用以密碼為基礎的單一登入 (SSO) |Microsoft Docs
+description: 討論問題區域, 提供針對登入設定為密碼單一登入之 Azure AD 圖庫應用程式的相關問題進行疑難排解的指引。
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95703166c3e1ed8034ea8c0d813c54759603fce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c020f3ab3ea7ed96b72d0490b717225d44c4fac1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825041"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277752"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的問題
 

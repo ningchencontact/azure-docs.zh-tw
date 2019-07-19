@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc55e4999a09c45463ae75b05d610b290f5ff526
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075398"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248325"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能 
 使用適用於容器的 Azure 監視器，您可以使用效能圖和健全狀態，從下列兩個檢視方塊中監視 Azure Kubernetes Service (AKS) 叢集的工作負載：直接從 AKS 叢集，或者從 Azure 監視器監視訂用帳戶中的所有 AKS 叢集。 當您監視特定的 AKS 叢集時，也可以檢視 Azure 容器執行個體 (ACI)。
@@ -27,15 +27,15 @@ ms.locfileid: "67075398"
 
 如需啟用適用於容器的 Azure 監視器相關資訊，請參閱[將適用於容器的 Azure 監視器上線](container-insights-onboard.md)。
 
-Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 2019 跨訂用帳戶中的資源群組部署的所有受監視 AKS 叢集的健康情況狀態。  它也會顯示探索到且未受到解決方案監視的 AKS 叢集。 您可以立即了解叢集健康情況，並從這裡向下切入到節點和控制器效能頁面，或者瀏覽以查看叢集的效能圖。  針對探索到且識別為未受監視的 AKS 叢集，您隨時都可針對該叢集啟用監視。  
+Azure 監視器提供多叢集視圖, 顯示在訂用帳戶的所有資源群組中, 執行 Linux 和 Windows Server 2019 的所有受監視 AKS 叢集的健全狀況狀態。  它也會顯示探索到且未受到解決方案監視的 AKS 叢集。 您可以立即了解叢集健康情況，並從這裡向下切入到節點和控制器效能頁面，或者瀏覽以查看叢集的效能圖。  針對探索到且識別為未受監視的 AKS 叢集，您隨時都可針對該叢集啟用監視。  
 
-相較於 Linux 叢集的容器，使用 Azure 監視器監視 Windows Server 叢集的主要差異如下所示：
+與 Linux 叢集相較之下, 針對容器的 Azure 監視器監視 Windows Server 叢集的主要差異如下:
 
-- 記憶體 RSS 度量不適用於 Windows 節點和容器 
-- 磁碟儲存體容量資訊不適用於 Windows 的節點
-- 使用 Windows 容器記錄除了即時記錄檔的支援。
-- 只會監視環境的 pod，不是 Docker 環境。
-- 預覽版本中，支援最多 30 的 Windows Server 容器。 這項限制不適用於 Linux 容器中。  
+- Windows 節點和容器無法使用記憶體 RSS 計量。
+- Windows 節點無法使用磁片儲存體容量資訊。
+- Windows 容器記錄除外, 提供即時記錄支援。
+- 只有 pod 環境會受到監視, 而不是 Docker 環境。
+- 在預覽版本中, 最多可支援30個 Windows Server 容器。 此限制不適用於 Linux 容器。  
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 登入 [Azure 入口網站](https://portal.azure.com)。 
@@ -49,8 +49,8 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 1. 有多少個叢集處於重大或狀況不良狀態，以及有多少個叢集的狀況良好或未報告 (稱為未知狀態)？
 2. 我的 [Azure Kubernetes 引擎 (AKS-engine)](https://github.com/Azure/aks-engine) 部署全部都狀況良好嗎？
-3. 每個叢集中部署節點、 使用者和系統的 pod 數目？
-4. 磁碟空間可用，並有容量問題嗎？
+3. 每個叢集有多少個節點、使用者和系統 pod 部署？
+4. 有多少可用的磁碟空間, 還有容量問題嗎？
 
 內含的健全狀態如下： 
 
@@ -61,10 +61,10 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 * **找不到**：已刪除工作區、資源群組或包含適用於此解決方案之工作區的訂用帳戶。
 * **未經授權**：使用者沒有讀取工作區中資料的必要權限。
 * **錯誤**：嘗試從工作區讀取資料時發生錯誤。
-* **設定錯誤**-適用於容器的 Azure 監視未正確設定在指定的工作區中。
+* 設定**錯誤**-未在指定的工作區中正確設定容器的 Azure 監視器。
 * **沒有資料**：過去 30 分鐘內並未向工作區回報任何資料。
 
-健全狀況狀態計算整體的叢集狀態為*最差*任何三種狀態時，這三個狀態有一個例外狀況 –*未知*，整體叢集狀態將會顯示**未知**.  
+健全狀況狀態會將整體叢集狀態計算為三個狀態的*最差*, 但有一個例外狀況, 如果三個狀態的其中一個*不明*, 則整體叢集狀態會顯示 [**不明**]。  
 
 下表提供計算明細，其會在多叢集檢視上控制受監視叢集的健康狀態。
 
@@ -107,12 +107,12 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 - **節點計數**：Kubernetes 中的節點計數和狀態。 所表示的叢集節點狀態為 [所有]  、[就緒]  和 [尚未就緒]  ，且可以在圖表上方的選取器中進行個別篩選或結合。 
 - **活動 Pod 計數**：Kubernetes 中的 Pod 計數和狀態。 所表示的叢集節點狀態為 [所有]  、[擱置]  、[執行中]  和 [未知]  ，且可以在圖表上方的選取器中進行個別篩選或結合。 
 
-您可以使用向左/向右鍵循環顯示圖表上的每個資料點，使用向上/向下鍵來循環顯示百分位數線。 按一下任一圖表右上角的釘選圖示會釘選到最後一個 Azure 儀表板您上次檢視選取的圖表。 從儀表板，您可以調整大小，並調整圖表的位置。 從儀表板中選取圖表，會將您重新導向至 Azure 監視器適用於容器，並載入正確的範圍和檢視。
+您可以使用向左/向右鍵循環顯示圖表上的每個資料點，使用向上/向下鍵來循環顯示百分位數線。 按一下任何一個圖表右上角的釘選圖示, 即可將選取的圖表釘選到上次查看的 Azure 儀表板。 您可以從儀表板調整圖表的大小和位置。 從儀表板選取圖表會將您重新導向至容器的 Azure 監視器, 並載入正確的範圍和視圖。
 
-適用於容器的 azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md)，您可以建立您自己的盒狀圖，相互關聯和調查趨勢，並釘選到儀表板。 從計量瀏覽器中，您也可以使用您設定用來視覺化您的計量作為基礎的準則[度量型警示規則](../platform/alerts-metric.md)。  
+容器的 Azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md), 您可以在其中建立自己的繪圖圖表、相互關聯和調查趨勢, 以及釘選到儀表板。 在計量瀏覽器中, 您也可以使用您已設定的準則, 將您的計量視覺化為以[度量為基礎的警示規則](../platform/alerts-metric.md)的基礎。  
 
-## <a name="view-container-metrics-in-metrics-explorer"></a>在 計量瀏覽器中檢視容器計量
-在計量瀏覽器中，您可以檢視彙總的節點，和 pod 容器從 Azure 監視器使用率計量。 下表摘要說明可協助您了解如何使用以視覺化方式檢視容器計量的度量圖表的詳細資料。
+## <a name="view-container-metrics-in-metrics-explorer"></a>在計量瀏覽器中查看容器計量
+在計量瀏覽器中, 您可以從容器的 Azure 監視器中, 查看匯總的節點和 pod 使用率計量。 下表摘要說明的詳細資料, 可協助您瞭解如何使用計量圖表來視覺化容器計量。
 
 |命名空間 | 計量 |
 |----------|--------|
@@ -127,22 +127,22 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 | insights.container/pods | |
 | | PodCount |
 
-您可以套用[分割](../platform/metrics-charts.md#apply-splitting-to-a-chart)計量維度來檢視它，並以視覺化方式檢視其中的不同區段的比較彼此。 對於節點，您可以分割圖表*主機*維度，並從 pod 您可以透過區隔其下列維度：
+您可以套用度量的[分割](../platform/metrics-charts.md#apply-splitting-to-a-chart)以依據維度來進行查看, 並以視覺化方式將不同區段彼此比較。 對於節點, 您可以依*主機*維度分割圖表, 也可以從 pod 將其分割為下列維度:
 
 * Controller
 * Kubernetes 命名空間
 * 節點
 * 階段
 
-## <a name="analyze-nodes-controllers-and-container-health"></a>分析節點、 控制器及容器健康情況
+## <a name="analyze-nodes-controllers-and-container-health"></a>分析節點、控制器和容器健全狀況
 
-當您切換至 [節點]  、[控制站]  和 [容器]  索引標籤時，頁面右邊會自動顯示屬性窗格。 它會顯示選取項目-，的內容包括您組織的 Kubernetes 物件定義的標籤。 在 Linux 節點選取時，它也會顯示在下一節**本機的磁碟容量**可用磁碟空間以及用來向之節點的每個磁碟的百分比。 按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。 
+當您切換至 [節點]  、[控制站]  和 [容器]  索引標籤時，頁面右邊會自動顯示屬性窗格。 它會顯示已選取專案的屬性, 包括您定義來組織 Kubernetes 物件的標籤。 選取 [Linux] 節點時, 它也會顯示在 [**本機磁片容量**可用磁碟空間] 和 [用於每個磁片] 節點所用的 [百分比] 區段底下。 按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。 
 
 ![範例 Kubernetes 觀點屬性窗格](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-當您展開階層中的物件時，屬性窗格會根據所選的物件更新。 在此窗格中，您也可以按一下窗格頂端的 [檢視 Kubernetes 事件記錄]  連結，使用已預先定義的記錄搜尋來檢視 Kubernetes 事件。 如需檢視 Kubernetes 記錄資料的詳細資訊，請參閱[搜尋記錄來分析資料](container-insights-log-search.md)。 當您要檢閱叢集資源時，您可以看到容器的記錄和即時的事件。 如需有關這項功能，來授與和控制存取所需的設定的詳細資訊，請參閱[how to view 如何使用 Azure 監視器即時記錄適用於容器](container-insights-live-logs.md)。 
+當您展開階層中的物件時，屬性窗格會根據所選的物件更新。 在此窗格中，您也可以按一下窗格頂端的 [檢視 Kubernetes 事件記錄]  連結，使用已預先定義的記錄搜尋來檢視 Kubernetes 事件。 如需檢視 Kubernetes 記錄資料的詳細資訊，請參閱[搜尋記錄來分析資料](container-insights-log-search.md)。 當您查看叢集資源時, 您可以即時查看容器記錄和事件。 如需這項功能的詳細資訊, 以及授與和控制存取所需的設定, 請參閱[如何使用適用于容器的 Azure 監視器來即時查看記錄](container-insights-live-logs.md)。 
 
-使用 **+ 新增篩選條件**從頁面頂端的選項來篩選所檢視的結果**服務**，**節點**，**命名空間**，或是**節點集區**選取的篩選範圍之後, 您再從選取其中一個值所示**選定值**欄位。  設定篩選器之後，就會在檢視 AKS 叢集的任一個檢視方塊時全域套用。  此公式僅支援等號。  您可以在第一個篩選器上方新增其他篩選器，進一步縮小您的結果。  例如，如果您依**節點**指定篩選器，則您的第二個篩選器只允許您選取 [服務]  或 [命名空間]  。  
+使用頁面頂端的 [ **+ 新增篩選**器] 選項, 依**服務**、**節點**、**命名空間**或**節點集**區篩選視圖的結果, 然後在選取篩選範圍之後, 選取其中一個顯示在**選取 [值**] 欄位。  設定篩選器之後，就會在檢視 AKS 叢集的任一個檢視方塊時全域套用。  此公式僅支援等號。  您可以在第一個篩選器上方新增其他篩選器，進一步縮小您的結果。  例如，如果您依**節點**指定篩選器，則您的第二個篩選器只允許您選取 [服務]  或 [命名空間]  。  
 
 ![使用篩選器來縮小結果的範例](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -152,9 +152,9 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 ![效能檢視中的範例 Kubernetes 節點階層](./media/container-insights-analyze/containers-nodes-view.png)
 
-執行 Windows Server 2019 OS 的 Windows Server 容器會顯示在所有 Linux 為基礎的節點清單中之後。 當您展開 [Windows 伺服器] 節點時，您可以檢視一個或多個 pod 和執行在節點上的容器。 選取節點時，[屬性] 窗格會顯示版本資訊，因為 Windows 伺服器節點，並沒有安裝代理程式，但不包括代理程式資訊。  
+執行 Windows Server 2019 OS 的 windows Server 容器會顯示在清單中所有以 Linux 為基礎的節點之後。 當您展開 Windows Server 節點時, 您可以查看在節點上執行的一或多個 pod 和容器。 選取節點時, [屬性] 窗格會顯示版本資訊, 但不包括代理程式資訊, 因為 Windows Server 節點並未安裝代理程式。  
 
-![範例使用列出的 Windows Server 節點的節點階層架構](./media/container-insights-analyze/nodes-view-windows.png) 
+![列出 Windows Server 節點的範例節點階層](./media/container-insights-analyze/nodes-view-windows.png) 
 
 執行 Linux OS 的 Azure 容器執行個體虛擬節點會顯示於清單中的最後一個 AKS 叢集節點之後。  當您展開 ACI 虛擬節點時，您可以檢視在節點上執行的一或多個 ACI Pod 和容器。  系統不會針對節點收集並回報計量，僅會針對 Pod 進行。
 
@@ -163,7 +163,9 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 從展開的節點中，您可以從節點上執行的 Pod 或容器向下切入到控制器，以檢視針對該控制器所篩選的效能資料。 按一下特定節點 [控制器]  欄下方的值。   
 ![效能檢視中從節點到控制器的向下切入範例](./media/container-insights-analyze/drill-down-node-controller.png)
 
-您可以從頁面頂端選取控制器或容器，然後檢閱那些物件的狀態與資源使用率。  如果您想要改為檢閱記憶體使用率，請在 [計量]  下拉式清單中選取 [記憶體 RSS]  或 [記憶體工作集]  。 只有 Kubernetes 1.8 版和更新版本才支援**記憶體 RSS**。 否則，您會以 *NaN&nbsp;%* 的形式檢視 **Min&nbsp;%** 的值，這是代表未定義或無法顯示之值的數值資料類型值。 
+您可以從頁面頂端選取控制器或容器，然後檢閱那些物件的狀態與資源使用率。  如果您想要改為檢閱記憶體使用率，請在 [計量]  下拉式清單中選取 [記憶體 RSS]  或 [記憶體工作集]  。 只有 Kubernetes 1.8 版和更新版本才支援**記憶體 RSS**。 否則，您會以 *NaN&nbsp;%* 的形式檢視 **Min&nbsp;%** 的值，這是代表未定義或無法顯示之值的數值資料類型值。
+
+記憶體工作集會顯示內含的記憶體和虛擬記憶體 (快取), 以及應用程式所使用的總數。 記憶體 RSS 只會顯示主儲存體, 也就是常駐記憶體。 此度量會顯示可用記憶體的實際容量。
 
 ![容器節點效能檢視](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -173,7 +175,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 當您將滑鼠暫留在 [趨勢]  資料行底下的長條圖上方時，每個長條圖都會依據所選取的計量，在 15 分鐘的取樣期間內顯示 CPU 或記憶體使用量。 透過鍵盤選取趨勢圖後，您可以使用 Alt+PageUp 或 Alt+PageDown 鍵來循環顯示每個橫條，並取得和滑鼠指標置於其上時相同的詳細資訊。
 
-![橫條圖停留在範例中的趨勢](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![趨勢橫條圖滑鼠停留在範例上](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 在下列範例中，請注意清單中的第一個節點 *aks-nodepool1-* ，**容器**的值為 9，這是已部署容器總數的彙總。
 
@@ -200,7 +202,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 您可以在此處檢視控制器的效能健康情況，以及未連線到控制器的 ACI 虛擬節點控制器或虛擬節點 Pod。
 
-![<Name> 控制器效能檢視](./media/container-insights-analyze/containers-controllers-view.png)
+![\<> 控制器的名稱 效能視圖](./media/container-insights-analyze/containers-controllers-view.png)
 
 資料列階層以控制器為首，展開控制器時，您會看到一或多個 Pod。  展開 Pod，最後一個資料列會顯示分組至 Pod 的容器。 從展開的控制器中，您可以向下切入到控制器執行所在的節點，以檢視針對該節點所篩選的效能資料。 未連線到控制器的 ACI Pod 會列為清單中的最後一個。
 
@@ -216,7 +218,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 |--------|-------------|
 | 名稱 | 控制器的名稱。|
 | 狀態 | 容器的彙總狀態，就是當其完成執行後的狀態，例如「確定」  、「終止」  、「失敗」  、「停止」  或「暫停」  。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為 [未知]  。 下表中提供狀態圖示的其他詳細資料。|
-| Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 彙總平均每個實體已選定的度量和百分位數的平均百分比。 |
+| Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 針對所選取計量和百分位數的每個實體匯總平均百分比的平均值。 |
 | Avg、Min、Max、50th、90th  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | 容器 | 該控制器或 Pod 的容器總數。 |
 | Restarts | 積存容器中的重新啟動計數。 |
@@ -241,7 +243,7 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 
 您可以在這裡檢視 Azure Kubernetes 和 Azure 容器執行個體容器的效能健康情況。  
 
-![<Name> 控制器效能檢視](./media/container-insights-analyze/containers-containers-view.png)
+![\<> 控制器的名稱 效能視圖](./media/container-insights-analyze/containers-containers-view.png)
 
 您可以從容器向下切入到 Pod 或節點，以檢視針對該物件所篩選的效能資料。 按一下特定容器的 [Pod]  或 [節點]  欄。   
 
@@ -271,20 +273,20 @@ Azure 監視器提供多的叢集檢視，顯示執行 Linux 和 Windows Server 
 | ![終止的狀態圖示](./media/container-insights-analyze/containers-terminated-icon.png) | 已成功停止或無法停止|  
 | ![失敗狀態圖示](./media/container-insights-analyze/containers-failed-icon.png) | 失敗狀態 |  
 
-## <a name="disk-capacity-workbook"></a>磁碟容量活頁簿
-活頁簿結合文字 [記錄查詢](../log-query/query-language.md)，[計量](../platform/data-platform-metrics.md)，以及豐富的互動式報表參數。 活頁簿可以由具有相同 Azure 資源存取權的其他小組成員編輯。
+## <a name="disk-capacity-workbook"></a>磁片容量活頁簿
+活頁簿將文字、 [記錄查詢](../log-query/query-language.md)、[計量](../platform/data-platform-metrics.md)和參數結合成豐富的互動式報表。 活頁簿可以由具有相同 Azure 資源存取權的其他小組成員編輯。
 
-適用於容器的 azure 監視器包含可協助您開始，活頁簿**磁碟容量**。  此活頁簿提供互動式的磁碟使用量圖表的呈現給在容器內的節點下的檢視方塊的每個磁碟：
+適用于容器的 Azure 監視器包含可協助您開始使用的活頁簿, 也就是**磁片容量**。  此活頁簿會根據下列觀點, 呈現呈現給容器內節點之每個磁片的互動式磁片使用量圖表:
 
-- 所有磁碟的磁碟 %使用量
-- 所有磁碟的可用磁碟空間
-- 顯示每個節點的磁碟，它的 %已使用空間的資料表，趨勢的 %使用空間、 可用磁碟空間 (GiB)，以及趨勢的可用磁碟空間 (GiB)。 在資料表中選取一個資料列時，%已使用空間，並如下所示的可用磁碟空間 (GiB) 
+- 所有磁片的磁片% 使用量
+- 所有磁片的可用磁碟空間
+- 顯示每個節點磁片、其% 已使用空間、% 已使用空間的趨勢、可用磁碟空間 (GiB), 以及可用磁碟空間 (GiB) 趨勢的表格。 在資料表中選取資料列時,% 已使用的空間和可用磁碟空間 (GiB) 如下所示 
 
-您選取來存取此活頁簿**磁碟容量**從**View 的活頁簿**下拉式清單。  
+您可以從 [**查看活頁簿**] 下拉式清單中選取 [**磁片容量**] 來存取這個活頁簿。  
 
-![下拉式清單中檢視活頁簿](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+![[查看活頁簿] 下拉式清單](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 
 ## <a name="next-steps"></a>後續步驟
-- 檢閱[建立容器與 Azure 監視器的效能警示](container-insights-alerts.md)以了解如何建立警示，以支援您的 DevOps 或作業程序和程序的高 CPU 和記憶體使用率。 
-- 檢視[記錄查詢範例](container-insights-log-search.md#search-logs-to-analyze-data)以查看預先定義的查詢和範例，以評估或自訂警示、 視覺化，或分析您的叢集。
+- 請參閱[使用適用于容器的 Azure 監視器建立效能警示](container-insights-alerts.md), 以瞭解如何建立高 CPU 和記憶體使用率的警示, 以支援您的 DevOps 或操作程式和程式。 
+- 查看[記錄查詢範例](container-insights-log-search.md#search-logs-to-analyze-data), 以查看預先定義的查詢和範例, 以評估或自訂警示、視覺化或分析您的叢集。

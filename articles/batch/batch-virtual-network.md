@@ -3,18 +3,18 @@ title: 在虛擬網路中佈建集區 - Azure Batch | Microsoft Docs
 description: 如何在 Azure 虛擬網路中建立 Batch 集區，以便計算節點可以與網路中的其他 VM (例如，檔案伺服器) 安全地通訊。
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436267"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322658"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 
@@ -24,7 +24,7 @@ ms.locfileid: "67436267"
 
 Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說) 執行多執行個體工作。 這些設定不需要個別的 VNet。 但根據預設，節點無法與不屬於 Batch 集區的虛擬機器 (例如，授權伺服器或檔案伺服器) 通訊。 若要讓集區的計算節點能與其他虛擬機器或內部部署網路安全地通訊，您可以在 Azure VNet 的子網路中佈建集區。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **驗證**。 若要使用 Azure VNet，Batch 用戶端 API 必須使用 Azure Active Directory (AD) 驗證。 Azure Batch 對於 Azure AD 的支援記載於[使用 Active Directory 驗證 Batch 服務解決方案](batch-aad-auth.md)中。 
 
@@ -56,7 +56,7 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 
 若要確保 Azure Batch 集區的計算節點會在已啟用強制通道的 VNet 中運作，您必須為該子網路新增下列[使用者定義的路由](../virtual-network/virtual-networks-udr-overview.md)：
 
-* Batch 服務需要與集區的計算節點通訊，以便安排工作。 若要啟用此通訊，請在 Batch 帳戶所在的區域中，為 Batch 服務所使用的每個 IP 位址新增使用者定義的路由。 若要了解如何取得 Batch 服務的 IP 位址的清單，請參閱[服務在內部部署環境中的標籤](../virtual-network/security-overview.md#service-tags-in-on-premises)
+* Batch 服務需要與集區的計算節點通訊，以便安排工作。 若要啟用此通訊，請在 Batch 帳戶所在的區域中，為 Batch 服務所使用的每個 IP 位址新增使用者定義的路由。 若要瞭解如何取得 Batch 服務的 IP 位址清單, 請參閱[內部部署中的服務標記](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * 確定您並未透過內部部署網路應用裝置禁止輸出到 Azure 儲存體的流量 (具體地說，就是 `<account>.table.core.windows.net`、`<account>.queue.core.windows.net` 和 `<account>.blob.core.windows.net` 表單的 URL)。
 

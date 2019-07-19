@@ -3,7 +3,7 @@ title: Azure Batch 工作完成事件 | Microsoft Docs
 description: Batch 工作完成事件的參考。
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60e5e6cc6fdd839c8bbe44d8e1d2e794e7afb34d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549966"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323050"
 ---
 # <a name="task-complete-event"></a>工作完成事件
 
@@ -52,7 +52,7 @@ ms.locfileid: "60549966"
 }
 ```
 
-|元素名稱|類型|注意|
+|元素名稱|Type|注意|
 |------------------|----------|-----------|
 |jobId|字串|包含工作的作業識別碼。|
 |id|字串|工作識別碼。|
@@ -65,26 +65,26 @@ ms.locfileid: "60549966"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|元素名稱|類型|注意|
+|元素名稱|Type|注意|
 |------------------|----------|-----------|
 |poolId|字串|工作執行所在集區的識別碼。|
 |nodeId|字串|工作執行所在節點的識別碼。|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|元素名稱|類型|注意|
+|元素名稱|Type|注意|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|工作需要的計算節點數目。|
 
 ###  <a name="constraints"></a> constraints
 
-|元素名稱|類型|注意|
+|元素名稱|Type|注意|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|工作重試次數上限。 如果工作的結束代碼不是零，Batch 服務會重試工作。<br /><br /> 請注意，這個值會特別控制重試次數。 Batch 服務會嘗試工作一次，然後可一直重試直到達此限制。 例如，如果重試計數上限為 3，則 Batch 可嘗試工作最多 4 次 (一次首次嘗試，3 次重試)。<br /><br /> 如果重試計數上限為 0，則 Batch 服務不會重試工作。<br /><br /> 如果重試計數上限為 -1，則 Batch 服務會無限制地重試工作。<br /><br /> 預設值為 0 (不重試)。|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|元素名稱|類型|注意|
+|元素名稱|Type|注意|
 |------------------|----------|-----------|
 |startTime|Datetime|工作開始執行的時間。 「執行」與 **running** 狀態對應，因此如果工作會指定資源檔或應用程式套件，則開始時間會反映工作開始下載或部署下載項目的時間。  如果已重新啟動或重試工作，則這是最近一次工作開始執行的時間。|
 |endTime|Datetime|工作完成的時間。|

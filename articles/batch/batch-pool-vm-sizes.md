@@ -4,7 +4,7 @@ description: 如何為 Azure Batch 集區中的計算節點選取可用的 VM �
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1848891a0a37235c9769b3cee18262239e19df5a
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502659"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323093"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>為 Azure Batch 集區中的運算節點選擇 VM 大小
 
@@ -28,45 +28,45 @@ ms.locfileid: "67502659"
 
 選擇 VM 大小時有幾個例外狀況和限制：
 
-* 批次中不支援某些 VM 系列或 VM 大小。
+* Batch 中不支援某些 VM 系列或 VM 大小。
 * 有些 VM 大小會有限制，而且必須特別啟用後才能配置。
 
 ## <a name="supported-vm-series-and-sizes"></a>支援的 VM 系列和大小
 
 ### <a name="pools-in-virtual-machine-configuration"></a>虛擬機器組態中的集區
 
-虛擬機器組態中的 batch 集區支援幾乎所有的 VM 大小 ([Linux](../virtual-machines/linux/sizes.md)， [Windows](../virtual-machines/windows/sizes.md))。 請參閱下表，以深入了解支援的大小和限制。
+虛擬機器設定中的 Batch 集區支援幾乎所有的 VM 大小 ([Linux](../virtual-machines/linux/sizes.md)、 [Windows](../virtual-machines/windows/sizes.md))。 若要深入瞭解支援的大小和限制, 請參閱下表。
 
-任何促銷或未列出的預覽 VM 大小不保證支援。
+任何未列出的促銷或預覽 VM 大小都不保證支援。
 
 | VM 系列  | 支援的大小 | Batch 帳戶集區配置模式<sup>1</sup> |
 |------------|---------|-----------------|
-| 基本 A 系列 | 所有的大小*除了*Basic_A0 (A0) | 任意 |
-| A 系列 | 所有的大小*除了*Standard_A0 | 任意 |
-| Av2 系列 | 所有大小 | 任意 |
+| 基本 A 系列 | 除了 Basic_A0 (A0)*以外*的所有大小 | Any |
+| A 系列 | 除了 Standard_A0*以外*的所有大小 | Any |
+| Av2 系列 | 所有大小 | Any |
 | B 系列 | None | 尚未提供 |
 | DC 系列 | None | 尚未提供 |
-| Dsv2 系列、 Dv2 | 所有大小 | 任意 |
-| Dv3、 Dsv3 系列 | 所有大小 | 任意 |
-| [記憶體最佳化大小](../virtual-machines/linux/sizes-memory.md) | None | 尚未提供 |
-| Fsv2 系列 | 所有大小 | 任意 |
-| H 系列 | 所有大小 | 任意 |
-| Hb 系列<sup>2</sup> | 所有大小 | 任意 |
-| Hc 系列<sup>2</sup> | 所有大小 | 任意 |
-| Ls 系列 | 所有大小 | 任意 |
+| Dv2、Dsv2 系列 | 所有大小 | Any |
+| Dv3、Dsv3 系列 | 所有大小 | Any |
+| [記憶體優化大小](../virtual-machines/linux/sizes-memory.md) | None | 尚未提供 |
+| Fsv2 系列 | 所有大小 | Any |
+| H 系列 | 所有大小 | Any |
+| Hb-系列<sup>2</sup> | 所有大小 | Any |
+| Hc-系列<sup>2</sup> | 所有大小 | Any |
+| Ls 系列 | 所有大小 | Any |
 | Lsv2 系列 | None | 尚未提供 |
-| M 系列 | Standard_M64ms （低優先順序只），Standard_M128s （只有低優先順序） | 任意 |  
-| NCv2-series<sup>2</sup> | 所有大小 | 任意 |
-| NCv3-series<sup>2</sup> | 所有大小 | 任意 |
-| ND 系列<sup>2</sup> | 所有大小 | 任意 |
+| M 系列 | Standard_M64ms (僅限低優先順序)、Standard_M128s (僅限低優先順序) | Any |  
+| NCv2-系列<sup>2</sup> | 所有大小 | Any |
+| NCv3-系列<sup>2</sup> | 所有大小 | Any |
+| ND 系列<sup>2</sup> | 所有大小 | Any |
 | NDv2 系列 | 所有大小 | 使用者訂用帳戶模式 |
-| NV 系列 | 所有大小 | 任意 |
+| NV 系列 | 所有大小 | Any |
 | NVv3 系列 | None | 尚未提供 |
 | SAP HANA | None | 尚未提供 |
 
-<sup>1</sup>部分最初支援一些較新的 VM 系列。 這些 VM 系列可由 Batch 帳戶分配**集區配置模式**設為**使用者訂用帳戶**。 請參閱[管理 Batch 帳戶](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)如需有關批次帳戶組態。 請參閱[配額和限制](batch-quota-limit.md)若要了解如何要求配額這些部分支援的 VM 系列**使用者訂用帳戶**Batch 帳戶。  
+<sup>1 一</sup>開始部分支援一些較新的 VM 系列。 這些 VM 系列可以由已設定為**使用者訂**用帳戶的集區**配置模式**的 Batch 帳戶進行配置。 如需 Batch 帳戶設定的詳細資訊, 請參閱[管理 batch 帳戶](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。 請參閱[配額和限制](batch-quota-limit.md), 以瞭解如何為**使用者訂**用帳戶 Batch 帳戶的這些部分支援的 VM 系列要求配額。  
 
-<sup>2</sup>這些 VM 大小可配置在 Batch 集區中虛擬機器組態，但您必須要求特定[增加配額](batch-quota-limit.md#increase-a-quota)。
+<sup>2</sup>您可以在虛擬機器設定的 Batch 集區中配置這些 VM 大小, 但您必須要求[增加](batch-quota-limit.md#increase-a-quota)特定的配額。
 
 ### <a name="pools-in-cloud-service-configuration"></a>雲端服務組態中的集區
 
@@ -85,7 +85,7 @@ ms.locfileid: "67502659"
 
 * **不同工作的負載層級** - 集區中的所有節點都是相同大小。 如果您打算執行具有不同系統需求和/或負載層級的應用程式，建議使用不同的集區。
 
-* **區域可用性**-VM 系列或大小可能無法使用您用來建立 Batch 帳戶的區域中。 若要確認是否有提供某個大小，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。
+* **區域可用性**-在您建立 Batch 帳戶的區域中, 可能無法使用 VM 系列或大小。 若要確認是否有提供某個大小，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。
 
 * **配額** - Batch 帳戶中的[核心配額](batch-quota-limit.md#resource-quotas)可能會限制您可以新增至 Batch 集區的指定大小節點數目。 若要要求增加配額，請參閱[本文](batch-quota-limit.md#increase-a-quota)。 
 

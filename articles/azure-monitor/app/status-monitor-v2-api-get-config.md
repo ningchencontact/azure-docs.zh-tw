@@ -1,6 +1,6 @@
 ---
-title: Azure 狀態監視器 v2 API 參考：取得設定 |Microsoft Docs
-description: 狀態監視器 v2 API 參考。 Get-ApplicationInsightsMonitoringConfig. 監視網站效能，而不必重新部署網站。 使用 ASP.NET web 應用程式裝載於內部，在 Vm，或在 Azure 上。
+title: Azure 狀態監視器 v2 API 參考:取得設定 |Microsoft Docs
+description: 狀態監視器 v2 API 參考。 Get-ApplicationInsightsMonitoringConfig. 在不重新部署網站的情況下監視網站效能。 適用于內部部署、Vm 或 Azure 上裝載的 ASP.NET web 應用程式。
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,28 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 7eaaaa2dd7b22d138ea2f0a52d0bf0a1b2eab026
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 9e1b3242a96bfaadfe6f791e0ca9bf25262065e2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807081"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326337"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v040-alpha"></a>狀態監視器 v2 API:Get-ApplicationInsightsMonitoringConfig (v0.4.0-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>狀態監視器 v2 API:ApplicationInsightsMonitoringConfig
 
-本文說明的 cmdlet 時的成員[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
-
-> [!IMPORTANT]
-> 狀態監視器 v2 目前處於公開預覽狀態。
-> 此預覽版不提供的服務等級協定，且我們不建議用於生產工作負載。 可能不支援某些功能，以及一些可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+本文說明的 Cmdlet 是[ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的成員。
 
 ## <a name="description"></a>描述
 
-取得組態檔，並列印到主控台的值。
+取得設定檔, 並將值列印到主控台。
 
 > [!IMPORTANT] 
-> 此 cmdlet 需要系統管理員權限的 PowerShell 工作階段。
+> 此 Cmdlet 需要具有系統管理員許可權的 PowerShell 會話。
 
 ## <a name="examples"></a>範例
 
@@ -43,12 +38,12 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 ## <a name="parameters"></a>參數
 
-沒有所需的參數。
+不需要任何參數。
 
 ## <a name="output"></a>Output
 
 
-#### <a name="example-output-from-reading-the-config-file"></a>讀取組態檔的範例輸出
+#### <a name="example-output-from-reading-the-config-file"></a>讀取設定檔案的輸出範例
 
 ```
 RedfieldConfiguration:
@@ -61,16 +56,16 @@ Filters:
 ## <a name="next-steps"></a>後續步驟
 
   檢視遙測：
- - [探索度量](../../azure-monitor/app/metrics-explorer.md)來監視效能和使用方式。
-- [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題。
-- 使用[analytics](../../azure-monitor/app/analytics.md)以進行進階的查詢。
+ - [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量。
+- [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)以診斷問題。
+- 使用[分析](../../azure-monitor/app/analytics.md)進行更先進的查詢。
 - [建立儀表板](../../azure-monitor/app/overview-dashboard.md)。
  
  新增更多遙測：
- - [建立 web 測試](monitor-web-app-availability.md)藉此確定您的網站保持即時狀態。
-- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)以查看網頁程式碼中的例外狀況，並啟用追蹤呼叫。
-- [將 Application Insights SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)讓您插入追蹤和記錄呼叫。
+ - [建立 web 測試](monitor-web-app-availability.md), 以確保您的網站保持上線。
+- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md), 以查看來自網頁程式碼的例外狀況, 並啟用追蹤呼叫。
+- [將 APPLICATION INSIGHTS SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md), 讓您可以插入追蹤和記錄呼叫。
  
- 進一步運用狀態監視器 v2:
- - 使用我們的指南，來[疑難排解](status-monitor-v2-troubleshoot.md)狀態監視器 v2。
- - 對組態進行變更，使用[設定組態](status-monitor-v2-api-set-config.md)cmdlet。
+ 使用狀態監視器 v2 來執行更多動作:
+ - 使用我們的指南進行狀態監視器 v2 的[疑難排解](status-monitor-v2-troubleshoot.md)。
+ - 使用[Set config](status-monitor-v2-api-set-config.md) Cmdlet 對設定進行變更。

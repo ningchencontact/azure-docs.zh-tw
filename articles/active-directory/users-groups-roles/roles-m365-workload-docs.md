@@ -1,6 +1,6 @@
 ---
-title: Microsoft 365 工作負載的管理員角色內容 - Azure AD | Microsoft Docs
-description: 在 Azure Active Directory 中尋找 Microsoft 365 工作負載其管理員角色的內容和 API 參考
+title: Microsoft 365 services 的系統管理員角色內容-Azure AD |Microsoft Docs
+description: 在 Azure Active Directory 中尋找 Microsoft 365 服務之系統管理員角色的內容和 API 參考
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,20 +15,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12ffa1d4f3e802b3419b31844ddd8133ceab5086
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468176"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304385"
 ---
-# <a name="administrator-roles-for-microsoft-365-workloads"></a>Microsoft 365 工作負載的管理員角色
+# <a name="administrator-roles-for-microsoft-365-services"></a>Microsoft 365 服務的系統管理員角色
 
 在 Azure AD 中可透過管理角色管理 Microsoft 365 中的所有產品。 某些產品也提供其他專屬於該產品的角色。 如需每個產品所支援的角色資訊，請參閱下表。 有關委派問題的一般討論，請參閱 [Azure Active Directory 中的角色委派規劃](roles-concept-delegation.md)。
 
 ## <a name="where-to-find-content"></a>內容所在位置
 
-Microsoft 365 工作負載 | 角色內容 | API 內容
+Microsoft 365 服務 | 角色內容 | API 內容
 ---------------------- | ------------------ | -----------------
 Office 365 與 Microsoft 365 商務計劃中的管理員角色 | [Office 365 系統管理角色](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | 尚未提供
 Azure Active Directory (Azure AD) 與 Azure AD Identity Protection| [Azure AD 管理員角色](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[擷取角色指派](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

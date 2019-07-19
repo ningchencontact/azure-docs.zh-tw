@@ -4,7 +4,7 @@ description: 了解 Visual Studio 專案範本如何協助您在 Azure Batch 中
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb4c71f2c7f42ef599796bc380bb7a9f35b8c64e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550043"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322765"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 專案範本快速啟動 Batch 解決方案
 
@@ -52,13 +52,13 @@ Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了
 
 ![顯示用戶端程式碼與 Batch 服務互動方式的圖表][diagram01]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用 Batch 範本，您需要下列項目︰
 
 * 已安裝 Visual Studio 2015 的電腦。 目前只有針對 Visual Studio 2015 支援批次範本。
-* Batch 範本，可從 [Visual Studio 資源庫][vs_gallery]取得作為 Visual Studio 擴充。 有兩種方式可取得範本︰
+* Batch 範本, 可從[Visual Studio 圖庫][vs_gallery]取得, 做為 Visual Studio 延伸模組。 有兩種方式可取得範本︰
   
-  * 在 Visual Studio 中，使用 [擴充功能和更新]  對話方塊安裝範本 (如需詳細資訊，請參閱[尋找及使用 Visual Studio 擴充][vs_find_use_ext])。 在 [擴充功能和更新]  對話方塊中，搜尋和下載下列兩個延伸模組︰
+  * 使用 Visual Studio 中的 [**擴充功能和更新**] 對話方塊安裝範本 (如需詳細資訊, 請參閱[尋找和使用 Visual Studio 擴充][vs_find_use_ext]功能)。 在 [擴充功能和更新]  對話方塊中，搜尋和下載下列兩個延伸模組︰
     
     * 具有作業分割器的 Azure Batch 作業管理員
     * Azure Batch 工作處理器
@@ -157,7 +157,7 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> `Split()` 在方法中，註解區段是作業管理員範本程式碼中唯一可供您修改的區段，方法是新增用來將作業分割成不同工作的邏輯。 如果您想要修改範本的其他區段，請確定您熟悉 Batch 的運作方式，並先在幾個 [Batch 程式碼範例][github_samples]中試試看。
+> `Split()` 在方法中，註解區段是作業管理員範本程式碼中唯一可供您修改的區段，方法是新增用來將作業分割成不同工作的邏輯。 如果您想要修改範本的其他區段, 請確定您已熟悉 Batch 的運作方式, 並嘗試幾個[batch 程式碼範例][github_samples]。
 > 
 > 
 
@@ -371,7 +371,7 @@ Run() 實作具有下列項目的存取權︰
 
 | 程式碼 | 描述 |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |工作處理器已執行完成。 請注意，這並非表示您叫用的程式已成功，只表示工作處理器已成功叫用程式並執行任何後置處理，而沒有例外狀況。 結束代碼的意義取決於所叫用的程式，一般來說，結束代碼 0 表示程式已成功，任何其他結束代碼則表示程式失敗。 |
+| [ExitCode][process_exitcode] |工作處理器已執行完成。 請注意，這並非表示您叫用的程式已成功，只表示工作處理器已成功叫用程式並執行任何後置處理，而沒有例外狀況。 結束代碼的意義取決於所叫用的程式，一般來說，結束代碼 0 表示程式已成功，任何其他結束代碼則表示程式失敗。 |
 | 1 |工作處理器失敗，且程式的「預期」部分有例外狀況。 例外狀況已轉譯成 `TaskProcessorException` 與診斷資訊，如有可能，也會提供可解決失敗的建議。 |
 | 2 |工作處理器失敗，並發生「非預期」的例外狀況。 例外狀況已記錄至標準輸出，但工作處理器無法新增任何額外的診斷或修復資訊。 |
 
@@ -410,7 +410,7 @@ job.CommonEnvironmentSettings = new [] {
 * Batch 帳戶 URL
 * Batch 帳戶金鑰
 
-Batch 服務具有簡單的機制，可在 [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask] 中使用 `EnvironmentSettings` 屬性，將環境設定傳遞至作業管理員工作。
+Batch 服務具有簡單的機制, 可使用`EnvironmentSettings` [可 microsoft.azure.batch.jobmanagertask][net_jobmanagertask]中的屬性, 將環境設定傳遞至作業管理員工作。
 
 例如，若要取得 Batch 帳戶的 `BatchClient` 執行個體，您可以環境變數的形式從用戶端程式碼傳遞 Batch 帳戶的 URL 和共用金鑰認證。 同樣地，若要存取連結至 Batch 帳戶的儲存體帳戶，您可使用環境變數的形式傳遞儲存體帳戶名稱和儲存體帳戶金鑰。
 
@@ -437,7 +437,7 @@ parameters.json 的資源檔案，如果找到，即會將它載入以做為參�
 
 ## <a name="next-steps"></a>後續步驟
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>將作業和工作輸出保存到 Azure 儲存體
-開發 Batch 解決方案時的另一個實用工具是 [Azure Batch 檔案慣例][nuget_package]。 在 Batch .NET 應用程式中使用此 .NET 類別庫 (目前為預覽版) 可在 Azure 儲存體中輕鬆地儲存或擷取工作輸出。 [保存 Azure Batch 作業和工作輸出](batch-task-output.md) 包含類別庫及其使用方式的完整討論。
+Batch 解決方案開發中另一個有用的工具是[Azure Batch 檔案慣例][nuget_package]。 在 Batch .NET 應用程式中使用此 .NET 類別庫 (目前為預覽版) 可在 Azure 儲存體中輕鬆地儲存或擷取工作輸出。 [保存 Azure Batch 作業和工作輸出](batch-task-output.md) 包含類別庫及其使用方式的完整討論。
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

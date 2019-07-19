@@ -7,61 +7,61 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c692b1c5b77b95e5487a847b46473906135c3d86
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565521"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261140"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 為 VMware VM 和實體伺服器設定災害復原時，會在每個內部部署 VMware VM 和實體伺服器上安裝 Site Recovery 行動服務。  行動服務會擷取機器上的資料寫入，然後將它們轉送給 Site Recovery 處理伺服器。 您可以使用下列方法來部署「行動服務」︰
 
-- [推入安裝](#push-installation)：Site Recovery 會透過 Azure 入口網站啟用保護時，在伺服器上安裝行動代理程式。
-- 手動安裝：您可以透過每一部機器上，手動安裝行動服務[UI](#install-mobility-agent-through-ui)或是[命令提示字元](#install-mobility-agent-through-command-prompt)。
+- [推入安裝](#push-installation)：當透過 Azure 入口網站啟用保護時, Site Recovery 會在伺服器上安裝行動代理程式。
+- 手動安裝:您可以透過[UI](#install-mobility-agent-through-ui)或[命令提示](#install-mobility-agent-through-command-prompt)字元, 在每部機器上手動安裝行動服務。
 - [自動化部署](vmware-azure-mobility-install-configuration-mgr.md)：您可以使用 System Center Configuration Manager 之類的軟體部署工具來自動執行安裝。
 
 ## <a name="anti-virus-on-replicated-machines"></a>在複寫的機器上防毒
 
 如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent  )。 這可確保複寫運作正常。
 
-## <a name="push-installation"></a>推入安裝
+## <a name="push-installation"></a>推送安裝
 
-推入安裝是不可或缺的一部分 」[啟用複寫](vmware-azure-enable-replication.md#enable-replication)」 入口網站中觸發的作業。 選擇您想要保護，並觸發 「 啟用複寫 」 的虛擬機器的集合之後, 組態伺服器會將推入伺服器的行動代理程式、 安裝與組態伺服器的代理程式並完成註冊的代理程式。 成功完成這項作業，
+推入安裝是在入口網站中觸發的「[啟用](vmware-azure-enable-replication.md#enable-replication)複寫」作業不可或缺的一部分。 選擇您想要保護的虛擬機器集合並觸發「啟用複寫」之後, 設定伺服器會將行動代理程式推入伺服器, 安裝代理程式, 並完成代理程式與設定伺服器的註冊。 若要順利完成此操作,
 
-- 請確定所有推送安裝[必要條件](vmware-azure-install-mobility-service.md)符合。
-- 請確定所有伺服器的設定，已都低於[VMware 至 Azure DR 案例支援矩陣](vmware-physical-azure-support-matrix.md)。
+- 確保符合所有推入安裝的[必要條件](vmware-azure-install-mobility-service.md)。
+- 確定伺服器的所有設定都落在[VMware 至 AZURE DR 案例的支援矩陣](vmware-physical-azure-support-matrix.md)之下。
 
-被下列各節中描述的推入安裝工作流程的詳細資料。
+下列各節已說明推播安裝工作流程的詳細資料。
 
-### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>從[9.23 版本](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)及更新版本
+### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>從[9.23 版](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)起
 
-在推入安裝行動代理程式，執行下列步驟
+在行動代理程式的推入安裝期間, 會執行下列步驟
 
-1. 推播到來源機器代理程式。 複製來源機器代理程式會因為多個環境的錯誤而失敗。 請瀏覽[我們的指引](vmware-azure-troubleshoot-push-install.md)疑難排解推入安裝失敗。
-2. 代理程式已成功複製至之後在伺服器上執行伺服器的必要條件檢查。 如果一或多個安裝會失敗[必要條件](vmware-physical-azure-support-matrix.md)不符合。 如果符合所有必要條件，安裝將會觸發。
-3. 隨著行動代理程式安裝在伺服器上安裝 azure Site Recovery VSS 提供者。 此提供者用來產生應用程式一致的點。 如果 VSS 提供者安裝失敗，會略過此步驟，而且代理程式安裝會繼續。
-4. 如果代理程式安裝成功但 VSS 提供者安裝失敗，則作業狀態會標示為 「 警告 」。 這不會影響損毀一致性點產生。
+1. 將代理程式推送至來源機器。 將代理程式複製到來源電腦可能會因為多個環境錯誤而失敗。 請造訪[我們的指引](vmware-azure-troubleshoot-push-install.md), 針對推送安裝失敗進行疑難排解。
+2. 當代理程式成功複製到伺服器上時, 就會在伺服器上執行先決條件檢查。 如果不符合一或多個[必要條件](vmware-physical-azure-support-matrix.md), 安裝就會失敗。 如果符合所有必要條件, 則會觸發安裝。
+3. 在行動代理程式安裝過程中, 會將 Azure Site Recovery VSS 提供者安裝在伺服器上。 此提供者是用來產生應用程式一致點。 如果 VSS 提供者的安裝失敗, 將會略過此步驟, 並繼續進行代理程式安裝。
+4. 如果代理程式安裝成功, 但 VSS 提供者安裝失敗, 則作業狀態會標示為「警告」。 這不會影響損毀一致性點的產生。
 
-    a. 若要產生應用程式一致點，請參閱[我們的指引](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine)手動完成安裝 Site Recovery VSS 提供者。 </br>
-    b.  如果您不想要產生的應用程式一致點[修改複寫原則](vmware-azure-set-up-replication.md#create-a-policy)来關閉應用程式一致的點。
+    a. 若要產生應用程式一致點, 請參閱[我們的指導](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine)方針, 以手動方式完成 Site Recovery VSS 提供者的安裝。 </br>
+    b.  如果您不想要產生應用程式一致的點, 請[修改複寫原則](vmware-azure-set-up-replication.md#create-a-policy)以關閉應用程式一致點。
 
-### <a name="before-922-versions"></a>9\.22 版本之前
+### <a name="before-922-versions"></a>9\.22 之前的版本
 
-1. 推播到來源機器代理程式。 複製來源機器代理程式會因為多個環境的錯誤而失敗。 請瀏覽[我們的指引](vmware-azure-troubleshoot-push-install.md)疑難排解推入安裝失敗。
-2. 代理程式已成功複製至之後在伺服器上執行伺服器的必要條件檢查。 如果一或多個安裝會失敗[必要條件](vmware-physical-azure-support-matrix.md)不符合。 如果符合所有必要條件，安裝將會觸發。
-3. 隨著行動代理程式安裝在伺服器上安裝 azure Site Recovery VSS 提供者。 此提供者用來產生應用程式一致的點。 如果 VSS 提供者安裝失敗，代理程式安裝將會失敗。 若要避免的行動代理程式安裝失敗，請使用[9.23 版本](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)或更新版本，才能產生當機時保持一致的點，並手動安裝 VSS 提供者。
+1. 將代理程式推送至來源機器。 將代理程式複製到來源電腦可能會因為多個環境錯誤而失敗。 請造訪[我們的指引](vmware-azure-troubleshoot-push-install.md), 針對推送安裝失敗進行疑難排解。
+2. 當代理程式成功複製到伺服器上時, 就會在伺服器上執行先決條件檢查。 如果不符合一或多個[必要條件](vmware-physical-azure-support-matrix.md), 安裝就會失敗。 如果符合所有必要條件, 則會觸發安裝。
+3. 在行動代理程式安裝過程中, 會將 Azure Site Recovery VSS 提供者安裝在伺服器上。 此提供者是用來產生應用程式一致點。 如果 VSS 提供者的安裝失敗, 代理程式安裝將會失敗。 若要避免行動代理程式安裝失敗, 請使用[9.23 版](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)或更新版本來產生損毀一致點, 並手動安裝 VSS 提供者。
 
-## <a name="install-mobility-agent-through-ui"></a>安裝行動代理程式，透過 UI
+## <a name="install-mobility-agent-through-ui"></a>透過 UI 安裝行動代理程式
 
 ### <a name="prerequisite"></a>必要條件
 
-- 請確定所有伺服器的設定，已都低於[VMware 至 Azure DR 案例支援矩陣](vmware-physical-azure-support-matrix.md)。
-- [找出安裝程式](#locate-installer-files)根據伺服器的作業系統。
+- 確定伺服器的所有設定都落在[VMware 至 AZURE DR 案例的支援矩陣](vmware-physical-azure-support-matrix.md)之下。
+- 根據伺服器的作業系統來[尋找安裝程式](#locate-installer-files)。
 
 >[!IMPORTANT]
-> 如果您要複寫的 Azure IaaS VM 從一個 Azure 區域到另一個則不會使用這個方法。 請改用命令列為基礎的安裝方法。
+> 如果您要將 Azure IaaS VM 從一個 Azure 區域複寫到另一個, 請不要使用此方法。 請改用以命令列為基礎的安裝方法。
 
 1. 將安裝檔案複製到機器並執行。
 2. 在 [安裝選項]  中，選取 [安裝行動服務]  。
@@ -73,7 +73,7 @@ ms.locfileid: "60565521"
 
     ![[行動服務註冊] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. 在 **組態伺服器詳細資料**，指定 IP 位址和您所設定的複雜密碼。  
+5. 在 [設定**伺服器詳細資料**] 中, 指定您所設定的 IP 位址和複雜密碼。  
 
     ![[行動服務註冊] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -81,12 +81,12 @@ ms.locfileid: "60565521"
 
     ![[行動服務註冊完成] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 
-## <a name="install-mobility-agent-through-command-prompt"></a>安裝行動代理程式，透過命令提示字元
+## <a name="install-mobility-agent-through-command-prompt"></a>透過命令提示字元安裝行動代理程式
 
 ### <a name="prerequisite"></a>必要條件
 
-- 請確定所有伺服器的設定，已都低於[VMware 至 Azure DR 案例支援矩陣](vmware-physical-azure-support-matrix.md)。
-- [找出安裝程式](#locate-installer-files)根據伺服器的作業系統。
+- 確定伺服器的所有設定都落在[VMware 至 AZURE DR 案例的支援矩陣](vmware-physical-azure-support-matrix.md)之下。
+- 根據伺服器的作業系統來[尋找安裝程式](#locate-installer-files)。
 
 ### <a name="on-a-windows-machine"></a>在 Windows 機器上
 
@@ -115,7 +115,7 @@ ms.locfileid: "60565521"
 #### <a name="installation-settings"></a>安裝設定
 **設定** | **詳細資料**
 --- | ---
-使用量 | UnifiedAgent.exe /Role <MS/MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+使用量 | Unifiedagent.exe .exe/Role \<MS/MT >/InstallLocation \<安裝位置 >/Platform "VmWare"/Silent
 安裝記錄 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
@@ -154,7 +154,7 @@ ms.locfileid: "60565521"
 #### <a name="installation-settings"></a>安裝設定
 **設定** | **詳細資料**
 --- | ---
-使用量 | ./install -d <Install Location> -r <MS/MT> -v VmWare -q
+使用量 | ./install-d \<安裝位置 >-r \<MS/MT >-v VmWare-q
 -r | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 -d | 選擇性參數。 指定行動服務安裝位置：/usr/local/ASR。
 -v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。
@@ -174,7 +174,7 @@ ms.locfileid: "60565521"
 
 ## <a name="locate-installer-files"></a>找出安裝程式檔案
 
-移至組態伺服器上的 %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 資料夾。 請檢查您需要根據作業系統的安裝程式。 下表會摘要每個 VMware VM 和實體伺服器作業系統的安裝程式檔案。 您可以先檢閱[支援的作業系統](vmware-physical-azure-support-matrix.md#replicated-machines)，再開始進行操作。
+移至設定伺服器上的%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 資料夾。 根據作業系統檢查您需要的安裝程式。 下表摘要說明每個 VMware VM 和實體伺服器作業系統的安裝程式檔案。 您可以先檢閱[支援的作業系統](vmware-physical-azure-support-matrix.md#replicated-machines)，再開始進行操作。
 
 **安裝程式檔案** | **作業系統 (僅限 64 位元)**
 --- | ---

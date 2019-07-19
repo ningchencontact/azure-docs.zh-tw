@@ -7,20 +7,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
-ms.openlocfilehash: f7c894bcb3183714a76578a6750c8e85493e3094
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.author: tyfox
+ms.openlocfilehash: 2035f5c7666d93068fd8007555bfe1aadae58ff1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508069"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873925"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中，了解如何管理[Apache Hadoop](https://hadoop.apache.org/)使用 Azure PowerShell Az 模組在 Azure HDInsight 叢集。 如需 HDInsight PowerShell cmdlet 的清單，請參閱[Az.HDInsight 參考](https://docs.microsoft.com/powershell/module/az.hdinsight)。
+Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中, 您將瞭解如何使用 Azure PowerShell Az 模組, 在 Azure HDInsight 中管理[Apache Hadoop](https://hadoop.apache.org/)叢集。 如需 HDInsight PowerShell Cmdlet 的清單, 請參閱[Az HDInsight reference](https://docs.microsoft.com/powershell/module/az.hdinsight)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -142,7 +142,7 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 > [!NOTE]  
 > 透過授與/撤銷存取權，您將重設叢集使用者名稱和密碼。
 
-授與及撤銷存取權也可以透過入口網站完成。 請參閱[使用 Azure 入口網站在 HDInsight 中管理 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
+授與及撤銷存取權也可以透過入口網站完成。 請參閱[使用 Azure 入口網站來管理 HDInsight 中的 Apache Hadoop](hdinsight-administer-use-portal-linux.md)叢集。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
 這是與授與/撤銷 HTTP 存取權相同的程序。 如果已將 HTTP 存取權授與叢集，您必須先將它撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。
@@ -204,13 +204,13 @@ $resourceGroupName = $cluster.ResourceGroup
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
 
-請參閱[資料上傳至 HDInsight](hdinsight-upload-data.md)。
+請參閱[將資料上傳至 HDInsight](hdinsight-upload-data.md)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 * [HDInsight Cmdlet 參考文件](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)
-* [管理 HDInsight 使用命令列介面](hdinsight-administer-use-command-line.md)
+* [使用命令列介面管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 * [以程式設計方式提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

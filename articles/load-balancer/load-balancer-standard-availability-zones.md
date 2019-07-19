@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 標準 Load Balancer 和可用性區域
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
-ms.author: kumud
-ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: allensu
+ms.openlocfilehash: 5ef7de148d5ef4727602b8287164f2aff9ccf822
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491977"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274508"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>標準 Load Balancer 和可用性區域
 
 Azure Load Balancer 的標準 SKU 支援[可用性區域](../availability-zones/az-overview.md)案例。 Standard Load Balancer 有數個新概念，可讓您藉由對應資源與區域並將其分散到區域，來將端對端案例中的可用性最佳化。  請檢閱[可用性區域](../availability-zones/az-overview.md)的指引，以了解可用性區域是什麼，目前有哪些區域支援可用性區域，以及其他相關概念與產品。 可用性區域與 Standard Load Balancer 可組合成可擴充且具有彈性的功能集，用以建立許多不同的案例。  請檢閱本文以了解這些[概念](#concepts)，以及基本案例的[設計指引](#design)。
 
 >[!IMPORTANT]
->檢閱[可用性區域](../availability-zones/az-overview.md)相關主題，其中包括任何區域的特定資訊。
+>請參閱相關主題的[可用性區域](../availability-zones/az-overview.md), 包括任何區域特定資訊。
 
 ## <a name="concepts"></a>適用於 Load Balancer 的可用性區域概念
 
@@ -33,7 +33,7 @@ Load Balancer 資源與實際的基礎結構之間沒有直接關聯性；建立
 
 Load Balancer 資源的運作方式可用前端、規則、健康情況探查和後端集區定義來表示。
 
-在可用性區域的內容中，Load Balancer 資源的行為和屬性可解釋為區域備援或區域性。  區域備援和區域性說明屬性的區域性。  在負載平衡器的內容中，區域備援一律表示*多個區域*而區域性則表示要將服務隔離*單一區域*。
+在可用性區域的內容中，Load Balancer 資源的行為和屬性可解釋為區域備援或區域性。  區域備援和區域性說明屬性的區域性。  在 Load Balancer 的內容中, 區域冗余一律表示*多個區域*, 而區域性則表示將服務隔離至*單一區域*。
 
 公用和內部的 Load Balancer 均支援區域備援和區域性案例，且兩者都可視需要在區域之間進行流量導向 (「跨區域負載平衡」  )。
 
@@ -54,7 +54,7 @@ Load Balancer 資源可以同時包含區域性和區域備援前端。
 #### <a name="zone-redundant-by-default"></a>預設具有區域備援功能
 
 >[!IMPORTANT]
->檢閱[可用性區域](../availability-zones/az-overview.md)相關主題，其中包括任何區域的特定資訊。
+>請參閱相關主題的[可用性區域](../availability-zones/az-overview.md), 包括任何區域特定資訊。
 
 在具有可用性區域的區域中，標準 Load Balancer 前端依預設具有區域備援功能。  單一前端 IP 位址在區域失敗時仍可存留，可用來連線至所有的後端集區成員，而不考量區域。 這不表示資料路徑不會中斷，但任何重試或重新建立作業都將成功。 您不需要進行 DNS 備援配置。 多個可用性區域中多個獨立的基礎結構部署均會同時為前端的單一 IP 位址提供服務。  區域備援表示區域中的多個可用性區域都會同時使用單一 IP 位址來為所有輸入或輸出流量提供服務。
 
@@ -186,7 +186,7 @@ Load Balancer 特意設計成在可用性區域的內容中具有彈性。 您�
 
 Load Balancer 可簡化以單一 IP 作為區域備援前端的作業。 區域備援 IP 位址可安全地為任何區域中的區域性資源提供服務，且在一或多個區域失敗時仍可存留，只要區域內有一個區域維持良好狀況即可。 相反地，區域性前端則是將服務縮減為單一區域，且個別的區域將會有共同的結果。
 
-區域備援不代表無中斷的資料路徑或控制平面；它實際上是資料平面。 區域備援流量可以使用任何區域，且客戶的流量將會使用區域中所有狀況良好的區域。 如果區域失敗，在該時間點使用良好區域的流量並不會受到影響。  在區域失敗時使用區域的流量可能會受到影響，但應用程式即可復原。 Azure 有交集區域失敗後，這些流程可以繼續在重新傳輸或重新建立作業，在區域內其餘狀態良好的區域中。
+區域備援不代表無中斷的資料路徑或控制平面；它實際上是資料平面。 區域備援流量可以使用任何區域，且客戶的流量將會使用區域中所有狀況良好的區域。 如果區域失敗，在該時間點使用良好區域的流量並不會受到影響。  在區域失敗時使用區域的流量可能會受到影響, 但應用程式可以復原。 當 Azure 已將區域故障交集時, 這些流程可以在重新傳輸或重新建立作業區域內的剩餘狀況良好區域中繼續進行。
 
 ### <a name="xzonedesign"></a>跨區域界限
 
@@ -210,7 +210,7 @@ Load Balancer 可簡化以單一 IP 作為區域備援前端的作業。 區域�
 ### <a name="zonalityguidance"></a>區域備援與區域性的比較
 
 >[!IMPORTANT]
->檢閱[可用性區域](../availability-zones/az-overview.md)相關主題，其中包括任何區域的特定資訊。
+>請參閱相關主題的[可用性區域](../availability-zones/az-overview.md), 包括任何區域特定資訊。
 
 區域備援可透過服務的單一 IP 位址提供無從驗證的區域，同時提供恢復功能選項。  複雜性也可因而降低。  區域備援也具有跨區域的行動性，並可以安全地用於任何區域中的資源。  此外，它是不具可用性區域的區域未來的模型，能夠限制區域取得可用性區域之後所需的變更。  區域備援 IP 位址或前端的設定語法將可在任何區域中成功執行，包括不具可用性區域的區域在內。
 

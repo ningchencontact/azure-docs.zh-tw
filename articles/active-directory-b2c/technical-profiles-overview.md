@@ -10,25 +10,25 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512462"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849429"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-技術設定檔提供一個架構，其中包含內建機制，可使用 Azure Active Directory (Azure AD) B2C 中的自訂原則與不同類型的對象進行通訊。 技術設定檔可用來與您的 Azure AD B2C 租用戶進行通訊，以建立使用者或讀取使用者設定檔。 技術設定檔可以自我判斷來啟用與使用者的互動。 例如，收集使用者的認證以進行登入，然後呈現註冊頁面或密碼重設頁面。 
+技術設定檔提供一個架構，其中包含內建機制，可使用 Azure Active Directory (Azure AD) B2C 中的自訂原則與不同類型的對象進行通訊。 技術設定檔可用來與您的 Azure AD B2C 租用戶進行通訊，以建立使用者或讀取使用者設定檔。 技術設定檔可以自我判斷來啟用與使用者的互動。 例如，收集使用者的認證以進行登入，然後呈現註冊頁面或密碼重設頁面。
 
 ## <a name="type-of-technical-profiles"></a>技術設定檔的類型
 
 技術設定檔支援下列類型的案例：
 
 - [Azure Active Directory](active-directory-technical-profile.md) - 針對 Azure Active Directory B2C 使用者管理提供支援。
-- [JWT 權杖簽發者](jwt-issuer-technical-profile.md) - 發出會傳回給信賴憑證者應用程式的 JWT 權杖。 
+- [JWT 權杖簽發者](jwt-issuer-technical-profile.md) - 發出會傳回給信賴憑證者應用程式的 JWT 權杖。
 - **電話要素提供者** - 多重要素驗證。
 - [OAuth1](oauth1-technical-profile.md) - 與任何 OAuth 1.0 通訊協定識別提供者建立同盟。
 - [OAuth2](oauth2-technical-profile.md) - 與任何 OAuth 2.0 通訊協定識別提供者建立同盟。
@@ -37,15 +37,15 @@ ms.locfileid: "66512462"
 - [RESTful 提供者](restful-technical-profile.md) - 對 REST API 服務發出呼叫，例如驗證使用者輸入、強化使用者資料，或與企業營運應用程式整合。
 - [SAML2](saml-technical-profile.md) - 與任何 SAML 通訊協定識別提供者建立同盟。
 - [自我判斷](self-asserted-technical-profile.md) - 與使用者進行互動。 例如，收集使用者的認證以進行登入、呈現註冊頁面或密碼重設。
-- **WsFed** - 與任何 WsFed 通訊協定識別提供者建立同盟。 
-- [工作階段管理](active-directory-b2c-reference-sso-custom.md) - 處理各種不同類型的工作階段。 
+- **WsFed** - 與任何 WsFed 通訊協定識別提供者建立同盟。
+- [工作階段管理](active-directory-b2c-reference-sso-custom.md) - 處理各種不同類型的工作階段。
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>技術設定檔流程
 
-所有類型的技術設定檔都共用相同的概念。 您傳送輸入宣告、執行宣告轉換，然後與已設定的對象 (例如識別提供者、REST API 或 Azure AD 目錄服務) 進行通訊。 在程序完成之後，技術設定檔會傳回輸出宣告，並可能執行輸出宣告轉換。 下圖說明技術設定檔中所參考轉換和對應的處理方式。 不論技術設定檔的互動對象是誰，在執行任何宣告轉換之後，技術設定檔的輸出宣告都會立即儲存在宣告包中。 
+所有類型的技術設定檔都共用相同的概念。 您傳送輸入宣告、執行宣告轉換，然後與已設定的對象 (例如識別提供者、REST API 或 Azure AD 目錄服務) 進行通訊。 在程序完成之後，技術設定檔會傳回輸出宣告，並可能執行輸出宣告轉換。 下圖說明技術設定檔中所參考轉換和對應的處理方式。 不論技術設定檔的互動對象是誰，在執行任何宣告轉換之後，技術設定檔的輸出宣告都會立即儲存在宣告包中。
 
-![技術設定檔流程](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
+![說明技術設定檔流程的圖表](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
 1. **InputClaimsTransformation** - 系統會從宣告包中挑選每個輸入[宣告轉換](claimstransformations.md)的輸入宣告，執行之後，輸出宣告會被放回宣告包中。 輸入宣告轉換的輸出宣告可以作為後續輸入宣告轉換的輸入宣告。
 2. **InputClaims** - 系統會從宣告包中挑選宣告並用於技術設定檔。 例如，[自我判斷技術設定檔](self-asserted-technical-profile.md)會使用輸入宣告來預先填入使用者所提供的輸出宣告。 REST API 技術設定檔會使用輸入宣告將輸入參數傳送給 REST API 端點。 Azure Active Directory 會使用輸入宣告作為唯一識別碼來讀取、更新或刪除帳戶。
@@ -59,7 +59,7 @@ ms.locfileid: "66512462"
 6. **OutputClaimsTransformations** - 系統會從宣告包中挑選每個輸出[宣告轉換](claimstransformations.md)的輸入宣告。 先前步驟的技術設定檔輸出宣告可以作為輸出宣告轉換的輸入宣告。 執行之後，輸出宣告會被放回宣告包中。 輸出宣告轉換的輸出宣告也可以作為後續輸出宣告轉換的輸入宣告。
 7. **單一登入 (SSO) 工作階段管理** - [SSO 工作階段管理](active-directory-b2c-reference-sso-custom.md)可在使用者已通過驗證後，控制與該使用者的互動。 例如，系統管理員可以控制是否顯示選取的身分識別提供者，或是否需要再輸入一次本機帳戶詳細資料。
 
-一個技術設定檔可以繼承自另一個技術設定檔，以變更設定或新增新功能。  **IncludeTechnicalProfile** 元素是對技術設定檔之來源基底技術設定檔的參考。  
+一個技術設定檔可以繼承自另一個技術設定檔，以變更設定或新增新功能。  **IncludeTechnicalProfile** 元素是對技術設定檔之來源基底技術設定檔的參考。
 
 例如，**AAD-UserReadUsingAlternativeSecurityId-NoError** 技術設定檔包含 **AAD-UserReadUsingAlternativeSecurityId**。 此技術設定檔會將 **RaiseErrorIfClaimsPrincipalDoesNotExist** 中繼資料項目設定為 `true`，並且在目錄中沒有社交帳戶時會引發錯誤。 **AAD-UserReadUsingAlternativeSecurityId-NoError** 會覆寫此行為，並且在使用者不存在時會停用錯誤訊息。
 
@@ -70,7 +70,7 @@ ms.locfileid: "66512462"
   </Metadata>
   <IncludeTechnicalProfile ReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
 </TechnicalProfile>
-``` 
+```
 
 **AAD-UserReadUsingAlternativeSecurityId** 包含 `AAD-Common` 技術設定檔。
 
