@@ -1,9 +1,9 @@
 ---
-title: 行動裝置應用程式呼叫 web Api-應用程式取得權杖 |Microsoft 身分識別平台
-description: 了解如何建置行動應用程式呼叫 web Api （應用程式取得權杖）
+title: 呼叫 web Api 的行動應用程式-取得應用程式的權杖 |Microsoft 身分識別平臺
+description: 瞭解如何建立會呼叫 web Api 的行動應用程式 (取得應用程式的權杖)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1ac880aa8274cc9a4ea554de84dcb46476236f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111134"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320898"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>呼叫 web Api-的行動裝置應用程式取得權杖
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>呼叫 web Api 的行動應用程式-取得權杖
 
-您可以開始呼叫受保護之前的 web Api，您的應用程式需要存取權杖。 這篇文章會引導您使用 Microsoft Authentication Library (MSAL) 取得權杖的程序。
+您的應用程式必須先有存取權杖, 才能開始呼叫受保護的 web Api。 本文會逐步引導您使用 Microsoft 驗證程式庫 (MSAL) 來取得權杖。
 
 ## <a name="scopes-to-request"></a>要求的範圍
 
-當您要求權杖時，您需要定義的範圍。 範圍可決定您的應用程式可以存取哪些資料。  
+當您要求權杖時, 您必須定義一個範圍。 範圍會決定您的應用程式可以存取的資料。  
 
-簡單的方法是將所需的 web API 的`App ID URI`與範圍`.default`。 如此一來，就會告訴您的應用程式需要在入口網站中設定的所有領域的 Microsoft 身分識別平台。
+最簡單的方法是將所需的 Web API `App ID URI`與範圍`.default`結合。 這麼做會告訴 Microsoft 身分識別平臺, 您的應用程式需要在入口網站中設定所有範圍。
 
 #### <a name="android"></a>Android
 ```Java
@@ -52,7 +52,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ### <a name="via-msal"></a>Via MSAL
 
-MSAL 可讓應用程式取得權杖，以無訊息方式和互動方式。 只會呼叫這些方法，MSAL 會傳回存取權杖要求的範圍。 正確的模式是以執行無訊息的要求，並改為使用互動式要求。
+MSAL 可讓應用程式以無訊息和互動方式取得權杖。 只要呼叫這些方法, MSAL 就會傳回所要求之範圍的存取權杖。 正確的模式是執行無訊息要求, 並切換回互動式要求。
 
 #### <a name="android"></a>Android
 
@@ -161,11 +161,11 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-the-protocol"></a>透過通訊協定
+### <a name="via-the-protocol"></a>Via 通訊協定
 
-我們不建議直接使用通訊協定。 如果您這樣做，應用程式不支援某些單一登入 (SSO)、 裝置管理和條件式存取案例。
+我們不建議您直接使用此通訊協定。 如果您這樣做, 應用程式將不會支援某些單一登入 (SSO)、裝置管理和條件式存取案例。
 
-當您使用的通訊協定為行動裝置應用程式取得權杖時，您需要進行兩項要求： 取得授權碼，並用它交換權杖。
+當您使用通訊協定來取得行動應用程式的權杖時, 您必須提出兩個要求: 取得授權碼並交換權杖。
 
 #### <a name="get-authorization-code"></a>取得授權碼
 
@@ -196,4 +196,4 @@ client_id=<CLIENT_ID>
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [呼叫 web API](scenario-mobile-call-api.md)
+> [呼叫 Web API](scenario-mobile-call-api.md)

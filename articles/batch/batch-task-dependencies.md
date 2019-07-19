@@ -4,7 +4,7 @@ description: 建立相依於其他工作完成的工作，以便在 Azure Batch 
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca6918b809a9b4ede3fffb151c7fa5183ae03b47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0a258630fcb3639f20de4c72591611b7af15b90
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550346"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322986"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>建立工作相依性，以便執行相依於其他工作的工作
 
@@ -38,10 +38,10 @@ ms.locfileid: "60550346"
 您可以在一對一或一對多的關係中建立相依於其他工作的工作。 您也可以建立一個範圍相依性，其中的工作相依於在指定的工作識別碼範圍內完成的一組工作。 您可以結合這三種基本案例來建立多對多關聯性。
 
 ## <a name="task-dependencies-with-batch-net"></a>Batch .NET 的工作相依性
-在本文中，我們會討論如何使用 [Batch .NET][net_msdn] 程式庫設定工作相依性。 我們會先告訴您如何對作業[啟用工作相依性](#enable-task-dependencies)，然後再示範如何[設定工作的相依性](#create-dependent-tasks)。 我們也說明如何指定相依性動作，以便在父系失敗時執行相依工作。 最後，我們將討論 Batch 支援的 [相依性案例](#dependency-scenarios) 。
+在本文中, 我們將討論如何使用[Batch .net][net_msdn]程式庫來設定工作相依性。 我們會先告訴您如何對作業[啟用工作相依性](#enable-task-dependencies)，然後再示範如何[設定工作的相依性](#create-dependent-tasks)。 我們也說明如何指定相依性動作，以便在父系失敗時執行相依工作。 最後，我們將討論 Batch 支援的 [相依性案例](#dependency-scenarios) 。
 
 ## <a name="enable-task-dependencies"></a>啟用工作相依性
-若要在 Batch 應用程式中使用工作相依性，您必須先將作業設定成使用工作相依性。 在 Batch .NET 中，將作業的 [UsesTaskDependencies][net_usestaskdependencies] 屬性設定為 `true`，以對 [CloudJob][net_cloudjob] 啟用工作相依性：
+若要在 Batch 應用程式中使用工作相依性，您必須先將作業設定成使用工作相依性。 在 Batch .net 中, 在您的[CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies]屬性上`true`啟用它來執行下列動作:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -51,10 +51,10 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-在上述程式碼片段中，"batchClient" 是 [BatchClient][net_batchclient] 類別的執行個體。
+在前面的程式碼片段中, "batchClient" 是[batchClient][net_batchclient]類別的實例。
 
 ## <a name="create-dependent-tasks"></a>建立相依的工作
-若要建立相依於一或多個父系工作完成的工作，您可以指定此工作「相依於」其他工作。 在 Batch .NET 中，在 [TaskDependencies][net_taskdependencies] 類別的執行個體上設定 [CloudTask][net_cloudtask].[DependsOn][net_dependson] 屬性︰
+若要建立相依於一或多個父系工作完成的工作，您可以指定此工作「相依於」其他工作。 在 Batch .net 中, 使用[對 taskdependencies][net_taskdependencies]類別的實例來設定[CloudTask][net_cloudtask] .[DependsOn][net_dependson]屬性:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 此程式碼片段會使用工作識別碼 "Flowers" 建立相依工作。 "Flowers" 工作相依於 "Rain" 和 "Sun" 工作。 "Flowers" 工作將排定為只會在 "Rain" 和 "Sun" 工作順利完成後，才於計算節點上執行。
 
 > [!NOTE]
-> 根據預設，當工作處於**已完成**狀態且其**結束代碼**是 `0` 時，才會將其視為已順利完成。 在 Batch .NET 中，這表示 [CloudTask][net_cloudtask].[State][net_taskstate] 屬性值為 `Completed`，而 CloudTask 的 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 屬性值為 `0`。 如需變更方式的相關資訊，請參閱[相依性動作](#dependency-actions)一節。
+> 根據預設，當工作處於**已完成**狀態且其**結束代碼**是 `0` 時，才會將其視為已順利完成。 在 Batch .NET 中, 這表示[CloudTask][net_cloudtask] .[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation]。[ExitCode][net_exitcode]屬性值為`0`。 如需變更方式的相關資訊，請參閱[相依性動作](#dependency-actions)一節。
 > 
 > 
 
@@ -87,7 +87,7 @@ Azure Batch 中可使用的基本工作相依性案例有三種︰一對一、�
 > 在本節的範例中，相依工作只會在父系工作順利完成之後才執行。 這種行為是相依工作的預設行為。 指定相依性動作來覆寫預設行為，即可在父系工作失敗時執行相依工作。 如需詳細資訊，請參閱[相依性動作](#dependency-actions)一節。
 
 ### <a name="one-to-one"></a>一對一
-在一對一關聯性中，工作相依於一項父系工作的成功完成。 若要建立相依性，請在填入 [CloudTask][net_cloudtask] 的 [DependsOn][net_dependson] 屬性時，對 [TaskDependencies][net_taskdependencies].[OnId][net_onid] 靜態方法提供單一工作識別碼。
+在一對一關聯性中，工作相依於一項父系工作的成功完成。 若要建立相依性, 請在填入[CloudTask][net_cloudtask]的[DependsOn][net_dependson]屬性時, 提供單一工作識別碼給[對 taskdependencies][net_taskdependencies] .[OnId][net_onid]靜態方法。
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -101,7 +101,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>一對多
-在一對多關聯性中，工作相依於多項父工作的完成。 若要建立相依性，請在填入 [CloudTask][net_cloudtask] 的 [DependsOn][net_dependson] 屬性時，對 [TaskDependencies][net_taskdependencies].[OnId][net_onids] 靜態方法提供工作識別碼集合。
+在一對多關聯性中，工作相依於多項父工作的完成。 若要建立相依性, 請在填入[CloudTask][net_cloudtask]的[DependsOn][net_dependson]屬性時, 提供[對 taskdependencies][net_taskdependencies] .[OnIds][net_onids]靜態方法的工作識別碼集合。
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -118,7 +118,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 ### <a name="task-id-range"></a>工作識別碼範圍
 在父系工作範圍的相依性中，工作相依於識別碼落在範圍內之工作的完成。
-若要建立相依性，請在填入 [CloudTask][net_cloudtask] 的 [DependsOn][net_dependson] 屬性時，對 [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] 靜態方法提供範圍中的第一個和最後一個工作識別碼。
+若要建立相依性, 請在填入[CloudTask][net_cloudtask]的[DependsOn][net_dependson]屬性時, 提供[對 taskdependencies][net_taskdependencies] .[OnIdRange][net_onidrange]靜態方法範圍內的第一個和最後一個工作識別碼。
 
 > [!IMPORTANT]
 > 在使用相依性的工作識別碼範圍時，範圍中只會選出識別碼代表的是整數值的工作。 因此，範圍 `1..10` 會選出工作 `3` 和 `7`，而非 `5flamingoes`。 
@@ -153,7 +153,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 例如，假設相依工作正在等候上游工作完成的資料。 如果上游工作失敗，相依工作仍然可以使用較舊的資料來執行。 在此情況下，儘管父系工作失敗，相依性動作仍可指定相依工作是否有資格執行。
 
-相依性動作是以父系工作的結束情況為基礎。 您可以指定下列任何一種結束情況的相依性動作；若為 .NET，請參閱 [ExitConditions][net_exitconditions] 類別，以取得詳細資訊︰
+相依性動作是以父系工作的結束情況為基礎。 您可以針對下列任何一項結束條件指定相依性動作;針對 .NET, 請參閱[ExitConditions][net_exitconditions]類別以取得詳細資料:
 
 - 發生前置處理錯誤時。
 - 發生檔案上傳錯誤時。 如果工作結束時的結束代碼是透過 **exitCodes** 或 **exitCodeRanges** 所指定，又發生檔案上傳錯誤，則優先執行結束代碼指定的動作。
@@ -161,7 +161,7 @@ new CloudTask("4", "cmd.exe /c echo 4")
 - 工作結束時的結束代碼落在 **ExitCodeRanges** 屬性所指定的範圍內。
 - 預設的情況是，如果工作結束時的結束代碼不是由 **ExitCodes** 或 **ExitCodeRanges** 所定義，或如果工作結束時發生前置處理錯誤且未設定 **PreProcessingError** 屬性，或如果工作失敗並發生檔案上傳錯誤且未設定 **FileUploadError** 屬性。 
 
-若要在 .NET 中指定相依性動作，請設定結束情況的 [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] 屬性。 **DependencyAction** 屬性會採用兩個值之一︰
+若要在 .NET 中指定相依性動作, 請設定[ExitOptions][net_exitoptions]。Exit 條件的[DependencyAction][net_dependencyaction]屬性。 **DependencyAction** 屬性會採用兩個值之一︰
 
 - 將 **DependencyAction** 屬性設定為 [符合]  ，表示如果父系工作結束時出現指定的錯誤，相依工作就有資格執行。
 - 將 **DependencyAction** 屬性設定為 [封鎖]  ，表示相依工作沒有資格執行。
@@ -204,7 +204,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>程式碼範例
-[TaskDependencies][github_taskdependencies] 範例專案是 GitHub 上的其中一個 [Azure Batch 程式碼範例][github_samples]。 此 Visual Studio 解決方案示範︰
+GitHub 上的[對 taskdependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] 。 此 Visual Studio 解決方案示範︰
 
 - 如何啟用作業的工作相依性
 - 如何建立相依於其他工作的工作
@@ -215,7 +215,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 Batch 的 [應用程式封裝](batch-application-packages.md) 功能提供了簡單的方法，供您部署您的工作在計算節點上執行的應用程式並設定其版本。
 
 ### <a name="installing-applications-and-staging-data"></a>安裝應用程式和預備資料
-請參閱 Azure Batch 論壇中的[在 Batch 計算節點上安裝應用程式和預備資料][forum_post]，以取得準備節點以執行工作的方法概觀。 這篇文章是由 Azure Batch 小組的其中一名成員所撰寫，非常適合做為入門指南，讓您了解將應用程式、工作輸入資料和其他檔案複製到計算節點的不同方法。
+如需準備節點以執行工作的方法總覽, 請參閱 Azure Batch 論壇中的在[Batch 計算節點上安裝應用程式和預備資料][forum_post]。 這篇文章是由 Azure Batch 小組的其中一名成員所撰寫，非常適合做為入門指南，讓您了解將應用程式、工作輸入資料和其他檔案複製到計算節點的不同方法。
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

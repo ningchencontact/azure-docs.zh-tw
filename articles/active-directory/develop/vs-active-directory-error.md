@@ -2,6 +2,8 @@
 title: 如何使用 Azure Active Directory 連線服務診斷錯誤
 description: Active directory 連線服務偵測到不相容的驗證類型
 services: active-directory
+ms.service: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
@@ -13,26 +15,26 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c54db2ab923a9de5f07f12e0b0202649ef76cb8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60296787"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326111"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 連線服務診斷錯誤
 
 偵測先前的驗證程式碼時，Azure Active Directory 連線伺服器偵測到不相容的驗證類型。
 
-必須建置專案，才能正確偵測該專案中先前的驗證碼。  如果您看到此錯誤，而且您沒有在專案中先前的驗證碼，重建並再試一次。
+必須建置專案，才能正確偵測該專案中先前的驗證碼。  如果您看到這個錯誤, 而且您的專案中沒有先前的驗證碼, 請重建後再試一次。
 
 ## <a name="project-types"></a>專案類型
 
-連線服務會檢查您正在開發的專案類型，使其可將正確的驗證邏輯插入專案中。 如果沒有任何衍生自的控制站`ApiController`在專案中，專案會被視為 WebAPI 專案。 如果專案中只有衍生自 `MVC.Controller` 的控制器，則該專案會被視為 MVC 專案。 連線服務不支援任何其他專案類型。
+連線服務會檢查您正在開發的專案類型，使其可將正確的驗證邏輯插入專案中。 如果專案中有任何衍生自`ApiController`的控制器, 則專案會被視為 WebAPI 專案。 如果專案中只有衍生自 `MVC.Controller` 的控制器，則該專案會被視為 MVC 專案。 連線服務不支援任何其他專案類型。
 
 ## <a name="compatible-authentication-code"></a>相容的驗證碼
 
-連線服務也會檢查先前以此服務設定，或與此服務相容的驗證設定。 如果所有設定都皆存在，它會將其視為可重新進入的情況下，並已連線的服務會開啟並顯示設定。  如果只有部分設定存在，它將其視為錯誤案例。
+連線服務也會檢查先前以此服務設定，或與此服務相容的驗證設定。 如果有所有設定, 則會將它視為可重新進入的情況, 而已連線的服務會開啟顯示設定。  如果只有部分設定存在, 則會將它視為錯誤案例。
 
 在 MVC 專案中，連線服務會檢查先前使用此服務產生的以下任何設定：
 
@@ -41,7 +43,7 @@ ms.locfileid: "60296787"
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-此外，連線的服務會檢查任何 Web API 專案中，先前使用的服務所產生的下列設定：
+此外, 聯機服務會檢查 Web API 專案中是否有下列任何設定, 這是先前使用此服務所產生的:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />

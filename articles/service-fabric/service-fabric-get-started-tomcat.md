@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
-ms.author: v-jamebr
-ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: f1717cfb7980fc481f01c51c04d076aa2ca0f67d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306836"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876500"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>在 Linux 上建立執行 Apache Tomcat 伺服器的 Service Fabric 容器
 Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 技術實作。 此文章說明如何搭配 Apache Tomcat 和簡單的 Web 應用程式來建置容器，將該容器部署至執行 Linux 的 Service Fabric 叢集，然後連線至 Web 應用程式。  
 
 若要深入了解 Apache Tomcat，請參閱 [Apache Tomcat 首頁](https://tomcat.apache.org/) \(英文\)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 執行下列項目的開發電腦︰
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -93,7 +93,7 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
 
    若要了解其他參數，請參閱 [Docker run 文件](https://docs.docker.com/engine/reference/commandline/run/) \(英文\)。
 
-1. 若要測試容器，請開啟瀏覽器並輸入下列其中一個 URL。 您會看到"Hello World ！"的變數 每個 URL 的歡迎畫面。
+1. 若要測試容器，請開啟瀏覽器並輸入下列其中一個 URL。 您會看到 "Hello World!" 的變體 每個 URL 的歡迎畫面。
 
    - `http://localhost:8080/hello` 
    - `http://localhost:8080/hello/sayhello` 
@@ -111,9 +111,9 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>將 Tomcat 映像推送至容器登錄
 在您確認 Tomcat 映像已在開發電腦上的容器中執行之後，請將它推送至容器登錄中的存放庫。 此文章使用 Azure Container Registry 來儲存映像，但您可以修改步驟來使用您偏好的其他容器登錄。 本文會假設登錄名稱為 *myregistry*，且完整登錄名稱為 myregistry.azurecr.io。 請針對您的案例變更這些內容。 
 
-1. 執行`docker login`登入您的容器登錄搭配您[登錄認證](../container-registry/container-registry-authentication.md)。
+1. 執行`docker login` , 以使用您的登錄[認證](../container-registry/container-registry-authentication.md)登入您的 container registry。
 
-   下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能基於自動化案例已指派服務主體到您的登錄庫。 或者，您可以使用登入您的登錄使用者名稱和密碼。
+   下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能基於自動化案例已指派服務主體到您的登錄庫。 或者, 您可以使用登錄使用者名稱和密碼來登入。
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -141,11 +141,11 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
    ```
    當系統提示時，輸入下列值：
 
-   * 命名您的應用程式：ServiceFabricTomcat
-   * 應用程式服務的名稱：TomcatService
-   * 輸入映像名稱：提供容器登錄; 中的容器映像的 URL比方說，myregistry.azurecr.io/samples/tomcattest。
+   * 命名您的應用程式:ServiceFabricTomcat
+   * 應用程式服務的名稱:TomcatService
+   * 輸入映射名稱:在容器登錄中提供容器映射的 URL;例如, myregistry.azurecr.io/samples/tomcattest。
    * 命令：將此項保留空白。 因為此映像已定義工作負載進入點，您不需要明確指定輸入命令 (命令會在容器內執行，這會讓容器在啟動後繼續執行)。
-   * 來賓容器應用程式的執行個體數目：1
+   * 來賓容器應用程式的實例數目:1
 
    ![容器的 Service Fabric Yeoman 產生器](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
@@ -162,7 +162,7 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
    </Resources>
    ```
 
-11. 在應用程式資訊清單 (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*) 中，在 **ServiceManifestImport** 標記下方新增下列 XML。 取代**AccountName**並**密碼**中**RepositoryCredentials**標記的容器登錄和登入所需的密碼名稱。
+11. 在應用程式資訊清單 (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*) 中，在 **ServiceManifestImport** 標記下方新增下列 XML。 以您的容器登錄名稱取代**RepositoryCredentials**標記中的**AccountName**和**密碼**, 並將其登入所需的密碼。
 
    ```xml
    <Policies>
@@ -219,7 +219,7 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. 若要在 Tomcat 伺服器上存取該應用程式，請開啟瀏覽器視窗並輸入下列任一 URL。 如果您是部署至本機叢集，請為 *PublicIPorFQDN* 使用 *localhost*。 您會看到"Hello World ！"的變數 每個 URL 的歡迎畫面。
+1. 若要在 Tomcat 伺服器上存取該應用程式，請開啟瀏覽器視窗並輸入下列任一 URL。 如果您是部署至本機叢集，請為 *PublicIPorFQDN* 使用 *localhost*。 您會看到 "Hello World!" 的變體 每個 URL 的歡迎畫面。
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello

@@ -6,13 +6,13 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
-ms.author: yijenj
-ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964123"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876684"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -67,9 +67,9 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 <b> 如需詳細資訊，請參閱[透過 Microsoft 合作夥伴網路了解專長認證](https://partner.microsoft.com/membership/competencies)。</b>
  
 
-**SI 合作夥伴可以提交諮詢服務供應項目，如下列 18 個國家/地區**
+**SI 合作夥伴可以提交適用于下列18個國家/地區的諮詢服務供應專案**
 
-|合格的國家/地區 |   |   |   |
+|合格國家/地區 |   |   |   |
 |---------|----------|----------|----------|
 |澳大利亞 |法國  |     墨西哥          |西班牙       |
 |比利時   |德國 |     荷蘭     |瑞典       |
@@ -77,7 +77,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 |丹麥   |義大利   |     挪威          |美國 |
 |芬蘭   |日本   |     波蘭          
 
-諮詢服務將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 其他國家/地區的目錄就會上線之後的有意義的數字，且引人注目的精選服務供應項目在合作夥伴提交並經 Microsoft 核准。
+諮詢服務將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 其他國家/地區的目錄將會在有意義的數目, 且有吸引力的服務供應專案已由合作夥伴提交並由 Microsoft 核准之後, 才會生效。
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>如何使用 Azure Marketplace 和 AppSource 註冊諮詢服務
 首先，在市集中[註冊](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)您的公司資訊。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
@@ -117,7 +117,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 3. **提交**：提供指示中所列的必要資訊。 所有的內容和支援資料皆必須以英文提交。 
 4. **檢閱**：我們的行銷和編輯小組會檢閱您的提交，以求最佳的可讀性、文法和效率。 
 5. **暫存**：我們會暫存您的提交以供您檢閱。 
-6. **發佈**：當您和 Microsoft 皆滿意暫存階段的內容時，您的清單便準備好在市集上推出。 您的清單的推出日期取決於您的供應項目中指定國家/地區。 如果您選取的國家/地區的目錄已經是即時在 Azure Marketplace 或 AppSource 中，您的清單會出現的幾小時內。 否則，在目錄上線時就會出現清單。
+6. **發佈**：當您和 Microsoft 皆滿意暫存階段的內容時，您的清單便準備好在市集上推出。 清單的上線日期取決於您的供應專案中指定的國家/地區。 如果所選國家/地區的目錄已在 Azure Marketplace 或 AppSource 上上線, 您的清單就會在幾小時內出現。 否則，在目錄上線時就會出現清單。
 
 ## <a name="offer-listings-and-content-review-criteria"></a>供應項目清單和內容檢閱準則
 供應項目必須是以下五種服務類型之一 (您可以列出一個以上)： 

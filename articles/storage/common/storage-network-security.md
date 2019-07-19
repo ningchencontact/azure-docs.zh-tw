@@ -9,21 +9,21 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449717"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326939"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
 Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組特定的支援網路來保護儲存體帳戶。 設定網路規則時，只有透過一組特定網路發出要求資料的應用程式可以存取儲存體帳戶。
 
-應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 支援使用適用於 blob 和佇列的 Azure Active Directory (Azure AD) 認證、 使用有效的帳戶存取金鑰，或使用 SAS 權杖的授權。
+應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 使用適用于 blob 和佇列的 Azure Active Directory (Azure AD) 認證、具有有效的帳戶存取金鑰, 或使用 SAS 權杖, 即可支援授權。
 
 > [!IMPORTANT]
-> Azure 檔案同步處理尚未支援防火牆與虛擬網路。 如果您使用 Azure 檔案同步儲存體帳戶上啟用這些，Azure 檔案同步不會同步。
+> Azure 檔案同步還不支援防火牆和虛擬網路。 如果您在儲存體帳戶上使用 Azure 檔案同步, 而且您啟用這些作業, Azure 檔案同步將不會同步處理。
 >
 > 開啟儲存體帳戶的防火牆規則會預設封鎖傳入的資料要求，除非要求來自 Azure 虛擬網路 (VNet) 內運作的服務。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
 >
@@ -350,18 +350,19 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 如果啟用 **「允許信任的 Microsoft 服務...」** 例外狀況，下列服務 (在您的訂用帳戶中註冊時) 會獲得存取儲存體帳戶的權限：
 
-|服務|資源提供者名稱|目的|
+|服務|資源提供者名稱|用途|
 |:------|:---------------------|:------|
 |Azure 備份|Microsoft.RecoveryServices|在 IAAS 虛擬機器中執行未受控磁碟備份與還原。 (若為受控磁碟則非必要)。 [深入了解](/azure/backup/backup-introduction-to-azure-backup)。|
-|Azure 資料箱|Microsoft.DataBox|啟用匯入至 Azure，使用 [資料] 方塊中的資料。 [深入了解](/azure/databox/data-box-overview)。|
+|Azure 資料箱|Microsoft.DataBox|使用資料箱, 啟用將資料匯入至 Azure 的功能。 [深入了解](/azure/databox/data-box-overview)。|
 |Azure DevTest Labs|Microsoft.DevTestLab|自訂映像建立和成品安裝。 [深入了解](/azure/devtest-lab/devtest-lab-overview)。|
 |Azure Event Grid|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。|
 |Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。|
-|Azure HDInsight|Microsoft.HDInsight|佈建為新的 HDInsight 叢集的預設檔案系統的初始內容。 [深入了解](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。|
+| Azure 檔案同步| Microsoft.StorageSync| 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復, 以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md)|
+|Azure HDInsight|Microsoft.HDInsight|為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [深入了解](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。|
 |Azure 監視器|Microsoft.Insights|允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|
 |Azure 網路|Microsoft.Network|儲存及分析網路流量記錄。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。|
 |Azure Site Recovery|Microsoft.SiteRecovery |藉由啟用 Azure IaaS 虛擬機器的複寫來設定災害復原。 如果您使用已啟用防火牆的快取儲存體帳戶、來源儲存體帳戶或目標儲存體帳戶，則這會是必要項目。  [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。|
-|Azure SQL 資料倉儲|Microsoft.Sql|允許匯入和匯出案例，從特定使用 PolyBase 的 SQL Database 執行個體。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
+|Azure SQL 資料倉儲|Microsoft.Sql|允許使用 PolyBase 從特定 SQL 資料庫實例匯入和匯出案例。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取
 

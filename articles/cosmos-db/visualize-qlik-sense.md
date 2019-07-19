@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: eea4366ca19c01af1f79566a5ca6bcae8805b6c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242483"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985554"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>將 Qlik Sense 連線到 Azure Cosmos DB 並將資料視覺化
 
@@ -44,7 +44,7 @@ Qlik Sense 是一種資料視覺效果工具，可將不同來源的資料組合
 
 * 使用快速入門文章中[建立帳戶](create-sql-api-dotnet.md#create-account)一節所述的步驟，來建立 Azure Cosmos DB SQL API 帳戶。
 
-* [建立資料庫和集合](create-sql-api-dotnet.md#create-collection-database)：您可以將集合輸送量值設定為 1000 RU/秒。 
+* [建立資料庫和集合](create-sql-api-java.md#add-a-container)：您可以將集合輸送量值設定為 1000 RU/秒。 
 
 * 將範例視訊遊戲銷售資料載入到您的 Cosmos DB 帳戶。 您可以使用 Azure Cosmos DB 資料移轉工具來匯入資料，您可以[循序](import-data.md#SQLSeqTarget)或[大量匯入](import-data.md#SQLBulkTarget)資料。 大約需要 3-5 分鐘的時間，才能將資料匯入到 Cosmos DB 帳戶。
 

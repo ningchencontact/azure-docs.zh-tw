@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: 40ae8f0fb9c0c5980c4db1471b2bbad56a57d486
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c82bacfdff1c9d939016b48735f7917e7d34b47f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410487"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849686"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>處理 Linux 虛擬機器預定進行的維修作業通知
 
@@ -27,13 +27,13 @@ ms.locfileid: "65410487"
 
 - 如果維護不需要重新開機，Azure 會在主機更新時使用就地移轉來暫停 VM。 這些不需要重新開機的維護作業會逐個容錯網域套用，而且如果收到任何警告健康情況訊號，進度就會停止。
 
-- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下，您可以使用，這通常是 30 天您可以在其中開始維護，當它適用於您的時間範圍。
+- 如果維護需要重新開機，您會在規劃維護時收到通知。 在這些情況下, 您會獲得一個時間範圍, 通常是30天, 您可以自行開始進行維護。
 
 
 預定進行的維護作業若需要重新開機，會排定在不同波段。 每一波段有不同的範圍 (區域)。
 
 - 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../../azure-monitor/platform/activity-logs-overview.md)，對通知新增更多收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
-- 接獲通知時，即可使用「自助期間」  。 在此期間，這通常是 30 天，您可以找到的虛擬機器會包含在這一波且主動開始維護根據自己的排程需求。
+- 接獲通知時，即可使用「自助期間」  。 在此時段 (通常為30天) 中, 您可以找出這一波包含哪些虛擬機器, 並根據您自己的排程需求主動開始進行維護。
 - 在自助期間之後，「排定維護期間」  隨即開始。 在此期間的某個時間點，Azure 會排定並將必要的維護套用於您的虛擬機器。 
 
 有兩個期間的目標是要讓您在知道 Azure 何時將會自動開始維修的同時，有足夠時間開始維修，並將虛擬機器重新啟動。
@@ -140,7 +140,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **答：** 在可用性設定組或虛擬機器擴展集內所部署的虛擬機器，概念上可視為更新網域 (UD)。 執行維護時，Azure 會接受 UD 條件約束，並且不會從不同的 UD (在相同的可用性設定組內) 重新啟動虛擬機器。  Azure 也會等候至少 30 分鐘，再移至下一個虛擬機器群組。 
 
-如需有關高可用性的詳細資訊，請參閱 [Azure 中虛擬機器的區域和可用性](regions-and-availability.MD)。
+如需高可用性的詳細資訊, 請參閱[Azure 中虛擬機器的可用性](availability.MD)。
 
 **問：我如何取得計劃性維護的通知？**
 
@@ -160,7 +160,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **問：虛擬機器擴展集的體驗為何？**
 
-**答：** 計劃性維護現在可供虛擬機器擴展集使用。 如需有關如何起始自助式維護的指示，請參閱 [VMSS 的計劃性維護](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)文件。
+**答：** 計劃性維護現在可供虛擬機器擴展集使用。 如需如何起始自助維護的指示, 請參閱[虛擬機器擴展集的預定維護](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)檔。
 
 **問：雲端服務 (Web/背景工作角色) 和 Service Fabric 的體驗為何？**
 

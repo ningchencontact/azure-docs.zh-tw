@@ -3,22 +3,22 @@ title: 針對 Azure Container Instances 進行疑難排解
 description: 了解如何使用 Azure Container Instances 進行問題的疑難排解
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070858"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325592"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
-本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題集](container-instances-faq.md)。
+本文說明如何針對管理或將容器部署到 Azure 容器執行個體的常見問題，進行疑難排解。 另請參閱[常見問題](container-instances-faq.md)。
 
 ## <a name="naming-conventions"></a>命名慣例
 
@@ -46,7 +46,7 @@ ms.locfileid: "65070858"
 }
 ```
 
-最常在部署 Windows 映像為基礎的半年通道發行 1709年或 1803，不支援時，會發生此錯誤。 在 Azure Container Instances 中有超過支援的 Windows 映像，請參閱 <<c0> [ 常見問題集](container-instances-faq.md#what-windows-base-os-images-are-supported)。
+當部署以半年通道版本1709或1803為基礎的 Windows 映像 (不受支援) 時, 最常遇到此錯誤。 如需 Azure 容器實例中支援的 Windows 映像, 請參閱[常見問題](container-instances-faq.md#what-windows-base-os-images-are-supported)。
 
 ## <a name="unable-to-pull-image"></a>無法提取映像
 
@@ -54,7 +54,7 @@ ms.locfileid: "65070858"
 
 若要解決此問題，請刪除容器執行個體並重試您的部署。 請確定此映像存在在登錄中，而且您已輸入正確的映像名稱。
 
-如果無法提取映像，系統便會顯示如 [az container show][az-container-show] 輸出中所示的事件：
+如果無法提取映射, 則[az container show][az-container-show]的輸出中會顯示如下的事件:
 
 ```bash
 "events": [
@@ -89,7 +89,7 @@ ms.locfileid: "65070858"
 
 容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]  ，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure]  或 [永不]  。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
-如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題，包括如下所示，您的容器群組部署使用 start 命令，將執行的容器。
+如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題, 請在您的容器群組部署中包含如下的啟動命令, 讓容器保持執行狀態。
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -102,7 +102,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-容器執行個體 API 和 Azure 入口網站包含 `restartCount` 屬性。 若要檢查容器的重新啟動次數，可以在 Azure CLI 中使用 [az container show][az-container-show] 命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
+容器執行個體 API 和 Azure 入口網站包含 `restartCount` 屬性。 若要檢查容器的重新開機次數, 您可以使用 Azure CLI 中的[az container show][az-container-show]命令。 在下列範例輸出中 (為簡潔起見已截斷畫面)，您可以在輸出的結尾看到 `restartCount` 屬性。
 
 ```json
 ...
@@ -172,9 +172,9 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 另一種可在容器啟動階段降低對於映像提取作業影響的方式，是在您想要部署容器執行個體的相同區域中，將容器映像裝載在 [Azure Container Registry](/azure/container-registry/) 中。 這種方式會縮短容器映像需要經過的網路路徑，從而大幅縮短下載時間。
 
-### <a name="cached-images"></a>快取的映像
+### <a name="cached-images"></a>快取的影像
 
-Azure 容器執行個體使用的快取機制來協助加快容器啟動時間，針對根據常見的映像[Windows 基本映像](container-instances-faq.md#what-windows-base-os-images-are-supported)，包括`nanoserver:1809`， `servercore:ltsc2019`，和`servercore:1809`。 常用 Linux 映像的這類`ubuntu:1604`和`alpine:3.6`也會快取。 對於快取的映像和標籤的最新清單，使用[列出快取映像][ list-cached-images] API。
+Azure 容器實例會使用快取機制, 協助針對建置於通用[Windows 基底映射](container-instances-faq.md#what-windows-base-os-images-are-supported)(包括`nanoserver:1809`、 `servercore:ltsc2019`和`servercore:1809`) 的映射進行容器啟動時間的速度。 一般使用的 Linux 映射 ( `ubuntu:1604`例如`alpine:3.6`和) 也會進行快取。 如需最新的快取映射和標籤清單, 請使用列出快取的[影像][list-cached-images]API。
 
 > [!NOTE]
 > 在 Azure 容器執行個體中使用以 Windows Server 2019 為基礎的映像是預覽功能。
@@ -206,7 +206,7 @@ Azure 容器執行個體目前不支援連接埠對應 (像是一般 Docker 組�
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何[擷取容器的記錄檔和事件](container-instances-get-logs.md)協助偵錯您的容器。
+瞭解如何[取得容器記錄和事件](container-instances-get-logs.md), 以協助您進行容器的偵錯工具。
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions

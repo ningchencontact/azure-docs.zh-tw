@@ -5,7 +5,7 @@
     - name: Azure 監視器是什麼？
       href: overview.md
     - name: 術語變更
-      href: azure-monitor-rebrand.md
+      href: terminology.md
 - name: 快速入門
   expanded: true
   items:
@@ -55,7 +55,6 @@
           href: learn/tutorial-users.md
         - name: 建立自訂儀表板
           href: learn/tutorial-app-dashboards.md
-        - name: Application Insights
     - name: 封存平台計量和記錄資料
       href: learn/tutorial-archive-data.md
     - name: 針對效能和排程自動調整規模
@@ -83,6 +82,7 @@
         - name: 記錄
           href: platform/data-platform-logs.md
         - name: 記錄檔資料擷取時間
+          displayname: latency
           href: platform/data-ingestion-time.md
     - name: 深入解析
       href: insights/insights-overview.md
@@ -125,34 +125,20 @@
     - name: 常見問題集
       items:
         - name: Log Analytics
+          displayName: FAQ
           href: platform/log-faq.md
         - name: Application Insights
+          displayName: FAQ
           href: app/troubleshoot-faq.md
 - name: 使用說明指南
   items:
-    - name: 規劃和準備
+    - name: 管理 Azure 監視器
       items:
-        - name: 管理存取權
-          items:
-            - name: 角色權限與安全性
-              href: platform/roles-permissions-security.md
-            - name: 工作區
-              href: platform/manage-access.md
-            - name: '[應用程式]'
-              href: app/resources-roles-access-control.md
-            - name: IP 位址
-              href: app/ip-addresses.md
-        - name: 監視應用程式
-          items:
-            - name: 深入診斷 Web Apps 和服務
-              href: app/devops.md
-            - name: 監視 Web 應用程式的效能
-              href: app/web-monitor-performance.md
-            - name: 區分開發、測試及生產環境
-              href: app/separate-resources.md
-            - name: 我如何在 Application Insights 中...？
-              href: app/how-do-i.md
-        - name: 管理工作區
+        - name: 角色權限與安全性
+          href: platform/roles-permissions-security.md
+        - name: IP 位址
+          href: app/ip-addresses.md
+        - name: Log Analytics 工作區
           items:
             - name: 建立工作區
               items:
@@ -166,8 +152,494 @@
               href: platform/delete-workspace.md
             - name: 服務提供者的設計
               href: platform/service-providers.md
-    - name: 收集資料
+            - name: 管理存取權
+              href: platform/manage-access.md
+            - name: 與 Configuration Manager 整合
+              href: platform/collect-sccm.md
+        - name: 使用量與成本
+          items:
+            - name: 使用量和估計成本
+              href: platform/usage-estimated-costs.md
+            - name: 應用程式使用量和成本
+              href: app/pricing.md
+            - name: 記錄資料使用量和成本
+              href: platform/manage-cost-storage.md
+    - name: 監視資源
       items:
+        - name: '[應用程式]'
+          items:
+            - name: Application Insights 概觀
+              href: app/app-insights-overview.md
+            - name: 以程式碼為基礎的監視
+              items:
+                - name: ASP.NET Core
+                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                  href: app/asp-net-core.md
+                - name: ASP.NET
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: .NET 主控台
+                  displayname: 'console, .NET, dotnet console, dotenet, c#, csharp, NET'
+                  href: app/console.md
+                - name: ILogger
+                  displayname: 'ilogger, logging, log'
+                  href: app/ilogger.md
+                - name: Java
+                  items:
+                    - name: Web 應用程式
+                      displayname: java
+                      href: app/java-get-started.md
+                    - name: Web 應用程式 (2.5.0-BETA)
+                      href: app/java-get-started-25-beta.md
+                    - name: Docker 應用程式
+                      href: app/docker.md
+                    - name: 記錄追蹤
+                      href: app/java-trace-logs.md
+                    - name: 記錄追蹤 (2.5.0-BETA)
+                      href: app/java-trace-logs-25-beta.md
+                    - name: Unix 計量
+                      href: app/java-collectd.md
+                    - name: 相依性
+                      href: app/java-agent.md
+                    - name: 相依性 (2.5.0-BETA)
+                      href: app/java-agent-25-beta.md
+                    - name: 篩選遙測
+                      href: app/java-filter-telemetry.md
+                    - name: Micrometer Metrics
+                      displayname: java
+                      href: app/micrometer-java.md
+                    - name: Micrometer 計量 (2.5.0-BETA)
+                      href: app/micrometer-java-25-beta.md
+                    - name: Spring Boot 應用程式
+                      displayname: java
+                      href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
+                    - name: 疑難排解
+                      href: app/java-troubleshoot.md
+                - name: Node.js 應用程式
+                  items:
+                    - name: Node.js
+                      href: app/nodejs.md
+                - name: 網頁
+                  items:
+                    - name: 用戶端 JavaScript
+                      href: app/javascript.md
+                - name: Application Insights API 摘要
+                  displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
+                  href: app/api-custom-events-metrics.md
+                - name: ASP.NET 疑難排解
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: 無程式碼監視
+              items:
+                - name: Azure 虛擬機器和 Azure 虛擬機器擴展集
+                  href: app/azure-vm-vmss-apps.md
+                - name: Azure App Service
+                  displayname: 'App Service, web app, PaaS, Azure web app'
+                  href: app/azure-web-apps.md
+                - name: Azure 雲端服務
+                  displayname: 'cloud, cloud services, PaaS'
+                  href: app/cloudservices.md
+                - name: Azure Functions
+                  displayname: 'functions, monitor functions, automation'
+                  href: ../azure-functions/functions-monitoring.md
+                - name: Kubernetes 應用程式
+                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
+                  href: app/kubernetes.md
+                - name: 狀態監視器
+                  displayname: 'IIS monitoring, on premises monitoring, on prem,'
+                  href: app/monitor-performance-live-website-now.md
+                - name: 狀態監視器 v2
+                  items:
+                    - name: 概觀
+                      displayname: 'IIS monitoring, on premises monitoring, on prem,'
+                      href: app/status-monitor-v2-overview.md
+                    - name: 開始使用
+                      href: app/status-monitor-v2-get-started.md
+                    - name: 詳細指示
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: 疑難排解與已知問題
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
+                    - name: API Start-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-start-trace.md
+            - name: 建立資源
+              href: app/create-new-resource.md
+            - name: 應用程式儀表板
+              displayname: 'dashboard, Application Insights dashboard'
+              href: app/overview-dashboard.md
+            - name: 應用程式對應
+              href: app/app-map.md
+            - name: 可用性
+              items:
+                - name: URL 測試
+                  displayname: 'ping, ping tests, availability, GSM, up/down'
+                  href: app/monitor-web-app-availability.md
+                - name: 多步驟測試
+                  displayname: 'availability, GSM, visual studio web test, web test'
+                  href: app/availability-multistep.md
+                - name: 可用性警示
+                  displayname: 'alerts, global, alerting'
+                  href: app/availability-alerts.md
+                - name: 效能測試
+                  href: app/performance-testing.md
+                - name: 疑難排解
+                  displayname: 'availability, troublshoot, troubleshoot availability'
+                  href: app/troubleshoot-availability.md
+            - name: 分散式追蹤
+              items:
+                - name: 概觀
+                  href: app/distributed-tracing.md
+                - name: 本機轉送工具
+                  href: app/opencensus-local-forwarder.md
+                - name: Python
+                  href: app/opencensus-python.md
+                - name: Go
+                  href: app/opencensus-go.md
+            - name: 即時計量串流
+              displayname: 'live, quickpulse, quick pulse, live metrics'
+              href: app/live-stream.md
+            - name: 度量
+              href: app/metrics-explorer.md
+            - name: Search
+              href: app/diagnostic-search.md
+            - name: 分析工具
+              items:
+                - name: 概觀
+                  displayname: 'profiling, debugging, code performance, perf'
+                  href: app/profiler-overview.md
+                - name: 針對 App Service 啟用 Profiler
+                  href: app/profiler.md
+                - name: 針對雲端服務啟用 Profiler
+                  href: app/profiler-cloudservice.md
+                - name: 針對 Service Fabric 應用程式啟用 Profiler
+                  href: app/profiler-servicefabric.md
+                - name: 針對 Azure VM 啟用 Profiler
+                  href: app/profiler-vm.md
+                - name: Linux 應用程式服務的分析工具 (預覽)
+                  href: app/profiler-aspnetcore-linux.md
+                - name: Profiler 設定
+                  href: app/profiler-settings.md
+                - name: 追蹤要求以進行剖析
+                  href: app/profiler-trackrequests.md
+                - name: Profiler 疑難排解
+                  href: app/profiler-troubleshooting.md
+            - name: 快照集偵錯工具
+              items:
+                - name: 概觀
+                  displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
+                  href: app/snapshot-debugger.md
+                - name: 啟用 App Service 的快照偵錯工具
+                  href: app/snapshot-debugger-appservice.md
+                - name: 啟用其他環境的快照偵錯工具
+                  href: app/snapshot-debugger-vm.md
+                - name: 升級快照偵錯工具
+                  href: app/snapshot-debugger-upgrade.md
+                - name: 快照偵錯工具的疑難排解
+                  displayname: 'troubleshoot, troubleshooting'
+                  href: app/snapshot-debugger-troubleshoot.md
+            - name: 智慧型偵測
+              href: app/proactive-diagnostics.md
+              items:
+                - name: 失敗的異常
+                  href: app/proactive-failure-diagnostics.md
+                - name: 效能異常
+                  href: app/proactive-performance-diagnostics.md
+                - name: 追蹤轉化
+                  href: app/proactive-trace-severity.md
+                - name: 例外狀況磁碟區
+                  href: app/proactive-exception-volume.md
+                - name: 記憶體流失
+                  href: app/proactive-potential-memory-leak.md
+                - name: 安全性偵測
+                  href: app/proactive-application-security-detection-pack.md
+                - name: Azure 雲端服務
+                  href: app/proactive-cloud-services.md
+                - name: 管理智慧偵測規則
+                  href: app/proactive-arm-config.md
+                - name: 電子郵件通知
+                  href: app/proactive-email-notification.md
+            - name: 使用量 (使用者行為分析)
+              items:
+                - name: 概觀
+                  displayname: 'user behavior analytics, user behavior, usage, behavioral analytics'
+                  href: app/usage-overview.md
+                - name: 傳送使用者內容
+                  href: app/usage-send-user-context.md
+                - name: 使用者、工作階段、事件
+                  href: app/usage-segmentation.md
+                - name: 漏斗圖
+                  href: app/usage-funnels.md
+                - name: 同群使用者
+                  href: app/usage-cohorts.md
+                - name: 影響
+                  href: app/usage-impact.md
+                - name: 保留
+                  href: app/usage-retention.md
+                - name: 使用者流程
+                  href: app/usage-flows.md
+                - name: 流量分析
+                  href: app/usage-troubleshoot.md
+            - name: Azure DevOps
+              items:
+                - name: 版本註解
+                  href: app/annotations.md
+                - name: 連續監視
+                  href: app/continuous-monitoring.md
+            - name: 進階組態
+              items:
+                - name: 存取控制
+                  href: app/resources-roles-access-control.md
+                - name: 取樣
+                  displayname: 'adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling'
+                  href: app/sampling.md
+                - name: TelemetryChannels
+                  dispayname: 'in memory, server telemetry channel, channel, inmemory, servertelemetry'
+                  href: app/telemetry-channels.md
+                - name: TelemetryProcessors
+                  displayname: 'processors, filtering, telemetry filtering, telemetry processor'
+                - name: 遙測相互關聯
+                  href: app/api-filtering-sampling.md
+                - name: 在 .NET SDK 之中追蹤自訂作業
+                  href: app/custom-operations-tracking.md
+                - name: 自訂電子郵件報告
+                  href: app/automate-custom-reports.md
+                - name: 例外狀況
+                  href: app/asp-net-exceptions.md
+                - name: 記錄追蹤
+                  href: app/asp-net-trace-logs.md
+                - name: 效能計數器
+                  href: app/performance-counters.md
+                - name: 相依性
+                  href: app/asp-net-dependencies.md
+                - name: ApplicationInsights.config
+                  href: app/configuration-with-applicationinsights-config.md
+                - name: 記錄檔型與預先彙總的計量
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: 交易診斷
+                  href: app/transaction-diagnostics.md
+                - name: 將自訂資料來源相互關聯
+                  href: app/custom-data-correlation.md
+                - name: 特殊主題
+                  items:
+                    - name: 深入診斷 Web Apps 和服務
+                      href: app/devops.md
+                    - name: 監視 Web 應用程式的效能
+                      href: app/web-monitor-performance.md
+                    - name: 區分開發、測試及生產環境
+                      href: app/separate-resources.md
+                    - name: 我如何在 Application Insights 中...？
+                      href: app/how-do-i.md
+            - name: 匯出
+              items:
+                - name: 連續匯出
+                  href: app/export-telemetry.md
+                - name: 匯出至串流分析簡介
+                  href: app/export-stream-analytics.md
+                - name: 使用串流分析匯出至 SQL
+                  href: app/code-sample-export-sql-stream-analytics.md
+                - name: 匯出資料模型
+                  href: app/export-data-model.md
+            - name: Visual Studio
+              items:
+                - name: F5 深入解析
+                  href: app/visual-studio.md
+                - name: 趨勢
+                  href: app/visual-studio-trends.md
+                - name: CodeLens
+                  href: app/visual-studio-codelens.md
+            - name: 其他平台
+              items:
+                - name: SharePoint 網站
+                  href: app/sharepoint.md
+                - name: Dynamics CRM
+                  href: app/sample-mscrm.md
+                - name: Windows 桌面
+                  href: app/windows-desktop.md
+        - name: 容器
+          items:
+            - name: 適用於容器的 Azure 監視器
+              items:
+                - name: 概觀
+                  href: insights/container-insights-overview.md
+                - name: 常見問題集
+                  href: insights/container-insights-faq.md
+                - name: 啟用監視
+                  items:
+                    - name: 啟用監視概觀
+                      href: insights/container-insights-onboard.md
+                    - name: 針對新的叢集啟用
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: 針對現有叢集啟用
+                      href: insights/container-insights-enable-existing-clusters.md
+                    - name: 區域對應
+                      href: insights/container-insights-region-mapping.md
+                - name: 分析
+                  href: insights/container-insights-analyze.md
+                - name: 停用監視
+                  href: insights/container-insights-optout.md
+                - name: 檢視即時記錄
+                  href: insights/container-insights-live-logs.md
+                - name: 使用日誌查詢分析資料
+                  href: insights/container-insights-log-search.md
+                - name: 警示
+                  href: insights/container-insights-alerts.md
+                - name: 代理程式管理
+                  href: insights/container-insights-manage-agent.md
+                - name: 更新以啟用計量
+                  href: insights/container-insights-update-metrics.md
+                - name: 疑難排解
+                  href: insights/container-insights-troubleshoot.md
+            - name: Docker 和 Windows 容器監視
+              href: insights/containers.md
+        - name: 虛擬機器
+          items:
+            - name: 代理程式
+              items:
+                - name: 代理程式概觀
+                  href: platform/agents-overview.md
+                - name: Azure 診斷擴充功能
+                  items:
+                    - name: 概觀
+                      href: platform/diagnostics-extension-overview.md
+                    - name: 傳送到 Azure 儲存體
+                      href: platform/diagnostics-extension-to-storage.md
+                    - name: 傳送至 Application Insights
+                      href: platform/diagnostics-extension-to-application-insights.md
+                    - name: 傳送至事件中樞
+                      href: platform/diagnostics-extension-stream-event-hubs.md
+                    - name: 疑難排解
+                      href: platform/diagnostics-extension-troubleshooting.md
+                    - name: 準備使用 JSON Lines 診斷記錄格式
+                      href: platform/diagnostic-logs-append-blobs.md
+                    - name: 虛擬機器來賓至 Metrics
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                    - name: GuestOS 至 Metrics Linux VM (Telegraf)
+                      href: platform/collect-custom-metrics-linux-telegraf.md
+                    - name: 虛擬機器擴展集來賓至 Metrics
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                    - name: 虛擬機器傳統來賓至 Metrics
+                      href: platform/collect-custom-metrics-guestos-vm-classic.md
+                    - name: 雲端服務來賓至 Metrics
+                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                - name: Log Analytics 代理程式
+                  items:
+                    - name: 概觀
+                      href: platform/log-analytics-agent.md
+                    - name: Windows 代理程式
+                      href: platform/agent-windows.md
+                    - name: Windows 的 VM 延伸模組
+                      href: ../virtual-machines/windows/extensions-oms.md
+                    - name: Linux 的 VM 延伸模組
+                      href: ../virtual-machines/linux/extensions-oms.md
+                    - name: Log Analytics 閘道
+                      href: platform/gateway.md
+                    - name: 代理程式管理
+                      href: platform/agent-manage.md
+                    - name: 代理程式健康狀態
+                      href: insights/solution-agenthealth.md
+                - name: 疑難排解
+                  items:
+                    - name: Log Analytics VM 延伸模組
+                      displayname: 'troubleshoot, troubleshooting'
+                      href: platform/vmext-troubleshoot.md
+                    - name: Log Analytics Windows 代理程式
+                      displayname: 'troubleshoot, troubleshooting'
+                      href: platform/agent-windows-troubleshoot.md
+                    - name: Log Analytics Linux 代理程式
+                      displayname: 'troubleshoot, troubleshooting'
+                      href: platform/agent-linux-troubleshoot.md
+            - name: 代理程式資料來源
+              items:
+                - name: 概觀
+                  href: platform/agent-data-sources.md
+                - name: Windows 事件
+                  href: platform/data-sources-windows-events.md
+                - name: 自訂 JSON 資料
+                  href: platform/data-sources-json.md
+                - name: CollectD 效能資料
+                  href: platform/data-sources-collectd.md
+                - name: syslog
+                  href: platform/data-sources-syslog.md
+                - name: 效能計數器
+                  href: platform/data-sources-performance-counters.md
+                - name: Linux 應用程式的效能
+                  href: platform/data-sources-linux-applications.md
+                - name: IIS 記錄
+                  href: platform/data-sources-iis-logs.md
+                - name: 自訂的記錄
+                  href: platform/data-sources-custom-logs.md
+                - name: 自訂欄位
+                  href: platform/custom-fields.md
+            - name: 適用於 VM 的 Azure 監視器
+              items:
+                - name: 概觀
+                  href: insights/vminsights-overview.md
+                - name: 已知問題
+                  href: insights/vminsights-known-issues.md
+                - name: 常見問題集
+                  href: insights/vminsights-faq.md
+                - name: 啟用監視
+                  items:
+                    - name: 啟用監視概觀
+                      href: insights/vminsights-enable-overview.md
+                    - name: 啟用以供單一 Azure 虛擬機器使用
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: 使用 Azure 原則啟用
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: 使用 Azure PowerShell 啟用
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: 針對混合式環境啟用
+                      href: insights/vminsights-enable-hybrid-cloud.md
+                - name: 監視健康情況
+                  href: insights/vminsights-health.md
+                - name: 對應相依性
+                  href: insights/vminsights-maps.md
+                - name: 監視效能
+                  href: insights/vminsights-performance.md
+                - name: 使用活頁簿
+                  href: insights/vminsights-workbooks.md
+                - name: 使用日誌查詢分析資料
+                  href: insights/vminsights-log-search.md
+                - name: 設定代理程式集合設定
+                  href: insights/container-insights-agent-config.md
+                - name: 停用監視
+                  href: insights/vminsights-optout.md
+            - name: 容量和效能解決方案
+              href: insights/capacity-performance.md
+            - name: VMware Analytics 解決方案
+              href: insights/vmware.md
+            - name: Wire Data 解決方案
+              href: insights/wire-data.md
+            - name: 服務對應
+              items:
+                - name: 使用
+                  href: insights/service-map.md
+                - name: 設定
+                  href: insights/service-map-configure.md
+                - name: 與 Operations Manager 整合
+                  href: insights/service-map-scom.md
+            - name: 電腦群組
+              href: platform/computer-groups.md
+            - name: 組態管理員
+              href: platform/collect-sccm.md
+        - name: 資料庫
+          items:
+            - name: Azure SQL
+              href: insights/azure-sql.md
+            - name: SQL Server
+              href: insights/sql-assessment.md
         - name: Azure 資源
           items:
             - name: 活動記錄檔
@@ -200,427 +672,20 @@
                   href: platform/diagnostic-logs-stream-template.md
                 - name: Service 記錄與計量
                   href: platform/azure-storage-iis-table.md
-            - name: 串流至事件中樞
+            - name: 將資料串流至事件中樞
               href: platform/stream-monitoring-data-event-hubs.md
-            - name: 將自訂資料來源相互關聯
-              href: app/custom-data-correlation.md
-            - name: 檢視服務通知
-              href: platform/service-notifications.md
-        - name: 安裝及設定代理程式
-          items:
-            - name: 監視代理程式概觀
-              href: platform/agents-overview.md
-            - name: Log Analytics 代理程式
-              items:
-                - name: 概觀
-                  href: platform/log-analytics-agent.md
-                - name: Windows 代理程式
-                  href: platform/agent-windows.md
-                - name: Windows 的 VM 延伸模組
-                  href: ../virtual-machines/windows/extensions-oms.md
-                - name: Linux 的 VM 延伸模組
-                  href: ../virtual-machines/linux/extensions-oms.md
-                - name: Operations Manager
-                  href: platform/om-agents.md
-                - name: Log Analytics 閘道
-                  href: platform/gateway.md
-                - name: 代理程式管理
-                  href: platform/agent-manage.md
-            - name: Azure 診斷擴充功能
-              items:
-                - name: 概觀
-                  href: platform/diagnostics-extension-overview.md
-                - name: 傳送到 Azure 儲存體
-                  href: platform/diagnostics-extension-to-storage.md
-                - name: 傳送至 Application Insights
-                  href: platform/diagnostics-extension-to-application-insights.md
-                - name: 傳送至事件中樞
-                  href: platform/diagnostics-extension-stream-event-hubs.md
-                - name: 疑難排解
-                  href: platform/diagnostics-extension-troubleshooting.md
-                - name: 準備使用 JSON Lines 診斷記錄格式
-                  href: platform/diagnostic-logs-append-blobs.md
-                - name: 虛擬機器來賓至 Metrics
-                  href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: 虛擬機器擴展集來賓至 Metrics
-                  href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: 虛擬機器傳統來賓至 Metrics
-                  href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: 雲端服務來賓至 Metrics
-                  href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-            - name: 疑難排解
-              items:
-                - name: Log Analytics VM 延伸模組
-                  href: platform/vmext-troubleshoot.md
-                - name: Log Analytics Windows 代理程式
-                  href: platform/agent-windows-troubleshoot.md
-                - name: Log Analytics Linux 代理程式
-                  href: platform/agent-linux-troubleshoot.md
-        - name: 代理程式資料來源
-          items:
-            - name: 概觀
-              href: platform/agent-data-sources.md
-            - name: Windows 事件
-              href: platform/data-sources-windows-events.md
-            - name: 自訂 JSON 資料
-              href: platform/data-sources-json.md
-            - name: CollectD 效能資料
-              href: platform/data-sources-collectd.md
-            - name: syslog
-              href: platform/data-sources-syslog.md
-            - name: 效能計數器
-              href: platform/data-sources-performance-counters.md
-            - name: Linux 應用程式的效能
-              href: platform/data-sources-linux-applications.md
-            - name: IIS 記錄
-              href: platform/data-sources-iis-logs.md
-            - name: 自訂的記錄
-              href: platform/data-sources-custom-logs.md
-            - name: 自訂欄位
-              href: platform/custom-fields.md
-        - name: 設定應用程式
-          items:
-            - name: Azure 裝載的應用程式
-              items:
-                - name: Azure 虛擬機器和 Azure 虛擬機器擴展集
-                  href: app/azure-vm-vmss-apps.md
-                - name: Azure 應用程式服務
-                  href: app/azure-web-apps.md
-                - name: Azure 雲端服務
-                  href: app/cloudservices.md
-                - name: 新增連續監視
-                  href: app/continuous-monitoring.md
-                - name: 分析工具
-                  items:
-                    - name: 概觀
-                      href: app/profiler-overview.md
-                    - name: 針對 App Service 啟用 Profiler
-                      href: app/profiler.md
-                    - name: 針對雲端服務啟用 Profiler
-                      href: app/profiler-cloudservice.md
-                    - name: 針對 Service Fabric 應用程式啟用 Profiler
-                      href: app/profiler-servicefabric.md
-                    - name: 針對 Azure VM 啟用 Profiler
-                      href: app/profiler-vm.md
-                    - name: Linux 應用程式服務的分析工具 (預覽)
-                      href: app/profiler-aspnetcore-linux.md
-                    - name: Profiler 設定
-                      href: app/profiler-settings.md
-                    - name: 追蹤要求以進行剖析
-                      href: app/profiler-trackrequests.md
-                    - name: Profiler 疑難排解
-                      href: app/profiler-troubleshooting.md
-                - name: 快照集偵錯工具
-                  items:
-                    - name: 概觀
-                      href: app/snapshot-debugger.md
-                    - name: 啟用 App Service 的快照偵錯工具
-                      href: app/snapshot-debugger-appservice.md
-                    - name: 啟用其他環境的快照偵錯工具
-                      href: app/snapshot-debugger-vm.md
-                    - name: 升級快照偵錯工具
-                      href: app/snapshot-debugger-upgrade.md
-                    - name: 快照偵錯工具的疑難排解
-                      href: app/snapshot-debugger-troubleshoot.md
-                - name: 診斷
-                  href: ../application-insights/app-insights-azure-diagnostics.md
-            - name: ASP.NET Core
-              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-              href: app/asp-net-core.md
-              items:
-                - name: ILogger
-                  href: app/ilogger.md
-            - name: ASP.NET 應用程式
-              items:
-                - name: Web 應用程式
-                  href: app/asp-net.md
-                - name: 狀態監視器
-                  href: app/monitor-performance-live-website-now.md
-                - name: 狀態監視器 v2
-                  items:
-                    - name: 概觀
-                      href: app/status-monitor-v2-overview.md
-                    - name: 開始使用
-                      href: app/status-monitor-v2-get-started.md
-                    - name: 詳細指示
-                      href: app/status-monitor-v2-detailed-instructions.md
-                    - name: 疑難排解與已知問題
-                      href: app/status-monitor-v2-troubleshoot.md
-                    - name: API Disable-InstrumentationEngine
-                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
-                    - name: API Disable-ApplicationInsightsMonitoring
-                      href: app/status-monitor-v2-api-disable-monitoring.md
-                    - name: API Enable-InstrumentationEngine
-                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
-                    - name: API Enable-ApplicationInsightsMonitoring
-                      href: app/status-monitor-v2-api-enable-monitoring.md
-                    - name: API Get-ApplicationInsightsMonitoringConfig
-                      href: app/status-monitor-v2-api-get-config.md
-                    - name: API Get-ApplicationInsightsMonitoringStatus
-                      href: app/status-monitor-v2-api-get-status.md
-                    - name: API Set-ApplicationInsightsMonitoringConfig
-                      href: app/status-monitor-v2-api-set-config.md
-                    - name: API Start-ApplicationInsightsMonitoringTrace
-                      href: app/status-monitor-v2-api-start-trace.md
-                - name: Windows 桌面
-                  href: app/windows-desktop.md
-                - name: 主控台
-                  href: app/console.md
-                - name: 應用程式儀表板
-                  href: app/overview-dashboard.md
-                - name: 收集更多的遙測
-                  href: app/asp-net-more.md
-                - name: 例外狀況
-                  href: app/asp-net-exceptions.md
-                - name: 記錄追蹤
-                  href: app/asp-net-trace-logs.md
-                - name: 效能計數器
-                  href: app/performance-counters.md
-                - name: 相依性
-                  href: app/asp-net-dependencies.md
-                - name: 版本註解
-                  href: app/annotations.md
-                - name: ApplicationInsights.config
-                  href: app/configuration-with-applicationinsights-config.md
-                - name: 快照集偵錯工具
-                  href: app/snapshot-debugger.md
-            - name: Java 應用程式
-              items:
-                - name: Web 應用程式
-                  href: app/java-get-started.md
-                - name: Web 應用程式 (2.5.0-BETA)
-                  href: app/java-get-started-25-beta.md
-                - name: Docker 應用程式
-                  href: app/docker.md
-                - name: 記錄追蹤
-                  href: app/java-trace-logs.md
-                - name: 記錄追蹤 (2.5.0-BETA)
-                  href: app/java-trace-logs-25-beta.md
-                - name: Unix 計量
-                  href: app/java-collectd.md
-                - name: 相依性
-                  href: app/java-agent.md
-                - name: 相依性 (2.5.0-BETA)
-                  href: app/java-agent-25-beta.md
-                - name: 篩選遙測
-                  href: app/java-filter-telemetry.md
-                - name: Micrometer Metrics
-                  href: app/micrometer-java.md
-                - name: Micrometer 計量 (2.5.0-BETA)
-                  href: app/micrometer-java-25-beta.md
-                - name: 設定 Spring Boot 初始設定式應用程式
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-            - name: Node.js 應用程式
-              items:
-                - name: Node.js
-                  href: app/nodejs.md
-            - name: 網頁
-              items:
-                - name: JavaScript
-                  href: app/javascript.md
-            - name: 監視 Azure Functions
-              href: ../azure-functions/functions-monitoring.md
-            - name: 分散式追蹤
-              items:
-                - name: 本機轉送工具
-                  href: app/opencensus-local-forwarder.md
-                - name: Python
-                  href: app/opencensus-python.md
-                - name: Go
-                  href: app/opencensus-go.md
-            - name: 其他平台
-              items:
-                - name: SharePoint 網站
-                  href: app/sharepoint.md
-                - name: Dynamics CRM
-                  href: app/sample-mscrm.md
-            - name: 智慧型偵測
-              href: app/proactive-diagnostics.md
-              items:
-                - name: 失敗的異常
-                  href: app/proactive-failure-diagnostics.md
-                - name: 效能異常
-                  href: app/proactive-performance-diagnostics.md
-                - name: 追蹤轉化
-                  href: app/proactive-trace-severity.md
-                - name: 例外狀況磁碟區
-                  href: app/proactive-exception-volume.md
-                - name: 記憶體流失
-                  href: app/proactive-potential-memory-leak.md
-                - name: 安全性偵測
-                  href: app/proactive-application-security-detection-pack.md
-                - name: Azure 雲端服務
-                  href: app/proactive-cloud-services.md
-                - name: 管理智慧偵測規則
-                  href: app/proactive-arm-config.md
-                - name: 電子郵件通知
-                  href: app/proactive-email-notification.md
-            - name: 可用性
-              items:
-                - name: URL 測試
-                  href: app/monitor-web-app-availability.md
-                - name: 多步驟測試
-                  href: app/availability-multistep.md
-                - name: 可用性警示
-                  href: app/availability-alerts.md
-                - name: 疑難排解
-                  href: app/troubleshoot-availability.md
-            - name: 效能測試
-              href: app/performance-testing.md
-            - name: 建立資源
-              href: app/create-new-resource.md
-            - name: 應用程式資料到 Log Analytics
-              href: platform/app-insights-connector.md
-            - name: 匯出應用程式資料
-              items:
-                - name: 連續匯出
-                  href: app/export-telemetry.md
-                  items:
-                    - name: 程式碼範例
-                      items:
-                        - name: 使用串流分析匯出至 SQL
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: 匯出至串流分析簡介
-                          href: app/export-stream-analytics.md
-                - name: 匯出資料模型
-                  href: app/export-data-model.md
-            - name: 疑難排解
-              items:
-                - name: 沒有 .NET 的資料
-                  href: app/asp-net-troubleshoot-no-data.md
-                - name: 快照集偵錯工具
-                  href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Java
-                  href: app/java-troubleshoot.md
-                - name: 流量分析
-                  href: app/usage-troubleshoot.md
-        - name: 收集自訂資料
-          items:
-            - name: 自訂度量
-              href: platform/metrics-custom-overview.md
-            - name: Log Analytics 資料收集器 API
-              href: platform/data-collector-api.md
-            - name: Log Analytics 資料收集器 API 管線範例
-              href: platform/create-pipeline-datacollector-api.md
-            - name: Metrics REST API
-              href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS 至 Metrics Linux VM (Telegraf)
-              href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: System Center
-          items:
-            - name: 組態管理員
-              href: platform/collect-sccm.md
-    - name: 取得見解
-      items:
-        - name: 監視應用程式
-          items:
-            - name: Application Insights 概觀
-              items:
-                - name: 概觀
-                  href: app/app-insights-overview.md
-                - name: 分散式追蹤
-                  href: app/distributed-tracing.md
-                - name: 記錄檔型與預先彙總的計量
-                  href: app/pre-aggregated-metrics-log-metrics.md
-            - name: Application Insights 入口網站
-              items:
-                - name: Search
-                  href: app/diagnostic-search.md
-                - name: 度量
-                  href: app/metrics-explorer.md
-                - name: 即時資料流
-                  href: app/live-stream.md
-                - name: 應用程式對應
-                  href: app/app-map.md
-                - name: 交易診斷
-                  href: app/transaction-diagnostics.md
-                - name: HockeyApp 資料
-                  href: app/hockeyapp-bridge-app.md
-            - name: Visual Studio
-              items:
-                - name: F5 深入解析
-                  href: app/visual-studio.md
-                - name: 趨勢
-                  href: app/visual-studio-trends.md
-                - name: CodeLens
-                  href: app/visual-studio-codelens.md
-            - name: 使用量
-              items:
-                - name: 概觀
-                  href: app/usage-overview.md
-                - name: 傳送使用者內容
-                  href: app/usage-send-user-context.md
-                - name: 使用者、工作階段、事件
-                  href: app/usage-segmentation.md
-                - name: 漏斗圖
-                  href: app/usage-funnels.md
-                - name: 同群使用者
-                  href: app/usage-cohorts.md
-                - name: 影響
-                  href: app/usage-impact.md
-                - name: 保留
-                  href: app/usage-retention.md
-                - name: 使用者流程
-                  href: app/usage-flows.md
-                - name: 活頁簿
-                  href: app/usage-workbooks.md
-            - name: Web 應用程式 Analytics 解決方案
-              href: insights/azure-web-apps-analytics.md
-            - name: 監視 Kubernetes 應用程式
-              displayname: 'aks, microservice, istio, service mesh, application monitoring'
-              href: app/kubernetes.md
-        - name: 監視容器
-          items:
-            - name: 適用於容器的 Azure 監視器
-              items:
-                - name: 概觀
-                  href: insights/container-insights-overview.md
-                - name: 常見問題集
-                  href: insights/container-insights-faq.md
-                - name: 啟用監視
-                  items:
-                    - name: 啟用監視概觀
-                      href: insights/container-insights-onboard.md
-                    - name: 針對新的叢集啟用
-                      href: insights/container-insights-enable-new-cluster.md
-                    - name: 針對現有叢集啟用
-                      href: insights/container-insights-enable-existing-clusters.md
-                    - name: 區域對應
-                      href: insights/container-insights-region-mapping.md
-                - name: 分析
-                  href: insights/container-insights-analyze.md
-                - name: 設定代理程式集合設定
-                  href: insights/container-insights-agent-config.md
-                - name: 停用監視
-                  href: insights/container-insights-optout.md
-                - name: 檢視即時記錄
-                  href: insights/container-insights-live-logs.md
-                - name: 使用日誌查詢分析資料
-                  href: insights/container-insights-log-search.md
-                - name: 警示
-                  href: insights/container-insights-alerts.md
-                - name: 代理程式管理
-                  href: insights/container-insights-manage-agent.md
-                - name: 更新以啟用計量
-                  href: insights/container-insights-update-metrics.md
-                - name: 疑難排解
-                  href: insights/container-insights-troubleshoot.md
-            - name: Docker 和 Windows 容器監視
-              href: insights/containers.md
-            - name: 監視 Docker 應用程式
-              href: app/docker.md
-        - name: 監視資源群組
-          href: insights/resource-group-insights.md
-        - name: 監視資料庫
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-        - name: 監視網路
+            - name: 金鑰保存庫分析
+              href: insights/azure-key-vault.md
+            - name: Service Fabric 分析
+              href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
+            - name: 監視資源群組
+              href: insights/resource-group-insights.md
+        - name: 網路
           items:
             - name: 網路分析
               href: insights/azure-networking-analytics.md
+            - name: DNS
+              href: insights/dns-analytics.md
             - name: 網路效能監視器
               items:
                 - name: 解決方案概觀
@@ -635,74 +700,14 @@
                   href: insights/network-performance-monitor-pricing-faq.md
                 - name: 常見問題集
                   href: insights/network-performance-monitor-faq.md
-        - name: 監視虛擬機器
-          items:
-            - name: 適用於 VM 的 Azure 監視器
-              items:
-                - name: 概觀
-                  href: insights/vminsights-overview.md
-                - name: 已知問題
-                  href: insights/vminsights-known-issues.md
-                - name: 常見問題集
-                  href: insights/vminsights-faq.md
-                - name: 啟用監視
-                  items:
-                    - name: 啟用監視概觀
-                      href: insights/vminsights-enable-overview.md
-                    - name: 啟用以供單一 Azure 虛擬機器使用
-                      href: insights/vminsights-enable-single-vm.md
-                    - name: 使用 Azure 原則啟用
-                      href: insights/vminsights-enable-at-scale-policy.md
-                    - name: 使用 Azure PowerShell 啟用
-                      href: insights/vminsights-enable-at-scale-powershell.md
-                    - name: 針對混合式環境啟用
-                      href: insights/vminsights-enable-hybrid-cloud.md
-                - name: 監視健康情況
-                  href: insights/vminsights-health.md
-                - name: 對應相依性
-                  href: insights/vminsights-maps.md
-                - name: 監視效能
-                  href: insights/vminsights-performance.md
-                - name: 使用活頁簿
-                  href: insights/vminsights-workbooks.md
-                - name: 使用日誌查詢分析資料
-                  href: insights/vminsights-log-search.md
-                - name: 停用監視
-                  href: insights/vminsights-optout.md
-            - name: 代理程式健康狀態
-              href: insights/solution-agenthealth.md
-            - name: 容量和效能
-              href: insights/capacity-performance.md
-            - name: VMWare 分析
-              href: insights/vmware.md
-            - name: 連線資料
-              href: insights/wire-data.md
-            - name: 服務對應
-              items:
-                - name: 使用
-                  href: insights/service-map.md
-                - name: 設定
-                  href: insights/service-map-configure.md
-                - name: 與 Operations Manager 整合
-                  href: insights/service-map-scom.md
-        - name: 監視 Azure 資源
-          items:
-            - name: 金鑰保存庫分析
-              href: insights/azure-key-vault.md
-            - name: Service Fabric 分析
-              href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
-        - name: 監視其他資源
+        - name: 其他資源
           items:
             - name: 存取 AD 健康情況
               href: insights/ad-assessment.md
             - name: AD 複寫狀態
               href: insights/ad-replication-status.md
-            - name: DNS
-              href: insights/dns-analytics.md
             - name: Office 365
               href: insights/solution-office-365.md
-            - name: 存取 Operations Manager
-              href: insights/scom-assessment.md
             - name: Surface Hub
               href: insights/surface-hubs.md
         - name: 使用監視解決方案
@@ -711,6 +716,22 @@
               href: insights/solutions.md
             - name: 目標解決方案
               href: insights/solution-targeting.md
+        - name: 收集自訂資料
+          items:
+            - name: 自訂度量
+              href: platform/metrics-custom-overview.md
+            - name: Log Analytics 資料收集器 API
+              href: platform/data-collector-api.md
+            - name: Log Analytics 資料收集器 API 管線範例
+              href: platform/create-pipeline-datacollector-api.md
+            - name: Metrics REST API
+              href: platform/metrics-store-custom-rest-api.md
+        - name: 使用 System Center
+          items:
+            - name: 與 Operations Manager 連線
+              href: platform/om-agents.md
+            - name: 存取 Operations Manager
+              href: insights/scom-assessment.md
     - name: 分析資料
       items:
         - name: 度量
@@ -800,10 +821,17 @@
                   href: log-query/log-query-performance.md
                 - name: 剖析文字資料
                   href: log-query/parse-text.md
-            - name: 電腦群組
-              href: platform/computer-groups.md
-            - name: 流程連接器
+        - name: Flow/Logic Apps
+          items:
+            - name: Flow 連接器搭配記錄
               href: platform/flow-tutorial.md
+            - name: Flow 連接器搭配應用程式
+              href: app/automate-with-flow.md
+            - name: Logic Apps 搭配應用程式
+              href: app/automate-with-logic-apps.md
+        - name: REST API
+          displayname: 'metrics, analyze'
+          href: platform/rest-api-walkthrough.md
     - name: 顯現資料
       items:
         - name: Views
@@ -822,92 +850,108 @@
               href: platform/powerbi.md
             - name: 匯出應用程式資料
               href: app/export-power-bi.md
+        - name: 活頁簿
+          href: app/usage-workbooks.md
         - name: 儀表板
           href: app/app-insights-dashboards.md
         - name: 將資料傳送到 Grafana
           href: platform/grafana-plugin.md
-    - name: 回應事件
+    - name: 警示
       items:
-        - name: 警示
+        - name: 應用程式警示規則
           items:
-            - name: 應用程式警示規則
-              items:
-                - name: 度量警示
-                  href: app/alerts.md
-            - name: 平台計量警示規則
-              items:
-                - name: 管理計量警示
-                  href: platform/alerts-metric.md
-                - name: 使用動態閾值
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: 記錄上的計量警示
-                  href: platform/alerts-metric-logs.md
-                - name: 使用 Resource Manager 範本
-                  href: platform/alerts-metric-create-templates.md
-            - name: 記錄警示規則
-              items:
-                - name: 在分析查詢上設定警示
-                  href: platform/alerts-log.md
-                - name: 查詢
-                  href: platform/alerts-log-query.md
-                - name: Webhook 動作
-                  href: platform/alerts-log-webhook.md
-                - name: 疑難排解
-                  href: platform/alert-log-troubleshoot.md
-            - name: 活動記錄警示規則
-              items:
-                - name: 活動記錄事件警示
-                  href: platform/alerts-activity-log.md
-            - name: 活動記錄中的服務健康情況通知
-              items:
-                - name: 檢視服務健康情況通知
-                  href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-                - name: 設定服務健康情況警示規則
-                  href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
-            - name: 使用動作群組
-              items:
-                - name: 建立動作群組
-                  href: platform/action-groups.md
-                - name: Webhook 結構描述
-                  href: platform/activity-log-alerts-webhook.md
-                - name: 常見的警示結構描述定義
-                  href: platform/alerts-common-schema-definitions.md
-                - name: SMS 警示行為
-                  href: platform/alerts-sms-behavior.md
-                - name: 警示速率限制
-                  href: platform/alerts-rate-limiting.md
-                - name: 使用 Resource Manager 建立動作群組
-                  href: platform/action-groups-create-resource-manager-template.md
-                - name: 實作邏輯應用程式動作
-                  href: platform/action-groups-logic-app.md
-                - name: 整合常見警示結構描述和 Logic Apps
-                  href: platform/alerts-common-schema-integrations.md
-            - name: 警示管理解決方案
-              href: platform/alert-management-solution.md
-            - name: 警示使用者介面
-              items:
-                - name: 管理警示執行個體
-                  href: platform/alerts-managing-alert-instances.md
-                - name: 管理智慧群組
-                  href: platform/alerts-managing-smart-groups.md
-                - name: 管理警示與智慧群組狀態
-                  href: platform/alerts-managing-alert-states.md
-                - name: 管理來自其他監視服務的警示
-                  href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: 遷移傳統警示規則
-              items:
-                - name: 為移轉做準備
-                  href: platform/alerts-prepare-migration.md
-                - name: 了解移轉工具
-                  href: platform/alerts-understand-migration.md
-                - name: 使用移轉工具
-                  href: platform/alerts-using-migration-tool.md
-                - name: 管理傳統計量警示
-                  href: platform/alerts-classic-portal.md
-                - name: 使用 Resource Manager 範本的傳統計量警示
-                  href: platform/alerts-enable-template.md
-                - name: 傳統計量警示呼叫 Webhook
-                  href: platform/alerts-webhooks.md
+            - name: 可用性
+              href: app/monitor-web-app-availability.md
+            - name: 度量警示
+              href: app/alerts.md
+        - name: 平台計量警示規則
+          items:
+            - name: 管理計量警示
+              href: platform/alerts-metric.md
+            - name: 使用動態閾值
+              href: platform/alerts-dynamic-thresholds.md
+            - name: 記錄上的計量警示
+              href: platform/alerts-metric-logs.md
+            - name: 使用 Resource Manager 範本
+              href: platform/alerts-metric-create-templates.md
+        - name: 記錄警示規則
+          items:
+            - name: 在分析查詢上設定警示
+              href: platform/alerts-log.md
+            - name: 查詢
+              href: platform/alerts-log-query.md
+            - name: Webhook 動作
+              href: platform/alerts-log-webhook.md
+            - name: 疑難排解
+              href: platform/alert-log-troubleshoot.md
+        - name: 活動記錄警示規則
+          items:
+            - name: 活動記錄事件警示
+              href: platform/alerts-activity-log.md
+            - name: 將管理事件遷移至活動記錄警示
+              href: platform/migrate-management-alerts.md
+        - name: 動作群組
+          items:
+            - name: 建立動作群組
+              href: platform/action-groups.md
+            - name: Webhook 結構描述
+              href: platform/activity-log-alerts-webhook.md
+            - name: 常見的警示結構描述定義
+              href: platform/alerts-common-schema-definitions.md
+            - name: SMS 警示行為
+              href: platform/alerts-sms-behavior.md
+            - name: 警示速率限制
+              href: platform/alerts-rate-limiting.md
+            - name: 使用 Resource Manager 建立動作群組
+              href: platform/action-groups-create-resource-manager-template.md
+            - name: 實作邏輯應用程式動作
+              href: platform/action-groups-logic-app.md
+            - name: 整合常見警示結構描述和 Logic Apps
+              href: platform/alerts-common-schema-integrations.md
+        - name: 警示管理解決方案
+          href: platform/alert-management-solution.md
+        - name: 警示使用者介面
+          items:
+            - name: 管理警示執行個體
+              href: platform/alerts-managing-alert-instances.md
+            - name: 管理智慧群組
+              href: platform/alerts-managing-smart-groups.md
+            - name: 管理警示與智慧群組狀態
+              href: platform/alerts-managing-alert-states.md
+            - name: 管理來自其他監視服務的警示
+              href: platform/alerts-managing-nagios-zabbix-scom.md
+        - name: 遷移傳統警示規則
+          items:
+            - name: 為移轉做準備
+              href: platform/alerts-prepare-migration.md
+            - name: 了解移轉工具
+              href: platform/alerts-understand-migration.md
+            - name: 使用移轉工具
+              href: platform/alerts-using-migration-tool.md
+            - name: 管理傳統計量警示
+              href: platform/alerts-classic-portal.md
+            - name: 使用 Resource Manager 範本的傳統計量警示
+              href: platform/alerts-enable-template.md
+            - name: 傳統計量警示呼叫 Webhook
+              href: platform/alerts-webhooks.md
+        - name: 活動記錄中的服務健康情況通知
+          items:
+            - name: 檢視通知
+              href: platform/service-notifications.md
+            - name: 設定通知事件警示
+              href: platform/alerts-activity-log-service-notifications.md
+        - name: 警示 API
+          href: platform/api-alerts.md
+        - name: IT 服務管理
+          items:
+            - name: IT 服務管理連接器
+              href: platform/itsmc-overview.md
+            - name: IT 服務管理連線
+              href: platform/itsmc-connections.md
+            - name: 建立服務管理員 Web 應用程式
+              href: platform/itsmc-service-manager-script.md
+    - name: 自動化
+      items:
         - name: Autoscale
           items:
             - name: 逐步介紹
@@ -928,24 +972,6 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: 使用 Webhook 與電子郵件通知
               href: platform/autoscale-webhook-email.md
-        - name: IT 服務管理
-          items:
-            - name: IT 服務管理連接器
-              href: platform/itsmc-overview.md
-            - name: IT 服務管理連線
-              href: platform/itsmc-connections.md
-            - name: 建立服務管理員 Web 應用程式
-              href: platform/itsmc-service-manager-script.md
-    - name: 管理使用量與成本
-      items:
-        - name: 使用量和估計成本
-          href: platform/usage-estimated-costs.md
-        - name: 應用程式使用量和成本
-          href: app/pricing.md
-        - name: 記錄資料使用量和成本
-          href: platform/manage-cost-storage.md
-    - name: 自動化
-      items:
         - name: PowerShell
           items:
             - name: Azure PowerShell 範例
@@ -966,36 +992,8 @@
           href: platform/cli-samples.md
         - name: Resource Manager 範本
           href: platform/template-workspace-configuration.md
-        - name: API
-          items:
-            - name: 逐步解說如何使用 REST API
-              href: platform/rest-api-walkthrough.md
-            - name: 記錄檔搜尋 API
-              href: 'https://dev.loganalytics.io/'
-            - name: 警示 API
-              href: platform/api-alerts.md
-        - name: '[應用程式]'
-          items:
-            - name: 透過 Microsoft Flow 進行自動化
-              href: app/automate-with-flow.md
-            - name: 透過 Azure Logic App 進行自動化
-              href: app/automate-with-logic-apps.md
-            - name: 自訂電子郵件報告
-              href: app/automate-custom-reports.md
     - name: Extend
       items:
-        - name: '[應用程式]'
-          items:
-            - name: 自訂事件和度量的 API
-              href: app/api-custom-events-metrics.md
-            - name: 在 .NET SDK 之中追蹤自訂作業
-              href: app/custom-operations-tracking.md
-            - name: 篩選及前置處理遙測
-              href: app/api-filtering-sampling.md
-            - name: 取樣
-              href: app/sampling.md
-            - name: TelemetryChannels
-              href: app/telemetry-channels.md
         - name: 監視解決方案
           items:
             - name: 設計和建置
@@ -1028,31 +1026,31 @@
           href: app/platforms.md
         - name: 端點覆寫
           href: app/custom-endpoints.md
-    - name: Application Insights 資料模型
-      items:
-        - name: 概觀
-          href: app/data-model.md
-        - name: 要求
-          href: app/data-model-request-telemetry.md
-        - name: 相依性
-          href: app/data-model-dependency-telemetry.md
-        - name: 例外狀況
-          href: app/data-model-exception-telemetry.md
-        - name: 追蹤
-          href: app/data-model-trace-telemetry.md
-        - name: Event
-          href: app/data-model-event-telemetry.md
-        - name: 計量
-          href: app/data-model-metric-telemetry.md
-        - name: Context
-          href: app/data-model-context.md
+        - name: 資料模型
+          items:
+            - name: 概觀
+              href: app/data-model.md
+            - name: 要求
+              href: app/data-model-request-telemetry.md
+            - name: 相依性
+              href: app/data-model-dependency-telemetry.md
+            - name: 例外狀況
+              href: app/data-model-exception-telemetry.md
+            - name: 追蹤
+              href: app/data-model-trace-telemetry.md
+            - name: Event
+              href: app/data-model-event-telemetry.md
+            - name: 計量
+              href: app/data-model-metric-telemetry.md
+            - name: Context
+              href: app/data-model-context.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure Functions
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
-        - name: 監視
+        - name: Application Insights
           href: /powershell/module/az.applicationinsights
         - name: 記錄
           href: /powershell/module/az.operationalinsights
@@ -1074,7 +1072,7 @@
           href: platform/metrics-supported.md
         - name: 較新警示的支援計量
           href: platform/alerts-metric-near-real-time.md
-    - name: 結構描述
+    - name: 診斷記錄
       items:
         - name: 診斷記錄服務、類別和結構描述
           href: platform/diagnostic-logs-schema.md
@@ -1095,6 +1093,14 @@
           href: platform/monitoring-classic-retirement.md
         - name: 切換記錄警示 API 喜好設定
           href: platform/alerts-log-api-switch.md
+        - name: HockeyApp 資料
+          href: app/hockeyapp-bridge-app.md
+        - name: Web 應用程式 Analytics 解決方案
+          href: insights/azure-web-apps-analytics.md
+        - name: Application Insights 連接器
+          href: platform/app-insights-connector.md
+        - name: 監視 Docker 應用程式
+          href: app/docker.md
         - name: OMS 入口網站已淘汰
           href: platform/oms-portal-transition.md
 - name: 資源

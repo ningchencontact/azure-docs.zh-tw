@@ -3,16 +3,17 @@ title: 將容器映像匯入到 Azure Container Registry
 description: 藉由使用 Azure API 將容器映像匯入到 Azure 容器登錄，不需要執行 Docker 命令。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
-ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c44eabffaefe24e15f980c9871a5c65ab958f2fc
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827284"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310623"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>將容器映像匯入到容器登錄
 
@@ -38,7 +39,7 @@ Azure Container Registry 會處理一些從現有登錄複製映像的常見案�
 > 如果您需要將相同的容器映像散佈到多個 Azure 區域，Azure Container Registry 也支援[異地複寫](container-registry-geo-replication.md)。 藉由異地複寫登錄 (需要進階 SKU)，您可以使用來自單一登錄的相同映像和標記名稱，為多個區域提供服務。
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您還沒有 Azure 容器登錄，請建立登錄。 如需步驟，請參閱[快速入門：使用 Azure CLI 建立私人容器登錄](container-registry-get-started-azure-cli.md)。
 
@@ -48,7 +49,7 @@ Azure Container Registry 會處理一些從現有登錄複製映像的常見案�
 
 ### <a name="import-from-docker-hub"></a>從 Docker Hub 匯入
 
-例如，使用 [az acr import][az-acr-import] 命令將多架構 `hello-world:latest` 映像從 Docker Hub 匯入到名為 *myregistry* 的登錄。 因為 `hello-world` 是來自 Docker Hub 的官方映像，此映像在預設 `library` 存放庫中。 在 `--source` 映像參數的值中包含存放庫名稱，以及選擇性包含標記。 (您可以選擇性依據其資訊清單摘要來識別映像，而不是依據標記，如此可確保映像的特定版本。)
+例如, 使用[az acr import][az-acr-import]命令, 將多架構`hello-world:latest`映射從 Docker Hub 匯入到名為*myregistry*的登錄。 因為 `hello-world` 是來自 Docker Hub 的官方映像，此映像在預設 `library` 存放庫中。 在 `--source` 映像參數的值中包含存放庫名稱，以及選擇性包含標記。 (您可以選擇性依據其資訊清單摘要來識別映像，而不是依據標記，如此可確保映像的特定版本。)
  
 ```azurecli
 az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
@@ -122,7 +123,7 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您會了解從公用登錄或其他私人登錄將容器映像匯入到 Azure 容器登錄。 如需其他映像匯入選項，請參閱 [az acr import][az-acr-import] 命令參考。 
+在本文中，您會了解從公用登錄或其他私人登錄將容器映像匯入到 Azure 容器登錄。 如需其他影像匯入選項, 請參閱[az acr import][az-acr-import]命令參考。 
 
 
 <!-- LINKS - Internal -->

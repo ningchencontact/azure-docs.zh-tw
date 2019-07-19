@@ -1,17 +1,17 @@
 ---
 title: 使用 Azure CLI 與範本部署資源 | Microsoft Docs
-description: 使用 Azure Resource Manager 和 Azure CLI 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
+description: 使用 Azure Resource Manager 和 Azure CLI, 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206531"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853836"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
@@ -23,23 +23,23 @@ ms.locfileid: "67206531"
 
 ## <a name="deployment-scope"></a>部署範圍
 
-您可以針對您的 Azure 訂用帳戶或訂用帳戶內的資源群組的部署。 在大部分情況下，您會針對部署至資源群組。 使用訂用帳戶部署來套用原則和角色指派，在訂用帳戶。 您也可以使用訂用帳戶部署來建立資源群組，並將資源部署到它。 根據部署的範圍，您可以使用不同的命令。
+您可以將部署的目標設為 Azure 訂用帳戶或訂用帳戶內的資源群組。 在大部分情況下, 您會將部署目標設為資源群組。 使用訂用帳戶部署, 在訂用帳戶之間套用原則和角色指派。 您也可以使用「訂用帳戶」部署來建立資源群組, 並將資源部署到其中。 視部署的範圍而定, 您可以使用不同的命令。
 
-若要部署到**資源群組**，使用[az 群組部署建立](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+若要部署至**資源群組**, 請使用[az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-若要部署到**訂用帳戶**，使用[az 部署建立](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+若要部署至**訂**用帳戶, 請使用[az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-目前，管理群組部署僅支援透過 REST API。 請參閱[使用 Resource Manager 範本與 Resource Manager REST API 部署資源](resource-group-template-deploy-rest.md)。
+目前, 只有透過 REST API 支援管理群組部署。 請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
 
-這篇文章中的範例會使用資源群組部署。 如需有關訂用帳戶部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](deploy-to-subscription.md)。
+本文中的範例會使用資源群組部署。 如需訂用帳戶部署的詳細資訊, 請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
 
 ## <a name="deploy-local-template"></a>部署本機範本
 
@@ -68,7 +68,7 @@ az group deployment create \
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>部署遠端的範本
+## <a name="deploy-remote-template"></a>部署遠端範本
 
 您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，以在組織內共用存取。
 
@@ -98,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 
-這項功能就是所謂*錯誤時回復*。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請在部署命令中使用 `--rollback-on-error` 參數。 如果您有已知的良好狀態的基礎結構部署，而且想要還原為此狀態，這項功能很有用。 有一些注意事項和限制：
+這項功能也稱為「*發生錯誤時復原*」。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請在部署命令中使用 `--rollback-on-error` 參數。 如果您的基礎結構部署有已知的良好狀態, 而且想要還原為此狀態, 此功能就很有用。 有一些警告和限制:
 
-- 完全依照其先前執行相同的參數，則會執行重新部署。 您無法變更參數。
-- 先前的部署會使用執行[完整模式](./deployment-modes.md#complete-mode)。 也會刪除任何不包含在先前的部署的資源，而任何資源的設定會設定為先前的狀態。 請確定您完全了解[部署模式](./deployment-modes.md)。
-- 重新部署只會影響資源，不會受到影響的任何資料變更。
-- 這項功能只有在資源群組部署中，未訂用帳戶層級部署。 如需訂用帳戶層級部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](./deploy-to-subscription.md)。
+- 重新部署的執行方式與先前使用相同參數執行的完全相同。 您無法變更參數。
+- 先前的部署是使用[完整模式](./deployment-modes.md#complete-mode)來執行。 先前部署中未包含的任何資源都會刪除, 而且任何資源設定都會設為先前的狀態。 請確定您完全瞭解[部署模式](./deployment-modes.md)。
+- 重新部署只會影響資源, 任何資料變更都不會受到影響。
+- 只有資源群組部署支援這項功能, 而不是訂用帳戶層級部署。 如需訂用帳戶層級部署的詳細資訊, 請參閱在訂用帳戶[層級建立資源群組和資源](./deploy-to-subscription.md)。
 
 若要使用這個選項，您的部署必須有唯一的名稱，以便在歷程記錄中進行識別。 如果您沒有唯一的名稱，則目前失敗的部署可能會覆寫歷程記錄中先前成功的部署。 您只可以使用此選項搭配根層級部署。 從巢狀範本部署不適用於重新部署。
 
@@ -145,6 +145,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+如果您使用 Azure CLI 搭配 Windows 命令提示字元 (CMD) 或 PowerShell, 請以下列格式傳遞陣列: `exampleArray="['value1','value2']"`。
 
 您也可以取得檔案內容，並提供該內容作為內嵌參數。
 

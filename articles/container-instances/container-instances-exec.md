@@ -3,16 +3,17 @@ title: 在 Azure 容器執行個體的執行中容器內執行命令
 description: 了解如何在目前正在 Azure 容器執行個體中執行的容器內執行命令
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: danlep
-ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579741"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325990"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>在執行中的 Azure 容器執行個體內執行命令
 
@@ -20,7 +21,7 @@ Azure 容器執行個體支援在執行中容器內執行命令。 在您已經�
 
 ## <a name="run-a-command-with-azure-cli"></a>使用 Azure CLI 執行命令
 
-在 [Azure CLI][azure-cli] 中，搭配 [az container exec][az-container-exec]，於執行中容器內執行命令：
+使用[az container exec][az-container-exec] in the [Azure CLI][azure-cli]在執行中的容器中執行命令:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -84,7 +85,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>限制
 
-Azure 容器執行個體目前支援使用 [az container exec][az-container-exec] 啟動單一處理序，而您無法傳遞命令引數。 例如，您無法像在 `sh -c "echo FOO && echo BAR"` 中鏈結命令，也無法執行 `echo FOO`。
+Azure 容器實例目前支援使用[az Container exec][az-container-exec]啟動單一進程, 而且您無法傳遞命令引數。 例如，您無法像在 `sh -c "echo FOO && echo BAR"` 中鏈結命令，也無法執行 `echo FOO`。
 
 ## <a name="next-steps"></a>後續步驟
 

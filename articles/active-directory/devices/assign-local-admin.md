@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b71b4656181da328cf630cefa4d25cb4f4efda
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482104"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67983675"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>如何管理已加入 Azure AD 的裝置上的本機系統管理員群組
 
@@ -75,7 +75,7 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 
 除了使用 Azure AD Join 程序以外，您也可以手動提高一般使用者的權限，使其成為一個特定裝置的本機系統管理員。 若要執行此步驟，您必須已是本機系統管理員群組的成員。 
 
-自 **Windows 10 1709** 版本起，您可以從 [設定] -> [帳戶] -> [其他使用者]  執行這項工作。 選取 [新增工作或學校使用者]  ，並且在 [使用者帳戶]  下輸入使用者的 UPN，然後選取 [帳戶類型]  下的 [管理員]   
+從**Windows 10 1709**版本開始, 您可以從 [**設定-> 帳戶-> 其他使用者**] 執行這項工作。 選取 [新增工作或學校使用者]  ，並且在 [使用者帳戶]  下輸入使用者的 UPN，然後選取 [帳戶類型]  下的 [管理員]   
  
 此外，您也可以使用命令提示字元來新增使用者：
 
@@ -93,4 +93,4 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 ## <a name="next-steps"></a>後續步驟
 
 - 若要取得在 Azure 入口網站中管理裝置的概觀，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)
-- 若要深入了解裝置型條件式存取，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](../conditional-access/require-managed-devices.md)。
+- 若要深入瞭解裝置型條件式存取, 請參閱[設定 Azure Active Directory 裝置型條件式存取原則](../conditional-access/require-managed-devices.md)。

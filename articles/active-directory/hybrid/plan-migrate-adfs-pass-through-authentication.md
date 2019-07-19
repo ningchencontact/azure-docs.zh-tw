@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：從同盟移轉至 PTA 適用於 Azure AD
+title: Azure AD Connect：從同盟遷移至 PTA 以進行 Azure AD
 description: 本文提供將混合式身分識別環境從同盟移轉至傳遞驗證的相關資訊。
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109347"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311340"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>從 Azure Active Directory 的同盟移轉至傳遞驗證
 
@@ -77,8 +77,8 @@ ms.locfileid: "67109347"
    ![此螢幕擷取畫面顯示 [其他工作] 頁面上的 [檢視目前的設定] 選項](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. 在 [檢閱解決方案]  頁面上，捲動至 [Active Directory 同盟服務 (AD FS)]  。<br />
 
-   * 如果此區段中出現 AD FS 設定，您就可以放心假設 AD FS 原本是使用 Azure AD Connect 進行設定的。 您可以使用 Azure AD Connect 的 [變更使用者登入]  選項，將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 1：使用 Azure AD Connect 設定傳遞驗證**一節。
-   * 如果目前的設定未列出 AD FS，則必須手動使用 PowerShell 將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 2：使用 Azure AD Connect 和 PowerShell 從同盟轉換至傳遞驗證**一節。
+   * 如果此區段中出現 AD FS 設定，您就可以放心假設 AD FS 原本是使用 Azure AD Connect 進行設定的。 您可以使用 Azure AD Connect 的 [變更使用者登入]  選項，將網域從同盟身分識別轉換為受控識別。 如需有關此程式的詳細資訊, 請**參閱選項 A:使用 Azure AD Connect 設定傳遞驗證**一節。
+   * 如果目前的設定未列出 AD FS，則必須手動使用 PowerShell 將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至傳遞驗證**一節。
 
 ### <a name="document-current-federation-settings"></a>文件目前的同盟設定
 
@@ -128,9 +128,9 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 |-|-|
 | 您打算繼續將 AD FS 用於 Azure AD 和 Office 365 以外的其他應用程式。 | 在轉換網域之後，您將使用 AD FS 和 Azure AD。 請考量使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證：一次是對 Azure AD (此時使用者會取得對其他應用程式的 SSO 存取權，例如 Office 365)，另一次則是針對任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
 | 您的 AD FS 執行個體經過高度自訂，且仰賴 onload.js 檔案中特定的自訂設定 (例如您已變更登入體驗，使得使用者的使用者名稱必須採用 **SamAccountName** 格式，而非使用者主體名稱 (UPN)，或是您的組織已將登入體驗高度品牌化)。 在 Azure AD 中無法複製 onload.js 檔案。 | 在繼續作業之前，您必須確認 Azure AD 可符合您目前的自訂需求。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂的相關章節。|
-| 您 AD FS 使用來封鎖舊版驗證用戶端。| 請考慮更換封鎖舊版驗證用戶端搭配使用的 AD FS 控制項[條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)並[Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。 |
+| 您 AD FS 使用來封鎖舊版驗證用戶端。| 請考慮使用[條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和[Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)的組合, 取代封鎖舊版驗證用戶端的 AD FS 控制項。 |
 | 當使用者向 AD FS 進行驗證時，您要求使用者依據內部部署多重要素驗證伺服器解決方案執行多重要素驗證。| 在受控識別網域中，您無法透過內部部署多重要素驗證解決方案將多重要素驗證挑戰插入驗證流程中。 不過，您可以在轉換網域後使用 Azure Multi-factor Authentication 服務進行多重要素驗證。<br /><br /> 如果您的使用者目前未使用 Azure Multi-factor Authentication，則需執行一次性的使用者註冊步驟。 您必須準備好計劃性的註冊，並將其傳達給使用者。 |
-| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管對 Office 365 的存取。| 請考慮將取代的對等的 Azure AD 中的原則[條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)並[Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。|
+| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管對 Office 365 的存取。| 請考慮將原則取代為對等的 Azure AD[條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和[Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。|
 
 ### <a name="common-ad-fs-customizations"></a>常見的 AD FS 自訂
 
@@ -142,13 +142,13 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 在您的網域轉換成傳遞驗證後，即無法使用 **InsideCorporateNetwork** 宣告。 您可以使用 [Azure AD 中的具名位置](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)來取代這項功能。
 
-設定具名的位置之後，您必須更新所有已設定要包含或排除網路的條件式存取原則**所有信任的位置**或是**MFA 信任的 Ip**值反映新的具名位置。
+設定命名位置之後, 您必須更新所有已設定為包含或排除網路**所有信任位置**或**MFA 信任的 Ip**值的條件式存取原則, 以反映新的命名位置。
 
-如需詳細資訊**位置**條件式存取的狀況，請參閱[Active Directory 條件式存取位置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
+如需條件式存取中**位置**條件的詳細資訊, 請參閱[Active Directory 條件式存取位置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>已加入混合式 Azure AD 的裝置
 
-當您將裝置加入 Azure AD 時，您可以建立條件式存取規則，強制裝置符合安全性與合規性您存取標準。 此外，使用者也可使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。 使用已加入混合式 Azure AD 的裝置時，您可以將已加入 Active Directory 網域的裝置加入 Azure AD。 您的同盟環境可能已設定成使用這項功能。
+當您將裝置加入 Azure AD 時, 您可以建立條件式存取規則, 強制裝置符合您的安全性和合規性存取標準。 此外，使用者也可使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。 使用已加入混合式 Azure AD 的裝置時，您可以將已加入 Active Directory 網域的裝置加入 Azure AD。 您的同盟環境可能已設定成使用這項功能。
 
 為了確保在網域轉換至傳遞驗證後，任何加入網域的裝置都可繼續使用混合式加入，對於 Windows 10 用戶端，您必須使用 Azure AD Connect 將 Active Directory 電腦帳戶同步至 Azure AD。
 

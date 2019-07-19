@@ -1,22 +1,22 @@
 ---
-title: Azure 至 Azure 災害復原，使用 Azure Site Recovery 的常見問題
-description: 這篇文章回答有關要使用 Azure Site Recovery 的另一個 Azure 區域的災害復原 Azure Vm 的常見問題
+title: 使用 Azure Site Recovery 的 Azure 到 Azure 嚴重損壞修復的常見問題
+description: 本文將使用 Azure Site Recovery, 回答有關 Azure Vm 至另一個 Azure 區域的嚴重損壞修復常見問題
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgan
-ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: d479a568ddeac29be88d0709b7544ba645274afa
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753765"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875667"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常見問題：Azure 至 Azure 災害復原
 
-這篇文章提供使用的另一個 Azure 區域的 Azure Vm 災害復原相關的常見問題解答[Site Recovery](site-recovery-overview.md)。 
+本文提供有關使用[Site Recovery](site-recovery-overview.md)將 Azure vm 嚴重損壞修復至另一個 Azure 區域的常見問題的解答。 
 
 
 ## <a name="general"></a>一般
@@ -28,15 +28,15 @@ ms.locfileid: "66753765"
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>在這前 31 天，我是否須負擔任何其他 Azure 費用？
 是，即使受保護的執行個體前 31 天的 Azure Site Recovery 免費，您仍有可能需要負擔 Azure 儲存體、儲存體交易與資料傳輸的費用。 復原的虛擬機器也可能會產生 Azure 計算費用。 在[這裡](https://azure.microsoft.com/pricing/details/site-recovery)取得有關定價的完整詳細資料
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>何處尋找 Azure VM 災害復原的最佳作法？ 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>哪裡可以找到 Azure VM 嚴重損壞修復的最佳做法？ 
 1. [了解 Azure 至 Azure 架構](azure-to-azure-architecture.md)
 2. [檢閱支援和不支援的組態](azure-to-azure-support-matrix.md)
 3. [設定適用於 Azure VM 的災害復原](azure-to-azure-how-to-enable-replication.md)
 4. [執行測試容錯移轉](azure-to-azure-tutorial-dr-drill.md)
 5. [容錯移轉及容錯回復至主要區域](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>在目標區域中如何保證容量？
-Site Recovery 小組會搭配 Azure 的容量管理小組規劃足夠的基礎結構容量，因此為協助確保 Site Recovery 所保護的 Vm 已成功部署的目標區域時起始容錯移轉。
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>如何在目的地區域中保證容量？
+Site Recovery 小組會與 Azure 容量管理小組合作, 以規劃足夠的基礎結構容量, 並協助確保在起始容錯移轉時, 會成功地將受 Site Recovery 保護的 Vm 部署到目的地區域。
 
 ## <a name="replication"></a>複寫
 
@@ -52,16 +52,16 @@ Site Recovery 小組會搭配 Azure 的容量管理小組規劃足夠的基礎�
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 
-是的，您可以使用 Power Shell 在設定防護時排除磁碟。 如需詳細資訊，請參閱[文章](azure-to-azure-exclude-disks.md)
+是的，您可以使用 Power Shell 在設定防護時排除磁碟。 如需詳細資訊, 請參閱[文章](azure-to-azure-exclude-disks.md)
 
-### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>我是否可以將新的磁碟新增到複寫的 Vm 並為其啟用複寫？
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>我可以將新磁片新增至複寫的 Vm, 並為它們啟用複寫嗎？
 
-是，這被支援 Azure Vm 使用受控磁碟。 當您將新的磁碟加入 Azure VM 啟用複寫時，vm 的複寫健康狀態會顯示警告，請注意，指定一或多個 VM 上的磁碟可供保護。 您可以啟用新增的磁碟複寫。
-- 如果您啟用新增的磁碟保護時，警告就會消失之後的初始複寫。
-- 如果您選擇不啟用磁碟的複寫，您可以選取要解除警告。
-- 當您容錯移轉 VM 的方法，您可以新增磁碟，並為其啟用複寫時，複寫點就會顯示可用於復原的磁碟。 例如，如果 VM 有單一磁碟，而且您新增磁碟，則新增磁碟之前建立的複寫點就會顯示複寫點包含「1 個磁碟，共 2 個」。
+是, 具有受控磁片的 Azure Vm 可支援此情況。 當您將新的磁片新增至已啟用複寫的 Azure VM 時, VM 的複寫健康情況會顯示警告, 並說明如何指定 VM 上的一或多個磁片可供保護。 您可以為新增的磁片啟用複寫。
+- 如果您為新增的磁片啟用保護, 在初始複寫之後, 警告將會消失。
+- 如果您選擇不啟用磁片的複寫, 您可以選擇關閉警告。
+- 當您故障切換要新增磁片並為其啟用複寫的 VM 時, 複寫點會顯示可供復原的磁片。 例如，如果 VM 有單一磁碟，而且您新增磁碟，則新增磁碟之前建立的複寫點就會顯示複寫點包含「1 個磁碟，共 2 個」。
 
-Site Recovery 不支援 [熱移除] 的磁碟從複寫的 VM。 如果您移除 VM 磁碟，您要停用然後再重新啟用 VM 的複寫。
+Site Recovery 不支援從複寫的 VM 對磁片進行「熱移除」。 如果您移除 VM 磁片, 則必須停用 VM 的複寫, 然後再重新啟用。
 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>複寫到 Azure 的頻率為何？
@@ -79,7 +79,7 @@ Site Recovery 不支援 [熱移除] 的磁碟從複寫的 VM。 如果您移除 
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>是否可以複寫有個別層之個別資源群組的應用程式？
 是，您可以複寫應用程式，並保持災害復原設定也在個別資源群組。
-例如，如果您的應用程式的每層應用程式、DB 和 Web 都在個別資源群組中，則您需要按[複寫精靈](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)三次來保護所有層。 Site Recovery 會複寫這些三個不同的資源群組中的三種層次。
+例如，如果您的應用程式的每層應用程式、DB 和 Web 都在個別資源群組中，則您需要按[複寫精靈](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)三次來保護所有層。 Site Recovery 會在三個不同的資源群組中複寫這三個層級。
 
 ## <a name="replication-policy"></a>複寫原則
 
@@ -107,7 +107,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。
 請考慮到應用程式一致復原點為了靜止應用程式，它會擷取記憶體中和處理序中架構所需的所有資料。 如果工作負載已經非常忙碌，若非常頻繁地這麼做，可能會有效能影響。 針對應用程式一致復原點，對於非資料庫工作負載通常建議不要使用低頻率，甚至對於資料庫工作負載 1 小時就足夠了。
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>應用程式一致復原點產生的最小頻率為何？
-Site Recovery 可以建立應用程式一致復原點最小頻率為 1 小時內。
+Site Recovery 可以建立應用程式一致復原點, 且最小頻率為1小時。
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>復原點要如何產生和儲存？
 為了了解 Site Recovery 如何產生復原點，我們將以一個複寫原則為例，此複寫原則的復原點保留週期為 24 小時，而應用程式一致頻率快照集為 1 小時。
@@ -157,8 +157,8 @@ Site Recovery 提供 [多 VM 一致性] 選項，當您選取此選項時，會�
 
 ## <a name="failover"></a>容錯移轉
 
-### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何是容量保證目標區域中的 Azure Vm？
-Site Recovery 小組會搭配 Azure 容量，規劃足夠的基礎結構容量的管理小組，協助確保啟用針對災害復原的 Vm 將會部署到成功的目標區域中起始容錯移轉時。
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何在 Azure Vm 的目的地區域中保證容量？
+Site Recovery 小組會與 Azure 容量管理小組合作, 以規劃足夠的基礎結構容量, 以協助確保在起始容錯移轉時, 在目的地區域中成功部署已啟用用於嚴重損壞修復的 Vm。
 
 ### <a name="is-failover-automatic"></a>容錯移轉是自動發生的嗎？
 
@@ -166,19 +166,19 @@ Site Recovery 小組會搭配 Azure 容量，規劃足夠的基礎結構容量�
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>我可以在容錯移轉之後保留公用 IP 位址嗎？
 
-容錯移轉後，無法保留公用 IP 位址的實際執行應用程式。
+在容錯移轉之後, 無法保留實際執行應用程式的公用 IP 位址。
 - 針對容錯移轉程序中產生的工作負載，必須指派一個目標區域中可用的 Azure 公用 IP 資源。
-- 您可以手動執行這項操作，或使用 復原計劃將其自動化。
-- 了解如何[設定公用 IP 位址在容錯移轉之後](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan)。  
+- 您可以手動執行此動作, 或使用復原方案將它自動化。
+- 瞭解如何[在容錯移轉之後設定公用 IP 位址](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan)。  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>我可以在容錯移轉期間保留私人 IP 位址嗎？
-是，您可以保留私人 IP 位址。 根據預設，當您為 Azure VM 啟用災害復原時，Site Recovery 會根據來源資源設定建立目標資源。 -若為 Azure Vm 設定靜態 IP 位址，Site Recovery 會嘗試佈建的目標 VM，相同的 IP 位址，如果它不是使用中。
-深入了解[容錯移轉期間保留 IP 位址](site-recovery-retain-ip-azure-vm-failover.md)。
+是, 您可以保留私人 IP 位址。 根據預設，當您為 Azure VM 啟用災害復原時，Site Recovery 會根據來源資源設定建立目標資源。 -若為使用靜態 IP 位址設定的 Azure Vm, Site Recovery 會嘗試針對目標 VM 布建相同的 IP 位址 (如果未使用的話)。
+瞭解如何[在容錯移轉期間保留 IP 位址](site-recovery-retain-ip-azure-vm-failover.md)。
 
-### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>容錯移轉之後，原因是伺服器指派新的 IP 位址？
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>在容錯移轉之後, 為什麼伺服器會指派新的 IP 位址？
 
 Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛擬機器正在使用該位址，Site Recovery 就會將下一個可用的 IP 位址設定為目標。
-深入了解[設定網路對應 」 和 「 Vnet 的 IP 位址](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)。
+深入瞭解如何[設定 vnet 的網路對應和 IP 位址](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)。
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>什麼是**最新 (最低 RPO)** 復原點？
 [最新 (最低 RPO)]  選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
@@ -189,13 +189,13 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>復原點中的**最新處理**選項是什麼意思？
 [最近處理]  選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]  。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
 
-### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>如果我的主要區域發生未預期的中斷發生什麼事？
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>如果我的主要區域遇到非預期的中斷, 會發生什麼事？
 您可以在中斷之後觸發容錯移轉。 Site Recovery 不需要來自主要區域的連線即可執行容錯移轉。
 
-### <a name="what-is-a-rto-of-a-vm-failover-"></a>VM 容錯移轉的 RTO 為何？
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>VM 容錯移轉的 RTO 是什麼？
 Site Recovery 有 [2 小時的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 不過在大部分情況下，Site Recovery 會在幾分鐘內容錯移轉虛擬機器。 若要計算 RTO，您可以移置容錯移轉作業查看它啟動 VM 所花的時間。 針對復原計畫 RTO，請參閱下節。
 
-## <a name="recovery-plans"></a>復原計劃
+## <a name="recovery-plans"></a>復原方案
 
 ### <a name="what-is-a-recovery-plan"></a>什麼是復原方案？
 Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 復原方案可滿足使用者的下列需求：
@@ -228,25 +228,25 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 這需視情況而定。 例如，如果來源區域 VM 存在，便只會同步來源磁碟與目標磁碟之間的變更。 Site Recovery 會藉由比較磁碟來計算出差異，然後才傳輸資料。 此程序通常需要幾小時的時間。 如需有關在重新保護期間會發生之情況的詳細資訊，請參閱[重新保護已容錯移轉到主要區域的 Azure VM]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)。
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>容錯回復需要花費多久時間？
-重新保護，容錯回復的時間量之後通常類似於已從主要區域到次要區域的容錯移轉所需的時間。
+重新保護之後, 容錯回復的時間通常與從主要區域容錯移轉到次要區域所需的時間類似。
 
-## <a name="capacity"></a>容量
+## <a name="capacity"></a>存儲
 
-### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何是容量保證目標區域中的 Azure Vm？
-Site Recovery 小組的運作方式與 Azure 的容量管理小組合作，規劃足夠的基礎結構容量，以協助確保啟用針對災害復原的 Vm 會順利部署的目標區域中起始容錯移轉時。
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何在 Azure Vm 的目的地區域中保證容量？
+Site Recovery 小組會與 Azure 容量管理小組合作, 規劃足夠的基礎結構容量, 以協助確保在起始容錯移轉時, 已成功在目的地區域中部署啟用進行嚴重損壞修復的 Vm。
 
-### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery 運作與保留的執行個體嗎？
-是，您可以購買[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)災害復原區域和 Site Recovery 在容錯移轉作業將會使用它們。 </br> 不需要任何其他設定。
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery 與保留實例搭配使用嗎？
+是, 您可以在嚴重損壞修復區域中購買[保留實例](https://azure.microsoft.com/pricing/reserved-vm-instances/), Site Recovery 容錯移轉作業將會使用它們。 </br> 不需要任何其他設定。
 
 
 ## <a name="security"></a>安全性
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料會傳送到 Site Recovery 服務嗎？
-否，Site Recovery 不會攔截複寫的資料，並不擁有任何關於您的 Vm 上執行的資訊。 只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。  
+否, Site Recovery 不會攔截複寫的資料, 也不會有任何有關您 Vm 上執行之內容的資訊。 只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。  
 Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正在進行 SOC2 和 FedRAMP JAB 評定程序。
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 會將複寫加密嗎？
-是的這兩個加密傳輸中和[待用加密在 Azure 中](https://docs.microsoft.com/azure/storage/storage-service-encryption)支援。
+是的, Azure 中的加密傳輸和待用[加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)都受到支援。
 
 ## <a name="next-steps"></a>後續步驟
 * [檢閱](azure-to-azure-support-matrix.md)支援需求。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618450"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849738"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的計劃性維護通知
 
@@ -127,9 +127,14 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 以下是 **MaintenanceRedeployStatus** 下傳回的屬性： 
 
-|值 |描述 |
-
-|-------|---------------| |IsCustomerInitiatedMaintenanceAllowed |指出是否您可以在此階段的 VM 上開始維修。 | |PreMaintenanceWindowStartTime |維修自助期間您可以在 VM 上起始維護的開頭。 | |PreMaintenanceWindowEndTime |維修自助期間您可以在 VM 上起始維護的結尾。 | |MaintenanceWindowStartTime |Azure 會起始您的 VM 上的維護排程維護的開頭。 | |MaintenanceWindowEndTime |排定的維護結束，Azure 會起始您的 VM 上的維護視窗。 | |LastOperationResultCode |最後嘗試要在 VM 上起始維修的結果。 |
+| 值 | 描述   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 指出您此時是否可以在 VM 上啟動維護。 |
+| PreMaintenanceWindowStartTime         | 您可以在 VM 上起始維護作業的維護自助時段開始時間。 |
+| PreMaintenanceWindowEndTime           | 您可以在 VM 上起始維護作業的維護自助時段結束時間。 |
+| MaintenanceWindowStartTime            | Azure 會在 VM 上起始維護作業的已排定維護開始時間。 |
+| MaintenanceWindowEndTime              | Azure 會在 VM 上起始維護作業的已排定維護結束時間。 |
+| LastOperationResultCode               | 上次嘗試在 VM 上起始維護作業的結果。 |
 
 
 
@@ -153,9 +158,14 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 以下是針對每個 VM 執行個體在 **MaintenanceRedeployStatus** 下傳回的屬性： 
 
-|值 |描述 |
-
-|-------|---------------| |IsCustomerInitiatedMaintenanceAllowed |指出是否您可以在此階段的 VM 上開始維修。 | |PreMaintenanceWindowStartTime |維修自助期間您可以在 VM 上起始維護的開頭。 | |PreMaintenanceWindowEndTime |維修自助期間您可以在 VM 上起始維護的結尾。 | |MaintenanceWindowStartTime |Azure 會起始您的 VM 上的維護排程維護的開頭。 | |MaintenanceWindowEndTime |排定的維護結束，Azure 會起始您的 VM 上的維護視窗。 | |LastOperationResultCode |最後嘗試要在 VM 上起始維修的結果。 |
+| 值 | 描述   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 指出您此時是否可以在 VM 上啟動維護。 |
+| PreMaintenanceWindowStartTime         | 您可以在 VM 上起始維護作業的維護自助時段開始時間。 |
+| PreMaintenanceWindowEndTime           | 您可以在 VM 上起始維護作業的維護自助時段結束時間。 |
+| MaintenanceWindowStartTime            | Azure 會在 VM 上起始維護作業的已排定維護開始時間。 |
+| MaintenanceWindowEndTime              | Azure 會在 VM 上起始維護作業的已排定維護結束時間。 |
+| LastOperationResultCode               | 上次嘗試在 VM 上起始維護作業的結果。 |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>使用 CLI 在 VM 執行個體上啟動維護
@@ -176,7 +186,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **答：** 部署在可用性設定組或虛擬機器擴展集內的虛擬機器會使用更新網域。 執行維護時，Azure 會遵守更新網域條件約束，而不會重新啟動來自不同更新網域 (在相同的可用性設定組內) 的 VM。 Azure 也會至少等候 30 分鐘，然後才移至下一個 VM 群組。 
 
-如需有關高可用性的詳細資訊，請參閱 [Azure 中虛擬機器的區域和可用性](../virtual-machines/windows/regions-and-availability.md)。
+如需有關高可用性的詳細資訊，請參閱 [Azure 中虛擬機器的區域和可用性](../virtual-machines/windows/availability.md)。
 
 **問：我如何收到計劃性維護的相關通知？**
 

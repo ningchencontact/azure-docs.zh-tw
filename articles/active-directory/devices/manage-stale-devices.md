@@ -1,6 +1,6 @@
 ---
 title: 如何在 Azure AD 中管理過時的裝置 | Microsoft Docs
-description: 了解如何從您的 Azure Active Directory 中的已註冊裝置的資料庫移除過時的裝置。
+description: 瞭解如何在 Azure Active Directory 中, 從已註冊裝置的資料庫中移除過時裝置。
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481660"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867262"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>如何：管理 Azure AD 中的過時裝置
 
@@ -43,7 +43,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 
 活動時間戳記的評估會在裝置有驗證嘗試時觸發。 Azure AD 會在以下時機評估活動時間戳記：
 
-- 需要條件式存取原則[受管理的裝置](../conditional-access/require-managed-devices.md)或是[核准的用戶端應用程式](../conditional-access/app-based-conditional-access.md)已觸發。
+- 已觸發需要[受管理裝置](../conditional-access/require-managed-devices.md)或[已核准用戶端應用程式](../conditional-access/app-based-conditional-access.md)的條件式存取原則。
 - 已加入 Azure AD 或已加入混合式 Azure AD 的 Windows 10 裝置正在網路上運作。 
 - Intune 受控裝置已簽入至服務。
 
@@ -129,7 +129,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-如果您有大量的裝置，在您的目錄中，使用時間戳記篩選來縮小傳回的裝置數目。 若要取得時間戳記晚於特定日期的所有裝置，並將傳回的資料儲存在 CSV 檔案： 
+如果您的目錄中有大量的裝置, 請使用時間戳篩選器來縮小傳回的裝置數目。 若要取得時間戳記晚於特定日期的所有裝置，並將傳回的資料儲存在 CSV 檔案： 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -145,6 +145,13 @@ Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, Devi
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>為什麼我應該擔心 BitLocker 金鑰？
 
 若在 Windows 10 裝置上設定 BitLocker 金鑰，這些金鑰會儲存在 Azure AD 中的裝置物件上。 如果您刪除過時裝置，裝置上儲存的 BitLocker 金鑰也會一併刪除。 您應該先判斷清除原則是否與您裝置的實際生命週期一致，再刪除過時裝置。 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>為什麼我應該擔心 Windows Autopilot 裝置？
+
+當 Azure AD 裝置與 Windows Autopilot 物件相關聯時, 如果未來會重新制定目的裝置, 就會發生下列三種情況:
+- 透過 Windows Autopilot 使用者驅動的部署, 而不使用白色手套, 將會建立新的 Azure AD 裝置, 但不會將它標記為 ZTDID。
+- 使用 Windows Autopilot 自我部署模式部署時, 它們將會失敗, 因為找不到關聯 Azure AD 裝置。  (這是一種安全性機制, 可確保沒有任何「假冒」的裝置嘗試加入沒有認證的 Azure AD)。失敗會指出 ZTDID 不相符。
+- 使用 Windows Autopilot 白手套部署時, 它們將會失敗, 因為找不到相關聯的 Azure AD 裝置。 (在幕後, 白色手套部署會使用相同的自我部署模式進程, 因此會強制執行相同的安全性機制)。
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>如何得知已加入的所有裝置類型？
 

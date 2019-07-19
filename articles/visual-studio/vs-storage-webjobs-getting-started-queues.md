@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391164"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248967"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +190,7 @@ public static void GracefulShutdownDemo(
 若要編寫會建立新佇列訊息的函數，請使用 **Queue** 屬性。 如同 **QueueTrigger**，您可透過字串傳入佇列名稱，或可以 [動態設定的佇列名稱](#how-to-set-configuration-options)。
 
 ### <a name="string-queue-messages"></a>字串佇列訊息
-下面的非同步程式碼範例會在名稱為 "outputqueue" 的佇列中建立一個新的佇列訊息，其內容與名為 "inputqueue" 的佇列中收到的佇列訊息相同。 (如需非同步函式，請使用 **IAsyncCollector<T>** ，如本節後續內容所示。)
+下面的非同步程式碼範例會在名稱為 "outputqueue" 的佇列中建立一個新的佇列訊息，其內容與名為 "inputqueue" 的佇列中收到的佇列訊息相同。 (如需非同步函式, 請使用 **\<IAsyncCollector T >** , 如本節稍後所示)。
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會建立佇列訊息。
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>建立多個訊息或使用非同步函式
-若要建立多個訊息，將 **ICollector<T>** 或 **IAsyncCollector<T>** 設為輸出佇列的參數類型，如下列範例所示。
+若要建立多個訊息, 請將輸出佇列的參數**類型\<ICollector t >** 或 **\<IAsyncCollector t >** , 如下列範例所示。
 
 ```csharp
 public static void CreateQueueMessages(

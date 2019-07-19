@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/18/2019
-ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.date: 07/18/2019
+ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190719"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325101"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
-自動容錯移轉群組是可讓您管理複寫和容錯移轉群組的 SQL Database 伺服器上的資料庫或的受管理的執行個體到另一個區域中的所有資料庫的 SQL Database 功能。 它會使用與[主動式異地複寫](sql-database-active-geo-replication.md)相同的基礎技術。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
+自動容錯移轉群組是一項 SQL Database 功能, 可讓您管理 SQL Database 伺服器上的一組資料庫, 或受控實例中的所有資料庫到另一個區域的複寫和容錯移轉。 它是現有[主動式異地](sql-database-active-geo-replication.md)複寫功能之上的宣告式抽象概念, 其設計目的是為了簡化大規模異地複寫資料庫的部署和管理。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 容錯移轉群組可以包含一個或多個資料庫, 通常是由相同的應用程式所使用。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
 
 > [!NOTE]
 > 在 SQL Database 伺服器上使用單一或集區資料庫時，若您希望在相同或不同區域中有多個次要資料庫，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。
@@ -40,12 +40,12 @@ ms.locfileid: "67190719"
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>自動容錯移轉群組術語和功能
 
-- **容錯移轉群組 （霧）**
+- **容錯移轉群組 (霧化)**
 
-  容錯移轉群組是由單一 SQL Database 伺服器，或可以當做容錯移轉到另一個區域的單位以防所有或部分的主要資料庫變成無法使用，因為主要區域中斷的單一受控執行個體中的資料庫的具名的群組。 為受管理的執行個體建立時，容錯移轉群組包含執行個體中的所有使用者資料庫，因此只有一個容錯移轉群組可以執行個體上設定。
+  容錯移轉群組是由單一 SQL Database 伺服器或單一受控實例所管理的一組資料庫, 可以在所有或部分主資料庫因為主要區域中斷而變成無法使用時, 以一個單位容錯移轉至另一個區域。 針對受控實例建立時, 容錯移轉群組會包含實例中的所有使用者資料庫, 因此只能在實例上設定一個容錯移轉群組。
   
   > [!IMPORTANT]
-  > 容錯移轉群組的名稱必須是全域唯一內`.database.windows.net`網域。
+  > 容錯移轉群組的名稱在`.database.windows.net`網域內必須是全域唯一的。
 
 - **SQL Database 伺服器**
 
@@ -53,18 +53,18 @@ ms.locfileid: "67190719"
 
 - **主要**
 
-  SQL Database 伺服器或裝載主要資料庫容錯移轉群組中的受控執行個體。
+  在容錯移轉群組中裝載主資料庫的 SQL Database 伺服器或受控實例。
 
 - **次要**
 
-  SQL Database 伺服器或裝載次要資料庫在容錯移轉群組中的受控執行個體。 次要資料庫和主要資料庫不能位於相同區域。
+  在容錯移轉群組中裝載次要資料庫的 SQL Database 伺服器或受控實例。 次要資料庫和主要資料庫不能位於相同區域。
 
 - **將單一資料庫新增至容錯移轉群組**
 
   您可以將多個在相同 SQL Database 伺服器上的單一資料庫放入相同的容錯移轉群組。 如果您在容錯移轉群組中新增單一資料庫，它會使用相同的版本自動建立次要資料庫，並在次要伺服器上計算大小。  當建立容錯移轉群組時，您會指定該伺服器。 如果您新增在次要伺服器中已經有次要資料庫的資料庫，群組就會繼承該異地複寫連結。 當您新增在伺服器中已經有次要資料庫但不屬於容錯移轉群組一部分的資料庫時，會在次要伺服器中建立新的次要資料庫。
   
   > [!IMPORTANT]
-  > 在受管理的執行個體，會複寫所有使用者資料庫。 您無法在容錯移轉群組中選擇要複寫的使用者資料庫子集。
+  > 在受控實例中, 會複寫所有使用者資料庫。 您無法在容錯移轉群組中選擇要複寫的使用者資料庫子集。
 
 - **將彈性集區中的資料庫新增到容錯移轉群組**
 
@@ -72,18 +72,18 @@ ms.locfileid: "67190719"
   
 - **DNS 區域**
 
-  建立新的執行個體時自動產生的唯一識別碼。 這個執行個體的多網域 (SAN) 憑證已佈建為驗證用戶端連線到相同的 DNS 區域中的任何執行個體。 在相同的容錯移轉群組中兩個受管理的執行個體必須共用 DNS 區域。 
+  建立新實例時自動產生的唯一識別碼。 已布建此實例的多網域 (SAN) 憑證, 以驗證相同 DNS 區域中任何實例的用戶端連接。 相同容錯移轉群組中的兩個受控實例必須共用 DNS 區域。 
   
   > [!NOTE]
-  > 不需要容錯移轉群組為 SQL Database 伺服器建立 DNS 區域識別碼。
+  > 針對 SQL Database 伺服器所建立的容錯移轉群組不需要 DNS 區域識別碼。
 
 - **容錯移轉群組讀寫接聽程式**
 
-  形成的 DNS CNAME 記錄指向目前的主要 URL。 它可讓讀寫 SQL 應用程式在容錯移轉之後，當主要資料庫變更時毫無障礙地重新連線至主要資料庫。 SQL Database 伺服器上建立容錯移轉群組時，且格式為的接聽程式 URL 的 DNS CNAME 記錄`<fog-name>.database.windows.net`。 接聽程式 URL 的 DNS CNAME 記錄的受管理的執行個體上建立容錯移轉群組時，且格式為`<fog-name>.zone_id.database.windows.net`。
+  指向目前主要 URL 的 DNS CNAME 記錄。 建立容錯移轉群組時, 它會自動建立, 並允許在容錯移轉之後主要變更時, 讓讀寫 SQL 工作負載以透明的方式重新連線到主資料庫。 在 SQL Database 伺服器上建立容錯移轉群組時, 接聽程式 URL 的 DNS CNAME 記錄會形成為`<fog-name>.database.windows.net`。 在受控實例上建立容錯移轉群組時, 接聽程式 URL 的 DNS CNAME 記錄會形成為`<fog-name>.zone_id.database.windows.net`。
 
 - **容錯移轉群組唯讀接聽程式**
 
-  形成的 DNS CNAME 記錄指向唯讀接聽程式 (指向次要 URL)。 它可讓唯讀 SQL 應用程式使用指定的負載平衡規則毫無障礙地連線到次要資料庫。 SQL Database 伺服器上建立容錯移轉群組時，且格式為的接聽程式 URL 的 DNS CNAME 記錄`<fog-name>.secondary.database.windows.net`。 接聽程式 URL 的 DNS CNAME 記錄的受管理的執行個體上建立容錯移轉群組時，且格式為`<fog-name>.zone_id.secondary.database.windows.net`。
+  形成的 DNS CNAME 記錄指向唯讀接聽程式 (指向次要 URL)。 建立容錯移轉群組時, 它會自動建立, 而且可讓唯讀 SQL 工作負載使用指定的負載平衡規則, 以透明的方式連接到次要資料庫。 在 SQL Database 伺服器上建立容錯移轉群組時, 接聽程式 URL 的 DNS CNAME 記錄會形成為`<fog-name>.secondary.database.windows.net`。 在受控實例上建立容錯移轉群組時, 接聽程式 URL 的 DNS CNAME 記錄會形成為`<fog-name>.zone_id.secondary.database.windows.net`。
 
 - **自動容錯移轉原則**
 
@@ -91,7 +91,7 @@ ms.locfileid: "67190719"
 
 - **唯讀的容錯移轉原則**
 
-  根據預設，唯讀接聽程式的容錯移轉已停用。 它可確保在次要伺服器離線時不會影響主要伺服器的性能。 不過，這也表示在次要伺服器恢復之前，唯讀的工作階段將無法連線。 如果您無法容忍唯讀工作階段的停機時間，並且可以暫時將主要伺服器用於唯讀和讀寫流量，但代價是主要伺服器潛在的效能降低，則可以為唯讀接聽程式啟用容錯移轉。 在此情況下，將唯讀流量將會自動重新導向至主要如果次要資料庫無法使用。
+  根據預設，唯讀接聽程式的容錯移轉已停用。 它可確保在次要伺服器離線時不會影響主要伺服器的性能。 不過，這也表示在次要伺服器恢復之前，唯讀的工作階段將無法連線。 如果您無法容忍唯讀工作階段的停機時間，並且可以暫時將主要伺服器用於唯讀和讀寫流量，但代價是主要伺服器潛在的效能降低，則可以為唯讀接聽程式啟用容錯移轉。 在此情況下, 如果次要資料庫無法使用, 唯讀流量將會自動重新導向至主要複本。
 
 - **計劃性容錯移轉**
 
@@ -103,7 +103,7 @@ ms.locfileid: "67190719"
 
 - **非計劃性容錯移轉**
 
-   非計劃性或強制容錯移轉會立即將次要資料庫切換為主要角色，而不會與主要資料庫進行任何同步處理。 這項作業會導致資料遺失。 非計劃性容錯移轉是主要資料庫無法存取時，用來作為中斷期間的復原方法。 原始的主要複本回到線上時，它就會自動重新連線不需要同步處理，並成為新次要資料庫。
+   非計劃性或強制容錯移轉會立即將次要資料庫切換為主要角色，而不會與主要資料庫進行任何同步處理。 這項作業會導致資料遺失。 非計劃性容錯移轉是主要資料庫無法存取時，用來作為中斷期間的復原方法。 當原始的主要複本重新上線時, 它會自動重新連線而不進行同步處理, 並成為新的次要複本。
 
 - **手動容錯移轉**
 
@@ -120,17 +120,17 @@ ms.locfileid: "67190719"
   > [!NOTE]
   > 受控執行個體不支援多個容錯移轉群組。
   
-## <a name="permissions"></a>權限
-透過管理容錯移轉群組的權限[角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 [SQL Server 參與者](../role-based-access-control/built-in-roles.md#sql-server-contributor)角色具有所有必要的權限來管理容錯移轉群組。 
+## <a name="permissions"></a>Permissions
+容錯移轉群組的許可權是透過[角色型存取控制 (RBAC)](../role-based-access-control/overview.md)來管理。 [ [SQL Server 參與者](../role-based-access-control/built-in-roles.md#sql-server-contributor)] 角色具有管理容錯移轉群組的所有必要許可權。 
 
 ### <a name="create-failover-group"></a>建立容錯移轉群組
-若要建立的容錯移轉群組，您會需要這兩個主要和次要伺服器，並在容錯移轉群組中的所有資料庫的 RBAC 的寫入存取。 是受管理的執行個體，您需要 RBAC 寫入權限，這兩個主要和次要受控執行個體，但個別資料庫的權限不相關，因為無法加入或從容錯移轉群組中移除個別受管理的執行個體的資料庫。 
+若要建立容錯移轉群組, 您需要主要和次要伺服器以及容錯移轉群組中所有資料庫的 RBAC 寫入權限。 針對受控實例, 您需要主要和次要受控實例的 RBAC 寫入權限, 但個別資料庫的許可權並不相關, 因為無法在容錯移轉群組中新增或移除個別的受控實例資料庫。 
 
 ### <a name="update-a-failover-group"></a>更新容錯移轉群組
-若要更新的容錯移轉群組，您需要 RBAC 容錯移轉群組，並在目前的主要伺服器或受管理的執行個體上的所有資料庫的寫入權限。  
+若要更新容錯移轉群組, 您需要容錯移轉群組的 RBAC 寫入權限, 以及目前主伺服器或受控實例上的所有資料庫。  
 
-### <a name="failover-a-failover-group"></a>容錯移轉的容錯移轉群組
-若要容錯移轉的容錯移轉群組，您需要在新的主要伺服器上的容錯移轉群組的 RBAC 寫入權限，或受控執行個體。 
+### <a name="failover-a-failover-group"></a>容錯移轉容錯移轉群組
+若要容錯移轉容錯移轉群組, 您需要新主伺服器或受控實例上容錯移轉群組的 RBAC 寫入權限。 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>將容錯移轉群組與單一資料庫和彈性集區一起使用的最佳做法
 
@@ -166,7 +166,7 @@ ms.locfileid: "67190719"
   > [!IMPORTANT]
   > 具有 800 個或更少 DTU 且使用異地複寫的資料庫超過 250 個的彈性集區，可能會遇到的問題包括規劃的容錯移轉時間較久與效能降低。  當地理複寫端點依地理位置廣泛相隔，或當每個資料庫使用多個次要端點時，較可能會發生這些寫入大量工作負載的問題。  異地複寫延遲隨時間而增加時，就可看出這些問題的徵兆。  您可以使用 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 來監視這個延遲。  如果發生這些問題，則風險降低方式包括增加集區 DTU 數目，或減少相同集區內異地複寫的資料庫數目。
 
-## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>使用受管理的執行個體的容錯移轉群組的最佳作法
+## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>使用容錯移轉群組搭配受控實例的最佳做法
 
 自動容錯移轉群組必須在主要執行個體上設定，並將其連接至不同 Azure 區域中的次要執行個體。  執行個體中的所有資料庫都將複寫至次要執行個體。 下圖說明使用受控執行個體和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
 
@@ -175,13 +175,13 @@ ms.locfileid: "67190719"
 > [!IMPORTANT]
 > 受控執行個體的自動容錯移轉群組處於公開預覽狀態。
 
-如果您的應用程式會使用受管理的執行個體，做為資料層，業務續航力的設計時請遵循下列一般指導方針：
+如果您的應用程式使用受控實例作為資料層, 請在設計商務持續性時遵循下列一般指導方針:
 
 - **在與主要執行個體相同的 DNS 區域中建立次要執行個體**
 
-  若要確保容錯移轉之後與主要執行個體的連線不中斷，主要和次要執行個體必須位於相同的 DNS 區域。 它將會保證相同的多網域 (SAN) 憑證，可用來驗證用戶端連線至其中一個容錯移轉群組中的兩個執行個體。 當您的應用程式準備好進行生產環境部署時，請在不同區域中建立次要執行個體，並確保它與主要執行個體共用 DNS 區域。 您可以藉由指定執行`DNS Zone Partner`使用 Azure 入口網站、 PowerShell 或 REST API 的選擇性參數。 
+  若要確保容錯移轉之後與主要執行個體的連線不中斷，主要和次要執行個體必須位於相同的 DNS 區域。 它會保證相同的多網域 (SAN) 憑證可用於驗證容錯移轉群組中兩個實例之一的用戶端連接。 當您的應用程式準備好進行生產環境部署時，請在不同區域中建立次要執行個體，並確保它與主要執行個體共用 DNS 區域。 若要這麼做, 您可以`DNS Zone Partner`使用 Azure 入口網站、PowerShell 或 REST API 來指定選擇性參數。 
 
-  在與主要執行個體相同的 DNS 區域中建立次要執行個體的詳細資訊，請參閱 <<c0> [ 管理容錯移轉群組與受管理的執行個體 （預覽）](#powershell-managing-failover-groups-with-managed-instances-preview)。
+  如需有關在與主要實例相同的 DNS 區域中建立次要實例的詳細資訊, 請參閱[使用受控實例管理容錯移轉群組 (預覽)](#powershell-managing-failover-groups-with-managed-instances-preview)。
 
 - **在兩個執行個體之間啟用複寫流量**
 
@@ -196,7 +196,7 @@ ms.locfileid: "67190719"
 
 - **針對 OLTP 工作負載使用讀取寫入接聽程式**
 
-  在執行 OLTP 作業時使用 `<fog-name>.zone_id.database.windows.net` 作為伺服器 URL，連線會自動導向至主要伺服器。 在容錯移轉之後，不會變更此 URL。 容錯移轉牽涉到更新 DNS 記錄，因此只有在重新整理用戶端 DNS 快取之後，才會將用戶端連線重新導向至新的主要伺服器。 因為次要執行個體共用的主要 DNS 區域，用戶端應用程式將能夠重新連線到使用相同的 SAN 憑證。
+  在執行 OLTP 作業時使用 `<fog-name>.zone_id.database.windows.net` 作為伺服器 URL，連線會自動導向至主要伺服器。 在容錯移轉之後，不會變更此 URL。 容錯移轉牽涉到更新 DNS 記錄，因此只有在重新整理用戶端 DNS 快取之後，才會將用戶端連線重新導向至新的主要伺服器。 因為次要實例會與主要複本共用 DNS 區域, 所以用戶端應用程式可以使用相同的 SAN 憑證來重新連接到它。
 
 - **直接連接到異地複寫的次要執行個體以進行唯讀查詢**
 
@@ -205,7 +205,7 @@ ms.locfileid: "67190719"
   > [!NOTE]
   > 在特定的服務層級，Azure SQL Database 支援使用[唯讀複本](sql-database-read-scale-out.md)來使用一個唯讀複本的容量，並使用連接字串中的 `ApplicationIntent=ReadOnly` 參數，對唯讀查詢工作負載進行負載平衡。 當您已設定異地複寫的次要執行個體時，可以使用此功能連接至主要位置或異地複寫位置中的唯讀複本。
   > - 若要連線至主要位置的唯讀複本，請使用 `<fog-name>.zone_id.database.windows.net`。
-  > - 若要連線至唯讀複本在次要位置中，使用`<fog-name>.secondary.zone_id.database.windows.net`。
+  > - 若要連接到次要位置中的唯讀複本, 請使用`<fog-name>.secondary.zone_id.database.windows.net`。
 
 - **對效能降低做好心理準備**
 
@@ -215,14 +215,14 @@ ms.locfileid: "67190719"
 
   如果系統偵測到服務中斷，SQL 會在就我們所知並無資料遺失時，自動觸發讀寫容錯移轉。 否則，它會等候您透過 `GracePeriodWithDataLossHours` 所指定的這段時間。 如果您指定 `GracePeriodWithDataLossHours`，請針對資料遺失做好準備。 服務中斷期間，Azure 一般會傾向維持可用性。 如果您無法承擔資料遺失情況，請務必將 GracePeriodWithDataLossHours 設定為足夠大的數字，例如 24 小時。
 
-  在起始容錯移轉之後，將立即發生讀寫接聽程式的 DNS 更新。 這項作業不會導致資料遺失。 但是，在正常情況下，切換資料庫角色的程序最多可能需要 5 分鐘的時間。 在完成之前，新的主要執行個體中的某些資料庫仍會處於唯讀模式。 如果使用 PowerShell 來起始容錯移轉時，整個作業是同步的。 如果它使用 Azure 入口網站來起始，UI 會指出完成狀態。 如果使用 REST API 來起始，請使用標準 Azure Resource Manager 的輪詢機制來監視完成情況。
+  在起始容錯移轉之後，將立即發生讀寫接聽程式的 DNS 更新。 這項作業不會導致資料遺失。 但是，在正常情況下，切換資料庫角色的程序最多可能需要 5 分鐘的時間。 在完成之前，新的主要執行個體中的某些資料庫仍會處於唯讀模式。 如果使用 PowerShell 起始容錯移轉, 則整個作業都是同步的。 如果是使用 Azure 入口網站來起始, UI 將會指出完成狀態。 如果使用 REST API 來起始，請使用標準 Azure Resource Manager 的輪詢機制來監視完成情況。
 
   > [!IMPORTANT]
   > 使用手動群組容錯移轉，將主要資料庫移回原始位置。 當造成容錯移轉的中斷情況趨緩時，您可以將主要資料庫移動到原始位置。 若要這樣做，您應該起始群組的手動容錯移轉。
 
 ## <a name="failover-groups-and-network-security"></a>容錯移轉群組和網路安全性
 
-對於某些應用程式，安全性規則會要求對資料層的網路存取需限制為特定元件，例如 VM、Web 服務等等。這項需求會出現一些商務持續性設計、以及使用容錯移轉群組的挑戰。 實作這類限制的存取權時，請考慮下列選項。
+對於某些應用程式，安全性規則會要求對資料層的網路存取需限制為特定元件，例如 VM、Web 服務等等。這項需求會出現一些商務持續性設計、以及使用容錯移轉群組的挑戰。 在執行這類限制存取時, 請考慮下列選項。
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>使用容錯移轉群組和虛擬網路規則
 
@@ -254,34 +254,37 @@ ms.locfileid: "67190719"
 > [!IMPORTANT]
 > 若要保證區域性中斷時的商務持續性，您必須確定前端元件與資料庫的異地備援。
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>啟用受管理的執行個體和其 Vnet 之間的異地複寫
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>啟用受控實例與其 Vnet 之間的異地複寫
 
-當您設定兩個不同區域中的主要和次要受控執行個體之間的容錯移轉群組時，每個執行個體是隔離使用獨立的 VNet。 若要允許這些 Vnet 之間的複寫流量會確定符合這些必要條件：
+當您在兩個不同區域中的主要和次要受控實例之間設定容錯移轉群組時, 每個實例都會使用獨立的 VNet 進行隔離。 若要允許這些 Vnet 之間的複寫流量, 請確定符合下列必要條件:
 
-1. 兩個受管理的執行個體必須在不同 Azure 區域中。
+1. 這兩個受控實例必須位於不同的 Azure 區域中。
 2. 您的次要受控執行個體必須是空的 (沒有使用者資料庫)。
-3. 主要和次要的 managed 執行個體必須位於相同的資源群組。
-4. 受管理的執行個體屬於需要透過進行連線的 Vnet [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 目前不支援轉移的全域 VNet 對等互連。
-5. 兩個受管理的執行個體 Vnet 不能有重疊的 IP 位址。
-6. 您需要設定您網路安全性群組 (NSG) 這類的通訊埠 5022 和範圍 11000 ~ 12000 開啟輸入和輸出連線，從其他受管理的執行個體的子網路。 這是為了允許執行個體之間的複寫流量
+3. 主要和次要受控實例必須位於相同的資源群組中。
+4. 受控實例所屬的 Vnet 必須透過[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)連接。 目前不支援轉移的全域 VNet 對等互連。
+5. 兩個受控實例 Vnet 不能有重迭的 IP 位址。
+6. 您必須設定網路安全性群組 (NSG), 讓埠5022和範圍 11000 ~ 12000 針對來自其他受控實例子網的連線開啟輸入和輸出。 這是為了允許執行個體之間的複寫流量
 
    > [!IMPORTANT]
    > 設定錯誤的 NSG 安全性規則會導致資料庫複製作業停滯。
 
-7. 次要執行個體已使用正確的 DNS 區域識別碼。 DNS 區域是受管理的執行個體的屬性，其識別碼包含在主機名稱位址。 每個 VNet 中建立第一個受管理的執行個體，而且相同的識別碼指派給相同子網路中的所有執行個體時，會產生隨機字串形式區域識別碼。 指派之後，就無法修改 DNS 區域。 包含在相同的容錯移轉群組中的 managed 執行個體必須共用 DNS 區域。 您完成建立次要執行個體時，傳遞主要執行個體的區域 ID DnsZonePartner 參數的值。 
+7. 次要實例會使用正確的 DNS 區域識別碼進行設定。 DNS 區域是受控實例的屬性, 其識別碼會包含在主機名稱位址中。 當第一個受控實例在每個 VNet 中建立時, 區域識別碼會產生為隨機字串, 而且相同的識別碼會指派給相同子網中的所有其他實例。 一旦指派之後, 就無法修改 DNS 區域。 包含在相同容錯移轉群組中的受控實例必須共用 DNS 區域。 若要完成這項操作, 請在建立次要實例時, 將主要實例的區域識別碼傳遞為 DnsZonePartner 參數的值。 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 
-您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層級內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時，我們建議您先升級所有次要資料庫，然後再升級主要。 降級時，順序相反︰ 先降級主要，然後再降級次要資料庫的所有。 當您將資料庫升級或降級到不同的服務層級時，會強制執行這項建議。
+您可以將主要資料庫升級或降級至不同的計算大小 (在相同的服務層級內，而不是一般用途和業務關鍵之間)，而不需要將任何次要資料庫中斷連線。 升級時, 我們建議您先升級所有次要資料庫, 然後再升級主要複本。 降級時, 請反轉順序: 先降級主要複本, 然後再降級所有次要資料庫。 當您將資料庫升級或降級到不同的服務層級時，會強制執行這項建議。
 
-特別是若要避免較低 sku 的次要位置取得多載，且必須一起升級或降級的程序期間的問題，建議您使用此順序。 您也可以將主要變成唯讀，但會犧牲影響所有針對主要的讀寫工作負載，以避免此問題。 
+建議您特別注意此順序, 以避免在較低 SKU 的次要複本超載, 而且必須在升級或降級程式期間重新植入的問題。 您也可以藉由讓主要唯讀, 同時影響對主要複本的所有讀寫工作負載, 來避免此問題。 
 
 > [!NOTE]
 > 如果您已在容錯移轉群組設定中建立次要資料庫，則不建議降級次要資料庫。 這是為了確保您的資料層在容錯移轉啟動之後有足夠的容量來處理一般工作負載。
 
+> [!IMPORTANT]
+> 目前不支援升級或降級屬於容錯移轉群組成員的受控執行個體。
+
 ## <a name="preventing-the-loss-of-critical-data"></a>防止重要資料遺失
 
-由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 但是，某些应用程序可能要求不能有数据丢失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
+由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** 可避免在容錯移轉之後資料遺失，但是不保證讀取權限會完整同步。 **sp_wait_for_database_copy_sync** 程序呼叫所造成的延遲可能會相當明顯，且取決於呼叫時的交易記錄大小。
@@ -312,7 +315,7 @@ ms.locfileid: "67190719"
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell：使用受控執行個體管理容錯移轉叢集 (預覽)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>安裝最新發行前版本的 PowerShell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>安裝 PowerShell 的最新發行前版本
 
 1. 將 PowerShellGet 模組更新為 1.6.5 (或最新預覽版本)。 請參閱 [PowerShel Preview 網站](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)。
 
@@ -329,7 +332,7 @@ ms.locfileid: "67190719"
       import-module azurerm.sql
    ```
 
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>若要建立執行個體容錯移轉群組的 PowerShell 指令程式
+#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>建立實例容錯移轉群組的 PowerShell commandlet
 
 | API | 描述 |
 | --- | --- |
@@ -371,5 +374,5 @@ ms.locfileid: "67190719"
   - [設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
-- 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)。
-- 若要了解新主服务器和数据库的身份验证要求，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)。
+- 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。
+- 若要深入了解新的主要伺服器和資料庫的驗證需求，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。

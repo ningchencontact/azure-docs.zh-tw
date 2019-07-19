@@ -7,7 +7,8 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +17,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71bfd5e560bb1509337ac371fbe101b4c6d63b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac9d278053f05f9041a002b1c6ef3f873b0d9efb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540649"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324854"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 應用程式同意體驗
 
@@ -86,4 +87,4 @@ ms.locfileid: "65540649"
 ## <a name="next-steps"></a>後續步驟
 - 取得有關 [Azure AD 同意架構如何實作同意](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)的逐步概觀。
 - 深入了解[多租用戶應用程式如何使用同意架構](active-directory-devhowto-multi-tenant-overview.md)來實作「使用者」與「系統管理員」同意，進而支援更進階的多層應用程式模式。
-- 了解[如何設定應用程式的發行者網域](howto-configure-publisher-domain.md)。
+- 瞭解[如何設定應用程式的發行者網域](howto-configure-publisher-domain.md)。

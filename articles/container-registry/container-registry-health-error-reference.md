@@ -1,106 +1,107 @@
 ---
-title: 健康狀態檢查-Azure Container Registry 作為錯誤參考
-description: 錯誤代碼和可能的解決方案，藉由執行 az acr 檢查健全狀況診斷命令在 Azure Container Registry 中找到的問題
+title: 健全狀況檢查的錯誤參考-Azure Container Registry
+description: 在 Azure Container Registry 中執行 az acr check-health 診斷命令所發現問題的錯誤碼和可能的解決方案
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: fc29b27cbb7eea983140c59529d981ad95c27ae8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555107"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309382"
 ---
 # <a name="health-check-error-reference"></a>健全狀況檢查錯誤參考
 
-以下是所傳回的錯誤碼的詳細[az acr 檢查健全狀況][az-acr-check-health]命令。 針對每個錯誤，會列出可能的解決方案。
+以下是[az acr check-health][az-acr-check-health]命令所傳回之錯誤碼的詳細資料。 針對每個錯誤, 會列出可能的解決方案。
 
 ## <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
 
-此錯誤表示找不到適用於 CLI 的 Docker 用戶端。 如此一來，不會執行下列額外的檢查： 尋找 Docker 版本，評估 Docker 精靈的狀態，並執行 Docker pull 命令。
+此錯誤表示找不到適用于 CLI 的 Docker 用戶端。 因此, 不會執行下列額外的檢查: 尋找 Docker 版本、評估 Docker daemon 狀態, 以及執行 Docker pull 命令。
 
-*可能的解決方案*:安裝 Docker 用戶端;將 Docker 路徑新增至 系統變數。
+*可能的解決方案*:安裝 Docker 用戶端;將 Docker 路徑新增至系統變數。
 
 ## <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
 
-此錯誤表示 Docker daemon 狀態無法使用，或，它無法使用 CLI。 如此一來，Docker 作業 (例如`docker login`和`docker pull`) 無法透過 CLI 使用。
+此錯誤表示 Docker daemon 狀態為 [無法使用], 或無法使用 CLI 來達到。 因此, 透過 CLI 無法使用 Docker 作業 ( `docker login`例如`docker pull`和)。
 
-*可能的解決方案*:重新啟動 Docker 精靈，或驗證正確安裝。
+*可能的解決方案*:重新開機 Docker daemon, 或驗證是否已正確安裝。
 
 ## <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
 
-此錯誤表示 CLI 程式無法執行命令`docker --version`。
+此錯誤表示 CLI 無法執行命令`docker --version`。
 
-*可能的解決方案*:請嘗試以手動方式執行命令，請確定您擁有最新的 CLI 版本，並調查的錯誤訊息。
+*可能的解決方案*:請嘗試手動執行命令, 確定您有最新的 CLI 版本, 並調查錯誤訊息。
 
 ## <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
 
-此錯誤表示 CLI 無法範例映像提取至您的環境。
+此錯誤表示 CLI 無法將範例映射提取到您的環境。
 
-*可能的解決方案*:驗證提取映像所需的所有元件皆正常都執行。
+*可能的解決方案*:驗證提取映射所需的所有元件都正常執行。
 
 ## <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
 
-此錯誤表示找不到該 Helm 用戶端，cli，防止其他 Helm 作業。
+此錯誤表示 CLI 找不到 Helm 用戶端, 這會排除其他 Helm 作業。
 
-*可能的解決方案*:請確認 Helm 用戶端已安裝的而且它的路徑加入系統環境變數。
+*可能的解決方案*:確認已安裝 Helm 用戶端, 而且其路徑已加入系統內容變數中。
 
 ## <a name="helmversionerror"></a>HELM_VERSION_ERROR
 
-此錯誤表示 CLI 程式無法判斷安裝的 Helm 版本。 就可能發生此 Azure CLI 版本 (或如果 Helm 版本) 正在使用已過時。
+此錯誤表示 CLI 無法判斷已安裝的 Helm 版本。 如果所使用的 Azure CLI 版本 (或 Helm 版本) 已過時, 就可能發生這種情況。
 
-*可能的解決方案*:更新為最新的 Azure CLI 版本，或以建議的 Helm 版本;以手動方式執行命令，並調查的錯誤訊息。
+*可能的解決方案*:更新至最新的 Azure CLI 版本或建議的 Helm 版本;手動執行命令, 並調查錯誤訊息。
 
 ## <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
 
-此錯誤表示指定的登錄登入伺服器的 DNS 的 ping，但沒有回應，這表示它是無法使用。 這表示某些連線問題。 或者，登錄可能已不存在，使用者可能沒有權限在登錄中 （若要正確地擷取其登入伺服器），或目標登錄是在不同的雲端，Azure CLI 中使用。
+此錯誤表示已 ping 到指定登錄登入伺服器的 DNS, 但沒有回應, 這表示它無法使用。 這可能表示某些連接問題。 或者, 登錄可能不存在、使用者可能沒有登錄的許可權 (若要正確地抓取其登入伺服器), 或目標登錄所在的雲端與 Azure CLI 所用的不同。
 
-*可能的解決方案*:驗證連線;確認登錄中的拼字正確，且該登錄存在;請確認使用者具有權限，在其上和登錄的雲端是使用 Azure CLI 中的相同。
+*可能的解決方案*:驗證連線能力;確認登錄的拼寫和登錄是否存在;請確認使用者具有適當的許可權, 而且登錄的雲端與 Azure CLI 中使用的相同。
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-此錯誤表示指定的登錄的挑戰端點回應 403 禁止 HTTP 狀態。 此錯誤表示，使用者不必存取登錄中，最有可能因為虛擬網路組態。
+此錯誤表示指定登錄的挑戰端點回應了403禁止的 HTTP 狀態。 此錯誤表示使用者無法存取登錄, 很可能是因為虛擬網路設定。
 
-*可能的解決方案*:移除虛擬網路規則，或目前的用戶端 IP 位址加入允許清單。
+*可能的解決方案*:移除虛擬網路規則, 或將目前的用戶端 IP 位址新增至允許清單。
 
 ## <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
 
-此錯誤表示目標登錄的挑戰端點未發出一項挑戰。
+此錯誤表示目標登錄的挑戰端點不會發出挑戰。
 
-*可能的解決方案*:一段時間後再試。 如果錯誤持續發生，請開啟發生問題 https://aka.ms/acr/issues 。
+*可能的解決方案*:請稍後再試一次。 如果錯誤持續發生, 請在 https://aka.ms/acr/issues 中開啟問題。
 
 ## <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
-此錯誤表示目標登錄的挑戰端點發出一項挑戰，但是登錄不支援 Azure Active Directory 驗證。
+此錯誤表示目標登錄的挑戰端點發出挑戰, 但登錄不支援 Azure Active Directory 驗證。
 
-*可能的解決方案*:請嘗試不同的方法來進行驗證，例如，使用系統管理員認證。 如果使用者需要使用 Azure Active Directory 進行驗證，請開啟發生問題 https://aka.ms/acr/issues 。
+*可能的解決方案*:嘗試以不同的方式驗證, 例如使用系統管理員認證。 如果使用者需要使用 Azure Active Directory 進行驗證, 請在 https://aka.ms/acr/issues 中開啟問題。
 
 ## <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
-此錯誤表示，登錄登入伺服器未回應以重新整理權杖，因此目標登錄的存取被拒。 如果使用者沒有登錄的適當權限，或使用者認證，Azure cli 已過時，可能會發生此錯誤。
+此錯誤表示登錄登入伺服器沒有回應重新整理權杖, 因此拒絕存取目標登錄。 如果使用者沒有登錄的正確許可權, 或 Azure CLI 的使用者認證已過時, 就會發生此錯誤。
 
-*可能的解決方案*:確認使用者是否有登錄; 上正確的權限執行`az login`重新整理權限、 權杖和認證。
+*可能的解決方案*:確認使用者是否擁有登錄的正確許可權;執行`az login`以重新整理許可權、權杖和認證。
 
 ## <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
 
-此錯誤表示登錄登入伺服器未使用存取權杖，回應，讓目標登錄存取被拒。 如果使用者沒有登錄的適當權限，或使用者認證，Azure cli 已過時，可能會發生此錯誤。
+此錯誤表示登錄登入伺服器未以存取權杖回應, 因此已拒絕對目標登錄的存取。 如果使用者沒有登錄的正確許可權, 或 Azure CLI 的使用者認證已過時, 就會發生此錯誤。
 
-*可能的解決方案*:確認使用者是否有登錄; 上正確的權限執行`az login`重新整理權限、 權杖和認證。
+*可能的解決方案*:確認使用者是否擁有登錄的正確許可權;執行`az login`以重新整理許可權、權杖和認證。
 
 ## <a name="loginservererror"></a>LOGIN_SERVER_ERROR
 
-此錯誤表示 CLI 找不到指定的登錄中的登入伺服器，沒有預設值後置詞找不到目前的雲端。 如果登錄不存在，如果使用者沒有正確的權限在登錄中，如果登錄的雲端和目前的 Azure CLI 雲端不相符，或 Azure CLI 版本已過時，可能會發生此錯誤。
+此錯誤表示 CLI 找不到指定登錄的登入伺服器, 而且目前的雲端找不到預設尾碼。 如果登錄不存在, 如果使用者沒有適當的登入權利、如果登錄的雲端和目前的 Azure CLI 雲端不相符, 或 Azure CLI 版本已過時, 就會發生此錯誤。
 
-*可能的解決方案*:檢查拼字正確，以及登錄存在;請確認該使用者在登錄中，具有權限，以及登錄和 CLI 環境的雲端相符;更新至最新版的 Azure CLI。
+*可能的解決方案*:請確認拼寫正確, 且登錄存在;請確認使用者具有登錄的正確許可權, 且登錄和 CLI 環境的雲端符合;將 Azure CLI 更新為最新版本。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要檢查的登錄庫健康情況的選項，請參閱[檢查 Azure container registry 的健全狀況](container-registry-check-health.md)。
+如需檢查登錄健康狀態的選項, 請參閱[檢查 Azure container registry 的健全狀況](container-registry-check-health.md)。
 
-請參閱[常見問題集](container-registry-faq.md)常見問題集和其他關於 Azure Container Registry 的已知的問題。
+如需有關 Azure Container Registry 的常見問題和其他已知問題, 請參閱[常見問題](container-registry-faq.md)。
 
 
 

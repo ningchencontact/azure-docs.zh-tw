@@ -1,5 +1,5 @@
 ---
-title: 如何使用 AMQP 1.0 與 Java JMS 服務匯流排 API 搭配 |Microsoft Docs
+title: 如何搭配 JAVA JMS 服務匯流排 API 使用 AMQP 1.0 |Microsoft Docs
 description: 如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310956"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318448"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
@@ -51,7 +51,7 @@ ms.locfileid: "60310956"
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java 命名及目錄介面 (JNDI)
 JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱之間的區別。 使用 JNDI 可以解析兩種 JMS 物件：ConnectionFactory 和 Destination。 JNDI 使用提供者模型，您可以在其中插入不同的目錄服務處理名稱解析作業。 Apache Qpid JMS AMQP 1.0 程式庫提供使用下列格式的內容檔案設定的簡單內容檔案型 JNDI 提供者：
 
-```
+```TEXT
 # servicebus.properties - sample JNDI configuration
 
 # Register a ConnectionFactory in JNDI using the form:
@@ -301,7 +301,7 @@ public class JmsQueueQuickstart {
 傳遞來自 [共用存取原則] 的 [連接字串]  ，以執行應用程式。
 以下是執行應用程式的表單輸出：
 
-```
+```Output
 > mvn clean package
 >java -jar ./target/jmsqueuequickstart-1.0.0-jar-with-dependencies.jar -c "<CONNECTION_STRING>"
 
@@ -333,7 +333,7 @@ Closing queue client.
 ## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>AMQP 配置和服務匯流排作業對應
 以下是 AMQP 配置轉譯為服務匯流排作業的方式：
 
-```
+```Output
 ACCEPTED = 1; -> Complete()
 REJECTED = 2; -> DeadLetter()
 RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
@@ -341,16 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>JMS 主題 vs。服務匯流排主題
-使用 Azure 服務匯流排主題和訂用帳戶透過 Java 訊息服務 (JMS) API 提供基本的傳送和接收功能。 將移植從 JMS 相容的 Api，與其他訊息代理程式的應用程式，即使服務匯流排主題與 JMS 主題不同，而且需要一些調整時，它就會是方便的選擇。 
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 主題與服務匯流排主題
+透過 JAVA 訊息服務 (JMS) API 使用 Azure 服務匯流排主題和訂用帳戶, 可提供基本的傳送和接收功能。 當使用 JMS 相容的 Api 從其他訊息代理程式移植應用程式時, 這是很方便的選擇, 即使服務匯流排主題與 JMS 主題不同, 而且需要進行一些調整。 
 
-Azure 服務匯流排主題會將訊息路由至具名、 共用、 持久的訂用帳戶管理透過 Azure 資源管理介面、 Azure 命令列工具，或透過 Azure 入口網站中。 每個訂用帳戶允許最多 2000年的選取範圍規則，每個可能具有篩選條件，和 SQL 的篩選，也是中繼資料的轉換動作。 每個篩選條件相符項目中選取要複製到 tehj 訂用帳戶輸入的訊息。  
+Azure 服務匯流排主題會將訊息路由至透過 Azure 資源管理介面、Azure 命令列工具或 Azure 入口網站所管理的已命名、共用、持久訂閱。 每個訂用帳戶最多可有2000個選取規則, 其中每一個都可能有篩選準則, 而針對 SQL 篩選也是中繼資料轉換動作。 每個篩選準則符合都會選取要複製到 tehj 訂用帳戶的輸入訊息。  
 
-從訂用帳戶接收訊息等同從佇列接收訊息。 每個訂用帳戶有相關聯的寄不出信件佇列，以及能夠自動將訊息轉送到另一個佇列或主題。 
+從訂用帳戶接收訊息是從佇列接收訊息的相同。 每個訂用帳戶都有相關聯的寄不出的信件佇列, 以及自動將訊息轉送至另一個佇列或主題的功能。 
 
-JMS 主題可讓用戶端，以動態方式建立非持久且持久的訂閱者可選擇性地篩選訊息與訊息選取器。 服務匯流排不支援這些非共用的實體。 不過，服務匯流排的 SQL 篩選規則語法是支援的 JMS 訊息選取器語法非常類似。 
+JMS 主題可讓用戶端以動態方式建立非持久和持久的訂閱者, 並選擇性地允許以訊息選取器篩選訊息。 服務匯流排不支援這些非共用的實體。 不過, 服務匯流排的 SQL 篩選規則語法與 JMS 所支援的訊息選取器語法非常類似。 
 
-JMS 主題 「 發行者 」 端適用於服務匯流排，在此範例中所示，但不是動態的訂閱者。 服務匯流排不支援下列拓撲相關 JMS Api。 
+JMS 主題發行者端與服務匯流排相容, 如這個範例所示, 但動態訂閱者不是。 服務匯流排不支援下列與拓撲相關的 JMS Api。 
 
 ## <a name="unsupported-features-and-restrictions"></a>不支援的功能和限制
 對於服務匯流排使用 JMS 而不使用 AMQP 1.0 會有下列限制：

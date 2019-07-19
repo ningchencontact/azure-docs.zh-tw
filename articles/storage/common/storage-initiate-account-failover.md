@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150024"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305728"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>起始儲存體帳戶容錯移轉 (預覽)
 
@@ -67,7 +67,7 @@ ms.locfileid: "65150024"
 1. 解除安裝任何先前安裝的 Azure PowerShell：
 
     - 使用 [設定]  底下的 [應用程式與功能]  ，從 Windows 移除任何先前安裝的 Azure PowerShell。
-    - 從 `%Program Files%\WindowsPowerShell\Modules` 移除所有 **Azure*** 模組。
+    - 從`%Program Files%\WindowsPowerShell\Modules`移除所有**Azure**模組。
     
 1. 確定您已安裝最新版的 PowerShellGet。 開啟 Windows PowerShell 視窗，然後執行下列命令來安裝最新版本：
  

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511856"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847039"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**ClaimsSchema** 元素會定義可當作原則一部分進行參考的宣告類型。 宣告結構描述是可在其中宣告您的宣告的位置。 宣告可以是名字、姓氏、顯示名稱、電話號碼及其他項目。 ClaimsSchema 元素包含 **ClaimType** 元素的清單。 **ClaimType** 元素包含 **Id** 屬性，此為宣告名稱。 
+**ClaimsSchema** 元素會定義可當作原則一部分進行參考的宣告類型。 宣告結構描述是可在其中宣告您的宣告的位置。 宣告可以是名字、姓氏、顯示名稱、電話號碼及其他項目。 ClaimsSchema 元素包含 **ClaimType** 元素的清單。 **ClaimType** 元素包含 **Id** 屬性，此為宣告名稱。
 
 ```XML
 <BuildingBlocks>
@@ -48,7 +48,7 @@ ms.locfileid: "66511856"
 
 **ClaimType** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 要在各種畫面上顯示給使用者的標題。 此值可進行[當地語系化](localization.md)。 |
 | DataType | 0:1 | 宣告的類型。 您可以使用下列資料類型：boolean、date、dateTime、int、long、string、stringCollection、alternativeSecurityIdCollection。 |
@@ -89,7 +89,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 ```
 
 因此，Azure AD B2C 所發出的 JWT 權杖會略過 `family_name`，而不會略過 ClaimType 名稱 **surname**。
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -107,7 +107,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | `Type` | 是 | 宣告遮罩的類型。 可能的值：`Simple` 或 `Regex`。 `Simple` 值表示會將簡單的文字遮罩套用到字串宣告的前置部分。 `Regex` 值表示會將規則運算式套用到整個字串宣告。  如果指定 `Regex` 值，也必須透過要使用的規則運算式來定義選擇性屬性。 |
-| `Regex` | 否 | 如果 **`Type`** 設定為`Regex`，指定要使用的規則運算式。
+| `Regex` | 否 | 如果 **`Type`** 設定為`Regex`, 請指定要使用的正則運算式。
 
 下列範例會使用 `Simple` 遮罩來設定 **PhoneNumber** 宣告：
 
@@ -115,14 +115,14 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 識別體驗架構會呈現電話號碼，同時隱藏前六個數字：
 
-![搭配使用宣告類型與 Mask](./media/claimsschema/mask.png)
+![在瀏覽器中顯示的電話號碼宣告, 其中前六個數字由 Xs 遮罩](./media/claimsschema/mask.png)
 
 下列範例會使用 `Regex` 遮罩來設定 **AlternateEmail** 宣告：
 
@@ -137,7 +137,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 識別體驗架構只會呈現電子郵件地址和電子郵件網域名稱的第一個字母：
 
-![搭配使用宣告類型與 Mask](./media/claimsschema/mask-regex.png)
+![瀏覽器中顯示的電子郵件宣告, 其中包含以星號遮罩的字元](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>限制
@@ -179,10 +179,10 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
   </Restriction>
 </ClaimType>
 ```
+
 預設值設為 New York 的城市下拉式清單：
 
-![城市下拉式清單](./media/claimsschema/dropdownsingleselect.png)
-
+![在瀏覽器中轉譯並顯示預設值的下拉式控制項](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>模式
 
@@ -212,7 +212,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 識別體驗架構會使用電子郵件格式輸入驗證來呈現電子郵件地址宣告：
 
-![搭配使用宣告類型與 Pattern](./media/claimsschema/pattern.png)
+![顯示 RegEx 限制所觸發之錯誤訊息的文字方塊](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
@@ -222,7 +222,7 @@ Azure AD B2C 支援各種不同的使用者輸入類型 (例如文字方塊、�
 
 **TextBox** 使用者輸入類型會用來提供單行文字方塊。
 
-![搭配使用宣告類型與 TextBox](./media/claimsschema/textbox.png)
+![顯示宣告類型中指定之屬性的文字方塊](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -237,7 +237,7 @@ Azure AD B2C 支援各種不同的使用者輸入類型 (例如文字方塊、�
 
 **EmailBox** 使用者輸入類型會用來提供基本的電子郵件輸入欄位。
 
-![搭配使用宣告類型與 EmailBox](./media/claimsschema/emailbox.png)
+![EmailBox 顯示宣告類型中指定的屬性](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -297,7 +297,7 @@ Azure AD B2C 支援各種不同的使用者輸入類型 (例如文字方塊、�
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
@@ -375,4 +375,4 @@ Azure AD B2C 支援各種不同的使用者輸入類型 (例如文字方塊、�
 </ClaimType>
 ```
 
-若要顯示 **responseMsg** 宣告中的其中一個 **Enumeration** 值，請使用 `GetMappedValueFromLocalizedCollection` 或 `CreateStringClaim` 宣告轉換。 如需詳細資訊，請參閱[字串宣告轉換](string-transformations.md) 
+若要顯示 **responseMsg** 宣告中的其中一個 **Enumeration** 值，請使用 `GetMappedValueFromLocalizedCollection` 或 `CreateStringClaim` 宣告轉換。 如需詳細資訊，請參閱[字串宣告轉換](string-transformations.md)

@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
-ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083664"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296483"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>在 Azure 資訊安全中心監視身分識別和存取 (預覽)
 這篇文章可協助您使用 Azure 資訊安全中心來監視使用者的身分識別和存取活動。
 
 > [!NOTE]
-> 「 檢視*傳統*身分識別與存取權 」 連結將於 2019 年 7 月 31 日淘汰。 按一下 [此處](security-center-features-retirement-july2019.md#menu_classicidentity)若要了解替代的服務。
+> "View*傳統*Identity & Access" 連結將于2019年7月31日淘汰。 按一下[這裡](security-center-features-retirement-july2019.md#menu_classicidentity)以瞭解替代服務。
 
 > [!NOTE]
 > 監視身分識別和存取是預覽功能，只會在資訊安全中心的標準層提供使用。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
@@ -110,20 +110,20 @@ ms.locfileid: "67083664"
 
 |資源類型|安全分數|建議|描述|
 |----|----|----|----|
-|Subscription|50|應該與您的訂用帳戶的擁有者權限帳戶啟用 MFA|為具有系統管理員權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
-|Subscription|40|在您的訂用帳戶具有寫入權限均應啟用 MFA|為具有寫入權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
-|Subscription|30|應該從您的訂用帳戶中移除具有擁有者權限的外部帳戶|從訂用帳戶中移除具有擁有者權限的外部帳戶，以避免出現未受監視的存取。|
-|Subscription|30|在您的訂用帳戶，具有讀取權限均應啟用 MFA|為具有讀取權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
+|Subscription|50|必須在訂用帳戶上具有擁有者許可權的帳戶上啟用 MFA|為具有系統管理員權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
+|Subscription|40|必須在具有寫入權限的訂用帳戶上啟用 MFA|為具有寫入權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
+|Subscription|30|必須從您的訂用帳戶中移除具有擁有者許可權的外部帳戶|從訂用帳戶中移除具有擁有者權限的外部帳戶，以避免出現未受監視的存取。|
+|Subscription|30|您的訂用帳戶 (具有讀取權限) 應啟用 MFA|為具有讀取權限的所有訂用帳戶啟用 Multi-Factor Authentication (MFA)，以避免發生帳戶或資源資料外洩。|
 |Subscription|25|應從訂用帳戶移除具有寫入權限的外部帳戶|從訂用帳戶中移除具有寫入權限的外部帳戶，以避免出現未受監視的存取。 |
-|Subscription|20|應該從您訂用帳戶中移除具有擁有者權限已被取代的帳戶|從訂用帳戶中移除具有擁有者權限的已取代帳戶。|
-|Subscription|5|請移除已被取代的帳戶，從您的訂用帳戶|從訂用帳戶中移除不再使用的帳戶，以僅允許目前的使用者存取。 |
-|Subscription|5|應該有一個以上的擁有者指派給您的訂用帳戶|指定多位訂用帳戶擁有者，以擁有系統管理員存取備援。|
-|Subscription|5|應獲指定最多 3 個擁有者的訂用帳戶|指定少於 3 位的訂用帳戶擁有者，以降低遭入侵擁有者導致資料外洩的可能。|
-|金鑰保存庫|5|應該啟用金鑰保存庫中的診斷記錄檔|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
-|Subscription|15|應該從您的訂用帳戶中移除具有讀取權限的外部帳戶|從訂用帳戶中移除具有讀取權限的外部帳戶，以避免出現未受監視的存取。| 
+|Subscription|20|具有擁有者許可權的已淘汰帳戶應從您的訂用帳戶中移除|從訂用帳戶中移除具有擁有者權限的已取代帳戶。|
+|Subscription|5|應從您的訂用帳戶移除已淘汰的帳戶|從訂用帳戶中移除不再使用的帳戶，以僅允許目前的使用者存取。 |
+|Subscription|5|您的訂用帳戶應該已指派一個以上的擁有者|指定多位訂用帳戶擁有者，以擁有系統管理員存取備援。|
+|Subscription|5|您的訂用帳戶應指定最多3位擁有者|指定少於 3 位的訂用帳戶擁有者，以降低遭入侵擁有者導致資料外洩的可能。|
+|金鑰保存庫|5|應該啟用 Key Vault 中的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
+|Subscription|15|應從您的訂用帳戶移除具有讀取權限的外部帳戶|從訂用帳戶中移除具有讀取權限的外部帳戶，以避免出現未受監視的存取。| 
 
 > [!NOTE]
-> 如果您建立的條件式存取原則，強制執行 MFA，但已設定排除項目時，安全性中心的 MFA 建議評估會考量原則不符合規範，因為它可讓某些使用者以登入 Azure，而不需要 MFA。
+> 如果您已建立條件式存取原則來要求 MFA, 但已設定排除專案, 則資訊安全中心 MFA 建議評估會將原則視為不符合規範, 因為它可讓某些使用者登入 Azure 而不需要 MFA。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰

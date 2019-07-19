@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050959"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310270"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -31,7 +31,7 @@ ms.locfileid: "67050959"
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>哪種類型的流量可以使用流量管理員路由傳送？
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)中所述，流量管理員端點可以是 Azure 內部或外部裝載的任何網際網路對向服務。 因此，流量管理員可以將源自公用網際網路的流量路由傳送至一組也是網際網路面向的端點。 如果您的端點位於私人網路內部 (例如，[Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 的內部版本)，或是讓使用者從這類內部網路提出 DNS 要求，則您無法使用流量管理員來路由傳送此流量。
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理員是否支援「黏性」工作階段？
+### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理員支援「粘滯」會話嗎？
 
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 它會使用 DNS 回應將用戶端導向到適當的服務端點。 用戶端會直接連接至服務端點，而不會透過流量管理員。 因此，流量管理員看不到用戶端與伺服器之間的 HTTP 流量。
 
@@ -57,9 +57,9 @@ ms.locfileid: "67050959"
 
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-how-it-works.md)所述，流量管理員是在 DNS 層級運作。 完成 DNS 查閱之後，用戶端就會直接連線到應用程式端點，而不會透過「流量管理員」。 因此，連線可以使用任何應用程式通訊協定。 如果您選取 TCP 作為監視通訊協定，流量管理員的端點健康情況監視可以在不使用任何應用程式通訊協定的情況下完成。 如果您選擇使用應用程式通訊協定來驗證健康情況，端點必須能夠回應 HTTP 或 HTTPS GET 要求。
 
-### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>我是否可以在流量管理員中使用「裸」網域名稱？
+### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>我可以使用具有「naked」功能變數名稱的流量管理員嗎？
 
-是。 若要了解如何建立您要參考的 Azure 流量管理員設定檔的網域名稱頂點的別名記錄，請參閱[設定為支援頂點網域名稱使用流量管理員別名記錄](../dns/tutorial-alias-tm.md)。
+是的。 若要瞭解如何建立功能變數名稱頂點的別名記錄以參考 Azure 流量管理員設定檔, 請參閱[使用流量管理員設定別名記錄以支援頂點功能變數名稱](../dns/tutorial-alias-tm.md)。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>處理 DNS 查詢時，流量管理員會考量用戶端子網路位址嗎？ 
 
@@ -310,7 +310,7 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>我可以使用流量管理員來設定雲端服務「預備」位置嗎？
 
-是。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。
+是的。 雲端服務「預備」位置可在流量管理員中設定為外部端點。 健康情況檢查仍然以 Azure 端點費率計費。
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>流量管理員是否支援 IPv6 端點？
 
@@ -351,12 +351,12 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 ### <a name="can-i-monitor-https-endpoints"></a>我可以監視 HTTPS 端點嗎？
 
-是。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
+是的。 流量管理員支援透過 HTTPS 探查。 在監視組態中將 **HTTPS** 設定為通訊協定。
 
 流量管理員無法提供任何憑證驗證，包括：
 
 * 不會驗證伺服器端憑證
-* 不會驗證 SNI 伺服器端憑證
+* 未驗證 SNI 伺服器端憑證
 * 不支援用戶端憑證
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>新增端點時，使用 IP 位址還是 DNS 名稱？
@@ -406,13 +406,13 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 
 是，可以，但有下列例外：MultiValue 類型的設定檔不能是巢狀設定檔集合中的父設定檔。
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我在我的 Traffic Manager 設定檔中停止 web 應用程式端點，但我並未收到任何流量即使重新啟動它。 我該怎麼辦？
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>我在流量管理員設定檔中停止了 web 應用程式端點, 但我在重新開機後仍未收到任何流量。 我該怎麼辦？
 
-Azure web 應用程式端點停止時 Traffic Manager 會停止檢查其健康情況，並在偵測到端點已重新啟動之後，才重新啟動健全狀況檢查。 若要避免這種延遲，在重新啟動該端點之後，請在「流量管理員」設定檔中停用然後重新啟用該端點。
+當 Azure web 應用程式端點停止時流量管理員會停止檢查其健康情況, 並只在偵測到端點已重新開機之後才重新開機健康狀態檢查。 若要避免這種延遲，在重新啟動該端點之後，請在「流量管理員」設定檔中停用然後重新啟用該端點。
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>即使我的應用程式不支援 HTTP 或 HTTPS 也可以使用流量管理員嗎？
 
-是。 您可以指定 TCP 作為監視通訊協定，流量管理員可以起始 TCP 連線，並且等待端點的回應。 如果端點在逾時期間內以建立連線的回應來回覆連線要求，則該端點會標示為狀況良好。
+是的。 您可以指定 TCP 作為監視通訊協定，流量管理員可以起始 TCP 連線，並且等待端點的回應。 如果端點在逾時期間內以建立連線的回應來回覆連線要求，則該端點會標示為狀況良好。
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>使用 TCP 監視時需要端點的哪些特定回應？
 
@@ -469,7 +469,7 @@ Azure web 應用程式端點停止時 Traffic Manager 會停止檢查其健康�
 
 ### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>在同一個「流量管理員」設定檔中，是否可以將其他端點類型與巢狀子設定檔混合使用？
 
-是。 對於在設定檔內如何結合不同類型的端點，並沒有任何限制。
+是的。 對於在設定檔內如何結合不同類型的端點，並沒有任何限制。
 
 ### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>巢狀設定檔如何套用計費模型？
 
@@ -484,7 +484,7 @@ Azure web 應用程式端點停止時 Traffic Manager 會停止檢查其健康�
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>巢狀設定檔是否會對效能造成影響？
 
-沒有。 使用巢狀設定檔不會影響效能。
+資料分割 使用巢狀設定檔不會影響效能。
 
 在處理每個 DNS 查詢時，流量管理員名稱伺服器會周遊設定檔階層內部。 父設定檔的 DNS 查詢可能會收到從子設定檔傳回端點的 DNS 回應。 不論您使用單一設定檔或巢狀設定檔，都只會使用單一 CNAME 記錄。 不需要為階層中的每個設定檔建立 CNAME 記錄。
 

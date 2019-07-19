@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 了解如何使用 REST API 建立 Azure Load Balancer。
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
-ms.author: kumud
-ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60884974"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275549"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>使用 REST API 建立 Azure 基本負載平衡器
 
@@ -33,7 +33,7 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```
 ### <a name="uri-parameters"></a>URI 參數
 
-|名稱  |在  |必要項 |type |描述 |
+|名稱  |在  |必要項 |Type |描述 |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  path       |  True       |   string      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
 |resourceGroupName     |     path    | True        |  string       |   資源群組的名稱。     |
@@ -46,7 +46,7 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
 
 唯一必要的參數是 `location`。 如果您未定義 *SKU* 版本，預設會建立基本負載平衡器。  使用[選擇性參數](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)來自訂負載平衡器。
 
-| 名稱 | type | 描述 |
+| 名稱 | Type | 描述 |
 | :--- | :--- | :---------- |
 | location | string | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
 

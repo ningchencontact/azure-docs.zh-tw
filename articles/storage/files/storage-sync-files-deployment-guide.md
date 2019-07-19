@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9c05f3cf9a4c6fc916f1c9578de7aee6d0190ee5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606116"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327137"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)和[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)，再完成本文章中描述的步驟。
 
-## <a name="prerequisites"></a>必要條件
-* Azure 檔案共用相同的區域中您想要部署 Azure 檔案同步。如需詳細資訊，請參閱：
+## <a name="prerequisites"></a>先決條件
+* 您想要部署 Azure 檔案同步的相同區域中的 Azure 檔案共用。如需詳細資訊，請參閱：
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - [建立檔案共用](storage-how-to-create-file-share.md)以取得如何建立檔案共用的逐步說明。
 * 至少有一個 Windows Server 或 Windows Server 叢集的受支援執行個體，以與 Azure 檔案同步進行同步處理。如需 Windows Server 受支援版本的詳細資訊，請參閱[與 Windows Server 的互通性](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)。
-* Az PowerShell 模組可用 PowerShell 5.1 或 PowerShell 6 +。 您可以上任何支援的系統，包括非 Windows 系統，但伺服器註冊 cmdlet 必須一律是 Windows Server 執行個體上執行您的 Azure 檔案同步使用 Az PowerShell 模組會註冊 （這可以直接或透過 PowerShell遠端處理）。 在 Windows Server 2012 R2，您可以確認您至少執行 PowerShell 5.1。\*藉由查看的值**PSVersion**屬性 **$PSVersionTable**物件：
+* Az PowerShell 模組可用於 PowerShell 5.1 或 PowerShell 6 +。 您可以在任何支援的系統 (包括非 Windows 系統) 上使用 Az PowerShell 模組來進行 Azure 檔案同步, 不過, 伺服器註冊 Cmdlet 一律必須在您要註冊的 Windows Server 實例上執行 (可以直接或透過 PowerShell 來執行)遠端處理)。 在 Windows Server 2012 R2 上, 您可以確認您至少執行 PowerShell 5.1。藉由查看 **$PSVersionTable**物件的 PSVersion 屬性值:  \*
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -33,30 +33,30 @@ ms.locfileid: "67606116"
 
     如果您的 PSVersion 值小於 5.1.\* (大部分的 Windows Server 2012 R2 全新安裝都會發生此類情況)，您可以下載並安裝 [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616) \(英文\) 來輕鬆地升級。 適用於 Windows Server 2012 R2 下載和安裝的適當套件為 **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**。 
 
-    PowerShell 6 + 可以搭配任何支援的系統，而且可以下載透過其[GitHub 頁面](https://github.com/PowerShell/PowerShell#get-powershell)。 
+    PowerShell 6 + 可以搭配任何支援的系統使用, 並可透過其[GitHub 頁面](https://github.com/PowerShell/PowerShell#get-powershell)下載。 
 
     > [!Important]  
-    > 如果您打算使用 [伺服器註冊] UI 中，而不是直接從 PowerShell 註冊，您必須使用 PowerShell 5.1。
+    > 如果您打算使用伺服器註冊 UI, 而不是直接從 PowerShell 註冊, 則必須使用 PowerShell 5.1。
 
-* 如果您選擇要使用 PowerShell 5.1，請確定在已安裝最低.NET 4.7.2。 深入了解[.NET Framework 版本和相依性](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies)您系統上。
+* 如果您選擇使用 PowerShell 5.1, 請確定至少已安裝 .NET 4.7.2。 深入瞭解您系統上的[.NET Framework 版本和](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies)相依性。
 
     > [!Important]  
-    > 如果您要在 Windows Server Core 上安裝.NET 4.7.2+，您必須安裝`quiet`和`norestart`旗標，否則安裝將會失敗。 例如，如果在安裝.NET 4.8，命令看起來會如下所示：
+    > 如果您要在 Windows Server Core 上安裝 .net 4.7.2 +, 您必須使用`quiet`和`norestart`旗標安裝, 否則安裝將會失敗。 例如, 如果安裝 .NET 4.8, 命令看起來會像下面這樣:
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-* Az PowerShell 模組，可依照此處的指示進行安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
+* 您可以遵循這裡的指示來安裝 Az PowerShell module:[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
      
     > [!Note]  
-    > 當您安裝的 Az PowerShell 模組時，現在會自動安裝 Az.StorageSync 模組。
+    > 當您安裝 Az PowerShell 模組時, Microsoft.storagesync 模組現在會自動安裝。
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>準備 Windows Server 以搭配 Azure 檔案同步使用
 針對要與 Azure 檔案同步搭配使用的每個伺服器 (包括容錯移轉叢集中的每個伺服器節點)，停用 [Internet Explorer 增強式安全性設定]  。 此動作只需要在初始伺服器註冊時執行。 您可以在註冊伺服器後重新啟用它。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 > [!Note]  
-> 如果您要部署 Windows Server Core 上的 Azure 檔案同步，您可以略過此步驟。
+> 如果您要在 Windows Server Core 上部署 Azure 檔案同步, 可以略過此步驟。
 
 1. 開啟 [伺服器管理員]。
 2. 按一下 [本機伺服器]  ：  
@@ -98,7 +98,7 @@ if ($installType -ne "Server Core") {
 > 部署至訂用帳戶和資源群組的儲存體同步服務會從訂用帳戶和資源群組中繼承存取權限。 我們建議您仔細檢查誰可以存取此服務。 具有寫入存取權的實體可以開始將新的一組檔案從已註冊伺服器同步到此儲存體同步服務，並讓資料流向實體可存取的 Azure 儲存體。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
-若要部署儲存體同步服務，請移至[Azure 入口網站](https://portal.azure.com/)，按一下*建立資源*]，然後搜尋 [Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步]  ，然後選取 [建立]  以開啟 [部署儲存體同步]  索引標籤。
+若要部署儲存體同步服務, 請移至[Azure 入口網站](https://portal.azure.com/), 按一下 [*建立資源*], 然後搜尋 Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步]  ，然後選取 [建立]  以開啟 [部署儲存體同步]  索引標籤。
 
 在開啟的窗格中，輸入下列資訊：
 
@@ -110,7 +110,7 @@ if ($installType -ne "Server Core") {
 完成時，請選取 [建立]  來部署儲存體同步服務。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-取代 **< Az_Region >** ， **< RG_Name >** ，並 **< my_storage_sync_service >** 使用您自己的值，然後使用下列的命令數 」 來建立及部署儲存體同步服務：
+以您自己的值取代 **< Az_Region >** 、 **< RG_Name >** 和 **< my_storage_sync_service >** , 然後使用下列的此項來建立和部署儲存體同步服務:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -357,6 +357,19 @@ if ($cloudTieringDesired) {
 
 ---
 
+## <a name="configure-firewall-and-vnet-settings"></a>設定防火牆和 VNet 設定
+
+### <a name="portal"></a>入口網站
+如果您想要將 Azure 檔案同步設定為使用防火牆和虛擬網路設定, 請執行下列動作:
+
+1. 從 [Azure 入口網站] 中, 流覽至您要保護的儲存體帳戶。
+1. 選取 [lefthand] 功能表上的 [**防火牆和虛擬網路**] 按鈕。
+1. 選取 [**允許存取來源**] 底下的 [**選取的網路**]。
+1. 請確定您的伺服器 IP 或虛擬網路已列在適當的區段底下。
+1. 請確定已核取 [**允許信任的 Microsoft 服務存取此儲存體帳戶**]。
+1. 選取 [儲存]  以儲存您的設定。
+
+
 ## <a name="onboarding-with-azure-file-sync"></a>透過 Azure 檔案同步上架
 第一次於 Azure 檔案同步上架時，如果不想要停機，同時還要保留完整檔案忠實性和存取控制清單 (ACL)，其建議步驟如下所示：
  
@@ -375,13 +388,13 @@ if ($cloudTieringDesired) {
  
 如果您沒有額外儲存體可供初始上架，而想要連結至現有的共用，您可以在 Azure 檔案共用中預先植入資料。 唯有您可接受停機時間，且絕對保證在初始上架程序期間，伺服器共用上的資料不會變更，才建議使用此方法。 
  
-1. 確保在上架程序期間，任何伺服器上的資料都無法變更。
-2. 透過 SMB 使用任何資料傳輸工具 (例如 Robocopy、直接的 SMB 複製)，以伺服器資料預先植入 Azure 檔案共用。 因為 AzCopy 不會透過 SMB 上傳資料，所以無法用於預先植入。
+1. 確定在上架程式期間, 任何伺服器上的資料都無法變更。
+2. 透過 SMB 使用任何資料傳輸工具來預先植入具有伺服器資料的 Azure 檔案共用, 例如 Robocopy、direct SMB 複製。 因為 AzCopy 不會透過 SMB 上傳資料，所以無法用於預先植入。
 3. 使用指向現有共用的所需伺服器端點，建立 Azure 檔案同步拓撲。
 4. 讓同步服務在所有端點上完成調整程序。 
 5. 完成調整後，您可以開啟共用進行變更。
  
-請留意目前預先植入的方法有一些限制： 
+目前, 預先植入的方法有幾個限制: 
 - 檔案不會保持完整不失真。 例如，檔案會失去 ACL 和時間戳記。
 - 在同步拓撲完全啟動並執行之前，伺服器上的資料變更會導致伺服器端點發生衝突。  
 - 建立雲端端點之後，Azure 檔案同步會先執行在雲端偵測檔案的程序，再開始初始同步處理。完成此程序所需的時間取決於各種因素，例如網路速度、可用頻寬，以及檔案和資料夾的數目。 根據預覽版本中的粗略估計，偵測程序會以大約每秒 10 個檔案的速度執行。因此，即使預先植入的執行速度快，但若在雲端預先植入資料，則系統完整執行的整體時間可能會更長。

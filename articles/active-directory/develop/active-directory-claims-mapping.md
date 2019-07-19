@@ -5,6 +5,8 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546194"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324999"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>HOW TO：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -293,15 +295,15 @@ ms.locfileid: "65546194"
 | 使用者 | mail | 電子郵件地址 |
 | 使用者 | userprincipalname | 使用者主體名稱 |
 | 使用者 | department|department|
-| 使用者 | onpremisessamaccountname | 在內部部署 SAM 帳戶名稱 |
+| 使用者 | onpremisessamaccountname | 內部部署 SAM 帳戶名稱 |
 | 使用者 | netbiosname| NetBios 名稱 |
-| 使用者 | dnsdomainname | DNS 網域名稱 |
-| 使用者 | onpremisesecurityidentifier | 在內部部署安全性識別碼 |
+| 使用者 | dnsdomainname | DNS 功能變數名稱 |
+| 使用者 | onpremisesecurityidentifier | 內部部署安全識別碼 |
 | 使用者 | companyname| 組織名稱 |
 | 使用者 | streetaddress | 街道地址 |
 | 使用者 | postalcode | 郵遞區號 |
 | 使用者 | preferredlanguange | 慣用語言 |
-| 使用者 | onpremisesuserprincipalname | 在內部部署 UPN |
+| 使用者 | onpremisesuserprincipalname | 內部部署 UPN |
 | 使用者 | mailNickname | 郵件暱稱 |
 | 使用者 | extensionattribute1 | 擴充屬性 1 |
 | 使用者 | extensionattribute2 | 擴充屬性 2 |
@@ -415,7 +417,7 @@ ms.locfileid: "65546194"
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 
-您必須對服務主體物件指派自訂簽署金鑰，宣告對應原則才會生效。 如此可確認權杖是由宣告對應原則的建立者所修改，並且可遏止惡意執行者建立的宣告對應原則，保護應用程式不受威脅。  已啟用對應必須檢查其權杖簽署金鑰，藉由附加的特殊 URI 宣告的應用程式`appid={client_id}`至其[OpenID Connect 中繼資料要求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)。  
+您必須對服務主體物件指派自訂簽署金鑰，宣告對應原則才會生效。 如此可確認權杖是由宣告對應原則的建立者所修改，並且可遏止惡意執行者建立的宣告對應原則，保護應用程式不受威脅。  已啟用宣告對應的應用程式必須藉由附加`appid={client_id}`至其[OpenID connect 中繼資料要求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document), 檢查其權杖簽署金鑰的特殊 URI。  
 
 ### <a name="cross-tenant-scenarios"></a>跨租用戶案例
 
@@ -429,7 +431,7 @@ ms.locfileid: "65546194"
 
 在 Azure AD 中，當您可以為特定的服務主體自訂權杖中所發出的宣告時，許多案例便可能實現。 在本節中，我們將逐步解說一些常見案例，以協助您掌握如何使用宣告對應原則類型。
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 在下列範例中，您會為服務主體建立、更新、連結和刪除原則。 如果您是 Azure AD 的新手，建議您[先了解如何取得 Azure AD 租用戶](quickstart-create-new-tenant.md)，然後再參考範例繼續操作。
 
@@ -447,7 +449,7 @@ ms.locfileid: "65546194"
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立及指派原則，以省略基本宣告從權杖發行給服務主體
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則, 以省略簽發給服務主體之權杖的基本宣告
 
 在此範例中，您將會建立原則，以從核發給連結之服務主體的權杖中移除基本宣告集。
 
@@ -520,4 +522,4 @@ ms.locfileid: "65546194"
 
 ## <a name="see-also"></a>另請參閱
 
-若要了解如何自訂在 SAML 權杖中，透過 Azure 入口網站發出的宣告，請參閱[How to:自訂的企業應用程式在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)
+若要瞭解如何透過 Azure 入口網站自訂 SAML 權杖中發出的宣告, 請[參閱如何:針對企業應用程式自訂 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)

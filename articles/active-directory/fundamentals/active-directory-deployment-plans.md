@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 7f695d9f0240f8c27ea0bedba7e532d37a177752
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302378"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304750"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署方案
 在尋找有關如何部署某些 Azure Active Directory (Azure AD) 功能的端對端指引嗎？ 下列部署方案會逐步帶您了解商業價值、規劃考量、設計，以及要成功推出數個較常見的 Azure AD 功能所需進行的操作程序。 
@@ -28,40 +28,40 @@ ms.locfileid: "67302378"
 
 ## <a name="include-the-right-stakeholders"></a>包含正確的專案關係人
 
-當從您的部署規劃一項新功能，務必包含整個組織的重要關係人。 我們建議您識別及文件的人員或滿足每個下列角色，並使用它們，以判斷他們也參與專案的人員。  
+當您開始規劃新功能的部署時, 請務必在組織中包含重要的專案關係人。 我們建議您識別並記載符合下列每個角色的人員或人員, 並與他們合作以判斷他們在專案中的參與程度。  
 
-角色可能包括下列 
+角色可能包括下列各項 
 
-|角色 |描述 |
+|Role |描述 |
 |-|-|
-|使用者|代表實作功能的使用者群組。 通常會預覽在試驗計劃中的變更。
-|IT 支援管理員|IT 支援組織代表該人員可以提供輸入上的技術服務人員的觀點來看這項變更的支援能力。  
-|身分識別架構設計人員或 Azure 的全域管理員|身分識別管理小組負責定義這項變更您的組織中核心身分識別管理基礎結構的對齊方式代表。|
-|應用程式業務擁有者 |受影響的應用程式，可能包括管理存取權的整體業務擁有者。  也可以提供輸入的使用者體驗和實用性等方面的這項變更，從使用者的觀點來看。
-|安全性的擁有者|可以登出計劃將符合您組織的安全性需求，安全性團隊的代表。|
-|合規性管理員|您負責確保與公司的合規性、 產業或政府需求的組織內人員。|
+|終端使用者|將會實作為功能的代表性使用者群組。 通常會預覽試驗計畫中的變更。
+|IT 支援經理|IT 支援組織代表誰可以從技術支援人員的觀點來提供這項變更的可支援性。  
+|身分識別架構設計人員或 Azure 全域管理員|身分識別管理小組代表負責定義這項變更如何與組織中的核心身分識別管理基礎結構一致。|
+|應用程式商務擁有者 |受影響應用程式的整體商務擁有者, 可能包括管理存取權。  也可以提供使用者體驗的輸入, 以及從使用者的觀點來看這項變更的實用性。
+|安全性擁有者|安全性小組的代表, 可以將方案登出, 以符合組織的安全性需求。|
+|合規性管理員|貴組織內負責確保符合公司、產業或政府需求的人員。|
 
-**介入的程度可能包括：**
+**參與程度可能包括:**
 
-- **R**esponsible 實作專案計劃和結果 
+- 用於執行專案計劃和結果的**R**esponsible 
 
-- **A**pproval 專案計劃和結果 
+-  專案計劃和結果的 pproval 
 
-- **C**ontributor 專案計劃和結果 
+- **C**ontributor 至專案計劃和結果 
 
-- **我**nformed 專案計劃和結果
+-  專案計劃和結果 nformed
  
-## <a name="deployment-plans"></a>部署計劃
+## <a name="deployment-plans"></a>部署計畫
 
 
 
-|案例 |描述 |
+|狀況 |描述 |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決方案。 Azure MFA 可使用系統管理員核准的驗證方法，以利保護對資料與應用程式的存取，同時達到對簡單登入程序的需求。|
-|[條件式存取](https://aka.ms/deploymentplans/ca)|使用條件式存取，您可以實作自動化的存取控制決定誰可以存取您雲端應用程式，以條件為基礎。|
-|[自助式密碼重設](https://aka.ms/SSPRDPDownload)|自助式密碼重設可協助使用者在必要時重設其密碼，而不需要系統管理員介入。|
+|[條件式存取](https://aka.ms/deploymentplans/ca)|透過條件式存取, 您可以根據條件, 針對可存取雲端應用程式的人員執行自動化存取控制決策。|
+|[自助式密碼重設](https://aka.ms/deploymentplans/sspr)|自助式密碼重設可協助使用者在必要時重設其密碼，而不需要系統管理員介入。|
 |[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD Privileged Identity Management (PIM) 可協助您管理遍及 Azure AD、Azure 資源及其他 Microsoft Online Services 的特殊權限系統管理角色。 PIM 提供 Just-In-Time 存取、要求核准工作流程，以及完全整合的存取權檢閱等解決方案，讓您能夠即時識別、發現和防止特殊權限角色的惡意活動。|
-|[單一登入](https://aka.ms/SSODPDownload)|單一登入可協助您只使用單一使用者帳戶登入一次，然後就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您就可以從 Microsoft Office 前往 SalesForce、Box，而不需要再驗證一次 (例如，輸入密碼)。|
+|[單一登入](https://aka.ms/deploymentplans/sso)|單一登入可協助您只使用單一使用者帳戶登入一次，然後就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您就可以從 Microsoft Office 前往 SalesForce、Box，而不需要再驗證一次 (例如，輸入密碼)。|
 |[無縫 SSO](https://aka.ms/SeamlessSSODPDownload)|使用者位於連線到公司網路的公司裝置時，Azure Active Directory 無縫單一登入 (Azure AD 無縫 SSO) 就會自動將他們登入。 開啟此功能後，使用者不需要輸入密碼就能登入 Azure AD，而且在大部分情況下，甚至也不用輸入其使用者名稱。 這項功能可讓使用者輕鬆存取雲端式應用程式，而不需要任何額外的內部部署元件。|
 |[存取面板](https://aka.ms/AccessPanelDPDownload)|為使用者提供可探索及存取其所有應用程式的簡單中樞。 讓他們能藉由自助服務功能來提升生產力，例如能夠要求存取新的應用程式和群組，或代表其他人管理這些資源的存取權。|
 |[以 ADFS 進行密碼雜湊同步處理](https://aka.ms/deploymentplans/adfs2phs)|使用密碼雜湊同步處理時，使用者密碼的雜湊會從內部部署 Active Directory 同步至 Azure AD，讓 Azure AD 來驗證使用者，而不需要與內部部署 Active Directory 互動|

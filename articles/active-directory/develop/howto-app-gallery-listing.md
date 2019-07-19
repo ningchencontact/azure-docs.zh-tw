@@ -18,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482959"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324715"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>HOW TO：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
-這篇文章會示範如何列出 Azure AD 應用程式資源庫中的應用程式，實作單一登入 (SSO)，並管理清單。
+本文說明如何在 Azure AD 應用程式庫中列出應用程式、執行單一登入 (SSO), 以及管理清單。
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>什麼是 Azure AD 應用程式庫？
 
@@ -38,7 +38,7 @@ ms.locfileid: "67482959"
 - 共同客戶可取得逐步設定教學課程。
 - 使用 SCIM 的客戶可以使用相同應用程式的佈建。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 對於同盟應用程式 (Open ID 與 SAML/WS-Fed)，應用程式必須支援 SaaS 模型，才列於 Azure AD 資源庫中。 企業資源庫應用程式應支援多個客戶設定，而非任何特定的客戶。
 
@@ -51,7 +51,7 @@ ms.locfileid: "67482959"
 - 若為「自動使用者佈建」要求，應用程式應列於資源庫中，並使用 SAML 2.0/WS-Fed 啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
 
 >[!NOTE]
->我們以執行大量的 SCIM 連接器的要求，所以我們已停止在我們的入口網站上取得新的要求。 請保留您的要求直到進一步通知為止。 我們為這種延遲，這可能造成任何不便在此。
+>我們正在執行大量的 SCIM 連接器要求, 因此我們已停止在入口網站上提出新的要求。 請保留您的要求, 直到進一步通知為止。 我們讀者表達歉意這種延遲, 而且可能造成的任何不便。
 
 ## <a name="submit-the-request-in-the-portal"></a>在入口網站中提交要求
 
@@ -113,13 +113,13 @@ ms.locfileid: "67482959"
     * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]  。
     * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
 
-## <a name="listing-requests-by-customers"></a>列出客戶的要求
+## <a name="listing-requests-by-customers"></a>列出客戶提出的要求
 
-客戶可以提交要求，即可列出應用程式**應用程式會要求客戶** -> **提交新要求**。
+客戶可以按一下 [客戶 -> **提交新要求**的**應用程式要求**], 提交列出應用程式的要求。
 
-![要求向客戶顯示應用程式 磚](./media/howto-app-gallery-listing/customer-submit-request.png)
+![顯示客戶要求的應用程式磚](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-以下是客戶的流程要求的應用程式-
+以下是客戶要求的應用程式流程-
 
 ![顯示客戶要求的應用程式流程](./media/howto-app-gallery-listing/customer-request.png)
 
@@ -127,11 +127,11 @@ ms.locfileid: "67482959"
 
 在應用程式庫中列出 SAML 2.0 或 WS-Fed 應用程式的程序時間表為 7-10 個工作天。
 
-   ![列出資源庫中的 SAML 應用程式的時間軸](./media/howto-app-gallery-listing/timeline.png)
+   ![在資源庫中列出 SAML 應用程式的時程表](./media/howto-app-gallery-listing/timeline.png)
 
 在應用程式庫中列出 OpenID Connect 應用程式的程序時間表為 2-5 個工作天。
 
-   ![列出資源庫中的 SAML 應用程式的時間軸](./media/howto-app-gallery-listing/timeline2.png)
+   ![在資源庫中列出 SAML 應用程式的時程表](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>呈報
 
