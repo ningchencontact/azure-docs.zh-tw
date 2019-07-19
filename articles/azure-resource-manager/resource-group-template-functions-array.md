@@ -35,7 +35,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 * [take](#take)
 * [union](#union)
 
-若要取得以值分隔的字串值陣列，請參閱 [分割](resource-group-template-functions-string.md#split)。
+若要取得以值分隔的字串值陣列，請參閱 [split](resource-group-template-functions-string.md#split)。
 
 <a id="array" />
 
@@ -50,7 +50,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |是 |整數、字串、陣列或物件 |要轉換為陣列的值。 |
+| convertToArray |是 |int、string、array 或 object |要轉換為陣列的值。 |
 
 ### <a name="return-value"></a>傳回值
 
