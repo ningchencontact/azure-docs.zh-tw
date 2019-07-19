@@ -3,16 +3,17 @@ title: 使用服務主體進行 Azure Container Registry 驗證
 description: 使用 Azure Active Directory 服務主體，提供您私人容器登錄中映像的存取權。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347058"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309952"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服務主體進行 Azure Container Registry 驗證
 
@@ -34,7 +35,7 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 您應該使用服務主體來提供**無周邊案例**中的登錄存取權。 也就是，任何必須以自動化或其他自動方式發送或提取容器映像的應用程式、服務或指令碼。
 
-針對登錄的個別存取權 (例如，當您手動將容器映像提取至您的開發工作站時)，您應該改用您自己的 [Azure AD 身分識別](container-registry-authentication.md#individual-login-with-azure-ad)進行登錄存取 (例如，使用 [az acr login][az-acr-login])。
+對於登錄的個別存取 (例如, 當您手動將容器映射提取到您的開發工作站時), 您應該改為使用自己的[Azure AD 身分識別](container-registry-authentication.md#individual-login-with-azure-ad)進行登錄存取 (例如, 使用[az acr login][az-acr-login])。
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 

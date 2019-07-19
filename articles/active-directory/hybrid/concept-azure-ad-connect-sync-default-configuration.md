@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246070"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227427"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解預設組態
 本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
@@ -71,7 +71,7 @@ ms.locfileid: "60246070"
   2. 可以在 Exchange GAL (全域通訊清單) 中找到的屬性，則會從具有 Exchange 信箱的樹系提供。
   3. 如果找不到信箱，則這些屬性可來自於任何樹系。
   4. Exchange 相關屬性 (技術屬性不會顯示在 GAL 中) 會從 `mailNickname ISNOTNULL`的樹系提供。
-  5. 如果有多個樹系會符合其中一個規則，則會使用連接器 (樹系) 的建立順序 (日期/時間) 來決定由哪個樹系提供屬性。
+  5. 如果有多個樹系會符合其中一個規則，則會使用連接器 (樹系) 的建立順序 (日期/時間) 來決定由哪個樹系提供屬性。 第一個已連線的樹系會是要同步處理的第一個樹系。 
 
 ### <a name="contact-out-of-box-rules"></a>連絡人現成可用的規則
 連絡人物件必須符合下列條件，才會進行同步處理：

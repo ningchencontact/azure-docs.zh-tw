@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a858ac84ec9181cef4703c8fe236b9a3513af9f5
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254715"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234740"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure 備份伺服器的新功能
 
@@ -25,7 +25,7 @@ MABS V3 包含下列功能︰
 藉由 MABS V2 中的 Modern Backup Storage (MBS) 功能，我們已推出工作負載感知儲存體，您可以在其中設定特定工作負載，使其根據儲存體屬性來備份到特定儲存體。 不過，完成設定後，您可能會需要將特定資料來源的備份移至其他儲存體，以最佳化資源使用率。 MABS V3 可讓您透過 [3 個步驟](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/)來遷移備份，並將其設定為儲存在不同磁碟區。
 
 ## <a name="prevent-unexpected-data-loss"></a>避免非預期的資料遺失
-在企業中，MABS 會由一組系統管理員來管理。 雖然有備份適用的儲存體指導方針，但如果提供錯誤磁碟區給 MABS 作為備份儲存體，則可能會遺失重要資料。 透過 MABS V3，您可以使用[這些 PowerShell Cmdlet](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion) 將那些磁碟區設為不可作為儲存體的磁碟區，以避免這類情形。
+在企業中，MABS 會由一組系統管理員來管理。 雖然有備份適用的儲存體指導方針，但如果提供錯誤磁碟區給 MABS 作為備份儲存體，則可能會遺失重要資料。 透過 MABS V3，您可以使用[這些 PowerShell Cmdlet](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage) 將那些磁碟區設為不可作為儲存體的磁碟區，以避免這類情形。
 
 ## <a name="custom-size-allocation"></a>自訂大小配置
 Modern Backup Storage (MBS) 耗用的儲存體很少，並且只在有需要時取用儲存體。 為達此目的，在為即將要備份的資料設定保護時，MABS 會計算該資料的大小。 不過，如果要同時備份許多檔案和資料夾 (例如備份檔案伺服器)，計算大小可能需要很長的時間。 透過 MABS V3，您可以將 MABS 設定為接受預設的磁碟區大小，而不是計算每個檔案的大小，藉此節省時間。
@@ -54,7 +54,7 @@ MABS V3 是完整版本，可以安裝在 Windows Server 2016、Windows Server 2
 
 
 > [!NOTE]
-> 
+>
 > MABS 具有和 System Center Data Protection Manager 一樣的程式碼基底。 MABS v3 相當於 Data Protection Manager 1807。
 
 ## <a name="next-steps"></a>後續步驟

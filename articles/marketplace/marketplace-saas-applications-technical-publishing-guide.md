@@ -6,13 +6,13 @@ author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445734"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876528"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
@@ -94,7 +94,7 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active 
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>使用 Azure Active Directory 啟用試用版  
 
-Microsoft 會驗證所有 Marketplace 使用者與 Azure AD，因此當已驗證的使用者透過您的試用版清單在 Marketplace 中按一下，並會重新導向至您的試用版環境，您可以將使用者佈建直接至試用版而不需要額外的登入步驟。 應用程式在驗證期間從 Azure AD 收到的權杖，包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 如需有關權杖的詳細資訊，請參閱[權杖範例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
+Microsoft 會使用 Azure AD 來驗證所有 Marketplace 使用者, 因此當已驗證的使用者按一下 Marketplace 中的試用版清單並重新導向至您的試用版環境時, 您可以將使用者直接布建到試用版, 而不需要額外的登入步驟。 應用程式在驗證期間從 Azure AD 收到的權杖，包括可用以在應用程式中建立使用者帳戶的寶貴使用者資訊，讓您將佈建體驗自動化並增加轉換的可能性。 如需有關權杖的詳細資訊，請參閱[權杖範例](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
 
 使用 Azure AD 對應用程式或試用版啟用單鍵驗證，可達到以下效果：  
 * 簡化客戶從 Marketplace 至試用版的體驗。  
@@ -104,7 +104,7 @@ Microsoft 會驗證所有 Marketplace 使用者與 Azure AD，因此當已驗證
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>向 Marketplace 證明您的 Azure Active Directory 整合  
 
-以幾個不同的方式，根據您的應用程式是單一租用戶或多租用戶，認證您的 Azure AD 整合，您不熟悉 Azure AD 同盟單一登入 (SSO)，還是已經支援它。  
+以數種不同的方式認證您的 Azure AD 整合, 視您的應用程式是單一租使用者或多租使用者, 以及您是 Azure AD 同盟單一登入 (SSO), 還是已支援它而定。  
 
 **對於多租用戶應用程式：**  
 
@@ -138,7 +138,7 @@ Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 
 | 訂用帳戶 API | 您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。 |  
 
 >[!Note]
->雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](./cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
+>雲端解決方案提供者 (CSP) 合作夥伴頻道加入宣告現已推出。  如需透過 Microsoft CSP 合作夥伴頻道行銷供應專案的詳細資訊, 請參閱[雲端解決方案提供者](./cloud-solution-providers.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如果您還沒有這麼做，請

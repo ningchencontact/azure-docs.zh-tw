@@ -10,27 +10,27 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752944"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876414"
 ---
-# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>載入並使用 Azure Machine Learning 資料準備 SDK 讀取資料
-在本文中，您將了解使用 Azure Machine Learning 資料準備 SDK 的資料載入不同的方法。  SDK 支援多個資料擷取功能，包括：
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來載入和讀取資料
+在本文中, 您會瞭解使用 Azure Machine Learning 資料準備 SDK 來載入資料的不同方法。  SDK 支援多個資料擷取功能，包括：
 
 * 使用剖析參數推斷 (編碼、分隔符號、標頭)，從許多檔案類型載入
 * 在檔案載入期間使用推斷進行類型轉換
 * MS SQL Server 和 Azure Data Lake Storage 的連線支援
 
 > [!Important]
-> 如果您要建立新的方案，請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)（預覽） 進行資料探索和準備。 資料集是資料準備供應項目來管理在 AI 解決方案中的資料集的擴充的功能 SDK 的下一個版本。
-> 如果您使用`azureml-dataprep`套件來建立資料流程，與您的轉換，而不是使用`azureml-datasets`封裝來建立資料集，您將無法供日後使用快照集或已建立版本的資料集。
+> 如果您要建立新的解決方案, 請嘗試[Azure Machine Learning 資料集](how-to-explore-prepare-data.md)(預覽), 以進行資料探索和準備。 資料集是下一版的資料準備 SDK, 提供擴充功能來管理 AI 解決方案中的資料集。
 
-下表顯示用來將資料載入從常見的檔案類型的函式的選取範圍。
+
+下表顯示用來從一般檔案類型載入資料的函數選項。
 
 | 檔案類型 | 函數 | 參考連結 |
 |-------|-------|-------|
@@ -57,7 +57,7 @@ dflow = dprep.auto_read_file(path='./data/any-file.txt')
 * 略過檔案頂端的空白記錄
 * 推斷和設定的標頭列
 
-或者，如果您知道輸入事先並想要明確控制的方式，將會剖析檔案時，使用檔案特有的函式。
+或者, 如果您事先知道檔案類型, 而且想要明確地控制剖析的方式, 請使用檔案特有的函式。
 
 ## <a name="load-text-line-data"></a>載入文字行資料
 
@@ -128,7 +128,7 @@ dflow.dtypes
 
 Azure Machine Learning 資料準備 SDK 預設不會變更您的資料類型。 您所讀取的資料來源是文字檔，因此 SDK 會以字串形式讀取所有值。 此範例中，數值資料行應該以數字的形式進行剖析。 將 `inference_arguments` 參數設定為 `InferenceArguments.current_culture()` 可自動推斷，並在檔案讀取期間轉換資料行類型。
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
@@ -178,7 +178,7 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_colu
 
 ## <a name="load-fixed-width-data-files"></a>載入固定寬度的資料檔案
 
-若要載入固定寬度檔案，您可以指定字元位移的清單。 第一個資料行一律假設為從零位移開始。
+若要載入固定寬度的檔案, 請指定字元位移清單。 第一個資料行一律假設為從零位移開始。
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
@@ -207,7 +207,7 @@ dflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 ## <a name="load-sql-data"></a>載入 SQL 資料
 
-SDK 也可以從 SQL 來源載入資料。 目前只支援 Microsoft SQL Server。 若要讀取 SQL server 中的資料，請建立[ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py)物件，其中包含連接參數。 密碼參數`MSSQLDataSource`接受[ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret)物件。 您能以兩種方式建置祕密物件：
+SDK 也可以從 SQL 來源載入資料。 目前只支援 Microsoft SQL Server。 若要從 SQL server 讀取資料, 請建立[`MSSQLDataSource`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py)包含連接參數的物件。 的 password 參數`MSSQLDataSource`會[`Secret`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret)接受物件。 您能以兩種方式建置祕密物件：
 
 * 向執行引擎註冊祕密與其值。
 * 使用 `dprep.create_secret("[SECRET-ID]")` 建立只有 `id` (若祕密值已在執行環境中註冊) 的祕密。
@@ -294,7 +294,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>取得 OAuth 存取權杖
 
-使用 `adal` 套件 (`pip install adal`) 在 MSFT 租用戶上建立驗證內容，並取得 OAuth 存取權杖。 如需 ADLS，權杖要求中的資源必須是 ' https:\//datalake.azure.net'，這是不同於大部分其他 Azure 資源。
+使用 `adal` 套件 (`pip install adal`) 在 MSFT 租用戶上建立驗證內容，並取得 OAuth 存取權杖。 針對 ADLS, 權杖要求中的資源必須是 ' HTTPs:\//datalake.azure.net ', 這與大部分的其他 azure 資源不同。
 
 ```python
 import adal
@@ -316,4 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>後續步驟
 
-* 請參閱 Azure Machine Learning 資料準備 SDK[教學課程](tutorial-data-prep.md)如需解決的特定案例的範例
+* 如需解決特定案例的範例, 請參閱 Azure Machine Learning 資料準備 SDK[教學](tutorial-data-prep.md)課程

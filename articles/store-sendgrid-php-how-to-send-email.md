@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: erikre
+ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
+ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60931223"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870919"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>如何透過 PHP 使用 SendGrid 電子郵件服務
 
@@ -117,7 +118,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 ```
 
 ### <a name="web-api"></a>Web API
-透過 PHP 的 [curl 函式][curl function]使用 SendGrid Web API 傳送電子郵件。
+透過 PHP 的 [curl 函數][curl function] 使用 SendGrid Web API 傳送電子郵件。
 
 ```php
 <?php

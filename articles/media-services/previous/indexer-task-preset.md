@@ -12,14 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: adsolank
-ms.reviewer: juliako
-ms.openlocfilehash: 129694edacb390aa62c061941810b8c98be7e96c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: juliako
+ms.openlocfilehash: a9a47f970f0f934e0953bd5e2d6e5575758a9c1c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619152"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873494"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Azure 媒體索引器的工作預設 
 
@@ -31,7 +30,7 @@ Azure 媒體索引器是您執行下列工作所使用的媒體處理器：使�
 
 下表說明設定 XML 的項目和屬性。
 
-|名稱|必要|說明|
+|名稱|必要|描述|
 |---|---|---|
 |輸入|true|您想要編製索引的資產檔案。<br/>Azure 媒體索引器支援下列媒體檔案格式︰MP4、MOV、WMV、MP3、M4A、WMA、AAC、WAV。 <br/><br/>您可以在 **input** 項目的 **name** 或 **list** 屬性中指定檔案名稱 (如下所示)。 如不指定要編製索引的資產檔案，就會挑選主要檔案。 如果未設定主要資產檔案，則會對輸入資產中的第一個檔案編製索引。<br/><br/>若要明確指定資產檔案名稱，請執行︰<br/>```<input name="TestFile.wmv" />```<br/><br/>您也可以一次對多個資產檔案編制索引 (最多 10 個檔案)。 作法：<br/>- 建立文字檔 (資訊清單檔) 並指定 .lst 副檔名。<br/>- 將輸入資產中所有資產檔案名稱的清單新增至此資訊清單檔案。<br/>- 將資訊檔案新增 (上傳) 到資產。<br/>- 在輸入的 list 屬性中指定資訊清單檔的名稱。<br/>```<input list="input.lst">```<br/><br/>**注意：** 如果您在資訊清單檔中新增超過 10 個檔案，編製索引作業將失敗，並出現 2006 錯誤碼。|
 |中繼資料|false|所指定資產檔案的中繼資料。<br/>```<metadata key="..." value="..." />```<br/><br/>您可以提供預先定義的索引鍵值。 <br/><br/>目前支援下列索引鍵：<br/><br/>**標題**和**描述** - 用來更新語言模型，以改善語音辨識準確度。<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**使用者名稱**和**密碼** - 透過 http 或 https 下載網際網路檔案時用於驗證。<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>使用者名稱和密碼值會套用至輸入資訊清單中的所有媒體 URL。|

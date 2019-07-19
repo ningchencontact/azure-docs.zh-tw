@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca03c8d52de1580b755833dd990d1d7671f372ca
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785705"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276779"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 程式碼範例 (v1.0 端點)
 
@@ -46,8 +46,8 @@ ms.locfileid: "67785705"
 
  平台 | 呼叫它自己的 API | 呼叫其他 Web API
  -------- |  --------------------- | ------------------ 
-![下圖顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
-![此影像會顯示 Angular JS 標誌](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
+![此圖顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+![此圖顯示角度 JS 標誌](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="web-applications"></a>Web 應用程式
 
@@ -57,11 +57,11 @@ ms.locfileid: "67785705"
 
  平台 | 僅登入使用者 | 呼叫 Microsoft Graph 或 AAD Graph| 呼叫其他 ASP.NET 或 ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------- | -------------------------
-![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp-openidconnect-dotnet](quickstart-v1-aspnet-webapp.md) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
-![下圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
-![下圖顯示 Java 記錄檔](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
-![下圖顯示 PHP 標誌](media/sample-v2-code/logo_php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
+![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
+![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp-openidconnect-dotnet](quickstart-v1-aspnet-webapp.md) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
+![此圖顯示 Python 標誌](media/sample-v2-code/logo_python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
+![此圖顯示 JAVA 記錄檔](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
+![此圖顯示 PHP 標誌](media/sample-v2-code/logo_php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>示範角色型存取控制 (授權) 的 Web 應用程式
 
@@ -69,36 +69,36 @@ ms.locfileid: "67785705"
 
 平台 | 範例 |
  -------- | ------------------- |
-![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色**進行授權的 .NET 4.5 MVC Web 應用程式
+![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色**進行授權的 .NET 4.5 MVC Web 應用程式
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>呼叫 Microsoft Graph 或 Web API 的桌上型與行動裝置公開用戶端應用程式
 
-下列範例會說明存取 Microsoft Graph 或 Web API 的使用者名稱的公用用戶端應用程式 （deskto/pmobile 應用程式）。 視裝置及平台而定，應用程式可以使用不同的方式 (流程/授與) 將使用者登入：
+下列範例說明以使用者名稱存取 Microsoft Graph 或 Web API 的公用用戶端應用程式 (deskto/pmobile 應用程式)。 視裝置及平台而定，應用程式可以使用不同的方式 (流程/授與) 將使用者登入：
 
-- 以互動方式
-- 以無訊息方式 （使用 Windows，或使用者名稱/密碼的整合式 Windows 驗證）
-- 委派的互動式登入至另一個裝置 （未提供 web 控制項的裝置上使用裝置程式碼流程）
+- 交流
+- 無訊息模式 (在 Windows 上使用整合式 Windows 驗證, 或使用者名稱/密碼)
+- 將互動式登入委派給另一個裝置 (裝置上使用的裝置程式碼流程不提供 web 控制項)
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET 或 ASP.NET Core 2.x Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-桌上型 (WPF)           | ![下圖顯示.NET /C#標誌](media/sample-v2-code/logo_NET.png)  | 互動式 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) 的一部分 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-行動裝置 (UWP)            | 。![下圖顯示.NET /C#/UWP](media/sample-v2-code/logo_Windows.png)   | 互動式 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 這個範例會使用 [WAM](/windows/uwp/security/web-account-manager)，而非 [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (使用 ADAL.NET 呼叫單一租用戶 Web API 的 UWP 應用程式) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (使用 ADAL.NET 呼叫多租用戶 Web API 的 UWP 應用程式)|
-行動裝置 (Android、iOS、UWP)   | ![下圖顯示.NET /C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | 互動式 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
-行動裝置 (Android)           | ![下圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | 互動式 |   [android](https://github.com/Azure-Samples/active-directory-android) |
-行動裝置 (iOS)           | ![下圖顯示 iOS / OBJECTIVE-C 或 Swift](media/sample-v2-code/logo_iOS.png) | 互動式 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-桌上型 (主控台)          | ![下圖顯示.NET /C#標誌](media/sample-v2-code/logo_NET.png) | 使用者名稱/密碼 </p>  整合式 Windows 驗證 | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
-桌上型 (主控台)          | ![下圖顯示 Java 標誌](media/sample-v2-code/logo_Java.png) | 使用者名稱/密碼 | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-桌上型 (主控台)           | ![下圖顯示.NET Core /C#標誌](media/sample-v2-code/logo_NETcore.png) | 裝置程式碼流程 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+桌上型 (WPF)           | ![此圖顯示 .NET/C#標誌](media/sample-v2-code/logo_NET.png)  | 互動式 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) 的一部分 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+行動裝置 (UWP)            | .![此圖顯示 .NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | 互動式 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 這個範例會使用 [WAM](/windows/uwp/security/web-account-manager)，而非 [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (使用 ADAL.NET 呼叫單一租用戶 Web API 的 UWP 應用程式) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (使用 ADAL.NET 呼叫多租用戶 Web API 的 UWP 應用程式)|
+行動裝置 (Android、iOS、UWP)   | ![此圖顯示 .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | 互動式 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+行動裝置 (Android)           | ![此圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | 互動式 |   [android](https://github.com/Azure-Samples/active-directory-android) |
+行動裝置 (iOS)           | ![此圖顯示 iOS/目標 C 或 Swift](media/sample-v2-code/logo_iOS.png) | 互動式 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
+桌上型 (主控台)          | ![此圖顯示 .NET/C#標誌](media/sample-v2-code/logo_NET.png) | 使用者名稱/密碼 </p>  整合式 Windows 驗證 | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+桌上型 (主控台)          | ![此圖顯示 JAVA 標誌](media/sample-v2-code/logo_Java.png) | 使用者名稱/密碼 | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
+桌上型 (主控台)           | ![此圖顯示 .NET Core/C#標誌](media/sample-v2-code/logo_NETcore.png) | 裝置程式碼流程 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
-## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>（存取 web Api 應用程式的身分識別） 的精靈應用程式
+## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon 應用程式 (以應用程式的身分識別存取 web Api)
 
 下列範例的桌上型或 Web 應用程式會以應用程式識別碼 (無使用者) 來存取 Microsoft Graph 或 Web API。
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 ASP.NET 或 ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- 
-精靈應用程式 (主控台)          | ![下圖顯示.NET 標誌](media/sample-v2-code/logo_NETframework.png) | 使用應用程式祕密或憑證的用戶端認證 | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
-精靈應用程式 (主控台)         | ![下圖顯示.NET 標誌](media/sample-v2-code/logo_NETcore.png) | 使用憑證的用戶端認證| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
-ASP.NET Web 應用程式  | ![下圖顯示.NET 標誌](media/sample-v2-code/logo_NETframework.png) | 用戶端認證 | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
+精靈應用程式 (主控台)          | ![此圖顯示 .NET 標誌](media/sample-v2-code/logo_NETframework.png) | 使用應用程式祕密或憑證的用戶端認證 | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
+精靈應用程式 (主控台)         | ![此圖顯示 .NET 標誌](media/sample-v2-code/logo_NETcore.png) | 使用憑證的用戶端認證| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
+ASP.NET Web 應用程式  | ![此圖顯示 .NET 標誌](media/sample-v2-code/logo_NETframework.png) | 用戶端認證 | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
 ## <a name="web-apis"></a>Web API
 
@@ -110,15 +110,15 @@ ASP.NET Web 應用程式  | ![下圖顯示.NET 標誌](media/sample-v2-code/logo
 
 | 平台 | 範例 |
 |--------|-------------------|
-| ![下圖顯示 Node.js 標誌](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi) |
+| ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi) |
 
 ### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>呼叫 Microsoft Graph 或其他 Web API 的 Web API
 
-下列範例顯示呼叫其他 Web API 的 Web API。 第二個範例示範如何處理條件式存取。
+下列範例顯示呼叫其他 Web API 的 Web API。 第二個範例顯示如何處理條件式存取。
 
 | 平台 |  呼叫 Microsoft Graph | 呼叫其他 ASP.NET 或 ASP.NET Core 2.0 Web API |
 | -------- |  --------------------- | ------------------------- |
-| ![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
+| ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例
 

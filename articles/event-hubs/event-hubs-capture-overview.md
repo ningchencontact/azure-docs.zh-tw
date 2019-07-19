@@ -15,20 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 96b9d90ce942b7755feae8298a408f46f20bf04d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461681"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326172"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>透過 Azure 事件中樞在 Azure Blob 儲存體或 Azure Data Lake Storage 中擷取事件
 Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-scalability.md#throughput-units)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
 
 事件中樞擷取可讓您在相同資料流上處理即時和批次型的管線。 這表示您可以建置會隨時間配合需求成長的解決方案。 不論您現在是要建置著眼於未來即時處理的批次型系統，或想要為現有即時解決方案新增有效率的冷路徑，事件中樞擷取都可以讓使用串流資料變得更簡單。
-
-> [!NOTE]
-> 目前，事件中樞擷取功能會支援僅 Gen 1 的 Azure Data Lake Store，不 Gen 2。 
 
 ## <a name="how-event-hubs-capture-works"></a>事件中樞擷取的運作方式
 
@@ -36,7 +33,7 @@ Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選�
 
 事件中樞擷取可讓您指定自己的 Azure Blob 儲存體帳戶和容器，或是 Azure Data Lake Store 帳戶，可用來儲存擷取的資料。 這些帳戶可以和事件中樞位於相同區域，也可以位於另一個區域，從而新增至事件中樞擷取功能的彈性。
 
-擷取的資料以[Apache Avro][Apache Avro]格式： 可使用內嵌結構描述提供豐富的資料結構的精簡、 快速、 二進位格式。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。 關於使用 Avro 的詳細資訊可在本文稍後看到。
+已捕獲的資料會以[Apache Avro][Apache Avro]格式寫入: 精簡、快速、二進位格式, 可提供具有內嵌架構的豐富資料結構。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。 關於使用 Avro 的詳細資訊可在本文稍後看到。
 
 ### <a name="capture-windowing"></a>擷取範圍
 
@@ -52,11 +49,11 @@ Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選�
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
-您的 Azure 儲存體 blob 是暫時無法使用，則事件中樞擷取會在事件中樞上設定資料保留期限內保留您的資料和背景填滿資料，一旦您的儲存體帳戶恢復可用狀態時。
+如果您的 Azure 儲存體 blob 暫時無法使用, 事件中樞 Capture 會保留您的資料, 以供您的事件中樞上所設定的資料保留期間使用, 然後在您的儲存體帳戶再次可用時, 再填滿資料。
 
 ### <a name="scaling-to-throughput-units"></a>調整至輸送量單位
 
-事件中樞的流量會受到 [輸送量單位](event-hubs-scalability.md#throughput-units)控制。 單一輸送量單位可允許每秒 1 MB 或每秒 1000 個事件的輸入，輸出則為此數量的兩倍。 標準事件中樞可以設定為 1-20 個輸送量單位，以及您可以購買更多透過增加配額[支援要求][support request]。 超過所購買輸送量單位的使用量將遭到節流。 事件中樞擷取會直接從內部的事件中樞儲存體複製資料，略過輸送量單位輸出配額，並將輸出節省下來以供串流分析或 Spark 等其他處理讀取器使用。
+事件中樞的流量會受到 [輸送量單位](event-hubs-scalability.md#throughput-units)控制。 單一輸送量單位可允許每秒 1 MB 或每秒 1000 個事件的輸入，輸出則為此數量的兩倍。 標準事件中樞可以使用1-20 輸送量單位來設定, 而且您可以購買更多的配額增加[支援要求][support request]。 超過所購買輸送量單位的使用量將遭到節流。 事件中樞擷取會直接從內部的事件中樞儲存體複製資料，略過輸送量單位輸出配額，並將輸出節省下來以供串流分析或 Spark 等其他處理讀取器使用。
 
 一旦設定，事件中樞擷取會在您傳送第一個事件時自動執行，並且持續執行。 為了讓下游處理更輕鬆地知道處理程序正在運作，事件中樞會在沒有資料時寫入空白檔案。 這個程序會提供可預測的頻率和標記，以供饋送給批次處理器。
 
@@ -76,11 +73,11 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ![Avro 結構描述][3]
 
-瀏覽 Avro 檔案的簡單方式是使用[Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill]的 SQL 驅動體驗的輕量型或[Apache Spark][Apache Spark]執行複雜分散式處理內嵌的資料。 
+探索 Avro 檔案的簡單方式是使用[Avro 工具][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill]來取得輕量的 SQL 驅動體驗, 或[Apache Spark][Apache Spark]在內嵌資料上執行複雜的分散式處理。 
 
 ### <a name="use-apache-drill"></a>使用 Apache Drill
 
-[Apache Drill][Apache Drill]是 「 開放原始碼 SQL 查詢引擎進行巨量資料瀏覽 「 可查詢結構化及半結構化資料的位置。 引擎可以獨立節點或大型叢集形式執行，以獲得絕佳的效能。
+[Apache 演練][Apache Drill]是「大型資料探索的開放原始碼 SQL 查詢引擎」, 可以隨時查詢結構化和半結構化資料。 引擎可以獨立節點或大型叢集形式執行，以獲得絕佳的效能。
 
 Azure Blob 儲存體的原生支援可以使用，使得在 Avro 檔案中查詢資料變得容易，如文件中所述：
 
@@ -96,14 +93,14 @@ https://github.com/yorek/apache-drill-azure-blob
 
 ### <a name="use-apache-spark"></a>使用 Apache Spark
 
-[Apache Spark][Apache Spark]是 「 統一的分析引擎進行大規模資料處理。 」 它支援不同的語言 (包括 SQL)，而且可以輕鬆地存取 Azure Blob 儲存體。 有兩個選項可以在 Azure 中執行 Apache Spark，兩者都提供 Azure Blob 儲存體的輕鬆存取：
+[Apache Spark][Apache Spark]是「適用于大規模資料處理的整合分析引擎」。 它支援不同的語言 (包括 SQL)，而且可以輕鬆地存取 Azure Blob 儲存體。 有兩個選項可以在 Azure 中執行 Apache Spark，兩者都提供 Azure Blob 儲存體的輕鬆存取：
 
-- [HDInsight：定址 Azure 儲存體中的檔案][HDInsight: Address files in Azure storage]
+- [HDInsight：Azure 儲存體中的位址檔案][HDInsight: Address files in Azure storage]
 - [Azure Databricks：Azure Blob 儲存體][Azure Databricks: Azure Blob Storage]
 
 ### <a name="use-avro-tools"></a>使用 Avro Tools
 
-[Avro Tools][Avro Tools]是 jar 套件形式提供。 下載 jar 檔案之後，您可以執行下列命令來查看特定 Avro 檔案的結構描述︰
+[Avro 工具][Avro Tools]是以 jar 套件的形式提供。 下載 jar 檔案之後，您可以執行下列命令來查看特定 Avro 檔案的結構描述︰
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -132,13 +129,13 @@ java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 
 若要執行更進階的處理，請下載並安裝您所選平台適用的 Avro。 在本文撰寫當下，已有適用於 C、C++、C\#、Java、NodeJS、Perl、PHP、Python 和 Ruby 的實作。
 
-Apache Avro 已完成快速入門指南[Java][Java] and [Python][Python]。 您也可以閱讀[開始使用事件中樞擷取](event-hubs-capture-python.md)一文。
+Apache Avro 已完成適用于[JAVA][Java] and [Python][Python]的消費者入門指南。 您也可以閱讀[開始使用事件中樞擷取](event-hubs-capture-python.md)一文。
 
 ## <a name="how-event-hubs-capture-is-charged"></a>事件中樞擷取的收費方式
 
 事件中樞擷取的計量方式類似輸送量單位，屬於每小時的費用。 其費用與命名空間所購買的輸送量單位數目成正比。 當輸送量單位增加和減少時，事件中樞擷取也會增加和減少以提供相符的效能。 計量會串聯地發生。 如需定價詳細資訊，請參閱[事件中樞定價](https://azure.microsoft.com/pricing/details/event-hubs/)。 
 
-請注意，擷取不會使用輸出配額，就會分開計費。 
+請注意, Capture 不會耗用輸出配額, 因為它會分開計費。 
 
 ## <a name="integration-with-event-grid"></a>事件格線整合 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 951c244d7f7d037c8d2ae117f36c18acd902436f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144399"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850061"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -41,7 +41,7 @@ ms.locfileid: "67144399"
 |CrlCheckingFlag|單位，預設值為 0x40000000 |動態| 應用程式/服務信任鏈結驗證旗標，例如 CRL 檢查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 設定為 0 會停用 CRL 檢查。CertGetCertificateChain 的 dwFlags 會記載完整的支援值清單： https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 120 |動態|以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
 |ForwardClientCertificate|布林值，預設值為 FALSE|動態|當設為 false 時，反向 Proxy 將不會要求用戶端憑證。當設為 true 時，則反向 Proxy 將會在 SSL 交換期間要求用戶端憑證，並將採用 Base 64 編碼的 PEM 格式字串轉送至名為 X-Client-Certificate 標頭中的服務。這個服務在檢查憑證資料之後，可能會讓要求失敗，並包含適當的狀態碼。 如果為 true 且用戶端未出示憑證，反向 Proxy 會轉送空白標頭，以讓服務處理這種情況。 反向 Proxy 將作為透明圖層。 若要深入了解，請參閱[設定用戶端憑證驗證](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)。 |
-|GatewayAuthCredentialType |字串，預設值為 "None" |Static| 表示要在 http 應用程式閘道端點有效的值中使用的安全性認證類型為 None / X509。 |
+|GatewayAuthCredentialType |字串，預設值為 "None" |Static| 指出要在 HTTP 應用程式閘道端點上使用的安全性認證類型, 有效值為 None/X509。 |
 |GatewayX509CertificateFindType |字串，預設值為 "FindByThumbprint" |動態| 指出如何搜尋以下列 GatewayX509CertificateStoreName 支援值指定之存放區中的憑證︰FindByThumbprint、FindBySubjectName。 |
 |GatewayX509CertificateFindValue | 字串，預設值為 "" |動態| 搜尋用來找出 http 應用程式閘道憑證的篩選值。 此憑證設定於 https 端點上，如果服務需要，也可用來驗證應用程式的身分識別。 首先會查閱 FindValue，如果不存在，則會查閱 FindValueSecondary。 |
 |GatewayX509CertificateFindValueSecondary | 字串，預設值為 "" |動態|搜尋用來找出 http 應用程式閘道憑證的篩選值。 此憑證設定於 https 端點上，如果服務需要，也可用來驗證應用程式的身分識別。 首先會查閱 FindValue，如果不存在，則會查閱 FindValueSecondary。|
@@ -75,6 +75,7 @@ ms.locfileid: "67144399"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
+|AllowCustomUpgradeSortPolicies | 布林值，預設值為 false |動態|是否允許自訂升級排序原則。 這是用來執行啟用這項功能的2階段升級。 Service Fabric 6.5 新增在叢集或應用程式升級期間為升級網域指定排序原則的支援。 支援的原則為數值、字典、ReverseNumeric 和 ReverseLexicographical。 預設值為數值。 若要能夠使用這項功能, 在 SF 6.5 程式碼完成升級之後, 叢集資訊清單設定 ClusterManager/AllowCustomUpgradeSortPolicies 必須設為 True, 做為第二個設定升級步驟。 請務必在兩個階段完成這項作業, 否則程式碼升級可能會在第一次升級期間與升級順序混淆。|
 |EnableDefaultServicesUpgrade | 布林值，預設值為 false |動態|在應用程式升級期間啟用預設服務升級作業。 在升級之後，將會覆寫預設的服務描述。 |
 |FabricUpgradeHealthCheckInterval |時間 (秒)，預設值為 60 |動態|受監視網狀架構升級期間的健康狀態檢查頻率 |
 |FabricUpgradeStatusPollInterval |時間 (秒)，預設值為 60 |動態|輪詢網狀架構升級狀態的頻率。 此值決定任何 GetFabricUpgradeProgress 呼叫的更新速率 |
@@ -87,15 +88,15 @@ ms.locfileid: "67144399"
 |MaxDataMigrationTimeout |時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 在網狀架構升級之後，資料移轉復原作業的逾時上限。 |
 |MaxOperationRetryDelay |時間 (秒)，預設值為 5|動態| 以秒為單位指定時間範圍。 發生失敗時的內部重試延遲上限。 |
 |MaxOperationTimeout |時間 (秒)，預設值為 MaxValue |動態| 以秒為單位指定時間範圍。 在 ClusterManager 上內部處理作業的全域逾時上限。 |
-|MaxTimeoutRetryBuffer | 時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 在內部重試因逾時的最大的作業逾時是`<Original Time out> + <MaxTimeoutRetryBuffer>`。 會以 MinOperationTimeout 增量來加上額外的逾時。 |
+|MaxTimeoutRetryBuffer | 時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 因超時而在內部重試時的最大`<Original Time out> + <MaxTimeoutRetryBuffer>`作業超時時間為。 會以 MinOperationTimeout 增量來加上額外的逾時。 |
 |MinOperationTimeout | 時間 (秒)，預設值為 60 |動態|以秒為單位指定時間範圍。 在 ClusterManager 上內部處理作業的全域逾時下限。 |
 |MinReplicaSetSize |整數，預設值為 3 |不允許|ClusterManager 的 MinReplicaSetSize。 |
 |PlacementConstraints | 字串，預設值為 "" |不允許|ClusterManager 的 PlacementConstraints。 |
 |QuorumLossWaitDuration |時間 (秒)，預設值為 MaxValue |不允許| 以秒為單位指定時間範圍。 ClusterManager 的 QuorumLossWaitDuration。 |
-|ReplicaRestartWaitDuration |時間 (秒)，預設值為 (60.0 * 30)|不允許|以秒為單位指定時間範圍。 ClusterManager 的 ReplicaRestartWaitDuration。 |
+|ReplicaRestartWaitDuration |時間 (秒), 預設值為\* (60.0 30)|不允許|以秒為單位指定時間範圍。 ClusterManager 的 ReplicaRestartWaitDuration。 |
 |ReplicaSetCheckTimeoutRollbackOverride |時間 (秒)，預設值為 1200 |動態| 以秒為單位指定時間範圍。 如果 ReplicaSetCheckTimeout 設為 DWORD 的最大值，則會以此組態的值加以覆寫以便進行復原。 向前復原所使用的值絕不會遭到覆寫。 |
 |SkipRollbackUpdateDefaultService | 布林值，預設值為 false |動態|CM 會在應用程式升級復原期間，略過已更新之預設服務的還原作業。 |
-|StandByReplicaKeepDuration | 時間 (秒)，預設值為 (3600.0 * 2)|不允許|以秒為單位指定時間範圍。 ClusterManager 的 StandByReplicaKeepDuration。 |
+|StandByReplicaKeepDuration | 時間 (秒), 預設值為\* (3600.0 2)|不允許|以秒為單位指定時間範圍。 ClusterManager 的 StandByReplicaKeepDuration。 |
 |TargetReplicaSetSize |整數，預設值為 7 |不允許|ClusterManager 的 TargetReplicaSetSize。 |
 |UpgradeHealthCheckInterval |時間 (秒)，預設值為 60 |動態|受監視應用程式升級期間的健康狀態檢查頻率 |
 |UpgradeStatusPollInterval |時間 (秒)，預設值為 60 |動態|輪詢應用程式升級狀態的頻率。 此值決定任何 GetApplicationUpgradeProgress 呼叫的更新速率 |
@@ -119,25 +120,26 @@ ms.locfileid: "67144399"
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
-|PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|藉由指定一個範圍的百分比 [0.0-1.0) 或將空節點的數目指定為 >= 1.0 的數字，來決定要將叢集視為已重組所需具有的可用節點數目 |
+|PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|藉由指定範圍 [0.0-1.0] 中的百分比或空節點的數目作為數位 > = 1.0, 來決定需要考慮重組叢集的可用節點數目 |
 
 ## <a name="diagnostics"></a>診斷
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|AdminOnlyHttpAudit |布林值，預設值為 true | 動態 | 排除不會影響叢集的稽核狀態的 HTTP 要求。 目前;只有 「 取得 」 類型的要求會排除;但這有可能變更。 |
+|AdminOnlyHttpAudit |布林值，預設值為 true | 動態 | 排除不會影響叢集狀態的 HTTP 要求。 已經只會排除 "GET" 類型的要求;但這有可能變更。 |
 |AppDiagnosticStoreAccessRequiresImpersonation |布林值，預設值為 true | 動態 |在代表應用程式存取診斷存放區時是否需要模擬。 |
 |AppEtwTraceDeletionAgeInDays |整數，預設值為 3 | 動態 |天數，在此時間過後便會刪除含有應用程式 ETW 追蹤的舊有 ETL 檔案。 |
 |ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
-|AuditHttpRequests |布林值，預設值為 false | 動態 | 開啟 HTTP 稽核開啟或關閉。 稽核的目的是要查看已針對叢集; 執行的活動包括起始要求的使用者。 請注意，這是最佳的嘗試記錄;而追蹤遺失可能會發生。 使用 「 使用者 」 驗證的 HTTP 要求未在記錄中。 |
-|CaptureHttpTelemetry|布林值，預設值為 false | 動態 | 開啟或關閉，請開啟 HTTP 遙測。 遙測的目的是要能夠擷取遙測資料，以協助規劃未來的工作，並找出問題區域的 Service fabric。 遙測資料不會記錄任何個人資料或要求主體。 遙測會擷取所有 HTTP 要求，除非否則設定。 |
+|AuditHttpRequests |布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 審核。 「審核」的目的是要查看針對叢集執行的活動;包括起始要求的物件。 請注意, 這是最佳的嘗試記錄;而且可能會發生追蹤遺失的情況。 不會記錄具有「使用者」驗證的 HTTP 要求。 |
+|CaptureHttpTelemetry|布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 遙測。 遙測的目的是要讓 Service Fabric 能夠捕獲遙測資料, 以協助規劃未來的工作並找出問題區域。 遙測不會記錄任何個人資料或要求主體。 除非另有設定, 否則遙測會捕捉所有 HTTP 要求。 |
 |ClusterId |字串 | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
 |ConsumerInstances |字串 | 動態 |DCA 取用者執行個體的清單。 |
 |DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 |EnableCircularTraceSession |布林值，預設值為 false | Static |旗標會指出是否應使用循環追蹤工作階段。 |
+|EnablePlatformEventsFileSink |布林值，預設值為 false | Static |啟用/停用寫入磁片的平臺事件 |
 |EnableTelemetry |布林值，預設值為 true | 動態 |這會用來啟用或停用遙測。 |
-|FailuresOnlyHttpTelemetry | 布林值，預設值為 true | 動態 | 如果已啟用遙測擷取，HTTP擷取失敗的要求。 這是為了幫助減少產生的遙測事件數目。 |
-|HttpTelemetryCapturePercentage | 整數，預設值為 50 | 動態 | 如果已啟用遙測擷取，HTTP擷取只隨機的要求百分比。 這是為了幫助減少產生的遙測事件數目。 |
+|FailuresOnlyHttpTelemetry | 布林值，預設值為 true | 動態 | 如果已啟用 HTTP 遙測捕捉, 則為,只捕捉失敗的要求。 這是為了協助減少針對遙測產生的事件數目。 |
+|HttpTelemetryCapturePercentage | 整數, 預設值為50 | 動態 | 如果已啟用 HTTP 遙測捕捉, 則為,只捕捉隨機百分比的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
 |ProducerInstances |字串 | 動態 |DCA 產生者執行個體的清單。 |
 
@@ -164,7 +166,7 @@ ms.locfileid: "67144399"
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |時間 (秒)，預設值為 2 |動態|以秒為單位指定時間範圍。 用戶端每次嘗試開啟閘道連線的連線逾時間隔。|
 |HealthOperationTimeout |時間 (秒)，預設值為 120 |動態|以秒為單位指定時間範圍。 傳送至健康狀態管理員之報告訊息的逾時值。 |
-|HealthReportRetrySendInterval |時間 （秒），預設值為 30，最小值為 1 |動態|以秒為單位指定時間範圍。 報告至健康狀態管理員建立的報告元件重新傳送累積的健康狀態的間隔。 |
+|HealthReportRetrySendInterval |時間 (秒), 預設值為 30, 最小值為1 |動態|以秒為單位指定時間範圍。 報告元件將累積的健康狀態報表重新傳送至健康狀態管理員的間隔時間。 |
 |HealthReportSendInterval |時間 (秒)，預設值為 30 |動態|以秒為單位指定時間範圍。 報告元件傳送累積的健康狀態報告至健康狀態管理員的間隔時間。 |
 |KeepAliveIntervalInSeconds |整數，預設值為 20 |Static|FabricClient 傳輸將 Keep-Alive 訊息傳送至閘道的間隔時間。 若為 0，keepAlive 會停用。 必須是正值。 |
 |MaxFileSenderThreads |單位，預設值為 10 |Static|以平行方式傳輸的檔案數上限。 |
@@ -214,25 +216,26 @@ ms.locfileid: "67144399"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
+|AllowNodeStateRemovedForSeedNode|布林值，預設值為 FALSE |動態|表示是否允許移除種子節點之節點狀態的旗標 |
 |BuildReplicaTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600)|動態|以秒為單位指定時間範圍。 用來建置具狀態複本的時間限制，此時間過後，便會起始警告健康情況報告 |
 |ClusterPauseThreshold|整數，預設值為 1|動態|如果系統中的節點數目低於此值，則進行放置、負載平衡並停止容錯移轉。 |
 |CreateInstanceTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 用來建立無狀態執行個體的時間限制，此時間過後，便會起始警告健康情況報告 |
 |ExpectedClusterSize|整數，預設值為 1|動態|當叢集一開始啟動時，FM 會等候這諸多節點回報其已啟動後，再放置其他服務，包括命名之類的系統服務。 增加此值會讓叢集所需的啟動時間增加，但可避免較早啟動的節點負載過度，並避免因為有更多節點上線而需要進行其他動作。 一般來說，這個值應該設為初始叢集大小的一小部分。 |
-|ExpectedNodeDeactivationDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60.0 * 30)|動態|以秒為單位指定時間範圍。 這是節點用來完成停用的預期持續時間。 |
-|ExpectedNodeFabricUpgradeDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60.0 * 30)|動態|以秒為單位指定時間範圍。 這是在 Windows Fabric 升級期間，用來升級節點的預期持續時間。 |
-|ExpectedReplicaUpgradeDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60.0 * 30)|動態|以秒為單位指定時間範圍。 這是在應用程式升級期間，用來升級節點上所有複本的預期持續時間。 |
+|ExpectedNodeDeactivationDuration|TimeSpan, 預設值為 Common:: TimeSpan:: FromSeconds ( \* 60.0 30)|動態|以秒為單位指定時間範圍。 這是節點用來完成停用的預期持續時間。 |
+|ExpectedNodeFabricUpgradeDuration|TimeSpan, 預設值為 Common:: TimeSpan:: FromSeconds ( \* 60.0 30)|動態|以秒為單位指定時間範圍。 這是在 Windows Fabric 升級期間，用來升級節點的預期持續時間。 |
+|ExpectedReplicaUpgradeDuration|TimeSpan, 預設值為 Common:: TimeSpan:: FromSeconds ( \* 60.0 30)|動態|以秒為單位指定時間範圍。 這是在應用程式升級期間，用來升級節點上所有複本的預期持續時間。 |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|布林值，預設值為 TRUE|動態|如果設為 true，則會允許目標複本集大小為 1 的複本在升級期間移動。 |
 |MinReplicaSetSize|整數，預設值為 3|不允許|這是 FM 的最小複本集大小。 如果作用中 FM 複本數目低於此值，FM 會拒絕對叢集所做的變更，直到複本數目至少恢復到最小值 |
 |PlacementConstraints|字串，預設值為 ""|不允許|容錯移轉管理員複本的任何放置條件約束 |
 |PlacementTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(600)|動態|以秒為單位指定時間範圍。 用來觸達目標複本計數的時間限制，此時間過後，便會起始警告健康情況報告 |
 |QuorumLossWaitDuration |時間 (秒)，預設值為 MaxValue |動態|以秒為單位指定時間範圍。 這是資料分割可處於仲裁遺失狀態的持續時間上限。 如果此持續時間過後，資料分割仍處於仲裁遺失狀態，則會以將停止運作的複本視為遺失的方式，讓資料分割從仲裁遺失狀態復原。 請注意，這可能會造成資料遺失。 |
 |ReconfigurationTimeLimit|時間範圍，預設值為 Common::TimeSpan::FromSeconds(300)|動態|以秒為單位指定時間範圍。 重新設定的時間限制，此時間過後，便會起始警告健康情況報告 |
-|ReplicaRestartWaitDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(60.0 * 30)|不允許|以秒為單位指定時間範圍。 這是 FMService 的 ReplicaRestartWaitDuration |
-|StandByReplicaKeepDuration|時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|不允許|以秒為單位指定時間範圍。 這是 FMService 的 StandByReplicaKeepDuration |
+|ReplicaRestartWaitDuration|TimeSpan, 預設值為 Common:: TimeSpan:: FromSeconds ( \* 60.0 30)|不允許|以秒為單位指定時間範圍。 這是 FMService 的 ReplicaRestartWaitDuration |
+|StandByReplicaKeepDuration|Timespan, 預設值為 Common:: TimeSpan:: FromSeconds ( \* 3600.0 \* 24 7)|不允許|以秒為單位指定時間範圍。 這是 FMService 的 StandByReplicaKeepDuration |
 |TargetReplicaSetSize|整數，預設值為 7|不允許|這是 Windows Fabric 會維護的 FM 複本目標數目。 數字越高，FM 資料的可靠性越高，而交換條件則是損失少許效能。 |
 |UserMaxStandByReplicaCount |整數，預設值為 1 |動態|系統針對使用者服務所保留之待命複本的預設數目上限。 |
-|UserReplicaRestartWaitDuration |時間 (秒)，預設值為 60.0 * 30 |動態|以秒為單位指定時間範圍。 當保存的複本停止運作時，Windows Fabric 會先在這段持續時間內等候複本恢復運作，不行的話再建立新的取代複本 (這需要狀態複本)。 |
-|UserStandByReplicaKeepDuration |時間 (秒)，預設值為 3600.0 * 24 * 7 |動態|以秒為單位指定時間範圍。 當保存的複本從停止運作狀態恢復過來，它可能已被取代。 此計時器會決定 FM 會將待命複本保留多久才予以捨棄。 |
+|UserReplicaRestartWaitDuration |時間 (秒), 預設值\*為 60.0 30 |動態|以秒為單位指定時間範圍。 當保存的複本停止運作時，Windows Fabric 會先在這段持續時間內等候複本恢復運作，不行的話再建立新的取代複本 (這需要狀態複本)。 |
+|UserStandByReplicaKeepDuration |時間 (秒)，預設值為 3600.0 \* 24 \* 7 |動態|以秒為單位指定時間範圍。 當保存的複本從停止運作狀態恢復過來，它可能已被取代。 此計時器會決定 FM 會將待命複本保留多久才予以捨棄。 |
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
@@ -271,6 +274,11 @@ ms.locfileid: "67144399"
 |CommonName2Ntlmx509StoreLocation|字串，預設值為 "LocalMachine"| Static|使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區位置 |
 |CommonName2Ntlmx509StoreName|字串，預設值為 "MY"|Static| 使用 NTLM 驗證時，用來在 CommonName2NtlmPasswordSecret 上產生 HMAC 之 X509 憑證的存放區名稱 |
 |CommonNameNtlmPasswordSecret|SecureString，預設值為 Common::SecureString("")| Static|使用 NTLM 驗證時，用來做為種子以產生相同密碼的密碼祕密 |
+|DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, 預設值為 Common:: TimeSpan:: FromMinutes (5)|動態|以秒為單位指定時間範圍。 當磁片接近空間時, 檢查磁碟空間以進行報告健全狀況事件的時間間隔。 |
+|DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |時間範圍，預設值為 Common::TimeSpan::FromMinutes(15)|動態|以秒為單位指定時間範圍。 當磁片上有足夠的空間時, 檢查磁碟空間以進行報告健全狀況事件的時間間隔。 |
+|EnableImageStoreHealthReporting |布林值，預設值為 TRUE |Static|設定, 以判斷檔案存放區服務是否應該報告其健全狀況。 |
+|FreeDiskSpaceNotificationSizeInKB|int64, 預設值為\*25 1024 |動態|可能發生健康情況警告的可用磁碟空間大小。 此設定和 FreeDiskSpaceNotificationThresholdPercentage config 的最小值是用來決定傳送健康情況警告。 |
+|FreeDiskSpaceNotificationThresholdPercentage|double, 預設值為0.02 |動態|可能發生健康情況警告的可用磁碟空間百分比。 此設定和 FreeDiskSpaceNotificationInMB config 的最小值是用來判斷健康情況警告的傳送。 |
 |GenerateV1CommonNameAccount| 布林值，預設值為 TRUE|Static|指定是否要透過使用者名稱 V1 產生演算法來產生帳戶。 從 Service Fabric 6.1 版開始，一律會建立具有 v2 產生的帳戶。 需要 V1 帳戶，才能升級自/至不支援 V2 產生 (6.1 之前) 的版本。|
 |MaxCopyOperationThreads | 單位，預設值為 0 |動態| 次要複寫器可從主要複寫器複製的平行檔案數上限。 '0' == 核心數目。 |
 |MaxFileOperationThreads | 單位，預設值為 100 |Static| 允許在主要複寫器執行 FileOperations (複製/移動) 的平行執行緒數目上限。 '0' == 核心數目。 |
@@ -301,7 +309,7 @@ ms.locfileid: "67144399"
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |布林值，預設值為 false |Static|叢集健康狀態評估原則︰啟用每一應用程式類型的健康狀態評估。 |
-|MaxSuggestedNumberOfEntityHealthReports|整數，預設值為 500 |動態|健全狀況的最大數目會報告一個實體可以有再引發顧慮看門狗的健康情況報告的邏輯。 每個健康狀態實體應該要有相對較少的健康情況報告。 如果報表計數超過此數字，可能有問題的看門狗的實作。 將實體評估具有太多報表的實體時會標示透過警告健康情況報告。 |
+|MaxSuggestedNumberOfEntityHealthReports|整數, 預設值為500 |動態|在引發有關監視程式健康情況報告邏輯的顧慮之前, 實體可以擁有的健康狀態報表數目上限。 每個健康情況實體都應該有相對較少的健康情況報告數目。 如果報表計數超過此數目, 則為,監視程式的執行可能會有問題。 當評估實體時, 會透過警告健康情況報告來標示具有太多報表的實體。 |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
@@ -327,7 +335,6 @@ ms.locfileid: "67144399"
 |ActivationRetryBackoffInterval |時間 (秒)，預設值為 5 |動態|每次啟用失敗的輪詢間隔；在每次連續啟用失敗之後，系統會重試啟用最多 MaxActivationFailureCount 次。 每次嘗試的重試間隔是連續啟用失敗與啟用輪詢間隔的乘積。 |
 |ActivationTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(180)|動態| 以秒為單位指定時間範圍。 應用程式的啟用、停用和升級逾時。 |
 |ApplicationHostCloseTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態| 以秒為單位指定時間範圍。 在自我啟動的程序中偵測到網狀架構結束時，FabricRuntime 會關閉使用者主機 (applicationhost) 處理序中的所有複本。 這是關閉作業的逾時值。 |
-|ApplicationUpgradeTimeout| 時間範圍，預設值為 Common::TimeSpan::FromSeconds(360)|動態| 以秒為單位指定時間範圍。 應用程式升級的逾時。 如果逾時值小於「ActivationTimeout」，部署便會失敗。 |
 |ContainerServiceArguments|string，預設值為 "-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) 會管理 Docker 精靈 (在 Win10 之類的 Windows 用戶端電腦上除外)。 此組態允許使用者指定自訂引數，而這些引數應該在啟動 Docker 精靈時傳遞至該精靈。 若指定了自訂引數，除了 '--pidfile' 引數外，Service Fabric 不會再將任何其他引數傳遞至 Docker 引擎。 因此使用者不得指定 '-pidfile' 引數作為其自訂引數的一部分。 此外，自訂引數也應該確保 Docker 精靈在 Windows 的預設名稱管道 (或在 Linux 上的 Unix 網域通訊端) 上接聽，Service Fabric 才能與它通訊。|
 |ContainerServiceLogFileMaxSizeInKb|整數，預設值為 32768|Static|Docker 容器所產生的記錄檔檔案大小上限。  僅限 Windows。|
 |ContainerImageDownloadTimeout|整數，秒數，預設為 1200 (20 分鐘)|動態|下載映像逾時之前的秒數。|
@@ -350,7 +357,7 @@ ms.locfileid: "67144399"
 |EndpointProviderEnabled| 布林值，預設值為 FALSE|Static| 能夠由網狀架構管理端點資源。 必須在 FabricNode 中指定開始和結束的應用程式連接埠範圍。 |
 |FabricContainerAppsEnabled| 布林值，預設值為 FALSE|Static| |
 |FirewallPolicyEnabled|布林值，預設值為 FALSE|Static| 能夠為端點資源開啟防火牆連接埠，並於 ServiceManifest 中明確指定連接埠 |
-|GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不是適用於臨機操作的服務。 |
+|GetCodePackageActivationContextTimeout|時間範圍，預設值為 Common::TimeSpan::FromSeconds(120)|動態|以秒為單位指定時間範圍。 CodePackageActivationContext 呼叫的逾時值。 這不適用於特定服務。 |
 |GovernOnlyMainMemoryForProcesses|布林值，預設值為 FALSE|Static|資源管理的預設行為是將 MemoryInMB 中指定的限制，放置在處理序使用的記憶體總計數量 (RAM +交換) 上。 如果超過限制；此處理序將收到 OutOfMemory 例外狀況。 如果此參數設為 true，限制將僅套用到處理序將使用的 RAM 記憶體數量。 如果超過此限制；而且如果此設定為 true；作業系統會將主記憶體交換至磁碟。 |
 |IPProviderEnabled|布林值，預設值為 FALSE|Static|能夠管理 IP 位址。 |
 |IsDefaultContainerRepositoryPasswordEncrypted|布林值，預設值為 FALSE|Static|DefaultContainerRepositoryPassword 是否已加密。|
@@ -387,8 +394,8 @@ ms.locfileid: "67144399"
 |MinReplicaSetSize | 整數，預設值為 3 |Static|ImageStoreService 的 MinReplicaSetSize。 |
 |PlacementConstraints | 字串，預設值為 "" |Static| ImageStoreService 的 PlacementConstraints。 |
 |QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |Static| 以秒為單位指定時間範圍。 ImageStoreService 的 QuorumLossWaitDuration。 |
-|ReplicaRestartWaitDuration | 時間 (秒)，預設值為 60.0 * 30 |Static|以秒為單位指定時間範圍。 ImageStoreService 的 ReplicaRestartWaitDuration。 |
-|StandByReplicaKeepDuration | 時間 (秒)，預設值為 3600.0 * 2 |Static| 以秒為單位指定時間範圍。 ImageStoreService 的 StandByReplicaKeepDuration。 |
+|ReplicaRestartWaitDuration | 時間 (秒), 預設值\*為 60.0 30 |Static|以秒為單位指定時間範圍。 ImageStoreService 的 ReplicaRestartWaitDuration。 |
+|StandByReplicaKeepDuration | 時間 (秒), 預設值\*為 3600.0 2 |Static| 以秒為單位指定時間範圍。 ImageStoreService 的 StandByReplicaKeepDuration。 |
 |TargetReplicaSetSize | 整數，預設值為 7 |Static|ImageStoreService 的 TargetReplicaSetSize。 |
 
 ## <a name="ktllogger"></a>KtlLogger
@@ -400,7 +407,7 @@ ms.locfileid: "67144399"
 |SharedLogId |字串，預設值為 "" |Static|共用記錄容器的唯一 GUID。 若使用位於網狀架構資料根目錄下的預設路徑，則使用 ""。 |
 |SharedLogPath |字串，預設值為 "" |Static|用以放置共用記錄容器之位置的路徑和檔案名稱。 使用 "" 可使用位於網狀架構資料根目錄下的預設路徑。 |
 |SharedLogSizeInMB |整數，預設值為 8192 |Static|要在共用記錄容器中配置的 MB 數。 |
-|SharedLogThrottleLimitInPercentUsed|int，預設值為 0 | Static | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 介於 1 到 99 之間的值指定記錄檔使用量高於就會發生節流; 的百分比如範例共用記錄檔是否 10 GB 且值是 90 則會進行節流之後有 9 GB 正在使用中。 建議使用預設值。|
+|SharedLogThrottleLimitInPercentUsed|int，預設值為 0 | Static | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 介於1到99之間的值會指定發生節流的記錄使用量百分比;例如, 如果共用記錄檔是 10 GB, 而值為 90, 則一旦 9 GB 使用中, 就會發生節流。 建議使用預設值。|
 |WriteBufferMemoryPoolMaximumInKB | 整數，預設值為 0 |動態|允許寫入緩衝區記憶體集區成長達到的 KB 數目。 使用 0 表示無限制。 |
 |WriteBufferMemoryPoolMinimumInKB |整數，預設值為 8388608 |動態|一開始要為寫入緩衝區記憶體集區配置的 KB 數目。 使用 0 表示無限制。預設值應與下面的 SharedLogSizeInMB 一致。 |
 
@@ -408,18 +415,18 @@ ms.locfileid: "67144399"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|AutomaticUnprovisionInterval|時間範圍，預設值是 Common::TimeSpan::FromMinutes(5)|動態|以秒為單位指定時間範圍。 允許的清除間隔自動應用程式類型的清理期間取消註冊應用程式類型。|
+|AutomaticUnprovisionInterval|TimeSpan, 預設值為 Common:: TimeSpan:: FromMinutes (5)|動態|以秒為單位指定時間範圍。 在自動應用程式類型清除期間, 允許取消註冊應用程式類型的清除間隔。|
 |AzureStorageMaxConnections | 整數，預設值為 5000 |動態|Azure 儲存體的並行連線數目上限。 |
 |AzureStorageMaxWorkerThreads | 整數，預設值為 25 |動態|平行背景工作執行緒的數目上限。 |
 |AzureStorageOperationTimeout | 時間 (秒)，預設值為 6000 |動態|以秒為單位指定時間範圍。 可供 xstore 作業完成的逾時值。 |
-|CleanupApplicationPackageOnProvisionSuccess|布林值，預設值為 FALSE |動態|啟用或停用上成功佈建應用程式套件自動清除。 |
-|CleanupUnusedApplicationTypes|布林值，預設值為 FALSE |動態|此設定啟用時，可允許自動取消註冊未使用的應用程式類型版本，略過最新三個未儲存的版本，藉此調整映像存放區所佔用的磁碟空間。 成功佈建該特定應用程式型別的結尾，就會觸發自動清除，並也會執行定期一天一次的所有應用程式類型。 略過未使用的版本數目是可設定使用參數"MaxUnusedAppTypeVersionsToKeep 」。 |
+|CleanupApplicationPackageOnProvisionSuccess|布林值，預設值為 FALSE |動態|啟用或停用成功布建時自動清除應用程式套件。 |
+|CleanupUnusedApplicationTypes|布林值，預設值為 FALSE |動態|此設定啟用時, 可讓自動取消註冊未使用的應用程式類型版本, 略過最新三個未使用的版本, 藉以修剪映射存放區所佔用的磁碟空間。 自動清除將會在該特定應用程式類型的成功布建結束時觸發, 而且所有應用程式類型也會一天定期執行一次。 使用參數 "MaxUnusedAppTypeVersionsToKeep" 可設定要略過的未使用版本數目。 |
 |DisableChecksumValidation | 布林值，預設值為 false |Static| 此組態可讓我們在應用程式佈建期間啟用或停用總和檢查碼驗證。 |
 |DisableServerSideCopy | 布林值，預設值為 false |Static|此組態會在應用程式佈建期間，啟用或停用 ImageStore 上應用程式套件的伺服器端複製作業。 |
 |ImageCachingEnabled | 布林值，預設值為 true |Static|此組態可讓我們啟用或停用快取。 |
 |ImageStoreConnectionString |SecureString |Static|ImageStore 根目錄的連接字串。 |
 |ImageStoreMinimumTransferBPS | 整數，預設值為 1024 |動態|叢集與 ImageStore 之間的傳輸速率下限。 此值可用來決定外部 ImageStore 的存取逾時。 只有在叢集和 ImageStore 之間的延遲偏高時才需變更此值，以允許叢集有更多時間可從外部 ImageStore 進行下載。 |
-|MaxUnusedAppTypeVersionsToKeep | 整數，預設值為 3 |動態|此組態定義略過清除未使用的應用程式類型版本的號碼。 啟用參數 CleanupUnusedApplicationTypes 時才適用此參數。 |
+|MaxUnusedAppTypeVersionsToKeep | 整數，預設值為 3 |動態|此設定會定義要略過清除的未使用應用程式類型版本數目。 只有在已啟用參數 CleanupUnusedApplicationTypes 時, 此參數才適用。 |
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -431,6 +438,11 @@ ms.locfileid: "67144399"
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|決定叢集計量的一組 MetricBalancingThresholds。 如果 maxNodeLoad/minNodeLoad 大於 MetricBalancingThresholds，則會執行平衡作業。 如果至少一個 FD 或 UD 中的 maxNodeLoad/minNodeLoad 小於 MetricBalancingThresholds，則會執行重組作業。 |
+
+## <a name="metricloadstickinessforswap"></a>MetricLoadStickinessForSwap
+| **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
+| --- | --- | --- | --- |
+|PropertyGroup|KeyDoubleValueMap，預設值為 None|動態|決定當交換時, 與複本搭配使用的部分負載, 其值介於 0 (負載不會包含複本) 和 1 (具有複本-預設的負載長) |
 
 ## <a name="namingservice"></a>NamingService
 
@@ -445,7 +457,7 @@ ms.locfileid: "67144399"
 |MaxOperationTimeout |時間 (秒)，預設值為 600 |動態|以秒為單位指定時間範圍。 用戶端作業所允許的逾時值上限。 指定較大逾時值的要求會遭到拒絕。 |
 |MaxOutstandingNotificationsPerClient |整數，預設值為 1000 |動態|閘道在強制關閉用戶端註冊前可處於待處理狀態的通知數目上限。 |
 |MinReplicaSetSize | 整數，預設值為 3 |不允許| 要完成更新所需寫入到之命名服務複本的數目下限。 如果系統中的作用中複本少於此數目，可靠性系統便會拒絕更新命名服務存放區，直到複本還原為止。 此值不應超過 TargetReplicaSetSize。 |
-|PartitionCount |整數，預設值為 3 |不允許|要建立之命名服務存放區的資料分割數目。 每個資料分割都擁有一個與其索引對應的資料分割索引鍵，因此存在資料分割索引鍵 [0; PartitionCount)。 增加命名服務資料分割數目會增加命名服務可執行的級別，其方法是減少任何備用複本集所保有的平均資料量，代價則是資源的使用率會增加 (因為必須維持 PartitionCount*ReplicaSetSize 個服務複本)。|
+|PartitionCount |整數，預設值為 3 |不允許|要建立之命名服務存放區的資料分割數目。 每個資料分割都擁有對應至其索引的單一分割區索引鍵;因此資料分割索引鍵 [0;PartitionCount] 存在。 增加命名服務資料分割數目會增加命名服務可執行的級別，其方法是減少任何備用複本集所保有的平均資料量，代價則是資源的使用率會增加 (因為必須維持 PartitionCount*ReplicaSetSize 個服務複本)。|
 |PlacementConstraints | 字串，預設值為 "" |不允許| 命名服務的放置條件約束。 |
 |QuorumLossWaitDuration | 時間 (秒)，預設值為 MaxValue |不允許| 以秒為單位指定時間範圍。 當命名服務進入仲裁遺失狀態時，此計時器就會啟動。 當計時器到期時，FM 會將停止運作的複本視為遺失，並嘗試復原仲裁。 請注意，這可能會導致資料遺失。 |
 |RepairInterval | 時間 (秒)，預設值為 5 |Static| 以秒為單位指定時間範圍。 會開始修復授權單位擁有者和名稱擁有者間命名不一致問題的間隔時間。 |
@@ -514,6 +526,7 @@ ms.locfileid: "67144399"
 |DetailedNodeListLimit | 整數，預設值為 15 |動態| 定義在截斷之前，要在未放置的複本報告中包含的每一條件約束之節點數目。 |
 |DetailedPartitionListLimit | 整數，預設值為 15 |動態| 定義在截斷之前，要在診斷中包含之條件約束每一診斷項目的資料分割數目。 |
 |DetailedVerboseHealthReportLimit | 整數，預設值為 200 | 動態|定義在發出詳細的健康狀態報告之前，未放置的複本必須持續未放置的次數。 |
+|EnforceUserServiceMetricCapacities|布林值，預設值為 FALSE | Static |啟用網狀架構服務保護所有使用者服務都在一個工作物件/cgroup 下, 而且限制為指定的資源量, 這必須是靜態的 (需要重新開機 Fabrichost 進行), 才能建立/移除使用者工作物件, 並設定在開啟期間完成的限制網狀架構主機 |
 |FaultDomainConstraintPriority | 整數，預設值為 0 |動態| 決定容錯網域條件約束的優先順序︰0︰硬式、1︰軟式、負數︰忽略。 |
 |GlobalMovementThrottleCountingInterval | 時間 (秒)，預設值為 600 |Static| 以秒為單位指定時間範圍。 表示要追蹤每一網域複本移動 (搭配使用 GlobalMovementThrottleThreshold) 的過去間隔時間長度。 可設為 0，以完全忽略全域節流。 |
 |GlobalMovementThrottleThreshold | 單位，預設值為 1000 |動態| 在 GlobalMovementThrottleCountingInterval 所指出的過去間隔中，平衡階段所允許的移動數目上限。 |
@@ -550,6 +563,7 @@ ms.locfileid: "67144399"
 |UseMoveCostReports | 布林值，預設值為 false | 動態|指示 LB 略過評分函式的成本項目，以便有機會產生大量移動來獲得更平衡的放置。 |
 |UseSeparateSecondaryLoad | 布林值，預設值為 true | 動態|決定是否使用不同的次要負載的設定。 |
 |ValidatePlacementConstraint | 布林值，預設值為 true |動態| 指定在服務的 ServiceDescription 更新時，是否要驗證服務的 PlacementConstraint 運算式。 |
+|ValidatePrimaryPlacementConstraintOnPromote| 布林值，預設值為 TRUE |動態|指定是否評估服務的 PlacementConstraint 運算式是否針對容錯移轉的主要喜好設定。 |
 |VerboseHealthReportLimit | 整數，預設值為 20 | 動態|定義在針對複本報告健康狀態警告之前，複本必須未放置的次數 (如果已啟用詳細健康狀態報告)。 |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
@@ -623,13 +637,13 @@ ms.locfileid: "67144399"
 ## <a name="security"></a>安全性
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|字串，預設值為 ""|Static|AAD 憑證端點，Azure Commercial 的預設指定格式的非預設的環境，例如 Azure Government"https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|字串，預設值為 ""|Static|AAD 憑證端點格式 (預設 Azure 商業), 為非預設環境指定, 例如 Azure Government "HTTPs:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|字串，預設值為 ""|Static|代表網狀架構用戶端的原生用戶端應用程式名稱或識別碼 |
 |AADClusterApplication|字串，預設值為 ""|Static|代表叢集的 Web API 應用程式名稱或識別碼 |
-|AADLoginEndpoint|字串，預設值為 ""|Static|AAD 登入端點，Azure Commercial 的預設值為非預設的環境，例如 Azure Government 指定"https:\//login.microsoftonline.us" |
+|AADLoginEndpoint|字串，預設值為 ""|Static|AAD 登入端點, 預設的 Azure 商業, 針對非預設環境 (例如 Azure Government "HTTPs:\//login.microsoftonline.us") 指定 |
 |AADTenantId|字串，預設值為 ""|Static|租用戶識別碼 (GUID) |
 |AdminClientCertThumbprints|字串，預設值為 ""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
-|AADTokenEndpointFormat|字串，預設值為 ""|Static|AAD 權杖端點，Azure Commercial 的預設值為非預設的環境，例如 Azure Government 指定"https:\//login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|字串，預設值為 ""|Static|AAD 權杖端點 (預設為 Azure 商業), 為非預設環境指定, 例如 Azure Government "HTTPs\/:/{0}login.microsoftonline.us/" |
 |AdminClientClaims|字串，預設值為 ""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |
 |AdminClientIdentities|字串，預設值為 ""|動態|系統管理員角色之網狀架構用戶端的 Windows 身分識別，可用來授權特殊權限的網狀架構作業。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動對執行 fabric.exe 的帳戶指派系統管理員角色，ServiceFabricAdministrators 群組也是如此。 |
 |AppRunAsAccountGroupX509Folder|字串，預設值為 /home/sfuser/sfusercerts |Static|AppRunAsAccountGroup X509 憑證和私密金鑰的所在資料夾 |
@@ -682,7 +696,7 @@ ms.locfileid: "67144399"
 |CreateVolume|字串，預設值為 "Admin"|動態|建立磁碟區 |
 |DeactivateNode |字串，預設值為 "Admin" |動態| 用於停用節點的安全性組態。 |
 |DeactivateNodesBatch |字串，預設值為 "Admin" |動態| 用於停用多個節點的安全性組態。 |
-|Delete |字串，預設值為 "Admin" |動態| 映像存放區用戶端刪除作業的安全性組態。 |
+|DELETE |字串，預設值為 "Admin" |動態| 映像存放區用戶端刪除作業的安全性組態。 |
 |DeleteApplication |字串，預設值為 "Admin" |動態| 應用程式刪除的安全性組態。 |
 |DeleteComposeDeployment|字串，預設值為 "Admin"| 動態|刪除撰寫部署 |
 |DeleteGatewayResource|字串，預設值為 "Admin"| 動態|刪除閘道資源 |
@@ -699,6 +713,7 @@ ms.locfileid: "67144399"
 |GetClusterConfiguration | 字串，預設值為 "Admin\|\|User" | 動態|在資料分割上引發 GetClusterConfiguration。 |
 |GetClusterConfigurationUpgradeStatus | 字串，預設值為 "Admin\|\|User" |動態| 在資料分割上引發 GetClusterConfigurationUpgradeStatus。 |
 |GetFabricUpgradeStatus |字串，預設值為 "Admin\|\|User" |動態| 用於輪詢叢集升級狀態的安全性組態。 |
+|GetFolderSize |字串，預設值為 "Admin" |動態|對 filestoreservice 的取得資料夾大小的安全性設定 |
 |GetNodeDeactivationStatus |字串，預設值為 "Admin" |動態| 用於檢查停用狀態的安全性組態。 |
 |GetNodeTransitionProgress | 字串，預設值為 "Admin\|\|User" |動態| 用於取得節點轉換命令進度的安全性組態。 |
 |GetPartitionDataLossProgress | 字串，預設值為 "Admin\|\|User" | 動態|擷取叫用資料遺失 API 呼叫的進度。 |
@@ -715,8 +730,8 @@ ms.locfileid: "67144399"
 |InvokeContainerApi|string，預設值為 "Admin"|動態|Invoke container API |
 |InvokeInfrastructureCommand |字串，預設值為 "Admin" |動態| 基礎結構工作管理命令的安全性組態。 |
 |InvokeInfrastructureQuery |字串，預設值為 "Admin\|\|User" | 動態|用於查詢基礎結構工作的安全性組態。 |
-|列出 |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
-|MoveNextFabricUpgradeDomain |字串，預設值為 "Admin" |動態| 繼續進行與明確的升級網域的叢集升級的安全性組態。 |
+|List |字串，預設值為 "Admin\|\|User" | 動態|映像存放區用戶端檔案列出作業的安全性組態。 |
+|MoveNextFabricUpgradeDomain |字串，預設值為 "Admin" |動態| 使用明確升級網域繼續進行叢集升級的安全性設定。 |
 |MoveNextUpgradeDomain |字串，預設值為 "Admin" |動態| 用於以明確的「升級網域」繼續進行應用程式升級的安全性組態。 |
 |MoveReplicaControl |字串，預設值為 "Admin" | 動態|移動複本。 |
 |NameExists |字串，預設值為 "Admin\|\|User" | 動態|命名 URI 存在檢查的安全性組態。 |
@@ -803,7 +818,7 @@ ms.locfileid: "67144399"
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap，預設值為 None|動態|這是「名稱」與「值」組清單。 每個「名稱」都是主體一般名稱或針對伺服器作業授權之 X509 憑證的 DnsName。 針對給定的「名稱」，「值」是用於簽發者釘選的逗號分隔憑證指紋清單，若不是空的，伺服器憑證的直接簽發者必須位於此清單中。|
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -883,6 +898,11 @@ ms.locfileid: "67144399"
 |X509SecondaryFindValue | 字串，預設值為 "" |動態| UpgradeService 的 X509SecondaryFindValue。 |
 |X509StoreLocation | 字串，預設值為 "" |動態| UpgradeService 的 X509StoreLocation。 |
 |X509StoreName | 字串，預設值為 "My"|動態|UpgradeService 的 X509StoreName。 |
+
+## <a name="userservicemetriccapacities"></a>UserServiceMetricCapacities
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|PropertyGroup| UserServiceMetricCapacitiesMap, 預設值為 None | Static | 使用者服務資源治理限制的集合必須是靜態的, 因為它會影響自動偵測邏輯 |
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)和[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。

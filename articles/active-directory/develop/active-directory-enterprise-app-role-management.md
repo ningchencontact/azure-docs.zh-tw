@@ -8,20 +8,21 @@ manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148324f293c36b88657f50a7405d85210b62dcc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544661"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321250"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>HOW TO：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
@@ -159,13 +160,13 @@ ms.locfileid: "65544661"
     | 角色名稱  | user.assignedroles |
 
     >[!NOTE]
-    >如果角色宣告值是 null，則 Azure AD 不會傳送此值在權杖中，而這是預設是根據設計。
+    >如果角色宣告值為 null, 則 Azure AD 不會在權杖中傳送此值, 而這預設會依設計而成。
 
-    a. 按一下 **編輯**圖示以開啟**使用者屬性 & 宣告**對話方塊。
+    a. 按一下 [**編輯**] 圖示以開啟 [**使用者屬性] & [宣告**] 對話方塊。
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. 在 [**管理使用者宣告**] 對話方塊中，加入 SAML 權杖屬性上按一下**新增新的宣告**。
+    b. 在 [**管理使用者宣告**] 對話方塊中, 按一下 [新增宣告] 來  新增 [SAML 權杖] 屬性。
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

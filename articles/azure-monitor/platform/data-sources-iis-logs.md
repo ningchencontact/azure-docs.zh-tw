@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604369"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249751"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure 監視器中收集 IIS 記錄
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Azure 監視器進行收集並儲存為[記錄資料](data-platform.md)。
@@ -34,7 +34,7 @@ Azure 監視器只支援以 W3C 格式儲存的 IIS 記錄檔，不支援自訂�
 
 
 ## <a name="data-collection"></a>資料收集
-Azure 監視器會在每次記錄關閉並建立新記錄時，從每個代理程式收集 IIS 記錄項目。 此頻率會受到 IIS 網站的 [記錄檔案換用排程]  設定控制，預設為一天一次。 例如，如果設定為 [每小時]  ，則 Azure 監視器會每小時收集記錄一次。  如果設定為 [每日]  ，則 Azure 監視器會每隔 24 小時收集記錄一次。
+Azure 監視器會在每次記錄時間戳記變更或新檔案建立時, 從每個代理程式收集 IIS 記錄專案。 記錄會每隔5分鐘讀取一次。 新檔案建立的頻率是由 IIS 網站的 [**記錄檔變換排程**] 設定所控制, 預設為一天一次。 如果基於任何原因, IIS 不會在變換時間之前更新時間戳記, 如果設定為 [**每小時**], Azure 監視器會每小時收集記錄一次。 如果設定為 [**每日**], Azure 監視器每24小時會收集記錄一次。
 
 
 ## <a name="iis-log-record-properties"></a>IIS 記錄檔記錄屬性
@@ -51,7 +51,7 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 | csUriStem |要求的目標，例如網頁。 |
 | csUriQuery |用戶端正在嘗試執行的查詢 (如果有的話)。 |
 | ManagementGroupName |Operations Manager 代理程式的管理群組名稱。  若為其他代理程式，此為 AOI-\<工作區 ID\> |
-| RemoteIPCountry |國家/地區的用戶端的 IP 位址。 |
+| RemoteIPCountry |用戶端 IP 位址的國家/地區。 |
 | RemoteIPLatitude |用戶端 IP 位址的緯度。 |
 | RemoteIPLongitude |用戶端 IP 位址的經度。 |
 | scStatus |HTTP 狀態碼。 |
@@ -72,7 +72,7 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 | W3CIISLog |所有 IIS 記錄檔記錄。 |
 | W3CIISLog &#124; where scStatus==500 |具有傳回狀態 500 的所有 IIS 記錄。 |
 | W3CIISLog &#124; summarize count() by cIP |依據用戶端 IP 位址的 IIS 記錄項目計數。 |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |計數的 IIS 記錄項目 URL 為主機 www\.contoso.com。 |
+| W3CIISLog &#124; where csHost = = "www\.contoso.com" &#124;摘要 count () by csUriStem |主機 www\.contoso.com 的 IIS 記錄專案計數 (依 URL)。 |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |每部 IIS 電腦所接收的位元組總數。 |
 
 ## <a name="next-steps"></a>後續步驟

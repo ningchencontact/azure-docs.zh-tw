@@ -4,7 +4,7 @@ description: Batch 支援 Azure AD 從 Batch 服務進行驗證。
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 5cda3f99a263e8eef13ee2e8d8e6453eda0f4cb6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 64921a2ab69306df0b7c3d968055e698dd6995e7
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341180"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323934"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
-Azure Batch 支援使用驗證[Azure Active Directory][aad_about] (Azure AD)。 Azure AD 是 Microsoft 的多租用戶雲端型目錄和身分識別管理服務。 Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的使用者。
+Azure Batch 支援使用[Azure Active Directory][aad_about] (Azure AD) 進行驗證。 Azure AD 是 Microsoft 的多租用戶雲端型目錄和身分識別管理服務。 Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的使用者。
 
 搭配 Azure Batch 使用 Azure AD 驗證時，您可以使用下列其中一種方式進行驗證：
 
@@ -54,7 +54,7 @@ Azure Batch 支援使用驗證[Azure Active Directory][aad_about] (Azure AD)。 
 >
 >
 
-如需有關 Azure AD 端點的詳細資訊，請參閱 < [Azure AD 的驗證案例][aad_auth_scenarios]。
+如需 Azure AD 端點的詳細資訊, 請參閱[Azure AD 的驗證案例][aad_auth_scenarios]。
 
 ### <a name="batch-resource-endpoint"></a>Batch 資源端點
 
@@ -68,7 +68,7 @@ Azure Batch 支援使用驗證[Azure Active Directory][aad_about] (Azure AD)。 
 
 當您註冊應用程式時，會向 Azure AD 提供應用程式的相關資訊。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼 (也稱為「用戶端識別碼」  )。 若要深入了解應用程式識別碼，請參閱[Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論](../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊 Batch 應用程式，請依照下列中的步驟[新增應用程式](../active-directory/develop/quickstart-register-app.md)一節[整合應用程式與 Azure Active Directory][aad_integrate]。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 它不需要是實際的端點。
+若要註冊您的 Batch 應用程式, 請遵循[整合應用程式與 Azure Active Directory][aad_integrate]中的[新增應用程式](../active-directory/develop/quickstart-register-app.md)一節中的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 它不需要是實際的端點。
 
 註冊應用程式之後，您將會看到應用程式識別碼：
 
@@ -167,7 +167,7 @@ Azure Batch 支援使用驗證[Azure Active Directory][aad_about] (Azure AD)。 
 > Azure AD 驗證權杖會在一小時後過期。 使用長時間執行 **BatchClient** 物件時，我們建議您在每個要求從 ADAL 擷取權杖，以確保您一律擁有有效的權杖。 
 >
 >
-> 若要在 .NET 中達到此目的，撰寫可從 Azure AD 中擷取權杖的方法，並傳遞該方法至 **BatchTokenCredentials** 物件做為委派。 每個要求都會對 Batch 服務呼叫委派方法，以確保已提供有效的權杖。 根據預設，ADAL 會快取權杖，因此只在必要時才會從 Azure AD 擷取新的權杖。 在 Azure AD 權杖的相關資訊，請參閱[Azure AD 的驗證案例][aad_auth_scenarios]。
+> 若要在 .NET 中達到此目的，撰寫可從 Azure AD 中擷取權杖的方法，並傳遞該方法至 **BatchTokenCredentials** 物件做為委派。 每個要求都會對 Batch 服務呼叫委派方法，以確保已提供有效的權杖。 根據預設，ADAL 會快取權杖，因此只在必要時才會從 Azure AD 擷取新的權杖。 如需 Azure AD 中之權杖的詳細資訊, 請參閱[Azure AD 的驗證案例][aad_auth_scenarios]。
 >
 >
 

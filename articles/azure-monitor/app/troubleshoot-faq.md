@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604273"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875368"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -37,6 +37,7 @@ ms.locfileid: "65604273"
 
 ## <a name="can-i-use-application-insights-with-"></a>我是否可以搭配 ... 來使用 Application Insights 嗎？
 
+* [Azure VM 或 Azure 虛擬機器擴展集中 IIS 伺服器上的 Web 應用程式](azure-vm-vmss-apps.md)
 * [IIS 伺服器 (內部部署或 VM 中) 上的 Web 應用程式](asp-net.md)
 * [Java Web 應用程式](java-get-started.md)
 * [Node.js 應用程式](nodejs.md)
@@ -83,7 +84,7 @@ ms.locfileid: "65604273"
 
   * Web.config
   * packages.config
-* (僅限新專案 - 如果您[將 Application Insights 新增至現有的專案][start]，則必須手動執行。)將程式碼片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將這些片段初始化。 例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/_Layout.cshtml
+* (僅限新專案-如果您[將 Application Insights 新增至現有的專案][start], 就必須手動執行此動作)。將程式碼片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將這些片段初始化。 例如，在 MVC 應用程式中，程式碼會插入至主版頁面 Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>如何從舊版 SDK 升級？
 請參閱您的應用程式類型所適用之 SDK 的[版本資訊](release-notes.md)。
@@ -104,7 +105,7 @@ ms.locfileid: "65604273"
 * HTTP 要求
 * [相依項目](asp-net-dependencies.md)。 對下列各項的呼叫：SQL Database、對外部服務的 HTTP 呼叫、Azure Cosmos DB、資料表、Blob 儲存體及佇列。 
 * [例外狀況](asp-net-exceptions.md)和堆疊追蹤。
-* [效能計數器](performance-counters.md) - 如果您使用[狀態監視器](monitor-performance-live-website-now.md)、[Azure 監視](azure-web-apps.md)或 [Application Insights collectd 寫入器](java-collectd.md)。
+* [效能計數器](performance-counters.md)-如果您使用[狀態監視器](monitor-performance-live-website-now.md)、[適用于應用程式服務的 AZURE 監視](azure-web-apps.md)、[適用于 VM 或虛擬機器擴展集的 azure 監視](azure-vm-vmss-apps.md), 或[Application Insights collectd 寫入器](java-collectd.md)。
 * 您以程式碼撰寫的[自訂事件和計量](api-custom-events-metrics.md)。
 * [追蹤記錄](asp-net-trace-logs.md) - 如果您設定適當的收集器。
 
@@ -132,7 +133,7 @@ ms.locfileid: "65604273"
 
 深入了解 [ASP.NET](api-filtering-sampling.md) 或 [Java](java-filter-telemetry.md)。
 
-## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>計算方式為何城市、 國家/地區和其他地理位置的資料？
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>城市、國家/地區和其他地理位置資料的計算方式為何？
 
 我們會使用 [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/) 來查詢 Web 用戶端的 IP 位址 (IPv4 或 IPv6)。
 
@@ -153,7 +154,7 @@ ms.locfileid: "65604273"
 
 在查閱地理位置屬性之後，用戶端 Web 位址的**所有**八位元資料一律會設定為 0。
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>在 我的網頁原始碼中會顯示 我的檢測金鑰。 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>我的檢測金鑰會顯示在 [我的網頁] 來源中。 
 
 * 這在監視解決方案中是常見的做法。
 * 無法使用它來竊取您的資料。
@@ -162,7 +163,7 @@ ms.locfileid: "65604273"
 
 您可以：
 
-* 使用兩個不同檢測金鑰 （不同的 Application Insights 資源），用戶端和伺服器的資料。 或
+* 針對用戶端和伺服器資料, 請使用兩個個別的檢測金鑰 (個別的 Application Insights 資源)。 或
 * 撰寫一個在您伺服器中執行的 Proxy，並讓 Web 用戶端透過該 Proxy 傳送資料。
 
 ## <a name="post"></a>如何在診斷搜尋中查看 POST 資料？
@@ -290,8 +291,8 @@ Azure 警示僅針對計量。 請建立一個會在每次事件發生時超出�
 
 ### <a name="proxy-passthrough"></a>Proxy 傳遞
 
-可藉由設定電腦層級或應用程式層級來 proxy 通過 proxy。
-如需詳細資訊請參閱 dotnet 的文件上[Defaultproxy>](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)。
+藉由設定電腦層級或應用層級 proxy, 即可達到 Proxy 傳遞。
+如需詳細資訊, 請參閱[DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)上的 dotnet 文章。
  
  範例 Web.config:
  ```xml

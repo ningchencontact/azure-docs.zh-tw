@@ -1,5 +1,5 @@
 ---
-title: 如何為指定的 API 選取權限 | Microsoft Docs
+title: 為指定的 API 選取許可權 |Microsoft Docs
 description: 了解權限要求如何針對您正在開發之應用程式的用戶端及資源應用程式運作
 services: active-directory
 documentationcenter: ''
@@ -7,20 +7,21 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d5ce8a890f6f02e03a16b60f358d9430a09f88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abae311057ac5cfadb72faa0df525fdbec17f757
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545823"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321048"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何為指定的 API 選取權限 
 

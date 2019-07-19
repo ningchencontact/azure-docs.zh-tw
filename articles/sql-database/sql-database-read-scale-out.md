@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - 複本的讀取查詢 |Microsoft 文件
-description: Azure SQL Database 可進行負載平衡唯讀工作負載使用唯讀複本，稱為讀取相應放大的容量。
+description: 此 Azure SQL Database 可讓您使用唯讀複本的容量 (稱為讀取相應放大) 來負載平衡唯讀工作負載。
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,33 +12,33 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d9da312f86128dc738b367371016d03da2c1629
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492729"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228241"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用唯讀複本，以進行負載平衡唯讀查詢工作負載
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-做為一部分[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)，Premium、 業務關鍵或超大規模的服務層中每個資料庫都會自動佈建的主要複本與數個次要複本。 次要複本會成為主要複本相同的計算大小與佈建。 **讀取相應放大**功能可讓您將負載平衡的 SQL 資料庫唯讀工作負載使用其中一個唯讀複本的容量，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載，例如分析的應用程式。 它們可以獲得效能優勢，使用此額外的容量不會有任何額外的費用。
+作為[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分, Premium、業務關鍵或超大規模資料庫服務層級中的每個資料庫都會自動布建一個主要複本和數個次要複本。 次要複本會以與主要複本相同的計算大小進行布建。 **讀取相應放大**功能可讓您使用其中一個唯讀複本的容量來負載平衡 SQL Database 唯讀工作負載, 而不是共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用于包含邏輯上分隔唯讀工作負載 (例如分析) 的應用程式。 使用這個額外的容量不需額外費用, 即可獲得效能優勢。
 
-下圖說明使用業務關鍵資料庫。
+下圖說明如何使用業務關鍵資料庫。
 
 ![唯讀複本](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-新的 Premium、 重要商務和超大規模資料庫預設會啟用讀取相應放大功能。 如果您的 SQL 連接字串設定為使用`ApplicationIntent=ReadOnly`，應用程式會被重新導向至唯讀複本，該資料庫的閘道。 如需有關如何使用資訊`ApplicationIntent`屬性，請參閱 <<c2> [ 指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
+在新的 Premium、業務關鍵和超大規模資料庫資料庫上, 預設會啟用讀取相應放大功能。 如果您的 SQL 連接字串是以`ApplicationIntent=ReadOnly`進行設定, 則該應用程式將由閘道重新導向至該資料庫的唯讀複本。 如需如何使用屬性的`ApplicationIntent`詳細資訊, 請參閱[指定應用程式意圖](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
 
-如果您想要確保應用程式連接到主要複本，不論`ApplicationIntent`設定 SQL 連接字串中，您必須明確地停用讀取的相應放大或改變它的組態時建立資料庫。 例如，如果您從標準或一般目的層將資料庫升級至 Premium、 業務關鍵或超大規模的層，並想要確定您的連線繼續移至主要複本時，停用讀取相應放大。如需有關如何停用它的詳細資訊，請參閱 <<c0> [ 啟用和停用讀取相應放大](#enable-and-disable-read-scale-out)。
+如果您想要確保應用程式連接到主要複本, 而不論`ApplicationIntent` SQL 連接字串中的設定為何, 您必須在建立資料庫時或在改變其設定時, 明確停用讀取相應放大。 例如, 如果您將資料庫從標準或一般用途層升級至高階、業務關鍵或超大規模資料庫層, 而且想要確定所有連線都會繼續移至主要複本, 請停用讀取相應放大。如需如何停用它的詳細資訊, 請參閱[啟用和停用讀取相應放大](#enable-and-disable-read-scale-out)。
 
 > [!NOTE]
-> 查詢資料存放區、 擴充的事件、 SQL Profiler 和稽核功能，不支援在唯讀複本。 
+> 唯讀複本上不支援查詢資料存放區、擴充的事件、SQL Profiler 和 Audit 功能。 
 
 ## <a name="data-consistency"></a>資料一致性
 
-複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示如果唯讀工作階段重新連線無法使用複本所造成的連線錯誤之後，它可能會重新導向至不是最新的讀寫複本的 100%的複本。 同樣地，如果應用程式使用讀寫工作階段的資料寫入，並立即讀取它使用唯讀工作階段，就可以最新的更新不會立即顯示在複本上。 延遲是非同步的交易記錄重做作業所造成的。
+複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示, 如果唯讀會話在無法使用複本所造成的連線錯誤之後重新連線, 它可能會被重新導向至與讀寫複本不是 100% 最新的複本。 同樣地, 如果應用程式使用讀寫會話寫入資料, 並且使用唯讀會話立即讀取, 則可能不會立即在複本上看到最新的更新。 延遲是因非同步交易記錄重做作業所造成。
 
 > [!NOTE]
 > 區域內的複寫延遲較低，這種情況很罕見。
@@ -74,43 +74,43 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="monitoring-and-troubleshooting-read-only-replica"></a>監視和疑難排解唯讀複本
 
-當連接到唯讀複本，您可以存取效能計量使用`sys.dm_db_resource_stats`DMV。 若要存取查詢計劃的統計資料，請使用`sys.dm_exec_query_stats`，`sys.dm_exec_query_plan`和`sys.dm_exec_sql_text`Dmv。
+當連接到唯讀複本時, 您可以使用`sys.dm_db_resource_stats` DMV 來存取效能計量。 若要存取查詢計劃統計資料, `sys.dm_exec_query_stats`請`sys.dm_exec_query_plan`使用`sys.dm_exec_sql_text` 、和 dmv。
 
 > [!NOTE]
-> DMV`sys.resource_stats`邏輯 master 資料庫中傳回的主要複本的 CPU 使用量和儲存體資料。
+> 邏輯 master `sys.resource_stats`資料庫中的 DMV 會傳回主要複本的 CPU 使用率和儲存體資料。
 
 
 ## <a name="enable-and-disable-read-scale-out"></a>啟用和停用讀取縮放
 
-Premium、 業務關鍵及超大規模的服務層上的預設會啟用讀取相應放大。 在 Basic、 Standard 或一般用途服務層，就無法啟用讀取相應放大。 由 0 複本所設定的超大規模資料庫時，會自動停用讀取相應放大。 
+在 Premium、業務關鍵和超大規模資料庫服務層級上, 預設會啟用讀取相應放大。 在基本、標準或一般用途服務層級中, 無法啟用讀取相應放大。 在設定了0個複本的超大規模資料庫資料庫上, 會自動停用讀取相應放大。 
 
-您可以停用並重新啟用讀取相應放大，在單一資料庫和彈性集區使用下列方法的進階或業務關鍵服務層中的資料庫。
+您可以使用下列方法, 在 Premium 或業務關鍵服務層級中的單一資料庫和彈性集區資料庫上, 停用並重新啟用讀取相應放大。
 
 > [!NOTE]
-> 停用讀取相應放大的功能被提供回溯相容性。
+> 針對回溯相容性, 可停用讀取向外延展的功能。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-您可以管理讀取 Sacle 外設定上**設定**database 刀鋒視窗。 
+您可以在 [**設定**資料庫] 分頁上管理讀取相應放大設定。 
 
 ### <a name="powershell"></a>PowerShell
 
 要在 Azure PowerShell 中管理讀取相應放大，必須使用 2016 年 12 月版的 Azure PowerShell 或更新版本。 如需最新 PowerShell 版本的相關資訊，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
-您可以停用或重新啟用讀取相應放大 Azure PowerShell 中叫用[組 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet 並傳入所需的值 –`Enabled`或是`Disabled`-針對`-ReadScale`參數。 
+您可以藉由叫用[set-azsqldatabase 搭配](/powershell/module/az.sql/set-azsqldatabase)Cmdlet 並傳入所需的值– `Enabled`或`Disabled` --作為`-ReadScale`參數, 在 Azure PowerShell 中停用或重新啟用讀取相應放大。 
 
-若要停用在現有的資料庫 （使用正確的值，為您的環境取代角括號中的項目，並去除角括號） 的讀取的相應放大：
+停用現有資料庫的讀取相應放大 (以您環境的正確值取代角括弧中的專案, 並卸載角括弧):
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
-若要停用新的資料庫 （使用正確的值，為您的環境取代角括號中的項目，並去除角括號） 上的讀取的相應放大：
+停用新資料庫的讀取相應放大 (以您環境的正確值取代角括弧中的專案, 並卸載角括弧):
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
 ```
 
-若要重新啟用現有的資料庫 （使用正確的值，為您的環境取代角括號中的項目，並去除角括號） 上的讀取的相應放大：
+若要在現有的資料庫上重新啟用讀取相應放大 (以您環境的正確值取代角括弧中的專案, 並卸載角括弧):
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
@@ -118,7 +118,7 @@ Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 
 ### <a name="rest-api"></a>REST API
 
-若要建立含有停用讀取相應放大的資料庫，或變更現有資料庫的設定，使用下列方法加`readScale`屬性設定為`Enabled`或`Disabled`中下方範例要求。
+若要建立已停用讀取相應放大的資料庫, 或變更現有資料庫的設定, 請使用下列方法, 並`readScale`將屬性設定為`Enabled`或`Disabled` , 如下列範例要求所示。
 
 ```rest
 Method: PUT
@@ -134,17 +134,17 @@ Body:
 
 如需詳細資訊，請參閱[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)。
 
-## <a name="using-tempdb-on-read-only-replica"></a>使用唯讀複本上的 TempDB
+## <a name="using-tempdb-on-read-only-replica"></a>在唯讀複本上使用 TempDB
 
-TempDB 資料庫不會複寫到唯讀複本。 每個複本都有自己的複本建立時所建立的 TempDB 資料庫的版本。 它會確保 TempDB 可以更新，並且可以在查詢執行期間修改。 如果您的唯讀工作負載相依於使用 TempDB 的物件，您應該建立這些物件做為您的查詢指令碼的一部分。 
+TempDB 資料庫不會複寫至唯讀複本。 每個複本都有自己的 TempDB 資料庫版本, 它是在建立複本時所建立的。 它可確保 TempDB 是可更新的, 而且可以在查詢執行期間修改。 如果您的唯讀工作負載相依于使用 TempDB 物件, 您應該在查詢腳本中建立這些物件。 
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>對異地複寫的資料庫使用讀取縮放
 
-如果您用讀取相應放大的資料庫，異地複寫 （例如，做為容錯移轉群組的成員） 上的負載平衡唯讀工作負載，請確定主要和異地複寫次要資料庫上啟用該讀取的相應放大。 此組態可確保您的應用程式容錯移轉之後連接至新的主要複本時，會繼續相同的負載平衡體驗。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 因為異地複寫的次要資料庫比主要資料庫不同的端點，在過去以存取次要複本就不需要設定`ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
+如果您使用讀取相應放大來負載平衡異地複寫之資料庫上的唯讀工作負載 (例如, 做為容錯移轉群組的成員), 請確定主要和異地複寫的次要資料庫上都已啟用讀取相應放大。 此設定可確保當您的應用程式在容錯移轉之後連線到新的主要複本時, 相同的負載平衡體驗會繼續進行。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 由於異地複寫的次要資料庫具有與主資料庫不同的端點, 因此在過去存取次要複本時, 不需要設定`ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
 
 > [!NOTE]
-> 不支援循環配置資源或任何其他負載平衡之間的路由，次要資料庫的本機複本。
+> 不支援在次要資料庫的本機複本之間進行迴圈配置資源或任何其他負載平衡路由。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需 SQL Database 的超大規模的供應項目資訊，請參閱[超大規模的服務層](./sql-database-service-tier-hyperscale.md)。
+- 如需 SQL Database 超大規模資料庫供應專案的相關資訊, 請參閱[超大規模資料庫服務層級](./sql-database-service-tier-hyperscale.md)。

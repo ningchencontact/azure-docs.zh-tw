@@ -4,7 +4,7 @@ description: 了解預設的 Azure Batch 配額、限制和條件約束，以及
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080915"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323168"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -36,7 +36,7 @@ ms.locfileid: "67080915"
 
 配額是一種信用限制，不是容量保證。 如果您有大規模的容量需求，請連絡 Azure 支援。
 
-也請注意，配額不保證值。 配額可以有所不同從 Batch 服務或使用者要求變更配額值的變更。
+另請注意, 配額不是保證的值。 配額會根據 Batch 服務的變更, 或變更配額值的使用者要求而有所不同。
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "67080915"
 
 ## <a name="pool-size-limits"></a>集區大小限制
 
-集區大小限制是由 Batch 服務設定。 不同於[資源配額](#resource-quotas)，無法變更這些值。 節點間通訊和自訂映像都具有唯一的集區有不同於標準配額的限制。
+集區大小限制是由 Batch 服務所設定。 不同于[資源配額](#resource-quotas), 無法變更這些值。 只有節點間通訊和自訂映射的集區, 其限制與標準配額不同。
 
 | **Resource** | **上限** |
 | --- | --- |
@@ -61,21 +61,21 @@ ms.locfileid: "67080915"
 
 ## <a name="other-limits"></a>其他限制
 
-Batch 服務所設定的其他限制。 不同於[資源配額](#resource-quotas)，無法變更這些值。
+Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas), 無法變更這些值。
 
 | **Resource** | **上限** |
 | --- | --- |
 | [並行工作](batch-parallel-node-tasks.md) | 4 x 節點的核心數目 |
 | [應用程式](batch-application-packages.md) | 20 |
 | 每個應用程式的應用程式封裝 | 40 |
-| 每個集區的應用程式封裝 | 10 |
+| 每個集區的應用程式套件 | 10 |
 | 工作存留期上限 | 180 天<sup>1</sup> |
 
-<sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作保留七天;無法存取資料的最大存留期內未完成的工作。
+<sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作會保存七天;無法存取未在最長存留期內完成之工作的資料。
 
 ## <a name="view-batch-quotas"></a>檢視 Batch 配額
 
-在 [Azure 入口網站][portal]中檢視您的 Batch 帳戶配額。
+在[Azure 入口網站][portal]中, 查看您的 Batch 帳戶配額。
 
 1. 在入口網站中選取 [Batch 帳戶]  ，然後選取您感興趣的 Batch 帳戶。
 1. 在 Batch 帳戶的功能表上選取 [配額]  。
@@ -85,15 +85,15 @@ Batch 服務所設定的其他限制。 不同於[資源配額](#resource-quotas
 
 ## <a name="increase-a-quota"></a>增加配額
 
-使用 [Azure 入口網站][portal]，遵循下列步驟來要求增加您 Batch 帳戶或訂用帳戶的配額。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。 若要要求增加配額，您必須包含您想要增加配額的 VM 系列。 套用增加配額時，它會套用至所有系列的 Vm。
+請遵循下列步驟, 使用[Azure 入口網站][portal]來要求 Batch 帳戶或您的訂用帳戶的配額增加。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。 若要要求增加配額, 您必須包含您想要增加配額的 VM 系列。 套用配額增加時, 它會套用至所有系列的 Vm。
 
-### <a name="increase-cores-quota-in-batch"></a>增加批次中的核心配額 
+### <a name="increase-cores-quota-in-batch"></a>在 Batch 中增加核心配額 
 
 1. 選取入口網站儀表板上的 [說明 + 支援]  圖格或入口網站右上角的問號 ( **？** )。
 1. 選取 [新增支援要求]   > [基本]  。
 1. 在 [基本]  中：
    
-    a. **問題類型** > **服務和訂用帳戶的限制 （配額）**
+    a. **問題類型** > **服務與訂用帳戶限制 (配額)**
    
     b. 選取您的訂用帳戶。
    
@@ -103,21 +103,21 @@ Batch 服務所設定的其他限制。 不同於[資源配額](#resource-quotas
     
 1. 在 [詳細資料]  中：
       
-    a. 在 **提供詳細資料，** 、 指定位置、 配額類型和 Batch 帳戶。
+    a. 在 [**提供詳細資料**] 中, 指定 [位置]、[配額類型] 和 [Batch 帳戶]。
     
-    ![批次配額增加][quota_increase]
+    ![增加批次配額][quota_increase]
 
-    配額類型包括：
+    配額類型包括:
 
-    * **每個 Batch 帳戶**  
-        單一批次的值特定帳戶，包括專用和低優先順序核心，以及作業和集區的數目。
+    * **每一 Batch 帳戶**  
+        單一 Batch 帳戶的特定值, 包括專用和低優先順序的核心, 以及作業和集區的數目。
         
     * **每個區域**  
-        套用至區域中的所有 Batch 帳戶，並包含每個訂用帳戶區域的批次帳戶數目的值。
+        適用于區域中所有 Batch 帳戶的值, 並包含每個訂用帳戶每個區域的 Batch 帳戶數目。
 
-    低優先順序配額是跨所有 VM 系列的單一值。 如果您需要受條件約束的 Sku，您必須選取**低優先順序核心**並包含要求的 VM 系列。
+    低優先順序配額是跨所有 VM 系列的單一值。 如果您需要受限的 Sku, 您必須選取**低優先順序的核心**, 並包含要要求的 VM 系列。
 
-    b. 根據[商業影響][support_sev]選取 [嚴重性]  。
+    b. 根據您的[業務影響][support_sev]來選取**嚴重性**。
 
     選取 [下一步]  。
 
@@ -127,9 +127,9 @@ Batch 服務所設定的其他限制。 不同於[資源配額](#resource-quotas
    
     b. 確認並輸入必要的連絡人詳細資料。
    
-    選取 **建立**提交支援要求。
+    選取 [**建立**] 以提交支援要求。
 
-一旦您上傳支援要求，Azure 支援會與您連絡。 配額要求可能在幾分鐘的時間內，或最多兩個工作天內完成。
+一旦您上傳支援要求，Azure 支援會與您連絡。 配額要求可能會在幾分鐘內完成, 或最多兩個工作天。
 
 ## <a name="related-quotas-for-vm-pools"></a>適用於 VM 集區的相關配額
 

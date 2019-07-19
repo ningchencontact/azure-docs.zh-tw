@@ -408,7 +408,7 @@
         - name: 重大變更
           href: reference-breaking-changes.md
 - name: v1.0
-  expanded: true
+  expanded: false
   items:
     - name: 概觀
       href: v1-overview.md

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.author: rajraj
-ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60806008"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326696"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
 您現在可以建立容量多達 1,000 個 VM 的 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)。 本文件將_大型虛擬機器擴展集_定義為能夠調整到 100 個 VM 以上的擴展集。 此容量是由擴展集屬性 (_singlePlacementGroup=False_) 所設定。 
@@ -42,7 +42,7 @@ ms.locfileid: "60806008"
 - 使用由多個放置群組所組成之擴展集的第 4 層負載平衡需要 [Azure Load Balancer 標準 SKU](../load-balancer/load-balancer-standard-overview.md)。 Load Balancer 標準 SKU 可提供額外的好處，例如平衡多個擴展集之間負載的能力。 標準 SKU 也要求擴展集具有相關聯的網路安全性群組，否則 NAT 集區無法正常運作。 如果您需要使用 Azure Load Balancer 基本 SKU，請確定擴展集是設定為使用單一放置群組 (預設設定)。
 - 所有擴展集皆支援使用 Azure 應用程式閘道的第 7 層負載平衡。
 - 擴展集會使用單一子網路來定義，請確定子網路的位址空間夠大，足以放置您需要的所有 VM。 根據預設，擴展集會過度佈建 (在部署或相應放大時建立額外的 VM，而無須付費) 以提升部署可靠性和效能。 請讓位址空間比您計劃調整成的 VM 數目大 20%。
-- 容錯網域和升級網域只會在放置群組內保持一致。 此架構不會改變擴展集的整體可用性，因為 VM 會平均分散到不同的實體硬體，但的確表示如果您需要保證兩個 VM 位於不同硬體上，請確定它們位於相同放置群組中的不同容錯網域。 請參閱此連結：[Azure 區域和可用性](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/)。 
+- 容錯網域和升級網域只會在放置群組內保持一致。 此架構不會改變擴展集的整體可用性，因為 VM 會平均分散到不同的實體硬體，但的確表示如果您需要保證兩個 VM 位於不同硬體上，請確定它們位於相同放置群組中的不同容錯網域。 請參閱此連結的[可用性選項](/azure/virtual-machines/windows/availability)。 
 - 容錯網域和放置群組識別碼會在擴展集 VM 的「執行個體檢視」  中顯示。 您可以在 [Azure 資源總管](https://resources.azure.com/)中檢視擴展集 VM 的執行個體檢視。
 
 ## <a name="creating-a-large-scale-set"></a>建立大型擴展集

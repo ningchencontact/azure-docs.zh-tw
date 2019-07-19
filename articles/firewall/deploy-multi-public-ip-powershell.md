@@ -1,39 +1,36 @@
 ---
-title: 部署多個公用 IP 位址使用 Azure PowerShell 的 Azure 防火牆
-description: 在本文中，您會學習如何部署多個公用 IP 位址使用 Azure PowerShell 的 Azure 防火牆。
+title: 使用 Azure PowerShell 部署具有多個公用 IP 位址的 Azure 防火牆
+description: 在本文中, 您將瞭解如何使用 Azure PowerShell 來部署具有多個公用 IP 位址的 Azure 防火牆。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: ce47612f18ee64caa3a053001deb5448f7c27bfd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703990"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325241"
 ---
-# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>部署多個公用 IP 位址使用 Azure PowerShell 的 Azure 防火牆
+# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>使用 Azure PowerShell 部署具有多個公用 IP 位址的 Azure 防火牆
 
-> [!IMPORTANT]
-> 具有多個公用 IP 位址的 azure 防火牆是可透過 Azure PowerShell、 Azure CLI、 REST 和範本。 入口網站使用者介面以累加的方式，新增至區域，並可在所有區域中首度發行完成時。
-
-您可以部署使用最多 100 個公用 IP 位址的 Azure 防火牆。
-
-這項功能適用於下列案例：
+這項功能可實現下列案例:
 
 - **DNAT** - 您可以將多個標準連接埠執行個體轉譯到後端伺服器。 例如，如果您有兩個公用 IP 位址，您可以為這兩個 IP 位址轉譯 TCP 通訊埠 3389 (RDP)。
 - **SNAT** - 其他連接埠可用於輸出 SNAT 連線，降低 SNAT 連接埠耗盡的可能性。 目前，Azure 防火牆會隨機選取來源公用 IP 位址以用於連線。 如果您的網路上有任何下游篩選，則您必須允許與防火牆相關聯的所有公用 IP 位址。
+ 
+具有多個公用 IP 位址的 Azure 防火牆可透過 Azure 入口網站、Azure PowerShell、Azure CLI、REST 和範本取得。 您可以部署最多100個公用 IP 位址的 Azure 防火牆。
 
-下列 Azure PowerShell 範例示範如何設定、 新增和移除 Azure 防火牆的公用 IP 位址。
+下列 Azure PowerShell 範例會示範如何設定、新增和移除 Azure 防火牆的公用 IP 位址。
 
 > [!NOTE]
-> 您無法從 Azure 防火牆公用 IP 位址組態頁面中移除第一個 ipConfiguration。 如果您想要修改的 IP 位址，您可以使用 Azure PowerShell。
+> 您無法從 Azure 防火牆公用 IP 位址設定頁面移除第一個 ipConfiguration。 如果您想要修改 IP 位址, 您可以使用 Azure PowerShell。
 
 ## <a name="create-a-firewall-with-two-or-more-public-ip-addresses"></a>建立具有兩個或多個公用 IP 位址的防火牆
 
-此範例會建立防火牆來連接到虛擬網路*vnet*兩個公用 IP 位址。
+此範例會建立連結至具有兩個公用 IP 位址之虛擬網路*vnet*的防火牆。
 
 ```azurepowershell
 $rgName = "resourceGroupName"
@@ -66,7 +63,7 @@ New-AzFirewall `
 
 ## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>將公用 IP 位址新增至現有的防火牆
 
-在此範例中，公用 IP 位址*azFwPublicIp1*附加至防火牆。
+在此範例中, 公用 IP 位址*azFwPublicIp1*會附加至防火牆。
 
 ```azurepowershell
 $pip = New-AzPublicIpAddress `
@@ -85,9 +82,9 @@ $azFw.AddPublicIpAddress($pip)
 $azFw | Set-AzFirewall
 ```
 
-## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>移除現有的防火牆中的公用 IP 位址
+## <a name="remove-a-public-ip-address-from-an-existing-firewall"></a>從現有的防火牆移除公用 IP 位址
 
-在此範例中，公用 IP 位址*azFwPublicIp1*是從防火牆中斷連結。
+在此範例中, 公用 IP 位址*azFwPublicIp1*會從防火牆卸離。
 
 ```azurepowershell
 $pip = Get-AzPublicIpAddress `

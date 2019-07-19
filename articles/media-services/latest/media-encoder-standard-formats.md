@@ -1,6 +1,6 @@
 ---
-title: 標準編碼器格式和轉碼器-Azure
-description: 本主題提供標準編碼器格式和轉碼器的的概觀。
+title: 標準編碼器格式和編解碼器-Azure
+description: 本主題提供標準編碼器格式和編解碼器的總覽。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: d4bbc83a101ba6b110ec97d5107ba3f79dd10843
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520019"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870943"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>標準編碼器格式和轉碼器
+# <a name="standard-encoder-formats-and-codecs"></a>標準編碼器格式和編解碼器
 
 本文件包含您可以藉由 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 使用的最常見匯入和匯出檔案格式列出的清單。 如需如何使用 **StandardEncoderPreset** 建立自訂預設設定的詳細資訊，請參閱[使用自訂預設建立轉換](customize-encoder-presets-how-to.md)。
 
@@ -46,7 +47,7 @@ ms.locfileid: "65520019"
 
 ### <a name="audio-formats-in-input-containers"></a>輸入容器中的音訊格式
 
-標準編碼器支援帶有下列音訊格式輸入容器中：
+標準編碼器支援在輸入容器中攜帶下列音訊格式:
 
 * MXF、GXF 和 QuickTime 檔案，其具有交錯立體聲或 5.1 範例的音訊音軌
 

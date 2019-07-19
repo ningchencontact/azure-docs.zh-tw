@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: eb64aa401838451191a830a5adbfb435ac5fdf25
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482423"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261945"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>使用代理者流程中委派使用者身分識別的服務對服務呼叫
 
@@ -38,7 +38,7 @@ OAuth 2.0 代理者 (OBO) 流程能讓叫用服務或 Web API 的應用程式將
 
 OBO 流程會在使用者已在使用 [OAuth 2.0 授權碼授與流程](v1-protocols-oauth-code.md)的應用程式上取得驗證之後開始。 此時，應用程式會將存取權杖 (權杖 A) 傳送至包含使用者宣告及同意的中介層 Web API (API A) 以存取 API A。接下來，API A 會向下游 Web API (API B) 發出已驗證的要求。
 
-這些步驟會構成代理者流程：![顯示 OAuth2.0 代理者的流程中的步驟](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+這些步驟會構成代理者流程：![顯示 OAuth 2.0 代理者流程中的步驟](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. 用戶端應用程式使用權杖 A 向 API A 提出要求。
 1. API A會向 Azure AD 權杖發行端點進行驗證，並要求存取 API B 的權杖。
@@ -58,32 +58,32 @@ OBO 流程會在使用者已在使用 [OAuth 2.0 授權碼授與流程](v1-proto
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在頂端列上選取您的帳戶，然後在 [目錄]  清單底下，選取適用於您應用程式的 Active Directory 租用戶。
 1. 選取左側窗格中的 [更多服務]  ，然後選擇 [Azure Active Directory]  。
-1. 選取 **應用程式註冊**，然後**新的註冊**。
+1. 依序選取 [**應用程式註冊**] 和 [**新增註冊**]。
 1. 為應用程式輸入易記名稱，然後選取應用程式類型。
 1. 在 [支援的帳戶類型]  底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  。
-1. 設定基底 URL 的重新導向 URI。
+1. 將 [重新導向 URI] 設定為基底 URL。
 1. 選取 [註冊]  以建立應用程式。
 1. 在結束 Azure 入口網站之前產生用戶端祕密。
-1. 在 Azure 入口網站中，選擇您的應用程式，然後選取**憑證與祕密**。
-1. 選取 **新的用戶端祕密**並新增持續時間為一年或兩年的祕密。
-1. 當您儲存此頁面時，Azure 入口網站會顯示祕密的值。 複製並儲存在安全的位置中的祕密的值。
+1. 在 Azure 入口網站中, 選擇您的應用程式, 然後選取 **憑證 & 秘密**。
+1. 選取 [**新增用戶端密碼**], 並新增一年或兩年期間的秘密。
+1. 當您儲存此頁面時, Azure 入口網站會顯示秘密值。 將秘密值複製並儲存在安全的位置。
 
 > [!IMPORTANT]
-> 您需要在實作中設定應用程式設定的密碼。 此祕密的值不會再顯示，並可透過任何其他方式擷取。 在它顯示於 Azure 入口網站中時，請儘快將它記錄下來。
+> 您需要密碼, 才能在您的執行中設定應用程式設定。 這個秘密值不會再次顯示, 也無法透過任何其他方式來加以抓取。 在它顯示於 Azure 入口網站中時，請儘快將它記錄下來。
 
 ### <a name="register-the-client-application"></a>註冊用戶端應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在頂端列上選取您的帳戶，然後在 [目錄]  清單底下，選取適用於您應用程式的 Active Directory 租用戶。
 1. 選取左側窗格中的 [更多服務]  ，然後選擇 [Azure Active Directory]  。
-1. 選取 **應用程式註冊**，然後**新的註冊**。
+1. 依序選取 [**應用程式註冊**] 和 [**新增註冊**]。
 1. 為應用程式輸入易記名稱，然後選取應用程式類型。
 1. 在 [支援的帳戶類型]  底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  。
-1. 設定基底 URL 的重新導向 URI。
+1. 將 [重新導向 URI] 設定為基底 URL。
 1. 選取 [註冊]  以建立應用程式。
-1. 設定應用程式的權限。 在  **API 的權限**，選取**新增權限**，然後**我的 Api**。
+1. 設定應用程式的權限。 在 [ **API 許可權**] 中, 選取 [**新增許可權**] 和 [**我的 api**]。
 1. 在文字欄位中輸入中介層服務的名稱。
-1. 選擇**選取權限**，然後選取**存取<service name>** 。
+1. 選擇 [**選取許可權**], 然後選取 [**存取\<服務名稱] >** 。
 
 ### <a name="configure-known-client-applications"></a>設定已知的用戶端應用程式
 
@@ -109,7 +109,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | grant_type |必要 | 權杖要求的類型。 OBO 要求會使用 JSON Web 權杖 (JWT)，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的存取權杖值。 |
@@ -143,7 +143,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | grant_type |必要 | 權杖要求的類型。 OBO 要求會使用 JWT 存取權杖，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的權杖值。 |
@@ -183,12 +183,12 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 | 參數 | 描述 |
 | --- | --- |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人]  。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有者令牌用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人]  。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | resource |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
-| access_token |请求的访问令牌。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
+| access_token |所要求的存取權杖。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
 | id_token |所要求的識別碼權杖。 呼叫端服務可以使用此權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 |
 | refresh_token |所要求之存取權杖的重新整理權杖。 呼叫端服務可以使用這個權杖，在目前的存取權杖過期之後，要求其他的存取權杖。 |
 
@@ -213,7 +213,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 ### <a name="error-response-example"></a>錯誤回應範例
 
-嘗試取得下游 api 使用條件式存取原則 （例如，多重要素驗證） 所設定的存取權杖時，Azure AD 權杖端點會傳回錯誤回應。 中介層服務應該向用戶端應用程式呈現此錯誤，以便用戶端應用程式可以提供使用者互動，以滿足條件式存取原則。
+當 Azure AD token 端點嘗試取得使用條件式存取原則 (例如多重要素驗證) 所設定之下游 API 的存取權杖時, 會傳回錯誤回應。 仲介層服務應將此錯誤呈現給用戶端應用程式, 讓用戶端應用程式可以提供使用者互動, 以滿足條件式存取原則。
 
 ```
 {
@@ -253,7 +253,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 
 適用於 SAML 判斷提示的服務對服務要求包含下列參數：
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | grant_type |必要 | 權杖要求的類型。 針對使用 JWT 的要求，此值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的存取權杖值。|
@@ -274,7 +274,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 
 | 參數 | 描述 |
 | --- | --- |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人]  。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有者令牌用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人]  。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |

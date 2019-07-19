@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512089"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849370"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂使用者介面體驗
 
@@ -44,11 +44,11 @@ ms.locfileid: "66512089"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 請確定您使用的目錄中有您的 Azure 訂用帳戶。 在上方功能表中選取 [目錄和訂用帳戶篩選]  ，然後選擇包含您訂用帳戶的目錄。 此目錄不同於包含您 Azure B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [儲存體帳戶]  。 
+3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [儲存體帳戶]  。
 4. 選取 [新增]  。
 5. 在 [資源群組]  下，選取 [新建]  ，然後輸入新資源群組的名稱並按一下 [確認]  。
 6. 輸入儲存體帳戶的名稱。 您選擇的名稱在 Azure 中必須是唯一的、必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
-7. 選取儲存體帳戶的位置，或接受預設位置。 
+7. 選取儲存體帳戶的位置，或接受預設位置。
 8. 接受所有其他預設值，然後選取 [檢閱 + 建立]  ，並按一下 [建立]  。
 9. 建立儲存體帳戶之後，請選取 [移至資源]  。
 
@@ -68,7 +68,7 @@ ms.locfileid: "66512089"
 5. 針對 [公開的標頭]  ，輸入星號 (*)。
 6. 針對 [最大壽命]  ，輸入 200。
 
-    ![啟用 CORS](./media/tutorial-customize-ui/enable-cors.png)
+    ![Azure 入口網站中 Azure Blob 儲存體的 CORS 設定頁面](./media/tutorial-customize-ui/enable-cors.png)
 
 5. 按一下 [儲存]  。
 
@@ -85,14 +85,14 @@ ms.locfileid: "66512089"
         <title>My B2C Application</title>
         <link rel="stylesheet" href="https://your-storage-account.blob.core.windows.net/your-container/style.css">
       </head>
-      <body>  
+      <body>
         <h1>My B2C Application</h1>
         <div id="api"></div>
       </body>
     </html>
     ```
 
-    您可以透過任何方式設計頁面，但您建立的任何 HTML 自訂檔案都必須有 **api** div 元素。 
+    您可以透過任何方式設計頁面，但您建立的任何 HTML 自訂檔案都必須有 **api** div 元素。
 
 3. 將檔案儲存為 custom-ui.html  。
 4. 建立下列簡單的 CSS，以將所有項目 (包括 Azure AD B2C 插入的項目) 放到註冊或登入頁面的中間。
@@ -103,7 +103,7 @@ ms.locfileid: "66512089"
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 300px ;
@@ -111,7 +111,7 @@ ms.locfileid: "66512089"
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 300px ;
@@ -130,7 +130,7 @@ ms.locfileid: "66512089"
 2. 選取您建立的儲存體帳戶、選取 [Blob]  ，然後選取您建立的容器。
 3. 選取 [上傳]  ，瀏覽至 [custom-ui.html]  檔案並加以選取，然後再按一下 [上傳]  。
 
-    ![上傳自訂檔案](./media/tutorial-customize-ui/upload-blob.png)
+    ![在入口網站中上傳 blob 頁面並反白顯示上傳按鈕和檔案](./media/tutorial-customize-ui/upload-blob.png)
 
 4. 複製已上傳檔案的 URL，以便稍後在教學課程中使用。
 5. 對 style.css  檔案重複步驟 3 和 4。
@@ -149,11 +149,11 @@ ms.locfileid: "66512089"
 2. 按一下頁面頂端的 [執行使用者流程]  。
 3. 按一下 [執行使用者流程]  按鈕。
 
-    ![執行註冊或登入使用者流程](./media/tutorial-customize-ui/run-user-flow.png)
+    ![執行註冊或登入使用者流程的使用者流程頁面](./media/tutorial-customize-ui/run-user-flow.png)
 
     您應該會看到類似下列範例的頁面，而頁面上的置中元素會以您所建立的 CSS 檔案為基礎：
 
-    ![使用者流程結果](./media/tutorial-customize-ui/run-now.png) 
+    ![網頁瀏覽器顯示具有自訂 UI 元素的註冊或登入頁面](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>後續步驟
 

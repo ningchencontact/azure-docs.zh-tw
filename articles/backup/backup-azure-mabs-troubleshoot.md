@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: srinathv
-ms.openlocfilehash: ee24fe4c1792f1934fcfb87a2481133631de4263
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8e7ee506448f5ce0c8dc0b7f55dd9d66e73f110e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705072"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234792"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
@@ -21,13 +21,13 @@ ms.locfileid: "67705072"
 
 ## <a name="basic-troubleshooting"></a>基本疑難排解
 
-我們建議您執行下列驗證，開始之前疑難排解 Microsoft Azure 備份伺服器 (MABS):
+我們建議您先執行下列驗證, 再開始針對 Microsoft Azure 備份 Server 進行疑難排解 (MABS):
 
-- [確保 Microsoft Azure 復原服務 (MARS) 代理程式是最新狀態](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [確定 Microsoft Azure 復原服務 (MARS) 代理程式為最新狀態](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [確保 MARS 代理程式和 Azure 之間具有網路連線能力](https://aka.ms/AB-A4dp50)
-- 確保 Microsoft Azure 復原服務正在執行中 (在服務主控台中)。 如果需要重新啟動，然後重試此作業
+- 確保 Microsoft Azure 復原服務正在執行中 (在服務主控台中)。 如有必要, 請重新開機, 然後重試操作
 - [確保草稿資料夾位置具有 5-10% 的磁碟區空間可供使用](https://aka.ms/AB-AA4dwtt)
-- 如果註冊失敗，請確定您已嘗試安裝 Azure 備份伺服器的伺服器尚未與另一個保存庫註冊
+- 如果註冊失敗, 請確定您嘗試安裝的伺服器 Azure 備份伺服器尚未向另一個保存庫註冊
 - 若推送安裝失敗，請檢查是否已有 DPM 代理程式。 若已有，請解除安裝代理程式，然後重試安裝
 - [確保沒有其他程序或防毒軟體干擾 Azure 備份](https://aka.ms/AA4nyr4)<br>
 - 確定 SQL 代理程式服務正在執行且設定為在 MAB 伺服器中自動執行<br>
@@ -43,7 +43,7 @@ ms.locfileid: "67705072"
 
 | 運算 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| Backup | 複本不一致 | 確認已開啟「保護群組」精靈中的自動一致性檢查選項。 如需詳細的複本不一致和相關建議原因相關資訊，請參閱文章[複本不一致](https://technet.microsoft.com/library/cc161593.aspx)。<br> <ol><li> 如果是系統狀態/BMR 備份，請確認受保護伺服器上已安裝 Windows Server Backup。</li><li> 檢查 DPM/「Microsoft Azure 備份伺服器」上 DPM 儲存體集區中的空間相關問題，並視需要配置儲存體。</li><li> 檢查受保護伺服器上「磁碟區陰影複製服務」的狀態。 如果它處於停用狀態，請將它設定為手動啟動。 在伺服器上啟動該服務。 然後返回 DPM/「Microsoft Azure 備份伺服器」主控台，並開始一致性檢查作業的同步處理。</li></ol>|
+| Backup | 複本不一致 | 確認已開啟「保護群組」精靈中的自動一致性檢查選項。 如需有關複本不一致原因和相關建議的詳細資訊, 請參閱「[複本不一致](https://technet.microsoft.com/library/cc161593.aspx)」一文。<br> <ol><li> 如果是系統狀態/BMR 備份，請確認受保護伺服器上已安裝 Windows Server Backup。</li><li> 檢查 DPM/「Microsoft Azure 備份伺服器」上 DPM 儲存體集區中的空間相關問題，並視需要配置儲存體。</li><li> 檢查受保護伺服器上「磁碟區陰影複製服務」的狀態。 如果它處於停用狀態，請將它設定為手動啟動。 在伺服器上啟動該服務。 然後返回 DPM/「Microsoft Azure 備份伺服器」主控台，並開始一致性檢查作業的同步處理。</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>線上復原點建立失敗
 
@@ -55,7 +55,7 @@ ms.locfileid: "67705072"
 
 | 運算 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| Restore | **錯誤碼**：CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error:100110 <br/> <br/>**錯誤訊息**：提供的保存庫認證與登錄此伺服器的保存庫不同 | **原因**︰當您嘗試使用外部 DPM 復原選項，從原始伺服器將檔案還原到備用伺服器時，如果正在復原的伺服器和備份資料的原始伺服器與相同的復原服務保存庫無關，則會發生此問題。<br/> <br/>**因應措施**若要解決此問題，請確定兩者的原始和備用伺服器註冊至相同的保存庫。|
+| Restore | **錯誤碼**：CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error:100110 <br/> <br/>**錯誤訊息**：提供的保存庫認證與登錄此伺服器的保存庫不同 | **原因**︰當您嘗試使用外部 DPM 復原選項，從原始伺服器將檔案還原到備用伺服器時，如果正在復原的伺服器和備份資料的原始伺服器與相同的復原服務保存庫無關，則會發生此問題。<br/> <br/> 因應措施若要解決此問題, 請確定原始和替代的伺服器都已註冊到相同的保存庫。|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>VMware VM 的線上復原點建立作業失敗
 
@@ -74,7 +74,7 @@ ms.locfileid: "67705072"
 
 | 運算 | 錯誤詳細資料 | 因應措施 |
 |-----------|---------------|------------|
-|安裝 | 安裝程式無法更新登錄中繼資料。 此更新失敗會導致儲存體過度耗用。 若要避免這項更新 ReFS Trimming 登錄項目。 | 調整登錄機碼 **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**。 將 Dword 值設為 1。 |
+|安裝 | 安裝程式無法更新登錄中繼資料。 此更新失敗會導致儲存體過度耗用。 若要避免這種情況, 請更新 ReFS 修剪登錄專案。 | 調整登錄機碼 **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**。 將 Dword 值設為 1。 |
 |安裝 | 安裝程式無法更新登錄中繼資料。 此更新失敗會導致儲存體過度耗用。 若要避免此問題，請更新 Volume SnapOptimization 登錄項目。 | 建立值為空白字串的登錄機碼 **SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds**。 |
 
 ## <a name="registration-and-agent-related-issues"></a>註冊與代理程式相關問題
@@ -82,7 +82,7 @@ ms.locfileid: "67705072"
 | 運算 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
 | 將代理程式推送至受保護的伺服器 | 為伺服器指定的認證無效。 | **如果產品所示的建議動作沒有用，請執行下列步驟**： <br> 如[這篇文章](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual)所指定，嘗試手動將保護代理程式安裝在生產伺服器上。|
-| Azure 備份代理程式無法連線到 Azure 備份服務 (ID：100050) | Azure 備份代理程式無法連線到 Azure 備份服務。 | **如果產品所示的建議動作沒有用，請執行下列步驟**： <br>1.從已提升權限的提示字元中執行下列命令︰**psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**。 這會開啟 Internet Explorer 視窗。 <br/> 2.移至 [工具]   > [網際網路選項]   > [連線]   > [LAN 設定]  。 <br/> 3.變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。<br/> 4.如果您的電腦具有受限的網際網路存取，請確定電腦或 proxy 上的防火牆設定允許這些[Url](backup-configure-vault.md#verify-internet-access)並[IP 位址](backup-configure-vault.md#verify-internet-access)。|
+| Azure 備份代理程式無法連線到 Azure 備份服務 (ID：100050) | Azure 備份代理程式無法連線到 Azure 備份服務。 | **如果產品所示的建議動作沒有用，請執行下列步驟**： <br>1.從已提升權限的提示字元中執行下列命令︰**psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**。 這會開啟 Internet Explorer 視窗。 <br/> 2.移至 [工具]   > [網際網路選項]   > [連線]   > [LAN 設定]  。 <br/> 3.變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。<br/> 4.如果您的電腦具有有限的網際網路存取權, 請確定電腦或 proxy 上的防火牆設定允許這些[url](backup-configure-vault.md#verify-internet-access)和[IP 位址](backup-configure-vault.md#verify-internet-access)。|
 | Azure 備份代理程式安裝失敗 | Microsoft Azure 復原服務安裝失敗。 「Microsoft Azure 復原服務」安裝作業對系統所做的所有變更都已復原。 (識別碼：4024) | 手動安裝「Azure 代理程式」。
 
 
@@ -101,7 +101,7 @@ ms.locfileid: "67705072"
 | --- | --- | --- |
 | Backup | 執行作業時發生非預期的錯誤。 裝置未就緒。 | **如果產品所示的建議動作沒有用，請執行下列步驟：** <br> <ul><li>針對保護群組中的項目，將「陰影複製儲存」空間設定為無限，然後執行一致性檢查。<br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新群組。 每個新保護群組中都應該有一個個別項目。</li></ul> |
 | Backup | 如果您只要備份系統狀態，請確認受保護的電腦上有足夠的可用空間可儲存系統狀態備份。 | <ol><li>確認受保護電腦上已安裝 Windows Server Backup。</li><li>確認受保護電腦上有足夠的空間可儲存系統狀態。 進行這項確認的最簡單方式就是移至受保護的電腦、開啟 Windows Server Backup、一路點選選項，然後選取 [BMR]。 接著，UI 會告訴您需要多少空間。 開啟 [WSB]   > [本機備份]   > [備份排程]   > [選取備份設定]   > [完整伺服器]  (會顯示大小)。 使用此大小進行驗證。</li></ol>
-| Backup | 用於執行 BMR 備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試。 |
+| Backup | BMR 的備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試。 |
 | Backup | 重新保護新「Microsoft Azure 備份伺服器」上 VMWare VM 的選項未顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題︰<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要]  索引標籤，然後移至 [自訂屬性]  。</li>  <li>從 [DPMServer]  值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理]  按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
 | Backup | 存取檔案/共用資料夾時發生錯誤 | 嘗試修改防毒設定，如 TechNet 文章[在 DPM 伺服器上執行防毒軟體](https://technet.microsoft.com/library/hh757911.aspx)所建議。|
 
@@ -118,4 +118,34 @@ ms.locfileid: "67705072"
 
 | 運算 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 使用 Office 365 帳戶來設定電子郵件通知 |錯誤識別碼：2013| **原因：**<br> 嘗試使用 Office 365 帳戶 <br>**建議的動作：**<ol><li> 所要確保的第一件事就是在 Exchange 上已設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 如需有關如何進行這項設定的詳細資訊，請參閱 TechNet 上的[允許接收連接器上的匿名轉送](https://technet.microsoft.com/library/bb232021.aspx)。</li> <li> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器來進行設定，您可以將 IIS 設定為轉送。 請將 DPM 伺服器設定為[使用 IIS 將 SMTP 轉送至 O365](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)。<br><br> **重要事項：** 請務必使用使用者\@domain.com 格式與*不*網域 \ 使用者。<br><br><li>將 DPM 指向為使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587。 然後將它指向應作為電子郵件來源的使用者電子郵件。<li> DPM SMTP 設定頁面上的使用者名稱和密碼應該用於 DPM 所在網域的網域帳戶。 </li><br> **附註**：變更 SMTP 伺服器位址時，請對新設定進行變更、關閉 [設定] 方塊，然後重新開啟它來確定它反映新的值。  只是變更和測試不一定會讓新設定生效，因此以這種方式測試是最佳做法。<br><br>在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 金鑰**。 您可以在再次啟動它時，將它們加回到 UI 中。
+| 使用 Office 365 帳戶來設定電子郵件通知 |錯誤識別碼：2013| **原因：**<br> 嘗試使用 Office 365 帳戶 <br>**建議的動作：**<ol><li> 所要確保的第一件事就是在 Exchange 上已設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 如需有關如何進行這項設定的詳細資訊，請參閱 TechNet 上的[允許接收連接器上的匿名轉送](https://technet.microsoft.com/library/bb232021.aspx)。</li> <li> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器來進行設定，您可以將 IIS 設定為轉送。 請將 DPM 伺服器設定為[使用 IIS 將 SMTP 轉送至 O365](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)。<br><br> **重要事項：** 請務必使用使用者\@domain.com 格式, 而*不*是 domain\user<br><br><li>將 DPM 指向為使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587。 然後將它指向應作為電子郵件來源的使用者電子郵件。<li> DPM SMTP 設定頁面上的使用者名稱和密碼應該用於 DPM 所在網域的網域帳戶。 </li><br> **附註**：變更 SMTP 伺服器位址時，請對新設定進行變更、關閉 [設定] 方塊，然後重新開啟它來確定它反映新的值。  只是變更和測試不一定會讓新設定生效，因此以這種方式測試是最佳做法。<br><br>在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 金鑰**。 您可以在再次啟動它時，將它們加回到 UI 中。
+
+
+## <a name="common-issues"></a>常見問題
+
+本節涵蓋使用 Azure 備份伺服器時可能會遇到的常見錯誤。
+
+
+### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+錯誤訊息 | 建議的動作 |
+-- | --
+備份失敗，因為磁碟備份複本無效或遺漏。 | 若要解決此問題, 請確認下列步驟, 然後重試此作業: <br/> 1.建立磁片復原點<br/> 2.在資料來源上執行一致性檢查 <br/> 3.停止保護 datasource, 然後重新設定此資料來源的保護
+
+### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+錯誤訊息 | 建議的動作 |
+-- | --
+因為複本上的中繼資料無效, 所以來源磁片區快照集失敗。 | 請建立此資料來源的磁片復原點, 然後再次嘗試線上備份
+
+### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
+
+錯誤訊息 | 建議的動作 |
+-- | --
+來源磁片區快照集失敗, 因為資料來源複本不一致。 | 請在此資料來源上執行一致性檢查, 然後再試一次
+
+### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
+
+錯誤訊息 | 建議的動作 |
+-- | --
+備份失敗, 因為無法複製磁片備份複本。| 請確定所有先前的磁片備份複本檔案 (.vhdx) 皆已卸載, 而且在線上備份期間沒有磁片對磁片備份正在進行中

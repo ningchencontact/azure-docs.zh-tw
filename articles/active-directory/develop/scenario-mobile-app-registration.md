@@ -1,9 +1,9 @@
 ---
-title: 呼叫 web Api-應用程式的程式碼設定的行動裝置應用程式 |Microsoft 身分識別平台
-description: 了解如何建置行動應用程式呼叫 web Api （應用程式的程式碼組態）
+title: 呼叫 web Api 的行動應用程式-應用程式的程式碼設定 |Microsoft 身分識別平臺
+description: 瞭解如何建立呼叫 web Api 的行動應用程式 (應用程式的程式碼設定)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,36 +16,36 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b6ebab0eeca6895e1c7a0f6008972030d81da42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f43ae9da51f68c9765a36d27c993d1c9935d61fa
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962399"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326114"
 ---
-# <a name="mobile-app-that-calls-web-apis---app-registration"></a>呼叫 web Api-應用程式註冊的行動裝置應用程式
+# <a name="mobile-app-that-calls-web-apis---app-registration"></a>呼叫 web Api 的行動應用程式-應用程式註冊
 
-這篇文章包含用於建立行動應用程式的應用程式註冊指示。
+本文包含用來建立行動應用程式的應用程式註冊指示。
 
 ## <a name="supported-account-types"></a>支援的帳戶類型
 
-支援行動裝置應用程式的帳戶類型取決於您想要啟用的體驗和您的應用程式為目標的使用者。
+行動應用程式中支援的帳戶類型取決於您想要啟用的體驗, 以及應用程式的目標使用者。
 
-## <a name="platform-configuration-and-redirect-uris"></a>平台設定和重新導向 Uri  
+## <a name="platform-configuration-and-redirect-uris"></a>平臺設定和重新導向 Uri  
 
-建置行動應用程式，最重要的註冊步驟時的重新導向 URI。 這可以透過設定[在 [驗證] 刀鋒視窗中的平台組態](https://aka.ms/MobileAppReg)。
+建立行動應用程式時, 最重要的註冊步驟是 [重新導向 URI]。 您可以透過[[驗證](https://aka.ms/MobileAppReg)] 分頁中的 [平臺設定] 來設定此選項。
 
-這項體驗可讓您的應用程式通過單一登入 (SSO) 的 Microsoft Authenticator 和 （在 Android 上的 Intune 公司入口網站） 以及支援裝置管理原則。
+此體驗可讓您的應用程式透過 Microsoft Authenticator (和 Android 上的 Intune 公司入口網站) 取得單一登入 (SSO), 並支援裝置管理原則。
 
-如果您想要手動設定 重新導向 URI，則可以透過應用程式資訊清單。 建議的格式如下：
+如果您想要手動設定重新導向 URI, 您可以透過應用程式資訊清單來執行此動作。 建議的格式如下:
 
-- ***iOS***: `msauth.<BUNDLE_ID>://auth`
-- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Android 的簽章雜湊就可以使用透過 KeyTool 命令發行或偵錯金鑰產生。
+- ***iOS***:`msauth.<BUNDLE_ID>://auth`
+- ***Android***:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - 您可以透過 KeyTool 命令, 使用 release 或 debug 金鑰來產生 Android 簽名雜湊。
 
 ## <a name="api-permissions"></a>API 權限
 
-行動應用程式代表登入的使用者呼叫 Api。 您的應用程式必須要求委派的權限，也稱為領域。 根據所需的體驗，做法是以靜態方式在 Azure 入口網站或以動態方式在執行階段。 靜態註冊權限可讓系統管理員輕鬆地核准您的應用程式，建議使用。
+行動應用程式代表已登入的使用者呼叫 Api。 您的應用程式需要要求委派的許可權, 也稱為範圍。 視所需的經驗而定, 這可以透過 Azure 入口網站以靜態方式完成, 或在執行時間以動態方式執行。 靜態註冊許可權可讓系統管理員輕鬆地核准您的應用程式, 並建議您這麼做。
 
 ## <a name="next-steps"></a>後續步驟
 

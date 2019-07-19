@@ -1,20 +1,20 @@
 ---
-author: wesmc7777
+author: yegu-ms
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: wesmc
-ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: yegu
+ms.openlocfilehash: 61e93e3700b9a396d2ac4fdcbb51fc5c874cf9cb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174550"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286202"
 ---
 .NET 應用程式可以使用 **StackExchange.Redis** 快取用戶端，該用戶端可在 Visual Studio 中使用能簡化快取用戶端應用程式組態的 NuGet 套件來加以設定。 
 
 > [!NOTE]
-> 如需詳細資訊，請參閱 [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) (英文) GitHub 頁面和 [StackExchange.Azure Redis 快取用戶端文件](http://github.com/StackExchange/StackExchange.Redis#documentation) (英文)。
+> 如需詳細資訊，請參閱 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) (英文) GitHub 頁面和 [StackExchange.Azure Redis 快取用戶端文件](https://github.com/StackExchange/StackExchange.Redis#documentation) (英文)。
 >
 >
 

@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096229"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854163"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
-Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 舉例來說，您有 Azure web 應用程式，而且您想存取它的使用者使用 contoso.com 或 www\.contoso.com 做為 FQDN。 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
+Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有完整網域名稱 (FQDN) 的 Azure 資源。 例如, 您有 Azure web 應用程式, 而且您想要讓使用者使用 contoso.com 或 www\.contoso.com 做為 FQDN 來存取它。 本文章會引導您使用 Azure DNS 設定您的 Azure 服務，以便使用自訂網域。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -41,7 +41,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |屬性  |值  |描述  |
 |---------|---------|---------|
 |名稱     | myFunctionApp        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
+|Type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | adatumfunction.azurewebsites.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 adatumfunction.azurewebsites.net (預設提供給函數應用程式的 DNS 名稱)。        |
@@ -54,7 +54,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 ## <a name="public-ip-address"></a>公用 IP 位址
 
-若要設定自訂網域服務，使用公用 IP 位址資源，例如應用程式閘道、 負載平衡器、 雲端服務、 Resource Manager Vm，以及使用傳統 Vm，A 記錄。
+若要為使用公用 IP 位址資源的服務 (例如應用程式閘道、Load Balancer、雲端服務、Resource Manager Vm 和、傳統 Vm) 設定自訂網域, 則會使用 A 記錄。
 
 瀏覽至 [網路]   >  [公用 IP 位址]  ，選取公用 IP 資源，然後按一下 [設定]  。 記下顯示的 IP 位址。
 
@@ -66,7 +66,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |屬性  |值  |描述  |
 |---------|---------|---------|
 |名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|type     | A        | 使用 A 記錄，因為該資源是 IP 位址。        |
+|Type     | A        | 使用 A 記錄，因為該資源是 IP 位址。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |IP 位址     | `<your ip address>`       | 公用 IP 位址。|
@@ -93,7 +93,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |屬性  |值  |描述  |
 |---------|---------|---------|
 |名稱     | mywebserver        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|type     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
+|Type     | CNAME        | 使用 CNAME 記錄會使用別名。 如果資源使用 IP 位址，就會使用 A 記錄。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | webserver.azurewebsites.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 webserver.azurewebsites.net (預設提供給 Web 應用程式的 DNS 名稱)。        |
@@ -111,6 +111,8 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 若要深入了解自訂網域對應至 App Service，請造訪[將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json)。
 
+若要瞭解如何遷移使用中的 DNS 名稱, 請參閱將作用中[的 dns 名稱遷移至 Azure App Service](../app-service/manage-custom-dns-migrate-domain.md)。
+
 如果您需要購買自訂網域，請造訪[購買 Azure Web Apps 的自訂網域名稱](../app-service/manage-custom-dns-buy-domain.md)，以深入了解 App Service 網域。
 
 ## <a name="blob-storage"></a>Blob 儲存體
@@ -127,7 +129,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |屬性  |值  |描述  |
 |---------|---------|---------|
 |名稱     | asverify.mystorageaccount        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
+|Type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 asverify.adatumfunctiona9ed.blob.core.windows.net (預設提供給儲存體帳戶的 DNS 名稱)。        |
@@ -155,7 +157,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |屬性  |值  |描述  |
 |---------|---------|---------|
 |名稱     | cdnverify.mycdnendpoint        | 這個值以及網域名稱標籤是自訂網域名稱的 FQDN。        |
-|type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
+|Type     | CNAME        | 使用 CNAME 記錄會使用別名。        |
 |TTL     | 1        | 1 為使用 1 小時        |
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 cdnverify.adatumcdnendpoint.azureedge.net (預設提供給儲存體帳戶的 DNS 名稱)。        |

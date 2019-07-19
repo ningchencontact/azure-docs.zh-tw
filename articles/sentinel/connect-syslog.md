@@ -1,6 +1,6 @@
 ---
-title: 將 Syslog 資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
-description: 了解如何將 Syslog 資料連接至 Azure 的 Sentinel。
+title: 將 Syslog 資料連線到 Azure Sentinel 預覽 |Microsoft Docs
+description: 瞭解如何將 Syslog 資料連線到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,47 +13,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee7b31a57bc9627776b9ca5445132a4662506134
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611339"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881074"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>連接您外部解決方案中使用 Syslog
+# <a name="connect-your-external-solution-using-syslog"></a>使用 Syslog 連接您的外部解決方案
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您可以連接支援 Azure Sentinel 的 Syslog 任何內部部署設備。 這是由使用代理程式之間的設備與 Azure Sentinel Linux 機器為基礎。 如果您的 Linux 機器是在 Azure 中，您可以串流處理來自您的應用裝置或應用程式以在 Azure 中建立，並將它連線的專用工作區的記錄檔。 如果您的 Linux 機器不是在 Azure 中，您可以串流處理記錄檔從您的應用裝置的專用內部部署 VM 或機器安裝 Linux 的代理程式上。 
+您可以將任何支援 Syslog 的內部部署設備連線到 Azure Sentinel。 這項作業是使用以設備和 Azure Sentinel 之間的 Linux 機器為基礎的代理程式來完成。 如果您的 Linux 機器位於 Azure 中, 您可以將應用程式中的記錄串流至您在 Azure 中建立的專用工作區, 並加以連接。 如果您的 Linux 電腦不在 Azure 中, 您可以將應用程式中的記錄串流至專用的內部部署 VM 或電腦上, 以安裝 Linux 的代理程式。 
 
 > [!NOTE]
-> 如果您的應用裝置支援 Syslog CEF 連線更完整，是您應該選擇此選項，並依照[CEF 從連線資料](connect-common-event-format.md)。
+> 如果您的設備支援 Syslog CEF, 連線就會更完整, 而且您應該選擇此選項, 並遵循[從 CEF 連接資料](connect-common-event-format.md)中的指示。
 
 ## <a name="how-it-works"></a>運作方式
 
-Syslog 連接是使用適用於 Linux 的代理程式來完成。 根據預設，適用於 Linux 的代理程式會接收事件從 Syslog 精靈透過 UDP，但在 Linux 機器應該在其中收集大量的 Syslog 事件，例如 Linux 代理程式會收到事件時從其他裝置，若要修改設定的情況下使用 Syslog 精靈與代理程式之間的 TCP 傳輸。
+Syslog 是通用於 Linux 的事件記錄通訊協定。 應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。 安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。 然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。
+
+如需詳細資訊, 請參閱[Azure 監視器中的 Syslog 資料來源](../azure-monitor/platform/data-sources-syslog.md)。
+
+> [!NOTE]
+> 代理程式可以從多個來源收集記錄, 但必須安裝在專用的 proxy 電腦上。
 
 ## <a name="connect-your-syslog-appliance"></a>連接您的 Syslog 設備
 
-1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後選擇**Syslog**圖格。
-2. 如果您的 Linux 機器不是在 Azure 中，下載並安裝 Azure Sentinel**適用於 Linux 的代理程式**應用裝置上。 
-1. 如果您正在 Azure 中，選取或建立 VM，Azure Sentinel 工作區，專門用來接收 Syslog 訊息中。 在 Azure Sentinel 工作區中選取 VM，然後按一下**Connect**在左窗格的頂端。
-3. 按一下 **設定記錄檔，以連接**年代 Syslog 連接器安裝程式。 
-4. 按一下 **按這裡開啟 設定 刀鋒視窗**。
-1. 選取 **資料**，然後**Syslog**。
-   - 請確定您要傳送 Syslog 的每個設備是資料表中。 針對每個設備要監視、 設定嚴重性。 按一下 **[套用]** 。
-1. 在您 Syslog 的機器，請確定您要傳送這些設施。 
+1. 在 Azure Sentinel 入口網站中, 選取 [**資料連線器**], 然後選取資料表中的**syslog**行, 並在右側的 syslog 窗格中, 按一下 [**開啟連接器] 頁面**。
+2. 如果您的 Linux 機器位於 Azure 中, 請選取 [**在 Azure Linux 虛擬機器上下載並安裝代理程式**]。 在 [虛擬機器] 視窗中, 選取您要安裝代理程式的電腦, 然後按一下頂端的 **[連線]** 。
+1. 如果您的 Linux 機器不在 Azure 內, 請選取 [**在 linux 非 azure 機器上下載並安裝代理程式**]。 在 [**直接代理程式**] 視窗中, 複製 [**下載並上架代理程式**] 底下的命令, 並在您的電腦上執行。 
+1. 在 [設定要在 Syslog 連接器安裝程式中**連線的記錄**] 底下, 遵循下列指示:
+    1. 按一下連結以**開啟您的工作區 [advanced settings] 設定**。 
+    1. 依序選取 [**資料**] 和 [ **Syslog**]。
+    1. 然後, 在資料表中設定您想要 Syslog 收集的設備。 您應該在其記錄標頭中新增或選取 Syslog 應用裝置所包含的功能。 您可以在/etc/rsyslog.d/security-config-omsagent.conf 的 Syslog 設備中看到此設定, 並在/etc/syslog-ng/security-config-omsagent.conf. 下的 r-Syslog 中查看 
+       > [!NOTE]
+       > 如果您選取 [**將下列設定套用到我的電腦**] 核取方塊, 則此設定會套用到所有連線到此工作區的 Linux 電腦。 您可以在您的 Syslog 電腦中看到這項設定 
+1. 按一下 **[按這裡] 以開啟 [** 設定] 分頁。
+1. 依序選取 [**資料**] 和 [ **Syslog**]。
+   - 請確定您要由 Syslog 傳送的每個設備都在資料表中。 針對您要監視的每個設施, 設定嚴重性。 按一下 **[套用]** 。
+1. 在您的 Syslog 電腦中, 請確定您要傳送這些設備。 
 
-3. 若要使用 Log Analytics 中的 Syslog 記錄檔相關的結構描述，搜尋**Syslog**。
+1. 若要在 Log Analytics 中針對 Syslog 記錄使用相關的架構, 請搜尋**syslog**。
+1. 您可以使用在[Azure 監視器記錄查詢中使用](../azure-monitor/log-query/functions.md)函式中所述的 Kusto 函式來剖析 Syslog 訊息, 然後將其儲存為新的 log Analytics 函式, 然後使用該函數做為新的資料類型。
 
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Syslog 內部部署設備。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中, 您已瞭解如何將 Syslog 內部部署應用裝置連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。

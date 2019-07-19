@@ -3,7 +3,7 @@ title: 容器工作負載 - Azure Batch | Microsoft Docs
 description: 了解如何在 Azure Batch 上透過容器映像執行應用程式。
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/19/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: cfd00ad124db33cec8e30e8e1bb701388ee71838
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: edf4ce2be451672ecbd4f732c3110617dc122ca0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340232"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323592"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
@@ -28,7 +28,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 Bat
 
 使用容器可讓您輕鬆地執行 Batch 工作，無須管理環境和相依性，即可執行應用程式。 容器會將應用程式部署為輕量、可攜且自給自足的單位，以便在多種不同的環境中執行。 例如，在本機建置及測試容器，然後將容器映像上傳至 Azure 或其他位置中的登錄。 容器部署模型可確保您應用程式的執行階段環境一律會正確地安裝和設定 (無論您的應用程式裝載在何處)。 Batch 中容器型的工作也可利用非容器工作的功能，包括應用程式套件及資源檔和輸出檔案的管理。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **SDK 版本**：自以下版本起的 Batch SDK 可支援容器映像：
     * Batch REST API 2017-09-01.6.0 版

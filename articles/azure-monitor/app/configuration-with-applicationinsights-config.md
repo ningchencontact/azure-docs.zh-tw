@@ -13,37 +13,39 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 13bf27fd58530c357e3bb83f7cbc503855d40304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 382f43156ab450600ff0d2e5e2db763cd6bd94df
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075340"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875058"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
-Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 藉由調整組態檔，您可以啟用或停用遙測模組和初始設定式，並設定其中一些參數。
+Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 藉由調整設定檔案, 您可以啟用或停用遙測模組和初始化運算式, 並為其中一部分設定參數。
 
-組態檔的名稱為 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，端視您的應用程式類型而定。 當您[安裝大部分版本的 SDK][start] 時，系統會自動將組態檔加入至您的專案。 [IIS 伺服器上的狀態監視器][redfield]，或是當您選取 [Azure 網站或 VM 的 Application Insights 延伸模組](azure-web-apps.md)時，也會將組態檔加入至 Web 應用程式。
+組態檔的名稱為 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，端視您的應用程式類型而定。 當您[安裝大部分版本的 SDK][start]時, 它會自動新增至您的專案。 它也會藉由[在 IIS 伺服器上狀態監視器][redfield]來新增至 web 應用程式。 如果使用 azure[網站的延伸](azure-web-apps.md)模組或[azure VM 和虛擬機器擴展集的延伸](azure-vm-vmss-apps.md)模組, 則會忽略設定檔。
 
-沒有同等的檔案可以控制[網頁中的 SDK][client]。
+沒有對等的檔案可以控制[網頁中的 SDK][client]。
 
 本文件說明您在組態檔中看到的內容、控制 SDK 元件的方式，以及哪些 NuGet 封裝載入這些元件。
 
 > [!NOTE]
-> ApplicationInsights.config 和 .xml 指示不適用 .NET Core SDK。 如需設定.NET Core 應用程式，請遵循[這](../../azure-monitor/app/asp-net-core.md)指南。
+> ApplicationInsights.config 和 .xml 指示不適用 .NET Core SDK。 如需設定 .NET Core 應用程式, 請遵循[本](../../azure-monitor/app/asp-net-core.md)指南。
 
 ## <a name="telemetry-modules-aspnet"></a>遙測模組 (ASP.NET)
-每個遙測模組收集特定類型的資料，並使用核心 API 傳送資料。 模組由不同的 NuGet 封裝安裝，也會將必要的行加入 .config 檔案。
+每個遙測模組會收集特定類型的資料, 並使用核心 API 來傳送資料。 模組由不同的 NuGet 封裝安裝，也會將必要的行加入 .config 檔案。
 
 組態檔中的每個模組都有一個節點。 若要停用模組，請刪除節點或將其註解化。
 
 ### <a name="dependency-tracking"></a>相依性追蹤
-[相依性追蹤](../../azure-monitor/app/asp-net-dependencies.md) 會收集有關您的 app 對資料庫和外部服務和資料庫呼叫的遙測。 若要允許此模組用於 IIS 伺服器，您必須[安裝狀態監視器][redfield]。 若要在 Azure Web 應用程式或 VM 中使用此模組， [請選取 Application Insights 延伸模組](azure-web-apps.md)。
+[相依性追蹤](../../azure-monitor/app/asp-net-dependencies.md) 會收集有關您的 app 對資料庫和外部服務和資料庫呼叫的遙測。 若要允許此模組在 IIS 伺服器中工作, 您必須[安裝狀態監視器][redfield]。
 
 您也可以使用 [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)撰寫您自己的相依性追蹤程式碼。
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 封裝。
+
+您可以使用代理程式型 (無程式碼) attach, 自動收集相依性, 而不需要修改程式碼。 若要在 Azure web apps 中使用此功能, 請啟用[Application Insights 延伸](azure-web-apps.md)模組。 若要在 Azure VM 或 Azure 虛擬機器擴展集中使用它, 請啟用[VM 和虛擬機器擴展集的應用程式監視延伸](azure-vm-vmss-apps.md)模組。
 
 ### <a name="performance-collector"></a>效能收集器
 [收集系統效能計數器](../../azure-monitor/app/performance-counters.md)，例如 IIS 安裝的 CPU、記憶體和網路負載。 您可以指定要收集哪些計數器，包括您自己所設定的效能計數器。
@@ -72,7 +74,7 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封�
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝。
 
 ### <a name="exception-tracking"></a>例外狀況追蹤
-`ExceptionTrackingTelemetryModule` 追蹤 Web 應用程式中未處理的例外狀況。 請參閱[失敗和例外狀況][exceptions]。
+`ExceptionTrackingTelemetryModule` 追蹤 Web 應用程式中未處理的例外狀況。 請參閱[失敗和例外][exceptions]狀況。
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 封裝。
@@ -93,19 +95,19 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封�
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.microsoft.com/library/mt420197.aspx) 。 其他遙測模組使用此功能，以及您也可以[使用它來定義您自己的遙測](../../azure-monitor/app/api-custom-events-metrics.md)。
+Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.microsoft.com/library/mt420197.aspx) 。 其他遙測模組使用此, 而且您也可以[使用它來定義您自己的遙測](../../azure-monitor/app/api-custom-events-metrics.md)。
 
 * ApplicationInsights.config 中沒有項目。
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 封裝。 如果您只安裝此 NuGet，不會產生任何 .config 檔案。
 
 ## <a name="telemetry-channel"></a>遙測通道
-[遙測通道](telemetry-channels.md)管理緩衝處理及傳輸遙測資料至 Application Insights 服務。
+[遙測通道](telemetry-channels.md)會管理將遙測緩衝處理和傳輸到 Application Insights 服務。
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 是 web 應用程式的預設通道。 資料緩衝在記憶體中，並採用重試機制和更可靠的遙測資料傳送的本機磁碟儲存體。
-* `Microsoft.ApplicationInsights.InMemoryChannel` 是輕量級遙測通道，如果沒有其他通道設定。 
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`是 web 應用程式的預設通道。 它會緩衝記憶體中的資料, 並採用重試機制和本機磁片儲存體, 以提供更可靠的遙測傳遞。
+* `Microsoft.ApplicationInsights.InMemoryChannel`是輕量遙測通道, 如果未設定任何其他通道, 則會使用此通道。 
 
 ## <a name="telemetry-initializers-aspnet"></a>遙測初始設定式 (ASP.NET)
-遙測初始設定式設定與遙測的每個項目一起傳送的內容屬性。
+遙測初始化運算式會設定與每個遙測專案一起傳送的內容屬性。
 
 您可以 [撰寫您自己的初始設定式](../../azure-monitor/app/api-filtering-sampling.md#add-properties) 設定內容屬性。
 
@@ -131,17 +133,17 @@ Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.mic
 
     `<Filters>` 會設定要求的識別屬性。
 * 針對具有從使用者瀏覽器中執行之 Application Insights JavaScript 檢測程式碼所產生的 `ai_user` Cookie 擷取值的所有遙測項目，`UserTelemetryInitializer` 會更新 `User` 內容的 `Id` 和 `AcquisitionDate` 屬性。
-* `WebTestTelemetryInitializer` 設定使用者識別碼、 工作階段識別碼和綜合來源屬性的 HTTP 要求，來自[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)。
+* `WebTestTelemetryInitializer`針對來自[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)的 HTTP 要求, 設定使用者識別碼、會話識別碼和綜合來源屬性。
   `<Filters>` 會設定要求的識別屬性。
 
 針對 Service Fabric 中執行的 .NET 應用程式，您可以包含 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 套件。 此套件包含的 `FabricTelemetryInitializer` 會將 Service Fabric 屬性新增至遙測項目。 如需詳細資訊，請參閱 [GitHub 頁面](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)了解這個 NuGet 套件所新增之屬性的相關資訊。
 
 ## <a name="telemetry-processors-aspnet"></a>遙測處理器 (ASP.NET)
-遙測處理器可以篩選並修改每個遙測項目之前從 SDK 傳送至入口網站。
+遙測處理器可以在從 SDK 傳送至入口網站之前, 篩選和修改每個遙測專案。
 
-您可以[撰寫您自己的遙測處理器](../../azure-monitor/app/api-filtering-sampling.md#filtering)。
+您可以[撰寫自己的遙測處理器](../../azure-monitor/app/api-filtering-sampling.md#filtering)。
 
-#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>調適性取樣遙測處理器 （從 2.0.0-beta3 起）
+#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>彈性取樣遙測處理器 (來自 2.0.0-Beta3)
 此選項預設為啟用狀態。 如果您的應用程式傳送許多遙測，此處理器會移除其中一些遙測。
 
 ```xml
@@ -158,8 +160,8 @@ Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.mic
 
 [深入了解取樣](../../azure-monitor/app/sampling.md)。
 
-#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>固定速率取樣遙測處理器 （從 2.0.0-beta1)
-另外還有一種標準[取樣遙測處理器](../../azure-monitor/app/api-filtering-sampling.md)（自 2.0.1 起）：
+#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>固定速率取樣遙測處理器 (來自 2.0.0-Beta1)
+另外還有標準[取樣遙測處理器](../../azure-monitor/app/api-filtering-sampling.md)(來自 2.0.1):
 
 ```XML
 
@@ -263,7 +265,7 @@ SpringBoot application.properties 和 applicationinsights.xml 組態的預設值
 
 如果想要以動態方式設定金鑰 (例如，想要將應用程式的結果傳送到不同的資源)，您可以在組態檔中省略金鑰，並將金鑰設定在程式碼中。
 
-若要設定所有 TelemetryClient 執行個體的金鑰，包括標準遙測模組，都設定索引鍵在 TelemetryConfiguration.Active 中。 請在初始化方法中這麼做，例如 ASP.NET 服務中的 global.aspx.cs：
+若要為 TelemetryClient 的所有實例 (包括標準遙測模組) 設定金鑰, 請在 TelemetryConfiguration 中設定金鑰。 請在初始化方法中這麼做，例如 ASP.NET 服務中的 global.aspx.cs：
 
 ```csharp
 
@@ -287,7 +289,7 @@ SpringBoot application.properties 和 applicationinsights.xml 組態的預設值
 
 ```
 
-若要取得新的金鑰，請[在 Application Insights 入口網站中建立新的資源][new]。
+若要取得新的金鑰, 請[在 Application Insights 入口網站中建立新的資源][new]。
 
 
 
@@ -375,7 +377,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 
 
 ## <a name="next-steps"></a>後續步驟
-[深入了解 API][api]。
+[深入瞭解 API][api]。
 
 <!--Link references-->
 

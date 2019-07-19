@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491824"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325119"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原，以便進行災害復原
 
 本文詳細說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 保護 SharePoint 應用程式。
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門組織、共同作業及共用資訊。 SharePoint 可提供內部網路入口網站、文件和檔案管理、共同作業、社交網路、外部網路、網站、企業搜尋與商業智慧。 它也具有系統整合、程序整合和工作流程自動化功能。 一般而言，組織會將其視為對停機時間和資料遺失很敏感的第 1 層應用程式。
 
@@ -29,7 +29,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 本文詳細說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 保護 SharePoint 應用程式。 本文將介紹最佳做法來將三層 SharePoint 應用程式複寫至 Azure、如何進行災害復原訓練，以及如何將應用程式容錯移轉至 Azure。
 
-您可以觀賞以下影片的相關復原至 Azure 的多層式應用程式。
+您可以觀看下列有關將多層式應用程式復原至 Azure 的影片。
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -109,7 +109,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 針對網際網路面向網站，在 Azure 訂用帳戶中[建立「優先順序」類型的流量管理員設定檔](../traffic-manager/traffic-manager-create-profile.md)。 然後以下列方式設定您的 DNS 和流量管理員設定檔。
 
 
-| **其中** | **來源** | **目標**|
+| **其中** | **Source** | **目標**|
 | --- | --- | --- |
 | 公用 DNS | SharePoint 網站的 公用 DNS <br/><br/> 例如︰sharepoint.contoso.com | 流量管理員 <br/><br/> contososharepoint.trafficmanager.net |
 | 內部部署 DNS | sharepointonprem.contoso.com | 內部部署伺服器陣列上的公用 IP |
@@ -196,7 +196,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 如需有關進行 AD 和 DNS 之測試容錯移轉的指引，請參閱 [AD 和 DNS 的測試容錯移轉考量](site-recovery-active-directory.md#test-failover-considerations)文件。
 
-如需有關進行測試容錯移轉 SQL Always ON 可用性群組的指引，請參閱[與 Azure Site Recovery 進行測試容錯移轉執行應用程式 DR](site-recovery-sql.md#disaster-recovery-of-application)文件。
+如需針對 SQL Always ON 可用性群組進行測試容錯移轉的指引, 請參閱[使用 Azure Site Recovery 執行應用程式 DR 和執行測試容錯移轉](site-recovery-sql.md#disaster-recovery-of-an-application)檔。
 
 ## <a name="doing-a-failover"></a>執行容錯移轉
 請依照[本指引](site-recovery-failover.md)來進行容錯移轉。

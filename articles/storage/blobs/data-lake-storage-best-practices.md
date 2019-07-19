@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a298584b2444d52f84c0e599462bc26c63a898
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061320"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302628"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -26,23 +26,23 @@ Azure Data Lake Storage Gen2 針對 Azure Active Directory (Azure AD) 使用者�
 
 ### <a name="use-security-groups-versus-individual-users"></a>使用安全性群組與個別使用者
 
-當使用 Data Lake 儲存體 Gen2 中的巨量資料，可能是服務主體用來允許服務，例如 Azure HDInsight 來處理資料。 不過，也可能會有個別使用者需要存取資料的情況。 強烈建議您在所有情況中使用 Azure Active Directory [安全性群組](../common/storage-auth-aad.md)，而不是將個別使用者指派至資目錄和檔案。
+在 Data Lake Storage Gen2 中使用大量資料時, 服務主體很可能會用來允許服務 (例如 Azure HDInsight) 使用資料。 不過，也可能會有個別使用者需要存取資料的情況。 強烈建議您在所有情況中使用 Azure Active Directory [安全性群組](../common/storage-auth-aad.md)，而不是將個別使用者指派至資目錄和檔案。
 
 指派權限給安全性群組之後，在群組中新增或移除使用者皆不需要更新 Data Lake Storage Gen2。 這也有助於確保您不會超過存取控制清單 (ACL) 的存取控制項目上限。 目前，該數字為 32 (包括四個一律與每個檔案和目錄相關聯的 POSIX 樣式 ACL)：擁有使用者、擁有群組、遮罩和其他。 每個目錄可以有兩種 ACL：存取 ACL 和預設 ACL，共 64 個存取控制項目。 如需有關這些 ACL 的詳細資訊，請參閱 [Azure Data Lake Storage Gen2 中的存取控制](data-lake-storage-access-control.md)。
 
 ### <a name="security-for-groups"></a>群組的安全性
 
-當您或您的使用者需要在啟用階層命名空間的情況下，存取儲存體帳戶中的資料時，最好是使用 Azure Active Directory 安全性群組。 一些建議群組開始可能**ReadOnlyUsers**， **WriteAccessUsers**，並**FullAccessUsers**根目錄的檔案系統，甚至不同的索引鍵的子目錄。 如果預期之後可能會新增任何其他使用者的群組 (但未經過識別)，您可以考慮建立空的安全性群組，讓其可存取特定資料夾。 使用安全性群組可確保您在將新權限指派給數千個檔案時，不需要很長的處理時間。
+當您或您的使用者需要在啟用階層命名空間的情況下，存取儲存體帳戶中的資料時，最好是使用 Azure Active Directory 安全性群組。 某些建議開始使用的群組可能是**ReadOnlyUsers**、 **WriteAccessUsers**和**FullAccessUsers** , 適用于檔案系統的根目錄, 甚至是個別用於主要子目錄。 如果預期之後可能會新增任何其他使用者的群組 (但未經過識別)，您可以考慮建立空的安全性群組，讓其可存取特定資料夾。 使用安全性群組可確保您在將新權限指派給數千個檔案時，不需要很長的處理時間。
 
 ### <a name="security-for-service-principals"></a>服務主體的安全性
 
-Azure Databricks 這類服務通常會使用 Azure Active Directory 服務主體來存取 Data Lake Storage Gen2 中的資料。 對於許多客戶，單一的 Azure Active Directory 服務主體可能就已足夠，而且可以有完整權限的 Data Lake 儲存體 Gen2 檔案系統根目錄。 但其他客戶可能需要多個叢集與不同的服務主體，一個叢集有資料的完整存取，而另一個叢集只有讀取存取權。 
+Azure Databricks 這類服務通常會使用 Azure Active Directory 服務主體來存取 Data Lake Storage Gen2 中的資料。 對於許多客戶而言, 單一 Azure Active Directory 服務主體可能就已足夠, 而且可以在 Data Lake Storage Gen2 檔案系統的根目錄擁有完整許可權。 但其他客戶可能需要多個叢集與不同的服務主體，一個叢集有資料的完整存取，而另一個叢集只有讀取存取權。 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>啟用 Data Lake Storage Gen2 防火牆與 Azure 服務存取權
 
 Data Lake Storage Gen2 支援開啟防火牆，以及限制僅有 Azure 服務具有存取權，建議使用此功能來限制外部攻擊的媒介。 透過 Azure 入口網站中的 [防火牆]   > [啟用防火牆 (開啟)]   > [允許存取 Azure 服務]  選項，可啟用儲存體帳戶上的防火牆。
 
-將 Azure Databricks 叢集新增至可透過儲存體防火牆存取的虛擬網路，需要使用 Databricks 的預覽功能。 若要啟用這項功能，請提出支援要求。
+若要從 Azure Databricks 存取您的儲存體帳戶, 請將 Azure Databricks 部署至您的虛擬網路, 然後將該虛擬網路新增至您的防火牆。 請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 ## <a name="resiliency-considerations"></a>恢復功能考量
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85be0abb9437a648135fe852e357596c8ff91dc3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0080c8ac5e957912c5fd59a7051619ee60bd914c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840102"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260058"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 
@@ -59,7 +59,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 參數 | 描述
 --|--
 `source_directory`| 包含定型作業所需之所有程式碼的本機目錄。 此資料夾是從您的本機電腦複製到遠端計算 
-`script_params`| 指定您的訓練指令碼的命令列引數的字典`entry_script`，形式 < 命令列引數的值 > 組。 若要指定的詳細資訊的旗標，在`script_params`，使用`<command-line argument, "">`。
+`script_params`| 指定您的定型腳本`entry_script`命令列引數的字典, `<command-line argument, value>`格式為。 若要在中`script_params`指定詳細資訊旗標, 請使用。 `<command-line argument, "">`
 `compute_target`| 您的定型指令碼執行所在的遠端計算目標，在此案例中為 Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 叢集。 (請注意，即使 AmlCompute 叢集是常用的目標，您也可選擇其他計算目標類型，例如 Azure VM 或甚至本機電腦。)
 `entry_script`| 要在遠端計算上執行之定型指令碼的檔案路徑 (相對於 `source_directory`)。 此檔案 (以及此檔案所相依的其他任何檔案) 都應位於此資料夾
 `conda_packages`| 要透過 Conda 安裝的 Python 套件清單 (其中包含您的定型指令碼所需的套件)。  
@@ -120,18 +120,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
-## <a name="github-tracking-and-integration"></a>GitHub 追蹤和整合
+## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
 
-當您啟動定型，執行 [source] 目錄所在的本機 Git 儲存機制時，儲存機制的資訊會儲存執行歷程記錄中。 例如，存放庫的最新的認可識別碼會記錄做為歷程記錄的一部分。
+當您啟動定型回合, 其中來原始目錄是本機 Git 存放庫時, 儲存機制的相關資訊會儲存在執行歷程記錄中。 例如, 存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
 
 ## <a name="examples"></a>範例
-顯示估計工具模式的基本概念的 notebook，請參閱：
+如需顯示估計工具模式基本概念的筆記本, 請參閱:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-定型 scikit-learn notebook-了解模型使用估計工具，請參閱：
+如需使用估計工具訓練 scikit-learn 學習模型的筆記本, 請參閱:
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-使用深度學習架構特定估算定型模型的 notebook，請參閱：
+如需使用深度學習架構特定估算器的訓練模型筆記本, 請參閱:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

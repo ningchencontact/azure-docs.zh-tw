@@ -1,21 +1,21 @@
 ---
-title: Azure 儲存體延展性和效能目標-儲存體帳戶
-description: 深入了解延展性和效能目標，包括容量、 要求率以及輸入和輸出頻寬，Azure 儲存體帳戶。
+title: Azure 儲存體的擴充性和效能目標-儲存體帳戶
+description: 瞭解 Azure 儲存體帳戶的擴充性和效能目標, 包括容量、要求率, 以及輸入和輸出頻寬。
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151253"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326959"
 ---
-# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure 儲存體延展性和效能目標儲存體帳戶
+# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>儲存體帳戶的 Azure 儲存體擴充性和效能目標
 
 本文會詳細說明 Azure 儲存體帳戶的延展性和效能目標。 列於此處的延展性和效能目標都是高階目標，但仍可達成。 在所有情況下，您的儲存體帳戶所達到的要求率和頻寬取決於已儲存物件的大小、使用的存取模式、應用程式執行的工作負載類型。
 
@@ -23,11 +23,11 @@ ms.locfileid: "67151253"
 
 當您的應用程式達到分割區可處理的工作負載限制時，Azure 儲存體會開始傳回錯誤碼 503 (伺服器忙碌) 或錯誤碼 500 (作業逾時) 回應。 如果發生 503 錯誤，請考慮將您的應用程式修改為針對重試使用指數輪詢原則。 指數輪詢讓分割的負載減少，也能減輕該分割流量的尖峰。
 
-## <a name="storage-account-scale-limits"></a>儲存體帳戶的規模限制
+## <a name="storage-account-scale-limits"></a>儲存體帳戶調整限制
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="premium-performance-storage-account-scale-limits"></a>進階效能儲存體帳戶調整限制
+## <a name="premium-performance-storage-account-scale-limits"></a>Premium 效能儲存體帳戶調整限制
 
 [!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
 
@@ -44,20 +44,20 @@ ms.locfileid: "67151253"
 如需 Azure 檔案服務和 Azure 檔案同步的擴展目標與效能目標的詳細資訊，請參閱 [Azure 檔案服務延展性和效能目標](../files/storage-files-scale-targets.md)。
 
 > [!IMPORTANT]
-> 儲存體帳戶限制套用到所有的共用。 最多調整儲存體帳戶的最大值才可達成，如果沒有每個儲存體帳戶只能有一個共用。
+> 儲存體帳戶限制適用于所有共用。 只有在每個儲存體帳戶只有一個共用時, 相應增加到儲存體帳戶的最大值才能夠達到上限。
 >
-> 大於 5 TiB 的標準檔案共用會處於預覽階段，有一些限制。
-> 如需清單，限制，並上架到較大的檔案共用大小的預覽版本，請參閱[標準檔案共用](../files/storage-files-planning.md#standard-file-shares)規劃 Azure 檔案的一節引導。
+> 超過 5 TiB 的標準檔案共用處於預覽狀態, 且有特定限制。
+> 如需限制清單, 以及在這些較大檔案共用大小的預覽上架, 請參閱 Azure 檔案儲存體規劃指南的[標準檔案共用](../files/storage-files-planning.md#standard-file-shares)一節。
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
-### <a name="premium-files-scale-targets"></a>進階檔案調整目標
+### <a name="premium-files-scale-targets"></a>Premium 檔案調整目標
 
-有三種類別的限制時應考量的進階檔案： 儲存體帳戶、 共用和檔案。
+高階檔案有三種分類的限制: 儲存體帳戶、共用和檔案。
 
-例如: 單一共用可達到 100,000 IOPS 和單一檔案可以調整最多 5,000 個 IOPS。 因此，比方說，如果您有一個共用中的三個檔案，您可以從共用取得的最大 IOPs 是 15000。
+例如: 單一共用可以達到 100000 IOPS, 而單一檔案可以相應增加至 5000 IOPS。 因此, 例如, 如果您在一個共用中有三個檔案, 您可以從該共用取得的最大 IOPs 為15000。
 
-#### <a name="premium-file-share-limits"></a>進階檔案共用限制
+#### <a name="premium-file-share-limits"></a>Premium 檔案共用限制
 
 [!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
@@ -75,7 +75,7 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)

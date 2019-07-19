@@ -3,22 +3,22 @@ title: 使用 Azure 容器執行個體取得容器記錄和事件
 description: 了解如何使用 Azure 容器執行個體針對容器記錄和事件進行偵錯
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f286e2136b12a88e65e40f8fb956542233f71715
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579777"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325960"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>在 Azure 容器執行個體中擷取容器記錄和事件
 
-如果您的容器發生異常，可先透過 [az container logs][az-container-logs] 檢查其記錄，然後使用 [az container attach][az-container-attach] 串流其標準輸出和標準錯誤。
+當您有異常的容器時, 請先使用[az container logs][az-container-logs] , and streaming its standard out and standard error with [az container attach][az-container-attach]來查看其記錄。
 
 ## <a name="view-logs"></a>檢視記錄
 
@@ -50,7 +50,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>附加輸出資料流
 
-[az container attach][az-container-attach] 命令會提供容器啟動期間的診斷資訊。 容器啟動之後，會將 STDOUT 和 STDERR 串流至您的本機主控台。
+[Az container attach][az-container-attach]命令會提供容器啟動期間的診斷資訊。 容器啟動之後，會將 STDOUT 和 STDERR 串流至您的本機主控台。
 
 例如，以下輸出是來自[在 ACI 中執行容器化工作](container-instances-restart-policy.md)的工作型容器，這是處理有效大型文字檔 URL 之後的輸出：
 

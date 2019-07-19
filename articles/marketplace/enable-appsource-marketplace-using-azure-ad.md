@@ -7,13 +7,13 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
-ms.openlocfilehash: 950371fd92d255ed01dfa89d5c2fcbded686a971
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: pabutler
+ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443089"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876009"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>使用 Azure Active Directory 來啟用 AppSource 和 Marketplace 清單
 
@@ -89,4 +89,4 @@ Microsoft AppSource 和 Azure Marketplace 客戶會使用產品內體驗來搜�
 ## <a name="next-steps"></a>後續步驟
 
 - 請確定您已[在 Azure Marketplace 中註冊](https://azuremarketplace.microsoft.com/sell)。
-- 請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需有關如何建立或完成您的供應項目。
+- 如需如何建立或完成供應專案的詳細資訊, 請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
