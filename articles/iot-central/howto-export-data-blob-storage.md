@@ -4,35 +4,35 @@ description: 如何將資料從 Azure IoT Central 應用程式匯出至「Azure 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464634"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849079"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>將資料匯出至 Azure Blob 儲存體
 
 *此主題適用於系統管理員。*
 
-本文說明如何使用 Azure IoT Central 中的連續資料匯出功能，定期將資料匯出至您**Azure Blob 儲存體帳戶**。 您可以將**度量**、**裝置**及**裝置範本**匯出成 Apache Avro 格式的檔案。 所匯出的資料可用來進行冷路徑分析 (例如，在 Azure Machine Learning 中為模型定型) 或在 Microsoft Power BI 中進行長期趨勢分析。
+本文說明如何使用 Azure 中的連續資料匯出功能 IoT Central, 定期將資料匯出至您的**Azure Blob 儲存體帳戶**。 您可以將**度量**、**裝置**及**裝置範本**匯出成 Apache Avro 格式的檔案。 所匯出的資料可用來進行冷路徑分析 (例如，在 Azure Machine Learning 中為模型定型) 或在 Microsoft Power BI 中進行長期趨勢分析。
 
 > [!Note]
 > 同樣地，當您開啟連續資料匯出時，只會取得從該時刻起的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 您必須是 IoT Central 應用程式中的系統管理員
 
 
 ## <a name="set-up-export-destination"></a>設定匯出目的地
 
-如果您沒有將匯出到現有的儲存體，請遵循下列步驟：
+如果您沒有可匯出的現有儲存體, 請遵循下列步驟:
 
 ## <a name="create-storage-account"></a>建立儲存體帳戶
 
@@ -43,33 +43,33 @@ ms.locfileid: "65464634"
     > [!Note] 
     > 您現在可以將資料匯出至與隨用隨付 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
 
-4. 在您的儲存體帳戶中建立容器。 移至您的儲存體帳戶。 在 [Blob 服務]  下，選取 [瀏覽 Blob]  。 選取  **+ 容器**頂端建立新的容器
+4. 在您的儲存體帳戶中建立容器。 移至您的儲存體帳戶。 在 [Blob 服務]  下，選取 [瀏覽 Blob]  。 選取頂端的 [ **+ 容器**] 以建立新的容器
 
 
 ## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
 
-既然您已將資料匯出至儲存體目的地，請遵循下列步驟來設定連續資料匯出。 
+現在您已有要匯出資料的儲存體目的地, 請遵循下列步驟來設定連續資料匯出。 
 
 1. 登入您的 IoT Central 應用程式。
 
-2. 在左側功能表中，選取**連續資料匯出**。
+2. 在左側功能表中, 選取 [**連續資料匯出**]。
 
     > [!Note]
     > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
 
     ![建立新的 cde 事件中樞](media/howto-export-data/export_menu1.png)
 
-3. 選取  **+ 新增**右上角的按鈕。 選擇**Azure Blob 儲存體**做為您的匯出目的地。 
+3. 選取右上方的 [ **+ 新增**] 按鈕。 選擇 [ **Azure Blob 儲存體**] 做為匯出的目的地。 
 
     > [!NOTE] 
     > 每一應用程式的匯出數目上限是 5。 
 
     ![建立新的連續資料匯出](media/howto-export-data/export_new1.png)
 
-4. 在下拉式清單方塊中，選取您**儲存體帳戶的命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]  。 
+4. 在下拉式清單方塊中, 選取您的**儲存體帳戶命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]  。 
 
     > [!NOTE] 
-    > 您只會看到儲存體帳戶中的命名空間**相同的訂用帳戶與您的 IoT Central 應用程式**。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]  ，然後參閱步驟 5。
+    > 您只會在與**IoT Central 應用程式相同的訂**用帳戶中看到儲存體帳戶命名空間。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]  ，然後參閱步驟 5。
 
     > [!NOTE] 
     > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
@@ -77,11 +77,11 @@ ms.locfileid: "65464634"
     ![建立新的 cde 事件中樞](media/howto-export-data/export-create-blob.png)
 
 5. (選擇性) 如果您選擇 [輸入連接字串]  ，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
-    - 儲存體帳戶，請移至 Azure 入口網站中的儲存體帳戶。
-        - 底下**設定**，選取**存取金鑰**
+    - 儲存體帳戶, 請移至 Azure 入口網站中的儲存體帳戶。
+        - 在 [**設定**] 底下, 選取 [**存取金鑰**]
         - 複製 key1 連接字串或 key2 連接字串
  
-6. 從下拉式清單方塊選擇容器。
+6. 從下拉式清單方塊中選擇容器。
 
 7. 在 [要匯出的資料]  下，透過將類型設定為 [開啟]  以指定每種要匯出的資料類型。
 

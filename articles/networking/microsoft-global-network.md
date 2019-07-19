@@ -1,6 +1,6 @@
 ---
-title: Microsoft 的全球網路-Azure
-description: 描述 Microsoft 如何建置其快速且可靠的全球網路
+title: Microsoft 全球網路-Azure
+description: 說明 Microsoft 如何建立其快速且可靠的全域網路
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -11,63 +11,64 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2019
-ms.author: ypitsch,kumud
-ms.openlocfilehash: bcd2415255643926db2cd4e1e4e55bb7381d6437
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: kumud
+ms.reviewer: ypitsch
+ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672544"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876140"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 全域網路
 
-Microsoft 擁有及運作的最大的骨幹網路世界中的其中一個。 此全域且複雜的架構、 跨越多個 100,000 英哩，會在我們的資料中心與客戶連線。 
+Microsoft 擁有並操作世界上最大的骨幹網路之一。 這種全球和精密的架構, 跨越超過100000英里, 連接了我們的資料中心和客戶。 
  
-每一天，世界各地的客戶連線，並將數以兆計的要求傳遞至 Microsoft Azure、 Bing、 Dynamics 365、 Office 365、 XBox 和許多其他項目。 不論類型為何，客戶會預期立即的可靠性與回應能力，從我們的服務。 
+世界各地的客戶每天都會連線並將要求數兆個給 Microsoft Azure、Bing、Dynamics 365、Office 365、XBox 等等。 不論何種類型, 客戶都希望能夠立即提供服務的可靠性和回應能力。 
  
-[Microsoft 的全球網路](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN) 是提供絕佳的雲端體驗的核心部分。 連接我們的 Microsoft[資料中心](https://azure.microsoft.com/global-infrastructure/)54 的 Azure 區域和大型的策略性放置的世界各地的邊緣節點的網狀結構，透過我們的全球網路提供同時可用性、 容量及彈性，以符合任何需求。
+[Microsoft 全球網路](https://azure.microsoft.com/global-infrastructure/global-network/)(WAN) 是提供絕佳雲端體驗的主要部分。 將 Microsoft[資料中心](https://azure.microsoft.com/global-infrastructure/)跨54個 Azure 區域, 以及策略性地放在世界各地的大型邊緣節點連接, 我們的全球網路提供可用性、容量和彈性, 以符合任何需求。
 
 ![Microsoft 全域網路](./media/microsoft-global-network/microsoft-global-wan.png)
  
-## <a name="get-the-premium-cloud-network"></a>取得進階雲端網路
+## <a name="get-the-premium-cloud-network"></a>取得 premium 雲端網路
  
-選擇[最佳的體驗](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)很簡單，當您使用 Microsoft 雲端。 目前，當客戶流量進入我們策略性放置的邊緣節點透過我們全球網路，從您的資料會行經在附近光線速度的最佳化路由。 這可確保最佳的延遲，為了達到最佳效能。 這些邊緣節點、 所有相互連接到多個 3500 唯一網際網路夥伴 （對等） 透過上千個連線在多個 145 的位置，提供我們互連策略的基礎。 
+當您使用 Microsoft cloud 時, 選擇[最適合的體驗](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/)就很簡單。 從客戶流量進入我們的全球網路, 透過我們策略性放置的邊緣節點, 您的資料會以接近光線速度的最佳路線來傳輸。 這可確保最佳的延遲, 以達到最佳效能。 這些邊緣節點, 全都透過超過145個位置的上千個連線, 連接到超過3500個獨特的網際網路合作夥伴 (對等), 以提供互連策略的基礎。 
  
-是否連接從倫敦東京，或以 Los Angeles 華盛頓特區，網路效能將量化中，並受到延遲、 抖動、 封包遺失和輸送量等項目。  在 Microsoft，我們比較喜歡使用直接互連，而不是傳輸連結，這會保留回應的流量對稱和可以幫助讓躍點，對等互連的合作對象和盡可能簡單明瞭的路徑。 
+無論是從倫敦連線到東京, 或從華盛頓特區連接到洛杉磯, 網路效能都是量化的, 而且會受到延遲、抖動、封包遺失和輸送量等專案的影響。  在 Microsoft, 我們偏好並使用直接互連, 而不是傳輸連結, 這會使回應流量保持對稱, 並協助將躍點、對等互連方和路徑保持簡短且簡單。 
 
-比方說，如果倫敦中的使用者嘗試存取東京之後，服務則的網際網路流量進入我們的邊緣的其中一個在倫敦，就會透過法國，Microsoft wan 我們 Trans Arabia 路徑之間歐洲和印度、 然後日本託管服務的。 回應的流量是對稱的。 這有時會被視為[冷 potato 路由](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing)表示流量停留在 Microsoft 網路盡可能長時間之前我們遞交。  
+例如, 如果倫敦的使用者嘗試存取東京中的服務, 則網際網路流量會進入倫敦的一個邊緣, 透過法國、歐洲和印度之間的交易-阿拉伯路徑, 再到日本託管服務的國家/地區進行 Microsoft WAN。 回應流量是對稱的。 這有時稱為「[冷刷」路由](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), 這表示流量會盡可能在 Microsoft 網路上保留。  
   
-因此，這表示所有流量時使用 Microsoft 服務嗎？ 是，資料之間的任何流量中心，Microsoft Azure 內或之間 Microsoft 服務，例如虛擬機器、 Office 365、 XBox、 SQL Db、 儲存體，並在我們的全球網路，並永遠不會透過公用網際網路，以確保最佳路由傳送虛擬網路效能和完整性。  
+那麼, 在使用 Microsoft 服務時, 這是否表示所有的流量？ 是, 資料中心之間的任何流量, 在 Microsoft Azure 或 Microsoft 服務 (例如虛擬機器、Office 365、XBox、SQL Db、儲存體和虛擬網路) 之間, 會在我們的全球網路內路由傳送, 而且永遠不會透過公用網際網路, 以確保最佳效能和完整性。  
  
-大量投資光纖容量和在 metro，糔礜惎纕，和海底路徑之間的多樣性是重要的是要確保一致且高服務層級時激發極端成長的雲端與線上服務。 我們的全球網路的新增功能是我們[馬](https://www.submarinecablemap.com/#/submarine-cable/marea)海底電纜線，領先業界的第一個開啟行系統 (OLS) 透過 subsea，Bilbao，西班牙與州政府 Beach 美國維吉尼亞州，並將[AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)美國紐約州紐約和愛爾蘭的都柏林之間及[新增跨太平洋 (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system)東京，日本，與美國州波特蘭奧勒岡州，之間。 
+大規模投資在 metro、地面和潛水艇路徑間的光纖容量和多樣性, 對於我們而言, 維持一致和高服務層級, 同時激發雲端和線上服務的極端成長, 是非常重要的。 我們的全球網路最近新增的功能是我們的[MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea)潛水艇纜線、業界的第一個開放線系統 (OLS), 透過海底、Bilbao、西班牙和佛吉尼亞海灘、弗吉尼亞州、美國, 以及紐約、美國和都柏林之間的[AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) , 愛爾蘭以及美國的東京、日本和邁阿密的[新跨太平洋 (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) 。 
  
 
 ## <a name="our-network-is-your-network"></a>我們的網路是您的網路
 
-我們有二十多年的經驗，以及大量投資到網路，以確保最佳效能，所有時間。 企業可以充分利用我們的網路資產，並在最上層中建置進階的覆疊架構。 
+我們有兩數十年的經驗, 以及大量的網路投資, 確保隨時都能獲得最佳效能。 企業可以充分利用我們的網路資產, 並在上面建立先進的重迭架構。 
  
-Microsoft Azure 提供的服務最豐富的組合和功能，可讓客戶能夠輕鬆快速地建置，展開，且符合任何位置的網路需求。 我們一系列的連線服務可讓您跨越區域、 混合式和雲端中點對站之間的虛擬網路對等互連和站對站的架構，以及全域 IP 傳輸案例。  對於想要自己的資料中心或網路連線到 Azure 或使用大量資料擷取或傳輸的需求，客戶企業[ExpressRoute](../expressroute/expressroute-introduction.md)，並[ExpressRoute 直接](../expressroute/expressroute-erdirect-about.md)最多提供的選項100 Gbps，頻寬，直接在 Microsoft 的全球網路，在世界各地的對等互連位置。  
+Microsoft Azure 提供最豐富的服務和功能組合, 讓客戶能夠快速且輕鬆地在任何地方建立、擴充及滿足網路需求。 我們的聯機服務系列會跨越區域、混合式和雲端間點對站和站對站架構之間的虛擬網路對等互連, 以及全域 IP 傳輸案例。  適用于想要將自己的資料中心或網路連線到 Azure 的企業, 或具有大規模資料內嵌或傳輸需求、 [expressroute](../expressroute/expressroute-introduction.md)和[expressroute Direct](../expressroute/expressroute-erdirect-about.md)的客戶, 可直接在中提供高達 100 Gbps 頻寬的選項Microsoft 在全球對等互連位置的全球網路。  
  
-[ExpressRoute 觸及全球範圍](../expressroute/expressroute-global-reach.md)旨在補足服務提供者的 WAN 實作，並將您的內部部署網站連接在世界各地。 如果您執行全域的作業，您可以使用 ExpressRoute 觸及全球範圍搭配使用您慣用和本機服務提供者來連接您的所有全域網站使用 Microsoft 的全球網路。 展開您在雲端 (WAN) 包含大量的分公司站台的新網路，即可透過 Azure 虛擬 WAN，這會與 SDWAN & VPN 裝置順暢地連接到 Microsoft 的全球網路的分支的功能 （亦即，客戶內部部署設備或 CPE) 具有內建便於使用及自動化的連線和組態管理。 
+[ExpressRoute Global 延伸](../expressroute/expressroute-global-reach.md)的目的是要補充您的服務提供者的 WAN 實行, 並將您的內部部署網站連接到全球各地。 如果您執行全域作業, 您可以搭配使用 ExpressRoute Global 與慣用和本地服務提供者, 以使用 Microsoft 全球網路來連接所有全球網站。 擴充雲端 (WAN) 中的新網路以包含大量的分支網站, 可以透過 Azure 虛擬 WAN 來完成, 這讓您能夠使用 SDWAN & VPN 裝置, 順暢地將您的分支連線到 Microsoft 全球網路 (也就是客戶內部部署設備或 CPE), 具備內建易用性和自動化連線能力和設定管理。 
  
-[全域 VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)可讓客戶順暢地跨區域連接兩個或多個 Azure 虛擬網路。 一旦對等互連，虛擬網路會顯示為其中。 透過 Microsoft 骨幹基礎結構的對等互連的虛擬網路中的虛擬機器之間的流量會路由傳送，就像在相同的虛擬網路-透過私人 IP 位址只有虛擬機器之間路由傳送。 
+[全域 VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)可讓客戶順暢地跨區域連接兩個或多個 Azure 虛擬網路。 一旦對等互連, 虛擬網路就會顯示為一。 對等互連虛擬網路中虛擬機器之間的流量會透過 Microsoft 骨幹基礎結構路由傳送, 就像流量會在同一個虛擬網路中的虛擬機器之間路由傳送 (僅限透過私人 IP 位址)。 
  
 
-## <a name="well-managed-using-software-defined-innovation"></a>妥善管理，使用軟體定義的創新
+## <a name="well-managed-using-software-defined-innovation"></a>使用軟體定義的創新來妥善管理
 
-您可以執行其中一種領先的雲端世界中，Microsoft 便已取得大量的深入解析和體驗[建置和管理](https://myignite.techcommunity.microsoft.com/sessions/66668)高效能的全球基礎結構。  
+在世界上執行其中一項領先的雲端, Microsoft 在[建立和管理](https://myignite.techcommunity.microsoft.com/sessions/66668)高效能的全球基礎結構方面, 取得了許多深入解析和經驗。  
  
-我們會遵守一組強固的作業原則： 
+我們會遵守一組健全的作業原則: 
  
-- 在各層的網路中使用的最佳切換的硬體。  
-- 將新的功能，會有任何影響部署給使用者。  
-- 推出更新安全可靠地機隊，盡快。 而非幾週的時間。  
-- 運用雲端規模的深度遙測和減緩錯誤來完全自動化。  
-- 您可以使用統一且軟體定義網路技術來控制網路中的所有硬體項目。  排除重複項目，並減少失敗。 
+- 跨網路各層使用最佳的切換硬體。  
+- 部署不影響使用者的新功能。  
+- 盡可能以最快的速度, 在整個車隊中安全且可靠地推出更新。 小時, 而不是周。  
+- 利用雲端規模的深度遙測和完全自動化的容錯風險降低。  
+- 使用統一和軟體定義的網路技術來控制網路中的所有硬體元素。  排除重複並減少失敗。 
  
-這些原則適用於網路的所有層級： 從主機網路介面，切換平台，網路中的資料中心，一直到我們的流量工程平台與我們光學網路 WAN 的負載平衡器，例如函式。  
+這些原則適用于所有網路層: 從主機網路介面、切換平臺、資料中心內的網路功能 (例如負載平衡器), 一直到 WAN 與我們的流量工程平臺和我們的光纖網路。  
  
-Azure 和其網路的指數型成長，已達到，我們終於領悟，人類的直覺可能不再依賴管理的全球網路作業的點。 為了滿足需要長時間，驗證中、 在網路上的短期變化，我們開發的平台，以鏡像處理及 synthetically 模擬生產環境網路。 能夠建立鏡像的環境，並執行數以百萬計的模擬，可讓我們來測試軟體和硬體變更以及其影響，再認可到我們的生產環境平台和網路。 
+Azure 及其網路的指數成長已達到我們最後發現, 人類直覺無法再依賴來管理全域網路作業的重點。 為了滿足在網路上驗證長期、中型和短期變更的需求, 我們開發了一個平臺來鏡像和模擬我們的生產網路合成方式。 建立鏡像環境並執行數百萬項模擬的能力, 可讓我們先測試軟體和硬體變更及其影響, 再將它們認可到生產平臺和網路。 
 
 ## <a name="next-steps"></a>後續步驟
-- [深入了解在 Azure 中提供的網路服務](https://azure.microsoft.com/product-categories/networking/)
+- [深入瞭解 Azure 中提供的網路服務](https://azure.microsoft.com/product-categories/networking/)

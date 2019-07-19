@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: b21c5c517b1f4a1cbcbf2028a079793c70996d58
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473126"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234026"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受控網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -57,15 +57,16 @@ Ubuntu 虛擬機器已佈建在 Azure 中。 下一個工作是使用佈建 VM �
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定主機檔案
 在您的 SSH 終端機中，編輯 /etc/hosts 檔案並更新您的電腦 IP 位址和主機名稱。
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 在主機檔案中，輸入下列值：
 
-```
+```console
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
+
 在這裡，'contoso100.com' 為受控網域的 DNS 網域名稱。 'contoso-ubuntu' 是您要加入至受控網域之 Ubuntu 虛擬機器的主機名稱。
 
 
@@ -74,12 +75,13 @@ sudo vi /etc/hosts
 
 1.  在您的 SSH 終端機中，輸入下列命令，從儲存機制下載封裝清單。 此命令會更新套件清單，以取得最新版本套件和其相依性的資訊。
 
-    ```
+    ```console
     sudo apt-get update
     ```
 
 2. 輸入下列命令以安裝必要的套件。
-    ```
+
+    ```console
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
@@ -87,27 +89,26 @@ sudo vi /etc/hosts
 
     > [!TIP]
     > 如果受控網域的名稱為 contoso100.com，請輸入 CONTOSO100.COM 做為領域。 請記住，必須以全部大寫指定領域名稱。
-    >
-    >
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定 NTP (網路時間通訊協定)
 Ubuntu VM 的日期和時間必須與受控網域同步處理。 在 /etc/ntp.conf 檔案中新增受控網域的 NTP 主機名稱。
 
-```
+```console
 sudo vi /etc/ntp.conf
 ```
 
 在 ntp.conf 檔案中，輸入下列值並儲存檔案：
 
-```
+```console
 server contoso100.com
 ```
+
 在這裡，'contoso100.com' 為受控網域的 DNS 網域名稱。
 
 現在，將 Ubuntu VM 的日期和時間與 NTP 伺服器同步處理，然後啟動 NTP 服務：
 
-```
+```console
 sudo systemctl stop ntp
 sudo ntpdate contoso100.com
 sudo systemctl start ntp
@@ -119,7 +120,7 @@ sudo systemctl start ntp
 
 1. 探索 AAD 網域服務受控網域。 在 SSH 終端機中輸入下列命令：
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -136,7 +137,7 @@ sudo systemctl start ntp
     > * 以大寫字母指定網域名稱，否則 kinit 會失敗。
     >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -144,9 +145,8 @@ sudo systemctl start ntp
 
     > [!TIP]
     > 使用您在前面步驟中指定的相同使用者帳戶 ('kinit')。
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
     ```
 
@@ -155,29 +155,34 @@ sudo systemctl start ntp
 
 ## <a name="update-the-sssd-configuration-and-restart-the-service"></a>更新 SSSD 設定並重新啟動服務
 1. 在 SSH 終端機中輸入下列命令。 開啟 sssd.conf 檔案並進行下列變更
-    ```
+    
+    ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
 2. 將 **use_fully_qualified_names = True** 行註解化，並儲存檔案。
-    ```
+    
+    ```console
     # use_fully_qualified_names = True
     ```
 
 3. 重新啟動 SSSD 服務。
-    ```
+    
+    ```console
     sudo service sssd restart
     ```
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>設定自動主目錄建立
 若要啟用主目錄的自動建立，在使用者登入之後，請您 PuTTY 終端機中輸入下列命令：
-```
+
+```console
 sudo vi /etc/pam.d/common-session
 ```
 
 在此檔案的 'session optional pam_sss.so' 下新增以下這行，並儲存檔案：
-```
+
+```console
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
 
@@ -186,17 +191,20 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 確認電腦是否已成功加入受控網域。 連接到使用不同的 SSH 連線加入網域的 Ubuntu VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
 1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 Ubuntu 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO100.COM')。
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
 2. 在 SSH 終端機中輸入下列命令，以查看是否已正確初始化主目錄。
-    ```
+    
+    ```console
     pwd
     ```
 
 3. 在 SSH 終端機中輸入下列命令，以查看是否會正確解析群組成員資格。
-    ```
+    
+    ```console
     id
     ```
 
@@ -205,12 +213,14 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 您可以在 Ubuntu VM 上對 ' AAD DC Administrators' 群組的成員授與系統管理權限。 sudo 檔案位於 /etc/sudoers。 在 sudoers 中新增的 AD 群組成員可以執行 sudo。
 
 1. 在您的 SSH 終端機，確保您使用 superuser 權限登入。 您可以使用建立 VM 時指定的本機系統管理員帳戶。 執行下列命令：
-    ```
+    
+    ```console
     sudo vi /etc/sudoers
     ```
 
 2. 將下列項目新增至 /etc/sudoers 檔案，並將它儲存：
-    ```
+    
+    ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```

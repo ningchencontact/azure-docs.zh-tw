@@ -3,8 +3,8 @@ title: SAP NetWeaver 的 Azure 虛擬機器高可用性 | Microsoft Docs
 description: Azure 虛擬機器上的 SAP NetWeaver 高可用性指南
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e5493b3688c4de9dab971d58b58f85d00f8003b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6f6dc7745a47c61cf28a0e860a68af677dae8010
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709022"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869120"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -51,8 +51,9 @@ ms.locfileid: "67709022"
 [sap-suse-ascs-ha-setting-ha-nfs]:high-availability-guide-suse.md#setting-up-a-highly-available-nfs-server
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
-[sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md
 [sap-rhel-ascs-ha]:high-availability-guide-rhel.md
+[sap-rhel-ascs-ha-sap-installation-anf]:high-availability-guide-rhel-netapp-files.md
 [high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
 [high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
@@ -203,45 +204,48 @@ ms.locfileid: "67709022"
 
 ## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver 的高可用性架構和案例
 
-**摘要：** 在本文中，我們會討論在 Azure 中 SAP 系統的高可用性架構。 我們會討論如何解決 SAP 單一失敗點 (SPOF) 和備援元件的高可用性，以及 Azure 基礎結構高可用性的詳細資料。 我們也會說明這些組件與 SAP 系統元件的關係。 此外，這些討論都針對 Windows 和 Linux 詳細資料而劃分。 同時也涵蓋了各種 SAP 高可用性案例。
+**摘要：** 在本文中, 我們會討論 Azure 中 SAP 系統的高可用性架構。 我們會討論如何解決 SAP 單一失敗點 (SPOF) 和備援元件的高可用性，以及 Azure 基礎結構高可用性的詳細資料。 我們也會說明這些組件與 SAP 系統元件的關係。 此外，這些討論都針對 Windows 和 Linux 詳細資料而劃分。 同時也涵蓋了各種 SAP 高可用性案例。
 
-**更新日期：** 2017 年 10 月
+**已**2017 年 10 月
 
-* [SAP NetWeaver 的 azure 的虛擬機器高可用性架構和案例][sap-high-availability-architecture-scenarios]
+* [適用于 SAP NetWeaver 的 Azure 虛擬機器高可用性架構和案例][sap-high-availability-architecture-scenarios]
 
 文章涵蓋了 ![Windows][Logo_Windows] **Windows** 和 ![Linux][Logo_Linux] **Linux** 二者。
 
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>SAP NetWeaver 高可用性部署的 Azure 基礎結構準備
 
-**摘要：** 在此處所列的文章，我們將討論部署 Azure 基礎結構以準備 SAP 安裝時，您可採取的步驟。 為了簡化 Azure 基礎結構部署，使用 SAP Azure Resource Manager 範本來自動化整個程序。
+**摘要：** 在此處所列的文章中, 我們將討論部署 Azure 基礎結構以準備 SAP 安裝時可採取的步驟。 為了簡化 Azure 基礎結構部署，使用 SAP Azure Resource Manager 範本來自動化整個程序。
 
-**更新日期：** 2019 年 3 月
+**已**2019年3月
 
-* ![Windows][Logo_Windows] [為使用 Windows 容錯移轉叢集的 SAP 高可用性準備 Azure 基礎結構並**共用的磁碟**SAP ASCS/SCS 執行個體][sap-high-availability-infrastructure-wsfc-shared-disk]
+* ![Windows][Logo_Windows] [使用 sap ASCS/SCS 實例的 windows 容錯移轉叢集和**共用磁片**, 為 sap 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [為使用 Windows 容錯移轉叢集的 SAP 高可用性準備 Azure 基礎結構並**檔案共用**SAP ASCS/SCS 執行個體][sap-high-availability-infrastructure-wsfc-file-share]
+* ![Windows][Logo_Windows] [使用 sap ASCS/SCS 實例的 windows 容錯移轉叢集和檔案**共用**, 為 sap 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [準備 Azure 基礎結構，為 SAP 高可用性 SAP ASCS/SCS 執行個體使用的 SUSE Linux Enterprise Server 叢集架構][sap-suse-ascs-ha-setting-ha-nfs]
+* ![Linux][Logo_Linux] [使用適用于 sap ASCS/SCS 實例的 SUSE Linux Enterprise Server 叢集架構, 為 sap 高可用性準備 Azure 基礎結構][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [準備 Azure 基礎結構，為 SAP 高可用性 SAP ASCS/SCS 執行個體的 SUSE Linux Enterprise Server 叢集架構使用 Azure NetApp 檔案][sap-suse-ascs-ha-setting-ha-anf]
+* ![Linux][Logo_Linux] [使用適用于 sap ASCS/SCS 實例的 SUSE Linux Enterprise Server 叢集架構搭配 azure NetApp files, 為 sap 高可用性準備 Azure 基礎結構][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![RHEL][Logo_Linux] [為 SAP ASCS/SCS 高可用性-準備 Azure 基礎結構設定 RHEL 上的 GlusterFS][high-availability-guide-rhel-glusterfs]
+* ![Rhel][Logo_Linux] [準備適用于 SAP ASCS/SCS 高可用性的 Azure 基礎結構-在 RHEL 上設定 GlusterFS][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [為 SAP ASCS/SCS 高可用性-準備 Azure 基礎結構設定 RHEL 上的 Pacemaker][high-availability-guide-rhel-pacemaker]
+* ![Rhel][Logo_Linux] [準備適用于 SAP ASCS/SCS 高可用性的 Azure 基礎結構-在 RHEL 上設定 Pacemaker][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure 中的 SAP NetWeaver 高可用性系統安裝
 
-**摘要：** 文章此處所列安裝和設定 Windows Server 容錯移轉叢集的叢集和在 Azure 中的 Linux 叢集架構中的高可用性 SAP 系統的逐步的範例。
+**摘要：** 此處所列的文章提供逐步範例, 說明如何在 Azure 中的 Windows Server 容錯移轉叢集叢集和 Linux 叢集架構中安裝和設定高可用性 SAP 系統。
 
-**更新日期：** 2019 年 3 月
+**已**2019年3月
 
-* ![Windows][Logo_Windows] [使用 Windows 容錯移轉叢集安裝 SAP NetWeaver 高可用性並**共用的磁碟**SAP ASCS/SCS 執行個體][sap-high-availability-installation-wsfc-shared-disk]
+* ![Windows][Logo_Windows] [使用 sap ASCS/SCS 實例的 windows 容錯移轉叢集和**共用磁片**, 安裝 sap NetWeaver 高可用性][sap-high-availability-installation-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [使用 Windows 容錯移轉叢集安裝 SAP NetWeaver 高可用性並**檔案共用**SAP ASCS/SCS 執行個體][sap-high-availability-installation-wsfc-file-share]
+* ![Windows][Logo_Windows] [使用 sap ASCS/SCS 實例的 windows 容錯移轉叢集和檔案**共用**, 安裝 sap NetWeaver 高可用性][sap-high-availability-installation-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [安裝 SAP NetWeaver 高可用性 SAP ASCS/SCS 執行個體使用的 SUSE Linux Enterprise Server 叢集架構][sap-suse-ascs-ha-sap-installation]
+* ![Linux][Logo_Linux] [使用適用于 sap ASCS/SCS 實例的 SUSE Linux Enterprise Server 叢集架構, 安裝 sap NetWeaver 高可用性][sap-suse-ascs-ha-sap-installation]
 
-* ![Linux][Logo_Linux] [安裝 SAP NetWeaver 高可用性 SAP ASCS/SCS 執行個體的 SUSE Linux Enterprise Server 叢集架構使用 Azure NetApp 檔案][sap-suse-ascs-ha-sap-installation-anf]
+* ![Linux][Logo_Linux] [使用適用于 sap ASCS/SCS 實例與 Azure NetApp Files 的 SUSE Linux Enterprise Server 叢集架構, 安裝 sap NetWeaver 高可用性][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![RHEL][Logo_Linux] [安裝 SAP NetWeaver ASCS/SCS RHEL 上的高可用性組態中][sap-rhel-ascs-ha]
+* ![Rhel 在[rhel 上的高可用性設定中安裝 SAP NetWeaver ASCS/SCS][sap-rhel-ascs-ha] ][Logo_Linux]
+
+* ![Rhel][Logo_Linux] [以 Azure NetApp Files 在 rhel 上安裝高可用性設定中的 SAP NetWeaver ASCS/SCS][sap-rhel-ascs-ha-sap-installation-anf]
+

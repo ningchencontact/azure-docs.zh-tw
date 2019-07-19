@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061209"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226831"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) 是一項 Web 開發人員可延伸的分析服務，可幫助您了解即時應用程式的效能和使用情形。 使用它來[自動檢測要求、 追蹤相依性，以及收集效能計數器](auto-collect-dependencies.md#java)，診斷效能問題和例外狀況，並[撰寫的程式碼][ api]若要追蹤使用者行為與您的應用程式。 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) 是一項 Web 開發人員可延伸的分析服務，可幫助您了解即時應用程式的效能和使用情形。 使用它來[自動檢測要求、追蹤相依性, 以及收集效能計數器](auto-collect-dependencies.md#java)、診斷效能問題和例外狀況, 以及[撰寫程式碼][api]來追蹤使用者如何處理您的應用程式。 
 
 ![概觀範例資料的螢幕擷取畫面](./media/java-get-started/overview-graphs.png)
 
@@ -91,7 +91,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>如果您使用 Eclipse 建立動態 Web 專案...
-使用 [Java 適用的 Application Insights SDK 外掛程式][eclipse]。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
+使用[適用于 JAVA 的 APPLICATION INSIGHTS SDK 外掛程式][eclipse]。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
 
 * *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`version:'2.0.n'`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * *若要更新為新的 SDK* 請重新整理專案的相依項目。
@@ -150,7 +150,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 
 * 檢測金鑰會隨著遙測的每個項目傳送，並告知 Application Insights 在您的資源中顯示它。
 * HTTP 要求元件是選用的。 它會自動將要求和回應時間的遙測傳送到入口網站。
-* 事件相互關聯是 HTTP 要求元件的補充。 它會將識別碼指派給伺服器收到的每個要求，並將此識別碼加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。 它可讓您相互關聯與每個要求關聯的遙測，方法是在[診斷搜尋][diagnostic]中設定篩選器。
+* 事件相互關聯是 HTTP 要求元件的補充。 它會將識別碼指派給伺服器收到的每個要求，並將此識別碼加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。 它可讓您相互關聯與每個要求關聯的遙測，方法是在 [診斷搜尋][diagnostic]中設定篩選器。
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>設定檢測金鑰的替代方法
 Application Insights SDK 會依此順序尋找此金鑰︰
@@ -169,6 +169,8 @@ Application Insights SDK 會依此順序尋找此金鑰︰
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+請注意,[即時計量](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)不支援從程式碼讀取檢測金鑰。
 
 ## <a name="4-add-an-http-filter"></a>4.加入 HTTP 篩選器
 上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。 (如果您只需要單純的 API，則非必要。)
@@ -310,7 +312,7 @@ public class AppInsightsConfig {
 
 按一下任何圖表以查看詳細彙總度量。
 
-![應用程式深入解析失敗窗格與圖表](./media/java-get-started/006-barcharts.png)
+![包含圖表的 Application Insights 失敗窗格](./media/java-get-started/006-barcharts.png)
 
 > Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為： `VERB controller/action`。 例如，`GET Home/Product/f9anuh81`、`GET Home/Product/2dffwrf5` 和 `GET Home/Product/sdf96vws` 會分組至 `GET Home/Product`。 此分組方式可提供要求有意義的彙總，例如要求數量和要求的平均執行時間。
 >
@@ -319,7 +321,7 @@ public class AppInsightsConfig {
 ### <a name="instance-data"></a>執行個體資料
 點選特定要求類型以查看個別執行個體。
 
-![向下鑽研到特定的範例檢視](./media/java-get-started/007-instance.png)
+![向下切入到特定的範例視圖](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>分析：功能強大的查詢語言
 當您累積更多資料時，您就可以執行查詢以彙總資料並找出個別執行個體。  [分析](../../azure-monitor/app/analytics.md) 是一項強大的工具，既可了解效能和使用情況，也可進行診斷。
@@ -342,9 +344,9 @@ public class AppInsightsConfig {
 
     (此元件會啟用效能計數器。)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 設定 (Spring Boot)
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (彈簧開機)
 
-在 Windows 上執行的 spring Boot 應用程式需要額外的設定，在 Azure App Service 上執行。 修改**web.config**並新增下列：
+在 Windows 上執行的春天開機應用程式需要額外的設定才能在 Azure App 服務上執行。 修改**web.config**並新增下列內容:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -360,11 +362,11 @@ public class AppInsightsConfig {
 ```
 
 ## <a name="exceptions-and-request-failures"></a>例外狀況與要求失敗
-會自動收集未處理例外狀況。
+系統會自動收集未處理的例外狀況。
 
 若要收集其他例外狀況的資料，您有兩個選項：
 
-* [在您的程式碼中插入 trackException() 的呼叫][apiexceptions]。
+* [在您的程式碼中插入 trackException () 的呼叫][apiexceptions]。
 * [在伺服器上安裝 Java 代理程式](java-agent.md)。 指定您想要觀看的方法。
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>監視方法呼叫和外部相依性
@@ -379,9 +381,9 @@ Application Insights Java SDK 現在支援 [W3C 分散式追蹤](https://w3c.git
 外寄 SDK 組態則定義於 [AI-Agent.xml](java-agent.md) 檔案中。
 
 ## <a name="performance-counters"></a>效能計數器
-開啟**調查**，**計量**，以查看效能計數器的範圍。
+開啟 [**調查**]、[**計量**], 以查看效能計數器的範圍。
 
-![使用選取的處理序私用位元組的計量 窗格的螢幕擷取畫面](./media/java-get-started/011-perf-counters.png)
+![已選取處理常式私用位元組的 [計量] 窗格螢幕擷取畫面](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>自訂效能計數器集合
 若要停用效能計數器的一組標準集合，請將下列程式碼加入 ApplicationInsights.xml 檔案的根節點下：
@@ -434,35 +436,11 @@ Application Insights Java SDK 現在支援 [W3C 分散式追蹤](https://w3c.git
 ### <a name="unix-performance-counters"></a>Unix 效能計數器
 * [使用 Application Insights 外掛程式安裝 collectd](java-collectd.md) ，來取得各種不同的系統和網路資料。
 
-## <a name="local-forwarder"></a>本機轉送工具
-
-[本機轉送工具](https://docs.microsoft.com/azure/application-insights/local-forwarder)是會從各種 SDK 和架構收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遙測資料的代理程式，並且會將這些資料路由至 Application Insights。 此工具能夠在 Windows 和 Linux 下執行。
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-如果您使用 SpringBoot 入門版，請將下列項目新增至組態檔 (application.properties)：
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-SpringBoot application.properties 和 applicationinsights.xml 組態的預設值相同。
-
 ## <a name="get-user-and-session-data"></a>取得使用者與工作階段資料
 好了，您現在正在從 Web 服務傳送遙測資料。 現在若要取得應用程式的完整 360 度檢視，可以加入多個監視：
 
-* [將遙測加入至您的網頁][usage]，即可監視頁面檢視和使用者度量。
-* [設定 Web 測試][availability]，以確認應用程式處於線上狀態且能夠回應。
+* [將遙測加入至您的網頁][usage] ，即可監視頁面檢視和使用者度量。
+* [設定 Web 測試][availability] ，以確認應用程式處於線上狀態且能夠回應。
 
 ## <a name="capture-log-traces"></a>擷取記錄追蹤
 您可以使用 Application Insights 將來自 Log4J、Logback 或其他記錄架構的記錄分解。 您可以將記錄與 HTTP 要求和其他遙測相互關聯。 [了解作法][javalogs]。
@@ -470,13 +448,13 @@ SpringBoot application.properties 和 applicationinsights.xml 組態的預設值
 ## <a name="send-your-own-telemetry"></a>傳送您自己的遙測
 既然您已安裝 SDK，您可以使用 API 來傳送自己的遙測。
 
-* [追蹤自訂事件和度量][api]，以了解使用者正對應用程式進行的動作。
-* [搜尋事件和記錄][diagnostic]以協助診斷問題。
+* [追蹤自訂事件和計量][api], 以瞭解使用者如何使用您的應用程式。
+* [搜尋事件和記錄][diagnostic] 以協助診斷問題。
 
 ## <a name="availability-web-tests"></a>可用性 Web 測試
 Application Insights 可讓您定期測試網站，以檢查網站運作中且正常回應。
 
-[深入了解如何設定可用性 web 測試。][availability]
+[深入瞭解如何設定可用性 web 測試。][availability]
 
 ## <a name="questions-problems"></a>有疑問嗎？ 有問題嗎？
 [疑難排解 Java](java-troubleshoot.md)

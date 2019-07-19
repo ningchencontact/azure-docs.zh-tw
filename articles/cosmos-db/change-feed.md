@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e450c0682a22a6e667a2bca153ce5d706a5bea96
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954409"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986241"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
 
@@ -58,7 +58,7 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>變更摘要和 _etag、_lsn 或 _ts
 
-_etag 格式是作為內部之用，因為該格式可以隨時變更，請別依賴它。 _ts 是修改或建立時間戳記。 您可以使用 _ts，依時間順序進行比較。 _lsn 是批次識別碼，加入的變更摘要它代表交易識別碼。 許多項目可能有相同的 _lsn。 FeedResponse 上的 ETag 與您在項目上看到的 _etag 不同。 _etag 是內部識別碼，而且用於並行控制，它會指示項目版本，而使用 ETag 來排序摘要。
+_etag 格式是作為內部之用，因為該格式可以隨時變更，請別依賴它。 _ts 是修改或建立時間戳記。 您可以使用 _ts，依時間順序進行比較。 _lsn 是僅為變更摘要新增的批次識別碼;它代表交易識別碼。 許多項目可能有相同的 _lsn。 FeedResponse 上的 ETag 與您在項目上看到的 _etag 不同。 _etag 是內部識別碼，而且用於並行控制，它會指示項目版本，而使用 ETag 來排序摘要。
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>變更摘要使用個案和案例
 
@@ -94,7 +94,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 您可以搭配變更摘要使用下列選項：
 
 * [搭配使用變更摘要與 Azure Functions](change-feed-functions.md)
-* [搭配使用變更摘要和變更摘要處理器程式庫](change-feed-processor.md) 
+* [搭配變更摘要處理器使用變更摘要](change-feed-processor.md) 
 
 容器內每個邏輯分割區索引鍵都可使用變更摘要，因此可以配送給一或多個取用者以進行平行處理，如下圖所示。
 
@@ -108,7 +108,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 * 變更摘要包含對容器內項目進行的插入與更新作業。 您可以擷取刪除項目，方法是在您的項目 (例如文件) 內設定「虛刪除」旗標來取代刪除動作。 或者，您可以使用 [TTL 功能](time-to-live.md)為項目設定有限的逾期期限。 例如 24 小時，並使用該屬性的值擷取刪除項目。 使用此解決方案，您必須在比 TTL 逾期期限更短的時間間隔內處理變更。 
 
-* 對項目所做的每項變更皆會在變更摘要中出現一次，且用戶端必須管理檢查點邏輯。 如果想要避免複雜的管理檢查點作業，變更摘要處理器程式庫提供了自動檢查點和「至少一次」語意。 請參閱[搭配使用變更摘要和變更摘要處理器程式庫](change-feed-processor.md)
+* 對項目所做的每項變更皆會在變更摘要中出現一次，且用戶端必須管理檢查點邏輯。 如果您想要避免管理檢查點的複雜性, 變更摘要處理器會提供自動檢查點和「至少一次」的語義。 請參閱搭配[變更摘要處理器使用變更](change-feed-processor.md)摘要。
 
 * 變更記錄檔中只會包含指定項目的最新變更。 中繼變更可能無法使用。
 
@@ -118,7 +118,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 * Azure Cosmos 容器所有邏輯分割區索引鍵的變更都是以平行方式提供使用。 這項功能可讓大型容器的變更由多個取用者平行處理。
 
-* 應用程式可以同時要求相同的容器上的多個變更摘要。 ChangeFeedOptions.StartTime 可用來提供初始的開始點。 例如，尋找與指定時鐘時間相對應的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
+* 應用程式可以在相同的容器上同時要求多個變更摘要。 ChangeFeedOptions.StartTime 可用來提供初始的開始點。 例如，尋找與指定時鐘時間相對應的接續權杖。 ContinuationToken 如經指定，會優先於 StartTime 和 StartFromBeginning 值。 ChangeFeedOptions.StartTime 的精確度為 5 秒內。 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -126,4 +126,4 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 * [讀取變更摘要的選項](read-change-feed.md)
 * [搭配使用變更摘要與 Azure Functions](change-feed-functions.md)
-* [使用變更摘要處理器程式庫](change-feed-processor.md)
+* [使用變更摘要處理器](change-feed-processor.md)

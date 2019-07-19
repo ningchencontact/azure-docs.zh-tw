@@ -14,16 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
-ms.author: cynthn;davberg
-ms.openlocfilehash: e24266a46d192addebfe63f1caab3ac66eca2beb
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: cynthn
+ms.reviewer: davberg
+ms.openlocfilehash: 087640ab9c589728551438ebca536f872e3bd910
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719084"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876545"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM 的計算基準測試分數
-下列 SPECInt 基準測試分數顯示選取的 Azure Vm 的計算效能，執行 Windows Server。 也有 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的計算基準測試分數。
+下列 SPECInt 基準測試分數顯示執行 Windows Server 之選取 Azure Vm 的計算效能。 也有 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的計算基準測試分數。
 
 
 ## <a name="av2---general-compute"></a>Av2 - 一般計算
@@ -175,7 +176,7 @@ ms.locfileid: "67719084"
 | Standard_E64-16s_v3 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 3 | 334.3 | 1.5 | 
 | Standard_E64-32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 592.5 | 4.4 | 
 
-## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3-記憶體 Opt + （獨立模式） 的進階儲存體
+## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3-記憶體選擇 + 進階儲存體 (獨立模式)
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64is_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1073.9 | 5.7 | 
@@ -191,7 +192,7 @@ ms.locfileid: "67719084"
 | Standard_E32_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 579.9 | 16.1 | 
 | Standard_E64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 1080.0 | 11.3 | 
 
-## <a name="eiv3---memory-optimized-isolated"></a>Eiv3-記憶體最佳化 」 （獨立模式）
+## <a name="eiv3---memory-optimized-isolated"></a>Eiv3-記憶體優化 (獨立模式)
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64i_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1081.4 | 11.1 | 
@@ -308,41 +309,41 @@ ms.locfileid: "67719084"
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3-已啟用 GPU
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6s_v3 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 230.2 | 1.6 | 
-| Standard_NC12s_v3 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 7 | 425.0 | 3.6 | 
-| Standard_NC24rs_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 2 | 811.0 | 4.2 | 
-| Standard_NC24s_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 3 | 809.3 | 2.3 | 
+| Standard_NC6s_v3 | 6 | 1 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 6 | 230.2 | 1.6 | 
+| Standard_NC12s_v3 | 12 | 1 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 7 | 425.0 | 3.6 | 
+| Standard_NC24rs_v3 | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 2 | 811.0 | 4.2 | 
+| Standard_NC24s_v3 | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 3 | 809.3 | 2.3 | 
 
 ## <a name="ncsv2---gpu-enabled"></a>NCSv2-已啟用 GPU
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6s_v2 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 227.0 | 6.2 | 
-| Standard_NC12s_v2 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 9 | 427.3 | 1.3 | 
-| Standard_NC24rs_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 12 | 811.0 | 5.4 | 
-| Standard_NC24s_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 811.5 | 4.4 | 
+| Standard_NC6s_v2 | 6 | 1 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 227.0 | 6.2 | 
+| Standard_NC12s_v2 | 12 | 1 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 9 | 427.3 | 1.3 | 
+| Standard_NC24rs_v2 | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 12 | 811.0 | 5.4 | 
+| Standard_NC24s_v2 | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 811.5 | 4.4 | 
 
 ## <a name="nc---gpu-enabled"></a>NC-已啟用 GPU
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 209.6 | 4.4 | 
-| Standard_NC12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 394.4 | 3.8 | 
-| Standard_NC24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 751.7 | 3.5 | 
-| Standard_NC24r | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 752.9 | 3.4 | 
+| Standard_NC6 | 6 | 1 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 27 | 209.6 | 4.4 | 
+| Standard_NC12 | 12 | 1 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 394.4 | 3.8 | 
+| Standard_NC24 | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 751.7 | 3.5 | 
+| Standard_NC24r | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 27 | 752.9 | 3.4 | 
 
-## <a name="nds--gpu-enabled"></a>已啟用 GPU NDs-
+## <a name="nds--gpu-enabled"></a>NDs-已啟用 GPU
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_ND6s | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 8 | 230.1 | 1.2 | 
-| Standard_ND12s | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 426.5 | 1.4 | 
-| Standard_ND24rs | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 10 | 811.4 | 3.5 | 
-| Standard_ND24s | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 812.6 | 4.4 | 
+| Standard_ND6s | 6 | 1 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 8 | 230.1 | 1.2 | 
+| Standard_ND12s | 12 | 1 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 426.5 | 1.4 | 
+| Standard_ND24rs | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 10 | 811.4 | 3.5 | 
+| Standard_ND24s | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v4 @ 2.60 GHz | 11 | 812.6 | 4.4 | 
 
-## <a name="nv---gpu-enabled"></a>內華達州拉斯維加斯-已啟用 GPU
+## <a name="nv---gpu-enabled"></a>NV-已啟用 GPU
 | Size | vCPU | NUMA 節點 | CPU | 執行 | 平均基本費率 | 標準差 | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NV6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 210.5 | 6.1 | 
-| Standard_NV12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 394.5 | 2.3 | 
-| Standard_NV24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 26 | 752.2 | 4.4 | 
+| Standard_NV6 | 6 | 1 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 210.5 | 6.1 | 
+| Standard_NV12 | 12 | 1 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 28 | 394.5 | 2.3 | 
+| Standard_NV24 | 24 | 2 | Intel (R) 強式 (R) CPU E5-2690 v3 @ 2.60 GHz | 26 | 752.2 | 4.4 | 
 
 ## <a name="about-specint"></a>關於 SPECint
 Windows 數字是藉由在 Windows Server 上執行 [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) 來計算出。 執行 SPECint 時是使用基本費率選項 (SPECint_rate2006)，其中每個 vCPU 有一個複本。 SPECint 是由 12 個個別的測試組成，每個測試都執行三次，系統會從每個測試挑出中間值，然後將它們加權來形成複合分數。 這些測試會接著在多個 VM 上執行以提供所顯示的平均分數。

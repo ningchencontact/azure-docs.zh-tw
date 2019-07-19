@@ -1,161 +1,165 @@
 ---
-title: Azure 資料表 |Azure Marketplace
-description: 針對 Azure 資料表設定潛在客戶管理。
+title: Azure 資料表儲存體 |Azure Marketplace
+description: 在 Azure 資料表儲存體中設定潛在客戶管理。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147890"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227891"
 ---
-# <a name="lead-management-instructions-for-azure-table"></a>Azure 資料表的潛在客戶管理指示
+# <a name="lead-management-instructions-for-table-storage"></a>資料表儲存體的潛在客戶管理指示
 
-此文章說明如何設定 Azure 資料表以儲存業務潛在客戶。 Azure 資料表能讓您儲存並自訂客戶資訊。
+本文說明如何設定 Azure 資料表儲存體來管理銷售潛在客戶。 資料表儲存體可協助您儲存及修改客戶資訊。
 
+## <a name="configure-table-storage"></a>設定資料表儲存體
 
-## <a name="how-to-configure-azure-table"></a>如何設定 Azure 資料表
+1. 如果您沒有 Azure 帳戶, 請[建立免費試用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+1. 當您的帳戶處於作用中狀態之後, 請登入[Azure 入口網站](https://portal.azure.com)。
+1. 在 Azure 入口網站中, 依照下列步驟執行:  
+    1. 在左側窗格中選取 [ **+ 建立資源**]。 **新**的窗格隨即開啟。
+    1. 在 [**新增**] 窗格中, 選取 [**儲存體**]。 **精選**清單會在右側開啟。
+    1. 選取 [儲存體帳戶]  。 然後, 依照[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)中的指示進行。
 
-1. 如果您沒有 Azure 帳戶，您可以[建立免費的試用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-2. 您的 Azure 帳戶啟用後，登入[Azure 入口網站](https://portal.azure.com)。
-3. 在 Azure 入口網站中，建立儲存體帳戶，使用下列程序。  
-    1. 選取  **+ 建立資源**左側的功能表列中。  **新增**（刀鋒視窗） 窗格會顯示右邊。
-    2. 選取 **儲存體**中**新增**窗格。  A**精選**清單會顯示在右邊。
-    3. 選取 **儲存體帳戶**開始建立帳戶。  請依照下列文章中的指示[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)。
+    ![建立 Azure 儲存體帳戶](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-    ![建立 Azure 儲存體帳戶的步驟](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
+    如需儲存體帳戶的詳細資訊, 請參閱[快速入門教學](https://docs.microsoft.com/azure/storage/)課程。 如需定價資訊, 請參閱[Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
-    如需有關儲存體帳戶的詳細資訊，請選取[快速入門教學課程](https://docs.microsoft.com/azure/storage/)。  如需儲存體定價的詳細資訊，請參閱[儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
-
-4. 等候佈建您的儲存體帳戶的程序，通常只需要幾分鐘的時間。  然後存取您的儲存體帳戶，從**首頁**選取 Azure 入口網站頁面**查看所有資源**或選取**所有資源**從左側導覽列在 Azure 入口網站的功能表列。
+1. 等到您的儲存體帳戶布建完成, 這通常需要幾分鐘的時間。 然後, 從 Azure 入口網站的首頁存取帳戶:選取流覽窗格中的 [**查看您的所有資源**] 或 [**所有資源**]。
 
     ![存取您的 Azure 儲存體帳戶](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-5. 從您儲存體帳戶] 窗格中，複製 [儲存體帳戶連接字串，該索引鍵，並將它貼至**儲存體帳戶連接字串**Cloud Partner 入口網站上的欄位。 連接字串的範例為：
+1. 從您的儲存體帳戶窗格中, 複製金鑰的儲存體帳戶連接字串。 將它貼入 Cloud Partner 入口網站中儲存體帳戶的 [**連接字串**] 欄位。
 
-```sql
-DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
-```
+    範例連接字串:
 
-  ![Azure 儲存體金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    ```sql
+    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+    ```
 
-您可以使用[Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/)或其他類似的工具，以查看您的儲存體資料表中的資料。 您也可以從 Azure 資料表匯出資料。
+      ![Azure 儲存體金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
+您可以使用[Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/)或類似的工具來查看資料表儲存體中的資料。 您也可以匯出資料。
 
-## <a name="use-microsoft-flow-with-an-azure-table-optional"></a>使用 Microsoft Flow 與 Azure 資料表 (*選擇性*) 
+## <a name="use-microsoft-flow-with-table-storage-optional"></a>搭配使用 Microsoft Flow 與資料表儲存體 (*選擇性*)
 
-您可以使用 [Microsoft Flow](https://docs.microsoft.com/flow/) 在每次有潛在客戶新增至 Azure 資料表時自動通知。 如果您還沒有帳戶，您可以[註冊免費帳戶](https://flow.microsoft.com/)。
-
+您可以使用[Microsoft Flow](https://docs.microsoft.com/flow/) , 在您的資料表儲存體中新增潛在客戶時, 自動傳送通知。 如果您沒有 Microsoft Flow 帳戶, 請[註冊免費帳戶](https://flow.microsoft.com/)。
 
 ### <a name="lead-notification-example"></a>潛在客戶通知範例
 
-使用此範例做為指南，建立新的潛在客戶新增至 Azure 資料表時，會自動傳送電子郵件通知的基本流程。 此範例會設定表格儲存體更新時，每小時傳送潛在客戶資訊的週期。
+這個範例顯示如何建立基本流程。 當新的潛在客戶新增至您的資料表儲存體時, 流程會自動傳送電子郵件通知給每小時。
 
 1. 登入您的 Microsoft Flow 帳戶。
-2. 在左側導覽列上，選取 [我的流程]  。
-3. 在頂端導覽列上，選取 [+ 新增]  。  
-4. 在下拉式清單上，選取 [+ 從空白建立] 
-5. 在 [從空白建立流程] 底下，選取 [從空白建立]  。
+1. 在左側導覽窗格中, 選取 [我的**流程**]。
+1. 在上方導覽列中, 選取 [ **+ 新增**]。  
+1. 從下拉式清單中, 選取 [ **+ 從空白建立**]。
+1. 在 [**從空白建立流程**] 底下, 選取 [**從空白建立**]。
 
    ![從空白建立新流程](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-6. 在連接器和觸發程序搜尋頁面上中，選取 [觸發程序]  。
-7. 在 [觸發程序]  底下，選取 [週期]  。
-8. 在 [週期]  視窗中，保留 [間隔]  的預設設定 1。 從 [頻率]  下拉式清單中，選取 [小時]  。
+1. 在連接器和觸發程序搜尋頁面上中，選取 [觸發程序]  。
+1. 在 [觸發程序]  底下，選取 [週期]  。
+1. 在 [**週期**] 視窗中, 將 [**間隔**] 的預設設定保留為 [ **1** ]。 從 [**頻率**] 下拉式清單中, 選取 [**小時**]。
 
    >[!NOTE] 
-   >雖然此範例使用 1 小時的間隔，但是您可以選取最適合您業務需求的間隔和頻率。
+   >這個範例會使用一小時的間隔。 但您可以選取最符合您業務需求的間隔和頻率。
 
-   ![設定循環頻率 1 小時](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
+   ![設定週期的1小時頻率](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
-9. 選取 [+ 新步驟]  。
-10. 搜尋「取得過去時間」，然後選取 [動作] 底下的 [取得過去時間]  。 
+1. 選取 [ **+ 新增步驟**]。
+1. 搜尋 [**取得過去時間**], 然後選取 **[選擇動作**] 底下的 [**取得過去時間**]。
 
-    ![尋找並選取取得過去時間動作](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
+    ![尋找並選取 [取得過去時間] 動作](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-11. 在 [取得過去時間]  視窗中，將 [間隔]  設為 1。  從 [時間單位]  下拉式清單中，選取 [小時]  。
+1. 在 [**取得過去時間**] 視窗中, 將 [**間隔**] 設定為**1**。  從 [**時間單位**] 下拉式清單中, 選取 [**小時**]。
     >[!IMPORTANT] 
-    >請確定此間隔及時間單位符合您針對 [週期] 設定的 [間隔] 和 [頻率]。
+    >請確定**間隔**和**時間單位**符合您為週期設定的間隔和頻率 (步驟 8)。
 
-    ![設定取得過去時間間隔](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
+    ![設定取得過去的時間間隔](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
     >[!TIP] 
-    >您可以隨時檢查您的流程，以確認每個步驟都已正確設定。 若要檢查您的流程，請從 [流程] 功能表列中選取 [流程檢查工具]  。
+    >您可以隨時檢查您的流程, 以確認每個步驟都已正確設定:從 [流程] 功能表列選取 [**流程檢查**]。
 
-在下一組步驟中，您將連接至 Azure 資料表，並設定處理邏輯來處理新的潛在客戶。
+在下一組步驟中, 您會連接到您的儲存體資料表, 並設定處理邏輯來處理新的潛在客戶。
 
-1. 在「取得過去時間」步驟中，選取 [+ 新步驟]  ，然後搜尋「取得實體」。
-2. 在 [動作]  底下，選取 [取得實體]  ，然後選取 [顯示進階選項]  。
-3. 在 [取得實體]  視窗中，提供下列欄位的資訊：
+1. 在 [**取得過去時間**] 步驟之後, 選取 [ **+ 新增步驟**], 然後搜尋 [**取得實體**]。
+1. 在 [動作]  底下，選取 [取得實體]  ，然後選取 [顯示進階選項]  。
+1. 在 [**取得實體**] 視窗中, 填寫下欄欄位:
 
-   - **資料表** – 輸入您 Azure 資料表儲存體的名稱。 下一個螢幕擷取會在針對此範例輸入 “MarketPlaceLeads” 時顯示提示。 
+   - **資料表**: 資料表儲存體的名稱。 下圖顯示已輸入 "MarketPlaceLeads":
 
      ![為 Azure 資料表名稱挑選一個自訂值](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **篩選查詢**– 按一下此欄位與**取得過去時間**圖示會顯示在快顯視窗。 選取 [過去時間]  以使用這個作為時間戳記來篩選查詢。 或者，您可以將下列函式貼到欄位：CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
+   - **篩選查詢**:當您選取此欄位時, [**取得過去時間**] 圖示會顯示在快顯視窗中。 選取 [**過去時間**], 以使用此值做為時間戳記來篩選查詢。 或者, 您可以將下列函數貼入欄位中:
+   
+      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
-     ![設定篩選查詢函式](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
+     ![設定篩選查詢函數](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-4. 選取 [新增步驟]  ，針對新的潛在客戶加入掃描 Azure 資料表的條件。
+1. 選取 [**新增步驟**] 以新增條件, 以掃描資料表儲存體中是否有新的潛在客戶。
 
-   ![使用 [新增步驟] 加入掃描 Azure 資料表的條件](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
+   ![使用「新增步驟」來新增掃描資料表儲存體的條件](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-5. 在 [選擇動作]  視窗中，選取 [動作]  ，然後選取 [條件]  控制項。
+1. 在 [**選擇動作**] 視窗中, 選取 [**動作**], 然後選取 [**條件控制**]。
 
-     ![加入條件控制項](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
+     ![新增條件控制項](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
-6. 在 [條件]  視窗中，選取 [選擇值]  欄位，然後選取快顯視窗中的 [運算式]  。
-7. 將 `length(body('Get_entities')?['value'])` 貼入 [fx] 欄位。 選取 [確定]  來新增此函式。 若要完成設定條件：
+1. 在 [**條件**] 視窗中, 選取 **[選擇值**], 然後在快顯視窗中選取 [**運算式**]。
+1. 在`length(body('Get_entities')?['value'])` ***fx***欄位中貼上。 選取 [確定]  來新增此函式。 
 
-   - 從下拉式清單中選取 [大於]。
-   - 輸入 0 作為值 
+
 
      ![將函式加入至條件](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-8. 根據條件的結果設定要採取的動作。
+1. 根據條件的結果設定要採取的動作。
+
+    1. 從下拉式清單中選取 [**大於**]。
+   1. 輸入**0**做為值。
 
      ![根據條件結果設定動作](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-9. 如果條件解析為 **If no**，則不會執行任何動作。 
-10. 如果條件解析為 **If yes**，觸發連接 Office 365 帳戶傳送電子郵件的動作。 選取 [新增動作]  。
-11. 選取 [傳送電子郵件]  。 
-12. 在 [傳送電子郵件]  視窗中，提供下列欄位的資訊：
+1. 如果條件解析為 "If no", 則不會執行任何動作。
 
-    - **收件者** - 輸入將會收到此通知的每個人的電子郵件地址。
-    - **主旨** – 提供電子郵件的主旨。 例如: 新的潛在客戶！
-    - **主體**： 加入您想要納入每封電子郵件的文字 (選擇性)，然後貼在本文 `body('Get_entities')?['value']` 中，作為要插入潛在客戶資訊的函式。
+    如果條件解析為「如果是」, 則會觸發可連接 Office 365 帳戶以傳送電子郵件的動作:
+   1. 選取 [新增動作]  。
+   1. 選取 [傳送電子郵件]  。
+   1. 在 [**傳送電子郵件**] 視窗中, 在下欄欄位中輸入資訊:
 
-      >[!NOTE] 
-      >您可以將額外的靜態或動態資料點插入到這封電子郵件的本文。
+      - **To**: 將會收到通知之每個人的電子郵件地址。
+      -  主旨: 電子郵件的主旨。 例如: *新的潛在客戶!*
+      - **Body**: 您想要包含在每個電子郵件中的文字 (選擇性)。 同時以函`body('Get_entities')?['value']`式的形式貼入插入潛在客戶資訊。
+
+        >[!NOTE] 
+        >您可以在電子郵件的本文中插入額外的靜態或動態資料點。
 
       ![設定電子郵件，以供潛在客戶通知使用](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-13. 選取 [儲存]  以儲存流程。 Microsoft Flow 將會自動測試流程中是否有錯誤。 如果沒有任何錯誤，您的流程會在儲存之後開始執行。
+1. 選取 [儲存]  以儲存流程。 Microsoft Flow 會自動測試是否有錯誤。 如果沒有任何錯誤，您的流程會在儲存之後開始執行。
 
-下一個螢幕擷取會顯示最終流程外觀的範例。
+    下圖顯示最終流程外觀的範例。
 
-[![最後一個流程順序](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+    [![最終流程順序](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-(*按一下影像以放大。* )
-
+    (*選取要放大的影像)。*
 
 ### <a name="manage-your-flow"></a>管理您的流程
 
-執行流程之後加以管理很容易。  您可以完全控制您的流程。 例如，您可以停止流程、編輯流程、查看執行歷程記錄，以及取得分析。 下一個螢幕擷取會顯示可用來管理流程的選項。 
+您可以在流程執行後輕鬆地進行管理。 您可以完全控制您的流程。 例如，您可以停止流程、編輯流程、查看執行歷程記錄，以及取得分析。 下圖顯示流程管理選項。
 
- ![管理流程](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+ ![流程管理選項](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
 
-流程會繼續執行，直到您使用 [關閉流程]  選項停止為止。
+流程會持續執行, 直到您選取 [**關閉流程**] 為止。
 
-如果您未收到任何潛在客戶電子郵件通知，表示新的潛在客戶還未加入至 Azure 資料表。 如果有任何流程失敗，您會收到一封電子郵件，如下一個螢幕擷取中的範例所示。
+如果您未收到任何潛在客戶電子郵件通知, 表示您的資料表儲存體中未加入任何新的潛在客戶。
+如果發生流程失敗, 您會收到類似下列範例的電子郵件:
 
  ![流程失敗電子郵件通知](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
-
 
 ## <a name="next-steps"></a>後續步驟
 

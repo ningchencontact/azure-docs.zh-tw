@@ -5,69 +5,87 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 42b7cd8a60e70ab75afc30910c46eb49f1f6d62a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342051"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000943"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 中的變更摘要處理器 
 
-[Azure Cosmos DB 變更摘要處理器程式庫](sql-api-sdk-dotnet-changefeed.md)可協助您將事件處理分散給多個取用者。 此程式庫會簡化跨分割區和多個平行運作執行緒上的變更讀取。
+變更摘要處理器是[AZURE COSMOS DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3)的一部分。 它可簡化讀取變更摘要的程式, 並有效地將事件處理散發到多個取用者。
 
-變更摘要處理器程式庫的主要優點是您不需要管理每個分割區和接續權杖，也不需要手動輪詢每個容器。
+變更摘要處理器程式庫的主要優點是它的容錯行為, 可確保「至少一次」傳遞變更摘要中的所有事件。
 
-變更摘要處理器程式庫可以簡化跨分割區和多個平行運作執行緒上的變更讀取。 它會使用租用機制自動管理所有分割區上的變更讀取。 如您在下圖中所見，如果您啟動了使用變更摘要處理器程式庫的兩個用戶端，它們會在彼此之中分割工作。 當您繼續增加用戶端數目時，它們會繼續在彼此之中分割工作。
+## <a name="components-of-the-change-feed-processor"></a>變更摘要處理器的元件
 
-![使用 Azure Cosmos DB 變更摘要處理器程式庫](./media/change-feed-processor/change-feed-output.png)
+有四個主要元件可執行變更摘要處理器: 
 
-先啟動左邊的用戶端，它開始並啟監視所有分割區，接著啟動第二個用戶端，然後第一個將部份放租用釋出給第二個用戶端。 這是在不同電腦與用戶端之間分散工作的有效方式。
+1. **受監視的容器：** 受監視的容器含有會產生變更摘要的資料。 受監視容器的任何插入和更新都會反映在容器的變更摘要中。
 
-如果您有兩個無伺服器的 Azure 函式使用相同的租用在監視相同的容器，則這兩個函式可能會得到不同的文件，取決於處理器程式庫決定如何處理分割區。
+1. **租用容器：** 租用容器會作為狀態儲存體, 並協調跨多個背景工作角色處理變更摘要。 租用容器可以與受監視容器或個別帳戶中的相同帳戶儲存。 
 
-## <a name="implementing-the-change-feed-processor-library"></a>實作變更摘要處理器程式庫
+1. **主機:** 主機是使用變更摘要處理器來接聽變更的應用程式實例。 具有相同租用設定的多個實例可以平行執行, 但每個實例應該有不同的**實例名稱**。 
 
-實作變更摘要處理器程式庫時會用到四個主要元件： 
+1. **委派:** 委派是一種程式碼, 定義您的開發人員想要對變更摘要處理器讀取的每一批變更進行哪些動作。 
 
-1. **受監視的容器：** 受監視的容器含有會產生變更摘要的資料。 對於受監視的容器所進行的任何插入和變更，都會反映在容器的變更摘要中。
-
-1. **租用容器：** 租用容器會協調如何處理多個背景工作角色的變更摘要。 另外會有一個容器用來儲存租用 (每個分割區一個租用)。 在不同帳戶儲存此租用容器，並讓其寫入區域更靠近變更摘要處理器的執行所在位置會有好處。 租用物件包含下列屬性：
-
-   * 擁有者：指定擁有租用的主機。
-
-   * 接續：指定特定分割區在變更摘要中的位置 (接續權杖)。
-
-   * 時間戳記：上次更新租用的時間；時間戳記可用來檢查是否將租用視為過期。
-
-1. **處理器主機：** 每一部主機都會根據主機的其他執行個體中有多少個執行個體擁有作用中租用，來決定要處理的分割區數量。
-
-   * 主機在啟動時會取得租用，以平衡分配所有主機的工作負載。 主機會定期更新租用，以便讓租用保持作用中狀態。
-
-   * 主機會對其每個讀取的租用設置最後一個接續權杖的檢查點。 為確保能夠安全地進行並行存取，主機會檢查每個租用更新的 ETag。 主機也支援其他檢查點策略。
-
-   * 關機後，主機會將所有租用釋出，但會保留接續資訊，以便之後能夠繼續讀取預存的檢查點。
-
-   目前，主機數目不能大於分割區 (租用) 數目。
-
-1. **取用者：** 取用者 (或背景工作角色) 是負責執行每個主機所起始之變更摘要處理活動的執行緒。 每個處理器主機都可以有多個取用者。 每個取用者會從其獲派到的分割區讀取變更摘要，並向其主機通知所發生的變更和已過期的租用。
-
-為了進一步了解變更摘要處理器的這四個元素是如何一起運作的，我們來看看下圖中的範例。 受監視的集合會儲存文件，並使用 'City' 來作為分割區索引鍵。 我們可以看到，藍色的分割區包含 'City' 欄位為 "A 到 E" 的文件，依此類推。 主機有兩部，每一部都有兩個取用者從四個分割區進行平行讀取。 箭號顯示從變更摘要中的特定地點進行讀取的取用者。 在第一個分割區中，較深的藍色代表未讀取的變更，較淺的藍色則代表變更摘要上已讀取的變更。 主機會使用租用集合來儲存「接續」值，以追蹤每個取用者目前的讀取位置。
+為了進一步了解變更摘要處理器的這四個元素是如何一起運作的，我們來看看下圖中的範例。 受監視的容器會儲存檔, 並使用「城市」做為分割區索引鍵。 我們會看到資料分割索引鍵值分佈在包含專案的範圍中。 有兩個主控制項實例, 而變更摘要處理器會將不同範圍的資料分割索引鍵值指派給每個實例, 以將計算散發最大化。 每個範圍都會以平行方式讀取, 而且其進度會與租用容器中的其他範圍分開維護。
 
 ![變更摘要處理器範例](./media/change-feed-processor/changefeedprocessor.png)
 
-### <a name="change-feed-and-provisioned-throughput"></a>變更摘要和佈建的輸送量
+## <a name="implementing-the-change-feed-processor"></a>執行變更摘要處理器
+
+進入點一律是受監視的容器, 來自您呼叫`Container` `GetChangeFeedProcessorBuilder`的實例:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+
+其中第一個參數是描述此處理器目標的相異名稱, 而第二個名稱是將處理變更的委派執行。 
+
+委派的範例如下:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+最後, 您會使用`WithInstanceName`和來定義此處理器實例的名稱, 這是用`WithLeaseContainer`來維護租用狀態的容器。
+
+呼叫`Build`會提供您可透過呼叫`StartAsync`來啟動的處理器實例。
+
+## <a name="processing-life-cycle"></a>處理生命週期
+
+主控制項實例的正常生命週期為:
+
+1. 讀取變更摘要。
+1. 如果沒有任何變更, 請睡眠一段預先定義的時間 ( `WithPollInterval`在產生器中可自訂), 然後移至 #1。
+1. 如果有變更, 請將它們傳送至**委派**。
+1. 當委派完成**成功**處理變更時, 請以最新處理的時間點更新租用存放區, 並移至 #1。
+
+## <a name="error-handling"></a>錯誤處理
+
+變更摘要處理器具有使用者程式碼錯誤的復原能力。 這表示如果您的委派執行有未處理的例外狀況 (步驟 #4), 處理該特定批次變更的執行緒將會停止, 並會建立新的執行緒。 新的執行緒會檢查哪一個是租用存放區對於該範圍的資料分割索引鍵值而言最新的時間點, 然後從該處重新開機, 以有效地將相同的變更批次傳送至委派。 此行為會繼續進行, 直到您的委派正確地處理變更, 而且這是變更摘要處理器至少具有「一次」保證的原因, 因為如果委派程式碼擲回, 則會重試該批次。
+
+## <a name="dynamic-scaling"></a>動態調整
+
+如簡介中所述, 變更摘要處理器可以自動將計算散發到多個實例。 您可以使用變更摘要處理器來部署應用程式的多個實例, 並充分利用它, 唯一的主要需求是:
+
+1. 所有實例都應該具有相同的租用容器設定。
+1. 所有實例都應該具有相同的工作流程名稱。
+1. 每個實例都必須有不同的實例名稱`WithInstanceName`()。
+
+如果這三個條件都適用, 則變更摘要處理器會使用相等的散發演算法, 將租用容器中的所有租用散發到所有執行中的實例和平行處理計算。 一個租用只能由一個實例在指定時間擁有, 因此實例數目上限等於租用數目。
+
+實例可以擴大和縮小, 而變更摘要處理器會據以動態方式調整負載。
+
+## <a name="change-feed-and-provisioned-throughput"></a>變更摘要和佈建的輸送量
 
 您需針對耗用的 RU 支付費用，因為資料移入或移出 Cosmos 容器一律會耗用 RU。 您必須針對租用容器耗用的 RU 支付費用。
 
 ## <a name="additional-resources"></a>其他資源
 
-* [Azure Cosmos DB 變更摘要處理器程式庫](sql-api-sdk-dotnet-changefeed.md)
-* [Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [GitHub 上的其他範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [GitHub 上的其他範例](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>後續步驟
 

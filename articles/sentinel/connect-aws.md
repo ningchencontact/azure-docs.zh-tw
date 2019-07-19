@@ -1,77 +1,86 @@
 ---
-title: Symantec AWS 資料連接至 Azure 的 Sentinel 預覽 |Microsoft Docs
-description: 了解如何將 Symantec AWS 資料連接至 Azure 的 Sentinel。
+title: 將 Symantec AWS 資料連線至 Azure Sentinel 預覽 |Microsoft Docs
+description: 瞭解如何將 Symantec AWS 資料連線至 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 214269bc5c854aa4d3bfd508b0adb5a53ec096df
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673969"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295611"
 ---
-# <a name="connect-azure-sentinel-to-aws"></a>Aws 連接 Azure 的 Sentinel
+# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>將 Azure Sentinel 連線至 AWS CloudTrail
 
-所有您的 AWS CloudTrail 事件串流到 Azure Sentinel 使用 AWS 連接器。 此連線程序會針對 Azure Sentinel 存取權限委派至您的 AWS 資源記錄，建立 AWS CloudTrail 和 Azure Sentinel 之間的信任關係。 這是建立以 Azure Sentinel 來存取您的 AWS 記錄檔中提供的權限的角色，就可完成 AWS 上。
+使用 AWS 連接器將所有 AWS CloudTrail 事件串流至 Azure Sentinel。 此連線程式會將 Azure Sentinel 的存取權委派給 AWS 資源記錄, 並建立 AWS CloudTrail 與 Azure Sentinel 之間的信任關係。 這是在 AWS 上完成, 藉由建立可授與存取 AWS 記錄 Azure Sentinel 許可權的角色。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-Azure Sentinel 工作區，您必須具有寫入權。
+您必須擁有 Azure Sentinel 工作區的 [寫入] 許可權。
+
+> [!NOTE]
+> Azure Sentinel 會收集來自所有區域的 CloudTrail 事件。 建議您不要將事件從一個區域串流至另一個區域。
 
 ## <a name="connect-aws"></a>連線 AWS 
+
+
+1. 在 Azure Sentinel 中選取 [**資料連線器**], 然後選取資料表中的**Amazon Web Services**行, 然後在右側的 [AWS] 窗格中, 按一下 [**開啟連接器] 頁面**。
+
+1. 使用下列步驟,  遵循 [設定] 底下的指示。
  
-1.  在您的 Amazon Web Services 主控台中，下方**安全性、 身分識別與合規性**，按一下**IAM**。
+1.  在 Amazon Web Services 主控台中的 [**安全性]、[識別 & 相容性**] 底下, 選取 [ **IAM**]。
 
     ![AWS1](./media/connect-aws/aws-1.png)
 
-2.  選擇**角色**然後按一下**建立角色**。
+1.  選擇 [**角色**], 然後選取 [**建立角色**]。
 
     ![AWS2](./media/connect-aws/aws-2.png)
 
-3.  選擇**另一個 AWS 帳戶。** 在 **帳戶識別碼**欄位中，輸入**的 Microsoft 帳戶識別碼**(**123412341234**) 可找到 AWS 連接器 Azure Sentinel 入口網站頁面中。
+1.  選擇**另一個 AWS 帳戶。** 在 [**帳戶識別碼**] 欄位中, 輸入可在 Azure Sentinel 入口網站的 [AWS 連接器] 頁面中找到的**Microsoft 帳戶識別碼**(**123412341234**)。
 
     ![AWS3](./media/connect-aws/aws-3.png)
 
-4.  請確定**需要外部識別碼**已選取，然後輸入可以找到 AWS 連接器 Azure Sentinel 入口網站頁面中的外部識別碼 （工作區識別碼）。
+1.  請確定已選取 [**需要外部識別碼**], 然後輸入可在 Azure Sentinel 入口網站的 [AWS 連接器] 頁面中找到的外部識別碼 (工作區識別碼)。
 
     ![AWS4](./media/connect-aws/aws-4.png)
 
-5.  底下**附加權限原則**選取**AWSCloudTrailReadOnlyAccess**。
+1.  在 [**附加許可權原則**] 底下, 選取 [ **AWSCloudTrailReadOnlyAccess**]。
 
     ![AWS5](./media/connect-aws/aws-5.png)
 
-6.  輸入標記 （選擇性）。
+1.  輸入標記 (選擇性)。
 
     ![AWS6](./media/connect-aws/aws-6.png)
 
-7.  然後，輸入**角色名稱**然後按一下**建立角色** 按鈕。
+1.  然後, 輸入**角色名稱**, 然後選取 [**建立角色**] 按鈕。
 
     ![AWS7](./media/connect-aws/aws-7.png)
 
-8.  在 [角色] 清單中，選擇您所建立的角色。
+1.  在 [角色] 清單中, 選擇您建立的角色。
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-9.  複製**角色 ARN**將它貼到**角色，才能新增**Azure Sentinel 入口網站中的欄位。
+1.  複製 [**角色 ARN**]。 在 Azure Sentinel 入口網站的 [Amazon Web Services 連接器] 畫面中, 將它貼到 [**要新增的角色**] 欄位中, 然後按一下 [**新增**]。
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
-10. 若要在 Log Analytics 中用於 AWS 事件相關的結構描述，搜尋**AWSCloudTrail**。
+1. 若要在 Log Analytics 中使用適用于 AWS 事件的相關架構, 請搜尋**AWSCloudTrail**。
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 AWS CloudTrail。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中, 您已瞭解如何將 AWS CloudTrail 連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 v3 Api-Azure 進行開發 |Microsoft Docs
-description: 這篇文章會討論使用媒體服務 v3 進行開發時套用至實體和 Api 的規則。
+title: 使用 v3 Api 進行開發-Azure |Microsoft Docs
+description: 本文討論使用媒體服務 v3 進行開發時, 適用于實體和 Api 的規則。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,51 +9,51 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a8dac6f38052f176c7a3741a664e174d0a66cbc5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612691"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311851"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
 身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
-這篇文章會討論使用媒體服務 v3 進行開發時套用至實體和 Api 的規則。
+本文討論使用媒體服務 v3 進行開發時, 適用于實體和 Api 的規則。
 
 ## <a name="accessing-the-azure-media-services-api"></a>存取 Azure 媒體服務 API
 
-在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 媒體服務支援[Azure Active Directory (Azure AD) 為基礎](../../active-directory/fundamentals/active-directory-whatis.md)驗證。 兩個常見的驗證選項如下：
+在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 媒體服務支援以[Azure Active Directory (Azure AD) 為基礎的](../../active-directory/fundamentals/active-directory-whatis.md)驗證。 兩個常見的驗證選項如下:
  
-* **服務主體驗證**-用來驗證服務 (例如： web 應用程式、 函式應用程式、 logic apps、 API 和微服務)。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 比方說，適用於 Web 應用程式有一律應該是中介層連接到媒體服務與服務主體。
-* **使用者驗證**-用來驗證使用應用程式互動與媒體服務資源的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
+* **服務主體驗證**-用來驗證服務 (例如: web 應用程式、函數應用程式、邏輯應用程式、API 和微服務)。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 例如, 對於 Web 應用程式, 應該一律是連接至服務主體媒體服務的中介層。
+* **使用者驗證**-用來驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
 
-媒體服務 API 要求的使用者或應用程式進行 REST API 要求媒體服務帳戶資源的存取權，並使用**參與者**或是**擁有者**角色。 API 可以使用存取**讀者**角色但只**取得**或**清單** 作業可使用。 如需詳細資訊，請參閱 <<c0> [ 媒體服務帳戶的角色型存取控制](rbac-overview.md)。
+媒體服務 API 需要讓 REST API 要求的使用者或應用程式能夠存取媒體服務帳戶資源, 並使用**參與者**或**擁有**者角色。 您可以使用**讀取器**角色來存取 API, 但只能使用**取得**或**列出** 作業。 如需詳細資訊, 請參閱[媒體服務帳戶的角色型存取控制](rbac-overview.md)。
 
-而不是建立服務主體，請考慮使用適用於 Azure 資源管理的身分識別存取媒體服務 API 透過 Azure Resource Manager。 若要深入了解適用於 Azure 資源管理的身分識別，請參閱[什麼是適用於 Azure 資源管理的身分識別](../../active-directory/managed-identities-azure-resources/overview.md)。
+請考慮使用 Azure 資源的受控識別, 透過 Azure Resource Manager 存取媒體服務 API, 而不是建立服務主體。 若要深入瞭解 Azure 資源的受控識別, 請參閱[什麼是適用于 azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
 
 ### <a name="azure-ad-service-principal"></a>Azure AD 服務主體 
 
-如果您要建立的 Azure AD 應用程式和服務主體，應用程式必須在它自己的租用戶。 建立應用程式之後，指定應用程式**參與者**或是**擁有者**到媒體服務帳戶的角色存取權。 
+如果您要建立 Azure AD 應用程式和服務主體, 應用程式必須位於自己的租使用者中。 建立應用程式之後, 請將媒體服務帳戶的存取權授與應用程式**參與者**或**擁有**者角色。 
 
-如果您不確定是否有權限建立 Azure AD 應用程式，請參閱[必要的權限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+如果您不確定您是否有建立 Azure AD 應用程式的許可權, 請參閱[必要許可權](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
-在下圖中，數字代表依時間先後順序的要求流量：
+在下圖中, 數位代表依時間順序排列的要求流程:
 
 ![中介層應用程式](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-1. 中介層應用程式要求 Azure AD 存取權杖具有下列參數：  
+1. 中介層應用程式會要求具有下列參數的 Azure AD 存取權杖:  
 
    * Azure AD 租用戶端點。
    * 媒體服務資源 URI。
    * REST 媒體服務的資源 URI。
    * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
    
-   若要取得所有所需的值，請參閱[存取 Azure 媒體服務 API 使用 Azure CLI](access-api-cli-how-to.md)
+   若要取得所有需要的值, 請參閱[使用 Azure CLI 存取 AZURE 媒體服務 API](access-api-cli-how-to.md)
 
 2. Azure AD 存取權杖會傳送至中介層。
 4. 中介層使用該 Azure AD 權杖傳送要求至 Azure 媒體 REST API。
@@ -61,9 +61,9 @@ ms.locfileid: "67612691"
 
 ### <a name="samples"></a>範例
 
-請參閱下列範例示範如何使用 Azure AD 服務主體連線：
+請參閱下列範例, 以瞭解如何使用 Azure AD 服務主體來連接:
 
-* [使用 REST 連線](media-rest-apis-with-postman.md)  
+* [與 REST 連接](media-rest-apis-with-postman.md)  
 * [使用 Java 進行連線](configure-connect-java-howto.md)
 * [使用 .NET 進行連線](configure-connect-dotnet-howto.md)
 * [使用 Node.js 進行連線](configure-connect-nodejs-howto.md)
@@ -79,26 +79,32 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 ## <a name="long-running-operations"></a>長時間執行的作業
 
-將作業標示`x-ms-long-running-operation`Azure 媒體服務中[swagger 檔案](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)是長時間執行的作業。 
+在 Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)檔案`x-ms-long-running-operation`中以標記的作業是長時間執行的作業。 
 
-如需如何追蹤非同步 Azure 作業的詳細資訊，請參閱 <<c0> [ 非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
+如需如何追蹤非同步 Azure 作業的詳細資訊, 請參閱[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
 
-媒體服務有下列的長時間執行作業：
+媒體服務具有下列長時間執行的作業:
 
-* 建立 LiveEvent
-* 更新 LiveEvent
-* 刪除 LiveEvent
-* Start LiveEvent
-* 停止 LiveEvent
-* 重設 LiveEvent
-* 建立 LiveOutput
-* Delete LiveOutput
-* 建立 StreamingEndpoint
-* 更新 StreamingEndpoint
-* 刪除 StreamingEndpoint
-* 啟動 StreamingEndpoint
-* 停止 StreamingEndpoint
-* 調整 StreamingEndpoint
+* [建立實況活動](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [更新即時事件](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [刪除即時事件](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [開始實況活動](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [停止 LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+
+  當停止`removeOutputsOnStop`事件時, 請使用參數來刪除所有相關聯的即時輸出。  
+* [重設 LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [建立 LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [刪除 LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [建立 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [更新 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [刪除 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [開始 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [停止 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [調整 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+成功提交長時間時, 您會收到「202已接受」, 而且必須使用傳回的作業識別碼來輪詢作業完成。
+
+給定的即時事件或其任何相關聯的即時輸出僅支援一個長時間執行的作業。 啟動之後, 長時間執行的作業必須先完成, 才能在相同的 LiveEvent 或任何相關聯的即時輸出上啟動後續的長時間執行作業。 針對具有多個即時輸出的實況活動, 您必須在對另一個即時輸出觸發長時間執行的作業之前, 等待在一個即時輸出上完成長時間執行的作業。 
 
 ## <a name="sdks"></a>SDK
 
@@ -127,7 +133,7 @@ AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報�
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序、分頁
 
-請參閱[篩選、 排序、 分頁的 Azure 媒體服務實體](entities-overview.md)
+請參閱[Azure 媒體服務實體的篩選、排序、分頁](entities-overview.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
@@ -139,7 +145,7 @@ AMSE 是一個開放原始碼專案，由社群提供支援 (可將問題回報�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [連接到使用 Java 的媒體服務](configure-connect-java-howto.md)
-* [連接到使用.NET 的媒體服務](configure-connect-dotnet-howto.md)
-* [連線到媒體服務搭配 Node.js](configure-connect-nodejs-howto.md)
-* [連線到媒體服務，使用 Python](configure-connect-python-howto.md)
+* [使用 JAVA 連接到媒體服務](configure-connect-java-howto.md)
+* [使用 .NET 連接到媒體服務](configure-connect-dotnet-howto.md)
+* [使用 node.js 連接到媒體服務](configure-connect-nodejs-howto.md)
+* [使用 Python 連接到媒體服務](configure-connect-python-howto.md)

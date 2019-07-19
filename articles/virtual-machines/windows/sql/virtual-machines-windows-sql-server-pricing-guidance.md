@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d53c1de9678db497a20788d0cab7ee4f0e6f0c9c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a872b8c34011247e68b0d459482c0599ac0426f2
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607072"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228395"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -99,7 +99,7 @@ ms.locfileid: "67607072"
 **透過「授權行動性」自備 SQL Server 授權** (也稱為 **BYOL**) 意謂著在 Azure VM 中使用現有的「SQL Server 大量授權」搭配「軟體保證」。 使用 BYOL 的 SQL Server VM 只會收取執行 VM 的費用，不會收取 SQL Server 授權費用，但前提是您已經透過「大量授權」方案取得授權和「軟體保證」。
 
 > [!IMPORTANT]
-> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。 CSP 的客戶可以攜帶自己的授權所部署的隨用隨付映像，然後再啟用[Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md)。
+> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。 CSP 客戶可以藉由部署隨用隨付映射並啟用[Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md), 來攜帶自己的授權。
 
 > [!NOTE]
 > BYOL 映像目前只適用於 Windows 虛擬機器。 不過，您可以在僅有 Linux 的 VM 上手動安裝 SQL Server。 請參閱 [Linux SQL VM 常見問題集](../../linux/sql/sql-server-linux-faq.md)中的指導方針。
@@ -114,8 +114,7 @@ ms.locfileid: "67607072"
 
 | BYOL 優點 | 描述 |
 |-----|-----|
-| **節省成本** | 如果工作負載將持續執行 SQL Server Standard 或 Enterprise 長達 *10 個月以上*的時間，則與依使用量付費相比，自備 SQL Server 授權較符合經濟效益。 |
-| **長期節省** | 平均而言，前 3 年購買或更新 SQL Server 授權可「每年節省 30% 的費用」  。 此外，3 年之後，您就不再需要更新授權，只要支付「軟體保證」費用即可。 屆時，將可「節省 200% 的費用」  。 |
+| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供 55% 的節約。 如需詳細資訊, 請參閱 [交換器授權模型] (虛擬機器-windows-sql-ahb.md |
 | **免費的被動次要複本** | 自備授權的另一個優點是每一 SQL Server 可享有[一個免費的被動次要複本授權](https://azure.microsoft.com/pricing/licensing-faq/)，以用於提供高可用性。 這讓高可用性 SQL Server 部署 (例如使用「永遠開啟可用性群組」) 的授權費用得以砍半。 執行被動次要複本的權限是透過「容錯移轉伺服器軟體保證」權益來提供。 |
 
 若要使用上述其中一個自備授權映像來建立 SQL Server 2017 Azure VM，請查看前面帶有 "{BYOL}" 的 VM：

@@ -3,18 +3,18 @@ title: 將 Docker 映像推送至私人 Azure 容器登錄
 description: 使用 Docker CLI 推送和提取 Docker 映像至 Azure 中的私人容器登錄
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6944755619ea5e8e63af04b9b3bca6f7376e29a9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60828747"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309450"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
 
@@ -22,10 +22,10 @@ Azure 容器登錄庫儲存和管理私人 [Docker](https://hub.docker.com) 容�
 
 在下列步驟中，您會從公用 Docker 中樞登錄庫下載官方提供的 [Nginx 映像](https://store.docker.com/images/nginx)，將其標記為私人 Azure 容器登錄庫，推送到您的登錄庫，然後再從登錄庫將其提取出來。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 容器登錄庫** - 在 Azure 訂用帳戶中建立容器登錄庫。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI** - 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
+* **Docker CLI** - 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何[macOS][docker-mac] , [Windows][docker-windows]或[linux][docker linux]系統上設定 docker 的套件。
 
 ## <a name="log-in-to-a-registry"></a>登入登錄庫
 
@@ -62,7 +62,7 @@ docker pull nginx
 docker run -it --rm -p 8080:80 nginx
 ```
 
-瀏覽至`http://localhost:8080`來檢視由 Nginx 在執行中的容器中的預設網頁。 您應該會看到如下所示的頁面：
+流覽至`http://localhost:8080`以在執行中的容器中, 查看 Nginx 所提供的預設網頁。 您應該會看到如下所示的頁面：
 
 ![本機電腦上的 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-瀏覽至`http://localhost:8080`若要檢視執行中的容器。
+流覽至`http://localhost:8080`以查看執行中的容器。
 
 若要停止並移除該容器，請按 `Control`+`C`。
 

@@ -3,17 +3,17 @@ title: 了解 Azure IoT 中心應用程式的裝置範本版本設定 | Microsof
 description: 藉由建立新版本來反覆使用裝置範本，而不會影響您的即時連線裝置
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a53c1432ce4dc6be5dd15ee804cda6b00257ca0e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509725"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848966"
 ---
 # <a name="create-a-new-device-template-version"></a>建立新的裝置範本版本
 
@@ -56,7 +56,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可藉由新增�
 
 您可以建立多個版本的裝置範本。 經過一段時間，您會有使用這些裝置範本的多個連線裝置。 您可以將裝置從一個版本的裝置範本移轉至另一個版本。 下列步驟說明如何移轉裝置：
 
-1. 移至**Device Explorer**頁面。
+1. 移至 [ **Device Explorer** ] 頁面。
 1. 選取您需要移轉到另一個版本的裝置。
 1. 選擇 [移轉裝置]  。
 1. 選取您希望裝置移轉至的版本號碼並選擇 [移轉]  。

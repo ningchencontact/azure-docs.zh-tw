@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 本快速入門說明如何使用 Azure 入口網站建立公用基本負載平衡器。
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727592"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274093"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立基本負載平衡器
 
@@ -43,7 +43,7 @@ ms.locfileid: "64727592"
     | Resource group         | 選取 [新建]  ，並在文字方塊中輸入 *MyResourceGroupLB*。|
     | 名稱                   | *myLoadBalancer*                                   |
     | 區域         | 選取 [西歐]  。                                        |
-    | type          | 選取 [公用]  。                                        |
+    | Type          | 選取 [公用]  。                                        |
     | SKU           | 選取 [基本]  。                          |
     | 公用 IP 位址 | 選取 [建立新的]  。 |
     | 公用 IP 位址名稱              | *MyPublicIP*   |

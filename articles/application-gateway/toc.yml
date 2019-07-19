@@ -245,16 +245,20 @@
     - name: REST
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
+      displayName: ARM
       href: ../azure-resource-manager/resource-group-overview.md
     - name: Resource Manager 範本
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+      displayName: ARM
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
 - name: 資源
   items:
     - name: 作者範本
+      displayName: ARM
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 社群範本
+      displayName: ARM
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/#Linux'

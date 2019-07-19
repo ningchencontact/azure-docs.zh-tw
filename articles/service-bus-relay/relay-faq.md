@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706199"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277968"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
@@ -42,7 +42,7 @@ ms.locfileid: "67706199"
 本節提供轉送價格結構的一些常見問題解答。 如需一般的 Azure 定價資訊，也可以參閱 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。 如需轉送價格的完整資訊，請參閱 [服務匯流排價格詳細資料][Pricing overview]。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>混合式連接和 WCF 轉送如何收費？
-如需轉送價格的完整資訊，請參閱[混合式連線與 WCF 轉送][Pricing overview]服務匯流排價格詳細資料 頁面上的資料表。 除了頁面上註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。
+如需轉送價格的完整資訊, 請參閱服務匯流排定價詳細資料頁面上的混合式連線[和 WCF][Pricing overview]轉送資料表。 除了頁面上註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>混合式連接如何計費？
 以下是混合式連線計費案例的三個範例︰
@@ -125,10 +125,10 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>疑難排解
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Azure 轉送 API 所產生的例外狀況有哪些，您可以採取的建議動作為何？
-如需常見的例外狀況，您可以採取建議的動作的說明，請參閱 <<c0> [ 轉送例外狀況][Relay exceptions]。
+如需常見例外狀況的描述, 以及您可以採取的建議動作, 請參閱[轉送例外][Relay exceptions]狀況。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>什麼是共用存取簽章，我可以使用何種語言來產生簽章？
-共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需有關如何產生自有簽章中節點、 PHP、 Java、 C、 資訊和C#，請參閱[使用共用的存取簽章的服務匯流排驗證][Shared Access Signatures]。
+共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何在 node.js、PHP、Python、JAVA、C 和C#中產生自己的簽章的相關資訊, 請參閱[使用共用存取簽章服務匯流排驗證][Shared Access Signatures]。
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>可以將轉送端點列入允許清單嗎？
 是的。 轉送用戶端會使用完整的網域名稱連線至 Azure 轉送服務。 客戶可以在防火牆上新增 `*.servicebus.windows.net` 項目以支援 DNS 白名單。

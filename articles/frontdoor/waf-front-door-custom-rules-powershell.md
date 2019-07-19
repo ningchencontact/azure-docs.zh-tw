@@ -1,6 +1,6 @@
 ---
-title: 使用自訂規則和預設集的大門-Azure PowerShell 的詭計設定 web 應用程式防火牆 (WAF) 原則
-description: 了解如何設定 WAF 原則是由現有的前端端點的自訂和管理規則所組成。
+title: 設定具有自訂規則的 web 應用程式防火牆 (WAF) 原則和針對 Front 門的預設 Ruse 集-Azure PowerShell
+description: 瞭解如何設定 WAF 原則, 其包含現有 Front 入口端點的自訂和受控規則。
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,26 +10,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: ff8330ab8aec7f0e9aa92409ce1eafd5be5ceeaf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: e9509172ac96a601235cc16e0d6d83c9b2f51902
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605762"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849127"
 ---
-# <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>設定 web 應用程式防火牆原則使用 Azure PowerShell
-Azure web 應用程式防火牆 (WAF) 原則定義要求抵達大門時所需的檢查。
-本文說明如何設定包含的一些自訂的規則，以及使用 Azure 受控預設詭計集已啟用 WAF 原則。
+# <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>使用 Azure PowerShell 設定 web 應用程式防火牆原則
+Azure web 應用程式防火牆 (WAF) 原則會定義當要求到達 Front 時所需的檢查。
+本文說明如何設定 WAF 原則, 其中包含一些自訂規則, 以及已啟用 Azure 管理的預設 Ruse 集。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>先決條件
-開始設定速率限制原則之前，請設定您的 PowerShell 環境，並建立前端設定檔。
+開始設定速率限制原則之前, 請先設定您的 PowerShell 環境, 並建立 Front profile。
 ### <a name="set-up-your-powershell-environment"></a>設定 PowerShell 環境
 Azure PowerShell 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 模型來管理 Azure 資源。 
 
-您可以在本機電腦上安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，並將其用於任何 PowerShell 工作階段。 依照指示在頁面上，使用您的 Azure 認證，登入並安裝 Az PowerShell 模組。
+您可以在本機電腦上安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，並將其用於任何 PowerShell 工作階段。 依照頁面上的指示, 使用您的 Azure 認證登入, 並安裝 Az PowerShell module。
 
 #### <a name="sign-in-to-azure"></a>登入 Azure
 ```
@@ -48,11 +49,11 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>建立 Front Door 設定檔
-請遵循[快速入門：建立前端的設定檔](quickstart-create-front-door.md)
+請遵循[快速入門：建立 Front 門板設定檔](quickstart-create-front-door.md)
 
-## <a name="custom-rule-based-on-http-parameters"></a>Http 參數為基礎的自訂規則
+## <a name="custom-rule-based-on-http-parameters"></a>以 HTTP 參數為基礎的自訂規則
 
-下列範例示範如何設定自訂規則，與使用的兩個比對條件[新增 AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject)。 要求是從指定的網站訪客來源，所定義和查詢字串不包含 「 密碼 」。 
+下列範例示範如何使用[AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject)來設定具有兩個比對條件的自訂規則。 要求是來自指定的網站 (如查閱者所定義), 而查詢字串不包含 "password"。 
 
 ```powershell-interactive
 $referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
@@ -60,40 +61,40 @@ $password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -O
 $AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
-## <a name="custom-rule-based-on-http-request-method"></a>Http 要求方法為基礎的自訂規則
-建立封鎖"PUT"的方法使用的規則[新增 AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) ，如下所示：
+## <a name="custom-rule-based-on-http-request-method"></a>以 HTTP 要求方法為基礎的自訂規則
+使用[AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject)建立封鎖 "PUT" 方法的規則, 如下所示:
 
 ```powershell-interactive
 $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
 $BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
-## <a name="create-a-custom-rule-based-on-size-constraint"></a>建立自訂規則，根據大小條件約束
+## <a name="create-a-custom-rule-based-on-size-constraint"></a>根據大小限制建立自訂規則
 
-下列範例會建立封鎖超過 100 個字元，使用 Azure PowerShell 的 url 要求的規則：
+下列範例會使用 Azure PowerShell 來建立一個規則, 且 Url 長度超過100個字元的要求:
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
 $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
-## <a name="add-managed-default-rule-set"></a>新增受管理預設規則集
+## <a name="add-managed-default-rule-set"></a>新增受控預設規則集
 
-下列範例會建立受管理預設規則設定使用 Azure PowerShell:
+下列範例會使用 Azure PowerShell 建立受控預設規則集:
 ```powershell-interactive
 $managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## <a name="configure-a-security-policy"></a>設定安全性原則
 
-使用 `Get-AzResourceGroup` 尋找包含 Front Door 設定檔的資源群組名稱。 接下來，使用在先前步驟中建立的規則與設定安全性原則[新增 AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)包含前門設定檔指定的資源群組中。
+使用 `Get-AzResourceGroup` 尋找包含 Front Door 設定檔的資源群組名稱。 接下來, 使用包含 Front 設定檔之指定資源群組中的[AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) , 在先前步驟中設定具有已建立規則的安全性原則。
 
 ```powershell-interactive
 $myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
 
-## <a name="link-policy-to-a-front-door-front-end-host"></a>連結至大門前端主機的原則
-安全性原則物件連結至現有的大門前端的主機，並更新大門屬性。 首先，使用您建立大門物件來擷取[Get AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor)。
-接下來，設定 前端*WebApplicationFirewallPolicyLink*屬性設*resourceId* "$myWAFPolicy$"中先前的步驟使用建立的[組 AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
+## <a name="link-policy-to-a-front-door-front-end-host"></a>將原則連結到 Front 前端主機
+將安全性原則物件連結到現有的 Front 前端主機, 並更新 Front 門板屬性。 首先, 使用[AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor)來取出 Front 物件。
+接下來, 使用[AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)將前端*WebApplicationFirewallPolicyLink*屬性設定為在上一個步驟中建立的 "$MyWAFPolicy $" 的*resourceId* 。 
 
-下列範例會使用資源群組名稱 myResourceGroupFD1  ，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。 此外，在下列範例中，取代 $frontDoorName 大門設定檔名稱。 
+下列範例會使用資源群組名稱 myResourceGroupFD1  ，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。 此外, 在下列範例中, 將 $frontDoorName 取代為您 Front 設定檔的名稱。 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -104,9 +105,9 @@ $myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $reso
  ```
 
 > [!NOTE]
-> 您只需要設定*WebApplicationFirewallPolicyLink*屬性一次，以將安全性原則連結至前端的大門。 後續的原則更新會自動套用到前端中。
+> 您只需要設定*WebApplicationFirewallPolicyLink*屬性一次, 即可將安全性原則連結到 front 前端。 後續的原則更新會自動套用至前端。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[大門](front-door-overview.md) 
-- 深入了解[WAF 大門](waf-overview.md)
+- 深入瞭解[Front](front-door-overview.md) 
+- 深入瞭解[WAF For Front](waf-overview.md)

@@ -3,7 +3,7 @@ title: 適用於 Windows Server 的 Azure Hybrid Benefit | Microsoft Docs
 description: 了解如何發揮 Windows 軟體保證的最大效益，以將內部部署授權帶到 Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: xujing
+author: xujing-ms
 manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing-ms
-ms.openlocfilehash: 739c867171d7b59a68f7e4d11bbf50a189568ce7
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: xujing
+ms.openlocfilehash: 0a0b2a38cb01a5cd551d07da89a42dd837264aae
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722759"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875061"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Benefit
 對於擁有軟體保證的客戶，適用於 Windows Server 的 Azure Hybrid Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 授權，以及在 Azure 上執行 Windows 虛擬機器。 您可以使用適用於 Windows Server 的 Azure Hybrid Benefit 部署具有 Windows OS 的新虛擬機器。 本文章會詳述使用適用於 Windows Server 的 Azure Hybrid Benefit 來部署新 VM 的步驟，以及您如何更新現有的執行中 VM。 如需有關適用於 Windows Server 之 Azure Hybrid Benefit 的授權和節省成本詳細資訊，請參閱[適用於 Windows Server 的 Azure Hybrid Benefit 授權頁面](https://azure.microsoft.com/pricing/hybrid-use-benefit/)。
@@ -33,7 +33,7 @@ ms.locfileid: "67722759"
 >
 
 > [!NOTE]
-> 針對傳統 Vm，支援僅部署新的 VM 從內部部署自訂映像上。 若要充分利用本文章所支援的功能，您必須先將傳統 VM 移轉至 Resource Manager 模型。
+> 若為傳統 Vm, 則只支援從內部部署自訂映射部署新的 VM。 若要充分利用本文章所支援的功能，您必須先將傳統 VM 移轉至 Resource Manager 模型。
 >
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>使用適用於 Windows Server 的 Azure Hybrid Benefit 部署虛擬機器擴展集
-在虛擬機器擴展集 Resource Manager 範本內，必須在 VirtualMachineProfile 屬性中指定額外參數 `licenseType`。 您可以在建立期間執行這項操作，或更新您的擴展集透過 ARM 範本、 PowerShell、 Azure CLI 或 REST。
+在虛擬機器擴展集 Resource Manager 範本內，必須在 VirtualMachineProfile 屬性中指定額外參數 `licenseType`。 您可以透過 ARM 範本、PowerShell、Azure CLI 或 REST, 在您的擴展集建立或更新期間執行此動作。
 
 下列範例使用 ARM 範本搭配 Windows Server 2016 Datacenter 映像︰
 ```json

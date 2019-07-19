@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
-ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
+ms.openlocfilehash: c3211ba9f8a8b16ad4372c82d8e50c46f3ad6897
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444738"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876384"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>如何在 Azure 上使用 SendGrid 傳送電子郵件
 ## <a name="overview"></a>總覽
@@ -34,7 +35,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 * 轉寄客戶查詢。
 * 處理內送電子郵件。
 
-如需詳細資訊，請造訪 [https://sendgrid.com](https://sendgrid.com) 或 SendGrid 的 [C# 程式庫][sendgrid-csharp] GitHub 存放庫。
+如需詳細資訊, [https://sendgrid.com](https://sendgrid.com)請造訪或 SendGrid 的[ C#程式庫][sendgrid-csharp]GitHub 儲存機制。
 
 ## <a name="create-a-sendgrid-account"></a>建立 SendGrid 帳戶
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -93,12 +94,12 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
-如需 **SendGrid** 類型支援的所有屬性和方法的詳細資訊，請參閱 GitHub 上的 [sendgrid-csharp][sendgrid-csharp]。
+如需 **SendGrid** 類型支援的所有屬性和方法的詳細資訊，請參閱 GitHub 上的 [sendgrid-csharp][sendgrid-csharp] 。
 
 ## <a name="how-to-send-an-email"></a>HOW TO：傳送電子郵件
-建立電子郵件訊息之後，您可以使用 SendGrid 的 API 進行傳送。 或者，您也可以使用 [.NET 的內建程式庫][NET-library]。
+建立電子郵件訊息之後，您可以使用 SendGrid 的 API 進行傳送。 或者, 您可以使用[。NET 的內建程式庫][NET-library]。
 
-傳送電子郵件需要您提供 SendGrid API 金鑰。 如需有關如何設定 API 金鑰的詳細資訊，請參閱 SendGrid 的 API 金鑰[文件][documentation]。
+傳送電子郵件需要您提供 SendGrid API 金鑰。 如果您需要有關如何設定 API 金鑰的詳細資料, 請造訪 SendGrid 的 API 金鑰[檔][documentation]。
 
 您可以透過 Azure 入口網站儲存這些認證，只要按一下 [應用程式設定]，並在 [應用程式設定] 下新增金鑰/值組。
 
@@ -232,7 +233,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
     msg.AddAttachment(banner2);
 
 ## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>HOW TO：使用郵件設定來啟用頁尾、追蹤和分析
-透過使用郵件設定和追蹤設定，SendGrid 提供了其他電子郵件功能。 這些設定可新增至電子郵件訊息以啟用特定功能，例如點選追蹤、Google 分析、訂用帳戶追蹤等等。 如需應用程式的完整清單，請參閱[設定文件][settings-documentation]。
+透過使用郵件設定和追蹤設定，SendGrid 提供了其他電子郵件功能。 這些設定可新增至電子郵件訊息以啟用特定功能，例如點選追蹤、Google 分析、訂用帳戶追蹤等等。 如需完整的應用程式清單, 請參閱[設定檔][settings-documentation]。
 
 使用與 **SendGridMessage** 類別一起實作的方法，即可將應用程式套用至 **SendGrid** 電子郵件訊息。 下列範例示範頁尾和點選追蹤篩選器：
 
@@ -248,12 +249,12 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
     msg.SetClickTracking(true);
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>HOW TO：使用其他 SendGrid 服務
-SendGrid 提供多個 API 與 Webhook，可供您在 Azure 應用程式中運用其他功能。 如需詳細資訊，請參閱 [SendGrid API 參考][SendGrid API documentation]。
+SendGrid 提供多個 API 與 Webhook，可供您在 Azure 應用程式中運用其他功能。 如需詳細資訊, 請參閱[SENDGRID API 參考][SendGrid API documentation]。
 
 ## <a name="next-steps"></a>後續步驟
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
-* SendGrid C\# 程式庫儲存機制：[sendgrid-csharp][sendgrid-csharp]
+* SendGrid C\#程式庫儲存機制: [SendGrid-csharp][sendgrid-csharp]
 * SendGrid API 文件：<https://sendgrid.com/docs>
 
 [Next steps]: #next-steps

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294027"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867716"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
 
@@ -58,7 +58,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 
 ## <a name="configure-email-notifications"></a>設定電子郵件通知
 
-依預設會啟用智慧型偵測通知，並將這些通知傳送給具有 [Application Insights 資源的擁有者、參與者和讀取者存取權](../../azure-monitor/app/resources-roles-access-control.md)的人員。 若要變更這種情況，請按一下電子郵件通知中的 [設定]  ，或開啟 Application Insights 中的 [智慧型偵測] 設定。 
+預設會啟用智慧型偵測通知, 並將其傳送給具有 Application Insights 資源所在之訂用帳戶的[監視讀取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)和[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)存取權的使用者。 若要變更這種情況，請按一下電子郵件通知中的 [設定]  ，或開啟 Application Insights 中的 [智慧型偵測] 設定。 
   
   ![智慧型偵測設定](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   

@@ -3,18 +3,18 @@ title: 向 Azure Container Registry 進行驗證 | Microsoft Docs
 description: Azure Container Registry 的驗證選項，包括使用 Azure Active Directory 身分識別來登入、使用服務主體，以及使用選擇性的管理員認證。
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82fe80e098ee95c09c4a1400068ab813910e0e1a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333853"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309842"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 

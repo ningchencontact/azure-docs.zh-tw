@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Marketplace 的 Cloud Partner 入口網站中的虛擬機器 Sku 索引標籤
+title: Azure Marketplace 的 Cloud Partner 入口網站中的 [虛擬機器 Sku] 索引標籤
 description: 介紹用來在 Azure Marketplace 中建立虛擬機器供應項目的 SKU 索引標籤。
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799954"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868711"
 ---
 # <a name="virtual-machine-skus-tab"></a>虛擬機器 SKU 索引標籤
 
@@ -31,7 +31,7 @@ ms.locfileid: "65799954"
 
 <!-- TD: This tab has been updated, now has "Old Pricing" and "Simplified Currency Pricing" sections"! -->
 
-![新增供應項目表單上的虛擬機器的 SKU 索引標籤](./media/publishvm_006.png)
+![虛擬機器的新供應專案表單上的 [SKU] 索引標籤](./media/publishvm_006.png)
 
 下表會說明這些欄位的用途、內容和格式。  必要欄位由星號 (*) 標示。
 
@@ -40,23 +40,23 @@ ms.locfileid: "65799954"
 |  **欄位**       |     **描述**                                                          |
 |  ---------       |     ---------------                                                          |
 |  *SKU 設定*   |    |
-| **SKU ID\***       | 此 SKU 的識別碼。  此名稱的長度上限為 50 個字元，由小寫英數字元或連字號 (-) 組成，但不能以連字號結尾。  發佈供應項目之後，即無法進行修改。  |
+| **SKU 識別碼\***       | 此 SKU 的識別碼。  此名稱的長度上限為 50 個字元，由小寫英數字元或連字號 (-) 組成，但不能以連字號結尾。  發佈供應項目之後，即無法進行修改。  |
 |  *SKU 詳細資料*   |  |
-| **標題\***        | 要在市集中顯示的供應項目易記名稱。 長度上限為 50 個字元。 |
-| **摘要\***      | 要在市集中顯示的供應項目精簡說明。 長度上限是 100 個字元。 |
+| **主題\***        | 要在市集中顯示的供應項目易記名稱。 長度上限為 50 個字元。 |
+| **總計\***      | 要在市集中顯示的供應項目精簡說明。 長度上限是 100 個字元。 |
 | **說明\***  | 進一步詳盡說明該供應項目的介紹文字。  <!-- TD: max len/guidance? 3k characters -->  |
 | **隱藏此 SKU\*** | 表明是否要在市集中向客戶顯示該 SKU。  如果您只想要透過解決方案範本來提供此 SKU，而非以單獨購買的方式供應，則可隱藏此 SKU。  若是要進行初始測試，或是供應項目屬於暫時性或季節性，此功能也相當實用。 |
 | **雲端可用性\*** | 決定該 SKU 應在何種雲端上供應。  預設為 Azure 公用版本。  Microsoft Azure Government 是政府社群雲端，US 聯邦政府、州政府、本地政府或部落政府機構，以及通過認證的合作夥伴，皆擁有此雲端的控管權限。  如需有關政府雲端的詳細資訊，請參閱[歡迎使用 Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (英文)。 |
-| **這是私用的 SKU 嗎？\*** | 表明 SKU 為私人或公用。 預設值為 [否]  (公用)。  如需詳細資訊，請參閱[私人 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)。 |
-| **國家/地區可用性\*** | 決定可在哪些國家或全球地區購買此 SKU。 請至少選取一個地區/國家。 <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
+| **這是否為私人 SKU？\*** | 表明 SKU 為私人或公用。 預設值為 [否]  (公用)。  如需詳細資訊，請參閱[私人 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)。 |
+| **國家/區域可用性\*** | 決定可在哪些國家或全球地區購買此 SKU。 請至少選取一個地區/國家。 <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *定價*   |  |
 | **授權模型\***| 使用標準化帳單模式。  如果選取 [Usage-based monthly billed SKU]\(依用量每月計費的 SKU\)  ，則會開啟一個 Accordion 區段，可在此指定每核心價格的詳細資料，以及是否要提供免費試用期。  也可已在此區段內將價格排程匯出與匯入至 Excel。 如需詳細資訊，請參閱 [Azure Marketplace 的計費選項](../../billing-options-azure-marketplace.md)。 | 
 |  *VM 映像*   |  |
 | **作業系統系列\*** | 表明此解決方案虛擬機器採用的是 Windows 架構還是 Linux 架構。 |
 | **選取作業系統類型** | 特定廠商或指定的作業系統版本。 |
-| **OS 好記名稱\*** | 要向客戶顯示的作業系統名稱。  |
-| **建議的 VM 大小\*** | 允許從標準化清單選取最多六種建議的虛擬機器大小。  這份清單會傳送到 Azure 入口網站和 Microsoft 市集。  潛在客戶無效 （適用於該客戶訂用帳戶、 區域、 區域等） 這份清單中的第一個 VM 大小設定為預設值。  使用者可以變更這個大小，為方案映像與任何相容性。 | 
-| **開啟連接埠**| 要對 SKU 開啟的連接埠，以及支援的通訊協定。  這些設定必須符合您幫解決方案虛擬機器網路所設定的虛擬網路。 這些設定會在虛擬機器部署期間生效。 不過，您可在發佈 SKU 後修改連接埠設定。 如需詳細資訊，請參閱[如何使用 Azure 入口網站開啟虛擬機器的連接埠](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)。 <br/>下列的預設網路對應會新增至所有虛擬機器。 &emsp; Windows:3389]-> [3389 TCP、 5986]-> [5986 TCP;&emsp; Linux:22-> 22，TCP (SSH)。 |
+| **OS 易記名稱\*** | 要向客戶顯示的作業系統名稱。  |
+| **建議的 VM 大小\*** | 允許從標準化清單選取最多六種建議的虛擬機器大小。  這份清單會傳遞到 Azure 入口網站和 Microsoft marketplace。  此清單中有效的第一個 VM 大小 (針對該客戶訂用帳戶、區域、區域等) 會設定為該潛在客戶的預設值。  使用者可以將此大小變更為與解決方案影像相容的任何。 | 
+| **開啟連接埠**| 要對 SKU 開啟的連接埠，以及支援的通訊協定。  這些設定必須符合您幫解決方案虛擬機器網路所設定的虛擬網路。 這些設定會在虛擬機器部署期間生效。 不過，您可在發佈 SKU 後修改連接埠設定。 如需詳細資訊，請參閱[如何使用 Azure 入口網站開啟虛擬機器的連接埠](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)。 <br/>下列的預設網路對應會新增至所有虛擬機器。 &emsp;時段3389-> 3389 TCP, 5986-> 5986 TCP;&emsp; Linux:22-> 22, TCP (SSH)。 |
 | **磁碟版本**  | 依磁碟版本號碼和磁碟 URL 指定的關聯解決方案虛擬機器。 磁碟版本必須採用[語意版本](https://semver.org/)格式：`<major>.<minor>.<patch>`。  URL 是針對作業系統 VHD 建立的共用存取簽章 URI。  雖然每個 SKU 最多可加入八個磁碟版本，但在 Azure Marketplace 中僅會顯示 SKU 的最高磁碟版本號碼。 僅可透過 API 查看其他版本。  <!--TD: Add more specific link to API --> <br/> 可至 [新的資料磁碟]  Accordion 區段，在虛擬機器上附加最多 15 個資料磁碟。  一旦您發佈具有虛擬機器版本和關聯資料磁碟的 SKU，即無法修改此設定。  若新增更多虛擬機器版本至 SKU，則新增的版本所支援的資料磁碟數目必須相同。 <br/> 如果您尚未建立以 Azure 為基礎的 VM 映像，則可稍後再更新此欄位。  如需建立關聯虛擬機器資源的相關資訊，請參閱[建立虛擬機器技術資產](./cpp-create-technical-assets.md) (英文)。  
 |  |  |
 
@@ -69,6 +69,11 @@ ms.locfileid: "65799954"
 
 上述的價格模式為基本說明。  價格模式目前正在變更，且可能會受到地區稅務法規和 Microsoft 價格政策等因素所影響。 
 
+### <a name="new-core-sizes-added-on-722019"></a>7/2/2019 新增的核心大小
+
+針對新的 Azure 虛擬機器大小 (根據核心數目), 在2019年7月2日新增新價格的 VM 發行者已收到通知。  新的價格是針對核心大小10、44、48、60、120、208和416。  針對現有的 VM, 會根據目前的價格自動計算這些核心大小的新價格。  發行者必須等到2019年8月1日, 才能查看額外的價格, 並進行任何想要的變更。  在此日期之後 (如果發行者尚未重新發行), 這些新核心大小自動計算的價格將會生效。
+
+
 ### <a name="simplified-currency-pricing"></a>簡化的貨幣價格
 
 從 2018 年 9 月 1 日開始，入口網站會新增一個 [Simplified Currency Pricing]\(簡化的貨幣價格\)  新區段。 Microsoft 目前正在讓價格更好預測，並從您的全球客戶收集意見，藉此精簡 Azure Marketplace 業務流程。 在這個簡化過程中，會減少向您的客戶開立發票時所用的貨幣種類。  如需詳細資訊，請參閱[更新 Azure Marketplace 中的現有虛擬機器供應項目](./cpp-update-existing-offer.md)。
@@ -76,7 +81,7 @@ ms.locfileid: "65799954"
 
 ### <a name="additional-information-on-taxes-and-prices"></a>稅金與價格的其他相關資訊
 
-* Microsoft 會將分類的某些國家/地區做*已繳交國家/地區的稅務*。  在這類的國家/地區，Microsoft 會收集客戶，然後繳納 （免除） 給政府。  在其他國家/地區，合作夥伴是通常負責從客戶處收集稅金，並繳納給政府。 如果您選擇在第二個國家/地區銷售，您必須有計算及繳納本機的功能。  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* Microsoft 會將某些國家/地區分類為*稅務匯款國家*/地區。  在這類國家/地區中, Microsoft 會收集客戶的稅金, 然後向政府支付 (免除) 稅金。  在其他國家/地區, 合作夥伴通常會負責收集客戶的稅金, 並向政府支付稅金。 如果您選擇在第二個國家/地區銷售, 您必須能夠計算並支付當地稅額。  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
 * 一旦供應項目上線後，價格便則不可變更。 不過，您仍可以新增或移除支援的地區。 
 * 除了排定的 SKU 費用外，Microsoft 還會向客戶收取標準 Azure 虛擬機器使用費用。
 * 所有地區的價格會以設定價格當時所提供的費率，以當地幣值顯示。  <!-- TD: Meaning? - Offer created, published, other? -->
@@ -85,4 +90,4 @@ ms.locfileid: "65799954"
 
 ## <a name="next-steps"></a>後續步驟
 
-或者，您會指定[試用產品](./cpp-test-drive-tab.md)資訊如果您要支援這項功能; 否則您提供[marketplace](./cpp-marketplace-tab.md)供應項目的資料。
+或者, 如果您支援這項功能, 則會指定[試用](./cpp-test-drive-tab.md)產品資訊;否則, 您會提供供應專案的[marketplace](./cpp-marketplace-tab.md)資料。

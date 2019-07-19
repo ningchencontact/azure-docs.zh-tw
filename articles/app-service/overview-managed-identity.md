@@ -10,13 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender, yevbronsh
-ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: mahender
+ms.reviewer: yevbronsh
+ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827867"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297144"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -277,11 +278,11 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 若要深入了解 Microsoft.Azure.Services.AppAuthentication 和它公開的作業，請參閱 [Microsoft.Azure.Services.AppAuthentication 參考]與[採用 MSI 的 App Service 和 KeyVault .NET 範例](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)。
 
 
-### <a name="using-the-azure-sdk-for-java"></a>使用 Azure SDK for Java
+### <a name="using-the-azure-sdk-for-java"></a>使用 Azure SDK for JAVA
 
-對於 Java 應用程式和函式，才能使用受控身分識別的最簡單方式是透過[Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)。 本節示範如何在您的程式碼中開始使用程式庫。
+針對 JAVA 應用程式和函式, 使用受控識別最簡單的方式是透過[AZURE SDK For JAVA](https://github.com/Azure/azure-sdk-for-java)。 本節示範如何在您的程式碼中開始使用程式庫。
 
-1. 將參考加入[Azure SDK 程式庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure)。 Maven 專案中，您可以加入此程式碼片段`dependencies`專案的 POM 檔案的區段：
+1. 新增[AZURE SDK 程式庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure)的參考。 對於 Maven 專案, 您可以將此程式碼片段新增`dependencies`至專案 POM 檔案的區段:
 
 ```xml
 <dependency>
@@ -291,7 +292,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 </dependency>
 ```
 
-2. 使用`AppServiceMSICredentials`物件進行驗證。 此範例顯示如何這項機制可用於使用 Azure 金鑰保存庫：
+2. `AppServiceMSICredentials`使用物件進行驗證。 這個範例會示範如何使用這種機制來處理 Azure Key Vault:
 
 ```java
 import com.microsoft.azure.AzureEnvironment;

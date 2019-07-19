@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: rajanaki
+ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203403"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875808"
 ---
 # <a name="remove-servers-and-disable-protection"></a>移除伺服器並停用保護
 
@@ -152,12 +152,12 @@ ms.locfileid: "67203403"
 > 在這兩個選項中，行動服務將無法從受保護的伺服器解除安裝，您必須手動解除安裝。 如果您打算再次使用相同的組態伺服器保護伺服器，可以略過解除安裝行動服務。
 
 > [!NOTE]
-> 如果您已容錯移轉 VM，而且它在 Azure 中執行，請注意，停用保護並不會移除/會影響容錯移轉的 VM。
-## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>停用保護 Azure VM (Azure 至 Azure)
+> 如果您已故障切換 VM, 而且它正在 Azure 中執行, 請注意停用保護不會移除/影響已故障的 VM。
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>停用 Azure VM 的保護 (Azure 至 Azure)
 
 -  在 [受保護的項目]   > [已複寫的項目]  中，以滑鼠右鍵按一下機器 > [停用複寫]  。
 > [!NOTE]
-> 行動服務將不會解除安裝從受保護的伺服器，您必須手動解除安裝。 如果您打算一次保護伺服器，您可以略過解除安裝行動服務。
+> 行動服務將不會從受保護的伺服器卸載, 您必須手動將它卸載。 如果您打算再次保護伺服器, 可以略過卸載行動服務。
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>停用 Hyper-V 虛擬機器的保護 (Hyper-V 至 Azure)
 
@@ -173,7 +173,7 @@ ms.locfileid: "67203403"
      > 如果您選擇 [移除]  選項，則執行下列一組指令碼來清除內部部署 Hyper-V 伺服器上的複寫設定。
 
 > [!NOTE]
-> 如果您已容錯移轉 VM，而且它在 Azure 中執行，請注意，停用保護並不會移除/會影響容錯移轉的 VM。
+> 如果您已故障切換 VM, 而且它正在 Azure 中執行, 請注意停用保護不會移除/影響已故障的 VM。
 
 1. 在來源 Hyper-V 主機伺服器上，移除虛擬機器的複寫。 將 SQLVM1 取代為您虛擬機器的名稱，並從系統管理 PowerShell 執行指令碼
 

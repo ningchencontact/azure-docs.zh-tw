@@ -10,25 +10,25 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e19df7c50ca9d2c57ab385a567f4911b200c5e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dfc1ef732c8456356de82f7fe026476fdfc075b
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510898"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227140"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 若要啟用您的應用程式的 JavaScript，您必須新增項目您[自訂原則](active-directory-b2c-overview-custom.md)，選取[頁面合約](page-contract.md)，並使用[b2clogin.com](b2clogin.md)在要求中。 本文說明如何變更您的自訂原則，以啟用指令碼執行。
+您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 若要為您的應用程式啟用 JavaScript, 您必須將元素新增至您的[自訂原則](active-directory-b2c-overview-custom.md)、選取[頁面配置](page-layout.md), 然後在您的要求中使用[b2clogin.com](b2clogin.md) 。 本文說明如何變更自訂原則, 以啟用腳本執行。
 
 > [!NOTE]
-> 如果您想要為使用者流程中啟用 JavaScript，請參閱[JavaScript 和頁面合約版本在 Azure Active Directory B2C](user-flow-javascript-overview.md)。
+> 如果您想要為使用者流程啟用 JavaScript, 請參閱[Azure Active Directory B2C 中的 javascript 和頁面配置版本](user-flow-javascript-overview.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-選取您的應用程式的使用者介面項目頁面合約。 如果您想要使用 JavaScript，您必須針對您自訂原則中的所有內容定義，定義頁面合約版本。
+為應用程式的使用者介面元素選取頁面配置。 如果您想要使用 JavaScript, 您必須為自訂原則中的所有內容定義定義頁面配置版本。
 
 ## <a name="add-the-scriptexecution-element"></a>新增 ScriptExecution 元素
 
@@ -143,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 為您的目錄中，建立新的使用者屬性，稱為**termsOfUse** ，然後包含**termsOfUse**作為使用者屬性。
+在程式碼中，請將 `termsOfUseUrl` 取代為您使用規定合約的連結。 針對您的目錄, 建立名為**termsOfUse**的新使用者屬性, 然後將**termsOfUse**納入為使用者屬性。
 
 ## <a name="next-steps"></a>後續步驟
 

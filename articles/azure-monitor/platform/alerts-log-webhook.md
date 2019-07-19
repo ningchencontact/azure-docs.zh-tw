@@ -1,6 +1,6 @@
 ---
-title: Azure 警示中的記錄警示 Webhook 動作
-description: 這篇文章說明如何使用 Log Analytics 工作區或 Application Insights 中建立的記錄警示規則的警示如何將資料推送作為 HTTP webhook，以及可能的不同自訂的詳細資料。
+title: Azure 警示中記錄警示的 Webhook 動作
+description: 本文說明如何使用 Log Analytics 工作區或 Application Insights 來建立記錄警示規則、警示如何將資料推送為 HTTP webhook, 以及各種可能的自訂詳細資料。
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6aa007c621e76cb0c188a7dab6279fd9e387b2b3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8bdd0d5230feeeb4c80775ce63aa7e4eaccb601c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705180"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226801"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
-當[在 Azure 中建立記錄警示](alerts-log.md)，您可以選擇[設定使用動作群組](action-groups.md)執行一或多個動作。 這篇文章說明可用的不同的 webhook 動作，並示範如何設定自訂 JSON 型 webhook。
+[在 Azure 中建立記錄警示](alerts-log.md)時, 您可以選擇[使用動作群組](action-groups.md)來設定它, 以執行一或多個動作。 本文說明可用的不同 webhook 動作, 並說明如何設定以 JSON 為基礎的自訂 webhook。
 
 > [!NOTE]
-> 您也可以使用[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)的 webhook 整合。 常見的警示結構描述的好處是能夠在 Azure 監視器中的所有警示服務上有單一的可延伸的整合式警示承載。 [深入了解常見的警示的結構描述定義。](https://aka.ms/commonAlertSchemaDefinitions)
+> 您也可以使用適用于 webhook 整合的[一般警示架構](https://aka.ms/commonAlertSchemaDocs)。 常見的警示架構可讓您在 Azure 監視器中的所有警示服務之間擁有單一可擴充且整合的警示承載。 [瞭解常見的警示架構定義。](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhook 動作
 
-使用 webhook 動作，您可以叫用外部處理序透過單一 HTTP POST 要求。 呼叫的服務應支援 webhook，並決定如何使用它所接收的任何裝載。
+使用 webhook 動作時, 您可以透過單一 HTTP POST 要求叫用外部進程。 所呼叫的服務應支援 webhook, 並判斷如何使用其所接收的任何承載。
 
 Webhook 動作需要下表中的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |
 | **Webhook URL** |Webhook 的 URL。 |
-| **自訂 JSON 承載** |若要在警示建立期間選擇此選項時，使用 webhook 傳送的自訂承載。 如需詳細資訊，請參閱 <<c0> [ 管理記錄警示](alerts-log.md)。|
+| **自訂 JSON 承載** |在警示建立期間選擇此選項時, 要與 webhook 一起傳送的自訂承載。 如需詳細資訊, 請參閱[記錄管理警示](alerts-log.md)。|
 
 > [!NOTE]
-> **檢視 Webhook**按鈕旁**包含自訂 JSON 承載的 webhook**記錄警示會顯示範例的 webhook 承載所提供的自訂選項。 它不包含實際資料，但代表用於記錄警示的 JSON 結構描述。 
+> 記錄警示的 [**包含 webhook 的自訂 JSON**承載] 選項旁的 [ **View webhook** ] 按鈕會顯示所提供自訂的範例 Webhook 承載。 它不包含實際資料, 而是代表用於記錄警示的 JSON 架構。 
 
-Webhook 包括 URL 和資料傳送至外部服務的 JSON 格式的承載。 根據預設，承載會包含下表中的值。 您可以選擇用自己的自訂承載來取代此承載。 在此情況下，在您的自訂承載中包含其值使用資料表中的每個參數的變數。
+Webhook 包含 URL 和以 JSON 格式格式化的內容, 這些資料會傳送到外部服務。 根據預設，承載會包含下表中的值。 您可以選擇用自己的自訂承載來取代此承載。 在此情況下, 請針對每個參數使用資料表中的變數, 以在您的自訂承載中包含它們的值。
 
 
 | 參數 | 變數 | 描述 |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |警示規則的名稱。 |
 | *Severity* |#severity |為引發的記錄警示設定的嚴重性。 |
-| *AlertThresholdOperator* |#thresholdoperator |警示的規則，可使用大於或小於臨界值運算子比。 |
+| *AlertThresholdOperator* |#thresholdoperator |警示規則的臨界值運算子, 其使用 [大於] 或 [小於]。 |
 | *AlertThresholdValue* |#thresholdvalue |警示規則的臨界值。 |
-| *LinkToSearchResults* |#linktosearchresults |建立警示的查詢傳回的記錄分析入口網站的連結。 |
+| *LinkToSearchResults* |#linktosearchresults |從建立警示的查詢傳回記錄的分析入口網站連結。 |
 | *ResultCount* |#searchresultcount |搜尋結果中的記錄數目。 |
-| *搜尋間隔結束時間* |#searchintervalendtimeutc |結束時間-utc 時區，查詢格式 mm/dd/yyyy hh: mm: ss AM/PM。 |
-| *搜尋間隔* |#searchinterval |警示規則，以格式 hh: mm： 時間範圍。 |
-| *搜尋間隔開始時間* |#searchintervalstarttimeutc |查詢時間-utc 時區，開始格式 mm/dd/yyyy hh: mm: ss AM/PM。 
+| *搜尋間隔結束時間* |#searchintervalendtimeutc |查詢的結束時間 (UTC), 格式為 mm/dd/yyyy HH: mm: ss AM/PM。 |
+| *搜尋間隔* |#searchinterval |警示規則的時間範圍, 其格式為 HH: mm: ss。 |
+| *搜尋間隔 StartTime* |#searchintervalstarttimeutc |查詢的開始時間 (UTC), 格式為 mm/dd/yyyy HH: mm: ss AM/PM。 
 | *SearchQuery* |#searchquery |警示規則所使用的記錄檔搜尋查詢。 |
-| *SearchResults* |"IncludeSearchResults": true|如果，查詢所傳回為 JSON 資料表，受限於前 1,000 筆記錄，記錄"IncludeSearchResults": true 新增為最上層屬性的自訂 JSON webhook 定義中。 |
-| *警示類型*| #alerttype | 記錄警示規則設定為類型[計量測量](alerts-unified-log.md#metric-measurement-alert-rules)或是[的結果數目](alerts-unified-log.md#number-of-results-alert-rules)。|
+| *SearchResults* |"IncludeSearchResults": true|在自訂 JSON webhook 定義中將 "IncludeSearchResults": true 新增為最上層屬性時, 查詢所傳回的記錄為 JSON 資料表, 受限於前1000筆記錄。 |
+| *警示類型*| #alerttype | 設定為[計量量測](alerts-unified-log.md#metric-measurement-alert-rules)或[結果數目](alerts-unified-log.md#number-of-results-alert-rules)的記錄警示規則類型。|
 | *WorkspaceID* |#workspaceid |Log Analytics 工作區的識別碼。 |
-| *應用程式識別碼* |#applicationid |識別碼的 Application Insights 應用程式。 |
-| *訂用帳戶識別碼* |#subscriptionid |使用您 Azure 訂用帳戶識別碼。 
+| *應用程式識別碼* |#applicationid |Application Insights 應用程式的識別碼。 |
+| *訂用帳戶識別碼* |#subscriptionid |您的 Azure 訂用帳戶識別碼。 
 
 > [!NOTE]
-> *LinkToSearchResults*傳遞參數，例如*SearchQuery*，*搜尋間隔開始時間*，和*搜尋間隔結束時間*azure url在 [分析] 區段中檢視的網站。 Azure 入口網站的 URI 大小上限為大約 2000 個字元。 在入口網站將會*不*開啟警示中提供，如果參數值超過限制的連結。 您可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果。 或者，您可以使用[Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API)或[Log Analytics REST API](/rest/api/loganalytics/)來以程式設計方式擷取結果。 
+> *LinkToSearchResults*會將 URL 中的參數 (例如*SearchQuery*、*搜尋間隔 StartTime*和*搜尋間隔結束時間*) 傳遞至 Azure 入口網站在 [分析] 區段中進行查看。 Azure 入口網站的 URI 大小限制大約為2000個字元。 如果參數值超過限制, 入口網站將*不*會開啟警示中提供的連結。 您可以手動輸入詳細資料, 以在 Analytics 入口網站中查看結果。 或者, 您可以使用[Application Insights 分析 REST API](https://dev.applicationinsights.io/documentation/Using-the-API)或[Log Analytics REST API](/rest/api/loganalytics/)以程式設計方式取得結果。 
 
-例如，您可以指定下列自訂承載，其中包含稱為 text  的單一參數。 此 webhook 所呼叫的服務需要此參數。
+例如，您可以指定下列自訂承載，其中包含稱為 text  的單一參數。 此 webhook 呼叫的服務需要此參數。
 
 ```json
 
@@ -67,25 +67,25 @@ Webhook 包括 URL 和資料傳送至外部服務的 JSON 格式的承載。 根
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-傳送到 webhook 時，此範例承載會解析成如下所示：
+此範例承載會在傳送至 webhook 時解析成類似下列的內容:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-因為必須指定自訂的 webhook 中的所有變數內的 JSON 機箱，像是 「 #searchinterval"，結果的 webhook 也有在機箱內的變數資料像是"00: 05:00。 」
+由於自訂 webhook 中的所有變數都必須在 JSON 主機殼內指定, 例如「#searchinterval」, 因此產生的 webhook 在主機殼內也有變數資料, 例如 "00:05:00"。
 
-若要在自訂承載中包含搜尋結果，請確認**IncludeSearchResults**會設定為 JSON 承載中的最上層屬性。 
+若要在自訂承載中包含搜尋結果, 請確定**IncludeSearchResults**已設定為 JSON 承載中的最上層屬性。 
 
 ## <a name="sample-payloads"></a>承載範例
-本節說明記錄警示 webhook 範例承載。 範例承載會包含範例，當裝載為標準和自訂。
+本節顯示適用于記錄警示之 webhook 的範例承載。 範例承載包括當裝載是標準的和自訂時的範例。
 
-### <a name="standard-webhook-for-log-alerts"></a>記錄警示標準 webhook 
-這兩個範例有虛擬承載，只有兩個資料行和兩個資料列。
+### <a name="standard-webhook-for-log-alerts"></a>記錄警示的標準 webhook 
+這兩個範例都有一個虛擬承載, 其中只有兩個數據行和兩個數據列。
 
 #### <a name="log-alert-for-log-analytics"></a>Log Analytics 的記錄警示
-下列的範例承載是標準 webhook 動作*不含自訂 JSON 選項*用基礎 Log Analytics 的警示：
+下列範例承載適用于*不含自訂 JSON 選項*的標準 webhook 動作, 用於以 Log Analytics 為基礎的警示:
 
 ```json
 {
@@ -124,11 +124,11 @@ Webhook 包括 URL 和資料傳送至外部服務的 JSON 格式的承載。 根
  ```
 
 > [!NOTE]
-> [嚴重性] 欄位值可能會變更，如果您已經[切換您 API 的喜好設定](alerts-log-api-switch.md)Log analytics 的記錄警示。
+> 如果您已針對 Log Analytics 上的記錄警示[切換 API 喜好](alerts-log-api-switch.md)設定, 則「嚴重性」域值可能會變更。
 
 
 #### <a name="log-alert-for-application-insights"></a>Application Insights 的記錄警示
-下列的範例承載是標準的 webhook*不含自訂 JSON 選項*Application Insights 使用的記錄警示時根據：
+下列範例承載適用于*不含自訂 JSON 選項*的標準 webhook, 用於以 Application Insights 為基礎的記錄警示:
     
 ```json
 {
@@ -169,8 +169,8 @@ Webhook 包括 URL 和資料傳送至外部服務的 JSON 格式的承載。 根
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>含有自訂 JSON 承載的記錄警示
-例如，若要建立只包含警示名稱和搜尋結果的自訂承載，您可以使用下列： 
+#### <a name="log-alert-with-custom-json-payload"></a>具有自訂 JSON 承載的記錄警示
+例如, 若要建立只包含警示名稱和搜尋結果的自訂承載, 您可以使用下列方式: 
 
 ```json
     {
@@ -179,12 +179,12 @@ Webhook 包括 URL 和資料傳送至外部服務的 JSON 格式的承載。 根
     }
 ```
 
-下列的範例承載適用於任何記錄警示的自訂 webhook 動作：
+下列範例承載適用于任何記錄警示的自訂 webhook 動作:
     
 ```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
-    "SearchResult":
+    "SearchResults":
         {
         "tables":[
                     {"name":"PrimaryResult","columns":
@@ -206,9 +206,9 @@ Webhook 包括 URL 和資料傳送至外部服務的 JSON 格式的承載。 根
 
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[Azure 警示中的記錄警示](alerts-unified-log.md)。
-- 了解如何[管理 Azure 中的記錄警示](alerts-log.md)。
-- 建立和管理[在 Azure 中的動作群組](action-groups.md)。
+- 瞭解[Azure 警示中的記錄警示](alerts-unified-log.md)。
+- 瞭解如何[在 Azure 中記錄管理警示](alerts-log.md)。
+- [在 Azure 中](action-groups.md)建立及管理動作群組。
 - 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)。
-- 深入了解[記錄查詢](../log-query/log-query-overview.md)。 
+- 深入瞭解[記錄查詢](../log-query/log-query-overview.md)。 
 

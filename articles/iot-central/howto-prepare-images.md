@@ -3,17 +3,17 @@ title: 上傳影像至您的 Azure IoT Central 應用程式 | Microsoft Docs
 description: 了解如何以建置者的身分準備及上傳影像至您的 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 255033f03acd40580fb4d4a92b0aa9b3e16969f3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236475"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850168"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>準備及上傳影像至您的 Azure IoT Central 應用程式
 
@@ -30,13 +30,13 @@ ms.locfileid: "65236475"
 
 您可以將自訂影像新增至 Azure IoT Central 應用程式中的下列位置：
 
-* **我的應用程式**頁面
+* [**我的應用程式**] 頁面
 
     ![[應用程式管理員] 頁面上的影像](media/howto-prepare-images/applicationmanager.png)
 
 * 應用程式儀表板
 
-    ![應用程式儀表板上的映像](media/howto-prepare-images/homepage.png)
+    ![應用程式儀表板上的影像](media/howto-prepare-images/homepage.png)
 
 * 裝置範本
 
@@ -70,21 +70,21 @@ ms.locfileid: "65236475"
 
 ### <a name="application-manager"></a>應用程式管理員
 
-若要使用的映像上傳**我的應用程式**頁面上，瀏覽至**應用程式設定**頁面**管理**區段。 您必須具有系統管理員的身分以完成此工作：
+若要上傳要在 [**我的應用程式**] 頁面使用的影像, 請流覽至 [**管理**] 區段中的 [**應用程式設定**] 頁面。 您必須具有系統管理員的身分以完成此工作：
 
 ![上傳應用程式影像](media/howto-prepare-images/uploadapplicationmanager.png)
 
-選取 [**應用程式映像**] 圖格上傳的映像 (268 x 160 像素) 從本機電腦。
+選取 [**應用程式影像**] 圖格, 從本機電腦上傳影像 (268x160 px)。
 
 ### <a name="application-dashboard"></a>應用程式儀表板
 
-若要上傳應用程式儀表板上的影像，請瀏覽至**儀表板**頁面上，您的應用程式，然後選取**編輯**。 您必須具有建置者的身分以完成此工作：
+若要在應用程式儀表板上上傳影像, 請流覽至應用程式的 [**儀表板**] 頁面, 然後選取 [**編輯**]。 您必須具有建置者的身分以完成此工作：
 
 ![上傳儀表板影像](media/howto-prepare-images/uploadhomepage.png)
 
-底下**設定的映像**，選取**映像**圖格，以從本機電腦的映像上傳。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
+在 [**設定映射**] 底下, 選取 [**影像**] 圖格, 從本機電腦上傳影像。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
 
-**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整。 選取 **完成**時完成。
+**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整。 完成時選取 [**完成**]。
 
 ### <a name="device-template"></a>裝置範本
 
@@ -92,7 +92,7 @@ ms.locfileid: "65236475"
 
 ![上傳裝置範本影像](media/howto-prepare-images/uploaddevicetemplate.png)
 
-選取要上傳映像的映像 圖格 (64 x 64 像素) 從本機電腦。
+選取 [影像] 圖格, 從本機電腦上傳影像 (64x64 px)。
 
 ### <a name="device-dashboard"></a>裝置儀表板
 
@@ -100,24 +100,24 @@ ms.locfileid: "65236475"
 
 ![上傳裝置儀表板影像](media/howto-prepare-images/uploaddevicedashboard.png)
 
-底下**設定的映像**，選取**映像**圖格，然後選擇 從本機電腦上傳檔案。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
+在 [**設定映射**] 底下, 選取 [**影像**] 圖格, 然後選擇要從本機電腦上傳的檔案。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
 
-**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 選取 **完成**時完成。
+**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 完成時選取 [**完成**]。
 
 ### <a name="device-set-dashboard"></a>裝置集合儀表板
 
-若要在裝置集合儀表板上上傳影像，請瀏覽至 [裝置集合]  ，選擇裝置集合，然後選擇裝置。 然後選擇**儀表板**頁面，然後選取**編輯**:
+若要在裝置集合儀表板上上傳影像，請瀏覽至 [裝置集合]  ，選擇裝置集合，然後選擇裝置。 然後選擇 [**儀表板**] 頁面, 然後選取 [**編輯**]:
 
 ![上傳裝置集合儀表板影像](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-底下**設定的映像**，選取**映像**圖格，以從本機電腦的映像上傳。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
+在 [**設定映射**] 底下, 選取 [**影像**] 圖格, 從本機電腦上傳影像。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
 
-**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 選取 **完成**時完成。
+**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 完成時選取 [**完成**]。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何準備和影像上傳至 Azure IoT Central 應用程式，以下是建議的後續步驟：
+既然您已瞭解如何準備映射並將其上傳至 Azure IoT Central 應用程式, 以下是建議的後續步驟:
 
-* [自訂 Azure IoT 中心 UI](./howto-customize-ui.md)
+* [自訂 Azure IoT Central UI](./howto-customize-ui.md)
 * [設定應用程式儀表板](./howto-configure-homepage.md)
 * [在 Azure IoT Central 應用程式中管理裝置](howto-manage-devices.md)

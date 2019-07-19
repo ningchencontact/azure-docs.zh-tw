@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Azure 標準 Load Balancer 功能概觀
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
-ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957480"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274388"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
@@ -75,7 +75,7 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 ### <a name="az"></a>可用性區域
 
 >[!IMPORTANT]
->檢閱[可用性區域](../availability-zones/az-overview.md)相關主題，其中包括任何區域的特定資訊。
+>請參閱相關主題的[可用性區域](../availability-zones/az-overview.md), 包括任何區域特定資訊。
 
 標準 Load Balancer 在可使用「可用性區域」的區域中可支援較多功能。  這些功能會累加於所有標準 Standard Load Balancer 所提供的功能之上。  公用和內部標準 Load Balancer 皆可進行可用性區域設定。
 

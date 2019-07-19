@@ -1,6 +1,6 @@
 ---
-title: PowerShell 快速入門：建立、 載入及查詢使用 Azure 搜尋服務 REST Api-Azure 搜尋服務索引
-description: 說明如何建立索引、 載入資料，並使用 PowerShell 的執行查詢 Invoke-restmethod 」 和 「 Azure 搜尋服務 REST API。
+title: PowerShell 快速入門:使用 Azure 搜尋服務 REST Api 建立、載入和查詢索引-Azure 搜尋服務
+description: 說明如何建立索引、載入資料, 以及使用 PowerShell 的 RestMethod 和 Azure 搜尋服務 REST API 來執行查詢。
 ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6bff2c84a4bfd81b94054b85744c17a1cd217756
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840179"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847057"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入門：在 PowerShell 中使用 REST Api 建立 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入門：使用 REST Api 在 PowerShell 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -26,15 +26,15 @@ ms.locfileid: "67840179"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-本文將逐步引導您完成建立、 載入和查詢使用 PowerShell 的 Azure 搜尋服務索引的程序和[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何以互動方式執行 PowerShell 命令。 或者，您可以[下載並執行 Powershell 指令碼](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)執行相同的作業。
+本文會逐步引導您使用 PowerShell 和[AZURE 搜尋服務 REST api](https://docs.microsoft.com/rest/api/searchservice/)來建立、載入和查詢 Azure 搜尋服務索引。 本文說明如何以互動方式執行 PowerShell 命令。 或者, 您可以[下載並執行 Powershell 腳本](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)來執行相同的作業。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-本快速入門會使用下列服務和工具。 
+本快速入門需要下列服務和工具。 
 
-+ [PowerShell 5.1 或更新版本](https://github.com/PowerShell/PowerShell)，並使用[Invoke-restmethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod)循序和互動式步驟。
++ [PowerShell 5.1 或更新版本](https://github.com/PowerShell/PowerShell), 使用[RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod)進行順序和互動式步驟。
 
 + [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
@@ -52,7 +52,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
-1. 在 PowerShell 中，建立 **$headers**物件來儲存內容類型和 API 金鑰。 管理 API 金鑰 （您的系統管理員-API 金鑰） 取代對您的搜尋服務有效的索引鍵。 您只需要工作階段期間，一次設定此標頭，但您會將它新增至每個要求。 
+1. 在 PowerShell 中, 建立 **$headers**物件來儲存內容類型和 API 金鑰。 以適用于您搜尋服務的金鑰取代系統管理員 API 金鑰 (您的-ADMIN-API 金鑰)。 在會話期間, 您只需要為此標頭設定一次, 但您會將它新增至每個要求。 
 
     ```powershell
     $headers = @{
@@ -61,19 +61,19 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     'Accept' = 'application/json' }
     ```
 
-2. 建立 **$url**物件，指定服務的編製索引的集合。 將服務名稱 （您-搜尋-服務-名稱） 取代為有效的搜尋服務。
+2. 建立 **$url**物件, 以指定服務的索引集合。 以有效的搜尋服務取代服務名稱 (您的搜尋服務名稱)。
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
-3. 執行**Invoke-restmethod** GET 要求傳送至服務，並驗證連接。 新增**Convertto-json** ，讓您可以檢視傳送從服務傳回的回應。
+3. 執行**RestMethod** , 將 GET 要求傳送至服務並驗證連接。 新增**convertto-html-Json** , 讓您可以查看從服務傳回的回應。
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-   如果服務是空的且沒有索引，結果會類似下列的範例。 否則，您會看到索引定義的 JSON 表示法。
+   如果服務是空的, 而且沒有任何索引, 則結果會類似下列範例。 否則, 您會看到索引定義的 JSON 標記法。
 
     ```
     {
@@ -86,13 +86,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="1---create-an-index"></a>1 - 建立索引
 
-除非您使用入口網站，索引上必須有服務之前，您可以載入資料。 此步驟中定義的索引，並將其推送至服務。 [建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)使用於此步驟。
+除非您使用入口網站, 否則服務上必須有索引, 您才能載入資料。 此步驟會定義索引, 並將其推送至服務。 [建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)用於此步驟。
 
-索引的必要項目包含一個名稱和欄位的集合。 Fields 集合定義的結構*文件*。 每個欄位都有名稱、 類型和屬性，以決定其使用方式 (例如，它是否全文檢索搜尋、 可篩選，或可在搜尋結果中擷取)。 索引，其中一個類型的欄位內`Edm.String`您必須指定為*金鑰*文件的身分識別。
+索引的必要元素包括名稱和欄位集合。 Fields 集合會定義*檔*的結構。 每個欄位都有名稱、類型和屬性, 可決定其使用方式 (例如, 它是否可在搜尋結果中進行全文檢索搜尋、篩選或可抓取)。 在索引內, 類型`Edm.String`的其中一個欄位必須指定為檔識別的索引*鍵*。
 
-這個索引名為"hotels-快速入門 」，並具有您在下方看到的欄位定義。 它是較大子集[Hotels 索引](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)其他逐步解說中使用。 我們在本快速入門，為求簡單明瞭修剪。
+此索引名為「飯店-快速入門」, 並具有您在下面看到的欄位定義。 它是其他逐步解說中所使用之較大[飯店索引](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)的子集。 為了簡潔起見, 我們已在本快速入門中予以修剪。
 
-1. 此範例中貼上 PowerShell 來建立 **$body**物件，其中包含索引結構描述。
+1. 將此範例貼入 PowerShell, 以建立包含索引架構的 **$body**物件。
 
     ```powershell
     $body = @"
@@ -121,19 +121,19 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     "@
     ```
 
-2. 設定您的服務上的索引集合的 URI 和*旅館-快速入門*索引。
+2. 將 URI 設定為服務上的索引集合和*飯店-快速入門*索引。
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
     ```
 
-3. 執行命令並搭配 **$url**， **$headers**，並 **$body**服務上建立索引。 
+3. 使用 **$url**、 **$headers**和 **$body**來執行命令, 以在服務上建立索引。 
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
     ```
 
-    結果看起來應該像這樣 （截斷為求簡單明瞭的前兩個欄位）：
+    結果看起來應該像這樣 (為了簡潔起見, 截斷到前兩個欄位):
 
     ```
     {
@@ -174,17 +174,17 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     ```
 
 > [!Tip]
-> 進行驗證，您也可以檢查入口網站中的索引清單。
+> 若要進行驗證, 您也可以在入口網站中檢查 [索引] 清單。
 
 <a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - 載入文件
 
-若要推送的文件，使用 HTTP POST 要求至您的索引 URL 端點。 這項工作的 REST api[新增、 更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。
+若要推送檔, 請對您的索引 URL 端點使用 HTTP POST 要求。 這項工作的 REST API 是 [[新增]、[更新] 或 [刪除檔](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)]。
 
-1. 此範例中貼上 PowerShell 來建立 **$body**物件，其中包含您想要上傳的文件。 
+1. 將此範例貼入 PowerShell, 以建立 **$body**物件, 其中包含您想要上傳的檔。 
 
-    此要求包含兩個完整和部分的一筆記錄。 部分記錄示範您可以上傳不完整的文件。 `@search.action`參數會指定如何完成編製索引。 有效值包括上傳、 合併、 mergeOrUpload 及刪除。 MergeOrUpload 行為建立新的文件，如 hotelId = 3，或更新的內容，如果已經存在。
+    此要求包含兩個完整和一個部分記錄。 部分記錄會示範您可以上傳未完成的檔。 `@search.action`參數會指定索引的執行方式。 有效值包括 [上傳]、[合併]、[mergeOrUpload] 和 [刪除]。 MergeOrUpload 行為會建立 hotelId = 3 的新檔, 或更新內容 (如果已經存在)。
 
     ```powershell
     $body = @"
@@ -271,18 +271,18 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     "@
     ```
 
-1. 端點設定為*旅館-快速入門*文件集合，並包含在索引作業 （索引/hotels-快速入門/docs/索引）。
+1. 將端點設定為 [*飯店-快速入門*檔] 集合, 並包含索引作業 (索引/旅館-快速入門/檔/索引)。
 
     ```powershell
     $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
     ```
 
-1. 執行命令並搭配 **$url**， **$headers**，並 **$body**載入快速入門的 hotels 索引的文件。
+1. 使用 **$url**、 **$headers**和 **$body**來執行命令, 以將檔載入至飯店-快速入門索引。
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    結果看起來應該類似下列的範例。 您應該會看到[狀態碼 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)。
+    結果看起來應該類似下列範例。 您應該會看到[狀態碼 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)。
 
     ```
     {
@@ -318,25 +318,25 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="3---search-an-index"></a>3 - 搜尋索引
 
-此步驟會說明如何使用索引來進行查詢[搜尋文件 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
+此步驟說明如何使用[搜尋檔 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)來查詢索引。
 
-請務必搜尋 $urls 使用單引號。 查詢字串包含 **$** 個字元，而且您可以省略不必如果整個字串括在單引號逸出...
+請務必在搜尋 $urls 上使用單引號。 查詢字串包含 **$** 字元, 如果整個字串是以單引號括住, 您就可以省略它們的轉義。
 
-1. 端點設定為*旅館-快速入門*文件集合，並新增**搜尋**傳入查詢字串參數。 
+1. 將端點設定為 [*飯店-快速入門*檔] 集合, 並新增**搜尋**參數來傳入查詢字串。 
   
-   這個字串執行空的搜尋 (搜尋 = *)，傳回 unranked 的清單 (搜尋分數 = 1.0) 的任意文件。 根據預設，Azure 搜尋服務會傳回 50 的相符項目，一次。 為結構化，此查詢會傳回整份文件結構和值。 新增 **$count = true**才能取得結果中的所有文件的計數。
+   這個字串會執行空的搜尋 (search = *), 傳回任意檔的階清單 (搜尋分數 = 1.0)。 根據預設, Azure 搜尋服務會一次傳回50個相符專案。 如結構化, 此查詢會傳回整個檔結構和值。 新增 **$count = true** , 以取得結果中所有檔的計數。
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
     ```
 
-1. 執行命令，以傳送 **$url**至服務。
+1. 執行命令, 將 **$url**傳送至服務。
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
     ```
 
-    結果看起來應該類似下列的輸出。
+    結果看起來應該與下列輸出類似。
 
     ```
     {
@@ -370,7 +370,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
                 . . . 
     ```
 
-請嘗試幾個其他查詢範例，以概略了語法。 您可以執行字串搜尋，逐字 $filter 查詢，結果集，而範圍內搜尋特定欄位，以及其他限制。
+請嘗試一些其他查詢範例, 以瞭解語法的風格。 您可以執行字串搜尋、逐字 $filter 查詢、限制結果集、將搜尋範圍限定在特定欄位等等。
 
 ```powershell
 # Query example 1
@@ -394,15 +394,15 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>清除 
 
-當您使用您自己的訂用帳戶中時，最好在專案結尾來識別您是否仍需要資源您所建立。 讓資源繼續執行可能會產生費用。 您可以個別地刪除資源，或刪除資源群組，若要刪除的整組資源。
+使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
 
-您可以尋找和管理資源，在入口網站中，使用**所有資源**或是**資源群組**左導覽窗格中的連結。
+您可以使用左導覽窗格中的 [所有資源]  或 [資源群組]  連結，在入口網站中尋找和管理資源。
 
-如果您使用的一項免費服務，請記得您受限於三個索引、 索引子和資料來源。 您可以刪除在入口網站保持在限制之內的個別項目。 
+如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。 
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您可以使用 PowerShell 逐步執行建立和存取在 Azure 搜尋服務內容的基本工作流程。 記住的概念，建議您移到更進階的案例，例如 Azure 資料來源; 編製索引
+在本快速入門中, 您已使用 PowerShell 逐步執行基本工作流程, 以在 Azure 搜尋服務中建立和存取內容。 考慮到概念, 建議您繼續進行更先進的案例, 例如從 Azure 資料來源編制索引;
 
 > [!div class="nextstepaction"]
-> [REST 教學課程：編製索引和搜尋 Azure 搜尋服務中的半結構化的資料 (JSON blob)](search-semi-structured-data.md)
+> [REST 教學課程:在 Azure 搜尋服務中編制索引和搜尋半結構化資料 (JSON blob)](search-semi-structured-data.md)

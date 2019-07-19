@@ -1,6 +1,6 @@
 ---
 title: 範例-英國官方和英國 NHS 藍圖-部署步驟
-description: 部署步驟的英國官方和英國 NHS blueprint （藍圖） 範例。
+description: 英國官方和英國 NHS 藍圖範例的部署步驟。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,16 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 43aae882f27031d3e51ac8a4f5a68d243a973d6d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d720f220b8903d960e7bba2a75aa5a86bd0391ce
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453199"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225986"
 ---
-# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>部署的英國官方和英國 NHS blueprint （藍圖） 範例
+# <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>部署英國官方和英國 NHS 藍圖範例
 
-若要部署的英國官方和英國 NHS blueprint （藍圖） 範例，必須採取下列步驟：
+若要部署英國官方和 UK NHS 藍圖範例, 必須採取下列步驟:
 
 > [!div class="checklist"]
 > - 從範例建立新的藍圖
@@ -34,7 +34,7 @@ ms.locfileid: "67453199"
 
 1. 在左側的 [快速入門]  頁面上，選取 [建立藍圖]  **下方的 [建立]** 按鈕。
 
-1. 尋找**英國官方**或是**英國 NHS**藍圖範例_其他樣本_，然後選取**使用此範例**。
+1. 在 [_其他範例_] 底下尋找**英國官方**或**英國 NHS**藍圖範例, 然後選取 [**使用此範例**]。
 
 1. 輸入藍圖範例的 [基本資料]  ：
 
@@ -47,13 +47,13 @@ ms.locfileid: "67453199"
 
 ## <a name="publish-the-sample-copy"></a>發佈範例複本
 
-您的環境中現已建立了藍圖範例複本。 該複本會以**草稿**模式建立，而且必須先**發佈**，才能進行指派和部署。 Blueprint （藍圖） 範例的複本可以自訂您的環境和需求，但是這樣的修改可能會將它移開標準。
+您的環境中現已建立了藍圖範例複本。 該複本會以**草稿**模式建立，而且必須先**發佈**，才能進行指派和部署。 藍圖範例的複本可以根據您的環境和需求進行自訂, 但該修改可能會將其從標準中移出。
 
 1. 在左窗格中選取 [所有服務]  ，然後搜尋並選取 [原則]  。 在 [原則]  頁面上，選取 [藍圖]  。
 
 1. 選取左側的 [藍圖定義]  頁面。 使用篩選來尋找您的藍圖範例複本，然後將其選取。
 
-1. 選取頁面頂端的 [發佈藍圖]  。 在右側的新窗格中，提供藍圖範例複本的**版本**。 如果您稍後會進行修改，此屬性十分實用。 提供**變更備忘稿**例如 」 第一版發行來自英國官方 」 或 「 英國 NHS 藍圖範例 」。 然後選取頁面底部的 [發佈]  。
+1. 選取頁面頂端的 [發佈藍圖]  。 在右側的新窗格中，提供藍圖範例複本的**版本**。 如果您稍後會進行修改，此屬性十分實用。 提供**變更附注**, 例如「從英國官方或英國 NHS 藍圖發佈的第一個版本」。 然後選取頁面底部的 [發佈]  。
 
 ## <a name="assign-the-sample-copy"></a>指派範例複本
 
@@ -98,17 +98,17 @@ ms.locfileid: "67453199"
 
 成品名稱|成品類型|參數名稱|描述|
 |-|-|-|-|
-|英國官方 」 或 「 英國 NHS 藍圖計劃|原則指派 |稽核診斷記錄的資源類型 (原則：英國官方 」 或 「 英國 NHS 藍圖 initiative） |稽核診斷記錄設定是否已啟用的附註的資源類型的清單。  如需可接受的值，請參閱[Azure 診斷記錄支援服務、 結構描述和類別](../../../../azure-monitor/platform/diagnostic-logs-schema.md)。 |
-|[預覽]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |選用：具有支援新增至範圍的 Linux OS 的 VM 映像清單 (原則: [預覽]:部署適用於 Linux Vm 的 Log Analytics 代理程式） |（選擇性）預設值是_無_。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
-|[預覽]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |選用：具有支援新增至範圍的 Windows OS 的 VM 映像清單 (原則: [預覽]:部署適用於 Windows Vm 的 Log Analytics 代理程式） |（選擇性）預設值是_無_。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
+|英國官方或英國 NHS 的藍圖方案|原則指派 |要用來審查診斷記錄的資源類型 (原則:英國官方或英國 NHS 的藍圖方案) |當診斷記錄設定為 [已啟用] 時, 要審核的資源類型清單。  如需可接受的值, 請參閱[Azure 診斷記錄支援的服務、架構和類別](../../../../azure-monitor/platform/diagnostic-logs-schema.md)。 |
+|\[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式 |原則指派 |選用：支援要新增至範圍之 Linux OS 的 VM 映射清單 (原則:\[預覽\]：部署適用于 Linux Vm 的 Log Analytics 代理程式) |選擇性預設值為_none_。 如需詳細資訊, 請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
+|\[預覽\]：部署適用於 Windows VM 的 Log Analytics 代理程式 |原則指派 |選用：已支援 Windows OS 新增至範圍的 VM 映射清單 (原則:\[預覽\]：部署適用于 Windows Vm 的 Log Analytics 代理程式) |選擇性預設值為_none_。 如需詳細資訊, 請參閱在[Azure 入口網站中建立 Log Analytics 工作區](../../../../azure-monitor/learn/quick-create-workspace.md)。 |
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已檢閱部署的英國官方和英國 NHS blueprint （藍圖） 範例的步驟，請瀏覽下列文章以了解的概觀和控制項對應：
+現在您已複習過部署英國官方和 UK NHS 藍圖範例的步驟, 請造訪下列文章以瞭解總覽和控制項對應:
 
 > [!div class="nextstepaction"]
-> [英國官方 」 和 「 英國 NHS 藍圖-概觀](./index.md)
-> [英國官方 」 和 「 英國 NHS 藍圖-控制對應](./control-mapping.md)
+> [英國官方和英國 NHS 藍圖-總覽](./index.md)
+> [英國官方和英國 NHS 藍圖-控制項對應](./control-mapping.md)
 
 有關藍圖及其使用方式的其他文件：
 

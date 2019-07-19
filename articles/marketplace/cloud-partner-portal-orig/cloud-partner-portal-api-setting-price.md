@@ -1,5 +1,5 @@
 ---
-title: 虛擬機器供應項目的定價 |Azure Marketplace
+title: 虛擬機器供應專案的定價 |Azure Marketplace
 description: 說明指定虛擬機器供應項目定價的三種方法。
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e398b43e679fb6420c2256e77d34359ae537ac1c
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935744"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868752"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>虛擬機器供應項目定價
 ==================================
@@ -34,21 +34,31 @@ ms.locfileid: "64935744"
             "currency": "USD",
                 "individually": 
                 {
-                    "sharedcore": 2,
+                    "sharedcore": 1,
                     "1core": 2,
-                    "2core": 3,
-                    "4core": 4,
-                    "6core": 5,
+                    "2core": 2,
+                    "4core": 2,
+                    "6core": 2,
                     "8core": 2,
+                    "10core": 4,
                     "12core": 4,
                     "16core": 4,
                     "20core": 4,
                     "24core": 4,
-                    "32core": 4,
-                    "36core": 4,
-                    "40core": 4,
-                    "64core": 4,
-                    "128core": 4
+                    "32core": 6,
+                    "36core": 6,
+                    "40core": 6,
+                    "44core": 6,
+                    "48core": 10,
+                    "60core": 10,
+                    "64core": 10,
+                    "72core": 10,
+                    "80core": 12,
+                    "96core": 12,
+                    "120core": 15,
+                    "128core": 15,
+                    "208core": 20,
+                    "416core": 30
                 }
         }
         ...
@@ -89,6 +99,12 @@ ms.locfileid: "64935744"
          }
      }
 ```
+
+<a name="new-core-sizes-added-on-722019"></a>7/2/2019 新增的核心大小
+---------------------------
+
+針對新的 Azure 虛擬機器大小 (根據核心數目), 在2019年7月2日新增新價格的 VM 發行者已收到通知。  新的價格是針對核心大小10、44、48、60、120、208和416。  針對現有的 VM, 會根據目前的價格自動計算這些核心大小的新價格。  發行者必須等到2019年8月1日, 才能查看額外的價格, 並進行任何想要的變更。  在此日期之後 (如果發行者尚未重新發行), 這些新核心大小自動計算的價格將會生效。
+
 
 <a name="regions"></a>Regions
 -------

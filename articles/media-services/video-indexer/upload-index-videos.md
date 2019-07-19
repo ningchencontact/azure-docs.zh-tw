@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799199"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305631"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -23,7 +23,7 @@ ms.locfileid: "65799199"
 
 * 從 URL 上傳您的影片 (首選)、
 * 將影片檔案當作要求本文中的位元組陣列傳送、
-* 提供使用現有的 Azure 媒體服務資產[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)（僅限付費帳戶支援）。
+* 藉由提供[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)(僅在付費帳戶中支援) 來使用現有的 Azure 媒體服務資產。
 
 本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
 
@@ -32,13 +32,13 @@ ms.locfileid: "65799199"
 ## <a name="uploading-considerations"></a>上傳考量
 
 - 若根據 URL 上傳影片 (首選)，則必須使用 TLS 1.2 (或更高版本) 來保護端點
-- 使用 URL 選項的上傳大小會限制為 30 GB
-- 要求 URL 的長度是限制為 2048年個字元
+- 具有 URL 選項的上傳大小限制為30GB
+- 要求 URL 長度限制為2048個字元
 - 具有位元組陣列選項的上傳大小限制為 2 GB
 - 位元組陣列選項會在 30 分鐘後逾時
 - 在 `videoURL` 參數中提供的 URL 需要進行編碼
-- 索引編製媒體服務資產已編製索引，從 URL 相同的限制
-- 影片索引器的最大持續時間上限為 4 小時，單一檔案
+- 編制索引媒體服務資產與從 URL 編制索引的限制相同
+- 影片索引子的單一檔案最大持續時間限制為4小時
 
 > [!Tip]
 > 建議使用 .NET Framework 4.6.2 版。 或更高版本，因為舊版 .NET Framework 不會預設使用 TLS 1.2。
@@ -64,7 +64,7 @@ ms.locfileid: "65799199"
         |---|---|
         |id|影片識別碼|
         |state|影片狀態|  
-    - 範例： https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - 範例: HTTPs:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 在影片中識別到的人員：
   - 屬性
     
@@ -75,7 +75,7 @@ ms.locfileid: "65799199"
       |knownPersonId|臉部模型中唯一的個人識別碼|
       |personName|人員名稱|
         
-    - 範例： https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - 範例: HTTPs:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>注意
 
@@ -92,7 +92,7 @@ ms.locfileid: "65799199"
 
 價格取決於選取的索引編製選項。  
 
-### <a name="priority"></a>優先順序
+### <a name="priority"></a>priority
 
 影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low**、**Normal** (預設值) 和 **High**。
 
@@ -291,4 +291,4 @@ public class AccountContractSlim
 
 ## <a name="next-steps"></a>後續步驟
 
-[檢查 Azure 影片索引器輸出所產生的 API](video-indexer-output-json-v2.md)
+[檢查 API 所產生的 Azure 影片索引子輸出](video-indexer-output-json-v2.md)

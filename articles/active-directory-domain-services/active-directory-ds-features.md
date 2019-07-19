@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e49a37ec95a8cf26a2c63bd90759da35fc537e41
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e0f38ed8367f076c9f9c4da77440bb3e9603d514
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474234"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234202"
 ---
-# <a name="azure-ad-domain-services"></a>Azure AD 網域服務
-## <a name="features"></a>功能
+# <a name="features-provided-by-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 提供的功能
+
 下列功能適用於 Azure AD 網域服務的受控網域。
 
 * **簡單的部署體驗：** 您只需使用數個按鍵，就能針對 Azure AD 目錄啟用 Azure AD Domain Services。 您的受控網域包含僅限雲端的使用者帳戶，以及從內部部署目錄同步的使用者帳戶。
@@ -32,7 +32,7 @@ ms.locfileid: "67474234"
 * **建立含有自訂名稱的網域：** 您可以使用 Azure AD Domain Services，來建立含有自訂名稱的網域 (例如 'contoso100.com')。 您可以使用已驗證或未驗證的網域名稱。 您也可以選擇性地使用 Azure AD 目錄提供的內建網域尾碼 (亦即 '*.onmicrosoft.com') 來建立網域。
 * **與 Azure AD 整合：** 您不需要設定或管理對 Azure AD Domain Services 的複寫。 Azure AD 網域服務中會自動提供來自 Azure AD 目錄的使用者帳戶、群組成員資格和使用者認證 (密碼)。 新使用者、群組，或 Azure AD 租用戶或內部部署目錄中的屬性變更，都會自動同步處理到 Azure AD 網域服務。
 * **NTLM 和 Kerberos 驗證：** 利用對 NTLM 和 Kerberos 驗證的支援，您就能部署依賴 Windows 整合式驗證的應用程式。
-* **使用公司認證/密碼：** Azure AD 租用戶中使用者的密碼可以與 Azure AD Domain Services 搭配使用。 使用者使用其公司認證來加入網域的電腦、 登入，以互動方式或透過遠端桌面，並對受控網域進行驗證。
+* **使用公司認證/密碼：** Azure AD 租用戶中使用者的密碼可以與 Azure AD Domain Services 搭配使用。 使用者可以使用其公司認證來加入網域電腦、以互動方式或透過遠端桌面登入, 以及對受控網域進行驗證。
 * **LDAP 繫結與 LDAP 讀取支援：** 您可以使用依賴 LDAP 繫結的應用程式，在 Azure AD Domain Services 所服務的網域中驗證使用者。 此外，使用 LDAP 讀取作業來從目錄查詢使用者/電腦屬性的應用程式也可以針對 Azure AD 網域服務運作。
 * **安全 LDAP (LDAPS)：** 您可以啟用透過安全 LDAP (LDAPS) 的目錄存取。 預設可在虛擬網路內使用安全 LDAP 存取。 不過，您也可以選擇為網際網路啟用安全 LDAP 存取。
 * **群組原則：** 您可以對每個使用者和電腦容器使用單一的內建 GPO，強制採用使用者帳戶和已加入網域之電腦所需安全性原則的規範。 您也可以建立自己的自訂 GPO，然後將它們指派給自訂組織單位來[管理群組原則](manage-group-policy.md)。

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 07/16/2019
 ms.author: shvija
-ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013200295f3a6a48d6d96663f98bce506808cd70
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821879"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277366"
 ---
-# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>使用事件處理器主機從 Azure 事件中樞接收事件
+# <a name="event-processor-host"></a>事件處理器主機
 
 Azure 事件中樞是能以低成本串流數百萬個事件的強大遙測擷取服務。 本文將說明如何使用「事件處理器主機」  (EPH) 來取用內嵌事件；事件處理器主機是智慧型取用者代理程式，可簡化檢查點、租用和平行事件讀取器的管理。  
 
@@ -83,7 +83,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 接下來，具現化 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體。 根據不同的多載，在建構函式中建立 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體時會使用下列參數：
 
-- **hostName：** 每個取用者執行個體的名稱。 每個執行個體**EventProcessorHost**必須有唯一的值，這個變數，在取用者群組內，因此沒有硬式編碼這個值。
+- **hostName：** 每個取用者執行個體的名稱。 **EventProcessorHost**的每個實例在取用者群組內都必須有此變數的唯一值, 因此請不要將此值硬編碼。
 - **eventHubPath：** 事件中樞的名稱。
 - **consumerGroupName：** 事件中樞會使用 **$Default** 作為預設的取用者群組名稱，但最佳做法是針對特定處理層面來建立取用者群組。
 - **eventHubConnectionString：** 事件中樞的連接字串，可從 Azure 入口網站擷取。 此連接字串應有事件中樞上的**接聽**權限。
@@ -125,7 +125,7 @@ EPH 執行個體 (或取用者) 的分割區擁有權可透過 Azure 儲存體�
 
 對 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 執行的每次呼叫都會提供事件集合。 您必須負責處理這些事件。 如果您想要確定處理器主機會處理每個訊息至少一次，則必須自行撰寫持續重試程式碼。 但請留意有害訊息。
 
-建議您快速完成事情；也就是處理的作業愈少愈好。 若不是，請使用取用者群組。 如果您要寫入至儲存體，並執行一些路由時，最好是使用兩個取用者群組，並有兩個[IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor)個別執行的實作。
+建議您快速完成事情；也就是處理的作業愈少愈好。 若不是，請使用取用者群組。 如果您需要寫入儲存體並進行某些路由, 最好使用兩個取用者群組, 並分別執行兩個[IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor)的執行。
 
 在處理期間的某個時間點，您可能會想追蹤已讀取並完成的事項。 如果您必須重新啟動讀取作業，追蹤就很重要，這可讓您不用回到串流的開頭。 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 會使用「檢查點」  來簡化此追蹤。 檢查點是指定取用者群組中指定分割區的一個位置或位移，而且您確信您已處理該點上的訊息。 在 **EventProcessorHost** 中標記檢查點會透過 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 物件上的 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 方法來完成。 這項作業通常會在 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 方法內完成，但也可以在 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) 中完成。
 
@@ -141,7 +141,7 @@ EPH 執行個體 (或取用者) 的分割區擁有權可透過 Azure 儲存體�
 
 ## <a name="shut-down-gracefully"></a>正常關機
 
-最後，[EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) 會對所有分割區讀取器啟用正常關機，而且應一律在關閉 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體時呼叫此方法。 若沒有這樣做，可能會造成啟動 **EventProcessorHost** 的其他執行個體時發生延遲，因為租用到期和 Epoch 衝突。 Epoch 管理涵蓋詳細[Epoch](#epoch)文章一節。 
+最後，[EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) 會對所有分割區讀取器啟用正常關機，而且應一律在關閉 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體時呼叫此方法。 若沒有這樣做，可能會造成啟動 **EventProcessorHost** 的其他執行個體時發生延遲，因為租用到期和 Epoch 衝突。 本文的[epoch](#epoch)一節會詳細討論 epoch 管理。 
 
 ## <a name="lease-management"></a>租用管理
 使用 EventProcessorHost 的執行個體來註冊事件處理器類別，會開始處理事件。 主機執行個體會在事件中樞的某些分割區取得租用，而且可能從其他主機執行個體抓取一些，最終在所有主機執行個體的分割區平均分佈。 對於每個租用的分割區，主機執行個體會依提供的事件處理器類別各建立一個執行個體，然後從該分割區中接收事件，並將其傳遞到事件處理器執行個體。 隨著更多執行個體的新增及更多租用的抓取，EventProcessorHost 最終會在所有取用者之間平衡負載。
@@ -162,28 +162,28 @@ EPH 執行個體 (或取用者) 的分割區擁有權可透過 Azure 儲存體�
 
 ## <a name="epoch"></a>Epoch
 
-接收 epoch 的運作方式如下：
+以下是 receive epoch 的運作方式:
 
 ### <a name="with-epoch"></a>使用 Epoch
-Epoch 是服務使用，以強制執行資料分割/租用擁有權的唯一識別碼 （epoch 值）。 您建立使用 Epoch 基礎接收器[CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet)方法。 這個方法會建立為 Epoch 為基礎的接收者。 從指定的取用者群組的特定事件中樞資料分割建立接收者。
+Epoch 是服務所使用的唯一識別碼 (epoch 值), 用以強制執行分割/租用擁有權。 您可以使用[CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet)方法來建立 Epoch 型接收者。 這個方法會建立以 Epoch 為基礎的接收者。 會針對指定取用者群組中的特定事件中樞分割區建立接收器。
 
-Epoch 功能讓使用者能夠確保只有一個接收者上取用者群組在任何時間點的時間，使用下列規則：
+Epoch 功能可讓使用者在任何時間點, 確保取用者群組上只有一個接收者, 並具有下列規則:
 
-- 如果取用者群組沒有任何現有的接收者，使用者可以與任何 epoch 值來建立接收者。
-- 如果沒有具有的 epoch 數值 e1 接收者，並使用 epoch 數值 e2 建立新的接收器，e1 < = e2，具有 e1 的接收者將會自動中斷連線、 e2 接收者成功建立。
-- 如果沒有具有的 epoch 數值 e1 接收者，並使用 epoch 數值 e2 建立新的接收器，e1 > e2，然後建立與 e2 失敗並出現錯誤：Epoch e1 接收者已存在。
+- 如果取用者群組上沒有任何現有的接收者, 則使用者可以建立具有任何 epoch 值的接收者。
+- 如果有一個具有 epoch 值 e1 的接收者, 而且建立了一個具有 epoch 值 e2 的新接收者, 其中 e1 < = e2, 則具有 e1 的接收者將會自動中斷連線, 並成功建立具有 e2 的接收者。
+- 如果有一個具有 epoch 值 e1 的接收者, 並建立一個具有 epoch 值 e2 的新接收者, 其中 e1 > e2, 則使用下列錯誤建立 e2 會失敗:具有 epoch e1 的接收器已經存在。
 
-### <a name="no-epoch"></a>沒有 Epoch
-建立使用的非 Epoch 基礎接收器[CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet)方法。 
+### <a name="no-epoch"></a>無 Epoch
+您可以使用[CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet)方法來建立非 Epoch 的接收者。 
 
-處理使用者想要建立多個接收者，單一取用者群組的資料流中有一些案例。 若要支援這種情況下，我們需要能夠建立不含 epoch 接收者，在此情況下我們允許最多 5 個並行接收者上的取用者群組。
+在某些情況下, 串流處理中的使用者會想要在單一取用者群組上建立多個接收者。 為了支援這類案例, 我們確實能夠建立不含 epoch 的接收者, 在此情況下, 我們允許取用者群組最多5個並行接收者。
 
-### <a name="mixed-mode"></a>混合的模式
-我們不建議您建立 epoch 接收者，然後切換到無 epoch 或反之亦然，在相同的取用者群組的應用程式使用量。 不過，此行為發生時，此服務會處理它使用下列規則：
+### <a name="mixed-mode"></a>混合模式
+我們不建議您在使用 epoch 建立接收器的情況下使用應用程式, 然後在同一個取用者群組上切換為 [無 epoch] 或 [反之亦然]。 不過, 當此行為發生時, 服務會使用下列規則來處理它:
 
-- 如果接收者已建立的 epoch e1 和主動地接收事件並使用任何 epoch 建立新的接收器，新的接收器建立將會失敗。 Epoch 接收者在系統中的優先。
-- 如果接收者已建立的 epoch e1，並已中斷連線，並使用新 MessagingFactory 上沒有 epoch 建立新的接收器，將會成功建立新的接收器。 還有一點要注意此處我們的系統將會偵測 「 接收者中斷連線 」，~ 10 分鐘後。
-- 如果有一或多個接收者沒有 epoch 中，以建立新的接收器會透過 epoch e1，中斷連線所有舊的接收者。
+- 如果已經使用 epoch e1 建立接收器, 並主動接收事件, 而且建立了新的接收者, 但沒有 epoch, 則建立新的接收者將會失敗。 Epoch 接收器一律會優先于系統中。
+- 如果已經使用 epoch e1 建立接收器, 並中斷連線, 而且在新的 MessagingFactory 上建立了新的接收者, 而沒有 epoch, 則建立新的接收者將會成功。 這裡有一點要注意的是, 我們的系統會在 ~ 10 分鐘後偵測到「接收者中斷連線」。
+- 如果建立的一或多個接收者沒有 epoch, 而且使用 epoch e1 建立了新的接收者, 則所有舊的接收者都會中斷連線。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,5 +1,5 @@
 ---
-title: 如何設定單一登入 |Microsoft Docs
+title: 設定應用程式單一登入 |Microsoft Docs
 description: 如何為您正在開發並向 Azure AD 註冊的自訂應用程式設定單一登入。
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d151d4d7f32c479f2cfb4d71a8ed667f42e03b49
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
-ms.translationtype: MT
+ms.openlocfilehash: 3e60b1ba210b5b11c4aca0da71d4d24ac5b06a60
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465683"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276738"
 ---
-# <a name="how-to-configure-single-sign-on-for-an-application"></a>如何設定單一登入應用程式
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>如何設定應用程式的單一登入
 
 在您的應用程式中啟用同盟單一登入 (SSO)，會在針對 OpenID Connect、SAML 2.0 或 WS-Fed 透過 Azure AD 進行同盟時自動啟用。 如果您的使用者儘管目前已經有含 Azure AD 的工作階段還是必須登入，很可能是您的應用程式設定錯誤。
 

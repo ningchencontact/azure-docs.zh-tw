@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/28/2018
-ms.author: saghorpa
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583a633c64943185f874e1c0ff80f654010aa53
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: aa88e45f2523dd65c4f714bfeab1c0eda401d720
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710007"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869159"
 ---
 # <a name="operating-system-upgrade"></a>作業系統升級
 本文件會詳述 Hana 大型執行個體作業系統升級的詳細資訊。
@@ -27,11 +27,11 @@ ms.locfileid: "67710007"
 >[!NOTE]
 >作業系統升級是客戶的責任，Microsoft 作業支援可以指引您在升級期間應特別注意的關鍵區域。 規劃升級之前，請先諮詢您的作業系統廠商。
 
-佈建 HLI 單元時，Microsoft 作業小組即會安裝作業系統。 隨時間過去，會需要維護 HLI 單元上的作業系統 (例如：修補、調整、升級等)。
+在第一次布建的過程中, Microsoft 營運小組會安裝作業系統。 隨時間過去，會需要維護 HLI 單元上的作業系統 (例如：修補、調整、升級等)。
 
-在您進行作業系統的重大變更之前 (例如，將 SP1 升級為 SP2)，請務必建立請求諮詢用的支援票證，藉以連絡 Microsoft 作業小組。
+在對作業系統進行重大變更 (例如, 將 SP1 升級至 SP2) 之前, 您必須先開啟支援票證來諮詢 Microsoft 營運小組, 以取得相關資訊。
 
-請在您的票證上註明：
+包含在您的票證中:
 
 * 您的 HLI 訂用帳戶識別碼。
 * 您的伺服器名稱。
@@ -47,9 +47,9 @@ ms.locfileid: "67710007"
 ## <a name="known-issues"></a>已知問題
 
 以下是升級時一些已知的常見問題：
-- II 型 SKU 類別的 SKU 進行作業系統升級之後，會移除 Software Foundation 軟體 (SFS)。 您必須在作業系統升級後重新安裝相容的 SFS。
-- 乙太網路卡驅動程式 (ENIC 和 FNIC) 會復原至舊版本。 升級後必須重新安裝相容的驅動程式版本。
+- II 型 SKU 類別的 SKU 進行作業系統升級之後，會移除 Software Foundation 軟體 (SFS)。 在作業系統升級之後, 您必須重新安裝相容的 SFS。
+- 乙太網路卡驅動程式 (ENIC 和 FNIC) 會復原至舊版本。 升級之後, 您必須重新安裝相容的驅動程式版本。
 
 ## <a name="next-steps"></a>後續步驟
 - 請參閱類型 I 的 SKU 類別作業系統的[備份和還原](hana-overview-high-availability-disaster-recovery.md)。
-- 請參閱類型 II 的 SKU 類別的[類型 II SKU 作業系統備份](os-backup-type-ii-skus.md)。
+- 請參閱類型 ii SKU 類別[之修訂版3戳記的類型 Ii sku 的 OS 備份](os-backup-type-ii-skus.md)。

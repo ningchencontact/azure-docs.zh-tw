@@ -11,19 +11,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 043ecdcb83d2ee39e3373f029c00c6237f87601c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7961578a1daf67176312d4257a4e86a7091082f0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709715"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869260"
 ---
 # <a name="available-skus-for-hli"></a>HLI 可用的 SKU
 
-SAP Hana on Azure (大型執行個體) 服務已可用於美國西部和美國東部、澳大利亞東部、澳大利亞東南部、西歐、北歐、日本東部及日本西部等 Azure 區域中的數個組態。
+以修訂版3戳記為基礎的 SAP Hana on azure (大型實例) 服務, 可在 Azure 區域中的數個設定中取得:
+
+- 美國西部
+- East US
+- 澳洲東部
+- 澳大利亞東南部
+- 西歐
+- 北歐
+- 日本東部
+- 日本西部
+
+以修訂4戳記為基礎的 SAP Hana on Azure (大型實例) 服務可在的 Azure 區域中的數個設定中取得:
+
+- 美國西部 2
+- East US
+- 西歐
+- 北歐
+
+
 
 [HANA 大型執行個體的 SAP Hana 認證 SKU](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 清單如下：
 
@@ -43,12 +61,12 @@ SAP Hana on Azure (大型執行個體) 服務已可用於美國西部和美國�
 |---| SAP HANA on Azure S960m<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 個 CPU 核心和 960 個 CPU 執行緒 |  20.0 TB |  46 TB | 可用 |
 
 
-在 SAP Hana TDIv5 下，SAP 允許客戶專屬的大小調整及客戶專屬專案，可能會導致以下位置的伺服器設定未列為已認證：
+在 SAP Hana TDIv5 下, SAP 允許客戶專屬的調整大小和客戶特定的專案, 這可能會導致伺服器設定, 而不會在中列示為「已認證」:
 
 - [SAP Hana 認證設備](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-在許多情況下，這些客戶專屬的伺服器設定會比以 SAP 認證的伺服器單位執行更多記憶體。 使用 SAP 時，客戶可能會取得 SAP 支援，並為其客戶專屬大小的伺服器設定進行認證。 下列 HANA 大型執行個體標準 SKU 可於 Azure 中使用，且這類 TDIv5 客戶專屬的大小調整專案可在 Microsoft 價格清單中。
+在許多情況下, 這些客戶專屬的伺服器設定會比使用 SAP 認證的伺服器單位具有更多的記憶體。 使用 SAP 時，客戶可能會取得 SAP 支援，並為其客戶專屬大小的伺服器設定進行認證。 在 Azure 中, 下列 HANA 大型實例標準 Sku 可供使用, 並在 Microsoft 價目表中, 適用于這類 TDIv5 客戶專屬的大小調整專案。
 
 | SKU|CPU | 記憶體 | 儲存體 | 可用性 |
 | ---| --- | --- | --- | --- |
@@ -72,7 +90,7 @@ SAP Hana on Azure (大型執行個體) 服務已可用於美國西部和美國�
 供應項目的硬體基底 (除了客戶專屬的大小調整專案單位) 已通過 SAP Hana TDI 認證。 兩種不同類別的硬體會將 SKU 分成：
 
 - S72、S72m、S96、S144、S144m、S192、S192m 和 S192xm 屬於「類型 I 類別」的 SKU。
-- S384、S384m、S384xm、S384xxm、S576m、S576xm、S768m、S768xm 和 S960m，稱之為「類型 II 類別」的 SKU。
+- S384、S384m、S384xm、S384xxm、S576m、S576xm S768m、S768xm 和 S960m, 稱為「類型 II 類別」的 Sku。
 
 完整的 HANA 大型執行個體戳記並非僅配置給單一客戶使用。 這項事實也適用於透過 Azure 中所部署的網路網狀架構連線的計算與儲存資源的機架。 「HANA 大型執行個體」基礎結構和 Azure 一樣，會在下列三個層面部署彼此隔離的不同客戶&quot;租用戶&quot;：
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 本文說明如何 Azure 如何讓 VM 與公用網際網路服務進行通訊。
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
-ms.author: kumud
-ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 6623b3e679faaa73f18c0f6b376de101113bcbdb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967731"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274546"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -34,7 +34,7 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 有多個[輸出案例](#scenarios)。 您可以視需要合併這些案例。 仔細檢閱它們以了解當它們套用到您的部署模型和應用程式案例時的功能、限制和模式。 檢閱[管理這些案例](#snatexhaust)的指引。
 
 >[!IMPORTANT] 
->Standard Load Balancer 和標準公用 IP 引進新功能以及不同的輸出連線行為。  這些與基本 SKU 不同。  如果您想要在使用標準 SKU 時輸出連線，您必須使用標準公用 IP 位址或標準公用 Load Balancer 明確定義該連線。  這包括使用內部 Standard Load Balancer 時，請建立輸出連線能力。  建議您一律使用標準公用 Load Balancer 的輸出規則。  [案例 3](#defaultsnat) 不適用於標準 SKU。  這表示當使用內部 Standard Load Balancer 時，如果想要使用輸出連線能力，您需要採取步驟來為後端集區中的 VM 建立輸出連線能力。  對於輸出連線能力，單一獨立 VM、可用性設定組中的所有 VM、一個 VMSS 中的所有執行個體都會成為群組。 這表示，如果可用性設定組中的單一 VM 與標準 SKU 相關聯，則此時可用性設定組內的所有 VM 執行個體行為會遵循相同的規則，就如同與標準 SKU 相關聯一般，雖然個別執行個體並非直接與它相關聯。  請仔細檢閱這整份文件了解整體概念，檢閱 [Standard Load Balancer](load-balancer-standard-overview.md) 了解 SKU 之間的差異，並檢閱[輸出規則](load-balancer-outbound-rules-overview.md)。  使用輸出規則可讓您細部控制輸出連線的所有層面。
+>Standard Load Balancer 和標準公用 IP 引進新功能以及不同的輸出連線行為。  這些與基本 SKU 不同。  如果您想要在使用標準 SKU 時輸出連線，您必須使用標準公用 IP 位址或標準公用 Load Balancer 明確定義該連線。  這包括在使用內部 Standard Load Balancer 時建立輸出連線能力。  建議您一律使用標準公用 Load Balancer 的輸出規則。  [案例 3](#defaultsnat) 不適用於標準 SKU。  這表示當使用內部 Standard Load Balancer 時，如果想要使用輸出連線能力，您需要採取步驟來為後端集區中的 VM 建立輸出連線能力。  對於輸出連線能力，單一獨立 VM、可用性設定組中的所有 VM、一個 VMSS 中的所有執行個體都會成為群組。 這表示，如果可用性設定組中的單一 VM 與標準 SKU 相關聯，則此時可用性設定組內的所有 VM 執行個體行為會遵循相同的規則，就如同與標準 SKU 相關聯一般，雖然個別執行個體並非直接與它相關聯。  請仔細檢閱這整份文件了解整體概念，檢閱 [Standard Load Balancer](load-balancer-standard-overview.md) 了解 SKU 之間的差異，並檢閱[輸出規則](load-balancer-outbound-rules-overview.md)。  使用輸出規則可讓您細部控制輸出連線的所有層面。
 
 ## <a name="scenarios"></a>案例概觀
 
@@ -70,7 +70,7 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 當[多個公用 IP 位址與 Load Balancer Basic 建立關聯](load-balancer-multivip-overview.md)時，這些公用 IP 位址中的任一位址都是輸出流程的候選項目，且會隨機選取其中一個位址。  
 
-若要監視使用 Load Balancer Basic 的輸出連線的健康情況，您可以使用[負載平衡器會記錄 Azure 監視器](load-balancer-monitor-log.md)並[警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)要監視的 SNAT 連接埠耗盡訊息。
+若要使用 Load Balancer Basic 監視輸出連線的健全狀況, 您可以使用[Azure 監視器記錄檔進行 Load Balancer](load-balancer-monitor-log.md) , 並[警示事件記錄](load-balancer-monitor-log.md#alert-event-log)檔來監視 SNAT 埠耗盡訊息。
 
 ### <a name="defaultsnat"></a>案例 3：無執行個體層級公用 IP 位址的獨立 VM
 
@@ -176,13 +176,13 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 
 ### <a name="tcp-snat-port-release"></a>TCP SNAT 連接埠釋出
 
-- 如果任一伺服器/用戶端傳送 FINACK，會在 240 秒之後釋放 SNAT 連接埠。
+- 如果伺服器/用戶端傳送 FINACK, 則會在240秒後釋放 SNAT 埠。
 - 如果看到 RST，則會在 15 秒之後釋出 SNAT 連接埠。
-- 如果已經達到閒置逾時，會釋出連接埠。
+- 如果已達到閒置超時, 則會釋放埠。
 
 ### <a name="udp-snat-port-release"></a>UDP SNAT 連接埠釋出
 
-- 如果已經達到閒置逾時，會釋出連接埠。
+- 如果已達到閒置超時, 則會釋放埠。
 
 ## <a name="problemsolving"></a>解決問題 
 

@@ -1,5 +1,5 @@
 ---
-title: 私人產品/服務 |Azure Marketplace
+title: 私用供應專案 |Azure Marketplace
 description: Azure Marketplace 中適用於應用程式和服務發行者的私人供應項目。
 services: Azure, Marketplace, Compute
 author: qianw211
@@ -7,13 +7,13 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
-ms.author: qianw211
-ms.openlocfilehash: 179775076382022b9a97e7d76bc1e0dc4fbf69db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: dcba2b40bdcf4558f7a06f7e14d0ce654a9c1ec1
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937560"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876071"
 ---
 # <a name="private-offers"></a>私人供應項目
 
@@ -51,7 +51,7 @@ ms.locfileid: "64937560"
 私人供應項目也會出現在搜尋結果中。 只尋找「私人」徽章。
 
 > [!Note]
-> 透過轉銷商的雲端解決方案提供者方案 (CSP) 所建立的訂用帳戶不支援私人產品/服務。
+> 透過雲端解決方案提供者方案 (CSP) 的轉銷商所建立的訂用帳戶, 不支援私用供應專案。
 
 ## <a name="next-steps"></a>後續步驟
 

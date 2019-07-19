@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617974"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871947"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>為虛擬機器擴展集選擇正確的容錯網域數目
 在沒有任何區域 (zone) 的 Azure 區域 (region) 中，預設會建立具有五個容錯網域的虛擬機器擴展集。 若為支援區域性虛擬機器擴展集部署的區域 (region)，每個區域 (zone) 容錯網域計數的預設值為 1。 在此情況下，FD = 1 表示屬於擴展集的 VM 執行個體會儘可能分散於許多機架。
@@ -47,4 +47,4 @@ az vmss create \
 建立及設定所有擴展集資源和 VM 需要幾分鐘的時間。
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解 Azure 環境的[可用性和備援功能](../virtual-machines/windows/regions-and-availability.md)。
+- 深入了解 Azure 環境的[可用性和備援功能](../virtual-machines/windows/availability.md)。

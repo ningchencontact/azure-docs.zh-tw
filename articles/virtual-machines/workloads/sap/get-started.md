@@ -1,6 +1,6 @@
 ---
-title: 開始使用 Azure Vm 上的 SAP |Microsoft Docs
-description: 深入了解 Microsoft Azure 中的虛擬機器 (Vm) 執行的 SAP 解決方案
+title: 開始使用 Azure 上的 SAP Vm |Microsoft Docs
+description: 瞭解在 Microsoft Azure 的虛擬機器 (Vm) 上執行的 SAP 解決方案
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,33 +14,34 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/10/2019
+ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27e12b5f33f2e3c0024d5caa6a9bee5e9576a45a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: df12d4f7b2a06b89df1bfd7d7d904943e341ccd2
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805836"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234255"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
-當您使用 Microsoft Azure 時，可以可靠地在可調整、 符合規範且經企業證明的平台上執行您任務關鍵性 SAP 工作負載和案例。 您的延展性、 彈性，而且 Azure 的節省成本。 使用 Microsoft 和 SAP 的合作，您可以在開發、 測試及生產案例，在 Azure 中執行 SAP 應用程式並獲得完整的支援。 從 SAP NetWeaver 到 SAP S/4HANA，SAP BI，在 Windows、 Linux 以及 SAP HANA 到 SQL，我們為您分憂解。
+當您使用 Microsoft Azure 時, 您可以在可調整、符合規範且經企業證明的平臺上, 可靠地執行您的任務關鍵性 SAP 工作負載和案例。 您可以獲得 Azure 的擴充性、彈性和成本節約。 透過 Microsoft 與 SAP 的擴充合作關係, 您可以在 Azure 中的開發和測試和生產案例中執行 SAP 應用程式, 並受到完整支援。 從 SAP NetWeaver 到 SAP S/4HANA、從 Linux 到 Windows 的 SAP BI, 以及 SAP Hana 到 SQL, 我們都已涵蓋在內。
 
-除了裝載在 Azure 上的不同 dbms 的 SAP NetWeaver 案例，您可以主控其他的 SAP 工作負載案例，例如在 Azure 上的 SAP BI。 
+除了在 Azure 上裝載具有不同 DBMS 的 SAP NetWeaver 案例, 您可以裝載其他 SAP 工作負載案例, 例如 Azure 上的 SAP BI。 
 
-Azure 的 SAP HANA 是供應項目，可讓 Azure 分開的。 若要啟用裝載更多的記憶體和 CPU 高資源 SAP 的情況下，SAP HANA，Azure 會提供客戶專屬的裸機硬體的使用。 使用此解決方案來執行 SAP HANA 部署，S/4HANA 或其他 SAP HANA 工作負載需要最多 24 TB （120 TB 向外延展） 的記憶體。 
+適用于 SAP Hana 的 Azure 唯一性是設定 Azure 的供應專案。 為了能夠裝載包含 SAP Hana 的記憶體和 CPU 資源需求較高的 SAP 案例, Azure 提供了客戶專用的裸機硬體使用。 使用此解決方案可針對 S/4HANA 或其他 SAP Hana 的工作負載, 執行需要最多 24 TB (120 TB 向外延展) 記憶體的 SAP Hana 部署。 
 
-裝載在 Azure 中的 SAP 工作負載案例也可以建立身分識別整合和單一登入的需求。 當您使用 Azure Active Directory (Azure AD) 連接不同的 SAP 元件和 SAP 軟體做為服務 (SaaS) 或平台為-即服務 (PaaS) 供應項目時，可以發生這種情況。 這類的整合和與 Azure AD 的單一登入案例的清單和 SAP 實體會描述與 < AAD SAP 身分識別整合和單一登入。 > 一節所述
+在 Azure 中裝載 SAP 工作負載案例也可以建立身分識別整合和單一登入的需求。 當您使用 Azure Active Directory (Azure AD) 連接不同的 SAP 元件和 SAP 軟體即服務 (SaaS) 或平臺即服務 (PaaS) 供應專案時, 就會發生這種情況。 「AAD SAP 身分識別整合和單一登入」一節會描述並記載一份這類整合和單一登入案例的清單, 其中包含 Azure AD 和 SAP 實體。
 
 ## <a name="latest-changes"></a>最新變更
 
-- 版本的新指南[Red Hat Enterprise Server 中的 IBM Db2 HADR](high-availability-guide-rhel-ibm-db2-luw.md)
-- 新版[Red Hat Enterprise Linux for SAP 應用程式的 Azure NetApp 檔案上的 SAP NetWeaver 的高可用性](high-availability-guide-rhel-netapp-files.md)
-- ExpressRoute 快速路徑和觸及全球範圍中的 HANA 大型執行個體的簡介[SAP HANA （大型執行個體） 網路架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)和相關文件
-- 新版[Azure HANA 大型執行個體控制透過 Azure 入口網站](hana-li-portal.md)
-- 新版[適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性](high-availability-guide-suse-netapp-files.md)
+- [針對 SAP 應用程式, 釋放 Azure 鄰近放置群組以取得最佳的網路延遲](sap-proximity-placement-scenarios.md)
+- [Red Hat Enterprise Server 中的 IBM DB2 HADR](high-availability-guide-rhel-ibm-db2-luw.md)新指南版本
+- 透過[適用于 sap 應用程式的 Azure NetApp Files, 在 Red Hat Enterprise Linux 上推出 Sap NetWeaver 的高可用性](high-availability-guide-rhel-netapp-files.md)
+- 為[SAP Hana (大型實例) 網路架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)和相關檔中的 HANA 大型實例引進 ExpressRoute 快速路徑和全球接觸
+- [透過 Azure 入口網站發行 AZURE HANA 大型實例控制](hana-li-portal.md)
+- [使用適用于 Sap 應用程式的 Azure NetApp Files 在 SUSE Linux Enterprise Server 上的 Azure vm 上的 SAP NetWeaver 版本高可用性](high-availability-guide-suse-netapp-files.md)
 
 
 
@@ -50,25 +51,25 @@ Azure 的 SAP HANA 是供應項目，可讓 Azure 分開的。 若要啟用裝�
 
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA on Azure (大型執行個體)
 
-一系列的文件將引導您完成 SAP HANA on Azure （大型執行個體），或簡稱，HANA 大型執行個體。 於下列領域的 HANA 大型執行個體的資訊，請參閱：
+一系列的檔會引導您完成 Azure (大型實例) 或簡短的 HANA 大型實例的 SAP Hana。 如需有關「HANA 大型實例」的下欄區域的資訊, 請參閱:
 
 - [SAP HANA on Azure (大型執行個體) 的概觀](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - [SAP HANA on Azure (大型執行個體) 的架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [基礎結構和連接到 SAP HANA on Azure （大型執行個體）](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [安裝 SAP HANA on Azure （大型執行個體）](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [SAP HANA on Azure （大型執行個體） 的高可用性和災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [進行疑難排解及監視 SAP HANA on Azure （大型執行個體）](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [Azure (大型實例) 上 SAP Hana 的基礎結構和連線能力](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
+- [在 Azure (大型實例) 上安裝 SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
+- [Azure (大型實例) 上 SAP Hana 的高可用性和嚴重損壞修復](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- [針對 Azure (大型實例) 上的 SAP Hana 進行疑難排解和監視](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
 後續步驟：
 
-- 讀取[的 SAP HANA on Azure （大型執行個體） 概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- 瞭解[Azure (大型實例) 上 SAP Hana 的總覽和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 
 
-## <a name="sap-hana-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SAP HANA
-文件的本節涵蓋 SAP HANA 的不同層面。 先決條件是，您應該先熟悉與提供的 Azure IaaS 的基礎服務的服務主體的 Azure 程式碼。 因此，您需要 Azure 計算、 儲存體和網路功能的知識。 許多這些主題會處理在 SAP NetWeaver 相關[Azure 的規劃指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)。 
+## <a name="sap-hana-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SAP Hana
+文件的本節涵蓋 SAP HANA 的不同層面。 必要條件是, 您應該熟悉提供 Azure IaaS 基本服務的 Azure 主要服務。 因此, 您需要 Azure 計算、儲存體和網路的知識。 這些主題中有許多都是在 SAP NetWeaver 相關的[Azure 規劃指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)中處理。 
 
-HANA on Azure 上的資訊，請參閱下列文章和其 subarticles:
+如需有關 Azure 上 HANA 的詳細資訊, 請參閱下列文章及其 subarticles:
 
 - [快速入門：在 Azure VM 上手動安裝單一執行個體 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [在 Azure 上部署 SAP S/4HANA 或 BW/4HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
@@ -77,42 +78,42 @@ HANA on Azure 上的資訊，請參閱下列文章和其 subarticles:
 - [單一 Azure 區域中的 SAP HANA 可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 - [跨 Azure 區域的 SAP HANA 可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
 - [Azure 虛擬機器上 SAP HANA 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Azure 虛擬機器上的 SAP HANA 的備份指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Azure 虛擬機器上的 SAP Hana 備份指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [檔案層級的 SAP HANA Azure 備份](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 - [以儲存體快照集為基礎的 SAP HANA 備份](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
  
 
-## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Azure 虛擬機器上部署的 SAP NetWeaver
-此區段會列出規劃和部署的 SAP NetWeaver Business One on Azure 的文件。 文件著重於使用非 HANA 資料庫及基本項目與 Azure 上 SAP 工作負載。 文件和文章，以獲得高可用性也是基礎 HANA 的高可用性，在 Azure 中，例如：
+## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>部署在 Azure 虛擬機器上的 SAP NetWeaver
+本節列出 Azure 上 SAP NetWeaver 和 Business One 的規劃和部署檔。 本檔著重于在 Azure 上使用非 HANA 資料庫與 SAP 工作負載的基本概念。 適用于高可用性的檔和文章也是 Azure 中 HANA 高可用性的基礎, 例如:
 
-- [SAP Business One Azure 虛擬機器上](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
+- [Azure 虛擬機器上的 SAP Business One](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
 - [在 Azure 上部署適用於 SAP ERP 6.0 的 SAP IDES EHP7 SP3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
-- [Microsoft Azure SUSE Linux Vm 上執行 SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
+- [在 Microsoft Azure SUSE Linux Vm 上執行 SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
 - [SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [適用於 SAP NetWeaver 的 Azure 虛擬機器部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [使用 Site Recovery 保護多層式 SAP NetWeaver 應用程式部署](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
 - [適用於 Azure 的 SAP LaMa 連接器](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/lama-installation)
 
-如需在 Azure 上 SAP 工作負載下的非 HANA 資料庫的資訊，請參閱：
+如需 Azure 上 SAP 工作負載下非 HANA 資料庫的詳細資訊, 請參閱:
 
 - [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 - [適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver)
 - [適用於 SAP 工作負載的 Oracle Azure 虛擬機器 DBMS 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
 - [適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - [適用於 SAP 工作負載的 SAP ASE Azure 虛擬機器 DBMS 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
-- [在 Azure Vm 上的 SAP MaxDB、 即時快取和內容伺服器部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
+- [Azure Vm 上的 SAP MaxDB、Live Cache 和 Content Server 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
 
-如需在 Azure 上的 SAP HANA 資料庫的資訊，請參閱一節 < SAP HANA on Azure 虛擬機器 」。
+如需有關 Azure 上 SAP Hana 資料庫的詳細資訊, 請參閱 Azure 虛擬機器上的「SAP Hana」一節。
 
-如需高可用性的 SAP 工作負載在 Azure 上的資訊，請參閱：
+如需有關 Azure 上 SAP 工作負載的高可用性資訊, 請參閱:
 
 - [SAP NetWeaver 的 Azure 虛擬機器高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 
-這份文件會指向各種其他架構和案例的文件。 在稍後的案例文件中會提供詳細說明部署和設定不同的高可用性方法的技術文件的連結。 示範如何建立及設定高可用性的 SAP NetWeaver 工作負載的不同文件涵蓋 Linux 和 Windows 作業系統。
+本檔指向各種不同的架構和案例檔。 在稍後的案例檔中, 會提供詳細技術檔的連結, 說明如何部署和設定不同的高可用性方法。 說明如何為 SAP NetWeaver 工作負載建立和設定高可用性的不同檔涵蓋 Linux 和 Windows 作業系統。
 
 
-如需有關 Azure Active Directory (Azure AD) 和 SAP 服務和單一登入之間的整合，請參閱：
+如需 Azure Active Directory (Azure AD) 與 SAP 服務與單一登入之間整合的相關資訊, 請參閱:
 
 - [教學課程：Azure Active Directory 與 SAP Cloud for Customer 整合](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [教學課程：Azure Active Directory 與 SAP Cloud Platform Identity Authentication 整合](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
@@ -120,9 +121,9 @@ HANA on Azure 上的資訊，請參閱下列文章和其 subarticles:
 - [教學課程：Azure Active Directory 與 SAP NetWeaver 整合](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [教學課程：Azure Active Directory 與 SAP Business ByDesign 整合](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [教學課程：Azure Active Directory 與 SAP HANA 整合](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [S/4HANA 環境：Fiori Launchpad SAML 單一登入與 Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+- [您的 S/4HANA 環境:使用 Azure AD 的 Fiori 啟動列 SAML 單一登入](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
-如需有關 SAP 元件與 Azure 服務整合，請參閱：
+如需將 Azure 服務整合到 SAP 元件的相關資訊, 請參閱:
 
 - [在 Power BI Desktop 中使用 SAP HANA](https://docs.microsoft.com/power-bi/desktop-sap-hana)
 - [DirectQuery 和 SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)

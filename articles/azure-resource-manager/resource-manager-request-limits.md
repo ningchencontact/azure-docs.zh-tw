@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705126"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302821"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
 
-針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制的範圍設定為安全性主體 （使用者或應用程式） 進行的要求和訂用帳戶識別碼或租用戶識別碼。 如果您的要求是來自多個安全性主體，您的訂用帳戶或租用戶之間的限制是大於 12000，且每小時 1,200 個。
+針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制的範圍是提出要求的安全性主體 (使用者或應用程式), 以及訂用帳戶識別碼或租使用者識別碼。 如果您的要求來自一個以上的安全性主體, 則訂用帳戶或租使用者的限制會大於12000和 1200 (每小時)。
 
-要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶的要求是涉及傳遞您的訂用帳戶識別碼，例如擷取訂用帳戶中的資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
+要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶要求是涉及傳遞訂用帳戶識別碼的訂閱, 例如, 在您的訂用帳戶中抓取資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
 
 這些限制適用於每個 Azure Resource Manager 執行個體。 每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比這些限制還要高，因為通常是由多個不同的執行個體來服務使用者要求。
 
-如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 這篇文章說明如何判斷剩餘的要求，您必須先達到限制，以及您已達到限制時如何回應。
+如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本文說明如何在達到限制之前判斷剩餘的要求, 以及當您到達限制時的回應方式。
 
 當您到達限制時，您會收到 HTTP 狀態碼 **429 太多要求**。
 
-Azure 資源的圖表會限制其作業的要求數目。 若要判斷剩餘的要求以及如何回應達到限制時的這篇文章中的步驟也適用於資源的圖形。 不過，資源圖表會將自己限制和重設的速率。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 資源 Graph 節流](../governance/resource-graph/overview.md#throttling)。
+Azure Resource Graph 會限制其作業的要求數目。 本文中的步驟可判斷剩餘的要求, 以及當達到限制時如何回應, 也適用于 Resource Graph。 不過, Resource Graph 會設定自己的限制和重設速率。 如需詳細資訊, 請參閱[Azure Resource Graph 中的節流](../governance/resource-graph/overview.md#throttling)。
 
 ## <a name="remaining-requests"></a>剩餘的要求
-您可以藉由檢查回應標頭來判斷剩餘的要求數。 讀取要求會傳回其餘的讀取要求數之標頭中的值。 寫入要求包含其餘的寫入要求數目的值。 下表描述可供檢查這些值的回應標頭︰
+您可以藉由檢查回應標頭來判斷剩餘的要求數。 讀取要求會針對剩餘的讀取要求數目, 傳回標頭中的值。 寫入要求包括剩餘寫入要求數目的值。 下表描述可供檢查這些值的回應標頭︰
 
 | 回應標頭 | 描述 |
 | --- | --- |

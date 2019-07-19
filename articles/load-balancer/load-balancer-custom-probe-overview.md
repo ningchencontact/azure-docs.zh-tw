@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 了解如何使用健康情況探查來監視 Load Balancer 後方的執行個體
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
-ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415717"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275341"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -30,7 +30,7 @@ Azure Load Balancer 具有搭配負載平衡規則使用的健康情況探查功
 | | 標準 SKU | 基本 SKU |
 | --- | --- | --- |
 | [探查類型](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [探查關閉行為](#probedown) | 關閉所有探查、繼續所有 TCP 流程。 | 向下的所有探查，所有的 TCP 流量都過期。 | 
+| [探查關閉行為](#probedown) | 關閉所有探查、繼續所有 TCP 流程。 | 所有探查關閉時, 所有 TCP 流量都會過期。 | 
 
 > [!IMPORTANT]
 > Load Balancer 健康情況探查源自於 IP 位址 168.63.129.16，而且不得封鎖探查以將您的執行個體標示為已啟動。  檢閱[探查來源 IP 位址](#probesource)，以取得詳細資料。
@@ -178,7 +178,7 @@ Load Balancer 會為其內部健康情況模型使用分散式探查服務。 �
 
 AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-network/security-overview.md)中識別此來源 IP 位址，且預設即會許可健康情況探查的流量。
 
-負載平衡器健康情況探查，除了[下列作業會使用此 IP 位址](../virtual-network/what-is-ip-address-168-63-129-16.md):
+除了 Load Balancer 健康情況探查以外,[下列作業會使用此 IP 位址](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - 啟用 VM 代理程式來與平台通訊，藉此表示它處於「就緒」狀態
 - 啟用與 DNS 虛擬伺服器的通訊，以提供篩選後的名稱解析給未定義自訂 DNS 伺服器的客戶。  此篩選可確保客戶只可以解析其部署的主機名稱。
@@ -212,9 +212,9 @@ AzureLoadBalancer 服務標籤會在您的[網路安全性群組](../virtual-net
 
 ## <a name="monitoring"></a>監視
 
-公用和內部 [Standard Load Balancer](load-balancer-standard-overview.md) 會透過 Azure 監視器將每個端點和後端執行個體的健康情況探查狀態公開為多維度計量。 這些計量可供其他 Azure 服務或協力廠商應用程式。 
+公用和內部 [Standard Load Balancer](load-balancer-standard-overview.md) 會透過 Azure 監視器將每個端點和後端執行個體的健康情況探查狀態公開為多維度計量。 這些計量可供其他 Azure 服務或合作夥伴應用程式使用。 
 
-基本的公用 Load Balancer 會公開每個後端集區，透過 Azure 監視器記錄檔彙總的健康情況探查狀態。  Azure 監視器記錄不適用於內部基本負載平衡器。  您可以使用[Azure 監視器記錄](load-balancer-monitor-log.md)檢查公用負載平衡器探查健全狀況狀態和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
+基本公用 Load Balancer 會透過 Azure 監視器記錄, 公開每個後端集區摘要的健康情況探查狀態。  內部基本負載平衡器無法使用 Azure 監視器記錄。  您可以使用[Azure 監視器記錄](load-balancer-monitor-log.md)來檢查公用負載平衡器探查健全狀況狀態和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
 
 ## <a name="limitations"></a>限制
 

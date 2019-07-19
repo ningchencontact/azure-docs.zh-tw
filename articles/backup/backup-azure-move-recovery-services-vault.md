@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57263dfd1e226f2ff4321b2d097d30106fae87fa
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64876839"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304914"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 訂用帳戶和資源群組移動復原服務保存庫
 
@@ -21,23 +21,23 @@ ms.locfileid: "64876839"
 
 ## <a name="supported-region"></a>支援的區域
 
-復原服務保存庫支援在澳大利亞東部、 澳洲南部東部、 加拿大中部、 加拿大東部、 東南亞、 東亞、 美國中部、 North Central US、 美國東部、 美國東部 2 中的資源移動南部中央 US、 美國中西部、 西部中部美國 2、 美國西部、印度中部、 印度南部、 日本東部、 日本西部、 韓國中部、 韓國南部、 北歐、 西歐、 南非北部、 南非西部、 英國南部和英國西部。
+澳大利亞東部、澳大利亞東南部、加拿大中部、加拿大東部、南部東亞、東亞、美國中部、美國中北部、美國東部、東部美國2、美國中南部、美國中西部、西歐美國2、美國西部, 都支援復原服務保存庫的資源移動印度中部、印度南部、日本東部、日本西部、韓國中部、南韓南部、歐洲北部、西歐、南非北部、南非西部、英國南部和英國西部。
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>移動復原服務保存庫的必要條件
 
-- 在保存庫期間移動跨資源群組，在來源和目標資源群組鎖定防止寫入和刪除作業。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
-- 只有系統管理員的訂用帳戶具有移動保存庫的權限。
-- 訂用帳戶之間移動保存庫，目標訂用帳戶必須位於與來源訂用帳戶相同的租用戶，其狀態應該啟用。
+- 在跨資源群組移動保存庫期間, 來源和目標資源群組都會被鎖定, 而導致寫入和刪除作業無法執行。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+- 只有管理訂用帳戶具有移動保存庫的許可權。
+- 針對跨訂用帳戶移動保存庫, 目標訂用帳戶必須位於與來源訂用帳戶相同的租使用者中, 且其狀態應為 [已啟用]。
 - 您必須擁有在目標資源群組上執行寫入作業的權限。
-- 移動保存庫只會變更資源群組。 復原服務保存庫會位於相同的位置，就無法變更。
-- 您可以移動每個區域的只有一個復原服務保存庫中，一次。
-- 如果 VM 不會移動與復原服務保存庫中，跨訂用帳戶，或新的資源群組，在過期前，還是會維持不變，保存庫中執行目前的 VM 復原點。
+- 移動保存庫只會變更資源群組。 復原服務保存庫將位於相同的位置, 而且無法變更。
+- 您一次只能移動一個復原服務保存庫 (每個區域)。
+- 如果 VM 不會在訂用帳戶之間移動復原服務保存庫, 或移至新的資源群組, 則目前的 VM 復原點會在保存庫中保持不變, 直到過期為止。
 - 無論 VM 是否隨著保存庫移動，您一律可以從保留在保存庫內的備份記錄還原 VM。
-- Azure 磁碟加密需要金鑰保存庫和 Vm 位於相同的 Azure 區域和訂用帳戶。
+- Azure 磁碟加密需要金鑰保存庫和 Vm 位於相同的 Azure 區域和訂用帳戶中。
 - 若要移動具有受控磁碟的虛擬機器，請參閱這篇[文章](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)。
-- 移動透過傳統模型所部署之資源的選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)。
+- 移動透過傳統模型所部署之資源的選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 - 在保存庫跨訂用帳戶或往新的資源群組移動之後，為保存庫所定義的備份原則會保留下來。
-- 不支援移動保存庫與 Azure 檔案、 Azure 檔案同步或 SQL IaaS Vm 中，跨訂用帳戶和資源群組。
+- 不支援在訂用帳戶和資源群組的 IaaS Vm 中, 使用 Azure 檔案儲存體、Azure 檔案同步或 SQL 移動保存庫。
 - 如果您跨訂用帳戶移動含有 VM 備份資料的保存庫，則必須將 VM 移至相同的訂用帳戶，並使用相同的目標資源群組來繼續備份。<br>
 
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.locfileid: "64876839"
 > 依設定要與 **Azure Site Recovery** 搭配使用的復原服務保存庫還無法移動。 如果您已使用 **Azure Site Recovery** 來為任何 VM (Azure IaaS、Hyper-V、VMware) 或實體機器設定災害復原，則無法進行移動作業。 Site Recovery 服務的資源移動功能尚未正式運作。
 
 
-## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>使用 Azure 入口網站移至不同的資源群組的復原服務保存庫
+## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>使用 Azure 入口網站將復原服務保存庫移至不同的資源群組
 
 將復原服務保存庫和其相關聯的資源移動到不同的資源群組
 
@@ -75,7 +75,7 @@ ms.locfileid: "64876839"
    ![確認訊息](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
-## <a name="use-azure-portal-to-move-recovery-services-vault-to-a-different-subscription"></a>使用 Azure 入口網站移至不同的訂用帳戶的 復原服務保存庫
+## <a name="use-azure-portal-to-move-recovery-services-vault-to-a-different-subscription"></a>使用 Azure 入口網站將復原服務保存庫移至不同的訂用帳戶
 
 您可以將復原服務保存庫和其相關聯的資源移動到不同的訂用帳戶
 
@@ -108,7 +108,7 @@ ms.locfileid: "64876839"
 >
 >
 
-## <a name="use-powershell-to-move-recovery-services-vault"></a>使用 PowerShell 來移動復原服務保存庫
+## <a name="use-powershell-to-move-recovery-services-vault"></a>使用 PowerShell 移動復原服務保存庫
 
 若要將復原服務保存庫移動到另一個資源群組，請使用 `Move-AzureRMResource` Cmdlet。 `Move-AzureRMResource` 需要資源名稱和資源類型。 您可以從 `Get-AzureRmRecoveryServicesVault` Cmdlet 取得這兩項資訊。
 

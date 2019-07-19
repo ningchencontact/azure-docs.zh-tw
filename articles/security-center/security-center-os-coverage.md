@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-ms.openlocfilehash: e2d66db2ae3c379db86d40603d919489fdf15eed
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.author: v-mohabe
+ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144267"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295594"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -51,7 +51,7 @@ ms.locfileid: "67144267"
 以下為支援的 Linux 作業系統：
 
 > [!NOTE]
-> 由於經常變更支援的 Linux 作業系統的清單，如果想要的話，按一下[此處](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems)若要檢視支援的版本中，最新清單，如果已有變更本主題最後發行之後。
+> 由於支援的 Linux 作業系統清單經常變更, 如果您想要的話, 請按一下[這裡](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems), 以查看最新的支援版本清單, 以防上次發行此主題之後已經發生變更。
 
 64 位元
 * CentOS 6 和 7
@@ -82,7 +82,7 @@ ms.locfileid: "67144267"
 |----|----|----|----|----|----|----|----|
 |**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
-|VMBA 威脅偵測警示|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議 （免費） 的威脅偵測 （標準）|
+|VMBA 威脅偵測警示|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議 (免費) 威脅偵測 (標準)|
 |網路型威脅偵測警示|✔|✔|X|✔|✔|X|標準|
 |Windows Defender ATP 整合|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|標準|
 |遺漏修補程式|✔|✔|✔|✔|✔|✔|免費|
@@ -91,14 +91,14 @@ ms.locfileid: "67144267"
 |JIT VM 存取|✔|X|X|✔|X|X|標準|
 |自適性應用程式控制|✔|X|✔|✔|X|✔|標準|
 |FIM|✔|✔|✔|✔|✔|✔|標準|
-|磁碟加密評估|✔|✔|X|✔|✔|X|免費|
+|磁片加密評估|✔|✔|X|✔|✔|X|免費|
 |第三方部署|✔|X|X|✔|X|X|免費|
 |NSG 評量|✔|✔|X|✔|✔|X|免費|
 |無檔案型威脅偵測|✔|✔|✔|X|X|X|標準|
 |網路地圖|✔|✔|X|✔|✔|X|標準|
 |自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
-|法規合規性儀表板和報表|✔|✔|✔|✔|✔|✔|標準|
-|建議和 Docker 裝載 IaaS 容器上的威脅偵測|X|X|X|✔|✔|✔|標準|
+|法規合規性儀表板 & 報告|✔|✔|✔|✔|✔|✔|標準|
+|Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|標準|
 
 ### <a name="supported-endpoint-protection-solutions"></a>支援的端點保護解決方案
 
@@ -106,7 +106,7 @@ ms.locfileid: "67144267"
  - 您是否可以使用 Azure 資訊安全中心安裝適用於您的每個解決方案。
  - 資訊安全中心可以探索哪些端點保護解決方案。 如果探索到這些端點保護解決方案的其中一個，資訊安全中心不會建議安裝。
 
-如需這些保護的每個產生建議時，請參閱[Endpoint Protection 評定與建議](security-center-endpoint-protection.md)。
+如需每一項保護何時產生建議的相關資訊, 請參閱[Endpoint Protection 評估和建議](security-center-endpoint-protection.md)。
 
 | 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
@@ -124,7 +124,7 @@ ms.locfileid: "67144267"
 ## <a name="supported-paas-features"></a>支援的 PaaS 功能
 
 
-|服務|建議 （免費）|威脅偵測 （標準）|
+|服務|建議 (免費)|威脅偵測 (標準)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -136,7 +136,7 @@ ms.locfileid: "67144267"
 |子網路|✔| NA|
 |NIC|✔| NA|
 |NSG|✔| NA|
-|訂用帳戶|✔ **| ✔|
+|Subscription|✔ **| ✔|
 |Batch|✔| NA|
 |Service Fabric|✔| NA|
 |自動化帳戶|✔| NA|
@@ -156,7 +156,7 @@ ms.locfileid: "67144267"
 
 \* 這些功能目前以公開預覽形式支援。
 
-\*\* AAD 建議僅適用於標準訂用帳戶
+\*\*AAD 建議僅適用于標準訂用帳戶
 
 
 

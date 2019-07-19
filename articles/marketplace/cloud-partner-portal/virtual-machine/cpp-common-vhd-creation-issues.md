@@ -1,18 +1,19 @@
 ---
-title: 在 Azure marketplace 的 VHD 建立 (集 FAQ) 期間的常見問題
+title: Azure Marketplace VHD 建立期間的常見問題 (FAQ)
 description: 建立 VHD 的常見問題與相關問題。
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: d8b532793282db18d6182237bb921bc118ea717b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hascipio
+ms.reviewer: v-divte; v-miclar
+ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938439"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875003"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>VHD 建立過程中的常見問題 (常見問題集)
 

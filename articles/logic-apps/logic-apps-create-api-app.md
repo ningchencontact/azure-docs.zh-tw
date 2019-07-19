@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681804"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273214"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
 
-雖然 Azure Logic Apps 提供了 [100 多個內建連接器](../connectors/apis-list.md)，可供您在邏輯應用程式工作流程中使用，但建議您呼叫無法用來作為連接器的 API、系統與服務。 您可以建立自己的 API 來提供要在邏輯應用程式中使用的動作和觸發程序。 以下是您可能會想要建立自己的且可從邏輯應用程式工作流程呼叫之 API 的其他原因：
+雖然 Azure Logic Apps 提供您可以在邏輯應用程式工作流程中使用的[數百個連接器](../connectors/apis-list.md), 但您可能會想要呼叫不是連接器提供的 api、系統和服務。 您可以建立自己的 API 來提供要在邏輯應用程式中使用的動作和觸發程序。 以下是您可能會想要建立自己的且可從邏輯應用程式工作流程呼叫之 API 的其他原因：
 
 * 延伸您目前的系統整合及資料整合工作流程。
 * 協助客戶使用您的服務來管理專業或個人工作。

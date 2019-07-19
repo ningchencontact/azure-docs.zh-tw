@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 在主要和次要 IP 組態間進行負載平衡。
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591690"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274742"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
@@ -194,4 +194,4 @@ ms.locfileid: "60591690"
 
 ## <a name="next-steps"></a>後續步驟
 - 若要深入了解如何在 Azure 中合併負載平衡服務，請參閱[在 Azure 中使用負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 了解如何使用不同類型的記錄管理和疑難排解負載平衡器[Azure 監視器記錄的 Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md)。
+- 瞭解如何在[Azure Load Balancer 的 Azure 監視器記錄](../load-balancer/load-balancer-monitor-log.md)中, 使用不同類型的記錄來管理負載平衡器, 並對其進行疑難排解。

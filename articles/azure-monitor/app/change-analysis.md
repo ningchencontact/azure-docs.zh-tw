@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 監視器中的應用程式變更分析，來尋找 web 應用程式的問題 |Microsoft Docs
-description: 使用 Azure 監視器中的應用程式變更分析，在 Azure App Service 上的即時站台上的應用程式問題進行疑難排解。
+title: 在 Azure 監視器中使用應用程式變更分析來尋找 web 應用程式的問題 |Microsoft Docs
+description: 在 Azure 監視器中使用應用程式變更分析, 針對 Azure App Service 上的即時網站上的應用程式問題進行疑難排解。
 services: application-insights
 author: cawams
 manager: carmonm
@@ -10,89 +10,89 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 45df8f9e57223ea60a11c6af2187d362184cae2b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3efa26a1eaea8f522d9717efb0de0ec8e1682e0e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443357"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875129"
 ---
-# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>使用 Azure 監視器 」 中的應用程式變更分析 （預覽）
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>在 Azure 監視器中使用應用程式變更分析 (預覽)
 
-當即時網站問題或中斷發生時，快速判斷根本原因是重要的。 標準的監視解決方案可能會通知您的問題。 它們甚至可能會指出失敗的元件。 但是，此警示不一定會立即說明失敗的原因。 您知道您的網站處理五分鐘，而現在它已經破壞。 在過去五分鐘內變更內容？ 這是難以抉擇應用程式變更分析是設計用來回答 Azure 監視器中。
+當發生即時網站問題或中斷時, 快速判斷根本原因是很重要的。 標準監視解決方案可能會警告您發生問題。 他們甚至可能會指出哪個元件失敗。 但此警示不一定會立即說明失敗的原因。 您知道您的網站在五分鐘前就已正常運作, 現在已中斷。 過去五分鐘內有哪些變更？ 這是應用程式變更分析設計來在 Azure 監視器中回答的問題。
 
-建置的能力[Azure 資源 Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)，變更分析提供深入了解您的 Azure 應用程式變更，以增加可檢視性，並減少 MTTR （平均時間來修復）。
+藉由[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)的威力, 變更分析可讓您深入瞭解 Azure 應用程式變更, 以增加可檢視性並減少 MTTR (平均修復時間)。
 
 > [!IMPORTANT]
-> 變更分析目前為預覽狀態。 此預覽版本提供不含服務等級合約。 此版本不建議用於生產工作負載。 某些功能可能不支援，或可能已經限制功能。 如需詳細資訊，請參閱 <<c0> [ 使用 Microsoft Azure 預覽補充規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 變更分析目前為預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供。 不建議將此版本用於生產工作負載。 某些功能可能不受支援, 或可能有限制的功能。 如需詳細資訊, 請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
-變更分析偵測到各種類型的變更，從基礎結構層到應用程式部署。 它是檢查資源變更訂用帳戶中的訂用帳戶層級的 Azure 資源提供者。 變更分析提供各種診斷工具，可協助使用者了解哪些變更的資料可能會造成問題。
+變更分析會偵測各種類型的變更, 從基礎結構層到應用程式部署都是如此。 這是訂用帳戶層級的 Azure 資源提供者, 可檢查訂用帳戶中的資源變更。 變更分析會針對各種診斷工具提供資料, 以協助使用者瞭解哪些變更可能會造成問題。
 
-下圖說明變更分析的架構：
+下圖說明變更分析的架構:
 
-![變更分析取得變更資料的方式，並提供它給用戶端工具的架構圖](./media/change-analysis/overview.png)
+![變更分析如何取得變更資料, 並將其提供給用戶端工具的架構圖](./media/change-analysis/overview.png)
 
-目前的變更分析會整合到**診斷並解決問題**App Service web 應用程式中體驗。 若要啟用變更偵測，並在 web 應用程式中檢視變更，請參閱*Web 應用程式功能的變更分析*本文稍後的章節。
+目前的變更分析已整合到 App Service web 應用程式中的**診斷和解決問題**體驗。 若要在 web 應用程式中啟用變更偵測和查看變更, 請參閱本文稍後的*變更 Web Apps 功能的分析*一節。
 
-### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager 部署的變更
+### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager 部署變更
 
-使用[Azure 資源 Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)，變更分析會提供如何隨著時間變更裝載您的應用程式的 Azure 資源的歷程記錄。 變更分析可以偵測，例如，變更 IP 組態規則、 受管理的身分識別和 SSL 設定。 因此如果標記新增至 web 應用程式時，變更分析會反映變更。 這項資訊可用，只要`Microsoft.ChangeAnalysis`中 Azure 訂用帳戶已啟用資源提供者。
+變更分析會使用[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), 提供裝載應用程式的 Azure 資源在一段時間內變更的歷程記錄。 例如, 變更分析可以偵測 IP 設定規則中的變更、受控身分識別, 以及 SSL 設定。 因此, 如果將標記新增至 web 應用程式, 則變更分析會反映變更。 只要 Azure 訂用帳戶中已啟用`Microsoft.ChangeAnalysis`資源提供者, 就可以使用這項資訊。
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>在 web 應用程式部署和設定的變更
+### <a name="changes-in-web-app-deployment-and-configuration"></a>Web 應用程式部署和設定的變更
 
-變更分析會擷取每隔 4 小時的應用程式的部署和設定狀態。 它可以偵測，例如，應用程式的環境變數中的變更。 此工具會計算差異，並提供變更的功能。 不同於 Resource Manager 的變更，可能無法立即出現在此工具的程式碼部署變更資訊。 若要變更分析中檢視最新的變更，請選取**掃描變更現在**。
+變更分析會每隔4小時捕獲應用程式的部署和設定狀態。 例如, 它可以偵測應用程式環境變數中的變更。 此工具會計算差異, 並顯示已變更的內容。 不同于 Resource Manager 變更, 工具中可能不會立即提供程式碼部署變更資訊。 若要在 [變更分析] 中查看最新的變更, 請選取 [**立即掃描變更**]。
 
-![「 現在變更掃描 」 按鈕的螢幕擷取畫面](./media/change-analysis/scan-changes.png)
+![[立即掃描變更] 按鈕的螢幕擷取畫面](./media/change-analysis/scan-changes.png)
 
 ### <a name="dependency-changes"></a>相依性變更
 
-資源相依性的變更也可能導致問題的 web 應用程式中。 例如，如果 web 應用程式呼叫 Redis 快取，Redis 快取 SKU 可能會影響 web 應用程式效能。 若要偵測變更相依性中，變更分析會檢查 web 應用程式的 DNS 記錄。 如此一來，它會識別可能會造成問題的所有應用程式元件中的變更。
+變更資源相依性也會導致 web 應用程式發生問題。 例如, 如果 web 應用程式呼叫 Redis 快取, Redis cache SKU 可能會影響 web 應用程式的效能。 若要偵測相依性中的變更, 變更分析會檢查 web 應用程式的 DNS 記錄。 如此一來, 它會識別可能造成問題的所有應用程式元件中的變更。
 
-## <a name="change-analysis-for-the-web-apps-feature"></a>變更分析 Web 應用程式功能
+## <a name="change-analysis-for-the-web-apps-feature"></a>變更 Web Apps 功能的分析
 
-Azure 監視器變更分析目前內建的自助**診斷並解決問題**體驗。 存取這項體驗，從**概觀**App Service 應用程式頁面。
+在 Azure 監視器中, 變更分析目前內建于自助**診斷和解決問題**體驗。 從您 App Service 應用程式的 [**總覽**] 頁面存取這項體驗。
 
-![[概觀] 按鈕的螢幕擷取畫面和 「 診斷及解決的問題 」 按鈕](./media/change-analysis/change-analysis.png)
+![[總覽] 按鈕和 [診斷並解決問題] 按鈕的螢幕擷取畫面](./media/change-analysis/change-analysis.png)
 
-### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>啟用 診斷中的變更分析，並解決問題的工具
+### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>在診斷和解決問題工具中啟用變更分析
 
-1. 選取 **可用性和效能**。
+1. 選取 [**可用性和效能**]。
 
-    ![「 可用性與效能 > 疑難排解選項的螢幕擷取畫面](./media/change-analysis/availability-and-performance.png)
+    ![[可用性和效能] 疑難排解選項的螢幕擷取畫面](./media/change-analysis/availability-and-performance.png)
 
-1. 選取 **應用程式變更**。 也會提供此功能的 not**應用程式當機**。
+1. 選取 [**應用程式變更**]。 但**應用程式**當機時也無法使用此功能。
 
-   ![「 應用程式當機 」 按鈕的螢幕擷取畫面](./media/change-analysis/application-changes.png)
+   ![[應用程式當機] 按鈕的螢幕擷取畫面](./media/change-analysis/application-changes.png)
 
-1. 若要啟用變更分析，請選取**立即啟用**。
+1. 若要啟用變更分析, 請選取 [**立即啟用**]。
 
-   ![「 應用程式當機 」 選項的螢幕擷取畫面](./media/change-analysis/enable-changeanalysis.png)
+   ![[應用程式當機] 選項的螢幕擷取畫面](./media/change-analysis/enable-changeanalysis.png)
 
-1. 開啟**變更分析**，然後選取**儲存**。
+1. 開啟 [**變更分析**], 然後選取 [**儲存**]。
 
-    ![「 啟用變更分析 」 使用者介面的螢幕擷取畫面](./media/change-analysis/change-analysis-on.png)
+    ![[啟用變更分析] 使用者介面的螢幕擷取畫面](./media/change-analysis/change-analysis-on.png)
 
 
-1. 若要存取變更分析，請選取**診斷並解決問題** > **可用性和效能** > **應用程式當機**。 您會看到摘要的變更類型經過一段時間，以及這些變更的詳細資訊的圖形：
+1. 若要存取變更分析, 請選取 [**診斷並解決問題** > **可用性和效能** > **應用程式**當機]。 您會看到一個圖表, 其中匯總一段時間的變更類型, 以及這些變更的詳細資料:
 
-     ![變更差異檢視的螢幕擷取畫面](./media/change-analysis/change-view.png)
+     ![變更差異視圖的螢幕擷取畫面](./media/change-analysis/change-view.png)
 
 
 ### <a name="enable-change-analysis-at-scale"></a>啟用大規模的變更分析
 
-如果您的訂用帳戶包含多個 web 應用程式，啟用層級的 web 應用程式服務會是效率不佳。 在此情況下，請遵循這些替代指示。
+如果您的訂用帳戶包含多個 web 應用程式, 則在 web 應用程式層級上啟用服務會沒有效率。 在此情況下, 請遵循這些替代指示。
 
-### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>註冊您的訂用帳戶的變更分析資源提供者
+### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>為您的訂用帳戶註冊變更分析資源提供者
 
-1. 註冊變更分析功能旗標 （預覽）。 功能旗標為預覽狀態，因為您需要註冊，如此即可讓它顯示您訂用帳戶：
+1. 註冊變更分析功能旗標 (預覽)。 因為功能旗標處於預覽狀態, 所以您必須加以註冊, 才能讓您的訂用帳戶看見:
 
    1. 開啟 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)。
 
       ![變更 Cloud Shell 的螢幕擷取畫面](./media/change-analysis/cloud-shell.png)
 
-   1. 將介面類型變更為**PowerShell**。
+   1. 將 [shell 類型] 變更為 [ **PowerShell**]。
 
       ![變更 Cloud Shell 的螢幕擷取畫面](./media/change-analysis/choose-powershell.png)
 
@@ -104,17 +104,17 @@ Azure 監視器變更分析目前內建的自助**診斷並解決問題**體驗�
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
 
-1. 註冊訂用帳戶的變更分析資源提供者。
+1. 為訂用帳戶註冊變更分析資源提供者。
 
-   - 移至**訂用帳戶**，然後選取您想要變更服務中啟用的訂用帳戶。 然後選取 資源提供者：
+   - 移至  [訂用帳戶], 然後選取您想要在變更服務中啟用的訂用帳戶。 然後選取 [資源提供者]:
 
-        ![螢幕擷取畫面顯示如何註冊變更分析資源提供者](./media/change-analysis/register-rp.png)
+        ![顯示如何註冊變更分析資源提供者的螢幕擷取畫面](./media/change-analysis/register-rp.png)
 
-       - 選取  **Microsoft.ChangeAnalysis**。 然後在頁面頂端，選取**註冊**。
+       - 選取 [ **ChangeAnalysis**]。 然後在頁面頂端, 選取 [**註冊**]。
 
-       - 啟用資源提供者之後，您可以在 web 應用程式，可偵測的變更層級的部署設定隱藏的標籤。 若要設定隱藏的標記，請依照下列指示**無法擷取變更分析資訊**。
+       - 啟用資源提供者之後, 您可以在 web 應用程式上設定隱藏標記, 以偵測部署層級的變更。 若要設定隱藏的標記, 請依照 [**無法提取變更分析資訊**] 底下的指示進行。
 
-   - 或者，您可以使用 PowerShell 指令碼以註冊資源提供者：
+   - 或者, 您可以使用 PowerShell 腳本來註冊資源提供者:
 
         ```PowerShell
         Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
@@ -122,7 +122,7 @@ Azure 監視器變更分析目前內建的自助**診斷並解決問題**體驗�
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
         ```
 
-        若要使用 PowerShell 來設定隱藏的標記的 web 應用程式上，執行下列命令：
+        若要使用 PowerShell 在 web 應用程式上設定隱藏的標記, 請執行下列命令:
 
         ```powershell
         $webapp=Get-AzWebApp -Name <name_of_your_webapp>
@@ -132,9 +132,10 @@ Azure 監視器變更分析目前內建的自助**診斷並解決問題**體驗�
         ```
 
      > [!NOTE]
-     > 新增隱藏的標記之後，您可能仍然需要等待最多 4 個小時再開始看到變更。 結果會延遲，因為變更分析會掃描您 web 應用程式只能每隔 4 小時。 4 小時排程限制掃描的效能影響。
+     > 新增隱藏標記之後, 您可能還需要等待4小時, 才能開始看到變更。 結果會延遲, 因為變更分析只會每隔4小時掃描您的 web 應用程式。 4小時的排程會限制掃描對效能的影響。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 監視應用程式服務更有效地依[啟用 Application Insights 功能](azure-web-apps.md)Azure 監視器中。
-- 深入了解[Azure 資源 Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)，它可協助 power 變更分析。
+- 啟用[Azure App Services 應用程式](azure-web-apps.md)的 Application Insights。
+- 啟用[AZURE VM 和 azure 虛擬機器擴展集 IIS 託管應用程式](azure-vm-vmss-apps.md)的 Application Insights。
+- 深入瞭解[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), 其可協助您進行電源變更分析。

@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477004"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868825"
 ---
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure 機器學習服務工作區
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure Machine Learning 服務的工作區
 
 在本文中，您將了解使用 Azure Resource Manager 範本建立 Azure Machine Learning 服務工作區的數種方式。 Resource Manager 範本可讓您輕鬆地以單一、協調的作業建立資源。 範本是 JSON 文件，其定義部署所需的資源。 它也可以指定部署參數。 參數用來在使用範本時提供輸入值。
 
 如需詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以[試用免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "67477004"
 
 ## <a name="resource-manager-template"></a>Resource Manager 範本
 
-下列 Resource Manager 範本可以用來建立 Azure 機器學習服務工作區和相關聯的 Azure 資源中：
+下列 Resource Manager 範本可以用來建立 Azure Machine Learning 服務工作區和相關聯的 Azure 資源:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -104,18 +104,18 @@ az group deployment create \
 
 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)和[使用 SAS 權杖和 Azure CLI 部署私用 Resource Manager 範本](../../azure-resource-manager/resource-manager-cli-sas-token.md)。
 
-## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure 金鑰保存庫存取原則和 Azure Resource Manager 範本
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 存取原則和 Azure Resource Manager 範本
 
-當您使用 Azure Resource Manager 範本來建立工作區和相關聯的資源 （包括 Azure Key Vault），許多次。 例如，使用範本多次使用相同的參數做為一部分的連續整合和部署管線。
+當您使用 Azure Resource Manager 範本來建立工作區和相關聯的資源 (包括 Azure Key Vault) 時, 會多次。 例如, 使用範本多次, 並以相同的參數作為持續整合和部署管線的一部分。
 
-大部分的資源建立作業，透過範本具有等冪性，但金鑰保存庫清除的存取原則每次使用此範本。 清除 存取原則符號 Key Vault 存取權的任何現有的工作區正在使用它。 例如，Azure Notebook vm 停止/建立功能可能會失敗。  
+大部分透過範本的資源建立作業都是等冪的, 但 Key Vault 會在每次使用範本時清除存取原則。 清除存取原則會中斷對使用它之任何現有工作區的 Key Vault 存取。 例如, Azure Notebooks VM 的停止/建立功能可能會失敗。  
 
-若要避免這個問題，我們建議下列方式之一：
+若要避免這個問題, 建議您採用下列其中一種方法:
 
-*  請勿部署範本一次以上相同的參數。 或使用範本來重新建立它們之前刪除現有的資源。
+*  不要針對相同的參數多次部署範本。 或刪除現有的資源, 然後再使用此範本重新建立它們。
   
-* 檢查金鑰保存庫的存取原則，然後使用這些原則範本的 Accesspolicy 屬性設定。
-* 檢查 Key Vault 資源是否已經存在。 若是如此，不會重建它透過範本。 例如，加入參數，可讓您停用建立金鑰保存庫資源，如果已經存在。
+* 檢查 Key Vault 的存取原則, 然後使用這些原則來設定範本的 accessPolicies 屬性。
+* 檢查 Key Vault 資源是否已存在。 如果有, 請不要透過範本重新建立它。 例如, 新增可讓您停用建立 Key Vault 資源的參數 (如果已經存在)。
 
 ## <a name="next-steps"></a>後續步驟
 

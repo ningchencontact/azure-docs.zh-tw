@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 466d5eff27d9a8105fb840ce4ba79571b6207092
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ed26c4d90738e10f3eb5a9a486cd2734090abd0e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835505"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227244"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -68,7 +68,7 @@ ms.locfileid: "67835505"
 
 4. 在 [新的 ASP.NET Web 應用程式]  視窗中，選取 [Web API]  或 [Azure API 應用程式]  範本。
 
-    ![在 Visual Studio 中選取 web API 範本](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![在 Visual Studio 中選取 Web API 範本](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. 確定驗證已設為 [沒有驗證]  。
 
@@ -84,7 +84,7 @@ ms.locfileid: "67835505"
 1. 如果尚未開啟 [方案總管]，請選取 [檢視]   > [方案總管]  。
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]  ，然後選取 [類別]  。
 
-    ![新增模型](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
+    ![在 Visual Studio 中選取 [新增類別] 功能表項目](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
 3. 將類別命名為 `InputClaimsModel`，然後將下列屬性新增至 `InputClaimsModel` 類別：
 
@@ -138,15 +138,15 @@ ms.locfileid: "67835505"
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]  ，然後選取 [控制器]  。
 
-    ![在 Visual Studio 中加入新的控制站](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![在 Visual Studio 中新增控制器](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. 在 [新增 Scaffold]  視窗中，選取 [Web API 控制器 - 空白]  ，然後選取 [新增]  。
 
-    ![在 Visual Studio 中選取 Web API 2 控制器-空白](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![選取 Visual Studio 中的 Web API 2 控制器-空白](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. 在 [新增控制器]  視窗中，將控制器命名為 **IdentityController**，然後選取 [新增]  。
 
-    ![輸入在 Visual Studio 中的控制器名稱](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![在 Visual Studio 中輸入控制器名稱](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     Scaffolding 會在 [控制器]  資料夾中建立名為 *IdentityController.cs* 的檔案。
 
@@ -206,11 +206,11 @@ ms.locfileid: "67835505"
 ## <a name="step-3-publish-the-project-to-azure"></a>步驟 3：將專案發佈到 Azure
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API** 專案，然後選取 [發佈]  。
 
-    ![發佈至 Microsoft Azure App Service 使用 Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![使用 Visual Studio 發行至 Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. 在 [發佈]  視窗中，選取 [Microsoft Azure App Service]  ，然後選取 [發佈]  。
 
-    ![使用 Visual Studio 中建立新的 Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![使用 Visual Studio 建立新的 Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     [建立 App Service]  視窗隨即開啟。 在其中，您可以建立要在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
 
@@ -347,12 +347,12 @@ ms.locfileid: "67835505"
 
 2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
 
-    ![在 Azure 入口網站中的 [B2C_1A_signup_signin 自訂原則] 頁面](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![Azure 入口網站中的 [B2C_1A_signup_signin 自訂原則] 頁面](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
 3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。
     Azure AD B2C 會在視窗頂端顯示錯誤訊息。
 
-    ![測試註冊的 [登入] 頁面上指定的名稱輸入的驗證](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![測試註冊登入頁面上的指定名稱輸入驗證](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
 4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。
     Azure AD B2C 會註冊使用者，然後將 loyaltyNumber傳送至您的應用程式。 記下此 JWT 中的數字。

@@ -1,6 +1,6 @@
 ---
-title: Microsoft 身分識別平台程式碼範例 |Microsoft Docs
-description: 依案例的平台 （v2.0 端點） 程式碼範例提供可用的 Microsoft 身分識別的索引。
+title: Microsoft 身分識別平臺的程式碼範例 |Microsoft Docs
+description: 提供可用的 Microsoft 身分識別平臺 (v2.0 端點) 程式碼範例的索引 (依案例組織)。
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceae71766c3e51a84cd09e8ac88740353e783bea
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f2e15bb8a069289a695643b3d7dc2e4b81d9b91d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482522"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277856"
 ---
-# <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平台程式碼範例 （v2.0 端點）
+# <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 身分識別平臺程式碼範例 (v2.0 端點)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -34,26 +34,26 @@ ms.locfileid: "67482522"
 - 將驗證和授權新增至您的 Web 應用程式與 Web API。
 - 要求存取權杖以存取受保護的 Web API。
 
-本文簡要說明，並提供您的 Microsoft 身分識別平台端點範例的連結。 這些範例會示範如何完成，且也會提供您可以使用您的應用程式中的程式碼片段。 在程式碼範例頁面上，您可以找到詳細的讀我檔案主題可協助您的需求、 安裝和設定。 在程式碼的註解可協助您了解重要區段。
+本文簡要說明並提供 Microsoft 身分識別平臺端點的範例連結。 這些範例會示範其完成方式, 並提供可在應用程式中使用的程式碼片段。 在 [程式碼範例] 頁面上, 您可以找到詳細的讀我檔案主題, 協助您進行需求、安裝和設定。 程式碼中的批註可協助您瞭解重要區段。
 
 > [!NOTE]
-> 如果您有興趣 v1.0 範例，請參閱[Azure AD 程式碼範例 （v1.0 端點）](sample-v1-code.md)。
+> 如果您對 v1.0 範例感興趣, 請參閱[Azure AD 程式碼範例 (v1.0 端點)](sample-v1-code.md)。
 
-若要了解基本的案例中每個範例類型，請參閱[Microsoft 身分識別平台端點的應用程式類型](v2-app-types.md)。
+若要瞭解每個範例類型的基本案例, 請參閱[Microsoft 身分識別平臺端點的應用程式類型](v2-app-types.md)。
 
 您也可以在 GitHub 上參與範例。 若要了解做法，請參閱 [Microsoft Azure Active Directory 範例與文件](https://github.com/Azure-Samples?page=3&query=active-directory)。
 
 ## <a name="single-page-applications"></a>單頁應用程式
 
-這些範例示範如何撰寫使用 Microsoft 身分識別平台來保護單一頁面應用程式。 這些範例會使用其中一個 MSAL.js 種。
+這些範例示範如何撰寫使用 Microsoft 身分識別平臺保護的單一頁面應用程式。 這些範例會使用 MSAL 的其中一種類別。
 
 | 平台 | 描述 | 連結 |
 | -------- | --------------------- | -------- |
-| ![下圖顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) [JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫 Microsoft Graph |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) (英文) |
-| ![下圖顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) [JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫 B2C |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![下圖顯示 JavaScript 標誌](media/sample-v2-code/logo_js.png) [JavaScript (msal.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫自己的 web API |[javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
-| ![此影像會顯示 Angular JS 標誌](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL AngularJS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)| 呼叫 Microsoft Graph  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
-| ![此影像會顯示 Angular 標誌](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| 呼叫 Microsoft Graph  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp) |
+| ![此圖顯示 javascript 標誌](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫 Microsoft Graph |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) (英文) |
+| ![此圖顯示 javascript 標誌](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫 B2C |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
+| ![此圖顯示 javascript 標誌](media/sample-v2-code/logo_js.png) [javascript (msal .js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | 呼叫自己的 Web API |[javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
+| ![此圖顯示角度 JS 標誌](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL AngularJS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs)| 呼叫 Microsoft Graph  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
+| ![此圖顯示角度標誌](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL 角度)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| 呼叫 Microsoft Graph  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp) |
 
 ## <a name="web-applications"></a>Web 應用程式
 
@@ -61,23 +61,23 @@ ms.locfileid: "67482522"
 
 | 平台 | 僅登入使用者 | 登入使用者與呼叫 Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![下圖顯示的 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [ASP.NET Core WebApp 登入使用者的教學課程](https://aka.ms/aspnetcore-webapp-sign-in) | 中的相同範例[ASP.NET Core Web 應用程式呼叫 Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph)階段 |
-| ![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 快速入門](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2) (英文)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) (英文) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![下圖顯示 Node.js 標誌](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 快速入門](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
-| ![下圖顯示 Ruby 標誌](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
+| ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | [ASP.NET Core WebApp 登入使用者教學課程](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core Web 應用程式](https://aka.ms/aspnetcore-webapp-call-msgraph)中的相同範例會呼叫 Microsoft Graph 階段 |
+| ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 快速入門](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2) (英文)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) (英文) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js 快速入門](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
+| ![此圖顯示 Ruby 標誌](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>桌上型與行動裝置公開用戶端應用程式
 
-下列範例會示範公開用戶端存取 Microsoft Graph API 或您自己的使用者名稱的 web API 的應用程式 （桌面或行動應用程式）。 所有這些用戶端應用程式使用 Microsoft Authentication Library (MSAL)。
+下列範例顯示存取 Microsoft Graph API 的公用用戶端應用程式 (桌面或行動應用程式), 或您自己 Web API 的使用者名稱。 所有這些用戶端應用程式都使用 Microsoft 驗證程式庫 (MSAL)。
 
-| 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET Core 2.0 的 web API |
+| 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET Core 2.0 Web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| 桌上型 (WPF)      | ![下圖顯示.NET /C#標誌](media/sample-v2-code/logo_NET.png) | [互動](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) (英文) |
-| 桌上型 (主控台)   | ![下圖顯示.NET /C# （桌面） 的標誌](media/sample-v2-code/logo_NET.png) | [整合式 Windows 驗證](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
-| 桌上型 (主控台)   | ![下圖顯示.NET /C# （桌面） 的標誌](media/sample-v2-code/logo_NETcore.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| 行動裝置 (Android、iOS、UWP)   | ![下圖顯示.NET /C# (Xamarin) 標誌](media/sample-v2-code/logo_xamarin.png) | [互動](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) (英文) |  |
-| 行動裝置 (iOS)       | ![下圖顯示 iOS/OBJECTIVE-C 或 Swift](media/sample-v2-code/logo_iOS.png) | [互動](msal-authentication-flows.md#interactive) |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) (英文) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) (英文) |  |
-| 行動裝置 (Android)   | ![下圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | [互動](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) (英文) |  |
+| 桌上型 (WPF)      | ![此圖顯示 .NET/C#標誌](media/sample-v2-code/logo_NET.png) | [互動](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) (英文) |
+| 桌上型 (主控台)   | ![此圖顯示 .NET/C# (桌面) 標誌](media/sample-v2-code/logo_NET.png) | [整合式 Windows 驗證](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| 桌上型 (主控台)   | ![此圖顯示 .NET/C# (桌面) 標誌](media/sample-v2-code/logo_NETcore.png) | [使用者名稱/密碼](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| 行動裝置 (Android、iOS、UWP)   | ![此圖顯示 .NET/C# (Xamarin) 標誌](media/sample-v2-code/logo_xamarin.png) | [互動](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) (英文) |  |
+| 行動裝置 (iOS)       | ![此圖顯示 iOS/目標-C 或 Swift](media/sample-v2-code/logo_iOS.png) | [互動](msal-authentication-flows.md#interactive) |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) (英文) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) (英文) |  |
+| 行動裝置 (Android)   | ![此圖顯示 Android 標誌](media/sample-v2-code/logo_Android.png) | [互動](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) (英文) |  |
 
 ## <a name="daemon-applications"></a>精靈應用程式
 
@@ -85,31 +85,31 @@ ms.locfileid: "67482522"
 
 | 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| 主控台 | ![下圖顯示.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Web 應用程式 | ![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) (英文) |
+| 主控台 | ![此圖顯示 .NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Web 應用程式 | ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [用戶端認證](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) (英文) |
 
 ## <a name="headless-applications"></a>無周邊應用程式
 
-下列範例示範在裝置 (沒有網頁瀏覽器) 上執行的公開用戶端應用程式。 應用程式可以是命令列工具，在 Linux 或 Mac 或 IoT 應用程式上執行的應用程式。 此範例功能存取 Microsoft Graph API，名稱的使用者登入以互動方式 （例如行動電話） 的另一個裝置上的應用程式。 此用戶端應用程式會使用 Microsoft Authentication Library (MSAL)。
+下列範例示範在裝置 (沒有網頁瀏覽器) 上執行的公開用戶端應用程式。 應用程式可以是命令列工具、在 Linux 或 Mac 上執行的應用程式, 或 IoT 應用程式。 此範例會以在另一個裝置 (例如行動電話) 上以互動方式登入的使用者名稱, 來提供應用程式存取 Microsoft Graph API 的功能。 此用戶端應用程式會使用 Microsoft 驗證程式庫 (MSAL)。
 
 | 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
-| 桌上型 (主控台)   | ![下圖顯示.NET /C# （桌面） 的標誌](media/sample-v2-code/logo_NETcore.png) | [裝置程式碼流程](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| 桌上型 (主控台)   | ![此圖顯示 .NET/C# (桌面) 標誌](media/sample-v2-code/logo_NETcore.png) | [裝置程式碼流程](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 
 ## <a name="web-apis"></a>Web API
 
-下列範例會示範如何保護 web API 與 Microsoft 身分識別平台的端點，以及如何從 web API 呼叫下游 API。
+下列範例示範如何使用 Microsoft 身分識別平臺端點來保護 Web API, 以及如何從 Web API 呼叫下游 API。
 
 | 平台 | 範例 |
 | -------- | ------------------- |
-| ![下圖顯示的 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API （服務） 的[dotnet 原生 aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
-| ![下圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API （服務） 的[ms-身分識別-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
+| ![此圖顯示 ASP.NET Core 標誌](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2。2 | Dotnet 的 ASP.NET Core Web API (服務) [-原生-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | [Ms-identity-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof)的 Web API (服務) |
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 範例
 
 若要了解示範 Microsoft Graph API 不同使用模式 (包括使用 Azure AD 驗證) 的[範例](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) (英文) 和教學課程，請參閱 [Microsoft Graph 社群範例和教學課程](https://github.com/microsoftgraph/msgraph-community-samples) (英文).
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure Active Directory (v1.0) 開發人員指南](v1-overview.md)
 - [Azure AD 圖形 API 的概念和參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)

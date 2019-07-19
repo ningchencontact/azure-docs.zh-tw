@@ -3,16 +3,17 @@ title: Azure Container Registry SKU
 description: 比較 Azure Container Registry 所提供的不同服務層級。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf620178a0c10661126b3e52c7b908ccc9a90d89
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069048"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311895"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -20,15 +21,15 @@ Azure Container Registry (ACR) 具有多個服務層級 (稱為SKU)。 這些 SK
 
 | SKU | 受控 | 描述 |
 | --- | :-------: | ----------- |
-| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 「 基本 」 登錄具有與 Standard 和 Premium 相同的程式設計功能 (例如 Azure Active Directory[驗證整合](container-registry-authentication.md#individual-login-with-azure-ad)，[映像刪除][container-registry-delete]，並[webhook][container-registry-webhook])。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
+| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 基本登錄具有與 Standard 和 Premium 相同的程式設計功能 (例如 Azure Active Directory[驗證整合](container-registry-authentication.md#individual-login-with-azure-ad)、[映射刪除][container-registry-delete], and [webhooks][container-registry-webhook])。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
 | **標準** | 是 | 「標準」登錄提供與「基本」相同的功能，並且提高內含儲存體和映像輸送量。 「標準」登錄應該能滿足大部分實際執行案例的需求。 |
-| **高級** | 是 | 「進階」登錄提供最多的內含儲存體和並行作業，可啟用大量情節。 除了更高的映像輸送量，Premium 會新增功能，包括[異地複寫][ container-registry-geo-replication]管理單一登錄，跨多個區域，並針對[內容信任](container-registry-content-trust.md)映像標記簽署，並[防火牆和虛擬網路 （預覽）](container-registry-vnet.md)來限制存取登錄。 |
-|  傳統 (*2019 年 4 月之後無法使用*) | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
+| **高級** | 是 | 「進階」登錄提供最多的內含儲存體和並行作業，可啟用大量情節。 除了更高的映射輸送量以外, Premium 還新增了[異地][container-registry-geo-replication]複寫功能, 包括跨多個區域管理單一登入、映射標記簽署的[內容信任](container-registry-content-trust.md), 以及[防火牆和虛擬網路 (預覽)](container-registry-vnet.md)限制登錄的存取權。 |
+|  傳統 (*在2019年4月之後無法使用*) | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
 
 > [!IMPORTANT]
-> 「 傳統 」 登錄 SKU 正在**過時**，將無法在之後與**2019 年 4 月**。 我們建議所有新的登錄使用 Basic、 Standard 或 Premium。 應該在 2019 年 4 月之前升級所有現有的傳統登錄。 如需升級的資訊，請參閱[傳統登錄升級][container-registry-upgrade]。
+> 傳統登錄 SKU 即將**淘汰**, 將在**2019 年4月**後無法使用。 我們建議針對所有新的登錄使用 Basic、Standard 或 Premium。 所有現有的傳統登錄都應該在2019年4月之前升級。 如需升級資訊, 請參閱[upgrade a 傳統 registry][container-registry-upgrade]。
 
-基本、 標準和進階 Sku (共同稱為*受控登錄*) 全部都會提供相同的程式設計功能。 它們也所有受惠[映像儲存體][ container-registry-storage]完全由 Azure 管理。 選擇較高層級的 SKU 可提供更多的效能和延展性。 由於有多個服務層級，您可以一開始先使用「基本」，再隨著登錄使用量的增加而轉換為「標準」和「進階」。
+Basic、Standard 和 Premium Sku (統稱為*受控*登錄) 全都提供相同的程式設計功能。 它們也全都受益于 Azure 完全受控的[映射儲存體][container-registry-storage]。 選擇較高層級的 SKU 可提供更多的效能和延展性。 由於有多個服務層級，您可以一開始先使用「基本」，再隨著登錄使用量的增加而轉換為「標準」和「進階」。
 
 ## <a name="sku-feature-matrix"></a>SKU 功能對照表
 
@@ -38,11 +39,11 @@ Azure Container Registry (ACR) 具有多個服務層級 (稱為SKU)。 這些 SK
 
 ## <a name="changing-skus"></a>變更 SKU
 
-您可以使用 Azure CLI 或在 Azure 入口網站中變更登錄的 SKU。 您可以自由地改用其他受控 SKU，只要您所要改用的目標 SKU 具有所需的最大儲存容量即可。 當您從傳統切換至其中一個受控 Sku 時，就無法改回傳統 」 是單向轉換，請將它。
+您可以使用 Azure CLI 或在 Azure 入口網站中變更登錄的 SKU。 您可以自由地改用其他受控 SKU，只要您所要改用的目標 SKU 具有所需的最大儲存容量即可。 當您從傳統切換到其中一個受控 Sku 時, 您無法回到傳統--它是單向轉換。
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要在 Azure CLI 中改用其他 SKU，請使用 [az acr update][az-acr-update] 命令。 例如，若要改用進階：
+若要在 Azure CLI 中的 Sku 之間移動, 請使用[az acr update][az-acr-update]命令。 例如，若要改用進階：
 
 ```azurecli
 az acr update --name myregistry --sku Premium
@@ -54,11 +55,11 @@ az acr update --name myregistry --sku Premium
 
 ![在 Azure 入口網站中更新容器登錄 SKU][update-registry-sku]
 
-如果您有傳統登錄，就無法在 Azure 入口網站中選取受控 SKU。 相反地，您必須先[升級][ container-registry-upgrade]為受控登錄。
+如果您有傳統登錄，就無法在 Azure 入口網站中選取受控 SKU。 相反地, 您必須先[升級][container-registry-upgrade]至受控登錄。
 
 ## <a name="pricing"></a>價格
 
-如需每個 Azure Container Registry SKU 的定價資訊，請參閱[容器登錄定價][container-registry-pricing]。
+如需每個 Azure Container Registry SKU 的定價資訊，請參閱 [Container Registry 定價][container-registry-pricing]。
 
 如需資料傳輸定價的詳細資訊，請參閱[頻寬定價詳細資料](https://azure.microsoft.com/pricing/details/bandwidth/)。 
 
@@ -66,11 +67,11 @@ az acr update --name myregistry --sku Premium
 
 **Azure Container Registry 藍圖**
 
-請瀏覽 GitHub 上的 [ACR 藍圖][acr-roadmap]，以尋找服務中即將推出之功能的相關資訊。
+請瀏覽 GitHub 上的 [ACR Roadmap][acr-roadmap] ACR 藍圖)，以尋找服務中即將推出功能的相關資訊。
 
 **Azure Container Registry UserVoice**
 
-在 [ACR UserVoice][container-registry-uservoice] 中提交並票選新功能建議。
+送出並票選 [ACR UserVoice][container-registry-uservoice] 中的新功能建議。
 
 <!-- IMAGES -->
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png

@@ -3,17 +3,17 @@ title: Azure 入口網站中的 Azure Container Registry 存放庫
 description: 如何檢視 Azure 入口網站中的 Azure Container Registry 存放庫。
 services: container-registry
 author: cristy
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
-ms.author: cristyg
-ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeconnoc
+ms.openlocfilehash: 22f84efee2b3996734e8e38c73d30ba891b745d9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710181"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310589"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>檢視 Azure 入口網站中的容器登錄存放庫
 
@@ -21,15 +21,15 @@ Azure Container Registry 可讓您將 Docker 容器映像儲存在存放庫中�
 
 ## <a name="prerequisites"></a>先決條件
 
-* **容器登錄庫**:在您的 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI**:安裝[Docker] [ docker-install]在本機電腦，可提供您 Docker 命令列介面。
-* **容器映像**:將映像推送至容器登錄。 如需如何發送和提取映像的指引，請參閱[發送和提取映像](container-registry-get-started-docker-cli.md)。
+* **Container registry**:在您的 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
+* **DOCKER CLI**:在您的本機電腦上安裝[docker][docker-install] , 以提供 docker 命令列介面。
+* **容器映射**:將映射推送至容器登錄。 如需如何發送和提取映像的指引，請參閱[發送和提取映像](container-registry-get-started-docker-cli.md)。
 
 ## <a name="view-repositories-in-azure-portal"></a>在 Azure 入口網站中檢視存放庫
 
 您可以在 Azure 入口網站中看到裝載映像以及映像標籤的存放庫清單。
 
-如果您依照[發送和提取映像](container-registry-get-started-docker-cli.md) 中的步驟進行 (而且後來並未刪除該映像)，您的容器登錄中應該會有 Nginx 映像。 該文章中的指示指定您要以 `/samples/nginx` 中的 "samples" 命名空間來標記映像。 複習一下，該文章中指定的 [docker push][docker-push] 命令如下：
+如果您依照[發送和提取映像](container-registry-get-started-docker-cli.md) 中的步驟進行 (而且後來並未刪除該映像)，您的容器登錄中應該會有 Nginx 映像。 該文章中的指示指定您要以 `/samples/nginx` 中的 "samples" 命名空間來標記映像。 做為重新整理程式, 在該文章中指定的[docker push][docker-push]命令為:
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx

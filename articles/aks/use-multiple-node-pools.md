@@ -1,38 +1,38 @@
 ---
-title: 使用多個節點集區中 Azure Kubernetes Service (AKS)
-description: 了解如何建立和管理 Azure Kubernetes Service (AKS) 叢集的多個節點集區
+title: 在 Azure Kubernetes Service 中使用多個節點集區 (AKS)
+description: 瞭解如何在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 2c4a0f57edb49ca2b2bc13bd9240b01c2b0556d3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613968"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278177"
 ---
-# <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-建立和管理 Azure Kubernetes Service (AKS) 叢集的多個節點集區
+# <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
-Azure Kubernetes Service (AKS) 中，相同的設定節點會分組放入*節點的集區*。 這些節點的集區包含執行應用程式的基礎 Vm。 當您建立 AKS 叢集，這會建立定義節點和其大小 (SKU) 的初始數目*預設節點集區*。 若要支援具有不同的計算或儲存體需求的應用程式，您可以建立其他的節點集區。 比方說，Gpu 提供大量運算應用程式，或存取高效能 SSD 儲存體中使用這些額外的節點集區。
+在 Azure Kubernetes Service (AKS) 中, 相同設定的節點會群組在一起成為*節點*集區。 這些節點集區包含執行應用程式的基礎 Vm。 當您建立 AKS 叢集時, 會定義初始節點數目及其大小 (SKU), 以建立*預設節點集*區。 若要支援具有不同計算或儲存體需求的應用程式, 您可以建立額外的節點集區。 例如, 您可以使用這些額外的節點集區, 為計算密集型應用程式提供 Gpu, 或存取高效能 SSD 儲存體。
 
-這篇文章會示範如何建立和管理 AKS 叢集中的多個節點集區。 此功能目前為預覽狀態。
+本文說明如何在 AKS 叢集中建立和管理多個節點集區。 此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
+> AKS 預覽功能是自助服務, 可加入宣告。 其提供用來從我們的社區收集意見反應和 bug。 在預覽中, 這些功能不適用於生產環境使用。 公開預覽中的功能落在「最佳」支援之下。 AKS 技術支援小組的協助僅適用于上班時間太平洋時區 (PST)。 如需其他資訊, 請參閱下列支援文章:
 >
 > * [AKS 支援原則][aks-support-policies]
 > * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="before-you-begin"></a>開始之前
 
-您需要 Azure CLI 2.0.61 版或更新版本安裝並設定。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您需要安裝並設定 Azure CLI 版本2.0.61 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用多個 nodepools，您需要*aks 預覽*CLI 擴充功能版本 0.4.1 或更高版本。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update]命令：
+若要使用多個 nodepools, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]命令來安裝*aks-preview* Azure CLI 擴充功能::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -42,12 +42,12 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-multiple-node-pool-feature-provider"></a>註冊多個節點集區的功能提供者
+### <a name="register-multiple-node-pool-feature-provider"></a>註冊多個節點集區功能提供者
 
-若要建立的 AKS 叢集，可以使用多個節點的集區，請先啟用您的訂用帳戶上的兩個功能旗標。 多節點的集區的叢集使用的虛擬機器擴展集 (VMSS)，來管理的部署和 Kubernetes 節點的組態。 註冊*MultiAgentpoolPreview*並*VMSSPreview*功能旗標使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+若要建立可使用多個節點集區的 AKS 叢集, 請先在您的訂用帳戶上啟用兩個功能旗標。 多節點集區叢集會使用虛擬機器擴展集 (VMSS) 來管理 Kubernetes 節點的部署和設定。 使用[az feature register][az-feature-register]命令來註冊*MultiAgentpoolPreview*和*VMSSPreview*功能旗標, 如下列範例所示:
 
 > [!CAUTION]
-> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
+> 當您在訂用帳戶上註冊功能時, 目前無法取消註冊該功能。 啟用一些預覽功能之後, 預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
@@ -55,16 +55,16 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
-> 任何您已成功註冊之後，您建立的 AKS 叢集*MultiAgentpoolPreview*使用此預覽叢集體驗。 若要繼續建立一般、 完全支援的叢集，請勿啟用生產訂用帳戶上的預覽功能。 使用個別的測試或開發 Azure 訂用帳戶進行測試預覽功能。
+> 您在成功註冊*MultiAgentpoolPreview*之後所建立的任何 AKS 叢集都會使用此預覽叢集體驗。 若要繼續建立一般、完全支援的叢集, 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的測試或開發 Azure 訂用帳戶來測試預覽功能。
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
+準備好時, 請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -72,22 +72,22 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>限制
 
-當您建立和管理支援多個節點的集區的 AKS 叢集時，就會套用下列限制：
+當您建立和管理支援多個節點集區的 AKS 叢集時, 適用下列限制:
 
-* 多個節點的集區僅適用於您已成功註冊之後建立的叢集*MultiAgentpoolPreview*並*VMSSPreview*訂用帳戶的功能。 您無法加入或使用現有的 AKS 叢集建立之前已成功註冊這些功能的節點集區。
+* 只有在您成功註冊訂用帳戶的*MultiAgentpoolPreview*和*VMSSPreview*功能之後, 才會有多個節點集區適用于建立的叢集。 在成功註冊這些功能之前, 您無法新增或管理具有現有 AKS 叢集的節點集區。
 * 您無法刪除第一個節點集區。
-* 無法使用的 HTTP 應用程式路由附加元件。
-* 您無法新增/更新/刪除節點的集區使用現有的 Resource Manager 範本，如同大部分的作業。 相反地，[使用不同的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)對在 AKS 叢集中的節點集區進行變更。
+* 無法使用 HTTP 應用程式路由附加元件。
+* 您無法使用現有的 Resource Manager 範本來新增/更新/刪除節點集區, 就像大部分的作業一樣。 相反地, 請[使用個別的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template), 對 AKS 叢集中的節點集區進行變更。
 
-雖然這項功能處於預覽狀態，其他的限制如下：
+雖然這項功能處於預覽狀態, 但仍適用下列其他限制:
 
-* AKS 叢集中可以有最多八個節點的集區。
-* AKS 叢集中可以有最多 400 個節點的跨這八個節點的集區。
-* 所有的節點集區必須位於相同的子網路
+* AKS 叢集最多可以有八個節點集區。
+* AKS 叢集在這八個節點集區中最多可以有400個節點。
+* 所有節點集區都必須位於相同的子網中
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-若要開始，請使用單一節點的集區中建立 AKS 叢集。 下列範例會使用[az 群組建立][az-group-create]命令來建立名為的資源群組*myResourceGroup*中*eastus*區域。 名為 AKS 叢集中*myAKSCluster*則使用建立[az aks 建立][az-aks-create]命令。 A *-kubernetes 版本*的*1.12.6*用來說明如何更新在下列步驟中的節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
+若要開始使用, 請建立具有單一節點集區的 AKS 叢集。 下列範例會使用[az group create][az-group-create]命令, 在*eastus*區域中建立名為*myResourceGroup*的資源群組。 然後使用[az AKS create][az-aks-create]命令來建立名為*myAKSCluster*的 AKS 叢集。 *--Kubernetes-* *1.13.5*版本是用來示範如何在下列步驟中更新節點集區。 您可以指定任何[支援的 Kubernetes 版本][supported-versions]。
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -100,12 +100,12 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.12.6
+    --kubernetes-version 1.13.5
 ```
 
 建立叢集需要幾分鐘的時間。
 
-備妥叢集時，使用[az aks get-credentials 來取得認證][az-aks-get-credentials]命令，以用於取得叢集認證`kubectl`:
+當叢集準備就緒時, 請使用[az aks get-認證][az-aks-get-credentials]命令來取得要搭配使用`kubectl`的叢集認證:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -113,7 +113,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>新增節點集區
 
-在上一個步驟中所建立的叢集有單一節點的集區。 讓我們新增第二個的節點集區使用[az aks 節點的集區新增][az-aks-nodepool-add]命令。 下列範例會建立名為節點集區*mynodepool*執行*3*節點：
+在上一個步驟中建立的叢集具有單一節點集區。 讓我們使用[az aks node pool add][az-aks-nodepool-add]命令來新增第二個節點集區。 下列範例會建立名為*mynodepool*的節點集區, 其會執行*3*個節點:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -123,61 +123,61 @@ az aks nodepool add \
     --node-count 3
 ```
 
-若要查看節點集區的狀態，請使用[az aks 節點的集區清單][az-aks-nodepool-list]命令並指定您的資源群組與叢集名稱：
+若要查看節點集區的狀態, 請使用[az aks node pool list][az-aks-nodepool-list]命令, 並指定您的資源群組和叢集名稱:
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
 ```
 
-下列範例輸出顯示*mynodepool*已成功建立具有三個節點的集區中的節點。 在上一個步驟中，預設值建立 AKS 叢集時*nodepool1*建立的節點計數*1*。
-
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
-
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  3        110        mynodepool  1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
-```
-
-> [!TIP]
-> 如果沒有*OrchestratorVersion*或是*VmSize*指定當您將加入的節點集區中，AKS 叢集的預設值會根據建立節點。 在此範例中，這是 Kubernetes 版本*1.12.6*和 節點大小*Standard_DS2_v2*。
-
-## <a name="upgrade-a-node-pool"></a>升級的節點集區
-
-在第一個步驟中，建立您的 AKS 叢集時`--kubernetes-version`的*1.12.6*所指定。 讓我們來升級*mynodepool* kubernetes *1.12.7*。 使用[az aks 節點的集區升級][az-aks-nodepool-upgrade]命令來升級的節點集區中，如下列範例所示：
-
-```azurecli-interactive
-az aks nodepool upgrade \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name mynodepool \
-    --kubernetes-version 1.12.7 \
-    --no-wait
-```
-
-列出您一次使用的節點集區的狀態[az aks 節點的集區清單][az-aks-nodepool-list]命令。 下列範例顯示*mynodepool*處於*升級*狀態*1.12.7*:
+下列範例輸出顯示已成功建立節點集區中有三個節點的*mynodepool* 。 在上一個步驟中建立 AKS 叢集時, 會建立一個節點計數為*1*的預設*nodepool1* 。
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
 AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
 -----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
-VirtualMachineScaleSets  3        110        mynodepool  1.12.7                 100             Linux     Upgrading            myResourceGroup  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  3        110        mynodepool  1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
-花幾分鐘的時間升級的節點指定的版本。
+> [!TIP]
+> 當您新增節點集區時, 如果未指定*OrchestratorVersion*或*VmSize* , 則會根據 AKS 叢集的預設值來建立節點。 在此範例中, 這是 Kubernetes 的版本*1.13.5*和節點大小*Standard_DS2_v2*。
 
-最佳做法，您應該為相同的 Kubernetes 版本升級為 AKS 叢集中的所有節點集區。 升級個別的節點集區的能力可讓您執行輪流升級和排程維護應用程式執行時間的節點集區之間的 pod。
+## <a name="upgrade-a-node-pool"></a>升級節點集區
+
+當您在第一個步驟中建立 AKS 叢集時, `--kubernetes-version`已指定*1.13.5*的。 讓我們將*mynodepool*升級至 Kubernetes *1.13.7*。 使用[az aks node pool upgrade][az-aks-nodepool-upgrade]命令升級節點集區, 如下列範例所示:
+
+```azurecli-interactive
+az aks nodepool upgrade \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --kubernetes-version 1.13.7 \
+    --no-wait
+```
+
+使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*1.13.7*的*升級*狀態:
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
+
+AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  3        110        mynodepool  1.13.7                 100             Linux     Upgrading            myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
+```
+
+將節點升級為指定的版本需要幾分鐘的時間。
+
+最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 升級個別節點集區的功能可讓您執行輪流升級, 並在節點集區之間排程 pod, 以維護應用程式的執行時間。
 
 ## <a name="scale-a-node-pool"></a>調整節點集區
 
-為您的應用程式工作負載需求變化，您可能需要調整節點集區中的節點數目。 增加或相應減少，可以調整的節點數目。
+當您的應用程式工作負載需求變更時, 您可能需要調整節點集區中的節點數目。 節點數目可以向上或向下調整。
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-若要調整節點集區中的節點數目，使用[az aks 節點的集區擴展][az-aks-nodepool-scale]命令。 下列範例會調整集中的節點數目*mynodepool*要*5*:
+若要調整節點集區中的節點數目, 請使用[az aks node pool scale][az-aks-nodepool-scale]命令。 下列範例會將*mynodepool*中的節點數目調整為*5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -188,50 +188,50 @@ az aks nodepool scale \
     --no-wait
 ```
 
-列出您一次使用的節點集區的狀態[az aks 節點的集區清單][az-aks-nodepool-list]命令。 下列範例顯示*mynodepool*處於*調整*狀態的新計數*5*節點：
+使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*調整*狀態, 而且有*5*個節點的新計數:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  5        110        mynodepool  1.12.7                 100             Linux     Scaling              myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  5        110        mynodepool  1.13.7                 100             Linux     Scaling              myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
-它需要幾分鐘的時間調整規模作業完成。
+調整作業需要幾分鐘的時間才能完成。
 
-## <a name="delete-a-node-pool"></a>刪除節點的集區
+## <a name="delete-a-node-pool"></a>刪除節點集區
 
-如果您不再需要集區，您可以將它刪除，並移除基礎的 VM 節點。 若要刪除的節點集區，請使用[az aks 節點的集區刪除][az-aks-nodepool-delete]命令並指定節點的集區名稱。 下列範例會刪除*mynoodepool*先前步驟中建立：
+如果您不再需要集區, 您可以將它刪除並移除基礎 VM 節點。 若要刪除節點集區, 請使用[az aks node pool delete][az-aks-nodepool-delete]命令並指定節點集區名稱。 下列範例會刪除在先前步驟中建立的*mynoodepool* :
 
 > [!CAUTION]
-> 沒有復原選項，當您刪除節點的集區時，可能會發生資料遺失。 如果 pod 無法排定在其他節點的集區上，這些應用程式都無法使用。 請確定在使用應用程式沒有資料備份或能夠在叢集中其他節點集區上執行時，請勿刪除節點的集區。
+> 當您刪除節點集區時, 不會發生資料遺失的復原選項。 如果無法在其他節點集區上排程 pod, 則無法使用這些應用程式。 當使用中的應用程式沒有資料備份或在叢集中的其他節點集區上執行的能力時, 請確定您不會刪除節點集區。
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-下列範例輸出[az aks 節點的集區清單][az-aks-nodepool-list]命令會顯示*mynodepool*處於*刪除*狀態：
+下列來自[az aks node pool list][az-aks-nodepool-list]命令的範例輸出顯示*mynodepool*處於*刪除*狀態:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  5        110        mynodepool  1.12.7                 100             Linux     Deleting             myResourceGroupPools  Standard_DS2_v2
-VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name        OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  ----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  5        110        mynodepool  1.13.7                 100             Linux     Deleting             myResourceGroup  Standard_DS2_v2
+VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
-花幾分鐘才能刪除節點和節點集區。
+刪除節點和節點集區需要幾分鐘的時間。
 
-## <a name="specify-a-vm-size-for-a-node-pool"></a>指定節點的集區的 VM 大小
+## <a name="specify-a-vm-size-for-a-node-pool"></a>指定節點集區的 VM 大小
 
-在上述範例中建立的節點集區，建立叢集中的節點使用的預設 VM 大小。 更常見的案例是為您建立具有不同的 VM 大小和功能 節點的集區。 例如，您可以建立包含大量的 CPU 或記憶體節點的節點集區或節點集區可提供 GPU 支援。 在下一個步驟中，您[使用 taints 和 tolerations](#schedule-pods-using-taints-and-tolerations)告訴 Kubernetes 排程器如何限制存取權可在這些節點執行的 pod。
+在先前的範例中, 若要建立節點集區, 則會針對在叢集中建立的節點使用預設的 VM 大小。 較常見的案例是使用不同的 VM 大小和功能來建立節點集區。 例如, 您可以建立節點集區, 其中包含具有大量 CPU 或記憶體的節點, 或可提供 GPU 支援的節點集區。 在下一個步驟中, 您會[使用污點和容差](#schedule-pods-using-taints-and-tolerations), 告訴 Kubernetes 排程器如何限制可以在這些節點上執行的 pod 存取。
 
-在下列範例中，建立會使用以 GPU 為基礎的節點集區*Standard_NC6* VM 大小。 這些 Vm 是由 NVIDIA Tesla K80 卡提供。 如需可用 VM 大小的資訊，請參閱[在 Azure 中 Linux 虛擬機器的大小][vm-sizes]。
+在下列範例中, 建立以 GPU 為基礎的節點集區, 以使用*Standard_NC6* VM 大小。 這些 Vm 是由 NVIDIA Tesla K80 插卡提供技術支援。 如需可用 VM 大小的詳細資訊, 請參閱[Azure 中 Linux 虛擬機器的大小][vm-sizes]。
 
-節點集區使用下列方法建立[az aks 節點的集區新增][az-aks-nodepool-add]命令一次。 這次請指定名稱*gpunodepool*，並使用`--node-vm-size`參數來指定*Standard_NC6*大小：
+再次使用[az aks node pool add][az-aks-nodepool-add]命令來建立節點集區。 這次請指定名稱*gpunodepool*, 並使用`--node-vm-size`參數來指定*Standard_NC6*大小:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -243,29 +243,29 @@ az aks nodepool add \
     --no-wait
 ```
 
-下列範例輸出[az aks 節點的集區清單][az-aks-nodepool-list]命令會顯示*gpunodepool*會*建立*具有指定的節點*VmSize*:
+下列來自[az aks node pool list][az-aks-nodepool-list]命令的範例輸出顯示*gpunodepool*正在*建立*具有指定*VmSize*的節點:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
 
-AgentPoolType            Count    MaxPods    Name         OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup         VmSize
------------------------  -------  ---------  -----------  ---------------------  --------------  --------  -------------------  --------------------  ---------------
-VirtualMachineScaleSets  1        110        gpunodepool  1.12.6                 100             Linux     Creating             myResourceGroupPools  Standard_NC6
-VirtualMachineScaleSets  1        110        nodepool1    1.12.6                 100             Linux     Succeeded            myResourceGroupPools  Standard_DS2_v2
+AgentPoolType            Count    MaxPods    Name         OrchestratorVersion    OsDiskSizeGb    OsType    ProvisioningState    ResourceGroup    VmSize
+-----------------------  -------  ---------  -----------  ---------------------  --------------  --------  -------------------  ---------------  ---------------
+VirtualMachineScaleSets  1        110        gpunodepool  1.13.5                 100             Linux     Creating             myResourceGroup  Standard_NC6
+VirtualMachineScaleSets  1        110        nodepool1    1.13.5                 100             Linux     Succeeded            myResourceGroup  Standard_DS2_v2
 ```
 
-花費幾分鐘的時間*gpunodepool*已成功建立。
+成功建立*gpunodepool*需要幾分鐘的時間。
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>使用 taints 和 tolerations 排程 pod
+## <a name="schedule-pods-using-taints-and-tolerations"></a>使用污點和容差排程 pod
 
-您現在有兩個節點的集區在您的叢集中預設節點集區一開始建立，並以 GPU 為基礎的節點集區。 使用[kubectl 取得節點][kubectl-get]命令來檢視您的叢集中的節點。 下列範例輸出顯示每個節點的集區中的一個節點：
+您現在的叢集中有兩個節點集區-一開始建立預設節點集區, 以及以 GPU 為基礎的節點集區。 使用 [ [kubectl] [取得節點][kubectl-get]] 命令來查看您叢集中的節點。 下列範例輸出顯示每個節點集區中的一個節點:
 
 ```console
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.12.6
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.12.6
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.5
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.5
 ```
 
 Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行的工作負載。
@@ -273,15 +273,15 @@ Kubernetes 排程器可以使用污點和容差來限制可以在節點上執行
 * **污點**會套用至節點，該節點指示僅可以在其上排程特定的 pod。
 * 然後**容差**會套用至容器，允許它們*容許*節點的污點。
 
-如需有關如何使用進階 Kubernetes 排程功能，請參閱[AKS 中的進階排程器功能的最佳做法][taints-tolerations]
+如需如何使用 advanced Kubernetes 排程功能的詳細資訊, 請參閱[AKS 中 advanced 排程器功能的最佳做法][taints-tolerations]
 
-在此範例中，適用於誤導您以 GPU 為基礎的節點使用[kubectl 誤導節點][kubectl-taint]命令。 指定您從先前的輸出以 GPU 為基礎的節點名稱`kubectl get nodes`命令。 套用誤導*索引鍵 / 值*，然後排程選項。 下列範例會使用*sku = gpu*配對，然後定義 pod 無權*NoSchedule*能力：
+在此範例中, 使用[kubectl 污點 node][kubectl-taint]命令, 將污點套用至您的 GPU 型節點。 從上一個`kubectl get nodes`命令的輸出中指定 GPU 型節點的名稱。 污點會當做索引*鍵: 值*和排程選項來套用。 下列範例會使用*sku = gpu*配對, 並定義 pod, 否則會具有*NoSchedule*功能:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
-下列基本範例 YAML 資訊清單使用 toleration 允許 Kubernetes 排程器以 GPU 為基礎的節點上執行的 NGINX pod。 若要對 MNIST 資料集執行 Tensorflow 作業更合適，但需要大量時間的範例，請參閱[針對計算密集型工作負載在 AKS 上使用 Gpu][gpu-cluster]。
+下列基本範例 YAML 資訊清單會使用 toleration, 以允許 Kubernetes 排程器在 GPU 型節點上執行 NGINX pod。 如需針對 MNIST 資料集執行 Tensorflow 作業的更適當但需要大量時間的範例, 請參閱[在 AKS 上針對計算密集型工作負載使用 gpu][gpu-cluster]。
 
 建立名為 `gpu-toleration.yaml` 的檔案，然後將下列範例 YAML 複製進來：
 
@@ -308,13 +308,13 @@ spec:
     effect: "NoSchedule"
 ```
 
-Pod 使用排程`kubectl apply -f gpu-toleration.yaml`命令：
+使用`kubectl apply -f gpu-toleration.yaml`命令來排程 pod:
 
 ```console
 kubectl apply -f gpu-toleration.yaml
 ```
 
-需要幾秒鐘的時間排程 pod 和提取 NGINX 映像。 使用[kubectl 描述 pod][kubectl-describe]命令來檢視 pod 的狀態。 下列扼要的範例輸出中會顯示*sku = gpu:NoSchedule* toleration 會套用。 在 [事件] 區段中，排程器已指派至的 pod *aks gpunodepool-28993262 vmss000000* GPU 為基礎的節點：
+需要幾秒鐘的時間來排程 pod, 並提取 NGINX 的映射。 使用 [ [kubectl 描述 pod][kubectl-describe] ] 命令來查看 pod 狀態。 下列精簡的範例輸出顯示已套用*sku = gpu: NoSchedule* toleration。 在 [事件] 區段中, 排程器已將 pod 指派給*aks-gpunodepool-28993262-vmss000000* GPU 型節點:
 
 ```console
 $ kubectl describe pod mypod
@@ -333,19 +333,19 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-可以排定在節點上的已套用這個誤導的 pod *gpunodepool*。 會在排定的任何其他 pod *nodepool1*節點集區。 如果您建立其他的節點集區時，您可以使用其他 taints，以限制哪些 pod tolerations 可以排程在這些節點資源上。
+只有套用此污點的 pod 可以在*gpunodepool*的節點上排程。 任何其他 pod 都會在*nodepool1*節點集區中排程。 如果您建立其他節點集區, 您可以使用其他污點和容差來限制可在這些節點資源上排程的 pod。
 
-## <a name="manage-node-pools-using-a-resource-manager-template"></a>管理使用 Resource Manager 範本的節點集區
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>使用 Resource Manager 範本管理節點集區
 
-當您使用 Azure Resource Manager 範本來建立和受管理的資源，您通常可以更新在您的範本和重新部署的設定，以更新資源。 使用 AKS 中的節點集區，一旦建立 AKS 叢集無法更新的初始節點集區設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、 節點集區進行變更並重新部署。 相反地，您必須建立個別的 Resource Manager 範本，以更新僅適用於現有的 AKS 叢集的代理程式集區。
+當您使用 Azure Resource Manager 範本來建立和管理資源時, 您通常可以更新範本中的設定, 並重新部署以更新資源。 在 AKS 中使用節點集區時, 一旦建立 AKS 叢集之後, 就無法更新初始節點集區設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、對節點集區進行變更, 然後重新部署。 相反地, 您必須建立個別的 Resource Manager 範本, 只更新現有 AKS 叢集的代理程式組件區。
 
-建立範本，例如`aks-agentpools.json`並貼上下列範例資訊清單。 此範例範本會設定下列設定：
+建立範本 (例如) `aks-agentpools.json` , 並貼上下列範例資訊清單。 這個範例範本會設定下列設定:
 
-* 更新*Linux*名為代理程式集區*myagentpool*執行三個節點。
-* 在節點集中的節點集區，以執行 Kubernetes 版本*1.12.8*。
-* 定義的節點大小*Standard_DS2_v2*。
+* 更新名為*myagentpool*的*Linux*代理程式組件區, 以執行三個節點。
+* 設定節點集區中的節點, 以執行 Kubernetes 版本*1.13.5*。
+* 將節點大小定義為*Standard_DS2_v2*。
 
-需要更新，新增或刪除節點集區視需要編輯這些值：
+視需要編輯這些值, 視需要更新、新增或刪除節點集區:
 
 ```json
 {
@@ -407,14 +407,14 @@ Events:
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.12.8"
+            "orchestratorVersion": "1.13.5"
       }
     }
   ]
 }
 ```
 
-部署此範本中使用[az 群組部署建立][az-group-deployment-create]命令，如下列範例所示。 系統會提示您現有的 AKS 叢集名稱和位置：
+使用[az group deployment create][az-group-deployment-create]命令來部署此範本, 如下列範例所示。 系統會提示您輸入現有的 AKS 叢集名稱和位置:
 
 ```azurecli-interactive
 az group deployment create \
@@ -422,19 +422,19 @@ az group deployment create \
     --template-file aks-agentpools.json
 ```
 
-可能需要幾分鐘的時間來更新您的 AKS 叢集，視節點的集區設定和您在 Resource Manager 範本中定義的作業而定。
+視您在 Resource Manager 範本中定義的節點集區設定和作業而定, 可能需要幾分鐘的時間來更新 AKS 叢集。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在本文中，您會建立 AKS 叢集，其中包含以 GPU 為基礎的節點。 若要減少不必要的成本，您可能想要刪除*gpunodepool*，或整個 AKS 叢集。
+在本文中, 您已建立 AKS 叢集, 其中包含以 GPU 為基礎的節點。 若要減少不必要的成本, 您可能會想要刪除*gpunodepool*或整個 AKS 叢集。
 
-若要刪除以 GPU 為基礎的節點集區，請使用[az aks nodepool 刪除][az-aks-nodepool-delete]命令，在下列範例所示：
+若要刪除以 GPU 為基礎的節點集區, 請使用[az aks nodepool delete][az-aks-nodepool-delete]命令, 如下列範例所示:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-若要刪除叢集本身，請使用[az 群組刪除][az-group-delete]命令來刪除 AKS 資源群組：
+若要刪除叢集本身, 請使用[az group delete][az-group-delete]命令來刪除 AKS 資源群組:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -442,9 +442,9 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何建立和管理 AKS 叢集中的多個節點集區。 如需如何控制跨節點集區的 pod 的詳細資訊，請參閱[AKS 中的進階排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
+在本文中, 您已瞭解如何在 AKS 叢集中建立和管理多個節點集區。 如需如何跨節點集區控制 pod 的詳細資訊, 請參閱[AKS 中先進排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
 
-若要建立及使用 Windows Server 容器節點集區，請參閱[AKS 中建立 Windows Server 容器][aks-windows]。
+若要建立及使用 Windows Server 容器節點集區, 請參閱[在 AKS 中建立 Windows server 容器][aks-windows]。
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

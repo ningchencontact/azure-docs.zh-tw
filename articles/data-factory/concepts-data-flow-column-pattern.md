@@ -1,23 +1,23 @@
 ---
 title: Azure Data Factory 對應資料流程資料行模式
-description: 了解如何使用對應資料流程中的 Azure Data Factory 資料行模式，來建立轉換資料流程中的資料而不考慮基礎結構描述中繼資料欄位的通用的範本模式
+description: 使用對應資料流程中的 Azure Data Factory 資料行模式來建立一般化資料轉換模式
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d24988dfd5cbaf20e92c5afbbc39dc0c78e3ef6a
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430766"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314887"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory 的對應資料流資料行模式
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory 對應資料流程資料行模式
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以使用 「 運算式產生器 」 這項功能，來定義以符合資料行 」 轉換，而不需要完全符合、 特定的欄位名稱的模式。 模式是如果連入的來源欄位經常變更，特別是如果變更文字檔案或 NoSQL 資料庫中的資料行是很有用。 這種情況有時稱為 「 結構描述漂移 」。
+數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用這項功能來定義模式, 以符合轉換的資料行, 而不需要精確的特定功能變數名稱。 如果傳入來源欄位經常變更, 則模式非常有用, 特別是在變更文字檔或 NoSQL 資料庫中的資料行時。 這種情況有時稱為「架構漂移」。
 
 ![資料行模式](media/data-flow/columnpattern2.png "資料行模式")
 
@@ -27,6 +27,16 @@ ms.locfileid: "66430766"
 
 建置範本資料行模式時，在運算式中使用 `$$` 以代表每個相符欄位的參考都來自輸入資料流。
 
-如果您選擇使用其中一種運算式產生器的 regex 函式，您可以接著使用 $1、 $2、 3 美元...若要參考從您的 regex 運算式比對的子模式。
+如果您選擇使用某個運算式產生器 Regex 函式，可以接著連續使用 $1、$2、$3 等來參考與您 Regex 運算式相符的子模式。
 
-資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 然後，您就可以使用加總每個相符項目之型別的欄位比對"integer"，然後使用 $$ 參考您的運算式中的每個相符項目。
+資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 接著, 您可以在符合 "integer" 的欄位類型的每個相符項上使用 SUM, 然後使用 $ $ 來參考運算式中的每個相符項。
+
+## <a name="match-columns"></a>符合資料行
+資料![行模式類型](media/data-flow/pattern2.png "模式類型")
+
+若要根據資料行建立模式, 您可以比對資料行名稱、類型、資料流程或位置, 並搭配運算式函數和正則運算式使用任何組合。
+
+資料![行位置]資料(media/data-flow/position.png "行位置")
+
+## <a name="next-steps"></a>後續步驟
+深入瞭解資料轉換的 ADF 對應資料流程[運算式語言](http://aka.ms/dataflowexpressions)

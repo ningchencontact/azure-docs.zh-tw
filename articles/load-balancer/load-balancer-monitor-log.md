@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 了解如何啟用 Basic Load Balancer 的警示事件和探查健康情況狀態記錄
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
-ms.author: kumud
-ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 1995ad5e8179fdee11e960c2ad0e7c03602ebd31
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861135"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274807"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure 監視器記錄檔的公用基本負載平衡器
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>適用于公用基本 Load Balancer 的 Azure 監視器記錄
 
 >[!IMPORTANT] 
 >Azure Load Balancer 支援兩種不同類型：基本和標準。 本文討論基本 Load Balancer。 如需有關 Standard Load Balancer 的詳細資訊，請參閱 [Standard Load Balancer 概觀](load-balancer-standard-overview.md)，其中會透過 Azure 監視器中的多維度計量來公開遙測資料。
@@ -32,7 +32,7 @@ ms.locfileid: "60861135"
 * **健全狀況探查記錄：** 您可以使用此記錄來檢視健康狀態探查所偵測到的問題，例如後端集區中因為健康狀態探查失敗，而未從負載平衡器接收要求的執行個體數目。 健康狀態探查狀態發生變更時會寫入此記錄。
 
 > [!IMPORTANT]
-> Azure 監視器記錄目前僅適用於公用基本負載平衡器。 記錄僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
+> Azure 監視器記錄檔目前僅適用于公用基本負載平衡器。 記錄僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
 
 ## <a name="enable-logging"></a>啟用記錄
 

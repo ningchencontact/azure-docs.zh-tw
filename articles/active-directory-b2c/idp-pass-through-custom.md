@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2253e9f6331662f0ead0251f9affd7996e02aa31
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511057"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846884"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>透過自訂原則將存取權杖傳遞到 Azure Active Directory B2C 中的應用程式
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure Active Directory (Azure AD) B2C 中的[自訂原則](active-directory-b2c-get-started-custom.md)為您的應用程式使用者提供了註冊或使用識別提供者登入的機會。 當發生這種情況時，Azure AD B2C 會從識別提供者處收到[存取權杖](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 會使用該權杖來擷取使用者的相關資訊。 您將宣告類型和輸出宣告新增到自訂原則，以將權杖傳遞至您在 Azure AD B2C 中註冊的應用程式。 
+Azure Active Directory (Azure AD) B2C 中的[自訂原則](active-directory-b2c-get-started-custom.md)為您的應用程式使用者提供了註冊或使用識別提供者登入的機會。 當發生這種情況時，Azure AD B2C 會從識別提供者處收到[存取權杖](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 會使用該權杖來擷取使用者的相關資訊。 您將宣告類型和輸出宣告新增到自訂原則，以將權杖傳遞至您在 Azure AD B2C 中註冊的應用程式。
 
 Azure AD B2C 支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 的存取金鑰和 [OpenID Connect](active-directory-b2c-reference-oidc.md) 識別提供者。 對於所有其他識別提供者，宣告會傳回空白。
 
@@ -29,7 +29,7 @@ Azure AD B2C 支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.
 
 - 您的自訂原則是使用 OAuth 2.0 或 OpenID Connect 識別提供者設定。
 
-## <a name="add-the-claim-elements"></a>新增宣告項目 
+## <a name="add-the-claim-elements"></a>新增宣告項目
 
 1. 開啟 TrustframeworkExtensions.xml  檔案，並將下列識別碼為 `identityProviderAccessToken` 的 **ClaimType** 元素新增到 **ClaimsSchema** 元素：
 
@@ -102,13 +102,8 @@ Azure AD B2C 支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oauth-code.
 
     您應該會看到類似下列範例的內容：
 
-    ![已解碼的權杖](./media/idp-pass-through-custom/idp-pass-through-custom-token.png)
+    ![已反白顯示 idp_access_token 區塊的 jwt.ms 中已解碼的權杖](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
 
 ## <a name="next-steps"></a>後續步驟
 
 在 [Azure Active Directory 權杖參考](active-directory-b2c-reference-tokens.md)中深入了解權杖。
-
-
-
-
-

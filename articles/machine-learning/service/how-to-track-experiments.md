@@ -1,32 +1,33 @@
 ---
-title: 在定型執行的記錄度量
+title: 定型執行期間的記錄計量
 titleSuffix: Azure Machine Learning service
-description: 了解如何將記錄新增至您的訓練指令碼、如何提交實驗、如何檢查執行中作業的進度，以及如何檢視執行結果。 您可以追蹤您的實驗，並監視度量，以提高模型建立程序。
+description: 您可以追蹤您的實驗並監視計量, 以加強模型建立程式。 瞭解如何將記錄新增至您的訓練腳本、如何提交實驗、如何檢查執行中作業的進度, 以及如何查看已記錄的回合結果。
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297484"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847553"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>記錄度量在定型期間執行 Azure Machine Learning 中
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning 中的定型執行期間記錄計量
 
-在這篇文章，了解如何將記錄新增至您的訓練指令碼、 提交實驗執行、 監視執行，並在 Azure Machine Learning 服務中檢視測試回合的結果。 提升模型建立程序，追蹤您的實驗，並監視度量。 
+追蹤您的實驗並監視計量, 以加強模型建立程式。 在本文中, 您將瞭解如何將記錄新增至您的定型腳本、提交實驗執行、監視執行, 以及在 Azure Machine Learning 服務中查看執行結果。
 
 ## <a name="list-of-training-metrics"></a>訓練計量的清單 
 
 訓練實驗時，可以將下列計量新增到執行中。 若要檢視可在回合中追蹤之內容的更詳細清單，請參閱 [Run 類別參考文件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) \(英文\)。
 
-|type| Python 函式 | 注意|
+|Type| Python 函式 | 注意|
 |----|:----|:----|
 |純量值 |函式：<br>`run.log(name, value, description='')`<br><br>範例：<br>run.log("accuracy", 0.95) |使用指定名稱將數字或字串值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
 |清單|函式：<br>`run.log_list(name, value, description='')`<br><br>範例：<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | 使用指定名稱將值清單記錄到執行中。|
@@ -48,15 +49,13 @@ ms.locfileid: "66297484"
 ## <a name="set-up-the-workspace"></a>設定工作區
 新增記錄並提交實驗之前，您必須先設定工作區。
 
-1. 使用工作區。 若要深入了解設定工作區設定，請依照中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)。
+1. 使用工作區。 若要深入瞭解如何設定工作區設定, 請遵循[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#sdk)中的步驟。
 
    ```python
    from azureml.core import Experiment, Run, Workspace
    import azureml.core
   
-   ws = Workspace(workspace_name = <<workspace_name>>,
-               subscription_id = <<subscription_id>>,
-               resource_group = <<resource_group>>)
+   ws = Workspace.from_config()
    ```
   
 ## <a name="option-1-use-startlogging"></a>選項 1：使用 start_logging
@@ -92,38 +91,40 @@ ms.locfileid: "66297484"
 2. 使用 Azure Machine Learning 服務 SDK 新增實驗定型，並將保存的模型上傳至實驗執行記錄。 以下程式碼新增標記、記錄，並將模型檔案上傳到實驗執行中。
 
    ```python
-   # Get an experiment object from Azure Machine Learning
-   experiment = Experiment(workspace = ws, name = "train-within-notebook")
-  
-   # Create a run object in the experiment
-   run = experiment.start_logging()# Log the algorithm parameter alpha to the run
-   run.log('alpha', 0.03)
-
-   # Create, fit, and test the scikit-learn Ridge regression model
-   regression_model = Ridge(alpha=0.03)
-   regression_model.fit(data['train']['X'], data['train']['y'])
-   preds = regression_model.predict(data['test']['X'])
-
-   # Output the Mean Squared Error to the notebook and to the run
-   print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-   run.log('mse', mean_squared_error(data['test']['y'], preds))
-
-   # Save the model to the outputs directory for capture
-   joblib.dump(value=regression_model, filename='outputs/model.pkl')
-
-   # Take a snapshot of the directory containing this notebook
-   run.take_snapshot('./')
-
-   # Complete the run
-   run.complete()
-  
+    # Get an experiment object from Azure Machine Learning
+    experiment = Experiment(workspace=ws, name="train-within-notebook")
+    
+    # Create a run object in the experiment
+    run =  experiment.start_logging()
+    # Log the algorithm parameter alpha to the run
+    run.log('alpha', 0.03)
+    
+    # Create, fit, and test the scikit-learn Ridge regression model
+    regression_model = Ridge(alpha=0.03)
+    regression_model.fit(data['train']['X'], data['train']['y'])
+    preds = regression_model.predict(data['test']['X'])
+    
+    # Output the Mean Squared Error to the notebook and to the run
+    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+    run.log('mse', mean_squared_error(data['test']['y'], preds))
+    
+    # Save the model to the outputs directory for capture
+    model_file_name = 'outputs/model.pkl'
+    
+    joblib.dump(value = regression_model, filename = model_file_name)
+    
+    # upload the model file explicitly into artifacts 
+    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
+    
+    # Complete the run
+    run.complete()
    ```
 
-指令碼以 ```run.complete()``` 結尾，完成時會標記執行。  此函式通常用於互動式 Notebook 案例中。
+    指令碼以 ```run.complete()``` 結尾，完成時會標記執行。  此函式通常用於互動式 Notebook 案例中。
 
 ## <a name="option-2-use-scriptrunconfig"></a>選項 2：使用 ScriptRunConfig
 
-[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py)是一種類別，針對執行指令碼的組態設定。 使用此選項，您可以新增監視程式碼以通知完成，或取得視覺小工具以進行監視。
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py)是一種用於設定腳本執行設定的類別。 使用此選項，您可以新增監視程式碼以通知完成，或取得視覺小工具以進行監視。
 
 此範例擴展上述的基本 sklearn Ridge 模型。 它執行簡單的參數掃掠以掃掠模型的 Alpha 值，以在實驗下的執行中擷取計量和定型的模型。 此範例會針對使用者管理的環境在本機上執行。 
 
@@ -196,30 +197,31 @@ ms.locfileid: "66297484"
 3. 設定使用者管理的本機環境。
 
    ```python
-   from azureml.core.runconfig import RunConfiguration
-
+   from azureml.core import Environment
+    
    # Editing a run configuration property on-fly.
-   run_config_user_managed = RunConfiguration()
-
-   run_config_user_managed.environment.python.user_managed_dependencies = True
-
+   user_managed_env = Environment("user-managed-env")
+    
+   user_managed_env.python.user_managed_dependencies = True
+    
    # You can choose a specific Python environment by pointing to a Python path 
-   #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
 4. 提交要在使用者管理環境中執行的 ```train.py``` 指令碼。 提交整個指令碼資料夾進行定型，包括 ```mylib.py``` 檔案。
 
    ```python
    from azureml.core import ScriptRunConfig
-  
-   experiment = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
-   run = experiment.submit(src)
+    
+   exp = Experiment(workspace=ws, name="train-on-local")
+   src = ScriptRunConfig(source_directory='./', script='train.py')
+   src.run_config.environment = user_managed_env
+   run = exp.submit(src)
    ```
 
-## <a name="manage-a-run"></a>管理測試回合
+## <a name="manage-a-run"></a>管理執行
 
-[開始]、 [監視器] 和 [取消定型執行](how-to-manage-runs.md)篇文章強調特定的 Azure Machine Learning 工作流程，如何管理您的實驗。
+[[開始]、[監視] 和 [取消訓練執行](how-to-manage-runs.md)] 文章會特別說明如何管理您的實驗的特定 Azure Machine Learning 工作流程。
 
 ## <a name="view-run-details"></a>檢視執行詳細資料
 
@@ -233,9 +235,9 @@ ms.locfileid: "66297484"
    RunDetails(run).show()
    ```
 
-   ![Jupyter Notebook 小工具的螢幕擷取畫面](./media/how-to-track-experiments/widgets.PNG)
+   ![Jupyter Notebook 小工具的螢幕擷取畫面](./media/how-to-track-experiments/run-details-widget.png)
 
-2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 取代`<<experiment_name>>`具有適當的實驗名稱：
+2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 以`<<experiment_name>>`適當的實驗名稱取代:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -263,14 +265,14 @@ ms.locfileid: "66297484"
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>在 Azure 入口網站中檢視實驗
 
-當實驗完成執行時，您可以瀏覽記錄的實驗執行記錄。 您可以使用下列兩種方式來存取記錄：
+當實驗完成執行時，您可以瀏覽記錄的實驗執行記錄。 您可以透過兩種方式來存取歷程記錄:
 
 * 直接取得執行的 URL ```print(run.get_portal_url())```
 * 藉由提交執行名稱 (在此情況下為 ```run```)，以檢視執行詳細資料。 此方式可為您指出實驗名稱、識別碼、類型、狀態、詳細資料頁面、Azure 入口網站的連結，以及文件連結。
 
 執行連結將帶您直接前往 Azure 入口網站中的執行詳細資料頁面。 在這裡，您可以看到實驗中記錄的任何屬性、追蹤計量、映像和圖表。 在此情況下，我們會記錄 MSE 和 Alpha 值。
 
-  ![Azure 入口網站中的回合詳細資料](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Azure 入口網站中的回合詳細資料](./media/how-to-track-experiments/run-details-page.png)
 
 您也可以檢視執行的任何輸出或記錄，或下載讓您提交的實驗快照集，以便與其他人共用實驗資料夾。
 
@@ -302,19 +304,19 @@ ms.locfileid: "66297484"
 
 1. 在工作區的最左邊面板中，選取 [實驗]  。
 
-   ![實驗功能表的螢幕擷取畫面](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+   ![實驗功能表的螢幕擷取畫面](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
 
 1. 選取您感興趣的實驗。
 
-   ![實驗清單](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+   ![實驗清單](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
 
 1. 在表格中，選取回合數。
 
-   ![實驗回合](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![實驗回合](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
 
 1. 在表格中，選取您想要進一步探索之模型的重覆項目數。
 
-   ![實驗模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![實驗模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
 
 
 
@@ -334,9 +336,9 @@ ms.locfileid: "66297484"
 
 針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣，自動化 ML 會將分類正確的標籤顯示為綠色，並將分類不正確的標籤顯示為紅色。 圓形的大小代表該組合中的樣本數。 此外，每個預測標籤和每個真值標籤的頻率計數均會顯示於相鄰的長條圖中。 
 
-範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-範例 2：高準確度的分類模型 (理想) ![高準確度的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+範例 2：高準確度的分類模型 (理想) ![高準確度的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
 
 #### <a name="precision-recall-chart"></a>精確度與召回率圖表
@@ -345,17 +347,17 @@ ms.locfileid: "66297484"
 
 精確度一詞代表分類器能夠正確標示所有執行個體。 召回率代表分類器能夠針對特定標籤找到的所有執行個體。 精確度與召回率曲線會顯示這兩個概念之間的關聯性。 在理想情況下，此模型會有 100% 的精確度和 100% 的準確度。
 
-範例 1：具有低精確度與低召回率的分類模型 ![具有低精確度與低召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+範例 1：具有低精確度與低召回率的分類模型 ![具有低精確度與低召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
 
-範例 2：具有 ~100% 精確度與 ~100% 召回率的分類模型 (理想) ![具有高精確度與召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+範例 2：具有 ~100% 精確度與 ~100% 召回率的分類模型 (理想) ![具有高精確度與召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
 
 #### <a name="roc"></a>ROC
 
 接收者操作特徵 (或 ROC) 是對於特定模型之分類正確標籤與分類不正確標籤的繪圖。 在具有高偏差的資料集上將模型定型時，ROC 曲線可提供的資訊較少，因為它將不會顯示誤判標籤。
 
-範例 1：具有低確判標籤與高誤判標籤的分類模型 ![具有低確判標籤與高誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+範例 1：具有低確判標籤與高誤判標籤的分類模型 ![具有低確判標籤與高誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
 
-範例 2：具有高確判標籤與低誤判標籤的分類模型 ![具有高確判標籤與低誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+範例 2：具有高確判標籤與低誤判標籤的分類模型 ![具有高確判標籤與低誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
 
 #### <a name="lift-curve"></a>升力曲線
 
@@ -363,9 +365,9 @@ ms.locfileid: "66297484"
 
 升力圖可用來評估分類模型的效能。 它會顯示相較於不使用模型，您能夠預期使用模型會做得更好。 
 
-範例 1：模型執行效能比隨機選取模型更糟 ![比隨機選取模型更糟的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+範例 1：模型執行效能比隨機選取模型更糟 ![比隨機選取模型更糟的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
 
-範例 2：模型執行效能優於隨機選取模型 ![執行得更好的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+範例 2：模型執行效能優於隨機選取模型 ![執行得更好的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
 
 #### <a name="gains-curve"></a>增益曲線
 
@@ -373,9 +375,9 @@ ms.locfileid: "66297484"
 
 使用累計增益圖，可協助您使用對應至模型中所需增益的百分比來選擇分類截止。 此資訊提供另一種方式來查看隨附升力圖中的結果。
 
-範例 1：增益最少的分類模型 ![增益最少的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+範例 1：增益最少的分類模型 ![增益最少的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
 
-範例 2：增益顯著的分類模型 ![增益顯著的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+範例 2：增益顯著的分類模型 ![增益顯著的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
 
 #### <a name="calibration-plot"></a>校正圖
 
@@ -383,9 +385,9 @@ ms.locfileid: "66297484"
 
 校正圖可用來顯示預測模型的信賴度。 它會顯示預測機率與實際機率之間的關聯性，其中「機率」代表特定執行個體屬於某個標籤的可能性。 經過準確校正的模型會與 y=x 線對齊，在其預測中具有合理的信賴度。 過度信賴的模型會與 y=0 線對齊，其會顯示預測機率，但沒有任何實際機率。
 
-範例 1：經過更準確校正的模型 ![經過更準確校正的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+範例 1：經過更準確校正的模型 ![經過更準確校正的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
 
-範例 2：過度信賴的模型 ![過度信賴的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+範例 2：過度信賴的模型 ![過度信賴的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ### <a name="regression"></a>迴歸
 對於您使用 Azure Machine Learning 自動化機器學習功能建置的每個迴歸模型，您可以查看下列圖表： 
@@ -400,9 +402,9 @@ ms.locfileid: "66297484"
 
 在每個回合之後，您都能查看每個迴歸模型的預測與真值圖。 為了保護資料隱私權，會將值組合在一起，而每組的大小均會顯示為圖表區域下半部的長條圖。 您可以根據模型所在的理想值，將預測模型與顯示誤差幅度且顏色較淡的陰影區域進行比較。
 
-範例 1：在預測中準確度較低的迴歸模型 ![在預測中準確度較低的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+範例 1：在預測中準確度較低的迴歸模型 ![在預測中準確度較低的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
 
-範例 2：在其預測中準確度較高的迴歸模型 ![在其預測中準確度較高的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+範例 2：在其預測中準確度較高的迴歸模型 ![在其預測中準確度較高的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a>
 
@@ -410,15 +412,15 @@ ms.locfileid: "66297484"
 
 殘差代表觀察到的 y - 預測的 y。 若要顯示低偏差的錯誤幅度，殘差直方圖應該會形成以 0 為中心的鐘形曲線。 
 
-範例 1：其錯誤中有偏差的迴歸模型 ![其錯誤中有偏差的 SA 迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+範例 1：其錯誤中有偏差的迴歸模型 ![其錯誤中有偏差的 SA 迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
 
-範例 2：錯誤分佈更均勻的迴歸模型 ![錯誤分佈更均勻的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+範例 2：錯誤分佈更均勻的迴歸模型 ![錯誤分佈更均勻的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>模型說明能力與特徵重要性
 
 特徵重要性讓分數能夠指出每個特徵在模型建構中有多麼重要。 您可以檢閱整個模型以及預測模型上每個類別的特徵重要性分數。 您可以查看每個特徵的重要性如何針對每個類別及整體進行比較。
 
-![特徵說明能力](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+![特徵說明能力](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>Notebook 範例
 下列 Notebook 示範了此文章中說明的概念：

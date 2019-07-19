@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722877"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314814"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>對應資料流程結構描述漂移
 
@@ -25,7 +25,8 @@ ms.locfileid: "67722877"
 * 定義可搭配資料模式 (而不是硬式編碼的欄位和值) 運作的轉換參數
 * 定義一些運算式，以了解要比對傳入欄位的模式，而不需使用具名欄位
 
-## <a name="how-to-implement-schema-drift"></a>如何實作結構描述漂移
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>如何在 ADF 對應資料流程中執行架構漂移
+ADF 原本就支援從執行變更為執行的彈性架構, 讓您可以建立泛型資料轉換邏輯, 而不需要重新編譯您的資料流程。
 
 * 選擇在您的來源轉換中 [允許結構描述漂移]
 
@@ -33,11 +34,13 @@ ms.locfileid: "67722877"
 
 * 在您選取此選項後，每次執行資料流程時都會從您的來源讀取所有傳入欄位，而這些欄位會通過整個流程送至接收。
 
-* 請務必使用 「 自動對應 」 對應 「 接收 」 轉換中的所有新欄位，讓所有新欄位取得挑選向上和向下進入您的目的地。
+* 根據預設, 所有新偵測到的資料行 (漂移資料行) 都會以字串資料類型的形式抵達。 如果您想要讓 ADF 自動從來源推斷資料類型, 請在您的來源轉換中選擇 [推斷漂移資料行類型]。
+
+* 請務必使用「自動對應」來對應「接收」轉換中的所有新欄位, 以便在您的目的地中取得並進入所有新的欄位, 並在接收上設定「允許架構漂移」。
 
 <img src="media/data-flow/automap.png" width="400">
 
-* 在採用簡單 [來源] -> [接收] (也稱為複製) 對應的情況下引進新欄位，一切都能運作。
+* 當使用簡單的來源 > 接收 (複製) 對應在該案例中引進新的欄位時, 所有專案都會正常執行。
 
 * 若要在處理結構描述漂移的工作流程中新增轉換，您可以使用模式比對，依照名稱、類型和值比對資料行。
 
@@ -66,10 +69,12 @@ Azure Data Factory 資料流程語法會使用 $$ 表示您的比對模式中每
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
-## <a name="access-new-columns-downstream"></a>下游存取新的資料行
+## <a name="access-new-columns-downstream"></a>存取下游的新資料行
+當您使用資料行模式產生新的資料行時, 可以使用下列方法, 稍後在資料流程轉換中存取這些新的資料行:
 
-當您產生新的資料行與資料行模式時，您可以存取這些新的資料行，稍後您使用 「 byName"運算式函數資料流程轉換。
+* 使用 "byPosition", 依位置號碼來識別新的資料行。
+* 使用 "byName", 依其名稱來識別新的資料行。
+* 在 [資料行模式] 中, 使用 [名稱]、[資料流程]、[位置] 或 [類型] 或任何組合, 以符合新的資料行。
 
 ## <a name="next-steps"></a>後續步驟
-
-在 [流程運算式語言](data-flow-expression-functions.md)您會發現額外的功能資料行模式和包括 「 byName"和"byPosition"的結構描述漂移。
+在[資料流程運算式語言](data-flow-expression-functions.md)中, 您會發現資料行模式和架構漂移的其他設備, 包括 "byName" 和 "byPosition"。

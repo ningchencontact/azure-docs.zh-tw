@@ -9,18 +9,18 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577793"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990293"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>從 Go 收集分散式追蹤 (預覽)
 
 透過與 [OpenCensus](https://opencensus.io) 和新型[本機轉送工具](./opencensus-local-forwarder.md)的整合，Application Insights 現在已可支援 Go 應用程式的分散式追蹤。 本文將逐步引導您完成程序，以設定適用於 Go 的 OpenCensus，以及將追蹤資料傳入 Application Insights。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您需要 Azure 訂用帳戶。
 - 您應安裝 Go，本文將使用 1.11 版 [Go Download](https://golang.org/dl/)。
@@ -40,12 +40,14 @@ ms.locfileid: "60577793"
 
    ![新增 Application Insights 資源](./media/opencensus-Go/0001-create-resource.png)
 
+ > [!NOTE]
+   >如果這是您第一次建立 Application Insights 資源, 您可以造訪[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)一文以深入瞭解。
+
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
     | 設定        | 值           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
-   | **應用程式類型** | 一般 | 您要監視的應用程式類型 |
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **Location** | East US | 選擇您附近或接近應用程式裝載位置的地點 |
 

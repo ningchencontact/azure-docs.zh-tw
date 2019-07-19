@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a798b766d09428e7ebebc04d969d63a542de3808
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835708"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227210"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
 
@@ -89,7 +89,7 @@ ms.locfileid: "67835708"
 ### <a name="step-22-add-the-mvc-view"></a>步驟 2.2：新增 MVC 檢視
 1. 以滑鼠右鍵按一下 [檢視]/[首頁] 資料夾，然後按一下 [新增]   > [新增項目]  。
 
-    ![Visual Studio 中加入新項目 功能表項目](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Visual Studio 中的 [加入新專案] 功能表項目](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
 2. 在 [新增項目 - Contoso.AADB2C.UI]  視窗中，選取 [Web] > [ASP.NET]  。
 
@@ -99,7 +99,7 @@ ms.locfileid: "67835708"
 
 5. 選取 [新增]  。
 
-    ![在 Visual Studio 中使用反白顯示的 MVC 檢視頁面中加入新項目 對話方塊](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![反白顯示 MVC 視圖頁面的 Visual Studio 中的 [新增專案] 對話方塊](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
 6. 如果 unified.cshtml  檔案尚未開啟，請按兩下此檔案將它開啟，然後清除檔案內容。
 
@@ -123,7 +123,7 @@ ms.locfileid: "67835708"
 
 找出包含 `ID` 值 *background_background_image* 的 `<img>` 元素，然後以 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 或您想要使用的任何其他背景影像取代 `src` 值。
 
-![變更頁面背景](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![具有自訂 background_background_image src 值的 img 元素](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### <a name="step-24-add-your-view-to-the-mvc-controller"></a>步驟 2.4：將檢視新增至 MVC 控制器
 
@@ -174,7 +174,7 @@ ms.locfileid: "67835708"
 
 2. 在 [設定]  區段的 [API]  區段之下，選取 [CORS]  。
 
-    ![在 Azure 入口網站中的應用程式服務 功能表中反白顯示的 CORS 功能表項目](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![在 Azure 入口網站的 App Service 功能表中反白顯示的 CORS 功能表項目](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
 3. 在 [CORS]  視窗的 [允許的來源]  方塊中，執行下列其中一項：
 
@@ -183,7 +183,7 @@ ms.locfileid: "67835708"
 
 4. 選取 [ **儲存**]。
 
-    ![允許的原點以反白顯示的星號的 CORS 設定頁面](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![在允許的原始來源中反白顯示星號的 CORS 設定頁面](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
     選取 [儲存]  之後，API 應用程式會接受來自指定 URL 的 JavaScript 呼叫。
 
@@ -196,7 +196,7 @@ ms.locfileid: "67835708"
     >若要確認您裝載內容的網站已啟用 CORS 並可測試 CORS 要求，請移至 [test-cors.org](https://test-cors.org/) 網站。
 
 * 您提供的內容是透過 **HTTPS** 保護。
-* 您使用*絕對 URL*，例如`https://yourdomain/content`，對所有連結、 CSS 內容和映像。
+* 您針對所有連結、CSS 內容和`https://yourdomain/content`影像使用*絕對 url*, 例如。
 
 ## <a name="step-5-configure-your-content-definition"></a>步驟 5：設定您的內容定義
 若要設定 `ContentDefinition`，請執行下列動作：
@@ -213,7 +213,7 @@ ms.locfileid: "67835708"
 6. 將 `LoadUri` 的值從 ~/tenant/default/unified  變更為 https://<app_name>.azurewebsites.net/home/unified  。
     自訂原則看起來應該如下所示：
 
-    ![範例 XML 程式碼片段反白顯示的 loaduri 來項目](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+    ![已反白顯示 LoadUri 元素的範例 XML 程式碼片段](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>步驟 6：將原則上傳至您的租用戶
 1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後選取 [Azure AD B2C]  。
@@ -292,7 +292,7 @@ ms.locfileid: "67835708"
 
 2. 找出具有識別碼 `background_background_image` 的 `<img>` 元素，並以 `@ViewData["background"]` 取代 `src` 值。
 
-    ![具有反白顯示的 src 值的 img 項目 ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
+    ![已反白顯示 src 值的 img 元素 ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
 ### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3：上傳變更並發佈您的原則
 1. 將您的 Visual Studio 專案發佈至 Azure App Service。
@@ -306,16 +306,16 @@ ms.locfileid: "67835708"
 
 5. 將 campaignId  查詢字串參數新增至此 URI。 例如，新增 `&campaignId=hawaii`，如下圖所示：
 
-    ![CampaignId 反白顯示的查詢字串參數的 URI](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![已反白顯示 campaignId 查詢字串參數的 URI](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. 選取 **Enter** 以顯示夏威夷背景影像。
 
-    ![夏威夷映像自訂背景的註冊登入頁面](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![使用夏威夷影像自訂背景的註冊登入頁面](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
 7. 將值變更為 Tokyo  ，然後選取 **Enter**。
     瀏覽器會顯示東京背景。
 
-    ![東京映像自訂背景的註冊登入頁面](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![具有東京影像自訂背景的註冊登入頁面](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
 ## <a name="step-9-change-the-rest-of-the-user-journey"></a>步驟 9：變更使用者旅程圖的其餘部分
 如果您選取登入頁面上的 [立即註冊]  連結，瀏覽器會顯示預設背景影像，而非您定義的影像。 因為您只變更註冊或登入頁面，所以會發生這種行為。 若要變更自行決定內容定義的其餘部分：

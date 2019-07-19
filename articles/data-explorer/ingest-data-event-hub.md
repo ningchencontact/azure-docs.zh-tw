@@ -1,24 +1,24 @@
 ---
 title: 將資料從事件中樞內嵌至 Azure 資料總管
-description: 在本文中，您會學習如何 （負載） 資料內嵌至 Azure 事件中樞的資料總管。
+description: 在本文中, 您將瞭解如何將資料從事件中樞內嵌 (載入) 至 Azure 資料總管。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.date: 07/17/2019
+ms.openlocfilehash: 8e13e9f95fac8d2e651755ade126417acc6d97da
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67621988"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311621"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>將資料從事件中樞內嵌至 Azure 資料總管
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、巨量資料串流平台及事件內嵌服務進行內嵌 (載入資料)。 [事件中樞](/azure/event-hubs/event-hubs-about)可以近乎即時地每秒鐘處理數百萬個事件。 在本文中，您可以建立事件中樞，從 Azure 資料總管和流程通過系統時，請參閱資料連接到它。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管可從事件中樞、巨量資料串流平台及事件內嵌服務進行內嵌 (載入資料)。 [事件中樞](/azure/event-hubs/event-hubs-about)可以近乎即時地每秒鐘處理數百萬個事件。 在本文中, 您會建立事件中樞、從 Azure 資料總管連線到它, 並查看整個系統的資料流程。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -34,7 +34,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="create-an-event-hub"></a>建立事件中樞
 
-在本文中，您會產生範例資料，並將它傳送到事件中樞。 第一個步驟是建立事件中樞。 其做法是使用 Azure 入口網站中的 Azure Resource Manager 範本。
+在本文中, 您會產生範例資料, 並將其傳送至事件中樞。 第一個步驟是建立事件中樞。 其做法是使用 Azure 入口網站中的 Azure Resource Manager 範本。
 
 1. 若要建立事件中樞，請使用下列按鈕開始部署。 按一下滑鼠右鍵並選取 [在新視窗中開啟]  ，以便依照本文中的其餘步驟操作。
 
@@ -56,9 +56,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
     **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | 訂用帳戶 | 您的訂用帳戶 | 選取您要用於事件中樞的 Azure 訂用帳戶。|
-    | 資源群組 | *test-hub-rg* | 建立新的資源群組。 |
-    | Location | 美國西部  | 選取 *美國西部*這篇文章。 至於生產系統，請選取最符合您需求的區域。 將事件中樞命名空間建立在與 Kusto 相同的 [位置] 可獲得最佳效能 (對於高輸送量的事件中樞命名空間格外重要)。
+    | Subscription | 您的訂用帳戶 | 選取您要用於事件中樞的 Azure 訂用帳戶。|
+    | Resource group | *test-hub-rg* | 建立新的資源群組。 |
+    | Location | 美國西部  | 為本文選取 [*美國西部*]。 至於生產系統，請選取最符合您需求的區域。 將事件中樞命名空間建立在與 Kusto 相同的 [位置] 可獲得最佳效能 (對於高輸送量的事件中樞命名空間格外重要)。
     | 命名空間名稱 | 唯一命名空間名稱 | 選擇可識別您命名空間的唯一名稱。 例如，*mytestnamespace*。 網域名稱 *servicebus.windows.net* 已附加至您提供的名稱。 名稱只能包含字母、數字和連字號。 名稱必須以字母開頭，且必須以字母或數字結尾。 此值長度必須介於 6 至 50 個字元之間。
     | 事件中樞名稱 | *test-hub* | 事件中樞位於命名空間之下，其會提供專屬的唯一範圍容器。 事件中樞名稱在命名空間內不可重複。 |
     | 取用者群組名稱 | *test-group* | 取用者群組能讓多個取用應用程式各自擁有獨立的事件串流檢視。 |
@@ -187,7 +187,9 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     ![訊息結果集](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure 資料總管具有資料擷取的彙總 (批次處理) 原則，可將擷取程序最佳化。 原則是根據預設，帳戶設定為 5 分鐘，因此您可能會遇到延遲。 請參閱[批次處理原則](/azure/kusto/concepts/batchingpolicy)彙總選項。 請參閱[串流原則](/azure/kusto/concepts/streamingingestionpolicy)擷取任何彙總。
+    > * Azure 資料總管具有資料擷取的彙總 (批次處理) 原則，可將擷取程序最佳化。 根據預設, 原則設定為5分鐘或 500 MB 的資料, 因此您可能會遇到延遲。 請參閱匯總選項的[批次處理原則](/azure/kusto/concepts/batchingpolicy)。 
+    > * 事件中樞內嵌包含10秒或 1 MB 的事件中樞回應時間。 
+    > * 設定資料表以支援串流處理, 並移除回應時間的延遲。 請參閱[串流原則](/azure/kusto/concepts/streamingingestionpolicy)。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -205,4 +207,4 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 Azure 資料總管中查詢資料](web-query-data.md)
+* [查詢 Azure 中的資料資料總管](web-query-data.md)

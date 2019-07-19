@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/15/2019
+ms.openlocfilehash: a1ff1449b5cc63c16035f8785662f250a008fbc1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299394"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305527"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -49,7 +49,8 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 
 * [資源群組名稱](#resource-group-name)
 * [叢集類型和設定](#cluster-types) 
-* 叢集登入和 SSH 使用者名稱
+* [叢集名稱](#cluster-name)
+* [叢集登入和 SSH 使用者名稱](#cluster-login-and-ssh-username)
 * [Location](#location)
 
 ## <a name="resource-group-name"></a>資源群組名稱
@@ -76,12 +77,31 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 ### <a name="hdinsight-version"></a>HDInsight 版本
 選擇此叢集的 HDInsight 版本。 如需詳細資訊，請參閱[支援的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
+## <a name="cluster-name"></a>叢集名稱
+
+HDInsight 叢集名稱具有下列限制:
+- 允許的字元: a-z、0-9、a-z 
+- 最大長度：59
+- 保留名稱: 應用程式
+- 必須是唯一的
+- 前6個字元在 VNET 中必須是唯一的
 
 ## <a name="cluster-login-and-ssh-username"></a>叢集登入和 SSH 使用者名稱
 使用 HDInsight 叢集，您可以在建立叢集期間設定兩個使用者帳戶：
 
 * HTTP 使用者：預設的使用者名稱為 *admin*。使用 Azure 入口網站上的基本組態。 有時稱之為「叢集使用者」。
 * SSH 使用者：用來透過 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+HTTP 使用者名稱具有下列限制:
+- 允許的特殊字元: _ 和 @ 
+- 不允許的字元: #;。 "'\/,: '! *？ $ ({}) [] < > | &--= +% ~ ^ space
+- 最大長度：20
+
+SSH 使用者名稱具有下列限制:
+- 允許的特殊字元: _ 和 @ 
+- 不允許的字元: #;。 "'\/,: '! *？ $ ({}) [] < > | &--= +% ~ ^ space
+- 最大長度：64
+- 保留名稱: hadoop、使用者、oozie、hive、mapred.max.split.size、ambari-qa、zookeeper、tez、hdfs、sqoop、yarn、hcat、ams、hbase、風暴、administrator、admin、user、user1、test、使用者名稱、test1、user3、admin1、1、123、a、actuser、adm、admin2、aspnet、backup、console、david、guest, john, 擁有者, 根, 伺服器, sql, 支援, support_388945a0, sys, test2, test3, user4, user5, spark
 
 企業安全性套件可讓您整合 HDInsight 與 Active Directory 及 Apache Ranger。 使用企業安全性套件可以建立多個使用者。
 
@@ -154,12 +174,12 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
 每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
 
-| type | 節點 | 圖表 |
+| Type | 節點 | 圖表 |
 | --- | --- | --- |
-| Hadoop |前端節點 (2)、 背景工作角色節點 （1 +） |![HDInsight Hadoop 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |前端節點 (2)、背景工作節點 (1 +) |![HDInsight Hadoop 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |前端伺服器 (2)、區域伺服器 (1+)、主要/Zookeeper 節點 (3) |![HDInsight HBase 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus 節點 (2)、監督員伺服器 (1+)、Zookeeper 節點 (3) |![HDInsight Storm 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |前端節點 (2)、 背景工作角色節點 （1 +）、 ZooKeeper 節點 (3) （對 A1 ZooKeeper VM 大小免費） |![HDInsight Spark 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |前端節點 (2)、背景工作節點 (1 +)、ZooKeeper 節點 (3) (A1 ZooKeeper VM 大小免費) |![HDInsight Spark 叢集節點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 如需詳細資訊，請參閱＜HDInsight 中的 Hadoop 元件和版本是什麼？＞中的[叢集的預設節點設定和虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
@@ -168,13 +188,13 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 不同的叢集類型具有不同的節點類型、節點數目和節點大小：
 * Hadoop 叢集類型的預設值： 
     * 兩個*前端節點*  
-    * 四個*背景工作角色節點*
+    * 四個背景*工作節點*
 * Storm 叢集類型的預設值： 
     * 兩個 *Nimbus 節點*
     * 三個 *ZooKeeper 節點*
     * 四個*監督員節點* 
 
-如果您只試用 HDInsight，我們建議使用一個背景工作節點。 如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
+如果您只是想要試用 HDInsight, 建議您使用一個背景工作節點。 如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
 > [!NOTE]  
 > 叢集大小限制會隨著 Azure 訂用帳戶而有所不同。 若要提高限制，請與 [Azure 帳務支援人員](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)連絡。
@@ -191,7 +211,7 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 如需使用不同的 SDK 或使用 Azure PowerShell 建立叢集時應用來指定 VM 大小的值，請參閱[使用於 HDInsight 叢集的 VM 大小](../cloud-services/cloud-services-sizes-specs.md#size-tables)。 在此連結的文件中，請使用資料表中 **Size (大小)** 資料行的值。
 
 > [!IMPORTANT]  
-> 如果您需要 32 個以上的背景工作角色節點，在叢集中，您必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
+> 如果您在叢集中需要超過32個背景工作節點, 則必須選取具有至少8個核心和 14 GB RAM 的前端節點大小。
 
 如需相關資訊，請參閱[虛擬機器的大小](../virtual-machines/windows/sizes.md)。 如需各式大小的價格資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight)。   
 

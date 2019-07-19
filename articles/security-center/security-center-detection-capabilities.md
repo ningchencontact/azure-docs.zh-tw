@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569358"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875564"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure 資訊安全中心的偵測功能
 本文件討論 Azure 資訊安全中心的進階偵測功能，協助您識別以您的 Microsoft Azure 資源 (Windows 與 Linux) 為目標的作用中威脅，並提供您快速回應所需的深入見解。
@@ -34,7 +34,7 @@ ms.locfileid: "67569358"
 
 回應時，組織通常會部署各種點解決方案，而這類解決方案會藉由尋找已知的攻擊簽章，進而著重於防禦企業周邊或端點。 這些解決方案通常會產生大量的低精確度警示，其需要資訊安全分析師進行分級和調查。 大部分的組織沒有回應這些警示所需的時間和專業知識 – 這麼多警示尚未解決。  同時，攻擊者的方法已經演變，可以破壞許多以簽章為基礎的防禦措施以及 [適應雲端環境](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/)。 需要新的方法，才能更快速地找出新興威脅並加速偵測和回應。
 
-## Azure 資訊安全中心會偵測及回應威脅的方式 <a name="asc-detects"></a>
+## Azure 資訊安全中心如何偵測及回應威脅<a name="asc-detects"></a>
 Microsoft 資訊安全研究人員會持續監視威脅。 他們可以存取從 Microsoft 在雲端和內部部署中的全域支援取得的一組廣泛遙測。 這組包羅萬象的資料集，可讓 Microsoft 探索其內部部署消費性和企業產品及其線上服務的新攻擊模式和趨勢。 因此，資訊安全中心可以在攻擊者發行新的和日益複雜的攻擊時，快速地更新其偵測演算法。 這種方法可協助您跟上瞬息萬變的威脅環境。
 
 資訊安全中心威脅偵測的運作方式如下：從您的 Azure 資源、網路及已連線的協力廠商解決方案自動收集安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 資訊安全中心的安全性警示會排定優先順序，並提供如何補救威脅的建議。
@@ -50,7 +50,7 @@ Microsoft 資訊安全研究人員會持續監視威脅。 他們可以存取從
 ### <a name="threat-intelligence"></a>威脅情報
 Microsoft 有大量全域威脅情報。 遙測會從多個來源 (例如 Azure、Office 365、Microsoft CRM Online、Microsoft Dynamics AX、outlook.com、MSN.com、Microsoft 數位犯罪防治中心 (DCU) 和 Microsoft 安全性回應中心 (MSRC) 流入。 研究人員也會收到主要雲端服務提供者之間共用的威脅情報資訊，並訂閱來自協力廠商的威脅情報摘要。 Azure 資訊安全中心可以使用這項資訊來警示您來自已知不良執行者的威脅。 部分範例包括：
 
-* **惡意 IP 位址的輸出通訊**︰對已知 botnet 或 darknet 的輸出流量可能表示您的資源已被盜用，以及攻擊者嘗試對系統或外洩資料執行命令。 Azure 資訊安全中心會比較網路流量與 Microsoft 的全域威脅資料庫，並在偵測到惡意 IP 位址的通訊時提出警示。
+* 連到**惡意 IP 位址的輸出通訊**: 對已知殭屍網路或 darknet 的輸出流量可能表示您的資源已遭入侵, 且攻擊者嘗試在該系統或竊取資料上執行命令。 Azure 資訊安全中心會比較網路流量與 Microsoft 的全域威脅資料庫，並在偵測到惡意 IP 位址的通訊時提出警示。
 
 ## <a name="behavioral-analytics"></a>行為分析
 行為分析是一種可分析及比較資料與一組已知模式的技術。 不過，這些模式並非簡單的簽章。 它們會透過已套用至大型資料集的複雜機器學習演算法來決定。 它們也能透過專業分析師仔細分析惡意行為來判定。 Azure 資訊安全中心可以使用行為分析，根據虛擬機器記錄、虛擬網路裝置記錄、網狀架構記錄、毀損傾印和其他來源的分析，來識別遭到入侵的資源。

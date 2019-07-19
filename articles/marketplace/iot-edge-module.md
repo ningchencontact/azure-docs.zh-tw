@@ -7,13 +7,13 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
-ms.author: qianw211
-ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964015"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874676"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 模組
 
@@ -84,7 +84,7 @@ Marketplace 目前針對 IoT Edge 模組支援 [免費]  和 [自備授權 (BYOL
 
 - 在 [Microsoft 合作夥伴網路](https://partner.microsoft.com/membership)中註冊。
 - 建立 [Microsoft 帳戶](https://account.microsoft.com/account/)(對 Azure Marketplace 交易供應項目而言為必要步驟；對其他項目則為建議步驟)。
-- 提交 [Marketplace 註冊表單](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)。 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
+- 提交 [Marketplace 註冊表單](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)。 如需詳細資訊, 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
 
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 

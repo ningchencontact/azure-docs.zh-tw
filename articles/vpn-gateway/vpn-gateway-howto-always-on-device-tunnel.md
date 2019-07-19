@@ -1,58 +1,58 @@
 ---
-title: 設定適用於 VPN 閘道的一律開啟 」 VPN 通道
-description: 若要設定 VPN 閘道的一律開啟 」 VPN 通道的步驟
+title: 設定 VPN 閘道的 Always On VPN 通道
+description: 設定 VPN 閘道 Always On VPN 通道的步驟
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 81822297dcf9370fc8ce7f7ce0285689c31606ce
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 98d8c2f6870be16f3eb92219fc3d02f988390a41
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695754"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295473"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>設定 Always On VPN 裝置通道
 
-Windows 10 虛擬私人網路 (VPN) 用戶端的新功能之一是能夠維護 VPN 連線。 永遠開啟 」 是一種 Windows 10 功能，讓作用中的 VPN 設定檔，自動連線並維持連線根據觸發程序 — 也就是使用者登入、 網路狀態變更或作用中裝置螢幕。
+Windows 10 虛擬私人網路 (VPN) 用戶端的其中一項新功能就是維護 VPN 連線的能力。 Always On 是一項 Windows 10 功能, 可讓使用中的 VPN 設定檔自動連接, 並根據觸發程式保持線上狀態, 也就是使用者登入、網路狀態變更或裝置螢幕作用中。
 
-Azure 虛擬網路閘道可以用與 Windows 10 Alwayson，來建立持續性使用者通道，以及對 Azure 的裝置通道。 本文將協助您設定 Always ON VPN 裝置通道。
+Azure 虛擬網路閘道可以與 Windows 10 Always On 搭配使用, 以建立持續的使用者通道, 以及 Azure 的裝置通道。 本文將協助您設定 Always ON VPN 裝置通道。
 
-一律開啟 」 VPN 連線中包含兩種類型的通道：
+Always On VPN 連接包含兩種類型的通道:
 
-* **裝置通道**使用者登入裝置之前，連接到指定的 VPN 伺服器。 登入前連線案例和裝置管理，請使用 裝置通道。
+* **裝置**通道會在使用者登入裝置之前, 連線到指定的 VPN 伺服器。 登入前的連線案例和裝置管理用途是使用裝置通道。
 
-* **使用者通道**使用者登入裝置後，才會連線。 使用者通道可讓使用者透過 VPN 伺服器存取組織資源。
+*  使用者通道只會在使用者登入裝置之後連線。 使用者通道可讓使用者透過 VPN 伺服器存取組織資源。
 
-裝置通道與使用者通道獨立運作，使用自己的 VPN 設定檔。 他們可以連線在此同時，也可以視需要使用不同的驗證方法和其他 VPN 組態設定。
+裝置通道和使用者通道都是獨立運作的 VPN 設定檔。 它們可以同時連接, 而且可以適當地使用不同的驗證方法和其他 VPN 設定。
 
 ## <a name="1-configure-the-gateway"></a>1.設定閘道
 
-VPN 閘道設定為使用 IKEv2 和憑證型驗證使用此[點對站文章](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
+將 VPN 閘道設定為使用 IKEv2 和以憑證為基礎的驗證, 並使用這個[點對站文章](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 
 ## <a name="2-configure-the-user-tunnel"></a>2.設定使用者通道
 
-1. 在 Windows 10 用戶端上安裝用戶端憑證，在此所示[點對站 VPN 用戶端文章](point-to-site-how-to-vpn-client-install-azure-cert.md)。 憑證必須位於目前使用者存放區
-2. 設定一律開啟 」 VPN 用戶端，透過 PowerShell、 SCCM 或 Intune[這些指示](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)。
+1. 在 Windows 10 用戶端上安裝用戶端憑證, 如此[點對站 VPN 用戶端一文](point-to-site-how-to-vpn-client-install-azure-cert.md)所示。 憑證必須位於目前的使用者存放區
+2. 使用[這些指示](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections), 透過 POWERSHELL、SCCM 或 Intune 設定 Always On VPN 用戶端。
 
 ## <a name="3-configure-the-device-tunnel"></a>3.設定裝置通道
 
-若要成功建立裝置通道，就必須符合下列需求：
+必須符合下列需求, 才能成功建立裝置通道:
 
-* 裝置必須加入的網域的電腦執行 Windows 10 企業版或教育版本 1709年或更新版本。
-* 通道才可設定 Windows 內建的 VPN 解決方案，並且會使用 IKEv2 電腦憑證驗證來建立。 
-* 每個裝置，您可以設定只有一個裝置通道。
+* 裝置必須是執行 Windows 10 企業版或教育版1709或更新版本的已加入網域的電腦。
+* 通道只能針對 Windows 內建 VPN 解決方案進行設定, 而且是使用 IKEv2 與電腦憑證驗證來建立。 
+* 每一裝置只能設定一個裝置通道。
 
-1. 在 Windows 10 用戶端上安裝用戶端憑證，在此所示[點對站 VPN 用戶端文章](point-to-site-how-to-vpn-client-install-azure-cert.md)。 憑證必須位於本機電腦存放區。
-1. 使用[這些指示](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)建立 VPN 設定檔和設定的本機系統帳戶內容中的裝置通道。
+1. 在 Windows 10 用戶端上安裝用戶端憑證, 如此[點對站 VPN 用戶端一文](point-to-site-how-to-vpn-client-install-azure-cert.md)所示。 憑證必須位於本機電腦存放區中。
+1. 使用[這些指示](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)來建立 VPN 設定檔, 並在本機系統帳戶的內容中設定裝置通道。
 
-### <a name="configuration-example-for-device-tunnel"></a>裝置通道的組態範例
+### <a name="configuration-example-for-device-tunnel"></a>裝置通道的設定範例
 
-您設定虛擬網路閘道並安裝 Windows 10 用戶端的本機電腦存放區中的用戶端憑證之後，使用下列範例來設定用戶端裝置通道。
+設定虛擬網路閘道並在 Windows 10 用戶端的本機電腦存放區中安裝用戶端憑證之後, 請使用下列範例來設定用戶端裝置通道。
 
-1. 複製下列文字，並將它儲存成***devicecert.ps1***。
+1. 複製下列文字, 並將它儲存為***devicecert***。
 
    ```
    Param(
@@ -104,7 +104,7 @@ VPN 閘道設定為使用 IKEv2 和憑證型驗證使用此[點對站文章](vpn
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 複製下列文字，並將它儲存成***VPNProfile.xml***相同的資料夾中**devicecert.ps1**。 編輯下列文字，以符合您的環境。
+1. 複製下列文字, 並將它儲存為***VPNProfile***與**devicecert**相同的資料夾。 編輯下列文字以符合您的環境。
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
    * `<Address>192.168.3.5</Address>`
@@ -139,16 +139,16 @@ VPN 閘道設定為使用 IKEv2 和憑證型驗證使用此[點對站文章](vpn
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. 下載**PsExec**從[Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec)並將檔案解壓縮至**C:\PSTools**。
-1. 從系統管理員命令提示字元中，啟動 PowerShell 執行：
+1. 從[Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec)下載**PsExec** , 並將檔案解壓縮至**C:\PSTools**。
+1. 從系統管理員命令提示字元中, 執行以啟動 PowerShell:
 
    ```
    C:\PsTools\PsExec.exe Powershell for 32-bit Windows
    C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![Powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
-1. 在 PowerShell 中，切換至資料夾所在**devicecert.ps1**並**VPNProfile.xml**所在，並執行下列命令：
+   ![powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
+1. 在 PowerShell 中, 切換至**devicecert**和**VPNProfile**所在的資料夾, 然後執行下列命令:
 
    ```powershell
    C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
@@ -158,17 +158,17 @@ VPN 閘道設定為使用 IKEv2 和憑證型驗證使用此[點對站文章](vpn
 1. 執行**rasphone**。
 
    ![rasphone](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
-1. 尋求**MachineCertTest**項目，然後按一下**Connect**。
+1. 尋找**MachineCertTest**專案, 然後按一下 **[連接]** 。
 
    ![連線](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
-1. 如果連線成功，請將電腦重新開機。 通道會自動連接。
+1. 如果連接成功, 請將電腦重新開機。 通道會自動連接。
 
 ## <a name="cleanup"></a>清除
 
-若要移除設定檔，請執行下列命令：
+若要移除設定檔, 請執行下列命令:
 
 ![清除](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-如需疑難排解，請參閱[Azure 點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+如需疑難排解, 請參閱[Azure 點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

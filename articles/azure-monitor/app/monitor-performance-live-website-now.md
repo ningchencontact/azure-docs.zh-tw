@@ -12,29 +12,30 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6ad2ab00060528557f618eb684ccfa710c3f09b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074186"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876427"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在執行時間使用 Application Insights 無程式碼 Attach 檢測 web 應用程式
 
 您可以使用 Azure Application Insights 檢測即時 Web 應用程式，而不需修改或重新部署您的程式碼。 您需要 [Microsoft Azure](https://azure.com) 訂用帳戶。
 
 狀態監視器用於檢測 IIS 內部或 VM 中裝載的 .NET 應用程式。
 
+- 如果您的應用程式已部署至 Azure VM 或 Azure 虛擬機器擴展集, 請遵循[這些指示](azure-vm-vmss-apps.md)。
 - 如果您的應用程式已部署到 Azure 應用程式服務中，請遵循[這些指示](azure-web-apps.md)。
 - 如果您的應用程式部署在 Azure VM 中，您可以從 Azure 控制台切換為 Application Insights 監視。
-- (另外還有個別的文章有關檢測[Azure 雲端服務](../../azure-monitor/app/cloudservices.md)。)
+- (另外還有關于檢測[Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。
 
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 下列兩種途徑可讓您將 Application Insights 套用至 .NET Web 應用程式：
 
-* **建置階段：** [新增 Application Insights SDK][greenbrown] 至您的 Web 應用程式程式碼。
+* **建置階段：** [將 APPLICATION INSIGHTS SDK 新增][greenbrown]至您的 web 應用程式程式碼。
 * **執行階段：** 如下所述，檢測伺服器上的 Web 應用程式，而不需重建並重新部署程式碼。
 
 > [!NOTE]
@@ -63,7 +64,7 @@ ms.locfileid: "67074186"
 2. 如果尚未安裝 Application Insights 狀態監視器，請[下載並執行安裝程式](#download)
 3. 在狀態監視器中，選取您想要監視的已安裝 Web 應用程式或網站。 利用您的 Azure 認證登入。
 
-    在 Application Insights 入口網站中設定您要在其中檢視結果的資源。 (通常最好建立新的資源。 如果您已經為此應用程式設定 [Web 測試][availability]或[用戶端監視][client]，請選取現有的資源。) 
+    在 Application Insights 入口網站中設定您要在其中檢視結果的資源。 (通常最好建立新的資源。 如果您已經有此應用程式的[web 測試][availability] or [client monitoring][client] , 請選取現有的資源)。 
 
     ![選擇應用程式和資源。](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -79,7 +80,7 @@ ms.locfileid: "67074186"
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>當您重新發佈您的應用程式時，請重新啟用 Application Insights。
 
-重新發佈您的應用程式之前，請考慮[將 Application Insights 新增至 Visual Studio 中的程式碼][greenbrown]。 您將取得更詳細的遙測，並且能夠撰寫自訂遙測。
+重新發佈您的應用程式之前, 請考慮[將 Application Insights 新增至 Visual Studio 中的程式碼][greenbrown]。 您將取得更詳細的遙測，並且能夠撰寫自訂遙測。
 
 如果您想要重新發行，但不將 Application Insights 新增至程式碼，請留意部署程序可能會從已發佈的網站中刪除 DLL 和 ApplicationInsights.config。 因此：
 
@@ -149,7 +150,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * 若要輸出詳細資訊記錄，請修改組態檔 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` 並將 `<add key="TraceLevel" value="All" />` 新增至 `appsettings`。
 然後重新啟動狀態監視器。
 
-* 狀態監視器是一個.NET 應用程式，您也可以啟用[藉由新增適當的診斷組態檔的.net 追蹤](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)。 比方說，在某些情況下很有用，若要查看在網路層級的事情[設定網路追蹤](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* 當狀態監視器是 .NET 應用程式時, 您也可以藉[由將適當的診斷新增至設定檔來啟用 .net 追蹤](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)。 例如, 在某些情況下, 藉由設定[網路追蹤](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)來查看網路層級發生的狀況, 會很有説明
 
 ### <a name="insufficient-permissions"></a>權限不足
   
@@ -175,7 +176,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 
 ### <a name="additional-troubleshooting"></a>其他疑難排解
 
-* 請參閱[其他疑難排解][qna]。
+* 請參閱其他[疑難排解][qna]。
 
 ## <a name="system-requirements"></a>系統需求
 支援伺服器上 Application Insights 狀態監視器的作業系統：
@@ -186,7 +187,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * Windows Server 2012 R2
 * Windows Server 2016
 
-使用最新版 SP 和.NET Framework 4.5 （狀態監視建置在這個版本的 framework）
+使用最新的 SP 和 .NET Framework 4.5 (狀態監視器是以這個版本的架構為基礎)
 
 在用戶端：Windows 7、8、8.1 和 10，一樣需含有 .NET Framework 4.5
 
@@ -280,7 +281,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 目前，狀態監視器只能安裝 Application Insights SDK 版本 2.3 或 2.4。 
 
-是 Application Insights SDK 版本 2.4[最新版本支援.NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1)已[EOL 2016 年 1 月](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)。 因此，目前狀態監視器可以用來檢測.NET 4.0 應用程式。 
+Application Insights SDK 2.4 版是[支援 .net 4.0 的最後一個版本](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1), 也就是第[1 月的 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/)。 因此, 從現在開始狀態監視器可以用來檢測 .NET 4.0 應用程式。 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>每次更新應用程式時，是否需要執行狀態監視器？
 
@@ -311,6 +312,7 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 ## <a name="download"></a>下載狀態監視器
 
+- 使用新的[PowerShell 模組](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
 - 下載並執行[狀態監視器安裝程式](https://go.microsoft.com/fwlink/?LinkId=506648)
 - 或執行 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) 並在其中搜尋 Application Insights 狀態監視器。
 
@@ -324,9 +326,9 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 新增更多遙測：
 
-* [建立 Web 測試][availability]，確定您的網站保持即時狀態。
-* [新增 Web 用戶端遙測][usage]，以查看網頁程式碼中的例外狀況，並讓您插入追蹤呼叫。
-* [將 Application Insights SDK 新增至您的程式碼][greenbrown]，以便插入追蹤和記錄呼叫
+* [建立 web 測試][availability], 以確保您的網站保持上線。
+* [新增 web 用戶端遙測][usage], 以查看來自網頁程式碼的例外狀況, 並讓您插入追蹤呼叫。
+* [將 APPLICATION INSIGHTS SDK 新增至您的程式碼][greenbrown], 讓您可以插入追蹤和記錄呼叫
 
 <!--Link references-->
 

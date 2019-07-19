@@ -1,24 +1,25 @@
 ---
-title: 存取限於從虛擬網路的 Azure container registry
-description: 允許存取至 Azure container registry，只能從 Azure 虛擬網路中的資源或公用 IP 位址範圍。
+title: 限制從虛擬網路存取 Azure container registry
+description: 僅允許從 Azure 虛擬網路中的資源或從公用 IP 位址範圍存取 Azure container registry。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806600"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310397"
 ---
-# <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure container registry 使用 Azure 虛擬網路或防火牆規則限制存取
+# <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>使用 Azure 虛擬網路或防火牆規則來限制對 Azure container registry 的存取
 
-[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)提供安全的私人網路，為您的 Azure 和內部部署資源。 藉由限制至私人 Azure 容器登錄的存取，從一個 Azure 虛擬網路，您可以確定只有在虛擬網路中的資源存取登錄。 跨單位案例中，您也可以設定防火牆規則以允許僅來自特定 IP 位址的登錄存取權。
+[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)為您的 azure 和內部部署資源提供安全的私用網路。 藉由限制從 Azure 虛擬網路存取您的私用 Azure container registry, 您可以確保只有虛擬網路中的資源會存取登錄。 針對跨單位案例, 您也可以設定防火牆規則, 只允許來自特定 IP 位址的登錄存取。
 
-本文將說明兩個案例，來建立網路存取規則，以限制存取權的 Azure container registry： 從虛擬網路中部署的虛擬機器或虛擬機器的公用 IP 位址。
+本文說明建立網路存取規則以限制 Azure container registry 存取的兩個案例: 從部署在虛擬網路中的虛擬機器, 或從 VM 的公用 IP 位址。
 
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
@@ -26,21 +27,21 @@ ms.locfileid: "67806600"
 
 ## <a name="preview-limitations"></a>預覽限制
 
-* 只有**Premium**容器登錄庫可以使用網路存取規則來設定。 如需登錄的服務層的詳細資訊，請參閱[Azure Container Registry Sku](container-registry-skus.md)。 
+* 只能使用網路存取規則來設定**Premium**容器登錄。 如需登錄服務層的詳細資訊, 請參閱[Azure Container Registry sku](container-registry-skus.md)。 
 
-* 只有[Azure Kubernetes Service](../aks/intro-kubernetes.md)叢集或 Azure[虛擬機器](../virtual-machines/linux/overview.md)可以做為主機用來存取虛擬網路中的容器登錄庫。 *目前不支援其他 Azure 服務，包括 Azure 容器執行個體。*
+* 只有[Azure Kubernetes Service](../aks/intro-kubernetes.md)叢集或 Azure[虛擬機器](../virtual-machines/linux/overview.md)可用來做為主機, 才能存取虛擬網路中的容器登錄。 *目前不支援其他 Azure 服務, 包括 Azure 容器實例。*
 
-* [ACR 工作](container-registry-tasks-overview.md)作業目前不支援在虛擬網路中存取的容器登錄庫。
+* 在虛擬網路中存取的容器登錄中, 目前不支援[ACR 工作](container-registry-tasks-overview.md)作業。
 
-* 每個登錄最多 100 個虛擬網路規則，可支援。
+* 每個登錄最多支援100個虛擬網路規則。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 若要使用 Azure CLI 本文中，Azure CLI 版本 2.0.58 中的步驟，或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
+* 若要使用本文中的 Azure CLI 步驟, 需要 Azure CLI 版本2.0.58 或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-* 如果您還沒有容器登錄庫，建立一個 (需要 Premium SKU) 和推播範例映像時，例如`hello-world`從 Docker Hub。 例如，使用[Azure 入口網站][quickstart-portal]or the [Azure CLI][quickstart-cli]建立登錄庫。 
+* 如果您還沒有容器登錄, 請建立一個 (需要 Premium SKU) 並`hello-world`從 Docker Hub 推送範例映射 (例如)。 例如, 使用[Azure 入口網站][quickstart-portal] or the [Azure CLI][quickstart-cli]來建立登錄。 
 
-* 如果您想要限制虛擬網路使用不同的 Azure 訂用帳戶中的登錄存取，您需要註冊該訂用帳戶中的 Azure Container Registry 的資源提供者。 例如:
+* 如果您想要使用不同 Azure 訂用帳戶中的虛擬網路來限制登錄存取, 您必須在該訂用帳戶中註冊 Azure Container Registry 的資源提供者。 例如:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -48,33 +49,33 @@ ms.locfileid: "67806600"
   az provider register --namespace Microsoft.ContainerRegistry
   ``` 
 
-## <a name="about-network-rules-for-a-container-registry"></a>關於 container registry 的網路規則
+## <a name="about-network-rules-for-a-container-registry"></a>關於容器登錄的網路規則
 
-預設的 Azure container registry 會接受透過網際網路從任何網路上主機的連線。 透過虛擬網路中，您可以允許只有 Azure 資源，例如 AKS 叢集或 Azure VM，安全地存取登錄中，而不需要跨網路界限。 您也可以設定網路防火牆規則，以允許清單特定的公用網際網路 IP 位址範圍。 
+根據預設, Azure container registry 會接受從任何網路上的主機透過網際網路連接。 透過虛擬網路, 您可以只允許 AKS 叢集或 Azure VM 之類的 Azure 資源, 安全地存取登錄, 而不需跨越網路界限。 您也可以設定網路防火牆規則, 將特定的公用網際網路 IP 位址範圍列入允許清單。 
 
-若要限制登錄存取權，請先將變更登錄的預設動作，因此它會拒絕所有網路連線。 然後，新增網路存取規則。 用戶端授與存取權，透過網路規則必須繼續[向容器登錄](https://docs.microsoft.com/azure/container-registry/container-registry-authentication)和授權來存取資料。
+若要限制登錄的存取權, 請先變更登錄的預設動作, 使其拒絕所有的網路連線。 然後, 新增網路存取規則。 透過網路規則授與存取權的用戶端必須繼續向[容器登錄進行驗證](https://docs.microsoft.com/azure/container-registry/container-registry-authentication), 並獲得授權來存取資料。
 
-### <a name="service-endpoint-for-subnets"></a>子網路的服務端點
+### <a name="service-endpoint-for-subnets"></a>子網的服務端點
 
-若要允許來自子網路存取虛擬網路中，您需要新增[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)Azure Container Registry 服務。 
+若要允許從虛擬網路中的子網進行存取, 您需要為 Azure Container Registry 服務新增[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)。 
 
-多租用戶的服務，例如 Azure Container Registry，使用一組 IP 位址為所有客戶。 服務端點會指派一個端點，來存取登錄。 此端點可讓流量有最佳路由資源透過 Azure 骨幹網路。 虛擬網路和子網路的身分識別也會隨著每項要求傳輸。
+多租使用者服務 (例如 Azure Container Registry) 會針對所有客戶使用一組 IP 位址。 服務端點會指派端點來存取登錄。 此端點可透過 Azure 骨幹網路, 讓流量成為資源的最佳路由。 虛擬網路和子網路的身分識別也會隨著每項要求傳輸。
 
 ### <a name="firewall-rules"></a>防火牆規則
 
-對於 IP 網路規則，提供允許的網際網路位址範圍，例如使用 CIDR 表示法*16.17.18.0/24*或個別的 IP 位址，例如*16.17.18.19*。 IP 網路規則只允許*公開*網際網路 IP 位址。 IP 規則中不允許保留私人網路 （如 RFC 1918 中所定義） 的 IP 位址範圍。
+針對 IP 網路規則, 請使用 CIDR 標記法 (例如*16.17.18.0/24* ) 或個別的 IP 位址 (如*16.17.18.19 一類*) 提供允許的網際網路位址範圍。 只有*公用*網際網路 ip 位址允許使用 IP 網路規則。 IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。
 
-## <a name="create-a-docker-enabled-virtual-machine"></a>建立啟用 Docker 的虛擬機器
+## <a name="create-a-docker-enabled-virtual-machine"></a>建立具備 Docker 功能的虛擬機器
 
-在本文中，使用已啟用 Docker 的 Ubuntu VM 來存取 Azure container registry。 若要在登錄中使用 Azure Active Directory 驗證，同時安裝[Azure CLI][azure-cli]在 VM 上。 如果您已經有 Azure 虛擬機器，略過此步驟中建立。
+在本文中, 請使用已啟用 Docker 的 Ubuntu VM 來存取 Azure container registry。 若要對登錄使用 Azure Active Directory 驗證, 請同時在 VM 上安裝[Azure CLI][azure-cli] 。 如果您已經有 Azure 虛擬機器, 請略過此建立步驟。
 
-您可以使用相同的資源群組，您的虛擬機器和您的容器登錄。 此安裝程式簡化清除結束，但不需要。 如果您選擇建立的虛擬機器和虛擬網路的個別的資源群組，執行[az 群組建立][az-group-create]。 下列範例會建立名為的資源群組*myResourceGroup*中*westcentralus*位置：
+您可以將相同的資源群組用於虛擬機器和容器登錄。 此安裝程式會在結束時簡化清理, 但不需要。 如果您選擇為虛擬機器和虛擬網路建立個別的資源群組, 請執行[az group create][az-group-create]。 下列範例會在*westcentralus*位置中建立名為*myResourceGroup*的資源群組:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-現在，將預設值部署 Ubuntu Azure 虛擬機器[az vm 建立][az-vm-create]。 下列範例會建立名為的 VM *myDockerVM*:
+現在, 使用[az vm create][az-vm-create]部署預設的 Ubuntu Azure 虛擬機器。 下列範例會建立名為*myDockerVM*的 VM:
 
 ```azurecli
 az vm create \
@@ -85,7 +86,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-系統需要花幾分鐘的時間來建立 VM。 命令完成之後，請記下 Azure CLI 所顯示的 `publicIpAddress`。 使用此位址來建立 SSH 連線到 VM，以及 （選擇性） 更新版本的安裝程式的防火牆規則。
+系統需要花幾分鐘的時間來建立 VM。 命令完成之後，請記下 Azure CLI 所顯示的 `publicIpAddress`。 使用此位址來建立 VM 的 SSH 連線, 並選擇性地在稍後設定防火牆規則。
 
 ### <a name="install-docker-on-the-vm"></a>在 VM 上安裝 Docker
 
@@ -95,7 +96,7 @@ az vm create \
 ssh azureuser@publicIpAddress
 ```
 
-執行下列命令以安裝在 Ubuntu VM 上的 Docker:
+執行下列命令以在 Ubuntu VM 上安裝 Docker:
 
 ```bash
 sudo apt install docker.io -y
@@ -117,19 +118,19 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>安裝 Azure CLI
 
-請遵循[使用 apt 安裝 Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) 中的步驟在您的 Ubuntu 虛擬機器上安裝 Azure CLI。 在本文中，請確定您在安裝版本 2.0.58 或更新版本。
+請遵循[使用 apt 安裝 Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) 中的步驟在您的 Ubuntu 虛擬機器上安裝 Azure CLI。 在本文中, 請確定您安裝的是2.0.58 或更新版本。
 
 結束 SSH 連線。
 
-## <a name="allow-access-from-a-virtual-network"></a>允許從虛擬網路的存取
+## <a name="allow-access-from-a-virtual-network"></a>允許從虛擬網路存取
 
-在本節中，設定您的容器登錄，以允許來自子網路的存取在 Azure 虛擬網路中。 提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
+在本節中, 請將您的容器登錄設定為允許從 Azure 虛擬網路中的子網進行存取。 系統會提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>允許從虛擬網路-CLI 存取
+### <a name="allow-access-from-a-virtual-network---cli"></a>允許從虛擬網路存取-CLI
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>將服務端點新增至子網路
+#### <a name="add-a-service-endpoint-to-a-subnet"></a>將服務端點新增至子網
 
-當您建立 VM 時，Azure 預設會在相同的資源群組中建立虛擬網路。 虛擬網路的名稱根據虛擬機器的名稱。 例如，如果您命名您的虛擬機器*myDockerVM*，預設虛擬網路名稱*myDockerVMVNET*，與子網路名為*myDockerVMSubnet*。 在 Azure 入口網站或使用，請確認這[az 網路 vnet 清單][az-network-vnet-list]命令：
+當您建立 VM 時, Azure 預設會在相同的資源群組中建立虛擬網路。 虛擬網路的名稱是以虛擬機器的名稱為基礎。 例如, 如果您將虛擬機器命名為*myDockerVM*, 預設的虛擬網路名稱是*myDockerVMVNET*, 子網名為*myDockerVMSubnet*。 請在 Azure 入口網站中, 或使用[az network vnet list][az-network-vnet-list]命令來確認:
 
 ```azurecli
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
@@ -146,7 +147,7 @@ az network vnet list --resource-group myResourceGroup --query "[].{Name: name, S
 ]
 ```
 
-使用[az 網路的 vnet 子網路更新][az-network-vnet-subnet-update]命令來新增**Microsoft.ContainerRegistry**至子網路的服務端點。 取代您的虛擬網路和子網路，在下列命令中的名稱：
+使用[az network vnet subnet update][az-network-vnet-subnet-update]命令, 將**ContainerRegistry**服務端點新增至您的子網。 在下列命令中, 以您的虛擬網路和子網的名稱取代:
 
 ```azurecli
 az network vnet subnet update \
@@ -156,7 +157,7 @@ az network vnet subnet update \
   --service-endpoints Microsoft.ContainerRegistry
 ```
 
-使用[az 網路的 vnet 子網路顯示][az-network-vnet-subnet-show]命令來擷取子網路的資源識別碼。 您需要在稍後步驟中設定網路存取規則。
+使用[az network vnet subnet show][az-network-vnet-subnet-show]命令來取出子網的資源識別碼。 您在稍後的步驟中需要用到此設定網路存取規則。
 
 ```azurecli
 az network vnet subnet show \
@@ -175,7 +176,7 @@ az network vnet subnet show \
 
 #### <a name="change-default-network-access-to-registry"></a>變更登錄的預設網路存取
 
-根據預設，Azure container registry 會允許任何網路上主機的連線。 若要限制對選取的網路存取，變更預設動作來拒絕存取。 使用下列登錄的名稱來替代[az acr update][az-acr-update]命令：
+根據預設, Azure container registry 允許從任何網路上的主機進行連接。 若要限制對所選網路的存取, 請將預設動作變更為 [拒絕存取]。 在下列[az acr update][az-acr-update]命令中, 以您的登錄名稱取代:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -183,54 +184,54 @@ az acr update --name myContainerRegistry --default-action Deny
 
 #### <a name="add-network-rule-to-registry"></a>將網路規則新增至登錄
 
-使用[az acr 網路規則新增][az-acr-network-rule-add]命令，將網路規則新增至您的登錄，以允許從 VM 的子網路的存取。 取代容器登錄的名稱和下列命令中的子網路的資源識別碼： 
+使用[az acr network-rule add][az-acr-network-rule-add]命令, 將網路規則新增至您的登錄, 以允許從 VM 的子網進行存取。 在下列命令中, 以容器登錄的名稱和子網的資源識別碼取代: 
 
  ```azurecli
 az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 ```
 
-若要繼續[確認登錄的存取權](#verify-access-to-the-registry)。
+繼續[驗證登錄的存取權](#verify-access-to-the-registry)。
 
-### <a name="allow-access-from-a-virtual-network---portal"></a>允許存取，從虛擬網路-入口網站
+### <a name="allow-access-from-a-virtual-network---portal"></a>允許從虛擬網路存取-入口網站
 
-#### <a name="add-service-endpoint-to-subnet"></a>將服務端點新增至子網路
+#### <a name="add-service-endpoint-to-subnet"></a>將服務端點新增至子網
 
-當您建立 VM 時，Azure 預設會在相同的資源群組中建立虛擬網路。 虛擬網路的名稱根據虛擬機器的名稱。 例如，如果您命名您的虛擬機器*myDockerVM*，預設虛擬網路名稱*myDockerVMVNET*，與子網路名為*myDockerVMSubnet*。
+當您建立 VM 時, Azure 預設會在相同的資源群組中建立虛擬網路。 虛擬網路的名稱是以虛擬機器的名稱為基礎。 例如, 如果您將虛擬機器命名為*myDockerVM*, 預設的虛擬網路名稱是*myDockerVMVNET*, 子網名為*myDockerVMSubnet*。
 
-若要新增 Azure Container Registry 服務端點的子網路︰
+若要將 Azure Container Registry 的服務端點新增至子網:
 
-1. 在頂端的搜尋方塊[Azure 入口網站][azure-portal]，輸入*虛擬網路*。 當搜尋結果中出現**虛擬網路**時加以選取。
-1. 從虛擬網路清單中，選取您的虛擬機器部署所在，例如虛擬網路*myDockerVMVNET*。
-1. 底下**設定**，選取**子網路**。
-1. 選取您的虛擬機器部署所在，這類的子網路*myDockerVMSubnet*。
-1. 底下**服務端點**，選取**Microsoft.ContainerRegistry**。
+1. 在[Azure 入口網站][azure-portal]頂端的 [搜尋] 方塊中, 輸入 [*虛擬網路*]。 當搜尋結果中出現**虛擬網路**時加以選取。
+1. 從 [虛擬網路] 清單中, 選取要部署虛擬機器的虛擬網路, 例如*myDockerVMVNET*。
+1. 在 [**設定**] 底下, 選取 [**子網**]。
+1. 選取您的虛擬機器部署所在的子網, 例如*myDockerVMSubnet*。
+1. 在 [**服務端點**] 底下, 選取 [ **ContainerRegistry**]。
 1. 選取 [ **儲存**]。
 
-![將服務端點新增至子網路][acr-subnet-service-endpoint] 
+![將服務端點新增至子網][acr-subnet-service-endpoint] 
 
-#### <a name="configure-network-access-for-registry"></a>設定網路存取的登錄
+#### <a name="configure-network-access-for-registry"></a>設定登錄的網路存取
 
-根據預設，Azure container registry 會允許任何網路上主機的連線。 若要限制虛擬網路的存取權：
+根據預設, Azure container registry 允許從任何網路上的主機進行連接。 若要限制對虛擬網路的存取:
 
-1. 在入口網站中，瀏覽至您的容器登錄。
-1. 底下**設定**，選取**防火牆和虛擬網路**。
+1. 在入口網站中, 流覽至您的 container registry。
+1. 在 [**設定**] 底下, 選取 [**防火牆和虛擬網路**]。
 1. 若要預設拒絕存取，請選擇允許**所選網路**存取權。 
-1. 選取 **將現有的虛擬網路新增**，並選取 虛擬網路和您設定與服務端點的子網路。 選取 [新增]  。
+1. 選取 [**新增現有的虛擬網路**], 然後選取您使用服務端點設定的虛擬網路和子網。 選取 [新增]  。
 1. 選取 [ **儲存**]。
 
-![設定容器登錄的虛擬網路][acr-vnet-portal]
+![設定用於 container registry 的虛擬網路][acr-vnet-portal]
 
-若要繼續[確認登錄的存取權](#verify-access-to-the-registry)。
+繼續[驗證登錄的存取權](#verify-access-to-the-registry)。
 
 ## <a name="allow-access-from-an-ip-address"></a>允許來自 IP 位址的存取
 
-在本節中，設定您的容器登錄，以允許來自特定 IP 位址或範圍的存取。 提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
+在本節中, 請將您的容器登錄設定為允許來自特定 IP 位址或範圍的存取。 系統會提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
 
-### <a name="allow-access-from-an-ip-address---cli"></a>允許存取的 IP 位址-CLI
+### <a name="allow-access-from-an-ip-address---cli"></a>允許來自 IP 位址的存取-CLI
 
 #### <a name="change-default-network-access-to-registry"></a>變更登錄的預設網路存取
 
-如果您尚未這麼做，更新預設為拒絕存取的登錄設定。 使用下列登錄的名稱來替代[az acr update][az-acr-update]命令：
+如果您尚未這麼做, 請將登錄設定更新為預設拒絕存取。 在下列[az acr update][az-acr-update]命令中, 以您的登錄名稱取代:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -238,7 +239,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 #### <a name="remove-network-rule-from-registry"></a>從登錄移除網路規則
 
-如果您先前已加入網路規則，以允許從 VM 的子網路的存取，請移除子網路的服務端點和網路規則。 Container registry 的名稱與您在先前步驟中擷取的子網路的資源識別碼取代[az acr 網路規則移除][az-acr-network-rule-remove]命令： 
+如果您先前已新增網路規則, 以允許從 VM 的子網進行存取, 請移除子網的服務端點和網路規則。 以您在 [ [az acr network-rule remove][az-acr-network-rule-remove] ] 命令的先前步驟中所抓取之子網的容器登錄名稱和資源識別碼取代: 
 
 ```azurecli
 # Remove service endpoint
@@ -256,65 +257,65 @@ az acr network-rule remove --name mycontainerregistry --subnet <subnet-resource-
 
 #### <a name="add-network-rule-to-registry"></a>將網路規則新增至登錄
 
-使用[az acr 網路規則新增][az-acr-network-rule-add]命令，將網路規則新增至您的登錄，以允許從 VM 的 IP 位址的存取。 取代容器登錄的名稱和下列命令中的虛擬機器的公用 IP 位址。
+使用[az acr network-rule add][az-acr-network-rule-add]命令, 將網路規則新增至您的登錄, 以允許從 VM 的 IP 位址進行存取。 在下列命令中, 以容器登錄的名稱和 VM 的公用 IP 位址取代。
 
 ```azurecli
 az acr network-rule add --name mycontainerregistry --ip-address <public-IP-address>
 ```
 
-若要繼續[確認登錄的存取權](#verify-access-to-the-registry)。
+繼續[驗證登錄的存取權](#verify-access-to-the-registry)。
 
-### <a name="allow-access-from-an-ip-address---portal"></a>允許存取來自 IP 位址-入口網站
+### <a name="allow-access-from-an-ip-address---portal"></a>允許從 IP 位址存取-入口網站
 
 #### <a name="remove-existing-network-rule-from-registry"></a>從登錄移除現有的網路規則
 
-如果您先前已加入網路規則，以允許從 VM 的子網路的存取，請移除現有的規則。 如果您想要從不同的 VM 存取登錄，請略過本節。
+如果您先前已新增網路規則, 以允許從 VM 的子網進行存取, 請移除現有的規則。 如果您想要從不同的 VM 存取登錄, 請略過本節。
 
-* 更新 Azure Container registry 移除子網路的服務端點的子網路設定。 
+* 更新子網設定, 以移除 Azure Container Registry 的子網服務端點。 
 
-  1. 在  [Azure 入口網站][azure-portal]，瀏覽至您的虛擬機器部署所在的虛擬網路。
-  1. 底下**設定**，選取**子網路**。
-  1. 選取您的虛擬機器部署所在的子網路。
-  1. 底下**服務端點**，移除的核取方塊**Microsoft.ContainerRegistry**。 
+  1. 在  [Azure 入口網站][azure-portal]中, 流覽至虛擬機器部署所在的虛擬網路。
+  1. 在 [**設定**] 底下, 選取 [**子網**]。
+  1. 選取您的虛擬機器部署所在的子網。
+  1. 在 [**服務端點**] 下, 移除**ContainerRegistry**的核取方塊。 
   1. 選取 [ **儲存**]。
 
-* 移除 允許存取登錄的子網路的網路規則。
+* 移除允許子網存取登錄的網路規則。
 
-  1. 在入口網站中，瀏覽至您的容器登錄。
-  1. 底下**設定**，選取**防火牆和虛擬網路**。
-  1. 底下**虛擬網路**，選取虛擬網路的名稱，然後選取**移除**。
+  1. 在入口網站中, 流覽至您的 container registry。
+  1. 在 [**設定**] 底下, 選取 [**防火牆和虛擬網路**]。
+  1. 在 [**虛擬網路**] 底下, 選取虛擬網路的名稱, 然後選取 [**移除**]。
   1. 選取 [ **儲存**]。
 
 #### <a name="add-network-rule-to-registry"></a>將網路規則新增至登錄
 
-1. 在入口網站中，瀏覽至您的容器登錄。
-1. 底下**設定**，選取**防火牆和虛擬網路**。
-1. 如果您尚未這麼做，選擇允許存取權**選取的網路**。 
-1. 底下**虛擬網路**，確定已選取任何網路。
-1. 底下**防火牆**，輸入 VM 的公用 IP 位址。 或者，您也可以輸入包含 VM 的 IP 位址的 CIDR 標記法的位址範圍。
+1. 在入口網站中, 流覽至您的 container registry。
+1. 在 [**設定**] 底下, 選取 [**防火牆和虛擬網路**]。
+1. 如果您尚未這麼做, 請選擇允許從**選取的網路**進行存取。 
+1. 在 [**虛擬網路**] 下, 確定未選取任何網路。
+1. 在 [**防火牆**] 底下, 輸入 VM 的公用 IP 位址。 或者, 以 CIDR 標記法輸入包含 VM IP 位址的位址範圍。
 1. 選取 [ **儲存**]。
 
-![設定容器登錄的防火牆規則][acr-vnet-firewall-portal]
+![設定 container registry 的防火牆規則][acr-vnet-firewall-portal]
 
-若要繼續[確認登錄的存取權](#verify-access-to-the-registry)。
+繼續[驗證登錄的存取權](#verify-access-to-the-registry)。
 
-## <a name="verify-access-to-the-registry"></a>確認登錄的存取權
+## <a name="verify-access-to-the-registry"></a>驗證登錄的存取權
 
-之後等候幾分鐘的時間來更新組態，請確認 VM 可以存取的容器登錄。 請透過 SSH 連線到您的 VM，並執行[az acr 登入][az-acr-login]命令來登入您的登錄。 
+等候幾分鐘的時間讓設定更新之後, 請確認 VM 可以存取容器登錄。 建立 VM 的 SSH 連線, 並執行[az acr login][az-acr-login]命令以登入您的登錄。 
 
 ```bash
 az acr login --name mycontainerregistry
 ```
 
-您可以執行登錄作業，例如執行`docker pull`從登錄提取範例映像。 取代適用於您的登錄，加上登錄登入伺服器名稱 （全部小寫） 的映像和標記值：
+您可以執行登錄作業 (例如`docker pull` [執行]), 從登錄中提取範例映射。 以適用于您登錄的映射和標籤值取代, 並在前面加上登錄登入伺服器名稱 (全部小寫):
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
 ``` 
 
-Docker 已成功提取映像的 vm。
+Docker 已成功將映射提取到 VM。
 
-此範例示範您可以透過網路存取規則存取私人容器登錄。 不過，從不同的登入主機沒有網路存取規則，設定，無法存取登錄。 如果您嘗試從另一部主機使用登入`az acr login`命令或`docker login`命令時，輸出會與下列類似：
+這個範例示範您可以透過網路存取規則來存取私人容器登錄。 不過, 無法從未設定網路存取規則的其他登入主機存取登錄。 如果您嘗試使用`az acr login`命令或`docker login`命令從另一部主機登入, 輸出會如下所示:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -322,19 +323,19 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>還原預設登錄存取
 
-若要還原至預設為允許存取登錄，移除任何已設定的網路規則。 然後設定預設動作，以允許存取。 提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
+若要將登錄還原為預設允許存取, 請移除任何已設定的網路規則。 然後將預設動作設定為 [允許存取]。 系統會提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
 
-### <a name="restore-default-registry-access---cli"></a>還原預設登錄存取權-CLI
+### <a name="restore-default-registry-access---cli"></a>還原預設登錄存取-CLI
 
 #### <a name="remove-network-rules"></a>移除網路規則
 
-若要查看您的登錄設定的網路規則的清單，請執行下列[az acr 網路規則清單][az-acr-network-rule-list]命令：
+若要查看為您的登錄設定的網路規則清單, 請執行下列[az acr network-rule list][az-acr-network-rule-list]命令:
 
 ```azurecli
 az acr network-rule list--name mycontainerregistry 
 ```
 
-針對每個已設定的規則，執行[az acr 網路規則移除][az-acr-network-rule-remove]命令來移除它。 例如:
+針對每個已設定的規則, 執行[az acr network-rule remove][az-acr-network-rule-remove]命令將其移除。 例如:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -353,29 +354,29 @@ az acr network-rule remove \
 
 #### <a name="allow-access"></a>允許存取
 
-使用下列登錄的名稱來替代[az acr update][az-acr-update]命令：
+在下列[az acr update][az-acr-update]命令中, 以您的登錄名稱取代:
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-### <a name="restore-default-registry-access---portal"></a>還原預設登錄存取權-入口網站
+### <a name="restore-default-registry-access---portal"></a>還原預設登錄存取-入口網站
 
 
-1. 在入口網站中，瀏覽至您的容器登錄，然後選取**防火牆和虛擬網路**。
-1. 底下**虛擬網路**，選取每個虛擬網路，然後選取**移除**。
-1. 底下**防火牆**選取每個位址範圍，然後選取 [刪除] 圖示。
-1. 底下**允許從存取**，選取**所有網路**。 
+1. 在入口網站中, 流覽至您的容器登錄, 然後選取 [**防火牆和虛擬網路**]。
+1. 在 [**虛擬網路**] 底下, 選取每個虛擬網路, 然後選取 [**移除**]。
+1. 在 [**防火牆**] 底下, 選取每個位址範圍, 然後選取 [刪除] 圖示。
+1. 在 [**允許存取來源**] 底下, 選取 [**所有網路**]。 
 1. 選取 [ **儲存**]。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您已經建立所有相同的資源中的 Azure 資源群組，而且不再需要它們，您可以選擇性地使用單一刪除的資源[az 群組刪除](/cli/azure/group)命令：
+如果您已在相同的資源群組中建立所有 Azure 資源, 但不再需要它們, 您可以使用單一[az group delete](/cli/azure/group)命令, 選擇性地刪除資源:
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-若要清除您在入口網站中的資源，請瀏覽至 myResourceGroup 資源群組。 一旦載入資源群組時，按一下**刪除資源群組**來移除資源群組和儲存於該處的資源。
+若要在入口網站中清除資源, 請流覽至 myResourceGroup 資源群組。 載入資源群組後, 按一下 [**刪除資源群組**] 以移除資源群組和儲存在該處的資源。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786909"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234437"
 ---
 # <a name="templates"></a>範本
 
@@ -40,15 +40,17 @@ ms.locfileid: "60786909"
 
 ### <a name="out-of-the-box-data-factory-templates"></a>立即可用的 Data Factory 範本
 
-Data Factory 使用 Azure Resource Manager 範本來儲存 Data Factory 管線範本。 您可以看到所有 Resource Manager 範本，以及用來利用方塊 Data Factory 範本中中的資訊清單檔案[官方 Azure 資料處理站 GitHub 存放庫](https://github.com/Azure/Azure-DataFactory/tree/master/templates)。 由 Microsoft 所提供的預先定義範本包含 (但不限於) 下列項目：
+Data Factory 使用 Azure Resource Manager 範本來儲存 Data Factory 管線範本。 在[官方的 Azure Data Factory GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/templates)存放庫中, 您可以看到所有 Resource Manager 範本, 以及用於現成可用 Data Factory 範本的資訊清單檔案。 由 Microsoft 所提供的預先定義範本包含 (但不限於) 下列項目：
 
 -   複製範本：
 
     -   [從資料庫進行大量複製](solution-template-bulk-copy-with-control-table.md)
     
-    -   [將新的檔案，由 LastModifiedDate 複製](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [依 LastModifiedDate 複製新檔案](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [在檔案型存放區之間複製多個檔案容器](solution-template-copy-files-multiple-containers.md)
+
+    -   [移動檔案](solution-template-move-files.md)
 
     -   [從資料庫進行差異複製](solution-template-delta-copy-with-control-table.md)
 

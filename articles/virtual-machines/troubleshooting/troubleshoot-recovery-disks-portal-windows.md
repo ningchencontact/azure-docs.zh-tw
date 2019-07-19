@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
-ms.openlocfilehash: f0569878d61ce83c4847867378d8e68fe0faa59b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8ab6fc75475cd99e3d803450476880175f12d2b6
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709403"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881167"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
-如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Windows VM，以修正任何錯誤，然後重新建立原始 VM。
+如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Windows VM，以修正任何錯誤，然後重新建立原始 VM。 
 
 ## <a name="recovery-process-overview"></a>復原程序概觀
 疑難排解程序如下所示︰
@@ -34,30 +34,24 @@ ms.locfileid: "67709403"
 
 針對使用受控磁碟的 VM，我們現在可以使用 Azure PowerShell 來變更 VM 的 OS 磁碟。 我們不再需要刪除及重新建立虛擬機器。 如需詳細資訊，請參閱[使用 Azure PowerShell 將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解](troubleshoot-recovery-disks-windows.md)。
 
+> [!NOTE]
+> 本文不適用於具有非受控磁片的 VM。
+
 ## <a name="determine-boot-issues"></a>判斷開機問題
 若要判斷 VM 為何無法正常開機，檢查開機診斷 VM 螢幕擷取畫面。 常見的例子是應用程式更新無效，或因為刪除或移動基礎虛擬硬碟。
 
-在入口網站中選取您的 VM，然後向下捲動至 [支援 + 疑難排解]  區段。 按一下 [開機診斷]  檢視螢幕擷取畫面。 請注意任何特定的錯誤訊息或錯誤碼，以協助判斷 VM 為何發生問題。 
+在入口網站中選取您的 VM，然後向下捲動至 [支援 + 疑難排解]  區段。 按一下 [開機診斷]  檢視螢幕擷取畫面。 請注意任何特定的錯誤訊息或錯誤碼，以協助判斷 VM 為何發生問題。
 
 ![檢視 VM 開機診斷主控台記錄](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
 您也可以按一下 [下載螢幕擷取畫面]  來下載所擷取的 VM 螢幕擷取畫面。
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>檢視現有的虛擬硬碟詳細資料
-您需要先識別虛擬硬碟 (VHD) 的名稱，才能將虛擬硬碟連結至另一個 VM。 
+您需要先識別虛擬硬碟 (VHD) 的名稱，才能將虛擬硬碟連結至另一個 VM。
 
-從入口網站選取資源群組，然後選取儲存體帳戶。 按一下 [Blob]  ，如下列範例所示︰
+選取發生問題的 VM, 然後選取 [**磁片**]。 記錄作業系統磁片的名稱, 如下列範例所示:
 
-![選取儲存體 Blob](./media/troubleshoot-recovery-disks-portal-windows/storage-account-overview.png)
-
-一般來說，您會有一個名為 **vhds** 的容器，以儲存虛擬硬碟。 選取該容器以檢視虛擬硬碟清單。 記下 VHD 的名稱 (其前置詞通常是 VM 的名稱)︰
-
-![識別儲存體容器中的 VHD](./media/troubleshoot-recovery-disks-portal-windows/storage-container.png)
-
-從清單中選取您現有的虛擬硬碟，並複製 URL 以供下列步驟使用︰
-
-![複製現有的虛擬硬碟 URL](./media/troubleshoot-recovery-disks-portal-windows/copy-vhd-url.png)
-
+![選取儲存體 Blob](./media/troubleshoot-recovery-disks-portal-windows/view-disk.png)
 
 ## <a name="delete-existing-vm"></a>刪除現有的 VM
 虛擬硬碟和 VM 在 Azure 中是兩個不同的資源。 虛擬硬碟中儲存作業系統本身、應用程式和設定。 VM 本身只是定義大小或位置的中繼資料，還會參考資源，例如虛擬硬碟或虛擬網路介面卡 (NIC)。 每個虛擬硬碟連結至 VM 時會獲派租用。 雖然即使 VM 正在執行時也可以連結和中斷連結資料磁碟，但除非刪除 VM 資源，否則無法中斷連結 OS 磁碟。 即使 VM 處於已停止和解除配置的狀態，租用仍會持續讓 OS 磁碟與 VM 產生關聯。
@@ -70,30 +64,15 @@ ms.locfileid: "67709403"
 
 請等到 VM 完成刪除之後，再將虛擬硬碟連結至另一個 VM。 在虛擬硬碟上，將它與 VM 產生關聯的租用必須先釋放，您才能將虛擬硬碟連結至另一個 VM。
 
-
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>將現有的虛擬硬碟連結至另一個 VM
 在接下來幾個步驟中，您將使用另一個 VM 進行疑難排解。 您要將現有的虛擬硬碟連結至這個疑難排解 VM，以便能夠瀏覽並編輯磁碟的內容。 舉例來說，此程序可讓您更正任何設定錯誤，或檢閱其他應用程式記錄檔或系統記錄檔。 選擇或建立另一個 VM 以進行疑難排解。
 
-1. 從入口網站選取資源群組，然後選取疑難排解 VM。 選取 [磁碟]  ，然後按一下 [連結現有項目]  ：
+1. 從入口網站選取資源群組，然後選取疑難排解 VM。 選取 [**磁片**], 選取 [**編輯**], 然後按一下 [**新增資料磁片**]:
 
     ![在入口網站中連結現有磁碟](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. 若要選取您現有的虛擬硬碟，請按一下 [VHD 檔案]  ：
-
-    ![瀏覽現有 VHD](./media/troubleshoot-recovery-disks-portal-windows/select-vhd-location.png)
-
-3. 選取儲存體帳戶和容器，然後按一下您現有的 VHD。 按一下 [選取]  按鈕，以確認您的選擇︰
-
-    ![選取現有 VHD](./media/troubleshoot-recovery-disks-portal-windows/select-vhd.png)
-
-4. 在已選取 VHD 之後，按一下 [確定]  以連結現有虛擬硬碟︰
-
-    ![確認連結現有虛擬硬碟](./media/troubleshoot-recovery-disks-portal-windows/attach-disk-confirm.png)
-
-5. 幾秒鐘後，VM 的 [磁碟]  窗格便會將您現有的已連接虛擬硬碟列示為資料磁碟︰
-
-    ![現有虛擬硬碟已連結為資料磁碟](./media/troubleshoot-recovery-disks-portal-windows/attached-disk.png)
-
+2. 在 [**資料磁片**] 清單中, 選取您所識別 VM 的 OS 磁片。 如果您看不到 OS 磁片, 請確定疑難排解 VM 和 OS 磁片位於相同的區域 (位置)。
+3. 選取 [**儲存**] 以套用變更。
 
 ## <a name="mount-the-attached-data-disk"></a>掛接已連結的資料磁碟
 
@@ -125,13 +104,16 @@ ms.locfileid: "67709403"
 
     ![在伺服器管理員中將資料磁碟設為離線](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. 現在從 VM 中斷連結虛擬硬碟。 在 Azure 入口網站中選取 VM，然後按一下 [磁碟]  。 選取您現有的虛擬硬碟，然後按一下 [中斷連結]  ：
+3. 現在從 VM 中斷連結虛擬硬碟。 在 Azure 入口網站中選取 VM，然後按一下 [磁碟]  。 
+4. 選取 [**編輯**], 選取您連接的 OS 磁片, 然後按一下 [卸**離**]:
 
     ![將現有虛擬硬碟中斷連結](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     請稍候，等待 VM 成功將資料磁碟中斷連結再繼續。
 
 ## <a name="create-vm-from-original-hard-disk"></a>從原始硬碟建立 VM
+
+### <a name="method-1-use-azure-resource-manager-template"></a>方法1使用 Azure Resource Manager 範本
 若要從原始虛擬硬碟建立 VM，請使用[這個 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)。 此範本會使用來自先前命令的 VHD URL，將 VM 部署至現有的虛擬網路或新的虛擬網路。 按一下 [部署至 Azure]  按鈕，如下所示︰
 
 ![從來自 GitHub 的範本部署 VM](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
@@ -140,6 +122,14 @@ ms.locfileid: "67709403"
 
 ![從範本部署 VM](./media/troubleshoot-recovery-disks-portal-windows/deploy-from-image.png)
 
+### <a name="method-2-create-a-vm-from-the-disk"></a>方法2從磁片建立 VM
+
+1. 在 Azure 入口網站中, 從入口網站中選取您的資源群組, 然後找出 OS 磁片。 您也可以使用磁片名稱來搜尋磁片:
+
+    ![從 Azure 入口網站搜尋磁片](./media/troubleshoot-recovery-disks-portal-windows/search-disk.png)
+1. 選取 **[總覽**], 然後選取 [**建立 VM**]。
+    ![從 Azure 入口網站的磁片建立 VM](./media/troubleshoot-recovery-disks-portal-windows/create-vm-from-disk.png)
+1. 依照嚮導來建立 VM。
 
 ## <a name="re-enable-boot-diagnostics"></a>重新啟用開機診斷
 當您從現有的虛擬硬碟建立 VM 時，可能不會自動啟用開機診斷。 若要檢查開機診斷狀態並在需要時開啟，請在入口網站中選取 VM。 在 [監視]  底下，按一下 [診斷設定]  。 請確定狀態是 [開啟]  ，而且已選取 [開機診斷]  旁邊的核取記號。 如果有進行任何變更，請按一下 [儲存]  ：

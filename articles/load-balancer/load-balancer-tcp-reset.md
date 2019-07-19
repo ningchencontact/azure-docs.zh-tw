@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: 具有閒置逾時雙向 TCP RST 封包的 Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
-ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413850"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274165"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>具有閒置 TCP 重設的負載平衡器 (公開預覽)
 
@@ -27,7 +27,7 @@ ms.locfileid: "65413850"
 ![負載平衡器 TCP 重設](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->負載平衡器 TCP 閒置逾時功能重設與目前不提供公開預覽。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+>具有閒置超時功能的 TCP 重設的 Load Balancer 目前可供公開預覽。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
  
 您變更此預設行為，以及對輸入 NAT 規則、負載平衡規則和[輸出規則](https://aka.ms/lboutboundrules)啟用傳送閒置逾時 TCP 重設。  根據規則啟用時，Load Balancer 會在達到所有相符流程的閒置逾時時，將雙向 TCP 重設 (TCP RST 封包) 傳送至用戶端和伺服器端點。
 
@@ -74,7 +74,7 @@ ms.locfileid: "65413850"
 ## <a name="limitations"></a>限制
 
 - 入口網站無法用來設定或檢視 TCP 重設。  請改為使用範本、REST API、Az CLI 2.0 或 PowerShell。
-- ESTABLISHED 狀態中的 TCP 連線時，才傳送 TCP RST。
+- TCP RST 只會在已建立狀態的 TCP 連線期間傳送。
 
 ## <a name="next-steps"></a>後續步驟
 

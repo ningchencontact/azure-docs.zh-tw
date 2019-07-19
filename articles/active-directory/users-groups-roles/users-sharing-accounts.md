@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083741"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304382"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共用帳戶
 ## <a name="overview"></a>總覽
@@ -67,11 +67,10 @@ Azure AD 支援的共用帳戶適用於任何 Enterprise Mobility Suite (EMS)、
 * 新增應用程式[應用程式庫](https://azure.microsoft.com/marketplace/active-directory/)或[自訂應用程式](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * 設定應用程式使用密碼單一登入 (SSO)
 * 使用[以群組為基礎的指派](groups-saasapps.md)，並選取輸入共用認證的選項
-* 選擇性：在某些應用程式 (例如 Facebook、Twitter 或 LinkedIn) 中，您可以啟用 [Azure AD 自動變換密碼](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 使用 Azure AD，可以透過 Multi-Factor Authentication (MFA) 讓您的共用帳戶更安全 (深入了解[使用 Azure AD 保護應用程式](../authentication/concept-mfa-whichversion.md))，並可使用 [Azure AD 自助式](groups-self-service-management.md)群組管理來委派管理誰有權存取應用程式。
 
 ## <a name="related-articles"></a>相關文章
 * [Azure Active Directory 中的應用程式管理](../manage-apps/what-is-application-management.md)
-* [保護應用程式使用條件式存取](../active-directory-conditional-access-azure-portal.md)
+* [使用條件式存取保護應用程式](../active-directory-conditional-access-azure-portal.md)
 * [自助式群組管理/SSAA](groups-self-service-management.md)

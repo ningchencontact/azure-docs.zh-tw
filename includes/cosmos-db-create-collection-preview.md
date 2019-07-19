@@ -9,11 +9,11 @@ ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 331886f01345aba576cd8f96f95077f9bbdae704
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: HT
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754349"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002669"
 ---
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立資料庫和容器。 
 
@@ -25,7 +25,7 @@ ms.locfileid: "66754349"
 
 2. 在 [新增容器]  頁面上，輸入新容器的設定。
 
-    |設定|建議的值|說明
+    |設定|建議值|描述
     |---|---|---|
     |**資料庫識別碼**|工作|輸入 *Tasks* 作為新資料庫的名稱。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 /、\\、#、? 或尾端空格。 核取 [佈建資料庫輸送量]  選項，它可讓您在資料庫中的所有容器內共用佈建到資料庫的輸送量。 此選項也有助於節省成本。 |
     |**輸送量**|400|讓輸送量保持在每秒 400 個要求單位 (RU/秒)。 如果您想要降低延遲，稍後可以相應增加輸送量。| 

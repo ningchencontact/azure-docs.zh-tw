@@ -1,7 +1,7 @@
 ---
-title: 設定 Azure Application Insights 來監視 ML 模型
+title: 設定 Azure 應用程式 Insights 來監視 ML 模型
 titleSuffix: Azure Machine Learning service
-description: 監視部署與使用 Azure Application Insights 的 Azure Machine Learning 服務的 web 服務
+description: 使用 Azure 應用程式 Insights 監視以 Azure Machine Learning 服務部署的 web 服務
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60820142"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871775"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>使用 Application Insights 監視您的 Azure Machine Learning 模型
 
@@ -131,11 +131,11 @@ ms.locfileid: "60820142"
 
 ## <a name="example-notebook"></a>範例筆記本
 
-[how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) Notebook 會示範本文中的概念。 
+Ipynb 筆記本中的「[啟用-應用程式深入](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb)解析」會示範本文中的概念。 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>後續步驟
 您也可以在生產環境中收集您模型上的資料。 閱讀[在生產環境中收集模型資料](how-to-enable-data-collection.md)一文。 
 
-另請閱讀[適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)。
+另請參閱[容器的 Azure 監視器](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)。
