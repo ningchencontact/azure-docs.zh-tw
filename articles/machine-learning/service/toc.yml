@@ -217,8 +217,8 @@
         - name: 自動定型預測模型
           displayName: time series
           href: how-to-auto-train-forecast.md
-        - name: 檢視精確度計量
-          href: how-to-understand-accuracy-metrics.md
+        - name: 瞭解圖表和計量
+          href: how-to-understand-automated-ml.md
     - name: 部署和提供模型
       items:
         - name: 部署的位置和方式

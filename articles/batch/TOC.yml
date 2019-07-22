@@ -61,6 +61,8 @@
           href: batch-account-create-portal.md
         - name: 使用 Batch Management .NET 管理 Batch 帳戶
           href: batch-management-dotnet.md
+        - name: 成本分析和預算
+          href: budget.md
     - name: 使用 Azure AD 進行驗證
       items:
         - name: 包含 Batch 服務的 Azure AD

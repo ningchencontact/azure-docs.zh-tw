@@ -47,6 +47,8 @@
           href: data-box-gateway-monitor.md
         - name: 疑難排解
           href: data-box-gateway-troubleshoot.md
+        - name: 連絡 Microsoft 支援服務
+          href: data-box-edge-contact-microsoft-support.md
     - name: 版本資訊
       items:
         - name: 1905 - 目前
@@ -105,9 +107,11 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: 疑難排解
           href: data-box-edge-troubleshoot.md
+        - name: 連絡 Microsoft 支援服務
+          href: data-box-edge-contact-microsoft-support.md
         - name: 監視
           href: data-box-edge-monitor.md
-        - name: 傳回裝置
+        - name: 退回或更換裝置
           href: data-box-edge-return-device.md
     - name: 版本資訊
       items:
