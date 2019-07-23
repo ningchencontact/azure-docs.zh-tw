@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257615"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275727"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure 實驗室服務簡介
 Azure 實驗室服務可讓您在雲端為團隊快速設定環境 (例如：開發環境、測試環境、教室實驗室環境)。 實驗室擁有者會建立實驗室，佈建 Windows 或 Linux 虛擬機器，安裝必要的軟體和工具，然後將它們提供給實驗室使用者使用。 實驗室使用者會連線至實驗室中的虛擬機器 (VM)，並使用它們來進行日常工作、短期專案，或是教室練習。 當使用者開始運用實驗室中的資源後，實驗室管理員便可以跨多個實驗室分析成本和使用情形，並設定整體性的原則來對組織或團隊的成本進行最佳化。
@@ -39,7 +39,7 @@ Azure 實驗室服務支援下列主要能力/功能：
 - **與您的工作流程和工具整合**。 Azure 實驗室服務可讓您將實驗室整合至您組織的網站和管理系統。 您可以從您的持續整合/持續部署 (CI/CD) 工具內自動佈建環境。 (目前僅於 DevTest Labs 中提供)
 
 > [!NOTE]
-> 目前，Azure 實驗室服務僅支援從 Azure Marketplace 映像建立的 VM。 如果您想要在實驗室環境中使用自訂映像或建立其他 PaaS 資源，請使用 DevTest 實驗室。 如需詳細資訊，請參閱[在 DevTest 實驗室中建立自訂映像](devtest-lab-create-custom-image-from-vm-using-portal.md)及[使用 Resource Manager 範本建立實驗室環境](devtest-lab-create-environment-from-arm.md)。
+> 目前，Azure 實驗室服務僅支援從 Azure Marketplace 映像建立的 VM。 如果您想要在實驗室環境中使用自訂映像或建立其他 PaaS 資源，請使用 DevTest 實驗室。 如需詳細資訊，請參閱[在 DevTest Labs 中建立自訂映像](devtest-lab-create-custom-image-from-vm-using-portal.md)及[使用 Resource Manager 範本建立實驗室環境](devtest-lab-create-environment-from-arm.md)。
 
 ## <a name="scenarios"></a>案例
 

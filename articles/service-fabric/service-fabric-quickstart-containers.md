@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: ebc3d988afd9257bbdf045814877ab70012836aa
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734506"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225093"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入門：將 Windows 容器部署至 Service Fabric
 
@@ -44,7 +44,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 * Azure 訂用帳戶 (您可以建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))。
 * 執行下列項目的開發電腦︰
-  * Visual Studio 2015 或 Windows 2019。
+  * Visual Studio 2019 或 Windows 2019。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>使用 Visual Studio 封裝 Docker 映像容器
@@ -53,7 +53,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 
 以「系統管理員」身分啟動 Visual Studio。  選取 [檔案]   > [新增]   > [專案]  。
 
-選取 [Service Fabric 應用程式]  ，將它命名為 "MyFirstContainer"，然後按一下 [確定]  。
+選取 [Service Fabric 應用程式]  、將它命名為 "MyFirstContainer"，然後按一下 [建立]  。
 
 從 [裝載的容器和應用程式]  範本選取 [容器]  。
 
@@ -142,7 +142,7 @@ Thumbprint                                Subject
 
 以滑鼠右鍵按一下 [方案總管] 中的 **MyFirstContainer**，並選擇 [發佈]  。 [發行] 對話方塊隨即出現。
 
-當您執行上述 `Import-PfxCertificate` 命令時，在 PowerShell 視窗中複製 **CN =** 後面的內容，並在其中新增連接埠 `19000`。 例如： `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`。 將它複製到 [連線端點]  欄位中。 請記住這個值，因為您會在之後的步驟中用到該值。
+當您執行上述 `Import-PfxCertificate` 命令時，在 PowerShell 視窗中複製 **CN =** 後面的內容，並在其中新增連接埠 `19000`。 例如： `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000` 。 將它複製到 [連線端點]  欄位中。 請記住這個值，因為您會在之後的步驟中用到該值。
 
 按一下 [進階連線參數]  並確認連線參數資訊。  *FindValue* 和 *ServerCertThumbprint* 值必須符合您在前一個步驟中執行 `Import-PfxCertificate` 時所安裝的憑證指紋。
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459520"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805573"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure HDInsight 中建立 Apache Hadoop 叢集
 
@@ -41,13 +41,13 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
     |屬性  |說明  |
     |---------|---------|
     |叢集名稱   | 輸入 Hadoop 叢集的名稱。 由於 HDInsight 中的所有叢集共用相同的 DNS 命名空間，因此這個名稱必須是唯一的。 名稱最多可包含 59 個字元，而這些字元可以是字母、數字和連字號。 名稱的第一個和最後一個字元不可以是連字號。 |
-    |訂用帳戶    |  選取 Azure 訂用帳戶。 |
+    |Subscription    |  選取 Azure 訂用帳戶。 |
     |叢集類型     | 暫時略過此欄位。 您會在此程序的下一個步驟中提供此輸入。|
     |叢集登入使用者名稱和密碼    | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
     |安全殼層 (SSH) 使用者名稱 | 預設的使用者名稱為 **sshuser**。  您可以為 SSH 使用者名稱提供另一個名稱。 |
     |將叢集登入密碼用於 SSH| 選取此核取方塊，讓 SSH 使用者所使用的密碼相同於您提供給叢集登入使用者的密碼。|
-    |資源群組     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
-    |位置    | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
+    |Resource group     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
+    |Location    | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
 
     ![HDInsight Linux 開始提供叢集基本值](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "提供用於建立 HDInsight 叢集的基本值")
 
@@ -68,7 +68,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
     |---------|---------|
     |主要儲存體類型    | 在本文中請選取 [Azure 儲存體]，以使用 Azure 儲存體 Blob 作為預設儲存體帳戶。 您也可以使用 Azure Data Lake Storage 作為預設儲存體。 |
     |選取方法     |  針對本文，請選取 [我的訂用帳戶]  ，以使用您 Azure 訂用帳戶的儲存體帳戶。 若要使用其他訂用帳戶的儲存體帳戶，請選取 [存取金鑰]  ，然後提供該帳戶的存取金鑰。 |
-    |選取儲存體帳戶   | 選取 [選取儲存體帳戶]  以選取現有的儲存體帳戶，或選取 [新建]  。|
+    |選取儲存體帳戶   | 選取 [選取儲存體帳戶]  以選取現有的儲存體帳戶，或選取 [新建]  。 如果您建立新的帳戶，其名稱的長度必須介於 3 到 24 個字元之間，且只能包含數字和小寫字母。|
 
     接受所有其他預設值，然後選取 [下一步]  進入摘要頁面。
 

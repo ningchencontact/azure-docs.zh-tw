@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ef33ff41ce78657709a497860cdbc3acb1bb24ae
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: c02f72d6a327c4dcb94ac8844005613cfe316986
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789002"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838390"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>針對 Azure Data Share Preview 的常見問題進行疑難排解
 
@@ -34,6 +34,8 @@ ms.locfileid: "67789002"
 
 您必須擁有 [Azure 參與者 RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)才能完成這些步驟。 
 
+如果您仍然無法看見資料共用邀請，請連絡您的資料提供者，並確保他們是將邀請傳送到您的 Azure 登入電子郵件地址，而「不是」  您的電子郵件別名。 
+
 > [!IMPORTANT]
 > 如果您已接受 Azure Data Share 邀請並結束服務才設定儲存體，請遵循[設定資料集對應](how-to-configure-mapping.md)操作指南所述的指示，來了解如何完成所接收資料共用的設定，並開始接收資料。 
 
@@ -47,12 +49,12 @@ ms.locfileid: "67789002"
 
 ![權限錯誤](media/error-write-privilege.png)
 
-如果您在建立新的資料共用或接收新的資料共用時收到任何上述錯誤，原因會是沒有足夠的儲存體帳戶權限。 所需動作為 Microsoft.Authorization/role assignments/write  ，這存在於儲存體擁有者角色，或者也可以指派給自訂角色。 即使您建立了儲存體帳戶，但不代表您就會自動成為儲存體帳戶的擁有者。 請遵循下列步驟來對自己授與儲存體帳戶的擁有者角色。 或者，您也可以建立有此權限的自訂角色，再將自己新增至該角色。  
+如果您在建立新的資料共用或接收新的資料共用時收到任何上述錯誤，原因會是沒有足夠的儲存體帳戶權限。 所需權限為 *Microsoft.Authorization/role assignments/write*，其存在於儲存體擁有者角色，或者也可以指派給自訂角色。 即使您建立了儲存體帳戶，但不代表您就會自動成為儲存體帳戶的擁有者。 請遵循下列步驟來對自己授與儲存體帳戶的擁有者角色。 或者，您也可以建立有此權限的自訂角色，再將自己新增至該角色。  
 
 1. 在 Azure 入口網站中瀏覽至儲存體帳戶
 1. 選取 [存取控制 (IAM)] 
 1. 按一下 [新增] 
-1. 將自己新增為儲存體 Blob 資料擁有者
+1. 將您自己新增為擁有者。
 
 ## <a name="next-steps"></a>後續步驟
 

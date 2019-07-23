@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c71262b1338a2e9d471d16368fd90ea4c6d059
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: fe90e5a70779857f0045baf27abc59a75289c39c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565389"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276831"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>快速入門：取得權杖，並從 Windows 傳統型應用程式呼叫 Microsoft Graph API
 
@@ -70,7 +70,7 @@ ms.locfileid: "67565389"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步驟 2：下載您的 Visual Studio 專案
 
-[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([Github 上的 [檢視專案]](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
+[下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([Github 上的 [檢視專案]](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/) \(英文\))
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步驟 3：設定您的 Visual Studio 專案
 
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
-您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分時間，您會希望權杖取得和更新作業不需要與使用者進行任何互動。 在初始 `AcquireTokenInteractive` 方法之後，您可以使用 `AcquireTokenSilentAsync` 方法取得權杖以存取受保護的資源：
+您不應該在每次使用者需要存取資源時都要求使用者驗證其認證。 在大部分時間，您會希望權杖取得和更新作業不需要與使用者進行任何互動。 在初始 `AcquireTokenInteractive` 方法之後，您可以使用 `AcquireTokenSilent` 方法取得權杖以存取受保護的資源：
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299117"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273137"
 ---
 # <a name="what-is-azure-logic-apps"></a>什麼是 Azure Logic Apps？
 
@@ -29,7 +29,7 @@ ms.locfileid: "66299117"
 * 將上傳的檔案從 FTP 或 FTP 伺服器移到 Azure 儲存體。 
 * 監視特定主旨的推文、分析情緒，以及針對需要檢閱的項目建立警示或工作。
 
-若要使用 Azure Logic Apps 來建置整合解決方案，您可以從具有 [200 個以上連接器](../connectors/apis-list.md)的成長中資源庫進行選擇，其中包括 Azure 服務匯流排、Functions 和儲存體等服務；SQL、Office 365、Dynamics、Salesforce、BizTalk、SAP、Oracle DB、檔案共用等等。 [連接器](#logic-app-concepts)會提供[觸發程序](#logic-app-concepts)、[動作](#logic-app-concepts)或兩者，以便建立可即時安全地存取及處理資料的邏輯應用程式。
+若要使用 Azure Logic Apps 來建置企業整合解決方案，您可以從具有[數百個現成可用的連接器](../connectors/apis-list.md)且持續成長的資源庫中選擇，其中包括 Azure 服務匯流排、Functions 和儲存體等服務，以及 SQL、Office 365、Dynamics、Salesforce、BizTalk、SAP、Oracle DB、檔案共用等等。 [連接器](#logic-app-concepts)會提供[觸發程序](#logic-app-concepts)、[動作](#logic-app-concepts)或兩者，以便建立可即時安全地存取及處理資料的邏輯應用程式。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 

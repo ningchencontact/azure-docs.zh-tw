@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410846"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846019"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -59,13 +59,13 @@ ms.locfileid: "65410846"
 
 1. 在 [專案詳細資料]  區段中選取您的 Azure 訂用帳戶，然後選取 [新建]  以建立新的資源群組。 輸入 _SQLVM-RG_ 作為名稱。
 
-   ![訂用帳戶](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. 在 [執行個體詳細資料]  下方：
     1. 輸入 _SQLVM_ 作為 [虛擬機器名稱]  。 
     1. 選擇 [區域]  的位置。 
-    1. 基於此快速入門的目的，請將 [可用性選項]  設定保留為 [不需要基礎結構備援]  。 如需關於可用性選項的詳細資訊，請參閱 [Azure 區域和可用性](../../windows/regions-and-availability.md)。 
-    1. 在 **映像** 清單中，選取免費的 _SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer 的映像。 
+    1. 基於此快速入門的目的，請將 [可用性選項]  設定保留為 [不需要基礎結構備援]  。 如需關於可用性選項的詳細資訊，請參閱[可用性](../../windows/availability.md)。 
+    1. 在 映像  清單中，選取免費的 _SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer 的映像。 
     1. 選擇為虛擬機器的**大小** [變更大小]  ，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 
 
    ![執行個體詳細資料](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
@@ -105,7 +105,7 @@ ms.locfileid: "65410846"
 1. 在已連線到網際網路的其他電腦上開啟 [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)。
 
 
-1. 在 [連接到伺服器]  或 [連接到 Database Engine]  對話方塊中，編輯 [伺服器名稱]  值。 輸入您 VM 的公用 IP 位址。 然後加入一個逗號，並加入我們在您設定新的 VM 時所指定的自訂連接埠 **1401**。 例如： `11.22.33.444,1401`。
+1. 在 [連接到伺服器]  或 [連接到 Database Engine]  對話方塊中，編輯 [伺服器名稱]  值。 輸入您 VM 的公用 IP 位址。 然後加入一個逗號，並加入我們在您設定新的 VM 時所指定的自訂連接埠 **1401**。 例如： `11.22.33.444,1401` 。
 
 1. 在 [驗證]  方塊中，選取 [SQL Server 驗證]  。
 

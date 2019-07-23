@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547299"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854009"
 ---
 # <a name="run-a-custom-linux-container-in-azure-app-service"></a>在 Azure App Service 中執行自訂的 Linux 容器
 
@@ -35,7 +35,7 @@ ms.locfileid: "59547299"
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../overview.md)。 別忘了以全域唯一的應用程式名稱取代 `<app name>`。
+使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../overview.md)。 別忘了將 `<app name>` 取代為全域唯一的應用程式名稱 (有效字元為 `a-z`、`0-9` 及 `-`)。
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart

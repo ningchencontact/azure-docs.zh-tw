@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0b65a8f3bf36d9c5506c0436e11c7be3abdcd9f6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565897"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000693"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>在使用 Azure Cosmos DB 的應用程式中設定多重主機
 
@@ -34,14 +34,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3 (預覽)
+## <a id="netv3"></a>.NET SDK v3
 
-若要在應用程式中啟用多重主機，請將 `UseCurrentRegion` 設定為要在其中部署應用程式和複寫 Cosmos DB 的區域：
+若要在應用程式中啟用多重主機，請將 `ApplicationRegion` 設定為要在其中部署應用程式和複寫 Cosmos DB 的區域：
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+或者，您可以使用 `CosmosClientBuilder` 和 `WithApplicationRegion` 來達成相同的結果：
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Java Async SDK

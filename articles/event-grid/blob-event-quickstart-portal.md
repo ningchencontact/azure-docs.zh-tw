@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 10/17/2018
+ms.date: 07/11/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a0043ca886bf6c92ab26d76b3678bf8a2764846a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098512"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839157"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站將 Blob 儲存體事件路由傳送至 Web 端點
 
@@ -30,11 +30,11 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 若要建立 Blob 儲存體，請選取 [建立資源]。 
+1. 若要建立 Blob 儲存體，請選取 [建立資源]  。 
 
    ![建立資源](./media/blob-event-quickstart-portal/create-resource.png)
 
-1. 選取要篩選可用選項的 [儲存體]，然後選取 [儲存體帳戶 - Blob、檔案、資料表、佇列]。
+1. 選取要篩選可用選項的 [儲存體]  ，然後選取 [儲存體帳戶 - Blob、檔案、資料表、佇列]  。
 
    ![選取儲存體](./media/blob-event-quickstart-portal/create-storage.png)
 
@@ -46,7 +46,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
 
 在訂閱 Blob 儲存體的事件之前，我們要先建立事件訊息的端點。 通常，端點會根據事件資料採取動作。 若要簡化此快速入門，請部署[預先建置的 Web 應用程式](https://github.com/Azure-Samples/azure-event-grid-viewer)以顯示事件訊息。 已部署的解決方案包含 App Service 方案、App Service Web 應用程式，以及 GitHub 中的原始程式碼。
 
-1. 選取 [部署至 Azure]，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
+1. 選取 [部署至 Azure]  ，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
@@ -62,15 +62,15 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
 
 您可訂閱主題，告知 Event Grid 您想要追蹤的事件，以及要將事件傳送至何處。
 
-1. 在入口網站中選取您的 Blob 儲存體，並選取 [事件]。
+1. 在入口網站中選取您的 Blob 儲存體，並選取 [事件]  。
 
    ![選取事件](./media/blob-event-quickstart-portal/select-events.png)
 
-1. 若要將事件傳送至您的檢視器應用程式，請使用端點的 Web Hook。 選取 [更多選項]，再選取 [Web Hook]。
+1. 若要將事件傳送至您的檢視器應用程式，請使用端點的 Web Hook。 選取 [更多選項]  ，再選取 [Web Hook]  。
 
    ![選取 Web Hook](./media/blob-event-quickstart-portal/select-web-hook.png)
 
-1. 事件訂用帳戶中會預先填入您 Blob 儲存體的值。 針對 Web Hook 端點，提供您的 Web 應用程式 URL，並將 `api/updates` 新增至首頁 URL。 請為您的訂用帳戶指定名稱。 完成後，請選取 [建立]。
+1. 事件訂用帳戶中會預先填入您 Blob 儲存體的值。 針對 Web Hook 端點，提供您的 Web 應用程式 URL，並將 `api/updates` 新增至首頁 URL。 請為您的訂用帳戶指定名稱。 完成後，請選取 [建立]  。
 
    ![選取記錄](./media/blob-event-quickstart-portal/create-subscription.png)
 
@@ -84,11 +84,11 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
 
 您可以藉由上傳檔案來觸發 Blob 儲存體的事件。 此檔案不需要任何特定內容。 相關文章假設您具有名為 testfile.txt 的檔案，但是您可以使用任何檔案。
 
-1. 針對您的 Blob 儲存體，選取 [Blob]。
+1. 針對您的 Blob 儲存體，選取 [Blob]  。
 
    ![選取 Blob](./media/blob-event-quickstart-portal/select-blobs.png)
 
-1. 選取 [+ 容器]。 請為您的容器指定名稱，並使用任何存取層級。
+1. 選取 [+ 容器]  。 請為您的容器指定名稱，並使用任何存取層級。
 
    ![新增容器](./media/blob-event-quickstart-portal/add-container.png)
 
@@ -96,16 +96,16 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
 
    ![選取容器](./media/blob-event-quickstart-portal/select-container.png)
 
-1. 若要上傳檔案，請選取 [上傳]。
+1. 若要上傳檔案，請選取 [上傳]  。
 
    ![選取上傳](./media/blob-event-quickstart-portal/upload-file.png)
 
 1. 瀏覽至您的測試檔案，並加以上傳。
 
-1. 您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 檢視您的 Web 應用程式，並留意已接收到 Blob 所建立的事件。 
+1. 您已觸發此事件，而 Event Grid 會將訊息傳送至您在訂閱時設定的端點。 訊息為 JSON 格式，且其包含具有一或多個事件的陣列。 在下列範例中，JSON 訊息會包含具有單一事件的陣列。 檢視您的 Web 應用程式，並留意已接收到 Blob 所建立的事件。 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -127,14 +127,14 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azur
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您打算繼續使用此事件，請勿清除在本文中建立的資源。 否則，請刪除您在本文建立的資源。
 
-選取資源群組，然後選取 [刪除資源群組]。
+選取資源群組，然後選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

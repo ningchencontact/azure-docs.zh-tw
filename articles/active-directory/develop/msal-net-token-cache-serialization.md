@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a4c4ca1925a501b10cb86a2cf60646af1e5b57
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 14c7495653f369d7a51cab6fedb136268b7b3378
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544257"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277938"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET 中的權杖快取序列化
 在[取得權杖](msal-acquire-cache-tokens.md)後，該權杖會由 Microsoft 驗證程式庫 (MSAL) 快取。  應用程式程式碼應該先試著從快取中取得權杖，再用另一種方法取得權杖。  本文討論 MSAL.NET 中權杖快取的預設和自訂序列化。
@@ -49,11 +49,11 @@ ms.locfileid: "65544257"
   ![類別圖表](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> MSAL.NET 會為您建立權杖快取，並且在您呼叫應用程式的 `GetUserTokenCache` 和 `GetAppTokenCache` 方法時提供 `IToken` 快取。 您不應該自行實作介面。 當您實作自訂權杖快取序列化時，您的責任是：
-> - 回應 `BeforeAccess` 和 `AfterAccess` 事件。 `BeforeAccess` 委派負責將快取還原序列化，而 `AfterAccess` 負責將快取序列化。
+> MSAL.NET 會為您建立權杖快取，並且在您呼叫應用程式的 `UserTokenCache` 和 `AppTokenCache` 屬性時提供 `IToken` 快取。 您不應該自行實作介面。 當您實作自訂權杖快取序列化時，您的責任是：
+> - 對 `BeforeAccess` 和 `AfterAccess`「事件」(或其 Async 變體) 做出反應。 `BeforeAccess` 委派負責將快取還原序列化，而 `AfterAccess` 負責將快取序列化。
 > - 其中有些事件會儲存或載入 Blob，其會透過事件引數傳遞到您想要的儲存體的。
 
-視您要針對[公用用戶端應用程式](msal-client-applications.md) (傳統型) 或[機密用戶端應用程式](msal-client-applications.md)) (Web 應用程式 / Web API、精靈應用程式) 撰寫權杖快取序列化而定，策略有所不同。
+視您要針對[公用用戶端應用程式](msal-client-applications.md) (傳統型) 或[機密用戶端應用程式](msal-client-applications.md)) (Web 應用程式 / Web API、精靈應用程式) 撰寫權杖快取序列化而定，策略會有所不同。
 
 ### <a name="token-cache-for-a-public-client"></a>公用用戶端的權杖快取 
 
@@ -164,7 +164,7 @@ namespace CommonCacheMsalV3
  static class FilesBasedTokenCacheHelper
  {
   /// <summary>
-  /// Get the user token cache
+  /// Enables the serialization of the token cache
   /// </summary>
   /// <param name="adalV3CacheFileName">File name where the cache is serialized with the
   /// ADAL V3 token cache format. Can
@@ -175,20 +175,14 @@ namespace CommonCacheMsalV3
   /// ADAL V4 and MSAL V2 and above, and also across ADAL/MSAL on the same platform.
   ///  Should not be <c>null</c></param>
   /// <returns></returns>
-  public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
+  public static void EnableSerialization(ITokenCache tokenCache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   tokenCache.SetBeforeAccess(BeforeAccessNotification);
+   tokenCache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format

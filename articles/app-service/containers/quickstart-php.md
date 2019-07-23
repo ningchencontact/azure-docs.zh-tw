@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7976dcafe8bb3f787465e72b6a61bbc48daf4086
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546806"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849540"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 PHP 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "59546806"
 > 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署至 App Service，請參閱[在 Azure 中建立 PHP 應用程式](../app-service-web-get-started-php.md)。
 >
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門教學課程會說明如何將 PHP 應用程式部署至 Linux 上的 Azure App Service。 您將會在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)，透過內建映像建立應用程式，並使用 Git 將 PHP 程式碼部署至 App Service 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門教學課程會說明如何使用 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) \(部分機器翻譯\) 將 PHP 應用程式部署至 Linux 上的 Azure App Service。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-php/hello-world-in-browser.png)
 
@@ -80,7 +80,7 @@ php -S localhost:8080
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-瀏覽至網站以查看您使用內建映像新建立的應用程式。 以您的應用程式名稱取代 _&lt;app name>_。
+瀏覽至網站以查看您使用內建映像新建立的應用程式。 以您的應用程式名稱取代 _&lt;app name>_ 。
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -154,7 +154,7 @@ git push azure master
 
 移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 

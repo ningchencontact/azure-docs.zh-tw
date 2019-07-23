@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ece51892522721f7be3cdcadbb3b79705c9f83e4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9845329d30da40243751c00f7c0fa62fdcfe5a0d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384102"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990100"
 ---
 # <a name="start-monitoring-your-website"></a>開始監視您的網站
 
@@ -41,12 +41,14 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 
 1. 選取 [建立資源]   > [管理工具]   > [Application Insights]  。
 
+   > [!NOTE]
+   >如果這是您第一次建立 Application Insights 資源，您可以參閱[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) \(部分機器翻譯\) 一文以深入了解。
+
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
     | 設定        | 值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
-   | **應用程式類型** | 一般應用程式 | 您要監視的應用程式類型 |
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 

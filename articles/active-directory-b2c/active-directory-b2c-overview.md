@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cceac260979b4322d41843038eab0998c8e8ba4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509755"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227173"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什麼是 Azure Active Directory B2C？
 
 Azure Active Directory (Azure AD) B2C 是一項企業對消費者身分識別管理服務。 此服務可讓您自訂和控制使用者如何安全地與您的 Web、桌面、行動或單頁應用程式互動。 透過 Azure AD B2C，使用者可以註冊、登入、重設密碼及編輯設定檔。 Azure AD B2C 可實作某種形式的 OpenID Connect 和 OAuth 2.0 通訊協定。 安全性權杖及其宣告可讓您提供資源的安全存取，這是此類通訊協定實作中的關鍵要素。
 
-*使用者旅程圖*是一個指定原則的要求，可控制使用者和您的應用程式與 Azure AD B2C 互動的行為。 您可以透過兩種途徑在 Azure AD B2C 中定義使用者旅程圖。 
+*使用者旅程圖*是一個指定原則的要求，可控制使用者和您的應用程式與 Azure AD B2C 互動的行為。 您可以透過兩種途徑在 Azure AD B2C 中定義使用者旅程圖。
 
 如果您是應用程式開發人員，無論是否具備身分識別專業知識，您都可以選擇使用 Azure 入口網站來定義常用的身分識別使用者流程。 如果您是身分識別專業人員、系統整合者、顧問或內部身分識別小組成員，且熟悉 OpenID Connect 流程並了解識別提供者和宣告式驗證，則可以選擇以 XML 為基礎的自訂原則。
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) B2C 是一項企業對消費者身分識別管
 
 ## <a name="protocols-and-tokens"></a>通訊協定和權杖
 
-Azure AD B2C 支援在使用者旅程圖中使用 [OpenID Connect 和 OAuth 2.0 通訊協定](active-directory-b2c-reference-protocols.md)。 在 Azure AD B2C 的 OpenID Connect 實作中，您的應用程式會向 Azure AD B2C 發出驗證要求，以起始使用者旅程圖。 
+Azure AD B2C 支援在使用者旅程圖中使用 [OpenID Connect 和 OAuth 2.0 通訊協定](active-directory-b2c-reference-protocols.md)。 在 Azure AD B2C 的 OpenID Connect 實作中，您的應用程式會向 Azure AD B2C 發出驗證要求，以起始使用者旅程圖。
 
 提出 Azure AD B2C 的要求後會產生安全性權杖，例如[識別碼權杖或存取權杖](active-directory-b2c-reference-tokens.md)。 此安全性權杖會定義使用者的身分識別。 權杖接收自 Azure AD B2C 端點，例如 `/token` 或 `/authorize` 端點。 經由這些權杖，您可以存取可用來驗證身分識別和允許存取安全資源的宣告。
 
@@ -62,17 +62,17 @@ Azure AD B2C 支援在使用者旅程圖中使用 [OpenID Connect 和 OAuth 2.0 
 - 頁面的外觀與風格
 - 傳回至應用程式的資訊
 
-自訂原則是一種組態檔，可定義 Azure AD B2C 租用戶中的[身分識別體驗架構](trustframeworkpolicy.md)的行為。 身分識別體驗架構是建立多方信任並完成使用者旅程圖中各個步驟的基礎平台。 
+自訂原則是一種組態檔，可定義 Azure AD B2C 租用戶中的[身分識別體驗架構](trustframeworkpolicy.md)的行為。 身分識別體驗架構是建立多方信任並完成使用者旅程圖中各個步驟的基礎平台。
 
-您可變更自訂原則來完成多項工作。 自訂原則是一個或多個 XML 格式的檔案，各檔案在階層鏈中彼此參考。 [入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)可供自訂原則用來啟用常見的身分識別工作。 
+您可變更自訂原則來完成多項工作。 自訂原則是一個或多個 XML 格式的檔案，各檔案在階層鏈中彼此參考。 [入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)可供自訂原則用來啟用常見的身分識別工作。
 
 您可以視需要在 Azure AD B2C 租用戶中使用不同類型的自訂原則或使用者流程，並且可以跨應用程式重複使用。 此彈性可讓您在稍微變更或完全不變更程式碼的情況下，定義及修改使用者身分識別體驗。 您可以在 HTTP 驗證要求中新增特定查詢參數，以使用原則。 若要建立您自己的自訂原則，請參閱[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)。
 
-## <a name="identity-providers"></a>識別提供者 
+## <a name="identity-providers"></a>識別提供者
 
-在您的應用程式中，您可以讓使用者使用不同的識別提供者登入。 *識別提供者*可建立、維護及管理身分識別資訊，同時對應用程式提供驗證服務。 您可以使用 Azure 入口網站新增 Azure AD B2C 支援的識別提供者。 
+在您的應用程式中，您可以讓使用者使用不同的識別提供者登入。 *識別提供者*可建立、維護及管理身分識別資訊，同時對應用程式提供驗證服務。 您可以使用 Azure 入口網站新增 Azure AD B2C 支援的識別提供者。
 
-您在應用程式中通常只會使用一個識別提供者，但您可以選擇新增更多個。 若要在您的 Azure AD B2C 租用戶中設定身分識別提供者，您必須先在識別提供者開發人員網站上建立應用程式，然後從您建立的識別提供者應用程式中記下應用程式識別碼或用戶端識別碼以及密碼或用戶端密碼。 此識別碼和密碼後續將用來設定您的應用程式。 
+您在應用程式中通常只會使用一個識別提供者，但您可以選擇新增更多個。 若要在您的 Azure AD B2C 租用戶中設定身分識別提供者，您必須先在識別提供者開發人員網站上建立應用程式，然後從您建立的識別提供者應用程式中記下應用程式識別碼或用戶端識別碼以及密碼或用戶端密碼。 此識別碼和密碼後續將用來設定您的應用程式。
 
 下列文章說明將一些常見的識別提供者新增至使用者流程的步驟：
 
@@ -90,7 +90,7 @@ Azure AD B2C 支援在使用者旅程圖中使用 [OpenID Connect 和 OAuth 2.0 
 
 ## <a name="page-customization"></a>自訂頁面
 
-在使用者旅程圖中對客戶呈現的多數 HTML 和 CSS 內容都是可控制的。 您可以使用頁面自訂功能，自訂任何自訂原則或使用者流程的外觀與風格。 您可以使用此自訂功能來維護應用程式與 Azure AD B2C 之間的品牌和視覺一致性。 
+在使用者旅程圖中對客戶呈現的多數 HTML 和 CSS 內容都是可控制的。 您可以使用頁面自訂功能，自訂任何自訂原則或使用者流程的外觀與風格。 您可以使用此自訂功能來維護應用程式與 Azure AD B2C 之間的品牌和視覺一致性。
 
 Azure AD B2C 會在使用者的瀏覽器中執行程式碼，並使用名為「跨原始資源共用 (CORS)」的新式方法。 首先，您必須在原則中使用自訂 HTML 內容指定 URL。 Azure AD B2C 會合併使用者介面元素與從您 URL 載入的 HTML 內容，然後對使用者顯示此頁面。
 
@@ -121,7 +121,7 @@ Azure AD B2C 會在使用者的瀏覽器中執行程式碼，並使用名為「�
 
 ### <a name="javascript"></a>JavaScript
 
-您可以將自己的 JavaScript 用戶端程式碼新增至 Azure AD B2C 中的應用程式。 若要在您的應用程式中設定 JavaScript，您可以定義[頁面合約](page-contract.md)，並在使用者流程或自訂原則中啟用 [JavaScript](javascript-samples.md)。
+您可以將自己的 JavaScript 用戶端程式碼新增至 Azure AD B2C 中的應用程式。 若要在您的應用程式中設定 JavaScript，您可以定義[頁面配置](page-layout.md)，並在使用者流程或自訂原則中啟用 [JavaScript](javascript-samples.md)。
 
 ### <a name="user-accounts"></a>使用者帳戶
 

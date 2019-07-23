@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/11/2019
+ms.openlocfilehash: c2a468507c598c38b0b6b3b9f9c6a58a6ef4eff2
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447777"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67826974"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>開始使用 Azure SQL Database 受控執行個體
 
@@ -33,16 +33,18 @@ ms.locfileid: "67447777"
 
 - [使用 Azure 入口網站建立受控執行個體](sql-database-managed-instance-get-started.md)。 在 Azure 入口網站中，您可以設定必要參數 (使用者名稱/密碼、核心數目和儲存體數量上限)，並自動建立 Azure 網路環境，而無需了解網路詳細資料和基礎結構需求。 您只需確定自己具有目前允許用來建立受控執行個體的[訂用帳戶類型](sql-database-managed-instance-resource-limits.md#supported-subscription-types)。 如果您想要使用自己的網路，或想要自訂網路，請參閱[針對 Azure SQL Database 受控執行個體設定現有虛擬網路](sql-database-managed-instance-configure-vnet-subnet.md)或[建立 Azure SQL Database 受控執行個體的虛擬網路](sql-database-managed-instance-create-vnet-subnet.md)。
 - 受控執行個體會建立在沒有公用端點的自有 VNet 中。 針對用戶端應用程式的存取，您可以**在相同 VNet (不同子網路) 中建立 VM**，或使用以下其中一個快速入門來**建立用戶端電腦到 VNet 的點對站 VPN 連線**：
-
+  - 在您的受控執行個體上啟用[公用端點](sql-database-managed-instance-public-endpoint-configure.md)，以便直接從您的環境存取您的資料。
   - [在受控執行個體 VNet 中建立 Azure 虛擬機器](sql-database-managed-instance-configure-vm.md)來進行用戶端應用程式連線，包括 SQL Server Management Studio。
   - 從具有 SQL Server Management Studio 和其他用戶端連線應用程式的用戶端電腦中，[對您的受控執行個體設定點對站 VPN 連線](sql-database-managed-instance-configure-p2s.md)。 這是其他兩個可連線到您受控執行個體和其 VNet 的選項。
 
   > [!NOTE]
   > 您也可以從區域網路使用 ExpressRoute 或站對站連線，但這些方法並不在這些快速入門所涵蓋的範圍內。
 
+作為手動建立受控執行個體的替代方式，您可以使用 [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)、[PowerShell 搭配 Resource Manager 範本](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)或 [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) 來撰寫指令碼並自動化此程序。
+
 ### <a name="migrate-your-databases"></a>移轉資料庫
 
-在建立受控執行個體並設定存取後，您即可開始從 SQL Server 內部部署或 Azure VM 移轉資料庫。 如果您想要遷移的來源資料庫具有不支援的功能，移轉將會失敗。 若要避免失敗並檢查相容性，您可以安裝 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\)，其會分析您位於 SQL Server 上的資料庫，並找出可能會防止移轉到受控執行個體的所有問題 (例如存在 [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) 或多個記錄檔)。 如果您解決這些問題，您的資料庫便已準備好遷移至受控執行個體。 [資料庫測試助理](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) \(英文\) 是另一個有用的工具，其可記錄您在 SQL Server 上的工作負載，並在受控執行個體上重新播放它，讓您可以判斷在遷移到受控執行個體之後是否會發生任何效能問題。
+在建立受控執行個體並設定存取後，您即可開始從 SQL Server 內部部署或 Azure VM 移轉資料庫。 如果您想要遷移的來源資料庫具有不支援的功能，移轉將會失敗。 若要避免失敗並檢查相容性，您可以安裝 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) \(英文\)，它會分析您位於 SQL Server 上的資料庫，並找出可能會防止移轉到受控執行個體的所有問題 (例如存在 [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) 或多個記錄檔)。 如果您解決這些問題，您的資料庫便已準備好遷移至受控執行個體。 [資料庫測試助理](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) \(英文\) 是另一個有用的工具，其可記錄您在 SQL Server 上的工作負載，並在受控執行個體上重新播放它，讓您可以判斷在遷移到受控執行個體之後是否會發生任何效能問題。
 
 一旦您確定可以將資料庫遷移至受控執行個體後，即可使用原生的 SQL Server 還原功能，從 `.bak` 檔案將資料庫還原到受控執行個體。 您可以使用此方法，從安裝內部部署或 Azure VM 的 SQL Server 資料庫引擎移轉資料庫。 如需快速入門，請參閱[從備份還原至受控執行個體](sql-database-managed-instance-get-started-restore.md)。 在此快速入門中，您將使用 `RESTORE` Transact-SQL 命令，從儲存在 Azure Blob 儲存體中的 `.bak` 檔案進行還原。
 
@@ -59,20 +61,17 @@ ms.locfileid: "67447777"
 
 或者，您也可以使用此 [PowerShell 指令碼](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) \(英文\) 來將網路的建立自動化。
 
-如果您已經有要部署受控執行個體的 VNet 和子網路，您必須確定您的 VNet 和子網路皆能滿足[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 使用這個 [PowerShell 指令碼來確認子網路已正確設定](sql-database-managed-instance-configure-vnet-subnet.md)。 此指令碼會確認網路並回報問題，還會告訴您應該變更的項目，然後在 VNet/子網路中做出必要的變更。 如果您不想要手動設定 VNet/子網路，請執行此指令碼。 您也可以在大幅地重新設定網路基礎結構後，執行此指令碼。 如果您要建立及設定您自己的網路，請參閱[連線架構](sql-database-managed-instance-connectivity-architecture.md)，以及這篇[建立及設定受控執行個體環境的終極指南](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01)。
+如果您已經有要部署受控執行個體的 VNet 和子網路，您必須確定您的 VNet 和子網路皆能滿足[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 使用這個 [PowerShell 指令碼來確認子網路已正確設定](sql-database-managed-instance-configure-vnet-subnet.md)。 此指令碼會確認網路並回報問題，還會告訴您應該變更的項目，然後在 VNet/子網路中做出必要的變更。 如果您不想要手動設定 VNet/子網路，請執行此指令碼。 您也可以在大幅地重新設定網路基礎結構後，執行此指令碼。 若要建立及設定您自己的網路，請參閱[連線架構](sql-database-managed-instance-connectivity-architecture.md) \(部分機器翻譯\) 與這篇[建立及設定受控執行個體環境的終極指南](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01) \(英文\)。
 
-## <a name="automating-creation-of-a-managed-instance"></a>將受控執行個體的建立自動化
+## <a name="migrate-to-a-managed-instance"></a>移轉到受控執行個體
 
- 如果您尚未依照上個步驟中的指示建立網路環境，Azure 入口網站可以代您進行。此作法唯一的缺點在於系統會以預設參數設定網路環境，且您無法於稍後變更這些參數。 或者，您可以使用：
+這些快速入門中的文章可讓您快速地設定受控執行個體，並使用原生的 `RESTORE` 功能來移動您的資料庫。 如果您想要完成快速概念證明並確認您的解決方案可以在受控執行個體上運行，這是一個很好的起點。 
 
-- [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
-- [搭配 Resource Manager 範本使用 PowerShell](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/)。
-- [Resource Manager 範本](sql-database-single-database-get-started-template.md)
+但是，若要移轉您要用於某些效能測試的生產資料庫或甚至開發/測試資料庫，您需要考慮使用一些額外的技術，例如：
+- 效能測試 - 您應該測量來源 SQL Server 執行個體上的基準效能，並將它們與移轉資料庫之目的地受控執行個體的效能進行比較。 深入了解[進行效能比較的最佳做法](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210) \(英文\)。
+- 線上移轉 - 使用此文章中描述的原生 `RESTORE`，您必須等待資料庫進行還原並複製到 Azure Blob 儲存體 (如果資料庫尚未儲存在該處)。 這會導致您的應用程式有停機時間，特別是處理較大型資料庫的時候。 若要移動您的生產資料庫，請使用[資料移轉服務 (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json)，才能以最短的停機時間來遷移資料庫。 DMS 會以累加方式將來源資料庫中的變更推送到正在還原的受控執行個體資料庫，藉此來完成移轉。 透過此方法，您可以在最短停機時間的前提下，快速地將應用程式從來源資料庫切換到目標資料庫。
 
-## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>以最短停機時間遷移到受控執行個體
-
-這些快速入門中的文章可讓您快速地設定受控執行個體，並使用原生的 `RESTORE` 功能來移動您的資料庫。 不過，若使用原生的 `RESTORE`，您必須等待資料庫進行還原並複製到 Azure Blob 儲存體 (如果資料庫尚未儲存在該處)。 這會導致您的應用程式有停機時間，特別是處理較大型資料庫的時候。 若要移動您的生產資料庫，請使用[資料移轉服務 (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json)，才能以最短的停機時間來遷移資料庫。 DMS 會以累加方式將來源資料庫中的變更推送到正在還原的受控執行個體資料庫，藉此來完成移轉。 透過此方法，您可以在最短停機時間的前提下，快速地將應用程式從來源資料庫切換到目標資料庫。
+深入了解[建議的移轉程序](sql-database-managed-instance-migrate.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

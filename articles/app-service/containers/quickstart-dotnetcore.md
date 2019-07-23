@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 21400355b2457d1a37bf2c139dfdfd29a104a074
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543888"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853792"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 ASP.NET Core 應用程式
 
@@ -95,10 +95,10 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-瀏覽至您剛建立的應用程式。 以您的應用程式名稱取代 _&lt;app name>_。
+瀏覽至您剛建立的應用程式。 以您的應用程式名稱取代 _&lt;app-name>_ 。
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 新的應用程式看起來應該像這樣：
@@ -165,7 +165,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-部署完成後，切換回在「瀏覽至應用程式」步驟中開啟的瀏覽器視窗，然後按 [重新整理]。
+部署完成後，切換回在「瀏覽至應用程式」  步驟中開啟的瀏覽器視窗，然後按 [重新整理]。
 
 ![在 Azure 中執行的已更新範例應用程式](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
@@ -173,7 +173,7 @@ git push azure master
 
 移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/quickstart-dotnetcore/portal-app-service-list.png)
 

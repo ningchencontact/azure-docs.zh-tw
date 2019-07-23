@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 2a5cfc417f75e5bb08e416b3243903badcf572e1
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1e1cfe7f0e3af72de819ed09dcd0a6d190f239ab
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480480"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839816"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>快速入門：使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Java SDK 建置 Web 應用程式
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 ## <a name="prerequisites"></a>必要條件
 
 您必須具備下列必要條件，才能執行此範例：
-* [安裝 JDK for Azure 和 Azure Stack JDK 8 版] (https://aka.ms/azure-jdks)) \(英文\)
+* [安裝 JDK for Azure 和 Azure Stack JDK 8 版](https://aka.ms/azure-jdks)
 * Maven (如果您沒有 Maven 則執行 `apt-get install maven`)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/09/2019
-ms.openlocfilehash: d3236f4782cc4fd9113329f03e36515a91bad528
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/11/2019
+ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798778"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847084"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>快速入門：在 C# 中使用 .NET SDK 建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -35,11 +35,9 @@ ms.locfileid: "67798778"
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門會使用下列服務、工具和資料。 
+此快速入門需要下列服務和工具。
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 的任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
-
-+ 您可以在此文章中找到範例索引與文件，也可以在此快速入門的 [Visual Studio 解決方案](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart)中找到。
 
 + [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
@@ -195,11 +193,14 @@ Hotels 索引由簡單與複雜欄位組成，其中簡單欄位是 "HotelName" 
     }
     ```
 
-    欄位上的屬性決定它如何在應用程式中使用。 例如，`IsSearchable` 屬性會指派給應該包括在全文檢索搜尋中的每個欄位。 在 .NET SDK 中，預設值是停用未明確啟用的欄位行為。
+    欄位上的屬性決定它如何在應用程式中使用。 例如，`IsSearchable` 屬性必須指派給應該包括在全文檢索搜尋中的每個欄位。 
+    
+    > [!NOTE]
+    > 在 .NET SDK 中，欄位必須明確地屬性化為 [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet)、[`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet)、[`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) 與 [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet)。 此行為與 REST API 形成對比，後者隱含啟用以資料類型為基礎的屬性 (例如，簡單的字串欄位可自動搜尋)。
 
     只有類型為 `string` 索引中的一個欄位才必須是「索引鍵」  欄位，它會識別每個文件。 在此結構描述中，索引鍵是 `HotelId`。
 
-    在此索引中，描述欄位使用選擇性的分析器屬性，這是在當您想要覆寫預設標準 Lucene 分析器時指定的。 `description_fr` 欄位使用法文 Lucene 分析器 ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet))，因為它會儲存法文文字。 `description` 是使用選擇性的 Microsoft 語言分析器 ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet))。
+    在此索引中，描述欄位使用選擇性的 [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) 屬性，這是在當您想要覆寫預設標準 Lucene 分析器時指定的。 `description_fr` 欄位使用法文 Lucene 分析器 ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet))，因為它會儲存法文文字。 `description` 是使用選擇性的 Microsoft 語言分析器 ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet))。
 
 1. 在Program.cs 中，建立 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 類別的執行個體以使用儲存在應用程式設定檔 (appsettings.json) 中的值連線到該服務。 
 

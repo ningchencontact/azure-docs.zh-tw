@@ -1,6 +1,6 @@
 ---
 title: 使用文字分析 REST API 來偵測語言 | Microsoft Docs
-description: 如何使用 Azure 認知服務中的文字分析 REST API 來偵測語言。
+description: 使用 Azure 認知服務中的文字分析 REST API 來偵測語言。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,31 +9,31 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e1adeb34cf999f471bb183e4d7de9c65427252bb
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304058"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986519"
 ---
-# <a name="example-how-to-detect-language-with-text-analytics"></a>範例：如何使用文字分析來偵測語言
+# <a name="example-detect-language-with-text-analytics"></a>範例：使用文字分析來偵測語言
 
 此 API 的[語言偵測](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)功能會針對每份文件評估文字輸入，並傳回語言識別碼，其中含有指出分析強度的分數。
 
-此功能對於收集任意文字且語言為未知的內容存放區而言非常實用。 您可以剖析此分析的結果，以判斷輸入文件中使用的是哪一種語言。 回應也會傳回分數來反映對模型的信賴度 (介於 0 和 1 之間的值)。
+此功能對於收集任意文字且語言為未知的內容存放區而言非常實用。 您可以剖析此分析的結果，以判斷輸入文件中使用的是哪一種語言。 回應也會傳回分數來反映對模型的信賴度。 該分數值介於 0 到 1之間。
 
-我們未發佈這項功能確切的語言清單，但它可以偵測到多種不同的語言、變體、方言，以及某些區域性/文化語言。 
+「語言偵測」功能適用於多種不同的語言、變體、方言，以及某些區域性/文化語言。 此功能的確切語言清單不會發行。
 
-如果您有以較不常用的語言表示的內容，您可以嘗試使用「語言偵測」，看它是否會傳回代碼。 對於無法偵測到的語言，會產生 `unknown` 回應。
+如果您有以較不常用的語言表示的內容，您可以嘗試使用「語言偵測」功能，看它是否會傳回代碼。 對於無法偵測到的語言，會產生 `unknown` 回應。
 
 > [!TIP]
 > 文字分析也會提供可用來偵測語言的 Linux 型 Docker 容器映像，好讓您可以在接近資料的位置[安裝和執行文字分析容器](text-analytics-how-to-install-containers.md)。
 
 ## <a name="preparation"></a>準備工作
 
-您必須具有此格式的 JSON 文件：識別碼、文字
+您必須具有此格式的 JSON 文件：識別碼和文字。
 
-文件大小必須少於 5,120 個字元，而且您最多可以針對每個集合擁有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 以下是您可能提交來進行語言偵測的內容範例。
+每份文件的大小必須低於 5,120 個字元。 每個集合最多可以有 1,000 個項目 (識別碼)。 集合會在要求本文中提交。 下列範例是您可能提交來進行語言偵測的內容範例：
 
    ```
     {
@@ -64,33 +64,33 @@ ms.locfileid: "67304058"
 
 ## <a name="step-1-structure-the-request"></a>步驟 1：建立要求結構
 
-關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
+如需有關要求定義的詳細資訊，請參閱[呼叫文字分析 API](text-analytics-how-to-call-api.md)。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\)
++ 建立 POST 要求。 若要檢閱適用於此要求的 API 文件，請參閱[語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\)。
 
-+ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來偵測語言的 HTTP 端點。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
++ 設定適用於語言偵測的 HTTP 端點。 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`。
 
-+ 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
++ 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
-+ 在要求本文中，提供您準備用於此分析的 JSON 文件集合
++ 在要求主體中，提供您準備用於此分析的 JSON 文件集合。
 
 > [!Tip]
 > 使用 [Postman](text-analytics-how-to-call-api.md) 或開啟[文件](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 中的 **API 測試主控台**來建立要求結構，並將它 POST 到服務。
 
 ## <a name="step-2-post-the-request"></a>步驟 2：張貼要求
 
-分析會在接收要求時執行。 請參閱概觀中的[資料限制](../overview.md#data-limits)一節，以取得您每分鐘和每秒鐘可以傳送的要求大小和數量資訊。
+分析會在接收要求時執行。 如需您每分鐘和每秒鐘可以傳送的要求大小和數量資訊，請參閱概觀中的[資料限制](../overview.md#data-limits)一節。
 
 請記得，服務是無狀態的。 您的帳戶中並不會儲存任何資料。 結果會在回應中立即傳回。
 
 
-## <a name="step-3-view-results"></a>步驟 3：檢視結果
+## <a name="step-3-view-the-results"></a>步驟 3：檢視結果
 
-所有的 POST 要求都會傳回 JSON 格式的回應，具有識別碼和偵測到的屬性。
+所有的 POST 要求都會傳回 JSON 格式的回應，包含識別碼和偵測到的屬性。
 
-輸出會立即傳回。 您可以將結果串流處理到可接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案，然後將它匯入能讓您排序、搜尋和操作資料的應用程式。
+輸出會立即傳回。 您可以將結果串流至接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案。 然後，將輸出匯入應用程式，以便用來排序、搜尋和操作資料。
 
-範例要求的結果看起來應該類似下列 JSON。 請注意，它是一份具有多個項目的文件。 輸出的語言是英文。 語言識別項包括易記名稱和 [ISO 639-1](https://www.iso.org/standard/22109.html) \(英文\) 格式的語言代碼。
+範例要求的結果看起來應該類似下列 JSON。 請注意，它是一份包含多個項目的文件。 輸出的語言是英文。 語言識別項包括易記名稱和 [ISO 639-1](https://www.iso.org/standard/22109.html) \(英文\) 格式的語言代碼。
 
 1\.0 的正面分數表示最高的分析信賴等級。
 
@@ -154,7 +154,7 @@ ms.locfileid: "67304058"
 
 ### <a name="ambiguous-content"></a>模稜兩可的內容
 
-如果分析器無法剖析輸入 (例如，假設您提交了只包含阿拉伯數字的文字區塊)，則會傳回 `(Unknown)`。
+如果分析器無法剖析輸入，它會傳回 `(Unknown)`。 例如，如果您提交的文字區塊僅包含阿拉伯數字。
 
 ```
     {
@@ -169,7 +169,7 @@ ms.locfileid: "67304058"
 ```
 ### <a name="mixed-language-content"></a>混合式語言內容
 
-相同文件中的混合式語言內容會傳回佔據最多內容的語言，但其正面評等將會較低，以反映該評量的臨界強度。 在下列範例中，輸入會混合英文、西班牙文和法文。 分析器會計算每個區段中的字元來判斷出主要的語言。
+相同文件中的混合式語言內容會傳回佔據最多內容的語言，但其正面評等將會較低。 評等會反映評量的臨界強度。 在下列範例中，輸入會混合英文、西班牙文和法文。 分析器會計算每個區段中的字元來判斷出主要的語言。
 
 **輸入**
 
@@ -186,7 +186,7 @@ ms.locfileid: "67304058"
 
 **輸出**
 
-結果輸出會顯示主要的語言，以及低於 1.0 的分數，表示較低的信賴等級。
+結果輸出由主要語言組成，其分數小於 1.0，這表示信賴度較低。
 
 ```
 {
@@ -208,12 +208,12 @@ ms.locfileid: "67304058"
 
 ## <a name="summary"></a>總結
 
-在本文中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
+在此文章中，您已了解使用 Azure 認知服務中的文字分析進行語言偵測的概念與工作流程。 已說明及示範下列幾點：
 
-+ [語言偵測](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)適用於多種不同的語言、變體、方言，以及某些區域性/文化語言。
++ [語言偵測](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)適用於多種不同的語言、變體、方言，以及某些區域性或文化語言。
 + 要求主體中的 JSON 文件包含識別碼和文字。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/languages` 端點。
-+ 回應輸出 (其包含針對每個文件識別碼的語言識別項) 可以串流處理到任何可接受 JSON 的應用程式，包括 Excel 和 Power BI 等。
++ 回應輸出包含每個文件識別碼的語言識別碼。 輸出可以串流處理到任何接受 JSON 的應用程式。 範例應用程式包括 Excel 與 Power BI 等等。
 
 ## <a name="see-also"></a>另請參閱 
 

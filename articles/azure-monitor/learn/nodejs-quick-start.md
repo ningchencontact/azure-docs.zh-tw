@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849388"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002742"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>開始監視 Node.js Web 應用程式
 
@@ -41,27 +41,26 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 Application Insights 可以從任何連上網際網路的應用程式收集遙測資料，而不論應用程式在內部部署或雲端中執行。 請使用下列步驟來開始檢視此資料。
 
-1. 選取 [建立資源] > [開發人員工具] > [Application Insights]。
+1. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
 
    ![新增 Application Insights 資源](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![新增 Application Insights 資源](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >如果這是您第一次建立 Application Insights 資源，您可以瀏覽[建立 Application Insights 資源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)文件以進一步了解。
 
-
-   設定方塊隨即出現，請使用下表來填寫輸入欄位。
+   設定頁面隨即出現；請使用下表來填寫輸入欄位。 
 
     | 設定        | 值           | 說明  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
    | **應用程式類型** | Node.js 應用程式 | 您要監視的應用程式類型 |
-   | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
-2. 按一下頁面底部的 [新增] 。
+2. 按一下頁面底部的 [新增]  。
 
 ## <a name="configure-app-insights-sdk"></a>設定 App Insights SDK
 
-1. 選取 [概觀]，然後複製應用程式的 [檢測金鑰]。
+1. 選取 [概觀]  ，然後複製應用程式的 [檢測金鑰]  。
 
    ![新增 App Insights 資源表單](./media/nodejs-quick-start/3key.png)
 
@@ -85,23 +84,23 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
-1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights [概觀] 頁面 (您先前在此擷取檢測金鑰)，以檢視目前執行中應用程式的詳細資料。
+1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights [概觀]  頁面 (您先前在此擷取檢測金鑰)，以檢視目前執行中應用程式的詳細資料。
 
    ![Application Insights 概觀功能表](./media/nodejs-quick-start/4overview.png)
 
-2. 按一下 [應用程式對應]，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
+2. 按一下 [應用程式對應]  ，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
 
    ![應用程式對應](./media/nodejs-quick-start/5appmap.png)
 
-3. 按一下 [應用程式分析] 圖示 ![應用程式對應圖示](./media/nodejs-quick-start/006.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3. 按一下 [應用程式分析]  圖示 ![應用程式對應圖示](./media/nodejs-quick-start/006.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
    ![經過一段時間的使用者要求分析圖表](./media/nodejs-quick-start/6analytics.png)
 
-4. 返回 [概觀] 頁面，檢查 [KPI 圖形]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。
+4. 返回 [概觀]  頁面，檢查 [KPI 圖形]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。
 
    ![健康情況概觀時間軸圖表](./media/nodejs-quick-start/7kpidashboards.png)
 
-   若要在 [網頁檢視載入時間] 圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
+   若要在 [網頁檢視載入時間]  圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
 
    ```HTML
    <!-- 
@@ -123,7 +122,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    </script>
    ```
 
-5. 在左側按一下 [計量]。 使用計量瀏覽器來調查資源的健康情況和使用量。 您可以按一下 [新增新的圖表] 來建立額外的自訂檢視，或選取 [編輯] 來修改現有圖表的類型、高度、調色盤、群組和計量。 例如，您可以製作圖表來顯示平均瀏覽器頁面載入時間，方法是從 [計量] 下拉式清單選取 [瀏覽器頁面載入時間] 並從 [彙總] 選取 [平均]。 若要深入了解 Azure 計量瀏覽器，請瀏覽[開始使用 Azure 計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。
+5. 在左側按一下 [計量]  。 使用計量瀏覽器來調查資源的健康情況和使用量。 您可以按一下 [新增新的圖表]  來建立額外的自訂檢視，或選取 [編輯]  來修改現有圖表的類型、高度、調色盤、群組和計量。 例如，您可以製作圖表來顯示平均瀏覽器頁面載入時間，方法是從 [計量] 下拉式清單選取 [瀏覽器頁面載入時間] 並從 [彙總] 選取 [平均]。 若要深入了解 Azure 計量瀏覽器，請瀏覽[開始使用 Azure 計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。
 
    ![伺服器計量圖表](./media/nodejs-quick-start/8metrics.png)
 
@@ -133,8 +132,8 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。
 
-1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組] 和 [myResourceGroup]。
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組]  和 [myResourceGroup]  。
+2. 在資源群組頁面上，按一下 [刪除]  ，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

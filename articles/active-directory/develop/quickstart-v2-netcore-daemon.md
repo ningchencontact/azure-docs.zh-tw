@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a42cfe1374f3defdf6ed8acc828e6c7e446588bc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c5955be5670759329e42ec24999d73df977c665e
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595151"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276851"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
 
@@ -112,7 +112,7 @@ ms.locfileid: "67595151"
     
 #### <a name="step-4-admin-consent"></a>步驟 4：系統管理員同意
 
-如果您嘗試在此時執行應用程式，您會收到「HTTP 403 - 禁止」  錯誤：`Insufficient privileges to complete the operation`。 這是因為任何「僅限應用程式權限」  都需要管理員同意，也就是目錄的全域管理員必須對應用程式表示同意。 請根據您的角色選取下列其中一個選項：
+如果您嘗試在此時執行應用程式，您將會收到「HTTP 403 - 禁止」  錯誤：`Insufficient privileges to complete the operation`。 這是因為任何「僅限應用程式權限」  都需要管理員同意，也就是目錄的全域管理員必須對應用程式表示同意。 請根據您的角色選取下列其中一個選項：
 
 ##### <a name="global-tenant-administrator"></a>全域租用戶管理員
 
@@ -142,7 +142,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### <a name="step-5-run-the-application"></a>步驟 5：執行應用程式
 
-如果您使用 Visual Studio，請按 **F5** 執行應用程式，否則，請透過命令提示字元或主控台執行應用程式：
+如果您是使用 Visual Studio，請按 **F5** 來執行應用程式，否則請透過命令提示字元或主控台執行應用程式：
 
 ```console
 cd {ProjectFolder}\daemon-console
@@ -215,7 +215,7 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | 包含所要求的範圍。 針對機密用戶端，這應該使用類似 `{Application ID URI}/.default` 的格式，以指出所要求的範圍是 Azure 入口網站中所設定應用程式物件中以靜態方式定義的範圍 (若為 Microsoft Graph，`{Application ID URI}` 會指向 `https://graph.microsoft.com`)。 若為自訂 Web API，`{Application ID URI}` 會定義在 Azure 入口網站「應用程式註冊 (預覽)」中的 [公開 API]  區段底下。 |
 
-如需詳細資訊，請參閱[下列項目的參考文件：`AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+如需詳細資訊，請參閱[下列項目的參考文件：`AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

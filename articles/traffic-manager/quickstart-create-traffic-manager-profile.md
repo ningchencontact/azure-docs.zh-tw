@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051006"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224684"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立流量管理員設定檔
 
@@ -36,42 +36,25 @@ ms.locfileid: "67051006"
 在本快速入門中，您必須在不同的 Azure 區域 (美國東部  和西歐  ) 中部署 Web 應用程式的兩個執行個體。 每個執行個體都會作為流量管理員的主要和容錯移轉端點。
 
 1. 在畫面的左上方，選取 [建立資源]   > [Web]   > [Web 應用程式]  。
-2. 在 [Web 應用程式]  中，輸入或選取下列設定：
 
-    | 設定 | 值 |
-    | ------- | ----- |
-    | 應用程式名稱 | 輸入 Web 應用程式的唯一名稱。  |
-    | 訂用帳戶 | 選取您要套用 Web 應用程式的訂用帳戶。 |
-    | 資源群組 | 選取 [新建]  ，然後輸入 myResourceGroupTM1  。 |
-    | 作業系統 | 選取 [Windows]  作為您的作業系統。 |
-    | 發佈 | 選取 [程式碼]  作為您想要發佈的格式。 |
+1. 在 [建立 Web 應用程式]  中，在 [基本資訊]  索引標籤中輸入或選取下列值：
 
-3. 選取 [App Service 方案/位置]  。
-4. 在 [App Service 方案]  中，選取 [新建]  。
-5. 在 [新增 App Service 方案]  中，輸入或選取下列設定：
+   - [訂用帳戶]   > [資源群組]  ：選取 [新建]  ，然後輸入 **myResourceGroupTM1**。
+   - [執行個體詳細資料]   > [名稱]  ：輸入 *myWebAppEastUS*。
+   - [執行個體詳細資料]   > [發行]  ：選取 [程式碼]  。
+   - [執行個體詳細資料]   > [執行階段堆疊]  ：選取 [ASP.NET V4.7] 
+   - [執行個體詳細資料]   > [作業系統]  ：選取 [Windows]  。
+   - [執行個體詳細資料]   > [區域]  ：選取 [美國東部]  。
+   - [App Service 方案]   > [Windows 方案 (美國東部)]  ：選取 [新建]  ，然後輸入 **myAppServicePlanEastUS**
+   - [App Service 方案]   > [SKU 與大小]  ：選取 [標準 S1]  。
+   
+3. 選取 [監視]  索引標籤，或選取 [下一步: 監視]  。  在 [監視]  下，將 [Application Insights]   > [啟用 Application Insights]  設定為 [否]  。
 
-    | 設定 | 值 |
-    | ------- | ----- |
-    | App Service 方案 | 輸入 myAppServicePlanEastUS  。 |
-    | 位置 | 美國東部 |
-    | 定價層 | S1 標準 |
+4. 選取 [檢閱及建立] 
 
-6. 選取 [確定]  。
+5. 檢閱設定，然後按一下 [建立]  。  成功部署 Web 應用程式時，它會建立預設網站。
 
-7. 在 [Web 應用程式]  中選取 [建立]  。 成功部署 Web 應用程式時，它會建立預設網站。
-
-8. 若要在不同的 Azure 區域中建立第二個網站，請使用下列設定重複步驟 1-7：
-
-    | 設定 | 值 |
-    | --------| ----- |
-    | 名稱 | 輸入 Web 應用程式的唯一名稱。 |
-    | 訂用帳戶 | 選取您要套用 Web 應用程式的訂用帳戶。 |
-    | 資源群組 | 選取 [新建]  ，然後輸入 myResourceGroupTM2  。 |
-    | 作業系統 | 選取 [Windows]  作為您的作業系統。 |
-    | 發佈 | 選取 [程式碼]  作為您想要發佈的格式。 |
-    | App Service 方案/位置 | 輸入 myAppServicePlanWestEurope  。 |
-    | 位置 | 西歐 |
-    | 定價層 | S1 標準 |
+6. 依照步驟來建立名為 *myWebAppWestEurope* 的第二個 Web 應用程式，並將 [資源群組]  命名為 *myResourceGroupTM2*、將 [區域]  設定為 [歐洲西部]  、將 [App Service 方案]  命名為 **myAppServicePlanWestEurope**，然後將其他設定設成跟 *myWebAppEastUS* 一樣。
 
 ## <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
