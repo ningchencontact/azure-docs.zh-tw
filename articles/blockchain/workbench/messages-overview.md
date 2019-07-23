@@ -261,7 +261,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 | connectionId          | 區塊鏈連線的唯一識別碼 |
 | messageSchemaVersion  | 傳訊結構描述版本 |
 | messageName           | **CreateContractActionUpdate** |
-| status                | 合約動作要求的狀態。 可能的值：[已提交]  、[已認可]  、[失敗]  。                         |
+| status                | 合約動作要求的狀態。 可能的值：Submitted  、Committed  、Failure  。                         |
 | additionalInformation | 其他根據狀態提供的資訊 |
 
 來自 Blockchain Workbench 的已提交**建立合約動作**回應範例：
