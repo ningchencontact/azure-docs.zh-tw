@@ -98,7 +98,7 @@ Tag | 描述 | type | 必要項
 --- | ----------- | ---- | --------
 name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | String | 是
 description | 指定說明管線用途的文字。 | String | 否
-activities | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | Array | 是
+activities | **activities** 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[Activity JSON](#activity-json) 一節。 | Array | 是
 parameters | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | List | 否
 
 ## <a name="activity-json"></a>活動 JSON
