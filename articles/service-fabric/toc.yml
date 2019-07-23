@@ -274,7 +274,7 @@
           items:
             - name: Azure 叢集概觀
               href: service-fabric-azure-clusters-overview.md
-            - name: 節點類型與 VM 擴展集
+            - name: 節點類型和虛擬機器擴展集
               href: service-fabric-cluster-nodetypes.md
             - name: 升級 Azure 中的叢集
               href: service-fabric-cluster-upgrade.md
@@ -547,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: 建議的做法
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: 重構已遷移的應用程式
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: 打造現代化的應用程式
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: 管理應用程式生命週期
       items:
         - name: 封裝應用程式

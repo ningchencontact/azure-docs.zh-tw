@@ -334,8 +334,6 @@
           href: cognitive-search-skill-keyphrases.md
         - name: 語言偵測
           href: cognitive-search-skill-language-detection.md
-        - name: 具名實體辨識
-          href: cognitive-search-skill-named-entity-recognition.md
         - name: 實體辨識
           href: cognitive-search-skill-entity-recognition.md
         - name: 文字合併
@@ -344,6 +342,8 @@
           href: cognitive-search-skill-textsplit.md
         - name: 情感
           href: cognitive-search-skill-sentiment.md
+        - name: 文字翻譯 (預覽)
+          href: cognitive-search-skill-text-translation.md
         - name: 映像分析
           href: cognitive-search-skill-image-analysis.md
         - name: OCR
@@ -352,12 +352,15 @@
           href: cognitive-search-skill-shaper.md
         - name: 條件式
           href: cognitive-search-skill-conditional.md
-        - name: 已取代的技能
-          href: cognitive-search-skill-deprecated.md
     - name: 自訂技能
       items:
         - name: 自訂 Web API
           href: cognitive-search-custom-skill-web-api.md
+    - name: 已取代的技能
+      href: cognitive-search-skill-deprecated.md
+      items:
+        - name: 具名實體辨識
+          href: cognitive-search-skill-named-entity-recognition.md
 - name: 資源
   items:
     - name: Azure 社群支援

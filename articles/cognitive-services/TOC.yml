@@ -31,9 +31,9 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: 快速入門
   items:
-    - name: 使用 Azure 入口網站建立帳戶
+    - name: 使用 Azure 入口網站建立新的資源
       href: cognitive-services-apis-create-account.md
-    - name: 使用 Azure CLI 建立帳戶
+    - name: 使用 Azure CLI 建立新的資源
       href: cognitive-services-apis-create-account-cli.md
     - name: Authentication
       href: authentication.md
