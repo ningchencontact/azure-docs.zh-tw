@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c6b0d4cd664b12dbd0fbd4e9423240c8dbebb3
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: cb1e322e0424debc14a29ad8a516c95acea54714
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723809"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872101"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>從 Android 應用程式登入使用者並呼叫 Microsoft Graph
 
@@ -33,61 +33,57 @@ ms.locfileid: "67723809"
 
 ![示範本教學課程所產生的應用程式範例如何運作](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
-此範例中的應用程式將會登入使用者，並且代表他們取得資料。  這項資料會透過需要授權的受保護 API (Microsoft Graph API) 來存取。
+此教學課程中的應用程式將會登入使用者，並且代表他們取得資料。  此資料會透過需要授權的受保護 API 來存取 (Microsoft Graph API)，並會受到 Microsoft 身分識別平台保護。
 
 具體而言：
 
 * 您的應用程式會透過瀏覽器或 Microsoft Authenticator 及 Intune 公司入口網站來登入使用者。
-* 終端使用者會接受您應用程式已要求的權限。 
+* 終端使用者會接受您應用程式已要求的權限。
 * 您的應用程式會針對 Microsoft Graph API 發出存取權杖。
 * 此存取權杖會包含在 Web API 的 HTTP 要求中。
 * 處理 Microsoft Graph 回應。
 
-此範例會使用適用於 Android 的 Microsoft 驗證程式庫 (MSAL) 來實作驗證。 MSAL 會自動更新權杖、提供裝置上其他應用程式之間的 SSO，以及管理帳戶。
+此範例會使用適用於 Android 的 Microsoft 驗證程式庫 (MSAL) 來實作驗證：[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)。
+
+ MSAL 會自動更新權杖、提供裝置上其他應用程式之間的 SSO，以及管理帳戶。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 本引導式設定使用 Android Studio。
-* 需要 Android 16 或更新版本 (建議使用 19 以上)。
-
-## <a name="library"></a>程式庫
-
-本指南使用下列驗證程式庫：
-
-|程式庫|說明|
-|---|---|
-|[com.microsoft.identity.client (英文)](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
+* 本教學課程需要 Android Studio 第 16 版或更新版本 (建議使用 19 以上的版本)。
 
 ## <a name="create-a-project"></a>建立專案
 
 此教學課程會建立新的專案。 如果您想改為下載完整的教學課程，[請下載程式碼](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
-1. 開啟 Android Studio，然後選取 [開始新的 Android Studio 專案] 
-2. 選取 [基本活動]  ，然後按 [下一步]  。
-3. 為您的應用程式命名
-4. 儲存套件名稱。 您稍後會在 Azure 入口網站中加以輸入。 
+1. 開啟 Android Studio，然後選取 [開始新的 Android Studio 專案]  。
+2. 選取 [基本活動]  ，然後選取 [下一步]  。
+3. 為您的應用程式命名。
+4. 儲存套件名稱。 您稍後會在 Azure 入口網站中加以輸入。
 5. 將 [最低 API 層級]  設為 [API 19]  或更高，然後按一下 [完成]  。
 6. 在專案檢視中，從下拉式清單中選擇 [專案]  以顯示來源和非來源專案檔，然後開啟 **app/build.gradle**，並將 `targetSdkVersion` 設為 `27`。
 
 ## <a name="register-your-application"></a>註冊您的應用程式
 
-1. 移至 [Azure 入口網站](https://aka.ms/MobileAppReg)
+1. 移至 [Azure 入口網站](https://aka.ms/MobileAppReg)。
 2. 開啟 [應用程式註冊](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) 刀鋒視窗，然後按一下 [+新增註冊]  。
 3. 輸入應用程式的 [名稱]  ，然後不設定 [重新導向 URI] 而直接按一下 [註冊]  。
 4. 在顯示的窗格中，從 [管理]  區段選取 [驗證]   > [+ 新增平台]   > [Android]  。
 5. 輸入您專案的套件名稱。 如果您已下載程式碼，此值會是 `com.azuresamples.msalandroidapp`。
-6. 在 [設定 Android 應用程式]  頁面的 [簽章雜湊]  區段中，按一下 [產生開發簽章雜湊]  。 然後，複製要用於平台的 KeyTool 命令。 請注意，KeyTool.exe 會安裝為 Java Development Kit (JDK) 的一部分，且您必須也已安裝 OpenSSL 工具，才能執行 KeyTool 命令。
+6. 在 [設定 Android 應用程式]  頁面的 [簽章雜湊]  區段中，按一下 [產生開發簽章雜湊]  。 然後，複製要用於平台的 KeyTool 命令。
+
+   > [!Note]
+   > KeyTool.exe 會安裝為 Java 開發套件 (JDK) 的一部分。 您也必須安裝 OpenSSL 工具來執行 KeyTool 命令。
+
 7. 輸入 KeyTool 所產生的**簽章雜湊**。
 8. 按一下 `Configure` 並儲存出現在 [Android 設定]  頁面中的 [MSAL 設定]  ，以便稍後在設定應用程式時可加以輸入。  按一下 [完成]  。
 
 ## <a name="build-your-app"></a>建置您的應用程式
 
-### <a name="configure-your-android-app"></a>設定您的 Android 應用程式
+### <a name="add-your-app-registration"></a>新增您的應用程式註冊
 
 1. 在 Android Studio 的專案窗格中，瀏覽至 **app\src\main\res**。
 2. 以滑鼠右鍵按一下 [res]  ，然後選擇 [新增]   > [目錄]  。 輸入 `raw` 作為新的目錄名稱，然後按一下 [確定]  。
 3. 在 [app]   > [src]   > res   > [raw]  中，建立名為 `auth_config.json` 的新 JSON 檔案，並貼上您先前儲存的 [MSAL 設定]。 請參閱 [ MSAL 組態，以取得詳細資訊](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
-   <!-- Workaround for Docs conversion bug -->
 4. 在 [app]   > [src]   > [main]   > [AndroidManifest.xml]  中，於下方新增 `BrowserTabActivity` 活動。 此輸入可讓 Microsoft 在完成驗證後回呼您的應用程式：
 
     ```xml
@@ -118,7 +114,7 @@ ms.locfileid: "67723809"
 ### <a name="create-the-apps-ui"></a>建立應用程式 UI
 
 1. 在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [res]   > [layout]  ，然後開啟 [activity_main.xml]  ，並開啟 [文字]  檢視。
-2. 變更活動配置，例如從 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 變更為 `<androidx.coordinatorlayout.widget.LinearLayout`。
+2. 變更活動配置，例如：從 `<androidx.coordinatorlayout.widget.CoordinatorLayout` 變更為 `<androidx.coordinatorlayout.widget.LinearLayout`。
 3. 將 `android:orientation="vertical"` 屬性新增至 `LinearLayout` 節點。
 4. 將下列程式碼貼到 `LinearLayout` 節點中，並取代目前的內容：
 
@@ -186,7 +182,7 @@ ms.locfileid: "67723809"
 ### <a name="use-msal"></a>使用 MSAL
 
 現在，請在 `MainActivity.java` 內進行變更，以在您的應用程式中新增和使用 MSAL。
-在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [java]   > [com.example.msal]  ，然後開啟 `MainActivity.java`
+在 Android Studio 專案視窗中，瀏覽至 [app]   > [src]   > [main]   > [java]   > [com.example.msal]  ，然後開啟 `MainActivity.java`。
 
 #### <a name="required-imports"></a>必要的匯入項目
 

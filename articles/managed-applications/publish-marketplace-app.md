@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688572"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305622"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受控應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "66688572"
 
 若要完成這篇文章，您必須具備受控應用程式定義的 .zip 檔案。 如需詳細資訊，請參閱[建立服務類別目錄應用程式](publish-service-catalog-app.md)。
 
-此外，還有數個商務必要條件。 如下：
+有數個商務必要條件。 如下：
 
 * 您的公司或其子公司必須位於 Marketplace 支援銷售的國家/地區。
 * 您的產品授權，必須與 Marketplace 支援的計費模式相容。
@@ -37,14 +37,7 @@ ms.locfileid: "66688572"
 * 同意 Azure Marketplace 參與原則和發行者合約中的條款。
 * 同意遵守使用條款、Microsoft 隱私權聲明以及 Microsoft Azure 認證方案合約。
 
-## <a name="become-a-publisher"></a>成為發行者
-
-若要成為 Azure Marketplace 中的發行者，您必須：
-
-1. 建立 Microsoft ID - 使用屬於貴公司網域，但不屬於單一個人的電子郵件地址，建立您的 Microsoft 帳戶。 此電子郵件地址用於 Microsoft 開發人員中心和雲端合作夥伴入口網站。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
-1. 提交 [Azure Marketplace 提名表單](https://aka.ms/ampnomination) - 針對 [您想要發佈的解決方案?]  ，選取 [受控應用程式]  。 一旦提交表單，Marketplace 上架小組會檢閱應用程式並驗證要求。 核准程序可能需要一到三天。 您的提名核准時，您會收到促銷代碼，以撤銷開發人員中心的註冊費用。 如果您**未**完成 Marketplace 提名表單，系統會要求您支付 $99 的註冊費用。
-1. 在[開發人員中心](https://dev.windows.com/registration?accountprogram=azure)註冊 - Microsoft 會驗證您的組織是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 核准程序可能需要 5 到 10 天。 若要避免註冊費用，使用您在提名程序電子郵件中收到的促銷代碼。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
-1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com) - 在發行者設定檔中，將您的開發人員中心帳戶與 Marketplace 發行者設定檔產生關聯。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
+您也必須擁有 Marketplace 帳戶。 若要建立帳戶，請參閱[如何在合作夥伴中心建立商務 Marketplace 帳戶](..//marketplace/partner-center-portal/create-account.md)。
 
 ## <a name="create-a-new-azure-application-offer"></a>建立新的 Azure 應用程式供應項目
 
@@ -105,6 +98,10 @@ SKU 會顯示在 Marketplace 中的父供應項目底下。 它會在 Azure 入�
    * **套件檔案 (.zip)** ：此套件包含壓縮成 .zip 套件的兩個必要檔案。 其中一個檔案為資源管理員範本，此範本定義要與受控應用程式一起部署的資源。 另一個檔案會針對透過入口網站部署受控應用程式的取用者，定義[使用者介面](create-uidefinition-overview.md)。 在使用者介面中，您可以指定讓取用者提供參數值的項目。
    * **租用戶識別碼**：要取得存取權的帳戶租用戶識別碼。
    * **啟用 JIT 存取**：選取 [是]  以啟用帳戶的 [Just-In-Time 存取控制](request-just-in-time-access.md)。 啟用後，您會要求在指定的時段內存取取用者的帳戶。 若要要求受控應用程式的取用者授與您的帳戶永久存取權，請選取 [否]  。
+   * **自訂允許的取用者動作？** ：選取 [是]  ，即可指定取用者可在受控資源上執行的動作。
+   * **允許的取用者動作？** ：如果您在前一個設定上選取 [是]  ，您可以使用 [Azure 資源的拒絕指派](../role-based-access-control/deny-assignments.md)來指定允許取用者執行的動作。
+
+     如需可用動作的清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。 例如，若要允許取用者重新啟動虛擬機器，可將 `Microsoft.Compute/virtualMachines/restart/action` 新增至允許的動作。 `*/read` 是自動允許的動作，因此您不需要加入該設定。
    * **PrincipalId**：這個屬性是使用者、使用者群組或應用程式的 Azure Active Directory (Azure AD) 識別碼，其擁有者被授與客戶訂用帳戶中資源的存取權。 角色定義描述權限。
    * **角色定義**：這個屬性是 Azure AD 提供的所有內建角色型存取控制 (RBAC) 角色清單。 您可以選取最適合用於代表客戶管理資源的角色。
    * **原則設定**：將 [Azure 原則](../governance/policy/overview.md)套用至您的受控應用程式，以指定已部署解決方案的合規性需求。 從可用的選項中，選取要套用的原則。 針對 [原則參數]  ，提供包含參數值的 JSON 字串。 如需了解原則定義和參數值格式，請參閱 [Azure 原則範例](../governance/policy/samples/index.md)。

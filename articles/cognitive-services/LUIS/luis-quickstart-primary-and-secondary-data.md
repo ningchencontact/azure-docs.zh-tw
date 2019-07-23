@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124183"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276185"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
@@ -83,23 +83,23 @@ ms.locfileid: "66124183"
 
 2. 將 JSON 匯入新的應用程式中。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `simple`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+3. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `simple`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
 ## <a name="mark-entities-in-example-utterances-of-an-intent"></a>在意圖的範例語句中標示實體
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
+1. 在 [意圖]  頁面上，選取 [ApplyForJob]  意圖。 
 
-1. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]。 
+1. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]  。 
 
     [![針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-1. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]。
+1. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]  。
 
     ![建立簡單實體快顯強制回應對話方塊與職位名稱和簡單類型](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-1. 在其餘的語句中，選取字組或片語，然後從快顯功能表選取 [工作]，以 [工作] 實體標示工作相關字組。 
+1. 在其餘的語句中，選取字組或片語，然後從快顯功能表選取 [工作]  ，以 [工作]  實體標示工作相關字組。 
 
     [![標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -131,9 +131,9 @@ ms.locfileid: "66124183"
 
 ## <a name="mark-job-entity-in-other-intents"></a>標示其他意圖中的工作實體
 
-1. 選取左功能表中的 [意圖]。
+1. 選取左功能表中的 [意圖]  。
 
-1. 從意圖清單中選取 [GetJobInformation]。 
+1. 從意圖清單中選取 [GetJobInformation]  。 
 
 1. 將語句範例中的工作加上標籤
 
@@ -225,19 +225,19 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 從 Azure-Samples GitHub 存放庫開啟 [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此清單有超過 1,000 工作字組和片語。 請看一下清單以找出對您有意義的職位字組清單。 如果清單中沒有您的字組或片語，請自行新增。
 
-1. 在 LUIS 應用程式的 [建置] 區段中，選取 [提升應用程式效能] 功能表底下的 [片語清單]。
+1. 在 LUIS 應用程式的 [建置]  區段中，選取 [提升應用程式效能]  功能表底下的 [片語清單]  。
 
-1. 選取 [建立新的片語清單]。 
+1. 選取 [建立新的片語清單]  。 
 
-1. 將新的片語清單命名為 `JobNames`，然後將 jobs-phrase-list.csv 中的清單複製到 [值] 文字方塊。 選取 Enter 鍵。 
+1. 將新的片語清單命名為 `JobNames`，然後將 jobs-phrase-list.csv 中的清單複製到 [值]  文字方塊。
 
     [![建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    如果您想在片語清單中新增更多字組，請選取 [建議]，然後檢閱新的 [相關值] 並新增相關字組。 
+    如果您想在片語清單中新增更多字組，請選取 [建議]  ，然後檢閱新的 [相關值]  並新增相關字組。 
 
-    請務必讓 [這些值可交換使用] 保持核取狀態，因為這些值全都應視為作業的同義字。 深入了解可交換和不可交換使用的[片語清單概念](luis-concept-feature.md#how-to-use-phrase-lists)。
+    請務必讓 [這些值可交換使用]  保持核取狀態，因為這些值全都應視為作業的同義字。 深入了解可交換和不可交換使用的[片語清單概念](luis-concept-feature.md#how-to-use-phrase-lists)。
 
-1. 選取 [儲存] 以啟動該片語清單。
+1. 選取 [完成]  以啟動該片語清單。
 
     [![使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

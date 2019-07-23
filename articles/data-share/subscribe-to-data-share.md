@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788360"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838431"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>教學課程：使用 Azure Data Share Preview 接受和接收資料
 
@@ -31,6 +31,8 @@ ms.locfileid: "67788360"
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 * Azure 儲存體帳戶：如果您還沒有此帳戶，則可以建立 [Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。 
 * 資料共用邀請：Microsoft Azure 所送來的邀請，主旨標題為「來自 **<yourdataprovider@domain.com>** 的 Azure Data Share 邀請」。
+* 將角色指派新增至儲存體帳戶的權限，其存在於 Microsoft.Authorization/role assignments/write  權限中。 此權限存在於擁有者角色中。 
+* Microsoft.DataShare 的資源提供者註冊。 如需有關如何執行此作業的詳細資訊，請參閱 [Azure 資源提供者](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)文件。 
 
 > [!IMPORTANT]
 > 若要接受並接收 Azure Data Share，您必須先註冊 Microsoft.DataShare 資源提供者，而且您必須擁有用來接受資料的儲存體帳戶。 請遵循[針對 Azure Data Share Preview 進行疑難排解](data-share-troubleshoot.md)中所述的指示，註冊資料共用資源提供者，並將您自己新增為儲存體帳戶的擁有者。 

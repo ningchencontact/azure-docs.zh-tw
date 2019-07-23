@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3d088da4c771c828db9788817e424c4d89586dd6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163829"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986142"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位費用
 
@@ -39,7 +39,8 @@ ms.locfileid: "67163829"
 
 ![Azure 入口網站之中 SQL 查詢要求費用的螢幕擷取畫面](./media/find-request-unit-charge/portal-sql-query.png)
 
-### <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
+### <a name="use-the-net-sdk"></a>使用 .NET SDK
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 
 從 [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 傳回的物件會公開 `RequestCharge` 屬性：
 
@@ -73,6 +74,12 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+
+從 [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 傳回的物件會公開 `RequestCharge` 屬性：
+
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 如需詳細資訊，請參閱[快速入門：在 Azure Cosmos DB](create-sql-api-dotnet.md) 中使用 SQL API 帳戶建置 .NET Web 應用程式。
 

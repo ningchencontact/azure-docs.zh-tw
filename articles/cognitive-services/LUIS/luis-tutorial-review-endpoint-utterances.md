@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112274"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275994"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教學課程：檢閱端點語句以修正不確定的預測
 在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
@@ -52,7 +52,7 @@ ms.locfileid: "58112274"
 
 1. 將 JSON 匯入新的應用程式中。
 
-1. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `review`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+1. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `review`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
 1. 將新的應用程式定型並發佈。
 
@@ -66,54 +66,45 @@ ms.locfileid: "58112274"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 從左側導覽選取 [檢閱端點語句]。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
+1. 從左側導覽選取 [檢閱端點語句]  。 此清單已針對 **ApplyForJob** 意圖進行篩選。 
 
     [![[檢閱端點語句] 按鈕在左側導覽中的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-1. 切換 [實體檢視] 以查看加上標籤的實體。 
+1. 切換 [實體檢視]  以查看加上標籤的實體。 
     
     [![已醒目提示 [實體檢視] 開關的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    此語句 (`I'm looking for a job with Natural Language Processing`) 的意圖不正確。 
+
+    錯估語句的原因是，比起 **GetJobInformation** 中的 7 個語句，**ApplyForJob** 意圖中有 21 個語句。 具有更多語句的意圖會有較高的預測效果。 平衡各意圖間的語句數量和品質相當重要。
+
+1.  為符合此語句，請選取正確的意圖，並在其中標示作業實體。 選取綠色核取方塊，即可將已變更的語句新增至應用程式。 
+
     |語句|正確的意圖|遺漏的實體|
     |:--|:--|:--|
-    |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Job - "Natural Language Process"|
 
-    此語句的意圖不正確，且分數小於 50%。 **ApplyForJob** 意圖有 21 個語句，相較之下，**GetJobInformation** 有 7 個語句。 隨著端點語句正確調整，應該會有更多的語句新增至 **GetJobInformation** 意圖。 這部分會留作練習讓您自行完成。 每個意圖 (**無**意圖除外) 應該會有數量大致相同的語句範例。 **無**意圖所包含的語句應該會佔應用程式中總語句的 10%。 
+    新增語句會將語句從 [檢閱端點語句]  移到 [GetJobInformation]  意圖。 端點語句現在是該意圖的語句範例。 
 
-1. 對於 `I'm looking for a job with Natual Language Processing` 意圖，請在 [一致的意圖] 資料行中選取正確的意圖 **GetJobInformation**。 
+    隨著此語句正確調整，應該會有更多的語句新增至 **GetJobInformation** 意圖。 這部分會留作練習讓您自行完成。 每個意圖 (**無**意圖除外) 應該會有數量大致相同的語句範例。 **無**意圖所包含的語句應該會佔應用程式中總語句的 10%。 
 
-    [![讓語句與意圖一致的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. 在同一個語句中，`Natural Language Processing` 的實體是 keyPhrase。 這反而應該是**職位**實體。 從清單中依序選取 [`Natural Language Processing`] 和 [職位] 實體。
-
-    [![將語句中實體加上標籤的 [檢閱端點語句] 螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. 在同一行中，於 [新增至一致的意圖] 資料行中選取圈選核取記號。 
-
-    [![正在完成讓意圖中的語句一致的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    此動作會將語句從 [檢閱端點語句] 移到 [GetJobInformation] 意圖。 端點語句現在是該意圖的語句範例。 
-
-1. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]。
-
-1. 當所有語句都正確無誤時，請選取每個資料列的核取方塊，然後選取 [新增選取項目] 讓語句變得正確。 
-
-    [![正在完成剩餘語句以成為一致意圖的螢幕擷取畫面](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+1. 檢閱此意圖中剩餘的語句，如果這些語句不正確，請將語句加上標籤並更正 [一致的意圖]  。
 
 1. 此清單應該不會再有這些語句。 如果出現更多語句，請繼續檢查清單，更正意圖並將遺漏的實體加上標籤，直到清單清空為止。 
 
-1. 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖] 或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]。
+1. 選取 [篩選] 清單中的下一個意圖，然後繼續更正語句並將實體加上標籤。 請記住，每個意圖的最後一個步驟都是選取語句資料列上的 [新增至一致的意圖]  或核取每個意圖旁的方塊，然後選取資料表上方的 [新增選取項目]  。
 
     繼續執行，直到篩選清單中的所有意圖和實體都有空白清單為止。 這是非常小型的應用程式。 檢閱程序只會花上幾分鐘的時間。 
 
 ## <a name="update-phrase-list"></a>更新片語清單
 透過新探索到的職位名稱讓片語清單隨時保持最新狀態。 
 
-1. 在左側瀏覽窗格中選取 [片語清單]。
+1. 在左側瀏覽窗格中選取 [片語清單]  。
 
-2. 選取 [職位] 片語清單。
+2. 選取 [職位]  片語清單。
 
-3. 新增 `Natural Language Processing` 值，然後選取 [儲存]。 
+3. 新增 `Natural Language Processing` 值，然後選取 [儲存]  。 
 
 ## <a name="train"></a>定型
 
@@ -123,7 +114,7 @@ LUIS 在定型過後才會知道變更。
 
 ## <a name="publish"></a>發佈
 
-如果您已匯入此應用程式，則必須選取 [情感分析]。
+如果您已匯入此應用程式，則必須選取 [情感分析]  。
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 

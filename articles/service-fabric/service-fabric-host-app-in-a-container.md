@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119036"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228126"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -41,21 +41,21 @@ ms.locfileid: "66119036"
 1. 如果您沒有 Azure 訂用帳戶，請[建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 2. 安裝 [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)，以便在 Windows 10 上執行容器。
 3. 安裝 [Service Fabric 執行階段 6.2 版或更新版本](service-fabric-get-started.md)和 [Service Fabric SDK 3.1 版](service-fabric-get-started.md)或更新版本。
-4. 安裝 [Visual Studio 2017 15.7 版](https://www.visualstudio.com/)或更新版本，其中包含 **Azure 開發**及 **ASP.NET 和 Web 開發**工作負載。
+4. 安裝 [Visual Studio 2019 16.1 版](https://www.visualstudio.com/)或更新版本，其中包含 **Azure 開發**及 **ASP.NET 和 Web 開發**工作負載。
 5. 安裝 [Azure PowerShell][link-azure-powershell-install]
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>下載並執行 Fabrikam Fiber CallCenter
-下載 [Fabrikam Fiber CallCenter][link-fabrikam-github] 範例應用程式。  按一下 [下載封存] 連結。  從 fabrikam.zip檔案中的 sourceCode目錄 ，解壓縮 sourceCode.zip檔案，然後將 VS2015 目錄解壓縮到電腦中。
+下載 [Fabrikam Fiber CallCenter][link-fabrikam-github] 範例應用程式。  按一下 [下載封存]  連結。  從 fabrikam.zip  檔案中的 sourceCode  目錄 ，解壓縮 sourceCode.zip  檔案，然後將 VS2015  目錄解壓縮到電腦中。
 
-確認 Fabrikam Fiber CallCenter 應用程式建置及執行正常。  以**系統管理員**身分啟動 Visual Studio，開啟 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 檔案。  按 F5 進行偵錯並執行應用程式。
+確認 Fabrikam Fiber CallCenter 應用程式建置及執行正常。  以**系統管理員**身分啟動 Visual Studio，並開啟 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 檔案。  按 F5 進行偵錯並執行應用程式。
 
 ![Fabrikam Web 範例][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>將應用程式容器化
-在 [FabrikamFiber.Web] 專案上按一下滑鼠右鍵 > [新增]  >  [容器協調器支援]。  選取 [Service Fabric] 作為容器協調器，然後按一下 [確定]。
+在 [FabrikamFiber.Web]  專案上按一下滑鼠右鍵 > [新增]   >  [容器協調器支援]  。  選取 [Service Fabric]  作為容器協調器，然後按一下 [確定]  。
 
-按一下 [是]，可立即將 Docker 切換到 Windows 容器。
+按一下 [是]  ，可立即將 Docker 切換到 Windows 容器。
 
 現在在方案中已建立新的 Service Fabric 應用程式專案 **FabrikamFiber.CallCenterApplication**。  並已在現有 **FabrikamFiber.Web** 專案中新增 Dockerfile。  **PackageRoot** 目錄也已新增至 **FabrikamFiber.Web** 專案，其中包含新 FabrikamFiber.Web 服務的服務資訊清單和設定。 
 
@@ -64,7 +64,7 @@ ms.locfileid: "66119036"
 ## <a name="create-an-azure-sql-db"></a>建立 Azure SQL 資料庫
 在生產環境中執行 Fabrikam Fiber CallCenter 應用程式時，資料必須保存在資料庫中。 目前無法保證資料能保存在容器中，因此請不要將 SQL Server 生產環境的資料儲存在容器中。
 
-建議使用 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)。 若要在 Azure 中設定及執行受控 SQL Server 資料庫，執行下列指令碼。  視需要修改指令碼變數。 clientIP 是開發電腦的 IP 位址。 記下由指令碼輸出的伺服器名稱。 
+建議使用 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)。 若要在 Azure 中設定及執行受控 SQL Server 資料庫，執行下列指令碼。  視需要修改指令碼變數。 clientIP  是開發電腦的 IP 位址。 記下由指令碼輸出的伺服器名稱。 
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -116,7 +116,7 @@ Write-Host "Server name is $servername"
 > 如果您在公司防火牆後方，開發電腦的 IP 位址可能是無法向網際網路公開的 IP 位址。 若要確認用於防火牆規則的資料庫 IP 位址是否正確，請前往 [Azure 入口網站](https://portal.azure.com)，並在 SQL Database 區段中尋找您的資料庫。 按一下其名稱，然後在 [概觀] 區段中按一下 [設定伺服器防火牆]。 「用戶端 IP 位址」是您開發機器的 IP 位址。 請確定它符合 "AllowClient" 規則中的 IP 位址。
 
 ## <a name="update-the-web-config"></a>更新 Web 設定
-回到 **FabrikamFiber.Web** 專案，更新 **web.config** 檔案中的連接字串以指向容器中的 SQL Server。  更新連接字串的 Server 這個部分，改為之前指令碼所建立的伺服器名稱。 它應該會類似 "fab-fiber-751718376.database.windows.net"。
+回到 **FabrikamFiber.Web** 專案，更新 **web.config** 檔案中的連接字串以指向容器中的 SQL Server。  更新連接字串的 Server  這個部分，改為之前指令碼所建立的伺服器名稱。 它應該會類似 "fab-fiber-751718376.database.windows.net"。
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -124,10 +124,10 @@ Write-Host "Server name is $servername"
   
 ```
 >[!NOTE]
->您可以使用任何慣用的 SQL Server 來進行本機偵錯，只要能夠從您的主機連線到該 SQL Server 即可。 不過，**localdb** 不支援 `container -> host` 通訊。 在建置 Web 應用程式的發行組建時，如果您想要使用不同的 SQL 資料庫，請在 web.release.config 檔案中新增另一個連接字串。
+>您可以使用任何慣用的 SQL Server 來進行本機偵錯，只要能夠從您的主機連線到該 SQL Server 即可。 不過，**localdb** 不支援 `container -> host` 通訊。 在建置 Web 應用程式的發行組建時，如果您想要使用不同的 SQL 資料庫，請在 web.release.config  檔案中新增另一個連接字串。
 
 ## <a name="run-the-containerized-application-locally"></a>在本機執行容器化的應用程式
-按 **F5** 在本機 Service Fabric 開發叢集中執行容器中的應用程式並進行偵錯。 如果出現訊息方塊，詢問您是否要將 Visual Studio 專案目錄的讀取和執行權限授與 'ServiceFabricAllowedUsers' 群組，請按一下 [是]。
+按 **F5** 在本機 Service Fabric 開發叢集中執行容器中的應用程式並進行偵錯。 如果出現訊息方塊，詢問您是否要將 Visual Studio 專案目錄的讀取和執行權限授與 'ServiceFabricAllowedUsers' 群組，請按一下 [是]  。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 現在應用程式是在本機執行，可以開始準備部署至 Azure。  容器映像需要存放在容器登錄中。  使用下列指令碼建立 [Azure 容器登錄](/azure/container-registry/container-registry-intro)。 其他 Azure 訂用帳戶會看到容器登錄名稱，因此此名稱必須是唯一的。
@@ -153,32 +153,32 @@ Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛�
 
 本教學課程是從 Visual Studio建立叢集，這非常適合用於測試案例。 如果您用其他方式建立叢集或使用現有叢集，可以複製和貼上您的連線端點，或從訂用帳戶中選擇它。 
 
-開始之前，在 [方案總管] 中，開啟 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml。 記下 [端點] 中列出的 Web 前端連接埠。 
+開始之前，在 [方案總管] 中，開啟 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml。 記下 [端點]  中列出的 Web 前端連接埠。 
 
 建立叢集時， 
 
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [FabrikamFiber.CallCenterApplication] 應用程式專案，然後選擇 [發佈]。
+1. 以滑鼠右鍵按一下 [方案總管] 中的 [FabrikamFiber.CallCenterApplication]  應用程式專案，然後選擇 [發佈]  。
 
 2. 使用您的 Azure 帳戶登入，以便存取您的訂用帳戶。 
 
-3. 選取 [連線端點] 下拉式清單，然後選取 [建立新叢集...] 選項。    
+3. 選取 [連線端點]  下拉式清單，然後選取 [建立新叢集...]  選項。    
         
-4. 在 [建立叢集] 對話方塊中，修改下列設定：
+4. 在 [建立叢集]  對話方塊中，修改下列設定：
 
-    a. 在 [叢集名稱] 欄位中指定叢集的名稱，以及您想要使用的訂用帳戶和位置。 記下叢集資源群組的名稱。
+    a. 在 [叢集名稱]  欄位中指定叢集的名稱，以及您想要使用的訂用帳戶和位置。 記下叢集資源群組的名稱。
 
     b. 選用：您可以修改節點數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
 
-    c. 選取 [憑證] 索引標籤。在此索引標籤中，輸入要用來保護叢集憑證的密碼。 此憑證可協助保護您的叢集。 您也可以修改您要儲存憑證的路徑。 Visual Studio 也可以為您匯入憑證，因為這是要將應用程式發佈至叢集所需的項目。
+    c. 選取 [憑證]  索引標籤。在此索引標籤中，輸入要用來保護叢集憑證的密碼。 此憑證可協助保護您的叢集。 您也可以修改您要儲存憑證的路徑。 Visual Studio 也可以為您匯入憑證，因為這是要將應用程式發佈至叢集所需的項目。
 
-    d. 選取 [VM 詳細資料] 索引標籤。指定您想用於組成叢集之虛擬機器 (VM) 的密碼。 使用者名稱和密碼可用來從遠端連線到 VM。 您也必須選取 VM 機器大小，並可視需要變更 VM 映像。 
+    d. 選取 [VM 詳細資料]  索引標籤。指定您想用於組成叢集之虛擬機器 (VM) 的密碼。 使用者名稱和密碼可用來從遠端連線到 VM。 您也必須選取 VM 機器大小，並可視需要變更 VM 映像。 
 
     > [!IMPORTANT]
-    >選擇支援執行容器的 SKU。 在叢集節點上的 Windows Server 作業系統必須相容於您容器的 Windows Server 作業系統。 若要深入了解，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 根據預設，本教學課程會建立以 Windows Server 2016 LTSC 為基礎的 Docker 映像。 以此映像為基礎的容器將會在叢集上執行，而叢集會透過具有容器的 Windows Server 2016 Datacenter 來建立。 不過，如果您建立的叢集或使用的現有叢集，是以具有容器的 Windows Server Datacenter Core 1709 為基礎，您必須變更容器所依據的 Windows Server 作業系統映像。 開啟 **FabrikamFiber.Web** 專案中的 [Dockerfile]，為現有的 `FROM` 陳述式加上註解 (以 `windowsservercore-ltsc` 為基礎)，並對以 `windowsservercore-1709` 為基礎的 `FROM` 陳述式取消註解。 
+    >選擇支援執行容器的 SKU。 在叢集節點上的 Windows Server 作業系統必須相容於您容器的 Windows Server 作業系統。 若要深入了解，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 根據預設，本教學課程會建立以 Windows Server 2016 LTSC 為基礎的 Docker 映像。 以此映像為基礎的容器將會在叢集上執行，而叢集會透過具有容器的 Windows Server 2016 Datacenter 來建立。 不過，如果您建立的叢集或使用的現有叢集，是以具有容器的 Windows Server Datacenter Core 1709 為基礎，您必須變更容器所依據的 Windows Server 作業系統映像。 開啟 **FabrikamFiber.Web** 專案中的 [Dockerfile]  ，為現有的 `FROM` 陳述式加上註解 (以 `windowsservercore-ltsc` 為基礎)，並對以 `windowsservercore-1709` 為基礎的 `FROM` 陳述式取消註解。 
 
-    e. 在 [進階] 索引標籤中，列出應用程式連接埠，這是叢集部署時要在負載平衡器中開啟的連接埠。 這是您在開始建立叢集之前所記下的連接埠。 您也可以新增現有的 Application Insights 金鑰，此金鑰會用於路由傳送應用程式記錄檔。
+    e. 在 [進階]  索引標籤中，列出應用程式連接埠，這是叢集部署時要在負載平衡器中開啟的連接埠。 這是您在開始建立叢集之前所記下的連接埠。 您也可以新增現有的 Application Insights 金鑰，此金鑰會用於路由傳送應用程式記錄檔。
 
-    f. 當您完成設定修改時，請選取 [建立] 按鈕。 
+    f. 當您完成設定修改時，請選取 [建立]  按鈕。 
 1. 建立作業需要幾分鐘才能完成；輸出視窗會指出叢集何時建立完成。
     
 
@@ -231,7 +231,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -VirtualNetworkSubnetId $subnetID;
 ```
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
-現在應用程式已備妥，您可以直接從 Visual Studio 將其部署到 Azure 中的叢集。  以滑鼠右鍵按一下 [方案總管] 中的 [FabrikamFiber.CallCenterApplication] 應用程式專案，然後選擇 [發佈]。  在 [連線端點] 中選取您先前建立的叢集端點。  在 [Azure 容器登錄] 中，選取您先前建立的容器登錄。  按一下 [發佈] 將應用程式發佈至 Azure 中的叢集。
+現在應用程式已備妥，您可以直接從 Visual Studio 將其部署到 Azure 中的叢集。  以滑鼠右鍵按一下 [方案總管] 中的 [FabrikamFiber.CallCenterApplication]  應用程式專案，然後選擇 [發佈]  。  在 [連線端點]  中選取您先前建立的叢集端點。  在 [Azure 容器登錄]  中，選取您先前建立的容器登錄。  按一下 [發佈]  將應用程式發佈至 Azure 中的叢集。
 
 ![發佈應用程式][publish-app]
 

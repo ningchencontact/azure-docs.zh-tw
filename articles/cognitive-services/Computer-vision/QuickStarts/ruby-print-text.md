@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 71fc32fb34ae67f6d3a4de556da8b107574cc920
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7c9385078b1f9b42847cf627cf49ac16158d6b52
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603533"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276422"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-ruby"></a>快速入門：使用電腦視覺 REST API 和 Ruby 擷取印刷文字 (OCR)
 
@@ -33,8 +33,8 @@ ms.locfileid: "67603533"
 
 若要建立並執行範例，請執行下列步驟：
 
-1. 將下列程式碼複製到文字編輯器。
-1. 視需要在程式碼中進行下列變更：
+1. 將下面的程式碼複製到文字編輯器。
+1. 對程式碼進行下列變更：
     1. 將 `<Subscription Key>` 取代為訂用帳戶金鑰。
     1. 如有需要，請在您取得訂用帳戶金鑰的 Azure 區域，將 `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr` 取代為 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法的端點 URL。
     1. (選擇性) 將 `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\` 取代為您要從中擷取印刷文字之不同影像的 URL。

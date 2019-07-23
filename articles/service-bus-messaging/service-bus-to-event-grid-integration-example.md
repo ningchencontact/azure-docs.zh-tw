@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428311"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304244"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件
 在本教學課程中，您將了解如何使用 Azure Functions 和 Azure Logic Apps 來回應透過 Azure 事件方格所收到的 Azure 服務匯流排事件。 您將會執行下列步驟：
@@ -235,7 +235,7 @@ ms.locfileid: "66428311"
         ![取得函式的發行設定檔](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. 將該檔案儲存到您專案的資料夾中。 
 4. 在 Visual Studio 中，以滑鼠右鍵按一下 [SBEventGridIntegration]  ，然後選取 [發佈]  。 
-5. 在 [發佈]  頁面上選取 [開始]  *。 
+5. 在 [發佈]  頁面上選取 [開始]  。 
 6. 在 [挑選發佈目標]  頁面上執行下列步驟，選取 [匯入設定檔]  。 
 
     ![Visual Studio - [匯入設定檔] 按鈕](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)

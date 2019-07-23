@@ -1,6 +1,6 @@
 ---
 title: 教學課程：在 Azure HDInsight 的 Spark 計算內容中使用 R
-description: 教學課 程- 開始在 ML 服務上使用 R、Spark。
+description: 教學課程 - 開始在 Azure HDInsight Machine Learning 服務叢集上使用 R 和 Spark。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 244c62467f187417bbb9f0e54173aad5a7d26d0a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f072b6905881da7b7854b0e51d690dbbd40dffb5
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451739"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227432"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 的 Spark 計算內容中使用 R
 
-此教學課程會逐步簡介在 Azure HDInsight 的 ML 服務叢集上執行的 Apache Spark 中使用 R 函式。
+此教學課程會逐步簡介如何在 Azure HDInsight Machine Learning 服務叢集上執行的 Apache Spark 中使用 R 函式。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 將範例資料下載至本機儲存體
@@ -31,23 +31,23 @@ ms.locfileid: "67451739"
 > * 使用複合 XDF 檔案
 > * 將 XDF 轉換為 CSV
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* HDInsight 上的 ML 服務叢集。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [ML 服務]  作為 [叢集類型]  。
+* Azure HDInsight Machine Learning 服務叢集。 請移至[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [ML 服務]  作為 [叢集類型]  。
 
 ## <a name="connect-to-rstudio-server"></a>連線到 RStudio 伺服器
 
-RStudio Server 會在叢集的邊緣節點上執行。 移至下列 URL，其中的 `CLUSTERNAME` 是您所建立之 ML 服務叢集的名稱：
+RStudio Server 會在叢集的邊緣節點上執行。 移至下列網站 (其中 URL 中的 CLUSTERNAME  是您所建立的 HDInsight Machine Learning 服務叢集名稱)：
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-第一次登入時都必須驗證兩次。 第一次出現驗證提示時，請提供叢集管理員登入與密碼，預設為 `admin`。 第二次出現驗證提示時，請提供 SSH 登入與密碼，預設為 `sshuser`。 之後再登入時，只需要提供 SSH 認證。
+第一次登入時，您會進行兩次驗證。 出現第一次的驗證提示時，請提供叢集管理員使用者名稱與密碼 (預設為 admin  )。 出現第二次的驗證提示時，請提供 SSH 使用者名稱與密碼 (預設為 sshuser  )。 之後再登入時，只需要提供 SSH 認證。
 
-## <a name="download-sample-data"></a>下載範例資料
+## <a name="download-the-sample-data-to-local-storage"></a>將範例資料下載至本機儲存體
 
-「2012 年班機準點資料集」  由 12 個以逗號分隔的檔案組成，包含有關美國境內所有民航班機的抵達和起飛詳細資料。 這是巨量資料集，含有超過六百萬個觀察值。
+「2012 年班機準點資料集」  由 12 個以逗號分隔的檔案組成，包含有關美國在 2012 年境內所有民航班機的抵達和起飛詳細資料。 此資料集很大，有超過 600 萬個觀察值。
 
 1. 初始化幾個環境變數。 在 RStudio Server 主控台中，輸入下列程式碼：
 
@@ -57,11 +57,11 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
     remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012" # location of data
     ```
 
-    變數會出現在畫面右側的 [環境]  索引標籤下。
+1. 在右側窗格中，選取 [環境]  索引標籤。變數會顯示在 [值]  的底下。
 
     ![RStudio](./media/ml-services-tutorial-spark-compute/rstudio.png)
 
-2.  建立本機目錄，並下載範例資料。 在 RStudio 中輸入下列程式碼：
+1.  建立本機目錄，並下載範例資料。 在 RStudio 中輸入下列程式碼：
 
     ```R
     # Create local directory
@@ -82,11 +82,11 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
     download.file(file.path(remoteDir, "airOT201212.csv"), file.path(localDir, "airOT201212.csv"))
     ```
 
-    下載應會在 9 分半內完成。
+    下載應會在 9.5 分鐘內完成。
 
-## <a name="copy-data-to-default-storage"></a>將資料複製到預設儲存體
+## <a name="copy-the-data-to-default-storage"></a>將資料複製到預設儲存體
 
-HDFS 位置是以 `airDataDir` 變數指定的。 在 RStudio 中輸入下列程式碼：
+Hadoop 分散式檔案系統 (HDFS) 的位置會以 `airDataDir` 變數指定。 在 RStudio 中輸入下列程式碼：
 
 ```R
 # Set directory in bigDataDirRoot to load the data into
@@ -104,7 +104,7 @@ rxHadoopListFiles(airDataDir)
 
 該步驟應會在 10 秒內完成。
 
-## <a name="set-up-data-set"></a>設定資料集
+## <a name="set-up-a-dataset"></a>設定資料集
 
 1. 建立使用預設值的檔案系統物件。 在 RStudio 中輸入下列程式碼：
 
@@ -113,7 +113,7 @@ rxHadoopListFiles(airDataDir)
     hdfsFS <- RxHdfsFileSystem()
     ```
 
-2. 原始 CSV 檔案有相當難以使用的變數名稱，因此我們提供 `colInfo` 清單以方便管理。 在 RStudio 中輸入下列程式碼：
+1. 由於原始 CSV 檔案有相當難以使用的變數名稱，因此您可以提供 colInfo  清單以方便管理。 在 RStudio 中輸入下列程式碼：
 
     ```R
     airlineColInfo <- list(
@@ -156,11 +156,11 @@ rxHadoopListFiles(airDataDir)
     varNames <- names(airlineColInfo)
     ```
 
-## <a name="create-data-source"></a>建立資料來源
+## <a name="create-data-sources"></a>建立資料來源
 
 在 Spark 計算內容中，您可以使用下列函式建立資料來源：
 
-|函式 | 描述 |
+|函式 | 說明 |
 |---------|-------------|
 |`RxTextData` | 以逗號分隔文字的資料來源。 |
 |`RxXdfData` | 使用 XDF 資料檔案格式的資料。 在 RevoScaleR 中，為 Hadoop 修改 XDF 檔案格式，將資料儲存在複合的檔案集，而不是單一檔案。 |
@@ -177,7 +177,7 @@ airDS <- RxTextData( airDataDir,
                         fileSystem = hdfsFS ) 
 ```
 
-## <a name="create-compute-context-for-spark"></a>建立 Spark 的計算內容
+## <a name="create-a-compute-context-for-spark"></a>建立 Spark 的計算內容
 
 若要在背景工作節點上載入資料並執行分析，請將指令碼中的計算內容設定為 [RxSpark](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark)。 在此內容中，R 函式會自動將工作負載散發到所有背景工作節點，但不內建管理作業或佇列需求。 Spark 計算內容是透過 `RxSpark` 來建立的，或用 `rxSparkConnect()` 建立 Spark 計算內容，然後使用 `rxSparkDisconnect()` 傳送本機計算內容。 在 RStudio 中輸入下列程式碼：
 
@@ -200,7 +200,7 @@ rxSetComputeContext(mySparkCluster)
     )
     ```
     
-    此步驟應會在 2 到 3 分鐘之間完成。
+    此步驟應會在 2 至 3 分鐘內完成。
 
 1. 檢視結果。 在 RStudio 中輸入下列程式碼：
 
@@ -241,11 +241,13 @@ rxSetComputeContext(mySparkCluster)
     Condition number: 1 
     ```
 
-    請注意，結果指出我們已使用指定目錄中的所有 .csv 檔案處理所有資料 (六百萬個觀察值)。 另請注意，由於我們已指定 `cube = TRUE`，所以週間每天都有其估計係數 (而不是截距)。
+    結果指出您已使用指定目錄中的所有 CSV 檔案處理所有資料 (600 萬個觀察值)。 由於您已指定 `cube = TRUE`，所以週間每天都有其估計係數 (而不是截距)。
 
 ## <a name="use-composite-xdf-files"></a>使用複合 XDF 檔案
 
-如我們所見，您可以直接使用 Hadoop 上的 R 來分析 CSV 檔案，但如果以更有效率的格式儲存資料，也可以更快速完成分析。 R .xdf 格式非常有效率，但已為 HDFS 稍微修改，以便讓個別檔案保留在單一 HDFS 區塊內。 (HDFS 區塊大小因不同安裝而異，但通常是 64 MB 或 128 MB。)當您使用 Hadoop 上的 [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) 時，可以將 `AirDS` 這類 `RxTextData` 資料來源指定為 inData 與 `RxXdfData` 資料來源，搭配將設定為 HDFS 檔案系統的 fileSystem 作為 outFile 引數，以建立一組複合 .xdf 檔案。 接著，`RxXdfData` 物件可在後續的 R 分析中作為資料引數使用。
+如您所見，您可以直接在 Hadoop 上使用 R 來分析 CSV 檔案。 但是，如果您以更有效率的格式儲存資料，就可以更快速地進行分析。 R XDF 就是有效率的檔案格式，但已為 HDFS 稍微修改，以便讓個別檔案保留在單一 HDFS 區塊內。 (HDFS 區塊大小因不同安裝而異，但通常是 64 MB 或 128 MB。) 
+
+當您使用 Hadoop 上的 [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) 來建立一組複合 XDF 檔案時，可以將 `AirDS` 這類 `RxTextData` 資料來源指定為 inData 與 `RxXdfData` 資料來源，搭配將設定為 HDFS 檔案系統的 fileSystem 作為 outFile 引數。 接著，您可以使用 `RxXdfData` 物件作為後續 R 分析中的資料引數。
 
 1. 定義 `RxXdfData` 物件。 在 RStudio 中輸入下列程式碼：
 
@@ -296,11 +298,11 @@ rxSetComputeContext(mySparkCluster)
 
 ### <a name="in-a-spark-context"></a>在 Spark 內容中
 
-如果您已將 CSV 轉換為 XDF，以充分利用其效率，同時執行分析，但現在想要將資料轉換回 CSV，您可以使用 [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep)。
+如果您為了更有效率地執行分析，已將 CSV 檔案轉換為 XDF 檔案格式，但現在想要將資料轉換回 CSV，您可以使用 [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep)。
 
-若要建立 CSV 檔案的資料夾，請使用目錄名稱作為檔案引數，先建立 `RxTextData` 物件；這代表要在其中建立 CSV 檔案的資料夾。 當您執行 `rxDataStep` 時，就會建立此目錄。 然後，在 `rxDataStep` 的 `outFile` 引數中，指向這個 `RxTextData` 物件。 建立的每個 CSV 都會依照目錄名稱來命名，並在後面加上數字。
+若要建立 CSV 檔案的資料夾，請先使用目錄名稱作為檔案引數來建立 `RxTextData` 物件。 此物件代表要在其中建立 CSV 檔案的資料夾。 當您執行 `rxDataStep` 時，就會建立此目錄。 然後，在 `rxDataStep` 的 `outFile` 引數中，指向這個 `RxTextData` 物件。 建立的每個 CSV 都會依照目錄名稱來命名，並在後面加上數字。
 
-假設我們要在執行羅吉斯迴歸與預測後，從 `airDataXdf` 複合 XDF 在 HDFS 中寫出 CSV 的資料夾，以讓新的 CSV 檔案包含預測值與殘差。 在 RStudio 中輸入下列程式碼：
+假設您要在執行羅吉斯迴歸與預測後，從 `airDataXdf` 複合 XDF 在 HDFS 中寫出 CSV 檔案的資料夾，以讓新的 CSV 檔案包含預測值與殘差。 在 RStudio 中輸入下列程式碼：
 
 ```R
 airDataCsvDir <- file.path(bigDataDirRoot,"AirDataCSV2012")
@@ -308,13 +310,13 @@ airDataCsvDS <- RxTextData(airDataCsvDir,fileSystem=hdfsFS)
 rxDataStep(inData=airDataXdf, outFile=airDataCsvDS)
 ```
 
-此步驟應會在兩分半內完成。
+此步驟應會在 2.5 分鐘內完成。
 
-您會注意到，`rxDataStep` 會為輸入複合 XDF 檔案中的每個 .xdfd 檔案寫出 一個 CSV。 當計算內容設定為 `RxSpark`，將 CSV 從複合 XDF 寫入至 HDFS 時，這是預設行為。
+`rxDataStep` 會為輸入複合 XDF 檔案中的每個 XDFD 檔案寫出 一個 CSV 檔案。 當計算內容設定為 `RxSpark`，將 CSV 檔案從複合 XDF 檔案寫入至 HDFS 時，這是預設行為。
 
 ### <a name="in-a-local-context"></a>在本機內容中
 
-或者，當您完成執行分析並充分利用 `RxTextData` 內的兩個引數：`createFileSet` 與 `rowsPerOutFile`，讓您在將 CSV 檔案寫出到 HDFS 時可多一些控制，便可將計算內容切換回 `local`。 當 `createFileSet` 設定為 `TRUE` 時，會將 CSV 檔案的資料夾寫入您指定的目錄。 當 `createFileSet` 設定為 `FALSE` 時，會寫入單一 CSV 檔案。 第二個引數 `rowsPerOutFile` 可設定為整數，表示當 `createFileSet` 為 `TRUE` 時要將多少列寫入至每個 CSV 檔案。
+或者，當您完成執行分析時，您可以將計算內容切換回 `local`，以充分利用 `RxTextData` 內的兩個引數：`createFileSet` 與 `rowsPerOutFile`，讓您在將 CSV 檔案寫出到 HDFS 時可多一些控制。 當您將 `createFileSet` 設定為 `TRUE` 時，CSV 檔案的資料夾會寫入您指定的目錄。 當您將 `createFileSet` 設定為 `FALSE` 時，會寫入單一 CSV 檔案。 您可以將第二個引數 (`rowsPerOutFile`) 設定為整數，表示當 `createFileSet` 為 `TRUE` 時要將多少列寫入至每個 CSV 檔案。
 
 在 RStudio 中輸入下列程式碼：
 
@@ -327,7 +329,7 @@ rxDataStep(inData=airDataXdf, outFile=airDataCsvRowsDS)
 
 此步驟應會在 10 分鐘內完成。
 
-使用 `RxSpark` 計算內容時，預設為 `TRUE` 和 `rowsPerOutFile` 的 `createFileSet` 沒有任何作用。 因此，如果您想要建立單一 CSV，或自訂每個檔案的列數，請務必在 `local` 計算內容中執行 `rxDataStep` (資料仍可放在 HDFS 中)。
+當您使用 `RxSpark` 計算內容時，預設為 `TRUE` 和 `rowsPerOutFile` 的 `createFileSet` 沒有任何作用。 因此，如果您想要建立單一 CSV，或自訂每個檔案的列數，請在 `local` 計算內容中執行 `rxDataStep` (資料仍可放在 HDFS 中)。
 
 ## <a name="final-steps"></a>最後步驟
 
@@ -355,13 +357,13 @@ rxDataStep(inData=airDataXdf, outFile=airDataCsvRowsDS)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-完成此教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](../hdinsight-delete-cluster.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何在 Azure HDInsight 的 ML 服務叢集上執行的 Apache Spark 中使用 R 函式。 如需詳細資訊，請參閱下列文章：
+在此教學課程中，您已了解如何在 HDInsight Machine Learning 服務叢集上執行的 Apache Spark 中使用 R 函式。 如需詳細資訊，請參閱下列文章：
 
-* [在 HDInsight 上計算 ML 服務的內容選項](r-server-compute-contexts.md)
+* [Azure HDInsight Machine Learning 服務叢集的計算內容選項](r-server-compute-contexts.md)
 * [Hadoop 上 Spark 的 R 函式](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: cd89a145f5746696cc8fc163eb46896081d85a90
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: de66149a2ea3e01e62aa8e33ea5a99121a21524f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240968"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986089"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>實作自訂同步處理，透過最佳化處理而獲得較高的可用性和效能
 
@@ -29,6 +29,7 @@ Azure Cosmos DB 提供[五個定義完善的一致性層級](consistency-levels.
 
 下列範例會示範具現化兩個用戶端以進行自訂同步的資料存取層：
 
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -64,10 +65,35 @@ class MyDataAccessLayer
 }
 ```
 
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+    private CosmosClient writeClient;
+    private CosmosClient readClient;
+
+    public void InitializeAsync(string accountEndpoint, string key)
+    {
+        CosmosClientOptions writeConnectionOptions = new CosmosClientOptions();
+        writeConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        writeConnectionOptions.ApplicationRegion = "West US";
+
+        CosmosClientOptions readConnectionOptions = new CosmosClientOptions();
+        readConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        readConnectionOptions.ApplicationRegion = "East US";
+
+
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+    }
+}
+```
+
 ## <a name="implement-custom-synchronization"></a>實作自訂同步處理
 
 用戶端完成初始化後，應用程式便可執行對本機區域 (美國西部) 的寫入，並可強制將寫入同步處理至美國東部，如下所示。
 
+### <a name="net-v2-sdk"></a>.Net V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -78,6 +104,25 @@ class MyDataAccessLayer
 
         await readClient.ReadDocumentAsync(response.Resource.SelfLink,
             new RequestOptions { SessionToken = response.SessionToken });
+    }
+}
+```
+
+### <a name="net-v3-sdk"></a>.Net V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+     public async Task CreateItem(string databaseId, string containerId, dynamic item)
+     {
+        ItemResponse<dynamic> response = await writeClient.GetContainer("containerId", "databaseId")
+            .CreateItemAsync<dynamic>(
+                item,
+                new PartitionKey("test"));
+
+        await readClient.GetContainer("containerId", "databaseId").ReadItemAsync<dynamic>(
+            response.Resource.id,
+            new PartitionKey("test"),
+            new ItemRequestOptions { SessionToken = response.Headers.Session, ConsistencyLevel = ConsistencyLevel.Session });
     }
 }
 ```

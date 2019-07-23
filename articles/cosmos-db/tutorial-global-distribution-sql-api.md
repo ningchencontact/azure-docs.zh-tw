@@ -4,15 +4,15 @@ description: 了解如何使用 SQL API 來設定 Azure Cosmos DB 全域散發�
 author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2019
+ms.date: 07/15/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4f97d1f052cd8684674eecf479133051f2cfb76e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a566094f88ba9ffd25eadd046ae7254e26b9c2cf
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480545"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234603"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>使用 SQL API 來設定 Azure Cosmos DB 全域散發
 
@@ -47,7 +47,7 @@ SDK 只會嘗試從 PreferredLocations 中指定的區域讀取。 因此，比�
 ## <a name="net-sdk"></a>.NET SDK
 您不需變更任何程式碼即可使用 SDK。 在此情況下，SDK 會自動將讀取和寫入導向至目前寫入區域。
 
-在 .NET SDK 的 1.8 版和更新版本中，適用於 DocumentClient 建構函式的 ConnectionPolicy 參數會有一個名為 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的屬性。 這個屬性的類型是 Collection `<string>` ，而且應包含區域名稱的清單。 字串值已按照 [Azure 區域][regions]頁面的 [區域名稱] 欄而格式化，而且在第一個字元之前和最後一個字元之後沒有空格。
+在 .NET SDK 的 1.8 版和更新版本中，適用於 DocumentClient 建構函式的 ConnectionPolicy 參數會有一個名為 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的屬性。 這個屬性的類型是 Collection `<string>` ，而且應包含區域名稱的清單。 字串值會按照 [Azure 區域][regions]頁面的 [區域名稱] 資料行格式化，且在第一個字元之前和最後一個字元之後沒有空格。
 
 目前的寫入和讀取端點分別適用於 DocumentClient.WriteEndpoint 和 DocumentClient.ReadEndpoint。
 
@@ -78,10 +78,11 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS、JavaScript 和 Python SDK
+## <a name="nodejsjavascript"></a>Node.js/JavaScript
+
 您不需變更任何程式碼即可使用 SDK。 在此情況下，SDK 會自動將讀取和寫入導向至目前寫入區域。
 
-在每個 SDK 的 1.8 版和更新版本中，適用於 DocumentClient 建構函式的 ConnectionPolicy 參數會有一個名為 DocumentClient.ConnectionPolicy.PreferredLocations 的新屬性。 這個參數是取得區域名稱清單的字串陣列。 名稱已按照 [Azure 區域][regions]頁面的 [區域名稱] 欄而格式化。 您也可以在方便的物件 AzureDocuments.Regions 中使用預先定義的常數
+在每個 SDK 的 1.8 版和更新版本中，適用於 DocumentClient 建構函式的 ConnectionPolicy 參數會有一個名為 DocumentClient.ConnectionPolicy.PreferredLocations 的新屬性。 這個參數是取得區域名稱清單的字串陣列。 名稱會按照 [Azure 區域][regions]頁面的 [區域名稱] 資料行格式化。 您也可以在方便的物件 AzureDocuments.Regions 中使用預先定義的常數
 
 目前的寫入和讀取端點分別適用於 DocumentClient.getWriteEndpoint 和 DocumentClient.getReadEndpoint。
 
@@ -90,7 +91,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 >
 >
 
-以下是 NodeJS/Javascript 程式碼範例。 Python 和 Java 都將遵循相同模式。
+以下是 Node.js/Javascript 的程式碼範例。
 
 ```JavaScript
 // Creating a ConnectionPolicy object
@@ -104,6 +105,34 @@ connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 
 // initialize the connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
+```
+
+## <a name="python-sdk"></a>Python SDK
+
+下列程式碼說明如何使用 Python SDK 來設定慣用位置：
+
+```python
+
+connectionPolicy = documents.ConnectionPolicy()
+connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe']
+client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connectionPolicy)
+
+```
+
+## <a name="java-v2-sdk"></a>Java V2 SDK
+
+下列程式碼說明如何使用 Java SDK 來設定慣用位置：
+
+```java
+ConnectionPolicy policy = new ConnectionPolicy();
+policy.setUsingMultipleWriteLocations(true);
+policy.setPreferredLocations(Arrays.asList("East US", "West US", "Canada Central"));
+AsyncDocumentClient client =
+        new AsyncDocumentClient.Builder()
+                .withMasterKeyOrResourceToken(this.accountKey)
+                .withServiceEndpoint(this.accountEndpoint)
+                .withConnectionPolicy(policy)
+                .build();
 ```
 
 ## <a name="rest"></a>REST

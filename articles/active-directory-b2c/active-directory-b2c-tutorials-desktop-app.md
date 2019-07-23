@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508209"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835706"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在原生用戶端應用程式中啟用驗證
 
@@ -32,7 +32,7 @@ ms.locfileid: "66508209"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [建立使用者流程](tutorial-create-user-flows.md)以在您的應用程式中達成使用者體驗。 
+- [建立使用者流程](tutorial-create-user-flows.md)以在您的應用程式中達成使用者體驗。
 - 安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)，其中包含 **.NET 傳統型開發**以及 **ASP.NET 和 Web 開發**工作負載。
 
 ## <a name="add-the-native-client-application"></a>新增原生用戶端應用程式
@@ -83,12 +83,12 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
 1. 按一下 [登入]  以使用者身分註冊。 這會使用 **B2C_1_signupsignin1** 使用者流程。
-2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊]  連結。 
+2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊]  連結。
 3. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
 
-    請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。 
+    請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。
 
-    ![註冊工作流程](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![註冊頁面顯示為登入/註冊工作流程的一部分](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. 按一下 [建立]  ，在 Azure AD B2C 租用戶中建立本機帳戶。
 

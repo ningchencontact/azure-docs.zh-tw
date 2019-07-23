@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f91d51bda4c41a314c7cc1c2cc895e36bde0500
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d3bd02afa1fe1aaba6602201f839468a58673c29
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768216"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278005"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>教學課程：大量邀請 Azure AD B2B 共同作業使用者
 
@@ -86,7 +86,7 @@ Get-Module -ListAvailable AzureAD*
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-例如： `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`。
+例如： `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"` 。
 
 出現提示時，請輸入您的認證。
 

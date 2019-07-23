@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: e787366694b55d3dcd61eec2c5a5b42dd187ec55
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357609"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226842"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -239,9 +239,9 @@ ms.locfileid: "66357609"
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    API `sup` 可提供錨定在地圖上所需位置的資訊視窗。 
+    API `*atlas.Popup` 可提供錨定在地圖上所需位置的資訊視窗。 
 
-2. 在 *script* 標籤中 `GetMap` 函式的後面新增下列程式碼，以在快顯視窗中顯示滑鼠停駐的結果資訊。
+2. 在 `GetMap` 函式內新增下列程式碼，以在快顯視窗中顯示滑鼠停駐的結果資訊。
 
     ```JavaScript
     function showPopup(e) {

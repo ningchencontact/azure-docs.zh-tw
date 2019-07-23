@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: sihhu
-ms.author: MayMSFT
+author: MayMSFT
+ms.author: sihhu
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 55bece47ad2a9965e5137ad720631d9b5f5add48
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474702"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297875"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
@@ -112,6 +112,9 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
+
+> [!Note]
+> 此相同範例中的 URL 不是完整 URL。 相反地，這是指 Blob 中的示範資料夾。 部分資料的完整 URL 為 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 `Dataflow` 物件類似於資料框架，代表對資料所做的一系列惰性評估、不可變的作業。 藉由叫用不同的轉換和可用的篩選方法，可以新增作業。 將作業新增至 `Dataflow` 的結果一律是新的 `Dataflow` 物件。
 

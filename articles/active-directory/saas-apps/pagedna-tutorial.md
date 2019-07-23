@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095087"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>教學課程：Azure Active Directory 與 PageDNA 整合
 
@@ -171,7 +171,7 @@ PageDNA 支援下列功能︰
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 PageDNA 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 PageDNA 的存取權授與使用者 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，選取 [企業應用程式]   > [所有應用程式]   > [PageDNA]  。
 
@@ -212,3 +212,4 @@ PageDNA 中現在會建立名為 Britta Simon 的使用者。 您不需要採取
 * [Azure Active Directory 中的應用程式單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

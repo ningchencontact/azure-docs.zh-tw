@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5471bf4041275d5988414def99dd2130f51fbb80
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542979"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828027"
 ---
 # <a name="tutorial-mount-the-cluster"></a>教學課程：掛接叢集
 
@@ -43,7 +43,7 @@ ms.locfileid: "67542979"
 
 對於小型安裝來說，較簡單的方法是在掛接用戶端時，使用指令碼來指派整個範圍的 IP 位址。 
 
-其他負載平衡方法則可能適用於大型或複雜的系統。 請洽詢 Microsoft 業務代表或建立支援票證以尋求協助。 (Azure FXT Edge Filer 目前「不支援」  Azure Load Balancer。)
+其他負載平衡方法則可能適用於大型或複雜的系統。 請洽詢 Microsoft 業務代表或建立[支援票證](fxt-support-ticket.md)以尋求協助。 (Azure FXT Edge Filer 目前「不支援」  Azure Load Balancer。)
 
 ## <a name="create-the-mount-command"></a>建立掛接命令 
 

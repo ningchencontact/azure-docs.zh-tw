@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b5e2ccef3b2a91f903706745d74a4bf16e1003d4
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203484"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305230"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -143,19 +143,19 @@ ms.locfileid: "67203484"
 
     ![在 Always On 可用性群組上啟用自動保護](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. 在 [選擇備份原則] **** 中選取原則，然後按一下 [確定] **** 。
+5. 在 [選擇備份原則]  中選取原則，然後按一下 [確定]  。
 
-   - 選取預設原則： HourlyLogBackup。
+   - 選取預設原則：HourlyLogBackup。
    - 選擇之前為 SQL 建立的現有備份原則。
    - 根據 RPO 和保留範圍來定義新的原則。
 
      ![選取備份原則](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. 在 [備份] **** 功能表上，選取 [啟用備份] **** 。
+6. 在 [備份]  功能表上，選取 [啟用備份]  。
 
     ![啟用所選備份原則](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. 在入口網站的 [通知] ****  區域中，追蹤設定進度。
+7. 在入口網站的 [通知]  區域中，追蹤設定進度。
 
     ![[通知] 區域](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -245,5 +245,5 @@ ms.locfileid: "67203484"
 
 > [!div class="nextstepaction"]
 > [在 Azure VM 上還原 SQL Server 資料庫](./restore-sql-database-azure-vm.md)
- 
+ 
 

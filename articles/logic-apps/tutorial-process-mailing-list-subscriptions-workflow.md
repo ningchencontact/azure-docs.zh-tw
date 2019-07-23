@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232659"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260604"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>使用 Azure Logic Apps 來管理郵寄清單要求
 
@@ -51,24 +51,24 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="create-your-logic-app"></a>建立邏輯應用程式
 
-1. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
+1. 從主要 Azure 功能表，選擇 [建立資源]   > [企業整合]   > [邏輯應用程式]  。
 
    ![建立邏輯應用程式](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 
-2. 在 [建立邏輯應用程式] 下，提供有關於邏輯應用程式的這項資訊，如下所示和描述。 完成時，請選擇 [釘選到儀表板] > [建立]。
+2. 在 [建立邏輯應用程式]  下，提供有關於邏輯應用程式的這項資訊，如下所示和描述。 完成時，請選擇 [釘選到儀表板]   > [建立]  。
 
    ![提供邏輯應用程式資訊](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
    | **名稱** | LA-MailingList | 邏輯應用程式的名稱 | 
-   | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
+   | **訂用帳戶** | <your-Azure-subscription-name  > | Azure 訂用帳戶的名稱 | 
    | **資源群組** | LA-MailingList-RG | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱 | 
    | **位置** | 美國東部 2 | 用來存放邏輯應用程式相關資訊的區域 | 
-   | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉] 設定。 | 
+   | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉]  設定。 | 
    |||| 
 
-3. 在 Azure 部署您的應用程式之後，Logic Apps 設計工具隨即開啟，並顯示含有簡介影片和常用邏輯應用程式模式範本的頁面。 在 [範本] 底下，選擇 [空白邏輯應用程式]。
+3. 在 Azure 部署您的應用程式之後，Logic Apps 設計工具隨即開啟，並顯示含有簡介影片和常用邏輯應用程式模式範本的頁面。 在 [範本]  底下，選擇 [空白邏輯應用程式]  。
 
    ![選擇空白邏輯應用程式範本](./media/tutorial-process-mailing-list-subscriptions-workflow/choose-logic-app-template.png)
 
@@ -77,7 +77,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="add-trigger-to-monitor-emails"></a>新增觸發程序來監視電子郵件
 
-1. 在設計工具的搜尋方塊中，輸入「電子郵件送達時」。 請為您的電子郵件提供者選取此觸發程序：**<*your-email-provider*> - 新的電子郵件送達時**
+1. 在設計工具的搜尋方塊中，輸入「電子郵件送達時」。 請為您的電子郵件提供者選取此觸發程序： **<*your-email-provider*> - 新的電子郵件送達時**
    
    ![為電子郵件提供者選取此觸發程序：「新的電子郵件送達時」](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
@@ -99,7 +99,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
       | **頻率** | 小時 | 在檢查之間每個間隔的時間單位  | 
       |  |  |  | 
 
-   2. 選擇 [顯示進階選項]。 在 [主旨篩選條件] 方塊中，針對要在電子郵件主旨中尋找的觸發程序輸入此文字：```subscribe-test-members-ML```
+   2. 選擇 [顯示進階選項]  。 在 [主旨篩選條件]  方塊中，針對要在電子郵件主旨中尋找的觸發程序輸入此文字：```subscribe-test-members-ML```
 
       ![設定進階選項](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-advanced-options.png)
 
@@ -107,7 +107,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![摺疊圖形以隱藏詳細資料](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
 
-5. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
+5. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。
 
    邏輯應用程式目前啟用中，但是不會執行檢查內送電子郵以外的任何其他作業。 
    因此，新增會在觸發程序引發時回應的動作。
@@ -116,7 +116,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 現在您有觸發程序，請新增可傳送電子郵件來核准或拒絕要求的[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。 
 
-1. 在觸發程序底下，選擇 [+ 新增步驟] > [新增動作]。 搜尋 [核准]，然後選取此動作：**<your-email-provider> - 傳送核准電子郵件**
+1. 在觸發程序底下，選擇 [+ 新增步驟]   > [新增動作]  。 搜尋 [核准]，然後選取此動作： **<your-email-provider  > - 傳送核准電子郵件**
 
    ![選擇 [<your-email-provider> - 傳送核准電子郵件]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
 
@@ -126,7 +126,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **To** | <approver-email-address> | 核准者的電子郵件地址。 為了測試用途，您可以使用自己的地址。 | 
+   | **To** | <approver-email-address  > | 核准者的電子郵件地址。 為了測試用途，您可以使用自己的地址。 | 
    | **使用者選項** | 核准、拒絕 | 核准者可以選擇的回應選項。 根據預設，核准者可以選擇 [核准] 或 [拒絕] 作為其回應。 | 
    | **主旨** | 核准 test-members-ML 的成員要求 | 描述性電子郵件主旨 | 
    |  |  |  | 
@@ -141,26 +141,26 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="check-approval-response"></a>檢查核准回覆
 
-1. 在 [傳送核准電子郵件] 之下，選擇 [+ 新增步驟] > [新增條件]。
+1. 在 [傳送核准電子郵件]  之下，選擇 [+ 新增步驟]   > [新增條件]  。
 
    條件圖形隨即出現，連同您可在工作流程中納為輸入的任何可用參數。 
 
 2. 以更適當的描述為條件重新命名。
 
-   1. 在條件的標題列上，選擇 **省略符號** (**...**) 按鈕 > [重新命名]。
+   1. 在條件的標題列上，選擇 **省略符號** ( **...** ) 按鈕 > [重新命名]  。
 
       例如，如果您的瀏覽器以窄型檢視呈現：
 
       ![重新命名條件](./media/tutorial-process-mailing-list-subscriptions-workflow/condition-rename.png)
 
-      如果您的瀏覽器以寬型檢視呈現，且動態內容清單阻礙了對省略符號按鈕的存取，請選擇條件內的 [新增動態內容] 以關閉清單。
+      如果您的瀏覽器以寬型檢視呈現，且動態內容清單阻礙了對省略符號按鈕的存取，請選擇條件內的 [新增動態內容]  以關閉清單。
 
    2. 以下列描述為條件重新命名：```If request approved```
 
-3. 建立可檢查核准者是否已選取 [核准] 的條件：
+3. 建立可檢查核准者是否已選取 [核准]  的條件：
 
-   1. 在此條件內，按一下位於左邊 (寬型瀏覽器檢視) 或頂端 (窄型瀏覽器檢視) 的 [選擇值] 方塊內部。
-   從參數清單或動態內容清單中，選取 [傳送核准電子郵件] 下方的 [SelectedOption] 欄位。
+   1. 在此條件內，按一下位於左邊 (寬型瀏覽器檢視) 或頂端 (窄型瀏覽器檢視) 的 [選擇值]  方塊內部。
+   從參數清單或動態內容清單中，選取 [傳送核准電子郵件]  下方的 [SelectedOption]  欄位。
 
       比如說，如果您在寬型檢視中作業，您的條件看起來就像下面這個範例︰
 
@@ -168,7 +168,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    2. 在比較運算子方塊中，選取此運算子：**等於**
 
-   3. 在右側 (寬型檢視) 或底部 (窄型檢視) 的 [選擇值] 方塊中，輸入此值：```Approve```
+   3. 在右側 (寬型檢視) 或底部 (窄型檢視) 的 [選擇值]  方塊中，輸入此值：```Approve```
 
       當您完成時，您的條件看起來就像下面這個範例︰
 
@@ -182,7 +182,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 現在，新增可將已核准的成員新增至郵寄清單的動作。
 
-1. 在條件的 [若為 true] 分支中，選擇 [新增動作]。
+1. 在條件的 [若為 true]  分支中，選擇 [新增動作]  。
 搜尋 "mailchimp"，然後選取此動作：**MailChimp - 將成員新增至清單**
 
    ![選取 [MailChimp - 將成員新增至清單]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
@@ -197,7 +197,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | ------- | ----- | ----------- | 
    | **清單識別碼** | test-members-ML | MailChimp 郵寄清單的名稱 | 
    | **狀態** | 已訂閱 | 新成員的訂閱狀態。 如需詳細資訊，請參閱<a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">使用 MailChimp API 管理訂閱者</a>。 | 
-   | **電子郵件地址** | <new-member-email-address> | 從參數清單或動態內容清單中，選取 [新的電子郵件送達時] 下方的 [寄件者]，以傳入新成員的電子郵件地址。 
+   | **電子郵件地址** | <new-member-email-address  > | 從參數清單或動態內容清單中，選取 [新的電子郵件送達時]  下方的 [寄件者]  ，以傳入新成員的電子郵件地址。 
    |  |  |  | 
 
 5. 儲存您的邏輯應用程式。
@@ -206,14 +206,14 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="check-for-success-or-failure"></a>檢查成功或失敗
 
-1. 在 [若為 true] 分支中，於 [將成員新增至清單] 動作之下，選擇 [更多...] > [新增條件]。
+1. 在 [若為 true]  分支中，於 [將成員新增至清單]  動作之下，選擇 [更多...]   > [新增條件]  。
 
 2. 以下列描述為條件重新命名：```If add member succeeded```
 
 3. 建立可檢查已核准的成員加入郵寄清單成功或失敗的條件：
 
-   1. 在此條件內，按一下位於左邊 (寬型瀏覽器檢視) 或頂端 (窄型瀏覽器檢視) 的 [選擇值] 方塊內部。
-   從參數清單或動態內容清單中，選取 [將成員新增至清單] 下方的 [狀態] 欄位。
+   1. 在此條件內，按一下位於左邊 (寬型瀏覽器檢視) 或頂端 (窄型瀏覽器檢視) 的 [選擇值]  方塊內部。
+   從參數清單或動態內容清單中，選取 [將成員新增至清單]  下方的 [狀態]  欄位。
 
       比如說，如果您在寬型檢視中作業，您的條件看起來就像下面這個範例︰
 
@@ -221,7 +221,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    2. 在比較運算子方塊中，選取此運算子：**等於**
 
-   3. 在右側 (寬型檢視) 或底部 (窄型檢視) 的 [選擇值] 方塊中，輸入此值：```subscribed```
+   3. 在右側 (寬型檢視) 或底部 (窄型檢視) 的 [選擇值]  方塊中，輸入此值：```subscribed```
 
    當您完成時，您的條件看起來就像下面這個範例︰
 
@@ -231,11 +231,11 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="send-email-if-member-added"></a>如果已新增成員則傳送電子郵件
 
-1. 在 [如果新增成員成功] 條件的 [若為 true] 分支中，選擇 [新增動作]。
+1. 在 [如果新增成員成功]  條件的 [若為 true]  分支中，選擇 [新增動作]  。
 
    ![在條件的 [若為 true] 分支中，選擇 [新增動作]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
-2. 搜尋 [outlook 傳送電子郵件]，然後選取此動作：**<*your-email-provider*> - 傳送電子郵件**
+2. 搜尋 [outlook 傳送電子郵件]，然後選取此動作： **<*your-email-provider*> - 傳送電子郵件**
 
    ![新增 [傳送電子郵件] 動作](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
@@ -247,20 +247,20 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **To** | <your-email-address> | 要傳送成功電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 | 
-   | **主旨** | <subject-for-success-email> | 成功電子郵件的主旨。 在此教學課程中，輸入以下文字，然後從參數清單或動態內容清單中選取 [將成員新增至清單] 底下指定的欄位： <p>「成功！ 成員已新增至 'test-members-ML'：**電子郵件地址**」 | 
-   | **內文** | <body-for-success-email> | 成功電子郵件的內文內容。 在此教學課程中，輸入以下文字，然後從參數清單或動態內容清單中選取 [將成員新增至清單] 底下指定的欄位：  <p>「新成員已加入 'test-members-ML'：**電子郵件地址**」</br>「成員選擇加入狀態：**狀態**」 | 
+   | **To** | <your-email-address  > | 要傳送成功電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 | 
+   | **主旨** | <subject-for-success-email  > | 成功電子郵件的主旨。 在此教學課程中，輸入以下文字，然後從參數清單或動態內容清單中選取 [將成員新增至清單]  底下指定的欄位： <p>「成功！ 成員已新增至 'test-members-ML'：**電子郵件地址**」 | 
+   | **內文** | <body-for-success-email  > | 成功電子郵件的內文內容。 在此教學課程中，輸入以下文字，然後從參數清單或動態內容清單中選取 [將成員新增至清單]  底下指定的欄位：  <p>「新成員已加入 'test-members-ML'：**電子郵件地址**」</br>「成員選擇加入狀態：**狀態**」 | 
    | | | | 
 
 5. 儲存您的邏輯應用程式。
 
 ## <a name="send-email-if-member-not-added"></a>如果未新增成員則傳送電子郵件
 
-1. 在 [如果新增成員成功] 條件的 [若為 false] 分支中，選擇 [新增動作]。
+1. 在 [如果新增成員成功]  條件的 [若為 false]  分支中，選擇 [新增動作]  。
 
    ![在條件的 [若為 false] 分支中，選擇 [新增動作]](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
-2. 搜尋 [outlook 傳送電子郵件]，然後選取此動作：**<*your-email-provider*> - 傳送電子郵件**
+2. 搜尋 [outlook 傳送電子郵件]，然後選取此動作： **<*your-email-provider*> - 傳送電子郵件**
 
    ![新增 [傳送電子郵件] 動作](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
 
@@ -272,9 +272,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **To** | <your-email-address> | 要傳送失敗電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 | 
-   | **主旨** | <subject-for-failure-email> | 失敗電子郵件的主旨。 在此教學課程中，輸入以下文字，然後從參數清單或動態內容清單中選取 [將成員新增至清單] 底下指定的欄位： <p>「失敗，成員未新增至 'test-members-ML'：**電子郵件地址**」 | 
-   | **內文** | <body-for-failure-email> | 失敗電子郵件的內文內容。 在本教學課程中，請輸入此文字： <p>「成員可能已經存在。 請檢查您的 MailChimp 帳戶。」 | 
+   | **To** | <your-email-address  > | 要傳送失敗電子郵件的電子郵件地址。 為了測試用途，您可以使用自己的電子郵件地址。 | 
+   | **主旨** | <subject-for-failure-email  > | 失敗電子郵件的主旨。 在此教學課程中，輸入以下文字，然後從參數清單或動態內容清單中選取 [將成員新增至清單]  底下指定的欄位： <p>「失敗，成員未新增至 'test-members-ML'：**電子郵件地址**」 | 
+   | **內文** | <body-for-failure-email  > | 失敗電子郵件的內文內容。 在本教學課程中，請輸入此文字： <p>「成員可能已經存在。 請檢查您的 MailChimp 帳戶。」 | 
    | | | | 
 
 5. 儲存您的邏輯應用程式。 
@@ -288,11 +288,11 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 1. 將加入郵寄清單的電子郵件要求傳送給自己。
 等候此要求出現在您的收件匣中。
 
-3. 若要手動啟動邏輯應用程式，在設計工具工具列上，選擇 [執行]。 
+3. 若要手動啟動邏輯應用程式，在設計工具工具列上，選擇 [執行]  。 
 
    如果您的電子郵件主旨符合觸發程序的主旨篩選條件，則邏輯應用程式會傳送電子郵件給您，以核准訂閱要求。
 
-4. 在核准電子郵件中，選擇 [核准]。
+4. 在核准電子郵件中，選擇 [核准]  。
 
 5. 如果訂閱者的電子郵件地址不存在於郵寄清單，則邏輯應用程式會新增該人員的電子郵件地址，並將如下面範例所示的電子郵件傳送給您：
 
@@ -310,7 +310,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果不再需要，請刪除包含邏輯應用程式的資源群組和相關資源。 在 Azure 主要功能表上，移至 [資源群組]，然後選取您邏輯應用程式的資源群組。 選擇 [刪除資源群組]。 輸入資源群組名稱作為確認，然後選擇 [刪除]。
+如果不再需要，請刪除包含邏輯應用程式的資源群組和相關資源。 在 Azure 主要功能表上，移至 [資源群組]  ，然後選取您邏輯應用程式的資源群組。 選擇 [刪除資源群組]  。 輸入資源群組名稱作為確認，然後選擇 [刪除]  。
 
 ![[概觀] > [刪除資源群組]](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
 

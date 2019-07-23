@@ -1,6 +1,6 @@
 ---
-title: 教學課程：Azure Active Directory 與 Citrix Netscaler 整合 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 Citrix Netscaler 之間的單一登入。
+title: 教學課程：Azure Active Directory 與 Citrix NetScaler 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Citrix NetScaler 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64dd67680626857db7f39fa7fd721b28a02d1561
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105504"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276892"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>教學課程：Azure Active Directory 與 Citrix Netscaler 整合
+# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>教學課程：Azure Active Directory 與 Citrix NetScaler 整合
 
-在本教學課程中，您會了解如何整合 Citrix Netscaler 與 Azure Active Directory (Azure AD)。
-將 Citrix Netscaler 與 Azure AD 整合可提供下列優點：
+在本教學課程中，您會了解如何整合 Citrix NetScaler 與 Azure Active Directory (Azure AD)。
+將 Citrix NetScaler 與 Azure AD 整合可提供下列優點：
 
-* 您可以在 Azure AD 中控制可存取 Citrix Netscaler 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Citrix Netscaler (單一登入)。
+* 您可以在 Azure AD 中控制可存取 Citrix NetScaler 的人員。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Citrix NetScaler (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,24 +36,24 @@ ms.locfileid: "67105504"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Citrix Netscaler 的整合，您需要下列項目：
+若要設定 Azure AD 與 Citrix NetScaler的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Citrix Netscaler 單一登入的訂用帳戶
+* 已啟用 Citrix NetScaler 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Citrix Netscaler 支援由 **SP** 起始的 SSO
+* Citrix NetScaler 支援由 **SP** 起始的 SSO
 
-* Citrix Netscaler 支援 **Just In Time** 使用者佈建
+* Citrix NetScaler 支援 **Just In Time** 使用者佈建
 
-## <a name="adding-citrix-netscaler-from-the-gallery"></a>從資源庫新增 Citrix Netscaler
+## <a name="adding-citrix-netscaler-from-the-gallery"></a>從資源庫新增 Citrix NetScaler
 
-若要設定將 Citrix Netscaler 整合到 Azure AD 中，您必須從資源庫將 Citrix Netscaler 新增到受控 SaaS 應用程式清單。
+若要設定將 Citrix NetScaler 整合到 Azure AD 中，您必須從資源庫將 Citrix NetScaler 新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Citrix Netscaler，請執行下列步驟：**
+**若要從資源庫新增 Citrix NetScaler，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
@@ -67,31 +67,31 @@ ms.locfileid: "67105504"
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Citrix Netscaler**，從結果面板中選取 [Citrix Netscaler]  ，然後按一下 [新增]  按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **Citrix NetScaler**，從結果面板中選取 [Citrix NetScaler]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
-     ![結果清單中的 Citrix Netscaler](common/search-new-app.png)
+     ![結果清單中的 Citrix NetScaler](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Citrix Netscaler 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Citrix Netscaler 中相關使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Citrix NetScaler 搭配運作的 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Citrix NetScaler 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Citrix Netscaler 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Citrix NetScaler 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Citrix Netscaler 單一登入](#configure-citrix-netscaler-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **[設定 Citrix NetScaler 單一登入](#configure-citrix-netscaler-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Citrix Netscaler 測試使用者](#create-citrix-netscaler-test-user)** - 在 Citrix Netscaler 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Citrix NetScaler 測試使用者](#create-citrix-netscaler-test-user)** - 在 Citrix NetScaler 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Citrix Netscaler 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Citrix NetScaler 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Citrix Netscaler]  應用程式整合頁面上，選取 [單一登入]  。
+1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Citrix NetScaler]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -105,7 +105,7 @@ ms.locfileid: "67105504"
 
 4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
-    ![Citrix Netscaler 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Citrix NetScaler 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
@@ -114,7 +114,7 @@ ms.locfileid: "67105504"
     c. 在 [回覆 URL (判斷提示取用者服務 URL)]  文字方塊中，以下列模式輸入 URL：`https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Citrix Netscaler 用戶端支援小組](https://www.citrix.com/contact/technical-support.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Citrix NetScaler 用戶端支援小組](https://www.citrix.com/contact/technical-support.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
     > [!NOTE]
     > 為了讓 SSO 能夠運作，應該要能夠從公用網站存取這些 URL。 您必須在 Netscaler 端啟用防火牆或其他安全性設定，才能讓 Azure AD 在所設定的 ACS URL 上公佈權杖。
@@ -123,7 +123,7 @@ ms.locfileid: "67105504"
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [安裝 Citrix Netscaler]  區段上，依據您的需求複製適當的 URL。
+6. 在 [安裝 Citrix NetScaler]  區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -133,9 +133,9 @@ ms.locfileid: "67105504"
 
     c. 登出 URL
 
-### <a name="configure-citrix-netscaler-single-sign-on"></a>設定 Citrix Netscaler 單一登入
+### <a name="configure-citrix-netscaler-single-sign-on"></a>設定 Citrix NetScaler 單一登入
 
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Citrix Netscaler 租用戶。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Citrix NetScaler 租用戶。
 
 2. 確定 **NetScaler 韌體版本 = NS12.1:Build 48.13.nc**。
 
@@ -344,15 +344,15 @@ ms.locfileid: "67105504"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Citrix Netscaler 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Citrix NetScaler 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Citrix Netscaler]  。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Citrix NetScaler]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Citrix Netscaler]  。
+2. 在應用程式清單中，選取 [Citrix NetScaler]  。
 
-    ![應用程式清單中的 [Citrix Netscaler] 連結](common/all-applications.png)
+    ![應用程式清單中的 [Citrix NetScaler] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]  。
 
@@ -368,18 +368,18 @@ ms.locfileid: "67105504"
 
 7. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
-### <a name="create-citrix-netscaler-test-user"></a>建立 Citrix Netscaler 測試使用者
+### <a name="create-citrix-netscaler-test-user"></a>建立 Citrix NetScaler 測試使用者
 
-本節會在 Citrix Netscaler 中建立名為 Britta Simon 的使用者。 Citrix Netscaler 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Citrix Netscaler 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Citrix NetScaler 中建立名為 Britta Simon 的使用者。 Citrix NetScaler 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Citrix NetScaler 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 >[!NOTE]
->如果您需要手動建立使用者，則需要連絡 [Citrix Netscaler 用戶端支援小組](https://www.citrix.com/contact/technical-support.html)。
+>如果您需要手動建立使用者，則需要連絡 [Citrix NetScaler 用戶端支援小組](https://www.citrix.com/contact/technical-support.html)。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Citrix Netscaler] 圖格時，應該會自動登入您已設定 SSO 的 Citrix Netscaler。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Citrix NetScaler] 圖格時，應該會自動登入您已設定 SSO 的 Citrix NetScaler。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

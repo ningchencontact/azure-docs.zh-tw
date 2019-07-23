@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 817a19d5cabd7d20dc17154f29b4430e6b96c5fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: bb33e829853e1f9a975d29c7a80298b9033f0748
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072046"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249636"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>快速入門：使用 cURL 從知識庫取得答案
 
@@ -69,7 +69,7 @@ ms.locfileid: "67072046"
 
 ## <a name="use-staging-endpoint-with-curl"></a>搭配 cURL 使用暫存端點
 
-如果您想要獲得解答，從開發用的端點，使用`isTest`body 屬性。
+如果您想要從暫存端點取得解答，請使用 `isTest` 本文屬性。
 
 ```json
 isTest:true

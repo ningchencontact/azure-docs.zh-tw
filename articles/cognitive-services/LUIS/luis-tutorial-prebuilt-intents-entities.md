@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086610"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277539"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教學課程：找出常見的意圖和實體
 
@@ -47,13 +47,13 @@ LUIS 提供數個預先建置的意圖來協助處理常見的使用者意圖。
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 選取 [Add prebuilt domain intent] \(新增預先建置的定義域意圖\)。 
+1. 選取 [Add prebuilt domain intent] \(新增預先建置的定義域意圖\)  。 
 
 1. 搜尋 `Utilities`。 
 
     [![搜尋方塊中有 Utilities 的預先建置意圖對話方塊螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-1. 選取下列意圖，然後選取 [Done] \(完成\)： 
+1. 選取下列意圖，然後選取 [Done] \(完成\)  ： 
 
    * Utilities.Cancel
    * Utilities.Confirm
@@ -61,18 +61,18 @@ LUIS 提供數個預先建置的意圖來協助處理常見的使用者意圖。
    * Utilities.StartOver
    * Utilities.Stop
 
-     在判斷使用者在交談中的位置以及他們要求執行的作業時，這些意圖很有幫助。 
+     在判斷使用者在交談中的位置以及他們要求執行的作業時，這些意圖很有幫助。 這些意圖包括實體的使用方式。 這些實體會自動新增至 LUIS 應用程式：數位、序數和 Utilities.DirectionalReference。 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>新增預先建置的實體來協助存取常見的資料類型
 
 LUIS 提供數個預先建置的實體來擷取常見的資料。 
 
-1. 從左側導覽功能表中選取 [Entities] \(實體\)。
+1. 從左側導覽功能表中選取 [Entities] \(實體\)  。
 
-1. 選取 [新增預先建置的實體] 按鈕。
+1. 選取 [新增預先建置的實體]  按鈕。
 
-1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]：
+1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]  ：
 
    * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**

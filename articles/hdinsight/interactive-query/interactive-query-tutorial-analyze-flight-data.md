@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 403e165d7ebe8365ffa0fd2f5f3779d3b4fab68f
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: fbab8502c088c2ae7a4b8e87285d7e4cac1de4c0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543637"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807393"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的互動式查詢來擷取、轉換和載入資料
 
@@ -59,6 +59,8 @@ ms.locfileid: "67543637"
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
+
+    如果系統要求您輸入 yes 或 no 以便繼續，請在命令提示字元中輸入 yes，然後按 Enter 鍵。 在輸入文字時，視窗中不會顯示出來。
 
 2. 完成上傳之後，使用 SSH 連線至叢集。 將 `CLUSTERNAME` 取代為 HDInsight 叢集的名稱，以編輯下列命令。 然後，輸入下列命令：
 

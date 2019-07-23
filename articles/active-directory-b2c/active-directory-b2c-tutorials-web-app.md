@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e9e497c8f10108b8e05314f35546345f7f812524
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 041bcf32035ab6cdc3ee4df06050f75186759f5e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507794"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835639"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在 Web 應用程式中啟用驗證
 
@@ -32,7 +32,7 @@ ms.locfileid: "66507794"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [建立使用者流程](tutorial-create-user-flows.md)以在您的應用程式中達成使用者體驗。 
+- [建立使用者流程](tutorial-create-user-flows.md)以在您的應用程式中達成使用者體驗。
 - 安裝包含 **ASP.NET 和 Web 開發**工作負載的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 
 ## <a name="update-the-application"></a>更新應用程式
@@ -76,9 +76,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 1. 按一下 [註冊 / 登入]  以應用程式的使用者身分註冊。 便會使用 **b2c_1_signupsignin1** 使用者流程。
 2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此選取 [立即註冊]  。 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
-3. 請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。 
+3. 請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。
 
-    ![註冊工作流程](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.png)
+    ![註冊頁面顯示為登入/註冊工作流程的一部分](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. 按一下 [建立]  ，在 Azure AD B2C 租用戶中建立本機帳戶。
 
