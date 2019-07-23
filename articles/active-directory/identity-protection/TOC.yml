@@ -52,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: 設定風險原則
           href: howto-configure-risk-policies.md
-        - name: 改善偵測精確度
-          href: howto-improve-detection-accuracy.md
         - name: 常見問題和已知問題
           href: known-issues.md
 - name: 參考
