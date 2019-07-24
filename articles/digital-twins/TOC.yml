@@ -5,6 +5,7 @@
     - name: 關於 Azure Digital Twins
       href: about-digital-twins.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 尋找閒置空間
       href: quickstart-view-occupancy-dotnet.md

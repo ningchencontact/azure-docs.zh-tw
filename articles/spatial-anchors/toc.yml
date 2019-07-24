@@ -5,6 +5,7 @@
     - name: 關於 Spatial Anchors
       href: overview.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 建立 Unity 應用程式
       href: unity-overview.yml

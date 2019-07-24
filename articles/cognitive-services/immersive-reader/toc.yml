@@ -13,6 +13,10 @@
   items:
     - name: 啟動沈浸式閱讀程式 (Node.js)
       href: tutorial.md
+- name: 作法
+  items:
+    - name: Azure Active Directory 驗證
+      href: azure-active-directory-authentication.md
 - name: 參考
   items:
     - name: SDK 參考

@@ -48,8 +48,6 @@
       items:
         - name: 建立命名空間
           href: relay-create-namespace-portal.md
-        - name: 使用 WCF 轉送對外部用戶端公開 WCF 服務
-          href: relay-wcf-dotnet-get-started.md
         - name: 可用的 API
           href: relay-api-overview.md
           items:

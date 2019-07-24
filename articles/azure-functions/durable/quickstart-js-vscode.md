@@ -57,15 +57,15 @@ ms.locfileid: "67612916"
 
 首先，建立 HTTP 觸發的函式，該函式會啟動耐久函式協調流程。
 
-1. 從 [Azure: 函式]  中，選擇 [建立函式]  圖示。
+1. 從 [Azure: 函式] 中，選擇 [建立函式] 圖示。
 
     ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions HTTP 入門]  函式範本。
+2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions HTTP 入門] 函式範本。
 
     ![選擇 HTTP 入門範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. 將預設名稱保留為 `DurableFunctionsHttpStart` 並按下 ****Enter**，然後選取 [匿名]  驗證。
+3. 將預設名稱保留為 `DurableFunctionsHttpStart` 並按下 ** **Enter**， 然後選取 [匿名] 驗證。
 
     ![選擇匿名驗證](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
@@ -75,11 +75,11 @@ ms.locfileid: "67612916"
 
 現在，我們將建立協調器來協調活動函式。
 
-1. 從 [Azure: 函式]  中，選擇 [建立函式]  圖示。
+1. 從 [Azure: 函式] 中，選擇 [建立函式] 圖示。
 
     ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions 協調器]  函式範本。 將名稱保留為預設值 "DurableFunctionsOrchestrator"
+2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions 協調器] 函式範本。 將名稱保留為預設值 "DurableFunctionsOrchestrator"
 
     ![選擇協調器範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
@@ -89,11 +89,11 @@ ms.locfileid: "67612916"
 
 現在，我們將建立活動函式來實際執行解決方案的工作。
 
-1. 從 [Azure: 函式]  中，選擇 [建立函式]  圖示。
+1. 從 [Azure: 函式] 中，選擇 [建立函式] 圖示。
 
     ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions 活動]  函式範本。 將名稱保留為預設值 "Hello"。
+2. 選取含有函式應用程式專案的資料夾，然後選取 [Durable Functions 活動] 函式範本。 將名稱保留為預設值 "Hello"。
 
     ![選擇活動範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "67612916"
 
 Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functions 專案。 第一次從 Visual Studio Code 啟動函式時，系統會提示您安裝這些工具。
 
-1. 在 Windows 電腦上，啟動 Azure 儲存體模擬器，並確定 local.settings.json  的 **AzureWebJobsStorage** 屬性設定為 `UseDevelopmentStorage=true`。
+1. 在 Windows 電腦上，啟動 Azure 儲存體模擬器，並確定 local.settings.json 的 **AzureWebJobsStorage** 屬性設定為 `UseDevelopmentStorage=true`。
 
     針對 Storage Emulator 5.8，請確定 local.settings.json 的 **AzureWebJobsSecretStorageType** 屬性設定為 `files`。 在 Mac 或 Linux 電腦上，您必須將 **AzureWebJobsStorage** 屬性設定為現有 Azure 儲存體帳戶的連接字串。 您稍後會在本文中建立儲存體帳戶。
 
@@ -152,7 +152,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 ## <a name="test-your-function-in-azure"></a>在 Azure 中測試您的函式
 
-1. 從 [輸出]  面板中複製 HTTP 觸發程序的 URL。 呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
+1. 從 [輸出] 面板中複製 HTTP 觸發程序的 URL。 呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
 
         http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 
