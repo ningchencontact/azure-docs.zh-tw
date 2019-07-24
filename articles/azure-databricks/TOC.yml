@@ -17,6 +17,8 @@
   items:
     - name: 在 Docker 容器中執行的查詢 SQL Server
       href: vnet-injection-sql-server.md
+    - name: 使用 Azure Key Vault 存取儲存體
+      href: store-secrets-azure-key-vault.md
     - name: 使用 Cosmos DB 服務端點
       href: service-endpoint-cosmosdb.md
     - name: 執行 ETL 作業
