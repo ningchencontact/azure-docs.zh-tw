@@ -26,11 +26,11 @@ Microsoft Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資�
 > [!NOTE]
 > 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
 > [!IMPORTANT]
-> 本文「不」  適用於 **Azure SQL Database 受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
+> 本文「不」適用於 **Azure SQL Database 受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>虛擬網路規則可作為 IP 規則的替代方案
 
-除了 IP 規則，防火牆也會管理「虛擬網路規則」  。 虛擬網路規則是以虛擬網路服務端點為基礎。 在某些情況下，相較於 IP 規則，最好使用虛擬網路規則。 若要深入了解，請參閱 [Azure SQL Database 的虛擬網路服務端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)。
+除了 IP 規則，防火牆也會管理「虛擬網路規則」。 虛擬網路規則是以虛擬網路服務端點為基礎。 在某些情況下，相較於 IP 規則，最好使用虛擬網路規則。 若要深入了解，請參閱 [Azure SQL Database 的虛擬網路服務端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)。
 
 ## <a name="overview"></a>總覽
 
@@ -101,11 +101,11 @@ Microsoft 建議在可行時使用資料庫層級 IP 防火牆規則增強安全
 
 ### <a name="from-database-overview-page"></a>從資料庫概觀頁面
 
-1. 若要從資料庫概觀頁面設定伺服器層級 IP 防火牆規則，請依下圖所示，按一下工作列上的 [設定伺服器防火牆]  ：SQL Database 伺服器的 [防火牆設定]  頁面隨即開啟。
+1. 若要從資料庫概觀頁面設定伺服器層級 IP 防火牆規則，請依下圖所示，按一下工作列上的 [設定伺服器防火牆]：SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。
 
       ![伺服器 IP 防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-2. 按一下工具列上的 [新增用戶端 IP]  ，以新增您目前所用電腦的 IP 位址，然後再按一下 [儲存]  。 系統便會為目前的 IP 位址建立伺服器層級 IP 防火牆規則。
+2. 按一下工具列上的 [新增用戶端 IP]，以新增您目前所用電腦的 IP 位址，然後再按一下 [儲存]。 系統便會為目前的 IP 位址建立伺服器層級 IP 防火牆規則。
 
       ![設定伺服器層級 IP 防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
 
@@ -113,9 +113,9 @@ Microsoft 建議在可行時使用資料庫層級 IP 防火牆規則增強安全
 
 伺服器的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver20170403.database.windows.net**)，並提供進一步的組態選項。
 
-1. 若要從伺服器概觀頁面設定伺服器層級規則，按一下左側功能表中 [設定] 下方的 [防火牆]  ：
+1. 若要從伺服器概觀頁面設定伺服器層級規則，按一下左側功能表中 [設定] 下方的 [防火牆]：
 
-2. 按一下工具列上的 [新增用戶端 IP]  ，以新增您目前所用電腦的 IP 位址，然後再按一下 [儲存]  。 系統便會為目前的 IP 位址建立伺服器層級 IP 防火牆規則。
+2. 按一下工具列上的 [新增用戶端 IP]，以新增您目前所用電腦的 IP 位址，然後再按一下 [儲存]。 系統便會為目前的 IP 位址建立伺服器層級 IP 防火牆規則。
 
 ## <a name="manage-ip-firewall-rules-using-transact-sql"></a>使用 Transact-SQL 管理 IP 防火牆規則
 
@@ -230,7 +230,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 - **網路位址轉譯 (NAT)：**
 
-  由於 NAT，您的電腦用來連線到 Azure SQL Database 的 IP 位址，可能會不同於您電腦 IP 組態設定中顯示的 IP 位址。 若要檢視電腦用來連接到 Azure 的 IP 位址，請登入入口網站，並在裝載您資料庫的伺服器上瀏覽至 [設定]  索引標籤。 在 [允許的 IP 位址]  區段底下，[目前的用戶端 IP 位址]  隨即顯示。 對 [允許的 IP 位址]  按一下 [新增]  ，以允許此電腦存取伺服器。
+  由於 NAT，您的電腦用來連線到 Azure SQL Database 的 IP 位址，可能會不同於您電腦 IP 組態設定中顯示的 IP 位址。 若要檢視電腦用來連接到 Azure 的 IP 位址，請登入入口網站，並在裝載您資料庫的伺服器上瀏覽至 [設定] 索引標籤。 在 [允許的 IP 位址] 區段底下，[目前的用戶端 IP 位址] 隨即顯示。 對 [允許的 IP 位址] 按一下 [新增]，以允許此電腦存取伺服器。
 
 - **允許清單的變更尚未生效：**
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510931"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846843"
 ---
 # <a name="localization-string-ids"></a>當地語系化字串識別碼
 
@@ -33,7 +33,7 @@ ms.locfileid: "66510931"
 | **logonIdentifier_email** | 電子郵件地址 |
 | **requiredField_email** | 請輸入您的電子郵件 |
 | **invalid_email** | 請輸入有效的電子郵件地址 |
-| **email_pattern** | ^ [a-A-za-a-za-z0-9。 ！#$%（& s) ' *+ =？ ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (？:\\。 [-zA-a-za-z0 9-] +)* $ |
+| **email_pattern** | ^ [a-zA-Z0-9.!# $% & ' ' *+/=？ ^ _\`{\|} ~-] + @ [a-zA-Z0-9-] + (？:\\. [a-zA-Z0-9-] +)* $ |
 | **local_intro_username** | 使用您的使用者名稱登入 |
 | **logonIdentifier_username** | 使用者名稱 |
 | **requiredField_username** | 請輸入您的使用者名稱 |
@@ -85,11 +85,11 @@ ms.locfileid: "66510931"
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | 您的密碼不正確。 |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 找不到您的帳戶。 |
-| **UserMessageIfOldPasswordUsed** | 您使用的似乎是舊密碼。 |  
-| **DefaultMessage** | 無效的使用者名稱或密碼。 |  
-| **UserMessageIfUserAccountDisabled** | 您的帳戶已遭鎖定。 請連絡您的支援人員將其解除鎖定，然後再試一次。 |  
-| **UserMessageIfUserAccountLocked** | 您的帳戶已暫時鎖定以防未經授權的使用。 請稍後再試。 |  
-| **AADRequestsThrottled** | 目前的要求過多。 請稍後再重試。 |  
+| **UserMessageIfOldPasswordUsed** | 您使用的似乎是舊密碼。 |
+| **DefaultMessage** | 無效的使用者名稱或密碼。 |
+| **UserMessageIfUserAccountDisabled** | 您的帳戶已遭鎖定。 請連絡您的支援人員將其解除鎖定，然後再試一次。 |
+| **UserMessageIfUserAccountLocked** | 您的帳戶已暫時鎖定以防未經授權的使用。 請稍後再試。 |
+| **AADRequestsThrottled** | 目前的要求過多。 請稍後再重試。 |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>註冊和自我判斷頁面使用者介面元素
 
@@ -146,7 +146,7 @@ ms.locfileid: "66510931"
 
 下列範例示範在註冊頁面中使用某些使用者介面元素的方式：
 
-![註冊頁面 UX 元素](./media/localization-string-ids/localization-sign-up.png)
+![已標記其 UI 元素名稱的註冊頁面](./media/localization-string-ids/localization-sign-up.png)
 
 下列範例示範在使用者按一下傳送驗證碼按鈕之後，於註冊頁面中使用某些使用者介面元素的方式：
 
@@ -155,7 +155,7 @@ ms.locfileid: "66510931"
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>電話要素驗證頁面使用者介面元素
 
-以下為適用於識別碼為 `api.phonefactor` 之內容定義的識別碼。 
+以下為適用於識別碼為 `api.phonefactor` 之內容定義的識別碼。
 
 | id | 預設值 |
 | -- | ------------- |
@@ -190,7 +190,7 @@ ms.locfileid: "66510931"
 | **number_label** | 電話號碼 |
 | **error_tryagain** | 提供的電話號碼目前忙線中或不通。 請檢查號碼，然後再試一次。 |
 | **error_incorrect_code** | 您輸入的驗證碼與我們的記錄不符。 請再試一次，或要求新的驗證碼。 |
-| **countryList** | {\"預設\":\"國家/地區\"，\"AF\":\"阿富汗\"，\"AX\":\"奧蘭群島\"，\"AL\":\"阿爾巴尼亞\"，\"DZ\":\"阿爾及利亞\"，\"AS\":\"美屬薩摩亞\"，\"AD\":\"安道爾\"，\"AO\":\"安哥拉\"，\"AI\":\"安圭拉島\"，\"AQ\":\"南極大陸\"，\"AG\":\"安地卡及巴布達\"，\"AR\":\"阿根廷\"，\"上午\":\"亞美尼亞\"，\"AW\":\"阿路巴\"，\"AU\":\"澳洲\"，\"在\":\"奧地利\"，\"AZ\":\"亞塞拜然\"，\"BS\":\"巴哈馬\"，\"BH\":\"巴林\"，\"BD\":\"孟加拉\"，\"BB\":\"巴貝多\"，\"藉由\":\"白俄羅斯\"，\"BE\":\"比利時\"，\"BZ\":\"貝里斯\"，\"BJ\":\"貝南\"，\"BM\":\"百慕達\"，\"BT\":\"夫和不丹\"，\"BO\":\"玻利維亞\"，\"BQ\":\"波奈\"，\"BA\":\"波士尼亞赫塞哥維納\"，\"BW\":\"波札那<span class="notransla class=""></span class="notransla>本土外小島嶼\",\"VI\":\"美屬維京群島\",\"UG\":\"烏干達\",\"UA\":\"烏克蘭\",\"AE\":\"阿拉伯聯合大公國\",\"GB\":\"英國\",\"US\":\"美國\",\"UY\":\"烏拉圭\",\"UZ\":\"烏茲別克\",\"VU\":\"萬那杜\",\"VA\":\"梵蒂岡\",\"VE\":\"委內瑞拉\",\"VN\":\"越南\",\"WF\":\"瓦利斯群島和富圖那群島\",\"YE\":\"葉門\",\"ZM\":\"尚比亞\",\"ZW\":\"辛巴威\"} |
+| **countryList** | {\"DEFAULT\":國家/\"地區,AF\" :\"阿富汗,\"AX:芬蘭\" \" \" \" \"群島\",\"AL:\"阿爾巴尼亞\",DZ\":阿爾及利亞,如下所\"示:\" \" \" \" \" \"美屬薩摩亞\"、\"AD\":安道爾\" 、\"AO:\"安哥拉、AI\":\" \" \" \"\"安圭拉島,\" AQ\":南極洲\",AG: 安提瓜和巴布\"達\" \" \" \" \" \"AR\":阿根廷\" ,\"AM:\"亞美尼亞, AW:\"Aruba\" \" \" \" \"\",AU\" :\"澳大利亞,\"AT:奧地利,\" \" \" \" \" \"AZ\":\"亞塞拜然,\" BS\":巴哈馬\",BH:\" \" \" \" \"巴林\",\"BD:\"孟加拉國\",BB\":巴巴多斯,\" \" \" \" \"依據\":\"白俄羅斯,\"是\":比利時\",依:\" \" \" \" \"貝里斯\",\"BJ:\"貝南\",BM\":百慕達,\" \" \" \" \"BT\":不丹\" ,\"BO:\"玻利維亞,BQ:\" \" \" \" \" \"波奈\",\"BA:\"波士尼亞和\"黑塞哥維那,\" BW\": 博茨瓦納\" \"<span class="notransla class=""></span class="notransla>本土外小島嶼\",\"VI\":\"美屬維京群島\",\"UG\":\"烏干達\",\"UA\":\"烏克蘭\",\"AE\":\"阿拉伯聯合大公國\",\"GB\":\"英國\",\"US\":\"美國\",\"UY\":\"烏拉圭\",\"UZ\":\"烏茲別克\",\"VU\":\"萬那杜\",\"VA\":\"梵蒂岡\",\"VE\":\"委內瑞拉\",\"VN\":\"越南\",\"WF\":\"瓦利斯群島和富圖那群島\",\"YE\":\"葉門\",\"ZM\":\"尚比亞\",\"ZW\":\"辛巴威\"} |
 | **error_448** | 提供的手機號碼不通。 |
 | **error_449** | 使用者已超過重試次數限制。 |
 | **verification_code_input_placeholder_text** | 驗證碼 |

@@ -135,7 +135,7 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
     %windir%\system32\sysprep\sysprep.exe
     ```
 
-3. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]  ，然後按一下 [確定]  \(如下方圖片所示)。 Sysprep 會將作業系統一般化並關閉系統。
+3. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] \(如下方圖片所示)。 Sysprep 會將作業系統一般化並關閉系統。
 
     ![][1]
 
@@ -228,7 +228,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
       --export-to-s3-task DiskImageFormat=DISK_IMAGE_FORMAT,ContainerFormat=ova,S3Bucket=BUCKET,S3Prefix=PREFIX
     ```
 
-2. 從 S3 貯體下載 VHD 檔案。 然後選取 VHD 檔案，再依序按一下 [動作]   > [下載]  。
+2. 從 S3 貯體下載 VHD 檔案。 然後選取 VHD 檔案，再依序按一下 [動作] > [下載]。
 
     ![][3]
 
@@ -256,7 +256,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-舉例\<Uri > 可能 ** _"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd 」_** 。 舉例\<FileInfo > 可能 ** _"C:\path\to\upload.vhd"_** 。
+舉例\<Uri > 可能 **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd_** 。 舉例\<FileInfo > 可能 **_"C:\path\to\upload.vhd"_** 。
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>選項 2：使用 AzCopy 上傳 .vhd 檔案
 您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。
@@ -338,7 +338,7 @@ Add-AzureVMImage -ImageName "OSImageName" -MediaLocation "https://storageaccount
 Add-AzureDisk -DiskName "OSDisk" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd" -Label "My OS Disk" -OS "Windows"
 ```
 
-複製並儲存這個新 Azure 作業系統磁碟的名稱。 在上述範例中，該名稱是「OSDisk」  。
+複製並儲存這個新 Azure 作業系統磁碟的名稱。 在上述範例中，該名稱是「OSDisk」 。
 
 #### <a name="data-disk-vhd-to-be-attached-to-new-azure-vm-instances"></a>連接至新 Azure VM 執行個體的資料磁碟 VHD
 將資料磁碟 VHD 上傳至儲存體帳戶之後，將其註冊為 Azure 資料磁碟，便可以連接到新的 DS 系列、DSv2 系列或 GS 系列 Azure VM 執行個體。
@@ -349,10 +349,10 @@ Add-AzureDisk -DiskName "OSDisk" -MediaLocation "https://storageaccount.blob.cor
 Add-AzureDisk -DiskName "DataDisk" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk.vhd" -Label "My Data Disk"
 ```
 
-複製並儲存這個新 Azure 資料磁碟的名稱。 在上述範例中，該名稱是「DataDisk」  。
+複製並儲存這個新 Azure 資料磁碟的名稱。 在上述範例中，該名稱是「DataDisk」 。
 
 ### <a name="create-a-premium-storage-capable-vm"></a>建立可支援進階儲存體的 VM
-註冊 OS 映像或 OS 磁碟之後，請建立新的 DS 系列、DSv2 系列或 GS 系列 VM。 您將使用您註冊的作業系統映像或作業系統磁碟名稱。 從進階儲存體層選取 VM 類型。 在下列範例中，我們使用的 VM 大小為「Standard_DS2」  。
+註冊 OS 映像或 OS 磁碟之後，請建立新的 DS 系列、DSv2 系列或 GS 系列 VM。 您將使用您註冊的作業系統映像或作業系統磁碟名稱。 從進階儲存體層選取 VM 類型。 在下列範例中，我們使用的 VM 大小為「Standard_DS2」。
 
 > [!NOTE]
 > 更新磁碟大小以確定它符合您的容量、效能需求，和可用的 Azure 磁碟大小。
@@ -408,7 +408,7 @@ New-AzureVM -ServiceName $serviceName –VM $vm
 ### <a name="attach-data-disk"></a>連結資料磁碟
 最後，如果您已經註冊資料磁碟 VHD，請將它們連接至可支援進階儲存體的新 Azure VM。
 
-使用下列 PowerShell Cmdlet，將資料磁碟連接至新的 VM，並指定快取原則。 在下列範例中，快取原則設定為「ReadOnly」  。
+使用下列 PowerShell Cmdlet，將資料磁碟連接至新的 VM，並指定快取原則。 在下列範例中，快取原則設定為「ReadOnly」 。
 
 ```powershell
 $vm = Get-AzureVM -ServiceName $serviceName -Name $vmName

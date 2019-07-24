@@ -3,7 +3,7 @@ title: 設定 Azure 微服務的 Windows 開發環境 | Microsoft Docs
 description: 安裝執行階段、SDK 和工具，並建立本機開發叢集。 完成此設定之後，您就可以開始在 Windows 上建置應用程式。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: peterpogorski
 manager: chackdan
 editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0302d8950d10d2c606fad0582079ed0c77047fbf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566051"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295533"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "67566051"
 > 
 > 
 
-若要建置並執行[Azure Service Fabric 應用程式][1]在您的 Windows 開發電腦上安裝 Service Fabric 執行階段、 SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
+若要在您的 Windows 開發電腦上建立並執行[Azure Service Fabric 應用程式][1], 請安裝 Service Fabric 執行時間、SDK 和工具。 您也必須[執行 SDK 中包含的 Windows PowerShell 指令碼](#enable-powershell-script-execution)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 ### <a name="supported-operating-system-versions"></a>支援的作業系統版本
 下列為支援開發的作業系統版本：
 
@@ -43,7 +43,7 @@ ms.locfileid: "67566051"
 
 > [!NOTE]
 > Windows 7 支援：
-> - 根據預設，Windows 7 只包含 Windows PowerShell 2.0。 Service Fabric PowerShell Cmdlet 需要 PowerShell 3.0 或更新版本。 您可以[下載 Windows PowerShell 5.0][powershell5-download]從 Microsoft 下載中心取得。
+> - 根據預設，Windows 7 只包含 Windows PowerShell 2.0。 Service Fabric PowerShell Cmdlet 需要 PowerShell 3.0 或更新版本。 您可以從 Microsoft 下載中心[下載 Windows PowerShell 5.0][powershell5-download] 。
 > - 無法在 Windows 7 上使用 Service Fabric 反向 Proxy。
 >
 
@@ -53,8 +53,8 @@ Web Platform Installer (WebPI) 是安裝 SDK 和工具的建議方式。 如果�
 > [!NOTE]
 > 不支援本機 Service Fabric 開發叢集升級。
 
-### <a name="to-use-visual-studio-2017"></a>若要使用 Visual Studio 2017
-Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載。 啟用此工作負載作為 Visual Studio 安裝的一部分。
+### <a name="to-use-visual-studio-2017-or-2019"></a>使用 Visual Studio 2017 或2019
+Service Fabric 工具是 Visual Studio 2017 和2019中的 Azure 開發工作負載的一部分。 啟用此工作負載作為 Visual Studio 安裝的一部分。
 此外，您必須使用 Web Platform Installer 來安裝 Microsoft Azure Service Fabric SDK 和執行階段。
 
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
@@ -69,10 +69,11 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具 3.4.641
-* Service Fabric 執行階段 6.5.641
-* Service Fabric Tools pro Visual Studio 2015 2.5.20615.1
+* Service Fabric SDK 和工具3.4.641
+* Service Fabric 執行時間6.5.641
+* Visual Studio 2015 2.5.20615.1 的 Service Fabric 工具
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
+* Visual Studio 2019 16.1 包含 Visual Studio 2.5.20423.3 的 Service Fabric 工具
 
 如需支援版本的清單，請參閱[Service Fabric 版本](service-fabric-versions.md)
 
@@ -86,7 +87,7 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 ## <a name="install-docker-optional"></a>安裝 Docker (選擇性)
-[Service Fabric 是容器協調者](service-fabric-containers-overview.md)，可用於將微服務部署至整個機器叢集。 若要在本機開發叢集上執行 Windows 容器應用程式，您必須先安裝 Docker for Windows。 取得 [Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]  。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
+[Service Fabric 是容器協調者](service-fabric-containers-overview.md)，可用於將微服務部署至整個機器叢集。 若要在本機開發叢集上執行 Windows 容器應用程式，您必須先安裝 Docker for Windows。 取得 [Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
 
 ## <a name="next-steps"></a>後續步驟
 現在您的開發環境已完成設定，您可以開始建置和執行應用程式。
