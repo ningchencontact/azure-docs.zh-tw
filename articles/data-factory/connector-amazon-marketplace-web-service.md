@@ -46,7 +46,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**AmazonMWS** | 是 |
 | endpoint | Amazon MWS 伺服器的端點，(也就是 mws.amazonservices.com)  | 是 |
-| marketplaceID | 您想要從中擷取資料的 Amazon Marketplace 識別碼。 若要從多個 Marketplace 識別碼擷取資料，請以逗號 (`,`) 分隔它們。 (也就是 A2EUQ1WTGCTBG2)  | 是 |
+| marketplaceID | 您想要從中擷取資料的 Amazon Marketplace ID 。 若要從多個 Marketplace 識別碼擷取資料，請以逗號 (`,`) 分隔它們。 (也就是 A2EUQ1WTGCTBG2)  | 是 |
 | sellerID | Amazon 賣方識別碼。  | 是 |
 | mwsAuthToken | Amazon MWS 驗證權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | accessKeyId | 用來存取資料的存取金鑰識別碼。  | 是 |
