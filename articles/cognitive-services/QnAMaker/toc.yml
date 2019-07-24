@@ -156,8 +156,8 @@
         - name: 將 API 定型
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: 常見問題集
-      href: faqs.md
+    - name: 疑難排解
+      href: troubleshooting.md
     - name: 限制
       href: limits.md
     - name: 詞彙

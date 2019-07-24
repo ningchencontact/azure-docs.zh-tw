@@ -7,7 +7,6 @@
     - name: 術語變更
       href: terminology.md
 - name: 快速入門
-  expanded: true
   items:
     - name: '[應用程式]'
       items:
@@ -96,9 +95,9 @@
           href: platform/personal-data-mgmt.md
         - name: 應用程式資料收集、保留和儲存
           href: app/data-retention-privacy.md
-    - name: 回應事件
+    - name: 警示
       items:
-        - name: 警示
+        - name: 概觀
           href: platform/alerts-overview.md
         - name: 傳統警示
           href: platform/alerts-classic.overview.md
@@ -114,8 +113,6 @@
           href: platform/alerts-action-rules.md
         - name: 智慧群組
           href: platform/alerts-smartgroups-overview.md
-        - name: Autoscale
-          href: platform/autoscale-overview.md
         - name: 變更分析
           href: app/change-analysis.md
     - name: 顯現資料
@@ -954,6 +951,8 @@
       items:
         - name: Autoscale
           items:
+            - name: 概觀
+              href: platform/autoscale-overview.md
             - name: 逐步介紹
               href: platform/autoscale-get-started.md
             - name: 設定
