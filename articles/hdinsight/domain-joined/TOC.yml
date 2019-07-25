@@ -2,8 +2,8 @@
   href: /azure/hdinsight
 - name: 概觀
   items:
-    - name: 什麼是 HDInsight 中的企業安全性套件
-      href: apache-domain-joined-introduction.md
+    - name: 什麼是 HDInsight 中的企業安全性？
+      href: hdinsight-security-overview.md
 - name: 教學課程
   items:
     - name: Apache HBase RBAC with Apache Ranger
