@@ -137,8 +137,6 @@
           href: Tutorials/java-tutorial.md
         - name: JavaScript
           href: Tutorials/javascript-tutorial.md
-        - name: Python
-          href: Tutorials/PythonTutorial.md
     - name: 呼叫電腦視覺 API
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: 使用容器
