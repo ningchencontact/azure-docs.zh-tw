@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
 ms.openlocfilehash: 0641d613da86aeffa0c4abb0f82ce93c38283156
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67616085"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 磁碟的永續性磁碟區
@@ -19,19 +19,19 @@ ms.locfileid: "67616085"
 永續性磁碟區代表一塊已佈建來與 Kubernetes Pod 搭配使用的儲存體。 永續性磁碟區可供一個或多個 Pod 使用，且可以動態或靜態方式佈建。 本文示範如何在 Azure Kubernetes Service (AKS) 叢集中以動態方式建立 Azure 磁碟的永續性磁碟區，以供單一 Pod 使用。
 
 > [!NOTE]
-> 您只能使用*存取模式*類型 *ReadWriteOnce* 來掛接 Azure 磁碟，以讓它僅供 AKS 中單一 Pod 使用。 如果您需要多個 pod 之間共用永續性磁碟區，使用[Azure 檔案][azure-files-pvc]。
+> 您只能使用*存取模式*類型 *ReadWriteOnce* 來掛接 Azure 磁碟，以讓它僅供 AKS 中單一 Pod 使用。 如果您需要在多個 pod 之間共用持續性磁片區, 請使用[Azure 檔案儲存體][azure-files-pvc]。
 
-如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 < [AKS 中的應用程式的儲存體選項][concepts-storage]。
+如需有關 Kubernetes 磁片區的詳細資訊, 請參閱[AKS 中應用程式的儲存體選項][concepts-storage]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 AKS 快速入門[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集, 請參閱[使用 Azure CLI][aks-quickstart-cli]或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要安裝並設定 Azure CLI 版本2.0.59 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級, 請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="built-in-storage-classes"></a>內建儲存體類別
 
-儲存體類別可用來定義如何搭配永續性磁碟區動態建立儲存體單位。 如需有關 Kubernetes 儲存體類別的詳細資訊，請參閱 < [Kubernetes 儲存體類別][kubernetes-storage-classes]。
+儲存體類別可用來定義如何搭配永續性磁碟區動態建立儲存體單位。 如需 Kubernetes 儲存體類別的詳細資訊, 請參閱[Kubernetes 儲存體類別][kubernetes-storage-classes]。
 
 每個 AKS 叢集都包含兩個預先建立的儲存體類別，而且這兩個類別都設定為可搭配 Azure 磁碟使用：
 
@@ -40,9 +40,9 @@ ms.locfileid: "67616085"
 * *managed-premium* 儲存體類別會佈建進階 Azure 磁碟。
     * 進階磁碟是以 SSD 為基礎的高效能、低延遲磁碟為後盾。 最適合用於執行生產工作負載的 VM。 如果您叢集內的 AKS 節點使用進階儲存體，請選取 *managed-premium* 類別。
     
-這些預設儲存體類別不允許您更新一次建立磁碟區大小。 若要啟用這項功能，新增*allowVolumeExpansion: true*列的其中一個預設的儲存體類別，或建立您自己的自訂儲存體類別。 您可以編輯現有的儲存體類別使用`kubectl edit sc`命令。 如需有關儲存體類別和建立 youor 自己的詳細資訊，請參閱[AKS 中的應用程式的儲存體選項][storage-class-concepts]。
+這些預設儲存類別不允許您在建立之後更新磁片區大小。 若要啟用這項功能, 請將*allowVolumeExpansion: true*行新增至其中一個預設儲存類別, 或建立您自己的自訂儲存類別。 您可以使用`kubectl edit sc`命令來編輯現有的儲存類別。 如需儲存體類別和自行建立 youor 的詳細資訊, 請參閱[AKS 中應用程式的儲存體選項][storage-class-concepts]。
 
-使用[kubectl get sc][kubectl-get]命令，以查看預先建立的儲存體類別。 以下範例顯示 AKS 叢集中可用的預先建立儲存體類別：
+使用[kubectl get sc][kubectl-get]命令來查看預先建立的儲存體類別。 以下範例顯示 AKS 叢集中可用的預先建立儲存體類別：
 
 ```console
 $ kubectl get sc
@@ -53,7 +53,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 Sku 範圍 32GiB S4 P4 磁碟到 32TiB S80 或 P80 磁碟 （處於預覽狀態）。 進階受控磁碟的輸送量和 IOPS 效能，取決於 SKU 和 AKS 叢集中節點的執行個體大小。 如需詳細資訊，請參閱 <<c0> [ 定價和的受控磁碟的效能][managed-disk-pricing-performance]。
+> GiB 中會指定持續性磁碟區宣告，但 SKU 會針對特定的大小向 Azure 受控磁碟收費。 這些 Sku 範圍 32GiB S4 P4 磁碟到 32TiB S80 或 P80 磁碟 （處於預覽狀態）。 進階受控磁碟的輸送量和 IOPS 效能，取決於 SKU 和 AKS 叢集中節點的執行個體大小。 如需詳細資訊, 請參閱[受控磁碟的定價和效能][managed-disk-pricing-performance]。
 
 ## <a name="create-a-persistent-volume-claim"></a>建立永續性磁碟區宣告
 
@@ -78,7 +78,7 @@ spec:
 > [!TIP]
 > 若要建立使用標準儲存體的磁碟，請使用 `storageClassName: default` 而非 *managed-premium*。
 
-建立的永續性磁碟區宣告[kubectl 套用][kubectl-apply]命令，並指定您*azure premium.yaml*檔案：
+使用[kubectl apply][kubectl-apply]命令建立持續性磁片區宣告, 並指定您的*yaml*檔案:
 
 ```console
 $ kubectl apply -f azure-premium.yaml
@@ -88,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>使用永續性磁碟區
 
-建立永續性磁碟區宣告，並成功佈建磁碟之後，就能建立可存取磁碟的 Pod。 下列資訊清單所建立的基本 NGINX Pod，會使用名為 *azure-managed-disk* 的永續性磁碟區宣告，在 `/mnt/azure` 路徑上掛接 Azure 磁碟。 適用於 Windows Server 容器 （目前處於預覽 AKS 中） 指定*mountPath*使用 Windows 路徑慣例，例如 *'d ':* 。
+建立永續性磁碟區宣告，並成功佈建磁碟之後，就能建立可存取磁碟的 Pod。 下列資訊清單所建立的基本 NGINX Pod，會使用名為 *azure-managed-disk* 的永續性磁碟區宣告，在 `/mnt/azure` 路徑上掛接 Azure 磁碟。 若是 Windows Server 容器 (目前在 AKS 中處於預覽狀態), 請使用 Windows 路徑慣例指定*mountPath* , 例如「 *d:* 」。
 
 建立名為 `azure-pvc-disk.yaml` 的檔案，然後將下列資訊清單複製進來。
 
@@ -117,7 +117,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-建立與 pod [kubectl 套用][kubectl-apply]命令，如下列範例所示：
+使用[kubectl apply][kubectl-apply]命令建立 pod, 如下列範例所示:
 
 ```console
 $ kubectl apply -f azure-pvc-disk.yaml
@@ -163,7 +163,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-此磁碟區名稱會形成基礎的 Azure 磁碟名稱。 磁碟識別碼，與查詢[az 磁碟清單][az-disk-list]，並提供您 PVC 的磁碟區名稱，如下列範例所示：
+此磁碟區名稱會形成基礎的 Azure 磁碟名稱。 使用[az disk list][az-disk-list]查詢磁片識別碼, 並提供您的 PVC 磁片區名稱, 如下列範例所示:
 
 ```azurecli-interactive
 $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -171,7 +171,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-若要建立的快照集磁碟使用磁碟識別碼[az snapshot 建立][az-snapshot-create]。 下列範例會在與 AKS 叢集相同的資源群組 (*MC_myResourceGroup_myAKSCluster_eastus*) 中，建立名為 *pvcSnapshot* 的快照集。 如果您在 AKS 叢集沒有存取權的資源群組中建立快照集並還原磁碟，則您可能會遇到權限問題。
+使用磁片識別碼來建立具有[az snapshot create][az-snapshot-create]的快照集磁片。 下列範例會在與 AKS 叢集相同的資源群組 (*MC_myResourceGroup_myAKSCluster_eastus*) 中，建立名為 *pvcSnapshot* 的快照集。 如果您在 AKS 叢集沒有存取權的資源群組中建立快照集並還原磁碟，則您可能會遇到權限問題。
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -184,13 +184,13 @@ $ az snapshot create \
 
 ## <a name="restore-and-use-a-snapshot"></a>還原並使用快照集
 
-若要還原此磁碟機，並使用它來搭配 Kubernetes pod，請將快照集做為來源上，當您建立的磁碟[az 磁碟建立][az-disk-create]。 如果您接著需要存取原始資料快照集，此作業會保留原始資源。 下列範例會從名為 *pvcSnapshot* 的快照集建立名為 *pvcRestored* 的磁碟：
+若要復原磁碟並搭配 Kubernetes pod 使用, 請在建立具有[az disk create][az-disk-create]的磁片時, 使用快照集作為來源。 如果您接著需要存取原始資料快照集，此作業會保留原始資源。 下列範例會從名為 *pvcSnapshot* 的快照集建立名為 *pvcRestored* 的磁碟：
 
 ```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
-若要將已還原的磁碟與 Pod 搭配使用，請在資訊清單中指定磁碟的識別碼。 取得磁碟識別碼，與[az 磁碟顯示][az-disk-show]命令。 下列範例會針對上一個步驟中建立的 *pvcRestored* 取得磁碟識別碼：
+若要將已還原的磁碟與 Pod 搭配使用，請在資訊清單中指定磁碟的識別碼。 使用[az disk show][az-disk-show]命令取得磁片識別碼。 下列範例會針對上一個步驟中建立的 *pvcRestored* 取得磁碟識別碼：
 
 ```azurecli-interactive
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
@@ -225,7 +225,7 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-建立與 pod [kubectl 套用][kubectl-apply]命令，如下列範例所示：
+使用[kubectl apply][kubectl-apply]命令建立 pod, 如下列範例所示:
 
 ```console
 $ kubectl apply -f azure-restored.yaml
@@ -253,12 +253,12 @@ Volumes:
 
 ## <a name="next-steps"></a>後續步驟
 
-如需相關聯的最佳作法，請參閱[儲存體和 AKS 中的備份的最佳做法][operator-best-practices-storage]。
+如需相關的最佳作法, 請參閱[AKS 中儲存和備份的最佳作法][operator-best-practices-storage]。
 
 深入了解使用 Azure 磁碟的 Kubernetes 永續性磁碟區。
 
 > [!div class="nextstepaction"]
-> [Azure 磁碟的 Kubernetes 外掛程式][azure-disk-volume]
+> [適用于 Azure 磁片的 Kubernetes 外掛程式][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
