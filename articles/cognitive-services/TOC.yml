@@ -5,6 +5,8 @@
   items:
     - name: 什麼是認知服務？
       href: Welcome.md
+    - name: 認知服務和機器學習
+      href: cognitive-services-and-machine-learning.md
     - name: 語言支援
       href: language-support.md
 - name: 容器支援

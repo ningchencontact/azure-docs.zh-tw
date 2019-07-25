@@ -7,18 +7,19 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/20/2019
+ms.date: 07/22/2019
 ms.topic: hub-page
-ms.openlocfilehash: 1e78c31c19bdbc8ea223c504a53f1df73caa5d44
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ad403b58a0f6aad37e9d8d547d269b9f45566559
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295393"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442827"
 ---
 <div id="main" class="v2">
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
+        <p> 每個服務都有自己的<a href="/azure/cognitive-services/language-support">語言支援</a>和<a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">資料模型需求</a>，包括完整訓練的模型到完全可自訂的模型。 
 
 
 <h2>認知服務 API</h2>
@@ -123,6 +124,25 @@ ms.locfileid: "67295393"
                             <div class="cardText">
                                 <h3>認知服務是什麼？</h3>
                                 <p>了解 Azure 認知服務以及如何使用不同的 API 來建置智慧型應用程式。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>認知服務和機器學習</h3>
+                                <p>了解 Microsoft 認知服務如何與其他機器學習相關的 Azure 供應項目搭配使用。</p>
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,12 @@
       href: home.md
 - name: 快速入門
   items:
+    - name: 使用 Web 入口網站
+      items:
+        - name: 建置分類器
+          href: getting-started-build-a-classifier.md
+        - name: 建置物件偵測器
+          href: get-started-build-detector.md
     - name: 使用 .NET SDK
       items:
         - name: 影像分類
@@ -42,8 +48,6 @@
       href: logo-detector-mobile.md
 - name: 使用說明指南
   items:
-    - name: 建置分類器
-      href: getting-started-build-a-classifier.md
     - name: 測試您的模型
       href: test-your-model.md
     - name: 改善您的分類器

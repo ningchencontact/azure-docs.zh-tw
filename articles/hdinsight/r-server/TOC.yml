@@ -254,10 +254,14 @@
       items:
         - name: HDInsight 虛擬網路架構
           href: ../hdinsight-virtual-network-architecture.md
+        - name: 規劃適用於 HDInsight 的 VNET
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: 建立適用於 HDInsight 的 VNET
+          href: ../hdinsight-create-virtual-network.md
+        - name: NSG 和 UDR 必要的 IP 位址
+          href: ../hdinsight-management-ip-addresses.md
         - name: 使用防火牆限制輸出流量
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: Azure VNet 中的 HDInsight
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: 將 HDInsight 與內部部署網路連線
           href: ../connect-on-premises-network.md
     - name: 使用 Azure 監視器記錄監視

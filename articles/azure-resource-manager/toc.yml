@@ -63,18 +63,18 @@
       href: template-best-practices.md
     - name: 雲端一致性範本
       href: templates-cloud-consistency.md
-    - name: 資源提供者和類型
-      href: resource-manager-supported-services.md
-    - name: 部署管理員
-      displayName: adm
-      href: deployment-manager-overview.md
-    - name: 部署管理員健康情況檢查
-      displayName: adm
-      href: deployment-manager-health-check.md
     - name: 部署模式
       href: deployment-modes.md
     - name: 資源刪除
       href: resource-group-delete.md
+    - name: 部署管理員
+      items:
+        - name: 概觀
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: 健康情況檢查
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
     - name: Resource Manager 與傳統部署
       href: resource-manager-deployment-model.md
     - name: Azure 常見安全性屬性
@@ -228,6 +228,8 @@
           href: resource-manager-sku-not-available-errors.md
         - name: Windows 部署問題
           href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+    - name: 資源提供者和類型
+      href: resource-manager-supported-services.md
     - name: 節流要求
       href: resource-manager-request-limits.md
     - name: 追蹤非同步作業

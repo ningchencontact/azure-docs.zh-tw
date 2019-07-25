@@ -19,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: 建立
       items:
-        - name: 單一資料庫 - 入口網站
+        - name: 單一資料庫
           href: sql-database-single-database-get-started.md
         - name: 單一資料庫 - 範本
           displayName: 'Azure Resource Manager template, ARM'
@@ -91,10 +91,18 @@
       items:
         - name: 使用 DMS 遷移至單一/集區資料庫
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: 新增至容錯移轉群組
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: 實作異地分散資料庫
           href: sql-database-implement-geo-distributed-database.md
+        - name: 設定主動式異地複寫
+          href: sql-database-active-geo-replication-portal.md
         - name: 設定 Azure SQL 資料同步
           href: sql-database-get-started-sql-data-sync.md
+    - name: 彈性集區
+      items:
+        - name: 新增至容錯移轉群組
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: 受控執行個體
       items:
         - name: 使用 DMS 進行線上遷移
@@ -245,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: 自動容錯移轉群組
               href: sql-database-auto-failover-group.md
-            - name: 設定主動式異地複寫 - 入口網站
-              href: sql-database-active-geo-replication-portal.md
             - name: 設定複本安全性
               href: sql-database-geo-replication-security-config.md
         - name: 資料庫復原選項
@@ -516,6 +522,8 @@
           href: sql-database-managed-instance-connect-app.md
     - name: 載入和移動資料
       items:
+        - name: 將資源移至新區域
+          href: sql-database-move-resources-across-regions.md
         - name: 在 Azure 內複製資料庫
           href: sql-database-copy.md
         - name: 從 BACPAC 檔案匯入資料庫
