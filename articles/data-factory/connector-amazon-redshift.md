@@ -57,7 +57,7 @@ ms.locfileid: "61261846"
 | server |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
 | database |Amazon Redshift 資料庫的名稱。 |是 |
-| userName |可存取資料庫之使用者的名稱。 |是 |
+| username |可存取資料庫之使用者的名稱。 |是 |
 | password |使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -210,16 +210,16 @@ ms.locfileid: "61261846"
 | Amazon Redshift 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
 | BIGINT |Int64 |
-| Boolean |String |
+| BOOLEAN |String |
 | CHAR |String |
 | DATE |DateTime |
-| Decimal |Decimal |
+| DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
 | TEXT |String |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>後續步驟
