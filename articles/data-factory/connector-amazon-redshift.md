@@ -213,7 +213,7 @@ ms.locfileid: "61261846"
 | BOOLEAN |String |
 | CHAR |String |
 | DATE |DateTime |
-| DECIMAL |Decimal |
+| DECIMAL |DECIMAL |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
