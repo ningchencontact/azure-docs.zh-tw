@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310475"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371689"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
-> [!div class="op_single_selector" title1="選取您使用 Azure Functions 執行階段版本： "]
+> [!div class="op_single_selector" title1="選取您要使用的 Azure Functions 執行階段版本: "]
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -114,9 +114,9 @@ ms.locfileid: "67310475"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|屬性  |預設值 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------| 
-|isEnabled|true|啟用或停用取樣。| 
+|isEnabled|真|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
 
 ## <a name="cosmosdb"></a>cosmosDb
@@ -135,7 +135,7 @@ ms.locfileid: "67310475"
 
 傳回包含所有繫結特定設定 (例如 [http](#http) 和 [eventHub](#eventhub)) 之物件的屬性。
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>函數
 
 工作主機所執行的函式清單。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函數應用程式中，您應該改為依照[如何停用 Azure Functions 中的函式](disable-function.md)中的步驟來停用特定函式，而不是使用此設定。
 
@@ -147,7 +147,7 @@ ms.locfileid: "67310475"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在專用的 App Service 方案中，沒有整體的限制，而且預設值為 30 分鐘的時間。 值為`-1`表示無限制的執行。
+指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在 App Service 方案中，並沒有整體限制，而預設值則是取決於執行階段版本。 在 2.x 版中，App Service 方案的預設值是 30 分鐘。 在 1.x 版中，則是 *null*，表示沒有逾時。 它不能設定為無限。 如果我們未明確設定此值, 將會採用預設的30分鐘值。
 
 ```json
 {
@@ -171,9 +171,9 @@ ms.locfileid: "67310475"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------| 
-|enabled|true|指定是否已啟用此功能。 | 
+|enabled|真|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -205,14 +205,14 @@ ms.locfileid: "67310475"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
-|console|n/a| [console](#console)記錄設定。 |
+|主控台|n/a| [console](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
 
-## <a name="console"></a>console
+## <a name="console"></a>主控台
 
 此設定是 [logging](#logging) 的子系。 它會在非處於偵錯模式時控制主控台記錄。
 
@@ -228,9 +228,9 @@ ms.locfileid: "67310475"
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|isEnabled|false|啟用或停用主控台記錄。| 
+|isEnabled|偽|啟用或停用主控台記錄。| 
 
 ## <a name="queues"></a>queues
 
@@ -260,7 +260,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 
@@ -268,7 +268,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 |lockAcquisitionTimeout|00:01:00|執行階段將嘗試取得鎖定的時間量上限。| 
 |lockAcquisitionPollingInterval|n/a|鎖定取得嘗試之間的間隔。| 
 
-## <a name="version"></a>version
+## <a name="version"></a>版本
 
 目標為 v2 執行階段的函數應用程式必須要有 `"version": "2.0"` 版本字串。
 
@@ -284,7 +284,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 
 ## <a name="manageddependency"></a>managedDependency
 
-受管理的相依性是預覽功能，目前僅支援使用 PowerShell 型的函式。 它可讓服務自動管理的相依性。 當已啟用的屬性設定為 true 時， [requirements.psd1](functions-reference-powershell.md#dependency-management)會處理檔案。 任何次要版本發行時，將會更新相依性。
+受控相依性是一項預覽功能, 目前僅支援以 PowerShell 為基礎的函式。 它可讓服務自動管理相依性。 當 enabled 屬性設定為 true 時, 將會處理[.psd1](functions-reference-powershell.md#dependency-management)檔案。 發行任何次要版本時, 將會更新相依性。
 
 ```json
 {

@@ -1,19 +1,18 @@
 ---
 title: 跨 Azure 訂用帳戶或往另一個資源群組移動復原服務保存庫
 description: 指導您如何跨 Azure 訂用帳戶和資源群組來移動復原服務保存庫。
-services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 57263dfd1e226f2ff4321b2d097d30106fae87fa
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0e351a842a303430e66a52a87305cba23f774ef2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304914"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465824"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 訂用帳戶和資源群組移動復原服務保存庫
 
@@ -54,23 +53,23 @@ ms.locfileid: "68304914"
 
    ![開啟復原服務保存庫](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   如果您沒看到保存庫的 [基本資訊]  資訊，請按下拉圖示。 您現在應該就會看到保存庫的 [基本資訊] 資訊。
+   如果您沒看到保存庫的 [基本資訊] 資訊，請按下拉圖示。 您現在應該就會看到保存庫的 [基本資訊] 資訊。
 
    ![[基本資訊] 索引標籤](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. 在保存庫的 [概觀] 功能表中，按一下 [資源群組]  旁的 [變更]  ，以開啟 [移動資源]  刀鋒視窗。
+3. 在保存庫的 [概觀] 功能表中，按一下 [資源群組] 旁的 [變更]，以開啟 [移動資源] 刀鋒視窗。
 
    ![變更資源群組](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. 在 [移動資源]  刀鋒視窗中，我們針對所選保存庫的建議是，藉由如下圖所示地選取核取方塊，來移動選擇性的相關資源。
+4. 在 [移動資源] 刀鋒視窗中，我們針對所選保存庫的建議是，藉由如下圖所示地選取核取方塊，來移動選擇性的相關資源。
 
    ![移動訂用帳戶](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. 若要新增目標資源群組，請在 [資源群組]  下拉式清單中選取現有資源群組，或按一下 [建立新群組]  選項。
+5. 若要新增目標資源群組，請在 [資源群組] 下拉式清單中選取現有資源群組，或按一下 [建立新群組] 選項。
 
    ![建立資源](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. 在新增資源群組之後，請確認 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼]  選項，然後按一下 [確定]  以完成保存庫移動作業。
+6. 在新增資源群組之後，請確認 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼] 選項，然後按一下 [確定] 以完成保存庫移動作業。
 
    ![確認訊息](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -84,24 +83,24 @@ ms.locfileid: "68304914"
 
     ![開啟復原服務保存庫](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-    如果您沒看到保存庫的 [基本資訊]  資訊，請按下拉圖示。 您現在應該就會看到保存庫的 [基本資訊] 資訊。
+    如果您沒看到保存庫的 [基本資訊] 資訊，請按下拉圖示。 您現在應該就會看到保存庫的 [基本資訊] 資訊。
 
     ![[基本資訊] 索引標籤](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. 在保存庫的 [概觀] 功能表中，按一下 [訂用帳戶]  旁的 [變更]  ，以開啟 [移動資源]  刀鋒視窗。
+3. 在保存庫的 [概觀] 功能表中，按一下 [訂用帳戶] 旁的 [變更]，以開啟 [移動資源] 刀鋒視窗。
 
    ![變更訂用帳戶](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
-4. 選取要移動的資源，建議您在這裡使用 [全選]  選項來選取所有列出的選擇性資源。
+4. 選取要移動的資源，建議您在這裡使用 [全選] 選項來選取所有列出的選擇性資源。
 
    ![移動資源](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
-5. 從 [訂用帳戶]  下拉式清單選取您想要作為保存庫移動目的地的目標訂用帳戶。
-6. 若要新增目標資源群組，請在 [資源群組]  下拉式清單中選取現有資源群組，或按一下 [建立新群組]  選項。
+5. 從 [訂用帳戶] 下拉式清單選取您想要作為保存庫移動目的地的目標訂用帳戶。
+6. 若要新增目標資源群組，請在 [資源群組] 下拉式清單中選取現有資源群組，或按一下 [建立新群組] 選項。
 
-   ![新增訂用帳戶](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![加入訂用帳戶](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. 按一下 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼]  選項來進行確認，然後按一下 [確定]  。
+7. 按一下 [我了解我必須先更新移動之資源所關聯的工具與指令碼，這些工具與指令碼才能使用新的資源識別碼] 選項來進行確認，然後按一下 [確定]。
 
 > [!NOTE]
 > 不支援跨訂用帳戶備份 (RS 保存庫和受保護的 VM 位於不同訂用帳戶) 的案例。 此外，在保存庫移動作業進行期間，將無法修改從本機備援儲存體 (LRS) 到全域備援儲存體 (GRS) (反之亦然) 的儲存體備援選項。

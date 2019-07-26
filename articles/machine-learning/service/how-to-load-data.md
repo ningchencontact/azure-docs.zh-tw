@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bd60d9f9bee55ef1342fe344e8b4f2f64e313331
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876414"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360983"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來載入和讀取資料
 在本文中, 您會瞭解使用 Azure Machine Learning 資料準備 SDK 來載入資料的不同方法。  SDK 支援多個資料擷取功能，包括：
@@ -68,7 +68,7 @@ dflow = dprep.read_lines(path='./data/text_lines.txt')
 dflow.head(5)
 ```
 
-||折線圖|
+||行|
 |----|-----|
 |0|日期 \|\|  最低溫度 \|\|  最高溫度|
 |1|2015-07-1 \|\|  -4.1 \|\|  10.0|
@@ -93,29 +93,29 @@ dflow.head(5)
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|1|ALABAMA|1|101710|Hale County|10171002158| |
-|2|ALABAMA|1|101710|Hale County|10171002162| |
+|1|阿拉巴馬州|1|101710|Hale County|10171002158| |
+|2|阿拉巴馬州|1|101710|Hale County|10171002162| |
 
 
 若要在載入期間排除行，請定義 `skip_rows` 參數。 此參數將會略過 CSV 檔案中遞減載入的資料列 (使用以一為基底的索引)。
 
 ```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
-                          skip_rows=1)
+                       skip_rows=1)
 dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|1|101710|Hale County|10171002158|29|
-|1|ALABAMA|1|101710|Hale County|10171002162|40 |
+|0|阿拉巴馬州|1|101710|Hale County|10171002158|29|
+|1|阿拉巴馬州|1|101710|Hale County|10171002162|40 |
 
 執行下列程式碼以顯示資料行資料類型。
 
 ```python
 dflow.dtypes
 ```
-輸出：
+輸出:
 
     stnam                     object
     fipst                     object
@@ -134,7 +134,7 @@ dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfi
                           inference_arguments=dprep.InferenceArguments.current_culture())
 dflow.dtypes
 ```
-輸出：
+輸出:
 
     stnam                      object
     fipst                     float64
@@ -162,16 +162,17 @@ dflow.head(5)
 |0|None|None|None|None|None|None|None|None|None| |
 |1|None|None|None|None|None|None|None|None|None| |
 |2|None|None|None|None|None|None|None|None|None| |
-|3|RANK|標題|Studio|全球|國內 / %|資料行 1|海外 / %|資料行 2|年^| |
+|3|順序|標題|Studio|全球|國內 / %|資料行 1|海外 / %|資料行 2|年^| |
 |4|1|阿凡達|福斯|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 輸出顯示第二個工作表中的資料在標頭之前有三個空白資料列。 `read_excel()` 函式包含選擇性參數，可略過資料列並使用標頭。 執行下列程式碼可略過前三個資料列，並使用第四個資料列作為標頭。
 
 ```python
-dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx',
+                         sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||RANK|標題|Studio|全球|國內 / %|資料行 1|海外 / %|資料行 2|年^|
+||順序|標題|Studio|全球|國內 / %|資料行 1|海外 / %|資料行 2|年^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|阿凡達|福斯|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|鐵達尼號|派拉蒙影業|2186.8|658.7|0.301|1528.1|0.699|1997^|
@@ -181,7 +182,8 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_colu
 若要載入固定寬度的檔案, 請指定字元位移清單。 第一個資料行一律假設為從零位移開始。
 
 ```python
-dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
+                       offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dflow.head(5)
 ```
 
@@ -195,8 +197,8 @@ dflow.head(5)
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt',
-                          offsets=[7, 13, 43, 46, 52, 58, 65, 73],
-                          header=dprep.PromoteHeadersMode.NONE)
+                       offsets=[7, 13, 43, 46, 52, 58, 65, 73],
+                       header=dprep.PromoteHeadersMode.NONE)
 ```
 
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|Column9|
@@ -228,7 +230,7 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |ProductID|名稱|ProductNumber|色彩|StandardCost|ListPrice|Size|Weight|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+| |ProductID|名稱|ProductNumber|色彩|StandardCost|ListPrice|Size|權數|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|黑色|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
 |1|706|HL Road Frame - Red, 58|FR-R92R-58|紅色|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
@@ -300,13 +302,16 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 import adal
 from azureml.dataprep.api.datasources import DataLakeDataSource
 
-ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
-token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+ctx = adal.AuthenticationContext(
+    'https://login.microsoftonline.com/microsoft.onmicrosoft.com')
+token = ctx.acquire_token_with_client_certificate(
+    'https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
+dflow = dprep.read_csv(path=DataLakeDataSource(
+    path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|網站|street|city|郡/縣|
+||FMID|MarketName|網站|street|city|縣市|
 |----|------|-----|----|----|----|----|
 |0|1012063|喀里多尼亞農民市場協會 - 丹維爾|https://sites.google.com/site/caledoniafarmers.. ||丹維爾|喀里多尼亞|
 |1|1011871|Stearns Homestead 農民市集|http://Stearnshomestead.com |6975 Ridge Road|帕爾馬|凱霍加郡|

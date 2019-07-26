@@ -3,23 +3,18 @@ title: 建立 Node.js Express 應用程式並部署到 Azure 雲端服務
 description: 在 Node.js 中建立 Express.js 應用程式並部署到 Azure 雲端服務
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: b3d8e364a982f85ad9df6e48dc4d28da1e8efb40
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528145"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359060"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>在 Azure 雲端服務上使用 Express 建置和部署 Node.js Web 應用程式
 
@@ -35,7 +30,7 @@ Node.js 包含核心執行時期的一組最低功能。
 
 請執行下列步驟來建立名為 'expressapp' 的新雲端服務專案：
 
-1. 從 [開始功能表]  或 [開始畫面]  搜尋 **Windows PowerShell**。 最後，用滑鼠右鍵按一下 [Windows PowerShell]  ，然後選取 [以系統管理員身分執行]  。
+1. 從 [開始功能表] 或 [開始畫面] 搜尋 **Windows PowerShell**。 最後，用滑鼠右鍵按一下 [Windows PowerShell]，然後選取 [以系統管理員身分執行]。
    
     ![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 2. 切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **expressapp** 的新方案和名為 **WebRole1** 的 Web 角色：
@@ -98,7 +93,7 @@ Node.js 包含核心執行時期的一組最低功能。
    
    ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade 是 Express 應用程式使用的預設檢視引擎。 如需有關 Jade 檢視引擎的詳細資訊，請參閱 [http://jade-lang.com][http://jade-lang.com]。
+   Jade 是 Express 應用程式使用的預設檢視引擎。 如需 Jade view 引擎的詳細資訊, 請[http://jade-lang.com][http://jade-lang.com]參閱。
 2. 修改最後一行文字，加上 **in Azure**。
    
    ![index.jade 檔案，最後一行是：p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

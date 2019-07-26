@@ -14,34 +14,34 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991742"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360803"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-在本教學課程中，您將了解如何建立 Java 應用程式以傳送和接收來自服務匯流排佇列的訊息。 
+在本教學課程中, 您將瞭解如何建立 JAVA 應用程式, 以在服務匯流排佇列中傳送和接收訊息。 
 
 > [!NOTE]
 > 您可以在 GitHub 的 [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) 中找到 Java 範例。
 
-## <a name="prerequisites"></a>先決條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。
-    1. 閱讀快速**概觀**的服務匯流排**佇列**。 
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 如果您沒有要使用的佇列, 請遵循[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟來建立佇列。
+    1. 閱讀服務匯流排**佇列**的快速**總覽**。 
     2. 建立服務匯流排**命名空間**。 
     3. 取得**連接字串**。
-    4. 建立服務匯流排**佇列**。
-3. 安裝[Azure SDK for Java][Azure SDK for Java]。 
+    4. 建立服務匯流排的**佇列**。
+3. 安裝[適用于 JAVA 的 AZURE SDK][Azure SDK for Java]。 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
-在建置此範例之前，請先確定您已安裝 [Azure SDK for Java][Azure SDK for Java]。 如果您使用的是 Eclipse，則可以安裝包含 Azure SDK for Java 的[適用於 Eclipse 的 Azure 工具組][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
+請確定您已安裝[azure sdk for java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] , 其中包含 azure sdk for java。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![可新增程式庫之 [媒體櫃] 索引標籤的螢幕擷取畫面](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 在 Java 檔案頂端新增下列 `import` 陳述式：
 
@@ -187,7 +187,7 @@ public void run() throws Exception {
 > 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
-既然您已了解「服務匯流排」佇列的基本概念，請參閱[佇列、主題和訂用帳戶][Queues, topics, and subscriptions]來取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][Queues, topics, and subscriptions]，以取得詳細資訊。
 
 如需詳細資訊，請參閱 [Java 開發人員中心](https://azure.microsoft.com/develop/java/)。
 

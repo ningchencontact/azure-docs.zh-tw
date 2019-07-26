@@ -5,15 +5,15 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c0e97eed0a4028fdd9d2254fd9472dc3141d607a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239842"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467804"
 ---
 # <a name="work-with-azure-cosmos-account"></a>使用 Azure Cosmos 帳戶
 
@@ -21,7 +21,7 @@ Azure Cosmos DB 是完全受控的平台即服務 (PaaS)。 若要開始使用 A
 
 Azure Cosmos 帳戶是全域散發和高可用性的基本單位。 若要將您的資料和輸送量全域散發至多個 Azure 區域，您可以隨時在 Azure Cosmos 帳戶中新增和移除 Azure 區域。 您可以設定 Azure Cosmos 帳戶，使其包含單一或多個寫入區域。 如需詳細資訊，請參閱[如何在 Azure Cosmos 帳戶中新增和移除 Azure 區域](how-to-manage-database-account.md)。 您可以在 Azure Cosmos 帳戶上設定[預設一致性](consistency-levels.md)層級。 Azure Cosmos DB 會提供涵蓋輸送量、第 99 百分位的延遲，一致性和高可用性的完整 SLA。 如需詳細資訊，請參閱 [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)。
 
-若要安全地管理 Azure Cosmos 帳戶內的所有資料的存取權，您可以使用[主要金鑰](secure-access-to-data.md)與您帳戶相關聯。 若要進一步保護您資料的存取權，您可以設定[VNET 服務端點](vnet-service-endpoint.md)並[IP 防火牆](firewall-support.md)上您的 Azure Cosmos 帳戶。 
+若要安全地管理您的 Azure Cosmos 帳戶中所有資料的存取權, 您可以使用與您的帳戶相關聯的[主要金鑰](secure-access-to-data.md)。 若要進一步保護您資料的存取, 您可以在 Azure Cosmos 帳戶上設定[VNET 服務端點](vnet-service-endpoint.md)和[IP 防火牆](firewall-support.md)。 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Azure Cosmos 帳戶中的元素
 
@@ -29,11 +29,11 @@ Azure Cosmos DB 容器是延展性的基本單位。 您在容器上可佈建的
 
 目前，您在一個 Azure 訂用帳戶下最多可建立 100 個 Azure Cosmos 帳戶。 單一 Azure Cosmos 帳戶可管理的資料量和佈建的輸送量幾乎不受限制。 若要管理您的資料和佈建的輸送量，您可以在您的帳戶下建立一或多個 Azure Cosmos 資料庫，並且可在該資料庫內建立一或多個容器。 下圖顯示 Azure Cosmos 帳戶中的元素階層：
 
-![Azure Cosmos 帳戶的階層架構](./media/account-overview/hierarchy.png)
+![Azure Cosmos 帳戶的階層](./media/account-overview/hierarchy.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何管理您的 Azure Cosmos 帳戶和其他概念：
+瞭解如何管理您的 Azure Cosmos 帳戶和其他概念:
 
 * [如何管理 Azure Cosmos 帳戶](how-to-manage-database-account.md)
 * [全球發佈](distribute-data-globally.md)

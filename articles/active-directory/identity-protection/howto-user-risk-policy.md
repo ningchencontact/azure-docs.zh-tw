@@ -2,38 +2,31 @@
 title: 如何在 Azure Active Directory Identity Protection 中設定使用者風險原則 | Microsoft Docs
 description: 了解如何設定 Azure AD Identity Protection 使用者風險原則。
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108923"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335448"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>如何：設定使用者風險原則
 
-透過使用者風險，Azure AD 可偵測使用者帳戶遭到入侵的可能性。 身為管理員，您可以設定使用者風險條件式存取原則，自動回應至特定的使用者風險層級。
+透過使用者風險，Azure AD 可偵測使用者帳戶遭到入侵的可能性。 身為系統管理員, 您可以設定使用者風險條件式存取原則, 以自動回應特定的使用者風險層級。
  
 本文提供設定使用者風險原則所需的資訊。
 
-
 ## <a name="what-is-a-user-risk-policy"></a>什麼是使用者風險原則？
 
-Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 雖然可以即時偵測到有些風險事件，但也有宜些風險事件需要更多時間。 例如，若要偵測不可能到達非典型位置的旅行，系統需要 14 天的初始學習期間，才能了解使用者的一般行為。 有數個選項可以解決偵測到的風險事件。 例如，您可以手動解決個別的風險事件，或者您也可以將它們解析使用的登入風險] 或 [使用者風險條件式存取原則取得。
+Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 雖然可以即時偵測到有些風險事件，但也有宜些風險事件需要更多時間。 例如，若要偵測不可能到達非典型位置的旅行，系統需要 14 天的初始學習期間，才能了解使用者的一般行為。 有數個選項可以解決偵測到的風險事件。 例如, 您可以手動解決個別風險事件, 也可以使用登入風險或使用者風險條件式存取原則來加以解決。
 
 針對使用者偵測到但未獲得解決的所有風險事件也稱為作用中風險事件。 與使用者相關聯的作用中風險事件也稱為使用者風險。 Azure AD 會根據使用者風險，計算使用者遭到入侵的可能性 (低、中、高)。 此可能性稱為使用者風險層級。
 
@@ -41,14 +34,11 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 使用者風險原則是您可以針對特定使用者風險層級設定的自動化回應。 利用使用者風險原則，您可以封鎖對資源的存取，或需要變更密碼，讓使用者帳戶回到初始狀態。
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>如何存取使用者風險原則？
    
-登入風險原則位於 [Azure AD Identity Protection]  頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
+登入風險原則位於 [Azure AD Identity Protection] 頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
    
 ![使用者風險原則](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>原則設定
 
@@ -64,7 +54,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 - 您想要在符合登入風險層級時強制執行的存取類型：  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![存取權](./media/howto-user-risk-policy/13.png)
 
 - 原則的狀態：
 
@@ -78,18 +68,17 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 您可以設定使用者風險安全性原則，以根據風險層級防止使用者登入。
 
-![封鎖](./media/howto-user-risk-policy/16.png)
-
+![正在封鎖](./media/howto-user-risk-policy/16.png)
 
 封鎖登入：
 
 * 避免對受影響的使用者產生新的使用者風險事件
 * 可讓系統管理員手動地補救會影響使用者身分識別的風險事件，並將它還原到安全的狀態
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 選擇 [高]  臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。
-不過，這會從原則中排除標示 [低]  和 [中]  度風險的使用者，而無法保護先前疑似或已知遭到入侵的身分識別或裝置。
+不過，這會從原則中排除標示 [低] 和 [中] 度風險的使用者，而無法保護先前疑似或已知遭到入侵的身分識別或裝置。
 
 設定原則時，
 
@@ -107,12 +96,9 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 **開啟相關的組態對話方塊**：
 
-- 在 [Azure AD Identity Protection]  刀鋒視窗的 [設定]  區段中，按一下 [使用者風險原則]  。
+- 在 [Azure AD Identity Protection] 刀鋒視窗的 [設定] 區段中，按一下 [使用者風險原則]。
 
     ![使用者風險原則](./media/howto-user-risk-policy/1009.png "使用者風險原則")
-
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

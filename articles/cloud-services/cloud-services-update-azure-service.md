@@ -2,24 +2,17 @@
 title: 如何更新雲端服務 | Microsoft Docs
 description: 了解如何在 Azure 中更新雲端服務。 了解如何繼續進行雲端服務更新來確保可用性。
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653867"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360715"
 ---
 # <a name="how-to-update-a-cloud-service"></a>如何更新雲端服務
 
@@ -141,7 +134,7 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
   1. Locked 元素可讓您偵測何時可對指定的部署叫用變更作業。
   2. RollbackAllowed 項目可讓您偵測何時可對指定的部署呼叫 [復原更新或升級](/previous-versions/azure/reference/hh403977(v=azure.100)) 作業。
 
-  若要執行復原，您不必同時檢查 Locked 和 RollbackAllowed 元素。 就足以確認 RollbackAllowed 已設定為 true。 使用要求標頭設定為叫用這些方法時，才會傳回這些元素 「 x ms 版本：2011-10-01"或更新版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
+  若要執行復原，您不必同時檢查 Locked 和 RollbackAllowed 元素。 就足以確認 RollbackAllowed 已設定為 true。 只有在使用設定為 "x-ms-版本的要求標頭叫用這些方法時, 才會傳回這些元素:2011-10-01 "或更新版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
 
 有某些情況下，不支援復原更新或升級，如下所示：
 
@@ -156,17 +149,17 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>在進行中的部署上起始多項變更作業
-在某些情況下，您可能想要在進行中的部署上起始多項同時變更作業。 例如，您可能執行服務更新，而當該更新推展於您的服務時，您想要進行一些變更，例如復原更新、套用不同的更新，或甚至刪除部署。 如果服務升級包含會使已升級的角色執行個體反覆損毀的不良程式碼，則可能必須這麼做。 在此情況下，Azure 網狀架構控制器將無法繼續套用該升級，因為已升級網域中的執行個體數目不足屬於正常狀況。 此狀態稱為「停滯部署」  。 復原更新或在失敗的更新之上套用全新的更新，即可脫離停滯部署狀態。
+在某些情況下，您可能想要在進行中的部署上起始多項同時變更作業。 例如，您可能執行服務更新，而當該更新推展於您的服務時，您想要進行一些變更，例如復原更新、套用不同的更新，或甚至刪除部署。 如果服務升級包含會使已升級的角色執行個體反覆損毀的不良程式碼，則可能必須這麼做。 在此情況下，Azure 網狀架構控制器將無法繼續套用該升級，因為已升級網域中的執行個體數目不足屬於正常狀況。 此狀態稱為「停滯部署」 。 復原更新或在失敗的更新之上套用全新的更新，即可脫離停滯部署狀態。
 
 一旦 Azure 網狀架構控制器收到更新或升級服務的初始要求，您就可以開始進行後續的變更作業。 也就是說，您不必等候初始作業完成，即可開始進行另一個變更作業。
 
 在第一個更新正在進行時起始第二個更新作業，將類似於執行復原作業。 如果第二個更新處於自動模式，則第一個升級網域將會立即升級，這可能會導致多個升級網域中的執行個體在同一時間離線。
 
-變更作業如下所示：[變更部署組態](/previous-versions/azure/reference/ee460809(v=azure.100))，[部署升級](/previous-versions/azure/reference/ee460793(v=azure.100))，[更新部署狀態](/previous-versions/azure/reference/ee460808(v=azure.100))，[刪除部署](/previous-versions/azure/reference/ee460815(v=azure.100))，以及[復原更新或升級](/previous-versions/azure/reference/hh403977(v=azure.100))。
+變更作業如下所示:[變更部署](/previous-versions/azure/reference/ee460809(v=azure.100))設定、[升級部署](/previous-versions/azure/reference/ee460793(v=azure.100))、[更新部署狀態](/previous-versions/azure/reference/ee460808(v=azure.100))、[刪除部署](/previous-versions/azure/reference/ee460815(v=azure.100)), 以及[復原更新或升級](/previous-versions/azure/reference/hh403977(v=azure.100))。
 
 [取得部署](/previous-versions/azure/reference/ee460804(v=azure.100))和[取得雲端服務屬性](/previous-versions/azure/reference/ee460806(v=azure.100))這兩項作業會傳回 Locked 旗標，檢查該旗標可以判斷是否可以在指定的部署上叫用變更作業。
 
-若要呼叫這些方法會傳回 Locked 旗標的版本，您必須將要求標頭"x ms 版本：2011-10-01"或更新的版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
+若要呼叫這些傳回鎖定旗標之方法的版本, 您必須將要求標頭設定為 "x-ms-version:2011-10-01 "或更新版本。 如需標頭版本控制的詳細資訊，請參閱 [服務管理版本控制](/previous-versions/azure/gg592580(v=azure.100))。
 
 <a name="distributiondfroles"></a>
 

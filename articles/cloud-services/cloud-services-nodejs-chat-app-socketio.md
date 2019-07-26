@@ -3,23 +3,18 @@ title: 使用 Socket.io 的 Node.js 應用程式 - Azure
 description: 學習如何在裝載於 Azure 的 node.js 應用程式中使用 socket.io。
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433129"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359068"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
 
@@ -39,7 +34,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 ## <a name="create-a-cloud-service-project"></a>建立雲端服務專案
 下列步驟會建立雲端服務專案來裝載 Socket.IO 應用程式。
 
-1. 從 [開始功能表]  或 [開始畫面]  搜尋 **Windows PowerShell**。 最後，用滑鼠右鍵按一下 [Windows PowerShell]  ，然後選取 [以系統管理員身分執行]  。
+1. 從 [開始功能表] 或 [開始畫面] 搜尋 **Windows PowerShell**。 最後，用滑鼠右鍵按一下 [Windows PowerShell]，然後選取 [以系統管理員身分執行]。
    
     ![Azure PowerShell icon][powershell-menu]
 2. 建立名為 **c:\\node** 的目錄。 
@@ -109,9 +104,9 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > 如果您遇到問題，例如啟動模擬器，。:Start-azureemulator:發生未預期的失敗。  詳細資料：發生未預期的錯誤通訊物件 System.ServiceModel.Channels.ServiceChannel 無法用於通訊因為它處於 Faulted 狀態。
+   > 如果您遇到啟動模擬器的問題, 例如:開始-Stop-azureemulator:發生未預期的失敗。  詳細資料:發生未預期的錯誤, 通訊物件 ServiceChannel 無法用於通訊, 因為它處於錯誤狀態。
    > 
-   > 重新安裝 AzureAuthoringTools v 2.7.1 和 AzureComputeEmulator v 2.7-請確定版本相符。
+   > 重新安裝 AzureAuthoringTools v 2.7.1 和 AzureComputeEmulator v 2.7-請確定該版本符合。
 
 2. 開啟瀏覽器並瀏覽至 **http://127.0.0.1** 。
 3. 當瀏覽器視窗開啟時，請輸入暱稱，然後按 Enter 鍵。
@@ -147,7 +142,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 > 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。 若要了解如何在 Azure 網站中裝載此應用程式，請參閱[在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式][chatwebsite]。
+在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。 若要瞭解如何在 Azure 網站中裝載此應用程式, 請參閱[使用 azure 網站上的 Socket.IO 建立 Node.js 聊天應用程式][chatwebsite]。
 
 如需詳細資訊，也請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)。
 

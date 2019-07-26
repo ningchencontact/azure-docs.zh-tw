@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 269568c172ff6c65c9877f9ad22067a11125b339
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847553"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370482"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning 中的定型執行期間記錄計量
 
@@ -29,13 +29,13 @@ ms.locfileid: "67847553"
 
 |Type| Python 函式 | 注意|
 |----|:----|:----|
-|純量值 |函式：<br>`run.log(name, value, description='')`<br><br>範例：<br>run.log("accuracy", 0.95) |使用指定名稱將數字或字串值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
-|清單|函式：<br>`run.log_list(name, value, description='')`<br><br>範例：<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | 使用指定名稱將值清單記錄到執行中。|
-|資料列|函式：<br>`run.log_row(name, description=None, **kwargs)`<br>範例：<br>run.log_row("Y over X", x=1, y=0.4) | 使用 log_row  建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
-|資料表|函式：<br>`run.log_table(name, value, description='')`<br><br>範例：<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
-|映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例：<br>`run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
-|標記執行|函式：<br>`run.tag(key, value=None)`<br><br>範例：<br>run.tag("selected", "yes") | 使用字串索引鍵和可選字串值標記執行。|
-|上傳檔案或目錄|函式：<br>`run.upload_file(name, path_or_stream)`<br> <br> 範例：<br>run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
+|純量值 |函式：<br>`run.log(name, value, description='')`<br><br>範例:<br>run.log("accuracy", 0.95) |使用指定名稱將數字或字串值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
+|清單|函式：<br>`run.log_list(name, value, description='')`<br><br>範例:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | 使用指定名稱將值清單記錄到執行中。|
+|資料列|函式：<br>`run.log_row(name, description=None, **kwargs)`<br>範例:<br>run.log_row("Y over X", x=1, y=0.4) | 使用 log_row 建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
+|資料表|函式：<br>`run.log_table(name, value, description='')`<br><br>範例:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
+|映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例:<br>`run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
+|標記執行|函式：<br>`run.tag(key, value=None)`<br><br>範例:<br>run.tag("selected", "yes") | 使用字串索引鍵和可選字串值標記執行。|
+|上傳檔案或目錄|函式：<br>`run.upload_file(name, path_or_stream)`<br> <br> 範例:<br>run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
 
 > [!NOTE]
 > 純量、清單、資料列和資料表的計量可具有以下類型：浮點數、整數或字串。
@@ -225,8 +225,8 @@ ms.locfileid: "67847553"
 
 ## <a name="view-run-details"></a>檢視執行詳細資料
 
-### <a name="monitor-run-with-jupyter-notebook-widgets"></a>使用 Jupyter Notebook 小工具執行監視
-當您使用 **ScriptRunConfig** 方法以提交執行時，您可以查看使用 Jupyter Notebook 小工具執行的進度。 就像執行提交一樣，小工具為非同步工作，並每隔 10 至 15 秒提供即時更新，直到工作完成為止。
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>使用 Jupyter 筆記本 widget 執行監視
+當您使用**ScriptRunConfig**方法來提交回合時, 您可以監看執行與[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)的進度。 就像執行提交一樣，小工具為非同步工作，並每隔 10 至 15 秒提供即時更新，直到工作完成為止。
 
 1. 等待執行完成時，檢視 Jupyter 小工具。
 
@@ -236,6 +236,12 @@ ms.locfileid: "67847553"
    ```
 
    ![Jupyter Notebook 小工具的螢幕擷取畫面](./media/how-to-track-experiments/run-details-widget.png)
+
+您也可以取得工作區中相同顯示的連結。
+
+```python
+print(run.get_portal_url())
+```
 
 2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 以`<<experiment_name>>`適當的實驗名稱取代:
 
@@ -257,7 +263,8 @@ ms.locfileid: "67847553"
 ### <a name="get-log-results-upon-completion"></a>在完成時取得記錄檔結果
 
 模型定型和監視在背景進行，以便您可以在等待時執行其他工作。 您也可以等到模型完成定型，再執行更多程式碼。 當您使用 **ScriptRunConfig** 時，可以使用 ```run.wait_for_completion(show_output = True)``` 以顯示模型定型完成的時間。 ```show_output``` 旗標為您提供詳細資訊輸出。 
-  
+
+
 ### <a name="query-run-metrics"></a>查詢執行計量
 
 您可以使用 ```run.get_metrics()``` 檢視定型模型的計量。 您現在可以取得上述範例中記錄的所有計量，以確定最佳模型。
@@ -287,140 +294,6 @@ ms.locfileid: "67847553"
 |使用 2 個數字資料行重複記錄資料列|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|兩個變數的折線圖|
 |使用 2 個數字資料行記錄資料表|`run.log_table(name='Sine Wave', value=sines)`|兩個變數的折線圖|
 
-<a name="auto"></a>
-## <a name="understanding-automated-ml-charts"></a>了解自動化 ML 圖表
-
-在 Notebook 中提交自動化 ML 作業之後，您可以在機器學習服務工作區中找到這些回合的記錄。 
-
-深入了解：
-+ [分類模型的圖表和曲線](#classification)
-+ [迴歸模型的圖表和圖形](#regression)
-+ [模型說明能力](#model-explain-ability-and-feature-importance)
-
-
-### <a name="view-the-run-charts"></a>檢視回合圖表
-
-1. 移至工作區。 
-
-1. 在工作區的最左邊面板中，選取 [實驗]  。
-
-   ![實驗功能表的螢幕擷取畫面](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-menu.png)
-
-1. 選取您感興趣的實驗。
-
-   ![實驗清單](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-list.png)
-
-1. 在表格中，選取回合數。
-
-   ![實驗回合](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-run.png)
-
-1. 在表格中，選取您想要進一步探索之模型的重覆項目數。
-
-   ![實驗模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment-model.png)
-
-
-
-### <a name="classification"></a>分類
-
-對於您使用 Azure Machine Learning 自動化機器學習功能建置的每個分類模型，您可以查看下列圖表： 
-+ [混淆矩陣](#confusion-matrix)
-+ [精確度與召回率圖表](#precision-recall-chart)
-+ [接收者操作特徵 (或 ROC)](#roc)
-+ [升力曲線](#lift-curve)
-+ [增益曲線](#gains-curve)
-+ [校正圖](#calibration-plot)
-
-#### <a name="confusion-matrix"></a>混淆矩陣
-
-混淆矩陣可用來說明分類模型的效能。 每一列都會顯示真值類別的執行個體，而每一行均代表預測類別的執行個體。 混淆矩陣會針對指定的模型來顯示分類正確的標籤和分類不正確的標籤。
-
-針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣，自動化 ML 會將分類正確的標籤顯示為綠色，並將分類不正確的標籤顯示為紅色。 圓形的大小代表該組合中的樣本數。 此外，每個預測標籤和每個真值標籤的頻率計數均會顯示於相鄰的長條圖中。 
-
-範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
-
-範例 2：高準確度的分類模型 (理想) ![高準確度的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
-
-
-#### <a name="precision-recall-chart"></a>精確度與召回率圖表
-
-利用此圖表，您可以比較每個模型的精確度與召回率曲線，以針對您的特定商務問題來判斷哪一個模型在精確度與召回率之間具有可接受的關聯性。 此圖表顯示宏平均精確度與召回率、微平均精確度與召回率，以及與模型之所有類別相關聯的精確度與召回率。
-
-精確度一詞代表分類器能夠正確標示所有執行個體。 召回率代表分類器能夠針對特定標籤找到的所有執行個體。 精確度與召回率曲線會顯示這兩個概念之間的關聯性。 在理想情況下，此模型會有 100% 的精確度和 100% 的準確度。
-
-範例 1：具有低精確度與低召回率的分類模型 ![具有低精確度與低召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall1.png)
-
-範例 2：具有 ~100% 精確度與 ~100% 召回率的分類模型 (理想) ![具有高精確度與召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision-recall2.png)
-
-#### <a name="roc"></a>ROC
-
-接收者操作特徵 (或 ROC) 是對於特定模型之分類正確標籤與分類不正確標籤的繪圖。 在具有高偏差的資料集上將模型定型時，ROC 曲線可提供的資訊較少，因為它將不會顯示誤判標籤。
-
-範例 1：具有低確判標籤與高誤判標籤的分類模型 ![具有低確判標籤與高誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-1.png)
-
-範例 2：具有高確判標籤與低誤判標籤的分類模型 ![具有高確判標籤與低誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc-2.png)
-
-#### <a name="lift-curve"></a>升力曲線
-
-您可以將使用 Azure Machine Learning 自動建置的模型升力與基準進行比較，以檢視該特定模型的值增益。
-
-升力圖可用來評估分類模型的效能。 它會顯示相較於不使用模型，您能夠預期使用模型會做得更好。 
-
-範例 1：模型執行效能比隨機選取模型更糟 ![比隨機選取模型更糟的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve1.png)
-
-範例 2：模型執行效能優於隨機選取模型 ![執行得更好的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift-curve2.png)
-
-#### <a name="gains-curve"></a>增益曲線
-
-增益圖會依每個部分的資料來評估分類模型的效能。 它會顯示資料集的每個百分位數值，相較於隨機選取模型，您能夠預期它會執行得更好。
-
-使用累計增益圖，可協助您使用對應至模型中所需增益的百分比來選擇分類截止。 此資訊提供另一種方式來查看隨附升力圖中的結果。
-
-範例 1：增益最少的分類模型 ![增益最少的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve1.png)
-
-範例 2：增益顯著的分類模型 ![增益顯著的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains-curve2.png)
-
-#### <a name="calibration-plot"></a>校正圖
-
-針對所有分類問題，您可以檢閱微平均、宏平均及指定預測模型中每個類別的校正線。 
-
-校正圖可用來顯示預測模型的信賴度。 它會顯示預測機率與實際機率之間的關聯性，其中「機率」代表特定執行個體屬於某個標籤的可能性。 經過準確校正的模型會與 y=x 線對齊，在其預測中具有合理的信賴度。 過度信賴的模型會與 y=0 線對齊，其會顯示預測機率，但沒有任何實際機率。
-
-範例 1：經過更準確校正的模型 ![經過更準確校正的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve1.png)
-
-範例 2：過度信賴的模型 ![過度信賴的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib-curve2.png)
-
-### <a name="regression"></a>迴歸
-對於您使用 Azure Machine Learning 自動化機器學習功能建置的每個迴歸模型，您可以查看下列圖表： 
-+ [預測與真值](#pvt)
-+ [殘差直方圖](#histo)
-
-<a name="pvt"></a>
-
-#### <a name="predicted-vs-true"></a>預測與True
-
-「預測與真值」會針對迴歸問題顯示預測值與其相互關聯真值之間的關聯性。 此圖表可用來測量模型的效能，因為預設值愈接近 y=x 線，預測模型的準確度就愈好。
-
-在每個回合之後，您都能查看每個迴歸模型的預測與真值圖。 為了保護資料隱私權，會將值組合在一起，而每組的大小均會顯示為圖表區域下半部的長條圖。 您可以根據模型所在的理想值，將預測模型與顯示誤差幅度且顏色較淡的陰影區域進行比較。
-
-範例 1：在預測中準確度較低的迴歸模型 ![在預測中準確度較低的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.png)
-
-範例 2：在其預測中準確度較高的迴歸模型 ![在其預測中準確度較高的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a>
-
-#### <a name="histogram-of-residuals"></a>殘差直方圖
-
-殘差代表觀察到的 y - 預測的 y。 若要顯示低偏差的錯誤幅度，殘差直方圖應該會形成以 0 為中心的鐘形曲線。 
-
-範例 1：其錯誤中有偏差的迴歸模型 ![其錯誤中有偏差的 SA 迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.png)
-
-範例 2：錯誤分佈更均勻的迴歸模型 ![錯誤分佈更均勻的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.png)
-
-### <a name="model-explain-ability-and-feature-importance"></a>模型說明能力與特徵重要性
-
-特徵重要性讓分數能夠指出每個特徵在模型建構中有多麼重要。 您可以檢閱整個模型以及預測模型上每個類別的特徵重要性分數。 您可以查看每個特徵的重要性如何針對每個類別及整體進行比較。
-
-![特徵說明能力](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## <a name="example-notebooks"></a>Notebook 範例
 下列 Notebook 示範了此文章中說明的概念：
