@@ -4,12 +4,12 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 7b0059dbaafe42200ebfa8dc65ea585a49c5b83f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712581"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320530"
 ---
 `Logging` 設定可管理適用於容器的 ASP.NET Core 記錄支援。 對於您用於 ASP.NET Core 應用程式的容器，您可以使用相同的組態設定和值。 
 
@@ -29,7 +29,7 @@ docker run --rm -it -p 5000:5000 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
@@ -41,14 +41,14 @@ docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Console:LogLevel:Default=Debug
 ```
 
 ### <a name="disk-logging"></a>磁碟記錄
 
-`Disk` 記錄提供者支援下列組態設定：  
+`Disk` 記錄提供者支援下列組態設定：
 
 | 名稱 | 資料類型 | 描述 |
 |------|-----------|-------------|

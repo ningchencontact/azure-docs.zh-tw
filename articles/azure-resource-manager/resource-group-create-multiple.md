@@ -5,20 +5,20 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508183"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494796"
 ---
-# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>資源、 屬性或 Azure Resource Manager 範本中變數的反覆項目
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的資源、屬性或變數反復專案
 
-這篇文章會示範如何在 Azure Resource Manager 範本中建立的資源、 變數或屬性的多個執行個體。 若要建立多個執行個體，請新增`copy`物件至範本。
+本文說明如何在您的 Azure Resource Manager 範本中, 建立一個以上的資源、變數或屬性實例。 若要建立多個實例, `copy`請將物件新增至您的範本。
 
-資源搭配使用時，複製物件具有下列格式：
+與資源搭配使用時, 複製物件的格式如下:
 
 ```json
 "copy": {
@@ -29,7 +29,7 @@ ms.locfileid: "67508183"
 }
 ```
 
-變數或屬性搭配使用時，複製物件具有下列格式：
+與變數或屬性搭配使用時, 複製物件的格式如下:
 
 ```json
 "copy": [
@@ -41,23 +41,23 @@ ms.locfileid: "67508183"
 ]
 ```
 
-這篇文章中的更詳細地說明這兩種用法。 如需教學課程，請參閱[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
+這兩個用法在本文中會有更詳細的說明。 如需教學課程，請參閱[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
 
 若需要指定是否要部署資源，請參閱[條件元素](resource-group-authoring-templates.md#condition)。
 
 ## <a name="copy-limits"></a>複製限制
 
-若要指定的反覆運算次數，您提供的 count 屬性值。 計數不能超過 800。
+若要指定反覆運算次數, 請提供 count 屬性的值。 計數不能超過800。
 
-計數不可為負數。 如果您部署範本，以使用 REST API 版本**2019年-05-10**或更新版本中，您可以在這裡設定計數為零。 較早版本的 REST API 不支援計數為零。 目前，Azure CLI 或 PowerShell 不支援計數為零，但將在未來版本中新增支援。
+計數不可為負數。 如果您部署具有 REST API **2019-05-10**版或更新版本的範本, 您可以將 [計數] 設定為零。 舊版的 REST API 不支援 count 的零。 目前, Azure CLI 或 PowerShell 不支援計數零, 但在未來的版本中將會加入該支援。
 
-請小心使用[完成模式部署](deployment-modes.md)複本。 如果您重新部署到資源群組的完整模式，則會刪除未在範本中指定解決複製迴圈之後的任何資源。
+請小心使用[完整模式部署](deployment-modes.md)搭配 copy。 如果您使用完整模式重新部署至資源群組, 則會刪除在解析複製迴圈後未在範本中指定的任何資源。
 
-是否使用與資源、 變數或屬性計數限制都是相同的。
+無論使用的是資源、變數或屬性, 計數的限制都相同。
 
 ## <a name="resource-iteration"></a>資源反覆項目
 
-當您在部署期間必須決定要建立資源的一個或多個執行個體時，請將 `copy` 元素新增至資源類型。 在複製元素中，指定數目的反覆項目及這個迴圈的名稱。
+當您在部署期間必須決定要建立資源的一個或多個執行個體時，請將 `copy` 元素新增至資源類型。 在 copy 元素中, 指定反覆運算次數和這個迴圈的名稱。
 
 要多次建立的資源會採用下列格式：
 
@@ -98,7 +98,7 @@ ms.locfileid: "67508183"
 * storage1
 * storage2.
 
-若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 在複製元素中，還是指定的反覆運算次數，但 copyIndex 的值會位移指定的值。 因此，下列範例：
+若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 反復專案的數目仍指定于 copy 元素中, 但 copyIndex 的值是以指定的值位移。 因此，下列範例：
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -141,9 +141,9 @@ ms.locfileid: "67508183"
 * storagefabrikam
 * storagecoho
 
-根據預設，Resource Manager 會以平行方式建立資源。 不保證資源會循序建立。 不過，建議您指定將資源部署在序列中。 例如，在更新生產環境時，您可以錯開更新，因此任何一次就只會更新特定數目。
+根據預設，Resource Manager 會以平行方式建立資源。 除了範本中800資源的總限制以外, 不會對平行部署的資源數目套用任何限制。 不保證資源會循序建立。
 
-若要以序列方式部署資源的多個執行個體，請將 `mode` 設定為 **serial** 並將 `batchSize` 設為一次要部署的執行個體數目。 透過序列模式，Resource Manager 會在迴圈中較早的執行個體上建立相依性，因此在前一批次完成之前，它不會啟動一個批次。
+不過，建議您指定將資源部署在序列中。 例如，在更新生產環境時，您可以錯開更新，因此任何一次就只會更新特定數目。 若要以序列方式部署資源的多個執行個體，請將 `mode` 設定為 **serial** 並將 `batchSize` 設為一次要部署的執行個體數目。 透過序列模式，Resource Manager 會在迴圈中較早的執行個體上建立相依性，因此在前一批次完成之前，它不會啟動一個批次。
 
 例如，若要以序列方式一次部署兩個儲存體帳戶，請使用：
 
@@ -176,7 +176,7 @@ ms.locfileid: "67508183"
 
 mode 屬性也接受**平行**，這是預設值。
 
-如需使用巢狀範本中的複製資訊，請參閱[使用複製](resource-group-linked-templates.md#using-copy)。
+如需搭配使用複製與嵌套範本的詳細資訊, 請參閱[使用複製](resource-group-linked-templates.md#using-copy)。
 
 ## <a name="property-iteration"></a>屬性反覆運算
 
@@ -304,7 +304,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 
 若要建立變數的多個執行個體，請在變數區段中使用 `copy` 屬性。 您可以建立一個由 `input` 屬性中的值建構的元素陣列。 您可以在變數中使用 `copy` 屬性，也可以在變數部分的最上層使用。 在變數反覆項目內使用 `copyIndex` 時，您必須提供反覆項目的名稱。
 
-建立陣列的字串值的簡單範例，請參閱 <<c0> [ 複製的陣列範本](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)。
+如需建立字串值陣列的簡單範例, 請參閱[複製陣列範本](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)。
 
 下列範例示範使用動態建構的元素建立陣列變數的幾種不同方式。 它示範如何在變數內使用複製來建立物件和字串的陣列。 它也會示範如何在最上層使用複製來建立物件、字串和整數的陣列。
 
@@ -380,7 +380,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 }
 ```
 
-取得建立的變數的類型取決於輸入的物件。 例如，名為的變數**頂層-層次-物件-陣列**在上述範例中會傳回：
+所建立之變數的類型取決於輸入物件。 例如, 上述範例中名為**最上層物件陣列**的變數會傳回:
 
 ```json
 [
@@ -412,7 +412,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 ]
 ```
 
-而且，名為的變數**頂層-層次字串-陣列**傳回：
+而且, 名為**最上層字串陣列**的變數會傳回:
 
 ```json
 [

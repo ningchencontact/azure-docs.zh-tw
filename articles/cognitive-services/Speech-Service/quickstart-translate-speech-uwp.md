@@ -3,19 +3,18 @@ title: 快速入門：翻譯語音，C# (UWP) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您將會建立簡單的通用 Windows 平台 (UWP) 應用程式來擷取使用者語音，將它翻譯為另一個語言，然後將文字輸出到命令列。 此指南是專為 Windows 使用者設計的。
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: 108edfeb7bfe24184219e0011f054c36c22c9890
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
-ms.translationtype: HT
+ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602775"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404897"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>快速入門：使用適用於 C# (UWP) 的語音 SDK 來翻譯語音
 
@@ -57,19 +56,19 @@ ms.locfileid: "67602775"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-1. 建置應用程式。 從功能表列中，選取 [建置]   >  [建置解決方案]  。 現在會編譯程式碼，而且不會出現任何錯誤。
+1. 建置應用程式。 從功能表列中，選取 [建置]  >  [建置解決方案]。 現在會編譯程式碼，而且不會出現任何錯誤。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-csharp-uwp-08-build.png "成功建置")
 
-1. 啟動應用程式。 從功能表列中，選取 [偵錯]   >  [開始偵錯]  ，或按 **F5**。
+1. 啟動應用程式。 從功能表列中，選取 [偵錯]  >  [開始偵錯]，或按 **F5**。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-csharp-uwp-09-start-debugging.png "啟動應用程式並進行偵錯")
 
-1. 此時會出現快顯視窗。 選取 [啟用麥克風]  ，並確認彈出的權限要求。
+1. 此時會出現快顯視窗。 選取 [啟用麥克風]，並確認彈出的權限要求。
 
     ![權限要求的螢幕擷取畫面](media/sdk/qs-csharp-uwp-10-access-prompt.png "啟動應用程式進入偵錯模式")
 
-1. 選取 [使用麥克風輸入的語音辨識]  ，然後對裝置的麥克風說出英文片語或句子。 您的語音會傳送到語音服務，並且轉譯為文字，出現在視窗中。
+1. 選取 [使用麥克風輸入的語音辨識]，然後對裝置的麥克風說出英文片語或句子。 您的語音會傳送到語音服務，並且轉譯為文字，出現在視窗中。
 
     ![語音辨識使用者介面的螢幕擷取畫面](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 

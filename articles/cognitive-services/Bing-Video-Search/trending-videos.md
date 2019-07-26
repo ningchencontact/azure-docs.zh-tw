@@ -1,6 +1,6 @@
 ---
 title: 使用 Bing 影片搜尋 API 搜尋網路上的發燒影片
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何使用 Bing 影片搜尋 API 來搜尋網路上的發燒影片。
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61431913"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500605"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>使用 Bing 影片搜尋 API 來取得發燒影片 
 

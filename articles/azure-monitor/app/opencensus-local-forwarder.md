@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus 分散式追蹤本機轉寄站 （預覽） |Microsoft docs
+title: Azure 應用程式 Insights OpenCensus 分散式追蹤本機轉寄站 (預覽) |Microsoft 檔
 description: 將 OpenCensus 分散式追蹤 (trace) 和跨度 (span) 從 Python 和 Go 等語言轉送給 Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699300"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348163"
 ---
-# <a name="local-forwarder-preview"></a>本機的轉寄站 （預覽）
+# <a name="local-forwarder-preview"></a>本機轉寄站 (預覽)
 
 本機轉送工具是會從各種 SDK 收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遙測資料的代理程式，並且會將這些資料路由至 Application Insights。 此工具能夠在 Windows 和 Linux 下執行。 您也可以在 macOS 下執行，但目前尚未正式支援。
 
@@ -31,7 +31,7 @@ ms.locfileid: "60699300"
 
 #### <a name="windows-service"></a>Windows 服務
 
-在 Windows 下執行本機轉送工具最簡單的方式是將其安裝為 Windows 服務。 該版本隨附可輕鬆向作業系統註冊的 Windows 服務可執行檔 (WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe  )。
+在 Windows 下執行本機轉送工具最簡單的方式是將其安裝為 Windows 服務。 該版本隨附可輕鬆向作業系統註冊的 Windows 服務可執行檔 (WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe)。
 
 > [!NOTE]
 > 本機轉送工具服務至少需要 .NET Framework 4.7。 如果您沒有 .NET Framework 4.7，服務還是會安裝，但不會啟動。 若要存取最新版本的 .NET Framework， **[請瀏覽 .NET Framework 下載頁面](
@@ -57,9 +57,9 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
         
      ![本機轉送工具服務的螢幕擷取畫面](./media/opencensus-local-forwarder/002-services.png)
 
-3. **以滑鼠右鍵按一下**新的本機轉送工具，然後選取 [啟動]  。 您的服務現在會進入執行狀態。
+3. **以滑鼠右鍵按一下**新的本機轉送工具，然後選取 [啟動]。 您的服務現在會進入執行狀態。
 
-4. 服務建立時並沒有預設任何復原動作。 您可以**按一下滑鼠右鍵**並選取 [屬性]   > [復原]  ，以設定服務錯誤的自動回應。
+4. 服務建立時並沒有預設任何復原動作。 您可以**按一下滑鼠右鍵**並選取 [屬性] > [復原]，以設定服務錯誤的自動回應。
 
     或是，如果您想要以程式設計方式設定發生錯誤時的自動復原選項，您可以使用：
 
@@ -78,11 +78,11 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 #### <a name="console-application"></a>主控台應用程式
 
 針對特定使用案例，將本機轉送工具當作主控台應用程式來執行可能會有些助益。 該版本隨附下列主控台主機的可執行檔版本：
-* 架構相依的 .NET Core 二進位檔：/ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll  。 執行此二進位檔需要安裝 .NET Core 執行階段；請參閱此下載[網頁](https://www.microsoft.com/net/download/dotnet-core/2.1)，以取得詳細資訊。
+* 架構相依的 .NET Core 二進位檔：/ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll。 執行此二進位檔需要安裝 .NET Core 執行階段；請參閱此下載[網頁](https://www.microsoft.com/net/download/dotnet-core/2.1)，以取得詳細資訊。
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* 適用於 x86 和 x64 平台的一組獨立式 .NET Core 二進位檔。 這些不需要執行 .NET Core 執行階段。 /ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe  、/ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe  。
+* 適用於 x86 和 x64 平台的一組獨立式 .NET Core 二進位檔。 這些不需要執行 .NET Core 執行階段。 /ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe、/ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe。
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -91,13 +91,13 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 ### <a name="linux"></a>Linux
 
 如同 Windows，該版本隨附下列主控台主機的可執行檔版本：
-* 架構相依的 .NET Core 二進位檔：/ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll  。 執行此二進位檔需要安裝 .NET Core 執行階段；請參閱此下載[網頁](https://www.microsoft.com/net/download/dotnet-core/2.1)，以取得詳細資訊。
+* 架構相依的 .NET Core 二進位檔：/ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll。 執行此二進位檔需要安裝 .NET Core 執行階段；請參閱此下載[網頁](https://www.microsoft.com/net/download/dotnet-core/2.1)，以取得詳細資訊。
 
 ```batchfile
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* 適用於 linux-64 平台的一組獨立式 .NET Core 二進位檔。 此版本不需要執行 .NET Core 執行階段。 /ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost  。
+* 適用於 linux-64 平台的一組獨立式 .NET Core 二進位檔。 此版本不需要執行 .NET Core 執行階段。 /ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost。
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
@@ -108,8 +108,8 @@ user@machine:~/ConsoleHost/linux-x64/publish$ ./Microsoft.LocalForwarder.Console
 
 例如，讓我們使用 systemd 來建立精靈服務。 我們將使用架構相依版本，但您也可以對獨立式版本使用相同步驟。
 
-* 建立下列名為 localforwarder.service  的服務檔案，並將它放入 /lib/systemd/system  。
-此範例假設您的使用者名稱是 SAMPLE_USER，而且您已經將本機轉送工具的架構相依二進位檔 (在 */ConsoleHost/publish* 中) 複製到 /home/SAMPLE_USER/LOCALFORWARDER_DIR  。
+* 建立下列名為 localforwarder.service 的服務檔案，並將它放入 /lib/systemd/system。
+此範例假設您的使用者名稱是 SAMPLE_USER，而且您已經將本機轉送工具的架構相依二進位檔 (在 */ConsoleHost/publish* 中) 複製到 /home/SAMPLE_USER/LOCALFORWARDER_DIR。
 
 ```
 # localforwarder.service
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* 若要監視服務，可檢查 /home/SAMPLE_USER/LOCALFORWARDER_DIR 目錄中的 *.log  檔案。
+* 若要監視服務，可檢查 /home/SAMPLE_USER/LOCALFORWARDER_DIR 目錄中的 *.log 檔案。
 
 ### <a name="mac"></a>Mac
 本機轉送工具可在 macOS 上執行，但目前尚未正式支援。
@@ -154,7 +154,7 @@ systemctl start localforwarder
 ### <a name="self-hosting"></a>自我裝載
 本機轉送工具也會散發為 .NET Standard NuGet 套件，可讓您將其裝載在自己的 .NET 應用程式中。
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>監視本機轉送工具
 
-追蹤會寫出至可執行檔 (用於執行本機轉送工具) 旁的檔案系統 (尋找 *.log  檔)。 您可以將名為 NLog.config  的檔案放在可執行檔旁邊，以您自己的組態取代預設組態。 請參閱[文件](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format)以了解格式描述。
+追蹤會寫出至可執行檔 (用於執行本機轉送工具) 旁的檔案系統 (尋找 *.log 檔)。 您可以將名為 NLog.config 的檔案放在可執行檔旁邊，以您自己的組態取代預設組態。 請參閱[文件](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format)以了解格式描述。
 
 如果未提供任何組態檔案 (也就是預設狀態)，本機轉送工具會使用預設組態，您可以[在此處](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config)找到該組態。
 

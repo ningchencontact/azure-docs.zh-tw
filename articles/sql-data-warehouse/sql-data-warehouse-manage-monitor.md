@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
+ms.date: 07/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748762"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405430"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 監視工作負載
 本文說明如何使用動態管理檢視 (DMV) 來監視您的工作負載。 這包括調查 Azure SQL 資料倉儲中的查詢執行。
@@ -28,7 +28,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>監視連接
-所有針對 SQL 資料倉儲的登入都會記錄到 [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions]。  這個 DMV 會包含最後 10,000 筆登入。  Session_id 是主索引鍵，並依序指派給每個新的登入。
+所有的 SQL 資料倉儲登入都會記錄到 [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions]。  這個 DMV 會包含最後 10,000 筆登入。  Session_id 是主索引鍵，並依序指派給每個新的登入。
 
 ```sql
 -- Other Active Connections
@@ -36,7 +36,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>監視查詢執行
-SQL 資料倉儲上所執行的所有查詢會都記錄到 [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests]。  這個 DMV 會包含最後 10,000 筆執行的查詢。  Request_id 可唯一識別每筆查詢，而且是此 DMV 的主索引鍵。  Request_id 會依序指派給每筆新查詢，並加上 QID 代表查詢識別碼。  查詢此 DMV 來尋找指定的 session_id，即會顯示指定登入的所有查詢。
+SQL 資料倉儲上執行的所有查詢會都記錄到 [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests]。  這個 DMV 會包含最後 10,000 筆執行的查詢。  Request_id 可唯一識別每筆查詢，而且是此 DMV 的主索引鍵。  Request_id 會依序指派給每筆新查詢，並加上 QID 代表查詢識別碼。  查詢此 DMV 來尋找指定的 session_id，即會顯示指定登入的所有查詢。
 
 > [!NOTE]
 > 預存程序會使用多個要求 ID。  要求 ID 是依序指派。 
@@ -59,18 +59,13 @@ SELECT TOP 10 *
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
 
--- Find a query with the Label 'My Query'
--- Use brackets when querying the label column, as it it a key word
-SELECT  *
-FROM    sys.dm_pdw_exec_requests
-WHERE   [label] = 'My Query';
 ```
 
 從前述的查詢結果中，記下您想要調查之查詢的 **要求 ID** 。
 
-中的查詢**Suspended**狀態可以因為大量的作用中執行的查詢排入佇列。 這些查詢也會出現在[sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)等候查詢中的，類型為 UserConcurrencyResourceType。 如需有關並行限制的資訊，請參閱[效能層級](performance-tiers.md)或[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的[檢查正在等候資源的查詢][Investigating queries waiting for resources]。
+因為有大量作用中的執行中查詢, 所以已**暫停**狀態的查詢可能會排入佇列。 這些查詢也會出現在[_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)中, 等候 UserConcurrencyResourceType 類型的查詢。 如需有關並行限制的資訊，請參閱[效能層級](performance-tiers.md)或[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的 [檢查查詢是否正在等候資源][Investigating queries waiting for resources] 。
 
-若要簡化中的查詢[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)資料表，請使用[標籤][ LABEL]為可以 sys.dm_pdw_exec_ 中查閱您查詢指派註解要求的檢視。
+若要簡化[_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)資料表中查詢的查閱, 請使用[標籤][LABEL]將批註指派給您的查詢, 以便在 _pdw_exec_requests 視圖中進行查閱。
 
 ```sql
 -- Query with Label
@@ -78,10 +73,16 @@ SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query')
 ;
+
+-- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
+SELECT  *
+FROM    sys.dm_pdw_exec_requests
+WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>步驟 2：調查查詢計劃
-使用要求識別碼，從 [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps] 擷取查詢的分散式 SQL (DSQL) 計畫。
+使用要求 ID，從 [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps] 擷取查詢的分散式 SQL (DSQL) 計劃。
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -92,7 +93,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-當 DSQL 計劃所花的時間超出預期時，有可能是含有許多 DSQL 步驟的複雜計劃所導致，或只是某個步驟需要長時間處理。  如果計劃是含有數個移動作業的許多步驟，請考慮最佳化您的資料表散發以減少資料移動。 [資料表散發][Table distribution]一文說明為何需要移動資料才能解決查詢，並說明最小化資料移動的一些散發策略。
+當 DSQL 計劃所花的時間超出預期時，有可能是含有許多 DSQL 步驟的複雜計劃所導致，或只是某個步驟需要長時間處理。  如果計劃是含有數個移動作業的許多步驟，請考慮最佳化您的資料表散發以減少資料移動。 [資料表散發][Table distribution] 一文說明為何需要移動資料才能解決查詢，並說明最小化資料移動的一些散發策略。
 
 進一步調查單一步驟 (長時間執行查詢步驟的 *operation_type* 資料行) 的詳細資料，並且記下**步驟索引**：
 
@@ -100,7 +101,7 @@ ORDER BY step_index;
 * 針對下列**資料移動作業**繼續執行步驟 3b：ShuffleMoveOperation、BroadcastMoveOperation、TrimMoveOperation、PartitionMoveOperation、MoveOperation、CopyOperation。
 
 ### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>步驟 3a︰調查分散式資料庫上的 SQL
-使用要求識別碼及步驟索引，從 [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests] 擷取詳細資料，其中包含所有分散式資料庫上查詢步驟的執行資訊。
+使用要求 ID 及步驟索引，從 [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests] 擷取詳細資料，其中包含所有分散式資料庫上查詢步驟的執行資訊。
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -110,7 +111,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-當查詢步驟正在執行時，可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 針對正在特定散發上執行的步驟，從 SQL Server 計畫快取擷取 SQL Server 預估計畫。
+如果查詢步驟正在執行，則可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 針對特定散發內執行中的步驟從 SQL Server 計劃快取擷取 SQL Server 預估的計劃。
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -120,7 +121,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
 ### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>步驟 3b︰調查分散式資料庫的資料移動
-使用要求識別碼和步驟索引，從 [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers] 擷取在每個散發上執行之資料移動步驟的相關資訊。
+使用要求 ID 和步驟索引，從 [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers] 擷取在每個散發上執行的資料移動步驟的相關資訊。
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -133,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * 檢查 *total_elapsed_time* 資料行，查看是否有特定散發，在資料移動上比其他散發用了更多時間。
 * 如果是長時間執行的散發，請檢查 *rows_processed* 資料行，查看從該散發移動的資料列數是否遠多過其他散發。 若是如此，這個結果可能表示基礎資料的扭曲。
 
-如果查詢正在執行，可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]，針對特定散發內目前正在執行的 SQL 步驟，從 SQL Server 計畫快取擷取 SQL Server 預估計畫。
+如果查詢正在執行，則可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 針對特定散發內目前執行中的 SQL 步驟從 SQL Server 計畫快取擷取 SQL Server 預估的計畫。
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -170,10 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查詢正在主動等候另一個查詢的資源，則狀態會是 **AcquireResources**。  如果查詢具有全部的所需資源，則狀態會是 **Granted**。
 
 ## <a name="monitor-tempdb"></a>監視 tempdb
-Tempdb 用以查詢執行期間保存中繼結果。 Tempdb 資料庫的高使用率可能會導致查詢效能變慢。 Azure SQL 資料倉儲中的每個節點有大約 1 TB 的原始 tempdb 的空間。 以下是監視 tempdb 使用量並降低在查詢中的 tempdb 使用量的秘訣。 
+Tempdb 是用來在執行查詢時保存中繼結果。 Tempdb 資料庫的高使用率可能會導致查詢效能變慢。 Azure SQL 資料倉儲中的每個節點大約有 1 TB 的 tempdb 原始空間。 以下是監視 tempdb 使用量以及減少查詢中的 tempdb 使用量的秘訣。 
 
-### <a name="monitoring-tempdb-with-views"></a>監視 tempdb 與檢視
-若要監視 tempdb 使用量，請先安裝[microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql)從檢視[適用於 SQL 資料倉儲的 Microsoft 工具組](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)。 然後，您可以執行下列查詢，以查看每個節點的所有執行查詢的 tempdb 使用量：
+### <a name="monitoring-tempdb-with-views"></a>使用 views 監視 tempdb
+若要監視 tempdb 的使用方式, 請先從[適用于 SQL 資料倉儲的 Microsoft 工具](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)組安裝[vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) view。 接著, 您可以執行下列查詢, 以查看所有已執行查詢的每個節點的 tempdb 使用量:
 
 ```sql
 -- Monitor tempdb
@@ -205,9 +206,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-如果您有會耗用大量記憶體或已收到的 tempdb 配置相關的錯誤訊息的查詢，則它通常是因為非常大型[CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或是[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)在最後的資料移動作業中失敗執行的陳述式。 這通常被可識別為 ShuffleMove 操作分散式的查詢計劃之前最後一個 INSERT SELECT 中。
+如果您的查詢會耗用大量的記憶體, 或收到與 tempdb 的配置相關的錯誤訊息, 通常是因為有非常大的 CREATE TABLE, 因為在中執行的[select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)語句失敗最後的資料移動作業。 在最後一個 INSERT SELECT 之前, 這通常會被識別為分散式查詢計畫中的 ShuffleMove 作業。
 
-最常見的緩和措施是 CTAS 或 INSERT SELECT 陳述式分成多個 load 陳述式，以便將資料磁碟區將不會超過 1 TB，每個節點 tempdb 的限制。 您也可以調整您的叢集較大的大小會減少每個個別的節點上 tempdb 的更多節點散佈的 tempdb 大小。 
+最常見的緩和措施是將您的 CTAS 或 INSERT SELECT 語句分割成多個 load 語句, 讓資料磁片區不會超過每個節點 tempdb 限制的1TB。 您也可以將叢集調整為較大的大小, 以將 tempdb 大小分散到多個節點, 以減少每個個別節點上的 tempdb。 
 
 ## <a name="monitor-memory"></a>監視記憶體
 
@@ -262,7 +263,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需 DMV 的詳細資訊，請參閱[系統檢視][System views]。
+如需 Dmv 的詳細資訊, 請參閱[系統檢視][System views]。
 
 
 <!--Image references-->

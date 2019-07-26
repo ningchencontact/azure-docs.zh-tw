@@ -11,16 +11,18 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeef0886bcfe12cf4e67bbbccec1dde7fe47c69d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: HT
+ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335433"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499551"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：設定 Azure 多重要素驗證註冊原則
 
-Azure AD Identity Protection 藉由設定條件式存取原則來要求進行 MFA 註冊, 而不論您登入哪一個應用程式, 都能協助您管理「多重要素驗證」 (MFA) 註冊的推出。 本文說明原則可用於哪些內容, 以及如何進行設定。
+Azure AD Identity Protection 藉由設定條件式存取原則來要求進行 MFA 註冊, 而不論您登入的新式驗證應用程式為何, 都能協助您管理「多重要素驗證」 (MFA) 註冊的推出。 本文說明原則可用於哪些內容, 以及如何進行設定。
+
+
 
 ## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>什麼是 Azure 多重要素驗證註冊原則？
 
@@ -58,6 +60,8 @@ MFA 註冊原則位於 [Azure AD Identity Protection](https://portal.azure.com/#
 - **儲存**原則
 
 ## <a name="user-experience"></a>使用者體驗
+
+Azure Active Directory Identity Protection 將會提示使用者在下一次以互動方式登入時進行註冊。
 
 如需相關的使用者經驗概觀，請參閱︰
 

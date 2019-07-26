@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798336"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498344"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -173,7 +173,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>流程圖
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -210,14 +210,14 @@ public async Task Process(BrokeredMessage message)
 下列範例示範如何追蹤 [Azure 儲存體佇列](../../storage/queues/storage-dotnet-how-to-use-queues.md)作業，並且讓產生者、取用者與 Azure 儲存體之間的遙測相互關聯。 
 
 儲存體佇列有 HTTP API。 HTTP 要求的 Application Insights 相依性收集器會追蹤對佇列的所有呼叫。
-預設會在 ASP.NET 和 ASP.NET Core 應用程式，與其他種類的應用程式上設定，您可以參考[主控台應用程式文件](../../azure-monitor/app/console.md)
+根據預設, 它是在 ASP.NET 和 ASP.NET Core 應用程式上設定, 而在其他類型的應用程式中, 您可以參考[主控台應用程式檔](../../azure-monitor/app/console.md)
 
 您可能也想要相互關聯 Application Insights 作業識別碼與儲存體要求識別碼。 如需如何設定及取得儲存體要求用戶端和伺服器要求識別碼的詳細資訊，請參閱[監視、診斷 Azure 儲存體及進行移難排解](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)。
 
 #### <a name="enqueue"></a>加入佇列
 因為 Azure 儲存體佇列支援 HTTP API，Application Insights 會自動追蹤所有作業與佇列。 在許多情況下，此檢測應該就足夠了。 不過，若要讓取用者端追蹤與生產者追蹤相互關聯，您必須傳遞一些相互關聯內容，類似於我們在「相互關聯的 HTTP 通訊協定」中的作業方式。 
 
-這個範例顯示如何追蹤 `Enqueue` 作業。 您可以：
+這個範例顯示如何追蹤 `Enqueue` 作業。 您可以:
 
  - **相互關聯重試 (如果有的話)** ：全部都有一個通用父代，也就是 `Enqueue` 作業。 否則會作為連入要求的子系追蹤。 如果佇列有多個邏輯要求，可能難以找到導致重試的呼叫。
  - **相互關聯儲存體記錄 (必要時)** ：與 Application Insights 遙測相互關聯。
@@ -267,7 +267,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 如果您因為其他原因，而想要減少您應用程式回報的遙測資料量，或不想追蹤 `Enqueue` 作業，您可以直接使用 `Activity` API：
 
-- 建立 (和啟動) 新的 `Activity`，而不是啟動 Application Insights 作業。 您不  需要在上面指派作業名稱以外的任何屬性。
+- 建立 (和啟動) 新的 `Activity`，而不是啟動 Application Insights 作業。 您不需要在上面指派作業名稱以外的任何屬性。
 - 將 `yourActivity.Id` 序列化成為訊息承載，而不是 `operation.Telemetry.Id`。 您也可以使用 `Activity.Current.Id`。
 
 
@@ -325,7 +325,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>流程圖
 
 在下列範例中，追蹤連入訊息的方式類似於追蹤連入 HTTP 要求的方式：
 
@@ -484,6 +484,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights 作業與系統診斷。活動
+`System.Diagnostics.Activity`表示分散式追蹤內容, 並由架構和程式庫用來建立和傳播進程內部和外部的內容, 以及將遙測專案相互關聯。 活動搭配使用- `System.Diagnostics.DiagnosticSource`架構/程式庫之間的通知機制, 用來通知相關事件 (傳入或傳出要求、例外狀況等等)。
+
+活動是 Application Insights 中的第一方公民, 而自動相依性和要求集合會隨著`DiagnosticSource`事件而高度依賴它們。 如果您在應用程式中建立活動, 則不會導致建立 Application Insights 的遙測。 Application Insights 需要接收 DiagnosticSource 事件, 並知道要將活動轉譯成遙測的事件名稱和承載。
+
+每個 Application Insights 作業 (要求或相依性`Activity` ) 都`StartOperation`牽涉到-呼叫時, 它會在下方建立活動。 `StartOperation`是手動追蹤要求或相依性遙測, 並確保所有專案都相互關聯的建議方式。
 
 ## <a name="next-steps"></a>後續步驟
 

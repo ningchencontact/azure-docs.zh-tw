@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4613b576b444059d448cf1094284f2a68e6c31a8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275147"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321349"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>設定辨識文字 Docker 容器
 
@@ -31,11 +31,11 @@ ms.locfileid: "67275147"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey`設定會指定 Azure`Cognitive Services`用來追蹤容器的帳單資訊的資源索引鍵。 您必須指定 ApiKey 值和值必須是有效的金鑰，如_認知服務_指定的資源[ `Billing` ](#billing-configuration-setting)組態設定。
+設定會指定用來`Cognitive Services`追蹤容器帳單資訊的 Azure 資源金鑰。 `ApiKey` 您必須指定 ApiKey 的值, 且值必須是為設定所指定[`Billing`](#billing-configuration-setting)之_認知服務_資源的有效金鑰。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**資源管理下**金鑰**
+* Azure 入口網站：**認知服務**[**金鑰**] 下的 [資源管理]
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 設定
 
@@ -43,17 +43,17 @@ ms.locfileid: "67275147"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing`設定會指定端點 URI 的_認知服務_来測量之容器的帳單資訊使用在 Azure 上的資源。 您必須指定此組態設定值，和值必須是有效的端點 URI 的_認知服務_在 Azure 上的資源。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**概觀，標示為 `Endpoint`
+* Azure 入口網站：**認知服務**總覽, 加上標籤`Endpoint`
 
-請記得新增`vision/v1.0`下表所示，路由傳送至端點 URI。 
+請記得將`vision/v1.0`路由新增至端點 URI, 如下表所示。 
 
-|必要項| 名稱 | 数据类型 | 描述 |
+|必要項| 名稱 | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula 設定
 
@@ -71,7 +71,7 @@ ms.locfileid: "67275147"
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>裝載設定
+## <a name="mount-settings"></a>掛接設定
 
 使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
 
@@ -79,10 +79,10 @@ ms.locfileid: "67275147"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](computer-vision-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 数据类型 | 描述 |
+|選擇性| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
-|不允許| `Input` | 字串 | 電腦視覺容器不會使用此項目。|
-|選用| `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|不允許| `Input` | String | 電腦視覺容器不會使用此項目。|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -91,18 +91,18 @@ ms.locfileid: "67275147"
 * **行接續字元**：以下幾節的 Docker 命令會使用反斜線 `\` 作為行接續字元。 請根據您主機作業系統的需求加以替換或移除。 
 * **引數順序**：若非十分熟悉 Docker 容器，請勿變更引數的順序。
 
-請記得新增`vision/v1.0`下表所示，路由傳送至端點 URI。 
+請記得將`vision/v1.0`路由新增至端點 URI, 如下表所示。 
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| Placeholder | 值 | 格式或範例 |
+| 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{BILLING_KEY} | 認知服務資源端點索引鍵。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 包括區域的計費端點值。|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+|{API_KEY} | 認知服務資源的端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | 包括區域的計費端點值。|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](computer-vision-how-to-install-containers.md#billing)。
-> ApiKey 值是**金鑰**從 Azure`Cognitive Services`資源 [金鑰] 頁面。 
+> ApiKey 值是 [Azure  `Cognitive Services`資源金鑰] 頁面中的金鑰。 
 
 ## <a name="recognize-text-container-docker-examples"></a>辨識文字容器 Docker 範例
 
@@ -114,8 +114,8 @@ ms.locfileid: "67275147"
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>記錄範例 
@@ -124,8 +124,8 @@ ms.locfileid: "67275147"
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

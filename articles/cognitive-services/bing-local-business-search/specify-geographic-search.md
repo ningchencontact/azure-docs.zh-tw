@@ -1,5 +1,5 @@
 ---
-title: 使用地理界限來篩選 Bing 當地商家搜尋 API 的結果 | Microsoft Docs
+title: 使用地理界限來篩選 Bing 當地商家搜尋 API 的結果
 titleSuffix: Azure Cognitive Services
 description: 使用本文了解如何從 Bing 當地商家搜尋 API 來篩選搜尋結果。
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 6da8e9e08f84fa16f22d2a061be28398d064dc8c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e47a2ab8db17089773fd9a439b6dff225d6a8a29
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592688"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423310"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>使用地理界限來篩選 Bing 當地商家搜尋 API 的結果
 

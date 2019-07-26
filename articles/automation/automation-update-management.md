@@ -9,18 +9,21 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82d5775f0b99e3f55a70399f15894589b769d887
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: HT
+ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381555"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498427"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
 您可以使用 Azure 自動化中的更新管理解決方案, 在 Azure、內部部署環境或其他雲端提供者中管理 Windows 和 Linux 電腦的作業系統更新。 您可以快速評估所有代理程式電腦上可用更新的狀態，並管理為伺服器安裝必要更新的程序。
 
 您可以直接從您的「Azure 自動化」帳戶啟用虛擬機器的「更新管理」。 若要了解如何從您的自動化帳戶啟用虛擬機器的「更新管理」，請參閱[管理多部虛擬機器的更新](manage-update-multi.md)。 您也可以至 Azure 入口網站的虛擬機器頁面，啟用虛擬機器的「更新管理」。 此案例適用於 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 與 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 虛擬機器。
+
+> [!NOTE]
+> 更新管理解決方案需要將 Log Analytics 工作區連結至您的自動化帳戶。 如需支援區域的確切清單, 請參閱 [/how-to/region-mappings.md]。 區域對應並不會影響在不同于您的自動化帳戶的區域中管理虛擬機器的能力。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -73,7 +76,7 @@ ms.locfileid: "68381555"
 |作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估。         |
-|Windows Server 2008 R2 SP1 和更新版本 (包括 Windows Server 2012 和 2016)    |必須要有 .NET Framework 4.5.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 和更新版本。  |必須要有 .NET Framework 4.5.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 分類型修補需要 'yum' 才能傳回 CentOS 未內建的安全性資料。 如需 CentOS 上以分類為基礎之修補的詳細資訊, 請參閱[Linux 上的更新分類](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |

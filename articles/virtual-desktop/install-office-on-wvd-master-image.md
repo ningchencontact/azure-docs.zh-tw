@@ -1,69 +1,69 @@
 ---
-title: 主要的 VHD 映像-Azure 上安裝 Office
-description: 如何安裝及自訂 Windows 虛擬桌面預覽母片映像至 Azure 上的 Office。
+title: 在主要 VHD 映射上安裝 Office-Azure
+description: 如何在 Windows 虛擬桌面預覽主機映射上安裝和自訂 Office 至 Azure。
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 0e89d37011ccdfc3acdace5b45faa8e9a64e4d3e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9243b3e6ae9e164930373960757109ae8a4512e4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620472"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501183"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>在主要 VHD 映像上安裝 Office
 
-這篇文章會告訴您如何上傳至 Azure 的主要虛擬硬碟 (VHD) 映像上安裝 Office 365 ProPlus、 OneDrive 和其他常見的應用程式。 如果您的使用者需要存取特定企業營運 (LOB) 應用程式，我們建議您完成這篇文章中的指示之後安裝。
+本文會告訴您如何在主要虛擬硬碟 (VHD) 映射上安裝 Office 365 ProPlus、OneDrive 和其他常見的應用程式, 以上傳至 Azure。 如果您的使用者需要存取特定的企業營運 (LOB) 應用程式, 建議您在完成本文中的指示之後加以安裝。
 
-本文假設您已經建立虛擬機器 (VM)。 如果沒有，請參閱[準備和自訂母片的 VHD 映像](set-up-customize-master-image.md#create-a-vm)
+本文假設您已建立虛擬機器 (VM)。 如果沒有, 請參閱[準備和自訂主要 VHD 映射](set-up-customize-master-image.md#create-a-vm)
 
-本文也假設您有更高的存取在 VM 上是否已在 Azure 或 HYPER-V 管理員中佈建。 如果沒有，請參閱[提高管理所有的 Azure 訂用帳戶和管理群組的存取權限](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)。
+本文也假設您已在 VM 上擁有更高的存取權, 無論是布建在 Azure 或 Hyper-v 管理員中。 如果沒有, 請參閱提高[存取權以管理所有 Azure 訂用帳戶和管理群組](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)。
 
 >[!NOTE]
 >這些指示適用於可搭配您組織現有程序使用的 Windows 虛擬桌面預覽版特定設定。
 
-## <a name="install-office-in-shared-computer-activation-mode"></a>將 Office 安裝在共用的電腦啟用模式
+## <a name="install-office-in-shared-computer-activation-mode"></a>在共用電腦啟用模式中安裝 Office
 
-共用的電腦啟用可讓您部署到多個使用者存取您組織中電腦的 Office 365 ProPlus。 如需有關共用的電腦啟用的詳細資訊，請參閱[的 Office 365 專業增強版的共用的電腦啟用概觀](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus)。
+「共用電腦啟用」可讓您將 Office 365 ProPlus 部署到組織中由多位使用者存取的電腦。 如需有關共用電腦啟用的詳細資訊, 請參閱[Office 365 ProPlus 的共用電腦啟用總覽](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus)。
 
-使用[Office 部署工具](https://www.microsoft.com/download/details.aspx?id=49117)安裝 Office。 Windows 10 企業版多重工作階段僅支援下列版本的 Office:
+使用[Office 部署工具](https://www.microsoft.com/download/details.aspx?id=49117)來安裝 office。 Windows 10 企業版多會話僅支援下列版本的 Office:
 - Office 365 ProPlus
-- Microsoft 365 商務版訂用帳戶隨附的 office 365 商務版
+- 隨附于 Microsoft 365 商務版訂用帳戶的 Office 365 商務
 
-Office 部署工具需要的組態 XML 檔案。 若要自訂下列的範例，請參閱[Office 部署工具的設定選項](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)。
+Office 部署工具需要設定 XML 檔案。 若要自訂下列範例, 請參閱[Office 部署工具](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)的設定選項。
 
-此範例組態中，我們提供的 XML 將會執行下列動作：
+我們提供的這個範例設定 XML 會執行下列動作:
 
-- 安裝 Office 的內部通道，並從測試人員通道傳遞更新，它們正在執行時。
+- 從內部人員頻道安裝 Office, 並在執行時從內部人員頻道傳遞更新。
 - 使用 x64 架構。
 - 停用自動更新。
-- 安裝 Visio 及專案。
-- 移除任何現有的 Office 安裝，並將其設定移轉。
-- 啟用共用的電腦啟用。
+- 安裝 Visio 和 Project。
+- 移除任何現有的 Office 安裝, 並遷移其設定。
+- 啟用共用電腦啟動。
 
 >[!NOTE]
->在 Visio 中的樣板搜尋功能無法運作中 Windows 虛擬桌面預覽設定期間。
+>在預覽設定期間, Visio 中的樣板搜尋功能無法在 Windows 虛擬桌面中運作。
 
-以下是此範例組態 XML 不會執行的動作：
+以下是此範例設定 XML 不會執行的動作:
 
-- 安裝商務用 Skype for Business
-- 在每個使用者模式下安裝 OneDrive。 若要進一步了解，請參閱[安裝在每台機器模式中的 OneDrive](#install-onedrive-in-per-machine-mode)。
+- 安裝商務用 Skype
+- 以每個使用者模式安裝 OneDrive。 若要深入瞭解, 請參閱[以每一電腦模式安裝 OneDrive](#install-onedrive-in-per-machine-mode)。
 
 >[!NOTE]
->共用的電腦啟用可以設定透過群組原則物件 (Gpo) 或登錄設定。 GPO 是位於**電腦組態\\原則\\系統管理範本\\Microsoft Office 2016 （電腦）\\授權設定**
+>您可以透過群組原則物件 (Gpo) 或登錄設定來設定共用電腦啟用。 GPO 位於 [**電腦\\設定原則\\]\\系統管理範本 Microsoft Office 2016 (電腦)\\授權設定**
 
-Office 部署工具包含 setup.exe。 若要安裝 Office，請在命令列執行下列命令：
+Office 部署工具組含 setup.exe。 若要安裝 Office, 請在命令列中執行下列命令:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>範例 configuration.xml
+#### <a name="sample-configurationxml"></a>範例設定 .xml
 
-下列 XML 範例將會安裝測試人員版本。
+下列 XML 範例會安裝內部人員版本。
 
 ```xml
 <Configuration>
@@ -101,9 +101,9 @@ Setup.exe /configure configuration.xml
 ```
 
 >[!NOTE]
->Office 小組建議使用 64 位元安裝，如**OfficeClientEdition**參數。
+>Office 小組建議針對**OfficeClientEdition**參數使用64位安裝。
 
-安裝 Office 之後, 您可以更新預設 Office 行為。 個別或批次檔來更新的行為，請執行下列命令。
+安裝 Office 之後, 您可以更新預設的 Office 行為。 個別執行下列命令, 或在批次檔中, 以更新行為。
 
 ```batch
 rem Mount the default user registry hive
@@ -124,56 +124,56 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-## <a name="install-onedrive-in-per-machine-mode"></a>在每台機器模式中安裝 OneDrive
+## <a name="install-onedrive-in-per-machine-mode"></a>以每一電腦模式安裝 OneDrive
 
-OneDrive 是通常已安裝的每個使用者。 在此環境中，它應該安裝每台電腦。
+通常每位使用者會安裝 OneDrive。 在此環境中, 應該每台電腦安裝一次。
 
-以下是如何在每台機器模式中安裝 OneDrive:
+以下說明如何以每一電腦模式安裝 OneDrive:
 
-1. 首先，建立暫存 OneDrive 安裝程式的位置。 本機磁碟資料夾或 [\\\\unc] (file://unc) 位置是沒問題。
+1. 首先, 建立一個暫存 OneDrive 安裝程式的位置。 本機磁片資料夾或 [\\ \\unc] (file://unc) 位置是正常的。
 
-2. 下載 OneDriveSetup.exe 至您的預備位置，此連結： <https://aka.ms/OneDriveWVD-Installer>
+2. 使用下列連結, 將 OneDriveSetup 下載至您的暫存位置:<https://aka.ms/OneDriveWVD-Installer>
 
-3. 如果您已安裝 office 使用 OneDrive 省略 **\<ExcludeApp 識別碼 = 「 OneDrive 」 /\>** ，執行下列命令從提升權限的命令提示字元解除安裝任何現有的 OneDrive 每位使用者安裝命令：
+3. 如果您藉由省略 **\<ExcludeApp ID =\>"OneDrive"/** 來安裝 office with onedrive, 請執行下列命令, 從提升許可權的命令提示字元中, 卸載任何現有的 OneDrive 每一使用者安裝:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
-4. 執行此命令從提升權限的命令提示字元來設定**AllUsersInstall**登錄值：
+4. 從提高許可權的命令提示字元執行此命令, 以設定**AllUsersInstall**登錄值:
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
-5. 執行此命令，以在每台機器模式中安裝 OneDrive:
+5. 執行此命令, 以每一電腦模式安裝 OneDrive:
 
     ```batch
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
-6. 執行此命令來設定開始所有使用者的登入 OneDrive:
+6. 執行此命令, 以設定讓 OneDrive 在登入所有使用者時啟動:
 
     ```batch
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
-7. 啟用**設定使用者帳戶，以無訊息方式**藉由執行下列命令。
+7. 藉由執行下列命令, 啟用以無訊息方式**設定使用者帳戶**。
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
-8. 重新導向，並移動 Windows 知道到 OneDrive 的資料夾，執行下列命令。
+8. 執行下列命令, 將 Windows 已知資料夾重新導向及移至 OneDrive。
 
     ```batch
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>小組及 Skype
+## <a name="teams-and-skype"></a>小組和 Skype
 
-Windows 虛擬桌面不支援的商務和小組的 Skype。
+Windows 虛擬桌面不支援商務用 Skype 和小組。
 
 ## <a name="next-steps"></a>後續步驟
 
-現在，Office 新增到映像之後，您可以繼續自訂主版 VHD 映像。 請參閱[準備和自訂母片的 VHD 映像](set-up-customize-master-image.md)。
+現在您已將 Office 新增至映射, 您可以繼續自訂主要 VHD 映射。 請參閱[準備和自訂主要 VHD 映射](set-up-customize-master-image.md)。

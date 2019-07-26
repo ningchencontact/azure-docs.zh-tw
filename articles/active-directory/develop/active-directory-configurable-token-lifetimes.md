@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9776126687832485bf329061dfeedce928918d9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 901cf3e25ed63421f7e07d7773b6381fc54ea8a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321148"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489118"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory 中可設定的權杖存留期 (預覽)
 
@@ -40,6 +40,7 @@ ms.locfileid: "68321148"
 > SharePoint Online 不支援可設定的權杖存留期原則。  即使您能夠透過 PowerShell 建立此原則，SharePoint Online 也不會認可此原則。 請參閱 [SharePoint Online 部落格](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) \(英文\)，以深入了解如何設定閒置工作階段逾時。
 >* SharePoint Online 存取權杖的預設存留期為 1 小時。 
 >* SharePoint Online 重新整理權杖的預設最長非作用中時間為 90 天。
+
 
 ## <a name="token-types"></a>權杖類型
 
@@ -62,13 +63,13 @@ ms.locfileid: "68321148"
 
 公開用戶端無法安全地儲存用戶端密碼。 例如，iOS/Android 應用程式無法模糊來自資源擁有者的密碼，因此被視為公開用戶端。 您可以在資源上設定原則，讓來自公開用戶端的重新整理權杖只要超過指定的期間，便無法取得一組新的存取/重新整理權杖。 (若要這樣做，請使用「重新整理權杖最大閒置時間」屬性 (`MaxInactiveTime`)。)您也可以使用原則來設定期間，超過該期間就不會再接受重新整理權杖。 (若要這樣做，請使用「重新整理權杖最大壽命」屬性)。您可以調整重新整理權杖的存留期，以控制當使用者使用公開用戶端應用程式時，必須在何時及隔多久重新輸入一次認證，而不是以無訊息方式重新驗證。
 
-### <a name="id-tokens"></a>ID 權杖
+### <a name="id-tokens"></a>識別碼權杖
 識別碼權杖會傳遞至網站與原生用戶端。 識別碼權杖包含使用者的設定檔資訊。 識別碼權杖會繫結至特定的使用者與用戶端組合。 識別碼權杖在到期前都會被視為有效。 通常，Web 應用程式會將應用程式中的使用者工作階段存留期，與針對該使用者簽發之識別碼權杖的存留期做比對。 您可以調整識別碼權杖的存留期，以控制 Web 應用程式讓應用程式工作階段到期並要求使用者重新向 Azure AD 進行驗證 (以無訊息方式或以互動方式) 的頻率。
 
 ### <a name="single-sign-on-session-tokens"></a>單一登入工作階段權杖
 當使用者透過 Azure AD 進行驗證時，系統會透過使用者的瀏覽器和 Azure AD 建立單一登入 (SSO) 工作階段。 SSO 權杖 (採用 Cookie 的形式) 即代表此工作階段。 SSO 會話權杖不會系結至特定的資源/用戶端應用程式。 SSO 工作階段權杖是可撤銷的，而每次使用這些權杖時，系統都會檢查其有效性。
 
-Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 持續性工作階段權杖是由瀏覽器儲存為持續性 Cookie。 非持續性工作階段權杖是儲存為工作階段 Cookie。 (工作階段 Cookie 會在瀏覽器關閉時終結)。通常，會儲存一個非持續性工作階段權杖。 但是，當使用者在驗證期間選取 [讓我保持登入]  核取方塊時，則會儲存一個持續性工作階段權杖。
+Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 持續性工作階段權杖是由瀏覽器儲存為持續性 Cookie。 非持續性工作階段權杖是儲存為工作階段 Cookie。 (工作階段 Cookie 會在瀏覽器關閉時終結)。通常，會儲存一個非持續性工作階段權杖。 但是，當使用者在驗證期間選取 [讓我保持登入] 核取方塊時，則會儲存一個持續性工作階段權杖。
 
 非持續性工作階段權杖有 24 小時的存留期。 持續性權杖有 180 天的存留期。 每當 SSO 會話權杖在其有效期間內使用時, 有效期間會延長24小時或180天, 視權杖類型而定。 如果未在 SSO 工作階段權杖的有效期內使用此權杖，系統就會將其視為過期而不再接受它。
 
@@ -80,7 +81,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 ### <a name="configurable-token-lifetime-properties"></a>可設定的權杖存留期屬性
 | 屬性 | 原則屬性字串 | 影響 | 預設 | 最小值 | 最大值 |
 | --- | --- | --- | --- | --- | --- |
-| 存取權杖存留期 |AccessTokenLifetime |存取權杖、識別碼權杖、SAML2 權杖 |1 小時 |10 分鐘 |1 天 |
+| 存取權杖存留期 |AccessTokenLifetime<sup>4</sup> |存取權杖、識別碼權杖、SAML2 權杖 |1 小時 |10 分鐘 |1 天 |
 | 重新整理權杖最大閒置時間 |MaxInactiveTime |重新整理權杖 |90 天 |10 分鐘 |90 天 |
 | 單一要素重新整理權杖最大壽命 |MaxAgeSingleFactor |重新整理權杖 (適用於任何使用者) |直到撤銷為止 |10 分鐘 |直到撤銷為止<sup>1</sup> |
 | 多重要素重新整理權杖最大壽命 |MaxAgeMultiFactor |重新整理權杖 (適用於任何使用者) |直到撤銷為止 |10 分鐘 |直到撤銷為止<sup>1</sup> |
@@ -88,9 +89,10 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 | 多重要素工作階段權杖最大壽命 |MaxAgeSessionMultiFactor<sup>3</sup> |工作階段權杖 (持續性和非持續性) |直到撤銷為止 |10 分鐘 |直到撤銷為止<sup>1</sup> |
 
 * <sup>1</sup>針對這些屬性，可設定的明確時間長度上限為 365 天。
+* <sup>4</sup>若要讓 Microsoft 小組 Web 用戶端運作, 建議您將 AccessTokenLifetime 設定為大於15分鐘的 Microsoft 小組。
 
 ### <a name="exceptions"></a>例外狀況
-| 屬性 | 影響 | 預設 |
+| 內容 | 影響 | 預設 |
 | --- | --- | --- |
 | 重新整理權杖最大壽命 (針對沒有足夠撤銷資訊的同盟使用者簽發<sup>1</sup>) |重新整理權杖 (針對沒有足夠撤銷資訊的同盟使用者簽發<sup>1</sup>) |12 小時 |
 | 重新整理權杖最大閒置時間 (針對機密用戶端簽發) |重新整理權杖 (針對機密用戶端簽發) |90 天 |
@@ -220,7 +222,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>範例：管理組織的預設原則
+### <a name="example-manage-an-organizations-default-policy"></a>範例:管理組織的預設原則
 在此範例中, 您會建立一個原則, 讓您的使用者在整個組織中的登入頻率較低。 為了這樣做，我們將為「單一要素重新整理權杖」建立一個在整個組織套用的權杖存留期原則。 此原則套用至您組織中的每個應用程式，以及每個尚未設定原則的服務主體。
 
 1. 建立權杖存留期原則。
@@ -257,7 +259,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
     Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-### <a name="example-create-a-policy-for-web-sign-in"></a>範例：為 Web 登入建立原則
+### <a name="example-create-a-policy-for-web-sign-in"></a>範例:為 Web 登入建立原則
 
 在此範例中，您建立會要求使用者提高驗證頻率來登入 Web 應用程式的原則。 此原則會為 Web 應用程式的服務主體設定存取權杖/識別碼權杖的存留期及多重要素工作階段權杖的最大壽命。
 
@@ -291,7 +293,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>範例：針對呼叫 Web API 的原生應用程式建立原則
+### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>範例:針對呼叫 Web API 的原生應用程式建立原則
 在此範例中，您建立會要求使用者減少驗證頻率的原則。 原則也會延長使用者必須重新驗證之前，可以是非使用中的時間量。 原則會套用到 Web API。 當原生應用程式要求 Web API 做為資源時，會套用此原則。
 
 1. 建立權杖存留期原則。
@@ -320,7 +322,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
     Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
     ```
 
-### <a name="example-manage-an-advanced-policy"></a>範例：管理進階原則
+### <a name="example-manage-an-advanced-policy"></a>範例:管理進階原則
 在此範例中, 您會建立一些原則, 以瞭解優先順序系統的運作方式。 您也會學到如何管理多個套用至數個物件的原則。
 
 1. 建立權杖存留期原則。

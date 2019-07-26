@@ -3,25 +3,17 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/11/2019
-ms.openlocfilehash: 766856438b22661b961bfbadc0b63376031622f6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.date: 07/19/2019
+ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850806"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68502269"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>預付 Azure 保留的 VM 執行個體 (RI) 的虛擬機器
 
-預付虛擬機器，並使用 Azure 保留的虛擬機器 (VM) 執行個體節省成本。 如需詳細資訊，請參閱 [Azure 保留的 VM 執行個體供應項目](https://azure.microsoft.com/pricing/reserved-vm-instances/)。
-
-您可以在 [Azure 入口網站](https://portal.azure.com)購買保留 VM 執行個體。 若要購買執行個體：
-
-- 您必須至少是一個 Enterprise 訂用帳戶的擁有者角色, 或具有隨用隨付費率的訂用帳戶。
-- 針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用**新增保留執行個體**。 或者，如果該設定已停用，則您必須是訂用帳戶上的 EA 系統管理員。
-- 針對雲端解決方案提供者 (CSP) 程式，只有系統管理員代表或銷售代表可以購買保留項目。
-
-保留項目折扣會自動套用到符合保留項目範圍和屬性之執行中虛擬機器的數目。 您可以透過 [Azure 入口網站](https://portal.azure.com)、PowerShell、CLI 或 API 來更新保留項目的範圍。
+預付虛擬機器，並使用 Azure 保留的虛擬機器 (VM) 執行個體節省成本。 保留項目折扣會自動套用到符合保留項目範圍和屬性之執行中虛擬機器的數目。 您不需要將保留指派給虛擬機器來取得折扣。 保留實例購買僅涵蓋 VM 使用量的計算部分。 對於 Windows Vm, 使用量計量會分割成兩個不同的計量。 有一個計算計量器, 它與 Linux 計量和 Windows IP 計量器相同。 當您進行購買時, 您所看到的費用僅限於計算成本。 費用並不包含 Windows 軟體成本。 如需軟體成本的詳細資訊, 請參閱[不包含在 Azure 保留的 VM 執行個體中的軟體成本](../articles/billing/billing-reserved-instance-windows-software-costs.md)。
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>購買之前，請先決定正確的 VM 大小
 
@@ -34,7 +26,7 @@ ms.locfileid: "67850806"
 - 當您在 Azure 入口網站中購買 VM 保留實例時, 會顯示購買建議和建議數量。
 - Azure Advisor 提供個別訂閱的購買建議。  
 - 您可以使用 Api 來取得共用範圍和單一訂用帳戶範圍的購買建議。 如需詳細資訊, 請參閱[適用于企業客戶的保留實例購買建議 api](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)。
-- 對於 EA 客戶, [Azure 使用量見解 Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)提供共用和單一訂用帳戶範圍的購買建議。
+- 針對 Enterprise 合約 (EA) 客戶, [Azure 使用量見解 Power BI 內容套件](/power-bi/service-connect-to-azure-consumption-insights)提供了適用于共用和單一訂用帳戶範圍的購買建議。
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>取得 VM 保留折扣的服務
 
@@ -78,9 +70,9 @@ ms.locfileid: "67850806"
 
 - **VM 系列**-A 系列、Av2 系列或 G 系列。
 
-- **預覽中**的 vm-任何處于預覽狀態的 vm 系列或大小。
+- **預覽或促銷 vm** -任何處于預覽狀態或使用促銷計量的 vm 系列或大小。
 
--  雲端-保留專案無法在德國或中國地區購買。
+- 雲端-保留專案無法在德國或中國地區購買。
 
 - **配額不足**-範圍設定為單一訂用帳戶的保留區, 必須在新 RI 的訂用帳戶中有可用的 vCPU 配額。 例如，如果目標訂用帳戶的配額限制為 10 個 D 系列的 vCPU，您便無法購買一個適用於 11 個 Standard_D1 執行個體的保留項目。 保留的配額檢查包含已在訂用帳戶中部署的 VM。 例如，如果訂用帳戶的配額為 10 個 D 系列的 vCPU，且已部署 2 個 standard_D1 執行個體，則您可以在此訂用帳戶中購買一個適用於 10 個 standard_D1 執行個體的保留項目。 您可以[建立報價增加要求](../articles/azure-supportability/resource-manager-core-quotas-request.md)以解決此問題。
 
@@ -88,15 +80,25 @@ ms.locfileid: "67850806"
 
 ## <a name="buy-a-reserved-vm-instance"></a>購買保留 VM 執行個體
 
+您可以在[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)中購買保留的 VM 實例。
+
+這些需求適用于購買保留的 VM 實例:
+
+- 您必須是至少一個 EA 訂用帳戶的「擁有者」角色, 或具有隨用隨付費率的訂用帳戶。
+- 針對 EA 訂用帳戶, 必須在[EA 入口網站](https://ea.azure.com/)中啟用 [**新增保留實例**] 選項。 或者, 如果該設定已停用, 則您必須是訂用帳戶的 EA 系統管理員。
+- 針對雲端解決方案提供者 (CSP) 程式，只有系統管理員代表或銷售代表可以購買保留項目。
+
+若要購買執行個體：
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 選取 [所有服務]   > [保留]  。
+1. 選取 [所有服務] > [保留]。
 1. 選取 [**新增**] 以購買新的保留區, 然後按一下 [**虛擬機器**]。
 1. 輸入必要欄位。 符合您選取之屬性的執行中 VM 執行個體符合取得保留項目折扣的資格。 取得折扣的 VM 執行個體實際數目取決於選取的範圍和數量。
 
 | 欄位      | 描述|
 |------------|--------------|
-|Subscription|用來支付保留項目的訂用帳戶。 保留項目的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P-Ms-azr-0017p 或 MS-AZR-0017P-Ms-azr-0148p) 或以隨用隨付費率計費的個別訂用帳戶 (供應專案號碼:MS-AZR-0003P 或 MS-AZR-0023P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 對於隨用隨付費率的訂用帳戶, 費用會依訂用帳戶的信用卡或發票付款方法計費。|    
-|`Scope`       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>**單一資源群組範圍**—只會將保留折扣套用至所選資源群組中的相符資源。</li><li>**單一訂**用帳戶範圍-將保留折扣套用至所選訂用帳戶中的相符資源。</li><li>**共用範圍**-將保留折扣套用至帳單內容中合格訂用帳戶的相符資源。 針對 Enterprise 合約客戶, 計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶, 計費範圍是由帳戶管理員所建立的所有合格訂用帳戶。</li></ul>|
+|訂閱|用來支付保留項目的訂用帳戶。 保留項目的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P-Ms-azr-0017p 或 MS-AZR-0017P-Ms-azr-0148p) 或以隨用隨付費率計費的個別訂用帳戶 (供應專案號碼:MS-AZR-0003P 或 MS-AZR-0023P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 對於隨用隨付費率的訂用帳戶, 費用會依訂用帳戶的信用卡或發票付款方法計費。|    
+|`Scope`       |保留項目範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>**單一資源群組範圍**—只會將保留折扣套用至所選資源群組中的相符資源。</li><li>**單一訂**用帳戶範圍-將保留折扣套用至所選訂用帳戶中的相符資源。</li><li>**共用範圍**-將保留折扣套用至帳單內容中合格訂用帳戶的相符資源。 對於 EA 客戶, 計費內容為註冊。 針對使用隨用隨付費率的個別訂用帳戶, 計費範圍是由帳戶管理員所建立的所有合格訂用帳戶。</li></ul>|
 |區域    |保留項目所涵蓋的 Azure 區域。|    
 |VM 大小     |VM 執行個體的大小。|
 |已針對下列項目最佳化     |預設會選取 VM 實例大小彈性。 按一下 [**高級設定**] 來變更 [實例大小彈性] 值, 以將保留折扣套用至相同[VM 大小群組](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)中的其他 vm。 容量優先順序會讓資料中心容量供您的部署優先使用。 它讓您在需要時能夠更安心地啟動 VM 實例。 保留項目範圍是單一訂用帳戶時，才可使用容量優先順序。 |
@@ -104,6 +106,12 @@ ms.locfileid: "67850806"
 |數量    |保留項目內所購買的執行個體數目。 數量是可以取得帳單折扣之執行中 VM 執行個體的數目。 例如, 如果您在美國東部執行10個 Standard_D2 Vm, 則您會將數量指定為 10, 以最大化所有執行中 Vm 的權益。 |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
+
+## <a name="usage-data-and-reservation-utilization"></a>使用量資料和保留使用量
+
+使用方式資料的有效價格為零, 可取得保留折扣。 您可以查看哪個 VM 實例收到每個保留的保留折扣。
+
+如需保留折扣如何出現在使用量資料的詳細資訊, 請參閱瞭解您的[Enterprise 註冊的 Azure 保留使用量](../articles/billing/billing-understand-reserved-instance-usage-ea.md)(如果您是 EA 客戶)。 如果您有個別的訂用帳戶, 請參閱[瞭解隨用隨付訂用帳戶的 Azure 保留使用量](../articles/billing/billing-understand-reserved-instance-usage.md)。
 
 ## <a name="change-a-reservation-after-purchase"></a>購買後變更保留
 
@@ -120,19 +128,19 @@ ms.locfileid: "67850806"
 - 現有保留區的區域
 - SKU
 - 數量
-- Duration
+- 持續時間
 
 不過, 如果您想要進行變更, 您可以*交換*保留。
 
 ## <a name="cancellations-and-exchanges"></a>取消和交換
 
-如果您需要取消保留，可能會有 12% 的提前解約金。 退款以您購買價格或目前保留價格的最低價格為準。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要要求取消，請移至 Azure 入口網站中的保留，並選取 [退款]  以建立支援要求。
+如果您需要取消保留，可能會有 12% 的提前解約金。 退款以您購買價格或目前保留價格的最低價格為準。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要取消, 請移至 Azure 入口網站中的保留區, 然後選取 [**退款**]。
 
-如果您需要將保留的 VM 實例保留變更為另一個區域、VM 大小群組或期限, 您可以將它交換。 交換必須是針對等於或大於值的另一個保留。 新保留的期限開始日期不會延續自交換的保留。 當您建立新的保留時, 會從一或三年期開始。 若要要求交換，請移至 Azure 入口網站中的保留，並選取 [交換]  以建立支援要求。
+如果您需要將保留的 VM 實例保留變更為另一個區域、VM 大小群組或期限, 您可以將它交換。 交換必須是針對等於或大於值的另一個保留。 新保留的期限開始日期不會延續自交換的保留。 當您建立新的保留時, 會從一或三年期開始。 若要交換, 請移至 Azure 入口網站中的保留區, 然後選取 [ **exchange**]。
 
 如需有關如何交換或退款保留的詳細資訊, 請參閱[保留交換和退款](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎? 與我們連絡。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 

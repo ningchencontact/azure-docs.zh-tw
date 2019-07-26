@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: af9b1ef64944e72a24d76cc555e51841e75401ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75b46ead4d5efe15a423bddea6473f619f1bc91b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60909374"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501402"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>使用 Linux 的 Azure 資訊安全中心和 Azure 虛擬機器
 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可協助您保護、偵測威脅並採取相應的措施。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
@@ -42,7 +42,7 @@ ms.locfileid: "60909374"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要開始使用 Azure 資訊安全中心，您將需要知道並考慮下列項目︰
 
 * 您需要 Microsoft Azure 訂用帳戶。 請參閱[安全性中心價格](https://azure.microsoft.com/pricing/details/security-center/)，以深入了解資訊安全中心的免費和標準層。
@@ -68,10 +68,10 @@ ms.locfileid: "60909374"
 | 建議 | 描述 |
 | --- | --- |
 | [啟用訂用帳戶的資料收集](security-center-enable-data-collection.md) |建議您為每個訂用帳戶和訂用帳戶中的所有虛擬機器 (VM) 開啟安全性原則中的 [資料收集]。 |
-| [修復 OS 弱點](security-center-remediate-os-vulnerabilities.md) |建議您讓作業系統組態符合建議的設定規則，例如不允許儲存密碼。 |
+| 修復 OS 弱點|建議您讓作業系統組態符合建議的設定規則，例如不允許儲存密碼。 |
 | [套用系統更新](security-center-apply-system-updates.md) |建議您將遺漏的系統安全性與重大更新部署到 VM。 |
 | [在系統更新之後重新開機](security-center-apply-system-updates.md#reboot-after-system-updates) |建議您重新啟動 VM 以完成套用系統更新的程序。 |
-| [啟用 VM 代理程式](security-center-enable-vm-agent.md) |可讓您查看哪些 VM 需要「VM 代理程式」。 為了佈建修補程式掃描、基準掃描及反惡意程式碼程式，必須在 VM 上安裝「VM 代理程式」。 預設會為從 Azure Marketplace 部署的 VM 安裝「VM 代理程式」。 如需如何安裝 VM 代理程式的相關資訊，請參閱 [VM 代理程式和擴充功能 – 第 2 部分](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 。 |
+| 啟用 VM 代理程式|可讓您查看哪些 VM 需要「VM 代理程式」。 為了佈建修補程式掃描、基準掃描及反惡意程式碼程式，必須在 VM 上安裝「VM 代理程式」。 預設會為從 Azure Marketplace 部署的 VM 安裝「VM 代理程式」。 如需如何安裝 VM 代理程式的相關資訊，請參閱 [VM 代理程式和擴充功能 – 第 2 部分](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 。 |
 | [套用磁碟加密](security-center-apply-disk-encryption.md) |建議您使用 Azure 磁碟加密來加密您的 VM 磁碟 (Windows 和 Linux VM)。 建議您的 VM 上的作業系統和資料磁碟區都進行加密。 |
 
 
@@ -80,23 +80,23 @@ ms.locfileid: "60909374"
 > 
 
 ## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況]  刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性]  健全狀況圖格中按一下 [虛擬機器]  時，會開啟 [虛擬機器]  刀鋒視窗，並提供您 VM 的建議。 
+在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況] 刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性] 健全狀況圖格中按一下 [虛擬機器] 時，會開啟 [虛擬機器] 刀鋒視窗，並提供您 VM 的建議。 
 
 ![安全性健康狀態](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
-## <a name="manage-and-respond-to-security-alerts"></a>管理和回應安全性警示
+## <a name="manage-and-respond-to-security-alerts"></a>管理及回應安全性警示
 資訊安全中心會自動收集、分析及整合您 Azure 資源、網路和已連線的合作夥伴解決方案 (例如防火牆和端點保護解決方案) 的記錄檔資料，來偵測真正的威脅並減少誤判情形。 藉由利用[偵測功能](security-center-detection-capabilities.md)的各種彙總，資訊安全中心能夠產生優先順序的安全性警示，協助您快速地調查問題並提供如何修正可能攻擊的建議。
 
 ![安全性警示](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
 選取一個安全性警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 安全性警示會依[類型](security-center-alerts-type.md)及日期區分。
 
-## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況]  刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性]  健全狀況圖格中按一下 [虛擬機器]  時，會開啟 [虛擬機器]  刀鋒視窗，並提供您 VM 的建議。 
+## <a name="monitor-security-health"></a>監視安全性健康情況
+在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況] 刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性] 健全狀況圖格中按一下 [虛擬機器] 時，會開啟 [虛擬機器] 刀鋒視窗，並提供您 VM 的建議。 
 
 ![安全性健康狀態](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
-如果您按一下此建議，您會看到更多所應採取以解決這些問題的特定動作詳細資料。 詳細資料會出現在刀鋒視窗底部的 [建議]  底下。 
+如果您按一下此建議，您會看到更多所應採取以解決這些問題的特定動作詳細資料。 詳細資料會出現在刀鋒視窗底部的 [建議] 底下。 
 
 ![安全性健康狀態 2](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig5.png)
 

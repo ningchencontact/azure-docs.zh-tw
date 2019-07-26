@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333367"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362471"
 ---
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
-每個要求都需要授權標頭。 下表會列出各項服務支援的標頭：
+每個要求都需要一個 authorization 標頭。 下表會列出各項服務支援的標頭：
 
-| 支援的授權標頭 | 語音轉文字 | 文字轉換語音 |
+| 支援的授權標頭 | 語音轉換文字 | 文字轉換語音 |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | 是 | 否 |
 | Authorization:Bearer | 是 | 是 |
@@ -26,7 +26,7 @@ ms.locfileid: "67333367"
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-使用 `Authorization: Bearer` 標頭時，需要對 `issueToken` 端點提出要求。 在此要求中，要以訂用帳戶金鑰交換有效期間 10 分鐘的存取權杖。 在接下來的章節中，您將了解如何取得權杖，並使用權杖。
+使用 `Authorization: Bearer` 標頭時，需要對 `issueToken` 端點提出要求。 在此要求中，要以訂用帳戶金鑰交換有效期間 10 分鐘的存取權杖。 在接下來的幾節中, 您將瞭解如何取得權杖, 並使用權杖。
 
 ### <a name="how-to-get-an-access-token"></a>如何取得存取權杖
 
@@ -129,6 +129,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

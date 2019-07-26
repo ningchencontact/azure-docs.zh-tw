@@ -1,7 +1,7 @@
 ---
-title: Docker compose 容器配方
+title: 使用 Docker Compose 來部署多個容器
 titleSuffix: Azure Cognitive Services
-description: 了解如何部署認知服務的多個容器。 此程序會示範如何協調多個 Docker 容器映像，透過 Docker Compose。
+description: 瞭解如何部署多個認知服務容器。 本文說明如何使用 Docker Compose 來協調多個 Docker 容器映射。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 8afb7e866bc2a5fefe28a71653c4a2a87fdc7a5b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445783"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311544"
 ---
-# <a name="use-multiple-containers-in-a-private-network-with-docker-compose"></a>使用 Docker Compose 的私人網路中的多個容器
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>使用 Docker Compose 來部署多個容器
 
-了解如何部署認知服務的多個容器。 此程序會示範如何協調多個 Docker 容器映像，透過 Docker Compose。
+本文說明如何部署多個 Azure 認知服務容器。 具體而言, 您將瞭解如何使用 Docker Compose 來協調多個 Docker 容器映射。
 
-> [Docker Compose](https://docs.docker.com/compose/)是一種工具可定義及執行多容器 Docker 應用程式。 以 Compose，您可以使用 YAML 檔案來設定您的應用程式服務。 然後，使用單一命令，建立並啟動所有服務，從您的組態。
+> [Docker Compose](https://docs.docker.com/compose/)是用來定義和執行多容器 Docker 應用程式的工具。 在 [撰寫中] 中, 您可以使用 YAML 檔案來設定應用程式的服務。 然後, 藉由執行單一命令, 從您的設定建立並啟動所有服務。
 
-請在適當時機協調的單一主機電腦上的多個容器映像可以是吸引人。 在本文中，我們會提取的辨識文字服務和表單的辨識器服務在一起。
+在單一主機電腦上協調多個容器映射可能會很有用。 在本文中, 我們會將「辨識文字」和「表單辨識器」容器一起提取在一起。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-此程序需要必須安裝並在本機執行的多個工具。
+此程式需要幾個必須在本機上安裝和執行的工具:
 
-* 使用 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-* [Docker 引擎](https://www.docker.com/products/docker-engine)，並驗證 Docker CLI 可在主控台視窗中運作。
-* 具有正確定價層的 Azure 資源。 並非所有的定價層都會使用這個容器︰
-  * **電腦視覺**資源 F0 或標準定價層只。
-  * **形成辨識器**資源 F0 或標準定價層只。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+* [Docker 引擎](https://www.docker.com/products/docker-engine)。 確認 Docker CLI 可在主控台視窗中運作。
+* 具有正確定價層的 Azure 資源。 只有下列定價層可與此容器搭配使用:
+  * 僅**電腦視覺**具有 F0 或標準定價層的資源。
+  * 僅使用 F0 或標準定價層的**表單辨識器**資源。
   * 有 S0 定價層的**認知服務**資源。
 
 ## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
-填寫並提交[認知服務語音容器要求表單](https://aka.ms/speechcontainerspreview/)要求存取至容器。 
+完成並提交[認知服務語音容器要求表單](https://aka.ms/speechcontainerspreview/)。 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="docker-compose-file"></a>Docker compose 檔案
+## <a name="docker-compose-file"></a>Docker Compose 檔案
 
-YAML 檔案會定義要部署的所有服務。 這些服務都依賴在`DockerFile`或現有的容器映像，在本例中我們將使用兩個預覽映像。 複製並貼上下列 YAML 檔案，然後將它儲存成*docker compose.yaml*。 提供適當_apikey_，_計費_，並_端點 URI_中的值_docker compose.yml_下列檔案。
+YAML 檔案會定義要部署的所有服務。 這些服務依賴或現有的`DockerFile`容器映射。 在此情況下, 我們將使用兩個預覽影像。 複製並貼上下列 YAML 檔案, 並將它儲存為*YAML*。 在檔案中提供適當的**apikey**、**帳單**和**EndpointUri**值。
 
 ```yaml
 version: '3.7'
@@ -61,10 +61,10 @@ services:
        FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
        - type: bind
-         source: e:\publicpreview\output
+         source: E:\publicpreview\output
          target: /output
        - type: bind
-         source: e:\publicpreview\input
+         source: E:\publicpreview\input
          target: /input
     ports:
       - "5010:5000"
@@ -80,22 +80,22 @@ services:
 ```
 
 > [!IMPORTANT]
-> 在指定的主機電腦上建立目錄`volumes`節點。 這是必要的因為目錄都必須存在，再嘗試將磁碟區的繫結掛接映像。
+> 在 [**磁片**區] 節點底下指定的主機電腦上建立目錄。 這是必要的方法, 因為在您嘗試使用磁片區系結來掛接映射之前, 目錄必須存在。
 
-## <a name="start-the-configured-docker-compose-services"></a>開始設定的 docker compose 的服務
+## <a name="start-the-configured-docker-compose-services"></a>啟動設定的 Docker Compose 服務
 
-Docker compose 檔案可允許所有已定義的服務的生命週期; 管理從開始/停止和重新建置服務，檢視服務狀態，以及記錄資料流。 從專案目錄開啟命令列介面 (其中*docker compose.yaml*檔案位於)。
+Docker Compose 檔案可讓您管理已定義服務生命週期中的所有階段: 啟動、停止和重建服務;正在查看服務狀態;和記錄資料流程。 從專案目錄 (docker yaml 檔案所在的位置) 開啟命令列介面。
 
 > [!NOTE]
-> 若要避免錯誤，請確定主機電腦正在正確共用與磁碟機**Docker 引擎**。 例如，如果*e:\publicpreview*做為目錄中*docker compose.yaml*共用*E 磁碟機*使用 docker。
+> 為避免發生錯誤, 請確定主機電腦已正確地與 Docker 引擎共用磁片磁碟機。 例如, 如果 E:\publicpreview 是用來作為 yaml 檔案中的目錄, 請與 Docker 共用磁片磁碟機 E。
 
-從命令列介面中，執行下列命令來啟動 （或重新啟動） 定義的所有服務中*docker compose.yaml*:
+從命令列介面執行下列命令, 以啟動 (或重新開機) yaml 檔案中定義的所有服務:
 
 ```console
 docker-compose up
 ```
 
-第一次執行`docker-compose up`命令搭配此組態中， **Docker**將會提取下設定的映像`services`節點-下載/掛接它們：
+Docker 第一次使用此**設定來執行 docker 撰寫**命令時, 它會提取在 [**服務**] 節點下設定的映射, 然後下載並掛接它們:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -126,7 +126,7 @@ c56511552241: Waiting
 e91d2aa0f1ad: Downloading [==============================================>    ]  162.2MB/176.1MB
 ```
 
-下載映像時，則映像服務已經啟動。
+下載影像之後, 映射服務就會啟動:
 
 ```console
 Starting docker_ocr_1   ... done
@@ -158,11 +158,11 @@ ocr_1    | Now listening on: http://0.0.0.0:5000
 ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 
-## <a name="verify-the-service-availability"></a>請確認服務可用性
+## <a name="verify-the-service-availability"></a>確認服務可用性
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-以下是範例輸出：
+以下是一些範例輸出:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -170,17 +170,17 @@ IMAGE ID            REPOSITORY                                                  
 4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>測試 recognize 文字容器
+### <a name="test-the-recognize-text-container"></a>測試辨識文字容器
 
-開啟主機電腦上的瀏覽器並瀏覽至`localhost`使用從指定的連接埠*docker compose.yaml*，例如`http://localhost:5021/swagger/index.html`。 您可以使用此 」 功能，請嘗試来測試 recognize 文字端點的 api。
+在主機電腦上開啟瀏覽器, 並使用 yaml 檔案中的指定埠 (例如 http://localhost:5021/swagger/index.html ), 移至 localhost。 您可以使用 API 中的「試試看」功能來測試辨識文字端點。
 
-![辨識文字 Swagger](media/recognize-text-swagger-page.png)
+![辨識文字容器](media/recognize-text-swagger-page.png)
 
 ### <a name="test-the-form-recognizer-container"></a>測試表單辨識器容器
 
-開啟主機電腦上的瀏覽器並瀏覽至`localhost`使用從指定的連接埠*docker compose.yaml*，例如`http://localhost:5010/swagger/index.html`。 您可以使用此 」 功能，請嘗試来測試表單辨識器端點的 api。
+在主機電腦上開啟瀏覽器, 並使用 yaml 檔案中的指定埠 (例如 http://localhost:5010/swagger/index.html ), 移至 localhost。 您可以使用 API 中的「試試看」功能來測試表單辨識器端點。
 
-![表單辨識器 Swagger](media/form-recognizer-swagger-page.png)
+![表單辨識器容器](media/form-recognizer-swagger-page.png)
 
 ## <a name="next-steps"></a>後續步驟
 

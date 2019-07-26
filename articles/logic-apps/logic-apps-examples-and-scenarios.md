@@ -10,22 +10,22 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
-ms.openlocfilehash: 6d9a2929d7b8b1687b602093d0e9de35508dbd8c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273094"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385516"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps 的常見情節、範例、教學課程和逐步解說
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)提供[數百個現成可用的連接器](../connectors/apis-list.md), 範圍從內部部署 SQL Server 或 SAP 到 Microsoft 認知服務, 協助您協調和整合不同的服務。 Logic Apps 服務為「無伺服器」，因此您不必擔心縮放比例或執行個體。 您只需要使用觸發程序和工作流程執行的動作，即可定義觸發程序。 基礎平台可處理調整、可用性和效能。 Logic Apps 特別適用於需要協調跨多個系統之多個動作的使用案例和情節。
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)提供[數百個現成可用的連接器](../connectors/apis-list.md), 範圍從內部部署 SQL Server 或 SAP 到 Azure 認知服務, 協助您協調和整合不同的服務。 Logic Apps 服務為「無伺服器」，因此您不必擔心縮放比例或執行個體。 您只需要使用觸發程序和工作流程執行的動作，即可定義觸發程序。 基礎平台可處理調整、可用性和效能。 Logic Apps 特別適用於需要協調跨多個系統之多個動作的使用案例和情節。
 
 為了協助您深入了解 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 支援中的眾多模式和功能，以下提供了常見的範例與情節。
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>邏輯應用程式工作流程的常用起點
 
-每個邏輯應用程式都是以[觸發程序  ](../logic-apps/logic-apps-overview.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
+每個邏輯應用程式都是以[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
 
 * *輪詢觸發*程式:定期檢查服務端點的新資料。 當新的資料存在時，觸發程序會使用資料建立並執行新的工作流程執行個體作為輸入。
 
@@ -46,7 +46,7 @@ ms.locfileid: "68273094"
 
   * [**要求 / 回應 - 要求**觸發程序](../connectors/connectors-native-reqres.md)可讓邏輯應用程式以某種方式即時接收 HTTP 要求和回應事件。
 
-  * [**HTTP Webhook** 觸發程序](../connectors/connectors-native-webhook.md)可訂閱服務端點，方法為使用該服務註冊回呼 URL  。 
+  * [**HTTP Webhook** 觸發程序](../connectors/connectors-native-webhook.md)可訂閱服務端點，方法為使用該服務註冊回呼 URL。 
   這樣一來，當指定的事件發生時，服務可以只通知觸發程序，讓觸發程序不需要輪詢服務。
 
 接收關於新資料或事件的通知之後，觸發程序會引發、建立新的邏輯應用程式工作流程執行個體，並執行工作流程中的動作。 您可以在整個工作流程中，從觸發程序存取任何資料。 例如，「在新的推文上」觸發程序會將推文內容傳遞到邏輯應用程式執行。 
@@ -80,7 +80,7 @@ ms.locfileid: "68273094"
 
 * [使用 Visual Studio 建立和部署邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [開啟現有 Logic Apps 的監視、記錄和警示](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [建立自動部署範本](../logic-apps/logic-apps-create-deploy-template.md)
+* [自動化邏輯應用程式部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>執行內的內容類型、轉換 (Conversion) 及轉換 (Transformation)
 
@@ -98,7 +98,7 @@ ms.locfileid: "68273094"
 * [從邏輯應用程式呼叫 Azure Functions](../logic-apps/logic-apps-azure-functions.md)
 * [教學課程：使用 Azure Functions 觸發邏輯應用程式](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器變更](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [教學課程：建立可與 Azure Logic Apps 和 Microsoft 認知服務整合的函式, 以分析 Twitter 文章情感](../azure-functions/functions-twitter-email.md)
+* [教學課程：建立可與 Azure Logic Apps 和 Azure 認知服務整合的函式, 以分析 Twitter 文章情感](../azure-functions/functions-twitter-email.md)
 * [教學課程：透過 Azure Logic Apps 連線 iot 中樞和信箱的 IoT 遠端監視和通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [部落格：從邏輯應用程式呼叫 SOAP 端點](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 應用程式 Proxy 中使用連接器群組在個別的網路和位置上發佈應用程式 | Microsoft Docs
+title: 使用 Azure AD App Proxy 連接器群組, 在不同的網路上發佈應用程式 |Microsoft Docs
 description: 涵蓋如何建立和管理「Azure AD 應用程式 Proxy」中的連接器群組。
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574ce6def407f302439f6c53356fe69259240b2e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702487"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381494"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 
@@ -41,10 +41,10 @@ ms.locfileid: "67702487"
 使用以下步驟建立您所要的連接器群組，數量不拘。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 選取 [Azure Active Directory]   >  [企業應用程式]   >  [應用程式 Proxy]  。
-1. 選取 [新增連接器群組]  。 [新增連接器群組] 刀鋒視窗隨即出現。
+1. 選取 [Azure Active Directory]  >  [企業應用程式]  >  [應用程式 Proxy]。
+1. 選取 [新增連接器群組]。 [新增連接器群組] 刀鋒視窗隨即出現。
 
-   ![顯示畫面以選取新的連接器群組](./media/application-proxy-connector-groups/new-group.png)
+   ![顯示選取新連接器群組的畫面](./media/application-proxy-connector-groups/new-group.png)
 
 1. 指定新連接器群組的名稱，然後使用下拉式功能表來選取哪些連接器屬於此群組。
 1. 選取 [ **儲存**]。
@@ -53,8 +53,8 @@ ms.locfileid: "67702487"
 
 已透過應用程式 Proxy 發佈的每個應用程式均按照這些步驟處理。 您可以在首次發佈應用程式時，將應用程式指派給連接器群組，也可以隨時使用這些步驟變更指派。
 
-1. 從您目錄的管理儀表板中，選取 [企業應用程式]   > [所有應用程式]  > 您想要指派給連接器群組的應用程式 > [應用程式 Proxy]  。
-1. 使用 [連接器群組]  下拉式功能表來選取應用程式所要使用的群組。
+1. 從您目錄的管理儀表板中，選取 [企業應用程式] > [所有應用程式] > 您想要指派給連接器群組的應用程式 > [應用程式 Proxy]。
+1. 使用 [連接器群組] 下拉式功能表來選取應用程式所要使用的群組。
 1. 按一下 [儲存]  以套用變更。
 
 ## <a name="use-cases-for-connector-groups"></a>連接器群組的使用案例
@@ -77,11 +77,11 @@ ms.locfileid: "67702487"
 
 以擁有數個虛擬機器連線到本身 IaaS 主控之虛擬網路的組織為例。 若要允許員工使用這些應用程式，這些私人網路會使用站台對站 VPN 連線到公司網路。 針對位於內部部署的員工，這會提供良好的體驗。 但是，它可能不適合遠端員工，因為它需要額外內部部署基礎結構來路由存取權，如您所見下圖顯示︰
 
-![此圖說明 Azure AD IaaS 網路](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![說明 Azure AD IaaS 網路的圖表](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 使用 Azure AD 應用程式 Proxy 連接器群組，您可以啟用一般服務來保護所有應用程式，而無須在您的公司網路上建立其他相依性︰
 
-![Azure AD IaaS 多雲端廠商](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS 多個雲端廠商](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>多樹系 – 每個樹系不同的連接器群組
 
@@ -108,7 +108,7 @@ ms.locfileid: "67702487"
 
 如果您不使用連接器群組，您的組態會看起來像這樣︰
 
-![範例 Azure AD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![Azure AD 沒有連接器群組的範例](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 這個組態就對小型部署和測試就已足夠。 如果您的組織具有平面網路拓撲，則它也會正常運作。
 
@@ -124,7 +124,7 @@ ms.locfileid: "67702487"
 
 下列範例中，公司有兩個資料中心 (A 和 B)，並具有兩個連接器可為每個站台提供服務。 每個網站都有不同的應用程式在其上執行。
 
-![具有 2 個資料中心和 2 的連接器公司的範例](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+![具有2個資料中心和2個連接器的公司範例](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
 ## <a name="next-steps"></a>後續步驟
 

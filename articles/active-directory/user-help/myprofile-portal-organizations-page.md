@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475450"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382994"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>從我的設定檔 (預覽) 入口網站管理組織
+
 您可以從**我的設定檔**入口網站的**組織**頁面管理組織。
 
 **組織**頁面上顯示兩種組織：
@@ -31,9 +32,10 @@ ms.locfileid: "60475450"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-organizations"></a>檢閱您的組織
+
 1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
-2. 從左側瀏覽窗格選取 [組織]  ，或從 [組織]  區塊選取 [管理組織]  連結。
+2. 從左側瀏覽窗格選取 [組織]，或從 [組織] 區塊選取 [管理組織] 連結。
 
     ![我的設定檔頁面，顯示醒目提示的組織連結](media/myprofile-portal/myprofile-portal-organizations.png)
 
@@ -41,9 +43,10 @@ ms.locfileid: "60475450"
 
     ![組織頁面](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. 檢閱您其他相關聯的組織，確保您能識別連線至帳戶的所有組織。
+4. 檢閱您其他相關聯的組織，確保您能識別連線至帳戶的所有組織。
 
 ## <a name="leave-an-organization"></a>從組織離職
+
 您可以從任何不是主要組織的組織中離開。
 
 >[!Important]
@@ -51,10 +54,10 @@ ms.locfileid: "60475450"
 
 1. 從**我參與的其他組織**區域登入您的帳戶。
 
-2. 選取 [離開組織]  ，然後選取 [是]  以確保您想要離開組織。
+2. 選取 [離開組織]，然後選取 [是] 以確保您想要離開組織。
 
     ![組織頁面醒目提示離開組織的連結](media/myprofile-portal/myprofile-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢視您的組織之後, 您可以選取要檢視或管理您[安全性資訊](user-help-security-info-overview.md)連線[裝置](myprofile-portal-devices-page.md)，或檢視表如何組織[會使用您的資料](myprofile-portal-privacy-page.md)。
+- 在觀看組織之後, 您可以選擇要查看或管理您的[安全性資訊](user-help-security-info-overview.md)、已連線的[裝置](myprofile-portal-devices-page.md), 或查看組織如何[使用您的資料](myprofile-portal-privacy-page.md)。

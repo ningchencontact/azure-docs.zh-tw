@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: f44cb90beb7c1c544cb135f277fc12f724769b65
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 819b0f94f2dc8742b658dbd3aaa87108f204d2a7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846985"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406077"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>將 Azure VM 從一個區域複寫至另一個區域的支援矩陣
 
@@ -48,8 +48,8 @@ ms.locfileid: "67846985"
 -- | --
 美洲 | 加拿大東部、加拿大中部、美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2、美國中部、美國中北部
 歐洲 | 英國西部, 英國南部, 北歐, 西歐, 法國中部, 法國南部, 南非西部, 南非北部
-亞洲 | 印度南部、印度中部、東南亞、東亞、日本東部、日本西部、南韓中部、南韓南部
-澳大利亞   | 澳大利亞東部、澳大利亞東南部、澳大利亞中部、澳大利亞中部 2
+亞洲 | 印度南部、印度中部、印度西部、東南亞、東亞、日本東部、日本西部、韓國中部、南韓南部、阿拉伯聯合大公國中部、阿拉伯聯合大公國北部
+澳洲   | 澳大利亞東部、澳大利亞東南部、澳大利亞中部、澳大利亞中部 2
 Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞利桑那州、US Gov 德克薩斯州、US DoD 東部、US DoD 中部 
 德國 | 德國中部、德國東北部
 中國 | 中國東部、中國北部、中國北部 2、中國東部 2
@@ -182,7 +182,7 @@ RBAC 原則 | 不支援 | Vm 上以角色為基礎的存取控制 (RBAC) 原則�
 --- | --- | ---
 OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/managed-disks-overview.md) VM 磁碟。
 暫存磁碟 | 不支援 | 暫存磁碟一律排除在複寫之外。<br/><br/> 請不要將任何永續性資料儲存於暫存磁碟上。 [深入了解](../virtual-machines/windows/managed-disks-overview.md)。
-資料磁碟的大小上限 | 4095 GB |
+資料磁碟的大小上限 | 適用于受控磁片的 8192 GB<br></br>4095 GB (非受控磁片)|
 資料磁片大小下限 | 不限制非受控磁片。 2 GB 適用于受控磁片 | 
 資料磁碟的數目上限 | 最多 64 個 (根據特定的 Azure VM 大小支援) | [深入了解](../virtual-machines/windows/sizes.md) VM 大小。
 資料磁碟的變更率 | 進階儲存體的每個磁碟最多 10 MBps。 標準儲存體的每個磁碟最多 2 MBps。 | 如果磁碟的平均資料變更率持續高於最大值，複寫將趕不上進度。<br/><br/>  不過，如果是偶而超過最大值，則複寫可以趕上進度，但您可能會看到稍有延遲的復原點。
@@ -240,7 +240,7 @@ NIC | 針對特定 Azure VM 大小支援的數目上限 | 在容錯移轉期間�
 公用 IP 位址 | 支援 | 將現有公用 IP 位址與 NIC 產生關聯。 或者，建立公用 IP 位址，然後使用復原方案中的 Azure 自動化指令碼讓它與 NIC 產生關聯。
 NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與 NIC 產生關聯。
 子網路上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與子網路產生關聯。
-保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目]   > [設定]   > [計算與網路]   > [網路介面]  中指定固定的 IP 位址和子網路。
+保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。
 動態 IP 位址 | 支援 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。
 多個 IP 位址 | 不支援 | 當您損毀修復具有多個 IP 位址的 NIC 的 VM 時, 只會保留來源區域中 NIC 的主要 IP 位址。 若要指派多個 IP 位址, 您可以將 Vm 新增至復原[方案](recovery-plan-overview.md), 並附加腳本來指派其他 ip 位址給方案, 或者您可以手動進行變更, 或在容錯移轉之後使用腳本進行變更。 
 流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
@@ -251,7 +251,7 @@ Azure DNS | 支援 |
 連至內部部署的 VPN 站對站連線<br/><br/>(不論是否有 ExpressRoute)| 支援 | 請確定 Udr 和 Nsg 的設定方式, 不會將 Site Recovery 流量路由傳送到內部部署。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET 對 VNET 連線 | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)  
 虛擬網路服務端點 | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
-加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+加速的網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 
 

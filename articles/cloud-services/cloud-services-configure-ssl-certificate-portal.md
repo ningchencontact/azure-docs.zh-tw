@@ -3,23 +3,17 @@ title: 設定雲端服務的 SSL | Microsoft Docs
 description: 了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。 這些範例使用 Azure 入口網站。
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 9e7b7526f13fa6b9ae648c4ddb4004a627d85154
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61434023"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359744"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 設定應用程式的 SSL
 
@@ -33,14 +27,14 @@ ms.locfileid: "61434023"
 
 如果尚未建立雲端服務，請先閱讀 [這裡](cloud-services-how-to-create-deploy-portal.md) 。
 
-## <a name="step-1-get-an-ssl-certificate"></a>步驟 1：取得 SSL 憑證
+## <a name="step-1-get-an-ssl-certificate"></a>步驟 1:取得 SSL 憑證
 若要設定應用程式的 SSL，首先您需要取得已由憑證授權單位 (CA) (專門核發憑證的受信任第三方) 簽署的 SSL 憑證。 如果您還沒有此類憑證，則必須向銷售 SSL 憑證的公司取得。
 
 憑證必須符合 Azure 中對於 SSL 憑證的下列要求：
 
 * 憑證必須包含私密金鑰。
 * 憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
-* 憑證的主體名稱必須符合用來存取雲端服務的網域。 您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。 您必須取得要在存取您的服務時使用的自訂網域名稱。 當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。 例如，如果您的自訂網域名稱是**contoso.com**您會向 CA 要求憑證 * **。 contoso.com**或是**www\.contoso.com**。
+* 憑證的主體名稱必須符合用來存取雲端服務的網域。 您無法向憑證授權單位 (CA) 取得 cloudapp.net 網域的 SSL 憑證。 您必須取得要在存取您的服務時使用的自訂網域名稱。 當您向 CA 要求憑證時，憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。 例如, 如果您的自訂功能變數名稱為**contoso.com** , 您會向 CA 要求 * **. contoso.com**或 **\.www contoso.com**的憑證。
 * 憑證至少必須以 2048 位元加密。
 
 基於測試目的，您可以 [建立](cloud-services-certs-create.md) 並使用自我簽署憑證。 自我簽署憑證不是由 CA 驗證，因此可以使用 cloudapp.net 網域做為網站 URL。 例如，以下工作即使用自我簽署憑證，該憑證中使用的一般名稱 (CN) 為 **sslexample.cloudapp.net**。
@@ -49,10 +43,10 @@ ms.locfileid: "61434023"
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>步驟 2：修改服務定義和組態檔
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>步驟 2:修改服務定義和設定檔
 您的應用程式必須已設定為使用憑證，而且您必須新增 HTTPS 端點。 因此，您需要更新服務定義檔與服務組態檔。
 
-1. 在開發環境中，開啟服務定義檔 (CSDEF)、在 [WebRole]  區段內新增 [Certificates]  區段，並新增下列憑證 (及中繼憑證) 相關資訊：
+1. 在開發環境中，開啟服務定義檔 (CSDEF)、在 [WebRole] 區段內新增 [Certificates] 區段，並新增下列憑證 (及中繼憑證) 相關資訊：
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -117,7 +111,7 @@ ms.locfileid: "61434023"
     ```
 
    如此即已對服務定義檔完成所有必要變更，但是您仍然需要將憑證資訊新增至服務組態檔。
-4. 在服務組態檔 (CSCFG) ServiceConfiguration.Cloud.cscfg 中，新增**憑證**值以取代您的憑證。 下列程式碼範例會提供 [憑證]  區段的詳細資料，指紋值除外。
+4. 在服務組態檔 (CSCFG) ServiceConfiguration.Cloud.cscfg 中，新增**憑證**值以取代您的憑證。 下列程式碼範例會提供 [憑證] 區段的詳細資料，指紋值除外。
 
    ```xml
     <Role name="Deployment">
@@ -141,24 +135,24 @@ ms.locfileid: "61434023"
 ## <a name="step-3-upload-a-certificate"></a>步驟 3：上傳憑證
 連線到 Azure 入口網站並...
 
-1. 在入口網站的 [所有資源]  區段中，選取您的雲端服務。
+1. 在入口網站的 [所有資源] 區段中，選取您的雲端服務。
 
-    ![發佈您的雲端服務](media/cloud-services-configure-ssl-certificate-portal/browse.png)
+    ![發行您的雲端服務](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-2. 按一下 [憑證]  。
+2. 按一下 [憑證]。
 
     ![按一下憑證圖示](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. 按一下憑證區上方的 [上傳]  。
+3. 按一下憑證區上方的 [上傳]。
 
     ![按一下 [上傳] 功能表項目](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. 提供 [檔案]  、[密碼]  ，然後按一下資料輸入區底部的 [上傳]  。
+4. 提供 [檔案]、[密碼]，然後按一下資料輸入區底部的 [上傳]。
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>步驟 4：使用 HTTPS 來連線至角色執行個體
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>步驟 4：使用 HTTPS 連接到角色實例
 您的部署已在 Azure 啟動並執行，現在您可以使用 HTTPS 來與其連線。
 
-1. 按一下 [網站 URL]  開啟網頁瀏覽器。
+1. 按一下 [網站 URL] 開啟網頁瀏覽器。
 
    ![按一下網站 URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 

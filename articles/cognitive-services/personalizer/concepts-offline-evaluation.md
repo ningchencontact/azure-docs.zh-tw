@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722483"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423276"
 ---
 # <a name="offline-evaluation"></a>離線評估
 
@@ -48,11 +48,11 @@ ms.locfileid: "67722483"
 
 個人化工具可使用離線評估程序來自動探索更好的學習原則。
 
-執行離線評估之後，您可以看到新原則與目前線上原則相比之下，個人化工具所具有的比較成效。 然後，您可以套用該學習原則，使其在個人化工具中立即生效，或將其下載，以便在未來進行分析或使用。
+執行離線評估之後，您可以看到新原則與目前線上原則相比之下，個人化工具所具有的比較成效。 接著, 您可以套用該學習原則, 讓它在個人化工具中立即生效, 方法是下載它, 然後在 [模型和原則] 面板中上傳它。 您也可以下載它以供日後分析或使用。
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>了解離線評估結果的相關性
 
-當您執行離線評估時，務必要分析結果的「信賴界限」  。 如果界限很寬，表示您的應用程式未收到足夠的資料，無法準確或有效地預估獎勵。 由於系統會累積更多資料，而且您會對更長的期間執行離線評估，因此信賴區間會變得愈來愈窄。
+當您執行離線評估時，務必要分析結果的「信賴界限」。 如果界限很寬，表示您的應用程式未收到足夠的資料，無法準確或有效地預估獎勵。 由於系統會累積更多資料，而且您會對更長的期間執行離線評估，因此信賴區間會變得愈來愈窄。
 
 ## <a name="how-offline-evaluations-are-done"></a>離線評估的運作方式
 
@@ -91,7 +91,7 @@ ms.locfileid: "67722483"
 我們建議您查看特性評估並詢問：
 
 * 您的應用程式或系統可提供什麼其他更有效果的額外特性？
-* 可以移除哪些效果低的特性？ 效果低的特性會加重機器學習中的「干擾」  。
+* 可以移除哪些效果低的特性？ 效果低的特性會加重機器學習中的「干擾」。
 * 是否有任何意外加入的特性？ 範例如下：個人識別資訊 (PII) 或重複識別碼等等。
 * 是否有任何不可用的特性，也就是因為法規或責任考量而不應該用來個人化的特性？ 是否有可以取代不可用特性的特性 (也就是即近似或相關的特性)？
 
@@ -99,3 +99,4 @@ ms.locfileid: "67722483"
 ## <a name="next-steps"></a>後續步驟
 
 [設定個人化工具](how-to-settings.md)
+[執行離線評估](how-to-offline-evaluation.md)瞭解[個人化工具的運作方式](how-personalizer-works.md)

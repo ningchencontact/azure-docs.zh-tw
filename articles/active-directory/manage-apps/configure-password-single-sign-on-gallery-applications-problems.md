@@ -1,5 +1,5 @@
 ---
-title: 為 Azure AD 資源庫應用程式設定密碼單一登入時遇到的問題 | Microsoft Docs
+title: 為 Azure AD 資源庫應用程式設定密碼單一登入時發生問題 |Microsoft Docs
 description: 了解使用者在為應用程式設定密碼單一登入 (這類應用程式已經列於 Azure AD 應用程式庫中) 時所面臨的常見問題
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a35ef95074099499186eae0fadd37f1995d8e725
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190282"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381138"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>為 Azure AD 資源庫應用程式設定密碼單一登入時遇到的問題
 
@@ -39,15 +39,15 @@ ms.locfileid: "67190282"
 
 - 讓使用者先嘗試使用為他們儲存的認證，**直接登入應用程式網站**。
 
-  * 如果可登入，接著讓使用者在[應用程式存取面板](https://myapps.microsoft.com/)的 [應用程式]  區段中，按一下 [應用程式磚]  上的 [更新認證]  按鈕，將他們更新至最新已知的有效使用者名稱和密碼。
+  * 如果可登入，接著讓使用者在[應用程式存取面板](https://myapps.microsoft.com/)的 [應用程式] 區段中，按一下 [應用程式磚] 上的 [更新認證] 按鈕，將他們更新至最新已知的有效使用者名稱和密碼。
 
-  * 如果您或其他系統管理員已為此使用者指派認證，請尋找使用者或群組的應用程式指派，方法是瀏覽至應用程式的 [使用者和群組]  索引標籤、選取指派，然後按一下 [更新認證]  按鈕。
+  * 如果您或其他系統管理員已為此使用者指派認證，請尋找使用者或群組的應用程式指派，方法是瀏覽至應用程式的 [使用者和群組] 索引標籤、選取指派，然後按一下 [更新認證] 按鈕。
 
 - 如果使用者已指派他們自己的認證，讓使用者**檢查以確定他們的密碼在應用程式中尚未過期**，如果過期，請直接登入應用程式，以**更新他們過期的密碼**。
 
-  * 在應用程式中更新密碼之後，要求使用者在[應用程式存取面板](https://myapps.microsoft.com/)的 [應用程式]  區段中，按一下 [應用程式磚]  上的 [更新認證]  按鈕，以將他們更新至最新已知的有效使用者名稱和密碼。
+  * 在應用程式中更新密碼之後，要求使用者在[應用程式存取面板](https://myapps.microsoft.com/)的 [應用程式] 區段中，按一下 [應用程式磚] 上的 [更新認證] 按鈕，以將他們更新至最新已知的有效使用者名稱和密碼。
 
-  * 如果您或其他系統管理員已為此使用者指派認證，請尋找使用者或群組的應用程式指派，方法是瀏覽至應用程式的 [使用者和群組]  索引標籤、選取指派，然後按一下 [更新認證]  按鈕。
+  * 如果您或其他系統管理員已為此使用者指派認證，請尋找使用者或群組的應用程式指派，方法是瀏覽至應用程式的 [使用者和群組] 索引標籤、選取指派，然後按一下 [更新認證] 按鈕。
 
 - 讓使用者依照[如何安裝存取面板的瀏覽器延伸模組](#how-to-install-the-access-panel-browser-extension)一節中的下列步驟，來更新存取面板的瀏覽器延伸模組。
 
@@ -89,13 +89,13 @@ ms.locfileid: "67190282"
 
 1.  在其中一種支援的瀏覽器中開啟[存取面板](https://myapps.microsoft.com)，然後在您的 Azure AD 中以**使用者**身分登入。
 
-2.  按一下存取面板中的 [密碼-SSO 應用程式]  。
+2.  按一下存取面板中的 [密碼-SSO 應用程式]。
 
-3.  在要求安裝軟體的提示中，選取 [立即安裝]  。
+3.  在要求安裝軟體的提示中，選取 [立即安裝]。
 
 4.  系統會根據您的瀏覽器將您導向下載連結。 將延伸模組**新增**到瀏覽器中。
 
-5.  如果您的瀏覽器要求，請選取 [啟用]  或 [允許]  該延伸模組。
+5.  如果您的瀏覽器要求，請選取 [啟用] 或 [允許] 該延伸模組。
 
 6.  安裝之後，**重新啟動**瀏覽器工作階段。
 

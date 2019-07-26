@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Python-Azure 儲存體中的佇列儲存體
+title: 如何使用 Python 的佇列儲存體-Azure 儲存體
 description: 了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。
 services: storage
 author: mhopkins-msft
@@ -10,12 +10,12 @@ ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 75f04893067d92813207bd656fc3368239ae9303
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 141999f4119ac92e2b8846477c50edf8fba027d0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142797"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360035"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何使用 Python 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "65142797"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>總覽
-本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是以 Python 所撰寫，並使用 [Microsoft Azure Storage SDK for Python]。 所涵蓋的案例包括「插入」  、「查看」  、「取得」  和「刪除」  佇列訊息，以及「建立和刪除佇列」  。 如需佇列的詳細資訊，請參閱 [後續步驟] 一節。
+本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是以 Python 所撰寫，並使用 [Microsoft Azure Storage SDK for Python]。 所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。 如需佇列的詳細資訊，請參閱 [後續步驟] 一節。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -98,10 +98,11 @@ for message in messages:
 首先，您可以取得一批訊息 (最多 32 個)。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。 下列程式碼範例將使用 **get\_messages** 方法，在一次呼叫中取得 16 個訊息。 接著它會使用 for 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。
 
 ```python
-messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
+messages = queue_service.get_messages(
+    'taskqueue', num_messages=16, visibility_timeout=5*60)
 for message in messages:
     print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
+    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>作法：變更佇列訊息的內容
@@ -110,7 +111,8 @@ for message in messages:
 ```python
 messages = queue_service.get_messages('taskqueue')
 for message in messages:
-    queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+    queue_service.update_message(
+        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>作法：取得佇列長度

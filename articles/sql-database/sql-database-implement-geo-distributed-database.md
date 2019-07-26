@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60338956"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444533"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散資料庫
 
@@ -30,16 +30,16 @@ ms.locfileid: "60338956"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 若要完成本教學課程，請確定您已安裝下列項目：
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Azure SQL 資料庫。 若要建立一次使用，
+- Azure SQL Database 中的單一資料庫。 若要建立一次使用，
   - [入口網站](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -102,7 +102,7 @@ ms.locfileid: "60338956"
        -FailoverGroupName $myfailovergroupname
    ```
 
-在 Azure 入口網站中也可以變更異地複寫設定，方法是選取您的資料庫，然後選取 [設定]   > [異地複寫]  。
+在 Azure 入口網站中也可以變更異地複寫設定，方法是選取您的資料庫，然後選取 [設定] > [異地複寫]。
 
 ![異地複寫設定](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 

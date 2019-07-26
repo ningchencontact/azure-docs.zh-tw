@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7d8fb7bc0e837ba78d86a39524d869c9bb01895d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867572"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414125"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
 
@@ -44,12 +44,18 @@ ms.locfileid: "67867572"
 >目前的 Prometheus 支援是公開預覽中的一項功能。
 >
 
+查看下列提供中繼層級深入探討的影片, 以協助您瞭解如何使用容器的 Azure 監視器監視 AKS 叢集。
+
+> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+
 ## <a name="how-do-i-access-this-feature"></a>如何存取此功能？
+
 您有兩種方式可用來存取適用於容器的 Azure 監視器：從 Azure 監視器或直接從所選取的 AKS 叢集。 從 Azure 監視器中, 您會看到所有已部署的容器的全域觀點, 這些都是受監視的, 而不是, 可讓您在訂用帳戶和資源群組之間進行搜尋和篩選, 然後向下切入至容器的 Azure 監視器選取的容器。  否則, 您可以直接從 [AKS] 頁面中選取的 AKS 容器存取該功能。  
 
 ![存取適用於容器的 Azure 監視器方法概觀](./media/container-insights-overview/azmon-containers-experience.png)
 
-如果您想要監視和管理 Docker 與 Windows 容器主機以檢視設定、稽核以及資源使用率，請參閱[容器監視解決方案](../../azure-monitor/insights/containers.md)。
+如果您想要監視和管理在 AKS 外部執行的 Docker 和 Windows 容器主機, 以查看設定、audit 和資源使用率, 請參閱[容器監視解決方案](../../azure-monitor/insights/containers.md)。
 
 ## <a name="next-steps"></a>後續步驟
+
 若要開始監視您的 AKS 叢集, 請參閱[如何啟用容器的 Azure 監視器](container-insights-onboard.md), 以瞭解啟用監視的需求和可用方法。  

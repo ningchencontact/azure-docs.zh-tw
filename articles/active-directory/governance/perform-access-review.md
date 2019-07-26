@@ -1,9 +1,9 @@
 ---
-title: 檢閱存取權的群組或存取權檢閱-Azure Active Directory 中的應用程式 |Microsoft Docs
-description: 了解如何檢閱群組成員的存取或在 Azure Active Directory 存取權檢閱的應用程式存取。
+title: 在存取權審查中審查群組或應用程式的存取-Azure Active Directory |Microsoft Docs
+description: 瞭解如何在 Azure Active Directory 存取評論中, 檢查群組成員或應用程式存取的存取權。
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,104 +12,104 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471834"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499622"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱群組的存取權或在 Azure AD 中的應用程式存取權檢閱
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>在 Azure AD 存取評論中審查群組或應用程式的存取權
 
-Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和應用程式的存取以及其他 Microsoft Online Services 的 「 使用稱為 Azure AD 存取權檢閱。
+Azure Active Directory (Azure AD) 藉由稱為 Azure AD 存取評論的功能, 簡化了企業管理 Azure AD 和其他 Microsoft 線上服務中群組和應用程式存取權的方式。
 
-這篇文章會說明如何指定檢閱者執行之成員的群組或使用者的存取權的應用程式的存取權檢閱。
+本文說明指定的審查員如何為群組成員或具有應用程式存取權的使用者, 執行存取權審查。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure AD Premium P2
 
-如需詳細資訊，請參閱 <<c0> [ 哪些使用者必須有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
+如需詳細資訊, 請參閱[哪些使用者必須擁有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
 
-## <a name="open-the-access-review"></a>開啟存取權檢閱
+## <a name="open-the-access-review"></a>開啟存取權審查
 
-若要執行的存取權檢閱的第一個步驟是尋找及開啟存取權檢閱。
+執行存取權審查的第一個步驟是尋找並開啟存取權審查。
 
-1. 尋找來自會要求您檢閱存取權的 Microsoft 電子郵件。 以下是範例電子郵件給檢閱群組存取權。
+1. 尋找 Microsoft 的電子郵件, 要求您審查存取權。 以下是用來審查群組存取權的電子郵件範例。
 
-    ![若要檢閱群組的存取權的 microsoft 的範例電子郵件](./media/perform-access-review/access-review-email.png)
+    ![Microsoft 的電子郵件範例, 用以審查群組的存取權](./media/perform-access-review/access-review-email.png)
 
-1. 按一下 **開始檢閱**開啟存取權檢閱的連結。
+1. 按一下 [**開始審核**] 連結, 以開啟存取權審查。
 
-如果您沒有電子郵件，您可以找到您暫止的存取權檢閱，依照下列步驟。
+如果您沒有電子郵件, 您可以遵循下列步驟來尋找您的暫止存取審查。
 
-1. 登入 MyApps 入口網站，網址[ https://myapps.microsoft.com ](https://myapps.microsoft.com)。
+1. 登入 MyApps 入口網站, 網址[https://myapps.microsoft.com](https://myapps.microsoft.com)為。
 
-    ![列出您有權限的應用程式的 MyApps 入口網站](./media/perform-access-review/myapps-access-panel.png)
+    ![MyApps 入口網站列出您有許可權的應用程式](./media/perform-access-review/myapps-access-panel.png)
 
 1. 在頁面右上角按一下使用者符號，其中顯示您的名稱和預設組織。 如果列出多個組織，請選取已要求存取權檢閱的組織。
 
-1. 按一下 **存取權檢閱**圖格以查看暫止的存取權檢閱的清單。
+1. 按一下 [**存取評論**] 磚, 以查看暫止的存取評論清單。
 
     如果看不到磚，則沒有針對該組織執行的存取權檢閱，此時也不需要採取任何動作。
 
-    ![應用程式和群組的擱置中的存取權檢閱清單](./media/perform-access-review/access-reviews-list.png)
+    ![應用程式和群組的暫止存取審查清單](./media/perform-access-review/access-reviews-list.png)
 
-1. 按一下 **開始檢閱**您想要執行的存取權檢閱的連結。
+1. 按一下 [**開始審查**] 連結, 以取得您想要執行的存取權審查。
 
-## <a name="perform-the-access-review"></a>執行存取權檢閱
+## <a name="perform-the-access-review"></a>執行存取權審查
 
-一旦您已開啟存取權檢閱，您會看到需要檢閱的使用者名稱。
+當您開啟存取權審查之後, 就會看到需要審查的使用者名稱。
 
-如果要求檢閱您自己的存取權，網頁會看起來不同。 如需詳細資訊，請參閱 <<c0> [ 自行檢閱存取權，來群組或應用程式](review-your-access.md)。
+如果要求要檢查您自己的存取權, 頁面看起來會不同。 如需詳細資訊, 請參閱對[群組或應用程式檢查自己的存取權](review-your-access.md)。
 
-![列出需要檢閱的使用者開啟的存取權檢閱](./media/perform-access-review/perform-access-review.png)
+![開啟存取權審查列出需要審查的使用者](./media/perform-access-review/perform-access-review.png)
 
-有兩種方式，您可以核准或拒絕存取：
+有兩種方式可讓您核准或拒絕存取:
 
-- 您可以核准或拒絕存取的一或多個使用者，或
-- 您可以接受系統建議，這是最簡單且最快速方式。
+- 您可以核准或拒絕一或多個使用者的存取權, 或
+- 您可以接受系統建議, 這是最簡單快速的方式。
 
 ### <a name="approve-or-deny-access-for-one-or-more-users"></a>核准或拒絕一或多個使用者的存取權
 
-1. 檢閱要決定是否要核准或拒絕其持續存取權的使用者清單。
+1. 請檢查使用者清單, 以決定要核准或拒絕其繼續存取。
 
-1. 若要核准或拒絕存取的單一使用者，請按一下要開啟視窗，以指定要採取的動作的資料列。 若要核准或拒絕存取的多個使用者，請在新增之使用者旁邊的核取記號，，然後按一下**檢閱 X 個使用者**按鈕以開啟視窗，以指定要採取的動作。
+1. 若要核准或拒絕單一使用者的存取, 請按一下該資料列以開啟視窗, 以指定要採取的動作。 若要核准或拒絕多位使用者的存取權, 請在使用者旁新增核取記號, 然後按一下 [**審核 X 使用者**] 按鈕, 以開啟視窗以指定要採取的動作。
 
-1. 按一下 **核准**或是**拒絕**。 如果您不確定，您可以按一下**不知道**。 這樣會導致使用者維護其存取權，但選取項目將會反映在稽核記錄檔。
+1. 按一下 [**核准**] 或 [**拒絕**]。 如果您不確定, 您可以按一下 [**不知道**]。 這麼做會導致使用者維護其存取權, 但選取專案會反映在 audit 記錄中。
 
-    ![動作的視窗，其中包含核准、 拒絕，而且不知道選項](./media/perform-access-review/approve-deny.png)
+    ![包含「核准」、「拒絕」和「不知道」選項的 [動作] 視窗](./media/perform-access-review/approve-deny.png)
 
-1. 如有必要，請輸入中的原因**原因** 方塊中。
+1. 如有需要, 請在 [**原因**] 方塊中輸入原因。
 
-    存取權檢閱的系統管理員可能會要求您提供理由來核准持續存取權或群組成員資格。
+    存取權審查的系統管理員可能會要求您提供核准繼續存取或群組成員資格的原因。
 
-1. 一旦您指定要採取的動作，按一下**儲存**。
+1. 一旦您指定要採取的動作, 請按一下 [**儲存**]。
 
-    如果您想要變更您的回應，請選取資料列，並更新回應。 例如，您可以核准先前拒絕的使用者，或拒絕先前核准的使用者。 您可以存取權檢閱結束之前隨時變更您的回應。
+    如果您想要變更您的回應, 請選取資料列並更新回應。 例如, 您可以核准先前拒絕的使用者, 或拒絕先前已核准的使用者。 您可以隨時變更您的回應, 直到存取權審查結束為止。
 
-    如果有多個檢閱者，則會記錄上次提交的回應。 請考慮以系統管理員指定兩個檢閱者-Alice 和 Bob 的其中一個範例。 Alice 先開啟存取權檢閱並核准存取權。 在檢閱結束之前，Bob 就會開啟存取權檢閱，並拒絕存取。 最後一個會拒絕回應是什麼，就會記錄。
+    如果有多個審核者, 則會記錄最後提交的回應。 請考慮一個範例, 其中系統管理員會指定兩個審核者– Alice 和 Bob。 Alice 會先開啟存取權審查並核准存取權。 在審查結束之前, Bob 會開啟存取權審查並拒絕存取。 最後一個拒絕回應是記錄的內容。
 
     > [!NOTE]
-    > 如果使用者被拒絕存取，他們不會立即移除。 檢閱已結束或系統管理員停止檢閱時，則會移除。
+    > 如果使用者遭到拒絕存取, 他們就不會立即移除。 當審核結束或系統管理員停止審核時, 就會移除它們。
 
-### <a name="approve-or-deny-access-based-on-recommendations"></a>核准或拒絕存取的建議權限
+### <a name="approve-or-deny-access-based-on-recommendations"></a>根據建議來核准或拒絕存取
 
-若要為您快且更容易讓存取權檢閱，我們也提供，則您可以接受建議，只要按一下。 根據使用者的登入活動，所產生的建議。
+為了讓您更輕鬆且更快速地進行存取評論, 我們也提供您只需按一下即可接受的建議。 系統會根據使用者的登入活動來產生建議。
 
-1. 在頁面底部的藍色列，按一下**接受建議**。
+1. 在頁面底部的藍色列中, 按一下 [**接受建議**]。
 
-    ![開啟的存取權檢閱清單顯示 [接受建議] 按鈕](./media/perform-access-review/accept-recommendations.png)
+    ![顯示 [接受建議] 按鈕的開啟存取權審查清單](./media/perform-access-review/accept-recommendations.png)
 
-    您會看到建議的動作的摘要。
+    您會看到建議動作的摘要。
 
-    ![顯示建議的動作的摘要視窗](./media/perform-access-review/accept-recommendations-summary.png)
+    ![顯示建議動作摘要的視窗](./media/perform-access-review/accept-recommendations-summary.png)
 
-1. 按一下  **Ok**來接受建議。
+1. 按一下 **[確定]** 以接受建議。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [完成群組或應用程式的存取權檢閱](complete-access-review.md)
+- [完成群組或應用程式的存取權審查](complete-access-review.md)

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: ca53d85a09727b75f68da8d049ac3fcd6723a041
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: b003c0cc6480c5d03c3755e7c57785ab2026194b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302260"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498398"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -50,13 +50,13 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 State Configuration 頁面和 [節點]  索引標籤上，按一下 [+ 新增]  。
+在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 State Configuration 頁面和 [節點] 索引標籤上，按一下 [+ 新增]。
 
 選取要上架的 Azure 虛擬機器。
 
-如果電腦沒有 PowerShell 預期安裝的狀態延伸模組，並且電源狀態為執行中，請按一下 [連接]  。
+如果電腦沒有 PowerShell 預期安裝的狀態延伸模組，並且電源狀態為執行中，請按一下 [連接]。
 
-在 [註冊]  下，輸入您的使用情況所需的 [PowerShell DSC 本機 Configuration Manager 值](/powershell/dsc/managing-nodes/metaconfig)，並選擇性地輸入要指派給 VM 的節點組態。
+在 [註冊]下，輸入您的使用情況所需的 [PowerShell DSC 本機 Configuration Manager 值](/powershell/dsc/managing-nodes/metaconfig)，並選擇性地輸入要指派給 VM 的節點組態。
 
 ![上架](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
@@ -67,7 +67,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 ### <a name="powershell"></a>PowerShell
 
-您可以透過 PowerShell 使用 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) Cmdlet 在 Azure 入口網站中佈建虛擬機器。
+[AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) Cmdlet 可以用來透過 PowerShell 將虛擬機器上架 Azure 入口網站。
 
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>跨 Azure 訂用帳戶註冊虛擬機器
 
@@ -144,7 +144,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 1. 在本機複製下列指令碼。 此指令碼包含用來建立中繼設定的 PowerShell DSC 設定，以及開始執行中繼設定建立作業的命令。
 
 > [!NOTE]
-> Azure Automation State Configuration 名稱在入口網站會區分大小寫。 如果大小寫不相符，則該節點不會在 [節點]  索引標籤下顯示。
+> Azure Automation State Configuration 名稱在入口網站會區分大小寫。 如果大小寫不相符，則該節點不會在 [節點] 索引標籤下顯示。
 
    ```powershell
    # The DSC configuration that will generate metaconfigurations
@@ -269,11 +269,11 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 如果 PowerShell DSC 本機組態管理員的預設值符合您的使用案例，而且您想要將電腦上架，使其同時從 Azure Automation State Configuration 提取資訊並向 Azure Automation State Configuration 提供報告，Azure 自動化 Cmdlet 會提供簡單的方法來產生所需的 DSC 中繼組態：
 
 1. 在您本機環境的電腦中，以系統管理員身分開啟 PowerShell 主控台或 VSCode。
-2. 使用 `Connect-AzureRmAccount` 連線到 Azure Resource Manager
+2. 使用 `Connect-AzAccount` 連線到 Azure Resource Manager
 3. 從您要上架節點的目標自動化帳戶下載您想要上架之電腦的 PowerShell DSC 中繼設定：
 
    ```powershell
-   # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+   # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
        ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
        AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
@@ -282,7 +282,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
    # For more info about splatting, run: Get-Help -Name about_Splatting
-   Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+   Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
 1. 您現在應該有一個名為 ***DscMetaConfigs*** 的資料夾，其中包含要上架之電腦的 PowerShell DSC 中繼設定 (以系統管理員身分)：
@@ -295,14 +295,14 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 機器可以透過 WMF 5 DSC 註冊通訊協定安全地上架到 Azure 自動化帳戶，如此可讓 DSC 節點向 PowerShell DSC 提取或報告伺服器 (包括 Azure Automation State Configuration) 進行驗證。 節點會在**註冊 URL** 時向伺服器註冊，並使用**註冊金鑰**進行驗證。 在註冊期間，DSC 節點和 DSC 提取/報告伺服器會交涉獨特的憑證，讓此節點在註冊伺服器用於進行驗證。 此程序可避免上架的節點彼此模擬，例如當節點遭到入侵並且具有惡意行為。 註冊之後，註冊金鑰不會再次用於驗證，並且會從節點中刪除。
 
-您可以從 Azure 入口網站中 [帳戶設定]  底下的 [金鑰]  取得 State Configuration 註冊通訊協定所需的資訊。 在自動化帳戶的 [基本功能]  面板按一下金鑰圖示，可開啟此刀鋒視窗。
+您可以從 Azure 入口網站中 [帳戶設定] 底下的 [金鑰] 取得 State Configuration 註冊通訊協定所需的資訊。 在自動化帳戶的 [基本功能]  面板按一下金鑰圖示，可開啟此刀鋒視窗。
 
 ![Azure 自動化金鑰和 URL](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
 - 「註冊 URL」是 [管理金鑰] 刀鋒視窗中的 [URL] 欄位。
 - 「註冊金鑰」是 [管理金鑰] 刀鋒視窗中的主要存取金鑰或次要存取金鑰。 可以使用這兩個金鑰。
 
-為了提高安全性，自動化帳戶的主要和次要存取金鑰可以隨時重新產生 (在 [管理金鑰]  頁面上)，以避免未來的節點使用先前的金鑰註冊。
+為了提高安全性，自動化帳戶的主要和次要存取金鑰可以隨時重新產生 (在 [管理金鑰] 頁面上)，以避免未來的節點使用先前的金鑰註冊。
 
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>疑難排解 Azure 虛擬機器上架
 
@@ -311,7 +311,7 @@ Azure Automation State Configuration 可讓您輕鬆地將 Azure Windows VM 上�
 > [!NOTE]
 > 任何可將 Azure Windows VM 上架到使用 Azure VM Desired State Configuration 擴充功能的 Azure Automation State Configuration 的方法，最多可能需要一小時的時間，節點才會顯示為已在 Azure 自動化中註冊。 這是因為 VM 上憑藉著 Azure VM DSC 擴充功能的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure Automation State Configuration。
 
-若要對「Azure VM 預期狀態設定」延伸模組的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 [設定]  底下的 [延伸模組]  。 然後視作業系統而定，按一下 [DSC]  或 [DSCForLinux]  。 如需詳細資訊，您可以按一下 [檢視詳細狀態]  。
+若要對「Azure VM 預期狀態設定」延伸模組的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至要上架的 VM，然後按一下 [設定] 底下的 [延伸模組]。 然後視作業系統而定，按一下 [DSC] 或 [DSCForLinux]。 如需詳細資訊，您可以按一下 [檢視詳細狀態] 。
 
 ## <a name="certificate-expiration-and-reregistration"></a>憑證到期日和重新註冊
 
@@ -326,6 +326,6 @@ Azure Automation State Configuration 可讓您輕鬆地將 Azure Windows VM 上�
 
 - 若要開始使用，請參閱[開始使用 Azure 自動化狀態設定](automation-dsc-getting-started.md)
 - 若要了解如何編譯 DSC 組態，以將它們指派給目標節點，請參閱[編譯 Azure Automation State Configuration 中的組態](automation-dsc-compile.md)
-- 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/azurerm.automation/#automation)
+- 如需 PowerShell Cmdlet 參考，請參閱 [Azure 自動化狀態設定 Cmdlet](/powershell/module/az.automation#automation)
 - 如需定價資訊，請參閱 [Azure 自動化狀態設定的定價](https://azure.microsoft.com/pricing/details/automation/)
 - 若要查看在持續部署管線中使用 Azure 自動化狀態設定的範例，請參閱[使用 Azure 自動化狀態設定和 Chocolatey 的持續部署](automation-dsc-cd-chocolatey.md)

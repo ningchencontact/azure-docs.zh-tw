@@ -1,7 +1,6 @@
 ---
 title: Azure 備份伺服器可以備份哪些內容
 description: 本文提供支援矩陣，其中列出 Azure 備份伺服器保護的所有工作負載、資料類型和安裝。
-services: backup
 author: rayne-wiselman
 ms.service: backup
 keywords: ''
@@ -9,12 +8,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: ad6d1b067e396b8f46578484d3c960372e51176c
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2e8004b07542efed3ddc2b5a390cfb12fd48cc1b
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234765"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465068"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
 
@@ -55,8 +54,8 @@ ms.locfileid: "68234765"
 |[SQL Server]|SQL Server 2012、SQL Server 2012 SP1|實體伺服器<br /><br />內部部署 Hyper-V 虛擬機器<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
 |[SQL Server]|SQL Server 2012、SQL Server 2012 SP1|Azure 虛擬機器 (當工作負載當做 Azure 虛擬機器執行時)<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
 |[SQL Server]|SQL Server 2012、SQL Server 2012 SP1|VMWare 中的 Windows 虛擬機器 (保護在 VMWare 的 Windows 虛擬機器中執行的工作負載)<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
-|[SQL Server]|SQL Server 2008 R2|實體伺服器<br /><br />內部部署 Hyper-V 虛擬機器<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
-|[SQL Server]|SQL Server 2008 R2|Azure 虛擬機器 (當工作負載當做 Azure 虛擬機器執行時)<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
+|[SQL Server]|SQL SERVER 2008 R2|實體伺服器<br /><br />內部部署 Hyper-V 虛擬機器<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
+|[SQL Server]|SQL SERVER 2008 R2|Azure 虛擬機器 (當工作負載當做 Azure 虛擬機器執行時)<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
 |[SQL Server]|SQL Server 2008 R2|VMWare 中的 Windows 虛擬機器 (保護在 VMWare 的 Windows 虛擬機器中執行的工作負載)<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
 |[SQL Server]|SQL Server 2008|實體伺服器<br /><br />內部部署 Hyper-V 虛擬機器<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|
 |[SQL Server]|SQL Server 2008|Azure 虛擬機器 (當工作負載當做 Azure 虛擬機器執行時)<br /> <br /> Azure Stack|Y|Y|所有部署案例：資料庫|

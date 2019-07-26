@@ -2,7 +2,7 @@
 title: 連線到 Azure SQL 資料倉儲 sqlcmd | Microsoft Docs
 description: 使用 sqlcmd 命令列公用程式來連線及查詢 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873328"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479512"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>使用 sqlcmd 連接到 SQL 資料倉儲
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.locfileid: "65873328"
 > 
 > 
 
-使用 [sqlcmd][sqlcmd] 命令列公用程式來連線及查詢 Azure SQL 資料倉儲。  
+使用[sqlcmd][sqlcmd]命令列公用程式來連接及查詢 Azure SQL 資料倉儲。  
 
-## <a name="1-connect"></a>1.連線
+## <a name="1-connect"></a>1.連接
 若要開始使用 [sqlcmd][sqlcmd]，請開啟命令提示字元，然後輸入 **sqlcmd** 並在後面加上 SQL 資料倉儲資料庫的連接字串。 連接字串需要下列參數：
 
 * **伺服器 (-S)：** 採用 `<`Server Name`>`.database.windows.net 格式的伺服器
@@ -83,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>後續步驟
-如需 sqlcmd 中可用選項的詳細資訊，請參閱 [sqlcmd 文件][sqlcmd]。
+如需 sqlcmd 中可用選項的詳細資訊, 請參閱[sqlcmd 檔][sqlcmd]。
 
 <!--Image references-->
 

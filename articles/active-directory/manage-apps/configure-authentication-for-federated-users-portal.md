@@ -1,6 +1,6 @@
 ---
-title: 使用主領域探索原則為應用程式設定登入自動加速 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 驗證適用於同盟使用者，包括自動加速 」 和 「 網域提示的主領域探索原則。
+title: 使用主領域探索原則設定登入自動加速 |Microsoft Docs
+description: 瞭解如何為同盟使用者的 Azure Active Directory 驗證設定主領域探索原則, 包括自動加速和網域提示。
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,16 +15,16 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440362"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477213"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>使用主領域探索原則為應用程式設定 Azure Active Directory 登入行為
 
-本文將介紹如何設定 Azure Active Directory 的同盟使用者的驗證行為。 其中涵蓋自動加速組態，以及同盟網域中的使用者驗證限制。
+本文提供為同盟使用者設定 Azure Active Directory 驗證行為的簡介。 其中涵蓋自動加速組態，以及同盟網域中的使用者驗證限制。
 
 ## <a name="home-realm-discovery"></a>主領域探索
 主領域探索 (HRD) 是讓 Azure Active Directory (Azure AD) 判斷使用者登入時應在何處驗證的程序。  使用者在登入 Azure AD 租用戶以存取資源或 Azure AD 一般登入頁面時，會輸入使用者名稱 (UPN)。 Azure AD 會使用該值來探索使用者需在何處登入。 
@@ -152,7 +152,7 @@ ms.locfileid: "67440362"
 - 列出已設定原則的應用程式。
 
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在下列範例中，您將建立、更新、連結和刪除 Azure AD 中應用程式服務主體上的原則。
 
 1.  若要開始，請下載最新的 Azure AD PowerShell Cmdlet 預覽版。 
@@ -170,14 +170,14 @@ ms.locfileid: "67440362"
 
 如果沒有傳回任何內容，表示您的租用戶中未建立任何原則。
 
-### <a name="example-set-hrd-policy-for-an-application"></a>範例：為應用程式設定 HRD 原則 
+### <a name="example-set-hrd-policy-for-an-application"></a>範例:為應用程式設定 HRD 原則 
 
 在此範例中，您建立的原則若指派給應用程式可執行以下功能： 
 - 如果您的租用戶中有單一網域，則使用者在登入應用程式時能自動加速前往 AD FS 登入畫面。 
 - 如果您的租用戶中有多個同盟網域，則可讓使用者自動加速前往 AD FS 登入畫面。
 - 已具有指派原則的應用程式可讓同盟使用者直接透過非互動式使用者名稱/密碼登入至 Azure Active Directory。
 
-#### <a name="step-1-create-an-hrd-policy"></a>步驟 1：建立 HRD 原則
+#### <a name="step-1-create-an-hrd-policy"></a>步驟 1:建立 HRD 原則
 
 如果您的租用戶中有單一網域，則下列原則可讓使用者在登入應用程式時，自動加速前往 AD FS 登入畫面。
 
@@ -206,12 +206,12 @@ Get-AzureADPolicy
 
 建立 HRD 原則後若要套用，可將其指派給多個應用程式服務主體。
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>步驟 2：尋找服務主體以對其指派原則  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>步驟 2:尋找服務主體以對其指派原則  
 您需要原則要指派到之服務主體的 **ObjectID**。 有幾種方式可尋找服務主體的 **ObjectID**。    
 
 您可以使用入口網站，或者您可以查詢 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)。 您可以移至 [Graph Explorer 工具](https://developer.microsoft.com/graph/graph-explorer)並登入您的 Azure AD 帳戶，以查看您所有組織的服務主體。 
 
-因為您正在使用 PowerShell，您可以使用下列 cmdlet 來列出服務主體及其識別碼。
+因為您使用的是 PowerShell, 您可以使用下列 Cmdlet 來列出服務主體及其識別碼。
 
 ``` powershell
 Get-AzureADServicePrincipal
@@ -237,9 +237,9 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 #### <a name="step-5-youre-done"></a>步驟 5：大功告成！
 要檢查新原則是否正常運作，請嘗試應用程式。
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>範例：列出已設定 HRD 原則的應用程式
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>範例:列出已設定 HRD 原則的應用程式
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>步驟 1：列出您組織中建立的所有原則 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>步驟 1:列出您組織中建立的所有原則 
 
 ``` powershell
 Get-AzureADPolicy
@@ -247,17 +247,17 @@ Get-AzureADPolicy
 
 請記下要列出指派之原則的 **ObjectID**。
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>步驟 2：列出已被指派原則的服務主體  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>步驟 2:列出已被指派原則的服務主體  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>範例：移除應用程式的 HRD 原則
-#### <a name="step-1-get-the-objectid"></a>步驟 1：取得 ObjectID
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>範例:移除應用程式的 HRD 原則
+#### <a name="step-1-get-the-objectid"></a>步驟 1:取得 ObjectID
 使用前一個範例來取得原則的 ObjectId，以及要移除該原則之應用程式服務主體的 **ObjectID**。 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>步驟 2：從應用程式服務主體移除原則指派  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>步驟 2:從應用程式服務主體移除原則指派  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
@@ -270,5 +270,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>後續步驟
 - 如需如何在 Azure AD 中進行驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](../develop/authentication-scenarios.md)。
-- 如需使用者單一登入的詳細資訊，請參閱[搭配 Azure Active Directory 的應用程式存取和單一登入](configure-single-sign-on-portal.md)。
+- 如需使用者單一登入的詳細資訊, 請參閱[Azure Active Directory 中的應用程式的單一登入](what-is-single-sign-on.md)。
 - 如需所有開發人員相關內容的概觀，請瀏覽 [Active Directory 開發人員指南](../develop/v1-overview.md)。

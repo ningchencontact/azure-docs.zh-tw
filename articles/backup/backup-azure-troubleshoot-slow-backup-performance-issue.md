@@ -1,19 +1,18 @@
 ---
 title: 疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
 description: 提供疑難排解指導方針，以協助您診斷 Azure 備份效能問題的原因
-services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "67704925"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465348"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
 這篇文章提供疑難排解指引，可協助您診斷當您使用 Azure 備份時，檔案與資料夾備份效能緩慢的原因。 當您使用 Azure 備份代理程式來備份檔案時，備份處理程序進行的時間可能比預期的還要久。 此延遲可能是因為下列一或多個原因所造成：
@@ -83,7 +82,7 @@ The following indicators can help you understand the bottleneck and accordingly 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 * **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).處理器--\` 處理器時間 (所有執行個體)es and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
-services: backup
+
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup

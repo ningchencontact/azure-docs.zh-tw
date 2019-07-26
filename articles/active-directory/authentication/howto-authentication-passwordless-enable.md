@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f5eba18e34f65f7bc8a625babca92b86e06b4c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867336"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499939"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>啟用 Azure AD 的無密碼登入 (預覽)
 
 ## <a name="requirements"></a>需求
 
 * Azure Multi-Factor Authentication
-* 合併的註冊預覽
+* 結合的註冊預覽與已啟用 SSPR 的使用者
 * FIDO2 安全性金鑰預覽需要相容的 FIDO2 安全性金鑰
 * WebAuthN 需要 Windows 10 1809 版或更高版本上的 Microsoft Edge
 * 以 FIDO2 為基礎的 Windows 登入需要 Azure AD 聯結的 Windows 10 1809 版或更高版本
@@ -51,15 +51,15 @@ ms.locfileid: "67867336"
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 流覽至**Microsoft Intune**  > **裝置配置** >  檔 > **建立設定檔**。
 1. 使用下列設定來設定新的設定檔
-   1. 名稱：Windows 登入的安全性金鑰
-   1. Description:啟用 FIDO 安全性金鑰以在 Windows 登入期間使用
-   1. 平台：Windows 10 和更新版本
+   1. 名稱:Windows 登入的安全性金鑰
+   1. 描述:啟用 FIDO 安全性金鑰以在 Windows 登入期間使用
+   1. 平台:Windows 10 和更新版本
    1. 平臺類型:自訂
    1. 自訂 OMA URI 設定:
-      1. 名稱：開啟 Windows 登入的 FIDO 安全性金鑰
+      1. 名稱:開啟 Windows 登入的 FIDO 安全性金鑰
       1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. 資料類型:整數
-      1. 值：1 
+      1. 值:1 
 1. 此原則可指派給特定的使用者、裝置或群組。 如需詳細資訊, 請參閱在[Microsoft Intune 中指派使用者和裝置設定檔](https://docs.microsoft.com/intune/device-profile-assign)一文。
 
 ![建立 Intune 自訂裝置設定原則](./media/howto-authentication-passwordless-enable/intune-custom-profile.png)
@@ -171,7 +171,7 @@ FIDO2 安全性金鑰的註冊功能依賴結合的註冊預覽。 請遵循下�
 
 公開預覽中不提供安全性金鑰的系統管理員布建和取消布建。
 
-#### <a name="hybrid-azure-ad-join"></a>混合式 Azure AD Join
+#### <a name="hybrid-azure-ad-join"></a>加入混合式 Azure AD
 
 依賴使用受控認證 (例如 FIDO2 安全性金鑰或無密碼登入) Microsoft Authenticator 應用程式的使用者, 必須要有 Windows 10 的混合式聯結, 才能獲得 SSO 的優勢。 不過, 安全性金鑰僅適用于目前已加入 Azure Active Directory 的電腦。 我們建議您只在已加入純 Azure Active Directory 的電腦上, 嘗試 FIDO2 Windows 鎖定畫面的安全性金鑰。 這項限制不適用於 web。
 
@@ -179,7 +179,7 @@ FIDO2 安全性金鑰的註冊功能依賴結合的註冊預覽。 請遵循下�
 
 我們正努力支援可在混合式 AADJ 和 AADJ 裝置上進行 UPN 變更的功能。 如果使用者的 UPN 變更, 您就無法再修改 FIDO2 安全性金鑰來說明該帳戶。 因此, 唯一的方法是重設裝置, 而使用者必須重新註冊。
 
-### <a name="authenticator-app"></a>驗證器應用程式
+### <a name="authenticator-app"></a>Authenticator 應用程式
 
 #### <a name="ad-fs-integration"></a>AD FS 整合
 

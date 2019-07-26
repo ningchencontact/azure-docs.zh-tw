@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304840"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477183"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 
@@ -71,9 +71,9 @@ ms.locfileid: "68304840"
 - SAML 2.0
 - WS-同盟
 
-若要設定 SAML 型單一登入的 SaaS 應用程式, 請參閱[設定 saml 型單一登入](configure-single-sign-on-portal.md)。 此外，許多軟體即服務 (SaaS) 應用程式的[應用程式專屬教學課程](../saas-apps/tutorial-list.md)，可逐步引導您設定 SAML 型單一登入。
+若要設定 SAML 型單一登入的 SaaS 應用程式, 請參閱[設定 saml 型單一登入](configure-single-sign-on-non-gallery-applications.md)。 此外，許多軟體即服務 (SaaS) 應用程式的[應用程式專屬教學課程](../saas-apps/tutorial-list.md)，可逐步引導您設定 SAML 型單一登入。
 
-若要設定 WS-同盟的應用程式, 請遵循相同的指導方針來設定 SAML 型單一登入的應用程式, 請參閱[設定 saml 型單一登入](configure-single-sign-on-portal.md)。 在將應用程式設定為使用 Azure AD 的步驟中, 您必須取代 WS-同盟端點`https://login.microsoftonline.com/<tenant-ID>/wsfed`的 AZURE AD 登入 URL。
+若要設定 WS-同盟的應用程式, 請遵循相同的指導方針來設定 SAML 型單一登入的應用程式, 請參閱[設定 saml 型單一登入](configure-single-sign-on-non-gallery-applications.md)。 在將應用程式設定為使用 Azure AD 的步驟中, 您必須取代 WS-同盟端點`https://login.microsoftonline.com/<tenant-ID>/wsfed`的 AZURE AD 登入 URL。
 
 若要設定 SAML 型單一登入的內部部署應用程式, 請參閱[使用應用程式 Proxy 進行內部部署應用程式的 SAML 單一登入](application-proxy-configure-single-sign-on-on-premises-apps.md)。
 
@@ -100,7 +100,7 @@ ms.locfileid: "68304840"
 - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上的 Chrome
 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上的 Firefox 26.0 或更新版本
 
-若要為雲端應用程式設定密碼式單一登入的，請參閱[為應用程式設定密碼單一登入](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso)。
+若要設定雲端應用程式以進行密碼型單一登入, 請參閱[設定密碼單一登入](configure-password-single-sign-on-non-gallery-applications.md)。
 
 若要為內部部署應用程式設定透過應用程式 Proxy 的單一登入，請參閱[使用應用程式 Proxy 之單一登入的密碼保存庫](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -127,8 +127,7 @@ ms.locfileid: "68304840"
 - 系統管理員仍可設定應用程式的新認證。
 
 ## <a name="linked-sign-on"></a>連結型登入
-
-已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。
+已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。 若要設定應用程式以進行連結的登入, 請參閱[設定連結](configure-linked-sign-on.md)的登入。
 
 ### <a name="linked-sign-on-for-application-migration"></a>應用程式遷移的連結登入
 
@@ -176,7 +175,7 @@ ms.locfileid: "68304840"
 
 若要設定標頭式驗證，請參閱[適用於使用應用程式 Proxy 之單一登入的標頭式驗證](application-proxy-configure-single-sign-on-with-ping-access.md)。
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>什麼是 Azure AD 的 PingAccess？
+### <a name="what-is-pingaccess-for-azure-ad"></a>什麼是適用於 Azure AD 的 PingAccess?
 
 使用適用於 Azure AD 的 PingAccess，使用者就能存取和單一登入至使用標頭驗證的應用程式。 應用程式 Proxy 會如同任何其他應用程式一樣處理這些應用程式，使用 Azure AD 驗證存取，然後透過連接器服務傳遞流量。 驗證發生之後，PingAccess 服務會將 Azure AD 存取權杖翻譯成傳送到應用程式的標頭格式。
 
@@ -189,8 +188,9 @@ ms.locfileid: "68304840"
 如需詳細資訊，請參閱 [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)。
 
 ## <a name="related-articles"></a>相關文章
-
-- [整合 SaaS 應用程式與 Azure Active Directory 的教學課程](../saas-apps/tutorial-list.md)
-- [設定單一登入的教學課程](configure-single-sign-on-portal.md)
-- [管理應用程式存取簡介](what-is-access-management.md)
-- 下載連結：[單一登入部署計畫](https://aka.ms/SSODeploymentPlan)
+* [整合 SaaS 應用程式與 Azure Active Directory 的教學課程](../saas-apps/tutorial-list.md)
+* [設定 SAML 型單一登入](configure-single-sign-on-non-gallery-applications.md)
+* [設定以密碼為基礎的單一登入](configure-password-single-sign-on-non-gallery-applications.md)
+* [正在設定連結的登入](configure-linked-sign-on.md)
+* [管理應用程式存取簡介](what-is-access-management.md)
+* 下載連結：[單一登入部署計劃](https://aka.ms/SSODeploymentPlan) \(英文\)。

@@ -6,22 +6,22 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565598"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348078"
 ---
-# <a name="get-started-with-log-analytics-in-azure-monitor"></a>開始使用 Azure 監視器中的 Log Analytics
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>在 Azure 監視器中開始使用 Log Analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-在本教學課程中，您將了解如何使用 Azure 入口網站中的 Log Analytics 來撰寫 Azure 監視器記錄查詢。 它會告訴您如何：
+在本教學課程中, 您將瞭解如何使用 Azure 入口網站中的 Log Analytics 來撰寫 Azure 監視器記錄查詢。 它會告訴您如何：
 
-- 使用 Log Analytics 來撰寫簡單的查詢
+- 使用 Log Analytics 撰寫簡單查詢
 - 了解資料的結構描述
 - 篩選、排序和群組結果
 - 套用時間範圍
@@ -29,18 +29,18 @@ ms.locfileid: "67565598"
 - 儲存及載入查詢
 - 匯出及共用查詢
 
-如需寫入記錄檔查詢的教學課程，請參閱[開始使用 Azure 監視器中的記錄檔查詢](get-started-queries.md)。<br>
-如需詳細的記錄檔查詢的詳細資訊，請參閱 <<c0> [ 查詢 Azure 監視器中的記錄檔概觀](log-query-overview.md)。
+如需撰寫記錄查詢的教學課程, 請參閱[開始使用 Azure 監視器中的記錄查詢](get-started-queries.md)。<br>
+如需記錄查詢的詳細資訊, 請參閱[Azure 監視器中的記錄查詢總覽](log-query-overview.md)。
 
 ## <a name="meet-log-analytics"></a>符合 Log Analytics
-Log Analytics 是用來撰寫及執行 Azure 監視器記錄檔查詢的 web 工具。 從「Azure 監視器」功能表中選取 [記錄]  ，即可開啟它。 它會從新的空白查詢來開始。
+Log Analytics 是用來撰寫和執行 Azure 監視器記錄查詢的 web 工具。 從「Azure 監視器」功能表中選取 [記錄]，即可開啟它。 它會從新的空白查詢來開始。
 
 ![首頁](media/get-started-portal/homepage.png)
 
 ## <a name="firewall-requirements"></a>防火牆需求
-若要使用 Log Analytics，您的瀏覽器會需要下列位址存取。 如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
+若要使用 Log Analytics, 您的瀏覽器需要存取下列位址。 如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
 
-| Uri | IP | 連接埠 |
+| URI | IP | 連接埠 |
 |:---|:---|:---|
 | portal.loganalytics.io | 動態 | 80,443 |
 | api.loganalytics.io | 動態 | 80,443 |
@@ -53,9 +53,9 @@ Log Analytics 是用來撰寫及執行 Azure 監視器記錄檔查詢的 web 工
 Event | search "error"
 ```
 
-此查詢會搜尋_事件_資料表的記錄，包含該詞彙_錯誤_中任何屬性。
+此查詢會在_事件_資料表中搜尋包含任何屬性中之詞彙_錯誤_的記錄。
 
-查詢可以透過資料表名稱或 [search](/azure/kusto/query/searchoperator) 命令來開始。 上述範例中的資料表名稱開頭_事件_，表示事件資料表中擷取所有記錄。 縱線 (|) 字元區隔命令，，因此第一個輸出可做為輸入的下列命令。 您可以在單一查詢中新增任意數目的命令。
+查詢可以透過資料表名稱或 [search](/azure/kusto/query/searchoperator) 命令來開始。 上述範例會從「資料表名稱」_事件_開始, 它會從事件資料表中抓取所有記錄。 分隔號 (|) 字元會分隔命令, 因此第一個命令的輸出會作為下列命令的輸入。 您可以在單一查詢中新增任意數目的命令。
 
 另一種撰寫該相同查詢的方式會是：
 
@@ -63,33 +63,33 @@ Event | search "error"
 search in (Event) "error"
 ```
 
-在此範例中，**搜尋**範圍_事件_資料表，以及該資料表中的所有記錄搜尋的字詞_錯誤_。
+在此範例中,**搜尋**的範圍設定為_事件_資料表, 而且會搜尋該資料表中的所有記錄是否有「詞彙_錯誤_」。
 
 ## <a name="running-a-query"></a>執行查詢
-按一下 [執行]  按鈕或按 **Shift+Enter**，即可執行查詢。 請考慮下列詳細資料，以決定要執行的程式碼和傳回的資料：
+按一下 [執行] 按鈕或按 **Shift+Enter**，即可執行查詢。 請考慮下列詳細資料，以決定要執行的程式碼和傳回的資料：
 
-- 分行符號：單一的中斷會讓查詢更容易閱讀。 多個分行符號可將查詢分割為不同的查詢。
+- 分行符號：單一中斷可讓您的查詢更容易閱讀。 多個分行符號可將查詢分割為不同的查詢。
 - 游標：將游標放在查詢內的某個地方即可執行查詢。 系統會將目前的查詢視為程式碼，直到其發現空白行。
-- 時間範圍：預設會設定「過去 24 小時」  的時間範圍。 若要使用不同範圍，請使用時間選擇器，或在查詢中新增明確的時間範圍篩選條件。
+- 時間範圍：預設會設定「過去 24 小時」的時間範圍。 若要使用不同範圍，請使用時間選擇器，或在查詢中新增明確的時間範圍篩選條件。
 
 
 ## <a name="understand-the-schema"></a>了解結構描述
-結構描述會將以視覺化方式分組在邏輯類別之下的資料表集合起來。 有幾個類別來自監視解決方案。 _LogManagement_類別目錄包含一般的資料，例如 Windows 和 Syslog 事件、 效能資料，以及代理程式活動訊號。
+結構描述會將以視覺化方式分組在邏輯類別之下的資料表集合起來。 有幾個類別來自監視解決方案。 _LogManagement_類別包含一般資料, 例如 Windows 和 Syslog 事件、效能資料, 以及代理程式心跳。
 
-![結構描述](media/get-started-portal/schema.png)
+![架構](media/get-started-portal/schema.png)
 
-在每個資料表中，資料會組織到不同資料類型 (如資料行名稱旁的圖示所示) 的資料行中。 例如，螢幕擷取畫面中所示的「Event」  資料表就包含了「Computer」  資料行 (這是文字)、「EventCategory」  資料行 (這是數字)，和「TimeGenerated」  資料行 (這是日期/時間)。
+在每個資料表中，資料會組織到不同資料類型 (如資料行名稱旁的圖示所示) 的資料行中。 例如，螢幕擷取畫面中所示的「Event」資料表就包含了「Computer」資料行 (這是文字)、「EventCategory」資料行 (這是數字)，和「TimeGenerated」資料行 (這是日期/時間)。
 
 ## <a name="filter-the-results"></a>篩選結果
-一開始請先取得「Event」  資料表中的所有項目。
+一開始請先取得「Event」資料表中的所有項目。
 
 ```Kusto
 Event
 ```
 
-Log Analytics 會自動範圍結果：
+Log Analytics 會依下列方式自動限制結果的範圍:
 
-- 時間範圍：根據預設，系統會將查詢限制在過去 24 小時。
+- 時間範圍:根據預設，系統會將查詢限制在過去 24 小時。
 - 結果數：結果數上限為 10,000 筆記錄。
 
 這是一般查詢，會傳回太多結果，所以並不實用。 您可以透過資料表元素來篩選結果，也可以明確地對查詢新增篩選來篩選結果。 透過資料表元素來篩選結果適用於現有結果集，而針對查詢本身的篩選則會傳回新的篩選結果集，並可能因此產生更精確的結果。
@@ -97,20 +97,20 @@ Log Analytics 會自動範圍結果：
 ### <a name="add-a-filter-to-the-query"></a>對查詢新增篩選
 每筆記錄的左邊會有一個箭號。 按一下此箭號就能開啟特定記錄的詳細資料。
 
-將游標停在某個資料行名稱上即可顯示 "+" 和 "-" 圖示。 若要新增篩選，只傳回具有相同值的記錄，請按一下 "+" 符號。 按一下 "-" 則可排除具有此值的記錄，然後按一下 [執行]  以再次執行查詢。
+將游標停在某個資料行名稱上即可顯示 "+" 和 "-" 圖示。 若要新增篩選，只傳回具有相同值的記錄，請按一下 "+" 符號。 按一下 "-" 則可排除具有此值的記錄，然後按一下 [執行] 以再次執行查詢。
 
 ![將篩選新增至查詢](media/get-started-portal/add-filter.png)
 
 ### <a name="filter-through-the-table-elements"></a>對各個資料表元素進行篩選
-現在，讓我們將注意力放在嚴重性為「錯誤」  的事件上。 名為「EventLevelName」  的資料行會指出嚴重性。 您必須捲動到右邊才能看到此資料行。
+現在，讓我們將注意力放在嚴重性為「錯誤」的事件上。 名為「EventLevelName」的資料行會指出嚴重性。 您必須捲動到右邊才能看到此資料行。
 
-按一下資料行標題旁的 [篩選] 圖示，然後在快顯視窗中選取「開頭為」  「錯誤」  文字的值：
+按一下資料行標題旁的 [篩選] 圖示，然後在快顯視窗中選取「開頭為」「錯誤」文字的值：
 
-![Filter](media/get-started-portal/filter.png)
+![篩選器](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>排序和群組結果
-結果現在會縮小為只包含過去 24 小時內所建立、來自 SQL Server 的錯誤事件。 不過，結果並未進行任何排序。 若要依特定資料行來排序結果 (舉例來說，「時間戳記」  )，請按一下資料行標題。 按一下會依遞增順序排序，按第二下則會依遞減順序排序。
+結果現在會縮小為只包含過去 24 小時內所建立、來自 SQL Server 的錯誤事件。 不過，結果並未進行任何排序。 若要依特定資料行來排序結果 (舉例來說，「時間戳記」)，請按一下資料行標題。 按一下會依遞增順序排序，按第二下則會依遞減順序排序。
 
 ![排序資料行](media/get-started-portal/sort-column.png)
 
@@ -125,13 +125,13 @@ Log Analytics 會自動範圍結果：
 
 
 ## <a name="select-a-time-range"></a>選取時間範圍
-根據預設，Log Analytics 會套用_過去 24 小時_時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]  。 除了預設值外，您也可以使用 [自訂時間範圍]  選項，來選取查詢的絕對範圍。
+根據預設, Log Analytics 會套用_過去24小時_的時間範圍。 若要使用不同範圍，請透過時間選擇器來選取另一個值，然後按一下 [執行]。 除了預設值外，您也可以使用 [自訂時間範圍] 選項，來選取查詢的絕對範圍。
 
 ![時間選擇器](media/get-started-portal/time-picker.png)
 
 在選取自訂時間範圍時，所選取的值會採用 UTC 格式，這可能會與您當地的時區不同。
 
-如果查詢明確包含「TimeGenerated」  的篩選，則時間選擇器標題會顯示 [在查詢中設定]  。 系統會停用手動選取以免發生衝突。
+如果查詢明確包含「TimeGenerated」的篩選，則時間選擇器標題會顯示 [在查詢中設定]。 系統會停用手動選取以免發生衝突。
 
 
 ## <a name="charts"></a>圖表
@@ -144,11 +144,11 @@ Event
 | summarize count() by Source 
 ```
 
-根據預設，結果會顯示在資料表中。 按一下 [圖表]  以透過圖形檢視查看結果：
+根據預設，結果會顯示在資料表中。 按一下 [圖表] 以透過圖形檢視查看結果：
 
 ![長條圖](media/get-started-portal/bar-chart.png)
 
-結果會顯示在堆疊長條圖中。 按一下 [堆疊直條圖]  ，然後選取 [圓形圖]  來顯示結果的另一種檢視：
+結果會顯示在堆疊長條圖中。 按一下 [堆疊直條圖]，然後選取 [圓形圖] 來顯示結果的另一種檢視：
 
 ![圓形圖](media/get-started-portal/pie-chart.png)
 
@@ -157,7 +157,7 @@ Event
 您也可以使用 render 運算子對查詢本身設定慣用檢視。
 
 ### <a name="smart-diagnostics"></a>智慧型診斷
-在時間圖表上，如果您的資料突然激增或升級，您可能會在線上看到反白顯示的點。 這表示「智慧型診斷」  已識別出可將突然變更篩選掉的屬性組合。 按一下點可取得篩選條件的詳細資料，以及查看篩選的版本。 這可能有助於您找出造成變更的原因：
+在時間圖表上，如果您的資料突然激增或升級，您可能會在線上看到反白顯示的點。 這表示「智慧型診斷」已識別出可將突然變更篩選掉的屬性組合。 按一下點可取得篩選條件的詳細資料，以及查看篩選的版本。 這可能有助於您找出造成變更的原因：
 
 ![智慧型診斷](media/get-started-portal/smart-diagnostics.png)
 
@@ -170,14 +170,17 @@ Event
 
 - 資料表的資料行和資料列：若要將資料表釘選到儀表板，它必須具有四個以下的資料行。 只會顯示前七個資料列。
 - 時間限制：查詢會自動限制為過去 14 天。
-- 量化計數限制：如果您顯示的是有許多不連續量化的圖表，所佔比例較少的量化會自動分組到單一的「其他」  量化。
+- 量化計數限制：如果您顯示的是有許多不連續量化的圖表，所佔比例較少的量化會自動分組到單一的「其他」量化。
 
 ## <a name="save-queries"></a>儲存查詢
-建立了實用查詢後，您可以儲存起來，也可以與他人共用。 [儲存]  圖示位於頂端列。
+建立了實用查詢後，您可以儲存起來，也可以與他人共用。 [儲存] 圖示位於頂端列。
 
 您可以儲存整個查詢頁面，也可以將單一查詢儲存為函式。 函式形式的查詢也可以供其他查詢參考。 若要將查詢儲存為函式，您必須提供函式別名，此名稱可用來在其他查詢參考此查詢時，對其進行呼叫。
 
 ![儲存函式](media/get-started-portal/save-function.png)
+
+>[!NOTE]
+>支援下列字元- `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`儲存或編輯已儲存的查詢時, 在 [**名稱**] 欄位中。
 
 Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區的其他使用者共用。
 
@@ -187,7 +190,7 @@ Log Analytics 查詢一律會儲存至選取的工作區中，並與該工作區
 ![查詢總管](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>以連結形式匯出及共用
-Log Analytics 支援數種匯出方法：
+Log Analytics 支援數種匯出方法:
 
 - Excel：將結果儲存為 CSV 檔案。
 - Power BI：將結果匯出至 Power BI。 如需詳細資料，請參閱[將 Azure 監視器記錄資料匯入至 Power BI](../../azure-monitor/platform/powerbi.md)。

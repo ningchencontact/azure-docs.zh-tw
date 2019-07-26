@@ -8,53 +8,53 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059372"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441999"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Apache Hadoop。 其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。 本文件會指出其中應注意的特殊不同之處。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
 * [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊。
-* **jq**，命令列的 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
+* **jq**, 這是一個命令列 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - 用來從遠端管理 Azure 服務。
 * **SSH 用戶端**。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="users"></a>使用者
+## <a name="users"></a>使用者人數
 
-除非[已加入網域](./domain-joined/apache-domain-joined-introduction.md)，否則應將 HDInsight 視為**單一使用者**系統。 叢集中會建立一個具有系統管理員層級權限的 SSH 使用者帳戶。 您可以建立其他 SSH 帳戶，但這些帳戶也會擁有叢集的系統管理員權限。
+除非[已加入網域](./domain-joined/hdinsight-security-overview.md)，否則應將 HDInsight 視為**單一使用者**系統。 叢集中會建立一個具有系統管理員層級權限的 SSH 使用者帳戶。 您可以建立其他 SSH 帳戶，但這些帳戶也會擁有叢集的系統管理員權限。
 
 已加入網域的 HDInsight 可支援多個使用者和更細微的權限和角色設定。 如需詳細資訊，請參閱[管理已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)。
 
 ## <a name="domain-names"></a>網域名稱
 
-若要從網際網路連接到叢集時使用完整的網域名稱 (FQDN) 是`CLUSTERNAME.azurehdinsight.net`或`CLUSTERNAME-ssh.azurehdinsight.net`（僅適用於 SSH)。
+從網際網路連線到叢集時所要使用的完整功能變數名稱 (FQDN) 是`CLUSTERNAME.azurehdinsight.net`或`CLUSTERNAME-ssh.azurehdinsight.net` (僅適用于 SSH)。
 
-就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。 若要尋找叢集名稱，請參閱 Ambari Web UI 上的 [主機]  頁面。 您也可以使用下列命令從 Ambari REST API 傳回主機清單︰
+就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。 若要尋找叢集名稱，請參閱 Ambari Web UI 上的 [主機] 頁面。 您也可以使用下列命令從 Ambari REST API 傳回主機清單︰
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-將 `CLUSTERNAME` 取代為您的叢集名稱。 出現提示時，請輸入系統管理員帳戶的密碼。 此命令會傳回包含叢集中主機清單的 JSON 文件。 [jq](https://stedolan.github.io/jq/)用來擷取`host_name`每個主控件的項目值。
+將 `CLUSTERNAME` 取代為您的叢集名稱。 出現提示時，請輸入系統管理員帳戶的密碼。 此命令會傳回包含叢集中主機清單的 JSON 文件。 [jq](https://stedolan.github.io/jq/)是用來解壓縮每`host_name`個主控制項的元素值。
 
 如果您需要針對特定服務尋找節點的名稱，您可以查詢 Ambari 有無該元件。 例如，若要尋找主機有無 HDFS 名稱節點，請使用下列命令：
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-此命令會傳回描述服務的 JSON 文件，然後[jq](https://stedolan.github.io/jq/)只會提取`host_name`主機的值。
+此命令會傳回描述服務的 JSON 檔, 然後[jq](https://stedolan.github.io/jq/)只會提取主機的`host_name`值。
 
 ## <a name="remote-access-to-services"></a>遠端存取服務
 
 * **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
 
-    使用叢集系統管理員使用者名稱和密碼，來進行驗證，然後登入 Ambari。
+    使用叢集系統管理員使用者和密碼進行驗證, 然後登入 Ambari。
 
     驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
@@ -77,7 +77,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
     >
     > 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **SSH** -CLUSTERNAME-ssh.azurehdinsight.net 連接埠 22 或 23 上。 連接埠 22 用來連接至主要前端節點，而 23 用來連接至次要前端節點。 如需前端節點的詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+* 埠22或23上的**SSH** CLUSTERNAME-ssh.azurehdinsight.net。 連接埠 22 用來連接至主要前端節點，而 23 用來連接至次要前端節點。 如需前端節點的詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
     > [!NOTE]  
     > 您只能從用戶端電腦透過 SSH 存取叢集前端節點。 然後在連線後，再從前端節點使用 SSH 存取背景工作角色節點。
@@ -89,7 +89,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包含下列子目錄：
 
 * **2.6.5.3006-29**:目錄名稱是 HDInsight 所使用的 Hortonworks Data Platform 版本。 叢集上的數字可能不同於此處所列的數字。
-* **current**︰此目錄包含子目錄底下的連結**2.6.5.3006-29**目錄。 因為有此目錄，您就不必記住版本號碼。
+* **current**︰此目錄包含**2.6.5.3006-29**目錄底下子目錄的連結。 因為有此目錄，您就不必記住版本號碼。
 
 在 Hadoop 分散式檔案系統的 `/example` 和 `/HdiSamples` 可取得範例資料和 JAR 檔案。
 
@@ -180,7 +180,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 1. 從 [Azure 入口網站](https://portal.azure.com/)，選取您的 HDInsight 叢集。
 
-2. 從 [屬性]  區段中，選取 [儲存體帳戶]  。 隨即會顯示叢集的儲存體資訊。
+2. 從 [屬性] 區段中，選取 [儲存體帳戶]。 隨即會顯示叢集的儲存體資訊。
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>如何從 HDInsight 外部存取檔案
 
@@ -213,7 +213,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 ## <a name="scaling"></a>調整您的叢集規模
 
-叢集調整功能可讓您動態變更叢集所用的資料節點數目。 正在叢集上執行其他工作或處理序時，您可以執行調整作業。  此外，請參閱[調整 HDInsight 叢集](./hdinsight-scaling-best-practices.md)
+叢集調整功能可讓您動態變更叢集所用的資料節點數目。 正在叢集上執行其他工作或處理序時，您可以執行調整作業。  另請參閱[調整 HDInsight](./hdinsight-scaling-best-practices.md)叢集
 
 不同的叢集類型會受調整影響，如下所示：
 
@@ -240,8 +240,8 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
     * **Storm UI**︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
-        1. 開啟`https://CLUSTERNAME.azurehdinsight.net/stormui`網頁瀏覽器，其中`CLUSTERNAME`是 Storm 叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
-        2. 選取您要重新平衡的拓撲，然後選取 [重新平衡]  按鈕。 在執行重新平衡作業之前輸入延遲。
+        1. 在`https://CLUSTERNAME.azurehdinsight.net/stormui`您的網頁瀏覽器中`CLUSTERNAME`開啟, 其中是您的風暴叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
+        2. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。 在執行重新平衡作業之前輸入延遲。
 
 * **Kafka**：您應該在調整作業完成後重新平衡磁碟分割複本。 如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保資料的高可用性](./kafka/apache-kafka-high-availability.md)文件。
 
@@ -285,7 +285,7 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Apache Ambari REST API 管理 HDInsight 叢集](./hdinsight-hadoop-manage-ambari-rest-api.md)
+* [使用 Apache Ambari 管理 HDInsight 叢集 REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hadoop/hdinsight-use-mapreduce.md)

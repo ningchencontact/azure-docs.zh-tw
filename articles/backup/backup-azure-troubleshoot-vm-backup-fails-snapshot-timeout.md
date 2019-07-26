@@ -1,7 +1,6 @@
 ---
 title: 針對 Azure 備份失敗進行疑難排解：無法使用客體代理程式狀態
 description: 與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。
-services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
 keywords: Azure 備份; VM 代理程式; 網路連線;
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1bfc862a7063a023fd148e5504b3baa7fb275229
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704961"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465322"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -51,7 +50,7 @@ ms.locfileid: "67704961"
 **錯誤碼**：UserErrorRpCollectionLimitReached <br>
 **錯誤訊息**：已達到還原點集合上限。 <br>
 * 如果鎖定復原點資源群組以防止復原點自動清除，就可能會發生此問題。
-* 如果每日觸發多個備份，也會發生此問題。 目前我們建議每日的只有一個備份，因為 「 立即還原點會保留 1-5 天，根據設定的快照集保留期，並在任何時候，只有 18 立即 Rp 可以是與 VM 相關聯。 <br>
+* 如果每日觸發多個備份，也會發生此問題。 目前建議每天只進行一次備份, 因為立即還原點會根據所設定的快照集保留時間保留1-5 天, 而只有18個立即 Rp 可在任何指定時間與 VM 建立關聯。 <br>
 
 建議的動作：<br>
 若要解決此問題，請移除 VM 資源群組的鎖定，並重試此作業以觸發清除動作。
@@ -66,7 +65,7 @@ ms.locfileid: "67704961"
 **錯誤碼**：UserErrorKeyvaultPermissionsNotConfigured <br>
 **錯誤訊息**：備份沒有足夠的金鑰保存庫權限可以進行加密 VM 的備份。 <br>
 
-若要在加密的 VM 上成功執行備份作業，它必須有存取金鑰保存庫的權限。 這可以使用[Azure 入口網站](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)或透過[PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)。
+若要在加密的 VM 上成功執行備份作業，它必須有存取金鑰保存庫的權限。 這可以使用[Azure 入口網站](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)或透過[PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)來完成。
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - 因為虛擬機器沒有網路連線，所以快照集作業失敗
 
@@ -102,12 +101,12 @@ ms.locfileid: "67704961"
 **原因 5：備份服務因資源群組鎖定而沒有刪除舊還原點的權限** <br>
 **原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-目前的 Azure 備份不支援大於 4095 GB 的磁碟大小
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-目前 Azure 備份不支援大於4095GB 的磁片大小
 
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
-**錯誤訊息**：目前 Azure 備份不支援大於 4095 GB 的磁碟大小 <br>
+**錯誤訊息**：目前 Azure 備份不支援大於4095GB 的磁片大小 <br>
 
-備份的磁碟大小超過 4095 GB 的 VM 時，您的備份作業可能會失敗。 即將推出大型磁碟支援。  
+當備份磁片大小大於4095GB 的 VM 時, 您的備份操作可能會失敗。 即將推出對大型磁片的支援。  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
@@ -116,14 +115,14 @@ ms.locfileid: "67704961"
 
 您最近的備份作業失敗，因為現有備份作業正在進行中。 必須等到目前的作業完成，才能啟動新的備份作業。 請確定目前正在進行的備份作業已完成，再觸發或排定其他備份作業。 若要檢查備份作業狀態，請執行下列步驟：
 
-1. 登入 Azure 入口網站，按一下 [所有服務]  。 輸入「復原服務」，然後按一下 [復原服務保存庫]  。 復原服務保存庫清單隨即出現。
+1. 登入 Azure 入口網站，按一下 [所有服務]。 輸入「復原服務」，然後按一下 [復原服務保存庫]。 復原服務保存庫清單隨即出現。
 2. 在復原服務保存庫清單中，選取其中已設定備份的保存庫。
-3. 在 [保存庫儀表板] 功能表中，按一下 [備份作業]  以顯示所有備份作業。
+3. 在 [保存庫儀表板] 功能表中，按一下 [備份作業] 以顯示所有備份作業。
 
     * 如果有正在進行中的備份作業，請等到該作業完成或取消備份作業。
-        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]  ，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)。
+        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)。
     * 如果您已在不同的保存庫中重新設定備份，請確定舊的保存庫中沒有正在執行的備份作業。 若有的話，請取消備份作業。
-        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]  ，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. 請重試備份作業。
 
 如果排定的備份作業因費時過久而與下一個備份設定發生衝突，請檢閱[最佳做法](backup-azure-vms-introduction.md#best-practices)、[備份效能](backup-azure-vms-introduction.md#backup-performance)和[還原考量](backup-azure-vms-introduction.md#backup-and-restore-considerations)。
@@ -145,12 +144,12 @@ ms.locfileid: "67704961"
 VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代理程式有助於取得最新版本。 也有助於重新開始與服務通訊。
 
 1. 判斷 Windows Azure 客體代理程式服務是否在 VM 服務 (services.msc) 中執行。 請嘗試重新啟動 Windows Azure 客體代理程式服務並啟動備份。    
-2. 如果 Windows Azure 客體代理程式服務未顯示在控制台的服務中，請移至 [程式和功能]  來判斷是否已安裝 Windows Azure 客體代理程式服務。
-4. 如果 Windows Azure 客體代理程式顯示在 [程式和功能]  中，請將 Windows Azure 客體代理程式解除安裝。
+2. 如果 Windows Azure 客體代理程式服務未顯示在控制台的服務中，請移至 [程式和功能] 來判斷是否已安裝 Windows Azure 客體代理程式服務。
+4. 如果 Windows Azure 客體代理程式顯示在 [程式和功能] 中，請將 Windows Azure 客體代理程式解除安裝。
 5. 下載並安裝[最新版的代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您必須擁有系統管理員權限，才能完成安裝。
 6. 確認 Windows Azure 客體代理程式服務顯示在服務中。
 7. 執行隨選備份：
-    * 在入口網站中，選取 [立即備份]  。
+    * 在入口網站中，選取 [立即備份]。
 
 此外，確認 VM 中[已安裝 Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)。 VM 代理程式需有 .NET 4.5 才能與服務通訊。
 
@@ -162,7 +161,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 1. 請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md)的指示。
 
    > [!NOTE]
-   > 我們強烈建議  您只透過散發套件存放庫更新代理程式。 我們不建議直接從 GitHub 下載代理程式程式碼，並加以更新。 如果最新的代理程式不適用於您的散發套件，請連絡散發套件支援以取得如何進行安裝的指示。 若要檢查最新的代理程式，請移至 GitHub 儲存機制中的 [Microsoft Azure Linux 代理程式 (英文)](https://github.com/Azure/WALinuxAgent/releases) 頁面。
+   > 我們強烈建議您只透過散發套件存放庫更新代理程式。 我們不建議直接從 GitHub 下載代理程式程式碼，並加以更新。 如果最新的代理程式不適用於您的散發套件，請連絡散發套件支援以取得如何進行安裝的指示。 若要檢查最新的代理程式，請移至 GitHub 儲存機制中的 [Microsoft Azure Linux 代理程式 (英文)](https://github.com/Azure/WALinuxAgent/releases) 頁面。
 
 2. 執行下列命令，確定 Azure 代理程式正在 VM 上執行：`ps -e`
 
@@ -192,8 +191,8 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 | 原因 | 方案 |
 | --- | --- |
-| 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉]  選項來關閉入口網站中的 VM。 |
-| VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態的私人 ip 位址，您應該設定透過**Azure 入口網站**或是**PowerShell** ，並確定已啟用 VM 內的 [DHCP] 選項。 [了解更多](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何設定靜態 IP 位址使用 PowerShell。
+| 因為遠端桌面通訊協定 (RDP) 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉 RDP 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
+| VM 無法從 DHCP 取得主機或網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。 如果 VM 無法從 DHCP 回應 245 取得主機或網狀架構位址，則無法下載或執行任何延伸模組。 如果您需要靜態私人 IP, 則應透過**Azure 入口網站**或**PowerShell**加以設定, 並確定已啟用 VM 內的 DHCP 選項。 [深入瞭解](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)如何使用 PowerShell 設定靜態 IP 位址。
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>備份擴充功能無法更新或載入
 如果無法載入延伸模組，備份就會因為無法取得快照集而失敗。
@@ -205,10 +204,10 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 若要將解除安裝解除安裝：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，移至發生備份失敗的 VM。
-2. 選取 [Settings] \(設定)  。
-3. 選取 [擴充功能]  。
-4. 選取 [Vmsnapshot 解除安裝]  。
-5. 選取 [解除安裝]  。
+2. 選取 [Settings] \(設定) 。
+3. 選取 [擴充功能]。
+4. 選取 [Vmsnapshot 解除安裝]。
+5. 選取 [解除安裝]。
 
 針對 Linux VM，如果 VMSnapshot 延伸模組未顯示在 Azure 入口網站中，[更新 Azure Linux 代理程式](../virtual-machines/linux/update-agent.md)，然後再執行備份。
 
@@ -216,37 +215,37 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>從還原點資源群組中移除鎖定
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 移至 [所有資源]  選項，選取下列格式的還原點集合資源群組：AzureBackupRG_`<Geo>`_`<number>`。
-3. 在 [設定]  區段中，選取 [鎖定]  來顯示鎖定項目。
-4. 若要移除鎖定，請選取省略符號，然後按一下 [刪除]  。
+2. 移至 [所有資源] 選項，選取下列格式的還原點集合資源群組：AzureBackupRG_`<Geo>`_`<number>`。
+3. 在 [設定] 區段中，選取 [鎖定] 來顯示鎖定項目。
+4. 若要移除鎖定，請選取省略符號，然後按一下 [刪除]。
 
     ![刪除鎖定](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> 清除還原點集合
 移除鎖定之後，必須清除還原點。 若要清除還原點，請遵循下列任一方法：<br>
-* [清除還原點集合執行臨機操作備份](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [藉由執行臨機操作備份來清除還原點集合](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [從 Azure 入口網站清除還原點集合](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>清除還原點集合執行臨機操作備份
-請移除鎖定之後, 觸發 ad 臨機操作/手動備份。 這可確保還原點會自動清除。 預期失敗的第一次; 這個 ad 臨機操作/手動操作不過，它可確保自動清除，而不是手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>藉由執行臨機操作備份來清除還原點集合
+移除鎖定之後, 請觸發臨機操作/手動備份。 這可確保還原點會自動清除。 預期此臨機操作/手動作業會第一次失敗;不過, 它會確保自動清除, 而不是手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。
 
 > [!NOTE]
-> 觸發 ad 臨機操作/手動備份的幾個小時之後，會發生自動清除。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
+> 在觸發臨機操作/手動備份的幾個小時後, 將會自動清除。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>從 Azure 入口網站清除還原點集合 <br>
 
 若要手動清除因為鎖定而無法清除的還原點集合，請嘗試下列步驟：
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 [中樞]  功能表上按一下 [所有資源]  ，選取下列格式的資源群組：AzureBackupRG_`<Geo>`_`<number>`，也就是您 VM 所在的位置。
+2. 在 [中樞] 功能表上按一下 [所有資源]，選取下列格式的資源群組：AzureBackupRG_`<Geo>`_`<number>`，也就是您 VM 所在的位置。
 
     ![刪除鎖定](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. 按一下 [資源群組]，[概觀]  刀鋒視窗會隨即出現。
-4. 選取 [顯示隱藏的類型]  選項，以顯示所有隱藏的資源。 選取下列格式的還原點集合：AzureBackupRG_`<VMName>`_`<number>`。
+3. 按一下 [資源群組]，[概觀] 刀鋒視窗會隨即出現。
+4. 選取 [顯示隱藏的類型] 選項，以顯示所有隱藏的資源。 選取下列格式的還原點集合：AzureBackupRG_`<VMName>`_`<number>`。
 
     ![刪除鎖定](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. 按一下 [刪除]  ，即可清除還原點集合。
+5. 按一下 [刪除]，即可清除還原點集合。
 6. 重試備份作業。
 
 > [!NOTE]

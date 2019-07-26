@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 554eba87efc56e2dadb3fb2d0cb78cd8b7ea7237
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302733"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381972"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -140,6 +140,50 @@ AKS 代理程式節點會以標準 Azure 虛擬機器計費, 因此如果您已�
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>我可以在訂用帳戶之間移動/遷移我的叢集嗎？
 
 目前不支援在訂用帳戶之間移動叢集。
+
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>我可以將我的 AKS 叢集從目前的 azure 訂用帳戶移至另一個嗎？ 
+
+不支援在 Azure 訂用帳戶之間移動您的 AKS 叢集和其相關聯的資源。
+
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>為什麼我的叢集刪除會花費很長的時間？ 
+
+大部分的叢集會在使用者要求時刪除;在某些情況下, 特別是當客戶帶入自己的資源群組, 或執行跨 RG 工作刪除作業時, 可能需要額外的時間或失敗。 如果您有刪除的問題, 請再次檢查您沒有 RG 的鎖定, 該 rg 外的任何資源會從 RG 解除關聯等等。
+
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>如果我有處於 ' NodeLost ' 或「不明」狀態的 pod/部署, 仍然可以升級我的叢集嗎？
+
+您可以, 但 AKS 不建議這麼做。 理想的升級應該在叢集的狀態為已知且狀況良好時執行。
+
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>如果我有一個或多個節點處於狀況不良狀態或已關閉的叢集, 我可以執行升級嗎？
+
+否, 請刪除/移除處於失敗狀態的任何節點, 或在升級之前從叢集中移除。
+
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>我已執行叢集刪除, 但看到錯誤`[Errno 11001] getaddrinfo failed` 
+
+最常見的原因是使用者有一或多個網路安全性群組 (Nsg) 仍在使用中, 且與叢集相關聯。  請將其移除, 然後再次嘗試刪除。
+
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>我已執行升級, 但現在我的 pod 處於損毀迴圈, 而準備好探查失敗？
+
+請確認您的服務主體未過期。  請參閱:[AKS 服務主體](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)和[AKS 更新認證](https://docs.microsoft.com/azure/aks/update-credentials)。
+
+## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>我的叢集已正常運作, 但突然無法布建 LoadBalancers、掛接 Pvc 等專案？ 
+
+請確認您的服務主體未過期。  請參閱:[AKS 服務主體](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)和[AKS 更新認證](https://docs.microsoft.com/azure/aks/update-credentials)。
+
+## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>我可以使用虛擬機器擴展集 Api 來手動調整嗎？
+
+否, 不支援使用虛擬機器擴展集 Api 進行調整作業。 使用 AKS Api (`az aks scale`)。
+
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>我可以使用虛擬機器擴展集來手動調整為0個節點嗎？
+
+否, 不支援使用虛擬機器擴展集 Api 進行調整作業。
+
+## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>我可以停止或取消配置我的所有 Vm 嗎？
+
+雖然 AKS 具有可承受這類設定並從中復原的恢復機制, 但這不是建議的設定。
+
+## <a name="can-i-use-custom-vm-extensions"></a>我可以使用自訂 VM 擴充功能嗎？
+
+AKS 不是受控服務, 且不支援操作 IaaS 資源。 安裝自訂群組件等。 請利用 kubernetes Api 和機制。 例如, 利用 Daemonset 來安裝必要的元件。
 
 <!-- LINKS - internal -->
 

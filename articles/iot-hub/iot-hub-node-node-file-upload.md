@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f78f53f259234dc949ce5b18ccc7714b32e239f9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612599"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404043"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-本教學課程中的程式碼是根據[傳送使用 IoT 中樞的雲端到裝置訊息](iot-hub-node-node-c2d.md)教學課程，以示範如何使用[檔案上傳功能的 IoT 中樞](iot-hub-devguide-file-upload.md)若要將檔案上傳[Azure blob儲存體](../storage/index.yml)。 本教學課程說明如何：
+本教學課程是以[IoT 中樞的傳送雲端到裝置訊息](iot-hub-node-node-c2d.md)教學課程中的程式碼為基礎, 說明如何使用 IoT 中樞的檔案[上傳功能](iot-hub-devguide-file-upload.md), 將檔案上傳到[Azure blob 儲存體](../storage/index.yml)。 本教學課程說明如何：
 
 * 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 
 * 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-node.md)快速入門示範的 IoT 中樞基本的裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
+將[遙測資料從裝置傳送至 IoT 中樞](quickstart-send-telemetry-node.md)快速入門會示範 IoT 中樞的基本裝置到雲端訊息功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
 
 * 包含映像的大型檔案
 * 影片
 * 取樣高頻率的震動資料
-* 某種經前置處理過的資料。
+* 一些預先處理的資料形式。
 
 這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/introduction.md) 或 [Hadoop](../hdinsight/index.yml) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
 
@@ -42,11 +42,11 @@ ms.locfileid: "67612599"
 * **ReadFileUploadNotification.js**，它會接收來自 IoT 中樞的檔案上傳通知。
 
 > [!NOTE]
-> IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、.NET、Javascript、Python 和 Java)。 如需有關如何將裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心]。
+> IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、.NET、Javascript、Python 和 Java)。 如需如何將您的裝置連線至 Azure IoT 中樞的逐步指示, 請參閱 [Azure IoT 開發人員中心]。
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 版本 10.0.x 或更新版本。
+* Node.js 10.0. x 版或更新版本。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -80,7 +80,7 @@ ms.locfileid: "67612599"
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-5. 新增 `deviceconnectionstring` 變數，並用它來建立**用戶端**執行個體。  以您在＜建立 IoT 中樞＞  一節中建立的裝置名稱取代 `{deviceconnectionstring}`：
+5. 新增 `deviceconnectionstring` 變數，並用它來建立**用戶端**執行個體。  以您在＜建立 IoT 中樞＞ 一節中建立的裝置名稱取代 `{deviceconnectionstring}`：
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -117,11 +117,17 @@ ms.locfileid: "67612599"
 
 9. 將映像檔複製到 `simulateddevice` 資料夾，並重新命名為 `myimage.png`。
 
+## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
+
+在本文中, 您會建立後端服務, 從您在[將遙測從裝置傳送至 iot 中樞](quickstart-send-telemetry-node.md)中建立的 IoT 中樞接收檔案上傳通知訊息。 若要接收檔案上傳通知訊息, 您的服務需要**服務連接**許可權。 根據預設, 每個 IoT 中樞都會使用名為**服務**的共用存取原則來建立, 以授與此許可權。
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>接收檔案上傳通知
 
 在本節中，您要建立一個 Node.js 主控台應用程式，接收來自 IoT 中樞的檔案上傳通知訊息。
 
-您可以從 IoT 中樞使用 **iothubowner** 連接字串來完成此區段。 您會在 [共用存取原則]  刀鋒視窗的 [Azure 入口網站](https://portal.azure.com/)中找到連接字串。
+您可以從 IoT 中樞使用 **iothubowner** 連接字串來完成此區段。 您會在 [共用存取原則] 刀鋒視窗的 [Azure 入口網站](https://portal.azure.com/)中找到連接字串。
 
 1. 建立稱為 ```fileuploadnotification``` 的空資料夾。  在 ```fileuploadnotification``` 資料夾中，於命令提示字元使用下列命令建立 package.json 檔案。  接受所有預設值：
 
@@ -145,7 +151,7 @@ ms.locfileid: "67612599"
     var Client = require('azure-iothub').Client;
     ```
 
-5. 新增 `iothubconnectionstring` 變數，並用它來建立**用戶端**執行個體。  將 `{iothubconnectionstring}` 替換為您在＜建立 IoT 中樞＞  一節中為 IoT 中樞所建立的連接字串：
+5. 新增 `iothubconnectionstring` 變數，並用它來建立**用戶端**執行個體。  將預留位置值取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串: `{iothubconnectionstring}`
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

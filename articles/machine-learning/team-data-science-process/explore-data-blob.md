@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c399491f0a2048fe924e9ed9600dd5ce3899ca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 23fef994d01917f5f120c7fcb80871f6f2c82ab2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344643"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358595"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>使用 Pandas 瀏覽 Azure blob 儲存體中的資料
 
@@ -24,7 +24,7 @@ ms.locfileid: "60344643"
 
 此工作是 [Team Data Science Process](overview.md) 中的一個步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已經：
 
 * 建立 Azure 儲存體帳戶。 如需指示，請參閱[建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
@@ -56,7 +56,7 @@ print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 1. 從下載的檔案中，將資料讀取至 Pandas 資料框架。
 
 ```python
-#LOCALFILE is the file path
+# LOCALFILE is the file path
 dataframe_blobdata = pd.read_csv(LOCALFILE)
 ```
 
@@ -115,7 +115,8 @@ dataframe_blobdata_noNA.shape
 取代遺漏值的另一種方式是使用模式函式：
 
 ```python
-dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
+dataframe_blobdata_mode = dataframe_blobdata.fillna(
+    {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
 1. 使用變動數目的分類收納組來建立 **長條圖** ，以繪製變數的分佈
@@ -129,9 +130,9 @@ np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 1. 使用散佈圖或使用內建的相互關聯函式，來查看變數之間的 **相互關聯**
 
 ```python
-#relationship between column_a and column_b using scatter plot
+# relationship between column_a and column_b using scatter plot
 plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
 
-#correlation between column_a and column_b
+# correlation between column_a and column_b
 dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 ```

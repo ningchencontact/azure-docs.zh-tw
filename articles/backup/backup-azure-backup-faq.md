@@ -1,19 +1,18 @@
 ---
 title: Azure 備份常見問題集
 description: '有關以下常見問題的解答：包括復原服務保存庫、可以備份的項目、其運作方式、加密和限制等 Azure 備份功能。 '
-services: backup
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806977"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466681"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -40,7 +39,7 @@ ms.locfileid: "67806977"
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>我是否可以針對備份到「復原服務保存庫」的 VM 執行「項目層級還原」(ILR)？
 - 由 Azure VM 備份所備份的 Azure VM 支援 Azure VM。 如需詳細資訊，請參閱[文章](backup-azure-restore-files-from-vm.md)
-- ILR 不支援根據 Azure 備份伺服器或 System Center DPM 備份的內部部署 Vm 的線上復原點。
+- Azure 備份伺服器或 System Center DPM 所備份之內部部署 Vm 的線上復原點不支援 ILR。
 
 
 ## <a name="azure-backup-agent"></a>Azure 備份代理程式
@@ -70,7 +69,7 @@ Windows 8.1 64 位元 | Enterprise、Pro | 機器應該執行最新的服務套�
 Windows 8 64 位元 | Enterprise、Pro | 機器應該執行最新的服務套件和更新。
 Windows 7 64 位元 | Ultimate、Enterprise、Professional、Home Premium、Home Basic、Starter | 機器應該執行最新的服務套件和更新。
 伺服器 | |
-Windows Server 2019 64 bit | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
+Windows Server 2019 64 位 | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
 Windows Server 2016 64 位元 | Standard、Datacenter、Essentials | 含最新的服務套件/更新。
 Windows Server 2012 R2 64 位元 | Standard、Datacenter、Foundation | 含最新的服務套件/更新。
 Windows Server 2012 64 位元 | Datacenter、Foundation、Standard | 含最新的服務套件/更新。
@@ -144,7 +143,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。
 
 - 完整的復原點是「效率不佳的」  儲存體，但可以更輕鬆且更快速地進行還原。
-- 增量複本「符合儲存體效益」  ，但需要您還原一連串的資料，而這會影響復原時間
+- 增量複本「符合儲存體效益」，但需要您還原一連串的資料，而這會影響復原時間
 
 Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。 這可確保有效率地使用您的輸入和輸出頻寬。 資料儲存體數量及復原資料所需的時間都會維持在最低。 深入了解[增量備份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)。
 
@@ -154,7 +153,7 @@ Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原�
 - 深入了解[備份和保留](./backup-overview.md#backup-and-retention)。
 
 
-### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>多少次我可以復原至 Azure 備份的資料？
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>有多少次可以復原備份至 Azure 的資料？
 從 Azure 備份進行復原的次數沒有任何限制。
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>還原資料時，我需要支付來自 Azure 的輸出流量嗎？

@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a938f85b2047ea5cceada98df6adba2c560c1a1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278664"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442494"
 ---
 # <a name="confidential-client-assertions"></a>機密用戶端判斷提示
 為了證明其身分識別, 機密用戶端應用程式會以 Azure AD 交換秘密。 秘密可以是:
@@ -34,7 +34,7 @@ ms.locfileid: "68278664"
 MSAL.NET 有四種方法可將認證或判斷提示提供給機密用戶端應用程式:
 - `.WithClientSecret()`
 - `.WithCertificate()`
-- `.WithSignedAssertion()`
+- `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 ### <a name="signed-assertions"></a>帶正負號的判斷提示

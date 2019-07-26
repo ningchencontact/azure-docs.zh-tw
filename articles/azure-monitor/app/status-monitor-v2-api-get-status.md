@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b298d73620990dd8f6c6577818adaef9788122e9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326333"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424136"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>狀態監視器 v2 API:ApplicationInsightsMonitoringStatus
 
@@ -34,12 +34,11 @@ ms.locfileid: "68326333"
 
 ## <a name="examples"></a>範例
 
-### <a name="example-application-status"></a>範例：應用程式狀態
+### <a name="example-application-status"></a>範例:應用程式狀態
 
 執行命令`Get-ApplicationInsightsMonitoringStatus`以顯示 [網站] 的監視狀態。
 
 ```
-Machine Identifier:
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
 Machine Identifier:
 811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
@@ -81,7 +80,7 @@ AppAlreadyInstrumented : true
 - **DemoWebApp333**已使用 Application Insights SDK 手動進行檢測。 狀態監視器偵測到 SDK, 且不會監視此網站。
 
 
-### <a name="example-powershell-module-information"></a>範例：PowerShell 模組資訊
+### <a name="example-powershell-module-information"></a>範例:PowerShell 模組資訊
 
 執行命令`Get-ApplicationInsightsMonitoringStatus -PowerShellModule`以顯示目前模組的相關資訊:
 
@@ -135,7 +134,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>範例：執行時間狀態
+### <a name="example-runtime-status"></a>範例:執行階段狀態
 
 您可以檢查檢測電腦上的處理常式, 以查看是否已載入所有 Dll。 如果監視運作正常, 則至少應載入12個 Dll。
 

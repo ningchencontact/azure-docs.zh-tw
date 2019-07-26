@@ -3,29 +3,24 @@ title: 使用 PowerShell 在 Azure 雲端服務中啟用診斷 | Microsoft Docs
 description: 了解如何使用 PowerShell 啟用雲端服務的診斷
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 66e08754-8639-4022-ae18-4237749ba17d
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 13a855c5770281e2578523bfc1813b2e03df6651
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 4beed4dd874c23c36e125b5855e2e8380859ef83
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539237"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359154"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 雲端服務中啟用診斷
 您可以使用 Azure 診斷延伸模組，從雲端服務收集診斷資料 (例如應用程式記錄、效能計數器等)。 本文描述如何使用 PowerShell 啟用雲端服務的 Azure 診斷延伸模組。  如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>啟用診斷延伸模組做為部署雲端服務的一部分
-此方法適用於可以啟用診斷延伸模組做為雲端服務佈署一部分的連續整合類型案例。 在建立新的雲端服務部署時，您還可以啟用診斷擴充功能，藉由傳入*ExtensionConfiguration*參數來[New-azuredeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet。 *ExtensionConfiguration* 參數接受以 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) Cmdlet 建立的診斷組態陣列。
+此方法適用於可以啟用診斷延伸模組做為雲端服務佈署一部分的連續整合類型案例。 建立新的雲端服務部署時, 您可以將*ExtensionConfiguration*參數傳遞至[get-azuredeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0)指令程式, 以啟用診斷延伸模組。 *ExtensionConfiguration* 參數接受以 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) Cmdlet 建立的診斷組態陣列。
 
 下列範例示範如何為某個雲端服務 (其中的 WebRole 和 WorkerRole 各自擁有不同的診斷組態) 啟用診斷。
 
@@ -120,13 +115,13 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>移除診斷延伸模組
-若要關閉雲端服務上的診斷，您可以使用[Remove-azureservicediagnosticsextension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet。
+若要關閉雲端服務的診斷功能, 您可以使用[set-azureservicediagnosticsextension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) Cmdlet。
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-如果您啟用使用診斷延伸模組*Set-azureservicediagnosticsextension*或*New-azureservicediagnosticsextensionconfig*而不需要*角色*參數，則您可以移除延伸模組使用*Remove-azureservicediagnosticsextension*不含*角色*參數。 如果*角色*啟用延伸模組時，使用參數，則它也必須使用時移除延伸模組。
+如果您使用*set-azureservicediagnosticsextension*或不含 Role 參數的*new-azureservicediagnosticsextensionconfig*來啟用診斷延伸模組, 則可以使用*來移除延伸模組移除-Set-azureservicediagnosticsextension* , 不含*Role*參數。 如果啟用延伸模組時使用了*Role*參數, 則移除延伸模組時也必須使用它。
 
 若要從每個個別的角色移除診斷延伸模組：
 

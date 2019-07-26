@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Bing 當地商家搜尋 API？ | Microsoft Docs
+title: 什麼是 Bing 當地商家搜尋 API？
 titleSuffix: Azure Cognitive Services
 description: Bing 當地商家搜尋 API 是一套 RESTful 服務，可讓您的應用程式依搜尋查詢項目，尋找當地地點及商家資訊。
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 3cc9ed4dd108e76da6430a450876b709be514356
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2078e4842f6b8af11fcf56760579ce1ec77dd23f
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796759"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423373"
 ---
 # <a name="what-is-bing-local-business-search"></a>什麼是 Bing 當地商家搜尋？
 Bing 當地商家搜尋 API 是一套 RESTful 服務，可讓您的應用程式依搜尋查詢項目，尋找當地商家資訊。 例如，`q=<business-name> in Redmond, Washington` 或 `q=Italian restaurants near me`。 

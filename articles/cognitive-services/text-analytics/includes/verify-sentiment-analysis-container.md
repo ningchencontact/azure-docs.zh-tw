@@ -1,5 +1,5 @@
 ---
-title: 確認情感分析的容器實例
+title: 確認情感分析容器實例
 titleSuffix: Azure Cognitive Services
 description: 瞭解如何驗證情感分析容器實例。
 services: cognitive-services
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 1303d753b1cbfabe7ddd3442e0880b0bffe089b3
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229316"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377427"
 ---
-## <a name="verify-the-sentiment-analysis-container-instance"></a>確認情感分析的容器實例
+## <a name="verify-the-sentiment-analysis-container-instance"></a>確認情感分析容器實例
 
 1. 選取 [**總覽**] 索引標籤, 然後複製 [IP 位址]。
 1. 開啟新的瀏覽器索引標籤, 並輸入 IP 位址。 例如, 輸入`http://<IP-address>:5000 (http://55.55.55.55:5000`)。 容器的首頁隨即顯示, 讓您知道容器正在執行。
 
     ![查看容器首頁以確認它正在執行](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. 選取 [**服務 API 描述**] 連結, 以移至容器的 swagger 頁面。
+1. 選取 [**服務 API 描述**] 連結, 以移至容器的 Swagger 頁面。
 
-1. 選擇任何**張貼**api, 然後選取 [立即**試用**]。系統會顯示參數, 包括此範例輸入:
+1. 選擇任何**張貼**api, 然後選取 [立即**試用**]。會顯示參數, 其中包括下列範例輸入:
 
     ```json
     {
@@ -67,7 +67,7 @@ ms.locfileid: "68229316"
 
 1. 選取 [**執行**] 以決定文字的情感。
 
-    封裝在容器中的模型會產生介於0到1之間的分數, 其中0是負數, 1 是正數。
+    封裝在容器中的模型會產生範圍從0到1的分數, 其中0是負數, 而1是正數。
 
     傳回的 JSON 回應包含更新文字輸入的情感:
 
@@ -93,4 +93,4 @@ ms.locfileid: "68229316"
     }
     ```
 
-我們現在可以將回應裝載`id`的 JSON 資料檔案與原始要求裝載檔`id`相互關聯。 我們看到的分數大於`.98`, 表示強烈的正面情感。
+我們現在可以將回應裝載`id`的 JSON 資料檔案與原始要求裝載檔`id`相互關聯。 大於`.98`的分數表示強烈的正面情感。

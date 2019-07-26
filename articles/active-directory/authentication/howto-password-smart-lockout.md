@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure AD 的防止暴力攻擊的智慧鎖定-Azure Active Directory
+title: 使用 Azure AD 智慧型鎖定來防止暴力密碼破解攻擊-Azure Active Directory
 description: Azure Active Directory 智慧鎖定有助於保護組織免於遭受嘗試猜測密碼的暴力攻擊
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/25/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483312"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499885"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -29,6 +29,8 @@ ms.locfileid: "67483312"
  > [!NOTE]
  > 雜湊追蹤功能不適用於傳遞驗證已啟用的客戶，因為驗證是發生在內部部署，而不是雲端。
 
+使用 AD FS 2016 和 AF FS 2019 的同盟部署, 可以使用[AD FS 外部網路鎖定和外部網路智慧鎖定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)來啟用類似的優點。
+
 任何 Azure AD 客戶只要採用兼具適當安全性和可用性的預設設定，智慧鎖定就一律會啟用。 要使用組織的特定值自訂智慧鎖定設定，您的使用者必須具有 Azure AD Basic 或更高的授權。
 
 使用智慧鎖定並不保證實際使用者永遠不會遭到鎖定。當智慧鎖定將使用者帳戶鎖定時，我們會盡力不讓實際使用者遭到鎖定。 鎖定服務會嘗試確保不良執行者無法獲得實際使用者帳戶的存取權。  
@@ -40,10 +42,10 @@ ms.locfileid: "67483312"
 
 使用[傳遞驗證](../hybrid/how-to-connect-pta.md)時，您必須確定：
 
-* Azure AD 的鎖定閾值「小於」  Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
-* Azure AD 的鎖定持續時間必須超過 Active Directory 帳戶鎖定計數器重設期間之後設定。 請注意，Azure AD 期間設定以秒為單位，廣告時持續時間以分鐘為單位設定。 
+* Azure AD 的鎖定閾值「小於」Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
+* Azure AD 的鎖定持續時間必須設定超過持續時間後的 Active Directory 重設帳戶鎖定計數器。 請注意, Azure AD 持續時間是以秒為單位設定, 而 AD 持續時間設定為分鐘。 
 
-例如，如果您想要高於 AD 您 Azure AD 計數器，然後 Azure AD 會是 120 秒 （2 分鐘），而您在將內部部署 AD 值設為 1 分鐘 （60 秒）。
+例如, 如果您想要 Azure AD 計數器高於 AD, 則 Azure AD 會是120秒 (2 分鐘), 而您的內部部署 AD 會設定為1分鐘 (60 秒)。
 
 > [!IMPORTANT]
 > 目前，如果使用者的雲端帳戶已被智慧鎖定功能鎖定，則系統管理員無法將其解除鎖定。 系統管理員必須等待鎖定持續期間結束。
@@ -55,7 +57,7 @@ ms.locfileid: "67483312"
 1. 開啟群組原則管理工具。
 2. 編輯包含組織帳戶鎖定原則的群組原則，例如**預設網域原則**。
 3. 瀏覽到 **[電腦設定]**  >  **[原則]**  >  **[Windows 設定]**  >  **[安全性設定]**  >  **[帳戶原則]**  >  **[帳戶鎖定原則]** 。
-4. 確認 [帳戶鎖定閾值]  和 [下列時間過後重設帳戶鎖定計數器]  的值。
+4. 確認 [帳戶鎖定閾值] 和 [下列時間過後重設帳戶鎖定計數器] 的值。
 
 ![修改內部部署 Active Directory 帳戶鎖定原則](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
@@ -65,18 +67,18 @@ ms.locfileid: "67483312"
 
 若要檢查或修改組織的智慧鎖定值，請使用下列步驟：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com) 並按一下 [Azure Active Directory]  ，然後按一下 [驗證方法]  。
-1. 根據帳戶遭到鎖定之前所允許的失敗登入次數，設定 [鎖定閾值]  。 預設值為 10。
-1. 將 [鎖定持續時間 (秒)]  設為每次鎖定的秒數。 預設值為 60 秒 (一分鐘)。
+1. 登入 [Azure 入口網站](https://portal.azure.com) 並按一下 [Azure Active Directory]，然後按一下 [驗證方法]。
+1. 根據帳戶遭到鎖定之前所允許的失敗登入次數，設定 [鎖定閾值]。 預設值為 10。
+1. 將 [鎖定持續時間 (秒)] 設為每次鎖定的秒數。 預設值為 60 秒 (一分鐘)。
 
 > [!NOTE]
 > 如果鎖定之後的第一個登入也失敗，帳戶將會再次鎖定。 如果帳戶重複鎖定，鎖定持續時間將會增加。
 
 ![在 Azure 入口網站中自訂 Azure AD 智慧鎖定原則](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>如何判斷與否，是否正在運作的智慧鎖定功能
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>如何判斷智慧鎖定功能是否正常運作
 
-觸發的智慧鎖定臨界值時，您會在帳戶鎖定時，收到下列訊息：
+觸發智慧鎖定臨界值時, 您將會在帳戶被鎖定時收到下列訊息:
 
 **您的帳戶已暫時鎖定以防未經授權的使用。請稍後再試一次，如果仍有問題，請連絡您的管理員。**
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295827"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501471"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Azure 資訊安全中心中的資料服務威脅偵測
 
@@ -27,6 +27,7 @@ ms.locfileid: "68295827"
 
 * [Azure SQL Database 和 SQL 資料倉儲](#data-sql)
 * [Azure 儲存體](#azure-storage)
+* [Cosmos DB](#cosmos-db)
 
 ## Azure SQL Database 和 SQL 資料倉儲<a name="data-sql"></a>
 
@@ -46,7 +47,7 @@ SQL 威脅偵測會偵測異常活動, 指出有不尋常且可能有害的嘗�
 ## Azure 儲存體<a name="azure-storage"></a>
 
 >[!NOTE]
-> Azure 儲存體的先進威脅防護目前僅適用于 Blob 儲存體。 
+> Azure 儲存體的先進威脅防護目前僅適用于 Blob 儲存體。
 
 Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲存體帳戶中異常而且可能有害的存取或攻擊意圖。 這一層保護可讓您解決威脅, 而不需要您成為安全性專家, 也不會管理安全性監視系統。
 
@@ -70,3 +71,14 @@ Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲�
 >Azure 儲存體的先進威脅防護目前無法在 Azure 政府和主權雲端區域中使用。
 
 如需有關存放裝置警示的詳細資訊, 請參閱[Azure 儲存體的 Advanced 威脅防護](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)一文, 以及查看保護警示一節。
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+下列警示是由不尋常且可能有害的嘗試存取或惡意探索 Azure Cosmos DB 帳戶所產生:
+
+|警示|描述|
+|---|---|
+|**從不尋常的位置存取**|表示 Cosmos DB 帳戶的存取模式有所變更。 相較于最近的活動, 有人從不熟悉的 IP 位址存取了此帳戶。 攻擊者已存取 Cosmos DB 帳戶, 或合法的使用者已從新的和不尋常的地理位置存取 Cosmos DB 帳戶。 例如: 從遠端進行的新應用程式或開發人員維護。|
+|**不尋常的資料外泄**|表示 Cosmos DB 帳戶中的資料提取模式有變更。 相較于最近的活動, 有人已解壓縮了不尋常的資料量。 攻擊者已從 Cosmos DB 資料庫中解壓縮大量資料。 例如: 資料外泄/洩漏、未經授權的資料傳輸。 或者, 合法的使用者或應用程式已從容器中解壓縮了不尋常的資料量。 例如: 維護備份活動。|
+
+如需詳細資訊, 請參閱[Azure Cosmos DB 的 Advanced 威脅防護](../cosmos-db/cosmos-db-advanced-threat-protection.md)。

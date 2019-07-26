@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 7e8b4480911f00afa8524ef4b81d697bb8ee5bcc
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6a9363472e1d5770232ca9a0b151fb309d9c4c75
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877453"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377394"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>建立認知服務文字分析資源
 
@@ -25,16 +25,16 @@ ms.locfileid: "67877453"
 
     |設定|值|
     |--|--|
-    |名稱|輸入名稱 (2-64 個字元)|
-    |Subscription|選取適當的訂用帳戶|
-    |Location|選取附近的位置|
-    |定價層| 輸入  , 標準定價層|
-    |Resource group|選取可用的資源群組|
+    |名稱|輸入名稱 (2-64 個字元)。|
+    |訂閱|選取適當的訂用帳戶。|
+    |Location|選取附近的位置。|
+    |定價層| 輸入, 標準定價層。|
+    |資源群組|選取可用的資源群組。|
 
-1. 選取 [**建立**] 並等候資源建立。 您的瀏覽器會自動重新導向至新建立的資源網頁。
+1. 選取 [**建立**], 並等候資源建立。 您的瀏覽器會自動重新導向至新建立的資源網頁。
 1. 收集已設定`endpoint`的和 API 金鑰:
 
     |入口網站的 [資源] 索引標籤|設定|值|
     |--|--|--|
-    |**概觀**|端點|複製端點。 看起來類似`https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |**概觀**|端點|複製端點。 它看起來類似`https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`。|
     |**金鑰**|API 金鑰|複製這兩個金鑰的其中一個。 它是32字元的英數位元字串, 不含空格或破折號`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`: < >。|

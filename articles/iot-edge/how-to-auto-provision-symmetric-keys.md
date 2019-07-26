@@ -1,5 +1,5 @@
 ---
-title: 使用對稱金鑰證明自動布建具有 DPS 的裝置-Azure IoT Edge |Microsoft Docs
+title: 使用 Azure IoT Edge 對稱金鑰證明的 DPS Autoprovision 裝置 |Microsoft Docs
 description: 使用對稱金鑰證明來測試裝置布建服務 Azure IoT Edge 的自動裝置布建
 author: kgremban
 manager: philmea
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275731"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414585"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>使用對稱金鑰證明建立和布建 IoT Edge 裝置
 
-Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
+Azure IoT Edge 裝置可使用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。
 
 本文說明如何使用 IoT Edge 裝置上的對稱金鑰證明, 建立裝置布建服務的個別註冊, 步驟如下:
 
@@ -29,7 +29,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 對稱金鑰證明是驗證裝置與裝置佈建服務執行個體的簡單方法。 對於不熟悉裝置佈建或沒有嚴格安全性需求的開發人員，這個證明方法代表 "Hello world" 經驗。 使用[TPM](../iot-dps/concepts-tpm-attestation.md)的裝置證明更為安全, 而且應該用於更嚴格的安全性需求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Active IoT 中樞
 * 實體或虛擬裝置
@@ -38,7 +38,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 在 Azure 中建立 IoT 中樞裝置佈建服務的新執行個體，並將其連結至您的 IoT 中樞。 您可以依照[設定 IoT 中樞 DPS](../iot-dps/quick-setup-auto-provision.md) 中的指示操作。
 
-裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍]  的值。 當您設定 IoT Edge 執行階段時會用到此值。
+裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍] 的值。 當您設定 IoT Edge 執行階段時會用到此值。
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>為裝置選擇唯一的註冊識別碼
 
@@ -63,9 +63,9 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 1. 在  [Azure 入口網站](https://portal.azure.com)中, 流覽至您的 IoT 中樞裝置佈建服務實例。
 
-1. 在 [設定]  下方，選取 [管理註冊]  。
+1. 在 [設定] 下方，選取 [管理註冊]。
 
-1. 選取 [新增個別註冊]  ，然後完成下列步驟以設定註冊：  
+1. 選取 [新增個別註冊]，然後完成下列步驟以設定註冊：  
 
    1. 針對 [**機制**], 選取 [**對稱金鑰**]。
 
@@ -83,7 +83,7 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
    1. 選擇當裝置在第一次要求布建時, 要**如何在重新布建時處理裝置資料**。
 
-   1. 視需要將標記值新增至 [初始裝置對應項狀態]  。 您可以使用標記將裝置群組設定為模組部署的目標。 例如:
+   1. 視需要將標記值新增至 [初始裝置對應項狀態]。 您可以使用標記將裝置群組設定為模組部署的目標。 例如:
 
       ```json
       {
@@ -112,7 +112,7 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 如果您使用 Linux 工作站，您可以使用 openssl 來產生衍生的裝置金鑰，如下列範例所示。
 
-將 **KEY** 的值取代為您先前記下的 [主要金鑰]  。
+將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
 
 將**REG_ID**的值取代為您裝置的註冊識別碼。
 
@@ -132,7 +132,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 如果您使用以 Windows 為基礎的工作站，您可以使用 PowerShell 來產生衍生的裝置金鑰，如下列範例所示。
 
-將 **KEY** 的值取代為您先前記下的 [主要金鑰]  。
+將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
 
 將**REG_ID**的值取代為您裝置的註冊識別碼。
 
@@ -165,8 +165,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 請遵循裝置架構的指示。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。
 
-* [在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)
-* [在 Linux 上安裝 Azure IoT Edge 執行時間 (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[在 Linux 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-linux.md)
 
 對稱金鑰布建的設定檔中的區段看起來像這樣:
 
@@ -188,7 +187,7 @@ provisioning:
 
 遵循指示, 在您產生衍生裝置金鑰的裝置上安裝 IoT Edge 執行時間。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。
 
-[安裝並自動佈建 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[在 Windows 上安裝並自動布建 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
 

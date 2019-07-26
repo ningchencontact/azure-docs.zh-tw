@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: d30c2218fe20d6b760f379caf52ca0bf97e1c750
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071484"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320532"
 ---
 # <a name="configure-face-docker-containers"></a>設定臉部 Docker 容器
 
@@ -31,11 +31,11 @@ ms.locfileid: "67071484"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 值和值必須是有效的金鑰，如_認知服務_指定的資源[ `Billing` ](#billing-configuration-setting)組態設定。
+`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值, 且值必須是為設定所指定[`Billing`](#billing-configuration-setting)之_認知服務_資源的有效金鑰。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**資源管理下**金鑰**
+* Azure 入口網站：**認知服務**[**金鑰**] 下的 [資源管理]
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 設定
 
@@ -43,17 +43,17 @@ ms.locfileid: "67071484"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing`設定會指定端點 URI 的_認知服務_来測量之容器的帳單資訊使用在 Azure 上的資源。 您必須指定此組態設定值，和值必須是有效的端點 URI 的_認知服務_在 Azure 上的資源。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**認知服務**概觀，標示為 `Endpoint`
+* Azure 入口網站：**認知服務**總覽, 加上標籤`Endpoint`
 
-請記得新增_臉部_路由至端點 URI，如範例所示。 
+請記得將_臉部_路由新增至端點 URI, 如範例中所示。 
 
-|必要項| 名稱 | 数据类型 | 描述 |
+|必要項| 名稱 | 資料類型 | 描述 |
 |--|------|-----------|-------------|
-|是| `Billing` | String | 計費端點 URI<br><br>範例：<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|是| `Billing` | String | 計費端點 URI<br><br>範例:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -61,9 +61,9 @@ ms.locfileid: "67071484"
 
 `CloudAI` 區段中的組態設定能提供對您容器而言是唯一的容器特定選項。 下列是 `CloudAI` 區段中支援臉部容器的設定和物件
 
-| 名稱 | 数据类型 | 描述 |
+| 名稱 | 資料類型 | 描述 |
 |------|-----------|-------------|
-| `Storage` | Object | 臉部容器所使用的儲存體案例。 如需適用於 `Storage` 物件之儲存體案例和相關設定的詳細資訊，請參閱[儲存體案例設定](#storage-scenario-settings) |
+| `Storage` | 物件 | 臉部容器所使用的儲存體案例。 如需適用於 `Storage` 物件之儲存體案例和相關設定的詳細資訊，請參閱[儲存體案例設定](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>儲存體案例設定
 
@@ -80,7 +80,7 @@ ms.locfileid: "67071484"
 
 儲存體案例和相關的組態設定是由 `CloudAI` 組態區段底下的 `Storage` 物件所管理。 `Storage` 物件提供下列組態設定：
 
-| 名稱 | 数据类型 | 描述 |
+| 名稱 | 資料類型 | 描述 |
 |------|-----------|-------------|
 | `StorageScenario` | String | 容器所支援的儲存體案例。 可以使用下列值<br/>`Memory`：預設值。 容器會針對單一節點的暫時性使用方式，使用非永續性、非分散式且記憶體內部的儲存體。 如果停止或移除容器，系統便會終結該容器的儲存體。<br/>`Azure`：容器使用 Azure 資源作為儲存體。 如果停止或移除容器，該容器的儲存體仍會保存。|
 | `ConnectionStringOfAzureStorage` | String | 容器所使用之 Azure 儲存體資源的連接字串。<br/>此設定只有在已針對 `StorageScenario` 組態設定指定 `Azure` 的情況下才會套用。 |
@@ -114,7 +114,7 @@ ms.locfileid: "67071484"
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>裝載設定
+## <a name="mount-settings"></a>掛接設定
 
 使用繫結裝載將資料讀取和寫入至容器，及從中讀取和寫入。 您可以在 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。
 
@@ -122,10 +122,10 @@ ms.locfileid: "67071484"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](face-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選用| 名稱 | 数据类型 | 描述 |
+|選擇性| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
-|不允許| `Input` | 字串 | 臉部容器不會使用此項目。|
-|選用| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
+|不允許| `Input` | String | 臉部容器不會使用此項目。|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -136,14 +136,14 @@ ms.locfileid: "67071484"
 
 請將 {_argument_name_} 取代為您自己的值：
 
-| Placeholder | 值 | 格式或範例 |
+| 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{BILLING_KEY} | 認知服務資源端點索引鍵。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 計費的端點值包括區域和臉部路由。|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{API_KEY} | 認知服務資源的端點金鑰。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | 端點值, 包括區域和臉部路由。|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](face-how-to-install-containers.md#billing)。
-> ApiKey 值是**金鑰**從 Azure`Cognitive Services`資源 [金鑰] 頁面。 
+> ApiKey 值是 [Azure  `Cognitive Services`資源金鑰] 頁面中的金鑰。 
 
 ## <a name="face-container-docker-examples"></a>臉部容器 Docker 範例
 
@@ -155,8 +155,8 @@ ms.locfileid: "67071484"
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>記錄範例 
@@ -164,7 +164,7 @@ ms.locfileid: "67071484"
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

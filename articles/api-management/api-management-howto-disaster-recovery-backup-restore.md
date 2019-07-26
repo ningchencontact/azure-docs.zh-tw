@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6507c39faecfa0e56fc19597e414e9d25d368567
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460868"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498582"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
 透過 Azure API 管理來發佈及管理 API，您將能夠利用非 Azure API 管理使用者要另行手動設計、實作及管理的容錯和基礎結構功能。 Azure 平台可緩和絕大部分可能的失敗後果，且成本低廉。
 
-若要從影響裝載您「API 管理」服務的區域可用性問題復原，請隨時準備好在另一個區域中重新建構您的服務。 根據您的復原時間目標，您可以將一或多個區域中的待命資料庫的服務。 您也可能會嘗試維持組態和內容與作用中的服務根據您的復原點目標的同步處理。 服務備份和還原功能會提供必要的建置組塊，以實作災害復原策略。
+若要從影響裝載您「API 管理」服務的區域可用性問題復原，請隨時準備好在另一個區域中重新建構您的服務。 根據您的復原時間目標, 您可能會想要在一或多個區域中保留待命服務。 您也可以根據您的復原點目標, 嘗試維護其設定和內容與作用中服務的同步。 服務備份和還原功能提供必要的建立區塊, 以執行嚴重損壞修復策略。
 
-備份和還原作業也可用來操作的環境，例如 「 開發 」 和 「 預備環境之間複寫 API 管理服務組態。 請注意，該執行階段資料，例如使用者和訂用帳戶將會複製，這不一定需要。
+備份和還原作業也可以用來複寫操作環境 (例如開發和預備) 之間的 API 管理服務設定。 請注意, 諸如使用者和訂用帳戶等執行時間資料也會一併複製, 這可能不一定是理想的做法。
 
-本指南說明如何自動化備份和還原作業以及如何確保成功驗證的備份和還原要求由 Azure Resource Manager。
+本指南說明如何自動執行備份和還原作業, 以及如何藉由 Azure Resource Manager, 確保成功驗證備份和還原要求。
 
 > [!IMPORTANT]
-> 還原作業不會變更的目標服務的自訂主機名稱設定。 我們建議使用相同的自訂主機名稱和 TLS 憑證的作用中和待命資料庫服務，使流量還原作業完成之後，可以重新導向到待命執行個體的簡單的 DNS CNAME 變更。
+> 還原操作不會變更目標服務的自訂主機名稱設定。 我們建議針對作用中和待命服務使用相同的自訂主機名稱和 TLS 憑證, 如此一來, 在還原作業完成之後, 即可透過簡單的 DNS CNAME 變更, 將流量重新導向至待命實例。
 >
-> 備份作業不會擷取顯示在 Azure 入口網站中的 [Analytics] 刀鋒視窗上的報表中使用預先彙總的記錄資料。
+> 備份作業不會在 Azure 入口網站中的 [分析] 分頁上所顯示的報表中, 捕捉使用預先匯總的記錄資料。
 
 > [!WARNING]
 > 每個備份會在 30 天後到期。 如果您在過了 30 天的到期時間後嘗試還原備份，還原會失敗並傳回 `Cannot restore: backup expired` 訊息。
@@ -56,34 +56,34 @@ ms.locfileid: "67460868"
 ### <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 使用含 API 管理服務執行個體的訂用帳戶，瀏覽至 **Azure Active Directory** 的 [應用程式註冊]  索引標籤 (Azure Active Directory > 管理/應用程式註冊)。
+2. 使用含 API 管理服務執行個體的訂用帳戶，瀏覽至 **Azure Active Directory** 的 [應用程式註冊] 索引標籤 (Azure Active Directory > 管理/應用程式註冊)。
 
     > [!NOTE]
     > 如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。
 
-3. 按一下 [新增應用程式註冊]  。
+3. 按一下 [新增應用程式註冊]。
 
-    [建立]  視窗會出現在右邊。 您可以在這裡輸入 AAD 應用程式的相關資訊。
+    [建立] 視窗會出現在右邊。 您可以在這裡輸入 AAD 應用程式的相關資訊。
 
 4. 輸入應用程式的名稱。
-5. 針對應用程式類型，選取 [原生]  。
-6. 輸入 [重新導向 URI]  的預留位置 URL，例如 `http://resources`，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
-7. 按一下頁面底部的 [新增]  。
+5. 針對應用程式類型，選取 [原生]。
+6. 輸入 [重新導向 URI] 的預留位置 URL，例如 `http://resources`，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
+7. 按一下 [建立] 。
 
-### <a name="add-an-application"></a>新增應用程式
+### <a name="add-an-application"></a>加入應用程式
 
-1. 在建立應用程式之後，按一下 [設定]  。
-2. 按一下 [必要權限]  。
-3. 按一下 [+新增]  。
-4. 按 [選取 API]  。
-5. 選擇 [Windows Azure 服務管理 API]   。
-6. 按 [選取]  。
+1. 在建立應用程式之後，按一下 [設定]。
+2. 按一下 [必要權限]。
+3. 按一下 [+新增]。
+4. 按 [選取 API]。
+5. 選擇 [Windows Azure 服務管理 API]。
+6. 按 [選取]。
 
-    ![新增權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![加入權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. 按一下剛新增之應用程式旁邊的 [委派的權限]  ，選取 [存取 Azure 服務管理 (預覽)]  方塊。
-8. 按 [選取]  。
-9. 按一下 [授與權限]  。
+7. 按一下剛新增之應用程式旁邊的 [委派的權限]，選取 [存取 Azure 服務管理 (預覽)] 方塊。
+8. 按 [選取]。
+9. 按一下 [授與權限]。
 
 ### <a name="configuring-your-app"></a>設定您的應用程式
 
@@ -116,16 +116,16 @@ namespace GetTokenResourceManagerRequests
 
 請使用下列指示來取代 `{tenant id}`、`{application id}` 和 `{redirect uri}`：
 
-1. 使用您所建立 Azure Active Directory 應用程式的租用戶識別碼來取代 `{tenant id}`。 您可以按一下 [應用程式註冊]   -> [端點]  來存取識別碼。
+1. 使用您所建立 Azure Active Directory 應用程式的租用戶識別碼來取代 `{tenant id}`。 您可以按一下 [應用程式註冊] -> [端點] 來存取識別碼。
 
     ![端點][api-management-endpoint]
 
-2. 使用您瀏覽至 [設定]  頁面取得的值來取代 `{application id}`。
-3. 以來自您 Azure Active Directory 應用程式 [重新導向 URI]  索引標籤的值取代 `{redirect uri}`。
+2. 使用您瀏覽至 [設定] 頁面取得的值來取代 `{application id}`。
+3. 以來自您 Azure Active Directory 應用程式 [重新導向 URI] 索引標籤的值取代 `{redirect uri}`。
 
     指定值之後，程式碼範例應該會傳回類似以下範例的權杖：
 
-    ![token][api-management-arm-token]
+    ![權杖][api-management-arm-token]
 
     > [!NOTE]
     > 權杖可能會在一段時間之後過期。 再次執行程式碼範例即可產生新的權杖。
@@ -153,7 +153,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 訂用帳戶的識別碼，此訂用帳戶會保留您嘗試備份的「API 管理」服務
 -   `resourceGroupName` - 您 Azure API 管理服務的資源群組名稱
 -   `serviceName` - 所要備份 API 管理服務的名稱，該名稱是在服務建立時所指定
--   `api-version` -取代 `2018-06-01-preview`
+-   `api-version`-取代為`2018-06-01-preview`
 
 在要求的本文中指定目標 Azure 儲存體帳戶名稱、存取金鑰、Blob 容器名稱和備份名稱：
 
@@ -178,7 +178,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   備份**不包含**用來建立分析報告的**使用量資料**。 請使用 [Azure API 管理 REST API][azure api management rest api] 來定期擷取分析報告，以利妥善保存。
 -   執行服務備份的頻率會影響您的復原點目標。 為了盡可能縮小，建議您實作定期備份，並在針對 API 管理服務進行變更後執行隨選備份。
 -   在備份作業進行時針對服務組態 (例如 API、原則及開發人員入口網站外觀) 所做的**變更** **可能會從備份中排除，因此可能會遺失**。
-
+-   **允許**從控制平面存取 Azure 儲存體帳戶。 客戶應該在其儲存體帳戶上開啟下列一組輸入 Ip 來進行備份。 
+    > 13.84.189.17/32、13.85.22.63/32、23.96.224.175/32、23.101.166.38/32、52.162.110.80/32、104.214.19.224/32、13.64.39.16/32、40.81.47.216/32、51.145.179.78/32、52.142.95.35/32、40.90.185.46/32、20.40.125.155/32
 ### <a name="step2"> </a>還原 API 管理服務
 
 若要從先前建立的備份還原 API 管理服務，請發出以下 HTTP 要求：
@@ -192,7 +193,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 訂用帳戶的識別碼，此訂用帳戶會保留您要還原備份的目標 API 管理服務
 -   `resourceGroupName` - 資源群組的名稱，該資源群組會保留您要還原備份的目標 Azure API 管理服務
 -   `serviceName` - 所要還原目標 API 管理服務的名稱，該名稱是在服務建立時所指定
--   `api-version` -取代 `2018-06-01-preview`
+-   `api-version`-取代為`2018-06-01-preview`
 
 在要求的本文中，指定備份檔案位置。 也就是新增 Azure 儲存體帳戶名稱、存取金鑰、Blob 容器名稱和備份名稱：
 
@@ -217,7 +218,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> 您也可以使用 PowerShell 執行備份和還原作業_備份 AzApiManagement_並_還原 AzApiManagement_分別命令。
+> 您也可以分別使用 PowerShell_備份-AzApiManagement_和_AzApiManagement_命令來執行備份和還原作業。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -226,7 +227,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   [複寫 Azure API 管理帳戶 (英文)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [使用 Logic Apps 將 API 管理備份與還原自動化](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) \(英文\)
 -   [Azure APIM：備份與還原設定](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) \(英文\)
-    Stuart 詳細說明的方法與正式指南不同，但相當有意思。 
+    Stuart 詳細說明的方法與正式指南不同，但相當有意思。
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

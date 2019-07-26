@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28a3183114db206e55814d1b25eaef37a2819c1d
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462960"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68495045"
 ---
 # <a name="sap-lama-connector-for-azure"></a>適用於 Azure 的 SAP LaMa 連接器
 
@@ -30,6 +30,7 @@ ms.locfileid: "61462960"
 [2562184]: https://launchpad.support.sap.com/#/notes/2562184
 [2628497]: https://launchpad.support.sap.com/#/notes/2628497
 [2445033]: https://launchpad.support.sap.com/#/notes/2445033
+[2815988]: https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -60,14 +61,14 @@ ms.locfileid: "61462960"
 
 ## <a name="general-remarks"></a>一般備註
 
-* 務必在 [安裝程式]-> [設定]-> [引擎] 中啟用 [自動掛接點建立]   
+* 務必在 [安裝程式]-> [設定]-> [引擎] 中啟用 [自動掛接點建立]  
   如果 SAP LaMa 在虛擬機器上使用 SAP Adaptive Extensions 掛接磁碟區，若未啟用此設定，則掛接點必須存在。
 
 * 在部署新 VM 和取消準備 SAP 執行個體時，使用個別的子網路，請勿使用動態 IP 位址來防止 IP 位址「竊取」  
   如果您在子網路中使用動態 IP 位址配置 (也會由 SAP LaMa 使用)，則使用 SAP LaMa 準備 SAP 系統可能會失敗。 如果 SAP 系統毫無準備，則不會保留 IP 位址，並可能將其配置到其他虛擬機器。
 
-* 如果您登入受控主機，切勿封鎖檔案系統，使其無法取消掛接  
-  如果您登入 Linux 虛擬機器，並將工作目錄變更為掛接點中的目錄 (例如 /usr/sap/AH1/ASCS00/exe)，則無法取消掛接磁碟區，且重新放置或取消準備會失敗。
+* 如果您登入受管理的主機, 請確定不封鎖卸載檔案系統  
+  如果您登入 Linux 虛擬機器, 並將工作目錄變更為掛接點中的目錄 (例如/usr/sap/AH1/ASCS00/exe), 則無法卸載磁片區, 且重新放置或 unprepare 會失敗。
 
 ## <a name="set-up-azure-connector-for-sap-lama"></a>設定適用於 SAP LaMa 的 Azure 連接器
 
@@ -77,7 +78,7 @@ ms.locfileid: "61462960"
 1. 開啟 [Azure Active Directory] 刀鋒視窗
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
-1. 輸入名稱、 選取應用程式類型 [Web 應用程式/API]、 輸入登入 URL (例如 http:\//localhost)，然後按一下建立
+1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 HTTP:\//localhost), 然後按一下 [建立]
 1. 登入 URL 並未使用，而且可以是任何有效的 URL
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
@@ -226,7 +227,7 @@ SAP LaMa 本身無法重新放置 SQL Server，因此您想要用於重新放置
 
 在下列範例中，我們假設您以系統識別碼 HN1 安裝 SAP HANA，並以系統識別碼 AH1 安裝 SAP NetWeaver 系統。 HANA 執行個體的虛擬主機名稱為 hn1-db、SAP NetWeaver 系統所用 HANA 租用戶的虛擬主機名稱為 ah1-db、SAP NetWeaver ASCS 的虛擬主機名稱為 ah1-ascs，以及第一個 SAP NetWeaver 應用程式伺服器的虛擬主機名稱為 ah1-di-0。
 
-#### <a name="install-sap-netweaver-ascs-for-sap-hana"></a>安裝 SAP NetWeaver ASCS for SAP HANA
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-using-azure-managed-disks"></a>使用 Azure 受控磁碟安裝適用于 SAP Hana 的 SAP NetWeaver ASCS
 
 啟動 SAP Software Provisioning Manager (SWPM) 之前，您必須掛接 ASCS 的虛擬主機名稱 IP 位址。 建議的方式是使用 sapacext。 如果您使用 sapacext 掛接 IP 位址，請務必在重新開機後重新掛接 IP 位址。
 
@@ -244,13 +245,100 @@ SAP LaMa 本身無法重新放置 SQL Server，因此您想要用於重新放置
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-執行 SWPM 並使用 *ah1-ascs* 作為 [ASCS 執行個體主機名稱]  。
+執行 SWPM 並使用 *ah1-ascs* 作為 [ASCS 執行個體主機名稱]。
 
 ![Linux][Logo_Linux] Linux  
 將下列設定檔參數新增至 SAP Host Agent 設定檔 (位於 /usr/sap/hostctrl/exe/host_profile)。 如需詳細資訊，請參閱 SAP 附註 [2628497]。
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
+
+#### <a name="install-sap-netweaver-ascs-for-sap-hana-on-azure-netappfiles-anf-beta"></a>在 Azure NetAppFiles (及) BETA 版上安裝適用于 SAP Hana 的 SAP NetWeaver ASCS
+
+> [!NOTE]
+> 此功能尚不是 GA。 如需詳細資訊, 請參閱 SAP 附注[2815988] (僅供預覽客戶看見)。
+開啟元件 BC-BC-VCM-LVM-HYPERV-LVM-HYPERV 的 SAP 事件, 並要求加入適用于 Azure NetApp Files preview 的 LaMa 儲存體介面卡
+
+及提供適用于 Azure 的 NFS。 在 SAP LaMa 的內容中, 這可簡化 ABAP Central Services (ASCS) 實例的建立, 以及後續的應用程式伺服器安裝。 先前 ASCS 實例也必須作為 NFS 伺服器, 而且必須將 acosprep/nfs_paths 參數新增至 SAP Hostagent 的 host_profile。
+
+#### <a name="anf-is-currently-available-in-these-regions"></a>及目前可在下欄區域使用:
+
+澳大利亞東部、美國中部、美國東部、美國東部2、歐洲北部、美國中南部、西歐和美國西部2。
+
+#### <a name="network-requirements"></a>網路需求
+
+及需要的委派子網必須與 SAP 伺服器屬於相同的 VNET。 以下是這類設定的範例。
+此畫面會顯示 VNET 和第一個子網的建立:
+
+![SAP LaMa 建立適用于 Azure 及的虛擬網路 ](media/lama/sap-lama-createvn-50.png)
+
+下一個步驟會建立適用于 Microsoft. NetApp/磁片區的委派子網。
+
+![SAP LaMa 新增委派的子網 ](media/lama/sap-lama-addsubnet-50.png)
+
+![SAP LaMa 子網清單 ](media/lama/sap-lama-subnets.png)
+
+現在, 必須在 Azure 入口網站內建立 NetApp 帳戶:
+
+![SAP LaMa 建立 NetApp 帳戶 ](media/lama/sap-lama-create-netappaccount-50.png)
+
+![已建立 SAP LaMa NetApp 帳戶 ](media/lama/sap-lama-netappaccount.png)
+
+在 NetApp 帳戶內, 容量集區會指定每個集區的磁片大小和類型:
+
+![SAP LaMa 建立 NetApp 容量集區 ](media/lama/sap-lama-capacitypool-50.png)
+
+![已建立 SAP LaMa NetApp 容量集區 ](media/lama/sap-lama-capacitypool-list.png)
+
+現在可以定義 NFS 磁片區。 由於一個集區中的多個系統將會有磁片區, 因此應選擇自我說明的命名配置。 新增 SID 有助於將相關的磁片區群組在一起。 針對 ASCS 和 AS 實例, 需要下列裝載:/sapmnt/\<SID\>、/usr/sap/\<sid\>和/home/\<SID\>adm。 中央傳輸目錄的選擇性/usr/sap/trans, 這至少是一個橫向的所有系統所使用的。
+
+> [!NOTE]
+> 在搶鮮版 (BETA) 階段中, 磁片區的名稱在訂用帳戶內必須是唯一的。
+
+![SAP LaMa 建立磁片區1 ](media/lama/sap-lama-createvolume-80.png)
+
+![SAP LaMa 建立磁片區2 ](media/lama/sap-lama-createvolume2-80.png)
+
+![SAP LaMa 建立磁片區3 ](media/lama/sap-lama-createvolume3-80.png)
+
+這些步驟也必須針對其他磁片區重複執行。
+
+![SAP LaMa 已建立磁片區的清單 ](media/lama/sap-lama-volumes.png)
+
+現在, 這些磁片區必須掛接到將執行與 SAP SWPM 進行初始安裝的系統上。
+
+首先, 必須建立掛接點。 在此情況下, SID 會 AN1, 因此必須執行下列命令:
+
+```bash
+mkdir -p /home/an1adm
+mkdir -p /sapmnt/AN1
+mkdir -p /usr/sap/AN1
+mkdir -p /usr/sap/trans
+```
+接下來, 系統會使用下列命令來掛接及磁片區:
+
+```bash
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-sapmnt-sid /sapmnt/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
+```
+掛接命令也可以從入口網站衍生。 本機掛接點需要調整。
+
+使用 df-h 命令來進行驗證。
+
+![SAP LaMa 掛接點作業系統層級 ](media/lama/sap-lama-mounts.png)
+
+現在必須執行具有 SWPM 的安裝。
+
+至少一個實例必須執行相同的步驟。
+
+成功安裝之後, 必須在 SAP LaMa 中探索系統。
+
+針對 ASCS 和 AS 實例, 掛接點看起來應該像這樣:
+
+![LaMa ](media/lama/sap-lama-ascs.png)中的 SAP LaMa 掛接點 (這是一個範例。 IP 位址和匯出路徑與之前使用的不同
+
 
 #### <a name="install-sap-hana"></a>安裝 SAP HANA
 
@@ -264,7 +352,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-在應用程式伺服器虛擬機器 (而不是在 HANA 虛擬機器) 上執行 SWPM 的資料庫執行個體安裝。 在 [適用於 SAP 系統的資料庫]  對話方塊中，使用 *ah1-db* 作為 [資料庫主機]  。
+在應用程式伺服器虛擬機器 (而不是在 HANA 虛擬機器) 上執行 SWPM 的資料庫執行個體安裝。 在 [適用於 SAP 系統的資料庫] 對話方塊中，使用 *ah1-db* 作為 [資料庫主機]。
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>安裝適用於 SAP HANA 的 SAP NetWeaver 應用程式伺服器
 
@@ -300,7 +388,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-在 [主要應用程式伺服器執行個體]  對話方塊中，使用 *ah1-di-0* 作為 [PAS 執行個體主機名稱]  。
+在 [主要應用程式伺服器執行個體] 對話方塊中，使用 *ah1-di-0* 作為 [PAS 執行個體主機名稱]。
 
 #### <a name="post-installation-steps-for-sap-hana"></a>SAP HANA 的後續安裝步驟
 
@@ -319,7 +407,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-di
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-執行 SWPM 並使用 *as1-ascs* 作為 [ASCS 執行個體主機名稱]  。
+執行 SWPM 並使用 *as1-ascs* 作為 [ASCS 執行個體主機名稱]。
 
 #### <a name="install-sql-server"></a>安裝 SQL Server
 
@@ -343,7 +431,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-在 [主要應用程式伺服器執行個體]  對話方塊中，使用 *as1-di-0* 作為 [PAS 執行個體主機名稱]  。
+在 [主要應用程式伺服器執行個體] 對話方塊中，使用 *as1-di-0* 作為 [PAS 執行個體主機名稱]。
 
 ## <a name="troubleshooting"></a>疑難排解
 
@@ -372,19 +460,19 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
   * 方案  
     備份來源 HANA 系統中的所有資料庫
 
-* 資料庫執行個體的系統複製(copy) 步驟「啟動」 
+* 資料庫執行個體的系統複製(copy) 步驟「啟動」
   * 主機代理程式作業 '000D3A282BC91EE8A1D76CF1F92E2944' 失敗 (OperationException。 FaultCode：'127'，訊息：「命令執行失敗。 ：[Microsoft][ODBC SQL Server Driver][SQL Server]使用者沒有更改資料庫 'AS2' 的全線，此資料庫不存在，或此資料庫不是處於允許存取檢查的狀態。」)
   * 方案  
     確定 *NT AUTHORITY\SYSTEM* 可以存取 SQL Server。 請參閱 SAP 附註 [2562184]
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>系統複製 (clone) 期間的錯誤和警告
 
-* 嘗試在應用程式伺服器或 ASCS 的「強制註冊和啟動執行個體代理程式」  步驟中註冊執行個體代理程式時發生錯誤
+* 嘗試在應用程式伺服器或 ASCS 的「強制註冊和啟動執行個體代理程式」步驟中註冊執行個體代理程式時發生錯誤
   * 嘗試註冊執行個體代理程式時發生錯誤。 (RemoteException：「無法從設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 載入執行個體資料：無法存取設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'：沒有這類檔案或目錄。」)
   * 方案  
    確定在 ASCS/SCS 上的 sapmnt 共用具有 SAP_AS1_GlobalAdmin 的完整存取權
 
-* 「啟用複製 (clone) 的啟動保護」  步驟發生錯誤
+* 「啟用複製 (clone) 的啟動保護」步驟發生錯誤
   * 無法開啟檔案 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 原因：沒有這類檔案或目錄
   * 方案  
     應用程式伺服器的電腦帳戶需要設定檔的寫入權限
@@ -475,7 +563,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
     務必在步驟 *Isolation* 中新增主機規則，以允許從 VM 至網域控制站的通訊
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure 上的 SAP Hana 作業指南][hana-ops-guide]
-* [適用於 SAP 的 Azure 虛擬機器規劃和實作][planning-guide]
-* [適用於 SAP 的 Azure 虛擬機器部署][deployment-guide]
-* [適用於 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]
+* [Azure 上的 SAP HANA 作業指南][hana-ops-guide]
+* [適用于 SAP 的 Azure 虛擬機器規劃和執行][planning-guide]
+* [適用于 SAP 的 Azure 虛擬機器部署][deployment-guide]
+* [適用于 SAP 的 Azure 虛擬機器 DBMS 部署][dbms-guide]

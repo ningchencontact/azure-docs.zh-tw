@@ -1,7 +1,6 @@
 ---
-title: Azure 備份：使用 REST API 的 Azure Vm 備份
+title: Azure 備份：使用 REST API 備份 Azure Vm
 description: 使用 REST API 管理 Azure VM 備份的備份作業
-services: backup
 author: pvrk
 manager: shivamg
 keywords: REST API; Azure VM 備份; Azure VM 還原;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e78c7ca9e5b39beb160aeef96dbbf6bce07613e4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274862"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466845"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>透過 REST API 使用 Azure 備份來備份 Azure VM
 
@@ -47,7 +46,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|Name  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |204 沒有內容     |         |  確定，但不會傳回任何內容      |
 |202 已接受     |         |     已接受    |
@@ -108,9 +107,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI 具備所有必要參數。 不需任何額外的要求本文。
 
-##### <a name="responses-1"></a>回應
+##### <a name="responses-1"></a>答案
 
-|名稱  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |200 確定     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       [確定] |
 
@@ -186,7 +185,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 若要建立受保護的項目，以下是要求本文的元件。
 
-|Name  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 資源屬性         |
 
@@ -214,7 +213,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|Name  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |200 確定     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  [確定]       |
 |202 已接受     |         |     已接受    |
@@ -300,7 +299,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 若要觸發隨選備份，以下是要求本文的元件。
 
-|Name  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 屬性         |
 
@@ -325,7 +324,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
@@ -393,7 +392,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>變更保護原則
 
-若要變更用來保護 VM 的原則，您可以使用與[啟用保護](#enabling-protection-for-the-azure-vm)相同的格式。 只在[要求本文](#example-request-body)中提供新的原則識別碼並提交要求。 針對例如：若要變更至 'ProdPolicy' 從 'DefaultPolicy' testVM 的原則，提供要求主體中的 'ProdPolicy' 識別碼。
+若要變更用來保護 VM 的原則，您可以使用與[啟用保護](#enabling-protection-for-the-azure-vm)相同的格式。 只在[要求本文](#example-request-body)中提供新的原則識別碼並提交要求。 如需:若要將 testVM 的原則從 ' DefaultPolicy ' 變更為 ' ProdPolicy ', 請在要求主體中提供 ' ProdPolicy ' 識別碼。
 
 ```http
 {
@@ -439,13 +438,13 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses-2"></a>回應
+### <a name="responses-2"></a>答案
 
 *DELETE* 作業為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
-它會傳回兩個回應：202 （已接受） 建立另一項作業時，然後 204 (NoContent) 該作業完成時。
+它會傳回兩個回應：202 (已接受) 已建立另一個作業, 然後在該作業完成時 204 (NoContent)。
 
-|Name  |類型  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 已接受     |         |     已接受    |

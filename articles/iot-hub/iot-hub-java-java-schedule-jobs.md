@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
-ms.openlocfilehash: ce7c70eef2d030a956ca5cc1ea85aff008074edb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecbdbdd29a777a997c594f8119c1474a89e64a10
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572455"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404181"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>排定及廣播作業 (Java)
 
@@ -32,7 +32,7 @@ ms.locfileid: "64572455"
 
 * 裝置對應項和屬性：[開始使用攣生裝置](iot-hub-java-java-twin-getstarted.md)
 
-* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](quickstart-control-device-java.md)
+* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程:使用直接方法](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -65,15 +65,17 @@ ms.locfileid: "64572455"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>擷取 IoT 中樞的連接字串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中樞註冊新的裝置
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 您也可以使用[適用於 Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension) \(英文\) 工具將裝置新增至 IoT 中樞。
+
+## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>建立服務應用程式
 
@@ -93,7 +95,7 @@ ms.locfileid: "64572455"
 
 3. 在命令提示字元中，巡覽至 `schedule-jobs` 資料夾。
 
-4. 使用文字編輯器，開啟 `schedule-jobs` 資料夾中的 `pom.xml` 檔案，並在 [相依性]  節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
+4. 使用文字編輯器，開啟 `schedule-jobs` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -107,7 +109,7 @@ ms.locfileid: "64572455"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-service-client**。
 
-5. 將下列 [建置]  節點新增至 [相依性]  節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+5. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -147,7 +149,7 @@ ms.locfileid: "64572455"
     import java.util.UUID;
     ```
 
-9. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞  一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
+9. 將下列類別層級變數新增到 **App** 類別中。 將`{youriothubconnectionstring}`取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -305,7 +307,7 @@ ms.locfileid: "64572455"
 
 2. 在命令提示字元中，巡覽至 `simulated-device` 資料夾。
 
-3. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性]  節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
+3. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -318,7 +320,7 @@ ms.locfileid: "64572455"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-device-client**。
 
-4. 將下列 [建置]  節點新增至 [相依性]  節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+4. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -351,7 +353,7 @@ ms.locfileid: "64572455"
     import java.util.Scanner;
     ```
 
-8. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞  一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
+8. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";

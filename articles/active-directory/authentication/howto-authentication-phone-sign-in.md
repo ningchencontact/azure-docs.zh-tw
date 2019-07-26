@@ -1,5 +1,5 @@
 ---
-title: 無密碼登入 Microsoft Authenticator 應用程式 （預覽）-Azure Active Directory
+title: 無密碼使用 Microsoft Authenticator 應用程式 (預覽) 登入-Azure Active Directory
 description: 使用 Microsoft Authenticator 應用程式而非使用您的密碼登入 Azure AD (公開預覽)
 services: active-directory
 ms.service: active-directory
@@ -12,24 +12,22 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3125de0d1fd784b30c000bb287b457397c0fbebb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c464874708c7b93ec5620cc9ae253912ce1a4790
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703027"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357132"
 ---
 # <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>使用 Microsoft Authenticator 應用程式進行無密碼的手機登入 (公開預覽)
 
 Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而不需使用密碼)。 類似於 [Windows Hello 企業版](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 的技術，Microsoft Authenticator 會使用金鑰型驗證來啟用已繫結至裝置並使用生物特徵識別或 PIN 的使用者認證。
 
-![在瀏覽器登入使用者的登入核准要求的範例](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![瀏覽器登入範例, 要求使用者核准登入](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 已在 Microsoft Authenticator 應用程式中啟用手機登入的人員會看到一則訊息，告訴他們點選其應用程式中的數字，而不會在輸入使用者名稱之後看到輸入密碼的提示。 在應用程式中，使用者必須符合數目，選擇 [核准]，然後提供他們的 PIN 或生物特徵辨識，然後驗證將會完成。
 
 ## <a name="enable-my-users"></a>啟用我的使用者
-
-對於公開預覽版，系統管理員必須先透過 powershell 將原則，以允許在租用戶中使用認證。 在執行此步驟之前，請檢閱「已知問題」一節。
 
 ### <a name="tenant-prerequisites"></a>租用戶的必要條件
 
@@ -39,11 +37,15 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 
 ### <a name="steps-to-enable"></a>啟用的步驟
 
-請依照下列文章中的步驟[啟用無密碼登入 Azure AD 的](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods)，以啟用您目錄中的無密碼驗證方法。
+依照[啟用 Azure AD 的無密碼登入](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods)一文中的步驟, 在您的目錄中啟用無密碼驗證方法。
+
+> [!NOTE]
+> 如果您先前已使用 PowerShell 腳本為您的租使用者啟用此功能, 則為使用者和群組設定新的原則會覆寫現有的全租使用者原則。 
+>
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>我的使用者如何啟用手機登入？
 
-針對公開預覽版，沒有任何方式可強制使用者建立或使用這個新認證。 當系統管理員已啟用其租用戶，而且使用者已更新他們的 Microsoft Authenticator 應用程式，來啟用手機登入，則終端使用者只會發生無密碼登入。
+針對公開預覽版，沒有任何方式可強制使用者建立或使用這個新認證。 只有在系統管理員已啟用其租使用者, 而且使用者已更新其 Microsoft Authenticator 應用程式來啟用手機登入之後, 終端使用者才會遇到無密碼登入。
 
 > [!NOTE]
 > 此功能自 2017 年 3 月起納入應用程式，因此有可能針對租用戶啟用此原則時，使用者可能會立即遇到此流程。 請留意這項變更，並且讓使用者做好準備。
@@ -59,7 +61,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 
 ### <a name="ad-fs-integration"></a>AD FS 整合
 
-當使用者已啟用 Microsoft Authenticator 無密碼認證時，該使用者的驗證將一律預設為傳送通知以供核准。 此邏輯可防止混合式租用戶中的使用者導向至 ADFS 進行登入驗證，而不需使用者採取額外的步驟來按一下 [改用您的密碼]。 此程序也會略過任何內部部署條件式存取原則和傳遞驗證流程。 此程序的例外狀況是 login_hint 是否指定，使用者將會自動轉寄至 AD FS，並略過使用無認證的選項。
+當使用者已啟用 Microsoft Authenticator 無密碼認證時，該使用者的驗證將一律預設為傳送通知以供核准。 此邏輯可防止混合式租用戶中的使用者導向至 ADFS 進行登入驗證，而不需使用者採取額外的步驟來按一下 [改用您的密碼]。 此程序也會略過任何內部部署條件式存取原則和傳遞驗證流程。 此程式的例外狀況是, 如果已指定 login_hint, 則會將使用者 autoforwarded 為 AD FS, 並略過使用無密碼認證的選項。
 
 ### <a name="azure-mfa-server"></a>Azure MFA Server
 

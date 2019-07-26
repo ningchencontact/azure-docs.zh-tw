@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ea919a4c9554584e0da79739d3465586ae43227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60456328"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385783"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -40,7 +40,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 如果您使用複雜的網路組態，您可能偏好使用[站對站](vpn-gateway-create-site-to-site-rm-powershell.md)步驟 (而不是 VNet 對 VNet 步驟) 來連線 VNet。 當您使用站對站步驟時，您會以手動方式建立及設定區域網路閘道。 每個 VNet 的區域網路閘道都會將其他 VNet 視為本機網站。 這可讓您指定區域網路閘道的其他位址空間，以便路由傳送流量。 如果 VNet 的位址空間變更，您需要更新對應的區域網路閘道，才會反映變更。 它並不會自動更新。
 
-### <a name="vnet-peering"></a>VNet 對等互連
+### <a name="vnet-peering"></a>VNet 對等
 
 建議您使用 VNet 對等互連來進行 VNet 連線。 VNet 對等互連不會使用 VPN 閘道，且具有不同的條件約束。 此外，[VNet 對等互連價格](https://azure.microsoft.com/pricing/details/virtual-network)與 [VNet 對 VNet VPN 閘道價格](https://azure.microsoft.com/pricing/details/vpn-gateway)的計算方式不同。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。
 
@@ -92,8 +92,8 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 **TestVNet1 的值︰**
 
 * VNet 名稱：TestVNet1
-* 資源群組：TestRG1
-* 位置：East US
+* 資源群組:TestRG1
+* 位置:East US
 * TestVNet1：10.11.0.0/16 和 10.12.0.0/16
 * FrontEnd：10.11.0.0/24
 * BackEnd：10.12.0.0/24
@@ -112,8 +112,8 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 * FrontEnd：10.41.0.0/24
 * BackEnd：10.42.0.0/24
 * GatewaySubnet：10.42.255.0/27
-* 資源群組：TestRG4
-* 位置：美國西部
+* 資源群組:TestRG4
+* 位置:美國西部
 * GatewayName：VNet4GW
 * 公用 IP：VNet4GWIP
 * VPNType：RouteBased
@@ -150,7 +150,6 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
    $VNetName1 = "TestVNet1"
    $FESubName1 = "FrontEnd"
    $BESubName1 = "Backend"
-   $GWSubName1 = "GatewaySubnet"
    $VNetPrefix11 = "10.11.0.0/16"
    $VNetPrefix12 = "10.12.0.0/16"
    $FESubPrefix1 = "10.11.0.0/24"
@@ -167,14 +166,14 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. 建立 TestVNet1 的子網路設定。 此範例會建立一個名為 TestVNet1 的虛擬網路和三個子網路：一個名為 GatewaySubnet、一個名為 FrontEnd，另一個名為 Backend。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。
+4. 建立 TestVNet1 的子網路設定。 此範例會建立一個名為 TestVNet1 的虛擬網路和三個子網路：一個名為 GatewaySubnet、一個名為 FrontEnd，另一個名為 Backend。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。 基於這個理由, 它不會透過下列變數來指派。
 
    下列範例會使用您先前設定的變數。 在此範例中，閘道子網路使用 /27。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
    $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix1
    ```
 5. 建立 TestVNet1。
 
@@ -218,7 +217,6 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
    $VnetName4 = "TestVNet4"
    $FESubName4 = "FrontEnd"
    $BESubName4 = "Backend"
-   $GWSubName4 = "GatewaySubnet"
    $VnetPrefix41 = "10.41.0.0/16"
    $VnetPrefix42 = "10.42.0.0/16"
    $FESubPrefix4 = "10.41.0.0/24"
@@ -239,7 +237,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
    ```azurepowershell-interactive
    $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
    $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix4
    ```
 4. 建立 TestVNet4。
 
@@ -313,8 +311,8 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 **TestVNet5 的值︰**
 
 * VNet 名稱：TestVNet5
-* 資源群組：TestRG5
-* 位置：日本東部
+* 資源群組:TestRG5
+* 位置:日本東部
 * TestVNet5：10.51.0.0/16 和 10.52.0.0/16
 * FrontEnd：10.51.0.0/24
 * BackEnd：10.52.0.0/24

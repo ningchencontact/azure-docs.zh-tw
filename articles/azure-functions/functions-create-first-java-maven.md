@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807178"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323955"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 建立您的第一個函式
 
@@ -125,7 +125,7 @@ public class Function {
 
 將目錄變更為新建立的專案資料夾，並且使用 Maven 建置和執行函式：
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -147,7 +147,7 @@ Http Functions:
 
 在新的終端機視窗中使用 curl 從命令列觸發函式：
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -170,7 +170,7 @@ az login
 > [!NOTE]
 > 當您使用 Visual Studio Code 來部署函式應用程式時，請記得選擇非免費的訂用帳戶，否則您會收到錯誤。 您可以在 IDE 左側查看您的訂用帳戶。
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -189,7 +189,7 @@ mvn azure-functions:deploy
 > [!NOTE]
 > 請確定您將 [存取權限]  設為 `Anonymous`。 當您選擇預設層級 `Function` 時，您必須在要求中提供[函式金鑰](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)以存取您的函式端點。
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 

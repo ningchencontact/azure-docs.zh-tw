@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c129391c0830e0194c32a041853482f92340bbb9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476931"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405782"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
 大部分 Azure 自動化 Runbook 都有一些輸出形式。 此輸出可能是給使用者的錯誤訊息，或是您想要與另一個 Runbook 搭配使用的物件。 Windows PowerShell 提供 [多個資料流](/powershell/module/microsoft.powershell.core/about/about_redirection) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同方式處理這些資料流中的每一個。 建立 Runbook 時，應遵循如何使用每個資料流的最佳做法。
@@ -25,7 +25,7 @@ ms.locfileid: "67476931"
 |:--- |:--- |:--- |:--- |
 | Output |要供其他 Runbook 使用的物件。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
 | 警告 |適用於使用者的警告訊息。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
-| Error |適用於使用者的錯誤訊息。 與例外狀況不同，Runbook 預設會在出現錯誤訊息後繼續執行。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
+| 錯誤 |適用於使用者的錯誤訊息。 與例外狀況不同，Runbook 預設會在出現錯誤訊息後繼續執行。 |寫入工作歷程記錄。 |在 [測試輸出] 窗格中顯示。 |
 | 詳細資訊 |提供一般或偵錯資訊的訊息。 |只有為 Runbook 開啟詳細記錄時才會寫入工作歷程記錄。 |只有在 Runbook 中將 $VerbosePreference 設為 Continue 時，才會在 [測試輸出] 窗格中顯示。 |
 | 進度 |在 Runbook 中的每個活動之前與之後自動產生記錄。 Runbook 不應嘗試建立它自己的進度記錄，因為這些記錄是供互動式使用者使用。 |只有為 Runbook 開啟進度記錄時才寫入工作歷程記錄。 |不會在 [測試輸出] 窗格中顯示。 |
 | 偵錯 |適用於互動式使用者的訊息。 不應在 Runbook 中使用。 |不會寫入工作歷程記錄。 |不會寫入 [測試輸出] 窗格。 |
@@ -100,9 +100,9 @@ Workflow Test-Runbook
 }
  ```
 
-若要在圖形化或圖形化 PowerShell 工作流程 Runbook 中宣告輸出類型，您可以選取 [輸入及輸出]  功能表選項，然後輸入輸出類型的名稱。 建議您使用完整的 .NET 類別名稱，以便在從父 Runbook 參考此名稱時可以輕鬆地找到。 這會將該類別的所有屬性公開至 Runbook 中的資料匯流排，並在將其用於條件式邏輯、記錄及參考以作為 Runbook 中其他活動的值時提供很大的彈性。<br> ![Runbook 輸入和輸出選項](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+若要在圖形化或圖形化 PowerShell 工作流程 Runbook 中宣告輸出類型，您可以選取 [輸入及輸出] 功能表選項，然後輸入輸出類型的名稱。 建議您使用完整的 .NET 類別名稱，以便在從父 Runbook 參考此名稱時可以輕鬆地找到。 這會將該類別的所有屬性公開至 Runbook 中的資料匯流排，並在將其用於條件式邏輯、記錄及參考以作為 Runbook 中其他活動的值時提供很大的彈性。<br> ![Runbook 輸入和輸出選項](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-在下列範例中，您會用兩個圖形化 Runbook 來示範這項功能。 如果您套用模組化 Runbook 設計模型，您會將一個 Runbook 作為「驗證 Runbook 範本」  ，以使用執行身分帳戶來管理使用 Azure 進行的驗證。 我們的第二個 Runbook 通常會執行核心邏輯以自動執行指定的案例，而在此情況下，此 Runbook 將會執行「驗證 Runbook 範本」  ，並將結果顯示於 [測試]  輸出窗格中。 在正常情況下，您會讓此 Runbook 針對運用子 Runbook 輸出的資源執行某些工作。
+在下列範例中，您會用兩個圖形化 Runbook 來示範這項功能。 如果您套用模組化 Runbook 設計模型，您會將一個 Runbook 作為「驗證 Runbook 範本」，以使用執行身分帳戶來管理使用 Azure 進行的驗證。 我們的第二個 Runbook 通常會執行核心邏輯以自動執行指定的案例，而在此情況下，此 Runbook 將會執行「驗證 Runbook 範本」，並將結果顯示於 [測試] 輸出窗格中。 在正常情況下，您會讓此 Runbook 針對運用子 Runbook 輸出的資源執行某些工作。
 
 以下是 **AuthenticateTo-Azure** Runbook 的基本邏輯。<br> ![驗證 Runbook 範本範例](media/automation-runbook-output-and-messages/runbook-authentication-template.png)時的行為。  
 
@@ -110,7 +110,7 @@ Workflow Test-Runbook
 
 雖然此 Runbook 很簡單，但這裡有一個要對外呼叫的設定項目。 最後一個活動正在執行 **Write-Output** Cmdlet，並使用該 Cmdlet 所需之 **Inputobject** 參數的 PowerShell 運算式，將設定檔資料寫入 $_ 變數。  
 
-對於此範例中名為 Test-ChildOutputType  的第二個 Runbook，您只有兩個活動。<br> ![範例子輸出類型 Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
+對於此範例中名為 Test-ChildOutputType 的第二個 Runbook，您只有兩個活動。<br> ![範例子輸出類型 Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
 第一個活動會呼叫 **AuthenticateTo-Azure** Runbook，第二個活動則會使用**活動輸出**的**資料來源**和**欄位路徑**值 **Context.Subscription.SubscriptionName** 來執行 **Write-Verbose** Cmdlet，這會指定 **AuthenticateTo-Azure** Runbook 的內容輸出。<br> ![Write-Verbose Cmdlet 參數的資料來源](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
@@ -160,19 +160,19 @@ Windows PowerShell 使用 [喜好設定變數](https://technet.microsoft.com/lib
 
 下表列出可用於 Runbook 的喜好設定變數及其有效值和預設值。 本表只包含 Runbook 中的有效值。 其他的值是在 Azure 自動化外部的 Windows PowerShell 中使用喜好設定變數時的有效值。
 
-| 變數 | 預設值 | 有效值 |
+| 變數 | Default Value | 有效值 |
 |:--- |:--- |:--- |
-| WarningPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
-| ErrorActionPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stop<br>Continue<br>SilentlyContinue |
+| WarningPreference |Continue |停止<br>繼續<br>SilentlyContinue |
+| ErrorActionPreference |繼續 |停止<br>繼續<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |停止<br>繼續<br>SilentlyContinue |
 
 下表列出 Runbook 中有效之喜好設定變數值的行為。
 
 | 值 | 行為 |
 |:--- |:--- |
-| Continue |記錄訊息並繼續執行 Runbook。 |
+| 繼續 |記錄訊息並繼續執行 Runbook。 |
 | SilentlyContinue |繼續執行 Runbook 但不記錄訊息。 此值有忽略訊息的作用。 |
-| Stop |記錄訊息並暫停 Runbook。 |
+| 停止 |記錄訊息並暫停 Runbook。 |
 
 ## <a name="runbook-output"></a>擷取 Runbook 輸出和訊息
 ### <a name="azure-portal"></a>Azure 入口網站
@@ -184,23 +184,23 @@ Windows PowerShell 使用 [喜好設定變數](https://technet.microsoft.com/lib
 下列範例會啟動 Runbook 範例，然後等候它完成。 完成後，將會從工作收集其輸出資料流。
 
 ```powershell
-$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+$job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
-  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+  $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
-# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+# For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
 ``` 
 
 ### <a name="graphical-authoring"></a>圖形化編寫
@@ -213,15 +213,15 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 **若要啟用活動等級的追蹤功能，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 在 [程序自動化]  底下選取 [Runbook]  ，以開啟 Runbook 清單。
+2. 在 [程序自動化] 底下選取 [Runbook]，以開啟 Runbook 清單。
 3. 在 [Runbook] 分頁中，按一下您 Runbook 清單的某圖形化 Runbook 來選取它。
-4. 在 [設定]  底下，按一下 [記錄和追蹤]  。
-5. 在 [記錄和追蹤] 分頁中，按一下 [記錄詳細資訊記錄] 下方的 [開啟]  來啟用詳細資訊記錄功能，然後在 [活動層級追蹤] 下方，根據您所需的追蹤層級，將追蹤層級變更為 [基本]  或 [詳細]  。<br>
+4. 在 [設定] 底下，按一下 [記錄和追蹤]。
+5. 在 [記錄和追蹤] 分頁中，按一下 [記錄詳細資訊記錄] 下方的 [開啟] 來啟用詳細資訊記錄功能，然後在 [活動層級追蹤] 下方，根據您所需的追蹤層級，將追蹤層級變更為 [基本] 或 [詳細]。<br>
    
    ![圖形化編寫的 [記錄和追蹤] 頁面](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure 監視器記錄檔
-「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 使用 Azure 監視器記錄檔中，您可以，
+### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure 監視記錄檔
+「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 有了 Azure 監視器記錄, 您可以:
 
 * 針對自動化工作取得深入解析 
 * 根據您的 Runbook 作業狀態 (例如已失敗或已暫停) 觸發電子郵件或警示 
@@ -229,7 +229,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 * 在自動化帳戶之間相互關聯工作 
 * 視覺化一段時間的工作歷程記錄    
 
-如需有關如何使用 Azure 監視器來收集、 相互關聯及處理作業資料的記錄檔中設定整合的詳細資訊，請參閱 <<c0> [ 作業狀態和作業串流從自動化將轉送至 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。
+如需有關如何設定與 Azure 監視器記錄整合以收集、相互關聯及處理作業資料的詳細資訊, 請參閱[從自動化將作業狀態和作業串流轉送到 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 工作，以及其他技術性詳細資料，請參閱 [追蹤 Runbook 工作](automation-runbook-execution.md)

@@ -4,14 +4,14 @@ description: 了解如何使用 Azure Cosmos DB 和 SQL API 建立與查詢空�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: d0571608e154915a473145374ce007854aaa57f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1654ccabab751896fcbbab09d112080ccc2f67b6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480134"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467720"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>透過 Azure Cosmos DB SQL API 帳戶使用地理空間和 GeoJSON 位置資料
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-如果您沒有經緯度資訊，但有實體地址或位置名稱，例如城市或國家/地區，則您可以使用像是 Bing 地圖服務 REST 服務的地理編碼服務來查閱實際的座標。 在 [這裡](https://msdn.microsoft.com/library/ff701713.aspx)深入了解 Bing Maps 地理編碼。
+如果您沒有緯度和經度資訊, 但具有實體位址或位置名稱 (例如城市或國家/地區), 您可以使用地理編碼服務 (例如 Bing 地圖 REST 服務) 來查詢實際的座標。 在 [這裡](https://msdn.microsoft.com/library/ff701713.aspx)深入了解 Bing Maps 地理編碼。
 
 ## <a name="querying-spatial-types"></a>查詢空間類型
 既然我們已經探討過如何插入地理空間資料，現在就來看看如何透過 SQL 和 LINQ 使用 Azure Cosmos DB 查詢此資料。

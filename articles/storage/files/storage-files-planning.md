@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aba41d62df49a40d9fc3686684b39b71e1363453
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296044"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501424"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -209,7 +209,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |區域  |支援的冗余  |支援現有的儲存體帳戶  |
 |---------|---------|---------|
 |東南亞     |LRS|否         |
-|西歐     |LRS|否         |
+|西歐     |LRS、ZRS|否         |
 |美國西部 2     |LRS、ZRS|否         |
 
 為協助我們設定新區域和功能的優先順序, 請填寫這[份問卷](https://aka.ms/azurefilesatscalesurvey)。

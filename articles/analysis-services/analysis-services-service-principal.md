@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518170"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347965"
 ---
 # <a name="automation-with-service-principals"></a>使用服務主體進行自動化
 
-服務主體是您在租用戶內建立的 Azure Active Directory 應用程式資源，用來執行自動資源和服務層級作業。 它們是種唯一的「使用者身分識別  」，具有應用程式識別碼和密碼或憑證。 服務主體只有執行角色所定義工作所需的權限，以及為此所指派給服務主體的權限。 
+服務主體是您在租用戶內建立的 Azure Active Directory 應用程式資源，用來執行自動資源和服務層級作業。 它們是種唯一的「使用者身分識別」，具有應用程式識別碼和密碼或憑證。 服務主體只有執行角色所定義工作所需的權限，以及為此所指派給服務主體的權限。 
 
 在 Analysis Services 中，服務主體會與 Azure 自動化、PowerShell 自動模式、自訂用戶端應用程式和 Web 應用程式搭配使用，讓一般工作自動化。 例如，佈建伺服器、部署模型、資料重新整理、相應增加/相應減少，以及暫停/繼續都可以藉由使用服務主體來進行自動化。 權限會透過角色成員資格指派給服務主體；這與一般 Azure AD UPN 帳戶的做法很像。
 
-Analysis Services 也支援管理使用服務主體的身分識別所執行的作業。 若要進一步了解，請參閱[管理 Azure 資源的身分識別](../active-directory/managed-identities-azure-resources/overview.md)並[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)。
+Analysis Services 也支援使用服務主體的受控識別所執行的作業。 若要深入瞭解, 請參閱[適用于 azure 資源的受控](../active-directory/managed-identities-azure-resources/overview.md)識別和[支援 Azure AD 驗證的 azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)。
 
 ## <a name="create-service-principals"></a>建立服務主體
  
@@ -49,11 +49,11 @@ Analysis Services 也支援管理使用服務主體的身分識別所執行的�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />使用 Az.AnalysisServices 模組
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />使用 Az. Microsoft.analysisservices 模組
 
-當資源管理作業，以使用服務主體[Az.AnalysisServices](/powershell/module/az.analysisservices)模組，請使用`Connect-AzAccount`cmdlet。 
+使用服務主體搭配[microsoft.analysisservices](/powershell/module/az.analysisservices)模組進行資源管理作業時, 請使用`Connect-AzAccount` Cmdlet。 
 
-在下列範例中，appID 和密碼用來執行針對至唯讀複本的同步處理的控制平面作業，並相應增加/相應放大：
+在下列範例中, 會使用 appID 和密碼來執行控制平面作業, 以同步處理唯讀複本並相應增加/放大:
 
 ```powershell
 Param (
@@ -97,7 +97,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 在下列範例中，`appID` 和 `password` 可用來執行模型資料庫重新整理作業：
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";

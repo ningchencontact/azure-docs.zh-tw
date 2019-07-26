@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c1ac880aa8274cc9a4ea554de84dcb46476236f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d49717355cab5441d26608fa12333bd1b8b73d44
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320898"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413545"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>呼叫 web Api 的行動應用程式-取得權杖
 
@@ -144,8 +144,10 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
 
 #### <a name="xamarin"></a>Xamarin
 
+下列範例顯示使用 Microsoft Graph 以互動方式取得權杖的最少程式碼, 以讀取使用者的設定檔。
+
 ```CSharp
-string[] scopes = new string["https://graph.microsoft.com/.default"];
+string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
 AuthenticationResult result;
@@ -154,12 +156,48 @@ try
  result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
              .ExecuteAsync();
 }
-catch(MsalUiRequiredException e)
+catch(MsalUiRequiredException)
 {
  result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 }
 ```
+
+### <a name="mandatory-parameters"></a>必要參數
+
+`AcquireTokenInteractive`只有一個強制參數``scopes``, 其中包含定義需要權杖之範圍的字串列舉。 如果權杖適用于 Microsoft Graph, 則在名為「許可權」的區段中, 您可以在每個 Microsoft Graph API 的 api 參考中找到所需的範圍。 例如, 若要[列出使用者的連絡人](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), 則必須使用「使用者. 讀取」、「連絡人」等範圍。 另請參閱[Microsoft Graph 許可權參考](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)。
+
+如果您在建立應用程式時未指定它, 則在 Android 上, 您也必須指定父活動 (使用`.WithParentActivityOrWindow`, 請參閱下方), 讓權杖在互動之後回到該父活動。 如果您未指定, 則會在呼叫`.ExecuteAsync()`時擲回例外狀況。
+
+### <a name="specific-optional-parameters"></a>特定的選擇性參數
+
+#### <a name="withprompt"></a>WithPrompt
+
+`WithPrompt()`是用來透過指定提示來控制使用者的互動性
+
+<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+
+類別會定義下列常數:
+
+- ``SelectAccount``: 將強制 STS 顯示帳戶選取對話方塊, 其中包含使用者具有會話的帳戶。 當應用程式開發人員想要讓使用者在不同的身分識別之間進行選擇時, 這個選項非常有用。 此選項會驅動 MSAL 以``prompt=select_account``傳送給識別提供者。 此選項是預設值, 而且可以根據可用的資訊 (帳戶、使用者的會話是否存在等等) 提供最佳的體驗。 ...).除非您有充分的理由, 否則請不要變更它。
+- ``Consent``: 可讓應用程式開發人員強制提示使用者同意, 即使之前已授與同意亦然。 在此情況下, MSAL `prompt=consent`會將傳送至身分識別提供者。 此選項可用於某些安全性焦點應用程式, 其中組織治理會要求使用者在每次使用應用程式時呈現同意對話方塊。
+- ``ForceLogin``: 讓應用程式開發人員可以讓使用者透過服務提示認證, 即使不需要此使用者提示也一樣。 如果取得權杖失敗, 此選項會很有用, 讓使用者重新登入。 在此情況下, MSAL `prompt=login`會將傳送至身分識別提供者。 同樣地, 我們已看到它用於某些安全性焦點應用程式, 組織治理會要求使用者在每次存取應用程式的特定部分時 relogs。
+- ``Never``(僅適用于 .NET 4.5 和 WinRT) 不會提示使用者, 而是會嘗試使用儲存在隱藏的內嵌 web 視圖中的 cookie (請參閱下文:MSAL.NET 中的 Web Views)。 使用這個選項可能會失敗, 而且在此`AcquireTokenInteractive`情況下, 會擲回例外狀況以通知需要 UI 互動, 而且您必須使用另一個`Prompt`參數。
+- ``NoPrompt``:不會將任何提示傳送給識別提供者。 此選項僅適用于 Azure AD B2C 編輯設定檔原則 (請參閱[B2C 細節](https://aka.ms/msal-net-b2c-specificities))。
+
+#### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
+
+這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例 (而不想要使用累加式同意, 這通常與 MSAL.NET/Microsoft 身分識別平臺 v2.0 搭配使用)。 如需詳細資訊, 請參閱[如何: 將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
+
+```CSharp
+var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
+                     .WithExtraScopeToConsent(scopesForVendorApi)
+                     .ExecuteAsync();
+```
+
+#### <a name="other-optional-parameters"></a>其他選擇性參數
+
+`AcquireTokenInteractive`從[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)的參考檔深入瞭解的所有其他選擇性參數
 
 ### <a name="via-the-protocol"></a>Via 通訊協定
 

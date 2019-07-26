@@ -2,7 +2,7 @@
 title: 在 Azure SQL 資料倉儲中編製資料表的索引 | Microsoft Azure
 description: 在 Azure SQL 資料倉儲中編製資料表索引的建議與範例。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851656"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479849"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 
@@ -48,13 +48,13 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 - 資料行存放區資料表不支援 varchar(max)、nvarchar(max) 和 varbinary(max)。 請改為考慮堆積或叢集索引。
 - 資料行存放區資料表可能比暫時性資料沒有效率。 請考慮堆積，甚至是暫時性資料表。
-- 具有少於 60 萬個資料列的小型資料表。 請考慮堆積資料表。
+- 包含少於60000000個數據列的小型資料表。 請考慮堆積資料表。
 
 ## <a name="heap-tables"></a>堆積資料表
 
-當您在 SQL 資料倉儲中暫時登陸資料時，您可能會發現，使用堆積資料表會使整體的程序更快速。 這是因為堆積的載入速度比索引資料表還要快，而在某些情況下，可以從快取進行後續的讀取。  如果您載入資料只是在做執行更多轉換之前的預備，將資料表載入堆積資料表會遠快於將資料載入叢集資料行存放區資料表。 此外，將資料載入[暫存資料表](sql-data-warehouse-tables-temporary.md)會比將資料表載入永久儲存體快速。  
+當您在 SQL 資料倉儲中暫時登陸資料時, 您可能會發現使用堆積資料表會讓整體程式更快速。 這是因為堆積的載入速度比索引資料表還要快，而在某些情況下，可以從快取進行後續的讀取。  如果您載入資料只是在做執行更多轉換之前的預備，將資料表載入堆積資料表會遠快於將資料載入叢集資料行存放區資料表。 此外，將資料載入[暫存資料表](sql-data-warehouse-tables-temporary.md)會比將資料表載入永久儲存體快速。  
 
-對於小型查閱資料表，小於 60 萬個資料列，堆積資料表通常具有意義。  叢集資料行存放區資料表就會開始以達到最佳的壓縮，一旦超過 60 萬個資料列。
+對於小型查閱資料表而言, 少於60000000個數據列, 通常堆積資料表是合理的。  當超過60000000個數據列時, 叢集資料行存放區資料表就會開始達到最佳壓縮。
 
 若要建立堆積資料表，只需在 WITH 子句中指定 HEAP︰
 
@@ -84,7 +84,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-若要加入非叢集索引的資料表上，使用下列語法：
+若要在資料表上加入非叢集索引, 請使用下列語法:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -200,7 +200,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 - 插入資料列會將資料列新增至名為差異資料列群組的內部資料列存放區資料表。 在差異資料列群組已滿且標示為已關閉之前，插入的資料列不會轉換成資料行存放區。 一旦達到 1,048,576 個資料列的容量上限，資料列群組就會關閉。
 - 更新資料行存放區格式的資料列會做為邏輯刪除和插入來處理。 插入的資料列可儲存在差異存放區。
 
-針對每個資料分割對齊分佈的 102,400 個資料列大量臨界值，超出臨界值的批次更新和插入作業會直接進入資料行存放區格式。 不過，假設在平均分佈情況下，您將需要在單一作業中修改超過 6.144 百萬個資料列才會發生這種情況。 如果指定的資料分割對齊分佈的資料列數目少於 102,400 的資料列移至差異存放區，以及留在那裡，直到足夠的資料列已插入或修改，以關閉資料列群組，或在重建索引。
+針對每個資料分割對齊分佈的 102,400 個資料列大量臨界值，超出臨界值的批次更新和插入作業會直接進入資料行存放區格式。 不過，假設在平均分佈情況下，您將需要在單一作業中修改超過 6.144 百萬個資料列才會發生這種情況。 如果指定之分割區對齊散發的資料列數目小於 102400, 則這些資料列會移至差異存放區, 並留在該處, 直到插入或修改足夠的資料列, 以關閉資料列群組或重建索引為止。
 
 ### <a name="small-or-trickle-load-operations"></a>小型或緩慢移動的載入作業
 
@@ -210,13 +210,13 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="too-many-partitions"></a>太多資料分割
 
-另一個考慮事項是資料分割對於叢集資料行存放區資料表的影響。  資料分割之前，SQL 資料倉儲已將您的資料分成 60 個資料庫。  進一步分割會分割您的資料。  如果您將資料分割，請考慮到**每個**資料分割需要有至少 1 百萬個資料列，使用叢集資料行存放區索引才會有幫助。  如果您的資料表分割成 100 個分割區，則您的資料表需要至少 6 億個資料列，才會受益於叢集資料行存放區索引 (60 個散發*100 個分割區*1 百萬個資料列)。 如果您的 100 個分割資料表沒有 60 億個資料列，請減少資料分割數目，或考慮改用堆積資料表。
+另一個考慮事項是資料分割對於叢集資料行存放區資料表的影響。  資料分割之前，SQL 資料倉儲已將您的資料分成 60 個資料庫。  進一步分割會分割您的資料。  如果您將資料分割，請考慮到**每個**資料分割需要有至少 1 百萬個資料列，使用叢集資料行存放區索引才會有幫助。  如果您將資料表分割成100個數據分割, 則您的資料表需要至少6000000000個數據列, 才能受益于叢集資料行存放區索引 (60 分佈*100*資料分割1000000資料列)。 如果您的 100 個分割資料表沒有 60 億個資料列，請減少資料分割數目，或考慮改用堆積資料表。
 
 您的資料表載入一些資料之後，請依照下列步驟來識別並重建具有次佳叢集資料行存放區索引的資料表。
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>重建索引以提升區段品質
 
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>步驟 1：識別或建立會使用適當資源類別的使用者
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>步驟 1:識別或建立會使用適當資源類別的使用者
 
 立即提升區段品質的快速方法就是重建索引。  上述檢視所傳回的 SQL 會傳回可用來重建索引的 ALTER INDEX REBUILD 陳述式。 重建索引時，請確定配置足夠的記憶體給重建索引的工作階段。  若要這樣做，請增加使用者的資源類別，該使用者有權將此資料表上的索引重建為建議的最小值。
 
@@ -226,9 +226,9 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>步驟 2：使用較高的資源類別使用者重建叢集資料行存放區索引
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>步驟 2:使用較高的資源類別使用者重建叢集資料行存放區索引
 
-使用者身分登入步驟 1 中 (例如 LoadUser)，也就是現在使用較高的資源類別，並執行 ALTER INDEX 陳述式。 請確定這個使用者對於重建索引的資料表擁有 ALTER 權限。 這些範例示範如何重建整個資料行存放區索引或如何重建單一資料分割。 在大型資料表上，比較適合一次重建單一資料分割的索引。
+以步驟1的使用者身分登入 (例如 LoadUser), 這現在使用較高的資源類別, 並執行 ALTER INDEX 語句。 請確定這個使用者對於重建索引的資料表擁有 ALTER 權限。 這些範例示範如何重建整個資料行存放區索引或如何重建單一資料分割。 在大型資料表上，比較適合一次重建單一資料分割的索引。
 
 或者，您可以[使用 CTAS](sql-data-warehouse-develop-ctas.md) 將資料表複製到新的資料表，而非重建索引。 哪一種方式最好？ 針對大量的資料，CTAS 的速度通常比 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql) 來得快。 針對較小量的資料，ALTER INDEX 較為容易使用，且您不需要交換出資料表。
 

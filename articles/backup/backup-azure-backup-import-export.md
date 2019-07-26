@@ -1,19 +1,18 @@
 ---
 title: Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: e08b1d8f847536101d44db266be5cd34e3e6a74c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155323"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466778"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。
@@ -56,14 +55,14 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 * 在與復原服務保存庫相同的訂用帳戶中建立儲存體帳戶。 
 * 確定您有建立 Azure Active Directory 應用程式[所需的權限](../active-directory/develop/howto-create-service-principal-portal.md)。 離線備份工作流程會在與 Azure 儲存體帳戶相關聯的訂用帳戶中建立 Azure Active Directory 應用程式。 應用程式的目標是為 Azure 備份提供安全的限域存取，以便存取離線備份工作流程所需 Azure 匯入服務。 
 * 向包含 Azure 儲存體帳戶的訂用帳戶註冊 Microsoft.ImportExport 資源提供者。 若要註冊資源提供者：
-    1. 在主功能表中，按一下 [訂用帳戶]  。
+    1. 在主功能表中，按一下 [訂用帳戶]。
     2. 如果您訂閱多個訂用帳戶，請選取您用於離線備份的訂用帳戶。 如果您只使用一個訂用帳戶，則您的訂用帳戶隨即出現。
-    3. 在訂用帳戶功能表中，按一下 [資源提供者]  以檢視提供者的清單。
-    4. 在提供者清單中，向下捲動至 Microsoft.ImportExport。 如果 [狀態] 為 NotRegistered，請按一下 [註冊]  。
+    3. 在訂用帳戶功能表中，按一下 [資源提供者] 以檢視提供者的清單。
+    4. 在提供者清單中，向下捲動至 Microsoft.ImportExport。 如果 [狀態] 為 NotRegistered，請按一下 [註冊]。
     ![註冊資源提供者](./media/backup-azure-backup-import-export/registerimportexport.png)
 * 已建立具有足夠磁碟空間來存放初始複本的內部或外部暫存位置 (可能是網路共用或電腦上任何額外的磁碟機)。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間 (由於壓縮的關係，實際使用量會較少)。
 * 將磁碟傳送到 Azure 時，僅使用 2.5 英吋的 SSD，或是 2.5 英吋或 3.5 英吋的 SATA II/III 內部硬碟。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-requirements.md#supported-hardware)以取得服務所支援的最新磁碟機組合。
-* SATA 磁碟機必須連接到一個電腦 (又稱為「複本電腦」  )，在其中可將備份資料從「暫存位置」  複製到 SATA 磁碟機。 請確定已在「複本電腦」  上啟用 BitLocker。
+* SATA 磁碟機必須連接到一個電腦 (又稱為「複本電腦」)，在其中可將備份資料從「暫存位置」複製到 SATA 磁碟機。 請確定已在「複本電腦」上啟用 BitLocker。
 
 ## <a name="workflow"></a>工作流程
 本節描述離線備份工作流程，以便將您的資料傳遞至 Azure 資料中心並上傳至 Azure 儲存體。 若您有關於匯入服務或處理程序任何層面的問題，請參閱稍早的[匯入服務概觀](../storage/common/storage-import-export-service.md)。
@@ -76,22 +75,22 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
    輸入的說明如下：
 
     * **暫存位置**：寫入初始備份副本的暫時儲存位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
-    * **Azure Resource Manager 儲存體帳戶**：Resource Manager 型儲存體帳戶 （一般用途 v1 或一般用途 v2） 在任何 Azure 訂用帳戶的名稱。
+    * **Azure Resource Manager 儲存體帳戶**：任何 Azure 訂用帳戶中 Resource Manager 類型儲存體帳戶 (一般用途 v1 或一般用途 v2) 的名稱。
     * **Azure 儲存體容器**：在複製到復原服務保存庫之前，Azure 儲存體帳戶中備份資料的匯入目的地儲存體 Blob 名稱。
     * **Azure 訂用帳戶識別碼**：Azure 儲存體帳戶建立所在的 Azure 訂用帳戶識別碼。
     * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。 
   
-   在畫面上提供輸入，然後按 [下一步]  。 儲存所提供的「暫存位置」  和「Azure 匯入作業名稱」  ，因為這是準備磁碟時所需的資訊。
+   在畫面上提供輸入，然後按 [下一步]。 儲存所提供的「暫存位置」和「Azure 匯入作業名稱」 ，因為這是準備磁碟時所需的資訊。
 
 2. 出現系統提示時，登入您的 Azure 訂用帳戶。 您必須先登入，Azure 備份才能建立 Azure Active Directory 應用程式，並提供必要的權限來存取 Azure 匯入服務。
 
     ![立即備份](./media/backup-azure-backup-import-export/azurelogin.png)
 
-3. 完成工作流程，然後在 Azure 備份代理程式管理主控台中，按一下 [立即備份]  。
+3. 完成工作流程，然後在 Azure 備份代理程式管理主控台中，按一下 [立即備份]。
 
     ![立即備份](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. 在精靈的 [確認] 頁面中，按一下 [備份]  。 在設定過程中，初始備份會寫入暫存區域。
+4. 在精靈的 [確認] 頁面中，按一下 [備份]。 在設定過程中，初始備份會寫入暫存區域。
 
    ![確認您已準備好立即備份](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -159,16 +158,16 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 * 您磁碟的退貨寄送詳細資料
 
 1. 登入您的 Azure 訂用帳戶。
-2. 在主功能表中，按一下 [所有服務]  ，然後在 [所有服務] 對話方塊中輸入匯入。 當您看到 [匯入/匯出作業]  時，按一下它。
+2. 在主功能表中，按一下 [所有服務]，然後在 [所有服務] 對話方塊中輸入匯入。 當您看到 [匯入/匯出作業] 時，按一下它。
     ![輸入寄送資訊](./media/backup-azure-backup-import-export/search-import-job.png)<br/>
 
-    [匯入/匯出作業]  功能表隨即開啟，而所選訂用帳戶中的所有匯入/匯出作業清單隨即出現。 
+    [匯入/匯出作業] 功能表隨即開啟，而所選訂用帳戶中的所有匯入/匯出作業清單隨即出現。 
 
 3. 如果您有多個訂用帳戶，請務必選取用於匯入備份資料的訂用帳戶。 然後選取新建立的匯入作業，以開啟其詳細資料。
 
     ![檢閱寄送資訊](./media/backup-azure-backup-import-export/import-job-found.png)<br/>
 
-4. 在匯入作業的 [設定] 功能表上，按一下 [管理寄送資訊]  並輸入退貨寄送詳細資料。
+4. 在匯入作業的 [設定] 功能表上，按一下 [管理寄送資訊] 並輸入退貨寄送詳細資料。
 
     ![儲存寄送資訊](./media/backup-azure-backup-import-export/shipping-info.png)<br/>
 
@@ -185,7 +184,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 處理 Azure 匯入作業所需的時間量會因不同的因素而異，例如運送時間、作業類型、所要複製的資料類型和大小，以及所提供磁碟的大小。 Azure 匯入/匯出服務沒有 SLA，但在收到磁碟之後，服務會努力在 7 到 10 天內，完成將備份資料複製到 Azure 儲存體帳戶的作業。 
 
 ### <a name="monitoring-azure-import-job-status"></a>監視 Azure 匯入作業狀態
-您可以從 Azure 入口網站監視匯入作業的狀態，請瀏覽至 [匯入/匯出作業]  頁面，然後選取您的作業。 如需匯入作業狀態的詳細資訊，請參閱[儲存體匯入匯出服務](../storage/common/storage-import-export-service.md)一文。
+您可以從 Azure 入口網站監視匯入作業的狀態，請瀏覽至 [匯入/匯出作業] 頁面，然後選取您的作業。 如需匯入作業狀態的詳細資訊，請參閱[儲存體匯入匯出服務](../storage/common/storage-import-export-service.md)一文。
 
 ### <a name="complete-the-workflow"></a>完成工作流程
 在匯入作業順利完成後，儲存體帳戶中就會有初始備份資料可供使用。 到了下一個排定的備份時，Azure 備份會從儲存體帳戶將資料內容複製到「復原服務」保存庫，如下所示： 

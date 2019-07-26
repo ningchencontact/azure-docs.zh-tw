@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: a0cd2952633293bfa1d29bf3a399c67bf092d288
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad30bd4f77c5f4314956e39f26a30b72d72a208a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318310"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361169"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "68318310"
 > [!NOTE]
 > 本文中的指示適用于:
 >1. 64位版本的 Windows Server 2008 R2 和更新版本的 Windows Server 作業系統。 如需在 Azure 中執行32位作業系統的詳細資訊, 請參閱[Azure vm 中的32位作業系統支援](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)。
->2. 如果要使用任何嚴重損壞修復工具來遷移工作負載, 例如 Azure Site Recovery 或 Azure Migrate, 則仍需要執行此程式, 並在虛擬作業系統上進行準備, 然後再進行遷移。
+>2. 如果將使用任何嚴重損壞修復工具來遷移工作負載 (例如 Azure Site Recovery 或 Azure Migrate), 仍必須執行此程式, 並在虛擬作業系統上進行準備, 然後再進行遷移。
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>將虛擬磁片轉換成固定大小和 VHD
 
@@ -59,13 +59,13 @@ ms.locfileid: "68318310"
 4. 如果您需要從 VHDX 進行轉換, 請選取 [ **VHD**  >  **] [下一步]** 。
 5. 如果您需要從動態擴充磁片進行轉換, 請選取 [**固定大小** >  **] [下一步]** 。
 6. 尋找並選取用以儲存新 VHD 檔案的路徑。
-7. 選取 [完成]  。
+7. 選取 [完成]。
 
 > [!NOTE]
 > 使用已提升許可權的 PowerShell 會話來執行本文中的命令。
 
 ### <a name="use-powershell-to-convert-the-disk"></a>使用 PowerShell 轉換磁片 
-您可以在 Windows PowerShell 中使用 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 命令來轉換虛擬磁碟。 當您啟動 PowerShell 時，選取 [以系統管理員身分執行]  。 
+您可以在 Windows PowerShell 中使用 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 命令來轉換虛擬磁碟。 當您啟動 PowerShell 時，選取 [以系統管理員身分執行]。 
 
 下列範例命令會將磁片從 VHDX 轉換為 VHD。 此命令也會將磁片從動態擴充磁片轉換成固定大小的磁片。
 
@@ -349,7 +349,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
    - 所有人
 
-   - 使用者
+   - 使用者人數
 
 10. 重新開機 VM, 以確保 Windows 仍然狀況良好, 並可透過 RDP 連線來達到。 此時, 您可能會想要在本機 Hyper-v 中建立 VM, 以確保 VM 會完全啟動。 然後進行測試, 以確定您可以透過 RDP 連線到 VM。
 
@@ -360,9 +360,9 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 ### <a name="install-windows-updates"></a>安裝 Windows 更新
 在理想的情況下, 您應該將電腦更新為*修補程式等級*。 如果無法這麼做, 請確定已安裝下列更新:
 
-| 元件               | Binary         | Windows 7 SP1、Windows Server 2008 R2 SP1 | Windows 8、Windows Server 2012               | Windows 8.1、Windows Server 2012 R2 | Windows 10 v1607、Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709、Windows Server 2016 v1709 | Windows 10 v1803、Windows Server 2016 v1803 |
+| 元件               | 二進位         | Windows 7 SP1、Windows Server 2008 R2 SP1 | Windows 8、Windows Server 2012               | Windows 8.1、Windows Server 2012 R2 | Windows 10 v1607、Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709、Windows Server 2016 v1709 | Windows 10 v1803、Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| 儲存體                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| 存放區                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -421,11 +421,11 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 1. 登入 Windows VM。
 1. 以系統管理員身分執行**命令提示字元**。 
 1. 將目錄變更為`%windir%\system32\sysprep`。 然後執行 `sysprep.exe`。
-1. 在 [系統準備工具]  對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，並確認已勾選 [一般化]  核取方塊。
+1. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
 
     ![系統準備工具](media/prepare-for-upload-vhd-image/syspre.png)
-1. 在 [關機選項]  中選取 [關機]  。
-1. 選取 [確定]  。
+1. 在 [關機選項] 中選取 [關機]。
+1. 選取 [確定]。
 1. Sysprep 完成時, 請關閉 VM。 請勿使用 [**重新開機**] 來關閉 VM。
 
 現在已準備好上傳 VHD。 如需如何從一般化磁片建立 VM 的詳細資訊, 請參閱[上傳一般化 VHD 並使用它在 Azure 中建立新的 vm](sa-upload-generalized.md)。

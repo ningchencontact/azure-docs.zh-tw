@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a076eee9818f294a8e5c4b10cebbcb9e5a55d80c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3685e2f2a212591788c62ba4f0384ae320d89824
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021858"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347759"
 ---
 #   <a name="language-detection-cognitive-skill"></a>語言偵測認知技能
 
-**語言偵測**技能偵測到的語言輸入文字，並報告在要求上送出每個文件的單一語言程式碼。 語言代碼各配有一個分數，表示分析的強度。 這項技能會使用認知服務中[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)所提供的機器學習模型。
+**語言偵測**技能會偵測輸入文字的語言, 並針對要求所提交的每份檔報告單一語言代碼。 語言代碼各配有一個分數，表示分析的強度。 這項技能會使用認知服務中[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)所提供的機器學習模型。
 
 當您需要提供文字的語言作為其他技能的輸入時 (例如[情感分析技能](cognitive-search-skill-sentiment.md)或[文字分割技能](cognitive-search-skill-textsplit.md))，這項功能就特別有用。
 
-語言偵測利用 Bing 的自然語言處理程式庫，這超過的數字的[支援的語言和區域](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support)列出文字分析。 確切的語言清單尚未發行，但包含廣泛地說出的所有語言，再加上變體，方言，以及某些地區和文化特性的語言。 如果您有以較不常用的語言表示的內容，您可以[試用語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)來查看它是否會傳回程式碼。 對於無法偵測到的語言，會產生 `unknown` 回應。
+語言偵測會利用 Bing 的自然語言處理程式庫, 超過文字分析列出的[支援語言和區域](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support)數目。 不會發行確切的語言清單, 但會包含所有廣泛讀出的語言, 加上變種、方言, 以及某些地區和文化特性語言。 如果您的內容是以較不常用的語言表示, 您可以[嘗試語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) , 以查看它是否傳回程序代碼。 對於無法偵測到的語言，會產生 `unknown` 回應。
 
 > [!NOTE]
 > 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
@@ -36,7 +36,7 @@ ms.locfileid: "65021858"
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應該是 50,000 個字元 (以 `String.Length` 為測量單位)。 如果您需要先分割資料，再將該資料傳送至情感分析器，您可以使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為50000個字元, 如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，再將該資料傳送至情感分析器，您可以使用[文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-inputs"></a>技能輸入
 
@@ -44,7 +44,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 
 | 輸入     | 描述 |
 |--------------------|-------------|
-| text | 要分析的文字。|
+| 文字 | 要分析的文字。|
 
 ## <a name="skill-outputs"></a>技能輸出
 

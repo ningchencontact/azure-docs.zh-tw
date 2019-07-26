@@ -1,6 +1,6 @@
 ---
 title: 使用排名顯示回應 - Bing 實體搜尋
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何使用排名來顯示 Bing 實體搜尋 API 傳回的回應。
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309329"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423910"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>使用排名來顯示實體搜尋結果  
 
@@ -26,7 +26,7 @@ ms.locfileid: "60309329"
 
 |欄位 | 描述  |
 |---------|---------|
-|`answerType`和`resultIndex` | `answerType` 會識別回應 (實體或位置)，而 `resultIndex` 會識別回應內的結果 (例如一個實體)。 索引從 0 開始。|
+|`answerType` 和 `resultIndex` | `answerType` 會識別回應 (實體或位置)，而 `resultIndex` 會識別回應內的結果 (例如一個實體)。 索引從 0 開始。|
 |`value`    | `value` 包含的識別碼會符合回應或回應內結果的識別碼。 回應或結果其中一個 (而非兩者) 會包含識別碼。 |
   
 使用 `answerType` 和 `resultIndex` 是一個兩步驟程序。 先使用 `answerType` 來識別哪個回應包含要顯示的結果。 然後使用 `resultIndex` 為回應的結果編製索引，以顯示結果。 (`answerType` 值是 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) 物件中的欄位名稱)。如果您應該同時顯示回應的所有結果，排名回應項目不會包含 `resultIndex` 欄位。

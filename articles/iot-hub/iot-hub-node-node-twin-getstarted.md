@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597428"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403967"
 ---
 # <a name="get-started-with-device-twins-node"></a>開始使用裝置對應項 (Node)
 
@@ -31,7 +31,7 @@ ms.locfileid: "65597428"
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 版本 10.0.x 或更新版本。
+* Node.js 10.0. x 版或更新版本。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -39,11 +39,13 @@ ms.locfileid: "65597428"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>擷取 IoT 中樞的連接字串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>建立服務應用程式
 
@@ -63,7 +65,7 @@ ms.locfileid: "65597428"
 
 3. 使用文字編輯器，在 **addtagsandqueryapp** 資料夾中建立新的 **AddTagsAndQuery.js** 檔案。
 
-4. 將下列程式碼新增至 **AddTagsAndQuery.js** 檔案，並以您建立中樞時所複製的 IoT 中樞連接字串，取代 **{iot hub connection string}** 預留位置︰
+4. 將下列程式碼新增至**addtagsandquery.js**檔案, 並使用您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 IoT 中樞連接字串來取代 **{iot hub connection string}** 預留位置值:
 
    ``` javascript
         'use strict';
@@ -136,7 +138,7 @@ ms.locfileid: "65597428"
 
    如果是查詢所有位於 **Redmond43** 中的裝置，您在結果中會看到一個裝置，而如果查詢將結果限於使用行動電話網路的裝置，則您不會看到任何裝置。
    
-    ![查看查詢結果一個裝置](media/iot-hub-node-node-twin-getstarted/service1.png)
+    ![查看查詢結果中的一部裝置](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 在下一節，您將建立一個裝置應用程式，以報告連線資訊並變更上一節的查詢結果。
 
@@ -224,8 +226,8 @@ ms.locfileid: "65597428"
 
 使用下列資源來了解如何：
 
-* 從裝置傳送遙測[開始使用 IoT 中樞](quickstart-send-telemetry-node.md)教學課程中，
+* 使用[開始使用 IoT 中樞](quickstart-send-telemetry-node.md)教學課程, 從裝置傳送遙測資料,
 
 * 使用裝置對應項所需的屬性來設定裝置，請參閱[使用所需的屬性來設定裝置](tutorial-device-twins.md)教學課程，
 
-* 用來控制裝置以互動方式 （例如開啟風扇從使用者控制的應用程式），[使用直接方法](quickstart-control-device-node.md)教學課程。
+* 以互動方式控制裝置 (例如, 從使用者控制的應用程式開啟風扇),[使用直接方法](quickstart-control-device-node.md)教學課程。

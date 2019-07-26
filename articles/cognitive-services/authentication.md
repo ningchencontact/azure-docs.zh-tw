@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: 驗證
 titleSuffix: Azure Cognitive Services
 description: 有三種方式可以驗證 Azure 認知服務資源的要求，分別是訂用帳戶金鑰、持有人權杖或多服務訂用帳戶。 在本文中，您將了解每個方法，以及如何提出要求。
 services: cognitive-services
@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435939"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467526"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>驗證 Azure 認知服務要求
 
@@ -23,18 +23,19 @@ Azure 認知服務的每個要求必須包含驗證標頭。 此標頭會與訂�
 * [使用單一服務訂用帳戶金鑰進行驗證](#authenticate-with-a-single-service-subscription-key)
 * [使用多服務訂用帳戶金鑰進行驗證](#authenticate-with-a-multi-service-subscription-key)
 * [使用權杖進行驗證](#authenticate-with-an-authentication-token)
+* [使用 Azure Active Directory (AAD) 進行驗證](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 提出要求之前，您需要 Azure 帳戶和 Azure 認知服務訂用帳戶。 如果您已經有帳戶，請繼續進行並跳至下一節。 如果您還沒有帳戶，我們會引導您在數分鐘內完成設定：[針對 Azure 建立認知服務帳戶](cognitive-services-apis-create-account.md)。
 
-您可以取得您的訂用帳戶金鑰[Azure 入口網站](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription)建立您的帳戶，或啟動之後[免費試用](https://azure.microsoft.com/try/cognitive-services/my-apis)。
+建立帳戶或啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/my-apis)之後, 您可以從[Azure 入口網站](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)取得您的訂用帳戶金鑰。
 
 ## <a name="authentication-headers"></a>驗證標頭
 
 讓我們快速檢閱適用於 Azure 認知服務的驗證標頭。
 
-| 頁首 | 描述 |
+| 標頭 | 描述 |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | 使用此標頭以特定服務的訂用帳戶金鑰或多服務訂用帳戶金鑰進行驗證。 |
 | Ocp-Apim-Subscription-Region | 只有在搭配[翻譯工具文字 API](./Translator/reference/v3-0-reference.md) 使用多服務訂用帳戶金鑰時才需要此標頭。 使用此標頭指定訂用帳戶區域。 |
@@ -158,8 +159,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## <a name="see-also"></a>請參閱
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
+## <a name="see-also"></a>另請參閱
 
 * [什麼是認知服務？](welcome.md)
 * [認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [建立帳戶](cognitive-services-apis-create-account.md)
+* [自訂子域](cognitive-services-custom-subdomains.md)

@@ -9,20 +9,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: b6b61ee44d252f76cd1aa5e1790456acb3d7bae5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620918"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489524"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 串流分析 JavaScript 使用者定義彙總 (預覽)
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure 串流分析 JavaScript 使用者定義匯總
  
 「Azure 串流分析」支援以 JavaScript 撰寫的使用者定義彙總 (UDA)，可讓您實作複雜的具狀態商務邏輯。 在 UDA 內，您可以完全控制狀態資料結構、狀態累積、狀態取消累積，以及彙總結果計算。 本文將介紹兩種不同的 JavaScript UDA 介面、建立 UDA 的步驟，以及如何在「串流分析」中搭配 Windows 型作業使用 UDA。
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 使用者定義彙總
 
-使用者定義彙總是在指定的時間範圍上用來彙總該範圍中的事件，然後產生單一的結果值。 目前「串流分析」支援兩種類型的 UDA 介面：AccumulateOnly 和 AccumulateDeaccumulate。 這兩種類型的 UDA 都可供「輪轉時間範圍」、「跳動時間範圍」及「滑動時間範圍」使用。 與「跳動時間範圍」及「滑動時間範圍」搭配使用時，AccumulateDeaccumulate UDA 的執行效能會比 AccumulateOnly UDA 好。 您需根據所使用的演算法來選擇這兩種類型其中之一。
+使用者定義彙總是在指定的時間範圍上用來彙總該範圍中的事件，然後產生單一的結果值。 目前「串流分析」支援兩種類型的 UDA 介面：AccumulateOnly 和 AccumulateDeaccumulate。 輪轉、跳動、滑動和會話視窗都可以使用這兩種類型的 UDA。 當搭配跳動、滑動和會話視窗一起使用時, AccumulateDeaccumulate UDA 的執行效果優於 AccumulateOnly UDA。 您需根據所使用的演算法來選擇這兩種類型其中之一。
 
 ### <a name="accumulateonly-aggregates"></a>AccumulateOnly 彙總
 
@@ -92,7 +92,7 @@ function main() {
 
 ### <a name="function-name"></a>函式名稱
 
-此「函式」物件的名稱。 函式名稱應該在字面上與 UDA 別名相符 (這是預覽版行為，我們考慮在正式運作版時支援匿名函式)。
+此「函式」物件的名稱。 函數名稱應符合 UDA 別名。
 
 ### <a name="method---init"></a>方法 - init()
 
@@ -100,11 +100,11 @@ init() 方法會將彙總狀態初始化。 呼叫此方法的時機是在時間
 
 ### <a name="method--accumulate"></a>方法 – accumulate()
 
-accumulate() 方法會根據先前的狀態和目前的事件值來計算 UDA 狀態。 呼叫此方法的時機是在事件進入某個時間範圍 (TUMBLINGWINDOW、HOPPINGWINDOW 或 SLIDINGWINDOW) 時。
+accumulate() 方法會根據先前的狀態和目前的事件值來計算 UDA 狀態。 當事件進入時間範圍 (TUMBLINGWINDOW、HOPPINGWINDOW、SLIDINGWINDOW 或 SESSIONWINDOW) 時, 會呼叫這個方法。
 
 ### <a name="method--deaccumulate"></a>方法 – deaccumulate()
 
-deaccumulate() 方法會根據先前的狀態和目前的事件值來重新計算狀態。 呼叫此方法的時機是在事件離開 SLIDINGWINDOW 時。
+deaccumulate() 方法會根據先前的狀態和目前的事件值來重新計算狀態。 當事件離開 SLIDINGWINDOW 或 SESSIONWINDOW 時, 會呼叫這個方法。
 
 ### <a name="method--deaccumulatestate"></a>方法 – deaccumulateState()
 
@@ -112,7 +112,7 @@ deaccumulateState() 方法會根據先前的狀態和躍點的狀態來重新計
 
 ### <a name="method--computeresult"></a>方法 – computeResult()
 
-computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方法的時機是在時間範圍 (TUMBLINGWINDOW、HOPPINGWINDOW 及 SLIDINGWINDOW) 結束時。
+computeResult() 方法會根據目前的狀態傳回彙總結果。 這個方法是在時間範圍結束時呼叫 (TUMBLINGWINDOW、HOPPINGWINDOW、SLIDINGWINDOW 或 SESSIONWINDOW)。
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA 支援的輸入和輸出資料類型
 針對 JavaScript UDA 資料類型，請參閱[整合 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) 的**串流分析與 JavaScript 類型轉換**一節。
@@ -124,9 +124,9 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 現在，我們將依循步驟，在現有的 ASA 作業底下建立一個 JavaScript UDA。
 
 1. 登入 Azure 入口網站並找出您現有的「串流分析」作業。
-1. 然後按一下 [作業拓撲]  底下的函式連結。
-1. 按一下 [新增]  圖示來新增函式。
-1. 在 [新增函式] 檢視上，選取 [JavaScript UDA]  作為 [函式類型]，然後您就會在編輯器中看見預設的 UDA 範本。
+1. 然後按一下 [作業拓撲] 底下的函式連結。
+1. 按一下 [新增] 圖示來新增函式。
+1. 在 [新增函式] 檢視上，選取 [JavaScript UDA] 作為 [函式類型]，然後您就會在編輯器中看見預設的 UDA 範本。
 1. 填入 "TWA" 作為 UDA 別名，然後依下列方式變更函式實作：
 
     ```JavaScript

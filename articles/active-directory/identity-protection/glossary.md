@@ -2,29 +2,24 @@
 title: Azure Active Directory Identity Protection 詞彙 | Microsoft Docs
 description: Azure Active Directory Identity Protection 詞彙
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則, 詞彙
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6751fe74bfd9b8a07aec2263582d9f1a4bc0b2ac
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109010"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333977"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection 詞彙
+
 ### <a name="at-risk-user"></a>有風險 (使用者)
 具有一或多個作用中風險事件的使用者。 
 
@@ -35,7 +30,7 @@ ms.locfileid: "67109010"
 Azure Active Directory 的安全性模組，可供整合檢視會影響組織身分識別的風險事件和潛在弱點。
 
 ### <a name="conditional-access"></a>條件式存取
-用來保護資源存取的原則。 條件式存取規則儲存在 Azure Active Directory，並授與資源的存取權之前的 Azure AD 會評估。  範例規則包括根據使用者位置、裝置健康狀態或使用者驗證方法來限制存取。
+用來保護資源存取的原則。 條件式存取規則會儲存在 Azure Active Directory 中, 並在授與資源的存取權之前 Azure AD 評估。  範例規則包括根據使用者位置、裝置健康狀態或使用者驗證方法來限制存取。
 
 ### <a name="credentials"></a>認證
 包含識別碼以及用來取得存取本機和網路資源之識別證明的資訊。 認證範例包括使用者名稱和密碼、智慧卡和憑證。
@@ -94,7 +89,7 @@ Azure Active Directory 中的活動記錄。
 ### <a name="remediated-risk-event"></a>已補救 (風險事件)
 Identity Protection 自動設定的風險事件狀態，表示已使用此風險事件類型的標準補救動作來補救此風險事件。 例如，當使用者密碼重設時，會自動補救許多指出先前密碼已遭入侵的風險事件。
 
-### <a name="remediation"></a>補救
+### <a name="remediation"></a>修復
 用來保護先前疑似或已知遭到入侵的身分識別或裝置的動作。 補救動作可讓身分識別或裝置還原到安全的狀態，以及解決先前與身分識別或裝置相關聯的風險事件。
 
 ### <a name="resolved-risk-event"></a>已解決 (風險事件)
@@ -146,7 +141,7 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 請參閱風險層級 (登入)
 
 ### <a name="sign-in-risk-policy"></a>登入風險原則
-條件式存取原則可評估特定登入的風險，並套用緩和動作，根據預先定義的條件和規則。
+條件式存取原則, 可評估特定登入的風險, 並根據預先定義的條件和規則來套用緩和措施。
 
 ### <a name="user-compromise-risk"></a>使用者入侵風險
 請參閱風險層級 (使用者入侵)
@@ -155,14 +150,13 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 請參閱風險層級 (使用者入侵)。
 
 ### <a name="user-risk-policy"></a>使用者風險原則
-條件式存取原則，將視為登入，並套用緩和動作，根據預先定義的條件和規則。
+條件式存取原則, 可根據預先定義的條件和規則, 考慮登入並套用緩和措施。
 
-### <a name="users-flagged-for-risk"></a>標示有風險的使用者
+### <a name="users-flagged-for-risk"></a>標幟為有風險的使用者
 具有作用中或已補救風險事件的使用者
 
-### <a name="vulnerability"></a>弱點
+### <a name="vulnerability"></a>漏洞
 Azure Active Directory 中的組態或狀況，此組態或狀況會使目錄容易受到入侵或威脅的影響。
 
 ## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

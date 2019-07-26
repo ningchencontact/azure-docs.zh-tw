@@ -1,10 +1,10 @@
 ---
-title: 身分識別控管-Azure Active Directory |Microsoft Docs
-description: Azure Active Directory 身分識別管理可讓您正確的程序與可見性的安全性和員工生產力的貴組織的需求之間取得平衡。
+title: 身分識別治理-Azure Active Directory |Microsoft Docs
+description: Azure Active Directory Identity Governance 可讓您透過適當的程式和可見度, 平衡貴組織的安全性和員工生產力的需求。
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/29/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109583"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499668"
 ---
-# <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
+# <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD Identity Governance？
 
-Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與可見性的安全性和員工生產力的貴組織的需求之間取得平衡。 它可供您確保適當使用者具有適當資源的適當存取權，並它可讓您保護、監視和稽核重要資產的存取，同時確保員工生產力。  
+Azure Active Directory (Azure AD) 身分識別治理可讓您透過適當的程式和可見度, 平衡貴組織的安全性和員工生產力需求。 它可供您確保適當使用者具有適當資源的適當存取權，並它可讓您保護、監視和稽核重要資產的存取，同時確保員工生產力。  
 
-身分識別控管讓組織能夠跨員工、 商務夥伴和廠商，以及服務和應用程式中執行下列工作：
+身分識別治理可讓組織在員工、企業合作夥伴和廠商, 以及服務和應用程式之間執行下列工作:
 
 - 控管身分識別生命週期
 - 控管存取生命週期
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與�
 
 ## <a name="identity-lifecycle"></a>身分識別生命週期
 
-身分識別控管可協助組織達成之間取得平衡*產能*-速度的人都可以存取的資源所需，例如何時加入我的組織？ 與*安全性* - 其存取權應該如何隨著時間變更，例如由於該人員的雇用狀態變更？  身分識別生命週期管理是身分識別管理的基礎，並有效大規模的治理需要現代化的應用程式的身分識別生命週期管理基礎結構。
+身分識別控管可協助組織在產能之間取得平衡-個人可存取所需資源的速度, 例如何時加入我的組織？ 與*安全性* - 其存取權應該如何隨著時間變更，例如由於該人員的雇用狀態變更？  身分識別生命週期管理是身分識別治理的基礎, 而大規模的有效治理需要現代化應用程式的身分識別生命週期管理基礎結構。
 
 ![身分識別生命週期](./media/identity-governance-overview/identity-lifecycle.png)
 
@@ -60,30 +60,30 @@ Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與�
 
 組織可以透過[動態群組](../users-groups-roles/groups-dynamic-membership.md)這類技術，並結合使用者佈建至 [SaaS 應用程式](../saas-apps/tutorial-list.md)或[與 SCIM 整合的應用程式](../manage-apps/use-scim-to-provision-users-and-groups.md)來自動存取生命週期程序。  組織也可以控制哪些[來賓使用者能夠存取內部部署應用程式](../b2b/hybrid-cloud-to-on-premises.md)。  接著可以利用週期性 [Azure AD 存取權檢閱](access-reviews-overview.md)，定期檢閱這些存取權限。
 
-當使用者嘗試存取應用程式時，Azure AD 會強制[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含顯示[使用規定](../conditional-access/terms-of-use.md)並[確保使用者已經同意這些條款](../conditional-access/require-tou.md)才能夠存取應用程式。
+當使用者嘗試存取應用程式時, Azure AD 會強制執行[條件式存取](/azure/active-directory/conditional-access/)原則。 例如, 條件式存取原則可以包含顯示[使用](../conditional-access/terms-of-use.md)規定, 並確保使用者在能夠存取應用程式之前,[已同意這些條款](../conditional-access/require-tou.md)。
 
 ## <a name="privileged-access-lifecycle"></a>特殊權限的存取生命週期
 
-在過去，特殊權限的存取被描述其他廠商所提供做為個別的功能，從身分識別控管。 不過，在 Microsoft，我們認為管理特殊權限的存取是身分識別控管，尤其是考慮與這些組織可能會導致權限的系統管理員相關聯的誤用的可能性的重要部分。 具有系統管理權限的員工、廠商和約聘人員都需要加以控管。
+在過去, 其他廠商已將特殊許可權存取權提供給身分識別治理的個別功能。 不過, 在 Microsoft, 我們認為管理特殊許可權的存取是身分識別治理的重要部分, 特別是基於與系統管理員許可權相關聯的可能會造成組織的問題。 具有系統管理權限的員工、廠商和約聘人員都需要加以控管。
 
 ![特殊權限的存取生命週期](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制項，以保護 Azure AD、Azure 和其他 Microsoft Online Services 中資源的存取權限。  在 just-in-time 存取和角色變更警示由 Azure AD PIM，除了多重要素驗證和條件式存取的功能，請提供一組完整的治理控制項，可協助保護公司資源 （目錄中，Office 365 和 Azure 資源角色）。 如同其他形式的存取權，組織可以使用存取權檢閱，對具有系統管理員角色的所有使用者設定週期性存取權重新確認。
+Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制項，以保護 Azure AD、Azure 和其他 Microsoft Online Services 中資源的存取權限。  除了多重要素驗證和條件式存取以外, Azure AD PIM 所提供的即時存取權和角色變更警示功能, 還提供一組完整的治理控制項, 以協助保護貴公司的資源 (目錄、Office 365 和 Azure 資源角色)。 如同其他形式的存取權，組織可以使用存取權檢閱，對具有系統管理員角色的所有使用者設定週期性存取權重新確認。
 
 ## <a name="getting-started"></a>使用者入門
 
-雖然沒有完美的解決方案或每位客戶的建議，下列組態會提供 Microsoft 建議您的基準原則的遵循的指南，以確保更安全且更有生產力的工作力。
+雖然沒有適用于每個客戶的完美解決方案或建議, 但下列設定會提供 Microsoft 建議您遵循哪些基準原則的指南, 以確保更安全且更具生產力的工作力。
 
 - [身分識別與裝置存取設定](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [保護特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md)
 
-您也可以查看的 [入門] 索引標籤**身分識別控管**若要開始使用權利管理在 Azure 入口網站，存取權檢閱、 Privileged Identity Management 及使用規定。
+您也可以在 Azure 入口網站中查看身分**識別**控管的 [入門] 索引標籤, 開始使用 [權利管理]、[存取評論]、[Privileged Identity Management] 和 [使用規定]。
 
-![開始使用的身分識別控管](./media/identity-governance-overview/getting-started.png)
+![身分識別管理入門](./media/identity-governance-overview/getting-started.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [什麼是 Azure AD 權限管理？(預覽)](entitlement-management-overview.md)
+- [什麼是 Azure AD 權利管理？(預覽)](entitlement-management-overview.md)
 - [什麼是 Azure AD 存取權檢閱？](access-reviews-overview.md)
 - [什麼是 Azure AD Privileged Identity Management？](../privileged-identity-management/pim-configure.md)
 - [使用規定對我有何幫助？](active-directory-tou.md)

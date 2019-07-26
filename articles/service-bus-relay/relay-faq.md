@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277968"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422951"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
@@ -36,9 +36,9 @@ ms.locfileid: "68277968"
 [命名空間](relay-create-namespace-portal.md)是範圍容器，您可以用來在應用程式內定址轉送資源。 您必須建立命名空間，才能使用轉送。 這是開始使用的第一個步驟其中之一。
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>服務匯流排轉送服務發生什麼事？
-先前稱為「服務匯流排轉送」的服務現在稱為 [WCF 轉送](relay-wcf-dotnet-get-started.md)。 您可以繼續如常使用這項服務。 混合式連線功能是服務的更新版本，從 Azure BizTalk 服務移植。 會繼續支援「WCF 轉送」和「混合式連線」。
+先前稱為「服務匯流排轉送」的服務現在稱為 [WCF 轉送](service-bus-relay-tutorial.md)。 您可以繼續如常使用這項服務。 混合式連線功能是服務的更新版本，從 Azure BizTalk 服務移植。 會繼續支援「WCF 轉送」和「混合式連線」。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 本節提供轉送價格結構的一些常見問題解答。 如需一般的 Azure 定價資訊，也可以參閱 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。 如需轉送價格的完整資訊，請參閱 [服務匯流排價格詳細資料][Pricing overview]。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>混合式連接和 WCF 轉送如何收費？
@@ -86,7 +86,7 @@ ms.locfileid: "68277968"
 | 服務命名空間中所有轉送端點的並行轉送連線 |命名空間 |- |5,000 |
 | 每個服務命名空間的轉送端點 |命名空間 |- |10,000 |
 | [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) 和 [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 轉送的訊息大小 |命名空間 |超出這些配額的內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |64 KB |
-| [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 和 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 轉送的訊息大小 |命名空間 |訊息大小沒有限制。 |無限 |
+| [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 和 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 轉送的訊息大小 |命名空間 |訊息大小沒有限制。 |無限制 |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>轉送是否有任何使用量配額？
 根據預設，對於所有雲端服務，Microsoft 會設定針對所有客戶的訂用帳戶計算的彙總每月使用量配額。 我們了解有時候您的需求可能會超過這些限制。 您可以隨時連絡客戶服務部門，讓我們知道您的需求並適當地調整這些限制。 服務匯流排的彙總使用量配額如下：

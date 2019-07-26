@@ -1,19 +1,18 @@
 ---
 title: 使用 PowerShell 將 Windows Server 備份至 Azure
 description: 了解如何使用 PowerShell 部署和管理 Azure 備份
-services: backup
 author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: shivamg
-ms.openlocfilehash: f29acfc58c281622973f2f16ea36763a78751ed0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5533b52ab984510b0e860f7fdfded8ac9005e5a8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704919"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465246"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 
@@ -22,7 +21,7 @@ ms.locfileid: "67704919"
 ## <a name="install-azure-powershell"></a>安裝 Azure PowerShell
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要開始，[安裝最新版的 PowerShell](/powershell/azure/install-az-ps)。
+若要開始使用, 請[安裝最新的 PowerShell 版本](/powershell/azure/install-az-ps)。
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
 
@@ -40,7 +39,7 @@ ms.locfileid: "67704919"
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. 使用**新增 AzRecoveryServicesVault** cmdlet 來建立新的保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
+3. 使用**new-azrecoveryservicesvault** Cmdlet 來建立新的保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -60,9 +59,9 @@ ms.locfileid: "67704919"
 
 ## <a name="view-the-vaults-in-a-subscription"></a>在訂用帳戶中檢視保存庫
 
-使用**Get AzRecoveryServicesVault**來檢視目前的訂用帳戶中所有保存庫的清單。 您可以使用此命令來檢查是否已建立新的保存庫，或查看訂用帳戶中有哪些保存庫可用。
+使用**new-azrecoveryservicesvault**來查看目前訂用帳戶中所有保存庫的清單。 您可以使用此命令來檢查是否已建立新的保存庫，或查看訂用帳戶中有哪些保存庫可用。
 
-執行命令， **Get AzRecoveryServicesVault**，並會列出訂用帳戶中的所有保存庫。
+執行命令**new-azrecoveryservicesvault**, 並列出訂用帳戶中的所有保存庫。
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -102,9 +101,9 @@ MARSAgentInstaller.exe /q
 
 這會以所有預設選項安裝代理程式。 安裝作業會在背景中進行幾分鐘。 如果您沒有指定 */nu* 選項，則安裝結束時會開啟 **Windows Update** 視窗以檢查是否有任何更新。 安裝之後，代理程式會顯示在已安裝的程式清單中。
 
-若要查看已安裝的程式清單，請移至 [控制台]   > [程式]   > [程式和功能]  。
+若要查看已安裝的程式清單，請移至 [控制台] > [程式] > [程式和功能]。
 
-![已安裝代理程式](./media/backup-client-automation/installed-agent-listing.png)
+![安裝的代理程式](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>安裝選項
 
@@ -200,7 +199,7 @@ Server properties updated successfully.
 
 傳送至 Azure 備份的備份資料會進行加密來保護資料的機密性。 加密複雜密碼是在還原時用來解密資料的「密碼」。
 
-您必須產生安全性 pin 碼，方法是選取**產生**下方**設定** > **屬性** > **的安全性pin碼**中**復原服務保存庫**Azure 入口網站區段。 然後，請以此作為`generatedPIN`命令中：
+您必須在 Azure 入口網站的 [復原**服務保存庫**] 區段的 [**設定** > ] [**屬性** > ] [**安全性 pin** ] 底下, 選取 [**產生**] 來產生安全性 pin 碼。 然後, `generatedPIN`在命令中使用此:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -391,9 +390,9 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>在 MABS 代理程式備份 Windows Server 系統狀態
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>在 MABS 代理程式中備份 Windows Server 系統狀態
 
-此章節將涵蓋用於設定 MABS 代理程式中的 系統狀態的 PowerShell 命令
+本節涵蓋在 MABS agent 中設定系統狀態的 PowerShell 命令
 
 ### <a name="schedule"></a>排程
 ```powershell
@@ -406,7 +405,7 @@ $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Fri
 $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
 ```
 
-### <a name="configuring-schedule-and-retention"></a>設定排程和保留
+### <a name="configuring-schedule-and-retention"></a>設定排程和保留期
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy

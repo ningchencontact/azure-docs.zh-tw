@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123394"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422883"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 本教學課程描述如何建置簡單的 Azure 轉送主機應用程式來公開 REST 架構介面。 REST 可讓 Web 用戶端 (例如 Web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。
@@ -55,15 +55,15 @@ WCF 合約與 REST 樣式合約之間的主要差異在於，為 [OperationContr
 
 ### <a name="to-create-a-contract-with-an-interface"></a>使用介面建立合約
 
-1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始]  功能表中的程式，然後按一下 [以系統管理員身分執行]  。
-2. 這會建立新的主控台應用程式專案。 按一下 [檔案]  功能表，再依序選取 [新增]  及 [專案]  。 在 [新增專案]  對話方塊中，按一下 [Visual C#]  ，選取 [主控台應用程式]  範本，並將它命名為 **ImageListener**。 使用預設 [位置]  。 按一下 [確定]  以建立專案。
+1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後按一下 [以系統管理員身分執行]。
+2. 這會建立新的主控台應用程式專案。 按一下 [檔案] 功能表，再依序選取 [新增] 及 [專案]。 在 [新增專案] 對話方塊中，按一下 [Visual C#]，選取 [主控台應用程式] 範本，並將它命名為 **ImageListener**。 使用預設 [位置]。 按一下 [確定]  以建立專案。
 3. 若為 C# 專案，Visual Studio 會建立 `Program.cs` 檔案。 這個類別包含空的 `Main()` 方法，即正確建置主控台應用程式專案所需的方法。
-4. 安裝服務匯流排 NuGet 封裝，以將服務匯流排和 **System.ServiceModel.dll** 的參考新增至專案。 此封裝會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 在 [方案總管] 中，以滑鼠右鍵按一下 **ImageListener** 專案，然後按一下 [管理 NuGet 封裝]  。 按一下 [瀏覽]  索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝]  並接受使用條款。
+4. 安裝服務匯流排 NuGet 封裝，以將服務匯流排和 **System.ServiceModel.dll** 的參考新增至專案。 此封裝會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 在 [方案總管] 中，以滑鼠右鍵按一下 **ImageListener** 專案，然後按一下 [管理 NuGet 封裝]。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
 5. 您必須明確地將 **System.ServiceModel.dll** 的參考新增至專案：
    
-    a. 在 [方案總管] 中，以滑鼠右鍵按一下專案資料夾下的**參考**資料夾，然後按一下 [加入參考]  。
+    a. 在 [方案總管] 中，以滑鼠右鍵按一下專案資料夾下的**參考**資料夾，然後按一下 [加入參考]。
    
-    b. 在 [新增參考]  對話方塊中，按一下左側的 [架構]  索引標籤，然後在 [搜尋]  方塊中輸入 **System.ServiceModel.Web**。 選取 [System.ServiceModel.Web]  核取方塊，然後按一下 [確定]  。
+    b. 在 [新增參考] 對話方塊中，按一下左側的 [架構] 索引標籤，然後在 [搜尋] 方塊中輸入 **System.ServiceModel.Web**。 選取 [System.ServiceModel.Web] 核取方塊，然後按一下 [確定]。
 6. 在 Program.cs 檔案開頭處新增下列 `using` 陳述式。
    
     ```csharp
@@ -116,7 +116,7 @@ WCF 合約與 REST 樣式合約之間的主要差異在於，為 [OperationContr
     ```
     
     通道是 WCF 物件，服務和用戶端可透過它彼此傳遞資訊。 稍後，會在主機應用程式中建立通道。 Azure 轉送接著會使用此通道，將 HTTP GET 要求從瀏覽器傳遞至您的 **GetImage** 實作。 轉送也會使用通道來取得 **GetImage** 傳回值，並轉譯成用戶端瀏覽器的 HTTP GETRESPONSE。
-12. 從 [建置]  功能表中，按一下 [建置方案]  以確認您的工作到目前為止是否正確無誤。
+12. 從 [建置] 功能表中，按一下 [建置方案] 以確認您的工作到目前為止是否正確無誤。
 
 ### <a name="example"></a>範例
 下列程式碼示範定義 WCF 轉送合約的基本介面。
@@ -178,10 +178,10 @@ namespace Microsoft.ServiceBus.Samples
     如先前所述，此命名空間不是傳統的命名空間。 相反地，它是識別合約的 WCF 架構的一部分。 如需詳細資訊，請參閱 WCF 文件中的[資料合約名稱](https://msdn.microsoft.com/library/ms731045.aspx)文章。
 3. 將 .jpg 映像加入至您的專案。  
    
-    這是此服務在接收瀏覽器中顯示的圖片。 以滑鼠右鍵按一下您的專案，然後按一下 [加入]  。 然後按一下 [現有項目]  。 使用 [加入現有項目]  對話方塊瀏覽至適當的 .jpg，然後按一下 [加入]  。
+    這是此服務在接收瀏覽器中顯示的圖片。 以滑鼠右鍵按一下您的專案，然後按一下 [加入]。 然後按一下 [現有項目]。 使用 [加入現有項目] 對話方塊瀏覽至適當的 .jpg，然後按一下 [加入]。
    
-    加入檔案時，確定在 [檔案名稱:]  欄位旁的下拉式清單中選取 [所有檔案]  。 本教學課程的其餘部分假設映像的名稱為 "image.jpg"。 如果您有不同的檔案，您必須重新命名映像，或變更您的程式碼來彌補。
-4. 為確定執行中的服務能夠找到此影像檔，請在 [方案總管]  中以滑鼠右鍵按一下該影像檔，然後按一下 [屬性]  。 在 [屬性]  窗格中，將 [複製到輸出目錄]  設為 [有更新時才複製]  。
+    加入檔案時，確定在 [檔案名稱:] 欄位旁的下拉式清單中選取 [所有檔案]。 本教學課程的其餘部分假設映像的名稱為 "image.jpg"。 如果您有不同的檔案，您必須重新命名映像，或變更您的程式碼來彌補。
+4. 為確定執行中的服務能夠找到此影像檔，請在 [方案總管] 中以滑鼠右鍵按一下該影像檔，然後按一下 [屬性]。 在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [有更新時才複製]。
 5. 將 **System.Drawing.dll** 組件的參考新增至專案，並新增下列關聯的 `using` 陳述式。  
    
     ```csharp
@@ -221,10 +221,10 @@ namespace Microsoft.ServiceBus.Samples
     ```
    
     這個實作會使用 **MemoryStream** 來擷取映像，並備妥它以串流至瀏覽器。 它會從零起算串流位置，將串流內容宣告為 jpeg，並且串流資訊。
-8. 從 [建置]  功能表中，按一下 [建置方案]  。
+8. 從 [建置] 功能表中，按一下 [建置方案]。
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>為服務匯流排上執行的 Web 服務定義組態
-1. 在 [方案總管]  中按兩下 **App.config**，以在 Visual Studio 編輯器中開啟它。
+1. 在 [方案總管] 中按兩下 **App.config**，以在 Visual Studio 編輯器中開啟它。
    
     **App.config** 檔案包含服務名稱、端點 (也就是 Azure 轉送公開的位置，讓用戶端與主機能夠彼此通訊) 和繫結 (用於通訊的通訊協定類型)。 此處的主要差異是設定的服務端點會參考 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 繫結。
 2. `<system.serviceModel>` XML 元素是定義一或多個服務的 WCF 元素。 在這裡，它用來定義服務名稱和端點。 在 `<system.serviceModel>` 元素底部 (但仍在 `<system.serviceModel>` 內)，新增具有以下內容的 `<bindings>` 元素。 這會定義應用程式中使用的繫結。 您可以定義多個繫結，但在本教學課程中您只會定義一個。
@@ -259,7 +259,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
    
     這個步驟會設定服務，該服務會使用先前定義的預設 **webHttpRelayBinding**。 它也會使用在下一個步驟中定義的預設 **sbTokenProvider**。
-4. 在 `<services>` 元素後，建立具有下列內容的 `<behaviors>` 元素，以您先前從 [Azure 入口網站][Azure portal]所取得的「共用存取簽章」  (SAS) 金鑰來取代 "SAS_KEY"。
+4. 在 `<services>` 元素後，建立具有下列內容的 `<behaviors>` 元素，以您先前從 [Azure 入口網站][Azure portal]所取得的「共用存取簽章」(SAS) 金鑰來取代 "SAS_KEY"。
    
     ```xml
     <behaviors>
@@ -288,7 +288,7 @@ namespace Microsoft.ServiceBus.Samples
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY"/>
     </appSettings>
     ```
-6. 從 [建置]  功能表中，按一下 [建置方案]  以建置整個方案。
+6. 從 [建置] 功能表中，按一下 [建置方案] 以建置整個方案。
 
 ### <a name="example"></a>範例
 下列程式碼會顯示使用 **WebHttpRelayBinding** 繫結，正在服務匯流排上執行之 REST 架構服務的合約和服務實作。
@@ -578,6 +578,6 @@ namespace Microsoft.ServiceBus.Samples
 既然您已經建置了使用 Azure 轉送服務的應用程式，請參閱下列文章以進一步了解：
 
 * [Azure 轉送概觀](relay-what-is-it.md)
-* [如何使用 WCF 轉送服務搭配 .NET](relay-wcf-dotnet-get-started.md)
+* [如何使用 WCF 轉送服務搭配 .NET](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

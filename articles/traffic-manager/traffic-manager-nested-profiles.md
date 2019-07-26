@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 3c5459d0474ecd45501e634c4777fa178386183c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071145"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333784"
 ---
 # <a name="nested-traffic-manager-profiles"></a>巢狀流量管理員設定檔
 
@@ -28,7 +28,7 @@ ms.locfileid: "67071145"
 
 下列範例說明如何在各種情況中使用巢狀流量管理員設定檔。
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>範例 1：結合「效能」和「加權」流量路由
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>範例 1:結合「效能」和「加權」流量路由
 
 假設您將應用程式部署在下列 Azure 區域︰美國西部、西歐及東亞。 您使用流量管理員的「效能」流量路由方法，將流量分配給最靠近使用者的區域。
 
@@ -94,6 +94,20 @@ ms.locfileid: "67071145"
 流量管理員設定檔中的監視設定會套用至單一設定檔中的所有端點。 在巢狀設定檔中，您針對每個網站使用不同的子設定檔來定義不同的監視設定。
 
 ![搭配每個設定的流量管理員端點監視][10]
+
+## <a name="faqs"></a>常見問題集
+
+* [如何? 設定嵌套設定檔嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+
+* [流量管理員支援多少個嵌套層級？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [我可以在相同的流量管理員設定檔中, 混用其他端點類型與嵌套的子設定檔嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [計費模式如何適用于嵌套的設定檔？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [是否會對嵌套的設定檔產生效能影響？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+
+* [流量管理員如何計算父設定檔中之嵌套端點的健全狀況？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>後續步驟
 

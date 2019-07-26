@@ -1,7 +1,6 @@
 ---
 title: Azure 備份：使用 REST API 來還原 Azure VM
 description: 使用 REST API 管理 Azure VM 備份的還原作業
-services: backup
 author: pvrk
 manager: shivamg
 keywords: REST API; Azure VM 備份; Azure VM 還原;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b2e7994fa52e8fcbbd4fa32a6203181ad9735e5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646640"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466757"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>使用 REST API 還原 Azure 虛擬機器
 
@@ -25,7 +24,7 @@ ms.locfileid: "60646640"
 
 ## <a name="select-recovery-point"></a>選取復原點
 
-使用[列出復原點 REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list)，可以列出備份項目可用的復原點。 這是一項具備所有相關值的簡單 GET  作業。
+使用[列出復原點 REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list)，可以列出備份項目可用的復原點。 這是一項具備所有相關值的簡單 GET 作業。
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2016-12-01
@@ -33,17 +32,17 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 `{containerName}` 和 `{protectedItemName}` 的建構方式在[這裡](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)。 `{fabricName}` 是 "Azure"。
 
-GET  URI 具備所有必要參數。 不需要額外的要求內文
+GET URI 具備所有必要參數。 不需要額外的要求內文
 
 ### <a name="responses"></a>Responses
 
-|名稱  |type  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |200 確定     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       [確定]  |
 
 #### <a name="example-response"></a>範例回應
 
-一旦提交 GET  URI，就會傳回 200 (確定) 回應。
+一旦提交 GET URI，就會傳回 200 (確定) 回應。
 
 ```http
 HTTP/1.1 200 OK
@@ -137,7 +136,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 若要觸發從 Azure VM 備份還原磁碟，以下是要求本文的元件。
 
-|名稱  |type  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -165,19 +164,19 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 }
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 還原磁碟的觸發為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |type  |描述  |
+|名稱  |Type  |描述  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
 #### <a name="example-responses"></a>範例回應
 
-一旦提交 POST  URI 以供觸發還原磁碟，初始回應為 202 (已接受) 以及位置標頭或 Azure-async-header。
+一旦提交 POST URI 以供觸發還原磁碟，初始回應為 202 (已接受) 以及位置標頭或 Azure-async-header。
 
 ```http
 HTTP/1.1 202 Accepted
@@ -197,7 +196,7 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET  命令，追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01

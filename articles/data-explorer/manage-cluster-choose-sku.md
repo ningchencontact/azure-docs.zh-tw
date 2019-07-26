@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 0239111ca56dfe431a00eee83c79eedccc66c927
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226139"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383811"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>為您的 Azure 資料總管叢集選取正確的 VM SKU 
 
@@ -39,11 +39,11 @@ Azure 資料總管提供兩種類型的叢集:
 
 建立 Azure 資料總管叢集時, 請為規劃的工作負載選取*最佳*的 VM SKU。 Azure 資料總管有兩個 SKU 系列可供選擇:
 
-* **D_V2**:**D** SKU 的計算優化, 並提供兩種方式。
+* **D_V2**:D SKU 的計算優化, 並提供兩種方式。
     * VM 本身
     * 與 premium 儲存體磁片配套的 VM
 
-* **LS**:**L** SKU 是儲存體優化的。 其 SSD 大小遠高於類似定價的**D** SKU。
+* **LS**:L SKU 是儲存體優化的。 其 SSD 大小遠高於類似定價的**D** SKU。
 
 下表提供可用 SKU 類型之間的主要差異:
  

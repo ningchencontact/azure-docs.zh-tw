@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310270"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335804"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -438,7 +438,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 流量管理員可讓您在對您端點起始的 HTTP(S) 健康狀態檢查中指定自訂標頭。 如果您想要指定自訂標頭，則可以在設定檔層級 (適用於所有端點) 或在端點層級指定。 如果在兩個層級定義標頭，則在端點層級指定的標頭將會覆寫設定檔層級標頭。
 此狀況的一個常見使用案例是指定主機標頭，以將流量管理員要求正確地路由至裝載於多租用戶環境的端點。 另一種使用案例是識別來自端點 HTTP(S) 要求記錄的流量管理員要求
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>端點健全狀況檢查使用哪一個主機標頭？
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>端點健全狀況檢查使用哪一個主機標頭？
 
 如果未提供自訂主機標頭設定，則流量管理員所使用主機標頭即為設定檔中所設定端點目標的 DNS 名稱 (如果可用)。
 
@@ -502,7 +502,7 @@ Azure Resource Manager 需要所有資源群組指定位置，這會決定部署
 | CheckingEndpoints。 至少有一個子設定檔端點是 'CheckingEndpoint'。 沒有端點是「線上」或「已降級」。 |同上。 | |
 | 非使用中。 所有子設定檔端點不是「已停用」就是「已停止」，或者此設定檔沒有任何端點 |已停止 | |
 
-## <a name="next-steps"></a>後續步驟：
+## <a name="next-steps"></a>後續步驟:
 
 - 深入了解「流量管理員」的 [端點監視和自動容錯移轉](../traffic-manager/traffic-manager-monitoring.md)。
 - 深入了解「流量管理員」的 [流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。

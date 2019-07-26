@@ -1,10 +1,10 @@
 ---
-title: 管理與存取權檢閱-Azure Active Directory 的使用者存取權 |Microsoft Docs
+title: 使用存取權審查來管理使用者存取-Azure Active Directory |Microsoft Docs
 description: 了解如何透過 Azure Active Directory 存取權檢閱，以群組成員資格或指派給應用程式的方式管理使用者存取權
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 06/21/2018
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d873f1dace3e3be6a8767e77d57db5ac554afd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70b6d925772548e6703b57c265ebacf6b7f3f4c9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473815"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499647"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理使用者存取權
 
@@ -34,7 +34,7 @@ ms.locfileid: "66473815"
 
 - Azure AD Premium P2
 
-如需詳細資訊，請參閱 <<c0> [ 哪些使用者必須有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
+如需詳細資訊, 請參閱[哪些使用者必須擁有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
 
 ## <a name="create-and-perform-an-access-review"></a>建立和執行存取權檢閱
 
@@ -44,20 +44,20 @@ ms.locfileid: "66473815"
 
 2. 決定是否要讓每個使用者檢閱自己的存取權，或讓一個或多個使用者檢閱每個人的存取權。
 
-3. 身為全域管理員或使用者系統管理員，請移至[身分識別控管頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+3. 身為全域管理員或使用者系統管理員, 請移至身分[識別管理頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
-4. 建立存取權檢閱。 如需詳細資訊，請參閱 <<c0> [ 建立群組或應用程式的存取權檢閱](create-access-review.md)。
+4. 建立存取權檢閱。 如需詳細資訊, 請參閱[建立群組或應用程式的存取權審查](create-access-review.md)。
 
-5. 存取權檢閱開始時，要求檢閱者提供輸入。 根據預設，他們都收到一封電子郵件從連結的 Azure AD 存取面板中，其中它們[檢閱存取權的群組或應用程式](perform-access-review.md)。
+5. 存取權檢閱開始時，要求檢閱者提供輸入。 根據預設, 它們各自會收到 Azure AD 的電子郵件, 其中包含存取面板的連結, 他們會在其中[審查群組或應用程式的存取權](perform-access-review.md)。
 
 6. 如果檢閱者有沒有指定的輸入，則您可以要求 Azure AD 將提醒傳送給他們。 依預設，Azure AD 會在結束日期過半時自動將提醒傳送給尚未回應的檢閱者。
 
-7. 在檢閱者提供輸入後，停止存取權檢閱並套用變更。 如需詳細資訊，請參閱 <<c0> [ 完成群組或應用程式的存取權檢閱](complete-access-review.md)。
+7. 在檢閱者提供輸入後，停止存取權檢閱並套用變更。 如需詳細資訊, 請參閱[完成群組或應用程式的存取權審查](complete-access-review.md)。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立群組或應用程式的存取權檢閱](create-access-review.md)
+[建立群組或應用程式的存取權審查](create-access-review.md)
 
 
 

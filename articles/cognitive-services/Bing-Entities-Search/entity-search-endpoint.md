@@ -1,6 +1,6 @@
 ---
 title: Bing 實體搜尋 API 端點
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解 Bing 實體搜尋 API 端點並對其傳送要求。
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 43bca65810d09c87f7f473b3bbac71ca6a7f9bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d08091d0ea6869d13e294e60454f85a84f672ad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389003"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424048"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Bing 實體搜尋 API 端點
 
@@ -35,6 +35,6 @@ Bing 實體搜尋 API 有一個端點，該端點會根據查詢從 Web 傳回�
 > [!div class="nextstepaction"]
 > [什麼是 Bing 實體搜尋 API？](overview.md)
 
-## <a name="see-also"></a>請參閱 
+## <a name="see-also"></a>另請參閱 
 
 如需標頭、參數、市場代碼、回應物件、錯誤等項目的詳細資訊，請參閱 [Bing 實體搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 參考文章。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 9a42028891f0a8677127221c8ed4cff73a22103a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508968"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498543"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
 本文討論的原則運算式語法是 C# 7。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -74,168 +74,168 @@ ms.locfileid: "67508968"
 ## <a name="CLRTypes"></a>原則運算式中允許的 .NET Framework 類型
 下表列出原則運算式中允許的 .NET Framework 類型和其成員。
 
-|類型|支援的成員|
+|Type|支援的成員|
 |--------------|-----------------------|
-|Newtonsoft.Json.Formatting|全部|
-|Newtonsoft.Json.JsonConvert|SerializeObject DeserializeObject|
-|Newtonsoft.Json.Linq.Extensions|全部|
-|Newtonsoft.Json.Linq.JArray|全部|
-|Newtonsoft.Json.Linq.JConstructor|全部|
-|Newtonsoft.Json.Linq.JContainer|全部|
-|Newtonsoft.Json.Linq.JObject|全部|
-|Newtonsoft.Json.Linq.JProperty|全部|
-|Newtonsoft.Json.Linq.JRaw|全部|
-|Newtonsoft.Json.Linq.JToken|全部|
-|Newtonsoft.Json.Linq.JTokenType|全部|
-|Newtonsoft.Json.Linq.JValue|全部|
-|System.Array|全部|
-|System.BitConverter|全部|
-|System.Boolean|全部|
-|System.Byte|全部|
-|System.Char|全部|
-|System.Collections.Generic.Dictionary<TKey, TValue>|全部|
-|System.Collections.Generic.HashSet\<T>|全部|
-|System.Collections.Generic.ICollection\<T>|全部|
-|System.Collections.Generic.IDictionary<TKey, TValue>|全部|
-|System.Collections.Generic.IEnumerable\<T>|全部|
-|System.Collections.Generic.IEnumerator\<T>|全部|
-|System.Collections.Generic.IList\<T>|全部|
-|System.Collections.Generic.IReadOnlyCollection\<T>|全部|
-|System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|全部|
-|System.Collections.Generic.ISet\<T>|全部|
-|System.Collections.Generic.KeyValuePair<TKey, TValue>|全部|
-|System.Collections.Generic.List\<T>|全部|
-|System.Collections.Generic.Queue\<T>|全部|
-|System.Collections.Generic.Stack\<T>|全部|
-|System.Convert|全部|
-|System.DateTime|（建構函式），AddDays、 AddHours、 AddMilliseconds、 AddMinutes、 AddMonths、 AddSeconds、 AddTicks、 AddYears、 日期、 天、 DayOfWeek、 DayOfYear、 DaysInMonth、 小時、 IsDaylightSavingTime、 IsLeapYear、 MaxValue、 毫秒、 分鐘、 MinValue、 月、 立即加入剖析，第二，減去，刻度、 TimeOfDay、 今天、 ToString，UtcNow、 年|
+|Newtonsoft.Json.Formatting|所有|
+|Newtonsoft.Json.JsonConvert|SerializeObject、DeserializeObject|
+|Newtonsoft.Json.Linq.Extensions|所有|
+|Newtonsoft.Json.Linq.JArray|所有|
+|Newtonsoft.Json.Linq.JConstructor|所有|
+|Newtonsoft.Json.Linq.JContainer|所有|
+|Newtonsoft.Json.Linq.JObject|所有|
+|Newtonsoft.Json.Linq.JProperty|所有|
+|Newtonsoft.Json.Linq.JRaw|所有|
+|Newtonsoft.Json.Linq.JToken|所有|
+|Newtonsoft.Json.Linq.JTokenType|所有|
+|Newtonsoft.Json.Linq.JValue|所有|
+|System.Array|所有|
+|System.BitConverter|所有|
+|System.Boolean|所有|
+|System.Byte|所有|
+|System.Char|所有|
+|System.Collections.Generic.Dictionary<TKey, TValue>|所有|
+|System.Collections.Generic.HashSet\<T>|所有|
+|System.Collections.Generic.ICollection\<T>|所有|
+|System.Collections.Generic.IDictionary<TKey, TValue>|所有|
+|System.Collections.Generic.IEnumerable\<T>|所有|
+|System.Collections.Generic.IEnumerator\<T>|所有|
+|System.Collections.Generic.IList\<T>|所有|
+|System.Collections.Generic.IReadOnlyCollection\<T>|所有|
+|..Ireadonlydictionary<string < TKey, TValue >|所有|
+|System.Collections.Generic.ISet\<T>|所有|
+|System.Collections.Generic.KeyValuePair<TKey, TValue>|所有|
+|System.Collections.Generic.List\<T>|所有|
+|System.Collections.Generic.Queue\<T>|所有|
+|System.Collections.Generic.Stack\<T>|所有|
+|System.Convert|所有|
+|System.DateTime|(函式)、Add、AddDays、Time.addhours、AddMilliseconds、AddMinutes、AddMonths、AddSeconds、AddTicks、AddYears、Date、Day、DayOfWeek、DayOfYear、DaysInMonth、Hour、IsDaylightSavingTime、IsLeapYear、int32.maxvalue、毫秒、Minute、MinValue、Month、Now、Parse、Second、減法、刻度、TimeOfDay、Today、ToString、UtcNow、Year|
 |System.DateTimeKind|Utc|
-|System.DateTimeOffset|全部|
-|System.Decimal|全部|
-|System.Double|全部|
-|System.Exception|全部|
-|System.Guid|全部|
-|System.Int16|全部|
-|System.Int32|全部|
-|System.Int64|全部|
-|System.IO.StringReader|全部|
-|System.IO.StringWriter|全部|
-|System.Linq.Enumerable|全部|
-|System.Math|全部|
-|System.MidpointRounding|全部|
-|System.Net.WebUtility|全部|
-|System.Nullable|全部|
-|System.Random|全部|
-|System.SByte|全部|
-|System.Security.Cryptography.AsymmetricAlgorithm|全部|
-|System.Security.Cryptography.CipherMode|全部|
-|System.Security.Cryptography.HashAlgorithm|全部|
-|System.Security.Cryptography.HashAlgorithmName|全部|
-|System.Security.Cryptography.HMAC|全部|
-|System.Security.Cryptography.HMACMD5|全部|
-|System.Security.Cryptography.HMACSHA1|全部|
-|System.Security.Cryptography.HMACSHA256|全部|
-|System.Security.Cryptography.HMACSHA384|全部|
-|System.Security.Cryptography.HMACSHA512|全部|
-|System.Security.Cryptography.KeyedHashAlgorithm|全部|
-|System.Security.Cryptography.MD5|全部|
-|System.Security.Cryptography.Oid|全部|
-|System.Security.Cryptography.PaddingMode|全部|
-|System.Security.Cryptography.RNGCryptoServiceProvider|全部|
-|System.Security.Cryptography.RSA|全部|
-|System.Security.Cryptography.RSAEncryptionPadding|全部|
-|System.Security.Cryptography.RSASignaturePadding|全部|
-|System.Security.Cryptography.SHA1|全部|
-|System.Security.Cryptography.SHA1Managed|全部|
-|System.Security.Cryptography.SHA256|全部|
-|System.Security.Cryptography.SHA256Managed|全部|
-|System.Security.Cryptography.SHA384|全部|
-|System.Security.Cryptography.SHA384Managed|全部|
-|System.Security.Cryptography.SHA512|全部|
-|System.Security.Cryptography.SHA512Managed|全部|
-|System.Security.Cryptography.SymmetricAlgorithm|全部|
-|System.Security.Cryptography.X509Certificates.PublicKey|全部|
-|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|全部|
+|System.DateTimeOffset|所有|
+|System.Decimal|所有|
+|System.Double|所有|
+|System.Exception|所有|
+|System.Guid|所有|
+|System.Int16|所有|
+|System.Int32|所有|
+|System.Int64|所有|
+|System.IO.StringReader|所有|
+|System.IO.StringWriter|所有|
+|System.Linq.Enumerable|所有|
+|System.Math|所有|
+|System.MidpointRounding|所有|
+|System.Net.WebUtility|所有|
+|System.Nullable|所有|
+|System.Random|所有|
+|System.SByte|所有|
+|System.Security.Cryptography.AsymmetricAlgorithm|所有|
+|System.Security.Cryptography.CipherMode|所有|
+|System.Security.Cryptography.HashAlgorithm|所有|
+|System.Security.Cryptography.HashAlgorithmName|所有|
+|System.Security.Cryptography.HMAC|所有|
+|System.Security.Cryptography.HMACMD5|所有|
+|System.Security.Cryptography.HMACSHA1|所有|
+|System.Security.Cryptography.HMACSHA256|所有|
+|System.Security.Cryptography.HMACSHA384|所有|
+|System.Security.Cryptography.HMACSHA512|所有|
+|System.Security.Cryptography.KeyedHashAlgorithm|所有|
+|System.Security.Cryptography.MD5|所有|
+|System.Security.Cryptography.Oid|所有|
+|System.Security.Cryptography.PaddingMode|所有|
+|System.Security.Cryptography.RNGCryptoServiceProvider|所有|
+|System.Security.Cryptography.RSA|所有|
+|System.Security.Cryptography.RSAEncryptionPadding|所有|
+|System.Security.Cryptography.RSASignaturePadding|所有|
+|System.Security.Cryptography.SHA1|所有|
+|System.Security.Cryptography.SHA1Managed|所有|
+|System.Security.Cryptography.SHA256|所有|
+|System.Security.Cryptography.SHA256Managed|所有|
+|System.Security.Cryptography.SHA384|所有|
+|System.Security.Cryptography.SHA384Managed|所有|
+|System.Security.Cryptography.SHA512|所有|
+|System.Security.Cryptography.SHA512Managed|所有|
+|System.Security.Cryptography.SymmetricAlgorithm|所有|
+|System.Security.Cryptography.X509Certificates.PublicKey|所有|
+|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|所有|
 |System.Security.Cryptography.X509Certificates.X500DistinguishedName|名稱|
-|System.Security.Cryptography.X509Certificates.X509Certificate|全部|
-|System.Security.Cryptography.X509Certificates.X509Certificate2|全部|
-|System.Security.Cryptography.X509Certificates.X509ContentType|全部|
-|System.Security.Cryptography.X509Certificates.X509NameType|全部|
-|System.Single|全部|
-|System.String|全部|
-|System.StringComparer|全部|
-|System.StringComparison|全部|
-|System.StringSplitOptions|全部|
-|System.Text.Encoding|全部|
+|System.Security.Cryptography.X509Certificates.X509Certificate|所有|
+|System.Security.Cryptography.X509Certificates.X509Certificate2|所有|
+|System.Security.Cryptography.X509Certificates.X509ContentType|所有|
+|System.Security.Cryptography.X509Certificates.X509NameType|所有|
+|System.Single|所有|
+|System.String|所有|
+|System.StringComparer|所有|
+|System.StringComparison|所有|
+|System.StringSplitOptions|所有|
+|System.Text.Encoding|所有|
 |System.Text.RegularExpressions.Capture|索引、長度、值|
 |System.Text.RegularExpressions.CaptureCollection|計數、項目|
 |System.Text.RegularExpressions.Group|擷取、成功|
 |System.Text.RegularExpressions.GroupCollection|計數、項目|
 |System.Text.RegularExpressions.Match|空白、群組、結果|
-|System.Text.RegularExpressions.Regex|（建構函式）、 IsMatch、 Match、 Matches、 取代、 不要逸出，分割|
-|System.Text.RegularExpressions.RegexOptions|全部|
-|System.Text.StringBuilder|全部|
-|System.TimeSpan|全部|
-|System.TimeZone|全部|
-|System.TimeZoneInfo.AdjustmentRule|全部|
-|System.TimeZoneInfo.TransitionTime|全部|
-|System.TimeZoneInfo|全部|
-|System.Tuple|全部|
-|System.UInt16|全部|
-|System.UInt32|全部|
-|System.UInt64|全部|
-|System.Uri|全部|
-|System.UriPartial|全部|
-|System.Xml.Linq.Extensions|全部|
-|System.Xml.Linq.XAttribute|全部|
-|System.Xml.Linq.XCData|全部|
-|System.Xml.Linq.XComment|全部|
-|System.Xml.Linq.XContainer|全部|
-|System.Xml.Linq.XDeclaration|全部|
-|System.Xml.Linq.XDocument|您的所有項目，除非：載入|
-|System.Xml.Linq.XDocumentType|全部|
-|System.Xml.Linq.XElement|全部|
-|System.Xml.Linq.XName|全部|
-|System.Xml.Linq.XNamespace|全部|
-|System.Xml.Linq.XNode|全部|
-|System.Xml.Linq.XNodeDocumentOrderComparer|全部|
-|System.Xml.Linq.XNodeEqualityComparer|全部|
-|System.Xml.Linq.XObject|全部|
-|System.Xml.Linq.XProcessingInstruction|全部|
-|System.Xml.Linq.XText|全部|
-|System.Xml.XmlNodeType|全部|
+|System.Text.RegularExpressions.Regex|(函式)、IsMatch、比對、Match、Replace、Unescape、Split|
+|System.Text.RegularExpressions.RegexOptions|所有|
+|System.Text.StringBuilder|所有|
+|System.TimeSpan|所有|
+|System.TimeZone|所有|
+|System.TimeZoneInfo.AdjustmentRule|所有|
+|System.TimeZoneInfo.TransitionTime|所有|
+|System.TimeZoneInfo|所有|
+|System.Tuple|所有|
+|System.UInt16|所有|
+|System.UInt32|所有|
+|System.UInt64|所有|
+|System.Uri|所有|
+|System.UriPartial|所有|
+|System.Xml.Linq.Extensions|所有|
+|System.Xml.Linq.XAttribute|所有|
+|System.Xml.Linq.XCData|所有|
+|System.Xml.Linq.XComment|所有|
+|System.Xml.Linq.XContainer|所有|
+|System.Xml.Linq.XDeclaration|所有|
+|System.Xml.Linq.XDocument|全部, 除了:載入|
+|System.Xml.Linq.XDocumentType|所有|
+|System.Xml.Linq.XElement|所有|
+|System.Xml.Linq.XName|所有|
+|System.Xml.Linq.XNamespace|所有|
+|System.Xml.Linq.XNode|所有|
+|System.Xml.Linq.XNodeDocumentOrderComparer|所有|
+|System.Xml.Linq.XNodeEqualityComparer|所有|
+|System.Xml.Linq.XObject|所有|
+|System.Xml.Linq.XProcessingInstruction|所有|
+|System.Xml.Linq.XText|所有|
+|System.Xml.XmlNodeType|所有|
 
 ## <a name="ContextVariables"></a>內容變數
 名為 `context` 的變數可在每個原則[運算式](api-management-policy-expressions.md#Syntax)中隱含地使用。 其成員會提供與 `\request` 相關的資訊。 所有 `context` 成員都是唯讀的。
 
 |內容變數|允許的方法、屬性和參數值|
 |----------------------|-------------------------------------------------------|
-|context|[Api](#ref-context-api):[IApi](#ref-iapi)<br /><br /> [部署](#ref-context-deployment)<br /><br /> Elapsed：TimeSpan - 時間戳記值與目前時間之間的時間間隔<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [作業](#ref-context-operation)<br /><br /> [產品](#ref-context-product)<br /><br /> [要求](#ref-context-request)<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> [回應](#ref-context-response)<br /><br /> [訂用帳戶](#ref-context-subscription)<br /><br /> Timestamp：日期時間 - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> [使用者](#ref-context-user)<br /><br /> [變數](#ref-context-variables)：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|
+|context|[Api](#ref-context-api):[IApi](#ref-iapi)<br /><br /> [部署](#ref-context-deployment)<br /><br /> Elapsed：TimeSpan - 時間戳記值與目前時間之間的時間間隔<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [作業](#ref-context-operation)<br /><br /> [產品](#ref-context-product)<br /><br /> [要求](#ref-context-request)<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> [回應](#ref-context-response)<br /><br /> [訂用帳戶](#ref-context-subscription)<br /><br /> 時間戳記:日期時間 - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> [使用者](#ref-context-user)<br /><br /> [變數](#ref-context-variables)：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|
 |<a id="ref-context-api"></a>context.Api|識別碼︰字串<br /><br /> IsCurrentRevision: bool<br /><br />  名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 修訂：字串<br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> 版本：字串 |
 |<a id="ref-context-deployment"></a>context.Deployment|區域︰字串<br /><br /> ServiceName︰字串<br /><br /> Certificates：IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> 路徑︰字串<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|
 |<a id="ref-context-operation"></a>context.Operation|識別碼︰字串<br /><br /> 方法︰字串<br /><br /> 名稱︰字串<br /><br /> UrlTemplate︰字串|
-|<a id="ref-context-product"></a>context.Product|Apis：IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired：bool<br /><br /> Groups：IEnumerable <[Ienumerable<igroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 狀態︰列舉 ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
-|<a id="ref-context-request"></a>context.Request|主體：[IMessageBody](#ref-imessagebody)或`null`如果要求沒有主體。<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [標頭](#ref-context-request-headers):IReadOnlyDictionary<string, string[]><br /><br /> IpAddress︰字串<br /><br /> MatchedParameters︰IReadOnlyDictionary<string, string[]><br /><br /> 方法︰字串<br /><br /> OriginalUrl:[IUrl](#ref-iurl)<br /><br /> URL：[IUrl](#ref-iurl)|
-|<a id="ref-context-request-headers"></a>字串內容。Request.Headers.GetValueOrDefault (headerName︰ 字串、 defaultValue︰ 字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
-|<a id="ref-context-response"></a>context.Response|主體：[IMessageBody](#ref-imessagebody)<br /><br /> [標頭](#ref-context-response-headers):IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
-|<a id="ref-context-response-headers"></a>字串內容。Response.Headers.GetValueOrDefault (headerName︰ 字串、 defaultValue︰ 字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的回應標頭值或 `defaultValue`。|
+|<a id="ref-context-product"></a>context.Product|Apis：IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired：bool<br /><br /> 群組:IEnumerable <[IGroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 狀態︰列舉 ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
+|<a id="ref-context-request"></a>context.Request|本文:[IMessageBody](#ref-imessagebody)或`null` if 要求沒有主體。<br /><br /> 憑證:System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [標頭](#ref-context-request-headers):IReadOnlyDictionary<string, string[]><br /><br /> IpAddress︰字串<br /><br /> MatchedParameters︰IReadOnlyDictionary<string, string[]><br /><br /> 方法︰字串<br /><br /> OriginalUrl:[IUrl](#ref-iurl)<br /><br /> URL:[IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>字串內容。CoNtext.variables.getvalueordefault<t (headerName: string, defaultValue: string)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
+|<a id="ref-context-response"></a>context.Response|本文:[IMessageBody](#ref-imessagebody)<br /><br /> [標頭](#ref-context-response-headers):IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
+|<a id="ref-context-response-headers"></a>字串內容。CoNtext.variables.getvalueordefault<t (headerName: string, defaultValue: string)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的回應標頭值或 `defaultValue`。|
 |<a id="ref-context-subscription"></a>context.Subscription|CreatedTime：DateTime<br /><br /> EndDate：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 索引鍵︰字串<br /><br /> 名稱︰字串<br /><br /> PrimaryKey︰字串<br /><br /> SecondaryKey︰字串<br /><br /> StartDate：DateTime?|
-|<a id="ref-context-user"></a>context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> Groups：IEnumerable <[Ienumerable<igroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable <[Ienumerable<iuseridentity](#ref-iuseridentity)\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：DateTime|
+|<a id="ref-context-user"></a>context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> 群組:IEnumerable <[IGroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：DateTime|
 |<a id="ref-iapi"></a>IApi|識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 通訊協定：IEnumerable<string\><br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> subscriptionKeyParameterNames：[ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
-|<a id="ref-igroup"></a>Ienumerable<igroup|識別碼︰字串<br /><br /> 名稱︰字串|
-|<a id="ref-imessagebody"></a>IMessageBody|作為 < T\>(preserveContent: bool = false)：其中 T：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法是用來讀取指定類型 `T` 的要求和回應訊息主體。 根據預設，該方法會使用原始訊息本文資料流，並使它在傳回後無法使用。 若要避免那種情況，並讓方法在本文資料流的複本上進行操作，請將 `preserveContent` 參數設定為 `true`。 請移至[這裡](api-management-transformation-policies.md#SetBody)來查看範例。|
-|<a id="ref-iurl"></a>IUrl|主機︰字串<br /><br /> 路徑︰字串<br /><br /> 連接埠︰int<br /><br /> [查詢](#ref-iurl-query)：IReadOnlyDictionary<string, string[]><br /><br /> QueryString︰字串<br /><br /> 配置︰字串|
+|<a id="ref-igroup"></a>IGroup|識別碼︰字串<br /><br /> 名稱︰字串|
+|<a id="ref-imessagebody"></a>IMessageBody|作為 < T\>(preserveContent: bool = false)：其中 T: string、byte []、JObject、JToken、JArray、System.xml.linq.xnode>、System.xml.linq.xelement>、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法是用來讀取指定類型 `T` 的要求和回應訊息主體。 根據預設，該方法會使用原始訊息本文資料流，並使它在傳回後無法使用。 若要避免那種情況，並讓方法在本文資料流的複本上進行操作，請將 `preserveContent` 參數設定為 `true`。 請移至[這裡](api-management-transformation-policies.md#SetBody)來查看範例。|
+|<a id="ref-iurl"></a>Iurl.query.getvalueordefault|主機︰字串<br /><br /> 路徑︰字串<br /><br /> 連接埠︰int<br /><br /> [查詢](#ref-iurl-query)：IReadOnlyDictionary<string, string[]><br /><br /> QueryString︰字串<br /><br /> 配置︰字串|
 |<a id="ref-iuseridentity"></a>IUserIdentity|識別碼︰字串<br /><br /> 提供者︰字串|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|標頭︰字串<br /><br /> 查詢︰字串|
-|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到參數，則傳回以逗號分隔的查詢參數值或 `defaultValue`。|
-|<a id="ref-context-variables"></a>T 的內容。Variables.GetValueOrDefault < T\>(variableName︰ 字串、 defaultValue:T)|variableName︰字串<br /><br /> defaultValue：T<br /><br /> 如果找不到變數，則傳回轉換為 `T` 或 `defaultValue` 的變數值。<br /><br /> 如果指定的類型不符合所傳回變數的實際類型，此方法便會擲回例外狀況。|
+|<a id="ref-iurl-query"></a>字串 Iurl.query.getvalueordefault。 CoNtext.variables.getvalueordefault<t (queryParameterName: string, defaultValue: string)|queryParameterName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到參數，則傳回以逗號分隔的查詢參數值或 `defaultValue`。|
+|<a id="ref-context-variables"></a>T 內容。CoNtext.variables.getvalueordefault<t < T\>(variableName: string, defaultValue:T)|variableName︰字串<br /><br /> defaultValue：T<br /><br /> 如果找不到變數，則傳回轉換為 `T` 或 `defaultValue` 的變數值。<br /><br /> 如果指定的類型不符合所傳回變數的實際類型，此方法便會擲回例外狀況。|
 |BasicAuthCredentials AsBasic(輸入：此字串)|輸入︰字串<br /><br /> 如果輸入參數包含有效的 HTTP 基本驗證授權要求標頭值，則方法會傳回類型為 `BasicAuthCredentials` 的物件；否則方法會傳回 null。|
 |bool TryParseBasic(輸入：此字串、結果：out BasicAuthCredentials)|輸入︰字串<br /><br /> 結果︰out BasicAuthCredentials<br /><br /> 如果輸入參數包含要求標頭中的有效 HTTP 基本驗證授權值，則方法會傳回 `true`，且結果參數包含類型為 `BasicAuthCredentials` 的值；否則方法會傳回 `false`。|
 |BasicAuthCredentials|密碼︰字串<br /><br /> UserId︰字串|
 |Jwt AsJwt(輸入：此字串)|輸入︰字串<br /><br /> 如果輸入參數包含有效的 JWT 權杖值，則方法會傳回類型為 `Jwt` 的物件；否則方法會傳回 `null`。|
 |bool TryParseJwt(輸入：此字串、結果：out Jwt)|輸入︰字串<br /><br /> 結果：out Jwt<br /><br /> 如果輸入參數包含有效的 JWT 權杖值，則方法會傳回 `true`，且結果參數包含類型為 `Jwt` 的值；否則方法會傳回 `false`。|
-|Jwt|演算法︰字串<br /><br /> Audience：IEnumerable<string\><br /><br /> Claims：IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 簽發者︰字串<br /><br /> IssuedAt:DateTime?<br /><br /> NotBefore：DateTime?<br /><br /> 主旨︰字串<br /><br /> 類型：字串|
+|Jwt|演算法︰字串<br /><br /> Audience：IEnumerable<string\><br /><br /> Claims：IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 簽發者︰字串<br /><br /> IssuedAtDateTime?<br /><br /> NotBefore：DateTime?<br /><br /> 主旨︰字串<br /><br /> 類型：字串|
 |string Jwt.Claims.GetValueOrDefault(claimName：字串、defaultValue：字串)|claimName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的宣告值或 `defaultValue`。|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|輸入 - 要加密的純文字<br /><br />alg - 對稱加密演算法的名稱<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回加密的純文字。|
 |byte[] Encrypt(input: this byte[], alg︰System.Security.Cryptography.SymmetricAlgorithm)|輸入 - 要加密的純文字<br /><br />alg - 加密演算法<br /><br />傳回加密的純文字。|
@@ -243,7 +243,7 @@ ms.locfileid: "67508968"
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|輸入 - 要解密的 Cypher 文字<br /><br />alg - 對稱加密演算法的名稱<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回純文字。|
 |byte[] Decrypt(input: this byte[], alg︰System.Security.Cryptography.SymmetricAlgorithm)|輸入 - 要解密的 Cypher 文字<br /><br />alg - 加密演算法<br /><br />傳回純文字。|
 |byte[] Decrypt(input: this byte[], alg︰System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|輸入 - 要解密的 Cypher 文字<br /><br />alg - 加密演算法<br /><br />金鑰 - 加密金鑰<br /><br />iv - 初始化向量<br /><br />傳回純文字。|
-|bool VerifyNoRevocation (輸入： 此 System.Security.Cryptography.X509Certificates.X509Certificate2)|您可以執行 X.509 鏈結驗證而不檢查憑證撤銷狀態。<br /><br />輸入-憑證物件<br /><br />傳回`true`如果驗證成功;`false`若驗證失敗。|
+|bool VerifyNoRevocation (輸入: 此 System.security.cryptography.x509certificates.x509certificate2. X509Certificate2)|執行 x.509 鏈驗證, 而不檢查憑證撤銷狀態。<br /><br />輸入憑證物件<br /><br />`true`如果驗證成功, 則傳回;`false`如果驗證失敗, 則為。|
 
 
 ## <a name="next-steps"></a>後續步驟

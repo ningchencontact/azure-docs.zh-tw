@@ -3,23 +3,17 @@ title: 處理雲端服務生命週期事件 | Microsoft Docs
 description: 了解如何在 .NET 中使用雲端服務角色的生命週期方法
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60406409"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358980"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>在 .NET 中自訂 Web 或背景工作角色的生命週期
 當您建立背景工作角色時，擴充可為您提供覆寫方法並讓您回應生命週期事件的 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 類別。 若是 Web 角色，此類別是選擇性的，因此您必須使用它來回應生命週期事件。
@@ -39,7 +33,7 @@ ms.locfileid: "60406409"
 如果您的角色無法啟動，或在初始化、忙碌和停止狀態之間循環，每次角色重新啟動時，您的程式碼可能會在其中一個生命週期事件內擲回未處理的例外狀況。 在此情況下，使用 [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) 事件判斷造成此例外狀況的原因，並適當地處理。 您的角色可能也會從 [Run](/previous-versions/azure/reference/ee772746(v=azure.100)) 方法傳回，而導致該角色重新啟動。 如需有關部署狀態的詳細資訊，請參閱 [導致角色循環的常見問題](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)。
 
 > [!NOTE]
-> 如果您使用 **Azure Tools for Microsoft Visual Studio** 開發您的應用程式，角色專案範本會在 WebRole.cs  及 WorkerRole.cs  檔案中，自動為您擴充 **RoleEntryPoint** 類別。
+> 如果您使用 **Azure Tools for Microsoft Visual Studio** 開發您的應用程式，角色專案範本會在 WebRole.cs 及 WorkerRole.cs 檔案中，自動為您擴充 **RoleEntryPoint** 類別。
 > 
 > 
 

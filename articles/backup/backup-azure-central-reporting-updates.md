@@ -1,19 +1,18 @@
 ---
 title: 更新 Azure 備份集中報告內容套件
 description: 有關 Power BI 中 Azure 備份內容套件更新的資訊
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 984f87a514aa55fc18a92c6912145bc65cf21f4c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641872"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466593"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>更新 Azure 備份集中報告內容套件 
 
@@ -28,7 +27,7 @@ ms.locfileid: "60641872"
 最佳做法是將內容套件匯入到[自訂工作區](https://youtu.be/26zyOtyHPJM?t=1m57s)。 您現在已可編輯報告。
 如先前所述，如果內容套件變更，您就會在 Power BI 中看到通知。 您可以選擇在稍後取得此內容套件。 
 
-## <a name="coming-soon"></a>敬請期待
+## <a name="coming-soon"></a>即將推出
    
 Azure Backup 內容套件會更新以支援更多工作負載。 工作負載包括適用於 IaaS VM 備份和 System Center Data Protection Manager 的 Azure SQL Database。 此支援強化了目前的 Azure 備份和 Azure VM 備份支援。 此支援意謂著您可以在一個集中的位置檢視和分析所有備份資料。 [您也可以自訂報告](https://youtu.be/26zyOtyHPJM)以符合貴組織的需求。
 
@@ -38,17 +37,17 @@ Azure Backup 內容套件會更新以支援更多工作負載。 工作負載包
    
 ![總結](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
-### <a name="billing"></a>計費
+### <a name="billing"></a>帳務
 
-![計費](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
+![帳務](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
-### <a name="compliance"></a>法規遵循
+### <a name="compliance"></a>合規性
 
-![法規遵循](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
+![合規性](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
-### <a name="storage"></a>儲存體
+### <a name="storage"></a>存放區
 
-![儲存體](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
+![存放區](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>備份項目
 ![備份項目](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
@@ -57,9 +56,9 @@ Azure Backup 內容套件會更新以支援更多工作負載。 工作負載包
 
 ![警示](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
-### <a name="jobs"></a>工作
+### <a name="jobs"></a>工作 (Job)
 
-![工作](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
+![工作 (Job)](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>後續步驟

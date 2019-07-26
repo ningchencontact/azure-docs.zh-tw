@@ -1,6 +1,6 @@
 ---
 title: Azure 服務的安全性屬性
-description: 用來評估 Azure Service Fabric 的常見安全性屬性檢查清單
+description: 評估 Azure 服務的安全性屬性檢查清單
 services: security
 documentationcenter: ''
 author: msmbaldwin
@@ -9,18 +9,27 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d45e28175412b574432adb59cf700568c9a7fb39
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0010273d41769c57144fdde63e47c528f313a228
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304258"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443357"
 ---
 # <a name="security-attributes-for-azure-services"></a>Azure 服務的安全性屬性
 
-本文會收集所選 Azure 服務的常見安全性屬性。 
+本文會收集所選 Azure 服務的安全性屬性。 安全性屬性是 Azure 服務的品質或功能。 它有助於服務預防、偵測及回應安全性弱點的能力。
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+安全性屬性可分類為︰
+* 預防
+* 網路分割
+* 偵測
+* 支援身分識別和存取管理
+* 稽核線索
+* 存取控制 (如有使用)
+* 組態管理 (如有使用)
+
+在每個類別中, 我們會顯示「是」或「否」, 以指出是否使用屬性。 針對某些服務, 我們會針對不適用的屬性顯示 "N/A"。 我們也可以提供附注或有關屬性詳細資訊的連結。
 
 ## <a name="api-managementapi-managementapi-management-security-attributesmd"></a>[API 管理](../api-management/api-management-security-attributes.md)
 
@@ -75,7 +84,7 @@ ms.locfileid: "68304258"
 
 本節記載常見的弱點, 這不會影響 Azure API 管理。
 
-| 弱點               | 描述                                                                                                                                                                                                                                                                                                               |
+| 漏洞               | 描述                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed 是在某些 F5 產品中找到的 TLS SessionTicket 擴充功能的弱點。 它允許從未初始化的記憶體中, 最多31個位元組的資料洩漏 (「不規則」)。 這是由 TLS 堆疊填補從用戶端傳遞的會話識別碼所造成, 其資料會使其32位長。 |
 
@@ -234,7 +243,7 @@ ms.locfileid: "68304258"
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 待用加密 (例如伺服器端加密、使用客戶管理金鑰的伺服器端加密, 以及其他加密功能) | 是 | 預設會加密所有 Cosmos DB 資料庫和備份;請參閱[Azure Cosmos DB 中的資料加密](../cosmos-db/database-encryption-at-rest.md)。 不支援使用客戶管理的金鑰進行伺服器端加密。 |
-| 傳輸中的加密 (例如 ExpressRoute 加密、Vnet 加密中和 VNet VNet 加密)| 是 | 所有 Azure Cosmos DB 資料都會在傳輸時加密。 |
+| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | 所有 Azure Cosmos DB 資料都會在傳輸時加密。 |
 | 加密金鑰處理 (CMK、BYOK 等)| 否 |  |
 | 資料行層級加密 (Azure 資料服務)| 是 | 僅適用于資料表 API Premium。 並非所有 Api 都支援這項功能。 請[參閱 Azure Cosmos DB 簡介:資料表 API](../cosmos-db/table-introduction.md)。 |
 | API 呼叫加密| 是 | Azure Cosmos DB 的所有連接都支援 HTTPS。 Azure Cosmos DB 也支援 TLS 1.2 連線, 但尚未強制執行。 如果客戶在其端關閉了較低層級的 TLS, 則可以確保連線到 Cosmos DB。  |
@@ -244,9 +253,9 @@ ms.locfileid: "68304258"
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 服務端點支援| 是 |  |
-| vNET 插入支援| 是 | 使用 VNet 服務端點, 您可以設定 Azure Cosmos DB 帳戶, 只允許從虛擬網路 (VNet) 的特定子網進行存取。 您也可以結合 VNet 存取與防火牆規則。  請參閱[從虛擬網路存取 Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md)。 |
+| VNet 插入支援| 是 | 使用 VNet 服務端點, 您可以設定 Azure Cosmos DB 帳戶, 只允許從虛擬網路 (VNet) 的特定子網進行存取。 您也可以結合 VNet 存取與防火牆規則。  請參閱[從虛擬網路存取 Azure Cosmos DB](../cosmos-db/VNet-service-endpoint.md)。 |
 | 網路隔離和防火牆支援| 是 | 有了防火牆支援, 您可以設定 Azure Cosmos 帳戶, 只允許來自一組已核准的 IP 位址、IP 位址和/或雲端服務的某個範圍的存取權。 請參閱[在 Azure Cosmos DB 中設定 IP 防火牆](../cosmos-db/how-to-configure-firewall.md)。|
-| 支援強制通道 | 是 | 可以在虛擬機器所在的 VNET 上, 于用戶端設定。   |
+| 強制通道支援| 是 | 可以在虛擬機器所在的 VNet 上, 于用戶端設定。   |
 
 ### <a name="detection"></a>偵測
 
@@ -265,8 +274,8 @@ ms.locfileid: "68304258"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| 控制/管理計劃記錄和稽核| 是 | 適用于帳戶層級作業 (例如防火牆、Vnet、金鑰存取和 IAM) 的 Azure 活動記錄。 |
-| 資料平面記錄和稽核 | 是 | 容器層級作業的診斷監視記錄, 例如建立容器、布建輸送量、編制索引原則, 以及檔上的 CRUD 作業。 |
+| 控制和管理平面記錄和審核| 是 | 適用于帳戶層級作業 (例如防火牆、Vnet、金鑰存取和 IAM) 的 Azure 活動記錄。 |
+| 資料平面記錄和審核 | 是 | 容器層級作業的診斷監視記錄, 例如建立容器、布建輸送量、編制索引原則, 以及檔上的 CRUD 作業。 |
 
 ### <a name="configuration-management"></a>設定管理
 
@@ -298,7 +307,7 @@ ms.locfileid: "68304258"
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 服務端點支援| 是 |  |
-| vNET 插入支援| 否 | |
+| VNet 插入支援| 否 | |
 | 網路隔離和防火牆支援| 是 |  |
 | 強制通道支援| 否 |  |
 
@@ -347,7 +356,7 @@ ms.locfileid: "68304258"
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 服務端點支援| N/A |  |
-| vNET 插入支援| N/A | |
+| VNet 插入支援| N/A | |
 | 網路隔離和防火牆支援| 是 | 每個客戶都包含在自己的路由網域中, 並通道傳送至自己的 VNet |
 | 強制通道支援| N/A | Via 邊界閘道協定 (BGP)。 |
 
@@ -730,7 +739,7 @@ SQL Database 包括[單一資料庫](../sql-database/sql-database-single-index.y
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
 | 待用加密 (例如伺服器端加密、使用客戶管理金鑰的伺服器端加密, 以及其他加密功能) | 是 | 瞭解[如何在 Azure 中將 Linux 虛擬機器加密](/azure/virtual-machines/linux/encrypt-disks), 以及如何[加密 Windows VM 上的虛擬磁片](/azure/virtual-machines/windows/encrypt-disks)。 |
-| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | Azure 虛擬機器支援[ExpressRoute](/azure/expressroute)和 VNET 加密。 請參閱[Vm 中的傳輸中加密](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。 |
+| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | Azure 虛擬機器支援[ExpressRoute](/azure/expressroute)和 VNet 加密。 請參閱[Vm 中的傳輸中加密](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。 |
 | 加密金鑰處理 (CMK、BYOK 等)| 是 | 客戶管理的金鑰是支援的 Azure 加密案例;請參閱[Azure 加密總覽](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)。|
 | 資料行層級加密 (Azure 資料服務)| N/A | |
 | API 呼叫加密| 是 | 透過 HTTPS 和 SSL。 |

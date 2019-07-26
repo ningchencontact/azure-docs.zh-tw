@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311660"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335850"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>執行 Databricks Notebook 來轉換資料
 
@@ -70,7 +70,7 @@ ms.locfileid: "60311660"
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 活動支援的程式庫
 
-在上述的 Databricks 活動定義中，您可指定以下的程式庫類型：jar  、egg  、maven  、pypi  、cran  。
+在上述的 Databricks 活動定義中, 您可以指定下列程式庫類型: *jar*、*蛋狀物*、 *.whl*、 *maven*、 *pypi*、 *cran*。
 
 ```json
 {
@@ -80,6 +80,12 @@ ms.locfileid: "60311660"
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {
@@ -112,7 +118,7 @@ ms.locfileid: "60311660"
 
 若要取得利用 UI 新增之程式庫的 dbfs 路徑，您可以使用 [Databricks CLI (安裝)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli) \(英文\)。 
 
-使用 UI 時，Jar 程式庫通常會儲存在 dbfs: FileStore/jar。 您可以透過 CLI 來列出所有 Jar 程式庫：databricks fs ls dbfs:/FileStore/jars  。
+使用 UI 時，Jar 程式庫通常會儲存在 dbfs: FileStore/jar。 您可以透過 CLI 來列出所有 Jar 程式庫：databricks fs ls dbfs:/FileStore/jars。
 
 
 

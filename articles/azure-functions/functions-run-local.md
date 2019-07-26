@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cee91de9e0a5d75be258705f636248a6a6213664
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448371"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444056"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -25,14 +25,14 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
-開發您的本機電腦上的函式，然後發佈到 Azure 中使用的 Core Tools 會遵循下列基本步驟：
+在您的本機電腦上開發函式, 並使用核心工具將其發佈至 Azure 時, 會遵循下列基本步驟:
 
 > [!div class="checklist"]
-> * [安裝 Core Tools 和相依性。](#v2)
-> * [從語言特定的範本建立的函式應用程式專案。](#create-a-local-functions-project)
-> * [註冊觸發程序和繫結延伸模組。](#register-extensions)
+> * [安裝核心工具和相依性。](#v2)
+> * [從語言特定的範本建立函數應用程式專案。](#create-a-local-functions-project)
+> * [註冊觸發程式和系結延伸模組。](#register-extensions)
 > * [定義儲存體和其他連接。](#local-settings-file)
-> * [建立函式，從觸發程序和特定語言的範本。](#create-func)
+> * [從觸發程式和語言特定的範本建立函式。](#create-func)
 > * [在本機執行函式](#start)
 > * [將專案發佈至 Azure](#publish)
 
@@ -55,7 +55,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 
 
 > [!IMPORTANT]
-> 您可以略過安裝.NET Core 2.x SDK，利用[延伸模組套件組合]。
+> 您可以使用[延伸]模組套件, 略過安裝 .net CORE 2.x SDK 的需求。
 
 #### <a name="windows-npm"></a>Windows
 
@@ -69,9 +69,9 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     npm install -g azure-functions-core-tools
     ```
 
-   可能需要幾分鐘的時間來下載並安裝 Core Tools 套件的 npm。
+   可能需要幾分鐘的時間, npm 才能下載並安裝 Core Tools 套件。
 
-1. 如果您不打算使用[延伸模組套件組合]，安裝[.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows)。
+1. 如果您不打算使用[延伸]模組配套, 請安裝[適用于 Windows 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)。
 
 #### <a name="brew"></a>採用 Homebrew 的 MacOS
 
@@ -86,7 +86,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     brew install azure-functions-core-tools
     ```
 
-1. 如果您不打算使用[延伸模組套件組合]，安裝[.NET Core 2.x SDK 適用於 macOS](https://www.microsoft.com/net/download/macos)。
+1. 如果您不打算使用[延伸]模組配套, 請安裝[適用于 MacOS 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)。
 
 
 #### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
@@ -120,7 +120,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. 如果您不打算使用[延伸模組套件組合]，安裝[.NET Core 2.x SDK 適用於 Linux](https://www.microsoft.com/net/download/linux)。
+1. 如果您不打算使用[延伸]模組配套, 請安裝[適用于 Linux 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)。
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
@@ -181,7 +181,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-當沒有有效的儲存體連接字串設定為[ `AzureWebJobsStorage` ]與模擬器不在使用中，會顯示下列錯誤訊息：
+若未針對[`AzureWebJobsStorage`]設定有效的儲存體連接字串, 且未使用模擬器, 則會顯示下列錯誤訊息:
 
 > 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings \<functionAppName\>'，或指定 local.settings.json 中的連接字串。
 
@@ -342,7 +342,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 
 #### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
 
-對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試]  索引標籤。
+對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。
 
 您可以呼叫下列系統管理員端點來觸發非 HTTP 函式：
 
@@ -367,7 +367,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 >[!IMPORTANT]
 > 工具的版本 2.x 不支援 `func run` 命令。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段版本目標](set-runtime-version.md)主題。
 
-您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試]  索引標籤執行函式。
+您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試] 索引標籤執行函式。
 
 `func run` 支援下列選項：
 
@@ -387,27 +387,27 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>發佈至 Azure
 
-Azure Functions Core Tools 支援兩種部署類型： 函式專案檔將直接部署給您的函式應用程式，透過[Zip Deploy](functions-deployment-technologies.md#zip-deploy)並[部署自訂的 Docker 容器](functions-deployment-technologies.md#docker-container)。 您必須已經[在您的 Azure 訂用帳戶中建立函數應用程式](functions-cli-samples.md#create)，您會部署您的程式碼。 應建置需要編譯的專案，以便部署二進位檔。
+此 Azure Functions Core Tools 支援兩種部署類型: 透過[Zip 部署](functions-deployment-technologies.md#zip-deploy)和[部署自訂 Docker 容器](functions-deployment-technologies.md#docker-container), 將函式專案檔直接部署至函式應用程式。 您必須已[在 Azure 訂用帳戶中建立函式應用程式](functions-cli-samples.md#create), 您將在其中部署您的程式碼。 應建置需要編譯的專案，以便部署二進位檔。
 
-### <a name="project-file-deployment"></a>部署 （專案檔）
+### <a name="project-file-deployment"></a>部署 (專案檔)
 
-若要將您本機的程式碼發行至在 Azure 中的函式應用程式中，使用`publish`命令：
+若要將您的本機程式碼發佈至 Azure 中的函數`publish`應用程式, 請使用命令:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-此命令會發行至 Azure 中的現有函式應用程式。 您會收到錯誤，如果您嘗試發行至`<FunctionAppName>`不存在於您的訂用帳戶。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。 根據預設，此命令可讓您的應用程式中執行[執行從封裝](run-functions-from-deployment-package.md)模式。
+此命令會發行至 Azure 中的現有函式應用程式。 如果您嘗試發行至`<FunctionAppName>`不存在於訂用帳戶中的, 將會收到錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。 根據預設, 此命令會將您的應用程式部署為[從部署套件執行](run-functions-from-deployment-package.md)。 若要停用這個建議的部署模式`--nozip` , 請使用選項。
 
 >[!IMPORTANT]
 > 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。
 > 若函式應用程式具有現有的函式，您就無法變更其執行階段版本。
 
-版本、 1.x 和 2.x，套用下列的發行選項：
+下列發行選項適用于1.x 和2.x 版:
 
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，先將應用程式設定變更為[實際的儲存體連線](#get-your-storage-connection-strings)。 |
+| **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器, 請先將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 在使用 `--publish-local-settings -i` 時隱藏覆寫應用程式設定的提示。|
 
 下列發佈選項僅在 2.x 版中受到支援：
@@ -425,9 +425,9 @@ func azure functionapp publish <FunctionAppName>
 | **`--no-build`** | 略過建置 dotnet 函式的作業。 |
 | **`--dotnet-cli-params`** | 發佈已編譯的 C# (.csproj) 函式時，Core Tools 會呼叫 'dotnet build --output bin/publish'。 傳至此處的任何參數都會附加至命令列。 |
 
-### <a name="deployment-custom-container"></a>部署 （自訂容器）
+### <a name="deployment-custom-container"></a>部署 (自訂容器)
 
-Azure Functions 可讓您部署中的函式專案[自訂 Docker 容器](functions-deployment-technologies.md#docker-container)。 如需詳細資訊，請參閱[使用自訂映像在 Linux 上建立函式](functions-create-function-linux-custom-image.md)。 自訂容器必須具有 Dockerfile。 若要使用 Dockerfile 中建立應用程式，請使用-dockerfile 選項上`func init`。
+Azure Functions 可讓您在[自訂的 Docker 容器](functions-deployment-technologies.md#docker-container)中部署函數專案。 如需詳細資訊，請參閱[使用自訂映像在 Linux 上建立函式](functions-create-function-linux-custom-image.md)。 自訂容器必須具有 Dockerfile。 若要建立具有 Dockerfile 的應用程式, 請使用上`func init`的--Dockerfile 選項。
 
 ```bash
 func deploy
@@ -446,9 +446,7 @@ func deploy
 
 ## <a name="monitoring-functions"></a>監視函式
 
-監視您的函式執行的建議的方式是藉由使用 Azure Application Insights 整合。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
-
-若要為您的函式應用程式啟用 Application Insights：
+若要監視函式的執行, 建議的方法是與 Azure 應用程式 Insights 整合。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -465,4 +463,4 @@ Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://g
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[延伸模組套件組合]: functions-bindings-register.md#extension-bundles
+[延伸]: functions-bindings-register.md#extension-bundles

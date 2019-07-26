@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c301bb1eabf77184a292a84e2de750662a167ad
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276684"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488852"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
 
@@ -175,11 +175,11 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 ### <a name="constraints"></a>條件約束
 
-- AcquireTokenByIntegratedWindowsAuth (IWA) 僅適用于同盟  使用者, 也就是在 Active Directory 中建立並受到 Azure Active Directory 支援的使用者。 直接在 AAD 中建立的使用者, 沒有受 AD 支援**管理**的使用者-無法使用此驗證流程。 這項限制並不會影響使用者名稱/密碼的流程。
+- AcquireTokenByIntegratedWindowsAuth (IWA) 僅適用于同盟使用者, 也就是在 Active Directory 中建立並受到 Azure Active Directory 支援的使用者。 直接在 AAD 中建立的使用者, 沒有受 AD 支援**管理**的使用者-無法使用此驗證流程。 這項限制並不會影響使用者名稱/密碼的流程。
 - IWA 適用于針對 .NET Framework、.NET Core 和 UWP 平臺所撰寫的應用程式
 - IWA 不會略過 MFA (多重要素驗證)。 如果已設定 MFA, 則在需要 MFA 挑戰時, IWA 可能會失敗, 因為 MFA 需要使用者互動。
   > [!NOTE]
-  > 這一點很棘手。 IWA 非互動式, 但2FA 需要使用者互動。 您不會控制身分識別提供者要求執行2FA 的時間, 租使用者管理員會這麼做。 從我們的觀察中, 當您從不同國家/地區登入時, 若未透過 VPN 連線到公司網路, 有時甚至是透過 VPN 連線時, 就需要2FA。 不預期有一組具決定性的規則, Azure Active Directory 使用 AI 來持續學習是否需要2FA。 如果 IWA 失敗, 您應該回到使用者提示 (互動式驗證或裝置程式碼流程)。
+  > 這一點很棘手。 IWA 非互動式, 但 MFA 需要使用者互動。 您不會控制身分識別提供者要求執行 MFA 的時間, 租使用者管理員會這麼做。 從我們的觀察中, 當您從不同國家/地區登入時, 若未透過 VPN 連線到公司網路, 有時甚至是透過 VPN 連線時, 就需要使用 MFA。 不預期有一組具決定性的規則, Azure Active Directory 使用 AI 來持續瞭解是否需要 MFA。 如果 IWA 失敗, 您應該回到使用者提示 (互動式驗證或裝置程式碼流程)。
 
 - 傳入的`PublicClientApplicationBuilder`授權單位必須是:
   - 租使用者-ed (的形式`https://login.microsoftonline.com/{tenant}/` , `tenant`其中是代表租使用者識別碼的 guid 或與租使用者相關聯的網域。
@@ -650,7 +650,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET 會為您建立權杖快取, 並在`IToken`您呼叫應用程式的`UserTokenCache`和`AppTokenCache`屬性時, 為您提供快取。 您不應該自行執行介面。 當您實作自訂權杖快取序列化時，您的責任是：
+> MSAL.NET 會為您建立權杖快取，並且在您呼叫應用程式的 `UserTokenCache` 和 `AppTokenCache` 屬性時提供 `IToken` 快取。 您不應該自行執行介面。 當您實作自訂權杖快取序列化時，您的責任是：
 >
 > - 對`BeforeAccess`和`AfterAccess` 「事件」 (或*非同步*對應) 做出回應。 委派會負責還原序列化快取, `AfterAccess`而其中一個會負責序列化快取。`BeforeAccess`
 > - 其中有些事件會儲存或載入 Blob，其會透過事件引數傳遞到您想要的儲存體的。

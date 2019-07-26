@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 775e1abe1f3d6412171b8ff5427fd905e37480b5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240369"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489678"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL 資料庫
 
@@ -117,7 +117,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 1. 估計集區所需的 eDTU 或虛擬核心，如下所示：
 
-   對於以 DTU 為基礎的購買模型：最大值(<DB 總數  X 每個 DB 的平均 DTU 使用量  >，<br>  
+   對於以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>  
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
 
    對於以虛擬核心為基礎的購買模型：最大值(<*DB 總數* X *每個 DB 的平均 vCore 使用量*>，<br>  
@@ -156,15 +156,15 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 在 Azure 入口網站中建立彈性集區的方式有兩種。
 
-1. 您可以在 [Marketplace]  中搜尋 **SQL 彈性集區**，或按一下 [SQL 彈性集區] 瀏覽刀鋒視窗上的 [+新增]  ，以建立彈性集區。 您可以透過此集區佈建工作流程來指定新的或現有的伺服器。
-2. 或者，您可以瀏覽至現有 SQL 伺服器，然後按一下 [建立集區]  直接將集區建立至該伺服器，以建立彈性集區。 唯一的差別在於您略過在集區佈建工作流程期間指定伺服器的步驟。
+1. 您可以在 [Marketplace] 中搜尋 **SQL 彈性集區**，或按一下 [SQL 彈性集區] 瀏覽刀鋒視窗上的 [+新增]，以建立彈性集區。 您可以透過此集區佈建工作流程來指定新的或現有的伺服器。
+2. 或者，您可以瀏覽至現有 SQL 伺服器，然後按一下 [建立集區] 直接將集區建立至該伺服器，以建立彈性集區。 唯一的差別在於您略過在集區佈建工作流程期間指定伺服器的步驟。
 
 > [!NOTE]
 > 您可以在伺服器上建立多個集區，但無法將來自不同伺服器的資料庫新增到相同的集區。
 
 集區的服務層級決定了集區中彈性資料庫可用的功能，以及每個資料庫可用的資源數目上限。 如需詳細資訊，請參閱 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)中彈性集區的資源限制。 如需彈性集區以虛擬核心為基礎的資源限制，請參閱[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。
 
-若要設定集區的資源和定價，請按一下 [設定集區]  。 然後選取服務層級、將資料庫新增至集區，以及為集區及其資料庫設定資源限制。
+若要設定集區的資源和定價，請按一下 [設定集區]。 然後選取服務層級、將資料庫新增至集區，以及為集區及其資料庫設定資源限制。
 
 當您完成設定集區時，您可以按一下 [套用]，為集區命名，然後按一下 [確定] 以建立集區。
 
@@ -181,9 +181,9 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 ![集區檢視](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-如果您想要更多有關集區的資訊，您可以在此概觀中按一下任何可用資訊。 按一下 [資源使用量]  圖表，系統將會帶您前往 [Azure 監視] 檢視，您可以在那裡自訂圖表中顯示的計量和時間範圍。 按一下任何可用的通知，系統將會帶您前往一個刀鋒視窗，其中顯示該警示或建議的完整詳細資料。
+如果您想要更多有關集區的資訊，您可以在此概觀中按一下任何可用資訊。 按一下 [資源使用量] 圖表，系統將會帶您前往 [Azure 監視] 檢視，您可以在那裡自訂圖表中顯示的計量和時間範圍。 按一下任何可用的通知，系統將會帶您前往一個刀鋒視窗，其中顯示該警示或建議的完整詳細資料。
 
-如果您想要監視集區內的資料庫，您可以按一下左側資源功能表上 [監視]  區段中的 [資料庫資源使用量]  。
+如果您想要監視集區內的資料庫，您可以按一下左側資源功能表上 [監視] 區段中的 [資料庫資源使用量]。
 
 ![資料庫資源使用率頁面](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
@@ -191,11 +191,11 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 您可以編輯此圖表和 [計量] 頁面，以顯示其他計量，例如所用的 CPU 百分比、資料 IO 百分比和記錄 IO 百分比。
 
-在 [編輯圖表]  表單上，您可以選取固定時間範圍，或按一下 [自訂]  以選取最近兩週內的任何 24 小時範圍，然後選取要監視的資源。
+在 [編輯圖表] 表單上，您可以選取固定時間範圍，或按一下 [自訂] 以選取最近兩週內的任何 24 小時範圍，然後選取要監視的資源。
 
 ### <a name="to-select-databases-to-monitor"></a>選取要監視的資料庫
 
-根據預設，[資料庫資源使用量]  刀鋒視窗中的圖表會依照 DTU 或 CPU (取決於您的服務層級) 顯示前 5 名資料庫。 您可以在此圖表中切換資料庫，方法是透過左側的核取方塊，從圖表下方的清單中選取和取消選取資料庫。
+根據預設，[資料庫資源使用量] 刀鋒視窗中的圖表會依照 DTU 或 CPU (取決於您的服務層級) 顯示前 5 名資料庫。 您可以在此圖表中切換資料庫，方法是透過左側的核取方塊，從圖表下方的清單中選取和取消選取資料庫。
 
 您也可以選取更多計量，以在此資料庫資料表中並列檢視，進而取得更完整的資料庫效能檢視。
 
@@ -205,19 +205,19 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart 搭配 Azure SQL Database 來快速擴充其商務服務，速率為每月 1,000 個新 Azure SQL Database 彈性集區。
+  SnelStart 使用彈性集區與 Azure SQL Database, 以每個月1000個新 Azure SQL 資料庫的速度快速擴充其商務服務。
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco 使用 Azure SQL Database 為快速佈建和調整服務在雲端中的租用戶的數千個彈性集區。
+  Umbraco 搭配使用彈性集區與 Azure SQL Database, 為雲端中數以千計的租使用者快速布建和調整服務。
 
 - [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
-  Daxko/CSI 使用 Azure SQL database 彈性集區，來加速其開發週期及提升其客戶服務和效能。
+  Daxko/CSI 使用彈性集區與 Azure SQL Database 來加速其開發週期, 並增強其客戶服務和效能。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要調整彈性集區，請參閱[調整彈性集區](sql-database-elastic-pool.md)和[調整彈性集區 - 範例程式碼](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- 若要調整彈性集區，請參閱[調整彈性集區](sql-database-elastic-pool-scale.md)和[調整彈性集區 - 範例程式碼](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - 若要觀賞影片，請參閱[有關 Azure SQL Database 彈性功能的 Microsoft Virtual Academy 視訊課程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - 若要深入了解使用彈性集區的 SaaS 應用程式的設計模式，請參閱 [採用 Azure SQL Database 的多租用戶 SaaS 應用程式的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 - 如需使用彈性集區的 SaaS 教學課程，請參閱 [Wingtip SaaS 應用程式簡介](sql-database-wtp-overview.md)。

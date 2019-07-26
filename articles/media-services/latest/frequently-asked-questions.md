@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 766208c01f27d2024025b7a202bc3724b4fc9fff
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311844"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501262"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>媒體服務 v3 常見問題
 
@@ -110,28 +110,6 @@ ASP.NET 播放器應用程式的最佳做法是使用 HTTPS，因此媒體播放
 
 * STS 必須發出權杖，讓授權伺服器陣列可接受且可驗證這類權杖。 例如，Axinom 所提供的 Widevine 授權伺服器要求包含權利訊息的特定 JWT。 因此，您需要有 STS 才能發出這類的 JWT。 
 * 您不再需要在媒體服務中設定授權傳遞服務。 當您設定 ContentKeyPolicies 時，必須提供授權取得 URL (針對 PlayReady、Widevine 和 FairPlay)。
-
-### <a name="what-if-i-want-to-use-a-custom-sts"></a>如果我想要使用自訂 STS？
-
-客戶可能會選擇使用自訂 STS 來提供 JWT。 原因包括：
-
-* 客戶使用的 IDP 不支援 STS。 在此情況下，自訂 STS 可能是一個選項。
-* 客戶在整合 STS 與客戶的訂閱者計費系統時，可能需要更多彈性或更緊密的控制。 例如，MVPD 業者可能會提供多個 OTT 訂閱者套件，例如高階、基本和運動。 業者可能需要讓權杖中的宣告與訂閱者套件相符，如此一來，只有正確套件中的內容可供使用。 在此情況下，自訂 STS 提供所需的彈性和控制。
-
-當您使用自訂的 STS 時，必須進行兩項變更：
-
-* 為資產設定授權傳遞服務時，您必須指定自訂 STS 用來驗證的安全性金鑰，而不是 Azure AD 的目前金鑰。 (更多詳細資料如下)。 
-* 產生 JTW 權杖時，會指定安全性金鑰，而不是 Azure AD 中目前 x509 憑證的私密金鑰。
-
-有兩種類型的安全性金鑰：
-
-* 對稱金鑰：使用相同的金鑰來產生及驗證 JWT。
-* 非對稱金鑰：搭配使用 x509 憑證中的私密-公開金鑰組，私密金鑰用來加密/產生 JWT，公開金鑰則用來驗證權杖。
-
-> [!NOTE]
-> 如果您使用 .NET Framework/C# 作為開發平台，用於非對稱安全性金鑰的 x509 憑證之金鑰長度必須至少為 2048。 這是 .NET Framework 中的 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 類別的需求。 否則，會擲回下列例外狀況：
-> 
-> IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' 不能小於 '2048' 位元。
 
 ## <a name="media-services-v2-vs-v3"></a>媒體服務 v2 和 v3 
 

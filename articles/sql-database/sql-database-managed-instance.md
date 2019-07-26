@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 028b3b2287e9d37a87ae2caf828c8855be331a1f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4dc00623694fa1fd218f43e7bbd19edef48dec4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327026"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348120"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什麼是 Azure SQL Database 受控實例？
 
@@ -61,7 +61,7 @@ ms.locfileid: "68327026"
 | 內建執行個體和資料庫的監視與計量 | 是 |
 | 自動軟體修補 | 是 |
 | 最新的資料庫引擎功能 | 是 |
-| 每個資料庫的資料檔案 (ROWS) 數目 | 多個 |
+| 每個資料庫的資料檔案 (ROWS) 數目 | 多重選取 |
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 |
 | VNet - Azure Resource Manager 部署 | 是 |
 | VNet - 傳統部署模型 | 否 |
@@ -159,7 +159,7 @@ Azure SQL Database 提供管理作業, 可讓您在不再需要時, 用來自動
 |Update |實例儲存體相應增加/減少 (商務關鍵服務層級)|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成, 並將所有資料庫植入的時間 (220 GB/小時)|
 |Update |實例計算 (虛擬核心) 相應增加和減少 (一般用途)|-虛擬叢集調整大小<br>-附加資料庫檔案|90% 的作業在2.5 小時內完成|
 |Update |實例計算 (虛擬核心) 相應增加和減少 (業務關鍵)|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成, 並將所有資料庫植入的時間 (220 GB/小時)|
-|Update |實例相應減少為4虛擬核心 (一般用途)|-虛擬叢集調整大小 (如果是第一次完成, 可能需要建立虛擬叢集 * *)<br>-附加資料庫檔案|90% 的作業在4小時5分鐘內完成|
+|Update |實例相應減少為4虛擬核心 (一般用途)|-虛擬叢集調整大小 (如果是第一次完成, 可能需要建立虛擬叢集 * *)<br>-附加資料庫檔案|90% 的作業以4小時5分鐘完成|
 |Update |實例相應減少為4虛擬核心 (一般用途)|-虛擬叢集調整大小 (如果是第一次完成, 可能需要建立虛擬叢集 * *)<br>-Always On 可用性群組植入|90% 的作業會在4小時內完成, 並將所有資料庫植入的時間 (220 GB/小時)|
 |Update |實例服務層級變更 (一般用途到業務關鍵, 反之亦然)|-虛擬叢集調整大小<br>-Always On 可用性群組植入|90% 的作業會在2.5 小時內完成, 並將所有資料庫植入的時間 (220 GB/小時)|
 |**操作**|實例刪除|所有資料庫的記錄尾備份|90% 作業會在最多1分鐘內完成。<br>注意: 如果刪除子網中的最後一個實例, 此作業會在12小時後排程刪除虛擬叢集 * * *|

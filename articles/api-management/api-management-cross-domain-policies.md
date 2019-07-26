@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071945"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442322"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨網域原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -46,9 +46,9 @@ ms.locfileid: "67071945"
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
@@ -62,7 +62,7 @@ ms.locfileid: "67071945"
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 - **原則區段︰** inbound
-- **原則範圍︰** 全域
+- **原則範圍：** 所有範圍
 
 ## <a name="CORS"></a>CORS
 `cors` 原則會將跨原始來源資源分享 (CORS) 支援加入至操作或 API，以允許來自瀏覽器型用戶端的跨網域呼叫。
@@ -129,7 +129,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 |allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|是|N/A|
 |來源|值可以是 `*` 以允許所有來源，或是 URI 以指定單一來源。 URI 必須包含配置、主機和連接埠。|是|如果 URI 中省略了連接埠，則會將連接埠 80 用於 HTTP，將連接埠 443 用於 HTTPS。|
 |allowed-methods|如果允許 GET 或 POST 以外的方法，則需要此元素。 包含指定了所支援 HTTP 動詞命令的 `method` 元素。|否|如果這個區段不存在，則會支援 GET 和 POST。|
-|method|指定 HTTP 動詞命令。|如果 `allowed-methods` 區段存在，則需要至少一個 `method` 元素。|N/A|
+|方法|指定 HTTP 動詞命令。|如果 `allowed-methods` 區段存在，則需要至少一個 `method` 元素。|N/A|
 |allowed-headers|此元素包含指定了可包含在要求中之標頭名稱的 `header` 元素。|否|N/A|
 |expose-headers|此元素包含指定了可供用戶端存取之標頭名稱的 `header` 元素。|否|N/A|
 |頁首|指定標頭名稱。|如果 `allowed-headers` 或 `expose-headers` 區段存在，則該區段中需要至少一個 `header` 元素。|N/A|
@@ -138,14 +138,14 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 |名稱|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|false|
+|allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|偽|
 |preflight-result-max-age|事前回應中的 `Access-Control-Max-Age` 標頭會設定為這個屬性的值，並影響使用者代理程式是否能夠快取事前回應。|否|0|
 
 ### <a name="usage"></a>使用量
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 - **原則區段︰** inbound
-- **原則範圍︰** 全域、產品、API、作業
+- **原則範圍：** 所有範圍
 
 ## <a name="JSONP"></a>JSONP
 `jsonp` 原則會將 JSON 與補充的 (JSONP) 支援加入至作業或 API，以允許來自 JavaScript 瀏覽器型用戶端的跨網域呼叫。 JSONP 是 JavaScript 程式中使用的方法，可從位於不同網域的伺服器要求資料。 JSONP 會略過大多數網頁瀏覽器中規定必須在相同網域內才能存取網頁的限制。
@@ -182,7 +182,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 - **原則區段︰** 輸出
-- **原則範圍︰** 全域、產品、API、作業
+- **原則範圍：** 所有範圍
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -191,4 +191,4 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 + [API 管理中的原則](api-management-howto-policies.md)
 + [轉換 API](transform-api.md)
 + [原則參考文件](api-management-policy-reference.md)，取得原則陳述式及其設定的完整清單
-+ [原則範例](policy-samples.md)   
++ [原則範例](policy-samples.md)

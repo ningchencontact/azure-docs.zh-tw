@@ -3,8 +3,8 @@ title: Azure 的保留軟體成本 | Microsoft Docs
 description: 了解哪些軟體計量不包含在 Azure 保留的 VM 執行個體成本中。
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52e2e2503303c2a7525a3a6c156f648c097b27dd
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371167"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478617"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
 
-如果您還沒有 Azure Hybrid Benefit 保留的虛擬機器執行個體上，則您須支付下一節所列的軟體計量。
+虛擬機器保留實例和 SQL 保留容量折扣僅適用于基礎結構成本, 而不適用於軟體成本。 如果您使用 Windows VM, 但在保留的虛擬機器實例上沒有 Azure Hybrid Benefit, 則會向您收取下一節所列軟體計量的費用。 若是 SQL PaaS 部署, 如果未選取 Azure Hybrid Benefit, IP 成本會繼續使用個別計量來計費。
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 軟體計量不包括在保留成本中
 
@@ -69,15 +69,15 @@ ms.locfileid: "60371167"
 您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](/previous-versions/azure/reference/mt219004(v=azure.100))。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解 Azure 保留項目，請參閱下列文章：
+若要深入瞭解 Azure 的保留, 請參閱下列文章:
 
-- [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
+- [什麼是 Azure 保留專案？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
+- [管理 Azure 的保留](billing-manage-reserved-vm-instance.md)
 - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解隨用隨付訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
+## <a name="need-help-contact-us"></a>需要協助嗎? 請與我們連絡
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+如果您有任何疑問或需要協助, 請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

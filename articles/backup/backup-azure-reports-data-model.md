@@ -1,19 +1,18 @@
 ---
 title: Azure 備份的資料模型
 description: 本文將討論 Azure 備份報告的 Power BI 資料模型詳細資料。
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337573"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465603"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 備份報告的資料模型
 本文說明用於建立 Azure 備份報告的 Power BI 資料模型。 透過此資料模型，您就可以根據相關欄位來篩選現有報告，而且更重要的是，可以在模型中使用資料表和欄位來建立您自己的報告。 
@@ -73,10 +72,10 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | 週 |Text |所選用於篩選資料的週別，一週的計算會從星期日開始，到星期六結束 |
 | WeekDate |Date |當週結束時，該週所選用於篩選資料的日期 |
 | WeekDiff |十進位數字 |用於篩選資料的週別差異，例如，0 代表當週的資料，-1 代表上週的資料、0 和 -1 代表當週和上週的資料 |
-| Year |Text |所選用於篩選資料的日曆年度 |
+| 年份 |Text |所選用於篩選資料的日曆年度 |
 | YearDate |Date |當年度結束時，該年度所選用於篩選資料的日期 |
 
-### <a name="job"></a>工作 (Job)
+### <a name="job"></a>工作
 下表提供基本欄位和各種作業相關欄位的彙總。
 
 | 欄位 | 資料類型 | 描述 |
@@ -149,7 +148,7 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | ProtectedServerName |Text |備份項目所屬受保護伺服器的名稱 |
 | RegisteredContainerId |Text |已註冊要進行備份的容器識別碼 |
 
-### <a name="storage"></a>儲存體
+### <a name="storage"></a>存放區
 下表提供基本欄位和各種儲存體相關欄位的彙總。
 
 | 欄位 | 資料類型 | 描述 |

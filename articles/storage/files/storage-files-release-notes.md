@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 7/12/2019
+ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5a2ec72f835b720e0c760069b58ef8f092aedcb2
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: de0482f49e919d0cbb500e9ee8b27ccf8287fb99
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875839"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489558"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,6 +25,7 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
+| 2019年7月更新彙總套件- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019年7月24日 | 支援-[試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援-[試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
 | V7 版本- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019年6月19日 | 支援 |
 | 2019年6月更新彙總套件- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019年6月27日 | 支援 |
@@ -45,6 +46,14 @@ Azure 檔案同步代理程式支援下列版本：
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-7200"></a>代理程式版本7.2.0。0
+下列版本資訊適用于2019年7月24日發行之 Azure 檔案同步代理程式的版本7.2.0.0。 這些注意事項是針對版本7.0.0.0 所列的版本資訊以外的資訊。
+
+此版本修正的問題清單：  
+- 如果 proxy 設定為 null, 儲存體同步代理程式 (FileSyncSvc) 會當機。
+- 如果伺服器上有多個端點的名稱相同, 伺服器端點就會開始 BCDR (錯誤 0x80c80257-ECS_E_BCDR_IN_PROGRESS)。
+- 雲端階層處理可靠性改進。
 
 ## <a name="agent-version-7100"></a>代理程式版本7.1.0。0
 下列版本資訊適用于2019年7月12日發行之 Azure 檔案同步代理程式的版本7.1.0.0。 這些注意事項是針對版本7.0.0.0 所列的版本資訊以外的資訊。

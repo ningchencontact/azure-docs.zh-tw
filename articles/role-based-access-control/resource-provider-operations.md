@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e6ac3ef296509c6613a2a30821392c91648cc104
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ce4765a512b81d13f735a05ad4fba5408284a607
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868621"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501415"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -416,35 +416,35 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Authorization/classicAdministrators/delete | 從訂用帳戶中移除系統管理員。 |
+> | Action | Microsoft.Authorization/classicAdministrators/delete | 移除此訂用帳戶的系統管理員。 |
 > | Action | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 取得訂用帳戶的系統管理員作業狀態。 |
-> | Action | Microsoft.Authorization/classicAdministrators/read | 讀取訂用帳戶的系統管理員。 |
-> | Action | Microsoft.Authorization/classicAdministrators/write | 對訂用帳戶新增或修改系統管理員。 |
+> | Action | Microsoft.Authorization/classicAdministrators/read | 讀取此訂用帳戶的系統管理員。 |
+> | Action | Microsoft.Authorization/classicAdministrators/write | 新增或修改訂用帳戶的系統管理員 |
 > | Action | Microsoft.Authorization/denyAssignments/delete | 在指定範圍刪除拒絕指派。 |
 > | Action | Microsoft.Authorization/denyAssignments/read | 取得拒絕指派的資訊。 |
 > | Action | Microsoft.Authorization/denyAssignments/write | 在指定範圍建立拒絕指派。 |
-> | Action | Microsoft.Authorization/elevateAccess/action | 對呼叫者授與租用戶範圍的使用者存取系統管理員存取權 |
-> | Action | Microsoft.Authorization/locks/delete | 刪除指定範圍的鎖定。 |
-> | Action | Microsoft.Authorization/locks/read | 取得指定範圍的鎖定。 |
-> | Action | Microsoft.Authorization/locks/write | 新增指定範圍的鎖定。 |
+> | Action | Microsoft.Authorization/elevateAccess/action | 授與呼叫者租用戶範圍的使用者存取管理員存取 |
+> | Action | Microsoft.Authorization/locks/delete | 在指定範圍中刪除鎖定。 |
+> | Action | Microsoft.Authorization/locks/read | 在指定範圍中取得鎖定。 |
+> | Action | Microsoft.Authorization/locks/write | 在指定範圍中新增鎖定。 |
 > | Action | Microsoft.Authorization/operations/read | 取得作業的清單 |
-> | Action | Microsoft.Authorization/permissions/read | 列出呼叫者在給定範圍內所具有的所有權限。 |
-> | Action | Microsoft.Authorization/policyAssignments/delete | 刪除指定範圍的原則指派。 |
-> | Action | Microsoft.Authorization/policyAssignments/read | 取得關於原則指派的資訊。 |
-> | Action | Microsoft.Authorization/policyAssignments/write | 建立指定範圍的原則指派。 |
+> | Action | Microsoft.Authorization/permissions/read | 列出此呼叫端在指定範圍中擁有的所有權限。 |
+> | Action | Microsoft.Authorization/policyAssignments/delete | 在指定範圍刪除原則指派。 |
+> | Action | Microsoft.Authorization/policyAssignments/read | 取得原則指派的資訊。 |
+> | Action | Microsoft.Authorization/policyAssignments/write | 在指定範圍建立原則指派。 |
 > | Action | Microsoft.Authorization/policyDefinitions/delete | 刪除原則定義。 |
-> | Action | Microsoft.Authorization/policyDefinitions/read | 取得關於原則定義的資訊。 |
-> | Action | Microsoft.Authorization/policyDefinitions/write | 建立自訂的原則定義。 |
+> | Action | Microsoft.Authorization/policyDefinitions/read | 取得原則定義的資訊。 |
+> | Action | Microsoft.Authorization/policyDefinitions/write | 建立自訂原則定義。 |
 > | Action | Microsoft.Authorization/policySetDefinitions/delete | 刪除原則集合定義。 |
-> | Action | Microsoft.Authorization/policySetDefinitions/read | 取得原則集合定義的相關資訊。 |
+> | Action | Microsoft.Authorization/policySetDefinitions/read | 取得原則集定義的相關資訊。 |
 > | Action | Microsoft.Authorization/policySetDefinitions/write | 建立自訂原則集合定義。 |
-> | Action | Microsoft.Authorization/providerOperations/read | 針對所有資源提供者取得可在角色定義中使用的作業。 |
-> | Action | Microsoft.Authorization/roleAssignments/delete | 刪除指定範圍內的角色指派。 |
-> | Action | Microsoft.Authorization/roleAssignments/read | 取得關於角色指派的資訊。 |
-> | Action | Microsoft.Authorization/roleAssignments/write | 建立指定範圍的角色指派。 |
+> | Action | Microsoft.Authorization/providerOperations/read | 取得可用於角色定義中之所有資源提供者的作業。 |
+> | Action | Microsoft.Authorization/roleAssignments/delete | 在指定範圍中刪除角色指派。 |
+> | Action | Microsoft.Authorization/roleAssignments/read | 取得有關角色指派的資訊。 |
+> | Action | Microsoft.Authorization/roleAssignments/write | 在指定範圍中建立角色指派。 |
 > | Action | Microsoft.Authorization/roleDefinitions/delete | 刪除指定的自訂角色定義。 |
-> | Action | Microsoft.Authorization/roleDefinitions/read | 取得關於角色定義的資訊。 |
-> | Action | Microsoft.Authorization/roleDefinitions/write | 以指定權限和可指派的範圍來建立或更新自訂角色定義。 |
+> | Action | Microsoft.Authorization/roleDefinitions/read | 取得角色指派的資訊 |
+> | Action | Microsoft.Authorization/roleDefinitions/write | 使用指定的權限或可指派的範圍，建立或更新自訂角色定義。 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -569,11 +569,11 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/delete | 刪除 B2C 目錄資源 |
-> | Action | Microsoft.AzureActiveDirectory/b2cDirectories/read | 檢視 B2C 目錄資源 |
+> | Action | Microsoft.AzureActiveDirectory/b2cDirectories/read | 檢視 B2C 目錄的資源 |
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/write | 建立或更新 B2C 目錄資源 |
-> | Action | Microsoft.AzureActiveDirectory/b2ctenants/read | 列出使用者為其成員的所有 B2C 租使用者 |
-> | Action | Microsoft.AzureActiveDirectory/operations/read | 讀取可供 Microsoft.AzureActiveDirectory 資源提供者使用的所有 API 作業 |
-> | Action | Microsoft.AzureActiveDirectory/register/action | 為 Microsoft.AzureActiveDirectory 資源提供者註冊訂用帳戶 |
+> | Action | Microsoft.AzureActiveDirectory/b2ctenants/read | 列出使用者所隸屬的所有 B2C 租用戶 |
+> | Action | Microsoft.AzureActiveDirectory/operations/read | 讀取所有提供給 Microsoft.AzureActiveDirectory 資源提供者的 API 作業 |
+> | Action | Microsoft.AzureActiveDirectory/register/action | 註冊 Microsoft.AzureActiveDirectory 資源提供者的訂用帳戶 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
@@ -654,7 +654,7 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.BingMaps/mapApis/Delete | 刪除作業 |
-> | Action | Microsoft.BingMaps/mapApis/listSecrets/action | 列出祕密 |
+> | Action | Microsoft.BingMaps/mapApis/listSecrets/action | 列出密碼 |
 > | Action | Microsoft.BingMaps/mapApis/listSingleSignOnToken/action | 讀取資源的單一登入授權權杖 |
 > | Action | Microsoft.BingMaps/mapApis/Read | 讀取作業 |
 > | Action | Microsoft.BingMaps/mapApis/regenerateKey/action | 重新產生金鑰 |
@@ -725,21 +725,21 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.Cache/checknameavailability/action | 檢查名稱是否可用於新的 Redis 快取 |
-> | Action | Microsoft.Cache/locations/operationresults/read | 取得先前已將 'Location' 標頭傳回用戶端之長時間執行作業的結果 |
+> | Action | Microsoft.Cache/locations/operationresults/read | 取得長時間執行作業的結果，'Location' 標頭先前已為其傳回用戶端 |
 > | Action | Microsoft.Cache/operations/read | 列出 'Microsoft.Cache' 提供者支援的作業。 |
 > | Action | Microsoft.Cache/redis/delete | 刪除整個 Redis 快取 |
-> | Action | Microsoft.Cache/redis/export/action | 以指定格式將 Redis 資料匯出至有前置詞的儲存體 Blob |
+> | Action | Microsoft.Cache/redis/export/action | 將 Redis 資料以指定的格式匯出至前置儲存體 Blob |
 > | Action | Microsoft.Cache/redis/firewallRules/delete | 刪除 Redis 快取的 IP 防火牆規則 |
-> | Action | Microsoft.Cache/redis/firewallRules/read | 取得 Redis 快取的 IP 防火牆規則 |
+> | Action | Microsoft.Cache/redis/firewallRules/read | 取得 Redis 快取 IP 防火牆規則 |
 > | Action | Microsoft.Cache/redis/firewallRules/write | 編輯 Redis 快取的 IP 防火牆規則 |
-> | Action | Microsoft.Cache/redis/forceReboot/action | 強制重新啟動快取執行個體，但可能會造成資料遺失。 |
-> | Action | Microsoft.Cache/redis/import/action | 從多個 Blob 將指定格式的資料匯入 Redis |
-> | Action | Microsoft.Cache/redis/linkedservers/delete | 從 Redis 快取中刪除連結伺服器 |
-> | Action | Microsoft.Cache/redis/linkedservers/read | 取得與 Redis 快取相關聯的連結伺服器。 |
-> | Action | Microsoft.Cache/redis/linkedservers/write | 對 Redis 快取新增連結伺服器 |
+> | Action | Microsoft.Cache/redis/forceReboot/action | 強制將快取執行個體重新開機，可能導致資料遺失。 |
+> | Action | Microsoft.Cache/redis/import/action | 將指定格式的資料從多重 Blob 匯入 Redis |
+> | Action | Microsoft.Cache/redis/linkedservers/delete | 從 Redis 快取刪除連結的伺服器 |
+> | Action | Microsoft.Cache/redis/linkedservers/read | 取得與 Redis 快取相關聯之連結的伺服器。 |
+> | Action | Microsoft.Cache/redis/linkedservers/write | 將連結的伺服器新增到 Redis 快取 |
 > | Action | Microsoft.Cache/redis/listKeys/action | 在管理入口網站中檢視 Redis 快取存取金鑰的值 |
 > | Action | Microsoft.Cache/redis/listUpgradeNotifications/read | 列出快取租用戶的最新升級通知。 |
-> | Action | Microsoft.Cache/redis/metricDefinitions/read | 取得 Redis 快取可用的計量 |
+> | Action | Microsoft.Cache/redis/metricDefinitions/read | 為 Redis 快取取得可用度量 |
 > | Action | Microsoft.Cache/redis/patchSchedules/delete | 刪除 Redis 快取的修補排程 |
 > | Action | Microsoft.Cache/redis/patchSchedules/read | 取得 Redis 快取的修補排程 |
 > | Action | Microsoft.Cache/redis/patchSchedules/write | 修改 Redis 快取的修補排程 |
@@ -845,7 +845,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Cdn/profiles/GetSupportedOptimizationTypes/action |  |
 > | Action | Microsoft.Cdn/profiles/read |  |
 > | Action | Microsoft.Cdn/profiles/write |  |
-> | Action | Microsoft.Cdn/register/action | 為 CDN 資源提供者註冊訂用帳戶，並讓您能夠建立 CDN 設定檔。 |
+> | Action | Microsoft.Cdn/register/action | 為 CDN 資源提供者註冊訂用帳戶，並允許建立 CDN 設定檔。 |
 > | Action | Microsoft.Cdn/ValidateProbe/action |  |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
@@ -865,7 +865,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.CertificateRegistration/certificateOrders/resendRequestEmails/Action | 擷取已發行之 App Service 憑證的網站密封 |
 > | Action | Microsoft.CertificateRegistration/certificateOrders/retrieveCertificateActions/Action | 擷取憑證動作的清單 |
 > | Action | Microsoft.CertificateRegistration/certificateOrders/retrieveEmailHistory/Action | 擷取憑證電子郵件的歷程記錄 |
-> | Action | Microsoft.CertificateRegistration/certificateOrders/verifyDomainOwnership/Action | 確認網域擁有權 |
+> | Action | Microsoft.CertificateRegistration/certificateOrders/verifyDomainOwnership/Action | 驗證網域擁有權 |
 > | Action | Microsoft.CertificateRegistration/certificateOrders/Write | 新增 certificateOrder 或更新現有 certificateOrder |
 > | Action | Microsoft.CertificateRegistration/operations/Read | 列出 App Service 憑證註冊的所有作業 |
 > | Action | Microsoft.CertificateRegistration/provisionGlobalAppServicePrincipalInUserTenant/Action | 為服務應用程式主體佈建服務主體 |
@@ -878,90 +878,90 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.ClassicCompute/capabilities/read | 顯示功能 |
-> | Action | Microsoft.ClassicCompute/checkDomainNameAvailability/action | 檢查給定網域名稱的可用性。 |
+> | Action | Microsoft.ClassicCompute/checkDomainNameAvailability/action | 檢查所指定網域名稱的可用性。 |
 > | Action | Microsoft.ClassicCompute/checkDomainNameAvailability/read | 取得指定網域名稱的可用性。 |
-> | Action | Microsoft.ClassicCompute/domainNames/active/write | 設定作用中的網域名稱。 |
-> | Action | Microsoft.ClassicCompute/domainNames/availabilitySets/read | 顯示資源的可用性設定組。 |
+> | Action | Microsoft.ClassicCompute/domainNames/active/write | 設定作用中網域名稱。 |
+> | Action | Microsoft.ClassicCompute/domainNames/availabilitySets/read | 顯示資源的可用性集合。 |
 > | Action | Microsoft.ClassicCompute/domainNames/capabilities/read | 顯示網域名稱功能 |
 > | Action | Microsoft.ClassicCompute/domainNames/delete | 移除資源的網域名稱。 |
 > | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/read | 顯示部署位置。 |
-> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | 取得網域名稱之部署位置上的角色 |
-> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | 取得網域名稱之部署位置上的角色執行個體 |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | 取得網域名稱部署位置上的角色 |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | 為網域名稱部署位置上的角色取得角色執行個體 |
 > | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | 取得部署位置狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | 新增部署位置狀態。 |
-> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | 取得網域名稱上之部署位置的升級網域 |
-> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | 更新網域名稱上之部署位置的升級網域 |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | 取得網域名稱上部署位置的升級網域 |
+> | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | 更新網域名稱上部署位置的升級網域 |
 > | Action | Microsoft.ClassicCompute/domainNames/deploymentslots/write | 建立或更新部署。 |
-> | Action | Microsoft.ClassicCompute/domainNames/extensions/delete | 移除網域名稱副檔名。 |
-> | Action | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | 讀取網域名稱副檔名的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/domainNames/extensions/read | 傳回網域名稱副檔名。 |
-> | Action | Microsoft.ClassicCompute/domainNames/extensions/write | 新增網域名稱副檔名。 |
+> | Action | Microsoft.ClassicCompute/domainNames/extensions/delete | 移除網域名稱擴充功能。 |
+> | Action | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | 讀取網域名稱擴充功能的作業狀態。 |
+> | Action | Microsoft.ClassicCompute/domainNames/extensions/read | 傳回網域名稱擴充功能。 |
+> | Action | Microsoft.ClassicCompute/domainNames/extensions/write | 加入網域名稱擴充功能。 |
 > | Action | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/delete | 移除新的內部負載平衡。 |
 > | Action | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/operationStatuses/read | 讀取網域名稱內部負載平衡器的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/read | 取得內部負載平衡器。 |
 > | Action | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/write | 建立新的內部負載平衡。 |
-> | Action | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/operationStatuses/read | 讀取網域名稱之已負載平衡端點集的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/read | 取得已負載平衡的端點集。 |
-> | Action | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/write | 新增已負載平衡的端點集。 |
+> | Action | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/operationStatuses/read | 讀取網域名稱負載平衡端點集的作業狀態。 |
+> | Action | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/read | 取得負載平衡端點集。 |
+> | Action | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/write | 新增負載平衡端點集。 |
 > | Action | Microsoft.ClassicCompute/domainNames/operationstatuses/read | 取得網域名稱的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/domainNames/operationStatuses/read | 讀取網域名稱副檔名的作業狀態。 |
+> | Action | Microsoft.ClassicCompute/domainNames/operationStatuses/read | 讀取網域名稱擴充功能的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/read | 傳回資源的網域名稱。 |
-> | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/delete | 刪除所使用的服務憑證。 |
+> | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/delete | 刪除使用的服務憑證。 |
 > | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/operationStatuses/read | 讀取網域名稱服務憑證的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/read | 傳回所使用的服務憑證。 |
-> | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/write | 新增或修改所使用的服務憑證。 |
+> | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/read | 傳回使用的服務憑證。 |
+> | Action | Microsoft.ClassicCompute/domainNames/serviceCertificates/write | 新增或修改使用的服務憑證。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/abortMigration/action | 中止部署位置的移轉。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/commitMigration/action | 認可部署位置的移轉。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/delete | 刪除給定的部署位置。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/delete | 刪除指定的部署位置。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/operationStatuses/read | 讀取網域名稱位置的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/prepareMigration/action | 準備部署位置的移轉。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/read | 顯示部署位置。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/delete | 移除部署位置角色的擴充功能參考。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/operationStatuses/read | 讀取網域名稱位置角色擴充功能參考的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/read | 傳回部署位置角色的擴充功能參考。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/write | 新增或修改部署位置角色的擴充功能參考。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/write | 加入或修改部署位置角色的擴充功能參考。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/metricdefinitions/read | 取得網域名稱的角色計量定義。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/metrics/read | 取得網域名稱的角色計量。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/operationstatuses/read | 取得網域名稱位置角色的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/read | 取得診斷設定。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/write | 新增或修改診斷設定。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/metricDefinitions/read | 取得計量定義。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/metricDefinitions/read | 取得度量定義。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/read | 取得部署位置的角色。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/downloadremotedesktopconnectionfile/action | 下載網域名稱位置角色上角色執行個體的遠端桌面連線檔案。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/operationStatuses/read | 取得網域名稱位置角色上角色執行個體的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/read | 取得角色執行個體。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/rebuild/action | 重建角色執行個體。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/reimage/action | 針對角色執行個體重新安裝映像。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/reimage/action | 重新建立角色執行個體的映像。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/restart/action | 重新啟動角色執行個體。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/skus/read | 取得部署位置的角色 SKU。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/roles/write | 新增部署位置的角色。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/start/action | 啟動部署位置。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/state/start/write | 將部署位置狀態變更為停止。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/state/stop/write | 將部署位置狀態變更為啟動。 |
-> | Action | Microsoft.ClassicCompute/domainNames/slots/stop/action | 暫止部署位置。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/state/start/write | 將部署位置狀態變更為已停止。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/state/stop/write | 將部署位置狀態變更為已啟動。 |
+> | Action | Microsoft.ClassicCompute/domainNames/slots/stop/action | 暫停部署位置。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/upgradeDomain/write | 逐步升級網域。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/validateMigration/action | 驗證部署位置的移轉。 |
 > | Action | Microsoft.ClassicCompute/domainNames/slots/write | 建立或更新部署。 |
-> | Action | Microsoft.ClassicCompute/domainNames/swap/action | 將預備位置切換到生產位置。 |
+> | Action | Microsoft.ClassicCompute/domainNames/swap/action | 交換預備位置與生產位置。 |
 > | Action | Microsoft.ClassicCompute/domainNames/write | 新增或修改資源的網域名稱。 |
-> | Action | Microsoft.ClassicCompute/moveSubscriptionResources/action | 將所有傳統資源移動到不同訂用帳戶。 |
-> | Action | Microsoft.ClassicCompute/operatingSystemFamilies/read | 列出可在 Microsoft Azure 使用的客體作業系統系列，同時也會列出各系列適用的作業系統版本。 |
-> | Action | Microsoft.ClassicCompute/operatingSystems/read | 列出 Microsoft Azure 中目前可用的客體作業系統版本。 |
+> | Action | Microsoft.ClassicCompute/moveSubscriptionResources/action | 將所有傳統資源移動至其他訂用帳戶。 |
+> | Action | Microsoft.ClassicCompute/operatingSystemFamilies/read | 列出可在 Microsoft Azure 使用的客體作業系統系列，並列出各系列適用的作業系統版本。 |
+> | Action | Microsoft.ClassicCompute/operatingSystems/read | 列出目前可在 Microsoft Azure 使用的客體作業系統版本。 |
 > | Action | Microsoft.ClassicCompute/operations/read | 取得作業的清單。 |
-> | Action | Microsoft.ClassicCompute/operationStatuses/read | 讀取資源的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/quotas/read | 取得訂用帳戶配額。 |
-> | Action | Microsoft.ClassicCompute/register/action | 傳統計算的暫存器 |
-> | Action | Microsoft.ClassicCompute/resourceTypes/skus/read | 取得受支援之資源類型的 SKU 清單。 |
-> | Action | Microsoft.ClassicCompute/validateSubscriptionMoveAvailability/action | 驗證訂用帳戶是否可進行傳統移動作業。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/delete | 刪除與虛擬機器相關聯的網路安全性群組。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read | 讀取與網路安全性群組相關聯之虛擬機器的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/read | 取得與虛擬機器相關聯的網路安全性群組。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/write | 新增與虛擬機器相關聯的網路安全性群組。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/asyncOperations/read | 取得可能的非同步作業 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/attachDisk/action | 將資料磁碟連結至虛擬機器。 |
+> | Action | Microsoft.ClassicCompute/operationStatuses/read | 讀取資源的操作狀態。 |
+> | Action | Microsoft.ClassicCompute/quotas/read | 取得訂用帳戶的配額。 |
+> | Action | Microsoft.ClassicCompute/register/action | 註冊使用傳統運算 |
+> | Action | Microsoft.ClassicCompute/resourceTypes/skus/read | 為支援的資源類型取得 SKU 清單。 |
+> | Action | Microsoft.ClassicCompute/validateSubscriptionMoveAvailability/action | 驗證訂用帳戶能否進行傳統移動作業。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/delete | 刪除已與虛擬機器建立關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read | 讀取虛擬機器關聯之網路安全性群組的作業狀態。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/read | 取得虛擬機器相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/write | 新増虛擬機器相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/asyncOperations/read | 取得可能的非同步操作 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/attachDisk/action | 將資料磁碟連接至虛擬機器。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/capture/action | 擷取虛擬機器。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/delete | 移除虛擬機器。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | 中斷資料磁碟對虛擬機器的連結。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | 從虛擬機器中斷連接資料磁碟。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/diagnosticsettings/read | 取得虛擬機器診斷設定。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/disks/read | 擷取資料磁碟清單 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | 下載虛擬機器的 RDP 檔案。 |
@@ -969,37 +969,37 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ClassicCompute/virtualMachines/extensions/read | 取得虛擬機器擴充功能。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/extensions/write | 放置虛擬機器擴充功能。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/metricdefinitions/read | 取得虛擬機器計量定義。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/metrics/read | 取得計量。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete | 刪除與網路介面相關聯的網路安全性群組。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses/read | 讀取與網路安全性群組相關聯之虛擬機器的作業狀態。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read | 取得與網路介面相關聯的網路安全性群組。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write | 新增與網路介面相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/metrics/read | 取得度量。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete | 刪除已與網路介面建立關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses/read | 讀取虛擬機器關聯之網路安全性群組的作業狀態。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read | 取得網路介面相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write | 新增網路介面相關聯的網路安全性群組。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/operationStatuses/read | 讀取虛擬機器的作業狀態。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/performMaintenance/action | 執行虛擬機器的維護。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read | 取得診斷設定。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write | 新增或修改診斷設定。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | 取得計量定義。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | 取得度量定義。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/read | 擷取虛擬機器清單。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/redeploy/action | 重新部署虛擬機器。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/restart/action | 重新啟動虛擬機器。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/shutdown/action | 關閉虛擬機器。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/shutdown/action | 將虛擬機器關機。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/start/action | 啟動虛擬機器。 |
 > | Action | Microsoft.ClassicCompute/virtualMachines/stop/action | 停止虛擬機器。 |
-> | Action | Microsoft.ClassicCompute/virtualMachines/write | 新增或修改虛擬機器。 |
+> | Action | Microsoft.ClassicCompute/virtualMachines/write | 加入或修改虛擬機器。 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read | 取得 Express Route 交叉連線作業狀態。 |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete | 刪除 Express Route 交叉連線對等互連。 |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/operationstatuses/read | 取得 Express Route 交叉連線對等互連作業狀態。 |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/read | 取得 Express Route 交叉連線對等互連。 |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/write | 新增 Express Route 交叉連線對等互連。 |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/read | 取得 Express Route 交叉連線。 |
-> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/write | 新增 Express Route 交叉連線。 |
-> | Action | Microsoft.ClassicNetwork/gatewaySupportedDevices/read | 擷取支援裝置清單。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read | 取得 express route 交叉連線作業狀態。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete | 刪除 express route 交叉連線對等互連。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/operationstatuses/read | 取得 express route 交叉連線對等互連作業狀態。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/read | 取得 express route 交叉連線對等互連。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/write | 新增 express route 交叉連線對等互連。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/read | 取得 express route 交叉連線。 |
+> | Action | Microsoft.ClassicNetwork/expressroutecrossconnections/write | 新增 express route 交叉連線。 |
+> | Action | Microsoft.ClassicNetwork/gatewaySupportedDevices/read | 抓取支援的裝置清單。 |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/delete | 刪除網路安全性群組。 |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | 讀取網路安全性群組的作業狀態。 |
 > | Action | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | 取得網路安全性群組診斷設定 |
@@ -1012,17 +1012,17 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/write | 新增或更新安全性規則。 |
 > | Action | Microsoft.ClassicNetwork/networkSecurityGroups/write | 新增網路安全性群組。 |
 > | Action | Microsoft.ClassicNetwork/operations/read | 取得傳統網路作業。 |
-> | Action | Microsoft.ClassicNetwork/quotas/read | 取得訂用帳戶配額。 |
-> | Action | Microsoft.ClassicNetwork/register/action | 傳統網路的暫存器 |
-> | Action | Microsoft.ClassicNetwork/reservedIps/delete | 刪除保留的 IP。 |
-> | Action | Microsoft.ClassicNetwork/reservedIps/join/action | 加入保留的 IP |
+> | Action | Microsoft.ClassicNetwork/quotas/read | 取得訂用帳戶的配額。 |
+> | Action | Microsoft.ClassicNetwork/register/action | 註冊使用傳統網路 |
+> | Action | Microsoft.ClassicNetwork/reservedIps/delete | 刪除已保留的 Ip。 |
+> | Action | Microsoft.ClassicNetwork/reservedIps/join/action | 聯結保留的 IP |
 > | Action | Microsoft.ClassicNetwork/reservedIps/link/action | 連結保留的 IP |
 > | Action | Microsoft.ClassicNetwork/reservedIps/operationStatuses/read | 讀取保留之 IP 的作業狀態。 |
 > | Action | Microsoft.ClassicNetwork/reservedIps/read | 取得保留的 IP |
-> | Action | Microsoft.ClassicNetwork/reservedIps/write | 新增保留的 IP |
+> | Action | Microsoft.ClassicNetwork/reservedIps/write | 加入新保留的 IP |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/abortMigration/action | 中止虛擬網路移轉 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/capabilities/read | 顯示功能 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/checkIPAddressAvailability/action | 檢查虛擬網路中給定 IP 位址的可用性。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/checkIPAddressAvailability/action | 確認虛擬網路中指定 IP 位址的可用性。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/commitMigration/action | 認可虛擬網路移轉 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/delete | 刪除虛擬網路。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/delete | 取消撤銷用戶端憑證。 |
@@ -1030,36 +1030,36 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/write | 撤銷用戶端憑證。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/delete | 刪除虛擬網路閘道用戶端憑證。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/download/action | 依指紋下載憑證。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/listPackage/action | 列出虛擬網路閘道憑證套件。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/listPackage/action | 列出虛擬網路閘道憑證封裝。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/read | 尋找用戶端根憑證。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/write | 上傳新的用戶端根憑證。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/connect/action | 建立網站對網站閘道連線。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/disconnect/action | 中斷網站對網站閘道連線。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/read | 擷取連線清單。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/disconnect/action | 中斷網站對站台連線。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/read | 抓取連線清單。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/test/action | 測試網站對網站閘道連線。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/delete | 刪除虛擬網路閘道。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDeviceConfigurationScript/action | 下載裝置組態指令碼。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDiagnostics/action | 下載閘道診斷。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/listCircuitServiceKey/action | 擷取迴路服務金鑰。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/listPackage/action | 列出虛擬網路閘道套件。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/listCircuitServiceKey/action | 抓取迴路服務金鑰。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/listPackage/action | 列出虛擬網路閘道封裝。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/operationStatuses/read | 讀取虛擬網路閘道的作業狀態。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read | 取得虛擬網路閘道套件。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read | 取得虛擬網路閘道封裝。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/read | 取得虛擬網路閘道。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | 啟動虛擬網路閘道的診斷。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | 停止虛擬網路閘道的診斷。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/write | 新增虛擬網路閘道。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/join/action | 加入虛擬網路。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | 讀取虛擬網路的作業狀態。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/peer/action | 讓某個虛擬網路與另一個虛擬網路對等互連。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/peer/action | 使虛擬網路與另一個虛擬網路對等。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/prepareMigration/action | 準備虛擬網路移轉 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/read | 取得虛擬網路。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete | 刪除遠端虛擬網路對等互連 Proxy。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | 取得遠端虛擬網路對等互連 Proxy。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | 新增或更新遠端虛擬網路對等互連 Proxy。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | 刪除與子網路相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | 刪除已與子網路建立關聯的網路安全性群組。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | 讀取與網路安全性群組相關聯之虛擬網路子網路的作業狀態。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | 取得與子網路相關聯的網路安全性群組。 |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | 新增與子網路相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | 取得子網路相關聯的網路安全性群組。 |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | 新增子網路相關聯的網路安全性群組。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | 驗證虛擬網路移轉 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read | 取得虛擬網路對等互連。 |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/write | 新增虛擬網路。 |
@@ -1076,37 +1076,37 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ClassicStorage/images/operationstatuses/read | 取得映像作業狀態。 |
 > | Action | Microsoft.ClassicStorage/images/read | 傳回映像。 |
 > | Action | Microsoft.ClassicStorage/operations/read | 取得傳統儲存體作業 |
-> | Action | Microsoft.ClassicStorage/osImages/read | 傳回作業系統映像。 |
+> | Action | Microsoft.ClassicStorage/osImages/read | 傳回該作業系統映像。 |
 > | Action | Microsoft.ClassicStorage/osPlatformImages/read | 取得作業系統平台映像。 |
 > | Action | Microsoft.ClassicStorage/publicImages/read | 取得公用虛擬機器映像。 |
-> | Action | Microsoft.ClassicStorage/quotas/read | 取得訂用帳戶配額。 |
-> | Action | Microsoft.ClassicStorage/register/action | 傳統儲存體的暫存器 |
+> | Action | Microsoft.ClassicStorage/quotas/read | 取得訂用帳戶的配額。 |
+> | Action | Microsoft.ClassicStorage/register/action | 登錄到傳統儲存體 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/abortMigration/action | 中止儲存體帳戶的移轉。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/commitMigration/action | 認可儲存體帳戶的移轉。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/delete | 刪除儲存體帳戶。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/disks/delete | 刪除給定的儲存體帳戶磁碟。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | 讀取資源的作業狀態。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/disks/delete | 刪除指定的儲存體帳戶磁碟。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | 讀取資源的操作狀態。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/read | 傳回儲存體帳戶磁碟。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/disks/write | 新增儲存體帳戶磁碟。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/disks/write | 加入儲存體帳戶磁碟。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/images/delete | 刪除給定的儲存體帳戶映像。 (已淘汰。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Action | Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read | 傳回儲存體帳戶映像作業狀態。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/images/read | 傳回儲存體帳戶映像。 (已淘汰。 使用 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Action | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 列出儲存體帳戶的存取金鑰。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/operationStatuses/read | 讀取資源的作業狀態。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/osImages/delete | 刪除給定之儲存體帳戶的作業系統映像。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/operationStatuses/read | 讀取資源的操作狀態。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/osImages/delete | 刪除指定儲存體帳戶的作業系統映像。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/osImages/read | 傳回儲存體帳戶的作業系統映像。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/osImages/write | 新增給定儲存體帳戶作業系統映像。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/osImages/write | 新增指定儲存體帳戶作業系統映像。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/prepareMigration/action | 準備儲存體帳戶的移轉。 |
 > | Action | Microsoft.classicstorage/storageAccounts/provider/Microsoft Insights/diagnosticSettings/read | 取得診斷設定。 |
 > | Action | Microsoft.classicstorage/storageAccounts/provider/Microsoft Insights/diagnosticSettings/write | 新增或修改診斷設定。 |
-> | Action | Microsoft.classicstorage/storageAccounts/provider/Microsoft Insights/Metricdefinitions.listasync/read | 取得計量定義。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有給定帳戶的儲存體帳戶。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/regenerateKey/action | 重新產生儲存體帳戶的現有存取金鑰。 |
+> | Action | Microsoft.classicstorage/storageAccounts/provider/Microsoft Insights/Metricdefinitions.listasync/read | 取得度量定義。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有所指定帳戶的儲存體帳戶。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/regenerateKey/action | 為儲存體帳戶重新產生現有的存取金鑰。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/read | 取得診斷設定。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/write | 新增或修改診斷設定。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/services/metricDefinitions/read | 取得計量定義。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/services/metrics/read | 取得計量。 |
-> | Action | Microsoft.ClassicStorage/storageAccounts/services/read | 取得可用服務。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/services/metricDefinitions/read | 取得度量定義。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/services/metrics/read | 取得度量。 |
+> | Action | Microsoft.ClassicStorage/storageAccounts/services/read | 取得可用的服務。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/validateMigration/action | 驗證儲存體帳戶的移轉。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/delete | 刪除指定的虛擬機器映像。 |
 > | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/operationstatuses/read | 取得指定的虛擬機器映像作業狀態。 |
@@ -1131,7 +1131,7 @@ ms.locfileid: "67868621"
 > | DataAction | CognitiveServices/accounts/ComputerVision/recognizetext/action | 使用此介面來取得辨識文字作業的結果。 當您使用辨識文字介面時, 回應會包含名為 "Operation-Location" 的欄位。 [作業-位置] 欄位包含您必須用於「取得辨識文字」作業結果作業的 URL。 |
 > | DataAction | CognitiveServices/accounts/ComputerVision/tag/action | 這項作業會產生與所提供影像內容相關的單字或標籤清單。<br>電腦視覺 API 可以根據在影像中找到的物件、景象或動作傳回標記。<br>不同于類別, 標記不會根據階層式分類系統來組織, 而是對應至影像內容。<br>標記可能包含避免不明確或提供內容的提示, 例如, 標記 "cello" 可能會伴隨提示 "樂器"。<br>所有標記都是英文。 |
 > | DataAction | CognitiveServices/accounts/ComputerVision/textoperations/read | 這個介面是用來取得辨識文字作業結果。 應從辨識文字介面傳回的「作業<b>-位置</b>」欄位, 抓取此介面的 URL。 |
-> | Action | Microsoft.CognitiveServices/accounts/delete | 刪除 API 帳戶 |
+> | Action | Microsoft.CognitiveServices/accounts/delete | 刪除 API 帳戶。 |
 > | DataAction | CognitiveServices/帳戶/臉部/偵測/動作 | 偵測影像中的人臉、傳回臉部矩形, 並選擇性地使用 faceIds、地標和屬性。 |
 > | DataAction | CognitiveServices/accounts/臉部/facelist/delete | 刪除指定的臉部清單。 臉部清單中的相關臉部影像也會一併刪除。 |
 > | DataAction | CognitiveServices/accounts/臉部/facelist/persistedfaces/delete | 藉由指定的 faceListId 和 persisitedFaceId, 從臉部清單中刪除臉部。 也會刪除相關的臉部影像。 |
@@ -1183,13 +1183,13 @@ ms.locfileid: "67868621"
 > | DataAction | CognitiveServices/accounts/Microsoft.azure.cognitiveservices.language.textanalytics/keyphrases/action | API 會傳回輸入文字中代表說話重點的字串清單。 |
 > | DataAction | CognitiveServices/accounts/Microsoft.azure.cognitiveservices.language.textanalytics/語言/動作 | 此 API 傳回偵測到的語言，以及 0 到 1 之間的數值分數。 接近 1 的分數表示 100% 確定識別的語言正確。 總共支援 120 種語言。 |
 > | DataAction | CognitiveServices/accounts/Microsoft.azure.cognitiveservices.language.textanalytics/情感/action | 此 API 會傳回 0 到 1 之間的數值分數。<br>接近 1 的分數表示正面的情感，而接近 0 的分數則表示負面的情感。<br>分數0.5 表示缺少情感 (例如<br>模擬語句)。 |
-> | Action | Microsoft.CognitiveServices/accounts/usages/read | 取得現有資源的配額使用情況。 |
+> | Action | Microsoft.CognitiveServices/accounts/usages/read | 取得現有資源的配額使用量。 |
 > | Action | Microsoft.CognitiveServices/accounts/write | 寫入 API 帳戶。 |
 > | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | 讀取訂用帳戶的可用 SKU。 |
 > | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 讀取訂用帳戶的可用 SKU。 |
 > | Action | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | 來自 Microsoft 的通知正在刪除 VirtualNetworks 或子網。 |
-> | Action | Microsoft.CognitiveServices/Operations/read | 列出所有可用的作業 |
-> | Action | Microsoft.CognitiveServices/register/action | 為認知服務註冊訂用帳戶 |
+> | Action | Microsoft.CognitiveServices/Operations/read | 列出所有可用作業 |
+> | Action | Microsoft.CognitiveServices/register/action | 註冊認知服務的訂用帳戶 |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -1205,14 +1205,14 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.Compute/availabilitySets/delete | 刪除可用性設定組 |
-> | Action | Microsoft.Compute/availabilitySets/read | 取得可用性設定組的屬性 |
-> | Action | Microsoft.Compute/availabilitySets/vmSizes/read | 列出在可用性設定組中建立或更新虛擬機器時可以使用的大小 |
-> | Action | Microsoft.Compute/availabilitySets/write | 建立新的可用性設定組，或更新現有的可用性設定組 |
-> | Action | Microsoft.Compute/disks/beginGetAccess/action | 取得磁碟用於 Blob 存取的 SAS URI |
+> | Action | Microsoft.Compute/availabilitySets/read | 取得可用性設定組的內容 |
+> | Action | Microsoft.Compute/availabilitySets/vmSizes/read | 列出建立或更新可用性設定組中之虛擬機器時所能使用的大小。 |
+> | Action | Microsoft.Compute/availabilitySets/write | 建立新的可用性設定組或更新現有的可用性設定組 |
+> | Action | Microsoft.Compute/disks/beginGetAccess/action | 取得磁碟的 SAS URI 以存取 Blob |
 > | Action | Microsoft.Compute/disks/delete | 刪除磁碟 |
 > | Action | Microsoft.Compute/disks/endGetAccess/action | 撤銷磁碟的 SAS URI |
-> | Action | Microsoft.Compute/disks/read | 取得磁碟的屬性 |
-> | Action | Microsoft.Compute/disks/write | 建立新的磁碟，或更新現有磁碟 |
+> | Action | Microsoft.Compute/disks/read | 取得磁碟內容 |
+> | Action | Microsoft.Compute/disks/write | 建立新的磁碟或更新現有磁碟 |
 > | Action | Microsoft.Compute/galleries/delete | 刪除資源庫 |
 > | Action | Microsoft.Compute/galleries/images/delete | 刪除資源庫映像 |
 > | Action | Microsoft.Compute/galleries/images/read | 取得資源庫映像的屬性 |
@@ -1230,12 +1230,12 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Compute/hosts/write | 建立新的主機, 或更新現有的主機 |
 > | Action | Microsoft.Compute/images/delete | 刪除映像 |
 > | Action | Microsoft.Compute/images/read | 取得映像的屬性 |
-> | Action | Microsoft.Compute/images/write | 建立新的映像，或更新現有映像 |
+> | Action | Microsoft.Compute/images/write | 建立新的映像或更新現有映像 |
 > | Action | Microsoft.Compute/locations/capsOperations/read | 取得非同步 Caps 作業的狀態 |
 > | Action | Microsoft.Compute/locations/diskOperations/read | 取得非同步磁碟作業的狀態 |
-> | Action | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | 建立記錄以依時間間隔顯示要求總數以協助進行節流診斷。 |
-> | Action | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | 建立記錄以依 ResourceName、OperationName 或已套用的節流原則顯示已節流要求彙總。 |
-> | Action | Microsoft.Compute/locations/operations/read | 取得非同步作業的狀態 |
+> | Action | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | 建立記錄檔以依照時間間隔顯示要求總數來協助節流診斷。 |
+> | Action | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | 建立記錄檔以顯示依 ResourceName、OperationName 或所套用節流原則分組的已節流要求彙總。 |
+> | Action | Microsoft.Compute/locations/operations/read | 取得非同步運算狀態 |
 > | Action | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | 取得平台映像提供的屬性 |
 > | Action | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | 取得平台映像 SKU 的屬性 |
 > | Action | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/versions/read | 取得平台映像版本的屬性 |
@@ -1243,55 +1243,55 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Compute/locations/publishers/artifacttypes/types/versions/read | 取得 VMExtension 版本的屬性 |
 > | Action | Microsoft.Compute/locations/publishers/read | 取得發行者的屬性 |
 > | Action | Microsoft.Compute/locations/runCommands/read | 列出位置中可用的執行命令 |
-> | Action | Microsoft.Compute/locations/usages/read | 取得訂用帳戶在某個位置之計算資源的服務限制和目前的使用量 |
-> | Action | Microsoft.Compute/locations/vmSizes/read | 列出某個位置可用的虛擬機器大小 |
-> | Action | Microsoft.Compute/operations/read | 列出 Microsoft.Compute 資源提供者的可用作業 |
-> | Action | Microsoft.Compute/proximityPlacementGroups/delete | 刪除鄰近位置群組 |
-> | Action | Microsoft.Compute/proximityPlacementGroups/read | 取得鄰近放置群組的屬性 |
-> | Action | Microsoft.Compute/proximityPlacementGroups/write | 建立新的鄰近放置群組, 或更新現有的 |
+> | Action | Microsoft.Compute/locations/usages/read | 取得位置中該訂用帳戶運算資源的服務限制與目前的使用數量 |
+> | Action | Microsoft.Compute/locations/vmSizes/read | 列出位置中可用的虛擬機器大小 |
+> | Action | Microsoft.Compute/operations/read | 列出可以對 Microsoft.Compute 資源提供者執行的作業 |
+> | Action | Microsoft.Compute/proximityPlacementGroups/delete | 刪除近接位置群組 |
+> | Action | Microsoft.Compute/proximityPlacementGroups/read | 取得近接位置群組的屬性 |
+> | Action | Microsoft.Compute/proximityPlacementGroups/write | 建立新的近接位置群組或更新現有的近接位置群組 |
 > | Action | Microsoft.Compute/register/action | 向 Microsoft.Compute 資源提供者註冊訂用帳戶 |
-> | Action | Microsoft.Compute/restorePointCollections/delete | 刪除還原點集合和內含的還原點 |
+> | Action | Microsoft.Compute/restorePointCollections/delete | 刪除還原點集合及內含的還原點 |
 > | Action | Microsoft.Compute/restorePointCollections/read | 取得還原點集合的屬性 |
 > | Action | Microsoft.Compute/restorePointCollections/restorePoints/delete | 刪除還原點 |
-> | Action | Microsoft.Compute/restorePointCollections/restorePoints/read | 取得還原點的屬性 |
-> | Action | Microsoft.Compute/restorePointCollections/restorePoints/retrieveSasUris/action | 取得還原點屬性以及 Blob SAS URI |
+> | Action | Microsoft.Compute/restorePointCollections/restorePoints/read | 取得還原點屬性 |
+> | Action | Microsoft.Compute/restorePointCollections/restorePoints/retrieveSasUris/action | 取得還原點屬性及 Blob SAS URI |
 > | Action | Microsoft.Compute/restorePointCollections/restorePoints/write | 建立新的還原點 |
-> | Action | Microsoft.Compute/restorePointCollections/write | 建立新的還原點集合，或更新現有還原點集合 |
+> | Action | Microsoft.Compute/restorePointCollections/write | 建立新的還原點集合或更新現有者 |
 > | Action | Microsoft.Compute/sharedVMImages/delete | 刪除 SharedVMImage |
 > | Action | Microsoft.Compute/sharedVMImages/read | 取得 SharedVMImage 的屬性 |
 > | Action | Microsoft.Compute/sharedVMImages/versions/delete | 刪除 SharedVMImageVersion |
 > | Action | Microsoft.Compute/sharedVMImages/versions/read | 取得 SharedVMImageVersion 的屬性 |
-> | Action | Microsoft.Compute/sharedVMImages/versions/replicate/action | 將 SharedVMImageVersion 複寫至目標區域 |
-> | Action | Microsoft.Compute/sharedVMImages/versions/write | 建立新的 SharedVMImageVersion，或更新現有的 SharedVMImageVersion |
-> | Action | Microsoft.Compute/sharedVMImages/write | 建立新的 SharedVMImage，或更新現有的 SharedVMImage |
-> | Action | Microsoft.Compute/skus/read | 取得可供您的訂用帳戶使用的 Microsoft.Compute SKU 清單 |
+> | Action | Microsoft.Compute/sharedVMImages/versions/replicate/action | 將 SharedVMImageVersion 複寫到目標區域 |
+> | Action | Microsoft.Compute/sharedVMImages/versions/write | 建立新的 SharedVMImageVersion 或更新現有的 SharedVMImageVersion |
+> | Action | Microsoft.Compute/sharedVMImages/write | 建立新的 SharedVMImageVersion 或更新現有的 SharedVMImageVersion |
+> | Action | Microsoft.Compute/skus/read | 取得您訂用帳戶能夠使用之 Microsoft.Compute SKU 的清單 |
 > | Action | Microsoft.Compute/snapshots/beginGetAccess/action | 取得快照集的 SAS URI 以用於 Blob 存取 |
 > | Action | Microsoft.Compute/snapshots/delete | 刪除快照集 |
 > | Action | Microsoft.Compute/snapshots/endGetAccess/action | 撤銷快照集的 SAS URI |
-> | Action | Microsoft.Compute/snapshots/read | 取得快照集的屬性 |
-> | Action | Microsoft.Compute/snapshots/write | 建立新的快照集，或更新現有快照集 |
-> | Action | Microsoft.Compute/unregister/action | 向 Microsoft 取消註冊訂用帳戶。計算資源提供者 |
-> | Action | Microsoft.Compute/virtualMachines/capture/action | 藉由複製虛擬硬碟來擷取虛擬機器，並產生可用來建立類似虛擬機器的範本 |
-> | Action | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | 將虛擬機器的 Blob 型磁碟轉換為受控磁碟 |
-> | Action | Microsoft.Compute/virtualMachines/deallocate/action | 關閉虛擬機器的電源，並將計算資源釋出 |
+> | Action | Microsoft.Compute/snapshots/read | 取得快照集內容 |
+> | Action | Microsoft.Compute/snapshots/write | 建立新的快照集或更新現有磁碟 |
+> | Action | Microsoft.Compute/unregister/action | 向 Microsoft.Compute 資源提供者取消註冊訂用帳戶 |
+> | Action | Microsoft.Compute/virtualMachines/capture/action | 複製虛擬硬碟並產生可用以建立類似虛擬機器的範本，以擷取虛擬機器 |
+> | Action | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | 將虛擬機器的 blob 型磁碟轉換成受控磁碟 |
+> | Action | Microsoft.Compute/virtualMachines/deallocate/action | 關閉虛擬機器電源並釋出運算資源 |
 > | Action | Microsoft.Compute/virtualMachines/delete | 刪除虛擬機器 |
 > | Action | Microsoft.Compute/virtualMachines/extensions/delete | 刪除虛擬機器擴充功能 |
-> | Action | Microsoft.Compute/virtualMachines/extensions/read | 取得虛擬機器擴充功能的屬性 |
-> | Action | Microsoft.Compute/virtualMachines/extensions/write | 建立新的虛擬機器擴充功能，或更新現有的虛擬機器擴充功能 |
-> | Action | Microsoft.Compute/virtualMachines/generalize/action | 將虛擬機器的狀態設定為「已一般化」，並準備虛擬機器以供擷取 |
-> | Action | Microsoft.Compute/virtualMachines/instanceView/read | 取得虛擬機器和其資源的詳細執行階段狀態 |
+> | Action | Microsoft.Compute/virtualMachines/extensions/read | 取得虛擬機器擴充功能的內容 |
+> | Action | Microsoft.Compute/virtualMachines/extensions/write | 建立新的虛擬機器擴充功能或更新現有的虛擬機器擴充功能 |
+> | Action | Microsoft.Compute/virtualMachines/generalize/action | 將虛擬機器狀態設定為「一般」並將虛擬機器備妥進行擷取作業 |
+> | Action | Microsoft.Compute/virtualMachines/instanceView/read | 取得虛擬機器及其資源的詳細執行階段狀態 |
 > | DataAction | Microsoft.Compute/virtualMachines/login/action | 以一般使用者身分登入虛擬機器 |
 > | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | 以 Windows 系統管理員或 Linux 根使用者權限登入虛擬機器 |
-> | Action | Microsoft.Compute/virtualMachines/performMaintenance/action | 在 VM 上執行維護作業。 |
+> | Action | Microsoft.Compute/virtualMachines/performMaintenance/action | 對 VM 執行維護作業。 |
 > | Action | Microsoft.Compute/virtualMachines/powerOff/action | 關閉虛擬機器的電源。 請注意，您會繼續收到虛擬機器的帳單。 |
-> | Action | Microsoft.Compute/virtualMachines/read | 取得虛擬機器的屬性 |
+> | Action | Microsoft.Compute/virtualMachines/read | 取得虛擬機器的內容 |
 > | Action | Microsoft.Compute/virtualMachines/redeploy/action | 重新部署虛擬機器 |
-> | Action | Microsoft.Compute/virtualMachines/reimage/action | 為正在使用差異磁碟的虛擬機器重新安裝映像。 |
+> | Action | Microsoft.Compute/virtualMachines/reimage/action | 將正在使用差異磁碟的虛擬機器重新安裝映像。 |
 > | Action | Microsoft.Compute/virtualMachines/restart/action | 重新啟動虛擬機器 |
 > | Action | Microsoft.Compute/virtualMachines/runCommand/action | 在虛擬機器上執行預先定義的指令碼 |
 > | Action | Microsoft.Compute/virtualMachines/start/action | 啟動虛擬機器 |
-> | Action | Microsoft.Compute/virtualMachines/vmSizes/read | 列出虛擬機器所能更新成的大小 |
-> | Action | Microsoft.Compute/virtualMachines/write | 建立新的虛擬機器，或更新現有虛擬機器 |
+> | Action | Microsoft.Compute/virtualMachines/vmSizes/read | 列出虛擬機器能夠更新成的大小 |
+> | Action | Microsoft.Compute/virtualMachines/write | 建立新的虛擬機器或更新現有的虛擬機器 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/deallocate/action | 關閉虛擬機器擴展集之執行個體的電源，並將其計算資源釋出  |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/delete | 刪除虛擬機器擴展集 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/delete/action | 刪除虛擬機器擴展集的執行個體 |
@@ -1300,13 +1300,13 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Compute/virtualMachineScaleSets/extensions/write | 建立新的虛擬機器擴展集延伸模組或更新現有的 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/forceRecoveryServiceFabricPlatformUpdateDomainWalk/action | 手動徹查 Service Fabric 虛擬機器擴展集的平台更新網域，以完成停滯的暫止更新 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | 取得虛擬機器擴展集的執行個體檢視 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | 將虛擬機器擴展集的執行個體手動更新至最新模型 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | 取得虛擬機器擴展集之所有網路介面的屬性 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | 手動將執行個體更新為虛擬機器擴展集的最新模型 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | 取得虛擬機器擴展集所有網路介面的屬性 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | 開始輪流升級，以將所有虛擬機器擴展集執行個體移至最新可用的平台映像作業系統版本。 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | 取得虛擬機器擴展集的 OS 升級歷程記錄 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | 在虛擬機器擴展集的執行個體上執行規劃的維護 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | 在虛擬機器擴展集的執行個體上執行計劃性維護 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | 關閉虛擬機器擴展集執行個體的電源 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | 取得虛擬機器擴展集之所有公用 IP 位址的屬性 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | 取得虛擬機器擴展集所有公用 IP 位址的屬性 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/read | 取得虛擬機器擴展集的屬性 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | 重新部署虛擬機器擴展集的執行個體 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/reimage/action | 重新安裝虛擬機器擴展集執行個體的映像 |
@@ -1317,24 +1317,24 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Compute/virtualMachineScaleSets/scale/action | 驗證現有的虛擬機器擴展集是否可以相應縮小/相應放大到指定的執行個體計數 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/skus/read | 列出現有虛擬機器擴展集的有效 SKU |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/start/action | 啟動虛擬機器擴展集的執行個體 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/deallocate/action | 關閉 VM 擴展集之虛擬機器的電源，並將其計算資源釋出。 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/delete | 刪除 VM 擴展集內的特定虛擬機器。 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read | 擷取 VM 擴展集內的虛擬機器執行個體檢視。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/deallocate/action | 關閉並釋放 VM 規模集中之虛擬機器的運算資源。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/delete | 刪除 VM 規模集中的特定虛擬機器。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read | 擷取 VM 規模集中之虛擬機器的執行個體檢視。 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/publicIPAddresses/read | 取得使用虛擬機器擴展集建立的公用 IP 位址屬性。 虛擬機器擴展集最多可以在每個 ipconfiguration (私人 IP) 建立一個公用 IP |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/read | 取得使用虛擬機器擴展集建立的網路介面其中一個或所有 IP 設定屬性。 IP 設定代表私人 IP |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read | 取得使用虛擬機器擴展集建立的虛擬機器其中一個或所有網路介面屬性 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/performMaintenance/action | 在虛擬機器擴展集的虛擬機器執行個體上執行規劃的維護 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/powerOff/action | 將 VM 擴展集內的虛擬機器執行個體關閉電源。 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read | 擷取 VM 擴展集內的虛擬機器屬性 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read | 取得使用虛擬機器擴展集建立的其中一個或所有虛擬機器網路介面屬性 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/performMaintenance/action | 在虛擬機器擴展集中的虛擬機器執行個體上執行計劃性維護 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/powerOff/action | 關閉 VM 規模集中的虛擬機器執行個體。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read | 擷取 VM 規模集中之虛擬機器的屬性 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/redeploy/action | 重新部署虛擬機器擴展集中的虛擬機器執行個體 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimage/action | 重新安裝虛擬機器擴展集中的虛擬機器執行個體映像。 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimageAll/action | 為虛擬機器擴展集中虛擬機器執行個體的所有磁碟 (OS 磁碟和資料磁碟) 重新安裝映像。 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/restart/action | 重新啟動 VM 擴展集內的虛擬機器執行個體。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimageAll/action | 將虛擬機器擴展集中虛擬機器執行個體的所有磁碟 (OS 磁碟和資料磁碟) 重新安裝映像。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/restart/action | 重新啟動 VM 規模集中的虛擬機器執行個體。 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action | 在虛擬機器擴展集中的虛擬機器執行個體上執行預先定義的指令碼。 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/start/action | 啟動 VM 擴展集內的虛擬機器執行個體。 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/start/action | 啟動 VM 規模集中的虛擬機器執行個體。 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write | 更新 VM 擴展集中虛擬機器的屬性 |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/vmSizes/read | 列出在虛擬機器擴展集中建立或更新虛擬機器的可用大小 |
-> | Action | Microsoft.Compute/virtualMachineScaleSets/write | 建立新的虛擬機器擴展集或更新現有的 |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/write | 建立新的或更新現有的虛擬機器擴展集 |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1373,15 +1373,15 @@ ms.locfileid: "67868621"
 > | --- | --- | --- |
 > | Action | Microsoft.ContainerInstance/containerGroups/containers/exec/action | 執行至特定容器內。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/containers/logs/read | 取得特定容器的記錄。 |
-> | Action | Microsoft.ContainerInstance/containerGroups/delete | 刪除特定容器群組。 |
+> | Action | Microsoft.ContainerInstance/containerGroups/delete | 刪除特定的容器群組。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | 取得容器群組的診斷設定。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新容器群組的診斷設定。 |
-> | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | 取得容器群組的可用計量。 |
+> | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | 為容器群組取得可用計量。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/read | 取得所有容器群組。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/restart/action | 重新啟動特定容器群組。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/start/action | 啟動特定容器群組。 |
 > | Action | Microsoft.ContainerInstance/containerGroups/stop/action | 停止特定容器群組。 計算資源將會取消配置，計費也會停止。 |
-> | Action | Microsoft.ContainerInstance/containerGroups/write | 建立或更新特定容器群組。 |
+> | Action | Microsoft.ContainerInstance/containerGroups/write | 建立或更新特定的容器群組。 |
 > | Action | Microsoft.ContainerInstance/locations/cachedImages/read | 取得區域中訂用帳戶的快取映像。 |
 > | Action | Microsoft.ContainerInstance/locations/capabilities/read | 取得區域的功能。 |
 > | Action | Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | 通知 Microsoft.ContainerInstance 正在刪除虛擬網路或子網路。 |
@@ -1462,9 +1462,9 @@ ms.locfileid: "67868621"
 > | --- | --- | --- |
 > | Action | Microsoft.ContainerService/containerServices/delete | 刪除容器服務 |
 > | Action | Microsoft.ContainerService/containerServices/read | 取得容器服務 |
-> | Action | Microsoft.ContainerService/containerServices/write | 建立新的容器服務，或更新現有的容器服務 |
+> | Action | Microsoft.ContainerService/containerServices/write | 建立新容器服務或更新現有容器服務 |
 > | Action | Microsoft.ContainerService/locations/operationresults/read | 取得非同步作業結果的狀態 |
-> | Action | Microsoft.ContainerService/locations/operations/read | 取得非同步作業的狀態 |
+> | Action | Microsoft.ContainerService/locations/operations/read | 取得非同步運算狀態 |
 > | Action | Microsoft.ContainerService/locations/orchestrators/read | 列出支援的協調器 |
 > | Action | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | 使用清單認證依角色名稱取得受控叢集存取設定檔 |
 > | Action | Microsoft.ContainerService/managedClusters/accessProfiles/read | 依角色名稱取得受控叢集存取設定檔 |
@@ -1479,16 +1479,16 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ContainerService/managedClusters/resetAADProfile/action | 重設受控叢集的 AAD 設定檔 |
 > | Action | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | 重設受控叢集的服務主體 |
 > | Action | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | 取得叢集的升級設定檔 |
-> | Action | Microsoft.ContainerService/managedClusters/write | 建立新的受控叢集，或更新現有的受控叢集 |
+> | Action | Microsoft.ContainerService/managedClusters/write | 建立新受控叢集或更新現有受控叢集 |
 > | Action | Microsoft.ContainerService/openShiftClusters/delete | 刪除開啟的轉移叢集 |
 > | Action | Microsoft.ContainerService/openShiftClusters/read | 取得開啟的轉移叢集 |
 > | Action | Microsoft.ContainerService/openShiftClusters/write | 建立新的或更新現有的 Open Shift 叢集 |
 > | Action | Microsoft.ContainerService/openShiftManagedClusters/delete | 刪除 Open Shift 受控叢集 |
 > | Action | Microsoft.ContainerService/openShiftManagedClusters/read | 取得 Open Shift 受控叢集 |
 > | Action | Microsoft.ContainerService/openShiftManagedClusters/write | 建立新的或更新現有的 Open Shift 受控叢集 |
-> | Action | Microsoft.ContainerService/operations/read | 列出 Microsoft.ContainerService 資源提供者的可用作業 |
+> | Action | Microsoft.ContainerService/operations/read | 列出可在 Microsoft.ContainerService 資源提供者上執行的作業 |
 > | Action | Microsoft.ContainerService/register/action | 向 Microsoft.ContainerService 資源提供者註冊訂用帳戶 |
-> | Action | Microsoft.ContainerService/unregister/action | 向 Microsoft.ContainerService 資源提供者取消註冊訂用帳戶 |
+> | Action | Microsoft.ContainerService/unregister/action | 取消註冊 Microsoft.ContainerService 資源提供者的訂用帳戶 |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1496,7 +1496,7 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.ContentModerator/applications/delete | 刪除作業 |
-> | Action | Microsoft.ContentModerator/applications/listSecrets/action | 列出祕密 |
+> | Action | Microsoft.ContentModerator/applications/listSecrets/action | 列出密碼 |
 > | Action | Microsoft.ContentModerator/applications/listSingleSignOnToken/action | 讀取單一登入權杖 |
 > | Action | Microsoft.ContentModerator/applications/read | 讀取作業 |
 > | Action | Microsoft.ContentModerator/applications/write | 寫入作業 |
@@ -1693,7 +1693,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/operationResults/read | 列出或取得作業結果 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | 列出或取得共用 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | 列出或取得共用 |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | 以雲端中的資料重新整理共用中繼資料 |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | 以來自雲端的資料重新整理共用中繼資料 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | 建立或更新共用 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | 刪除儲存體帳戶認證 |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/operationResults/read | 列出或取得作業結果 |
@@ -1722,7 +1722,7 @@ ms.locfileid: "67868621"
 > | --- | --- | --- |
 > | Action | Microsoft.Databricks/register/action | 註冊 Databricks。 |
 > | Action | Microsoft.Databricks/workspaces/delete | 移除 Databricks 工作區。 |
-> | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | 設定 Databricks 工作區的可用診斷設定 |
+> | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | 進行 Databricks 工作區的可用診斷設定 |
 > | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | 新增或修改診斷設定。 |
 > | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | 取得 Databricks 工作區的可用記錄定義 |
 > | Action | Microsoft.Databricks/workspaces/read | 擷取 Databricks 工作區的清單。 |
@@ -1923,39 +1923,39 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.DataMigration/locations/operationResults/read | 取得與「202 已接受」回應相關且長時間執行之作業的狀態 |
-> | Action | Microsoft.DataMigration/locations/operationStatuses/read | 取得與「202 已接受」回應相關且長時間執行之作業的狀態 |
-> | Action | Microsoft.DataMigration/register/action | 向「Azure 資料庫移轉服務」提供者註冊訂用帳戶 |
-> | Action | Microsoft.DataMigration/services/addWorker/action | 將 DMS 背景工作角色新增至服務的可用背景工作角色 |
+> | Action | Microsoft.DataMigration/locations/operationResults/read | 取得與「202 已接受回應」相關之長時間執行之作業的狀態 |
+> | Action | Microsoft.DataMigration/locations/operationStatuses/read | 取得與「202 已接受回應」相關之長時間執行之作業的狀態 |
+> | Action | Microsoft.DataMigration/register/action | 向 Azure 資料庫移轉服務提供者註冊訂用帳戶 |
+> | Action | Microsoft.DataMigration/services/addWorker/action | 將 DMS 背景工作新增到服務的可用背景工作 |
 > | Action | Microsoft.DataMigration/services/checkStatus/action | 檢查服務是否已部署且在執行中 |
-> | Action | Microsoft.DataMigration/services/configureWorker/action | 將 DMS 背景工作角色設定為服務的可用背景工作 |
+> | Action | Microsoft.DataMigration/services/configureWorker/action | 將 DMS 背景工作設定至服務的可用背景工作 |
 > | Action | Microsoft.DataMigration/services/delete | 刪除資源及其所有子系 |
-> | Action | Microsoft.DataMigration/services/projects/accessArtifacts/action | 產生可用來對專案成品進行 GET 或 PUT 的 URL |
+> | Action | Microsoft.DataMigration/services/projects/accessArtifacts/action | 產生可用以 GET 或 PUT 專案成品的 URL |
 > | Action | Microsoft.DataMigration/services/projects/delete | 刪除資源及其所有子系 |
 > | Action | Microsoft.DataMigration/services/projects/files/delete | 刪除資源及其所有子系 |
 > | Action | Microsoft.DataMigration/services/projects/files/read | 閱讀資源的相關資訊 |
 > | Action | Microsoft.DataMigration/services/projects/files/read/action | 取得可用來讀取檔案內容的 URL |
 > | Action | Microsoft.DataMigration/services/projects/files/readWrite/action | 取得可用來讀取或寫入檔案內容的 URL |
-> | Action | Microsoft.DataMigration/services/projects/files/write | 建立或更新資源及其屬性 |
+> | Action | Microsoft.DataMigration/services/projects/files/write | 建立或更新資源與其屬性 |
 > | Action | Microsoft.DataMigration/services/projects/read | 閱讀資源的相關資訊 |
-> | Action | Microsoft.DataMigration/services/projects/tasks/cancel/action | 取消目前正在執行的工作 |
+> | Action | Microsoft.DataMigration/services/projects/tasks/cancel/action | 取消目前正在執行中的工作 |
 > | Action | Microsoft.DataMigration/services/projects/tasks/delete | 刪除資源及其所有子系 |
 > | Action | Microsoft.DataMigration/services/projects/tasks/read | 閱讀資源的相關資訊 |
-> | Action | Microsoft.DataMigration/services/projects/tasks/write | 執行工作「Azure 資料庫移轉服務」工作 |
-> | Action | Microsoft.DataMigration/services/projects/write | 執行工作「Azure 資料庫移轉服務」工作 |
+> | Action | Microsoft.DataMigration/services/projects/tasks/write | 執行工作 Azure 資料庫移轉服務工作 |
+> | Action | Microsoft.DataMigration/services/projects/write | 執行工作 Azure 資料庫移轉服務工作 |
 > | Action | Microsoft.DataMigration/services/read | 閱讀資源的相關資訊 |
-> | Action | Microsoft.DataMigration/services/removeWorker/action | 將 DMS 背景工作角色移除至服務的可用背景工作 |
-> | Action | Microsoft.DataMigration/services/serviceTasks/cancel/action | 取消目前正在執行的工作 |
+> | Action | Microsoft.DataMigration/services/removeWorker/action | 將 DMS 背景工作從服務的可用背景工作移除 |
+> | Action | Microsoft.DataMigration/services/serviceTasks/cancel/action | 取消目前正在執行中的工作 |
 > | Action | Microsoft.DataMigration/services/serviceTasks/delete | 刪除資源及其所有子系 |
 > | Action | Microsoft.DataMigration/services/serviceTasks/read | 閱讀資源的相關資訊 |
-> | Action | Microsoft.DataMigration/services/serviceTasks/write | 執行工作「Azure 資料庫移轉服務」工作 |
+> | Action | Microsoft.DataMigration/services/serviceTasks/write | 執行工作 Azure 資料庫移轉服務工作 |
 > | Action | Microsoft.DataMigration/services/slots/delete | 刪除資源及其所有子系 |
 > | Action | Microsoft.DataMigration/services/slots/read | 閱讀資源的相關資訊 |
-> | Action | Microsoft.DataMigration/services/slots/write | 建立或更新資源及其屬性 |
-> | Action | Microsoft.DataMigration/services/start/action | 啟動 DMS 服務以讓它再次處理移轉 |
-> | Action | Microsoft.DataMigration/services/stop/action | 停止 DMS 服務以將其成本降到最低 |
+> | Action | Microsoft.DataMigration/services/slots/write | 建立或更新資源與其屬性 |
+> | Action | Microsoft.DataMigration/services/start/action | 啟動 DMS 服務，讓它再次處理移轉 |
+> | Action | Microsoft.DataMigration/services/stop/action | 停止 DMS 服務，將其成本降到最低 |
 > | Action | Microsoft.DataMigration/services/updateAgentConfig/action | 以提供的值更新 DMS 代理程式設定。 |
-> | Action | Microsoft.DataMigration/services/write | 建立或更新資源及其屬性 |
+> | Action | Microsoft.DataMigration/services/write | 建立或更新資源與其屬性 |
 > | Action | Microsoft.DataMigration/skus/read | 取得 DMS 資源所支援的 SKU 清單。 |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
@@ -2347,7 +2347,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | 停止虛擬機器 |
 > | Action | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | 傳送所有連結至虛擬機器的資料磁碟，由目前的使用者擁有。 |
 > | Action | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | 釋放現有虛擬機器的擁有權 |
-> | Action | Microsoft.DevTestLab/labs/virtualMachines/write | 新增或修改虛擬機器。 |
+> | Action | Microsoft.DevTestLab/labs/virtualMachines/write | 加入或修改虛擬機器。 |
 > | Action | Microsoft.DevTestLab/labs/virtualNetworks/delete | 刪除虛擬網路。 |
 > | Action | Microsoft.DevTestLab/labs/virtualNetworks/read | 讀取虛擬網路。 |
 > | Action | Microsoft.DevTestLab/labs/virtualNetworks/write | 新增或修改虛擬網路。 |
@@ -2542,26 +2542,26 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.EventHub/availableClusterRegions/read | 讀取作業, 以列出 Azure 區域可用的預先布建叢集。 |
-> | Action | Microsoft.EventHub/checkNameAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 |
-> | Action | Microsoft.EventHub/checkNamespaceAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
+> | Action | Microsoft.EventHub/checkNameAvailability/action | 請檢查指定的訂用帳戶下是否可以使用命名空間。 |
+> | Action | Microsoft.EventHub/checkNamespaceAvailability/action | 請檢查指定的訂用帳戶下是否可以使用命名空間。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
 > | Action | Microsoft.EventHub/clusters/delete | 刪除現有的叢集資源。 |
 > | Action | Microsoft.EventHub/clusters/namespaces/read | 列出叢集中的命名空間 ARM 識別碼。 |
 > | Action | Microsoft.EventHub/clusters/operationresults/read | 取得非同步叢集操作的狀態。 |
 > | Action | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | 取得叢集計量資源描述的清單 |
 > | Action | Microsoft.EventHub/clusters/read | 取得叢集資源描述 |
 > | Action | Microsoft.EventHub/clusters/write | 建立或修改現有的叢集資源。 |
-> | Action | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | 針對指定的 VNet，刪除 EventHub 資源提供者中的 VNet 規則 |
+> | Action | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | 刪除 EventHub 資源提供者中指定 VNet 的 VNet 規則 |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/action | 更新命名空間授權規則。 此 API 即將淘汰。 請改用 PUT 呼叫來更新命名空間授權規則。 API 版本 2017-04-01 不支援此作業。 |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/delete | 刪除命名空間授權規則。 您無法刪除預設的命名空間授權規則。  |
-> | Action | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | 取得命名空間的連接字串 |
-> | Action | Microsoft.EventHub/namespaces/authorizationRules/read | 取得命名空間授權規則描述的清單。 |
-> | Action | Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | 取得進入命名空間的連接字串 |
+> | Action | Microsoft.EventHub/namespaces/authorizationRules/read | 取得命名空間授權規則描述清單。 |
+> | Action | Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/write | 建立命名空間層級的授權規則，並更新其屬性。 您可以更新授權規則的存取權限、主要金鑰和次要金鑰。 |
 > | Action | Microsoft.EventHub/namespaces/Delete | 刪除命名空間資源 |
 > | Action | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action | 取得災害復原主要命名空間的授權規則金鑰 |
 > | Action | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules/read | 取得災害復原主要命名空間的授權規則 |
 > | Action | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/breakPairing/action | 停用災害復原，並停止將變更從主要命名空間複寫至次要命名空間。 |
-> | Action | Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | 檢查指定訂用帳戶下命名空間別名的可用性。 |
+> | Action | Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | 請檢查指定訂用帳戶下的命名空間別名可用性。 |
 > | Action | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/delete | 刪除與命名空間相關聯的災害復原設定。 此作業只能透過主要命名空間叫用。 |
 > | Action | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/failover/action | 叫用異地災害復原容錯移轉，並將命名空間別名重新設定為指向次要命名空間。 |
 > | Action | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/read | 取得與命名空間相關聯的災害復原設定。 |
@@ -2570,7 +2570,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/delete | 用來刪除 EventHub 授權規則的作業 |
 > | Action | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/listkeys/action | 取得 EventHub 的連接字串 |
 > | Action | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/read |  取得 EventHub 授權規則的清單 |
-> | Action | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/regenerateKeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/regenerateKeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/write | 建立 EventHub 授權規則，並更新其屬性。 您可以更新授權規則存取權限。 |
 > | Action | Microsoft.EventHub/namespaces/eventHubs/consumergroups/Delete | 用來刪除 ConsumerGroup 資源的作業 |
 > | Action | Microsoft.EventHub/namespaces/eventHubs/consumergroups/read | 取得 ConsumerGroup 資源描述的清單 |
@@ -2596,14 +2596,14 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | 取得命名空間診斷設定資源描述的清單 |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | 取得命名空間記錄資源描述的清單 |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | 取得命名空間計量資源描述的清單 |
-> | Action | Microsoft.EventHub/namespaces/read | 取得命名空間資源描述的清單 |
+> | Action | Microsoft.EventHub/namespaces/read | 取得命名空間資源描述清單 |
 > | Action | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | 移除 ACS 命名空間 |
 > | Action | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | 刪除 VNET 規則資源 |
 > | Action | Microsoft.EventHub/namespaces/virtualNetworkRules/read | 取得 VNET 規則資源 |
 > | Action | Microsoft.EventHub/namespaces/virtualNetworkRules/write | 建立 VNET 規則資源 |
 > | Action | Microsoft.EventHub/namespaces/write | 建立命名空間資源，並更新其屬性。 命名空間的標記和容量是可以更新的屬性。 |
 > | Action | Microsoft.EventHub/operations/read | 取得作業 |
-> | Action | Microsoft.EventHub/register/action | 針對 EventHub 資源提供者註冊訂用帳戶，並讓您能夠建立 EventHub 資源 |
+> | Action | Microsoft.EventHub/register/action | 為 EventHub 資源提供者註冊訂用帳戶，並允許建立 EventHub 資源 |
 > | Action | Microsoft.EventHub/sku/read | 取得 SKU 資源描述的清單 |
 > | Action | Microsoft.EventHub/sku/regions/read | 取得 SkuRegions 資源描述的清單 |
 > | Action | Microsoft.EventHub/unregister/action | 註冊 EventHub 資源提供者 |
@@ -2615,8 +2615,8 @@ ms.locfileid: "67868621"
 > | --- | --- | --- |
 > | Action | Microsoft.Features/features/read | 取得訂用帳戶的功能。 |
 > | Action | Microsoft.Features/operations/read | 取得作業的清單。 |
-> | Action | Microsoft.Features/providers/features/read | 取得給定資源提供者中某個訂用帳戶的功能。 |
-> | Action | Microsoft.Features/providers/features/register/action | 註冊給定資源提供者中某個訂用帳戶的功能。 |
+> | Action | Microsoft.Features/providers/features/read | 在指定的資源提供者內取得訂用帳戶的功能。 |
+> | Action | Microsoft.Features/providers/features/register/action | 在指定的資源提供者內註冊訂用帳戶的功能。 |
 > | Action | Microsoft.Features/providers/features/unregister/action | 在指定的資源提供者內取消註冊訂用帳戶的功能。 |
 > | Action | Microsoft.Features/register/action | 註冊訂用帳戶的功能。 |
 
@@ -2690,15 +2690,15 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | 讀取資源診斷設定 |
 > | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | 建立或更新資源診斷設定 |
 > | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | 讀取記錄定義 |
-> | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | 讀取計量定義 |
+> | Action | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | 讀取度量定義 |
 > | Action | Microsoft.Insights/AutoscaleSettings/Read | 讀取自動調整設定 |
 > | Action | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | 自動調整相應減少已起始 |
 > | Action | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | 自動調整相應減少已完成 |
 > | Action | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | 自動調整相應增加已起始 |
 > | Action | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | 自動調整相應增加已完成 |
 > | Action | Microsoft.Insights/AutoscaleSettings/Write | 建立或更新自動調整設定 |
-> | Action | Microsoft Insights/基準/讀取 | 讀取度量基準 (預覽) |
-> | Action | Microsoft Insights/CalculateBaseline/Read | 計算度量值的基準 (預覽) |
+> | Action | Microsoft Insights/基準/讀取 | 讀取計量基準 (預覽) |
+> | Action | Microsoft Insights/CalculateBaseline/Read | 計算計量值的基準 (預覽) |
 > | Action | Microsoft.Insights/Components/AnalyticsItems/Delete | 刪除 Application Insights 分析項目 |
 > | Action | Microsoft.Insights/Components/AnalyticsItems/Read | 讀取 Application Insights 分析項目 |
 > | Action | Microsoft.Insights/Components/AnalyticsItems/Write | 寫入 Application Insights 分析項目 |
@@ -2714,21 +2714,21 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Insights/Components/ApiKeys/Delete | 刪除 Application Insights API 金鑰 |
 > | Action | Microsoft.Insights/Components/ApiKeys/Read | 讀取 Application Insights API 金鑰 |
 > | Action | Microsoft.Insights/Components/BillingPlanForComponent/Read | 讀取 Application Insights 元件的計費方案 |
-> | Action | Microsoft.Insights/Components/CurrentBillingFeatures/Read | 在讀取 Application Insights 元件目前的計費功能 |
+> | Action | Microsoft.Insights/Components/CurrentBillingFeatures/Read | 讀取 Application Insights 元件目前的計費功能 |
 > | Action | Microsoft.Insights/Components/CurrentBillingFeatures/Write | 寫入 Application Insights 元件目前的計費功能 |
-> | Action | Microsoft.Insights/Components/DefaultWorkItemConfig/Read | 讀取 Application Insights 預設的 ALM 整合設定 |
-> | Action | Microsoft.Insights/Components/Delete | 刪除 Application Insights 元件設定 |
+> | Action | Microsoft.Insights/Components/DefaultWorkItemConfig/Read | 讀取 Application Insights 預設 ALM 整合設定 |
+> | Action | Microsoft.Insights/Components/Delete | 正在刪除 Application Insights 元件設定 |
 > | Action | Microsoft.Insights/Components/Events/Read | 使用 OData 查詢格式從 Application Insights 取得記錄 |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Action | Application Insights 匯出設定動作 |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Delete | 刪除 Application Insights 匯出設定 |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Read | 讀取 Application Insights 匯出設定 |
 > | Action | Microsoft.Insights/Components/ExportConfiguration/Write | 寫入 Application Insights 匯出設定 |
-> | Action | Microsoft.Insights/Components/ExtendQueries/Read | 讀取 Application Insights 元件擴充的查詢結果 |
+> | Action | Microsoft.Insights/Components/ExtendQueries/Read | 讀取 Application Insights 元件延伸查詢結果 |
 > | Action | Microsoft.Insights/Components/Favorites/Delete | 刪除 Application Insights 我的最愛 |
 > | Action | Microsoft.Insights/Components/Favorites/Read | 讀取 Application Insights 我的最愛 |
 > | Action | Microsoft.Insights/Components/Favorites/Write | 寫入 Application Insights 我的最愛 |
-> | Action | Microsoft.Insights/Components/FeatureCapabilities/Read | 讀取 Application Insights 元件功能的能力 |
-> | Action | Microsoft.Insights/Components/GetAvailableBillingFeatures/Read | 讀取 Application Insights 元件可用的計費功能 |
+> | Action | Microsoft.Insights/Components/FeatureCapabilities/Read | 讀取 Application Insights 元件功能能力 |
+> | Action | Microsoft.Insights/Components/GetAvailableBillingFeatures/Read | 讀取 Application Insights 元件可用計費功能 |
 > | Action | Microsoft.Insights/Components/GetToken/Read | 讀取 Application Insights 元件權杖 |
 > | Action | Microsoft.Insights/Components/MetricDefinitions/Read | 讀取 Application Insights 元件計量定義 |
 > | Action | Microsoft.Insights/Components/Metrics/Read | 讀取 Application Insights 元件計量 |
@@ -2737,22 +2737,22 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Insights/Components/MyAnalyticsItems/Read | 讀取 Application Insights 個人分析項目 |
 > | Action | Microsoft.Insights/Components/MyAnalyticsItems/Write | 寫入 Application Insights 個人分析項目 |
 > | Action | Microsoft.Insights/Components/MyFavorites/Read | 讀取 Application Insights 個人我的最愛 |
-> | Action | Microsoft.Insights/Components/Operations/Read | 取得 Application Insights 中長時間執行之作業的狀態 |
+> | Action | Microsoft.Insights/Components/Operations/Read | 取得 Application Insights 中長期執行作業的狀態 |
 > | Action | Microsoft.Insights/Components/PricingPlans/Read | 讀取 Application Insights 元件定價方案 |
 > | Action | Microsoft.Insights/Components/PricingPlans/Write | 寫入 Application Insights 元件定價方案 |
 > | Action | Microsoft.Insights/Components/ProactiveDetectionConfigs/Read | 讀取 Application Insights 主動式偵測設定 |
 > | Action | Microsoft.Insights/Components/ProactiveDetectionConfigs/Write | 寫入 Application Insights 主動式偵測設定 |
-> | Action | Microsoft.Insights/Components/providers/Microsoft.Insights/MetricDefinitions/Read | 讀取計量定義 |
-> | Action | Microsoft.Insights/Components/Purge/Action | 從 Application Insights 清除資料 |
-> | Action | Microsoft.Insights/Components/Query/Read | 針對 Application Insights 記錄執行查詢 |
+> | Action | Microsoft.Insights/Components/providers/Microsoft.Insights/MetricDefinitions/Read | 讀取度量定義 |
+> | Action | Microsoft.Insights/Components/Purge/Action | 正在清除來自 Application Insights 的資料 |
+> | Action | Microsoft.Insights/Components/Query/Read | 對 Application Insights 記錄執行查詢 |
 > | Action | Microsoft.Insights/Components/QuotaStatus/Read | 讀取 Application Insights 元件配額狀態 |
-> | Action | Microsoft.Insights/Components/Read | 讀取 Application Insights 元件設定 |
+> | Action | Microsoft.Insights/Components/Read | 正在讀取 Application Insights 元件設定 |
 > | Action | Microsoft.Insights/Components/SyntheticMonitorLocations/Read | 讀取 Application Insights webtest 位置 |
-> | Action | Microsoft.Insights/Components/Webtests/Read | 讀取 Webtest 設定 |
+> | Action | Microsoft.Insights/Components/Webtests/Read | 正在讀取 WebTest 設定 |
 > | Action | Microsoft.Insights/Components/WorkItemConfigs/Delete | 刪除 Application Insights ALM 整合設定 |
 > | Action | Microsoft.Insights/Components/WorkItemConfigs/Read | 讀取 Application Insights ALM 整合設定 |
 > | Action | Microsoft.Insights/Components/WorkItemConfigs/Write | 寫入 Application Insights ALM 整合設定 |
-> | Action | Microsoft.Insights/Components/Write | 寫入 Application Insights 元件設定 |
+> | Action | Microsoft.Insights/Components/Write | 正在寫入 Application Insights 元件設定 |
 > | Action | Microsoft.Insights/DiagnosticSettings/Delete | 刪除資源診斷設定 |
 > | Action | Microsoft.Insights/DiagnosticSettings/Read | 讀取資源診斷設定 |
 > | Action | Microsoft.Insights/DiagnosticSettings/Write | 建立或更新資源診斷設定 |
@@ -2768,160 +2768,160 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Insights/LogProfiles/Delete | 刪除活動記錄的記錄設定檔 |
 > | Action | Microsoft.Insights/LogProfiles/Read | 讀取活動記錄的記錄設定檔 |
 > | Action | Microsoft.Insights/LogProfiles/Write | 建立或更新活動記錄的記錄設定檔 |
-> | Action | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | 從 ADAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ADReplicationResult/Read | 從 ADReplicationResult 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | 從 ADSecurityAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Alert/Read | 從 Alert 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/AlertHistory/Read | 從 AlertHistory 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ApplicationInsights/Read | 從 ApplicationInsights 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/AzureActivity/Read | 從 AzureActivity 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/AzureMetrics/Read | 從 AzureMetrics 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/BoundPort/Read | 從 BoundPort 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/CommonSecurityLog/Read | 從 CommonSecurityLog 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ComputerGroup/Read | 從 ComputerGroup 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ConfigurationChange/Read | 從 ConfigurationChange 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ConfigurationData/Read | 從 ConfigurationData 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ContainerImageInventory/Read | 從 ContainerImageInventory 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ContainerInventory/Read | 從 ContainerInventory 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ContainerLog/Read | 從 ContainerLog 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ContainerServiceLog/Read | 從 ContainerServiceLog 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceAppCrash/Read | 從 DeviceAppCrash 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceAppLaunch/Read | 從 DeviceAppLaunch 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceCalendar/Read | 從 DeviceCalendar 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceCleanup/Read | 從 DeviceCleanup 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceConnectSession/Read | 從 DeviceConnectSession 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceEtw/Read | 從 DeviceEtw 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceHardwareHealth/Read | 從 DeviceHardwareHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceHealth/Read | 從 DeviceHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceHeartbeat/Read | 從 DeviceHeartbeat 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceSkypeHeartbeat/Read | 從 DeviceSkypeHeartbeat 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceSkypeSignIn/Read | 從 DeviceSkypeSignIn 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DeviceSleepState/Read | 從 DeviceSleepState 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHAppFailure/Read | 從 DHAppFailure 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHAppReliability/Read | 從 DHAppReliability 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHDriverReliability/Read | 從 DHDriverReliability 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHLogonFailures/Read | 從 DHLogonFailures 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHLogonMetrics/Read | 從 DHLogonMetrics 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHOSCrashData/Read | 從 DHOSCrashData 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHOSReliability/Read | 從 DHOSReliability 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DHWipAppLearning/Read | 從 DHWipAppLearning 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DnsEvents/Read | 從 DnsEvents 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/DnsInventory/Read | 從 DnsInventory 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ETWEvent/Read | 從 ETWEvent 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Event/Read | 從 Event 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | 從 ExchangeAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | 從 ExchangeOnlineAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Heartbeat/Read | 從 Heartbeat 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | 從 IISAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/InboundConnection/Read | 從 InboundConnection 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/KubeNodeInventory/Read | 從 KubeNodeInventory 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/KubePodInventory/Read | 從 KubePodInventory 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/LinuxAuditLog/Read | 從 LinuxAuditLog 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplication/Read | 從 MAApplication 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplicationHealth/Read | 從 MAApplicationHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplicationHealthAlternativeVersions/Read | 從 MAApplicationHealthAlternativeVersions 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplicationHealthIssues/Read | 從 MAApplicationHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplicationInstance/Read | 從 MAApplicationInstance 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplicationInstanceReadiness/Read | 從 MAApplicationInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAApplicationReadiness/Read | 從 MAApplicationReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADeploymentPlan/Read | 從 MADeploymentPlan 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADevice/Read | 從 MADevice 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADevicePnPHealth/Read | 從 MADevicePnPHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | 從 MADevicePnPHealthAlternativeVersions 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | 從 MADevicePnPHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADeviceReadiness/Read | 從 MADeviceReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | 從 MADriverInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MADriverReadiness/Read | 從 MADriverReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAddin/Read | 從 MAOfficeAddin 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | 從 MAOfficeAddinHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | 從 MAOfficeAddinHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | 從 MAOfficeAddinInstance 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | 從 MAOfficeAddinInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | 從 MAOfficeAddinReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeApp/Read | 從 MAOfficeApp 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | 從 MAOfficeAppHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | 從 MAOfficeAppInstance 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | 從 MAOfficeAppReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | 從 MAOfficeBuildInfo 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | 從 MAOfficeCurrencyAssessment 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | 從 MAOfficeCurrencyAssessmentDailyCounts 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | 從 MAOfficeDeploymentStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | 從 MAOfficeMacroHealth 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | 從 MAOfficeMacroHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | 從 MAOfficeMacroIssueInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeMacroIssueReadiness/Read | 從 MAOfficeMacroIssueReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeMacroSummary/Read | 從 MAOfficeMacroSummary 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeSuite/Read | 從 MAOfficeSuite 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAOfficeSuiteInstance/Read | 從 MAOfficeSuiteInstance 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAProposedPilotDevices/Read | 從 MAProposedPilotDevices 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAWindowsBuildInfo/Read | 從 MAWindowsBuildInfo 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | 從 MAWindowsCurrencyAssessment 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | 從 MAWindowsCurrencyAssessmentDailyCounts 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | 從 MAWindowsDeploymentStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | 從 MAWindowsSysReqInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/NetworkMonitoring/Read | 從 NetworkMonitoring 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/OfficeActivity/Read | 從 OfficeActivity 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Operation/Read | 從 Operation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/OutboundConnection/Read | 從 OutboundConnection 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Perf/Read | 從 Perf 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ProtectionStatus/Read | 從 ProtectionStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Read | 從您的所有記錄讀取資料 |
-> | Action | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | 從 ReservedAzureCommonFields 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ReservedCommonFields/Read | 從 ReservedCommonFields 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | 從 SCCMAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | 從 SCOMAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SecurityAlert/Read | 從 SecurityAlert 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SecurityBaseline/Read | 從 SecurityBaseline 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | 從 SecurityBaselineSummary 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SecurityDetection/Read | 從 SecurityDetection 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SecurityEvent/Read | 從 SecurityEvent 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | 從 ServiceFabricOperationalEvent 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | 從 ServiceFabricReliableActorEvent 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | 從 ServiceFabricReliableServiceEvent 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | 從 SfBAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | 從 SfBOnlineAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | 從 SharePointOnlineAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | 從 SPAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | 從 SQLAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SQLQueryPerformance/Read | 從 SQLQueryPerformance 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Syslog/Read | 從 Syslog 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/SysmonEvent/Read | 從 SysmonEvent 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAApp/Read | 從 UAApp 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAComputer/Read | 從 UAComputer 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAComputerRank/Read | 從 UAComputerRank 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UADriver/Read | 從 UADriver 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UADriverProblemCodes/Read | 從 UADriverProblemCodes 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAFeedback/Read | 從 UAFeedback 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAHardwareSecurity/Read | 從 UAHardwareSecurity 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAIESiteDiscovery/Read | 從 UAIESiteDiscovery 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAOfficeAddIn/Read | 從 UAOfficeAddIn 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAProposedActionPlan/Read | 從 UAProposedActionPlan 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UASysReqIssue/Read | 從 UASysReqIssue 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UAUpgradedComputer/Read | 從 UAUpgradedComputer 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Update/Read | 從 Update 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UpdateRunProgress/Read | 從 UpdateRunProgress 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/UpdateSummary/Read | 從 UpdateSummary 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/Usage/Read | 從 Usage 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/W3CIISLog/Read | 從 W3CIISLog 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | 從 WaaSDeploymentStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | 從 WaaSInsiderStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WaaSUpdateStatus/Read | 從 WaaSUpdateStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WDAVStatus/Read | 從 WDAVStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WDAVThreat/Read | 從 WDAVThreat 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | 從 WindowsClientAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WindowsFirewall/Read | 從 WindowsFirewall 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | 從 WindowsServerAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WireData/Read | 從 WireData 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | 從 WUDOAggregatedStatus 資料表讀取資料 |
-> | Action | Microsoft.Insights/Logs/WUDOStatus/Read | 從 WUDOStatus 資料表讀取資料 |
+> | Action | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | 讀取來自 ADAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ADReplicationResult/Read | 讀取來自 ADReplicationResult 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | 讀取來自 ADSecurityAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Alert/Read | 讀取來自 Alert 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/AlertHistory/Read | 讀取來自 AlertHistory 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ApplicationInsights/Read | 讀取來自 ApplicationInsights 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/AzureActivity/Read | 讀取來自 AzureActivity 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/AzureMetrics/Read | 讀取來自 AzureMetrics 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/BoundPort/Read | 讀取來自 BoundPort 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/CommonSecurityLog/Read | 讀取來自 CommonSecurityLog 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ComputerGroup/Read | 讀取來自 ComputerGroup 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ConfigurationChange/Read | 讀取來自 ConfigurationChange 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ConfigurationData/Read | 讀取來自 ConfigurationData 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ContainerImageInventory/Read | 讀取來自 ContainerImageInventory 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ContainerInventory/Read | 讀取來自 ContainerInventory 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ContainerLog/Read | 讀取來自 ContainerLog 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ContainerServiceLog/Read | 讀取來自 ContainerServiceLog 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceAppCrash/Read | 讀取來自 DeviceAppCrash 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceAppLaunch/Read | 讀取來自 DeviceAppLaunch 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceCalendar/Read | 讀取來自 DeviceCalendar 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceCleanup/Read | 讀取來自 DeviceCleanup 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceConnectSession/Read | 讀取來自 DeviceConnectSession 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceEtw/Read | 讀取來自 DeviceEtw 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceHardwareHealth/Read | 讀取來自 DeviceHardwareHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceHealth/Read | 讀取來自 DeviceHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceHeartbeat/Read | 讀取來自 DeviceHeartbeat 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceSkypeHeartbeat/Read | 讀取來自 DeviceSkypeHeartbeat 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceSkypeSignIn/Read | 讀取來自 DeviceSkypeSignIn 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DeviceSleepState/Read | 讀取來自 DeviceSleepState 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHAppFailure/Read | 讀取來自 DHAppFailure 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHAppReliability/Read | 讀取來自 DHAppReliability 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHDriverReliability/Read | 讀取來自 DHDriverReliability 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHLogonFailures/Read | 讀取來自 DHLogonFailures 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHLogonMetrics/Read | 讀取來自 DHLogonMetrics 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHOSCrashData/Read | 讀取來自 DHOSCrashData 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHOSReliability/Read | 讀取來自 DHOSReliability 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DHWipAppLearning/Read | 讀取來自 DHWipAppLearning 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DnsEvents/Read | 讀取來自 DnsEvents 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/DnsInventory/Read | 讀取來自 DnsInventory 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ETWEvent/Read | 讀取來自 ETWEvent 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Event/Read | 讀取來自 Event 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | 讀取來自 ExchangeAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | 讀取來自 ExchangeOnlineAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Heartbeat/Read | 讀取來自 Heartbeat 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | 讀取來自 IISAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/InboundConnection/Read | 讀取來自 InboundConnection 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/KubeNodeInventory/Read | 讀取來自 KubeNodeInventory 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/KubePodInventory/Read | 讀取來自 KubePodInventory 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/LinuxAuditLog/Read | 讀取來自 LinuxAuditLog 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplication/Read | 讀取來自 MAApplication 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplicationHealth/Read | 讀取來自 MAApplicationHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplicationHealthAlternativeVersions/Read | 讀取來自 MAApplicationHealthAlternativeVersions 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplicationHealthIssues/Read | 讀取來自 MAApplicationHealthIssues 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplicationInstance/Read | 讀取來自 MAApplicationInstance 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplicationInstanceReadiness/Read | 讀取來自 MAApplicationInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAApplicationReadiness/Read | 讀取來自 MAApplicationReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADeploymentPlan/Read | 讀取來自 MADeploymentPlan 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADevice/Read | 讀取來自 MADevice 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADevicePnPHealth/Read | 讀取來自 MADevicePnPHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | 讀取來自 MADevicePnPHealthAlternativeVersions 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | 讀取來自 MADevicePnPHealthIssues 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADeviceReadiness/Read | 讀取來自 MADeviceReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | 讀取來自 MADriverInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MADriverReadiness/Read | 讀取來自 MADriverReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAddin/Read | 讀取來自 MAOfficeAddin 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | 讀取來自 MAOfficeAddinHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | 讀取來自 MAOfficeAddinHealthIssues 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | 讀取來自 MAOfficeAddinInstance 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | 讀取來自 MAOfficeAddinInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | 讀取來自 MAOfficeAddinReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeApp/Read | 讀取來自 MAOfficeApp 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | 讀取來自 MAOfficeAppHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | 讀取來自 MAOfficeAppInstance 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | 讀取來自 MAOfficeAppReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | 讀取來自 MAOfficeBuildInfo 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | 讀取來自 MAOfficeCurrencyAssessment 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | 讀取來自 MAOfficeCurrencyAssessmentDailyCounts 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | 讀取來自 MAOfficeDeploymentStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | 讀取來自 MAOfficeMacroHealth 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | 讀取來自 MAOfficeMacroHealthIssues 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | 讀取來自 MAOfficeMacroIssueInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeMacroIssueReadiness/Read | 讀取來自 MAOfficeMacroIssueReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeMacroSummary/Read | 讀取來自 MAOfficeMacroSummary 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeSuite/Read | 讀取來自 MAOfficeSuite 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAOfficeSuiteInstance/Read | 讀取來自 MAOfficeSuiteInstance 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAProposedPilotDevices/Read | 讀取來自 MAProposedPilotDevices 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAWindowsBuildInfo/Read | 讀取來自 MAWindowsBuildInfo 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | 讀取來自 MAWindowsCurrencyAssessment 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | 讀取來自 MAWindowsCurrencyAssessmentDailyCounts 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | 讀取來自 MAWindowsDeploymentStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | 讀取來自 MAWindowsSysReqInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/NetworkMonitoring/Read | 讀取來自 NetworkMonitoring 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/OfficeActivity/Read | 讀取來自 OfficeActivity 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Operation/Read | 讀取來自 Operation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/OutboundConnection/Read | 讀取來自 OutboundConnection 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Perf/Read | 讀取來自 Perf 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ProtectionStatus/Read | 讀取來自 ProtectionStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Read | 正在讀取您所有記錄的資料 |
+> | Action | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | 讀取來自 ReservedAzureCommonFields 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ReservedCommonFields/Read | 讀取來自 ReservedCommonFields 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | 讀取來自 SCCMAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | 讀取來自 SCOMAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SecurityAlert/Read | 讀取來自 SecurityAlert 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SecurityBaseline/Read | 讀取來自 SecurityBaseline 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | 讀取來自 SecurityBaselineSummary 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SecurityDetection/Read | 讀取來自 SecurityDetection 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SecurityEvent/Read | 讀取來自 SecurityEvent 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | 讀取來自 ServiceFabricOperationalEvent 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | 讀取來自 ServiceFabricReliableActorEvent 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | 讀取來自 ServiceFabricReliableServiceEvent 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | 讀取來自 SfBAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | 讀取來自 SfBOnlineAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | 讀取來自 SharePointOnlineAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | 讀取來自 SPAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | 讀取來自 SQLAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SQLQueryPerformance/Read | 讀取來自 SQLQueryPerformance 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Syslog/Read | 讀取來自 Syslog 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/SysmonEvent/Read | 讀取來自 SysmonEvent 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAApp/Read | 讀取來自 UAApp 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAComputer/Read | 讀取來自 UAComputer 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAComputerRank/Read | 讀取來自 UAComputerRank 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UADriver/Read | 讀取來自 UADriver 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UADriverProblemCodes/Read | 讀取來自 UADriverProblemCodes 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAFeedback/Read | 讀取來自 UAFeedback 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAHardwareSecurity/Read | 讀取來自 UAHardwareSecurity 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAIESiteDiscovery/Read | 讀取來自 UAIESiteDiscovery 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAOfficeAddIn/Read | 讀取來自 UAOfficeAddIn 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAProposedActionPlan/Read | 讀取來自 UAProposedActionPlan 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UASysReqIssue/Read | 讀取來自 UASysReqIssue 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UAUpgradedComputer/Read | 讀取來自 UAUpgradedComputer 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Update/Read | 讀取來自 Update 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UpdateRunProgress/Read | 讀取來自 UpdateRunProgress 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/UpdateSummary/Read | 讀取來自 UpdateSummary 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/Usage/Read | 讀取來自 Usage 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/W3CIISLog/Read | 讀取來自 W3CIISLog 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | 讀取來自 WaaSDeploymentStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | 讀取來自 WaaSInsiderStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WaaSUpdateStatus/Read | 讀取來自 WaaSUpdateStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WDAVStatus/Read | 讀取來自 WDAVStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WDAVThreat/Read | 讀取來自 WDAVThreat 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | 讀取來自 WindowsClientAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WindowsFirewall/Read | 讀取來自 WindowsFirewall 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | 讀取來自 WindowsServerAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WireData/Read | 讀取來自 WireData 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | 讀取來自 WUDOAggregatedStatus 資料表的資料 |
+> | Action | Microsoft.Insights/Logs/WUDOStatus/Read | 讀取來自 WUDOStatus 資料表的資料 |
 > | Action | Microsoft.Insights/MetricAlerts/Delete | 刪除計量警示 |
 > | Action | Microsoft.Insights/MetricAlerts/Read | 讀取計量警示 |
 > | Action | Microsoft.Insights/MetricAlerts/Status/Read | 讀取計量警示狀態 |
 > | Action | Microsoft.Insights/MetricAlerts/Write | 建立或更新計量警示 |
 > | Action | Microsoft.Insights/MetricBaselines/Read | 讀取度量基準 |
-> | Action | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | 讀取計量定義 |
-> | Action | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | 讀取計量定義 |
-> | Action | Microsoft.Insights/MetricDefinitions/Read | 讀取計量定義 |
+> | Action | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | 讀取度量定義 |
+> | Action | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | 讀取度量定義 |
+> | Action | Microsoft.Insights/MetricDefinitions/Read | 讀取度量定義 |
 > | Action | Microsoft.Insights/Metricnamespaces/Read | 讀取計量命名空間 |
 > | Action | Microsoft.Insights/Metrics/Action | 計量動作 |
 > | Action | Microsoft.Insights/Metrics/Microsoft.Insights/Read | 讀取計量 |
@@ -2937,12 +2937,12 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Insights/ScheduledQueryRules/Write | 寫入排程的查詢規則 |
 > | Action | Microsoft.Insights/Tenants/Register/Action | 將 Microsoft Insights 提供者初始化 |
 > | Action | Microsoft.Insights/Unregister/Action | 註冊 Microsoft Insights 提供者 |
-> | Action | Microsoft.Insights/Webtests/Delete | 刪除 Webtest 設定 |
-> | Action | Microsoft.Insights/Webtests/GetToken/Read | 讀取 Webtest 權杖 |
-> | Action | Microsoft.Insights/Webtests/MetricDefinitions/Read | 讀取 Webtest 計量定義 |
-> | Action | Microsoft.Insights/Webtests/Metrics/Read | 讀取 Webtest 計量 |
-> | Action | Microsoft.Insights/Webtests/Read | 讀取 Webtest 設定 |
-> | Action | Microsoft.Insights/Webtests/Write | 寫入至 Webtest 設定 |
+> | Action | Microsoft.Insights/Webtests/Delete | 正在刪除 WebTest 設定 |
+> | Action | Microsoft.Insights/Webtests/GetToken/Read | 讀取 webtest 權杖 |
+> | Action | Microsoft.Insights/Webtests/MetricDefinitions/Read | 讀取 webtest 計量定義 |
+> | Action | Microsoft.Insights/Webtests/Metrics/Read | 讀取 webtest 計量 |
+> | Action | Microsoft.Insights/Webtests/Read | 正在讀取 WebTest 設定 |
+> | Action | Microsoft.Insights/Webtests/Write | 正在寫入 WebTest 設定 |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
@@ -2983,29 +2983,29 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.KeyVault/checkNameAvailability/read | 確認 Key Vault 名稱有效，且並非使用中 |
-> | Action | Microsoft.KeyVault/deletedVaults/read | 檢視虛刪除之 Key Vault 的屬性 |
+> | Action | Microsoft.KeyVault/checkNameAvailability/read | 檢查金鑰保存庫名稱為有效且非使用中 |
+> | Action | Microsoft.KeyVault/deletedVaults/read | 檢視已虛刪除的金鑰保存庫屬性 |
 > | Action | Microsoft.KeyVault/hsmPools/delete | 刪除 HSM 集區 |
-> | Action | Microsoft.KeyVault/hsmPools/joinVault/action | 將金鑰保存庫加入至 HSM 集區 |
+> | Action | Microsoft.KeyVault/hsmPools/joinVault/action | 將金鑰保存庫加入 HSM 集區 |
 > | Action | Microsoft.KeyVault/hsmPools/read | 檢視 HSM 集區的屬性 |
 > | Action | Microsoft.KeyVault/hsmPools/write | 建立新的 HSM 集區，或更新現有 HSM 集區的屬性 |
-> | Action | Microsoft.KeyVault/locations/deletedVaults/purge/action | 清除虛刪除的 Key Vault |
-> | Action | Microsoft.KeyVault/locations/deletedVaults/read | 檢視虛刪除之 Key Vault 的屬性 |
+> | Action | Microsoft.KeyVault/locations/deletedVaults/purge/action | 清除虛刪除的金鑰保存庫 |
+> | Action | Microsoft.KeyVault/locations/deletedVaults/read | 檢視已虛刪除的金鑰保存庫屬性 |
 > | Action | Microsoft.KeyVault/locations/deleteVirtualNetworkOrSubnets/action | 通知 Microsoft.KeyVault 正在刪除虛擬網路或子網路 |
-> | Action | Microsoft.KeyVault/locations/operationResults/read | 檢查長時間執行之作業的結果 |
+> | Action | Microsoft.KeyVault/locations/operationResults/read | 檢查長時間執行作業的結果 |
 > | Action | Microsoft.KeyVault/operations/read | 列出可以對 Microsoft.KeyVault 資源提供者執行的作業 |
 > | Action | Microsoft.KeyVault/register/action | 註冊訂用帳戶 |
 > | Action | Microsoft.KeyVault/unregister/action | 取消註冊訂用帳戶 |
-> | Action | Microsoft.KeyVault/vaults/accessPolicies/write | 藉由合併或取代來更新現有存取原則，或在保存庫中新增存取原則。 |
-> | Action | Microsoft.KeyVault/vaults/delete | 刪除 Key Vault |
-> | Action | Microsoft.KeyVault/vaults/deploy/action | 在部署 Azure 資源時啟用 Key Vault 中祕密的存取權 |
-> | Action | Microsoft.KeyVault/vaults/eventGridFilters/delete | 通知 KeyVault, 正在刪除 Key Vault 的 EventGrid 訂用帳戶 |
-> | Action | Microsoft.KeyVault/vaults/eventGridFilters/read | 通知 KeyVault, 正在查看 Key Vault 的 EventGrid 訂用帳戶 |
-> | Action | Microsoft.KeyVault/vaults/eventGridFilters/write | 通知 KeyVault, 正在建立 Key Vault 的新 EventGrid 訂用帳戶 |
-> | Action | Microsoft.KeyVault/vaults/read | 檢視 Key Vault 的屬性 |
+> | Action | Microsoft.KeyVault/vaults/accessPolicies/write | 透過合併或取代來更新現有的存取原則，或將新的存取原則新增至保存庫。 |
+> | Action | Microsoft.KeyVault/vaults/delete | 刪除金鑰保存庫 |
+> | Action | Microsoft.KeyVault/vaults/deploy/action | 部署 Azure 資源時啟用對金鑰保存庫中祕密的存取 |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/delete | 通知 Microsoft.KeyVault 正在刪除 Key Vault 的 EventGrid 訂用帳戶 |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/read | 通知 Microsoft.KeyVault 有人正在檢視 Key Vault 的 EventGrid 訂用帳戶 |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/write | 通知 Microsoft.KeyVault 正在建立 Key Vault 的新 EventGrid 訂用帳戶 |
+> | Action | Microsoft.KeyVault/vaults/read | 檢視金鑰保存庫的內容 |
 > | Action | Microsoft.KeyVault/vaults/secrets/read | 查看密碼的內容, 而不是其值。 |
 > | Action | Microsoft.KeyVault/vaults/secrets/write | 建立新的密碼, 或更新現有密碼的值。 |
-> | Action | Microsoft.KeyVault/vaults/write | 建立新的 Key Vault，或更新現有 Key Vault 的屬性 |
+> | Action | Microsoft.KeyVault/vaults/write | 建立新金鑰保存庫或更新現有金鑰保存庫的內容 |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -3120,7 +3120,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Logic/integrationAccounts/agreements/read | 讀取整合帳戶中的合約。 |
 > | Action | Microsoft.Logic/integrationAccounts/agreements/write | 建立或更新整合帳戶中的合約。 |
 > | Action | Microsoft.Logic/integrationAccounts/assemblies/delete | 刪除整合帳戶中的組件。 |
-> | Action | Microsoft.Logic/integrationAccounts/assemblies/listContentCallbackUrl/action | 取得整合帳戶中組件內容的回呼 URL。 |
+> | Action | Microsoft.Logic/integrationAccounts/assemblies/listContentCallbackUrl/action | 取得整合帳戶中組建內容的回呼 URL。 |
 > | Action | Microsoft.Logic/integrationAccounts/assemblies/read | 讀取整合帳戶中的組件。 |
 > | Action | Microsoft.Logic/integrationAccounts/assemblies/write | 建立或更新整合帳戶中的組件。 |
 > | Action | Microsoft.Logic/integrationAccounts/batchConfigurations/delete | 刪除整合帳戶中的批次設定。 |
@@ -3142,7 +3142,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Logic/integrationAccounts/partners/listContentCallbackUrl/action | 取得整合帳戶中合作夥伴內容的回呼 URL。 |
 > | Action | Microsoft.Logic/integrationAccounts/partners/read | 讀取整合帳戶中的合作夥伴。 |
 > | Action | Microsoft.Logic/integrationAccounts/partners/write | 建立或更新整合帳戶中的合作夥伴。 |
-> | Action | Microsoft.Logic/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read | 讀取整合帳戶記錄定義。 |
+> | Action | Microsoft.Logic/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read | 讀取整合帳戶記錄檔定義。 |
 > | Action | Microsoft.Logic/integrationAccounts/read | 讀取整合帳戶。 |
 > | Action | Microsoft.Logic/integrationAccounts/regenerateAccessKey/action | 重新產生存取金鑰祕密。 |
 > | Action | Microsoft.Logic/integrationAccounts/schemas/delete | 刪除整合帳戶中的結構描述。 |
@@ -3161,10 +3161,10 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | 讀取整合服務環境計量定義。 |
 > | Action | Microsoft.Logic/integrationServiceEnvironments/read | 讀取整合服務環境。 |
 > | Action | Microsoft.Logic/integrationServiceEnvironments/write | 建立或更新整合服務環境。 |
-> | Action | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | 取得工作流程建議的作業群組。 |
+> | Action | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | 取得工作流程建議作業群組。 |
 > | Action | Microsoft.Logic/locations/workflows/validate/action | 驗證工作流程。 |
-> | Action | Microsoft.Logic/operations/read | 取得作業。 |
-> | Action | Microsoft.Logic/register/action | 為指定的訂用帳戶註冊 Microsoft.Logic 資源提供者。 |
+> | Action | Microsoft.Logic/operations/read | 取得此作業。 |
+> | Action | Microsoft.Logic/register/action | 為指定的訂閱註冊 Microsoft.Logic 資源提供者。 |
 > | Action | Microsoft.Logic/workflows/accessKeys/delete | 刪除存取金鑰。 |
 > | Action | Microsoft.Logic/workflows/accessKeys/list/action | 列出存取金鑰祕密。 |
 > | Action | Microsoft.Logic/workflows/accessKeys/read | 讀取存取金鑰。 |
@@ -3175,36 +3175,36 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Logic/workflows/enable/action | 啟用工作流程。 |
 > | Action | Microsoft.Logic/workflows/listCallbackUrl/action | 取得工作流程的回呼 URL。 |
 > | Action | Microsoft.Logic/workflows/listSwagger/action | 取得工作流程 Swagger 定義。 |
-> | Action | Microsoft.Logic/workflows/move/action | 將工作流程從其現有的訂用帳戶識別碼、資源群組和/或名稱改為不同的訂用帳戶識別碼、資源群組和/或名稱。 |
+> | Action | Microsoft.Logic/workflows/move/action | 將工作流程從其現有訂用帳戶識別碼、資源群組和 (或) 名稱移至不同的訂用帳戶識別碼、資源群組和 (或) 名稱。 |
 > | Action | Microsoft.Logic/workflows/providers/Microsoft.Insights/diagnosticSettings/read | 讀取工作流程診斷設定。 |
 > | Action | Microsoft.Logic/workflows/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新工作流程診斷設定。 |
 > | Action | Microsoft.Logic/workflows/providers/Microsoft.Insights/logDefinitions/read | 讀取工作流程記錄定義。 |
-> | Action | Microsoft.Logic/workflows/providers/Microsoft.Insights/metricDefinitions/read | 讀取工作流程計量定義。 |
+> | Action | Microsoft.Logic/workflows/providers/Microsoft.Insights/metricDefinitions/read | 讀取工作流程度量定義。 |
 > | Action | Microsoft.Logic/workflows/read | 讀取工作流程。 |
 > | Action | Microsoft.Logic/workflows/regenerateAccessKey/action | 重新產生存取金鑰祕密。 |
-> | Action | Microsoft.Logic/workflows/run/action | 啟動工作流程的執行。 |
+> | Action | Microsoft.Logic/workflows/run/action | 開始執行工作流程。 |
 > | Action | Microsoft.Logic/workflows/runs/actions/listExpressionTraces/action | 取得工作流程執行動作運算式追蹤。 |
-> | Action | Microsoft.Logic/workflows/runs/actions/read | 讀取工作流程的執行動作。 |
+> | Action | Microsoft.Logic/workflows/runs/actions/read | 讀取工作流程執行動作。 |
 > | Action | Microsoft.Logic/workflows/runs/actions/repetitions/listExpressionTraces/action | 取得工作流程執行動作重複作業運算式追蹤。 |
 > | Action | Microsoft.Logic/workflows/runs/actions/repetitions/read | 讀取工作流程執行動作重複作業。 |
 > | Action | Microsoft.Logic/workflows/runs/actions/repetitions/requestHistories/read | 讀取工作流程執行重複動作要求歷程記錄。 |
 > | Action | Microsoft.Logic/workflows/runs/actions/requestHistories/read | 讀取工作流程執行動作要求歷程記錄。 |
 > | Action | Microsoft.Logic/workflows/runs/actions/scoperepetitions/read | 讀取工作流程執行動作範圍重複作業。 |
-> | Action | Microsoft.Logic/workflows/runs/cancel/action | 取消工作流程的執行。 |
+> | Action | Microsoft.Logic/workflows/runs/cancel/action | 取消執行工作流程。 |
 > | Action | Microsoft. 邏輯/工作流程/執行/刪除 | 刪除工作流程的執行。 |
-> | Action | Microsoft.Logic/workflows/runs/operations/read | 讀取工作流程的執行作業狀態。 |
-> | Action | Microsoft.Logic/workflows/runs/read | 讀取工作流程的執行。 |
-> | Action | Microsoft.Logic/workflows/suspend/action | 暫止工作流程。 |
+> | Action | Microsoft.Logic/workflows/runs/operations/read | 讀取工作流程執行作業狀態。 |
+> | Action | Microsoft.Logic/workflows/runs/read | 讀取工作流程執行。 |
+> | Action | Microsoft.Logic/workflows/suspend/action | 暫止此工作流程。 |
 > | Action | Microsoft.Logic/workflows/triggers/histories/read | 讀取觸發程序歷程記錄。 |
-> | Action | Microsoft.Logic/workflows/triggers/histories/resubmit/action | 重新提交工作流程的觸發程序。 |
-> | Action | Microsoft.Logic/workflows/triggers/listCallbackUrl/action | 取得觸發程序的回呼 URL。 |
+> | Action | Microsoft.Logic/workflows/triggers/histories/resubmit/action | 重新提交工作流程觸發程序。 |
+> | Action | Microsoft.Logic/workflows/triggers/listCallbackUrl/action | 取得觸發程序的回撥 URL。 |
 > | Action | Microsoft.Logic/workflows/triggers/read | 讀取觸發程序。 |
 > | Action | Microsoft.Logic/workflows/triggers/reset/action | 重設觸發程序。 |
 > | Action | Microsoft.Logic/workflows/triggers/run/action | 執行觸發程序。 |
-> | Action | Microsoft.Logic/workflows/triggers/setState/action | 設定觸發程序狀態。 |
+> | Action | Microsoft.Logic/workflows/triggers/setState/action | 設定觸發程序的狀態。 |
 > | Action | Microsoft.Logic/workflows/validate/action | 驗證工作流程。 |
 > | Action | Microsoft.Logic/workflows/versions/read | 讀取工作流程版本。 |
-> | Action | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | 取得觸發程序的回呼 URL。 |
+> | Action | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | 取得觸發程序的回撥 URL。 |
 > | Action | Microsoft.Logic/workflows/write | 建立或更新工作流程。 |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -3233,19 +3233,6 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.MachineLearning/Workspaces/read | 讀取任何 Machine Learning 工作區 |
 > | Action | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | 重新同步處理針對 Machine Learning 工作區所設定之儲存體帳戶的金鑰 |
 > | Action | Microsoft.MachineLearning/Workspaces/write | 建立或更新任何 Machine Learning 工作區 |
-
-## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
-
-> [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 運算 | 描述 |
-> | --- | --- | --- |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | 檢查是否有可供作業叢集之系統服務使用的更新 |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/delete | 刪除任何裝載帳戶 |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/listKeys/action | 列出與作業叢集相關聯的金鑰 |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/read | 讀取任何裝載帳戶 |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/updateSystem/action | 更新作業叢集中的系統服務 |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/write | 建立或更新任何裝載帳戶 |
-> | Action | Microsoft.MachineLearningCompute/register/action | 向資源提供者註冊訂用帳戶識別碼，並讓您能夠建立機器學習服務計算資源 |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -3285,14 +3272,14 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | ManagedServices/marketplaceRegistrationDefinitions/read | 抓取受控服務註冊定義的清單。 |
-> | Action | ManagedServices/operationStatuses/read | 讀取資源的作業狀態。 |
+> | Action | ManagedServices/marketplaceRegistrationDefinitions/read | 擷取受控服務註冊定義的清單。 |
+> | Action | ManagedServices/operationStatuses/read | 讀取資源的操作狀態。 |
 > | Action | ManagedServices/register/action | 註冊至受管理的服務。 |
 > | Action | ManagedServices/registrationAssignments/delete | 移除受控服務註冊指派。 |
-> | Action | ManagedServices/registrationAssignments/read | 抓取受控服務註冊指派的清單。 |
+> | Action | ManagedServices/registrationAssignments/read | 擷取受控服務註冊指派的清單。 |
 > | Action | ManagedServices/registrationAssignments/write | 新增或修改受控服務註冊指派。 |
 > | Action | ManagedServices/registrationDefinitions/delete | 移除受控服務註冊定義。 |
-> | Action | ManagedServices/registrationDefinitions/read | 抓取受控服務註冊定義的清單。 |
+> | Action | ManagedServices/registrationDefinitions/read | 擷取受控服務註冊定義的清單。 |
 > | Action | ManagedServices/registrationDefinitions/write | 新增或修改受控服務註冊定義。 |
 > | Action | ManagedServices/取消註冊/動作 | 從受管理的服務取消註冊。 |
 
@@ -3332,11 +3319,11 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | 傳回協議。 |
-> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | 接受已簽署的協議。 |
-> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | 將映像匯入至終端使用者的 ACR。 |
-> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | 傳回組態。 |
-> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | 儲存組態。 |
+> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | 傳回合約。 |
+> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | 接受已簽署的合約。 |
+> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | 將影像匯入終端使用者的 ACR。 |
+> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | 傳回設定。 |
+> | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | 儲存設定。 |
 > | Action | Microsoft.Marketplace/register/action | 在訂用帳戶中註冊 Microsoft.Marketplace 資源提供者。 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
@@ -3964,20 +3951,20 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | 檢查在 NotificationHub 服務內，給定的命名空間資源名稱是否可供使用。 |
-> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | 取得命名空間授權規則描述的清單。 |
+> | Action | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | 請檢查 NotificationHub 服務中是否可以使用指定的 Namespace 資源名稱。 |
+> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | 取得命名空間授權規則描述清單。 |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | 刪除命名空間授權規則。 您無法刪除預設的命名空間授權規則。  |
-> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | 取得命名空間的連接字串 |
-> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/read | 取得命名空間授權規則描述的清單。 |
-> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | 命名空間授權規則會重新產生主要/次要金鑰，指定需要重新產生的金鑰 |
+> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | 取得進入命名空間的連接字串 |
+> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/read | 取得命名空間授權規則描述清單。 |
+> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | 命名空間授權規則重新產生主要/次要金鑰，請指定必須重新產生的金鑰 |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/write | 建立命名空間層級的授權規則，並更新其屬性。 您可以更新授權規則的存取權限、主要金鑰和次要金鑰。 |
-> | Action | Microsoft.NotificationHubs/Namespaces/CheckNotificationHubAvailability/action | 檢查在命名空間內，給定的 NotificationHub 名稱是否可供使用。 |
+> | Action | Microsoft.NotificationHubs/Namespaces/CheckNotificationHubAvailability/action | 請檢查 Namespace 中是否可以使用指定的 NotificationHub 名稱。 |
 > | Action | Microsoft.NotificationHubs/Namespaces/Delete | 刪除命名空間資源 |
-> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action | 取得通知中樞授權規則的清單 |
-> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/delete | 刪除通知中樞的授權規則 |
-> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listkeys/action | 取得通知中樞的連接字串 |
-> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/read | 取得通知中樞授權規則的清單 |
-> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action | 通知中樞授權規則會重新產生主要/次要金鑰，指定需要重新產生的金鑰 |
+> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action | 取得通知中樞授權規則清單 |
+> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/delete | 刪除通知中樞授權規則 |
+> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/listkeys/action | 取得進入通知中樞的連接字串 |
+> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/read | 取得通知中樞授權規則清單 |
+> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/regenerateKeys/action | 通知中樞授權規則重新產生主要/次要金鑰，請指定必須重新產生的金鑰 |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/write | 建立通知中樞授權規則，並更新其屬性。 您可以更新授權規則的存取權限、主要金鑰和次要金鑰。 |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/debugSend/action | 傳送測試推播通知。 |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/Delete | 刪除通知中樞資源 |
@@ -3985,7 +3972,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/action | 取得所有通知中樞的 PNS 認證。 這包括 WNS、MPNS、APNS、GCM 和百度認證 |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/read | 取得通知中樞資源描述的清單 |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/write | 建立通知中樞，並更新其屬性。 其屬性主要包括 PNS 認證。 授權規則與 TTL |
-> | Action | Microsoft.NotificationHubs/Namespaces/read | 取得命名空間資源描述的清單 |
+> | Action | Microsoft.NotificationHubs/Namespaces/read | 取得命名空間資源描述清單 |
 > | Action | Microsoft.NotificationHubs/Namespaces/write | 建立命名空間資源，並更新其屬性。 命名空間的標記和容量是可以更新的屬性。 |
 > | Action | Microsoft.NotificationHubs/operationResults/read | 傳回通知中樞提供者的作業結果 |
 > | Action | Microsoft.NotificationHubs/operations/read | 傳回通知中樞提供者支援的作業清單 |
@@ -4073,35 +4060,35 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPolicyChange/read | 讀取來自 AADDomainServicesPolicyChange 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPrivilegeUse/read | 讀取來自 AADDomainServicesPrivilegeUse 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesSystemSecurity/read | 讀取來自 AADDomainServicesSystemSecurity 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | 從 ADAssessmentRecommendation 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | 讀取來自 ADAssessmentRecommendation 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | 讀取來自 ADFActivityRun 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | 讀取來自 ADFPipelineRun 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | 讀取來自 ADFTriggerRun 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | 從 ADReplicationResult 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | 從 ADSecurityAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Alert/read | 從 Alert 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | 從 AlertHistory 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | 讀取來自 ADReplicationResult 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | 讀取來自 ADSecurityAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Alert/read | 讀取來自 Alert 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | 讀取來自 AlertHistory 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | 從 AppCenterError 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | 從 ApplicationInsights 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | 讀取來自 ApplicationInsights 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | 從 AuditLogs 資料表讀取資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/AutoscaleEvaluationsLog/讀取 | 讀取來自 AutoscaleEvaluationsLog 資料表的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/AutoscaleScaleActionsLog/讀取 | 讀取來自 AutoscaleScaleActionsLog 資料表的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/AWSCloudTrail/讀取 | 讀取來自 AWSCloudTrail 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | 從 AzureActivity 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | 讀取來自 AzureActivity 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | 讀取來自 AzureAssessmentRecommendation 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | 從 AzureMetrics 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | 讀取來自 AzureMetrics 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | 讀取來自 BlockchainApplicationLog 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | 讀取來自 BlockchainProxyLog 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | 從 BoundPort 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | 從 CommonSecurityLog 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | 從 ComputerGroup 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | 從 ConfigurationChange 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read | 從 ConfigurationData 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | 從 ContainerImageInventory 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | 從 ContainerInventory 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | 從 ContainerLog 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | 讀取來自 BoundPort 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | 讀取來自 CommonSecurityLog 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | 讀取來自 ComputerGroup 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | 讀取來自 ConfigurationChange 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read | 讀取來自 ConfigurationData 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | 讀取來自 ContainerImageInventory 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | 讀取來自 ContainerInventory 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | 讀取來自 ContainerLog 資料表的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/ContainerNodeInventory/讀取 | 讀取來自 ContainerNodeInventory 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | 從 ContainerServiceLog 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | 讀取來自 ContainerServiceLog 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | 讀取來自 DatabricksAccounts 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | 讀取來自 DatabricksClusters 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | 讀取來自 DatabricksDBFS 資料表的資料 |
@@ -4112,173 +4099,173 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksSSH/read | 讀取來自 DatabricksSSH 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksTables/read | 讀取來自 DatabricksTables 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksWorkspace/read | 讀取來自 DatabricksWorkspace 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | 從 DeviceAppCrash 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | 從 DeviceAppLaunch 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | 從 DeviceCalendar 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | 從 DeviceCleanup 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | 從 DeviceConnectSession 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | 從 DeviceEtw 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | 從 DeviceHardwareHealth 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | 從 DeviceHealth 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | 從 DeviceHeartbeat 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | 從 DeviceSkypeHeartbeat 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | 從 DeviceSkypeSignIn 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | 從 DeviceSleepState 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | 從 DHAppFailure 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | 從 DHAppReliability 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | 從 DHDriverReliability 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | 從 DHLogonFailures 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | 從 DHLogonMetrics 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read | 從 DHOSCrashData 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read | 從 DHOSReliability 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read | 從 DHWipAppLearning 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DnsEvents/read | 從 DnsEvents 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/DnsInventory/read | 從 DnsInventory 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ETWEvent/read | 從 ETWEvent 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Event/read | 從 Event 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | 從 ExchangeAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | 從 ExchangeOnlineAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | 從 Heartbeat 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | 讀取來自 DeviceAppCrash 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | 讀取來自 DeviceAppLaunch 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | 讀取來自 DeviceCalendar 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | 讀取來自 DeviceCleanup 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | 讀取來自 DeviceConnectSession 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | 讀取來自 DeviceEtw 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | 讀取來自 DeviceHardwareHealth 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | 讀取來自 DeviceHealth 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | 讀取來自 DeviceHeartbeat 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | 讀取來自 DeviceSkypeHeartbeat 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | 讀取來自 DeviceSkypeSignIn 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | 讀取來自 DeviceSleepState 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | 讀取來自 DHAppFailure 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | 讀取來自 DHAppReliability 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | 讀取來自 DHDriverReliability 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | 讀取來自 DHLogonFailures 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | 讀取來自 DHLogonMetrics 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read | 讀取來自 DHOSCrashData 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read | 讀取來自 DHOSReliability 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read | 讀取來自 DHWipAppLearning 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DnsEvents/read | 讀取來自 DnsEvents 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DnsInventory/read | 讀取來自 DnsInventory 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ETWEvent/read | 讀取來自 ETWEvent 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Event/read | 讀取來自 Event 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | 讀取來自 ExchangeAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | 讀取來自 ExchangeOnlineAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | 讀取來自 Heartbeat 資料表的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/HuntingBookmark/讀取 | 讀取來自 HuntingBookmark 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | 從 IISAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | 從 InboundConnection 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | 讀取來自 IISAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | 讀取來自 InboundConnection 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/InsightsMetrics/read | 讀取來自 InsightsMetrics 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | 從 IntuneAuditLogs 資料表讀取資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | 從 IntuneOperationalLogs 資料表讀取資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | 從 KubeEvents 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | 從 KubeNodeInventory 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | 從 KubePodInventory 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | 讀取來自 KubeNodeInventory 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | 讀取來自 KubePodInventory 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/KubeServices/read | 從 KubeServices 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | 從 LinuxAuditLog 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | 從 MAApplication 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | 從 MAApplicationHealth 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | 從 MAApplicationHealthAlternativeVersions 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthIssues/read | 從 MAApplicationHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstance/read | 從 MAApplicationInstance 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstanceReadiness/read | 從 MAApplicationInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | 從 MAApplicationReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | 從 MADeploymentPlan 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADevice/read | 從 MADevice 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | 讀取來自 LinuxAuditLog 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | 讀取來自 MAApplication 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | 讀取來自 MAApplicationHealth 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | 讀取來自 MAApplicationHealthAlternativeVersions 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthIssues/read | 讀取來自 MAApplicationHealthIssues 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstance/read | 讀取來自 MAApplicationInstance 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstanceReadiness/read | 讀取來自 MAApplicationInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | 讀取來自 MAApplicationReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | 讀取來自 MADeploymentPlan 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADevice/read | 讀取來自 MADevice 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | 從 MADeviceNotEnrolled 資料表讀取資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MADeviceNRT/read | 讀取來自 MADeviceNRT 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | 從 MADevicePnPHealth 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | 從 MADevicePnPHealthAlternativeVersions 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | 從 MADevicePnPHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | 從 MADeviceReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | 從 MADriverInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | 從 MADriverReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | 從 MAOfficeAddin 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | 讀取來自 MADevicePnPHealth 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | 讀取來自 MADevicePnPHealthAlternativeVersions 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | 讀取來自 MADevicePnPHealthIssues 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | 讀取來自 MADeviceReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | 讀取來自 MADriverInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | 讀取來自 MADriverReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | 讀取來自 MAOfficeAddin 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinEntityHealth/read | 讀取來自 MAOfficeAddinEntityHealth 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | 從 MAOfficeAddinHealth 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | 讀取來自 MAOfficeAddinHealth 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthEventNRT/read | 讀取來自 MAOfficeAddinHealthEventNRT 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | 從 MAOfficeAddinHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | 從 MAOfficeAddinInstance 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | 從 MAOfficeAddinInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | 從 MAOfficeAddinReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | 從 MAOfficeApp 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | 讀取來自 MAOfficeAddinHealthIssues 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | 讀取來自 MAOfficeAddinInstance 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | 讀取來自 MAOfficeAddinInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | 讀取來自 MAOfficeAddinReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | 讀取來自 MAOfficeApp 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppCrashesNRT/read | 讀取來自 MAOfficeAppCrashesNRT 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | 從 MAOfficeAppHealth 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | 從 MAOfficeAppInstance 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | 讀取來自 MAOfficeAppHealth 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | 讀取來自 MAOfficeAppInstance 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstanceHealth/read | 讀取來自 MAOfficeAppInstanceHealth 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | 從 MAOfficeAppReadiness 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | 讀取來自 MAOfficeAppReadiness 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppSessionsNRT/read | 讀取來自 MAOfficeAppSessionsNRT 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | 從 MAOfficeBuildInfo 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | 從 MAOfficeCurrencyAssessment 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | 從 MAOfficeCurrencyAssessmentDailyCounts 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | 從 MAOfficeDeploymentStatus 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | 讀取來自 MAOfficeBuildInfo 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | 讀取來自 MAOfficeCurrencyAssessment 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | 讀取來自 MAOfficeCurrencyAssessmentDailyCounts 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | 讀取來自 MAOfficeDeploymentStatus 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatusNRT/read | 讀取來自 MAOfficeDeploymentStatusNRT 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | 讀取來自 MAOfficeMacroErrorNRT 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroGlobalHealth/read | 讀取來自 MAOfficeMacroGlobalHealth 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | 從 MAOfficeMacroHealth 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | 從 MAOfficeMacroHealthIssues 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | 從 MAOfficeMacroIssueInstanceReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | 從 MAOfficeMacroIssueReadiness 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | 從 MAOfficeMacroSummary 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | 從 MAOfficeSuite 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | 從 MAOfficeSuiteInstance 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | 從 MAProposedPilotDevices 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | 從 MAWindowsBuildInfo 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | 從 MAWindowsCurrencyAssessment 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | 從 MAWindowsCurrencyAssessmentDailyCounts 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | 從 MAWindowsDeploymentStatus 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | 讀取來自 MAOfficeMacroHealth 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | 讀取來自 MAOfficeMacroHealthIssues 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | 讀取來自 MAOfficeMacroIssueInstanceReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | 讀取來自 MAOfficeMacroIssueReadiness 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | 讀取來自 MAOfficeMacroSummary 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | 讀取來自 MAOfficeSuite 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | 讀取來自 MAOfficeSuiteInstance 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | 讀取來自 MAProposedPilotDevices 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | 讀取來自 MAWindowsBuildInfo 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | 讀取來自 MAWindowsCurrencyAssessment 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | 讀取來自 MAWindowsCurrencyAssessmentDailyCounts 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | 讀取來自 MAWindowsDeploymentStatus 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | 讀取來自 MAWindowsDeploymentStatusNRT 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | 從 MAWindowsSysReqInstanceReadiness 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | 讀取來自 MAWindowsSysReqInstanceReadiness 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebApplicationLog/read | 讀取來自 MicrosoftWebApplicationLog 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebFunctionExecutionLogs/read | 讀取來自 MicrosoftWebFunctionExecutionLogs 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebStdOutStdErrLog/read | 讀取來自 MicrosoftWebStdOutStdErrLog 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebW3CLog/read | 讀取來自 MicrosoftWebW3CLog 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | 從 NetworkMonitoring 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | 從 OfficeActivity 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Operation/read | 從 Operation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | 從 OutboundConnection 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Perf/read | 從 Perf 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | 從 ProtectionStatus 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | 讀取來自 NetworkMonitoring 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | 讀取來自 OfficeActivity 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Operation/read | 讀取來自 Operation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | 讀取來自 OutboundConnection 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Perf/read | 讀取來自 Perf 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | 讀取來自 ProtectionStatus 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/read | 針對工作區中的資料執行查詢 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | 從 ReservedAzureCommonFields 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | 從 ReservedCommonFields 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | 從 SCCMAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | 從 SCOMAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read | 從 SecurityAlert 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read | 從 SecurityBaseline 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | 從 SecurityBaselineSummary 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | 從 SecurityDetection 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | 從 SecurityEvent 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | 讀取來自 ReservedAzureCommonFields 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | 讀取來自 ReservedCommonFields 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | 讀取來自 SCCMAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | 讀取來自 SCOMAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read | 讀取來自 SecurityAlert 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read | 讀取來自 SecurityBaseline 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | 讀取來自 SecurityBaselineSummary 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | 讀取來自 SecurityDetection 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | 讀取來自 SecurityEvent 資料表的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/SecurityIoTRawEvent/讀取 | 讀取來自 SecurityIoTRawEvent 資料表的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/SecurityRecommendation/讀取 | 讀取來自 SecurityRecommendation 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | 從 ServiceFabricOperationalEvent 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | 從 ServiceFabricReliableActorEvent 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | 從 ServiceFabricReliableServiceEvent 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | 從 SfBAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | 從 SfBOnlineAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | 從 SharePointOnlineAssessmentRecommendation 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | 讀取來自 ServiceFabricOperationalEvent 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | 讀取來自 ServiceFabricReliableActorEvent 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | 讀取來自 ServiceFabricReliableServiceEvent 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | 讀取來自 SfBAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | 讀取來自 SfBOnlineAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | 讀取來自 SharePointOnlineAssessmentRecommendation 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SigninLogs/read | 從 SigninLogs 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | 從 SPAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | 從 SQLAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | 從 SQLQueryPerformance 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | 讀取來自 SPAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | 讀取來自 SQLAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | 讀取來自 SQLQueryPerformance 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SqlThreatProtectionLoginAudits/read | 讀取來自 SqlThreatProtectionLoginAudits 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | 讀取來自 SqlVulnerabilityAssessmentResult 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Syslog/read | 從 Syslog 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | 從 SysmonEvent 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | 從任何自訂記錄檔讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Syslog/read | 讀取來自 Syslog 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | 讀取來自 SysmonEvent 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | 正在讀取所有自訂記錄的資料 |
 > | Action | Microsoft.operationalinsights/工作區/查詢/ThreatIntelligenceIndicator/讀取 | 讀取來自 ThreatIntelligenceIndicator 資料表的資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAApp/read | 從 UAApp 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | 從 UAComputer 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | 從 UAComputerRank 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UADriver/read | 從 UADriver 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | 從 UADriverProblemCodes 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | 從 UAFeedback 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | 從 UAHardwareSecurity 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | 從 UAIESiteDiscovery 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | 從 UAOfficeAddIn 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | 從 UAProposedActionPlan 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UASysReqIssue/read | 從 UASysReqIssue 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UAUpgradedComputer/read | 從 UAUpgradedComputer 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Update/read | 從 Update 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | 從 UpdateRunProgress 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | 從 UpdateSummary 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Usage/read | 從 Usage 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAApp/read | 讀取來自 UAApp 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | 讀取來自 UAComputer 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | 讀取來自 UAComputerRank 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UADriver/read | 讀取來自 UADriver 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | 讀取來自 UADriverProblemCodes 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | 讀取來自 UAFeedback 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | 讀取來自 UAHardwareSecurity 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | 讀取來自 UAIESiteDiscovery 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | 讀取來自 UAOfficeAddIn 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | 讀取來自 UAProposedActionPlan 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UASysReqIssue/read | 讀取來自 UASysReqIssue 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UAUpgradedComputer/read | 讀取來自 UAUpgradedComputer 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Update/read | 讀取來自 Update 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | 讀取來自 UpdateRunProgress 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | 讀取來自 UpdateSummary 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Usage/read | 讀取來自 Usage 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/VMBoundPort/read | 從 VMBoundPort 資料表讀取資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | 從 VMConnection 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | 從 W3CIISLog 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | 從 WaaSDeploymentStatus 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | 從 WaaSInsiderStatus 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | 從 WaaSUpdateStatus 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | 從 WDAVStatus 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | 從 WDAVThreat 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | 從 WindowsClientAssessmentRecommendation 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | 讀取來自 W3CIISLog 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | 讀取來自 WaaSDeploymentStatus 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | 讀取來自 WaaSInsiderStatus 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | 讀取來自 WaaSUpdateStatus 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | 讀取來自 WDAVStatus 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | 讀取來自 WDAVThreat 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | 讀取來自 WindowsClientAssessmentRecommendation 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WindowsEvent/read | 從 WindowsEvent 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | 從 WindowsFirewall 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | 從 WindowsServerAssessmentRecommendation 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WireData/read | 從 WireData 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | 讀取來自 WindowsFirewall 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | 讀取來自 WindowsServerAssessmentRecommendation 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WireData/read | 讀取來自 WireData 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | 從 WorkloadMonitoringPerf 資料表中讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | 從 WUDOAggregatedStatus 資料表讀取資料 |
-> | Action | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | 從 WUDOStatus 資料表讀取資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | 讀取來自 WUDOAggregatedStatus 資料表的資料 |
+> | Action | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | 讀取來自 WUDOStatus 資料表的資料 |
 > | Action | Microsoft.OperationalInsights/workspaces/read | 取得現有工作區 |
 > | Action | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | 重新產生指定的工作區共用金鑰 |
 > | Action | microsoft.operationalinsights/workspaces/rules/read | 取得所有警示規則。 |
 > | Action | Microsoft.OperationalInsights/workspaces/savedSearches/delete | 刪除已儲存的搜尋查詢 |
 > | Action | Microsoft.OperationalInsights/workspaces/savedSearches/read | 取得已儲存的搜尋查詢 |
-> | Action | microsoft.operationalinsights/workspaces/savedsearches/results/read | 取得已儲存的搜尋結果。 取代 |
+> | Action | microsoft.operationalinsights/workspaces/savedsearches/results/read | 取得已儲存的搜尋結果。 即將淘汰 |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | 刪除已排程的搜尋動作。 |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | 取得已排程的搜尋動作。 |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | 建立或更新已排程的搜尋動作。 |
@@ -4328,7 +4315,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.PolicyInsights/policyStates/summarize/action | 查詢原則最新狀態的摘要資訊。 |
 > | Action | Microsoft.PolicyInsights/policyStates/summarize/read | 查詢原則最新狀態的摘要資訊。 |
 > | Action | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | 對選取的範圍觸發新的合規性評估。 |
-> | Action | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | 查詢 DeployIfNotExists 原則所需之資源的相關資訊。 |
+> | Action | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | 查詢 DeployIfNotExists 原則所需資源的相關資訊。 |
 > | Action | Microsoft.PolicyInsights/register/action | 註冊 Microsoft Policy Insights 資源提供者, 並對其啟用動作。 |
 > | Action | Microsoft.PolicyInsights/remediations/cancel/action | 取消進行中的 Microsoft 原則補救。 |
 > | Action | Microsoft.PolicyInsights/remediations/delete | 刪除原則補救。 |
@@ -4342,15 +4329,15 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Portal/consoles/delete | 移除 Cloud Shell 實例。 |
-> | Action | Microsoft.Portal/consoles/read | 讀取 Cloud Shell 實例。 |
-> | Action | Microsoft.Portal/consoles/write | 建立或更新 Cloud Shell 實例。 |
-> | Action | Microsoft.Portal/dashboards/delete | 從訂用帳戶移除儀表板。 |
-> | Action | Microsoft.Portal/dashboards/read | 讀取訂用帳戶的儀表板。 |
+> | Action | Microsoft.Portal/consoles/delete | 移除 Cloud Shell 執行個體。 |
+> | Action | Microsoft.Portal/consoles/read | 讀取 Cloud Shell 執行個體。 |
+> | Action | Microsoft.Portal/consoles/write | 建立或更新 Cloud Shell 執行個體。 |
+> | Action | Microsoft.Portal/dashboards/delete | 將此儀表板從訂用帳戶移除。 |
+> | Action | Microsoft.Portal/dashboards/read | 讀取此訂用帳戶的儀表板。 |
 > | Action | Microsoft.Portal/dashboards/write | 新增或修改訂用帳戶的儀表板。 |
 > | Action | Microsoft.Portal/register/action | 註冊入口網站 |
-> | Action | Microsoft.Portal/usersettings/delete | 移除 Cloud Shell 的使用者設定。 |
-> | Action | Microsoft.Portal/usersettings/read | 讀取 Cloud Shell 的使用者設定。 |
+> | Action | Microsoft.Portal/usersettings/delete | 移除 Cloud Shell 使用者設定。 |
+> | Action | Microsoft.Portal/usersettings/read | 讀取 Cloud Shell 使用者設定。 |
 > | Action | Microsoft.Portal/usersettings/write | 建立或更新 Cloud Shell 使用者設定。 |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
@@ -4415,7 +4402,7 @@ ms.locfileid: "67868621"
 > | Action | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | 取消作業 |
 > | Action | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | 傳回工作作業的結果。 |
 > | Action | microsoft.recoveryservices/Vaults/backupJobs/read | 傳回所有作業物件 |
-> | Action | microsoft.recoveryservices/Vaults/backupJobsExport/action | 匯出作業 |
+> | Action | microsoft.recoveryservices/Vaults/backupJobsExport/action | 匯出工作 |
 > | Action | microsoft.recoveryservices/Vaults/backupOperationResults/read | 傳回復原服務保存庫的備份作業結果。 |
 > | Action | microsoft.recoveryservices/Vaults/backupOperations/read | 傳回復原服務保存庫的備份作業狀態。 |
 > | Action | microsoft.recoveryservices/Vaults/backupPolicies/delete | 刪除保護原則 |
@@ -4477,7 +4464,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | 套用復原點 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete | 刪除任何受保護的項目 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | 容錯移轉認可 |
-> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | 計劃性容錯移轉 |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | 計劃的容錯移轉 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | 讀取任何受保護的項目 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | 讀取任何複寫復原點 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action | 移除受保護的項目 |
@@ -4487,7 +4474,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/ResolveHealthErrors/action |  |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/submitFeedback/action | 提交意見 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/targetComputeSizes/read | 讀取任何目標計算大小 |
-> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Test Failover |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 測試容錯移轉 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | 測試容錯移轉清理 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 容錯移轉 |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | 更新行動服務 |
@@ -4553,19 +4540,19 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Relay/checkNameAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 |
-> | Action | Microsoft.Relay/checkNamespaceAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
+> | Action | Microsoft.Relay/checkNameAvailability/action | 請檢查指定的訂用帳戶下是否可以使用命名空間。 |
+> | Action | Microsoft.Relay/checkNamespaceAvailability/action | 請檢查指定的訂用帳戶下是否可以使用命名空間。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/action | 更新命名空間授權規則。 此 API 即將淘汰。 請改用 PUT 呼叫來更新命名空間授權規則。 API 版本 2017-04-01 不支援此作業。 |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/delete | 刪除命名空間授權規則。 您無法刪除預設的命名空間授權規則。  |
-> | Action | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | 取得命名空間的連接字串 |
-> | Action | Microsoft.Relay/namespaces/authorizationRules/read | 取得命名空間授權規則描述的清單。 |
-> | Action | Microsoft.Relay/namespaces/authorizationRules/regenerateKeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | 取得進入命名空間的連接字串 |
+> | Action | Microsoft.Relay/namespaces/authorizationRules/read | 取得命名空間授權規則描述清單。 |
+> | Action | Microsoft.Relay/namespaces/authorizationRules/regenerateKeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/write | 建立命名空間層級的授權規則，並更新其屬性。 您可以更新授權規則的存取權限、主要金鑰和次要金鑰。 |
 > | Action | Microsoft.Relay/namespaces/Delete | 刪除命名空間資源 |
 > | Action | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action | 取得災害復原主要命名空間的授權規則金鑰 |
 > | Action | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules/read | 取得災害復原主要命名空間的授權規則 |
 > | Action | Microsoft.Relay/namespaces/disasterRecoveryConfigs/breakPairing/action | 停用災害復原，並停止將變更從主要命名空間複寫至次要命名空間。 |
-> | Action | Microsoft.Relay/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | 檢查指定訂用帳戶下命名空間別名的可用性。 |
+> | Action | Microsoft.Relay/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | 請檢查指定訂用帳戶下的命名空間別名可用性。 |
 > | Action | Microsoft.Relay/namespaces/disasterRecoveryConfigs/delete | 刪除與命名空間相關聯的災害復原設定。 此作業只能透過主要命名空間叫用。 |
 > | Action | Microsoft.Relay/namespaces/disasterRecoveryConfigs/failover/action | 叫用異地災害復原容錯移轉，並將命名空間別名重新設定為指向次要命名空間。 |
 > | Action | Microsoft.Relay/namespaces/disasterRecoveryConfigs/read | 取得與命名空間相關聯的災害復原設定。 |
@@ -4574,7 +4561,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/delete | 用來刪除 HybridConnection 授權規則的作業 |
 > | Action | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/listkeys/action | 取得 HybridConnection 的連接字串 |
 > | Action | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/read |  取得 HybridConnection 授權規則的清單 |
-> | Action | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/regeneratekeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/regeneratekeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/write | 建立 HybridConnection 授權規則，並更新其屬性。 您可以更新授權規則存取權限。 |
 > | Action | Microsoft.Relay/namespaces/HybridConnections/Delete | 用來刪除 HybridConnection 資源的作業 |
 > | Action | Microsoft.Relay/namespaces/HybridConnections/read | 取得 HybridConnection 資源描述的清單 |
@@ -4583,21 +4570,21 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Relay/namespaces/messagingPlan/write | 更新命名空間的傳訊方案。<br>此 API 即將淘汰。<br>透過 MessagingPlan 資源公開的屬性，已移至新版 API 的 (父系) 命名空間資源。<br>API 版本 2017-04-01 不支援此作業。 |
 > | Action | Microsoft.Relay/namespaces/operationresults/read | 取得命名空間作業的狀態 |
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/metricDefinitions/read | 取得命名空間計量資源描述的清單 |
-> | Action | Microsoft.Relay/namespaces/read | 取得命名空間資源描述的清單 |
+> | Action | Microsoft.Relay/namespaces/read | 取得命名空間資源描述清單 |
 > | Action | Microsoft.Relay/namespaces/removeAcsNamepsace/action | 移除 ACS 命名空間 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/action | 更新 WcfRelay 的作業。 API 版本 2017-04-01 不支援此作業。 授權規則。 請使用 PUT 呼叫來更新授權規則。 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/delete | 用來刪除 WcfRelay 授權規則的作業 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/listkeys/action | 取得 WcfRelay 的連接字串 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/read |  取得 WcfRelay 授權規則的清單 |
-> | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/regeneratekeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/regeneratekeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/write | 建立 WcfRelay 授權規則，並更新其屬性。 您可以更新授權規則存取權限。 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/Delete | 用來刪除 WcfRelay 資源的作業 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/read | 取得 WcfRelay 資源描述的清單 |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/write | 建立或更新 WcfRelay 屬性。 |
 > | Action | Microsoft.Relay/namespaces/write | 建立命名空間資源，並更新其屬性。 命名空間的標記和容量是可以更新的屬性。 |
 > | Action | Microsoft.Relay/operations/read | 取得作業 |
-> | Action | Microsoft.Relay/register/action | 針對轉送資源提供者註冊訂用帳戶，並讓您能夠建立轉送資源 |
-> | Action | Microsoft.Relay/unregister/action | 針對轉送資源提供者註冊訂用帳戶，並讓您能夠建立轉送資源 |
+> | Action | Microsoft.Relay/register/action | 為轉送資源提供者註冊訂用帳戶，並允許建立轉送資源 |
+> | Action | Microsoft.Relay/unregister/action | 為轉送資源提供者註冊訂用帳戶，並允許建立轉送資源 |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
@@ -4605,7 +4592,7 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | 取得指定資源的可用性狀態 |
-> | Action | Microsoft.ResourceHealth/AvailabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Action | Microsoft.ResourceHealth/AvailabilityStatuses/read | 取得指定範圍中之所有資源的可用性狀態 |
 > | Action | Microsoft.ResourceHealth/events/read | 取得指定訂用帳戶的服務健康狀態事件 |
 > | Action | Microsoft.Resourcehealth/healthevent/action | 代表指定資源健康狀態的變更 |
 > | Action | Microsoft.Resourcehealth/healthevent/Activated/action | 代表指定資源健康狀態的變更 |
@@ -4616,8 +4603,8 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ResourceHealth/impactedResources/read | 取得指定訂用帳戶的受影響資源 |
 > | Action | Microsoft.ResourceHealth/metadata/read | 取得中繼資料 |
 > | Action | Microsoft.ResourceHealth/Operations/read | 取得 Microsoft ResourceHealth 可用的作業 |
-> | Action | Microsoft.ResourceHealth/register/action | 為 Microsoft ResourceHealth 註冊訂用帳戶 |
-> | Action | Microsoft.ResourceHealth/unregister/action | 取消註冊 Microsoft ResourceHealth 的訂用帳戶 |
+> | Action | Microsoft.ResourceHealth/register/action | 註冊 Microsoft ResourceHealth 的訂用帳戶 |
+> | Action | Microsoft.ResourceHealth/unregister/action | 註銷 Microsoft ResourceHealth 的訂用帳戶 |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -4625,7 +4612,7 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | Microsoft.Resources/checkPolicyCompliance/action | 檢查指定的資源是否符合資源原則，以了解合規性狀態。 |
-> | Action | Microsoft.Resources/checkResourceName/action | 檢查資源名稱是否有效。 |
+> | Action | Microsoft.Resources/checkResourceName/action | 檢查資源名稱的有效性。 |
 > | Action | Microsoft.Resources/deployments/cancel/action | 取消部署。 |
 > | Action | Microsoft.Resources/deployments/delete | 刪除部署。 |
 > | Action | Microsoft.Resources/deployments/operations/read | 取得或列出部署作業。 |
@@ -4637,50 +4624,50 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Resources/links/read | 取得或列出資源連結。 |
 > | Action | Microsoft.Resources/links/write | 建立或更新資源連結。 |
 > | Action | Microsoft.Resources/marketplace/purchase/action | 從 Marketplace 購買資源。 |
-> | Action | Microsoft.Resources/providers/read | 取得提供者清單。 |
-> | Action | Microsoft.Resources/resources/read | 根據篩選來取得資源清單。 |
+> | Action | Microsoft.Resources/providers/read | 取得提供者清單 |
+> | Action | Microsoft.Resources/resources/read | 使用篩選取得資源的清單。 |
 > | Action | Microsoft.Resources/subscriptions/locations/read | 取得所支援位置的清單。 |
 > | Action | Microsoft.Resources/subscriptions/operationresults/read | 取得訂用帳戶作業結果。 |
 > | Action | Microsoft.Resources/subscriptions/providers/read | 取得或列出資源提供者。 |
-> | Action | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
-> | Action | Microsoft.Resources/subscriptions/resourceGroups/delete | 刪除資源群組和其所有資源。 |
+> | Action | Microsoft.Resources/subscriptions/read | 取得訂用帳戶的清單。 |
+> | Action | Microsoft.Resources/subscriptions/resourceGroups/delete | 刪除資源群組和其所有資源 |
 > | Action | Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read | 取得或列出部署作業。 |
 > | Action | Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read | 取得或列出部署作業狀態。 |
 > | Action | Microsoft.Resources/subscriptions/resourcegroups/deployments/read | 取得或列出部署。 |
 > | Action | Microsoft.Resources/subscriptions/resourcegroups/deployments/write | 建立或更新部署。 |
-> | Action | Microsoft.Resources/subscriptions/resourceGroups/moveResources/action | 將資源從某個資源群組移到另一個資源群組。 |
+> | Action | Microsoft.Resources/subscriptions/resourceGroups/moveResources/action | 將資源從資源群組移動至另一個資源群組。 |
 > | Action | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Action | Microsoft.Resources/subscriptions/resourcegroups/resources/read | 取得資源群組的資源。 |
-> | Action | Microsoft.Resources/subscriptions/resourceGroups/validateMoveResources/action | 驗證資源從某個資源群組移到另一個資源群組的動作。 |
+> | Action | Microsoft.Resources/subscriptions/resourceGroups/validateMoveResources/action | 驗證資源群組間的資源移動。 |
 > | Action | Microsoft.Resources/subscriptions/resourceGroups/write | 建立或更新資源群組。 |
 > | Action | Microsoft.Resources/subscriptions/resources/read | 取得訂用帳戶的資源。 |
 > | Action | Microsoft.Resources/subscriptions/tagNames/delete | 刪除訂用帳戶標記。 |
 > | Action | Microsoft.Resources/subscriptions/tagNames/read | 取得或列出訂用帳戶標記。 |
 > | Action | Microsoft.Resources/subscriptions/tagNames/tagValues/delete | 刪除訂用帳戶標記值。 |
 > | Action | Microsoft.Resources/subscriptions/tagNames/tagValues/read | 取得或列出訂用帳戶標記值。 |
-> | Action | Microsoft.Resources/subscriptions/tagNames/tagValues/write | 新增訂用帳戶標記值。 |
-> | Action | Microsoft.Resources/subscriptions/tagNames/write | 新增訂用帳戶標記。 |
+> | Action | Microsoft.Resources/subscriptions/tagNames/tagValues/write | 加入訂用帳戶標記值。 |
+> | Action | Microsoft.Resources/subscriptions/tagNames/write | 加入訂用帳戶標記。 |
 > | Action | Microsoft.Resources/tags/delete | 移除資源上的所有標記。 |
 > | Action | Microsoft.Resources/tags/read | 取得資源上的所有標記。 |
 > | Action | Microsoft.Resources/tags/write | 藉由以一組新的標記取代或合併現有標記, 或移除現有的標記, 更新資源上的標記。 |
-> | Action | Microsoft.Resources/tenants/read | 取得租用戶清單。 |
+> | Action | Microsoft.Resources/tenants/read | 取得租用戶的清單。 |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Scheduler/jobcollections/delete | 刪除作業集合。 |
-> | Action | Microsoft.Scheduler/jobcollections/disable/action | 停用作業集合。 |
-> | Action | Microsoft.Scheduler/jobcollections/enable/action | 啟用作業集合。 |
-> | Action | Microsoft.Scheduler/jobcollections/jobs/delete | 刪除作業。 |
-> | Action | Microsoft.Scheduler/jobcollections/jobs/generateLogicAppDefinition/action | 根據排程器作業來產生邏輯應用程式定義。 |
-> | Action | Microsoft.Scheduler/jobcollections/jobs/jobhistories/read | 取得工作歷程記錄。 |
-> | Action | Microsoft.Scheduler/jobcollections/jobs/read | 取得作業。 |
-> | Action | Microsoft.Scheduler/jobcollections/jobs/run/action | 執行作業。 |
-> | Action | Microsoft.Scheduler/jobcollections/jobs/write | 建立或更新作業。 |
-> | Action | Microsoft.Scheduler/jobcollections/read | 取得作業集合 |
-> | Action | Microsoft.Scheduler/jobcollections/write | 建立或更新作業集合。 |
+> | Action | Microsoft.Scheduler/jobcollections/delete | 刪除工作集合。 |
+> | Action | Microsoft.Scheduler/jobcollections/disable/action | 停用工作集合。 |
+> | Action | Microsoft.Scheduler/jobcollections/enable/action | 啟用工作集合。 |
+> | Action | Microsoft.Scheduler/jobcollections/jobs/delete | 刪除工作。 |
+> | Action | Microsoft.Scheduler/jobcollections/jobs/generateLogicAppDefinition/action | 依據排程器作業產生邏輯應用程式定義。 |
+> | Action | Microsoft.Scheduler/jobcollections/jobs/jobhistories/read | 取得工作記錄。 |
+> | Action | Microsoft.Scheduler/jobcollections/jobs/read | 取得工作。 |
+> | Action | Microsoft.Scheduler/jobcollections/jobs/run/action | 執行工作。 |
+> | Action | Microsoft.Scheduler/jobcollections/jobs/write | 建立或更新工作。 |
+> | Action | Microsoft.Scheduler/jobcollections/read | 取得工作集合 |
+> | Action | Microsoft.Scheduler/jobcollections/write | 建立或更新工作集合。 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -4771,20 +4758,20 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.ServiceBus/checkNameAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 |
-> | Action | Microsoft.ServiceBus/checkNamespaceAvailability/action | 檢查給定訂用帳戶下的命名空間是否可用。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
-> | Action | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | 針對指定的 VNet，刪除 ServiceBus 資源提供者中的 VNet 規則 |
+> | Action | Microsoft.ServiceBus/checkNameAvailability/action | 請檢查指定的訂用帳戶下是否可以使用命名空間。 |
+> | Action | Microsoft.ServiceBus/checkNamespaceAvailability/action | 請檢查指定的訂用帳戶下是否可以使用命名空間。 此 API 即將淘汰。請改用 CheckNameAvailabiltiy。 |
+> | Action | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | 刪除 ServiceBus 資源提供者中指定 VNet 的 VNet 規則 |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/action | 更新命名空間授權規則。 此 API 即將淘汰。 請改用 PUT 呼叫來更新命名空間授權規則。 API 版本 2017-04-01 不支援此作業。 |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/delete | 刪除命名空間授權規則。 您無法刪除預設的命名空間授權規則。  |
-> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | 取得命名空間的連接字串 |
-> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/read | 取得命名空間授權規則描述的清單。 |
-> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/regenerateKeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | 取得進入命名空間的連接字串 |
+> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/read | 取得命名空間授權規則描述清單。 |
+> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/regenerateKeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/write | 建立命名空間層級的授權規則，並更新其屬性。 您可以更新授權規則的存取權限、主要金鑰和次要金鑰。 |
 > | Action | Microsoft.ServiceBus/namespaces/Delete | 刪除命名空間資源 |
 > | Action | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules/listkeys/action | 取得災害復原主要命名空間的授權規則金鑰 |
 > | Action | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules/read | 取得災害復原主要命名空間的授權規則 |
 > | Action | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/breakPairing/action | 停用災害復原，並停止將變更從主要命名空間複寫至次要命名空間。 |
-> | Action | Microsoft.ServiceBus/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | 檢查指定訂用帳戶下命名空間別名的可用性。 |
+> | Action | Microsoft.ServiceBus/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | 請檢查指定訂用帳戶下的命名空間別名可用性。 |
 > | Action | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/delete | 刪除與命名空間相關聯的災害復原設定。 此作業只能透過主要命名空間叫用。 |
 > | Action | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/failover/action | 叫用異地災害復原容錯移轉，並將命名空間別名重新設定為指向次要命名空間。 |
 > | Action | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/read | 取得與命名空間相關聯的災害復原設定。 |
@@ -4806,7 +4793,7 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ServiceBus/namespaces/messagingPlan/write | 更新命名空間的傳訊方案。<br>此 API 即將淘汰。<br>透過 MessagingPlan 資源公開的屬性，已移至新版 API 的 (父系) 命名空間資源。<br>API 版本 2017-04-01 不支援此作業。 |
 > | Action | Microsoft.ServiceBus/namespaces/migrate/action | 移轉命名空間作業 |
 > | Action | Microsoft.ServiceBus/namespaces/migrationConfigurations/delete | 刪除移轉設定。 |
-> | Action | Microsoft.ServiceBus/namespaces/migrationConfigurations/read | 取得指出移轉和暫止複寫作業狀態的移轉設定 |
+> | Action | Microsoft.ServiceBus/namespaces/migrationConfigurations/read | 取得指出移轉和暫止複寫作業之狀態的移轉設定 |
 > | Action | Microsoft.ServiceBus/namespaces/migrationConfigurations/revert/action | 還原從標準到進階命名空間的移轉 |
 > | Action | Microsoft.ServiceBus/namespaces/migrationConfigurations/upgrade/action | 將與標準命名空間建立關聯的 DNS 指派給進階命名空間，這會完成移轉，並停止將資源從標準命名空間同步至進階命名空間 |
 > | Action | Microsoft.ServiceBus/namespaces/migrationConfigurations/write | 建立或更新移轉設定。 這會開始將資源從標準命名空間同步至進階命名空間 |
@@ -4825,18 +4812,18 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/delete | 用來刪除佇列授權規則的作業 |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/listkeys/action | 取得佇列的連接字串 |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/read |  取得佇列授權規則的清單 |
-> | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/regenerateKeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/regenerateKeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/write | 建立佇列授權規則，並更新其屬性。 您可以更新授權規則存取權限。 |
 > | Action | Microsoft.ServiceBus/namespaces/queues/Delete | 用來刪除佇列資源的作業 |
 > | Action | Microsoft.ServiceBus/namespaces/queues/read | 取得佇列資源描述的清單 |
 > | Action | Microsoft.ServiceBus/namespaces/queues/write | 建立或更新佇列屬性。 |
-> | Action | Microsoft.ServiceBus/namespaces/read | 取得命名空間資源描述的清單 |
+> | Action | Microsoft.ServiceBus/namespaces/read | 取得命名空間資源描述清單 |
 > | Action | Microsoft.ServiceBus/namespaces/removeAcsNamepsace/action | 移除 ACS 命名空間 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/action | 更新主題的作業。 API 版本 2017-04-01 不支援此作業。 授權規則。 請使用 PUT 呼叫來更新授權規則。 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/delete | 用來刪除主題授權規則的作業 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/listkeys/action | 取得主題的連接字串 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/read |  取得主題授權規則的清單 |
-> | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/regenerateKeys/action | 對資源重新產生主要或次要金鑰 |
+> | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/regenerateKeys/action | 重新產生資源的主要或次要金鑰 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/authorizationRules/write | 建立主題授權規則，並更新其屬性。 您可以更新授權規則存取權限。 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/Delete | 用來刪除主題資源的作業 |
 > | Action | Microsoft.ServiceBus/namespaces/topics/read | 取得主題資源描述的清單 |
@@ -4852,42 +4839,42 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.ServiceBus/namespaces/virtualNetworkRules/write | 建立 VNET 規則資源 |
 > | Action | Microsoft.ServiceBus/namespaces/write | 建立命名空間資源，並更新其屬性。 命名空間的標記和容量是可以更新的屬性。 |
 > | Action | Microsoft.ServiceBus/operations/read | 取得作業 |
-> | Action | Microsoft.ServiceBus/register/action | 針對 ServiceBus 資源提供者註冊訂用帳戶，並讓您能夠建立 ServiceBus 資源 |
+> | Action | Microsoft.ServiceBus/register/action | 為 ServiceBus 資源提供者註冊訂用帳戶，並允許建立 ServiceBus 資源 |
 > | Action | Microsoft.ServiceBus/sku/read | 取得 SKU 資源描述的清單 |
 > | Action | Microsoft.ServiceBus/sku/regions/read | 取得 SkuRegions 資源描述的清單 |
-> | Action | Microsoft.ServiceBus/unregister/action | 針對 ServiceBus 資源提供者註冊訂用帳戶，並讓您能夠建立 ServiceBus 資源 |
+> | Action | Microsoft.ServiceBus/unregister/action | 為 ServiceBus 資源提供者註冊訂用帳戶，並允許建立 ServiceBus 資源 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.ServiceFabric/clusters/applications/delete | 刪除任何應用程式 |
+> | Action | Microsoft.ServiceFabric/clusters/applications/delete | 刪除所有應用程式 |
 > | Action | Microsoft.ServiceFabric/clusters/applications/read | 讀取任何應用程式 |
-> | Action | Microsoft.ServiceFabric/clusters/applications/services/delete | 刪除任何服務 |
-> | Action | Microsoft.ServiceFabric/clusters/applications/services/partitions/read | 讀取任何分割區 |
+> | Action | Microsoft.ServiceFabric/clusters/applications/services/delete | 刪除所有服務 |
+> | Action | Microsoft.ServiceFabric/clusters/applications/services/partitions/read | 讀取任何磁碟分割 |
 > | Action | Microsoft.ServiceFabric/clusters/applications/services/partitions/replicas/read | 讀取任何複本 |
 > | Action | Microsoft.ServiceFabric/clusters/applications/services/read | 讀取任何服務 |
 > | Action | Microsoft.ServiceFabric/clusters/applications/services/statuses/read | 讀取任何服務狀態 |
-> | Action | Microsoft.ServiceFabric/clusters/applications/services/write | 建立或更新任何服務 |
-> | Action | Microsoft.ServiceFabric/clusters/applications/write | 建立或更新任何應用程式 |
-> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/delete | 刪除任何應用程式類型 |
-> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/read | 讀取任何應用程式類型 |
-> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/versions/delete | 刪除任何應用程式類型版本 |
-> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/versions/read | 讀取任何應用程式類型版本 |
-> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/versions/write | 建立或更新任何應用程式類型版本 |
-> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/write | 建立或更新任何應用程式類型 |
+> | Action | Microsoft.ServiceFabric/clusters/applications/services/write | 建立或更新所有服務 |
+> | Action | Microsoft.ServiceFabric/clusters/applications/write | 建立或更新所有叢集 |
+> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/delete | 刪除所有應用程式類型 |
+> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/read | 讀取所有應用程式 |
+> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/versions/delete | 刪除所有應用程式類型版本 |
+> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/versions/read | 讀取所有應用程式類型版本 |
+> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/versions/write | 建立或更新所有應用程式類型版本 |
+> | Action | Microsoft.ServiceFabric/clusters/applicationTypes/write | 建立或更新所有應用程式類型 |
 > | Action | Microsoft.ServiceFabric/clusters/delete | 刪除任何叢集 |
 > | Action | Microsoft.ServiceFabric/clusters/nodes/read | 讀取任何節點 |
 > | Action | Microsoft.ServiceFabric/clusters/read | 讀取任何叢集 |
 > | Action | Microsoft.ServiceFabric/clusters/statuses/read | 讀取任何叢集狀態 |
 > | Action | Microsoft.ServiceFabric/clusters/write | 建立或更新任何叢集 |
 > | Action | Microsoft.ServiceFabric/locations/clusterVersions/read | 讀取任何叢集版本 |
-> | Action | Microsoft.ServiceFabric/locations/environments/clusterVersions/read | 讀取特定環境的任何叢集版本 |
-> | Action | Microsoft.ServiceFabric/locations/operationresults/read | 讀取任何作業結果 |
-> | Action | Microsoft.ServiceFabric/locations/operations/read | 依位置讀取任何作業 |
-> | Action | Microsoft.ServiceFabric/operations/read | 讀取任何可用的作業 |
-> | Action | Microsoft.ServiceFabric/register/action | 註冊任何動作 |
+> | Action | Microsoft.ServiceFabric/locations/environments/clusterVersions/read | 讀取特定環境的所有叢集版本 |
+> | Action | Microsoft.ServiceFabric/locations/operationresults/read | 讀取所有作業結果 |
+> | Action | Microsoft.ServiceFabric/locations/operations/read | 讀取所有作業 (依位置) |
+> | Action | Microsoft.ServiceFabric/operations/read | 讀取所有可用的作業 |
+> | Action | Microsoft.ServiceFabric/register/action | 註冊所有動作 |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
@@ -4928,10 +4915,10 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Solutions/applications/updateAccess/action | 更新應用程式存取。 |
 > | Action | Microsoft.Solutions/applications/write | 建立應用程式。 |
 > | Action | Microsoft.Solutions/jitRequests/delete | 移除 JitRequest |
-> | Action | Microsoft.Solutions/jitRequests/read | 擷取 JitRequests 清單 |
+> | Action | Microsoft.Solutions/jitRequests/read | 擷取 JitRequest 清單 |
 > | Action | Microsoft.Solutions/jitRequests/write | 建立 JitRequest |
-> | Action | Microsoft.Solutions/locations/operationStatuses/read | 讀取資源的作業狀態。 |
-> | Action | Microsoft.Solutions/register/action | 向 Solutions 註冊。 |
+> | Action | Microsoft.Solutions/locations/operationStatuses/read | 讀取資源的操作狀態。 |
+> | Action | Microsoft.Solutions/register/action | 對 Solutions 註冊。 |
 > | Action | Microsoft.Solutions/unregister/action | 從解決方案中取消註冊。 |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
@@ -5299,20 +5286,20 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Storage/checknameavailability/read | 確認帳戶名稱有效，且並非使用中。 |
-> | Action | Microsoft.Storage/locations/checknameavailability/read | 確認帳戶名稱有效，且並非使用中。 |
-> | Action | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | 讓 Microsoft.Storage 知道虛擬網路或子網路即將刪除 |
-> | Action | Microsoft.Storage/locations/usages/read | 傳回指定訂用帳戶資源的限制和目前的使用量計數 |
-> | Action | Microsoft.Storage/operations/read | 輪詢非同步作業的狀態。 |
-> | Action | Microsoft.Storage/register/action | 針對儲存體資源提供者註冊訂用帳戶，並讓您能夠建立儲存體帳戶。 |
-> | Action | Microsoft.Storage/skus/read | 列出 Microsoft.Storage 所支援的 SKU。 |
+> | Action | Microsoft.Storage/checknameavailability/read | 檢查該帳戶名稱是否有效，且目前並未使用。 |
+> | Action | Microsoft.Storage/locations/checknameavailability/read | 檢查該帳戶名稱是否有效，且目前並未使用。 |
+> | Action | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | 通知 Microsoft.Storage 正在刪除虛擬網路或子網路 |
+> | Action | Microsoft.Storage/locations/usages/read | 傳回指定訂用帳戶中資源的上限和目前使用計數 |
+> | Action | Microsoft.Storage/operations/read | 輸詢非同步作業的狀態。 |
+> | Action | Microsoft.Storage/register/action | 為儲存體資源提供者登錄訂用帳戶，並啟用儲存體帳戶的建立。 |
+> | Action | Microsoft.Storage/skus/read | 列出 Microsoft.Storage 支援的 SKU。 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | 傳回新增 Blob 內容的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | 傳回刪除自動快照集的結果 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 傳回具有相符標記篩選之帳戶底下的 blob 清單 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 傳回帳戶下具有相符標籤篩選的 Blob 清單 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | 傳回讀取 blob 標記的結果 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 傳回寫入 blob 標記的結果 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | 傳回讀取 Blob 標籤的結果 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 傳回寫入 Blob 標籤的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | 清除 Blob 容器法務保存措施 |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
@@ -5331,15 +5318,15 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Storage/storageAccounts/blobServices/read |  |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/read | 傳回 Blob 服務屬性或統計資料 |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/write | 傳回放置 Blob 服務屬性的結果 |
-> | Action | Microsoft.Storage/storageAccounts/delete | 刪除現有的儲存體帳戶。 |
-> | Action | Microsoft.Storage/storageAccounts/failover/action | 客戶能夠在發生可用性問題時控制容錯移轉 |
+> | Action | Microsoft.Storage/storageAccounts/delete | 刪除現有儲存體帳戶。 |
+> | Action | Microsoft.Storage/storageAccounts/failover/action | 客戶可在發生可用性問題時控制容錯移轉 |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/read | 取得檔案服務屬性 |
 > | Action | Microsoft.Storage/storageAccounts/listAccountSas/action | 傳回指定儲存體帳戶的帳戶 SAS 權杖。 |
-> | Action | Microsoft.Storage/storageAccounts/listkeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
+> | Action | Microsoft.Storage/storageAccounts/listkeys/action | 傳回指定的儲存體帳戶的存取金鑰。 |
 > | Action | Microsoft.Storage/storageAccounts/listServiceSas/action | 傳回指定儲存體帳戶的服務 SAS 權杖。 |
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/delete | 刪除儲存體帳戶管理原則 |
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/read | 取得儲存體管理帳戶原則 |
-> | Action | Microsoft.Storage/storageAccounts/managementPolicies/write | 放置儲存體帳戶管理原則 |
+> | Action | Microsoft.Storage/storageAccounts/managementPolicies/write | Put 儲存體帳戶管理原則 |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/delete | 刪除私人端點連接 proxy |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/write | 放置私人端點連接 proxy |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnections/delete | 刪除私人端點連接 |
@@ -5358,14 +5345,14 @@ ms.locfileid: "67868621"
 > | Action | Microsoft.Storage/storageAccounts/queueServices/read | 取得佇列服務屬性 |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/read | 傳回佇列服務屬性或統計資料。 |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/write | 傳回設定佇列服務屬性的結果 |
-> | Action | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
-> | Action | Microsoft.Storage/storageAccounts/regeneratekey/action | 重新產生指定儲存體帳戶的存取金鑰。 |
+> | Action | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單或取得指定的儲存體帳戶內容。 |
+> | Action | Microsoft.Storage/storageAccounts/regeneratekey/action | 重新產生指定的儲存體帳戶的存取金鑰。 |
 > | Action | Microsoft.Storage/storageAccounts/restoreBlobRanges/action | 將 blob 範圍還原至指定時間的狀態 |
-> | Action | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | 撤銷所指定儲存體帳戶的所有使用者委派金鑰。 |
-> | Action | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | 建立/更新儲存體帳戶的診斷設定。 |
+> | Action | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | 撤銷指定儲存體帳戶的所有使用者委派金鑰。 |
+> | Action | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | 建立/更新儲存體帳戶診斷設定。 |
 > | Action | Microsoft.Storage/storageAccounts/tableServices/read | 取得表格服務屬性 |
-> | Action | Microsoft.Storage/storageAccounts/write | 使用指定參數來建立儲存體帳戶、更新指定儲存體帳戶的屬性或標記，或新增指定儲存體帳戶的自訂網域。 |
-> | Action | Microsoft.Storage/usages/read | 傳回指定訂用帳戶資源的限制和目前的使用量計數 |
+> | Action | Microsoft.Storage/storageAccounts/write | 以指定的參數建立儲存體帳戶，或為指定的儲存體帳戶更新內容/標籤或新增自訂網域。 |
+> | Action | Microsoft.Storage/usages/read | 傳回指定訂用帳戶中資源的上限和目前使用計數 |
 
 ## <a name="microsoftstoragesync"></a>microsoft.storagesync
 
@@ -5373,7 +5360,7 @@ ms.locfileid: "67868621"
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
 > | Action | microsoft.storagesync/locations/checkNameAvailability/action | 確認儲存體同步服務名稱有效，且並非使用中。 |
-> | Action | microsoft.storagesync/locations/workflows/operations/read | 取得非同步作業的狀態 |
+> | Action | microsoft.storagesync/locations/workflows/operations/read | 取得非同步運算狀態 |
 > | Action | microsoft.storagesync/作業/讀取 | 取得支援的作業清單 |
 > | Action | microsoft.storagesync/register/action | 為儲存體同步處理提供者註冊訂用帳戶 |
 > | Action | microsoft.storagesync/storageSyncServices/delete | 刪除任何儲存體同步服務 |
@@ -5401,8 +5388,8 @@ ms.locfileid: "67868621"
 > | Action | microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints/recallAction/action | 呼叫此動作以將檔案回復到伺服器 |
 > | Action | microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints/write | 建立或更新任何伺服器端點 |
 > | Action | microsoft.storagesync/storageSyncServices/syncGroups/write | 建立或更新任何同步群組 |
-> | Action | microsoft.storagesync/storageSyncServices/workflows/operationresults/read | 取得非同步作業的狀態 |
-> | Action | microsoft.storagesync/storageSyncServices/workflows/operations/read | 取得非同步作業的狀態 |
+> | Action | microsoft.storagesync/storageSyncServices/workflows/operationresults/read | 取得非同步運算狀態 |
+> | Action | microsoft.storagesync/storageSyncServices/workflows/operations/read | 取得非同步運算狀態 |
 > | Action | microsoft.storagesync/storageSyncServices/workflows/read | 讀取工作流程 |
 > | Action | microsoft.storagesync/storageSyncServices/write | 建立或更新任何儲存體同步服務 |
 > | Action | microsoft.storagesync/取消註冊/動作 | 取消註冊儲存體同步處理提供者的訂用帳戶 |
@@ -5639,8 +5626,8 @@ ms.locfileid: "67868621"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 運算 | 描述 |
 > | --- | --- | --- |
-> | Action | Microsoft.Support/register/action | 支援資源提供者的暫存器 |
-> | Action | Microsoft.Support/supportTickets/read | 取得支援票證的詳細資料 (包括狀態、嚴重性、連絡人詳細資料和通訊)，或取得跨訂用帳戶之支援票證的清單。 |
+> | Action | Microsoft.Support/register/action | 登錄到支援資源提供者 |
+> | Action | Microsoft.Support/supportTickets/read | 取得支援票證詳細資料 (包括狀態、嚴重性、連絡詳細資料與通訊)，或取得所有訂用帳戶的支援票證清單。 |
 > | Action | Microsoft.Support/supportTickets/write | 建立或更新支援票證。 您可以建立技術、帳單、配額或訂用帳戶管理相關問題的支援票證。 您可以更新現有支援票證的嚴重性、連絡人詳細資料和通訊。 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights

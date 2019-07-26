@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867262"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499823"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>如何：管理 Azure AD 中的過時裝置
 
@@ -70,7 +70,7 @@ Azure AD 中若有過時裝置，可能會干擾您組織中裝置的一般生�
 若要在 Azure AD 中更新裝置，您需要已指派下列其中一個角色的帳戶：
 
 - 全域管理員
-- 雲端裝置系統管理員 (現已推出的新角色！)
+- 雲端裝置管理員
 - Intune 服務管理員
 
 在清除原則中，選取已指派必要角色的帳戶。 

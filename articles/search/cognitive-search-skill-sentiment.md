@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f52f5200f33d11db44d94b5a5f26d246f711e224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f950bea4ea32ecc95b1721c6930903c3afaee848
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023813"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347665"
 ---
 #   <a name="sentiment-cognitive-skill"></a>情感認知技能
 
@@ -33,7 +33,7 @@ ms.locfileid: "65023813"
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應該是 5000 個字元 (以 `String.Length` 為測量單位)。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為5000個字元, 如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，再將該資料傳送至情感分析器，請使用[文字分割技能](cognitive-search-skill-textsplit.md)。
 
 
 ## <a name="skill-parameters"></a>技能參數
@@ -48,7 +48,7 @@ Microsoft.Skills.Text.SentimentSkill
 
 | 輸入名稱 | 描述 |
 |--------------------|-------------|
-| text | 要分析的文字。|
+| 文字 | 要分析的文字。|
 | languageCode  |  (選用) 此字串表示記錄的語言。 如果未指定此屬性，則預設值為 "en"。 <br/>請參閱[支援語言的完整清單](../cognitive-services/text-analytics/text-analytics-supported-languages.md)。|
 
 ## <a name="skill-outputs"></a>技能輸出
