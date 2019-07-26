@@ -51,35 +51,35 @@ ms.locfileid: "65952834"
 - 您的 **TeamProjectTemplate 存放庫** (R3) 已由您計劃使用之程式碼裝載平台上的小組負責人，在群組帳戶之下設定。
 - 您已經被小組負責人**授權**，為您的小組在群組帳戶上建立存放庫。
 - Git 必須安裝在您的機器上。 如果您使用資料科學虛擬機器 (DSVM)，則已預先安裝 Git，而您可以繼續作業。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。  
-- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) \(英文\)。 在 README.md 檔案中，向下捲動至 [下載並安裝]  區段，然後按一下 [最新的安裝程式]  。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
+- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) \(英文\)。 在 README.md 檔案中，向下捲動至 [下載並安裝] 區段，然後按一下 [最新的安裝程式]。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
 - 如果您使用 **Linux DSVM**，請在您的 DSVM 上建立 SSH 公開金鑰，並將它新增到您的群組 Azure DevOps Services。 如需 SSH 的詳細資訊，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)中的**建立 SSH 公開金鑰**一節。 
 
 
 ## <a name="1-create-a-project-repository-r5"></a>1.建立專案存放庫 (R5)
 
 - 經由 *https://\<Azure DevOps Services 名稱\>.visualstudio.com* 登入您的群組 Azure DevOps Services。 
-- 在 [最近使用的專案和小組]  底下，按一下 [瀏覽]  。 快顯視窗會列出 Azure DevOps Services 上的所有專案。 
+- 在 [最近使用的專案和小組] 底下，按一下 [瀏覽]。 快顯視窗會列出 Azure DevOps Services 上的所有專案。 
 
     ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
-- 按一下您要在其中建立專案存放庫的專案名稱。 在此範例中，按一下 [MyTeam]  。 
-- 然後，按一下 [瀏覽]  以導向至專案 **MyTeam** 的首頁：
+- 按一下您要在其中建立專案存放庫的專案名稱。 在此範例中，按一下 [MyTeam]。 
+- 然後，按一下 [瀏覽] 以導向至專案 **MyTeam** 的首頁：
 
     ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
-- 按一下 [在程式碼上共同作業]  以導向至專案的 git 首頁。  
+- 按一下 [在程式碼上共同作業] 以導向至專案的 git 首頁。  
 
     ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
-- 按一下左上角的向下箭號，然後選取 [+ 新增存放庫]  。 
+- 按一下左上角的向下箭號，然後選取 [+ 新增存放庫]。 
     
     ![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
 
-- 在 [建立新的存放庫]  視窗中，輸入專案 git 存放庫的名稱。 請確定您選取 **Git** 作為存放庫類型。 在此範例中，我們會使用名稱 *DSProject1*。 
+- 在 [建立新的存放庫] 視窗中，輸入專案 git 存放庫的名稱。 請確定您選取 **Git** 作為存放庫類型。 在此範例中，我們會使用名稱 *DSProject1*。 
 
     ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
-- 若要建立 ***DSProject1*** 專案 git 存放庫，請按一下 [建立]  。
+- 若要建立 ***DSProject1*** 專案 git 存放庫，請按一下 [建立]。
 
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2.植入 DSProject1 專案存放庫
@@ -142,7 +142,7 @@ ms.locfileid: "65952834"
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-如果您使用 Azure DevOps 作為程式碼裝載平台，_專案存放庫的 HTTPS URL_ 通常是 ***https://\<Azure DevOps Services 伺服器名稱\>.visualstudio.com/\<您的專案名稱>/_git/<您的專案存放庫名稱\>***。 在此範例中，我們有 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***。
+如果您使用 Azure DevOps 作為程式碼裝載平台，_專案存放庫的 HTTPS URL_ 通常是 ***https://\<Azure DevOps Services 伺服器名稱\>.visualstudio.com/\<您的專案名稱>/_git/<您的專案存放庫名稱\>***。 在此範例中，我們有 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1*** 。
 
 **Linux**
 
@@ -197,7 +197,7 @@ ms.locfileid: "65952834"
 - 認可變更並推送。 
 
 > [!NOTE]
-> 如果這是第一次認可 Git 存放庫，您必須在執行 `git commit` 命令之前，設定全域參數 user.name  和 user.email  。 執行下列兩個命令：
+> 如果這是第一次認可 Git 存放庫，您必須在執行 `git commit` 命令之前，設定全域參數 user.name 和 user.email。 執行下列兩個命令：
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

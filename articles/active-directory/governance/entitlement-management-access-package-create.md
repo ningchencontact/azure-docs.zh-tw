@@ -1,10 +1,10 @@
 ---
-title: 在 Azure AD 權限管理 （預覽）-Azure Active Directory 中建立新的存取封裝
-description: 了解如何建立新的存取套件，您想要在 Azure Active Directory 權限管理 （預覽） 中共用的資源。
+title: 在 Azure AD 權利管理 (預覽) 中建立新的存取套件-Azure Active Directory
+description: 瞭解如何在 Azure Active Directory 權利管理 (預覽) 中建立您想要共用之資源的新存取封裝。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,120 +12,120 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/16/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5ff842d1645d2b47a436eca4fc8dc614a9fb63
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190368"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489188"
 ---
-# <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權限管理 （預覽） 中建立新的存取封裝
+# <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理 (預覽) 中建立新的存取套件
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-存取封裝可讓您執行自動管理存取套件的生命週期的存取權的資源和原則的單次安裝。 本文說明如何建立新的存取封裝。
+存取封裝可讓您進行一次性的資源和原則設定, 以自動管理存取套件的存取權。 本文說明如何建立新的存取封裝。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
-所有存取套件必須都放在稱為目錄的容器中。 目錄會定義哪些資源，您可以新增至您的存取封裝。 如果您未指定目錄，便會存取套件置於一般的目錄。 目前，您無法移動現有的存取封裝至不同的目錄。
+所有存取封裝都必須放在稱為「目錄」的容器中。 目錄會定義您可以新增至存取套件的資源。 如果您未指定目錄, 則會將存取套件放入一般目錄。 目前, 您無法將現有的存取套件移至不同的目錄。
 
-所有存取封裝都必須至少一個原則。 原則會指定誰可以要求存取套件以及核准與到期設定。 當您建立新的存取封裝時，您可以在您目錄中，不會在您的目錄，僅限系統管理員直接指派的使用者建立使用者的初始原則，或您可以選擇稍後建立的原則。
+所有存取套件都必須至少有一個原則。 原則會指定誰可以要求存取套件, 以及核准和到期設定。 當您建立新的存取套件時, 您可以為目錄中的使用者建立初始原則, 針對不在您目錄中的使用者, 僅供系統管理員直接指派, 或者您可以選擇稍後再建立原則。
 
-下圖顯示高階的程序來建立新的存取封裝。
+下圖顯示建立新存取套件的高階程式。
 
-![建立存取封裝的處理序](./media/entitlement-management-access-package-create/access-package-process.png)
+![建立存取封裝進程](./media/entitlement-management-access-package-create/access-package-process.png)
 
 ## <a name="start-new-access-package"></a>啟動新的存取套件
 
-**必要角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者系統管理員或目錄擁有者
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
+1. 按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
-1. 在左側功能表中，按一下 [存取套件]  。
+1. 在左側功能表中，按一下 [存取套件]。
 
     ![Azure 入口網站中的權利管理](./media/entitlement-management-shared/elm-access-packages.png)
 
-1. 按一下 [新增存取套件]  。
+1. 按一下 [新增存取套件]。
 
-## <a name="basics"></a>基本概念
+## <a name="basics"></a>基本知識
 
-在 **基本概念**索引標籤上，您指定存取套件的名稱，並指定所在的目錄來建立存取封裝中的。
+在 [**基本**] 索引標籤上, 您會提供存取封裝的名稱, 並指定要在哪一個目錄中建立存取封裝。
 
-1. 輸入顯示名稱和存取套件的描述。 送出要求，以存取封裝時，使用者會看到這項資訊。
+1. 輸入存取套件的 [顯示名稱] 和 [描述]。 當使用者提交存取套件的要求時, 將會看到這則資訊。
 
-1. 在 **目錄**下拉式清單中，選取您想要建立存取權的目錄封裝中。 比方說，您可能必須管理所有您可以要求的行銷資源目錄擁有者。 在此情況下，您可以選擇行銷的目錄。
+1. 在 [**類別目錄**] 下拉式清單中, 選取您想要在其中建立存取封裝的目錄。 例如, 您的目錄擁有者可能會管理所有可要求的行銷資源。 在此情況下, 您可以選取 [行銷目錄]。
 
-    您只會看到目錄已建立存取封裝中的權限。 若要在現有的目錄中建立存取套件，您必須是至少一個使用者系統管理員、 類別目錄的擁有者或存取套件管理員。
+    您只會看到您有權在中建立存取套件的目錄。 若要在現有的目錄中建立存取封裝, 您必須至少是使用者系統管理員、目錄擁有者或存取套件管理員。
 
-    ![存取封裝-基本概念](./media/entitlement-management-access-package-create/basics.png)
+    ![存取套件-基本概念](./media/entitlement-management-access-package-create/basics.png)
 
-    如果您想要建立存取套件的新目錄中，按一下**新建**。 輸入目錄名稱和描述，然後按一下**建立**。
+    如果您想要在新的目錄中建立存取套件, 請按一下[新建]。 輸入 [目錄名稱] 和 [描述], 然後按一下 [**建立**]。
 
-    您要建立存取套件，並包含在其中任何資源將會新增至新的類別目錄。 此外，您會自動成為目錄的第一個擁有者。 您可以新增額外的類別目錄的擁有者。
+    您所建立的存取套件和其中包含的任何資源都會新增至新的目錄。 此外, 您會自動成為目錄的第一個擁有者。 您可以新增其他目錄擁有者。
 
-    若要建立新的目錄，您必須是至少一個使用者系統管理員或目錄建立者。
+    若要建立新的目錄, 您至少必須是使用者系統管理員或目錄建立者。
 
-1. 单击“下一步”  。
+1. 按一下 [下一步] 。
 
 ## <a name="resource-roles"></a>資源角色
 
-在 **資源角色**索引標籤上，選取要包含在存取封裝中的資源。
+在 [**資源角色**] 索引標籤上, 您可以選取要包含在存取套件中的資源。
 
-1. 按一下您想要新增的資源類型 (**群組**，**應用程式**，或**SharePoint 網站**)。
+1. 按一下您要新增的資源類型 ([**群組**]、[**應用程式**] 或 [ **SharePoint 網站**])。
 
-1. 選取在窗格中會出現，請從清單中選取一或多個資源。
+1. 在出現的 [選取] 窗格中, 從清單中選取一或多個資源。
 
-    ![存取封裝-資源角色](./media/entitlement-management-access-package-create/resource-roles.png)
+    ![存取套件-資源角色](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    如果您要建立存取套件的一般類別目錄或新的目錄中，您可以挑選任何您所擁有的目錄中的資源。 您必須是至少一個使用者系統管理員，或目錄建立者。
+    如果您要在一般類別目錄或新的目錄中建立存取套件, 您將能夠從您擁有的目錄中挑選任何資源。 您必須至少是使用者系統管理員或目錄建立者。
 
-    如果您要在現有的目錄中建立存取套件，您可以選取已在目錄中而不需要擁有它的任何資源。
+    如果您要在現有的目錄中建立存取套件, 您可以選取已在目錄中的任何資源, 而不擁有它。
 
-    如果您是在使用者系統管理員或目錄擁有者，您會有另一個選項選取您擁有尚未在目錄中的資源。 如果您目前未選取的目錄中選取資源，這些資源也會加入至其他目錄系統管理員，來建置以存取套件的目錄。 如果您只想要選取目前在所選目錄中，核取的資源**只會看到**頂端的 [選取的移動瀏覽] 核取方塊。
+    如果您是使用者系統管理員或目錄擁有者, 您可以選擇其他選項來選取您擁有但尚未在目錄中的資源。 如果您選取目前不在所選類別目錄中的資源, 這些資源也會新增至目錄, 供其他目錄管理員用來建立存取封裝。 如果您只想要選取目前在所選目錄中的資源, 請核取 [選取移動流覽] 頂端的 [**僅看到**] 核取方塊。
 
-1. 一旦您選取資源，請在**角色**清單中，選取您想要指派的使用者之資源的角色。
+1. 選取資源之後, 請在 [**角色**] 清單中, 選取您想要讓使用者指派給資源的角色。
 
-    ![存取封裝-資源角色選取](./media/entitlement-management-access-package-create/resource-roles-role.png)
+    ![存取套件-資源角色選取](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. 单击“下一步”  。
+1. 按一下 [下一步] 。
 
 ## <a name="policy"></a>原則
 
-在 **原則**索引標籤上，建立指定使用者可以要求存取套件以及核准與到期日設定的第一個原則。 稍後，您可以建立更多的原則，以允許使用者使用他們自己的核准與到期日設定要求存取套件的其他群組。 您也可以選擇稍後建立的原則。
+在 [**原則**] 索引標籤上, 您可以建立第一個原則來指定誰可以要求存取套件, 以及核准和到期設定。 之後, 您可以建立更多原則, 讓其他使用者群組使用自己的核准和到期設定來要求存取封裝。 您也可以選擇稍後再建立原則。
 
-1. 設定**建立第一個原則**切換至**現在**或是**稍後**。
+1. 將 [**建立第一個原則**] 切換為 [**立即**] 或 [**稍後**]。
 
-    ![存取封裝-原則](./media/entitlement-management-access-package-create/policy.png)
+    ![存取套件-原則](./media/entitlement-management-access-package-create/policy.png)
 
-1. 如果您選取**稍後**，往下跳到[檢閱 + 建立](#review--create)一節，以建立您的存取封裝。
+1. 如果您選取 [**稍後**], 請跳至 [審核] 和 [[建立](#review--create)] 區段, 以建立您的存取封裝。
 
-1. 如果您選取**現在**，在下列的原則區段中的一個執行步驟。
+1. 如果您選取 [**現在**], 請執行下列其中一個原則區段中的步驟。
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>檢閱 + 建立
+## <a name="review--create"></a>檢閱及建立
 
-在 **檢閱 + 建立**索引標籤上，您可以檢閱您的設定和檢查是否有任何驗證錯誤。
+在 [**審查 + 建立**] 索引標籤上, 您可以檢查您的設定, 並檢查是否有任何驗證錯誤。
 
-1. 檢閱存取封裝的設定
+1. 檢查存取套件的設定
 
-    ![存取封裝-原則啟用原則設定](./media/entitlement-management-access-package-create/review-create.png)
+    ![存取套件-原則-啟用原則設定](./media/entitlement-management-access-package-create/review-create.png)
 
-1. 按一下 **建立**建立存取封裝。
+1. 按一下 [**建立**] 以建立存取封裝。
 
-    新的存取封裝會出現在存取套件的清單。
+    新的存取套件會出現在存取套件清單中。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [編輯和管理現有的存取套件](entitlement-management-access-package-edit.md)
-- [新增目錄擁有者或存取套件管理員](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
+- [新增類別目錄擁有者或存取套件管理員](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [建立和管理目錄](entitlement-management-catalog-create.md)

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424698"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466961"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用字串
 
 
 > [!NOTE]
-> 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)並[開始使用 Azure 監視器記錄檔查詢](get-started-queries.md)之前完成本教學課程。
+> 完成本教學課程之前, 您應該先完成[開始使用 Azure 監視器 Log Analytics](get-started-portal.md)和[開始使用 Azure 監視器記錄查詢](get-started-queries.md)。
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -40,6 +40,10 @@ ms.locfileid: "61424698"
 print "this is a 'string' literal in double \" quotes"
 ```
 
+```Kusto
+print 'this is a "string" literal in single \' quotes'
+```
+
 若要防止 "\\" 被視為逸出字元，請將 "\@" 新增為字串的前置詞：
 
 ```Kusto
@@ -51,9 +55,9 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 運算子       |描述                         |區分大小寫|範例 (結果為 `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Equals                              |是           |`"aBc" == "aBc"`
+`==`           |等於                              |是           |`"aBc" == "aBc"`
 `!=`           |Not Equals                          |是           |`"abc" != "ABC"`
-`=~`           |Equals                              |否            |`"abc" =~ "ABC"`
+`=~`           |等於                              |否            |`"abc" =~ "ABC"`
 `!~`           |不等於                          |否            |`"aBc" !~ "xyz"`
 `has`          |右側是左側中的完整詞彙 |否|`"North America" has "america"`
 `!has`         |右側不是左側中的完整詞彙       |否            |`"North America" !has "amer"` 
@@ -93,7 +97,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>引數：
+### <a name="arguments"></a>引數:
 - `text` - 輸入字串 
 - `search` - 要比對內部文字的純文字或規則運算式。
 - `kind` - _normal_ | _regex_ (預設值：normal)。
@@ -274,7 +278,7 @@ activities                                        |取代後
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>引數：
+### <a name="arguments"></a>引數:
 
 - `source` - 將根據指定的分隔符號分割的字串。
 - `delimiter` - 將會用來分割來源字串的分隔符號。
@@ -331,7 +335,7 @@ print strlen("hello")   // result: 5
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>引數：
+### <a name="arguments"></a>引數:
 
 - `source` - 要從中擷取子字串的來源字串。
 - `startingIndex` - 所要求子字串以零為基底的起始字元位置。

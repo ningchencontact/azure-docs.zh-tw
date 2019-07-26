@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4049f76fdbe4745f3c75c74bc49d8fecc43fb2cf
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952045"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347680"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>具名實體辨識認知技能
 
 **具名實體辨識**技能會從文字擷取具名實體。 可用實體包括下列類型：`person`、`location` 以及 `organization`。
 
 > [!IMPORTANT]
-> 被取代的技能現已停用的具名的實體辨識[Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)。 支援停止於 2019 年 2 月 15 日，並從產品移除 API，已將它於 2019 5 月 2 日。 請依照下列中的建議[已被取代的認知搜尋技能](cognitive-search-skill-deprecated.md)移轉到支援的技能。
+> 現在已停止命名實體辨識技能, [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)。 2019年2月15日停止支援, 而 API 已從產品的2019年5月2日移除。 請遵循已[淘汰的認知搜尋技能](cognitive-search-skill-deprecated.md)中的建議, 遷移至支援的技能。
 
 > [!NOTE]
 > 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
@@ -35,7 +35,7 @@ ms.locfileid: "65952045"
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應該是 50,000 個字元 (以 `String.Length` 為測量單位)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為50000個字元, 如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -52,7 +52,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 | 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
 | languageCode  | 選擇性。 預設值為 `"en"`。  |
-| text          | 要分析的文字。          |
+| 文字          | 要分析的文字。          |
 
 ## <a name="skill-outputs"></a>技能輸出
 

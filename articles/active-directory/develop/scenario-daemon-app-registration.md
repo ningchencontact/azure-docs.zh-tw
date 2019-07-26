@@ -44,7 +44,7 @@ ms.locfileid: "65076236"
 
 ![應用程式權限和系統管理員同意](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
-精靈應用程式需要有租用戶管理員預先同意此應用程式呼叫 web API。 在同一個提供此同意 **API 權限** 頁面上，選取您建立租用戶系統管理員 **授與系統管理員同意*我們的組織***
+精靈應用程式需要有租用戶管理員預先同意此應用程式呼叫 web API。 在同一個提供此同意 **API 權限** 頁面上，選取您建立租用戶系統管理員 **授與系統管理員同意 *我們的組織***
 
 如果您是 ISV 建置多租用戶應用程式時，您會想要檢查[部署為多租用戶的精靈應用程式的大小寫](scenario-daemon-production.md#deployment---case-of-multi-tenant-daemon-apps)段落。
 
